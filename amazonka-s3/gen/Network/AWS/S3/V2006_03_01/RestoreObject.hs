@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,21 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Restores an archived copy of an object back into Amazon S3.
-module Network.AWS.S3.V2006_03_01.RestoreObject where
+module Network.AWS.S3.V2006_03_01.RestoreObject
+    (
+    -- * Request
+      RestoreObject
+    -- ** Request constructor
+    , restoreObject
+    -- ** Request lenses
+    , rorBucket
+    , rorKey
+    , rorRestoreRequest
+    , rorVersionId
+
+    -- * Response
+    , RestoreObjectResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
@@ -28,8 +41,8 @@ import Network.AWS.Prelude
 type PostObjectRestore = RestoreObject
 
 -- | Minimum specification for a 'RestoreObject' request.
-restoreObject :: BucketName -- ^ '_rorBucket'
-              -> ObjectKey -- ^ '_rorKey'
+restoreObject :: BucketName -- ^ 'rorBucket'
+              -> ObjectKey -- ^ 'rorKey'
               -> RestoreObject
 restoreObject p1 p2 = RestoreObject
     { _rorBucket = p1
@@ -45,7 +58,49 @@ data RestoreObject = RestoreObject
     , _rorVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
-makeLenses ''RestoreObject
+rorBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> RestoreObject
+    -> f RestoreObject
+rorBucket f x =
+    (\y -> x { _rorBucket = y })
+       <$> f (_rorBucket x)
+{-# INLINE rorBucket #-}
+
+rorKey
+    :: Functor f
+    => (ObjectKey
+    -> f (ObjectKey))
+    -> RestoreObject
+    -> f RestoreObject
+rorKey f x =
+    (\y -> x { _rorKey = y })
+       <$> f (_rorKey x)
+{-# INLINE rorKey #-}
+
+rorRestoreRequest
+    :: Functor f
+    => (Maybe RestoreRequest
+    -> f (Maybe RestoreRequest))
+    -> RestoreObject
+    -> f RestoreObject
+rorRestoreRequest f x =
+    (\y -> x { _rorRestoreRequest = y })
+       <$> f (_rorRestoreRequest x)
+{-# INLINE rorRestoreRequest #-}
+
+rorVersionId
+    :: Functor f
+    => (Maybe ObjectVersionId
+    -> f (Maybe ObjectVersionId))
+    -> RestoreObject
+    -> f RestoreObject
+rorVersionId f x =
+    (\y -> x { _rorVersionId = y })
+       <$> f (_rorVersionId x)
+{-# INLINE rorVersionId #-}
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
@@ -67,8 +122,6 @@ instance ToBody RestoreObject where
 
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RestoreObjectResponse
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3

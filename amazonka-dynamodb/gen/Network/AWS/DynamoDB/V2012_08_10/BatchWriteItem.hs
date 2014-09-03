@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -67,7 +66,24 @@
 -- "Name": { "S": "Amazon ElastiCache" }, "Category": { "S": "Amazon Web
 -- Services" } } } } ] }, "ConsumedCapacity": [ { "TableName": "Forum",
 -- "CapacityUnits": 3 } ] }.
-module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem where
+module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
+    (
+    -- * Request
+      BatchWriteItem
+    -- ** Request constructor
+    , batchWriteItem
+    -- ** Request lenses
+    , bwiiRequestItems
+    , bwiiReturnConsumedCapacity
+    , bwiiReturnItemCollectionMetrics
+
+    -- * Response
+    , BatchWriteItemResponse
+    -- ** Response lenses
+    , bwioUnprocessedItems
+    , bwioConsumedCapacity
+    , bwioItemCollectionMetrics
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -75,7 +91,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'BatchWriteItem' request.
-batchWriteItem :: Map Text [WriteRequest] -- ^ '_bwiiRequestItems'
+batchWriteItem :: Map Text [WriteRequest] -- ^ 'bwiiRequestItems'
                -> BatchWriteItem
 batchWriteItem p1 = BatchWriteItem
     { _bwiiRequestItems = p1
@@ -114,7 +130,61 @@ data BatchWriteItem = BatchWriteItem
       -- If set to NONE (the default), no statistics are returned.
     } deriving (Show, Generic)
 
-makeLenses ''BatchWriteItem
+-- | A map of one or more table names and, for each table, a list of operations
+-- to be performed (DeleteRequest or PutRequest). Each element in the map
+-- consists of the following: DeleteRequest - Perform a DeleteItem operation
+-- on the specified item. The item to be deleted is identified by a Key
+-- subelement: Key - A map of primary key attribute values that uniquely
+-- identify the item. Each entry in this map consists of an attribute name and
+-- an attribute value. PutRequest - Perform a PutItem operation on the
+-- specified item. The item to be put is identified by an Item subelement:
+-- Item - A map of attributes and their values. Each entry in this map
+-- consists of an attribute name and an attribute value. Attribute values must
+-- not be null; string and binary type attributes must have lengths greater
+-- than zero; and set type attributes must not be empty. Requests that contain
+-- empty values will be rejected with a ValidationException. If you specify
+-- any attributes that are part of an index key, then the data types for those
+-- attributes must match those of the schema in the table's attribute
+-- definition.
+bwiiRequestItems
+    :: Functor f
+    => (Map Text [WriteRequest]
+    -> f (Map Text [WriteRequest]))
+    -> BatchWriteItem
+    -> f BatchWriteItem
+bwiiRequestItems f x =
+    (\y -> x { _bwiiRequestItems = y })
+       <$> f (_bwiiRequestItems x)
+{-# INLINE bwiiRequestItems #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+bwiiReturnConsumedCapacity
+    :: Functor f
+    => (Maybe ReturnConsumedCapacity
+    -> f (Maybe ReturnConsumedCapacity))
+    -> BatchWriteItem
+    -> f BatchWriteItem
+bwiiReturnConsumedCapacity f x =
+    (\y -> x { _bwiiReturnConsumedCapacity = y })
+       <$> f (_bwiiReturnConsumedCapacity x)
+{-# INLINE bwiiReturnConsumedCapacity #-}
+
+-- | If set to SIZE, statistics about item collections, if any, that were
+-- modified during the operation are returned in the response. If set to NONE
+-- (the default), no statistics are returned.
+bwiiReturnItemCollectionMetrics
+    :: Functor f
+    => (Maybe ReturnItemCollectionMetrics
+    -> f (Maybe ReturnItemCollectionMetrics))
+    -> BatchWriteItem
+    -> f BatchWriteItem
+bwiiReturnItemCollectionMetrics f x =
+    (\y -> x { _bwiiReturnItemCollectionMetrics = y })
+       <$> f (_bwiiReturnItemCollectionMetrics x)
+{-# INLINE bwiiReturnItemCollectionMetrics #-}
 
 instance ToPath BatchWriteItem
 
@@ -170,7 +240,72 @@ data BatchWriteItemResponse = BatchWriteItemResponse
       -- rely on the precision or accuracy of the estimate.
     } deriving (Show, Generic)
 
-makeLenses ''BatchWriteItemResponse
+-- | A map of tables and requests against those tables that were not processed.
+-- The UnprocessedKeys value is in the same form as RequestItems, so you can
+-- provide this value directly to a subsequent BatchGetItem operation. For
+-- more information, see RequestItems in the Request Parameters section. Each
+-- UnprocessedItems entry consists of a table name and, for that table, a list
+-- of operations to perform (DeleteRequest or PutRequest). DeleteRequest -
+-- Perform a DeleteItem operation on the specified item. The item to be
+-- deleted is identified by a Key subelement: Key - A map of primary key
+-- attribute values that uniquely identify the item. Each entry in this map
+-- consists of an attribute name and an attribute value. PutRequest - Perform
+-- a PutItem operation on the specified item. The item to be put is identified
+-- by an Item subelement: Item - A map of attributes and their values. Each
+-- entry in this map consists of an attribute name and an attribute value.
+-- Attribute values must not be null; string and binary type attributes must
+-- have lengths greater than zero; and set type attributes must not be empty.
+-- Requests that contain empty values will be rejected with a
+-- ValidationException. If you specify any attributes that are part of an
+-- index key, then the data types for those attributes must match those of the
+-- schema in the table's attribute definition.
+bwioUnprocessedItems
+    :: Functor f
+    => (Map Text [WriteRequest]
+    -> f (Map Text [WriteRequest]))
+    -> BatchWriteItemResponse
+    -> f BatchWriteItemResponse
+bwioUnprocessedItems f x =
+    (\y -> x { _bwioUnprocessedItems = y })
+       <$> f (_bwioUnprocessedItems x)
+{-# INLINE bwioUnprocessedItems #-}
+
+-- | The capacity units consumed by the operation. Each element consists of:
+-- TableName - The table that consumed the provisioned throughput.
+-- CapacityUnits - The total number of capacity units consumed.
+bwioConsumedCapacity
+    :: Functor f
+    => ([ConsumedCapacity]
+    -> f ([ConsumedCapacity]))
+    -> BatchWriteItemResponse
+    -> f BatchWriteItemResponse
+bwioConsumedCapacity f x =
+    (\y -> x { _bwioConsumedCapacity = y })
+       <$> f (_bwioConsumedCapacity x)
+{-# INLINE bwioConsumedCapacity #-}
+
+-- | A list of tables that were processed by BatchWriteItem and, for each table,
+-- information about any item collections that were affected by individual
+-- DeleteItem or PutItem operations. Each entry consists of the following
+-- subelements: ItemCollectionKey - The hash key value of the item collection.
+-- This is the same as the hash key of the item. SizeEstimateRange - An
+-- estimate of item collection size, expressed in GB. This is a two-element
+-- array containing a lower bound and an upper bound for the estimate. The
+-- estimate includes the size of all the items in the table, plus the size of
+-- all attributes projected into all of the local secondary indexes on the
+-- table. Use this estimate to measure whether a local secondary index is
+-- approaching its size limit. The estimate is subject to change over time;
+-- therefore, do not rely on the precision or accuracy of the estimate.
+bwioItemCollectionMetrics
+    :: Functor f
+    => (Map Text [ItemCollectionMetrics]
+    -> f (Map Text [ItemCollectionMetrics]))
+    -> BatchWriteItemResponse
+    -> f BatchWriteItemResponse
+bwioItemCollectionMetrics f x =
+    (\y -> x { _bwioItemCollectionMetrics = y })
+       <$> f (_bwioItemCollectionMetrics x)
+{-# INLINE bwioItemCollectionMetrics #-}
 
 instance FromJSON BatchWriteItemResponse
 

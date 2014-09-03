@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,7 +27,21 @@
 -- only virtual interfaces provisioned on the specified connection will be
 -- returned. If a virtual interface ID is provided, only this particular
 -- virtual interface will be returned.
-module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces where
+module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
+    (
+    -- * Request
+      DescribeVirtualInterfaces
+    -- ** Request constructor
+    , describeVirtualInterfaces
+    -- ** Request lenses
+    , dvitConnectionId
+    , dvitVirtualInterfaceId
+
+    -- * Response
+    , DescribeVirtualInterfacesResponse
+    -- ** Response lenses
+    , vmVirtualInterfaces
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
@@ -38,19 +51,41 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeVirtualInterfaces' request.
 describeVirtualInterfaces :: DescribeVirtualInterfaces
 describeVirtualInterfaces = DescribeVirtualInterfaces
-    { _dvirConnectionId = Nothing
-    , _dvirVirtualInterfaceId = Nothing
+    { _dvitConnectionId = Nothing
+    , _dvitVirtualInterfaceId = Nothing
     }
 
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
-    { _dvirConnectionId :: Maybe Text
+    { _dvitConnectionId :: Maybe Text
       -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _dvirVirtualInterfaceId :: Maybe Text
+    , _dvitVirtualInterfaceId :: Maybe Text
       -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
       -- None.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVirtualInterfaces
+-- | ID of the connection. Example: dxcon-fg5678gh Default: None.
+dvitConnectionId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeVirtualInterfaces
+    -> f DescribeVirtualInterfaces
+dvitConnectionId f x =
+    (\y -> x { _dvitConnectionId = y })
+       <$> f (_dvitConnectionId x)
+{-# INLINE dvitConnectionId #-}
+
+-- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
+dvitVirtualInterfaceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeVirtualInterfaces
+    -> f DescribeVirtualInterfaces
+dvitVirtualInterfaceId f x =
+    (\y -> x { _dvitVirtualInterfaceId = y })
+       <$> f (_dvitVirtualInterfaceId x)
+{-# INLINE dvitVirtualInterfaceId #-}
 
 instance ToPath DescribeVirtualInterfaces
 
@@ -61,11 +96,21 @@ instance ToHeaders DescribeVirtualInterfaces
 instance ToJSON DescribeVirtualInterfaces
 
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
-    { _vkVirtualInterfaces :: [VirtualInterface]
+    { _vmVirtualInterfaces :: [VirtualInterface]
       -- ^ A list of virtual interfaces.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVirtualInterfacesResponse
+-- | A list of virtual interfaces.
+vmVirtualInterfaces
+    :: Functor f
+    => ([VirtualInterface]
+    -> f ([VirtualInterface]))
+    -> DescribeVirtualInterfacesResponse
+    -> f DescribeVirtualInterfacesResponse
+vmVirtualInterfaces f x =
+    (\y -> x { _vmVirtualInterfaces = y })
+       <$> f (_vmVirtualInterfaces x)
+{-# INLINE vmVirtualInterfaces #-}
 
 instance FromJSON DescribeVirtualInterfacesResponse
 

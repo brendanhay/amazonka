@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,7 +38,26 @@
 -- {"name": "activityVerify", "version": "1.0"}, "creationDate":
 -- 1326586446.471, "description": "Verify the customer credit", "status":
 -- "REGISTERED"} ] }.
-module Network.AWS.SWF.V2012_01_25.ListActivityTypes where
+module Network.AWS.SWF.V2012_01_25.ListActivityTypes
+    (
+    -- * Request
+      ListActivityTypes
+    -- ** Request constructor
+    , listActivityTypes
+    -- ** Request lenses
+    , latiDomain
+    , latiRegistrationStatus
+    , latiName
+    , latiMaximumPageSize
+    , latiNextPageToken
+    , latiReverseOrder
+
+    -- * Response
+    , ListActivityTypesResponse
+    -- ** Response lenses
+    , atjTypeInfos
+    , atjNextPageToken
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -47,8 +65,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListActivityTypes' request.
-listActivityTypes :: Text -- ^ '_latiDomain'
-                  -> RegistrationStatus -- ^ '_latiRegistrationStatus'
+listActivityTypes :: Text -- ^ 'latiDomain'
+                  -> RegistrationStatus -- ^ 'latiRegistrationStatus'
                   -> ListActivityTypes
 listActivityTypes p1 p2 = ListActivityTypes
     { _latiDomain = p1
@@ -85,7 +103,85 @@ data ListActivityTypes = ListActivityTypes
       -- of the name of the activity types.
     } deriving (Show, Generic)
 
-makeLenses ''ListActivityTypes
+-- | The name of the domain in which the activity types have been registered.
+latiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListActivityTypes
+    -> f ListActivityTypes
+latiDomain f x =
+    (\y -> x { _latiDomain = y })
+       <$> f (_latiDomain x)
+{-# INLINE latiDomain #-}
+
+-- | Specifies the registration status of the activity types to list.
+latiRegistrationStatus
+    :: Functor f
+    => (RegistrationStatus
+    -> f (RegistrationStatus))
+    -> ListActivityTypes
+    -> f ListActivityTypes
+latiRegistrationStatus f x =
+    (\y -> x { _latiRegistrationStatus = y })
+       <$> f (_latiRegistrationStatus x)
+{-# INLINE latiRegistrationStatus #-}
+
+-- | If specified, only lists the activity types that have this name.
+latiName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListActivityTypes
+    -> f ListActivityTypes
+latiName f x =
+    (\y -> x { _latiName = y })
+       <$> f (_latiName x)
+{-# INLINE latiName #-}
+
+-- | The maximum number of results returned in each page. The default is 100,
+-- but the caller can override this value to a page size smaller than the
+-- default. You cannot specify a page size greater than 100. Note that the
+-- number of types may be less than the maxiumum page size, in which case, the
+-- returned page will have fewer results than the maximumPageSize specified.
+latiMaximumPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListActivityTypes
+    -> f ListActivityTypes
+latiMaximumPageSize f x =
+    (\y -> x { _latiMaximumPageSize = y })
+       <$> f (_latiMaximumPageSize x)
+{-# INLINE latiMaximumPageSize #-}
+
+-- | If on a previous call to this method a NextResultToken was returned, the
+-- results have more than one page. To get the next page of results, repeat
+-- the call with the nextPageToken and keep all other arguments unchanged.
+latiNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListActivityTypes
+    -> f ListActivityTypes
+latiNextPageToken f x =
+    (\y -> x { _latiNextPageToken = y })
+       <$> f (_latiNextPageToken x)
+{-# INLINE latiNextPageToken #-}
+
+-- | When set to true, returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the name of the
+-- activity types.
+latiReverseOrder
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ListActivityTypes
+    -> f ListActivityTypes
+latiReverseOrder f x =
+    (\y -> x { _latiReverseOrder = y })
+       <$> f (_latiReverseOrder x)
+{-# INLINE latiReverseOrder #-}
 
 instance ToPath ListActivityTypes
 
@@ -96,15 +192,39 @@ instance ToHeaders ListActivityTypes
 instance ToJSON ListActivityTypes
 
 data ListActivityTypesResponse = ListActivityTypesResponse
-    { _atiTypeInfos :: [ActivityTypeInfo]
+    { _atjTypeInfos :: [ActivityTypeInfo]
       -- ^ List of activity type information.
-    , _atiNextPageToken :: Maybe Text
+    , _atjNextPageToken :: Maybe Text
       -- ^ Returns a value if the results are paginated. To get the next
       -- page of results, repeat the request specifying this token and all
       -- other arguments unchanged.
     } deriving (Show, Generic)
 
-makeLenses ''ListActivityTypesResponse
+-- | List of activity type information.
+atjTypeInfos
+    :: Functor f
+    => ([ActivityTypeInfo]
+    -> f ([ActivityTypeInfo]))
+    -> ListActivityTypesResponse
+    -> f ListActivityTypesResponse
+atjTypeInfos f x =
+    (\y -> x { _atjTypeInfos = y })
+       <$> f (_atjTypeInfos x)
+{-# INLINE atjTypeInfos #-}
+
+-- | Returns a value if the results are paginated. To get the next page of
+-- results, repeat the request specifying this token and all other arguments
+-- unchanged.
+atjNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListActivityTypesResponse
+    -> f ListActivityTypesResponse
+atjNextPageToken f x =
+    (\y -> x { _atjNextPageToken = y })
+       <$> f (_atjNextPageToken x)
+{-# INLINE atjNextPageToken #-}
 
 instance FromJSON ListActivityTypesResponse
 
@@ -117,4 +237,4 @@ instance AWSRequest ListActivityTypes where
 
 instance AWSPager ListActivityTypes where
     next rq rs = (\x -> rq { _latiNextPageToken = Just x })
-        <$> (_atiNextPageToken rs)
+        <$> (_atjNextPageToken rs)

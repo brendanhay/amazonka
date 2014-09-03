@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,19 +44,50 @@
 -- {"configuration": {"workflowExecutionRetentionPeriodInDays": "60"},
 -- "domainInfo": {"description": "music", "name": "867530901", "status":
 -- "REGISTERED"} }.
-module Network.AWS.SWF.V2012_01_25.DescribeDomain where
+module Network.AWS.SWF.V2012_01_25.DescribeDomain
+    (
+    -- * Request
+      DescribeDomain
+    -- ** Request constructor
+    , describeDomain
+    -- ** Request lenses
+    , ddjName
+
+    -- * Response
+    , DescribeDomainResponse
+    -- ** Response lenses
+    , ddConfiguration
+    , ddDomainInfo
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeDomain' request.
+describeDomain :: Text -- ^ 'ddjName'
+               -> DescribeDomain
+describeDomain p1 = DescribeDomain
+    { _ddjName = p1
+    }
+
 data DescribeDomain = DescribeDomain
-    { _ddmName :: Text
+    { _ddjName :: Text
       -- ^ The name of the domain to describe.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDomain
+-- | The name of the domain to describe.
+ddjName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeDomain
+    -> f DescribeDomain
+ddjName f x =
+    (\y -> x { _ddjName = y })
+       <$> f (_ddjName x)
+{-# INLINE ddjName #-}
 
 instance ToPath DescribeDomain
 
@@ -68,13 +98,35 @@ instance ToHeaders DescribeDomain
 instance ToJSON DescribeDomain
 
 data DescribeDomainResponse = DescribeDomainResponse
-    { _ddoConfiguration :: DomainConfiguration
+    { _ddConfiguration :: DomainConfiguration
       -- ^ Contains the configuration settings of a domain.
-    , _ddoDomainInfo :: DomainInfo
+    , _ddDomainInfo :: DomainInfo
       -- ^ Contains general information about a domain.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDomainResponse
+-- | Contains the configuration settings of a domain.
+ddConfiguration
+    :: Functor f
+    => (DomainConfiguration
+    -> f (DomainConfiguration))
+    -> DescribeDomainResponse
+    -> f DescribeDomainResponse
+ddConfiguration f x =
+    (\y -> x { _ddConfiguration = y })
+       <$> f (_ddConfiguration x)
+{-# INLINE ddConfiguration #-}
+
+-- | Contains general information about a domain.
+ddDomainInfo
+    :: Functor f
+    => (DomainInfo
+    -> f (DomainInfo))
+    -> DescribeDomainResponse
+    -> f DescribeDomainResponse
+ddDomainInfo f x =
+    (\y -> x { _ddDomainInfo = y })
+       <$> f (_ddDomainInfo x)
+{-# INLINE ddDomainInfo #-}
 
 instance FromJSON DescribeDomainResponse
 

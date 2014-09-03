@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,19 +21,49 @@
 -- creation, the hosted connection is initially in the 'Ordering' state, and
 -- will remain in this state until the owner calls ConfirmConnection to
 -- confirm creation of the hosted connection.
-module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection where
+module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
+    (
+    -- * Request
+      ConfirmConnection
+    -- ** Request constructor
+    , confirmConnection
+    -- ** Request lenses
+    , ccrConnectionId
+
+    -- * Response
+    , ConfirmConnectionResponse
+    -- ** Response lenses
+    , ccsConnectionState
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'ConfirmConnection' request.
+confirmConnection :: Text -- ^ 'ccrConnectionId'
+                  -> ConfirmConnection
+confirmConnection p1 = ConfirmConnection
+    { _ccrConnectionId = p1
+    }
+
 data ConfirmConnection = ConfirmConnection
-    { _ccsConnectionId :: Text
+    { _ccrConnectionId :: Text
       -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmConnection
+-- | ID of the connection. Example: dxcon-fg5678gh Default: None.
+ccrConnectionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmConnection
+    -> f ConfirmConnection
+ccrConnectionId f x =
+    (\y -> x { _ccrConnectionId = y })
+       <$> f (_ccrConnectionId x)
+{-# INLINE ccrConnectionId #-}
 
 instance ToPath ConfirmConnection
 
@@ -45,7 +74,7 @@ instance ToHeaders ConfirmConnection
 instance ToJSON ConfirmConnection
 
 data ConfirmConnectionResponse = ConfirmConnectionResponse
-    { _cctConnectionState :: Maybe ConnectionState
+    { _ccsConnectionState :: Maybe ConnectionState
       -- ^ State of the connection. Ordering: The initial state of a hosted
       -- connection provisioned on an interconnect. The connection stays
       -- in the ordering state until the owner of the hosted connection
@@ -60,7 +89,27 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse
       -- state if it is deleted by the end customer.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmConnectionResponse
+-- | State of the connection. Ordering: The initial state of a hosted connection
+-- provisioned on an interconnect. The connection stays in the ordering state
+-- until the owner of the hosted connection confirms or declines the
+-- connection order. Requested: The initial state of a standard connection.
+-- The connection stays in the requested state until the Letter of
+-- Authorization (LOA) is sent to the customer. Pending: The connection has
+-- been approved, and is being initialized. Available: The network link is up,
+-- and the connection is ready for use. Down: The network link is down.
+-- Deleted: The connection has been deleted. Rejected: A hosted connection in
+-- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
+-- the end customer.
+ccsConnectionState
+    :: Functor f
+    => (Maybe ConnectionState
+    -> f (Maybe ConnectionState))
+    -> ConfirmConnectionResponse
+    -> f ConfirmConnectionResponse
+ccsConnectionState f x =
+    (\y -> x { _ccsConnectionState = y })
+       <$> f (_ccsConnectionState x)
+{-# INLINE ccsConnectionState #-}
 
 instance FromJSON ConfirmConnectionResponse
 

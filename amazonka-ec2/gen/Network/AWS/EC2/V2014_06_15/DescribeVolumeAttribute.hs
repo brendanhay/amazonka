@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,22 +45,17 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute
     (
     -- * Request
       DescribeVolumeAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , describeVolumeAttribute
-    -- ** Accessors and lenses
-    , _dvarVolumeId
+    -- ** Request lenses
     , dvarVolumeId
-    , _dvarAttribute
     , dvarAttribute
 
     -- * Response
     , DescribeVolumeAttributeResponse
-    -- ** Accessors and lenses
-    , _dvasAutoEnableIO
+    -- ** Response lenses
     , dvasAutoEnableIO
-    , _dvasProductCodes
     , dvasProductCodes
-    , _dvasVolumeId
     , dvasVolumeId
     ) where
 
@@ -78,8 +72,35 @@ describeVolumeAttribute p1 = DescribeVolumeAttribute
     }
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
+    { _dvarVolumeId :: Text
+      -- ^ The ID of the volume.
+    , _dvarAttribute :: Maybe VolumeAttributeName
+      -- ^ The instance attribute.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeVolumeAttribute
+-- | The ID of the volume.
+dvarVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeVolumeAttribute
+    -> f DescribeVolumeAttribute
+dvarVolumeId f x =
+    (\y -> x { _dvarVolumeId = y })
+       <$> f (_dvarVolumeId x)
+{-# INLINE dvarVolumeId #-}
+
+-- | The instance attribute.
+dvarAttribute
+    :: Functor f
+    => (Maybe VolumeAttributeName
+    -> f (Maybe VolumeAttributeName))
+    -> DescribeVolumeAttribute
+    -> f DescribeVolumeAttribute
+dvarAttribute f x =
+    (\y -> x { _dvarAttribute = y })
+       <$> f (_dvarAttribute x)
+{-# INLINE dvarAttribute #-}
 
 instance ToQuery DescribeVolumeAttribute where
     toQuery = genericQuery def
@@ -93,7 +114,41 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
       -- ^ The ID of the volume.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeVolumeAttributeResponse
+-- | The state of autoEnableIO attribute.
+dvasAutoEnableIO
+    :: Functor f
+    => (Maybe AttributeBooleanValue
+    -> f (Maybe AttributeBooleanValue))
+    -> DescribeVolumeAttributeResponse
+    -> f DescribeVolumeAttributeResponse
+dvasAutoEnableIO f x =
+    (\y -> x { _dvasAutoEnableIO = y })
+       <$> f (_dvasAutoEnableIO x)
+{-# INLINE dvasAutoEnableIO #-}
+
+-- | A list of product codes.
+dvasProductCodes
+    :: Functor f
+    => ([ProductCode]
+    -> f ([ProductCode]))
+    -> DescribeVolumeAttributeResponse
+    -> f DescribeVolumeAttributeResponse
+dvasProductCodes f x =
+    (\y -> x { _dvasProductCodes = y })
+       <$> f (_dvasProductCodes x)
+{-# INLINE dvasProductCodes #-}
+
+-- | The ID of the volume.
+dvasVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeVolumeAttributeResponse
+    -> f DescribeVolumeAttributeResponse
+dvasVolumeId f x =
+    (\y -> x { _dvasVolumeId = y })
+       <$> f (_dvasVolumeId x)
+{-# INLINE dvasVolumeId #-}
 
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -104,18 +159,3 @@ instance AWSRequest DescribeVolumeAttribute where
 
     request = post "DescribeVolumeAttribute"
     response _ = xmlResponse
-
--- | The ID of the volume.
-dvarVolumeId :: Lens' DescribeVolumeAttribute (Text)
-
--- | The instance attribute.
-dvarAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
-
--- | The state of autoEnableIO attribute.
-dvasAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-
--- | A list of product codes.
-dvasProductCodes :: Lens' DescribeVolumeAttributeResponse ([ProductCode])
-
--- | The ID of the volume.
-dvasVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)

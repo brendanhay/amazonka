@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,12 +27,11 @@ module Network.AWS.EC2.V2014_06_15.CreateInternetGateway
     (
     -- * Request
       CreateInternetGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , createInternetGateway
     -- * Response
     , CreateInternetGatewayResponse
-    -- ** Accessors and lenses
-    , _cigsInternetGateway
+    -- ** Response lenses
     , cigsInternetGateway
     ) where
 
@@ -46,8 +44,7 @@ createInternetGateway :: CreateInternetGateway
 createInternetGateway = CreateInternetGateway
 
 data CreateInternetGateway = CreateInternetGateway
-
-makeSiglessLenses ''CreateInternetGateway
+    deriving (Eq, Show, Generic)
 
 instance ToQuery CreateInternetGateway where
     toQuery = genericQuery def
@@ -57,7 +54,17 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse
       -- ^ Information about the Internet gateway.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateInternetGatewayResponse
+-- | Information about the Internet gateway.
+cigsInternetGateway
+    :: Functor f
+    => (Maybe InternetGateway
+    -> f (Maybe InternetGateway))
+    -> CreateInternetGatewayResponse
+    -> f CreateInternetGatewayResponse
+cigsInternetGateway f x =
+    (\y -> x { _cigsInternetGateway = y })
+       <$> f (_cigsInternetGateway x)
+{-# INLINE cigsInternetGateway #-}
 
 instance FromXML CreateInternetGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -68,6 +75,3 @@ instance AWSRequest CreateInternetGateway where
 
     request = post "CreateInternetGateway"
     response _ = xmlResponse
-
--- | Information about the Internet gateway.
-cigsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)

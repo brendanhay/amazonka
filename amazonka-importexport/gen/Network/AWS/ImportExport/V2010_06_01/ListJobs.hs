@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- date of creation. For example if Job Test1 was created 2009Dec30 and Test2
 -- was created 2010Feb05, the ListJobs operation would return Test2 followed
 -- by Test1.
-module Network.AWS.ImportExport.V2010_06_01.ListJobs where
+module Network.AWS.ImportExport.V2010_06_01.ListJobs
+    (
+    -- * Request
+      ListJobs
+    -- ** Request constructor
+    , listJobs
+    -- ** Request lenses
+    , ljiMarker
+    , ljiMaxJobs
+
+    -- * Response
+    , ListJobsResponse
+    -- ** Response lenses
+    , ljoIsTruncated
+    , ljoJobs
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
@@ -49,7 +63,34 @@ data ListJobs = ListJobs
       -- additional jobs, see Marker.
     } deriving (Show, Generic)
 
-makeLenses ''ListJobs
+-- | Specifies the JOBID to start after when listing the jobs created with your
+-- account. AWS Import/Export lists your jobs in reverse chronological order.
+-- See MaxJobs.
+ljiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobs
+    -> f ListJobs
+ljiMarker f x =
+    (\y -> x { _ljiMarker = y })
+       <$> f (_ljiMarker x)
+{-# INLINE ljiMarker #-}
+
+-- | Sets the maximum number of jobs returned in the response. If there are
+-- additional jobs that were not returned because MaxJobs was exceeded, the
+-- response contains &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return
+-- the additional jobs, see Marker.
+ljiMaxJobs
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListJobs
+    -> f ListJobs
+ljiMaxJobs f x =
+    (\y -> x { _ljiMaxJobs = y })
+       <$> f (_ljiMaxJobs x)
+{-# INLINE ljiMaxJobs #-}
 
 instance ToQuery ListJobs where
     toQuery = genericQuery def
@@ -62,7 +103,30 @@ data ListJobsResponse = ListJobsResponse
       -- ^ A list container for Jobs returned by the ListJobs operation.
     } deriving (Show, Generic)
 
-makeLenses ''ListJobsResponse
+-- | Indicates whether the list of jobs was truncated. If true, then call
+-- ListJobs again using the last JobId element as the marker.
+ljoIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListJobsResponse
+    -> f ListJobsResponse
+ljoIsTruncated f x =
+    (\y -> x { _ljoIsTruncated = y })
+       <$> f (_ljoIsTruncated x)
+{-# INLINE ljoIsTruncated #-}
+
+-- | A list container for Jobs returned by the ListJobs operation.
+ljoJobs
+    :: Functor f
+    => ([Job]
+    -> f ([Job]))
+    -> ListJobsResponse
+    -> f ListJobsResponse
+ljoJobs f x =
+    (\y -> x { _ljoJobs = y })
+       <$> f (_ljoJobs x)
+{-# INLINE ljoJobs #-}
 
 instance FromXML ListJobsResponse where
     fromXMLOptions = xmlOptions

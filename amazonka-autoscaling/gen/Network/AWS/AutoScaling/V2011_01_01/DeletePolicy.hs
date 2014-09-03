@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,14 +18,26 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a policy created by PutScalingPolicy.
-module Network.AWS.AutoScaling.V2011_01_01.DeletePolicy where
+module Network.AWS.AutoScaling.V2011_01_01.DeletePolicy
+    (
+    -- * Request
+      DeletePolicy
+    -- ** Request constructor
+    , deletePolicy
+    -- ** Request lenses
+    , dptPolicyName
+    , dptAutoScalingGroupName
+
+    -- * Response
+    , DeletePolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeletePolicy' request.
-deletePolicy :: Text -- ^ '_dptPolicyName'
+deletePolicy :: Text -- ^ 'dptPolicyName'
              -> DeletePolicy
 deletePolicy p1 = DeletePolicy
     { _dptPolicyName = p1
@@ -40,15 +51,35 @@ data DeletePolicy = DeletePolicy
       -- ^ The name of the Auto Scaling group.
     } deriving (Show, Generic)
 
-makeLenses ''DeletePolicy
+-- | The name or PolicyARN of the policy you want to delete.
+dptPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletePolicy
+    -> f DeletePolicy
+dptPolicyName f x =
+    (\y -> x { _dptPolicyName = y })
+       <$> f (_dptPolicyName x)
+{-# INLINE dptPolicyName #-}
+
+-- | The name of the Auto Scaling group.
+dptAutoScalingGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeletePolicy
+    -> f DeletePolicy
+dptAutoScalingGroupName f x =
+    (\y -> x { _dptAutoScalingGroupName = y })
+       <$> f (_dptAutoScalingGroupName x)
+{-# INLINE dptAutoScalingGroupName #-}
 
 instance ToQuery DeletePolicy where
     toQuery = genericQuery def
 
 data DeletePolicyResponse = DeletePolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeletePolicyResponse
 
 instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling

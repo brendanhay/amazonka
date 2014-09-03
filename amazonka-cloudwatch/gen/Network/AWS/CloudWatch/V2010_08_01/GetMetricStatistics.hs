@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,27 +35,48 @@
 -- monitoring enabled: Statistics for up to 400 instances for a span of one
 -- hour Statistics for up to 35 instances over a span of 24 hours Statistics
 -- for up to 2 instances over a span of 2 weeks.
-module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics where
+module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
+    (
+    -- * Request
+      GetMetricStatistics
+    -- ** Request constructor
+    , getMetricStatistics
+    -- ** Request lenses
+    , gmsiMetricName
+    , gmsiNamespace
+    , gmsiPeriod
+    , gmsiStatistics
+    , gmsiStartTime
+    , gmsiEndTime
+    , gmsiDimensions
+    , gmsiUnit
+
+    -- * Response
+    , GetMetricStatisticsResponse
+    -- ** Response lenses
+    , gmsoDatapoints
+    , gmsoLabel
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetMetricStatistics' request.
-getMetricStatistics :: Text -- ^ '_gmsiMetricName'
-                    -> Text -- ^ '_gmsiNamespace'
-                    -> Integer -- ^ '_gmsiPeriod'
-                    -> [Statistic] -- ^ '_gmsiStatistics'
-                    -> ISO8601 -- ^ '_gmsiEndTime'
-                    -> ISO8601 -- ^ '_gmsiStartTime'
+getMetricStatistics :: Text -- ^ 'gmsiMetricName'
+                    -> Text -- ^ 'gmsiNamespace'
+                    -> Integer -- ^ 'gmsiPeriod'
+                    -> [Statistic] -- ^ 'gmsiStatistics'
+                    -> ISO8601 -- ^ 'gmsiStartTime'
+                    -> ISO8601 -- ^ 'gmsiEndTime'
                     -> GetMetricStatistics
 getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     { _gmsiMetricName = p1
     , _gmsiNamespace = p2
     , _gmsiPeriod = p3
     , _gmsiStatistics = p4
-    , _gmsiEndTime = p5
-    , _gmsiStartTime = p6
+    , _gmsiStartTime = p5
+    , _gmsiEndTime = p6
     , _gmsiDimensions = mempty
     , _gmsiUnit = Nothing
     }
@@ -72,10 +92,6 @@ data GetMetricStatistics = GetMetricStatistics
       -- default value is 60.
     , _gmsiStatistics :: [Statistic]
       -- ^ The metric statistics to return.
-    , _gmsiEndTime :: ISO8601
-      -- ^ The time stamp to use for determining the last datapoint to
-      -- return. The value specified is exclusive; results will include
-      -- datapoints up to the time stamp specified.
     , _gmsiStartTime :: ISO8601
       -- ^ The time stamp to use for determining the first datapoint to
       -- return. The value specified is inclusive; results include
@@ -84,13 +100,119 @@ data GetMetricStatistics = GetMetricStatistics
       -- returned for start times up to two weeks in the past. Specified
       -- start times that are more than two weeks in the past will not
       -- return datapoints for metrics that are older than two weeks.
+    , _gmsiEndTime :: ISO8601
+      -- ^ The time stamp to use for determining the last datapoint to
+      -- return. The value specified is exclusive; results will include
+      -- datapoints up to the time stamp specified.
     , _gmsiDimensions :: [Dimension]
       -- ^ A list of dimensions describing qualities of the metric.
     , _gmsiUnit :: Maybe StandardUnit
       -- ^ The unit for the metric.
     } deriving (Show, Generic)
 
-makeLenses ''GetMetricStatistics
+-- | The name of the metric.
+gmsiMetricName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiMetricName f x =
+    (\y -> x { _gmsiMetricName = y })
+       <$> f (_gmsiMetricName x)
+{-# INLINE gmsiMetricName #-}
+
+-- | The namespace of the metric.
+gmsiNamespace
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiNamespace f x =
+    (\y -> x { _gmsiNamespace = y })
+       <$> f (_gmsiNamespace x)
+{-# INLINE gmsiNamespace #-}
+
+-- | The granularity, in seconds, of the returned datapoints. Period must be at
+-- least 60 seconds and must be a multiple of 60. The default value is 60.
+gmsiPeriod
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiPeriod f x =
+    (\y -> x { _gmsiPeriod = y })
+       <$> f (_gmsiPeriod x)
+{-# INLINE gmsiPeriod #-}
+
+-- | The metric statistics to return.
+gmsiStatistics
+    :: Functor f
+    => ([Statistic]
+    -> f ([Statistic]))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiStatistics f x =
+    (\y -> x { _gmsiStatistics = y })
+       <$> f (_gmsiStatistics x)
+{-# INLINE gmsiStatistics #-}
+
+-- | The time stamp to use for determining the first datapoint to return. The
+-- value specified is inclusive; results include datapoints with the time
+-- stamp specified. The specified start time is rounded down to the nearest
+-- value. Datapoints are returned for start times up to two weeks in the past.
+-- Specified start times that are more than two weeks in the past will not
+-- return datapoints for metrics that are older than two weeks.
+gmsiStartTime
+    :: Functor f
+    => (ISO8601
+    -> f (ISO8601))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiStartTime f x =
+    (\y -> x { _gmsiStartTime = y })
+       <$> f (_gmsiStartTime x)
+{-# INLINE gmsiStartTime #-}
+
+-- | The time stamp to use for determining the last datapoint to return. The
+-- value specified is exclusive; results will include datapoints up to the
+-- time stamp specified.
+gmsiEndTime
+    :: Functor f
+    => (ISO8601
+    -> f (ISO8601))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiEndTime f x =
+    (\y -> x { _gmsiEndTime = y })
+       <$> f (_gmsiEndTime x)
+{-# INLINE gmsiEndTime #-}
+
+-- | A list of dimensions describing qualities of the metric.
+gmsiDimensions
+    :: Functor f
+    => ([Dimension]
+    -> f ([Dimension]))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiDimensions f x =
+    (\y -> x { _gmsiDimensions = y })
+       <$> f (_gmsiDimensions x)
+{-# INLINE gmsiDimensions #-}
+
+-- | The unit for the metric.
+gmsiUnit
+    :: Functor f
+    => (Maybe StandardUnit
+    -> f (Maybe StandardUnit))
+    -> GetMetricStatistics
+    -> f GetMetricStatistics
+gmsiUnit f x =
+    (\y -> x { _gmsiUnit = y })
+       <$> f (_gmsiUnit x)
+{-# INLINE gmsiUnit #-}
 
 instance ToQuery GetMetricStatistics where
     toQuery = genericQuery def
@@ -102,7 +224,29 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse
       -- ^ A label describing the specified metric.
     } deriving (Show, Generic)
 
-makeLenses ''GetMetricStatisticsResponse
+-- | The datapoints for the specified metric.
+gmsoDatapoints
+    :: Functor f
+    => ([Datapoint]
+    -> f ([Datapoint]))
+    -> GetMetricStatisticsResponse
+    -> f GetMetricStatisticsResponse
+gmsoDatapoints f x =
+    (\y -> x { _gmsoDatapoints = y })
+       <$> f (_gmsoDatapoints x)
+{-# INLINE gmsoDatapoints #-}
+
+-- | A label describing the specified metric.
+gmsoLabel
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetMetricStatisticsResponse
+    -> f GetMetricStatisticsResponse
+gmsoLabel f x =
+    (\y -> x { _gmsoLabel = y })
+       <$> f (_gmsoLabel x)
+{-# INLINE gmsoLabel #-}
 
 instance FromXML GetMetricStatisticsResponse where
     fromXMLOptions = xmlOptions

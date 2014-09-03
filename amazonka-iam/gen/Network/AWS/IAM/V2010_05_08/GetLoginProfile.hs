@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,18 +22,48 @@
 -- (NoSuchEntity) error. https://iam.amazonaws.com/ ?Action=GetLoginProfile
 -- &UserName=Bob &AUTHPARAMS Bob 2011-09-19T23:00:56Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.GetLoginProfile where
+module Network.AWS.IAM.V2010_05_08.GetLoginProfile
+    (
+    -- * Request
+      GetLoginProfile
+    -- ** Request constructor
+    , getLoginProfile
+    -- ** Request lenses
+    , glprUserName
+
+    -- * Response
+    , GetLoginProfileResponse
+    -- ** Response lenses
+    , glpsLoginProfile
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetLoginProfile' request.
+getLoginProfile :: Text -- ^ 'glprUserName'
+                -> GetLoginProfile
+getLoginProfile p1 = GetLoginProfile
+    { _glprUserName = p1
+    }
 
 data GetLoginProfile = GetLoginProfile
     { _glprUserName :: Text
       -- ^ Name of the user whose login profile you want to retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''GetLoginProfile
+-- | Name of the user whose login profile you want to retrieve.
+glprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetLoginProfile
+    -> f GetLoginProfile
+glprUserName f x =
+    (\y -> x { _glprUserName = y })
+       <$> f (_glprUserName x)
+{-# INLINE glprUserName #-}
 
 instance ToQuery GetLoginProfile where
     toQuery = genericQuery def
@@ -44,7 +73,17 @@ data GetLoginProfileResponse = GetLoginProfileResponse
       -- ^ User name and password create date for the user.
     } deriving (Show, Generic)
 
-makeLenses ''GetLoginProfileResponse
+-- | User name and password create date for the user.
+glpsLoginProfile
+    :: Functor f
+    => (LoginProfile
+    -> f (LoginProfile))
+    -> GetLoginProfileResponse
+    -> f GetLoginProfileResponse
+glpsLoginProfile f x =
+    (\y -> x { _glpsLoginProfile = y })
+       <$> f (_glpsLoginProfile x)
+{-# INLINE glpsLoginProfile #-}
 
 instance FromXML GetLoginProfileResponse where
     fromXMLOptions = xmlOptions

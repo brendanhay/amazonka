@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,26 @@
 -- "Amazon_App_ID", "graph.facebook.com": "Facebook_App_ID",
 -- "accounts.google.com": "Google_App_ID" }, "AllowUnauthenticatedIdentities":
 -- true }.
-module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool where
+module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
+    (
+    -- * Request
+      UpdateIdentityPool
+    -- ** Request constructor
+    , updateIdentityPool
+    -- ** Request lenses
+    , iuIdentityPoolId
+    , iuIdentityPoolName
+    , iuAllowUnauthenticatedIdentities
+    , iuSupportedLoginProviders
+
+    -- * Response
+    , UpdateIdentityPoolResponse
+    -- ** Response lenses
+    , iwIdentityPoolId
+    , iwIdentityPoolName
+    , iwAllowUnauthenticatedIdentities
+    , iwSupportedLoginProviders
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
@@ -39,30 +57,76 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateIdentityPool' request.
-updateIdentityPool :: Text -- ^ '_irIdentityPoolId'
-                   -> Text -- ^ '_irIdentityPoolName'
-                   -> Bool -- ^ '_irAllowUnauthenticatedIdentities'
+updateIdentityPool :: Text -- ^ 'iuIdentityPoolId'
+                   -> Text -- ^ 'iuIdentityPoolName'
+                   -> Bool -- ^ 'iuAllowUnauthenticatedIdentities'
                    -> UpdateIdentityPool
 updateIdentityPool p1 p2 p3 = UpdateIdentityPool
-    { _irIdentityPoolId = p1
-    , _irIdentityPoolName = p2
-    , _irAllowUnauthenticatedIdentities = p3
-    , _irSupportedLoginProviders = mempty
+    { _iuIdentityPoolId = p1
+    , _iuIdentityPoolName = p2
+    , _iuAllowUnauthenticatedIdentities = p3
+    , _iuSupportedLoginProviders = mempty
     }
 
 data UpdateIdentityPool = UpdateIdentityPool
-    { _irIdentityPoolId :: Text
+    { _iuIdentityPoolId :: Text
       -- ^ An identity pool ID in the format REGION:GUID.
-    , _irIdentityPoolName :: Text
+    , _iuIdentityPoolName :: Text
       -- ^ A string that you provide.
-    , _irAllowUnauthenticatedIdentities :: Bool
+    , _iuAllowUnauthenticatedIdentities :: Bool
       -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _irSupportedLoginProviders :: Map Text Text
+    , _iuSupportedLoginProviders :: Map Text Text
       -- ^ Optional key:value pairs mapping provider names to provider app
       -- IDs.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateIdentityPool
+-- | An identity pool ID in the format REGION:GUID.
+iuIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateIdentityPool
+    -> f UpdateIdentityPool
+iuIdentityPoolId f x =
+    (\y -> x { _iuIdentityPoolId = y })
+       <$> f (_iuIdentityPoolId x)
+{-# INLINE iuIdentityPoolId #-}
+
+-- | A string that you provide.
+iuIdentityPoolName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateIdentityPool
+    -> f UpdateIdentityPool
+iuIdentityPoolName f x =
+    (\y -> x { _iuIdentityPoolName = y })
+       <$> f (_iuIdentityPoolName x)
+{-# INLINE iuIdentityPoolName #-}
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+iuAllowUnauthenticatedIdentities
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> UpdateIdentityPool
+    -> f UpdateIdentityPool
+iuAllowUnauthenticatedIdentities f x =
+    (\y -> x { _iuAllowUnauthenticatedIdentities = y })
+       <$> f (_iuAllowUnauthenticatedIdentities x)
+{-# INLINE iuAllowUnauthenticatedIdentities #-}
+
+-- | Optional key:value pairs mapping provider names to provider app IDs.
+iuSupportedLoginProviders
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> UpdateIdentityPool
+    -> f UpdateIdentityPool
+iuSupportedLoginProviders f x =
+    (\y -> x { _iuSupportedLoginProviders = y })
+       <$> f (_iuSupportedLoginProviders x)
+{-# INLINE iuSupportedLoginProviders #-}
 
 instance ToPath UpdateIdentityPool
 
@@ -73,18 +137,64 @@ instance ToHeaders UpdateIdentityPool
 instance ToJSON UpdateIdentityPool
 
 data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
-    { _itIdentityPoolId :: Text
+    { _iwIdentityPoolId :: Text
       -- ^ An identity pool ID in the format REGION:GUID.
-    , _itIdentityPoolName :: Text
+    , _iwIdentityPoolName :: Text
       -- ^ A string that you provide.
-    , _itAllowUnauthenticatedIdentities :: Bool
+    , _iwAllowUnauthenticatedIdentities :: Bool
       -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _itSupportedLoginProviders :: Map Text Text
+    , _iwSupportedLoginProviders :: Map Text Text
       -- ^ Optional key:value pairs mapping provider names to provider app
       -- IDs.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateIdentityPoolResponse
+-- | An identity pool ID in the format REGION:GUID.
+iwIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateIdentityPoolResponse
+    -> f UpdateIdentityPoolResponse
+iwIdentityPoolId f x =
+    (\y -> x { _iwIdentityPoolId = y })
+       <$> f (_iwIdentityPoolId x)
+{-# INLINE iwIdentityPoolId #-}
+
+-- | A string that you provide.
+iwIdentityPoolName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateIdentityPoolResponse
+    -> f UpdateIdentityPoolResponse
+iwIdentityPoolName f x =
+    (\y -> x { _iwIdentityPoolName = y })
+       <$> f (_iwIdentityPoolName x)
+{-# INLINE iwIdentityPoolName #-}
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+iwAllowUnauthenticatedIdentities
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> UpdateIdentityPoolResponse
+    -> f UpdateIdentityPoolResponse
+iwAllowUnauthenticatedIdentities f x =
+    (\y -> x { _iwAllowUnauthenticatedIdentities = y })
+       <$> f (_iwAllowUnauthenticatedIdentities x)
+{-# INLINE iwAllowUnauthenticatedIdentities #-}
+
+-- | Optional key:value pairs mapping provider names to provider app IDs.
+iwSupportedLoginProviders
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> UpdateIdentityPoolResponse
+    -> f UpdateIdentityPoolResponse
+iwSupportedLoginProviders f x =
+    (\y -> x { _iwSupportedLoginProviders = y })
+       <$> f (_iwSupportedLoginProviders x)
+{-# INLINE iwSupportedLoginProviders #-}
 
 instance FromJSON UpdateIdentityPoolResponse
 

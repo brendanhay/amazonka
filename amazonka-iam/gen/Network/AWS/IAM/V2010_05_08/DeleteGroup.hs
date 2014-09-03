@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,26 +21,52 @@
 -- any attached policies. https://iam.amazonaws.com/ ?Action=DeleteGroup
 -- &Group=Test &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteGroup where
+module Network.AWS.IAM.V2010_05_08.DeleteGroup
+    (
+    -- * Request
+      DeleteGroup
+    -- ** Request constructor
+    , deleteGroup
+    -- ** Request lenses
+    , dgrGroupName
+
+    -- * Response
+    , DeleteGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteGroup' request.
+deleteGroup :: Text -- ^ 'dgrGroupName'
+            -> DeleteGroup
+deleteGroup p1 = DeleteGroup
+    { _dgrGroupName = p1
+    }
 
 data DeleteGroup = DeleteGroup
     { _dgrGroupName :: Text
       -- ^ Name of the group to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteGroup
+-- | Name of the group to delete.
+dgrGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteGroup
+    -> f DeleteGroup
+dgrGroupName f x =
+    (\y -> x { _dgrGroupName = y })
+       <$> f (_dgrGroupName x)
+{-# INLINE dgrGroupName #-}
 
 instance ToQuery DeleteGroup where
     toQuery = genericQuery def
 
 data DeleteGroupResponse = DeleteGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteGroupResponse
 
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,11 +20,32 @@
 -- | Deletes the specified policy that is associated with the specified group.
 -- https://iam.amazonaws.com/ ?Action=DeleteGroupPolicy &GroupName=Admins
 -- &PolicyName=AdminRoot &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy where
+module Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
+    (
+    -- * Request
+      DeleteGroupPolicy
+    -- ** Request constructor
+    , deleteGroupPolicy
+    -- ** Request lenses
+    , dgprGroupName
+    , dgprPolicyName
+
+    -- * Response
+    , DeleteGroupPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteGroupPolicy' request.
+deleteGroupPolicy :: Text -- ^ 'dgprGroupName'
+                  -> Text -- ^ 'dgprPolicyName'
+                  -> DeleteGroupPolicy
+deleteGroupPolicy p1 p2 = DeleteGroupPolicy
+    { _dgprGroupName = p1
+    , _dgprPolicyName = p2
+    }
 
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgprGroupName :: Text
@@ -34,15 +54,35 @@ data DeleteGroupPolicy = DeleteGroupPolicy
       -- ^ Name of the policy document to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteGroupPolicy
+-- | Name of the group the policy is associated with.
+dgprGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteGroupPolicy
+    -> f DeleteGroupPolicy
+dgprGroupName f x =
+    (\y -> x { _dgprGroupName = y })
+       <$> f (_dgprGroupName x)
+{-# INLINE dgprGroupName #-}
+
+-- | Name of the policy document to delete.
+dgprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteGroupPolicy
+    -> f DeleteGroupPolicy
+dgprPolicyName f x =
+    (\y -> x { _dgprPolicyName = y })
+       <$> f (_dgprPolicyName x)
+{-# INLINE dgprPolicyName #-}
 
 instance ToQuery DeleteGroupPolicy where
     toQuery = genericQuery def
 
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteGroupPolicyResponse
 
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,12 +42,33 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z", "VolumeSizeInBytes":
 -- 536870912000, "VolumeUsageInBytes": 6694048 } ] }.
-module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints where
+module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
+    (
+    -- * Request
+      ListVolumeRecoveryPoints
+    -- ** Request constructor
+    , listVolumeRecoveryPoints
+    -- ** Request lenses
+    , lvrpiGatewayARN
+
+    -- * Response
+    , ListVolumeRecoveryPointsResponse
+    -- ** Response lenses
+    , lvrpoGatewayARN
+    , lvrpoVolumeRecoveryPointInfos
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'ListVolumeRecoveryPoints' request.
+listVolumeRecoveryPoints :: Text -- ^ 'lvrpiGatewayARN'
+                         -> ListVolumeRecoveryPoints
+listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
+    { _lvrpiGatewayARN = p1
+    }
 
 data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpiGatewayARN :: Text
@@ -57,7 +77,18 @@ data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''ListVolumeRecoveryPoints
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+lvrpiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListVolumeRecoveryPoints
+    -> f ListVolumeRecoveryPoints
+lvrpiGatewayARN f x =
+    (\y -> x { _lvrpiGatewayARN = y })
+       <$> f (_lvrpiGatewayARN x)
+{-# INLINE lvrpiGatewayARN #-}
 
 instance ToPath ListVolumeRecoveryPoints
 
@@ -75,7 +106,29 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     , _lvrpoVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
     } deriving (Show, Generic)
 
-makeLenses ''ListVolumeRecoveryPointsResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+lvrpoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListVolumeRecoveryPointsResponse
+    -> f ListVolumeRecoveryPointsResponse
+lvrpoGatewayARN f x =
+    (\y -> x { _lvrpoGatewayARN = y })
+       <$> f (_lvrpoGatewayARN x)
+{-# INLINE lvrpoGatewayARN #-}
+
+lvrpoVolumeRecoveryPointInfos
+    :: Functor f
+    => ([VolumeRecoveryPointInfo]
+    -> f ([VolumeRecoveryPointInfo]))
+    -> ListVolumeRecoveryPointsResponse
+    -> f ListVolumeRecoveryPointsResponse
+lvrpoVolumeRecoveryPointInfos f x =
+    (\y -> x { _lvrpoVolumeRecoveryPointInfos = y })
+       <$> f (_lvrpoVolumeRecoveryPointInfos x)
+{-# INLINE lvrpoVolumeRecoveryPointInfos #-}
 
 instance FromJSON ListVolumeRecoveryPointsResponse
 

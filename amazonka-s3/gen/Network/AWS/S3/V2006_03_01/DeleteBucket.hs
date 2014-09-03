@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,17 +20,44 @@
 -- | Deletes the bucket. All objects (including all object versions and Delete
 -- Markers) in the bucket must be deleted before the bucket itself can be
 -- deleted.
-module Network.AWS.S3.V2006_03_01.DeleteBucket where
+module Network.AWS.S3.V2006_03_01.DeleteBucket
+    (
+    -- * Request
+      DeleteBucket
+    -- ** Request constructor
+    , deleteBucket
+    -- ** Request lenses
+    , dbrBucket
+
+    -- * Response
+    , DeleteBucketResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteBucket' request.
+deleteBucket :: BucketName -- ^ 'dbrBucket'
+             -> DeleteBucket
+deleteBucket p1 = DeleteBucket
+    { _dbrBucket = p1
+    }
+
 data DeleteBucket = DeleteBucket
     { _dbrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''DeleteBucket
+dbrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> DeleteBucket
+    -> f DeleteBucket
+dbrBucket f x =
+    (\y -> x { _dbrBucket = y })
+       <$> f (_dbrBucket x)
+{-# INLINE dbrBucket #-}
 
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat
@@ -47,8 +73,6 @@ instance ToBody DeleteBucket
 
 data DeleteBucketResponse = DeleteBucketResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteBucketResponse
 
 instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3

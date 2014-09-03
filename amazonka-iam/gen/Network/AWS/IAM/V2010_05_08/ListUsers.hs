@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,24 @@
 -- arn:aws:iam::123456789012:user
 -- /division_abc/subdivision_xyz/engineering/Jackie false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListUsers where
+module Network.AWS.IAM.V2010_05_08.ListUsers
+    (
+    -- * Request
+      ListUsers
+    -- ** Request constructor
+    , listUsers
+    -- ** Request lenses
+    , lurMarker
+    , lurMaxItems
+    , lurPathPrefix
+
+    -- * Response
+    , ListUsersResponse
+    -- ** Response lenses
+    , lusIsTruncated
+    , lusUsers
+    , lusMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -64,7 +80,51 @@ data ListUsers = ListUsers
       -- slash (/), listing all user names.
     } deriving (Show, Generic)
 
-makeLenses ''ListUsers
+-- | Use this parameter only when paginating results, and only in a subsequent
+-- request after you've received a response where the results are truncated.
+-- Set it to the value of the Marker element in the response you just
+-- received.
+lurMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListUsers
+    -> f ListUsers
+lurMarker f x =
+    (\y -> x { _lurMarker = y })
+       <$> f (_lurMarker x)
+{-# INLINE lurMarker #-}
+
+-- | Use this parameter only when paginating results to indicate the maximum
+-- number of user names you want in the response. If there are additional user
+-- names beyond the maximum you specify, the IsTruncated response element is
+-- true. This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lurMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListUsers
+    -> f ListUsers
+lurMaxItems f x =
+    (\y -> x { _lurMaxItems = y })
+       <$> f (_lurMaxItems x)
+{-# INLINE lurMaxItems #-}
+
+-- | The path prefix for filtering the results. For example:
+-- /division_abc/subdivision_xyz/, which would get all user names whose path
+-- starts with /division_abc/subdivision_xyz/. This parameter is optional. If
+-- it is not included, it defaults to a slash (/), listing all user names.
+lurPathPrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListUsers
+    -> f ListUsers
+lurPathPrefix f x =
+    (\y -> x { _lurPathPrefix = y })
+       <$> f (_lurPathPrefix x)
+{-# INLINE lurPathPrefix #-}
 
 instance ToQuery ListUsers where
     toQuery = genericQuery def
@@ -83,7 +143,44 @@ data ListUsersResponse = ListUsersResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListUsersResponse
+-- | A flag that indicates whether there are more user names to list. If your
+-- results were truncated, you can make a subsequent pagination request using
+-- the Marker request parameter to retrieve more users in the list.
+lusIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListUsersResponse
+    -> f ListUsersResponse
+lusIsTruncated f x =
+    (\y -> x { _lusIsTruncated = y })
+       <$> f (_lusIsTruncated x)
+{-# INLINE lusIsTruncated #-}
+
+-- | A list of users.
+lusUsers
+    :: Functor f
+    => ([User]
+    -> f ([User]))
+    -> ListUsersResponse
+    -> f ListUsersResponse
+lusUsers f x =
+    (\y -> x { _lusUsers = y })
+       <$> f (_lusUsers x)
+{-# INLINE lusUsers #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lusMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListUsersResponse
+    -> f ListUsersResponse
+lusMarker f x =
+    (\y -> x { _lusMarker = y })
+       <$> f (_lusMarker x)
+{-# INLINE lusMarker #-}
 
 instance FromXML ListUsersResponse where
     fromXMLOptions = xmlOptions

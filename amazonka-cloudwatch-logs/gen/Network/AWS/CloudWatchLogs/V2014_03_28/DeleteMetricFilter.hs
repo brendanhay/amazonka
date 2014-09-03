@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,20 +28,62 @@
 -- "exampleLogGroupName", "filterName": "exampleMetricFilterName" } HTTP/1.1
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter where
+module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter
+    (
+    -- * Request
+      DeleteMetricFilter
+    -- ** Request constructor
+    , deleteMetricFilter
+    -- ** Request lenses
+    , dmfrFilterName
+    , dmfrLogGroupName
+
+    -- * Response
+    , DeleteMetricFilterResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteMetricFilter' request.
+deleteMetricFilter :: Text -- ^ 'dmfrFilterName'
+                   -> Text -- ^ 'dmfrLogGroupName'
+                   -> DeleteMetricFilter
+deleteMetricFilter p1 p2 = DeleteMetricFilter
+    { _dmfrFilterName = p1
+    , _dmfrLogGroupName = p2
+    }
+
 data DeleteMetricFilter = DeleteMetricFilter
-    { _dmftFilterName :: Text
+    { _dmfrFilterName :: Text
       -- ^ The name of the metric filter.
-    , _dmftLogGroupName :: Text
+    , _dmfrLogGroupName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteMetricFilter
+-- | The name of the metric filter.
+dmfrFilterName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteMetricFilter
+    -> f DeleteMetricFilter
+dmfrFilterName f x =
+    (\y -> x { _dmfrFilterName = y })
+       <$> f (_dmfrFilterName x)
+{-# INLINE dmfrFilterName #-}
+
+dmfrLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteMetricFilter
+    -> f DeleteMetricFilter
+dmfrLogGroupName f x =
+    (\y -> x { _dmfrLogGroupName = y })
+       <$> f (_dmfrLogGroupName x)
+{-# INLINE dmfrLogGroupName #-}
 
 instance ToPath DeleteMetricFilter
 
@@ -54,8 +95,6 @@ instance ToJSON DeleteMetricFilter
 
 data DeleteMetricFilterResponse = DeleteMetricFilterResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteMetricFilterResponse
 
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs

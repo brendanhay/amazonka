@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,12 +54,52 @@
 -- "LastName":"Doe", "PhoneNumber":"+2065550100", "State":"WA",
 -- "ZipCode":"98101" }, "TechPrivacy":true, "UpdatedDate":1400010459,
 -- "WhoIsServer":"whois.gandi.net" }.
-module Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail where
+module Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail
+    (
+    -- * Request
+      GetDomainDetail
+    -- ** Request constructor
+    , getDomainDetail
+    -- ** Request lenses
+    , gddrDomainName
+
+    -- * Response
+    , GetDomainDetailResponse
+    -- ** Response lenses
+    , gddsAdminContact
+    , gddsRegistrantContact
+    , gddsTechContact
+    , gddsDomainName
+    , gddsNameservers
+    , gddsAutoRenew
+    , gddsAdminPrivacy
+    , gddsRegistrantPrivacy
+    , gddsTechPrivacy
+    , gddsAbuseContactPhone
+    , gddsDnsSec
+    , gddsStatusList
+    , gddsAbuseContactEmail
+    , gddsRegistrarName
+    , gddsRegistrarUrl
+    , gddsWhoIsServer
+    , gddsRegistryDomainId
+    , gddsReseller
+    , gddsCreationDate
+    , gddsUpdatedDate
+    , gddsExpirationDate
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'GetDomainDetail' request.
+getDomainDetail :: Text -- ^ 'gddrDomainName'
+                -> GetDomainDetail
+getDomainDetail p1 = GetDomainDetail
+    { _gddrDomainName = p1
+    }
 
 data GetDomainDetail = GetDomainDetail
     { _gddrDomainName :: Text
@@ -70,7 +109,20 @@ data GetDomainDetail = GetDomainDetail
       -- not supported. Required: Yes.
     } deriving (Show, Generic)
 
-makeLenses ''GetDomainDetail
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+gddrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetDomainDetail
+    -> f GetDomainDetail
+gddrDomainName f x =
+    (\y -> x { _gddrDomainName = y })
+       <$> f (_gddrDomainName x)
+{-# INLINE gddrDomainName #-}
 
 instance ToPath GetDomainDetail
 
@@ -81,12 +133,7 @@ instance ToHeaders GetDomainDetail
 instance ToJSON GetDomainDetail
 
 data GetDomainDetailResponse = GetDomainDetailResponse
-    { _gddsTechContact :: ContactDetail
-      -- ^ Provides details about the domain technical contact. Type:
-      -- Complex Children: FirstName, MiddleName, LastName, ContactType,
-      -- OrganizationName, AddressLine1, AddressLine2, City, State,
-      -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
-    , _gddsAdminContact :: ContactDetail
+    { _gddsAdminContact :: ContactDetail
       -- ^ Provides details about the domain administrative contact. Type:
       -- Complex Children: FirstName, MiddleName, LastName, ContactType,
       -- OrganizationName, AddressLine1, AddressLine2, City, State,
@@ -94,6 +141,11 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddsRegistrantContact :: ContactDetail
       -- ^ Provides details about the domain registrant. Type: Complex
       -- Children: FirstName, MiddleName, LastName, ContactType,
+      -- OrganizationName, AddressLine1, AddressLine2, City, State,
+      -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
+    , _gddsTechContact :: ContactDetail
+      -- ^ Provides details about the domain technical contact. Type:
+      -- Complex Children: FirstName, MiddleName, LastName, ContactType,
       -- OrganizationName, AddressLine1, AddressLine2, City, State,
       -- CountryCode, ZipCode, PhoneNumber, Email, Fax, ExtraParams.
     , _gddsDomainName :: Text
@@ -161,15 +213,304 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddsCreationDate :: Maybe ISO8601
       -- ^ The date when the domain was created as found in the response to
       -- a WHOIS query. The date format is Unix time.
-    , _gddsExpirationDate :: Maybe ISO8601
-      -- ^ The date when the registration for the domain is set to expire.
-      -- The date format is Unix time.
     , _gddsUpdatedDate :: Maybe ISO8601
       -- ^ The last updated date of the domain as found in the response to a
       -- WHOIS query. The date format is Unix time.
+    , _gddsExpirationDate :: Maybe ISO8601
+      -- ^ The date when the registration for the domain is set to expire.
+      -- The date format is Unix time.
     } deriving (Show, Generic)
 
-makeLenses ''GetDomainDetailResponse
+-- | Provides details about the domain administrative contact. Type: Complex
+-- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
+-- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
+-- Email, Fax, ExtraParams.
+gddsAdminContact
+    :: Functor f
+    => (ContactDetail
+    -> f (ContactDetail))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsAdminContact f x =
+    (\y -> x { _gddsAdminContact = y })
+       <$> f (_gddsAdminContact x)
+{-# INLINE gddsAdminContact #-}
+
+-- | Provides details about the domain registrant. Type: Complex Children:
+-- FirstName, MiddleName, LastName, ContactType, OrganizationName,
+-- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
+-- Email, Fax, ExtraParams.
+gddsRegistrantContact
+    :: Functor f
+    => (ContactDetail
+    -> f (ContactDetail))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsRegistrantContact f x =
+    (\y -> x { _gddsRegistrantContact = y })
+       <$> f (_gddsRegistrantContact x)
+{-# INLINE gddsRegistrantContact #-}
+
+-- | Provides details about the domain technical contact. Type: Complex
+-- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
+-- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
+-- Email, Fax, ExtraParams.
+gddsTechContact
+    :: Functor f
+    => (ContactDetail
+    -> f (ContactDetail))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsTechContact f x =
+    (\y -> x { _gddsTechContact = y })
+       <$> f (_gddsTechContact x)
+{-# INLINE gddsTechContact #-}
+
+-- | The name of a domain. Type: String.
+gddsDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsDomainName f x =
+    (\y -> x { _gddsDomainName = y })
+       <$> f (_gddsDomainName x)
+{-# INLINE gddsDomainName #-}
+
+-- | The name of the domain. Type: String.
+gddsNameservers
+    :: Functor f
+    => ([Nameserver]
+    -> f ([Nameserver]))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsNameservers f x =
+    (\y -> x { _gddsNameservers = y })
+       <$> f (_gddsNameservers x)
+{-# INLINE gddsNameservers #-}
+
+-- | Specifies whether the domain registration is set to renew automatically.
+-- Type: Boolean.
+gddsAutoRenew
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsAutoRenew f x =
+    (\y -> x { _gddsAutoRenew = y })
+       <$> f (_gddsAutoRenew x)
+{-# INLINE gddsAutoRenew #-}
+
+-- | Specifies whether contact information for the admin contact is concealed
+-- from WHOIS queries. If the value is true, WHOIS ("who is") queries will
+-- return contact information for our registrar partner, Gandi, instead of the
+-- contact information that you enter. Type: Boolean.
+gddsAdminPrivacy
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsAdminPrivacy f x =
+    (\y -> x { _gddsAdminPrivacy = y })
+       <$> f (_gddsAdminPrivacy x)
+{-# INLINE gddsAdminPrivacy #-}
+
+-- | Specifies whether contact information for the registrant contact is
+-- concealed from WHOIS queries. If the value is true, WHOIS ("who is")
+-- queries will return contact information for our registrar partner, Gandi,
+-- instead of the contact information that you enter. Type: Boolean.
+gddsRegistrantPrivacy
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsRegistrantPrivacy f x =
+    (\y -> x { _gddsRegistrantPrivacy = y })
+       <$> f (_gddsRegistrantPrivacy x)
+{-# INLINE gddsRegistrantPrivacy #-}
+
+-- | Specifies whether contact information for the tech contact is concealed
+-- from WHOIS queries. If the value is true, WHOIS ("who is") queries will
+-- return contact information for our registrar partner, Gandi, instead of the
+-- contact information that you enter. Type: Boolean.
+gddsTechPrivacy
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsTechPrivacy f x =
+    (\y -> x { _gddsTechPrivacy = y })
+       <$> f (_gddsTechPrivacy x)
+{-# INLINE gddsTechPrivacy #-}
+
+-- | Phone number for reporting abuse. Type: String.
+gddsAbuseContactPhone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsAbuseContactPhone f x =
+    (\y -> x { _gddsAbuseContactPhone = y })
+       <$> f (_gddsAbuseContactPhone x)
+{-# INLINE gddsAbuseContactPhone #-}
+
+-- | Reserved for future use.
+gddsDnsSec
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsDnsSec f x =
+    (\y -> x { _gddsDnsSec = y })
+       <$> f (_gddsDnsSec x)
+{-# INLINE gddsDnsSec #-}
+
+-- | An array of domain name status codes, also known as Extensible Provisioning
+-- Protocol (EPP) status codes. ICANN, the organization that maintains a
+-- central database of domain names, has developed a set of domain name status
+-- codes that tell you the status of a variety of operations on a domain name,
+-- for example, registering a domain name, transferring a domain name to
+-- another registrar, renewing the registration for a domain name, and so on.
+-- All registrars use this same set of status codes. For a current list of
+-- domain name status codes and an explanation of what each code means, go to
+-- the ICANN website and search for epp status codes. (Search on the ICANN
+-- website; web searches sometimes return an old version of the document.)
+-- Type: Array of String.
+gddsStatusList
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsStatusList f x =
+    (\y -> x { _gddsStatusList = y })
+       <$> f (_gddsStatusList x)
+{-# INLINE gddsStatusList #-}
+
+-- | Email address to contact to report incorrect contact information for a
+-- domain, to report that the domain is being used to send spam, to report
+-- that someone is cybersquatting on a domain name, or report some other type
+-- of abuse. Type: String.
+gddsAbuseContactEmail
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsAbuseContactEmail f x =
+    (\y -> x { _gddsAbuseContactEmail = y })
+       <$> f (_gddsAbuseContactEmail x)
+{-# INLINE gddsAbuseContactEmail #-}
+
+-- | Name of the registrar of the domain as identified in the registry. Amazon
+-- Route 53 domains are registered by registrar Gandi. The value is "GANDI
+-- SAS". Type: String.
+gddsRegistrarName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsRegistrarName f x =
+    (\y -> x { _gddsRegistrarName = y })
+       <$> f (_gddsRegistrarName x)
+{-# INLINE gddsRegistrarName #-}
+
+-- | Web address of the registrar. Type: String.
+gddsRegistrarUrl
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsRegistrarUrl f x =
+    (\y -> x { _gddsRegistrarUrl = y })
+       <$> f (_gddsRegistrarUrl x)
+{-# INLINE gddsRegistrarUrl #-}
+
+-- | The fully qualified name of the WHOIS server that can answer the WHOIS
+-- query for the domain. Type: String.
+gddsWhoIsServer
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsWhoIsServer f x =
+    (\y -> x { _gddsWhoIsServer = y })
+       <$> f (_gddsWhoIsServer x)
+{-# INLINE gddsWhoIsServer #-}
+
+-- | Reserved for future use.
+gddsRegistryDomainId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsRegistryDomainId f x =
+    (\y -> x { _gddsRegistryDomainId = y })
+       <$> f (_gddsRegistryDomainId x)
+{-# INLINE gddsRegistryDomainId #-}
+
+-- | Reseller of the domain. Domains registered or transferred using Amazon
+-- Route 53 domains will have "Amazon" as the reseller. Type: String.
+gddsReseller
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsReseller f x =
+    (\y -> x { _gddsReseller = y })
+       <$> f (_gddsReseller x)
+{-# INLINE gddsReseller #-}
+
+-- | The date when the domain was created as found in the response to a WHOIS
+-- query. The date format is Unix time.
+gddsCreationDate
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsCreationDate f x =
+    (\y -> x { _gddsCreationDate = y })
+       <$> f (_gddsCreationDate x)
+{-# INLINE gddsCreationDate #-}
+
+-- | The last updated date of the domain as found in the response to a WHOIS
+-- query. The date format is Unix time.
+gddsUpdatedDate
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsUpdatedDate f x =
+    (\y -> x { _gddsUpdatedDate = y })
+       <$> f (_gddsUpdatedDate x)
+{-# INLINE gddsUpdatedDate #-}
+
+-- | The date when the registration for the domain is set to expire. The date
+-- format is Unix time.
+gddsExpirationDate
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> GetDomainDetailResponse
+    -> f GetDomainDetailResponse
+gddsExpirationDate f x =
+    (\y -> x { _gddsExpirationDate = y })
+       <$> f (_gddsExpirationDate x)
+{-# INLINE gddsExpirationDate #-}
 
 instance FromJSON GetDomainDetailResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,15 +20,30 @@
 -- | Modifies a cluster subnet group to include the specified list of VPC
 -- subnets. The operation replaces the existing list of subnets with the new
 -- list of subnets.
-module Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup where
+module Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup
+    (
+    -- * Request
+      ModifyClusterSubnetGroup
+    -- ** Request constructor
+    , modifyClusterSubnetGroup
+    -- ** Request lenses
+    , mcsgmClusterSubnetGroupName
+    , mcsgmSubnetIds
+    , mcsgmDescription
+
+    -- * Response
+    , ModifyClusterSubnetGroupResponse
+    -- ** Response lenses
+    , csgzClusterSubnetGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifyClusterSubnetGroup' request.
-modifyClusterSubnetGroup :: Text -- ^ '_mcsgmClusterSubnetGroupName'
-                         -> [Text] -- ^ '_mcsgmSubnetIds'
+modifyClusterSubnetGroup :: Text -- ^ 'mcsgmClusterSubnetGroupName'
+                         -> [Text] -- ^ 'mcsgmSubnetIds'
                          -> ModifyClusterSubnetGroup
 modifyClusterSubnetGroup p1 p2 = ModifyClusterSubnetGroup
     { _mcsgmClusterSubnetGroupName = p1
@@ -47,17 +61,62 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
       -- ^ A text description of the subnet group to be modified.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyClusterSubnetGroup
+-- | The name of the subnet group to be modified.
+mcsgmClusterSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyClusterSubnetGroup
+    -> f ModifyClusterSubnetGroup
+mcsgmClusterSubnetGroupName f x =
+    (\y -> x { _mcsgmClusterSubnetGroupName = y })
+       <$> f (_mcsgmClusterSubnetGroupName x)
+{-# INLINE mcsgmClusterSubnetGroupName #-}
+
+-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
+-- single request.
+mcsgmSubnetIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyClusterSubnetGroup
+    -> f ModifyClusterSubnetGroup
+mcsgmSubnetIds f x =
+    (\y -> x { _mcsgmSubnetIds = y })
+       <$> f (_mcsgmSubnetIds x)
+{-# INLINE mcsgmSubnetIds #-}
+
+-- | A text description of the subnet group to be modified.
+mcsgmDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyClusterSubnetGroup
+    -> f ModifyClusterSubnetGroup
+mcsgmDescription f x =
+    (\y -> x { _mcsgmDescription = y })
+       <$> f (_mcsgmDescription x)
+{-# INLINE mcsgmDescription #-}
 
 instance ToQuery ModifyClusterSubnetGroup where
     toQuery = genericQuery def
 
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
-    { _csgcrClusterSubnetGroup :: Maybe ClusterSubnetGroup
+    { _csgzClusterSubnetGroup :: Maybe ClusterSubnetGroup
       -- ^ Describes a subnet group.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyClusterSubnetGroupResponse
+-- | Describes a subnet group.
+csgzClusterSubnetGroup
+    :: Functor f
+    => (Maybe ClusterSubnetGroup
+    -> f (Maybe ClusterSubnetGroup))
+    -> ModifyClusterSubnetGroupResponse
+    -> f ModifyClusterSubnetGroupResponse
+csgzClusterSubnetGroup f x =
+    (\y -> x { _csgzClusterSubnetGroup = y })
+       <$> f (_csgzClusterSubnetGroup x)
+{-# INLINE csgzClusterSubnetGroup #-}
 
 instance FromXML ModifyClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions

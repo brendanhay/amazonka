@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,11 +19,34 @@
 
 -- | Removes an IndexField from the search domain. For more information, see
 -- Configuring Index Fields in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField where
+module Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
+    (
+    -- * Request
+      DeleteIndexField
+    -- ** Request constructor
+    , deleteIndexField
+    -- ** Request lenses
+    , diftDomainName
+    , diftIndexFieldName
+
+    -- * Response
+    , DeleteIndexFieldResponse
+    -- ** Response lenses
+    , difuIndexField
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteIndexField' request.
+deleteIndexField :: Text -- ^ 'diftDomainName'
+                 -> Text -- ^ 'diftIndexFieldName'
+                 -> DeleteIndexField
+deleteIndexField p1 p2 = DeleteIndexField
+    { _diftDomainName = p1
+    , _diftIndexFieldName = p2
+    }
 
 data DeleteIndexField = DeleteIndexField
     { _diftDomainName :: Text
@@ -38,7 +60,33 @@ data DeleteIndexField = DeleteIndexField
       -- indexing options.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteIndexField
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+diftDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteIndexField
+    -> f DeleteIndexField
+diftDomainName f x =
+    (\y -> x { _diftDomainName = y })
+       <$> f (_diftDomainName x)
+{-# INLINE diftDomainName #-}
+
+-- | The name of the index field your want to remove from the domain's indexing
+-- options.
+diftIndexFieldName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteIndexField
+    -> f DeleteIndexField
+diftIndexFieldName f x =
+    (\y -> x { _diftIndexFieldName = y })
+       <$> f (_diftIndexFieldName x)
+{-# INLINE diftIndexFieldName #-}
 
 instance ToQuery DeleteIndexField where
     toQuery = genericQuery def
@@ -48,7 +96,17 @@ data DeleteIndexFieldResponse = DeleteIndexFieldResponse
       -- ^ The status of the index field being deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteIndexFieldResponse
+-- | The status of the index field being deleted.
+difuIndexField
+    :: Functor f
+    => (IndexFieldStatus
+    -> f (IndexFieldStatus))
+    -> DeleteIndexFieldResponse
+    -> f DeleteIndexFieldResponse
+difuIndexField f x =
+    (\y -> x { _difuIndexField = y })
+       <$> f (_difuIndexField x)
+{-# INLINE difuIndexField #-}
 
 instance FromXML DeleteIndexFieldResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,26 +18,52 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables actions for the specified alarms.
-module Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions where
+module Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
+    (
+    -- * Request
+      EnableAlarmActions
+    -- ** Request constructor
+    , enableAlarmActions
+    -- ** Request lenses
+    , eaaiAlarmNames
+
+    -- * Response
+    , EnableAlarmActionsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'EnableAlarmActions' request.
+enableAlarmActions :: [Text] -- ^ 'eaaiAlarmNames'
+                   -> EnableAlarmActions
+enableAlarmActions p1 = EnableAlarmActions
+    { _eaaiAlarmNames = p1
+    }
 
 data EnableAlarmActions = EnableAlarmActions
     { _eaaiAlarmNames :: [Text]
       -- ^ The names of the alarms to enable actions for.
     } deriving (Show, Generic)
 
-makeLenses ''EnableAlarmActions
+-- | The names of the alarms to enable actions for.
+eaaiAlarmNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> EnableAlarmActions
+    -> f EnableAlarmActions
+eaaiAlarmNames f x =
+    (\y -> x { _eaaiAlarmNames = y })
+       <$> f (_eaaiAlarmNames x)
+{-# INLINE eaaiAlarmNames #-}
 
 instance ToQuery EnableAlarmActions where
     toQuery = genericQuery def
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''EnableAlarmActionsResponse
 
 instance AWSRequest EnableAlarmActions where
     type Sv EnableAlarmActions = CloudWatch

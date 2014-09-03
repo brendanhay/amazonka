@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,12 +37,35 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage where
+module Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
+    (
+    -- * Request
+      AddWorkingStorage
+    -- ** Request constructor
+    , addWorkingStorage
+    -- ** Request lenses
+    , awsiDiskIds
+    , awsiGatewayARN
+
+    -- * Response
+    , AddWorkingStorageResponse
+    -- ** Response lenses
+    , awsoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'AddWorkingStorage' request.
+addWorkingStorage :: [Text] -- ^ 'awsiDiskIds'
+                  -> Text -- ^ 'awsiGatewayARN'
+                  -> AddWorkingStorage
+addWorkingStorage p1 p2 = AddWorkingStorage
+    { _awsiDiskIds = p1
+    , _awsiGatewayARN = p2
+    }
 
 data AddWorkingStorage = AddWorkingStorage
     { _awsiDiskIds :: [Text]
@@ -57,7 +79,32 @@ data AddWorkingStorage = AddWorkingStorage
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''AddWorkingStorage
+-- | An array of strings that identify disks that are to be configured as
+-- working storage. Each string have a minimum length of 1 and maximum length
+-- of 300. You can get the disk IDs from the ListLocalDisks API.
+awsiDiskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddWorkingStorage
+    -> f AddWorkingStorage
+awsiDiskIds f x =
+    (\y -> x { _awsiDiskIds = y })
+       <$> f (_awsiDiskIds x)
+{-# INLINE awsiDiskIds #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+awsiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddWorkingStorage
+    -> f AddWorkingStorage
+awsiGatewayARN f x =
+    (\y -> x { _awsiGatewayARN = y })
+       <$> f (_awsiGatewayARN x)
+{-# INLINE awsiGatewayARN #-}
 
 instance ToPath AddWorkingStorage
 
@@ -74,7 +121,18 @@ data AddWorkingStorageResponse = AddWorkingStorageResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''AddWorkingStorageResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+awsoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddWorkingStorageResponse
+    -> f AddWorkingStorageResponse
+awsoGatewayARN f x =
+    (\y -> x { _awsoGatewayARN = y })
+       <$> f (_awsoGatewayARN x)
+{-# INLINE awsoGatewayARN #-}
 
 instance FromJSON AddWorkingStorageResponse
 

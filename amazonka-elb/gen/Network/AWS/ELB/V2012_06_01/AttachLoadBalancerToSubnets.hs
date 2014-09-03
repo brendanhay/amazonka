@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,11 +26,34 @@
 -- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
 -- &Action=AttachLoadBalancerToSubnets &AUTHPARAMS subnet-119f0078
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
-module Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets where
+module Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets
+    (
+    -- * Request
+      AttachLoadBalancerToSubnets
+    -- ** Request constructor
+    , attachLoadBalancerToSubnets
+    -- ** Request lenses
+    , albtsiLoadBalancerName
+    , albtsiSubnets
+
+    -- * Response
+    , AttachLoadBalancerToSubnetsResponse
+    -- ** Response lenses
+    , albtsoSubnets
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'AttachLoadBalancerToSubnets' request.
+attachLoadBalancerToSubnets :: Text -- ^ 'albtsiLoadBalancerName'
+                            -> [Text] -- ^ 'albtsiSubnets'
+                            -> AttachLoadBalancerToSubnets
+attachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
+    { _albtsiLoadBalancerName = p1
+    , _albtsiSubnets = p2
+    }
 
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsiLoadBalancerName :: Text
@@ -43,7 +65,31 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
       -- only one subnet per Availability Zone.
     } deriving (Show, Generic)
 
-makeLenses ''AttachLoadBalancerToSubnets
+-- | The name associated with the load balancer. The name must be unique within
+-- the set of load balancers associated with your AWS account.
+albtsiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachLoadBalancerToSubnets
+    -> f AttachLoadBalancerToSubnets
+albtsiLoadBalancerName f x =
+    (\y -> x { _albtsiLoadBalancerName = y })
+       <$> f (_albtsiLoadBalancerName x)
+{-# INLINE albtsiLoadBalancerName #-}
+
+-- | A list of subnet IDs to add for the load balancer. You can add only one
+-- subnet per Availability Zone.
+albtsiSubnets
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AttachLoadBalancerToSubnets
+    -> f AttachLoadBalancerToSubnets
+albtsiSubnets f x =
+    (\y -> x { _albtsiSubnets = y })
+       <$> f (_albtsiSubnets x)
+{-# INLINE albtsiSubnets #-}
 
 instance ToQuery AttachLoadBalancerToSubnets where
     toQuery = genericQuery def
@@ -53,7 +99,17 @@ data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
       -- ^ A list of subnet IDs attached to the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''AttachLoadBalancerToSubnetsResponse
+-- | A list of subnet IDs attached to the load balancer.
+albtsoSubnets
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AttachLoadBalancerToSubnetsResponse
+    -> f AttachLoadBalancerToSubnetsResponse
+albtsoSubnets f x =
+    (\y -> x { _albtsoSubnets = y })
+       <$> f (_albtsoSubnets x)
+{-# INLINE albtsoSubnets #-}
 
 instance FromXML AttachLoadBalancerToSubnetsResponse where
     fromXMLOptions = xmlOptions

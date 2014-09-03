@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,7 +21,34 @@
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.UpdateStack where
+module Network.AWS.OpsWorks.V2013_02_18.UpdateStack
+    (
+    -- * Request
+      UpdateStack
+    -- ** Request constructor
+    , updateStack
+    -- ** Request lenses
+    , usrStackId
+    , usrUseCustomCookbooks
+    , usrUseOpsworksSecurityGroups
+    , usrChefConfiguration
+    , usrDefaultRootDeviceType
+    , usrCustomCookbooksSource
+    , usrAttributes
+    , usrConfigurationManager
+    , usrName
+    , usrServiceRoleArn
+    , usrDefaultInstanceProfileArn
+    , usrDefaultOs
+    , usrHostnameTheme
+    , usrDefaultAvailabilityZone
+    , usrDefaultSubnetId
+    , usrCustomJson
+    , usrDefaultSshKeyName
+
+    -- * Response
+    , UpdateStackResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -30,7 +56,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateStack' request.
-updateStack :: Text -- ^ '_usrStackId'
+updateStack :: Text -- ^ 'usrStackId'
             -> UpdateStack
 updateStack p1 = UpdateStack
     { _usrStackId = p1
@@ -41,15 +67,15 @@ updateStack p1 = UpdateStack
     , _usrCustomCookbooksSource = Nothing
     , _usrAttributes = mempty
     , _usrConfigurationManager = Nothing
-    , _usrHostnameTheme = Nothing
-    , _usrDefaultSubnetId = Nothing
-    , _usrDefaultOs = Nothing
     , _usrName = Nothing
-    , _usrDefaultAvailabilityZone = Nothing
-    , _usrCustomJson = Nothing
-    , _usrDefaultSshKeyName = Nothing
     , _usrServiceRoleArn = Nothing
     , _usrDefaultInstanceProfileArn = Nothing
+    , _usrDefaultOs = Nothing
+    , _usrHostnameTheme = Nothing
+    , _usrDefaultAvailabilityZone = Nothing
+    , _usrDefaultSubnetId = Nothing
+    , _usrCustomJson = Nothing
+    , _usrDefaultSshKeyName = Nothing
     }
 
 data UpdateStack = UpdateStack
@@ -96,44 +122,8 @@ data UpdateStack = UpdateStack
       -- that you use the configuration manager to specify the Chef
       -- version, 0.9, 11.4, or 11.10. The default value is currently
       -- 11.4.
-    , _usrHostnameTheme :: Maybe Text
-      -- ^ The stack's new host name theme, with spaces are replaced by
-      -- underscores. The theme is used to generate host names for the
-      -- stack's instances. By default, HostnameTheme is set to
-      -- Layer_Dependent, which creates host names by appending integers
-      -- to the layer's short name. The other themes are: Baked_Goods
-      -- Clouds European_Cities Fruits Greek_Deities
-      -- Legendary_Creatures_from_Japan Planets_and_Moons Roman_Deities
-      -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host
-      -- name, call GetHostNameSuggestion, which returns a host name based
-      -- on the current theme.
-    , _usrDefaultSubnetId :: Maybe Text
-      -- ^ The stack's default subnet ID. All instances will be launched
-      -- into this subnet unless you specify otherwise when you create the
-      -- instance. If you also specify a value for
-      -- DefaultAvailabilityZone, the subnet must be in that zone. For
-      -- more information, see CreateStack.
-    , _usrDefaultOs :: Maybe Text
-      -- ^ The stack's default operating system, which must be set to Amazon
-      -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
     , _usrName :: Maybe Text
       -- ^ The stack's new name.
-    , _usrDefaultAvailabilityZone :: Maybe Text
-      -- ^ The stack's default Availability Zone, which must be in the
-      -- specified region. For more information, see Regions and
-      -- Endpoints. If you also specify a value for DefaultSubnetId, the
-      -- subnet must be in the same zone. For more information, see
-      -- CreateStack.
-    , _usrCustomJson :: Maybe Text
-      -- ^ A string that contains user-defined, custom JSON. It is used to
-      -- override the corresponding default stack configuration JSON
-      -- values. The string should be in the following format and must
-      -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
-      -- \"value2\",...}" For more information on custom JSON, see Use
-      -- Custom JSON to Modify the Stack Configuration JSON.
-    , _usrDefaultSshKeyName :: Maybe Text
-      -- ^ A default SSH key for the stack instances. You can override this
-      -- value when you create or update an instance.
     , _usrServiceRoleArn :: Maybe Text
       -- ^ The stack AWS Identity and Access Management (IAM) role, which
       -- allows AWS OpsWorks to work with AWS resources on your behalf.
@@ -147,9 +137,298 @@ data UpdateStack = UpdateStack
       -- ^ The ARN of an IAM profile that is the default profile for all of
       -- the stack's EC2 instances. For more information about IAM ARNs,
       -- see Using Identifiers.
+    , _usrDefaultOs :: Maybe Text
+      -- ^ The stack's default operating system, which must be set to Amazon
+      -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
+    , _usrHostnameTheme :: Maybe Text
+      -- ^ The stack's new host name theme, with spaces are replaced by
+      -- underscores. The theme is used to generate host names for the
+      -- stack's instances. By default, HostnameTheme is set to
+      -- Layer_Dependent, which creates host names by appending integers
+      -- to the layer's short name. The other themes are: Baked_Goods
+      -- Clouds European_Cities Fruits Greek_Deities
+      -- Legendary_Creatures_from_Japan Planets_and_Moons Roman_Deities
+      -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host
+      -- name, call GetHostNameSuggestion, which returns a host name based
+      -- on the current theme.
+    , _usrDefaultAvailabilityZone :: Maybe Text
+      -- ^ The stack's default Availability Zone, which must be in the
+      -- specified region. For more information, see Regions and
+      -- Endpoints. If you also specify a value for DefaultSubnetId, the
+      -- subnet must be in the same zone. For more information, see
+      -- CreateStack.
+    , _usrDefaultSubnetId :: Maybe Text
+      -- ^ The stack's default subnet ID. All instances will be launched
+      -- into this subnet unless you specify otherwise when you create the
+      -- instance. If you also specify a value for
+      -- DefaultAvailabilityZone, the subnet must be in that zone. For
+      -- more information, see CreateStack.
+    , _usrCustomJson :: Maybe Text
+      -- ^ A string that contains user-defined, custom JSON. It is used to
+      -- override the corresponding default stack configuration JSON
+      -- values. The string should be in the following format and must
+      -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
+      -- \"value2\",...}" For more information on custom JSON, see Use
+      -- Custom JSON to Modify the Stack Configuration JSON.
+    , _usrDefaultSshKeyName :: Maybe Text
+      -- ^ A default SSH key for the stack instances. You can override this
+      -- value when you create or update an instance.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateStack
+-- | The stack ID.
+usrStackId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrStackId f x =
+    (\y -> x { _usrStackId = y })
+       <$> f (_usrStackId x)
+{-# INLINE usrStackId #-}
+
+-- | Whether the stack uses custom cookbooks.
+usrUseCustomCookbooks
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateStack
+    -> f UpdateStack
+usrUseCustomCookbooks f x =
+    (\y -> x { _usrUseCustomCookbooks = y })
+       <$> f (_usrUseCustomCookbooks x)
+{-# INLINE usrUseCustomCookbooks #-}
+
+-- | Whether to associate the AWS OpsWorks built-in security groups with the
+-- stack's layers. AWS OpsWorks provides a standard set of built-in security
+-- groups, one for each layer, which are associated with layers by default.
+-- UseOpsworksSecurityGroups allows you to instead provide your own custom
+-- security groups. UseOpsworksSecurityGroups has the following settings: True
+-- - AWS OpsWorks automatically associates the appropriate built-in security
+-- group with each layer (default setting). You can associate additional
+-- security groups with a layer after you create it but you cannot delete the
+-- built-in security group. False - AWS OpsWorks does not associate built-in
+-- security groups with layers. You must create appropriate EC2 security
+-- groups and associate a security group with each layer that you create.
+-- However, you can still manually associate a built-in security group with a
+-- layer on creation; custom security groups are required only for those
+-- layers that need custom settings. For more information, see Create a New
+-- Stack.
+usrUseOpsworksSecurityGroups
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateStack
+    -> f UpdateStack
+usrUseOpsworksSecurityGroups f x =
+    (\y -> x { _usrUseOpsworksSecurityGroups = y })
+       <$> f (_usrUseOpsworksSecurityGroups x)
+{-# INLINE usrUseOpsworksSecurityGroups #-}
+
+-- | A ChefConfiguration object that specifies whether to enable Berkshelf and
+-- the Berkshelf version on Chef 11.10 stacks. For more information, see
+-- Create a New Stack.
+usrChefConfiguration
+    :: Functor f
+    => (Maybe ChefConfiguration
+    -> f (Maybe ChefConfiguration))
+    -> UpdateStack
+    -> f UpdateStack
+usrChefConfiguration f x =
+    (\y -> x { _usrChefConfiguration = y })
+       <$> f (_usrChefConfiguration x)
+{-# INLINE usrChefConfiguration #-}
+
+-- | The default root device type. This value is used by default for all
+-- instances in the stack, but you can override it when you create an
+-- instance. For more information, see Storage for the Root Device.
+usrDefaultRootDeviceType
+    :: Functor f
+    => (Maybe RootDeviceType
+    -> f (Maybe RootDeviceType))
+    -> UpdateStack
+    -> f UpdateStack
+usrDefaultRootDeviceType f x =
+    (\y -> x { _usrDefaultRootDeviceType = y })
+       <$> f (_usrDefaultRootDeviceType x)
+{-# INLINE usrDefaultRootDeviceType #-}
+
+-- | Contains the information required to retrieve an app or cookbook from a
+-- repository. For more information, see Creating Apps or Custom Recipes and
+-- Cookbooks.
+usrCustomCookbooksSource
+    :: Functor f
+    => (Maybe Source
+    -> f (Maybe Source))
+    -> UpdateStack
+    -> f UpdateStack
+usrCustomCookbooksSource f x =
+    (\y -> x { _usrCustomCookbooksSource = y })
+       <$> f (_usrCustomCookbooksSource x)
+{-# INLINE usrCustomCookbooksSource #-}
+
+-- | One or more user-defined key/value pairs to be added to the stack
+-- attributes.
+usrAttributes
+    :: Functor f
+    => (Map StackAttributesKeys Text
+    -> f (Map StackAttributesKeys Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrAttributes f x =
+    (\y -> x { _usrAttributes = y })
+       <$> f (_usrAttributes x)
+{-# INLINE usrAttributes #-}
+
+-- | The configuration manager. When you clone a stack we recommend that you use
+-- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
+-- The default value is currently 11.4.
+usrConfigurationManager
+    :: Functor f
+    => (Maybe StackConfigurationManager
+    -> f (Maybe StackConfigurationManager))
+    -> UpdateStack
+    -> f UpdateStack
+usrConfigurationManager f x =
+    (\y -> x { _usrConfigurationManager = y })
+       <$> f (_usrConfigurationManager x)
+{-# INLINE usrConfigurationManager #-}
+
+-- | The stack's new name.
+usrName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrName f x =
+    (\y -> x { _usrName = y })
+       <$> f (_usrName x)
+{-# INLINE usrName #-}
+
+-- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
+-- OpsWorks to work with AWS resources on your behalf. You must set this
+-- parameter to the Amazon Resource Name (ARN) for an existing IAM role. For
+-- more information about IAM ARNs, see Using Identifiers. You must set this
+-- parameter to a valid service role ARN or the action will fail; there is no
+-- default value. You can specify the stack's current service role ARN, if you
+-- prefer, but you must do so explicitly.
+usrServiceRoleArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrServiceRoleArn f x =
+    (\y -> x { _usrServiceRoleArn = y })
+       <$> f (_usrServiceRoleArn x)
+{-# INLINE usrServiceRoleArn #-}
+
+-- | The ARN of an IAM profile that is the default profile for all of the
+-- stack's EC2 instances. For more information about IAM ARNs, see Using
+-- Identifiers.
+usrDefaultInstanceProfileArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrDefaultInstanceProfileArn f x =
+    (\y -> x { _usrDefaultInstanceProfileArn = y })
+       <$> f (_usrDefaultInstanceProfileArn x)
+{-# INLINE usrDefaultInstanceProfileArn #-}
+
+-- | The stack's default operating system, which must be set to Amazon Linux or
+-- Ubuntu 12.04 LTS. The default option is Amazon Linux.
+usrDefaultOs
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrDefaultOs f x =
+    (\y -> x { _usrDefaultOs = y })
+       <$> f (_usrDefaultOs x)
+{-# INLINE usrDefaultOs #-}
+
+-- | The stack's new host name theme, with spaces are replaced by underscores.
+-- The theme is used to generate host names for the stack's instances. By
+-- default, HostnameTheme is set to Layer_Dependent, which creates host names
+-- by appending integers to the layer's short name. The other themes are:
+-- Baked_Goods Clouds European_Cities Fruits Greek_Deities
+-- Legendary_Creatures_from_Japan Planets_and_Moons Roman_Deities
+-- Scottish_Islands US_Cities Wild_Cats To obtain a generated host name, call
+-- GetHostNameSuggestion, which returns a host name based on the current
+-- theme.
+usrHostnameTheme
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrHostnameTheme f x =
+    (\y -> x { _usrHostnameTheme = y })
+       <$> f (_usrHostnameTheme x)
+{-# INLINE usrHostnameTheme #-}
+
+-- | The stack's default Availability Zone, which must be in the specified
+-- region. For more information, see Regions and Endpoints. If you also
+-- specify a value for DefaultSubnetId, the subnet must be in the same zone.
+-- For more information, see CreateStack.
+usrDefaultAvailabilityZone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrDefaultAvailabilityZone f x =
+    (\y -> x { _usrDefaultAvailabilityZone = y })
+       <$> f (_usrDefaultAvailabilityZone x)
+{-# INLINE usrDefaultAvailabilityZone #-}
+
+-- | The stack's default subnet ID. All instances will be launched into this
+-- subnet unless you specify otherwise when you create the instance. If you
+-- also specify a value for DefaultAvailabilityZone, the subnet must be in
+-- that zone. For more information, see CreateStack.
+usrDefaultSubnetId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrDefaultSubnetId f x =
+    (\y -> x { _usrDefaultSubnetId = y })
+       <$> f (_usrDefaultSubnetId x)
+{-# INLINE usrDefaultSubnetId #-}
+
+-- | A string that contains user-defined, custom JSON. It is used to override
+-- the corresponding default stack configuration JSON values. The string
+-- should be in the following format and must escape characters such as '"'.:
+-- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
+-- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
+usrCustomJson
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrCustomJson f x =
+    (\y -> x { _usrCustomJson = y })
+       <$> f (_usrCustomJson x)
+{-# INLINE usrCustomJson #-}
+
+-- | A default SSH key for the stack instances. You can override this value when
+-- you create or update an instance.
+usrDefaultSshKeyName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usrDefaultSshKeyName f x =
+    (\y -> x { _usrDefaultSshKeyName = y })
+       <$> f (_usrDefaultSshKeyName x)
+{-# INLINE usrDefaultSshKeyName #-}
 
 instance ToPath UpdateStack
 
@@ -161,8 +440,6 @@ instance ToJSON UpdateStack
 
 data UpdateStackResponse = UpdateStackResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateStackResponse
 
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks

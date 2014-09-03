@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,12 +37,10 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
     (
     -- * Request
       CreateVpnConnectionRoute
-    -- ** Default constructor
+    -- ** Request constructor
     , createVpnConnectionRoute
-    -- ** Accessors and lenses
-    , _cvcrrVpnConnectionId
+    -- ** Request lenses
     , cvcrrVpnConnectionId
-    , _cvcrrDestinationCidrBlock
     , cvcrrDestinationCidrBlock
 
     -- * Response
@@ -64,8 +61,36 @@ createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     }
 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
+    { _cvcrrVpnConnectionId :: Text
+      -- ^ The ID of the VPN connection.
+    , _cvcrrDestinationCidrBlock :: Text
+      -- ^ The CIDR block associated with the local subnet of the customer
+      -- network.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpnConnectionRoute
+-- | The ID of the VPN connection.
+cvcrrVpnConnectionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVpnConnectionRoute
+    -> f CreateVpnConnectionRoute
+cvcrrVpnConnectionId f x =
+    (\y -> x { _cvcrrVpnConnectionId = y })
+       <$> f (_cvcrrVpnConnectionId x)
+{-# INLINE cvcrrVpnConnectionId #-}
+
+-- | The CIDR block associated with the local subnet of the customer network.
+cvcrrDestinationCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVpnConnectionRoute
+    -> f CreateVpnConnectionRoute
+cvcrrDestinationCidrBlock f x =
+    (\y -> x { _cvcrrDestinationCidrBlock = y })
+       <$> f (_cvcrrDestinationCidrBlock x)
+{-# INLINE cvcrrDestinationCidrBlock #-}
 
 instance ToQuery CreateVpnConnectionRoute where
     toQuery = genericQuery def
@@ -73,17 +98,9 @@ instance ToQuery CreateVpnConnectionRoute where
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''CreateVpnConnectionRouteResponse
-
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse
 
     request = post "CreateVpnConnectionRoute"
     response _ = nullaryResponse CreateVpnConnectionRouteResponse
-
--- | The ID of the VPN connection.
-cvcrrVpnConnectionId :: Lens' CreateVpnConnectionRoute (Text)
-
--- | The CIDR block associated with the local subnet of the customer network.
-cvcrrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute (Text)

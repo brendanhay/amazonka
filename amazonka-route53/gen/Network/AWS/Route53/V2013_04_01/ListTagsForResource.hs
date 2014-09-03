@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,11 +17,34 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53.V2013_04_01.ListTagsForResource where
+module Network.AWS.Route53.V2013_04_01.ListTagsForResource
+    (
+    -- * Request
+      ListTagsForResource
+    -- ** Request constructor
+    , listTagsForResource
+    -- ** Request lenses
+    , ltfrrResourceId
+    , ltfrrResourceType
+
+    -- * Response
+    , ListTagsForResourceResponse
+    -- ** Response lenses
+    , ltfrsResourceTagSet
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ListTagsForResource' request.
+listTagsForResource :: Text -- ^ 'ltfrrResourceId'
+                    -> TagResourceType -- ^ 'ltfrrResourceType'
+                    -> ListTagsForResource
+listTagsForResource p1 p2 = ListTagsForResource
+    { _ltfrrResourceId = p1
+    , _ltfrrResourceType = p2
+    }
 
 data ListTagsForResource = ListTagsForResource
     { _ltfrrResourceId :: Text
@@ -32,7 +54,30 @@ data ListTagsForResource = ListTagsForResource
       -- healthcheck.
     } deriving (Show, Generic)
 
-makeLenses ''ListTagsForResource
+-- | The ID of the resource for which you want to retrieve tags.
+ltfrrResourceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListTagsForResource
+    -> f ListTagsForResource
+ltfrrResourceId f x =
+    (\y -> x { _ltfrrResourceId = y })
+       <$> f (_ltfrrResourceId x)
+{-# INLINE ltfrrResourceId #-}
+
+-- | The type of the resource. The resource type for health checks is
+-- healthcheck.
+ltfrrResourceType
+    :: Functor f
+    => (TagResourceType
+    -> f (TagResourceType))
+    -> ListTagsForResource
+    -> f ListTagsForResource
+ltfrrResourceType f x =
+    (\y -> x { _ltfrrResourceType = y })
+       <$> f (_ltfrrResourceType x)
+{-# INLINE ltfrrResourceType #-}
 
 instance ToPath ListTagsForResource where
     toPath ListTagsForResource{..} = mconcat
@@ -56,7 +101,17 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse
       -- resource.
     } deriving (Show, Generic)
 
-makeLenses ''ListTagsForResourceResponse
+-- | A ResourceTagSet containing tags associated with the specified resource.
+ltfrsResourceTagSet
+    :: Functor f
+    => (ResourceTagSet
+    -> f (ResourceTagSet))
+    -> ListTagsForResourceResponse
+    -> f ListTagsForResourceResponse
+ltfrsResourceTagSet f x =
+    (\y -> x { _ltfrsResourceTagSet = y })
+       <$> f (_ltfrsResourceTagSet x)
+{-# INLINE ltfrsResourceTagSet #-}
 
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions

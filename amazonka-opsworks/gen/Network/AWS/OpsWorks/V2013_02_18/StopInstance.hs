@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,19 +25,47 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.StopInstance where
+module Network.AWS.OpsWorks.V2013_02_18.StopInstance
+    (
+    -- * Request
+      StopInstance
+    -- ** Request constructor
+    , stopInstance
+    -- ** Request lenses
+    , sisInstanceId
+
+    -- * Response
+    , StopInstanceResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'StopInstance' request.
+stopInstance :: Text -- ^ 'sisInstanceId'
+             -> StopInstance
+stopInstance p1 = StopInstance
+    { _sisInstanceId = p1
+    }
+
 data StopInstance = StopInstance
-    { _sirInstanceId :: Text
+    { _sisInstanceId :: Text
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''StopInstance
+-- | The instance ID.
+sisInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StopInstance
+    -> f StopInstance
+sisInstanceId f x =
+    (\y -> x { _sisInstanceId = y })
+       <$> f (_sisInstanceId x)
+{-# INLINE sisInstanceId #-}
 
 instance ToPath StopInstance
 
@@ -50,8 +77,6 @@ instance ToJSON StopInstance
 
 data StopInstanceResponse = StopInstanceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''StopInstanceResponse
 
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks

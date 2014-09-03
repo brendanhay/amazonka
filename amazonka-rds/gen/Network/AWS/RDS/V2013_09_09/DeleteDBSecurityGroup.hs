@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,14 +23,32 @@
 -- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &Timestamp=2011-02-15T17%3A48%3A21.746Z &AWSAccessKeyId= &Signature=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
-module Network.AWS.RDS.V2013_09_09.DeleteDBSecurityGroup where
+module Network.AWS.RDS.V2013_09_09.DeleteDBSecurityGroup
+    (
+    -- * Request
+      DeleteDBSecurityGroup
+    -- ** Request constructor
+    , deleteDBSecurityGroup
+    -- ** Request lenses
+    , ddbsgmDBSecurityGroupName
+
+    -- * Response
+    , DeleteDBSecurityGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteDBSecurityGroup' request.
+deleteDBSecurityGroup :: Text -- ^ 'ddbsgmDBSecurityGroupName'
+                      -> DeleteDBSecurityGroup
+deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
+    { _ddbsgmDBSecurityGroupName = p1
+    }
+
 data DeleteDBSecurityGroup = DeleteDBSecurityGroup
-    { _ddbsgoDBSecurityGroupName :: Text
+    { _ddbsgmDBSecurityGroupName :: Text
       -- ^ The name of the DB security group to delete. You cannot delete
       -- the default DB security group. Constraints: Must be 1 to 255
       -- alphanumeric characters First character must be a letter Cannot
@@ -39,15 +56,26 @@ data DeleteDBSecurityGroup = DeleteDBSecurityGroup
       -- "Default" May not contain spaces.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBSecurityGroup
+-- | The name of the DB security group to delete. You cannot delete the default
+-- DB security group. Constraints: Must be 1 to 255 alphanumeric characters
+-- First character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens Must not be "Default" May not contain spaces.
+ddbsgmDBSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDBSecurityGroup
+    -> f DeleteDBSecurityGroup
+ddbsgmDBSecurityGroupName f x =
+    (\y -> x { _ddbsgmDBSecurityGroupName = y })
+       <$> f (_ddbsgmDBSecurityGroupName x)
+{-# INLINE ddbsgmDBSecurityGroupName #-}
 
 instance ToQuery DeleteDBSecurityGroup where
     toQuery = genericQuery def
 
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteDBSecurityGroupResponse
 
 instance AWSRequest DeleteDBSecurityGroup where
     type Sv DeleteDBSecurityGroup = RDS

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,10 +30,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway
     (
     -- * Request
       DeleteCustomerGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteCustomerGateway
-    -- ** Accessors and lenses
-    , _dcgrCustomerGatewayId
+    -- ** Request lenses
     , dcgrCustomerGatewayId
 
     -- * Response
@@ -53,8 +51,21 @@ deleteCustomerGateway p1 = DeleteCustomerGateway
     }
 
 data DeleteCustomerGateway = DeleteCustomerGateway
+    { _dcgrCustomerGatewayId :: Text
+      -- ^ The ID of the customer gateway.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteCustomerGateway
+-- | The ID of the customer gateway.
+dcgrCustomerGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteCustomerGateway
+    -> f DeleteCustomerGateway
+dcgrCustomerGatewayId f x =
+    (\y -> x { _dcgrCustomerGatewayId = y })
+       <$> f (_dcgrCustomerGatewayId x)
+{-# INLINE dcgrCustomerGatewayId #-}
 
 instance ToQuery DeleteCustomerGateway where
     toQuery = genericQuery def
@@ -62,14 +73,9 @@ instance ToQuery DeleteCustomerGateway where
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteCustomerGatewayResponse
-
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
     request = post "DeleteCustomerGateway"
     response _ = nullaryResponse DeleteCustomerGatewayResponse
-
--- | The ID of the customer gateway.
-dcgrCustomerGatewayId :: Lens' DeleteCustomerGateway (Text)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,14 +18,26 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete a streaming distribution.
-module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution where
+module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
+    (
+    -- * Request
+      DeleteStreamingDistribution
+    -- ** Request constructor
+    , deleteStreamingDistribution
+    -- ** Request lenses
+    , dsdrId
+    , dsdrIfMatch
+
+    -- * Response
+    , DeleteStreamingDistributionResponse
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteStreamingDistribution' request.
-deleteStreamingDistribution :: Text -- ^ '_dsdrId'
+deleteStreamingDistribution :: Text -- ^ 'dsdrId'
                             -> DeleteStreamingDistribution
 deleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdrId = p1
@@ -41,7 +52,30 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
       -- streaming distribution. For example: E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteStreamingDistribution
+-- | The distribution id.
+dsdrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteStreamingDistribution
+    -> f DeleteStreamingDistribution
+dsdrId f x =
+    (\y -> x { _dsdrId = y })
+       <$> f (_dsdrId x)
+{-# INLINE dsdrId #-}
+
+-- | The value of the ETag header you received when you disabled the streaming
+-- distribution. For example: E2QWRUHAPOMQZL.
+dsdrIfMatch
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteStreamingDistribution
+    -> f DeleteStreamingDistribution
+dsdrIfMatch f x =
+    (\y -> x { _dsdrIfMatch = y })
+       <$> f (_dsdrIfMatch x)
+{-# INLINE dsdrIfMatch #-}
 
 instance ToPath DeleteStreamingDistribution where
     toPath DeleteStreamingDistribution{..} = mconcat
@@ -62,8 +96,6 @@ instance ToXML DeleteStreamingDistribution where
 
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteStreamingDistributionResponse
 
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,11 +34,34 @@
 -- us-east-1b 2014-04-01T19:04:12.812Z 1.4.17 true wed:09:00-wed:10:00
 -- https://console.aws.amazon.com/elasticache/home#client-download: default
 -- active 3 cf7e6fc4-b9d1-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster where
+module Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster
+    (
+    -- * Request
+      RebootCacheCluster
+    -- ** Request constructor
+    , rebootCacheCluster
+    -- ** Request lenses
+    , rccmCacheNodeIdsToReboot
+    , rccmCacheClusterId
+
+    -- * Response
+    , RebootCacheClusterResponse
+    -- ** Response lenses
+    , cczCacheCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RebootCacheCluster' request.
+rebootCacheCluster :: [Text] -- ^ 'rccmCacheNodeIdsToReboot'
+                   -> Text -- ^ 'rccmCacheClusterId'
+                   -> RebootCacheCluster
+rebootCacheCluster p1 p2 = RebootCacheCluster
+    { _rccmCacheNodeIdsToReboot = p1
+    , _rccmCacheClusterId = p2
+    }
 
 data RebootCacheCluster = RebootCacheCluster
     { _rccmCacheNodeIdsToReboot :: [Text]
@@ -51,17 +73,52 @@ data RebootCacheCluster = RebootCacheCluster
       -- lowercase string.
     } deriving (Show, Generic)
 
-makeLenses ''RebootCacheCluster
+-- | A list of cache node IDs to reboot. A node ID is a numeric identifier
+-- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the
+-- cache node IDs.
+rccmCacheNodeIdsToReboot
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RebootCacheCluster
+    -> f RebootCacheCluster
+rccmCacheNodeIdsToReboot f x =
+    (\y -> x { _rccmCacheNodeIdsToReboot = y })
+       <$> f (_rccmCacheNodeIdsToReboot x)
+{-# INLINE rccmCacheNodeIdsToReboot #-}
+
+-- | The cache cluster identifier. This parameter is stored as a lowercase
+-- string.
+rccmCacheClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RebootCacheCluster
+    -> f RebootCacheCluster
+rccmCacheClusterId f x =
+    (\y -> x { _rccmCacheClusterId = y })
+       <$> f (_rccmCacheClusterId x)
+{-# INLINE rccmCacheClusterId #-}
 
 instance ToQuery RebootCacheCluster where
     toQuery = genericQuery def
 
 data RebootCacheClusterResponse = RebootCacheClusterResponse
-    { _ccxCacheCluster :: Maybe CacheCluster
+    { _cczCacheCluster :: Maybe CacheCluster
       -- ^ Contains all of the attributes of a specific cache cluster.
     } deriving (Show, Generic)
 
-makeLenses ''RebootCacheClusterResponse
+-- | Contains all of the attributes of a specific cache cluster.
+cczCacheCluster
+    :: Functor f
+    => (Maybe CacheCluster
+    -> f (Maybe CacheCluster))
+    -> RebootCacheClusterResponse
+    -> f RebootCacheClusterResponse
+cczCacheCluster f x =
+    (\y -> x { _cczCacheCluster = y })
+       <$> f (_cczCacheCluster x)
+{-# INLINE cczCacheCluster #-}
 
 instance FromXML RebootCacheClusterResponse where
     fromXMLOptions = xmlOptions

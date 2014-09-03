@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,11 +18,34 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The CopySnapshot operation makes a copy of an existing snapshot.
-module Network.AWS.ElastiCache.V2014_07_15.CopySnapshot where
+module Network.AWS.ElastiCache.V2014_07_15.CopySnapshot
+    (
+    -- * Request
+      CopySnapshot
+    -- ** Request constructor
+    , copySnapshot
+    -- ** Request lenses
+    , csmSourceSnapshotName
+    , csmTargetSnapshotName
+
+    -- * Response
+    , CopySnapshotResponse
+    -- ** Response lenses
+    , swSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CopySnapshot' request.
+copySnapshot :: Text -- ^ 'csmSourceSnapshotName'
+             -> Text -- ^ 'csmTargetSnapshotName'
+             -> CopySnapshot
+copySnapshot p1 p2 = CopySnapshot
+    { _csmSourceSnapshotName = p1
+    , _csmTargetSnapshotName = p2
+    }
 
 data CopySnapshot = CopySnapshot
     { _csmSourceSnapshotName :: Text
@@ -32,18 +54,51 @@ data CopySnapshot = CopySnapshot
       -- ^ A name for the copied snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''CopySnapshot
+-- | The name of an existing snapshot from which to copy.
+csmSourceSnapshotName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CopySnapshot
+    -> f CopySnapshot
+csmSourceSnapshotName f x =
+    (\y -> x { _csmSourceSnapshotName = y })
+       <$> f (_csmSourceSnapshotName x)
+{-# INLINE csmSourceSnapshotName #-}
+
+-- | A name for the copied snapshot.
+csmTargetSnapshotName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CopySnapshot
+    -> f CopySnapshot
+csmTargetSnapshotName f x =
+    (\y -> x { _csmTargetSnapshotName = y })
+       <$> f (_csmTargetSnapshotName x)
+{-# INLINE csmTargetSnapshotName #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
 data CopySnapshotResponse = CopySnapshotResponse
-    { _sssssssssssssssrSnapshot :: Maybe Snapshot
+    { _swSnapshot :: Maybe Snapshot
       -- ^ Represents a copy of an entire cache cluster as of the time when
       -- the snapshot was taken.
     } deriving (Show, Generic)
 
-makeLenses ''CopySnapshotResponse
+-- | Represents a copy of an entire cache cluster as of the time when the
+-- snapshot was taken.
+swSnapshot
+    :: Functor f
+    => (Maybe Snapshot
+    -> f (Maybe Snapshot))
+    -> CopySnapshotResponse
+    -> f CopySnapshotResponse
+swSnapshot f x =
+    (\y -> x { _swSnapshot = y })
+       <$> f (_swSnapshot x)
+{-# INLINE swSnapshot #-}
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions

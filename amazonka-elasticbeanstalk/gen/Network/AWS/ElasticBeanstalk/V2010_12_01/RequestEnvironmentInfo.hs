@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,14 +26,27 @@
 -- &EnvironmentName=SampleAppVersion &InfoType=tail
 -- &Operation=RequestEnvironmentInfo &AuthParams
 -- 126a4ff3-f28a-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo
+    (
+    -- * Request
+      RequestEnvironmentInfo
+    -- ** Request constructor
+    , requestEnvironmentInfo
+    -- ** Request lenses
+    , reimInfoType
+    , reimEnvironmentId
+    , reimEnvironmentName
+
+    -- * Response
+    , RequestEnvironmentInfoResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RequestEnvironmentInfo' request.
-requestEnvironmentInfo :: EnvironmentInfoType -- ^ '_reimInfoType'
+requestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reimInfoType'
                        -> RequestEnvironmentInfo
 requestEnvironmentInfo p1 = RequestEnvironmentInfo
     { _reimInfoType = p1
@@ -60,15 +72,55 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
       -- AWS Elastic Beanstalk returns MissingRequiredParameter error.
     } deriving (Show, Generic)
 
-makeLenses ''RequestEnvironmentInfo
+-- | The type of information to request.
+reimInfoType
+    :: Functor f
+    => (EnvironmentInfoType
+    -> f (EnvironmentInfoType))
+    -> RequestEnvironmentInfo
+    -> f RequestEnvironmentInfo
+reimInfoType f x =
+    (\y -> x { _reimInfoType = y })
+       <$> f (_reimInfoType x)
+{-# INLINE reimInfoType #-}
+
+-- | The ID of the environment of the requested data. If no such environment is
+-- found, RequestEnvironmentInfo returns an InvalidParameterValue error.
+-- Condition: You must specify either this or an EnvironmentName, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- MissingRequiredParameter error.
+reimEnvironmentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RequestEnvironmentInfo
+    -> f RequestEnvironmentInfo
+reimEnvironmentId f x =
+    (\y -> x { _reimEnvironmentId = y })
+       <$> f (_reimEnvironmentId x)
+{-# INLINE reimEnvironmentId #-}
+
+-- | The name of the environment of the requested data. If no such environment
+-- is found, RequestEnvironmentInfo returns an InvalidParameterValue error.
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- MissingRequiredParameter error.
+reimEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RequestEnvironmentInfo
+    -> f RequestEnvironmentInfo
+reimEnvironmentName f x =
+    (\y -> x { _reimEnvironmentName = y })
+       <$> f (_reimEnvironmentName x)
+{-# INLINE reimEnvironmentName #-}
 
 instance ToQuery RequestEnvironmentInfo where
     toQuery = genericQuery def
 
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RequestEnvironmentInfoResponse
 
 instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk

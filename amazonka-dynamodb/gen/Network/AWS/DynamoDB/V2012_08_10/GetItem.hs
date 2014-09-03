@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,7 +33,25 @@
 -- "LastPostDateTime": { "S": "201303190436" }, "Message": { "S": "I want to
 -- update multiple items in a single API call. What's the best way to do
 -- that?" } } }.
-module Network.AWS.DynamoDB.V2012_08_10.GetItem where
+module Network.AWS.DynamoDB.V2012_08_10.GetItem
+    (
+    -- * Request
+      GetItem
+    -- ** Request constructor
+    , getItem
+    -- ** Request lenses
+    , giiKey
+    , giiTableName
+    , giiAttributesToGet
+    , giiConsistentRead
+    , giiReturnConsumedCapacity
+
+    -- * Response
+    , GetItemResponse
+    -- ** Response lenses
+    , gioItem
+    , gioConsumedCapacity
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -42,8 +59,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetItem' request.
-getItem :: Map Text AttributeValue -- ^ '_giiKey'
-        -> Text -- ^ '_giiTableName'
+getItem :: Map Text AttributeValue -- ^ 'giiKey'
+        -> Text -- ^ 'giiTableName'
         -> GetItem
 getItem p1 p2 = GetItem
     { _giiKey = p1
@@ -74,7 +91,72 @@ data GetItem = GetItem
       -- ConsumedCapacity is not included in the response.
     } deriving (Show, Generic)
 
-makeLenses ''GetItem
+-- | A map of attribute names to AttributeValue objects, representing the
+-- primary key of the item to retrieve.
+giiKey
+    :: Functor f
+    => (Map Text AttributeValue
+    -> f (Map Text AttributeValue))
+    -> GetItem
+    -> f GetItem
+giiKey f x =
+    (\y -> x { _giiKey = y })
+       <$> f (_giiKey x)
+{-# INLINE giiKey #-}
+
+-- | The name of the table containing the requested item.
+giiTableName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetItem
+    -> f GetItem
+giiTableName f x =
+    (\y -> x { _giiTableName = y })
+       <$> f (_giiTableName x)
+{-# INLINE giiTableName #-}
+
+-- | The names of one or more attributes to retrieve. If no attribute names are
+-- specified, then all attributes will be returned. If any of the requested
+-- attributes are not found, they will not appear in the result.
+giiAttributesToGet
+    :: Functor f
+    => (Maybe [Text]
+    -> f (Maybe [Text]))
+    -> GetItem
+    -> f GetItem
+giiAttributesToGet f x =
+    (\y -> x { _giiAttributesToGet = y })
+       <$> f (_giiAttributesToGet x)
+{-# INLINE giiAttributesToGet #-}
+
+-- | If set to true, then the operation uses strongly consistent reads;
+-- otherwise, eventually consistent reads are used.
+giiConsistentRead
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> GetItem
+    -> f GetItem
+giiConsistentRead f x =
+    (\y -> x { _giiConsistentRead = y })
+       <$> f (_giiConsistentRead x)
+{-# INLINE giiConsistentRead #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+giiReturnConsumedCapacity
+    :: Functor f
+    => (Maybe ReturnConsumedCapacity
+    -> f (Maybe ReturnConsumedCapacity))
+    -> GetItem
+    -> f GetItem
+giiReturnConsumedCapacity f x =
+    (\y -> x { _giiReturnConsumedCapacity = y })
+       <$> f (_giiReturnConsumedCapacity x)
+{-# INLINE giiReturnConsumedCapacity #-}
 
 instance ToPath GetItem
 
@@ -97,7 +179,34 @@ data GetItemResponse = GetItemResponse
       -- Throughput in the Amazon DynamoDB Developer Guide.
     } deriving (Show, Generic)
 
-makeLenses ''GetItemResponse
+-- | A map of attribute names to AttributeValue objects, as specified by
+-- AttributesToGet.
+gioItem
+    :: Functor f
+    => (Map Text AttributeValue
+    -> f (Map Text AttributeValue))
+    -> GetItemResponse
+    -> f GetItemResponse
+gioItem f x =
+    (\y -> x { _gioItem = y })
+       <$> f (_gioItem x)
+{-# INLINE gioItem #-}
+
+-- | Represents the capacity units consumed by an operation. The data returned
+-- includes the total provisioned throughput consumed, along with statistics
+-- for the table and any indexes involved in the operation. ConsumedCapacity
+-- is only returned if it was asked for in the request. For more information,
+-- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
+gioConsumedCapacity
+    :: Functor f
+    => (Maybe ConsumedCapacity
+    -> f (Maybe ConsumedCapacity))
+    -> GetItemResponse
+    -> f GetItemResponse
+gioConsumedCapacity f x =
+    (\y -> x { _gioConsumedCapacity = y })
+       <$> f (_gioConsumedCapacity x)
+{-# INLINE gioConsumedCapacity #-}
 
 instance FromJSON GetItemResponse
 

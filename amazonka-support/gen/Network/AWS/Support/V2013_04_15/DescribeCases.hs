@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,7 +25,29 @@
 -- in JSON format: One or more CaseDetails data types. One or more NextToken
 -- values, which specify where to paginate the returned records represented by
 -- the CaseDetails objects.
-module Network.AWS.Support.V2013_04_15.DescribeCases where
+module Network.AWS.Support.V2013_04_15.DescribeCases
+    (
+    -- * Request
+      DescribeCases
+    -- ** Request constructor
+    , describeCases
+    -- ** Request lenses
+    , dcrAfterTime
+    , dcrBeforeTime
+    , dcrCaseIdList
+    , dcrDisplayId
+    , dcrIncludeCommunications
+    , dcrIncludeResolvedCases
+    , dcrLanguage
+    , dcrMaxResults
+    , dcrNextToken
+
+    -- * Response
+    , DescribeCasesResponse
+    -- ** Response lenses
+    , dcsCases
+    , dcsNextToken
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
@@ -79,7 +100,120 @@ data DescribeCases = DescribeCases
       -- ^ A resumption point for pagination.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCases
+-- | The start date for a filtered date search on support case communications.
+-- Case communications are available for 12 months after creation.
+dcrAfterTime
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCases
+    -> f DescribeCases
+dcrAfterTime f x =
+    (\y -> x { _dcrAfterTime = y })
+       <$> f (_dcrAfterTime x)
+{-# INLINE dcrAfterTime #-}
+
+-- | The end date for a filtered date search on support case communications.
+-- Case communications are available for 12 months after creation.
+dcrBeforeTime
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCases
+    -> f DescribeCases
+dcrBeforeTime f x =
+    (\y -> x { _dcrBeforeTime = y })
+       <$> f (_dcrBeforeTime x)
+{-# INLINE dcrBeforeTime #-}
+
+-- | A list of ID numbers of the support cases you want returned. The maximum
+-- number of cases is 100.
+dcrCaseIdList
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeCases
+    -> f DescribeCases
+dcrCaseIdList f x =
+    (\y -> x { _dcrCaseIdList = y })
+       <$> f (_dcrCaseIdList x)
+{-# INLINE dcrCaseIdList #-}
+
+-- | The ID displayed for a case in the AWS Support Center user interface.
+dcrDisplayId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCases
+    -> f DescribeCases
+dcrDisplayId f x =
+    (\y -> x { _dcrDisplayId = y })
+       <$> f (_dcrDisplayId x)
+{-# INLINE dcrDisplayId #-}
+
+-- | Specifies whether communications should be included in the DescribeCases
+-- results. The default is true.
+dcrIncludeCommunications
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DescribeCases
+    -> f DescribeCases
+dcrIncludeCommunications f x =
+    (\y -> x { _dcrIncludeCommunications = y })
+       <$> f (_dcrIncludeCommunications x)
+{-# INLINE dcrIncludeCommunications #-}
+
+-- | Specifies whether resolved support cases should be included in the
+-- DescribeCases results. The default is false.
+dcrIncludeResolvedCases
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DescribeCases
+    -> f DescribeCases
+dcrIncludeResolvedCases f x =
+    (\y -> x { _dcrIncludeResolvedCases = y })
+       <$> f (_dcrIncludeResolvedCases x)
+{-# INLINE dcrIncludeResolvedCases #-}
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English ("en") and Japanese ("ja"). Language
+-- parameters must be passed explicitly for operations that take them.
+dcrLanguage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCases
+    -> f DescribeCases
+dcrLanguage f x =
+    (\y -> x { _dcrLanguage = y })
+       <$> f (_dcrLanguage x)
+{-# INLINE dcrLanguage #-}
+
+-- | The maximum number of results to return before paginating.
+dcrMaxResults
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeCases
+    -> f DescribeCases
+dcrMaxResults f x =
+    (\y -> x { _dcrMaxResults = y })
+       <$> f (_dcrMaxResults x)
+{-# INLINE dcrMaxResults #-}
+
+-- | A resumption point for pagination.
+dcrNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCases
+    -> f DescribeCases
+dcrNextToken f x =
+    (\y -> x { _dcrNextToken = y })
+       <$> f (_dcrNextToken x)
+{-# INLINE dcrNextToken #-}
 
 instance ToPath DescribeCases
 
@@ -96,7 +230,29 @@ data DescribeCasesResponse = DescribeCasesResponse
       -- ^ A resumption point for pagination.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCasesResponse
+-- | The details for the cases that match the request.
+dcsCases
+    :: Functor f
+    => ([CaseDetails]
+    -> f ([CaseDetails]))
+    -> DescribeCasesResponse
+    -> f DescribeCasesResponse
+dcsCases f x =
+    (\y -> x { _dcsCases = y })
+       <$> f (_dcsCases x)
+{-# INLINE dcsCases #-}
+
+-- | A resumption point for pagination.
+dcsNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCasesResponse
+    -> f DescribeCasesResponse
+dcsNextToken f x =
+    (\y -> x { _dcsNextToken = y })
+       <$> f (_dcsNextToken x)
+{-# INLINE dcsNextToken #-}
 
 instance FromJSON DescribeCasesResponse
 

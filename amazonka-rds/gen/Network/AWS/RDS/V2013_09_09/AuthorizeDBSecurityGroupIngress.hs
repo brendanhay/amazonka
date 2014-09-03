@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,35 +35,52 @@
 -- &AWSAccessKeyId= &Signature= My new DBSecurityGroup 192.168.1.1/24
 -- authorizing 621567473609 mydbsecuritygroup vpc-1ab2c3d4
 -- d9799197-bf2d-11de-b88d-993294bf1c81.
-module Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress where
+module Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress
+    (
+    -- * Request
+      AuthorizeDBSecurityGroupIngress
+    -- ** Request constructor
+    , authorizeDBSecurityGroupIngress
+    -- ** Request lenses
+    , adbsgimDBSecurityGroupName
+    , adbsgimCIDRIP
+    , adbsgimEC2SecurityGroupName
+    , adbsgimEC2SecurityGroupId
+    , adbsgimEC2SecurityGroupOwnerId
+
+    -- * Response
+    , AuthorizeDBSecurityGroupIngressResponse
+    -- ** Response lenses
+    , dbsgwDBSecurityGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AuthorizeDBSecurityGroupIngress' request.
-authorizeDBSecurityGroupIngress :: Text -- ^ '_adbsgimDBSecurityGroupName'
+authorizeDBSecurityGroupIngress :: Text -- ^ 'adbsgimDBSecurityGroupName'
                                 -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
     { _adbsgimDBSecurityGroupName = p1
-    , _adbsgimEC2SecurityGroupId = Nothing
     , _adbsgimCIDRIP = Nothing
     , _adbsgimEC2SecurityGroupName = Nothing
+    , _adbsgimEC2SecurityGroupId = Nothing
     , _adbsgimEC2SecurityGroupOwnerId = Nothing
     }
 
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     { _adbsgimDBSecurityGroupName :: Text
       -- ^ The name of the DB security group to add authorization to.
-    , _adbsgimEC2SecurityGroupId :: Maybe Text
-      -- ^ Id of the EC2 security group to authorize. For VPC DB security
-      -- groups, EC2SecurityGroupId must be provided. Otherwise,
-      -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
-      -- EC2SecurityGroupId must be provided.
     , _adbsgimCIDRIP :: Maybe Text
       -- ^ The IP range to authorize.
     , _adbsgimEC2SecurityGroupName :: Maybe Text
       -- ^ Name of the EC2 security group to authorize. For VPC DB security
+      -- groups, EC2SecurityGroupId must be provided. Otherwise,
+      -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
+      -- EC2SecurityGroupId must be provided.
+    , _adbsgimEC2SecurityGroupId :: Maybe Text
+      -- ^ Id of the EC2 security group to authorize. For VPC DB security
       -- groups, EC2SecurityGroupId must be provided. Otherwise,
       -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
       -- EC2SecurityGroupId must be provided.
@@ -77,13 +93,79 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
       -- EC2SecurityGroupId must be provided.
     } deriving (Show, Generic)
 
-makeLenses ''AuthorizeDBSecurityGroupIngress
+-- | The name of the DB security group to add authorization to.
+adbsgimDBSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AuthorizeDBSecurityGroupIngress
+    -> f AuthorizeDBSecurityGroupIngress
+adbsgimDBSecurityGroupName f x =
+    (\y -> x { _adbsgimDBSecurityGroupName = y })
+       <$> f (_adbsgimDBSecurityGroupName x)
+{-# INLINE adbsgimDBSecurityGroupName #-}
+
+-- | The IP range to authorize.
+adbsgimCIDRIP
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeDBSecurityGroupIngress
+    -> f AuthorizeDBSecurityGroupIngress
+adbsgimCIDRIP f x =
+    (\y -> x { _adbsgimCIDRIP = y })
+       <$> f (_adbsgimCIDRIP x)
+{-# INLINE adbsgimCIDRIP #-}
+
+-- | Name of the EC2 security group to authorize. For VPC DB security groups,
+-- EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
+-- either EC2SecurityGroupName or EC2SecurityGroupId must be provided.
+adbsgimEC2SecurityGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeDBSecurityGroupIngress
+    -> f AuthorizeDBSecurityGroupIngress
+adbsgimEC2SecurityGroupName f x =
+    (\y -> x { _adbsgimEC2SecurityGroupName = y })
+       <$> f (_adbsgimEC2SecurityGroupName x)
+{-# INLINE adbsgimEC2SecurityGroupName #-}
+
+-- | Id of the EC2 security group to authorize. For VPC DB security groups,
+-- EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
+-- either EC2SecurityGroupName or EC2SecurityGroupId must be provided.
+adbsgimEC2SecurityGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeDBSecurityGroupIngress
+    -> f AuthorizeDBSecurityGroupIngress
+adbsgimEC2SecurityGroupId f x =
+    (\y -> x { _adbsgimEC2SecurityGroupId = y })
+       <$> f (_adbsgimEC2SecurityGroupId x)
+{-# INLINE adbsgimEC2SecurityGroupId #-}
+
+-- | AWS Account Number of the owner of the EC2 security group specified in the
+-- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
+-- value. For VPC DB security groups, EC2SecurityGroupId must be provided.
+-- Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
+-- EC2SecurityGroupId must be provided.
+adbsgimEC2SecurityGroupOwnerId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeDBSecurityGroupIngress
+    -> f AuthorizeDBSecurityGroupIngress
+adbsgimEC2SecurityGroupOwnerId f x =
+    (\y -> x { _adbsgimEC2SecurityGroupOwnerId = y })
+       <$> f (_adbsgimEC2SecurityGroupOwnerId x)
+{-# INLINE adbsgimEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeDBSecurityGroupIngress where
     toQuery = genericQuery def
 
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
-    { _dbsgxDBSecurityGroup :: Maybe DBSecurityGroup
+    { _dbsgwDBSecurityGroup :: Maybe DBSecurityGroup
       -- ^ Contains the result of a successful invocation of the following
       -- actions: DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
       -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type
@@ -91,7 +173,20 @@ data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressRe
       -- action.
     } deriving (Show, Generic)
 
-makeLenses ''AuthorizeDBSecurityGroupIngressResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
+-- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
+-- as a response element in the DescribeDBSecurityGroups action.
+dbsgwDBSecurityGroup
+    :: Functor f
+    => (Maybe DBSecurityGroup
+    -> f (Maybe DBSecurityGroup))
+    -> AuthorizeDBSecurityGroupIngressResponse
+    -> f AuthorizeDBSecurityGroupIngressResponse
+dbsgwDBSecurityGroup f x =
+    (\y -> x { _dbsgwDBSecurityGroup = y })
+       <$> f (_dbsgwDBSecurityGroup x)
+{-# INLINE dbsgwDBSecurityGroup #-}
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

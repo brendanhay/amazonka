@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,27 @@
 -- &X-Amz-Credential= Cache cluster created cache-cluster
 -- 2014-04-01T18:22:18.202Z my-redis-primary (...output omitted...)
 -- e21c81b4-b9cd-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache.V2014_07_15.DescribeEvents where
+module Network.AWS.ElastiCache.V2014_07_15.DescribeEvents
+    (
+    -- * Request
+      DescribeEvents
+    -- ** Request constructor
+    , describeEvents
+    -- ** Request lenses
+    , demDuration
+    , demMaxRecords
+    , demSourceType
+    , demSourceIdentifier
+    , demMarker
+    , demStartTime
+    , demEndTime
+
+    -- * Response
+    , DescribeEventsResponse
+    -- ** Response lenses
+    , emEvents
+    , emMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
@@ -42,10 +61,10 @@ describeEvents = DescribeEvents
     { _demDuration = Nothing
     , _demMaxRecords = Nothing
     , _demSourceType = Nothing
-    , _demMarker = Nothing
     , _demSourceIdentifier = Nothing
-    , _demEndTime = Nothing
+    , _demMarker = Nothing
     , _demStartTime = Nothing
+    , _demEndTime = Nothing
     }
 
 data DescribeEvents = DescribeEvents
@@ -61,24 +80,117 @@ data DescribeEvents = DescribeEvents
       -- specified, all events are returned. Valid values are:
       -- cache-cluster | cache-parameter-group | cache-security-group |
       -- cache-subnet-group.
+    , _demSourceIdentifier :: Maybe Text
+      -- ^ The identifier of the event source for which events will be
+      -- returned. If not specified, then all sources are included in the
+      -- response.
     , _demMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _demSourceIdentifier :: Maybe Text
-      -- ^ The identifier of the event source for which events will be
-      -- returned. If not specified, then all sources are included in the
-      -- response.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
-      -- specified in ISO 8601 format.
     , _demStartTime :: Maybe ISO8601
       -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format.
+    , _demEndTime :: Maybe ISO8601
+      -- ^ The end of the time interval for which to retrieve events,
+      -- specified in ISO 8601 format.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEvents
+-- | The number of minutes' worth of events to retrieve.
+demDuration
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+demDuration f x =
+    (\y -> x { _demDuration = y })
+       <$> f (_demDuration x)
+{-# INLINE demDuration #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a marker is included in the
+-- response so that the remaining results can be retrieved. Default: 100
+-- Constraints: minimum 20; maximum 100.
+demMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+demMaxRecords f x =
+    (\y -> x { _demMaxRecords = y })
+       <$> f (_demMaxRecords x)
+{-# INLINE demMaxRecords #-}
+
+-- | The event source to retrieve events for. If no value is specified, all
+-- events are returned. Valid values are: cache-cluster |
+-- cache-parameter-group | cache-security-group | cache-subnet-group.
+demSourceType
+    :: Functor f
+    => (Maybe SourceType
+    -> f (Maybe SourceType))
+    -> DescribeEvents
+    -> f DescribeEvents
+demSourceType f x =
+    (\y -> x { _demSourceType = y })
+       <$> f (_demSourceType x)
+{-# INLINE demSourceType #-}
+
+-- | The identifier of the event source for which events will be returned. If
+-- not specified, then all sources are included in the response.
+demSourceIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+demSourceIdentifier f x =
+    (\y -> x { _demSourceIdentifier = y })
+       <$> f (_demSourceIdentifier x)
+{-# INLINE demSourceIdentifier #-}
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+demMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+demMarker f x =
+    (\y -> x { _demMarker = y })
+       <$> f (_demMarker x)
+{-# INLINE demMarker #-}
+
+-- | The beginning of the time interval to retrieve events for, specified in ISO
+-- 8601 format.
+demStartTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+demStartTime f x =
+    (\y -> x { _demStartTime = y })
+       <$> f (_demStartTime x)
+{-# INLINE demStartTime #-}
+
+-- | The end of the time interval for which to retrieve events, specified in ISO
+-- 8601 format.
+demEndTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+demEndTime f x =
+    (\y -> x { _demEndTime = y })
+       <$> f (_demEndTime x)
+{-# INLINE demEndTime #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
@@ -91,7 +203,30 @@ data DescribeEventsResponse = DescribeEventsResponse
       -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventsResponse
+-- | A list of events. Each element in the list contains detailed information
+-- about one event.
+emEvents
+    :: Functor f
+    => ([Event]
+    -> f ([Event]))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+emEvents f x =
+    (\y -> x { _emEvents = y })
+       <$> f (_emEvents x)
+{-# INLINE emEvents #-}
+
+-- | Provides an identifier to allow retrieval of paginated results.
+emMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+emMarker f x =
+    (\y -> x { _emMarker = y })
+       <$> f (_emMarker x)
+{-# INLINE emMarker #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

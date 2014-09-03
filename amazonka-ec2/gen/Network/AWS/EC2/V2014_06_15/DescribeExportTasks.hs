@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -42,16 +41,14 @@ module Network.AWS.EC2.V2014_06_15.DescribeExportTasks
     (
     -- * Request
       DescribeExportTasks
-    -- ** Default constructor
+    -- ** Request constructor
     , describeExportTasks
-    -- ** Accessors and lenses
-    , _detrExportTaskIds
+    -- ** Request lenses
     , detrExportTaskIds
 
     -- * Response
     , DescribeExportTasksResponse
-    -- ** Accessors and lenses
-    , _detsExportTasks
+    -- ** Response lenses
     , detsExportTasks
     ) where
 
@@ -66,8 +63,21 @@ describeExportTasks = DescribeExportTasks
     }
 
 data DescribeExportTasks = DescribeExportTasks
+    { _detrExportTaskIds :: [Text]
+      -- ^ One or more export task IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeExportTasks
+-- | One or more export task IDs.
+detrExportTaskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeExportTasks
+    -> f DescribeExportTasks
+detrExportTaskIds f x =
+    (\y -> x { _detrExportTaskIds = y })
+       <$> f (_detrExportTaskIds x)
+{-# INLINE detrExportTaskIds #-}
 
 instance ToQuery DescribeExportTasks where
     toQuery = genericQuery def
@@ -77,7 +87,17 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeExportTasksResponse
+-- | 
+detsExportTasks
+    :: Functor f
+    => ([ExportTask]
+    -> f ([ExportTask]))
+    -> DescribeExportTasksResponse
+    -> f DescribeExportTasksResponse
+detsExportTasks f x =
+    (\y -> x { _detsExportTasks = y })
+       <$> f (_detsExportTasks x)
+{-# INLINE detsExportTasks #-}
 
 instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions
@@ -88,9 +108,3 @@ instance AWSRequest DescribeExportTasks where
 
     request = post "DescribeExportTasks"
     response _ = xmlResponse
-
--- | One or more export task IDs.
-detrExportTaskIds :: Lens' DescribeExportTasks ([Text])
-
--- | 
-detsExportTasks :: Lens' DescribeExportTasksResponse ([ExportTask])

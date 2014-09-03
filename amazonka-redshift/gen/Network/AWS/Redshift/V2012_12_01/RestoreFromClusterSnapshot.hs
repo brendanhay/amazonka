@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,15 +37,44 @@
 -- false dev sun:06:30-sun:07:00 in-sync default.redshift-1.0 active default
 -- dw1.xlarge examplecluster-restored true adminuser
 -- 52a9aee8-6505-11e2-bec0-17624ad140dd.
-module Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot where
+module Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot
+    (
+    -- * Request
+      RestoreFromClusterSnapshot
+    -- ** Request constructor
+    , restoreFromClusterSnapshot
+    -- ** Request lenses
+    , rfcsmClusterIdentifier
+    , rfcsmSnapshotIdentifier
+    , rfcsmAllowVersionUpgrade
+    , rfcsmPubliclyAccessible
+    , rfcsmClusterSecurityGroups
+    , rfcsmPort
+    , rfcsmAutomatedSnapshotRetentionPeriod
+    , rfcsmSnapshotClusterIdentifier
+    , rfcsmAvailabilityZone
+    , rfcsmClusterSubnetGroupName
+    , rfcsmOwnerAccount
+    , rfcsmHsmClientCertificateIdentifier
+    , rfcsmHsmConfigurationIdentifier
+    , rfcsmElasticIp
+    , rfcsmClusterParameterGroupName
+    , rfcsmPreferredMaintenanceWindow
+    , rfcsmVpcSecurityGroupIds
+
+    -- * Response
+    , RestoreFromClusterSnapshotResponse
+    -- ** Response lenses
+    , ccyCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RestoreFromClusterSnapshot' request.
-restoreFromClusterSnapshot :: Text -- ^ '_rfcsmClusterIdentifier'
-                           -> Text -- ^ '_rfcsmSnapshotIdentifier'
+restoreFromClusterSnapshot :: Text -- ^ 'rfcsmClusterIdentifier'
+                           -> Text -- ^ 'rfcsmSnapshotIdentifier'
                            -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     { _rfcsmClusterIdentifier = p1
@@ -56,15 +84,15 @@ restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     , _rfcsmClusterSecurityGroups = mempty
     , _rfcsmPort = Nothing
     , _rfcsmAutomatedSnapshotRetentionPeriod = Nothing
-    , _rfcsmClusterParameterGroupName = Nothing
-    , _rfcsmOwnerAccount = Nothing
-    , _rfcsmAvailabilityZone = Nothing
-    , _rfcsmPreferredMaintenanceWindow = Nothing
-    , _rfcsmElasticIp = Nothing
-    , _rfcsmHsmClientCertificateIdentifier = Nothing
-    , _rfcsmClusterSubnetGroupName = Nothing
-    , _rfcsmHsmConfigurationIdentifier = Nothing
     , _rfcsmSnapshotClusterIdentifier = Nothing
+    , _rfcsmAvailabilityZone = Nothing
+    , _rfcsmClusterSubnetGroupName = Nothing
+    , _rfcsmOwnerAccount = Nothing
+    , _rfcsmHsmClientCertificateIdentifier = Nothing
+    , _rfcsmHsmConfigurationIdentifier = Nothing
+    , _rfcsmElasticIp = Nothing
+    , _rfcsmClusterParameterGroupName = Nothing
+    , _rfcsmPreferredMaintenanceWindow = Nothing
     , _rfcsmVpcSecurityGroupIds = mempty
     }
 
@@ -100,6 +128,34 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
       -- when you want with CreateClusterSnapshot. Default: The value
       -- selected for the cluster from which the snapshot was taken.
       -- Constraints: Must be a value from 0 to 35.
+    , _rfcsmSnapshotClusterIdentifier :: Maybe Text
+      -- ^ The name of the cluster the source snapshot was created from.
+      -- This parameter is required if your IAM user has a policy
+      -- containing a snapshot resource element that specifies anything
+      -- other than * for the cluster name.
+    , _rfcsmAvailabilityZone :: Maybe Text
+      -- ^ The Amazon EC2 Availability Zone in which to restore the cluster.
+      -- Default: A random, system-chosen Availability Zone. Example:
+      -- us-east-1a.
+    , _rfcsmClusterSubnetGroupName :: Maybe Text
+      -- ^ The name of the subnet group where you want to cluster restored.
+      -- A snapshot of cluster in VPC can be restored only in VPC.
+      -- Therefore, you must provide subnet group name where you want the
+      -- cluster restored.
+    , _rfcsmOwnerAccount :: Maybe Text
+      -- ^ The AWS customer account used to create or copy the snapshot.
+      -- Required if you are restoring a snapshot you do not own, optional
+      -- if you own the snapshot.
+    , _rfcsmHsmClientCertificateIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM client certificate the Amazon
+      -- Redshift cluster uses to retrieve the data encryption keys stored
+      -- in an HSM.
+    , _rfcsmHsmConfigurationIdentifier :: Maybe Text
+      -- ^ Specifies the name of the HSM configuration that contains the
+      -- information the Amazon Redshift cluster can use to retrieve and
+      -- store keys in an HSM.
+    , _rfcsmElasticIp :: Maybe Text
+      -- ^ The elastic IP (EIP) address for the cluster.
     , _rfcsmClusterParameterGroupName :: Maybe Text
       -- ^ The name of the parameter group to be associated with this
       -- cluster. Default: The default Amazon Redshift cluster parameter
@@ -108,14 +164,6 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
       -- be 1 to 255 alphanumeric characters or hyphens. First character
       -- must be a letter. Cannot end with a hyphen or contain two
       -- consecutive hyphens.
-    , _rfcsmOwnerAccount :: Maybe Text
-      -- ^ The AWS customer account used to create or copy the snapshot.
-      -- Required if you are restoring a snapshot you do not own, optional
-      -- if you own the snapshot.
-    , _rfcsmAvailabilityZone :: Maybe Text
-      -- ^ The Amazon EC2 Availability Zone in which to restore the cluster.
-      -- Default: A random, system-chosen Availability Zone. Example:
-      -- us-east-1a.
     , _rfcsmPreferredMaintenanceWindow :: Maybe Text
       -- ^ The weekly time range (in UTC) during which automated cluster
       -- maintenance can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default:
@@ -128,26 +176,6 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
       -- Region 12:00-20:00 UTC Asia Pacific (Tokyo) Region 17:00-03:00
       -- UTC Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
       -- Constraints: Minimum 30-minute window.
-    , _rfcsmElasticIp :: Maybe Text
-      -- ^ The elastic IP (EIP) address for the cluster.
-    , _rfcsmHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM client certificate the Amazon
-      -- Redshift cluster uses to retrieve the data encryption keys stored
-      -- in an HSM.
-    , _rfcsmClusterSubnetGroupName :: Maybe Text
-      -- ^ The name of the subnet group where you want to cluster restored.
-      -- A snapshot of cluster in VPC can be restored only in VPC.
-      -- Therefore, you must provide subnet group name where you want the
-      -- cluster restored.
-    , _rfcsmHsmConfigurationIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM configuration that contains the
-      -- information the Amazon Redshift cluster can use to retrieve and
-      -- store keys in an HSM.
-    , _rfcsmSnapshotClusterIdentifier :: Maybe Text
-      -- ^ The name of the cluster the source snapshot was created from.
-      -- This parameter is required if your IAM user has a policy
-      -- containing a snapshot resource element that specifies anything
-      -- other than * for the cluster name.
     , _rfcsmVpcSecurityGroupIds :: [Text]
       -- ^ A list of Virtual Private Cloud (VPC) security groups to be
       -- associated with the cluster. Default: The default VPC security
@@ -155,17 +183,266 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
       -- apply to clusters in VPCs.
     } deriving (Show, Generic)
 
-makeLenses ''RestoreFromClusterSnapshot
+-- | The identifier of the cluster that will be created from restoring the
+-- snapshot. Constraints: Must contain from 1 to 63 alphanumeric characters or
+-- hyphens. Alphabetic characters must be lowercase. First character must be a
+-- letter. Cannot end with a hyphen or contain two consecutive hyphens. Must
+-- be unique for all clusters within an AWS account.
+rfcsmClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmClusterIdentifier f x =
+    (\y -> x { _rfcsmClusterIdentifier = y })
+       <$> f (_rfcsmClusterIdentifier x)
+{-# INLINE rfcsmClusterIdentifier #-}
+
+-- | The name of the snapshot from which to create the new cluster. This
+-- parameter isn't case sensitive. Example: my-snapshot-id.
+rfcsmSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmSnapshotIdentifier f x =
+    (\y -> x { _rfcsmSnapshotIdentifier = y })
+       <$> f (_rfcsmSnapshotIdentifier x)
+{-# INLINE rfcsmSnapshotIdentifier #-}
+
+-- | If true, upgrades can be applied during the maintenance window to the
+-- Amazon Redshift engine that is running on the cluster. Default: true.
+rfcsmAllowVersionUpgrade
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmAllowVersionUpgrade f x =
+    (\y -> x { _rfcsmAllowVersionUpgrade = y })
+       <$> f (_rfcsmAllowVersionUpgrade x)
+{-# INLINE rfcsmAllowVersionUpgrade #-}
+
+-- | If true, the cluster can be accessed from a public network.
+rfcsmPubliclyAccessible
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmPubliclyAccessible f x =
+    (\y -> x { _rfcsmPubliclyAccessible = y })
+       <$> f (_rfcsmPubliclyAccessible x)
+{-# INLINE rfcsmPubliclyAccessible #-}
+
+-- | A list of security groups to be associated with this cluster. Default: The
+-- default cluster security group for Amazon Redshift. Cluster security groups
+-- only apply to clusters outside of VPCs.
+rfcsmClusterSecurityGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmClusterSecurityGroups f x =
+    (\y -> x { _rfcsmClusterSecurityGroups = y })
+       <$> f (_rfcsmClusterSecurityGroups x)
+{-# INLINE rfcsmClusterSecurityGroups #-}
+
+-- | The port number on which the cluster accepts connections. Default: The same
+-- port as the original cluster. Constraints: Must be between 1115 and 65535.
+rfcsmPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmPort f x =
+    (\y -> x { _rfcsmPort = y })
+       <$> f (_rfcsmPort x)
+{-# INLINE rfcsmPort #-}
+
+-- | The number of days that automated snapshots are retained. If the value is
+-- 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot. Default: The value selected for the cluster from
+-- which the snapshot was taken. Constraints: Must be a value from 0 to 35.
+rfcsmAutomatedSnapshotRetentionPeriod
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmAutomatedSnapshotRetentionPeriod f x =
+    (\y -> x { _rfcsmAutomatedSnapshotRetentionPeriod = y })
+       <$> f (_rfcsmAutomatedSnapshotRetentionPeriod x)
+{-# INLINE rfcsmAutomatedSnapshotRetentionPeriod #-}
+
+-- | The name of the cluster the source snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a snapshot
+-- resource element that specifies anything other than * for the cluster name.
+rfcsmSnapshotClusterIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmSnapshotClusterIdentifier f x =
+    (\y -> x { _rfcsmSnapshotClusterIdentifier = y })
+       <$> f (_rfcsmSnapshotClusterIdentifier x)
+{-# INLINE rfcsmSnapshotClusterIdentifier #-}
+
+-- | The Amazon EC2 Availability Zone in which to restore the cluster. Default:
+-- A random, system-chosen Availability Zone. Example: us-east-1a.
+rfcsmAvailabilityZone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmAvailabilityZone f x =
+    (\y -> x { _rfcsmAvailabilityZone = y })
+       <$> f (_rfcsmAvailabilityZone x)
+{-# INLINE rfcsmAvailabilityZone #-}
+
+-- | The name of the subnet group where you want to cluster restored. A snapshot
+-- of cluster in VPC can be restored only in VPC. Therefore, you must provide
+-- subnet group name where you want the cluster restored.
+rfcsmClusterSubnetGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmClusterSubnetGroupName f x =
+    (\y -> x { _rfcsmClusterSubnetGroupName = y })
+       <$> f (_rfcsmClusterSubnetGroupName x)
+{-# INLINE rfcsmClusterSubnetGroupName #-}
+
+-- | The AWS customer account used to create or copy the snapshot. Required if
+-- you are restoring a snapshot you do not own, optional if you own the
+-- snapshot.
+rfcsmOwnerAccount
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmOwnerAccount f x =
+    (\y -> x { _rfcsmOwnerAccount = y })
+       <$> f (_rfcsmOwnerAccount x)
+{-# INLINE rfcsmOwnerAccount #-}
+
+-- | Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+rfcsmHsmClientCertificateIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmHsmClientCertificateIdentifier f x =
+    (\y -> x { _rfcsmHsmClientCertificateIdentifier = y })
+       <$> f (_rfcsmHsmClientCertificateIdentifier x)
+{-# INLINE rfcsmHsmClientCertificateIdentifier #-}
+
+-- | Specifies the name of the HSM configuration that contains the information
+-- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+rfcsmHsmConfigurationIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmHsmConfigurationIdentifier f x =
+    (\y -> x { _rfcsmHsmConfigurationIdentifier = y })
+       <$> f (_rfcsmHsmConfigurationIdentifier x)
+{-# INLINE rfcsmHsmConfigurationIdentifier #-}
+
+-- | The elastic IP (EIP) address for the cluster.
+rfcsmElasticIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmElasticIp f x =
+    (\y -> x { _rfcsmElasticIp = y })
+       <$> f (_rfcsmElasticIp x)
+{-# INLINE rfcsmElasticIp #-}
+
+-- | The name of the parameter group to be associated with this cluster.
+-- Default: The default Amazon Redshift cluster parameter group. For
+-- information about the default parameter group, go to Working with Amazon
+-- Redshift Parameter Groups. Constraints: Must be 1 to 255 alphanumeric
+-- characters or hyphens. First character must be a letter. Cannot end with a
+-- hyphen or contain two consecutive hyphens.
+rfcsmClusterParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmClusterParameterGroupName f x =
+    (\y -> x { _rfcsmClusterParameterGroupName = y })
+       <$> f (_rfcsmClusterParameterGroupName x)
+{-# INLINE rfcsmClusterParameterGroupName #-}
+
+-- | The weekly time range (in UTC) during which automated cluster maintenance
+-- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected for
+-- the cluster from which the snapshot was taken. The following list shows the
+-- time blocks for each region from which the default maintenance windows are
+-- assigned. US-East (Northern Virginia) Region: 03:00-11:00 UTC US-West
+-- (Oregon) Region 06:00-14:00 UTC EU (Ireland) Region 22:00-06:00 UTC Asia
+-- Pacific (Singapore) Region 14:00-22:00 UTC Asia Pacific (Sydney) Region
+-- 12:00-20:00 UTC Asia Pacific (Tokyo) Region 17:00-03:00 UTC Valid Days: Mon
+-- | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
+rfcsmPreferredMaintenanceWindow
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmPreferredMaintenanceWindow f x =
+    (\y -> x { _rfcsmPreferredMaintenanceWindow = y })
+       <$> f (_rfcsmPreferredMaintenanceWindow x)
+{-# INLINE rfcsmPreferredMaintenanceWindow #-}
+
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated with
+-- the cluster. Default: The default VPC security group is associated with the
+-- cluster. VPC security groups only apply to clusters in VPCs.
+rfcsmVpcSecurityGroupIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RestoreFromClusterSnapshot
+    -> f RestoreFromClusterSnapshot
+rfcsmVpcSecurityGroupIds f x =
+    (\y -> x { _rfcsmVpcSecurityGroupIds = y })
+       <$> f (_rfcsmVpcSecurityGroupIds x)
+{-# INLINE rfcsmVpcSecurityGroupIds #-}
 
 instance ToQuery RestoreFromClusterSnapshot where
     toQuery = genericQuery def
 
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
-    { _ccxCluster :: Maybe Cluster
+    { _ccyCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
-makeLenses ''RestoreFromClusterSnapshotResponse
+-- | Describes a cluster.
+ccyCluster
+    :: Functor f
+    => (Maybe Cluster
+    -> f (Maybe Cluster))
+    -> RestoreFromClusterSnapshotResponse
+    -> f RestoreFromClusterSnapshotResponse
+ccyCluster f x =
+    (\y -> x { _ccyCluster = y })
+       <$> f (_ccyCluster x)
+{-# INLINE ccyCluster #-}
 
 instance FromXML RestoreFromClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

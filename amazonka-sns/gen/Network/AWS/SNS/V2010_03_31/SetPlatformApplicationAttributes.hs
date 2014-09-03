@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,11 +35,32 @@
 -- &lt;RequestId&gt;cf577bcc-b3dc-5463-88f1-3180b9412395&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/SetPlatformApplicationAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes where
+module Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
+    (
+    -- * Request
+      SetPlatformApplicationAttributes
+    -- ** Request constructor
+    , setPlatformApplicationAttributes
+    -- ** Request lenses
+    , spaaiAttributes
+    , spaaiPlatformApplicationArn
+
+    -- * Response
+    , SetPlatformApplicationAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SetPlatformApplicationAttributes' request.
+setPlatformApplicationAttributes :: Map Text Text -- ^ 'spaaiAttributes'
+                                 -> Text -- ^ 'spaaiPlatformApplicationArn'
+                                 -> SetPlatformApplicationAttributes
+setPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
+    { _spaaiAttributes = p1
+    , _spaaiPlatformApplicationArn = p2
+    }
 
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
     { _spaaiAttributes :: Map Text Text
@@ -65,15 +85,49 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
       -- action.
     } deriving (Show, Generic)
 
-makeLenses ''SetPlatformApplicationAttributes
+-- | A map of the platform application attributes. Attributes in this map
+-- include the following: PlatformCredential -- The credential received from
+-- the notification service. For APNS/APNS_SANDBOX, PlatformCredential is
+-- "private key". For GCM, PlatformCredential is "API key". For ADM,
+-- PlatformCredential is "client secret". PlatformPrincipal -- The principal
+-- received from the notification service. For APNS/APNS_SANDBOX,
+-- PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not
+-- applicable. For ADM, PlatformPrincipal is "client id". EventEndpointCreated
+-- -- Topic ARN to which EndpointCreated event notifications should be sent.
+-- EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+-- notifications should be sent. EventEndpointUpdated -- Topic ARN to which
+-- EndpointUpdate event notifications should be sent. EventDeliveryFailure --
+-- Topic ARN to which DeliveryFailure event notifications should be sent upon
+-- Direct Publish delivery failure (permanent) to one of the application's
+-- endpoints.
+spaaiAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> SetPlatformApplicationAttributes
+    -> f SetPlatformApplicationAttributes
+spaaiAttributes f x =
+    (\y -> x { _spaaiAttributes = y })
+       <$> f (_spaaiAttributes x)
+{-# INLINE spaaiAttributes #-}
+
+-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
+spaaiPlatformApplicationArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetPlatformApplicationAttributes
+    -> f SetPlatformApplicationAttributes
+spaaiPlatformApplicationArn f x =
+    (\y -> x { _spaaiPlatformApplicationArn = y })
+       <$> f (_spaaiPlatformApplicationArn x)
+{-# INLINE spaaiPlatformApplicationArn #-}
 
 instance ToQuery SetPlatformApplicationAttributes where
     toQuery = genericQuery def
 
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetPlatformApplicationAttributesResponse
 
 instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS

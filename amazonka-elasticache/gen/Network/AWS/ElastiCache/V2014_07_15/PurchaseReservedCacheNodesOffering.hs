@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,14 +27,29 @@
 -- Medium Utilization memcached 438012d3-4052-4cc7-b2e3-8d3372e0e706
 -- payment-pending myreservationID 10 2014-03-18T23:24:56.577Z 31536000 123.0
 -- 0.123 cache.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
-module Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering where
+module Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering
+    (
+    -- * Request
+      PurchaseReservedCacheNodesOffering
+    -- ** Request constructor
+    , purchaseReservedCacheNodesOffering
+    -- ** Request lenses
+    , prcnomReservedCacheNodesOfferingId
+    , prcnomCacheNodeCount
+    , prcnomReservedCacheNodeId
+
+    -- * Response
+    , PurchaseReservedCacheNodesOfferingResponse
+    -- ** Response lenses
+    , rcnwReservedCacheNode
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PurchaseReservedCacheNodesOffering' request.
-purchaseReservedCacheNodesOffering :: Text -- ^ '_prcnomReservedCacheNodesOfferingId'
+purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
                                    -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
     { _prcnomReservedCacheNodesOfferingId = p1
@@ -54,7 +68,43 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
       -- Example: myreservationID.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedCacheNodesOffering
+-- | The ID of the reserved cache node offering to purchase. Example:
+-- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
+prcnomReservedCacheNodesOfferingId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PurchaseReservedCacheNodesOffering
+    -> f PurchaseReservedCacheNodesOffering
+prcnomReservedCacheNodesOfferingId f x =
+    (\y -> x { _prcnomReservedCacheNodesOfferingId = y })
+       <$> f (_prcnomReservedCacheNodesOfferingId x)
+{-# INLINE prcnomReservedCacheNodesOfferingId #-}
+
+-- | The number of cache node instances to reserve. Default: 1.
+prcnomCacheNodeCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> PurchaseReservedCacheNodesOffering
+    -> f PurchaseReservedCacheNodesOffering
+prcnomCacheNodeCount f x =
+    (\y -> x { _prcnomCacheNodeCount = y })
+       <$> f (_prcnomCacheNodeCount x)
+{-# INLINE prcnomCacheNodeCount #-}
+
+-- | A customer-specified identifier to track this reservation. Example:
+-- myreservationID.
+prcnomReservedCacheNodeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PurchaseReservedCacheNodesOffering
+    -> f PurchaseReservedCacheNodesOffering
+prcnomReservedCacheNodeId f x =
+    (\y -> x { _prcnomReservedCacheNodeId = y })
+       <$> f (_prcnomReservedCacheNodeId x)
+{-# INLINE prcnomReservedCacheNodeId #-}
 
 instance ToQuery PurchaseReservedCacheNodesOffering where
     toQuery = genericQuery def
@@ -65,7 +115,17 @@ data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOffe
       -- operation.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedCacheNodesOfferingResponse
+-- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
+rcnwReservedCacheNode
+    :: Functor f
+    => (Maybe ReservedCacheNode
+    -> f (Maybe ReservedCacheNode))
+    -> PurchaseReservedCacheNodesOfferingResponse
+    -> f PurchaseReservedCacheNodesOfferingResponse
+rcnwReservedCacheNode f x =
+    (\y -> x { _rcnwReservedCacheNode = y })
+       <$> f (_rcnwReservedCacheNode x)
+{-# INLINE rcnwReservedCacheNode #-}
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,16 +29,28 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetSendStatistics
 -- &Timestamp=2011-08-18T22%3A23%3A01.000Z 8 2011-08-03T19:23:00Z 0 0 0 7
 -- 2011-08-03T06:53:00Z 0 0 0 . . . . c2b66ee5-c866-11e0-b17f-cddb0ab334db.
-module Network.AWS.SES.V2010_12_01.GetSendStatistics where
+module Network.AWS.SES.V2010_12_01.GetSendStatistics
+    (
+    -- * Request
+      GetSendStatistics
+    -- ** Request constructor
+    , getSendStatistics
+    -- * Response
+    , GetSendStatisticsResponse
+    -- ** Response lenses
+    , gssrSendDataPoints
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetSendStatistics' request.
+getSendStatistics :: GetSendStatistics
+getSendStatistics = GetSendStatistics
+
 data GetSendStatistics = GetSendStatistics
     deriving (Eq, Show, Generic)
-
-makeLenses ''GetSendStatistics
 
 instance ToQuery GetSendStatistics where
     toQuery = genericQuery def
@@ -50,7 +61,17 @@ data GetSendStatisticsResponse = GetSendStatisticsResponse
       -- activity.
     } deriving (Show, Generic)
 
-makeLenses ''GetSendStatisticsResponse
+-- | A list of data points, each of which represents 15 minutes of activity.
+gssrSendDataPoints
+    :: Functor f
+    => ([SendDataPoint]
+    -> f ([SendDataPoint]))
+    -> GetSendStatisticsResponse
+    -> f GetSendStatisticsResponse
+gssrSendDataPoints f x =
+    (\y -> x { _gssrSendDataPoints = y })
+       <$> f (_gssrSendDataPoints x)
+{-# INLINE gssrSendDataPoints #-}
 
 instance FromXML GetSendStatisticsResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,7 +21,22 @@
 -- action, an IAM user must have a Show, Deploy, or Manage permissions level
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors
+    (
+    -- * Request
+      DescribeServiceErrors
+    -- ** Request constructor
+    , describeServiceErrors
+    -- ** Request lenses
+    , dserStackId
+    , dserInstanceId
+    , dserServiceErrorIds
+
+    -- * Response
+    , DescribeServiceErrorsResponse
+    -- ** Response lenses
+    , dsesServiceErrors
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -52,7 +66,45 @@ data DescribeServiceErrors = DescribeServiceErrors
       -- errors. Otherwise, it returns a description of every error.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeServiceErrors
+-- | The stack ID. If you use this parameter, DescribeServiceErrors returns
+-- descriptions of the errors associated with the specified stack.
+dserStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeServiceErrors
+    -> f DescribeServiceErrors
+dserStackId f x =
+    (\y -> x { _dserStackId = y })
+       <$> f (_dserStackId x)
+{-# INLINE dserStackId #-}
+
+-- | The instance ID. If you use this parameter, DescribeServiceErrors returns
+-- descriptions of the errors associated with the specified instance.
+dserInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeServiceErrors
+    -> f DescribeServiceErrors
+dserInstanceId f x =
+    (\y -> x { _dserInstanceId = y })
+       <$> f (_dserInstanceId x)
+{-# INLINE dserInstanceId #-}
+
+-- | An array of service error IDs. If you use this parameter,
+-- DescribeServiceErrors returns descriptions of the specified errors.
+-- Otherwise, it returns a description of every error.
+dserServiceErrorIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeServiceErrors
+    -> f DescribeServiceErrors
+dserServiceErrorIds f x =
+    (\y -> x { _dserServiceErrorIds = y })
+       <$> f (_dserServiceErrorIds x)
+{-# INLINE dserServiceErrorIds #-}
 
 instance ToPath DescribeServiceErrors
 
@@ -68,7 +120,18 @@ data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
       -- service errors.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeServiceErrorsResponse
+-- | An array of ServiceError objects that describe the specified service
+-- errors.
+dsesServiceErrors
+    :: Functor f
+    => ([ServiceError]
+    -> f ([ServiceError]))
+    -> DescribeServiceErrorsResponse
+    -> f DescribeServiceErrorsResponse
+dsesServiceErrors f x =
+    (\y -> x { _dsesServiceErrors = y })
+       <$> f (_dsesServiceErrors x)
+{-# INLINE dsesServiceErrors #-}
 
 instance FromJSON DescribeServiceErrorsResponse
 

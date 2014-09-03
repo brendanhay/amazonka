@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -64,38 +63,84 @@
 -- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.UploadSigningCertificate where
+module Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
+    (
+    -- * Request
+      UploadSigningCertificate
+    -- ** Request constructor
+    , uploadSigningCertificate
+    -- ** Request lenses
+    , uscvCertificateBody
+    , uscvUserName
+
+    -- * Response
+    , UploadSigningCertificateResponse
+    -- ** Response lenses
+    , uscwCertificate
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UploadSigningCertificate' request.
-uploadSigningCertificate :: Text -- ^ '_uscsCertificateBody'
+uploadSigningCertificate :: Text -- ^ 'uscvCertificateBody'
                          -> UploadSigningCertificate
 uploadSigningCertificate p1 = UploadSigningCertificate
-    { _uscsCertificateBody = p1
-    , _uscsUserName = Nothing
+    { _uscvCertificateBody = p1
+    , _uscvUserName = Nothing
     }
 
 data UploadSigningCertificate = UploadSigningCertificate
-    { _uscsCertificateBody :: Text
+    { _uscvCertificateBody :: Text
       -- ^ The contents of the signing certificate.
-    , _uscsUserName :: Maybe Text
+    , _uscvUserName :: Maybe Text
       -- ^ Name of the user the signing certificate is for.
     } deriving (Show, Generic)
 
-makeLenses ''UploadSigningCertificate
+-- | The contents of the signing certificate.
+uscvCertificateBody
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UploadSigningCertificate
+    -> f UploadSigningCertificate
+uscvCertificateBody f x =
+    (\y -> x { _uscvCertificateBody = y })
+       <$> f (_uscvCertificateBody x)
+{-# INLINE uscvCertificateBody #-}
+
+-- | Name of the user the signing certificate is for.
+uscvUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UploadSigningCertificate
+    -> f UploadSigningCertificate
+uscvUserName f x =
+    (\y -> x { _uscvUserName = y })
+       <$> f (_uscvUserName x)
+{-# INLINE uscvUserName #-}
 
 instance ToQuery UploadSigningCertificate where
     toQuery = genericQuery def
 
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse
-    { _usctCertificate :: SigningCertificate
+    { _uscwCertificate :: SigningCertificate
       -- ^ Information about the certificate.
     } deriving (Show, Generic)
 
-makeLenses ''UploadSigningCertificateResponse
+-- | Information about the certificate.
+uscwCertificate
+    :: Functor f
+    => (SigningCertificate
+    -> f (SigningCertificate))
+    -> UploadSigningCertificateResponse
+    -> f UploadSigningCertificateResponse
+uscwCertificate f x =
+    (\y -> x { _uscwCertificate = y })
+       <$> f (_uscwCertificate x)
+{-# INLINE uscwCertificate #-}
 
 instance FromXML UploadSigningCertificateResponse where
     fromXMLOptions = xmlOptions

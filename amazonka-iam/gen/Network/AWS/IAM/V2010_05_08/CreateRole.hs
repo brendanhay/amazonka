@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,15 +32,30 @@
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- 2012-05-08T23:34:01.495Z AROADBQP57FF2AEXAMPLE
 -- 4a93ceee-9966-11e1-b624-b1aEXAMPLE7c.
-module Network.AWS.IAM.V2010_05_08.CreateRole where
+module Network.AWS.IAM.V2010_05_08.CreateRole
+    (
+    -- * Request
+      CreateRole
+    -- ** Request constructor
+    , createRole
+    -- ** Request lenses
+    , crrAssumeRolePolicyDocument
+    , crrRoleName
+    , crrPath
+
+    -- * Response
+    , CreateRoleResponse
+    -- ** Response lenses
+    , crsRole
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateRole' request.
-createRole :: Text -- ^ '_crrAssumeRolePolicyDocument'
-           -> Text -- ^ '_crrRoleName'
+createRole :: Text -- ^ 'crrAssumeRolePolicyDocument'
+           -> Text -- ^ 'crrRoleName'
            -> CreateRole
 createRole p1 p2 = CreateRole
     { _crrAssumeRolePolicyDocument = p1
@@ -61,7 +75,43 @@ data CreateRole = CreateRole
       -- slash (/).
     } deriving (Show, Generic)
 
-makeLenses ''CreateRole
+-- | The policy that grants an entity permission to assume the role.
+crrAssumeRolePolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateRole
+    -> f CreateRole
+crrAssumeRolePolicyDocument f x =
+    (\y -> x { _crrAssumeRolePolicyDocument = y })
+       <$> f (_crrAssumeRolePolicyDocument x)
+{-# INLINE crrAssumeRolePolicyDocument #-}
+
+-- | Name of the role to create.
+crrRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateRole
+    -> f CreateRole
+crrRoleName f x =
+    (\y -> x { _crrRoleName = y })
+       <$> f (_crrRoleName x)
+{-# INLINE crrRoleName #-}
+
+-- | The path to the role. For more information about paths, see Identifiers for
+-- IAM Entities in the Using IAM guide. This parameter is optional. If it is
+-- not included, it defaults to a slash (/).
+crrPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateRole
+    -> f CreateRole
+crrPath f x =
+    (\y -> x { _crrPath = y })
+       <$> f (_crrPath x)
+{-# INLINE crrPath #-}
 
 instance ToQuery CreateRole where
     toQuery = genericQuery def
@@ -71,7 +121,17 @@ data CreateRoleResponse = CreateRoleResponse
       -- ^ Information about the role.
     } deriving (Show, Generic)
 
-makeLenses ''CreateRoleResponse
+-- | Information about the role.
+crsRole
+    :: Functor f
+    => (Role
+    -> f (Role))
+    -> CreateRoleResponse
+    -> f CreateRoleResponse
+crsRole f x =
+    (\y -> x { _crsRole = y })
+       <$> f (_crsRole x)
+{-# INLINE crsRole #-}
 
 instance FromXML CreateRoleResponse where
     fromXMLOptions = xmlOptions

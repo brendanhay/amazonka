@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -53,11 +52,32 @@
 -- for this operation: 256 attribute name-value pairs per item 1 MB request
 -- size 1 billion attributes per domain 10 GB of total user data storage per
 -- domain 25 item limit per BatchPutAttributes operation.
-module Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes where
+module Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes
+    (
+    -- * Request
+      BatchPutAttributes
+    -- ** Request constructor
+    , batchPutAttributes
+    -- ** Request lenses
+    , bparItems
+    , bparDomainName
+
+    -- * Response
+    , BatchPutAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'BatchPutAttributes' request.
+batchPutAttributes :: [ReplaceableItem] -- ^ 'bparItems'
+                   -> Text -- ^ 'bparDomainName'
+                   -> BatchPutAttributes
+batchPutAttributes p1 p2 = BatchPutAttributes
+    { _bparItems = p1
+    , _bparDomainName = p2
+    }
 
 data BatchPutAttributes = BatchPutAttributes
     { _bparItems :: [ReplaceableItem]
@@ -66,15 +86,35 @@ data BatchPutAttributes = BatchPutAttributes
       -- ^ The name of the domain in which the attributes are being stored.
     } deriving (Show, Generic)
 
-makeLenses ''BatchPutAttributes
+-- | A list of items on which to perform the operation.
+bparItems
+    :: Functor f
+    => ([ReplaceableItem]
+    -> f ([ReplaceableItem]))
+    -> BatchPutAttributes
+    -> f BatchPutAttributes
+bparItems f x =
+    (\y -> x { _bparItems = y })
+       <$> f (_bparItems x)
+{-# INLINE bparItems #-}
+
+-- | The name of the domain in which the attributes are being stored.
+bparDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> BatchPutAttributes
+    -> f BatchPutAttributes
+bparDomainName f x =
+    (\y -> x { _bparDomainName = y })
+       <$> f (_bparDomainName x)
+{-# INLINE bparDomainName #-}
 
 instance ToQuery BatchPutAttributes where
     toQuery = genericQuery def
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''BatchPutAttributesResponse
 
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SimpleDB

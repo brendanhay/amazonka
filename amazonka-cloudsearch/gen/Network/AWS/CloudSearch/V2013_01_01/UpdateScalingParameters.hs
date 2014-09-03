@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,11 +24,34 @@
 -- replication count. If the Multi-AZ option is enabled, these values control
 -- the resources used per Availability Zone. For more information, see
 -- Configuring Scaling Options in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters where
+module Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters
+    (
+    -- * Request
+      UpdateScalingParameters
+    -- ** Request constructor
+    , updateScalingParameters
+    -- ** Request lenses
+    , usprDomainName
+    , usprScalingParameters
+
+    -- * Response
+    , UpdateScalingParametersResponse
+    -- ** Response lenses
+    , uspsScalingParameters
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'UpdateScalingParameters' request.
+updateScalingParameters :: Text -- ^ 'usprDomainName'
+                        -> ScalingParameters -- ^ 'usprScalingParameters'
+                        -> UpdateScalingParameters
+updateScalingParameters p1 p2 = UpdateScalingParameters
+    { _usprDomainName = p1
+    , _usprScalingParameters = p2
+    }
 
 data UpdateScalingParameters = UpdateScalingParameters
     { _usprDomainName :: Text
@@ -43,7 +65,33 @@ data UpdateScalingParameters = UpdateScalingParameters
       -- index partition.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateScalingParameters
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+usprDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateScalingParameters
+    -> f UpdateScalingParameters
+usprDomainName f x =
+    (\y -> x { _usprDomainName = y })
+       <$> f (_usprDomainName x)
+{-# INLINE usprDomainName #-}
+
+-- | The desired instance type and desired number of replicas of each index
+-- partition.
+usprScalingParameters
+    :: Functor f
+    => (ScalingParameters
+    -> f (ScalingParameters))
+    -> UpdateScalingParameters
+    -> f UpdateScalingParameters
+usprScalingParameters f x =
+    (\y -> x { _usprScalingParameters = y })
+       <$> f (_usprScalingParameters x)
+{-# INLINE usprScalingParameters #-}
 
 instance ToQuery UpdateScalingParameters where
     toQuery = genericQuery def
@@ -54,7 +102,17 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse
       -- parameters.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateScalingParametersResponse
+-- | The status and configuration of a search domain's scaling parameters.
+uspsScalingParameters
+    :: Functor f
+    => (ScalingParametersStatus
+    -> f (ScalingParametersStatus))
+    -> UpdateScalingParametersResponse
+    -> f UpdateScalingParametersResponse
+uspsScalingParameters f x =
+    (\y -> x { _uspsScalingParameters = y })
+       <$> f (_uspsScalingParameters x)
+{-# INLINE uspsScalingParameters #-}
 
 instance FromXML UpdateScalingParametersResponse where
     fromXMLOptions = xmlOptions

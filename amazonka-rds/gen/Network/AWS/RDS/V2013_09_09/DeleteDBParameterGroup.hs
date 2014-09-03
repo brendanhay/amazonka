@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,28 +25,56 @@
 -- &SignatureVersion=2&SignatureMethod=HmacSHA256
 -- &Timestamp=2011-05-11T18%3A47%3A08.851Z &AWSAccessKeyId= &Signature=
 -- 4dc38be9-bf3b-11de-a88b-7b5b3d23b3a7.
-module Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup where
+module Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup
+    (
+    -- * Request
+      DeleteDBParameterGroup
+    -- ** Request constructor
+    , deleteDBParameterGroup
+    -- ** Request lenses
+    , ddbpgmDBParameterGroupName
+
+    -- * Response
+    , DeleteDBParameterGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteDBParameterGroup' request.
+deleteDBParameterGroup :: Text -- ^ 'ddbpgmDBParameterGroupName'
+                       -> DeleteDBParameterGroup
+deleteDBParameterGroup p1 = DeleteDBParameterGroup
+    { _ddbpgmDBParameterGroupName = p1
+    }
+
 data DeleteDBParameterGroup = DeleteDBParameterGroup
-    { _ddbpgnDBParameterGroupName :: Text
+    { _ddbpgmDBParameterGroupName :: Text
       -- ^ The name of the DB parameter group. Constraints: Must be the name
       -- of an existing DB parameter group You cannot delete a default DB
       -- parameter group Cannot be associated with any DB instances.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBParameterGroup
+-- | The name of the DB parameter group. Constraints: Must be the name of an
+-- existing DB parameter group You cannot delete a default DB parameter group
+-- Cannot be associated with any DB instances.
+ddbpgmDBParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDBParameterGroup
+    -> f DeleteDBParameterGroup
+ddbpgmDBParameterGroupName f x =
+    (\y -> x { _ddbpgmDBParameterGroupName = y })
+       <$> f (_ddbpgmDBParameterGroupName x)
+{-# INLINE ddbpgmDBParameterGroupName #-}
 
 instance ToQuery DeleteDBParameterGroup where
     toQuery = genericQuery def
 
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteDBParameterGroupResponse
 
 instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS

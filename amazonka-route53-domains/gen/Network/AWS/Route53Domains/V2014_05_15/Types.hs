@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,7 +19,71 @@
 
 -- | Pending.
 module Network.AWS.Route53Domains.V2014_05_15.Types
-    ( module Network.AWS.Route53Domains.V2014_05_15.Types
+    (
+    -- * Service
+      Route53Domains
+    -- ** Errors
+    , Er (..)
+
+    -- * ContactType
+    , ContactType (..)
+
+    -- * CountryCode
+    , CountryCode (..)
+
+    -- * DomainAvailability
+    , DomainAvailability (..)
+
+    -- * ExtraParamName
+    , ExtraParamName (..)
+
+    -- * OperationStatus
+    , OperationStatus (..)
+
+    -- * OperationType
+    , OperationType (..)
+
+    -- * ContactDetail
+    , ContactDetail (..)
+    , cdFirstName
+    , cdLastName
+    , cdContactType
+    , cdOrganizationName
+    , cdAddressLine1
+    , cdAddressLine2
+    , cdCity
+    , cdState
+    , cdCountryCode
+    , cdZipCode
+    , cdPhoneNumber
+    , cdEmail
+    , cdFax
+    , cdExtraParams
+
+    -- * DomainSummary
+    , DomainSummary (..)
+    , duDomainName
+    , duAutoRenew
+    , duTransferLock
+    , duExpiry
+
+    -- * ExtraParam
+    , ExtraParam (..)
+    , epName
+    , epValue
+
+    -- * Nameserver
+    , Nameserver (..)
+    , nName
+    , nGlueIps
+
+    -- * OperationSummary
+    , OperationSummary (..)
+    , ouOperationId
+    , ouStatus
+    , ouType
+    , ouSubmittedDate
+
     ) where
 
 import Network.AWS.Prelude
@@ -1254,9 +1317,7 @@ instance FromJSON OperationStatus
 
 instance ToJSON OperationStatus
 
--- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN |
--- DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
--- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
+-- | The type of operation that was requested. Type: String.
 data OperationType
     = OperationTypeChangePrivacyProtection -- ^ CHANGE_PRIVACY_PROTECTION
     | OperationTypeDeleteDomain -- ^ DELETE_DOMAIN
@@ -1306,12 +1367,20 @@ instance FromJSON OperationType
 
 instance ToJSON OperationType
 
--- | Provides details about the domain registrant. Type: Complex Children:
--- FirstName, MiddleName, LastName, ContactType, OrganizationName,
+-- | Provides details about the domain administrative contact. Type: Complex
+-- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
 data ContactDetail = ContactDetail
-    { _cdContactType :: Maybe ContactType
+    { _cdFirstName :: Maybe Text
+      -- ^ First name of contact. Type: String Default: None Constraints:
+      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
+      -- TechContact Required: Yes.
+    , _cdLastName :: Maybe Text
+      -- ^ Last name of contact. Type: String Default: None Constraints:
+      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
+      -- TechContact Required: Yes.
+    , _cdContactType :: Maybe ContactType
       -- ^ Indicates whether the contact is a person, company, association,
       -- or public organization. If you choose an option other than
       -- PERSON, you must enter an organization name, and you can't enable
@@ -1319,17 +1388,34 @@ data ContactDetail = ContactDetail
       -- Constraints: Maximum 255 characters. Valid values: PERSON |
       -- COMPANY | ASSOCIATION | PUBLIC_BODY Parents: RegistrantContact,
       -- AdminContact, TechContact Required: Yes.
+    , _cdOrganizationName :: Maybe Text
+      -- ^ Name of the organization for contact types other than PERSON.
+      -- Type: String Default: None Constraints: Maximum 255 characters.
+      -- Contact type must not be PERSON. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: No.
+    , _cdAddressLine1 :: Maybe Text
+      -- ^ First line of the contact's address. Type: String Default: None
+      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
+    , _cdAddressLine2 :: Maybe Text
+      -- ^ Second line of contact's address, if any. Type: String Default:
+      -- None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: No.
+    , _cdCity :: Maybe Text
+      -- ^ The city of the contact's address. Type: String Default: None
+      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+      -- AdminContact, TechContact Required: Yes.
+    , _cdState :: Maybe Text
+      -- ^ The state or province of the contact's city. Type: String
+      -- Default: None Constraints: Maximum 255 characters. Parents:
+      -- RegistrantContact, AdminContact, TechContact Required: No.
     , _cdCountryCode :: Maybe CountryCode
       -- ^ Code for the country of the contact's address. Type: String
       -- Default: None Constraints: Maximum 255 characters. Parents:
       -- RegistrantContact, AdminContact, TechContact Required: Yes.
-    , _cdFirstName :: Maybe Text
-      -- ^ First name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
-    , _cdAddressLine2 :: Maybe Text
-      -- ^ Second line of contact's address, if any. Type: String Default:
-      -- None Constraints: Maximum 255 characters. Parents:
+    , _cdZipCode :: Maybe Text
+      -- ^ The zip or postal code of the contact's address. Type: String
+      -- Default: None Constraints: Maximum 255 characters. Parents:
       -- RegistrantContact, AdminContact, TechContact Required: No.
     , _cdPhoneNumber :: Maybe Text
       -- ^ The phone number of the contact. Type: String Default: None
@@ -1338,27 +1424,10 @@ data ContactDetail = ContactDetail
       -- For example, a US phone number might appear as "+1.1234567890".
       -- Parents: RegistrantContact, AdminContact, TechContact Required:
       -- Yes.
-    , _cdCity :: Maybe Text
-      -- ^ The city of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+    , _cdEmail :: Maybe Text
+      -- ^ Email address of the contact. Type: String Default: None
+      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
       -- AdminContact, TechContact Required: Yes.
-    , _cdAddressLine1 :: Maybe Text
-      -- ^ First line of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdZipCode :: Maybe Text
-      -- ^ The zip or postal code of the contact's address. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
-    , _cdExtraParams :: [ExtraParam]
-      -- ^ A list of name-value pairs for parameters required by certain
-      -- top-level domains. Type: Complex Default: None Parents:
-      -- RegistrantContact, AdminContact, TechContact Children: Name,
-      -- Value Required: No.
-    , _cdLastName :: Maybe Text
-      -- ^ Last name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
     , _cdFax :: Maybe Text
       -- ^ Fax number of the contact. Type: String Default: None
       -- Constraints: Phone number must be specified in the format
@@ -1366,38 +1435,284 @@ data ContactDetail = ContactDetail
       -- example, a US phone number might appear as "+1.1234567890".
       -- Parents: RegistrantContact, AdminContact, TechContact Required:
       -- No.
-    , _cdState :: Maybe Text
-      -- ^ The state or province of the contact's city. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
-    , _cdEmail :: Maybe Text
-      -- ^ Email address of the contact. Type: String Default: None
-      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
-    , _cdOrganizationName :: Maybe Text
-      -- ^ Name of the organization for contact types other than PERSON.
-      -- Type: String Default: None Constraints: Maximum 255 characters.
-      -- Contact type must not be PERSON. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: No.
+    , _cdExtraParams :: [ExtraParam]
+      -- ^ A list of name-value pairs for parameters required by certain
+      -- top-level domains. Type: Complex Default: None Parents:
+      -- RegistrantContact, AdminContact, TechContact Children: Name,
+      -- Value Required: No.
     } deriving (Show, Generic)
+
+-- | First name of contact. Type: String Default: None Constraints: Maximum 255
+-- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
+-- Yes.
+cdFirstName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdFirstName f x =
+    (\y -> x { _cdFirstName = y })
+       <$> f (_cdFirstName x)
+{-# INLINE cdFirstName #-}
+
+-- | Last name of contact. Type: String Default: None Constraints: Maximum 255
+-- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
+-- Yes.
+cdLastName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdLastName f x =
+    (\y -> x { _cdLastName = y })
+       <$> f (_cdLastName x)
+{-# INLINE cdLastName #-}
+
+-- | Indicates whether the contact is a person, company, association, or public
+-- organization. If you choose an option other than PERSON, you must enter an
+-- organization name, and you can't enable privacy protection for the contact.
+-- Type: String Default: None Constraints: Maximum 255 characters. Valid
+-- values: PERSON | COMPANY | ASSOCIATION | PUBLIC_BODY Parents:
+-- RegistrantContact, AdminContact, TechContact Required: Yes.
+cdContactType
+    :: Functor f
+    => (Maybe ContactType
+    -> f (Maybe ContactType))
+    -> ContactDetail
+    -> f ContactDetail
+cdContactType f x =
+    (\y -> x { _cdContactType = y })
+       <$> f (_cdContactType x)
+{-# INLINE cdContactType #-}
+
+-- | Name of the organization for contact types other than PERSON. Type: String
+-- Default: None Constraints: Maximum 255 characters. Contact type must not be
+-- PERSON. Parents: RegistrantContact, AdminContact, TechContact Required: No.
+cdOrganizationName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdOrganizationName f x =
+    (\y -> x { _cdOrganizationName = y })
+       <$> f (_cdOrganizationName x)
+{-# INLINE cdOrganizationName #-}
+
+-- | First line of the contact's address. Type: String Default: None
+-- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+-- AdminContact, TechContact Required: Yes.
+cdAddressLine1
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdAddressLine1 f x =
+    (\y -> x { _cdAddressLine1 = y })
+       <$> f (_cdAddressLine1 x)
+{-# INLINE cdAddressLine1 #-}
+
+-- | Second line of contact's address, if any. Type: String Default: None
+-- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+-- AdminContact, TechContact Required: No.
+cdAddressLine2
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdAddressLine2 f x =
+    (\y -> x { _cdAddressLine2 = y })
+       <$> f (_cdAddressLine2 x)
+{-# INLINE cdAddressLine2 #-}
+
+-- | The city of the contact's address. Type: String Default: None Constraints:
+-- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
+-- TechContact Required: Yes.
+cdCity
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdCity f x =
+    (\y -> x { _cdCity = y })
+       <$> f (_cdCity x)
+{-# INLINE cdCity #-}
+
+-- | The state or province of the contact's city. Type: String Default: None
+-- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+-- AdminContact, TechContact Required: No.
+cdState
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdState f x =
+    (\y -> x { _cdState = y })
+       <$> f (_cdState x)
+{-# INLINE cdState #-}
+
+-- | Code for the country of the contact's address. Type: String Default: None
+-- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+-- AdminContact, TechContact Required: Yes.
+cdCountryCode
+    :: Functor f
+    => (Maybe CountryCode
+    -> f (Maybe CountryCode))
+    -> ContactDetail
+    -> f ContactDetail
+cdCountryCode f x =
+    (\y -> x { _cdCountryCode = y })
+       <$> f (_cdCountryCode x)
+{-# INLINE cdCountryCode #-}
+
+-- | The zip or postal code of the contact's address. Type: String Default: None
+-- Constraints: Maximum 255 characters. Parents: RegistrantContact,
+-- AdminContact, TechContact Required: No.
+cdZipCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdZipCode f x =
+    (\y -> x { _cdZipCode = y })
+       <$> f (_cdZipCode x)
+{-# INLINE cdZipCode #-}
+
+-- | The phone number of the contact. Type: String Default: None Constraints:
+-- Phone number must be specified in the format "+[country dialing
+-- code].[number including any area code&gt;]". For example, a US phone number
+-- might appear as "+1.1234567890". Parents: RegistrantContact, AdminContact,
+-- TechContact Required: Yes.
+cdPhoneNumber
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdPhoneNumber f x =
+    (\y -> x { _cdPhoneNumber = y })
+       <$> f (_cdPhoneNumber x)
+{-# INLINE cdPhoneNumber #-}
+
+-- | Email address of the contact. Type: String Default: None Constraints:
+-- Maximum 254 characters. Parents: RegistrantContact, AdminContact,
+-- TechContact Required: Yes.
+cdEmail
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdEmail f x =
+    (\y -> x { _cdEmail = y })
+       <$> f (_cdEmail x)
+{-# INLINE cdEmail #-}
+
+-- | Fax number of the contact. Type: String Default: None Constraints: Phone
+-- number must be specified in the format "+[country dialing code].[number
+-- including any area code]". For example, a US phone number might appear as
+-- "+1.1234567890". Parents: RegistrantContact, AdminContact, TechContact
+-- Required: No.
+cdFax
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ContactDetail
+    -> f ContactDetail
+cdFax f x =
+    (\y -> x { _cdFax = y })
+       <$> f (_cdFax x)
+{-# INLINE cdFax #-}
+
+-- | A list of name-value pairs for parameters required by certain top-level
+-- domains. Type: Complex Default: None Parents: RegistrantContact,
+-- AdminContact, TechContact Children: Name, Value Required: No.
+cdExtraParams
+    :: Functor f
+    => ([ExtraParam]
+    -> f ([ExtraParam]))
+    -> ContactDetail
+    -> f ContactDetail
+cdExtraParams f x =
+    (\y -> x { _cdExtraParams = y })
+       <$> f (_cdExtraParams x)
+{-# INLINE cdExtraParams #-}
 
 instance FromJSON ContactDetail
 
 instance ToJSON ContactDetail
 
 data DomainSummary = DomainSummary
-    { _ddyDomainName :: Text
+    { _duDomainName :: Text
       -- ^ The name of a domain. Type: String.
-    , _ddyAutoRenew :: Maybe Bool
+    , _duAutoRenew :: Maybe Bool
       -- ^ Indicates whether the domain is automatically renewed upon
       -- expiration. Type: Boolean Valid values: True | False.
-    , _ddyTransferLock :: Maybe Bool
+    , _duTransferLock :: Maybe Bool
       -- ^ Indicates whether a domain is locked from unauthorized transfer
       -- to another party. Type: Boolean Valid values: True | False.
-    , _ddyExpiry :: Maybe ISO8601
+    , _duExpiry :: Maybe ISO8601
       -- ^ Expiration date of the domain in Coordinated Universal Time
       -- (UTC). Type: Long.
     } deriving (Show, Generic)
+
+-- | The name of a domain. Type: String.
+duDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DomainSummary
+    -> f DomainSummary
+duDomainName f x =
+    (\y -> x { _duDomainName = y })
+       <$> f (_duDomainName x)
+{-# INLINE duDomainName #-}
+
+-- | Indicates whether the domain is automatically renewed upon expiration.
+-- Type: Boolean Valid values: True | False.
+duAutoRenew
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DomainSummary
+    -> f DomainSummary
+duAutoRenew f x =
+    (\y -> x { _duAutoRenew = y })
+       <$> f (_duAutoRenew x)
+{-# INLINE duAutoRenew #-}
+
+-- | Indicates whether a domain is locked from unauthorized transfer to another
+-- party. Type: Boolean Valid values: True | False.
+duTransferLock
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DomainSummary
+    -> f DomainSummary
+duTransferLock f x =
+    (\y -> x { _duTransferLock = y })
+       <$> f (_duTransferLock x)
+{-# INLINE duTransferLock #-}
+
+-- | Expiration date of the domain in Coordinated Universal Time (UTC). Type:
+-- Long.
+duExpiry
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DomainSummary
+    -> f DomainSummary
+duExpiry f x =
+    (\y -> x { _duExpiry = y })
+       <$> f (_duExpiry x)
+{-# INLINE duExpiry #-}
 
 instance FromJSON DomainSummary
 
@@ -1418,13 +1733,47 @@ data ExtraParam = ExtraParam
       -- Required: Yes.
     } deriving (Show, Generic)
 
+-- | Name of the additional parameter required by the top-level domain. Type:
+-- String Default: None Valid values: DUNS_NUMBER | BRAND_NUMBER |
+-- BIRTH_DEPARTMENT | BIRTH_DATE_IN_YYYY_MM_DD | BIRTH_COUNTRY | BIRTH_CITY |
+-- DOCUMENT_NUMBER | AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE |
+-- FI_BUSINESS_NUMBER | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA |
+-- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required: Yes.
+epName
+    :: Functor f
+    => (ExtraParamName
+    -> f (ExtraParamName))
+    -> ExtraParam
+    -> f ExtraParam
+epName f x =
+    (\y -> x { _epName = y })
+       <$> f (_epName x)
+{-# INLINE epName #-}
+
+-- | Values corresponding to the additional parameter names required by some
+-- top-level domains. Type: String Default: None Constraints: Maximum 2048
+-- characters. Parent: ExtraParams Required: Yes.
+epValue
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ExtraParam
+    -> f ExtraParam
+epValue f x =
+    (\y -> x { _epValue = y })
+       <$> f (_epValue x)
+{-# INLINE epValue #-}
+
 instance FromJSON ExtraParam
 
 instance ToJSON ExtraParam
 
 -- | Nameserver includes the following elements.
 data Nameserver = Nameserver
-    { _nGlueIps :: [Text]
+    { _nName :: Text
+      -- ^ The fully qualified host name of the name server. Type: String
+      -- Constraint: Maximum 255 characterss Parent: Nameservers.
+    , _nGlueIps :: [Text]
       -- ^ Glue IP address of a name server entry. Glue IP addresses are
       -- required only when the name of the name server is a subdomain of
       -- the domain. For example, if your domain is example.com and the
@@ -1432,10 +1781,37 @@ data Nameserver = Nameserver
       -- the IP address for ns.example.com. Type: List of IP addresses.
       -- Constraints: The list can contain only one IPv4 and one IPv6
       -- address. Parent: Nameservers.
-    , _nName :: Text
-      -- ^ The fully qualified host name of the name server. Type: String
-      -- Constraint: Maximum 255 characterss Parent: Nameservers.
     } deriving (Show, Generic)
+
+-- | The fully qualified host name of the name server. Type: String Constraint:
+-- Maximum 255 characterss Parent: Nameservers.
+nName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Nameserver
+    -> f Nameserver
+nName f x =
+    (\y -> x { _nName = y })
+       <$> f (_nName x)
+{-# INLINE nName #-}
+
+-- | Glue IP address of a name server entry. Glue IP addresses are required only
+-- when the name of the name server is a subdomain of the domain. For example,
+-- if your domain is example.com and the name server for the domain is
+-- ns.example.com, you need to specify the IP address for ns.example.com.
+-- Type: List of IP addresses. Constraints: The list can contain only one IPv4
+-- and one IPv6 address. Parent: Nameservers.
+nGlueIps
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> Nameserver
+    -> f Nameserver
+nGlueIps f x =
+    (\y -> x { _nGlueIps = y })
+       <$> f (_nGlueIps x)
+{-# INLINE nGlueIps #-}
 
 instance FromJSON Nameserver
 
@@ -1443,24 +1819,68 @@ instance ToJSON Nameserver
 
 -- | OperationSummary includes the following elements.
 data OperationSummary = OperationSummary
-    { _osType :: OperationType
+    { _ouOperationId :: Text
+      -- ^ Identifier returned to track the requested action. Type: String.
+    , _ouStatus :: OperationStatus
+      -- ^ The current status of the requested operation in the system.
+      -- Type: String.
+    , _ouType :: OperationType
       -- ^ Type of the action requested. Type: String Valid values:
       -- REGISTER_DOMAIN | DELETE_DOMAIN | TRANSFER_IN_DOMAIN |
       -- UPDATE_DOMAIN_CONTACT | UPDATE_NAMESERVER |
       -- CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
-    , _osOperationId :: Text
-      -- ^ Identifier returned to track the requested action. Type: String.
-    , _osSubmittedDate :: ISO8601
+    , _ouSubmittedDate :: ISO8601
       -- ^ The date when the request was submitted.
-    , _osStatus :: OperationStatus
-      -- ^ The current status of the requested operation in the system.
-      -- Type: String.
     } deriving (Show, Generic)
 
-instance FromJSON OperationSummary
+-- | Identifier returned to track the requested action. Type: String.
+ouOperationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> OperationSummary
+    -> f OperationSummary
+ouOperationId f x =
+    (\y -> x { _ouOperationId = y })
+       <$> f (_ouOperationId x)
+{-# INLINE ouOperationId #-}
 
-makeLenses ''ContactDetail
-makeLenses ''DomainSummary
-makeLenses ''ExtraParam
-makeLenses ''Nameserver
-makeLenses ''OperationSummary
+-- | The current status of the requested operation in the system. Type: String.
+ouStatus
+    :: Functor f
+    => (OperationStatus
+    -> f (OperationStatus))
+    -> OperationSummary
+    -> f OperationSummary
+ouStatus f x =
+    (\y -> x { _ouStatus = y })
+       <$> f (_ouStatus x)
+{-# INLINE ouStatus #-}
+
+-- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN |
+-- DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
+-- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
+ouType
+    :: Functor f
+    => (OperationType
+    -> f (OperationType))
+    -> OperationSummary
+    -> f OperationSummary
+ouType f x =
+    (\y -> x { _ouType = y })
+       <$> f (_ouType x)
+{-# INLINE ouType #-}
+
+-- | The date when the request was submitted.
+ouSubmittedDate
+    :: Functor f
+    => (ISO8601
+    -> f (ISO8601))
+    -> OperationSummary
+    -> f OperationSummary
+ouSubmittedDate f x =
+    (\y -> x { _ouSubmittedDate = y })
+       <$> f (_ouSubmittedDate x)
+{-# INLINE ouSubmittedDate #-}
+
+instance FromJSON OperationSummary

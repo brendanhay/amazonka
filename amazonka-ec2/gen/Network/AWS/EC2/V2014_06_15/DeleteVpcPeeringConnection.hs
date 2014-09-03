@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,16 +33,14 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
     (
     -- * Request
       DeleteVpcPeeringConnection
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteVpcPeeringConnection
-    -- ** Accessors and lenses
-    , _dvpcrVpcPeeringConnectionId
+    -- ** Request lenses
     , dvpcrVpcPeeringConnectionId
 
     -- * Response
     , DeleteVpcPeeringConnectionResponse
-    -- ** Accessors and lenses
-    , _dvpcsReturn
+    -- ** Response lenses
     , dvpcsReturn
     ) where
 
@@ -59,8 +56,21 @@ deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     }
 
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
+    { _dvpcrVpcPeeringConnectionId :: Text
+      -- ^ The ID of the VPC peering connection.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVpcPeeringConnection
+-- | The ID of the VPC peering connection.
+dvpcrVpcPeeringConnectionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVpcPeeringConnection
+    -> f DeleteVpcPeeringConnection
+dvpcrVpcPeeringConnectionId f x =
+    (\y -> x { _dvpcrVpcPeeringConnectionId = y })
+       <$> f (_dvpcrVpcPeeringConnectionId x)
+{-# INLINE dvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
@@ -71,7 +81,17 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
       -- error.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVpcPeeringConnectionResponse
+-- | Returns true if the request succeeds; otherwise, it returns an error.
+dvpcsReturn
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeleteVpcPeeringConnectionResponse
+    -> f DeleteVpcPeeringConnectionResponse
+dvpcsReturn f x =
+    (\y -> x { _dvpcsReturn = y })
+       <$> f (_dvpcsReturn x)
+{-# INLINE dvpcsReturn #-}
 
 instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -82,9 +102,3 @@ instance AWSRequest DeleteVpcPeeringConnection where
 
     request = post "DeleteVpcPeeringConnection"
     response _ = xmlResponse
-
--- | The ID of the VPC peering connection.
-dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection (Text)
-
--- | Returns true if the request succeeds; otherwise, it returns an error.
-dvpcsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)

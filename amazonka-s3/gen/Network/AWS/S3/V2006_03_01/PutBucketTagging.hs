@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,15 +18,28 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the tags for a bucket.
-module Network.AWS.S3.V2006_03_01.PutBucketTagging where
+module Network.AWS.S3.V2006_03_01.PutBucketTagging
+    (
+    -- * Request
+      PutBucketTagging
+    -- ** Request constructor
+    , putBucketTagging
+    -- ** Request lenses
+    , pbtrTagging
+    , pbtrBucket
+    , pbtrContentMD5
+
+    -- * Response
+    , PutBucketTaggingResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketTagging' request.
-putBucketTagging :: Tagging -- ^ '_pbtrTagging'
-                 -> BucketName -- ^ '_pbtrBucket'
+putBucketTagging :: Tagging -- ^ 'pbtrTagging'
+                 -> BucketName -- ^ 'pbtrBucket'
                  -> PutBucketTagging
 putBucketTagging p1 p2 = PutBucketTagging
     { _pbtrTagging = p1
@@ -41,7 +53,38 @@ data PutBucketTagging = PutBucketTagging
     , _pbtrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketTagging
+pbtrTagging
+    :: Functor f
+    => (Tagging
+    -> f (Tagging))
+    -> PutBucketTagging
+    -> f PutBucketTagging
+pbtrTagging f x =
+    (\y -> x { _pbtrTagging = y })
+       <$> f (_pbtrTagging x)
+{-# INLINE pbtrTagging #-}
+
+pbtrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketTagging
+    -> f PutBucketTagging
+pbtrBucket f x =
+    (\y -> x { _pbtrBucket = y })
+       <$> f (_pbtrBucket x)
+{-# INLINE pbtrBucket #-}
+
+pbtrContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketTagging
+    -> f PutBucketTagging
+pbtrContentMD5 f x =
+    (\y -> x { _pbtrContentMD5 = y })
+       <$> f (_pbtrContentMD5 x)
+{-# INLINE pbtrContentMD5 #-}
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
@@ -64,8 +107,6 @@ instance ToBody PutBucketTagging where
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketTaggingResponse
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3

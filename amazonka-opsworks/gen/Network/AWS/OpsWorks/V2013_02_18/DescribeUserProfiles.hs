@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,7 +20,20 @@
 -- | Describe specified users. Required Permissions: To use this action, an IAM
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
+    (
+    -- * Request
+      DescribeUserProfiles
+    -- ** Request constructor
+    , describeUserProfiles
+    -- ** Request lenses
+    , dupsIamUserArns
+
+    -- * Response
+    , DescribeUserProfilesResponse
+    -- ** Response lenses
+    , duptUserProfiles
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -31,16 +43,26 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeUserProfiles' request.
 describeUserProfiles :: DescribeUserProfiles
 describeUserProfiles = DescribeUserProfiles
-    { _duprIamUserArns = mempty
+    { _dupsIamUserArns = mempty
     }
 
 data DescribeUserProfiles = DescribeUserProfiles
-    { _duprIamUserArns :: [Text]
+    { _dupsIamUserArns :: [Text]
       -- ^ An array of IAM user ARNs that identify the users to be
       -- described.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeUserProfiles
+-- | An array of IAM user ARNs that identify the users to be described.
+dupsIamUserArns
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeUserProfiles
+    -> f DescribeUserProfiles
+dupsIamUserArns f x =
+    (\y -> x { _dupsIamUserArns = y })
+       <$> f (_dupsIamUserArns x)
+{-# INLINE dupsIamUserArns #-}
 
 instance ToPath DescribeUserProfiles
 
@@ -51,11 +73,21 @@ instance ToHeaders DescribeUserProfiles
 instance ToJSON DescribeUserProfiles
 
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse
-    { _dupsUserProfiles :: [UserProfile]
+    { _duptUserProfiles :: [UserProfile]
       -- ^ A Users object that describes the specified users.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeUserProfilesResponse
+-- | A Users object that describes the specified users.
+duptUserProfiles
+    :: Functor f
+    => ([UserProfile]
+    -> f ([UserProfile]))
+    -> DescribeUserProfilesResponse
+    -> f DescribeUserProfilesResponse
+duptUserProfiles f x =
+    (\y -> x { _duptUserProfiles = y })
+       <$> f (_duptUserProfiles x)
+{-# INLINE duptUserProfiles #-}
 
 instance FromJSON DescribeUserProfilesResponse
 

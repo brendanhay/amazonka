@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,16 +19,28 @@
 
 -- | To retrieve a count of all your health checks, send a GET request to the
 -- 2013-04-01/healthcheckcount resource.
-module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount where
+module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
+    (
+    -- * Request
+      GetHealthCheckCount
+    -- ** Request constructor
+    , getHealthCheckCount
+    -- * Response
+    , GetHealthCheckCountResponse
+    -- ** Response lenses
+    , ghccsHealthCheckCount
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetHealthCheckCount' request.
+getHealthCheckCount :: GetHealthCheckCount
+getHealthCheckCount = GetHealthCheckCount
+
 data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Show, Generic)
-
-makeLenses ''GetHealthCheckCount
 
 instance ToPath GetHealthCheckCount where
     toPath = const "/2013-04-01/healthcheckcount"
@@ -48,7 +59,17 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse
       -- account.
     } deriving (Show, Generic)
 
-makeLenses ''GetHealthCheckCountResponse
+-- | The number of health checks associated with the current AWS account.
+ghccsHealthCheckCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> GetHealthCheckCountResponse
+    -> f GetHealthCheckCountResponse
+ghccsHealthCheckCount f x =
+    (\y -> x { _ghccsHealthCheckCount = y })
+       <$> f (_ghccsHealthCheckCount x)
+{-# INLINE ghccsHealthCheckCount #-}
 
 instance FromXML GetHealthCheckCountResponse where
     fromXMLOptions = xmlOptions

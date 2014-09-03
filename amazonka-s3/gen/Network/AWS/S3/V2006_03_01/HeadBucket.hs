@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,17 +19,44 @@
 
 -- | This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
-module Network.AWS.S3.V2006_03_01.HeadBucket where
+module Network.AWS.S3.V2006_03_01.HeadBucket
+    (
+    -- * Request
+      HeadBucket
+    -- ** Request constructor
+    , headBucket
+    -- ** Request lenses
+    , hbrBucket
+
+    -- * Response
+    , HeadBucketResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'HeadBucket' request.
+headBucket :: BucketName -- ^ 'hbrBucket'
+           -> HeadBucket
+headBucket p1 = HeadBucket
+    { _hbrBucket = p1
+    }
+
 data HeadBucket = HeadBucket
     { _hbrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''HeadBucket
+hbrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> HeadBucket
+    -> f HeadBucket
+hbrBucket f x =
+    (\y -> x { _hbrBucket = y })
+       <$> f (_hbrBucket x)
+{-# INLINE hbrBucket #-}
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat
@@ -46,8 +72,6 @@ instance ToBody HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''HeadBucketResponse
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3

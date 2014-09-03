@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -51,22 +50,17 @@ module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
     (
     -- * Request
       CreateInstanceExportTask
-    -- ** Default constructor
+    -- ** Request constructor
     , createInstanceExportTask
-    -- ** Accessors and lenses
-    , _cietrInstanceId
+    -- ** Request lenses
     , cietrInstanceId
-    , _cietrTargetEnvironment
     , cietrTargetEnvironment
-    , _cietrExportToS3Task
     , cietrExportToS3Task
-    , _cietrDescription
     , cietrDescription
 
     -- * Response
     , CreateInstanceExportTaskResponse
-    -- ** Accessors and lenses
-    , _cietsExportTask
+    -- ** Response lenses
     , cietsExportTask
     ) where
 
@@ -85,8 +79,65 @@ createInstanceExportTask p1 = CreateInstanceExportTask
     }
 
 data CreateInstanceExportTask = CreateInstanceExportTask
+    { _cietrInstanceId :: Text
+      -- ^ The ID of the instance.
+    , _cietrTargetEnvironment :: Maybe ExportEnvironment
+      -- ^ The target virtualization environment.
+    , _cietrExportToS3Task :: Maybe ExportToS3TaskSpecification
+      -- ^ 
+    , _cietrDescription :: Maybe Text
+      -- ^ A description for the conversion task or the resource being
+      -- exported. The maximum length is 255 bytes.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateInstanceExportTask
+-- | The ID of the instance.
+cietrInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateInstanceExportTask
+    -> f CreateInstanceExportTask
+cietrInstanceId f x =
+    (\y -> x { _cietrInstanceId = y })
+       <$> f (_cietrInstanceId x)
+{-# INLINE cietrInstanceId #-}
+
+-- | The target virtualization environment.
+cietrTargetEnvironment
+    :: Functor f
+    => (Maybe ExportEnvironment
+    -> f (Maybe ExportEnvironment))
+    -> CreateInstanceExportTask
+    -> f CreateInstanceExportTask
+cietrTargetEnvironment f x =
+    (\y -> x { _cietrTargetEnvironment = y })
+       <$> f (_cietrTargetEnvironment x)
+{-# INLINE cietrTargetEnvironment #-}
+
+-- | 
+cietrExportToS3Task
+    :: Functor f
+    => (Maybe ExportToS3TaskSpecification
+    -> f (Maybe ExportToS3TaskSpecification))
+    -> CreateInstanceExportTask
+    -> f CreateInstanceExportTask
+cietrExportToS3Task f x =
+    (\y -> x { _cietrExportToS3Task = y })
+       <$> f (_cietrExportToS3Task x)
+{-# INLINE cietrExportToS3Task #-}
+
+-- | A description for the conversion task or the resource being exported. The
+-- maximum length is 255 bytes.
+cietrDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInstanceExportTask
+    -> f CreateInstanceExportTask
+cietrDescription f x =
+    (\y -> x { _cietrDescription = y })
+       <$> f (_cietrDescription x)
+{-# INLINE cietrDescription #-}
 
 instance ToQuery CreateInstanceExportTask where
     toQuery = genericQuery def
@@ -96,7 +147,17 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateInstanceExportTaskResponse
+-- | 
+cietsExportTask
+    :: Functor f
+    => (Maybe ExportTask
+    -> f (Maybe ExportTask))
+    -> CreateInstanceExportTaskResponse
+    -> f CreateInstanceExportTaskResponse
+cietsExportTask f x =
+    (\y -> x { _cietsExportTask = y })
+       <$> f (_cietsExportTask x)
+{-# INLINE cietsExportTask #-}
 
 instance FromXML CreateInstanceExportTaskResponse where
     fromXMLOptions = xmlOptions
@@ -107,19 +168,3 @@ instance AWSRequest CreateInstanceExportTask where
 
     request = post "CreateInstanceExportTask"
     response _ = xmlResponse
-
--- | The ID of the instance.
-cietrInstanceId :: Lens' CreateInstanceExportTask (Text)
-
--- | The target virtualization environment.
-cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
-
--- | 
-cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
-
--- | A description for the conversion task or the resource being exported. The
--- maximum length is 255 bytes.
-cietrDescription :: Lens' CreateInstanceExportTask (Maybe Text)
-
--- | 
-cietsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)

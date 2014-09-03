@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,7 +43,24 @@
 -- fri:08:30-fri:09:00 default active active
 -- arn:aws:sns:us-east-1:123456789012:ElastiCacheNotifications 6
 -- f270d58f-b7fb-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters where
+module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
+    (
+    -- * Request
+      DescribeCacheClusters
+    -- ** Request constructor
+    , describeCacheClusters
+    -- ** Request lenses
+    , dccnShowCacheNodeInfo
+    , dccnMaxRecords
+    , dccnCacheClusterId
+    , dccnMarker
+
+    -- * Response
+    , DescribeCacheClustersResponse
+    -- ** Response lenses
+    , ccmCacheClusters
+    , ccmMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
@@ -55,8 +71,8 @@ describeCacheClusters :: DescribeCacheClusters
 describeCacheClusters = DescribeCacheClusters
     { _dccnShowCacheNodeInfo = Nothing
     , _dccnMaxRecords = Nothing
-    , _dccnMarker = Nothing
     , _dccnCacheClusterId = Nothing
+    , _dccnMarker = Nothing
     }
 
 data DescribeCacheClusters = DescribeCacheClusters
@@ -68,18 +84,73 @@ data DescribeCacheClusters = DescribeCacheClusters
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+    , _dccnCacheClusterId :: Maybe Text
+      -- ^ The user-supplied cluster identifier. If this parameter is
+      -- specified, only information about that specific cache cluster is
+      -- returned. This parameter isn't case sensitive.
     , _dccnMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _dccnCacheClusterId :: Maybe Text
-      -- ^ The user-supplied cluster identifier. If this parameter is
-      -- specified, only information about that specific cache cluster is
-      -- returned. This parameter isn't case sensitive.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheClusters
+-- | An optional flag that can be included in the DescribeCacheCluster request
+-- to retrieve information about the individual cache nodes.
+dccnShowCacheNodeInfo
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DescribeCacheClusters
+    -> f DescribeCacheClusters
+dccnShowCacheNodeInfo f x =
+    (\y -> x { _dccnShowCacheNodeInfo = y })
+       <$> f (_dccnShowCacheNodeInfo x)
+{-# INLINE dccnShowCacheNodeInfo #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a marker is included in the
+-- response so that the remaining results can be retrieved. Default: 100
+-- Constraints: minimum 20; maximum 100.
+dccnMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeCacheClusters
+    -> f DescribeCacheClusters
+dccnMaxRecords f x =
+    (\y -> x { _dccnMaxRecords = y })
+       <$> f (_dccnMaxRecords x)
+{-# INLINE dccnMaxRecords #-}
+
+-- | The user-supplied cluster identifier. If this parameter is specified, only
+-- information about that specific cache cluster is returned. This parameter
+-- isn't case sensitive.
+dccnCacheClusterId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheClusters
+    -> f DescribeCacheClusters
+dccnCacheClusterId f x =
+    (\y -> x { _dccnCacheClusterId = y })
+       <$> f (_dccnCacheClusterId x)
+{-# INLINE dccnCacheClusterId #-}
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+dccnMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheClusters
+    -> f DescribeCacheClusters
+dccnMarker f x =
+    (\y -> x { _dccnMarker = y })
+       <$> f (_dccnMarker x)
+{-# INLINE dccnMarker #-}
 
 instance ToQuery DescribeCacheClusters where
     toQuery = genericQuery def
@@ -92,7 +163,30 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse
       -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheClustersResponse
+-- | A list of cache clusters. Each item in the list contains detailed
+-- information about one cache cluster.
+ccmCacheClusters
+    :: Functor f
+    => ([CacheCluster]
+    -> f ([CacheCluster]))
+    -> DescribeCacheClustersResponse
+    -> f DescribeCacheClustersResponse
+ccmCacheClusters f x =
+    (\y -> x { _ccmCacheClusters = y })
+       <$> f (_ccmCacheClusters x)
+{-# INLINE ccmCacheClusters #-}
+
+-- | Provides an identifier to allow retrieval of paginated results.
+ccmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheClustersResponse
+    -> f DescribeCacheClustersResponse
+ccmMarker f x =
+    (\y -> x { _ccmMarker = y })
+       <$> f (_ccmMarker x)
+{-# INLINE ccmMarker #-}
 
 instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions

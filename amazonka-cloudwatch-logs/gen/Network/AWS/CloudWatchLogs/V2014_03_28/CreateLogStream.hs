@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,19 +32,60 @@
 -- "exampleLogGroupName", "logStreamName": "exampleLogStreamName" } HTTP/1.1
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream where
+module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream
+    (
+    -- * Request
+      CreateLogStream
+    -- ** Request constructor
+    , createLogStream
+    -- ** Request lenses
+    , clsrLogGroupName
+    , clsrLogStreamName
+
+    -- * Response
+    , CreateLogStreamResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'CreateLogStream' request.
+createLogStream :: Text -- ^ 'clsrLogGroupName'
+                -> Text -- ^ 'clsrLogStreamName'
+                -> CreateLogStream
+createLogStream p1 p2 = CreateLogStream
+    { _clsrLogGroupName = p1
+    , _clsrLogStreamName = p2
+    }
+
 data CreateLogStream = CreateLogStream
     { _clsrLogGroupName :: Text
     , _clsrLogStreamName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateLogStream
+clsrLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLogStream
+    -> f CreateLogStream
+clsrLogGroupName f x =
+    (\y -> x { _clsrLogGroupName = y })
+       <$> f (_clsrLogGroupName x)
+{-# INLINE clsrLogGroupName #-}
+
+clsrLogStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLogStream
+    -> f CreateLogStream
+clsrLogStreamName f x =
+    (\y -> x { _clsrLogStreamName = y })
+       <$> f (_clsrLogStreamName x)
+{-# INLINE clsrLogStreamName #-}
 
 instance ToPath CreateLogStream
 
@@ -57,8 +97,6 @@ instance ToJSON CreateLogStream
 
 data CreateLogStreamResponse = CreateLogStreamResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateLogStreamResponse
 
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs

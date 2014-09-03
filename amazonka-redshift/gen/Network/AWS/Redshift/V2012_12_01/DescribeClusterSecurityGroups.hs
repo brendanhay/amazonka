@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,23 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date 0.0.0.0/0 authorized
 -- default default my security group securitygroup1
 -- 947a8305-64f8-11e2-bec0-17624ad140dd.
-module Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups where
+module Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups
+    (
+    -- * Request
+      DescribeClusterSecurityGroups
+    -- ** Request constructor
+    , describeClusterSecurityGroups
+    -- ** Request lenses
+    , dcsgoMaxRecords
+    , dcsgoClusterSecurityGroupName
+    , dcsgoMarker
+
+    -- * Response
+    , DescribeClusterSecurityGroupsResponse
+    -- ** Response lenses
+    , csgoClusterSecurityGroups
+    , csgoMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -39,20 +54,25 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeClusterSecurityGroups' request.
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
 describeClusterSecurityGroups = DescribeClusterSecurityGroups
-    { _dcsgnMaxRecords = Nothing
-    , _dcsgnMarker = Nothing
-    , _dcsgnClusterSecurityGroupName = Nothing
+    { _dcsgoMaxRecords = Nothing
+    , _dcsgoClusterSecurityGroupName = Nothing
+    , _dcsgoMarker = Nothing
     }
 
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
-    { _dcsgnMaxRecords :: Maybe Integer
+    { _dcsgoMaxRecords :: Maybe Integer
       -- ^ The maximum number of response records to return in each call. If
       -- the number of remaining response records exceeds the specified
       -- MaxRecords value, a value is returned in a marker field of the
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcsgnMarker :: Maybe Text
+    , _dcsgoClusterSecurityGroupName :: Maybe Text
+      -- ^ The name of a cluster security group for which you are requesting
+      -- details. You can specify either the Marker parameter or a
+      -- ClusterSecurityGroupName parameter, but not both. Example:
+      -- securitygroup1.
+    , _dcsgoMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
       -- DescribeClusterSecurityGroups request exceed the value specified
@@ -62,22 +82,63 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
       -- retrying the request. Constraints: You can specify either the
       -- ClusterSecurityGroupName parameter or the Marker parameter, but
       -- not both.
-    , _dcsgnClusterSecurityGroupName :: Maybe Text
-      -- ^ The name of a cluster security group for which you are requesting
-      -- details. You can specify either the Marker parameter or a
-      -- ClusterSecurityGroupName parameter, but not both. Example:
-      -- securitygroup1.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeClusterSecurityGroups
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in a marker field of the response. You can
+-- retrieve the next set of records by retrying the command with the returned
+-- marker value. Default: 100 Constraints: minimum 20, maximum 100.
+dcsgoMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeClusterSecurityGroups
+    -> f DescribeClusterSecurityGroups
+dcsgoMaxRecords f x =
+    (\y -> x { _dcsgoMaxRecords = y })
+       <$> f (_dcsgoMaxRecords x)
+{-# INLINE dcsgoMaxRecords #-}
+
+-- | The name of a cluster security group for which you are requesting details.
+-- You can specify either the Marker parameter or a ClusterSecurityGroupName
+-- parameter, but not both. Example: securitygroup1.
+dcsgoClusterSecurityGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusterSecurityGroups
+    -> f DescribeClusterSecurityGroups
+dcsgoClusterSecurityGroupName f x =
+    (\y -> x { _dcsgoClusterSecurityGroupName = y })
+       <$> f (_dcsgoClusterSecurityGroupName x)
+{-# INLINE dcsgoClusterSecurityGroupName #-}
+
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a DescribeClusterSecurityGroups
+-- request exceed the value specified in MaxRecords, AWS returns a value in
+-- the Marker field of the response. You can retrieve the next set of response
+-- records by providing the returned marker value in the Marker parameter and
+-- retrying the request. Constraints: You can specify either the
+-- ClusterSecurityGroupName parameter or the Marker parameter, but not both.
+dcsgoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusterSecurityGroups
+    -> f DescribeClusterSecurityGroups
+dcsgoMarker f x =
+    (\y -> x { _dcsgoMarker = y })
+       <$> f (_dcsgoMarker x)
+{-# INLINE dcsgoMarker #-}
 
 instance ToQuery DescribeClusterSecurityGroups where
     toQuery = genericQuery def
 
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _csgnClusterSecurityGroups :: [ClusterSecurityGroup]
+    { _csgoClusterSecurityGroups :: [ClusterSecurityGroup]
       -- ^ A list of ClusterSecurityGroup instances.
-    , _csgnMarker :: Maybe Text
+    , _csgoMarker :: Maybe Text
       -- ^ A value that indicates the starting point for the next set of
       -- response records in a subsequent request. If a value is returned
       -- in a response, you can retrieve the next set of records by
@@ -86,7 +147,33 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
       -- records have been retrieved for the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeClusterSecurityGroupsResponse
+-- | A list of ClusterSecurityGroup instances.
+csgoClusterSecurityGroups
+    :: Functor f
+    => ([ClusterSecurityGroup]
+    -> f ([ClusterSecurityGroup]))
+    -> DescribeClusterSecurityGroupsResponse
+    -> f DescribeClusterSecurityGroupsResponse
+csgoClusterSecurityGroups f x =
+    (\y -> x { _csgoClusterSecurityGroups = y })
+       <$> f (_csgoClusterSecurityGroups x)
+{-# INLINE csgoClusterSecurityGroups #-}
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker
+-- value in the Marker parameter and retrying the command. If the Marker field
+-- is empty, all response records have been retrieved for the request.
+csgoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusterSecurityGroupsResponse
+    -> f DescribeClusterSecurityGroupsResponse
+csgoMarker f x =
+    (\y -> x { _csgoMarker = y })
+       <$> f (_csgoMarker x)
+{-# INLINE csgoMarker #-}
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -99,5 +186,5 @@ instance AWSRequest DescribeClusterSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSecurityGroups where
-    next rq rs = (\x -> rq { _dcsgnMarker = Just x })
-        <$> (_csgnMarker rs)
+    next rq rs = (\x -> rq { _dcsgoMarker = Just x })
+        <$> (_csgoMarker rs)

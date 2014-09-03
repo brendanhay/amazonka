@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,18 +54,15 @@ module Network.AWS.EC2.V2014_06_15.StopInstances
     (
     -- * Request
       StopInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , stopInstances
-    -- ** Accessors and lenses
-    , _sisvInstanceIds
+    -- ** Request lenses
     , sisvInstanceIds
-    , _sisvForce
     , sisvForce
 
     -- * Response
     , StopInstancesResponse
-    -- ** Accessors and lenses
-    , _siswStoppingInstances
+    -- ** Response lenses
     , siswStoppingInstances
     ) where
 
@@ -83,8 +79,42 @@ stopInstances p1 = StopInstances
     }
 
 data StopInstances = StopInstances
+    { _sisvInstanceIds :: [Text]
+      -- ^ One or more instance IDs.
+    , _sisvForce :: Maybe Bool
+      -- ^ Forces the instances to stop. The instances do not have an
+      -- opportunity to flush file system caches or file system metadata.
+      -- If you use this option, you must perform file system check and
+      -- repair procedures. This option is not recommended for Windows
+      -- instances. Default: false.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''StopInstances
+-- | One or more instance IDs.
+sisvInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> StopInstances
+    -> f StopInstances
+sisvInstanceIds f x =
+    (\y -> x { _sisvInstanceIds = y })
+       <$> f (_sisvInstanceIds x)
+{-# INLINE sisvInstanceIds #-}
+
+-- | Forces the instances to stop. The instances do not have an opportunity to
+-- flush file system caches or file system metadata. If you use this option,
+-- you must perform file system check and repair procedures. This option is
+-- not recommended for Windows instances. Default: false.
+sisvForce
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> StopInstances
+    -> f StopInstances
+sisvForce f x =
+    (\y -> x { _sisvForce = y })
+       <$> f (_sisvForce x)
+{-# INLINE sisvForce #-}
 
 instance ToQuery StopInstances where
     toQuery = genericQuery def
@@ -94,7 +124,17 @@ data StopInstancesResponse = StopInstancesResponse
       -- ^ Information about one or more stopped instances.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''StopInstancesResponse
+-- | Information about one or more stopped instances.
+siswStoppingInstances
+    :: Functor f
+    => ([InstanceStateChange]
+    -> f ([InstanceStateChange]))
+    -> StopInstancesResponse
+    -> f StopInstancesResponse
+siswStoppingInstances f x =
+    (\y -> x { _siswStoppingInstances = y })
+       <$> f (_siswStoppingInstances x)
+{-# INLINE siswStoppingInstances #-}
 
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -105,15 +145,3 @@ instance AWSRequest StopInstances where
 
     request = post "StopInstances"
     response _ = xmlResponse
-
--- | One or more instance IDs.
-sisvInstanceIds :: Lens' StopInstances ([Text])
-
--- | Forces the instances to stop. The instances do not have an opportunity to
--- flush file system caches or file system metadata. If you use this option,
--- you must perform file system check and repair procedures. This option is
--- not recommended for Windows instances. Default: false.
-sisvForce :: Lens' StopInstances (Maybe Bool)
-
--- | Information about one or more stopped instances.
-siswStoppingInstances :: Lens' StopInstancesResponse ([InstanceStateChange])

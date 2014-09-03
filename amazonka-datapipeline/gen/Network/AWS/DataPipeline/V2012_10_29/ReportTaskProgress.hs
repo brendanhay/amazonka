@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,12 +38,32 @@
 -- x-amzn-RequestId: 640bd023-0775-11e2-af6f-6bc7a6be60d9 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 18 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"canceled": false}.
-module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress where
+module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
+    (
+    -- * Request
+      ReportTaskProgress
+    -- ** Request constructor
+    , reportTaskProgress
+    -- ** Request lenses
+    , rtpiTaskId
+
+    -- * Response
+    , ReportTaskProgressResponse
+    -- ** Response lenses
+    , rtpoCanceled
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'ReportTaskProgress' request.
+reportTaskProgress :: Text -- ^ 'rtpiTaskId'
+                   -> ReportTaskProgress
+reportTaskProgress p1 = ReportTaskProgress
+    { _rtpiTaskId = p1
+    }
 
 data ReportTaskProgress = ReportTaskProgress
     { _rtpiTaskId :: Text
@@ -53,7 +72,19 @@ data ReportTaskProgress = ReportTaskProgress
       -- response for the PollForTask action.
     } deriving (Show, Generic)
 
-makeLenses ''ReportTaskProgress
+-- | Identifier of the task assigned to the task runner. This value is provided
+-- in the TaskObject that the service returns with the response for the
+-- PollForTask action.
+rtpiTaskId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReportTaskProgress
+    -> f ReportTaskProgress
+rtpiTaskId f x =
+    (\y -> x { _rtpiTaskId = y })
+       <$> f (_rtpiTaskId x)
+{-# INLINE rtpiTaskId #-}
 
 instance ToPath ReportTaskProgress
 
@@ -70,7 +101,18 @@ data ReportTaskProgressResponse = ReportTaskProgressResponse
       -- canceled tasks.
     } deriving (Show, Generic)
 
-makeLenses ''ReportTaskProgressResponse
+-- | If True, the calling task runner should cancel processing of the task. The
+-- task runner does not need to call SetTaskStatus for canceled tasks.
+rtpoCanceled
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ReportTaskProgressResponse
+    -> f ReportTaskProgressResponse
+rtpoCanceled f x =
+    (\y -> x { _rtpoCanceled = y })
+       <$> f (_rtpoCanceled x)
+{-# INLINE rtpoCanceled #-}
 
 instance FromJSON ReportTaskProgressResponse
 

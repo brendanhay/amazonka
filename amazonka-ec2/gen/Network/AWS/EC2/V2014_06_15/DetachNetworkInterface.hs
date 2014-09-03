@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,12 +29,10 @@ module Network.AWS.EC2.V2014_06_15.DetachNetworkInterface
     (
     -- * Request
       DetachNetworkInterface
-    -- ** Default constructor
+    -- ** Request constructor
     , detachNetworkInterface
-    -- ** Accessors and lenses
-    , _dniuAttachmentId
+    -- ** Request lenses
     , dniuAttachmentId
-    , _dniuForce
     , dniuForce
 
     -- * Response
@@ -55,8 +52,35 @@ detachNetworkInterface p1 = DetachNetworkInterface
     }
 
 data DetachNetworkInterface = DetachNetworkInterface
+    { _dniuAttachmentId :: Text
+      -- ^ The ID of the attachment.
+    , _dniuForce :: Maybe Bool
+      -- ^ Specifies whether to force a detachment.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DetachNetworkInterface
+-- | The ID of the attachment.
+dniuAttachmentId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachNetworkInterface
+    -> f DetachNetworkInterface
+dniuAttachmentId f x =
+    (\y -> x { _dniuAttachmentId = y })
+       <$> f (_dniuAttachmentId x)
+{-# INLINE dniuAttachmentId #-}
+
+-- | Specifies whether to force a detachment.
+dniuForce
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DetachNetworkInterface
+    -> f DetachNetworkInterface
+dniuForce f x =
+    (\y -> x { _dniuForce = y })
+       <$> f (_dniuForce x)
+{-# INLINE dniuForce #-}
 
 instance ToQuery DetachNetworkInterface where
     toQuery = genericQuery def
@@ -64,17 +88,9 @@ instance ToQuery DetachNetworkInterface where
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DetachNetworkInterfaceResponse
-
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2
     type Rs DetachNetworkInterface = DetachNetworkInterfaceResponse
 
     request = post "DetachNetworkInterface"
     response _ = nullaryResponse DetachNetworkInterfaceResponse
-
--- | The ID of the attachment.
-dniuAttachmentId :: Lens' DetachNetworkInterface (Text)
-
--- | Specifies whether to force a detachment.
-dniuForce :: Lens' DetachNetworkInterface (Maybe Bool)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,7 +23,19 @@
 -- a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling where
+module Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling
+    (
+    -- * Request
+      SetTimeBasedAutoScaling
+    -- ** Request constructor
+    , setTimeBasedAutoScaling
+    -- ** Request lenses
+    , stbasrInstanceId
+    , stbasrAutoScalingSchedule
+
+    -- * Response
+    , SetTimeBasedAutoScalingResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -32,7 +43,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'SetTimeBasedAutoScaling' request.
-setTimeBasedAutoScaling :: Text -- ^ '_stbasrInstanceId'
+setTimeBasedAutoScaling :: Text -- ^ 'stbasrInstanceId'
                         -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     { _stbasrInstanceId = p1
@@ -46,7 +57,29 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
       -- ^ An AutoScalingSchedule with the instance schedule.
     } deriving (Show, Generic)
 
-makeLenses ''SetTimeBasedAutoScaling
+-- | The instance ID.
+stbasrInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetTimeBasedAutoScaling
+    -> f SetTimeBasedAutoScaling
+stbasrInstanceId f x =
+    (\y -> x { _stbasrInstanceId = y })
+       <$> f (_stbasrInstanceId x)
+{-# INLINE stbasrInstanceId #-}
+
+-- | An AutoScalingSchedule with the instance schedule.
+stbasrAutoScalingSchedule
+    :: Functor f
+    => (Maybe WeeklyAutoScalingSchedule
+    -> f (Maybe WeeklyAutoScalingSchedule))
+    -> SetTimeBasedAutoScaling
+    -> f SetTimeBasedAutoScaling
+stbasrAutoScalingSchedule f x =
+    (\y -> x { _stbasrAutoScalingSchedule = y })
+       <$> f (_stbasrAutoScalingSchedule x)
+{-# INLINE stbasrAutoScalingSchedule #-}
 
 instance ToPath SetTimeBasedAutoScaling
 
@@ -58,8 +91,6 @@ instance ToJSON SetTimeBasedAutoScaling
 
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetTimeBasedAutoScalingResponse
 
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks

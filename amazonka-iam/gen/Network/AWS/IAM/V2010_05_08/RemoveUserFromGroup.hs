@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,11 +20,32 @@
 -- | Removes the specified user from the specified group.
 -- https://iam.amazonaws.com/ ?Action=RemoveUserFromGroup &GroupName=Managers
 -- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup where
+module Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
+    (
+    -- * Request
+      RemoveUserFromGroup
+    -- ** Request constructor
+    , removeUserFromGroup
+    -- ** Request lenses
+    , rufgrUserName
+    , rufgrGroupName
+
+    -- * Response
+    , RemoveUserFromGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RemoveUserFromGroup' request.
+removeUserFromGroup :: Text -- ^ 'rufgrUserName'
+                    -> Text -- ^ 'rufgrGroupName'
+                    -> RemoveUserFromGroup
+removeUserFromGroup p1 p2 = RemoveUserFromGroup
+    { _rufgrUserName = p1
+    , _rufgrGroupName = p2
+    }
 
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgrUserName :: Text
@@ -34,15 +54,35 @@ data RemoveUserFromGroup = RemoveUserFromGroup
       -- ^ Name of the group to update.
     } deriving (Show, Generic)
 
-makeLenses ''RemoveUserFromGroup
+-- | Name of the user to remove.
+rufgrUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveUserFromGroup
+    -> f RemoveUserFromGroup
+rufgrUserName f x =
+    (\y -> x { _rufgrUserName = y })
+       <$> f (_rufgrUserName x)
+{-# INLINE rufgrUserName #-}
+
+-- | Name of the group to update.
+rufgrGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveUserFromGroup
+    -> f RemoveUserFromGroup
+rufgrGroupName f x =
+    (\y -> x { _rufgrGroupName = y })
+       <$> f (_rufgrGroupName x)
+{-# INLINE rufgrGroupName #-}
 
 instance ToQuery RemoveUserFromGroup where
     toQuery = genericQuery def
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemoveUserFromGroupResponse
 
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM

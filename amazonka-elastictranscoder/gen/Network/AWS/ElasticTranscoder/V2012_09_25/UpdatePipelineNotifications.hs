@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,12 +38,35 @@
 -- "Id":"1111111111111-abcde1", "Notifications":{ "Completed":"",
 -- "Error":"arn:aws:sns:us-east-1:111222333444:ETS_Errors", "Progressing":"",
 -- "Warning":"" } }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications where
+module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications
+    (
+    -- * Request
+      UpdatePipelineNotifications
+    -- ** Request constructor
+    , updatePipelineNotifications
+    -- ** Request lenses
+    , upnrNotifications
+    , upnrId
+
+    -- * Response
+    , UpdatePipelineNotificationsResponse
+    -- ** Response lenses
+    , upnsPipeline
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'UpdatePipelineNotifications' request.
+updatePipelineNotifications :: Notifications -- ^ 'upnrNotifications'
+                            -> Text -- ^ 'upnrId'
+                            -> UpdatePipelineNotifications
+updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
+    { _upnrNotifications = p1
+    , _upnrId = p2
+    }
 
 data UpdatePipelineNotifications = UpdatePipelineNotifications
     { _upnrNotifications :: Notifications
@@ -70,7 +92,44 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications
       -- notification settings.
     } deriving (Show, Generic)
 
-makeLenses ''UpdatePipelineNotifications
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic
+-- that you want to notify to report job status. To receive notifications, you
+-- must also subscribe to the new topic in the Amazon SNS console.
+-- Progressing: The topic ARN for the Amazon Simple Notification Service
+-- (Amazon SNS) topic that you want to notify when Elastic Transcoder has
+-- started to process jobs that are added to this pipeline. This is the ARN
+-- that Amazon SNS returned when you created the topic. Completed: The topic
+-- ARN for the Amazon SNS topic that you want to notify when Elastic
+-- Transcoder has finished processing a job. This is the ARN that Amazon SNS
+-- returned when you created the topic. Warning: The topic ARN for the Amazon
+-- SNS topic that you want to notify when Elastic Transcoder encounters a
+-- warning condition. This is the ARN that Amazon SNS returned when you
+-- created the topic. Error: The topic ARN for the Amazon SNS topic that you
+-- want to notify when Elastic Transcoder encounters an error condition. This
+-- is the ARN that Amazon SNS returned when you created the topic.
+upnrNotifications
+    :: Functor f
+    => (Notifications
+    -> f (Notifications))
+    -> UpdatePipelineNotifications
+    -> f UpdatePipelineNotifications
+upnrNotifications f x =
+    (\y -> x { _upnrNotifications = y })
+       <$> f (_upnrNotifications x)
+{-# INLINE upnrNotifications #-}
+
+-- | The identifier of the pipeline for which you want to change notification
+-- settings.
+upnrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdatePipelineNotifications
+    -> f UpdatePipelineNotifications
+upnrId f x =
+    (\y -> x { _upnrId = y })
+       <$> f (_upnrId x)
+{-# INLINE upnrId #-}
 
 instance ToPath UpdatePipelineNotifications where
     toPath UpdatePipelineNotifications{..} = mconcat
@@ -91,7 +150,18 @@ data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
       -- the pipeline.
     } deriving (Show, Generic)
 
-makeLenses ''UpdatePipelineNotificationsResponse
+-- | A section of the response body that provides information about the
+-- pipeline.
+upnsPipeline
+    :: Functor f
+    => (Maybe Pipeline
+    -> f (Maybe Pipeline))
+    -> UpdatePipelineNotificationsResponse
+    -> f UpdatePipelineNotificationsResponse
+upnsPipeline f x =
+    (\y -> x { _upnsPipeline = y })
+       <$> f (_upnsPipeline x)
+{-# INLINE upnsPipeline #-}
 
 instance FromJSON UpdatePipelineNotificationsResponse
 

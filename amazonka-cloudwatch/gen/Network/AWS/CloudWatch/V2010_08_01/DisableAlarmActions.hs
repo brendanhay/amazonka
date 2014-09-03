@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,26 +20,52 @@
 -- | Disables actions for the specified alarms. When an alarm's actions are
 -- disabled the alarm's state may change, but none of the alarm's actions will
 -- execute.
-module Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions where
+module Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions
+    (
+    -- * Request
+      DisableAlarmActions
+    -- ** Request constructor
+    , disableAlarmActions
+    -- ** Request lenses
+    , daaiAlarmNames
+
+    -- * Response
+    , DisableAlarmActionsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DisableAlarmActions' request.
+disableAlarmActions :: [Text] -- ^ 'daaiAlarmNames'
+                    -> DisableAlarmActions
+disableAlarmActions p1 = DisableAlarmActions
+    { _daaiAlarmNames = p1
+    }
 
 data DisableAlarmActions = DisableAlarmActions
     { _daaiAlarmNames :: [Text]
       -- ^ The names of the alarms to disable actions for.
     } deriving (Show, Generic)
 
-makeLenses ''DisableAlarmActions
+-- | The names of the alarms to disable actions for.
+daaiAlarmNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DisableAlarmActions
+    -> f DisableAlarmActions
+daaiAlarmNames f x =
+    (\y -> x { _daaiAlarmNames = y })
+       <$> f (_daaiAlarmNames x)
+{-# INLINE daaiAlarmNames #-}
 
 instance ToQuery DisableAlarmActions where
     toQuery = genericQuery def
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DisableAlarmActionsResponse
 
 instance AWSRequest DisableAlarmActions where
     type Sv DisableAlarmActions = CloudWatch

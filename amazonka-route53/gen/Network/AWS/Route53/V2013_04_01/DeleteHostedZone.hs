@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,11 +27,31 @@
 -- try to delete a hosted zone that contains other resource record sets, Route
 -- 53 will deny your request with a HostedZoneNotEmpty error. For information
 -- about deleting records from your hosted zone, see ChangeResourceRecordSets.
-module Network.AWS.Route53.V2013_04_01.DeleteHostedZone where
+module Network.AWS.Route53.V2013_04_01.DeleteHostedZone
+    (
+    -- * Request
+      DeleteHostedZone
+    -- ** Request constructor
+    , deleteHostedZone
+    -- ** Request lenses
+    , dhzrId
+
+    -- * Response
+    , DeleteHostedZoneResponse
+    -- ** Response lenses
+    , dhzsChangeInfo
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteHostedZone' request.
+deleteHostedZone :: Text -- ^ 'dhzrId'
+                 -> DeleteHostedZone
+deleteHostedZone p1 = DeleteHostedZone
+    { _dhzrId = p1
+    }
 
 data DeleteHostedZone = DeleteHostedZone
     { _dhzrId :: Text
@@ -40,7 +59,18 @@ data DeleteHostedZone = DeleteHostedZone
       -- track when the change has propagated to all Route 53 DNS servers.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteHostedZone
+-- | The ID of the request. Include this ID in a call to GetChange to track when
+-- the change has propagated to all Route 53 DNS servers.
+dhzrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteHostedZone
+    -> f DeleteHostedZone
+dhzrId f x =
+    (\y -> x { _dhzrId = y })
+       <$> f (_dhzrId x)
+{-# INLINE dhzrId #-}
 
 instance ToPath DeleteHostedZone where
     toPath DeleteHostedZone{..} = mconcat
@@ -62,7 +92,18 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
       -- time of your delete request.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteHostedZoneResponse
+-- | A complex type that contains the ID, the status, and the date and time of
+-- your delete request.
+dhzsChangeInfo
+    :: Functor f
+    => (ChangeInfo
+    -> f (ChangeInfo))
+    -> DeleteHostedZoneResponse
+    -> f DeleteHostedZoneResponse
+dhzsChangeInfo f x =
+    (\y -> x { _dhzsChangeInfo = y })
+       <$> f (_dhzsChangeInfo x)
+{-# INLINE dhzsChangeInfo #-}
 
 instance FromXML DeleteHostedZoneResponse where
     fromXMLOptions = xmlOptions

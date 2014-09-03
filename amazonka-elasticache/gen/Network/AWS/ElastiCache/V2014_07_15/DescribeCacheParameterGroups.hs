@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,7 +28,23 @@
 -- parameter group mycacheparametergroup1 memcached1.4 My first cache
 -- parameter group mycacheparametergroup3 memcached1.4 My first cache
 -- parameter group 7193fbb8-b7fc-11e0-9b0b-a9261be2b354.
-module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups where
+module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups
+    (
+    -- * Request
+      DescribeCacheParameterGroups
+    -- ** Request constructor
+    , describeCacheParameterGroups
+    -- ** Request lenses
+    , dcpgnMaxRecords
+    , dcpgnCacheParameterGroupName
+    , dcpgnMarker
+
+    -- * Response
+    , DescribeCacheParameterGroupsResponse
+    -- ** Response lenses
+    , cpgmCacheParameterGroups
+    , cpgmMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
@@ -38,28 +53,68 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeCacheParameterGroups' request.
 describeCacheParameterGroups :: DescribeCacheParameterGroups
 describeCacheParameterGroups = DescribeCacheParameterGroups
-    { _dcpgmMaxRecords = Nothing
-    , _dcpgmMarker = Nothing
-    , _dcpgmCacheParameterGroupName = Nothing
+    { _dcpgnMaxRecords = Nothing
+    , _dcpgnCacheParameterGroupName = Nothing
+    , _dcpgnMarker = Nothing
     }
 
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups
-    { _dcpgmMaxRecords :: Maybe Integer
+    { _dcpgnMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dcpgmMarker :: Maybe Text
+    , _dcpgnCacheParameterGroupName :: Maybe Text
+      -- ^ The name of a specific cache parameter group to return details
+      -- for.
+    , _dcpgnMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _dcpgmCacheParameterGroupName :: Maybe Text
-      -- ^ The name of a specific cache parameter group to return details
-      -- for.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheParameterGroups
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a marker is included in the
+-- response so that the remaining results can be retrieved. Default: 100
+-- Constraints: minimum 20; maximum 100.
+dcpgnMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeCacheParameterGroups
+    -> f DescribeCacheParameterGroups
+dcpgnMaxRecords f x =
+    (\y -> x { _dcpgnMaxRecords = y })
+       <$> f (_dcpgnMaxRecords x)
+{-# INLINE dcpgnMaxRecords #-}
+
+-- | The name of a specific cache parameter group to return details for.
+dcpgnCacheParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheParameterGroups
+    -> f DescribeCacheParameterGroups
+dcpgnCacheParameterGroupName f x =
+    (\y -> x { _dcpgnCacheParameterGroupName = y })
+       <$> f (_dcpgnCacheParameterGroupName x)
+{-# INLINE dcpgnCacheParameterGroupName #-}
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+dcpgnMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheParameterGroups
+    -> f DescribeCacheParameterGroups
+dcpgnMarker f x =
+    (\y -> x { _dcpgnMarker = y })
+       <$> f (_dcpgnMarker x)
+{-# INLINE dcpgnMarker #-}
 
 instance ToQuery DescribeCacheParameterGroups where
     toQuery = genericQuery def
@@ -72,7 +127,30 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
       -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheParameterGroupsResponse
+-- | A list of cache parameter groups. Each element in the list contains
+-- detailed information about one cache parameter group.
+cpgmCacheParameterGroups
+    :: Functor f
+    => ([CacheParameterGroup]
+    -> f ([CacheParameterGroup]))
+    -> DescribeCacheParameterGroupsResponse
+    -> f DescribeCacheParameterGroupsResponse
+cpgmCacheParameterGroups f x =
+    (\y -> x { _cpgmCacheParameterGroups = y })
+       <$> f (_cpgmCacheParameterGroups x)
+{-# INLINE cpgmCacheParameterGroups #-}
+
+-- | Provides an identifier to allow retrieval of paginated results.
+cpgmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheParameterGroupsResponse
+    -> f DescribeCacheParameterGroupsResponse
+cpgmMarker f x =
+    (\y -> x { _cpgmMarker = y })
+       <$> f (_cpgmMarker x)
+{-# INLINE cpgmMarker #-}
 
 instance FromXML DescribeCacheParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -85,5 +163,5 @@ instance AWSRequest DescribeCacheParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheParameterGroups where
-    next rq rs = (\x -> rq { _dcpgmMarker = Just x })
+    next rq rs = (\x -> rq { _dcpgnMarker = Just x })
         <$> (_cpgmMarker rs)

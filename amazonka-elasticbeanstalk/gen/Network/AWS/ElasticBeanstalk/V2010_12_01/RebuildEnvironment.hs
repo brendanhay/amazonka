@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,7 +23,19 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &Operation=RebuildEnvironment &AuthParams
 -- a7d6606e-f289-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment
+    (
+    -- * Request
+      RebuildEnvironment
+    -- ** Request constructor
+    , rebuildEnvironment
+    -- ** Request lenses
+    , remEnvironmentId
+    , remEnvironmentName
+
+    -- * Response
+    , RebuildEnvironmentResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -50,15 +61,39 @@ data RebuildEnvironment = RebuildEnvironment
       -- MissingRequiredParameter error.
     } deriving (Show, Generic)
 
-makeLenses ''RebuildEnvironment
+-- | The ID of the environment to rebuild. Condition: You must specify either
+-- this or an EnvironmentName, or both. If you do not specify either, AWS
+-- Elastic Beanstalk returns MissingRequiredParameter error.
+remEnvironmentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RebuildEnvironment
+    -> f RebuildEnvironment
+remEnvironmentId f x =
+    (\y -> x { _remEnvironmentId = y })
+       <$> f (_remEnvironmentId x)
+{-# INLINE remEnvironmentId #-}
+
+-- | The name of the environment to rebuild. Condition: You must specify either
+-- this or an EnvironmentId, or both. If you do not specify either, AWS
+-- Elastic Beanstalk returns MissingRequiredParameter error.
+remEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RebuildEnvironment
+    -> f RebuildEnvironment
+remEnvironmentName f x =
+    (\y -> x { _remEnvironmentName = y })
+       <$> f (_remEnvironmentName x)
+{-# INLINE remEnvironmentName #-}
 
 instance ToQuery RebuildEnvironment where
     toQuery = genericQuery def
 
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RebuildEnvironmentResponse
 
 instance AWSRequest RebuildEnvironment where
     type Sv RebuildEnvironment = ElasticBeanstalk

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -51,19 +50,64 @@
 -- "snap-78e22663", "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "VolumeRecoveryPointTime": "2012-06-30T10:10:10.000Z" }.
-module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint where
+module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint
+    (
+    -- * Request
+      CreateSnapshotFromVolumeRecoveryPoint
+    -- ** Request constructor
+    , createSnapshotFromVolumeRecoveryPoint
+    -- ** Request lenses
+    , csfvrpiSnapshotDescription
+    , csfvrpiVolumeARN
+
+    -- * Response
+    , CreateSnapshotFromVolumeRecoveryPointResponse
+    -- ** Response lenses
+    , csfvrpoSnapshotId
+    , csfvrpoVolumeRecoveryPointTime
+    , csfvrpoVolumeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'CreateSnapshotFromVolumeRecoveryPoint' request.
+createSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpiSnapshotDescription'
+                                      -> Text -- ^ 'csfvrpiVolumeARN'
+                                      -> CreateSnapshotFromVolumeRecoveryPoint
+createSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPoint
+    { _csfvrpiSnapshotDescription = p1
+    , _csfvrpiVolumeARN = p2
+    }
+
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpiSnapshotDescription :: Text
     , _csfvrpiVolumeARN :: Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateSnapshotFromVolumeRecoveryPoint
+csfvrpiSnapshotDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSnapshotFromVolumeRecoveryPoint
+    -> f CreateSnapshotFromVolumeRecoveryPoint
+csfvrpiSnapshotDescription f x =
+    (\y -> x { _csfvrpiSnapshotDescription = y })
+       <$> f (_csfvrpiSnapshotDescription x)
+{-# INLINE csfvrpiSnapshotDescription #-}
+
+csfvrpiVolumeARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSnapshotFromVolumeRecoveryPoint
+    -> f CreateSnapshotFromVolumeRecoveryPoint
+csfvrpiVolumeARN f x =
+    (\y -> x { _csfvrpiVolumeARN = y })
+       <$> f (_csfvrpiVolumeARN x)
+{-# INLINE csfvrpiVolumeARN #-}
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
 
@@ -79,7 +123,38 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     , _csfvrpoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSnapshotFromVolumeRecoveryPointResponse
+    -> f CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoSnapshotId f x =
+    (\y -> x { _csfvrpoSnapshotId = y })
+       <$> f (_csfvrpoSnapshotId x)
+{-# INLINE csfvrpoSnapshotId #-}
+
+csfvrpoVolumeRecoveryPointTime
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSnapshotFromVolumeRecoveryPointResponse
+    -> f CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoVolumeRecoveryPointTime f x =
+    (\y -> x { _csfvrpoVolumeRecoveryPointTime = y })
+       <$> f (_csfvrpoVolumeRecoveryPointTime x)
+{-# INLINE csfvrpoVolumeRecoveryPointTime #-}
+
+csfvrpoVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSnapshotFromVolumeRecoveryPointResponse
+    -> f CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoVolumeARN f x =
+    (\y -> x { _csfvrpoVolumeARN = y })
+       <$> f (_csfvrpoVolumeARN x)
+{-# INLINE csfvrpoVolumeARN #-}
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse
 

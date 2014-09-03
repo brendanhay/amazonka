@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,19 +29,47 @@
 -- ee19d5bf-074e-11e2-af6f-6bc7a6be60d9 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 2 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {}.
-module Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline where
+module Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
+    (
+    -- * Request
+      ActivatePipeline
+    -- ** Request constructor
+    , activatePipeline
+    -- ** Request lenses
+    , apiPipelineId
+
+    -- * Response
+    , ActivatePipelineResponse
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'ActivatePipeline' request.
+activatePipeline :: Text -- ^ 'apiPipelineId'
+                 -> ActivatePipeline
+activatePipeline p1 = ActivatePipeline
+    { _apiPipelineId = p1
+    }
+
 data ActivatePipeline = ActivatePipeline
     { _apiPipelineId :: Text
       -- ^ The identifier of the pipeline to activate.
     } deriving (Show, Generic)
 
-makeLenses ''ActivatePipeline
+-- | The identifier of the pipeline to activate.
+apiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ActivatePipeline
+    -> f ActivatePipeline
+apiPipelineId f x =
+    (\y -> x { _apiPipelineId = y })
+       <$> f (_apiPipelineId x)
+{-# INLINE apiPipelineId #-}
 
 instance ToPath ActivatePipeline
 
@@ -54,8 +81,6 @@ instance ToJSON ActivatePipeline
 
 data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''ActivatePipelineResponse
 
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,28 +45,69 @@
 -- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- b5293cb5-d306-4a17-9048-b263635abe42.
-module Network.AWS.SQS.V2012_11_05.DeleteMessage where
+module Network.AWS.SQS.V2012_11_05.DeleteMessage
+    (
+    -- * Request
+      DeleteMessage
+    -- ** Request constructor
+    , deleteMessage
+    -- ** Request lenses
+    , dmrQueueUrl
+    , dmrReceiptHandle
+
+    -- * Response
+    , DeleteMessageResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteMessage' request.
+deleteMessage :: Text -- ^ 'dmrQueueUrl'
+              -> Text -- ^ 'dmrReceiptHandle'
+              -> DeleteMessage
+deleteMessage p1 p2 = DeleteMessage
+    { _dmrQueueUrl = p1
+    , _dmrReceiptHandle = p2
+    }
+
 data DeleteMessage = DeleteMessage
-    { _dmrReceiptHandle :: Text
-      -- ^ The receipt handle associated with the message to delete.
-    , _dmrQueueUrl :: Text
+    { _dmrQueueUrl :: Text
       -- ^ The URL of the Amazon SQS queue to take action on.
+    , _dmrReceiptHandle :: Text
+      -- ^ The receipt handle associated with the message to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteMessage
+-- | The URL of the Amazon SQS queue to take action on.
+dmrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteMessage
+    -> f DeleteMessage
+dmrQueueUrl f x =
+    (\y -> x { _dmrQueueUrl = y })
+       <$> f (_dmrQueueUrl x)
+{-# INLINE dmrQueueUrl #-}
+
+-- | The receipt handle associated with the message to delete.
+dmrReceiptHandle
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteMessage
+    -> f DeleteMessage
+dmrReceiptHandle f x =
+    (\y -> x { _dmrReceiptHandle = y })
+       <$> f (_dmrReceiptHandle x)
+{-# INLINE dmrReceiptHandle #-}
 
 instance ToQuery DeleteMessage where
     toQuery = genericQuery def
 
 data DeleteMessageResponse = DeleteMessageResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteMessageResponse
 
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS

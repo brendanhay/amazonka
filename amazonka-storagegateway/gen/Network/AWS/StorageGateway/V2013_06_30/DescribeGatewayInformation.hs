@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,12 +35,38 @@
 -- "GatewayId": "sgw-AABB1122", "GatewayNetworkInterfaces": [ {"Ipv4Address":
 -- "10.35.69.216"} ], "GatewayState": "STATE_RUNNING", "GatewayTimezone":
 -- "GMT-8:00" }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation
+    (
+    -- * Request
+      DescribeGatewayInformation
+    -- ** Request constructor
+    , describeGatewayInformation
+    -- ** Request lenses
+    , dgiiGatewayARN
+
+    -- * Response
+    , DescribeGatewayInformationResponse
+    -- ** Response lenses
+    , dgioGatewayARN
+    , dgioGatewayId
+    , dgioGatewayNetworkInterfaces
+    , dgioGatewayState
+    , dgioGatewayTimezone
+    , dgioGatewayType
+    , dgioNextUpdateAvailabilityDate
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeGatewayInformation' request.
+describeGatewayInformation :: Text -- ^ 'dgiiGatewayARN'
+                           -> DescribeGatewayInformation
+describeGatewayInformation p1 = DescribeGatewayInformation
+    { _dgiiGatewayARN = p1
+    }
 
 data DescribeGatewayInformation = DescribeGatewayInformation
     { _dgiiGatewayARN :: Text
@@ -50,7 +75,18 @@ data DescribeGatewayInformation = DescribeGatewayInformation
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeGatewayInformation
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dgiiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeGatewayInformation
+    -> f DescribeGatewayInformation
+dgiiGatewayARN f x =
+    (\y -> x { _dgiiGatewayARN = y })
+       <$> f (_dgiiGatewayARN x)
+{-# INLINE dgiiGatewayARN #-}
 
 instance ToPath DescribeGatewayInformation
 
@@ -85,7 +121,93 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
       -- response. response example. -->.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeGatewayInformationResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dgioGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioGatewayARN f x =
+    (\y -> x { _dgioGatewayARN = y })
+       <$> f (_dgioGatewayARN x)
+{-# INLINE dgioGatewayARN #-}
+
+-- | The gateway ID.
+dgioGatewayId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioGatewayId f x =
+    (\y -> x { _dgioGatewayId = y })
+       <$> f (_dgioGatewayId x)
+{-# INLINE dgioGatewayId #-}
+
+-- | A NetworkInterface array that contains descriptions of the gateway network
+-- interfaces.
+dgioGatewayNetworkInterfaces
+    :: Functor f
+    => ([NetworkInterface]
+    -> f ([NetworkInterface]))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioGatewayNetworkInterfaces f x =
+    (\y -> x { _dgioGatewayNetworkInterfaces = y })
+       <$> f (_dgioGatewayNetworkInterfaces x)
+{-# INLINE dgioGatewayNetworkInterfaces #-}
+
+-- | One of the values that indicates the operating state of the gateway.
+dgioGatewayState
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioGatewayState f x =
+    (\y -> x { _dgioGatewayState = y })
+       <$> f (_dgioGatewayState x)
+{-# INLINE dgioGatewayState #-}
+
+-- | One of the values that indicates the time zone configured for the gateway.
+dgioGatewayTimezone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioGatewayTimezone f x =
+    (\y -> x { _dgioGatewayTimezone = y })
+       <$> f (_dgioGatewayTimezone x)
+{-# INLINE dgioGatewayTimezone #-}
+
+-- | TBD.
+dgioGatewayType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioGatewayType f x =
+    (\y -> x { _dgioGatewayType = y })
+       <$> f (_dgioGatewayType x)
+{-# INLINE dgioGatewayType #-}
+
+-- | The date at which an update to the gateway is available. This date is in
+-- the time zone of the gateway. If the gateway is not available for an update
+-- this field is not returned in the response. response example. -->.
+dgioNextUpdateAvailabilityDate
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeGatewayInformationResponse
+    -> f DescribeGatewayInformationResponse
+dgioNextUpdateAvailabilityDate f x =
+    (\y -> x { _dgioNextUpdateAvailabilityDate = y })
+       <$> f (_dgioNextUpdateAvailabilityDate x)
+{-# INLINE dgioNextUpdateAvailabilityDate #-}
 
 instance FromJSON DescribeGatewayInformationResponse
 

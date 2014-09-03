@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -54,21 +53,67 @@
 -- {"name": "activityVerify", "version": "1.0"}, "creationDate":
 -- 1326586446.471, "description": "Verify the customer credit", "status":
 -- "REGISTERED"} }.
-module Network.AWS.SWF.V2012_01_25.DescribeActivityType where
+module Network.AWS.SWF.V2012_01_25.DescribeActivityType
+    (
+    -- * Request
+      DescribeActivityType
+    -- ** Request constructor
+    , describeActivityType
+    -- ** Request lenses
+    , datjActivityType
+    , datjDomain
+
+    -- * Response
+    , DescribeActivityTypeResponse
+    -- ** Response lenses
+    , atdConfiguration
+    , atdTypeInfo
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeActivityType' request.
+describeActivityType :: ActivityType -- ^ 'datjActivityType'
+                     -> Text -- ^ 'datjDomain'
+                     -> DescribeActivityType
+describeActivityType p1 p2 = DescribeActivityType
+    { _datjActivityType = p1
+    , _datjDomain = p2
+    }
+
 data DescribeActivityType = DescribeActivityType
-    { _datiActivityType :: ActivityType
+    { _datjActivityType :: ActivityType
       -- ^ The activity type to describe.
-    , _datiDomain :: Text
+    , _datjDomain :: Text
       -- ^ The name of the domain in which the activity type is registered.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeActivityType
+-- | The activity type to describe.
+datjActivityType
+    :: Functor f
+    => (ActivityType
+    -> f (ActivityType))
+    -> DescribeActivityType
+    -> f DescribeActivityType
+datjActivityType f x =
+    (\y -> x { _datjActivityType = y })
+       <$> f (_datjActivityType x)
+{-# INLINE datjActivityType #-}
+
+-- | The name of the domain in which the activity type is registered.
+datjDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeActivityType
+    -> f DescribeActivityType
+datjDomain f x =
+    (\y -> x { _datjDomain = y })
+       <$> f (_datjDomain x)
+{-# INLINE datjDomain #-}
 
 instance ToPath DescribeActivityType
 
@@ -91,7 +136,34 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
       -- running. You cannot create new tasks of this type.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeActivityTypeResponse
+-- | The configuration settings registered with the activity type.
+atdConfiguration
+    :: Functor f
+    => (ActivityTypeConfiguration
+    -> f (ActivityTypeConfiguration))
+    -> DescribeActivityTypeResponse
+    -> f DescribeActivityTypeResponse
+atdConfiguration f x =
+    (\y -> x { _atdConfiguration = y })
+       <$> f (_atdConfiguration x)
+{-# INLINE atdConfiguration #-}
+
+-- | General information about the activity type. The status of activity type
+-- (returned in the ActivityTypeInfo structure) can be one of the following.
+-- REGISTERED: The type is registered and available. Workers supporting this
+-- type should be running. DEPRECATED: The type was deprecated using
+-- DeprecateActivityType, but is still in use. You should keep workers
+-- supporting this type running. You cannot create new tasks of this type.
+atdTypeInfo
+    :: Functor f
+    => (ActivityTypeInfo
+    -> f (ActivityTypeInfo))
+    -> DescribeActivityTypeResponse
+    -> f DescribeActivityTypeResponse
+atdTypeInfo f x =
+    (\y -> x { _atdTypeInfo = y })
+       <$> f (_atdTypeInfo x)
+{-# INLINE atdTypeInfo #-}
 
 instance FromJSON DescribeActivityTypeResponse
 

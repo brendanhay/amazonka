@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,11 +22,32 @@
 -- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
 -- &Tags.member.1.Key=owner &Tags.member.2.Key=project &Action=RemoveTags
 -- &Version=2012-06-01 &AUTHPARAMS 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.RemoveTags where
+module Network.AWS.ELB.V2012_06_01.RemoveTags
+    (
+    -- * Request
+      RemoveTags
+    -- ** Request constructor
+    , removeTags
+    -- ** Request lenses
+    , rtiLoadBalancerNames
+    , rtiTags
+
+    -- * Response
+    , RemoveTagsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RemoveTags' request.
+removeTags :: [Text] -- ^ 'rtiLoadBalancerNames'
+           -> [TagKeyOnly] -- ^ 'rtiTags'
+           -> RemoveTags
+removeTags p1 p2 = RemoveTags
+    { _rtiLoadBalancerNames = p1
+    , _rtiTags = p2
+    }
 
 data RemoveTags = RemoveTags
     { _rtiLoadBalancerNames :: [Text]
@@ -37,15 +57,36 @@ data RemoveTags = RemoveTags
       -- ^ A list of tag keys to remove.
     } deriving (Show, Generic)
 
-makeLenses ''RemoveTags
+-- | The name of the load balancer. You can specify a maximum of one load
+-- balancer name.
+rtiLoadBalancerNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RemoveTags
+    -> f RemoveTags
+rtiLoadBalancerNames f x =
+    (\y -> x { _rtiLoadBalancerNames = y })
+       <$> f (_rtiLoadBalancerNames x)
+{-# INLINE rtiLoadBalancerNames #-}
+
+-- | A list of tag keys to remove.
+rtiTags
+    :: Functor f
+    => ([TagKeyOnly]
+    -> f ([TagKeyOnly]))
+    -> RemoveTags
+    -> f RemoveTags
+rtiTags f x =
+    (\y -> x { _rtiTags = y })
+       <$> f (_rtiTags x)
+{-# INLINE rtiTags #-}
 
 instance ToQuery RemoveTags where
     toQuery = genericQuery def
 
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemoveTagsResponse
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB

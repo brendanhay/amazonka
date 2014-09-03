@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,15 +27,29 @@
 -- GetAttributes or Select operation (read) immediately after a
 -- DeleteAttributes or PutAttributes operation (write) might not return
 -- updated item data.
-module Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes where
+module Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
+    (
+    -- * Request
+      DeleteAttributes
+    -- ** Request constructor
+    , deleteAttributes
+    -- ** Request lenses
+    , darDomainName
+    , darItemName
+    , darAttributes
+    , darExpected
+
+    -- * Response
+    , DeleteAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteAttributes' request.
-deleteAttributes :: Text -- ^ '_darDomainName'
-                 -> Text -- ^ '_darItemName'
+deleteAttributes :: Text -- ^ 'darDomainName'
+                 -> Text -- ^ 'darItemName'
                  -> DeleteAttributes
 deleteAttributes p1 p2 = DeleteAttributes
     { _darDomainName = p1
@@ -63,15 +76,63 @@ data DeleteAttributes = DeleteAttributes
       -- the attributes to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAttributes
+-- | The name of the domain in which to perform the operation.
+darDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAttributes
+    -> f DeleteAttributes
+darDomainName f x =
+    (\y -> x { _darDomainName = y })
+       <$> f (_darDomainName x)
+{-# INLINE darDomainName #-}
+
+-- | The name of the item. Similar to rows on a spreadsheet, items represent
+-- individual objects that contain one or more value-attribute pairs.
+darItemName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAttributes
+    -> f DeleteAttributes
+darItemName f x =
+    (\y -> x { _darItemName = y })
+       <$> f (_darItemName x)
+{-# INLINE darItemName #-}
+
+-- | A list of Attributes. Similar to columns on a spreadsheet, attributes
+-- represent categories of data that can be assigned to items.
+darAttributes
+    :: Functor f
+    => ([Attribute]
+    -> f ([Attribute]))
+    -> DeleteAttributes
+    -> f DeleteAttributes
+darAttributes f x =
+    (\y -> x { _darAttributes = y })
+       <$> f (_darAttributes x)
+{-# INLINE darAttributes #-}
+
+-- | The update condition which, if specified, determines whether the specified
+-- attributes will be deleted or not. The update condition must be satisfied
+-- in order for this request to be processed and the attributes to be deleted.
+darExpected
+    :: Functor f
+    => (Maybe UpdateCondition
+    -> f (Maybe UpdateCondition))
+    -> DeleteAttributes
+    -> f DeleteAttributes
+darExpected f x =
+    (\y -> x { _darExpected = y })
+       <$> f (_darExpected x)
+{-# INLINE darExpected #-}
 
 instance ToQuery DeleteAttributes where
     toQuery = genericQuery def
 
 data DeleteAttributesResponse = DeleteAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAttributesResponse
 
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SimpleDB

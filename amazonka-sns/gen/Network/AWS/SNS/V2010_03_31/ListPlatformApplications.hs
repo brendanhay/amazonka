@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -49,7 +48,21 @@
 -- &lt;/ListPlatformApplicationsResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;315a335e-85d8-52df-9349-791283cbb529&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListPlatformApplicationsResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.ListPlatformApplications where
+module Network.AWS.SNS.V2010_03_31.ListPlatformApplications
+    (
+    -- * Request
+      ListPlatformApplications
+    -- ** Request constructor
+    , listPlatformApplications
+    -- ** Request lenses
+    , lpaiNextToken
+
+    -- * Response
+    , ListPlatformApplicationsResponse
+    -- ** Response lenses
+    , lparPlatformApplications
+    , lparNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
@@ -68,7 +81,19 @@ data ListPlatformApplications = ListPlatformApplications
       -- the first page results.
     } deriving (Show, Generic)
 
-makeLenses ''ListPlatformApplications
+-- | NextToken string is used when calling ListPlatformApplications action to
+-- retrieve additional records that are available after the first page
+-- results.
+lpaiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPlatformApplications
+    -> f ListPlatformApplications
+lpaiNextToken f x =
+    (\y -> x { _lpaiNextToken = y })
+       <$> f (_lpaiNextToken x)
+{-# INLINE lpaiNextToken #-}
 
 instance ToQuery ListPlatformApplications where
     toQuery = genericQuery def
@@ -83,7 +108,31 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
       -- available after the first page results.
     } deriving (Show, Generic)
 
-makeLenses ''ListPlatformApplicationsResponse
+-- | Platform applications returned when calling ListPlatformApplications
+-- action.
+lparPlatformApplications
+    :: Functor f
+    => ([PlatformApplication]
+    -> f ([PlatformApplication]))
+    -> ListPlatformApplicationsResponse
+    -> f ListPlatformApplicationsResponse
+lparPlatformApplications f x =
+    (\y -> x { _lparPlatformApplications = y })
+       <$> f (_lparPlatformApplications x)
+{-# INLINE lparPlatformApplications #-}
+
+-- | NextToken string is returned when calling ListPlatformApplications action
+-- if additional records are available after the first page results.
+lparNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPlatformApplicationsResponse
+    -> f ListPlatformApplicationsResponse
+lparNextToken f x =
+    (\y -> x { _lparNextToken = y })
+       <$> f (_lparNextToken x)
+{-# INLINE lparNextToken #-}
 
 instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions

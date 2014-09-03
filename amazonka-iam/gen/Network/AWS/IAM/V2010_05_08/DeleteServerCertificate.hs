@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,26 +28,52 @@
 -- Balancing API Reference. https://iam.amazonaws.com/
 -- ?Action=DeleteServerCertificate &ServerCertificateName=ProdServerCert
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteServerCertificate where
+module Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
+    (
+    -- * Request
+      DeleteServerCertificate
+    -- ** Request constructor
+    , deleteServerCertificate
+    -- ** Request lenses
+    , dscrServerCertificateName
+
+    -- * Response
+    , DeleteServerCertificateResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteServerCertificate' request.
+deleteServerCertificate :: Text -- ^ 'dscrServerCertificateName'
+                        -> DeleteServerCertificate
+deleteServerCertificate p1 = DeleteServerCertificate
+    { _dscrServerCertificateName = p1
+    }
+
 data DeleteServerCertificate = DeleteServerCertificate
-    { _dscsServerCertificateName :: Text
+    { _dscrServerCertificateName :: Text
       -- ^ The name of the server certificate you want to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteServerCertificate
+-- | The name of the server certificate you want to delete.
+dscrServerCertificateName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteServerCertificate
+    -> f DeleteServerCertificate
+dscrServerCertificateName f x =
+    (\y -> x { _dscrServerCertificateName = y })
+       <$> f (_dscrServerCertificateName x)
+{-# INLINE dscrServerCertificateName #-}
 
 instance ToQuery DeleteServerCertificate where
     toQuery = genericQuery def
 
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteServerCertificateResponse
 
 instance AWSRequest DeleteServerCertificate where
     type Sv DeleteServerCertificate = IAM

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,23 @@
 -- arn:aws:autoscaling:us-east-1:803981987763:launchConfiguration:
 -- 9dbbbf87-6141-428a-a409-0752edbe6cad:launchConfigurationName/my-test-lc
 -- ami-514ac838 true false d05a22f8-b690-11e2-bf8e-2113fEXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
+    (
+    -- * Request
+      DescribeLaunchConfigurations
+    -- ** Request constructor
+    , describeLaunchConfigurations
+    -- ** Request lenses
+    , lcnuLaunchConfigurationNames
+    , lcnuMaxRecords
+    , lcnuNextToken
+
+    -- * Response
+    , DescribeLaunchConfigurationsResponse
+    -- ** Response lenses
+    , lctLaunchConfigurations
+    , lctNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
@@ -51,7 +66,41 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLaunchConfigurations
+-- | A list of launch configuration names.
+lcnuLaunchConfigurationNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLaunchConfigurations
+    -> f DescribeLaunchConfigurations
+lcnuLaunchConfigurationNames f x =
+    (\y -> x { _lcnuLaunchConfigurationNames = y })
+       <$> f (_lcnuLaunchConfigurationNames x)
+{-# INLINE lcnuLaunchConfigurationNames #-}
+
+-- | The maximum number of launch configurations. The default is 100.
+lcnuMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeLaunchConfigurations
+    -> f DescribeLaunchConfigurations
+lcnuMaxRecords f x =
+    (\y -> x { _lcnuMaxRecords = y })
+       <$> f (_lcnuMaxRecords x)
+{-# INLINE lcnuMaxRecords #-}
+
+-- | A string that marks the start of the next batch of returned results.
+lcnuNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLaunchConfigurations
+    -> f DescribeLaunchConfigurations
+lcnuNextToken f x =
+    (\y -> x { _lcnuNextToken = y })
+       <$> f (_lcnuNextToken x)
+{-# INLINE lcnuNextToken #-}
 
 instance ToQuery DescribeLaunchConfigurations where
     toQuery = genericQuery def
@@ -64,7 +113,29 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLaunchConfigurationsResponse
+-- | A list of launch configurations.
+lctLaunchConfigurations
+    :: Functor f
+    => ([LaunchConfiguration]
+    -> f ([LaunchConfiguration]))
+    -> DescribeLaunchConfigurationsResponse
+    -> f DescribeLaunchConfigurationsResponse
+lctLaunchConfigurations f x =
+    (\y -> x { _lctLaunchConfigurations = y })
+       <$> f (_lctLaunchConfigurations x)
+{-# INLINE lctLaunchConfigurations #-}
+
+-- | A string that marks the start of the next batch of returned results.
+lctNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLaunchConfigurationsResponse
+    -> f DescribeLaunchConfigurationsResponse
+lctNextToken f x =
+    (\y -> x { _lctNextToken = y })
+       <$> f (_lctNextToken x)
+{-# INLINE lctNextToken #-}
 
 instance FromXML DescribeLaunchConfigurationsResponse where
     fromXMLOptions = xmlOptions

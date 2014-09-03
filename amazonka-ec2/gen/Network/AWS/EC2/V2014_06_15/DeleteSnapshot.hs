@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,10 +37,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteSnapshot
     (
     -- * Request
       DeleteSnapshot
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteSnapshot
-    -- ** Accessors and lenses
-    , _dsrSnapshotId
+    -- ** Request lenses
     , dsrSnapshotId
 
     -- * Response
@@ -60,8 +58,21 @@ deleteSnapshot p1 = DeleteSnapshot
     }
 
 data DeleteSnapshot = DeleteSnapshot
+    { _dsrSnapshotId :: Text
+      -- ^ The ID of the Amazon EBS snapshot.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteSnapshot
+-- | The ID of the Amazon EBS snapshot.
+dsrSnapshotId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteSnapshot
+    -> f DeleteSnapshot
+dsrSnapshotId f x =
+    (\y -> x { _dsrSnapshotId = y })
+       <$> f (_dsrSnapshotId x)
+{-# INLINE dsrSnapshotId #-}
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
@@ -69,14 +80,9 @@ instance ToQuery DeleteSnapshot where
 data DeleteSnapshotResponse = DeleteSnapshotResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteSnapshotResponse
-
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request = post "DeleteSnapshot"
     response _ = nullaryResponse DeleteSnapshotResponse
-
--- | The ID of the Amazon EBS snapshot.
-dsrSnapshotId :: Lens' DeleteSnapshot (Text)

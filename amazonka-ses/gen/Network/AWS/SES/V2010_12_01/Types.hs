@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,74 @@
 -- sending statistics and built-in notifications for bounces, complaints, and
 -- deliveries to help you fine-tune your email-sending strategy.
 module Network.AWS.SES.V2010_12_01.Types
-    ( module Network.AWS.SES.V2010_12_01.Types
+    (
+    -- * Service
+      SES
+    -- ** Errors
+    , Er (..)
+    -- ** XML
+    , xmlOptions
+
+    -- * IdentityType
+    , IdentityType (..)
+
+    -- * NotificationType
+    , NotificationType (..)
+
+    -- * VerificationStatus
+    , VerificationStatus (..)
+
+    -- * RawMessage
+    , RawMessage (..)
+    , rmData
+
+    -- * Body
+    , Body (..)
+    , byText
+    , byHtml
+
+    -- * Content
+    , Content (..)
+    , ctData
+    , ctCharset
+
+    -- * Destination
+    , Destination (..)
+    , vToAddresses
+    , vCcAddresses
+    , vBccAddresses
+
+    -- * IdentityDkimAttributes
+    , IdentityDkimAttributes (..)
+    , idaDkimEnabled
+    , idaDkimVerificationStatus
+    , idaDkimTokens
+
+    -- * IdentityNotificationAttributes
+    , IdentityNotificationAttributes (..)
+    , inaBounceTopic
+    , inaComplaintTopic
+    , inaDeliveryTopic
+    , inaForwardingEnabled
+
+    -- * IdentityVerificationAttributes
+    , IdentityVerificationAttributes (..)
+    , ivaVerificationStatus
+    , ivaVerificationToken
+
+    -- * Message
+    , Message (..)
+    , zSubject
+    , zBody
+
+    -- * SendDataPoint
+    , SendDataPoint (..)
+    , sdpTimestamp
+    , sdpDeliveryAttempts
+    , sdpBounces
+    , sdpComplaints
+    , sdpRejects
+
     ) where
 
 import Network.AWS.Prelude
@@ -117,8 +183,9 @@ instance ToByteString NotificationType
 instance ToQuery NotificationType where
     toQuery = genericQuery def
 
--- | The verification status of the identity: "Pending", "Success", "Failed", or
--- "TemporaryFailure".
+-- | Describes whether Amazon SES has successfully verified the DKIM DNS records
+-- (tokens) published in the domain name's DNS. (This only applies to domain
+-- identities, not email address identities.).
 data VerificationStatus
     = VerificationStatusFailed -- ^ Failed
     | VerificationStatusNotStarted -- ^ NotStarted
@@ -168,20 +235,63 @@ newtype RawMessage = RawMessage
       -- the Amazon SES Developer Guide.
     } deriving (Show, Generic)
 
+-- | The raw data of the message. The client must ensure that the message format
+-- complies with Internet email standards regarding email header fields, MIME
+-- types, MIME encoding, and base64 encoding (if necessary). The To:, CC:, and
+-- BCC: headers in the raw message can contain a group list. For more
+-- information, go to the Amazon SES Developer Guide.
+rmData
+    :: Functor f
+    => (ByteString
+    -> f (ByteString))
+    -> RawMessage
+    -> f RawMessage
+rmData f x =
+    (\y -> x { _rmData = y })
+       <$> f (_rmData x)
+{-# INLINE rmData #-}
+
 instance ToQuery RawMessage where
     toQuery = genericQuery def
 
 -- | The message body.
 data Body = Body
-    { _byHtml :: Maybe Content
-      -- ^ The content of the message, in HTML format. Use this for email
-      -- clients that can process HTML. You can include clickable links,
-      -- formatted text, and much more in an HTML message.
-    , _byText :: Maybe Content
+    { _byText :: Maybe Content
       -- ^ The content of the message, in text format. Use this for
       -- text-based email clients, or clients on high-latency networks
       -- (such as mobile devices).
+    , _byHtml :: Maybe Content
+      -- ^ The content of the message, in HTML format. Use this for email
+      -- clients that can process HTML. You can include clickable links,
+      -- formatted text, and much more in an HTML message.
     } deriving (Show, Generic)
+
+-- | The content of the message, in text format. Use this for text-based email
+-- clients, or clients on high-latency networks (such as mobile devices).
+byText
+    :: Functor f
+    => (Maybe Content
+    -> f (Maybe Content))
+    -> Body
+    -> f Body
+byText f x =
+    (\y -> x { _byText = y })
+       <$> f (_byText x)
+{-# INLINE byText #-}
+
+-- | The content of the message, in HTML format. Use this for email clients that
+-- can process HTML. You can include clickable links, formatted text, and much
+-- more in an HTML message.
+byHtml
+    :: Functor f
+    => (Maybe Content
+    -> f (Maybe Content))
+    -> Body
+    -> f Body
+byHtml f x =
+    (\y -> x { _byHtml = y })
+       <$> f (_byHtml x)
+{-# INLINE byHtml #-}
 
 instance ToQuery Body where
     toQuery = genericQuery def
@@ -189,38 +299,98 @@ instance ToQuery Body where
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient's inbox.
 data Content = Content
-    { _ctCharset :: Maybe Text
-      -- ^ The character set of the content.
-    , _ctData :: Text
+    { _ctData :: Text
       -- ^ The textual data of the content.
+    , _ctCharset :: Maybe Text
+      -- ^ The character set of the content.
     } deriving (Show, Generic)
+
+-- | The textual data of the content.
+ctData
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Content
+    -> f Content
+ctData f x =
+    (\y -> x { _ctData = y })
+       <$> f (_ctData x)
+{-# INLINE ctData #-}
+
+-- | The character set of the content.
+ctCharset
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Content
+    -> f Content
+ctCharset f x =
+    (\y -> x { _ctCharset = y })
+       <$> f (_ctCharset x)
+{-# INLINE ctCharset #-}
 
 instance ToQuery Content where
     toQuery = genericQuery def
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
 data Destination = Destination
-    { _dnToAddresses :: [Text]
+    { _vToAddresses :: [Text]
       -- ^ The To: field(s) of the message.
-    , _dnCcAddresses :: [Text]
+    , _vCcAddresses :: [Text]
       -- ^ The CC: field(s) of the message.
-    , _dnBccAddresses :: [Text]
+    , _vBccAddresses :: [Text]
       -- ^ The BCC: field(s) of the message.
     } deriving (Show, Generic)
+
+-- | The To: field(s) of the message.
+vToAddresses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> Destination
+    -> f Destination
+vToAddresses f x =
+    (\y -> x { _vToAddresses = y })
+       <$> f (_vToAddresses x)
+{-# INLINE vToAddresses #-}
+
+-- | The CC: field(s) of the message.
+vCcAddresses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> Destination
+    -> f Destination
+vCcAddresses f x =
+    (\y -> x { _vCcAddresses = y })
+       <$> f (_vCcAddresses x)
+{-# INLINE vCcAddresses #-}
+
+-- | The BCC: field(s) of the message.
+vBccAddresses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> Destination
+    -> f Destination
+vBccAddresses f x =
+    (\y -> x { _vBccAddresses = y })
+       <$> f (_vBccAddresses x)
+{-# INLINE vBccAddresses #-}
 
 instance ToQuery Destination where
     toQuery = genericQuery def
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 data IdentityDkimAttributes = IdentityDkimAttributes
-    { _idaDkimVerificationStatus :: VerificationStatus
+    { _idaDkimEnabled :: Bool
+      -- ^ True if DKIM signing is enabled for email sent from the identity;
+      -- false otherwise.
+    , _idaDkimVerificationStatus :: VerificationStatus
       -- ^ Describes whether Amazon SES has successfully verified the DKIM
       -- DNS records (tokens) published in the domain name's DNS. (This
       -- only applies to domain identities, not email address
       -- identities.).
-    , _idaDkimEnabled :: Bool
-      -- ^ True if DKIM signing is enabled for email sent from the identity;
-      -- false otherwise.
     , _idaDkimTokens :: [Text]
       -- ^ A set of character strings that represent the domain's identity.
       -- Using these tokens, you will need to create DNS CNAME records
@@ -234,6 +404,53 @@ data IdentityDkimAttributes = IdentityDkimAttributes
       -- SES Developer Guide.
     } deriving (Show, Generic)
 
+-- | True if DKIM signing is enabled for email sent from the identity; false
+-- otherwise.
+idaDkimEnabled
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> IdentityDkimAttributes
+    -> f IdentityDkimAttributes
+idaDkimEnabled f x =
+    (\y -> x { _idaDkimEnabled = y })
+       <$> f (_idaDkimEnabled x)
+{-# INLINE idaDkimEnabled #-}
+
+-- | Describes whether Amazon SES has successfully verified the DKIM DNS records
+-- (tokens) published in the domain name's DNS. (This only applies to domain
+-- identities, not email address identities.).
+idaDkimVerificationStatus
+    :: Functor f
+    => (VerificationStatus
+    -> f (VerificationStatus))
+    -> IdentityDkimAttributes
+    -> f IdentityDkimAttributes
+idaDkimVerificationStatus f x =
+    (\y -> x { _idaDkimVerificationStatus = y })
+       <$> f (_idaDkimVerificationStatus x)
+{-# INLINE idaDkimVerificationStatus #-}
+
+-- | A set of character strings that represent the domain's identity. Using
+-- these tokens, you will need to create DNS CNAME records that point to DKIM
+-- public keys hosted by Amazon SES. Amazon Web Services will eventually
+-- detect that you have updated your DNS records; this detection process may
+-- take up to 72 hours. Upon successful detection, Amazon SES will be able to
+-- DKIM-sign email originating from that domain. (This only applies to domain
+-- identities, not email address identities.) For more information about
+-- creating DNS records using DKIM tokens, go to the Amazon SES Developer
+-- Guide.
+idaDkimTokens
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> IdentityDkimAttributes
+    -> f IdentityDkimAttributes
+idaDkimTokens f x =
+    (\y -> x { _idaDkimTokens = y })
+       <$> f (_idaDkimTokens x)
+{-# INLINE idaDkimTokens #-}
+
 instance FromXML IdentityDkimAttributes where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "IdentityDkimAttributes"
@@ -243,23 +460,78 @@ instance FromXML IdentityDkimAttributes where
 -- bounce, complaint, and/or delivery notifications, and whether feedback
 -- forwarding is enabled for bounce and complaint notifications.
 data IdentityNotificationAttributes = IdentityNotificationAttributes
-    { _inaForwardingEnabled :: Bool
+    { _inaBounceTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish bounce notifications.
+    , _inaComplaintTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish complaint notifications.
+    , _inaDeliveryTopic :: Text
+      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
+      -- Amazon SES will publish delivery notifications.
+    , _inaForwardingEnabled :: Bool
       -- ^ Describes whether Amazon SES will forward bounce and complaint
       -- notifications as email. true indicates that Amazon SES will
       -- forward bounce and complaint notifications as email, while false
       -- indicates that bounce and complaint notifications will be
       -- published only to the specified bounce and complaint Amazon SNS
       -- topics.
-    , _inaComplaintTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish complaint notifications.
-    , _inaBounceTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish bounce notifications.
-    , _inaDeliveryTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish delivery notifications.
     } deriving (Show, Generic)
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
+-- will publish bounce notifications.
+inaBounceTopic
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> IdentityNotificationAttributes
+    -> f IdentityNotificationAttributes
+inaBounceTopic f x =
+    (\y -> x { _inaBounceTopic = y })
+       <$> f (_inaBounceTopic x)
+{-# INLINE inaBounceTopic #-}
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
+-- will publish complaint notifications.
+inaComplaintTopic
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> IdentityNotificationAttributes
+    -> f IdentityNotificationAttributes
+inaComplaintTopic f x =
+    (\y -> x { _inaComplaintTopic = y })
+       <$> f (_inaComplaintTopic x)
+{-# INLINE inaComplaintTopic #-}
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
+-- will publish delivery notifications.
+inaDeliveryTopic
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> IdentityNotificationAttributes
+    -> f IdentityNotificationAttributes
+inaDeliveryTopic f x =
+    (\y -> x { _inaDeliveryTopic = y })
+       <$> f (_inaDeliveryTopic x)
+{-# INLINE inaDeliveryTopic #-}
+
+-- | Describes whether Amazon SES will forward bounce and complaint
+-- notifications as email. true indicates that Amazon SES will forward bounce
+-- and complaint notifications as email, while false indicates that bounce and
+-- complaint notifications will be published only to the specified bounce and
+-- complaint Amazon SNS topics.
+inaForwardingEnabled
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> IdentityNotificationAttributes
+    -> f IdentityNotificationAttributes
+inaForwardingEnabled f x =
+    (\y -> x { _inaForwardingEnabled = y })
+       <$> f (_inaForwardingEnabled x)
+{-# INLINE inaForwardingEnabled #-}
 
 instance FromXML IdentityNotificationAttributes where
     fromXMLOptions = xmlOptions
@@ -275,18 +547,69 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes
       -- address identities.
     } deriving (Show, Generic)
 
+-- | The verification status of the identity: "Pending", "Success", "Failed", or
+-- "TemporaryFailure".
+ivaVerificationStatus
+    :: Functor f
+    => (VerificationStatus
+    -> f (VerificationStatus))
+    -> IdentityVerificationAttributes
+    -> f IdentityVerificationAttributes
+ivaVerificationStatus f x =
+    (\y -> x { _ivaVerificationStatus = y })
+       <$> f (_ivaVerificationStatus x)
+{-# INLINE ivaVerificationStatus #-}
+
+-- | The verification token for a domain identity. Null for email address
+-- identities.
+ivaVerificationToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> IdentityVerificationAttributes
+    -> f IdentityVerificationAttributes
+ivaVerificationToken f x =
+    (\y -> x { _ivaVerificationToken = y })
+       <$> f (_ivaVerificationToken x)
+{-# INLINE ivaVerificationToken #-}
+
 instance FromXML IdentityVerificationAttributes where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "IdentityVerificationAttributes"
 
 -- | The message to be sent.
 data Message = Message
-    { _meBody :: Body
-      -- ^ The message body.
-    , _meSubject :: Content
+    { _zSubject :: Content
       -- ^ The subject of the message: A short summary of the content, which
       -- will appear in the recipient's inbox.
+    , _zBody :: Body
+      -- ^ The message body.
     } deriving (Show, Generic)
+
+-- | The subject of the message: A short summary of the content, which will
+-- appear in the recipient's inbox.
+zSubject
+    :: Functor f
+    => (Content
+    -> f (Content))
+    -> Message
+    -> f Message
+zSubject f x =
+    (\y -> x { _zSubject = y })
+       <$> f (_zSubject x)
+{-# INLINE zSubject #-}
+
+-- | The message body.
+zBody
+    :: Functor f
+    => (Body
+    -> f (Body))
+    -> Message
+    -> f Message
+zBody f x =
+    (\y -> x { _zBody = y })
+       <$> f (_zBody x)
+{-# INLINE zBody #-}
 
 instance ToQuery Message where
     toQuery = genericQuery def
@@ -296,26 +619,76 @@ instance ToQuery Message where
 data SendDataPoint = SendDataPoint
     { _sdpTimestamp :: Maybe ISO8601
       -- ^ Time of the data point.
-    , _sdpBounces :: Maybe Integer
-      -- ^ Number of emails that have bounced.
     , _sdpDeliveryAttempts :: Maybe Integer
       -- ^ Number of emails that have been enqueued for sending.
+    , _sdpBounces :: Maybe Integer
+      -- ^ Number of emails that have bounced.
     , _sdpComplaints :: Maybe Integer
       -- ^ Number of unwanted emails that were rejected by recipients.
     , _sdpRejects :: Maybe Integer
       -- ^ Number of emails rejected by Amazon SES.
     } deriving (Show, Generic)
 
+-- | Time of the data point.
+sdpTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> SendDataPoint
+    -> f SendDataPoint
+sdpTimestamp f x =
+    (\y -> x { _sdpTimestamp = y })
+       <$> f (_sdpTimestamp x)
+{-# INLINE sdpTimestamp #-}
+
+-- | Number of emails that have been enqueued for sending.
+sdpDeliveryAttempts
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> SendDataPoint
+    -> f SendDataPoint
+sdpDeliveryAttempts f x =
+    (\y -> x { _sdpDeliveryAttempts = y })
+       <$> f (_sdpDeliveryAttempts x)
+{-# INLINE sdpDeliveryAttempts #-}
+
+-- | Number of emails that have bounced.
+sdpBounces
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> SendDataPoint
+    -> f SendDataPoint
+sdpBounces f x =
+    (\y -> x { _sdpBounces = y })
+       <$> f (_sdpBounces x)
+{-# INLINE sdpBounces #-}
+
+-- | Number of unwanted emails that were rejected by recipients.
+sdpComplaints
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> SendDataPoint
+    -> f SendDataPoint
+sdpComplaints f x =
+    (\y -> x { _sdpComplaints = y })
+       <$> f (_sdpComplaints x)
+{-# INLINE sdpComplaints #-}
+
+-- | Number of emails rejected by Amazon SES.
+sdpRejects
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> SendDataPoint
+    -> f SendDataPoint
+sdpRejects f x =
+    (\y -> x { _sdpRejects = y })
+       <$> f (_sdpRejects x)
+{-# INLINE sdpRejects #-}
+
 instance FromXML SendDataPoint where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendDataPoint"
-
-makeLenses ''RawMessage
-makeLenses ''Body
-makeLenses ''Content
-makeLenses ''Destination
-makeLenses ''IdentityDkimAttributes
-makeLenses ''IdentityNotificationAttributes
-makeLenses ''IdentityVerificationAttributes
-makeLenses ''Message
-makeLenses ''SendDataPoint

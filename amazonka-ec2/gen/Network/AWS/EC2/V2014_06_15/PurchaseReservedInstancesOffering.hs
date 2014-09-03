@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,20 +43,16 @@ module Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering
     (
     -- * Request
       PurchaseReservedInstancesOffering
-    -- ** Default constructor
+    -- ** Request constructor
     , purchaseReservedInstancesOffering
-    -- ** Accessors and lenses
-    , _priorInstanceCount
+    -- ** Request lenses
     , priorInstanceCount
-    , _priorReservedInstancesOfferingId
     , priorReservedInstancesOfferingId
-    , _priorLimitPrice
     , priorLimitPrice
 
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
-    -- ** Accessors and lenses
-    , _priosReservedInstancesId
+    -- ** Response lenses
     , priosReservedInstancesId
     ) where
 
@@ -76,8 +71,53 @@ purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     }
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
+    { _priorInstanceCount :: Integer
+      -- ^ The number of Reserved Instances to purchase.
+    , _priorReservedInstancesOfferingId :: Text
+      -- ^ The ID of the Reserved Instance offering to purchase.
+    , _priorLimitPrice :: Maybe ReservedInstanceLimitPrice
+      -- ^ Specified for Reserved Instance Marketplace offerings to limit
+      -- the total order and ensure that the Reserved Instances are not
+      -- purchased at unexpected prices.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''PurchaseReservedInstancesOffering
+-- | The number of Reserved Instances to purchase.
+priorInstanceCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> PurchaseReservedInstancesOffering
+    -> f PurchaseReservedInstancesOffering
+priorInstanceCount f x =
+    (\y -> x { _priorInstanceCount = y })
+       <$> f (_priorInstanceCount x)
+{-# INLINE priorInstanceCount #-}
+
+-- | The ID of the Reserved Instance offering to purchase.
+priorReservedInstancesOfferingId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PurchaseReservedInstancesOffering
+    -> f PurchaseReservedInstancesOffering
+priorReservedInstancesOfferingId f x =
+    (\y -> x { _priorReservedInstancesOfferingId = y })
+       <$> f (_priorReservedInstancesOfferingId x)
+{-# INLINE priorReservedInstancesOfferingId #-}
+
+-- | Specified for Reserved Instance Marketplace offerings to limit the total
+-- order and ensure that the Reserved Instances are not purchased at
+-- unexpected prices.
+priorLimitPrice
+    :: Functor f
+    => (Maybe ReservedInstanceLimitPrice
+    -> f (Maybe ReservedInstanceLimitPrice))
+    -> PurchaseReservedInstancesOffering
+    -> f PurchaseReservedInstancesOffering
+priorLimitPrice f x =
+    (\y -> x { _priorLimitPrice = y })
+       <$> f (_priorLimitPrice x)
+{-# INLINE priorLimitPrice #-}
 
 instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
@@ -87,7 +127,17 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
       -- ^ The IDs of the purchased Reserved Instances.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''PurchaseReservedInstancesOfferingResponse
+-- | The IDs of the purchased Reserved Instances.
+priosReservedInstancesId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PurchaseReservedInstancesOfferingResponse
+    -> f PurchaseReservedInstancesOfferingResponse
+priosReservedInstancesId f x =
+    (\y -> x { _priosReservedInstancesId = y })
+       <$> f (_priosReservedInstancesId x)
+{-# INLINE priosReservedInstancesId #-}
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions
@@ -98,17 +148,3 @@ instance AWSRequest PurchaseReservedInstancesOffering where
 
     request = post "PurchaseReservedInstancesOffering"
     response _ = xmlResponse
-
--- | The number of Reserved Instances to purchase.
-priorInstanceCount :: Lens' PurchaseReservedInstancesOffering (Integer)
-
--- | The ID of the Reserved Instance offering to purchase.
-priorReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering (Text)
-
--- | Specified for Reserved Instance Marketplace offerings to limit the total
--- order and ensure that the Reserved Instances are not purchased at
--- unexpected prices.
-priorLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
-
--- | The IDs of the purchased Reserved Instances.
-priosReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)

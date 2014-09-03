@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -47,12 +46,36 @@
 -- "867530901", "taskList": {"name": "specialTaskList"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 4b977c76-3ff2-11e1-a23a-99d60383ae71 {"count":1,"truncated":false}.
-module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks where
+module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
+    (
+    -- * Request
+      CountPendingActivityTasks
+    -- ** Request constructor
+    , countPendingActivityTasks
+    -- ** Request lenses
+    , cpatiDomain
+    , cpatiTaskList
+
+    -- * Response
+    , CountPendingActivityTasksResponse
+    -- ** Response lenses
+    , ptcCount
+    , ptcTruncated
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'CountPendingActivityTasks' request.
+countPendingActivityTasks :: Text -- ^ 'cpatiDomain'
+                          -> TaskList -- ^ 'cpatiTaskList'
+                          -> CountPendingActivityTasks
+countPendingActivityTasks p1 p2 = CountPendingActivityTasks
+    { _cpatiDomain = p1
+    , _cpatiTaskList = p2
+    }
 
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatiDomain :: Text
@@ -61,7 +84,29 @@ data CountPendingActivityTasks = CountPendingActivityTasks
       -- ^ The name of the task list.
     } deriving (Show, Generic)
 
-makeLenses ''CountPendingActivityTasks
+-- | The name of the domain that contains the task list.
+cpatiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CountPendingActivityTasks
+    -> f CountPendingActivityTasks
+cpatiDomain f x =
+    (\y -> x { _cpatiDomain = y })
+       <$> f (_cpatiDomain x)
+{-# INLINE cpatiDomain #-}
+
+-- | The name of the task list.
+cpatiTaskList
+    :: Functor f
+    => (TaskList
+    -> f (TaskList))
+    -> CountPendingActivityTasks
+    -> f CountPendingActivityTasks
+cpatiTaskList f x =
+    (\y -> x { _cpatiTaskList = y })
+       <$> f (_cpatiTaskList x)
+{-# INLINE cpatiTaskList #-}
 
 instance ToPath CountPendingActivityTasks
 
@@ -80,7 +125,30 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
       -- truncated value.
     } deriving (Show, Generic)
 
-makeLenses ''CountPendingActivityTasksResponse
+-- | The number of tasks in the task list.
+ptcCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CountPendingActivityTasksResponse
+    -> f CountPendingActivityTasksResponse
+ptcCount f x =
+    (\y -> x { _ptcCount = y })
+       <$> f (_ptcCount x)
+{-# INLINE ptcCount #-}
+
+-- | If set to true, indicates that the actual count was more than the maximum
+-- supported by this API and the count returned is the truncated value.
+ptcTruncated
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CountPendingActivityTasksResponse
+    -> f CountPendingActivityTasksResponse
+ptcTruncated f x =
+    (\y -> x { _ptcTruncated = y })
+       <$> f (_ptcTruncated x)
+{-# INLINE ptcTruncated #-}
 
 instance FromJSON CountPendingActivityTasksResponse
 

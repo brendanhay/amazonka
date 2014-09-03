@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,11 +26,34 @@
 -- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
 -- &Action=ApplySecurityGroupsToLoadBalancer &AUTHPARAMS sg-123456789
 -- 06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer
+    (
+    -- * Request
+      ApplySecurityGroupsToLoadBalancer
+    -- ** Request constructor
+    , applySecurityGroupsToLoadBalancer
+    -- ** Request lenses
+    , asgtlbiLoadBalancerName
+    , asgtlbiSecurityGroups
+
+    -- * Response
+    , ApplySecurityGroupsToLoadBalancerResponse
+    -- ** Response lenses
+    , asgtlboSecurityGroups
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ApplySecurityGroupsToLoadBalancer' request.
+applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbiLoadBalancerName'
+                                  -> [Text] -- ^ 'asgtlbiSecurityGroups'
+                                  -> ApplySecurityGroupsToLoadBalancer
+applySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
+    { _asgtlbiLoadBalancerName = p1
+    , _asgtlbiSecurityGroups = p2
+    }
 
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbiLoadBalancerName :: Text
@@ -44,7 +66,32 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
       -- the security group name (For example, sg-1234).
     } deriving (Show, Generic)
 
-makeLenses ''ApplySecurityGroupsToLoadBalancer
+-- | The name associated with the load balancer. The name must be unique within
+-- the set of load balancers associated with your AWS account.
+asgtlbiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ApplySecurityGroupsToLoadBalancer
+    -> f ApplySecurityGroupsToLoadBalancer
+asgtlbiLoadBalancerName f x =
+    (\y -> x { _asgtlbiLoadBalancerName = y })
+       <$> f (_asgtlbiLoadBalancerName x)
+{-# INLINE asgtlbiLoadBalancerName #-}
+
+-- | A list of security group IDs to associate with your load balancer in VPC.
+-- The security group IDs must be provided as the ID and not the security
+-- group name (For example, sg-1234).
+asgtlbiSecurityGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ApplySecurityGroupsToLoadBalancer
+    -> f ApplySecurityGroupsToLoadBalancer
+asgtlbiSecurityGroups f x =
+    (\y -> x { _asgtlbiSecurityGroups = y })
+       <$> f (_asgtlbiSecurityGroups x)
+{-# INLINE asgtlbiSecurityGroups #-}
 
 instance ToQuery ApplySecurityGroupsToLoadBalancer where
     toQuery = genericQuery def
@@ -54,7 +101,17 @@ data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalanc
       -- ^ A list of security group IDs associated with your load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''ApplySecurityGroupsToLoadBalancerResponse
+-- | A list of security group IDs associated with your load balancer.
+asgtlboSecurityGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ApplySecurityGroupsToLoadBalancerResponse
+    -> f ApplySecurityGroupsToLoadBalancerResponse
+asgtlboSecurityGroups f x =
+    (\y -> x { _asgtlboSecurityGroups = y })
+       <$> f (_asgtlboSecurityGroups x)
+{-# INLINE asgtlboSecurityGroups #-}
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
     fromXMLOptions = xmlOptions

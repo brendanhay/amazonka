@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,7 +37,18 @@
 -- 80a74808-ee5a-11e2-90db-69a5154aeb8d Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 20:58:44 GMT.
-module Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups where
+module Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
+    (
+    -- * Request
+      ModifyInstanceGroups
+    -- ** Request constructor
+    , modifyInstanceGroups
+    -- ** Request lenses
+    , migiInstanceGroups
+
+    -- * Response
+    , ModifyInstanceGroupsResponse
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -56,7 +66,17 @@ data ModifyInstanceGroups = ModifyInstanceGroups
       -- ^ Instance groups to change.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyInstanceGroups
+-- | Instance groups to change.
+migiInstanceGroups
+    :: Functor f
+    => ([InstanceGroupModifyConfig]
+    -> f ([InstanceGroupModifyConfig]))
+    -> ModifyInstanceGroups
+    -> f ModifyInstanceGroups
+migiInstanceGroups f x =
+    (\y -> x { _migiInstanceGroups = y })
+       <$> f (_migiInstanceGroups x)
+{-# INLINE migiInstanceGroups #-}
 
 instance ToPath ModifyInstanceGroups
 
@@ -68,8 +88,6 @@ instance ToJSON ModifyInstanceGroups
 
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''ModifyInstanceGroupsResponse
 
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR

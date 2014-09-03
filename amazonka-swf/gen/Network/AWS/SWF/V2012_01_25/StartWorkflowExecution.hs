@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -58,7 +57,28 @@
 -- Content-Type: application/json x-amzn-RequestId:
 -- 6c25f6e6-3f01-11e1-9a27-0760db01a4a8
 -- {"runId":"1e536162-f1ea-48b0-85f3-aade88eef2f7"}.
-module Network.AWS.SWF.V2012_01_25.StartWorkflowExecution where
+module Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
+    (
+    -- * Request
+      StartWorkflowExecution
+    -- ** Request constructor
+    , startWorkflowExecution
+    -- ** Request lenses
+    , swejDomain
+    , swejWorkflowId
+    , swejWorkflowType
+    , swejChildPolicy
+    , swejInput
+    , swejExecutionStartToCloseTimeout
+    , swejTaskStartToCloseTimeout
+    , swejTagList
+    , swejTaskList
+
+    -- * Response
+    , StartWorkflowExecutionResponse
+    -- ** Response lenses
+    , rrrnRunId
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -66,9 +86,9 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'StartWorkflowExecution' request.
-startWorkflowExecution :: Text -- ^ '_swejDomain'
-                       -> Text -- ^ '_swejWorkflowId'
-                       -> WorkflowType -- ^ '_swejWorkflowType'
+startWorkflowExecution :: Text -- ^ 'swejDomain'
+                       -> Text -- ^ 'swejWorkflowId'
+                       -> WorkflowType -- ^ 'swejWorkflowType'
                        -> StartWorkflowExecution
 startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
     { _swejDomain = p1
@@ -166,7 +186,168 @@ data StartWorkflowExecution = StartWorkflowExecution
       -- &quot;arn&quot;.
     } deriving (Show, Generic)
 
-makeLenses ''StartWorkflowExecution
+-- | The name of the domain in which the workflow execution is created.
+swejDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejDomain f x =
+    (\y -> x { _swejDomain = y })
+       <$> f (_swejDomain x)
+{-# INLINE swejDomain #-}
+
+-- | The user defined identifier associated with the workflow execution. You can
+-- use this to associate a custom identifier with the workflow execution. You
+-- may specify the same identifier if a workflow execution is logically a
+-- restart of a previous execution. You cannot have two open workflow
+-- executions with the same workflowId at the same time. The specified string
+-- must not start or end with whitespace. It must not contain a : (colon), /
+-- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
+-- \u007f - \u009f). Also, it must not contain the literal string
+-- &quot;arn&quot;.
+swejWorkflowId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejWorkflowId f x =
+    (\y -> x { _swejWorkflowId = y })
+       <$> f (_swejWorkflowId x)
+{-# INLINE swejWorkflowId #-}
+
+-- | The type of the workflow to start.
+swejWorkflowType
+    :: Functor f
+    => (WorkflowType
+    -> f (WorkflowType))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejWorkflowType f x =
+    (\y -> x { _swejWorkflowType = y })
+       <$> f (_swejWorkflowType x)
+{-# INLINE swejWorkflowType #-}
+
+-- | If set, specifies the policy to use for the child workflow executions of
+-- this workflow execution if it is terminated, by calling the
+-- TerminateWorkflowExecution action explicitly or due to an expired timeout.
+-- This policy overrides the default child policy specified when registering
+-- the workflow type using RegisterWorkflowType. The supported child policies
+-- are: TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
+-- request to cancel will be attempted for each child execution by recording a
+-- WorkflowExecutionCancelRequested event in its history. It is up to the
+-- decider to take appropriate actions when it receives an execution history
+-- with this event. ABANDON: no action will be taken. The child executions
+-- will continue to run. A child policy for this workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default child policy was
+-- specified at registration time then a fault will be returned.
+swejChildPolicy
+    :: Functor f
+    => (Maybe ChildPolicy
+    -> f (Maybe ChildPolicy))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejChildPolicy f x =
+    (\y -> x { _swejChildPolicy = y })
+       <$> f (_swejChildPolicy x)
+{-# INLINE swejChildPolicy #-}
+
+-- | The input for the workflow execution. This is a free form string which
+-- should be meaningful to the workflow you are starting. This input is made
+-- available to the new workflow execution in the WorkflowExecutionStarted
+-- history event.
+swejInput
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejInput f x =
+    (\y -> x { _swejInput = y })
+       <$> f (_swejInput x)
+{-# INLINE swejInput #-}
+
+-- | The total duration for this workflow execution. This overrides the
+-- defaultExecutionStartToCloseTimeout specified when registering the workflow
+-- type. The duration is specified in seconds. The valid values are integers
+-- greater than or equal to 0. Exceeding this limit will cause the workflow
+-- execution to time out. Unlike some of the other timeout parameters in
+-- Amazon SWF, you cannot specify a value of "NONE" for this timeout; there is
+-- a one-year max limit on the time that a workflow execution can run. An
+-- execution start-to-close timeout must be specified either through this
+-- parameter or as a default when the workflow type is registered. If neither
+-- this parameter nor a default execution start-to-close timeout is specified,
+-- a fault is returned.
+swejExecutionStartToCloseTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejExecutionStartToCloseTimeout f x =
+    (\y -> x { _swejExecutionStartToCloseTimeout = y })
+       <$> f (_swejExecutionStartToCloseTimeout x)
+{-# INLINE swejExecutionStartToCloseTimeout #-}
+
+-- | Specifies the maximum duration of decision tasks for this workflow
+-- execution. This parameter overrides the defaultTaskStartToCloseTimout
+-- specified when registering the workflow type using RegisterWorkflowType.
+-- The valid values are integers greater than or equal to 0. An integer value
+-- can be used to specify the duration in seconds while NONE can be used to
+-- specify unlimited duration. A task start-to-close timeout for this workflow
+-- execution must be specified either as a default for the workflow type or
+-- through this parameter. If neither this parameter is set nor a default task
+-- start-to-close timeout was specified at registration time then a fault will
+-- be returned.
+swejTaskStartToCloseTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejTaskStartToCloseTimeout f x =
+    (\y -> x { _swejTaskStartToCloseTimeout = y })
+       <$> f (_swejTaskStartToCloseTimeout x)
+{-# INLINE swejTaskStartToCloseTimeout #-}
+
+-- | The list of tags to associate with the workflow execution. You can specify
+-- a maximum of 5 tags. You can list workflow executions with a specific tag
+-- by calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
+-- specifying a TagFilter.
+swejTagList
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejTagList f x =
+    (\y -> x { _swejTagList = y })
+       <$> f (_swejTagList x)
+{-# INLINE swejTagList #-}
+
+-- | The task list to use for the decision tasks generated for this workflow
+-- execution. This overrides the defaultTaskList specified when registering
+-- the workflow type. A task list for this workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default task list was
+-- specified at registration time then a fault will be returned. The specified
+-- string must not start or end with whitespace. It must not contain a :
+-- (colon), / (slash), | (vertical bar), or any control characters
+-- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
+-- string &quot;arn&quot;.
+swejTaskList
+    :: Functor f
+    => (Maybe TaskList
+    -> f (Maybe TaskList))
+    -> StartWorkflowExecution
+    -> f StartWorkflowExecution
+swejTaskList f x =
+    (\y -> x { _swejTaskList = y })
+       <$> f (_swejTaskList x)
+{-# INLINE swejTaskList #-}
 
 instance ToPath StartWorkflowExecution
 
@@ -177,13 +358,24 @@ instance ToHeaders StartWorkflowExecution
 instance ToJSON StartWorkflowExecution
 
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
-    { _rrqRunId :: Maybe Text
+    { _rrrnRunId :: Maybe Text
       -- ^ The runId of a workflow execution. This Id is generated by the
       -- service and can be used to uniquely identify the workflow
       -- execution within a domain.
     } deriving (Show, Generic)
 
-makeLenses ''StartWorkflowExecutionResponse
+-- | The runId of a workflow execution. This Id is generated by the service and
+-- can be used to uniquely identify the workflow execution within a domain.
+rrrnRunId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StartWorkflowExecutionResponse
+    -> f StartWorkflowExecutionResponse
+rrrnRunId f x =
+    (\y -> x { _rrrnRunId = y })
+       <$> f (_rrrnRunId x)
+{-# INLINE rrrnRunId #-}
 
 instance FromJSON StartWorkflowExecutionResponse
 

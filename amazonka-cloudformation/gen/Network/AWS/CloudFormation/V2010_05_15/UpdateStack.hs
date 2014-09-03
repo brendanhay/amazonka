@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,14 +33,37 @@
 -- &AWSAccessKeyId=[AWS Access KeyID] &Signature=[Signature]
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83.
 -- 
-module Network.AWS.CloudFormation.V2010_05_15.UpdateStack where
+module Network.AWS.CloudFormation.V2010_05_15.UpdateStack
+    (
+    -- * Request
+      UpdateStack
+    -- ** Request constructor
+    , updateStack
+    -- ** Request lenses
+    , usiStackName
+    , usiCapabilities
+    , usiNotificationARNs
+    , usiParameters
+    , usiStackPolicyBody
+    , usiStackPolicyDuringUpdateBody
+    , usiStackPolicyDuringUpdateURL
+    , usiStackPolicyURL
+    , usiTemplateBody
+    , usiTemplateURL
+    , usiUsePreviousTemplate
+
+    -- * Response
+    , UpdateStackResponse
+    -- ** Response lenses
+    , usoStackId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateStack' request.
-updateStack :: Text -- ^ '_usiStackName'
+updateStack :: Text -- ^ 'usiStackName'
             -> UpdateStack
 updateStack p1 = UpdateStack
     { _usiStackName = p1
@@ -127,7 +149,175 @@ data UpdateStack = UpdateStack
       -- that you are updating.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateStack
+-- | The name or stack ID of the stack to update. Must contain only alphanumeric
+-- characters (case sensitive) and start with an alpha character. Maximum
+-- length of the name is 255 characters.
+usiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiStackName f x =
+    (\y -> x { _usiStackName = y })
+       <$> f (_usiStackName x)
+{-# INLINE usiStackName #-}
+
+-- | The list of capabilities that you want to allow in the stack. If your stack
+-- contains IAM resources, you must specify the CAPABILITY_IAM value for this
+-- parameter; otherwise, this action returns an InsufficientCapabilities
+-- error. IAM resources are the following: AWS::IAM::AccessKey,
+-- AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::User, and
+-- AWS::IAM::UserToGroupAddition.
+usiCapabilities
+    :: Functor f
+    => ([Capability]
+    -> f ([Capability]))
+    -> UpdateStack
+    -> f UpdateStack
+usiCapabilities f x =
+    (\y -> x { _usiCapabilities = y })
+       <$> f (_usiCapabilities x)
+{-# INLINE usiCapabilities #-}
+
+-- | Update the ARNs for the Amazon SNS topics that are associated with the
+-- stack.
+usiNotificationARNs
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> UpdateStack
+    -> f UpdateStack
+usiNotificationARNs f x =
+    (\y -> x { _usiNotificationARNs = y })
+       <$> f (_usiNotificationARNs x)
+{-# INLINE usiNotificationARNs #-}
+
+-- | A list of Parameter structures that specify input parameters for the stack.
+usiParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> UpdateStack
+    -> f UpdateStack
+usiParameters f x =
+    (\y -> x { _usiParameters = y })
+       <$> f (_usiParameters x)
+{-# INLINE usiParameters #-}
+
+-- | Structure containing a new stack policy body. You can specify either the
+-- StackPolicyBody or the StackPolicyURL parameter, but not both. You might
+-- update the stack policy, for example, in order to protect a new resource
+-- that you created during a stack update. If you do not specify a stack
+-- policy, the current policy that is associated with the stack is unchanged.
+usiStackPolicyBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiStackPolicyBody f x =
+    (\y -> x { _usiStackPolicyBody = y })
+       <$> f (_usiStackPolicyBody x)
+{-# INLINE usiStackPolicyBody #-}
+
+-- | Structure containing the temporary overriding stack policy body. You can
+-- specify either the StackPolicyDuringUpdateBody or the
+-- StackPolicyDuringUpdateURL parameter, but not both. If you want to update
+-- protected resources, specify a temporary overriding stack policy during
+-- this update. If you do not specify a stack policy, the current policy that
+-- is associated with the stack will be used.
+usiStackPolicyDuringUpdateBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiStackPolicyDuringUpdateBody f x =
+    (\y -> x { _usiStackPolicyDuringUpdateBody = y })
+       <$> f (_usiStackPolicyDuringUpdateBody x)
+{-# INLINE usiStackPolicyDuringUpdateBody #-}
+
+-- | Location of a file containing the temporary overriding stack policy. The
+-- URL must point to a policy (max size: 16KB) located in an S3 bucket in the
+-- same region as the stack. You can specify either the
+-- StackPolicyDuringUpdateBody or the StackPolicyDuringUpdateURL parameter,
+-- but not both. If you want to update protected resources, specify a
+-- temporary overriding stack policy during this update. If you do not specify
+-- a stack policy, the current policy that is associated with the stack will
+-- be used.
+usiStackPolicyDuringUpdateURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiStackPolicyDuringUpdateURL f x =
+    (\y -> x { _usiStackPolicyDuringUpdateURL = y })
+       <$> f (_usiStackPolicyDuringUpdateURL x)
+{-# INLINE usiStackPolicyDuringUpdateURL #-}
+
+-- | Location of a file containing the updated stack policy. The URL must point
+-- to a policy (max size: 16KB) located in an S3 bucket in the same region as
+-- the stack. You can specify either the StackPolicyBody or the StackPolicyURL
+-- parameter, but not both. You might update the stack policy, for example, in
+-- order to protect a new resource that you created during a stack update. If
+-- you do not specify a stack policy, the current policy that is associated
+-- with the stack is unchanged.
+usiStackPolicyURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiStackPolicyURL f x =
+    (\y -> x { _usiStackPolicyURL = y })
+       <$> f (_usiStackPolicyURL x)
+{-# INLINE usiStackPolicyURL #-}
+
+-- | Structure containing the template body with a minimum length of 1 byte and
+-- a maximum length of 51,200 bytes. (For more information, go to Template
+-- Anatomy in the AWS CloudFormation User Guide.) Conditional: You must
+-- specify either the TemplateBody or the TemplateURL parameter, but not both.
+usiTemplateBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiTemplateBody f x =
+    (\y -> x { _usiTemplateBody = y })
+       <$> f (_usiTemplateBody x)
+{-# INLINE usiTemplateBody #-}
+
+-- | Location of file containing the template body. The URL must point to a
+-- template located in an S3 bucket in the same region as the stack. For more
+-- information, go to Template Anatomy in the AWS CloudFormation User Guide.
+-- Conditional: You must specify either the TemplateBody or the TemplateURL
+-- parameter, but not both.
+usiTemplateURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStack
+    -> f UpdateStack
+usiTemplateURL f x =
+    (\y -> x { _usiTemplateURL = y })
+       <$> f (_usiTemplateURL x)
+{-# INLINE usiTemplateURL #-}
+
+-- | Reuse the existing template that is associated with the stack that you are
+-- updating.
+usiUsePreviousTemplate
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateStack
+    -> f UpdateStack
+usiUsePreviousTemplate f x =
+    (\y -> x { _usiUsePreviousTemplate = y })
+       <$> f (_usiUsePreviousTemplate x)
+{-# INLINE usiUsePreviousTemplate #-}
 
 instance ToQuery UpdateStack where
     toQuery = genericQuery def
@@ -137,7 +327,17 @@ data UpdateStackResponse = UpdateStackResponse
       -- ^ Unique identifier of the stack.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateStackResponse
+-- | Unique identifier of the stack.
+usoStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateStackResponse
+    -> f UpdateStackResponse
+usoStackId f x =
+    (\y -> x { _usoStackId = y })
+       <$> f (_usoStackId x)
+{-# INLINE usoStackId #-}
 
 instance FromXML UpdateStackResponse where
     fromXMLOptions = xmlOptions

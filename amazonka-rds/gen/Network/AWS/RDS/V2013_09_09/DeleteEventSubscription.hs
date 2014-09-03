@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,11 +25,31 @@
 -- 2013-01-28 00:29:23.736 creation deletion EventSubscription01
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- e7cf30ac-68e9-11e2-bd13-a92da73b3119.
-module Network.AWS.RDS.V2013_09_09.DeleteEventSubscription where
+module Network.AWS.RDS.V2013_09_09.DeleteEventSubscription
+    (
+    -- * Request
+      DeleteEventSubscription
+    -- ** Request constructor
+    , deleteEventSubscription
+    -- ** Request lenses
+    , desmSubscriptionName
+
+    -- * Response
+    , DeleteEventSubscriptionResponse
+    -- ** Response lenses
+    , esyEventSubscription
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteEventSubscription' request.
+deleteEventSubscription :: Text -- ^ 'desmSubscriptionName'
+                        -> DeleteEventSubscription
+deleteEventSubscription p1 = DeleteEventSubscription
+    { _desmSubscriptionName = p1
+    }
 
 data DeleteEventSubscription = DeleteEventSubscription
     { _desmSubscriptionName :: Text
@@ -38,18 +57,39 @@ data DeleteEventSubscription = DeleteEventSubscription
       -- delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteEventSubscription
+-- | The name of the RDS event notification subscription you want to delete.
+desmSubscriptionName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteEventSubscription
+    -> f DeleteEventSubscription
+desmSubscriptionName f x =
+    (\y -> x { _desmSubscriptionName = y })
+       <$> f (_desmSubscriptionName x)
+{-# INLINE desmSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where
     toQuery = genericQuery def
 
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    { _eserEventSubscription :: Maybe EventSubscription
+    { _esyEventSubscription :: Maybe EventSubscription
       -- ^ Contains the results of a successful invocation of the
       -- DescribeEventSubscriptions action.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteEventSubscriptionResponse
+-- | Contains the results of a successful invocation of the
+-- DescribeEventSubscriptions action.
+esyEventSubscription
+    :: Functor f
+    => (Maybe EventSubscription
+    -> f (Maybe EventSubscription))
+    -> DeleteEventSubscriptionResponse
+    -> f DeleteEventSubscriptionResponse
+esyEventSubscription f x =
+    (\y -> x { _esyEventSubscription = y })
+       <$> f (_esyEventSubscription x)
+{-# INLINE esyEventSubscription #-}
 
 instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions

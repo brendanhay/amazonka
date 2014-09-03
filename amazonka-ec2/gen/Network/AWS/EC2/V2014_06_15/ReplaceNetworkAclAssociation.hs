@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,18 +36,15 @@ module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation
     (
     -- * Request
       ReplaceNetworkAclAssociation
-    -- ** Default constructor
+    -- ** Request constructor
     , replaceNetworkAclAssociation
-    -- ** Accessors and lenses
-    , _rnaarAssociationId
+    -- ** Request lenses
     , rnaarAssociationId
-    , _rnaarNetworkAclId
     , rnaarNetworkAclId
 
     -- * Response
     , ReplaceNetworkAclAssociationResponse
-    -- ** Accessors and lenses
-    , _rnaasNewAssociationId
+    -- ** Response lenses
     , rnaasNewAssociationId
     ) where
 
@@ -66,8 +62,37 @@ replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     }
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
+    { _rnaarAssociationId :: Text
+      -- ^ The ID of the current association between the original network
+      -- ACL and the subnet.
+    , _rnaarNetworkAclId :: Text
+      -- ^ The ID of the new ACL to associate with the subnet.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ReplaceNetworkAclAssociation
+-- | The ID of the current association between the original network ACL and the
+-- subnet.
+rnaarAssociationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceNetworkAclAssociation
+    -> f ReplaceNetworkAclAssociation
+rnaarAssociationId f x =
+    (\y -> x { _rnaarAssociationId = y })
+       <$> f (_rnaarAssociationId x)
+{-# INLINE rnaarAssociationId #-}
+
+-- | The ID of the new ACL to associate with the subnet.
+rnaarNetworkAclId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceNetworkAclAssociation
+    -> f ReplaceNetworkAclAssociation
+rnaarNetworkAclId f x =
+    (\y -> x { _rnaarNetworkAclId = y })
+       <$> f (_rnaarNetworkAclId x)
+{-# INLINE rnaarNetworkAclId #-}
 
 instance ToQuery ReplaceNetworkAclAssociation where
     toQuery = genericQuery def
@@ -77,7 +102,17 @@ data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
       -- ^ The ID of the new association.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ReplaceNetworkAclAssociationResponse
+-- | The ID of the new association.
+rnaasNewAssociationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReplaceNetworkAclAssociationResponse
+    -> f ReplaceNetworkAclAssociationResponse
+rnaasNewAssociationId f x =
+    (\y -> x { _rnaasNewAssociationId = y })
+       <$> f (_rnaasNewAssociationId x)
+{-# INLINE rnaasNewAssociationId #-}
 
 instance FromXML ReplaceNetworkAclAssociationResponse where
     fromXMLOptions = xmlOptions
@@ -88,13 +123,3 @@ instance AWSRequest ReplaceNetworkAclAssociation where
 
     request = post "ReplaceNetworkAclAssociation"
     response _ = xmlResponse
-
--- | The ID of the current association between the original network ACL and the
--- subnet.
-rnaarAssociationId :: Lens' ReplaceNetworkAclAssociation (Text)
-
--- | The ID of the new ACL to associate with the subnet.
-rnaarNetworkAclId :: Lens' ReplaceNetworkAclAssociation (Text)
-
--- | The ID of the new association.
-rnaasNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)

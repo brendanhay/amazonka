@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,24 @@
 -- ?Action=ListAccessKeys &UserName=Bob &Version=2010-05-08 &AUTHPARAMS Bob
 -- Bob AKIAIOSFODNN7EXAMPLE Active Bob AKIAI44QH8DHBEXAMPLE Inactive false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListAccessKeys where
+module Network.AWS.IAM.V2010_05_08.ListAccessKeys
+    (
+    -- * Request
+      ListAccessKeys
+    -- ** Request constructor
+    , listAccessKeys
+    -- ** Request lenses
+    , lakrUserName
+    , lakrMarker
+    , lakrMaxItems
+
+    -- * Response
+    , ListAccessKeysResponse
+    -- ** Response lenses
+    , laksAccessKeyMetadata
+    , laksIsTruncated
+    , laksMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -61,7 +77,47 @@ data ListAccessKeys = ListAccessKeys
       -- not include it, it defaults to 100.
     } deriving (Show, Generic)
 
-makeLenses ''ListAccessKeys
+-- | Name of the user.
+lakrUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListAccessKeys
+    -> f ListAccessKeys
+lakrUserName f x =
+    (\y -> x { _lakrUserName = y })
+       <$> f (_lakrUserName x)
+{-# INLINE lakrUserName #-}
+
+-- | Use this parameter only when paginating results, and only in a subsequent
+-- request after you've received a response where the results are truncated.
+-- Set it to the value of the Marker element in the response you just
+-- received.
+lakrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListAccessKeys
+    -> f ListAccessKeys
+lakrMarker f x =
+    (\y -> x { _lakrMarker = y })
+       <$> f (_lakrMarker x)
+{-# INLINE lakrMarker #-}
+
+-- | Use this parameter only when paginating results to indicate the maximum
+-- number of keys you want in the response. If there are additional keys
+-- beyond the maximum you specify, the IsTruncated response element is true.
+-- This parameter is optional. If you do not include it, it defaults to 100.
+lakrMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListAccessKeys
+    -> f ListAccessKeys
+lakrMaxItems f x =
+    (\y -> x { _lakrMaxItems = y })
+       <$> f (_lakrMaxItems x)
+{-# INLINE lakrMaxItems #-}
 
 instance ToQuery ListAccessKeys where
     toQuery = genericQuery def
@@ -80,7 +136,44 @@ data ListAccessKeysResponse = ListAccessKeysResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListAccessKeysResponse
+-- | A list of access key metadata.
+laksAccessKeyMetadata
+    :: Functor f
+    => ([AccessKeyMetadata]
+    -> f ([AccessKeyMetadata]))
+    -> ListAccessKeysResponse
+    -> f ListAccessKeysResponse
+laksAccessKeyMetadata f x =
+    (\y -> x { _laksAccessKeyMetadata = y })
+       <$> f (_laksAccessKeyMetadata x)
+{-# INLINE laksAccessKeyMetadata #-}
+
+-- | A flag that indicates whether there are more keys to list. If your results
+-- were truncated, you can make a subsequent pagination request using the
+-- Marker request parameter to retrieve more keys in the list.
+laksIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListAccessKeysResponse
+    -> f ListAccessKeysResponse
+laksIsTruncated f x =
+    (\y -> x { _laksIsTruncated = y })
+       <$> f (_laksIsTruncated x)
+{-# INLINE laksIsTruncated #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+laksMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListAccessKeysResponse
+    -> f ListAccessKeysResponse
+laksMarker f x =
+    (\y -> x { _laksMarker = y })
+       <$> f (_laksMarker x)
+{-# INLINE laksMarker #-}
 
 instance FromXML ListAccessKeysResponse where
     fromXMLOptions = xmlOptions

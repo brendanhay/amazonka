@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -49,18 +48,15 @@ module Network.AWS.EC2.V2014_06_15.BundleInstance
     (
     -- * Request
       BundleInstance
-    -- ** Default constructor
+    -- ** Request constructor
     , bundleInstance
-    -- ** Accessors and lenses
-    , _birStorage
+    -- ** Request lenses
     , birStorage
-    , _birInstanceId
     , birInstanceId
 
     -- * Response
     , BundleInstanceResponse
-    -- ** Accessors and lenses
-    , _bisBundleTask
+    -- ** Response lenses
     , bisBundleTask
     ) where
 
@@ -78,8 +74,40 @@ bundleInstance p1 p2 = BundleInstance
     }
 
 data BundleInstance = BundleInstance
+    { _birStorage :: Storage
+      -- ^ The bucket in which to store the AMI. You can specify a bucket
+      -- that you already own or a new bucket that Amazon EC2 creates on
+      -- your behalf. If you specify a bucket that belongs to someone
+      -- else, Amazon EC2 returns an error.
+    , _birInstanceId :: Text
+      -- ^ The ID of the instance to bundle.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''BundleInstance
+-- | The bucket in which to store the AMI. You can specify a bucket that you
+-- already own or a new bucket that Amazon EC2 creates on your behalf. If you
+-- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+birStorage
+    :: Functor f
+    => (Storage
+    -> f (Storage))
+    -> BundleInstance
+    -> f BundleInstance
+birStorage f x =
+    (\y -> x { _birStorage = y })
+       <$> f (_birStorage x)
+{-# INLINE birStorage #-}
+
+-- | The ID of the instance to bundle.
+birInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> BundleInstance
+    -> f BundleInstance
+birInstanceId f x =
+    (\y -> x { _birInstanceId = y })
+       <$> f (_birInstanceId x)
+{-# INLINE birInstanceId #-}
 
 instance ToQuery BundleInstance where
     toQuery = genericQuery def
@@ -89,7 +117,17 @@ data BundleInstanceResponse = BundleInstanceResponse
       -- ^ Information about the bundle task.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''BundleInstanceResponse
+-- | Information about the bundle task.
+bisBundleTask
+    :: Functor f
+    => (Maybe BundleTask
+    -> f (Maybe BundleTask))
+    -> BundleInstanceResponse
+    -> f BundleInstanceResponse
+bisBundleTask f x =
+    (\y -> x { _bisBundleTask = y })
+       <$> f (_bisBundleTask x)
+{-# INLINE bisBundleTask #-}
 
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions
@@ -100,14 +138,3 @@ instance AWSRequest BundleInstance where
 
     request = post "BundleInstance"
     response _ = xmlResponse
-
--- | The bucket in which to store the AMI. You can specify a bucket that you
--- already own or a new bucket that Amazon EC2 creates on your behalf. If you
--- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
-birStorage :: Lens' BundleInstance (Storage)
-
--- | The ID of the instance to bundle.
-birInstanceId :: Lens' BundleInstance (Text)
-
--- | Information about the bundle task.
-bisBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)

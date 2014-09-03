@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,7 +37,24 @@
 -- size]", "metricTransformations": [ { "metricValue": "$size",
 -- "metricNamespace": "MyApp", "metricName": "Volume" }, { "metricValue": "1",
 -- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } ] }.
-module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters where
+module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters
+    (
+    -- * Request
+      DescribeMetricFilters
+    -- ** Request constructor
+    , describeMetricFilters
+    -- ** Request lenses
+    , dmfsLogGroupName
+    , dmfsLimit
+    , dmfsFilterNamePrefix
+    , dmfsNextToken
+
+    -- * Response
+    , DescribeMetricFiltersResponse
+    -- ** Response lenses
+    , dmftMetricFilters
+    , dmftNextToken
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
@@ -46,29 +62,77 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeMetricFilters' request.
-describeMetricFilters :: Text -- ^ '_dmfrLogGroupName'
+describeMetricFilters :: Text -- ^ 'dmfsLogGroupName'
                       -> DescribeMetricFilters
 describeMetricFilters p1 = DescribeMetricFilters
-    { _dmfrLogGroupName = p1
-    , _dmfrLimit = Nothing
-    , _dmfrFilterNamePrefix = Nothing
-    , _dmfrNextToken = Nothing
+    { _dmfsLogGroupName = p1
+    , _dmfsLimit = Nothing
+    , _dmfsFilterNamePrefix = Nothing
+    , _dmfsNextToken = Nothing
     }
 
 data DescribeMetricFilters = DescribeMetricFilters
-    { _dmfrLogGroupName :: Text
-    , _dmfrLimit :: Maybe Integer
+    { _dmfsLogGroupName :: Text
+    , _dmfsLimit :: Maybe Integer
       -- ^ The maximum number of items returned in the response. If you
       -- don't specify a value, the request would return up to 50 items.
-    , _dmfrFilterNamePrefix :: Maybe Text
+    , _dmfsFilterNamePrefix :: Maybe Text
       -- ^ The name of the metric filter.
-    , _dmfrNextToken :: Maybe Text
+    , _dmfsNextToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous DescribeMetricFilters request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeMetricFilters
+dmfsLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeMetricFilters
+    -> f DescribeMetricFilters
+dmfsLogGroupName f x =
+    (\y -> x { _dmfsLogGroupName = y })
+       <$> f (_dmfsLogGroupName x)
+{-# INLINE dmfsLogGroupName #-}
+
+-- | The maximum number of items returned in the response. If you don't specify
+-- a value, the request would return up to 50 items.
+dmfsLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeMetricFilters
+    -> f DescribeMetricFilters
+dmfsLimit f x =
+    (\y -> x { _dmfsLimit = y })
+       <$> f (_dmfsLimit x)
+{-# INLINE dmfsLimit #-}
+
+-- | The name of the metric filter.
+dmfsFilterNamePrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeMetricFilters
+    -> f DescribeMetricFilters
+dmfsFilterNamePrefix f x =
+    (\y -> x { _dmfsFilterNamePrefix = y })
+       <$> f (_dmfsFilterNamePrefix x)
+{-# INLINE dmfsFilterNamePrefix #-}
+
+-- | A string token used for pagination that points to the next page of results.
+-- It must be a value obtained from the response of the previous
+-- DescribeMetricFilters request.
+dmfsNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeMetricFilters
+    -> f DescribeMetricFilters
+dmfsNextToken f x =
+    (\y -> x { _dmfsNextToken = y })
+       <$> f (_dmfsNextToken x)
+{-# INLINE dmfsNextToken #-}
 
 instance ToPath DescribeMetricFilters
 
@@ -79,14 +143,37 @@ instance ToHeaders DescribeMetricFilters
 instance ToJSON DescribeMetricFilters
 
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
-    { _dmfsMetricFilters :: [MetricFilter]
-    , _dmfsNextToken :: Maybe Text
+    { _dmftMetricFilters :: [MetricFilter]
+    , _dmftNextToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous request. The token expires after 24 hours.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeMetricFiltersResponse
+dmftMetricFilters
+    :: Functor f
+    => ([MetricFilter]
+    -> f ([MetricFilter]))
+    -> DescribeMetricFiltersResponse
+    -> f DescribeMetricFiltersResponse
+dmftMetricFilters f x =
+    (\y -> x { _dmftMetricFilters = y })
+       <$> f (_dmftMetricFilters x)
+{-# INLINE dmftMetricFilters #-}
+
+-- | A string token used for pagination that points to the next page of results.
+-- It must be a value obtained from the response of the previous request. The
+-- token expires after 24 hours.
+dmftNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeMetricFiltersResponse
+    -> f DescribeMetricFiltersResponse
+dmftNextToken f x =
+    (\y -> x { _dmftNextToken = y })
+       <$> f (_dmftNextToken x)
+{-# INLINE dmftNextToken #-}
 
 instance FromJSON DescribeMetricFiltersResponse
 
@@ -98,5 +185,5 @@ instance AWSRequest DescribeMetricFilters where
     response _ = jsonResponse
 
 instance AWSPager DescribeMetricFilters where
-    next rq rs = (\x -> rq { _dmfrNextToken = Just x })
-        <$> (_dmfsNextToken rs)
+    next rq rs = (\x -> rq { _dmfsNextToken = Just x })
+        <$> (_dmftNextToken rs)

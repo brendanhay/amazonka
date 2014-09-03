@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,26 +25,52 @@
 -- &x-amz-date=20130130T154635Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- 3a63806b-6af4-11e2-b27b-4d850b1c672d.
-module Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup where
+module Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup
+    (
+    -- * Request
+      DeleteClusterSubnetGroup
+    -- ** Request constructor
+    , deleteClusterSubnetGroup
+    -- ** Request lenses
+    , dcsgnClusterSubnetGroupName
+
+    -- * Response
+    , DeleteClusterSubnetGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteClusterSubnetGroup' request.
+deleteClusterSubnetGroup :: Text -- ^ 'dcsgnClusterSubnetGroupName'
+                         -> DeleteClusterSubnetGroup
+deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
+    { _dcsgnClusterSubnetGroupName = p1
+    }
+
 data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
-    { _dcsgmClusterSubnetGroupName :: Text
+    { _dcsgnClusterSubnetGroupName :: Text
       -- ^ The name of the cluster subnet group name to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteClusterSubnetGroup
+-- | The name of the cluster subnet group name to be deleted.
+dcsgnClusterSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteClusterSubnetGroup
+    -> f DeleteClusterSubnetGroup
+dcsgnClusterSubnetGroupName f x =
+    (\y -> x { _dcsgnClusterSubnetGroupName = y })
+       <$> f (_dcsgnClusterSubnetGroupName x)
+{-# INLINE dcsgnClusterSubnetGroupName #-}
 
 instance ToQuery DeleteClusterSubnetGroup where
     toQuery = genericQuery def
 
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteClusterSubnetGroupResponse
 
 instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift

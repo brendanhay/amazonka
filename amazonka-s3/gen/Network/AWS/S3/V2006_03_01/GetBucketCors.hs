@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,46 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the cors configuration for the bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketCors where
+module Network.AWS.S3.V2006_03_01.GetBucketCors
+    (
+    -- * Request
+      GetBucketCors
+    -- ** Request constructor
+    , getBucketCors
+    -- ** Request lenses
+    , gbcrBucket
+
+    -- * Response
+    , GetBucketCorsResponse
+    -- ** Response lenses
+    , gbcoCORSRules
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketCors' request.
+getBucketCors :: BucketName -- ^ 'gbcrBucket'
+              -> GetBucketCors
+getBucketCors p1 = GetBucketCors
+    { _gbcrBucket = p1
+    }
+
 data GetBucketCors = GetBucketCors
     { _gbcrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketCors
+gbcrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketCors
+    -> f GetBucketCors
+gbcrBucket f x =
+    (\y -> x { _gbcrBucket = y })
+       <$> f (_gbcrBucket x)
+{-# INLINE gbcrBucket #-}
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
@@ -50,7 +78,16 @@ data GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketCorsResponse
+gbcoCORSRules
+    :: Functor f
+    => ([CORSRule]
+    -> f ([CORSRule]))
+    -> GetBucketCorsResponse
+    -> f GetBucketCorsResponse
+gbcoCORSRules f x =
+    (\y -> x { _gbcoCORSRules = y })
+       <$> f (_gbcoCORSRules x)
+{-# INLINE gbcoCORSRules #-}
 
 instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,42 +29,90 @@
 -- &AUTHPARAMS /division_abc/subdivision_xyz/ Robert AIDACKCEVSQ6C2EXAMPLE
 -- arn:aws::123456789012:user/division_abc/subdivision_xyz/Robert
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.UpdateUser where
+module Network.AWS.IAM.V2010_05_08.UpdateUser
+    (
+    -- * Request
+      UpdateUser
+    -- ** Request constructor
+    , updateUser
+    -- ** Request lenses
+    , uuvUserName
+    , uuvNewPath
+    , uuvNewUserName
+
+    -- * Response
+    , UpdateUserResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateUser' request.
-updateUser :: Text -- ^ '_uurUserName'
+updateUser :: Text -- ^ 'uuvUserName'
            -> UpdateUser
 updateUser p1 = UpdateUser
-    { _uurUserName = p1
-    , _uurNewPath = Nothing
-    , _uurNewUserName = Nothing
+    { _uuvUserName = p1
+    , _uuvNewPath = Nothing
+    , _uuvNewUserName = Nothing
     }
 
 data UpdateUser = UpdateUser
-    { _uurUserName :: Text
+    { _uuvUserName :: Text
       -- ^ Name of the user to update. If you're changing the name of the
       -- user, this is the original user name.
-    , _uurNewPath :: Maybe Text
+    , _uuvNewPath :: Maybe Text
       -- ^ New path for the user. Include this parameter only if you're
       -- changing the user's path.
-    , _uurNewUserName :: Maybe Text
+    , _uuvNewUserName :: Maybe Text
       -- ^ New name for the user. Include this parameter only if you're
       -- changing the user's name.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateUser
+-- | Name of the user to update. If you're changing the name of the user, this
+-- is the original user name.
+uuvUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateUser
+    -> f UpdateUser
+uuvUserName f x =
+    (\y -> x { _uuvUserName = y })
+       <$> f (_uuvUserName x)
+{-# INLINE uuvUserName #-}
+
+-- | New path for the user. Include this parameter only if you're changing the
+-- user's path.
+uuvNewPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateUser
+    -> f UpdateUser
+uuvNewPath f x =
+    (\y -> x { _uuvNewPath = y })
+       <$> f (_uuvNewPath x)
+{-# INLINE uuvNewPath #-}
+
+-- | New name for the user. Include this parameter only if you're changing the
+-- user's name.
+uuvNewUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateUser
+    -> f UpdateUser
+uuvNewUserName f x =
+    (\y -> x { _uuvNewUserName = y })
+       <$> f (_uuvNewUserName x)
+{-# INLINE uuvNewUserName #-}
 
 instance ToQuery UpdateUser where
     toQuery = genericQuery def
 
 data UpdateUserResponse = UpdateUserResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateUserResponse
 
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM

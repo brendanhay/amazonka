@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,18 +17,47 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive where
+module Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
+    (
+    -- * Request
+      DeleteTapeArchive
+    -- ** Request constructor
+    , deleteTapeArchive
+    -- ** Request lenses
+    , dtaiTapeARN
+
+    -- * Response
+    , DeleteTapeArchiveResponse
+    -- ** Response lenses
+    , dtaoTapeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteTapeArchive' request.
+deleteTapeArchive :: Text -- ^ 'dtaiTapeARN'
+                  -> DeleteTapeArchive
+deleteTapeArchive p1 = DeleteTapeArchive
+    { _dtaiTapeARN = p1
+    }
+
 data DeleteTapeArchive = DeleteTapeArchive
-    { _dtajTapeARN :: Text
+    { _dtaiTapeARN :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTapeArchive
+dtaiTapeARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteTapeArchive
+    -> f DeleteTapeArchive
+dtaiTapeARN f x =
+    (\y -> x { _dtaiTapeARN = y })
+       <$> f (_dtaiTapeARN x)
+{-# INLINE dtaiTapeARN #-}
 
 instance ToPath DeleteTapeArchive
 
@@ -40,10 +68,19 @@ instance ToHeaders DeleteTapeArchive
 instance ToJSON DeleteTapeArchive
 
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
-    { _dtapTapeARN :: Maybe Text
+    { _dtaoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTapeArchiveResponse
+dtaoTapeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteTapeArchiveResponse
+    -> f DeleteTapeArchiveResponse
+dtaoTapeARN f x =
+    (\y -> x { _dtaoTapeARN = y })
+       <$> f (_dtaoTapeARN x)
+{-# INLINE dtaoTapeARN #-}
 
 instance FromJSON DeleteTapeArchiveResponse
 

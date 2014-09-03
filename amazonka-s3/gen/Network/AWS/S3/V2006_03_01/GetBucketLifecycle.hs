@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,22 +18,51 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the lifecycle configuration information set on the bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketLifecycle where
+module Network.AWS.S3.V2006_03_01.GetBucketLifecycle
+    (
+    -- * Request
+      GetBucketLifecycle
+    -- ** Request constructor
+    , getBucketLifecycle
+    -- ** Request lenses
+    , gblrBucket
+
+    -- * Response
+    , GetBucketLifecycleResponse
+    -- ** Response lenses
+    , gbloRules
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketLifecycle' request.
+getBucketLifecycle :: BucketName -- ^ 'gblrBucket'
+                   -> GetBucketLifecycle
+getBucketLifecycle p1 = GetBucketLifecycle
+    { _gblrBucket = p1
+    }
+
 data GetBucketLifecycle = GetBucketLifecycle
-    { _gblsBucket :: BucketName
+    { _gblrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketLifecycle
+gblrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketLifecycle
+    -> f GetBucketLifecycle
+gblrBucket f x =
+    (\y -> x { _gblrBucket = y })
+       <$> f (_gblrBucket x)
+{-# INLINE gblrBucket #-}
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS _gblsBucket
+        , toBS _gblrBucket
         ]
 
 instance ToQuery GetBucketLifecycle where
@@ -47,10 +75,19 @@ instance ToHeaders GetBucketLifecycle
 instance ToBody GetBucketLifecycle
 
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblpRules :: [Rule]
+    { _gbloRules :: [Rule]
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketLifecycleResponse
+gbloRules
+    :: Functor f
+    => ([Rule]
+    -> f ([Rule]))
+    -> GetBucketLifecycleResponse
+    -> f GetBucketLifecycleResponse
+gbloRules f x =
+    (\y -> x { _gbloRules = y })
+       <$> f (_gbloRules x)
+{-# INLINE gbloRules #-}
 
 instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,26 +26,52 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteInstanceProfile
 -- &InstanceProfileName=Webserver &Version=2010-05-08 &AUTHPARAMS
 -- 90c18667-99f3-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile where
+module Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile
+    (
+    -- * Request
+      DeleteInstanceProfile
+    -- ** Request constructor
+    , deleteInstanceProfile
+    -- ** Request lenses
+    , diprInstanceProfileName
+
+    -- * Response
+    , DeleteInstanceProfileResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteInstanceProfile' request.
+deleteInstanceProfile :: Text -- ^ 'diprInstanceProfileName'
+                      -> DeleteInstanceProfile
+deleteInstanceProfile p1 = DeleteInstanceProfile
+    { _diprInstanceProfileName = p1
+    }
 
 data DeleteInstanceProfile = DeleteInstanceProfile
     { _diprInstanceProfileName :: Text
       -- ^ Name of the instance profile to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteInstanceProfile
+-- | Name of the instance profile to delete.
+diprInstanceProfileName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteInstanceProfile
+    -> f DeleteInstanceProfile
+diprInstanceProfileName f x =
+    (\y -> x { _diprInstanceProfileName = y })
+       <$> f (_diprInstanceProfileName x)
+{-# INLINE diprInstanceProfileName #-}
 
 instance ToQuery DeleteInstanceProfile where
     toQuery = genericQuery def
 
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteInstanceProfileResponse
 
 instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM

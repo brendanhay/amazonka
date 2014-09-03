@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,14 +35,29 @@
 -- AWS::SNS::Topic CREATE_COMPLETE CPUAlarmHigh 2011-06-21T20:29:23Z
 -- MyStack-CPUAlarmHigh-POBWQPDJA81F AWS::CloudWatch::Alarm
 -- 2d06e36c-ac1d-11e0-a958-f9382b6eb86b.
-module Network.AWS.CloudFormation.V2010_05_15.ListStackResources where
+module Network.AWS.CloudFormation.V2010_05_15.ListStackResources
+    (
+    -- * Request
+      ListStackResources
+    -- ** Request constructor
+    , listStackResources
+    -- ** Request lenses
+    , lsriStackName
+    , lsriNextToken
+
+    -- * Response
+    , ListStackResourcesResponse
+    -- ** Response lenses
+    , lsroNextToken
+    , lsroStackResourceSummaries
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListStackResources' request.
-listStackResources :: Text -- ^ '_lsriStackName'
+listStackResources :: Text -- ^ 'lsriStackName'
                    -> ListStackResources
 listStackResources p1 = ListStackResources
     { _lsriStackName = p1
@@ -63,7 +77,33 @@ data ListStackResources = ListStackResources
       -- value.
     } deriving (Show, Generic)
 
-makeLenses ''ListStackResources
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value.
+lsriStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListStackResources
+    -> f ListStackResources
+lsriStackName f x =
+    (\y -> x { _lsriStackName = y })
+       <$> f (_lsriStackName x)
+{-# INLINE lsriStackName #-}
+
+-- | String that identifies the start of the next list of stack resource
+-- summaries, if there is one. Default: There is no default value.
+lsriNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStackResources
+    -> f ListStackResources
+lsriNextToken f x =
+    (\y -> x { _lsriNextToken = y })
+       <$> f (_lsriNextToken x)
+{-# INLINE lsriNextToken #-}
 
 instance ToQuery ListStackResources where
     toQuery = genericQuery def
@@ -76,7 +116,30 @@ data ListStackResourcesResponse = ListStackResourcesResponse
       -- ^ A list of StackResourceSummary structures.
     } deriving (Show, Generic)
 
-makeLenses ''ListStackResourcesResponse
+-- | String that identifies the start of the next list of stack resources, if
+-- there is one.
+lsroNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStackResourcesResponse
+    -> f ListStackResourcesResponse
+lsroNextToken f x =
+    (\y -> x { _lsroNextToken = y })
+       <$> f (_lsroNextToken x)
+{-# INLINE lsroNextToken #-}
+
+-- | A list of StackResourceSummary structures.
+lsroStackResourceSummaries
+    :: Functor f
+    => ([StackResourceSummary]
+    -> f ([StackResourceSummary]))
+    -> ListStackResourcesResponse
+    -> f ListStackResourcesResponse
+lsroStackResourceSummaries f x =
+    (\y -> x { _lsroStackResourceSummaries = y })
+       <$> f (_lsroStackResourceSummaries x)
+{-# INLINE lsroStackResourceSummaries #-}
 
 instance FromXML ListStackResourcesResponse where
     fromXMLOptions = xmlOptions

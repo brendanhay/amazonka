@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,25 +44,56 @@
 -- "CodecOptions":{ "Level":"2.2", "MaxReferenceFrames":"3", "Profile":"main",
 -- "MaxBitRate":"", "BufferSize":"" }, "FixedGOP":"false", "FrameRate":"30",
 -- "KeyframesMaxDist":"240" } } }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset
+    (
+    -- * Request
+      ReadPreset
+    -- ** Request constructor
+    , readPreset
+    -- ** Request lenses
+    , rptId
+
+    -- * Response
+    , ReadPresetResponse
+    -- ** Response lenses
+    , rpuPreset
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'ReadPreset' request.
+readPreset :: Text -- ^ 'rptId'
+           -> ReadPreset
+readPreset p1 = ReadPreset
+    { _rptId = p1
+    }
+
 data ReadPreset = ReadPreset
-    { _rprId :: Text
+    { _rptId :: Text
       -- ^ The identifier of the preset for which you want to get detailed
       -- information.
     } deriving (Show, Generic)
 
-makeLenses ''ReadPreset
+-- | The identifier of the preset for which you want to get detailed
+-- information.
+rptId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReadPreset
+    -> f ReadPreset
+rptId f x =
+    (\y -> x { _rptId = y })
+       <$> f (_rptId x)
+{-# INLINE rptId #-}
 
 instance ToPath ReadPreset where
     toPath ReadPreset{..} = mconcat
         [ "/2012-09-25/presets/"
-        , toBS _rprId
+        , toBS _rptId
         ]
 
 instance ToQuery ReadPreset
@@ -73,12 +103,22 @@ instance ToHeaders ReadPreset
 instance ToJSON ReadPreset
 
 data ReadPresetResponse = ReadPresetResponse
-    { _rpsPreset :: Maybe Preset
+    { _rpuPreset :: Maybe Preset
       -- ^ A section of the response body that provides information about
       -- the preset.
     } deriving (Show, Generic)
 
-makeLenses ''ReadPresetResponse
+-- | A section of the response body that provides information about the preset.
+rpuPreset
+    :: Functor f
+    => (Maybe Preset
+    -> f (Maybe Preset))
+    -> ReadPresetResponse
+    -> f ReadPresetResponse
+rpuPreset f x =
+    (\y -> x { _rpuPreset = y })
+       <$> f (_rpuPreset x)
+{-# INLINE rpuPreset #-}
 
 instance FromJSON ReadPresetResponse
 

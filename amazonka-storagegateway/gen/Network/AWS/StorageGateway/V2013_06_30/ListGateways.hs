@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,7 +39,22 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" } ] }.
-module Network.AWS.StorageGateway.V2013_06_30.ListGateways where
+module Network.AWS.StorageGateway.V2013_06_30.ListGateways
+    (
+    -- * Request
+      ListGateways
+    -- ** Request constructor
+    , listGateways
+    -- ** Request lenses
+    , lgiMarker
+    , lgiLimit
+
+    -- * Response
+    , ListGatewaysResponse
+    -- ** Response lenses
+    , lgoGateways
+    , lgoMarker
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -63,7 +77,31 @@ data ListGateways = ListGateways
       -- specified number of items.
     } deriving (Show, Generic)
 
-makeLenses ''ListGateways
+-- | An opaque string that indicates the position at which to begin the returned
+-- list of gateways.
+lgiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListGateways
+    -> f ListGateways
+lgiMarker f x =
+    (\y -> x { _lgiMarker = y })
+       <$> f (_lgiMarker x)
+{-# INLINE lgiMarker #-}
+
+-- | Specifies that the list of gateways returned be limited to the specified
+-- number of items.
+lgiLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListGateways
+    -> f ListGateways
+lgiLimit f x =
+    (\y -> x { _lgiLimit = y })
+       <$> f (_lgiLimit x)
+{-# INLINE lgiLimit #-}
 
 instance ToPath ListGateways
 
@@ -78,7 +116,27 @@ data ListGatewaysResponse = ListGatewaysResponse
     , _lgoMarker :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''ListGatewaysResponse
+lgoGateways
+    :: Functor f
+    => ([GatewayInformation]
+    -> f ([GatewayInformation]))
+    -> ListGatewaysResponse
+    -> f ListGatewaysResponse
+lgoGateways f x =
+    (\y -> x { _lgoGateways = y })
+       <$> f (_lgoGateways x)
+{-# INLINE lgoGateways #-}
+
+lgoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListGatewaysResponse
+    -> f ListGatewaysResponse
+lgoMarker f x =
+    (\y -> x { _lgoMarker = y })
+       <$> f (_lgoMarker x)
+{-# INLINE lgoMarker #-}
 
 instance FromJSON ListGatewaysResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,14 +19,26 @@
 
 -- | Deletes a scheduled action previously created using the
 -- PutScheduledUpdateGroupAction.
-module Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction where
+module Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction
+    (
+    -- * Request
+      DeleteScheduledAction
+    -- ** Request constructor
+    , deleteScheduledAction
+    -- ** Request lenses
+    , dsatScheduledActionName
+    , dsatAutoScalingGroupName
+
+    -- * Response
+    , DeleteScheduledActionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteScheduledAction' request.
-deleteScheduledAction :: Text -- ^ '_dsatScheduledActionName'
+deleteScheduledAction :: Text -- ^ 'dsatScheduledActionName'
                       -> DeleteScheduledAction
 deleteScheduledAction p1 = DeleteScheduledAction
     { _dsatScheduledActionName = p1
@@ -41,15 +52,35 @@ data DeleteScheduledAction = DeleteScheduledAction
       -- ^ The name of the Auto Scaling group.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteScheduledAction
+-- | The name of the action you want to delete.
+dsatScheduledActionName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteScheduledAction
+    -> f DeleteScheduledAction
+dsatScheduledActionName f x =
+    (\y -> x { _dsatScheduledActionName = y })
+       <$> f (_dsatScheduledActionName x)
+{-# INLINE dsatScheduledActionName #-}
+
+-- | The name of the Auto Scaling group.
+dsatAutoScalingGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteScheduledAction
+    -> f DeleteScheduledAction
+dsatAutoScalingGroupName f x =
+    (\y -> x { _dsatAutoScalingGroupName = y })
+       <$> f (_dsatAutoScalingGroupName x)
+{-# INLINE dsatAutoScalingGroupName #-}
 
 instance ToQuery DeleteScheduledAction where
     toQuery = genericQuery def
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteScheduledActionResponse
 
 instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling

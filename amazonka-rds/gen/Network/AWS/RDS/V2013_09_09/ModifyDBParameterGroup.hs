@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,11 +35,34 @@
 -- &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &Timestamp=2011-05-11T21%3A25%3A00.686Z &AWSAccessKeyId= &Signature=
 -- mydbparametergroup 5ba91f97-bf51-11de-bf60-ef2e377db6f3.
-module Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup where
+module Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup
+    (
+    -- * Request
+      ModifyDBParameterGroup
+    -- ** Request constructor
+    , modifyDBParameterGroup
+    -- ** Request lenses
+    , mdbpgmParameters
+    , mdbpgmDBParameterGroupName
+
+    -- * Response
+    , ModifyDBParameterGroupResponse
+    -- ** Response lenses
+    , dbpgnmDBParameterGroupName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ModifyDBParameterGroup' request.
+modifyDBParameterGroup :: [Parameter] -- ^ 'mdbpgmParameters'
+                       -> Text -- ^ 'mdbpgmDBParameterGroupName'
+                       -> ModifyDBParameterGroup
+modifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
+    { _mdbpgmParameters = p1
+    , _mdbpgmDBParameterGroupName = p2
+    }
 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgmParameters :: [Parameter]
@@ -60,17 +82,58 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup
       -- hyphen or contain two consecutive hyphens.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyDBParameterGroup
+-- | An array of parameter names, values, and the apply method for the parameter
+-- update. At least one parameter name, value, and apply method must be
+-- supplied; subsequent arguments are optional. A maximum of 20 parameters may
+-- be modified in a single request. Valid Values (for the application method):
+-- immediate | pending-reboot You can use the immediate value with dynamic
+-- parameters only. You can use the pending-reboot value for both dynamic and
+-- static parameters, and changes are applied when DB instance reboots.
+mdbpgmParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> ModifyDBParameterGroup
+    -> f ModifyDBParameterGroup
+mdbpgmParameters f x =
+    (\y -> x { _mdbpgmParameters = y })
+       <$> f (_mdbpgmParameters x)
+{-# INLINE mdbpgmParameters #-}
+
+-- | The name of the DB parameter group. Constraints: Must be the name of an
+-- existing DB parameter group Must be 1 to 255 alphanumeric characters First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens.
+mdbpgmDBParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyDBParameterGroup
+    -> f ModifyDBParameterGroup
+mdbpgmDBParameterGroupName f x =
+    (\y -> x { _mdbpgmDBParameterGroupName = y })
+       <$> f (_mdbpgmDBParameterGroupName x)
+{-# INLINE mdbpgmDBParameterGroupName #-}
 
 instance ToQuery ModifyDBParameterGroup where
     toQuery = genericQuery def
 
 data ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
-    { _dbpgnnDBParameterGroupName :: Maybe Text
+    { _dbpgnmDBParameterGroupName :: Maybe Text
       -- ^ The name of the DB parameter group.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyDBParameterGroupResponse
+-- | The name of the DB parameter group.
+dbpgnmDBParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyDBParameterGroupResponse
+    -> f ModifyDBParameterGroupResponse
+dbpgnmDBParameterGroupName f x =
+    (\y -> x { _dbpgnmDBParameterGroupName = y })
+       <$> f (_dbpgnmDBParameterGroupName x)
+{-# INLINE dbpgnmDBParameterGroupName #-}
 
 instance FromXML ModifyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

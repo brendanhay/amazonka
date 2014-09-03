@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,7 +21,18 @@
 -- an IAM user must have self-management enabled or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile where
+module Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile
+    (
+    -- * Request
+      UpdateMyUserProfile
+    -- ** Request constructor
+    , updateMyUserProfile
+    -- ** Request lenses
+    , umuprSshPublicKey
+
+    -- * Response
+    , UpdateMyUserProfileResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -40,7 +50,17 @@ data UpdateMyUserProfile = UpdateMyUserProfile
       -- ^ The user's SSH public key.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateMyUserProfile
+-- | The user's SSH public key.
+umuprSshPublicKey
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateMyUserProfile
+    -> f UpdateMyUserProfile
+umuprSshPublicKey f x =
+    (\y -> x { _umuprSshPublicKey = y })
+       <$> f (_umuprSshPublicKey x)
+{-# INLINE umuprSshPublicKey #-}
 
 instance ToPath UpdateMyUserProfile
 
@@ -52,8 +72,6 @@ instance ToJSON UpdateMyUserProfile
 
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateMyUserProfileResponse
 
 instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,18 +31,13 @@ module Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute
     (
     -- * Request
       ModifyNetworkInterfaceAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , modifyNetworkInterfaceAttribute
-    -- ** Accessors and lenses
-    , _mniarNetworkInterfaceId
+    -- ** Request lenses
     , mniarNetworkInterfaceId
-    , _mniarSourceDestCheck
     , mniarSourceDestCheck
-    , _mniarDescription
     , mniarDescription
-    , _mniarAttachment
     , mniarAttachment
-    , _mniarGroups
     , mniarGroups
 
     -- * Response
@@ -66,8 +60,91 @@ modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     }
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
+    { _mniarNetworkInterfaceId :: Text
+      -- ^ The ID of the network interface.
+    , _mniarSourceDestCheck :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether source/destination checking is enabled. A value
+      -- of true means checking is enabled, and false means checking is
+      -- disabled. This value must be false for a NAT instance to perform
+      -- NAT. For more information, see NAT Instances in the Amazon
+      -- Virtual Private Cloud User Guide.
+    , _mniarDescription :: Maybe AttributeValue
+      -- ^ A description for the network interface.
+    , _mniarAttachment :: Maybe NetworkInterfaceAttachmentChanges
+      -- ^ The ID of the interface attachment.
+    , _mniarGroups :: [Text]
+      -- ^ Changes the security groups for the network interface. The new
+      -- set of groups you specify replaces the current set. You must
+      -- specify at least one group, even if it's just the default
+      -- security group in the VPC. You must specify the ID of the
+      -- security group, not the name.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ModifyNetworkInterfaceAttribute
+-- | The ID of the network interface.
+mniarNetworkInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyNetworkInterfaceAttribute
+    -> f ModifyNetworkInterfaceAttribute
+mniarNetworkInterfaceId f x =
+    (\y -> x { _mniarNetworkInterfaceId = y })
+       <$> f (_mniarNetworkInterfaceId x)
+{-# INLINE mniarNetworkInterfaceId #-}
+
+-- | Indicates whether source/destination checking is enabled. A value of true
+-- means checking is enabled, and false means checking is disabled. This value
+-- must be false for a NAT instance to perform NAT. For more information, see
+-- NAT Instances in the Amazon Virtual Private Cloud User Guide.
+mniarSourceDestCheck
+    :: Functor f
+    => (Maybe AttributeBooleanValue
+    -> f (Maybe AttributeBooleanValue))
+    -> ModifyNetworkInterfaceAttribute
+    -> f ModifyNetworkInterfaceAttribute
+mniarSourceDestCheck f x =
+    (\y -> x { _mniarSourceDestCheck = y })
+       <$> f (_mniarSourceDestCheck x)
+{-# INLINE mniarSourceDestCheck #-}
+
+-- | A description for the network interface.
+mniarDescription
+    :: Functor f
+    => (Maybe AttributeValue
+    -> f (Maybe AttributeValue))
+    -> ModifyNetworkInterfaceAttribute
+    -> f ModifyNetworkInterfaceAttribute
+mniarDescription f x =
+    (\y -> x { _mniarDescription = y })
+       <$> f (_mniarDescription x)
+{-# INLINE mniarDescription #-}
+
+-- | The ID of the interface attachment.
+mniarAttachment
+    :: Functor f
+    => (Maybe NetworkInterfaceAttachmentChanges
+    -> f (Maybe NetworkInterfaceAttachmentChanges))
+    -> ModifyNetworkInterfaceAttribute
+    -> f ModifyNetworkInterfaceAttribute
+mniarAttachment f x =
+    (\y -> x { _mniarAttachment = y })
+       <$> f (_mniarAttachment x)
+{-# INLINE mniarAttachment #-}
+
+-- | Changes the security groups for the network interface. The new set of
+-- groups you specify replaces the current set. You must specify at least one
+-- group, even if it's just the default security group in the VPC. You must
+-- specify the ID of the security group, not the name.
+mniarGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyNetworkInterfaceAttribute
+    -> f ModifyNetworkInterfaceAttribute
+mniarGroups f x =
+    (\y -> x { _mniarGroups = y })
+       <$> f (_mniarGroups x)
+{-# INLINE mniarGroups #-}
 
 instance ToQuery ModifyNetworkInterfaceAttribute where
     toQuery = genericQuery def
@@ -75,32 +152,9 @@ instance ToQuery ModifyNetworkInterfaceAttribute where
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ModifyNetworkInterfaceAttributeResponse
-
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse
 
     request = post "ModifyNetworkInterfaceAttribute"
     response _ = nullaryResponse ModifyNetworkInterfaceAttributeResponse
-
--- | The ID of the network interface.
-mniarNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute (Text)
-
--- | Indicates whether source/destination checking is enabled. A value of true
--- means checking is enabled, and false means checking is disabled. This value
--- must be false for a NAT instance to perform NAT. For more information, see
--- NAT Instances in the Amazon Virtual Private Cloud User Guide.
-mniarSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
-
--- | A description for the network interface.
-mniarDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
-
--- | The ID of the interface attachment.
-mniarAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
-
--- | Changes the security groups for the network interface. The new set of
--- groups you specify replaces the current set. You must specify at least one
--- group, even if it's just the default security group in the VPC. You must
--- specify the ID of the security group, not the name.
-mniarGroups :: Lens' ModifyNetworkInterfaceAttribute ([Text])

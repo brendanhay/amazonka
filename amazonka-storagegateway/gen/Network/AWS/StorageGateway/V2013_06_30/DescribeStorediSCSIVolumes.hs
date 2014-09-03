@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -41,12 +40,32 @@
 -- "pci-0000:03:00.0-scsi-0:0:0:0", "VolumeId": "vol-1122AABB",
 -- "VolumeProgress": 23.7, "VolumeSizeInBytes": 1099511627776, "VolumeStatus":
 -- "BOOTSTRAPPING" } ] }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
+    (
+    -- * Request
+      DescribeStorediSCSIVolumes
+    -- ** Request constructor
+    , describeStorediSCSIVolumes
+    -- ** Request lenses
+    , dsscsiviVolumeARNs
+
+    -- * Response
+    , DescribeStorediSCSIVolumesResponse
+    -- ** Response lenses
+    , dsscsivoStorediSCSIVolumes
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeStorediSCSIVolumes' request.
+describeStorediSCSIVolumes :: [Text] -- ^ 'dsscsiviVolumeARNs'
+                           -> DescribeStorediSCSIVolumes
+describeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
+    { _dsscsiviVolumeARNs = p1
+    }
 
 data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
     { _dsscsiviVolumeARNs :: [Text]
@@ -56,7 +75,19 @@ data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
       -- volume ARNs for a gateway.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStorediSCSIVolumes
+-- | An array of strings where each string represents the Amazon Resource Name
+-- (ARN) of a stored volume. All of the specified stored volumes must from the
+-- same gateway. Use ListVolumes to get volume ARNs for a gateway.
+dsscsiviVolumeARNs
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeStorediSCSIVolumes
+    -> f DescribeStorediSCSIVolumes
+dsscsiviVolumeARNs f x =
+    (\y -> x { _dsscsiviVolumeARNs = y })
+       <$> f (_dsscsiviVolumeARNs x)
+{-# INLINE dsscsiviVolumeARNs #-}
 
 instance ToPath DescribeStorediSCSIVolumes
 
@@ -70,7 +101,16 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivoStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStorediSCSIVolumesResponse
+dsscsivoStorediSCSIVolumes
+    :: Functor f
+    => ([StorediSCSIVolumeInformation]
+    -> f ([StorediSCSIVolumeInformation]))
+    -> DescribeStorediSCSIVolumesResponse
+    -> f DescribeStorediSCSIVolumesResponse
+dsscsivoStorediSCSIVolumes f x =
+    (\y -> x { _dsscsivoStorediSCSIVolumes = y })
+       <$> f (_dsscsivoStorediSCSIVolumes x)
+{-# INLINE dsscsivoStorediSCSIVolumes #-}
 
 instance FromJSON DescribeStorediSCSIVolumesResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -53,21 +52,67 @@
 -- 1326481174.027, "description": "Handle customer orders", "status":
 -- "REGISTERED", "workflowType": {"name": "customerOrderWorkflow", "version":
 -- "1.0"} } }.
-module Network.AWS.SWF.V2012_01_25.DescribeWorkflowType where
+module Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
+    (
+    -- * Request
+      DescribeWorkflowType
+    -- ** Request constructor
+    , describeWorkflowType
+    -- ** Request lenses
+    , dwtjDomain
+    , dwtjWorkflowType
+
+    -- * Response
+    , DescribeWorkflowTypeResponse
+    -- ** Response lenses
+    , wtdConfiguration
+    , wtdTypeInfo
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeWorkflowType' request.
+describeWorkflowType :: Text -- ^ 'dwtjDomain'
+                     -> WorkflowType -- ^ 'dwtjWorkflowType'
+                     -> DescribeWorkflowType
+describeWorkflowType p1 p2 = DescribeWorkflowType
+    { _dwtjDomain = p1
+    , _dwtjWorkflowType = p2
+    }
+
 data DescribeWorkflowType = DescribeWorkflowType
-    { _dwtiDomain :: Text
+    { _dwtjDomain :: Text
       -- ^ The name of the domain in which this workflow type is registered.
-    , _dwtiWorkflowType :: WorkflowType
+    , _dwtjWorkflowType :: WorkflowType
       -- ^ The workflow type to describe.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeWorkflowType
+-- | The name of the domain in which this workflow type is registered.
+dwtjDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeWorkflowType
+    -> f DescribeWorkflowType
+dwtjDomain f x =
+    (\y -> x { _dwtjDomain = y })
+       <$> f (_dwtjDomain x)
+{-# INLINE dwtjDomain #-}
+
+-- | The workflow type to describe.
+dwtjWorkflowType
+    :: Functor f
+    => (WorkflowType
+    -> f (WorkflowType))
+    -> DescribeWorkflowType
+    -> f DescribeWorkflowType
+dwtjWorkflowType f x =
+    (\y -> x { _dwtjWorkflowType = y })
+       <$> f (_dwtjWorkflowType x)
+{-# INLINE dwtjWorkflowType #-}
 
 instance ToPath DescribeWorkflowType
 
@@ -91,7 +136,36 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
       -- running. You cannot create new workflow executions of this type.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeWorkflowTypeResponse
+-- | Configuration settings of the workflow type registered through
+-- RegisterWorkflowType.
+wtdConfiguration
+    :: Functor f
+    => (WorkflowTypeConfiguration
+    -> f (WorkflowTypeConfiguration))
+    -> DescribeWorkflowTypeResponse
+    -> f DescribeWorkflowTypeResponse
+wtdConfiguration f x =
+    (\y -> x { _wtdConfiguration = y })
+       <$> f (_wtdConfiguration x)
+{-# INLINE wtdConfiguration #-}
+
+-- | General information about the workflow type. The status of the workflow
+-- type (returned in the WorkflowTypeInfo structure) can be one of the
+-- following. REGISTERED: The type is registered and available. Workers
+-- supporting this type should be running. DEPRECATED: The type was deprecated
+-- using DeprecateWorkflowType, but is still in use. You should keep workers
+-- supporting this type running. You cannot create new workflow executions of
+-- this type.
+wtdTypeInfo
+    :: Functor f
+    => (WorkflowTypeInfo
+    -> f (WorkflowTypeInfo))
+    -> DescribeWorkflowTypeResponse
+    -> f DescribeWorkflowTypeResponse
+wtdTypeInfo f x =
+    (\y -> x { _wtdTypeInfo = y })
+       <$> f (_wtdTypeInfo x)
+{-# INLINE wtdTypeInfo #-}
 
 instance FromJSON DescribeWorkflowTypeResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,14 +26,28 @@
 -- &Description=Sample%20Description &Operation=CreateApplication &AuthParams
 -- Sample Description SampleApp 2010-11-16T23:09:20.256Z
 -- 2010-11-16T23:09:20.256Z Default 8b00e053-f1d6-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication
+    (
+    -- * Request
+      CreateApplication
+    -- ** Request constructor
+    , createApplication
+    -- ** Request lenses
+    , camApplicationName
+    , camDescription
+
+    -- * Response
+    , CreateApplicationResponse
+    -- ** Response lenses
+    , admApplication
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateApplication' request.
-createApplication :: Text -- ^ '_camApplicationName'
+createApplication :: Text -- ^ 'camApplicationName'
                   -> CreateApplication
 createApplication p1 = CreateApplication
     { _camApplicationName = p1
@@ -50,17 +63,51 @@ data CreateApplication = CreateApplication
       -- ^ Describes the application.
     } deriving (Show, Generic)
 
-makeLenses ''CreateApplication
+-- | The name of the application. Constraint: This name must be unique within
+-- your account. If the specified name already exists, the action returns an
+-- InvalidParameterValue error.
+camApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateApplication
+    -> f CreateApplication
+camApplicationName f x =
+    (\y -> x { _camApplicationName = y })
+       <$> f (_camApplicationName x)
+{-# INLINE camApplicationName #-}
+
+-- | Describes the application.
+camDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateApplication
+    -> f CreateApplication
+camDescription f x =
+    (\y -> x { _camDescription = y })
+       <$> f (_camDescription x)
+{-# INLINE camDescription #-}
 
 instance ToQuery CreateApplication where
     toQuery = genericQuery def
 
 data CreateApplicationResponse = CreateApplicationResponse
-    { _adoApplication :: Maybe ApplicationDescription
+    { _admApplication :: Maybe ApplicationDescription
       -- ^ The ApplicationDescription of the application.
     } deriving (Show, Generic)
 
-makeLenses ''CreateApplicationResponse
+-- | The ApplicationDescription of the application.
+admApplication
+    :: Functor f
+    => (Maybe ApplicationDescription
+    -> f (Maybe ApplicationDescription))
+    -> CreateApplicationResponse
+    -> f CreateApplicationResponse
+admApplication f x =
+    (\y -> x { _admApplication = y })
+       <$> f (_admApplication x)
+{-# INLINE admApplication #-}
 
 instance FromXML CreateApplicationResponse where
     fromXMLOptions = xmlOptions

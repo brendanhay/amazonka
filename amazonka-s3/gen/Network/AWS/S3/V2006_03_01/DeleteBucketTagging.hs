@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,44 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the tags from the bucket.
-module Network.AWS.S3.V2006_03_01.DeleteBucketTagging where
+module Network.AWS.S3.V2006_03_01.DeleteBucketTagging
+    (
+    -- * Request
+      DeleteBucketTagging
+    -- ** Request constructor
+    , deleteBucketTagging
+    -- ** Request lenses
+    , dbtrBucket
+
+    -- * Response
+    , DeleteBucketTaggingResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteBucketTagging' request.
+deleteBucketTagging :: BucketName -- ^ 'dbtrBucket'
+                    -> DeleteBucketTagging
+deleteBucketTagging p1 = DeleteBucketTagging
+    { _dbtrBucket = p1
+    }
+
 data DeleteBucketTagging = DeleteBucketTagging
     { _dbtrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''DeleteBucketTagging
+dbtrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> DeleteBucketTagging
+    -> f DeleteBucketTagging
+dbtrBucket f x =
+    (\y -> x { _dbtrBucket = y })
+       <$> f (_dbtrBucket x)
+{-# INLINE dbtrBucket #-}
 
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat
@@ -48,8 +74,6 @@ instance ToBody DeleteBucketTagging
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteBucketTaggingResponse
 
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3

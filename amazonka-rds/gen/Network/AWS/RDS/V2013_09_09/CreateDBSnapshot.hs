@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,40 +25,95 @@
 -- mysql creating us-east-1a general-public-license 2011-05-23T06:06:43.110Z
 -- 10 simcoprod01 5.1.50 mydbsnapshot manual master
 -- c4181d1d-8505-11e0-90aa-eb648410240d.
-module Network.AWS.RDS.V2013_09_09.CreateDBSnapshot where
+module Network.AWS.RDS.V2013_09_09.CreateDBSnapshot
+    (
+    -- * Request
+      CreateDBSnapshot
+    -- ** Request constructor
+    , createDBSnapshot
+    -- ** Request lenses
+    , cdbsnDBSnapshotIdentifier
+    , cdbsnDBInstanceIdentifier
+    , cdbsnTags
+
+    -- * Response
+    , CreateDBSnapshotResponse
+    -- ** Response lenses
+    , dbsxDBSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBSnapshot' request.
-createDBSnapshot :: Text -- ^ '_cdbsnDBInstanceIdentifier'
-                 -> Text -- ^ '_cdbsnDBSnapshotIdentifier'
+createDBSnapshot :: Text -- ^ 'cdbsnDBSnapshotIdentifier'
+                 -> Text -- ^ 'cdbsnDBInstanceIdentifier'
                  -> CreateDBSnapshot
 createDBSnapshot p1 p2 = CreateDBSnapshot
-    { _cdbsnDBInstanceIdentifier = p1
-    , _cdbsnDBSnapshotIdentifier = p2
+    { _cdbsnDBSnapshotIdentifier = p1
+    , _cdbsnDBInstanceIdentifier = p2
     , _cdbsnTags = mempty
     }
 
 data CreateDBSnapshot = CreateDBSnapshot
-    { _cdbsnDBInstanceIdentifier :: Text
-      -- ^ The DB instance identifier. This is the unique key that
-      -- identifies a DB instance. This parameter isn't case sensitive.
-      -- Constraints: Must contain from 1 to 63 alphanumeric characters or
-      -- hyphens First character must be a letter Cannot end with a hyphen
-      -- or contain two consecutive hyphens.
-    , _cdbsnDBSnapshotIdentifier :: Text
+    { _cdbsnDBSnapshotIdentifier :: Text
       -- ^ The identifier for the DB snapshot. Constraints: Cannot be null,
       -- empty, or blank Must contain from 1 to 255 alphanumeric
       -- characters or hyphens First character must be a letter Cannot end
       -- with a hyphen or contain two consecutive hyphens Example:
       -- my-snapshot-id.
+    , _cdbsnDBInstanceIdentifier :: Text
+      -- ^ The DB instance identifier. This is the unique key that
+      -- identifies a DB instance. This parameter isn't case sensitive.
+      -- Constraints: Must contain from 1 to 63 alphanumeric characters or
+      -- hyphens First character must be a letter Cannot end with a hyphen
+      -- or contain two consecutive hyphens.
     , _cdbsnTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBSnapshot
+-- | The identifier for the DB snapshot. Constraints: Cannot be null, empty, or
+-- blank Must contain from 1 to 255 alphanumeric characters or hyphens First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens Example: my-snapshot-id.
+cdbsnDBSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBSnapshot
+    -> f CreateDBSnapshot
+cdbsnDBSnapshotIdentifier f x =
+    (\y -> x { _cdbsnDBSnapshotIdentifier = y })
+       <$> f (_cdbsnDBSnapshotIdentifier x)
+{-# INLINE cdbsnDBSnapshotIdentifier #-}
+
+-- | The DB instance identifier. This is the unique key that identifies a DB
+-- instance. This parameter isn't case sensitive. Constraints: Must contain
+-- from 1 to 63 alphanumeric characters or hyphens First character must be a
+-- letter Cannot end with a hyphen or contain two consecutive hyphens.
+cdbsnDBInstanceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBSnapshot
+    -> f CreateDBSnapshot
+cdbsnDBInstanceIdentifier f x =
+    (\y -> x { _cdbsnDBInstanceIdentifier = y })
+       <$> f (_cdbsnDBInstanceIdentifier x)
+{-# INLINE cdbsnDBInstanceIdentifier #-}
+
+-- | A list of tags.
+cdbsnTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateDBSnapshot
+    -> f CreateDBSnapshot
+cdbsnTags f x =
+    (\y -> x { _cdbsnTags = y })
+       <$> f (_cdbsnTags x)
+{-# INLINE cdbsnTags #-}
 
 instance ToQuery CreateDBSnapshot where
     toQuery = genericQuery def
@@ -71,7 +125,19 @@ data CreateDBSnapshotResponse = CreateDBSnapshotResponse
       -- as a response element in the DescribeDBSnapshots action.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBSnapshotResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
+-- element in the DescribeDBSnapshots action.
+dbsxDBSnapshot
+    :: Functor f
+    => (Maybe DBSnapshot
+    -> f (Maybe DBSnapshot))
+    -> CreateDBSnapshotResponse
+    -> f CreateDBSnapshotResponse
+dbsxDBSnapshot f x =
+    (\y -> x { _dbsxDBSnapshot = y })
+       <$> f (_dbsxDBSnapshot x)
+{-# INLINE dbsxDBSnapshot #-}
 
 instance FromXML CreateDBSnapshotResponse where
     fromXMLOptions = xmlOptions

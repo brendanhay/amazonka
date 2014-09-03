@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,7 +38,23 @@
 -- "arn": "arn:aws:logs:us-east-1:123456789:log-group:exampleLogGroupName2:*",
 -- "creationTime": 1396224000000, "logGroupName": "exampleLogGroupName2",
 -- "metricFilterCount": 0, "retentionInDays": 30 } ] }.
-module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups where
+module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups
+    (
+    -- * Request
+      DescribeLogGroups
+    -- ** Request constructor
+    , describeLogGroups
+    -- ** Request lenses
+    , dlgsLimit
+    , dlgsLogGroupNamePrefix
+    , dlgsNextToken
+
+    -- * Response
+    , DescribeLogGroupsResponse
+    -- ** Response lenses
+    , dlgtLogGroups
+    , dlgtNextToken
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
@@ -49,23 +64,59 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeLogGroups' request.
 describeLogGroups :: DescribeLogGroups
 describeLogGroups = DescribeLogGroups
-    { _dlgrLimit = Nothing
-    , _dlgrLogGroupNamePrefix = Nothing
-    , _dlgrNextToken = Nothing
+    { _dlgsLimit = Nothing
+    , _dlgsLogGroupNamePrefix = Nothing
+    , _dlgsNextToken = Nothing
     }
 
 data DescribeLogGroups = DescribeLogGroups
-    { _dlgrLimit :: Maybe Integer
+    { _dlgsLimit :: Maybe Integer
       -- ^ The maximum number of items returned in the response. If you
       -- don't specify a value, the request would return up to 50 items.
-    , _dlgrLogGroupNamePrefix :: Maybe Text
-    , _dlgrNextToken :: Maybe Text
+    , _dlgsLogGroupNamePrefix :: Maybe Text
+    , _dlgsNextToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous DescribeLogGroups request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLogGroups
+-- | The maximum number of items returned in the response. If you don't specify
+-- a value, the request would return up to 50 items.
+dlgsLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeLogGroups
+    -> f DescribeLogGroups
+dlgsLimit f x =
+    (\y -> x { _dlgsLimit = y })
+       <$> f (_dlgsLimit x)
+{-# INLINE dlgsLimit #-}
+
+dlgsLogGroupNamePrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLogGroups
+    -> f DescribeLogGroups
+dlgsLogGroupNamePrefix f x =
+    (\y -> x { _dlgsLogGroupNamePrefix = y })
+       <$> f (_dlgsLogGroupNamePrefix x)
+{-# INLINE dlgsLogGroupNamePrefix #-}
+
+-- | A string token used for pagination that points to the next page of results.
+-- It must be a value obtained from the response of the previous
+-- DescribeLogGroups request.
+dlgsNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLogGroups
+    -> f DescribeLogGroups
+dlgsNextToken f x =
+    (\y -> x { _dlgsNextToken = y })
+       <$> f (_dlgsNextToken x)
+{-# INLINE dlgsNextToken #-}
 
 instance ToPath DescribeLogGroups
 
@@ -76,15 +127,39 @@ instance ToHeaders DescribeLogGroups
 instance ToJSON DescribeLogGroups
 
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
-    { _dlgsLogGroups :: [LogGroup]
+    { _dlgtLogGroups :: [LogGroup]
       -- ^ A list of log groups.
-    , _dlgsNextToken :: Maybe Text
+    , _dlgtNextToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous request. The token expires after 24 hours.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLogGroupsResponse
+-- | A list of log groups.
+dlgtLogGroups
+    :: Functor f
+    => ([LogGroup]
+    -> f ([LogGroup]))
+    -> DescribeLogGroupsResponse
+    -> f DescribeLogGroupsResponse
+dlgtLogGroups f x =
+    (\y -> x { _dlgtLogGroups = y })
+       <$> f (_dlgtLogGroups x)
+{-# INLINE dlgtLogGroups #-}
+
+-- | A string token used for pagination that points to the next page of results.
+-- It must be a value obtained from the response of the previous request. The
+-- token expires after 24 hours.
+dlgtNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLogGroupsResponse
+    -> f DescribeLogGroupsResponse
+dlgtNextToken f x =
+    (\y -> x { _dlgtNextToken = y })
+       <$> f (_dlgtNextToken x)
+{-# INLINE dlgtNextToken #-}
 
 instance FromJSON DescribeLogGroupsResponse
 
@@ -96,5 +171,5 @@ instance AWSRequest DescribeLogGroups where
     response _ = jsonResponse
 
 instance AWSPager DescribeLogGroups where
-    next rq rs = (\x -> rq { _dlgrNextToken = Just x })
-        <$> (_dlgsNextToken rs)
+    next rq rs = (\x -> rq { _dlgsNextToken = Just x })
+        <$> (_dlgtNextToken rs)

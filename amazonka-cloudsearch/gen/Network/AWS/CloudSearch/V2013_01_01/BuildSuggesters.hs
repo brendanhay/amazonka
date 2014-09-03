@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,11 +18,31 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Indexes the search suggestions.
-module Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters where
+module Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
+    (
+    -- * Request
+      BuildSuggesters
+    -- ** Request constructor
+    , buildSuggesters
+    -- ** Request lenses
+    , bsrDomainName
+
+    -- * Response
+    , BuildSuggestersResponse
+    -- ** Response lenses
+    , bssFieldNames
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'BuildSuggesters' request.
+buildSuggesters :: Text -- ^ 'bsrDomainName'
+                -> BuildSuggesters
+buildSuggesters p1 = BuildSuggesters
+    { _bsrDomainName = p1
+    }
 
 data BuildSuggesters = BuildSuggesters
     { _bsrDomainName :: Text
@@ -34,7 +53,20 @@ data BuildSuggesters = BuildSuggesters
       -- (hyphen).
     } deriving (Show, Generic)
 
-makeLenses ''BuildSuggesters
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+bsrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> BuildSuggesters
+    -> f BuildSuggesters
+bsrDomainName f x =
+    (\y -> x { _bsrDomainName = y })
+       <$> f (_bsrDomainName x)
+{-# INLINE bsrDomainName #-}
 
 instance ToQuery BuildSuggesters where
     toQuery = genericQuery def
@@ -44,7 +76,17 @@ data BuildSuggestersResponse = BuildSuggestersResponse
       -- ^ A list of field names.
     } deriving (Show, Generic)
 
-makeLenses ''BuildSuggestersResponse
+-- | A list of field names.
+bssFieldNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> BuildSuggestersResponse
+    -> f BuildSuggestersResponse
+bssFieldNames f x =
+    (\y -> x { _bssFieldNames = y })
+       <$> f (_bssFieldNames x)
+{-# INLINE bssFieldNames #-}
 
 instance FromXML BuildSuggestersResponse where
     fromXMLOptions = xmlOptions

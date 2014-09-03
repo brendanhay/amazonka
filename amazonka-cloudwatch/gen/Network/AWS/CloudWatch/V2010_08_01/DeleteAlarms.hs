@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,26 +19,52 @@
 
 -- | Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
-module Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms where
+module Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
+    (
+    -- * Request
+      DeleteAlarms
+    -- ** Request constructor
+    , deleteAlarms
+    -- ** Request lenses
+    , daiAlarmNames
+
+    -- * Response
+    , DeleteAlarmsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteAlarms' request.
+deleteAlarms :: [Text] -- ^ 'daiAlarmNames'
+             -> DeleteAlarms
+deleteAlarms p1 = DeleteAlarms
+    { _daiAlarmNames = p1
+    }
+
 data DeleteAlarms = DeleteAlarms
-    { _dajAlarmNames :: [Text]
+    { _daiAlarmNames :: [Text]
       -- ^ A list of alarms to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAlarms
+-- | A list of alarms to be deleted.
+daiAlarmNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DeleteAlarms
+    -> f DeleteAlarms
+daiAlarmNames f x =
+    (\y -> x { _daiAlarmNames = y })
+       <$> f (_daiAlarmNames x)
+{-# INLINE daiAlarmNames #-}
 
 instance ToQuery DeleteAlarms where
     toQuery = genericQuery def
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAlarmsResponse
 
 instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch

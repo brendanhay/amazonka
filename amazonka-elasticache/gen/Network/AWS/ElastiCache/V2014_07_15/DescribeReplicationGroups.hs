@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,23 @@
 -- my-redis-primary.q68zge.0001.use1devo.elmo-dev.amazonaws.com us-east-1d
 -- 0001 primary my-repgroup available My replication group
 -- 144745b0-b9d3-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups where
+module Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups
+    (
+    -- * Request
+      DescribeReplicationGroups
+    -- ** Request constructor
+    , describeReplicationGroups
+    -- ** Request lenses
+    , drgnMaxRecords
+    , drgnReplicationGroupId
+    , drgnMarker
+
+    -- * Response
+    , DescribeReplicationGroupsResponse
+    -- ** Response lenses
+    , rgmReplicationGroups
+    , rgmMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
@@ -61,7 +76,49 @@ data DescribeReplicationGroups = DescribeReplicationGroups
       -- marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReplicationGroups
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a marker is included in the
+-- response so that the remaining results can be retrieved. Default: 100
+-- Constraints: minimum 20; maximum 100.
+drgnMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeReplicationGroups
+    -> f DescribeReplicationGroups
+drgnMaxRecords f x =
+    (\y -> x { _drgnMaxRecords = y })
+       <$> f (_drgnMaxRecords x)
+{-# INLINE drgnMaxRecords #-}
+
+-- | The identifier for the replication group to be described. This parameter is
+-- not case sensitive. If you do not specify this parameter, information about
+-- all replication groups is returned.
+drgnReplicationGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReplicationGroups
+    -> f DescribeReplicationGroups
+drgnReplicationGroupId f x =
+    (\y -> x { _drgnReplicationGroupId = y })
+       <$> f (_drgnReplicationGroupId x)
+{-# INLINE drgnReplicationGroupId #-}
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+drgnMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReplicationGroups
+    -> f DescribeReplicationGroups
+drgnMarker f x =
+    (\y -> x { _drgnMarker = y })
+       <$> f (_drgnMarker x)
+{-# INLINE drgnMarker #-}
 
 instance ToQuery DescribeReplicationGroups where
     toQuery = genericQuery def
@@ -74,7 +131,30 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
       -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReplicationGroupsResponse
+-- | A list of replication groups. Each item in the list contains detailed
+-- information about one replication group.
+rgmReplicationGroups
+    :: Functor f
+    => ([ReplicationGroup]
+    -> f ([ReplicationGroup]))
+    -> DescribeReplicationGroupsResponse
+    -> f DescribeReplicationGroupsResponse
+rgmReplicationGroups f x =
+    (\y -> x { _rgmReplicationGroups = y })
+       <$> f (_rgmReplicationGroups x)
+{-# INLINE rgmReplicationGroups #-}
+
+-- | Provides an identifier to allow retrieval of paginated results.
+rgmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReplicationGroupsResponse
+    -> f DescribeReplicationGroupsResponse
+rgmMarker f x =
+    (\y -> x { _rgmMarker = y })
+       <$> f (_rgmMarker x)
+{-# INLINE rgmMarker #-}
 
 instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,18 +28,45 @@
 -- X-Amz-Target: Logs_20140328.DeleteLogGroup { "logGroupName":
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup where
+module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup
+    (
+    -- * Request
+      DeleteLogGroup
+    -- ** Request constructor
+    , deleteLogGroup
+    -- ** Request lenses
+    , dlgrLogGroupName
+
+    -- * Response
+    , DeleteLogGroupResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteLogGroup' request.
+deleteLogGroup :: Text -- ^ 'dlgrLogGroupName'
+               -> DeleteLogGroup
+deleteLogGroup p1 = DeleteLogGroup
+    { _dlgrLogGroupName = p1
+    }
+
 data DeleteLogGroup = DeleteLogGroup
-    { _dlgtLogGroupName :: Text
+    { _dlgrLogGroupName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLogGroup
+dlgrLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLogGroup
+    -> f DeleteLogGroup
+dlgrLogGroupName f x =
+    (\y -> x { _dlgrLogGroupName = y })
+       <$> f (_dlgrLogGroupName x)
+{-# INLINE dlgrLogGroupName #-}
 
 instance ToPath DeleteLogGroup
 
@@ -52,8 +78,6 @@ instance ToJSON DeleteLogGroup
 
 data DeleteLogGroupResponse = DeleteLogGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLogGroupResponse
 
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs

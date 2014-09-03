@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,15 +35,28 @@
 -- &LoadBalancerName=MyLoadBalancer&PolicyName=MyDurationStickyPolicy
 -- &Version=2012-06-01 &Action=CreateLBCookieStickinessPolicy &AUTHPARAMS
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy where
+module Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy
+    (
+    -- * Request
+      CreateLBCookieStickinessPolicy
+    -- ** Request constructor
+    , createLBCookieStickinessPolicy
+    -- ** Request lenses
+    , clbcspiLoadBalancerName
+    , clbcspiPolicyName
+    , clbcspiCookieExpirationPeriod
+
+    -- * Response
+    , CreateLBCookieStickinessPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateLBCookieStickinessPolicy' request.
-createLBCookieStickinessPolicy :: Text -- ^ '_clbcspiLoadBalancerName'
-                               -> Text -- ^ '_clbcspiPolicyName'
+createLBCookieStickinessPolicy :: Text -- ^ 'clbcspiLoadBalancerName'
+                               -> Text -- ^ 'clbcspiPolicyName'
                                -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
     { _clbcspiLoadBalancerName = p1
@@ -65,15 +77,50 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
       -- session.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLBCookieStickinessPolicy
+-- | The name associated with the load balancer.
+clbcspiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLBCookieStickinessPolicy
+    -> f CreateLBCookieStickinessPolicy
+clbcspiLoadBalancerName f x =
+    (\y -> x { _clbcspiLoadBalancerName = y })
+       <$> f (_clbcspiLoadBalancerName x)
+{-# INLINE clbcspiLoadBalancerName #-}
+
+-- | The name of the policy being created. The name must be unique within the
+-- set of policies for this load balancer.
+clbcspiPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLBCookieStickinessPolicy
+    -> f CreateLBCookieStickinessPolicy
+clbcspiPolicyName f x =
+    (\y -> x { _clbcspiPolicyName = y })
+       <$> f (_clbcspiPolicyName x)
+{-# INLINE clbcspiPolicyName #-}
+
+-- | The time period in seconds after which the cookie should be considered
+-- stale. Not specifying this parameter indicates that the sticky session will
+-- last for the duration of the browser session.
+clbcspiCookieExpirationPeriod
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateLBCookieStickinessPolicy
+    -> f CreateLBCookieStickinessPolicy
+clbcspiCookieExpirationPeriod f x =
+    (\y -> x { _clbcspiCookieExpirationPeriod = y })
+       <$> f (_clbcspiCookieExpirationPeriod x)
+{-# INLINE clbcspiCookieExpirationPeriod #-}
 
 instance ToQuery CreateLBCookieStickinessPolicy where
     toQuery = genericQuery def
 
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateLBCookieStickinessPolicyResponse
 
 instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB

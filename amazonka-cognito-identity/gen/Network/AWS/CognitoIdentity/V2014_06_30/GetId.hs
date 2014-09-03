@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,7 +23,22 @@
 -- "123456789012;", "IdentityPoolId":
 -- "us-east-1:af4311ca-835e-4b49-814c-2290EXAMPLE1" } { "IdentityId":
 -- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }.
-module Network.AWS.CognitoIdentity.V2014_06_30.GetId where
+module Network.AWS.CognitoIdentity.V2014_06_30.GetId
+    (
+    -- * Request
+      GetId
+    -- ** Request constructor
+    , getId
+    -- ** Request lenses
+    , giiAccountId
+    , giiIdentityPoolId
+    , giiLogins
+
+    -- * Response
+    , GetIdResponse
+    -- ** Response lenses
+    , girIdentityId
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
@@ -32,8 +46,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetId' request.
-getId :: Text -- ^ '_giiAccountId'
-      -> Text -- ^ '_giiIdentityPoolId'
+getId :: Text -- ^ 'giiAccountId'
+      -> Text -- ^ 'giiIdentityPoolId'
       -> GetId
 getId p1 p2 = GetId
     { _giiAccountId = p1
@@ -51,7 +65,42 @@ data GetId = GetId
       -- provider tokens.
     } deriving (Show, Generic)
 
-makeLenses ''GetId
+-- | A standard AWS account ID (9+ digits).
+giiAccountId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetId
+    -> f GetId
+giiAccountId f x =
+    (\y -> x { _giiAccountId = y })
+       <$> f (_giiAccountId x)
+{-# INLINE giiAccountId #-}
+
+-- | An identity pool ID in the format REGION:GUID.
+giiIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetId
+    -> f GetId
+giiIdentityPoolId f x =
+    (\y -> x { _giiIdentityPoolId = y })
+       <$> f (_giiIdentityPoolId x)
+{-# INLINE giiIdentityPoolId #-}
+
+-- | A set of optional name/value pairs that map provider names to provider
+-- tokens.
+giiLogins
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> GetId
+    -> f GetId
+giiLogins f x =
+    (\y -> x { _giiLogins = y })
+       <$> f (_giiLogins x)
+{-# INLINE giiLogins #-}
 
 instance ToPath GetId
 
@@ -66,7 +115,17 @@ data GetIdResponse = GetIdResponse
       -- ^ A unique identifier in the format REGION:GUID.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdResponse
+-- | A unique identifier in the format REGION:GUID.
+girIdentityId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetIdResponse
+    -> f GetIdResponse
+girIdentityId f x =
+    (\y -> x { _girIdentityId = y })
+       <$> f (_girIdentityId x)
+{-# INLINE girIdentityId #-}
 
 instance FromJSON GetIdResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,27 +18,39 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List invalidation batches.
-module Network.AWS.CloudFront.V2014_05_31.ListInvalidations where
+module Network.AWS.CloudFront.V2014_05_31.ListInvalidations
+    (
+    -- * Request
+      ListInvalidations
+    -- ** Request constructor
+    , listInvalidations
+    -- ** Request lenses
+    , lirDistributionId
+    , lirMarker
+    , lirMaxItems
+
+    -- * Response
+    , ListInvalidationsResponse
+    -- ** Response lenses
+    , lisInvalidationList
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListInvalidations' request.
-listInvalidations :: Text -- ^ '_lirDistributionId'
+listInvalidations :: Text -- ^ 'lirDistributionId'
                   -> ListInvalidations
 listInvalidations p1 = ListInvalidations
     { _lirDistributionId = p1
-    , _lirMaxItems = Nothing
     , _lirMarker = Nothing
+    , _lirMaxItems = Nothing
     }
 
 data ListInvalidations = ListInvalidations
     { _lirDistributionId :: Text
       -- ^ The distribution's id.
-    , _lirMaxItems :: Maybe Text
-      -- ^ The maximum number of invalidation batches you want in the
-      -- response body.
     , _lirMarker :: Maybe Text
       -- ^ Use this parameter when paginating results to indicate where to
       -- begin in your list of invalidation batches. Because the results
@@ -49,9 +60,52 @@ data ListInvalidations = ListInvalidations
       -- results, set the Marker to the value of the NextMarker from the
       -- current page's response. This value is the same as the ID of the
       -- last invalidation batch on that page.
+    , _lirMaxItems :: Maybe Text
+      -- ^ The maximum number of invalidation batches you want in the
+      -- response body.
     } deriving (Show, Generic)
 
-makeLenses ''ListInvalidations
+-- | The distribution's id.
+lirDistributionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListInvalidations
+    -> f ListInvalidations
+lirDistributionId f x =
+    (\y -> x { _lirDistributionId = y })
+       <$> f (_lirDistributionId x)
+{-# INLINE lirDistributionId #-}
+
+-- | Use this parameter when paginating results to indicate where to begin in
+-- your list of invalidation batches. Because the results are returned in
+-- decreasing order from most recent to oldest, the most recent results are on
+-- the first page, the second page will contain earlier results, and so on. To
+-- get the next page of results, set the Marker to the value of the NextMarker
+-- from the current page's response. This value is the same as the ID of the
+-- last invalidation batch on that page.
+lirMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInvalidations
+    -> f ListInvalidations
+lirMarker f x =
+    (\y -> x { _lirMarker = y })
+       <$> f (_lirMarker x)
+{-# INLINE lirMarker #-}
+
+-- | The maximum number of invalidation batches you want in the response body.
+lirMaxItems
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInvalidations
+    -> f ListInvalidations
+lirMaxItems f x =
+    (\y -> x { _lirMaxItems = y })
+       <$> f (_lirMaxItems x)
+{-# INLINE lirMaxItems #-}
 
 instance ToPath ListInvalidations where
     toPath ListInvalidations{..} = mconcat
@@ -77,7 +131,17 @@ data ListInvalidationsResponse = ListInvalidationsResponse
       -- ^ Information about invalidation batches.
     } deriving (Show, Generic)
 
-makeLenses ''ListInvalidationsResponse
+-- | Information about invalidation batches.
+lisInvalidationList
+    :: Functor f
+    => (InvalidationList
+    -> f (InvalidationList))
+    -> ListInvalidationsResponse
+    -> f ListInvalidationsResponse
+lisInvalidationList f x =
+    (\y -> x { _lisInvalidationList = y })
+       <$> f (_lisInvalidationList x)
+{-# INLINE lisInvalidationList #-}
 
 instance FromXML ListInvalidationsResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,18 +37,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
     (
     -- * Request
       DescribeBundleTasks
-    -- ** Default constructor
+    -- ** Request constructor
     , describeBundleTasks
-    -- ** Accessors and lenses
-    , _dbtrBundleIds
+    -- ** Request lenses
     , dbtrBundleIds
-    , _dbtrFilters
     , dbtrFilters
 
     -- * Response
     , DescribeBundleTasksResponse
-    -- ** Accessors and lenses
-    , _dbtsBundleTasks
+    -- ** Response lenses
     , dbtsBundleTasks
     ) where
 
@@ -65,31 +61,34 @@ describeBundleTasks = DescribeBundleTasks
     }
 
 data DescribeBundleTasks = DescribeBundleTasks
-
-makeSiglessLenses ''DescribeBundleTasks
-
-instance ToQuery DescribeBundleTasks where
-    toQuery = genericQuery def
-
-data DescribeBundleTasksResponse = DescribeBundleTasksResponse
-    { _dbtsBundleTasks :: [BundleTask]
-      -- ^ Information about one or more bundle tasks.
+    { _dbtrBundleIds :: [Text]
+      -- ^ One or more bundle task IDs. Default: Describes all your bundle
+      -- tasks.
+    , _dbtrFilters :: [Filter]
+      -- ^ One or more filters. bundle-id - The ID of the bundle task.
+      -- error-code - If the task failed, the error code returned.
+      -- error-message - If the task failed, the error message returned.
+      -- instance-id - The ID of the instance. progress - The level of
+      -- task completion, as a percentage (for example, 20%). s3-bucket -
+      -- The Amazon S3 bucket to store the AMI. s3-prefix - The beginning
+      -- of the AMI name. start-time - The time the task started (for
+      -- example, 2013-09-15T17:15:20.000Z). state - The state of the task
+      -- (pending | waiting-for-shutdown | bundling | storing | cancelling
+      -- | complete | failed). update-time - The time of the most recent
+      -- update for the task.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeBundleTasksResponse
-
-instance FromXML DescribeBundleTasksResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeBundleTasks where
-    type Sv DescribeBundleTasks = EC2
-    type Rs DescribeBundleTasks = DescribeBundleTasksResponse
-
-    request = post "DescribeBundleTasks"
-    response _ = xmlResponse
-
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
-dbtrBundleIds :: Lens' DescribeBundleTasks ([Text])
+dbtrBundleIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeBundleTasks
+    -> f DescribeBundleTasks
+dbtrBundleIds f x =
+    (\y -> x { _dbtrBundleIds = y })
+       <$> f (_dbtrBundleIds x)
+{-# INLINE dbtrBundleIds #-}
 
 -- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
 -- the task failed, the error code returned. error-message - If the task
@@ -100,7 +99,43 @@ dbtrBundleIds :: Lens' DescribeBundleTasks ([Text])
 -- example, 2013-09-15T17:15:20.000Z). state - The state of the task (pending
 -- | waiting-for-shutdown | bundling | storing | cancelling | complete |
 -- failed). update-time - The time of the most recent update for the task.
-dbtrFilters :: Lens' DescribeBundleTasks ([Filter])
+dbtrFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeBundleTasks
+    -> f DescribeBundleTasks
+dbtrFilters f x =
+    (\y -> x { _dbtrFilters = y })
+       <$> f (_dbtrFilters x)
+{-# INLINE dbtrFilters #-}
+
+instance ToQuery DescribeBundleTasks where
+    toQuery = genericQuery def
+
+data DescribeBundleTasksResponse = DescribeBundleTasksResponse
+    { _dbtsBundleTasks :: [BundleTask]
+      -- ^ Information about one or more bundle tasks.
+    } deriving (Show, Generic)
 
 -- | Information about one or more bundle tasks.
-dbtsBundleTasks :: Lens' DescribeBundleTasksResponse ([BundleTask])
+dbtsBundleTasks
+    :: Functor f
+    => ([BundleTask]
+    -> f ([BundleTask]))
+    -> DescribeBundleTasksResponse
+    -> f DescribeBundleTasksResponse
+dbtsBundleTasks f x =
+    (\y -> x { _dbtsBundleTasks = y })
+       <$> f (_dbtsBundleTasks x)
+{-# INLINE dbtsBundleTasks #-}
+
+instance FromXML DescribeBundleTasksResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeBundleTasks where
+    type Sv DescribeBundleTasks = EC2
+    type Rs DescribeBundleTasks = DescribeBundleTasksResponse
+
+    request = post "DescribeBundleTasks"
+    response _ = xmlResponse

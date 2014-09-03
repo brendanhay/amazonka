@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,20 +38,16 @@ module Network.AWS.EC2.V2014_06_15.GetPasswordData
     (
     -- * Request
       GetPasswordData
-    -- ** Default constructor
+    -- ** Request constructor
     , getPasswordData
-    -- ** Accessors and lenses
-    , _gpdrInstanceId
+    -- ** Request lenses
     , gpdrInstanceId
 
     -- * Response
     , GetPasswordDataResponse
-    -- ** Accessors and lenses
-    , _gpdsTimestamp
+    -- ** Response lenses
     , gpdsTimestamp
-    , _gpdsInstanceId
     , gpdsInstanceId
-    , _gpdsPasswordData
     , gpdsPasswordData
     ) where
 
@@ -68,8 +63,21 @@ getPasswordData p1 = GetPasswordData
     }
 
 data GetPasswordData = GetPasswordData
+    { _gpdrInstanceId :: Text
+      -- ^ The ID of the Windows instance.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''GetPasswordData
+-- | The ID of the Windows instance.
+gpdrInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetPasswordData
+    -> f GetPasswordData
+gpdrInstanceId f x =
+    (\y -> x { _gpdrInstanceId = y })
+       <$> f (_gpdrInstanceId x)
+{-# INLINE gpdrInstanceId #-}
 
 instance ToQuery GetPasswordData where
     toQuery = genericQuery def
@@ -83,7 +91,41 @@ data GetPasswordDataResponse = GetPasswordDataResponse
       -- ^ The password of the instance.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''GetPasswordDataResponse
+-- | The time the data was last updated.
+gpdsTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> GetPasswordDataResponse
+    -> f GetPasswordDataResponse
+gpdsTimestamp f x =
+    (\y -> x { _gpdsTimestamp = y })
+       <$> f (_gpdsTimestamp x)
+{-# INLINE gpdsTimestamp #-}
+
+-- | The ID of the Windows instance.
+gpdsInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetPasswordDataResponse
+    -> f GetPasswordDataResponse
+gpdsInstanceId f x =
+    (\y -> x { _gpdsInstanceId = y })
+       <$> f (_gpdsInstanceId x)
+{-# INLINE gpdsInstanceId #-}
+
+-- | The password of the instance.
+gpdsPasswordData
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetPasswordDataResponse
+    -> f GetPasswordDataResponse
+gpdsPasswordData f x =
+    (\y -> x { _gpdsPasswordData = y })
+       <$> f (_gpdsPasswordData x)
+{-# INLINE gpdsPasswordData #-}
 
 instance FromXML GetPasswordDataResponse where
     fromXMLOptions = xmlOptions
@@ -94,15 +136,3 @@ instance AWSRequest GetPasswordData where
 
     request = post "GetPasswordData"
     response _ = xmlResponse
-
--- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordData (Text)
-
--- | The time the data was last updated.
-gpdsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
-
--- | The ID of the Windows instance.
-gpdsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
-
--- | The password of the instance.
-gpdsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)

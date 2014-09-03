@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,27 +23,54 @@
 -- &CacheSubnetGroupName=mysubnetgroup &Version=2014-03-24 &SignatureVersion=4
 -- &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
-module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup where
+module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup
+    (
+    -- * Request
+      DeleteCacheSubnetGroup
+    -- ** Request constructor
+    , deleteCacheSubnetGroup
+    -- ** Request lenses
+    , dcsgnCacheSubnetGroupName
+
+    -- * Response
+    , DeleteCacheSubnetGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteCacheSubnetGroup' request.
+deleteCacheSubnetGroup :: Text -- ^ 'dcsgnCacheSubnetGroupName'
+                       -> DeleteCacheSubnetGroup
+deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
+    { _dcsgnCacheSubnetGroupName = p1
+    }
+
 data DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
-    { _dcsgpCacheSubnetGroupName :: Text
+    { _dcsgnCacheSubnetGroupName :: Text
       -- ^ The name of the cache subnet group to delete. Constraints: Must
       -- contain no more than 255 alphanumeric characters or hyphens.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteCacheSubnetGroup
+-- | The name of the cache subnet group to delete. Constraints: Must contain no
+-- more than 255 alphanumeric characters or hyphens.
+dcsgnCacheSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteCacheSubnetGroup
+    -> f DeleteCacheSubnetGroup
+dcsgnCacheSubnetGroupName f x =
+    (\y -> x { _dcsgnCacheSubnetGroupName = y })
+       <$> f (_dcsgnCacheSubnetGroupName x)
+{-# INLINE dcsgnCacheSubnetGroupName #-}
 
 instance ToQuery DeleteCacheSubnetGroup where
     toQuery = genericQuery def
 
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteCacheSubnetGroupResponse
 
 instance AWSRequest DeleteCacheSubnetGroup where
     type Sv DeleteCacheSubnetGroup = ElastiCache

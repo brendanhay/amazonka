@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,12 +29,10 @@ module Network.AWS.EC2.V2014_06_15.ResetImageAttribute
     (
     -- * Request
       ResetImageAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , resetImageAttribute
-    -- ** Accessors and lenses
-    , _riarAttribute
+    -- ** Request lenses
     , riarAttribute
-    , _riarImageId
     , riarImageId
 
     -- * Response
@@ -56,8 +53,37 @@ resetImageAttribute p1 p2 = ResetImageAttribute
     }
 
 data ResetImageAttribute = ResetImageAttribute
+    { _riarAttribute :: ResetImageAttributeName
+      -- ^ The attribute to reset (currently you can only reset the launch
+      -- permission attribute).
+    , _riarImageId :: Text
+      -- ^ The ID of the AMI.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ResetImageAttribute
+-- | The attribute to reset (currently you can only reset the launch permission
+-- attribute).
+riarAttribute
+    :: Functor f
+    => (ResetImageAttributeName
+    -> f (ResetImageAttributeName))
+    -> ResetImageAttribute
+    -> f ResetImageAttribute
+riarAttribute f x =
+    (\y -> x { _riarAttribute = y })
+       <$> f (_riarAttribute x)
+{-# INLINE riarAttribute #-}
+
+-- | The ID of the AMI.
+riarImageId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResetImageAttribute
+    -> f ResetImageAttribute
+riarImageId f x =
+    (\y -> x { _riarImageId = y })
+       <$> f (_riarImageId x)
+{-# INLINE riarImageId #-}
 
 instance ToQuery ResetImageAttribute where
     toQuery = genericQuery def
@@ -65,18 +91,9 @@ instance ToQuery ResetImageAttribute where
 data ResetImageAttributeResponse = ResetImageAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ResetImageAttributeResponse
-
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
     request = post "ResetImageAttribute"
     response _ = nullaryResponse ResetImageAttributeResponse
-
--- | The attribute to reset (currently you can only reset the launch permission
--- attribute).
-riarAttribute :: Lens' ResetImageAttribute (ResetImageAttributeName)
-
--- | The ID of the AMI.
-riarImageId :: Lens' ResetImageAttribute (Text)

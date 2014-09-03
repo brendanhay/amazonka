@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,10 +28,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteSubnet
     (
     -- * Request
       DeleteSubnet
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteSubnet
-    -- ** Accessors and lenses
-    , _dstSubnetId
+    -- ** Request lenses
     , dstSubnetId
 
     -- * Response
@@ -51,8 +49,21 @@ deleteSubnet p1 = DeleteSubnet
     }
 
 data DeleteSubnet = DeleteSubnet
+    { _dstSubnetId :: Text
+      -- ^ The ID of the subnet.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteSubnet
+-- | The ID of the subnet.
+dstSubnetId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteSubnet
+    -> f DeleteSubnet
+dstSubnetId f x =
+    (\y -> x { _dstSubnetId = y })
+       <$> f (_dstSubnetId x)
+{-# INLINE dstSubnetId #-}
 
 instance ToQuery DeleteSubnet where
     toQuery = genericQuery def
@@ -60,14 +71,9 @@ instance ToQuery DeleteSubnet where
 data DeleteSubnetResponse = DeleteSubnetResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteSubnetResponse
-
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2
     type Rs DeleteSubnet = DeleteSubnetResponse
 
     request = post "DeleteSubnet"
     response _ = nullaryResponse DeleteSubnetResponse
-
--- | The ID of the subnet.
-dstSubnetId :: Lens' DeleteSubnet (Text)

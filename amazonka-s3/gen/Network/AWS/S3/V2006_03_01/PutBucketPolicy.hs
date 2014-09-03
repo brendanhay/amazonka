@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,15 +19,28 @@
 
 -- | Replaces a policy on a bucket. If the bucket already has a policy, the one
 -- in this request completely replaces it.
-module Network.AWS.S3.V2006_03_01.PutBucketPolicy where
+module Network.AWS.S3.V2006_03_01.PutBucketPolicy
+    (
+    -- * Request
+      PutBucketPolicy
+    -- ** Request constructor
+    , putBucketPolicy
+    -- ** Request lenses
+    , pbprPolicy
+    , pbprBucket
+    , pbprContentMD5
+
+    -- * Response
+    , PutBucketPolicyResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketPolicy' request.
-putBucketPolicy :: Text -- ^ '_pbprPolicy'
-                -> BucketName -- ^ '_pbprBucket'
+putBucketPolicy :: Text -- ^ 'pbprPolicy'
+                -> BucketName -- ^ 'pbprBucket'
                 -> PutBucketPolicy
 putBucketPolicy p1 p2 = PutBucketPolicy
     { _pbprPolicy = p1
@@ -43,7 +55,39 @@ data PutBucketPolicy = PutBucketPolicy
     , _pbprContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketPolicy
+-- | The bucket policy as a JSON document.
+pbprPolicy
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutBucketPolicy
+    -> f PutBucketPolicy
+pbprPolicy f x =
+    (\y -> x { _pbprPolicy = y })
+       <$> f (_pbprPolicy x)
+{-# INLINE pbprPolicy #-}
+
+pbprBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketPolicy
+    -> f PutBucketPolicy
+pbprBucket f x =
+    (\y -> x { _pbprBucket = y })
+       <$> f (_pbprBucket x)
+{-# INLINE pbprBucket #-}
+
+pbprContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketPolicy
+    -> f PutBucketPolicy
+pbprContentMD5 f x =
+    (\y -> x { _pbprContentMD5 = y })
+       <$> f (_pbprContentMD5 x)
+{-# INLINE pbprContentMD5 #-}
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat
@@ -66,8 +110,6 @@ instance ToBody PutBucketPolicy where
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketPolicyResponse
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,22 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- 2010-07-27T22:28:28Z CREATE_COMPLETE false StartPage
 -- http://my-load-balancer.amazonaws.com:80/index.html.
-module Network.AWS.CloudFormation.V2010_05_15.DescribeStacks where
+module Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
+    (
+    -- * Request
+      DescribeStacks
+    -- ** Request constructor
+    , describeStacks
+    -- ** Request lenses
+    , dsjNextToken
+    , dsjStackName
+
+    -- * Response
+    , DescribeStacksResponse
+    -- ** Response lenses
+    , dsoNextToken
+    , dsoStacks
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
@@ -52,7 +66,33 @@ data DescribeStacks = DescribeStacks
       -- no default value.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStacks
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+dsjNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStacks
+    -> f DescribeStacks
+dsjNextToken f x =
+    (\y -> x { _dsjNextToken = y })
+       <$> f (_dsjNextToken x)
+{-# INLINE dsjNextToken #-}
+
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value.
+dsjStackName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStacks
+    -> f DescribeStacks
+dsjStackName f x =
+    (\y -> x { _dsjStackName = y })
+       <$> f (_dsjStackName x)
+{-# INLINE dsjStackName #-}
 
 instance ToQuery DescribeStacks where
     toQuery = genericQuery def
@@ -65,7 +105,30 @@ data DescribeStacksResponse = DescribeStacksResponse
       -- ^ A list of stack structures.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStacksResponse
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+dsoNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStacksResponse
+    -> f DescribeStacksResponse
+dsoNextToken f x =
+    (\y -> x { _dsoNextToken = y })
+       <$> f (_dsoNextToken x)
+{-# INLINE dsoNextToken #-}
+
+-- | A list of stack structures.
+dsoStacks
+    :: Functor f
+    => ([Stack]
+    -> f ([Stack]))
+    -> DescribeStacksResponse
+    -> f DescribeStacksResponse
+dsoStacks f x =
+    (\y -> x { _dsoStacks = y })
+       <$> f (_dsoStacks x)
+{-# INLINE dsoStacks #-}
 
 instance FromXML DescribeStacksResponse where
     fromXMLOptions = xmlOptions

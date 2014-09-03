@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,21 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List distributions.
-module Network.AWS.CloudFront.V2014_05_31.ListDistributions where
+module Network.AWS.CloudFront.V2014_05_31.ListDistributions
+    (
+    -- * Request
+      ListDistributions
+    -- ** Request constructor
+    , listDistributions
+    -- ** Request lenses
+    , ldrMarker
+    , ldrMaxItems
+
+    -- * Response
+    , ListDistributionsResponse
+    -- ** Response lenses
+    , ldsDistributionList
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
@@ -28,24 +41,50 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListDistributions' request.
 listDistributions :: ListDistributions
 listDistributions = ListDistributions
-    { _ldrMaxItems = Nothing
-    , _ldrMarker = Nothing
+    { _ldrMarker = Nothing
+    , _ldrMaxItems = Nothing
     }
 
 data ListDistributions = ListDistributions
-    { _ldrMaxItems :: Maybe Text
-      -- ^ The maximum number of distributions you want in the response
-      -- body.
-    , _ldrMarker :: Maybe Text
+    { _ldrMarker :: Maybe Text
       -- ^ Use this when paginating results to indicate where to begin in
       -- your list of distributions. The results include distributions in
       -- the list that occur after the marker. To get the next page of
       -- results, set the Marker to the value of the NextMarker from the
       -- current page's response (which is also the ID of the last
       -- distribution on that page).
+    , _ldrMaxItems :: Maybe Text
+      -- ^ The maximum number of distributions you want in the response
+      -- body.
     } deriving (Show, Generic)
 
-makeLenses ''ListDistributions
+-- | Use this when paginating results to indicate where to begin in your list of
+-- distributions. The results include distributions in the list that occur
+-- after the marker. To get the next page of results, set the Marker to the
+-- value of the NextMarker from the current page's response (which is also the
+-- ID of the last distribution on that page).
+ldrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListDistributions
+    -> f ListDistributions
+ldrMarker f x =
+    (\y -> x { _ldrMarker = y })
+       <$> f (_ldrMarker x)
+{-# INLINE ldrMarker #-}
+
+-- | The maximum number of distributions you want in the response body.
+ldrMaxItems
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListDistributions
+    -> f ListDistributions
+ldrMaxItems f x =
+    (\y -> x { _ldrMaxItems = y })
+       <$> f (_ldrMaxItems x)
+{-# INLINE ldrMaxItems #-}
 
 instance ToPath ListDistributions where
     toPath = const "/2014-05-31/distribution"
@@ -67,7 +106,17 @@ data ListDistributionsResponse = ListDistributionsResponse
       -- ^ The DistributionList type.
     } deriving (Show, Generic)
 
-makeLenses ''ListDistributionsResponse
+-- | The DistributionList type.
+ldsDistributionList
+    :: Functor f
+    => (DistributionList
+    -> f (DistributionList))
+    -> ListDistributionsResponse
+    -> f ListDistributionsResponse
+ldsDistributionList f x =
+    (\y -> x { _ldsDistributionList = y })
+       <$> f (_ldsDistributionList x)
+{-# INLINE ldsDistributionList #-}
 
 instance FromXML ListDistributionsResponse where
     fromXMLOptions = xmlOptions

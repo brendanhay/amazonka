@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,19 @@
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp where
+module Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp
+    (
+    -- * Request
+      AssociateElasticIp
+    -- ** Request constructor
+    , associateElasticIp
+    -- ** Request lenses
+    , aeirElasticIp
+    , aeirInstanceId
+
+    -- * Response
+    , AssociateElasticIpResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,7 +44,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'AssociateElasticIp' request.
-associateElasticIp :: Text -- ^ '_aeirElasticIp'
+associateElasticIp :: Text -- ^ 'aeirElasticIp'
                    -> AssociateElasticIp
 associateElasticIp p1 = AssociateElasticIp
     { _aeirElasticIp = p1
@@ -47,7 +58,29 @@ data AssociateElasticIp = AssociateElasticIp
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''AssociateElasticIp
+-- | The Elastic IP address.
+aeirElasticIp
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssociateElasticIp
+    -> f AssociateElasticIp
+aeirElasticIp f x =
+    (\y -> x { _aeirElasticIp = y })
+       <$> f (_aeirElasticIp x)
+{-# INLINE aeirElasticIp #-}
+
+-- | The instance ID.
+aeirInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateElasticIp
+    -> f AssociateElasticIp
+aeirInstanceId f x =
+    (\y -> x { _aeirInstanceId = y })
+       <$> f (_aeirInstanceId x)
+{-# INLINE aeirInstanceId #-}
 
 instance ToPath AssociateElasticIp
 
@@ -59,8 +92,6 @@ instance ToJSON AssociateElasticIp
 
 data AssociateElasticIpResponse = AssociateElasticIpResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AssociateElasticIpResponse
 
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,11 +20,31 @@
 -- | Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options whose
 -- OptionStatus is RequiresIndexDocuments.
-module Network.AWS.CloudSearch.V2013_01_01.IndexDocuments where
+module Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
+    (
+    -- * Request
+      IndexDocuments
+    -- ** Request constructor
+    , indexDocuments
+    -- ** Request lenses
+    , idrDomainName
+
+    -- * Response
+    , IndexDocumentsResponse
+    -- ** Response lenses
+    , idsFieldNames
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'IndexDocuments' request.
+indexDocuments :: Text -- ^ 'idrDomainName'
+               -> IndexDocuments
+indexDocuments p1 = IndexDocuments
+    { _idrDomainName = p1
+    }
 
 data IndexDocuments = IndexDocuments
     { _idrDomainName :: Text
@@ -36,7 +55,20 @@ data IndexDocuments = IndexDocuments
       -- (hyphen).
     } deriving (Show, Generic)
 
-makeLenses ''IndexDocuments
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+idrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> IndexDocuments
+    -> f IndexDocuments
+idrDomainName f x =
+    (\y -> x { _idrDomainName = y })
+       <$> f (_idrDomainName x)
+{-# INLINE idrDomainName #-}
 
 instance ToQuery IndexDocuments where
     toQuery = genericQuery def
@@ -46,7 +78,17 @@ data IndexDocumentsResponse = IndexDocumentsResponse
       -- ^ The names of the fields that are currently being indexed.
     } deriving (Show, Generic)
 
-makeLenses ''IndexDocumentsResponse
+-- | The names of the fields that are currently being indexed.
+idsFieldNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> IndexDocumentsResponse
+    -> f IndexDocumentsResponse
+idsFieldNames f x =
+    (\y -> x { _idsFieldNames = y })
+       <$> f (_idsFieldNames x)
+{-# INLINE idsFieldNames #-}
 
 instance FromXML IndexDocumentsResponse where
     fromXMLOptions = xmlOptions

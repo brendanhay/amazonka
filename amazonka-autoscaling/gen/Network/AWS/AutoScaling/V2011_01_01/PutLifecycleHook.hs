@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,15 +36,33 @@
 -- 
 -- 01-01&Action=PutLifecycleHook&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2014-06-17T17%3A30%3A36.125Z&AUTHPARAMS
 -- 1952f458-f645-11e3-bc51-b35178f0274f.
-module Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook where
+module Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook
+    (
+    -- * Request
+      PutLifecycleHook
+    -- ** Request constructor
+    , putLifecycleHook
+    -- ** Request lenses
+    , plhtLifecycleHookName
+    , plhtAutoScalingGroupName
+    , plhtHeartbeatTimeout
+    , plhtDefaultResult
+    , plhtLifecycleTransition
+    , plhtRoleARN
+    , plhtNotificationTargetARN
+    , plhtNotificationMetadata
+
+    -- * Response
+    , PutLifecycleHookResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutLifecycleHook' request.
-putLifecycleHook :: Text -- ^ '_plhtLifecycleHookName'
-                 -> Text -- ^ '_plhtAutoScalingGroupName'
+putLifecycleHook :: Text -- ^ 'plhtLifecycleHookName'
+                 -> Text -- ^ 'plhtAutoScalingGroupName'
                  -> PutLifecycleHook
 putLifecycleHook p1 p2 = PutLifecycleHook
     { _plhtLifecycleHookName = p1
@@ -109,15 +126,136 @@ data PutLifecycleHook = PutLifecycleHook
       -- Auto Scaling sends a message to the notification target.
     } deriving (Show, Generic)
 
-makeLenses ''PutLifecycleHook
+-- | The name of the lifecycle hook.
+plhtLifecycleHookName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtLifecycleHookName f x =
+    (\y -> x { _plhtLifecycleHookName = y })
+       <$> f (_plhtLifecycleHookName x)
+{-# INLINE plhtLifecycleHookName #-}
+
+-- | The name of the Auto Scaling group to which you want to assign the
+-- lifecycle hook.
+plhtAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtAutoScalingGroupName f x =
+    (\y -> x { _plhtAutoScalingGroupName = y })
+       <$> f (_plhtAutoScalingGroupName x)
+{-# INLINE plhtAutoScalingGroupName #-}
+
+-- | Defines the amount of time, in seconds, that can elapse before the
+-- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
+-- performs the action defined in the DefaultResult parameter. You can prevent
+-- the lifecycle hook from timing out by calling
+-- RecordLifecycleActionHeartbeat. The default value for this parameter is
+-- 3600 seconds (1 hour).
+plhtHeartbeatTimeout
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtHeartbeatTimeout f x =
+    (\y -> x { _plhtHeartbeatTimeout = y })
+       <$> f (_plhtHeartbeatTimeout x)
+{-# INLINE plhtHeartbeatTimeout #-}
+
+-- | Defines the action the Auto Scaling group should take when the lifecycle
+-- hook timeout elapses or if an unexpected failure occurs. The value for this
+-- parameter can be either CONTINUE or ABANDON. The default value for this
+-- parameter is ABANDON.
+plhtDefaultResult
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtDefaultResult f x =
+    (\y -> x { _plhtDefaultResult = y })
+       <$> f (_plhtDefaultResult x)
+{-# INLINE plhtDefaultResult #-}
+
+-- | The Amazon EC2 instance state to which you want to attach the lifecycle
+-- hook. See DescribeLifecycleHookTypes for a list of available lifecycle hook
+-- types. This parameter is required for new lifecycle hooks, but optional
+-- when updating existing hooks.
+plhtLifecycleTransition
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtLifecycleTransition f x =
+    (\y -> x { _plhtLifecycleTransition = y })
+       <$> f (_plhtLifecycleTransition x)
+{-# INLINE plhtLifecycleTransition #-}
+
+-- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
+-- publish to the specified notification target. This parameter is required
+-- for new lifecycle hooks, but optional when updating existing hooks.
+plhtRoleARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtRoleARN f x =
+    (\y -> x { _plhtRoleARN = y })
+       <$> f (_plhtRoleARN x)
+{-# INLINE plhtRoleARN #-}
+
+-- | The ARN of the notification target that Auto Scaling will use to notify you
+-- when an instance is in the transition state for the lifecycle hook. This
+-- ARN target can be either an SQS queue or an SNS topic. This parameter is
+-- required for new lifecycle hooks, but optional when updating existing
+-- hooks. The notification message sent to the target will include:
+-- LifecycleActionToken. The Lifecycle action token. AccountId. The user
+-- account ID. AutoScalingGroupName. The name of the Auto Scaling group.
+-- LifecycleHookName. The lifecycle hook name. EC2InstanceId. The EC2 instance
+-- ID. LifecycleTransition. The lifecycle transition. NotificationMetadata.
+-- The notification metadata. This operation uses the JSON format when sending
+-- notifications to an Amazon SQS queue, and an email key/value pair format
+-- when sending notifications to an Amazon SNS topic. When you call this
+-- operation, a test message is sent to the notification target. This test
+-- message contains an additional key/value pair:
+-- Event:autoscaling:TEST_NOTIFICATION.
+plhtNotificationTargetARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtNotificationTargetARN f x =
+    (\y -> x { _plhtNotificationTargetARN = y })
+       <$> f (_plhtNotificationTargetARN x)
+{-# INLINE plhtNotificationTargetARN #-}
+
+-- | Contains additional information that you want to include any time Auto
+-- Scaling sends a message to the notification target.
+plhtNotificationMetadata
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutLifecycleHook
+    -> f PutLifecycleHook
+plhtNotificationMetadata f x =
+    (\y -> x { _plhtNotificationMetadata = y })
+       <$> f (_plhtNotificationMetadata x)
+{-# INLINE plhtNotificationMetadata #-}
 
 instance ToQuery PutLifecycleHook where
     toQuery = genericQuery def
 
 data PutLifecycleHookResponse = PutLifecycleHookResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutLifecycleHookResponse
 
 instance AWSRequest PutLifecycleHook where
     type Sv PutLifecycleHook = AutoScaling

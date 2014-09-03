@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -47,18 +46,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions
     (
     -- * Request
       DescribeDhcpOptions
-    -- ** Default constructor
+    -- ** Request constructor
     , describeDhcpOptions
-    -- ** Accessors and lenses
-    , _ddosDhcpOptionsIds
+    -- ** Request lenses
     , ddosDhcpOptionsIds
-    , _ddosFilters
     , ddosFilters
 
     -- * Response
     , DescribeDhcpOptionsResponse
-    -- ** Accessors and lenses
-    , _ddotDhcpOptions
+    -- ** Response lenses
     , ddotDhcpOptions
     ) where
 
@@ -74,32 +70,37 @@ describeDhcpOptions = DescribeDhcpOptions
     }
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-
-makeSiglessLenses ''DescribeDhcpOptions
-
-instance ToQuery DescribeDhcpOptions where
-    toQuery = genericQuery def
-
-data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { _ddotDhcpOptions :: [DhcpOptions]
-      -- ^ Information about one or more DHCP options sets.
+    { _ddosDhcpOptionsIds :: [Text]
+      -- ^ The IDs of one or more DHCP options sets. Default: Describes all
+      -- your DHCP options sets.
+    , _ddosFilters :: [Filter]
+      -- ^ One or more filters. dhcp-options-id - The ID of a set of DHCP
+      -- options. key - The key for one of the options (for example,
+      -- domain-name). value - The value for one of the options.
+      -- tag:key=value - The key/value combination of a tag assigned to
+      -- the resource. tag-key - The key of a tag assigned to the
+      -- resource. This filter is independent of the tag-value filter. For
+      -- example, if you use both the filter "tag-key=Purpose" and the
+      -- filter "tag-value=X", you get any resources assigned both the tag
+      -- key Purpose (regardless of what the tag's value is), and the tag
+      -- value X (regardless of what the tag's key is). If you want to
+      -- list only resources where Purpose is X, see the tag:key=value
+      -- filter. tag-value - The value of a tag assigned to the resource.
+      -- This filter is independent of the tag-key filter.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeDhcpOptionsResponse
-
-instance FromXML DescribeDhcpOptionsResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeDhcpOptions where
-    type Sv DescribeDhcpOptions = EC2
-    type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse
-
-    request = post "DescribeDhcpOptions"
-    response _ = xmlResponse
 
 -- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
 -- options sets.
-ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions ([Text])
+ddosDhcpOptionsIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeDhcpOptions
+    -> f DescribeDhcpOptions
+ddosDhcpOptionsIds f x =
+    (\y -> x { _ddosDhcpOptionsIds = y })
+       <$> f (_ddosDhcpOptionsIds x)
+{-# INLINE ddosDhcpOptionsIds #-}
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
 -- - The key for one of the options (for example, domain-name). value - The
@@ -112,7 +113,43 @@ ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions ([Text])
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-ddosFilters :: Lens' DescribeDhcpOptions ([Filter])
+ddosFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeDhcpOptions
+    -> f DescribeDhcpOptions
+ddosFilters f x =
+    (\y -> x { _ddosFilters = y })
+       <$> f (_ddosFilters x)
+{-# INLINE ddosFilters #-}
+
+instance ToQuery DescribeDhcpOptions where
+    toQuery = genericQuery def
+
+data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
+    { _ddotDhcpOptions :: [DhcpOptions]
+      -- ^ Information about one or more DHCP options sets.
+    } deriving (Show, Generic)
 
 -- | Information about one or more DHCP options sets.
-ddotDhcpOptions :: Lens' DescribeDhcpOptionsResponse ([DhcpOptions])
+ddotDhcpOptions
+    :: Functor f
+    => ([DhcpOptions]
+    -> f ([DhcpOptions]))
+    -> DescribeDhcpOptionsResponse
+    -> f DescribeDhcpOptionsResponse
+ddotDhcpOptions f x =
+    (\y -> x { _ddotDhcpOptions = y })
+       <$> f (_ddotDhcpOptions x)
+{-# INLINE ddotDhcpOptions #-}
+
+instance FromXML DescribeDhcpOptionsResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeDhcpOptions where
+    type Sv DescribeDhcpOptions = EC2
+    type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse
+
+    request = post "DescribeDhcpOptions"
+    response _ = xmlResponse

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,19 +23,47 @@
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp where
+module Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp
+    (
+    -- * Request
+      DisassociateElasticIp
+    -- ** Request constructor
+    , disassociateElasticIp
+    -- ** Request lenses
+    , deiuElasticIp
+
+    -- * Response
+    , DisassociateElasticIpResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DisassociateElasticIp' request.
+disassociateElasticIp :: Text -- ^ 'deiuElasticIp'
+                      -> DisassociateElasticIp
+disassociateElasticIp p1 = DisassociateElasticIp
+    { _deiuElasticIp = p1
+    }
+
 data DisassociateElasticIp = DisassociateElasticIp
-    { _deirElasticIp :: Text
+    { _deiuElasticIp :: Text
       -- ^ The Elastic IP address.
     } deriving (Show, Generic)
 
-makeLenses ''DisassociateElasticIp
+-- | The Elastic IP address.
+deiuElasticIp
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DisassociateElasticIp
+    -> f DisassociateElasticIp
+deiuElasticIp f x =
+    (\y -> x { _deiuElasticIp = y })
+       <$> f (_deiuElasticIp x)
+{-# INLINE deiuElasticIp #-}
 
 instance ToPath DisassociateElasticIp
 
@@ -48,8 +75,6 @@ instance ToJSON DisassociateElasticIp
 
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DisassociateElasticIpResponse
 
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks

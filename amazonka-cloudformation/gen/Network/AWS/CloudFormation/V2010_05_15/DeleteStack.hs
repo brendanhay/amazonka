@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,26 +24,52 @@
 -- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
-module Network.AWS.CloudFormation.V2010_05_15.DeleteStack where
+module Network.AWS.CloudFormation.V2010_05_15.DeleteStack
+    (
+    -- * Request
+      DeleteStack
+    -- ** Request constructor
+    , deleteStack
+    -- ** Request lenses
+    , dsiStackName
+
+    -- * Response
+    , DeleteStackResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteStack' request.
+deleteStack :: Text -- ^ 'dsiStackName'
+            -> DeleteStack
+deleteStack p1 = DeleteStack
+    { _dsiStackName = p1
+    }
 
 data DeleteStack = DeleteStack
     { _dsiStackName :: Text
       -- ^ The name or the unique identifier associated with the stack.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteStack
+-- | The name or the unique identifier associated with the stack.
+dsiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteStack
+    -> f DeleteStack
+dsiStackName f x =
+    (\y -> x { _dsiStackName = y })
+       <$> f (_dsiStackName x)
+{-# INLINE dsiStackName #-}
 
 instance ToQuery DeleteStack where
     toQuery = genericQuery def
 
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteStackResponse
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation

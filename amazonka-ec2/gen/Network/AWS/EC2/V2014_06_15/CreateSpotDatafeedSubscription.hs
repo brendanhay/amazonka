@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,18 +36,15 @@ module Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription
     (
     -- * Request
       CreateSpotDatafeedSubscription
-    -- ** Default constructor
+    -- ** Request constructor
     , createSpotDatafeedSubscription
-    -- ** Accessors and lenses
-    , _csdsrBucket
+    -- ** Request lenses
     , csdsrBucket
-    , _csdsrPrefix
     , csdsrPrefix
 
     -- * Response
     , CreateSpotDatafeedSubscriptionResponse
-    -- ** Accessors and lenses
-    , _csdssSpotDatafeedSubscription
+    -- ** Response lenses
     , csdssSpotDatafeedSubscription
     ) where
 
@@ -65,8 +61,38 @@ createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     }
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
+    { _csdsrBucket :: Text
+      -- ^ The Amazon S3 bucket in which to store the Spot Instance
+      -- datafeed. Constraints: Must be a valid bucket associated with
+      -- your AWS account.
+    , _csdsrPrefix :: Maybe Text
+      -- ^ A prefix for the datafeed file names.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateSpotDatafeedSubscription
+-- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
+-- Constraints: Must be a valid bucket associated with your AWS account.
+csdsrBucket
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSpotDatafeedSubscription
+    -> f CreateSpotDatafeedSubscription
+csdsrBucket f x =
+    (\y -> x { _csdsrBucket = y })
+       <$> f (_csdsrBucket x)
+{-# INLINE csdsrBucket #-}
+
+-- | A prefix for the datafeed file names.
+csdsrPrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSpotDatafeedSubscription
+    -> f CreateSpotDatafeedSubscription
+csdsrPrefix f x =
+    (\y -> x { _csdsrPrefix = y })
+       <$> f (_csdsrPrefix x)
+{-# INLINE csdsrPrefix #-}
 
 instance ToQuery CreateSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -76,7 +102,17 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
       -- ^ The Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateSpotDatafeedSubscriptionResponse
+-- | The Spot Instance datafeed subscription.
+csdssSpotDatafeedSubscription
+    :: Functor f
+    => (Maybe SpotDatafeedSubscription
+    -> f (Maybe SpotDatafeedSubscription))
+    -> CreateSpotDatafeedSubscriptionResponse
+    -> f CreateSpotDatafeedSubscriptionResponse
+csdssSpotDatafeedSubscription f x =
+    (\y -> x { _csdssSpotDatafeedSubscription = y })
+       <$> f (_csdssSpotDatafeedSubscription x)
+{-# INLINE csdssSpotDatafeedSubscription #-}
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
@@ -87,13 +123,3 @@ instance AWSRequest CreateSpotDatafeedSubscription where
 
     request = post "CreateSpotDatafeedSubscription"
     response _ = xmlResponse
-
--- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
--- Constraints: Must be a valid bucket associated with your AWS account.
-csdsrBucket :: Lens' CreateSpotDatafeedSubscription (Text)
-
--- | A prefix for the datafeed file names.
-csdsrPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
-
--- | The Spot Instance datafeed subscription.
-csdssSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)

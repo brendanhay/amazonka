@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,11 +29,34 @@
 -- &LoadBalancerName=my-test-loadbalancer &Version=2012-06-01
 -- &Action=EnableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1a
 -- us-east-1c 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer
+    (
+    -- * Request
+      EnableAvailabilityZonesForLoadBalancer
+    -- ** Request constructor
+    , enableAvailabilityZonesForLoadBalancer
+    -- ** Request lenses
+    , aaziLoadBalancerName
+    , aaziAvailabilityZones
+
+    -- * Response
+    , EnableAvailabilityZonesForLoadBalancerResponse
+    -- ** Response lenses
+    , aazoAvailabilityZones
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'EnableAvailabilityZonesForLoadBalancer' request.
+enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'aaziLoadBalancerName'
+                                       -> [Text] -- ^ 'aaziAvailabilityZones'
+                                       -> EnableAvailabilityZonesForLoadBalancer
+enableAvailabilityZonesForLoadBalancer p1 p2 = EnableAvailabilityZonesForLoadBalancer
+    { _aaziLoadBalancerName = p1
+    , _aaziAvailabilityZones = p2
+    }
 
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
     { _aaziLoadBalancerName :: Text
@@ -45,7 +67,30 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
       -- balancer.
     } deriving (Show, Generic)
 
-makeLenses ''EnableAvailabilityZonesForLoadBalancer
+-- | The name associated with the load balancer.
+aaziLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableAvailabilityZonesForLoadBalancer
+    -> f EnableAvailabilityZonesForLoadBalancer
+aaziLoadBalancerName f x =
+    (\y -> x { _aaziLoadBalancerName = y })
+       <$> f (_aaziLoadBalancerName x)
+{-# INLINE aaziLoadBalancerName #-}
+
+-- | A list of new Availability Zones for the load balancer. Each Availability
+-- Zone must be in the same region as the load balancer.
+aaziAvailabilityZones
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> EnableAvailabilityZonesForLoadBalancer
+    -> f EnableAvailabilityZonesForLoadBalancer
+aaziAvailabilityZones f x =
+    (\y -> x { _aaziAvailabilityZones = y })
+       <$> f (_aaziAvailabilityZones x)
+{-# INLINE aaziAvailabilityZones #-}
 
 instance ToQuery EnableAvailabilityZonesForLoadBalancer where
     toQuery = genericQuery def
@@ -55,7 +100,17 @@ data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesFor
       -- ^ An updated list of Availability Zones for the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''EnableAvailabilityZonesForLoadBalancerResponse
+-- | An updated list of Availability Zones for the load balancer.
+aazoAvailabilityZones
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> EnableAvailabilityZonesForLoadBalancerResponse
+    -> f EnableAvailabilityZonesForLoadBalancerResponse
+aazoAvailabilityZones f x =
+    (\y -> x { _aazoAvailabilityZones = y })
+       <$> f (_aazoAvailabilityZones x)
+{-# INLINE aazoAvailabilityZones #-}
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

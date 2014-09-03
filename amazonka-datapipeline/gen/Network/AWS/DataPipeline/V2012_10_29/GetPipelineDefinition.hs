@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,7 +36,21 @@
 -- "stringValue": "echo hello"}, {"key": "parent", "refValue": "Default"},
 -- {"key": "type", "stringValue": "ShellCommandActivity"} ], "id": "SayHello",
 -- "name": "SayHello"} ] }.
-module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition where
+module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
+    (
+    -- * Request
+      GetPipelineDefinition
+    -- ** Request constructor
+    , getPipelineDefinition
+    -- ** Request lenses
+    , gpdiPipelineId
+    , gpdiVersion
+
+    -- * Response
+    , GetPipelineDefinitionResponse
+    -- ** Response lenses
+    , gpdoPipelineObjects
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
@@ -45,7 +58,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetPipelineDefinition' request.
-getPipelineDefinition :: Text -- ^ '_gpdiPipelineId'
+getPipelineDefinition :: Text -- ^ 'gpdiPipelineId'
                       -> GetPipelineDefinition
 getPipelineDefinition p1 = GetPipelineDefinition
     { _gpdiPipelineId = p1
@@ -63,7 +76,32 @@ data GetPipelineDefinition = GetPipelineDefinition
       -- activated.
     } deriving (Show, Generic)
 
-makeLenses ''GetPipelineDefinition
+-- | The identifier of the pipeline.
+gpdiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetPipelineDefinition
+    -> f GetPipelineDefinition
+gpdiPipelineId f x =
+    (\y -> x { _gpdiPipelineId = y })
+       <$> f (_gpdiPipelineId x)
+{-# INLINE gpdiPipelineId #-}
+
+-- | The version of the pipeline definition to retrieve. This parameter accepts
+-- the values latest (default) and active. Where latest indicates the last
+-- definition saved to the pipeline and active indicates the last definition
+-- of the pipeline that was activated.
+gpdiVersion
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetPipelineDefinition
+    -> f GetPipelineDefinition
+gpdiVersion f x =
+    (\y -> x { _gpdiVersion = y })
+       <$> f (_gpdiVersion x)
+{-# INLINE gpdiVersion #-}
 
 instance ToPath GetPipelineDefinition
 
@@ -78,7 +116,17 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
       -- ^ An array of objects defined in the pipeline.
     } deriving (Show, Generic)
 
-makeLenses ''GetPipelineDefinitionResponse
+-- | An array of objects defined in the pipeline.
+gpdoPipelineObjects
+    :: Functor f
+    => ([PipelineObject]
+    -> f ([PipelineObject]))
+    -> GetPipelineDefinitionResponse
+    -> f GetPipelineDefinitionResponse
+gpdoPipelineObjects f x =
+    (\y -> x { _gpdoPipelineObjects = y })
+       <$> f (_gpdoPipelineObjects x)
+{-# INLINE gpdoPipelineObjects #-}
 
 instance FromJSON GetPipelineDefinitionResponse
 

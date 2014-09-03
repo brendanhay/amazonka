@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,15 +29,30 @@
 -- user request, shrinking the capacity from 4 to 3. my-asg {"Availability
 -- Zone":"us-east-1a"} Detaching EC2 instance: i-5f2e8a0d
 -- e04f3b11-f357-11e3-a434-7f10009d5849.
-module Network.AWS.AutoScaling.V2011_01_01.DetachInstances where
+module Network.AWS.AutoScaling.V2011_01_01.DetachInstances
+    (
+    -- * Request
+      DetachInstances
+    -- ** Request constructor
+    , detachInstances
+    -- ** Request lenses
+    , diqAutoScalingGroupName
+    , diqShouldDecrementDesiredCapacity
+    , diqInstanceIds
+
+    -- * Response
+    , DetachInstancesResponse
+    -- ** Response lenses
+    , diaActivities
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DetachInstances' request.
-detachInstances :: Text -- ^ '_diqAutoScalingGroupName'
-                -> Bool -- ^ '_diqShouldDecrementDesiredCapacity'
+detachInstances :: Text -- ^ 'diqAutoScalingGroupName'
+                -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
                 -> DetachInstances
 detachInstances p1 p2 = DetachInstances
     { _diqAutoScalingGroupName = p1
@@ -60,7 +74,44 @@ data DetachInstances = DetachInstances
       -- must specify at least one instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''DetachInstances
+-- | The name of the Auto Scaling group from which to detach instances.
+diqAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachInstances
+    -> f DetachInstances
+diqAutoScalingGroupName f x =
+    (\y -> x { _diqAutoScalingGroupName = y })
+       <$> f (_diqAutoScalingGroupName x)
+{-# INLINE diqAutoScalingGroupName #-}
+
+-- | Specifies if the detached instance should decrement the desired capacity
+-- value for the Auto Scaling group. If set to True, the Auto Scaling group
+-- decrements the desired capacity value by the number of instances detached.
+diqShouldDecrementDesiredCapacity
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> DetachInstances
+    -> f DetachInstances
+diqShouldDecrementDesiredCapacity f x =
+    (\y -> x { _diqShouldDecrementDesiredCapacity = y })
+       <$> f (_diqShouldDecrementDesiredCapacity x)
+{-# INLINE diqShouldDecrementDesiredCapacity #-}
+
+-- | A list of instances to detach from the Auto Scaling group. You must specify
+-- at least one instance ID.
+diqInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DetachInstances
+    -> f DetachInstances
+diqInstanceIds f x =
+    (\y -> x { _diqInstanceIds = y })
+       <$> f (_diqInstanceIds x)
+{-# INLINE diqInstanceIds #-}
 
 instance ToQuery DetachInstances where
     toQuery = genericQuery def
@@ -71,7 +122,18 @@ data DetachInstancesResponse = DetachInstancesResponse
       -- instances from the Auto Scaling group.
     } deriving (Show, Generic)
 
-makeLenses ''DetachInstancesResponse
+-- | A list describing the activities related to detaching the instances from
+-- the Auto Scaling group.
+diaActivities
+    :: Functor f
+    => ([Activity]
+    -> f ([Activity]))
+    -> DetachInstancesResponse
+    -> f DetachInstancesResponse
+diaActivities f x =
+    (\y -> x { _diaActivities = y })
+       <$> f (_diaActivities x)
+{-# INLINE diaActivities #-}
 
 instance FromXML DetachInstancesResponse where
     fromXMLOptions = xmlOptions

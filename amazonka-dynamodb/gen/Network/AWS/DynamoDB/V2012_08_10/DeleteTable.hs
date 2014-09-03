@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,19 +32,49 @@
 -- "ProvisionedThroughput": { "NumberOfDecreasesToday": 0,
 -- "ReadCapacityUnits": 5, "WriteCapacityUnits": 5 }, "TableName": "Reply",
 -- "TableSizeBytes": 0, "TableStatus": "DELETING" } }.
-module Network.AWS.DynamoDB.V2012_08_10.DeleteTable where
+module Network.AWS.DynamoDB.V2012_08_10.DeleteTable
+    (
+    -- * Request
+      DeleteTable
+    -- ** Request constructor
+    , deleteTable
+    -- ** Request lenses
+    , dtiTableName
+
+    -- * Response
+    , DeleteTableResponse
+    -- ** Response lenses
+    , dtoTableDescription
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteTable' request.
+deleteTable :: Text -- ^ 'dtiTableName'
+            -> DeleteTable
+deleteTable p1 = DeleteTable
+    { _dtiTableName = p1
+    }
+
 data DeleteTable = DeleteTable
     { _dtiTableName :: Text
       -- ^ The name of the table to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTable
+-- | The name of the table to delete.
+dtiTableName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteTable
+    -> f DeleteTable
+dtiTableName f x =
+    (\y -> x { _dtiTableName = y })
+       <$> f (_dtiTableName x)
+{-# INLINE dtiTableName #-}
 
 instance ToPath DeleteTable
 
@@ -60,7 +89,17 @@ data DeleteTableResponse = DeleteTableResponse
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTableResponse
+-- | Represents the properties of a table.
+dtoTableDescription
+    :: Functor f
+    => (Maybe TableDescription
+    -> f (Maybe TableDescription))
+    -> DeleteTableResponse
+    -> f DeleteTableResponse
+dtoTableDescription f x =
+    (\y -> x { _dtoTableDescription = y })
+       <$> f (_dtoTableDescription x)
+{-# INLINE dtoTableDescription #-}
 
 instance FromJSON DeleteTableResponse
 

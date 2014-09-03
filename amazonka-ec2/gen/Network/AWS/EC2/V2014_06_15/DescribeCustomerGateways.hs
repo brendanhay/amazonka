@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,18 +43,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
     (
     -- * Request
       DescribeCustomerGateways
-    -- ** Default constructor
+    -- ** Request constructor
     , describeCustomerGateways
-    -- ** Accessors and lenses
-    , _dcgsCustomerGatewayIds
+    -- ** Request lenses
     , dcgsCustomerGatewayIds
-    , _dcgsFilters
     , dcgsFilters
 
     -- * Response
     , DescribeCustomerGatewaysResponse
-    -- ** Accessors and lenses
-    , _dcgtCustomerGateways
+    -- ** Response lenses
     , dcgtCustomerGateways
     ) where
 
@@ -71,32 +67,41 @@ describeCustomerGateways = DescribeCustomerGateways
     }
 
 data DescribeCustomerGateways = DescribeCustomerGateways
-
-makeSiglessLenses ''DescribeCustomerGateways
-
-instance ToQuery DescribeCustomerGateways where
-    toQuery = genericQuery def
-
-data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgtCustomerGateways :: [CustomerGateway]
-      -- ^ Information about one or more customer gateways.
+    { _dcgsCustomerGatewayIds :: [Text]
+      -- ^ One or more customer gateway IDs. Default: Describes all your
+      -- customer gateways.
+    , _dcgsFilters :: [Filter]
+      -- ^ One or more filters. bgp-asn - The customer gateway's Border
+      -- Gateway Protocol (BGP) Autonomous System Number (ASN).
+      -- customer-gateway-id - The ID of the customer gateway. ip-address
+      -- - The IP address of the customer gateway's Internet-routable
+      -- external interface. state - The state of the customer gateway
+      -- (pending | available | deleting | deleted). type - The type of
+      -- customer gateway. Currently, the only supported type is ipsec.1.
+      -- tag:key=value - The key/value combination of a tag assigned to
+      -- the resource. tag-key - The key of a tag assigned to the
+      -- resource. This filter is independent of the tag-value filter. For
+      -- example, if you use both the filter "tag-key=Purpose" and the
+      -- filter "tag-value=X", you get any resources assigned both the tag
+      -- key Purpose (regardless of what the tag's value is), and the tag
+      -- value X (regardless of what the tag's key is). If you want to
+      -- list only resources where Purpose is X, see the tag:key=value
+      -- filter. tag-value - The value of a tag assigned to the resource.
+      -- This filter is independent of the tag-key filter.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeCustomerGatewaysResponse
-
-instance FromXML DescribeCustomerGatewaysResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeCustomerGateways where
-    type Sv DescribeCustomerGateways = EC2
-    type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse
-
-    request = post "DescribeCustomerGateways"
-    response _ = xmlResponse
 
 -- | One or more customer gateway IDs. Default: Describes all your customer
 -- gateways.
-dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways ([Text])
+dcgsCustomerGatewayIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeCustomerGateways
+    -> f DescribeCustomerGateways
+dcgsCustomerGatewayIds f x =
+    (\y -> x { _dcgsCustomerGatewayIds = y })
+       <$> f (_dcgsCustomerGatewayIds x)
+{-# INLINE dcgsCustomerGatewayIds #-}
 
 -- | One or more filters. bgp-asn - The customer gateway's Border Gateway
 -- Protocol (BGP) Autonomous System Number (ASN). customer-gateway-id - The ID
@@ -113,7 +118,43 @@ dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways ([Text])
 -- you want to list only resources where Purpose is X, see the tag:key=value
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
-dcgsFilters :: Lens' DescribeCustomerGateways ([Filter])
+dcgsFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeCustomerGateways
+    -> f DescribeCustomerGateways
+dcgsFilters f x =
+    (\y -> x { _dcgsFilters = y })
+       <$> f (_dcgsFilters x)
+{-# INLINE dcgsFilters #-}
+
+instance ToQuery DescribeCustomerGateways where
+    toQuery = genericQuery def
+
+data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
+    { _dcgtCustomerGateways :: [CustomerGateway]
+      -- ^ Information about one or more customer gateways.
+    } deriving (Show, Generic)
 
 -- | Information about one or more customer gateways.
-dcgtCustomerGateways :: Lens' DescribeCustomerGatewaysResponse ([CustomerGateway])
+dcgtCustomerGateways
+    :: Functor f
+    => ([CustomerGateway]
+    -> f ([CustomerGateway]))
+    -> DescribeCustomerGatewaysResponse
+    -> f DescribeCustomerGatewaysResponse
+dcgtCustomerGateways f x =
+    (\y -> x { _dcgtCustomerGateways = y })
+       <$> f (_dcgtCustomerGateways x)
+{-# INLINE dcgtCustomerGateways #-}
+
+instance FromXML DescribeCustomerGatewaysResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeCustomerGateways where
+    type Sv DescribeCustomerGateways = EC2
+    type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse
+
+    request = post "DescribeCustomerGateways"
+    response _ = xmlResponse

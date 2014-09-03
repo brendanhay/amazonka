@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,11 +20,35 @@
 -- | Aborts a multipart upload. To verify that all parts have been removed, so
 -- you don't get charged for the part storage, you should call the List Parts
 -- operation and ensure the parts list is empty.
-module Network.AWS.S3.V2006_03_01.AbortMultipartUpload where
+module Network.AWS.S3.V2006_03_01.AbortMultipartUpload
+    (
+    -- * Request
+      AbortMultipartUpload
+    -- ** Request constructor
+    , abortMultipartUpload
+    -- ** Request lenses
+    , amurBucket
+    , amurUploadId
+    , amurKey
+
+    -- * Response
+    , AbortMultipartUploadResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'AbortMultipartUpload' request.
+abortMultipartUpload :: BucketName -- ^ 'amurBucket'
+                     -> Text -- ^ 'amurUploadId'
+                     -> ObjectKey -- ^ 'amurKey'
+                     -> AbortMultipartUpload
+abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
+    { _amurBucket = p1
+    , _amurUploadId = p2
+    , _amurKey = p3
+    }
 
 data AbortMultipartUpload = AbortMultipartUpload
     { _amurBucket :: BucketName
@@ -33,7 +56,38 @@ data AbortMultipartUpload = AbortMultipartUpload
     , _amurKey :: ObjectKey
     } deriving (Show, Generic)
 
-makeLenses ''AbortMultipartUpload
+amurBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> AbortMultipartUpload
+    -> f AbortMultipartUpload
+amurBucket f x =
+    (\y -> x { _amurBucket = y })
+       <$> f (_amurBucket x)
+{-# INLINE amurBucket #-}
+
+amurUploadId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AbortMultipartUpload
+    -> f AbortMultipartUpload
+amurUploadId f x =
+    (\y -> x { _amurUploadId = y })
+       <$> f (_amurUploadId x)
+{-# INLINE amurUploadId #-}
+
+amurKey
+    :: Functor f
+    => (ObjectKey
+    -> f (ObjectKey))
+    -> AbortMultipartUpload
+    -> f AbortMultipartUpload
+amurKey f x =
+    (\y -> x { _amurKey = y })
+       <$> f (_amurKey x)
+{-# INLINE amurKey #-}
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat
@@ -54,8 +108,6 @@ instance ToBody AbortMultipartUpload
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AbortMultipartUploadResponse
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -63,7 +62,23 @@
 -- "Name":"playlist-iPhone-spaghetti.m3u8", "OutputKeys":[
 -- "iphone/spaghetti-512k" ] } ], "Status":"Complete" } ],
 -- "NextPageToken":null }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus
+    (
+    -- * Request
+      ListJobsByStatus
+    -- ** Request constructor
+    , listJobsByStatus
+    -- ** Request lenses
+    , ljbsrStatus
+    , ljbsrAscending
+    , ljbsrPageToken
+
+    -- * Response
+    , ListJobsByStatusResponse
+    -- ** Response lenses
+    , ljbssNextPageToken
+    , ljbssJobs
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
@@ -71,7 +86,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListJobsByStatus' request.
-listJobsByStatus :: Text -- ^ '_ljbsrStatus'
+listJobsByStatus :: Text -- ^ 'ljbsrStatus'
                  -> ListJobsByStatus
 listJobsByStatus p1 = ListJobsByStatus
     { _ljbsrStatus = p1
@@ -95,7 +110,47 @@ data ListJobsByStatus = ListJobsByStatus
       -- page of results.
     } deriving (Show, Generic)
 
-makeLenses ''ListJobsByStatus
+-- | To get information about all of the jobs associated with the current AWS
+-- account that have a given status, specify the following status: Submitted,
+-- Progressing, Complete, Canceled, or Error.
+ljbsrStatus
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListJobsByStatus
+    -> f ListJobsByStatus
+ljbsrStatus f x =
+    (\y -> x { _ljbsrStatus = y })
+       <$> f (_ljbsrStatus x)
+{-# INLINE ljbsrStatus #-}
+
+-- | To list jobs in chronological order by the date and time that they were
+-- submitted, enter true. To list jobs in reverse chronological order, enter
+-- false.
+ljbsrAscending
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobsByStatus
+    -> f ListJobsByStatus
+ljbsrAscending f x =
+    (\y -> x { _ljbsrAscending = y })
+       <$> f (_ljbsrAscending x)
+{-# INLINE ljbsrAscending #-}
+
+-- | When Elastic Transcoder returns more than one page of results, use
+-- pageToken in subsequent GET requests to get each successive page of
+-- results.
+ljbsrPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobsByStatus
+    -> f ListJobsByStatus
+ljbsrPageToken f x =
+    (\y -> x { _ljbsrPageToken = y })
+       <$> f (_ljbsrPageToken x)
+{-# INLINE ljbsrPageToken #-}
 
 instance ToPath ListJobsByStatus where
     toPath ListJobsByStatus{..} = mconcat
@@ -123,7 +178,32 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
       -- ^ An array of Job objects that have the specified status.
     } deriving (Show, Generic)
 
-makeLenses ''ListJobsByStatusResponse
+-- | A value that you use to access the second and subsequent pages of results,
+-- if any. When the jobs in the specified pipeline fit on one page or when
+-- you've reached the last page of results, the value of NextPageToken is
+-- null.
+ljbssNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobsByStatusResponse
+    -> f ListJobsByStatusResponse
+ljbssNextPageToken f x =
+    (\y -> x { _ljbssNextPageToken = y })
+       <$> f (_ljbssNextPageToken x)
+{-# INLINE ljbssNextPageToken #-}
+
+-- | An array of Job objects that have the specified status.
+ljbssJobs
+    :: Functor f
+    => ([Job]
+    -> f ([Job]))
+    -> ListJobsByStatusResponse
+    -> f ListJobsByStatusResponse
+ljbssJobs f x =
+    (\y -> x { _ljbssJobs = y })
+       <$> f (_ljbssJobs x)
+{-# INLINE ljbssJobs #-}
 
 instance FromJSON ListJobsByStatusResponse
 

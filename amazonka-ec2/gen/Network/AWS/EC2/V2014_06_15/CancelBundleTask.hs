@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,16 +36,14 @@ module Network.AWS.EC2.V2014_06_15.CancelBundleTask
     (
     -- * Request
       CancelBundleTask
-    -- ** Default constructor
+    -- ** Request constructor
     , cancelBundleTask
-    -- ** Accessors and lenses
-    , _cbtrBundleId
+    -- ** Request lenses
     , cbtrBundleId
 
     -- * Response
     , CancelBundleTaskResponse
-    -- ** Accessors and lenses
-    , _cbtsBundleTask
+    -- ** Response lenses
     , cbtsBundleTask
     ) where
 
@@ -62,8 +59,21 @@ cancelBundleTask p1 = CancelBundleTask
     }
 
 data CancelBundleTask = CancelBundleTask
+    { _cbtrBundleId :: Text
+      -- ^ The ID of the bundle task.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelBundleTask
+-- | The ID of the bundle task.
+cbtrBundleId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelBundleTask
+    -> f CancelBundleTask
+cbtrBundleId f x =
+    (\y -> x { _cbtrBundleId = y })
+       <$> f (_cbtrBundleId x)
+{-# INLINE cbtrBundleId #-}
 
 instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
@@ -73,7 +83,17 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse
       -- ^ The bundle task.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelBundleTaskResponse
+-- | The bundle task.
+cbtsBundleTask
+    :: Functor f
+    => (Maybe BundleTask
+    -> f (Maybe BundleTask))
+    -> CancelBundleTaskResponse
+    -> f CancelBundleTaskResponse
+cbtsBundleTask f x =
+    (\y -> x { _cbtsBundleTask = y })
+       <$> f (_cbtsBundleTask x)
+{-# INLINE cbtsBundleTask #-}
 
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions
@@ -84,9 +104,3 @@ instance AWSRequest CancelBundleTask where
 
     request = post "CancelBundleTask"
     response _ = xmlResponse
-
--- | The ID of the bundle task.
-cbtrBundleId :: Lens' CancelBundleTask (Text)
-
--- | The bundle task.
-cbtsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)

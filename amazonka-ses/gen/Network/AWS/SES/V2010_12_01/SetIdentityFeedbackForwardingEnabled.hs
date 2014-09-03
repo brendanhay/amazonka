@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,11 +34,32 @@
 -- &Action=SetIdentityFeedbackForwardingEnabled &ForwardingEnabled=true
 -- &Identity=user%40example.com &Timestamp=2012-06-15T20%3A31%3A21.000Z
 -- &Version=2010-12-01 299f4af4-b72a-11e1-901f-1fbd90e8104f.
-module Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled where
+module Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled
+    (
+    -- * Request
+      SetIdentityFeedbackForwardingEnabled
+    -- ** Request constructor
+    , setIdentityFeedbackForwardingEnabled
+    -- ** Request lenses
+    , sifferForwardingEnabled
+    , sifferIdentity
+
+    -- * Response
+    , SetIdentityFeedbackForwardingEnabledResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SetIdentityFeedbackForwardingEnabled' request.
+setIdentityFeedbackForwardingEnabled :: Bool -- ^ 'sifferForwardingEnabled'
+                                     -> Text -- ^ 'sifferIdentity'
+                                     -> SetIdentityFeedbackForwardingEnabled
+setIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnabled
+    { _sifferForwardingEnabled = p1
+    , _sifferIdentity = p2
+    }
 
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _sifferForwardingEnabled :: Bool
@@ -56,15 +76,42 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
       -- forwarding. Examples: user@example.com, example.com.
     } deriving (Show, Generic)
 
-makeLenses ''SetIdentityFeedbackForwardingEnabled
+-- | Sets whether Amazon SES will forward bounce and complaint notifications as
+-- email. true specifies that Amazon SES will forward bounce and complaint
+-- notifications as email, in addition to any Amazon SNS topic publishing
+-- otherwise specified. false specifies that Amazon SES will publish bounce
+-- and complaint notifications only through Amazon SNS. This value can only be
+-- set to false when Amazon SNS topics are set for both Bounce and Complaint
+-- notification types.
+sifferForwardingEnabled
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> SetIdentityFeedbackForwardingEnabled
+    -> f SetIdentityFeedbackForwardingEnabled
+sifferForwardingEnabled f x =
+    (\y -> x { _sifferForwardingEnabled = y })
+       <$> f (_sifferForwardingEnabled x)
+{-# INLINE sifferForwardingEnabled #-}
+
+-- | The identity for which to set bounce and complaint notification forwarding.
+-- Examples: user@example.com, example.com.
+sifferIdentity
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetIdentityFeedbackForwardingEnabled
+    -> f SetIdentityFeedbackForwardingEnabled
+sifferIdentity f x =
+    (\y -> x { _sifferIdentity = y })
+       <$> f (_sifferIdentity x)
+{-# INLINE sifferIdentity #-}
 
 instance ToQuery SetIdentityFeedbackForwardingEnabled where
     toQuery = genericQuery def
 
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetIdentityFeedbackForwardingEnabledResponse
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES

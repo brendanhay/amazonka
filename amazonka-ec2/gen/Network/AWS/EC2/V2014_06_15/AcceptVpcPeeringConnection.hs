@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,16 +42,14 @@ module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
     (
     -- * Request
       AcceptVpcPeeringConnection
-    -- ** Default constructor
+    -- ** Request constructor
     , acceptVpcPeeringConnection
-    -- ** Accessors and lenses
-    , _avpcrVpcPeeringConnectionId
+    -- ** Request lenses
     , avpcrVpcPeeringConnectionId
 
     -- * Response
     , AcceptVpcPeeringConnectionResponse
-    -- ** Accessors and lenses
-    , _avpcsVpcPeeringConnection
+    -- ** Response lenses
     , avpcsVpcPeeringConnection
     ) where
 
@@ -67,8 +64,21 @@ acceptVpcPeeringConnection = AcceptVpcPeeringConnection
     }
 
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
+    { _avpcrVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of the VPC peering connection.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AcceptVpcPeeringConnection
+-- | The ID of the VPC peering connection.
+avpcrVpcPeeringConnectionId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AcceptVpcPeeringConnection
+    -> f AcceptVpcPeeringConnection
+avpcrVpcPeeringConnectionId f x =
+    (\y -> x { _avpcrVpcPeeringConnectionId = y })
+       <$> f (_avpcrVpcPeeringConnectionId x)
+{-# INLINE avpcrVpcPeeringConnectionId #-}
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery = genericQuery def
@@ -78,7 +88,17 @@ data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
       -- ^ Information about the VPC peering connection.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AcceptVpcPeeringConnectionResponse
+-- | Information about the VPC peering connection.
+avpcsVpcPeeringConnection
+    :: Functor f
+    => (Maybe VpcPeeringConnection
+    -> f (Maybe VpcPeeringConnection))
+    -> AcceptVpcPeeringConnectionResponse
+    -> f AcceptVpcPeeringConnectionResponse
+avpcsVpcPeeringConnection f x =
+    (\y -> x { _avpcsVpcPeeringConnection = y })
+       <$> f (_avpcsVpcPeeringConnection x)
+{-# INLINE avpcsVpcPeeringConnection #-}
 
 instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -89,9 +109,3 @@ instance AWSRequest AcceptVpcPeeringConnection where
 
     request = post "AcceptVpcPeeringConnection"
     response _ = xmlResponse
-
--- | The ID of the VPC peering connection.
-avpcrVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
-
--- | Information about the VPC peering connection.
-avpcsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,16 +33,14 @@ module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
     (
     -- * Request
       CancelReservedInstancesListing
-    -- ** Default constructor
+    -- ** Request constructor
     , cancelReservedInstancesListing
-    -- ** Accessors and lenses
-    , _crilrReservedInstancesListingId
+    -- ** Request lenses
     , crilrReservedInstancesListingId
 
     -- * Response
     , CancelReservedInstancesListingResponse
-    -- ** Accessors and lenses
-    , _crilsReservedInstancesListings
+    -- ** Response lenses
     , crilsReservedInstancesListings
     ) where
 
@@ -59,8 +56,21 @@ cancelReservedInstancesListing p1 = CancelReservedInstancesListing
     }
 
 data CancelReservedInstancesListing = CancelReservedInstancesListing
+    { _crilrReservedInstancesListingId :: Text
+      -- ^ The ID of the Reserved Instance listing.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelReservedInstancesListing
+-- | The ID of the Reserved Instance listing.
+crilrReservedInstancesListingId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelReservedInstancesListing
+    -> f CancelReservedInstancesListing
+crilrReservedInstancesListingId f x =
+    (\y -> x { _crilrReservedInstancesListingId = y })
+       <$> f (_crilrReservedInstancesListingId x)
+{-# INLINE crilrReservedInstancesListingId #-}
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
@@ -70,7 +80,17 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
       -- ^ The Reserved Instance listing.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelReservedInstancesListingResponse
+-- | The Reserved Instance listing.
+crilsReservedInstancesListings
+    :: Functor f
+    => ([ReservedInstancesListing]
+    -> f ([ReservedInstancesListing]))
+    -> CancelReservedInstancesListingResponse
+    -> f CancelReservedInstancesListingResponse
+crilsReservedInstancesListings f x =
+    (\y -> x { _crilsReservedInstancesListings = y })
+       <$> f (_crilsReservedInstancesListings x)
+{-# INLINE crilsReservedInstancesListings #-}
 
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
@@ -81,9 +101,3 @@ instance AWSRequest CancelReservedInstancesListing where
 
     request = post "CancelReservedInstancesListing"
     response _ = xmlResponse
-
--- | The ID of the Reserved Instance listing.
-crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing (Text)
-
--- | The Reserved Instance listing.
-crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse ([ReservedInstancesListing])

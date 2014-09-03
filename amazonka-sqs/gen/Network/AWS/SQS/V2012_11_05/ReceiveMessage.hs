@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -56,21 +55,39 @@
 -- This is a test message SenderId 195004372649 SentTimestamp 1238099229000
 -- ApproximateReceiveCount 5 ApproximateFirstReceiveTimestamp 1250700979248
 -- b6633655-283d-45b4-aee4-4e84e0ae6afa.
-module Network.AWS.SQS.V2012_11_05.ReceiveMessage where
+module Network.AWS.SQS.V2012_11_05.ReceiveMessage
+    (
+    -- * Request
+      ReceiveMessage
+    -- ** Request constructor
+    , receiveMessage
+    -- ** Request lenses
+    , rmrQueueUrl
+    , rmrAttributeNames
+    , rmrMaxNumberOfMessages
+    , rmrVisibilityTimeout
+    , rmrWaitTimeSeconds
+    , rmrMessageAttributeNames
+
+    -- * Response
+    , ReceiveMessageResponse
+    -- ** Response lenses
+    , rmsMessages
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ReceiveMessage' request.
-receiveMessage :: Text -- ^ '_rmrQueueUrl'
+receiveMessage :: Text -- ^ 'rmrQueueUrl'
                -> ReceiveMessage
 receiveMessage p1 = ReceiveMessage
     { _rmrQueueUrl = p1
     , _rmrAttributeNames = mempty
     , _rmrMaxNumberOfMessages = Nothing
-    , _rmrWaitTimeSeconds = Nothing
     , _rmrVisibilityTimeout = Nothing
+    , _rmrWaitTimeSeconds = Nothing
     , _rmrMessageAttributeNames = mempty
     }
 
@@ -93,14 +110,14 @@ data ReceiveMessage = ReceiveMessage
       -- returns more messages than this value but may return fewer.
       -- Values can be from 1 to 10. Default is 1. All of the messages are
       -- not necessarily returned.
-    , _rmrWaitTimeSeconds :: Maybe Integer
-      -- ^ The duration (in seconds) for which the call will wait for a
-      -- message to arrive in the queue before returning. If a message is
-      -- available, the call will return sooner than WaitTimeSeconds.
     , _rmrVisibilityTimeout :: Maybe Integer
       -- ^ The duration (in seconds) that the received messages are hidden
       -- from subsequent retrieve requests after being retrieved by a
       -- ReceiveMessage request.
+    , _rmrWaitTimeSeconds :: Maybe Integer
+      -- ^ The duration (in seconds) for which the call will wait for a
+      -- message to arrive in the queue before returning. If a message is
+      -- available, the call will return sooner than WaitTimeSeconds.
     , _rmrMessageAttributeNames :: [Text]
       -- ^ The message attribute Name can contain the following characters:
       -- A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The
@@ -113,7 +130,98 @@ data ReceiveMessage = ReceiveMessage
       -- Web Services.
     } deriving (Show, Generic)
 
-makeLenses ''ReceiveMessage
+-- | The URL of the Amazon SQS queue to take action on.
+rmrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReceiveMessage
+    -> f ReceiveMessage
+rmrQueueUrl f x =
+    (\y -> x { _rmrQueueUrl = y })
+       <$> f (_rmrQueueUrl x)
+{-# INLINE rmrQueueUrl #-}
+
+-- | A list of attributes that need to be returned along with each message. The
+-- following lists the names and descriptions of the attributes that can be
+-- returned: All - returns all values. ApproximateFirstReceiveTimestamp -
+-- returns the time when the message was first received (epoch time in
+-- milliseconds). ApproximateReceiveCount - returns the number of times a
+-- message has been received but not deleted. SenderId - returns the AWS
+-- account number (or the IP address, if anonymous access is allowed) of the
+-- sender. SentTimestamp - returns the time when the message was sent (epoch
+-- time in milliseconds).
+rmrAttributeNames
+    :: Functor f
+    => ([QueueAttributeName]
+    -> f ([QueueAttributeName]))
+    -> ReceiveMessage
+    -> f ReceiveMessage
+rmrAttributeNames f x =
+    (\y -> x { _rmrAttributeNames = y })
+       <$> f (_rmrAttributeNames x)
+{-# INLINE rmrAttributeNames #-}
+
+-- | The maximum number of messages to return. Amazon SQS never returns more
+-- messages than this value but may return fewer. Values can be from 1 to 10.
+-- Default is 1. All of the messages are not necessarily returned.
+rmrMaxNumberOfMessages
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ReceiveMessage
+    -> f ReceiveMessage
+rmrMaxNumberOfMessages f x =
+    (\y -> x { _rmrMaxNumberOfMessages = y })
+       <$> f (_rmrMaxNumberOfMessages x)
+{-# INLINE rmrMaxNumberOfMessages #-}
+
+-- | The duration (in seconds) that the received messages are hidden from
+-- subsequent retrieve requests after being retrieved by a ReceiveMessage
+-- request.
+rmrVisibilityTimeout
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ReceiveMessage
+    -> f ReceiveMessage
+rmrVisibilityTimeout f x =
+    (\y -> x { _rmrVisibilityTimeout = y })
+       <$> f (_rmrVisibilityTimeout x)
+{-# INLINE rmrVisibilityTimeout #-}
+
+-- | The duration (in seconds) for which the call will wait for a message to
+-- arrive in the queue before returning. If a message is available, the call
+-- will return sooner than WaitTimeSeconds.
+rmrWaitTimeSeconds
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ReceiveMessage
+    -> f ReceiveMessage
+rmrWaitTimeSeconds f x =
+    (\y -> x { _rmrWaitTimeSeconds = y })
+       <$> f (_rmrWaitTimeSeconds x)
+{-# INLINE rmrWaitTimeSeconds #-}
+
+-- | The message attribute Name can contain the following characters: A-Z, a-z,
+-- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name
+-- must not start or end with a period, and it should not have successive
+-- periods. The message attribute name is case sensitive and must be unique
+-- among all attribute names for the message. The message attribute name can
+-- be up to 256 characters long. Attribute names cannot start with "AWS." or
+-- "Amazon." because these prefixes are reserved for use by Amazon Web
+-- Services.
+rmrMessageAttributeNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ReceiveMessage
+    -> f ReceiveMessage
+rmrMessageAttributeNames f x =
+    (\y -> x { _rmrMessageAttributeNames = y })
+       <$> f (_rmrMessageAttributeNames x)
+{-# INLINE rmrMessageAttributeNames #-}
 
 instance ToQuery ReceiveMessage where
     toQuery = genericQuery def
@@ -123,7 +231,17 @@ data ReceiveMessageResponse = ReceiveMessageResponse
       -- ^ A list of messages.
     } deriving (Show, Generic)
 
-makeLenses ''ReceiveMessageResponse
+-- | A list of messages.
+rmsMessages
+    :: Functor f
+    => ([Message]
+    -> f ([Message]))
+    -> ReceiveMessageResponse
+    -> f ReceiveMessageResponse
+rmsMessages f x =
+    (\y -> x { _rmsMessages = y })
+       <$> f (_rmsMessages x)
+{-# INLINE rmsMessages #-}
 
 instance FromXML ReceiveMessageResponse where
     fromXMLOptions = xmlOptions

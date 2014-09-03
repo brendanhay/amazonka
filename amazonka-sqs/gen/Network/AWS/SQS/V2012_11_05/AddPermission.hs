@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,11 +39,38 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 9a285199-c8d6-47c2-bdb2-314cb47d599d.
-module Network.AWS.SQS.V2012_11_05.AddPermission where
+module Network.AWS.SQS.V2012_11_05.AddPermission
+    (
+    -- * Request
+      AddPermission
+    -- ** Request constructor
+    , addPermission
+    -- ** Request lenses
+    , aprAWSAccountIds
+    , aprActions
+    , aprQueueUrl
+    , aprLabel
+
+    -- * Response
+    , AddPermissionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'AddPermission' request.
+addPermission :: [Text] -- ^ 'aprAWSAccountIds'
+              -> [Text] -- ^ 'aprActions'
+              -> Text -- ^ 'aprQueueUrl'
+              -> Text -- ^ 'aprLabel'
+              -> AddPermission
+addPermission p1 p2 p3 p4 = AddPermission
+    { _aprAWSAccountIds = p1
+    , _aprActions = p2
+    , _aprQueueUrl = p3
+    , _aprLabel = p4
+    }
 
 data AddPermission = AddPermission
     { _aprAWSAccountIds :: [Text]
@@ -63,24 +89,80 @@ data AddPermission = AddPermission
       -- for the ActionName.n also grants permissions for the
       -- corresponding batch versions of those actions: SendMessageBatch,
       -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
+    , _aprQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
     , _aprLabel :: Text
       -- ^ The unique identification of the permission you're setting (e.g.,
       -- AliceSendMessage). Constraints: Maximum 80 characters;
       -- alphanumeric characters, hyphens (-), and underscores (_) are
       -- allowed.
-    , _aprQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
-makeLenses ''AddPermission
+-- | The AWS account number of the principal who will be given permission. The
+-- principal must have an AWS account, but does not need to be signed up for
+-- Amazon SQS. For information about locating the AWS account identification,
+-- see Your AWS Identifiers in the Amazon SQS Developer Guide.
+aprAWSAccountIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddPermission
+    -> f AddPermission
+aprAWSAccountIds f x =
+    (\y -> x { _aprAWSAccountIds = y })
+       <$> f (_aprAWSAccountIds x)
+{-# INLINE aprAWSAccountIds #-}
+
+-- | The action the client wants to allow for the specified principal. The
+-- following are valid values: * | SendMessage | ReceiveMessage |
+-- DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl.
+-- For more information about these actions, see Understanding Permissions in
+-- the Amazon SQS Developer Guide. Specifying SendMessage, DeleteMessage, or
+-- ChangeMessageVisibility for the ActionName.n also grants permissions for
+-- the corresponding batch versions of those actions: SendMessageBatch,
+-- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
+aprActions
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddPermission
+    -> f AddPermission
+aprActions f x =
+    (\y -> x { _aprActions = y })
+       <$> f (_aprActions x)
+{-# INLINE aprActions #-}
+
+-- | The URL of the Amazon SQS queue to take action on.
+aprQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddPermission
+    -> f AddPermission
+aprQueueUrl f x =
+    (\y -> x { _aprQueueUrl = y })
+       <$> f (_aprQueueUrl x)
+{-# INLINE aprQueueUrl #-}
+
+-- | The unique identification of the permission you're setting (e.g.,
+-- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric
+-- characters, hyphens (-), and underscores (_) are allowed.
+aprLabel
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddPermission
+    -> f AddPermission
+aprLabel f x =
+    (\y -> x { _aprLabel = y })
+       <$> f (_aprLabel x)
+{-# INLINE aprLabel #-}
 
 instance ToQuery AddPermission where
     toQuery = genericQuery def
 
 data AddPermissionResponse = AddPermissionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AddPermissionResponse
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SQS

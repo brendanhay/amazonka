@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,26 +26,52 @@
 -- same account credentials as were used to create the load balancer. By
 -- design, if the load balancer does not exist or has already been deleted, a
 -- call to DeleteLoadBalancer action still succeeds.
-module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer
+    (
+    -- * Request
+      DeleteLoadBalancer
+    -- ** Request constructor
+    , deleteLoadBalancer
+    -- ** Request lenses
+    , dapiLoadBalancerName
+
+    -- * Response
+    , DeleteLoadBalancerResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteLoadBalancer' request.
+deleteLoadBalancer :: Text -- ^ 'dapiLoadBalancerName'
+                   -> DeleteLoadBalancer
+deleteLoadBalancer p1 = DeleteLoadBalancer
+    { _dapiLoadBalancerName = p1
+    }
+
 data DeleteLoadBalancer = DeleteLoadBalancer
-    { _dapjLoadBalancerName :: Text
+    { _dapiLoadBalancerName :: Text
       -- ^ The name associated with the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLoadBalancer
+-- | The name associated with the load balancer.
+dapiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLoadBalancer
+    -> f DeleteLoadBalancer
+dapiLoadBalancerName f x =
+    (\y -> x { _dapiLoadBalancerName = y })
+       <$> f (_dapiLoadBalancerName x)
+{-# INLINE dapiLoadBalancerName #-}
 
 instance ToQuery DeleteLoadBalancer where
     toQuery = genericQuery def
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLoadBalancerResponse
 
 instance AWSRequest DeleteLoadBalancer where
     type Sv DeleteLoadBalancer = ELB

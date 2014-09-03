@@ -2,7 +2,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -45,7 +44,6 @@ module Network.AWS
 
 import Control.Applicative
 import Control.Lens                 ((^.))
-import Control.Lens.TH
 import Control.Monad.Catch
 import Control.Monad.Except
 import Control.Monad.Trans.Resource
@@ -64,6 +62,16 @@ data Env = Env
     , _envManager :: Manager
     , _envAuth    :: Auth
     }
+
+  :: Functor f
+    => (Maybe VpnState
+    -> f (Maybe VpnState))
+    -> VpnStaticRoute
+    -> f VpnStaticRoute
+vsrState f x =
+    (\y -> x { _vsrState = y })
+       <$> f (_vsrState x)
+{-# INLINE vsrState #-}
 
 makeLenses ''Env
 

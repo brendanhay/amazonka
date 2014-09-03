@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -57,7 +56,28 @@
 -- "executionStatus": "OPEN", "startTimestamp": 1326585031.619, "tagList":
 -- ["music purchase", "digital", "ricoh-the-dog"], "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
-module Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions where
+module Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
+    (
+    -- * Request
+      ListOpenWorkflowExecutions
+    -- ** Request constructor
+    , listOpenWorkflowExecutions
+    -- ** Request lenses
+    , loweiDomain
+    , loweiStartTimeFilter
+    , loweiMaximumPageSize
+    , loweiNextPageToken
+    , loweiReverseOrder
+    , loweiTagFilter
+    , loweiExecutionFilter
+    , loweiTypeFilter
+
+    -- * Response
+    , ListOpenWorkflowExecutionsResponse
+    -- ** Response lenses
+    , wenExecutionInfos
+    , wenNextPageToken
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -65,8 +85,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListOpenWorkflowExecutions' request.
-listOpenWorkflowExecutions :: Text -- ^ '_loweiDomain'
-                           -> ExecutionTimeFilter -- ^ '_loweiStartTimeFilter'
+listOpenWorkflowExecutions :: Text -- ^ 'loweiDomain'
+                           -> ExecutionTimeFilter -- ^ 'loweiStartTimeFilter'
                            -> ListOpenWorkflowExecutions
 listOpenWorkflowExecutions p1 p2 = ListOpenWorkflowExecutions
     { _loweiDomain = p1
@@ -119,7 +139,117 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListOpenWorkflowExecutions
+-- | The name of the domain that contains the workflow executions to list.
+loweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiDomain f x =
+    (\y -> x { _loweiDomain = y })
+       <$> f (_loweiDomain x)
+{-# INLINE loweiDomain #-}
+
+-- | Workflow executions are included in the returned results based on whether
+-- their start times are within the range specified by this filter.
+loweiStartTimeFilter
+    :: Functor f
+    => (ExecutionTimeFilter
+    -> f (ExecutionTimeFilter))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiStartTimeFilter f x =
+    (\y -> x { _loweiStartTimeFilter = y })
+       <$> f (_loweiStartTimeFilter x)
+{-# INLINE loweiStartTimeFilter #-}
+
+-- | The maximum number of results returned in each page. The default is 100,
+-- but the caller can override this value to a page size smaller than the
+-- default. You cannot specify a page size greater than 100. Note that the
+-- number of executions may be less than the maxiumum page size, in which
+-- case, the returned page will have fewer results than the maximumPageSize
+-- specified.
+loweiMaximumPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiMaximumPageSize f x =
+    (\y -> x { _loweiMaximumPageSize = y })
+       <$> f (_loweiMaximumPageSize x)
+{-# INLINE loweiMaximumPageSize #-}
+
+-- | If on a previous call to this method a NextPageToken was returned, the
+-- results are being paginated. To get the next page of results, repeat the
+-- call with the returned token and all other arguments unchanged.
+loweiNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiNextPageToken f x =
+    (\y -> x { _loweiNextPageToken = y })
+       <$> f (_loweiNextPageToken x)
+{-# INLINE loweiNextPageToken #-}
+
+-- | When set to true, returns the results in reverse order. By default the
+-- results are returned in descending order of the start time of the
+-- executions.
+loweiReverseOrder
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiReverseOrder f x =
+    (\y -> x { _loweiReverseOrder = y })
+       <$> f (_loweiReverseOrder x)
+{-# INLINE loweiReverseOrder #-}
+
+-- | If specified, only executions that have the matching tag are listed.
+-- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
+-- specify at most one of these in a request.
+loweiTagFilter
+    :: Functor f
+    => (Maybe TagFilter
+    -> f (Maybe TagFilter))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiTagFilter f x =
+    (\y -> x { _loweiTagFilter = y })
+       <$> f (_loweiTagFilter x)
+{-# INLINE loweiTagFilter #-}
+
+-- | If specified, only workflow executions matching the workflow id specified
+-- in the filter are returned. executionFilter, typeFilter and tagFilter are
+-- mutually exclusive. You can specify at most one of these in a request.
+loweiExecutionFilter
+    :: Functor f
+    => (Maybe WorkflowExecutionFilter
+    -> f (Maybe WorkflowExecutionFilter))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiExecutionFilter f x =
+    (\y -> x { _loweiExecutionFilter = y })
+       <$> f (_loweiExecutionFilter x)
+{-# INLINE loweiExecutionFilter #-}
+
+-- | If specified, only executions of the type specified in the filter are
+-- returned. executionFilter, typeFilter and tagFilter are mutually exclusive.
+-- You can specify at most one of these in a request.
+loweiTypeFilter
+    :: Functor f
+    => (Maybe WorkflowTypeFilter
+    -> f (Maybe WorkflowTypeFilter))
+    -> ListOpenWorkflowExecutions
+    -> f ListOpenWorkflowExecutions
+loweiTypeFilter f x =
+    (\y -> x { _loweiTypeFilter = y })
+       <$> f (_loweiTypeFilter x)
+{-# INLINE loweiTypeFilter #-}
 
 instance ToPath ListOpenWorkflowExecutions
 
@@ -130,16 +260,40 @@ instance ToHeaders ListOpenWorkflowExecutions
 instance ToJSON ListOpenWorkflowExecutions
 
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
-    { _weiExecutionInfos :: [WorkflowExecutionInfo]
+    { _wenExecutionInfos :: [WorkflowExecutionInfo]
       -- ^ The list of workflow information structures.
-    , _weiNextPageToken :: Maybe Text
+    , _wenNextPageToken :: Maybe Text
       -- ^ The token of the next page in the result. If set, the results
       -- have more than one page. The next page can be retrieved by
       -- repeating the request with this token and all other arguments
       -- unchanged.
     } deriving (Show, Generic)
 
-makeLenses ''ListOpenWorkflowExecutionsResponse
+-- | The list of workflow information structures.
+wenExecutionInfos
+    :: Functor f
+    => ([WorkflowExecutionInfo]
+    -> f ([WorkflowExecutionInfo]))
+    -> ListOpenWorkflowExecutionsResponse
+    -> f ListOpenWorkflowExecutionsResponse
+wenExecutionInfos f x =
+    (\y -> x { _wenExecutionInfos = y })
+       <$> f (_wenExecutionInfos x)
+{-# INLINE wenExecutionInfos #-}
+
+-- | The token of the next page in the result. If set, the results have more
+-- than one page. The next page can be retrieved by repeating the request with
+-- this token and all other arguments unchanged.
+wenNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListOpenWorkflowExecutionsResponse
+    -> f ListOpenWorkflowExecutionsResponse
+wenNextPageToken f x =
+    (\y -> x { _wenNextPageToken = y })
+       <$> f (_wenNextPageToken x)
+{-# INLINE wenNextPageToken #-}
 
 instance FromJSON ListOpenWorkflowExecutionsResponse
 
@@ -152,4 +306,4 @@ instance AWSRequest ListOpenWorkflowExecutions where
 
 instance AWSPager ListOpenWorkflowExecutions where
     next rq rs = (\x -> rq { _loweiNextPageToken = Just x })
-        <$> (_weiNextPageToken rs)
+        <$> (_wenNextPageToken rs)

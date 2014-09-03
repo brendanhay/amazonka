@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,14 +35,29 @@
 -- myrestoreddbinstance in-sync default.mysql5.1 active default 00:00-00:30
 -- true sat:07:30-sat:08:00 us-east-1d 2011-05-23T06:52:48.255Z 10 db.m1.large
 -- master 03ea4ae8-850d-11e0-90aa-eb648410240d.
-module Network.AWS.RDS.V2013_09_09.DeleteDBInstance where
+module Network.AWS.RDS.V2013_09_09.DeleteDBInstance
+    (
+    -- * Request
+      DeleteDBInstance
+    -- ** Request constructor
+    , deleteDBInstance
+    -- ** Request lenses
+    , ddbimDBInstanceIdentifier
+    , ddbimSkipFinalSnapshot
+    , ddbimFinalDBSnapshotIdentifier
+
+    -- * Response
+    , DeleteDBInstanceResponse
+    -- ** Response lenses
+    , dbiyDBInstance
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteDBInstance' request.
-deleteDBInstance :: Text -- ^ '_ddbimDBInstanceIdentifier'
+deleteDBInstance :: Text -- ^ 'ddbimDBInstanceIdentifier'
                  -> DeleteDBInstance
 deleteDBInstance p1 = DeleteDBInstance
     { _ddbimDBInstanceIdentifier = p1
@@ -75,20 +89,78 @@ data DeleteDBInstance = DeleteDBInstance
       -- a read replica.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBInstance
+-- | The DB instance identifier for the DB instance to be deleted. This
+-- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
+-- alphanumeric characters or hyphens First character must be a letter Cannot
+-- end with a hyphen or contain two consecutive hyphens.
+ddbimDBInstanceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDBInstance
+    -> f DeleteDBInstance
+ddbimDBInstanceIdentifier f x =
+    (\y -> x { _ddbimDBInstanceIdentifier = y })
+       <$> f (_ddbimDBInstanceIdentifier x)
+{-# INLINE ddbimDBInstanceIdentifier #-}
+
+-- | Determines whether a final DB snapshot is created before the DB instance is
+-- deleted. If true is specified, no DBSnapshot is created. If false is
+-- specified, a DB snapshot is created before the DB instance is deleted.
+-- Specify true when deleting a read replica. The FinalDBSnapshotIdentifier
+-- parameter must be specified if SkipFinalSnapshot is false. Default: false.
+ddbimSkipFinalSnapshot
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeleteDBInstance
+    -> f DeleteDBInstance
+ddbimSkipFinalSnapshot f x =
+    (\y -> x { _ddbimSkipFinalSnapshot = y })
+       <$> f (_ddbimSkipFinalSnapshot x)
+{-# INLINE ddbimSkipFinalSnapshot #-}
+
+-- | The DBSnapshotIdentifier of the new DBSnapshot created when
+-- SkipFinalSnapshot is set to false. Specifying this parameter and also
+-- setting the SkipFinalShapshot parameter to true results in an error.
+-- Constraints: Must be 1 to 255 alphanumeric characters First character must
+-- be a letter Cannot end with a hyphen or contain two consecutive hyphens
+-- Cannot be specified when deleting a read replica.
+ddbimFinalDBSnapshotIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteDBInstance
+    -> f DeleteDBInstance
+ddbimFinalDBSnapshotIdentifier f x =
+    (\y -> x { _ddbimFinalDBSnapshotIdentifier = y })
+       <$> f (_ddbimFinalDBSnapshotIdentifier x)
+{-# INLINE ddbimFinalDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBInstance where
     toQuery = genericQuery def
 
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse
-    { _dbidtDBInstance :: Maybe DBInstance
+    { _dbiyDBInstance :: Maybe DBInstance
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
       -- data type is used as a response element in the
       -- DescribeDBInstances action.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBInstanceResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
+-- as a response element in the DescribeDBInstances action.
+dbiyDBInstance
+    :: Functor f
+    => (Maybe DBInstance
+    -> f (Maybe DBInstance))
+    -> DeleteDBInstanceResponse
+    -> f DeleteDBInstanceResponse
+dbiyDBInstance f x =
+    (\y -> x { _dbiyDBInstance = y })
+       <$> f (_dbiyDBInstance x)
+{-# INLINE dbiyDBInstance #-}
 
 instance FromXML DeleteDBInstanceResponse where
     fromXMLOptions = xmlOptions

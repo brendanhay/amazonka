@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,28 +26,56 @@
 -- &x-amz-date=20121208T015410Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- 29674ca0-40da-11e2-b679-dba6cf515770.
-module Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup where
+module Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup
+    (
+    -- * Request
+      DeleteClusterParameterGroup
+    -- ** Request constructor
+    , deleteClusterParameterGroup
+    -- ** Request lenses
+    , dcpgmParameterGroupName
+
+    -- * Response
+    , DeleteClusterParameterGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteClusterParameterGroup' request.
+deleteClusterParameterGroup :: Text -- ^ 'dcpgmParameterGroupName'
+                            -> DeleteClusterParameterGroup
+deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
+    { _dcpgmParameterGroupName = p1
+    }
+
 data DeleteClusterParameterGroup = DeleteClusterParameterGroup
-    { _dcpgnParameterGroupName :: Text
+    { _dcpgmParameterGroupName :: Text
       -- ^ The name of the parameter group to be deleted. Constraints: Must
       -- be the name of an existing cluster parameter group. Cannot delete
       -- a default cluster parameter group.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteClusterParameterGroup
+-- | The name of the parameter group to be deleted. Constraints: Must be the
+-- name of an existing cluster parameter group. Cannot delete a default
+-- cluster parameter group.
+dcpgmParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteClusterParameterGroup
+    -> f DeleteClusterParameterGroup
+dcpgmParameterGroupName f x =
+    (\y -> x { _dcpgmParameterGroupName = y })
+       <$> f (_dcpgmParameterGroupName x)
+{-# INLINE dcpgmParameterGroupName #-}
 
 instance ToQuery DeleteClusterParameterGroup where
     toQuery = genericQuery def
 
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteClusterParameterGroupResponse
 
 instance AWSRequest DeleteClusterParameterGroup where
     type Sv DeleteClusterParameterGroup = Redshift

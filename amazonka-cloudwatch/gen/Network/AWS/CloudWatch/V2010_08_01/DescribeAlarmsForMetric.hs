@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,15 +19,33 @@
 
 -- | Retrieves all alarms for a single metric. Specify a statistic, period, or
 -- unit to filter the set of alarms further.
-module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric where
+module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
+    (
+    -- * Request
+      DescribeAlarmsForMetric
+    -- ** Request constructor
+    , describeAlarmsForMetric
+    -- ** Request lenses
+    , dafmiMetricName
+    , dafmiNamespace
+    , dafmiDimensions
+    , dafmiPeriod
+    , dafmiUnit
+    , dafmiStatistic
+
+    -- * Response
+    , DescribeAlarmsForMetricResponse
+    -- ** Response lenses
+    , dafmoMetricAlarms
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeAlarmsForMetric' request.
-describeAlarmsForMetric :: Text -- ^ '_dafmiMetricName'
-                        -> Text -- ^ '_dafmiNamespace'
+describeAlarmsForMetric :: Text -- ^ 'dafmiMetricName'
+                        -> Text -- ^ 'dafmiNamespace'
                         -> DescribeAlarmsForMetric
 describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     { _dafmiMetricName = p1
@@ -54,7 +71,77 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
       -- ^ The statistic for the metric.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAlarmsForMetric
+-- | The name of the metric.
+dafmiMetricName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeAlarmsForMetric
+    -> f DescribeAlarmsForMetric
+dafmiMetricName f x =
+    (\y -> x { _dafmiMetricName = y })
+       <$> f (_dafmiMetricName x)
+{-# INLINE dafmiMetricName #-}
+
+-- | The namespace of the metric.
+dafmiNamespace
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeAlarmsForMetric
+    -> f DescribeAlarmsForMetric
+dafmiNamespace f x =
+    (\y -> x { _dafmiNamespace = y })
+       <$> f (_dafmiNamespace x)
+{-# INLINE dafmiNamespace #-}
+
+-- | The list of dimensions associated with the metric.
+dafmiDimensions
+    :: Functor f
+    => ([Dimension]
+    -> f ([Dimension]))
+    -> DescribeAlarmsForMetric
+    -> f DescribeAlarmsForMetric
+dafmiDimensions f x =
+    (\y -> x { _dafmiDimensions = y })
+       <$> f (_dafmiDimensions x)
+{-# INLINE dafmiDimensions #-}
+
+-- | The period in seconds over which the statistic is applied.
+dafmiPeriod
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeAlarmsForMetric
+    -> f DescribeAlarmsForMetric
+dafmiPeriod f x =
+    (\y -> x { _dafmiPeriod = y })
+       <$> f (_dafmiPeriod x)
+{-# INLINE dafmiPeriod #-}
+
+-- | The unit for the metric.
+dafmiUnit
+    :: Functor f
+    => (Maybe StandardUnit
+    -> f (Maybe StandardUnit))
+    -> DescribeAlarmsForMetric
+    -> f DescribeAlarmsForMetric
+dafmiUnit f x =
+    (\y -> x { _dafmiUnit = y })
+       <$> f (_dafmiUnit x)
+{-# INLINE dafmiUnit #-}
+
+-- | The statistic for the metric.
+dafmiStatistic
+    :: Functor f
+    => (Maybe Statistic
+    -> f (Maybe Statistic))
+    -> DescribeAlarmsForMetric
+    -> f DescribeAlarmsForMetric
+dafmiStatistic f x =
+    (\y -> x { _dafmiStatistic = y })
+       <$> f (_dafmiStatistic x)
+{-# INLINE dafmiStatistic #-}
 
 instance ToQuery DescribeAlarmsForMetric where
     toQuery = genericQuery def
@@ -64,7 +151,17 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
       -- ^ A list of information for each alarm with the specified metric.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAlarmsForMetricResponse
+-- | A list of information for each alarm with the specified metric.
+dafmoMetricAlarms
+    :: Functor f
+    => ([MetricAlarm]
+    -> f ([MetricAlarm]))
+    -> DescribeAlarmsForMetricResponse
+    -> f DescribeAlarmsForMetricResponse
+dafmoMetricAlarms f x =
+    (\y -> x { _dafmoMetricAlarms = y })
+       <$> f (_dafmoMetricAlarms x)
+{-# INLINE dafmoMetricAlarms #-}
 
 instance FromXML DescribeAlarmsForMetricResponse where
     fromXMLOptions = xmlOptions

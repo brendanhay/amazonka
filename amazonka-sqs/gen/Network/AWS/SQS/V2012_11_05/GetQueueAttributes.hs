@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -67,14 +66,28 @@
 -- &Expires=2013-10-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- VisibilityTimeout 30 DelaySeconds 0 ReceiveMessageWaitTimeSeconds 2.
-module Network.AWS.SQS.V2012_11_05.GetQueueAttributes where
+module Network.AWS.SQS.V2012_11_05.GetQueueAttributes
+    (
+    -- * Request
+      GetQueueAttributes
+    -- ** Request constructor
+    , getQueueAttributes
+    -- ** Request lenses
+    , gqarQueueUrl
+    , gqarAttributeNames
+
+    -- * Response
+    , GetQueueAttributesResponse
+    -- ** Response lenses
+    , gqasAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetQueueAttributes' request.
-getQueueAttributes :: Text -- ^ '_gqarQueueUrl'
+getQueueAttributes :: Text -- ^ 'gqarQueueUrl'
                    -> GetQueueAttributes
 getQueueAttributes p1 = GetQueueAttributes
     { _gqarQueueUrl = p1
@@ -88,7 +101,29 @@ data GetQueueAttributes = GetQueueAttributes
       -- ^ A list of attributes to retrieve information for.
     } deriving (Show, Generic)
 
-makeLenses ''GetQueueAttributes
+-- | The URL of the Amazon SQS queue to take action on.
+gqarQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetQueueAttributes
+    -> f GetQueueAttributes
+gqarQueueUrl f x =
+    (\y -> x { _gqarQueueUrl = y })
+       <$> f (_gqarQueueUrl x)
+{-# INLINE gqarQueueUrl #-}
+
+-- | A list of attributes to retrieve information for.
+gqarAttributeNames
+    :: Functor f
+    => ([QueueAttributeName]
+    -> f ([QueueAttributeName]))
+    -> GetQueueAttributes
+    -> f GetQueueAttributes
+gqarAttributeNames f x =
+    (\y -> x { _gqarAttributeNames = y })
+       <$> f (_gqarAttributeNames x)
+{-# INLINE gqarAttributeNames #-}
 
 instance ToQuery GetQueueAttributes where
     toQuery = genericQuery def
@@ -98,7 +133,17 @@ data GetQueueAttributesResponse = GetQueueAttributesResponse
       -- ^ A map of attributes to the respective values.
     } deriving (Show, Generic)
 
-makeLenses ''GetQueueAttributesResponse
+-- | A map of attributes to the respective values.
+gqasAttributes
+    :: Functor f
+    => (Map QueueAttributeName Text
+    -> f (Map QueueAttributeName Text))
+    -> GetQueueAttributesResponse
+    -> f GetQueueAttributesResponse
+gqasAttributes f x =
+    (\y -> x { _gqasAttributes = y })
+       <$> f (_gqasAttributes x)
+{-# INLINE gqasAttributes #-}
 
 instance FromXML GetQueueAttributesResponse where
     fromXMLOptions = xmlOptions

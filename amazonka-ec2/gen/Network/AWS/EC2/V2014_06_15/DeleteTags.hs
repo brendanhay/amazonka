@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,12 +44,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteTags
     (
     -- * Request
       DeleteTags
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteTags
-    -- ** Accessors and lenses
-    , _dtrResources
+    -- ** Request lenses
     , dtrResources
-    , _dtrTags
     , dtrTags
 
     -- * Response
@@ -70,8 +67,43 @@ deleteTags p1 = DeleteTags
     }
 
 data DeleteTags = DeleteTags
+    { _dtrResources :: [Text]
+      -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
+      -- specify more than one resource ID.
+    , _dtrTags :: [Tag]
+      -- ^ One or more tags to delete. If you omit the value parameter, we
+      -- delete the tag regardless of its value. If you specify this
+      -- parameter with an empty string as the value, we delete the key
+      -- only if its value is an empty string.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteTags
+-- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
+-- than one resource ID.
+dtrResources
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DeleteTags
+    -> f DeleteTags
+dtrResources f x =
+    (\y -> x { _dtrResources = y })
+       <$> f (_dtrResources x)
+{-# INLINE dtrResources #-}
+
+-- | One or more tags to delete. If you omit the value parameter, we delete the
+-- tag regardless of its value. If you specify this parameter with an empty
+-- string as the value, we delete the key only if its value is an empty
+-- string.
+dtrTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> DeleteTags
+    -> f DeleteTags
+dtrTags f x =
+    (\y -> x { _dtrTags = y })
+       <$> f (_dtrTags x)
+{-# INLINE dtrTags #-}
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def
@@ -79,21 +111,9 @@ instance ToQuery DeleteTags where
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteTagsResponse
-
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2
     type Rs DeleteTags = DeleteTagsResponse
 
     request = post "DeleteTags"
     response _ = nullaryResponse DeleteTagsResponse
-
--- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
--- than one resource ID.
-dtrResources :: Lens' DeleteTags ([Text])
-
--- | One or more tags to delete. If you omit the value parameter, we delete the
--- tag regardless of its value. If you specify this parameter with an empty
--- string as the value, we delete the key only if its value is an empty
--- string.
-dtrTags :: Lens' DeleteTags ([Tag])

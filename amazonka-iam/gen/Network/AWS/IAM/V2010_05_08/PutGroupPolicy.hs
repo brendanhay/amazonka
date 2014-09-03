@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,11 +30,35 @@
 -- &PolicyName=AdminRoot
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.PutGroupPolicy where
+module Network.AWS.IAM.V2010_05_08.PutGroupPolicy
+    (
+    -- * Request
+      PutGroupPolicy
+    -- ** Request constructor
+    , putGroupPolicy
+    -- ** Request lenses
+    , pgprGroupName
+    , pgprPolicyDocument
+    , pgprPolicyName
+
+    -- * Response
+    , PutGroupPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'PutGroupPolicy' request.
+putGroupPolicy :: Text -- ^ 'pgprGroupName'
+               -> Text -- ^ 'pgprPolicyDocument'
+               -> Text -- ^ 'pgprPolicyName'
+               -> PutGroupPolicy
+putGroupPolicy p1 p2 p3 = PutGroupPolicy
+    { _pgprGroupName = p1
+    , _pgprPolicyDocument = p2
+    , _pgprPolicyName = p3
+    }
 
 data PutGroupPolicy = PutGroupPolicy
     { _pgprGroupName :: Text
@@ -46,15 +69,47 @@ data PutGroupPolicy = PutGroupPolicy
       -- ^ Name of the policy document.
     } deriving (Show, Generic)
 
-makeLenses ''PutGroupPolicy
+-- | Name of the group to associate the policy with.
+pgprGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutGroupPolicy
+    -> f PutGroupPolicy
+pgprGroupName f x =
+    (\y -> x { _pgprGroupName = y })
+       <$> f (_pgprGroupName x)
+{-# INLINE pgprGroupName #-}
+
+-- | The policy document.
+pgprPolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutGroupPolicy
+    -> f PutGroupPolicy
+pgprPolicyDocument f x =
+    (\y -> x { _pgprPolicyDocument = y })
+       <$> f (_pgprPolicyDocument x)
+{-# INLINE pgprPolicyDocument #-}
+
+-- | Name of the policy document.
+pgprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutGroupPolicy
+    -> f PutGroupPolicy
+pgprPolicyName f x =
+    (\y -> x { _pgprPolicyName = y })
+       <$> f (_pgprPolicyName x)
+{-# INLINE pgprPolicyName #-}
 
 instance ToQuery PutGroupPolicy where
     toQuery = genericQuery def
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutGroupPolicyResponse
 
 instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM

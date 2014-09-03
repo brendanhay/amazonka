@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -74,22 +73,17 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnection
     (
     -- * Request
       CreateVpnConnection
-    -- ** Default constructor
+    -- ** Request constructor
     , createVpnConnection
-    -- ** Accessors and lenses
-    , _cvcrType
+    -- ** Request lenses
     , cvcrType
-    , _cvcrCustomerGatewayId
     , cvcrCustomerGatewayId
-    , _cvcrVpnGatewayId
     , cvcrVpnGatewayId
-    , _cvcrOptions
     , cvcrOptions
 
     -- * Response
     , CreateVpnConnectionResponse
-    -- ** Accessors and lenses
-    , _cvcsVpnConnection
+    -- ** Response lenses
     , cvcsVpnConnection
     ) where
 
@@ -110,8 +104,67 @@ createVpnConnection p1 p2 p3 = CreateVpnConnection
     }
 
 data CreateVpnConnection = CreateVpnConnection
+    { _cvcrType :: Text
+      -- ^ The type of VPN connection.
+    , _cvcrCustomerGatewayId :: Text
+      -- ^ The ID of the customer gateway.
+    , _cvcrVpnGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
+    , _cvcrOptions :: Maybe VpnConnectionOptionsSpecification
+      -- ^ Indicates whether the VPN connection requires static routes. If
+      -- you are creating a VPN connection for a device that does not
+      -- support BGP, you must specify true. Default: false.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpnConnection
+-- | The type of VPN connection.
+cvcrType
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVpnConnection
+    -> f CreateVpnConnection
+cvcrType f x =
+    (\y -> x { _cvcrType = y })
+       <$> f (_cvcrType x)
+{-# INLINE cvcrType #-}
+
+-- | The ID of the customer gateway.
+cvcrCustomerGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVpnConnection
+    -> f CreateVpnConnection
+cvcrCustomerGatewayId f x =
+    (\y -> x { _cvcrCustomerGatewayId = y })
+       <$> f (_cvcrCustomerGatewayId x)
+{-# INLINE cvcrCustomerGatewayId #-}
+
+-- | The ID of the virtual private gateway.
+cvcrVpnGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVpnConnection
+    -> f CreateVpnConnection
+cvcrVpnGatewayId f x =
+    (\y -> x { _cvcrVpnGatewayId = y })
+       <$> f (_cvcrVpnGatewayId x)
+{-# INLINE cvcrVpnGatewayId #-}
+
+-- | Indicates whether the VPN connection requires static routes. If you are
+-- creating a VPN connection for a device that does not support BGP, you must
+-- specify true. Default: false.
+cvcrOptions
+    :: Functor f
+    => (Maybe VpnConnectionOptionsSpecification
+    -> f (Maybe VpnConnectionOptionsSpecification))
+    -> CreateVpnConnection
+    -> f CreateVpnConnection
+cvcrOptions f x =
+    (\y -> x { _cvcrOptions = y })
+       <$> f (_cvcrOptions x)
+{-# INLINE cvcrOptions #-}
 
 instance ToQuery CreateVpnConnection where
     toQuery = genericQuery def
@@ -121,7 +174,17 @@ data CreateVpnConnectionResponse = CreateVpnConnectionResponse
       -- ^ Information about the VPN connection.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpnConnectionResponse
+-- | Information about the VPN connection.
+cvcsVpnConnection
+    :: Functor f
+    => (Maybe VpnConnection
+    -> f (Maybe VpnConnection))
+    -> CreateVpnConnectionResponse
+    -> f CreateVpnConnectionResponse
+cvcsVpnConnection f x =
+    (\y -> x { _cvcsVpnConnection = y })
+       <$> f (_cvcsVpnConnection x)
+{-# INLINE cvcsVpnConnection #-}
 
 instance FromXML CreateVpnConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -132,20 +195,3 @@ instance AWSRequest CreateVpnConnection where
 
     request = post "CreateVpnConnection"
     response _ = xmlResponse
-
--- | The type of VPN connection.
-cvcrType :: Lens' CreateVpnConnection (Text)
-
--- | The ID of the customer gateway.
-cvcrCustomerGatewayId :: Lens' CreateVpnConnection (Text)
-
--- | The ID of the virtual private gateway.
-cvcrVpnGatewayId :: Lens' CreateVpnConnection (Text)
-
--- | Indicates whether the VPN connection requires static routes. If you are
--- creating a VPN connection for a device that does not support BGP, you must
--- specify true. Default: false.
-cvcrOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
-
--- | Information about the VPN connection.
-cvcsVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)

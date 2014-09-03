@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,11 +32,34 @@
 -- &LoadBalancerName=MyHTTPSLoadBalancer &Version=2012-06-01
 -- &Action=DisableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1b
 -- ba6267d5-2566-11e3-9c6d-eb728EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer
+    (
+    -- * Request
+      DisableAvailabilityZonesForLoadBalancer
+    -- ** Request constructor
+    , disableAvailabilityZonesForLoadBalancer
+    -- ** Request lenses
+    , raziLoadBalancerName
+    , raziAvailabilityZones
+
+    -- * Response
+    , DisableAvailabilityZonesForLoadBalancerResponse
+    -- ** Response lenses
+    , razoAvailabilityZones
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DisableAvailabilityZonesForLoadBalancer' request.
+disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'raziLoadBalancerName'
+                                        -> [Text] -- ^ 'raziAvailabilityZones'
+                                        -> DisableAvailabilityZonesForLoadBalancer
+disableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadBalancer
+    { _raziLoadBalancerName = p1
+    , _raziAvailabilityZones = p2
+    }
 
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
     { _raziLoadBalancerName :: Text
@@ -49,7 +71,31 @@ data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBa
       -- must be in the same region.
     } deriving (Show, Generic)
 
-makeLenses ''DisableAvailabilityZonesForLoadBalancer
+-- | The name associated with the load balancer.
+raziLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DisableAvailabilityZonesForLoadBalancer
+    -> f DisableAvailabilityZonesForLoadBalancer
+raziLoadBalancerName f x =
+    (\y -> x { _raziLoadBalancerName = y })
+       <$> f (_raziLoadBalancerName x)
+{-# INLINE raziLoadBalancerName #-}
+
+-- | A list of Availability Zones to be removed from the load balancer. There
+-- must be at least one Availability Zone registered with a load balancer at
+-- all times. Specified Availability Zones must be in the same region.
+raziAvailabilityZones
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DisableAvailabilityZonesForLoadBalancer
+    -> f DisableAvailabilityZonesForLoadBalancer
+raziAvailabilityZones f x =
+    (\y -> x { _raziAvailabilityZones = y })
+       <$> f (_raziAvailabilityZones x)
+{-# INLINE raziAvailabilityZones #-}
 
 instance ToQuery DisableAvailabilityZonesForLoadBalancer where
     toQuery = genericQuery def
@@ -59,7 +105,17 @@ data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesF
       -- ^ A list of updated Availability Zones for the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''DisableAvailabilityZonesForLoadBalancerResponse
+-- | A list of updated Availability Zones for the load balancer.
+razoAvailabilityZones
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DisableAvailabilityZonesForLoadBalancerResponse
+    -> f DisableAvailabilityZonesForLoadBalancerResponse
+razoAvailabilityZones f x =
+    (\y -> x { _razoAvailabilityZones = y })
+       <$> f (_razoAvailabilityZones x)
+{-# INLINE razoAvailabilityZones #-}
 
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

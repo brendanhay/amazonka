@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,14 +30,11 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry
     (
     -- * Request
       DeleteNetworkAclEntry
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteNetworkAclEntry
-    -- ** Accessors and lenses
-    , _dnaerEgress
+    -- ** Request lenses
     , dnaerEgress
-    , _dnaerRuleNumber
     , dnaerRuleNumber
-    , _dnaerNetworkAclId
     , dnaerNetworkAclId
 
     -- * Response
@@ -61,8 +57,49 @@ deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     }
 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
+    { _dnaerEgress :: Bool
+      -- ^ Indicates whether the rule is an egress rule.
+    , _dnaerRuleNumber :: Integer
+      -- ^ The rule number of the entry to delete.
+    , _dnaerNetworkAclId :: Text
+      -- ^ The ID of the network ACL.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteNetworkAclEntry
+-- | Indicates whether the rule is an egress rule.
+dnaerEgress
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> DeleteNetworkAclEntry
+    -> f DeleteNetworkAclEntry
+dnaerEgress f x =
+    (\y -> x { _dnaerEgress = y })
+       <$> f (_dnaerEgress x)
+{-# INLINE dnaerEgress #-}
+
+-- | The rule number of the entry to delete.
+dnaerRuleNumber
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> DeleteNetworkAclEntry
+    -> f DeleteNetworkAclEntry
+dnaerRuleNumber f x =
+    (\y -> x { _dnaerRuleNumber = y })
+       <$> f (_dnaerRuleNumber x)
+{-# INLINE dnaerRuleNumber #-}
+
+-- | The ID of the network ACL.
+dnaerNetworkAclId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteNetworkAclEntry
+    -> f DeleteNetworkAclEntry
+dnaerNetworkAclId f x =
+    (\y -> x { _dnaerNetworkAclId = y })
+       <$> f (_dnaerNetworkAclId x)
+{-# INLINE dnaerNetworkAclId #-}
 
 instance ToQuery DeleteNetworkAclEntry where
     toQuery = genericQuery def
@@ -70,20 +107,9 @@ instance ToQuery DeleteNetworkAclEntry where
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteNetworkAclEntryResponse
-
 instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
     request = post "DeleteNetworkAclEntry"
     response _ = nullaryResponse DeleteNetworkAclEntryResponse
-
--- | Indicates whether the rule is an egress rule.
-dnaerEgress :: Lens' DeleteNetworkAclEntry (Bool)
-
--- | The rule number of the entry to delete.
-dnaerRuleNumber :: Lens' DeleteNetworkAclEntry (Integer)
-
--- | The ID of the network ACL.
-dnaerNetworkAclId :: Lens' DeleteNetworkAclEntry (Text)

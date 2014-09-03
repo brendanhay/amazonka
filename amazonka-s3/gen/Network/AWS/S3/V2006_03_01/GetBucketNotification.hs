@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,46 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Return the notification configuration of a bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketNotification where
+module Network.AWS.S3.V2006_03_01.GetBucketNotification
+    (
+    -- * Request
+      GetBucketNotification
+    -- ** Request constructor
+    , getBucketNotification
+    -- ** Request lenses
+    , gbnrBucket
+
+    -- * Response
+    , GetBucketNotificationResponse
+    -- ** Response lenses
+    , gbnoTopicConfiguration
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketNotification' request.
+getBucketNotification :: BucketName -- ^ 'gbnrBucket'
+                      -> GetBucketNotification
+getBucketNotification p1 = GetBucketNotification
+    { _gbnrBucket = p1
+    }
+
 data GetBucketNotification = GetBucketNotification
     { _gbnrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketNotification
+gbnrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketNotification
+    -> f GetBucketNotification
+gbnrBucket f x =
+    (\y -> x { _gbnrBucket = y })
+       <$> f (_gbnrBucket x)
+{-# INLINE gbnrBucket #-}
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
@@ -50,7 +78,16 @@ data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketNotificationResponse
+gbnoTopicConfiguration
+    :: Functor f
+    => (Maybe TopicConfiguration
+    -> f (Maybe TopicConfiguration))
+    -> GetBucketNotificationResponse
+    -> f GetBucketNotificationResponse
+gbnoTopicConfiguration f x =
+    (\y -> x { _gbnoTopicConfiguration = y })
+       <$> f (_gbnoTopicConfiguration x)
+{-# INLINE gbnoTopicConfiguration #-}
 
 instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions

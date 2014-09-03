@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,10 +31,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions
     (
     -- * Request
       DeleteDhcpOptions
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteDhcpOptions
-    -- ** Accessors and lenses
-    , _ddorDhcpOptionsId
+    -- ** Request lenses
     , ddorDhcpOptionsId
 
     -- * Response
@@ -54,8 +52,21 @@ deleteDhcpOptions p1 = DeleteDhcpOptions
     }
 
 data DeleteDhcpOptions = DeleteDhcpOptions
+    { _ddorDhcpOptionsId :: Text
+      -- ^ The ID of the DHCP options set.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteDhcpOptions
+-- | The ID of the DHCP options set.
+ddorDhcpOptionsId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDhcpOptions
+    -> f DeleteDhcpOptions
+ddorDhcpOptionsId f x =
+    (\y -> x { _ddorDhcpOptionsId = y })
+       <$> f (_ddorDhcpOptionsId x)
+{-# INLINE ddorDhcpOptionsId #-}
 
 instance ToQuery DeleteDhcpOptions where
     toQuery = genericQuery def
@@ -63,14 +74,9 @@ instance ToQuery DeleteDhcpOptions where
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteDhcpOptionsResponse
-
 instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
 
     request = post "DeleteDhcpOptions"
     response _ = nullaryResponse DeleteDhcpOptionsResponse
-
--- | The ID of the DHCP options set.
-ddorDhcpOptionsId :: Lens' DeleteDhcpOptions (Text)

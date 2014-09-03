@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,11 +29,32 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;d170b150-33a8-11df-995a-2d6fbe836cc1&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/RemovePermissionResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.RemovePermission where
+module Network.AWS.SNS.V2010_03_31.RemovePermission
+    (
+    -- * Request
+      RemovePermission
+    -- ** Request constructor
+    , removePermission
+    -- ** Request lenses
+    , rpiLabel
+    , rpiTopicArn
+
+    -- * Response
+    , RemovePermissionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RemovePermission' request.
+removePermission :: Text -- ^ 'rpiLabel'
+                 -> Text -- ^ 'rpiTopicArn'
+                 -> RemovePermission
+removePermission p1 p2 = RemovePermission
+    { _rpiLabel = p1
+    , _rpiTopicArn = p2
+    }
 
 data RemovePermission = RemovePermission
     { _rpiLabel :: Text
@@ -44,15 +64,35 @@ data RemovePermission = RemovePermission
       -- modify.
     } deriving (Show, Generic)
 
-makeLenses ''RemovePermission
+-- | The unique label of the statement you want to remove.
+rpiLabel
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemovePermission
+    -> f RemovePermission
+rpiLabel f x =
+    (\y -> x { _rpiLabel = y })
+       <$> f (_rpiLabel x)
+{-# INLINE rpiLabel #-}
+
+-- | The ARN of the topic whose access control policy you wish to modify.
+rpiTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemovePermission
+    -> f RemovePermission
+rpiTopicArn f x =
+    (\y -> x { _rpiTopicArn = y })
+       <$> f (_rpiTopicArn x)
+{-# INLINE rpiTopicArn #-}
 
 instance ToQuery RemovePermission where
     toQuery = genericQuery def
 
 data RemovePermissionResponse = RemovePermissionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemovePermissionResponse
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SNS

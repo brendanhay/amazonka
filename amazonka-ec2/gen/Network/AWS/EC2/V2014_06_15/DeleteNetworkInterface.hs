@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,10 +30,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface
     (
     -- * Request
       DeleteNetworkInterface
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteNetworkInterface
-    -- ** Accessors and lenses
-    , _dnirNetworkInterfaceId
+    -- ** Request lenses
     , dnirNetworkInterfaceId
 
     -- * Response
@@ -53,8 +51,21 @@ deleteNetworkInterface p1 = DeleteNetworkInterface
     }
 
 data DeleteNetworkInterface = DeleteNetworkInterface
+    { _dnirNetworkInterfaceId :: Text
+      -- ^ The ID of the network interface.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteNetworkInterface
+-- | The ID of the network interface.
+dnirNetworkInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteNetworkInterface
+    -> f DeleteNetworkInterface
+dnirNetworkInterfaceId f x =
+    (\y -> x { _dnirNetworkInterfaceId = y })
+       <$> f (_dnirNetworkInterfaceId x)
+{-# INLINE dnirNetworkInterfaceId #-}
 
 instance ToQuery DeleteNetworkInterface where
     toQuery = genericQuery def
@@ -62,14 +73,9 @@ instance ToQuery DeleteNetworkInterface where
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteNetworkInterfaceResponse
-
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
 
     request = post "DeleteNetworkInterface"
     response _ = nullaryResponse DeleteNetworkInterfaceResponse
-
--- | The ID of the network interface.
-dnirNetworkInterfaceId :: Lens' DeleteNetworkInterface (Text)

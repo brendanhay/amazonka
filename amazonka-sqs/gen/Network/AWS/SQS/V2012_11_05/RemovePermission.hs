@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,29 +27,71 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- f8bdb362-6616-42c0-977a-ce9a8bcce3bb.
-module Network.AWS.SQS.V2012_11_05.RemovePermission where
+module Network.AWS.SQS.V2012_11_05.RemovePermission
+    (
+    -- * Request
+      RemovePermission
+    -- ** Request constructor
+    , removePermission
+    -- ** Request lenses
+    , rprQueueUrl
+    , rprLabel
+
+    -- * Response
+    , RemovePermissionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'RemovePermission' request.
+removePermission :: Text -- ^ 'rprQueueUrl'
+                 -> Text -- ^ 'rprLabel'
+                 -> RemovePermission
+removePermission p1 p2 = RemovePermission
+    { _rprQueueUrl = p1
+    , _rprLabel = p2
+    }
+
 data RemovePermission = RemovePermission
-    { _rprLabel :: Text
+    { _rprQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
+    , _rprLabel :: Text
       -- ^ The identification of the permission to remove. This is the label
       -- added with the AddPermission action.
-    , _rprQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
-makeLenses ''RemovePermission
+-- | The URL of the Amazon SQS queue to take action on.
+rprQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemovePermission
+    -> f RemovePermission
+rprQueueUrl f x =
+    (\y -> x { _rprQueueUrl = y })
+       <$> f (_rprQueueUrl x)
+{-# INLINE rprQueueUrl #-}
+
+-- | The identification of the permission to remove. This is the label added
+-- with the AddPermission action.
+rprLabel
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemovePermission
+    -> f RemovePermission
+rprLabel f x =
+    (\y -> x { _rprLabel = y })
+       <$> f (_rprLabel x)
+{-# INLINE rprLabel #-}
 
 instance ToQuery RemovePermission where
     toQuery = genericQuery def
 
 data RemovePermissionResponse = RemovePermissionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemovePermissionResponse
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SQS

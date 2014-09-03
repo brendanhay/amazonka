@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,11 +26,31 @@
 -- "Update:*", "Principal" : "*", "Resource" :
 -- "LogicalResourceId/ProductionDatabase" }, { "Effect" : "Allow", "Action" :
 -- "Update:*", "Principal" : "*", "Resource" : "*" } ] }.
-module Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy where
+module Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
+    (
+    -- * Request
+      GetStackPolicy
+    -- ** Request constructor
+    , getStackPolicy
+    -- ** Request lenses
+    , gspiStackName
+
+    -- * Response
+    , GetStackPolicyResponse
+    -- ** Response lenses
+    , gspoStackPolicyBody
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetStackPolicy' request.
+getStackPolicy :: Text -- ^ 'gspiStackName'
+               -> GetStackPolicy
+getStackPolicy p1 = GetStackPolicy
+    { _gspiStackName = p1
+    }
 
 data GetStackPolicy = GetStackPolicy
     { _gspiStackName :: Text
@@ -39,7 +58,18 @@ data GetStackPolicy = GetStackPolicy
       -- policy you want to get.
     } deriving (Show, Generic)
 
-makeLenses ''GetStackPolicy
+-- | The name or stack ID that is associated with the stack whose policy you
+-- want to get.
+gspiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetStackPolicy
+    -> f GetStackPolicy
+gspiStackName f x =
+    (\y -> x { _gspiStackName = y })
+       <$> f (_gspiStackName x)
+{-# INLINE gspiStackName #-}
 
 instance ToQuery GetStackPolicy where
     toQuery = genericQuery def
@@ -51,7 +81,18 @@ data GetStackPolicyResponse = GetStackPolicyResponse
       -- CloudFormation User Guide.).
     } deriving (Show, Generic)
 
-makeLenses ''GetStackPolicyResponse
+-- | Structure containing the stack policy body. (For more information, go to
+-- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).
+gspoStackPolicyBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetStackPolicyResponse
+    -> f GetStackPolicyResponse
+gspoStackPolicyBody f x =
+    (\y -> x { _gspoStackPolicyBody = y })
+       <$> f (_gspoStackPolicyBody x)
+{-# INLINE gspoStackPolicyBody #-}
 
 instance FromXML GetStackPolicyResponse where
     fromXMLOptions = xmlOptions

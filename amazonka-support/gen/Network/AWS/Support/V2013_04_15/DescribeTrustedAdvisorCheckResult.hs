@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,21 @@
 -- fields: Status. The alert status of the check: "ok" (green), "warning"
 -- (yellow), "error" (red), or "not_available". Timestamp. The time of the
 -- last refresh of the check. CheckId. The unique identifier for the check.
-module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult where
+module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
+    (
+    -- * Request
+      DescribeTrustedAdvisorCheckResult
+    -- ** Request constructor
+    , describeTrustedAdvisorCheckResult
+    -- ** Request lenses
+    , dtacrrCheckId
+    , dtacrrLanguage
+
+    -- * Response
+    , DescribeTrustedAdvisorCheckResultResponse
+    -- ** Response lenses
+    , dtacrsResult
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
@@ -35,7 +48,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeTrustedAdvisorCheckResult' request.
-describeTrustedAdvisorCheckResult :: Text -- ^ '_dtacrrCheckId'
+describeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrrCheckId'
                                   -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
     { _dtacrrCheckId = p1
@@ -52,7 +65,31 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
       -- for operations that take them.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTrustedAdvisorCheckResult
+-- | The unique identifier for the Trusted Advisor check.
+dtacrrCheckId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeTrustedAdvisorCheckResult
+    -> f DescribeTrustedAdvisorCheckResult
+dtacrrCheckId f x =
+    (\y -> x { _dtacrrCheckId = y })
+       <$> f (_dtacrrCheckId x)
+{-# INLINE dtacrrCheckId #-}
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English ("en") and Japanese ("ja"). Language
+-- parameters must be passed explicitly for operations that take them.
+dtacrrLanguage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTrustedAdvisorCheckResult
+    -> f DescribeTrustedAdvisorCheckResult
+dtacrrLanguage f x =
+    (\y -> x { _dtacrrLanguage = y })
+       <$> f (_dtacrrLanguage x)
+{-# INLINE dtacrrLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorCheckResult
 
@@ -67,7 +104,17 @@ data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResu
       -- ^ The detailed results of the Trusted Advisor check.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTrustedAdvisorCheckResultResponse
+-- | The detailed results of the Trusted Advisor check.
+dtacrsResult
+    :: Functor f
+    => (Maybe TrustedAdvisorCheckResult
+    -> f (Maybe TrustedAdvisorCheckResult))
+    -> DescribeTrustedAdvisorCheckResultResponse
+    -> f DescribeTrustedAdvisorCheckResultResponse
+dtacrsResult f x =
+    (\y -> x { _dtacrsResult = y })
+       <$> f (_dtacrsResult x)
+{-# INLINE dtacrsResult #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckResultResponse
 

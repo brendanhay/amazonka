@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,11 +21,32 @@
 -- the user name for which it was originally enabled.
 -- https://iam.amazonaws.com/ ?Action=DeactivateMFADevice &UserName=Bob
 -- &SerialNumber=R1234 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeactivateMFADevice where
+module Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
+    (
+    -- * Request
+      DeactivateMFADevice
+    -- ** Request constructor
+    , deactivateMFADevice
+    -- ** Request lenses
+    , dmfadrUserName
+    , dmfadrSerialNumber
+
+    -- * Response
+    , DeactivateMFADeviceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeactivateMFADevice' request.
+deactivateMFADevice :: Text -- ^ 'dmfadrUserName'
+                    -> Text -- ^ 'dmfadrSerialNumber'
+                    -> DeactivateMFADevice
+deactivateMFADevice p1 p2 = DeactivateMFADevice
+    { _dmfadrUserName = p1
+    , _dmfadrSerialNumber = p2
+    }
 
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadrUserName :: Text
@@ -36,15 +56,36 @@ data DeactivateMFADevice = DeactivateMFADevice
       -- virtual MFA devices, the serial number is the device ARN.
     } deriving (Show, Generic)
 
-makeLenses ''DeactivateMFADevice
+-- | Name of the user whose MFA device you want to deactivate.
+dmfadrUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeactivateMFADevice
+    -> f DeactivateMFADevice
+dmfadrUserName f x =
+    (\y -> x { _dmfadrUserName = y })
+       <$> f (_dmfadrUserName x)
+{-# INLINE dmfadrUserName #-}
+
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA
+-- devices, the serial number is the device ARN.
+dmfadrSerialNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeactivateMFADevice
+    -> f DeactivateMFADevice
+dmfadrSerialNumber f x =
+    (\y -> x { _dmfadrSerialNumber = y })
+       <$> f (_dmfadrSerialNumber x)
+{-# INLINE dmfadrSerialNumber #-}
 
 instance ToQuery DeactivateMFADevice where
     toQuery = genericQuery def
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeactivateMFADeviceResponse
 
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,12 +23,35 @@
 -- specify the gateway Amazon Resource Name (ARN) to which you want to add
 -- upload buffer, and one or more disk IDs that you want to configure as
 -- upload buffer.
-module Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer where
+module Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
+    (
+    -- * Request
+      AddUploadBuffer
+    -- ** Request constructor
+    , addUploadBuffer
+    -- ** Request lenses
+    , aubiDiskIds
+    , aubiGatewayARN
+
+    -- * Response
+    , AddUploadBufferResponse
+    -- ** Response lenses
+    , auboGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'AddUploadBuffer' request.
+addUploadBuffer :: [Text] -- ^ 'aubiDiskIds'
+                -> Text -- ^ 'aubiGatewayARN'
+                -> AddUploadBuffer
+addUploadBuffer p1 p2 = AddUploadBuffer
+    { _aubiDiskIds = p1
+    , _aubiGatewayARN = p2
+    }
 
 data AddUploadBuffer = AddUploadBuffer
     { _aubiDiskIds :: [Text]
@@ -39,7 +61,29 @@ data AddUploadBuffer = AddUploadBuffer
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''AddUploadBuffer
+aubiDiskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddUploadBuffer
+    -> f AddUploadBuffer
+aubiDiskIds f x =
+    (\y -> x { _aubiDiskIds = y })
+       <$> f (_aubiDiskIds x)
+{-# INLINE aubiDiskIds #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+aubiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddUploadBuffer
+    -> f AddUploadBuffer
+aubiGatewayARN f x =
+    (\y -> x { _aubiGatewayARN = y })
+       <$> f (_aubiGatewayARN x)
+{-# INLINE aubiGatewayARN #-}
 
 instance ToPath AddUploadBuffer
 
@@ -56,7 +100,18 @@ data AddUploadBufferResponse = AddUploadBufferResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''AddUploadBufferResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+auboGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddUploadBufferResponse
+    -> f AddUploadBufferResponse
+auboGatewayARN f x =
+    (\y -> x { _auboGatewayARN = y })
+       <$> f (_auboGatewayARN x)
+{-# INLINE auboGatewayARN #-}
 
 instance FromJSON AddUploadBufferResponse
 

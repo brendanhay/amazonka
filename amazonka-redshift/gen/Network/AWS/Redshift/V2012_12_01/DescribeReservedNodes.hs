@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,23 @@
 -- 93bbbca2-e88c-4b8b-a600-b64eaabf18a3 2013-01-23T21:49:32.517Z Medium
 -- Utilization 31536000 800.0 0.158 payment-pending dw1.xlarge 1
 -- bbcd9749-f2ea-4d01-9b1b-b576f618eb4e 24dc90c8-672d-11e2-b2e1-8f41f0379151.
-module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodes where
+module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodes
+    (
+    -- * Request
+      DescribeReservedNodes
+    -- ** Request constructor
+    , describeReservedNodes
+    -- ** Request lenses
+    , drnmMaxRecords
+    , drnmReservedNodeId
+    , drnmMarker
+
+    -- * Response
+    , DescribeReservedNodesResponse
+    -- ** Response lenses
+    , rnmReservedNodes
+    , rnmMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -40,8 +55,8 @@ import Network.AWS.Prelude
 describeReservedNodes :: DescribeReservedNodes
 describeReservedNodes = DescribeReservedNodes
     { _drnmMaxRecords = Nothing
-    , _drnmMarker = Nothing
     , _drnmReservedNodeId = Nothing
+    , _drnmMarker = Nothing
     }
 
 data DescribeReservedNodes = DescribeReservedNodes
@@ -52,6 +67,8 @@ data DescribeReservedNodes = DescribeReservedNodes
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
+    , _drnmReservedNodeId :: Maybe Text
+      -- ^ Identifier for the node reservation.
     , _drnmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -60,11 +77,52 @@ data DescribeReservedNodes = DescribeReservedNodes
       -- response. You can retrieve the next set of response records by
       -- providing the returned marker value in the Marker parameter and
       -- retrying the request.
-    , _drnmReservedNodeId :: Maybe Text
-      -- ^ Identifier for the node reservation.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedNodes
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in a marker field of the response. You can
+-- retrieve the next set of records by retrying the command with the returned
+-- marker value. Default: 100 Constraints: minimum 20, maximum 100.
+drnmMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeReservedNodes
+    -> f DescribeReservedNodes
+drnmMaxRecords f x =
+    (\y -> x { _drnmMaxRecords = y })
+       <$> f (_drnmMaxRecords x)
+{-# INLINE drnmMaxRecords #-}
+
+-- | Identifier for the node reservation.
+drnmReservedNodeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReservedNodes
+    -> f DescribeReservedNodes
+drnmReservedNodeId f x =
+    (\y -> x { _drnmReservedNodeId = y })
+       <$> f (_drnmReservedNodeId x)
+{-# INLINE drnmReservedNodeId #-}
+
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a DescribeReservedNodes request
+-- exceed the value specified in MaxRecords, AWS returns a value in the Marker
+-- field of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the Marker parameter and retrying
+-- the request.
+drnmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReservedNodes
+    -> f DescribeReservedNodes
+drnmMarker f x =
+    (\y -> x { _drnmMarker = y })
+       <$> f (_drnmMarker x)
+{-# INLINE drnmMarker #-}
 
 instance ToQuery DescribeReservedNodes where
     toQuery = genericQuery def
@@ -81,7 +139,33 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
       -- records have been retrieved for the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeReservedNodesResponse
+-- | The list of reserved nodes.
+rnmReservedNodes
+    :: Functor f
+    => ([ReservedNode]
+    -> f ([ReservedNode]))
+    -> DescribeReservedNodesResponse
+    -> f DescribeReservedNodesResponse
+rnmReservedNodes f x =
+    (\y -> x { _rnmReservedNodes = y })
+       <$> f (_rnmReservedNodes x)
+{-# INLINE rnmReservedNodes #-}
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker
+-- value in the Marker parameter and retrying the command. If the Marker field
+-- is empty, all response records have been retrieved for the request.
+rnmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReservedNodesResponse
+    -> f DescribeReservedNodesResponse
+rnmMarker f x =
+    (\y -> x { _rnmMarker = y })
+       <$> f (_rnmMarker x)
+{-# INLINE rnmMarker #-}
 
 instance FromXML DescribeReservedNodesResponse where
     fromXMLOptions = xmlOptions

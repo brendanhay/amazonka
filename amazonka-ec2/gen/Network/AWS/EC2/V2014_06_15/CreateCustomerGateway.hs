@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -49,20 +48,16 @@ module Network.AWS.EC2.V2014_06_15.CreateCustomerGateway
     (
     -- * Request
       CreateCustomerGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , createCustomerGateway
-    -- ** Accessors and lenses
-    , _ccgrType
+    -- ** Request lenses
     , ccgrType
-    , _ccgrBgpAsn
     , ccgrBgpAsn
-    , _ccgrPublicIp
     , ccgrPublicIp
 
     -- * Response
     , CreateCustomerGatewayResponse
-    -- ** Accessors and lenses
-    , _ccgsCustomerGateway
+    -- ** Response lenses
     , ccgsCustomerGateway
     ) where
 
@@ -82,8 +77,53 @@ createCustomerGateway p1 p2 p3 = CreateCustomerGateway
     }
 
 data CreateCustomerGateway = CreateCustomerGateway
+    { _ccgrType :: GatewayType
+      -- ^ The type of VPN connection that this customer gateway supports.
+    , _ccgrBgpAsn :: Integer
+      -- ^ For devices that support BGP, the customer gateway's BGP ASN.
+      -- Default: 65000.
+    , _ccgrPublicIp :: Text
+      -- ^ The Internet-routable IP address for the customer gateway's
+      -- outside interface. The address must be static.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateCustomerGateway
+-- | The type of VPN connection that this customer gateway supports.
+ccgrType
+    :: Functor f
+    => (GatewayType
+    -> f (GatewayType))
+    -> CreateCustomerGateway
+    -> f CreateCustomerGateway
+ccgrType f x =
+    (\y -> x { _ccgrType = y })
+       <$> f (_ccgrType x)
+{-# INLINE ccgrType #-}
+
+-- | For devices that support BGP, the customer gateway's BGP ASN. Default:
+-- 65000.
+ccgrBgpAsn
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CreateCustomerGateway
+    -> f CreateCustomerGateway
+ccgrBgpAsn f x =
+    (\y -> x { _ccgrBgpAsn = y })
+       <$> f (_ccgrBgpAsn x)
+{-# INLINE ccgrBgpAsn #-}
+
+-- | The Internet-routable IP address for the customer gateway's outside
+-- interface. The address must be static.
+ccgrPublicIp
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCustomerGateway
+    -> f CreateCustomerGateway
+ccgrPublicIp f x =
+    (\y -> x { _ccgrPublicIp = y })
+       <$> f (_ccgrPublicIp x)
+{-# INLINE ccgrPublicIp #-}
 
 instance ToQuery CreateCustomerGateway where
     toQuery = genericQuery def
@@ -93,7 +133,17 @@ data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
       -- ^ Information about the customer gateway.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateCustomerGatewayResponse
+-- | Information about the customer gateway.
+ccgsCustomerGateway
+    :: Functor f
+    => (Maybe CustomerGateway
+    -> f (Maybe CustomerGateway))
+    -> CreateCustomerGatewayResponse
+    -> f CreateCustomerGatewayResponse
+ccgsCustomerGateway f x =
+    (\y -> x { _ccgsCustomerGateway = y })
+       <$> f (_ccgsCustomerGateway x)
+{-# INLINE ccgsCustomerGateway #-}
 
 instance FromXML CreateCustomerGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -104,17 +154,3 @@ instance AWSRequest CreateCustomerGateway where
 
     request = post "CreateCustomerGateway"
     response _ = xmlResponse
-
--- | The type of VPN connection that this customer gateway supports.
-ccgrType :: Lens' CreateCustomerGateway (GatewayType)
-
--- | For devices that support BGP, the customer gateway's BGP ASN. Default:
--- 65000.
-ccgrBgpAsn :: Lens' CreateCustomerGateway (Integer)
-
--- | The Internet-routable IP address for the customer gateway's outside
--- interface. The address must be static.
-ccgrPublicIp :: Lens' CreateCustomerGateway (Text)
-
--- | Information about the customer gateway.
-ccgsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)

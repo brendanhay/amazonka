@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,10 +32,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpc
     (
     -- * Request
       DeleteVpc
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteVpc
-    -- ** Accessors and lenses
-    , _dvsVpcId
+    -- ** Request lenses
     , dvsVpcId
 
     -- * Response
@@ -55,8 +53,21 @@ deleteVpc p1 = DeleteVpc
     }
 
 data DeleteVpc = DeleteVpc
+    { _dvsVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVpc
+-- | The ID of the VPC.
+dvsVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVpc
+    -> f DeleteVpc
+dvsVpcId f x =
+    (\y -> x { _dvsVpcId = y })
+       <$> f (_dvsVpcId x)
+{-# INLINE dvsVpcId #-}
 
 instance ToQuery DeleteVpc where
     toQuery = genericQuery def
@@ -64,14 +75,9 @@ instance ToQuery DeleteVpc where
 data DeleteVpcResponse = DeleteVpcResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteVpcResponse
-
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2
     type Rs DeleteVpc = DeleteVpcResponse
 
     request = post "DeleteVpc"
     response _ = nullaryResponse DeleteVpcResponse
-
--- | The ID of the VPC.
-dvsVpcId :: Lens' DeleteVpc (Text)

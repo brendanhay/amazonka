@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,7 +39,35 @@
 -- attribute. All of the attributes will be returned. Any attributes that are
 -- not projected into the index will cause DynamoDB to fetch those attributes
 -- from the Thread table; this fetching occurs automatically. { "Count":`17 }.
-module Network.AWS.DynamoDB.V2012_08_10.Query where
+module Network.AWS.DynamoDB.V2012_08_10.Query
+    (
+    -- * Request
+      Query
+    -- ** Request constructor
+    , query
+    -- ** Request lenses
+    , qiTableName
+    , qiAttributesToGet
+    , qiScanIndexForward
+    , qiConditionalOperator
+    , qiConsistentRead
+    , qiQueryFilter
+    , qiIndexName
+    , qiExclusiveStartKey
+    , qiKeyConditions
+    , qiLimit
+    , qiReturnConsumedCapacity
+    , qiSelect
+
+    -- * Response
+    , QueryResponse
+    -- ** Response lenses
+    , qoConsumedCapacity
+    , qoCount
+    , qoScannedCount
+    , qoItems
+    , qoLastEvaluatedKey
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -48,7 +75,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'Query' request.
-query :: Text -- ^ '_qiTableName'
+query :: Text -- ^ 'qiTableName'
       -> Query
 query p1 = Query
     { _qiTableName = p1
@@ -236,7 +263,276 @@ data Query = Query
       -- any value for Select.).
     } deriving (Show, Generic)
 
-makeLenses ''Query
+-- | The name of the table containing the requested items.
+qiTableName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Query
+    -> f Query
+qiTableName f x =
+    (\y -> x { _qiTableName = y })
+       <$> f (_qiTableName x)
+{-# INLINE qiTableName #-}
+
+-- | The names of one or more attributes to retrieve. If no attribute names are
+-- specified, then all attributes will be returned. If any of the requested
+-- attributes are not found, they will not appear in the result. You cannot
+-- use both AttributesToGet and Select together in a Query request, unless the
+-- value for Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to
+-- specifying AttributesToGet without any value for Select.) If you are
+-- querying a local secondary index and request only attributes that are
+-- projected into that index, the operation will read only the index and not
+-- the table. If any of the requested attributes are not projected into the
+-- local secondary index, DynamoDB will fetch each of these attributes from
+-- the parent table. This extra fetching incurs additional throughput cost and
+-- latency. If you are querying a global secondary index, you can only request
+-- attributes that are projected into the index. Global secondary index
+-- queries cannot fetch attributes from the parent table.
+qiAttributesToGet
+    :: Functor f
+    => (Maybe [Text]
+    -> f (Maybe [Text]))
+    -> Query
+    -> f Query
+qiAttributesToGet f x =
+    (\y -> x { _qiAttributesToGet = y })
+       <$> f (_qiAttributesToGet x)
+{-# INLINE qiAttributesToGet #-}
+
+-- | Specifies ascending (true) or descending (false) traversal of the index.
+-- DynamoDB returns results reflecting the requested order determined by the
+-- range key. If the data type is Number, the results are returned in numeric
+-- order. For String, the results are returned in order of ASCII character
+-- code values. For Binary, Amazon DynamoDB treats each byte of the binary
+-- data as unsigned when it compares binary values. If ScanIndexForward is not
+-- specified, the results are returned in ascending order.
+qiScanIndexForward
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> Query
+    -> f Query
+qiScanIndexForward f x =
+    (\y -> x { _qiScanIndexForward = y })
+       <$> f (_qiScanIndexForward x)
+{-# INLINE qiScanIndexForward #-}
+
+qiConditionalOperator
+    :: Functor f
+    => (Maybe ConditionalOperator
+    -> f (Maybe ConditionalOperator))
+    -> Query
+    -> f Query
+qiConditionalOperator f x =
+    (\y -> x { _qiConditionalOperator = y })
+       <$> f (_qiConditionalOperator x)
+{-# INLINE qiConditionalOperator #-}
+
+-- | If set to true, then the operation uses strongly consistent reads;
+-- otherwise, eventually consistent reads are used. Strongly consistent reads
+-- are not supported on global secondary indexes. If you query a global
+-- secondary index with ConsistentRead set to true, you will receive an error
+-- message.
+qiConsistentRead
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> Query
+    -> f Query
+qiConsistentRead f x =
+    (\y -> x { _qiConsistentRead = y })
+       <$> f (_qiConsistentRead x)
+{-# INLINE qiConsistentRead #-}
+
+qiQueryFilter
+    :: Functor f
+    => (Map Text Condition
+    -> f (Map Text Condition))
+    -> Query
+    -> f Query
+qiQueryFilter f x =
+    (\y -> x { _qiQueryFilter = y })
+       <$> f (_qiQueryFilter x)
+{-# INLINE qiQueryFilter #-}
+
+-- | The name of an index to query. This can be any local secondary index or
+-- global secondary index on the table.
+qiIndexName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Query
+    -> f Query
+qiIndexName f x =
+    (\y -> x { _qiIndexName = y })
+       <$> f (_qiIndexName x)
+{-# INLINE qiIndexName #-}
+
+-- | The primary key of the first item that this operation will evalute. Use the
+-- value that was returned for LastEvaluatedKey in the previous operation. The
+-- data type for ExclusiveStartKey must be String, Number or Binary. No set
+-- data types are allowed.
+qiExclusiveStartKey
+    :: Functor f
+    => (Map Text AttributeValue
+    -> f (Map Text AttributeValue))
+    -> Query
+    -> f Query
+qiExclusiveStartKey f x =
+    (\y -> x { _qiExclusiveStartKey = y })
+       <$> f (_qiExclusiveStartKey x)
+{-# INLINE qiExclusiveStartKey #-}
+
+-- | The selection criteria for the query. For a query on a table, you can only
+-- have conditions on the table primary key attributes. You must specify the
+-- hash key attribute name and value as an EQ condition. You can optionally
+-- specify a second condition, referring to the range key attribute. For a
+-- query on an index, you can only have conditions on the index key
+-- attributes. You must specify the index hash attribute name and value as an
+-- EQ condition. You can optionally specify a second condition, referring to
+-- the index key range attribute. Multiple conditions are evaluated using
+-- "AND"; in other words, all of the conditions must be met in order for an
+-- item to appear in the results results. Each KeyConditions element consists
+-- of an attribute name to compare, along with the following:
+-- AttributeValueList - One or more values to evaluate against the supplied
+-- attribute. This list contains exactly one value, except for a BETWEEN
+-- comparison, in which case the list contains two values. For type Number,
+-- value comparisons are numeric. String value comparisons for greater than,
+-- equals, or less than are based on ASCII character code values. For example,
+-- a is greater than A, and aa is greater than B. For a list of code values,
+-- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters. For
+-- Binary, DynamoDB treats each byte of the binary data as unsigned when it
+-- compares binary values, for example when evaluating query expressions.
+-- ComparisonOperator - A comparator for evaluating attributes. For example,
+-- equals, greater than, less than, etc. Valid comparison operators for Query:
+-- EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN For information on
+-- specifying data types in JSON, see JSON Data Format in the Amazon DynamoDB
+-- Developer Guide. The following are descriptions of each comparison
+-- operator. EQ : Equal. AttributeValueList can contain only one
+-- AttributeValue of type String, Number, or Binary (not a set). If an item
+-- contains an AttributeValue of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not equal {"NS":["6", "2", "1"]}. LE
+-- : Less than or equal. AttributeValueList can contain only one
+-- AttributeValue of type String, Number, or Binary (not a set). If an item
+-- contains an AttributeValue of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
+-- "1"]}. LT : Less than. AttributeValueList can contain only one
+-- AttributeValue of type String, Number, or Binary (not a set). If an item
+-- contains an AttributeValue of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
+-- "1"]}. GE : Greater than or equal. AttributeValueList can contain only one
+-- AttributeValue of type String, Number, or Binary (not a set). If an item
+-- contains an AttributeValue of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
+-- "1"]}. GT : Greater than. AttributeValueList can contain only one
+-- AttributeValue of type String, Number, or Binary (not a set). If an item
+-- contains an AttributeValue of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
+-- "1"]}. BEGINS_WITH : checks for a prefix. AttributeValueList can contain
+-- only one AttributeValue of type String or Binary (not a Number or a set).
+-- The target attribute of the comparison must be a String or Binary (not a
+-- Number or a set). BETWEEN : Greater than or equal to the first value, and
+-- less than or equal to the second value. AttributeValueList must contain two
+-- AttributeValue elements of the same type, either String, Number, or Binary
+-- (not a set). A target attribute matches if the target value is greater
+-- than, or equal to, the first element and less than, or equal to, the second
+-- element. If an item contains an AttributeValue of a different type than the
+-- one specified in the request, the value does not match. For example,
+-- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
+-- to {"NS":["6", "2", "1"]}.
+qiKeyConditions
+    :: Functor f
+    => (Map Text Condition
+    -> f (Map Text Condition))
+    -> Query
+    -> f Query
+qiKeyConditions f x =
+    (\y -> x { _qiKeyConditions = y })
+       <$> f (_qiKeyConditions x)
+{-# INLINE qiKeyConditions #-}
+
+-- | The maximum number of items to evaluate (not necessarily the number of
+-- matching items). If DynamoDB processes the number of items up to the limit
+-- while processing the results, it stops the operation and returns the
+-- matching values up to that point, and a LastEvaluatedKey to apply in a
+-- subsequent operation, so that you can pick up where you left off. Also, if
+-- the processed data set size exceeds 1 MB before DynamoDB reaches this
+-- limit, it stops the operation and returns the matching values up to the
+-- limit, and a LastEvaluatedKey to apply in a subsequent operation to
+-- continue the operation. For more information see
+-- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
+-- >Query and Scan in the Amazon DynamoDB Developer Guide.
+qiLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> Query
+    -> f Query
+qiLimit f x =
+    (\y -> x { _qiLimit = y })
+       <$> f (_qiLimit x)
+{-# INLINE qiLimit #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+qiReturnConsumedCapacity
+    :: Functor f
+    => (Maybe ReturnConsumedCapacity
+    -> f (Maybe ReturnConsumedCapacity))
+    -> Query
+    -> f Query
+qiReturnConsumedCapacity f x =
+    (\y -> x { _qiReturnConsumedCapacity = y })
+       <$> f (_qiReturnConsumedCapacity x)
+{-# INLINE qiReturnConsumedCapacity #-}
+
+-- | The attributes to be returned in the result. You can retrieve all item
+-- attributes, specific item attributes, the count of matching items, or in
+-- the case of an index, some or all of the attributes projected into the
+-- index. ALL_ATTRIBUTES: Returns all of the item attributes from the
+-- specified table or index. If you are querying a local secondary index, then
+-- for each matching item in the index DynamoDB will fetch the entire item
+-- from the parent table. If the index is configured to project all item
+-- attributes, then all of the data can be obtained from the local secondary
+-- index, and no fetching is required.. ALL_PROJECTED_ATTRIBUTES: Allowed only
+-- when querying an index. Retrieves all attributes which have been projected
+-- into the index. If the index is configured to project all attributes, this
+-- is equivalent to specifying ALL_ATTRIBUTES. COUNT: Returns the number of
+-- matching items, rather than the matching items themselves.
+-- SPECIFIC_ATTRIBUTES : Returns only the attributes listed in
+-- AttributesToGet. This is equivalent to specifying AttributesToGet without
+-- specifying any value for Select. If you are querying a local secondary
+-- index and request only attributes that are projected into that index, the
+-- operation will read only the index and not the table. If any of the
+-- requested attributes are not projected into the local secondary index,
+-- DynamoDB will fetch each of these attributes from the parent table. This
+-- extra fetching incurs additional throughput cost and latency. If you are
+-- querying a global secondary index, you can only request attributes that are
+-- projected into the index. Global secondary index queries cannot fetch
+-- attributes from the parent table. If neither Select nor AttributesToGet are
+-- specified, DynamoDB defaults to ALL_ATTRIBUTES when accessing a table, and
+-- ALL_PROJECTED_ATTRIBUTES when accessing an index. You cannot use both
+-- Select and AttributesToGet together in a single request, unless the value
+-- for Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
+-- AttributesToGet without any value for Select.).
+qiSelect
+    :: Functor f
+    => (Maybe Select
+    -> f (Maybe Select))
+    -> Query
+    -> f Query
+qiSelect f x =
+    (\y -> x { _qiSelect = y })
+       <$> f (_qiSelect x)
+{-# INLINE qiSelect #-}
 
 instance ToPath Query
 
@@ -254,9 +550,9 @@ data QueryResponse = QueryResponse
       -- the operation. ConsumedCapacity is only returned if it was asked
       -- for in the request. For more information, see Provisioned
       -- Throughput in the Amazon DynamoDB Developer Guide.
-    , _qoScannedCount :: Maybe Integer
     , _qoCount :: Maybe Integer
       -- ^ The number of items in the response.
+    , _qoScannedCount :: Maybe Integer
     , _qoItems :: [Map Text AttributeValue]
       -- ^ An array of item attributes that match the query criteria. Each
       -- element in this array consists of an attribute name and the value
@@ -273,7 +569,76 @@ data QueryResponse = QueryResponse
       -- is when LastEvaluatedKey is null.
     } deriving (Show, Generic)
 
-makeLenses ''QueryResponse
+-- | Represents the capacity units consumed by an operation. The data returned
+-- includes the total provisioned throughput consumed, along with statistics
+-- for the table and any indexes involved in the operation. ConsumedCapacity
+-- is only returned if it was asked for in the request. For more information,
+-- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
+qoConsumedCapacity
+    :: Functor f
+    => (Maybe ConsumedCapacity
+    -> f (Maybe ConsumedCapacity))
+    -> QueryResponse
+    -> f QueryResponse
+qoConsumedCapacity f x =
+    (\y -> x { _qoConsumedCapacity = y })
+       <$> f (_qoConsumedCapacity x)
+{-# INLINE qoConsumedCapacity #-}
+
+-- | The number of items in the response.
+qoCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> QueryResponse
+    -> f QueryResponse
+qoCount f x =
+    (\y -> x { _qoCount = y })
+       <$> f (_qoCount x)
+{-# INLINE qoCount #-}
+
+qoScannedCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> QueryResponse
+    -> f QueryResponse
+qoScannedCount f x =
+    (\y -> x { _qoScannedCount = y })
+       <$> f (_qoScannedCount x)
+{-# INLINE qoScannedCount #-}
+
+-- | An array of item attributes that match the query criteria. Each element in
+-- this array consists of an attribute name and the value for that attribute.
+qoItems
+    :: Functor f
+    => ([Map Text AttributeValue]
+    -> f ([Map Text AttributeValue]))
+    -> QueryResponse
+    -> f QueryResponse
+qoItems f x =
+    (\y -> x { _qoItems = y })
+       <$> f (_qoItems x)
+{-# INLINE qoItems #-}
+
+-- | The primary key of the item where the operation stopped, inclusive of the
+-- previous result set. Use this value to start a new operation, excluding
+-- this value in the new request. If LastEvaluatedKey is null, then the "last
+-- page" of results has been processed and there is no more data to be
+-- retrieved. If LastEvaluatedKey is anything other than null, this does not
+-- necessarily mean that there is more data in the result set. The only way to
+-- know when you have reached the end of the result set is when
+-- LastEvaluatedKey is null.
+qoLastEvaluatedKey
+    :: Functor f
+    => (Map Text AttributeValue
+    -> f (Map Text AttributeValue))
+    -> QueryResponse
+    -> f QueryResponse
+qoLastEvaluatedKey f x =
+    (\y -> x { _qoLastEvaluatedKey = y })
+       <$> f (_qoLastEvaluatedKey x)
+{-# INLINE qoLastEvaluatedKey #-}
 
 instance FromJSON QueryResponse
 

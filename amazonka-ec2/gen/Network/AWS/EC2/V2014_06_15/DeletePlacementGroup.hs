@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,10 +31,9 @@ module Network.AWS.EC2.V2014_06_15.DeletePlacementGroup
     (
     -- * Request
       DeletePlacementGroup
-    -- ** Default constructor
+    -- ** Request constructor
     , deletePlacementGroup
-    -- ** Accessors and lenses
-    , _dpgrGroupName
+    -- ** Request lenses
     , dpgrGroupName
 
     -- * Response
@@ -54,8 +52,21 @@ deletePlacementGroup p1 = DeletePlacementGroup
     }
 
 data DeletePlacementGroup = DeletePlacementGroup
+    { _dpgrGroupName :: Text
+      -- ^ The name of the placement group.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeletePlacementGroup
+-- | The name of the placement group.
+dpgrGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletePlacementGroup
+    -> f DeletePlacementGroup
+dpgrGroupName f x =
+    (\y -> x { _dpgrGroupName = y })
+       <$> f (_dpgrGroupName x)
+{-# INLINE dpgrGroupName #-}
 
 instance ToQuery DeletePlacementGroup where
     toQuery = genericQuery def
@@ -63,14 +74,9 @@ instance ToQuery DeletePlacementGroup where
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeletePlacementGroupResponse
-
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
     request = post "DeletePlacementGroup"
     response _ = nullaryResponse DeletePlacementGroupResponse
-
--- | The name of the placement group.
-dpgrGroupName :: Lens' DeletePlacementGroup (Text)

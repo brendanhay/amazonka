@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,7 +25,21 @@
 -- elasticbeanstalk-SampleAppVersion-us-east-1c SampleAppVersion
 -- elasticbeanstalk-SampleAppVersion-us-east-1c
 -- e1cb7b96-f287-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources
+    (
+    -- * Request
+      DescribeEnvironmentResources
+    -- ** Request constructor
+    , describeEnvironmentResources
+    -- ** Request lenses
+    , dermEnvironmentId
+    , dermEnvironmentName
+
+    -- * Response
+    , DescribeEnvironmentResourcesResponse
+    -- ** Response lenses
+    , erdmEnvironmentResources
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -52,7 +65,35 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources
       -- MissingRequiredParameter error.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEnvironmentResources
+-- | The ID of the environment to retrieve AWS resource usage data. Condition:
+-- You must specify either this or an EnvironmentName, or both. If you do not
+-- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
+-- error.
+dermEnvironmentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEnvironmentResources
+    -> f DescribeEnvironmentResources
+dermEnvironmentId f x =
+    (\y -> x { _dermEnvironmentId = y })
+       <$> f (_dermEnvironmentId x)
+{-# INLINE dermEnvironmentId #-}
+
+-- | The name of the environment to retrieve AWS resource usage data. Condition:
+-- You must specify either this or an EnvironmentId, or both. If you do not
+-- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
+-- error.
+dermEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEnvironmentResources
+    -> f DescribeEnvironmentResources
+dermEnvironmentName f x =
+    (\y -> x { _dermEnvironmentName = y })
+       <$> f (_dermEnvironmentName x)
+{-# INLINE dermEnvironmentName #-}
 
 instance ToQuery DescribeEnvironmentResources where
     toQuery = genericQuery def
@@ -62,7 +103,17 @@ data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
       -- ^ A list of EnvironmentResourceDescription.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEnvironmentResourcesResponse
+-- | A list of EnvironmentResourceDescription.
+erdmEnvironmentResources
+    :: Functor f
+    => (Maybe EnvironmentResourceDescription
+    -> f (Maybe EnvironmentResourceDescription))
+    -> DescribeEnvironmentResourcesResponse
+    -> f DescribeEnvironmentResourcesResponse
+erdmEnvironmentResources f x =
+    (\y -> x { _erdmEnvironmentResources = y })
+       <$> f (_erdmEnvironmentResources x)
+{-# INLINE erdmEnvironmentResources #-}
 
 instance FromXML DescribeEnvironmentResourcesResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,10 +31,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnConnection
     (
     -- * Request
       DeleteVpnConnection
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteVpnConnection
-    -- ** Accessors and lenses
-    , _dvcrVpnConnectionId
+    -- ** Request lenses
     , dvcrVpnConnectionId
 
     -- * Response
@@ -54,8 +52,21 @@ deleteVpnConnection p1 = DeleteVpnConnection
     }
 
 data DeleteVpnConnection = DeleteVpnConnection
+    { _dvcrVpnConnectionId :: Text
+      -- ^ The ID of the VPN connection.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVpnConnection
+-- | The ID of the VPN connection.
+dvcrVpnConnectionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVpnConnection
+    -> f DeleteVpnConnection
+dvcrVpnConnectionId f x =
+    (\y -> x { _dvcrVpnConnectionId = y })
+       <$> f (_dvcrVpnConnectionId x)
+{-# INLINE dvcrVpnConnectionId #-}
 
 instance ToQuery DeleteVpnConnection where
     toQuery = genericQuery def
@@ -63,14 +74,9 @@ instance ToQuery DeleteVpnConnection where
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteVpnConnectionResponse
-
 instance AWSRequest DeleteVpnConnection where
     type Sv DeleteVpnConnection = EC2
     type Rs DeleteVpnConnection = DeleteVpnConnectionResponse
 
     request = post "DeleteVpnConnection"
     response _ = nullaryResponse DeleteVpnConnectionResponse
-
--- | The ID of the VPN connection.
-dvcrVpnConnectionId :: Lens' DeleteVpnConnection (Text)

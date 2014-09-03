@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,11 +24,29 @@
 -- &SerialNumber=arn:aws:iam::123456789012:mfa/ExampleName &Version=2010-05-08
 -- &AUTHPARAMS arn:aws:iam::123456789012:mfa/ExampleName
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice where
+module Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
+    (
+    -- * Request
+      DeleteVirtualMFADevice
+    -- ** Request constructor
+    , deleteVirtualMFADevice
+    -- ** Request lenses
+    , dvmfadrSerialNumber
+
+    -- * Response
+    , DeleteVirtualMFADeviceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteVirtualMFADevice' request.
+deleteVirtualMFADevice :: Text -- ^ 'dvmfadrSerialNumber'
+                       -> DeleteVirtualMFADevice
+deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
+    { _dvmfadrSerialNumber = p1
+    }
 
 data DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadrSerialNumber :: Text
@@ -37,15 +54,24 @@ data DeleteVirtualMFADevice = DeleteVirtualMFADevice
       -- virtual MFA devices, the serial number is the same as the ARN.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteVirtualMFADevice
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA
+-- devices, the serial number is the same as the ARN.
+dvmfadrSerialNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVirtualMFADevice
+    -> f DeleteVirtualMFADevice
+dvmfadrSerialNumber f x =
+    (\y -> x { _dvmfadrSerialNumber = y })
+       <$> f (_dvmfadrSerialNumber x)
+{-# INLINE dvmfadrSerialNumber #-}
 
 instance ToQuery DeleteVirtualMFADevice where
     toQuery = genericQuery def
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteVirtualMFADeviceResponse
 
 instance AWSRequest DeleteVirtualMFADevice where
     type Sv DeleteVirtualMFADevice = IAM

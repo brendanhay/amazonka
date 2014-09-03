@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,14 +26,28 @@
 -- /application_abc/component_xyz/
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:11:10.222Z 974142ee-99f1-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.CreateInstanceProfile where
+module Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
+    (
+    -- * Request
+      CreateInstanceProfile
+    -- ** Request constructor
+    , createInstanceProfile
+    -- ** Request lenses
+    , ciprInstanceProfileName
+    , ciprPath
+
+    -- * Response
+    , CreateInstanceProfileResponse
+    -- ** Response lenses
+    , cipsInstanceProfile
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateInstanceProfile' request.
-createInstanceProfile :: Text -- ^ '_ciprInstanceProfileName'
+createInstanceProfile :: Text -- ^ 'ciprInstanceProfileName'
                       -> CreateInstanceProfile
 createInstanceProfile p1 = CreateInstanceProfile
     { _ciprInstanceProfileName = p1
@@ -51,7 +64,31 @@ data CreateInstanceProfile = CreateInstanceProfile
       -- a slash (/).
     } deriving (Show, Generic)
 
-makeLenses ''CreateInstanceProfile
+-- | Name of the instance profile to create.
+ciprInstanceProfileName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateInstanceProfile
+    -> f CreateInstanceProfile
+ciprInstanceProfileName f x =
+    (\y -> x { _ciprInstanceProfileName = y })
+       <$> f (_ciprInstanceProfileName x)
+{-# INLINE ciprInstanceProfileName #-}
+
+-- | The path to the instance profile. For more information about paths, see
+-- Identifiers for IAM Entities in the Using IAM guide. This parameter is
+-- optional. If it is not included, it defaults to a slash (/).
+ciprPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInstanceProfile
+    -> f CreateInstanceProfile
+ciprPath f x =
+    (\y -> x { _ciprPath = y })
+       <$> f (_ciprPath x)
+{-# INLINE ciprPath #-}
 
 instance ToQuery CreateInstanceProfile where
     toQuery = genericQuery def
@@ -61,7 +98,17 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse
       -- ^ Information about the instance profile.
     } deriving (Show, Generic)
 
-makeLenses ''CreateInstanceProfileResponse
+-- | Information about the instance profile.
+cipsInstanceProfile
+    :: Functor f
+    => (InstanceProfile
+    -> f (InstanceProfile))
+    -> CreateInstanceProfileResponse
+    -> f CreateInstanceProfileResponse
+cipsInstanceProfile f x =
+    (\y -> x { _cipsInstanceProfile = y })
+       <$> f (_cipsInstanceProfile x)
+{-# INLINE cipsInstanceProfile #-}
 
 instance FromXML CreateInstanceProfileResponse where
     fromXMLOptions = xmlOptions

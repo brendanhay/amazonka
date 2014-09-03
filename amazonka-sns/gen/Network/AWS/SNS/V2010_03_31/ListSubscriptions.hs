@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,7 +37,21 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;384ac68d-3775-11df-8963-01868b7c937a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListSubscriptionsResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.ListSubscriptions where
+module Network.AWS.SNS.V2010_03_31.ListSubscriptions
+    (
+    -- * Request
+      ListSubscriptions
+    -- ** Request constructor
+    , listSubscriptions
+    -- ** Request lenses
+    , lsiNextToken
+
+    -- * Response
+    , ListSubscriptionsResponse
+    -- ** Response lenses
+    , lsrNextToken
+    , lsrSubscriptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
@@ -55,7 +68,17 @@ data ListSubscriptions = ListSubscriptions
       -- ^ Token returned by the previous ListSubscriptions request.
     } deriving (Show, Generic)
 
-makeLenses ''ListSubscriptions
+-- | Token returned by the previous ListSubscriptions request.
+lsiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListSubscriptions
+    -> f ListSubscriptions
+lsiNextToken f x =
+    (\y -> x { _lsiNextToken = y })
+       <$> f (_lsiNextToken x)
+{-# INLINE lsiNextToken #-}
 
 instance ToQuery ListSubscriptions where
     toQuery = genericQuery def
@@ -68,7 +91,30 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse
       -- ^ A list of subscriptions.
     } deriving (Show, Generic)
 
-makeLenses ''ListSubscriptionsResponse
+-- | Token to pass along to the next ListSubscriptions request. This element is
+-- returned if there are more subscriptions to retrieve.
+lsrNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListSubscriptionsResponse
+    -> f ListSubscriptionsResponse
+lsrNextToken f x =
+    (\y -> x { _lsrNextToken = y })
+       <$> f (_lsrNextToken x)
+{-# INLINE lsrNextToken #-}
+
+-- | A list of subscriptions.
+lsrSubscriptions
+    :: Functor f
+    => ([Subscription]
+    -> f ([Subscription]))
+    -> ListSubscriptionsResponse
+    -> f ListSubscriptionsResponse
+lsrSubscriptions f x =
+    (\y -> x { _lsrSubscriptions = y })
+       <$> f (_lsrSubscriptions x)
+{-# INLINE lsrSubscriptions #-}
 
 instance FromXML ListSubscriptionsResponse where
     fromXMLOptions = xmlOptions

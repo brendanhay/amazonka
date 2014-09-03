@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,12 +37,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup
     (
     -- * Request
       DeleteSecurityGroup
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteSecurityGroup
-    -- ** Accessors and lenses
-    , _dsgrGroupName
+    -- ** Request lenses
     , dsgrGroupName
-    , _dsgrGroupId
     , dsgrGroupId
 
     -- * Response
@@ -62,8 +59,35 @@ deleteSecurityGroup = DeleteSecurityGroup
     }
 
 data DeleteSecurityGroup = DeleteSecurityGroup
+    { _dsgrGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the security group.
+    , _dsgrGroupId :: Maybe Text
+      -- ^ The ID of the security group.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteSecurityGroup
+-- | [EC2-Classic, default VPC] The name of the security group.
+dsgrGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteSecurityGroup
+    -> f DeleteSecurityGroup
+dsgrGroupName f x =
+    (\y -> x { _dsgrGroupName = y })
+       <$> f (_dsgrGroupName x)
+{-# INLINE dsgrGroupName #-}
+
+-- | The ID of the security group.
+dsgrGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteSecurityGroup
+    -> f DeleteSecurityGroup
+dsgrGroupId f x =
+    (\y -> x { _dsgrGroupId = y })
+       <$> f (_dsgrGroupId x)
+{-# INLINE dsgrGroupId #-}
 
 instance ToQuery DeleteSecurityGroup where
     toQuery = genericQuery def
@@ -71,17 +95,9 @@ instance ToQuery DeleteSecurityGroup where
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteSecurityGroupResponse
-
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
     request = post "DeleteSecurityGroup"
     response _ = nullaryResponse DeleteSecurityGroupResponse
-
--- | [EC2-Classic, default VPC] The name of the security group.
-dsgrGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-
--- | The ID of the security group.
-dsgrGroupId :: Lens' DeleteSecurityGroup (Maybe Text)

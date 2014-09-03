@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,28 +19,69 @@
 
 -- | Deletes a policy from the load balancer. The specified policy must not be
 -- enabled for any listeners.
-module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy where
+module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy
+    (
+    -- * Request
+      DeleteLoadBalancerPolicy
+    -- ** Request constructor
+    , deleteLoadBalancerPolicy
+    -- ** Request lenses
+    , dlbpiLoadBalancerName
+    , dlbpiPolicyName
+
+    -- * Response
+    , DeleteLoadBalancerPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteLoadBalancerPolicy' request.
+deleteLoadBalancerPolicy :: Text -- ^ 'dlbpiLoadBalancerName'
+                         -> Text -- ^ 'dlbpiPolicyName'
+                         -> DeleteLoadBalancerPolicy
+deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
+    { _dlbpiLoadBalancerName = p1
+    , _dlbpiPolicyName = p2
+    }
+
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
-    { _dlbpjLoadBalancerName :: Text
+    { _dlbpiLoadBalancerName :: Text
       -- ^ The mnemonic name associated with the load balancer.
-    , _dlbpjPolicyName :: Text
+    , _dlbpiPolicyName :: Text
       -- ^ The mnemonic name for the policy being deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLoadBalancerPolicy
+-- | The mnemonic name associated with the load balancer.
+dlbpiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLoadBalancerPolicy
+    -> f DeleteLoadBalancerPolicy
+dlbpiLoadBalancerName f x =
+    (\y -> x { _dlbpiLoadBalancerName = y })
+       <$> f (_dlbpiLoadBalancerName x)
+{-# INLINE dlbpiLoadBalancerName #-}
+
+-- | The mnemonic name for the policy being deleted.
+dlbpiPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLoadBalancerPolicy
+    -> f DeleteLoadBalancerPolicy
+dlbpiPolicyName f x =
+    (\y -> x { _dlbpiPolicyName = y })
+       <$> f (_dlbpiPolicyName x)
+{-# INLINE dlbpiPolicyName #-}
 
 instance ToQuery DeleteLoadBalancerPolicy where
     toQuery = genericQuery def
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLoadBalancerPolicyResponse
 
 instance AWSRequest DeleteLoadBalancerPolicy where
     type Sv DeleteLoadBalancerPolicy = ELB

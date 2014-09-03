@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,15 +36,30 @@
 -- &lt;/ConfirmSubscriptionResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;7a50221f-3774-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ConfirmSubscriptionResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.ConfirmSubscription where
+module Network.AWS.SNS.V2010_03_31.ConfirmSubscription
+    (
+    -- * Request
+      ConfirmSubscription
+    -- ** Request constructor
+    , confirmSubscription
+    -- ** Request lenses
+    , csiToken
+    , csiTopicArn
+    , csiAuthenticateOnUnsubscribe
+
+    -- * Response
+    , ConfirmSubscriptionResponse
+    -- ** Response lenses
+    , csrSubscriptionArn
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ConfirmSubscription' request.
-confirmSubscription :: Text -- ^ '_csiToken'
-                    -> Text -- ^ '_csiTopicArn'
+confirmSubscription :: Text -- ^ 'csiToken'
+                    -> Text -- ^ 'csiTopicArn'
                     -> ConfirmSubscription
 confirmSubscription p1 p2 = ConfirmSubscription
     { _csiToken = p1
@@ -68,7 +82,44 @@ data ConfirmSubscription = ConfirmSubscription
       -- authentication.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmSubscription
+-- | Short-lived token sent to an endpoint during the Subscribe action.
+csiToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmSubscription
+    -> f ConfirmSubscription
+csiToken f x =
+    (\y -> x { _csiToken = y })
+       <$> f (_csiToken x)
+{-# INLINE csiToken #-}
+
+-- | The ARN of the topic for which you wish to confirm a subscription.
+csiTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmSubscription
+    -> f ConfirmSubscription
+csiTopicArn f x =
+    (\y -> x { _csiTopicArn = y })
+       <$> f (_csiTopicArn x)
+{-# INLINE csiTopicArn #-}
+
+-- | Disallows unauthenticated unsubscribes of the subscription. If the value of
+-- this parameter is true and the request has an AWS signature, then only the
+-- topic owner and the subscription owner can unsubscribe the endpoint. The
+-- unsubscribe action requires AWS authentication.
+csiAuthenticateOnUnsubscribe
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ConfirmSubscription
+    -> f ConfirmSubscription
+csiAuthenticateOnUnsubscribe f x =
+    (\y -> x { _csiAuthenticateOnUnsubscribe = y })
+       <$> f (_csiAuthenticateOnUnsubscribe x)
+{-# INLINE csiAuthenticateOnUnsubscribe #-}
 
 instance ToQuery ConfirmSubscription where
     toQuery = genericQuery def
@@ -78,7 +129,17 @@ data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
       -- ^ The ARN of the created subscription.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmSubscriptionResponse
+-- | The ARN of the created subscription.
+csrSubscriptionArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ConfirmSubscriptionResponse
+    -> f ConfirmSubscriptionResponse
+csrSubscriptionArn f x =
+    (\y -> x { _csrSubscriptionArn = y })
+       <$> f (_csrSubscriptionArn x)
+{-# INLINE csrSubscriptionArn #-}
 
 instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions

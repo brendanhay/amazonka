@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -51,20 +50,16 @@ module Network.AWS.EC2.V2014_06_15.ImportKeyPair
     (
     -- * Request
       ImportKeyPair
-    -- ** Default constructor
+    -- ** Request constructor
     , importKeyPair
-    -- ** Accessors and lenses
-    , _ikprKeyName
+    -- ** Request lenses
     , ikprKeyName
-    , _ikprPublicKeyMaterial
     , ikprPublicKeyMaterial
 
     -- * Response
     , ImportKeyPairResponse
-    -- ** Accessors and lenses
-    , _ikpsKeyName
+    -- ** Response lenses
     , ikpsKeyName
-    , _ikpsKeyFingerprint
     , ikpsKeyFingerprint
     ) where
 
@@ -82,8 +77,37 @@ importKeyPair p1 p2 = ImportKeyPair
     }
 
 data ImportKeyPair = ImportKeyPair
+    { _ikprKeyName :: Text
+      -- ^ A unique name for the key pair.
+    , _ikprPublicKeyMaterial :: ByteString
+      -- ^ The public key. You must base64 encode the public key material
+      -- before sending it to AWS.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ImportKeyPair
+-- | A unique name for the key pair.
+ikprKeyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ImportKeyPair
+    -> f ImportKeyPair
+ikprKeyName f x =
+    (\y -> x { _ikprKeyName = y })
+       <$> f (_ikprKeyName x)
+{-# INLINE ikprKeyName #-}
+
+-- | The public key. You must base64 encode the public key material before
+-- sending it to AWS.
+ikprPublicKeyMaterial
+    :: Functor f
+    => (ByteString
+    -> f (ByteString))
+    -> ImportKeyPair
+    -> f ImportKeyPair
+ikprPublicKeyMaterial f x =
+    (\y -> x { _ikprPublicKeyMaterial = y })
+       <$> f (_ikprPublicKeyMaterial x)
+{-# INLINE ikprPublicKeyMaterial #-}
 
 instance ToQuery ImportKeyPair where
     toQuery = genericQuery def
@@ -96,7 +120,29 @@ data ImportKeyPairResponse = ImportKeyPairResponse
       -- 4716.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ImportKeyPairResponse
+-- | The key pair name you provided.
+ikpsKeyName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ImportKeyPairResponse
+    -> f ImportKeyPairResponse
+ikpsKeyName f x =
+    (\y -> x { _ikpsKeyName = y })
+       <$> f (_ikpsKeyName x)
+{-# INLINE ikpsKeyName #-}
+
+-- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+ikpsKeyFingerprint
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ImportKeyPairResponse
+    -> f ImportKeyPairResponse
+ikpsKeyFingerprint f x =
+    (\y -> x { _ikpsKeyFingerprint = y })
+       <$> f (_ikpsKeyFingerprint x)
+{-# INLINE ikpsKeyFingerprint #-}
 
 instance FromXML ImportKeyPairResponse where
     fromXMLOptions = xmlOptions
@@ -107,16 +153,3 @@ instance AWSRequest ImportKeyPair where
 
     request = post "ImportKeyPair"
     response _ = xmlResponse
-
--- | A unique name for the key pair.
-ikprKeyName :: Lens' ImportKeyPair (Text)
-
--- | The public key. You must base64 encode the public key material before
--- sending it to AWS.
-ikprPublicKeyMaterial :: Lens' ImportKeyPair (ByteString)
-
--- | The key pair name you provided.
-ikpsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-
--- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-ikpsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,11 +19,31 @@
 
 -- | Disables the automatic copying of snapshots from one region to another
 -- region for a specified cluster.
-module Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy where
+module Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy
+    (
+    -- * Request
+      DisableSnapshotCopy
+    -- ** Request constructor
+    , disableSnapshotCopy
+    -- ** Request lenses
+    , dscmClusterIdentifier
+
+    -- * Response
+    , DisableSnapshotCopyResponse
+    -- ** Response lenses
+    , cyCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DisableSnapshotCopy' request.
+disableSnapshotCopy :: Text -- ^ 'dscmClusterIdentifier'
+                    -> DisableSnapshotCopy
+disableSnapshotCopy p1 = DisableSnapshotCopy
+    { _dscmClusterIdentifier = p1
+    }
 
 data DisableSnapshotCopy = DisableSnapshotCopy
     { _dscmClusterIdentifier :: Text
@@ -34,17 +53,40 @@ data DisableSnapshotCopy = DisableSnapshotCopy
       -- has cross-region snapshot copy enabled.
     } deriving (Show, Generic)
 
-makeLenses ''DisableSnapshotCopy
+-- | The unique identifier of the source cluster that you want to disable
+-- copying of snapshots to a destination region. Constraints: Must be the
+-- valid name of an existing cluster that has cross-region snapshot copy
+-- enabled.
+dscmClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DisableSnapshotCopy
+    -> f DisableSnapshotCopy
+dscmClusterIdentifier f x =
+    (\y -> x { _dscmClusterIdentifier = y })
+       <$> f (_dscmClusterIdentifier x)
+{-# INLINE dscmClusterIdentifier #-}
 
 instance ToQuery DisableSnapshotCopy where
     toQuery = genericQuery def
 
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
-    { _ccvCluster :: Maybe Cluster
+    { _cyCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
-makeLenses ''DisableSnapshotCopyResponse
+-- | Describes a cluster.
+cyCluster
+    :: Functor f
+    => (Maybe Cluster
+    -> f (Maybe Cluster))
+    -> DisableSnapshotCopyResponse
+    -> f DisableSnapshotCopyResponse
+cyCluster f x =
+    (\y -> x { _cyCluster = y })
+       <$> f (_cyCluster x)
+{-# INLINE cyCluster #-}
 
 instance FromXML DisableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

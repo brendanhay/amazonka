@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -42,14 +41,28 @@
 -- &Version=2012-06-01 &Action=DescribeInstanceHealth &AUTHPARAMS A transient
 -- error occurred. Please try again later. i-7f12e649 Unknown ELB
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth where
+module Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
+    (
+    -- * Request
+      DescribeInstanceHealth
+    -- ** Request constructor
+    , describeInstanceHealth
+    -- ** Request lenses
+    , depsiLoadBalancerName
+    , depsiInstances
+
+    -- * Response
+    , DescribeInstanceHealthResponse
+    -- ** Response lenses
+    , depsoInstanceStates
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeInstanceHealth' request.
-describeInstanceHealth :: Text -- ^ '_depsiLoadBalancerName'
+describeInstanceHealth :: Text -- ^ 'depsiLoadBalancerName'
                        -> DescribeInstanceHealth
 describeInstanceHealth p1 = DescribeInstanceHealth
     { _depsiLoadBalancerName = p1
@@ -63,7 +76,29 @@ data DescribeInstanceHealth = DescribeInstanceHealth
       -- ^ A list of instance IDs whose states are being queried.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInstanceHealth
+-- | The name of the load balancer.
+depsiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeInstanceHealth
+    -> f DescribeInstanceHealth
+depsiLoadBalancerName f x =
+    (\y -> x { _depsiLoadBalancerName = y })
+       <$> f (_depsiLoadBalancerName x)
+{-# INLINE depsiLoadBalancerName #-}
+
+-- | A list of instance IDs whose states are being queried.
+depsiInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> DescribeInstanceHealth
+    -> f DescribeInstanceHealth
+depsiInstances f x =
+    (\y -> x { _depsiInstances = y })
+       <$> f (_depsiInstances x)
+{-# INLINE depsiInstances #-}
 
 instance ToQuery DescribeInstanceHealth where
     toQuery = genericQuery def
@@ -73,7 +108,17 @@ data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
       -- ^ A list containing health information for the specified instances.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInstanceHealthResponse
+-- | A list containing health information for the specified instances.
+depsoInstanceStates
+    :: Functor f
+    => ([InstanceState]
+    -> f ([InstanceState]))
+    -> DescribeInstanceHealthResponse
+    -> f DescribeInstanceHealthResponse
+depsoInstanceStates f x =
+    (\y -> x { _depsoInstanceStates = y })
+       <$> f (_depsoInstanceStates x)
+{-# INLINE depsoInstanceStates #-}
 
 instance FromXML DescribeInstanceHealthResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,30 +54,21 @@ module Network.AWS.EC2.V2014_06_15.AttachVolume
     (
     -- * Request
       AttachVolume
-    -- ** Default constructor
+    -- ** Request constructor
     , attachVolume
-    -- ** Accessors and lenses
-    , _avrVolumeId
+    -- ** Request lenses
     , avrVolumeId
-    , _avrInstanceId
     , avrInstanceId
-    , _avrDevice
     , avrDevice
 
     -- * Response
     , AttachVolumeResponse
-    -- ** Accessors and lenses
-    , _vaDeleteOnTermination
+    -- ** Response lenses
     , vaDeleteOnTermination
-    , _vaAttachTime
     , vaAttachTime
-    , _vaVolumeId
     , vaVolumeId
-    , _vaInstanceId
     , vaInstanceId
-    , _vaDevice
     , vaDevice
-    , _vaState
     , vaState
     ) where
 
@@ -98,8 +88,52 @@ attachVolume p1 p2 p3 = AttachVolume
     }
 
 data AttachVolume = AttachVolume
+    { _avrVolumeId :: Text
+      -- ^ The ID of the Amazon EBS volume. The volume and instance must be
+      -- within the same Availability Zone.
+    , _avrInstanceId :: Text
+      -- ^ The ID of the instance.
+    , _avrDevice :: Text
+      -- ^ The device name to expose to the instance (for example, /dev/sdh
+      -- or xvdh).
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachVolume
+-- | The ID of the Amazon EBS volume. The volume and instance must be within the
+-- same Availability Zone.
+avrVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachVolume
+    -> f AttachVolume
+avrVolumeId f x =
+    (\y -> x { _avrVolumeId = y })
+       <$> f (_avrVolumeId x)
+{-# INLINE avrVolumeId #-}
+
+-- | The ID of the instance.
+avrInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachVolume
+    -> f AttachVolume
+avrInstanceId f x =
+    (\y -> x { _avrInstanceId = y })
+       <$> f (_avrInstanceId x)
+{-# INLINE avrInstanceId #-}
+
+-- | The device name to expose to the instance (for example, /dev/sdh or xvdh).
+avrDevice
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachVolume
+    -> f AttachVolume
+avrDevice f x =
+    (\y -> x { _avrDevice = y })
+       <$> f (_avrDevice x)
+{-# INLINE avrDevice #-}
 
 instance ToQuery AttachVolume where
     toQuery = genericQuery def
@@ -120,7 +154,77 @@ data AttachVolumeResponse = AttachVolumeResponse
       -- ^ The attachment state of the volume.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachVolumeResponse
+-- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+vaDeleteOnTermination
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> AttachVolumeResponse
+    -> f AttachVolumeResponse
+vaDeleteOnTermination f x =
+    (\y -> x { _vaDeleteOnTermination = y })
+       <$> f (_vaDeleteOnTermination x)
+{-# INLINE vaDeleteOnTermination #-}
+
+-- | The time stamp when the attachment initiated.
+vaAttachTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> AttachVolumeResponse
+    -> f AttachVolumeResponse
+vaAttachTime f x =
+    (\y -> x { _vaAttachTime = y })
+       <$> f (_vaAttachTime x)
+{-# INLINE vaAttachTime #-}
+
+-- | The ID of the volume.
+vaVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AttachVolumeResponse
+    -> f AttachVolumeResponse
+vaVolumeId f x =
+    (\y -> x { _vaVolumeId = y })
+       <$> f (_vaVolumeId x)
+{-# INLINE vaVolumeId #-}
+
+-- | The ID of the instance.
+vaInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AttachVolumeResponse
+    -> f AttachVolumeResponse
+vaInstanceId f x =
+    (\y -> x { _vaInstanceId = y })
+       <$> f (_vaInstanceId x)
+{-# INLINE vaInstanceId #-}
+
+-- | The device name.
+vaDevice
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AttachVolumeResponse
+    -> f AttachVolumeResponse
+vaDevice f x =
+    (\y -> x { _vaDevice = y })
+       <$> f (_vaDevice x)
+{-# INLINE vaDevice #-}
+
+-- | The attachment state of the volume.
+vaState
+    :: Functor f
+    => (Maybe VolumeAttachmentState
+    -> f (Maybe VolumeAttachmentState))
+    -> AttachVolumeResponse
+    -> f AttachVolumeResponse
+vaState f x =
+    (\y -> x { _vaState = y })
+       <$> f (_vaState x)
+{-# INLINE vaState #-}
 
 instance FromXML AttachVolumeResponse where
     fromXMLOptions = xmlOptions
@@ -131,31 +235,3 @@ instance AWSRequest AttachVolume where
 
     request = post "AttachVolume"
     response _ = xmlResponse
-
--- | The ID of the Amazon EBS volume. The volume and instance must be within the
--- same Availability Zone.
-avrVolumeId :: Lens' AttachVolume (Text)
-
--- | The ID of the instance.
-avrInstanceId :: Lens' AttachVolume (Text)
-
--- | The device name to expose to the instance (for example, /dev/sdh or xvdh).
-avrDevice :: Lens' AttachVolume (Text)
-
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-vaDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
-
--- | The time stamp when the attachment initiated.
-vaAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
-
--- | The ID of the volume.
-vaVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
-
--- | The ID of the instance.
-vaInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
-
--- | The device name.
-vaDevice :: Lens' AttachVolumeResponse (Maybe Text)
-
--- | The attachment state of the volume.
-vaState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)

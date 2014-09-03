@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,10 @@ module Network.AWS.EC2.V2014_06_15.CreatePlacementGroup
     (
     -- * Request
       CreatePlacementGroup
-    -- ** Default constructor
+    -- ** Request constructor
     , createPlacementGroup
-    -- ** Accessors and lenses
-    , _cpgrStrategy
+    -- ** Request lenses
     , cpgrStrategy
-    , _cpgrGroupName
     , cpgrGroupName
 
     -- * Response
@@ -59,8 +56,36 @@ createPlacementGroup p1 p2 = CreatePlacementGroup
     }
 
 data CreatePlacementGroup = CreatePlacementGroup
+    { _cpgrStrategy :: PlacementStrategy
+      -- ^ The placement strategy.
+    , _cpgrGroupName :: Text
+      -- ^ A name for the placement group. Constraints: Up to 255 ASCII
+      -- characters.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreatePlacementGroup
+-- | The placement strategy.
+cpgrStrategy
+    :: Functor f
+    => (PlacementStrategy
+    -> f (PlacementStrategy))
+    -> CreatePlacementGroup
+    -> f CreatePlacementGroup
+cpgrStrategy f x =
+    (\y -> x { _cpgrStrategy = y })
+       <$> f (_cpgrStrategy x)
+{-# INLINE cpgrStrategy #-}
+
+-- | A name for the placement group. Constraints: Up to 255 ASCII characters.
+cpgrGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreatePlacementGroup
+    -> f CreatePlacementGroup
+cpgrGroupName f x =
+    (\y -> x { _cpgrGroupName = y })
+       <$> f (_cpgrGroupName x)
+{-# INLINE cpgrGroupName #-}
 
 instance ToQuery CreatePlacementGroup where
     toQuery = genericQuery def
@@ -68,17 +93,9 @@ instance ToQuery CreatePlacementGroup where
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''CreatePlacementGroupResponse
-
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2
     type Rs CreatePlacementGroup = CreatePlacementGroupResponse
 
     request = post "CreatePlacementGroup"
     response _ = nullaryResponse CreatePlacementGroupResponse
-
--- | The placement strategy.
-cpgrStrategy :: Lens' CreatePlacementGroup (PlacementStrategy)
-
--- | A name for the placement group. Constraints: Up to 255 ASCII characters.
-cpgrGroupName :: Lens' CreatePlacementGroup (Text)

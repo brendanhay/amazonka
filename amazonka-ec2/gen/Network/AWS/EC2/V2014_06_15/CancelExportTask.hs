@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,10 +29,9 @@ module Network.AWS.EC2.V2014_06_15.CancelExportTask
     (
     -- * Request
       CancelExportTask
-    -- ** Default constructor
+    -- ** Request constructor
     , cancelExportTask
-    -- ** Accessors and lenses
-    , _cetrExportTaskId
+    -- ** Request lenses
     , cetrExportTaskId
 
     -- * Response
@@ -52,8 +50,23 @@ cancelExportTask p1 = CancelExportTask
     }
 
 data CancelExportTask = CancelExportTask
+    { _cetrExportTaskId :: Text
+      -- ^ The ID of the export task. This is the ID returned by
+      -- CreateInstanceExportTask.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelExportTask
+-- | The ID of the export task. This is the ID returned by
+-- CreateInstanceExportTask.
+cetrExportTaskId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelExportTask
+    -> f CancelExportTask
+cetrExportTaskId f x =
+    (\y -> x { _cetrExportTaskId = y })
+       <$> f (_cetrExportTaskId x)
+{-# INLINE cetrExportTaskId #-}
 
 instance ToQuery CancelExportTask where
     toQuery = genericQuery def
@@ -61,15 +74,9 @@ instance ToQuery CancelExportTask where
 data CancelExportTaskResponse = CancelExportTaskResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''CancelExportTaskResponse
-
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2
     type Rs CancelExportTask = CancelExportTaskResponse
 
     request = post "CancelExportTask"
     response _ = nullaryResponse CancelExportTaskResponse
-
--- | The ID of the export task. This is the ID returned by
--- CreateInstanceExportTask.
-cetrExportTaskId :: Lens' CancelExportTask (Text)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,21 +45,51 @@
 -- arn:aws:iam::123456789012:role/transcode-service does not have access to
 -- the topic: arn:aws:sns:us-east-1:111222333444:ETS_Errors" ], "Success":
 -- "false" }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.TestRole where
+module Network.AWS.ElasticTranscoder.V2012_09_25.TestRole
+    (
+    -- * Request
+      TestRole
+    -- ** Request constructor
+    , testRole
+    -- ** Request lenses
+    , trrInputBucket
+    , trrOutputBucket
+    , trrRole
+    , trrTopics
+
+    -- * Response
+    , TestRoleResponse
+    -- ** Response lenses
+    , trsMessages
+    , trsSuccess
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'TestRole' request.
+testRole :: Text -- ^ 'trrInputBucket'
+         -> Text -- ^ 'trrOutputBucket'
+         -> Text -- ^ 'trrRole'
+         -> [Text] -- ^ 'trrTopics'
+         -> TestRole
+testRole p1 p2 p3 p4 = TestRole
+    { _trrInputBucket = p1
+    , _trrOutputBucket = p2
+    , _trrRole = p3
+    , _trrTopics = p4
+    }
+
 data TestRole = TestRole
-    { _trrOutputBucket :: Text
+    { _trrInputBucket :: Text
+      -- ^ The Amazon S3 bucket that contains media files to be transcoded.
+      -- The action attempts to read from this bucket.
+    , _trrOutputBucket :: Text
       -- ^ The Amazon S3 bucket that Elastic Transcoder will write
       -- transcoded media files to. The action attempts to read from this
       -- bucket.
-    , _trrInputBucket :: Text
-      -- ^ The Amazon S3 bucket that contains media files to be transcoded.
-      -- The action attempts to read from this bucket.
     , _trrRole :: Text
       -- ^ The IAM Amazon Resource Name (ARN) for the role that you want
       -- Elastic Transcoder to test.
@@ -70,7 +99,57 @@ data TestRole = TestRole
       -- notification to.
     } deriving (Show, Generic)
 
-makeLenses ''TestRole
+-- | The Amazon S3 bucket that contains media files to be transcoded. The action
+-- attempts to read from this bucket.
+trrInputBucket
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TestRole
+    -> f TestRole
+trrInputBucket f x =
+    (\y -> x { _trrInputBucket = y })
+       <$> f (_trrInputBucket x)
+{-# INLINE trrInputBucket #-}
+
+-- | The Amazon S3 bucket that Elastic Transcoder will write transcoded media
+-- files to. The action attempts to read from this bucket.
+trrOutputBucket
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TestRole
+    -> f TestRole
+trrOutputBucket f x =
+    (\y -> x { _trrOutputBucket = y })
+       <$> f (_trrOutputBucket x)
+{-# INLINE trrOutputBucket #-}
+
+-- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
+-- Transcoder to test.
+trrRole
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TestRole
+    -> f TestRole
+trrRole f x =
+    (\y -> x { _trrRole = y })
+       <$> f (_trrRole x)
+{-# INLINE trrRole #-}
+
+-- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
+-- topics that you want the action to send a test notification to.
+trrTopics
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> TestRole
+    -> f TestRole
+trrTopics f x =
+    (\y -> x { _trrTopics = y })
+       <$> f (_trrTopics x)
+{-# INLINE trrTopics #-}
 
 instance ToPath TestRole where
     toPath = const "/2012-09-25/roleTests"
@@ -91,7 +170,31 @@ data TestRoleResponse = TestRoleResponse
       -- the value is false.
     } deriving (Show, Generic)
 
-makeLenses ''TestRoleResponse
+-- | If the Success element contains false, this value is an array of one or
+-- more error messages that were generated during the test process.
+trsMessages
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> TestRoleResponse
+    -> f TestRoleResponse
+trsMessages f x =
+    (\y -> x { _trsMessages = y })
+       <$> f (_trsMessages x)
+{-# INLINE trsMessages #-}
+
+-- | If the operation is successful, this value is true; otherwise, the value is
+-- false.
+trsSuccess
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TestRoleResponse
+    -> f TestRoleResponse
+trsSuccess f x =
+    (\y -> x { _trsSuccess = y })
+       <$> f (_trsSuccess x)
+{-# INLINE trsSuccess #-}
 
 instance FromJSON TestRoleResponse
 

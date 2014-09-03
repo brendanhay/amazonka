@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,10 +30,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteInternetGateway
     (
     -- * Request
       DeleteInternetGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteInternetGateway
-    -- ** Accessors and lenses
-    , _digrInternetGatewayId
+    -- ** Request lenses
     , digrInternetGatewayId
 
     -- * Response
@@ -53,8 +51,21 @@ deleteInternetGateway p1 = DeleteInternetGateway
     }
 
 data DeleteInternetGateway = DeleteInternetGateway
+    { _digrInternetGatewayId :: Text
+      -- ^ The ID of the Internet gateway.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteInternetGateway
+-- | The ID of the Internet gateway.
+digrInternetGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteInternetGateway
+    -> f DeleteInternetGateway
+digrInternetGatewayId f x =
+    (\y -> x { _digrInternetGatewayId = y })
+       <$> f (_digrInternetGatewayId x)
+{-# INLINE digrInternetGatewayId #-}
 
 instance ToQuery DeleteInternetGateway where
     toQuery = genericQuery def
@@ -62,14 +73,9 @@ instance ToQuery DeleteInternetGateway where
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteInternetGatewayResponse
-
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2
     type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
 
     request = post "DeleteInternetGateway"
     response _ = nullaryResponse DeleteInternetGatewayResponse
-
--- | The ID of the Internet gateway.
-digrInternetGatewayId :: Lens' DeleteInternetGateway (Text)

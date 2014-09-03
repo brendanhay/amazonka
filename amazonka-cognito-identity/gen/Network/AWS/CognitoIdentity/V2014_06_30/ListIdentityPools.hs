@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,22 @@
 -- "IdentityPoolName": "MyPool" }, { "IdentityPoolId":
 -- "us-east-1:f212b602-a526-4557-af13-8eedEXAMPLE2", "IdentityPoolName":
 -- "MyPool2" } ] }.
-module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools where
+module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
+    (
+    -- * Request
+      ListIdentityPools
+    -- ** Request constructor
+    , listIdentityPools
+    -- ** Request lenses
+    , lipiMaxResults
+    , lipiNextToken
+
+    -- * Response
+    , ListIdentityPoolsResponse
+    -- ** Response lenses
+    , liprIdentityPools
+    , liprNextToken
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
@@ -33,7 +47,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListIdentityPools' request.
-listIdentityPools :: Integer -- ^ '_lipiMaxResults'
+listIdentityPools :: Integer -- ^ 'lipiMaxResults'
                   -> ListIdentityPools
 listIdentityPools p1 = ListIdentityPools
     { _lipiMaxResults = p1
@@ -47,7 +61,29 @@ data ListIdentityPools = ListIdentityPools
       -- ^ A pagination token.
     } deriving (Show, Generic)
 
-makeLenses ''ListIdentityPools
+-- | The maximum number of identities to return.
+lipiMaxResults
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> ListIdentityPools
+    -> f ListIdentityPools
+lipiMaxResults f x =
+    (\y -> x { _lipiMaxResults = y })
+       <$> f (_lipiMaxResults x)
+{-# INLINE lipiMaxResults #-}
+
+-- | A pagination token.
+lipiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListIdentityPools
+    -> f ListIdentityPools
+lipiNextToken f x =
+    (\y -> x { _lipiNextToken = y })
+       <$> f (_lipiNextToken x)
+{-# INLINE lipiNextToken #-}
 
 instance ToPath ListIdentityPools
 
@@ -64,7 +100,29 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
       -- ^ A pagination token.
     } deriving (Show, Generic)
 
-makeLenses ''ListIdentityPoolsResponse
+-- | The identity pools returned by the ListIdentityPools action.
+liprIdentityPools
+    :: Functor f
+    => ([IdentityPoolShortDescription]
+    -> f ([IdentityPoolShortDescription]))
+    -> ListIdentityPoolsResponse
+    -> f ListIdentityPoolsResponse
+liprIdentityPools f x =
+    (\y -> x { _liprIdentityPools = y })
+       <$> f (_liprIdentityPools x)
+{-# INLINE liprIdentityPools #-}
+
+-- | A pagination token.
+liprNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListIdentityPoolsResponse
+    -> f ListIdentityPoolsResponse
+liprNextToken f x =
+    (\y -> x { _liprNextToken = y })
+       <$> f (_liprNextToken x)
+{-# INLINE liprNextToken #-}
 
 instance FromJSON ListIdentityPoolsResponse
 

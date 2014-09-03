@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -61,38 +60,55 @@
 -- arn:aws:iam::123456789012:server-certificate/company/servercerts/ProdServerCert
 -- 2010-05-08T01:02:03.004Z ASCACKCEVSQ6C2EXAMPLE 2012-05-08T01:02:03.004Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.UploadServerCertificate where
+module Network.AWS.IAM.V2010_05_08.UploadServerCertificate
+    (
+    -- * Request
+      UploadServerCertificate
+    -- ** Request constructor
+    , uploadServerCertificate
+    -- ** Request lenses
+    , usctCertificateBody
+    , usctPrivateKey
+    , usctServerCertificateName
+    , usctCertificateChain
+    , usctPath
+
+    -- * Response
+    , UploadServerCertificateResponse
+    -- ** Response lenses
+    , uscuServerCertificateMetadata
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UploadServerCertificate' request.
-uploadServerCertificate :: Text -- ^ '_uscuCertificateBody'
-                        -> Text -- ^ '_uscuPrivateKey'
-                        -> Text -- ^ '_uscuServerCertificateName'
+uploadServerCertificate :: Text -- ^ 'usctCertificateBody'
+                        -> Text -- ^ 'usctPrivateKey'
+                        -> Text -- ^ 'usctServerCertificateName'
                         -> UploadServerCertificate
 uploadServerCertificate p1 p2 p3 = UploadServerCertificate
-    { _uscuCertificateBody = p1
-    , _uscuPrivateKey = p2
-    , _uscuServerCertificateName = p3
-    , _uscuCertificateChain = Nothing
-    , _uscuPath = Nothing
+    { _usctCertificateBody = p1
+    , _usctPrivateKey = p2
+    , _usctServerCertificateName = p3
+    , _usctCertificateChain = Nothing
+    , _usctPath = Nothing
     }
 
 data UploadServerCertificate = UploadServerCertificate
-    { _uscuCertificateBody :: Text
+    { _usctCertificateBody :: Text
       -- ^ The contents of the public key certificate in PEM-encoded format.
-    , _uscuPrivateKey :: Text
+    , _usctPrivateKey :: Text
       -- ^ The contents of the private key in PEM-encoded format.
-    , _uscuServerCertificateName :: Text
+    , _usctServerCertificateName :: Text
       -- ^ The name for the server certificate. Do not include the path in
       -- this value.
-    , _uscuCertificateChain :: Maybe Text
+    , _usctCertificateChain :: Maybe Text
       -- ^ The contents of the certificate chain. This is typically a
       -- concatenation of the PEM-encoded public key certificates of the
       -- chain.
-    , _uscuPath :: Maybe Text
+    , _usctPath :: Maybe Text
       -- ^ The path for the server certificate. For more information about
       -- paths, see Identifiers for IAM Entities in the Using IAM guide.
       -- This parameter is optional. If it is not included, it defaults to
@@ -103,18 +119,94 @@ data UploadServerCertificate = UploadServerCertificate
       -- /cloudfront/test/).
     } deriving (Show, Generic)
 
-makeLenses ''UploadServerCertificate
+-- | The contents of the public key certificate in PEM-encoded format.
+usctCertificateBody
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UploadServerCertificate
+    -> f UploadServerCertificate
+usctCertificateBody f x =
+    (\y -> x { _usctCertificateBody = y })
+       <$> f (_usctCertificateBody x)
+{-# INLINE usctCertificateBody #-}
+
+-- | The contents of the private key in PEM-encoded format.
+usctPrivateKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UploadServerCertificate
+    -> f UploadServerCertificate
+usctPrivateKey f x =
+    (\y -> x { _usctPrivateKey = y })
+       <$> f (_usctPrivateKey x)
+{-# INLINE usctPrivateKey #-}
+
+-- | The name for the server certificate. Do not include the path in this value.
+usctServerCertificateName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UploadServerCertificate
+    -> f UploadServerCertificate
+usctServerCertificateName f x =
+    (\y -> x { _usctServerCertificateName = y })
+       <$> f (_usctServerCertificateName x)
+{-# INLINE usctServerCertificateName #-}
+
+-- | The contents of the certificate chain. This is typically a concatenation of
+-- the PEM-encoded public key certificates of the chain.
+usctCertificateChain
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UploadServerCertificate
+    -> f UploadServerCertificate
+usctCertificateChain f x =
+    (\y -> x { _usctCertificateChain = y })
+       <$> f (_usctCertificateChain x)
+{-# INLINE usctCertificateChain #-}
+
+-- | The path for the server certificate. For more information about paths, see
+-- Identifiers for IAM Entities in the Using IAM guide. This parameter is
+-- optional. If it is not included, it defaults to a slash (/). If you are
+-- uploading a server certificate specifically for use with Amazon CloudFront
+-- distributions, you must specify a path using the --path option. The path
+-- must begin with /cloudfront and must include a trailing slash (for example,
+-- /cloudfront/test/).
+usctPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UploadServerCertificate
+    -> f UploadServerCertificate
+usctPath f x =
+    (\y -> x { _usctPath = y })
+       <$> f (_usctPath x)
+{-# INLINE usctPath #-}
 
 instance ToQuery UploadServerCertificate where
     toQuery = genericQuery def
 
 data UploadServerCertificateResponse = UploadServerCertificateResponse
-    { _uscvServerCertificateMetadata :: Maybe ServerCertificateMetadata
+    { _uscuServerCertificateMetadata :: Maybe ServerCertificateMetadata
       -- ^ The meta information of the uploaded server certificate without
       -- its certificate body, certificate chain, and private key.
     } deriving (Show, Generic)
 
-makeLenses ''UploadServerCertificateResponse
+-- | The meta information of the uploaded server certificate without its
+-- certificate body, certificate chain, and private key.
+uscuServerCertificateMetadata
+    :: Functor f
+    => (Maybe ServerCertificateMetadata
+    -> f (Maybe ServerCertificateMetadata))
+    -> UploadServerCertificateResponse
+    -> f UploadServerCertificateResponse
+uscuServerCertificateMetadata f x =
+    (\y -> x { _uscuServerCertificateMetadata = y })
+       <$> f (_uscuServerCertificateMetadata x)
+{-# INLINE uscuServerCertificateMetadata #-}
 
 instance FromXML UploadServerCertificateResponse where
     fromXMLOptions = xmlOptions

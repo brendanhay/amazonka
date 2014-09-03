@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -67,7 +66,31 @@
 -- "PrivacyProtectTechContact":true, } HTTP/1.1 200 Content-Length:[number of
 -- characters in the JSON string] {
 -- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
-module Network.AWS.Route53Domains.V2014_05_15.TransferDomain where
+module Network.AWS.Route53Domains.V2014_05_15.TransferDomain
+    (
+    -- * Request
+      TransferDomain
+    -- ** Request constructor
+    , transferDomain
+    -- ** Request lenses
+    , tdrAdminContact
+    , tdrRegistrantContact
+    , tdrTechContact
+    , tdrDomainName
+    , tdrDurationInYears
+    , tdrNameservers
+    , tdrAutoRenew
+    , tdrPrivacyProtectAdminContact
+    , tdrPrivacyProtectRegistrantContact
+    , tdrPrivacyProtectTechContact
+    , tdrAuthCode
+    , tdrIdnLangCode
+
+    -- * Response
+    , TransferDomainResponse
+    -- ** Response lenses
+    , tdsOperationId
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
@@ -75,22 +98,22 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'TransferDomain' request.
-transferDomain :: ContactDetail -- ^ '_tdrTechContact'
-               -> ContactDetail -- ^ '_tdrAdminContact'
-               -> ContactDetail -- ^ '_tdrRegistrantContact'
-               -> Text -- ^ '_tdrDomainName'
-               -> Integer -- ^ '_tdrDurationInYears'
-               -> [Nameserver] -- ^ '_tdrNameservers'
+transferDomain :: ContactDetail -- ^ 'tdrAdminContact'
+               -> ContactDetail -- ^ 'tdrRegistrantContact'
+               -> ContactDetail -- ^ 'tdrTechContact'
+               -> Text -- ^ 'tdrDomainName'
+               -> Integer -- ^ 'tdrDurationInYears'
+               -> [Nameserver] -- ^ 'tdrNameservers'
                -> TransferDomain
 transferDomain p1 p2 p3 p4 p5 p6 = TransferDomain
-    { _tdrTechContact = p1
-    , _tdrAdminContact = p2
-    , _tdrRegistrantContact = p3
+    { _tdrAdminContact = p1
+    , _tdrRegistrantContact = p2
+    , _tdrTechContact = p3
     , _tdrDomainName = p4
     , _tdrDurationInYears = p5
     , _tdrNameservers = p6
-    , _tdrPrivacyProtectAdminContact = Nothing
     , _tdrAutoRenew = Nothing
+    , _tdrPrivacyProtectAdminContact = Nothing
     , _tdrPrivacyProtectRegistrantContact = Nothing
     , _tdrPrivacyProtectTechContact = Nothing
     , _tdrAuthCode = Nothing
@@ -98,17 +121,17 @@ transferDomain p1 p2 p3 p4 p5 p6 = TransferDomain
     }
 
 data TransferDomain = TransferDomain
-    { _tdrTechContact :: ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _tdrAdminContact :: ContactDetail
+    { _tdrAdminContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
       -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
     , _tdrRegistrantContact :: ContactDetail
+      -- ^ Provides detailed contact information. Type: Complex Children:
+      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
+      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
+      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
+    , _tdrTechContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
@@ -126,17 +149,17 @@ data TransferDomain = TransferDomain
     , _tdrNameservers :: [Nameserver]
       -- ^ Contains details for the host and glue IP addresses. Type:
       -- Complex Children: GlueIps, Name.
+    , _tdrAutoRenew :: Maybe Bool
+      -- ^ Indicates whether the domain will be automatically renewed (true)
+      -- or not (false). Autorenewal only takes effect after the account
+      -- is charged. Type: Boolean Valid values: true | false Default:
+      -- true Required: No.
     , _tdrPrivacyProtectAdminContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
       -- return contact information for our registrar partner, Gandi,
       -- instead of the contact information that you enter. Type: Boolean
       -- Default: true Valid values: true | false Required: No.
-    , _tdrAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain will be automatically renewed (true)
-      -- or not (false). Autorenewal only takes effect after the account
-      -- is charged. Type: Boolean Valid values: true | false Default:
-      -- true Required: No.
     , _tdrPrivacyProtectRegistrantContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
@@ -156,7 +179,177 @@ data TransferDomain = TransferDomain
       -- ^ Reserved for future use.
     } deriving (Show, Generic)
 
-makeLenses ''TransferDomain
+-- | Provides detailed contact information. Type: Complex Children: FirstName,
+-- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
+-- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
+-- ExtraParams Required: Yes.
+tdrAdminContact
+    :: Functor f
+    => (ContactDetail
+    -> f (ContactDetail))
+    -> TransferDomain
+    -> f TransferDomain
+tdrAdminContact f x =
+    (\y -> x { _tdrAdminContact = y })
+       <$> f (_tdrAdminContact x)
+{-# INLINE tdrAdminContact #-}
+
+-- | Provides detailed contact information. Type: Complex Children: FirstName,
+-- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
+-- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
+-- ExtraParams Required: Yes.
+tdrRegistrantContact
+    :: Functor f
+    => (ContactDetail
+    -> f (ContactDetail))
+    -> TransferDomain
+    -> f TransferDomain
+tdrRegistrantContact f x =
+    (\y -> x { _tdrRegistrantContact = y })
+       <$> f (_tdrRegistrantContact x)
+{-# INLINE tdrRegistrantContact #-}
+
+-- | Provides detailed contact information. Type: Complex Children: FirstName,
+-- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
+-- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
+-- ExtraParams Required: Yes.
+tdrTechContact
+    :: Functor f
+    => (ContactDetail
+    -> f (ContactDetail))
+    -> TransferDomain
+    -> f TransferDomain
+tdrTechContact f x =
+    (\y -> x { _tdrTechContact = y })
+       <$> f (_tdrTechContact x)
+{-# INLINE tdrTechContact #-}
+
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+tdrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TransferDomain
+    -> f TransferDomain
+tdrDomainName f x =
+    (\y -> x { _tdrDomainName = y })
+       <$> f (_tdrDomainName x)
+{-# INLINE tdrDomainName #-}
+
+-- | The number of years the domain will be registered. Domains are registered
+-- for a minimum of one year. The maximum period depends on the top-level
+-- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
+-- Required: Yes.
+tdrDurationInYears
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> TransferDomain
+    -> f TransferDomain
+tdrDurationInYears f x =
+    (\y -> x { _tdrDurationInYears = y })
+       <$> f (_tdrDurationInYears x)
+{-# INLINE tdrDurationInYears #-}
+
+-- | Contains details for the host and glue IP addresses. Type: Complex
+-- Children: GlueIps, Name.
+tdrNameservers
+    :: Functor f
+    => ([Nameserver]
+    -> f ([Nameserver]))
+    -> TransferDomain
+    -> f TransferDomain
+tdrNameservers f x =
+    (\y -> x { _tdrNameservers = y })
+       <$> f (_tdrNameservers x)
+{-# INLINE tdrNameservers #-}
+
+-- | Indicates whether the domain will be automatically renewed (true) or not
+-- (false). Autorenewal only takes effect after the account is charged. Type:
+-- Boolean Valid values: true | false Default: true Required: No.
+tdrAutoRenew
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> TransferDomain
+    -> f TransferDomain
+tdrAutoRenew f x =
+    (\y -> x { _tdrAutoRenew = y })
+       <$> f (_tdrAutoRenew x)
+{-# INLINE tdrAutoRenew #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter. Type: Boolean Default: true Valid values: true | false Required: No.
+tdrPrivacyProtectAdminContact
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> TransferDomain
+    -> f TransferDomain
+tdrPrivacyProtectAdminContact f x =
+    (\y -> x { _tdrPrivacyProtectAdminContact = y })
+       <$> f (_tdrPrivacyProtectAdminContact x)
+{-# INLINE tdrPrivacyProtectAdminContact #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter. Type: Boolean Default: true Valid values: true | false Required: No.
+tdrPrivacyProtectRegistrantContact
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> TransferDomain
+    -> f TransferDomain
+tdrPrivacyProtectRegistrantContact f x =
+    (\y -> x { _tdrPrivacyProtectRegistrantContact = y })
+       <$> f (_tdrPrivacyProtectRegistrantContact x)
+{-# INLINE tdrPrivacyProtectRegistrantContact #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter. Type: Boolean Default: true Valid values: true | false Required: No.
+tdrPrivacyProtectTechContact
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> TransferDomain
+    -> f TransferDomain
+tdrPrivacyProtectTechContact f x =
+    (\y -> x { _tdrPrivacyProtectTechContact = y })
+       <$> f (_tdrPrivacyProtectTechContact x)
+{-# INLINE tdrPrivacyProtectTechContact #-}
+
+-- | The authorization code for the domain. You get this value from the current
+-- registrar. Type: String Required: Yes.
+tdrAuthCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TransferDomain
+    -> f TransferDomain
+tdrAuthCode f x =
+    (\y -> x { _tdrAuthCode = y })
+       <$> f (_tdrAuthCode x)
+{-# INLINE tdrAuthCode #-}
+
+-- | Reserved for future use.
+tdrIdnLangCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TransferDomain
+    -> f TransferDomain
+tdrIdnLangCode f x =
+    (\y -> x { _tdrIdnLangCode = y })
+       <$> f (_tdrIdnLangCode x)
+{-# INLINE tdrIdnLangCode #-}
 
 instance ToPath TransferDomain
 
@@ -173,7 +366,19 @@ data TransferDomainResponse = TransferDomainResponse
       -- String Default: None Constraints: Maximum 255 characters.
     } deriving (Show, Generic)
 
-makeLenses ''TransferDomainResponse
+-- | Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail. Type: String Default:
+-- None Constraints: Maximum 255 characters.
+tdsOperationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TransferDomainResponse
+    -> f TransferDomainResponse
+tdsOperationId f x =
+    (\y -> x { _tdsOperationId = y })
+       <$> f (_tdsOperationId x)
+{-# INLINE tdsOperationId #-}
 
 instance FromJSON TransferDomainResponse
 

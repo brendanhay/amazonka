@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,22 +37,17 @@ module Network.AWS.EC2.V2014_06_15.ImportInstance
     (
     -- * Request
       ImportInstance
-    -- ** Default constructor
+    -- ** Request constructor
     , importInstance
-    -- ** Accessors and lenses
-    , _iiiiiiiiiuPlatform
+    -- ** Request lenses
     , iiiiiiiiiuPlatform
-    , _iiiiiiiiiuDiskImages
     , iiiiiiiiiuDiskImages
-    , _iiiiiiiiiuLaunchSpecification
     , iiiiiiiiiuLaunchSpecification
-    , _iiiiiiiiiuDescription
     , iiiiiiiiiuDescription
 
     -- * Response
     , ImportInstanceResponse
-    -- ** Accessors and lenses
-    , _iiiiiiiiivConversionTask
+    -- ** Response lenses
     , iiiiiiiiivConversionTask
     ) where
 
@@ -72,8 +66,63 @@ importInstance p1 = ImportInstance
     }
 
 data ImportInstance = ImportInstance
+    { _iiiiiiiiiuPlatform :: PlatformValues
+      -- ^ The instance operating system.
+    , _iiiiiiiiiuDiskImages :: [DiskImage]
+      -- ^ 
+    , _iiiiiiiiiuLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
+      -- ^ 
+    , _iiiiiiiiiuDescription :: Maybe Text
+      -- ^ A description for the instance being imported.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ImportInstance
+-- | The instance operating system.
+iiiiiiiiiuPlatform
+    :: Functor f
+    => (PlatformValues
+    -> f (PlatformValues))
+    -> ImportInstance
+    -> f ImportInstance
+iiiiiiiiiuPlatform f x =
+    (\y -> x { _iiiiiiiiiuPlatform = y })
+       <$> f (_iiiiiiiiiuPlatform x)
+{-# INLINE iiiiiiiiiuPlatform #-}
+
+-- | 
+iiiiiiiiiuDiskImages
+    :: Functor f
+    => ([DiskImage]
+    -> f ([DiskImage]))
+    -> ImportInstance
+    -> f ImportInstance
+iiiiiiiiiuDiskImages f x =
+    (\y -> x { _iiiiiiiiiuDiskImages = y })
+       <$> f (_iiiiiiiiiuDiskImages x)
+{-# INLINE iiiiiiiiiuDiskImages #-}
+
+-- | 
+iiiiiiiiiuLaunchSpecification
+    :: Functor f
+    => (Maybe ImportInstanceLaunchSpecification
+    -> f (Maybe ImportInstanceLaunchSpecification))
+    -> ImportInstance
+    -> f ImportInstance
+iiiiiiiiiuLaunchSpecification f x =
+    (\y -> x { _iiiiiiiiiuLaunchSpecification = y })
+       <$> f (_iiiiiiiiiuLaunchSpecification x)
+{-# INLINE iiiiiiiiiuLaunchSpecification #-}
+
+-- | A description for the instance being imported.
+iiiiiiiiiuDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ImportInstance
+    -> f ImportInstance
+iiiiiiiiiuDescription f x =
+    (\y -> x { _iiiiiiiiiuDescription = y })
+       <$> f (_iiiiiiiiiuDescription x)
+{-# INLINE iiiiiiiiiuDescription #-}
 
 instance ToQuery ImportInstance where
     toQuery = genericQuery def
@@ -83,7 +132,17 @@ data ImportInstanceResponse = ImportInstanceResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ImportInstanceResponse
+-- | 
+iiiiiiiiivConversionTask
+    :: Functor f
+    => (Maybe ConversionTask
+    -> f (Maybe ConversionTask))
+    -> ImportInstanceResponse
+    -> f ImportInstanceResponse
+iiiiiiiiivConversionTask f x =
+    (\y -> x { _iiiiiiiiivConversionTask = y })
+       <$> f (_iiiiiiiiivConversionTask x)
+{-# INLINE iiiiiiiiivConversionTask #-}
 
 instance FromXML ImportInstanceResponse where
     fromXMLOptions = xmlOptions
@@ -94,18 +153,3 @@ instance AWSRequest ImportInstance where
 
     request = post "ImportInstance"
     response _ = xmlResponse
-
--- | The instance operating system.
-iiiiiiiiiuPlatform :: Lens' ImportInstance (PlatformValues)
-
--- | 
-iiiiiiiiiuDiskImages :: Lens' ImportInstance ([DiskImage])
-
--- | 
-iiiiiiiiiuLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
-
--- | A description for the instance being imported.
-iiiiiiiiiuDescription :: Lens' ImportInstance (Maybe Text)
-
--- | 
-iiiiiiiiivConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)

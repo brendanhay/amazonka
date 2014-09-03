@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,12 +27,10 @@ module Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute
     (
     -- * Request
       ModifySubnetAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , modifySubnetAttribute
-    -- ** Accessors and lenses
-    , _msasSubnetId
+    -- ** Request lenses
     , msasSubnetId
-    , _msasMapPublicIpOnLaunch
     , msasMapPublicIpOnLaunch
 
     -- * Response
@@ -53,8 +50,35 @@ modifySubnetAttribute p1 = ModifySubnetAttribute
     }
 
 data ModifySubnetAttribute = ModifySubnetAttribute
+    { _msasSubnetId :: Text
+      -- ^ The ID of the subnet.
+    , _msasMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
+      -- ^ 
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ModifySubnetAttribute
+-- | The ID of the subnet.
+msasSubnetId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifySubnetAttribute
+    -> f ModifySubnetAttribute
+msasSubnetId f x =
+    (\y -> x { _msasSubnetId = y })
+       <$> f (_msasSubnetId x)
+{-# INLINE msasSubnetId #-}
+
+-- | 
+msasMapPublicIpOnLaunch
+    :: Functor f
+    => (Maybe AttributeBooleanValue
+    -> f (Maybe AttributeBooleanValue))
+    -> ModifySubnetAttribute
+    -> f ModifySubnetAttribute
+msasMapPublicIpOnLaunch f x =
+    (\y -> x { _msasMapPublicIpOnLaunch = y })
+       <$> f (_msasMapPublicIpOnLaunch x)
+{-# INLINE msasMapPublicIpOnLaunch #-}
 
 instance ToQuery ModifySubnetAttribute where
     toQuery = genericQuery def
@@ -62,17 +86,9 @@ instance ToQuery ModifySubnetAttribute where
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ModifySubnetAttributeResponse
-
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2
     type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
 
     request = post "ModifySubnetAttribute"
     response _ = nullaryResponse ModifySubnetAttributeResponse
-
--- | The ID of the subnet.
-msasSubnetId :: Lens' ModifySubnetAttribute (Text)
-
--- | 
-msasMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)

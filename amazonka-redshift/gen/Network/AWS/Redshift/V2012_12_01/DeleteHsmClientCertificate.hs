@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,26 +18,52 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified HSM client certificate.
-module Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate where
+module Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate
+    (
+    -- * Request
+      DeleteHsmClientCertificate
+    -- ** Request constructor
+    , deleteHsmClientCertificate
+    -- ** Request lenses
+    , dhccmHsmClientCertificateIdentifier
+
+    -- * Response
+    , DeleteHsmClientCertificateResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteHsmClientCertificate' request.
+deleteHsmClientCertificate :: Text -- ^ 'dhccmHsmClientCertificateIdentifier'
+                           -> DeleteHsmClientCertificate
+deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
+    { _dhccmHsmClientCertificateIdentifier = p1
+    }
+
 data DeleteHsmClientCertificate = DeleteHsmClientCertificate
-    { _dhccnHsmClientCertificateIdentifier :: Text
+    { _dhccmHsmClientCertificateIdentifier :: Text
       -- ^ The identifier of the HSM client certificate to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteHsmClientCertificate
+-- | The identifier of the HSM client certificate to be deleted.
+dhccmHsmClientCertificateIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteHsmClientCertificate
+    -> f DeleteHsmClientCertificate
+dhccmHsmClientCertificateIdentifier f x =
+    (\y -> x { _dhccmHsmClientCertificateIdentifier = y })
+       <$> f (_dhccmHsmClientCertificateIdentifier x)
+{-# INLINE dhccmHsmClientCertificateIdentifier #-}
 
 instance ToQuery DeleteHsmClientCertificate where
     toQuery = genericQuery def
 
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteHsmClientCertificateResponse
 
 instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift

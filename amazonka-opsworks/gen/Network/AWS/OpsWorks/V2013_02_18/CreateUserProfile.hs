@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,7 +20,23 @@
 -- | Creates a new user profile. Required Permissions: To use this action, an
 -- IAM user must have an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile where
+module Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile
+    (
+    -- * Request
+      CreateUserProfile
+    -- ** Request constructor
+    , createUserProfile
+    -- ** Request lenses
+    , cuprIamUserArn
+    , cuprAllowSelfManagement
+    , cuprSshUsername
+    , cuprSshPublicKey
+
+    -- * Response
+    , CreateUserProfileResponse
+    -- ** Response lenses
+    , cupsIamUserArn
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -29,7 +44,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateUserProfile' request.
-createUserProfile :: Text -- ^ '_cuprIamUserArn'
+createUserProfile :: Text -- ^ 'cuprIamUserArn'
                   -> CreateUserProfile
 createUserProfile p1 = CreateUserProfile
     { _cuprIamUserArn = p1
@@ -55,7 +70,58 @@ data CreateUserProfile = CreateUserProfile
       -- ^ The user's public SSH key.
     } deriving (Show, Generic)
 
-makeLenses ''CreateUserProfile
+-- | The user's IAM ARN.
+cuprIamUserArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateUserProfile
+    -> f CreateUserProfile
+cuprIamUserArn f x =
+    (\y -> x { _cuprIamUserArn = y })
+       <$> f (_cuprIamUserArn x)
+{-# INLINE cuprIamUserArn #-}
+
+-- | Whether users can specify their own SSH public key through the My Settings
+-- page. For more information, see Setting an IAM User's Public SSH Key.
+cuprAllowSelfManagement
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateUserProfile
+    -> f CreateUserProfile
+cuprAllowSelfManagement f x =
+    (\y -> x { _cuprAllowSelfManagement = y })
+       <$> f (_cuprAllowSelfManagement x)
+{-# INLINE cuprAllowSelfManagement #-}
+
+-- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
+-- '-', and '_'. If the specified name includes other punctuation marks, AWS
+-- OpsWorks removes them. For example, my.name will be changed to myname. If
+-- you do not specify an SSH user name, AWS OpsWorks generates one from the
+-- IAM user name.
+cuprSshUsername
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateUserProfile
+    -> f CreateUserProfile
+cuprSshUsername f x =
+    (\y -> x { _cuprSshUsername = y })
+       <$> f (_cuprSshUsername x)
+{-# INLINE cuprSshUsername #-}
+
+-- | The user's public SSH key.
+cuprSshPublicKey
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateUserProfile
+    -> f CreateUserProfile
+cuprSshPublicKey f x =
+    (\y -> x { _cuprSshPublicKey = y })
+       <$> f (_cuprSshPublicKey x)
+{-# INLINE cuprSshPublicKey #-}
 
 instance ToPath CreateUserProfile
 
@@ -70,7 +136,17 @@ data CreateUserProfileResponse = CreateUserProfileResponse
       -- ^ The user's IAM ARN.
     } deriving (Show, Generic)
 
-makeLenses ''CreateUserProfileResponse
+-- | The user's IAM ARN.
+cupsIamUserArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateUserProfileResponse
+    -> f CreateUserProfileResponse
+cupsIamUserArn f x =
+    (\y -> x { _cupsIamUserArn = y })
+       <$> f (_cupsIamUserArn x)
+{-# INLINE cupsIamUserArn #-}
 
 instance FromJSON CreateUserProfileResponse
 

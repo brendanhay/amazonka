@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,21 +38,54 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "AverageUploadRateLimitInBitsPerSec": 102400,
 -- "AverageDownloadRateLimitInBitsPerSec": 51200 }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit
+    (
+    -- * Request
+      DescribeBandwidthRateLimit
+    -- ** Request constructor
+    , describeBandwidthRateLimit
+    -- ** Request lenses
+    , dbrljGatewayARN
+
+    -- * Response
+    , DescribeBandwidthRateLimitResponse
+    -- ** Response lenses
+    , dbrlpAverageDownloadRateLimitInBitsPerSec
+    , dbrlpAverageUploadRateLimitInBitsPerSec
+    , dbrlpGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeBandwidthRateLimit' request.
+describeBandwidthRateLimit :: Text -- ^ 'dbrljGatewayARN'
+                           -> DescribeBandwidthRateLimit
+describeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
+    { _dbrljGatewayARN = p1
+    }
+
 data DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
-    { _dbrliGatewayARN :: Text
+    { _dbrljGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeBandwidthRateLimit
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dbrljGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeBandwidthRateLimit
+    -> f DescribeBandwidthRateLimit
+dbrljGatewayARN f x =
+    (\y -> x { _dbrljGatewayARN = y })
+       <$> f (_dbrljGatewayARN x)
+{-# INLINE dbrljGatewayARN #-}
 
 instance ToPath DescribeBandwidthRateLimit
 
@@ -64,21 +96,58 @@ instance ToHeaders DescribeBandwidthRateLimit
 instance ToJSON DescribeBandwidthRateLimit
 
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
-    { _dbrloAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
+    { _dbrlpAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
       -- ^ The average download bandwidth rate limit in bits per second.
       -- This field does not appear in the response if the download rate
       -- limit is not set.
-    , _dbrloAverageUploadRateLimitInBitsPerSec :: Maybe Integer
+    , _dbrlpAverageUploadRateLimitInBitsPerSec :: Maybe Integer
       -- ^ The average upload bandwidth rate limit in bits per second. This
       -- field does not appear in the response if the upload rate limit is
       -- not set.
-    , _dbrloGatewayARN :: Maybe Text
+    , _dbrlpGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeBandwidthRateLimitResponse
+-- | The average download bandwidth rate limit in bits per second. This field
+-- does not appear in the response if the download rate limit is not set.
+dbrlpAverageDownloadRateLimitInBitsPerSec
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeBandwidthRateLimitResponse
+    -> f DescribeBandwidthRateLimitResponse
+dbrlpAverageDownloadRateLimitInBitsPerSec f x =
+    (\y -> x { _dbrlpAverageDownloadRateLimitInBitsPerSec = y })
+       <$> f (_dbrlpAverageDownloadRateLimitInBitsPerSec x)
+{-# INLINE dbrlpAverageDownloadRateLimitInBitsPerSec #-}
+
+-- | The average upload bandwidth rate limit in bits per second. This field does
+-- not appear in the response if the upload rate limit is not set.
+dbrlpAverageUploadRateLimitInBitsPerSec
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeBandwidthRateLimitResponse
+    -> f DescribeBandwidthRateLimitResponse
+dbrlpAverageUploadRateLimitInBitsPerSec f x =
+    (\y -> x { _dbrlpAverageUploadRateLimitInBitsPerSec = y })
+       <$> f (_dbrlpAverageUploadRateLimitInBitsPerSec x)
+{-# INLINE dbrlpAverageUploadRateLimitInBitsPerSec #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dbrlpGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeBandwidthRateLimitResponse
+    -> f DescribeBandwidthRateLimitResponse
+dbrlpGatewayARN f x =
+    (\y -> x { _dbrlpGatewayARN = y })
+       <$> f (_dbrlpGatewayARN x)
+{-# INLINE dbrlpGatewayARN #-}
 
 instance FromJSON DescribeBandwidthRateLimitResponse
 

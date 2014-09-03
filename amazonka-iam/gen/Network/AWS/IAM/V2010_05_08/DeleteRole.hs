@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,26 +24,52 @@
 -- running instance will break any applications running on the instance.
 -- https://iam.amazonaws.com/ ?Action=DeleteRole &RoleName=S3Access
 -- &Version=2010-05-08 &AUTHPARAMS 913e3f37-99ed-11e1-a4c3-270EXAMPLE04.
-module Network.AWS.IAM.V2010_05_08.DeleteRole where
+module Network.AWS.IAM.V2010_05_08.DeleteRole
+    (
+    -- * Request
+      DeleteRole
+    -- ** Request constructor
+    , deleteRole
+    -- ** Request lenses
+    , drrRoleName
+
+    -- * Response
+    , DeleteRoleResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteRole' request.
+deleteRole :: Text -- ^ 'drrRoleName'
+           -> DeleteRole
+deleteRole p1 = DeleteRole
+    { _drrRoleName = p1
+    }
 
 data DeleteRole = DeleteRole
     { _drrRoleName :: Text
       -- ^ Name of the role to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteRole
+-- | Name of the role to delete.
+drrRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRole
+    -> f DeleteRole
+drrRoleName f x =
+    (\y -> x { _drrRoleName = y })
+       <$> f (_drrRoleName x)
+{-# INLINE drrRoleName #-}
 
 instance ToQuery DeleteRole where
     toQuery = genericQuery def
 
 data DeleteRoleResponse = DeleteRoleResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteRoleResponse
 
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM

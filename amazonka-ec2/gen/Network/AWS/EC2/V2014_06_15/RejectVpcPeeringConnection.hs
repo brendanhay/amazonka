@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,16 +32,14 @@ module Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection
     (
     -- * Request
       RejectVpcPeeringConnection
-    -- ** Default constructor
+    -- ** Request constructor
     , rejectVpcPeeringConnection
-    -- ** Accessors and lenses
-    , _rvpcrVpcPeeringConnectionId
+    -- ** Request lenses
     , rvpcrVpcPeeringConnectionId
 
     -- * Response
     , RejectVpcPeeringConnectionResponse
-    -- ** Accessors and lenses
-    , _rvpcsReturn
+    -- ** Response lenses
     , rvpcsReturn
     ) where
 
@@ -58,8 +55,21 @@ rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     }
 
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
+    { _rvpcrVpcPeeringConnectionId :: Text
+      -- ^ The ID of the VPC peering connection.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''RejectVpcPeeringConnection
+-- | The ID of the VPC peering connection.
+rvpcrVpcPeeringConnectionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RejectVpcPeeringConnection
+    -> f RejectVpcPeeringConnection
+rvpcrVpcPeeringConnectionId f x =
+    (\y -> x { _rvpcrVpcPeeringConnectionId = y })
+       <$> f (_rvpcrVpcPeeringConnectionId x)
+{-# INLINE rvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery RejectVpcPeeringConnection where
     toQuery = genericQuery def
@@ -70,7 +80,17 @@ data RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
       -- error.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''RejectVpcPeeringConnectionResponse
+-- | Returns true if the request succeeds; otherwise, it returns an error.
+rvpcsReturn
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RejectVpcPeeringConnectionResponse
+    -> f RejectVpcPeeringConnectionResponse
+rvpcsReturn f x =
+    (\y -> x { _rvpcsReturn = y })
+       <$> f (_rvpcsReturn x)
+{-# INLINE rvpcsReturn #-}
 
 instance FromXML RejectVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -81,9 +101,3 @@ instance AWSRequest RejectVpcPeeringConnection where
 
     request = post "RejectVpcPeeringConnection"
     response _ = xmlResponse
-
--- | The ID of the VPC peering connection.
-rvpcrVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection (Text)
-
--- | Returns true if the request succeeds; otherwise, it returns an error.
-rvpcsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,7 +35,28 @@
 -- ["Update","Multiple Items","HelpMe"] }, "Subject": { "S": "How do I update
 -- multiple items?" }, "Message": { "S": "I want to update multiple items in a
 -- single API call. What's the best way to do that?" } } }.
-module Network.AWS.DynamoDB.V2012_08_10.DeleteItem where
+module Network.AWS.DynamoDB.V2012_08_10.DeleteItem
+    (
+    -- * Request
+      DeleteItem
+    -- ** Request constructor
+    , deleteItem
+    -- ** Request lenses
+    , diiKey
+    , diiTableName
+    , diiConditionalOperator
+    , diiExpected
+    , diiReturnConsumedCapacity
+    , diiReturnItemCollectionMetrics
+    , diiReturnValues
+
+    -- * Response
+    , DeleteItemResponse
+    -- ** Response lenses
+    , dioAttributes
+    , dioConsumedCapacity
+    , dioItemCollectionMetrics
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -44,8 +64,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DeleteItem' request.
-deleteItem :: Map Text AttributeValue -- ^ '_diiKey'
-           -> Text -- ^ '_diiTableName'
+deleteItem :: Map Text AttributeValue -- ^ 'diiKey'
+           -> Text -- ^ 'diiTableName'
            -> DeleteItem
 deleteItem p1 p2 = DeleteItem
     { _diiKey = p1
@@ -113,7 +133,123 @@ data DeleteItem = DeleteItem
       -- ReturnValues.) ALL_OLD - The content of the old item is returned.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteItem
+-- | A map of attribute names to AttributeValue objects, representing the
+-- primary key of the item to delete.
+diiKey
+    :: Functor f
+    => (Map Text AttributeValue
+    -> f (Map Text AttributeValue))
+    -> DeleteItem
+    -> f DeleteItem
+diiKey f x =
+    (\y -> x { _diiKey = y })
+       <$> f (_diiKey x)
+{-# INLINE diiKey #-}
+
+-- | The name of the table from which to delete the item.
+diiTableName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteItem
+    -> f DeleteItem
+diiTableName f x =
+    (\y -> x { _diiTableName = y })
+       <$> f (_diiTableName x)
+{-# INLINE diiTableName #-}
+
+diiConditionalOperator
+    :: Functor f
+    => (Maybe ConditionalOperator
+    -> f (Maybe ConditionalOperator))
+    -> DeleteItem
+    -> f DeleteItem
+diiConditionalOperator f x =
+    (\y -> x { _diiConditionalOperator = y })
+       <$> f (_diiConditionalOperator x)
+{-# INLINE diiConditionalOperator #-}
+
+-- | A map of attribute/condition pairs. This is the conditional block for the
+-- DeleteItem operation. All the conditions must be met for the operation to
+-- succeed. Expected allows you to provide an attribute name, and whether or
+-- not DynamoDB should check to see if the attribute value already exists; or
+-- if the attribute value exists and has a particular value before changing
+-- it. Each item in Expected represents an attribute name for DynamoDB to
+-- check, along with the following: Value - A value for DynamoDB to compare
+-- with an attribute. When performing the comparison, strongly consistent
+-- reads are used. Exists - Causes DynamoDB to evaluate the value before
+-- attempting a conditional operation: If Exists is true, DynamoDB will check
+-- to see if that attribute value already exists in the table. If it is found,
+-- then the operation succeeds. If it is not found, the operation fails with a
+-- ConditionalCheckFailedException. If Exists is false, DynamoDB assumes that
+-- the attribute value does not exist in the table. If in fact the value does
+-- not exist, then the assumption is valid and the operation succeeds. If the
+-- value is found, despite the assumption that it does not exist, the
+-- operation fails with a ConditionalCheckFailedException. The default setting
+-- for Exists is true. If you supply a Value all by itself, DynamoDB assumes
+-- the attribute exists: You don't have to set Exists to true, because it is
+-- implied. DynamoDB returns a ValidationException if: Exists is true but
+-- there is no Value to check. (You expect a value to exist, but don't specify
+-- what that value is.) Exists is false but you also specify a Value. (You
+-- cannot expect an attribute to have a value, while also expecting it not to
+-- exist.) If you specify more than one condition for Exists, then all of the
+-- conditions must evaluate to true. (In other words, the conditions are ANDed
+-- together.) Otherwise, the conditional operation will fail.
+diiExpected
+    :: Functor f
+    => (Map Text ExpectedAttributeValue
+    -> f (Map Text ExpectedAttributeValue))
+    -> DeleteItem
+    -> f DeleteItem
+diiExpected f x =
+    (\y -> x { _diiExpected = y })
+       <$> f (_diiExpected x)
+{-# INLINE diiExpected #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+diiReturnConsumedCapacity
+    :: Functor f
+    => (Maybe ReturnConsumedCapacity
+    -> f (Maybe ReturnConsumedCapacity))
+    -> DeleteItem
+    -> f DeleteItem
+diiReturnConsumedCapacity f x =
+    (\y -> x { _diiReturnConsumedCapacity = y })
+       <$> f (_diiReturnConsumedCapacity x)
+{-# INLINE diiReturnConsumedCapacity #-}
+
+-- | If set to SIZE, statistics about item collections, if any, that were
+-- modified during the operation are returned in the response. If set to NONE
+-- (the default), no statistics are returned.
+diiReturnItemCollectionMetrics
+    :: Functor f
+    => (Maybe ReturnItemCollectionMetrics
+    -> f (Maybe ReturnItemCollectionMetrics))
+    -> DeleteItem
+    -> f DeleteItem
+diiReturnItemCollectionMetrics f x =
+    (\y -> x { _diiReturnItemCollectionMetrics = y })
+       <$> f (_diiReturnItemCollectionMetrics x)
+{-# INLINE diiReturnItemCollectionMetrics #-}
+
+-- | Use ReturnValues if you want to get the item attributes as they appeared
+-- before they were deleted. For DeleteItem, the valid values are: NONE - If
+-- ReturnValues is not specified, or if its value is NONE, then nothing is
+-- returned. (This is the default for ReturnValues.) ALL_OLD - The content of
+-- the old item is returned.
+diiReturnValues
+    :: Functor f
+    => (Maybe ReturnValue
+    -> f (Maybe ReturnValue))
+    -> DeleteItem
+    -> f DeleteItem
+diiReturnValues f x =
+    (\y -> x { _diiReturnValues = y })
+       <$> f (_diiReturnValues x)
+{-# INLINE diiReturnValues #-}
 
 instance ToPath DeleteItem
 
@@ -155,7 +291,60 @@ data DeleteItemResponse = DeleteItemResponse
       -- the estimate.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteItemResponse
+-- | A map of attribute names to AttributeValue objects, representing the item
+-- as it appeared before the DeleteItem operation. This map appears in the
+-- response only if ReturnValues was specified as ALL_OLD in the request.
+dioAttributes
+    :: Functor f
+    => (Map Text AttributeValue
+    -> f (Map Text AttributeValue))
+    -> DeleteItemResponse
+    -> f DeleteItemResponse
+dioAttributes f x =
+    (\y -> x { _dioAttributes = y })
+       <$> f (_dioAttributes x)
+{-# INLINE dioAttributes #-}
+
+-- | Represents the capacity units consumed by an operation. The data returned
+-- includes the total provisioned throughput consumed, along with statistics
+-- for the table and any indexes involved in the operation. ConsumedCapacity
+-- is only returned if it was asked for in the request. For more information,
+-- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
+dioConsumedCapacity
+    :: Functor f
+    => (Maybe ConsumedCapacity
+    -> f (Maybe ConsumedCapacity))
+    -> DeleteItemResponse
+    -> f DeleteItemResponse
+dioConsumedCapacity f x =
+    (\y -> x { _dioConsumedCapacity = y })
+       <$> f (_dioConsumedCapacity x)
+{-# INLINE dioConsumedCapacity #-}
+
+-- | Information about item collections, if any, that were affected by the
+-- operation. ItemCollectionMetrics is only returned if it was asked for in
+-- the request. If the table does not have any local secondary indexes, this
+-- information is not returned in the response. Each ItemCollectionMetrics
+-- element consists of: ItemCollectionKey - The hash key value of the item
+-- collection. This is the same as the hash key of the item. SizeEstimateRange
+-- - An estimate of item collection size, measured in gigabytes. This is a
+-- two-element array containing a lower bound and an upper bound for the
+-- estimate. The estimate includes the size of all the items in the table,
+-- plus the size of all attributes projected into all of the local secondary
+-- indexes on that table. Use this estimate to measure whether a local
+-- secondary index is approaching its size limit. The estimate is subject to
+-- change over time; therefore, do not rely on the precision or accuracy of
+-- the estimate.
+dioItemCollectionMetrics
+    :: Functor f
+    => (Maybe ItemCollectionMetrics
+    -> f (Maybe ItemCollectionMetrics))
+    -> DeleteItemResponse
+    -> f DeleteItemResponse
+dioItemCollectionMetrics f x =
+    (\y -> x { _dioItemCollectionMetrics = y })
+       <$> f (_dioItemCollectionMetrics x)
+{-# INLINE dioItemCollectionMetrics #-}
 
 instance FromJSON DeleteItemResponse
 

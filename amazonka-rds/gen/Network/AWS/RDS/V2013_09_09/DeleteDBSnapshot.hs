@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,19 +25,50 @@
 -- 2011-03-11T07:20:24.082Z mysql deleted us-east-1d general-public-license
 -- 2010-07-16T00:06:59.107Z 60 simcoprod01 5.1.47 mysnapshot2 manual master
 -- 627a43a1-8507-11e0-bd9b-a7b1ece36d51.
-module Network.AWS.RDS.V2013_09_09.DeleteDBSnapshot where
+module Network.AWS.RDS.V2013_09_09.DeleteDBSnapshot
+    (
+    -- * Request
+      DeleteDBSnapshot
+    -- ** Request constructor
+    , deleteDBSnapshot
+    -- ** Request lenses
+    , ddbsmDBSnapshotIdentifier
+
+    -- * Response
+    , DeleteDBSnapshotResponse
+    -- ** Response lenses
+    , dbsyDBSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteDBSnapshot' request.
+deleteDBSnapshot :: Text -- ^ 'ddbsmDBSnapshotIdentifier'
+                 -> DeleteDBSnapshot
+deleteDBSnapshot p1 = DeleteDBSnapshot
+    { _ddbsmDBSnapshotIdentifier = p1
+    }
+
 data DeleteDBSnapshot = DeleteDBSnapshot
-    { _ddbsnDBSnapshotIdentifier :: Text
+    { _ddbsmDBSnapshotIdentifier :: Text
       -- ^ The DBSnapshot identifier. Constraints: Must be the name of an
       -- existing DB snapshot in the available state.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBSnapshot
+-- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB
+-- snapshot in the available state.
+ddbsmDBSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDBSnapshot
+    -> f DeleteDBSnapshot
+ddbsmDBSnapshotIdentifier f x =
+    (\y -> x { _ddbsmDBSnapshotIdentifier = y })
+       <$> f (_ddbsmDBSnapshotIdentifier x)
+{-# INLINE ddbsmDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBSnapshot where
     toQuery = genericQuery def
@@ -50,7 +80,19 @@ data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
       -- as a response element in the DescribeDBSnapshots action.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBSnapshotResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
+-- element in the DescribeDBSnapshots action.
+dbsyDBSnapshot
+    :: Functor f
+    => (Maybe DBSnapshot
+    -> f (Maybe DBSnapshot))
+    -> DeleteDBSnapshotResponse
+    -> f DeleteDBSnapshotResponse
+dbsyDBSnapshot f x =
+    (\y -> x { _dbsyDBSnapshot = y })
+       <$> f (_dbsyDBSnapshot x)
+{-# INLINE dbsyDBSnapshot #-}
 
 instance FromXML DeleteDBSnapshotResponse where
     fromXMLOptions = xmlOptions

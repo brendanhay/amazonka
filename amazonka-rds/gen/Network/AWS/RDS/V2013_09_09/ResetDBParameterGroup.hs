@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,14 +32,29 @@
 -- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &AWSAccessKeyId= &Signature= mydbparametergroup
 -- 071e758f-bf57-11de-9f9f-53d6aee22de9.
-module Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup where
+module Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup
+    (
+    -- * Request
+      ResetDBParameterGroup
+    -- ** Request constructor
+    , resetDBParameterGroup
+    -- ** Request lenses
+    , rdbpgmDBParameterGroupName
+    , rdbpgmResetAllParameters
+    , rdbpgmParameters
+
+    -- * Response
+    , ResetDBParameterGroupResponse
+    -- ** Response lenses
+    , dbpgnnDBParameterGroupName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetDBParameterGroup' request.
-resetDBParameterGroup :: Text -- ^ '_rdbpgmDBParameterGroupName'
+resetDBParameterGroup :: Text -- ^ 'rdbpgmDBParameterGroupName'
                       -> ResetDBParameterGroup
 resetDBParameterGroup p1 = ResetDBParameterGroup
     { _rdbpgmDBParameterGroupName = p1
@@ -68,17 +82,71 @@ data ResetDBParameterGroup = ResetDBParameterGroup
       -- Oracle Valid Values (for Apply method): pending-reboot.
     } deriving (Show, Generic)
 
-makeLenses ''ResetDBParameterGroup
+-- | The name of the DB parameter group. Constraints: Must be 1 to 255
+-- alphanumeric characters First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens.
+rdbpgmDBParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResetDBParameterGroup
+    -> f ResetDBParameterGroup
+rdbpgmDBParameterGroupName f x =
+    (\y -> x { _rdbpgmDBParameterGroupName = y })
+       <$> f (_rdbpgmDBParameterGroupName x)
+{-# INLINE rdbpgmDBParameterGroupName #-}
+
+-- | Specifies whether (true) or not (false) to reset all parameters in the DB
+-- parameter group to default values. Default: true.
+rdbpgmResetAllParameters
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ResetDBParameterGroup
+    -> f ResetDBParameterGroup
+rdbpgmResetAllParameters f x =
+    (\y -> x { _rdbpgmResetAllParameters = y })
+       <$> f (_rdbpgmResetAllParameters x)
+{-# INLINE rdbpgmResetAllParameters #-}
+
+-- | An array of parameter names, values, and the apply method for the parameter
+-- update. At least one parameter name, value, and apply method must be
+-- supplied; subsequent arguments are optional. A maximum of 20 parameters may
+-- be modified in a single request. MySQL Valid Values (for Apply method):
+-- immediate | pending-reboot You can use the immediate value with dynamic
+-- parameters only. You can use the pending-reboot value for both dynamic and
+-- static parameters, and changes are applied when DB instance reboots. Oracle
+-- Valid Values (for Apply method): pending-reboot.
+rdbpgmParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> ResetDBParameterGroup
+    -> f ResetDBParameterGroup
+rdbpgmParameters f x =
+    (\y -> x { _rdbpgmParameters = y })
+       <$> f (_rdbpgmParameters x)
+{-# INLINE rdbpgmParameters #-}
 
 instance ToQuery ResetDBParameterGroup where
     toQuery = genericQuery def
 
 data ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
-    { _dbpgnmDBParameterGroupName :: Maybe Text
+    { _dbpgnnDBParameterGroupName :: Maybe Text
       -- ^ The name of the DB parameter group.
     } deriving (Show, Generic)
 
-makeLenses ''ResetDBParameterGroupResponse
+-- | The name of the DB parameter group.
+dbpgnnDBParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResetDBParameterGroupResponse
+    -> f ResetDBParameterGroupResponse
+dbpgnnDBParameterGroupName f x =
+    (\y -> x { _dbpgnnDBParameterGroupName = y })
+       <$> f (_dbpgnnDBParameterGroupName x)
+{-# INLINE dbpgnnDBParameterGroupName #-}
 
 instance FromXML ResetDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

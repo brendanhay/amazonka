@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,34 +20,78 @@
 -- | Set the logging parameters for a bucket and to specify permissions for who
 -- can view and modify the logging parameters. To set the logging status of a
 -- bucket, you must be the bucket owner.
-module Network.AWS.S3.V2006_03_01.PutBucketLogging where
+module Network.AWS.S3.V2006_03_01.PutBucketLogging
+    (
+    -- * Request
+      PutBucketLogging
+    -- ** Request constructor
+    , putBucketLogging
+    -- ** Request lenses
+    , pblsBucketLoggingStatus
+    , pblsBucket
+    , pblsContentMD5
+
+    -- * Response
+    , PutBucketLoggingResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketLogging' request.
-putBucketLogging :: BucketLoggingStatus -- ^ '_pblrBucketLoggingStatus'
-                 -> BucketName -- ^ '_pblrBucket'
+putBucketLogging :: BucketLoggingStatus -- ^ 'pblsBucketLoggingStatus'
+                 -> BucketName -- ^ 'pblsBucket'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
-    { _pblrBucketLoggingStatus = p1
-    , _pblrBucket = p2
-    , _pblrContentMD5 = Nothing
+    { _pblsBucketLoggingStatus = p1
+    , _pblsBucket = p2
+    , _pblsContentMD5 = Nothing
     }
 
 data PutBucketLogging = PutBucketLogging
-    { _pblrBucketLoggingStatus :: BucketLoggingStatus
-    , _pblrBucket :: BucketName
-    , _pblrContentMD5 :: Maybe Text
+    { _pblsBucketLoggingStatus :: BucketLoggingStatus
+    , _pblsBucket :: BucketName
+    , _pblsContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketLogging
+pblsBucketLoggingStatus
+    :: Functor f
+    => (BucketLoggingStatus
+    -> f (BucketLoggingStatus))
+    -> PutBucketLogging
+    -> f PutBucketLogging
+pblsBucketLoggingStatus f x =
+    (\y -> x { _pblsBucketLoggingStatus = y })
+       <$> f (_pblsBucketLoggingStatus x)
+{-# INLINE pblsBucketLoggingStatus #-}
+
+pblsBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketLogging
+    -> f PutBucketLogging
+pblsBucket f x =
+    (\y -> x { _pblsBucket = y })
+       <$> f (_pblsBucket x)
+{-# INLINE pblsBucket #-}
+
+pblsContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketLogging
+    -> f PutBucketLogging
+pblsContentMD5 f x =
+    (\y -> x { _pblsContentMD5 = y })
+       <$> f (_pblsContentMD5 x)
+{-# INLINE pblsContentMD5 #-}
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat
         [ "/"
-        , toBS _pblrBucket
+        , toBS _pblsBucket
         ]
 
 instance ToQuery PutBucketLogging where
@@ -58,16 +101,14 @@ instance ToQuery PutBucketLogging where
 
 instance ToHeaders PutBucketLogging where
     toHeaders PutBucketLogging{..} = concat
-        [ "Content-MD5" =: _pblrContentMD5
+        [ "Content-MD5" =: _pblsContentMD5
         ]
 
 instance ToBody PutBucketLogging where
-    toBody = toBody . encodeXML . _pblrBucketLoggingStatus
+    toBody = toBody . encodeXML . _pblsBucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketLoggingResponse
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3

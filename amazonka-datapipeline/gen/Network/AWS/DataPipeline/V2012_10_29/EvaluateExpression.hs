@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,23 +29,83 @@
 -- application/x-amz-json-1.1 Content-Length: 103 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"evaluatedExpression": "Transform started at
 -- 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}.
-module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression where
+module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
+    (
+    -- * Request
+      EvaluateExpression
+    -- ** Request constructor
+    , evaluateExpression
+    -- ** Request lenses
+    , eeiPipelineId
+    , eeiObjectId
+    , eeiExpression
+
+    -- * Response
+    , EvaluateExpressionResponse
+    -- ** Response lenses
+    , eeoEvaluatedExpression
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'EvaluateExpression' request.
+evaluateExpression :: Text -- ^ 'eeiPipelineId'
+                   -> Text -- ^ 'eeiObjectId'
+                   -> Text -- ^ 'eeiExpression'
+                   -> EvaluateExpression
+evaluateExpression p1 p2 p3 = EvaluateExpression
+    { _eeiPipelineId = p1
+    , _eeiObjectId = p2
+    , _eeiExpression = p3
+    }
+
 data EvaluateExpression = EvaluateExpression
-    { _eeiObjectId :: Text
-      -- ^ The identifier of the object.
-    , _eeiPipelineId :: Text
+    { _eeiPipelineId :: Text
       -- ^ The identifier of the pipeline.
+    , _eeiObjectId :: Text
+      -- ^ The identifier of the object.
     , _eeiExpression :: Text
       -- ^ The expression to evaluate.
     } deriving (Show, Generic)
 
-makeLenses ''EvaluateExpression
+-- | The identifier of the pipeline.
+eeiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EvaluateExpression
+    -> f EvaluateExpression
+eeiPipelineId f x =
+    (\y -> x { _eeiPipelineId = y })
+       <$> f (_eeiPipelineId x)
+{-# INLINE eeiPipelineId #-}
+
+-- | The identifier of the object.
+eeiObjectId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EvaluateExpression
+    -> f EvaluateExpression
+eeiObjectId f x =
+    (\y -> x { _eeiObjectId = y })
+       <$> f (_eeiObjectId x)
+{-# INLINE eeiObjectId #-}
+
+-- | The expression to evaluate.
+eeiExpression
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EvaluateExpression
+    -> f EvaluateExpression
+eeiExpression f x =
+    (\y -> x { _eeiExpression = y })
+       <$> f (_eeiExpression x)
+{-# INLINE eeiExpression #-}
 
 instance ToPath EvaluateExpression
 
@@ -61,7 +120,17 @@ data EvaluateExpressionResponse = EvaluateExpressionResponse
       -- ^ The evaluated expression.
     } deriving (Show, Generic)
 
-makeLenses ''EvaluateExpressionResponse
+-- | The evaluated expression.
+eeoEvaluatedExpression
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EvaluateExpressionResponse
+    -> f EvaluateExpressionResponse
+eeoEvaluatedExpression f x =
+    (\y -> x { _eeoEvaluatedExpression = y })
+       <$> f (_eeoEvaluatedExpression x)
+{-# INLINE eeoEvaluatedExpression #-}
 
 instance FromJSON EvaluateExpressionResponse
 

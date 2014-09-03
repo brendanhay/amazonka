@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,23 +29,70 @@
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= mycachesecuritygroup 123456789012 My cache security
 -- group 2b1c8035-b7fa-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup where
+module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup
+    (
+    -- * Request
+      CreateCacheSecurityGroup
+    -- ** Request constructor
+    , createCacheSecurityGroup
+    -- ** Request lenses
+    , ccsgmCacheSecurityGroupName
+    , ccsgmDescription
+
+    -- * Response
+    , CreateCacheSecurityGroupResponse
+    -- ** Response lenses
+    , csgxCacheSecurityGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateCacheSecurityGroup' request.
+createCacheSecurityGroup :: Text -- ^ 'ccsgmCacheSecurityGroupName'
+                         -> Text -- ^ 'ccsgmDescription'
+                         -> CreateCacheSecurityGroup
+createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
+    { _ccsgmCacheSecurityGroupName = p1
+    , _ccsgmDescription = p2
+    }
+
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
-    { _ccsgmDescription :: Text
-      -- ^ A description for the cache security group.
-    , _ccsgmCacheSecurityGroupName :: Text
+    { _ccsgmCacheSecurityGroupName :: Text
       -- ^ A name for the cache security group. This value is stored as a
       -- lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters. Must not be the word "Default". Example:
       -- mysecuritygroup.
+    , _ccsgmDescription :: Text
+      -- ^ A description for the cache security group.
     } deriving (Show, Generic)
 
-makeLenses ''CreateCacheSecurityGroup
+-- | A name for the cache security group. This value is stored as a lowercase
+-- string. Constraints: Must contain no more than 255 alphanumeric characters.
+-- Must not be the word "Default". Example: mysecuritygroup.
+ccsgmCacheSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCacheSecurityGroup
+    -> f CreateCacheSecurityGroup
+ccsgmCacheSecurityGroupName f x =
+    (\y -> x { _ccsgmCacheSecurityGroupName = y })
+       <$> f (_ccsgmCacheSecurityGroupName x)
+{-# INLINE ccsgmCacheSecurityGroupName #-}
+
+-- | A description for the cache security group.
+ccsgmDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCacheSecurityGroup
+    -> f CreateCacheSecurityGroup
+ccsgmDescription f x =
+    (\y -> x { _ccsgmDescription = y })
+       <$> f (_ccsgmDescription x)
+{-# INLINE ccsgmDescription #-}
 
 instance ToQuery CreateCacheSecurityGroup where
     toQuery = genericQuery def
@@ -58,7 +104,19 @@ data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
       -- RevokeCacheSecurityGroupIngress.
     } deriving (Show, Generic)
 
-makeLenses ''CreateCacheSecurityGroupResponse
+-- | Represents the output of one of the following operations:
+-- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
+-- RevokeCacheSecurityGroupIngress.
+csgxCacheSecurityGroup
+    :: Functor f
+    => (Maybe CacheSecurityGroup
+    -> f (Maybe CacheSecurityGroup))
+    -> CreateCacheSecurityGroupResponse
+    -> f CreateCacheSecurityGroupResponse
+csgxCacheSecurityGroup f x =
+    (\y -> x { _csgxCacheSecurityGroup = y })
+       <$> f (_csgxCacheSecurityGroup x)
+{-# INLINE csgxCacheSecurityGroup #-}
 
 instance FromXML CreateCacheSecurityGroupResponse where
     fromXMLOptions = xmlOptions

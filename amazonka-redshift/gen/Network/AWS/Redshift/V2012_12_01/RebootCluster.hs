@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,28 +33,68 @@
 -- true false dev sun:06:30-sun:07:00 in-sync default.redshift-1.0
 -- 2013-01-22T19:23:59.368Z active default us-east-1c dw1.xlarge
 -- examplecluster true adminuser 5edee79e-6503-11e2-9e70-918437dd236d.
-module Network.AWS.Redshift.V2012_12_01.RebootCluster where
+module Network.AWS.Redshift.V2012_12_01.RebootCluster
+    (
+    -- * Request
+      RebootCluster
+    -- ** Request constructor
+    , rebootCluster
+    -- ** Request lenses
+    , rcoClusterIdentifier
+
+    -- * Response
+    , RebootClusterResponse
+    -- ** Response lenses
+    , ccwCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RebootCluster' request.
+rebootCluster :: Text -- ^ 'rcoClusterIdentifier'
+              -> RebootCluster
+rebootCluster p1 = RebootCluster
+    { _rcoClusterIdentifier = p1
+    }
 
 data RebootCluster = RebootCluster
     { _rcoClusterIdentifier :: Text
       -- ^ The cluster identifier.
     } deriving (Show, Generic)
 
-makeLenses ''RebootCluster
+-- | The cluster identifier.
+rcoClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RebootCluster
+    -> f RebootCluster
+rcoClusterIdentifier f x =
+    (\y -> x { _rcoClusterIdentifier = y })
+       <$> f (_rcoClusterIdentifier x)
+{-# INLINE rcoClusterIdentifier #-}
 
 instance ToQuery RebootCluster where
     toQuery = genericQuery def
 
 data RebootClusterResponse = RebootClusterResponse
-    { _cyCluster :: Maybe Cluster
+    { _ccwCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
-makeLenses ''RebootClusterResponse
+-- | Describes a cluster.
+ccwCluster
+    :: Functor f
+    => (Maybe Cluster
+    -> f (Maybe Cluster))
+    -> RebootClusterResponse
+    -> f RebootClusterResponse
+ccwCluster f x =
+    (\y -> x { _ccwCluster = y })
+       <$> f (_ccwCluster x)
+{-# INLINE ccwCluster #-}
 
 instance FromXML RebootClusterResponse where
     fromXMLOptions = xmlOptions

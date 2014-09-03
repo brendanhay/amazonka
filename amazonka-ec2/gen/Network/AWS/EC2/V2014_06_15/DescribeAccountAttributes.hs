@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -70,16 +69,14 @@ module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
     (
     -- * Request
       DescribeAccountAttributes
-    -- ** Default constructor
+    -- ** Request constructor
     , describeAccountAttributes
-    -- ** Accessors and lenses
-    , _daarAttributeNames
+    -- ** Request lenses
     , daarAttributeNames
 
     -- * Response
     , DescribeAccountAttributesResponse
-    -- ** Accessors and lenses
-    , _daasAccountAttributes
+    -- ** Response lenses
     , daasAccountAttributes
     ) where
 
@@ -94,8 +91,21 @@ describeAccountAttributes = DescribeAccountAttributes
     }
 
 data DescribeAccountAttributes = DescribeAccountAttributes
+    { _daarAttributeNames :: [AccountAttributeName]
+      -- ^ One or more account attribute names.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeAccountAttributes
+-- | One or more account attribute names.
+daarAttributeNames
+    :: Functor f
+    => ([AccountAttributeName]
+    -> f ([AccountAttributeName]))
+    -> DescribeAccountAttributes
+    -> f DescribeAccountAttributes
+daarAttributeNames f x =
+    (\y -> x { _daarAttributeNames = y })
+       <$> f (_daarAttributeNames x)
+{-# INLINE daarAttributeNames #-}
 
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
@@ -105,7 +115,17 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
       -- ^ Information about one or more account attributes.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeAccountAttributesResponse
+-- | Information about one or more account attributes.
+daasAccountAttributes
+    :: Functor f
+    => ([AccountAttribute]
+    -> f ([AccountAttribute]))
+    -> DescribeAccountAttributesResponse
+    -> f DescribeAccountAttributesResponse
+daasAccountAttributes f x =
+    (\y -> x { _daasAccountAttributes = y })
+       <$> f (_daasAccountAttributes x)
+{-# INLINE daasAccountAttributes #-}
 
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions
@@ -116,9 +136,3 @@ instance AWSRequest DescribeAccountAttributes where
 
     request = post "DescribeAccountAttributes"
     response _ = xmlResponse
-
--- | One or more account attribute names.
-daarAttributeNames :: Lens' DescribeAccountAttributes ([AccountAttributeName])
-
--- | Information about one or more account attributes.
-daasAccountAttributes :: Lens' DescribeAccountAttributesResponse ([AccountAttribute])

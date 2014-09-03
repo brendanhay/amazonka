@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,22 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides information about the bootstrap actions associated with a cluster.
-module Network.AWS.EMR.V2009_03_31.ListBootstrapActions where
+module Network.AWS.EMR.V2009_03_31.ListBootstrapActions
+    (
+    -- * Request
+      ListBootstrapActions
+    -- ** Request constructor
+    , listBootstrapActions
+    -- ** Request lenses
+    , lbaiClusterId
+    , lbaiMarker
+
+    -- * Response
+    , ListBootstrapActionsResponse
+    -- ** Response lenses
+    , lbaoBootstrapActions
+    , lbaoMarker
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -27,7 +41,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListBootstrapActions' request.
-listBootstrapActions :: Text -- ^ '_lbaiClusterId'
+listBootstrapActions :: Text -- ^ 'lbaiClusterId'
                      -> ListBootstrapActions
 listBootstrapActions p1 = ListBootstrapActions
     { _lbaiClusterId = p1
@@ -42,7 +56,29 @@ data ListBootstrapActions = ListBootstrapActions
       -- retrieve .
     } deriving (Show, Generic)
 
-makeLenses ''ListBootstrapActions
+-- | The cluster identifier for the bootstrap actions to list .
+lbaiClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListBootstrapActions
+    -> f ListBootstrapActions
+lbaiClusterId f x =
+    (\y -> x { _lbaiClusterId = y })
+       <$> f (_lbaiClusterId x)
+{-# INLINE lbaiClusterId #-}
+
+-- | The pagination token that indicates the next set of results to retrieve .
+lbaiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListBootstrapActions
+    -> f ListBootstrapActions
+lbaiMarker f x =
+    (\y -> x { _lbaiMarker = y })
+       <$> f (_lbaiMarker x)
+{-# INLINE lbaiMarker #-}
 
 instance ToPath ListBootstrapActions
 
@@ -60,7 +96,29 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse
       -- retrieve .
     } deriving (Show, Generic)
 
-makeLenses ''ListBootstrapActionsResponse
+-- | The bootstrap actions associated with the cluster .
+lbaoBootstrapActions
+    :: Functor f
+    => ([Command]
+    -> f ([Command]))
+    -> ListBootstrapActionsResponse
+    -> f ListBootstrapActionsResponse
+lbaoBootstrapActions f x =
+    (\y -> x { _lbaoBootstrapActions = y })
+       <$> f (_lbaoBootstrapActions x)
+{-# INLINE lbaoBootstrapActions #-}
+
+-- | The pagination token that indicates the next set of results to retrieve .
+lbaoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListBootstrapActionsResponse
+    -> f ListBootstrapActionsResponse
+lbaoMarker f x =
+    (\y -> x { _lbaoMarker = y })
+       <$> f (_lbaoMarker x)
+{-# INLINE lbaoMarker #-}
 
 instance FromJSON ListBootstrapActionsResponse
 

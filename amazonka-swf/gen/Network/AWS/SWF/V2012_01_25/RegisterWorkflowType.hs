@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -53,7 +52,25 @@
 -- {"name": "mainTaskList"}, "defaultChildPolicy": "TERMINATE"} HTTP/1.1 200
 -- OK Content-Length: 0 Content-Type: application/json x-amzn-RequestId:
 -- bb469e67-3e18-11e1-9914-a356b6ea8bdf.
-module Network.AWS.SWF.V2012_01_25.RegisterWorkflowType where
+module Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
+    (
+    -- * Request
+      RegisterWorkflowType
+    -- ** Request constructor
+    , registerWorkflowType
+    -- ** Request lenses
+    , rwtiDomain
+    , rwtiName
+    , rwtiVersion
+    , rwtiDefaultChildPolicy
+    , rwtiDescription
+    , rwtiDefaultTaskStartToCloseTimeout
+    , rwtiDefaultExecutionStartToCloseTimeout
+    , rwtiDefaultTaskList
+
+    -- * Response
+    , RegisterWorkflowTypeResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -61,9 +78,9 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RegisterWorkflowType' request.
-registerWorkflowType :: Text -- ^ '_rwtiDomain'
-                     -> Text -- ^ '_rwtiName'
-                     -> Text -- ^ '_rwtiVersion'
+registerWorkflowType :: Text -- ^ 'rwtiDomain'
+                     -> Text -- ^ 'rwtiName'
+                     -> Text -- ^ 'rwtiVersion'
                      -> RegisterWorkflowType
 registerWorkflowType p1 p2 p3 = RegisterWorkflowType
     { _rwtiDomain = p1
@@ -137,7 +154,136 @@ data RegisterWorkflowType = RegisterWorkflowType
       -- StartChildWorkflowExecution Decision.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterWorkflowType
+-- | The name of the domain in which to register the workflow type.
+rwtiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiDomain f x =
+    (\y -> x { _rwtiDomain = y })
+       <$> f (_rwtiDomain x)
+{-# INLINE rwtiDomain #-}
+
+-- | The name of the workflow type. The specified string must not start or end
+-- with whitespace. It must not contain a : (colon), / (slash), | (vertical
+-- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
+-- must not contain the literal string &quot;arn&quot;.
+rwtiName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiName f x =
+    (\y -> x { _rwtiName = y })
+       <$> f (_rwtiName x)
+{-# INLINE rwtiName #-}
+
+-- | The version of the workflow type. The workflow type consists of the name
+-- and version, the combination of which must be unique within the domain. To
+-- get a list of all currently registered workflow types, use the
+-- ListWorkflowTypes action. The specified string must not start or end with
+-- whitespace. It must not contain a : (colon), / (slash), | (vertical bar),
+-- or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must
+-- not contain the literal string &quot;arn&quot;.
+rwtiVersion
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiVersion f x =
+    (\y -> x { _rwtiVersion = y })
+       <$> f (_rwtiVersion x)
+{-# INLINE rwtiVersion #-}
+
+-- | If set, specifies the default policy to use for the child workflow
+-- executions when a workflow execution of this type is terminated, by calling
+-- the TerminateWorkflowExecution action explicitly or due to an expired
+-- timeout. This default can be overridden when starting a workflow execution
+-- using the StartWorkflowExecution action or the StartChildWorkflowExecution
+-- Decision. The supported child policies are: TERMINATE: the child executions
+-- will be terminated. REQUEST_CANCEL: a request to cancel will be attempted
+-- for each child execution by recording a WorkflowExecutionCancelRequested
+-- event in its history. It is up to the decider to take appropriate actions
+-- when it receives an execution history with this event. ABANDON: no action
+-- will be taken. The child executions will continue to run.
+rwtiDefaultChildPolicy
+    :: Functor f
+    => (Maybe ChildPolicy
+    -> f (Maybe ChildPolicy))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiDefaultChildPolicy f x =
+    (\y -> x { _rwtiDefaultChildPolicy = y })
+       <$> f (_rwtiDefaultChildPolicy x)
+{-# INLINE rwtiDefaultChildPolicy #-}
+
+-- | Textual description of the workflow type.
+rwtiDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiDescription f x =
+    (\y -> x { _rwtiDescription = y })
+       <$> f (_rwtiDescription x)
+{-# INLINE rwtiDescription #-}
+
+-- | If set, specifies the default maximum duration of decision tasks for this
+-- workflow type. This default can be overridden when starting a workflow
+-- execution using the StartWorkflowExecution action or the
+-- StartChildWorkflowExecution Decision. The valid values are integers greater
+-- than or equal to 0. An integer value can be used to specify the duration in
+-- seconds while NONE can be used to specify unlimited duration.
+rwtiDefaultTaskStartToCloseTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiDefaultTaskStartToCloseTimeout f x =
+    (\y -> x { _rwtiDefaultTaskStartToCloseTimeout = y })
+       <$> f (_rwtiDefaultTaskStartToCloseTimeout x)
+{-# INLINE rwtiDefaultTaskStartToCloseTimeout #-}
+
+-- | If set, specifies the default maximum duration for executions of this
+-- workflow type. You can override this default when starting an execution
+-- through the StartWorkflowExecution Action or StartChildWorkflowExecution
+-- Decision. The duration is specified in seconds. The valid values are
+-- integers greater than or equal to 0. Unlike some of the other timeout
+-- parameters in Amazon SWF, you cannot specify a value of "NONE" for
+-- defaultExecutionStartToCloseTimeout; there is a one-year max limit on the
+-- time that a workflow execution can run. Exceeding this limit will always
+-- cause the workflow execution to time out.
+rwtiDefaultExecutionStartToCloseTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiDefaultExecutionStartToCloseTimeout f x =
+    (\y -> x { _rwtiDefaultExecutionStartToCloseTimeout = y })
+       <$> f (_rwtiDefaultExecutionStartToCloseTimeout x)
+{-# INLINE rwtiDefaultExecutionStartToCloseTimeout #-}
+
+-- | If set, specifies the default task list to use for scheduling decision
+-- tasks for executions of this workflow type. This default is used only if a
+-- task list is not provided when starting the execution through the
+-- StartWorkflowExecution Action or StartChildWorkflowExecution Decision.
+rwtiDefaultTaskList
+    :: Functor f
+    => (Maybe TaskList
+    -> f (Maybe TaskList))
+    -> RegisterWorkflowType
+    -> f RegisterWorkflowType
+rwtiDefaultTaskList f x =
+    (\y -> x { _rwtiDefaultTaskList = y })
+       <$> f (_rwtiDefaultTaskList x)
+{-# INLINE rwtiDefaultTaskList #-}
 
 instance ToPath RegisterWorkflowType
 
@@ -149,8 +295,6 @@ instance ToJSON RegisterWorkflowType
 
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RegisterWorkflowTypeResponse
 
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF

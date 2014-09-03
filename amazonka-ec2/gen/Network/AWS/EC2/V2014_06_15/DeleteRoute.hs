@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,12 +29,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteRoute
     (
     -- * Request
       DeleteRoute
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteRoute
-    -- ** Accessors and lenses
-    , _drrRouteTableId
+    -- ** Request lenses
     , drrRouteTableId
-    , _drrDestinationCidrBlock
     , drrDestinationCidrBlock
 
     -- * Response
@@ -56,8 +53,37 @@ deleteRoute p1 p2 = DeleteRoute
     }
 
 data DeleteRoute = DeleteRoute
+    { _drrRouteTableId :: Text
+      -- ^ The ID of the route table.
+    , _drrDestinationCidrBlock :: Text
+      -- ^ The CIDR range for the route. The value you specify must match
+      -- the CIDR for the route exactly.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteRoute
+-- | The ID of the route table.
+drrRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRoute
+    -> f DeleteRoute
+drrRouteTableId f x =
+    (\y -> x { _drrRouteTableId = y })
+       <$> f (_drrRouteTableId x)
+{-# INLINE drrRouteTableId #-}
+
+-- | The CIDR range for the route. The value you specify must match the CIDR for
+-- the route exactly.
+drrDestinationCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRoute
+    -> f DeleteRoute
+drrDestinationCidrBlock f x =
+    (\y -> x { _drrDestinationCidrBlock = y })
+       <$> f (_drrDestinationCidrBlock x)
+{-# INLINE drrDestinationCidrBlock #-}
 
 instance ToQuery DeleteRoute where
     toQuery = genericQuery def
@@ -65,18 +91,9 @@ instance ToQuery DeleteRoute where
 data DeleteRouteResponse = DeleteRouteResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteRouteResponse
-
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2
     type Rs DeleteRoute = DeleteRouteResponse
 
     request = post "DeleteRoute"
     response _ = nullaryResponse DeleteRouteResponse
-
--- | The ID of the route table.
-drrRouteTableId :: Lens' DeleteRoute (Text)
-
--- | The CIDR range for the route. The value you specify must match the CIDR for
--- the route exactly.
-drrDestinationCidrBlock :: Lens' DeleteRoute (Text)

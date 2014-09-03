@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,11 +27,32 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &EnvironmentName=SampleApp &Operation=DeleteEnvironmentConfiguration
 -- &AuthParams fdf76507-f26d-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration
+    (
+    -- * Request
+      DeleteEnvironmentConfiguration
+    -- ** Request constructor
+    , deleteEnvironmentConfiguration
+    -- ** Request lenses
+    , decmApplicationName
+    , decmEnvironmentName
+
+    -- * Response
+    , DeleteEnvironmentConfigurationResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteEnvironmentConfiguration' request.
+deleteEnvironmentConfiguration :: Text -- ^ 'decmApplicationName'
+                               -> Text -- ^ 'decmEnvironmentName'
+                               -> DeleteEnvironmentConfiguration
+deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
+    { _decmApplicationName = p1
+    , _decmEnvironmentName = p2
+    }
 
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decmApplicationName :: Text
@@ -42,15 +62,35 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
       -- from.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteEnvironmentConfiguration
+-- | The name of the application the environment is associated with.
+decmApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteEnvironmentConfiguration
+    -> f DeleteEnvironmentConfiguration
+decmApplicationName f x =
+    (\y -> x { _decmApplicationName = y })
+       <$> f (_decmApplicationName x)
+{-# INLINE decmApplicationName #-}
+
+-- | The name of the environment to delete the draft configuration from.
+decmEnvironmentName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteEnvironmentConfiguration
+    -> f DeleteEnvironmentConfiguration
+decmEnvironmentName f x =
+    (\y -> x { _decmEnvironmentName = y })
+       <$> f (_decmEnvironmentName x)
+{-# INLINE decmEnvironmentName #-}
 
 instance ToQuery DeleteEnvironmentConfiguration where
     toQuery = genericQuery def
 
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteEnvironmentConfigurationResponse
 
 instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk

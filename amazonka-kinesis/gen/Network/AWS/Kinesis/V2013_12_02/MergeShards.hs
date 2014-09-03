@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -56,24 +55,82 @@
 -- "ShardToMerge": "shardId-000000000000", "AdjacentShardToMerge":
 -- "shardId-000000000001" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
-module Network.AWS.Kinesis.V2013_12_02.MergeShards where
+module Network.AWS.Kinesis.V2013_12_02.MergeShards
+    (
+    -- * Request
+      MergeShards
+    -- ** Request constructor
+    , mergeShards
+    -- ** Request lenses
+    , msiShardToMerge
+    , msiAdjacentShardToMerge
+    , msiStreamName
+
+    -- * Response
+    , MergeShardsResponse
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'MergeShards' request.
+mergeShards :: Text -- ^ 'msiShardToMerge'
+            -> Text -- ^ 'msiAdjacentShardToMerge'
+            -> Text -- ^ 'msiStreamName'
+            -> MergeShards
+mergeShards p1 p2 p3 = MergeShards
+    { _msiShardToMerge = p1
+    , _msiAdjacentShardToMerge = p2
+    , _msiStreamName = p3
+    }
+
 data MergeShards = MergeShards
-    { _msiAdjacentShardToMerge :: Text
-      -- ^ The shard ID of the adjacent shard for the merge.
-    , _msiShardToMerge :: Text
+    { _msiShardToMerge :: Text
       -- ^ The shard ID of the shard to combine with the adjacent shard for
       -- the merge.
+    , _msiAdjacentShardToMerge :: Text
+      -- ^ The shard ID of the adjacent shard for the merge.
     , _msiStreamName :: Text
       -- ^ The name of the stream for the merge.
     } deriving (Show, Generic)
 
-makeLenses ''MergeShards
+-- | The shard ID of the shard to combine with the adjacent shard for the merge.
+msiShardToMerge
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> MergeShards
+    -> f MergeShards
+msiShardToMerge f x =
+    (\y -> x { _msiShardToMerge = y })
+       <$> f (_msiShardToMerge x)
+{-# INLINE msiShardToMerge #-}
+
+-- | The shard ID of the adjacent shard for the merge.
+msiAdjacentShardToMerge
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> MergeShards
+    -> f MergeShards
+msiAdjacentShardToMerge f x =
+    (\y -> x { _msiAdjacentShardToMerge = y })
+       <$> f (_msiAdjacentShardToMerge x)
+{-# INLINE msiAdjacentShardToMerge #-}
+
+-- | The name of the stream for the merge.
+msiStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> MergeShards
+    -> f MergeShards
+msiStreamName f x =
+    (\y -> x { _msiStreamName = y })
+       <$> f (_msiStreamName x)
+{-# INLINE msiStreamName #-}
 
 instance ToPath MergeShards
 
@@ -85,8 +142,6 @@ instance ToJSON MergeShards
 
 data MergeShardsResponse = MergeShardsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''MergeShardsResponse
 
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis

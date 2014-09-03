@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,15 +30,33 @@
 -- that it is not yet available on all DNS servers. The status of the zone
 -- changes to INSYNC when the NS and SOA records are available on all Route 53
 -- DNS servers.
-module Network.AWS.Route53.V2013_04_01.CreateHostedZone where
+module Network.AWS.Route53.V2013_04_01.CreateHostedZone
+    (
+    -- * Request
+      CreateHostedZone
+    -- ** Request constructor
+    , createHostedZone
+    -- ** Request lenses
+    , chzrName
+    , chzrCallerReference
+    , chzrHostedZoneConfig
+
+    -- * Response
+    , CreateHostedZoneResponse
+    -- ** Response lenses
+    , chzsChangeInfo
+    , chzsDelegationSet
+    , chzsHostedZone
+    , chzsLocation
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateHostedZone' request.
-createHostedZone :: Text -- ^ '_chzrName'
-                 -> Text -- ^ '_chzrCallerReference'
+createHostedZone :: Text -- ^ 'chzrName'
+                 -> Text -- ^ 'chzrCallerReference'
                  -> CreateHostedZone
 createHostedZone p1 p2 = CreateHostedZone
     { _chzrName = p1
@@ -73,7 +90,55 @@ data CreateHostedZone = CreateHostedZone
       -- hosted zone.
     } deriving (Show, Generic)
 
-makeLenses ''CreateHostedZone
+-- | The name of the domain. This must be a fully-specified domain, for example,
+-- www.example.com. The trailing dot is optional; Route 53 assumes that the
+-- domain name is fully qualified. This means that Route 53 treats
+-- www.example.com (without a trailing dot) and www.example.com. (with a
+-- trailing dot) as identical. This is the name you have registered with your
+-- DNS registrar. You should ask your registrar to change the authoritative
+-- name servers for your domain to the set of NameServers elements returned in
+-- DelegationSet.
+chzrName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateHostedZone
+    -> f CreateHostedZone
+chzrName f x =
+    (\y -> x { _chzrName = y })
+       <$> f (_chzrName x)
+{-# INLINE chzrName #-}
+
+-- | A unique string that identifies the request and that allows failed
+-- CreateHostedZone requests to be retried without the risk of executing the
+-- operation twice. You must use a unique CallerReference string every time
+-- you create a hosted zone. CallerReference can be any unique string; you
+-- might choose to use a string that identifies your project, such as
+-- DNSMigration_01. Valid characters are any Unicode code points that are
+-- legal in an XML 1.0 document. The UTF-8 encoding of the value must be less
+-- than 128 bytes.
+chzrCallerReference
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateHostedZone
+    -> f CreateHostedZone
+chzrCallerReference f x =
+    (\y -> x { _chzrCallerReference = y })
+       <$> f (_chzrCallerReference x)
+{-# INLINE chzrCallerReference #-}
+
+-- | A complex type that contains an optional comment about your hosted zone.
+chzrHostedZoneConfig
+    :: Functor f
+    => (Maybe HostedZoneConfig
+    -> f (Maybe HostedZoneConfig))
+    -> CreateHostedZone
+    -> f CreateHostedZone
+chzrHostedZoneConfig f x =
+    (\y -> x { _chzrHostedZoneConfig = y })
+       <$> f (_chzrHostedZoneConfig x)
+{-# INLINE chzrHostedZoneConfig #-}
 
 instance ToPath CreateHostedZone where
     toPath = const "/2013-04-01/hostedzone"
@@ -101,7 +166,55 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
       -- ^ The unique URL representing the new hosted zone.
     } deriving (Show, Generic)
 
-makeLenses ''CreateHostedZoneResponse
+-- | A complex type that contains information about the request to create a
+-- hosted zone. This includes an ID that you use when you call the GetChange
+-- action to get the current status of the change request.
+chzsChangeInfo
+    :: Functor f
+    => (ChangeInfo
+    -> f (ChangeInfo))
+    -> CreateHostedZoneResponse
+    -> f CreateHostedZoneResponse
+chzsChangeInfo f x =
+    (\y -> x { _chzsChangeInfo = y })
+       <$> f (_chzsChangeInfo x)
+{-# INLINE chzsChangeInfo #-}
+
+-- | A complex type that contains name server information.
+chzsDelegationSet
+    :: Functor f
+    => (DelegationSet
+    -> f (DelegationSet))
+    -> CreateHostedZoneResponse
+    -> f CreateHostedZoneResponse
+chzsDelegationSet f x =
+    (\y -> x { _chzsDelegationSet = y })
+       <$> f (_chzsDelegationSet x)
+{-# INLINE chzsDelegationSet #-}
+
+-- | A complex type that contains identifying information about the hosted zone.
+chzsHostedZone
+    :: Functor f
+    => (HostedZone
+    -> f (HostedZone))
+    -> CreateHostedZoneResponse
+    -> f CreateHostedZoneResponse
+chzsHostedZone f x =
+    (\y -> x { _chzsHostedZone = y })
+       <$> f (_chzsHostedZone x)
+{-# INLINE chzsHostedZone #-}
+
+-- | The unique URL representing the new hosted zone.
+chzsLocation
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateHostedZoneResponse
+    -> f CreateHostedZoneResponse
+chzsLocation f x =
+    (\y -> x { _chzsLocation = y })
+       <$> f (_chzsLocation x)
+{-# INLINE chzsLocation #-}
 
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53

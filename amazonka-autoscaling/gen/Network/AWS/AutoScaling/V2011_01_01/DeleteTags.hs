@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,29 +18,58 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes the specified tags or a set of tags from a set of resources.
-module Network.AWS.AutoScaling.V2011_01_01.DeleteTags where
+module Network.AWS.AutoScaling.V2011_01_01.DeleteTags
+    (
+    -- * Request
+      DeleteTags
+    -- ** Request constructor
+    , deleteTags
+    -- ** Request lenses
+    , dttTags
+
+    -- * Response
+    , DeleteTagsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteTags' request.
+deleteTags :: [Tag] -- ^ 'dttTags'
+           -> DeleteTags
+deleteTags p1 = DeleteTags
+    { _dttTags = p1
+    }
+
 data DeleteTags = DeleteTags
-    { _dtuTags :: [Tag]
+    { _dttTags :: [Tag]
       -- ^ Each tag should be defined by its resource type, resource ID,
       -- key, value, and a propagate flag. Valid values are: Resource type
       -- = auto-scaling-group, Resource ID = AutoScalingGroupName,
       -- key=value, value=value, propagate=true or false.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTags
+-- | Each tag should be defined by its resource type, resource ID, key, value,
+-- and a propagate flag. Valid values are: Resource type = auto-scaling-group,
+-- Resource ID = AutoScalingGroupName, key=value, value=value, propagate=true
+-- or false.
+dttTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> DeleteTags
+    -> f DeleteTags
+dttTags f x =
+    (\y -> x { _dttTags = y })
+       <$> f (_dttTags x)
+{-# INLINE dttTags #-}
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteTagsResponse
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = AutoScaling

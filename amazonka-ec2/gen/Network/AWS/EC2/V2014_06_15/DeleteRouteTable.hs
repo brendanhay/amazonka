@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,10 +29,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteRouteTable
     (
     -- * Request
       DeleteRouteTable
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteRouteTable
-    -- ** Accessors and lenses
-    , _drtrRouteTableId
+    -- ** Request lenses
     , drtrRouteTableId
 
     -- * Response
@@ -52,8 +50,21 @@ deleteRouteTable p1 = DeleteRouteTable
     }
 
 data DeleteRouteTable = DeleteRouteTable
+    { _drtrRouteTableId :: Text
+      -- ^ The ID of the route table.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteRouteTable
+-- | The ID of the route table.
+drtrRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRouteTable
+    -> f DeleteRouteTable
+drtrRouteTableId f x =
+    (\y -> x { _drtrRouteTableId = y })
+       <$> f (_drtrRouteTableId x)
+{-# INLINE drtrRouteTableId #-}
 
 instance ToQuery DeleteRouteTable where
     toQuery = genericQuery def
@@ -61,14 +72,9 @@ instance ToQuery DeleteRouteTable where
 data DeleteRouteTableResponse = DeleteRouteTableResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteRouteTableResponse
-
 instance AWSRequest DeleteRouteTable where
     type Sv DeleteRouteTable = EC2
     type Rs DeleteRouteTable = DeleteRouteTableResponse
 
     request = post "DeleteRouteTable"
     response _ = nullaryResponse DeleteRouteTableResponse
-
--- | The ID of the route table.
-drtrRouteTableId :: Lens' DeleteRouteTable (Text)

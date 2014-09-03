@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,22 @@
 -- 8c8deb53-0788-11e2-af9c-6bc7a6be6qr8 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {}.
-module Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus where
+module Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
+    (
+    -- * Request
+      SetTaskStatus
+    -- ** Request constructor
+    , setTaskStatus
+    -- ** Request lenses
+    , stsiTaskId
+    , stsiTaskStatus
+    , stsiErrorMessage
+    , stsiErrorId
+    , stsiErrorStackTrace
+
+    -- * Response
+    , SetTaskStatusResponse
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
@@ -39,8 +53,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'SetTaskStatus' request.
-setTaskStatus :: Text -- ^ '_stsiTaskId'
-              -> TaskStatus -- ^ '_stsiTaskStatus'
+setTaskStatus :: Text -- ^ 'stsiTaskId'
+              -> TaskStatus -- ^ 'stsiTaskStatus'
               -> SetTaskStatus
 setTaskStatus p1 p2 = SetTaskStatus
     { _stsiTaskId = p1
@@ -75,7 +89,76 @@ data SetTaskStatus = SetTaskStatus
       -- to the user. The web service does not parse this value.
     } deriving (Show, Generic)
 
-makeLenses ''SetTaskStatus
+-- | Identifies the task assigned to the task runner. This value is set in the
+-- TaskObject that is returned by the PollForTask action.
+stsiTaskId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetTaskStatus
+    -> f SetTaskStatus
+stsiTaskId f x =
+    (\y -> x { _stsiTaskId = y })
+       <$> f (_stsiTaskId x)
+{-# INLINE stsiTaskId #-}
+
+-- | If FINISHED, the task successfully completed. If FAILED the task ended
+-- unsuccessfully. The FALSE value is used by preconditions.
+stsiTaskStatus
+    :: Functor f
+    => (TaskStatus
+    -> f (TaskStatus))
+    -> SetTaskStatus
+    -> f SetTaskStatus
+stsiTaskStatus f x =
+    (\y -> x { _stsiTaskStatus = y })
+       <$> f (_stsiTaskStatus x)
+{-# INLINE stsiTaskStatus #-}
+
+-- | If an error occurred during the task, this value specifies a text
+-- description of the error. This value is set on the physical attempt object.
+-- It is used to display error information to the user. The web service does
+-- not parse this value.
+stsiErrorMessage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetTaskStatus
+    -> f SetTaskStatus
+stsiErrorMessage f x =
+    (\y -> x { _stsiErrorMessage = y })
+       <$> f (_stsiErrorMessage x)
+{-# INLINE stsiErrorMessage #-}
+
+-- | If an error occurred during the task, this value specifies an id value that
+-- represents the error. This value is set on the physical attempt object. It
+-- is used to display error information to the user. It should not start with
+-- string "Service_" which is reserved by the system.
+stsiErrorId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetTaskStatus
+    -> f SetTaskStatus
+stsiErrorId f x =
+    (\y -> x { _stsiErrorId = y })
+       <$> f (_stsiErrorId x)
+{-# INLINE stsiErrorId #-}
+
+-- | If an error occurred during the task, this value specifies the stack trace
+-- associated with the error. This value is set on the physical attempt
+-- object. It is used to display error information to the user. The web
+-- service does not parse this value.
+stsiErrorStackTrace
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetTaskStatus
+    -> f SetTaskStatus
+stsiErrorStackTrace f x =
+    (\y -> x { _stsiErrorStackTrace = y })
+       <$> f (_stsiErrorStackTrace x)
+{-# INLINE stsiErrorStackTrace #-}
 
 instance ToPath SetTaskStatus
 
@@ -87,8 +170,6 @@ instance ToJSON SetTaskStatus
 
 data SetTaskStatusResponse = SetTaskStatusResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetTaskStatusResponse
 
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline

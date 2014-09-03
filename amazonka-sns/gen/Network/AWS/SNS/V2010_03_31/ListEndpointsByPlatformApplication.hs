@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,14 +49,29 @@
 -- &lt;RequestId&gt;9a48768c-dac8-5a60-aec0-3cc27ea08d96&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/ListEndpointsByPlatformApplicationResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication where
+module Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
+    (
+    -- * Request
+      ListEndpointsByPlatformApplication
+    -- ** Request constructor
+    , listEndpointsByPlatformApplication
+    -- ** Request lenses
+    , lebpaiPlatformApplicationArn
+    , lebpaiNextToken
+
+    -- * Response
+    , ListEndpointsByPlatformApplicationResponse
+    -- ** Response lenses
+    , lebparEndpoints
+    , lebparNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListEndpointsByPlatformApplication' request.
-listEndpointsByPlatformApplication :: Text -- ^ '_lebpaiPlatformApplicationArn'
+listEndpointsByPlatformApplication :: Text -- ^ 'lebpaiPlatformApplicationArn'
                                    -> ListEndpointsByPlatformApplication
 listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
     { _lebpaiPlatformApplicationArn = p1
@@ -74,7 +88,31 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
       -- records that are available after the first page results.
     } deriving (Show, Generic)
 
-makeLenses ''ListEndpointsByPlatformApplication
+-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
+lebpaiPlatformApplicationArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListEndpointsByPlatformApplication
+    -> f ListEndpointsByPlatformApplication
+lebpaiPlatformApplicationArn f x =
+    (\y -> x { _lebpaiPlatformApplicationArn = y })
+       <$> f (_lebpaiPlatformApplicationArn x)
+{-# INLINE lebpaiPlatformApplicationArn #-}
+
+-- | NextToken string is used when calling ListEndpointsByPlatformApplication
+-- action to retrieve additional records that are available after the first
+-- page results.
+lebpaiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListEndpointsByPlatformApplication
+    -> f ListEndpointsByPlatformApplication
+lebpaiNextToken f x =
+    (\y -> x { _lebpaiNextToken = y })
+       <$> f (_lebpaiNextToken x)
+{-# INLINE lebpaiNextToken #-}
 
 instance ToQuery ListEndpointsByPlatformApplication where
     toQuery = genericQuery def
@@ -88,7 +126,31 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
       -- are available after the first page results.
     } deriving (Show, Generic)
 
-makeLenses ''ListEndpointsByPlatformApplicationResponse
+-- | Endpoints returned for ListEndpointsByPlatformApplication action.
+lebparEndpoints
+    :: Functor f
+    => ([Endpoint]
+    -> f ([Endpoint]))
+    -> ListEndpointsByPlatformApplicationResponse
+    -> f ListEndpointsByPlatformApplicationResponse
+lebparEndpoints f x =
+    (\y -> x { _lebparEndpoints = y })
+       <$> f (_lebparEndpoints x)
+{-# INLINE lebparEndpoints #-}
+
+-- | NextToken string is returned when calling
+-- ListEndpointsByPlatformApplication action if additional records are
+-- available after the first page results.
+lebparNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListEndpointsByPlatformApplicationResponse
+    -> f ListEndpointsByPlatformApplicationResponse
+lebparNextToken f x =
+    (\y -> x { _lebparNextToken = y })
+       <$> f (_lebparNextToken x)
+{-# INLINE lebparNextToken #-}
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     fromXMLOptions = xmlOptions

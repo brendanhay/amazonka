@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,18 +33,15 @@ module Network.AWS.EC2.V2014_06_15.AttachVpnGateway
     (
     -- * Request
       AttachVpnGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , attachVpnGateway
-    -- ** Accessors and lenses
-    , _avgrVpnGatewayId
+    -- ** Request lenses
     , avgrVpnGatewayId
-    , _avgrVpcId
     , avgrVpcId
 
     -- * Response
     , AttachVpnGatewayResponse
-    -- ** Accessors and lenses
-    , _avgsVpcAttachment
+    -- ** Response lenses
     , avgsVpcAttachment
     ) where
 
@@ -63,8 +59,35 @@ attachVpnGateway p1 p2 = AttachVpnGateway
     }
 
 data AttachVpnGateway = AttachVpnGateway
+    { _avgrVpnGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
+    , _avgrVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachVpnGateway
+-- | The ID of the virtual private gateway.
+avgrVpnGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachVpnGateway
+    -> f AttachVpnGateway
+avgrVpnGatewayId f x =
+    (\y -> x { _avgrVpnGatewayId = y })
+       <$> f (_avgrVpnGatewayId x)
+{-# INLINE avgrVpnGatewayId #-}
+
+-- | The ID of the VPC.
+avgrVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachVpnGateway
+    -> f AttachVpnGateway
+avgrVpcId f x =
+    (\y -> x { _avgrVpcId = y })
+       <$> f (_avgrVpcId x)
+{-# INLINE avgrVpcId #-}
 
 instance ToQuery AttachVpnGateway where
     toQuery = genericQuery def
@@ -74,7 +97,17 @@ data AttachVpnGatewayResponse = AttachVpnGatewayResponse
       -- ^ Information about the attachment.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachVpnGatewayResponse
+-- | Information about the attachment.
+avgsVpcAttachment
+    :: Functor f
+    => (Maybe VpcAttachment
+    -> f (Maybe VpcAttachment))
+    -> AttachVpnGatewayResponse
+    -> f AttachVpnGatewayResponse
+avgsVpcAttachment f x =
+    (\y -> x { _avgsVpcAttachment = y })
+       <$> f (_avgsVpcAttachment x)
+{-# INLINE avgsVpcAttachment #-}
 
 instance FromXML AttachVpnGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -85,12 +118,3 @@ instance AWSRequest AttachVpnGateway where
 
     request = post "AttachVpnGateway"
     response _ = xmlResponse
-
--- | The ID of the virtual private gateway.
-avgrVpnGatewayId :: Lens' AttachVpnGateway (Text)
-
--- | The ID of the VPC.
-avgrVpcId :: Lens' AttachVpnGateway (Text)
-
--- | Information about the attachment.
-avgsVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)

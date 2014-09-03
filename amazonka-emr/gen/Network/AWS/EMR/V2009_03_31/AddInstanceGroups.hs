@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,12 +36,36 @@
 -- application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15 Jul 2013
 -- 22:33:47 GMT { "InstanceGroupIds": ["ig-294A6A2KWT4WB"], "JobFlowId":
 -- "j-3U7TSX5GZFD8Y" }.
-module Network.AWS.EMR.V2009_03_31.AddInstanceGroups where
+module Network.AWS.EMR.V2009_03_31.AddInstanceGroups
+    (
+    -- * Request
+      AddInstanceGroups
+    -- ** Request constructor
+    , addInstanceGroups
+    -- ** Request lenses
+    , aigiInstanceGroups
+    , aigiJobFlowId
+
+    -- * Response
+    , AddInstanceGroupsResponse
+    -- ** Response lenses
+    , aigoInstanceGroupIds
+    , aigoJobFlowId
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'AddInstanceGroups' request.
+addInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigiInstanceGroups'
+                  -> Text -- ^ 'aigiJobFlowId'
+                  -> AddInstanceGroups
+addInstanceGroups p1 p2 = AddInstanceGroups
+    { _aigiInstanceGroups = p1
+    , _aigiJobFlowId = p2
+    }
 
 data AddInstanceGroups = AddInstanceGroups
     { _aigiInstanceGroups :: [InstanceGroupConfig]
@@ -51,7 +74,29 @@ data AddInstanceGroups = AddInstanceGroups
       -- ^ Job flow in which to add the instance groups.
     } deriving (Show, Generic)
 
-makeLenses ''AddInstanceGroups
+-- | Instance Groups to add.
+aigiInstanceGroups
+    :: Functor f
+    => ([InstanceGroupConfig]
+    -> f ([InstanceGroupConfig]))
+    -> AddInstanceGroups
+    -> f AddInstanceGroups
+aigiInstanceGroups f x =
+    (\y -> x { _aigiInstanceGroups = y })
+       <$> f (_aigiInstanceGroups x)
+{-# INLINE aigiInstanceGroups #-}
+
+-- | Job flow in which to add the instance groups.
+aigiJobFlowId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddInstanceGroups
+    -> f AddInstanceGroups
+aigiJobFlowId f x =
+    (\y -> x { _aigiJobFlowId = y })
+       <$> f (_aigiJobFlowId x)
+{-# INLINE aigiJobFlowId #-}
 
 instance ToPath AddInstanceGroups
 
@@ -68,7 +113,29 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse
       -- ^ The job flow ID in which the instance groups are added.
     } deriving (Show, Generic)
 
-makeLenses ''AddInstanceGroupsResponse
+-- | Instance group IDs of the newly created instance groups.
+aigoInstanceGroupIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddInstanceGroupsResponse
+    -> f AddInstanceGroupsResponse
+aigoInstanceGroupIds f x =
+    (\y -> x { _aigoInstanceGroupIds = y })
+       <$> f (_aigoInstanceGroupIds x)
+{-# INLINE aigoInstanceGroupIds #-}
+
+-- | The job flow ID in which the instance groups are added.
+aigoJobFlowId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddInstanceGroupsResponse
+    -> f AddInstanceGroupsResponse
+aigoJobFlowId f x =
+    (\y -> x { _aigoJobFlowId = y })
+       <$> f (_aigoJobFlowId x)
+{-# INLINE aigoJobFlowId #-}
 
 instance FromJSON AddInstanceGroupsResponse
 

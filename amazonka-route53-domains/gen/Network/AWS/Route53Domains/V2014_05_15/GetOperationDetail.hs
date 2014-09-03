@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,12 +35,37 @@
 -- "OperationId":"43884ce5-e30a-4801-858f-7aa86356c127",
 -- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate" : 1402630939.057, "Type" :
 -- "REGISTER_DOMAIN" }.
-module Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail where
+module Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail
+    (
+    -- * Request
+      GetOperationDetail
+    -- ** Request constructor
+    , getOperationDetail
+    -- ** Request lenses
+    , godrOperationId
+
+    -- * Response
+    , GetOperationDetailResponse
+    -- ** Response lenses
+    , godsDomainName
+    , godsMessage
+    , godsOperationId
+    , godsStatus
+    , godsType
+    , godsSubmittedDate
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'GetOperationDetail' request.
+getOperationDetail :: Text -- ^ 'godrOperationId'
+                   -> GetOperationDetail
+getOperationDetail p1 = GetOperationDetail
+    { _godrOperationId = p1
+    }
 
 data GetOperationDetail = GetOperationDetail
     { _godrOperationId :: Text
@@ -51,7 +75,19 @@ data GetOperationDetail = GetOperationDetail
       -- Yes.
     } deriving (Show, Generic)
 
-makeLenses ''GetOperationDetail
+-- | The identifier for the operation for which you want to get the status.
+-- Amazon Route 53 returned the identifier in the response to the original
+-- request. Type: String Default: None Required: Yes.
+godrOperationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetOperationDetail
+    -> f GetOperationDetail
+godrOperationId f x =
+    (\y -> x { _godrOperationId = y })
+       <$> f (_godrOperationId x)
+{-# INLINE godrOperationId #-}
 
 instance ToPath GetOperationDetail
 
@@ -78,7 +114,77 @@ data GetOperationDetailResponse = GetOperationDetailResponse
       -- ^ The date when the request was submitted.
     } deriving (Show, Generic)
 
-makeLenses ''GetOperationDetailResponse
+-- | The name of a domain. Type: String.
+godsDomainName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetOperationDetailResponse
+    -> f GetOperationDetailResponse
+godsDomainName f x =
+    (\y -> x { _godsDomainName = y })
+       <$> f (_godsDomainName x)
+{-# INLINE godsDomainName #-}
+
+-- | Detailed information on the status including possible errors. Type: String.
+godsMessage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetOperationDetailResponse
+    -> f GetOperationDetailResponse
+godsMessage f x =
+    (\y -> x { _godsMessage = y })
+       <$> f (_godsMessage x)
+{-# INLINE godsMessage #-}
+
+-- | The identifier for the operation. Type: String.
+godsOperationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetOperationDetailResponse
+    -> f GetOperationDetailResponse
+godsOperationId f x =
+    (\y -> x { _godsOperationId = y })
+       <$> f (_godsOperationId x)
+{-# INLINE godsOperationId #-}
+
+-- | The current status of the requested operation in the system. Type: String.
+godsStatus
+    :: Functor f
+    => (Maybe OperationStatus
+    -> f (Maybe OperationStatus))
+    -> GetOperationDetailResponse
+    -> f GetOperationDetailResponse
+godsStatus f x =
+    (\y -> x { _godsStatus = y })
+       <$> f (_godsStatus x)
+{-# INLINE godsStatus #-}
+
+-- | The type of operation that was requested. Type: String.
+godsType
+    :: Functor f
+    => (Maybe OperationType
+    -> f (Maybe OperationType))
+    -> GetOperationDetailResponse
+    -> f GetOperationDetailResponse
+godsType f x =
+    (\y -> x { _godsType = y })
+       <$> f (_godsType x)
+{-# INLINE godsType #-}
+
+-- | The date when the request was submitted.
+godsSubmittedDate
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> GetOperationDetailResponse
+    -> f GetOperationDetailResponse
+godsSubmittedDate f x =
+    (\y -> x { _godsSubmittedDate = y })
+       <$> f (_godsSubmittedDate x)
+{-# INLINE godsSubmittedDate #-}
 
 instance FromJSON GetOperationDetailResponse
 

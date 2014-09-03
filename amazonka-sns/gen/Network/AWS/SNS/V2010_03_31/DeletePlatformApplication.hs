@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,26 +32,52 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;097dac18-7a77-5823-a8dd-e65476dcb037&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeletePlatformApplicationResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.DeletePlatformApplication where
+module Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
+    (
+    -- * Request
+      DeletePlatformApplication
+    -- ** Request constructor
+    , deletePlatformApplication
+    -- ** Request lenses
+    , dpaiPlatformApplicationArn
+
+    -- * Response
+    , DeletePlatformApplicationResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeletePlatformApplication' request.
+deletePlatformApplication :: Text -- ^ 'dpaiPlatformApplicationArn'
+                          -> DeletePlatformApplication
+deletePlatformApplication p1 = DeletePlatformApplication
+    { _dpaiPlatformApplicationArn = p1
+    }
 
 data DeletePlatformApplication = DeletePlatformApplication
     { _dpaiPlatformApplicationArn :: Text
       -- ^ PlatformApplicationArn of platform application object to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeletePlatformApplication
+-- | PlatformApplicationArn of platform application object to delete.
+dpaiPlatformApplicationArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletePlatformApplication
+    -> f DeletePlatformApplication
+dpaiPlatformApplicationArn f x =
+    (\y -> x { _dpaiPlatformApplicationArn = y })
+       <$> f (_dpaiPlatformApplicationArn x)
+{-# INLINE dpaiPlatformApplicationArn #-}
 
 instance ToQuery DeletePlatformApplication where
     toQuery = genericQuery def
 
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeletePlatformApplicationResponse
 
 instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS

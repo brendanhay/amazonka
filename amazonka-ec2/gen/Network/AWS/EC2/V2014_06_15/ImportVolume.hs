@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,22 +36,17 @@ module Network.AWS.EC2.V2014_06_15.ImportVolume
     (
     -- * Request
       ImportVolume
-    -- ** Default constructor
+    -- ** Request constructor
     , importVolume
-    -- ** Accessors and lenses
-    , _ivrImage
+    -- ** Request lenses
     , ivrImage
-    , _ivrAvailabilityZone
     , ivrAvailabilityZone
-    , _ivrVolume
     , ivrVolume
-    , _ivrDescription
     , ivrDescription
 
     -- * Response
     , ImportVolumeResponse
-    -- ** Accessors and lenses
-    , _ivsConversionTask
+    -- ** Response lenses
     , ivsConversionTask
     ) where
 
@@ -73,8 +67,63 @@ importVolume p1 p2 p3 = ImportVolume
     }
 
 data ImportVolume = ImportVolume
+    { _ivrImage :: DiskImageDetail
+      -- ^ 
+    , _ivrAvailabilityZone :: Text
+      -- ^ The Availability Zone for the resulting Amazon EBS volume.
+    , _ivrVolume :: VolumeDetail
+      -- ^ 
+    , _ivrDescription :: Maybe Text
+      -- ^ An optional description for the volume being imported.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ImportVolume
+-- | 
+ivrImage
+    :: Functor f
+    => (DiskImageDetail
+    -> f (DiskImageDetail))
+    -> ImportVolume
+    -> f ImportVolume
+ivrImage f x =
+    (\y -> x { _ivrImage = y })
+       <$> f (_ivrImage x)
+{-# INLINE ivrImage #-}
+
+-- | The Availability Zone for the resulting Amazon EBS volume.
+ivrAvailabilityZone
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ImportVolume
+    -> f ImportVolume
+ivrAvailabilityZone f x =
+    (\y -> x { _ivrAvailabilityZone = y })
+       <$> f (_ivrAvailabilityZone x)
+{-# INLINE ivrAvailabilityZone #-}
+
+-- | 
+ivrVolume
+    :: Functor f
+    => (VolumeDetail
+    -> f (VolumeDetail))
+    -> ImportVolume
+    -> f ImportVolume
+ivrVolume f x =
+    (\y -> x { _ivrVolume = y })
+       <$> f (_ivrVolume x)
+{-# INLINE ivrVolume #-}
+
+-- | An optional description for the volume being imported.
+ivrDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ImportVolume
+    -> f ImportVolume
+ivrDescription f x =
+    (\y -> x { _ivrDescription = y })
+       <$> f (_ivrDescription x)
+{-# INLINE ivrDescription #-}
 
 instance ToQuery ImportVolume where
     toQuery = genericQuery def
@@ -84,7 +133,17 @@ data ImportVolumeResponse = ImportVolumeResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ImportVolumeResponse
+-- | 
+ivsConversionTask
+    :: Functor f
+    => (Maybe ConversionTask
+    -> f (Maybe ConversionTask))
+    -> ImportVolumeResponse
+    -> f ImportVolumeResponse
+ivsConversionTask f x =
+    (\y -> x { _ivsConversionTask = y })
+       <$> f (_ivsConversionTask x)
+{-# INLINE ivsConversionTask #-}
 
 instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions
@@ -95,18 +154,3 @@ instance AWSRequest ImportVolume where
 
     request = post "ImportVolume"
     response _ = xmlResponse
-
--- | 
-ivrImage :: Lens' ImportVolume (DiskImageDetail)
-
--- | The Availability Zone for the resulting Amazon EBS volume.
-ivrAvailabilityZone :: Lens' ImportVolume (Text)
-
--- | 
-ivrVolume :: Lens' ImportVolume (VolumeDetail)
-
--- | An optional description for the volume being imported.
-ivrDescription :: Lens' ImportVolume (Maybe Text)
-
--- | 
-ivsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)

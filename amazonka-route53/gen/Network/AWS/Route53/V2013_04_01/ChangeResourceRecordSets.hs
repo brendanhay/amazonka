@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,11 +37,34 @@
 -- Change elements. - A request cannot contain more than 1000 ResourceRecord
 -- elements. The sum of the number of characters (including spaces) in all
 -- Value elements in a request cannot exceed 32,000 characters.
-module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets where
+module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
+    (
+    -- * Request
+      ChangeResourceRecordSets
+    -- ** Request constructor
+    , changeResourceRecordSets
+    -- ** Request lenses
+    , crrsrChangeBatch
+    , crrsrHostedZoneId
+
+    -- * Response
+    , ChangeResourceRecordSetsResponse
+    -- ** Response lenses
+    , crrssChangeInfo
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ChangeResourceRecordSets' request.
+changeResourceRecordSets :: ChangeBatch -- ^ 'crrsrChangeBatch'
+                         -> Text -- ^ 'crrsrHostedZoneId'
+                         -> ChangeResourceRecordSets
+changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
+    { _crrsrChangeBatch = p1
+    , _crrsrHostedZoneId = p2
+    }
 
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { _crrsrChangeBatch :: ChangeBatch
@@ -53,7 +75,30 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
       -- that you want to change.
     } deriving (Show, Generic)
 
-makeLenses ''ChangeResourceRecordSets
+-- | A complex type that contains an optional comment and the Changes element.
+crrsrChangeBatch
+    :: Functor f
+    => (ChangeBatch
+    -> f (ChangeBatch))
+    -> ChangeResourceRecordSets
+    -> f ChangeResourceRecordSets
+crrsrChangeBatch f x =
+    (\y -> x { _crrsrChangeBatch = y })
+       <$> f (_crrsrChangeBatch x)
+{-# INLINE crrsrChangeBatch #-}
+
+-- | The ID of the hosted zone that contains the resource record sets that you
+-- want to change.
+crrsrHostedZoneId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ChangeResourceRecordSets
+    -> f ChangeResourceRecordSets
+crrsrHostedZoneId f x =
+    (\y -> x { _crrsrHostedZoneId = y })
+       <$> f (_crrsrHostedZoneId x)
+{-# INLINE crrsrHostedZoneId #-}
 
 instance ToPath ChangeResourceRecordSets where
     toPath ChangeResourceRecordSets{..} = mconcat
@@ -78,7 +123,19 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
       -- the change.
     } deriving (Show, Generic)
 
-makeLenses ''ChangeResourceRecordSetsResponse
+-- | A complex type that contains information about changes made to your hosted
+-- zone. This element contains an ID that you use when performing a GetChange
+-- action to get detailed information about the change.
+crrssChangeInfo
+    :: Functor f
+    => (ChangeInfo
+    -> f (ChangeInfo))
+    -> ChangeResourceRecordSetsResponse
+    -> f ChangeResourceRecordSetsResponse
+crrssChangeInfo f x =
+    (\y -> x { _crrssChangeInfo = y })
+       <$> f (_crrssChangeInfo x)
+{-# INLINE crrssChangeInfo #-}
 
 instance FromXML ChangeResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions

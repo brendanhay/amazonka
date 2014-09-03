@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -56,12 +55,37 @@
 -- Nov 2012 17:50:53 GMT {"errored": true, "validationErrors": [ {"errors":
 -- ["INVALID_FIELD_VALUE: 'startDateTime' value must be a literal datetime
 -- value."], "id": "Schedule"} ] }.
-module Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition where
+module Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
+    (
+    -- * Request
+      ValidatePipelineDefinition
+    -- ** Request constructor
+    , validatePipelineDefinition
+    -- ** Request lenses
+    , vpdiPipelineId
+    , vpdiPipelineObjects
+
+    -- * Response
+    , ValidatePipelineDefinitionResponse
+    -- ** Response lenses
+    , vpdoErrored
+    , vpdoValidationErrors
+    , vpdoValidationWarnings
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'ValidatePipelineDefinition' request.
+validatePipelineDefinition :: Text -- ^ 'vpdiPipelineId'
+                           -> [PipelineObject] -- ^ 'vpdiPipelineObjects'
+                           -> ValidatePipelineDefinition
+validatePipelineDefinition p1 p2 = ValidatePipelineDefinition
+    { _vpdiPipelineId = p1
+    , _vpdiPipelineObjects = p2
+    }
 
 data ValidatePipelineDefinition = ValidatePipelineDefinition
     { _vpdiPipelineId :: Text
@@ -71,7 +95,30 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
       -- against the pipeline.
     } deriving (Show, Generic)
 
-makeLenses ''ValidatePipelineDefinition
+-- | Identifies the pipeline whose definition is to be validated.
+vpdiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ValidatePipelineDefinition
+    -> f ValidatePipelineDefinition
+vpdiPipelineId f x =
+    (\y -> x { _vpdiPipelineId = y })
+       <$> f (_vpdiPipelineId x)
+{-# INLINE vpdiPipelineId #-}
+
+-- | A list of objects that define the pipeline changes to validate against the
+-- pipeline.
+vpdiPipelineObjects
+    :: Functor f
+    => ([PipelineObject]
+    -> f ([PipelineObject]))
+    -> ValidatePipelineDefinition
+    -> f ValidatePipelineDefinition
+vpdiPipelineObjects f x =
+    (\y -> x { _vpdiPipelineObjects = y })
+       <$> f (_vpdiPipelineObjects x)
+{-# INLINE vpdiPipelineObjects #-}
 
 instance ToPath ValidatePipelineDefinition
 
@@ -92,7 +139,42 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
       -- ValidatePipelineDefinition.
     } deriving (Show, Generic)
 
-makeLenses ''ValidatePipelineDefinitionResponse
+-- | If True, there were validation errors.
+vpdoErrored
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ValidatePipelineDefinitionResponse
+    -> f ValidatePipelineDefinitionResponse
+vpdoErrored f x =
+    (\y -> x { _vpdoErrored = y })
+       <$> f (_vpdoErrored x)
+{-# INLINE vpdoErrored #-}
+
+-- | Lists the validation errors that were found by ValidatePipelineDefinition.
+vpdoValidationErrors
+    :: Functor f
+    => ([ValidationError]
+    -> f ([ValidationError]))
+    -> ValidatePipelineDefinitionResponse
+    -> f ValidatePipelineDefinitionResponse
+vpdoValidationErrors f x =
+    (\y -> x { _vpdoValidationErrors = y })
+       <$> f (_vpdoValidationErrors x)
+{-# INLINE vpdoValidationErrors #-}
+
+-- | Lists the validation warnings that were found by
+-- ValidatePipelineDefinition.
+vpdoValidationWarnings
+    :: Functor f
+    => ([ValidationWarning]
+    -> f ([ValidationWarning]))
+    -> ValidatePipelineDefinitionResponse
+    -> f ValidatePipelineDefinitionResponse
+vpdoValidationWarnings f x =
+    (\y -> x { _vpdoValidationWarnings = y })
+       <$> f (_vpdoValidationWarnings x)
+{-# INLINE vpdoValidationWarnings #-}
 
 instance FromJSON ValidatePipelineDefinitionResponse
 

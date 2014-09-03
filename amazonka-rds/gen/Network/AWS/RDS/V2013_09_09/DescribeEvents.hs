@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,7 +32,28 @@
 -- db-instance 2010-08-11T18:25:52.263Z mynewdbinstance Creating user snapshot
 -- db-snapshot 2010-08-11T18:25:52.263Z mynewdbsnapshot3
 -- 95b948cd-bf45-11de-86a4-97241dfaadff.
-module Network.AWS.RDS.V2013_09_09.DescribeEvents where
+module Network.AWS.RDS.V2013_09_09.DescribeEvents
+    (
+    -- * Request
+      DescribeEvents
+    -- ** Request constructor
+    , describeEvents
+    -- ** Request lenses
+    , demEventCategories
+    , demDuration
+    , demMaxRecords
+    , demSourceType
+    , demSourceIdentifier
+    , demMarker
+    , demStartTime
+    , demEndTime
+
+    -- * Response
+    , DescribeEventsResponse
+    -- ** Response lenses
+    , emEvents
+    , emMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
@@ -46,10 +66,10 @@ describeEvents = DescribeEvents
     , _demDuration = Nothing
     , _demMaxRecords = Nothing
     , _demSourceType = Nothing
-    , _demMarker = Nothing
     , _demSourceIdentifier = Nothing
-    , _demEndTime = Nothing
+    , _demMarker = Nothing
     , _demStartTime = Nothing
+    , _demEndTime = Nothing
     }
 
 data DescribeEvents = DescribeEvents
@@ -67,11 +87,6 @@ data DescribeEvents = DescribeEvents
     , _demSourceType :: Maybe SourceType
       -- ^ The event source to retrieve events for. If no value is
       -- specified, all events are returned.
-    , _demMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeEvents request. If this parameter is specified, the
-      -- response includes only records beyond the marker, up to the value
-      -- specified by MaxRecords.
     , _demSourceIdentifier :: Maybe Text
       -- ^ The identifier of the event source for which events will be
       -- returned. If not specified, then all sources are included in the
@@ -83,19 +98,136 @@ data DescribeEvents = DescribeEvents
       -- DBParameterGroupName must be supplied. If the source type is
       -- DBSnapshot, a DBSnapshotIdentifier must be supplied. Cannot end
       -- with a hyphen or contain two consecutive hyphens.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
-      -- specified in ISO 8601 format. For more information about ISO
-      -- 8601, go to the ISO8601 Wikipedia page. Example:
-      -- 2009-07-08T18:00Z.
+    , _demMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous
+      -- DescribeEvents request. If this parameter is specified, the
+      -- response includes only records beyond the marker, up to the value
+      -- specified by MaxRecords.
     , _demStartTime :: Maybe ISO8601
       -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format. For more information about ISO
       -- 8601, go to the ISO8601 Wikipedia page. Example:
       -- 2009-07-08T18:00Z.
+    , _demEndTime :: Maybe ISO8601
+      -- ^ The end of the time interval for which to retrieve events,
+      -- specified in ISO 8601 format. For more information about ISO
+      -- 8601, go to the ISO8601 Wikipedia page. Example:
+      -- 2009-07-08T18:00Z.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEvents
+-- | A list of event categories that trigger notifications for a event
+-- notification subscription.
+demEventCategories
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeEvents
+    -> f DescribeEvents
+demEventCategories f x =
+    (\y -> x { _demEventCategories = y })
+       <$> f (_demEventCategories x)
+{-# INLINE demEventCategories #-}
+
+-- | The number of minutes to retrieve events for. Default: 60.
+demDuration
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+demDuration f x =
+    (\y -> x { _demDuration = y })
+       <$> f (_demDuration x)
+{-# INLINE demDuration #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a pagination token called a
+-- marker is included in the response so that the remaining results may be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+demMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+demMaxRecords f x =
+    (\y -> x { _demMaxRecords = y })
+       <$> f (_demMaxRecords x)
+{-# INLINE demMaxRecords #-}
+
+-- | The event source to retrieve events for. If no value is specified, all
+-- events are returned.
+demSourceType
+    :: Functor f
+    => (Maybe SourceType
+    -> f (Maybe SourceType))
+    -> DescribeEvents
+    -> f DescribeEvents
+demSourceType f x =
+    (\y -> x { _demSourceType = y })
+       <$> f (_demSourceType x)
+{-# INLINE demSourceType #-}
+
+-- | The identifier of the event source for which events will be returned. If
+-- not specified, then all sources are included in the response. Constraints:
+-- If SourceIdentifier is supplied, SourceType must also be provided. If the
+-- source type is DBInstance, then a DBInstanceIdentifier must be supplied. If
+-- the source type is DBSecurityGroup, a DBSecurityGroupName must be supplied.
+-- If the source type is DBParameterGroup, a DBParameterGroupName must be
+-- supplied. If the source type is DBSnapshot, a DBSnapshotIdentifier must be
+-- supplied. Cannot end with a hyphen or contain two consecutive hyphens.
+demSourceIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+demSourceIdentifier f x =
+    (\y -> x { _demSourceIdentifier = y })
+       <$> f (_demSourceIdentifier x)
+{-# INLINE demSourceIdentifier #-}
+
+-- | An optional pagination token provided by a previous DescribeEvents request.
+-- If this parameter is specified, the response includes only records beyond
+-- the marker, up to the value specified by MaxRecords.
+demMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+demMarker f x =
+    (\y -> x { _demMarker = y })
+       <$> f (_demMarker x)
+{-# INLINE demMarker #-}
+
+-- | The beginning of the time interval to retrieve events for, specified in ISO
+-- 8601 format. For more information about ISO 8601, go to the ISO8601
+-- Wikipedia page. Example: 2009-07-08T18:00Z.
+demStartTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+demStartTime f x =
+    (\y -> x { _demStartTime = y })
+       <$> f (_demStartTime x)
+{-# INLINE demStartTime #-}
+
+-- | The end of the time interval for which to retrieve events, specified in ISO
+-- 8601 format. For more information about ISO 8601, go to the ISO8601
+-- Wikipedia page. Example: 2009-07-08T18:00Z.
+demEndTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+demEndTime f x =
+    (\y -> x { _demEndTime = y })
+       <$> f (_demEndTime x)
+{-# INLINE demEndTime #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
@@ -110,7 +242,31 @@ data DescribeEventsResponse = DescribeEventsResponse
       -- MaxRecords .
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventsResponse
+-- | A list of Event instances.
+emEvents
+    :: Functor f
+    => ([Event]
+    -> f ([Event]))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+emEvents f x =
+    (\y -> x { _emEvents = y })
+       <$> f (_emEvents x)
+{-# INLINE emEvents #-}
+
+-- | An optional pagination token provided by a previous Events request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by MaxRecords .
+emMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+emMarker f x =
+    (\y -> x { _emMarker = y })
+       <$> f (_emMarker x)
+{-# INLINE emMarker #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

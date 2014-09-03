@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,16 +39,14 @@ module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
     (
     -- * Request
       CancelSpotInstanceRequests
-    -- ** Default constructor
+    -- ** Request constructor
     , cancelSpotInstanceRequests
-    -- ** Accessors and lenses
-    , _csirrSpotInstanceRequestIds
+    -- ** Request lenses
     , csirrSpotInstanceRequestIds
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
-    -- ** Accessors and lenses
-    , _csirsCancelledSpotInstanceRequests
+    -- ** Response lenses
     , csirsCancelledSpotInstanceRequests
     ) where
 
@@ -65,8 +62,21 @@ cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
     }
 
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
+    { _csirrSpotInstanceRequestIds :: [Text]
+      -- ^ One or more Spot Instance request IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelSpotInstanceRequests
+-- | One or more Spot Instance request IDs.
+csirrSpotInstanceRequestIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CancelSpotInstanceRequests
+    -> f CancelSpotInstanceRequests
+csirrSpotInstanceRequestIds f x =
+    (\y -> x { _csirrSpotInstanceRequestIds = y })
+       <$> f (_csirrSpotInstanceRequestIds x)
+{-# INLINE csirrSpotInstanceRequestIds #-}
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
@@ -76,7 +86,17 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
       -- ^ One or more Spot Instance requests.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelSpotInstanceRequestsResponse
+-- | One or more Spot Instance requests.
+csirsCancelledSpotInstanceRequests
+    :: Functor f
+    => ([CancelledSpotInstanceRequest]
+    -> f ([CancelledSpotInstanceRequest]))
+    -> CancelSpotInstanceRequestsResponse
+    -> f CancelSpotInstanceRequestsResponse
+csirsCancelledSpotInstanceRequests f x =
+    (\y -> x { _csirsCancelledSpotInstanceRequests = y })
+       <$> f (_csirsCancelledSpotInstanceRequests x)
+{-# INLINE csirsCancelledSpotInstanceRequests #-}
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions
@@ -87,9 +107,3 @@ instance AWSRequest CancelSpotInstanceRequests where
 
     request = post "CancelSpotInstanceRequests"
     response _ = xmlResponse
-
--- | One or more Spot Instance request IDs.
-csirrSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests ([Text])
-
--- | One or more Spot Instance requests.
-csirsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse ([CancelledSpotInstanceRequest])

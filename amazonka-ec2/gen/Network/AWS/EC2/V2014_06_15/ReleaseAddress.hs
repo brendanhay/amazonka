@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,12 +39,10 @@ module Network.AWS.EC2.V2014_06_15.ReleaseAddress
     (
     -- * Request
       ReleaseAddress
-    -- ** Default constructor
+    -- ** Request constructor
     , releaseAddress
-    -- ** Accessors and lenses
-    , _rarPublicIp
+    -- ** Request lenses
     , rarPublicIp
-    , _rarAllocationId
     , rarAllocationId
 
     -- * Response
@@ -64,8 +61,35 @@ releaseAddress = ReleaseAddress
     }
 
 data ReleaseAddress = ReleaseAddress
+    { _rarPublicIp :: Maybe Text
+      -- ^ [EC2-Classic] The Elastic IP address.
+    , _rarAllocationId :: Maybe Text
+      -- ^ [EC2-VPC] The allocation ID.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ReleaseAddress
+-- | [EC2-Classic] The Elastic IP address.
+rarPublicIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReleaseAddress
+    -> f ReleaseAddress
+rarPublicIp f x =
+    (\y -> x { _rarPublicIp = y })
+       <$> f (_rarPublicIp x)
+{-# INLINE rarPublicIp #-}
+
+-- | [EC2-VPC] The allocation ID.
+rarAllocationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReleaseAddress
+    -> f ReleaseAddress
+rarAllocationId f x =
+    (\y -> x { _rarAllocationId = y })
+       <$> f (_rarAllocationId x)
+{-# INLINE rarAllocationId #-}
 
 instance ToQuery ReleaseAddress where
     toQuery = genericQuery def
@@ -73,17 +97,9 @@ instance ToQuery ReleaseAddress where
 data ReleaseAddressResponse = ReleaseAddressResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ReleaseAddressResponse
-
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2
     type Rs ReleaseAddress = ReleaseAddressResponse
 
     request = post "ReleaseAddress"
     response _ = nullaryResponse ReleaseAddressResponse
-
--- | [EC2-Classic] The Elastic IP address.
-rarPublicIp :: Lens' ReleaseAddress (Maybe Text)
-
--- | [EC2-VPC] The allocation ID.
-rarAllocationId :: Lens' ReleaseAddress (Maybe Text)

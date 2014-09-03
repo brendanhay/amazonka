@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,12 +28,36 @@
 -- e83b8ab7-076a-11e2-af6f-6bc7a6be60d9 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
-module Network.AWS.DataPipeline.V2012_10_29.SetStatus where
+module Network.AWS.DataPipeline.V2012_10_29.SetStatus
+    (
+    -- * Request
+      SetStatus
+    -- ** Request constructor
+    , setStatus
+    -- ** Request lenses
+    , ssiPipelineId
+    , ssiObjectIds
+    , ssiStatus
+
+    -- * Response
+    , SetStatusResponse
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'SetStatus' request.
+setStatus :: Text -- ^ 'ssiPipelineId'
+          -> [Text] -- ^ 'ssiObjectIds'
+          -> Text -- ^ 'ssiStatus'
+          -> SetStatus
+setStatus p1 p2 p3 = SetStatus
+    { _ssiPipelineId = p1
+    , _ssiObjectIds = p2
+    , _ssiStatus = p3
+    }
 
 data SetStatus = SetStatus
     { _ssiPipelineId :: Text
@@ -48,7 +71,44 @@ data SetStatus = SetStatus
       -- instances, this can be either CANCEL, RERUN, or MARK_FINISHED.
     } deriving (Show, Generic)
 
-makeLenses ''SetStatus
+-- | Identifies the pipeline that contains the objects.
+ssiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetStatus
+    -> f SetStatus
+ssiPipelineId f x =
+    (\y -> x { _ssiPipelineId = y })
+       <$> f (_ssiPipelineId x)
+{-# INLINE ssiPipelineId #-}
+
+-- | Identifies an array of objects. The corresponding objects can be either
+-- physical or components, but not a mix of both types.
+ssiObjectIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SetStatus
+    -> f SetStatus
+ssiObjectIds f x =
+    (\y -> x { _ssiObjectIds = y })
+       <$> f (_ssiObjectIds x)
+{-# INLINE ssiObjectIds #-}
+
+-- | Specifies the status to be set on all the objects in objectIds. For
+-- components, this can be either PAUSE or RESUME. For instances, this can be
+-- either CANCEL, RERUN, or MARK_FINISHED.
+ssiStatus
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetStatus
+    -> f SetStatus
+ssiStatus f x =
+    (\y -> x { _ssiStatus = y })
+       <$> f (_ssiStatus x)
+{-# INLINE ssiStatus #-}
 
 instance ToPath SetStatus
 
@@ -60,8 +120,6 @@ instance ToJSON SetStatus
 
 data SetStatusResponse = SetStatusResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetStatusResponse
 
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline

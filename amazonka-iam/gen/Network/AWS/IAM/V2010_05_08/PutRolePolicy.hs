@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,11 +30,35 @@
 -- &PolicyName=S3AccessPolicy
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"s3:*","Resource":"*"}]}
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.PutRolePolicy where
+module Network.AWS.IAM.V2010_05_08.PutRolePolicy
+    (
+    -- * Request
+      PutRolePolicy
+    -- ** Request constructor
+    , putRolePolicy
+    -- ** Request lenses
+    , prprPolicyDocument
+    , prprPolicyName
+    , prprRoleName
+
+    -- * Response
+    , PutRolePolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'PutRolePolicy' request.
+putRolePolicy :: Text -- ^ 'prprPolicyDocument'
+              -> Text -- ^ 'prprPolicyName'
+              -> Text -- ^ 'prprRoleName'
+              -> PutRolePolicy
+putRolePolicy p1 p2 p3 = PutRolePolicy
+    { _prprPolicyDocument = p1
+    , _prprPolicyName = p2
+    , _prprRoleName = p3
+    }
 
 data PutRolePolicy = PutRolePolicy
     { _prprPolicyDocument :: Text
@@ -46,15 +69,47 @@ data PutRolePolicy = PutRolePolicy
       -- ^ Name of the role to associate the policy with.
     } deriving (Show, Generic)
 
-makeLenses ''PutRolePolicy
+-- | The policy document.
+prprPolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRolePolicy
+    -> f PutRolePolicy
+prprPolicyDocument f x =
+    (\y -> x { _prprPolicyDocument = y })
+       <$> f (_prprPolicyDocument x)
+{-# INLINE prprPolicyDocument #-}
+
+-- | Name of the policy document.
+prprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRolePolicy
+    -> f PutRolePolicy
+prprPolicyName f x =
+    (\y -> x { _prprPolicyName = y })
+       <$> f (_prprPolicyName x)
+{-# INLINE prprPolicyName #-}
+
+-- | Name of the role to associate the policy with.
+prprRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRolePolicy
+    -> f PutRolePolicy
+prprRoleName f x =
+    (\y -> x { _prprRoleName = y })
+       <$> f (_prprRoleName x)
+{-# INLINE prprRoleName #-}
 
 instance ToQuery PutRolePolicy where
     toQuery = genericQuery def
 
 data PutRolePolicyResponse = PutRolePolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutRolePolicyResponse
 
 instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM

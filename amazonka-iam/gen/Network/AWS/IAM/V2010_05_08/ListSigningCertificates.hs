@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,7 +44,24 @@
 -- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListSigningCertificates where
+module Network.AWS.IAM.V2010_05_08.ListSigningCertificates
+    (
+    -- * Request
+      ListSigningCertificates
+    -- ** Request constructor
+    , listSigningCertificates
+    -- ** Request lenses
+    , lsctUserName
+    , lsctMarker
+    , lsctMaxItems
+
+    -- * Response
+    , ListSigningCertificatesResponse
+    -- ** Response lenses
+    , lscuIsTruncated
+    , lscuCertificates
+    , lscuMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -75,7 +91,47 @@ data ListSigningCertificates = ListSigningCertificates
       -- If you do not include it, it defaults to 100.
     } deriving (Show, Generic)
 
-makeLenses ''ListSigningCertificates
+-- | The name of the user.
+lsctUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListSigningCertificates
+    -> f ListSigningCertificates
+lsctUserName f x =
+    (\y -> x { _lsctUserName = y })
+       <$> f (_lsctUserName x)
+{-# INLINE lsctUserName #-}
+
+-- | Use this only when paginating results, and only in a subsequent request
+-- after you've received a response where the results are truncated. Set it to
+-- the value of the Marker element in the response you just received.
+lsctMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListSigningCertificates
+    -> f ListSigningCertificates
+lsctMarker f x =
+    (\y -> x { _lsctMarker = y })
+       <$> f (_lsctMarker x)
+{-# INLINE lsctMarker #-}
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- certificate IDs you want in the response. If there are additional
+-- certificate IDs beyond the maximum you specify, the IsTruncated response
+-- element is true. This parameter is optional. If you do not include it, it
+-- defaults to 100.
+lsctMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListSigningCertificates
+    -> f ListSigningCertificates
+lsctMaxItems f x =
+    (\y -> x { _lsctMaxItems = y })
+       <$> f (_lsctMaxItems x)
+{-# INLINE lsctMaxItems #-}
 
 instance ToQuery ListSigningCertificates where
     toQuery = genericQuery def
@@ -94,7 +150,45 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListSigningCertificatesResponse
+-- | A flag that indicates whether there are more certificate IDs to list. If
+-- your results were truncated, you can make a subsequent pagination request
+-- using the Marker request parameter to retrieve more certificates in the
+-- list.
+lscuIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListSigningCertificatesResponse
+    -> f ListSigningCertificatesResponse
+lscuIsTruncated f x =
+    (\y -> x { _lscuIsTruncated = y })
+       <$> f (_lscuIsTruncated x)
+{-# INLINE lscuIsTruncated #-}
+
+-- | A list of the user's signing certificate information.
+lscuCertificates
+    :: Functor f
+    => ([SigningCertificate]
+    -> f ([SigningCertificate]))
+    -> ListSigningCertificatesResponse
+    -> f ListSigningCertificatesResponse
+lscuCertificates f x =
+    (\y -> x { _lscuCertificates = y })
+       <$> f (_lscuCertificates x)
+{-# INLINE lscuCertificates #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lscuMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListSigningCertificatesResponse
+    -> f ListSigningCertificatesResponse
+lscuMarker f x =
+    (\y -> x { _lscuMarker = y })
+       <$> f (_lscuMarker x)
+{-# INLINE lscuMarker #-}
 
 instance FromXML ListSigningCertificatesResponse where
     fromXMLOptions = xmlOptions

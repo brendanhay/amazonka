@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,25 @@
 -- check that the list begins with. Amazon Route 53 returns a maximum of 100
 -- items. If you set MaxItems to a value greater than 100, Amazon Route 53
 -- returns only the first 100.
-module Network.AWS.Route53.V2013_04_01.ListHealthChecks where
+module Network.AWS.Route53.V2013_04_01.ListHealthChecks
+    (
+    -- * Request
+      ListHealthChecks
+    -- ** Request constructor
+    , listHealthChecks
+    -- ** Request lenses
+    , lhcrMarker
+    , lhcrMaxItems
+
+    -- * Response
+    , ListHealthChecksResponse
+    -- ** Response lenses
+    , lhcsHealthChecks
+    , lhcsMarker
+    , lhcsMaxItems
+    , lhcsIsTruncated
+    , lhcsNextMarker
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
@@ -50,7 +67,31 @@ data ListHealthChecks = ListHealthChecks
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''ListHealthChecks
+-- | If the request returned more than one page of results, submit another
+-- request and specify the value of NextMarker from the last response in the
+-- marker parameter to get the next page of results.
+lhcrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListHealthChecks
+    -> f ListHealthChecks
+lhcrMarker f x =
+    (\y -> x { _lhcrMarker = y })
+       <$> f (_lhcrMarker x)
+{-# INLINE lhcrMarker #-}
+
+-- | Specify the maximum number of health checks to return per page of results.
+lhcrMaxItems
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListHealthChecks
+    -> f ListHealthChecks
+lhcrMaxItems f x =
+    (\y -> x { _lhcrMaxItems = y })
+       <$> f (_lhcrMaxItems x)
+{-# INLINE lhcrMaxItems #-}
 
 instance ToPath ListHealthChecks where
     toPath = const "/2013-04-01/healthcheck"
@@ -97,7 +138,78 @@ data ListHealthChecksResponse = ListHealthChecksResponse
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''ListHealthChecksResponse
+-- | A complex type that contains information about the health checks associated
+-- with the current AWS account.
+lhcsHealthChecks
+    :: Functor f
+    => ([HealthCheck]
+    -> f ([HealthCheck]))
+    -> ListHealthChecksResponse
+    -> f ListHealthChecksResponse
+lhcsHealthChecks f x =
+    (\y -> x { _lhcsHealthChecks = y })
+       <$> f (_lhcsHealthChecks x)
+{-# INLINE lhcsHealthChecks #-}
+
+-- | If the request returned more than one page of results, submit another
+-- request and specify the value of NextMarker from the last response in the
+-- marker parameter to get the next page of results.
+lhcsMarker
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListHealthChecksResponse
+    -> f ListHealthChecksResponse
+lhcsMarker f x =
+    (\y -> x { _lhcsMarker = y })
+       <$> f (_lhcsMarker x)
+{-# INLINE lhcsMarker #-}
+
+-- | The maximum number of health checks to be included in the response body. If
+-- the number of health checks associated with this AWS account exceeds
+-- MaxItems, the value of ListHealthChecksResponse$IsTruncated in the response
+-- is true. Call ListHealthChecks again and specify the value of
+-- ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker
+-- element to get the next page of results.
+lhcsMaxItems
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListHealthChecksResponse
+    -> f ListHealthChecksResponse
+lhcsMaxItems f x =
+    (\y -> x { _lhcsMaxItems = y })
+       <$> f (_lhcsMaxItems x)
+{-# INLINE lhcsMaxItems #-}
+
+-- | A flag indicating whether there are more health checks to be listed. If
+-- your results were truncated, you can make a follow-up request for the next
+-- page of results by using the Marker element. Valid Values: true | false.
+lhcsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListHealthChecksResponse
+    -> f ListHealthChecksResponse
+lhcsIsTruncated f x =
+    (\y -> x { _lhcsIsTruncated = y })
+       <$> f (_lhcsIsTruncated x)
+{-# INLINE lhcsIsTruncated #-}
+
+-- | Indicates where to continue listing health checks. If
+-- ListHealthChecksResponse$IsTruncated is true, make another request to
+-- ListHealthChecks and include the value of the NextMarker element in the
+-- Marker element to get the next page of results.
+lhcsNextMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListHealthChecksResponse
+    -> f ListHealthChecksResponse
+lhcsNextMarker f x =
+    (\y -> x { _lhcsNextMarker = y })
+       <$> f (_lhcsNextMarker x)
+{-# INLINE lhcsNextMarker #-}
 
 instance FromXML ListHealthChecksResponse where
     fromXMLOptions = xmlOptions

@@ -39,25 +39,25 @@ library
           Network.AWS.Route53
         , Network.AWS.Route53.V2013_04_01
         , Network.AWS.Route53.V2013_04_01.Types
-        , Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
-        , Network.AWS.Route53.V2013_04_01.ListTagsForResource
-        , Network.AWS.Route53.V2013_04_01.GetChange
         , Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
-        , Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
-        , Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
-        , Network.AWS.Route53.V2013_04_01.CreateHostedZone
-        , Network.AWS.Route53.V2013_04_01.CreateHealthCheck
         , Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
-        , Network.AWS.Route53.V2013_04_01.ListHostedZones
-        , Network.AWS.Route53.V2013_04_01.ListGeoLocations
-        , Network.AWS.Route53.V2013_04_01.GetHostedZone
-        , Network.AWS.Route53.V2013_04_01.GetHealthCheck
-        , Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
-        , Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
-        , Network.AWS.Route53.V2013_04_01.ListHealthChecks
+        , Network.AWS.Route53.V2013_04_01.CreateHealthCheck
+        , Network.AWS.Route53.V2013_04_01.CreateHostedZone
+        , Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
         , Network.AWS.Route53.V2013_04_01.DeleteHostedZone
+        , Network.AWS.Route53.V2013_04_01.GetChange
+        , Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
         , Network.AWS.Route53.V2013_04_01.GetGeoLocation
+        , Network.AWS.Route53.V2013_04_01.GetHealthCheck
+        , Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
+        , Network.AWS.Route53.V2013_04_01.GetHostedZone
+        , Network.AWS.Route53.V2013_04_01.ListGeoLocations
+        , Network.AWS.Route53.V2013_04_01.ListHealthChecks
+        , Network.AWS.Route53.V2013_04_01.ListHostedZones
+        , Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
+        , Network.AWS.Route53.V2013_04_01.ListTagsForResource
         , Network.AWS.Route53.V2013_04_01.ListTagsForResources
+        , Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
 
     other-modules:
           Network.AWS.Route53.Internal.Types

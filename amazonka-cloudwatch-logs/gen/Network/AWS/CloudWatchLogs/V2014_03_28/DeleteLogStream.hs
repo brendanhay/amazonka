@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,19 +28,60 @@
 -- "exampleLogGroupName", "logStreamName": "exampleLogStreamName" } HTTP/1.1
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream where
+module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream
+    (
+    -- * Request
+      DeleteLogStream
+    -- ** Request constructor
+    , deleteLogStream
+    -- ** Request lenses
+    , dlsrLogGroupName
+    , dlsrLogStreamName
+
+    -- * Response
+    , DeleteLogStreamResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteLogStream' request.
+deleteLogStream :: Text -- ^ 'dlsrLogGroupName'
+                -> Text -- ^ 'dlsrLogStreamName'
+                -> DeleteLogStream
+deleteLogStream p1 p2 = DeleteLogStream
+    { _dlsrLogGroupName = p1
+    , _dlsrLogStreamName = p2
+    }
+
 data DeleteLogStream = DeleteLogStream
     { _dlsrLogGroupName :: Text
     , _dlsrLogStreamName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLogStream
+dlsrLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLogStream
+    -> f DeleteLogStream
+dlsrLogGroupName f x =
+    (\y -> x { _dlsrLogGroupName = y })
+       <$> f (_dlsrLogGroupName x)
+{-# INLINE dlsrLogGroupName #-}
+
+dlsrLogStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLogStream
+    -> f DeleteLogStream
+dlsrLogStreamName f x =
+    (\y -> x { _dlsrLogStreamName = y })
+       <$> f (_dlsrLogStreamName x)
+{-# INLINE dlsrLogStreamName #-}
 
 instance ToPath DeleteLogStream
 
@@ -53,8 +93,6 @@ instance ToJSON DeleteLogStream
 
 data DeleteLogStreamResponse = DeleteLogStreamResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLogStreamResponse
 
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs

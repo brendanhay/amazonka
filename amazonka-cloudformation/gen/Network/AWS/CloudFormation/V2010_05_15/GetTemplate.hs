@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,11 +27,31 @@
 -- &Signature=[Signature] "{ "AWSTemplateFormatVersion" : "2010-09-09",
 -- "Description" : "Simple example", "Resources" : { "MySQS" : { "Type" :
 -- "AWS::SQS::Queue", "Properties" : { } } } }.
-module Network.AWS.CloudFormation.V2010_05_15.GetTemplate where
+module Network.AWS.CloudFormation.V2010_05_15.GetTemplate
+    (
+    -- * Request
+      GetTemplate
+    -- ** Request constructor
+    , getTemplate
+    -- ** Request lenses
+    , gtiStackName
+
+    -- * Response
+    , GetTemplateResponse
+    -- ** Response lenses
+    , gtoTemplateBody
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetTemplate' request.
+getTemplate :: Text -- ^ 'gtiStackName'
+            -> GetTemplate
+getTemplate p1 = GetTemplate
+    { _gtiStackName = p1
+    }
 
 data GetTemplate = GetTemplate
     { _gtiStackName :: Text
@@ -43,7 +62,20 @@ data GetTemplate = GetTemplate
       -- no default value.
     } deriving (Show, Generic)
 
-makeLenses ''GetTemplate
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value.
+gtiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetTemplate
+    -> f GetTemplate
+gtiStackName f x =
+    (\y -> x { _gtiStackName = y })
+       <$> f (_gtiStackName x)
+{-# INLINE gtiStackName #-}
 
 instance ToQuery GetTemplate where
     toQuery = genericQuery def
@@ -54,7 +86,18 @@ data GetTemplateResponse = GetTemplateResponse
       -- to Template Anatomy in the AWS CloudFormation User Guide.).
     } deriving (Show, Generic)
 
-makeLenses ''GetTemplateResponse
+-- | Structure containing the template body. (For more information, go to
+-- Template Anatomy in the AWS CloudFormation User Guide.).
+gtoTemplateBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetTemplateResponse
+    -> f GetTemplateResponse
+gtoTemplateBody f x =
+    (\y -> x { _gtoTemplateBody = y })
+       <$> f (_gtoTemplateBody x)
+{-# INLINE gtoTemplateBody #-}
 
 instance FromXML GetTemplateResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,19 +20,47 @@
 -- | Deletes a user profile. Required Permissions: To use this action, an IAM
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile where
+module Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile
+    (
+    -- * Request
+      DeleteUserProfile
+    -- ** Request constructor
+    , deleteUserProfile
+    -- ** Request lenses
+    , duprIamUserArn
+
+    -- * Response
+    , DeleteUserProfileResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteUserProfile' request.
+deleteUserProfile :: Text -- ^ 'duprIamUserArn'
+                  -> DeleteUserProfile
+deleteUserProfile p1 = DeleteUserProfile
+    { _duprIamUserArn = p1
+    }
+
 data DeleteUserProfile = DeleteUserProfile
-    { _duptIamUserArn :: Text
+    { _duprIamUserArn :: Text
       -- ^ The user's IAM ARN.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteUserProfile
+-- | The user's IAM ARN.
+duprIamUserArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteUserProfile
+    -> f DeleteUserProfile
+duprIamUserArn f x =
+    (\y -> x { _duprIamUserArn = y })
+       <$> f (_duprIamUserArn x)
+{-# INLINE duprIamUserArn #-}
 
 instance ToPath DeleteUserProfile
 
@@ -45,8 +72,6 @@ instance ToJSON DeleteUserProfile
 
 data DeleteUserProfileResponse = DeleteUserProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteUserProfileResponse
 
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks

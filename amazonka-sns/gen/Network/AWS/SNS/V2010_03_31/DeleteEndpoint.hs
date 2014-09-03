@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,26 +30,52 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;c1d2b191-353c-5a5f-8969-fbdd3900afa8&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteEndpointResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.DeleteEndpoint where
+module Network.AWS.SNS.V2010_03_31.DeleteEndpoint
+    (
+    -- * Request
+      DeleteEndpoint
+    -- ** Request constructor
+    , deleteEndpoint
+    -- ** Request lenses
+    , deiEndpointArn
+
+    -- * Response
+    , DeleteEndpointResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteEndpoint' request.
+deleteEndpoint :: Text -- ^ 'deiEndpointArn'
+               -> DeleteEndpoint
+deleteEndpoint p1 = DeleteEndpoint
+    { _deiEndpointArn = p1
+    }
 
 data DeleteEndpoint = DeleteEndpoint
     { _deiEndpointArn :: Text
       -- ^ EndpointArn of endpoint to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteEndpoint
+-- | EndpointArn of endpoint to delete.
+deiEndpointArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteEndpoint
+    -> f DeleteEndpoint
+deiEndpointArn f x =
+    (\y -> x { _deiEndpointArn = y })
+       <$> f (_deiEndpointArn x)
+{-# INLINE deiEndpointArn #-}
 
 instance ToQuery DeleteEndpoint where
     toQuery = genericQuery def
 
 data DeleteEndpointResponse = DeleteEndpointResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteEndpointResponse
 
 instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS

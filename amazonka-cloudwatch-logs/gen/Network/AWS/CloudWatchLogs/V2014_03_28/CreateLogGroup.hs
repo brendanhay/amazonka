@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,18 +31,45 @@
 -- X-Amz-Target: Logs_20140328.CreateLogGroup { "logGroupName":
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup where
+module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup
+    (
+    -- * Request
+      CreateLogGroup
+    -- ** Request constructor
+    , createLogGroup
+    -- ** Request lenses
+    , clgrLogGroupName
+
+    -- * Response
+    , CreateLogGroupResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'CreateLogGroup' request.
+createLogGroup :: Text -- ^ 'clgrLogGroupName'
+               -> CreateLogGroup
+createLogGroup p1 = CreateLogGroup
+    { _clgrLogGroupName = p1
+    }
+
 data CreateLogGroup = CreateLogGroup
     { _clgrLogGroupName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateLogGroup
+clgrLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLogGroup
+    -> f CreateLogGroup
+clgrLogGroupName f x =
+    (\y -> x { _clgrLogGroupName = y })
+       <$> f (_clgrLogGroupName x)
+{-# INLINE clgrLogGroupName #-}
 
 instance ToPath CreateLogGroup
 
@@ -55,8 +81,6 @@ instance ToJSON CreateLogGroup
 
 data CreateLogGroupResponse = CreateLogGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateLogGroupResponse
 
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs

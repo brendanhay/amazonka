@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,127 @@
 -- integration between your on-premises IT environment and AWS's storage
 -- infrastructure.
 module Network.AWS.StorageGateway.V2013_06_30.Types
-    ( module Network.AWS.StorageGateway.V2013_06_30.Types
+    (
+    -- * Service
+      StorageGateway
+    -- ** Errors
+    , Er (..)
+
+    -- * ErrorCode
+    , ErrorCode (..)
+
+    -- * CachediSCSIVolumeInformation
+    , CachediSCSIVolumeInformation (..)
+    , cscsiviVolumeARN
+    , cscsiviVolumeId
+    , cscsiviVolumeType
+    , cscsiviVolumeStatus
+    , cscsiviVolumeSizeInBytes
+    , cscsiviVolumeProgress
+    , cscsiviSourceSnapshotId
+    , cscsiviVolumeiSCSIAttributes
+
+    -- * ChapInfo
+    , ChapInfo (..)
+    , ciTargetARN
+    , ciSecretToAuthenticateInitiator
+    , ciInitiatorName
+    , ciSecretToAuthenticateTarget
+
+    -- * DeviceiSCSIAttributes
+    , DeviceiSCSIAttributes (..)
+    , dscsiaTargetARN
+    , dscsiaNetworkInterfaceId
+    , dscsiaNetworkInterfacePort
+    , dscsiaChapEnabled
+
+    -- * DiskInformation
+    , DiskInformation (..)
+    , ddnDiskId
+    , ddnDiskPath
+    , ddnDiskNode
+    , ddnDiskSizeInBytes
+    , ddnDiskAllocationType
+    , ddnDiskAllocationResource
+
+    -- * GatewayInformation
+    , GatewayInformation (..)
+    , gjGatewayARN
+    , gjGatewayType
+
+    -- * NetworkInterface
+    , NetworkInterface (..)
+    , niIpv4Address
+    , niMacAddress
+    , niIpv6Address
+
+    -- * StorageGatewayError
+    , StorageGatewayError (..)
+    , sgeErrorCode
+    , sgeErrorDetails
+
+    -- * StorediSCSIVolumeInformation
+    , StorediSCSIVolumeInformation (..)
+    , sscsiviVolumeARN
+    , sscsiviVolumeId
+    , sscsiviVolumeType
+    , sscsiviVolumeStatus
+    , sscsiviVolumeSizeInBytes
+    , sscsiviVolumeProgress
+    , sscsiviVolumeDiskId
+    , sscsiviSourceSnapshotId
+    , sscsiviPreservedExistingData
+    , sscsiviVolumeiSCSIAttributes
+
+    -- * Tape
+    , Tape (..)
+    , teTapeARN
+    , teTapeBarcode
+    , teTapeSizeInBytes
+    , teTapeStatus
+    , teVTLDevice
+    , teProgress
+
+    -- * TapeArchive
+    , TapeArchive (..)
+    , tbTapeARN
+    , tbTapeBarcode
+    , tbTapeSizeInBytes
+    , tbCompletionTime
+    , tbRetrievedTo
+    , tbTapeStatus
+
+    -- * TapeRecoveryPointInfo
+    , TapeRecoveryPointInfo (..)
+    , trpjTapeARN
+    , trpjTapeRecoveryPointTime
+    , trpjTapeSizeInBytes
+
+    -- * VTLDevice
+    , VTLDevice (..)
+    , vtleVTLDeviceARN
+    , vtleDeviceiSCSIAttributes
+
+    -- * VolumeInformation
+    , VolumeInformation (..)
+    , vlVolumeARN
+    , vlVolumeType
+
+    -- * VolumeRecoveryPointInfo
+    , VolumeRecoveryPointInfo (..)
+    , vrpjVolumeARN
+    , vrpjVolumeSizeInBytes
+    , vrpjVolumeUsageInBytes
+    , vrpjVolumeRecoveryPointTime
+
+    -- * VolumeiSCSIAttributes
+    , VolumeiSCSIAttributes (..)
+    , vscsiaTargetARN
+    , vscsiaNetworkInterfaceId
+    , vscsiaNetworkInterfacePort
+    , vscsiaLunNumber
+    , vscsiaChapEnabled
+
     ) where
 
 import Network.AWS.Prelude
@@ -335,66 +454,340 @@ instance FromJSON ErrorCode
 instance ToJSON ErrorCode
 
 data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
-    { _cscsiviVolumeType :: Maybe Text
+    { _cscsiviVolumeARN :: Maybe Text
     , _cscsiviVolumeId :: Maybe Text
+    , _cscsiviVolumeType :: Maybe Text
+    , _cscsiviVolumeStatus :: Maybe Text
     , _cscsiviVolumeSizeInBytes :: Maybe Integer
     , _cscsiviVolumeProgress :: Maybe Double
-    , _cscsiviVolumeARN :: Maybe Text
     , _cscsiviSourceSnapshotId :: Maybe Text
-    , _cscsiviVolumeStatus :: Maybe Text
     , _cscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
       -- ^ Lists iSCSI information about a volume.
     } deriving (Show, Generic)
+
+cscsiviVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeARN f x =
+    (\y -> x { _cscsiviVolumeARN = y })
+       <$> f (_cscsiviVolumeARN x)
+{-# INLINE cscsiviVolumeARN #-}
+
+cscsiviVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeId f x =
+    (\y -> x { _cscsiviVolumeId = y })
+       <$> f (_cscsiviVolumeId x)
+{-# INLINE cscsiviVolumeId #-}
+
+cscsiviVolumeType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeType f x =
+    (\y -> x { _cscsiviVolumeType = y })
+       <$> f (_cscsiviVolumeType x)
+{-# INLINE cscsiviVolumeType #-}
+
+cscsiviVolumeStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeStatus f x =
+    (\y -> x { _cscsiviVolumeStatus = y })
+       <$> f (_cscsiviVolumeStatus x)
+{-# INLINE cscsiviVolumeStatus #-}
+
+cscsiviVolumeSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeSizeInBytes f x =
+    (\y -> x { _cscsiviVolumeSizeInBytes = y })
+       <$> f (_cscsiviVolumeSizeInBytes x)
+{-# INLINE cscsiviVolumeSizeInBytes #-}
+
+cscsiviVolumeProgress
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeProgress f x =
+    (\y -> x { _cscsiviVolumeProgress = y })
+       <$> f (_cscsiviVolumeProgress x)
+{-# INLINE cscsiviVolumeProgress #-}
+
+cscsiviSourceSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviSourceSnapshotId f x =
+    (\y -> x { _cscsiviSourceSnapshotId = y })
+       <$> f (_cscsiviSourceSnapshotId x)
+{-# INLINE cscsiviSourceSnapshotId #-}
+
+-- | Lists iSCSI information about a volume.
+cscsiviVolumeiSCSIAttributes
+    :: Functor f
+    => (Maybe VolumeiSCSIAttributes
+    -> f (Maybe VolumeiSCSIAttributes))
+    -> CachediSCSIVolumeInformation
+    -> f CachediSCSIVolumeInformation
+cscsiviVolumeiSCSIAttributes f x =
+    (\y -> x { _cscsiviVolumeiSCSIAttributes = y })
+       <$> f (_cscsiviVolumeiSCSIAttributes x)
+{-# INLINE cscsiviVolumeiSCSIAttributes #-}
 
 instance FromJSON CachediSCSIVolumeInformation
 
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
 -- that supports authentication between your gateway and iSCSI initiators.
 data ChapInfo = ChapInfo
-    { _ciSecretToAuthenticateTarget :: Maybe Text
-      -- ^ The secret key that the target must provide to participate in
-      -- mutual CHAP with the initiator (e.g. Windows client).
-    , _ciInitiatorName :: Maybe Text
-      -- ^ The iSCSI initiator that connects to the target.
+    { _ciTargetARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to
+      -- 500 lowercase letters, numbers, periods (.), and hyphens (-).
     , _ciSecretToAuthenticateInitiator :: Maybe Text
       -- ^ The secret key that the initiator (e.g. Windows client) must
       -- provide to participate in mutual CHAP with the target.
-    , _ciTargetARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to
-      -- 500 lowercase letters, numbers, periods (.), and hyphens (-).
+    , _ciInitiatorName :: Maybe Text
+      -- ^ The iSCSI initiator that connects to the target.
+    , _ciSecretToAuthenticateTarget :: Maybe Text
+      -- ^ The secret key that the target must provide to participate in
+      -- mutual CHAP with the initiator (e.g. Windows client).
     } deriving (Show, Generic)
+
+-- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500
+-- lowercase letters, numbers, periods (.), and hyphens (-).
+ciTargetARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ChapInfo
+    -> f ChapInfo
+ciTargetARN f x =
+    (\y -> x { _ciTargetARN = y })
+       <$> f (_ciTargetARN x)
+{-# INLINE ciTargetARN #-}
+
+-- | The secret key that the initiator (e.g. Windows client) must provide to
+-- participate in mutual CHAP with the target.
+ciSecretToAuthenticateInitiator
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ChapInfo
+    -> f ChapInfo
+ciSecretToAuthenticateInitiator f x =
+    (\y -> x { _ciSecretToAuthenticateInitiator = y })
+       <$> f (_ciSecretToAuthenticateInitiator x)
+{-# INLINE ciSecretToAuthenticateInitiator #-}
+
+-- | The iSCSI initiator that connects to the target.
+ciInitiatorName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ChapInfo
+    -> f ChapInfo
+ciInitiatorName f x =
+    (\y -> x { _ciInitiatorName = y })
+       <$> f (_ciInitiatorName x)
+{-# INLINE ciInitiatorName #-}
+
+-- | The secret key that the target must provide to participate in mutual CHAP
+-- with the initiator (e.g. Windows client).
+ciSecretToAuthenticateTarget
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ChapInfo
+    -> f ChapInfo
+ciSecretToAuthenticateTarget f x =
+    (\y -> x { _ciSecretToAuthenticateTarget = y })
+       <$> f (_ciSecretToAuthenticateTarget x)
+{-# INLINE ciSecretToAuthenticateTarget #-}
 
 instance FromJSON ChapInfo
 
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes
-    { _dscsiaNetworkInterfacePort :: Maybe Integer
+    { _dscsiaTargetARN :: Maybe Text
     , _dscsiaNetworkInterfaceId :: Maybe Text
+    , _dscsiaNetworkInterfacePort :: Maybe Integer
     , _dscsiaChapEnabled :: Maybe Bool
-    , _dscsiaTargetARN :: Maybe Text
     } deriving (Show, Generic)
+
+dscsiaTargetARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeviceiSCSIAttributes
+    -> f DeviceiSCSIAttributes
+dscsiaTargetARN f x =
+    (\y -> x { _dscsiaTargetARN = y })
+       <$> f (_dscsiaTargetARN x)
+{-# INLINE dscsiaTargetARN #-}
+
+dscsiaNetworkInterfaceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeviceiSCSIAttributes
+    -> f DeviceiSCSIAttributes
+dscsiaNetworkInterfaceId f x =
+    (\y -> x { _dscsiaNetworkInterfaceId = y })
+       <$> f (_dscsiaNetworkInterfaceId x)
+{-# INLINE dscsiaNetworkInterfaceId #-}
+
+dscsiaNetworkInterfacePort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DeviceiSCSIAttributes
+    -> f DeviceiSCSIAttributes
+dscsiaNetworkInterfacePort f x =
+    (\y -> x { _dscsiaNetworkInterfacePort = y })
+       <$> f (_dscsiaNetworkInterfacePort x)
+{-# INLINE dscsiaNetworkInterfacePort #-}
+
+dscsiaChapEnabled
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeviceiSCSIAttributes
+    -> f DeviceiSCSIAttributes
+dscsiaChapEnabled f x =
+    (\y -> x { _dscsiaChapEnabled = y })
+       <$> f (_dscsiaChapEnabled x)
+{-# INLINE dscsiaChapEnabled #-}
 
 instance FromJSON DeviceiSCSIAttributes
 
 instance ToJSON DeviceiSCSIAttributes
 
 data DiskInformation = DiskInformation
-    { _dwDiskId :: Maybe Text
-    , _dwDiskSizeInBytes :: Maybe Integer
-    , _dwDiskPath :: Maybe Text
-    , _dwDiskNode :: Maybe Text
-    , _dwDiskAllocationType :: Maybe Text
-    , _dwDiskAllocationResource :: Maybe Text
+    { _ddnDiskId :: Maybe Text
+    , _ddnDiskPath :: Maybe Text
+    , _ddnDiskNode :: Maybe Text
+    , _ddnDiskSizeInBytes :: Maybe Integer
+    , _ddnDiskAllocationType :: Maybe Text
+    , _ddnDiskAllocationResource :: Maybe Text
     } deriving (Show, Generic)
+
+ddnDiskId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DiskInformation
+    -> f DiskInformation
+ddnDiskId f x =
+    (\y -> x { _ddnDiskId = y })
+       <$> f (_ddnDiskId x)
+{-# INLINE ddnDiskId #-}
+
+ddnDiskPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DiskInformation
+    -> f DiskInformation
+ddnDiskPath f x =
+    (\y -> x { _ddnDiskPath = y })
+       <$> f (_ddnDiskPath x)
+{-# INLINE ddnDiskPath #-}
+
+ddnDiskNode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DiskInformation
+    -> f DiskInformation
+ddnDiskNode f x =
+    (\y -> x { _ddnDiskNode = y })
+       <$> f (_ddnDiskNode x)
+{-# INLINE ddnDiskNode #-}
+
+ddnDiskSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DiskInformation
+    -> f DiskInformation
+ddnDiskSizeInBytes f x =
+    (\y -> x { _ddnDiskSizeInBytes = y })
+       <$> f (_ddnDiskSizeInBytes x)
+{-# INLINE ddnDiskSizeInBytes #-}
+
+ddnDiskAllocationType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DiskInformation
+    -> f DiskInformation
+ddnDiskAllocationType f x =
+    (\y -> x { _ddnDiskAllocationType = y })
+       <$> f (_ddnDiskAllocationType x)
+{-# INLINE ddnDiskAllocationType #-}
+
+ddnDiskAllocationResource
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DiskInformation
+    -> f DiskInformation
+ddnDiskAllocationResource f x =
+    (\y -> x { _ddnDiskAllocationResource = y })
+       <$> f (_ddnDiskAllocationResource x)
+{-# INLINE ddnDiskAllocationResource #-}
 
 instance FromJSON DiskInformation
 
 data GatewayInformation = GatewayInformation
-    { _gjGatewayType :: Maybe Text
-    , _gjGatewayARN :: Maybe Text
+    { _gjGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _gjGatewayType :: Maybe Text
     } deriving (Show, Generic)
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+gjGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GatewayInformation
+    -> f GatewayInformation
+gjGatewayARN f x =
+    (\y -> x { _gjGatewayARN = y })
+       <$> f (_gjGatewayARN x)
+{-# INLINE gjGatewayARN #-}
+
+gjGatewayType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GatewayInformation
+    -> f GatewayInformation
+gjGatewayType f x =
+    (\y -> x { _gjGatewayType = y })
+       <$> f (_gjGatewayType x)
+{-# INLINE gjGatewayType #-}
 
 instance FromJSON GatewayInformation
 
@@ -410,6 +803,44 @@ data NetworkInterface = NetworkInterface
       -- Currently not supported.
     } deriving (Show, Generic)
 
+-- | The Internet Protocol version 4 (IPv4) address of the interface.
+niIpv4Address
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> NetworkInterface
+    -> f NetworkInterface
+niIpv4Address f x =
+    (\y -> x { _niIpv4Address = y })
+       <$> f (_niIpv4Address x)
+{-# INLINE niIpv4Address #-}
+
+-- | The Media Access Control (MAC) address of the interface. This is currently
+-- unsupported and will not be returned in output.
+niMacAddress
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> NetworkInterface
+    -> f NetworkInterface
+niMacAddress f x =
+    (\y -> x { _niMacAddress = y })
+       <$> f (_niMacAddress x)
+{-# INLINE niMacAddress #-}
+
+-- | The Internet Protocol version 6 (IPv6) address of the interface. Currently
+-- not supported.
+niIpv6Address
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> NetworkInterface
+    -> f NetworkInterface
+niIpv6Address f x =
+    (\y -> x { _niIpv6Address = y })
+       <$> f (_niIpv6Address x)
+{-# INLINE niIpv6Address #-}
+
 instance FromJSON NetworkInterface
 
 -- | A StorageGatewayError that provides more detail about the cause of the
@@ -422,56 +853,358 @@ data StorageGatewayError = StorageGatewayError
       -- occured.
     } deriving (Show, Generic)
 
+-- | Additional information about the error.
+sgeErrorCode
+    :: Functor f
+    => (Maybe ErrorCode
+    -> f (Maybe ErrorCode))
+    -> StorageGatewayError
+    -> f StorageGatewayError
+sgeErrorCode f x =
+    (\y -> x { _sgeErrorCode = y })
+       <$> f (_sgeErrorCode x)
+{-# INLINE sgeErrorCode #-}
+
+-- | Human-readable text that provides detail about the error that occured.
+sgeErrorDetails
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> StorageGatewayError
+    -> f StorageGatewayError
+sgeErrorDetails f x =
+    (\y -> x { _sgeErrorDetails = y })
+       <$> f (_sgeErrorDetails x)
+{-# INLINE sgeErrorDetails #-}
+
 instance FromJSON StorageGatewayError
 
 instance ToJSON StorageGatewayError
 
 data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
-    { _sscsiviVolumeType :: Maybe Text
-    , _sscsiviVolumeDiskId :: Maybe Text
+    { _sscsiviVolumeARN :: Maybe Text
     , _sscsiviVolumeId :: Maybe Text
+    , _sscsiviVolumeType :: Maybe Text
+    , _sscsiviVolumeStatus :: Maybe Text
     , _sscsiviVolumeSizeInBytes :: Maybe Integer
     , _sscsiviVolumeProgress :: Maybe Double
-    , _sscsiviVolumeARN :: Maybe Text
-    , _sscsiviPreservedExistingData :: Maybe Bool
+    , _sscsiviVolumeDiskId :: Maybe Text
     , _sscsiviSourceSnapshotId :: Maybe Text
-    , _sscsiviVolumeStatus :: Maybe Text
+    , _sscsiviPreservedExistingData :: Maybe Bool
     , _sscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
       -- ^ Lists iSCSI information about a volume.
     } deriving (Show, Generic)
 
+sscsiviVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeARN f x =
+    (\y -> x { _sscsiviVolumeARN = y })
+       <$> f (_sscsiviVolumeARN x)
+{-# INLINE sscsiviVolumeARN #-}
+
+sscsiviVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeId f x =
+    (\y -> x { _sscsiviVolumeId = y })
+       <$> f (_sscsiviVolumeId x)
+{-# INLINE sscsiviVolumeId #-}
+
+sscsiviVolumeType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeType f x =
+    (\y -> x { _sscsiviVolumeType = y })
+       <$> f (_sscsiviVolumeType x)
+{-# INLINE sscsiviVolumeType #-}
+
+sscsiviVolumeStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeStatus f x =
+    (\y -> x { _sscsiviVolumeStatus = y })
+       <$> f (_sscsiviVolumeStatus x)
+{-# INLINE sscsiviVolumeStatus #-}
+
+sscsiviVolumeSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeSizeInBytes f x =
+    (\y -> x { _sscsiviVolumeSizeInBytes = y })
+       <$> f (_sscsiviVolumeSizeInBytes x)
+{-# INLINE sscsiviVolumeSizeInBytes #-}
+
+sscsiviVolumeProgress
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeProgress f x =
+    (\y -> x { _sscsiviVolumeProgress = y })
+       <$> f (_sscsiviVolumeProgress x)
+{-# INLINE sscsiviVolumeProgress #-}
+
+sscsiviVolumeDiskId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeDiskId f x =
+    (\y -> x { _sscsiviVolumeDiskId = y })
+       <$> f (_sscsiviVolumeDiskId x)
+{-# INLINE sscsiviVolumeDiskId #-}
+
+sscsiviSourceSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviSourceSnapshotId f x =
+    (\y -> x { _sscsiviSourceSnapshotId = y })
+       <$> f (_sscsiviSourceSnapshotId x)
+{-# INLINE sscsiviSourceSnapshotId #-}
+
+sscsiviPreservedExistingData
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviPreservedExistingData f x =
+    (\y -> x { _sscsiviPreservedExistingData = y })
+       <$> f (_sscsiviPreservedExistingData x)
+{-# INLINE sscsiviPreservedExistingData #-}
+
+-- | Lists iSCSI information about a volume.
+sscsiviVolumeiSCSIAttributes
+    :: Functor f
+    => (Maybe VolumeiSCSIAttributes
+    -> f (Maybe VolumeiSCSIAttributes))
+    -> StorediSCSIVolumeInformation
+    -> f StorediSCSIVolumeInformation
+sscsiviVolumeiSCSIAttributes f x =
+    (\y -> x { _sscsiviVolumeiSCSIAttributes = y })
+       <$> f (_sscsiviVolumeiSCSIAttributes x)
+{-# INLINE sscsiviVolumeiSCSIAttributes #-}
+
 instance FromJSON StorediSCSIVolumeInformation
 
 data Tape = Tape
-    { _vVTLDevice :: Maybe Text
-    , _vTapeSizeInBytes :: Maybe Integer
-    , _vProgress :: Maybe Double
-    , _vTapeARN :: Maybe Text
-    , _vTapeStatus :: Maybe Text
-    , _vTapeBarcode :: Maybe Text
+    { _teTapeARN :: Maybe Text
+    , _teTapeBarcode :: Maybe Text
+    , _teTapeSizeInBytes :: Maybe Integer
+    , _teTapeStatus :: Maybe Text
+    , _teVTLDevice :: Maybe Text
+    , _teProgress :: Maybe Double
     } deriving (Show, Generic)
+
+teTapeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Tape
+    -> f Tape
+teTapeARN f x =
+    (\y -> x { _teTapeARN = y })
+       <$> f (_teTapeARN x)
+{-# INLINE teTapeARN #-}
+
+teTapeBarcode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Tape
+    -> f Tape
+teTapeBarcode f x =
+    (\y -> x { _teTapeBarcode = y })
+       <$> f (_teTapeBarcode x)
+{-# INLINE teTapeBarcode #-}
+
+teTapeSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> Tape
+    -> f Tape
+teTapeSizeInBytes f x =
+    (\y -> x { _teTapeSizeInBytes = y })
+       <$> f (_teTapeSizeInBytes x)
+{-# INLINE teTapeSizeInBytes #-}
+
+teTapeStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Tape
+    -> f Tape
+teTapeStatus f x =
+    (\y -> x { _teTapeStatus = y })
+       <$> f (_teTapeStatus x)
+{-# INLINE teTapeStatus #-}
+
+teVTLDevice
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Tape
+    -> f Tape
+teVTLDevice f x =
+    (\y -> x { _teVTLDevice = y })
+       <$> f (_teVTLDevice x)
+{-# INLINE teVTLDevice #-}
+
+teProgress
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> Tape
+    -> f Tape
+teProgress f x =
+    (\y -> x { _teProgress = y })
+       <$> f (_teProgress x)
+{-# INLINE teProgress #-}
 
 instance FromJSON Tape
 
 data TapeArchive = TapeArchive
-    { _tcRetrievedTo :: Maybe Text
+    { _tbTapeARN :: Maybe Text
+    , _tbTapeBarcode :: Maybe Text
+    , _tbTapeSizeInBytes :: Maybe Integer
+    , _tbCompletionTime :: Maybe ISO8601
+    , _tbRetrievedTo :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _tcCompletionTime :: Maybe ISO8601
-    , _tcTapeSizeInBytes :: Maybe Integer
-    , _tcTapeARN :: Maybe Text
-    , _tcTapeStatus :: Maybe Text
-    , _tcTapeBarcode :: Maybe Text
+    , _tbTapeStatus :: Maybe Text
     } deriving (Show, Generic)
+
+tbTapeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TapeArchive
+    -> f TapeArchive
+tbTapeARN f x =
+    (\y -> x { _tbTapeARN = y })
+       <$> f (_tbTapeARN x)
+{-# INLINE tbTapeARN #-}
+
+tbTapeBarcode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TapeArchive
+    -> f TapeArchive
+tbTapeBarcode f x =
+    (\y -> x { _tbTapeBarcode = y })
+       <$> f (_tbTapeBarcode x)
+{-# INLINE tbTapeBarcode #-}
+
+tbTapeSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> TapeArchive
+    -> f TapeArchive
+tbTapeSizeInBytes f x =
+    (\y -> x { _tbTapeSizeInBytes = y })
+       <$> f (_tbTapeSizeInBytes x)
+{-# INLINE tbTapeSizeInBytes #-}
+
+tbCompletionTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> TapeArchive
+    -> f TapeArchive
+tbCompletionTime f x =
+    (\y -> x { _tbCompletionTime = y })
+       <$> f (_tbCompletionTime x)
+{-# INLINE tbCompletionTime #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+tbRetrievedTo
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TapeArchive
+    -> f TapeArchive
+tbRetrievedTo f x =
+    (\y -> x { _tbRetrievedTo = y })
+       <$> f (_tbRetrievedTo x)
+{-# INLINE tbRetrievedTo #-}
+
+tbTapeStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TapeArchive
+    -> f TapeArchive
+tbTapeStatus f x =
+    (\y -> x { _tbTapeStatus = y })
+       <$> f (_tbTapeStatus x)
+{-# INLINE tbTapeStatus #-}
 
 instance FromJSON TapeArchive
 
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
-    { _trpjTapeSizeInBytes :: Maybe Integer
-    , _trpjTapeARN :: Maybe Text
+    { _trpjTapeARN :: Maybe Text
     , _trpjTapeRecoveryPointTime :: Maybe ISO8601
+    , _trpjTapeSizeInBytes :: Maybe Integer
     } deriving (Show, Generic)
+
+trpjTapeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TapeRecoveryPointInfo
+    -> f TapeRecoveryPointInfo
+trpjTapeARN f x =
+    (\y -> x { _trpjTapeARN = y })
+       <$> f (_trpjTapeARN x)
+{-# INLINE trpjTapeARN #-}
+
+trpjTapeRecoveryPointTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> TapeRecoveryPointInfo
+    -> f TapeRecoveryPointInfo
+trpjTapeRecoveryPointTime f x =
+    (\y -> x { _trpjTapeRecoveryPointTime = y })
+       <$> f (_trpjTapeRecoveryPointTime x)
+{-# INLINE trpjTapeRecoveryPointTime #-}
+
+trpjTapeSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> TapeRecoveryPointInfo
+    -> f TapeRecoveryPointInfo
+trpjTapeSizeInBytes f x =
+    (\y -> x { _trpjTapeSizeInBytes = y })
+       <$> f (_trpjTapeSizeInBytes x)
+{-# INLINE trpjTapeSizeInBytes #-}
 
 instance FromJSON TapeRecoveryPointInfo
 
@@ -480,54 +1213,186 @@ data VTLDevice = VTLDevice
     , _vtleDeviceiSCSIAttributes :: Maybe DeviceiSCSIAttributes
     } deriving (Show, Generic)
 
+vtleVTLDeviceARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VTLDevice
+    -> f VTLDevice
+vtleVTLDeviceARN f x =
+    (\y -> x { _vtleVTLDeviceARN = y })
+       <$> f (_vtleVTLDeviceARN x)
+{-# INLINE vtleVTLDeviceARN #-}
+
+vtleDeviceiSCSIAttributes
+    :: Functor f
+    => (Maybe DeviceiSCSIAttributes
+    -> f (Maybe DeviceiSCSIAttributes))
+    -> VTLDevice
+    -> f VTLDevice
+vtleDeviceiSCSIAttributes f x =
+    (\y -> x { _vtleDeviceiSCSIAttributes = y })
+       <$> f (_vtleDeviceiSCSIAttributes x)
+{-# INLINE vtleDeviceiSCSIAttributes #-}
+
 instance FromJSON VTLDevice
 
 data VolumeInformation = VolumeInformation
-    { _vlVolumeType :: Maybe Text
-    , _vlVolumeARN :: Maybe Text
+    { _vlVolumeARN :: Maybe Text
+    , _vlVolumeType :: Maybe Text
     } deriving (Show, Generic)
+
+vlVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VolumeInformation
+    -> f VolumeInformation
+vlVolumeARN f x =
+    (\y -> x { _vlVolumeARN = y })
+       <$> f (_vlVolumeARN x)
+{-# INLINE vlVolumeARN #-}
+
+vlVolumeType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VolumeInformation
+    -> f VolumeInformation
+vlVolumeType f x =
+    (\y -> x { _vlVolumeType = y })
+       <$> f (_vlVolumeType x)
+{-# INLINE vlVolumeType #-}
 
 instance FromJSON VolumeInformation
 
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
-    { _vrpjVolumeUsageInBytes :: Maybe Integer
+    { _vrpjVolumeARN :: Maybe Text
     , _vrpjVolumeSizeInBytes :: Maybe Integer
-    , _vrpjVolumeARN :: Maybe Text
+    , _vrpjVolumeUsageInBytes :: Maybe Integer
     , _vrpjVolumeRecoveryPointTime :: Maybe Text
     } deriving (Show, Generic)
+
+vrpjVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VolumeRecoveryPointInfo
+    -> f VolumeRecoveryPointInfo
+vrpjVolumeARN f x =
+    (\y -> x { _vrpjVolumeARN = y })
+       <$> f (_vrpjVolumeARN x)
+{-# INLINE vrpjVolumeARN #-}
+
+vrpjVolumeSizeInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> VolumeRecoveryPointInfo
+    -> f VolumeRecoveryPointInfo
+vrpjVolumeSizeInBytes f x =
+    (\y -> x { _vrpjVolumeSizeInBytes = y })
+       <$> f (_vrpjVolumeSizeInBytes x)
+{-# INLINE vrpjVolumeSizeInBytes #-}
+
+vrpjVolumeUsageInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> VolumeRecoveryPointInfo
+    -> f VolumeRecoveryPointInfo
+vrpjVolumeUsageInBytes f x =
+    (\y -> x { _vrpjVolumeUsageInBytes = y })
+       <$> f (_vrpjVolumeUsageInBytes x)
+{-# INLINE vrpjVolumeUsageInBytes #-}
+
+vrpjVolumeRecoveryPointTime
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VolumeRecoveryPointInfo
+    -> f VolumeRecoveryPointInfo
+vrpjVolumeRecoveryPointTime f x =
+    (\y -> x { _vrpjVolumeRecoveryPointTime = y })
+       <$> f (_vrpjVolumeRecoveryPointTime x)
+{-# INLINE vrpjVolumeRecoveryPointTime #-}
 
 instance FromJSON VolumeRecoveryPointInfo
 
 -- | Lists iSCSI information about a volume.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes
-    { _vscsiaNetworkInterfacePort :: Maybe Integer
-      -- ^ The port used to communicate with iSCSI targets.
+    { _vscsiaTargetARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the volume target.
     , _vscsiaNetworkInterfaceId :: Maybe Text
       -- ^ The network interface identifier.
-    , _vscsiaChapEnabled :: Maybe Bool
-      -- ^ Indicates whether mutual CHAP is enabled for the iSCSI target.
-    , _vscsiaTargetARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the volume target.
+    , _vscsiaNetworkInterfacePort :: Maybe Integer
+      -- ^ The port used to communicate with iSCSI targets.
     , _vscsiaLunNumber :: Maybe Integer
       -- ^ The logical disk number.
+    , _vscsiaChapEnabled :: Maybe Bool
+      -- ^ Indicates whether mutual CHAP is enabled for the iSCSI target.
     } deriving (Show, Generic)
+
+-- | The Amazon Resource Name (ARN) of the volume target.
+vscsiaTargetARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VolumeiSCSIAttributes
+    -> f VolumeiSCSIAttributes
+vscsiaTargetARN f x =
+    (\y -> x { _vscsiaTargetARN = y })
+       <$> f (_vscsiaTargetARN x)
+{-# INLINE vscsiaTargetARN #-}
+
+-- | The network interface identifier.
+vscsiaNetworkInterfaceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> VolumeiSCSIAttributes
+    -> f VolumeiSCSIAttributes
+vscsiaNetworkInterfaceId f x =
+    (\y -> x { _vscsiaNetworkInterfaceId = y })
+       <$> f (_vscsiaNetworkInterfaceId x)
+{-# INLINE vscsiaNetworkInterfaceId #-}
+
+-- | The port used to communicate with iSCSI targets.
+vscsiaNetworkInterfacePort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> VolumeiSCSIAttributes
+    -> f VolumeiSCSIAttributes
+vscsiaNetworkInterfacePort f x =
+    (\y -> x { _vscsiaNetworkInterfacePort = y })
+       <$> f (_vscsiaNetworkInterfacePort x)
+{-# INLINE vscsiaNetworkInterfacePort #-}
+
+-- | The logical disk number.
+vscsiaLunNumber
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> VolumeiSCSIAttributes
+    -> f VolumeiSCSIAttributes
+vscsiaLunNumber f x =
+    (\y -> x { _vscsiaLunNumber = y })
+       <$> f (_vscsiaLunNumber x)
+{-# INLINE vscsiaLunNumber #-}
+
+-- | Indicates whether mutual CHAP is enabled for the iSCSI target.
+vscsiaChapEnabled
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> VolumeiSCSIAttributes
+    -> f VolumeiSCSIAttributes
+vscsiaChapEnabled f x =
+    (\y -> x { _vscsiaChapEnabled = y })
+       <$> f (_vscsiaChapEnabled x)
+{-# INLINE vscsiaChapEnabled #-}
 
 instance FromJSON VolumeiSCSIAttributes
 
 instance ToJSON VolumeiSCSIAttributes
-
-makeLenses ''CachediSCSIVolumeInformation
-makeLenses ''ChapInfo
-makeLenses ''DeviceiSCSIAttributes
-makeLenses ''DiskInformation
-makeLenses ''GatewayInformation
-makeLenses ''NetworkInterface
-makeLenses ''StorageGatewayError
-makeLenses ''StorediSCSIVolumeInformation
-makeLenses ''Tape
-makeLenses ''TapeArchive
-makeLenses ''TapeRecoveryPointInfo
-makeLenses ''VTLDevice
-makeLenses ''VolumeInformation
-makeLenses ''VolumeRecoveryPointInfo
-makeLenses ''VolumeiSCSIAttributes

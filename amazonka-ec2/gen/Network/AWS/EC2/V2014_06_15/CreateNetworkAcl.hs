@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,16 +34,14 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
     (
     -- * Request
       CreateNetworkAcl
-    -- ** Default constructor
+    -- ** Request constructor
     , createNetworkAcl
-    -- ** Accessors and lenses
-    , _cnarVpcId
+    -- ** Request lenses
     , cnarVpcId
 
     -- * Response
     , CreateNetworkAclResponse
-    -- ** Accessors and lenses
-    , _cnasNetworkAcl
+    -- ** Response lenses
     , cnasNetworkAcl
     ) where
 
@@ -60,8 +57,21 @@ createNetworkAcl p1 = CreateNetworkAcl
     }
 
 data CreateNetworkAcl = CreateNetworkAcl
+    { _cnarVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateNetworkAcl
+-- | The ID of the VPC.
+cnarVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateNetworkAcl
+    -> f CreateNetworkAcl
+cnarVpcId f x =
+    (\y -> x { _cnarVpcId = y })
+       <$> f (_cnarVpcId x)
+{-# INLINE cnarVpcId #-}
 
 instance ToQuery CreateNetworkAcl where
     toQuery = genericQuery def
@@ -71,7 +81,17 @@ data CreateNetworkAclResponse = CreateNetworkAclResponse
       -- ^ Information about the network ACL.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateNetworkAclResponse
+-- | Information about the network ACL.
+cnasNetworkAcl
+    :: Functor f
+    => (Maybe NetworkAcl
+    -> f (Maybe NetworkAcl))
+    -> CreateNetworkAclResponse
+    -> f CreateNetworkAclResponse
+cnasNetworkAcl f x =
+    (\y -> x { _cnasNetworkAcl = y })
+       <$> f (_cnasNetworkAcl x)
+{-# INLINE cnasNetworkAcl #-}
 
 instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions
@@ -82,9 +102,3 @@ instance AWSRequest CreateNetworkAcl where
 
     request = post "CreateNetworkAcl"
     response _ = xmlResponse
-
--- | The ID of the VPC.
-cnarVpcId :: Lens' CreateNetworkAcl (Text)
-
--- | Information about the network ACL.
-cnasNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)

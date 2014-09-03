@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -80,14 +79,31 @@
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY 2011-07-15T23:28:33.359Z
 -- AKIAIOSFODNN7EXAMPLE arn:aws:sts::123456789012:federated-user/Bob
 -- 123456789012:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
-module Network.AWS.STS.V2011_06_15.GetFederationToken where
+module Network.AWS.STS.V2011_06_15.GetFederationToken
+    (
+    -- * Request
+      GetFederationToken
+    -- ** Request constructor
+    , getFederationToken
+    -- ** Request lenses
+    , gftrName
+    , gftrDurationSeconds
+    , gftrPolicy
+
+    -- * Response
+    , GetFederationTokenResponse
+    -- ** Response lenses
+    , gftsCredentials
+    , gftsFederatedUser
+    , gftsPackedPolicySize
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetFederationToken' request.
-getFederationToken :: Text -- ^ '_gftrName'
+getFederationToken :: Text -- ^ 'gftrName'
                    -> GetFederationToken
 getFederationToken p1 = GetFederationToken
     { _gftrName = p1
@@ -130,7 +146,63 @@ data GetFederationToken = GetFederationToken
       -- GetFederationToken in Using Temporary Security Credentials.
     } deriving (Show, Generic)
 
-makeLenses ''GetFederationToken
+-- | The name of the federated user. The name is used as an identifier for the
+-- temporary security credentials (such as Bob). For example, you can
+-- reference the federated user name in a resource-based policy, such as in an
+-- Amazon S3 bucket policy.
+gftrName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetFederationToken
+    -> f GetFederationToken
+gftrName f x =
+    (\y -> x { _gftrName = y })
+       <$> f (_gftrName x)
+{-# INLINE gftrName #-}
+
+-- | The duration, in seconds, that the session should last. Acceptable
+-- durations for federation sessions range from 900 seconds (15 minutes) to
+-- 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default.
+-- Sessions obtained using AWS account (root) credentials are restricted to a
+-- maximum of 3600 seconds (one hour). If the specified duration is longer
+-- than one hour, the session obtained by using AWS account (root) credentials
+-- defaults to one hour.
+gftrDurationSeconds
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> GetFederationToken
+    -> f GetFederationToken
+gftrDurationSeconds f x =
+    (\y -> x { _gftrDurationSeconds = y })
+       <$> f (_gftrDurationSeconds x)
+{-# INLINE gftrDurationSeconds #-}
+
+-- | An IAM policy in JSON format that is passed with the GetFederationToken
+-- call and evaluated along with the policy or policies that are attached to
+-- the IAM user whose credentials are used to call GetFederationToken. The
+-- passed policy is used to scope down the permissions that are available to
+-- the IAM user, by allowing only a subset of the permissions that are granted
+-- to the IAM user. The passed policy cannot grant more permissions than those
+-- granted to the IAM user. The final permissions for the federated user are
+-- the most restrictive set based on the intersection of the passed policy and
+-- the IAM user policy. If you do not pass a policy, the resulting temporary
+-- security credentials have no effective permissions. The only exception is
+-- when the temporary security credentials are used to access a resource that
+-- has a resource-based policy that specifically allows the federated user to
+-- access the resource. For more information about how permissions work, see
+-- Permissions for GetFederationToken in Using Temporary Security Credentials.
+gftrPolicy
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetFederationToken
+    -> f GetFederationToken
+gftrPolicy f x =
+    (\y -> x { _gftrPolicy = y })
+       <$> f (_gftrPolicy x)
+{-# INLINE gftrPolicy #-}
 
 instance ToQuery GetFederationToken where
     toQuery = genericQuery def
@@ -149,7 +221,46 @@ data GetFederationTokenResponse = GetFederationTokenResponse
       -- greater than 100 percent of the allowed value.
     } deriving (Show, Generic)
 
-makeLenses ''GetFederationTokenResponse
+-- | Credentials for the service API authentication.
+gftsCredentials
+    :: Functor f
+    => (Maybe Credentials
+    -> f (Maybe Credentials))
+    -> GetFederationTokenResponse
+    -> f GetFederationTokenResponse
+gftsCredentials f x =
+    (\y -> x { _gftsCredentials = y })
+       <$> f (_gftsCredentials x)
+{-# INLINE gftsCredentials #-}
+
+-- | Identifiers for the federated user associated with the credentials (such as
+-- arn:aws:sts::123456789012:federated-user/Bob or 123456789012:Bob). You can
+-- use the federated user's ARN in your resource-based policies, such as an
+-- Amazon S3 bucket policy.
+gftsFederatedUser
+    :: Functor f
+    => (Maybe FederatedUser
+    -> f (Maybe FederatedUser))
+    -> GetFederationTokenResponse
+    -> f GetFederationTokenResponse
+gftsFederatedUser f x =
+    (\y -> x { _gftsFederatedUser = y })
+       <$> f (_gftsFederatedUser x)
+{-# INLINE gftsFederatedUser #-}
+
+-- | A percentage value indicating the size of the policy in packed form. The
+-- service rejects policies for which the packed size is greater than 100
+-- percent of the allowed value.
+gftsPackedPolicySize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> GetFederationTokenResponse
+    -> f GetFederationTokenResponse
+gftsPackedPolicySize f x =
+    (\y -> x { _gftsPackedPolicySize = y })
+       <$> f (_gftsPackedPolicySize x)
+{-# INLINE gftsPackedPolicySize #-}
 
 instance FromXML GetFederationTokenResponse where
     fromXMLOptions = xmlOptions

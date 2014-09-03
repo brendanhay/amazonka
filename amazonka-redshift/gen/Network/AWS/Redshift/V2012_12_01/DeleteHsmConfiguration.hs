@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,11 +18,29 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified Amazon Redshift HSM configuration.
-module Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration where
+module Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration
+    (
+    -- * Request
+      DeleteHsmConfiguration
+    -- ** Request constructor
+    , deleteHsmConfiguration
+    -- ** Request lenses
+    , dhcmHsmConfigurationIdentifier
+
+    -- * Response
+    , DeleteHsmConfigurationResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteHsmConfiguration' request.
+deleteHsmConfiguration :: Text -- ^ 'dhcmHsmConfigurationIdentifier'
+                       -> DeleteHsmConfiguration
+deleteHsmConfiguration p1 = DeleteHsmConfiguration
+    { _dhcmHsmConfigurationIdentifier = p1
+    }
 
 data DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcmHsmConfigurationIdentifier :: Text
@@ -31,15 +48,23 @@ data DeleteHsmConfiguration = DeleteHsmConfiguration
       -- deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteHsmConfiguration
+-- | The identifier of the Amazon Redshift HSM configuration to be deleted.
+dhcmHsmConfigurationIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteHsmConfiguration
+    -> f DeleteHsmConfiguration
+dhcmHsmConfigurationIdentifier f x =
+    (\y -> x { _dhcmHsmConfigurationIdentifier = y })
+       <$> f (_dhcmHsmConfigurationIdentifier x)
+{-# INLINE dhcmHsmConfigurationIdentifier #-}
 
 instance ToQuery DeleteHsmConfiguration where
     toQuery = genericQuery def
 
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteHsmConfigurationResponse
 
 instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift

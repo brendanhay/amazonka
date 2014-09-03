@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,11 +18,29 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an Amazon Redshift event notification subscription.
-module Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription where
+module Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription
+    (
+    -- * Request
+      DeleteEventSubscription
+    -- ** Request constructor
+    , deleteEventSubscription
+    -- ** Request lenses
+    , desmSubscriptionName
+
+    -- * Response
+    , DeleteEventSubscriptionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteEventSubscription' request.
+deleteEventSubscription :: Text -- ^ 'desmSubscriptionName'
+                        -> DeleteEventSubscription
+deleteEventSubscription p1 = DeleteEventSubscription
+    { _desmSubscriptionName = p1
+    }
 
 data DeleteEventSubscription = DeleteEventSubscription
     { _desmSubscriptionName :: Text
@@ -31,15 +48,24 @@ data DeleteEventSubscription = DeleteEventSubscription
       -- to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteEventSubscription
+-- | The name of the Amazon Redshift event notification subscription to be
+-- deleted.
+desmSubscriptionName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteEventSubscription
+    -> f DeleteEventSubscription
+desmSubscriptionName f x =
+    (\y -> x { _desmSubscriptionName = y })
+       <$> f (_desmSubscriptionName x)
+{-# INLINE desmSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where
     toQuery = genericQuery def
 
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteEventSubscriptionResponse
 
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = Redshift

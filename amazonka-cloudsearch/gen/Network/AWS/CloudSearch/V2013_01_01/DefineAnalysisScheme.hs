@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,20 +21,43 @@
 -- field to define language-specific text processing options. For more
 -- information, see Configuring Analysis Schemes in the Amazon CloudSearch
 -- Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme where
+module Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme
+    (
+    -- * Request
+      DefineAnalysisScheme
+    -- ** Request constructor
+    , defineAnalysisScheme
+    -- ** Request lenses
+    , dasrAnalysisScheme
+    , dasrDomainName
+
+    -- * Response
+    , DefineAnalysisSchemeResponse
+    -- ** Response lenses
+    , dassAnalysisScheme
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DefineAnalysisScheme' request.
+defineAnalysisScheme :: AnalysisScheme -- ^ 'dasrAnalysisScheme'
+                     -> Text -- ^ 'dasrDomainName'
+                     -> DefineAnalysisScheme
+defineAnalysisScheme p1 p2 = DefineAnalysisScheme
+    { _dasrAnalysisScheme = p1
+    , _dasrDomainName = p2
+    }
+
 data DefineAnalysisScheme = DefineAnalysisScheme
-    { _dasvAnalysisScheme :: AnalysisScheme
+    { _dasrAnalysisScheme :: AnalysisScheme
       -- ^ Configuration information for an analysis scheme. Each analysis
       -- scheme has a unique name and specifies the language of the text
       -- to be processed. The following options can be configured for an
       -- analysis scheme: Synonyms, Stopwords, StemmingDictionary, and
       -- AlgorithmicStemming.
-    , _dasvDomainName :: Text
+    , _dasrDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
       -- region. Domain names start with a letter or number and can
@@ -43,17 +65,55 @@ data DefineAnalysisScheme = DefineAnalysisScheme
       -- (hyphen).
     } deriving (Show, Generic)
 
-makeLenses ''DefineAnalysisScheme
+-- | Configuration information for an analysis scheme. Each analysis scheme has
+-- a unique name and specifies the language of the text to be processed. The
+-- following options can be configured for an analysis scheme: Synonyms,
+-- Stopwords, StemmingDictionary, and AlgorithmicStemming.
+dasrAnalysisScheme
+    :: Functor f
+    => (AnalysisScheme
+    -> f (AnalysisScheme))
+    -> DefineAnalysisScheme
+    -> f DefineAnalysisScheme
+dasrAnalysisScheme f x =
+    (\y -> x { _dasrAnalysisScheme = y })
+       <$> f (_dasrAnalysisScheme x)
+{-# INLINE dasrAnalysisScheme #-}
+
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+dasrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DefineAnalysisScheme
+    -> f DefineAnalysisScheme
+dasrDomainName f x =
+    (\y -> x { _dasrDomainName = y })
+       <$> f (_dasrDomainName x)
+{-# INLINE dasrDomainName #-}
 
 instance ToQuery DefineAnalysisScheme where
     toQuery = genericQuery def
 
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
-    { _daswAnalysisScheme :: AnalysisSchemeStatus
+    { _dassAnalysisScheme :: AnalysisSchemeStatus
       -- ^ The status and configuration of an AnalysisScheme.
     } deriving (Show, Generic)
 
-makeLenses ''DefineAnalysisSchemeResponse
+-- | The status and configuration of an AnalysisScheme.
+dassAnalysisScheme
+    :: Functor f
+    => (AnalysisSchemeStatus
+    -> f (AnalysisSchemeStatus))
+    -> DefineAnalysisSchemeResponse
+    -> f DefineAnalysisSchemeResponse
+dassAnalysisScheme f x =
+    (\y -> x { _dassAnalysisScheme = y })
+       <$> f (_dassAnalysisScheme x)
+{-# INLINE dassAnalysisScheme #-}
 
 instance FromXML DefineAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

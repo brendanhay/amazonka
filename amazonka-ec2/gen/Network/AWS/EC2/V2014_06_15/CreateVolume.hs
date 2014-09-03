@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,46 +45,29 @@ module Network.AWS.EC2.V2014_06_15.CreateVolume
     (
     -- * Request
       CreateVolume
-    -- ** Default constructor
+    -- ** Request constructor
     , createVolume
-    -- ** Accessors and lenses
-    , _cvrAvailabilityZone
+    -- ** Request lenses
     , cvrAvailabilityZone
-    , _cvrEncrypted
     , cvrEncrypted
-    , _cvrSize
     , cvrSize
-    , _cvrIops
     , cvrIops
-    , _cvrSnapshotId
     , cvrSnapshotId
-    , _cvrVolumeType
     , cvrVolumeType
 
     -- * Response
     , CreateVolumeResponse
-    -- ** Accessors and lenses
-    , _vvvvvvvvvvvvxEncrypted
+    -- ** Response lenses
     , vvvvvvvvvvvvxEncrypted
-    , _vvvvvvvvvvvvxCreateTime
     , vvvvvvvvvvvvxCreateTime
-    , _vvvvvvvvvvvvxSize
     , vvvvvvvvvvvvxSize
-    , _vvvvvvvvvvvvxIops
     , vvvvvvvvvvvvxIops
-    , _vvvvvvvvvvvvxTags
     , vvvvvvvvvvvvxTags
-    , _vvvvvvvvvvvvxVolumeId
     , vvvvvvvvvvvvxVolumeId
-    , _vvvvvvvvvvvvxSnapshotId
     , vvvvvvvvvvvvxSnapshotId
-    , _vvvvvvvvvvvvxAvailabilityZone
     , vvvvvvvvvvvvxAvailabilityZone
-    , _vvvvvvvvvvvvxAttachments
     , vvvvvvvvvvvvxAttachments
-    , _vvvvvvvvvvvvxState
     , vvvvvvvvvvvvxState
-    , _vvvvvvvvvvvvxVolumeType
     , vvvvvvvvvvvvxVolumeType
     ) where
 
@@ -106,8 +88,107 @@ createVolume p1 = CreateVolume
     }
 
 data CreateVolume = CreateVolume
+    { _cvrAvailabilityZone :: Text
+      -- ^ The Availability Zone in which to create the volume. Use
+      -- DescribeAvailabilityZones to list the Availability Zones that are
+      -- currently available to you.
+    , _cvrEncrypted :: Maybe Bool
+      -- ^ Specifies whether the volume should be encrypted.
+    , _cvrSize :: Maybe Integer
+      -- ^ The size of the volume, in GiBs. Constraints: If the volume type
+      -- is io1, the minimum size of the volume is 10 GiB. Default: If
+      -- you're creating the volume from a snapshot and don't specify a
+      -- volume size, the default is the snapshot size.
+    , _cvrIops :: Maybe Integer
+      -- ^ Only valid for Provisioned IOPS (SSD) volumes. The number of I/O
+      -- operations per second (IOPS) to provision for the volume.
+    , _cvrSnapshotId :: Maybe Text
+      -- ^ The snapshot from which to create the volume.
+    , _cvrVolumeType :: Maybe VolumeType
+      -- ^ The volume type. This can be gp2 for General Purpose (SSD)
+      -- volumes, io1 for Provisioned IOPS (SSD) volumes, or standard for
+      -- Magnetic volumes. Default: standard.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVolume
+-- | The Availability Zone in which to create the volume. Use
+-- DescribeAvailabilityZones to list the Availability Zones that are currently
+-- available to you.
+cvrAvailabilityZone
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVolume
+    -> f CreateVolume
+cvrAvailabilityZone f x =
+    (\y -> x { _cvrAvailabilityZone = y })
+       <$> f (_cvrAvailabilityZone x)
+{-# INLINE cvrAvailabilityZone #-}
+
+-- | Specifies whether the volume should be encrypted.
+cvrEncrypted
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateVolume
+    -> f CreateVolume
+cvrEncrypted f x =
+    (\y -> x { _cvrEncrypted = y })
+       <$> f (_cvrEncrypted x)
+{-# INLINE cvrEncrypted #-}
+
+-- | The size of the volume, in GiBs. Constraints: If the volume type is io1,
+-- the minimum size of the volume is 10 GiB. Default: If you're creating the
+-- volume from a snapshot and don't specify a volume size, the default is the
+-- snapshot size.
+cvrSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateVolume
+    -> f CreateVolume
+cvrSize f x =
+    (\y -> x { _cvrSize = y })
+       <$> f (_cvrSize x)
+{-# INLINE cvrSize #-}
+
+-- | Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations
+-- per second (IOPS) to provision for the volume.
+cvrIops
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateVolume
+    -> f CreateVolume
+cvrIops f x =
+    (\y -> x { _cvrIops = y })
+       <$> f (_cvrIops x)
+{-# INLINE cvrIops #-}
+
+-- | The snapshot from which to create the volume.
+cvrSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVolume
+    -> f CreateVolume
+cvrSnapshotId f x =
+    (\y -> x { _cvrSnapshotId = y })
+       <$> f (_cvrSnapshotId x)
+{-# INLINE cvrSnapshotId #-}
+
+-- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
+-- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes. Default:
+-- standard.
+cvrVolumeType
+    :: Functor f
+    => (Maybe VolumeType
+    -> f (Maybe VolumeType))
+    -> CreateVolume
+    -> f CreateVolume
+cvrVolumeType f x =
+    (\y -> x { _cvrVolumeType = y })
+       <$> f (_cvrVolumeType x)
+{-# INLINE cvrVolumeType #-}
 
 instance ToQuery CreateVolume where
     toQuery = genericQuery def
@@ -151,52 +232,41 @@ data CreateVolumeResponse = CreateVolumeResponse
       -- Magnetic volumes.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVolumeResponse
-
-instance FromXML CreateVolumeResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest CreateVolume where
-    type Sv CreateVolume = EC2
-    type Rs CreateVolume = CreateVolumeResponse
-
-    request = post "CreateVolume"
-    response _ = xmlResponse
-
--- | The Availability Zone in which to create the volume. Use
--- DescribeAvailabilityZones to list the Availability Zones that are currently
--- available to you.
-cvrAvailabilityZone :: Lens' CreateVolume (Text)
-
--- | Specifies whether the volume should be encrypted.
-cvrEncrypted :: Lens' CreateVolume (Maybe Bool)
-
--- | The size of the volume, in GiBs. Constraints: If the volume type is io1,
--- the minimum size of the volume is 10 GiB. Default: If you're creating the
--- volume from a snapshot and don't specify a volume size, the default is the
--- snapshot size.
-cvrSize :: Lens' CreateVolume (Maybe Integer)
-
--- | Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations
--- per second (IOPS) to provision for the volume.
-cvrIops :: Lens' CreateVolume (Maybe Integer)
-
--- | The snapshot from which to create the volume.
-cvrSnapshotId :: Lens' CreateVolume (Maybe Text)
-
--- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
--- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes. Default:
--- standard.
-cvrVolumeType :: Lens' CreateVolume (Maybe VolumeType)
-
 -- | Indicates whether the volume is encrypted.
-vvvvvvvvvvvvxEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
+vvvvvvvvvvvvxEncrypted
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxEncrypted f x =
+    (\y -> x { _vvvvvvvvvvvvxEncrypted = y })
+       <$> f (_vvvvvvvvvvvvxEncrypted x)
+{-# INLINE vvvvvvvvvvvvxEncrypted #-}
 
 -- | The time stamp when volume creation was initiated.
-vvvvvvvvvvvvxCreateTime :: Lens' CreateVolumeResponse (Maybe ISO8601)
+vvvvvvvvvvvvxCreateTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxCreateTime f x =
+    (\y -> x { _vvvvvvvvvvvvxCreateTime = y })
+       <$> f (_vvvvvvvvvvvvxCreateTime x)
+{-# INLINE vvvvvvvvvvvvxCreateTime #-}
 
 -- | The size of the volume, in GiBs.
-vvvvvvvvvvvvxSize :: Lens' CreateVolumeResponse (Maybe Integer)
+vvvvvvvvvvvvxSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxSize f x =
+    (\y -> x { _vvvvvvvvvvvvxSize = y })
+       <$> f (_vvvvvvvvvvvvxSize x)
+{-# INLINE vvvvvvvvvvvvxSize #-}
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 -- For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that
@@ -209,26 +279,108 @@ vvvvvvvvvvvvxSize :: Lens' CreateVolumeResponse (Maybe Integer)
 -- to 3072 for General Purpose (SSD) volumes. Condition: This parameter is
 -- required for requests to create io1 volumes; it is not used in requests to
 -- create standard or gp2 volumes.
-vvvvvvvvvvvvxIops :: Lens' CreateVolumeResponse (Maybe Integer)
+vvvvvvvvvvvvxIops
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxIops f x =
+    (\y -> x { _vvvvvvvvvvvvxIops = y })
+       <$> f (_vvvvvvvvvvvvxIops x)
+{-# INLINE vvvvvvvvvvvvxIops #-}
 
 -- | Any tags assigned to the volume.
-vvvvvvvvvvvvxTags :: Lens' CreateVolumeResponse ([Tag])
+vvvvvvvvvvvvxTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxTags f x =
+    (\y -> x { _vvvvvvvvvvvvxTags = y })
+       <$> f (_vvvvvvvvvvvvxTags x)
+{-# INLINE vvvvvvvvvvvvxTags #-}
 
 -- | The ID of the volume.
-vvvvvvvvvvvvxVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
+vvvvvvvvvvvvxVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxVolumeId f x =
+    (\y -> x { _vvvvvvvvvvvvxVolumeId = y })
+       <$> f (_vvvvvvvvvvvvxVolumeId x)
+{-# INLINE vvvvvvvvvvvvxVolumeId #-}
 
 -- | The snapshot from which the volume was created, if applicable.
-vvvvvvvvvvvvxSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
+vvvvvvvvvvvvxSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxSnapshotId f x =
+    (\y -> x { _vvvvvvvvvvvvxSnapshotId = y })
+       <$> f (_vvvvvvvvvvvvxSnapshotId x)
+{-# INLINE vvvvvvvvvvvvxSnapshotId #-}
 
 -- | The Availability Zone for the volume.
-vvvvvvvvvvvvxAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
+vvvvvvvvvvvvxAvailabilityZone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxAvailabilityZone f x =
+    (\y -> x { _vvvvvvvvvvvvxAvailabilityZone = y })
+       <$> f (_vvvvvvvvvvvvxAvailabilityZone x)
+{-# INLINE vvvvvvvvvvvvxAvailabilityZone #-}
 
 -- | 
-vvvvvvvvvvvvxAttachments :: Lens' CreateVolumeResponse ([VolumeAttachment])
+vvvvvvvvvvvvxAttachments
+    :: Functor f
+    => ([VolumeAttachment]
+    -> f ([VolumeAttachment]))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxAttachments f x =
+    (\y -> x { _vvvvvvvvvvvvxAttachments = y })
+       <$> f (_vvvvvvvvvvvvxAttachments x)
+{-# INLINE vvvvvvvvvvvvxAttachments #-}
 
 -- | The volume state.
-vvvvvvvvvvvvxState :: Lens' CreateVolumeResponse (Maybe VolumeState)
+vvvvvvvvvvvvxState
+    :: Functor f
+    => (Maybe VolumeState
+    -> f (Maybe VolumeState))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxState f x =
+    (\y -> x { _vvvvvvvvvvvvxState = y })
+       <$> f (_vvvvvvvvvvvvxState x)
+{-# INLINE vvvvvvvvvvvvxState #-}
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
-vvvvvvvvvvvvxVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
+vvvvvvvvvvvvxVolumeType
+    :: Functor f
+    => (Maybe VolumeType
+    -> f (Maybe VolumeType))
+    -> CreateVolumeResponse
+    -> f CreateVolumeResponse
+vvvvvvvvvvvvxVolumeType f x =
+    (\y -> x { _vvvvvvvvvvvvxVolumeType = y })
+       <$> f (_vvvvvvvvvvvvxVolumeType x)
+{-# INLINE vvvvvvvvvvvvxVolumeType #-}
+
+instance FromXML CreateVolumeResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest CreateVolume where
+    type Sv CreateVolume = EC2
+    type Rs CreateVolume = CreateVolumeResponse
+
+    request = post "CreateVolume"
+    response _ = xmlResponse

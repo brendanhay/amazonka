@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,11 +35,35 @@
 -- &LoadBalancerName=MyLoadBalancer &PolicyName=MyAppStickyPolicy
 -- &Version=2012-06-01 &Action=CreateAppCookieStickinessPolicy &AUTHPARAMS
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy where
+module Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy
+    (
+    -- * Request
+      CreateAppCookieStickinessPolicy
+    -- ** Request constructor
+    , createAppCookieStickinessPolicy
+    -- ** Request lenses
+    , cacspiLoadBalancerName
+    , cacspiCookieName
+    , cacspiPolicyName
+
+    -- * Response
+    , CreateAppCookieStickinessPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateAppCookieStickinessPolicy' request.
+createAppCookieStickinessPolicy :: Text -- ^ 'cacspiLoadBalancerName'
+                                -> Text -- ^ 'cacspiCookieName'
+                                -> Text -- ^ 'cacspiPolicyName'
+                                -> CreateAppCookieStickinessPolicy
+createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
+    { _cacspiLoadBalancerName = p1
+    , _cacspiCookieName = p2
+    , _cacspiPolicyName = p3
+    }
 
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     { _cacspiLoadBalancerName :: Text
@@ -52,15 +75,48 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
       -- within the set of policies for this load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''CreateAppCookieStickinessPolicy
+-- | The name of the load balancer.
+cacspiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateAppCookieStickinessPolicy
+    -> f CreateAppCookieStickinessPolicy
+cacspiLoadBalancerName f x =
+    (\y -> x { _cacspiLoadBalancerName = y })
+       <$> f (_cacspiLoadBalancerName x)
+{-# INLINE cacspiLoadBalancerName #-}
+
+-- | Name of the application cookie used for stickiness.
+cacspiCookieName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateAppCookieStickinessPolicy
+    -> f CreateAppCookieStickinessPolicy
+cacspiCookieName f x =
+    (\y -> x { _cacspiCookieName = y })
+       <$> f (_cacspiCookieName x)
+{-# INLINE cacspiCookieName #-}
+
+-- | The name of the policy being created. The name must be unique within the
+-- set of policies for this load balancer.
+cacspiPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateAppCookieStickinessPolicy
+    -> f CreateAppCookieStickinessPolicy
+cacspiPolicyName f x =
+    (\y -> x { _cacspiPolicyName = y })
+       <$> f (_cacspiPolicyName x)
+{-# INLINE cacspiPolicyName #-}
 
 instance ToQuery CreateAppCookieStickinessPolicy where
     toQuery = genericQuery def
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateAppCookieStickinessPolicyResponse
 
 instance AWSRequest CreateAppCookieStickinessPolicy where
     type Sv CreateAppCookieStickinessPolicy = ELB

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -84,15 +83,34 @@
 -- &Version=2012-06-01 &Action=CreateLoadBalancer &AUTHPARAMS
 -- my-test-loadbalancer-1234567890.us-east-1.elb.amazonaws.com
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB.V2012_06_01.CreateLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
+    (
+    -- * Request
+      CreateLoadBalancer
+    -- ** Request constructor
+    , createLoadBalancer
+    -- ** Request lenses
+    , capiLoadBalancerName
+    , capiListeners
+    , capiAvailabilityZones
+    , capiScheme
+    , capiSecurityGroups
+    , capiSubnets
+    , capiTags
+
+    -- * Response
+    , CreateLoadBalancerResponse
+    -- ** Response lenses
+    , capoDNSName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateLoadBalancer' request.
-createLoadBalancer :: Text -- ^ '_capiLoadBalancerName'
-                   -> [Listener] -- ^ '_capiListeners'
+createLoadBalancer :: Text -- ^ 'capiLoadBalancerName'
+                   -> [Listener] -- ^ 'capiListeners'
                    -> CreateLoadBalancer
 createLoadBalancer p1 p2 = CreateLoadBalancer
     { _capiLoadBalancerName = p1
@@ -142,7 +160,104 @@ data CreateLoadBalancer = CreateLoadBalancer
       -- Tagging.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLoadBalancer
+-- | The name associated with the load balancer. The name must be unique within
+-- your set of load balancers, must have a maximum of 32 characters, and must
+-- only contain alphanumeric characters or hyphens.
+capiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiLoadBalancerName f x =
+    (\y -> x { _capiLoadBalancerName = y })
+       <$> f (_capiLoadBalancerName x)
+{-# INLINE capiLoadBalancerName #-}
+
+-- | A list of the following tuples: Protocol, LoadBalancerPort,
+-- InstanceProtocol, InstancePort, and SSLCertificateId.
+capiListeners
+    :: Functor f
+    => ([Listener]
+    -> f ([Listener]))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiListeners f x =
+    (\y -> x { _capiListeners = y })
+       <$> f (_capiListeners x)
+{-# INLINE capiListeners #-}
+
+-- | A list of Availability Zones. At least one Availability Zone must be
+-- specified. Specified Availability Zones must be in the same EC2 Region as
+-- the load balancer. Traffic will be equally distributed across all zones.
+-- You can later add more Availability Zones after the creation of the load
+-- balancer by calling EnableAvailabilityZonesForLoadBalancer action.
+capiAvailabilityZones
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiAvailabilityZones f x =
+    (\y -> x { _capiAvailabilityZones = y })
+       <$> f (_capiAvailabilityZones x)
+{-# INLINE capiAvailabilityZones #-}
+
+-- | The type of a load balancer. By default, Elastic Load Balancing creates an
+-- Internet-facing load balancer with a publicly resolvable DNS name, which
+-- resolves to public IP addresses. For more information about Internet-facing
+-- and Internal load balancers, see Internet-facing and Internal Load
+-- Balancers. Specify the value internal for this option to create an internal
+-- load balancer with a DNS name that resolves to private IP addresses. This
+-- option is only available for load balancers created within EC2-VPC.
+capiScheme
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiScheme f x =
+    (\y -> x { _capiScheme = y })
+       <$> f (_capiScheme x)
+{-# INLINE capiScheme #-}
+
+-- | The security groups to assign to your load balancer within your VPC.
+capiSecurityGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiSecurityGroups f x =
+    (\y -> x { _capiSecurityGroups = y })
+       <$> f (_capiSecurityGroups x)
+{-# INLINE capiSecurityGroups #-}
+
+-- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
+-- one subnet per Availability Zone.
+capiSubnets
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiSubnets f x =
+    (\y -> x { _capiSubnets = y })
+       <$> f (_capiSubnets x)
+{-# INLINE capiSubnets #-}
+
+-- | A list of tags to assign to the load balancer. For more information about
+-- setting tags for your load balancer, see Tagging.
+capiTags
+    :: Functor f
+    => (Maybe [Tag]
+    -> f (Maybe [Tag]))
+    -> CreateLoadBalancer
+    -> f CreateLoadBalancer
+capiTags f x =
+    (\y -> x { _capiTags = y })
+       <$> f (_capiTags x)
+{-# INLINE capiTags #-}
 
 instance ToQuery CreateLoadBalancer where
     toQuery = genericQuery def
@@ -152,7 +267,17 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse
       -- ^ The DNS name for the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLoadBalancerResponse
+-- | The DNS name for the load balancer.
+capoDNSName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateLoadBalancerResponse
+    -> f CreateLoadBalancerResponse
+capoDNSName f x =
+    (\y -> x { _capoDNSName = y })
+       <$> f (_capoDNSName x)
+{-# INLINE capoDNSName #-}
 
 instance FromXML CreateLoadBalancerResponse where
     fromXMLOptions = xmlOptions

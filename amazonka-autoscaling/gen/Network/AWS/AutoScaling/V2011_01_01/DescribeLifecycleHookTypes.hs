@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,16 +18,28 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the available types of lifecycle hooks.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
+    (
+    -- * Request
+      DescribeLifecycleHookTypes
+    -- ** Request constructor
+    , describeLifecycleHookTypes
+    -- * Response
+    , DescribeLifecycleHookTypesResponse
+    -- ** Response lenses
+    , dlhtaLifecycleHookTypes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DescribeLifecycleHookTypes' request.
+describeLifecycleHookTypes :: DescribeLifecycleHookTypes
+describeLifecycleHookTypes = DescribeLifecycleHookTypes
+
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeLifecycleHookTypes
 
 instance ToQuery DescribeLifecycleHookTypes where
     toQuery = genericQuery def
@@ -40,7 +51,19 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
       -- autoscaling:EC2_INSTANCE_TERMINATING.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLifecycleHookTypesResponse
+-- | Returns a list of all notification types supported by Auto Scaling. They
+-- are: autoscaling:EC2_INSTANCE_LAUNCHING
+-- autoscaling:EC2_INSTANCE_TERMINATING.
+dlhtaLifecycleHookTypes
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLifecycleHookTypesResponse
+    -> f DescribeLifecycleHookTypesResponse
+dlhtaLifecycleHookTypes f x =
+    (\y -> x { _dlhtaLifecycleHookTypes = y })
+       <$> f (_dlhtaLifecycleHookTypes x)
+{-# INLINE dlhtaLifecycleHookTypes #-}
 
 instance FromXML DescribeLifecycleHookTypesResponse where
     fromXMLOptions = xmlOptions

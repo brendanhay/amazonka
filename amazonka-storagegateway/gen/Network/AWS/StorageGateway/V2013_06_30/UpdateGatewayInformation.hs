@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,7 +32,22 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 81 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" }.
-module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation where
+module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
+    (
+    -- * Request
+      UpdateGatewayInformation
+    -- ** Request constructor
+    , updateGatewayInformation
+    -- ** Request lenses
+    , ugiiGatewayARN
+    , ugiiGatewayName
+    , ugiiGatewayTimezone
+
+    -- * Response
+    , UpdateGatewayInformationResponse
+    -- ** Response lenses
+    , ugioGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -41,7 +55,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateGatewayInformation' request.
-updateGatewayInformation :: Text -- ^ '_ugiiGatewayARN'
+updateGatewayInformation :: Text -- ^ 'ugiiGatewayARN'
                          -> UpdateGatewayInformation
 updateGatewayInformation p1 = UpdateGatewayInformation
     { _ugiiGatewayARN = p1
@@ -61,7 +75,43 @@ data UpdateGatewayInformation = UpdateGatewayInformation
     , _ugiiGatewayTimezone :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''UpdateGatewayInformation
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ugiiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateGatewayInformation
+    -> f UpdateGatewayInformation
+ugiiGatewayARN f x =
+    (\y -> x { _ugiiGatewayARN = y })
+       <$> f (_ugiiGatewayARN x)
+{-# INLINE ugiiGatewayARN #-}
+
+-- | A unique identifier for your gateway. This name becomes part of the gateway
+-- Amazon Resources Name (ARN) which is what you use as an input to other
+-- operations.
+ugiiGatewayName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateGatewayInformation
+    -> f UpdateGatewayInformation
+ugiiGatewayName f x =
+    (\y -> x { _ugiiGatewayName = y })
+       <$> f (_ugiiGatewayName x)
+{-# INLINE ugiiGatewayName #-}
+
+ugiiGatewayTimezone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateGatewayInformation
+    -> f UpdateGatewayInformation
+ugiiGatewayTimezone f x =
+    (\y -> x { _ugiiGatewayTimezone = y })
+       <$> f (_ugiiGatewayTimezone x)
+{-# INLINE ugiiGatewayTimezone #-}
 
 instance ToPath UpdateGatewayInformation
 
@@ -78,7 +128,18 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateGatewayInformationResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ugioGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateGatewayInformationResponse
+    -> f UpdateGatewayInformationResponse
+ugioGatewayARN f x =
+    (\y -> x { _ugioGatewayARN = y })
+       <$> f (_ugioGatewayARN x)
+{-# INLINE ugioGatewayARN #-}
 
 instance FromJSON UpdateGatewayInformationResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,18 +39,48 @@
 -- 3frqe7jn4obpuxjpwpolz6ipb3k5nvt2nhjpik2oy
 -- wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2
 -- 9662c15b-c469-11e1-99d1-797d6ecd6414.
-module Network.AWS.SES.V2010_12_01.VerifyDomainDkim where
+module Network.AWS.SES.V2010_12_01.VerifyDomainDkim
+    (
+    -- * Request
+      VerifyDomainDkim
+    -- ** Request constructor
+    , verifyDomainDkim
+    -- ** Request lenses
+    , vddrDomain
+
+    -- * Response
+    , VerifyDomainDkimResponse
+    -- ** Response lenses
+    , vddsDkimTokens
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'VerifyDomainDkim' request.
+verifyDomainDkim :: Text -- ^ 'vddrDomain'
+                 -> VerifyDomainDkim
+verifyDomainDkim p1 = VerifyDomainDkim
+    { _vddrDomain = p1
+    }
 
 data VerifyDomainDkim = VerifyDomainDkim
     { _vddrDomain :: Text
       -- ^ The name of the domain to be verified for Easy DKIM signing.
     } deriving (Show, Generic)
 
-makeLenses ''VerifyDomainDkim
+-- | The name of the domain to be verified for Easy DKIM signing.
+vddrDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> VerifyDomainDkim
+    -> f VerifyDomainDkim
+vddrDomain f x =
+    (\y -> x { _vddrDomain = y })
+       <$> f (_vddrDomain x)
+{-# INLINE vddrDomain #-}
 
 instance ToQuery VerifyDomainDkim where
     toQuery = genericQuery def
@@ -70,7 +99,25 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse
       -- the Amazon SES Developer Guide.
     } deriving (Show, Generic)
 
-makeLenses ''VerifyDomainDkimResponse
+-- | A set of character strings that represent the domain's identity. If the
+-- identity is an email address, the tokens represent the domain of that
+-- address. Using these tokens, you will need to create DNS CNAME records that
+-- point to DKIM public keys hosted by Amazon SES. Amazon Web Services will
+-- eventually detect that you have updated your DNS records; this detection
+-- process may take up to 72 hours. Upon successful detection, Amazon SES will
+-- be able to DKIM-sign emails originating from that domain. For more
+-- information about creating DNS records using DKIM tokens, go to the Amazon
+-- SES Developer Guide.
+vddsDkimTokens
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> VerifyDomainDkimResponse
+    -> f VerifyDomainDkimResponse
+vddsDkimTokens f x =
+    (\y -> x { _vddsDkimTokens = y })
+       <$> f (_vddsDkimTokens x)
+{-# INLINE vddsDkimTokens #-}
 
 instance FromXML VerifyDomainDkimResponse where
     fromXMLOptions = xmlOptions

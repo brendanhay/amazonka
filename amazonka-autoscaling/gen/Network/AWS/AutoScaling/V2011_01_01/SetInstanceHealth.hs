@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,15 +20,28 @@
 -- | Sets the health status of a specified instance that belongs to any of your
 -- Auto Scaling groups. For more information, see Configure Health Checks for
 -- Your Auto Scaling group.
-module Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth where
+module Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
+    (
+    -- * Request
+      SetInstanceHealth
+    -- ** Request constructor
+    , setInstanceHealth
+    -- ** Request lenses
+    , sihqInstanceId
+    , sihqHealthStatus
+    , sihqShouldRespectGracePeriod
+
+    -- * Response
+    , SetInstanceHealthResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SetInstanceHealth' request.
-setInstanceHealth :: Text -- ^ '_sihqInstanceId'
-                  -> Text -- ^ '_sihqHealthStatus'
+setInstanceHealth :: Text -- ^ 'sihqInstanceId'
+                  -> Text -- ^ 'sihqHealthStatus'
                   -> SetInstanceHealth
 setInstanceHealth p1 p2 = SetInstanceHealth
     { _sihqInstanceId = p1
@@ -54,15 +66,54 @@ data SetInstanceHealth = SetInstanceHealth
       -- parameter description in the CreateAutoScalingGroup action.
     } deriving (Show, Generic)
 
-makeLenses ''SetInstanceHealth
+-- | The identifier of the Amazon EC2 instance.
+sihqInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetInstanceHealth
+    -> f SetInstanceHealth
+sihqInstanceId f x =
+    (\y -> x { _sihqInstanceId = y })
+       <$> f (_sihqInstanceId x)
+{-# INLINE sihqInstanceId #-}
+
+-- | The health status of the instance. Set to Healthy if you want the instance
+-- to remain in service. Set to Unhealthy if you want the instance to be out
+-- of service. Auto Scaling will terminate and replace the unhealthy instance.
+sihqHealthStatus
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetInstanceHealth
+    -> f SetInstanceHealth
+sihqHealthStatus f x =
+    (\y -> x { _sihqHealthStatus = y })
+       <$> f (_sihqHealthStatus x)
+{-# INLINE sihqHealthStatus #-}
+
+-- | If the Auto Scaling group of the specified instance has a
+-- HealthCheckGracePeriod specified for the group, by default, this call will
+-- respect the grace period. Set this to False, if you do not want the call to
+-- respect the grace period associated with the group. For more information,
+-- see the HealthCheckGracePeriod parameter description in the
+-- CreateAutoScalingGroup action.
+sihqShouldRespectGracePeriod
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> SetInstanceHealth
+    -> f SetInstanceHealth
+sihqShouldRespectGracePeriod f x =
+    (\y -> x { _sihqShouldRespectGracePeriod = y })
+       <$> f (_sihqShouldRespectGracePeriod x)
+{-# INLINE sihqShouldRespectGracePeriod #-}
 
 instance ToQuery SetInstanceHealth where
     toQuery = genericQuery def
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetInstanceHealthResponse
 
 instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling

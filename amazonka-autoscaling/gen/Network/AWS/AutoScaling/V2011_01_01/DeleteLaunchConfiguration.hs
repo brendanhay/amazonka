@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,26 +23,52 @@
 -- https://autoscaling.amazonaws.com/?LaunchConfigurationName=my-test-lc
 -- &Version=2011-01-01 &Action=DeleteLaunchConfiguration &AUTHPARAMS
 -- 7347261f-97df-11e2-8756-35eEXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration where
+module Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
+    (
+    -- * Request
+      DeleteLaunchConfiguration
+    -- ** Request constructor
+    , deleteLaunchConfiguration
+    -- ** Request lenses
+    , lcntLaunchConfigurationName
+
+    -- * Response
+    , DeleteLaunchConfigurationResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteLaunchConfiguration' request.
+deleteLaunchConfiguration :: Text -- ^ 'lcntLaunchConfigurationName'
+                          -> DeleteLaunchConfiguration
+deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
+    { _lcntLaunchConfigurationName = p1
+    }
 
 data DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _lcntLaunchConfigurationName :: Text
       -- ^ The name of the launch configuration.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLaunchConfiguration
+-- | The name of the launch configuration.
+lcntLaunchConfigurationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLaunchConfiguration
+    -> f DeleteLaunchConfiguration
+lcntLaunchConfigurationName f x =
+    (\y -> x { _lcntLaunchConfigurationName = y })
+       <$> f (_lcntLaunchConfigurationName x)
+{-# INLINE lcntLaunchConfigurationName #-}
 
 instance ToQuery DeleteLaunchConfiguration where
     toQuery = genericQuery def
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLaunchConfigurationResponse
 
 instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling

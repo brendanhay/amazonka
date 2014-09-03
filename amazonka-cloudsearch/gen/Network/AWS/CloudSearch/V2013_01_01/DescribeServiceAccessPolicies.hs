@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,14 +23,28 @@
 -- active configuration and exclude pending changes. For more information, see
 -- Configuring Access for a Search Domain in the Amazon CloudSearch Developer
 -- Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies where
+module Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
+    (
+    -- * Request
+      DescribeServiceAccessPolicies
+    -- ** Request constructor
+    , describeServiceAccessPolicies
+    -- ** Request lenses
+    , dsaprDomainName
+    , dsaprDeployed
+
+    -- * Response
+    , DescribeServiceAccessPoliciesResponse
+    -- ** Response lenses
+    , dsapsAccessPolicies
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeServiceAccessPolicies' request.
-describeServiceAccessPolicies :: Text -- ^ '_dsaprDomainName'
+describeServiceAccessPolicies :: Text -- ^ 'dsaprDomainName'
                               -> DescribeServiceAccessPolicies
 describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     { _dsaprDomainName = p1
@@ -46,7 +59,30 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
       -- any pending changes (false). Defaults to false.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeServiceAccessPolicies
+-- | The name of the domain you want to describe.
+dsaprDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeServiceAccessPolicies
+    -> f DescribeServiceAccessPolicies
+dsaprDomainName f x =
+    (\y -> x { _dsaprDomainName = y })
+       <$> f (_dsaprDomainName x)
+{-# INLINE dsaprDomainName #-}
+
+-- | Whether to display the deployed configuration (true) or include any pending
+-- changes (false). Defaults to false.
+dsaprDeployed
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DescribeServiceAccessPolicies
+    -> f DescribeServiceAccessPolicies
+dsaprDeployed f x =
+    (\y -> x { _dsaprDeployed = y })
+       <$> f (_dsaprDeployed x)
+{-# INLINE dsaprDeployed #-}
 
 instance ToQuery DescribeServiceAccessPolicies where
     toQuery = genericQuery def
@@ -57,7 +93,17 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeServiceAccessPoliciesResponse
+-- | The access rules configured for the domain specified in the request.
+dsapsAccessPolicies
+    :: Functor f
+    => (AccessPoliciesStatus
+    -> f (AccessPoliciesStatus))
+    -> DescribeServiceAccessPoliciesResponse
+    -> f DescribeServiceAccessPoliciesResponse
+dsapsAccessPolicies f x =
+    (\y -> x { _dsapsAccessPolicies = y })
+       <$> f (_dsapsAccessPolicies x)
+{-# INLINE dsapsAccessPolicies #-}
 
 instance FromXML DescribeServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions

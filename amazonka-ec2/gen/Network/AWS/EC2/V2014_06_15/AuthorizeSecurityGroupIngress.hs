@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -74,26 +73,17 @@ module Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupIngress
     (
     -- * Request
       AuthorizeSecurityGroupIngress
-    -- ** Default constructor
+    -- ** Request constructor
     , authorizeSecurityGroupIngress
-    -- ** Accessors and lenses
-    , _asgirFromPort
+    -- ** Request lenses
     , asgirFromPort
-    , _asgirToPort
     , asgirToPort
-    , _asgirIpPermissions
     , asgirIpPermissions
-    , _asgirGroupName
     , asgirGroupName
-    , _asgirGroupId
     , asgirGroupId
-    , _asgirSourceSecurityGroupName
     , asgirSourceSecurityGroupName
-    , _asgirSourceSecurityGroupOwnerId
     , asgirSourceSecurityGroupOwnerId
-    , _asgirIpProtocol
     , asgirIpProtocol
-    , _asgirCidrIp
     , asgirCidrIp
 
     -- * Response
@@ -119,8 +109,149 @@ authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     }
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
+    { _asgirFromPort :: Maybe Integer
+      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- type number. For the ICMP type number, use -1 to specify all ICMP
+      -- types.
+    , _asgirToPort :: Maybe Integer
+      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- code number. For the ICMP code number, use -1 to specify all ICMP
+      -- codes for the ICMP type.
+    , _asgirIpPermissions :: [IpPermission]
+      -- ^ 
+    , _asgirGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the security group.
+    , _asgirGroupId :: Maybe Text
+      -- ^ The ID of the security group.
+    , _asgirSourceSecurityGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the source security group.
+      -- You can't specify a source security group and a CIDR IP address
+      -- range.
+    , _asgirSourceSecurityGroupOwnerId :: Maybe Text
+      -- ^ The ID of the source security group. You can't specify a source
+      -- security group and a CIDR IP address range.
+    , _asgirIpProtocol :: Maybe Text
+      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
+      -- Numbers). Use -1 to specify all.
+    , _asgirCidrIp :: Maybe Text
+      -- ^ The CIDR IP address range. You can't specify this parameter when
+      -- specifying a source security group.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AuthorizeSecurityGroupIngress
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type
+-- number. For the ICMP type number, use -1 to specify all ICMP types.
+asgirFromPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirFromPort f x =
+    (\y -> x { _asgirFromPort = y })
+       <$> f (_asgirFromPort x)
+{-# INLINE asgirFromPort #-}
+
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use -1 to specify all ICMP codes for the
+-- ICMP type.
+asgirToPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirToPort f x =
+    (\y -> x { _asgirToPort = y })
+       <$> f (_asgirToPort x)
+{-# INLINE asgirToPort #-}
+
+-- | 
+asgirIpPermissions
+    :: Functor f
+    => ([IpPermission]
+    -> f ([IpPermission]))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirIpPermissions f x =
+    (\y -> x { _asgirIpPermissions = y })
+       <$> f (_asgirIpPermissions x)
+{-# INLINE asgirIpPermissions #-}
+
+-- | [EC2-Classic, default VPC] The name of the security group.
+asgirGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirGroupName f x =
+    (\y -> x { _asgirGroupName = y })
+       <$> f (_asgirGroupName x)
+{-# INLINE asgirGroupName #-}
+
+-- | The ID of the security group.
+asgirGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirGroupId f x =
+    (\y -> x { _asgirGroupId = y })
+       <$> f (_asgirGroupId x)
+{-# INLINE asgirGroupId #-}
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't
+-- specify a source security group and a CIDR IP address range.
+asgirSourceSecurityGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirSourceSecurityGroupName f x =
+    (\y -> x { _asgirSourceSecurityGroupName = y })
+       <$> f (_asgirSourceSecurityGroupName x)
+{-# INLINE asgirSourceSecurityGroupName #-}
+
+-- | The ID of the source security group. You can't specify a source security
+-- group and a CIDR IP address range.
+asgirSourceSecurityGroupOwnerId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirSourceSecurityGroupOwnerId f x =
+    (\y -> x { _asgirSourceSecurityGroupOwnerId = y })
+       <$> f (_asgirSourceSecurityGroupOwnerId x)
+{-# INLINE asgirSourceSecurityGroupOwnerId #-}
+
+-- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
+-- -1 to specify all.
+asgirIpProtocol
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirIpProtocol f x =
+    (\y -> x { _asgirIpProtocol = y })
+       <$> f (_asgirIpProtocol x)
+{-# INLINE asgirIpProtocol #-}
+
+-- | The CIDR IP address range. You can't specify this parameter when specifying
+-- a source security group.
+asgirCidrIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AuthorizeSecurityGroupIngress
+    -> f AuthorizeSecurityGroupIngress
+asgirCidrIp f x =
+    (\y -> x { _asgirCidrIp = y })
+       <$> f (_asgirCidrIp x)
+{-# INLINE asgirCidrIp #-}
 
 instance ToQuery AuthorizeSecurityGroupIngress where
     toQuery = genericQuery def
@@ -128,45 +259,9 @@ instance ToQuery AuthorizeSecurityGroupIngress where
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''AuthorizeSecurityGroupIngressResponse
-
 instance AWSRequest AuthorizeSecurityGroupIngress where
     type Sv AuthorizeSecurityGroupIngress = EC2
     type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
 
     request = post "AuthorizeSecurityGroupIngress"
     response _ = nullaryResponse AuthorizeSecurityGroupIngressResponse
-
--- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use -1 to specify all ICMP types.
-asgirFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
-
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use -1 to specify all ICMP codes for the
--- ICMP type.
-asgirToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
-
--- | 
-asgirIpPermissions :: Lens' AuthorizeSecurityGroupIngress ([IpPermission])
-
--- | [EC2-Classic, default VPC] The name of the security group.
-asgirGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-
--- | The ID of the security group.
-asgirGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-
--- | [EC2-Classic, default VPC] The name of the source security group. You can't
--- specify a source security group and a CIDR IP address range.
-asgirSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-
--- | The ID of the source security group. You can't specify a source security
--- group and a CIDR IP address range.
-asgirSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
--- -1 to specify all.
-asgirIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-
--- | The CIDR IP address range. You can't specify this parameter when specifying
--- a source security group.
-asgirCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)

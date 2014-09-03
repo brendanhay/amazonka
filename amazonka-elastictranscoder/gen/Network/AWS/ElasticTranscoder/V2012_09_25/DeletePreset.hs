@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,25 +30,54 @@
 -- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset where
+module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset
+    (
+    -- * Request
+      DeletePreset
+    -- ** Request constructor
+    , deletePreset
+    -- ** Request lenses
+    , dptId
+
+    -- * Response
+    , DeletePresetResponse
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeletePreset' request.
+deletePreset :: Text -- ^ 'dptId'
+             -> DeletePreset
+deletePreset p1 = DeletePreset
+    { _dptId = p1
+    }
+
 data DeletePreset = DeletePreset
-    { _dprId :: Text
+    { _dptId :: Text
       -- ^ The identifier of the preset for which you want to get detailed
       -- information.
     } deriving (Show, Generic)
 
-makeLenses ''DeletePreset
+-- | The identifier of the preset for which you want to get detailed
+-- information.
+dptId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletePreset
+    -> f DeletePreset
+dptId f x =
+    (\y -> x { _dptId = y })
+       <$> f (_dptId x)
+{-# INLINE dptId #-}
 
 instance ToPath DeletePreset where
     toPath DeletePreset{..} = mconcat
         [ "/2012-09-25/presets/"
-        , toBS _dprId
+        , toBS _dptId
         ]
 
 instance ToQuery DeletePreset
@@ -60,8 +88,6 @@ instance ToJSON DeletePreset
 
 data DeletePresetResponse = DeletePresetResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeletePresetResponse
 
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder

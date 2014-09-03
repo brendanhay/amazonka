@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,7 +17,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53.V2013_04_01.GetGeoLocation where
+module Network.AWS.Route53.V2013_04_01.GetGeoLocation
+    (
+    -- * Request
+      GetGeoLocation
+    -- ** Request constructor
+    , getGeoLocation
+    -- ** Request lenses
+    , gglrContinentCode
+    , gglrCountryCode
+    , gglrSubdivisionCode
+
+    -- * Response
+    , GetGeoLocationResponse
+    -- ** Response lenses
+    , gglsGeoLocationDetails
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
@@ -51,7 +65,50 @@ data GetGeoLocation = GetGeoLocation
       -- CountryCode returns an InvalidInput error.
     } deriving (Show, Generic)
 
-makeLenses ''GetGeoLocation
+-- | The code for a continent geo location. Note: only continent locations have
+-- a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
+-- Constraint: Specifying ContinentCode with either CountryCode or
+-- SubdivisionCode returns an InvalidInput error.
+gglrContinentCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetGeoLocation
+    -> f GetGeoLocation
+gglrContinentCode f x =
+    (\y -> x { _gglrContinentCode = y })
+       <$> f (_gglrContinentCode x)
+{-# INLINE gglrContinentCode #-}
+
+-- | The code for a country geo location. The default location uses '*' for the
+-- country code and will match all locations that are not matched by a geo
+-- location. The default geo location uses a * for the country code. All other
+-- country codes follow the ISO 3166 two-character code.
+gglrCountryCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetGeoLocation
+    -> f GetGeoLocation
+gglrCountryCode f x =
+    (\y -> x { _gglrCountryCode = y })
+       <$> f (_gglrCountryCode x)
+{-# INLINE gglrCountryCode #-}
+
+-- | The code for a country's subdivision (e.g., a province of Canada). A
+-- subdivision code is only valid with the appropriate country code.
+-- Constraint: Specifying SubdivisionCode without CountryCode returns an
+-- InvalidInput error.
+gglrSubdivisionCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetGeoLocation
+    -> f GetGeoLocation
+gglrSubdivisionCode f x =
+    (\y -> x { _gglrSubdivisionCode = y })
+       <$> f (_gglrSubdivisionCode x)
+{-# INLINE gglrSubdivisionCode #-}
 
 instance ToPath GetGeoLocation where
     toPath = const "/2013-04-01/geolocation"
@@ -75,7 +132,18 @@ data GetGeoLocationResponse = GetGeoLocationResponse
       -- geo location.
     } deriving (Show, Generic)
 
-makeLenses ''GetGeoLocationResponse
+-- | A complex type that contains the information about the specified geo
+-- location.
+gglsGeoLocationDetails
+    :: Functor f
+    => (GeoLocationDetails
+    -> f (GeoLocationDetails))
+    -> GetGeoLocationResponse
+    -> f GetGeoLocationResponse
+gglsGeoLocationDetails f x =
+    (\y -> x { _gglsGeoLocationDetails = y })
+       <$> f (_gglsGeoLocationDetails x)
+{-# INLINE gglsGeoLocationDetails #-}
 
 instance FromXML GetGeoLocationResponse where
     fromXMLOptions = xmlOptions

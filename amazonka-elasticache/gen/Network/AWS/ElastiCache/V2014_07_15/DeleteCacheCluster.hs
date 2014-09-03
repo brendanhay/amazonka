@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,14 +29,28 @@
 -- simcoprod43.m2st2p.cfg.cache.amazonaws.com cache.m1.large memcached
 -- us-east-1b 2014-03-27T02:18:26.497Z 1.4.5 true mon:05:00-mon:05:30 default
 -- active 3 ab84aa7e-b7fa-11e0-9b0b-a9261be2b354.
-module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster where
+module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster
+    (
+    -- * Request
+      DeleteCacheCluster
+    -- ** Request constructor
+    , deleteCacheCluster
+    -- ** Request lenses
+    , dccmCacheClusterId
+    , dccmFinalSnapshotIdentifier
+
+    -- * Response
+    , DeleteCacheClusterResponse
+    -- ** Response lenses
+    , ccxCacheCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteCacheCluster' request.
-deleteCacheCluster :: Text -- ^ '_dccmCacheClusterId'
+deleteCacheCluster :: Text -- ^ 'dccmCacheClusterId'
                    -> DeleteCacheCluster
 deleteCacheCluster p1 = DeleteCacheCluster
     { _dccmCacheClusterId = p1
@@ -54,17 +67,51 @@ data DeleteCacheCluster = DeleteCacheCluster
       -- afterward.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteCacheCluster
+-- | The cache cluster identifier for the cluster to be deleted. This parameter
+-- is not case sensitive.
+dccmCacheClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteCacheCluster
+    -> f DeleteCacheCluster
+dccmCacheClusterId f x =
+    (\y -> x { _dccmCacheClusterId = y })
+       <$> f (_dccmCacheClusterId x)
+{-# INLINE dccmCacheClusterId #-}
+
+-- | The name of a final cache cluster snapshot. ElastiCache creates the
+-- snapshot, and then deletes the cache cluster immediately afterward.
+dccmFinalSnapshotIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteCacheCluster
+    -> f DeleteCacheCluster
+dccmFinalSnapshotIdentifier f x =
+    (\y -> x { _dccmFinalSnapshotIdentifier = y })
+       <$> f (_dccmFinalSnapshotIdentifier x)
+{-# INLINE dccmFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteCacheCluster where
     toQuery = genericQuery def
 
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse
-    { _ccwCacheCluster :: Maybe CacheCluster
+    { _ccxCacheCluster :: Maybe CacheCluster
       -- ^ Contains all of the attributes of a specific cache cluster.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteCacheClusterResponse
+-- | Contains all of the attributes of a specific cache cluster.
+ccxCacheCluster
+    :: Functor f
+    => (Maybe CacheCluster
+    -> f (Maybe CacheCluster))
+    -> DeleteCacheClusterResponse
+    -> f DeleteCacheClusterResponse
+ccxCacheCluster f x =
+    (\y -> x { _ccxCacheCluster = y })
+       <$> f (_ccxCacheCluster x)
+{-# INLINE ccxCacheCluster #-}
 
 instance FromXML DeleteCacheClusterResponse where
     fromXMLOptions = xmlOptions

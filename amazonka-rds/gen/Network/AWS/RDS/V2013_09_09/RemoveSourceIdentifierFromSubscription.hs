@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,34 +26,92 @@
 -- db-instance modifying 2013-01-28 00:29:23.736 creation deletion
 -- EventSubscription01 arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 6f0b82bf-68e9-11e2-b97b-43c6362ec60d.
-module Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription where
+module Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription
+    (
+    -- * Request
+      RemoveSourceIdentifierFromSubscription
+    -- ** Request constructor
+    , removeSourceIdentifierFromSubscription
+    -- ** Request lenses
+    , rsifsmSubscriptionName
+    , rsifsmSourceIdentifier
+
+    -- * Response
+    , RemoveSourceIdentifierFromSubscriptionResponse
+    -- ** Response lenses
+    , eserEventSubscription
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'RemoveSourceIdentifierFromSubscription' request.
+removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsmSubscriptionName'
+                                       -> Text -- ^ 'rsifsmSourceIdentifier'
+                                       -> RemoveSourceIdentifierFromSubscription
+removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscription
+    { _rsifsmSubscriptionName = p1
+    , _rsifsmSourceIdentifier = p2
+    }
+
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
-    { _rsifsmSourceIdentifier :: Text
+    { _rsifsmSubscriptionName :: Text
+      -- ^ The name of the RDS event notification subscription you want to
+      -- remove a source identifier from.
+    , _rsifsmSourceIdentifier :: Text
       -- ^ The source identifier to be removed from the subscription, such
       -- as the DB instance identifier for a DB instance or the name of a
       -- security group.
-    , _rsifsmSubscriptionName :: Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- remove a source identifier from.
     } deriving (Show, Generic)
 
-makeLenses ''RemoveSourceIdentifierFromSubscription
+-- | The name of the RDS event notification subscription you want to remove a
+-- source identifier from.
+rsifsmSubscriptionName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveSourceIdentifierFromSubscription
+    -> f RemoveSourceIdentifierFromSubscription
+rsifsmSubscriptionName f x =
+    (\y -> x { _rsifsmSubscriptionName = y })
+       <$> f (_rsifsmSubscriptionName x)
+{-# INLINE rsifsmSubscriptionName #-}
+
+-- | The source identifier to be removed from the subscription, such as the DB
+-- instance identifier for a DB instance or the name of a security group.
+rsifsmSourceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveSourceIdentifierFromSubscription
+    -> f RemoveSourceIdentifierFromSubscription
+rsifsmSourceIdentifier f x =
+    (\y -> x { _rsifsmSourceIdentifier = y })
+       <$> f (_rsifsmSourceIdentifier x)
+{-# INLINE rsifsmSourceIdentifier #-}
 
 instance ToQuery RemoveSourceIdentifierFromSubscription where
     toQuery = genericQuery def
 
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
-    { _esyEventSubscription :: Maybe EventSubscription
+    { _eserEventSubscription :: Maybe EventSubscription
       -- ^ Contains the results of a successful invocation of the
       -- DescribeEventSubscriptions action.
     } deriving (Show, Generic)
 
-makeLenses ''RemoveSourceIdentifierFromSubscriptionResponse
+-- | Contains the results of a successful invocation of the
+-- DescribeEventSubscriptions action.
+eserEventSubscription
+    :: Functor f
+    => (Maybe EventSubscription
+    -> f (Maybe EventSubscription))
+    -> RemoveSourceIdentifierFromSubscriptionResponse
+    -> f RemoveSourceIdentifierFromSubscriptionResponse
+eserEventSubscription f x =
+    (\y -> x { _eserEventSubscription = y })
+       <$> f (_eserEventSubscription x)
+{-# INLINE eserEventSubscription #-}
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     fromXMLOptions = xmlOptions

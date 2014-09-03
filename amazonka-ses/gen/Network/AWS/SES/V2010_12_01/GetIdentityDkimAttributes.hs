@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,11 +42,31 @@
 -- 3frqe7jn4obpuxjpwpolz6ipb3k5nvt2nhjpik2oy
 -- wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2
 -- bb5a105d-c468-11e1-82eb-dff885ccc06a.
-module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes where
+module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
+    (
+    -- * Request
+      GetIdentityDkimAttributes
+    -- ** Request constructor
+    , getIdentityDkimAttributes
+    -- ** Request lenses
+    , gidarIdentities
+
+    -- * Response
+    , GetIdentityDkimAttributesResponse
+    -- ** Response lenses
+    , gidasDkimAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetIdentityDkimAttributes' request.
+getIdentityDkimAttributes :: [Text] -- ^ 'gidarIdentities'
+                          -> GetIdentityDkimAttributes
+getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
+    { _gidarIdentities = p1
+    }
 
 data GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidarIdentities :: [Text]
@@ -55,7 +74,18 @@ data GetIdentityDkimAttributes = GetIdentityDkimAttributes
       -- domains, or both.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdentityDkimAttributes
+-- | A list of one or more verified identities - email addresses, domains, or
+-- both.
+gidarIdentities
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> GetIdentityDkimAttributes
+    -> f GetIdentityDkimAttributes
+gidarIdentities f x =
+    (\y -> x { _gidarIdentities = y })
+       <$> f (_gidarIdentities x)
+{-# INLINE gidarIdentities #-}
 
 instance ToQuery GetIdentityDkimAttributes where
     toQuery = genericQuery def
@@ -65,7 +95,17 @@ data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
       -- ^ The DKIM attributes for an email address or a domain.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdentityDkimAttributesResponse
+-- | The DKIM attributes for an email address or a domain.
+gidasDkimAttributes
+    :: Functor f
+    => (Map Text IdentityDkimAttributes
+    -> f (Map Text IdentityDkimAttributes))
+    -> GetIdentityDkimAttributesResponse
+    -> f GetIdentityDkimAttributesResponse
+gidasDkimAttributes f x =
+    (\y -> x { _gidasDkimAttributes = y })
+       <$> f (_gidasDkimAttributes x)
+{-# INLINE gidasDkimAttributes #-}
 
 instance FromXML GetIdentityDkimAttributesResponse where
     fromXMLOptions = xmlOptions

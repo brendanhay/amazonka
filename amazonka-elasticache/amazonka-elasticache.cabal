@@ -49,40 +49,40 @@ library
           Network.AWS.ElastiCache
         , Network.AWS.ElastiCache.V2014_07_15
         , Network.AWS.ElastiCache.V2014_07_15.Types
-        , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup
-        , Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster
-        , Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster
-        , Network.AWS.ElastiCache.V2014_07_15.RevokeCacheSecurityGroupIngress
-        , Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeEvents
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters
-        , Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
-        , Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering
-        , Network.AWS.ElastiCache.V2014_07_15.ModifyReplicationGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameters
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups
-        , Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup
         , Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress
         , Network.AWS.ElastiCache.V2014_07_15.CopySnapshot
-        , Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups
-        , Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups
-        , Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings
-        , Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup
-        , Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot
-        , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups
-        , Network.AWS.ElastiCache.V2014_07_15.ModifyCacheCluster
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions
+        , Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster
         , Network.AWS.ElastiCache.V2014_07_15.CreateCacheParameterGroup
-        , Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodes
+        , Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup
+        , Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup
+        , Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
+        , Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot
+        , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster
+        , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup
         , Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup
+        , Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup
+        , Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameters
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeEvents
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodes
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings
+        , Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots
+        , Network.AWS.ElastiCache.V2014_07_15.ModifyCacheCluster
+        , Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup
+        , Network.AWS.ElastiCache.V2014_07_15.ModifyReplicationGroup
+        , Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering
+        , Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster
+        , Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup
+        , Network.AWS.ElastiCache.V2014_07_15.RevokeCacheSecurityGroupIngress
 
     build-depends:
           amazonka-core

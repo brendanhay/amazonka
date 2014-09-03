@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,7 +32,23 @@
 -- parameter group for redshift-1.0 default.redshift-1.0 redshift-1.0
 -- description my parameter group parametergroup1
 -- 6d28788b-64f5-11e2-b343-393adc3f0a21.
-module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups where
+module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups
+    (
+    -- * Request
+      DescribeClusterParameterGroups
+    -- ** Request constructor
+    , describeClusterParameterGroups
+    -- ** Request lenses
+    , dcpgnMaxRecords
+    , dcpgnParameterGroupName
+    , dcpgnMarker
+
+    -- * Response
+    , DescribeClusterParameterGroupsResponse
+    -- ** Response lenses
+    , cpgmParameterGroups
+    , cpgmMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -42,24 +57,24 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeClusterParameterGroups' request.
 describeClusterParameterGroups :: DescribeClusterParameterGroups
 describeClusterParameterGroups = DescribeClusterParameterGroups
-    { _dcpgmMaxRecords = Nothing
-    , _dcpgmParameterGroupName = Nothing
-    , _dcpgmMarker = Nothing
+    { _dcpgnMaxRecords = Nothing
+    , _dcpgnParameterGroupName = Nothing
+    , _dcpgnMarker = Nothing
     }
 
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups
-    { _dcpgmMaxRecords :: Maybe Integer
+    { _dcpgnMaxRecords :: Maybe Integer
       -- ^ The maximum number of response records to return in each call. If
       -- the number of remaining response records exceeds the specified
       -- MaxRecords value, a value is returned in a marker field of the
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcpgmParameterGroupName :: Maybe Text
+    , _dcpgnParameterGroupName :: Maybe Text
       -- ^ The name of a specific parameter group for which to return
       -- details. By default, details about all parameter groups and the
       -- default parameter group are returned.
-    , _dcpgmMarker :: Maybe Text
+    , _dcpgnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
       -- DescribeClusterParameterGroups request exceed the value specified
@@ -69,7 +84,52 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
       -- retrying the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeClusterParameterGroups
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in a marker field of the response. You can
+-- retrieve the next set of records by retrying the command with the returned
+-- marker value. Default: 100 Constraints: minimum 20, maximum 100.
+dcpgnMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeClusterParameterGroups
+    -> f DescribeClusterParameterGroups
+dcpgnMaxRecords f x =
+    (\y -> x { _dcpgnMaxRecords = y })
+       <$> f (_dcpgnMaxRecords x)
+{-# INLINE dcpgnMaxRecords #-}
+
+-- | The name of a specific parameter group for which to return details. By
+-- default, details about all parameter groups and the default parameter group
+-- are returned.
+dcpgnParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusterParameterGroups
+    -> f DescribeClusterParameterGroups
+dcpgnParameterGroupName f x =
+    (\y -> x { _dcpgnParameterGroupName = y })
+       <$> f (_dcpgnParameterGroupName x)
+{-# INLINE dcpgnParameterGroupName #-}
+
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a DescribeClusterParameterGroups
+-- request exceed the value specified in MaxRecords, AWS returns a value in
+-- the Marker field of the response. You can retrieve the next set of response
+-- records by providing the returned marker value in the Marker parameter and
+-- retrying the request.
+dcpgnMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusterParameterGroups
+    -> f DescribeClusterParameterGroups
+dcpgnMarker f x =
+    (\y -> x { _dcpgnMarker = y })
+       <$> f (_dcpgnMarker x)
+{-# INLINE dcpgnMarker #-}
 
 instance ToQuery DescribeClusterParameterGroups where
     toQuery = genericQuery def
@@ -87,7 +147,34 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
       -- records have been retrieved for the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeClusterParameterGroupsResponse
+-- | A list of ClusterParameterGroup instances. Each instance describes one
+-- cluster parameter group.
+cpgmParameterGroups
+    :: Functor f
+    => ([ClusterParameterGroup]
+    -> f ([ClusterParameterGroup]))
+    -> DescribeClusterParameterGroupsResponse
+    -> f DescribeClusterParameterGroupsResponse
+cpgmParameterGroups f x =
+    (\y -> x { _cpgmParameterGroups = y })
+       <$> f (_cpgmParameterGroups x)
+{-# INLINE cpgmParameterGroups #-}
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker
+-- value in the Marker parameter and retrying the command. If the Marker field
+-- is empty, all response records have been retrieved for the request.
+cpgmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusterParameterGroupsResponse
+    -> f DescribeClusterParameterGroupsResponse
+cpgmMarker f x =
+    (\y -> x { _cpgmMarker = y })
+       <$> f (_cpgmMarker x)
+{-# INLINE cpgmMarker #-}
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -100,5 +187,5 @@ instance AWSRequest DescribeClusterParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterParameterGroups where
-    next rq rs = (\x -> rq { _dcpgmMarker = Just x })
+    next rq rs = (\x -> rq { _dcpgnMarker = Just x })
         <$> (_cpgmMarker rs)

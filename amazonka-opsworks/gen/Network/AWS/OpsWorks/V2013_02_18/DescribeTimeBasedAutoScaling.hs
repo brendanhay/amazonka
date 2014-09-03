@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,19 +23,49 @@
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling
+    (
+    -- * Request
+      DescribeTimeBasedAutoScaling
+    -- ** Request constructor
+    , describeTimeBasedAutoScaling
+    -- ** Request lenses
+    , dtbasrInstanceIds
+
+    -- * Response
+    , DescribeTimeBasedAutoScalingResponse
+    -- ** Response lenses
+    , dtbassTimeBasedAutoScalingConfigurations
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeTimeBasedAutoScaling' request.
+describeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasrInstanceIds'
+                             -> DescribeTimeBasedAutoScaling
+describeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
+    { _dtbasrInstanceIds = p1
+    }
+
 data DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
     { _dtbasrInstanceIds :: [Text]
       -- ^ An array of instance IDs.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTimeBasedAutoScaling
+-- | An array of instance IDs.
+dtbasrInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeTimeBasedAutoScaling
+    -> f DescribeTimeBasedAutoScaling
+dtbasrInstanceIds f x =
+    (\y -> x { _dtbasrInstanceIds = y })
+       <$> f (_dtbasrInstanceIds x)
+{-# INLINE dtbasrInstanceIds #-}
 
 instance ToPath DescribeTimeBasedAutoScaling
 
@@ -52,7 +81,18 @@ data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
       -- describe the configuration for the specified instances.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTimeBasedAutoScalingResponse
+-- | An array of TimeBasedAutoScalingConfiguration objects that describe the
+-- configuration for the specified instances.
+dtbassTimeBasedAutoScalingConfigurations
+    :: Functor f
+    => ([TimeBasedAutoScalingConfiguration]
+    -> f ([TimeBasedAutoScalingConfiguration]))
+    -> DescribeTimeBasedAutoScalingResponse
+    -> f DescribeTimeBasedAutoScalingResponse
+dtbassTimeBasedAutoScalingConfigurations f x =
+    (\y -> x { _dtbassTimeBasedAutoScalingConfigurations = y })
+       <$> f (_dtbassTimeBasedAutoScalingConfigurations x)
+{-# INLINE dtbassTimeBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse
 

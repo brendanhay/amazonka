@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,35 +27,108 @@
 -- CacheSubnetGroup myCachesubnetgroup Active subnet-7c5b4115 us-east-1c
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup where
+module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup
+    (
+    -- * Request
+      CreateCacheSubnetGroup
+    -- ** Request constructor
+    , createCacheSubnetGroup
+    -- ** Request lenses
+    , ccsgnCacheSubnetGroupName
+    , ccsgnCacheSubnetGroupDescription
+    , ccsgnSubnetIds
+
+    -- * Response
+    , CreateCacheSubnetGroupResponse
+    -- ** Response lenses
+    , csgyCacheSubnetGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateCacheSubnetGroup' request.
+createCacheSubnetGroup :: Text -- ^ 'ccsgnCacheSubnetGroupName'
+                       -> Text -- ^ 'ccsgnCacheSubnetGroupDescription'
+                       -> [Text] -- ^ 'ccsgnSubnetIds'
+                       -> CreateCacheSubnetGroup
+createCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
+    { _ccsgnCacheSubnetGroupName = p1
+    , _ccsgnCacheSubnetGroupDescription = p2
+    , _ccsgnSubnetIds = p3
+    }
+
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
-    { _ccsgnCacheSubnetGroupDescription :: Text
-      -- ^ A description for the cache subnet group.
-    , _ccsgnCacheSubnetGroupName :: Text
+    { _ccsgnCacheSubnetGroupName :: Text
       -- ^ A name for the cache subnet group. This value is stored as a
       -- lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Example: mysubnetgroup.
+    , _ccsgnCacheSubnetGroupDescription :: Text
+      -- ^ A description for the cache subnet group.
     , _ccsgnSubnetIds :: [Text]
       -- ^ A list of VPC subnet IDs for the cache subnet group.
     } deriving (Show, Generic)
 
-makeLenses ''CreateCacheSubnetGroup
+-- | A name for the cache subnet group. This value is stored as a lowercase
+-- string. Constraints: Must contain no more than 255 alphanumeric characters
+-- or hyphens. Example: mysubnetgroup.
+ccsgnCacheSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCacheSubnetGroup
+    -> f CreateCacheSubnetGroup
+ccsgnCacheSubnetGroupName f x =
+    (\y -> x { _ccsgnCacheSubnetGroupName = y })
+       <$> f (_ccsgnCacheSubnetGroupName x)
+{-# INLINE ccsgnCacheSubnetGroupName #-}
+
+-- | A description for the cache subnet group.
+ccsgnCacheSubnetGroupDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCacheSubnetGroup
+    -> f CreateCacheSubnetGroup
+ccsgnCacheSubnetGroupDescription f x =
+    (\y -> x { _ccsgnCacheSubnetGroupDescription = y })
+       <$> f (_ccsgnCacheSubnetGroupDescription x)
+{-# INLINE ccsgnCacheSubnetGroupDescription #-}
+
+-- | A list of VPC subnet IDs for the cache subnet group.
+ccsgnSubnetIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateCacheSubnetGroup
+    -> f CreateCacheSubnetGroup
+ccsgnSubnetIds f x =
+    (\y -> x { _ccsgnSubnetIds = y })
+       <$> f (_ccsgnSubnetIds x)
+{-# INLINE ccsgnSubnetIds #-}
 
 instance ToQuery CreateCacheSubnetGroup where
     toQuery = genericQuery def
 
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
-    { _csgzCacheSubnetGroup :: Maybe CacheSubnetGroup
+    { _csgyCacheSubnetGroup :: Maybe CacheSubnetGroup
       -- ^ Represents the output of one of the following operations:
       -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
     } deriving (Show, Generic)
 
-makeLenses ''CreateCacheSubnetGroupResponse
+-- | Represents the output of one of the following operations:
+-- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
+csgyCacheSubnetGroup
+    :: Functor f
+    => (Maybe CacheSubnetGroup
+    -> f (Maybe CacheSubnetGroup))
+    -> CreateCacheSubnetGroupResponse
+    -> f CreateCacheSubnetGroupResponse
+csgyCacheSubnetGroup f x =
+    (\y -> x { _csgyCacheSubnetGroup = y })
+       <$> f (_csgyCacheSubnetGroup x)
+{-# INLINE csgyCacheSubnetGroup #-}
 
 instance FromXML CreateCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions

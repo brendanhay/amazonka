@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,19 +23,47 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume where
+module Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume
+    (
+    -- * Request
+      DeregisterVolume
+    -- ** Request constructor
+    , deregisterVolume
+    -- ** Request lenses
+    , dvrVolumeId
+
+    -- * Response
+    , DeregisterVolumeResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeregisterVolume' request.
+deregisterVolume :: Text -- ^ 'dvrVolumeId'
+                 -> DeregisterVolume
+deregisterVolume p1 = DeregisterVolume
+    { _dvrVolumeId = p1
+    }
+
 data DeregisterVolume = DeregisterVolume
     { _dvrVolumeId :: Text
       -- ^ The volume ID.
     } deriving (Show, Generic)
 
-makeLenses ''DeregisterVolume
+-- | The volume ID.
+dvrVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeregisterVolume
+    -> f DeregisterVolume
+dvrVolumeId f x =
+    (\y -> x { _dvrVolumeId = y })
+       <$> f (_dvrVolumeId x)
+{-# INLINE dvrVolumeId #-}
 
 instance ToPath DeregisterVolume
 
@@ -48,8 +75,6 @@ instance ToJSON DeregisterVolume
 
 data DeregisterVolumeResponse = DeregisterVolumeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeregisterVolumeResponse
 
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks

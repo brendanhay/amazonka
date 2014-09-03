@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,11 +28,38 @@
 -- action heartbeat to keep the instance in a pending state. Complete the
 -- lifecycle action. To learn more, see Auto Scaling Pending State and Auto
 -- Scaling Terminating State.
-module Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction where
+module Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction
+    (
+    -- * Request
+      CompleteLifecycleAction
+    -- ** Request constructor
+    , completeLifecycleAction
+    -- ** Request lenses
+    , clatLifecycleHookName
+    , clatLifecycleActionResult
+    , clatLifecycleActionToken
+    , clatAutoScalingGroupName
+
+    -- * Response
+    , CompleteLifecycleActionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CompleteLifecycleAction' request.
+completeLifecycleAction :: Text -- ^ 'clatLifecycleHookName'
+                        -> Text -- ^ 'clatLifecycleActionResult'
+                        -> Text -- ^ 'clatLifecycleActionToken'
+                        -> Text -- ^ 'clatAutoScalingGroupName'
+                        -> CompleteLifecycleAction
+completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
+    { _clatLifecycleHookName = p1
+    , _clatLifecycleActionResult = p2
+    , _clatLifecycleActionToken = p3
+    , _clatAutoScalingGroupName = p4
+    }
 
 data CompleteLifecycleAction = CompleteLifecycleAction
     { _clatLifecycleHookName :: Text
@@ -51,15 +77,62 @@ data CompleteLifecycleAction = CompleteLifecycleAction
       -- belongs.
     } deriving (Show, Generic)
 
-makeLenses ''CompleteLifecycleAction
+-- | The name of the lifecycle hook.
+clatLifecycleHookName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CompleteLifecycleAction
+    -> f CompleteLifecycleAction
+clatLifecycleHookName f x =
+    (\y -> x { _clatLifecycleHookName = y })
+       <$> f (_clatLifecycleHookName x)
+{-# INLINE clatLifecycleHookName #-}
+
+-- | The action the Auto Scaling group should take. The value for this parameter
+-- can be either CONTINUE or ABANDON.
+clatLifecycleActionResult
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CompleteLifecycleAction
+    -> f CompleteLifecycleAction
+clatLifecycleActionResult f x =
+    (\y -> x { _clatLifecycleActionResult = y })
+       <$> f (_clatLifecycleActionResult x)
+{-# INLINE clatLifecycleActionResult #-}
+
+-- | A universally unique identifier (UUID) that identifies a specific lifecycle
+-- action associated with an instance. Auto Scaling sends this token to the
+-- notification target you specified when you created the lifecycle hook.
+clatLifecycleActionToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CompleteLifecycleAction
+    -> f CompleteLifecycleAction
+clatLifecycleActionToken f x =
+    (\y -> x { _clatLifecycleActionToken = y })
+       <$> f (_clatLifecycleActionToken x)
+{-# INLINE clatLifecycleActionToken #-}
+
+-- | The name of the Auto Scaling group to which the lifecycle hook belongs.
+clatAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CompleteLifecycleAction
+    -> f CompleteLifecycleAction
+clatAutoScalingGroupName f x =
+    (\y -> x { _clatAutoScalingGroupName = y })
+       <$> f (_clatAutoScalingGroupName x)
+{-# INLINE clatAutoScalingGroupName #-}
 
 instance ToQuery CompleteLifecycleAction where
     toQuery = genericQuery def
 
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CompleteLifecycleActionResponse
 
 instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling

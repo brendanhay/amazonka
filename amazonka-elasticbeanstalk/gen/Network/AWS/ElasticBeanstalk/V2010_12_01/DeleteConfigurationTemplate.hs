@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,11 +24,32 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &TemplateName=SampleAppTemplate &Operation=DeleteConfigurationTemplate
 -- &AuthParams af9cf1b6-f25e-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate
+    (
+    -- * Request
+      DeleteConfigurationTemplate
+    -- ** Request constructor
+    , deleteConfigurationTemplate
+    -- ** Request lenses
+    , dctmApplicationName
+    , dctmTemplateName
+
+    -- * Response
+    , DeleteConfigurationTemplateResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteConfigurationTemplate' request.
+deleteConfigurationTemplate :: Text -- ^ 'dctmApplicationName'
+                            -> Text -- ^ 'dctmTemplateName'
+                            -> DeleteConfigurationTemplate
+deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
+    { _dctmApplicationName = p1
+    , _dctmTemplateName = p2
+    }
 
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctmApplicationName :: Text
@@ -39,15 +59,35 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate
       -- ^ The name of the configuration template to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteConfigurationTemplate
+-- | The name of the application to delete the configuration template from.
+dctmApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteConfigurationTemplate
+    -> f DeleteConfigurationTemplate
+dctmApplicationName f x =
+    (\y -> x { _dctmApplicationName = y })
+       <$> f (_dctmApplicationName x)
+{-# INLINE dctmApplicationName #-}
+
+-- | The name of the configuration template to delete.
+dctmTemplateName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteConfigurationTemplate
+    -> f DeleteConfigurationTemplate
+dctmTemplateName f x =
+    (\y -> x { _dctmTemplateName = y })
+       <$> f (_dctmTemplateName x)
+{-# INLINE dctmTemplateName #-}
 
 instance ToQuery DeleteConfigurationTemplate where
     toQuery = genericQuery def
 
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteConfigurationTemplateResponse
 
 instance AWSRequest DeleteConfigurationTemplate where
     type Sv DeleteConfigurationTemplate = ElasticBeanstalk

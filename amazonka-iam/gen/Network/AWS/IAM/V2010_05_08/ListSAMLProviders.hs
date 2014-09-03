@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,16 +25,28 @@
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2015-03-11T13:11:02Z 2012-05-09T16:27:11Z
 -- fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.ListSAMLProviders where
+module Network.AWS.IAM.V2010_05_08.ListSAMLProviders
+    (
+    -- * Request
+      ListSAMLProviders
+    -- ** Request constructor
+    , listSAMLProviders
+    -- * Response
+    , ListSAMLProvidersResponse
+    -- ** Response lenses
+    , lsamlpsSAMLProviderList
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ListSAMLProviders' request.
+listSAMLProviders :: ListSAMLProviders
+listSAMLProviders = ListSAMLProviders
+
 data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Show, Generic)
-
-makeLenses ''ListSAMLProviders
 
 instance ToQuery ListSAMLProviders where
     toQuery = genericQuery def
@@ -45,7 +56,17 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse
       -- ^ The list of SAML providers for this account.
     } deriving (Show, Generic)
 
-makeLenses ''ListSAMLProvidersResponse
+-- | The list of SAML providers for this account.
+lsamlpsSAMLProviderList
+    :: Functor f
+    => ([SAMLProviderListEntry]
+    -> f ([SAMLProviderListEntry]))
+    -> ListSAMLProvidersResponse
+    -> f ListSAMLProvidersResponse
+lsamlpsSAMLProviderList f x =
+    (\y -> x { _lsamlpsSAMLProviderList = y })
+       <$> f (_lsamlpsSAMLProviderList x)
+{-# INLINE lsamlpsSAMLProviderList #-}
 
 instance FromXML ListSAMLProvidersResponse where
     fromXMLOptions = xmlOptions

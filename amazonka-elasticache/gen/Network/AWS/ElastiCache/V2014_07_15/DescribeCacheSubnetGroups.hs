@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,23 @@
 -- 990524496922 description subnet_grp1 Active subnet-7c5b4115 us-east-1c
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- (...output omitted...) 31d0faee-229b-11e1-81f1-df3a2a803dad.
-module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups where
+module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups
+    (
+    -- * Request
+      DescribeCacheSubnetGroups
+    -- ** Request constructor
+    , describeCacheSubnetGroups
+    -- ** Request lenses
+    , dcsgpMaxRecords
+    , dcsgpCacheSubnetGroupName
+    , dcsgpMarker
+
+    -- * Response
+    , DescribeCacheSubnetGroupsResponse
+    -- ** Response lenses
+    , csgqCacheSubnetGroups
+    , csgqMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
@@ -36,27 +51,67 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeCacheSubnetGroups' request.
 describeCacheSubnetGroups :: DescribeCacheSubnetGroups
 describeCacheSubnetGroups = DescribeCacheSubnetGroups
-    { _dcsgnMaxRecords = Nothing
-    , _dcsgnMarker = Nothing
-    , _dcsgnCacheSubnetGroupName = Nothing
+    { _dcsgpMaxRecords = Nothing
+    , _dcsgpCacheSubnetGroupName = Nothing
+    , _dcsgpMarker = Nothing
     }
 
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
-    { _dcsgnMaxRecords :: Maybe Integer
+    { _dcsgpMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dcsgnMarker :: Maybe Text
+    , _dcsgpCacheSubnetGroupName :: Maybe Text
+      -- ^ The name of the cache subnet group to return details for.
+    , _dcsgpMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
-    , _dcsgnCacheSubnetGroupName :: Maybe Text
-      -- ^ The name of the cache subnet group to return details for.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheSubnetGroups
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a marker is included in the
+-- response so that the remaining results can be retrieved. Default: 100
+-- Constraints: minimum 20; maximum 100.
+dcsgpMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeCacheSubnetGroups
+    -> f DescribeCacheSubnetGroups
+dcsgpMaxRecords f x =
+    (\y -> x { _dcsgpMaxRecords = y })
+       <$> f (_dcsgpMaxRecords x)
+{-# INLINE dcsgpMaxRecords #-}
+
+-- | The name of the cache subnet group to return details for.
+dcsgpCacheSubnetGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheSubnetGroups
+    -> f DescribeCacheSubnetGroups
+dcsgpCacheSubnetGroupName f x =
+    (\y -> x { _dcsgpCacheSubnetGroupName = y })
+       <$> f (_dcsgpCacheSubnetGroupName x)
+{-# INLINE dcsgpCacheSubnetGroupName #-}
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+dcsgpMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheSubnetGroups
+    -> f DescribeCacheSubnetGroups
+dcsgpMarker f x =
+    (\y -> x { _dcsgpMarker = y })
+       <$> f (_dcsgpMarker x)
+{-# INLINE dcsgpMarker #-}
 
 instance ToQuery DescribeCacheSubnetGroups where
     toQuery = genericQuery def
@@ -69,7 +124,30 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
       -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheSubnetGroupsResponse
+-- | A list of cache subnet groups. Each element in the list contains detailed
+-- information about one group.
+csgqCacheSubnetGroups
+    :: Functor f
+    => ([CacheSubnetGroup]
+    -> f ([CacheSubnetGroup]))
+    -> DescribeCacheSubnetGroupsResponse
+    -> f DescribeCacheSubnetGroupsResponse
+csgqCacheSubnetGroups f x =
+    (\y -> x { _csgqCacheSubnetGroups = y })
+       <$> f (_csgqCacheSubnetGroups x)
+{-# INLINE csgqCacheSubnetGroups #-}
+
+-- | Provides an identifier to allow retrieval of paginated results.
+csgqMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheSubnetGroupsResponse
+    -> f DescribeCacheSubnetGroupsResponse
+csgqMarker f x =
+    (\y -> x { _csgqMarker = y })
+       <$> f (_csgqMarker x)
+{-# INLINE csgqMarker #-}
 
 instance FromXML DescribeCacheSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -82,5 +160,5 @@ instance AWSRequest DescribeCacheSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheSubnetGroups where
-    next rq rs = (\x -> rq { _dcsgnMarker = Just x })
+    next rq rs = (\x -> rq { _dcsgpMarker = Just x })
         <$> (_csgqMarker rs)

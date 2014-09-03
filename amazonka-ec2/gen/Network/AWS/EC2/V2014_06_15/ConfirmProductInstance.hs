@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,18 +34,15 @@ module Network.AWS.EC2.V2014_06_15.ConfirmProductInstance
     (
     -- * Request
       ConfirmProductInstance
-    -- ** Default constructor
+    -- ** Request constructor
     , confirmProductInstance
-    -- ** Accessors and lenses
-    , _cpirProductCode
+    -- ** Request lenses
     , cpirProductCode
-    , _cpirInstanceId
     , cpirInstanceId
 
     -- * Response
     , ConfirmProductInstanceResponse
-    -- ** Accessors and lenses
-    , _cpisOwnerId
+    -- ** Response lenses
     , cpisOwnerId
     ) where
 
@@ -64,8 +60,36 @@ confirmProductInstance p1 p2 = ConfirmProductInstance
     }
 
 data ConfirmProductInstance = ConfirmProductInstance
+    { _cpirProductCode :: Text
+      -- ^ The product code. This must be an Amazon DevPay product code that
+      -- you own.
+    , _cpirInstanceId :: Text
+      -- ^ The ID of the instance.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ConfirmProductInstance
+-- | The product code. This must be an Amazon DevPay product code that you own.
+cpirProductCode
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmProductInstance
+    -> f ConfirmProductInstance
+cpirProductCode f x =
+    (\y -> x { _cpirProductCode = y })
+       <$> f (_cpirProductCode x)
+{-# INLINE cpirProductCode #-}
+
+-- | The ID of the instance.
+cpirInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmProductInstance
+    -> f ConfirmProductInstance
+cpirInstanceId f x =
+    (\y -> x { _cpirInstanceId = y })
+       <$> f (_cpirInstanceId x)
+{-# INLINE cpirInstanceId #-}
 
 instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
@@ -76,7 +100,18 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
       -- the product code is attached to the instance.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ConfirmProductInstanceResponse
+-- | The AWS account ID of the instance owner. This is only present if the
+-- product code is attached to the instance.
+cpisOwnerId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ConfirmProductInstanceResponse
+    -> f ConfirmProductInstanceResponse
+cpisOwnerId f x =
+    (\y -> x { _cpisOwnerId = y })
+       <$> f (_cpisOwnerId x)
+{-# INLINE cpisOwnerId #-}
 
 instance FromXML ConfirmProductInstanceResponse where
     fromXMLOptions = xmlOptions
@@ -87,13 +122,3 @@ instance AWSRequest ConfirmProductInstance where
 
     request = post "ConfirmProductInstance"
     response _ = xmlResponse
-
--- | The product code. This must be an Amazon DevPay product code that you own.
-cpirProductCode :: Lens' ConfirmProductInstance (Text)
-
--- | The ID of the instance.
-cpirInstanceId :: Lens' ConfirmProductInstance (Text)
-
--- | The AWS account ID of the instance owner. This is only present if the
--- product code is attached to the instance.
-cpisOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)

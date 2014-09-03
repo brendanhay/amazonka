@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,10 @@ module Network.AWS.EC2.V2014_06_15.AttachInternetGateway
     (
     -- * Request
       AttachInternetGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , attachInternetGateway
-    -- ** Accessors and lenses
-    , _aigrInternetGatewayId
+    -- ** Request lenses
     , aigrInternetGatewayId
-    , _aigrVpcId
     , aigrVpcId
 
     -- * Response
@@ -59,8 +56,35 @@ attachInternetGateway p1 p2 = AttachInternetGateway
     }
 
 data AttachInternetGateway = AttachInternetGateway
+    { _aigrInternetGatewayId :: Text
+      -- ^ The ID of the Internet gateway.
+    , _aigrVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachInternetGateway
+-- | The ID of the Internet gateway.
+aigrInternetGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachInternetGateway
+    -> f AttachInternetGateway
+aigrInternetGatewayId f x =
+    (\y -> x { _aigrInternetGatewayId = y })
+       <$> f (_aigrInternetGatewayId x)
+{-# INLINE aigrInternetGatewayId #-}
+
+-- | The ID of the VPC.
+aigrVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachInternetGateway
+    -> f AttachInternetGateway
+aigrVpcId f x =
+    (\y -> x { _aigrVpcId = y })
+       <$> f (_aigrVpcId x)
+{-# INLINE aigrVpcId #-}
 
 instance ToQuery AttachInternetGateway where
     toQuery = genericQuery def
@@ -68,17 +92,9 @@ instance ToQuery AttachInternetGateway where
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''AttachInternetGatewayResponse
-
 instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
 
     request = post "AttachInternetGateway"
     response _ = nullaryResponse AttachInternetGatewayResponse
-
--- | The ID of the Internet gateway.
-aigrInternetGatewayId :: Lens' AttachInternetGateway (Text)
-
--- | The ID of the VPC.
-aigrVpcId :: Lens' AttachInternetGateway (Text)

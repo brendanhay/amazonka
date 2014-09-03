@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,17 +22,29 @@
 -- linking to a virtual private gateway. A virtual private gateway can be
 -- managed via Amazon Virtual Private Cloud (VPC) console or the EC2
 -- CreateVpnGateway action.
-module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways where
+module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
+    (
+    -- * Request
+      DescribeVirtualGateways
+    -- ** Request constructor
+    , describeVirtualGateways
+    -- * Response
+    , DescribeVirtualGatewaysResponse
+    -- ** Response lenses
+    , vgVirtualGateways
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeVirtualGateways' request.
+describeVirtualGateways :: DescribeVirtualGateways
+describeVirtualGateways = DescribeVirtualGateways
+
 data DescribeVirtualGateways = DescribeVirtualGateways
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeVirtualGateways
 
 instance ToPath DescribeVirtualGateways
 
@@ -48,7 +59,17 @@ data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
       -- ^ A list of virtual private gateways.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVirtualGatewaysResponse
+-- | A list of virtual private gateways.
+vgVirtualGateways
+    :: Functor f
+    => ([VirtualGateway]
+    -> f ([VirtualGateway]))
+    -> DescribeVirtualGatewaysResponse
+    -> f DescribeVirtualGatewaysResponse
+vgVirtualGateways f x =
+    (\y -> x { _vgVirtualGateways = y })
+       <$> f (_vgVirtualGateways x)
+{-# INLINE vgVirtualGateways #-}
 
 instance FromJSON DescribeVirtualGatewaysResponse
 

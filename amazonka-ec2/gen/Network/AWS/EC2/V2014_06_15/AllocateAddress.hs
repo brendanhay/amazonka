@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,20 +42,16 @@ module Network.AWS.EC2.V2014_06_15.AllocateAddress
     (
     -- * Request
       AllocateAddress
-    -- ** Default constructor
+    -- ** Request constructor
     , allocateAddress
-    -- ** Accessors and lenses
-    , _aarDomain
+    -- ** Request lenses
     , aarDomain
 
     -- * Response
     , AllocateAddressResponse
-    -- ** Accessors and lenses
-    , _aasDomain
+    -- ** Response lenses
     , aasDomain
-    , _aasPublicIp
     , aasPublicIp
-    , _aasAllocationId
     , aasAllocationId
     ) where
 
@@ -71,8 +66,24 @@ allocateAddress = AllocateAddress
     }
 
 data AllocateAddress = AllocateAddress
+    { _aarDomain :: Maybe DomainType
+      -- ^ Set to vpc to allocate the address for use with instances in a
+      -- VPC. Default: The address is for use with instances in
+      -- EC2-Classic.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AllocateAddress
+-- | Set to vpc to allocate the address for use with instances in a VPC.
+-- Default: The address is for use with instances in EC2-Classic.
+aarDomain
+    :: Functor f
+    => (Maybe DomainType
+    -> f (Maybe DomainType))
+    -> AllocateAddress
+    -> f AllocateAddress
+aarDomain f x =
+    (\y -> x { _aarDomain = y })
+       <$> f (_aarDomain x)
+{-# INLINE aarDomain #-}
 
 instance ToQuery AllocateAddress where
     toQuery = genericQuery def
@@ -88,7 +99,43 @@ data AllocateAddressResponse = AllocateAddressResponse
       -- the Elastic IP address for use with instances in a VPC.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AllocateAddressResponse
+-- | Indicates whether this Elastic IP address is for use with instances in
+-- EC2-Classic (standard) or instances in a VPC (vpc).
+aasDomain
+    :: Functor f
+    => (Maybe DomainType
+    -> f (Maybe DomainType))
+    -> AllocateAddressResponse
+    -> f AllocateAddressResponse
+aasDomain f x =
+    (\y -> x { _aasDomain = y })
+       <$> f (_aasDomain x)
+{-# INLINE aasDomain #-}
+
+-- | The Elastic IP address.
+aasPublicIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AllocateAddressResponse
+    -> f AllocateAddressResponse
+aasPublicIp f x =
+    (\y -> x { _aasPublicIp = y })
+       <$> f (_aasPublicIp x)
+{-# INLINE aasPublicIp #-}
+
+-- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
+-- Elastic IP address for use with instances in a VPC.
+aasAllocationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AllocateAddressResponse
+    -> f AllocateAddressResponse
+aasAllocationId f x =
+    (\y -> x { _aasAllocationId = y })
+       <$> f (_aasAllocationId x)
+{-# INLINE aasAllocationId #-}
 
 instance FromXML AllocateAddressResponse where
     fromXMLOptions = xmlOptions
@@ -99,18 +146,3 @@ instance AWSRequest AllocateAddress where
 
     request = post "AllocateAddress"
     response _ = xmlResponse
-
--- | Set to vpc to allocate the address for use with instances in a VPC.
--- Default: The address is for use with instances in EC2-Classic.
-aarDomain :: Lens' AllocateAddress (Maybe DomainType)
-
--- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic (standard) or instances in a VPC (vpc).
-aasDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
-
--- | The Elastic IP address.
-aasPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
-
--- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
--- Elastic IP address for use with instances in a VPC.
-aasAllocationId :: Lens' AllocateAddressResponse (Maybe Text)

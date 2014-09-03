@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -60,14 +59,29 @@
 -- &Timestamp=2011-08-17T00%3A21%3A38.000Z
 -- 00000131d51d6b36-1d4f9293-0aee-4503-b573-9ae4e70e9e38-000000
 -- e0abcdfa-c866-11e0-b6d0-273d09173b49.
-module Network.AWS.SES.V2010_12_01.SendRawEmail where
+module Network.AWS.SES.V2010_12_01.SendRawEmail
+    (
+    -- * Request
+      SendRawEmail
+    -- ** Request constructor
+    , sendRawEmail
+    -- ** Request lenses
+    , srerRawMessage
+    , srerSource
+    , srerDestinations
+
+    -- * Response
+    , SendRawEmailResponse
+    -- ** Response lenses
+    , sresMessageId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SendRawEmail' request.
-sendRawEmail :: RawMessage -- ^ '_srerRawMessage'
+sendRawEmail :: RawMessage -- ^ 'srerRawMessage'
              -> SendRawEmail
 sendRawEmail p1 = SendRawEmail
     { _srerRawMessage = p1
@@ -99,7 +113,55 @@ data SendRawEmail = SendRawEmail
       -- and BCC: addresses.
     } deriving (Show, Generic)
 
-makeLenses ''SendRawEmail
+-- | The raw text of the message. The client is responsible for ensuring the
+-- following: Message must contain a header and a body, separated by a blank
+-- line. All required header fields must be present. Each part of a multipart
+-- MIME message must be formatted properly. MIME content types must be among
+-- those supported by Amazon SES. For more information, go to the Amazon SES
+-- Developer Guide. Content must be base64-encoded, if MIME requires it.
+srerRawMessage
+    :: Functor f
+    => (RawMessage
+    -> f (RawMessage))
+    -> SendRawEmail
+    -> f SendRawEmail
+srerRawMessage f x =
+    (\y -> x { _srerRawMessage = y })
+       <$> f (_srerRawMessage x)
+{-# INLINE srerRawMessage #-}
+
+-- | The identity's email address. By default, the string must be 7-bit ASCII.
+-- If the text must contain any other characters, then you must use MIME
+-- encoded-word syntax (RFC 2047) instead of a literal string. MIME
+-- encoded-word syntax uses the following form:
+-- =?charset?encoding?encoded-text?=. For more information, see RFC 2047. If
+-- you specify the Source parameter and have feedback forwarding enabled, then
+-- bounces and complaints will be sent to this email address. This takes
+-- precedence over any Return-Path header that you might include in the raw
+-- text of the message.
+srerSource
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SendRawEmail
+    -> f SendRawEmail
+srerSource f x =
+    (\y -> x { _srerSource = y })
+       <$> f (_srerSource x)
+{-# INLINE srerSource #-}
+
+-- | A list of destinations for the message, consisting of To:, CC:, and BCC:
+-- addresses.
+srerDestinations
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SendRawEmail
+    -> f SendRawEmail
+srerDestinations f x =
+    (\y -> x { _srerDestinations = y })
+       <$> f (_srerDestinations x)
+{-# INLINE srerDestinations #-}
 
 instance ToQuery SendRawEmail where
     toQuery = genericQuery def
@@ -110,7 +172,17 @@ data SendRawEmailResponse = SendRawEmailResponse
       -- action.
     } deriving (Show, Generic)
 
-makeLenses ''SendRawEmailResponse
+-- | The unique message identifier returned from the SendRawEmail action.
+sresMessageId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SendRawEmailResponse
+    -> f SendRawEmailResponse
+sresMessageId f x =
+    (\y -> x { _sresMessageId = y })
+       <$> f (_sresMessageId x)
+{-# INLINE sresMessageId #-}
 
 instance FromXML SendRawEmailResponse where
     fromXMLOptions = xmlOptions

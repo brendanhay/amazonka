@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,18 +31,48 @@
 -- /application_abc/component_xyz/
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:11:10Z 37289fda-99f2-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.GetInstanceProfile where
+module Network.AWS.IAM.V2010_05_08.GetInstanceProfile
+    (
+    -- * Request
+      GetInstanceProfile
+    -- ** Request constructor
+    , getInstanceProfile
+    -- ** Request lenses
+    , giprInstanceProfileName
+
+    -- * Response
+    , GetInstanceProfileResponse
+    -- ** Response lenses
+    , gipsInstanceProfile
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetInstanceProfile' request.
+getInstanceProfile :: Text -- ^ 'giprInstanceProfileName'
+                   -> GetInstanceProfile
+getInstanceProfile p1 = GetInstanceProfile
+    { _giprInstanceProfileName = p1
+    }
 
 data GetInstanceProfile = GetInstanceProfile
     { _giprInstanceProfileName :: Text
       -- ^ Name of the instance profile to get information about.
     } deriving (Show, Generic)
 
-makeLenses ''GetInstanceProfile
+-- | Name of the instance profile to get information about.
+giprInstanceProfileName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetInstanceProfile
+    -> f GetInstanceProfile
+giprInstanceProfileName f x =
+    (\y -> x { _giprInstanceProfileName = y })
+       <$> f (_giprInstanceProfileName x)
+{-# INLINE giprInstanceProfileName #-}
 
 instance ToQuery GetInstanceProfile where
     toQuery = genericQuery def
@@ -53,7 +82,17 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse
       -- ^ Information about the instance profile.
     } deriving (Show, Generic)
 
-makeLenses ''GetInstanceProfileResponse
+-- | Information about the instance profile.
+gipsInstanceProfile
+    :: Functor f
+    => (InstanceProfile
+    -> f (InstanceProfile))
+    -> GetInstanceProfileResponse
+    -> f GetInstanceProfileResponse
+gipsInstanceProfile f x =
+    (\y -> x { _gipsInstanceProfile = y })
+       <$> f (_gipsInstanceProfile x)
+{-# INLINE gipsInstanceProfile #-}
 
 instance FromXML GetInstanceProfileResponse where
     fromXMLOptions = xmlOptions

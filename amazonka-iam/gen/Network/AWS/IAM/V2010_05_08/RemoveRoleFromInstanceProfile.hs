@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,11 +27,32 @@
 -- ?Action=RemoveRoleFromInstanceProfile &InstanceProfileName=Webserver
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile where
+module Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
+    (
+    -- * Request
+      RemoveRoleFromInstanceProfile
+    -- ** Request constructor
+    , removeRoleFromInstanceProfile
+    -- ** Request lenses
+    , rrfiprInstanceProfileName
+    , rrfiprRoleName
+
+    -- * Response
+    , RemoveRoleFromInstanceProfileResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RemoveRoleFromInstanceProfile' request.
+removeRoleFromInstanceProfile :: Text -- ^ 'rrfiprInstanceProfileName'
+                              -> Text -- ^ 'rrfiprRoleName'
+                              -> RemoveRoleFromInstanceProfile
+removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
+    { _rrfiprInstanceProfileName = p1
+    , _rrfiprRoleName = p2
+    }
 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfiprInstanceProfileName :: Text
@@ -41,15 +61,35 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
       -- ^ Name of the role to remove.
     } deriving (Show, Generic)
 
-makeLenses ''RemoveRoleFromInstanceProfile
+-- | Name of the instance profile to update.
+rrfiprInstanceProfileName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveRoleFromInstanceProfile
+    -> f RemoveRoleFromInstanceProfile
+rrfiprInstanceProfileName f x =
+    (\y -> x { _rrfiprInstanceProfileName = y })
+       <$> f (_rrfiprInstanceProfileName x)
+{-# INLINE rrfiprInstanceProfileName #-}
+
+-- | Name of the role to remove.
+rrfiprRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveRoleFromInstanceProfile
+    -> f RemoveRoleFromInstanceProfile
+rrfiprRoleName f x =
+    (\y -> x { _rrfiprRoleName = y })
+       <$> f (_rrfiprRoleName x)
+{-# INLINE rrfiprRoleName #-}
 
 instance ToQuery RemoveRoleFromInstanceProfile where
     toQuery = genericQuery def
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemoveRoleFromInstanceProfileResponse
 
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM

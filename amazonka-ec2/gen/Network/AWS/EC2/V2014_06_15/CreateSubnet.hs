@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,20 +45,16 @@ module Network.AWS.EC2.V2014_06_15.CreateSubnet
     (
     -- * Request
       CreateSubnet
-    -- ** Default constructor
+    -- ** Request constructor
     , createSubnet
-    -- ** Accessors and lenses
-    , _csuVpcId
+    -- ** Request lenses
     , csuVpcId
-    , _csuCidrBlock
     , csuCidrBlock
-    , _csuAvailabilityZone
     , csuAvailabilityZone
 
     -- * Response
     , CreateSubnetResponse
-    -- ** Accessors and lenses
-    , _csvSubnet
+    -- ** Response lenses
     , csvSubnet
     ) where
 
@@ -78,8 +73,53 @@ createSubnet p1 p2 = CreateSubnet
     }
 
 data CreateSubnet = CreateSubnet
+    { _csuVpcId :: Text
+      -- ^ The ID of the VPC.
+    , _csuCidrBlock :: Text
+      -- ^ The network range for the subnet, in CIDR notation. For example,
+      -- 10.0.0.0/24.
+    , _csuAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone for the subnet. Default: Amazon EC2 selects
+      -- one for you (recommended).
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateSubnet
+-- | The ID of the VPC.
+csuVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSubnet
+    -> f CreateSubnet
+csuVpcId f x =
+    (\y -> x { _csuVpcId = y })
+       <$> f (_csuVpcId x)
+{-# INLINE csuVpcId #-}
+
+-- | The network range for the subnet, in CIDR notation. For example,
+-- 10.0.0.0/24.
+csuCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSubnet
+    -> f CreateSubnet
+csuCidrBlock f x =
+    (\y -> x { _csuCidrBlock = y })
+       <$> f (_csuCidrBlock x)
+{-# INLINE csuCidrBlock #-}
+
+-- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
+-- you (recommended).
+csuAvailabilityZone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSubnet
+    -> f CreateSubnet
+csuAvailabilityZone f x =
+    (\y -> x { _csuAvailabilityZone = y })
+       <$> f (_csuAvailabilityZone x)
+{-# INLINE csuAvailabilityZone #-}
 
 instance ToQuery CreateSubnet where
     toQuery = genericQuery def
@@ -89,7 +129,17 @@ data CreateSubnetResponse = CreateSubnetResponse
       -- ^ Information about the subnet.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateSubnetResponse
+-- | Information about the subnet.
+csvSubnet
+    :: Functor f
+    => (Maybe Subnet
+    -> f (Maybe Subnet))
+    -> CreateSubnetResponse
+    -> f CreateSubnetResponse
+csvSubnet f x =
+    (\y -> x { _csvSubnet = y })
+       <$> f (_csvSubnet x)
+{-# INLINE csvSubnet #-}
 
 instance FromXML CreateSubnetResponse where
     fromXMLOptions = xmlOptions
@@ -100,17 +150,3 @@ instance AWSRequest CreateSubnet where
 
     request = post "CreateSubnet"
     response _ = xmlResponse
-
--- | The ID of the VPC.
-csuVpcId :: Lens' CreateSubnet (Text)
-
--- | The network range for the subnet, in CIDR notation. For example,
--- 10.0.0.0/24.
-csuCidrBlock :: Lens' CreateSubnet (Text)
-
--- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
--- you (recommended).
-csuAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-
--- | Information about the subnet.
-csvSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)

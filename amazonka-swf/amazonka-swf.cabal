@@ -45,37 +45,37 @@ library
           Network.AWS.SWF
         , Network.AWS.SWF.V2012_01_25
         , Network.AWS.SWF.V2012_01_25.Types
-        , Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
-        , Network.AWS.SWF.V2012_01_25.RegisterActivityType
-        , Network.AWS.SWF.V2012_01_25.ListActivityTypes
-        , Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
-        , Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
-        , Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
-        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed
-        , Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
-        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
-        , Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
-        , Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
-        , Network.AWS.SWF.V2012_01_25.RegisterDomain
-        , Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted
-        , Network.AWS.SWF.V2012_01_25.PollForActivityTask
-        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
-        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
-        , Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
-        , Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
-        , Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
-        , Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
-        , Network.AWS.SWF.V2012_01_25.DescribeDomain
-        , Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
-        , Network.AWS.SWF.V2012_01_25.DeprecateDomain
-        , Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
-        , Network.AWS.SWF.V2012_01_25.DescribeActivityType
-        , Network.AWS.SWF.V2012_01_25.DeprecateActivityType
         , Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
-        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
-        , Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
-        , Network.AWS.SWF.V2012_01_25.PollForDecisionTask
+        , Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
+        , Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
+        , Network.AWS.SWF.V2012_01_25.DeprecateActivityType
+        , Network.AWS.SWF.V2012_01_25.DeprecateDomain
+        , Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
+        , Network.AWS.SWF.V2012_01_25.DescribeActivityType
+        , Network.AWS.SWF.V2012_01_25.DescribeDomain
+        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
+        , Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
+        , Network.AWS.SWF.V2012_01_25.ListActivityTypes
+        , Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
         , Network.AWS.SWF.V2012_01_25.ListDomains
+        , Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
+        , Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
+        , Network.AWS.SWF.V2012_01_25.PollForActivityTask
+        , Network.AWS.SWF.V2012_01_25.PollForDecisionTask
+        , Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
+        , Network.AWS.SWF.V2012_01_25.RegisterActivityType
+        , Network.AWS.SWF.V2012_01_25.RegisterDomain
+        , Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
+        , Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
+        , Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed
+        , Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted
+        , Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
+        , Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
 
     build-depends:
           amazonka-core

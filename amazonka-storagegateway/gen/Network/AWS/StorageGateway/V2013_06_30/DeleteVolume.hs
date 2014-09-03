@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -42,12 +41,32 @@
 -- "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
-module Network.AWS.StorageGateway.V2013_06_30.DeleteVolume where
+module Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
+    (
+    -- * Request
+      DeleteVolume
+    -- ** Request constructor
+    , deleteVolume
+    -- ** Request lenses
+    , dviVolumeARN
+
+    -- * Response
+    , DeleteVolumeResponse
+    -- ** Response lenses
+    , dvoVolumeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DeleteVolume' request.
+deleteVolume :: Text -- ^ 'dviVolumeARN'
+             -> DeleteVolume
+deleteVolume p1 = DeleteVolume
+    { _dviVolumeARN = p1
+    }
 
 data DeleteVolume = DeleteVolume
     { _dviVolumeARN :: Text
@@ -55,7 +74,18 @@ data DeleteVolume = DeleteVolume
       -- operation to return a list of gateway volumes.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteVolume
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
+-- to return a list of gateway volumes.
+dviVolumeARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVolume
+    -> f DeleteVolume
+dviVolumeARN f x =
+    (\y -> x { _dviVolumeARN = y })
+       <$> f (_dviVolumeARN x)
+{-# INLINE dviVolumeARN #-}
 
 instance ToPath DeleteVolume
 
@@ -71,7 +101,18 @@ data DeleteVolumeResponse = DeleteVolumeResponse
       -- deleted. It is the same ARN you provided in the request.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteVolumeResponse
+-- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It
+-- is the same ARN you provided in the request.
+dvoVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteVolumeResponse
+    -> f DeleteVolumeResponse
+dvoVolumeARN f x =
+    (\y -> x { _dvoVolumeARN = y })
+       <$> f (_dvoVolumeARN x)
+{-# INLINE dvoVolumeARN #-}
 
 instance FromJSON DeleteVolumeResponse
 

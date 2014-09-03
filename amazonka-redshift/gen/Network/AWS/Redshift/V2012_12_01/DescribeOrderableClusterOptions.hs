@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,7 +34,24 @@
 -- dw1.8xlarge us-east-1a us-east-1c us-east-1d 1.0 multi-node dw1.xlarge
 -- us-east-1a us-east-1c us-east-1d 1.0 single-node dw1.xlarge us-east-1a
 -- us-east-1c us-east-1d e37414cc-40c0-11e2-b6a0-df98b1a86860.
-module Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions where
+module Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions
+    (
+    -- * Request
+      DescribeOrderableClusterOptions
+    -- ** Request constructor
+    , describeOrderableClusterOptions
+    -- ** Request lenses
+    , docomMaxRecords
+    , docomClusterVersion
+    , docomNodeType
+    , docomMarker
+
+    -- * Response
+    , DescribeOrderableClusterOptionsResponse
+    -- ** Response lenses
+    , ocomOrderableClusterOptions
+    , ocomMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -45,8 +61,8 @@ import Network.AWS.Prelude
 describeOrderableClusterOptions :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions = DescribeOrderableClusterOptions
     { _docomMaxRecords = Nothing
-    , _docomNodeType = Nothing
     , _docomClusterVersion = Nothing
+    , _docomNodeType = Nothing
     , _docomMarker = Nothing
     }
 
@@ -58,14 +74,14 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _docomNodeType :: Maybe Text
-      -- ^ The node type filter value. Specify this parameter to show only
-      -- the available offerings matching the specified node type.
     , _docomClusterVersion :: Maybe Text
       -- ^ The version filter value. Specify this parameter to show only the
       -- available offerings matching the specified version. Default: All
       -- versions. Constraints: Must be one of the version returned from
       -- DescribeClusterVersions.
+    , _docomNodeType :: Maybe Text
+      -- ^ The node type filter value. Specify this parameter to show only
+      -- the available offerings matching the specified node type.
     , _docomMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -76,7 +92,66 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
       -- parameter and retrying the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeOrderableClusterOptions
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in a marker field of the response. You can
+-- retrieve the next set of records by retrying the command with the returned
+-- marker value. Default: 100 Constraints: minimum 20, maximum 100.
+docomMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeOrderableClusterOptions
+    -> f DescribeOrderableClusterOptions
+docomMaxRecords f x =
+    (\y -> x { _docomMaxRecords = y })
+       <$> f (_docomMaxRecords x)
+{-# INLINE docomMaxRecords #-}
+
+-- | The version filter value. Specify this parameter to show only the available
+-- offerings matching the specified version. Default: All versions.
+-- Constraints: Must be one of the version returned from
+-- DescribeClusterVersions.
+docomClusterVersion
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeOrderableClusterOptions
+    -> f DescribeOrderableClusterOptions
+docomClusterVersion f x =
+    (\y -> x { _docomClusterVersion = y })
+       <$> f (_docomClusterVersion x)
+{-# INLINE docomClusterVersion #-}
+
+-- | The node type filter value. Specify this parameter to show only the
+-- available offerings matching the specified node type.
+docomNodeType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeOrderableClusterOptions
+    -> f DescribeOrderableClusterOptions
+docomNodeType f x =
+    (\y -> x { _docomNodeType = y })
+       <$> f (_docomNodeType x)
+{-# INLINE docomNodeType #-}
+
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a DescribeOrderableClusterOptions
+-- request exceed the value specified in MaxRecords, AWS returns a value in
+-- the Marker field of the response. You can retrieve the next set of response
+-- records by providing the returned marker value in the Marker parameter and
+-- retrying the request.
+docomMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeOrderableClusterOptions
+    -> f DescribeOrderableClusterOptions
+docomMarker f x =
+    (\y -> x { _docomMarker = y })
+       <$> f (_docomMarker x)
+{-# INLINE docomMarker #-}
 
 instance ToQuery DescribeOrderableClusterOptions where
     toQuery = genericQuery def
@@ -94,7 +169,34 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
       -- records have been retrieved for the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeOrderableClusterOptionsResponse
+-- | An OrderableClusterOption structure containing information about orderable
+-- options for the Cluster.
+ocomOrderableClusterOptions
+    :: Functor f
+    => ([OrderableClusterOption]
+    -> f ([OrderableClusterOption]))
+    -> DescribeOrderableClusterOptionsResponse
+    -> f DescribeOrderableClusterOptionsResponse
+ocomOrderableClusterOptions f x =
+    (\y -> x { _ocomOrderableClusterOptions = y })
+       <$> f (_ocomOrderableClusterOptions x)
+{-# INLINE ocomOrderableClusterOptions #-}
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker
+-- value in the Marker parameter and retrying the command. If the Marker field
+-- is empty, all response records have been retrieved for the request.
+ocomMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeOrderableClusterOptionsResponse
+    -> f DescribeOrderableClusterOptionsResponse
+ocomMarker f x =
+    (\y -> x { _ocomMarker = y })
+       <$> f (_ocomMarker x)
+{-# INLINE ocomMarker #-}
 
 instance FromXML DescribeOrderableClusterOptionsResponse where
     fromXMLOptions = xmlOptions

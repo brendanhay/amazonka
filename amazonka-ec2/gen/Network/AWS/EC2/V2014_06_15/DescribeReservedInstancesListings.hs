@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,20 +32,16 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings
     (
     -- * Request
       DescribeReservedInstancesListings
-    -- ** Default constructor
+    -- ** Request constructor
     , describeReservedInstancesListings
-    -- ** Accessors and lenses
-    , _drilrFilters
+    -- ** Request lenses
     , drilrFilters
-    , _drilrReservedInstancesId
     , drilrReservedInstancesId
-    , _drilrReservedInstancesListingId
     , drilrReservedInstancesListingId
 
     -- * Response
     , DescribeReservedInstancesListingsResponse
-    -- ** Accessors and lenses
-    , _drilsReservedInstancesListings
+    -- ** Response lenses
     , drilsReservedInstancesListings
     ) where
 
@@ -63,8 +58,56 @@ describeReservedInstancesListings = DescribeReservedInstancesListings
     }
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
+    { _drilrFilters :: [Filter]
+      -- ^ One or more filters. reserved-instances-id - The ID of the
+      -- Reserved Instances. reserved-instances-listing-id - The ID of the
+      -- Reserved Instances listing. status - The status of the Reserved
+      -- Instance listing (pending | active | cancelled | closed).
+      -- status-message - The reason for the status.
+    , _drilrReservedInstancesId :: Maybe Text
+      -- ^ One or more Reserved Instance IDs.
+    , _drilrReservedInstancesListingId :: Maybe Text
+      -- ^ One or more Reserved Instance Listing IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeReservedInstancesListings
+-- | One or more filters. reserved-instances-id - The ID of the Reserved
+-- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
+-- listing. status - The status of the Reserved Instance listing (pending |
+-- active | cancelled | closed). status-message - The reason for the status.
+drilrFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeReservedInstancesListings
+    -> f DescribeReservedInstancesListings
+drilrFilters f x =
+    (\y -> x { _drilrFilters = y })
+       <$> f (_drilrFilters x)
+{-# INLINE drilrFilters #-}
+
+-- | One or more Reserved Instance IDs.
+drilrReservedInstancesId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReservedInstancesListings
+    -> f DescribeReservedInstancesListings
+drilrReservedInstancesId f x =
+    (\y -> x { _drilrReservedInstancesId = y })
+       <$> f (_drilrReservedInstancesId x)
+{-# INLINE drilrReservedInstancesId #-}
+
+-- | One or more Reserved Instance Listing IDs.
+drilrReservedInstancesListingId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeReservedInstancesListings
+    -> f DescribeReservedInstancesListings
+drilrReservedInstancesListingId f x =
+    (\y -> x { _drilrReservedInstancesListingId = y })
+       <$> f (_drilrReservedInstancesListingId x)
+{-# INLINE drilrReservedInstancesListingId #-}
 
 instance ToQuery DescribeReservedInstancesListings where
     toQuery = genericQuery def
@@ -74,7 +117,17 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
       -- ^ Information about the Reserved Instance listing.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeReservedInstancesListingsResponse
+-- | Information about the Reserved Instance listing.
+drilsReservedInstancesListings
+    :: Functor f
+    => ([ReservedInstancesListing]
+    -> f ([ReservedInstancesListing]))
+    -> DescribeReservedInstancesListingsResponse
+    -> f DescribeReservedInstancesListingsResponse
+drilsReservedInstancesListings f x =
+    (\y -> x { _drilsReservedInstancesListings = y })
+       <$> f (_drilsReservedInstancesListings x)
+{-# INLINE drilsReservedInstancesListings #-}
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions
@@ -85,18 +138,3 @@ instance AWSRequest DescribeReservedInstancesListings where
 
     request = post "DescribeReservedInstancesListings"
     response _ = xmlResponse
-
--- | One or more filters. reserved-instances-id - The ID of the Reserved
--- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
--- listing. status - The status of the Reserved Instance listing (pending |
--- active | cancelled | closed). status-message - The reason for the status.
-drilrFilters :: Lens' DescribeReservedInstancesListings ([Filter])
-
--- | One or more Reserved Instance IDs.
-drilrReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-
--- | One or more Reserved Instance Listing IDs.
-drilrReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-
--- | Information about the Reserved Instance listing.
-drilsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse ([ReservedInstancesListing])

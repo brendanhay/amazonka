@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,19 @@
 -- must have a Manage permissions level for the stack, or an attached policy
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp where
+module Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
+    (
+    -- * Request
+      UpdateElasticIp
+    -- ** Request constructor
+    , updateElasticIp
+    -- ** Request lenses
+    , ueirElasticIp
+    , ueirName
+
+    -- * Response
+    , UpdateElasticIpResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -31,7 +42,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateElasticIp' request.
-updateElasticIp :: Text -- ^ '_ueirElasticIp'
+updateElasticIp :: Text -- ^ 'ueirElasticIp'
                 -> UpdateElasticIp
 updateElasticIp p1 = UpdateElasticIp
     { _ueirElasticIp = p1
@@ -45,7 +56,29 @@ data UpdateElasticIp = UpdateElasticIp
       -- ^ The new name.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateElasticIp
+-- | The address.
+ueirElasticIp
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateElasticIp
+    -> f UpdateElasticIp
+ueirElasticIp f x =
+    (\y -> x { _ueirElasticIp = y })
+       <$> f (_ueirElasticIp x)
+{-# INLINE ueirElasticIp #-}
+
+-- | The new name.
+ueirName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateElasticIp
+    -> f UpdateElasticIp
+ueirName f x =
+    (\y -> x { _ueirName = y })
+       <$> f (_ueirName x)
+{-# INLINE ueirName #-}
 
 instance ToPath UpdateElasticIp
 
@@ -57,8 +90,6 @@ instance ToJSON UpdateElasticIp
 
 data UpdateElasticIpResponse = UpdateElasticIpResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateElasticIpResponse
 
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks

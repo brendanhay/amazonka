@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,26 +28,52 @@
 -- &x-amz-date=20121208T015926Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- e54e05dc-40da-11e2-955f-313c36e9e01d.
-module Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup where
+module Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup
+    (
+    -- * Request
+      DeleteClusterSecurityGroup
+    -- ** Request constructor
+    , deleteClusterSecurityGroup
+    -- ** Request lenses
+    , dcsgmClusterSecurityGroupName
+
+    -- * Response
+    , DeleteClusterSecurityGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteClusterSecurityGroup' request.
+deleteClusterSecurityGroup :: Text -- ^ 'dcsgmClusterSecurityGroupName'
+                           -> DeleteClusterSecurityGroup
+deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
+    { _dcsgmClusterSecurityGroupName = p1
+    }
+
 data DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
-    { _dcsgpClusterSecurityGroupName :: Text
+    { _dcsgmClusterSecurityGroupName :: Text
       -- ^ The name of the cluster security group to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteClusterSecurityGroup
+-- | The name of the cluster security group to be deleted.
+dcsgmClusterSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteClusterSecurityGroup
+    -> f DeleteClusterSecurityGroup
+dcsgmClusterSecurityGroupName f x =
+    (\y -> x { _dcsgmClusterSecurityGroupName = y })
+       <$> f (_dcsgmClusterSecurityGroupName x)
+{-# INLINE dcsgmClusterSecurityGroupName #-}
 
 instance ToQuery DeleteClusterSecurityGroup where
     toQuery = genericQuery def
 
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteClusterSecurityGroupResponse
 
 instance AWSRequest DeleteClusterSecurityGroup where
     type Sv DeleteClusterSecurityGroup = Redshift

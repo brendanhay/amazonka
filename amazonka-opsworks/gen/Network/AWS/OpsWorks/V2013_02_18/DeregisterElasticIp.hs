@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,19 +23,47 @@
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp where
+module Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp
+    (
+    -- * Request
+      DeregisterElasticIp
+    -- ** Request constructor
+    , deregisterElasticIp
+    -- ** Request lenses
+    , deirElasticIp
+
+    -- * Response
+    , DeregisterElasticIpResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeregisterElasticIp' request.
+deregisterElasticIp :: Text -- ^ 'deirElasticIp'
+                    -> DeregisterElasticIp
+deregisterElasticIp p1 = DeregisterElasticIp
+    { _deirElasticIp = p1
+    }
+
 data DeregisterElasticIp = DeregisterElasticIp
-    { _deisElasticIp :: Text
+    { _deirElasticIp :: Text
       -- ^ The Elastic IP address.
     } deriving (Show, Generic)
 
-makeLenses ''DeregisterElasticIp
+-- | The Elastic IP address.
+deirElasticIp
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeregisterElasticIp
+    -> f DeregisterElasticIp
+deirElasticIp f x =
+    (\y -> x { _deirElasticIp = y })
+       <$> f (_deirElasticIp x)
+{-# INLINE deirElasticIp #-}
 
 instance ToPath DeregisterElasticIp
 
@@ -48,8 +75,6 @@ instance ToJSON DeregisterElasticIp
 
 data DeregisterElasticIpResponse = DeregisterElasticIpResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeregisterElasticIpResponse
 
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks

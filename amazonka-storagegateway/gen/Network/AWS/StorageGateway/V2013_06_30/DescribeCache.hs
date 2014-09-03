@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,12 +38,38 @@
 -- "CacheUsedPercentage": 0.07, "DiskIds": [ "pci-0000:03:00.0-scsi-0:0:0:0",
 -- "pci-0000:04:00.0-scsi-0:1:0:0" ], "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeCache where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeCache
+    (
+    -- * Request
+      DescribeCache
+    -- ** Request constructor
+    , describeCache
+    -- ** Request lenses
+    , dciGatewayARN
+
+    -- * Response
+    , DescribeCacheResponse
+    -- ** Response lenses
+    , dcoDiskIds
+    , dcoCacheUsedPercentage
+    , dcoCacheDirtyPercentage
+    , dcoCacheHitPercentage
+    , dcoCacheMissPercentage
+    , dcoGatewayARN
+    , dcoCacheAllocatedInBytes
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeCache' request.
+describeCache :: Text -- ^ 'dciGatewayARN'
+              -> DescribeCache
+describeCache p1 = DescribeCache
+    { _dciGatewayARN = p1
+    }
 
 data DescribeCache = DescribeCache
     { _dciGatewayARN :: Text
@@ -53,7 +78,18 @@ data DescribeCache = DescribeCache
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCache
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dciGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeCache
+    -> f DescribeCache
+dciGatewayARN f x =
+    (\y -> x { _dciGatewayARN = y })
+       <$> f (_dciGatewayARN x)
+{-# INLINE dciGatewayARN #-}
 
 instance ToPath DescribeCache
 
@@ -65,10 +101,10 @@ instance ToJSON DescribeCache
 
 data DescribeCacheResponse = DescribeCacheResponse
     { _dcoDiskIds :: [Text]
-    , _dcoCacheDirtyPercentage :: Maybe Double
-    , _dcoCacheMissPercentage :: Maybe Double
-    , _dcoCacheHitPercentage :: Maybe Double
     , _dcoCacheUsedPercentage :: Maybe Double
+    , _dcoCacheDirtyPercentage :: Maybe Double
+    , _dcoCacheHitPercentage :: Maybe Double
+    , _dcoCacheMissPercentage :: Maybe Double
     , _dcoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -76,7 +112,84 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcoCacheAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCacheResponse
+dcoDiskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoDiskIds f x =
+    (\y -> x { _dcoDiskIds = y })
+       <$> f (_dcoDiskIds x)
+{-# INLINE dcoDiskIds #-}
+
+dcoCacheUsedPercentage
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoCacheUsedPercentage f x =
+    (\y -> x { _dcoCacheUsedPercentage = y })
+       <$> f (_dcoCacheUsedPercentage x)
+{-# INLINE dcoCacheUsedPercentage #-}
+
+dcoCacheDirtyPercentage
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoCacheDirtyPercentage f x =
+    (\y -> x { _dcoCacheDirtyPercentage = y })
+       <$> f (_dcoCacheDirtyPercentage x)
+{-# INLINE dcoCacheDirtyPercentage #-}
+
+dcoCacheHitPercentage
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoCacheHitPercentage f x =
+    (\y -> x { _dcoCacheHitPercentage = y })
+       <$> f (_dcoCacheHitPercentage x)
+{-# INLINE dcoCacheHitPercentage #-}
+
+dcoCacheMissPercentage
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoCacheMissPercentage f x =
+    (\y -> x { _dcoCacheMissPercentage = y })
+       <$> f (_dcoCacheMissPercentage x)
+{-# INLINE dcoCacheMissPercentage #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dcoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoGatewayARN f x =
+    (\y -> x { _dcoGatewayARN = y })
+       <$> f (_dcoGatewayARN x)
+{-# INLINE dcoGatewayARN #-}
+
+dcoCacheAllocatedInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeCacheResponse
+    -> f DescribeCacheResponse
+dcoCacheAllocatedInBytes f x =
+    (\y -> x { _dcoCacheAllocatedInBytes = y })
+       <$> f (_dcoCacheAllocatedInBytes x)
+{-# INLINE dcoCacheAllocatedInBytes #-}
 
 instance FromJSON DescribeCacheResponse
 

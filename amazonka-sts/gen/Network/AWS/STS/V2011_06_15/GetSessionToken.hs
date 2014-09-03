@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -53,7 +52,22 @@
 -- Z3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY 2011-07-11T19:55:29.611Z
 -- AKIAIOSFODNN7EXAMPLE 58c5dbae-abef-11e0-8cfe-09039844ac7d.
-module Network.AWS.STS.V2011_06_15.GetSessionToken where
+module Network.AWS.STS.V2011_06_15.GetSessionToken
+    (
+    -- * Request
+      GetSessionToken
+    -- ** Request constructor
+    , getSessionToken
+    -- ** Request lenses
+    , gstrDurationSeconds
+    , gstrSerialNumber
+    , gstrTokenCode
+
+    -- * Response
+    , GetSessionTokenResponse
+    -- ** Response lenses
+    , gstsCredentials
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
@@ -95,7 +109,58 @@ data GetSessionToken = GetSessionToken
       -- when requesting resources that require MFA authentication.
     } deriving (Show, Generic)
 
-makeLenses ''GetSessionToken
+-- | The duration, in seconds, that the credentials should remain valid.
+-- Acceptable durations for IAM user sessions range from 900 seconds (15
+-- minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the
+-- default. Sessions for AWS account owners are restricted to a maximum of
+-- 3600 seconds (one hour). If the duration is longer than one hour, the
+-- session for AWS account owners defaults to one hour.
+gstrDurationSeconds
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> GetSessionToken
+    -> f GetSessionToken
+gstrDurationSeconds f x =
+    (\y -> x { _gstrDurationSeconds = y })
+       <$> f (_gstrDurationSeconds x)
+{-# INLINE gstrDurationSeconds #-}
+
+-- | The identification number of the MFA device that is associated with the IAM
+-- user who is making the GetSessionToken call. Specify this value if the IAM
+-- user has a policy that requires MFA authentication. The value is either the
+-- serial number for a hardware device (such as GAHT12345678) or an Amazon
+-- Resource Name (ARN) for a virtual device (such as
+-- arn:aws:iam::123456789012:mfa/user). You can find the device for an IAM
+-- user by going to the AWS Management Console and viewing the user's security
+-- credentials.
+gstrSerialNumber
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetSessionToken
+    -> f GetSessionToken
+gstrSerialNumber f x =
+    (\y -> x { _gstrSerialNumber = y })
+       <$> f (_gstrSerialNumber x)
+{-# INLINE gstrSerialNumber #-}
+
+-- | The value provided by the MFA device, if MFA is required. If any policy
+-- requires the IAM user to submit an MFA code, specify this value. If MFA
+-- authentication is required, and the user does not provide a code when
+-- requesting a set of temporary security credentials, the user will receive
+-- an "access denied" response when requesting resources that require MFA
+-- authentication.
+gstrTokenCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetSessionToken
+    -> f GetSessionToken
+gstrTokenCode f x =
+    (\y -> x { _gstrTokenCode = y })
+       <$> f (_gstrTokenCode x)
+{-# INLINE gstrTokenCode #-}
 
 instance ToQuery GetSessionToken where
     toQuery = genericQuery def
@@ -105,7 +170,17 @@ data GetSessionTokenResponse = GetSessionTokenResponse
       -- ^ The session credentials for API authentication.
     } deriving (Show, Generic)
 
-makeLenses ''GetSessionTokenResponse
+-- | The session credentials for API authentication.
+gstsCredentials
+    :: Functor f
+    => (Maybe Credentials
+    -> f (Maybe Credentials))
+    -> GetSessionTokenResponse
+    -> f GetSessionTokenResponse
+gstsCredentials f x =
+    (\y -> x { _gstsCredentials = y })
+       <$> f (_gstsCredentials x)
+{-# INLINE gstsCredentials #-}
 
 instance FromXML GetSessionTokenResponse where
     fromXMLOptions = xmlOptions

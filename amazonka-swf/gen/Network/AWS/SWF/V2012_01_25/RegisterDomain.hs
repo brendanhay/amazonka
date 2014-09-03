@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,7 +43,20 @@
 -- "workflowExecutionRetentionPeriodInDays": "60"} HTTP/1.1 200 OK
 -- Content-Length: 0 Content-Type: application/json x-amzn-RequestId:
 -- 4ec4ac3f-3e16-11e1-9b11-7182192d0b57.
-module Network.AWS.SWF.V2012_01_25.RegisterDomain where
+module Network.AWS.SWF.V2012_01_25.RegisterDomain
+    (
+    -- * Request
+      RegisterDomain
+    -- ** Request constructor
+    , registerDomain
+    -- ** Request lenses
+    , rdiName
+    , rdiWorkflowExecutionRetentionPeriodInDays
+    , rdiDescription
+
+    -- * Response
+    , RegisterDomainResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -52,8 +64,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RegisterDomain' request.
-registerDomain :: Text -- ^ '_rdiName'
-               -> Text -- ^ '_rdiWorkflowExecutionRetentionPeriodInDays'
+registerDomain :: Text -- ^ 'rdiName'
+               -> Text -- ^ 'rdiWorkflowExecutionRetentionPeriodInDays'
                -> RegisterDomain
 registerDomain p1 p2 = RegisterDomain
     { _rdiName = p1
@@ -79,7 +91,50 @@ data RegisterDomain = RegisterDomain
       -- ^ Textual description of the domain.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterDomain
+-- | Name of the domain to register. The name must be unique. The specified
+-- string must not start or end with whitespace. It must not contain a :
+-- (colon), / (slash), | (vertical bar), or any control characters
+-- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
+-- string &quot;arn&quot;.
+rdiName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterDomain
+    -> f RegisterDomain
+rdiName f x =
+    (\y -> x { _rdiName = y })
+       <$> f (_rdiName x)
+{-# INLINE rdiName #-}
+
+-- | A duration (in days) for which the record (including the history) of
+-- workflow executions in this domain should be kept by the service. After the
+-- retention period, the workflow execution will not be available in the
+-- results of visibility calls. If you pass the value NONE then there is no
+-- expiration for workflow execution history (effectively an infinite
+-- retention period).
+rdiWorkflowExecutionRetentionPeriodInDays
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterDomain
+    -> f RegisterDomain
+rdiWorkflowExecutionRetentionPeriodInDays f x =
+    (\y -> x { _rdiWorkflowExecutionRetentionPeriodInDays = y })
+       <$> f (_rdiWorkflowExecutionRetentionPeriodInDays x)
+{-# INLINE rdiWorkflowExecutionRetentionPeriodInDays #-}
+
+-- | Textual description of the domain.
+rdiDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterDomain
+    -> f RegisterDomain
+rdiDescription f x =
+    (\y -> x { _rdiDescription = y })
+       <$> f (_rdiDescription x)
+{-# INLINE rdiDescription #-}
 
 instance ToPath RegisterDomain
 
@@ -91,8 +146,6 @@ instance ToJSON RegisterDomain
 
 data RegisterDomainResponse = RegisterDomainResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RegisterDomainResponse
 
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF

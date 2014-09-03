@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,15 +17,29 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53.V2013_04_01.ChangeTagsForResource where
+module Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
+    (
+    -- * Request
+      ChangeTagsForResource
+    -- ** Request constructor
+    , changeTagsForResource
+    -- ** Request lenses
+    , ctfrrResourceId
+    , ctfrrResourceType
+    , ctfrrRemoveTagKeys
+    , ctfrrAddTags
+
+    -- * Response
+    , ChangeTagsForResourceResponse
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ChangeTagsForResource' request.
-changeTagsForResource :: Text -- ^ '_ctfrrResourceId'
-                      -> TagResourceType -- ^ '_ctfrrResourceType'
+changeTagsForResource :: Text -- ^ 'ctfrrResourceId'
+                      -> TagResourceType -- ^ 'ctfrrResourceType'
                       -> ChangeTagsForResource
 changeTagsForResource p1 p2 = ChangeTagsForResource
     { _ctfrrResourceId = p1
@@ -51,7 +64,55 @@ data ChangeTagsForResource = ChangeTagsForResource
       -- specified resource.
     } deriving (Show, Generic)
 
-makeLenses ''ChangeTagsForResource
+-- | The ID of the resource for which you want to add, change, or delete tags.
+ctfrrResourceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ChangeTagsForResource
+    -> f ChangeTagsForResource
+ctfrrResourceId f x =
+    (\y -> x { _ctfrrResourceId = y })
+       <$> f (_ctfrrResourceId x)
+{-# INLINE ctfrrResourceId #-}
+
+-- | The type of the resource. The resource type for health checks is
+-- healthcheck.
+ctfrrResourceType
+    :: Functor f
+    => (TagResourceType
+    -> f (TagResourceType))
+    -> ChangeTagsForResource
+    -> f ChangeTagsForResource
+ctfrrResourceType f x =
+    (\y -> x { _ctfrrResourceType = y })
+       <$> f (_ctfrrResourceType x)
+{-# INLINE ctfrrResourceType #-}
+
+-- | A list of Tag keys that you want to remove from the specified resource.
+ctfrrRemoveTagKeys
+    :: Functor f
+    => (Maybe [Text]
+    -> f (Maybe [Text]))
+    -> ChangeTagsForResource
+    -> f ChangeTagsForResource
+ctfrrRemoveTagKeys f x =
+    (\y -> x { _ctfrrRemoveTagKeys = y })
+       <$> f (_ctfrrRemoveTagKeys x)
+{-# INLINE ctfrrRemoveTagKeys #-}
+
+-- | A complex type that contains a list of Tag elements. Each Tag element
+-- identifies a tag that you want to add or update for the specified resource.
+ctfrrAddTags
+    :: Functor f
+    => (Maybe [Tag]
+    -> f (Maybe [Tag]))
+    -> ChangeTagsForResource
+    -> f ChangeTagsForResource
+ctfrrAddTags f x =
+    (\y -> x { _ctfrrAddTags = y })
+       <$> f (_ctfrrAddTags x)
+{-# INLINE ctfrrAddTags #-}
 
 instance ToPath ChangeTagsForResource where
     toPath ChangeTagsForResource{..} = mconcat
@@ -71,8 +132,6 @@ instance ToXML ChangeTagsForResource where
 
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''ChangeTagsForResourceResponse
 
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53

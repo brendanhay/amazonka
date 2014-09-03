@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,19 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &Operation=RestartAppServer &AuthParams
 -- 90e8d1d5-f28a-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer
+    (
+    -- * Request
+      RestartAppServer
+    -- ** Request constructor
+    , restartAppServer
+    -- ** Request lenses
+    , rasmEnvironmentId
+    , rasmEnvironmentName
+
+    -- * Response
+    , RestartAppServerResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -49,15 +60,39 @@ data RestartAppServer = RestartAppServer
       -- MissingRequiredParameter error.
     } deriving (Show, Generic)
 
-makeLenses ''RestartAppServer
+-- | The ID of the environment to restart the server for. Condition: You must
+-- specify either this or an EnvironmentName, or both. If you do not specify
+-- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
+rasmEnvironmentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestartAppServer
+    -> f RestartAppServer
+rasmEnvironmentId f x =
+    (\y -> x { _rasmEnvironmentId = y })
+       <$> f (_rasmEnvironmentId x)
+{-# INLINE rasmEnvironmentId #-}
+
+-- | The name of the environment to restart the server for. Condition: You must
+-- specify either this or an EnvironmentId, or both. If you do not specify
+-- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
+rasmEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestartAppServer
+    -> f RestartAppServer
+rasmEnvironmentName f x =
+    (\y -> x { _rasmEnvironmentName = y })
+       <$> f (_rasmEnvironmentName x)
+{-# INLINE rasmEnvironmentName #-}
 
 instance ToQuery RestartAppServer where
     toQuery = genericQuery def
 
 data RestartAppServerResponse = RestartAppServerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RestartAppServerResponse
 
 instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk

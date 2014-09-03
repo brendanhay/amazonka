@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,7 +34,22 @@
 -- arn:aws:cloudformation:us-east-1:1234567:stack/TestDelete2/bbbbb
 -- DELETE_COMPLETE 2011-03-10T16:20:51Z WP1 2011-03-05T19:57:58Z A simple
 -- basic Cloudformation Template.
-module Network.AWS.CloudFormation.V2010_05_15.ListStacks where
+module Network.AWS.CloudFormation.V2010_05_15.ListStacks
+    (
+    -- * Request
+      ListStacks
+    -- ** Request constructor
+    , listStacks
+    -- ** Request lenses
+    , lsiNextToken
+    , lsiStackStatusFilter
+
+    -- * Response
+    , ListStacksResponse
+    -- ** Response lenses
+    , lsoNextToken
+    , lsoStackSummaries
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
@@ -59,7 +73,32 @@ data ListStacks = ListStacks
       -- parameter of the Stack data type.
     } deriving (Show, Generic)
 
-makeLenses ''ListStacks
+-- | String that identifies the start of the next list of stacks, if there is
+-- one. Default: There is no default value.
+lsiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStacks
+    -> f ListStacks
+lsiNextToken f x =
+    (\y -> x { _lsiNextToken = y })
+       <$> f (_lsiNextToken x)
+{-# INLINE lsiNextToken #-}
+
+-- | Stack status to use as a filter. Specify one or more stack status codes to
+-- list only stacks with the specified status codes. For a complete list of
+-- stack status codes, see the StackStatus parameter of the Stack data type.
+lsiStackStatusFilter
+    :: Functor f
+    => ([StackStatus]
+    -> f ([StackStatus]))
+    -> ListStacks
+    -> f ListStacks
+lsiStackStatusFilter f x =
+    (\y -> x { _lsiStackStatusFilter = y })
+       <$> f (_lsiStackStatusFilter x)
+{-# INLINE lsiStackStatusFilter #-}
 
 instance ToQuery ListStacks where
     toQuery = genericQuery def
@@ -73,7 +112,31 @@ data ListStacksResponse = ListStacksResponse
       -- the specified stacks.
     } deriving (Show, Generic)
 
-makeLenses ''ListStacksResponse
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+lsoNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStacksResponse
+    -> f ListStacksResponse
+lsoNextToken f x =
+    (\y -> x { _lsoNextToken = y })
+       <$> f (_lsoNextToken x)
+{-# INLINE lsoNextToken #-}
+
+-- | A list of StackSummary structures containing information about the
+-- specified stacks.
+lsoStackSummaries
+    :: Functor f
+    => ([StackSummary]
+    -> f ([StackSummary]))
+    -> ListStacksResponse
+    -> f ListStacksResponse
+lsoStackSummaries f x =
+    (\y -> x { _lsoStackSummaries = y })
+       <$> f (_lsoStackSummaries x)
+{-# INLINE lsoStackSummaries #-}
 
 instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions

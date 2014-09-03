@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,24 @@
 -- ListMetrics operations. If you create a metric with the PutMetricData
 -- action, allow up to fifteen minutes for the metric to appear in calls to
 -- the ListMetrics action.
-module Network.AWS.CloudWatch.V2010_08_01.ListMetrics where
+module Network.AWS.CloudWatch.V2010_08_01.ListMetrics
+    (
+    -- * Request
+      ListMetrics
+    -- ** Request constructor
+    , listMetrics
+    -- ** Request lenses
+    , lmiDimensions
+    , lmiMetricName
+    , lmiNamespace
+    , lmiNextToken
+
+    -- * Response
+    , ListMetricsResponse
+    -- ** Response lenses
+    , lmoMetrics
+    , lmoNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
@@ -52,7 +68,54 @@ data ListMetrics = ListMetrics
       -- more data available.
     } deriving (Show, Generic)
 
-makeLenses ''ListMetrics
+-- | A list of dimensions to filter against.
+lmiDimensions
+    :: Functor f
+    => ([DimensionFilter]
+    -> f ([DimensionFilter]))
+    -> ListMetrics
+    -> f ListMetrics
+lmiDimensions f x =
+    (\y -> x { _lmiDimensions = y })
+       <$> f (_lmiDimensions x)
+{-# INLINE lmiDimensions #-}
+
+-- | The name of the metric to filter against.
+lmiMetricName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListMetrics
+    -> f ListMetrics
+lmiMetricName f x =
+    (\y -> x { _lmiMetricName = y })
+       <$> f (_lmiMetricName x)
+{-# INLINE lmiMetricName #-}
+
+-- | The namespace to filter against.
+lmiNamespace
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListMetrics
+    -> f ListMetrics
+lmiNamespace f x =
+    (\y -> x { _lmiNamespace = y })
+       <$> f (_lmiNamespace x)
+{-# INLINE lmiNamespace #-}
+
+-- | The token returned by a previous call to indicate that there is more data
+-- available.
+lmiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListMetrics
+    -> f ListMetrics
+lmiNextToken f x =
+    (\y -> x { _lmiNextToken = y })
+       <$> f (_lmiNextToken x)
+{-# INLINE lmiNextToken #-}
 
 instance ToQuery ListMetrics where
     toQuery = genericQuery def
@@ -65,7 +128,29 @@ data ListMetricsResponse = ListMetricsResponse
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''ListMetricsResponse
+-- | A list of metrics used to generate statistics for an AWS account.
+lmoMetrics
+    :: Functor f
+    => ([Metric]
+    -> f ([Metric]))
+    -> ListMetricsResponse
+    -> f ListMetricsResponse
+lmoMetrics f x =
+    (\y -> x { _lmoMetrics = y })
+       <$> f (_lmoMetrics x)
+{-# INLINE lmoMetrics #-}
+
+-- | A string that marks the start of the next batch of returned results.
+lmoNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListMetricsResponse
+    -> f ListMetricsResponse
+lmoNextToken f x =
+    (\y -> x { _lmoNextToken = y })
+       <$> f (_lmoNextToken x)
+{-# INLINE lmoNextToken #-}
 
 instance FromXML ListMetricsResponse where
     fromXMLOptions = xmlOptions

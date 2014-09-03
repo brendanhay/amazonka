@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,19 +33,49 @@
 -- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "ACTIVE" }
 -- }.
-module Network.AWS.DynamoDB.V2012_08_10.DescribeTable where
+module Network.AWS.DynamoDB.V2012_08_10.DescribeTable
+    (
+    -- * Request
+      DescribeTable
+    -- ** Request constructor
+    , describeTable
+    -- ** Request lenses
+    , dtjTableName
+
+    -- * Response
+    , DescribeTableResponse
+    -- ** Response lenses
+    , dtpTable
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeTable' request.
+describeTable :: Text -- ^ 'dtjTableName'
+              -> DescribeTable
+describeTable p1 = DescribeTable
+    { _dtjTableName = p1
+    }
+
 data DescribeTable = DescribeTable
     { _dtjTableName :: Text
       -- ^ The name of the table to describe.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTable
+-- | The name of the table to describe.
+dtjTableName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeTable
+    -> f DescribeTable
+dtjTableName f x =
+    (\y -> x { _dtjTableName = y })
+       <$> f (_dtjTableName x)
+{-# INLINE dtjTableName #-}
 
 instance ToPath DescribeTable
 
@@ -61,7 +90,17 @@ data DescribeTableResponse = DescribeTableResponse
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTableResponse
+-- | Represents the properties of a table.
+dtpTable
+    :: Functor f
+    => (Maybe TableDescription
+    -> f (Maybe TableDescription))
+    -> DescribeTableResponse
+    -> f DescribeTableResponse
+dtpTable f x =
+    (\y -> x { _dtpTable = y })
+       <$> f (_dtpTable x)
+{-# INLINE dtpTable #-}
 
 instance FromJSON DescribeTableResponse
 

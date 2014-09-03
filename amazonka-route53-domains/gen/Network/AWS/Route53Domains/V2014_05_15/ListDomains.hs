@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,7 +37,22 @@
 -- "DomainName":"example.org", "Expiry":1431240024, "TransferLock":false }, {
 -- "AutoRenew":false, "DomainName":"example.test", "Expiry":1431539259,
 -- "TransferLock":false } ] }.
-module Network.AWS.Route53Domains.V2014_05_15.ListDomains where
+module Network.AWS.Route53Domains.V2014_05_15.ListDomains
+    (
+    -- * Request
+      ListDomains
+    -- ** Request constructor
+    , listDomains
+    -- ** Request lenses
+    , ldrMarker
+    , ldrMaxItems
+
+    -- * Response
+    , ListDomainsResponse
+    -- ** Response lenses
+    , ldsDomains
+    , ldsNextPageMarker
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
@@ -68,7 +82,37 @@ data ListDomains = ListDomains
       -- Constraints: A numeral between 1 and 100. Required: No.
     } deriving (Show, Generic)
 
-makeLenses ''ListDomains
+-- | For an initial request for a list of domains, omit this element. If the
+-- number of domains that are associated with the current AWS account is
+-- greater than the value that you specified for MaxItems, you can use Marker
+-- to return additional domains. Get the value of NextPageMarker from the
+-- previous response, and submit another request that includes the value of
+-- NextPageMarker in the Marker element. Type: String Default: None
+-- Constraints: The marker must match the value specified in the previous
+-- request. Required: No.
+ldrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListDomains
+    -> f ListDomains
+ldrMarker f x =
+    (\y -> x { _ldrMarker = y })
+       <$> f (_ldrMarker x)
+{-# INLINE ldrMarker #-}
+
+-- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
+-- numeral between 1 and 100. Required: No.
+ldrMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListDomains
+    -> f ListDomains
+ldrMaxItems f x =
+    (\y -> x { _ldrMaxItems = y })
+       <$> f (_ldrMaxItems x)
+{-# INLINE ldrMaxItems #-}
 
 instance ToPath ListDomains
 
@@ -90,7 +134,32 @@ data ListDomainsResponse = ListDomainsResponse
       -- Operations.
     } deriving (Show, Generic)
 
-makeLenses ''ListDomainsResponse
+-- | A summary of domains. Type: Complex type containing a list of domain
+-- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
+ldsDomains
+    :: Functor f
+    => ([DomainSummary]
+    -> f ([DomainSummary]))
+    -> ListDomainsResponse
+    -> f ListDomainsResponse
+ldsDomains f x =
+    (\y -> x { _ldsDomains = y })
+       <$> f (_ldsDomains x)
+{-# INLINE ldsDomains #-}
+
+-- | If there are more domains than you specified for MaxItems in the request,
+-- submit another request and include the value of NextPageMarker in the value
+-- of Marker. Type: String Parent: Operations.
+ldsNextPageMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListDomainsResponse
+    -> f ListDomainsResponse
+ldsNextPageMarker f x =
+    (\y -> x { _ldsNextPageMarker = y })
+       <$> f (_ldsNextPageMarker x)
+{-# INLINE ldsNextPageMarker #-}
 
 instance FromJSON ListDomainsResponse
 

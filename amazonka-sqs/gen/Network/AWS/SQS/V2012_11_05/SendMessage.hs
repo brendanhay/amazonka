@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,29 +44,47 @@
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- fafb00f5732ab283681e124bf8747ed1 3ae8f24a165a8cedc005670c81a27295
 -- 5fea7756-0ea4-451a-a703-a558b933e274 27daac76-34dd-47df-bd01-1f6e873584a0.
-module Network.AWS.SQS.V2012_11_05.SendMessage where
+module Network.AWS.SQS.V2012_11_05.SendMessage
+    (
+    -- * Request
+      SendMessage
+    -- ** Request constructor
+    , sendMessage
+    -- ** Request lenses
+    , smrQueueUrl
+    , smrMessageBody
+    , smrDelaySeconds
+    , smrMessageAttributes
+
+    -- * Response
+    , SendMessageResponse
+    -- ** Response lenses
+    , smsMD5OfMessageBody
+    , smsMD5OfMessageAttributes
+    , smsMessageId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SendMessage' request.
-sendMessage :: Text -- ^ '_smrMessageBody'
-            -> Text -- ^ '_smrQueueUrl'
+sendMessage :: Text -- ^ 'smrQueueUrl'
+            -> Text -- ^ 'smrMessageBody'
             -> SendMessage
 sendMessage p1 p2 = SendMessage
-    { _smrMessageBody = p1
-    , _smrQueueUrl = p2
+    { _smrQueueUrl = p1
+    , _smrMessageBody = p2
     , _smrDelaySeconds = Nothing
     , _smrMessageAttributes = mempty
     }
 
 data SendMessage = SendMessage
-    { _smrMessageBody :: Text
+    { _smrQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
+    , _smrMessageBody :: Text
       -- ^ The message to send. String maximum 256 KB in size. For a list of
       -- allowed characters, see the preceding important note.
-    , _smrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     , _smrDelaySeconds :: Maybe Integer
       -- ^ The number of seconds (0 to 900 - 15 minutes) to delay a specific
       -- message. Messages with a positive DelaySeconds value become
@@ -78,21 +95,72 @@ data SendMessage = SendMessage
       -- more information, see Message Attribute Items.
     } deriving (Show, Generic)
 
-makeLenses ''SendMessage
+-- | The URL of the Amazon SQS queue to take action on.
+smrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SendMessage
+    -> f SendMessage
+smrQueueUrl f x =
+    (\y -> x { _smrQueueUrl = y })
+       <$> f (_smrQueueUrl x)
+{-# INLINE smrQueueUrl #-}
+
+-- | The message to send. String maximum 256 KB in size. For a list of allowed
+-- characters, see the preceding important note.
+smrMessageBody
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SendMessage
+    -> f SendMessage
+smrMessageBody f x =
+    (\y -> x { _smrMessageBody = y })
+       <$> f (_smrMessageBody x)
+{-# INLINE smrMessageBody #-}
+
+-- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.
+-- Messages with a positive DelaySeconds value become available for processing
+-- after the delay time is finished. If you don't specify a value, the default
+-- value for the queue applies.
+smrDelaySeconds
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> SendMessage
+    -> f SendMessage
+smrDelaySeconds f x =
+    (\y -> x { _smrDelaySeconds = y })
+       <$> f (_smrDelaySeconds x)
+{-# INLINE smrDelaySeconds #-}
+
+-- | Each message attribute consists of a Name, Type, and Value. For more
+-- information, see Message Attribute Items.
+smrMessageAttributes
+    :: Functor f
+    => (Map Text MessageAttributeValue
+    -> f (Map Text MessageAttributeValue))
+    -> SendMessage
+    -> f SendMessage
+smrMessageAttributes f x =
+    (\y -> x { _smrMessageAttributes = y })
+       <$> f (_smrMessageAttributes x)
+{-# INLINE smrMessageAttributes #-}
 
 instance ToQuery SendMessage where
     toQuery = genericQuery def
 
 data SendMessageResponse = SendMessageResponse
-    { _smsMD5OfMessageAttributes :: Maybe Text
-      -- ^ An MD5 digest of the non-URL-encoded message attribute string.
-      -- This can be used to verify that Amazon SQS received the message
+    { _smsMD5OfMessageBody :: Maybe Text
+      -- ^ An MD5 digest of the non-URL-encoded message body string. This
+      -- can be used to verify that Amazon SQS received the message
       -- correctly. Amazon SQS first URL decodes the message before
       -- creating the MD5 digest. For information about MD5, go to
       -- http://www.faqs.org/rfcs/rfc1321.html.
-    , _smsMD5OfMessageBody :: Maybe Text
-      -- ^ An MD5 digest of the non-URL-encoded message body string. This
-      -- can be used to verify that Amazon SQS received the message
+    , _smsMD5OfMessageAttributes :: Maybe Text
+      -- ^ An MD5 digest of the non-URL-encoded message attribute string.
+      -- This can be used to verify that Amazon SQS received the message
       -- correctly. Amazon SQS first URL decodes the message before
       -- creating the MD5 digest. For information about MD5, go to
       -- http://www.faqs.org/rfcs/rfc1321.html.
@@ -102,7 +170,49 @@ data SendMessageResponse = SendMessageResponse
       -- the Amazon SQS Developer Guide.
     } deriving (Show, Generic)
 
-makeLenses ''SendMessageResponse
+-- | An MD5 digest of the non-URL-encoded message body string. This can be used
+-- to verify that Amazon SQS received the message correctly. Amazon SQS first
+-- URL decodes the message before creating the MD5 digest. For information
+-- about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
+smsMD5OfMessageBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SendMessageResponse
+    -> f SendMessageResponse
+smsMD5OfMessageBody f x =
+    (\y -> x { _smsMD5OfMessageBody = y })
+       <$> f (_smsMD5OfMessageBody x)
+{-# INLINE smsMD5OfMessageBody #-}
+
+-- | An MD5 digest of the non-URL-encoded message attribute string. This can be
+-- used to verify that Amazon SQS received the message correctly. Amazon SQS
+-- first URL decodes the message before creating the MD5 digest. For
+-- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
+smsMD5OfMessageAttributes
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SendMessageResponse
+    -> f SendMessageResponse
+smsMD5OfMessageAttributes f x =
+    (\y -> x { _smsMD5OfMessageAttributes = y })
+       <$> f (_smsMD5OfMessageAttributes x)
+{-# INLINE smsMD5OfMessageAttributes #-}
+
+-- | An element containing the message ID of the message sent to the queue. For
+-- more information, see Queue and Message Identifiers in the Amazon SQS
+-- Developer Guide.
+smsMessageId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SendMessageResponse
+    -> f SendMessageResponse
+smsMessageId f x =
+    (\y -> x { _smsMessageId = y })
+       <$> f (_smsMessageId x)
+{-# INLINE smsMessageId #-}
 
 instance FromXML SendMessageResponse where
     fromXMLOptions = xmlOptions

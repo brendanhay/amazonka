@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,26 +22,52 @@
 -- guide. https://iam.amazonaws.com/ ?Action=DeleteAccountAlias
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteAccountAlias where
+module Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
+    (
+    -- * Request
+      DeleteAccountAlias
+    -- ** Request constructor
+    , deleteAccountAlias
+    -- ** Request lenses
+    , daarAccountAlias
+
+    -- * Response
+    , DeleteAccountAliasResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteAccountAlias' request.
+deleteAccountAlias :: Text -- ^ 'daarAccountAlias'
+                   -> DeleteAccountAlias
+deleteAccountAlias p1 = DeleteAccountAlias
+    { _daarAccountAlias = p1
+    }
 
 data DeleteAccountAlias = DeleteAccountAlias
     { _daarAccountAlias :: Text
       -- ^ Name of the account alias to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAccountAlias
+-- | Name of the account alias to delete.
+daarAccountAlias
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAccountAlias
+    -> f DeleteAccountAlias
+daarAccountAlias f x =
+    (\y -> x { _daarAccountAlias = y })
+       <$> f (_daarAccountAlias x)
+{-# INLINE daarAccountAlias #-}
 
 instance ToQuery DeleteAccountAlias where
     toQuery = genericQuery def
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAccountAliasResponse
 
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM

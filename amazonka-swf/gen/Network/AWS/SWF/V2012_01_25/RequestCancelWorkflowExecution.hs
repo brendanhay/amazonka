@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -52,7 +51,20 @@
 -- "94861fda-a714-4126-95d7-55ba847da8ab"} HTTP/1.1 200 OK Content-Length: 0
 -- Content-Type: application/json x-amzn-RequestId:
 -- 6bd0627e-3ffd-11e1-9b11-7182192d0b57.
-module Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution where
+module Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
+    (
+    -- * Request
+      RequestCancelWorkflowExecution
+    -- ** Request constructor
+    , requestCancelWorkflowExecution
+    -- ** Request lenses
+    , rcweiDomain
+    , rcweiWorkflowId
+    , rcweiRunId
+
+    -- * Response
+    , RequestCancelWorkflowExecutionResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -60,8 +72,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RequestCancelWorkflowExecution' request.
-requestCancelWorkflowExecution :: Text -- ^ '_rcweiDomain'
-                               -> Text -- ^ '_rcweiWorkflowId'
+requestCancelWorkflowExecution :: Text -- ^ 'rcweiDomain'
+                               -> Text -- ^ 'rcweiWorkflowId'
                                -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
     { _rcweiDomain = p1
@@ -79,7 +91,41 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
       -- ^ The runId of the workflow execution to cancel.
     } deriving (Show, Generic)
 
-makeLenses ''RequestCancelWorkflowExecution
+-- | The name of the domain containing the workflow execution to cancel.
+rcweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RequestCancelWorkflowExecution
+    -> f RequestCancelWorkflowExecution
+rcweiDomain f x =
+    (\y -> x { _rcweiDomain = y })
+       <$> f (_rcweiDomain x)
+{-# INLINE rcweiDomain #-}
+
+-- | The workflowId of the workflow execution to cancel.
+rcweiWorkflowId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RequestCancelWorkflowExecution
+    -> f RequestCancelWorkflowExecution
+rcweiWorkflowId f x =
+    (\y -> x { _rcweiWorkflowId = y })
+       <$> f (_rcweiWorkflowId x)
+{-# INLINE rcweiWorkflowId #-}
+
+-- | The runId of the workflow execution to cancel.
+rcweiRunId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RequestCancelWorkflowExecution
+    -> f RequestCancelWorkflowExecution
+rcweiRunId f x =
+    (\y -> x { _rcweiRunId = y })
+       <$> f (_rcweiRunId x)
+{-# INLINE rcweiRunId #-}
 
 instance ToPath RequestCancelWorkflowExecution
 
@@ -91,8 +137,6 @@ instance ToJSON RequestCancelWorkflowExecution
 
 data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RequestCancelWorkflowExecutionResponse
 
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF

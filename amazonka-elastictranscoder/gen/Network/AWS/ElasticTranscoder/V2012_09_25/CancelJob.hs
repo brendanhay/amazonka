@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,26 +32,56 @@
 -- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob where
+module Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob
+    (
+    -- * Request
+      CancelJob
+    -- ** Request constructor
+    , cancelJob
+    -- ** Request lenses
+    , cjrId
+
+    -- * Response
+    , CancelJobResponse
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'CancelJob' request.
+cancelJob :: Text -- ^ 'cjrId'
+          -> CancelJob
+cancelJob p1 = CancelJob
+    { _cjrId = p1
+    }
+
 data CancelJob = CancelJob
-    { _cjvId :: Text
+    { _cjrId :: Text
       -- ^ The identifier of the job that you want to cancel. To get a list
       -- of the jobs (including their jobId) that have a status of
       -- Submitted, use the ListJobsByStatus API action.
     } deriving (Show, Generic)
 
-makeLenses ''CancelJob
+-- | The identifier of the job that you want to cancel. To get a list of the
+-- jobs (including their jobId) that have a status of Submitted, use the
+-- ListJobsByStatus API action.
+cjrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelJob
+    -> f CancelJob
+cjrId f x =
+    (\y -> x { _cjrId = y })
+       <$> f (_cjrId x)
+{-# INLINE cjrId #-}
 
 instance ToPath CancelJob where
     toPath CancelJob{..} = mconcat
         [ "/2012-09-25/jobs/"
-        , toBS _cjvId
+        , toBS _cjrId
         ]
 
 instance ToQuery CancelJob
@@ -63,8 +92,6 @@ instance ToJSON CancelJob
 
 data CancelJobResponse = CancelJobResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CancelJobResponse
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder

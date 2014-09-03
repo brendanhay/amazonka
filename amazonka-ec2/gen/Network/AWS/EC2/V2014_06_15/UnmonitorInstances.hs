@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,16 +36,14 @@ module Network.AWS.EC2.V2014_06_15.UnmonitorInstances
     (
     -- * Request
       UnmonitorInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , unmonitorInstances
-    -- ** Accessors and lenses
-    , _uirInstanceIds
+    -- ** Request lenses
     , uirInstanceIds
 
     -- * Response
     , UnmonitorInstancesResponse
-    -- ** Accessors and lenses
-    , _uisInstanceMonitorings
+    -- ** Response lenses
     , uisInstanceMonitorings
     ) where
 
@@ -62,8 +59,21 @@ unmonitorInstances p1 = UnmonitorInstances
     }
 
 data UnmonitorInstances = UnmonitorInstances
+    { _uirInstanceIds :: [Text]
+      -- ^ One or more instance IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''UnmonitorInstances
+-- | One or more instance IDs.
+uirInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> UnmonitorInstances
+    -> f UnmonitorInstances
+uirInstanceIds f x =
+    (\y -> x { _uirInstanceIds = y })
+       <$> f (_uirInstanceIds x)
+{-# INLINE uirInstanceIds #-}
 
 instance ToQuery UnmonitorInstances where
     toQuery = genericQuery def
@@ -73,7 +83,17 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse
       -- ^ Monitoring information for one or more instances.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''UnmonitorInstancesResponse
+-- | Monitoring information for one or more instances.
+uisInstanceMonitorings
+    :: Functor f
+    => ([InstanceMonitoring]
+    -> f ([InstanceMonitoring]))
+    -> UnmonitorInstancesResponse
+    -> f UnmonitorInstancesResponse
+uisInstanceMonitorings f x =
+    (\y -> x { _uisInstanceMonitorings = y })
+       <$> f (_uisInstanceMonitorings x)
+{-# INLINE uisInstanceMonitorings #-}
 
 instance FromXML UnmonitorInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -84,9 +104,3 @@ instance AWSRequest UnmonitorInstances where
 
     request = post "UnmonitorInstances"
     response _ = xmlResponse
-
--- | One or more instance IDs.
-uirInstanceIds :: Lens' UnmonitorInstances ([Text])
-
--- | Monitoring information for one or more instances.
-uisInstanceMonitorings :: Lens' UnmonitorInstancesResponse ([InstanceMonitoring])

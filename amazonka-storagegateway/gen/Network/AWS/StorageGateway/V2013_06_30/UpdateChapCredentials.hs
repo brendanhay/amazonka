@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,7 +38,24 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume",
 -- "InitiatorName":
 -- "iqn.1991-05.com.microsoft:computername.domain.example.com" }.
-module Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials where
+module Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
+    (
+    -- * Request
+      UpdateChapCredentials
+    -- ** Request constructor
+    , updateChapCredentials
+    -- ** Request lenses
+    , ucciSecretToAuthenticateInitiator
+    , ucciInitiatorName
+    , ucciTargetARN
+    , ucciSecretToAuthenticateTarget
+
+    -- * Response
+    , UpdateChapCredentialsResponse
+    -- ** Response lenses
+    , uccoInitiatorName
+    , uccoTargetARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -47,9 +63,9 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateChapCredentials' request.
-updateChapCredentials :: Text -- ^ '_ucciSecretToAuthenticateInitiator'
-                      -> Text -- ^ '_ucciInitiatorName'
-                      -> Text -- ^ '_ucciTargetARN'
+updateChapCredentials :: Text -- ^ 'ucciSecretToAuthenticateInitiator'
+                      -> Text -- ^ 'ucciInitiatorName'
+                      -> Text -- ^ 'ucciTargetARN'
                       -> UpdateChapCredentials
 updateChapCredentials p1 p2 p3 = UpdateChapCredentials
     { _ucciSecretToAuthenticateInitiator = p1
@@ -73,7 +89,57 @@ data UpdateChapCredentials = UpdateChapCredentials
       -- mutual CHAP with the initiator (e.g. Windows client).
     } deriving (Show, Generic)
 
-makeLenses ''UpdateChapCredentials
+-- | The secret key that the initiator (e.g. Windows client) must provide to
+-- participate in mutual CHAP with the target.
+ucciSecretToAuthenticateInitiator
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateChapCredentials
+    -> f UpdateChapCredentials
+ucciSecretToAuthenticateInitiator f x =
+    (\y -> x { _ucciSecretToAuthenticateInitiator = y })
+       <$> f (_ucciSecretToAuthenticateInitiator x)
+{-# INLINE ucciSecretToAuthenticateInitiator #-}
+
+-- | The iSCSI initiator that connects to the target.
+ucciInitiatorName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateChapCredentials
+    -> f UpdateChapCredentials
+ucciInitiatorName f x =
+    (\y -> x { _ucciInitiatorName = y })
+       <$> f (_ucciInitiatorName x)
+{-# INLINE ucciInitiatorName #-}
+
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
+-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
+-- for specified VolumeARN.
+ucciTargetARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateChapCredentials
+    -> f UpdateChapCredentials
+ucciTargetARN f x =
+    (\y -> x { _ucciTargetARN = y })
+       <$> f (_ucciTargetARN x)
+{-# INLINE ucciTargetARN #-}
+
+-- | The secret key that the target must provide to participate in mutual CHAP
+-- with the initiator (e.g. Windows client).
+ucciSecretToAuthenticateTarget
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateChapCredentials
+    -> f UpdateChapCredentials
+ucciSecretToAuthenticateTarget f x =
+    (\y -> x { _ucciSecretToAuthenticateTarget = y })
+       <$> f (_ucciSecretToAuthenticateTarget x)
+{-# INLINE ucciSecretToAuthenticateTarget #-}
 
 instance ToPath UpdateChapCredentials
 
@@ -92,7 +158,31 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
       -- target specified in the request.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateChapCredentialsResponse
+-- | The iSCSI initiator that connects to the target. This is the same initiator
+-- name specified in the request.
+uccoInitiatorName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateChapCredentialsResponse
+    -> f UpdateChapCredentialsResponse
+uccoInitiatorName f x =
+    (\y -> x { _uccoInitiatorName = y })
+       <$> f (_uccoInitiatorName x)
+{-# INLINE uccoInitiatorName #-}
+
+-- | The Amazon Resource Name (ARN) of the target. This is the same target
+-- specified in the request.
+uccoTargetARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateChapCredentialsResponse
+    -> f UpdateChapCredentialsResponse
+uccoTargetARN f x =
+    (\y -> x { _uccoTargetARN = y })
+       <$> f (_uccoTargetARN x)
+{-# INLINE uccoTargetARN #-}
 
 instance FromJSON UpdateChapCredentialsResponse
 

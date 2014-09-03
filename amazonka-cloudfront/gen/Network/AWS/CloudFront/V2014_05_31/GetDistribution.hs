@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,18 +18,49 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about a distribution.
-module Network.AWS.CloudFront.V2014_05_31.GetDistribution where
+module Network.AWS.CloudFront.V2014_05_31.GetDistribution
+    (
+    -- * Request
+      GetDistribution
+    -- ** Request constructor
+    , getDistribution
+    -- ** Request lenses
+    , gdrId
+
+    -- * Response
+    , GetDistributionResponse
+    -- ** Response lenses
+    , gdsDistribution
+    , gdsETag
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetDistribution' request.
+getDistribution :: Text -- ^ 'gdrId'
+                -> GetDistribution
+getDistribution p1 = GetDistribution
+    { _gdrId = p1
+    }
 
 data GetDistribution = GetDistribution
     { _gdrId :: Text
       -- ^ The distribution's id.
     } deriving (Show, Generic)
 
-makeLenses ''GetDistribution
+-- | The distribution's id.
+gdrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetDistribution
+    -> f GetDistribution
+gdrId f x =
+    (\y -> x { _gdrId = y })
+       <$> f (_gdrId x)
+{-# INLINE gdrId #-}
 
 instance ToPath GetDistribution where
     toPath GetDistribution{..} = mconcat
@@ -54,7 +84,30 @@ data GetDistributionResponse = GetDistributionResponse
       -- example: E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''GetDistributionResponse
+-- | The distribution's information.
+gdsDistribution
+    :: Functor f
+    => (Maybe Distribution
+    -> f (Maybe Distribution))
+    -> GetDistributionResponse
+    -> f GetDistributionResponse
+gdsDistribution f x =
+    (\y -> x { _gdsDistribution = y })
+       <$> f (_gdsDistribution x)
+{-# INLINE gdsDistribution #-}
+
+-- | The current version of the distribution's information. For example:
+-- E2QWRUHAPOMQZL.
+gdsETag
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDistributionResponse
+    -> f GetDistributionResponse
+gdsETag f x =
+    (\y -> x { _gdsETag = y })
+       <$> f (_gdsETag x)
+{-# INLINE gdsETag #-}
 
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront

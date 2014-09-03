@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,10 @@ module Network.AWS.EC2.V2014_06_15.DisassociateAddress
     (
     -- * Request
       DisassociateAddress
-    -- ** Default constructor
+    -- ** Request constructor
     , disassociateAddress
-    -- ** Accessors and lenses
-    , _datPublicIp
+    -- ** Request lenses
     , datPublicIp
-    , _datAssociationId
     , datAssociationId
 
     -- * Response
@@ -57,8 +54,35 @@ disassociateAddress = DisassociateAddress
     }
 
 data DisassociateAddress = DisassociateAddress
+    { _datPublicIp :: Maybe Text
+      -- ^ [EC2-Classic] The Elastic IP address.
+    , _datAssociationId :: Maybe Text
+      -- ^ [EC2-VPC] The association ID.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DisassociateAddress
+-- | [EC2-Classic] The Elastic IP address.
+datPublicIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DisassociateAddress
+    -> f DisassociateAddress
+datPublicIp f x =
+    (\y -> x { _datPublicIp = y })
+       <$> f (_datPublicIp x)
+{-# INLINE datPublicIp #-}
+
+-- | [EC2-VPC] The association ID.
+datAssociationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DisassociateAddress
+    -> f DisassociateAddress
+datAssociationId f x =
+    (\y -> x { _datAssociationId = y })
+       <$> f (_datAssociationId x)
+{-# INLINE datAssociationId #-}
 
 instance ToQuery DisassociateAddress where
     toQuery = genericQuery def
@@ -66,17 +90,9 @@ instance ToQuery DisassociateAddress where
 data DisassociateAddressResponse = DisassociateAddressResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DisassociateAddressResponse
-
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2
     type Rs DisassociateAddress = DisassociateAddressResponse
 
     request = post "DisassociateAddress"
     response _ = nullaryResponse DisassociateAddressResponse
-
--- | [EC2-Classic] The Elastic IP address.
-datPublicIp :: Lens' DisassociateAddress (Maybe Text)
-
--- | [EC2-VPC] The association ID.
-datAssociationId :: Lens' DisassociateAddress (Maybe Text)

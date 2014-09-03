@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,11 +19,32 @@
 
 -- | Removes metadata tags from an Amazon RDS resource. For an overview on
 -- tagging an Amazon RDS resource, see Tagging Amazon RDS Resources.
-module Network.AWS.RDS.V2013_09_09.RemoveTagsFromResource where
+module Network.AWS.RDS.V2013_09_09.RemoveTagsFromResource
+    (
+    -- * Request
+      RemoveTagsFromResource
+    -- ** Request constructor
+    , removeTagsFromResource
+    -- ** Request lenses
+    , rtfrmTagKeys
+    , rtfrmResourceName
+
+    -- * Response
+    , RemoveTagsFromResourceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RemoveTagsFromResource' request.
+removeTagsFromResource :: [Text] -- ^ 'rtfrmTagKeys'
+                       -> Text -- ^ 'rtfrmResourceName'
+                       -> RemoveTagsFromResource
+removeTagsFromResource p1 p2 = RemoveTagsFromResource
+    { _rtfrmTagKeys = p1
+    , _rtfrmResourceName = p2
+    }
 
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrmTagKeys :: [Text]
@@ -35,15 +55,37 @@ data RemoveTagsFromResource = RemoveTagsFromResource
       -- an ARN, see Constructing an RDS Amazon Resource Name (ARN).
     } deriving (Show, Generic)
 
-makeLenses ''RemoveTagsFromResource
+-- | The tag key (name) of the tag to be removed.
+rtfrmTagKeys
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RemoveTagsFromResource
+    -> f RemoveTagsFromResource
+rtfrmTagKeys f x =
+    (\y -> x { _rtfrmTagKeys = y })
+       <$> f (_rtfrmTagKeys x)
+{-# INLINE rtfrmTagKeys #-}
+
+-- | The Amazon RDS resource the tags will be removed from. This value is an
+-- Amazon Resource Name (ARN). For information about creating an ARN, see
+-- Constructing an RDS Amazon Resource Name (ARN).
+rtfrmResourceName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveTagsFromResource
+    -> f RemoveTagsFromResource
+rtfrmResourceName f x =
+    (\y -> x { _rtfrmResourceName = y })
+       <$> f (_rtfrmResourceName x)
+{-# INLINE rtfrmResourceName #-}
 
 instance ToQuery RemoveTagsFromResource where
     toQuery = genericQuery def
 
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemoveTagsFromResourceResponse
 
 instance AWSRequest RemoveTagsFromResource where
     type Sv RemoveTagsFromResource = RDS

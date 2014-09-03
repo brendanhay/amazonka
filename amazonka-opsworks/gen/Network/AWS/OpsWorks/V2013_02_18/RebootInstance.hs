@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,19 +22,47 @@
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.RebootInstance where
+module Network.AWS.OpsWorks.V2013_02_18.RebootInstance
+    (
+    -- * Request
+      RebootInstance
+    -- ** Request constructor
+    , rebootInstance
+    -- ** Request lenses
+    , rirInstanceId
+
+    -- * Response
+    , RebootInstanceResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'RebootInstance' request.
+rebootInstance :: Text -- ^ 'rirInstanceId'
+               -> RebootInstance
+rebootInstance p1 = RebootInstance
+    { _rirInstanceId = p1
+    }
+
 data RebootInstance = RebootInstance
     { _rirInstanceId :: Text
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''RebootInstance
+-- | The instance ID.
+rirInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RebootInstance
+    -> f RebootInstance
+rirInstanceId f x =
+    (\y -> x { _rirInstanceId = y })
+       <$> f (_rirInstanceId x)
+{-# INLINE rirInstanceId #-}
 
 instance ToPath RebootInstance
 
@@ -47,8 +74,6 @@ instance ToJSON RebootInstance
 
 data RebootInstanceResponse = RebootInstanceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RebootInstanceResponse
 
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks

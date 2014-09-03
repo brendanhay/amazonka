@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,11 +30,35 @@
 -- &PolicyName=AllAccessPolicy
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.PutUserPolicy where
+module Network.AWS.IAM.V2010_05_08.PutUserPolicy
+    (
+    -- * Request
+      PutUserPolicy
+    -- ** Request constructor
+    , putUserPolicy
+    -- ** Request lenses
+    , puprUserName
+    , puprPolicyDocument
+    , puprPolicyName
+
+    -- * Response
+    , PutUserPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'PutUserPolicy' request.
+putUserPolicy :: Text -- ^ 'puprUserName'
+              -> Text -- ^ 'puprPolicyDocument'
+              -> Text -- ^ 'puprPolicyName'
+              -> PutUserPolicy
+putUserPolicy p1 p2 p3 = PutUserPolicy
+    { _puprUserName = p1
+    , _puprPolicyDocument = p2
+    , _puprPolicyName = p3
+    }
 
 data PutUserPolicy = PutUserPolicy
     { _puprUserName :: Text
@@ -46,15 +69,47 @@ data PutUserPolicy = PutUserPolicy
       -- ^ Name of the policy document.
     } deriving (Show, Generic)
 
-makeLenses ''PutUserPolicy
+-- | Name of the user to associate the policy with.
+puprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutUserPolicy
+    -> f PutUserPolicy
+puprUserName f x =
+    (\y -> x { _puprUserName = y })
+       <$> f (_puprUserName x)
+{-# INLINE puprUserName #-}
+
+-- | The policy document.
+puprPolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutUserPolicy
+    -> f PutUserPolicy
+puprPolicyDocument f x =
+    (\y -> x { _puprPolicyDocument = y })
+       <$> f (_puprPolicyDocument x)
+{-# INLINE puprPolicyDocument #-}
+
+-- | Name of the policy document.
+puprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutUserPolicy
+    -> f PutUserPolicy
+puprPolicyName f x =
+    (\y -> x { _puprPolicyName = y })
+       <$> f (_puprPolicyName x)
+{-# INLINE puprPolicyName #-}
 
 instance ToQuery PutUserPolicy where
     toQuery = genericQuery def
 
 data PutUserPolicyResponse = PutUserPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutUserPolicyResponse
 
 instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM

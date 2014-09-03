@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -60,7 +59,27 @@
 -- "AAAAKgAAAAEAAAAAAAAAAX9p3pcp3857oLXFUuwdxRU5/zmn9f40XaMF7VohAH4jOtjXpZu7GdOzEi0b3cWYHbG5b5dpdcTXHUDPVMHXiUxCgr+Nc/wUW9016W4YxJGs/jmxzPln8qLftU+SW135Q0UuKp5XRGoRTJp3tbHn2pY1vC8gDB/K69J6q668U1pd4Cd9o43//lGgOIjN0/Ihg+DO+83HNcOuVEQMM28kNMXf7yePh31M4dMKJwQaQZG13huJXDwzJOoZQz+XFuqFly+lPnCE4XvsnhfAvTsh50EtNDEtQzPCFJoUeld9g64V/FS/39PHL3M93PBUuroPyHuCwHsNC6fZ7gM/XOKmW4kKnXPoQweEUkFV/J6E6+M1reBO7nJADTrLSnajg6MY/viWsEYmMw/DS5FlquFaDIhFkLhWUWN+V2KqiKS23GYwpzgZ7fgcWHQF2NLEY3zrjam4LW/UW5VLCyM3FpVD3erCTi9IvUgslPzyVGuWNAoTmgJEWvimgwiHxJMxxc9JBDR390iMmImxVl3eeSDUWx8reQltiviadPDjyRmVhYP8",
 -- "workflowExecution": {"runId": "cfa2bd33-31b0-4b75-b131-255bb0d97b3f",
 -- "workflowId": "20110927-T-1"} }.
-module Network.AWS.SWF.V2012_01_25.PollForActivityTask where
+module Network.AWS.SWF.V2012_01_25.PollForActivityTask
+    (
+    -- * Request
+      PollForActivityTask
+    -- ** Request constructor
+    , pollForActivityTask
+    -- ** Request lenses
+    , pfatiDomain
+    , pfatiTaskList
+    , pfatiIdentity
+
+    -- * Response
+    , PollForActivityTaskResponse
+    -- ** Response lenses
+    , azActivityId
+    , azActivityType
+    , azStartedEventId
+    , azTaskToken
+    , azWorkflowExecution
+    , azInput
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -68,8 +87,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'PollForActivityTask' request.
-pollForActivityTask :: Text -- ^ '_pfatiDomain'
-                    -> TaskList -- ^ '_pfatiTaskList'
+pollForActivityTask :: Text -- ^ 'pfatiDomain'
+                    -> TaskList -- ^ 'pfatiTaskList'
                     -> PollForActivityTask
 pollForActivityTask p1 p2 = PollForActivityTask
     { _pfatiDomain = p1
@@ -93,7 +112,47 @@ data PollForActivityTask = PollForActivityTask
       -- identity is user defined.
     } deriving (Show, Generic)
 
-makeLenses ''PollForActivityTask
+-- | The name of the domain that contains the task lists being polled.
+pfatiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PollForActivityTask
+    -> f PollForActivityTask
+pfatiDomain f x =
+    (\y -> x { _pfatiDomain = y })
+       <$> f (_pfatiDomain x)
+{-# INLINE pfatiDomain #-}
+
+-- | Specifies the task list to poll for activity tasks. The specified string
+-- must not start or end with whitespace. It must not contain a : (colon), /
+-- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
+-- \u007f - \u009f). Also, it must not contain the literal string
+-- &quot;arn&quot;.
+pfatiTaskList
+    :: Functor f
+    => (TaskList
+    -> f (TaskList))
+    -> PollForActivityTask
+    -> f PollForActivityTask
+pfatiTaskList f x =
+    (\y -> x { _pfatiTaskList = y })
+       <$> f (_pfatiTaskList x)
+{-# INLINE pfatiTaskList #-}
+
+-- | Identity of the worker making the request, which is recorded in the
+-- ActivityTaskStarted event in the workflow history. This enables diagnostic
+-- tracing when problems arise. The form of this identity is user defined.
+pfatiIdentity
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PollForActivityTask
+    -> f PollForActivityTask
+pfatiIdentity f x =
+    (\y -> x { _pfatiIdentity = y })
+       <$> f (_pfatiIdentity x)
+{-# INLINE pfatiIdentity #-}
 
 instance ToPath PollForActivityTask
 
@@ -104,25 +163,99 @@ instance ToHeaders PollForActivityTask
 instance ToJSON PollForActivityTask
 
 data PollForActivityTaskResponse = PollForActivityTaskResponse
-    { _avActivityId :: Text
+    { _azActivityId :: Text
       -- ^ The unique ID of the task.
-    , _avActivityType :: ActivityType
+    , _azActivityType :: ActivityType
       -- ^ The type of this activity task.
-    , _avStartedEventId :: Integer
+    , _azStartedEventId :: Integer
       -- ^ The id of the ActivityTaskStarted event recorded in the history.
-    , _avTaskToken :: Text
+    , _azTaskToken :: Text
       -- ^ The opaque string used as a handle on the task. This token is
       -- used by workers to communicate progress and response information
       -- back to the system about the task.
-    , _avWorkflowExecution :: WorkflowExecution
+    , _azWorkflowExecution :: WorkflowExecution
       -- ^ The workflow execution that started this activity task.
-    , _avInput :: Maybe Text
+    , _azInput :: Maybe Text
       -- ^ The inputs provided when the activity task was scheduled. The
       -- form of the input is user defined and should be meaningful to the
       -- activity implementation.
     } deriving (Show, Generic)
 
-makeLenses ''PollForActivityTaskResponse
+-- | The unique ID of the task.
+azActivityId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PollForActivityTaskResponse
+    -> f PollForActivityTaskResponse
+azActivityId f x =
+    (\y -> x { _azActivityId = y })
+       <$> f (_azActivityId x)
+{-# INLINE azActivityId #-}
+
+-- | The type of this activity task.
+azActivityType
+    :: Functor f
+    => (ActivityType
+    -> f (ActivityType))
+    -> PollForActivityTaskResponse
+    -> f PollForActivityTaskResponse
+azActivityType f x =
+    (\y -> x { _azActivityType = y })
+       <$> f (_azActivityType x)
+{-# INLINE azActivityType #-}
+
+-- | The id of the ActivityTaskStarted event recorded in the history.
+azStartedEventId
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> PollForActivityTaskResponse
+    -> f PollForActivityTaskResponse
+azStartedEventId f x =
+    (\y -> x { _azStartedEventId = y })
+       <$> f (_azStartedEventId x)
+{-# INLINE azStartedEventId #-}
+
+-- | The opaque string used as a handle on the task. This token is used by
+-- workers to communicate progress and response information back to the system
+-- about the task.
+azTaskToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PollForActivityTaskResponse
+    -> f PollForActivityTaskResponse
+azTaskToken f x =
+    (\y -> x { _azTaskToken = y })
+       <$> f (_azTaskToken x)
+{-# INLINE azTaskToken #-}
+
+-- | The workflow execution that started this activity task.
+azWorkflowExecution
+    :: Functor f
+    => (WorkflowExecution
+    -> f (WorkflowExecution))
+    -> PollForActivityTaskResponse
+    -> f PollForActivityTaskResponse
+azWorkflowExecution f x =
+    (\y -> x { _azWorkflowExecution = y })
+       <$> f (_azWorkflowExecution x)
+{-# INLINE azWorkflowExecution #-}
+
+-- | The inputs provided when the activity task was scheduled. The form of the
+-- input is user defined and should be meaningful to the activity
+-- implementation.
+azInput
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PollForActivityTaskResponse
+    -> f PollForActivityTaskResponse
+azInput f x =
+    (\y -> x { _azInput = y })
+       <$> f (_azInput x)
+{-# INLINE azInput #-}
 
 instance FromJSON PollForActivityTaskResponse
 

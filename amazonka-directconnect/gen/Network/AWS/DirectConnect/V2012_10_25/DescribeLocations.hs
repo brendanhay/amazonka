@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,17 +20,29 @@
 -- | Returns the list of AWS Direct Connect locations in the current AWS region.
 -- These are the locations that may be selected when calling CreateConnection
 -- or CreateInterconnect.
-module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations where
+module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
+    (
+    -- * Request
+      DescribeLocations
+    -- ** Request constructor
+    , describeLocations
+    -- * Response
+    , DescribeLocationsResponse
+    -- ** Response lenses
+    , lsLocations
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeLocations' request.
+describeLocations :: DescribeLocations
+describeLocations = DescribeLocations
+
 data DescribeLocations = DescribeLocations
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeLocations
 
 instance ToPath DescribeLocations
 
@@ -42,10 +53,19 @@ instance ToHeaders DescribeLocations
 instance ToJSON DescribeLocations
 
 data DescribeLocationsResponse = DescribeLocationsResponse
-    { _pLocations :: [Location]
+    { _lsLocations :: [Location]
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLocationsResponse
+lsLocations
+    :: Functor f
+    => ([Location]
+    -> f ([Location]))
+    -> DescribeLocationsResponse
+    -> f DescribeLocationsResponse
+lsLocations f x =
+    (\y -> x { _lsLocations = y })
+       <$> f (_lsLocations x)
+{-# INLINE lsLocations #-}
 
 instance FromJSON DescribeLocationsResponse
 

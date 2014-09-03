@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -53,7 +52,26 @@
 -- "defaultTaskScheduleToCloseTimeout": "900"} HTTP/1.1 200 OK Content-Length:
 -- 0 Content-Type: application/json x-amzn-RequestId:
 -- d68969c7-3f0d-11e1-9b11-7182192d0b57.
-module Network.AWS.SWF.V2012_01_25.RegisterActivityType where
+module Network.AWS.SWF.V2012_01_25.RegisterActivityType
+    (
+    -- * Request
+      RegisterActivityType
+    -- ** Request constructor
+    , registerActivityType
+    -- ** Request lenses
+    , ratiDomain
+    , ratiName
+    , ratiVersion
+    , ratiDescription
+    , ratiDefaultTaskStartToCloseTimeout
+    , ratiDefaultTaskHeartbeatTimeout
+    , ratiDefaultTaskScheduleToStartTimeout
+    , ratiDefaultTaskScheduleToCloseTimeout
+    , ratiDefaultTaskList
+
+    -- * Response
+    , RegisterActivityTypeResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -61,9 +79,9 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RegisterActivityType' request.
-registerActivityType :: Text -- ^ '_ratiDomain'
-                     -> Text -- ^ '_ratiName'
-                     -> Text -- ^ '_ratiVersion'
+registerActivityType :: Text -- ^ 'ratiDomain'
+                     -> Text -- ^ 'ratiName'
+                     -> Text -- ^ 'ratiVersion'
                      -> RegisterActivityType
 registerActivityType p1 p2 p3 = RegisterActivityType
     { _ratiDomain = p1
@@ -71,9 +89,9 @@ registerActivityType p1 p2 p3 = RegisterActivityType
     , _ratiVersion = p3
     , _ratiDescription = Nothing
     , _ratiDefaultTaskStartToCloseTimeout = Nothing
-    , _ratiDefaultTaskScheduleToCloseTimeout = Nothing
     , _ratiDefaultTaskHeartbeatTimeout = Nothing
     , _ratiDefaultTaskScheduleToStartTimeout = Nothing
+    , _ratiDefaultTaskScheduleToCloseTimeout = Nothing
     , _ratiDefaultTaskList = Nothing
     }
 
@@ -105,13 +123,6 @@ data RegisterActivityType = RegisterActivityType
       -- greater than or equal to 0. An integer value can be used to
       -- specify the duration in seconds while NONE can be used to specify
       -- unlimited duration.
-    , _ratiDefaultTaskScheduleToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration for a task of this
-      -- activity type. This default can be overridden when scheduling an
-      -- activity task using the ScheduleActivityTask Decision. The valid
-      -- values are integers greater than or equal to 0. An integer value
-      -- can be used to specify the duration in seconds while NONE can be
-      -- used to specify unlimited duration.
     , _ratiDefaultTaskHeartbeatTimeout :: Maybe Text
       -- ^ If set, specifies the default maximum time before which a worker
       -- processing a task of this type must report progress by calling
@@ -134,6 +145,13 @@ data RegisterActivityType = RegisterActivityType
       -- integers greater than or equal to 0. An integer value can be used
       -- to specify the duration in seconds while NONE can be used to
       -- specify unlimited duration.
+    , _ratiDefaultTaskScheduleToCloseTimeout :: Maybe Text
+      -- ^ If set, specifies the default maximum duration for a task of this
+      -- activity type. This default can be overridden when scheduling an
+      -- activity task using the ScheduleActivityTask Decision. The valid
+      -- values are integers greater than or equal to 0. An integer value
+      -- can be used to specify the duration in seconds while NONE can be
+      -- used to specify unlimited duration.
     , _ratiDefaultTaskList :: Maybe TaskList
       -- ^ If set, specifies the default task list to use for scheduling
       -- tasks of this activity type. This default task list is used if a
@@ -141,7 +159,149 @@ data RegisterActivityType = RegisterActivityType
       -- ScheduleActivityTask Decision.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterActivityType
+-- | The name of the domain in which this activity is to be registered.
+ratiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDomain f x =
+    (\y -> x { _ratiDomain = y })
+       <$> f (_ratiDomain x)
+{-# INLINE ratiDomain #-}
+
+-- | The name of the activity type within the domain. The specified string must
+-- not start or end with whitespace. It must not contain a : (colon), /
+-- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
+-- \u007f - \u009f). Also, it must not contain the literal string
+-- &quot;arn&quot;.
+ratiName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiName f x =
+    (\y -> x { _ratiName = y })
+       <$> f (_ratiName x)
+{-# INLINE ratiName #-}
+
+-- | The version of the activity type. The activity type consists of the name
+-- and version, the combination of which must be unique within the domain. The
+-- specified string must not start or end with whitespace. It must not contain
+-- a : (colon), / (slash), | (vertical bar), or any control characters
+-- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
+-- string &quot;arn&quot;.
+ratiVersion
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiVersion f x =
+    (\y -> x { _ratiVersion = y })
+       <$> f (_ratiVersion x)
+{-# INLINE ratiVersion #-}
+
+-- | A textual description of the activity type.
+ratiDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDescription f x =
+    (\y -> x { _ratiDescription = y })
+       <$> f (_ratiDescription x)
+{-# INLINE ratiDescription #-}
+
+-- | If set, specifies the default maximum duration that a worker can take to
+-- process tasks of this activity type. This default can be overridden when
+-- scheduling an activity task using the ScheduleActivityTask Decision. The
+-- valid values are integers greater than or equal to 0. An integer value can
+-- be used to specify the duration in seconds while NONE can be used to
+-- specify unlimited duration.
+ratiDefaultTaskStartToCloseTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDefaultTaskStartToCloseTimeout f x =
+    (\y -> x { _ratiDefaultTaskStartToCloseTimeout = y })
+       <$> f (_ratiDefaultTaskStartToCloseTimeout x)
+{-# INLINE ratiDefaultTaskStartToCloseTimeout #-}
+
+-- | If set, specifies the default maximum time before which a worker processing
+-- a task of this type must report progress by calling
+-- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity task
+-- is automatically timed out. This default can be overridden when scheduling
+-- an activity task using the ScheduleActivityTask Decision. If the activity
+-- worker subsequently attempts to record a heartbeat or returns a result, the
+-- activity worker receives an UnknownResource fault. In this case, Amazon SWF
+-- no longer considers the activity task to be valid; the activity worker
+-- should clean up the activity task. The valid values are integers greater
+-- than or equal to 0. An integer value can be used to specify the duration in
+-- seconds while NONE can be used to specify unlimited duration.
+ratiDefaultTaskHeartbeatTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDefaultTaskHeartbeatTimeout f x =
+    (\y -> x { _ratiDefaultTaskHeartbeatTimeout = y })
+       <$> f (_ratiDefaultTaskHeartbeatTimeout x)
+{-# INLINE ratiDefaultTaskHeartbeatTimeout #-}
+
+-- | If set, specifies the default maximum duration that a task of this activity
+-- type can wait before being assigned to a worker. This default can be
+-- overridden when scheduling an activity task using the ScheduleActivityTask
+-- Decision. The valid values are integers greater than or equal to 0. An
+-- integer value can be used to specify the duration in seconds while NONE can
+-- be used to specify unlimited duration.
+ratiDefaultTaskScheduleToStartTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDefaultTaskScheduleToStartTimeout f x =
+    (\y -> x { _ratiDefaultTaskScheduleToStartTimeout = y })
+       <$> f (_ratiDefaultTaskScheduleToStartTimeout x)
+{-# INLINE ratiDefaultTaskScheduleToStartTimeout #-}
+
+-- | If set, specifies the default maximum duration for a task of this activity
+-- type. This default can be overridden when scheduling an activity task using
+-- the ScheduleActivityTask Decision. The valid values are integers greater
+-- than or equal to 0. An integer value can be used to specify the duration in
+-- seconds while NONE can be used to specify unlimited duration.
+ratiDefaultTaskScheduleToCloseTimeout
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDefaultTaskScheduleToCloseTimeout f x =
+    (\y -> x { _ratiDefaultTaskScheduleToCloseTimeout = y })
+       <$> f (_ratiDefaultTaskScheduleToCloseTimeout x)
+{-# INLINE ratiDefaultTaskScheduleToCloseTimeout #-}
+
+-- | If set, specifies the default task list to use for scheduling tasks of this
+-- activity type. This default task list is used if a task list is not
+-- provided when a task is scheduled through the ScheduleActivityTask
+-- Decision.
+ratiDefaultTaskList
+    :: Functor f
+    => (Maybe TaskList
+    -> f (Maybe TaskList))
+    -> RegisterActivityType
+    -> f RegisterActivityType
+ratiDefaultTaskList f x =
+    (\y -> x { _ratiDefaultTaskList = y })
+       <$> f (_ratiDefaultTaskList x)
+{-# INLINE ratiDefaultTaskList #-}
 
 instance ToPath RegisterActivityType
 
@@ -153,8 +313,6 @@ instance ToJSON RegisterActivityType
 
 data RegisterActivityTypeResponse = RegisterActivityTypeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RegisterActivityTypeResponse
 
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF

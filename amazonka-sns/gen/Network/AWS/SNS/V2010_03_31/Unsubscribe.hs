@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,26 +34,52 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;18e0ac39-3776-11df-84c0-b93cc1666b84&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/UnsubscribeResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.Unsubscribe where
+module Network.AWS.SNS.V2010_03_31.Unsubscribe
+    (
+    -- * Request
+      Unsubscribe
+    -- ** Request constructor
+    , unsubscribe
+    -- ** Request lenses
+    , uiSubscriptionArn
+
+    -- * Response
+    , UnsubscribeResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'Unsubscribe' request.
+unsubscribe :: Text -- ^ 'uiSubscriptionArn'
+            -> Unsubscribe
+unsubscribe p1 = Unsubscribe
+    { _uiSubscriptionArn = p1
+    }
 
 data Unsubscribe = Unsubscribe
     { _uiSubscriptionArn :: Text
       -- ^ The ARN of the subscription to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''Unsubscribe
+-- | The ARN of the subscription to be deleted.
+uiSubscriptionArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Unsubscribe
+    -> f Unsubscribe
+uiSubscriptionArn f x =
+    (\y -> x { _uiSubscriptionArn = y })
+       <$> f (_uiSubscriptionArn x)
+{-# INLINE uiSubscriptionArn #-}
 
 instance ToQuery Unsubscribe where
     toQuery = genericQuery def
 
 data UnsubscribeResponse = UnsubscribeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UnsubscribeResponse
 
 instance AWSRequest Unsubscribe where
     type Sv Unsubscribe = SNS

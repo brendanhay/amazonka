@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,23 @@
 -- must have a Show, Deploy, or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes
+    (
+    -- * Request
+      DescribeVolumes
+    -- ** Request constructor
+    , describeVolumes
+    -- ** Request lenses
+    , dvsInstanceId
+    , dvsStackId
+    , dvsRaidArrayId
+    , dvsVolumeIds
+
+    -- * Response
+    , DescribeVolumesResponse
+    -- ** Response lenses
+    , dvtVolumes
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,31 +48,81 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeVolumes' request.
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dvsStackId = Nothing
+    { _dvsInstanceId = Nothing
+    , _dvsStackId = Nothing
     , _dvsRaidArrayId = Nothing
-    , _dvsInstanceId = Nothing
     , _dvsVolumeIds = mempty
     }
 
 data DescribeVolumes = DescribeVolumes
-    { _dvsStackId :: Maybe Text
+    { _dvsInstanceId :: Maybe Text
+      -- ^ The instance ID. If you use this parameter, DescribeVolumes
+      -- returns descriptions of the volumes associated with the specified
+      -- instance.
+    , _dvsStackId :: Maybe Text
       -- ^ A stack ID. The action describes the stack's registered Amazon
       -- EBS volumes.
     , _dvsRaidArrayId :: Maybe Text
       -- ^ The RAID array ID. If you use this parameter, DescribeVolumes
       -- returns descriptions of the volumes associated with the specified
       -- RAID array.
-    , _dvsInstanceId :: Maybe Text
-      -- ^ The instance ID. If you use this parameter, DescribeVolumes
-      -- returns descriptions of the volumes associated with the specified
-      -- instance.
     , _dvsVolumeIds :: [Text]
       -- ^ Am array of volume IDs. If you use this parameter,
       -- DescribeVolumes returns descriptions of the specified volumes.
       -- Otherwise, it returns a description of every volume.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumes
+-- | The instance ID. If you use this parameter, DescribeVolumes returns
+-- descriptions of the volumes associated with the specified instance.
+dvsInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeVolumes
+    -> f DescribeVolumes
+dvsInstanceId f x =
+    (\y -> x { _dvsInstanceId = y })
+       <$> f (_dvsInstanceId x)
+{-# INLINE dvsInstanceId #-}
+
+-- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
+dvsStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeVolumes
+    -> f DescribeVolumes
+dvsStackId f x =
+    (\y -> x { _dvsStackId = y })
+       <$> f (_dvsStackId x)
+{-# INLINE dvsStackId #-}
+
+-- | The RAID array ID. If you use this parameter, DescribeVolumes returns
+-- descriptions of the volumes associated with the specified RAID array.
+dvsRaidArrayId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeVolumes
+    -> f DescribeVolumes
+dvsRaidArrayId f x =
+    (\y -> x { _dvsRaidArrayId = y })
+       <$> f (_dvsRaidArrayId x)
+{-# INLINE dvsRaidArrayId #-}
+
+-- | Am array of volume IDs. If you use this parameter, DescribeVolumes returns
+-- descriptions of the specified volumes. Otherwise, it returns a description
+-- of every volume.
+dvsVolumeIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeVolumes
+    -> f DescribeVolumes
+dvsVolumeIds f x =
+    (\y -> x { _dvsVolumeIds = y })
+       <$> f (_dvsVolumeIds x)
+{-# INLINE dvsVolumeIds #-}
 
 instance ToPath DescribeVolumes
 
@@ -72,7 +137,17 @@ data DescribeVolumesResponse = DescribeVolumesResponse
       -- ^ An array of volume IDs.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeVolumesResponse
+-- | An array of volume IDs.
+dvtVolumes
+    :: Functor f
+    => ([Volume]
+    -> f ([Volume]))
+    -> DescribeVolumesResponse
+    -> f DescribeVolumesResponse
+dvtVolumes f x =
+    (\y -> x { _dvtVolumes = y })
+       <$> f (_dvtVolumes x)
+{-# INLINE dvtVolumes #-}
 
 instance FromJSON DescribeVolumesResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,22 +25,66 @@
 -- have a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer where
+module Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer
+    (
+    -- * Request
+      AttachElasticLoadBalancer
+    -- ** Request constructor
+    , attachElasticLoadBalancer
+    -- ** Request lenses
+    , aelbrElasticLoadBalancerName
+    , aelbrLayerId
+
+    -- * Response
+    , AttachElasticLoadBalancerResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'AttachElasticLoadBalancer' request.
+attachElasticLoadBalancer :: Text -- ^ 'aelbrElasticLoadBalancerName'
+                          -> Text -- ^ 'aelbrLayerId'
+                          -> AttachElasticLoadBalancer
+attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
+    { _aelbrElasticLoadBalancerName = p1
+    , _aelbrLayerId = p2
+    }
+
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
-    { _aelbrLayerId :: Text
+    { _aelbrElasticLoadBalancerName :: Text
+      -- ^ The Elastic Load Balancing instance's name.
+    , _aelbrLayerId :: Text
       -- ^ The ID of the layer that the Elastic Load Balancing instance is
       -- to be attached to.
-    , _aelbrElasticLoadBalancerName :: Text
-      -- ^ The Elastic Load Balancing instance's name.
     } deriving (Show, Generic)
 
-makeLenses ''AttachElasticLoadBalancer
+-- | The Elastic Load Balancing instance's name.
+aelbrElasticLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachElasticLoadBalancer
+    -> f AttachElasticLoadBalancer
+aelbrElasticLoadBalancerName f x =
+    (\y -> x { _aelbrElasticLoadBalancerName = y })
+       <$> f (_aelbrElasticLoadBalancerName x)
+{-# INLINE aelbrElasticLoadBalancerName #-}
+
+-- | The ID of the layer that the Elastic Load Balancing instance is to be
+-- attached to.
+aelbrLayerId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachElasticLoadBalancer
+    -> f AttachElasticLoadBalancer
+aelbrLayerId f x =
+    (\y -> x { _aelbrLayerId = y })
+       <$> f (_aelbrLayerId x)
+{-# INLINE aelbrLayerId #-}
 
 instance ToPath AttachElasticLoadBalancer
 
@@ -53,8 +96,6 @@ instance ToJSON AttachElasticLoadBalancer
 
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AttachElasticLoadBalancerResponse
 
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks

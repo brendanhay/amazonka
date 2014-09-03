@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -47,12 +46,33 @@
 -- af23b1db-ee5c-11e2-9787-192218ecb460 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:14:21 GMT.
-module Network.AWS.EMR.V2009_03_31.SetTerminationProtection where
+module Network.AWS.EMR.V2009_03_31.SetTerminationProtection
+    (
+    -- * Request
+      SetTerminationProtection
+    -- ** Request constructor
+    , setTerminationProtection
+    -- ** Request lenses
+    , stpiTerminationProtected
+    , stpiJobFlowIds
+
+    -- * Response
+    , SetTerminationProtectionResponse
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'SetTerminationProtection' request.
+setTerminationProtection :: Bool -- ^ 'stpiTerminationProtected'
+                         -> [Text] -- ^ 'stpiJobFlowIds'
+                         -> SetTerminationProtection
+setTerminationProtection p1 p2 = SetTerminationProtection
+    { _stpiTerminationProtected = p1
+    , _stpiJobFlowIds = p2
+    }
 
 data SetTerminationProtection = SetTerminationProtection
     { _stpiTerminationProtected :: Bool
@@ -65,7 +85,33 @@ data SetTerminationProtection = SetTerminationProtection
       -- be obtained from DescribeJobFlows .
     } deriving (Show, Generic)
 
-makeLenses ''SetTerminationProtection
+-- | A Boolean that indicates whether to protect the job flow and prevent the
+-- Amazon EC2 instances in the cluster from shutting down due to API calls,
+-- user intervention, or job-flow error.
+stpiTerminationProtected
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> SetTerminationProtection
+    -> f SetTerminationProtection
+stpiTerminationProtected f x =
+    (\y -> x { _stpiTerminationProtected = y })
+       <$> f (_stpiTerminationProtected x)
+{-# INLINE stpiTerminationProtected #-}
+
+-- | A list of strings that uniquely identify the job flows to protect. This
+-- identifier is returned by RunJobFlow and can also be obtained from
+-- DescribeJobFlows .
+stpiJobFlowIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SetTerminationProtection
+    -> f SetTerminationProtection
+stpiJobFlowIds f x =
+    (\y -> x { _stpiJobFlowIds = y })
+       <$> f (_stpiJobFlowIds x)
+{-# INLINE stpiJobFlowIds #-}
 
 instance ToPath SetTerminationProtection
 
@@ -77,8 +123,6 @@ instance ToJSON SetTerminationProtection
 
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetTerminationProtectionResponse
 
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR

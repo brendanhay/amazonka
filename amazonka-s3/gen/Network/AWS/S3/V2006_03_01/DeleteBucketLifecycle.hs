@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,44 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the lifecycle configuration from the bucket.
-module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle where
+module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
+    (
+    -- * Request
+      DeleteBucketLifecycle
+    -- ** Request constructor
+    , deleteBucketLifecycle
+    -- ** Request lenses
+    , dblrBucket
+
+    -- * Response
+    , DeleteBucketLifecycleResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteBucketLifecycle' request.
+deleteBucketLifecycle :: BucketName -- ^ 'dblrBucket'
+                      -> DeleteBucketLifecycle
+deleteBucketLifecycle p1 = DeleteBucketLifecycle
+    { _dblrBucket = p1
+    }
+
 data DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''DeleteBucketLifecycle
+dblrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> DeleteBucketLifecycle
+    -> f DeleteBucketLifecycle
+dblrBucket f x =
+    (\y -> x { _dblrBucket = y })
+       <$> f (_dblrBucket x)
+{-# INLINE dblrBucket #-}
 
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat
@@ -48,8 +74,6 @@ instance ToBody DeleteBucketLifecycle
 
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteBucketLifecycleResponse
 
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3

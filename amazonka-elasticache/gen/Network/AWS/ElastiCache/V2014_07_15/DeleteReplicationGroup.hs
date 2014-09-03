@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,14 +30,29 @@
 -- &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- my-redis-primary my-repgroup deleting My replication group
 -- 93eb37db-b9d7-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup where
+module Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup
+    (
+    -- * Request
+      DeleteReplicationGroup
+    -- ** Request constructor
+    , deleteReplicationGroup
+    -- ** Request lenses
+    , drgmReplicationGroupId
+    , drgmRetainPrimaryCluster
+    , drgmFinalSnapshotIdentifier
+
+    -- * Response
+    , DeleteReplicationGroupResponse
+    -- ** Response lenses
+    , rgxReplicationGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteReplicationGroup' request.
-deleteReplicationGroup :: Text -- ^ '_drgmReplicationGroupId'
+deleteReplicationGroup :: Text -- ^ 'drgmReplicationGroupId'
                        -> DeleteReplicationGroup
 deleteReplicationGroup p1 = DeleteReplicationGroup
     { _drgmReplicationGroupId = p1
@@ -61,7 +75,47 @@ data DeleteReplicationGroup = DeleteReplicationGroup
       -- the replication group is deleted immediately afterward.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteReplicationGroup
+-- | The identifier for the replication group to be deleted. This parameter is
+-- not case sensitive.
+drgmReplicationGroupId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteReplicationGroup
+    -> f DeleteReplicationGroup
+drgmReplicationGroupId f x =
+    (\y -> x { _drgmReplicationGroupId = y })
+       <$> f (_drgmReplicationGroupId x)
+{-# INLINE drgmReplicationGroupId #-}
+
+-- | If set to true, all of the read replicas will be deleted, but the primary
+-- cache cluster will be retained.
+drgmRetainPrimaryCluster
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeleteReplicationGroup
+    -> f DeleteReplicationGroup
+drgmRetainPrimaryCluster f x =
+    (\y -> x { _drgmRetainPrimaryCluster = y })
+       <$> f (_drgmRetainPrimaryCluster x)
+{-# INLINE drgmRetainPrimaryCluster #-}
+
+-- | The name of a final cache cluster snapshot. ElastiCache creates the
+-- snapshot from the primary cluster in the replication group, rather than one
+-- of the replicas; this is to ensure that it captures the freshest data.
+-- After the final snapshot is taken, the replication group is deleted
+-- immediately afterward.
+drgmFinalSnapshotIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteReplicationGroup
+    -> f DeleteReplicationGroup
+drgmFinalSnapshotIdentifier f x =
+    (\y -> x { _drgmFinalSnapshotIdentifier = y })
+       <$> f (_drgmFinalSnapshotIdentifier x)
+{-# INLINE drgmFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteReplicationGroup where
     toQuery = genericQuery def
@@ -71,7 +125,17 @@ data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
       -- ^ Contains all of the attributes of a specific replication group.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteReplicationGroupResponse
+-- | Contains all of the attributes of a specific replication group.
+rgxReplicationGroup
+    :: Functor f
+    => (Maybe ReplicationGroup
+    -> f (Maybe ReplicationGroup))
+    -> DeleteReplicationGroupResponse
+    -> f DeleteReplicationGroupResponse
+rgxReplicationGroup f x =
+    (\y -> x { _rgxReplicationGroup = y })
+       <$> f (_rgxReplicationGroup x)
+{-# INLINE rgxReplicationGroup #-}
 
 instance FromXML DeleteReplicationGroupResponse where
     fromXMLOptions = xmlOptions

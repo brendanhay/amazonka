@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,7 +27,21 @@
 -- DescribeServices request. Always use the service codes and categories
 -- obtained programmatically. This practice ensures that you always have the
 -- most recent set of service and category codes.
-module Network.AWS.Support.V2013_04_15.DescribeServices where
+module Network.AWS.Support.V2013_04_15.DescribeServices
+    (
+    -- * Request
+      DescribeServices
+    -- ** Request constructor
+    , describeServices
+    -- ** Request lenses
+    , dsrLanguage
+    , dsrServiceCodeList
+
+    -- * Response
+    , DescribeServicesResponse
+    -- ** Response lenses
+    , dssServices
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
@@ -53,7 +66,31 @@ data DescribeServices = DescribeServices
       -- services.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeServices
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English ("en") and Japanese ("ja"). Language
+-- parameters must be passed explicitly for operations that take them.
+dsrLanguage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeServices
+    -> f DescribeServices
+dsrLanguage f x =
+    (\y -> x { _dsrLanguage = y })
+       <$> f (_dsrLanguage x)
+{-# INLINE dsrLanguage #-}
+
+-- | A JSON-formatted list of service codes available for AWS services.
+dsrServiceCodeList
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeServices
+    -> f DescribeServices
+dsrServiceCodeList f x =
+    (\y -> x { _dsrServiceCodeList = y })
+       <$> f (_dsrServiceCodeList x)
+{-# INLINE dsrServiceCodeList #-}
 
 instance ToPath DescribeServices
 
@@ -68,7 +105,17 @@ data DescribeServicesResponse = DescribeServicesResponse
       -- ^ A JSON-formatted list of AWS services.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeServicesResponse
+-- | A JSON-formatted list of AWS services.
+dssServices
+    :: Functor f
+    => ([Service]
+    -> f ([Service]))
+    -> DescribeServicesResponse
+    -> f DescribeServicesResponse
+dssServices f x =
+    (\y -> x { _dssServices = y })
+       <$> f (_dssServices x)
+{-# INLINE dssServices #-}
 
 instance FromJSON DescribeServicesResponse
 

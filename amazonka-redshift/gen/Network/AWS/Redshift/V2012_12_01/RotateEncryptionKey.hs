@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,11 +18,31 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Rotates the encryption keys for a cluster.
-module Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey where
+module Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey
+    (
+    -- * Request
+      RotateEncryptionKey
+    -- ** Request constructor
+    , rotateEncryptionKey
+    -- ** Request lenses
+    , rekmClusterIdentifier
+
+    -- * Response
+    , RotateEncryptionKeyResponse
+    -- ** Response lenses
+    , cccrCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RotateEncryptionKey' request.
+rotateEncryptionKey :: Text -- ^ 'rekmClusterIdentifier'
+                    -> RotateEncryptionKey
+rotateEncryptionKey p1 = RotateEncryptionKey
+    { _rekmClusterIdentifier = p1
+    }
 
 data RotateEncryptionKey = RotateEncryptionKey
     { _rekmClusterIdentifier :: Text
@@ -32,17 +51,39 @@ data RotateEncryptionKey = RotateEncryptionKey
       -- cluster that has encryption enabled.
     } deriving (Show, Generic)
 
-makeLenses ''RotateEncryptionKey
+-- | The unique identifier of the cluster that you want to rotate the encryption
+-- keys for. Constraints: Must be the name of valid cluster that has
+-- encryption enabled.
+rekmClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RotateEncryptionKey
+    -> f RotateEncryptionKey
+rekmClusterIdentifier f x =
+    (\y -> x { _rekmClusterIdentifier = y })
+       <$> f (_rekmClusterIdentifier x)
+{-# INLINE rekmClusterIdentifier #-}
 
 instance ToQuery RotateEncryptionKey where
     toQuery = genericQuery def
 
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
-    { _cczCluster :: Maybe Cluster
+    { _cccrCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
-makeLenses ''RotateEncryptionKeyResponse
+-- | Describes a cluster.
+cccrCluster
+    :: Functor f
+    => (Maybe Cluster
+    -> f (Maybe Cluster))
+    -> RotateEncryptionKeyResponse
+    -> f RotateEncryptionKeyResponse
+cccrCluster f x =
+    (\y -> x { _cccrCluster = y })
+       <$> f (_cccrCluster x)
+{-# INLINE cccrCluster #-}
 
 instance FromXML RotateEncryptionKeyResponse where
     fromXMLOptions = xmlOptions

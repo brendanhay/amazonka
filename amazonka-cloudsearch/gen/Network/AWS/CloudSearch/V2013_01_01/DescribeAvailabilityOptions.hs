@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,14 +22,28 @@
 -- to show the active configuration and exclude pending changes. For more
 -- information, see Configuring Availability Options in the Amazon CloudSearch
 -- Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions where
+module Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
+    (
+    -- * Request
+      DescribeAvailabilityOptions
+    -- ** Request constructor
+    , describeAvailabilityOptions
+    -- ** Request lenses
+    , daorDomainName
+    , daorDeployed
+
+    -- * Response
+    , DescribeAvailabilityOptionsResponse
+    -- ** Response lenses
+    , daosAvailabilityOptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeAvailabilityOptions' request.
-describeAvailabilityOptions :: Text -- ^ '_daorDomainName'
+describeAvailabilityOptions :: Text -- ^ 'daorDomainName'
                             -> DescribeAvailabilityOptions
 describeAvailabilityOptions p1 = DescribeAvailabilityOptions
     { _daorDomainName = p1
@@ -45,7 +58,30 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions
       -- any pending changes (false). Defaults to false.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAvailabilityOptions
+-- | The name of the domain you want to describe.
+daorDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeAvailabilityOptions
+    -> f DescribeAvailabilityOptions
+daorDomainName f x =
+    (\y -> x { _daorDomainName = y })
+       <$> f (_daorDomainName x)
+{-# INLINE daorDomainName #-}
+
+-- | Whether to display the deployed configuration (true) or include any pending
+-- changes (false). Defaults to false.
+daorDeployed
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DescribeAvailabilityOptions
+    -> f DescribeAvailabilityOptions
+daorDeployed f x =
+    (\y -> x { _daorDeployed = y })
+       <$> f (_daorDeployed x)
+{-# INLINE daorDeployed #-}
 
 instance ToQuery DescribeAvailabilityOptions where
     toQuery = genericQuery def
@@ -56,7 +92,18 @@ data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
       -- whether Multi-AZ is enabled for the domain.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAvailabilityOptionsResponse
+-- | The availability options configured for the domain. Indicates whether
+-- Multi-AZ is enabled for the domain.
+daosAvailabilityOptions
+    :: Functor f
+    => (Maybe AvailabilityOptionsStatus
+    -> f (Maybe AvailabilityOptionsStatus))
+    -> DescribeAvailabilityOptionsResponse
+    -> f DescribeAvailabilityOptionsResponse
+daosAvailabilityOptions f x =
+    (\y -> x { _daosAvailabilityOptions = y })
+       <$> f (_daosAvailabilityOptions x)
+{-# INLINE daosAvailabilityOptions #-}
 
 instance FromXML DescribeAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

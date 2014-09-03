@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,27 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new bucket.
-module Network.AWS.S3.V2006_03_01.CreateBucket where
+module Network.AWS.S3.V2006_03_01.CreateBucket
+    (
+    -- * Request
+      CreateBucket
+    -- ** Request constructor
+    , createBucket
+    -- ** Request lenses
+    , cbrBucket
+    , cbrCreateBucketConfiguration
+    , cbrACL
+    , cbrGrantFullControl
+    , cbrGrantRead
+    , cbrGrantReadACP
+    , cbrGrantWrite
+    , cbrGrantWriteACP
+
+    -- * Response
+    , CreateBucketResponse
+    -- ** Response lenses
+    , cboLocation
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
@@ -28,7 +47,7 @@ import Network.AWS.Prelude
 type PutBucket = CreateBucket
 
 -- | Minimum specification for a 'CreateBucket' request.
-createBucket :: BucketName -- ^ '_cbrBucket'
+createBucket :: BucketName -- ^ 'cbrBucket'
              -> CreateBucket
 createBucket p1 = CreateBucket
     { _cbrBucket = p1
@@ -60,7 +79,100 @@ data CreateBucket = CreateBucket
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     } deriving (Show, Generic)
 
-makeLenses ''CreateBucket
+cbrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> CreateBucket
+    -> f CreateBucket
+cbrBucket f x =
+    (\y -> x { _cbrBucket = y })
+       <$> f (_cbrBucket x)
+{-# INLINE cbrBucket #-}
+
+cbrCreateBucketConfiguration
+    :: Functor f
+    => (Maybe CreateBucketConfiguration
+    -> f (Maybe CreateBucketConfiguration))
+    -> CreateBucket
+    -> f CreateBucket
+cbrCreateBucketConfiguration f x =
+    (\y -> x { _cbrCreateBucketConfiguration = y })
+       <$> f (_cbrCreateBucketConfiguration x)
+{-# INLINE cbrCreateBucketConfiguration #-}
+
+-- | The canned ACL to apply to the bucket.
+cbrACL
+    :: Functor f
+    => (Maybe BucketCannedACL
+    -> f (Maybe BucketCannedACL))
+    -> CreateBucket
+    -> f CreateBucket
+cbrACL f x =
+    (\y -> x { _cbrACL = y })
+       <$> f (_cbrACL x)
+{-# INLINE cbrACL #-}
+
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the
+-- bucket.
+cbrGrantFullControl
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateBucket
+    -> f CreateBucket
+cbrGrantFullControl f x =
+    (\y -> x { _cbrGrantFullControl = y })
+       <$> f (_cbrGrantFullControl x)
+{-# INLINE cbrGrantFullControl #-}
+
+-- | Allows grantee to list the objects in the bucket.
+cbrGrantRead
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateBucket
+    -> f CreateBucket
+cbrGrantRead f x =
+    (\y -> x { _cbrGrantRead = y })
+       <$> f (_cbrGrantRead x)
+{-# INLINE cbrGrantRead #-}
+
+-- | Allows grantee to read the bucket ACL.
+cbrGrantReadACP
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateBucket
+    -> f CreateBucket
+cbrGrantReadACP f x =
+    (\y -> x { _cbrGrantReadACP = y })
+       <$> f (_cbrGrantReadACP x)
+{-# INLINE cbrGrantReadACP #-}
+
+-- | Allows grantee to create, overwrite, and delete any object in the bucket.
+cbrGrantWrite
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateBucket
+    -> f CreateBucket
+cbrGrantWrite f x =
+    (\y -> x { _cbrGrantWrite = y })
+       <$> f (_cbrGrantWrite x)
+{-# INLINE cbrGrantWrite #-}
+
+-- | Allows grantee to write the ACL for the applicable bucket.
+cbrGrantWriteACP
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateBucket
+    -> f CreateBucket
+cbrGrantWriteACP f x =
+    (\y -> x { _cbrGrantWriteACP = y })
+       <$> f (_cbrGrantWriteACP x)
+{-# INLINE cbrGrantWriteACP #-}
 
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat
@@ -87,7 +199,16 @@ data CreateBucketResponse = CreateBucketResponse
     { _cboLocation :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateBucketResponse
+cboLocation
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateBucketResponse
+    -> f CreateBucketResponse
+cboLocation f x =
+    (\y -> x { _cboLocation = y })
+       <$> f (_cboLocation x)
+{-# INLINE cboLocation #-}
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3

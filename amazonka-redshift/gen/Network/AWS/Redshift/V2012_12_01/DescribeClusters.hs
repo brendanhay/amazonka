@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,7 +31,23 @@
 -- true false dev sun:10:30-sun:11:00 in-sync default.redshift-1.0 active
 -- default us-east-1a dw1.xlarge examplecluster true masteruser
 -- 837d45d6-64f0-11e2-b07c-f7fbdd006c67.
-module Network.AWS.Redshift.V2012_12_01.DescribeClusters where
+module Network.AWS.Redshift.V2012_12_01.DescribeClusters
+    (
+    -- * Request
+      DescribeClusters
+    -- ** Request constructor
+    , describeClusters
+    -- ** Request lenses
+    , dcnMaxRecords
+    , dcnClusterIdentifier
+    , dcnMarker
+
+    -- * Response
+    , DescribeClustersResponse
+    -- ** Response lenses
+    , cmClusters
+    , cmMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -41,20 +56,24 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeClusters' request.
 describeClusters :: DescribeClusters
 describeClusters = DescribeClusters
-    { _dcmMaxRecords = Nothing
-    , _dcmMarker = Nothing
-    , _dcmClusterIdentifier = Nothing
+    { _dcnMaxRecords = Nothing
+    , _dcnClusterIdentifier = Nothing
+    , _dcnMarker = Nothing
     }
 
 data DescribeClusters = DescribeClusters
-    { _dcmMaxRecords :: Maybe Integer
+    { _dcnMaxRecords :: Maybe Integer
       -- ^ The maximum number of response records to return in each call. If
       -- the number of remaining response records exceeds the specified
       -- MaxRecords value, a value is returned in a marker field of the
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcmMarker :: Maybe Text
+    , _dcnClusterIdentifier :: Maybe Text
+      -- ^ The unique identifier of a cluster whose properties you are
+      -- requesting. This parameter is case sensitive. The default is that
+      -- all clusters defined for an account are returned.
+    , _dcnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a DescribeClusters
       -- request exceed the value specified in MaxRecords, AWS returns a
@@ -63,13 +82,55 @@ data DescribeClusters = DescribeClusters
       -- value in the Marker parameter and retrying the request.
       -- Constraints: You can specify either the ClusterIdentifier
       -- parameter or the Marker parameter, but not both.
-    , _dcmClusterIdentifier :: Maybe Text
-      -- ^ The unique identifier of a cluster whose properties you are
-      -- requesting. This parameter is case sensitive. The default is that
-      -- all clusters defined for an account are returned.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeClusters
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in a marker field of the response. You can
+-- retrieve the next set of records by retrying the command with the returned
+-- marker value. Default: 100 Constraints: minimum 20, maximum 100.
+dcnMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeClusters
+    -> f DescribeClusters
+dcnMaxRecords f x =
+    (\y -> x { _dcnMaxRecords = y })
+       <$> f (_dcnMaxRecords x)
+{-# INLINE dcnMaxRecords #-}
+
+-- | The unique identifier of a cluster whose properties you are requesting.
+-- This parameter is case sensitive. The default is that all clusters defined
+-- for an account are returned.
+dcnClusterIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusters
+    -> f DescribeClusters
+dcnClusterIdentifier f x =
+    (\y -> x { _dcnClusterIdentifier = y })
+       <$> f (_dcnClusterIdentifier x)
+{-# INLINE dcnClusterIdentifier #-}
+
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a DescribeClusters request exceed the
+-- value specified in MaxRecords, AWS returns a value in the Marker field of
+-- the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the Marker parameter and retrying
+-- the request. Constraints: You can specify either the ClusterIdentifier
+-- parameter or the Marker parameter, but not both.
+dcnMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClusters
+    -> f DescribeClusters
+dcnMarker f x =
+    (\y -> x { _dcnMarker = y })
+       <$> f (_dcnMarker x)
+{-# INLINE dcnMarker #-}
 
 instance ToQuery DescribeClusters where
     toQuery = genericQuery def
@@ -87,7 +148,33 @@ data DescribeClustersResponse = DescribeClustersResponse
       -- records have been retrieved for the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeClustersResponse
+-- | A list of Cluster objects, where each object describes one cluster.
+cmClusters
+    :: Functor f
+    => ([Cluster]
+    -> f ([Cluster]))
+    -> DescribeClustersResponse
+    -> f DescribeClustersResponse
+cmClusters f x =
+    (\y -> x { _cmClusters = y })
+       <$> f (_cmClusters x)
+{-# INLINE cmClusters #-}
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker
+-- value in the Marker parameter and retrying the command. If the Marker field
+-- is empty, all response records have been retrieved for the request.
+cmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeClustersResponse
+    -> f DescribeClustersResponse
+cmMarker f x =
+    (\y -> x { _cmMarker = y })
+       <$> f (_cmMarker x)
+{-# INLINE cmMarker #-}
 
 instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions
@@ -100,5 +187,5 @@ instance AWSRequest DescribeClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusters where
-    next rq rs = (\x -> rq { _dcmMarker = Just x })
+    next rq rs = (\x -> rq { _dcnMarker = Just x })
         <$> (_cmMarker rs)

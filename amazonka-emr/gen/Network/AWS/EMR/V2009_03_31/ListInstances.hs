@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,24 @@
 -- operation indicates when the EC2 instances reach the Ready state, when
 -- instances become available to Amazon EMR to use for jobs, and the IP
 -- addresses for cluster instances, etc.
-module Network.AWS.EMR.V2009_03_31.ListInstances where
+module Network.AWS.EMR.V2009_03_31.ListInstances
+    (
+    -- * Request
+      ListInstances
+    -- ** Request constructor
+    , listInstances
+    -- ** Request lenses
+    , liiClusterId
+    , liiInstanceGroupId
+    , liiInstanceGroupTypes
+    , liiMarker
+
+    -- * Response
+    , ListInstancesResponse
+    -- ** Response lenses
+    , lioInstances
+    , lioMarker
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -31,7 +47,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListInstances' request.
-listInstances :: Text -- ^ '_liiClusterId'
+listInstances :: Text -- ^ 'liiClusterId'
               -> ListInstances
 listInstances p1 = ListInstances
     { _liiClusterId = p1
@@ -53,7 +69,53 @@ data ListInstances = ListInstances
       -- retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''ListInstances
+-- | The identifier of the cluster for which to list the instances.
+liiClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListInstances
+    -> f ListInstances
+liiClusterId f x =
+    (\y -> x { _liiClusterId = y })
+       <$> f (_liiClusterId x)
+{-# INLINE liiClusterId #-}
+
+-- | The identifier of the instance group for which to list the instances.
+liiInstanceGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstances
+    -> f ListInstances
+liiInstanceGroupId f x =
+    (\y -> x { _liiInstanceGroupId = y })
+       <$> f (_liiInstanceGroupId x)
+{-# INLINE liiInstanceGroupId #-}
+
+-- | The type of instance group for which to list the instances.
+liiInstanceGroupTypes
+    :: Functor f
+    => ([InstanceGroupType]
+    -> f ([InstanceGroupType]))
+    -> ListInstances
+    -> f ListInstances
+liiInstanceGroupTypes f x =
+    (\y -> x { _liiInstanceGroupTypes = y })
+       <$> f (_liiInstanceGroupTypes x)
+{-# INLINE liiInstanceGroupTypes #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+liiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstances
+    -> f ListInstances
+liiMarker f x =
+    (\y -> x { _liiMarker = y })
+       <$> f (_liiMarker x)
+{-# INLINE liiMarker #-}
 
 instance ToPath ListInstances
 
@@ -71,7 +133,29 @@ data ListInstancesResponse = ListInstancesResponse
       -- retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''ListInstancesResponse
+-- | The list of instances for the cluster and given filters.
+lioInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> ListInstancesResponse
+    -> f ListInstancesResponse
+lioInstances f x =
+    (\y -> x { _lioInstances = y })
+       <$> f (_lioInstances x)
+{-# INLINE lioInstances #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+lioMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstancesResponse
+    -> f ListInstancesResponse
+lioMarker f x =
+    (\y -> x { _lioMarker = y })
+       <$> f (_lioMarker x)
+{-# INLINE lioMarker #-}
 
 instance FromJSON ListInstancesResponse
 

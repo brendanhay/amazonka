@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -85,7 +84,25 @@
 -- 1326668003.094, "eventType": "DecisionTaskScheduled"} ], "nextPageToken":
 -- "AAAAKgAAAAEAAAAAAAAAATeTvAyvqlQz34ctbGhM5nglWmjzk0hGuHf0g4EO4CblQFku70ukjPgrAHy7Tnp7FaZ0okP8EEWnkfg8gi3Fqy/WVrXyxQaa525D31cIq1owXK21CKR6SQ0Job87G8SHvvqvP7yjLGHlHrRGZUCbJgeEuV4Rp/yW+vKhc8dJ54x7wvpQMwZ+ssG6stTyX26vu1gIDuspk13UrDZa4TbLOFdM0aAocHe3xklKMtD/B4ithem6BWm6CBl/UF7lMfNccwUYEityp1Kht/YrcD9zbJkt1FSt4Y6pgt0njAh4FKRO9nyRyvLmbvgtQXEIQz8hdbjwj3xE1+9ocYwXOCAhVkRsh3OD6F8KHilKfdwg4Xz1jtLXOh4lsCecNb8dS7J9hbRErRbw3rh1Sv415U2Ye23OEfF4Jv7JznpmEyzuq8d2bMyOLjAInQVFK4t1tPo5FAhzdICCXBhRq6Wkt++W9sRQXqqX/HTX5kNomHySZloylPuY5gL5zRj39frInfZk4EXWHwrI+18+erGIHO4nBQpMzO64dMP+A/KtVGCn59rAMmilD6wEE9rH8RuZ03Wkvm9yrJvjrI8/6358n8TMB8OcHoqILkMCAXYiIppnFlm+NWXVqxalHLKOrrNzEZM6qsz3Qj3HV1cpy9P7fnS9QAxrgsAYBoDmdOaFkS3ktAkRa0Sle8STfHi4zKbfIGS7rg=="}.
 -- 
-module Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory where
+module Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
+    (
+    -- * Request
+      GetWorkflowExecutionHistory
+    -- ** Request constructor
+    , getWorkflowExecutionHistory
+    -- ** Request lenses
+    , gwehiDomain
+    , gwehiExecution
+    , gwehiMaximumPageSize
+    , gwehiNextPageToken
+    , gwehiReverseOrder
+
+    -- * Response
+    , GetWorkflowExecutionHistoryResponse
+    -- ** Response lenses
+    , hyEvents
+    , hyNextPageToken
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -93,8 +110,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetWorkflowExecutionHistory' request.
-getWorkflowExecutionHistory :: Text -- ^ '_gwehiDomain'
-                            -> WorkflowExecution -- ^ '_gwehiExecution'
+getWorkflowExecutionHistory :: Text -- ^ 'gwehiDomain'
+                            -> WorkflowExecution -- ^ 'gwehiExecution'
                             -> GetWorkflowExecutionHistory
 getWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
     { _gwehiDomain = p1
@@ -128,7 +145,75 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
       -- of the events.
     } deriving (Show, Generic)
 
-makeLenses ''GetWorkflowExecutionHistory
+-- | The name of the domain containing the workflow execution.
+gwehiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetWorkflowExecutionHistory
+    -> f GetWorkflowExecutionHistory
+gwehiDomain f x =
+    (\y -> x { _gwehiDomain = y })
+       <$> f (_gwehiDomain x)
+{-# INLINE gwehiDomain #-}
+
+-- | Specifies the workflow execution for which to return the history.
+gwehiExecution
+    :: Functor f
+    => (WorkflowExecution
+    -> f (WorkflowExecution))
+    -> GetWorkflowExecutionHistory
+    -> f GetWorkflowExecutionHistory
+gwehiExecution f x =
+    (\y -> x { _gwehiExecution = y })
+       <$> f (_gwehiExecution x)
+{-# INLINE gwehiExecution #-}
+
+-- | Specifies the maximum number of history events returned in one page. The
+-- next page in the result is identified by the NextPageToken returned. By
+-- default 100 history events are returned in a page but the caller can
+-- override this value to a page size smaller than the default. You cannot
+-- specify a page size larger than 100. Note that the number of events may be
+-- less than the maxiumum page size, in which case, the returned page will
+-- have fewer results than the maximumPageSize specified.
+gwehiMaximumPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> GetWorkflowExecutionHistory
+    -> f GetWorkflowExecutionHistory
+gwehiMaximumPageSize f x =
+    (\y -> x { _gwehiMaximumPageSize = y })
+       <$> f (_gwehiMaximumPageSize x)
+{-# INLINE gwehiMaximumPageSize #-}
+
+-- | If a NextPageToken is returned, the result has more than one pages. To get
+-- the next page, repeat the call and specify the nextPageToken with all other
+-- arguments unchanged.
+gwehiNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetWorkflowExecutionHistory
+    -> f GetWorkflowExecutionHistory
+gwehiNextPageToken f x =
+    (\y -> x { _gwehiNextPageToken = y })
+       <$> f (_gwehiNextPageToken x)
+{-# INLINE gwehiNextPageToken #-}
+
+-- | When set to true, returns the events in reverse order. By default the
+-- results are returned in ascending order of the eventTimeStamp of the
+-- events.
+gwehiReverseOrder
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> GetWorkflowExecutionHistory
+    -> f GetWorkflowExecutionHistory
+gwehiReverseOrder f x =
+    (\y -> x { _gwehiReverseOrder = y })
+       <$> f (_gwehiReverseOrder x)
+{-# INLINE gwehiReverseOrder #-}
 
 instance ToPath GetWorkflowExecutionHistory
 
@@ -147,7 +232,31 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
       -- request with this token and all other arguments unchanged.
     } deriving (Show, Generic)
 
-makeLenses ''GetWorkflowExecutionHistoryResponse
+-- | The list of history events.
+hyEvents
+    :: Functor f
+    => ([HistoryEvent]
+    -> f ([HistoryEvent]))
+    -> GetWorkflowExecutionHistoryResponse
+    -> f GetWorkflowExecutionHistoryResponse
+hyEvents f x =
+    (\y -> x { _hyEvents = y })
+       <$> f (_hyEvents x)
+{-# INLINE hyEvents #-}
+
+-- | The token for the next page. If set, the history consists of more than one
+-- page and the next page can be retrieved by repeating the request with this
+-- token and all other arguments unchanged.
+hyNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetWorkflowExecutionHistoryResponse
+    -> f GetWorkflowExecutionHistoryResponse
+hyNextPageToken f x =
+    (\y -> x { _hyNextPageToken = y })
+       <$> f (_hyNextPageToken x)
+{-# INLINE hyNextPageToken #-}
 
 instance FromJSON GetWorkflowExecutionHistoryResponse
 

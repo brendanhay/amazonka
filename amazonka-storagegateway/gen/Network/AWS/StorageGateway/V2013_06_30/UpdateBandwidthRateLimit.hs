@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,7 +38,22 @@
 -- Date: Wed, 25 Apr 2012 12:00:02 GMT Content-type:
 -- application/x-amz-json-1.1 Content-length: 80 { "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit where
+module Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit
+    (
+    -- * Request
+      UpdateBandwidthRateLimit
+    -- ** Request constructor
+    , updateBandwidthRateLimit
+    -- ** Request lenses
+    , ubrliGatewayARN
+    , ubrliAverageDownloadRateLimitInBitsPerSec
+    , ubrliAverageUploadRateLimitInBitsPerSec
+
+    -- * Response
+    , UpdateBandwidthRateLimitResponse
+    -- ** Response lenses
+    , ubrloGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -47,7 +61,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateBandwidthRateLimit' request.
-updateBandwidthRateLimit :: Text -- ^ '_ubrliGatewayARN'
+updateBandwidthRateLimit :: Text -- ^ 'ubrliGatewayARN'
                          -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
     { _ubrliGatewayARN = p1
@@ -66,7 +80,42 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
       -- ^ The average upload bandwidth rate limit in bits per second.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateBandwidthRateLimit
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ubrliGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateBandwidthRateLimit
+    -> f UpdateBandwidthRateLimit
+ubrliGatewayARN f x =
+    (\y -> x { _ubrliGatewayARN = y })
+       <$> f (_ubrliGatewayARN x)
+{-# INLINE ubrliGatewayARN #-}
+
+-- | The average download bandwidth rate limit in bits per second.
+ubrliAverageDownloadRateLimitInBitsPerSec
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> UpdateBandwidthRateLimit
+    -> f UpdateBandwidthRateLimit
+ubrliAverageDownloadRateLimitInBitsPerSec f x =
+    (\y -> x { _ubrliAverageDownloadRateLimitInBitsPerSec = y })
+       <$> f (_ubrliAverageDownloadRateLimitInBitsPerSec x)
+{-# INLINE ubrliAverageDownloadRateLimitInBitsPerSec #-}
+
+-- | The average upload bandwidth rate limit in bits per second.
+ubrliAverageUploadRateLimitInBitsPerSec
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> UpdateBandwidthRateLimit
+    -> f UpdateBandwidthRateLimit
+ubrliAverageUploadRateLimitInBitsPerSec f x =
+    (\y -> x { _ubrliAverageUploadRateLimitInBitsPerSec = y })
+       <$> f (_ubrliAverageUploadRateLimitInBitsPerSec x)
+{-# INLINE ubrliAverageUploadRateLimitInBitsPerSec #-}
 
 instance ToPath UpdateBandwidthRateLimit
 
@@ -83,7 +132,18 @@ data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateBandwidthRateLimitResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ubrloGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateBandwidthRateLimitResponse
+    -> f UpdateBandwidthRateLimitResponse
+ubrloGatewayARN f x =
+    (\y -> x { _ubrloGatewayARN = y })
+       <$> f (_ubrloGatewayARN x)
+{-# INLINE ubrloGatewayARN #-}
 
 instance FromJSON UpdateBandwidthRateLimitResponse
 

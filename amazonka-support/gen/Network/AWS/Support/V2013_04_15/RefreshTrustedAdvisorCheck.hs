@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,19 +25,49 @@
 -- "success", or "abandoned". MillisUntilNextRefreshable. The amount of time,
 -- in milliseconds, until the check is eligible for refresh. CheckId. The
 -- unique identifier for the check.
-module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck where
+module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
+    (
+    -- * Request
+      RefreshTrustedAdvisorCheck
+    -- ** Request constructor
+    , refreshTrustedAdvisorCheck
+    -- ** Request lenses
+    , rtacrCheckId
+
+    -- * Response
+    , RefreshTrustedAdvisorCheckResponse
+    -- ** Response lenses
+    , rtacsStatus
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'RefreshTrustedAdvisorCheck' request.
+refreshTrustedAdvisorCheck :: Text -- ^ 'rtacrCheckId'
+                           -> RefreshTrustedAdvisorCheck
+refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
+    { _rtacrCheckId = p1
+    }
+
 data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacrCheckId :: Text
       -- ^ The unique identifier for the Trusted Advisor check.
     } deriving (Show, Generic)
 
-makeLenses ''RefreshTrustedAdvisorCheck
+-- | The unique identifier for the Trusted Advisor check.
+rtacrCheckId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RefreshTrustedAdvisorCheck
+    -> f RefreshTrustedAdvisorCheck
+rtacrCheckId f x =
+    (\y -> x { _rtacrCheckId = y })
+       <$> f (_rtacrCheckId x)
+{-# INLINE rtacrCheckId #-}
 
 instance ToPath RefreshTrustedAdvisorCheck
 
@@ -54,7 +83,18 @@ data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
       -- time until the check is eligible for refresh.
     } deriving (Show, Generic)
 
-makeLenses ''RefreshTrustedAdvisorCheckResponse
+-- | The current refresh status for a check, including the amount of time until
+-- the check is eligible for refresh.
+rtacsStatus
+    :: Functor f
+    => (TrustedAdvisorCheckRefreshStatus
+    -> f (TrustedAdvisorCheckRefreshStatus))
+    -> RefreshTrustedAdvisorCheckResponse
+    -> f RefreshTrustedAdvisorCheckResponse
+rtacsStatus f x =
+    (\y -> x { _rtacsStatus = y })
+       <$> f (_rtacsStatus x)
+{-# INLINE rtacsStatus #-}
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse
 

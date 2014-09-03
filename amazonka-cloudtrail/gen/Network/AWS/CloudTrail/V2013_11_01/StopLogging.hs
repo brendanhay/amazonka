@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,20 +21,49 @@
 -- specified trail. Under most circumstances, there is no need to use this
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.
-module Network.AWS.CloudTrail.V2013_11_01.StopLogging where
+module Network.AWS.CloudTrail.V2013_11_01.StopLogging
+    (
+    -- * Request
+      StopLogging
+    -- ** Request constructor
+    , stopLogging
+    -- ** Request lenses
+    , sltName
+
+    -- * Response
+    , StopLoggingResponse
+    ) where
 
 import           Network.AWS.CloudTrail.V2013_11_01.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'StopLogging' request.
+stopLogging :: Text -- ^ 'sltName'
+            -> StopLogging
+stopLogging p1 = StopLogging
+    { _sltName = p1
+    }
+
 data StopLogging = StopLogging
-    { _slrName :: Text
+    { _sltName :: Text
       -- ^ Communicates to CloudTrail the name of the trail for which to
       -- stop logging AWS API calls.
     } deriving (Show, Generic)
 
-makeLenses ''StopLogging
+-- | Communicates to CloudTrail the name of the trail for which to stop logging
+-- AWS API calls.
+sltName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StopLogging
+    -> f StopLogging
+sltName f x =
+    (\y -> x { _sltName = y })
+       <$> f (_sltName x)
+{-# INLINE sltName #-}
 
 instance ToPath StopLogging
 
@@ -47,8 +75,6 @@ instance ToJSON StopLogging
 
 data StopLoggingResponse = StopLoggingResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''StopLoggingResponse
 
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail

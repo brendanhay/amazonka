@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,21 +49,64 @@
 -- "867530901", "workflowType": {"name": "customerOrderWorkflow", "version":
 -- "1.0"} } HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 9c8d6d3b-3fff-11e1-9e8f-57bb03e21482.
-module Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType where
+module Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
+    (
+    -- * Request
+      DeprecateWorkflowType
+    -- ** Request constructor
+    , deprecateWorkflowType
+    -- ** Request lenses
+    , dwtiDomain
+    , dwtiWorkflowType
+
+    -- * Response
+    , DeprecateWorkflowTypeResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeprecateWorkflowType' request.
+deprecateWorkflowType :: Text -- ^ 'dwtiDomain'
+                      -> WorkflowType -- ^ 'dwtiWorkflowType'
+                      -> DeprecateWorkflowType
+deprecateWorkflowType p1 p2 = DeprecateWorkflowType
+    { _dwtiDomain = p1
+    , _dwtiWorkflowType = p2
+    }
+
 data DeprecateWorkflowType = DeprecateWorkflowType
-    { _dwtjDomain :: Text
+    { _dwtiDomain :: Text
       -- ^ The name of the domain in which the workflow type is registered.
-    , _dwtjWorkflowType :: WorkflowType
+    , _dwtiWorkflowType :: WorkflowType
       -- ^ The workflow type to deprecate.
     } deriving (Show, Generic)
 
-makeLenses ''DeprecateWorkflowType
+-- | The name of the domain in which the workflow type is registered.
+dwtiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeprecateWorkflowType
+    -> f DeprecateWorkflowType
+dwtiDomain f x =
+    (\y -> x { _dwtiDomain = y })
+       <$> f (_dwtiDomain x)
+{-# INLINE dwtiDomain #-}
+
+-- | The workflow type to deprecate.
+dwtiWorkflowType
+    :: Functor f
+    => (WorkflowType
+    -> f (WorkflowType))
+    -> DeprecateWorkflowType
+    -> f DeprecateWorkflowType
+dwtiWorkflowType f x =
+    (\y -> x { _dwtiWorkflowType = y })
+       <$> f (_dwtiWorkflowType x)
+{-# INLINE dwtiWorkflowType #-}
 
 instance ToPath DeprecateWorkflowType
 
@@ -76,8 +118,6 @@ instance ToJSON DeprecateWorkflowType
 
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeprecateWorkflowTypeResponse
 
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF

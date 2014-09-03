@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,14 +27,28 @@
 -- moved out of standby in response to a user request, increasing the capacity
 -- from 3 to 4. my-asg {"Availability Zone":"us-east-1a"} Moving EC2 instance
 -- out of Standby: i-5b73d709 321a11c8-f34c-11e3-a434-7f10009d5849.
-module Network.AWS.AutoScaling.V2011_01_01.ExitStandby where
+module Network.AWS.AutoScaling.V2011_01_01.ExitStandby
+    (
+    -- * Request
+      ExitStandby
+    -- ** Request constructor
+    , exitStandby
+    -- ** Request lenses
+    , esrAutoScalingGroupName
+    , esrInstanceIds
+
+    -- * Response
+    , ExitStandbyResponse
+    -- ** Response lenses
+    , esbActivities
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ExitStandby' request.
-exitStandby :: Text -- ^ '_esrAutoScalingGroupName'
+exitStandby :: Text -- ^ 'esrAutoScalingGroupName'
             -> ExitStandby
 exitStandby p1 = ExitStandby
     { _esrAutoScalingGroupName = p1
@@ -51,7 +64,31 @@ data ExitStandby = ExitStandby
       -- at least one instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''ExitStandby
+-- | The name of the Auto Scaling group from which to move instances out of
+-- Standby mode.
+esrAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ExitStandby
+    -> f ExitStandby
+esrAutoScalingGroupName f x =
+    (\y -> x { _esrAutoScalingGroupName = y })
+       <$> f (_esrAutoScalingGroupName x)
+{-# INLINE esrAutoScalingGroupName #-}
+
+-- | A list of instances to move out of Standby mode. You must specify at least
+-- one instance ID.
+esrInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ExitStandby
+    -> f ExitStandby
+esrInstanceIds f x =
+    (\y -> x { _esrInstanceIds = y })
+       <$> f (_esrInstanceIds x)
+{-# INLINE esrInstanceIds #-}
 
 instance ToQuery ExitStandby where
     toQuery = genericQuery def
@@ -62,7 +99,18 @@ data ExitStandbyResponse = ExitStandbyResponse
       -- of Standby mode.
     } deriving (Show, Generic)
 
-makeLenses ''ExitStandbyResponse
+-- | A list describing the activities related to moving instances out of Standby
+-- mode.
+esbActivities
+    :: Functor f
+    => ([Activity]
+    -> f ([Activity]))
+    -> ExitStandbyResponse
+    -> f ExitStandbyResponse
+esbActivities f x =
+    (\y -> x { _esbActivities = y })
+       <$> f (_esbActivities x)
+{-# INLINE esbActivities #-}
 
 instance FromXML ExitStandbyResponse where
     fromXMLOptions = xmlOptions

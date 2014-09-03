@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,23 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides a list of steps for the cluster.
-module Network.AWS.EMR.V2009_03_31.ListSteps where
+module Network.AWS.EMR.V2009_03_31.ListSteps
+    (
+    -- * Request
+      ListSteps
+    -- ** Request constructor
+    , listSteps
+    -- ** Request lenses
+    , lsiClusterId
+    , lsiMarker
+    , lsiStepStates
+
+    -- * Response
+    , ListStepsResponse
+    -- ** Response lenses
+    , lsoMarker
+    , lsoSteps
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -27,7 +42,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListSteps' request.
-listSteps :: Text -- ^ '_lsiClusterId'
+listSteps :: Text -- ^ 'lsiClusterId'
           -> ListSteps
 listSteps p1 = ListSteps
     { _lsiClusterId = p1
@@ -45,7 +60,41 @@ data ListSteps = ListSteps
       -- ^ The filter to limit the step list based on certain states.
     } deriving (Show, Generic)
 
-makeLenses ''ListSteps
+-- | The identifier of the cluster for which to list the steps.
+lsiClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListSteps
+    -> f ListSteps
+lsiClusterId f x =
+    (\y -> x { _lsiClusterId = y })
+       <$> f (_lsiClusterId x)
+{-# INLINE lsiClusterId #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+lsiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListSteps
+    -> f ListSteps
+lsiMarker f x =
+    (\y -> x { _lsiMarker = y })
+       <$> f (_lsiMarker x)
+{-# INLINE lsiMarker #-}
+
+-- | The filter to limit the step list based on certain states.
+lsiStepStates
+    :: Functor f
+    => ([StepState]
+    -> f ([StepState]))
+    -> ListSteps
+    -> f ListSteps
+lsiStepStates f x =
+    (\y -> x { _lsiStepStates = y })
+       <$> f (_lsiStepStates x)
+{-# INLINE lsiStepStates #-}
 
 instance ToPath ListSteps
 
@@ -63,7 +112,29 @@ data ListStepsResponse = ListStepsResponse
       -- ^ The filtered list of steps for the cluster.
     } deriving (Show, Generic)
 
-makeLenses ''ListStepsResponse
+-- | The pagination token that indicates the next set of results to retrieve.
+lsoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStepsResponse
+    -> f ListStepsResponse
+lsoMarker f x =
+    (\y -> x { _lsoMarker = y })
+       <$> f (_lsoMarker x)
+{-# INLINE lsoMarker #-}
+
+-- | The filtered list of steps for the cluster.
+lsoSteps
+    :: Functor f
+    => ([StepSummary]
+    -> f ([StepSummary]))
+    -> ListStepsResponse
+    -> f ListStepsResponse
+lsoSteps f x =
+    (\y -> x { _lsoSteps = y })
+       <$> f (_lsoSteps x)
+{-# INLINE lsoSteps #-}
 
 instance FromJSON ListStepsResponse
 

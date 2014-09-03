@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,50 @@
 -- data records that can then be consumed in real time by multiple
 -- data-processing applications that can be run on Amazon EC2 instances.
 module Network.AWS.Kinesis.V2013_12_02.Types
-    ( module Network.AWS.Kinesis.V2013_12_02.Types
+    (
+    -- * Service
+      Kinesis
+    -- ** Errors
+    , Er (..)
+
+    -- * ShardIteratorType
+    , ShardIteratorType (..)
+
+    -- * StreamStatus
+    , StreamStatus (..)
+
+    -- * HashKeyRange
+    , HashKeyRange (..)
+    , hkrStartingHashKey
+    , hkrEndingHashKey
+
+    -- * Record
+    , Record (..)
+    , rSequenceNumber
+    , rData
+    , rPartitionKey
+
+    -- * SequenceNumberRange
+    , SequenceNumberRange (..)
+    , snrStartingSequenceNumber
+    , snrEndingSequenceNumber
+
+    -- * Shard
+    , Shard (..)
+    , sShardId
+    , sParentShardId
+    , sAdjacentParentShardId
+    , sHashKeyRange
+    , sSequenceNumberRange
+
+    -- * StreamDescription
+    , StreamDescription (..)
+    , sdStreamName
+    , sdStreamARN
+    , sdStreamStatus
+    , sdShards
+    , sdHasMoreShards
+
     ) where
 
 import Network.AWS.Prelude
@@ -176,6 +218,30 @@ data HashKeyRange = HashKeyRange
       -- ^ The ending hash key of the hash key range.
     } deriving (Show, Generic)
 
+-- | The starting hash key of the hash key range.
+hkrStartingHashKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HashKeyRange
+    -> f HashKeyRange
+hkrStartingHashKey f x =
+    (\y -> x { _hkrStartingHashKey = y })
+       <$> f (_hkrStartingHashKey x)
+{-# INLINE hkrStartingHashKey #-}
+
+-- | The ending hash key of the hash key range.
+hkrEndingHashKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HashKeyRange
+    -> f HashKeyRange
+hkrEndingHashKey f x =
+    (\y -> x { _hkrEndingHashKey = y })
+       <$> f (_hkrEndingHashKey x)
+{-# INLINE hkrEndingHashKey #-}
+
 instance FromJSON HashKeyRange
 
 instance ToJSON HashKeyRange
@@ -183,7 +249,10 @@ instance ToJSON HashKeyRange
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
 data Record = Record
-    { _rData :: Base64
+    { _rSequenceNumber :: Text
+      -- ^ The unique identifier for the record in the Amazon Kinesis
+      -- stream.
+    , _rData :: Base64
       -- ^ The data blob. The data in the blob is both opaque and immutable
       -- to the Amazon Kinesis service, which does not inspect, interpret,
       -- or change the data in the blob in any way. The maximum size of
@@ -192,21 +261,82 @@ data Record = Record
     , _rPartitionKey :: Text
       -- ^ Identifies which shard in the stream the data record is assigned
       -- to.
-    , _rSequenceNumber :: Text
-      -- ^ The unique identifier for the record in the Amazon Kinesis
-      -- stream.
     } deriving (Show, Generic)
+
+-- | The unique identifier for the record in the Amazon Kinesis stream.
+rSequenceNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Record
+    -> f Record
+rSequenceNumber f x =
+    (\y -> x { _rSequenceNumber = y })
+       <$> f (_rSequenceNumber x)
+{-# INLINE rSequenceNumber #-}
+
+-- | The data blob. The data in the blob is both opaque and immutable to the
+-- Amazon Kinesis service, which does not inspect, interpret, or change the
+-- data in the blob in any way. The maximum size of the data blob (the payload
+-- after Base64-decoding) is 50 kilobytes (KB).
+rData
+    :: Functor f
+    => (Base64
+    -> f (Base64))
+    -> Record
+    -> f Record
+rData f x =
+    (\y -> x { _rData = y })
+       <$> f (_rData x)
+{-# INLINE rData #-}
+
+-- | Identifies which shard in the stream the data record is assigned to.
+rPartitionKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Record
+    -> f Record
+rPartitionKey f x =
+    (\y -> x { _rPartitionKey = y })
+       <$> f (_rPartitionKey x)
+{-# INLINE rPartitionKey #-}
 
 instance FromJSON Record
 
 -- | The range of possible sequence numbers for the shard.
 data SequenceNumberRange = SequenceNumberRange
-    { _snrEndingSequenceNumber :: Maybe Text
+    { _snrStartingSequenceNumber :: Text
+      -- ^ The starting sequence number for the range.
+    , _snrEndingSequenceNumber :: Maybe Text
       -- ^ The ending sequence number for the range. Shards that are in the
       -- OPEN state have an ending sequence number of null.
-    , _snrStartingSequenceNumber :: Text
-      -- ^ The starting sequence number for the range.
     } deriving (Show, Generic)
+
+-- | The starting sequence number for the range.
+snrStartingSequenceNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SequenceNumberRange
+    -> f SequenceNumberRange
+snrStartingSequenceNumber f x =
+    (\y -> x { _snrStartingSequenceNumber = y })
+       <$> f (_snrStartingSequenceNumber x)
+{-# INLINE snrStartingSequenceNumber #-}
+
+-- | The ending sequence number for the range. Shards that are in the OPEN state
+-- have an ending sequence number of null.
+snrEndingSequenceNumber
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SequenceNumberRange
+    -> f SequenceNumberRange
+snrEndingSequenceNumber f x =
+    (\y -> x { _snrEndingSequenceNumber = y })
+       <$> f (_snrEndingSequenceNumber x)
+{-# INLINE snrEndingSequenceNumber #-}
 
 instance FromJSON SequenceNumberRange
 
@@ -217,16 +347,77 @@ data Shard = Shard
     { _sShardId :: Text
       -- ^ The unique identifier of the shard within the Amazon Kinesis
       -- stream.
-    , _sSequenceNumberRange :: SequenceNumberRange
-      -- ^ The range of possible sequence numbers for the shard.
     , _sParentShardId :: Maybe Text
       -- ^ The shard Id of the shard's parent.
+    , _sAdjacentParentShardId :: Maybe Text
+      -- ^ The shard Id of the shard adjacent to the shard's parent.
     , _sHashKeyRange :: HashKeyRange
       -- ^ The range of possible hash key values for the shard, which is a
       -- set of ordered contiguous positive integers.
-    , _sAdjacentParentShardId :: Maybe Text
-      -- ^ The shard Id of the shard adjacent to the shard's parent.
+    , _sSequenceNumberRange :: SequenceNumberRange
+      -- ^ The range of possible sequence numbers for the shard.
     } deriving (Show, Generic)
+
+-- | The unique identifier of the shard within the Amazon Kinesis stream.
+sShardId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Shard
+    -> f Shard
+sShardId f x =
+    (\y -> x { _sShardId = y })
+       <$> f (_sShardId x)
+{-# INLINE sShardId #-}
+
+-- | The shard Id of the shard's parent.
+sParentShardId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Shard
+    -> f Shard
+sParentShardId f x =
+    (\y -> x { _sParentShardId = y })
+       <$> f (_sParentShardId x)
+{-# INLINE sParentShardId #-}
+
+-- | The shard Id of the shard adjacent to the shard's parent.
+sAdjacentParentShardId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Shard
+    -> f Shard
+sAdjacentParentShardId f x =
+    (\y -> x { _sAdjacentParentShardId = y })
+       <$> f (_sAdjacentParentShardId x)
+{-# INLINE sAdjacentParentShardId #-}
+
+-- | The range of possible hash key values for the shard, which is a set of
+-- ordered contiguous positive integers.
+sHashKeyRange
+    :: Functor f
+    => (HashKeyRange
+    -> f (HashKeyRange))
+    -> Shard
+    -> f Shard
+sHashKeyRange f x =
+    (\y -> x { _sHashKeyRange = y })
+       <$> f (_sHashKeyRange x)
+{-# INLINE sHashKeyRange #-}
+
+-- | The range of possible sequence numbers for the shard.
+sSequenceNumberRange
+    :: Functor f
+    => (SequenceNumberRange
+    -> f (SequenceNumberRange))
+    -> Shard
+    -> f Shard
+sSequenceNumberRange f x =
+    (\y -> x { _sSequenceNumberRange = y })
+       <$> f (_sSequenceNumberRange x)
+{-# INLINE sSequenceNumberRange #-}
 
 instance FromJSON Shard
 
@@ -236,13 +427,8 @@ instance FromJSON Shard
 data StreamDescription = StreamDescription
     { _sdStreamName :: Text
       -- ^ The name of the stream being described.
-    , _sdShards :: [Shard]
-      -- ^ The shards that comprise the stream.
     , _sdStreamARN :: Text
       -- ^ The Amazon Resource Name (ARN) for the stream being described.
-    , _sdHasMoreShards :: Bool
-      -- ^ If set to true there are more shards in the stream available to
-      -- describe.
     , _sdStreamStatus :: StreamStatus
       -- ^ The current status of the stream being described. The stream
       -- status is one of the following states: CREATING - The stream is
@@ -256,12 +442,80 @@ data StreamDescription = StreamDescription
       -- stream. UPDATING - Shards in the stream are being merged or
       -- split. Read and write operations continue to work while the
       -- stream is in the UPDATING state.
+    , _sdShards :: [Shard]
+      -- ^ The shards that comprise the stream.
+    , _sdHasMoreShards :: Bool
+      -- ^ If set to true there are more shards in the stream available to
+      -- describe.
     } deriving (Show, Generic)
 
-instance FromJSON StreamDescription
+-- | The name of the stream being described.
+sdStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StreamDescription
+    -> f StreamDescription
+sdStreamName f x =
+    (\y -> x { _sdStreamName = y })
+       <$> f (_sdStreamName x)
+{-# INLINE sdStreamName #-}
 
-makeLenses ''HashKeyRange
-makeLenses ''Record
-makeLenses ''SequenceNumberRange
-makeLenses ''Shard
-makeLenses ''StreamDescription
+-- | The Amazon Resource Name (ARN) for the stream being described.
+sdStreamARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StreamDescription
+    -> f StreamDescription
+sdStreamARN f x =
+    (\y -> x { _sdStreamARN = y })
+       <$> f (_sdStreamARN x)
+{-# INLINE sdStreamARN #-}
+
+-- | The current status of the stream being described. The stream status is one
+-- of the following states: CREATING - The stream is being created. Upon
+-- receiving a CreateStream request, Amazon Kinesis immediately returns and
+-- sets StreamStatus to CREATING. DELETING - The stream is being deleted.
+-- After a DeleteStream request, the specified stream is in the DELETING state
+-- until Amazon Kinesis completes the deletion. ACTIVE - The stream exists and
+-- is ready for read and write operations or deletion. You should perform read
+-- and write operations only on an ACTIVE stream. UPDATING - Shards in the
+-- stream are being merged or split. Read and write operations continue to
+-- work while the stream is in the UPDATING state.
+sdStreamStatus
+    :: Functor f
+    => (StreamStatus
+    -> f (StreamStatus))
+    -> StreamDescription
+    -> f StreamDescription
+sdStreamStatus f x =
+    (\y -> x { _sdStreamStatus = y })
+       <$> f (_sdStreamStatus x)
+{-# INLINE sdStreamStatus #-}
+
+-- | The shards that comprise the stream.
+sdShards
+    :: Functor f
+    => ([Shard]
+    -> f ([Shard]))
+    -> StreamDescription
+    -> f StreamDescription
+sdShards f x =
+    (\y -> x { _sdShards = y })
+       <$> f (_sdShards x)
+{-# INLINE sdShards #-}
+
+-- | If set to true there are more shards in the stream available to describe.
+sdHasMoreShards
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> StreamDescription
+    -> f StreamDescription
+sdHasMoreShards f x =
+    (\y -> x { _sdHasMoreShards = y })
+       <$> f (_sdHasMoreShards x)
+{-# INLINE sdHasMoreShards #-}
+
+instance FromJSON StreamDescription

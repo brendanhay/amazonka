@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -53,26 +52,19 @@ module Network.AWS.EC2.V2014_06_15.AssociateAddress
     (
     -- * Request
       AssociateAddress
-    -- ** Default constructor
+    -- ** Request constructor
     , associateAddress
-    -- ** Accessors and lenses
-    , _aatAllowReassociation
+    -- ** Request lenses
     , aatAllowReassociation
-    , _aatInstanceId
     , aatInstanceId
-    , _aatPublicIp
     , aatPublicIp
-    , _aatAllocationId
     , aatAllocationId
-    , _aatNetworkInterfaceId
     , aatNetworkInterfaceId
-    , _aatPrivateIpAddress
     , aatPrivateIpAddress
 
     -- * Response
     , AssociateAddressResponse
-    -- ** Accessors and lenses
-    , _aauAssociationId
+    -- ** Response lenses
     , aauAssociationId
     ) where
 
@@ -92,8 +84,107 @@ associateAddress = AssociateAddress
     }
 
 data AssociateAddress = AssociateAddress
+    { _aatAllowReassociation :: Maybe Bool
+      -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
+      -- with an instance or network interface to be re-associated with
+      -- the specified instance or network interface. Otherwise, the
+      -- operation fails. Default: false.
+    , _aatInstanceId :: Maybe Text
+      -- ^ The ID of the instance. The operation fails if you specify an
+      -- instance ID unless exactly one network interface is attached.
+    , _aatPublicIp :: Maybe Text
+      -- ^ The Elastic IP address.
+    , _aatAllocationId :: Maybe Text
+      -- ^ [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+    , _aatNetworkInterfaceId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the network interface. If the instance has
+      -- more than one network interface, you must specify a network
+      -- interface ID.
+    , _aatPrivateIpAddress :: Maybe Text
+      -- ^ [EC2-VPC] The primary or secondary private IP address to
+      -- associate with the Elastic IP address. If no private IP address
+      -- is specified, the Elastic IP address is associated with the
+      -- primary private IP address.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AssociateAddress
+-- | [EC2-VPC] Allows an Elastic IP address that is already associated with an
+-- instance or network interface to be re-associated with the specified
+-- instance or network interface. Otherwise, the operation fails. Default:
+-- false.
+aatAllowReassociation
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> AssociateAddress
+    -> f AssociateAddress
+aatAllowReassociation f x =
+    (\y -> x { _aatAllowReassociation = y })
+       <$> f (_aatAllowReassociation x)
+{-# INLINE aatAllowReassociation #-}
+
+-- | The ID of the instance. The operation fails if you specify an instance ID
+-- unless exactly one network interface is attached.
+aatInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateAddress
+    -> f AssociateAddress
+aatInstanceId f x =
+    (\y -> x { _aatInstanceId = y })
+       <$> f (_aatInstanceId x)
+{-# INLINE aatInstanceId #-}
+
+-- | The Elastic IP address.
+aatPublicIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateAddress
+    -> f AssociateAddress
+aatPublicIp f x =
+    (\y -> x { _aatPublicIp = y })
+       <$> f (_aatPublicIp x)
+{-# INLINE aatPublicIp #-}
+
+-- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+aatAllocationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateAddress
+    -> f AssociateAddress
+aatAllocationId f x =
+    (\y -> x { _aatAllocationId = y })
+       <$> f (_aatAllocationId x)
+{-# INLINE aatAllocationId #-}
+
+-- | [EC2-VPC] The ID of the network interface. If the instance has more than
+-- one network interface, you must specify a network interface ID.
+aatNetworkInterfaceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateAddress
+    -> f AssociateAddress
+aatNetworkInterfaceId f x =
+    (\y -> x { _aatNetworkInterfaceId = y })
+       <$> f (_aatNetworkInterfaceId x)
+{-# INLINE aatNetworkInterfaceId #-}
+
+-- | [EC2-VPC] The primary or secondary private IP address to associate with the
+-- Elastic IP address. If no private IP address is specified, the Elastic IP
+-- address is associated with the primary private IP address.
+aatPrivateIpAddress
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateAddress
+    -> f AssociateAddress
+aatPrivateIpAddress f x =
+    (\y -> x { _aatPrivateIpAddress = y })
+       <$> f (_aatPrivateIpAddress x)
+{-# INLINE aatPrivateIpAddress #-}
 
 instance ToQuery AssociateAddress where
     toQuery = genericQuery def
@@ -104,7 +195,18 @@ data AssociateAddressResponse = AssociateAddressResponse
       -- IP address with an instance.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AssociateAddressResponse
+-- | [EC2-VPC] The ID that represents the association of the Elastic IP address
+-- with an instance.
+aauAssociationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateAddressResponse
+    -> f AssociateAddressResponse
+aauAssociationId f x =
+    (\y -> x { _aauAssociationId = y })
+       <$> f (_aauAssociationId x)
+{-# INLINE aauAssociationId #-}
 
 instance FromXML AssociateAddressResponse where
     fromXMLOptions = xmlOptions
@@ -115,32 +217,3 @@ instance AWSRequest AssociateAddress where
 
     request = post "AssociateAddress"
     response _ = xmlResponse
-
--- | [EC2-VPC] Allows an Elastic IP address that is already associated with an
--- instance or network interface to be re-associated with the specified
--- instance or network interface. Otherwise, the operation fails. Default:
--- false.
-aatAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
-
--- | The ID of the instance. The operation fails if you specify an instance ID
--- unless exactly one network interface is attached.
-aatInstanceId :: Lens' AssociateAddress (Maybe Text)
-
--- | The Elastic IP address.
-aatPublicIp :: Lens' AssociateAddress (Maybe Text)
-
--- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-aatAllocationId :: Lens' AssociateAddress (Maybe Text)
-
--- | [EC2-VPC] The ID of the network interface. If the instance has more than
--- one network interface, you must specify a network interface ID.
-aatNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
-
--- | [EC2-VPC] The primary or secondary private IP address to associate with the
--- Elastic IP address. If no private IP address is specified, the Elastic IP
--- address is associated with the primary private IP address.
-aatPrivateIpAddress :: Lens' AssociateAddress (Maybe Text)
-
--- | [EC2-VPC] The ID that represents the association of the Elastic IP address
--- with an instance.
-aauAssociationId :: Lens' AssociateAddressResponse (Maybe Text)

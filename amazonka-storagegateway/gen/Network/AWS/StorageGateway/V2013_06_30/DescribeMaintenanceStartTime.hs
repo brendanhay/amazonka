@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,12 +33,36 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "HourOfDay": 15, "MinuteOfHour": 35, "DayOfWeek": 2, "Timezone": "GMT+7:00"
 -- }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime
+    (
+    -- * Request
+      DescribeMaintenanceStartTime
+    -- ** Request constructor
+    , describeMaintenanceStartTime
+    -- ** Request lenses
+    , dmstiGatewayARN
+
+    -- * Response
+    , DescribeMaintenanceStartTimeResponse
+    -- ** Response lenses
+    , dmstoDayOfWeek
+    , dmstoGatewayARN
+    , dmstoTimezone
+    , dmstoHourOfDay
+    , dmstoMinuteOfHour
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeMaintenanceStartTime' request.
+describeMaintenanceStartTime :: Text -- ^ 'dmstiGatewayARN'
+                             -> DescribeMaintenanceStartTime
+describeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
+    { _dmstiGatewayARN = p1
+    }
 
 data DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
     { _dmstiGatewayARN :: Text
@@ -48,7 +71,18 @@ data DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeMaintenanceStartTime
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dmstiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeMaintenanceStartTime
+    -> f DescribeMaintenanceStartTime
+dmstiGatewayARN f x =
+    (\y -> x { _dmstiGatewayARN = y })
+       <$> f (_dmstiGatewayARN x)
+{-# INLINE dmstiGatewayARN #-}
 
 instance ToPath DescribeMaintenanceStartTime
 
@@ -69,7 +103,62 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstoMinuteOfHour :: Maybe Integer
     } deriving (Show, Generic)
 
-makeLenses ''DescribeMaintenanceStartTimeResponse
+dmstoDayOfWeek
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeMaintenanceStartTimeResponse
+    -> f DescribeMaintenanceStartTimeResponse
+dmstoDayOfWeek f x =
+    (\y -> x { _dmstoDayOfWeek = y })
+       <$> f (_dmstoDayOfWeek x)
+{-# INLINE dmstoDayOfWeek #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dmstoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeMaintenanceStartTimeResponse
+    -> f DescribeMaintenanceStartTimeResponse
+dmstoGatewayARN f x =
+    (\y -> x { _dmstoGatewayARN = y })
+       <$> f (_dmstoGatewayARN x)
+{-# INLINE dmstoGatewayARN #-}
+
+dmstoTimezone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeMaintenanceStartTimeResponse
+    -> f DescribeMaintenanceStartTimeResponse
+dmstoTimezone f x =
+    (\y -> x { _dmstoTimezone = y })
+       <$> f (_dmstoTimezone x)
+{-# INLINE dmstoTimezone #-}
+
+dmstoHourOfDay
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeMaintenanceStartTimeResponse
+    -> f DescribeMaintenanceStartTimeResponse
+dmstoHourOfDay f x =
+    (\y -> x { _dmstoHourOfDay = y })
+       <$> f (_dmstoHourOfDay x)
+{-# INLINE dmstoHourOfDay #-}
+
+dmstoMinuteOfHour
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeMaintenanceStartTimeResponse
+    -> f DescribeMaintenanceStartTimeResponse
+dmstoMinuteOfHour f x =
+    (\y -> x { _dmstoMinuteOfHour = y })
+       <$> f (_dmstoMinuteOfHour x)
+{-# INLINE dmstoMinuteOfHour #-}
 
 instance FromJSON DescribeMaintenanceStartTimeResponse
 

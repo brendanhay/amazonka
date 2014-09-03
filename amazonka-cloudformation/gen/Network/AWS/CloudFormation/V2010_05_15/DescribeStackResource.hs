@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,17 +28,40 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- MyStack MyDBInstance MyStack_DB1 AWS::RDS::DBInstance 2011-07-07T22:27:28Z
 -- CREATE_COMPLETE.
-module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource where
+module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource
+    (
+    -- * Request
+      DescribeStackResource
+    -- ** Request constructor
+    , describeStackResource
+    -- ** Request lenses
+    , dsriLogicalResourceId
+    , dsriStackName
+
+    -- * Response
+    , DescribeStackResourceResponse
+    -- ** Response lenses
+    , dsroStackResourceDetail
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DescribeStackResource' request.
+describeStackResource :: Text -- ^ 'dsriLogicalResourceId'
+                      -> Text -- ^ 'dsriStackName'
+                      -> DescribeStackResource
+describeStackResource p1 p2 = DescribeStackResource
+    { _dsriLogicalResourceId = p1
+    , _dsriStackName = p2
+    }
+
 data DescribeStackResource = DescribeStackResource
-    { _dsrjLogicalResourceId :: Text
+    { _dsriLogicalResourceId :: Text
       -- ^ The logical name of the resource as specified in the template.
       -- Default: There is no default value.
-    , _dsrjStackName :: Text
+    , _dsriStackName :: Text
       -- ^ The name or the unique identifier associated with the stack,
       -- which are not always interchangeable: Running stacks: You can
       -- specify either the stack's name or its unique stack ID. Deleted
@@ -47,18 +69,55 @@ data DescribeStackResource = DescribeStackResource
       -- no default value.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStackResource
+-- | The logical name of the resource as specified in the template. Default:
+-- There is no default value.
+dsriLogicalResourceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeStackResource
+    -> f DescribeStackResource
+dsriLogicalResourceId f x =
+    (\y -> x { _dsriLogicalResourceId = y })
+       <$> f (_dsriLogicalResourceId x)
+{-# INLINE dsriLogicalResourceId #-}
+
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value.
+dsriStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeStackResource
+    -> f DescribeStackResource
+dsriStackName f x =
+    (\y -> x { _dsriStackName = y })
+       <$> f (_dsriStackName x)
+{-# INLINE dsriStackName #-}
 
 instance ToQuery DescribeStackResource where
     toQuery = genericQuery def
 
 data DescribeStackResourceResponse = DescribeStackResourceResponse
-    { _dsrpStackResourceDetail :: Maybe StackResourceDetail
+    { _dsroStackResourceDetail :: Maybe StackResourceDetail
       -- ^ A StackResourceDetail structure containing the description of the
       -- specified resource in the specified stack.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStackResourceResponse
+-- | A StackResourceDetail structure containing the description of the specified
+-- resource in the specified stack.
+dsroStackResourceDetail
+    :: Functor f
+    => (Maybe StackResourceDetail
+    -> f (Maybe StackResourceDetail))
+    -> DescribeStackResourceResponse
+    -> f DescribeStackResourceResponse
+dsroStackResourceDetail f x =
+    (\y -> x { _dsroStackResourceDetail = y })
+       <$> f (_dsroStackResourceDetail x)
+{-# INLINE dsroStackResourceDetail #-}
 
 instance FromXML DescribeStackResourceResponse where
     fromXMLOptions = xmlOptions

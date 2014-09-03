@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -52,18 +51,15 @@ module Network.AWS.EC2.V2014_06_15.CreateVpc
     (
     -- * Request
       CreateVpc
-    -- ** Default constructor
+    -- ** Request constructor
     , createVpc
-    -- ** Accessors and lenses
-    , _cvsCidrBlock
+    -- ** Request lenses
     , cvsCidrBlock
-    , _cvsInstanceTenancy
     , cvsInstanceTenancy
 
     -- * Response
     , CreateVpcResponse
-    -- ** Accessors and lenses
-    , _cvtVpc
+    -- ** Response lenses
     , cvtVpc
     ) where
 
@@ -80,8 +76,47 @@ createVpc p1 = CreateVpc
     }
 
 data CreateVpc = CreateVpc
+    { _cvsCidrBlock :: Text
+      -- ^ The network range for the VPC, in CIDR notation. For example,
+      -- 10.0.0.0/16.
+    , _cvsInstanceTenancy :: Maybe Tenancy
+      -- ^ The supported tenancy options for instances launched into the
+      -- VPC. A value of default means that instances can be launched with
+      -- any tenancy; a value of dedicated means all instances launched
+      -- into the VPC are launched as dedicated tenancy instances
+      -- regardless of the tenancy assigned to the instance at launch.
+      -- Dedicated tenancy instances runs on single-tenant hardware.
+      -- Default: default.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpc
+-- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
+cvsCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVpc
+    -> f CreateVpc
+cvsCidrBlock f x =
+    (\y -> x { _cvsCidrBlock = y })
+       <$> f (_cvsCidrBlock x)
+{-# INLINE cvsCidrBlock #-}
+
+-- | The supported tenancy options for instances launched into the VPC. A value
+-- of default means that instances can be launched with any tenancy; a value
+-- of dedicated means all instances launched into the VPC are launched as
+-- dedicated tenancy instances regardless of the tenancy assigned to the
+-- instance at launch. Dedicated tenancy instances runs on single-tenant
+-- hardware. Default: default.
+cvsInstanceTenancy
+    :: Functor f
+    => (Maybe Tenancy
+    -> f (Maybe Tenancy))
+    -> CreateVpc
+    -> f CreateVpc
+cvsInstanceTenancy f x =
+    (\y -> x { _cvsInstanceTenancy = y })
+       <$> f (_cvsInstanceTenancy x)
+{-# INLINE cvsInstanceTenancy #-}
 
 instance ToQuery CreateVpc where
     toQuery = genericQuery def
@@ -91,7 +126,17 @@ data CreateVpcResponse = CreateVpcResponse
       -- ^ Information about the VPC.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpcResponse
+-- | Information about the VPC.
+cvtVpc
+    :: Functor f
+    => (Maybe Vpc
+    -> f (Maybe Vpc))
+    -> CreateVpcResponse
+    -> f CreateVpcResponse
+cvtVpc f x =
+    (\y -> x { _cvtVpc = y })
+       <$> f (_cvtVpc x)
+{-# INLINE cvtVpc #-}
 
 instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions
@@ -102,17 +147,3 @@ instance AWSRequest CreateVpc where
 
     request = post "CreateVpc"
     response _ = xmlResponse
-
--- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
-cvsCidrBlock :: Lens' CreateVpc (Text)
-
--- | The supported tenancy options for instances launched into the VPC. A value
--- of default means that instances can be launched with any tenancy; a value
--- of dedicated means all instances launched into the VPC are launched as
--- dedicated tenancy instances regardless of the tenancy assigned to the
--- instance at launch. Dedicated tenancy instances runs on single-tenant
--- hardware. Default: default.
-cvsInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
-
--- | Information about the VPC.
-cvtVpc :: Lens' CreateVpcResponse (Maybe Vpc)

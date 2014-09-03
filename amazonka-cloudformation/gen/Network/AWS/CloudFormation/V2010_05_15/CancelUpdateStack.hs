@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,26 +25,52 @@
 -- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
-module Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack where
+module Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack
+    (
+    -- * Request
+      CancelUpdateStack
+    -- ** Request constructor
+    , cancelUpdateStack
+    -- ** Request lenses
+    , cusiStackName
+
+    -- * Response
+    , CancelUpdateStackResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CancelUpdateStack' request.
+cancelUpdateStack :: Text -- ^ 'cusiStackName'
+                  -> CancelUpdateStack
+cancelUpdateStack p1 = CancelUpdateStack
+    { _cusiStackName = p1
+    }
 
 data CancelUpdateStack = CancelUpdateStack
     { _cusiStackName :: Text
       -- ^ The name or the unique identifier associated with the stack.
     } deriving (Show, Generic)
 
-makeLenses ''CancelUpdateStack
+-- | The name or the unique identifier associated with the stack.
+cusiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelUpdateStack
+    -> f CancelUpdateStack
+cusiStackName f x =
+    (\y -> x { _cusiStackName = y })
+       <$> f (_cusiStackName x)
+{-# INLINE cusiStackName #-}
 
 instance ToQuery CancelUpdateStack where
     toQuery = genericQuery def
 
 data CancelUpdateStackResponse = CancelUpdateStackResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CancelUpdateStackResponse
 
 instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation

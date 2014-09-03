@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,10 +29,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl
     (
     -- * Request
       DeleteNetworkAcl
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteNetworkAcl
-    -- ** Accessors and lenses
-    , _dnarNetworkAclId
+    -- ** Request lenses
     , dnarNetworkAclId
 
     -- * Response
@@ -52,8 +50,21 @@ deleteNetworkAcl p1 = DeleteNetworkAcl
     }
 
 data DeleteNetworkAcl = DeleteNetworkAcl
+    { _dnarNetworkAclId :: Text
+      -- ^ The ID of the network ACL.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteNetworkAcl
+-- | The ID of the network ACL.
+dnarNetworkAclId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteNetworkAcl
+    -> f DeleteNetworkAcl
+dnarNetworkAclId f x =
+    (\y -> x { _dnarNetworkAclId = y })
+       <$> f (_dnarNetworkAclId x)
+{-# INLINE dnarNetworkAclId #-}
 
 instance ToQuery DeleteNetworkAcl where
     toQuery = genericQuery def
@@ -61,14 +72,9 @@ instance ToQuery DeleteNetworkAcl where
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteNetworkAclResponse
-
 instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2
     type Rs DeleteNetworkAcl = DeleteNetworkAclResponse
 
     request = post "DeleteNetworkAcl"
     response _ = nullaryResponse DeleteNetworkAclResponse
-
--- | The ID of the network ACL.
-dnarNetworkAclId :: Lens' DeleteNetworkAcl (Text)

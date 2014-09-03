@@ -49,21 +49,21 @@ library
           Network.AWS.CloudFormation
         , Network.AWS.CloudFormation.V2010_05_15
         , Network.AWS.CloudFormation.V2010_05_15.Types
-        , Network.AWS.CloudFormation.V2010_05_15.DeleteStack
-        , Network.AWS.CloudFormation.V2010_05_15.UpdateStack
-        , Network.AWS.CloudFormation.V2010_05_15.ListStackResources
-        , Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
-        , Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
-        , Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
         , Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack
-        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
-        , Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
-        , Network.AWS.CloudFormation.V2010_05_15.ListStacks
-        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources
         , Network.AWS.CloudFormation.V2010_05_15.CreateStack
-        , Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
-        , Network.AWS.CloudFormation.V2010_05_15.GetTemplate
+        , Network.AWS.CloudFormation.V2010_05_15.DeleteStack
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
         , Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources
+        , Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
+        , Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
+        , Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
+        , Network.AWS.CloudFormation.V2010_05_15.GetTemplate
+        , Network.AWS.CloudFormation.V2010_05_15.ListStackResources
+        , Network.AWS.CloudFormation.V2010_05_15.ListStacks
+        , Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
+        , Network.AWS.CloudFormation.V2010_05_15.UpdateStack
+        , Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
 
     build-depends:
           amazonka-core

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,44 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation removes the website configuration from the bucket.
-module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite where
+module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
+    (
+    -- * Request
+      DeleteBucketWebsite
+    -- ** Request constructor
+    , deleteBucketWebsite
+    -- ** Request lenses
+    , dbwrBucket
+
+    -- * Response
+    , DeleteBucketWebsiteResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteBucketWebsite' request.
+deleteBucketWebsite :: BucketName -- ^ 'dbwrBucket'
+                    -> DeleteBucketWebsite
+deleteBucketWebsite p1 = DeleteBucketWebsite
+    { _dbwrBucket = p1
+    }
+
 data DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''DeleteBucketWebsite
+dbwrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> DeleteBucketWebsite
+    -> f DeleteBucketWebsite
+dbwrBucket f x =
+    (\y -> x { _dbwrBucket = y })
+       <$> f (_dbwrBucket x)
+{-# INLINE dbwrBucket #-}
 
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat
@@ -48,8 +74,6 @@ instance ToBody DeleteBucketWebsite
 
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteBucketWebsiteResponse
 
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3

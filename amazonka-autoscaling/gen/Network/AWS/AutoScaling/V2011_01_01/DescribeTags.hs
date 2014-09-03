@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,7 +27,23 @@
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeTags
 -- &AUTHPARAMS my-test-asg true 1.0 version auto-scaling-group
 -- 086265fd-bf3e-11e2-85fc-fbb1EXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeTags where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeTags
+    (
+    -- * Request
+      DescribeTags
+    -- ** Request constructor
+    , describeTags
+    -- ** Request lenses
+    , dtuFilters
+    , dtuMaxRecords
+    , dtuNextToken
+
+    -- * Response
+    , DescribeTagsResponse
+    -- ** Response lenses
+    , ttkTags
+    , ttkNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
@@ -37,39 +52,98 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeTags' request.
 describeTags :: DescribeTags
 describeTags = DescribeTags
-    { _dttFilters = mempty
-    , _dttMaxRecords = Nothing
-    , _dttNextToken = Nothing
+    { _dtuFilters = mempty
+    , _dtuMaxRecords = Nothing
+    , _dtuNextToken = Nothing
     }
 
 data DescribeTags = DescribeTags
-    { _dttFilters :: [Filter]
+    { _dtuFilters :: [Filter]
       -- ^ The value of the filter type used to identify the tags to be
       -- returned. For example, you can filter so that tags are returned
       -- according to Auto Scaling group, the key and value, or whether
       -- the new tag will be applied to instances launched after the tag
       -- is created (PropagateAtLaunch).
-    , _dttMaxRecords :: Maybe Integer
+    , _dtuMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to return.
-    , _dttNextToken :: Maybe Text
+    , _dtuNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTags
+-- | The value of the filter type used to identify the tags to be returned. For
+-- example, you can filter so that tags are returned according to Auto Scaling
+-- group, the key and value, or whether the new tag will be applied to
+-- instances launched after the tag is created (PropagateAtLaunch).
+dtuFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeTags
+    -> f DescribeTags
+dtuFilters f x =
+    (\y -> x { _dtuFilters = y })
+       <$> f (_dtuFilters x)
+{-# INLINE dtuFilters #-}
+
+-- | The maximum number of records to return.
+dtuMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeTags
+    -> f DescribeTags
+dtuMaxRecords f x =
+    (\y -> x { _dtuMaxRecords = y })
+       <$> f (_dtuMaxRecords x)
+{-# INLINE dtuMaxRecords #-}
+
+-- | A string that marks the start of the next batch of returned results.
+dtuNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTags
+    -> f DescribeTags
+dtuNextToken f x =
+    (\y -> x { _dtuNextToken = y })
+       <$> f (_dtuNextToken x)
+{-# INLINE dtuNextToken #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _ttTags :: [TagDescription]
+    { _ttkTags :: [TagDescription]
       -- ^ The list of tags.
-    , _ttNextToken :: Maybe Text
+    , _ttkNextToken :: Maybe Text
       -- ^ A string used to mark the start of the next batch of returned
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTagsResponse
+-- | The list of tags.
+ttkTags
+    :: Functor f
+    => ([TagDescription]
+    -> f ([TagDescription]))
+    -> DescribeTagsResponse
+    -> f DescribeTagsResponse
+ttkTags f x =
+    (\y -> x { _ttkTags = y })
+       <$> f (_ttkTags x)
+{-# INLINE ttkTags #-}
+
+-- | A string used to mark the start of the next batch of returned results.
+ttkNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTagsResponse
+    -> f DescribeTagsResponse
+ttkNextToken f x =
+    (\y -> x { _ttkNextToken = y })
+       <$> f (_ttkNextToken x)
+{-# INLINE ttkNextToken #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -82,5 +156,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq { _dttNextToken = Just x })
-        <$> (_ttNextToken rs)
+    next rq rs = (\x -> rq { _dtuNextToken = Just x })
+        <$> (_ttkNextToken rs)

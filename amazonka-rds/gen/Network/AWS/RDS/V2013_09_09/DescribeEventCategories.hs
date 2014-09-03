@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,20 @@
 -- &Signature= db-instance failover low storage maintenance recovery
 -- restoration deletion configuration change failover availability creation
 -- backup notification ea3bf54b-68ea-11e2-bd13-a92da73b3119.
-module Network.AWS.RDS.V2013_09_09.DescribeEventCategories where
+module Network.AWS.RDS.V2013_09_09.DescribeEventCategories
+    (
+    -- * Request
+      DescribeEventCategories
+    -- ** Request constructor
+    , describeEventCategories
+    -- ** Request lenses
+    , decmSourceType
+
+    -- * Response
+    , DescribeEventCategoriesResponse
+    -- ** Response lenses
+    , ecpEventCategoriesMapList
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
@@ -46,17 +58,38 @@ data DescribeEventCategories = DescribeEventCategories
       -- db-snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventCategories
+-- | The type of source that will be generating the events. Valid values:
+-- db-instance | db-parameter-group | db-security-group | db-snapshot.
+decmSourceType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEventCategories
+    -> f DescribeEventCategories
+decmSourceType f x =
+    (\y -> x { _decmSourceType = y })
+       <$> f (_decmSourceType x)
+{-# INLINE decmSourceType #-}
 
 instance ToQuery DescribeEventCategories where
     toQuery = genericQuery def
 
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _ecvEventCategoriesMapList :: [EventCategoriesMap]
+    { _ecpEventCategoriesMapList :: [EventCategoriesMap]
       -- ^ A list of EventCategoriesMap data types.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventCategoriesResponse
+-- | A list of EventCategoriesMap data types.
+ecpEventCategoriesMapList
+    :: Functor f
+    => ([EventCategoriesMap]
+    -> f ([EventCategoriesMap]))
+    -> DescribeEventCategoriesResponse
+    -> f DescribeEventCategoriesResponse
+ecpEventCategoriesMapList f x =
+    (\y -> x { _ecpEventCategoriesMapList = y })
+       <$> f (_ecpEventCategoriesMapList x)
+{-# INLINE ecpEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions

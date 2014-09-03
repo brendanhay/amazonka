@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,21 @@
 -- action, an IAM user must have a Show, Deploy, or Manage permissions level
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeLayers where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
+    (
+    -- * Request
+      DescribeLayers
+    -- ** Request constructor
+    , describeLayers
+    -- ** Request lenses
+    , dlsStackId
+    , dlsLayerIds
+
+    -- * Response
+    , DescribeLayersResponse
+    -- ** Response lenses
+    , dltLayers
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,20 +46,44 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeLayers' request.
 describeLayers :: DescribeLayers
 describeLayers = DescribeLayers
-    { _dlrStackId = Nothing
-    , _dlrLayerIds = mempty
+    { _dlsStackId = Nothing
+    , _dlsLayerIds = mempty
     }
 
 data DescribeLayers = DescribeLayers
-    { _dlrStackId :: Maybe Text
+    { _dlsStackId :: Maybe Text
       -- ^ The stack ID.
-    , _dlrLayerIds :: [Text]
+    , _dlsLayerIds :: [Text]
       -- ^ An array of layer IDs that specify the layers to be described. If
       -- you omit this parameter, DescribeLayers returns a description of
       -- every layer in the specified stack.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLayers
+-- | The stack ID.
+dlsStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLayers
+    -> f DescribeLayers
+dlsStackId f x =
+    (\y -> x { _dlsStackId = y })
+       <$> f (_dlsStackId x)
+{-# INLINE dlsStackId #-}
+
+-- | An array of layer IDs that specify the layers to be described. If you omit
+-- this parameter, DescribeLayers returns a description of every layer in the
+-- specified stack.
+dlsLayerIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLayers
+    -> f DescribeLayers
+dlsLayerIds f x =
+    (\y -> x { _dlsLayerIds = y })
+       <$> f (_dlsLayerIds x)
+{-# INLINE dlsLayerIds #-}
 
 instance ToPath DescribeLayers
 
@@ -57,11 +94,21 @@ instance ToHeaders DescribeLayers
 instance ToJSON DescribeLayers
 
 data DescribeLayersResponse = DescribeLayersResponse
-    { _dlsLayers :: [Layer]
+    { _dltLayers :: [Layer]
       -- ^ An array of Layer objects that describe the layers.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLayersResponse
+-- | An array of Layer objects that describe the layers.
+dltLayers
+    :: Functor f
+    => ([Layer]
+    -> f ([Layer]))
+    -> DescribeLayersResponse
+    -> f DescribeLayersResponse
+dltLayers f x =
+    (\y -> x { _dltLayers = y })
+       <$> f (_dltLayers x)
+{-# INLINE dltLayers #-}
 
 instance FromJSON DescribeLayersResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,14 +22,31 @@
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListGroupPolicies &GroupName=Admins
 -- &AUTHPARAMS AdminRoot KeyPolicy false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListGroupPolicies where
+module Network.AWS.IAM.V2010_05_08.ListGroupPolicies
+    (
+    -- * Request
+      ListGroupPolicies
+    -- ** Request constructor
+    , listGroupPolicies
+    -- ** Request lenses
+    , lgprGroupName
+    , lgprMarker
+    , lgprMaxItems
+
+    -- * Response
+    , ListGroupPoliciesResponse
+    -- ** Response lenses
+    , lgpsIsTruncated
+    , lgpsPolicyNames
+    , lgpsMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListGroupPolicies' request.
-listGroupPolicies :: Text -- ^ '_lgprGroupName'
+listGroupPolicies :: Text -- ^ 'lgprGroupName'
                   -> ListGroupPolicies
 listGroupPolicies p1 = ListGroupPolicies
     { _lgprGroupName = p1
@@ -54,7 +70,46 @@ data ListGroupPolicies = ListGroupPolicies
       -- If you do not include it, it defaults to 100.
     } deriving (Show, Generic)
 
-makeLenses ''ListGroupPolicies
+-- | The name of the group to list policies for.
+lgprGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListGroupPolicies
+    -> f ListGroupPolicies
+lgprGroupName f x =
+    (\y -> x { _lgprGroupName = y })
+       <$> f (_lgprGroupName x)
+{-# INLINE lgprGroupName #-}
+
+-- | Use this only when paginating results, and only in a subsequent request
+-- after you've received a response where the results are truncated. Set it to
+-- the value of the Marker element in the response you just received.
+lgprMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListGroupPolicies
+    -> f ListGroupPolicies
+lgprMarker f x =
+    (\y -> x { _lgprMarker = y })
+       <$> f (_lgprMarker x)
+{-# INLINE lgprMarker #-}
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- policy names you want in the response. If there are additional policy names
+-- beyond the maximum you specify, the IsTruncated response element is true.
+-- This parameter is optional. If you do not include it, it defaults to 100.
+lgprMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListGroupPolicies
+    -> f ListGroupPolicies
+lgprMaxItems f x =
+    (\y -> x { _lgprMaxItems = y })
+       <$> f (_lgprMaxItems x)
+{-# INLINE lgprMaxItems #-}
 
 instance ToQuery ListGroupPolicies where
     toQuery = genericQuery def
@@ -73,7 +128,44 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListGroupPoliciesResponse
+-- | A flag that indicates whether there are more policy names to list. If your
+-- results were truncated, you can make a subsequent pagination request using
+-- the Marker request parameter to retrieve more policy names in the list.
+lgpsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListGroupPoliciesResponse
+    -> f ListGroupPoliciesResponse
+lgpsIsTruncated f x =
+    (\y -> x { _lgpsIsTruncated = y })
+       <$> f (_lgpsIsTruncated x)
+{-# INLINE lgpsIsTruncated #-}
+
+-- | A list of policy names.
+lgpsPolicyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListGroupPoliciesResponse
+    -> f ListGroupPoliciesResponse
+lgpsPolicyNames f x =
+    (\y -> x { _lgpsPolicyNames = y })
+       <$> f (_lgpsPolicyNames x)
+{-# INLINE lgpsPolicyNames #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lgpsMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListGroupPoliciesResponse
+    -> f ListGroupPoliciesResponse
+lgpsMarker f x =
+    (\y -> x { _lgpsMarker = y })
+       <$> f (_lgpsMarker x)
+{-# INLINE lgpsMarker #-}
 
 instance FromXML ListGroupPoliciesResponse where
     fromXMLOptions = xmlOptions

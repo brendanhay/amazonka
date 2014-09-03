@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,26 +34,52 @@
 -- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 6fde8d1e-52cd-4581-8cd9-c512f4c64223.
-module Network.AWS.SQS.V2012_11_05.DeleteQueue where
+module Network.AWS.SQS.V2012_11_05.DeleteQueue
+    (
+    -- * Request
+      DeleteQueue
+    -- ** Request constructor
+    , deleteQueue
+    -- ** Request lenses
+    , dqrQueueUrl
+
+    -- * Response
+    , DeleteQueueResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteQueue' request.
+deleteQueue :: Text -- ^ 'dqrQueueUrl'
+            -> DeleteQueue
+deleteQueue p1 = DeleteQueue
+    { _dqrQueueUrl = p1
+    }
 
 data DeleteQueue = DeleteQueue
     { _dqrQueueUrl :: Text
       -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteQueue
+-- | The URL of the Amazon SQS queue to take action on.
+dqrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteQueue
+    -> f DeleteQueue
+dqrQueueUrl f x =
+    (\y -> x { _dqrQueueUrl = y })
+       <$> f (_dqrQueueUrl x)
+{-# INLINE dqrQueueUrl #-}
 
 instance ToQuery DeleteQueue where
     toQuery = genericQuery def
 
 data DeleteQueueResponse = DeleteQueueResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteQueueResponse
 
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS

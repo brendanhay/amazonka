@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,18 +38,47 @@
 -- "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
-module Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule where
+module Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
+    (
+    -- * Request
+      DeleteSnapshotSchedule
+    -- ** Request constructor
+    , deleteSnapshotSchedule
+    -- ** Request lenses
+    , dssiVolumeARN
+
+    -- * Response
+    , DeleteSnapshotScheduleResponse
+    -- ** Response lenses
+    , dssoVolumeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteSnapshotSchedule' request.
+deleteSnapshotSchedule :: Text -- ^ 'dssiVolumeARN'
+                       -> DeleteSnapshotSchedule
+deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
+    { _dssiVolumeARN = p1
+    }
+
 data DeleteSnapshotSchedule = DeleteSnapshotSchedule
-    { _dssjVolumeARN :: Text
+    { _dssiVolumeARN :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteSnapshotSchedule
+dssiVolumeARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteSnapshotSchedule
+    -> f DeleteSnapshotSchedule
+dssiVolumeARN f x =
+    (\y -> x { _dssiVolumeARN = y })
+       <$> f (_dssiVolumeARN x)
+{-# INLINE dssiVolumeARN #-}
 
 instance ToPath DeleteSnapshotSchedule
 
@@ -61,10 +89,19 @@ instance ToHeaders DeleteSnapshotSchedule
 instance ToJSON DeleteSnapshotSchedule
 
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
-    { _dsspVolumeARN :: Maybe Text
+    { _dssoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteSnapshotScheduleResponse
+dssoVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteSnapshotScheduleResponse
+    -> f DeleteSnapshotScheduleResponse
+dssoVolumeARN f x =
+    (\y -> x { _dssoVolumeARN = y })
+       <$> f (_dssoVolumeARN x)
+{-# INLINE dssoVolumeARN #-}
 
 instance FromJSON DeleteSnapshotScheduleResponse
 

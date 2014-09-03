@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,18 +18,50 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new streaming distribution.
-module Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution where
+module Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution
+    (
+    -- * Request
+      CreateStreamingDistribution
+    -- ** Request constructor
+    , createStreamingDistribution
+    -- ** Request lenses
+    , csdrStreamingDistributionConfig
+
+    -- * Response
+    , CreateStreamingDistributionResponse
+    -- ** Response lenses
+    , csdsStreamingDistribution
+    , csdsLocation
+    , csdsETag
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateStreamingDistribution' request.
+createStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdrStreamingDistributionConfig'
+                            -> CreateStreamingDistribution
+createStreamingDistribution p1 = CreateStreamingDistribution
+    { _csdrStreamingDistributionConfig = p1
+    }
 
 data CreateStreamingDistribution = CreateStreamingDistribution
     { _csdrStreamingDistributionConfig :: StreamingDistributionConfig
       -- ^ The streaming distribution's configuration information.
     } deriving (Show, Generic)
 
-makeLenses ''CreateStreamingDistribution
+-- | The streaming distribution's configuration information.
+csdrStreamingDistributionConfig
+    :: Functor f
+    => (StreamingDistributionConfig
+    -> f (StreamingDistributionConfig))
+    -> CreateStreamingDistribution
+    -> f CreateStreamingDistribution
+csdrStreamingDistributionConfig f x =
+    (\y -> x { _csdrStreamingDistributionConfig = y })
+       <$> f (_csdrStreamingDistributionConfig x)
+{-# INLINE csdrStreamingDistributionConfig #-}
 
 instance ToPath CreateStreamingDistribution where
     toPath = const "/2014-05-31/streaming-distribution"
@@ -55,7 +86,44 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
       -- ^ The current version of the streaming distribution created.
     } deriving (Show, Generic)
 
-makeLenses ''CreateStreamingDistributionResponse
+-- | The streaming distribution's information.
+csdsStreamingDistribution
+    :: Functor f
+    => (Maybe StreamingDistribution
+    -> f (Maybe StreamingDistribution))
+    -> CreateStreamingDistributionResponse
+    -> f CreateStreamingDistributionResponse
+csdsStreamingDistribution f x =
+    (\y -> x { _csdsStreamingDistribution = y })
+       <$> f (_csdsStreamingDistribution x)
+{-# INLINE csdsStreamingDistribution #-}
+
+-- | The fully qualified URI of the new streaming distribution resource just
+-- created. For example:
+-- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
+-- 
+csdsLocation
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStreamingDistributionResponse
+    -> f CreateStreamingDistributionResponse
+csdsLocation f x =
+    (\y -> x { _csdsLocation = y })
+       <$> f (_csdsLocation x)
+{-# INLINE csdsLocation #-}
+
+-- | The current version of the streaming distribution created.
+csdsETag
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStreamingDistributionResponse
+    -> f CreateStreamingDistributionResponse
+csdsETag f x =
+    (\y -> x { _csdsETag = y })
+       <$> f (_csdsETag x)
+{-# INLINE csdsETag #-}
 
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront

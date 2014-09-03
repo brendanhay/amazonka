@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,11 +24,36 @@
 -- &PolicyName=AllAccessPolicy &AUTHPARAMS Bob AllAccessPolicy
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.GetUserPolicy where
+module Network.AWS.IAM.V2010_05_08.GetUserPolicy
+    (
+    -- * Request
+      GetUserPolicy
+    -- ** Request constructor
+    , getUserPolicy
+    -- ** Request lenses
+    , guprUserName
+    , guprPolicyName
+
+    -- * Response
+    , GetUserPolicyResponse
+    -- ** Response lenses
+    , gupsUserName
+    , gupsPolicyDocument
+    , gupsPolicyName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetUserPolicy' request.
+getUserPolicy :: Text -- ^ 'guprUserName'
+              -> Text -- ^ 'guprPolicyName'
+              -> GetUserPolicy
+getUserPolicy p1 p2 = GetUserPolicy
+    { _guprUserName = p1
+    , _guprPolicyName = p2
+    }
 
 data GetUserPolicy = GetUserPolicy
     { _guprUserName :: Text
@@ -38,7 +62,29 @@ data GetUserPolicy = GetUserPolicy
       -- ^ Name of the policy document to get.
     } deriving (Show, Generic)
 
-makeLenses ''GetUserPolicy
+-- | Name of the user who the policy is associated with.
+guprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetUserPolicy
+    -> f GetUserPolicy
+guprUserName f x =
+    (\y -> x { _guprUserName = y })
+       <$> f (_guprUserName x)
+{-# INLINE guprUserName #-}
+
+-- | Name of the policy document to get.
+guprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetUserPolicy
+    -> f GetUserPolicy
+guprPolicyName f x =
+    (\y -> x { _guprPolicyName = y })
+       <$> f (_guprPolicyName x)
+{-# INLINE guprPolicyName #-}
 
 instance ToQuery GetUserPolicy where
     toQuery = genericQuery def
@@ -52,7 +98,41 @@ data GetUserPolicyResponse = GetUserPolicyResponse
       -- ^ The name of the policy.
     } deriving (Show, Generic)
 
-makeLenses ''GetUserPolicyResponse
+-- | The user the policy is associated with.
+gupsUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetUserPolicyResponse
+    -> f GetUserPolicyResponse
+gupsUserName f x =
+    (\y -> x { _gupsUserName = y })
+       <$> f (_gupsUserName x)
+{-# INLINE gupsUserName #-}
+
+-- | The policy document.
+gupsPolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetUserPolicyResponse
+    -> f GetUserPolicyResponse
+gupsPolicyDocument f x =
+    (\y -> x { _gupsPolicyDocument = y })
+       <$> f (_gupsPolicyDocument x)
+{-# INLINE gupsPolicyDocument #-}
+
+-- | The name of the policy.
+gupsPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetUserPolicyResponse
+    -> f GetUserPolicyResponse
+gupsPolicyName f x =
+    (\y -> x { _gupsPolicyName = y })
+       <$> f (_gupsPolicyName x)
+{-# INLINE gupsPolicyName #-}
 
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions

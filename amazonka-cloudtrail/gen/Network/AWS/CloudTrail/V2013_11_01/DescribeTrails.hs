@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,7 +19,20 @@
 
 -- | Retrieves settings for the trail associated with the current region for
 -- your account.
-module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails where
+module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
+    (
+    -- * Request
+      DescribeTrails
+    -- ** Request constructor
+    , describeTrails
+    -- ** Request lenses
+    , dttTrailNameList
+
+    -- * Response
+    , DescribeTrailsResponse
+    -- ** Response lenses
+    , dtuTrailList
+    ) where
 
 import           Network.AWS.CloudTrail.V2013_11_01.Types
 import           Network.AWS.Prelude
@@ -30,15 +42,25 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeTrails' request.
 describeTrails :: DescribeTrails
 describeTrails = DescribeTrails
-    { _dtrTrailNameList = mempty
+    { _dttTrailNameList = mempty
     }
 
 data DescribeTrails = DescribeTrails
-    { _dtrTrailNameList :: [Text]
+    { _dttTrailNameList :: [Text]
       -- ^ The trail returned.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTrails
+-- | The trail returned.
+dttTrailNameList
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeTrails
+    -> f DescribeTrails
+dttTrailNameList f x =
+    (\y -> x { _dttTrailNameList = y })
+       <$> f (_dttTrailNameList x)
+{-# INLINE dttTrailNameList #-}
 
 instance ToPath DescribeTrails
 
@@ -49,11 +71,21 @@ instance ToHeaders DescribeTrails
 instance ToJSON DescribeTrails
 
 data DescribeTrailsResponse = DescribeTrailsResponse
-    { _dtsTrailList :: [Trail]
+    { _dtuTrailList :: [Trail]
       -- ^ The list of trails.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTrailsResponse
+-- | The list of trails.
+dtuTrailList
+    :: Functor f
+    => ([Trail]
+    -> f ([Trail]))
+    -> DescribeTrailsResponse
+    -> f DescribeTrailsResponse
+dtuTrailList f x =
+    (\y -> x { _dtuTrailList = y })
+       <$> f (_dtuTrailList x)
+{-# INLINE dtuTrailList #-}
 
 instance FromJSON DescribeTrailsResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,26 +21,52 @@
 -- any keys or signing certificates, or have any attached policies.
 -- https://iam.amazonaws.com/ ?Action=DeleteUser &UserName=Bob
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteUser where
+module Network.AWS.IAM.V2010_05_08.DeleteUser
+    (
+    -- * Request
+      DeleteUser
+    -- ** Request constructor
+    , deleteUser
+    -- ** Request lenses
+    , durUserName
+
+    -- * Response
+    , DeleteUserResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteUser' request.
+deleteUser :: Text -- ^ 'durUserName'
+           -> DeleteUser
+deleteUser p1 = DeleteUser
+    { _durUserName = p1
+    }
 
 data DeleteUser = DeleteUser
     { _durUserName :: Text
       -- ^ Name of the user to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteUser
+-- | Name of the user to delete.
+durUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteUser
+    -> f DeleteUser
+durUserName f x =
+    (\y -> x { _durUserName = y })
+       <$> f (_durUserName x)
+{-# INLINE durUserName #-}
 
 instance ToQuery DeleteUser where
     toQuery = genericQuery def
 
 data DeleteUserResponse = DeleteUserResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteUserResponse
 
 instance AWSRequest DeleteUser where
     type Sv DeleteUser = IAM

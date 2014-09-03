@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,16 +30,28 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=ListVerifiedEmailAddresses
 -- &Timestamp=2011-08-18T22%3A05%3A09.000Z% example@amazon.com
 -- 3dd50e97-c865-11e0-b235-099eb63d928d.
-module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses where
+module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
+    (
+    -- * Request
+      ListVerifiedEmailAddresses
+    -- ** Request constructor
+    , listVerifiedEmailAddresses
+    -- * Response
+    , ListVerifiedEmailAddressesResponse
+    -- ** Response lenses
+    , lvearVerifiedEmailAddresses
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ListVerifiedEmailAddresses' request.
+listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
+listVerifiedEmailAddresses = ListVerifiedEmailAddresses
+
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
     deriving (Eq, Show, Generic)
-
-makeLenses ''ListVerifiedEmailAddresses
 
 instance ToQuery ListVerifiedEmailAddresses where
     toQuery = genericQuery def
@@ -50,7 +61,17 @@ data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
       -- ^ A list of email addresses that have been verified.
     } deriving (Show, Generic)
 
-makeLenses ''ListVerifiedEmailAddressesResponse
+-- | A list of email addresses that have been verified.
+lvearVerifiedEmailAddresses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListVerifiedEmailAddressesResponse
+    -> f ListVerifiedEmailAddressesResponse
+lvearVerifiedEmailAddresses f x =
+    (\y -> x { _lvearVerifiedEmailAddresses = y })
+       <$> f (_lvearVerifiedEmailAddresses x)
+{-# INLINE lvearVerifiedEmailAddresses #-}
 
 instance FromXML ListVerifiedEmailAddressesResponse where
     fromXMLOptions = xmlOptions

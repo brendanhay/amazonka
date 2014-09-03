@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,19 +23,47 @@
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DeleteLayer where
+module Network.AWS.OpsWorks.V2013_02_18.DeleteLayer
+    (
+    -- * Request
+      DeleteLayer
+    -- ** Request constructor
+    , deleteLayer
+    -- ** Request lenses
+    , dlrLayerId
+
+    -- * Response
+    , DeleteLayerResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteLayer' request.
+deleteLayer :: Text -- ^ 'dlrLayerId'
+            -> DeleteLayer
+deleteLayer p1 = DeleteLayer
+    { _dlrLayerId = p1
+    }
+
 data DeleteLayer = DeleteLayer
-    { _dltLayerId :: Text
+    { _dlrLayerId :: Text
       -- ^ The layer ID.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLayer
+-- | The layer ID.
+dlrLayerId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLayer
+    -> f DeleteLayer
+dlrLayerId f x =
+    (\y -> x { _dlrLayerId = y })
+       <$> f (_dlrLayerId x)
+{-# INLINE dlrLayerId #-}
 
 instance ToPath DeleteLayer
 
@@ -48,8 +75,6 @@ instance ToJSON DeleteLayer
 
 data DeleteLayerResponse = DeleteLayerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLayerResponse
 
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks

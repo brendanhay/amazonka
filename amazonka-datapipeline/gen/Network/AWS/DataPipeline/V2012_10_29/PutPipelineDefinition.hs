@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -67,12 +66,37 @@
 -- definition has errors: Could not save the pipeline definition due to FATAL
 -- errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call
 -- Validate to validate your pipeline"}.
-module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition where
+module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
+    (
+    -- * Request
+      PutPipelineDefinition
+    -- ** Request constructor
+    , putPipelineDefinition
+    -- ** Request lenses
+    , ppdiPipelineId
+    , ppdiPipelineObjects
+
+    -- * Response
+    , PutPipelineDefinitionResponse
+    -- ** Response lenses
+    , ppdoErrored
+    , ppdoValidationErrors
+    , ppdoValidationWarnings
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'PutPipelineDefinition' request.
+putPipelineDefinition :: Text -- ^ 'ppdiPipelineId'
+                      -> [PipelineObject] -- ^ 'ppdiPipelineObjects'
+                      -> PutPipelineDefinition
+putPipelineDefinition p1 p2 = PutPipelineDefinition
+    { _ppdiPipelineId = p1
+    , _ppdiPipelineObjects = p2
+    }
 
 data PutPipelineDefinition = PutPipelineDefinition
     { _ppdiPipelineId :: Text
@@ -82,7 +106,30 @@ data PutPipelineDefinition = PutPipelineDefinition
       -- existing pipeline definition.
     } deriving (Show, Generic)
 
-makeLenses ''PutPipelineDefinition
+-- | The identifier of the pipeline to be configured.
+ppdiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutPipelineDefinition
+    -> f PutPipelineDefinition
+ppdiPipelineId f x =
+    (\y -> x { _ppdiPipelineId = y })
+       <$> f (_ppdiPipelineId x)
+{-# INLINE ppdiPipelineId #-}
+
+-- | The objects that define the pipeline. These will overwrite the existing
+-- pipeline definition.
+ppdiPipelineObjects
+    :: Functor f
+    => ([PipelineObject]
+    -> f ([PipelineObject]))
+    -> PutPipelineDefinition
+    -> f PutPipelineDefinition
+ppdiPipelineObjects f x =
+    (\y -> x { _ppdiPipelineObjects = y })
+       <$> f (_ppdiPipelineObjects x)
+{-# INLINE ppdiPipelineObjects #-}
 
 instance ToPath PutPipelineDefinition
 
@@ -106,7 +153,45 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
       -- objects defined in pipelineObjects.
     } deriving (Show, Generic)
 
-makeLenses ''PutPipelineDefinitionResponse
+-- | If True, there were validation errors. If errored is True, the pipeline
+-- definition is stored but cannot be activated until you correct the pipeline
+-- and call PutPipelineDefinition to commit the corrected pipeline.
+ppdoErrored
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> PutPipelineDefinitionResponse
+    -> f PutPipelineDefinitionResponse
+ppdoErrored f x =
+    (\y -> x { _ppdoErrored = y })
+       <$> f (_ppdoErrored x)
+{-# INLINE ppdoErrored #-}
+
+-- | A list of the validation errors that are associated with the objects
+-- defined in pipelineObjects.
+ppdoValidationErrors
+    :: Functor f
+    => ([ValidationError]
+    -> f ([ValidationError]))
+    -> PutPipelineDefinitionResponse
+    -> f PutPipelineDefinitionResponse
+ppdoValidationErrors f x =
+    (\y -> x { _ppdoValidationErrors = y })
+       <$> f (_ppdoValidationErrors x)
+{-# INLINE ppdoValidationErrors #-}
+
+-- | A list of the validation warnings that are associated with the objects
+-- defined in pipelineObjects.
+ppdoValidationWarnings
+    :: Functor f
+    => ([ValidationWarning]
+    -> f ([ValidationWarning]))
+    -> PutPipelineDefinitionResponse
+    -> f PutPipelineDefinitionResponse
+ppdoValidationWarnings f x =
+    (\y -> x { _ppdoValidationWarnings = y })
+       <$> f (_ppdoValidationWarnings x)
+{-# INLINE ppdoValidationWarnings #-}
 
 instance FromJSON PutPipelineDefinitionResponse
 

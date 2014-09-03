@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -49,21 +48,64 @@
 -- "867530901", "activityType": {"name": "activityVerify", "version": "1.0"} }
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 191ee17e-3fff-11e1-a23a-99d60383ae71.
-module Network.AWS.SWF.V2012_01_25.DeprecateActivityType where
+module Network.AWS.SWF.V2012_01_25.DeprecateActivityType
+    (
+    -- * Request
+      DeprecateActivityType
+    -- ** Request constructor
+    , deprecateActivityType
+    -- ** Request lenses
+    , datiActivityType
+    , datiDomain
+
+    -- * Response
+    , DeprecateActivityTypeResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeprecateActivityType' request.
+deprecateActivityType :: ActivityType -- ^ 'datiActivityType'
+                      -> Text -- ^ 'datiDomain'
+                      -> DeprecateActivityType
+deprecateActivityType p1 p2 = DeprecateActivityType
+    { _datiActivityType = p1
+    , _datiDomain = p2
+    }
+
 data DeprecateActivityType = DeprecateActivityType
-    { _datjActivityType :: ActivityType
+    { _datiActivityType :: ActivityType
       -- ^ The activity type to deprecate.
-    , _datjDomain :: Text
+    , _datiDomain :: Text
       -- ^ The name of the domain in which the activity type is registered.
     } deriving (Show, Generic)
 
-makeLenses ''DeprecateActivityType
+-- | The activity type to deprecate.
+datiActivityType
+    :: Functor f
+    => (ActivityType
+    -> f (ActivityType))
+    -> DeprecateActivityType
+    -> f DeprecateActivityType
+datiActivityType f x =
+    (\y -> x { _datiActivityType = y })
+       <$> f (_datiActivityType x)
+{-# INLINE datiActivityType #-}
+
+-- | The name of the domain in which the activity type is registered.
+datiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeprecateActivityType
+    -> f DeprecateActivityType
+datiDomain f x =
+    (\y -> x { _datiDomain = y })
+       <$> f (_datiDomain x)
+{-# INLINE datiDomain #-}
 
 instance ToPath DeprecateActivityType
 
@@ -75,8 +117,6 @@ instance ToJSON DeprecateActivityType
 
 data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeprecateActivityTypeResponse
 
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF

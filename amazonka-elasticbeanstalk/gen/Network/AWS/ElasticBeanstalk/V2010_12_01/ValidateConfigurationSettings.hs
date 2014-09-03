@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,15 +28,31 @@
 -- &OptionSettings.member.1.Value=1000000
 -- &Operation=ValidateConfigurationSettings &AuthParams
 -- 06f1cfff-f28f-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings
+    (
+    -- * Request
+      ValidateConfigurationSettings
+    -- ** Request constructor
+    , validateConfigurationSettings
+    -- ** Request lenses
+    , vcsmApplicationName
+    , vcsmOptionSettings
+    , vcsmTemplateName
+    , vcsmEnvironmentName
+
+    -- * Response
+    , ValidateConfigurationSettingsResponse
+    -- ** Response lenses
+    , csvmMessages
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ValidateConfigurationSettings' request.
-validateConfigurationSettings :: Text -- ^ '_vcsmApplicationName'
-                              -> [ConfigurationOptionSetting] -- ^ '_vcsmOptionSettings'
+validateConfigurationSettings :: Text -- ^ 'vcsmApplicationName'
+                              -> [ConfigurationOptionSetting] -- ^ 'vcsmOptionSettings'
                               -> ValidateConfigurationSettings
 validateConfigurationSettings p1 p2 = ValidateConfigurationSettings
     { _vcsmApplicationName = p1
@@ -62,7 +77,56 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
       -- template name.
     } deriving (Show, Generic)
 
-makeLenses ''ValidateConfigurationSettings
+-- | The name of the application that the configuration template or environment
+-- belongs to.
+vcsmApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ValidateConfigurationSettings
+    -> f ValidateConfigurationSettings
+vcsmApplicationName f x =
+    (\y -> x { _vcsmApplicationName = y })
+       <$> f (_vcsmApplicationName x)
+{-# INLINE vcsmApplicationName #-}
+
+-- | A list of the options and desired values to evaluate.
+vcsmOptionSettings
+    :: Functor f
+    => ([ConfigurationOptionSetting]
+    -> f ([ConfigurationOptionSetting]))
+    -> ValidateConfigurationSettings
+    -> f ValidateConfigurationSettings
+vcsmOptionSettings f x =
+    (\y -> x { _vcsmOptionSettings = y })
+       <$> f (_vcsmOptionSettings x)
+{-# INLINE vcsmOptionSettings #-}
+
+-- | The name of the configuration template to validate the settings against.
+-- Condition: You cannot specify both this and an environment name.
+vcsmTemplateName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidateConfigurationSettings
+    -> f ValidateConfigurationSettings
+vcsmTemplateName f x =
+    (\y -> x { _vcsmTemplateName = y })
+       <$> f (_vcsmTemplateName x)
+{-# INLINE vcsmTemplateName #-}
+
+-- | The name of the environment to validate the settings against. Condition:
+-- You cannot specify both this and a configuration template name.
+vcsmEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidateConfigurationSettings
+    -> f ValidateConfigurationSettings
+vcsmEnvironmentName f x =
+    (\y -> x { _vcsmEnvironmentName = y })
+       <$> f (_vcsmEnvironmentName x)
+{-# INLINE vcsmEnvironmentName #-}
 
 instance ToQuery ValidateConfigurationSettings where
     toQuery = genericQuery def
@@ -72,7 +136,17 @@ data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRespon
       -- ^ A list of ValidationMessage.
     } deriving (Show, Generic)
 
-makeLenses ''ValidateConfigurationSettingsResponse
+-- | A list of ValidationMessage.
+csvmMessages
+    :: Functor f
+    => ([ValidationMessage]
+    -> f ([ValidationMessage]))
+    -> ValidateConfigurationSettingsResponse
+    -> f ValidateConfigurationSettingsResponse
+csvmMessages f x =
+    (\y -> x { _csvmMessages = y })
+       <$> f (_csvmMessages x)
+{-# INLINE csvmMessages #-}
 
 instance FromXML ValidateConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions

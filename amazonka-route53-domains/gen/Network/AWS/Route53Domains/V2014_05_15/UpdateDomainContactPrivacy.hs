@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -41,7 +40,23 @@
 -- "DomainName":"example.com", "AdminPrivacy":true, "RegistrantPrivacy":true,
 -- "TechPrivacy":true, } HTTP/1.1 200 Content-Length:[number of characters in
 -- the JSON string] { "OperationId":"777bc5da-fbf7-482c-b2ba-8946884a7dd6" }.
-module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy where
+module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy
+    (
+    -- * Request
+      UpdateDomainContactPrivacy
+    -- ** Request constructor
+    , updateDomainContactPrivacy
+    -- ** Request lenses
+    , udcprDomainName
+    , udcprAdminPrivacy
+    , udcprRegistrantPrivacy
+    , udcprTechPrivacy
+
+    -- * Response
+    , UpdateDomainContactPrivacyResponse
+    -- ** Response lenses
+    , udcpsOperationId
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
@@ -49,7 +64,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateDomainContactPrivacy' request.
-updateDomainContactPrivacy :: Text -- ^ '_udcprDomainName'
+updateDomainContactPrivacy :: Text -- ^ 'udcprDomainName'
                            -> UpdateDomainContactPrivacy
 updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     { _udcprDomainName = p1
@@ -84,7 +99,65 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
       -- Default: None Valid values: true | false Required: No.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateDomainContactPrivacy
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+udcprDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateDomainContactPrivacy
+    -> f UpdateDomainContactPrivacy
+udcprDomainName f x =
+    (\y -> x { _udcprDomainName = y })
+       <$> f (_udcprDomainName x)
+{-# INLINE udcprDomainName #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter. Type: Boolean Default: None Valid values: true | false Required: No.
+udcprAdminPrivacy
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateDomainContactPrivacy
+    -> f UpdateDomainContactPrivacy
+udcprAdminPrivacy f x =
+    (\y -> x { _udcprAdminPrivacy = y })
+       <$> f (_udcprAdminPrivacy x)
+{-# INLINE udcprAdminPrivacy #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter. Type: Boolean Default: None Valid values: true | false Required: No.
+udcprRegistrantPrivacy
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateDomainContactPrivacy
+    -> f UpdateDomainContactPrivacy
+udcprRegistrantPrivacy f x =
+    (\y -> x { _udcprRegistrantPrivacy = y })
+       <$> f (_udcprRegistrantPrivacy x)
+{-# INLINE udcprRegistrantPrivacy #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter. Type: Boolean Default: None Valid values: true | false Required: No.
+udcprTechPrivacy
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateDomainContactPrivacy
+    -> f UpdateDomainContactPrivacy
+udcprTechPrivacy f x =
+    (\y -> x { _udcprTechPrivacy = y })
+       <$> f (_udcprTechPrivacy x)
+{-# INLINE udcprTechPrivacy #-}
 
 instance ToPath UpdateDomainContactPrivacy
 
@@ -101,7 +174,19 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
       -- String Default: None Constraints: Maximum 255 characters.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateDomainContactPrivacyResponse
+-- | Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail. Type: String Default:
+-- None Constraints: Maximum 255 characters.
+udcpsOperationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateDomainContactPrivacyResponse
+    -> f UpdateDomainContactPrivacyResponse
+udcpsOperationId f x =
+    (\y -> x { _udcpsOperationId = y })
+       <$> f (_udcpsOperationId x)
+{-# INLINE udcpsOperationId #-}
 
 instance FromJSON UpdateDomainContactPrivacyResponse
 

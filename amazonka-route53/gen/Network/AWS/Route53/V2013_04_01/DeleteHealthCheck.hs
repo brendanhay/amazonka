@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,18 +26,46 @@
 -- record sets, Route 53 will deny your request with a HealthCheckInUse error.
 -- For information about disassociating the records from your health check,
 -- see ChangeResourceRecordSets.
-module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck where
+module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
+    (
+    -- * Request
+      DeleteHealthCheck
+    -- ** Request constructor
+    , deleteHealthCheck
+    -- ** Request lenses
+    , dhcrHealthCheckId
+
+    -- * Response
+    , DeleteHealthCheckResponse
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteHealthCheck' request.
+deleteHealthCheck :: Text -- ^ 'dhcrHealthCheckId'
+                  -> DeleteHealthCheck
+deleteHealthCheck p1 = DeleteHealthCheck
+    { _dhcrHealthCheckId = p1
+    }
 
 data DeleteHealthCheck = DeleteHealthCheck
     { _dhcrHealthCheckId :: Text
       -- ^ The ID of the health check to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteHealthCheck
+-- | The ID of the health check to delete.
+dhcrHealthCheckId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteHealthCheck
+    -> f DeleteHealthCheck
+dhcrHealthCheckId f x =
+    (\y -> x { _dhcrHealthCheckId = y })
+       <$> f (_dhcrHealthCheckId x)
+{-# INLINE dhcrHealthCheckId #-}
 
 instance ToPath DeleteHealthCheck where
     toPath DeleteHealthCheck{..} = mconcat
@@ -56,8 +83,6 @@ instance ToXML DeleteHealthCheck where
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteHealthCheckResponse
 
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53

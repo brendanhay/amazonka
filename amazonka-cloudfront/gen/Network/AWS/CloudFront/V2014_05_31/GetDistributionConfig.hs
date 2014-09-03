@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,18 +18,49 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the configuration information about a distribution.
-module Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig where
+module Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig
+    (
+    -- * Request
+      GetDistributionConfig
+    -- ** Request constructor
+    , getDistributionConfig
+    -- ** Request lenses
+    , gdcrId
+
+    -- * Response
+    , GetDistributionConfigResponse
+    -- ** Response lenses
+    , gdcsDistributionConfig
+    , gdcsETag
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetDistributionConfig' request.
+getDistributionConfig :: Text -- ^ 'gdcrId'
+                      -> GetDistributionConfig
+getDistributionConfig p1 = GetDistributionConfig
+    { _gdcrId = p1
+    }
 
 data GetDistributionConfig = GetDistributionConfig
     { _gdcrId :: Text
       -- ^ The distribution's id.
     } deriving (Show, Generic)
 
-makeLenses ''GetDistributionConfig
+-- | The distribution's id.
+gdcrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetDistributionConfig
+    -> f GetDistributionConfig
+gdcrId f x =
+    (\y -> x { _gdcrId = y })
+       <$> f (_gdcrId x)
+{-# INLINE gdcrId #-}
 
 instance ToPath GetDistributionConfig where
     toPath GetDistributionConfig{..} = mconcat
@@ -55,7 +85,29 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse
       -- E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''GetDistributionConfigResponse
+-- | The distribution's configuration information.
+gdcsDistributionConfig
+    :: Functor f
+    => (Maybe DistributionConfig
+    -> f (Maybe DistributionConfig))
+    -> GetDistributionConfigResponse
+    -> f GetDistributionConfigResponse
+gdcsDistributionConfig f x =
+    (\y -> x { _gdcsDistributionConfig = y })
+       <$> f (_gdcsDistributionConfig x)
+{-# INLINE gdcsDistributionConfig #-}
+
+-- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+gdcsETag
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetDistributionConfigResponse
+    -> f GetDistributionConfigResponse
+gdcsETag f x =
+    (\y -> x { _gdcsETag = y })
+       <$> f (_gdcsETag x)
+{-# INLINE gdcsETag #-}
 
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront

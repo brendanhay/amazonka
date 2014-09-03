@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,39 +19,86 @@
 
 -- | Describes the lifecycle hooks that currently belong to the specified Auto
 -- Scaling group.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks
+    (
+    -- * Request
+      DescribeLifecycleHooks
+    -- ** Request constructor
+    , describeLifecycleHooks
+    -- ** Request lenses
+    , dlhuAutoScalingGroupName
+    , dlhuLifecycleHookNames
+
+    -- * Response
+    , DescribeLifecycleHooksResponse
+    -- ** Response lenses
+    , dlhbLifecycleHooks
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeLifecycleHooks' request.
-describeLifecycleHooks :: Text -- ^ '_dlhtAutoScalingGroupName'
+describeLifecycleHooks :: Text -- ^ 'dlhuAutoScalingGroupName'
                        -> DescribeLifecycleHooks
 describeLifecycleHooks p1 = DescribeLifecycleHooks
-    { _dlhtAutoScalingGroupName = p1
-    , _dlhtLifecycleHookNames = mempty
+    { _dlhuAutoScalingGroupName = p1
+    , _dlhuLifecycleHookNames = mempty
     }
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
-    { _dlhtAutoScalingGroupName :: Text
+    { _dlhuAutoScalingGroupName :: Text
       -- ^ The name of one or more Auto Scaling groups.
-    , _dlhtLifecycleHookNames :: [Text]
+    , _dlhuLifecycleHookNames :: [Text]
       -- ^ The name of one or more lifecycle hooks.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLifecycleHooks
+-- | The name of one or more Auto Scaling groups.
+dlhuAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeLifecycleHooks
+    -> f DescribeLifecycleHooks
+dlhuAutoScalingGroupName f x =
+    (\y -> x { _dlhuAutoScalingGroupName = y })
+       <$> f (_dlhuAutoScalingGroupName x)
+{-# INLINE dlhuAutoScalingGroupName #-}
+
+-- | The name of one or more lifecycle hooks.
+dlhuLifecycleHookNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLifecycleHooks
+    -> f DescribeLifecycleHooks
+dlhuLifecycleHookNames f x =
+    (\y -> x { _dlhuLifecycleHookNames = y })
+       <$> f (_dlhuLifecycleHookNames x)
+{-# INLINE dlhuLifecycleHookNames #-}
 
 instance ToQuery DescribeLifecycleHooks where
     toQuery = genericQuery def
 
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhaLifecycleHooks :: [LifecycleHook]
+    { _dlhbLifecycleHooks :: [LifecycleHook]
       -- ^ A list describing the lifecycle hooks that belong to the
       -- specified Auto Scaling group.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLifecycleHooksResponse
+-- | A list describing the lifecycle hooks that belong to the specified Auto
+-- Scaling group.
+dlhbLifecycleHooks
+    :: Functor f
+    => ([LifecycleHook]
+    -> f ([LifecycleHook]))
+    -> DescribeLifecycleHooksResponse
+    -> f DescribeLifecycleHooksResponse
+dlhbLifecycleHooks f x =
+    (\y -> x { _dlhbLifecycleHooks = y })
+       <$> f (_dlhbLifecycleHooks x)
+{-# INLINE dlhbLifecycleHooks #-}
 
 instance FromXML DescribeLifecycleHooksResponse where
     fromXMLOptions = xmlOptions

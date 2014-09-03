@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,11 +21,32 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteRolePolicy
 -- &PolicyName=S3AccessPolicy &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS c749ee7f-99ef-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.DeleteRolePolicy where
+module Network.AWS.IAM.V2010_05_08.DeleteRolePolicy
+    (
+    -- * Request
+      DeleteRolePolicy
+    -- ** Request constructor
+    , deleteRolePolicy
+    -- ** Request lenses
+    , drprPolicyName
+    , drprRoleName
+
+    -- * Response
+    , DeleteRolePolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteRolePolicy' request.
+deleteRolePolicy :: Text -- ^ 'drprPolicyName'
+                 -> Text -- ^ 'drprRoleName'
+                 -> DeleteRolePolicy
+deleteRolePolicy p1 p2 = DeleteRolePolicy
+    { _drprPolicyName = p1
+    , _drprRoleName = p2
+    }
 
 data DeleteRolePolicy = DeleteRolePolicy
     { _drprPolicyName :: Text
@@ -35,15 +55,35 @@ data DeleteRolePolicy = DeleteRolePolicy
       -- ^ Name of the role the associated with the policy.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteRolePolicy
+-- | Name of the policy document to delete.
+drprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRolePolicy
+    -> f DeleteRolePolicy
+drprPolicyName f x =
+    (\y -> x { _drprPolicyName = y })
+       <$> f (_drprPolicyName x)
+{-# INLINE drprPolicyName #-}
+
+-- | Name of the role the associated with the policy.
+drprRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRolePolicy
+    -> f DeleteRolePolicy
+drprRoleName f x =
+    (\y -> x { _drprRoleName = y })
+       <$> f (_drprRoleName x)
+{-# INLINE drprRoleName #-}
 
 instance ToQuery DeleteRolePolicy where
     toQuery = genericQuery def
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteRolePolicyResponse
 
 instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM

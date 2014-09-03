@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,25 @@
 -- "MyIdentityPool", "SupportedLoginProviders": { "www.amazon.com":
 -- "Amazon_App_ID", "graph.facebook.com": "Facebook_App_ID",
 -- "accounts.google.com": "Google_App_ID" }, "Unauthenticated": true }.
-module Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool where
+module Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
+    (
+    -- * Request
+      CreateIdentityPool
+    -- ** Request constructor
+    , createIdentityPool
+    -- ** Request lenses
+    , cipiIdentityPoolName
+    , cipiAllowUnauthenticatedIdentities
+    , cipiSupportedLoginProviders
+
+    -- * Response
+    , CreateIdentityPoolResponse
+    -- ** Response lenses
+    , iqIdentityPoolId
+    , iqIdentityPoolName
+    , iqAllowUnauthenticatedIdentities
+    , iqSupportedLoginProviders
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
@@ -38,8 +55,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateIdentityPool' request.
-createIdentityPool :: Text -- ^ '_cipiIdentityPoolName'
-                   -> Bool -- ^ '_cipiAllowUnauthenticatedIdentities'
+createIdentityPool :: Text -- ^ 'cipiIdentityPoolName'
+                   -> Bool -- ^ 'cipiAllowUnauthenticatedIdentities'
                    -> CreateIdentityPool
 createIdentityPool p1 p2 = CreateIdentityPool
     { _cipiIdentityPoolName = p1
@@ -57,7 +74,41 @@ data CreateIdentityPool = CreateIdentityPool
       -- IDs.
     } deriving (Show, Generic)
 
-makeLenses ''CreateIdentityPool
+-- | A string that you provide.
+cipiIdentityPoolName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateIdentityPool
+    -> f CreateIdentityPool
+cipiIdentityPoolName f x =
+    (\y -> x { _cipiIdentityPoolName = y })
+       <$> f (_cipiIdentityPoolName x)
+{-# INLINE cipiIdentityPoolName #-}
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+cipiAllowUnauthenticatedIdentities
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> CreateIdentityPool
+    -> f CreateIdentityPool
+cipiAllowUnauthenticatedIdentities f x =
+    (\y -> x { _cipiAllowUnauthenticatedIdentities = y })
+       <$> f (_cipiAllowUnauthenticatedIdentities x)
+{-# INLINE cipiAllowUnauthenticatedIdentities #-}
+
+-- | Optional key:value pairs mapping provider names to provider app IDs.
+cipiSupportedLoginProviders
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> CreateIdentityPool
+    -> f CreateIdentityPool
+cipiSupportedLoginProviders f x =
+    (\y -> x { _cipiSupportedLoginProviders = y })
+       <$> f (_cipiSupportedLoginProviders x)
+{-# INLINE cipiSupportedLoginProviders #-}
 
 instance ToPath CreateIdentityPool
 
@@ -68,18 +119,64 @@ instance ToHeaders CreateIdentityPool
 instance ToJSON CreateIdentityPool
 
 data CreateIdentityPoolResponse = CreateIdentityPoolResponse
-    { _iwIdentityPoolId :: Text
+    { _iqIdentityPoolId :: Text
       -- ^ An identity pool ID in the format REGION:GUID.
-    , _iwIdentityPoolName :: Text
+    , _iqIdentityPoolName :: Text
       -- ^ A string that you provide.
-    , _iwAllowUnauthenticatedIdentities :: Bool
+    , _iqAllowUnauthenticatedIdentities :: Bool
       -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _iwSupportedLoginProviders :: Map Text Text
+    , _iqSupportedLoginProviders :: Map Text Text
       -- ^ Optional key:value pairs mapping provider names to provider app
       -- IDs.
     } deriving (Show, Generic)
 
-makeLenses ''CreateIdentityPoolResponse
+-- | An identity pool ID in the format REGION:GUID.
+iqIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateIdentityPoolResponse
+    -> f CreateIdentityPoolResponse
+iqIdentityPoolId f x =
+    (\y -> x { _iqIdentityPoolId = y })
+       <$> f (_iqIdentityPoolId x)
+{-# INLINE iqIdentityPoolId #-}
+
+-- | A string that you provide.
+iqIdentityPoolName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateIdentityPoolResponse
+    -> f CreateIdentityPoolResponse
+iqIdentityPoolName f x =
+    (\y -> x { _iqIdentityPoolName = y })
+       <$> f (_iqIdentityPoolName x)
+{-# INLINE iqIdentityPoolName #-}
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+iqAllowUnauthenticatedIdentities
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> CreateIdentityPoolResponse
+    -> f CreateIdentityPoolResponse
+iqAllowUnauthenticatedIdentities f x =
+    (\y -> x { _iqAllowUnauthenticatedIdentities = y })
+       <$> f (_iqAllowUnauthenticatedIdentities x)
+{-# INLINE iqAllowUnauthenticatedIdentities #-}
+
+-- | Optional key:value pairs mapping provider names to provider app IDs.
+iqSupportedLoginProviders
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> CreateIdentityPoolResponse
+    -> f CreateIdentityPoolResponse
+iqSupportedLoginProviders f x =
+    (\y -> x { _iqSupportedLoginProviders = y })
+       <$> f (_iqSupportedLoginProviders x)
+{-# INLINE iqSupportedLoginProviders #-}
 
 instance FromJSON CreateIdentityPoolResponse
 

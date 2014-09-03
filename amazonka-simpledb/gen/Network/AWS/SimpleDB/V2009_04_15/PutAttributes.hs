@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,16 +43,30 @@
 -- The following limitations are enforced for this operation: 256 total
 -- attribute name-value pairs per item One billion attributes per domain 10 GB
 -- of total user data storage per domain.
-module Network.AWS.SimpleDB.V2009_04_15.PutAttributes where
+module Network.AWS.SimpleDB.V2009_04_15.PutAttributes
+    (
+    -- * Request
+      PutAttributes
+    -- ** Request constructor
+    , putAttributes
+    -- ** Request lenses
+    , parAttributes
+    , parDomainName
+    , parItemName
+    , parExpected
+
+    -- * Response
+    , PutAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutAttributes' request.
-putAttributes :: [ReplaceableAttribute] -- ^ '_parAttributes'
-              -> Text -- ^ '_parDomainName'
-              -> Text -- ^ '_parItemName'
+putAttributes :: [ReplaceableAttribute] -- ^ 'parAttributes'
+              -> Text -- ^ 'parDomainName'
+              -> Text -- ^ 'parItemName'
               -> PutAttributes
 putAttributes p1 p2 p3 = PutAttributes
     { _parAttributes = p1
@@ -76,15 +89,61 @@ data PutAttributes = PutAttributes
       -- the attributes to be updated.
     } deriving (Show, Generic)
 
-makeLenses ''PutAttributes
+-- | The list of attributes.
+parAttributes
+    :: Functor f
+    => ([ReplaceableAttribute]
+    -> f ([ReplaceableAttribute]))
+    -> PutAttributes
+    -> f PutAttributes
+parAttributes f x =
+    (\y -> x { _parAttributes = y })
+       <$> f (_parAttributes x)
+{-# INLINE parAttributes #-}
+
+-- | The name of the domain in which to perform the operation.
+parDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutAttributes
+    -> f PutAttributes
+parDomainName f x =
+    (\y -> x { _parDomainName = y })
+       <$> f (_parDomainName x)
+{-# INLINE parDomainName #-}
+
+-- | The name of the item.
+parItemName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutAttributes
+    -> f PutAttributes
+parItemName f x =
+    (\y -> x { _parItemName = y })
+       <$> f (_parItemName x)
+{-# INLINE parItemName #-}
+
+-- | The update condition which, if specified, determines whether the specified
+-- attributes will be updated or not. The update condition must be satisfied
+-- in order for this request to be processed and the attributes to be updated.
+parExpected
+    :: Functor f
+    => (Maybe UpdateCondition
+    -> f (Maybe UpdateCondition))
+    -> PutAttributes
+    -> f PutAttributes
+parExpected f x =
+    (\y -> x { _parExpected = y })
+       <$> f (_parExpected x)
+{-# INLINE parExpected #-}
 
 instance ToQuery PutAttributes where
     toQuery = genericQuery def
 
 data PutAttributesResponse = PutAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutAttributesResponse
 
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SimpleDB

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,16 +22,28 @@
 -- 2013-04-01/checkeripranges resource. You can use these IP addresses to
 -- configure router and firewall rules to allow health checkers to check the
 -- health of your resources.
-module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges where
+module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
+    (
+    -- * Request
+      GetCheckerIpRanges
+    -- ** Request constructor
+    , getCheckerIpRanges
+    -- * Response
+    , GetCheckerIpRangesResponse
+    -- ** Response lenses
+    , gcirsCheckerIpRanges
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetCheckerIpRanges' request.
+getCheckerIpRanges :: GetCheckerIpRanges
+getCheckerIpRanges = GetCheckerIpRanges
+
 data GetCheckerIpRanges = GetCheckerIpRanges
     deriving (Eq, Show, Generic)
-
-makeLenses ''GetCheckerIpRanges
 
 instance ToPath GetCheckerIpRanges where
     toPath = const "/2013-04-01/checkeripranges"
@@ -51,7 +62,18 @@ data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
       -- format for Amazon Route 53 health checkers.
     } deriving (Show, Generic)
 
-makeLenses ''GetCheckerIpRangesResponse
+-- | A complex type that contains sorted list of IP ranges in CIDR format for
+-- Amazon Route 53 health checkers.
+gcirsCheckerIpRanges
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> GetCheckerIpRangesResponse
+    -> f GetCheckerIpRangesResponse
+gcirsCheckerIpRanges f x =
+    (\y -> x { _gcirsCheckerIpRanges = y })
+       <$> f (_gcirsCheckerIpRanges x)
+{-# INLINE gcirsCheckerIpRanges #-}
 
 instance FromXML GetCheckerIpRangesResponse where
     fromXMLOptions = xmlOptions

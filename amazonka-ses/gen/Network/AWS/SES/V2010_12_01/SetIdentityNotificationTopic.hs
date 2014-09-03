@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,15 +36,28 @@
 -- &NotificationType=Bounce
 -- &Timestamp=2012-05-12T05%3A27%3A54.000Z&Version=2010-12-01
 -- 299f4af4-b72a-11e1-901f-1fbd90e8104f.
-module Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic where
+module Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic
+    (
+    -- * Request
+      SetIdentityNotificationTopic
+    -- ** Request constructor
+    , setIdentityNotificationTopic
+    -- ** Request lenses
+    , sintrIdentity
+    , sintrNotificationType
+    , sintrSnsTopic
+
+    -- * Response
+    , SetIdentityNotificationTopicResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SetIdentityNotificationTopic' request.
-setIdentityNotificationTopic :: Text -- ^ '_sintrIdentity'
-                             -> NotificationType -- ^ '_sintrNotificationType'
+setIdentityNotificationTopic :: Text -- ^ 'sintrIdentity'
+                             -> NotificationType -- ^ 'sintrNotificationType'
                              -> SetIdentityNotificationTopic
 setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
     { _sintrIdentity = p1
@@ -66,15 +78,51 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
       -- SnsTopic is cleared and publishing is disabled.
     } deriving (Show, Generic)
 
-makeLenses ''SetIdentityNotificationTopic
+-- | The identity for which the Amazon SNS topic will be set. Examples:
+-- user@example.com, example.com.
+sintrIdentity
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetIdentityNotificationTopic
+    -> f SetIdentityNotificationTopic
+sintrIdentity f x =
+    (\y -> x { _sintrIdentity = y })
+       <$> f (_sintrIdentity x)
+{-# INLINE sintrIdentity #-}
+
+-- | The type of notifications that will be published to the specified Amazon
+-- SNS topic.
+sintrNotificationType
+    :: Functor f
+    => (NotificationType
+    -> f (NotificationType))
+    -> SetIdentityNotificationTopic
+    -> f SetIdentityNotificationTopic
+sintrNotificationType f x =
+    (\y -> x { _sintrNotificationType = y })
+       <$> f (_sintrNotificationType x)
+{-# INLINE sintrNotificationType #-}
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
+-- omitted from the request or a null value is passed, SnsTopic is cleared and
+-- publishing is disabled.
+sintrSnsTopic
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetIdentityNotificationTopic
+    -> f SetIdentityNotificationTopic
+sintrSnsTopic f x =
+    (\y -> x { _sintrSnsTopic = y })
+       <$> f (_sintrSnsTopic x)
+{-# INLINE sintrSnsTopic #-}
 
 instance ToQuery SetIdentityNotificationTopic where
     toQuery = genericQuery def
 
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetIdentityNotificationTopicResponse
 
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES

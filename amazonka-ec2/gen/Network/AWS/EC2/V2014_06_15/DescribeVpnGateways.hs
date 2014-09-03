@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,18 +44,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnGateways
     (
     -- * Request
       DescribeVpnGateways
-    -- ** Default constructor
+    -- ** Request constructor
     , describeVpnGateways
-    -- ** Accessors and lenses
-    , _dvgsFilters
+    -- ** Request lenses
     , dvgsFilters
-    , _dvgsVpnGatewayIds
     , dvgsVpnGatewayIds
 
     -- * Response
     , DescribeVpnGatewaysResponse
-    -- ** Accessors and lenses
-    , _dvgtVpnGateways
+    -- ** Response lenses
     , dvgtVpnGateways
     ) where
 
@@ -72,28 +68,29 @@ describeVpnGateways = DescribeVpnGateways
     }
 
 data DescribeVpnGateways = DescribeVpnGateways
-
-makeSiglessLenses ''DescribeVpnGateways
-
-instance ToQuery DescribeVpnGateways where
-    toQuery = genericQuery def
-
-data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
-    { _dvgtVpnGateways :: [VpnGateway]
-      -- ^ Information about one or more virtual private gateways.
+    { _dvgsFilters :: [Filter]
+      -- ^ One or more filters. attachment.state - The current state of the
+      -- attachment between the gateway and the VPC (attaching | attached
+      -- | detaching | detached). attachment.vpc-id - The ID of an
+      -- attached VPC. availability-zone - The Availability Zone for the
+      -- virtual private gateway. state - The state of the virtual private
+      -- gateway (pending | available | deleting | deleted). tag:key=value
+      -- - The key/value combination of a tag assigned to the resource.
+      -- tag-key - The key of a tag assigned to the resource. This filter
+      -- is independent of the tag-value filter. For example, if you use
+      -- both the filter "tag-key=Purpose" and the filter "tag-value=X",
+      -- you get any resources assigned both the tag key Purpose
+      -- (regardless of what the tag's value is), and the tag value X
+      -- (regardless of what the tag's key is). If you want to list only
+      -- resources where Purpose is X, see the tag:key=value filter.
+      -- tag-value - The value of a tag assigned to the resource. This
+      -- filter is independent of the tag-key filter. type - The type of
+      -- virtual private gateway. Currently the only supported type is
+      -- ipsec.1. vpn-gateway-id - The ID of the virtual private gateway.
+    , _dvgsVpnGatewayIds :: [Text]
+      -- ^ One or more virtual private gateway IDs. Default: Describes all
+      -- your virtual private gateways.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeVpnGatewaysResponse
-
-instance FromXML DescribeVpnGatewaysResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeVpnGateways where
-    type Sv DescribeVpnGateways = EC2
-    type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse
-
-    request = post "DescribeVpnGateways"
-    response _ = xmlResponse
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC (attaching | attached | detaching |
@@ -111,11 +108,56 @@ instance AWSRequest DescribeVpnGateways where
 -- filter is independent of the tag-key filter. type - The type of virtual
 -- private gateway. Currently the only supported type is ipsec.1.
 -- vpn-gateway-id - The ID of the virtual private gateway.
-dvgsFilters :: Lens' DescribeVpnGateways ([Filter])
+dvgsFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeVpnGateways
+    -> f DescribeVpnGateways
+dvgsFilters f x =
+    (\y -> x { _dvgsFilters = y })
+       <$> f (_dvgsFilters x)
+{-# INLINE dvgsFilters #-}
 
 -- | One or more virtual private gateway IDs. Default: Describes all your
 -- virtual private gateways.
-dvgsVpnGatewayIds :: Lens' DescribeVpnGateways ([Text])
+dvgsVpnGatewayIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeVpnGateways
+    -> f DescribeVpnGateways
+dvgsVpnGatewayIds f x =
+    (\y -> x { _dvgsVpnGatewayIds = y })
+       <$> f (_dvgsVpnGatewayIds x)
+{-# INLINE dvgsVpnGatewayIds #-}
+
+instance ToQuery DescribeVpnGateways where
+    toQuery = genericQuery def
+
+data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
+    { _dvgtVpnGateways :: [VpnGateway]
+      -- ^ Information about one or more virtual private gateways.
+    } deriving (Show, Generic)
 
 -- | Information about one or more virtual private gateways.
-dvgtVpnGateways :: Lens' DescribeVpnGatewaysResponse ([VpnGateway])
+dvgtVpnGateways
+    :: Functor f
+    => ([VpnGateway]
+    -> f ([VpnGateway]))
+    -> DescribeVpnGatewaysResponse
+    -> f DescribeVpnGatewaysResponse
+dvgtVpnGateways f x =
+    (\y -> x { _dvgtVpnGateways = y })
+       <$> f (_dvgtVpnGateways x)
+{-# INLINE dvgtVpnGateways #-}
+
+instance FromXML DescribeVpnGatewaysResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeVpnGateways where
+    type Sv DescribeVpnGateways = EC2
+    type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse
+
+    request = post "DescribeVpnGateways"
+    response _ = xmlResponse

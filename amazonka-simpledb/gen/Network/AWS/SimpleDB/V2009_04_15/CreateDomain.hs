@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,11 +25,29 @@
 -- client can create up to 100 domains per account. If the client requires
 -- additional domains, go to
 -- http://aws.amazon.com/contact-us/simpledb-limit-request/.
-module Network.AWS.SimpleDB.V2009_04_15.CreateDomain where
+module Network.AWS.SimpleDB.V2009_04_15.CreateDomain
+    (
+    -- * Request
+      CreateDomain
+    -- ** Request constructor
+    , createDomain
+    -- ** Request lenses
+    , cdrDomainName
+
+    -- * Response
+    , CreateDomainResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateDomain' request.
+createDomain :: Text -- ^ 'cdrDomainName'
+             -> CreateDomain
+createDomain p1 = CreateDomain
+    { _cdrDomainName = p1
+    }
 
 data CreateDomain = CreateDomain
     { _cdrDomainName :: Text
@@ -39,15 +56,25 @@ data CreateDomain = CreateDomain
       -- A-Z, 0-9, '_', '-', and '.'.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDomain
+-- | The name of the domain to create. The name can range between 3 and 255
+-- characters and can contain the following characters: a-z, A-Z, 0-9, '_',
+-- '-', and '.'.
+cdrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDomain
+    -> f CreateDomain
+cdrDomainName f x =
+    (\y -> x { _cdrDomainName = y })
+       <$> f (_cdrDomainName x)
+{-# INLINE cdrDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def
 
 data CreateDomainResponse = CreateDomainResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateDomainResponse
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SimpleDB

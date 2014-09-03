@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -66,15 +65,40 @@
 -- aws:elasticbeanstalk:container:tomcat:jvmoptions changed description
 -- SampleApp 2010-11-17T19:26:20.420Z Default 2010-11-17T20:58:27.508Z
 -- 6cbcb09a-f28d-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate
+    (
+    -- * Request
+      UpdateConfigurationTemplate
+    -- ** Request constructor
+    , updateConfigurationTemplate
+    -- ** Request lenses
+    , uctmApplicationName
+    , uctmTemplateName
+    , uctmOptionSettings
+    , uctmDescription
+    , uctmOptionsToRemove
+
+    -- * Response
+    , UpdateConfigurationTemplateResponse
+    -- ** Response lenses
+    , csgApplicationName
+    , csgDeploymentStatus
+    , csgOptionSettings
+    , csgTemplateName
+    , csgDateCreated
+    , csgDescription
+    , csgEnvironmentName
+    , csgSolutionStackName
+    , csgDateUpdated
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateConfigurationTemplate' request.
-updateConfigurationTemplate :: Text -- ^ '_uctmApplicationName'
-                            -> Text -- ^ '_uctmTemplateName'
+updateConfigurationTemplate :: Text -- ^ 'uctmApplicationName'
+                            -> Text -- ^ 'uctmTemplateName'
                             -> UpdateConfigurationTemplate
 updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
     { _uctmApplicationName = p1
@@ -106,16 +130,80 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
       -- options.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateConfigurationTemplate
+-- | The name of the application associated with the configuration template to
+-- update. If no application is found with this name,
+-- UpdateConfigurationTemplate returns an InvalidParameterValue error.
+uctmApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateConfigurationTemplate
+    -> f UpdateConfigurationTemplate
+uctmApplicationName f x =
+    (\y -> x { _uctmApplicationName = y })
+       <$> f (_uctmApplicationName x)
+{-# INLINE uctmApplicationName #-}
+
+-- | The name of the configuration template to update. If no configuration
+-- template is found with this name, UpdateConfigurationTemplate returns an
+-- InvalidParameterValue error.
+uctmTemplateName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateConfigurationTemplate
+    -> f UpdateConfigurationTemplate
+uctmTemplateName f x =
+    (\y -> x { _uctmTemplateName = y })
+       <$> f (_uctmTemplateName x)
+{-# INLINE uctmTemplateName #-}
+
+-- | A list of configuration option settings to update with the new specified
+-- option value.
+uctmOptionSettings
+    :: Functor f
+    => ([ConfigurationOptionSetting]
+    -> f ([ConfigurationOptionSetting]))
+    -> UpdateConfigurationTemplate
+    -> f UpdateConfigurationTemplate
+uctmOptionSettings f x =
+    (\y -> x { _uctmOptionSettings = y })
+       <$> f (_uctmOptionSettings x)
+{-# INLINE uctmOptionSettings #-}
+
+-- | A new description for the configuration.
+uctmDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateConfigurationTemplate
+    -> f UpdateConfigurationTemplate
+uctmDescription f x =
+    (\y -> x { _uctmDescription = y })
+       <$> f (_uctmDescription x)
+{-# INLINE uctmDescription #-}
+
+-- | A list of configuration options to remove from the configuration set.
+-- Constraint: You can remove only UserDefined configuration options.
+uctmOptionsToRemove
+    :: Functor f
+    => ([OptionSpecification]
+    -> f ([OptionSpecification]))
+    -> UpdateConfigurationTemplate
+    -> f UpdateConfigurationTemplate
+uctmOptionsToRemove f x =
+    (\y -> x { _uctmOptionsToRemove = y })
+       <$> f (_uctmOptionsToRemove x)
+{-# INLINE uctmOptionsToRemove #-}
 
 instance ToQuery UpdateConfigurationTemplate where
     toQuery = genericQuery def
 
 data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
-    { _csdApplicationName :: Maybe Text
+    { _csgApplicationName :: Maybe Text
       -- ^ The name of the application associated with this configuration
       -- set.
-    , _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus
+    , _csgDeploymentStatus :: Maybe ConfigurationDeploymentStatus
       -- ^ If this configuration set is associated with an environment, the
       -- DeploymentStatus parameter indicates the deployment status of
       -- this configuration set: null: This configuration is not
@@ -131,27 +219,147 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
       -- configuration that is currently deployed to the associated
       -- running environment. failed: This is a draft configuration that
       -- failed to successfully deploy.
-    , _csdOptionSettings :: [ConfigurationOptionSetting]
+    , _csgOptionSettings :: [ConfigurationOptionSetting]
       -- ^ A list of the configuration options and their values in this
       -- configuration set.
-    , _csdTemplateName :: Maybe Text
+    , _csgTemplateName :: Maybe Text
       -- ^ If not null, the name of the configuration template for this
       -- configuration set.
-    , _csdDateCreated :: Maybe ISO8601
+    , _csgDateCreated :: Maybe ISO8601
       -- ^ The date (in UTC time) when this configuration set was created.
-    , _csdDescription :: Maybe Text
+    , _csgDescription :: Maybe Text
       -- ^ Describes this configuration set.
-    , _csdEnvironmentName :: Maybe Text
+    , _csgEnvironmentName :: Maybe Text
       -- ^ If not null, the name of the environment for this configuration
       -- set.
-    , _csdSolutionStackName :: Maybe Text
+    , _csgSolutionStackName :: Maybe Text
       -- ^ The name of the solution stack this configuration set uses.
-    , _csdDateUpdated :: Maybe ISO8601
+    , _csgDateUpdated :: Maybe ISO8601
       -- ^ The date (in UTC time) when this configuration set was last
       -- modified.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateConfigurationTemplateResponse
+-- | The name of the application associated with this configuration set.
+csgApplicationName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgApplicationName f x =
+    (\y -> x { _csgApplicationName = y })
+       <$> f (_csgApplicationName x)
+{-# INLINE csgApplicationName #-}
+
+-- | If this configuration set is associated with an environment, the
+-- DeploymentStatus parameter indicates the deployment status of this
+-- configuration set: null: This configuration is not associated with a
+-- running environment. pending: This is a draft configuration that is not
+-- deployed to the associated environment but is in the process of deploying.
+-- deployed: This is the configuration that is currently deployed to the
+-- associated running environment. failed: This is a draft configuration, that
+-- failed to successfully deploy. null: This configuration is not associated
+-- with a running environment. pending: This is a draft configuration that is
+-- not deployed to the associated environment but is in the process of
+-- deploying. deployed: This is the configuration that is currently deployed
+-- to the associated running environment. failed: This is a draft
+-- configuration that failed to successfully deploy.
+csgDeploymentStatus
+    :: Functor f
+    => (Maybe ConfigurationDeploymentStatus
+    -> f (Maybe ConfigurationDeploymentStatus))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgDeploymentStatus f x =
+    (\y -> x { _csgDeploymentStatus = y })
+       <$> f (_csgDeploymentStatus x)
+{-# INLINE csgDeploymentStatus #-}
+
+-- | A list of the configuration options and their values in this configuration
+-- set.
+csgOptionSettings
+    :: Functor f
+    => ([ConfigurationOptionSetting]
+    -> f ([ConfigurationOptionSetting]))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgOptionSettings f x =
+    (\y -> x { _csgOptionSettings = y })
+       <$> f (_csgOptionSettings x)
+{-# INLINE csgOptionSettings #-}
+
+-- | If not null, the name of the configuration template for this configuration
+-- set.
+csgTemplateName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgTemplateName f x =
+    (\y -> x { _csgTemplateName = y })
+       <$> f (_csgTemplateName x)
+{-# INLINE csgTemplateName #-}
+
+-- | The date (in UTC time) when this configuration set was created.
+csgDateCreated
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgDateCreated f x =
+    (\y -> x { _csgDateCreated = y })
+       <$> f (_csgDateCreated x)
+{-# INLINE csgDateCreated #-}
+
+-- | Describes this configuration set.
+csgDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgDescription f x =
+    (\y -> x { _csgDescription = y })
+       <$> f (_csgDescription x)
+{-# INLINE csgDescription #-}
+
+-- | If not null, the name of the environment for this configuration set.
+csgEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgEnvironmentName f x =
+    (\y -> x { _csgEnvironmentName = y })
+       <$> f (_csgEnvironmentName x)
+{-# INLINE csgEnvironmentName #-}
+
+-- | The name of the solution stack this configuration set uses.
+csgSolutionStackName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgSolutionStackName f x =
+    (\y -> x { _csgSolutionStackName = y })
+       <$> f (_csgSolutionStackName x)
+{-# INLINE csgSolutionStackName #-}
+
+-- | The date (in UTC time) when this configuration set was last modified.
+csgDateUpdated
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> UpdateConfigurationTemplateResponse
+    -> f UpdateConfigurationTemplateResponse
+csgDateUpdated f x =
+    (\y -> x { _csgDateUpdated = y })
+       <$> f (_csgDateUpdated x)
+{-# INLINE csgDateUpdated #-}
 
 instance FromXML UpdateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions

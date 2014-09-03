@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,19 +22,47 @@
 -- use this action, an IAM user must have a Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DeleteStack where
+module Network.AWS.OpsWorks.V2013_02_18.DeleteStack
+    (
+    -- * Request
+      DeleteStack
+    -- ** Request constructor
+    , deleteStack
+    -- ** Request lenses
+    , dsrStackId
+
+    -- * Response
+    , DeleteStackResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteStack' request.
+deleteStack :: Text -- ^ 'dsrStackId'
+            -> DeleteStack
+deleteStack p1 = DeleteStack
+    { _dsrStackId = p1
+    }
+
 data DeleteStack = DeleteStack
     { _dsrStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteStack
+-- | The stack ID.
+dsrStackId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteStack
+    -> f DeleteStack
+dsrStackId f x =
+    (\y -> x { _dsrStackId = y })
+       <$> f (_dsrStackId x)
+{-# INLINE dsrStackId #-}
 
 instance ToPath DeleteStack
 
@@ -47,8 +74,6 @@ instance ToJSON DeleteStack
 
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteStackResponse
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks

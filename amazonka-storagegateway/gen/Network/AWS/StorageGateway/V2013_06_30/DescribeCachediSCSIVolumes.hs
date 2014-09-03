@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,18 +43,47 @@
 -- "VolumeDiskId": "pci-0000:03:00.0-scsi-0:0:0:0", "VolumeId":
 -- "vol-1122AABB", "VolumeSizeInBytes": 1099511627776, "VolumeStatus":
 -- "AVAILABLE", "VolumeType": "CACHED iSCSI" } ] }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
+    (
+    -- * Request
+      DescribeCachediSCSIVolumes
+    -- ** Request constructor
+    , describeCachediSCSIVolumes
+    -- ** Request lenses
+    , dcscsiviVolumeARNs
+
+    -- * Response
+    , DescribeCachediSCSIVolumesResponse
+    -- ** Response lenses
+    , dcscsivoCachediSCSIVolumes
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeCachediSCSIVolumes' request.
+describeCachediSCSIVolumes :: [Text] -- ^ 'dcscsiviVolumeARNs'
+                           -> DescribeCachediSCSIVolumes
+describeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
+    { _dcscsiviVolumeARNs = p1
+    }
+
 data DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
     { _dcscsiviVolumeARNs :: [Text]
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCachediSCSIVolumes
+dcscsiviVolumeARNs
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeCachediSCSIVolumes
+    -> f DescribeCachediSCSIVolumes
+dcscsiviVolumeARNs f x =
+    (\y -> x { _dcscsiviVolumeARNs = y })
+       <$> f (_dcscsiviVolumeARNs x)
+{-# INLINE dcscsiviVolumeARNs #-}
 
 instance ToPath DescribeCachediSCSIVolumes
 
@@ -71,7 +99,18 @@ data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
       -- cached volume.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCachediSCSIVolumesResponse
+-- | An array of objects where each object contains metadata about one cached
+-- volume.
+dcscsivoCachediSCSIVolumes
+    :: Functor f
+    => ([CachediSCSIVolumeInformation]
+    -> f ([CachediSCSIVolumeInformation]))
+    -> DescribeCachediSCSIVolumesResponse
+    -> f DescribeCachediSCSIVolumesResponse
+dcscsivoCachediSCSIVolumes f x =
+    (\y -> x { _dcscsivoCachediSCSIVolumes = y })
+       <$> f (_dcscsivoCachediSCSIVolumes x)
+{-# INLINE dcscsivoCachediSCSIVolumes #-}
 
 instance FromJSON DescribeCachediSCSIVolumesResponse
 

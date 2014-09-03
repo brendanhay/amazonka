@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,15 +44,28 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;a8763b99-33a7-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetTopicAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.SetTopicAttributes where
+module Network.AWS.SNS.V2010_03_31.SetTopicAttributes
+    (
+    -- * Request
+      SetTopicAttributes
+    -- ** Request constructor
+    , setTopicAttributes
+    -- ** Request lenses
+    , staiAttributeName
+    , staiTopicArn
+    , staiAttributeValue
+
+    -- * Response
+    , SetTopicAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SetTopicAttributes' request.
-setTopicAttributes :: Text -- ^ '_staiAttributeName'
-                   -> Text -- ^ '_staiTopicArn'
+setTopicAttributes :: Text -- ^ 'staiAttributeName'
+                   -> Text -- ^ 'staiTopicArn'
                    -> SetTopicAttributes
 setTopicAttributes p1 p2 = SetTopicAttributes
     { _staiAttributeName = p1
@@ -72,15 +84,49 @@ data SetTopicAttributes = SetTopicAttributes
       -- ^ The new value for the attribute.
     } deriving (Show, Generic)
 
-makeLenses ''SetTopicAttributes
+-- | The name of the attribute you want to set. Only a subset of the topic's
+-- attributes are mutable. Valid values: Policy | DisplayName |
+-- DeliveryPolicy.
+staiAttributeName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetTopicAttributes
+    -> f SetTopicAttributes
+staiAttributeName f x =
+    (\y -> x { _staiAttributeName = y })
+       <$> f (_staiAttributeName x)
+{-# INLINE staiAttributeName #-}
+
+-- | The ARN of the topic to modify.
+staiTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetTopicAttributes
+    -> f SetTopicAttributes
+staiTopicArn f x =
+    (\y -> x { _staiTopicArn = y })
+       <$> f (_staiTopicArn x)
+{-# INLINE staiTopicArn #-}
+
+-- | The new value for the attribute.
+staiAttributeValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetTopicAttributes
+    -> f SetTopicAttributes
+staiAttributeValue f x =
+    (\y -> x { _staiAttributeValue = y })
+       <$> f (_staiAttributeValue x)
+{-# INLINE staiAttributeValue #-}
 
 instance ToQuery SetTopicAttributes where
     toQuery = genericQuery def
 
 data SetTopicAttributesResponse = SetTopicAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetTopicAttributesResponse
 
 instance AWSRequest SetTopicAttributes where
     type Sv SetTopicAttributes = SNS

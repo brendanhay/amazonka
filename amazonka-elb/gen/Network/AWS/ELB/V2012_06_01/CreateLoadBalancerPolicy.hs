@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,16 +27,30 @@
 -- &LoadBalancerName=my-test-loadbalancer &PolicyName=EnableProxyProtocol
 -- &Version=2012-06-01 &Action=CreateLoadBalancerPolicy &AUTHPARAMS
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy where
+module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy
+    (
+    -- * Request
+      CreateLoadBalancerPolicy
+    -- ** Request constructor
+    , createLoadBalancerPolicy
+    -- ** Request lenses
+    , clbpiLoadBalancerName
+    , clbpiPolicyName
+    , clbpiPolicyTypeName
+    , clbpiPolicyAttributes
+
+    -- * Response
+    , CreateLoadBalancerPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateLoadBalancerPolicy' request.
-createLoadBalancerPolicy :: Text -- ^ '_clbpiLoadBalancerName'
-                         -> Text -- ^ '_clbpiPolicyName'
-                         -> Text -- ^ '_clbpiPolicyTypeName'
+createLoadBalancerPolicy :: Text -- ^ 'clbpiLoadBalancerName'
+                         -> Text -- ^ 'clbpiPolicyName'
+                         -> Text -- ^ 'clbpiPolicyTypeName'
                          -> CreateLoadBalancerPolicy
 createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
     { _clbpiLoadBalancerName = p1
@@ -61,15 +74,62 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
       -- ^ A list of attributes associated with the policy being created.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLoadBalancerPolicy
+-- | The name associated with the LoadBalancer for which the policy is being
+-- created.
+clbpiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoadBalancerPolicy
+    -> f CreateLoadBalancerPolicy
+clbpiLoadBalancerName f x =
+    (\y -> x { _clbpiLoadBalancerName = y })
+       <$> f (_clbpiLoadBalancerName x)
+{-# INLINE clbpiLoadBalancerName #-}
+
+-- | The name of the load balancer policy being created. The name must be unique
+-- within the set of policies for this load balancer.
+clbpiPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoadBalancerPolicy
+    -> f CreateLoadBalancerPolicy
+clbpiPolicyName f x =
+    (\y -> x { _clbpiPolicyName = y })
+       <$> f (_clbpiPolicyName x)
+{-# INLINE clbpiPolicyName #-}
+
+-- | The name of the base policy type being used to create this policy. To get
+-- the list of policy types, use the DescribeLoadBalancerPolicyTypes action.
+clbpiPolicyTypeName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoadBalancerPolicy
+    -> f CreateLoadBalancerPolicy
+clbpiPolicyTypeName f x =
+    (\y -> x { _clbpiPolicyTypeName = y })
+       <$> f (_clbpiPolicyTypeName x)
+{-# INLINE clbpiPolicyTypeName #-}
+
+-- | A list of attributes associated with the policy being created.
+clbpiPolicyAttributes
+    :: Functor f
+    => ([PolicyAttribute]
+    -> f ([PolicyAttribute]))
+    -> CreateLoadBalancerPolicy
+    -> f CreateLoadBalancerPolicy
+clbpiPolicyAttributes f x =
+    (\y -> x { _clbpiPolicyAttributes = y })
+       <$> f (_clbpiPolicyAttributes x)
+{-# INLINE clbpiPolicyAttributes #-}
 
 instance ToQuery CreateLoadBalancerPolicy where
     toQuery = genericQuery def
 
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateLoadBalancerPolicyResponse
 
 instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB

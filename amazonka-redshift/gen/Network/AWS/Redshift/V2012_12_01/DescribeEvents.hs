@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,27 @@
 -- using this cluster security group. cluster-security-group
 -- 2012-12-07T23:05:02.660Z securitygroup1
 -- 3eeb9efe-40c5-11e2-816a-1bba29fad1f5.
-module Network.AWS.Redshift.V2012_12_01.DescribeEvents where
+module Network.AWS.Redshift.V2012_12_01.DescribeEvents
+    (
+    -- * Request
+      DescribeEvents
+    -- ** Request constructor
+    , describeEvents
+    -- ** Request lenses
+    , demDuration
+    , demMaxRecords
+    , demSourceType
+    , demSourceIdentifier
+    , demMarker
+    , demStartTime
+    , demEndTime
+
+    -- * Response
+    , DescribeEventsResponse
+    -- ** Response lenses
+    , emEvents
+    , emMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -43,10 +62,10 @@ describeEvents = DescribeEvents
     { _demDuration = Nothing
     , _demMaxRecords = Nothing
     , _demSourceType = Nothing
-    , _demMarker = Nothing
     , _demSourceIdentifier = Nothing
-    , _demEndTime = Nothing
+    , _demMarker = Nothing
     , _demStartTime = Nothing
+    , _demEndTime = Nothing
     }
 
 data DescribeEvents = DescribeEvents
@@ -72,13 +91,6 @@ data DescribeEvents = DescribeEvents
       -- SourceIdentifier is a cluster parameter group name. Specify
       -- cluster-snapshot when SourceIdentifier is a cluster snapshot
       -- identifier.
-    , _demMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a DescribeEvents
-      -- request exceed the value specified in MaxRecords, AWS returns a
-      -- value in the Marker field of the response. You can retrieve the
-      -- next set of response records by providing the returned marker
-      -- value in the Marker parameter and retrying the request.
     , _demSourceIdentifier :: Maybe Text
       -- ^ The identifier of the event source for which events will be
       -- returned. If this parameter is not specified, then all sources
@@ -89,19 +101,138 @@ data DescribeEvents = DescribeEvents
       -- cluster parameter group name when SourceType is
       -- cluster-parameter-group. Specify a cluster snapshot identifier
       -- when SourceType is cluster-snapshot.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
-      -- specified in ISO 8601 format. For more information about ISO
-      -- 8601, go to the ISO8601 Wikipedia page. Example:
-      -- 2009-07-08T18:00Z.
+    , _demMarker :: Maybe Text
+      -- ^ An optional parameter that specifies the starting point to return
+      -- a set of response records. When the results of a DescribeEvents
+      -- request exceed the value specified in MaxRecords, AWS returns a
+      -- value in the Marker field of the response. You can retrieve the
+      -- next set of response records by providing the returned marker
+      -- value in the Marker parameter and retrying the request.
     , _demStartTime :: Maybe ISO8601
       -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format. For more information about ISO
       -- 8601, go to the ISO8601 Wikipedia page. Example:
       -- 2009-07-08T18:00Z.
+    , _demEndTime :: Maybe ISO8601
+      -- ^ The end of the time interval for which to retrieve events,
+      -- specified in ISO 8601 format. For more information about ISO
+      -- 8601, go to the ISO8601 Wikipedia page. Example:
+      -- 2009-07-08T18:00Z.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEvents
+-- | The number of minutes prior to the time of the request for which to
+-- retrieve events. For example, if the request is sent at 18:00 and you
+-- specify a duration of 60, then only events which have occurred after 17:00
+-- will be returned. Default: 60.
+demDuration
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+demDuration f x =
+    (\y -> x { _demDuration = y })
+       <$> f (_demDuration x)
+{-# INLINE demDuration #-}
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in a marker field of the response. You can
+-- retrieve the next set of records by retrying the command with the returned
+-- marker value. Default: 100 Constraints: minimum 20, maximum 100.
+demMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+demMaxRecords f x =
+    (\y -> x { _demMaxRecords = y })
+       <$> f (_demMaxRecords x)
+{-# INLINE demMaxRecords #-}
+
+-- | The event source to retrieve events for. If no value is specified, all
+-- events are returned. Constraints: If SourceType is supplied,
+-- SourceIdentifier must also be provided. Specify cluster when
+-- SourceIdentifier is a cluster identifier. Specify cluster-security-group
+-- when SourceIdentifier is a cluster security group name. Specify
+-- cluster-parameter-group when SourceIdentifier is a cluster parameter group
+-- name. Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
+-- identifier.
+demSourceType
+    :: Functor f
+    => (Maybe SourceType
+    -> f (Maybe SourceType))
+    -> DescribeEvents
+    -> f DescribeEvents
+demSourceType f x =
+    (\y -> x { _demSourceType = y })
+       <$> f (_demSourceType x)
+{-# INLINE demSourceType #-}
+
+-- | The identifier of the event source for which events will be returned. If
+-- this parameter is not specified, then all sources are included in the
+-- response. Constraints: If SourceIdentifier is supplied, SourceType must
+-- also be provided. Specify a cluster identifier when SourceType is cluster.
+-- Specify a cluster security group name when SourceType is
+-- cluster-security-group. Specify a cluster parameter group name when
+-- SourceType is cluster-parameter-group. Specify a cluster snapshot
+-- identifier when SourceType is cluster-snapshot.
+demSourceIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+demSourceIdentifier f x =
+    (\y -> x { _demSourceIdentifier = y })
+       <$> f (_demSourceIdentifier x)
+{-# INLINE demSourceIdentifier #-}
+
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a DescribeEvents request exceed the
+-- value specified in MaxRecords, AWS returns a value in the Marker field of
+-- the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the Marker parameter and retrying
+-- the request.
+demMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+demMarker f x =
+    (\y -> x { _demMarker = y })
+       <$> f (_demMarker x)
+{-# INLINE demMarker #-}
+
+-- | The beginning of the time interval to retrieve events for, specified in ISO
+-- 8601 format. For more information about ISO 8601, go to the ISO8601
+-- Wikipedia page. Example: 2009-07-08T18:00Z.
+demStartTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+demStartTime f x =
+    (\y -> x { _demStartTime = y })
+       <$> f (_demStartTime x)
+{-# INLINE demStartTime #-}
+
+-- | The end of the time interval for which to retrieve events, specified in ISO
+-- 8601 format. For more information about ISO 8601, go to the ISO8601
+-- Wikipedia page. Example: 2009-07-08T18:00Z.
+demEndTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+demEndTime f x =
+    (\y -> x { _demEndTime = y })
+       <$> f (_demEndTime x)
+{-# INLINE demEndTime #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
@@ -118,7 +249,33 @@ data DescribeEventsResponse = DescribeEventsResponse
       -- records have been retrieved for the request.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventsResponse
+-- | A list of Event instances.
+emEvents
+    :: Functor f
+    => ([Event]
+    -> f ([Event]))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+emEvents f x =
+    (\y -> x { _emEvents = y })
+       <$> f (_emEvents x)
+{-# INLINE emEvents #-}
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker
+-- value in the Marker parameter and retrying the command. If the Marker field
+-- is empty, all response records have been retrieved for the request.
+emMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+emMarker f x =
+    (\y -> x { _emMarker = y })
+       <$> f (_emMarker x)
+{-# INLINE emMarker #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

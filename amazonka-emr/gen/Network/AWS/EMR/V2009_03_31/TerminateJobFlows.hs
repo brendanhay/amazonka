@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,19 +39,47 @@
 -- x-amzn-RequestId: 5551a7c9-ee5d-11e2-9542-25296c300ff0 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:18:59 GMT.
-module Network.AWS.EMR.V2009_03_31.TerminateJobFlows where
+module Network.AWS.EMR.V2009_03_31.TerminateJobFlows
+    (
+    -- * Request
+      TerminateJobFlows
+    -- ** Request constructor
+    , terminateJobFlows
+    -- ** Request lenses
+    , tjfiJobFlowIds
+
+    -- * Response
+    , TerminateJobFlowsResponse
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'TerminateJobFlows' request.
+terminateJobFlows :: [Text] -- ^ 'tjfiJobFlowIds'
+                  -> TerminateJobFlows
+terminateJobFlows p1 = TerminateJobFlows
+    { _tjfiJobFlowIds = p1
+    }
+
 data TerminateJobFlows = TerminateJobFlows
     { _tjfiJobFlowIds :: [Text]
       -- ^ A list of job flows to be shutdown.
     } deriving (Show, Generic)
 
-makeLenses ''TerminateJobFlows
+-- | A list of job flows to be shutdown.
+tjfiJobFlowIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> TerminateJobFlows
+    -> f TerminateJobFlows
+tjfiJobFlowIds f x =
+    (\y -> x { _tjfiJobFlowIds = y })
+       <$> f (_tjfiJobFlowIds x)
+{-# INLINE tjfiJobFlowIds #-}
 
 instance ToPath TerminateJobFlows
 
@@ -64,8 +91,6 @@ instance ToJSON TerminateJobFlows
 
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''TerminateJobFlowsResponse
 
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR

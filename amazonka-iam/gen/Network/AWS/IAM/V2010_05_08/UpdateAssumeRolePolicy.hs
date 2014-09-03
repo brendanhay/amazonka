@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,11 +23,32 @@
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- 309c1671-99ed-11e1-a4c3-270EXAMPLE04.
-module Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy where
+module Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
+    (
+    -- * Request
+      UpdateAssumeRolePolicy
+    -- ** Request constructor
+    , updateAssumeRolePolicy
+    -- ** Request lenses
+    , uarprPolicyDocument
+    , uarprRoleName
+
+    -- * Response
+    , UpdateAssumeRolePolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'UpdateAssumeRolePolicy' request.
+updateAssumeRolePolicy :: Text -- ^ 'uarprPolicyDocument'
+                       -> Text -- ^ 'uarprRoleName'
+                       -> UpdateAssumeRolePolicy
+updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
+    { _uarprPolicyDocument = p1
+    , _uarprRoleName = p2
+    }
 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarprPolicyDocument :: Text
@@ -37,15 +57,35 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
       -- ^ Name of the role to update.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateAssumeRolePolicy
+-- | The policy that grants an entity permission to assume the role.
+uarprPolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateAssumeRolePolicy
+    -> f UpdateAssumeRolePolicy
+uarprPolicyDocument f x =
+    (\y -> x { _uarprPolicyDocument = y })
+       <$> f (_uarprPolicyDocument x)
+{-# INLINE uarprPolicyDocument #-}
+
+-- | Name of the role to update.
+uarprRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateAssumeRolePolicy
+    -> f UpdateAssumeRolePolicy
+uarprRoleName f x =
+    (\y -> x { _uarprRoleName = y })
+       <$> f (_uarprRoleName x)
+{-# INLINE uarprRoleName #-}
 
 instance ToQuery UpdateAssumeRolePolicy where
     toQuery = genericQuery def
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateAssumeRolePolicyResponse
 
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM

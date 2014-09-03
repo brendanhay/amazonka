@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,15 +23,30 @@
 -- IAM guide. https://iam.amazonaws.com/ ?Action=CreateLoginProfile
 -- &UserName=Bob &Password=Password1 &AUTHPARAMS Bob 2011-09-19T23:00:56Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.CreateLoginProfile where
+module Network.AWS.IAM.V2010_05_08.CreateLoginProfile
+    (
+    -- * Request
+      CreateLoginProfile
+    -- ** Request constructor
+    , createLoginProfile
+    -- ** Request lenses
+    , clprPassword
+    , clprUserName
+    , clprPasswordResetRequired
+
+    -- * Response
+    , CreateLoginProfileResponse
+    -- ** Response lenses
+    , clpsLoginProfile
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateLoginProfile' request.
-createLoginProfile :: Text -- ^ '_clprPassword'
-                   -> Text -- ^ '_clprUserName'
+createLoginProfile :: Text -- ^ 'clprPassword'
+                   -> Text -- ^ 'clprUserName'
                    -> CreateLoginProfile
 createLoginProfile p1 p2 = CreateLoginProfile
     { _clprPassword = p1
@@ -50,7 +64,42 @@ data CreateLoginProfile = CreateLoginProfile
       -- next sign-in.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLoginProfile
+-- | The new password for the user.
+clprPassword
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoginProfile
+    -> f CreateLoginProfile
+clprPassword f x =
+    (\y -> x { _clprPassword = y })
+       <$> f (_clprPassword x)
+{-# INLINE clprPassword #-}
+
+-- | Name of the user to create a password for.
+clprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoginProfile
+    -> f CreateLoginProfile
+clprUserName f x =
+    (\y -> x { _clprUserName = y })
+       <$> f (_clprUserName x)
+{-# INLINE clprUserName #-}
+
+-- | Specifies whether the user is required to set a new password on next
+-- sign-in.
+clprPasswordResetRequired
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateLoginProfile
+    -> f CreateLoginProfile
+clprPasswordResetRequired f x =
+    (\y -> x { _clprPasswordResetRequired = y })
+       <$> f (_clprPasswordResetRequired x)
+{-# INLINE clprPasswordResetRequired #-}
 
 instance ToQuery CreateLoginProfile where
     toQuery = genericQuery def
@@ -60,7 +109,17 @@ data CreateLoginProfileResponse = CreateLoginProfileResponse
       -- ^ The user name and password create date.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLoginProfileResponse
+-- | The user name and password create date.
+clpsLoginProfile
+    :: Functor f
+    => (LoginProfile
+    -> f (LoginProfile))
+    -> CreateLoginProfileResponse
+    -> f CreateLoginProfileResponse
+clpsLoginProfile f x =
+    (\y -> x { _clpsLoginProfile = y })
+       <$> f (_clpsLoginProfile x)
+{-# INLINE clpsLoginProfile #-}
 
 instance FromXML CreateLoginProfileResponse where
     fromXMLOptions = xmlOptions

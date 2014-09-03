@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,7 +37,24 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.ActivateGateway where
+module Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
+    (
+    -- * Request
+      ActivateGateway
+    -- ** Request constructor
+    , activateGateway
+    -- ** Request lenses
+    , agiActivationKey
+    , agiGatewayName
+    , agiGatewayTimezone
+    , agiGatewayRegion
+    , agiGatewayType
+
+    -- * Response
+    , ActivateGatewayResponse
+    -- ** Response lenses
+    , agoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -46,10 +62,10 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ActivateGateway' request.
-activateGateway :: Text -- ^ '_agiActivationKey'
-                -> Text -- ^ '_agiGatewayName'
-                -> Text -- ^ '_agiGatewayTimezone'
-                -> Text -- ^ '_agiGatewayRegion'
+activateGateway :: Text -- ^ 'agiActivationKey'
+                -> Text -- ^ 'agiGatewayName'
+                -> Text -- ^ 'agiGatewayTimezone'
+                -> Text -- ^ 'agiGatewayRegion'
                 -> ActivateGateway
 activateGateway p1 p2 p3 p4 = ActivateGateway
     { _agiActivationKey = p1
@@ -93,7 +109,83 @@ data ActivateGateway = ActivateGateway
       -- is STORED.
     } deriving (Show, Generic)
 
-makeLenses ''ActivateGateway
+-- | Your gateway activation key. You can obtain the activation key by sending
+-- an HTTP GET request with redirects enabled to the gateway IP address (port
+-- 80). The redirect URL returned in the response provides you the activation
+-- key for your gateway in the query string parameter activationKey. It may
+-- also include other activation-related parameters, however, these are merely
+-- defaults -- the arguments you pass to the ActivateGateway API call
+-- determine the actual configuration of your gateway.
+agiActivationKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ActivateGateway
+    -> f ActivateGateway
+agiActivationKey f x =
+    (\y -> x { _agiActivationKey = y })
+       <$> f (_agiActivationKey x)
+{-# INLINE agiActivationKey #-}
+
+-- | A unique identifier for your gateway. This name becomes part of the gateway
+-- Amazon Resources Name (ARN) which is what you use as an input to other
+-- operations.
+agiGatewayName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ActivateGateway
+    -> f ActivateGateway
+agiGatewayName f x =
+    (\y -> x { _agiGatewayName = y })
+       <$> f (_agiGatewayName x)
+{-# INLINE agiGatewayName #-}
+
+-- | One of the values that indicates the time zone you want to set for the
+-- gateway. The time zone is used, for example, for scheduling snapshots and
+-- your gateway's maintenance schedule.
+agiGatewayTimezone
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ActivateGateway
+    -> f ActivateGateway
+agiGatewayTimezone f x =
+    (\y -> x { _agiGatewayTimezone = y })
+       <$> f (_agiGatewayTimezone x)
+{-# INLINE agiGatewayTimezone #-}
+
+-- | One of the values that indicates the region where you want to store the
+-- snapshot backups. The gateway region specified must be the same region as
+-- the region in your Host header in the request. For more information about
+-- available regions and endpoints for AWS Storage Gateway, see Regions and
+-- Endpoints in the Amazon Web Services Glossary. Valid Values: "us-east-1",
+-- "us-west-1", "us-west-2", "eu-west-1", "ap-northeast-1", "ap-southest-1",
+-- "sa-east-1".
+agiGatewayRegion
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ActivateGateway
+    -> f ActivateGateway
+agiGatewayRegion f x =
+    (\y -> x { _agiGatewayRegion = y })
+       <$> f (_agiGatewayRegion x)
+{-# INLINE agiGatewayRegion #-}
+
+-- | One of the values that defines the type of gateway to activate. The type
+-- specified is critical to all later functions of the gateway and cannot be
+-- changed after activation. The default value is STORED.
+agiGatewayType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ActivateGateway
+    -> f ActivateGateway
+agiGatewayType f x =
+    (\y -> x { _agiGatewayType = y })
+       <$> f (_agiGatewayType x)
+{-# INLINE agiGatewayType #-}
 
 instance ToPath ActivateGateway
 
@@ -110,7 +202,18 @@ data ActivateGatewayResponse = ActivateGatewayResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''ActivateGatewayResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+agoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ActivateGatewayResponse
+    -> f ActivateGatewayResponse
+agoGatewayARN f x =
+    (\y -> x { _agoGatewayARN = y })
+       <$> f (_agoGatewayARN x)
+{-# INLINE agoGatewayARN #-}
 
 instance FromJSON ActivateGatewayResponse
 

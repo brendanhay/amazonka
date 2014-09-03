@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,10 +33,9 @@ module Network.AWS.EC2.V2014_06_15.DisassociateRouteTable
     (
     -- * Request
       DisassociateRouteTable
-    -- ** Default constructor
+    -- ** Request constructor
     , disassociateRouteTable
-    -- ** Accessors and lenses
-    , _drtuAssociationId
+    -- ** Request lenses
     , drtuAssociationId
 
     -- * Response
@@ -56,8 +54,23 @@ disassociateRouteTable p1 = DisassociateRouteTable
     }
 
 data DisassociateRouteTable = DisassociateRouteTable
+    { _drtuAssociationId :: Text
+      -- ^ The association ID representing the current association between
+      -- the route table and subnet.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DisassociateRouteTable
+-- | The association ID representing the current association between the route
+-- table and subnet.
+drtuAssociationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DisassociateRouteTable
+    -> f DisassociateRouteTable
+drtuAssociationId f x =
+    (\y -> x { _drtuAssociationId = y })
+       <$> f (_drtuAssociationId x)
+{-# INLINE drtuAssociationId #-}
 
 instance ToQuery DisassociateRouteTable where
     toQuery = genericQuery def
@@ -65,15 +78,9 @@ instance ToQuery DisassociateRouteTable where
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DisassociateRouteTableResponse
-
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2
     type Rs DisassociateRouteTable = DisassociateRouteTableResponse
 
     request = post "DisassociateRouteTable"
     response _ = nullaryResponse DisassociateRouteTableResponse
-
--- | The association ID representing the current association between the route
--- table and subnet.
-drtuAssociationId :: Lens' DisassociateRouteTable (Text)

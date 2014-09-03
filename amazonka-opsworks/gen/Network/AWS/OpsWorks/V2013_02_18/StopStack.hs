@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,19 +21,47 @@
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.StopStack where
+module Network.AWS.OpsWorks.V2013_02_18.StopStack
+    (
+    -- * Request
+      StopStack
+    -- ** Request constructor
+    , stopStack
+    -- ** Request lenses
+    , ssssssssssssssssssssstStackId
+
+    -- * Response
+    , StopStackResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'StopStack' request.
+stopStack :: Text -- ^ 'ssssssssssssssssssssstStackId'
+          -> StopStack
+stopStack p1 = StopStack
+    { _ssssssssssssssssssssstStackId = p1
+    }
+
 data StopStack = StopStack
-    { _ssssssssszStackId :: Text
+    { _ssssssssssssssssssssstStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
-makeLenses ''StopStack
+-- | The stack ID.
+ssssssssssssssssssssstStackId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StopStack
+    -> f StopStack
+ssssssssssssssssssssstStackId f x =
+    (\y -> x { _ssssssssssssssssssssstStackId = y })
+       <$> f (_ssssssssssssssssssssstStackId x)
+{-# INLINE ssssssssssssssssssssstStackId #-}
 
 instance ToPath StopStack
 
@@ -46,8 +73,6 @@ instance ToJSON StopStack
 
 data StopStackResponse = StopStackResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''StopStackResponse
 
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks

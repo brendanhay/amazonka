@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,12 +22,32 @@
 -- case or case communication. Attachment IDs are returned in the
 -- AttachmentDetails objects that are returned by the DescribeCommunications
 -- operation.
-module Network.AWS.Support.V2013_04_15.DescribeAttachment where
+module Network.AWS.Support.V2013_04_15.DescribeAttachment
+    (
+    -- * Request
+      DescribeAttachment
+    -- ** Request constructor
+    , describeAttachment
+    -- ** Request lenses
+    , darAttachmentId
+
+    -- * Response
+    , DescribeAttachmentResponse
+    -- ** Response lenses
+    , dasAttachment
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeAttachment' request.
+describeAttachment :: Text -- ^ 'darAttachmentId'
+                   -> DescribeAttachment
+describeAttachment p1 = DescribeAttachment
+    { _darAttachmentId = p1
+    }
 
 data DescribeAttachment = DescribeAttachment
     { _darAttachmentId :: Text
@@ -36,7 +55,18 @@ data DescribeAttachment = DescribeAttachment
       -- by the DescribeCommunications operation.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAttachment
+-- | The ID of the attachment to return. Attachment IDs are returned by the
+-- DescribeCommunications operation.
+darAttachmentId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeAttachment
+    -> f DescribeAttachment
+darAttachmentId f x =
+    (\y -> x { _darAttachmentId = y })
+       <$> f (_darAttachmentId x)
+{-# INLINE darAttachmentId #-}
 
 instance ToPath DescribeAttachment
 
@@ -51,7 +81,17 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse
       -- ^ The attachment content and file name.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAttachmentResponse
+-- | The attachment content and file name.
+dasAttachment
+    :: Functor f
+    => (Maybe Attachment
+    -> f (Maybe Attachment))
+    -> DescribeAttachmentResponse
+    -> f DescribeAttachmentResponse
+dasAttachment f x =
+    (\y -> x { _dasAttachment = y })
+       <$> f (_dasAttachment x)
+{-# INLINE dasAttachment #-}
 
 instance FromJSON DescribeAttachmentResponse
 

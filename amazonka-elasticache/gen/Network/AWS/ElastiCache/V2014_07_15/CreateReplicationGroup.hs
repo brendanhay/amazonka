@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,11 +32,37 @@
 -- &Timestamp=20140401T192317Z &X-Amz-Credential= my-redis-primary
 -- my-redis-primary my-repgroup creating My replication group
 -- f3b7b32d-b9d2-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup where
+module Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
+    (
+    -- * Request
+      CreateReplicationGroup
+    -- ** Request constructor
+    , createReplicationGroup
+    -- ** Request lenses
+    , crgmReplicationGroupId
+    , crgmPrimaryClusterId
+    , crgmReplicationGroupDescription
+
+    -- * Response
+    , CreateReplicationGroupResponse
+    -- ** Response lenses
+    , rgwReplicationGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateReplicationGroup' request.
+createReplicationGroup :: Text -- ^ 'crgmReplicationGroupId'
+                       -> Text -- ^ 'crgmPrimaryClusterId'
+                       -> Text -- ^ 'crgmReplicationGroupDescription'
+                       -> CreateReplicationGroup
+createReplicationGroup p1 p2 p3 = CreateReplicationGroup
+    { _crgmReplicationGroupId = p1
+    , _crgmPrimaryClusterId = p2
+    , _crgmReplicationGroupDescription = p3
+    }
 
 data CreateReplicationGroup = CreateReplicationGroup
     { _crgmReplicationGroupId :: Text
@@ -54,7 +79,46 @@ data CreateReplicationGroup = CreateReplicationGroup
       -- ^ A user-specified description for the replication group.
     } deriving (Show, Generic)
 
-makeLenses ''CreateReplicationGroup
+-- | The replication group identifier. This parameter is stored as a lowercase
+-- string. Constraints: Must contain from 1 to 20 alphanumeric characters or
+-- hyphens. First character must be a letter. Cannot end with a hyphen or
+-- contain two consecutive hyphens.
+crgmReplicationGroupId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateReplicationGroup
+    -> f CreateReplicationGroup
+crgmReplicationGroupId f x =
+    (\y -> x { _crgmReplicationGroupId = y })
+       <$> f (_crgmReplicationGroupId x)
+{-# INLINE crgmReplicationGroupId #-}
+
+-- | The identifier of the cache cluster that will serve as the primary for this
+-- replication group. This cache cluster must already exist and have a status
+-- of available.
+crgmPrimaryClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateReplicationGroup
+    -> f CreateReplicationGroup
+crgmPrimaryClusterId f x =
+    (\y -> x { _crgmPrimaryClusterId = y })
+       <$> f (_crgmPrimaryClusterId x)
+{-# INLINE crgmPrimaryClusterId #-}
+
+-- | A user-specified description for the replication group.
+crgmReplicationGroupDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateReplicationGroup
+    -> f CreateReplicationGroup
+crgmReplicationGroupDescription f x =
+    (\y -> x { _crgmReplicationGroupDescription = y })
+       <$> f (_crgmReplicationGroupDescription x)
+{-# INLINE crgmReplicationGroupDescription #-}
 
 instance ToQuery CreateReplicationGroup where
     toQuery = genericQuery def
@@ -64,7 +128,17 @@ data CreateReplicationGroupResponse = CreateReplicationGroupResponse
       -- ^ Contains all of the attributes of a specific replication group.
     } deriving (Show, Generic)
 
-makeLenses ''CreateReplicationGroupResponse
+-- | Contains all of the attributes of a specific replication group.
+rgwReplicationGroup
+    :: Functor f
+    => (Maybe ReplicationGroup
+    -> f (Maybe ReplicationGroup))
+    -> CreateReplicationGroupResponse
+    -> f CreateReplicationGroupResponse
+rgwReplicationGroup f x =
+    (\y -> x { _rgwReplicationGroup = y })
+       <$> f (_rgwReplicationGroup x)
+{-# INLINE rgwReplicationGroup #-}
 
 instance FromXML CreateReplicationGroupResponse where
     fromXMLOptions = xmlOptions

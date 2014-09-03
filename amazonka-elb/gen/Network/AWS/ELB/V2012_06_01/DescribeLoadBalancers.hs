@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,7 +31,23 @@
 -- amazon-elb amazon-elb-sg
 -- MyLoadBalancer-123456789.us-east-1.elb.amazonaws.com
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers where
+module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
+    (
+    -- * Request
+      DescribeLoadBalancers
+    -- ** Request constructor
+    , describeLoadBalancers
+    -- ** Request lenses
+    , dapjLoadBalancerNames
+    , dapjMarker
+    , dapjPageSize
+
+    -- * Response
+    , DescribeLoadBalancersResponse
+    -- ** Response lenses
+    , dappLoadBalancerDescriptions
+    , dappNextMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
@@ -41,37 +56,96 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeLoadBalancers' request.
 describeLoadBalancers :: DescribeLoadBalancers
 describeLoadBalancers = DescribeLoadBalancers
-    { _dapiLoadBalancerNames = mempty
-    , _dapiMarker = Nothing
-    , _dapiPageSize = Nothing
+    { _dapjLoadBalancerNames = mempty
+    , _dapjMarker = Nothing
+    , _dapjPageSize = Nothing
     }
 
 data DescribeLoadBalancers = DescribeLoadBalancers
-    { _dapiLoadBalancerNames :: [Text]
+    { _dapjLoadBalancerNames :: [Text]
       -- ^ A list of load balancer names associated with the account.
-    , _dapiMarker :: Maybe Text
+    , _dapjMarker :: Maybe Text
       -- ^ An optional parameter used for pagination of results from this
       -- call. If specified, the response includes only records beyond the
       -- marker.
-    , _dapiPageSize :: Maybe Integer
+    , _dapjPageSize :: Maybe Integer
       -- ^ The number of results returned in each page. The default is 400.
       -- You cannot specify a page size greater than 400 or less than 1.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBalancers
+-- | A list of load balancer names associated with the account.
+dapjLoadBalancerNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLoadBalancers
+    -> f DescribeLoadBalancers
+dapjLoadBalancerNames f x =
+    (\y -> x { _dapjLoadBalancerNames = y })
+       <$> f (_dapjLoadBalancerNames x)
+{-# INLINE dapjLoadBalancerNames #-}
+
+-- | An optional parameter used for pagination of results from this call. If
+-- specified, the response includes only records beyond the marker.
+dapjMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLoadBalancers
+    -> f DescribeLoadBalancers
+dapjMarker f x =
+    (\y -> x { _dapjMarker = y })
+       <$> f (_dapjMarker x)
+{-# INLINE dapjMarker #-}
+
+-- | The number of results returned in each page. The default is 400. You cannot
+-- specify a page size greater than 400 or less than 1.
+dapjPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeLoadBalancers
+    -> f DescribeLoadBalancers
+dapjPageSize f x =
+    (\y -> x { _dapjPageSize = y })
+       <$> f (_dapjPageSize x)
+{-# INLINE dapjPageSize #-}
 
 instance ToQuery DescribeLoadBalancers where
     toQuery = genericQuery def
 
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
-    { _dapoLoadBalancerDescriptions :: [LoadBalancerDescription]
+    { _dappLoadBalancerDescriptions :: [LoadBalancerDescription]
       -- ^ A list of load balancer description structures.
-    , _dapoNextMarker :: Maybe Text
+    , _dappNextMarker :: Maybe Text
       -- ^ Specifies the value of next marker if the request returned more
       -- than one page of results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBalancersResponse
+-- | A list of load balancer description structures.
+dappLoadBalancerDescriptions
+    :: Functor f
+    => ([LoadBalancerDescription]
+    -> f ([LoadBalancerDescription]))
+    -> DescribeLoadBalancersResponse
+    -> f DescribeLoadBalancersResponse
+dappLoadBalancerDescriptions f x =
+    (\y -> x { _dappLoadBalancerDescriptions = y })
+       <$> f (_dappLoadBalancerDescriptions x)
+{-# INLINE dappLoadBalancerDescriptions #-}
+
+-- | Specifies the value of next marker if the request returned more than one
+-- page of results.
+dappNextMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLoadBalancersResponse
+    -> f DescribeLoadBalancersResponse
+dappNextMarker f x =
+    (\y -> x { _dappNextMarker = y })
+       <$> f (_dappNextMarker x)
+{-# INLINE dappNextMarker #-}
 
 instance FromXML DescribeLoadBalancersResponse where
     fromXMLOptions = xmlOptions
@@ -84,5 +158,5 @@ instance AWSRequest DescribeLoadBalancers where
     response _ = xmlResponse
 
 instance AWSPager DescribeLoadBalancers where
-    next rq rs = (\x -> rq { _dapiMarker = Just x })
-        <$> (_dapoNextMarker rs)
+    next rq rs = (\x -> rq { _dapjMarker = Just x })
+        <$> (_dappNextMarker rs)

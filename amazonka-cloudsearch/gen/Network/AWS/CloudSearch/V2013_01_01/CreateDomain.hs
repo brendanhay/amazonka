@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,11 +19,31 @@
 
 -- | Creates a new search domain. For more information, see Creating a Search
 -- Domain in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.CreateDomain where
+module Network.AWS.CloudSearch.V2013_01_01.CreateDomain
+    (
+    -- * Request
+      CreateDomain
+    -- ** Request constructor
+    , createDomain
+    -- ** Request lenses
+    , cdrDomainName
+
+    -- * Response
+    , CreateDomainResponse
+    -- ** Response lenses
+    , cdsDomainStatus
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateDomain' request.
+createDomain :: Text -- ^ 'cdrDomainName'
+             -> CreateDomain
+createDomain p1 = CreateDomain
+    { _cdrDomainName = p1
+    }
 
 data CreateDomain = CreateDomain
     { _cdrDomainName :: Text
@@ -34,7 +53,19 @@ data CreateDomain = CreateDomain
       -- 28 characters long.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDomain
+-- | A name for the domain you are creating. Allowed characters are a-z
+-- (lower-case letters), 0-9, and hyphen (-). Domain names must start with a
+-- letter or number and be at least 3 and no more than 28 characters long.
+cdrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDomain
+    -> f CreateDomain
+cdrDomainName f x =
+    (\y -> x { _cdrDomainName = y })
+       <$> f (_cdrDomainName x)
+{-# INLINE cdrDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def
@@ -44,7 +75,17 @@ data CreateDomainResponse = CreateDomainResponse
       -- ^ The current status of the search domain.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDomainResponse
+-- | The current status of the search domain.
+cdsDomainStatus
+    :: Functor f
+    => (Maybe DomainStatus
+    -> f (Maybe DomainStatus))
+    -> CreateDomainResponse
+    -> f CreateDomainResponse
+cdsDomainStatus f x =
+    (\y -> x { _cdsDomainStatus = y })
+       <$> f (_cdsDomainStatus x)
+{-# INLINE cdsDomainStatus #-}
 
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions

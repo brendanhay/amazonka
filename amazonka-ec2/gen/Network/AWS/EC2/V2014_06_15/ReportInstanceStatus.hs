@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,20 +35,14 @@ module Network.AWS.EC2.V2014_06_15.ReportInstanceStatus
     (
     -- * Request
       ReportInstanceStatus
-    -- ** Default constructor
+    -- ** Request constructor
     , reportInstanceStatus
-    -- ** Accessors and lenses
-    , _risrInstances
+    -- ** Request lenses
     , risrInstances
-    , _risrReasonCodes
     , risrReasonCodes
-    , _risrStatus
     , risrStatus
-    , _risrStartTime
     , risrStartTime
-    , _risrEndTime
     , risrEndTime
-    , _risrDescription
     , risrDescription
 
     -- * Response
@@ -75,26 +68,44 @@ reportInstanceStatus p1 p2 p3 = ReportInstanceStatus
     }
 
 data ReportInstanceStatus = ReportInstanceStatus
-
-makeSiglessLenses ''ReportInstanceStatus
-
-instance ToQuery ReportInstanceStatus where
-    toQuery = genericQuery def
-
-data ReportInstanceStatusResponse = ReportInstanceStatusResponse
-    deriving (Eq, Show, Generic)
-
-makeSiglessLenses ''ReportInstanceStatusResponse
-
-instance AWSRequest ReportInstanceStatus where
-    type Sv ReportInstanceStatus = EC2
-    type Rs ReportInstanceStatus = ReportInstanceStatusResponse
-
-    request = post "ReportInstanceStatus"
-    response _ = nullaryResponse ReportInstanceStatusResponse
+    { _risrInstances :: [Text]
+      -- ^ One or more instances.
+    , _risrReasonCodes :: [ReportInstanceReasonCodes]
+      -- ^ One or more reason codes that describes the health state of your
+      -- instance. instance-stuck-in-state: My instance is stuck in a
+      -- state. unresponsive: My instance is unresponsive.
+      -- not-accepting-credentials: My instance is not accepting my
+      -- credentials. password-not-available: A password is not available
+      -- for my instance. performance-network: My instance is experiencing
+      -- performance problems which I believe are network related.
+      -- performance-instance-store: My instance is experiencing
+      -- performance problems which I believe are related to the instance
+      -- stores. performance-ebs-volume: My instance is experiencing
+      -- performance problems which I believe are related to an EBS
+      -- volume. performance-other: My instance is experiencing
+      -- performance problems. other: [explain using the description
+      -- parameter].
+    , _risrStatus :: ReportStatusType
+      -- ^ The status of all instances listed.
+    , _risrStartTime :: Maybe ISO8601
+      -- ^ The time at which the reported instance health state began.
+    , _risrEndTime :: Maybe ISO8601
+      -- ^ The time at which the reported instance health state ended.
+    , _risrDescription :: Maybe Text
+      -- ^ Descriptive text about the health state of your instance.
+    } deriving (Show, Generic)
 
 -- | One or more instances.
-risrInstances :: Lens' ReportInstanceStatus ([Text])
+risrInstances
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ReportInstanceStatus
+    -> f ReportInstanceStatus
+risrInstances f x =
+    (\y -> x { _risrInstances = y })
+       <$> f (_risrInstances x)
+{-# INLINE risrInstances #-}
 
 -- | One or more reason codes that describes the health state of your instance.
 -- instance-stuck-in-state: My instance is stuck in a state. unresponsive: My
@@ -108,16 +119,74 @@ risrInstances :: Lens' ReportInstanceStatus ([Text])
 -- which I believe are related to an EBS volume. performance-other: My
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
-risrReasonCodes :: Lens' ReportInstanceStatus ([ReportInstanceReasonCodes])
+risrReasonCodes
+    :: Functor f
+    => ([ReportInstanceReasonCodes]
+    -> f ([ReportInstanceReasonCodes]))
+    -> ReportInstanceStatus
+    -> f ReportInstanceStatus
+risrReasonCodes f x =
+    (\y -> x { _risrReasonCodes = y })
+       <$> f (_risrReasonCodes x)
+{-# INLINE risrReasonCodes #-}
 
 -- | The status of all instances listed.
-risrStatus :: Lens' ReportInstanceStatus (ReportStatusType)
+risrStatus
+    :: Functor f
+    => (ReportStatusType
+    -> f (ReportStatusType))
+    -> ReportInstanceStatus
+    -> f ReportInstanceStatus
+risrStatus f x =
+    (\y -> x { _risrStatus = y })
+       <$> f (_risrStatus x)
+{-# INLINE risrStatus #-}
 
 -- | The time at which the reported instance health state began.
-risrStartTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
+risrStartTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> ReportInstanceStatus
+    -> f ReportInstanceStatus
+risrStartTime f x =
+    (\y -> x { _risrStartTime = y })
+       <$> f (_risrStartTime x)
+{-# INLINE risrStartTime #-}
 
 -- | The time at which the reported instance health state ended.
-risrEndTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
+risrEndTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> ReportInstanceStatus
+    -> f ReportInstanceStatus
+risrEndTime f x =
+    (\y -> x { _risrEndTime = y })
+       <$> f (_risrEndTime x)
+{-# INLINE risrEndTime #-}
 
 -- | Descriptive text about the health state of your instance.
-risrDescription :: Lens' ReportInstanceStatus (Maybe Text)
+risrDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReportInstanceStatus
+    -> f ReportInstanceStatus
+risrDescription f x =
+    (\y -> x { _risrDescription = y })
+       <$> f (_risrDescription x)
+{-# INLINE risrDescription #-}
+
+instance ToQuery ReportInstanceStatus where
+    toQuery = genericQuery def
+
+data ReportInstanceStatusResponse = ReportInstanceStatusResponse
+    deriving (Eq, Show, Generic)
+
+instance AWSRequest ReportInstanceStatus where
+    type Sv ReportInstanceStatus = EC2
+    type Rs ReportInstanceStatus = ReportInstanceStatusResponse
+
+    request = post "ReportInstanceStatus"
+    response _ = nullaryResponse ReportInstanceStatusResponse

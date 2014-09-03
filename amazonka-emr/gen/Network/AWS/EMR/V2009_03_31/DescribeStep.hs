@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,12 +18,35 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides more detail about the cluster step.
-module Network.AWS.EMR.V2009_03_31.DescribeStep where
+module Network.AWS.EMR.V2009_03_31.DescribeStep
+    (
+    -- * Request
+      DescribeStep
+    -- ** Request constructor
+    , describeStep
+    -- ** Request lenses
+    , dsiClusterId
+    , dsiStepId
+
+    -- * Response
+    , DescribeStepResponse
+    -- ** Response lenses
+    , dsoStep
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeStep' request.
+describeStep :: Text -- ^ 'dsiClusterId'
+             -> Text -- ^ 'dsiStepId'
+             -> DescribeStep
+describeStep p1 p2 = DescribeStep
+    { _dsiClusterId = p1
+    , _dsiStepId = p2
+    }
 
 data DescribeStep = DescribeStep
     { _dsiClusterId :: Text
@@ -33,7 +55,29 @@ data DescribeStep = DescribeStep
       -- ^ The identifier of the step to describe.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStep
+-- | The identifier of the cluster with steps to describe.
+dsiClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeStep
+    -> f DescribeStep
+dsiClusterId f x =
+    (\y -> x { _dsiClusterId = y })
+       <$> f (_dsiClusterId x)
+{-# INLINE dsiClusterId #-}
+
+-- | The identifier of the step to describe.
+dsiStepId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeStep
+    -> f DescribeStep
+dsiStepId f x =
+    (\y -> x { _dsiStepId = y })
+       <$> f (_dsiStepId x)
+{-# INLINE dsiStepId #-}
 
 instance ToPath DescribeStep
 
@@ -48,7 +92,17 @@ data DescribeStepResponse = DescribeStepResponse
       -- ^ The step details for the requested step identifier.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStepResponse
+-- | The step details for the requested step identifier.
+dsoStep
+    :: Functor f
+    => (Maybe Step
+    -> f (Maybe Step))
+    -> DescribeStepResponse
+    -> f DescribeStepResponse
+dsoStep f x =
+    (\y -> x { _dsoStep = y })
+       <$> f (_dsoStep x)
+{-# INLINE dsoStep #-}
 
 instance FromJSON DescribeStepResponse
 

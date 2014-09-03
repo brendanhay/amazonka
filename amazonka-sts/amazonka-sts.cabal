@@ -36,11 +36,11 @@ library
         , Network.AWS.STS.V2011_06_15
         , Network.AWS.STS.V2011_06_15.Types
         , Network.AWS.STS.V2011_06_15.AssumeRole
-        , Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
+        , Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
         , Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity
+        , Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
         , Network.AWS.STS.V2011_06_15.GetFederationToken
         , Network.AWS.STS.V2011_06_15.GetSessionToken
-        , Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
 
     build-depends:
           amazonka-core

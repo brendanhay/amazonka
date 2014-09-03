@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,20 @@
 -- q=matchall&amp;q.parser=structured&amp;size=0. For more information, see
 -- Getting Information about a Search Domain in the Amazon CloudSearch
 -- Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DescribeDomains where
+module Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
+    (
+    -- * Request
+      DescribeDomains
+    -- ** Request constructor
+    , describeDomains
+    -- ** Request lenses
+    , ddwDomainNames
+
+    -- * Response
+    , DescribeDomainsResponse
+    -- ** Response lenses
+    , ddxDomainStatusList
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
@@ -34,25 +46,45 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeDomains' request.
 describeDomains :: DescribeDomains
 describeDomains = DescribeDomains
-    { _ddrDomainNames = mempty
+    { _ddwDomainNames = mempty
     }
 
 data DescribeDomains = DescribeDomains
-    { _ddrDomainNames :: [Text]
+    { _ddwDomainNames :: [Text]
       -- ^ The names of the domains you want to include in the response.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDomains
+-- | The names of the domains you want to include in the response.
+ddwDomainNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeDomains
+    -> f DescribeDomains
+ddwDomainNames f x =
+    (\y -> x { _ddwDomainNames = y })
+       <$> f (_ddwDomainNames x)
+{-# INLINE ddwDomainNames #-}
 
 instance ToQuery DescribeDomains where
     toQuery = genericQuery def
 
 data DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddsDomainStatusList :: [DomainStatus]
+    { _ddxDomainStatusList :: [DomainStatus]
       -- ^ A list that contains the status of each requested domain.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDomainsResponse
+-- | A list that contains the status of each requested domain.
+ddxDomainStatusList
+    :: Functor f
+    => ([DomainStatus]
+    -> f ([DomainStatus]))
+    -> DescribeDomainsResponse
+    -> f DescribeDomainsResponse
+ddxDomainStatusList f x =
+    (\y -> x { _ddxDomainStatusList = y })
+       <$> f (_ddxDomainStatusList x)
+{-# INLINE ddxDomainStatusList #-}
 
 instance FromXML DescribeDomainsResponse where
     fromXMLOptions = xmlOptions

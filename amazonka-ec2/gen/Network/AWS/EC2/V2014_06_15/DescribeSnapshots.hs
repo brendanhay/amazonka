@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -61,22 +60,17 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshots
     (
     -- * Request
       DescribeSnapshots
-    -- ** Default constructor
+    -- ** Request constructor
     , describeSnapshots
-    -- ** Accessors and lenses
-    , _dsuFilters
+    -- ** Request lenses
     , dsuFilters
-    , _dsuOwnerIds
     , dsuOwnerIds
-    , _dsuRestorableByUserIds
     , dsuRestorableByUserIds
-    , _dsuSnapshotIds
     , dsuSnapshotIds
 
     -- * Response
     , DescribeSnapshotsResponse
-    -- ** Accessors and lenses
-    , _dsvSnapshots
+    -- ** Response lenses
     , dsvSnapshots
     ) where
 
@@ -94,28 +88,36 @@ describeSnapshots = DescribeSnapshots
     }
 
 data DescribeSnapshots = DescribeSnapshots
-
-makeSiglessLenses ''DescribeSnapshots
-
-instance ToQuery DescribeSnapshots where
-    toQuery = genericQuery def
-
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsvSnapshots :: [Snapshot]
-      -- ^ 
+    { _dsuFilters :: [Filter]
+      -- ^ One or more filters. description - A description of the snapshot.
+      -- owner-alias - The AWS account alias (for example, amazon) that
+      -- owns the snapshot. owner-id - The ID of the AWS account that owns
+      -- the snapshot. progress - The progress of the snapshot, as a
+      -- percentage (for example, 80%). snapshot-id - The snapshot ID.
+      -- start-time - The time stamp when the snapshot was initiated.
+      -- status - The status of the snapshot (pending | completed |
+      -- error). tag:key=value - The key/value combination of a tag
+      -- assigned to the resource. tag-key - The key of a tag assigned to
+      -- the resource. This filter is independent of the tag-value filter.
+      -- For example, if you use both the filter "tag-key=Purpose" and the
+      -- filter "tag-value=X", you get any resources assigned both the tag
+      -- key Purpose (regardless of what the tag's value is), and the tag
+      -- value X (regardless of what the tag's key is). If you want to
+      -- list only resources where Purpose is X, see the tag:key=value
+      -- filter. tag-value - The value of a tag assigned to the resource.
+      -- This filter is independent of the tag-key filter. volume-id - The
+      -- ID of the volume the snapshot is for. volume-size - The size of
+      -- the volume, in GiB.
+    , _dsuOwnerIds :: [Text]
+      -- ^ Returns the snapshots owned by the specified owner. Multiple
+      -- owners can be specified.
+    , _dsuRestorableByUserIds :: [Text]
+      -- ^ One or more AWS accounts IDs that can create volumes from the
+      -- snapshot.
+    , _dsuSnapshotIds :: [Text]
+      -- ^ One or more snapshot IDs. Default: Describes snapshots for which
+      -- you have launch permissions.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeSnapshotsResponse
-
-instance FromXML DescribeSnapshotsResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeSnapshots where
-    type Sv DescribeSnapshots = EC2
-    type Rs DescribeSnapshots = DescribeSnapshotsResponse
-
-    request = post "DescribeSnapshots"
-    response _ = xmlResponse
 
 -- | One or more filters. description - A description of the snapshot.
 -- owner-alias - The AWS account alias (for example, amazon) that owns the
@@ -134,18 +136,81 @@ instance AWSRequest DescribeSnapshots where
 -- resource. This filter is independent of the tag-key filter. volume-id - The
 -- ID of the volume the snapshot is for. volume-size - The size of the volume,
 -- in GiB.
-dsuFilters :: Lens' DescribeSnapshots ([Filter])
+dsuFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeSnapshots
+    -> f DescribeSnapshots
+dsuFilters f x =
+    (\y -> x { _dsuFilters = y })
+       <$> f (_dsuFilters x)
+{-# INLINE dsuFilters #-}
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
-dsuOwnerIds :: Lens' DescribeSnapshots ([Text])
+dsuOwnerIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeSnapshots
+    -> f DescribeSnapshots
+dsuOwnerIds f x =
+    (\y -> x { _dsuOwnerIds = y })
+       <$> f (_dsuOwnerIds x)
+{-# INLINE dsuOwnerIds #-}
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-dsuRestorableByUserIds :: Lens' DescribeSnapshots ([Text])
+dsuRestorableByUserIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeSnapshots
+    -> f DescribeSnapshots
+dsuRestorableByUserIds f x =
+    (\y -> x { _dsuRestorableByUserIds = y })
+       <$> f (_dsuRestorableByUserIds x)
+{-# INLINE dsuRestorableByUserIds #-}
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
-dsuSnapshotIds :: Lens' DescribeSnapshots ([Text])
+dsuSnapshotIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeSnapshots
+    -> f DescribeSnapshots
+dsuSnapshotIds f x =
+    (\y -> x { _dsuSnapshotIds = y })
+       <$> f (_dsuSnapshotIds x)
+{-# INLINE dsuSnapshotIds #-}
+
+instance ToQuery DescribeSnapshots where
+    toQuery = genericQuery def
+
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse
+    { _dsvSnapshots :: [Snapshot]
+      -- ^ 
+    } deriving (Show, Generic)
 
 -- | 
-dsvSnapshots :: Lens' DescribeSnapshotsResponse ([Snapshot])
+dsvSnapshots
+    :: Functor f
+    => ([Snapshot]
+    -> f ([Snapshot]))
+    -> DescribeSnapshotsResponse
+    -> f DescribeSnapshotsResponse
+dsvSnapshots f x =
+    (\y -> x { _dsvSnapshots = y })
+       <$> f (_dsvSnapshots x)
+{-# INLINE dsvSnapshots #-}
+
+instance FromXML DescribeSnapshotsResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeSnapshots where
+    type Sv DescribeSnapshots = EC2
+    type Rs DescribeSnapshots = DescribeSnapshotsResponse
+
+    request = post "DescribeSnapshots"
+    response _ = xmlResponse

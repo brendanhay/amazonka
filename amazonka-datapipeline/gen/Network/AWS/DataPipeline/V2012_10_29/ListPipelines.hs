@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,7 +28,22 @@
 -- 17:50:53 GMT {"PipelineIdList": [ {"id": "df-08785951KAKJEXAMPLE", "name":
 -- "MyPipeline"}, {"id": "df-08662578ISYEXAMPLE", "name": "MySecondPipeline"}
 -- ] }.
-module Network.AWS.DataPipeline.V2012_10_29.ListPipelines where
+module Network.AWS.DataPipeline.V2012_10_29.ListPipelines
+    (
+    -- * Request
+      ListPipelines
+    -- ** Request constructor
+    , listPipelines
+    -- ** Request lenses
+    , lpiMarker
+
+    -- * Response
+    , ListPipelinesResponse
+    -- ** Response lenses
+    , lpoPipelineIdList
+    , lpoHasMoreResults
+    , lpoMarker
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
@@ -51,7 +65,20 @@ data ListPipelines = ListPipelines
       -- to retrieve the next set of results.
     } deriving (Show, Generic)
 
-makeLenses ''ListPipelines
+-- | The starting point for the results to be returned. The first time you call
+-- ListPipelines, this value should be empty. As long as the action returns
+-- HasMoreResults as True, you can call ListPipelines again and pass the
+-- marker value from the response to retrieve the next set of results.
+lpiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPipelines
+    -> f ListPipelines
+lpiMarker f x =
+    (\y -> x { _lpiMarker = y })
+       <$> f (_lpiMarker x)
+{-# INLINE lpiMarker #-}
 
 instance ToPath ListPipelines
 
@@ -76,7 +103,46 @@ data ListPipelinesResponse = ListPipelinesResponse
       -- null, there are no more pipeline identifiers.
     } deriving (Show, Generic)
 
-makeLenses ''ListPipelinesResponse
+-- | A list of all the pipeline identifiers that your account has permission to
+-- access. If you require additional information about the pipelines, you can
+-- use these identifiers to call DescribePipelines and GetPipelineDefinition.
+lpoPipelineIdList
+    :: Functor f
+    => ([PipelineIdName]
+    -> f ([PipelineIdName]))
+    -> ListPipelinesResponse
+    -> f ListPipelinesResponse
+lpoPipelineIdList f x =
+    (\y -> x { _lpoPipelineIdList = y })
+       <$> f (_lpoPipelineIdList x)
+{-# INLINE lpoPipelineIdList #-}
+
+-- | If True, there are more results that can be obtained by a subsequent call
+-- to ListPipelines.
+lpoHasMoreResults
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListPipelinesResponse
+    -> f ListPipelinesResponse
+lpoHasMoreResults f x =
+    (\y -> x { _lpoHasMoreResults = y })
+       <$> f (_lpoHasMoreResults x)
+{-# INLINE lpoHasMoreResults #-}
+
+-- | If not null, indicates the starting point for the set of pipeline
+-- identifiers that the next call to ListPipelines will retrieve. If null,
+-- there are no more pipeline identifiers.
+lpoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPipelinesResponse
+    -> f ListPipelinesResponse
+lpoMarker f x =
+    (\y -> x { _lpoMarker = y })
+       <$> f (_lpoMarker x)
+{-# INLINE lpoMarker #-}
 
 instance FromJSON ListPipelinesResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,15 +18,31 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update a distribution.
-module Network.AWS.CloudFront.V2014_05_31.UpdateDistribution where
+module Network.AWS.CloudFront.V2014_05_31.UpdateDistribution
+    (
+    -- * Request
+      UpdateDistribution
+    -- ** Request constructor
+    , updateDistribution
+    -- ** Request lenses
+    , udrDistributionConfig
+    , udrId
+    , udrIfMatch
+
+    -- * Response
+    , UpdateDistributionResponse
+    -- ** Response lenses
+    , udsDistribution
+    , udsETag
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateDistribution' request.
-updateDistribution :: DistributionConfig -- ^ '_udrDistributionConfig'
-                   -> Text -- ^ '_udrId'
+updateDistribution :: DistributionConfig -- ^ 'udrDistributionConfig'
+                   -> Text -- ^ 'udrId'
                    -> UpdateDistribution
 updateDistribution p1 p2 = UpdateDistribution
     { _udrDistributionConfig = p1
@@ -45,7 +60,42 @@ data UpdateDistribution = UpdateDistribution
       -- distribution's configuration. For example: E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateDistribution
+-- | The distribution's configuration information.
+udrDistributionConfig
+    :: Functor f
+    => (DistributionConfig
+    -> f (DistributionConfig))
+    -> UpdateDistribution
+    -> f UpdateDistribution
+udrDistributionConfig f x =
+    (\y -> x { _udrDistributionConfig = y })
+       <$> f (_udrDistributionConfig x)
+{-# INLINE udrDistributionConfig #-}
+
+-- | The distribution's id.
+udrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateDistribution
+    -> f UpdateDistribution
+udrId f x =
+    (\y -> x { _udrId = y })
+       <$> f (_udrId x)
+{-# INLINE udrId #-}
+
+-- | The value of the ETag header you received when retrieving the
+-- distribution's configuration. For example: E2QWRUHAPOMQZL.
+udrIfMatch
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateDistribution
+    -> f UpdateDistribution
+udrIfMatch f x =
+    (\y -> x { _udrIfMatch = y })
+       <$> f (_udrIfMatch x)
+{-# INLINE udrIfMatch #-}
 
 instance ToPath UpdateDistribution where
     toPath UpdateDistribution{..} = mconcat
@@ -73,7 +123,29 @@ data UpdateDistributionResponse = UpdateDistributionResponse
       -- E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateDistributionResponse
+-- | The distribution's information.
+udsDistribution
+    :: Functor f
+    => (Maybe Distribution
+    -> f (Maybe Distribution))
+    -> UpdateDistributionResponse
+    -> f UpdateDistributionResponse
+udsDistribution f x =
+    (\y -> x { _udsDistribution = y })
+       <$> f (_udsDistribution x)
+{-# INLINE udsDistribution #-}
+
+-- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+udsETag
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateDistributionResponse
+    -> f UpdateDistributionResponse
+udsETag f x =
+    (\y -> x { _udsETag = y })
+       <$> f (_udsETag x)
+{-# INLINE udsETag #-}
 
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront

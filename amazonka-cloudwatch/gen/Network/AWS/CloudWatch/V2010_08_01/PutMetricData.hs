@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,11 +28,32 @@
 -- Values with base-10 exponents greater than 126 (1 x 10^126) are truncated.
 -- Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are
 -- also truncated.
-module Network.AWS.CloudWatch.V2010_08_01.PutMetricData where
+module Network.AWS.CloudWatch.V2010_08_01.PutMetricData
+    (
+    -- * Request
+      PutMetricData
+    -- ** Request constructor
+    , putMetricData
+    -- ** Request lenses
+    , pmdiMetricData
+    , pmdiNamespace
+
+    -- * Response
+    , PutMetricDataResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'PutMetricData' request.
+putMetricData :: [MetricDatum] -- ^ 'pmdiMetricData'
+              -> Text -- ^ 'pmdiNamespace'
+              -> PutMetricData
+putMetricData p1 p2 = PutMetricData
+    { _pmdiMetricData = p1
+    , _pmdiNamespace = p2
+    }
 
 data PutMetricData = PutMetricData
     { _pmdiMetricData :: [MetricDatum]
@@ -42,15 +62,35 @@ data PutMetricData = PutMetricData
       -- ^ The namespace for the metric data.
     } deriving (Show, Generic)
 
-makeLenses ''PutMetricData
+-- | A list of data describing the metric.
+pmdiMetricData
+    :: Functor f
+    => ([MetricDatum]
+    -> f ([MetricDatum]))
+    -> PutMetricData
+    -> f PutMetricData
+pmdiMetricData f x =
+    (\y -> x { _pmdiMetricData = y })
+       <$> f (_pmdiMetricData x)
+{-# INLINE pmdiMetricData #-}
+
+-- | The namespace for the metric data.
+pmdiNamespace
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutMetricData
+    -> f PutMetricData
+pmdiNamespace f x =
+    (\y -> x { _pmdiNamespace = y })
+       <$> f (_pmdiNamespace x)
+{-# INLINE pmdiNamespace #-}
 
 instance ToQuery PutMetricData where
     toQuery = genericQuery def
 
 data PutMetricDataResponse = PutMetricDataResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutMetricDataResponse
 
 instance AWSRequest PutMetricData where
     type Sv PutMetricData = CloudWatch

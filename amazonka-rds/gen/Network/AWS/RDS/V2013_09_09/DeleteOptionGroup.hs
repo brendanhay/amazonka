@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,27 +19,54 @@
 
 -- | Deletes an existing option group. https://rds.amazonaws.com/
 -- ?Action=DeleteOptionGroup &OptionGroupName=myoptiongroup.
-module Network.AWS.RDS.V2013_09_09.DeleteOptionGroup where
+module Network.AWS.RDS.V2013_09_09.DeleteOptionGroup
+    (
+    -- * Request
+      DeleteOptionGroup
+    -- ** Request constructor
+    , deleteOptionGroup
+    -- ** Request lenses
+    , dogmOptionGroupName
+
+    -- * Response
+    , DeleteOptionGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteOptionGroup' request.
+deleteOptionGroup :: Text -- ^ 'dogmOptionGroupName'
+                  -> DeleteOptionGroup
+deleteOptionGroup p1 = DeleteOptionGroup
+    { _dogmOptionGroupName = p1
+    }
+
 data DeleteOptionGroup = DeleteOptionGroup
-    { _dognOptionGroupName :: Text
+    { _dogmOptionGroupName :: Text
       -- ^ The name of the option group to be deleted. You cannot delete
       -- default option groups.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteOptionGroup
+-- | The name of the option group to be deleted. You cannot delete default
+-- option groups.
+dogmOptionGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteOptionGroup
+    -> f DeleteOptionGroup
+dogmOptionGroupName f x =
+    (\y -> x { _dogmOptionGroupName = y })
+       <$> f (_dogmOptionGroupName x)
+{-# INLINE dogmOptionGroupName #-}
 
 instance ToQuery DeleteOptionGroup where
     toQuery = genericQuery def
 
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteOptionGroupResponse
 
 instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS

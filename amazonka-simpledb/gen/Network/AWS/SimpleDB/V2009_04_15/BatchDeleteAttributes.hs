@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,11 +33,32 @@
 -- Expected.X.Name, Expected.X.Value, or Expected.X.Exists. The following
 -- limitations are enforced for this operation: 1 MB request size 25 item
 -- limit per BatchDeleteAttributes operation.
-module Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes where
+module Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
+    (
+    -- * Request
+      BatchDeleteAttributes
+    -- ** Request constructor
+    , batchDeleteAttributes
+    -- ** Request lenses
+    , bdarItems
+    , bdarDomainName
+
+    -- * Response
+    , BatchDeleteAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'BatchDeleteAttributes' request.
+batchDeleteAttributes :: [DeletableItem] -- ^ 'bdarItems'
+                      -> Text -- ^ 'bdarDomainName'
+                      -> BatchDeleteAttributes
+batchDeleteAttributes p1 p2 = BatchDeleteAttributes
+    { _bdarItems = p1
+    , _bdarDomainName = p2
+    }
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdarItems :: [DeletableItem]
@@ -47,15 +67,35 @@ data BatchDeleteAttributes = BatchDeleteAttributes
       -- ^ The name of the domain in which the attributes are being deleted.
     } deriving (Show, Generic)
 
-makeLenses ''BatchDeleteAttributes
+-- | A list of items on which to perform the operation.
+bdarItems
+    :: Functor f
+    => ([DeletableItem]
+    -> f ([DeletableItem]))
+    -> BatchDeleteAttributes
+    -> f BatchDeleteAttributes
+bdarItems f x =
+    (\y -> x { _bdarItems = y })
+       <$> f (_bdarItems x)
+{-# INLINE bdarItems #-}
+
+-- | The name of the domain in which the attributes are being deleted.
+bdarDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> BatchDeleteAttributes
+    -> f BatchDeleteAttributes
+bdarDomainName f x =
+    (\y -> x { _bdarDomainName = y })
+       <$> f (_bdarDomainName x)
+{-# INLINE bdarDomainName #-}
 
 instance ToQuery BatchDeleteAttributes where
     toQuery = genericQuery def
 
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''BatchDeleteAttributesResponse
 
 instance AWSRequest BatchDeleteAttributes where
     type Sv BatchDeleteAttributes = SimpleDB

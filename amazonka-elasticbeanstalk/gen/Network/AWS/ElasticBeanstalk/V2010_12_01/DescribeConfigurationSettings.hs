@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -69,14 +68,29 @@
 -- aws:elb:loadbalancer Default Configuration Template SampleApp
 -- 2010-11-17T03:20:17.832Z Default 2010-11-17T03:20:17.832Z
 -- 4bde8884-f273-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings
+    (
+    -- * Request
+      DescribeConfigurationSettings
+    -- ** Request constructor
+    , describeConfigurationSettings
+    -- ** Request lenses
+    , dcsmApplicationName
+    , dcsmTemplateName
+    , dcsmEnvironmentName
+
+    -- * Response
+    , DescribeConfigurationSettingsResponse
+    -- ** Response lenses
+    , cseConfigurationSettings
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeConfigurationSettings' request.
-describeConfigurationSettings :: Text -- ^ '_dcsmApplicationName'
+describeConfigurationSettings :: Text -- ^ 'dcsmApplicationName'
                               -> DescribeConfigurationSettings
 describeConfigurationSettings p1 = DescribeConfigurationSettings
     { _dcsmApplicationName = p1
@@ -101,17 +115,69 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
       -- AWS Elastic Beanstalk returns MissingRequiredParameter error.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConfigurationSettings
+-- | The application for the environment or configuration template.
+dcsmApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeConfigurationSettings
+    -> f DescribeConfigurationSettings
+dcsmApplicationName f x =
+    (\y -> x { _dcsmApplicationName = y })
+       <$> f (_dcsmApplicationName x)
+{-# INLINE dcsmApplicationName #-}
+
+-- | The name of the configuration template to describe. Conditional: You must
+-- specify either this parameter or an EnvironmentName, but not both. If you
+-- specify both, AWS Elastic Beanstalk returns an InvalidParameterCombination
+-- error. If you do not specify either, AWS Elastic Beanstalk returns a
+-- MissingRequiredParameter error.
+dcsmTemplateName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationSettings
+    -> f DescribeConfigurationSettings
+dcsmTemplateName f x =
+    (\y -> x { _dcsmTemplateName = y })
+       <$> f (_dcsmTemplateName x)
+{-# INLINE dcsmTemplateName #-}
+
+-- | The name of the environment to describe. Condition: You must specify either
+-- this or a TemplateName, but not both. If you specify both, AWS Elastic
+-- Beanstalk returns an InvalidParameterCombination error. If you do not
+-- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
+-- error.
+dcsmEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationSettings
+    -> f DescribeConfigurationSettings
+dcsmEnvironmentName f x =
+    (\y -> x { _dcsmEnvironmentName = y })
+       <$> f (_dcsmEnvironmentName x)
+{-# INLINE dcsmEnvironmentName #-}
 
 instance ToQuery DescribeConfigurationSettings where
     toQuery = genericQuery def
 
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
-    { _csfConfigurationSettings :: [ConfigurationSettingsDescription]
+    { _cseConfigurationSettings :: [ConfigurationSettingsDescription]
       -- ^ A list of ConfigurationSettingsDescription.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConfigurationSettingsResponse
+-- | A list of ConfigurationSettingsDescription.
+cseConfigurationSettings
+    :: Functor f
+    => ([ConfigurationSettingsDescription]
+    -> f ([ConfigurationSettingsDescription]))
+    -> DescribeConfigurationSettingsResponse
+    -> f DescribeConfigurationSettingsResponse
+cseConfigurationSettings f x =
+    (\y -> x { _cseConfigurationSettings = y })
+       <$> f (_cseConfigurationSettings x)
+{-# INLINE cseConfigurationSettings #-}
 
 instance FromXML DescribeConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions

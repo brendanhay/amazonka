@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,24 +20,32 @@
 -- | Deletes the password policy for the AWS account. https://iam.amazonaws.com/
 -- ?Action=DeleteAccountPasswordPolicy &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy where
+module Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
+    (
+    -- * Request
+      DeleteAccountPasswordPolicy
+    -- ** Request constructor
+    , deleteAccountPasswordPolicy
+    -- * Response
+    , DeleteAccountPasswordPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteAccountPasswordPolicy' request.
+deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
+deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
+
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAccountPasswordPolicy
 
 instance ToQuery DeleteAccountPasswordPolicy where
     toQuery = genericQuery def
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAccountPasswordPolicyResponse
 
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM

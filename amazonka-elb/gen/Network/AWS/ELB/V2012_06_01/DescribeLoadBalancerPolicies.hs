@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,7 +36,21 @@
 -- &Action=DescribeLoadBalancerPolicies &AUTHPARAMS EnableProxyProtocol
 -- ProxyProtocolPolicyType ProxyProtocol true
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies where
+module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies
+    (
+    -- * Request
+      DescribeLoadBalancerPolicies
+    -- ** Request constructor
+    , describeLoadBalancerPolicies
+    -- ** Request lenses
+    , dlbpjLoadBalancerName
+    , dlbpjPolicyNames
+
+    -- * Response
+    , DescribeLoadBalancerPoliciesResponse
+    -- ** Response lenses
+    , dlbppPolicyDescriptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
@@ -46,32 +59,68 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeLoadBalancerPolicies' request.
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { _dlbpiLoadBalancerName = Nothing
-    , _dlbpiPolicyNames = mempty
+    { _dlbpjLoadBalancerName = Nothing
+    , _dlbpjPolicyNames = mempty
     }
 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { _dlbpiLoadBalancerName :: Maybe Text
+    { _dlbpjLoadBalancerName :: Maybe Text
       -- ^ The mnemonic name associated with the load balancer. If no name
       -- is specified, the operation returns the attributes of either all
       -- the sample policies pre-defined by Elastic Load Balancing or the
       -- specified sample polices.
-    , _dlbpiPolicyNames :: [Text]
+    , _dlbpjPolicyNames :: [Text]
       -- ^ The names of load balancer policies you've created or Elastic
       -- Load Balancing sample policy names.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBalancerPolicies
+-- | The mnemonic name associated with the load balancer. If no name is
+-- specified, the operation returns the attributes of either all the sample
+-- policies pre-defined by Elastic Load Balancing or the specified sample
+-- polices.
+dlbpjLoadBalancerName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeLoadBalancerPolicies
+    -> f DescribeLoadBalancerPolicies
+dlbpjLoadBalancerName f x =
+    (\y -> x { _dlbpjLoadBalancerName = y })
+       <$> f (_dlbpjLoadBalancerName x)
+{-# INLINE dlbpjLoadBalancerName #-}
+
+-- | The names of load balancer policies you've created or Elastic Load
+-- Balancing sample policy names.
+dlbpjPolicyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLoadBalancerPolicies
+    -> f DescribeLoadBalancerPolicies
+dlbpjPolicyNames f x =
+    (\y -> x { _dlbpjPolicyNames = y })
+       <$> f (_dlbpjPolicyNames x)
+{-# INLINE dlbpjPolicyNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicies where
     toQuery = genericQuery def
 
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
-    { _dlbpoPolicyDescriptions :: [PolicyDescription]
+    { _dlbppPolicyDescriptions :: [PolicyDescription]
       -- ^ A list of policy description structures.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBalancerPoliciesResponse
+-- | A list of policy description structures.
+dlbppPolicyDescriptions
+    :: Functor f
+    => ([PolicyDescription]
+    -> f ([PolicyDescription]))
+    -> DescribeLoadBalancerPoliciesResponse
+    -> f DescribeLoadBalancerPoliciesResponse
+dlbppPolicyDescriptions f x =
+    (\y -> x { _dlbppPolicyDescriptions = y })
+       <$> f (_dlbppPolicyDescriptions x)
+{-# INLINE dlbppPolicyDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where
     fromXMLOptions = xmlOptions

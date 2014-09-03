@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,12 +30,33 @@
 -- "exampleLogGroupName", "retentionInDays": 30 } HTTP/1.1 200 OK
 -- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
 -- Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy where
+module Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy
+    (
+    -- * Request
+      PutRetentionPolicy
+    -- ** Request constructor
+    , putRetentionPolicy
+    -- ** Request lenses
+    , prprRetentionInDays
+    , prprLogGroupName
+
+    -- * Response
+    , PutRetentionPolicyResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'PutRetentionPolicy' request.
+putRetentionPolicy :: Integer -- ^ 'prprRetentionInDays'
+                   -> Text -- ^ 'prprLogGroupName'
+                   -> PutRetentionPolicy
+putRetentionPolicy p1 p2 = PutRetentionPolicy
+    { _prprRetentionInDays = p1
+    , _prprLogGroupName = p2
+    }
 
 data PutRetentionPolicy = PutRetentionPolicy
     { _prprRetentionInDays :: Integer
@@ -46,7 +66,30 @@ data PutRetentionPolicy = PutRetentionPolicy
     , _prprLogGroupName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''PutRetentionPolicy
+-- | Specifies the number of days you want to retain log events in the specified
+-- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
+-- 365, 400, 547, 730.
+prprRetentionInDays
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> PutRetentionPolicy
+    -> f PutRetentionPolicy
+prprRetentionInDays f x =
+    (\y -> x { _prprRetentionInDays = y })
+       <$> f (_prprRetentionInDays x)
+{-# INLINE prprRetentionInDays #-}
+
+prprLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRetentionPolicy
+    -> f PutRetentionPolicy
+prprLogGroupName f x =
+    (\y -> x { _prprLogGroupName = y })
+       <$> f (_prprLogGroupName x)
+{-# INLINE prprLogGroupName #-}
 
 instance ToPath PutRetentionPolicy
 
@@ -58,8 +101,6 @@ instance ToJSON PutRetentionPolicy
 
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutRetentionPolicyResponse
 
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs

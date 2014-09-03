@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,22 +43,17 @@ module Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing
     (
     -- * Request
       CreateReservedInstancesListing
-    -- ** Default constructor
+    -- ** Request constructor
     , createReservedInstancesListing
-    -- ** Accessors and lenses
-    , _criltInstanceCount
+    -- ** Request lenses
     , criltInstanceCount
-    , _criltPriceSchedules
     , criltPriceSchedules
-    , _criltReservedInstancesId
     , criltReservedInstancesId
-    , _criltClientToken
     , criltClientToken
 
     -- * Response
     , CreateReservedInstancesListingResponse
-    -- ** Accessors and lenses
-    , _criluReservedInstancesListings
+    -- ** Response lenses
     , criluReservedInstancesListings
     ) where
 
@@ -81,8 +75,76 @@ createReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
     }
 
 data CreateReservedInstancesListing = CreateReservedInstancesListing
+    { _criltInstanceCount :: Integer
+      -- ^ The number of instances that are a part of a Reserved Instance
+      -- account to be listed in the Reserved Instance Marketplace. This
+      -- number should be less than or equal to the instance count
+      -- associated with the Reserved Instance ID specified in this call.
+    , _criltPriceSchedules :: [PriceScheduleSpecification]
+      -- ^ A list specifying the price of the Reserved Instance for each
+      -- month remaining in the Reserved Instance term.
+    , _criltReservedInstancesId :: Text
+      -- ^ The ID of the active Reserved Instance.
+    , _criltClientToken :: Text
+      -- ^ Unique, case-sensitive identifier you provide to ensure
+      -- idempotency of your listings. This helps avoid duplicate
+      -- listings. For more information, see Ensuring Idempotency in the
+      -- Amazon Elastic Compute Cloud User Guide.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateReservedInstancesListing
+-- | The number of instances that are a part of a Reserved Instance account to
+-- be listed in the Reserved Instance Marketplace. This number should be less
+-- than or equal to the instance count associated with the Reserved Instance
+-- ID specified in this call.
+criltInstanceCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CreateReservedInstancesListing
+    -> f CreateReservedInstancesListing
+criltInstanceCount f x =
+    (\y -> x { _criltInstanceCount = y })
+       <$> f (_criltInstanceCount x)
+{-# INLINE criltInstanceCount #-}
+
+-- | A list specifying the price of the Reserved Instance for each month
+-- remaining in the Reserved Instance term.
+criltPriceSchedules
+    :: Functor f
+    => ([PriceScheduleSpecification]
+    -> f ([PriceScheduleSpecification]))
+    -> CreateReservedInstancesListing
+    -> f CreateReservedInstancesListing
+criltPriceSchedules f x =
+    (\y -> x { _criltPriceSchedules = y })
+       <$> f (_criltPriceSchedules x)
+{-# INLINE criltPriceSchedules #-}
+
+-- | The ID of the active Reserved Instance.
+criltReservedInstancesId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateReservedInstancesListing
+    -> f CreateReservedInstancesListing
+criltReservedInstancesId f x =
+    (\y -> x { _criltReservedInstancesId = y })
+       <$> f (_criltReservedInstancesId x)
+{-# INLINE criltReservedInstancesId #-}
+
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of your
+-- listings. This helps avoid duplicate listings. For more information, see
+-- Ensuring Idempotency in the Amazon Elastic Compute Cloud User Guide.
+criltClientToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateReservedInstancesListing
+    -> f CreateReservedInstancesListing
+criltClientToken f x =
+    (\y -> x { _criltClientToken = y })
+       <$> f (_criltClientToken x)
+{-# INLINE criltClientToken #-}
 
 instance ToQuery CreateReservedInstancesListing where
     toQuery = genericQuery def
@@ -92,7 +154,17 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
       -- ^ Information about the Reserved Instances listing.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateReservedInstancesListingResponse
+-- | Information about the Reserved Instances listing.
+criluReservedInstancesListings
+    :: Functor f
+    => ([ReservedInstancesListing]
+    -> f ([ReservedInstancesListing]))
+    -> CreateReservedInstancesListingResponse
+    -> f CreateReservedInstancesListingResponse
+criluReservedInstancesListings f x =
+    (\y -> x { _criluReservedInstancesListings = y })
+       <$> f (_criluReservedInstancesListings x)
+{-# INLINE criluReservedInstancesListings #-}
 
 instance FromXML CreateReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
@@ -103,24 +175,3 @@ instance AWSRequest CreateReservedInstancesListing where
 
     request = post "CreateReservedInstancesListing"
     response _ = xmlResponse
-
--- | The number of instances that are a part of a Reserved Instance account to
--- be listed in the Reserved Instance Marketplace. This number should be less
--- than or equal to the instance count associated with the Reserved Instance
--- ID specified in this call.
-criltInstanceCount :: Lens' CreateReservedInstancesListing (Integer)
-
--- | A list specifying the price of the Reserved Instance for each month
--- remaining in the Reserved Instance term.
-criltPriceSchedules :: Lens' CreateReservedInstancesListing ([PriceScheduleSpecification])
-
--- | The ID of the active Reserved Instance.
-criltReservedInstancesId :: Lens' CreateReservedInstancesListing (Text)
-
--- | Unique, case-sensitive identifier you provide to ensure idempotency of your
--- listings. This helps avoid duplicate listings. For more information, see
--- Ensuring Idempotency in the Amazon Elastic Compute Cloud User Guide.
-criltClientToken :: Lens' CreateReservedInstancesListing (Text)
-
--- | Information about the Reserved Instances listing.
-criluReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse ([ReservedInstancesListing])

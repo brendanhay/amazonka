@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,12 +42,32 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow where
+module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow
+    (
+    -- * Request
+      UpdateGatewaySoftwareNow
+    -- ** Request constructor
+    , updateGatewaySoftwareNow
+    -- ** Request lenses
+    , ugsniGatewayARN
+
+    -- * Response
+    , UpdateGatewaySoftwareNowResponse
+    -- ** Response lenses
+    , ugsnoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'UpdateGatewaySoftwareNow' request.
+updateGatewaySoftwareNow :: Text -- ^ 'ugsniGatewayARN'
+                         -> UpdateGatewaySoftwareNow
+updateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
+    { _ugsniGatewayARN = p1
+    }
 
 data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
     { _ugsniGatewayARN :: Text
@@ -57,7 +76,18 @@ data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateGatewaySoftwareNow
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ugsniGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateGatewaySoftwareNow
+    -> f UpdateGatewaySoftwareNow
+ugsniGatewayARN f x =
+    (\y -> x { _ugsniGatewayARN = y })
+       <$> f (_ugsniGatewayARN x)
+{-# INLINE ugsniGatewayARN #-}
 
 instance ToPath UpdateGatewaySoftwareNow
 
@@ -74,7 +104,18 @@ data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateGatewaySoftwareNowResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ugsnoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateGatewaySoftwareNowResponse
+    -> f UpdateGatewaySoftwareNowResponse
+ugsnoGatewayARN f x =
+    (\y -> x { _ugsnoGatewayARN = y })
+       <$> f (_ugsnoGatewayARN x)
+{-# INLINE ugsnoGatewayARN #-}
 
 instance FromJSON UpdateGatewaySoftwareNowResponse
 

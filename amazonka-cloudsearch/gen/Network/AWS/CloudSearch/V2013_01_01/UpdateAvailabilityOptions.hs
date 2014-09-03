@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,11 +23,34 @@
 -- service disruption. Changes to the Multi-AZ option can take about half an
 -- hour to become active. For more information, see Configuring Availability
 -- Options in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions where
+module Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions
+    (
+    -- * Request
+      UpdateAvailabilityOptions
+    -- ** Request constructor
+    , updateAvailabilityOptions
+    -- ** Request lenses
+    , uaorMultiAZ
+    , uaorDomainName
+
+    -- * Response
+    , UpdateAvailabilityOptionsResponse
+    -- ** Response lenses
+    , uaosAvailabilityOptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'UpdateAvailabilityOptions' request.
+updateAvailabilityOptions :: Bool -- ^ 'uaorMultiAZ'
+                          -> Text -- ^ 'uaorDomainName'
+                          -> UpdateAvailabilityOptions
+updateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
+    { _uaorMultiAZ = p1
+    , _uaorDomainName = p2
+    }
 
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaorMultiAZ :: Bool
@@ -44,7 +66,35 @@ data UpdateAvailabilityOptions = UpdateAvailabilityOptions
       -- (hyphen).
     } deriving (Show, Generic)
 
-makeLenses ''UpdateAvailabilityOptions
+-- | You expand an existing search domain to a second Availability Zone by
+-- setting the Multi-AZ option to true. Similarly, you can turn off the
+-- Multi-AZ option to downgrade the domain to a single Availability Zone by
+-- setting the Multi-AZ option to false.
+uaorMultiAZ
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> UpdateAvailabilityOptions
+    -> f UpdateAvailabilityOptions
+uaorMultiAZ f x =
+    (\y -> x { _uaorMultiAZ = y })
+       <$> f (_uaorMultiAZ x)
+{-# INLINE uaorMultiAZ #-}
+
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+uaorDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateAvailabilityOptions
+    -> f UpdateAvailabilityOptions
+uaorDomainName f x =
+    (\y -> x { _uaorDomainName = y })
+       <$> f (_uaorDomainName x)
+{-# INLINE uaorDomainName #-}
 
 instance ToQuery UpdateAvailabilityOptions where
     toQuery = genericQuery def
@@ -55,7 +105,18 @@ data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
       -- Multi-AZ is enabled for the domain.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateAvailabilityOptionsResponse
+-- | The newly-configured availability options. Indicates whether Multi-AZ is
+-- enabled for the domain.
+uaosAvailabilityOptions
+    :: Functor f
+    => (Maybe AvailabilityOptionsStatus
+    -> f (Maybe AvailabilityOptionsStatus))
+    -> UpdateAvailabilityOptionsResponse
+    -> f UpdateAvailabilityOptionsResponse
+uaosAvailabilityOptions f x =
+    (\y -> x { _uaosAvailabilityOptions = y })
+       <$> f (_uaosAvailabilityOptions x)
+{-# INLINE uaosAvailabilityOptions #-}
 
 instance FromXML UpdateAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

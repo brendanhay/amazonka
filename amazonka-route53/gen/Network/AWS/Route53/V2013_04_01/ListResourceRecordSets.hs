@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,14 +49,36 @@
 -- single process makes a call to ChangeResourceRecordSets and receives a
 -- successful response, the effects of that change will be visible in a
 -- subsequent call to ListResourceRecordSets by that process.
-module Network.AWS.Route53.V2013_04_01.ListResourceRecordSets where
+module Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
+    (
+    -- * Request
+      ListResourceRecordSets
+    -- ** Request constructor
+    , listResourceRecordSets
+    -- ** Request lenses
+    , lrrsrHostedZoneId
+    , lrrsrStartRecordName
+    , lrrsrMaxItems
+    , lrrsrStartRecordType
+    , lrrsrStartRecordIdentifier
+
+    -- * Response
+    , ListResourceRecordSetsResponse
+    -- ** Response lenses
+    , lrrssMaxItems
+    , lrrssIsTruncated
+    , lrrssResourceRecordSets
+    , lrrssNextRecordName
+    , lrrssNextRecordType
+    , lrrssNextRecordIdentifier
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListResourceRecordSets' request.
-listResourceRecordSets :: Text -- ^ '_lrrsrHostedZoneId'
+listResourceRecordSets :: Text -- ^ 'lrrsrHostedZoneId'
                        -> ListResourceRecordSets
 listResourceRecordSets p1 = ListResourceRecordSets
     { _lrrsrHostedZoneId = p1
@@ -92,7 +113,76 @@ data ListResourceRecordSets = ListResourceRecordSets
       -- the current DNS name and type.
     } deriving (Show, Generic)
 
-makeLenses ''ListResourceRecordSets
+-- | The ID of the hosted zone that contains the resource record sets that you
+-- want to get.
+lrrsrHostedZoneId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListResourceRecordSets
+    -> f ListResourceRecordSets
+lrrsrHostedZoneId f x =
+    (\y -> x { _lrrsrHostedZoneId = y })
+       <$> f (_lrrsrHostedZoneId x)
+{-# INLINE lrrsrHostedZoneId #-}
+
+-- | The first name in the lexicographic ordering of domain names that you want
+-- the ListResourceRecordSets request to list.
+lrrsrStartRecordName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListResourceRecordSets
+    -> f ListResourceRecordSets
+lrrsrStartRecordName f x =
+    (\y -> x { _lrrsrStartRecordName = y })
+       <$> f (_lrrsrStartRecordName x)
+{-# INLINE lrrsrStartRecordName #-}
+
+-- | The maximum number of records you want in the response body.
+lrrsrMaxItems
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListResourceRecordSets
+    -> f ListResourceRecordSets
+lrrsrMaxItems f x =
+    (\y -> x { _lrrsrMaxItems = y })
+       <$> f (_lrrsrMaxItems x)
+{-# INLINE lrrsrMaxItems #-}
+
+-- | The DNS type at which to begin the listing of resource record sets. Valid
+-- values: A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT Values for
+-- Weighted Resource Record Sets: A | AAAA | CNAME | TXT Values for Regional
+-- Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias Resource
+-- Record Sets: A | AAAA Constraint: Specifying type without specifying name
+-- returns an InvalidInput error.
+lrrsrStartRecordType
+    :: Functor f
+    => (Maybe RecordType
+    -> f (Maybe RecordType))
+    -> ListResourceRecordSets
+    -> f ListResourceRecordSets
+lrrsrStartRecordType f x =
+    (\y -> x { _lrrsrStartRecordType = y })
+       <$> f (_lrrsrStartRecordType x)
+{-# INLINE lrrsrStartRecordType #-}
+
+-- | Weighted resource record sets only: If results were truncated for a given
+-- DNS name and type, specify the value of
+-- ListResourceRecordSetsResponse$NextRecordIdentifier from the previous
+-- response to get the next resource record set that has the current DNS name
+-- and type.
+lrrsrStartRecordIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListResourceRecordSets
+    -> f ListResourceRecordSets
+lrrsrStartRecordIdentifier f x =
+    (\y -> x { _lrrsrStartRecordIdentifier = y })
+       <$> f (_lrrsrStartRecordIdentifier x)
+{-# INLINE lrrsrStartRecordIdentifier #-}
 
 instance ToPath ListResourceRecordSets where
     toPath ListResourceRecordSets{..} = mconcat
@@ -142,7 +232,89 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
       -- next resource record set that has the current DNS name and type.
     } deriving (Show, Generic)
 
-makeLenses ''ListResourceRecordSetsResponse
+-- | The maximum number of records you requested. The maximum value of MaxItems
+-- is 100.
+lrrssMaxItems
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListResourceRecordSetsResponse
+    -> f ListResourceRecordSetsResponse
+lrrssMaxItems f x =
+    (\y -> x { _lrrssMaxItems = y })
+       <$> f (_lrrssMaxItems x)
+{-# INLINE lrrssMaxItems #-}
+
+-- | A flag that indicates whether there are more resource record sets to be
+-- listed. If your results were truncated, you can make a follow-up request
+-- for the next page of results by using the
+-- ListResourceRecordSetsResponse$NextRecordName element. Valid Values: true |
+-- false.
+lrrssIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListResourceRecordSetsResponse
+    -> f ListResourceRecordSetsResponse
+lrrssIsTruncated f x =
+    (\y -> x { _lrrssIsTruncated = y })
+       <$> f (_lrrssIsTruncated x)
+{-# INLINE lrrssIsTruncated #-}
+
+-- | A complex type that contains information about the resource record sets
+-- that are returned by the request.
+lrrssResourceRecordSets
+    :: Functor f
+    => ([ResourceRecordSet]
+    -> f ([ResourceRecordSet]))
+    -> ListResourceRecordSetsResponse
+    -> f ListResourceRecordSetsResponse
+lrrssResourceRecordSets f x =
+    (\y -> x { _lrrssResourceRecordSets = y })
+       <$> f (_lrrssResourceRecordSets x)
+{-# INLINE lrrssResourceRecordSets #-}
+
+-- | If the results were truncated, the name of the next record in the list.
+-- This element is present only if ListResourceRecordSetsResponse$IsTruncated
+-- is true.
+lrrssNextRecordName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListResourceRecordSetsResponse
+    -> f ListResourceRecordSetsResponse
+lrrssNextRecordName f x =
+    (\y -> x { _lrrssNextRecordName = y })
+       <$> f (_lrrssNextRecordName x)
+{-# INLINE lrrssNextRecordName #-}
+
+-- | If the results were truncated, the type of the next record in the list.
+-- This element is present only if ListResourceRecordSetsResponse$IsTruncated
+-- is true.
+lrrssNextRecordType
+    :: Functor f
+    => (Maybe RecordType
+    -> f (Maybe RecordType))
+    -> ListResourceRecordSetsResponse
+    -> f ListResourceRecordSetsResponse
+lrrssNextRecordType f x =
+    (\y -> x { _lrrssNextRecordType = y })
+       <$> f (_lrrssNextRecordType x)
+{-# INLINE lrrssNextRecordType #-}
+
+-- | Weighted resource record sets only: If results were truncated for a given
+-- DNS name and type, the value of SetIdentifier for the next resource record
+-- set that has the current DNS name and type.
+lrrssNextRecordIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListResourceRecordSetsResponse
+    -> f ListResourceRecordSetsResponse
+lrrssNextRecordIdentifier f x =
+    (\y -> x { _lrrssNextRecordIdentifier = y })
+       <$> f (_lrrssNextRecordIdentifier x)
+{-# INLINE lrrssNextRecordIdentifier #-}
 
 instance FromXML ListResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions

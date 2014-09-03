@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,11 +25,31 @@
 -- the information needed to store and use encryption keys in the HSM. For
 -- more information, go to Hardware Security Modules in the Amazon Redshift
 -- Management Guide.
-module Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate where
+module Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate
+    (
+    -- * Request
+      CreateHsmClientCertificate
+    -- ** Request constructor
+    , createHsmClientCertificate
+    -- ** Request lenses
+    , chccmHsmClientCertificateIdentifier
+
+    -- * Response
+    , CreateHsmClientCertificateResponse
+    -- ** Response lenses
+    , hccwHsmClientCertificate
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateHsmClientCertificate' request.
+createHsmClientCertificate :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
+                           -> CreateHsmClientCertificate
+createHsmClientCertificate p1 = CreateHsmClientCertificate
+    { _chccmHsmClientCertificateIdentifier = p1
+    }
 
 data CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccmHsmClientCertificateIdentifier :: Text
@@ -39,7 +58,18 @@ data CreateHsmClientCertificate = CreateHsmClientCertificate
       -- database encryption keys.
     } deriving (Show, Generic)
 
-makeLenses ''CreateHsmClientCertificate
+-- | The identifier to be assigned to the new HSM client certificate that the
+-- cluster will use to connect to the HSM to use the database encryption keys.
+chccmHsmClientCertificateIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateHsmClientCertificate
+    -> f CreateHsmClientCertificate
+chccmHsmClientCertificateIdentifier f x =
+    (\y -> x { _chccmHsmClientCertificateIdentifier = y })
+       <$> f (_chccmHsmClientCertificateIdentifier x)
+{-# INLINE chccmHsmClientCertificateIdentifier #-}
 
 instance ToQuery CreateHsmClientCertificate where
     toQuery = genericQuery def
@@ -51,7 +81,19 @@ data CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
       -- and used by the Amazon Redshift cluster to encrypt data files.
     } deriving (Show, Generic)
 
-makeLenses ''CreateHsmClientCertificateResponse
+-- | Returns information about an HSM client certificate. The certificate is
+-- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
+-- Redshift cluster to encrypt data files.
+hccwHsmClientCertificate
+    :: Functor f
+    => (Maybe HsmClientCertificate
+    -> f (Maybe HsmClientCertificate))
+    -> CreateHsmClientCertificateResponse
+    -> f CreateHsmClientCertificateResponse
+hccwHsmClientCertificate f x =
+    (\y -> x { _hccwHsmClientCertificate = y })
+       <$> f (_hccwHsmClientCertificate x)
+{-# INLINE hccwHsmClientCertificate #-}
 
 instance FromXML CreateHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions

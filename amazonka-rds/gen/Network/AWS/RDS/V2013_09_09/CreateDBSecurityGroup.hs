@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,42 +25,95 @@
 -- &SignatureMethod=HmacSHA256 &Timestamp=2011-02-15T18%3A14%3A49.482Z
 -- &AWSAccessKeyId= &Signature= My new DBSecurityGroup 565419523791
 -- mydbsecuritygroup vpc-1a2b3c4d ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup where
+module Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup
+    (
+    -- * Request
+      CreateDBSecurityGroup
+    -- ** Request constructor
+    , createDBSecurityGroup
+    -- ** Request lenses
+    , cdbsgmDBSecurityGroupName
+    , cdbsgmDBSecurityGroupDescription
+    , cdbsgmTags
+
+    -- * Response
+    , CreateDBSecurityGroupResponse
+    -- ** Response lenses
+    , dbsgxDBSecurityGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBSecurityGroup' request.
-createDBSecurityGroup :: Text -- ^ '_cdbsgmDBSecurityGroupDescription'
-                      -> Text -- ^ '_cdbsgmDBSecurityGroupName'
+createDBSecurityGroup :: Text -- ^ 'cdbsgmDBSecurityGroupName'
+                      -> Text -- ^ 'cdbsgmDBSecurityGroupDescription'
                       -> CreateDBSecurityGroup
 createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
-    { _cdbsgmDBSecurityGroupDescription = p1
-    , _cdbsgmDBSecurityGroupName = p2
+    { _cdbsgmDBSecurityGroupName = p1
+    , _cdbsgmDBSecurityGroupDescription = p2
     , _cdbsgmTags = mempty
     }
 
 data CreateDBSecurityGroup = CreateDBSecurityGroup
-    { _cdbsgmDBSecurityGroupDescription :: Text
-      -- ^ The description for the DB security group.
-    , _cdbsgmDBSecurityGroupName :: Text
+    { _cdbsgmDBSecurityGroupName :: Text
       -- ^ The name for the DB security group. This value is stored as a
       -- lowercase string. Constraints: Must be 1 to 255 alphanumeric
       -- characters First character must be a letter Cannot end with a
       -- hyphen or contain two consecutive hyphens Must not be "Default"
       -- May not contain spaces Example: mysecuritygroup.
+    , _cdbsgmDBSecurityGroupDescription :: Text
+      -- ^ The description for the DB security group.
     , _cdbsgmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBSecurityGroup
+-- | The name for the DB security group. This value is stored as a lowercase
+-- string. Constraints: Must be 1 to 255 alphanumeric characters First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens Must not be "Default" May not contain spaces Example:
+-- mysecuritygroup.
+cdbsgmDBSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBSecurityGroup
+    -> f CreateDBSecurityGroup
+cdbsgmDBSecurityGroupName f x =
+    (\y -> x { _cdbsgmDBSecurityGroupName = y })
+       <$> f (_cdbsgmDBSecurityGroupName x)
+{-# INLINE cdbsgmDBSecurityGroupName #-}
+
+-- | The description for the DB security group.
+cdbsgmDBSecurityGroupDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBSecurityGroup
+    -> f CreateDBSecurityGroup
+cdbsgmDBSecurityGroupDescription f x =
+    (\y -> x { _cdbsgmDBSecurityGroupDescription = y })
+       <$> f (_cdbsgmDBSecurityGroupDescription x)
+{-# INLINE cdbsgmDBSecurityGroupDescription #-}
+
+-- | A list of tags.
+cdbsgmTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateDBSecurityGroup
+    -> f CreateDBSecurityGroup
+cdbsgmTags f x =
+    (\y -> x { _cdbsgmTags = y })
+       <$> f (_cdbsgmTags x)
+{-# INLINE cdbsgmTags #-}
 
 instance ToQuery CreateDBSecurityGroup where
     toQuery = genericQuery def
 
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
-    { _dbsgzDBSecurityGroup :: Maybe DBSecurityGroup
+    { _dbsgxDBSecurityGroup :: Maybe DBSecurityGroup
       -- ^ Contains the result of a successful invocation of the following
       -- actions: DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
       -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type
@@ -69,7 +121,20 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
       -- action.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBSecurityGroupResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
+-- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
+-- as a response element in the DescribeDBSecurityGroups action.
+dbsgxDBSecurityGroup
+    :: Functor f
+    => (Maybe DBSecurityGroup
+    -> f (Maybe DBSecurityGroup))
+    -> CreateDBSecurityGroupResponse
+    -> f CreateDBSecurityGroupResponse
+dbsgxDBSecurityGroup f x =
+    (\y -> x { _dbsgxDBSecurityGroup = y })
+       <$> f (_dbsgxDBSecurityGroup x)
+{-# INLINE dbsgxDBSecurityGroup #-}
 
 instance FromXML CreateDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions

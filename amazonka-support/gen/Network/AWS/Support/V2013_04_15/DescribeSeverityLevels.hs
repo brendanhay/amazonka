@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,7 +20,20 @@
 -- | Returns the list of severity levels that you can assign to an AWS Support
 -- case. The severity level for a case is also a field in the CaseDetails data
 -- type included in any CreateCase request.
-module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels where
+module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
+    (
+    -- * Request
+      DescribeSeverityLevels
+    -- ** Request constructor
+    , describeSeverityLevels
+    -- ** Request lenses
+    , dslrLanguage
+
+    -- * Response
+    , DescribeSeverityLevelsResponse
+    -- ** Response lenses
+    , dslsSeverityLevels
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
@@ -42,7 +54,19 @@ data DescribeSeverityLevels = DescribeSeverityLevels
       -- for operations that take them.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSeverityLevels
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English ("en") and Japanese ("ja"). Language
+-- parameters must be passed explicitly for operations that take them.
+dslrLanguage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeSeverityLevels
+    -> f DescribeSeverityLevels
+dslrLanguage f x =
+    (\y -> x { _dslrLanguage = y })
+       <$> f (_dslrLanguage x)
+{-# INLINE dslrLanguage #-}
 
 instance ToPath DescribeSeverityLevels
 
@@ -59,7 +83,18 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
       -- AWS.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSeverityLevelsResponse
+-- | The available severity levels for the support case. Available severity
+-- levels are defined by your service level agreement with AWS.
+dslsSeverityLevels
+    :: Functor f
+    => ([SeverityLevel]
+    -> f ([SeverityLevel]))
+    -> DescribeSeverityLevelsResponse
+    -> f DescribeSeverityLevelsResponse
+dslsSeverityLevels f x =
+    (\y -> x { _dslsSeverityLevels = y })
+       <$> f (_dslsSeverityLevels x)
+{-# INLINE dslsSeverityLevels #-}
 
 instance FromJSON DescribeSeverityLevelsResponse
 

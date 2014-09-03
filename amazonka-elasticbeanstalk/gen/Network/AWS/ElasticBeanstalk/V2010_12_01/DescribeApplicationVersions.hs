@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,21 @@
 -- &Operation=DescribeApplicationVersions &AuthParams amazonaws.com sample.war
 -- Version1 description SampleApp 2010-11-17T03:21:59.161Z
 -- 2010-11-17T03:21:59.161Z 773cd80a-f26c-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions
+    (
+    -- * Request
+      DescribeApplicationVersions
+    -- ** Request constructor
+    , describeApplicationVersions
+    -- ** Request lenses
+    , davnApplicationName
+    , davnVersionLabels
+
+    -- * Response
+    , DescribeApplicationVersionsResponse
+    -- ** Response lenses
+    , avdnApplicationVersions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -46,17 +59,51 @@ data DescribeApplicationVersions = DescribeApplicationVersions
       -- ones that have the specified version labels.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeApplicationVersions
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- only include ones that are associated with the specified application.
+davnApplicationName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeApplicationVersions
+    -> f DescribeApplicationVersions
+davnApplicationName f x =
+    (\y -> x { _davnApplicationName = y })
+       <$> f (_davnApplicationName x)
+{-# INLINE davnApplicationName #-}
+
+-- | If specified, restricts the returned descriptions to only include ones that
+-- have the specified version labels.
+davnVersionLabels
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeApplicationVersions
+    -> f DescribeApplicationVersions
+davnVersionLabels f x =
+    (\y -> x { _davnVersionLabels = y })
+       <$> f (_davnVersionLabels x)
+{-# INLINE davnVersionLabels #-}
 
 instance ToQuery DescribeApplicationVersions where
     toQuery = genericQuery def
 
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _avdoApplicationVersions :: [ApplicationVersionDescription]
+    { _avdnApplicationVersions :: [ApplicationVersionDescription]
       -- ^ A list of ApplicationVersionDescription .
     } deriving (Show, Generic)
 
-makeLenses ''DescribeApplicationVersionsResponse
+-- | A list of ApplicationVersionDescription .
+avdnApplicationVersions
+    :: Functor f
+    => ([ApplicationVersionDescription]
+    -> f ([ApplicationVersionDescription]))
+    -> DescribeApplicationVersionsResponse
+    -> f DescribeApplicationVersionsResponse
+avdnApplicationVersions f x =
+    (\y -> x { _avdnApplicationVersions = y })
+       <$> f (_avdnApplicationVersions x)
+{-# INLINE avdnApplicationVersions #-}
 
 instance FromXML DescribeApplicationVersionsResponse where
     fromXMLOptions = xmlOptions

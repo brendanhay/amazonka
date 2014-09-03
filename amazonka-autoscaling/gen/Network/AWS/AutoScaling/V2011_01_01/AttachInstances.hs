@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,14 +21,26 @@
 -- group. After the instance(s) is attached, it becomes a part of the Auto
 -- Scaling group. For more information, see Attach Amazon EC2 Instances to
 -- Your Existing Auto Scaling Group in the Auto Scaling Developer Guide.
-module Network.AWS.AutoScaling.V2011_01_01.AttachInstances where
+module Network.AWS.AutoScaling.V2011_01_01.AttachInstances
+    (
+    -- * Request
+      AttachInstances
+    -- ** Request constructor
+    , attachInstances
+    -- ** Request lenses
+    , aiqAutoScalingGroupName
+    , aiqInstanceIds
+
+    -- * Response
+    , AttachInstancesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AttachInstances' request.
-attachInstances :: Text -- ^ '_aiqAutoScalingGroupName'
+attachInstances :: Text -- ^ 'aiqAutoScalingGroupName'
                 -> AttachInstances
 attachInstances p1 = AttachInstances
     { _aiqAutoScalingGroupName = p1
@@ -46,15 +57,37 @@ data AttachInstances = AttachInstances
       -- instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''AttachInstances
+-- | The name of the Auto Scaling group to which to attach the specified
+-- instance(s).
+aiqAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachInstances
+    -> f AttachInstances
+aiqAutoScalingGroupName f x =
+    (\y -> x { _aiqAutoScalingGroupName = y })
+       <$> f (_aiqAutoScalingGroupName x)
+{-# INLINE aiqAutoScalingGroupName #-}
+
+-- | One or more IDs of the Amazon EC2 instances to attach to the specified Auto
+-- Scaling group. You must specify at least one instance ID.
+aiqInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AttachInstances
+    -> f AttachInstances
+aiqInstanceIds f x =
+    (\y -> x { _aiqInstanceIds = y })
+       <$> f (_aiqInstanceIds x)
+{-# INLINE aiqInstanceIds #-}
 
 instance ToQuery AttachInstances where
     toQuery = genericQuery def
 
 data AttachInstancesResponse = AttachInstancesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AttachInstancesResponse
 
 instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling

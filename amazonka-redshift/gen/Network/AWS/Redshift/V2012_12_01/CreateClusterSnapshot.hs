@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,35 +29,95 @@
 -- creating manual 1.0 2013-01-23T01:08:29.142Z 2 dev 2013-01-22T19:23:59.368Z
 -- us-east-1c dw1.xlarge examplecluster adminuser
 -- 65baef14-64f9-11e2-bea9-49e0ce183f07.
-module Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot where
+module Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot
+    (
+    -- * Request
+      CreateClusterSnapshot
+    -- ** Request constructor
+    , createClusterSnapshot
+    -- ** Request lenses
+    , ccsnSnapshotIdentifier
+    , ccsnClusterIdentifier
+
+    -- * Response
+    , CreateClusterSnapshotResponse
+    -- ** Response lenses
+    , ssssssrSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateClusterSnapshot' request.
+createClusterSnapshot :: Text -- ^ 'ccsnSnapshotIdentifier'
+                      -> Text -- ^ 'ccsnClusterIdentifier'
+                      -> CreateClusterSnapshot
+createClusterSnapshot p1 p2 = CreateClusterSnapshot
+    { _ccsnSnapshotIdentifier = p1
+    , _ccsnClusterIdentifier = p2
+    }
+
 data CreateClusterSnapshot = CreateClusterSnapshot
-    { _ccsmClusterIdentifier :: Text
-      -- ^ The cluster identifier for which you want a snapshot.
-    , _ccsmSnapshotIdentifier :: Text
+    { _ccsnSnapshotIdentifier :: Text
       -- ^ A unique identifier for the snapshot that you are requesting.
       -- This identifier must be unique for all snapshots within the AWS
       -- account. Constraints: Cannot be null, empty, or blank Must
       -- contain from 1 to 255 alphanumeric characters or hyphens First
       -- character must be a letter Cannot end with a hyphen or contain
       -- two consecutive hyphens Example: my-snapshot-id.
+    , _ccsnClusterIdentifier :: Text
+      -- ^ The cluster identifier for which you want a snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''CreateClusterSnapshot
+-- | A unique identifier for the snapshot that you are requesting. This
+-- identifier must be unique for all snapshots within the AWS account.
+-- Constraints: Cannot be null, empty, or blank Must contain from 1 to 255
+-- alphanumeric characters or hyphens First character must be a letter Cannot
+-- end with a hyphen or contain two consecutive hyphens Example:
+-- my-snapshot-id.
+ccsnSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateClusterSnapshot
+    -> f CreateClusterSnapshot
+ccsnSnapshotIdentifier f x =
+    (\y -> x { _ccsnSnapshotIdentifier = y })
+       <$> f (_ccsnSnapshotIdentifier x)
+{-# INLINE ccsnSnapshotIdentifier #-}
+
+-- | The cluster identifier for which you want a snapshot.
+ccsnClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateClusterSnapshot
+    -> f CreateClusterSnapshot
+ccsnClusterIdentifier f x =
+    (\y -> x { _ccsnClusterIdentifier = y })
+       <$> f (_ccsnClusterIdentifier x)
+{-# INLINE ccsnClusterIdentifier #-}
 
 instance ToQuery CreateClusterSnapshot where
     toQuery = genericQuery def
 
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
-    { _ssssssssssssssssssssssssssrSnapshot :: Maybe Snapshot
+    { _ssssssrSnapshot :: Maybe Snapshot
       -- ^ Describes a snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''CreateClusterSnapshotResponse
+-- | Describes a snapshot.
+ssssssrSnapshot
+    :: Functor f
+    => (Maybe Snapshot
+    -> f (Maybe Snapshot))
+    -> CreateClusterSnapshotResponse
+    -> f CreateClusterSnapshotResponse
+ssssssrSnapshot f x =
+    (\y -> x { _ssssssrSnapshot = y })
+       <$> f (_ssssssrSnapshot x)
+{-# INLINE ssssssrSnapshot #-}
 
 instance FromXML CreateClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

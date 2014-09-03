@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,17 +21,29 @@
 -- action, an IAM user must have self-management enabled or an attached policy
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
+    (
+    -- * Request
+      DescribeMyUserProfile
+    -- ** Request constructor
+    , describeMyUserProfile
+    -- * Response
+    , DescribeMyUserProfileResponse
+    -- ** Response lenses
+    , dmuprUserProfile
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeMyUserProfile' request.
+describeMyUserProfile :: DescribeMyUserProfile
+describeMyUserProfile = DescribeMyUserProfile
+
 data DescribeMyUserProfile = DescribeMyUserProfile
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeMyUserProfile
 
 instance ToPath DescribeMyUserProfile
 
@@ -47,7 +58,17 @@ data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
       -- ^ A UserProfile object that describes the user's SSH information.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeMyUserProfileResponse
+-- | A UserProfile object that describes the user's SSH information.
+dmuprUserProfile
+    :: Functor f
+    => (Maybe SelfUserProfile
+    -> f (Maybe SelfUserProfile))
+    -> DescribeMyUserProfileResponse
+    -> f DescribeMyUserProfileResponse
+dmuprUserProfile f x =
+    (\y -> x { _dmuprUserProfile = y })
+       <$> f (_dmuprUserProfile x)
+{-# INLINE dmuprUserProfile #-}
 
 instance FromJSON DescribeMyUserProfileResponse
 

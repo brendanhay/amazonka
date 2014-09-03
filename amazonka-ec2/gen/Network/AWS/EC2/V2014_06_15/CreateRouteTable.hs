@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,16 +31,14 @@ module Network.AWS.EC2.V2014_06_15.CreateRouteTable
     (
     -- * Request
       CreateRouteTable
-    -- ** Default constructor
+    -- ** Request constructor
     , createRouteTable
-    -- ** Accessors and lenses
-    , _crtrVpcId
+    -- ** Request lenses
     , crtrVpcId
 
     -- * Response
     , CreateRouteTableResponse
-    -- ** Accessors and lenses
-    , _crtsRouteTable
+    -- ** Response lenses
     , crtsRouteTable
     ) where
 
@@ -57,8 +54,21 @@ createRouteTable p1 = CreateRouteTable
     }
 
 data CreateRouteTable = CreateRouteTable
+    { _crtrVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateRouteTable
+-- | The ID of the VPC.
+crtrVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateRouteTable
+    -> f CreateRouteTable
+crtrVpcId f x =
+    (\y -> x { _crtrVpcId = y })
+       <$> f (_crtrVpcId x)
+{-# INLINE crtrVpcId #-}
 
 instance ToQuery CreateRouteTable where
     toQuery = genericQuery def
@@ -68,7 +78,17 @@ data CreateRouteTableResponse = CreateRouteTableResponse
       -- ^ Information about the route table.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateRouteTableResponse
+-- | Information about the route table.
+crtsRouteTable
+    :: Functor f
+    => (Maybe RouteTable
+    -> f (Maybe RouteTable))
+    -> CreateRouteTableResponse
+    -> f CreateRouteTableResponse
+crtsRouteTable f x =
+    (\y -> x { _crtsRouteTable = y })
+       <$> f (_crtsRouteTable x)
+{-# INLINE crtsRouteTable #-}
 
 instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions
@@ -79,9 +99,3 @@ instance AWSRequest CreateRouteTable where
 
     request = post "CreateRouteTable"
     response _ = xmlResponse
-
--- | The ID of the VPC.
-crtrVpcId :: Lens' CreateRouteTable (Text)
-
--- | Information about the route table.
-crtsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,28 +32,42 @@
 -- &Timestamp=2011-05-11T18%3A09%3A29.793Z &AWSAccessKeyId= &Signature=
 -- mysql5.1 My new DBParameterGroup mydbparametergroup3
 -- 0b447b66-bf36-11de-a88b-7b5b3d23b3a7.
-module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup where
+module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup
+    (
+    -- * Request
+      CreateDBParameterGroup
+    -- ** Request constructor
+    , createDBParameterGroup
+    -- ** Request lenses
+    , cdbpgmDBParameterGroupName
+    , cdbpgmDBParameterGroupFamily
+    , cdbpgmDescription
+    , cdbpgmTags
+
+    -- * Response
+    , CreateDBParameterGroupResponse
+    -- ** Response lenses
+    , dbpgwDBParameterGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBParameterGroup' request.
-createDBParameterGroup :: Text -- ^ '_cdbpgmDescription'
-                       -> Text -- ^ '_cdbpgmDBParameterGroupName'
-                       -> Text -- ^ '_cdbpgmDBParameterGroupFamily'
+createDBParameterGroup :: Text -- ^ 'cdbpgmDBParameterGroupName'
+                       -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
+                       -> Text -- ^ 'cdbpgmDescription'
                        -> CreateDBParameterGroup
 createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
-    { _cdbpgmDescription = p1
-    , _cdbpgmDBParameterGroupName = p2
-    , _cdbpgmDBParameterGroupFamily = p3
+    { _cdbpgmDBParameterGroupName = p1
+    , _cdbpgmDBParameterGroupFamily = p2
+    , _cdbpgmDescription = p3
     , _cdbpgmTags = mempty
     }
 
 data CreateDBParameterGroup = CreateDBParameterGroup
-    { _cdbpgmDescription :: Text
-      -- ^ The description for the DB parameter group.
-    , _cdbpgmDBParameterGroupName :: Text
+    { _cdbpgmDBParameterGroupName :: Text
       -- ^ The name of the DB parameter group. Constraints: Must be 1 to 255
       -- alphanumeric characters First character must be a letter Cannot
       -- end with a hyphen or contain two consecutive hyphens This value
@@ -65,11 +78,65 @@ data CreateDBParameterGroup = CreateDBParameterGroup
       -- can be applied only to a DB instance running a database engine
       -- and engine version compatible with that DB parameter group
       -- family.
+    , _cdbpgmDescription :: Text
+      -- ^ The description for the DB parameter group.
     , _cdbpgmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBParameterGroup
+-- | The name of the DB parameter group. Constraints: Must be 1 to 255
+-- alphanumeric characters First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens This value is stored as a
+-- lower-case string.
+cdbpgmDBParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBParameterGroup
+    -> f CreateDBParameterGroup
+cdbpgmDBParameterGroupName f x =
+    (\y -> x { _cdbpgmDBParameterGroupName = y })
+       <$> f (_cdbpgmDBParameterGroupName x)
+{-# INLINE cdbpgmDBParameterGroupName #-}
+
+-- | The DB parameter group family name. A DB parameter group can be associated
+-- with one and only one DB parameter group family, and can be applied only to
+-- a DB instance running a database engine and engine version compatible with
+-- that DB parameter group family.
+cdbpgmDBParameterGroupFamily
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBParameterGroup
+    -> f CreateDBParameterGroup
+cdbpgmDBParameterGroupFamily f x =
+    (\y -> x { _cdbpgmDBParameterGroupFamily = y })
+       <$> f (_cdbpgmDBParameterGroupFamily x)
+{-# INLINE cdbpgmDBParameterGroupFamily #-}
+
+-- | The description for the DB parameter group.
+cdbpgmDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBParameterGroup
+    -> f CreateDBParameterGroup
+cdbpgmDescription f x =
+    (\y -> x { _cdbpgmDescription = y })
+       <$> f (_cdbpgmDescription x)
+{-# INLINE cdbpgmDescription #-}
+
+-- | A list of tags.
+cdbpgmTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateDBParameterGroup
+    -> f CreateDBParameterGroup
+cdbpgmTags f x =
+    (\y -> x { _cdbpgmTags = y })
+       <$> f (_cdbpgmTags x)
+{-# INLINE cdbpgmTags #-}
 
 instance ToQuery CreateDBParameterGroup where
     toQuery = genericQuery def
@@ -82,7 +149,20 @@ data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
       -- response element in the DescribeDBParameterGroups action.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBParameterGroupResponse
+-- | Contains the result of a successful invocation of the
+-- CreateDBParameterGroup action. This data type is used as a request
+-- parameter in the DeleteDBParameterGroup action, and as a response element
+-- in the DescribeDBParameterGroups action.
+dbpgwDBParameterGroup
+    :: Functor f
+    => (Maybe DBParameterGroup
+    -> f (Maybe DBParameterGroup))
+    -> CreateDBParameterGroupResponse
+    -> f CreateDBParameterGroupResponse
+dbpgwDBParameterGroup f x =
+    (\y -> x { _dbpgwDBParameterGroup = y })
+       <$> f (_dbpgwDBParameterGroup x)
+{-# INLINE dbpgwDBParameterGroup #-}
 
 instance FromXML CreateDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,36 +25,68 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteSigningCertificate &UserName=Bob
 -- &CertificateId=TA7SMP42TDN5Z26OBPJE7EXAMPLE &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate where
+module Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
+    (
+    -- * Request
+      DeleteSigningCertificate
+    -- ** Request constructor
+    , deleteSigningCertificate
+    -- ** Request lenses
+    , dscsCertificateId
+    , dscsUserName
+
+    -- * Response
+    , DeleteSigningCertificateResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteSigningCertificate' request.
-deleteSigningCertificate :: Text -- ^ '_dscrCertificateId'
+deleteSigningCertificate :: Text -- ^ 'dscsCertificateId'
                          -> DeleteSigningCertificate
 deleteSigningCertificate p1 = DeleteSigningCertificate
-    { _dscrCertificateId = p1
-    , _dscrUserName = Nothing
+    { _dscsCertificateId = p1
+    , _dscsUserName = Nothing
     }
 
 data DeleteSigningCertificate = DeleteSigningCertificate
-    { _dscrCertificateId :: Text
+    { _dscsCertificateId :: Text
       -- ^ ID of the signing certificate to delete.
-    , _dscrUserName :: Maybe Text
+    , _dscsUserName :: Maybe Text
       -- ^ Name of the user the signing certificate belongs to.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteSigningCertificate
+-- | ID of the signing certificate to delete.
+dscsCertificateId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteSigningCertificate
+    -> f DeleteSigningCertificate
+dscsCertificateId f x =
+    (\y -> x { _dscsCertificateId = y })
+       <$> f (_dscsCertificateId x)
+{-# INLINE dscsCertificateId #-}
+
+-- | Name of the user the signing certificate belongs to.
+dscsUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteSigningCertificate
+    -> f DeleteSigningCertificate
+dscsUserName f x =
+    (\y -> x { _dscsUserName = y })
+       <$> f (_dscsUserName x)
+{-# INLINE dscsUserName #-}
 
 instance ToQuery DeleteSigningCertificate where
     toQuery = genericQuery def
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteSigningCertificateResponse
 
 instance AWSRequest DeleteSigningCertificate where
     type Sv DeleteSigningCertificate = IAM

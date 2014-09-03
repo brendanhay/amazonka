@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,12 +21,35 @@
 -- customer. After the virtual interface owner calls this function, the
 -- virtual interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
-module Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface where
+module Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
+    (
+    -- * Request
+      ConfirmPrivateVirtualInterface
+    -- ** Request constructor
+    , confirmPrivateVirtualInterface
+    -- ** Request lenses
+    , cpvirVirtualGatewayId
+    , cpvirVirtualInterfaceId
+
+    -- * Response
+    , ConfirmPrivateVirtualInterfaceResponse
+    -- ** Response lenses
+    , cpvisVirtualInterfaceState
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'ConfirmPrivateVirtualInterface' request.
+confirmPrivateVirtualInterface :: Text -- ^ 'cpvirVirtualGatewayId'
+                               -> Text -- ^ 'cpvirVirtualInterfaceId'
+                               -> ConfirmPrivateVirtualInterface
+confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
+    { _cpvirVirtualGatewayId = p1
+    , _cpvirVirtualInterfaceId = p2
+    }
 
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpvirVirtualGatewayId :: Text
@@ -40,7 +62,32 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
       -- None.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmPrivateVirtualInterface
+-- | ID of the virtual private gateway that will be attached to the virtual
+-- interface. A virtual private gateway can be managed via the Amazon Virtual
+-- Private Cloud (VPC) console or the EC2 CreateVpnGateway action. Default:
+-- None.
+cpvirVirtualGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmPrivateVirtualInterface
+    -> f ConfirmPrivateVirtualInterface
+cpvirVirtualGatewayId f x =
+    (\y -> x { _cpvirVirtualGatewayId = y })
+       <$> f (_cpvirVirtualGatewayId x)
+{-# INLINE cpvirVirtualGatewayId #-}
+
+-- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
+cpvirVirtualInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ConfirmPrivateVirtualInterface
+    -> f ConfirmPrivateVirtualInterface
+cpvirVirtualInterfaceId f x =
+    (\y -> x { _cpvirVirtualInterfaceId = y })
+       <$> f (_cpvirVirtualInterfaceId x)
+{-# INLINE cpvirVirtualInterfaceId #-}
 
 instance ToPath ConfirmPrivateVirtualInterface
 
@@ -73,7 +120,32 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
       -- state.
     } deriving (Show, Generic)
 
-makeLenses ''ConfirmPrivateVirtualInterfaceResponse
+-- | State of the virtual interface. Confirming: The creation of the virtual
+-- interface is pending confirmation from the virtual interface owner. If the
+-- owner of the virtual interface is different from the owner of the
+-- connection on which it is provisioned, then the virtual interface will
+-- remain in this state until it is confirmed by the virtual interface owner.
+-- Verifying: This state only applies to public virtual interfaces. Each
+-- public virtual interface needs validation before the virtual interface can
+-- be created. Pending: A virtual interface is in this state from the time
+-- that it is created until the virtual interface is ready to forward traffic.
+-- Available: A virtual interface that is able to forward traffic. Deleting: A
+-- virtual interface is in this state immediately after calling
+-- DeleteVirtualInterface until it can no longer forward traffic. Deleted: A
+-- virtual interface that cannot forward traffic. Rejected: The virtual
+-- interface owner has declined creation of the virtual interface. If a
+-- virtual interface in the 'Confirming' state is deleted by the virtual
+-- interface owner, the virtual interface will enter the 'Rejected' state.
+cpvisVirtualInterfaceState
+    :: Functor f
+    => (Maybe VirtualInterfaceState
+    -> f (Maybe VirtualInterfaceState))
+    -> ConfirmPrivateVirtualInterfaceResponse
+    -> f ConfirmPrivateVirtualInterfaceResponse
+cpvisVirtualInterfaceState f x =
+    (\y -> x { _cpvisVirtualInterfaceState = y })
+       <$> f (_cpvisVirtualInterfaceState x)
+{-# INLINE cpvisVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,14 +30,28 @@
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- http://&useast1-query;/123456789012/testQueue
 -- 470a6f13-2ed9-4181-ad8a-2fdea142988e.
-module Network.AWS.SQS.V2012_11_05.GetQueueUrl where
+module Network.AWS.SQS.V2012_11_05.GetQueueUrl
+    (
+    -- * Request
+      GetQueueUrl
+    -- ** Request constructor
+    , getQueueUrl
+    -- ** Request lenses
+    , gqurQueueName
+    , gqurQueueOwnerAWSAccountId
+
+    -- * Response
+    , GetQueueUrlResponse
+    -- ** Response lenses
+    , gqusQueueUrl
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'GetQueueUrl' request.
-getQueueUrl :: Text -- ^ '_gqurQueueName'
+getQueueUrl :: Text -- ^ 'gqurQueueName'
             -> GetQueueUrl
 getQueueUrl p1 = GetQueueUrl
     { _gqurQueueName = p1
@@ -54,7 +67,30 @@ data GetQueueUrl = GetQueueUrl
       -- ^ The AWS account ID of the account that created the queue.
     } deriving (Show, Generic)
 
-makeLenses ''GetQueueUrl
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters;
+-- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
+gqurQueueName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetQueueUrl
+    -> f GetQueueUrl
+gqurQueueName f x =
+    (\y -> x { _gqurQueueName = y })
+       <$> f (_gqurQueueName x)
+{-# INLINE gqurQueueName #-}
+
+-- | The AWS account ID of the account that created the queue.
+gqurQueueOwnerAWSAccountId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetQueueUrl
+    -> f GetQueueUrl
+gqurQueueOwnerAWSAccountId f x =
+    (\y -> x { _gqurQueueOwnerAWSAccountId = y })
+       <$> f (_gqurQueueOwnerAWSAccountId x)
+{-# INLINE gqurQueueOwnerAWSAccountId #-}
 
 instance ToQuery GetQueueUrl where
     toQuery = genericQuery def
@@ -64,7 +100,17 @@ data GetQueueUrlResponse = GetQueueUrlResponse
       -- ^ The URL for the queue.
     } deriving (Show, Generic)
 
-makeLenses ''GetQueueUrlResponse
+-- | The URL for the queue.
+gqusQueueUrl
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetQueueUrlResponse
+    -> f GetQueueUrlResponse
+gqusQueueUrl f x =
+    (\y -> x { _gqusQueueUrl = y })
+       <$> f (_gqusQueueUrl x)
+{-# INLINE gqusQueueUrl #-}
 
 instance FromXML GetQueueUrlResponse where
     fromXMLOptions = xmlOptions

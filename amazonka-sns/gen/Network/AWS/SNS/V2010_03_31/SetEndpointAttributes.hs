@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,11 +34,32 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;2fe0bfc7-3e85-5ee5-a9e2-f58b35e85f6a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetEndpointAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.SetEndpointAttributes where
+module Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
+    (
+    -- * Request
+      SetEndpointAttributes
+    -- ** Request constructor
+    , setEndpointAttributes
+    -- ** Request lenses
+    , seaiAttributes
+    , seaiEndpointArn
+
+    -- * Response
+    , SetEndpointAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SetEndpointAttributes' request.
+setEndpointAttributes :: Map Text Text -- ^ 'seaiAttributes'
+                      -> Text -- ^ 'seaiEndpointArn'
+                      -> SetEndpointAttributes
+setEndpointAttributes p1 p2 = SetEndpointAttributes
+    { _seaiAttributes = p1
+    , _seaiEndpointArn = p2
+    }
 
 data SetEndpointAttributes = SetEndpointAttributes
     { _seaiAttributes :: Map Text Text
@@ -58,15 +78,44 @@ data SetEndpointAttributes = SetEndpointAttributes
       -- ^ EndpointArn used for SetEndpointAttributes action.
     } deriving (Show, Generic)
 
-makeLenses ''SetEndpointAttributes
+-- | A map of the endpoint attributes. Attributes in this map include the
+-- following: CustomUserData -- arbitrary user data to associate with the
+-- endpoint. Amazon SNS does not use this data. The data must be in UTF-8
+-- format and less than 2KB. Enabled -- flag that enables/disables delivery to
+-- the endpoint. Amazon SNS will set this to false when a notification service
+-- indicates to Amazon SNS that the endpoint is invalid. Users can set it back
+-- to true, typically after updating Token. Token -- device token, also
+-- referred to as a registration id, for an app and mobile device. This is
+-- returned from the notification service when an app and mobile device are
+-- registered with the notification service.
+seaiAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> SetEndpointAttributes
+    -> f SetEndpointAttributes
+seaiAttributes f x =
+    (\y -> x { _seaiAttributes = y })
+       <$> f (_seaiAttributes x)
+{-# INLINE seaiAttributes #-}
+
+-- | EndpointArn used for SetEndpointAttributes action.
+seaiEndpointArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetEndpointAttributes
+    -> f SetEndpointAttributes
+seaiEndpointArn f x =
+    (\y -> x { _seaiEndpointArn = y })
+       <$> f (_seaiEndpointArn x)
+{-# INLINE seaiEndpointArn #-}
 
 instance ToQuery SetEndpointAttributes where
     toQuery = genericQuery def
 
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetEndpointAttributesResponse
 
 instance AWSRequest SetEndpointAttributes where
     type Sv SetEndpointAttributes = SNS

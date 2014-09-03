@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,22 +18,51 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the region the bucket resides in.
-module Network.AWS.S3.V2006_03_01.GetBucketLocation where
+module Network.AWS.S3.V2006_03_01.GetBucketLocation
+    (
+    -- * Request
+      GetBucketLocation
+    -- ** Request constructor
+    , getBucketLocation
+    -- ** Request lenses
+    , gblsBucket
+
+    -- * Response
+    , GetBucketLocationResponse
+    -- ** Response lenses
+    , gblpLocationConstraint
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketLocation' request.
+getBucketLocation :: BucketName -- ^ 'gblsBucket'
+                  -> GetBucketLocation
+getBucketLocation p1 = GetBucketLocation
+    { _gblsBucket = p1
+    }
+
 data GetBucketLocation = GetBucketLocation
-    { _gblrBucket :: BucketName
+    { _gblsBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketLocation
+gblsBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketLocation
+    -> f GetBucketLocation
+gblsBucket f x =
+    (\y -> x { _gblsBucket = y })
+       <$> f (_gblsBucket x)
+{-# INLINE gblsBucket #-}
 
 instance ToPath GetBucketLocation where
     toPath GetBucketLocation{..} = mconcat
         [ "/"
-        , toBS _gblrBucket
+        , toBS _gblsBucket
         ]
 
 instance ToQuery GetBucketLocation where
@@ -47,10 +75,19 @@ instance ToHeaders GetBucketLocation
 instance ToBody GetBucketLocation
 
 data GetBucketLocationResponse = GetBucketLocationResponse
-    { _gbloLocationConstraint :: Maybe BucketLocationConstraint
+    { _gblpLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketLocationResponse
+gblpLocationConstraint
+    :: Functor f
+    => (Maybe BucketLocationConstraint
+    -> f (Maybe BucketLocationConstraint))
+    -> GetBucketLocationResponse
+    -> f GetBucketLocationResponse
+gblpLocationConstraint f x =
+    (\y -> x { _gblpLocationConstraint = y })
+       <$> f (_gblpLocationConstraint x)
+{-# INLINE gblpLocationConstraint #-}
 
 instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions

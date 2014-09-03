@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,14 +34,28 @@
 -- Heavy Utilization 94608000 Hourly 0.21 12452.0 0.0 payment-pending
 -- dw1.8xlarge 2 1ba8e2e3-dacf-48d9-841f-cc675182a8a6
 -- fcb117cc-61b7-11e2-b6e9-87e586e4ca38.
-module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering where
+module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering
+    (
+    -- * Request
+      PurchaseReservedNodeOffering
+    -- ** Request constructor
+    , purchaseReservedNodeOffering
+    -- ** Request lenses
+    , prnomReservedNodeOfferingId
+    , prnomNodeCount
+
+    -- * Response
+    , PurchaseReservedNodeOfferingResponse
+    -- ** Response lenses
+    , rnwReservedNode
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PurchaseReservedNodeOffering' request.
-purchaseReservedNodeOffering :: Text -- ^ '_prnomReservedNodeOfferingId'
+purchaseReservedNodeOffering :: Text -- ^ 'prnomReservedNodeOfferingId'
                              -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
     { _prnomReservedNodeOfferingId = p1
@@ -57,7 +70,29 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
       -- ^ The number of reserved nodes you want to purchase. Default: 1.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedNodeOffering
+-- | The unique identifier of the reserved node offering you want to purchase.
+prnomReservedNodeOfferingId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PurchaseReservedNodeOffering
+    -> f PurchaseReservedNodeOffering
+prnomReservedNodeOfferingId f x =
+    (\y -> x { _prnomReservedNodeOfferingId = y })
+       <$> f (_prnomReservedNodeOfferingId x)
+{-# INLINE prnomReservedNodeOfferingId #-}
+
+-- | The number of reserved nodes you want to purchase. Default: 1.
+prnomNodeCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> PurchaseReservedNodeOffering
+    -> f PurchaseReservedNodeOffering
+prnomNodeCount f x =
+    (\y -> x { _prnomNodeCount = y })
+       <$> f (_prnomNodeCount x)
+{-# INLINE prnomNodeCount #-}
 
 instance ToQuery PurchaseReservedNodeOffering where
     toQuery = genericQuery def
@@ -67,7 +102,17 @@ data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
       -- ^ Describes a reserved node.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedNodeOfferingResponse
+-- | Describes a reserved node.
+rnwReservedNode
+    :: Functor f
+    => (Maybe ReservedNode
+    -> f (Maybe ReservedNode))
+    -> PurchaseReservedNodeOfferingResponse
+    -> f PurchaseReservedNodeOfferingResponse
+rnwReservedNode f x =
+    (\y -> x { _rnwReservedNode = y })
+       <$> f (_rnwReservedNode x)
+{-# INLINE rnwReservedNode #-}
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,12 +17,32 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway.V2013_06_30.DisableGateway where
+module Network.AWS.StorageGateway.V2013_06_30.DisableGateway
+    (
+    -- * Request
+      DisableGateway
+    -- ** Request constructor
+    , disableGateway
+    -- ** Request lenses
+    , dgjGatewayARN
+
+    -- * Response
+    , DisableGatewayResponse
+    -- ** Response lenses
+    , dgpGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DisableGateway' request.
+disableGateway :: Text -- ^ 'dgjGatewayARN'
+               -> DisableGateway
+disableGateway p1 = DisableGateway
+    { _dgjGatewayARN = p1
+    }
 
 data DisableGateway = DisableGateway
     { _dgjGatewayARN :: Text
@@ -32,7 +51,18 @@ data DisableGateway = DisableGateway
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DisableGateway
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dgjGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DisableGateway
+    -> f DisableGateway
+dgjGatewayARN f x =
+    (\y -> x { _dgjGatewayARN = y })
+       <$> f (_dgjGatewayARN x)
+{-# INLINE dgjGatewayARN #-}
 
 instance ToPath DisableGateway
 
@@ -49,7 +79,18 @@ data DisableGatewayResponse = DisableGatewayResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DisableGatewayResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dgpGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DisableGatewayResponse
+    -> f DisableGatewayResponse
+dgpGatewayARN f x =
+    (\y -> x { _dgpGatewayARN = y })
+       <$> f (_dgpGatewayARN x)
+{-# INLINE dgpGatewayARN #-}
 
 instance FromJSON DisableGatewayResponse
 

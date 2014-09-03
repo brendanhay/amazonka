@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,18 +43,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests
     (
     -- * Request
       DescribeSpotInstanceRequests
-    -- ** Default constructor
+    -- ** Request constructor
     , describeSpotInstanceRequests
-    -- ** Accessors and lenses
-    , _dsirrFilters
+    -- ** Request lenses
     , dsirrFilters
-    , _dsirrSpotInstanceRequestIds
     , dsirrSpotInstanceRequestIds
 
     -- * Response
     , DescribeSpotInstanceRequestsResponse
-    -- ** Accessors and lenses
-    , _dsirsSpotInstanceRequests
+    -- ** Response lenses
     , dsirsSpotInstanceRequests
     ) where
 
@@ -71,28 +67,70 @@ describeSpotInstanceRequests = DescribeSpotInstanceRequests
     }
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
-
-makeSiglessLenses ''DescribeSpotInstanceRequests
-
-instance ToQuery DescribeSpotInstanceRequests where
-    toQuery = genericQuery def
-
-data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
-    { _dsirsSpotInstanceRequests :: [SpotInstanceRequest]
-      -- ^ One or more Spot Instance requests.
+    { _dsirrFilters :: [Filter]
+      -- ^ One or more filters. availability-zone-group - The Availability
+      -- Zone group. create-time - The time stamp when the Spot Instance
+      -- request was created. fault-code - The fault code related to the
+      -- request. fault-message - The fault message related to the
+      -- request. instance-id - The ID of the instance that fulfilled the
+      -- request. launch-group - The Spot Instance launch group.
+      -- launch.block-device-mapping.delete-on-termination - Indicates
+      -- whether the Amazon EBS volume is deleted on instance termination.
+      -- launch.block-device-mapping.device-name - The device name for the
+      -- Amazon EBS volume (for example, /dev/sdh).
+      -- launch.block-device-mapping.snapshot-id - The ID of the snapshot
+      -- used for the Amazon EBS volume.
+      -- launch.block-device-mapping.volume-size - The size of the Amazon
+      -- EBS volume, in GiB. launch.block-device-mapping.volume-type - The
+      -- type of the Amazon EBS volume (gp2 | standard | io1).
+      -- launch.group-id - The security group for the instance.
+      -- launch.image-id - The ID of the AMI. launch.instance-type - The
+      -- type of instance (for example, m1.small). launch.kernel-id - The
+      -- kernel ID. launch.key-name - The name of the key pair the
+      -- instance launched with. launch.monitoring-enabled - Whether
+      -- monitoring is enabled for the Spot Instance. launch.ramdisk-id -
+      -- The RAM disk ID. launch.network-interface.network-interface-id -
+      -- The ID of the network interface.
+      -- launch.network-interface.device-index - The index of the device
+      -- for the network interface attachment on the instance.
+      -- launch.network-interface.subnet-id - The ID of the subnet for the
+      -- instance. launch.network-interface.description - A description of
+      -- the network interface.
+      -- launch.network-interface.private-ip-address - The primary private
+      -- IP address of the network interface.
+      -- launch.network-interface.delete-on-termination - Indicates
+      -- whether the network interface is deleted when the instance is
+      -- terminated. launch.network-interface.group-id - The ID of the
+      -- security group associated with the network interface.
+      -- launch.network-interface.group-name - The name of the security
+      -- group associated with the network interface.
+      -- launch.network-interface.addresses.primary - Indicates whether
+      -- the IP address is the primary private IP address.
+      -- product-description - The product description associated with the
+      -- instance (Linux/UNIX | Windows). spot-instance-request-id - The
+      -- Spot Instance request ID. spot-price - The maximum hourly price
+      -- for any Spot Instance launched to fulfill the request. state -
+      -- The state of the Spot Instance request (open | active | closed |
+      -- cancelled | failed). status-code - The short code describing the
+      -- most recent evaluation of your Spot Instance request.
+      -- status-message - The message explaining the status of the Spot
+      -- Instance request. tag:key=value - The key/value combination of a
+      -- tag assigned to the resource. tag-key - The key of a tag assigned
+      -- to the resource. This filter is independent of the tag-value
+      -- filter. For example, if you use both the filter "tag-key=Purpose"
+      -- and the filter "tag-value=X", you get any resources assigned both
+      -- the tag key Purpose (regardless of what the tag's value is), and
+      -- the tag value X (regardless of what the tag's key is). If you
+      -- want to list only resources where Purpose is X, see the
+      -- tag:key=value filter. tag-value - The value of a tag assigned to
+      -- the resource. This filter is independent of the tag-key filter.
+      -- type - The type of Spot Instance request (one-time | persistent).
+      -- launched-availability-zone - The Availability Zone in which the
+      -- bid is launched. valid-from - The start date of the request.
+      -- valid-until - The end date of the request.
+    , _dsirrSpotInstanceRequestIds :: [Text]
+      -- ^ One or more Spot Instance request IDs.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeSpotInstanceRequestsResponse
-
-instance FromXML DescribeSpotInstanceRequestsResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeSpotInstanceRequests where
-    type Sv DescribeSpotInstanceRequests = EC2
-    type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResponse
-
-    request = post "DescribeSpotInstanceRequests"
-    response _ = xmlResponse
 
 -- | One or more filters. availability-zone-group - The Availability Zone group.
 -- create-time - The time stamp when the Spot Instance request was created.
@@ -145,10 +183,55 @@ instance AWSRequest DescribeSpotInstanceRequests where
 -- launched-availability-zone - The Availability Zone in which the bid is
 -- launched. valid-from - The start date of the request. valid-until - The end
 -- date of the request.
-dsirrFilters :: Lens' DescribeSpotInstanceRequests ([Filter])
+dsirrFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeSpotInstanceRequests
+    -> f DescribeSpotInstanceRequests
+dsirrFilters f x =
+    (\y -> x { _dsirrFilters = y })
+       <$> f (_dsirrFilters x)
+{-# INLINE dsirrFilters #-}
 
 -- | One or more Spot Instance request IDs.
-dsirrSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests ([Text])
+dsirrSpotInstanceRequestIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeSpotInstanceRequests
+    -> f DescribeSpotInstanceRequests
+dsirrSpotInstanceRequestIds f x =
+    (\y -> x { _dsirrSpotInstanceRequestIds = y })
+       <$> f (_dsirrSpotInstanceRequestIds x)
+{-# INLINE dsirrSpotInstanceRequestIds #-}
+
+instance ToQuery DescribeSpotInstanceRequests where
+    toQuery = genericQuery def
+
+data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
+    { _dsirsSpotInstanceRequests :: [SpotInstanceRequest]
+      -- ^ One or more Spot Instance requests.
+    } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-dsirsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse ([SpotInstanceRequest])
+dsirsSpotInstanceRequests
+    :: Functor f
+    => ([SpotInstanceRequest]
+    -> f ([SpotInstanceRequest]))
+    -> DescribeSpotInstanceRequestsResponse
+    -> f DescribeSpotInstanceRequestsResponse
+dsirsSpotInstanceRequests f x =
+    (\y -> x { _dsirsSpotInstanceRequests = y })
+       <$> f (_dsirsSpotInstanceRequests x)
+{-# INLINE dsirsSpotInstanceRequests #-}
+
+instance FromXML DescribeSpotInstanceRequestsResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeSpotInstanceRequests where
+    type Sv DescribeSpotInstanceRequests = EC2
+    type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResponse
+
+    request = post "DescribeSpotInstanceRequests"
+    response _ = xmlResponse

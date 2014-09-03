@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,14 +18,27 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the cors configuration for a bucket.
-module Network.AWS.S3.V2006_03_01.PutBucketCors where
+module Network.AWS.S3.V2006_03_01.PutBucketCors
+    (
+    -- * Request
+      PutBucketCors
+    -- ** Request constructor
+    , putBucketCors
+    -- ** Request lenses
+    , pbcrBucket
+    , pbcrCORSConfiguration
+    , pbcrContentMD5
+
+    -- * Response
+    , PutBucketCorsResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketCors' request.
-putBucketCors :: BucketName -- ^ '_pbcrBucket'
+putBucketCors :: BucketName -- ^ 'pbcrBucket'
               -> PutBucketCors
 putBucketCors p1 = PutBucketCors
     { _pbcrBucket = p1
@@ -40,7 +52,38 @@ data PutBucketCors = PutBucketCors
     , _pbcrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketCors
+pbcrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketCors
+    -> f PutBucketCors
+pbcrBucket f x =
+    (\y -> x { _pbcrBucket = y })
+       <$> f (_pbcrBucket x)
+{-# INLINE pbcrBucket #-}
+
+pbcrCORSConfiguration
+    :: Functor f
+    => (Maybe CORSConfiguration
+    -> f (Maybe CORSConfiguration))
+    -> PutBucketCors
+    -> f PutBucketCors
+pbcrCORSConfiguration f x =
+    (\y -> x { _pbcrCORSConfiguration = y })
+       <$> f (_pbcrCORSConfiguration x)
+{-# INLINE pbcrCORSConfiguration #-}
+
+pbcrContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketCors
+    -> f PutBucketCors
+pbcrContentMD5 f x =
+    (\y -> x { _pbcrContentMD5 = y })
+       <$> f (_pbcrContentMD5 x)
+{-# INLINE pbcrContentMD5 #-}
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat
@@ -63,8 +106,6 @@ instance ToBody PutBucketCors where
 
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketCorsResponse
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3

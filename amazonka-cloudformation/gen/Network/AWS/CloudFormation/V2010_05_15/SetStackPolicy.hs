@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,14 +23,27 @@
 -- &Version=2010-05-15 &SignatureVersion=2
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
-module Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy where
+module Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
+    (
+    -- * Request
+      SetStackPolicy
+    -- ** Request constructor
+    , setStackPolicy
+    -- ** Request lenses
+    , sspiStackName
+    , sspiStackPolicyBody
+    , sspiStackPolicyURL
+
+    -- * Response
+    , SetStackPolicyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SetStackPolicy' request.
-setStackPolicy :: Text -- ^ '_sspiStackName'
+setStackPolicy :: Text -- ^ 'sspiStackName'
                -> SetStackPolicy
 setStackPolicy p1 = SetStackPolicy
     { _sspiStackName = p1
@@ -54,15 +66,53 @@ data SetStackPolicy = SetStackPolicy
       -- StackPolicyBody or the StackPolicyURL parameter, but not both.
     } deriving (Show, Generic)
 
-makeLenses ''SetStackPolicy
+-- | The name or stack ID that you want to associate a policy with.
+sspiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetStackPolicy
+    -> f SetStackPolicy
+sspiStackName f x =
+    (\y -> x { _sspiStackName = y })
+       <$> f (_sspiStackName x)
+{-# INLINE sspiStackName #-}
+
+-- | Structure containing the stack policy body. For more information, go to
+-- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
+-- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
+-- but not both.
+sspiStackPolicyBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetStackPolicy
+    -> f SetStackPolicy
+sspiStackPolicyBody f x =
+    (\y -> x { _sspiStackPolicyBody = y })
+       <$> f (_sspiStackPolicyBody x)
+{-# INLINE sspiStackPolicyBody #-}
+
+-- | Location of a file containing the stack policy. The URL must point to a
+-- policy (max size: 16KB) located in an S3 bucket in the same region as the
+-- stack. You can specify either the StackPolicyBody or the StackPolicyURL
+-- parameter, but not both.
+sspiStackPolicyURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetStackPolicy
+    -> f SetStackPolicy
+sspiStackPolicyURL f x =
+    (\y -> x { _sspiStackPolicyURL = y })
+       <$> f (_sspiStackPolicyURL x)
+{-# INLINE sspiStackPolicyURL #-}
 
 instance ToQuery SetStackPolicy where
     toQuery = genericQuery def
 
 data SetStackPolicyResponse = SetStackPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetStackPolicyResponse
 
 instance AWSRequest SetStackPolicy where
     type Sv SetStackPolicy = CloudFormation

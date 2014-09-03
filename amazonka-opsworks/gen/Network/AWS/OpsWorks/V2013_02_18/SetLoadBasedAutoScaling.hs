@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,7 +27,21 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling where
+module Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling
+    (
+    -- * Request
+      SetLoadBasedAutoScaling
+    -- ** Request constructor
+    , setLoadBasedAutoScaling
+    -- ** Request lenses
+    , slbasrLayerId
+    , slbasrUpScaling
+    , slbasrDownScaling
+    , slbasrEnable
+
+    -- * Response
+    , SetLoadBasedAutoScalingResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -36,33 +49,83 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'SetLoadBasedAutoScaling' request.
-setLoadBasedAutoScaling :: Text -- ^ '_slbasrLayerId'
+setLoadBasedAutoScaling :: Text -- ^ 'slbasrLayerId'
                         -> SetLoadBasedAutoScaling
 setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     { _slbasrLayerId = p1
-    , _slbasrDownScaling = Nothing
     , _slbasrUpScaling = Nothing
+    , _slbasrDownScaling = Nothing
     , _slbasrEnable = Nothing
     }
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     { _slbasrLayerId :: Text
       -- ^ The layer ID.
-    , _slbasrDownScaling :: Maybe AutoScalingThresholds
-      -- ^ An AutoScalingThresholds object with the downscaling threshold
-      -- configuration. If the load falls below these thresholds for a
-      -- specified amount of time, AWS OpsWorks stops a specified number
-      -- of instances.
     , _slbasrUpScaling :: Maybe AutoScalingThresholds
       -- ^ An AutoScalingThresholds object with the upscaling threshold
       -- configuration. If the load exceeds these thresholds for a
       -- specified amount of time, AWS OpsWorks starts a specified number
       -- of instances.
+    , _slbasrDownScaling :: Maybe AutoScalingThresholds
+      -- ^ An AutoScalingThresholds object with the downscaling threshold
+      -- configuration. If the load falls below these thresholds for a
+      -- specified amount of time, AWS OpsWorks stops a specified number
+      -- of instances.
     , _slbasrEnable :: Maybe Bool
       -- ^ Enables load-based auto scaling for the layer.
     } deriving (Show, Generic)
 
-makeLenses ''SetLoadBasedAutoScaling
+-- | The layer ID.
+slbasrLayerId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetLoadBasedAutoScaling
+    -> f SetLoadBasedAutoScaling
+slbasrLayerId f x =
+    (\y -> x { _slbasrLayerId = y })
+       <$> f (_slbasrLayerId x)
+{-# INLINE slbasrLayerId #-}
+
+-- | An AutoScalingThresholds object with the upscaling threshold configuration.
+-- If the load exceeds these thresholds for a specified amount of time, AWS
+-- OpsWorks starts a specified number of instances.
+slbasrUpScaling
+    :: Functor f
+    => (Maybe AutoScalingThresholds
+    -> f (Maybe AutoScalingThresholds))
+    -> SetLoadBasedAutoScaling
+    -> f SetLoadBasedAutoScaling
+slbasrUpScaling f x =
+    (\y -> x { _slbasrUpScaling = y })
+       <$> f (_slbasrUpScaling x)
+{-# INLINE slbasrUpScaling #-}
+
+-- | An AutoScalingThresholds object with the downscaling threshold
+-- configuration. If the load falls below these thresholds for a specified
+-- amount of time, AWS OpsWorks stops a specified number of instances.
+slbasrDownScaling
+    :: Functor f
+    => (Maybe AutoScalingThresholds
+    -> f (Maybe AutoScalingThresholds))
+    -> SetLoadBasedAutoScaling
+    -> f SetLoadBasedAutoScaling
+slbasrDownScaling f x =
+    (\y -> x { _slbasrDownScaling = y })
+       <$> f (_slbasrDownScaling x)
+{-# INLINE slbasrDownScaling #-}
+
+-- | Enables load-based auto scaling for the layer.
+slbasrEnable
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> SetLoadBasedAutoScaling
+    -> f SetLoadBasedAutoScaling
+slbasrEnable f x =
+    (\y -> x { _slbasrEnable = y })
+       <$> f (_slbasrEnable x)
+{-# INLINE slbasrEnable #-}
 
 instance ToPath SetLoadBasedAutoScaling
 
@@ -74,8 +137,6 @@ instance ToJSON SetLoadBasedAutoScaling
 
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetLoadBasedAutoScalingResponse
 
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks

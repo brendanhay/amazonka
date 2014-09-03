@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -41,7 +40,22 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- MyStack MyAutoScalingGroup MyStack_ASG1 AWS::AutoScalingGroup
 -- 2010-07-27T22:28:28Z CREATE_IN_PROGRESS.
-module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources where
+module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources
+    (
+    -- * Request
+      DescribeStackResources
+    -- ** Request constructor
+    , describeStackResources
+    -- ** Request lenses
+    , dsrjLogicalResourceId
+    , dsrjPhysicalResourceId
+    , dsrjStackName
+
+    -- * Response
+    , DescribeStackResourcesResponse
+    -- ** Response lenses
+    , dsrpStackResources
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
@@ -50,16 +64,16 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeStackResources' request.
 describeStackResources :: DescribeStackResources
 describeStackResources = DescribeStackResources
-    { _dsriLogicalResourceId = Nothing
-    , _dsriPhysicalResourceId = Nothing
-    , _dsriStackName = Nothing
+    { _dsrjLogicalResourceId = Nothing
+    , _dsrjPhysicalResourceId = Nothing
+    , _dsrjStackName = Nothing
     }
 
 data DescribeStackResources = DescribeStackResources
-    { _dsriLogicalResourceId :: Maybe Text
+    { _dsrjLogicalResourceId :: Maybe Text
       -- ^ The logical name of the resource as specified in the template.
       -- Default: There is no default value.
-    , _dsriPhysicalResourceId :: Maybe Text
+    , _dsrjPhysicalResourceId :: Maybe Text
       -- ^ The name or unique identifier that corresponds to a physical
       -- instance ID of a resource supported by AWS CloudFormation. For
       -- example, for an Amazon Elastic Compute Cloud (EC2) instance,
@@ -69,7 +83,7 @@ data DescribeStackResources = DescribeStackResources
       -- stack. Required: Conditional. If you do not specify
       -- PhysicalResourceId, you must specify StackName. Default: There is
       -- no default value.
-    , _dsriStackName :: Maybe Text
+    , _dsrjStackName :: Maybe Text
       -- ^ The name or the unique identifier associated with the stack,
       -- which are not always interchangeable: Running stacks: You can
       -- specify either the stack's name or its unique stack ID. Deleted
@@ -78,17 +92,73 @@ data DescribeStackResources = DescribeStackResources
       -- StackName, you must specify PhysicalResourceId.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStackResources
+-- | The logical name of the resource as specified in the template. Default:
+-- There is no default value.
+dsrjLogicalResourceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStackResources
+    -> f DescribeStackResources
+dsrjLogicalResourceId f x =
+    (\y -> x { _dsrjLogicalResourceId = y })
+       <$> f (_dsrjLogicalResourceId x)
+{-# INLINE dsrjLogicalResourceId #-}
+
+-- | The name or unique identifier that corresponds to a physical instance ID of
+-- a resource supported by AWS CloudFormation. For example, for an Amazon
+-- Elastic Compute Cloud (EC2) instance, PhysicalResourceId corresponds to the
+-- InstanceId. You can pass the EC2 InstanceId to DescribeStackResources to
+-- find which stack the instance belongs to and what other resources are part
+-- of the stack. Required: Conditional. If you do not specify
+-- PhysicalResourceId, you must specify StackName. Default: There is no
+-- default value.
+dsrjPhysicalResourceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStackResources
+    -> f DescribeStackResources
+dsrjPhysicalResourceId f x =
+    (\y -> x { _dsrjPhysicalResourceId = y })
+       <$> f (_dsrjPhysicalResourceId x)
+{-# INLINE dsrjPhysicalResourceId #-}
+
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value. Required: Conditional. If you
+-- do not specify StackName, you must specify PhysicalResourceId.
+dsrjStackName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStackResources
+    -> f DescribeStackResources
+dsrjStackName f x =
+    (\y -> x { _dsrjStackName = y })
+       <$> f (_dsrjStackName x)
+{-# INLINE dsrjStackName #-}
 
 instance ToQuery DescribeStackResources where
     toQuery = genericQuery def
 
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse
-    { _dsroStackResources :: [StackResource]
+    { _dsrpStackResources :: [StackResource]
       -- ^ A list of StackResource structures.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStackResourcesResponse
+-- | A list of StackResource structures.
+dsrpStackResources
+    :: Functor f
+    => ([StackResource]
+    -> f ([StackResource]))
+    -> DescribeStackResourcesResponse
+    -> f DescribeStackResourcesResponse
+dsrpStackResources f x =
+    (\y -> x { _dsrpStackResources = y })
+       <$> f (_dsrpStackResources x)
+{-# INLINE dsrpStackResources #-}
 
 instance FromXML DescribeStackResourcesResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,11 +29,35 @@
 -- record the lifecycle action heartbeat to keep the instance in a pending
 -- state. Complete the lifecycle action. To learn more, see Auto Scaling
 -- Pending State and Auto Scaling Terminating State.
-module Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat where
+module Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat
+    (
+    -- * Request
+      RecordLifecycleActionHeartbeat
+    -- ** Request constructor
+    , recordLifecycleActionHeartbeat
+    -- ** Request lenses
+    , rlahtLifecycleHookName
+    , rlahtLifecycleActionToken
+    , rlahtAutoScalingGroupName
+
+    -- * Response
+    , RecordLifecycleActionHeartbeatResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RecordLifecycleActionHeartbeat' request.
+recordLifecycleActionHeartbeat :: Text -- ^ 'rlahtLifecycleHookName'
+                               -> Text -- ^ 'rlahtLifecycleActionToken'
+                               -> Text -- ^ 'rlahtAutoScalingGroupName'
+                               -> RecordLifecycleActionHeartbeat
+recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
+    { _rlahtLifecycleHookName = p1
+    , _rlahtLifecycleActionToken = p2
+    , _rlahtAutoScalingGroupName = p3
+    }
 
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     { _rlahtLifecycleHookName :: Text
@@ -48,15 +71,49 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
       -- ^ The name of the Auto Scaling group to which the hook belongs.
     } deriving (Show, Generic)
 
-makeLenses ''RecordLifecycleActionHeartbeat
+-- | The name of the lifecycle hook.
+rlahtLifecycleHookName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RecordLifecycleActionHeartbeat
+    -> f RecordLifecycleActionHeartbeat
+rlahtLifecycleHookName f x =
+    (\y -> x { _rlahtLifecycleHookName = y })
+       <$> f (_rlahtLifecycleHookName x)
+{-# INLINE rlahtLifecycleHookName #-}
+
+-- | A token that uniquely identifies a specific lifecycle action associated
+-- with an instance. Auto Scaling sends this token to the notification target
+-- you specified when you created the lifecycle hook.
+rlahtLifecycleActionToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RecordLifecycleActionHeartbeat
+    -> f RecordLifecycleActionHeartbeat
+rlahtLifecycleActionToken f x =
+    (\y -> x { _rlahtLifecycleActionToken = y })
+       <$> f (_rlahtLifecycleActionToken x)
+{-# INLINE rlahtLifecycleActionToken #-}
+
+-- | The name of the Auto Scaling group to which the hook belongs.
+rlahtAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RecordLifecycleActionHeartbeat
+    -> f RecordLifecycleActionHeartbeat
+rlahtAutoScalingGroupName f x =
+    (\y -> x { _rlahtAutoScalingGroupName = y })
+       <$> f (_rlahtAutoScalingGroupName x)
+{-# INLINE rlahtAutoScalingGroupName #-}
 
 instance ToQuery RecordLifecycleActionHeartbeat where
     toQuery = genericQuery def
 
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RecordLifecycleActionHeartbeatResponse
 
 instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling

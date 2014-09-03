@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,10 @@ module Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute
     (
     -- * Request
       ResetSnapshotAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , resetSnapshotAttribute
-    -- ** Accessors and lenses
-    , _rsarAttribute
+    -- ** Request lenses
     , rsarAttribute
-    , _rsarSnapshotId
     , rsarSnapshotId
 
     -- * Response
@@ -59,8 +56,37 @@ resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     }
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
+    { _rsarAttribute :: SnapshotAttributeName
+      -- ^ The attribute to reset (currently only the attribute for
+      -- permission to create volumes can be reset).
+    , _rsarSnapshotId :: Text
+      -- ^ The ID of the snapshot.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ResetSnapshotAttribute
+-- | The attribute to reset (currently only the attribute for permission to
+-- create volumes can be reset).
+rsarAttribute
+    :: Functor f
+    => (SnapshotAttributeName
+    -> f (SnapshotAttributeName))
+    -> ResetSnapshotAttribute
+    -> f ResetSnapshotAttribute
+rsarAttribute f x =
+    (\y -> x { _rsarAttribute = y })
+       <$> f (_rsarAttribute x)
+{-# INLINE rsarAttribute #-}
+
+-- | The ID of the snapshot.
+rsarSnapshotId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResetSnapshotAttribute
+    -> f ResetSnapshotAttribute
+rsarSnapshotId f x =
+    (\y -> x { _rsarSnapshotId = y })
+       <$> f (_rsarSnapshotId x)
+{-# INLINE rsarSnapshotId #-}
 
 instance ToQuery ResetSnapshotAttribute where
     toQuery = genericQuery def
@@ -68,18 +94,9 @@ instance ToQuery ResetSnapshotAttribute where
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ResetSnapshotAttributeResponse
-
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
 
     request = post "ResetSnapshotAttribute"
     response _ = nullaryResponse ResetSnapshotAttributeResponse
-
--- | The attribute to reset (currently only the attribute for permission to
--- create volumes can be reset).
-rsarAttribute :: Lens' ResetSnapshotAttribute (SnapshotAttributeName)
-
--- | The ID of the snapshot.
-rsarSnapshotId :: Lens' ResetSnapshotAttribute (Text)

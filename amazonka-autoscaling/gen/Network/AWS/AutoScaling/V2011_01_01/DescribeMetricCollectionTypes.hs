@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,16 +26,29 @@
 -- 07f3fea2-bf3c-11e2-9b6f-f3cdbb80c073 The GroupStandbyInstances metric is
 -- not returned by default. You must explicitly request it when calling
 -- EnableMetricsCollection.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
+    (
+    -- * Request
+      DescribeMetricCollectionTypes
+    -- ** Request constructor
+    , describeMetricCollectionTypes
+    -- * Response
+    , DescribeMetricCollectionTypesResponse
+    -- ** Response lenses
+    , dmctaMetrics
+    , dmctaGranularities
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DescribeMetricCollectionTypes' request.
+describeMetricCollectionTypes :: DescribeMetricCollectionTypes
+describeMetricCollectionTypes = DescribeMetricCollectionTypes
+
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeMetricCollectionTypes
 
 instance ToQuery DescribeMetricCollectionTypes where
     toQuery = genericQuery def
@@ -54,7 +66,34 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
       -- ^ A list of granularities for the listed Metrics.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeMetricCollectionTypesResponse
+-- | The list of Metrics collected. The following metrics are supported:
+-- GroupMinSize GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
+-- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
+-- GroupTotalInstances The GroupStandbyInstances metric is not returned by
+-- default. You must explicitly request it when calling
+-- EnableMetricsCollection.
+dmctaMetrics
+    :: Functor f
+    => ([MetricCollectionType]
+    -> f ([MetricCollectionType]))
+    -> DescribeMetricCollectionTypesResponse
+    -> f DescribeMetricCollectionTypesResponse
+dmctaMetrics f x =
+    (\y -> x { _dmctaMetrics = y })
+       <$> f (_dmctaMetrics x)
+{-# INLINE dmctaMetrics #-}
+
+-- | A list of granularities for the listed Metrics.
+dmctaGranularities
+    :: Functor f
+    => ([MetricGranularityType]
+    -> f ([MetricGranularityType]))
+    -> DescribeMetricCollectionTypesResponse
+    -> f DescribeMetricCollectionTypesResponse
+dmctaGranularities f x =
+    (\y -> x { _dmctaGranularities = y })
+       <$> f (_dmctaGranularities x)
+{-# INLINE dmctaGranularities #-}
 
 instance FromXML DescribeMetricCollectionTypesResponse where
     fromXMLOptions = xmlOptions

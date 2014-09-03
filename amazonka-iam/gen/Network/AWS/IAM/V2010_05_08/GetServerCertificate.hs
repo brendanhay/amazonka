@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,11 +39,31 @@
 -- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE-----
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.GetServerCertificate where
+module Network.AWS.IAM.V2010_05_08.GetServerCertificate
+    (
+    -- * Request
+      GetServerCertificate
+    -- ** Request constructor
+    , getServerCertificate
+    -- ** Request lenses
+    , gscrServerCertificateName
+
+    -- * Response
+    , GetServerCertificateResponse
+    -- ** Response lenses
+    , gscsServerCertificate
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetServerCertificate' request.
+getServerCertificate :: Text -- ^ 'gscrServerCertificateName'
+                     -> GetServerCertificate
+getServerCertificate p1 = GetServerCertificate
+    { _gscrServerCertificateName = p1
+    }
 
 data GetServerCertificate = GetServerCertificate
     { _gscrServerCertificateName :: Text
@@ -52,7 +71,17 @@ data GetServerCertificate = GetServerCertificate
       -- information about.
     } deriving (Show, Generic)
 
-makeLenses ''GetServerCertificate
+-- | The name of the server certificate you want to retrieve information about.
+gscrServerCertificateName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetServerCertificate
+    -> f GetServerCertificate
+gscrServerCertificateName f x =
+    (\y -> x { _gscrServerCertificateName = y })
+       <$> f (_gscrServerCertificateName x)
+{-# INLINE gscrServerCertificateName #-}
 
 instance ToQuery GetServerCertificate where
     toQuery = genericQuery def
@@ -62,7 +91,17 @@ data GetServerCertificateResponse = GetServerCertificateResponse
       -- ^ Information about the server certificate.
     } deriving (Show, Generic)
 
-makeLenses ''GetServerCertificateResponse
+-- | Information about the server certificate.
+gscsServerCertificate
+    :: Functor f
+    => (ServerCertificate
+    -> f (ServerCertificate))
+    -> GetServerCertificateResponse
+    -> f GetServerCertificateResponse
+gscsServerCertificate f x =
+    (\y -> x { _gscsServerCertificate = y })
+       <$> f (_gscsServerCertificate x)
+{-# INLINE gscsServerCertificate #-}
 
 instance FromXML GetServerCertificateResponse where
     fromXMLOptions = xmlOptions

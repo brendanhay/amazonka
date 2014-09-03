@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,18 +36,48 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;057f074c-33a7-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes where
+module Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
+    (
+    -- * Request
+      GetSubscriptionAttributes
+    -- ** Request constructor
+    , getSubscriptionAttributes
+    -- ** Request lenses
+    , gsaiSubscriptionArn
+
+    -- * Response
+    , GetSubscriptionAttributesResponse
+    -- ** Response lenses
+    , gsarAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetSubscriptionAttributes' request.
+getSubscriptionAttributes :: Text -- ^ 'gsaiSubscriptionArn'
+                          -> GetSubscriptionAttributes
+getSubscriptionAttributes p1 = GetSubscriptionAttributes
+    { _gsaiSubscriptionArn = p1
+    }
 
 data GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaiSubscriptionArn :: Text
       -- ^ The ARN of the subscription whose properties you want to get.
     } deriving (Show, Generic)
 
-makeLenses ''GetSubscriptionAttributes
+-- | The ARN of the subscription whose properties you want to get.
+gsaiSubscriptionArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetSubscriptionAttributes
+    -> f GetSubscriptionAttributes
+gsaiSubscriptionArn f x =
+    (\y -> x { _gsaiSubscriptionArn = y })
+       <$> f (_gsaiSubscriptionArn x)
+{-# INLINE gsaiSubscriptionArn #-}
 
 instance ToQuery GetSubscriptionAttributes where
     toQuery = genericQuery def
@@ -67,7 +96,25 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
       -- delivery policy and account system defaults.
     } deriving (Show, Generic)
 
-makeLenses ''GetSubscriptionAttributesResponse
+-- | A map of the subscription's attributes. Attributes in this map include the
+-- following: SubscriptionArn -- the subscription's ARN TopicArn -- the topic
+-- ARN that the subscription is associated with Owner -- the AWS account ID of
+-- the subscription's owner ConfirmationWasAuthenticated -- true if the
+-- subscription confirmation request was authenticated DeliveryPolicy -- the
+-- JSON serialization of the subscription's delivery policy
+-- EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+-- policy that takes into account the topic delivery policy and account system
+-- defaults.
+gsarAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> GetSubscriptionAttributesResponse
+    -> f GetSubscriptionAttributesResponse
+gsarAttributes f x =
+    (\y -> x { _gsarAttributes = y })
+       <$> f (_gsarAttributes x)
+{-# INLINE gsarAttributes #-}
 
 instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions

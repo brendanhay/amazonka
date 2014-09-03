@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -93,7 +92,25 @@
 -- HealthyThreshold Scalar 3 10 aws:elb:healthcheck false RestartEnvironment
 -- 2000 SSLCertificateId Scalar aws:elb:loadbalancer
 -- e8768900-f272-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions
+    (
+    -- * Request
+      DescribeConfigurationOptions
+    -- ** Request constructor
+    , describeConfigurationOptions
+    -- ** Request lenses
+    , dcomApplicationName
+    , dcomTemplateName
+    , dcomEnvironmentName
+    , dcomOptions
+    , dcomSolutionStackName
+
+    -- * Response
+    , DescribeConfigurationOptionsResponse
+    -- ** Response lenses
+    , codOptions
+    , codSolutionStackName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -129,7 +146,70 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
       -- want to describe.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConfigurationOptions
+-- | The name of the application associated with the configuration template or
+-- environment. Only needed if you want to describe the configuration options
+-- associated with either the configuration template or environment.
+dcomApplicationName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationOptions
+    -> f DescribeConfigurationOptions
+dcomApplicationName f x =
+    (\y -> x { _dcomApplicationName = y })
+       <$> f (_dcomApplicationName x)
+{-# INLINE dcomApplicationName #-}
+
+-- | The name of the configuration template whose configuration options you want
+-- to describe.
+dcomTemplateName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationOptions
+    -> f DescribeConfigurationOptions
+dcomTemplateName f x =
+    (\y -> x { _dcomTemplateName = y })
+       <$> f (_dcomTemplateName x)
+{-# INLINE dcomTemplateName #-}
+
+-- | The name of the environment whose configuration options you want to
+-- describe.
+dcomEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationOptions
+    -> f DescribeConfigurationOptions
+dcomEnvironmentName f x =
+    (\y -> x { _dcomEnvironmentName = y })
+       <$> f (_dcomEnvironmentName x)
+{-# INLINE dcomEnvironmentName #-}
+
+-- | If specified, restricts the descriptions to only the specified options.
+dcomOptions
+    :: Functor f
+    => ([OptionSpecification]
+    -> f ([OptionSpecification]))
+    -> DescribeConfigurationOptions
+    -> f DescribeConfigurationOptions
+dcomOptions f x =
+    (\y -> x { _dcomOptions = y })
+       <$> f (_dcomOptions x)
+{-# INLINE dcomOptions #-}
+
+-- | The name of the solution stack whose configuration options you want to
+-- describe.
+dcomSolutionStackName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationOptions
+    -> f DescribeConfigurationOptions
+dcomSolutionStackName f x =
+    (\y -> x { _dcomSolutionStackName = y })
+       <$> f (_dcomSolutionStackName x)
+{-# INLINE dcomSolutionStackName #-}
 
 instance ToQuery DescribeConfigurationOptions where
     toQuery = genericQuery def
@@ -142,7 +222,29 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
       -- to.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConfigurationOptionsResponse
+-- | A list of ConfigurationOptionDescription.
+codOptions
+    :: Functor f
+    => ([ConfigurationOptionDescription]
+    -> f ([ConfigurationOptionDescription]))
+    -> DescribeConfigurationOptionsResponse
+    -> f DescribeConfigurationOptionsResponse
+codOptions f x =
+    (\y -> x { _codOptions = y })
+       <$> f (_codOptions x)
+{-# INLINE codOptions #-}
+
+-- | The name of the solution stack these configuration options belong to.
+codSolutionStackName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConfigurationOptionsResponse
+    -> f DescribeConfigurationOptionsResponse
+codSolutionStackName f x =
+    (\y -> x { _codSolutionStackName = y })
+       <$> f (_codSolutionStackName x)
+{-# INLINE codSolutionStackName #-}
 
 instance FromXML DescribeConfigurationOptionsResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,7 +17,23 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
+    (
+    -- * Request
+      DescribeTapeArchives
+    -- ** Request constructor
+    , describeTapeArchives
+    -- ** Request lenses
+    , dtajMarker
+    , dtajLimit
+    , dtajTapeARNs
+
+    -- * Response
+    , DescribeTapeArchivesResponse
+    -- ** Response lenses
+    , dtapMarker
+    , dtapTapeArchives
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -28,18 +43,49 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeTapeArchives' request.
 describeTapeArchives :: DescribeTapeArchives
 describeTapeArchives = DescribeTapeArchives
-    { _dtaiMarker = Nothing
-    , _dtaiLimit = Nothing
-    , _dtaiTapeARNs = mempty
+    { _dtajMarker = Nothing
+    , _dtajLimit = Nothing
+    , _dtajTapeARNs = mempty
     }
 
 data DescribeTapeArchives = DescribeTapeArchives
-    { _dtaiMarker :: Maybe Text
-    , _dtaiLimit :: Maybe Integer
-    , _dtaiTapeARNs :: [Text]
+    { _dtajMarker :: Maybe Text
+    , _dtajLimit :: Maybe Integer
+    , _dtajTapeARNs :: [Text]
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTapeArchives
+dtajMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTapeArchives
+    -> f DescribeTapeArchives
+dtajMarker f x =
+    (\y -> x { _dtajMarker = y })
+       <$> f (_dtajMarker x)
+{-# INLINE dtajMarker #-}
+
+dtajLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeTapeArchives
+    -> f DescribeTapeArchives
+dtajLimit f x =
+    (\y -> x { _dtajLimit = y })
+       <$> f (_dtajLimit x)
+{-# INLINE dtajLimit #-}
+
+dtajTapeARNs
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeTapeArchives
+    -> f DescribeTapeArchives
+dtajTapeARNs f x =
+    (\y -> x { _dtajTapeARNs = y })
+       <$> f (_dtajTapeARNs x)
+{-# INLINE dtajTapeARNs #-}
 
 instance ToPath DescribeTapeArchives
 
@@ -50,11 +96,31 @@ instance ToHeaders DescribeTapeArchives
 instance ToJSON DescribeTapeArchives
 
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
-    { _dtaoMarker :: Maybe Text
-    , _dtaoTapeArchives :: [TapeArchive]
+    { _dtapMarker :: Maybe Text
+    , _dtapTapeArchives :: [TapeArchive]
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTapeArchivesResponse
+dtapMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTapeArchivesResponse
+    -> f DescribeTapeArchivesResponse
+dtapMarker f x =
+    (\y -> x { _dtapMarker = y })
+       <$> f (_dtapMarker x)
+{-# INLINE dtapMarker #-}
+
+dtapTapeArchives
+    :: Functor f
+    => ([TapeArchive]
+    -> f ([TapeArchive]))
+    -> DescribeTapeArchivesResponse
+    -> f DescribeTapeArchivesResponse
+dtapTapeArchives f x =
+    (\y -> x { _dtapTapeArchives = y })
+       <$> f (_dtapTapeArchives x)
+{-# INLINE dtapTapeArchives #-}
 
 instance FromJSON DescribeTapeArchivesResponse
 
@@ -66,5 +132,5 @@ instance AWSRequest DescribeTapeArchives where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapeArchives where
-    next rq rs = (\x -> rq { _dtaiMarker = Just x })
-        <$> (_dtaoMarker rs)
+    next rq rs = (\x -> rq { _dtajMarker = Just x })
+        <$> (_dtapMarker rs)

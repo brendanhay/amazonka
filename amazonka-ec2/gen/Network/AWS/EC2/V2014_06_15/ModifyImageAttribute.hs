@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,26 +24,17 @@ module Network.AWS.EC2.V2014_06_15.ModifyImageAttribute
     (
     -- * Request
       ModifyImageAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , modifyImageAttribute
-    -- ** Accessors and lenses
-    , _miarImageId
+    -- ** Request lenses
     , miarImageId
-    , _miarDescription
     , miarDescription
-    , _miarLaunchPermission
     , miarLaunchPermission
-    , _miarProductCodes
     , miarProductCodes
-    , _miarUserGroups
     , miarUserGroups
-    , _miarUserIds
     , miarUserIds
-    , _miarAttribute
     , miarAttribute
-    , _miarOperationType
     , miarOperationType
-    , _miarValue
     , miarValue
 
     -- * Response
@@ -71,8 +61,142 @@ modifyImageAttribute p1 = ModifyImageAttribute
     }
 
 data ModifyImageAttribute = ModifyImageAttribute
+    { _miarImageId :: Text
+      -- ^ The ID of the AMI.
+    , _miarDescription :: Maybe AttributeValue
+      -- ^ A description for the AMI.
+    , _miarLaunchPermission :: Maybe LaunchPermissionModifications
+      -- ^ 
+    , _miarProductCodes :: [Text]
+      -- ^ One or more product codes. After you add a product code to an
+      -- AMI, it can't be removed. This is only valid when modifying the
+      -- productCodes attribute.
+    , _miarUserGroups :: [Text]
+      -- ^ One or more user groups. This is only valid when modifying the
+      -- launchPermission attribute.
+    , _miarUserIds :: [Text]
+      -- ^ One or more AWS account IDs. This is only valid when modifying
+      -- the launchPermission attribute.
+    , _miarAttribute :: Maybe Text
+      -- ^ The name of the attribute to modify.
+    , _miarOperationType :: Maybe Text
+      -- ^ The operation type.
+    , _miarValue :: Maybe Text
+      -- ^ The value of the attribute being modified. This is only valid
+      -- when modifying the description attribute.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ModifyImageAttribute
+-- | The ID of the AMI.
+miarImageId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarImageId f x =
+    (\y -> x { _miarImageId = y })
+       <$> f (_miarImageId x)
+{-# INLINE miarImageId #-}
+
+-- | A description for the AMI.
+miarDescription
+    :: Functor f
+    => (Maybe AttributeValue
+    -> f (Maybe AttributeValue))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarDescription f x =
+    (\y -> x { _miarDescription = y })
+       <$> f (_miarDescription x)
+{-# INLINE miarDescription #-}
+
+-- | 
+miarLaunchPermission
+    :: Functor f
+    => (Maybe LaunchPermissionModifications
+    -> f (Maybe LaunchPermissionModifications))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarLaunchPermission f x =
+    (\y -> x { _miarLaunchPermission = y })
+       <$> f (_miarLaunchPermission x)
+{-# INLINE miarLaunchPermission #-}
+
+-- | One or more product codes. After you add a product code to an AMI, it can't
+-- be removed. This is only valid when modifying the productCodes attribute.
+miarProductCodes
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarProductCodes f x =
+    (\y -> x { _miarProductCodes = y })
+       <$> f (_miarProductCodes x)
+{-# INLINE miarProductCodes #-}
+
+-- | One or more user groups. This is only valid when modifying the
+-- launchPermission attribute.
+miarUserGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarUserGroups f x =
+    (\y -> x { _miarUserGroups = y })
+       <$> f (_miarUserGroups x)
+{-# INLINE miarUserGroups #-}
+
+-- | One or more AWS account IDs. This is only valid when modifying the
+-- launchPermission attribute.
+miarUserIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarUserIds f x =
+    (\y -> x { _miarUserIds = y })
+       <$> f (_miarUserIds x)
+{-# INLINE miarUserIds #-}
+
+-- | The name of the attribute to modify.
+miarAttribute
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarAttribute f x =
+    (\y -> x { _miarAttribute = y })
+       <$> f (_miarAttribute x)
+{-# INLINE miarAttribute #-}
+
+-- | The operation type.
+miarOperationType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarOperationType f x =
+    (\y -> x { _miarOperationType = y })
+       <$> f (_miarOperationType x)
+{-# INLINE miarOperationType #-}
+
+-- | The value of the attribute being modified. This is only valid when
+-- modifying the description attribute.
+miarValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyImageAttribute
+    -> f ModifyImageAttribute
+miarValue f x =
+    (\y -> x { _miarValue = y })
+       <$> f (_miarValue x)
+{-# INLINE miarValue #-}
 
 instance ToQuery ModifyImageAttribute where
     toQuery = genericQuery def
@@ -80,42 +204,9 @@ instance ToQuery ModifyImageAttribute where
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ModifyImageAttributeResponse
-
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse
 
     request = post "ModifyImageAttribute"
     response _ = nullaryResponse ModifyImageAttributeResponse
-
--- | The ID of the AMI.
-miarImageId :: Lens' ModifyImageAttribute (Text)
-
--- | A description for the AMI.
-miarDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
-
--- | 
-miarLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
-
--- | One or more product codes. After you add a product code to an AMI, it can't
--- be removed. This is only valid when modifying the productCodes attribute.
-miarProductCodes :: Lens' ModifyImageAttribute ([Text])
-
--- | One or more user groups. This is only valid when modifying the
--- launchPermission attribute.
-miarUserGroups :: Lens' ModifyImageAttribute ([Text])
-
--- | One or more AWS account IDs. This is only valid when modifying the
--- launchPermission attribute.
-miarUserIds :: Lens' ModifyImageAttribute ([Text])
-
--- | The name of the attribute to modify.
-miarAttribute :: Lens' ModifyImageAttribute (Maybe Text)
-
--- | The operation type.
-miarOperationType :: Lens' ModifyImageAttribute (Maybe Text)
-
--- | The value of the attribute being modified. This is only valid when
--- modifying the description attribute.
-miarValue :: Lens' ModifyImageAttribute (Maybe Text)

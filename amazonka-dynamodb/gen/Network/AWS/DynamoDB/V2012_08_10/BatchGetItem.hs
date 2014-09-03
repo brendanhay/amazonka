@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -54,7 +53,23 @@
 -- a single data item at a time? Are there any limits?" } } ] },
 -- "UnprocessedKeys": { }, "ConsumedCapacity": [ { "TableName": "Forum",
 -- "CapacityUnits": 3 }, { "TableName": "Thread", "CapacityUnits": 1 } ] }.
-module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem where
+module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
+    (
+    -- * Request
+      BatchGetItem
+    -- ** Request constructor
+    , batchGetItem
+    -- ** Request lenses
+    , bgiiRequestItems
+    , bgiiReturnConsumedCapacity
+
+    -- * Response
+    , BatchGetItemResponse
+    -- ** Response lenses
+    , bgioUnprocessedKeys
+    , bgioResponses
+    , bgioConsumedCapacity
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -62,7 +77,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'BatchGetItem' request.
-batchGetItem :: Map Text KeysAndAttributes -- ^ '_bgiiRequestItems'
+batchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiiRequestItems'
              -> BatchGetItem
 batchGetItem p1 = BatchGetItem
     { _bgiiRequestItems = p1
@@ -88,7 +103,40 @@ data BatchGetItem = BatchGetItem
       -- ConsumedCapacity is not included in the response.
     } deriving (Show, Generic)
 
-makeLenses ''BatchGetItem
+-- | A map of one or more table names and, for each table, the corresponding
+-- primary keys for the items to retrieve. Each table name can be invoked only
+-- once. Each element in the map consists of the following: Keys - An array of
+-- primary key attribute values that define specific items in the table.
+-- AttributesToGet - One or more attributes to be retrieved from the table. By
+-- default, all attributes are returned. If a specified attribute is not
+-- found, it does not appear in the result. ConsistentRead - If true, a
+-- strongly consistent read is used; if false (the default), an eventually
+-- consistent read is used.
+bgiiRequestItems
+    :: Functor f
+    => (Map Text KeysAndAttributes
+    -> f (Map Text KeysAndAttributes))
+    -> BatchGetItem
+    -> f BatchGetItem
+bgiiRequestItems f x =
+    (\y -> x { _bgiiRequestItems = y })
+       <$> f (_bgiiRequestItems x)
+{-# INLINE bgiiRequestItems #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+bgiiReturnConsumedCapacity
+    :: Functor f
+    => (Maybe ReturnConsumedCapacity
+    -> f (Maybe ReturnConsumedCapacity))
+    -> BatchGetItem
+    -> f BatchGetItem
+bgiiReturnConsumedCapacity f x =
+    (\y -> x { _bgiiReturnConsumedCapacity = y })
+       <$> f (_bgiiReturnConsumedCapacity x)
+{-# INLINE bgiiReturnConsumedCapacity #-}
 
 instance ToPath BatchGetItem
 
@@ -124,7 +172,55 @@ data BatchGetItemResponse = BatchGetItemResponse
       -- consumed.
     } deriving (Show, Generic)
 
-makeLenses ''BatchGetItemResponse
+-- | A map of tables and their respective keys that were not processed with the
+-- current response. The UnprocessedKeys value is in the same form as
+-- RequestItems, so the value can be provided directly to a subsequent
+-- BatchGetItem operation. For more information, see RequestItems in the
+-- Request Parameters section. Each element consists of: Keys - An array of
+-- primary key attribute values that define specific items in the table.
+-- AttributesToGet - One or more attributes to be retrieved from the table or
+-- index. By default, all attributes are returned. If a specified attribute is
+-- not found, it does not appear in the result. ConsistentRead - The
+-- consistency of a read operation. If set to true, then a strongly consistent
+-- read is used; otherwise, an eventually consistent read is used.
+bgioUnprocessedKeys
+    :: Functor f
+    => (Map Text KeysAndAttributes
+    -> f (Map Text KeysAndAttributes))
+    -> BatchGetItemResponse
+    -> f BatchGetItemResponse
+bgioUnprocessedKeys f x =
+    (\y -> x { _bgioUnprocessedKeys = y })
+       <$> f (_bgioUnprocessedKeys x)
+{-# INLINE bgioUnprocessedKeys #-}
+
+-- | A map of table name to a list of items. Each object in Responses consists
+-- of a table name, along with a map of attribute data consisting of the data
+-- type and attribute value.
+bgioResponses
+    :: Functor f
+    => (Map Text [Map Text AttributeValue]
+    -> f (Map Text [Map Text AttributeValue]))
+    -> BatchGetItemResponse
+    -> f BatchGetItemResponse
+bgioResponses f x =
+    (\y -> x { _bgioResponses = y })
+       <$> f (_bgioResponses x)
+{-# INLINE bgioResponses #-}
+
+-- | The write capacity units consumed by the operation. Each element consists
+-- of: TableName - The table that consumed the provisioned throughput.
+-- CapacityUnits - The total number of capacity units consumed.
+bgioConsumedCapacity
+    :: Functor f
+    => ([ConsumedCapacity]
+    -> f ([ConsumedCapacity]))
+    -> BatchGetItemResponse
+    -> f BatchGetItemResponse
+bgioConsumedCapacity f x =
+    (\y -> x { _bgioConsumedCapacity = y })
+       <$> f (_bgioConsumedCapacity x)
+{-# INLINE bgioConsumedCapacity #-}
 
 instance FromJSON BatchGetItemResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,14 +20,27 @@
 -- | Changes the password for the specified user. https://iam.amazonaws.com/
 -- ?Action=UpdateLoginProfile &UserName=Bob &Password=NewPassword &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.UpdateLoginProfile where
+module Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
+    (
+    -- * Request
+      UpdateLoginProfile
+    -- ** Request constructor
+    , updateLoginProfile
+    -- ** Request lenses
+    , ulprUserName
+    , ulprPasswordResetRequired
+    , ulprPassword
+
+    -- * Response
+    , UpdateLoginProfileResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateLoginProfile' request.
-updateLoginProfile :: Text -- ^ '_ulprUserName'
+updateLoginProfile :: Text -- ^ 'ulprUserName'
                    -> UpdateLoginProfile
 updateLoginProfile p1 = UpdateLoginProfile
     { _ulprUserName = p1
@@ -45,15 +57,47 @@ data UpdateLoginProfile = UpdateLoginProfile
       -- ^ The new password for the specified user.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateLoginProfile
+-- | Name of the user whose password you want to update.
+ulprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateLoginProfile
+    -> f UpdateLoginProfile
+ulprUserName f x =
+    (\y -> x { _ulprUserName = y })
+       <$> f (_ulprUserName x)
+{-# INLINE ulprUserName #-}
+
+-- | Require the specified user to set a new password on next sign-in.
+ulprPasswordResetRequired
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateLoginProfile
+    -> f UpdateLoginProfile
+ulprPasswordResetRequired f x =
+    (\y -> x { _ulprPasswordResetRequired = y })
+       <$> f (_ulprPasswordResetRequired x)
+{-# INLINE ulprPasswordResetRequired #-}
+
+-- | The new password for the specified user.
+ulprPassword
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateLoginProfile
+    -> f UpdateLoginProfile
+ulprPassword f x =
+    (\y -> x { _ulprPassword = y })
+       <$> f (_ulprPassword x)
+{-# INLINE ulprPassword #-}
 
 instance ToQuery UpdateLoginProfile where
     toQuery = genericQuery def
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateLoginProfileResponse
 
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM

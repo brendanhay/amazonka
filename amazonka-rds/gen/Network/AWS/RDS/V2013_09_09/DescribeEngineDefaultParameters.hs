@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,14 +31,29 @@
 -- engine-default true Determines the starting point for the AUTO_INCREMENT
 -- column value dynamic 1-65535 auto_increment_offset
 -- 6c1341eb-a124-11df-bf5c-973b09643c5d.
-module Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters where
+module Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters
+    (
+    -- * Request
+      DescribeEngineDefaultParameters
+    -- ** Request constructor
+    , describeEngineDefaultParameters
+    -- ** Request lenses
+    , dedpmDBParameterGroupFamily
+    , dedpmMaxRecords
+    , dedpmMarker
+
+    -- * Response
+    , DescribeEngineDefaultParametersResponse
+    -- ** Response lenses
+    , edwEngineDefaults
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeEngineDefaultParameters' request.
-describeEngineDefaultParameters :: Text -- ^ '_dedpmDBParameterGroupFamily'
+describeEngineDefaultParameters :: Text -- ^ 'dedpmDBParameterGroupFamily'
                                 -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     { _dedpmDBParameterGroupFamily = p1
@@ -63,7 +77,47 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
       -- up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEngineDefaultParameters
+-- | The name of the DB parameter group family.
+dedpmDBParameterGroupFamily
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeEngineDefaultParameters
+    -> f DescribeEngineDefaultParameters
+dedpmDBParameterGroupFamily f x =
+    (\y -> x { _dedpmDBParameterGroupFamily = y })
+       <$> f (_dedpmDBParameterGroupFamily x)
+{-# INLINE dedpmDBParameterGroupFamily #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a pagination token called a
+-- marker is included in the response so that the remaining results may be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+dedpmMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEngineDefaultParameters
+    -> f DescribeEngineDefaultParameters
+dedpmMaxRecords f x =
+    (\y -> x { _dedpmMaxRecords = y })
+       <$> f (_dedpmMaxRecords x)
+{-# INLINE dedpmMaxRecords #-}
+
+-- | An optional pagination token provided by a previous
+-- DescribeEngineDefaultParameters request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+dedpmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEngineDefaultParameters
+    -> f DescribeEngineDefaultParameters
+dedpmMarker f x =
+    (\y -> x { _dedpmMarker = y })
+       <$> f (_dedpmMarker x)
+{-# INLINE dedpmMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
@@ -74,7 +128,18 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
       -- DescribeEngineDefaultParameters action.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEngineDefaultParametersResponse
+-- | Contains the result of a successful invocation of the
+-- DescribeEngineDefaultParameters action.
+edwEngineDefaults
+    :: Functor f
+    => (EngineDefaults
+    -> f (EngineDefaults))
+    -> DescribeEngineDefaultParametersResponse
+    -> f DescribeEngineDefaultParametersResponse
+edwEngineDefaults f x =
+    (\y -> x { _edwEngineDefaults = y })
+       <$> f (_edwEngineDefaults x)
+{-# INLINE edwEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions

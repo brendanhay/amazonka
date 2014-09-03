@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,12 +45,10 @@ module Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions
     (
     -- * Request
       AssociateDhcpOptions
-    -- ** Default constructor
+    -- ** Request constructor
     , associateDhcpOptions
-    -- ** Accessors and lenses
-    , _adorDhcpOptionsId
+    -- ** Request lenses
     , adorDhcpOptionsId
-    , _adorVpcId
     , adorVpcId
 
     -- * Response
@@ -72,8 +69,37 @@ associateDhcpOptions p1 p2 = AssociateDhcpOptions
     }
 
 data AssociateDhcpOptions = AssociateDhcpOptions
+    { _adorDhcpOptionsId :: Text
+      -- ^ The ID of the DHCP options set, or default to associate no DHCP
+      -- options with the VPC.
+    , _adorVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AssociateDhcpOptions
+-- | The ID of the DHCP options set, or default to associate no DHCP options
+-- with the VPC.
+adorDhcpOptionsId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssociateDhcpOptions
+    -> f AssociateDhcpOptions
+adorDhcpOptionsId f x =
+    (\y -> x { _adorDhcpOptionsId = y })
+       <$> f (_adorDhcpOptionsId x)
+{-# INLINE adorDhcpOptionsId #-}
+
+-- | The ID of the VPC.
+adorVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssociateDhcpOptions
+    -> f AssociateDhcpOptions
+adorVpcId f x =
+    (\y -> x { _adorVpcId = y })
+       <$> f (_adorVpcId x)
+{-# INLINE adorVpcId #-}
 
 instance ToQuery AssociateDhcpOptions where
     toQuery = genericQuery def
@@ -81,18 +107,9 @@ instance ToQuery AssociateDhcpOptions where
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''AssociateDhcpOptionsResponse
-
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
 
     request = post "AssociateDhcpOptions"
     response _ = nullaryResponse AssociateDhcpOptionsResponse
-
--- | The ID of the DHCP options set, or default to associate no DHCP options
--- with the VPC.
-adorDhcpOptionsId :: Lens' AssociateDhcpOptions (Text)
-
--- | The ID of the VPC.
-adorVpcId :: Lens' AssociateDhcpOptions (Text)

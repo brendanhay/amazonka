@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,18 +32,48 @@
 -- &Timestamp=2012-05-12T05%3A27%3A54.000Z &Version=2010-12-01 domain.com
 -- Pending QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0= user@domain.com
 -- Pending 1d0c29f1-9bf3-11e1-8ee7-c98a0037a2b6.
-module Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes where
+module Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes
+    (
+    -- * Request
+      GetIdentityVerificationAttributes
+    -- ** Request constructor
+    , getIdentityVerificationAttributes
+    -- ** Request lenses
+    , givarIdentities
+
+    -- * Response
+    , GetIdentityVerificationAttributesResponse
+    -- ** Response lenses
+    , givasVerificationAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetIdentityVerificationAttributes' request.
+getIdentityVerificationAttributes :: [Text] -- ^ 'givarIdentities'
+                                  -> GetIdentityVerificationAttributes
+getIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
+    { _givarIdentities = p1
+    }
 
 data GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givarIdentities :: [Text]
       -- ^ A list of identities.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdentityVerificationAttributes
+-- | A list of identities.
+givarIdentities
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> GetIdentityVerificationAttributes
+    -> f GetIdentityVerificationAttributes
+givarIdentities f x =
+    (\y -> x { _givarIdentities = y })
+       <$> f (_givarIdentities x)
+{-# INLINE givarIdentities #-}
 
 instance ToQuery GetIdentityVerificationAttributes where
     toQuery = genericQuery def
@@ -54,7 +83,17 @@ data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttribut
       -- ^ A map of Identities to IdentityVerificationAttributes objects.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdentityVerificationAttributesResponse
+-- | A map of Identities to IdentityVerificationAttributes objects.
+givasVerificationAttributes
+    :: Functor f
+    => (Map Text IdentityVerificationAttributes
+    -> f (Map Text IdentityVerificationAttributes))
+    -> GetIdentityVerificationAttributesResponse
+    -> f GetIdentityVerificationAttributesResponse
+givasVerificationAttributes f x =
+    (\y -> x { _givasVerificationAttributes = y })
+       <$> f (_givasVerificationAttributes x)
+{-# INLINE givasVerificationAttributes #-}
 
 instance FromXML GetIdentityVerificationAttributesResponse where
     fromXMLOptions = xmlOptions

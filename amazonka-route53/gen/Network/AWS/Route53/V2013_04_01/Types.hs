@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,8 +24,132 @@
 -- (Amazon S3). You can also use Amazon Route 53 to route users to your
 -- infrastructure outside of AWS.
 module Network.AWS.Route53.V2013_04_01.Types
-    ( module Network.AWS.Route53.V2013_04_01.Types
+    (
+    -- * Service
+      Route53
+    -- ** Errors
+    , Er (..)
+
+    -- * ChangeAction
+    , ChangeAction (..)
+
+    -- * ChangeStatus
+    , ChangeStatus (..)
+
+    -- * Failover
+    , Failover (..)
+
+    -- * HealthCheckType
+    , HealthCheckType (..)
+
+    -- * TagResourceType
+    , TagResourceType (..)
+
+    -- * DelegationSet
+    , DelegationSet (..)
+    , dsNameServers
+
+    -- * HostedZoneConfig
+    , HostedZoneConfig (..)
+    , hzcComment
+
+    -- * ResourceRecord
+    , ResourceRecord (..)
+    , rsValue
+
+    -- * AliasTarget
+    , AliasTarget (..)
+    , atHostedZoneId
+    , atDNSName
+    , atEvaluateTargetHealth
+
+    -- * Change
+    , Change (..)
+    , dAction
+    , dResourceRecordSet
+
+    -- * ChangeBatch
+    , ChangeBatch (..)
+    , cbComment
+    , cbChanges
+
+    -- * ChangeInfo
+    , ChangeInfo (..)
+    , ciId
+    , ciStatus
+    , ciSubmittedAt
+    , ciComment
+
+    -- * GeoLocation
+    , GeoLocation (..)
+    , glContinentCode
+    , glCountryCode
+    , glSubdivisionCode
+
+    -- * GeoLocationDetails
+    , GeoLocationDetails (..)
+    , gldContinentCode
+    , gldContinentName
+    , gldCountryCode
+    , gldCountryName
+    , gldSubdivisionCode
+    , gldSubdivisionName
+
+    -- * HealthCheck
+    , HealthCheck (..)
+    , hcId
+    , hcCallerReference
+    , hcHealthCheckConfig
+    , hcHealthCheckVersion
+
+    -- * HealthCheckConfig
+    , HealthCheckConfig (..)
+    , hccIPAddress
+    , hccPort
+    , hccType
+    , hccResourcePath
+    , hccFullyQualifiedDomainName
+    , hccSearchString
+    , hccRequestInterval
+    , hccFailureThreshold
+
+    -- * HostedZone
+    , HostedZone (..)
+    , hzId
+    , hzName
+    , hzCallerReference
+    , hzConfig
+    , hzResourceRecordSetCount
+
+    -- * ResourceRecordSet
+    , ResourceRecordSet (..)
+    , rrsName
+    , rrsType
+    , rrsSetIdentifier
+    , rrsWeight
+    , rrsRegion
+    , rrsGeoLocation
+    , rrsFailover
+    , rrsTTL
+    , rrsResourceRecords
+    , rrsAliasTarget
+    , rrsHealthCheckId
+
+    -- * ResourceTagSet
+    , ResourceTagSet (..)
+    , rtsResourceType
+    , rtsResourceId
+    , rtsTags
+
+    -- * Tag
+    , Tag (..)
+    , tKey
+    , tValue
+
+
+    -- * Common
     , module Network.AWS.Route53.Internal.Types
+
     ) where
 
 import           Network.AWS.Prelude
@@ -301,6 +424,20 @@ newtype DelegationSet = DelegationSet
       -- assigned to your hosted zone.
     } deriving (Show, Generic)
 
+-- | A complex type that contains the authoritative name servers for the hosted
+-- zone. Use the method provided by your domain registrar to add an NS record
+-- to your domain for each NameServer that is assigned to your hosted zone.
+dsNameServers
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DelegationSet
+    -> f DelegationSet
+dsNameServers f x =
+    (\y -> x { _dsNameServers = y })
+       <$> f (_dsNameServers x)
+{-# INLINE dsNameServers #-}
+
 instance FromXML DelegationSet where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DelegationSet"
@@ -312,6 +449,20 @@ newtype HostedZoneConfig = HostedZoneConfig
       -- specify a comment, you can omit the HostedZoneConfig and Comment
       -- elements from the XML document.
     } deriving (Show, Generic)
+
+-- | An optional comment about your hosted zone. If you don't want to specify a
+-- comment, you can omit the HostedZoneConfig and Comment elements from the
+-- XML document.
+hzcComment
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> HostedZoneConfig
+    -> f HostedZoneConfig
+hzcComment f x =
+    (\y -> x { _hzcComment = y })
+       <$> f (_hzcComment x)
+{-# INLINE hzcComment #-}
 
 instance FromXML HostedZoneConfig where
     fromXMLOptions = xmlOptions
@@ -329,6 +480,18 @@ newtype ResourceRecord = ResourceRecord
       -- set.
     } deriving (Show, Generic)
 
+-- | The value of the Value element for the current resource record set.
+rsValue
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResourceRecord
+    -> f ResourceRecord
+rsValue f x =
+    (\y -> x { _rsValue = y })
+       <$> f (_rsValue x)
+{-# INLINE rsValue #-}
+
 instance FromXML ResourceRecord where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResourceRecord"
@@ -340,7 +503,12 @@ instance ToXML ResourceRecord where
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 data AliasTarget = AliasTarget
-    { _atDNSName :: Text
+    { _atHostedZoneId :: Text
+      -- ^ Alias resource record sets only: The value of the hosted zone ID
+      -- for the AWS resource. For more information and an example, see
+      -- Creating Alias Resource Record Sets in the Amazon Route 53
+      -- Developer Guide.
+    , _atDNSName :: Text
       -- ^ Alias resource record sets only: The external DNS name associated
       -- with the AWS Resource. For more information and an example, see
       -- Creating Alias Resource Record Sets in the Amazon Route 53
@@ -352,12 +520,51 @@ data AliasTarget = AliasTarget
       -- which it is linked to. For more information and an example, see
       -- Creating Alias Resource Record Sets in the Amazon Route 53
       -- Developer Guide.
-    , _atHostedZoneId :: Text
-      -- ^ Alias resource record sets only: The value of the hosted zone ID
-      -- for the AWS resource. For more information and an example, see
-      -- Creating Alias Resource Record Sets in the Amazon Route 53
-      -- Developer Guide.
     } deriving (Show, Generic)
+
+-- | Alias resource record sets only: The value of the hosted zone ID for the
+-- AWS resource. For more information and an example, see Creating Alias
+-- Resource Record Sets in the Amazon Route 53 Developer Guide.
+atHostedZoneId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AliasTarget
+    -> f AliasTarget
+atHostedZoneId f x =
+    (\y -> x { _atHostedZoneId = y })
+       <$> f (_atHostedZoneId x)
+{-# INLINE atHostedZoneId #-}
+
+-- | Alias resource record sets only: The external DNS name associated with the
+-- AWS Resource. For more information and an example, see Creating Alias
+-- Resource Record Sets in the Amazon Route 53 Developer Guide.
+atDNSName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AliasTarget
+    -> f AliasTarget
+atDNSName f x =
+    (\y -> x { _atDNSName = y })
+       <$> f (_atDNSName x)
+{-# INLINE atDNSName #-}
+
+-- | Alias resource record sets only: A boolean value that indicates whether
+-- this Resource Record Set should respect the health status of any health
+-- checks associated with the ALIAS target record which it is linked to. For
+-- more information and an example, see Creating Alias Resource Record Sets in
+-- the Amazon Route 53 Developer Guide.
+atEvaluateTargetHealth
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> AliasTarget
+    -> f AliasTarget
+atEvaluateTargetHealth f x =
+    (\y -> x { _atEvaluateTargetHealth = y })
+       <$> f (_atEvaluateTargetHealth x)
+{-# INLINE atEvaluateTargetHealth #-}
 
 instance FromXML AliasTarget where
     fromXMLOptions = xmlOptions
@@ -370,11 +577,35 @@ instance ToXML AliasTarget where
 -- | A complex type that contains the information for each change in a change
 -- batch request.
 data Change = Change
-    { _dResourceRecordSet :: ResourceRecordSet
-      -- ^ Information about the resource record set to create or delete.
-    , _dAction :: ChangeAction
+    { _dAction :: ChangeAction
       -- ^ The action to perform. Valid values: CREATE | DELETE | UPSERT.
+    , _dResourceRecordSet :: ResourceRecordSet
+      -- ^ Information about the resource record set to create or delete.
     } deriving (Show, Generic)
+
+-- | The action to perform. Valid values: CREATE | DELETE | UPSERT.
+dAction
+    :: Functor f
+    => (ChangeAction
+    -> f (ChangeAction))
+    -> Change
+    -> f Change
+dAction f x =
+    (\y -> x { _dAction = y })
+       <$> f (_dAction x)
+{-# INLINE dAction #-}
+
+-- | Information about the resource record set to create or delete.
+dResourceRecordSet
+    :: Functor f
+    => (ResourceRecordSet
+    -> f (ResourceRecordSet))
+    -> Change
+    -> f Change
+dResourceRecordSet f x =
+    (\y -> x { _dResourceRecordSet = y })
+       <$> f (_dResourceRecordSet x)
+{-# INLINE dResourceRecordSet #-}
 
 instance ToXML Change where
     toXMLOptions = xmlOptions
@@ -390,33 +621,115 @@ data ChangeBatch = ChangeBatch
       -- record set that you want to create or delete.
     } deriving (Show, Generic)
 
+-- | Optional: Any comments you want to include about a change batch request.
+cbComment
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ChangeBatch
+    -> f ChangeBatch
+cbComment f x =
+    (\y -> x { _cbComment = y })
+       <$> f (_cbComment x)
+{-# INLINE cbComment #-}
+
+-- | A complex type that contains one Change element for each resource record
+-- set that you want to create or delete.
+cbChanges
+    :: Functor f
+    => ([Change]
+    -> f ([Change]))
+    -> ChangeBatch
+    -> f ChangeBatch
+cbChanges f x =
+    (\y -> x { _cbChanges = y })
+       <$> f (_cbChanges x)
+{-# INLINE cbChanges #-}
+
 instance ToXML ChangeBatch where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeBatch"
 
--- | A complex type that contains information about the specified change batch,
--- including the change batch ID, the status of the change, and the date and
--- time of the request.
+-- | A complex type that contains information about changes made to your hosted
+-- zone. This element contains an ID that you use when performing a GetChange
+-- action to get detailed information about the change.
 data ChangeInfo = ChangeInfo
-    { _ciComment :: Maybe Text
-      -- ^ A complex type that describes change information about changes
-      -- made to your hosted zone. This element contains an ID that you
-      -- use when performing a GetChange action to get detailed
-      -- information about the change.
-    , _ciId :: Text
+    { _ciId :: Text
       -- ^ The ID of the request. Use this ID to track when the change has
       -- completed across all Amazon Route 53 DNS servers.
+    , _ciStatus :: ChangeStatus
+      -- ^ The current state of the request. PENDING indicates that this
+      -- request has not yet been applied to all Amazon Route 53 DNS
+      -- servers. Valid Values: PENDING | INSYNC.
     , _ciSubmittedAt :: ISO8601
       -- ^ The date and time the change was submitted, in the format
       -- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for
       -- example, 2009-11-19T19:37:58Z). The Z after the time indicates
       -- that the time is listed in Coordinated Universal Time (UTC),
       -- which is synonymous with Greenwich Mean Time in this context.
-    , _ciStatus :: ChangeStatus
-      -- ^ The current state of the request. PENDING indicates that this
-      -- request has not yet been applied to all Amazon Route 53 DNS
-      -- servers. Valid Values: PENDING | INSYNC.
+    , _ciComment :: Maybe Text
+      -- ^ A complex type that describes change information about changes
+      -- made to your hosted zone. This element contains an ID that you
+      -- use when performing a GetChange action to get detailed
+      -- information about the change.
     } deriving (Show, Generic)
+
+-- | The ID of the request. Use this ID to track when the change has completed
+-- across all Amazon Route 53 DNS servers.
+ciId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ChangeInfo
+    -> f ChangeInfo
+ciId f x =
+    (\y -> x { _ciId = y })
+       <$> f (_ciId x)
+{-# INLINE ciId #-}
+
+-- | The current state of the request. PENDING indicates that this request has
+-- not yet been applied to all Amazon Route 53 DNS servers. Valid Values:
+-- PENDING | INSYNC.
+ciStatus
+    :: Functor f
+    => (ChangeStatus
+    -> f (ChangeStatus))
+    -> ChangeInfo
+    -> f ChangeInfo
+ciStatus f x =
+    (\y -> x { _ciStatus = y })
+       <$> f (_ciStatus x)
+{-# INLINE ciStatus #-}
+
+-- | The date and time the change was submitted, in the format
+-- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for example,
+-- 2009-11-19T19:37:58Z). The Z after the time indicates that the time is
+-- listed in Coordinated Universal Time (UTC), which is synonymous with
+-- Greenwich Mean Time in this context.
+ciSubmittedAt
+    :: Functor f
+    => (ISO8601
+    -> f (ISO8601))
+    -> ChangeInfo
+    -> f ChangeInfo
+ciSubmittedAt f x =
+    (\y -> x { _ciSubmittedAt = y })
+       <$> f (_ciSubmittedAt x)
+{-# INLINE ciSubmittedAt #-}
+
+-- | A complex type that describes change information about changes made to your
+-- hosted zone. This element contains an ID that you use when performing a
+-- GetChange action to get detailed information about the change.
+ciComment
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ChangeInfo
+    -> f ChangeInfo
+ciComment f x =
+    (\y -> x { _ciComment = y })
+       <$> f (_ciComment x)
+{-# INLINE ciComment #-}
 
 instance FromXML ChangeInfo where
     fromXMLOptions = xmlOptions
@@ -444,6 +757,51 @@ data GeoLocation = GeoLocation
       -- CountryCode returns an InvalidInput error.
     } deriving (Show, Generic)
 
+-- | The code for a continent geo location. Note: only continent locations have
+-- a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
+-- Constraint: Specifying ContinentCode with either CountryCode or
+-- SubdivisionCode returns an InvalidInput error.
+glContinentCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocation
+    -> f GeoLocation
+glContinentCode f x =
+    (\y -> x { _glContinentCode = y })
+       <$> f (_glContinentCode x)
+{-# INLINE glContinentCode #-}
+
+-- | The code for a country geo location. The default location uses '*' for the
+-- country code and will match all locations that are not matched by a geo
+-- location. The default geo location uses a * for the country code. All other
+-- country codes follow the ISO 3166 two-character code.
+glCountryCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocation
+    -> f GeoLocation
+glCountryCode f x =
+    (\y -> x { _glCountryCode = y })
+       <$> f (_glCountryCode x)
+{-# INLINE glCountryCode #-}
+
+-- | The code for a country's subdivision (e.g., a province of Canada). A
+-- subdivision code is only valid with the appropriate country code.
+-- Constraint: Specifying SubdivisionCode without CountryCode returns an
+-- InvalidInput error.
+glSubdivisionCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocation
+    -> f GeoLocation
+glSubdivisionCode f x =
+    (\y -> x { _glSubdivisionCode = y })
+       <$> f (_glSubdivisionCode x)
+{-# INLINE glSubdivisionCode #-}
+
 instance FromXML GeoLocation where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GeoLocation"
@@ -452,14 +810,15 @@ instance ToXML GeoLocation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GeoLocation"
 
--- | A complex type that contains information about a GeoLocation.
+-- | A complex type that contains the information about the specified geo
+-- location.
 data GeoLocationDetails = GeoLocationDetails
-    { _gldContinentName :: Maybe Text
-      -- ^ The name of the continent. This element is only present if
-      -- ContinentCode is also present.
-    , _gldContinentCode :: Maybe Text
+    { _gldContinentCode :: Maybe Text
       -- ^ The code for a continent geo location. Note: only continent
       -- locations have a continent code.
+    , _gldContinentName :: Maybe Text
+      -- ^ The name of the continent. This element is only present if
+      -- ContinentCode is also present.
     , _gldCountryCode :: Maybe Text
       -- ^ The code for a country geo location. The default location uses
       -- '*' for the country code and will match all locations that are
@@ -478,6 +837,86 @@ data GeoLocationDetails = GeoLocationDetails
       -- SubdivisionCode is also present.
     } deriving (Show, Generic)
 
+-- | The code for a continent geo location. Note: only continent locations have
+-- a continent code.
+gldContinentCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocationDetails
+    -> f GeoLocationDetails
+gldContinentCode f x =
+    (\y -> x { _gldContinentCode = y })
+       <$> f (_gldContinentCode x)
+{-# INLINE gldContinentCode #-}
+
+-- | The name of the continent. This element is only present if ContinentCode is
+-- also present.
+gldContinentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocationDetails
+    -> f GeoLocationDetails
+gldContinentName f x =
+    (\y -> x { _gldContinentName = y })
+       <$> f (_gldContinentName x)
+{-# INLINE gldContinentName #-}
+
+-- | The code for a country geo location. The default location uses '*' for the
+-- country code and will match all locations that are not matched by a geo
+-- location. The default geo location uses a * for the country code. All other
+-- country codes follow the ISO 3166 two-character code.
+gldCountryCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocationDetails
+    -> f GeoLocationDetails
+gldCountryCode f x =
+    (\y -> x { _gldCountryCode = y })
+       <$> f (_gldCountryCode x)
+{-# INLINE gldCountryCode #-}
+
+-- | The name of the country. This element is only present if CountryCode is
+-- also present.
+gldCountryName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocationDetails
+    -> f GeoLocationDetails
+gldCountryName f x =
+    (\y -> x { _gldCountryName = y })
+       <$> f (_gldCountryName x)
+{-# INLINE gldCountryName #-}
+
+-- | The code for a country's subdivision (e.g., a province of Canada). A
+-- subdivision code is only valid with the appropriate country code.
+gldSubdivisionCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocationDetails
+    -> f GeoLocationDetails
+gldSubdivisionCode f x =
+    (\y -> x { _gldSubdivisionCode = y })
+       <$> f (_gldSubdivisionCode x)
+{-# INLINE gldSubdivisionCode #-}
+
+-- | The name of the subdivision. This element is only present if
+-- SubdivisionCode is also present.
+gldSubdivisionName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GeoLocationDetails
+    -> f GeoLocationDetails
+gldSubdivisionName f x =
+    (\y -> x { _gldSubdivisionName = y })
+       <$> f (_gldSubdivisionName x)
+{-# INLINE gldSubdivisionName #-}
+
 instance FromXML GeoLocationDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GeoLocationDetails"
@@ -485,38 +924,82 @@ instance FromXML GeoLocationDetails where
 -- | A complex type that contains identifying information about the health
 -- check.
 data HealthCheck = HealthCheck
-    { _hcCallerReference :: Text
+    { _hcId :: Text
+      -- ^ The ID of the specified health check.
+    , _hcCallerReference :: Text
       -- ^ A unique string that identifies the request to create the health
       -- check.
+    , _hcHealthCheckConfig :: HealthCheckConfig
+      -- ^ A complex type that contains the health check configuration.
     , _hcHealthCheckVersion :: Integer
       -- ^ The version of the health check. You can optionally pass this
       -- value in a call to UpdateHealthCheck to prevent overwriting
       -- another change to the health check.
-    , _hcId :: Text
-      -- ^ The ID of the specified health check.
-    , _hcHealthCheckConfig :: HealthCheckConfig
-      -- ^ A complex type that contains the health check configuration.
     } deriving (Show, Generic)
+
+-- | The ID of the specified health check.
+hcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HealthCheck
+    -> f HealthCheck
+hcId f x =
+    (\y -> x { _hcId = y })
+       <$> f (_hcId x)
+{-# INLINE hcId #-}
+
+-- | A unique string that identifies the request to create the health check.
+hcCallerReference
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HealthCheck
+    -> f HealthCheck
+hcCallerReference f x =
+    (\y -> x { _hcCallerReference = y })
+       <$> f (_hcCallerReference x)
+{-# INLINE hcCallerReference #-}
+
+-- | A complex type that contains the health check configuration.
+hcHealthCheckConfig
+    :: Functor f
+    => (HealthCheckConfig
+    -> f (HealthCheckConfig))
+    -> HealthCheck
+    -> f HealthCheck
+hcHealthCheckConfig f x =
+    (\y -> x { _hcHealthCheckConfig = y })
+       <$> f (_hcHealthCheckConfig x)
+{-# INLINE hcHealthCheckConfig #-}
+
+-- | The version of the health check. You can optionally pass this value in a
+-- call to UpdateHealthCheck to prevent overwriting another change to the
+-- health check.
+hcHealthCheckVersion
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> HealthCheck
+    -> f HealthCheck
+hcHealthCheckVersion f x =
+    (\y -> x { _hcHealthCheckVersion = y })
+       <$> f (_hcHealthCheckVersion x)
+{-# INLINE hcHealthCheckVersion #-}
 
 instance FromXML HealthCheck where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HealthCheck"
 
--- | A complex type that contains the health check configuration.
+-- | A complex type that contains health check configuration.
 data HealthCheckConfig = HealthCheckConfig
-    { _hccPort :: Maybe Integer
+    { _hccIPAddress :: Maybe Text
+      -- ^ IP Address of the instance being checked.
+    , _hccPort :: Maybe Integer
       -- ^ Port on which connection will be opened to the instance to health
       -- check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the
       -- port is not specified. For HTTPS and HTTPS_STR_MATCH this
       -- defaults to 443 if the port is not specified.
-    , _hccRequestInterval :: Maybe Integer
-      -- ^ The number of seconds between the time that Route 53 gets a
-      -- response from your endpoint and the time that it sends the next
-      -- health-check request. Each Route 53 health checker makes requests
-      -- at this interval. Valid values are 10 and 30. The default value
-      -- is 30.
-    , _hccFullyQualifiedDomainName :: Maybe Text
-      -- ^ Fully qualified domain name of the instance to be health checked.
     , _hccType :: HealthCheckType
       -- ^ The type of health check to be performed. Currently supported
       -- types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
@@ -525,11 +1008,17 @@ data HealthCheckConfig = HealthCheckConfig
       -- HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks,
       -- HTTP request is issued to the instance on the given port and
       -- path.
+    , _hccFullyQualifiedDomainName :: Maybe Text
+      -- ^ Fully qualified domain name of the instance to be health checked.
     , _hccSearchString :: Maybe Text
       -- ^ A string to search for in the body of a health check response.
       -- Required for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
-    , _hccIPAddress :: Maybe Text
-      -- ^ IP Address of the instance being checked.
+    , _hccRequestInterval :: Maybe Integer
+      -- ^ The number of seconds between the time that Route 53 gets a
+      -- response from your endpoint and the time that it sends the next
+      -- health-check request. Each Route 53 health checker makes requests
+      -- at this interval. Valid values are 10 and 30. The default value
+      -- is 30.
     , _hccFailureThreshold :: Maybe Integer
       -- ^ The number of consecutive health checks that an endpoint must
       -- pass or fail for Route 53 to change the current status of the
@@ -538,6 +1027,116 @@ data HealthCheckConfig = HealthCheckConfig
       -- Amazon Route 53 Determines Whether an Endpoint Is Healthy" in the
       -- Amazon Route 53 Developer Guide.
     } deriving (Show, Generic)
+
+-- | IP Address of the instance being checked.
+hccIPAddress
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccIPAddress f x =
+    (\y -> x { _hccIPAddress = y })
+       <$> f (_hccIPAddress x)
+{-# INLINE hccIPAddress #-}
+
+-- | Port on which connection will be opened to the instance to health check.
+-- For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not
+-- specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port
+-- is not specified.
+hccPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccPort f x =
+    (\y -> x { _hccPort = y })
+       <$> f (_hccPort x)
+{-# INLINE hccPort #-}
+
+-- | The type of health check to be performed. Currently supported types are
+-- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
+hccType
+    :: Functor f
+    => (HealthCheckType
+    -> f (HealthCheckType))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccType f x =
+    (\y -> x { _hccType = y })
+       <$> f (_hccType x)
+{-# INLINE hccType #-}
+
+-- | Path to ping on the instance to check the health. Required for HTTP, HTTPS,
+-- HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is issued
+-- to the instance on the given port and path.
+hccResourcePath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccResourcePath f x =
+    (\y -> x { _hccResourcePath = y })
+       <$> f (_hccResourcePath x)
+{-# INLINE hccResourcePath #-}
+
+-- | Fully qualified domain name of the instance to be health checked.
+hccFullyQualifiedDomainName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccFullyQualifiedDomainName f x =
+    (\y -> x { _hccFullyQualifiedDomainName = y })
+       <$> f (_hccFullyQualifiedDomainName x)
+{-# INLINE hccFullyQualifiedDomainName #-}
+
+-- | A string to search for in the body of a health check response. Required for
+-- HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
+hccSearchString
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccSearchString f x =
+    (\y -> x { _hccSearchString = y })
+       <$> f (_hccSearchString x)
+{-# INLINE hccSearchString #-}
+
+-- | The number of seconds between the time that Route 53 gets a response from
+-- your endpoint and the time that it sends the next health-check request.
+-- Each Route 53 health checker makes requests at this interval. Valid values
+-- are 10 and 30. The default value is 30.
+hccRequestInterval
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccRequestInterval f x =
+    (\y -> x { _hccRequestInterval = y })
+       <$> f (_hccRequestInterval x)
+{-# INLINE hccRequestInterval #-}
+
+-- | The number of consecutive health checks that an endpoint must pass or fail
+-- for Route 53 to change the current status of the endpoint from unhealthy to
+-- healthy or vice versa. Valid values are integers between 1 and 10. For more
+-- information, see "How Amazon Route 53 Determines Whether an Endpoint Is
+-- Healthy" in the Amazon Route 53 Developer Guide.
+hccFailureThreshold
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> HealthCheckConfig
+    -> f HealthCheckConfig
+hccFailureThreshold f x =
+    (\y -> x { _hccFailureThreshold = y })
+       <$> f (_hccFailureThreshold x)
+{-# INLINE hccFailureThreshold #-}
 
 instance FromXML HealthCheckConfig where
     fromXMLOptions = xmlOptions
@@ -549,12 +1148,7 @@ instance ToXML HealthCheckConfig where
 
 -- | A complex type that contains identifying information about the hosted zone.
 data HostedZone = HostedZone
-    { _hzCallerReference :: Text
-      -- ^ A unique string that identifies the request to create the hosted
-      -- zone.
-    , _hzResourceRecordSetCount :: Maybe Integer
-      -- ^ Total number of resource record sets in the hosted zone.
-    , _hzId :: Text
+    { _hzId :: Text
       -- ^ The ID of the specified hosted zone.
     , _hzName :: Text
       -- ^ The name of the domain. This must be a fully-specified domain,
@@ -566,9 +1160,81 @@ data HostedZone = HostedZone
       -- your registrar to change the authoritative name servers for your
       -- domain to the set of NameServers elements returned in
       -- DelegationSet.
+    , _hzCallerReference :: Text
+      -- ^ A unique string that identifies the request to create the hosted
+      -- zone.
     , _hzConfig :: Maybe HostedZoneConfig
       -- ^ A complex type that contains the Comment element.
+    , _hzResourceRecordSetCount :: Maybe Integer
+      -- ^ Total number of resource record sets in the hosted zone.
     } deriving (Show, Generic)
+
+-- | The ID of the specified hosted zone.
+hzId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HostedZone
+    -> f HostedZone
+hzId f x =
+    (\y -> x { _hzId = y })
+       <$> f (_hzId x)
+{-# INLINE hzId #-}
+
+-- | The name of the domain. This must be a fully-specified domain, for example,
+-- www.example.com. The trailing dot is optional; Route 53 assumes that the
+-- domain name is fully qualified. This means that Route 53 treats
+-- www.example.com (without a trailing dot) and www.example.com. (with a
+-- trailing dot) as identical. This is the name you have registered with your
+-- DNS registrar. You should ask your registrar to change the authoritative
+-- name servers for your domain to the set of NameServers elements returned in
+-- DelegationSet.
+hzName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HostedZone
+    -> f HostedZone
+hzName f x =
+    (\y -> x { _hzName = y })
+       <$> f (_hzName x)
+{-# INLINE hzName #-}
+
+-- | A unique string that identifies the request to create the hosted zone.
+hzCallerReference
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> HostedZone
+    -> f HostedZone
+hzCallerReference f x =
+    (\y -> x { _hzCallerReference = y })
+       <$> f (_hzCallerReference x)
+{-# INLINE hzCallerReference #-}
+
+-- | A complex type that contains the Comment element.
+hzConfig
+    :: Functor f
+    => (Maybe HostedZoneConfig
+    -> f (Maybe HostedZoneConfig))
+    -> HostedZone
+    -> f HostedZone
+hzConfig f x =
+    (\y -> x { _hzConfig = y })
+       <$> f (_hzConfig x)
+{-# INLINE hzConfig #-}
+
+-- | Total number of resource record sets in the hosted zone.
+hzResourceRecordSetCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> HostedZone
+    -> f HostedZone
+hzResourceRecordSetCount f x =
+    (\y -> x { _hzResourceRecordSetCount = y })
+       <$> f (_hzResourceRecordSetCount x)
+{-# INLINE hzResourceRecordSetCount #-}
 
 instance FromXML HostedZone where
     fromXMLOptions = xmlOptions
@@ -576,24 +1242,29 @@ instance FromXML HostedZone where
 
 -- | Information about the resource record set to create or delete.
 data ResourceRecordSet = ResourceRecordSet
-    { _rrsGeoLocation :: Maybe GeoLocation
-      -- ^ Geo location resource record sets only: Among resource record
-      -- sets that have the same combination of DNS name and type, a value
-      -- that specifies the geo location for the current resource record
-      -- set.
+    { _rrsName :: Text
+      -- ^ The domain name of the current resource record set.
     , _rrsType :: RecordType
       -- ^ The type of the current resource record set.
+    , _rrsSetIdentifier :: Maybe Text
+      -- ^ Weighted, Latency, Geo, and Failover resource record sets only:
+      -- An identifier that differentiates among multiple resource record
+      -- sets that have the same combination of DNS name and type.
+    , _rrsWeight :: Maybe Integer
+      -- ^ Weighted resource record sets only: Among resource record sets
+      -- that have the same combination of DNS name and type, a value that
+      -- determines what portion of traffic for the current resource
+      -- record set is routed to the associated location.
     , _rrsRegion :: Maybe Region
       -- ^ Latency-based resource record sets only: Among resource record
       -- sets that have the same combination of DNS name and type, a value
       -- that specifies the AWS region for the current resource record
       -- set.
-    , _rrsHealthCheckId :: Maybe Text
-      -- ^ Health Check resource record sets only, not required for alias
-      -- resource record sets: An identifier that is used to identify
-      -- health check associated with the resource record set.
-    , _rrsName :: Text
-      -- ^ The domain name of the current resource record set.
+    , _rrsGeoLocation :: Maybe GeoLocation
+      -- ^ Geo location resource record sets only: Among resource record
+      -- sets that have the same combination of DNS name and type, a value
+      -- that specifies the geo location for the current resource record
+      -- set.
     , _rrsFailover :: Maybe Failover
       -- ^ Failover resource record sets only: Among resource record sets
       -- that have the same combination of DNS name and type, a value that
@@ -611,24 +1282,177 @@ data ResourceRecordSet = ResourceRecordSet
       -- health check and either the secondary is passing a health check
       -- or has no associated health check, or (2) there is no primary
       -- resource record set. Valid values: PRIMARY | SECONDARY.
-    , _rrsSetIdentifier :: Maybe Text
-      -- ^ Weighted, Latency, Geo, and Failover resource record sets only:
-      -- An identifier that differentiates among multiple resource record
-      -- sets that have the same combination of DNS name and type.
-    , _rrsWeight :: Maybe Integer
-      -- ^ Weighted resource record sets only: Among resource record sets
-      -- that have the same combination of DNS name and type, a value that
-      -- determines what portion of traffic for the current resource
-      -- record set is routed to the associated location.
-    , _rrsAliasTarget :: Maybe AliasTarget
-      -- ^ Alias resource record sets only: Information about the AWS
-      -- resource to which you are redirecting traffic.
+    , _rrsTTL :: Maybe Integer
+      -- ^ The cache time to live for the current resource record set.
     , _rrsResourceRecords :: [ResourceRecord]
       -- ^ A complex type that contains the resource records for the current
       -- resource record set.
-    , _rrsTTL :: Maybe Integer
-      -- ^ The cache time to live for the current resource record set.
+    , _rrsAliasTarget :: Maybe AliasTarget
+      -- ^ Alias resource record sets only: Information about the AWS
+      -- resource to which you are redirecting traffic.
+    , _rrsHealthCheckId :: Maybe Text
+      -- ^ Health Check resource record sets only, not required for alias
+      -- resource record sets: An identifier that is used to identify
+      -- health check associated with the resource record set.
     } deriving (Show, Generic)
+
+-- | The domain name of the current resource record set.
+rrsName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsName f x =
+    (\y -> x { _rrsName = y })
+       <$> f (_rrsName x)
+{-# INLINE rrsName #-}
+
+-- | The type of the current resource record set.
+rrsType
+    :: Functor f
+    => (RecordType
+    -> f (RecordType))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsType f x =
+    (\y -> x { _rrsType = y })
+       <$> f (_rrsType x)
+{-# INLINE rrsType #-}
+
+-- | Weighted, Latency, Geo, and Failover resource record sets only: An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of DNS name and type.
+rrsSetIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsSetIdentifier f x =
+    (\y -> x { _rrsSetIdentifier = y })
+       <$> f (_rrsSetIdentifier x)
+{-# INLINE rrsSetIdentifier #-}
+
+-- | Weighted resource record sets only: Among resource record sets that have
+-- the same combination of DNS name and type, a value that determines what
+-- portion of traffic for the current resource record set is routed to the
+-- associated location.
+rrsWeight
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsWeight f x =
+    (\y -> x { _rrsWeight = y })
+       <$> f (_rrsWeight x)
+{-# INLINE rrsWeight #-}
+
+-- | Latency-based resource record sets only: Among resource record sets that
+-- have the same combination of DNS name and type, a value that specifies the
+-- AWS region for the current resource record set.
+rrsRegion
+    :: Functor f
+    => (Maybe Region
+    -> f (Maybe Region))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsRegion f x =
+    (\y -> x { _rrsRegion = y })
+       <$> f (_rrsRegion x)
+{-# INLINE rrsRegion #-}
+
+-- | Geo location resource record sets only: Among resource record sets that
+-- have the same combination of DNS name and type, a value that specifies the
+-- geo location for the current resource record set.
+rrsGeoLocation
+    :: Functor f
+    => (Maybe GeoLocation
+    -> f (Maybe GeoLocation))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsGeoLocation f x =
+    (\y -> x { _rrsGeoLocation = y })
+       <$> f (_rrsGeoLocation x)
+{-# INLINE rrsGeoLocation #-}
+
+-- | Failover resource record sets only: Among resource record sets that have
+-- the same combination of DNS name and type, a value that indicates whether
+-- the current resource record set is a primary or secondary resource record
+-- set. A failover set may contain at most one resource record set marked as
+-- primary and one resource record set marked as secondary. A resource record
+-- set marked as primary will be returned if any of the following are true:
+-- (1) an associated health check is passing, (2) if the resource record set
+-- is an alias with the evaluate target health and at least one target
+-- resource record set is healthy, (3) both the primary and secondary resource
+-- record set are failing health checks or (4) there is no secondary resource
+-- record set. A secondary resource record set will be returned if: (1) the
+-- primary is failing a health check and either the secondary is passing a
+-- health check or has no associated health check, or (2) there is no primary
+-- resource record set. Valid values: PRIMARY | SECONDARY.
+rrsFailover
+    :: Functor f
+    => (Maybe Failover
+    -> f (Maybe Failover))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsFailover f x =
+    (\y -> x { _rrsFailover = y })
+       <$> f (_rrsFailover x)
+{-# INLINE rrsFailover #-}
+
+-- | The cache time to live for the current resource record set.
+rrsTTL
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsTTL f x =
+    (\y -> x { _rrsTTL = y })
+       <$> f (_rrsTTL x)
+{-# INLINE rrsTTL #-}
+
+-- | A complex type that contains the resource records for the current resource
+-- record set.
+rrsResourceRecords
+    :: Functor f
+    => ([ResourceRecord]
+    -> f ([ResourceRecord]))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsResourceRecords f x =
+    (\y -> x { _rrsResourceRecords = y })
+       <$> f (_rrsResourceRecords x)
+{-# INLINE rrsResourceRecords #-}
+
+-- | Alias resource record sets only: Information about the AWS resource to
+-- which you are redirecting traffic.
+rrsAliasTarget
+    :: Functor f
+    => (Maybe AliasTarget
+    -> f (Maybe AliasTarget))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsAliasTarget f x =
+    (\y -> x { _rrsAliasTarget = y })
+       <$> f (_rrsAliasTarget x)
+{-# INLINE rrsAliasTarget #-}
+
+-- | Health Check resource record sets only, not required for alias resource
+-- record sets: An identifier that is used to identify health check associated
+-- with the resource record set.
+rrsHealthCheckId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResourceRecordSet
+    -> f ResourceRecordSet
+rrsHealthCheckId f x =
+    (\y -> x { _rrsHealthCheckId = y })
+       <$> f (_rrsHealthCheckId x)
+{-# INLINE rrsHealthCheckId #-}
 
 instance FromXML ResourceRecordSet where
     fromXMLOptions = xmlOptions
@@ -640,14 +1464,51 @@ instance ToXML ResourceRecordSet where
 
 -- | A ResourceTagSet containing tags associated with the specified resource.
 data ResourceTagSet = ResourceTagSet
-    { _rtsTags :: Maybe [Tag]
-      -- ^ The tags associated with the specified resource.
-    , _rtsResourceType :: Maybe TagResourceType
+    { _rtsResourceType :: Maybe TagResourceType
       -- ^ The type of the resource. The resource type for health checks is
       -- healthcheck.
     , _rtsResourceId :: Maybe Text
       -- ^ The ID for the specified resource.
+    , _rtsTags :: Maybe [Tag]
+      -- ^ The tags associated with the specified resource.
     } deriving (Show, Generic)
+
+-- | The type of the resource. The resource type for health checks is
+-- healthcheck.
+rtsResourceType
+    :: Functor f
+    => (Maybe TagResourceType
+    -> f (Maybe TagResourceType))
+    -> ResourceTagSet
+    -> f ResourceTagSet
+rtsResourceType f x =
+    (\y -> x { _rtsResourceType = y })
+       <$> f (_rtsResourceType x)
+{-# INLINE rtsResourceType #-}
+
+-- | The ID for the specified resource.
+rtsResourceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResourceTagSet
+    -> f ResourceTagSet
+rtsResourceId f x =
+    (\y -> x { _rtsResourceId = y })
+       <$> f (_rtsResourceId x)
+{-# INLINE rtsResourceId #-}
+
+-- | The tags associated with the specified resource.
+rtsTags
+    :: Functor f
+    => (Maybe [Tag]
+    -> f (Maybe [Tag]))
+    -> ResourceTagSet
+    -> f ResourceTagSet
+rtsTags f x =
+    (\y -> x { _rtsTags = y })
+       <$> f (_rtsTags x)
+{-# INLINE rtsTags #-}
 
 instance FromXML ResourceTagSet where
     fromXMLOptions = xmlOptions
@@ -661,6 +1522,30 @@ data Tag = Tag
       -- ^ The value for a Tag.
     } deriving (Show, Generic)
 
+-- | The key for a Tag.
+tKey
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Tag
+    -> f Tag
+tKey f x =
+    (\y -> x { _tKey = y })
+       <$> f (_tKey x)
+{-# INLINE tKey #-}
+
+-- | The value for a Tag.
+tValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Tag
+    -> f Tag
+tValue f x =
+    (\y -> x { _tValue = y })
+       <$> f (_tValue x)
+{-# INLINE tValue #-}
+
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Tag"
@@ -668,19 +1553,3 @@ instance FromXML Tag where
 instance ToXML Tag where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tag"
-
-makeLenses ''DelegationSet
-makeLenses ''HostedZoneConfig
-makeLenses ''ResourceRecord
-makeLenses ''AliasTarget
-makeLenses ''Change
-makeLenses ''ChangeBatch
-makeLenses ''ChangeInfo
-makeLenses ''GeoLocation
-makeLenses ''GeoLocationDetails
-makeLenses ''HealthCheck
-makeLenses ''HealthCheckConfig
-makeLenses ''HostedZone
-makeLenses ''ResourceRecordSet
-makeLenses ''ResourceTagSet
-makeLenses ''Tag

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,16 +22,28 @@
 -- https://iam.amazonaws.com/ ?Action=GetAccountPasswordPolicy
 -- &Version=2010-05-08 &AUTHPARAMS 6, false false false false true
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy where
+module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
+    (
+    -- * Request
+      GetAccountPasswordPolicy
+    -- ** Request constructor
+    , getAccountPasswordPolicy
+    -- * Response
+    , GetAccountPasswordPolicyResponse
+    -- ** Response lenses
+    , gapprPasswordPolicy
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetAccountPasswordPolicy' request.
+getAccountPasswordPolicy :: GetAccountPasswordPolicy
+getAccountPasswordPolicy = GetAccountPasswordPolicy
+
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
     deriving (Eq, Show, Generic)
-
-makeLenses ''GetAccountPasswordPolicy
 
 instance ToQuery GetAccountPasswordPolicy where
     toQuery = genericQuery def
@@ -44,7 +55,19 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
       -- element in the action GetAccountPasswordPolicy.
     } deriving (Show, Generic)
 
-makeLenses ''GetAccountPasswordPolicyResponse
+-- | The PasswordPolicy data type contains information about the account
+-- password policy. This data type is used as a response element in the action
+-- GetAccountPasswordPolicy.
+gapprPasswordPolicy
+    :: Functor f
+    => (PasswordPolicy
+    -> f (PasswordPolicy))
+    -> GetAccountPasswordPolicyResponse
+    -> f GetAccountPasswordPolicyResponse
+gapprPasswordPolicy f x =
+    (\y -> x { _gapprPasswordPolicy = y })
+       <$> f (_gapprPasswordPolicy x)
+{-# INLINE gapprPasswordPolicy #-}
 
 instance FromXML GetAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions

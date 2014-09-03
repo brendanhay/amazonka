@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,7 +34,24 @@
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- 2012-05-09T15:45:45Z AROAC2ICXG32EXAMPLEWK
 -- 20f7279f-99ee-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.ListRoles where
+module Network.AWS.IAM.V2010_05_08.ListRoles
+    (
+    -- * Request
+      ListRoles
+    -- ** Request constructor
+    , listRoles
+    -- ** Request lenses
+    , lrrMarker
+    , lrrMaxItems
+    , lrrPathPrefix
+
+    -- * Response
+    , ListRolesResponse
+    -- ** Response lenses
+    , lrsIsTruncated
+    , lrsRoles
+    , lrsMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -69,7 +85,51 @@ data ListRoles = ListRoles
       -- listing all roles.
     } deriving (Show, Generic)
 
-makeLenses ''ListRoles
+-- | Use this parameter only when paginating results, and only in a subsequent
+-- request after you've received a response where the results are truncated.
+-- Set it to the value of the Marker element in the response you just
+-- received.
+lrrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListRoles
+    -> f ListRoles
+lrrMarker f x =
+    (\y -> x { _lrrMarker = y })
+       <$> f (_lrrMarker x)
+{-# INLINE lrrMarker #-}
+
+-- | Use this parameter only when paginating results to indicate the maximum
+-- number of user names you want in the response. If there are additional user
+-- names beyond the maximum you specify, the IsTruncated response element is
+-- true. This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lrrMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListRoles
+    -> f ListRoles
+lrrMaxItems f x =
+    (\y -> x { _lrrMaxItems = y })
+       <$> f (_lrrMaxItems x)
+{-# INLINE lrrMaxItems #-}
+
+-- | The path prefix for filtering the results. For example:
+-- /application_abc/component_xyz/, which would get all roles whose path
+-- starts with /application_abc/component_xyz/. This parameter is optional. If
+-- it is not included, it defaults to a slash (/), listing all roles.
+lrrPathPrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListRoles
+    -> f ListRoles
+lrrPathPrefix f x =
+    (\y -> x { _lrrPathPrefix = y })
+       <$> f (_lrrPathPrefix x)
+{-# INLINE lrrPathPrefix #-}
 
 instance ToQuery ListRoles where
     toQuery = genericQuery def
@@ -88,7 +148,44 @@ data ListRolesResponse = ListRolesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListRolesResponse
+-- | A flag that indicates whether there are more roles to list. If your results
+-- were truncated, you can make a subsequent pagination request using the
+-- Marker request parameter to retrieve more roles in the list.
+lrsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListRolesResponse
+    -> f ListRolesResponse
+lrsIsTruncated f x =
+    (\y -> x { _lrsIsTruncated = y })
+       <$> f (_lrsIsTruncated x)
+{-# INLINE lrsIsTruncated #-}
+
+-- | A list of roles.
+lrsRoles
+    :: Functor f
+    => ([Role]
+    -> f ([Role]))
+    -> ListRolesResponse
+    -> f ListRolesResponse
+lrsRoles f x =
+    (\y -> x { _lrsRoles = y })
+       <$> f (_lrsRoles x)
+{-# INLINE lrsRoles #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lrsMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListRolesResponse
+    -> f ListRolesResponse
+lrsMarker f x =
+    (\y -> x { _lrsMarker = y })
+       <$> f (_lrsMarker x)
+{-# INLINE lrsMarker #-}
 
 instance FromXML ListRolesResponse where
     fromXMLOptions = xmlOptions

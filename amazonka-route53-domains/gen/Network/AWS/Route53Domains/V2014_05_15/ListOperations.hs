@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,7 +36,22 @@
 -- "OperationId":"2e3ac45b-89b3-47ea-a042-f56dcd1b6883",
 -- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate":1403548986.429,
 -- "Type":"DOMAIN_LOCK" } ] }.
-module Network.AWS.Route53Domains.V2014_05_15.ListOperations where
+module Network.AWS.Route53Domains.V2014_05_15.ListOperations
+    (
+    -- * Request
+      ListOperations
+    -- ** Request constructor
+    , listOperations
+    -- ** Request lenses
+    , lorMarker
+    , lorMaxItems
+
+    -- * Response
+    , ListOperationsResponse
+    -- ** Response lenses
+    , losOperations
+    , losNextPageMarker
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
@@ -65,7 +79,35 @@ data ListOperations = ListOperations
       -- Constraints: A value between 1 and 100. Required: No.
     } deriving (Show, Generic)
 
-makeLenses ''ListOperations
+-- | For an initial request for a list of operations, omit this element. If the
+-- number of operations that are not yet complete is greater than the value
+-- that you specified for MaxItems, you can use Marker to return additional
+-- operations. Get the value of NextPageMarker from the previous response, and
+-- submit another request that includes the value of NextPageMarker in the
+-- Marker element. Type: String Default: None Required: No.
+lorMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListOperations
+    -> f ListOperations
+lorMarker f x =
+    (\y -> x { _lorMarker = y })
+       <$> f (_lorMarker x)
+{-# INLINE lorMarker #-}
+
+-- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
+-- value between 1 and 100. Required: No.
+lorMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListOperations
+    -> f ListOperations
+lorMaxItems f x =
+    (\y -> x { _lorMaxItems = y })
+       <$> f (_lorMaxItems x)
+{-# INLINE lorMaxItems #-}
 
 instance ToPath ListOperations
 
@@ -87,7 +129,32 @@ data ListOperationsResponse = ListOperationsResponse
       -- Operations.
     } deriving (Show, Generic)
 
-makeLenses ''ListOperationsResponse
+-- | Lists summaries of the operations. Type: Complex type containing a list of
+-- operation summaries Children: OperationId, Status, SubmittedDate, Type.
+losOperations
+    :: Functor f
+    => ([OperationSummary]
+    -> f ([OperationSummary]))
+    -> ListOperationsResponse
+    -> f ListOperationsResponse
+losOperations f x =
+    (\y -> x { _losOperations = y })
+       <$> f (_losOperations x)
+{-# INLINE losOperations #-}
+
+-- | If there are more operations than you specified for MaxItems in the
+-- request, submit another request and include the value of NextPageMarker in
+-- the value of Marker. Type: String Parent: Operations.
+losNextPageMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListOperationsResponse
+    -> f ListOperationsResponse
+losNextPageMarker f x =
+    (\y -> x { _losNextPageMarker = y })
+       <$> f (_losNextPageMarker x)
+{-# INLINE losNextPageMarker #-}
 
 instance FromJSON ListOperationsResponse
 

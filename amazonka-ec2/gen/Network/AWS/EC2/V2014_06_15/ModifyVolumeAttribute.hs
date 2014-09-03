@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,12 +35,10 @@ module Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute
     (
     -- * Request
       ModifyVolumeAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , modifyVolumeAttribute
-    -- ** Accessors and lenses
-    , _mvarVolumeId
+    -- ** Request lenses
     , mvarVolumeId
-    , _mvarAutoEnableIO
     , mvarAutoEnableIO
 
     -- * Response
@@ -61,8 +58,36 @@ modifyVolumeAttribute p1 = ModifyVolumeAttribute
     }
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
+    { _mvarVolumeId :: Text
+      -- ^ The ID of the volume.
+    , _mvarAutoEnableIO :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the volume should be auto-enabled for I/O
+      -- operations.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ModifyVolumeAttribute
+-- | The ID of the volume.
+mvarVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyVolumeAttribute
+    -> f ModifyVolumeAttribute
+mvarVolumeId f x =
+    (\y -> x { _mvarVolumeId = y })
+       <$> f (_mvarVolumeId x)
+{-# INLINE mvarVolumeId #-}
+
+-- | Indicates whether the volume should be auto-enabled for I/O operations.
+mvarAutoEnableIO
+    :: Functor f
+    => (Maybe AttributeBooleanValue
+    -> f (Maybe AttributeBooleanValue))
+    -> ModifyVolumeAttribute
+    -> f ModifyVolumeAttribute
+mvarAutoEnableIO f x =
+    (\y -> x { _mvarAutoEnableIO = y })
+       <$> f (_mvarAutoEnableIO x)
+{-# INLINE mvarAutoEnableIO #-}
 
 instance ToQuery ModifyVolumeAttribute where
     toQuery = genericQuery def
@@ -70,17 +95,9 @@ instance ToQuery ModifyVolumeAttribute where
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ModifyVolumeAttributeResponse
-
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse
 
     request = post "ModifyVolumeAttribute"
     response _ = nullaryResponse ModifyVolumeAttributeResponse
-
--- | The ID of the volume.
-mvarVolumeId :: Lens' ModifyVolumeAttribute (Text)
-
--- | Indicates whether the volume should be auto-enabled for I/O operations.
-mvarAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)

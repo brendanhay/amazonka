@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,26 +24,52 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteSAMLProvider
 -- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- &Version=2010-05-08 &AUTHPARAMS.
-module Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider where
+module Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
+    (
+    -- * Request
+      DeleteSAMLProvider
+    -- ** Request constructor
+    , deleteSAMLProvider
+    -- ** Request lenses
+    , dsamlprSAMLProviderArn
+
+    -- * Response
+    , DeleteSAMLProviderResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteSAMLProvider' request.
+deleteSAMLProvider :: Text -- ^ 'dsamlprSAMLProviderArn'
+                   -> DeleteSAMLProvider
+deleteSAMLProvider p1 = DeleteSAMLProvider
+    { _dsamlprSAMLProviderArn = p1
+    }
 
 data DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlprSAMLProviderArn :: Text
       -- ^ The Amazon Resource Name (ARN) of the SAML provider to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteSAMLProvider
+-- | The Amazon Resource Name (ARN) of the SAML provider to delete.
+dsamlprSAMLProviderArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteSAMLProvider
+    -> f DeleteSAMLProvider
+dsamlprSAMLProviderArn f x =
+    (\y -> x { _dsamlprSAMLProviderArn = y })
+       <$> f (_dsamlprSAMLProviderArn x)
+{-# INLINE dsamlprSAMLProviderArn #-}
 
 instance ToQuery DeleteSAMLProvider where
     toQuery = genericQuery def
 
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteSAMLProviderResponse
 
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM

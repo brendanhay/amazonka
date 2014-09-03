@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,16 +22,28 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?Operation=CreateStorageLocation
 -- &AuthParams elasticbeanstalk-us-east-1-780612358023
 -- ef51b94a-f1d6-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation
+    (
+    -- * Request
+      CreateStorageLocation
+    -- ** Request constructor
+    , createStorageLocation
+    -- * Response
+    , CreateStorageLocationResponse
+    -- ** Response lenses
+    , cslrmS3Bucket
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateStorageLocation' request.
+createStorageLocation :: CreateStorageLocation
+createStorageLocation = CreateStorageLocation
+
 data CreateStorageLocation = CreateStorageLocation
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateStorageLocation
 
 instance ToQuery CreateStorageLocation where
     toQuery = genericQuery def
@@ -42,7 +53,17 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse
       -- ^ The name of the Amazon S3 bucket created.
     } deriving (Show, Generic)
 
-makeLenses ''CreateStorageLocationResponse
+-- | The name of the Amazon S3 bucket created.
+cslrmS3Bucket
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStorageLocationResponse
+    -> f CreateStorageLocationResponse
+cslrmS3Bucket f x =
+    (\y -> x { _cslrmS3Bucket = y })
+       <$> f (_cslrmS3Bucket x)
+{-# INLINE cslrmS3Bucket #-}
 
 instance FromXML CreateStorageLocationResponse where
     fromXMLOptions = xmlOptions

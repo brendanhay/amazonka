@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,18 +32,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls
     (
     -- * Request
       DescribeNetworkAcls
-    -- ** Default constructor
+    -- ** Request constructor
     , describeNetworkAcls
-    -- ** Accessors and lenses
-    , _dnasFilters
+    -- ** Request lenses
     , dnasFilters
-    , _dnasNetworkAclIds
     , dnasNetworkAclIds
 
     -- * Response
     , DescribeNetworkAclsResponse
-    -- ** Accessors and lenses
-    , _dnatNetworkAcls
+    -- ** Response lenses
     , dnatNetworkAcls
     ) where
 
@@ -60,28 +56,39 @@ describeNetworkAcls = DescribeNetworkAcls
     }
 
 data DescribeNetworkAcls = DescribeNetworkAcls
-
-makeSiglessLenses ''DescribeNetworkAcls
-
-instance ToQuery DescribeNetworkAcls where
-    toQuery = genericQuery def
-
-data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
-    { _dnatNetworkAcls :: [NetworkAcl]
-      -- ^ Information about one or more network ACLs.
+    { _dnasFilters :: [Filter]
+      -- ^ One or more filters. association.association-id - The ID of an
+      -- association ID for the ACL. association.network-acl-id - The ID
+      -- of the network ACL involved in the association.
+      -- association.subnet-id - The ID of the subnet involved in the
+      -- association. default - Indicates whether the ACL is the default
+      -- network ACL for the VPC. entry.cidr - The CIDR range specified in
+      -- the entry. entry.egress - Indicates whether the entry applies to
+      -- egress traffic. entry.icmp.code - The ICMP code specified in the
+      -- entry, if any. entry.icmp.type - The ICMP type specified in the
+      -- entry, if any. entry.port-range.from - The start of the port
+      -- range specified in the entry. entry.port-range.to - The end of
+      -- the port range specified in the entry. entry.protocol - The
+      -- protocol specified in the entry (tcp | udp | icmp or a protocol
+      -- number). entry.rule-action - Allows or denies the matching
+      -- traffic (allow | deny). entry.rule-number - The number of an
+      -- entry (in other words, rule) in the ACL's set of entries.
+      -- network-acl-id - The ID of the network ACL. tag:key=value - The
+      -- key/value combination of a tag assigned to the resource. tag-key
+      -- - The key of a tag assigned to the resource. This filter is
+      -- independent of the tag-value filter. For example, if you use both
+      -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
+      -- get any resources assigned both the tag key Purpose (regardless
+      -- of what the tag's value is), and the tag value X (regardless of
+      -- what the tag's key is). If you want to list only resources where
+      -- Purpose is X, see the tag:key=value filter. tag-value - The value
+      -- of a tag assigned to the resource. This filter is independent of
+      -- the tag-key filter. vpc-id - The ID of the VPC for the network
+      -- ACL.
+    , _dnasNetworkAclIds :: [Text]
+      -- ^ One or more network ACL IDs. Default: Describes all your network
+      -- ACLs.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeNetworkAclsResponse
-
-instance FromXML DescribeNetworkAclsResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeNetworkAcls where
-    type Sv DescribeNetworkAcls = EC2
-    type Rs DescribeNetworkAcls = DescribeNetworkAclsResponse
-
-    request = post "DescribeNetworkAcls"
-    response _ = xmlResponse
 
 -- | One or more filters. association.association-id - The ID of an association
 -- ID for the ACL. association.network-acl-id - The ID of the network ACL
@@ -107,10 +114,55 @@ instance AWSRequest DescribeNetworkAcls where
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the network ACL.
-dnasFilters :: Lens' DescribeNetworkAcls ([Filter])
+dnasFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeNetworkAcls
+    -> f DescribeNetworkAcls
+dnasFilters f x =
+    (\y -> x { _dnasFilters = y })
+       <$> f (_dnasFilters x)
+{-# INLINE dnasFilters #-}
 
 -- | One or more network ACL IDs. Default: Describes all your network ACLs.
-dnasNetworkAclIds :: Lens' DescribeNetworkAcls ([Text])
+dnasNetworkAclIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeNetworkAcls
+    -> f DescribeNetworkAcls
+dnasNetworkAclIds f x =
+    (\y -> x { _dnasNetworkAclIds = y })
+       <$> f (_dnasNetworkAclIds x)
+{-# INLINE dnasNetworkAclIds #-}
+
+instance ToQuery DescribeNetworkAcls where
+    toQuery = genericQuery def
+
+data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
+    { _dnatNetworkAcls :: [NetworkAcl]
+      -- ^ Information about one or more network ACLs.
+    } deriving (Show, Generic)
 
 -- | Information about one or more network ACLs.
-dnatNetworkAcls :: Lens' DescribeNetworkAclsResponse ([NetworkAcl])
+dnatNetworkAcls
+    :: Functor f
+    => ([NetworkAcl]
+    -> f ([NetworkAcl]))
+    -> DescribeNetworkAclsResponse
+    -> f DescribeNetworkAclsResponse
+dnatNetworkAcls f x =
+    (\y -> x { _dnatNetworkAcls = y })
+       <$> f (_dnatNetworkAcls x)
+{-# INLINE dnatNetworkAcls #-}
+
+instance FromXML DescribeNetworkAclsResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeNetworkAcls where
+    type Sv DescribeNetworkAcls = EC2
+    type Rs DescribeNetworkAcls = DescribeNetworkAclsResponse
+
+    request = post "DescribeNetworkAcls"
+    response _ = xmlResponse

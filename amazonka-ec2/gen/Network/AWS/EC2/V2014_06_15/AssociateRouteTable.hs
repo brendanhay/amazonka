@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,18 +36,15 @@ module Network.AWS.EC2.V2014_06_15.AssociateRouteTable
     (
     -- * Request
       AssociateRouteTable
-    -- ** Default constructor
+    -- ** Request constructor
     , associateRouteTable
-    -- ** Accessors and lenses
-    , _artrSubnetId
+    -- ** Request lenses
     , artrSubnetId
-    , _artrRouteTableId
     , artrRouteTableId
 
     -- * Response
     , AssociateRouteTableResponse
-    -- ** Accessors and lenses
-    , _artsAssociationId
+    -- ** Response lenses
     , artsAssociationId
     ) where
 
@@ -66,8 +62,35 @@ associateRouteTable p1 p2 = AssociateRouteTable
     }
 
 data AssociateRouteTable = AssociateRouteTable
+    { _artrSubnetId :: Text
+      -- ^ The ID of the subnet.
+    , _artrRouteTableId :: Text
+      -- ^ The ID of the route table.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AssociateRouteTable
+-- | The ID of the subnet.
+artrSubnetId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssociateRouteTable
+    -> f AssociateRouteTable
+artrSubnetId f x =
+    (\y -> x { _artrSubnetId = y })
+       <$> f (_artrSubnetId x)
+{-# INLINE artrSubnetId #-}
+
+-- | The ID of the route table.
+artrRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssociateRouteTable
+    -> f AssociateRouteTable
+artrRouteTableId f x =
+    (\y -> x { _artrRouteTableId = y })
+       <$> f (_artrRouteTableId x)
+{-# INLINE artrRouteTableId #-}
 
 instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
@@ -78,7 +101,17 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse
       -- table).
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AssociateRouteTableResponse
+-- | The route table association ID (needed to disassociate the route table).
+artsAssociationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssociateRouteTableResponse
+    -> f AssociateRouteTableResponse
+artsAssociationId f x =
+    (\y -> x { _artsAssociationId = y })
+       <$> f (_artsAssociationId x)
+{-# INLINE artsAssociationId #-}
 
 instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions
@@ -89,12 +122,3 @@ instance AWSRequest AssociateRouteTable where
 
     request = post "AssociateRouteTable"
     response _ = xmlResponse
-
--- | The ID of the subnet.
-artrSubnetId :: Lens' AssociateRouteTable (Text)
-
--- | The ID of the route table.
-artrRouteTableId :: Lens' AssociateRouteTable (Text)
-
--- | The route table association ID (needed to disassociate the route table).
-artsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)

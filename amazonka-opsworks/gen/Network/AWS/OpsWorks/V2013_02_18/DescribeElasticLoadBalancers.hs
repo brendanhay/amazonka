@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,21 @@
 -- IAM user must have a Show, Deploy, or Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers
+    (
+    -- * Request
+      DescribeElasticLoadBalancers
+    -- ** Request constructor
+    , describeElasticLoadBalancers
+    -- ** Request lenses
+    , delbrStackId
+    , delbrLayerIds
+
+    -- * Response
+    , DescribeElasticLoadBalancersResponse
+    -- ** Response lenses
+    , delbsElasticLoadBalancers
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,20 +46,44 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeElasticLoadBalancers' request.
 describeElasticLoadBalancers :: DescribeElasticLoadBalancers
 describeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbsStackId = Nothing
-    , _delbsLayerIds = mempty
+    { _delbrStackId = Nothing
+    , _delbrLayerIds = mempty
     }
 
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbsStackId :: Maybe Text
+    { _delbrStackId :: Maybe Text
       -- ^ A stack ID. The action describes the stack's Elastic Load
       -- Balancing instances.
-    , _delbsLayerIds :: [Text]
+    , _delbrLayerIds :: [Text]
       -- ^ A list of layer IDs. The action describes the Elastic Load
       -- Balancing instances for the specified layers.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeElasticLoadBalancers
+-- | A stack ID. The action describes the stack's Elastic Load Balancing
+-- instances.
+delbrStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeElasticLoadBalancers
+    -> f DescribeElasticLoadBalancers
+delbrStackId f x =
+    (\y -> x { _delbrStackId = y })
+       <$> f (_delbrStackId x)
+{-# INLINE delbrStackId #-}
+
+-- | A list of layer IDs. The action describes the Elastic Load Balancing
+-- instances for the specified layers.
+delbrLayerIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeElasticLoadBalancers
+    -> f DescribeElasticLoadBalancers
+delbrLayerIds f x =
+    (\y -> x { _delbrLayerIds = y })
+       <$> f (_delbrLayerIds x)
+{-# INLINE delbrLayerIds #-}
 
 instance ToPath DescribeElasticLoadBalancers
 
@@ -57,12 +94,23 @@ instance ToHeaders DescribeElasticLoadBalancers
 instance ToJSON DescribeElasticLoadBalancers
 
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
-    { _delbtElasticLoadBalancers :: [ElasticLoadBalancer]
+    { _delbsElasticLoadBalancers :: [ElasticLoadBalancer]
       -- ^ A list of ElasticLoadBalancer objects that describe the specified
       -- Elastic Load Balancing instances.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeElasticLoadBalancersResponse
+-- | A list of ElasticLoadBalancer objects that describe the specified Elastic
+-- Load Balancing instances.
+delbsElasticLoadBalancers
+    :: Functor f
+    => ([ElasticLoadBalancer]
+    -> f ([ElasticLoadBalancer]))
+    -> DescribeElasticLoadBalancersResponse
+    -> f DescribeElasticLoadBalancersResponse
+delbsElasticLoadBalancers f x =
+    (\y -> x { _delbsElasticLoadBalancers = y })
+       <$> f (_delbsElasticLoadBalancers x)
+{-# INLINE delbsElasticLoadBalancers #-}
 
 instance FromJSON DescribeElasticLoadBalancersResponse
 

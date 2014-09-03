@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,16 +22,28 @@
 -- &Action=DescribeTerminationPolicyTypes &AUTHPARAMS
 -- ClosestToNextInstanceHour Default NewestInstance OldestInstance
 -- OldestLaunchConfiguration d9a05827-b735-11e2-a40c-c79a5EXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
+    (
+    -- * Request
+      DescribeTerminationPolicyTypes
+    -- ** Request constructor
+    , describeTerminationPolicyTypes
+    -- * Response
+    , DescribeTerminationPolicyTypesResponse
+    -- ** Response lenses
+    , dtptaTerminationPolicyTypes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DescribeTerminationPolicyTypes' request.
+describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
+describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
+
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeTerminationPolicyTypes
 
 instance ToQuery DescribeTerminationPolicyTypes where
     toQuery = genericQuery def
@@ -44,7 +55,19 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
       -- ClosestToNextInstanceHour, Default.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTerminationPolicyTypesResponse
+-- | Termination policies supported by Auto Scaling. They are: OldestInstance,
+-- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,
+-- Default.
+dtptaTerminationPolicyTypes
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeTerminationPolicyTypesResponse
+    -> f DescribeTerminationPolicyTypesResponse
+dtptaTerminationPolicyTypes f x =
+    (\y -> x { _dtptaTerminationPolicyTypes = y })
+       <$> f (_dtptaTerminationPolicyTypes x)
+{-# INLINE dtptaTerminationPolicyTypes #-}
 
 instance FromXML DescribeTerminationPolicyTypesResponse where
     fromXMLOptions = xmlOptions

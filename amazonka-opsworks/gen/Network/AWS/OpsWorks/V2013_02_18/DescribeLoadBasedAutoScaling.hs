@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,19 +23,49 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
+    (
+    -- * Request
+      DescribeLoadBasedAutoScaling
+    -- ** Request constructor
+    , describeLoadBasedAutoScaling
+    -- ** Request lenses
+    , dlbasrLayerIds
+
+    -- * Response
+    , DescribeLoadBasedAutoScalingResponse
+    -- ** Response lenses
+    , dlbassLoadBasedAutoScalingConfigurations
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeLoadBasedAutoScaling' request.
+describeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasrLayerIds'
+                             -> DescribeLoadBasedAutoScaling
+describeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
+    { _dlbasrLayerIds = p1
+    }
+
 data DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     { _dlbasrLayerIds :: [Text]
       -- ^ An array of layer IDs.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBasedAutoScaling
+-- | An array of layer IDs.
+dlbasrLayerIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLoadBasedAutoScaling
+    -> f DescribeLoadBasedAutoScaling
+dlbasrLayerIds f x =
+    (\y -> x { _dlbasrLayerIds = y })
+       <$> f (_dlbasrLayerIds x)
+{-# INLINE dlbasrLayerIds #-}
 
 instance ToPath DescribeLoadBasedAutoScaling
 
@@ -52,7 +81,18 @@ data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
       -- describe each layer's configuration.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBasedAutoScalingResponse
+-- | An array of LoadBasedAutoScalingConfiguration objects that describe each
+-- layer's configuration.
+dlbassLoadBasedAutoScalingConfigurations
+    :: Functor f
+    => ([LoadBasedAutoScalingConfiguration]
+    -> f ([LoadBasedAutoScalingConfiguration]))
+    -> DescribeLoadBasedAutoScalingResponse
+    -> f DescribeLoadBasedAutoScalingResponse
+dlbassLoadBasedAutoScalingConfigurations f x =
+    (\y -> x { _dlbassLoadBasedAutoScalingConfigurations = y })
+       <$> f (_dlbassLoadBasedAutoScalingConfigurations x)
+{-# INLINE dlbassLoadBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse
 

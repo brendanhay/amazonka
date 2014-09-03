@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,14 +20,26 @@
 -- | Disables monitoring of group metrics for the Auto Scaling group specified
 -- in AutoScalingGroupName. You can specify the list of affected metrics with
 -- the Metrics parameter.
-module Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection where
+module Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
+    (
+    -- * Request
+      DisableMetricsCollection
+    -- ** Request constructor
+    , disableMetricsCollection
+    -- ** Request lenses
+    , dmcqAutoScalingGroupName
+    , dmcqMetrics
+
+    -- * Response
+    , DisableMetricsCollectionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DisableMetricsCollection' request.
-disableMetricsCollection :: Text -- ^ '_dmcqAutoScalingGroupName'
+disableMetricsCollection :: Text -- ^ 'dmcqAutoScalingGroupName'
                          -> DisableMetricsCollection
 disableMetricsCollection p1 = DisableMetricsCollection
     { _dmcqAutoScalingGroupName = p1
@@ -47,15 +58,39 @@ data DisableMetricsCollection = DisableMetricsCollection
       -- GroupTotalInstances.
     } deriving (Show, Generic)
 
-makeLenses ''DisableMetricsCollection
+-- | The name or ARN of the Auto Scaling Group.
+dmcqAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DisableMetricsCollection
+    -> f DisableMetricsCollection
+dmcqAutoScalingGroupName f x =
+    (\y -> x { _dmcqAutoScalingGroupName = y })
+       <$> f (_dmcqAutoScalingGroupName x)
+{-# INLINE dmcqAutoScalingGroupName #-}
+
+-- | The list of metrics to disable. If no metrics are specified, all metrics
+-- are disabled. The following metrics are supported: GroupMinSize
+-- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
+-- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
+-- GroupTotalInstances.
+dmcqMetrics
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DisableMetricsCollection
+    -> f DisableMetricsCollection
+dmcqMetrics f x =
+    (\y -> x { _dmcqMetrics = y })
+       <$> f (_dmcqMetrics x)
+{-# INLINE dmcqMetrics #-}
 
 instance ToQuery DisableMetricsCollection where
     toQuery = genericQuery def
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DisableMetricsCollectionResponse
 
 instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling

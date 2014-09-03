@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,11 +21,31 @@
 -- parameters specify the desired search instance type and replication count.
 -- For more information, see Configuring Scaling Options in the Amazon
 -- CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters where
+module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
+    (
+    -- * Request
+      DescribeScalingParameters
+    -- ** Request constructor
+    , describeScalingParameters
+    -- ** Request lenses
+    , dsprDomainName
+
+    -- * Response
+    , DescribeScalingParametersResponse
+    -- ** Response lenses
+    , dspsScalingParameters
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DescribeScalingParameters' request.
+describeScalingParameters :: Text -- ^ 'dsprDomainName'
+                          -> DescribeScalingParameters
+describeScalingParameters p1 = DescribeScalingParameters
+    { _dsprDomainName = p1
+    }
 
 data DescribeScalingParameters = DescribeScalingParameters
     { _dsprDomainName :: Text
@@ -37,7 +56,20 @@ data DescribeScalingParameters = DescribeScalingParameters
       -- (hyphen).
     } deriving (Show, Generic)
 
-makeLenses ''DescribeScalingParameters
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+dsprDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeScalingParameters
+    -> f DescribeScalingParameters
+dsprDomainName f x =
+    (\y -> x { _dsprDomainName = y })
+       <$> f (_dsprDomainName x)
+{-# INLINE dsprDomainName #-}
 
 instance ToQuery DescribeScalingParameters where
     toQuery = genericQuery def
@@ -48,7 +80,17 @@ data DescribeScalingParametersResponse = DescribeScalingParametersResponse
       -- parameters.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeScalingParametersResponse
+-- | The status and configuration of a search domain's scaling parameters.
+dspsScalingParameters
+    :: Functor f
+    => (ScalingParametersStatus
+    -> f (ScalingParametersStatus))
+    -> DescribeScalingParametersResponse
+    -> f DescribeScalingParametersResponse
+dspsScalingParameters f x =
+    (\y -> x { _dspsScalingParameters = y })
+       <$> f (_dspsScalingParameters x)
+{-# INLINE dspsScalingParameters #-}
 
 instance FromXML DescribeScalingParametersResponse where
     fromXMLOptions = xmlOptions

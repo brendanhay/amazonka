@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,19 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.AssignVolume where
+module Network.AWS.OpsWorks.V2013_02_18.AssignVolume
+    (
+    -- * Request
+      AssignVolume
+    -- ** Request constructor
+    , assignVolume
+    -- ** Request lenses
+    , avrVolumeId
+    , avrInstanceId
+
+    -- * Response
+    , AssignVolumeResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,7 +44,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'AssignVolume' request.
-assignVolume :: Text -- ^ '_avrVolumeId'
+assignVolume :: Text -- ^ 'avrVolumeId'
              -> AssignVolume
 assignVolume p1 = AssignVolume
     { _avrVolumeId = p1
@@ -47,7 +58,29 @@ data AssignVolume = AssignVolume
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''AssignVolume
+-- | The volume ID.
+avrVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssignVolume
+    -> f AssignVolume
+avrVolumeId f x =
+    (\y -> x { _avrVolumeId = y })
+       <$> f (_avrVolumeId x)
+{-# INLINE avrVolumeId #-}
+
+-- | The instance ID.
+avrInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssignVolume
+    -> f AssignVolume
+avrInstanceId f x =
+    (\y -> x { _avrInstanceId = y })
+       <$> f (_avrInstanceId x)
+{-# INLINE avrInstanceId #-}
 
 instance ToPath AssignVolume
 
@@ -59,8 +92,6 @@ instance ToJSON AssignVolume
 
 data AssignVolumeResponse = AssignVolumeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AssignVolumeResponse
 
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks

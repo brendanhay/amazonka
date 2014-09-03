@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -56,12 +55,33 @@
 -- "StreamName":"exampleStreamName","ShardCount":3 } HTTP/1.1 200 OK
 -- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
 -- Date: ]]>.
-module Network.AWS.Kinesis.V2013_12_02.CreateStream where
+module Network.AWS.Kinesis.V2013_12_02.CreateStream
+    (
+    -- * Request
+      CreateStream
+    -- ** Request constructor
+    , createStream
+    -- ** Request lenses
+    , csiShardCount
+    , csiStreamName
+
+    -- * Response
+    , CreateStreamResponse
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'CreateStream' request.
+createStream :: Integer -- ^ 'csiShardCount'
+             -> Text -- ^ 'csiStreamName'
+             -> CreateStream
+createStream p1 p2 = CreateStream
+    { _csiShardCount = p1
+    , _csiStreamName = p2
+    }
 
 data CreateStream = CreateStream
     { _csiShardCount :: Integer
@@ -80,7 +100,37 @@ data CreateStream = CreateStream
       -- name.
     } deriving (Show, Generic)
 
-makeLenses ''CreateStream
+-- | The number of shards that the stream will use. The throughput of the stream
+-- is a function of the number of shards; more shards are required for greater
+-- provisioned throughput. Note: The default limit for an AWS account is 10
+-- shards per stream. If you need to create a stream with more than 10 shards,
+-- contact AWS Support to increase the limit on your account.
+csiShardCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CreateStream
+    -> f CreateStream
+csiShardCount f x =
+    (\y -> x { _csiShardCount = y })
+       <$> f (_csiShardCount x)
+{-# INLINE csiShardCount #-}
+
+-- | A name to identify the stream. The stream name is scoped to the AWS account
+-- used by the application that creates the stream. It is also scoped by
+-- region. That is, two streams in two different AWS accounts can have the
+-- same name, and two streams in the same AWS account, but in two different
+-- regions, can have the same name.
+csiStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateStream
+    -> f CreateStream
+csiStreamName f x =
+    (\y -> x { _csiStreamName = y })
+       <$> f (_csiStreamName x)
+{-# INLINE csiStreamName #-}
 
 instance ToPath CreateStream
 
@@ -92,8 +142,6 @@ instance ToJSON CreateStream
 
 data CreateStreamResponse = CreateStreamResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateStreamResponse
 
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis

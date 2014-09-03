@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,17 +23,44 @@
 -- ?Action=EnableMFADevice &UserName=Bob &SerialNumber=R1234
 -- &AuthenticationCode1=234567 &AuthenticationCode2=987654 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.EnableMFADevice where
+module Network.AWS.IAM.V2010_05_08.EnableMFADevice
+    (
+    -- * Request
+      EnableMFADevice
+    -- ** Request constructor
+    , enableMFADevice
+    -- ** Request lenses
+    , emfadrAuthenticationCode1
+    , emfadrAuthenticationCode2
+    , emfadrUserName
+    , emfadrSerialNumber
+
+    -- * Response
+    , EnableMFADeviceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'EnableMFADevice' request.
+enableMFADevice :: Text -- ^ 'emfadrAuthenticationCode1'
+                -> Text -- ^ 'emfadrAuthenticationCode2'
+                -> Text -- ^ 'emfadrUserName'
+                -> Text -- ^ 'emfadrSerialNumber'
+                -> EnableMFADevice
+enableMFADevice p1 p2 p3 p4 = EnableMFADevice
+    { _emfadrAuthenticationCode1 = p1
+    , _emfadrAuthenticationCode2 = p2
+    , _emfadrUserName = p3
+    , _emfadrSerialNumber = p4
+    }
+
 data EnableMFADevice = EnableMFADevice
-    { _emfadrAuthenticationCode2 :: Text
-      -- ^ A subsequent authentication code emitted by the device.
-    , _emfadrAuthenticationCode1 :: Text
+    { _emfadrAuthenticationCode1 :: Text
       -- ^ An authentication code emitted by the device.
+    , _emfadrAuthenticationCode2 :: Text
+      -- ^ A subsequent authentication code emitted by the device.
     , _emfadrUserName :: Text
       -- ^ Name of the user for whom you want to enable the MFA device.
     , _emfadrSerialNumber :: Text
@@ -42,15 +68,60 @@ data EnableMFADevice = EnableMFADevice
       -- virtual MFA devices, the serial number is the device ARN.
     } deriving (Show, Generic)
 
-makeLenses ''EnableMFADevice
+-- | An authentication code emitted by the device.
+emfadrAuthenticationCode1
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableMFADevice
+    -> f EnableMFADevice
+emfadrAuthenticationCode1 f x =
+    (\y -> x { _emfadrAuthenticationCode1 = y })
+       <$> f (_emfadrAuthenticationCode1 x)
+{-# INLINE emfadrAuthenticationCode1 #-}
+
+-- | A subsequent authentication code emitted by the device.
+emfadrAuthenticationCode2
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableMFADevice
+    -> f EnableMFADevice
+emfadrAuthenticationCode2 f x =
+    (\y -> x { _emfadrAuthenticationCode2 = y })
+       <$> f (_emfadrAuthenticationCode2 x)
+{-# INLINE emfadrAuthenticationCode2 #-}
+
+-- | Name of the user for whom you want to enable the MFA device.
+emfadrUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableMFADevice
+    -> f EnableMFADevice
+emfadrUserName f x =
+    (\y -> x { _emfadrUserName = y })
+       <$> f (_emfadrUserName x)
+{-# INLINE emfadrUserName #-}
+
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA
+-- devices, the serial number is the device ARN.
+emfadrSerialNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableMFADevice
+    -> f EnableMFADevice
+emfadrSerialNumber f x =
+    (\y -> x { _emfadrSerialNumber = y })
+       <$> f (_emfadrSerialNumber x)
+{-# INLINE emfadrSerialNumber #-}
 
 instance ToQuery EnableMFADevice where
     toQuery = genericQuery def
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''EnableMFADeviceResponse
 
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM

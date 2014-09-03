@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- a Show, Deploy, or Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps
+    (
+    -- * Request
+      DescribeElasticIps
+    -- ** Request constructor
+    , describeElasticIps
+    -- ** Request lenses
+    , deisInstanceId
+    , deisStackId
+    , deisIps
+
+    -- * Response
+    , DescribeElasticIpsResponse
+    -- ** Response lenses
+    , deitElasticIps
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,28 +47,69 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeElasticIps' request.
 describeElasticIps :: DescribeElasticIps
 describeElasticIps = DescribeElasticIps
-    { _deitStackId = Nothing
-    , _deitInstanceId = Nothing
-    , _deitIps = mempty
+    { _deisInstanceId = Nothing
+    , _deisStackId = Nothing
+    , _deisIps = mempty
     }
 
 data DescribeElasticIps = DescribeElasticIps
-    { _deitStackId :: Maybe Text
-      -- ^ A stack ID. If you include this parameter, DescribeElasticIps
-      -- returns a description of the Elastic IP addresses that are
-      -- registered with the specified stack.
-    , _deitInstanceId :: Maybe Text
+    { _deisInstanceId :: Maybe Text
       -- ^ The instance ID. If you include this parameter,
       -- DescribeElasticIps returns a description of the Elastic IP
       -- addresses associated with the specified instance.
-    , _deitIps :: [Text]
+    , _deisStackId :: Maybe Text
+      -- ^ A stack ID. If you include this parameter, DescribeElasticIps
+      -- returns a description of the Elastic IP addresses that are
+      -- registered with the specified stack.
+    , _deisIps :: [Text]
       -- ^ An array of Elastic IP addresses to be described. If you include
       -- this parameter, DescribeElasticIps returns a description of the
       -- specified Elastic IP addresses. Otherwise, it returns a
       -- description of every Elastic IP address.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeElasticIps
+-- | The instance ID. If you include this parameter, DescribeElasticIps returns
+-- a description of the Elastic IP addresses associated with the specified
+-- instance.
+deisInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeElasticIps
+    -> f DescribeElasticIps
+deisInstanceId f x =
+    (\y -> x { _deisInstanceId = y })
+       <$> f (_deisInstanceId x)
+{-# INLINE deisInstanceId #-}
+
+-- | A stack ID. If you include this parameter, DescribeElasticIps returns a
+-- description of the Elastic IP addresses that are registered with the
+-- specified stack.
+deisStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeElasticIps
+    -> f DescribeElasticIps
+deisStackId f x =
+    (\y -> x { _deisStackId = y })
+       <$> f (_deisStackId x)
+{-# INLINE deisStackId #-}
+
+-- | An array of Elastic IP addresses to be described. If you include this
+-- parameter, DescribeElasticIps returns a description of the specified
+-- Elastic IP addresses. Otherwise, it returns a description of every Elastic
+-- IP address.
+deisIps
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeElasticIps
+    -> f DescribeElasticIps
+deisIps f x =
+    (\y -> x { _deisIps = y })
+       <$> f (_deisIps x)
+{-# INLINE deisIps #-}
 
 instance ToPath DescribeElasticIps
 
@@ -65,12 +120,22 @@ instance ToHeaders DescribeElasticIps
 instance ToJSON DescribeElasticIps
 
 data DescribeElasticIpsResponse = DescribeElasticIpsResponse
-    { _deiuElasticIps :: [ElasticIp]
+    { _deitElasticIps :: [ElasticIp]
       -- ^ An ElasticIps object that describes the specified Elastic IP
       -- addresses.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeElasticIpsResponse
+-- | An ElasticIps object that describes the specified Elastic IP addresses.
+deitElasticIps
+    :: Functor f
+    => ([ElasticIp]
+    -> f ([ElasticIp]))
+    -> DescribeElasticIpsResponse
+    -> f DescribeElasticIpsResponse
+deitElasticIps f x =
+    (\y -> x { _deitElasticIps = y })
+       <$> f (_deitElasticIps x)
+{-# INLINE deitElasticIps #-}
 
 instance FromJSON DescribeElasticIpsResponse
 

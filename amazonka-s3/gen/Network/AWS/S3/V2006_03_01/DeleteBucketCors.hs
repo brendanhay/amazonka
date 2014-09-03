@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,44 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the cors configuration information set for the bucket.
-module Network.AWS.S3.V2006_03_01.DeleteBucketCors where
+module Network.AWS.S3.V2006_03_01.DeleteBucketCors
+    (
+    -- * Request
+      DeleteBucketCors
+    -- ** Request constructor
+    , deleteBucketCors
+    -- ** Request lenses
+    , dbcrBucket
+
+    -- * Response
+    , DeleteBucketCorsResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteBucketCors' request.
+deleteBucketCors :: BucketName -- ^ 'dbcrBucket'
+                 -> DeleteBucketCors
+deleteBucketCors p1 = DeleteBucketCors
+    { _dbcrBucket = p1
+    }
+
 data DeleteBucketCors = DeleteBucketCors
     { _dbcrBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''DeleteBucketCors
+dbcrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> DeleteBucketCors
+    -> f DeleteBucketCors
+dbcrBucket f x =
+    (\y -> x { _dbcrBucket = y })
+       <$> f (_dbcrBucket x)
+{-# INLINE dbcrBucket #-}
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat
@@ -48,8 +74,6 @@ instance ToBody DeleteBucketCors
 
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteBucketCorsResponse
 
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3

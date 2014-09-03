@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,7 +21,21 @@
 -- use this action, an IAM user must have a Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribePermissions where
+module Network.AWS.OpsWorks.V2013_02_18.DescribePermissions
+    (
+    -- * Request
+      DescribePermissions
+    -- ** Request constructor
+    , describePermissions
+    -- ** Request lenses
+    , dprIamUserArn
+    , dprStackId
+
+    -- * Response
+    , DescribePermissionsResponse
+    -- ** Response lenses
+    , dpsPermissions
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -32,19 +45,42 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribePermissions' request.
 describePermissions :: DescribePermissions
 describePermissions = DescribePermissions
-    { _dprStackId = Nothing
-    , _dprIamUserArn = Nothing
+    { _dprIamUserArn = Nothing
+    , _dprStackId = Nothing
     }
 
 data DescribePermissions = DescribePermissions
-    { _dprStackId :: Maybe Text
-      -- ^ The stack ID.
-    , _dprIamUserArn :: Maybe Text
+    { _dprIamUserArn :: Maybe Text
       -- ^ The user's IAM ARN. For more information about IAM ARNs, see
       -- Using Identifiers.
+    , _dprStackId :: Maybe Text
+      -- ^ The stack ID.
     } deriving (Show, Generic)
 
-makeLenses ''DescribePermissions
+-- | The user's IAM ARN. For more information about IAM ARNs, see Using
+-- Identifiers.
+dprIamUserArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribePermissions
+    -> f DescribePermissions
+dprIamUserArn f x =
+    (\y -> x { _dprIamUserArn = y })
+       <$> f (_dprIamUserArn x)
+{-# INLINE dprIamUserArn #-}
+
+-- | The stack ID.
+dprStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribePermissions
+    -> f DescribePermissions
+dprStackId f x =
+    (\y -> x { _dprStackId = y })
+       <$> f (_dprStackId x)
+{-# INLINE dprStackId #-}
 
 instance ToPath DescribePermissions
 
@@ -66,7 +102,23 @@ data DescribePermissionsResponse = DescribePermissionsResponse
       -- with permissions for the specified stack and IAM ARN.
     } deriving (Show, Generic)
 
-makeLenses ''DescribePermissionsResponse
+-- | An array of Permission objects that describe the stack permissions. If the
+-- request object contains only a stack ID, the array contains a Permission
+-- object with permissions for each of the stack IAM ARNs. If the request
+-- object contains only an IAM ARN, the array contains a Permission object
+-- with permissions for each of the user's stack IDs. If the request contains
+-- a stack ID and an IAM ARN, the array contains a single Permission object
+-- with permissions for the specified stack and IAM ARN.
+dpsPermissions
+    :: Functor f
+    => ([Permission]
+    -> f ([Permission]))
+    -> DescribePermissionsResponse
+    -> f DescribePermissionsResponse
+dpsPermissions f x =
+    (\y -> x { _dpsPermissions = y })
+       <$> f (_dpsPermissions x)
+{-# INLINE dpsPermissions #-}
 
 instance FromJSON DescribePermissionsResponse
 

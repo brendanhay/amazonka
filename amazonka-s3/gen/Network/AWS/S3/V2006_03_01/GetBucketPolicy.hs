@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,46 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the policy of a specified bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketPolicy where
+module Network.AWS.S3.V2006_03_01.GetBucketPolicy
+    (
+    -- * Request
+      GetBucketPolicy
+    -- ** Request constructor
+    , getBucketPolicy
+    -- ** Request lenses
+    , gbprBucket
+
+    -- * Response
+    , GetBucketPolicyResponse
+    -- ** Response lenses
+    , gbpoPolicy
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketPolicy' request.
+getBucketPolicy :: BucketName -- ^ 'gbprBucket'
+                -> GetBucketPolicy
+getBucketPolicy p1 = GetBucketPolicy
+    { _gbprBucket = p1
+    }
+
 data GetBucketPolicy = GetBucketPolicy
     { _gbprBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketPolicy
+gbprBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketPolicy
+    -> f GetBucketPolicy
+gbprBucket f x =
+    (\y -> x { _gbprBucket = y })
+       <$> f (_gbprBucket x)
+{-# INLINE gbprBucket #-}
 
 instance ToPath GetBucketPolicy where
     toPath GetBucketPolicy{..} = mconcat
@@ -51,7 +79,17 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse
       -- ^ The bucket policy as a JSON document.
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketPolicyResponse
+-- | The bucket policy as a JSON document.
+gbpoPolicy
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetBucketPolicyResponse
+    -> f GetBucketPolicyResponse
+gbpoPolicy f x =
+    (\y -> x { _gbpoPolicy = y })
+       <$> f (_gbpoPolicy x)
+{-# INLINE gbpoPolicy #-}
 
 instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions

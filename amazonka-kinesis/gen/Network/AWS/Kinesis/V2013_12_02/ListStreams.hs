@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -42,7 +41,22 @@
 -- Kinesis_20131202.ListStreams HTTP/1.1 200 OK x-amzn-RequestId:
 -- Content-Type: application/x-amz-json-1.1 Content-Length: Date: ]]> {
 -- "HasMoreStreams": false, "StreamNames": [ "exampleStreamName" ] }.
-module Network.AWS.Kinesis.V2013_12_02.ListStreams where
+module Network.AWS.Kinesis.V2013_12_02.ListStreams
+    (
+    -- * Request
+      ListStreams
+    -- ** Request constructor
+    , listStreams
+    -- ** Request lenses
+    , lsiLimit
+    , lsiExclusiveStartStreamName
+
+    -- * Response
+    , ListStreamsResponse
+    -- ** Response lenses
+    , lsoHasMoreStreams
+    , lsoStreamNames
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
@@ -63,7 +77,29 @@ data ListStreams = ListStreams
       -- ^ The name of the stream to start the list with.
     } deriving (Show, Generic)
 
-makeLenses ''ListStreams
+-- | The maximum number of streams to list.
+lsiLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListStreams
+    -> f ListStreams
+lsiLimit f x =
+    (\y -> x { _lsiLimit = y })
+       <$> f (_lsiLimit x)
+{-# INLINE lsiLimit #-}
+
+-- | The name of the stream to start the list with.
+lsiExclusiveStartStreamName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStreams
+    -> f ListStreams
+lsiExclusiveStartStreamName f x =
+    (\y -> x { _lsiExclusiveStartStreamName = y })
+       <$> f (_lsiExclusiveStartStreamName x)
+{-# INLINE lsiExclusiveStartStreamName #-}
 
 instance ToPath ListStreams
 
@@ -81,7 +117,30 @@ data ListStreamsResponse = ListStreamsResponse
       -- making the ListStreams request.
     } deriving (Show, Generic)
 
-makeLenses ''ListStreamsResponse
+-- | If set to true, there are more streams available to list.
+lsoHasMoreStreams
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListStreamsResponse
+    -> f ListStreamsResponse
+lsoHasMoreStreams f x =
+    (\y -> x { _lsoHasMoreStreams = y })
+       <$> f (_lsoHasMoreStreams x)
+{-# INLINE lsoHasMoreStreams #-}
+
+-- | The names of the streams that are associated with the AWS account making
+-- the ListStreams request.
+lsoStreamNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListStreamsResponse
+    -> f ListStreamsResponse
+lsoStreamNames f x =
+    (\y -> x { _lsoStreamNames = y })
+       <$> f (_lsoStreamNames x)
+{-# INLINE lsoStreamNames #-}
 
 instance FromJSON ListStreamsResponse
 

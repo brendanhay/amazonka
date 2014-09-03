@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,21 @@
 -- IAM user must have a Show, Deploy, or Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeApps where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeApps
+    (
+    -- * Request
+      DescribeApps
+    -- ** Request constructor
+    , describeApps
+    -- ** Request lenses
+    , dasStackId
+    , dasAppIds
+
+    -- * Response
+    , DescribeAppsResponse
+    -- ** Response lenses
+    , datApps
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -47,7 +60,32 @@ data DescribeApps = DescribeApps
       -- apps. Otherwise, it returns a description of every app.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeApps
+-- | The app stack ID. If you use this parameter, DescribeApps returns a
+-- description of the apps in the specified stack.
+dasStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeApps
+    -> f DescribeApps
+dasStackId f x =
+    (\y -> x { _dasStackId = y })
+       <$> f (_dasStackId x)
+{-# INLINE dasStackId #-}
+
+-- | An array of app IDs for the apps to be described. If you use this
+-- parameter, DescribeApps returns a description of the specified apps.
+-- Otherwise, it returns a description of every app.
+dasAppIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeApps
+    -> f DescribeApps
+dasAppIds f x =
+    (\y -> x { _dasAppIds = y })
+       <$> f (_dasAppIds x)
+{-# INLINE dasAppIds #-}
 
 instance ToPath DescribeApps
 
@@ -62,7 +100,17 @@ data DescribeAppsResponse = DescribeAppsResponse
       -- ^ An array of App objects that describe the specified apps.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAppsResponse
+-- | An array of App objects that describe the specified apps.
+datApps
+    :: Functor f
+    => ([App]
+    -> f ([App]))
+    -> DescribeAppsResponse
+    -> f DescribeAppsResponse
+datApps f x =
+    (\y -> x { _datApps = y })
+       <$> f (_datApps x)
+{-# INLINE datApps #-}
 
 instance FromJSON DescribeAppsResponse
 

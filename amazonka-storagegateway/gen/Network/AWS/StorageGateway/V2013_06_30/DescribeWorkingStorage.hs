@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,12 +38,35 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "WorkingStorageAllocatedInBytes": 2199023255552,
 -- "WorkingStorageUsedInBytes": 789207040 }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
+    (
+    -- * Request
+      DescribeWorkingStorage
+    -- ** Request constructor
+    , describeWorkingStorage
+    -- ** Request lenses
+    , dwsiGatewayARN
+
+    -- * Response
+    , DescribeWorkingStorageResponse
+    -- ** Response lenses
+    , dwsoDiskIds
+    , dwsoGatewayARN
+    , dwsoWorkingStorageUsedInBytes
+    , dwsoWorkingStorageAllocatedInBytes
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeWorkingStorage' request.
+describeWorkingStorage :: Text -- ^ 'dwsiGatewayARN'
+                       -> DescribeWorkingStorage
+describeWorkingStorage p1 = DescribeWorkingStorage
+    { _dwsiGatewayARN = p1
+    }
 
 data DescribeWorkingStorage = DescribeWorkingStorage
     { _dwsiGatewayARN :: Text
@@ -53,7 +75,18 @@ data DescribeWorkingStorage = DescribeWorkingStorage
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeWorkingStorage
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dwsiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeWorkingStorage
+    -> f DescribeWorkingStorage
+dwsiGatewayARN f x =
+    (\y -> x { _dwsiGatewayARN = y })
+       <$> f (_dwsiGatewayARN x)
+{-# INLINE dwsiGatewayARN #-}
 
 instance ToPath DescribeWorkingStorage
 
@@ -84,7 +117,59 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
       -- returns 0.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeWorkingStorageResponse
+-- | An array of the gateway's local disk IDs that are configured as working
+-- storage. Each local disk ID is specified as a string (minimum length of 1
+-- and maximum length of 300). If no local disks are configured as working
+-- storage, then the DiskIds array is empty.
+dwsoDiskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeWorkingStorageResponse
+    -> f DescribeWorkingStorageResponse
+dwsoDiskIds f x =
+    (\y -> x { _dwsoDiskIds = y })
+       <$> f (_dwsoDiskIds x)
+{-# INLINE dwsoDiskIds #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dwsoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeWorkingStorageResponse
+    -> f DescribeWorkingStorageResponse
+dwsoGatewayARN f x =
+    (\y -> x { _dwsoGatewayARN = y })
+       <$> f (_dwsoGatewayARN x)
+{-# INLINE dwsoGatewayARN #-}
+
+-- | The total working storage in bytes in use by the gateway. If no working
+-- storage is configured for the gateway, this field returns 0.
+dwsoWorkingStorageUsedInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeWorkingStorageResponse
+    -> f DescribeWorkingStorageResponse
+dwsoWorkingStorageUsedInBytes f x =
+    (\y -> x { _dwsoWorkingStorageUsedInBytes = y })
+       <$> f (_dwsoWorkingStorageUsedInBytes x)
+{-# INLINE dwsoWorkingStorageUsedInBytes #-}
+
+-- | The total working storage in bytes allocated for the gateway. If no working
+-- storage is configured for the gateway, this field returns 0.
+dwsoWorkingStorageAllocatedInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeWorkingStorageResponse
+    -> f DescribeWorkingStorageResponse
+dwsoWorkingStorageAllocatedInBytes f x =
+    (\y -> x { _dwsoWorkingStorageAllocatedInBytes = y })
+       <$> f (_dwsoWorkingStorageAllocatedInBytes x)
+{-# INLINE dwsoWorkingStorageAllocatedInBytes #-}
 
 instance FromJSON DescribeWorkingStorageResponse
 

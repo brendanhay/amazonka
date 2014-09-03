@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,11 +21,32 @@
 -- 2013-04-01/hostedzone/hosted zone ID resource. The delegation set is the
 -- four Route 53 name servers that were assigned to the hosted zone when you
 -- created it.
-module Network.AWS.Route53.V2013_04_01.GetHostedZone where
+module Network.AWS.Route53.V2013_04_01.GetHostedZone
+    (
+    -- * Request
+      GetHostedZone
+    -- ** Request constructor
+    , getHostedZone
+    -- ** Request lenses
+    , ghzrId
+
+    -- * Response
+    , GetHostedZoneResponse
+    -- ** Response lenses
+    , ghzsDelegationSet
+    , ghzsHostedZone
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetHostedZone' request.
+getHostedZone :: Text -- ^ 'ghzrId'
+              -> GetHostedZone
+getHostedZone p1 = GetHostedZone
+    { _ghzrId = p1
+    }
 
 data GetHostedZone = GetHostedZone
     { _ghzrId :: Text
@@ -34,7 +54,18 @@ data GetHostedZone = GetHostedZone
       -- name servers in the delegation set.
     } deriving (Show, Generic)
 
-makeLenses ''GetHostedZone
+-- | The ID of the hosted zone for which you want to get a list of the name
+-- servers in the delegation set.
+ghzrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetHostedZone
+    -> f GetHostedZone
+ghzrId f x =
+    (\y -> x { _ghzrId = y })
+       <$> f (_ghzrId x)
+{-# INLINE ghzrId #-}
 
 instance ToPath GetHostedZone where
     toPath GetHostedZone{..} = mconcat
@@ -59,7 +90,31 @@ data GetHostedZoneResponse = GetHostedZoneResponse
       -- hosted zone.
     } deriving (Show, Generic)
 
-makeLenses ''GetHostedZoneResponse
+-- | A complex type that contains information about the name servers for the
+-- specified hosted zone.
+ghzsDelegationSet
+    :: Functor f
+    => (DelegationSet
+    -> f (DelegationSet))
+    -> GetHostedZoneResponse
+    -> f GetHostedZoneResponse
+ghzsDelegationSet f x =
+    (\y -> x { _ghzsDelegationSet = y })
+       <$> f (_ghzsDelegationSet x)
+{-# INLINE ghzsDelegationSet #-}
+
+-- | A complex type that contains the information about the specified hosted
+-- zone.
+ghzsHostedZone
+    :: Functor f
+    => (HostedZone
+    -> f (HostedZone))
+    -> GetHostedZoneResponse
+    -> f GetHostedZoneResponse
+ghzsHostedZone f x =
+    (\y -> x { _ghzsHostedZone = y })
+       <$> f (_ghzsHostedZone x)
+{-# INLINE ghzsHostedZone #-}
 
 instance FromXML GetHostedZoneResponse where
     fromXMLOptions = xmlOptions

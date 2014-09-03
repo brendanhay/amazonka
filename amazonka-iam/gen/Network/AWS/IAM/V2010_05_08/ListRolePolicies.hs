@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,14 +24,31 @@
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- CloudwatchPutMetricPolicy S3AccessPolicy false
 -- 8c7e1816-99f0-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.ListRolePolicies where
+module Network.AWS.IAM.V2010_05_08.ListRolePolicies
+    (
+    -- * Request
+      ListRolePolicies
+    -- ** Request constructor
+    , listRolePolicies
+    -- ** Request lenses
+    , lrprRoleName
+    , lrprMarker
+    , lrprMaxItems
+
+    -- * Response
+    , ListRolePoliciesResponse
+    -- ** Response lenses
+    , lrpsIsTruncated
+    , lrpsPolicyNames
+    , lrpsMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListRolePolicies' request.
-listRolePolicies :: Text -- ^ '_lrprRoleName'
+listRolePolicies :: Text -- ^ 'lrprRoleName'
                  -> ListRolePolicies
 listRolePolicies p1 = ListRolePolicies
     { _lrprRoleName = p1
@@ -56,7 +72,48 @@ data ListRolePolicies = ListRolePolicies
       -- If you do not include it, it defaults to 100.
     } deriving (Show, Generic)
 
-makeLenses ''ListRolePolicies
+-- | The name of the role to list policies for.
+lrprRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListRolePolicies
+    -> f ListRolePolicies
+lrprRoleName f x =
+    (\y -> x { _lrprRoleName = y })
+       <$> f (_lrprRoleName x)
+{-# INLINE lrprRoleName #-}
+
+-- | Use this parameter only when paginating results, and only in a subsequent
+-- request after you've received a response where the results are truncated.
+-- Set it to the value of the Marker element in the response you just
+-- received.
+lrprMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListRolePolicies
+    -> f ListRolePolicies
+lrprMarker f x =
+    (\y -> x { _lrprMarker = y })
+       <$> f (_lrprMarker x)
+{-# INLINE lrprMarker #-}
+
+-- | Use this parameter only when paginating results to indicate the maximum
+-- number of user names you want in the response. If there are additional user
+-- names beyond the maximum you specify, the IsTruncated response element is
+-- true. This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lrprMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListRolePolicies
+    -> f ListRolePolicies
+lrprMaxItems f x =
+    (\y -> x { _lrprMaxItems = y })
+       <$> f (_lrprMaxItems x)
+{-# INLINE lrprMaxItems #-}
 
 instance ToQuery ListRolePolicies where
     toQuery = genericQuery def
@@ -75,7 +132,44 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListRolePoliciesResponse
+-- | A flag that indicates whether there are more policy names to list. If your
+-- results were truncated, you can make a subsequent pagination request using
+-- the Marker request parameter to retrieve more policy names in the list.
+lrpsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListRolePoliciesResponse
+    -> f ListRolePoliciesResponse
+lrpsIsTruncated f x =
+    (\y -> x { _lrpsIsTruncated = y })
+       <$> f (_lrpsIsTruncated x)
+{-# INLINE lrpsIsTruncated #-}
+
+-- | A list of policy names.
+lrpsPolicyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListRolePoliciesResponse
+    -> f ListRolePoliciesResponse
+lrpsPolicyNames f x =
+    (\y -> x { _lrpsPolicyNames = y })
+       <$> f (_lrpsPolicyNames x)
+{-# INLINE lrpsPolicyNames #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lrpsMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListRolePoliciesResponse
+    -> f ListRolePoliciesResponse
+lrpsMarker f x =
+    (\y -> x { _lrpsMarker = y })
+       <$> f (_lrpsMarker x)
+{-# INLINE lrpsMarker #-}
 
 instance FromXML ListRolePoliciesResponse where
     fromXMLOptions = xmlOptions

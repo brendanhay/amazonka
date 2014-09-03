@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,11 +28,29 @@
 -- &Tags.member.1.Value=1.0 &Tags.member.1.PropagateAtLaunch=true
 -- &Version=2011-01-01 &Action=CreateOrUpdateTags &AUTHPARAMS
 -- b0203919-bf1b-11e2-8a01-13263EXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags where
+module Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
+    (
+    -- * Request
+      CreateOrUpdateTags
+    -- ** Request constructor
+    , createOrUpdateTags
+    -- ** Request lenses
+    , couttTags
+
+    -- * Response
+    , CreateOrUpdateTagsResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateOrUpdateTags' request.
+createOrUpdateTags :: [Tag] -- ^ 'couttTags'
+                   -> CreateOrUpdateTags
+createOrUpdateTags p1 = CreateOrUpdateTags
+    { _couttTags = p1
+    }
 
 data CreateOrUpdateTags = CreateOrUpdateTags
     { _couttTags :: [Tag]
@@ -55,15 +72,36 @@ data CreateOrUpdateTags = CreateOrUpdateTags
       -- definition, but you will not get an error message.
     } deriving (Show, Generic)
 
-makeLenses ''CreateOrUpdateTags
+-- | The tag to be created or updated. Each tag should be defined by its
+-- resource type, resource ID, key, value, and a propagate flag. The resource
+-- type and resource ID identify the type and name of resource for which the
+-- tag is created. Currently, auto-scaling-group is the only supported
+-- resource type. The valid value for the resource ID is groupname. The
+-- PropagateAtLaunch flag defines whether the new tag will be applied to
+-- instances launched by the Auto Scaling group. Valid values are true or
+-- false. However, instances that are already running will not get the new or
+-- updated tag. Likewise, when you modify a tag, the updated version will be
+-- applied only to new instances launched by the Auto Scaling group after the
+-- change. Running instances that had the previous version of the tag will
+-- continue to have the older tag. When you create a tag and a tag of the same
+-- name already exists, the operation overwrites the previous tag definition,
+-- but you will not get an error message.
+couttTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateOrUpdateTags
+    -> f CreateOrUpdateTags
+couttTags f x =
+    (\y -> x { _couttTags = y })
+       <$> f (_couttTags x)
+{-# INLINE couttTags #-}
 
 instance ToQuery CreateOrUpdateTags where
     toQuery = genericQuery def
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateOrUpdateTagsResponse
 
 instance AWSRequest CreateOrUpdateTags where
     type Sv CreateOrUpdateTags = AutoScaling

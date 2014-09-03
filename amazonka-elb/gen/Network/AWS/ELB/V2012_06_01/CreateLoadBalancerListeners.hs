@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,11 +31,32 @@
 -- &LoadBalancerName=MyHTTPSLoadBalancer &Version=2012-06-01
 -- &Action=CreateLoadBalancerListeners &AUTHPARAMS
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners where
+module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners
+    (
+    -- * Request
+      CreateLoadBalancerListeners
+    -- ** Request constructor
+    , createLoadBalancerListeners
+    -- ** Request lenses
+    , clbliLoadBalancerName
+    , clbliListeners
+
+    -- * Response
+    , CreateLoadBalancerListenersResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateLoadBalancerListeners' request.
+createLoadBalancerListeners :: Text -- ^ 'clbliLoadBalancerName'
+                            -> [Listener] -- ^ 'clbliListeners'
+                            -> CreateLoadBalancerListeners
+createLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
+    { _clbliLoadBalancerName = p1
+    , _clbliListeners = p2
+    }
 
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { _clbliLoadBalancerName :: Text
@@ -46,15 +66,36 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
       -- InstanceProtocol, and SSLCertificateId items.
     } deriving (Show, Generic)
 
-makeLenses ''CreateLoadBalancerListeners
+-- | The name of the load balancer.
+clbliLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateLoadBalancerListeners
+    -> f CreateLoadBalancerListeners
+clbliLoadBalancerName f x =
+    (\y -> x { _clbliLoadBalancerName = y })
+       <$> f (_clbliLoadBalancerName x)
+{-# INLINE clbliLoadBalancerName #-}
+
+-- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
+-- SSLCertificateId items.
+clbliListeners
+    :: Functor f
+    => ([Listener]
+    -> f ([Listener]))
+    -> CreateLoadBalancerListeners
+    -> f CreateLoadBalancerListeners
+clbliListeners f x =
+    (\y -> x { _clbliListeners = y })
+       <$> f (_clbliListeners x)
+{-# INLINE clbliListeners #-}
 
 instance ToQuery CreateLoadBalancerListeners where
     toQuery = genericQuery def
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateLoadBalancerListenersResponse
 
 instance AWSRequest CreateLoadBalancerListeners where
     type Sv CreateLoadBalancerListeners = ELB

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,30 +26,39 @@
 -- mysql available us-east-1a general-public-license 2011-05-23T06:06:43.110Z
 -- 10 simcoprod01 5.1.50 mydbsnapshot manual master
 -- c4181d1d-8505-11e0-90aa-eb648410240d.
-module Network.AWS.RDS.V2013_09_09.CopyDBSnapshot where
+module Network.AWS.RDS.V2013_09_09.CopyDBSnapshot
+    (
+    -- * Request
+      CopyDBSnapshot
+    -- ** Request constructor
+    , copyDBSnapshot
+    -- ** Request lenses
+    , cdbsmSourceDBSnapshotIdentifier
+    , cdbsmTargetDBSnapshotIdentifier
+    , cdbsmTags
+
+    -- * Response
+    , CopyDBSnapshotResponse
+    -- ** Response lenses
+    , dbswDBSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CopyDBSnapshot' request.
-copyDBSnapshot :: Text -- ^ '_cdbsmTargetDBSnapshotIdentifier'
-               -> Text -- ^ '_cdbsmSourceDBSnapshotIdentifier'
+copyDBSnapshot :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
+               -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
                -> CopyDBSnapshot
 copyDBSnapshot p1 p2 = CopyDBSnapshot
-    { _cdbsmTargetDBSnapshotIdentifier = p1
-    , _cdbsmSourceDBSnapshotIdentifier = p2
+    { _cdbsmSourceDBSnapshotIdentifier = p1
+    , _cdbsmTargetDBSnapshotIdentifier = p2
     , _cdbsmTags = mempty
     }
 
 data CopyDBSnapshot = CopyDBSnapshot
-    { _cdbsmTargetDBSnapshotIdentifier :: Text
-      -- ^ The identifier for the copied snapshot. Constraints: Cannot be
-      -- null, empty, or blank Must contain from 1 to 255 alphanumeric
-      -- characters or hyphens First character must be a letter Cannot end
-      -- with a hyphen or contain two consecutive hyphens Example:
-      -- my-db-snapshot.
-    , _cdbsmSourceDBSnapshotIdentifier :: Text
+    { _cdbsmSourceDBSnapshotIdentifier :: Text
       -- ^ The identifier for the source DB snapshot. Constraints: Must
       -- specify a valid system snapshot in the "available" state. If the
       -- source snapshot is in the same region as the copy, specify a
@@ -60,11 +68,61 @@ data CopyDBSnapshot = CopyDBSnapshot
       -- rds:mydb-2012-04-02-00-01 Example:
       -- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
       -- 
+    , _cdbsmTargetDBSnapshotIdentifier :: Text
+      -- ^ The identifier for the copied snapshot. Constraints: Cannot be
+      -- null, empty, or blank Must contain from 1 to 255 alphanumeric
+      -- characters or hyphens First character must be a letter Cannot end
+      -- with a hyphen or contain two consecutive hyphens Example:
+      -- my-db-snapshot.
     , _cdbsmTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''CopyDBSnapshot
+-- | The identifier for the source DB snapshot. Constraints: Must specify a
+-- valid system snapshot in the "available" state. If the source snapshot is
+-- in the same region as the copy, specify a valid DB snapshot identifier. If
+-- the source snapshot is in a different region than the copy, specify valid
+-- DB snapshot ARN. For more information, go to Copying a DB Snapshot.
+-- Example: rds:mydb-2012-04-02-00-01 Example:
+-- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
+-- 
+cdbsmSourceDBSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CopyDBSnapshot
+    -> f CopyDBSnapshot
+cdbsmSourceDBSnapshotIdentifier f x =
+    (\y -> x { _cdbsmSourceDBSnapshotIdentifier = y })
+       <$> f (_cdbsmSourceDBSnapshotIdentifier x)
+{-# INLINE cdbsmSourceDBSnapshotIdentifier #-}
+
+-- | The identifier for the copied snapshot. Constraints: Cannot be null, empty,
+-- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
+-- First character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens Example: my-db-snapshot.
+cdbsmTargetDBSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CopyDBSnapshot
+    -> f CopyDBSnapshot
+cdbsmTargetDBSnapshotIdentifier f x =
+    (\y -> x { _cdbsmTargetDBSnapshotIdentifier = y })
+       <$> f (_cdbsmTargetDBSnapshotIdentifier x)
+{-# INLINE cdbsmTargetDBSnapshotIdentifier #-}
+
+-- | A list of tags.
+cdbsmTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CopyDBSnapshot
+    -> f CopyDBSnapshot
+cdbsmTags f x =
+    (\y -> x { _cdbsmTags = y })
+       <$> f (_cdbsmTags x)
+{-# INLINE cdbsmTags #-}
 
 instance ToQuery CopyDBSnapshot where
     toQuery = genericQuery def
@@ -76,7 +134,19 @@ data CopyDBSnapshotResponse = CopyDBSnapshotResponse
       -- as a response element in the DescribeDBSnapshots action.
     } deriving (Show, Generic)
 
-makeLenses ''CopyDBSnapshotResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
+-- element in the DescribeDBSnapshots action.
+dbswDBSnapshot
+    :: Functor f
+    => (Maybe DBSnapshot
+    -> f (Maybe DBSnapshot))
+    -> CopyDBSnapshotResponse
+    -> f CopyDBSnapshotResponse
+dbswDBSnapshot f x =
+    (\y -> x { _dbswDBSnapshot = y })
+       <$> f (_dbswDBSnapshot x)
+{-# INLINE dbswDBSnapshot #-}
 
 instance FromXML CopyDBSnapshotResponse where
     fromXMLOptions = xmlOptions

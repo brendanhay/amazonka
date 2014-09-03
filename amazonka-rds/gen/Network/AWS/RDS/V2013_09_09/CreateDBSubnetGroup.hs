@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,52 +26,129 @@
 -- 990524496922 Complete My new DBSubnetGroup mydbsubnetgroup Active
 -- subnet-7c5b4115 us-east-1c Active subnet-7b5b4112 us-east-1b Active
 -- subnet-3ea6bd57 us-east-1d ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup where
+module Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup
+    (
+    -- * Request
+      CreateDBSubnetGroup
+    -- ** Request constructor
+    , createDBSubnetGroup
+    -- ** Request lenses
+    , cdbsgnDBSubnetGroupName
+    , cdbsgnDBSubnetGroupDescription
+    , cdbsgnSubnetIds
+    , cdbsgnTags
+
+    -- * Response
+    , CreateDBSubnetGroupResponse
+    -- ** Response lenses
+    , dbsgyDBSubnetGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateDBSubnetGroup' request.
-createDBSubnetGroup :: Text -- ^ '_cdbsgnDBSubnetGroupDescription'
-                    -> Text -- ^ '_cdbsgnDBSubnetGroupName'
-                    -> [Text] -- ^ '_cdbsgnSubnetIds'
+createDBSubnetGroup :: Text -- ^ 'cdbsgnDBSubnetGroupName'
+                    -> Text -- ^ 'cdbsgnDBSubnetGroupDescription'
+                    -> [Text] -- ^ 'cdbsgnSubnetIds'
                     -> CreateDBSubnetGroup
 createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
-    { _cdbsgnDBSubnetGroupDescription = p1
-    , _cdbsgnDBSubnetGroupName = p2
+    { _cdbsgnDBSubnetGroupName = p1
+    , _cdbsgnDBSubnetGroupDescription = p2
     , _cdbsgnSubnetIds = p3
     , _cdbsgnTags = mempty
     }
 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
-    { _cdbsgnDBSubnetGroupDescription :: Text
-      -- ^ The description for the DB subnet group.
-    , _cdbsgnDBSubnetGroupName :: Text
+    { _cdbsgnDBSubnetGroupName :: Text
       -- ^ The name for the DB subnet group. This value is stored as a
       -- lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Must not be "Default".
       -- Example: mySubnetgroup.
+    , _cdbsgnDBSubnetGroupDescription :: Text
+      -- ^ The description for the DB subnet group.
     , _cdbsgnSubnetIds :: [Text]
       -- ^ The EC2 Subnet IDs for the DB subnet group.
     , _cdbsgnTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBSubnetGroup
+-- | The name for the DB subnet group. This value is stored as a lowercase
+-- string. Constraints: Must contain no more than 255 alphanumeric characters
+-- or hyphens. Must not be "Default". Example: mySubnetgroup.
+cdbsgnDBSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBSubnetGroup
+    -> f CreateDBSubnetGroup
+cdbsgnDBSubnetGroupName f x =
+    (\y -> x { _cdbsgnDBSubnetGroupName = y })
+       <$> f (_cdbsgnDBSubnetGroupName x)
+{-# INLINE cdbsgnDBSubnetGroupName #-}
+
+-- | The description for the DB subnet group.
+cdbsgnDBSubnetGroupDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateDBSubnetGroup
+    -> f CreateDBSubnetGroup
+cdbsgnDBSubnetGroupDescription f x =
+    (\y -> x { _cdbsgnDBSubnetGroupDescription = y })
+       <$> f (_cdbsgnDBSubnetGroupDescription x)
+{-# INLINE cdbsgnDBSubnetGroupDescription #-}
+
+-- | The EC2 Subnet IDs for the DB subnet group.
+cdbsgnSubnetIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateDBSubnetGroup
+    -> f CreateDBSubnetGroup
+cdbsgnSubnetIds f x =
+    (\y -> x { _cdbsgnSubnetIds = y })
+       <$> f (_cdbsgnSubnetIds x)
+{-# INLINE cdbsgnSubnetIds #-}
+
+-- | A list of tags.
+cdbsgnTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateDBSubnetGroup
+    -> f CreateDBSubnetGroup
+cdbsgnTags f x =
+    (\y -> x { _cdbsgnTags = y })
+       <$> f (_cdbsgnTags x)
+{-# INLINE cdbsgnTags #-}
 
 instance ToQuery CreateDBSubnetGroup where
     toQuery = genericQuery def
 
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _dbsgdrDBSubnetGroup :: Maybe DBSubnetGroup
+    { _dbsgyDBSubnetGroup :: Maybe DBSubnetGroup
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBSubnetGroup ModifyDBSubnetGroup
       -- DescribeDBSubnetGroups DeleteDBSubnetGroup This data type is used
       -- as a response element in the DescribeDBSubnetGroups action.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDBSubnetGroupResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
+-- DeleteDBSubnetGroup This data type is used as a response element in the
+-- DescribeDBSubnetGroups action.
+dbsgyDBSubnetGroup
+    :: Functor f
+    => (Maybe DBSubnetGroup
+    -> f (Maybe DBSubnetGroup))
+    -> CreateDBSubnetGroupResponse
+    -> f CreateDBSubnetGroupResponse
+dbsgyDBSubnetGroup f x =
+    (\y -> x { _dbsgyDBSubnetGroup = y })
+       <$> f (_dbsgyDBSubnetGroup x)
+{-# INLINE dbsgyDBSubnetGroup #-}
 
 instance FromXML CreateDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

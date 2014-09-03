@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -48,7 +47,26 @@
 -- "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
-module Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume where
+module Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume
+    (
+    -- * Request
+      CreateCachediSCSIVolume
+    -- ** Request constructor
+    , createCachediSCSIVolume
+    -- ** Request lenses
+    , ccscsiviClientToken
+    , ccscsiviGatewayARN
+    , ccscsiviVolumeSizeInBytes
+    , ccscsiviNetworkInterfaceId
+    , ccscsiviTargetName
+    , ccscsiviSnapshotId
+
+    -- * Response
+    , CreateCachediSCSIVolumeResponse
+    -- ** Response lenses
+    , ccscsivoTargetARN
+    , ccscsivoVolumeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -56,11 +74,11 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreateCachediSCSIVolume' request.
-createCachediSCSIVolume :: Text -- ^ '_ccscsiviClientToken'
-                        -> Text -- ^ '_ccscsiviGatewayARN'
-                        -> Integer -- ^ '_ccscsiviVolumeSizeInBytes'
-                        -> Text -- ^ '_ccscsiviNetworkInterfaceId'
-                        -> Text -- ^ '_ccscsiviTargetName'
+createCachediSCSIVolume :: Text -- ^ 'ccscsiviClientToken'
+                        -> Text -- ^ 'ccscsiviGatewayARN'
+                        -> Integer -- ^ 'ccscsiviVolumeSizeInBytes'
+                        -> Text -- ^ 'ccscsiviNetworkInterfaceId'
+                        -> Text -- ^ 'ccscsiviTargetName'
                         -> CreateCachediSCSIVolume
 createCachediSCSIVolume p1 p2 p3 p4 p5 = CreateCachediSCSIVolume
     { _ccscsiviClientToken = p1
@@ -83,7 +101,73 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     , _ccscsiviSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateCachediSCSIVolume
+ccscsiviClientToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCachediSCSIVolume
+    -> f CreateCachediSCSIVolume
+ccscsiviClientToken f x =
+    (\y -> x { _ccscsiviClientToken = y })
+       <$> f (_ccscsiviClientToken x)
+{-# INLINE ccscsiviClientToken #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+ccscsiviGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCachediSCSIVolume
+    -> f CreateCachediSCSIVolume
+ccscsiviGatewayARN f x =
+    (\y -> x { _ccscsiviGatewayARN = y })
+       <$> f (_ccscsiviGatewayARN x)
+{-# INLINE ccscsiviGatewayARN #-}
+
+ccscsiviVolumeSizeInBytes
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CreateCachediSCSIVolume
+    -> f CreateCachediSCSIVolume
+ccscsiviVolumeSizeInBytes f x =
+    (\y -> x { _ccscsiviVolumeSizeInBytes = y })
+       <$> f (_ccscsiviVolumeSizeInBytes x)
+{-# INLINE ccscsiviVolumeSizeInBytes #-}
+
+ccscsiviNetworkInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCachediSCSIVolume
+    -> f CreateCachediSCSIVolume
+ccscsiviNetworkInterfaceId f x =
+    (\y -> x { _ccscsiviNetworkInterfaceId = y })
+       <$> f (_ccscsiviNetworkInterfaceId x)
+{-# INLINE ccscsiviNetworkInterfaceId #-}
+
+ccscsiviTargetName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateCachediSCSIVolume
+    -> f CreateCachediSCSIVolume
+ccscsiviTargetName f x =
+    (\y -> x { _ccscsiviTargetName = y })
+       <$> f (_ccscsiviTargetName x)
+{-# INLINE ccscsiviTargetName #-}
+
+ccscsiviSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateCachediSCSIVolume
+    -> f CreateCachediSCSIVolume
+ccscsiviSnapshotId f x =
+    (\y -> x { _ccscsiviSnapshotId = y })
+       <$> f (_ccscsiviSnapshotId x)
+{-# INLINE ccscsiviSnapshotId #-}
 
 instance ToPath CreateCachediSCSIVolume
 
@@ -98,7 +182,27 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     , _ccscsivoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''CreateCachediSCSIVolumeResponse
+ccscsivoTargetARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateCachediSCSIVolumeResponse
+    -> f CreateCachediSCSIVolumeResponse
+ccscsivoTargetARN f x =
+    (\y -> x { _ccscsivoTargetARN = y })
+       <$> f (_ccscsivoTargetARN x)
+{-# INLINE ccscsivoTargetARN #-}
+
+ccscsivoVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateCachediSCSIVolumeResponse
+    -> f CreateCachediSCSIVolumeResponse
+ccscsivoVolumeARN f x =
+    (\y -> x { _ccscsivoVolumeARN = y })
+       <$> f (_ccscsivoVolumeARN x)
+{-# INLINE ccscsivoVolumeARN #-}
 
 instance FromJSON CreateCachediSCSIVolumeResponse
 

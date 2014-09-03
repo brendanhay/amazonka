@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,21 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List streaming distributions.
-module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions where
+module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
+    (
+    -- * Request
+      ListStreamingDistributions
+    -- ** Request constructor
+    , listStreamingDistributions
+    -- ** Request lenses
+    , lsdrMarker
+    , lsdrMaxItems
+
+    -- * Response
+    , ListStreamingDistributionsResponse
+    -- ** Response lenses
+    , lsdsStreamingDistributionList
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
@@ -28,24 +41,51 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListStreamingDistributions' request.
 listStreamingDistributions :: ListStreamingDistributions
 listStreamingDistributions = ListStreamingDistributions
-    { _lsdrMaxItems = Nothing
-    , _lsdrMarker = Nothing
+    { _lsdrMarker = Nothing
+    , _lsdrMaxItems = Nothing
     }
 
 data ListStreamingDistributions = ListStreamingDistributions
-    { _lsdrMaxItems :: Maybe Text
-      -- ^ The maximum number of streaming distributions you want in the
-      -- response body.
-    , _lsdrMarker :: Maybe Text
+    { _lsdrMarker :: Maybe Text
       -- ^ Use this when paginating results to indicate where to begin in
       -- your list of streaming distributions. The results include
       -- distributions in the list that occur after the marker. To get the
       -- next page of results, set the Marker to the value of the
       -- NextMarker from the current page's response (which is also the ID
       -- of the last distribution on that page).
+    , _lsdrMaxItems :: Maybe Text
+      -- ^ The maximum number of streaming distributions you want in the
+      -- response body.
     } deriving (Show, Generic)
 
-makeLenses ''ListStreamingDistributions
+-- | Use this when paginating results to indicate where to begin in your list of
+-- streaming distributions. The results include distributions in the list that
+-- occur after the marker. To get the next page of results, set the Marker to
+-- the value of the NextMarker from the current page's response (which is also
+-- the ID of the last distribution on that page).
+lsdrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStreamingDistributions
+    -> f ListStreamingDistributions
+lsdrMarker f x =
+    (\y -> x { _lsdrMarker = y })
+       <$> f (_lsdrMarker x)
+{-# INLINE lsdrMarker #-}
+
+-- | The maximum number of streaming distributions you want in the response
+-- body.
+lsdrMaxItems
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListStreamingDistributions
+    -> f ListStreamingDistributions
+lsdrMaxItems f x =
+    (\y -> x { _lsdrMaxItems = y })
+       <$> f (_lsdrMaxItems x)
+{-# INLINE lsdrMaxItems #-}
 
 instance ToPath ListStreamingDistributions where
     toPath = const "/2014-05-31/streaming-distribution"
@@ -67,7 +107,17 @@ data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
       -- ^ The StreamingDistributionList type.
     } deriving (Show, Generic)
 
-makeLenses ''ListStreamingDistributionsResponse
+-- | The StreamingDistributionList type.
+lsdsStreamingDistributionList
+    :: Functor f
+    => (StreamingDistributionList
+    -> f (StreamingDistributionList))
+    -> ListStreamingDistributionsResponse
+    -> f ListStreamingDistributionsResponse
+lsdsStreamingDistributionList f x =
+    (\y -> x { _lsdsStreamingDistributionList = y })
+       <$> f (_lsdsStreamingDistributionList x)
+{-# INLINE lsdsStreamingDistributionList #-}
 
 instance FromXML ListStreamingDistributionsResponse where
     fromXMLOptions = xmlOptions

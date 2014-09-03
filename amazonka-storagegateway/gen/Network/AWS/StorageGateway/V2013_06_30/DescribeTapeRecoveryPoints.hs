@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,7 +17,24 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
+    (
+    -- * Request
+      DescribeTapeRecoveryPoints
+    -- ** Request constructor
+    , describeTapeRecoveryPoints
+    -- ** Request lenses
+    , dtrpiGatewayARN
+    , dtrpiMarker
+    , dtrpiLimit
+
+    -- * Response
+    , DescribeTapeRecoveryPointsResponse
+    -- ** Response lenses
+    , dtrpoGatewayARN
+    , dtrpoMarker
+    , dtrpoTapeRecoveryPointInfos
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
@@ -26,7 +42,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeTapeRecoveryPoints' request.
-describeTapeRecoveryPoints :: Text -- ^ '_dtrpiGatewayARN'
+describeTapeRecoveryPoints :: Text -- ^ 'dtrpiGatewayARN'
                            -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
     { _dtrpiGatewayARN = p1
@@ -43,7 +59,40 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     , _dtrpiLimit :: Maybe Integer
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTapeRecoveryPoints
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dtrpiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeTapeRecoveryPoints
+    -> f DescribeTapeRecoveryPoints
+dtrpiGatewayARN f x =
+    (\y -> x { _dtrpiGatewayARN = y })
+       <$> f (_dtrpiGatewayARN x)
+{-# INLINE dtrpiGatewayARN #-}
+
+dtrpiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTapeRecoveryPoints
+    -> f DescribeTapeRecoveryPoints
+dtrpiMarker f x =
+    (\y -> x { _dtrpiMarker = y })
+       <$> f (_dtrpiMarker x)
+{-# INLINE dtrpiMarker #-}
+
+dtrpiLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeTapeRecoveryPoints
+    -> f DescribeTapeRecoveryPoints
+dtrpiLimit f x =
+    (\y -> x { _dtrpiLimit = y })
+       <$> f (_dtrpiLimit x)
+{-# INLINE dtrpiLimit #-}
 
 instance ToPath DescribeTapeRecoveryPoints
 
@@ -62,7 +111,40 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     , _dtrpoTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTapeRecoveryPointsResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dtrpoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTapeRecoveryPointsResponse
+    -> f DescribeTapeRecoveryPointsResponse
+dtrpoGatewayARN f x =
+    (\y -> x { _dtrpoGatewayARN = y })
+       <$> f (_dtrpoGatewayARN x)
+{-# INLINE dtrpoGatewayARN #-}
+
+dtrpoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeTapeRecoveryPointsResponse
+    -> f DescribeTapeRecoveryPointsResponse
+dtrpoMarker f x =
+    (\y -> x { _dtrpoMarker = y })
+       <$> f (_dtrpoMarker x)
+{-# INLINE dtrpoMarker #-}
+
+dtrpoTapeRecoveryPointInfos
+    :: Functor f
+    => ([TapeRecoveryPointInfo]
+    -> f ([TapeRecoveryPointInfo]))
+    -> DescribeTapeRecoveryPointsResponse
+    -> f DescribeTapeRecoveryPointsResponse
+dtrpoTapeRecoveryPointInfos f x =
+    (\y -> x { _dtrpoTapeRecoveryPointInfos = y })
+       <$> f (_dtrpoTapeRecoveryPointInfos x)
+{-# INLINE dtrpoTapeRecoveryPointInfos #-}
 
 instance FromJSON DescribeTapeRecoveryPointsResponse
 

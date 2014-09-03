@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -121,26 +120,19 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkInterface
     (
     -- * Request
       CreateNetworkInterface
-    -- ** Default constructor
+    -- ** Request constructor
     , createNetworkInterface
-    -- ** Accessors and lenses
-    , _cnirSubnetId
+    -- ** Request lenses
     , cnirSubnetId
-    , _cnirSecondaryPrivateIpAddressCount
     , cnirSecondaryPrivateIpAddressCount
-    , _cnirPrivateIpAddresses
     , cnirPrivateIpAddresses
-    , _cnirGroups
     , cnirGroups
-    , _cnirDescription
     , cnirDescription
-    , _cnirPrivateIpAddress
     , cnirPrivateIpAddress
 
     -- * Response
     , CreateNetworkInterfaceResponse
-    -- ** Accessors and lenses
-    , _cnisNetworkInterface
+    -- ** Response lenses
     , cnisNetworkInterface
     ) where
 
@@ -161,8 +153,106 @@ createNetworkInterface p1 = CreateNetworkInterface
     }
 
 data CreateNetworkInterface = CreateNetworkInterface
+    { _cnirSubnetId :: Text
+      -- ^ The ID of the subnet to associate with the network interface.
+    , _cnirSecondaryPrivateIpAddressCount :: Maybe Integer
+      -- ^ The number of secondary private IP addresses to assign to a
+      -- network interface. When you specify a number of secondary IP
+      -- addresses, Amazon EC2 selects these IP addresses within the
+      -- subnet range. The number of IP addresses you can assign to a
+      -- network interface varies by instance type. For more information,
+      -- see Private IP Addresses Per ENI Per Instance Type in the Amazon
+      -- Elastic Compute Cloud User Guide.
+    , _cnirPrivateIpAddresses :: [PrivateIpAddressSpecification]
+      -- ^ One or more private IP addresses.
+    , _cnirGroups :: [Text]
+      -- ^ The IDs of one or more security groups.
+    , _cnirDescription :: Maybe Text
+      -- ^ A description for the network interface.
+    , _cnirPrivateIpAddress :: Maybe Text
+      -- ^ The primary private IP address of the network interface. If you
+      -- don't specify an IP address, Amazon EC2 selects one for you from
+      -- the subnet range.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateNetworkInterface
+-- | The ID of the subnet to associate with the network interface.
+cnirSubnetId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateNetworkInterface
+    -> f CreateNetworkInterface
+cnirSubnetId f x =
+    (\y -> x { _cnirSubnetId = y })
+       <$> f (_cnirSubnetId x)
+{-# INLINE cnirSubnetId #-}
+
+-- | The number of secondary private IP addresses to assign to a network
+-- interface. When you specify a number of secondary IP addresses, Amazon EC2
+-- selects these IP addresses within the subnet range. The number of IP
+-- addresses you can assign to a network interface varies by instance type.
+-- For more information, see Private IP Addresses Per ENI Per Instance Type in
+-- the Amazon Elastic Compute Cloud User Guide.
+cnirSecondaryPrivateIpAddressCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateNetworkInterface
+    -> f CreateNetworkInterface
+cnirSecondaryPrivateIpAddressCount f x =
+    (\y -> x { _cnirSecondaryPrivateIpAddressCount = y })
+       <$> f (_cnirSecondaryPrivateIpAddressCount x)
+{-# INLINE cnirSecondaryPrivateIpAddressCount #-}
+
+-- | One or more private IP addresses.
+cnirPrivateIpAddresses
+    :: Functor f
+    => ([PrivateIpAddressSpecification]
+    -> f ([PrivateIpAddressSpecification]))
+    -> CreateNetworkInterface
+    -> f CreateNetworkInterface
+cnirPrivateIpAddresses f x =
+    (\y -> x { _cnirPrivateIpAddresses = y })
+       <$> f (_cnirPrivateIpAddresses x)
+{-# INLINE cnirPrivateIpAddresses #-}
+
+-- | The IDs of one or more security groups.
+cnirGroups
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateNetworkInterface
+    -> f CreateNetworkInterface
+cnirGroups f x =
+    (\y -> x { _cnirGroups = y })
+       <$> f (_cnirGroups x)
+{-# INLINE cnirGroups #-}
+
+-- | A description for the network interface.
+cnirDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateNetworkInterface
+    -> f CreateNetworkInterface
+cnirDescription f x =
+    (\y -> x { _cnirDescription = y })
+       <$> f (_cnirDescription x)
+{-# INLINE cnirDescription #-}
+
+-- | The primary private IP address of the network interface. If you don't
+-- specify an IP address, Amazon EC2 selects one for you from the subnet
+-- range.
+cnirPrivateIpAddress
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateNetworkInterface
+    -> f CreateNetworkInterface
+cnirPrivateIpAddress f x =
+    (\y -> x { _cnirPrivateIpAddress = y })
+       <$> f (_cnirPrivateIpAddress x)
+{-# INLINE cnirPrivateIpAddress #-}
 
 instance ToQuery CreateNetworkInterface where
     toQuery = genericQuery def
@@ -172,7 +262,17 @@ data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
       -- ^ Information about the network interface.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateNetworkInterfaceResponse
+-- | Information about the network interface.
+cnisNetworkInterface
+    :: Functor f
+    => (Maybe NetworkInterface
+    -> f (Maybe NetworkInterface))
+    -> CreateNetworkInterfaceResponse
+    -> f CreateNetworkInterfaceResponse
+cnisNetworkInterface f x =
+    (\y -> x { _cnisNetworkInterface = y })
+       <$> f (_cnisNetworkInterface x)
+{-# INLINE cnisNetworkInterface #-}
 
 instance FromXML CreateNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
@@ -183,31 +283,3 @@ instance AWSRequest CreateNetworkInterface where
 
     request = post "CreateNetworkInterface"
     response _ = xmlResponse
-
--- | The ID of the subnet to associate with the network interface.
-cnirSubnetId :: Lens' CreateNetworkInterface (Text)
-
--- | The number of secondary private IP addresses to assign to a network
--- interface. When you specify a number of secondary IP addresses, Amazon EC2
--- selects these IP addresses within the subnet range. The number of IP
--- addresses you can assign to a network interface varies by instance type.
--- For more information, see Private IP Addresses Per ENI Per Instance Type in
--- the Amazon Elastic Compute Cloud User Guide.
-cnirSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Integer)
-
--- | One or more private IP addresses.
-cnirPrivateIpAddresses :: Lens' CreateNetworkInterface ([PrivateIpAddressSpecification])
-
--- | The IDs of one or more security groups.
-cnirGroups :: Lens' CreateNetworkInterface ([Text])
-
--- | A description for the network interface.
-cnirDescription :: Lens' CreateNetworkInterface (Maybe Text)
-
--- | The primary private IP address of the network interface. If you don't
--- specify an IP address, Amazon EC2 selects one for you from the subnet
--- range.
-cnirPrivateIpAddress :: Lens' CreateNetworkInterface (Maybe Text)
-
--- | Information about the network interface.
-cnisNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)

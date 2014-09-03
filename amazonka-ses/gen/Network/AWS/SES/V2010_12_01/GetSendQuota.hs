@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,16 +27,30 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetSendQuota
 -- &Timestamp=2011-08-18T22%3A22%3A36.000Z 127.0 200.0 1.0
 -- 273021c6-c866-11e0-b926-699e21c3af9e.
-module Network.AWS.SES.V2010_12_01.GetSendQuota where
+module Network.AWS.SES.V2010_12_01.GetSendQuota
+    (
+    -- * Request
+      GetSendQuota
+    -- ** Request constructor
+    , getSendQuota
+    -- * Response
+    , GetSendQuotaResponse
+    -- ** Response lenses
+    , gsqrMax24HourSend
+    , gsqrMaxSendRate
+    , gsqrSentLast24Hours
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetSendQuota' request.
+getSendQuota :: GetSendQuota
+getSendQuota = GetSendQuota
+
 data GetSendQuota = GetSendQuota
     deriving (Eq, Show, Generic)
-
-makeLenses ''GetSendQuota
 
 instance ToQuery GetSendQuota where
     toQuery = genericQuery def
@@ -53,7 +66,42 @@ data GetSendQuotaResponse = GetSendQuotaResponse
       -- ^ The number of emails sent during the previous 24 hours.
     } deriving (Show, Generic)
 
-makeLenses ''GetSendQuotaResponse
+-- | The maximum number of emails the user is allowed to send in a 24-hour
+-- interval.
+gsqrMax24HourSend
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> GetSendQuotaResponse
+    -> f GetSendQuotaResponse
+gsqrMax24HourSend f x =
+    (\y -> x { _gsqrMax24HourSend = y })
+       <$> f (_gsqrMax24HourSend x)
+{-# INLINE gsqrMax24HourSend #-}
+
+-- | The maximum number of emails the user is allowed to send per second.
+gsqrMaxSendRate
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> GetSendQuotaResponse
+    -> f GetSendQuotaResponse
+gsqrMaxSendRate f x =
+    (\y -> x { _gsqrMaxSendRate = y })
+       <$> f (_gsqrMaxSendRate x)
+{-# INLINE gsqrMaxSendRate #-}
+
+-- | The number of emails sent during the previous 24 hours.
+gsqrSentLast24Hours
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> GetSendQuotaResponse
+    -> f GetSendQuotaResponse
+gsqrSentLast24Hours f x =
+    (\y -> x { _gsqrSentLast24Hours = y })
+       <$> f (_gsqrSentLast24Hours x)
+{-# INLINE gsqrSentLast24Hours #-}
 
 instance FromXML GetSendQuotaResponse where
     fromXMLOptions = xmlOptions

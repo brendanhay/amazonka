@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,18 +35,48 @@
 -- arn:aws:sns:us-east-1:123456789012:example
 -- arn:aws:sns:us-east-1:123456789012:example
 -- e038e509-b72a-11e1-901f-1fbd90e8104f.
-module Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes where
+module Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
+    (
+    -- * Request
+      GetIdentityNotificationAttributes
+    -- ** Request constructor
+    , getIdentityNotificationAttributes
+    -- ** Request lenses
+    , ginarIdentities
+
+    -- * Response
+    , GetIdentityNotificationAttributesResponse
+    -- ** Response lenses
+    , ginasNotificationAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetIdentityNotificationAttributes' request.
+getIdentityNotificationAttributes :: [Text] -- ^ 'ginarIdentities'
+                                  -> GetIdentityNotificationAttributes
+getIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
+    { _ginarIdentities = p1
+    }
 
 data GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginarIdentities :: [Text]
       -- ^ A list of one or more identities.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdentityNotificationAttributes
+-- | A list of one or more identities.
+ginarIdentities
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> GetIdentityNotificationAttributes
+    -> f GetIdentityNotificationAttributes
+ginarIdentities f x =
+    (\y -> x { _ginarIdentities = y })
+       <$> f (_ginarIdentities x)
+{-# INLINE ginarIdentities #-}
 
 instance ToQuery GetIdentityNotificationAttributes where
     toQuery = genericQuery def
@@ -57,7 +86,17 @@ data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttribut
       -- ^ A map of Identity to IdentityNotificationAttributes.
     } deriving (Show, Generic)
 
-makeLenses ''GetIdentityNotificationAttributesResponse
+-- | A map of Identity to IdentityNotificationAttributes.
+ginasNotificationAttributes
+    :: Functor f
+    => (Map Text IdentityNotificationAttributes
+    -> f (Map Text IdentityNotificationAttributes))
+    -> GetIdentityNotificationAttributesResponse
+    -> f GetIdentityNotificationAttributesResponse
+ginasNotificationAttributes f x =
+    (\y -> x { _ginasNotificationAttributes = y })
+       <$> f (_ginasNotificationAttributes x)
+{-# INLINE ginasNotificationAttributes #-}
 
 instance FromXML GetIdentityNotificationAttributesResponse where
     fromXMLOptions = xmlOptions

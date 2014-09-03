@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,24 +35,54 @@
 -- "Warning":"" }, "OutputBucket":"salesoffice.example.com-public-promos",
 -- "Role":"arn:aws:iam::123456789012:role/transcode-service",
 -- "Status":"Active" } }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
+    (
+    -- * Request
+      ReadPipeline
+    -- ** Request constructor
+    , readPipeline
+    -- ** Request lenses
+    , rprId
+
+    -- * Response
+    , ReadPipelineResponse
+    -- ** Response lenses
+    , rpsPipeline
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'ReadPipeline' request.
+readPipeline :: Text -- ^ 'rprId'
+             -> ReadPipeline
+readPipeline p1 = ReadPipeline
+    { _rprId = p1
+    }
+
 data ReadPipeline = ReadPipeline
-    { _rptId :: Text
+    { _rprId :: Text
       -- ^ The identifier of the pipeline to read.
     } deriving (Show, Generic)
 
-makeLenses ''ReadPipeline
+-- | The identifier of the pipeline to read.
+rprId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReadPipeline
+    -> f ReadPipeline
+rprId f x =
+    (\y -> x { _rprId = y })
+       <$> f (_rprId x)
+{-# INLINE rprId #-}
 
 instance ToPath ReadPipeline where
     toPath ReadPipeline{..} = mconcat
         [ "/2012-09-25/pipelines/"
-        , toBS _rptId
+        , toBS _rprId
         ]
 
 instance ToQuery ReadPipeline
@@ -63,12 +92,23 @@ instance ToHeaders ReadPipeline
 instance ToJSON ReadPipeline
 
 data ReadPipelineResponse = ReadPipelineResponse
-    { _rpuPipeline :: Maybe Pipeline
+    { _rpsPipeline :: Maybe Pipeline
       -- ^ A section of the response body that provides information about
       -- the pipeline.
     } deriving (Show, Generic)
 
-makeLenses ''ReadPipelineResponse
+-- | A section of the response body that provides information about the
+-- pipeline.
+rpsPipeline
+    :: Functor f
+    => (Maybe Pipeline
+    -> f (Maybe Pipeline))
+    -> ReadPipelineResponse
+    -> f ReadPipelineResponse
+rpsPipeline f x =
+    (\y -> x { _rpsPipeline = y })
+       <$> f (_rpsPipeline x)
+{-# INLINE rpsPipeline #-}
 
 instance FromJSON ReadPipelineResponse
 

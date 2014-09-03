@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,10 +35,9 @@ module Network.AWS.EC2.V2014_06_15.RebootInstances
     (
     -- * Request
       RebootInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , rebootInstances
-    -- ** Accessors and lenses
-    , _riuInstanceIds
+    -- ** Request lenses
     , riuInstanceIds
 
     -- * Response
@@ -58,8 +56,21 @@ rebootInstances p1 = RebootInstances
     }
 
 data RebootInstances = RebootInstances
+    { _riuInstanceIds :: [Text]
+      -- ^ One or more instance IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''RebootInstances
+-- | One or more instance IDs.
+riuInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RebootInstances
+    -> f RebootInstances
+riuInstanceIds f x =
+    (\y -> x { _riuInstanceIds = y })
+       <$> f (_riuInstanceIds x)
+{-# INLINE riuInstanceIds #-}
 
 instance ToQuery RebootInstances where
     toQuery = genericQuery def
@@ -67,14 +78,9 @@ instance ToQuery RebootInstances where
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''RebootInstancesResponse
-
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2
     type Rs RebootInstances = RebootInstancesResponse
 
     request = post "RebootInstances"
     response _ = nullaryResponse RebootInstancesResponse
-
--- | One or more instance IDs.
-riuInstanceIds :: Lens' RebootInstances ([Text])

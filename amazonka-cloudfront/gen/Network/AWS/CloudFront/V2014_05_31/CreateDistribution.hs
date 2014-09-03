@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,18 +18,50 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new distribution.
-module Network.AWS.CloudFront.V2014_05_31.CreateDistribution where
+module Network.AWS.CloudFront.V2014_05_31.CreateDistribution
+    (
+    -- * Request
+      CreateDistribution
+    -- ** Request constructor
+    , createDistribution
+    -- ** Request lenses
+    , cdrDistributionConfig
+
+    -- * Response
+    , CreateDistributionResponse
+    -- ** Response lenses
+    , cdsDistribution
+    , cdsLocation
+    , cdsETag
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateDistribution' request.
+createDistribution :: DistributionConfig -- ^ 'cdrDistributionConfig'
+                   -> CreateDistribution
+createDistribution p1 = CreateDistribution
+    { _cdrDistributionConfig = p1
+    }
 
 data CreateDistribution = CreateDistribution
     { _cdrDistributionConfig :: DistributionConfig
       -- ^ The distribution's configuration information.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDistribution
+-- | The distribution's configuration information.
+cdrDistributionConfig
+    :: Functor f
+    => (DistributionConfig
+    -> f (DistributionConfig))
+    -> CreateDistribution
+    -> f CreateDistribution
+cdrDistributionConfig f x =
+    (\y -> x { _cdrDistributionConfig = y })
+       <$> f (_cdrDistributionConfig x)
+{-# INLINE cdrDistributionConfig #-}
 
 instance ToPath CreateDistribution where
     toPath = const "/2014-05-31/distribution"
@@ -55,7 +86,43 @@ data CreateDistributionResponse = CreateDistributionResponse
       -- ^ The current version of the distribution created.
     } deriving (Show, Generic)
 
-makeLenses ''CreateDistributionResponse
+-- | The distribution's information.
+cdsDistribution
+    :: Functor f
+    => (Maybe Distribution
+    -> f (Maybe Distribution))
+    -> CreateDistributionResponse
+    -> f CreateDistributionResponse
+cdsDistribution f x =
+    (\y -> x { _cdsDistribution = y })
+       <$> f (_cdsDistribution x)
+{-# INLINE cdsDistribution #-}
+
+-- | The fully qualified URI of the new distribution resource just created. For
+-- example:
+-- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
+cdsLocation
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateDistributionResponse
+    -> f CreateDistributionResponse
+cdsLocation f x =
+    (\y -> x { _cdsLocation = y })
+       <$> f (_cdsLocation x)
+{-# INLINE cdsLocation #-}
+
+-- | The current version of the distribution created.
+cdsETag
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateDistributionResponse
+    -> f CreateDistributionResponse
+cdsETag f x =
+    (\y -> x { _cdsETag = y })
+       <$> f (_cdsETag x)
+{-# INLINE cdsETag #-}
 
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,12 +27,33 @@
 -- 9da5a349-ed9e-11e2-90db-69a5154aeb8d Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15 Jul 2013
 -- 22:33:47 GMT { }.
-module Network.AWS.EMR.V2009_03_31.AddTags where
+module Network.AWS.EMR.V2009_03_31.AddTags
+    (
+    -- * Request
+      AddTags
+    -- ** Request constructor
+    , addTags
+    -- ** Request lenses
+    , atiResourceId
+    , atiTags
+
+    -- * Response
+    , AddTagsResponse
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'AddTags' request.
+addTags :: Text -- ^ 'atiResourceId'
+        -> [Tag] -- ^ 'atiTags'
+        -> AddTags
+addTags p1 p2 = AddTags
+    { _atiResourceId = p1
+    , _atiTags = p2
+    }
 
 data AddTags = AddTags
     { _atiResourceId :: Text
@@ -47,7 +67,33 @@ data AddTags = AddTags
       -- characters.
     } deriving (Show, Generic)
 
-makeLenses ''AddTags
+-- | The Amazon EMR resource identifier to which tags will be added. This value
+-- must be a cluster identifier.
+atiResourceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddTags
+    -> f AddTags
+atiResourceId f x =
+    (\y -> x { _atiResourceId = y })
+       <$> f (_atiResourceId x)
+{-# INLINE atiResourceId #-}
+
+-- | A list of tags to associate with a cluster and propagate to Amazon EC2
+-- instances. Tags are user-defined key/value pairs that consist of a required
+-- key string with a maximum of 128 characters, and an optional value string
+-- with a maximum of 256 characters.
+atiTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> AddTags
+    -> f AddTags
+atiTags f x =
+    (\y -> x { _atiTags = y })
+       <$> f (_atiTags x)
+{-# INLINE atiTags #-}
 
 instance ToPath AddTags
 
@@ -59,8 +105,6 @@ instance ToJSON AddTags
 
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AddTagsResponse
 
 instance AWSRequest AddTags where
     type Sv AddTags = EMR

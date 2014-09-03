@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,19 +21,47 @@
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DeleteApp where
+module Network.AWS.OpsWorks.V2013_02_18.DeleteApp
+    (
+    -- * Request
+      DeleteApp
+    -- ** Request constructor
+    , deleteApp
+    -- ** Request lenses
+    , darAppId
+
+    -- * Response
+    , DeleteAppResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteApp' request.
+deleteApp :: Text -- ^ 'darAppId'
+          -> DeleteApp
+deleteApp p1 = DeleteApp
+    { _darAppId = p1
+    }
+
 data DeleteApp = DeleteApp
     { _darAppId :: Text
       -- ^ The app ID.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteApp
+-- | The app ID.
+darAppId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteApp
+    -> f DeleteApp
+darAppId f x =
+    (\y -> x { _darAppId = y })
+       <$> f (_darAppId x)
+{-# INLINE darAppId #-}
 
 instance ToPath DeleteApp
 
@@ -46,8 +73,6 @@ instance ToJSON DeleteApp
 
 data DeleteAppResponse = DeleteAppResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAppResponse
 
 instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks

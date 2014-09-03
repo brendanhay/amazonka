@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -57,20 +56,16 @@ module Network.AWS.EC2.V2014_06_15.GetConsoleOutput
     (
     -- * Request
       GetConsoleOutput
-    -- ** Default constructor
+    -- ** Request constructor
     , getConsoleOutput
-    -- ** Accessors and lenses
-    , _gcorInstanceId
+    -- ** Request lenses
     , gcorInstanceId
 
     -- * Response
     , GetConsoleOutputResponse
-    -- ** Accessors and lenses
-    , _gcosTimestamp
+    -- ** Response lenses
     , gcosTimestamp
-    , _gcosInstanceId
     , gcosInstanceId
-    , _gcosOutput
     , gcosOutput
     ) where
 
@@ -86,8 +81,21 @@ getConsoleOutput p1 = GetConsoleOutput
     }
 
 data GetConsoleOutput = GetConsoleOutput
+    { _gcorInstanceId :: Text
+      -- ^ The ID of the instance.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''GetConsoleOutput
+-- | The ID of the instance.
+gcorInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetConsoleOutput
+    -> f GetConsoleOutput
+gcorInstanceId f x =
+    (\y -> x { _gcorInstanceId = y })
+       <$> f (_gcorInstanceId x)
+{-# INLINE gcorInstanceId #-}
 
 instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
@@ -101,7 +109,41 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
       -- ^ The console output, Base64 encoded.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''GetConsoleOutputResponse
+-- | The time the output was last updated.
+gcosTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> GetConsoleOutputResponse
+    -> f GetConsoleOutputResponse
+gcosTimestamp f x =
+    (\y -> x { _gcosTimestamp = y })
+       <$> f (_gcosTimestamp x)
+{-# INLINE gcosTimestamp #-}
+
+-- | The ID of the instance.
+gcosInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetConsoleOutputResponse
+    -> f GetConsoleOutputResponse
+gcosInstanceId f x =
+    (\y -> x { _gcosInstanceId = y })
+       <$> f (_gcosInstanceId x)
+{-# INLINE gcosInstanceId #-}
+
+-- | The console output, Base64 encoded.
+gcosOutput
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetConsoleOutputResponse
+    -> f GetConsoleOutputResponse
+gcosOutput f x =
+    (\y -> x { _gcosOutput = y })
+       <$> f (_gcosOutput x)
+{-# INLINE gcosOutput #-}
 
 instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions
@@ -112,15 +154,3 @@ instance AWSRequest GetConsoleOutput where
 
     request = post "GetConsoleOutput"
     response _ = xmlResponse
-
--- | The ID of the instance.
-gcorInstanceId :: Lens' GetConsoleOutput (Text)
-
--- | The time the output was last updated.
-gcosTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
-
--- | The ID of the instance.
-gcosInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
-
--- | The console output, Base64 encoded.
-gcosOutput :: Lens' GetConsoleOutputResponse (Maybe Text)

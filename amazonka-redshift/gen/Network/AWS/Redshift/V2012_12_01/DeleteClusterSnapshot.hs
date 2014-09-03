@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,14 +33,28 @@
 -- 5439 snapshot-1234 deleted 2012-12-06T23:09:01.475Z manual 1.0 us-east-1a
 -- examplecluster masteruser dw1.xlarge mydb 3
 -- 88a31de4-40d1-11e2-8a25-eb010998df4e.
-module Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot where
+module Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot
+    (
+    -- * Request
+      DeleteClusterSnapshot
+    -- ** Request constructor
+    , deleteClusterSnapshot
+    -- ** Request lenses
+    , dcsmSnapshotIdentifier
+    , dcsmSnapshotClusterIdentifier
+
+    -- * Response
+    , DeleteClusterSnapshotResponse
+    -- ** Response lenses
+    , sssssssssssrSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteClusterSnapshot' request.
-deleteClusterSnapshot :: Text -- ^ '_dcsmSnapshotIdentifier'
+deleteClusterSnapshot :: Text -- ^ 'dcsmSnapshotIdentifier'
                       -> DeleteClusterSnapshot
 deleteClusterSnapshot p1 = DeleteClusterSnapshot
     { _dcsmSnapshotIdentifier = p1
@@ -61,17 +74,53 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot
       -- of valid cluster.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteClusterSnapshot
+-- | The unique identifier of the manual snapshot to be deleted. Constraints:
+-- Must be the name of an existing snapshot that is in the available state.
+dcsmSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteClusterSnapshot
+    -> f DeleteClusterSnapshot
+dcsmSnapshotIdentifier f x =
+    (\y -> x { _dcsmSnapshotIdentifier = y })
+       <$> f (_dcsmSnapshotIdentifier x)
+{-# INLINE dcsmSnapshotIdentifier #-}
+
+-- | The unique identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a snapshot
+-- resource element that specifies anything other than * for the cluster name.
+-- Constraints: Must be the name of valid cluster.
+dcsmSnapshotClusterIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteClusterSnapshot
+    -> f DeleteClusterSnapshot
+dcsmSnapshotClusterIdentifier f x =
+    (\y -> x { _dcsmSnapshotClusterIdentifier = y })
+       <$> f (_dcsmSnapshotClusterIdentifier x)
+{-# INLINE dcsmSnapshotClusterIdentifier #-}
 
 instance ToQuery DeleteClusterSnapshot where
     toQuery = genericQuery def
 
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
-    { _sssrSnapshot :: Maybe Snapshot
+    { _sssssssssssrSnapshot :: Maybe Snapshot
       -- ^ Describes a snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteClusterSnapshotResponse
+-- | Describes a snapshot.
+sssssssssssrSnapshot
+    :: Functor f
+    => (Maybe Snapshot
+    -> f (Maybe Snapshot))
+    -> DeleteClusterSnapshotResponse
+    -> f DeleteClusterSnapshotResponse
+sssssssssssrSnapshot f x =
+    (\y -> x { _sssssssssssrSnapshot = y })
+       <$> f (_sssssssssssrSnapshot x)
+{-# INLINE sssssssssssrSnapshot #-}
 
 instance FromXML DeleteClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

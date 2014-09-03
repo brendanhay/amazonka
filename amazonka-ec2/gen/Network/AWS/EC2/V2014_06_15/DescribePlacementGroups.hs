@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,18 +33,15 @@ module Network.AWS.EC2.V2014_06_15.DescribePlacementGroups
     (
     -- * Request
       DescribePlacementGroups
-    -- ** Default constructor
+    -- ** Request constructor
     , describePlacementGroups
-    -- ** Accessors and lenses
-    , _dpgsFilters
+    -- ** Request lenses
     , dpgsFilters
-    , _dpgsGroupNames
     , dpgsGroupNames
 
     -- * Response
     , DescribePlacementGroupsResponse
-    -- ** Accessors and lenses
-    , _dpgtPlacementGroups
+    -- ** Response lenses
     , dpgtPlacementGroups
     ) where
 
@@ -61,8 +57,42 @@ describePlacementGroups = DescribePlacementGroups
     }
 
 data DescribePlacementGroups = DescribePlacementGroups
+    { _dpgsFilters :: [Filter]
+      -- ^ One or more filters. group-name - The name of the placement
+      -- group. state - The state of the placement group (pending |
+      -- available | deleting | deleted). strategy - The strategy of the
+      -- placement group (cluster).
+    , _dpgsGroupNames :: [Text]
+      -- ^ One or more placement group names. Default: Describes all your
+      -- placement groups, or only those otherwise specified.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribePlacementGroups
+-- | One or more filters. group-name - The name of the placement group. state -
+-- The state of the placement group (pending | available | deleting |
+-- deleted). strategy - The strategy of the placement group (cluster).
+dpgsFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribePlacementGroups
+    -> f DescribePlacementGroups
+dpgsFilters f x =
+    (\y -> x { _dpgsFilters = y })
+       <$> f (_dpgsFilters x)
+{-# INLINE dpgsFilters #-}
+
+-- | One or more placement group names. Default: Describes all your placement
+-- groups, or only those otherwise specified.
+dpgsGroupNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribePlacementGroups
+    -> f DescribePlacementGroups
+dpgsGroupNames f x =
+    (\y -> x { _dpgsGroupNames = y })
+       <$> f (_dpgsGroupNames x)
+{-# INLINE dpgsGroupNames #-}
 
 instance ToQuery DescribePlacementGroups where
     toQuery = genericQuery def
@@ -72,7 +102,17 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
       -- ^ One or more placement groups.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribePlacementGroupsResponse
+-- | One or more placement groups.
+dpgtPlacementGroups
+    :: Functor f
+    => ([PlacementGroup]
+    -> f ([PlacementGroup]))
+    -> DescribePlacementGroupsResponse
+    -> f DescribePlacementGroupsResponse
+dpgtPlacementGroups f x =
+    (\y -> x { _dpgtPlacementGroups = y })
+       <$> f (_dpgtPlacementGroups x)
+{-# INLINE dpgtPlacementGroups #-}
 
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -83,15 +123,3 @@ instance AWSRequest DescribePlacementGroups where
 
     request = post "DescribePlacementGroups"
     response _ = xmlResponse
-
--- | One or more filters. group-name - The name of the placement group. state -
--- The state of the placement group (pending | available | deleting |
--- deleted). strategy - The strategy of the placement group (cluster).
-dpgsFilters :: Lens' DescribePlacementGroups ([Filter])
-
--- | One or more placement group names. Default: Describes all your placement
--- groups, or only those otherwise specified.
-dpgsGroupNames :: Lens' DescribePlacementGroups ([Text])
-
--- | One or more placement groups.
-dpgtPlacementGroups :: Lens' DescribePlacementGroupsResponse ([PlacementGroup])

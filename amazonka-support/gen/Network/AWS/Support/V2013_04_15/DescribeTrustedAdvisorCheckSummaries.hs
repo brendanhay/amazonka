@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,19 +21,49 @@
 -- have the specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks. The response contains an array of
 -- TrustedAdvisorCheckSummary objects.
-module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries where
+module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
+    (
+    -- * Request
+      DescribeTrustedAdvisorCheckSummaries
+    -- ** Request constructor
+    , describeTrustedAdvisorCheckSummaries
+    -- ** Request lenses
+    , dtacsrCheckIds
+
+    -- * Response
+    , DescribeTrustedAdvisorCheckSummariesResponse
+    -- ** Response lenses
+    , dtacssSummaries
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeTrustedAdvisorCheckSummaries' request.
+describeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsrCheckIds'
+                                     -> DescribeTrustedAdvisorCheckSummaries
+describeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
+    { _dtacsrCheckIds = p1
+    }
+
 data DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     { _dtacsrCheckIds :: [Text]
       -- ^ The IDs of the Trusted Advisor checks.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTrustedAdvisorCheckSummaries
+-- | The IDs of the Trusted Advisor checks.
+dtacsrCheckIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeTrustedAdvisorCheckSummaries
+    -> f DescribeTrustedAdvisorCheckSummaries
+dtacsrCheckIds f x =
+    (\y -> x { _dtacsrCheckIds = y })
+       <$> f (_dtacsrCheckIds x)
+{-# INLINE dtacsrCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries
 
@@ -49,7 +78,17 @@ data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckS
       -- ^ The summary information for the requested Trusted Advisor checks.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeTrustedAdvisorCheckSummariesResponse
+-- | The summary information for the requested Trusted Advisor checks.
+dtacssSummaries
+    :: Functor f
+    => ([TrustedAdvisorCheckSummary]
+    -> f ([TrustedAdvisorCheckSummary]))
+    -> DescribeTrustedAdvisorCheckSummariesResponse
+    -> f DescribeTrustedAdvisorCheckSummariesResponse
+dtacssSummaries f x =
+    (\y -> x { _dtacssSummaries = y })
+       <$> f (_dtacssSummaries x)
+{-# INLINE dtacssSummaries #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,11 +29,29 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=DeleteVerifiedEmailAddress
 -- &EmailAddress=user%40example.com &Timestamp=2011-08-18T22%3A20%3A50.000Z
 -- 5634af08-c865-11e0-8986-3f99a698f914.
-module Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress where
+module Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress
+    (
+    -- * Request
+      DeleteVerifiedEmailAddress
+    -- ** Request constructor
+    , deleteVerifiedEmailAddress
+    -- ** Request lenses
+    , dvearEmailAddress
+
+    -- * Response
+    , DeleteVerifiedEmailAddressResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteVerifiedEmailAddress' request.
+deleteVerifiedEmailAddress :: Text -- ^ 'dvearEmailAddress'
+                           -> DeleteVerifiedEmailAddress
+deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
+    { _dvearEmailAddress = p1
+    }
 
 data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dvearEmailAddress :: Text
@@ -42,15 +59,23 @@ data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
       -- addresses.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteVerifiedEmailAddress
+-- | An email address to be removed from the list of verified addresses.
+dvearEmailAddress
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVerifiedEmailAddress
+    -> f DeleteVerifiedEmailAddress
+dvearEmailAddress f x =
+    (\y -> x { _dvearEmailAddress = y })
+       <$> f (_dvearEmailAddress x)
+{-# INLINE dvearEmailAddress #-}
 
 instance ToQuery DeleteVerifiedEmailAddress where
     toQuery = genericQuery def
 
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteVerifiedEmailAddressResponse
 
 instance AWSRequest DeleteVerifiedEmailAddress where
     type Sv DeleteVerifiedEmailAddress = SES

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,20 +37,16 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstances
     (
     -- * Request
       DescribeReservedInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , describeReservedInstances
-    -- ** Accessors and lenses
-    , _drirFilters
+    -- ** Request lenses
     , drirFilters
-    , _drirOfferingType
     , drirOfferingType
-    , _drirReservedInstancesIds
     , drirReservedInstancesIds
 
     -- * Response
     , DescribeReservedInstancesResponse
-    -- ** Accessors and lenses
-    , _drisReservedInstances
+    -- ** Response lenses
     , drisReservedInstances
     ) where
 
@@ -68,28 +63,38 @@ describeReservedInstances = DescribeReservedInstances
     }
 
 data DescribeReservedInstances = DescribeReservedInstances
-
-makeSiglessLenses ''DescribeReservedInstances
-
-instance ToQuery DescribeReservedInstances where
-    toQuery = genericQuery def
-
-data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
-    { _drisReservedInstances :: [ReservedInstances]
-      -- ^ A list of Reserved Instances.
+    { _drirFilters :: [Filter]
+      -- ^ One or more filters. availability-zone - The Availability Zone
+      -- where the Reserved Instance can be used. duration - The duration
+      -- of the Reserved Instance (one year or three years), in seconds
+      -- (31536000 | 94608000). end - The time when the Reserved Instance
+      -- expires. fixed-price - The purchase price of the Reserved
+      -- Instance (for example, 9800.0). instance-type - The instance type
+      -- on which the Reserved Instance can be used. product-description -
+      -- The product description of the Reserved Instance (Linux/UNIX |
+      -- Linux/UNIX (Amazon VPC) | Windows | Windows (Amazon VPC)).
+      -- reserved-instances-id - The ID of the Reserved Instance. start -
+      -- The time at which the Reserved Instance purchase request was
+      -- placed. state - The state of the Reserved Instance
+      -- (pending-payment | active | payment-failed | retired).
+      -- tag:key=value - The key/value combination of a tag assigned to
+      -- the resource. tag-key - The key of a tag assigned to the
+      -- resource. This filter is independent of the tag-value filter. For
+      -- example, if you use both the filter "tag-key=Purpose" and the
+      -- filter "tag-value=X", you get any resources assigned both the tag
+      -- key Purpose (regardless of what the tag's value is), and the tag
+      -- value X (regardless of what the tag's key is). If you want to
+      -- list only resources where Purpose is X, see the tag:key=value
+      -- filter. tag-value - The value of a tag assigned to the resource.
+      -- This filter is independent of the tag-key filter. usage-price -
+      -- The usage price of the Reserved Instance, per hour (for example,
+      -- 0.84).
+    , _drirOfferingType :: Maybe OfferingTypeValues
+      -- ^ The Reserved Instance offering type.
+    , _drirReservedInstancesIds :: [Text]
+      -- ^ One or more Reserved Instance IDs. Default: Describes all your
+      -- Reserved Instances, or only those otherwise specified.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeReservedInstancesResponse
-
-instance FromXML DescribeReservedInstancesResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeReservedInstances where
-    type Sv DescribeReservedInstances = EC2
-    type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
-
-    request = post "DescribeReservedInstances"
-    response _ = xmlResponse
 
 -- | One or more filters. availability-zone - The Availability Zone where the
 -- Reserved Instance can be used. duration - The duration of the Reserved
@@ -112,14 +117,68 @@ instance AWSRequest DescribeReservedInstances where
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. usage-price - The usage price
 -- of the Reserved Instance, per hour (for example, 0.84).
-drirFilters :: Lens' DescribeReservedInstances ([Filter])
+drirFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeReservedInstances
+    -> f DescribeReservedInstances
+drirFilters f x =
+    (\y -> x { _drirFilters = y })
+       <$> f (_drirFilters x)
+{-# INLINE drirFilters #-}
 
 -- | The Reserved Instance offering type.
-drirOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
+drirOfferingType
+    :: Functor f
+    => (Maybe OfferingTypeValues
+    -> f (Maybe OfferingTypeValues))
+    -> DescribeReservedInstances
+    -> f DescribeReservedInstances
+drirOfferingType f x =
+    (\y -> x { _drirOfferingType = y })
+       <$> f (_drirOfferingType x)
+{-# INLINE drirOfferingType #-}
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved
 -- Instances, or only those otherwise specified.
-drirReservedInstancesIds :: Lens' DescribeReservedInstances ([Text])
+drirReservedInstancesIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeReservedInstances
+    -> f DescribeReservedInstances
+drirReservedInstancesIds f x =
+    (\y -> x { _drirReservedInstancesIds = y })
+       <$> f (_drirReservedInstancesIds x)
+{-# INLINE drirReservedInstancesIds #-}
+
+instance ToQuery DescribeReservedInstances where
+    toQuery = genericQuery def
+
+data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
+    { _drisReservedInstances :: [ReservedInstances]
+      -- ^ A list of Reserved Instances.
+    } deriving (Show, Generic)
 
 -- | A list of Reserved Instances.
-drisReservedInstances :: Lens' DescribeReservedInstancesResponse ([ReservedInstances])
+drisReservedInstances
+    :: Functor f
+    => ([ReservedInstances]
+    -> f ([ReservedInstances]))
+    -> DescribeReservedInstancesResponse
+    -> f DescribeReservedInstancesResponse
+drisReservedInstances f x =
+    (\y -> x { _drisReservedInstances = y })
+       <$> f (_drisReservedInstances x)
+{-# INLINE drisReservedInstances #-}
+
+instance FromXML DescribeReservedInstancesResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeReservedInstances where
+    type Sv DescribeReservedInstances = EC2
+    type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
+
+    request = post "DescribeReservedInstances"
+    response _ = xmlResponse

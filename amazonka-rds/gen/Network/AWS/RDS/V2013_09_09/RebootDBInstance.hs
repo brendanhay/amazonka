@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -41,14 +40,28 @@
 -- simcoprod01 in-sync default.mysql5.1 active default 00:00-00:30 true
 -- sat:07:30-sat:08:00 us-east-1a 2011-05-23T06:06:43.110Z 10 db.m1.large
 -- master 5d5df758-8503-11e0-90aa-eb648410240d.
-module Network.AWS.RDS.V2013_09_09.RebootDBInstance where
+module Network.AWS.RDS.V2013_09_09.RebootDBInstance
+    (
+    -- * Request
+      RebootDBInstance
+    -- ** Request constructor
+    , rebootDBInstance
+    -- ** Request lenses
+    , rdbinDBInstanceIdentifier
+    , rdbinForceFailover
+
+    -- * Response
+    , RebootDBInstanceResponse
+    -- ** Response lenses
+    , dbidsDBInstance
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RebootDBInstance' request.
-rebootDBInstance :: Text -- ^ '_rdbinDBInstanceIdentifier'
+rebootDBInstance :: Text -- ^ 'rdbinDBInstanceIdentifier'
                  -> RebootDBInstance
 rebootDBInstance p1 = RebootDBInstance
     { _rdbinDBInstanceIdentifier = p1
@@ -68,7 +81,34 @@ data RebootDBInstance = RebootDBInstance
       -- not configured for MultiAZ.
     } deriving (Show, Generic)
 
-makeLenses ''RebootDBInstance
+-- | The DB instance identifier. This parameter is stored as a lowercase string.
+-- Constraints: Must contain from 1 to 63 alphanumeric characters or hyphens
+-- First character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens.
+rdbinDBInstanceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RebootDBInstance
+    -> f RebootDBInstance
+rdbinDBInstanceIdentifier f x =
+    (\y -> x { _rdbinDBInstanceIdentifier = y })
+       <$> f (_rdbinDBInstanceIdentifier x)
+{-# INLINE rdbinDBInstanceIdentifier #-}
+
+-- | When true, the reboot will be conducted through a MultiAZ failover.
+-- Constraint: You cannot specify true if the instance is not configured for
+-- MultiAZ.
+rdbinForceFailover
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RebootDBInstance
+    -> f RebootDBInstance
+rdbinForceFailover f x =
+    (\y -> x { _rdbinForceFailover = y })
+       <$> f (_rdbinForceFailover x)
+{-# INLINE rdbinForceFailover #-}
 
 instance ToQuery RebootDBInstance where
     toQuery = genericQuery def
@@ -81,7 +121,19 @@ data RebootDBInstanceResponse = RebootDBInstanceResponse
       -- DescribeDBInstances action.
     } deriving (Show, Generic)
 
-makeLenses ''RebootDBInstanceResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
+-- as a response element in the DescribeDBInstances action.
+dbidsDBInstance
+    :: Functor f
+    => (Maybe DBInstance
+    -> f (Maybe DBInstance))
+    -> RebootDBInstanceResponse
+    -> f RebootDBInstanceResponse
+dbidsDBInstance f x =
+    (\y -> x { _dbidsDBInstance = y })
+       <$> f (_dbidsDBInstance x)
+{-# INLINE dbidsDBInstance #-}
 
 instance FromXML RebootDBInstanceResponse where
     fromXMLOptions = xmlOptions

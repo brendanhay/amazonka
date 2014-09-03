@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,20 +49,14 @@ module Network.AWS.EC2.V2014_06_15.CreateRoute
     (
     -- * Request
       CreateRoute
-    -- ** Default constructor
+    -- ** Request constructor
     , createRoute
-    -- ** Accessors and lenses
-    , _crrRouteTableId
+    -- ** Request lenses
     , crrRouteTableId
-    , _crrDestinationCidrBlock
     , crrDestinationCidrBlock
-    , _crrGatewayId
     , crrGatewayId
-    , _crrInstanceId
     , crrInstanceId
-    , _crrNetworkInterfaceId
     , crrNetworkInterfaceId
-    , _crrVpcPeeringConnectionId
     , crrVpcPeeringConnectionId
 
     -- * Response
@@ -88,8 +81,96 @@ createRoute p1 p2 = CreateRoute
     }
 
 data CreateRoute = CreateRoute
+    { _crrRouteTableId :: Text
+      -- ^ The ID of the route table for the route.
+    , _crrDestinationCidrBlock :: Text
+      -- ^ The CIDR address block used for the destination match. Routing
+      -- decisions are based on the most specific match.
+    , _crrGatewayId :: Maybe Text
+      -- ^ The ID of an Internet gateway attached to your VPC.
+    , _crrInstanceId :: Maybe Text
+      -- ^ The ID of a NAT instance in your VPC. The operation fails if you
+      -- specify an instance ID unless exactly one network interface is
+      -- attached.
+    , _crrNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of a network interface.
+    , _crrVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of a VPC peering connection.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateRoute
+-- | The ID of the route table for the route.
+crrRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateRoute
+    -> f CreateRoute
+crrRouteTableId f x =
+    (\y -> x { _crrRouteTableId = y })
+       <$> f (_crrRouteTableId x)
+{-# INLINE crrRouteTableId #-}
+
+-- | The CIDR address block used for the destination match. Routing decisions
+-- are based on the most specific match.
+crrDestinationCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateRoute
+    -> f CreateRoute
+crrDestinationCidrBlock f x =
+    (\y -> x { _crrDestinationCidrBlock = y })
+       <$> f (_crrDestinationCidrBlock x)
+{-# INLINE crrDestinationCidrBlock #-}
+
+-- | The ID of an Internet gateway attached to your VPC.
+crrGatewayId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateRoute
+    -> f CreateRoute
+crrGatewayId f x =
+    (\y -> x { _crrGatewayId = y })
+       <$> f (_crrGatewayId x)
+{-# INLINE crrGatewayId #-}
+
+-- | The ID of a NAT instance in your VPC. The operation fails if you specify an
+-- instance ID unless exactly one network interface is attached.
+crrInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateRoute
+    -> f CreateRoute
+crrInstanceId f x =
+    (\y -> x { _crrInstanceId = y })
+       <$> f (_crrInstanceId x)
+{-# INLINE crrInstanceId #-}
+
+-- | The ID of a network interface.
+crrNetworkInterfaceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateRoute
+    -> f CreateRoute
+crrNetworkInterfaceId f x =
+    (\y -> x { _crrNetworkInterfaceId = y })
+       <$> f (_crrNetworkInterfaceId x)
+{-# INLINE crrNetworkInterfaceId #-}
+
+-- | The ID of a VPC peering connection.
+crrVpcPeeringConnectionId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateRoute
+    -> f CreateRoute
+crrVpcPeeringConnectionId f x =
+    (\y -> x { _crrVpcPeeringConnectionId = y })
+       <$> f (_crrVpcPeeringConnectionId x)
+{-# INLINE crrVpcPeeringConnectionId #-}
 
 instance ToQuery CreateRoute where
     toQuery = genericQuery def
@@ -97,31 +178,9 @@ instance ToQuery CreateRoute where
 data CreateRouteResponse = CreateRouteResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''CreateRouteResponse
-
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2
     type Rs CreateRoute = CreateRouteResponse
 
     request = post "CreateRoute"
     response _ = nullaryResponse CreateRouteResponse
-
--- | The ID of the route table for the route.
-crrRouteTableId :: Lens' CreateRoute (Text)
-
--- | The CIDR address block used for the destination match. Routing decisions
--- are based on the most specific match.
-crrDestinationCidrBlock :: Lens' CreateRoute (Text)
-
--- | The ID of an Internet gateway attached to your VPC.
-crrGatewayId :: Lens' CreateRoute (Maybe Text)
-
--- | The ID of a NAT instance in your VPC. The operation fails if you specify an
--- instance ID unless exactly one network interface is attached.
-crrInstanceId :: Lens' CreateRoute (Maybe Text)
-
--- | The ID of a network interface.
-crrNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
-
--- | The ID of a VPC peering connection.
-crrVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)

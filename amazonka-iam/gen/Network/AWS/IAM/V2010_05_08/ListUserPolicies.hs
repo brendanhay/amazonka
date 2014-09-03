@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,14 +23,31 @@
 -- https://iam.amazonaws.com/ ?Action=ListUserPolicies &UserName=Bob
 -- &AUTHPARAMS AllAccessPolicy KeyPolicy false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListUserPolicies where
+module Network.AWS.IAM.V2010_05_08.ListUserPolicies
+    (
+    -- * Request
+      ListUserPolicies
+    -- ** Request constructor
+    , listUserPolicies
+    -- ** Request lenses
+    , luprUserName
+    , luprMarker
+    , luprMaxItems
+
+    -- * Response
+    , ListUserPoliciesResponse
+    -- ** Response lenses
+    , lupsIsTruncated
+    , lupsPolicyNames
+    , lupsMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListUserPolicies' request.
-listUserPolicies :: Text -- ^ '_luprUserName'
+listUserPolicies :: Text -- ^ 'luprUserName'
                  -> ListUserPolicies
 listUserPolicies p1 = ListUserPolicies
     { _luprUserName = p1
@@ -55,7 +71,46 @@ data ListUserPolicies = ListUserPolicies
       -- If you do not include it, it defaults to 100.
     } deriving (Show, Generic)
 
-makeLenses ''ListUserPolicies
+-- | The name of the user to list policies for.
+luprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListUserPolicies
+    -> f ListUserPolicies
+luprUserName f x =
+    (\y -> x { _luprUserName = y })
+       <$> f (_luprUserName x)
+{-# INLINE luprUserName #-}
+
+-- | Use this only when paginating results, and only in a subsequent request
+-- after you've received a response where the results are truncated. Set it to
+-- the value of the Marker element in the response you just received.
+luprMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListUserPolicies
+    -> f ListUserPolicies
+luprMarker f x =
+    (\y -> x { _luprMarker = y })
+       <$> f (_luprMarker x)
+{-# INLINE luprMarker #-}
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- policy names you want in the response. If there are additional policy names
+-- beyond the maximum you specify, the IsTruncated response element is true.
+-- This parameter is optional. If you do not include it, it defaults to 100.
+luprMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListUserPolicies
+    -> f ListUserPolicies
+luprMaxItems f x =
+    (\y -> x { _luprMaxItems = y })
+       <$> f (_luprMaxItems x)
+{-# INLINE luprMaxItems #-}
 
 instance ToQuery ListUserPolicies where
     toQuery = genericQuery def
@@ -74,7 +129,44 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListUserPoliciesResponse
+-- | A flag that indicates whether there are more policy names to list. If your
+-- results were truncated, you can make a subsequent pagination request using
+-- the Marker request parameter to retrieve more policy names in the list.
+lupsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListUserPoliciesResponse
+    -> f ListUserPoliciesResponse
+lupsIsTruncated f x =
+    (\y -> x { _lupsIsTruncated = y })
+       <$> f (_lupsIsTruncated x)
+{-# INLINE lupsIsTruncated #-}
+
+-- | A list of policy names.
+lupsPolicyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListUserPoliciesResponse
+    -> f ListUserPoliciesResponse
+lupsPolicyNames f x =
+    (\y -> x { _lupsPolicyNames = y })
+       <$> f (_lupsPolicyNames x)
+{-# INLINE lupsPolicyNames #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lupsMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListUserPoliciesResponse
+    -> f ListUserPoliciesResponse
+lupsMarker f x =
+    (\y -> x { _lupsMarker = y })
+       <$> f (_lupsMarker x)
+{-# INLINE lupsMarker #-}
 
 instance FromXML ListUserPoliciesResponse where
     fromXMLOptions = xmlOptions

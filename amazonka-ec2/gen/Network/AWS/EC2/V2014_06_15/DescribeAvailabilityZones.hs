@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -49,18 +48,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones
     (
     -- * Request
       DescribeAvailabilityZones
-    -- ** Default constructor
+    -- ** Request constructor
     , describeAvailabilityZones
-    -- ** Accessors and lenses
-    , _dazrFilters
+    -- ** Request lenses
     , dazrFilters
-    , _dazrZoneNames
     , dazrZoneNames
 
     -- * Response
     , DescribeAvailabilityZonesResponse
-    -- ** Accessors and lenses
-    , _dazsAvailabilityZones
+    -- ** Response lenses
     , dazsAvailabilityZones
     ) where
 
@@ -76,8 +72,43 @@ describeAvailabilityZones = DescribeAvailabilityZones
     }
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
+    { _dazrFilters :: [Filter]
+      -- ^ One or more filters. message - Information about the Availability
+      -- Zone. region-name - The name of the region for the Availability
+      -- Zone (for example, us-east-1). state - The state of the
+      -- Availability Zone (available | impaired | unavailable). zone-name
+      -- - The name of the Availability Zone (for example, us-east-1a).
+    , _dazrZoneNames :: [Text]
+      -- ^ The names of one or more Availability Zones.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeAvailabilityZones
+-- | One or more filters. message - Information about the Availability Zone.
+-- region-name - The name of the region for the Availability Zone (for
+-- example, us-east-1). state - The state of the Availability Zone (available
+-- | impaired | unavailable). zone-name - The name of the Availability Zone
+-- (for example, us-east-1a).
+dazrFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeAvailabilityZones
+    -> f DescribeAvailabilityZones
+dazrFilters f x =
+    (\y -> x { _dazrFilters = y })
+       <$> f (_dazrFilters x)
+{-# INLINE dazrFilters #-}
+
+-- | The names of one or more Availability Zones.
+dazrZoneNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeAvailabilityZones
+    -> f DescribeAvailabilityZones
+dazrZoneNames f x =
+    (\y -> x { _dazrZoneNames = y })
+       <$> f (_dazrZoneNames x)
+{-# INLINE dazrZoneNames #-}
 
 instance ToQuery DescribeAvailabilityZones where
     toQuery = genericQuery def
@@ -87,7 +118,17 @@ data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
       -- ^ Information about one or more Availability Zones.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeAvailabilityZonesResponse
+-- | Information about one or more Availability Zones.
+dazsAvailabilityZones
+    :: Functor f
+    => ([AvailabilityZone]
+    -> f ([AvailabilityZone]))
+    -> DescribeAvailabilityZonesResponse
+    -> f DescribeAvailabilityZonesResponse
+dazsAvailabilityZones f x =
+    (\y -> x { _dazsAvailabilityZones = y })
+       <$> f (_dazsAvailabilityZones x)
+{-# INLINE dazsAvailabilityZones #-}
 
 instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions
@@ -98,16 +139,3 @@ instance AWSRequest DescribeAvailabilityZones where
 
     request = post "DescribeAvailabilityZones"
     response _ = xmlResponse
-
--- | One or more filters. message - Information about the Availability Zone.
--- region-name - The name of the region for the Availability Zone (for
--- example, us-east-1). state - The state of the Availability Zone (available
--- | impaired | unavailable). zone-name - The name of the Availability Zone
--- (for example, us-east-1a).
-dazrFilters :: Lens' DescribeAvailabilityZones ([Filter])
-
--- | The names of one or more Availability Zones.
-dazrZoneNames :: Lens' DescribeAvailabilityZones ([Text])
-
--- | Information about one or more Availability Zones.
-dazsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse ([AvailabilityZone])

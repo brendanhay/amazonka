@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,12 +34,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute
     (
     -- * Request
       DeleteVpnConnectionRoute
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteVpnConnectionRoute
-    -- ** Accessors and lenses
-    , _dvcrrVpnConnectionId
+    -- ** Request lenses
     , dvcrrVpnConnectionId
-    , _dvcrrDestinationCidrBlock
     , dvcrrDestinationCidrBlock
 
     -- * Response
@@ -61,8 +58,36 @@ deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     }
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
+    { _dvcrrVpnConnectionId :: Text
+      -- ^ The ID of the VPN connection.
+    , _dvcrrDestinationCidrBlock :: Text
+      -- ^ The CIDR block associated with the local subnet of the customer
+      -- network.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVpnConnectionRoute
+-- | The ID of the VPN connection.
+dvcrrVpnConnectionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVpnConnectionRoute
+    -> f DeleteVpnConnectionRoute
+dvcrrVpnConnectionId f x =
+    (\y -> x { _dvcrrVpnConnectionId = y })
+       <$> f (_dvcrrVpnConnectionId x)
+{-# INLINE dvcrrVpnConnectionId #-}
+
+-- | The CIDR block associated with the local subnet of the customer network.
+dvcrrDestinationCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVpnConnectionRoute
+    -> f DeleteVpnConnectionRoute
+dvcrrDestinationCidrBlock f x =
+    (\y -> x { _dvcrrDestinationCidrBlock = y })
+       <$> f (_dvcrrDestinationCidrBlock x)
+{-# INLINE dvcrrDestinationCidrBlock #-}
 
 instance ToQuery DeleteVpnConnectionRoute where
     toQuery = genericQuery def
@@ -70,17 +95,9 @@ instance ToQuery DeleteVpnConnectionRoute where
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteVpnConnectionRouteResponse
-
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2
     type Rs DeleteVpnConnectionRoute = DeleteVpnConnectionRouteResponse
 
     request = post "DeleteVpnConnectionRoute"
     response _ = nullaryResponse DeleteVpnConnectionRouteResponse
-
--- | The ID of the VPN connection.
-dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute (Text)
-
--- | The CIDR block associated with the local subnet of the customer network.
-dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute (Text)

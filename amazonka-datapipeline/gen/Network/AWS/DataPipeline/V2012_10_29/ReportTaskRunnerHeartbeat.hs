@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,22 @@
 -- b3104dc5-0734-11e2-af6f-6bc7a6be60d9 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 20 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"terminate": false}.
-module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat where
+module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
+    (
+    -- * Request
+      ReportTaskRunnerHeartbeat
+    -- ** Request constructor
+    , reportTaskRunnerHeartbeat
+    -- ** Request lenses
+    , rtrhiTaskrunnerId
+    , rtrhiHostname
+    , rtrhiWorkerGroup
+
+    -- * Response
+    , ReportTaskRunnerHeartbeatResponse
+    -- ** Response lenses
+    , rtrhoTerminate
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
@@ -39,7 +53,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ReportTaskRunnerHeartbeat' request.
-reportTaskRunnerHeartbeat :: Text -- ^ '_rtrhiTaskrunnerId'
+reportTaskRunnerHeartbeat :: Text -- ^ 'rtrhiTaskrunnerId'
                           -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
     { _rtrhiTaskrunnerId = p1
@@ -67,7 +81,50 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
       -- match.
     } deriving (Show, Generic)
 
-makeLenses ''ReportTaskRunnerHeartbeat
+-- | The identifier of the task runner. This value should be unique across your
+-- AWS account. In the case of AWS Data Pipeline Task Runner launched on a
+-- resource managed by AWS Data Pipeline, the web service provides a unique
+-- identifier when it launches the application. If you have written a custom
+-- task runner, you should assign a unique identifier for the task runner.
+rtrhiTaskrunnerId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReportTaskRunnerHeartbeat
+    -> f ReportTaskRunnerHeartbeat
+rtrhiTaskrunnerId f x =
+    (\y -> x { _rtrhiTaskrunnerId = y })
+       <$> f (_rtrhiTaskrunnerId x)
+{-# INLINE rtrhiTaskrunnerId #-}
+
+-- | The public DNS name of the calling task runner.
+rtrhiHostname
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReportTaskRunnerHeartbeat
+    -> f ReportTaskRunnerHeartbeat
+rtrhiHostname f x =
+    (\y -> x { _rtrhiHostname = y })
+       <$> f (_rtrhiHostname x)
+{-# INLINE rtrhiHostname #-}
+
+-- | Indicates the type of task the task runner is configured to accept and
+-- process. The worker group is set as a field on objects in the pipeline when
+-- they are created. You can only specify a single value for workerGroup in
+-- the call to ReportTaskRunnerHeartbeat. There are no wildcard values
+-- permitted in workerGroup, the string must be an exact, case-sensitive,
+-- match.
+rtrhiWorkerGroup
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReportTaskRunnerHeartbeat
+    -> f ReportTaskRunnerHeartbeat
+rtrhiWorkerGroup f x =
+    (\y -> x { _rtrhiWorkerGroup = y })
+       <$> f (_rtrhiWorkerGroup x)
+{-# INLINE rtrhiWorkerGroup #-}
 
 instance ToPath ReportTaskRunnerHeartbeat
 
@@ -84,7 +141,18 @@ data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
       -- should terminate.
     } deriving (Show, Generic)
 
-makeLenses ''ReportTaskRunnerHeartbeatResponse
+-- | Indicates whether the calling task runner should terminate. If True, the
+-- task runner that called ReportTaskRunnerHeartbeat should terminate.
+rtrhoTerminate
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ReportTaskRunnerHeartbeatResponse
+    -> f ReportTaskRunnerHeartbeatResponse
+rtrhoTerminate f x =
+    (\y -> x { _rtrhoTerminate = y })
+       <$> f (_rtrhoTerminate x)
+{-# INLINE rtrhoTerminate #-}
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse
 

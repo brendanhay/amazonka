@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,12 +27,11 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription
     (
     -- * Request
       DescribeSpotDatafeedSubscription
-    -- ** Default constructor
+    -- ** Request constructor
     , describeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
-    -- ** Accessors and lenses
-    , _dsdstSpotDatafeedSubscription
+    -- ** Response lenses
     , dsdstSpotDatafeedSubscription
     ) where
 
@@ -46,8 +44,7 @@ describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-
-makeSiglessLenses ''DescribeSpotDatafeedSubscription
+    deriving (Eq, Show, Generic)
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -57,7 +54,17 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
       -- ^ The Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeSpotDatafeedSubscriptionResponse
+-- | The Spot Instance datafeed subscription.
+dsdstSpotDatafeedSubscription
+    :: Functor f
+    => (Maybe SpotDatafeedSubscription
+    -> f (Maybe SpotDatafeedSubscription))
+    -> DescribeSpotDatafeedSubscriptionResponse
+    -> f DescribeSpotDatafeedSubscriptionResponse
+dsdstSpotDatafeedSubscription f x =
+    (\y -> x { _dsdstSpotDatafeedSubscription = y })
+       <$> f (_dsdstSpotDatafeedSubscription x)
+{-# INLINE dsdstSpotDatafeedSubscription #-}
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
@@ -68,6 +75,3 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
 
     request = post "DescribeSpotDatafeedSubscription"
     response _ = xmlResponse
-
--- | The Spot Instance datafeed subscription.
-dsdstSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,10 +29,9 @@ module Network.AWS.EC2.V2014_06_15.DeregisterImage
     (
     -- * Request
       DeregisterImage
-    -- ** Default constructor
+    -- ** Request constructor
     , deregisterImage
-    -- ** Accessors and lenses
-    , _dirImageId
+    -- ** Request lenses
     , dirImageId
 
     -- * Response
@@ -52,8 +50,21 @@ deregisterImage p1 = DeregisterImage
     }
 
 data DeregisterImage = DeregisterImage
+    { _dirImageId :: Text
+      -- ^ The ID of the AMI.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeregisterImage
+-- | The ID of the AMI.
+dirImageId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeregisterImage
+    -> f DeregisterImage
+dirImageId f x =
+    (\y -> x { _dirImageId = y })
+       <$> f (_dirImageId x)
+{-# INLINE dirImageId #-}
 
 instance ToQuery DeregisterImage where
     toQuery = genericQuery def
@@ -61,14 +72,9 @@ instance ToQuery DeregisterImage where
 data DeregisterImageResponse = DeregisterImageResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeregisterImageResponse
-
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2
     type Rs DeregisterImage = DeregisterImageResponse
 
     request = post "DeregisterImage"
     response _ = nullaryResponse DeregisterImageResponse
-
--- | The ID of the AMI.
-dirImageId :: Lens' DeregisterImage (Text)

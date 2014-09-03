@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,18 +30,48 @@
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- 2012-05-08T23:34:01Z AROADBQP57FF2AEXAMPLE
 -- df37e965-9967-11e1-a4c3-270EXAMPLE04.
-module Network.AWS.IAM.V2010_05_08.GetRole where
+module Network.AWS.IAM.V2010_05_08.GetRole
+    (
+    -- * Request
+      GetRole
+    -- ** Request constructor
+    , getRole
+    -- ** Request lenses
+    , grrRoleName
+
+    -- * Response
+    , GetRoleResponse
+    -- ** Response lenses
+    , grsRole
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetRole' request.
+getRole :: Text -- ^ 'grrRoleName'
+        -> GetRole
+getRole p1 = GetRole
+    { _grrRoleName = p1
+    }
 
 data GetRole = GetRole
     { _grrRoleName :: Text
       -- ^ Name of the role to get information about.
     } deriving (Show, Generic)
 
-makeLenses ''GetRole
+-- | Name of the role to get information about.
+grrRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetRole
+    -> f GetRole
+grrRoleName f x =
+    (\y -> x { _grrRoleName = y })
+       <$> f (_grrRoleName x)
+{-# INLINE grrRoleName #-}
 
 instance ToQuery GetRole where
     toQuery = genericQuery def
@@ -52,7 +81,17 @@ data GetRoleResponse = GetRoleResponse
       -- ^ Information about the role.
     } deriving (Show, Generic)
 
-makeLenses ''GetRoleResponse
+-- | Information about the role.
+grsRole
+    :: Functor f
+    => (Role
+    -> f (Role))
+    -> GetRoleResponse
+    -> f GetRoleResponse
+grsRole f x =
+    (\y -> x { _grsRole = y })
+       <$> f (_grsRole x)
+{-# INLINE grsRole #-}
 
 instance FromXML GetRoleResponse where
     fromXMLOptions = xmlOptions

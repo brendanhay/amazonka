@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,16 +21,28 @@
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
 -- &Action=DescribeAdjustmentTypes &AUTHPARAMS ChangeInCapacity ExactCapacity
 -- PercentChangeInCapacity cc5f0337-b694-11e2-afc0-6544dEXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
+    (
+    -- * Request
+      DescribeAdjustmentTypes
+    -- ** Request constructor
+    , describeAdjustmentTypes
+    -- * Response
+    , DescribeAdjustmentTypesResponse
+    -- ** Response lenses
+    , dataAdjustmentTypes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DescribeAdjustmentTypes' request.
+describeAdjustmentTypes :: DescribeAdjustmentTypes
+describeAdjustmentTypes = DescribeAdjustmentTypes
+
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeAdjustmentTypes
 
 instance ToQuery DescribeAdjustmentTypes where
     toQuery = genericQuery def
@@ -41,7 +52,17 @@ data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
       -- ^ A list of specific policy adjustment types.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAdjustmentTypesResponse
+-- | A list of specific policy adjustment types.
+dataAdjustmentTypes
+    :: Functor f
+    => ([AdjustmentType]
+    -> f ([AdjustmentType]))
+    -> DescribeAdjustmentTypesResponse
+    -> f DescribeAdjustmentTypesResponse
+dataAdjustmentTypes f x =
+    (\y -> x { _dataAdjustmentTypes = y })
+       <$> f (_dataAdjustmentTypes x)
+{-# INLINE dataAdjustmentTypes #-}
 
 instance FromXML DescribeAdjustmentTypesResponse where
     fromXMLOptions = xmlOptions

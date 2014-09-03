@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -41,26 +40,17 @@ module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupIngress
     (
     -- * Request
       RevokeSecurityGroupIngress
-    -- ** Default constructor
+    -- ** Request constructor
     , revokeSecurityGroupIngress
-    -- ** Accessors and lenses
-    , _rsgirFromPort
+    -- ** Request lenses
     , rsgirFromPort
-    , _rsgirToPort
     , rsgirToPort
-    , _rsgirIpPermissions
     , rsgirIpPermissions
-    , _rsgirGroupName
     , rsgirGroupName
-    , _rsgirGroupId
     , rsgirGroupId
-    , _rsgirSourceSecurityGroupName
     , rsgirSourceSecurityGroupName
-    , _rsgirSourceSecurityGroupOwnerId
     , rsgirSourceSecurityGroupOwnerId
-    , _rsgirIpProtocol
     , rsgirIpProtocol
-    , _rsgirCidrIp
     , rsgirCidrIp
 
     -- * Response
@@ -86,8 +76,149 @@ revokeSecurityGroupIngress = RevokeSecurityGroupIngress
     }
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
+    { _rsgirFromPort :: Maybe Integer
+      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- type number. For the ICMP type number, use -1 to specify all ICMP
+      -- types.
+    , _rsgirToPort :: Maybe Integer
+      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- code number. For the ICMP code number, use -1 to specify all ICMP
+      -- codes for the ICMP type.
+    , _rsgirIpPermissions :: [IpPermission]
+      -- ^ 
+    , _rsgirGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the security group.
+    , _rsgirGroupId :: Maybe Text
+      -- ^ The ID of the security group.
+    , _rsgirSourceSecurityGroupName :: Maybe Text
+      -- ^ [EC2-Classic, default VPC] The name of the source security group.
+      -- You can't specify a source security group and a CIDR IP address
+      -- range.
+    , _rsgirSourceSecurityGroupOwnerId :: Maybe Text
+      -- ^ The ID of the source security group. You can't specify a source
+      -- security group and a CIDR IP address range.
+    , _rsgirIpProtocol :: Maybe Text
+      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
+      -- Numbers). Use -1 to specify all.
+    , _rsgirCidrIp :: Maybe Text
+      -- ^ The CIDR IP address range. You can't specify this parameter when
+      -- specifying a source security group.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''RevokeSecurityGroupIngress
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type
+-- number. For the ICMP type number, use -1 to specify all ICMP types.
+rsgirFromPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirFromPort f x =
+    (\y -> x { _rsgirFromPort = y })
+       <$> f (_rsgirFromPort x)
+{-# INLINE rsgirFromPort #-}
+
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use -1 to specify all ICMP codes for the
+-- ICMP type.
+rsgirToPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirToPort f x =
+    (\y -> x { _rsgirToPort = y })
+       <$> f (_rsgirToPort x)
+{-# INLINE rsgirToPort #-}
+
+-- | 
+rsgirIpPermissions
+    :: Functor f
+    => ([IpPermission]
+    -> f ([IpPermission]))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirIpPermissions f x =
+    (\y -> x { _rsgirIpPermissions = y })
+       <$> f (_rsgirIpPermissions x)
+{-# INLINE rsgirIpPermissions #-}
+
+-- | [EC2-Classic, default VPC] The name of the security group.
+rsgirGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirGroupName f x =
+    (\y -> x { _rsgirGroupName = y })
+       <$> f (_rsgirGroupName x)
+{-# INLINE rsgirGroupName #-}
+
+-- | The ID of the security group.
+rsgirGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirGroupId f x =
+    (\y -> x { _rsgirGroupId = y })
+       <$> f (_rsgirGroupId x)
+{-# INLINE rsgirGroupId #-}
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't
+-- specify a source security group and a CIDR IP address range.
+rsgirSourceSecurityGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirSourceSecurityGroupName f x =
+    (\y -> x { _rsgirSourceSecurityGroupName = y })
+       <$> f (_rsgirSourceSecurityGroupName x)
+{-# INLINE rsgirSourceSecurityGroupName #-}
+
+-- | The ID of the source security group. You can't specify a source security
+-- group and a CIDR IP address range.
+rsgirSourceSecurityGroupOwnerId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirSourceSecurityGroupOwnerId f x =
+    (\y -> x { _rsgirSourceSecurityGroupOwnerId = y })
+       <$> f (_rsgirSourceSecurityGroupOwnerId x)
+{-# INLINE rsgirSourceSecurityGroupOwnerId #-}
+
+-- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
+-- -1 to specify all.
+rsgirIpProtocol
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirIpProtocol f x =
+    (\y -> x { _rsgirIpProtocol = y })
+       <$> f (_rsgirIpProtocol x)
+{-# INLINE rsgirIpProtocol #-}
+
+-- | The CIDR IP address range. You can't specify this parameter when specifying
+-- a source security group.
+rsgirCidrIp
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSecurityGroupIngress
+    -> f RevokeSecurityGroupIngress
+rsgirCidrIp f x =
+    (\y -> x { _rsgirCidrIp = y })
+       <$> f (_rsgirCidrIp x)
+{-# INLINE rsgirCidrIp #-}
 
 instance ToQuery RevokeSecurityGroupIngress where
     toQuery = genericQuery def
@@ -95,45 +226,9 @@ instance ToQuery RevokeSecurityGroupIngress where
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''RevokeSecurityGroupIngressResponse
-
 instance AWSRequest RevokeSecurityGroupIngress where
     type Sv RevokeSecurityGroupIngress = EC2
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
 
     request = post "RevokeSecurityGroupIngress"
     response _ = nullaryResponse RevokeSecurityGroupIngressResponse
-
--- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use -1 to specify all ICMP types.
-rsgirFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
-
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use -1 to specify all ICMP codes for the
--- ICMP type.
-rsgirToPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
-
--- | 
-rsgirIpPermissions :: Lens' RevokeSecurityGroupIngress ([IpPermission])
-
--- | [EC2-Classic, default VPC] The name of the security group.
-rsgirGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-
--- | The ID of the security group.
-rsgirGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-
--- | [EC2-Classic, default VPC] The name of the source security group. You can't
--- specify a source security group and a CIDR IP address range.
-rsgirSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-
--- | The ID of the source security group. You can't specify a source security
--- group and a CIDR IP address range.
-rsgirSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
--- -1 to specify all.
-rsgirIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-
--- | The CIDR IP address range. You can't specify this parameter when specifying
--- a source security group.
-rsgirCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)

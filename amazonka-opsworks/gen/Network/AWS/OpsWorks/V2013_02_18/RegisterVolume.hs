@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,21 @@
 -- this action, an IAM user must have a Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.RegisterVolume where
+module Network.AWS.OpsWorks.V2013_02_18.RegisterVolume
+    (
+    -- * Request
+      RegisterVolume
+    -- ** Request constructor
+    , registerVolume
+    -- ** Request lenses
+    , rvrStackId
+    , rvrEc2VolumeId
+
+    -- * Response
+    , RegisterVolumeResponse
+    -- ** Response lenses
+    , rvsVolumeId
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,7 +46,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'RegisterVolume' request.
-registerVolume :: Text -- ^ '_rvrStackId'
+registerVolume :: Text -- ^ 'rvrStackId'
                -> RegisterVolume
 registerVolume p1 = RegisterVolume
     { _rvrStackId = p1
@@ -47,7 +60,29 @@ data RegisterVolume = RegisterVolume
       -- ^ The Amazon EBS volume ID.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterVolume
+-- | The stack ID.
+rvrStackId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterVolume
+    -> f RegisterVolume
+rvrStackId f x =
+    (\y -> x { _rvrStackId = y })
+       <$> f (_rvrStackId x)
+{-# INLINE rvrStackId #-}
+
+-- | The Amazon EBS volume ID.
+rvrEc2VolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterVolume
+    -> f RegisterVolume
+rvrEc2VolumeId f x =
+    (\y -> x { _rvrEc2VolumeId = y })
+       <$> f (_rvrEc2VolumeId x)
+{-# INLINE rvrEc2VolumeId #-}
 
 instance ToPath RegisterVolume
 
@@ -62,7 +97,17 @@ data RegisterVolumeResponse = RegisterVolumeResponse
       -- ^ The volume ID.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterVolumeResponse
+-- | The volume ID.
+rvsVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterVolumeResponse
+    -> f RegisterVolumeResponse
+rvsVolumeId f x =
+    (\y -> x { _rvsVolumeId = y })
+       <$> f (_rvsVolumeId x)
+{-# INLINE rvsVolumeId #-}
 
 instance FromJSON RegisterVolumeResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -86,15 +85,36 @@
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY 2011-07-15T23:28:33.359Z
 -- AKIAIOSFODNN7EXAMPLE arn:aws:sts::123456789012:assumed-role/demo/Bob
 -- ARO123EXAMPLE123:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
-module Network.AWS.STS.V2011_06_15.AssumeRole where
+module Network.AWS.STS.V2011_06_15.AssumeRole
+    (
+    -- * Request
+      AssumeRole
+    -- ** Request constructor
+    , assumeRole
+    -- ** Request lenses
+    , arrRoleArn
+    , arrRoleSessionName
+    , arrExternalId
+    , arrDurationSeconds
+    , arrSerialNumber
+    , arrPolicy
+    , arrTokenCode
+
+    -- * Response
+    , AssumeRoleResponse
+    -- ** Response lenses
+    , arsAssumedRoleUser
+    , arsCredentials
+    , arsPackedPolicySize
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'AssumeRole' request.
-assumeRole :: Text -- ^ '_arrRoleArn'
-           -> Text -- ^ '_arrRoleSessionName'
+assumeRole :: Text -- ^ 'arrRoleArn'
+           -> Text -- ^ 'arrRoleSessionName'
            -> AssumeRole
 assumeRole p1 p2 = AssumeRole
     { _arrRoleArn = p1
@@ -155,7 +175,116 @@ data AssumeRole = AssumeRole
       -- the AssumeRole call returns an "access denied" error.
     } deriving (Show, Generic)
 
-makeLenses ''AssumeRole
+-- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
+arrRoleArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssumeRole
+    -> f AssumeRole
+arrRoleArn f x =
+    (\y -> x { _arrRoleArn = y })
+       <$> f (_arrRoleArn x)
+{-# INLINE arrRoleArn #-}
+
+-- | An identifier for the assumed role session. The session name is included as
+-- part of the AssumedRoleUser.
+arrRoleSessionName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AssumeRole
+    -> f AssumeRole
+arrRoleSessionName f x =
+    (\y -> x { _arrRoleSessionName = y })
+       <$> f (_arrRoleSessionName x)
+{-# INLINE arrRoleSessionName #-}
+
+-- | A unique identifier that is used by third parties to assume a role in their
+-- customers' accounts. For each role that the third party can assume, they
+-- should instruct their customers to create a role with the external ID that
+-- the third party generated. Each time the third party assumes the role, they
+-- must pass the customer's external ID. The external ID is useful in order to
+-- help third parties bind a role to the customer who created it. For more
+-- information about the external ID, see About the External ID in Using
+-- Temporary Security Credentials.
+arrExternalId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssumeRole
+    -> f AssumeRole
+arrExternalId f x =
+    (\y -> x { _arrExternalId = y })
+       <$> f (_arrExternalId x)
+{-# INLINE arrExternalId #-}
+
+-- | The duration, in seconds, of the role session. The value can range from 900
+-- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
+-- to 3600 seconds.
+arrDurationSeconds
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> AssumeRole
+    -> f AssumeRole
+arrDurationSeconds f x =
+    (\y -> x { _arrDurationSeconds = y })
+       <$> f (_arrDurationSeconds x)
+{-# INLINE arrDurationSeconds #-}
+
+-- | The identification number of the MFA device that is associated with the
+-- user who is making the AssumeRole call. Specify this value if the trust
+-- policy of the role being assumed includes a condition that requires MFA
+-- authentication. The value is either the serial number for a hardware device
+-- (such as GAHT12345678) or an Amazon Resource Name (ARN) for a virtual
+-- device (such as arn:aws:iam::123456789012:mfa/user).
+arrSerialNumber
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssumeRole
+    -> f AssumeRole
+arrSerialNumber f x =
+    (\y -> x { _arrSerialNumber = y })
+       <$> f (_arrSerialNumber x)
+{-# INLINE arrSerialNumber #-}
+
+-- | An IAM policy in JSON format. The policy parameter is optional. If you pass
+-- a policy, the temporary security credentials that are returned by the
+-- operation have the permissions that are allowed by both the access policy
+-- of the role that is being assumed, and the policy that you pass. This gives
+-- you a way to further restrict the permissions for the resulting temporary
+-- security credentials. You cannot use the passed policy to grant permissions
+-- that are in excess of those allowed by the access policy of the role that
+-- is being assumed. For more information, see Permissions for AssumeRole in
+-- Using Temporary Security Credentials.
+arrPolicy
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssumeRole
+    -> f AssumeRole
+arrPolicy f x =
+    (\y -> x { _arrPolicy = y })
+       <$> f (_arrPolicy x)
+{-# INLINE arrPolicy #-}
+
+-- | The value provided by the MFA device, if the trust policy of the role being
+-- assumed requires MFA (that is, if the policy includes a condition that
+-- tests for MFA). If the role being assumed requires MFA and if the TokenCode
+-- value is missing or expired, the AssumeRole call returns an "access denied"
+-- error.
+arrTokenCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AssumeRole
+    -> f AssumeRole
+arrTokenCode f x =
+    (\y -> x { _arrTokenCode = y })
+       <$> f (_arrTokenCode x)
+{-# INLINE arrTokenCode #-}
 
 instance ToQuery AssumeRole where
     toQuery = genericQuery def
@@ -178,7 +307,49 @@ data AssumeRoleResponse = AssumeRoleResponse
       -- allowed space.
     } deriving (Show, Generic)
 
-makeLenses ''AssumeRoleResponse
+-- | The Amazon Resource Name (ARN) and the assumed role ID, which are
+-- identifiers that you can use to refer to the resulting temporary security
+-- credentials. For example, you can reference these credentials as a
+-- principal in a resource-based policy by using the ARN or assumed role ID.
+-- The ARN and ID include the RoleSessionName that you specified when you
+-- called AssumeRole.
+arsAssumedRoleUser
+    :: Functor f
+    => (Maybe AssumedRoleUser
+    -> f (Maybe AssumedRoleUser))
+    -> AssumeRoleResponse
+    -> f AssumeRoleResponse
+arsAssumedRoleUser f x =
+    (\y -> x { _arsAssumedRoleUser = y })
+       <$> f (_arsAssumedRoleUser x)
+{-# INLINE arsAssumedRoleUser #-}
+
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+arsCredentials
+    :: Functor f
+    => (Maybe Credentials
+    -> f (Maybe Credentials))
+    -> AssumeRoleResponse
+    -> f AssumeRoleResponse
+arsCredentials f x =
+    (\y -> x { _arsCredentials = y })
+       <$> f (_arsCredentials x)
+{-# INLINE arsCredentials #-}
+
+-- | A percentage value that indicates the size of the policy in packed form.
+-- The service rejects any policy with a packed size greater than 100 percent,
+-- which means the policy exceeded the allowed space.
+arsPackedPolicySize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> AssumeRoleResponse
+    -> f AssumeRoleResponse
+arsPackedPolicySize f x =
+    (\y -> x { _arsPackedPolicySize = y })
+       <$> f (_arsPackedPolicySize x)
+{-# INLINE arsPackedPolicySize #-}
 
 instance FromXML AssumeRoleResponse where
     fromXMLOptions = xmlOptions

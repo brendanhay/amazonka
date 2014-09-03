@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,19 +21,47 @@
 -- authenticate with the pool. DeleteIdentityPool The following is an example
 -- of a DeleteIdentityPool request. { "IdentityPoolId":
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
-module Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool where
+module Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
+    (
+    -- * Request
+      DeleteIdentityPool
+    -- ** Request constructor
+    , deleteIdentityPool
+    -- ** Request lenses
+    , dipiIdentityPoolId
+
+    -- * Response
+    , DeleteIdentityPoolResponse
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteIdentityPool' request.
+deleteIdentityPool :: Text -- ^ 'dipiIdentityPoolId'
+                   -> DeleteIdentityPool
+deleteIdentityPool p1 = DeleteIdentityPool
+    { _dipiIdentityPoolId = p1
+    }
+
 data DeleteIdentityPool = DeleteIdentityPool
-    { _dipjIdentityPoolId :: Text
+    { _dipiIdentityPoolId :: Text
       -- ^ An identity pool ID in the format REGION:GUID.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteIdentityPool
+-- | An identity pool ID in the format REGION:GUID.
+dipiIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteIdentityPool
+    -> f DeleteIdentityPool
+dipiIdentityPoolId f x =
+    (\y -> x { _dipiIdentityPoolId = y })
+       <$> f (_dipiIdentityPoolId x)
+{-# INLINE dipiIdentityPoolId #-}
 
 instance ToPath DeleteIdentityPool
 
@@ -46,8 +73,6 @@ instance ToJSON DeleteIdentityPool
 
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteIdentityPoolResponse
 
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,18 +18,61 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Return torrent files from a bucket.
-module Network.AWS.S3.V2006_03_01.GetObjectTorrent where
+module Network.AWS.S3.V2006_03_01.GetObjectTorrent
+    (
+    -- * Request
+      GetObjectTorrent
+    -- ** Request constructor
+    , getObjectTorrent
+    -- ** Request lenses
+    , gotrBucket
+    , gotrKey
+
+    -- * Response
+    , GetObjectTorrentResponse
+    -- ** Response lenses
+    , gotoBody
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetObjectTorrent' request.
+getObjectTorrent :: BucketName -- ^ 'gotrBucket'
+                 -> ObjectKey -- ^ 'gotrKey'
+                 -> GetObjectTorrent
+getObjectTorrent p1 p2 = GetObjectTorrent
+    { _gotrBucket = p1
+    , _gotrKey = p2
+    }
 
 data GetObjectTorrent = GetObjectTorrent
     { _gotrBucket :: BucketName
     , _gotrKey :: ObjectKey
     } deriving (Show, Generic)
 
-makeLenses ''GetObjectTorrent
+gotrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetObjectTorrent
+    -> f GetObjectTorrent
+gotrBucket f x =
+    (\y -> x { _gotrBucket = y })
+       <$> f (_gotrBucket x)
+{-# INLINE gotrBucket #-}
+
+gotrKey
+    :: Functor f
+    => (ObjectKey
+    -> f (ObjectKey))
+    -> GetObjectTorrent
+    -> f GetObjectTorrent
+gotrKey f x =
+    (\y -> x { _gotrKey = y })
+       <$> f (_gotrKey x)
+{-# INLINE gotrKey #-}
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
@@ -53,7 +95,16 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotoBody :: RsBody
     } deriving (Show, Generic)
 
-makeLenses ''GetObjectTorrentResponse
+gotoBody
+    :: Functor f
+    => (RsBody
+    -> f (RsBody))
+    -> GetObjectTorrentResponse
+    -> f GetObjectTorrentResponse
+gotoBody f x =
+    (\y -> x { _gotoBody = y })
+       <$> f (_gotoBody x)
+{-# INLINE gotoBody #-}
 
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3

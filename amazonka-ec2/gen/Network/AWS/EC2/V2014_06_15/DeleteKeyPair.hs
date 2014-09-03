@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,10 +28,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteKeyPair
     (
     -- * Request
       DeleteKeyPair
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteKeyPair
-    -- ** Accessors and lenses
-    , _dkprKeyName
+    -- ** Request lenses
     , dkprKeyName
 
     -- * Response
@@ -51,8 +49,21 @@ deleteKeyPair p1 = DeleteKeyPair
     }
 
 data DeleteKeyPair = DeleteKeyPair
+    { _dkprKeyName :: Text
+      -- ^ The name of the key pair.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteKeyPair
+-- | The name of the key pair.
+dkprKeyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteKeyPair
+    -> f DeleteKeyPair
+dkprKeyName f x =
+    (\y -> x { _dkprKeyName = y })
+       <$> f (_dkprKeyName x)
+{-# INLINE dkprKeyName #-}
 
 instance ToQuery DeleteKeyPair where
     toQuery = genericQuery def
@@ -60,14 +71,9 @@ instance ToQuery DeleteKeyPair where
 data DeleteKeyPairResponse = DeleteKeyPairResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteKeyPairResponse
-
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2
     type Rs DeleteKeyPair = DeleteKeyPairResponse
 
     request = post "DeleteKeyPair"
     response _ = nullaryResponse DeleteKeyPairResponse
-
--- | The name of the key pair.
-dkprKeyName :: Lens' DeleteKeyPair (Text)

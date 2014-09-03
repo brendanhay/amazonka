@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,7 +28,20 @@
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- http://sqs.us-east-1.amazonaws.com/123456789012/testQueue
 -- 725275ae-0b9b-4762-b238-436d7c65a1ac.
-module Network.AWS.SQS.V2012_11_05.ListQueues where
+module Network.AWS.SQS.V2012_11_05.ListQueues
+    (
+    -- * Request
+      ListQueues
+    -- ** Request constructor
+    , listQueues
+    -- ** Request lenses
+    , lqrQueueNamePrefix
+
+    -- * Response
+    , ListQueuesResponse
+    -- ** Response lenses
+    , lqsQueueUrls
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
@@ -47,7 +59,18 @@ data ListQueues = ListQueues
       -- whose name begins with the specified string are returned.
     } deriving (Show, Generic)
 
-makeLenses ''ListQueues
+-- | A string to use for filtering the list results. Only those queues whose
+-- name begins with the specified string are returned.
+lqrQueueNamePrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListQueues
+    -> f ListQueues
+lqrQueueNamePrefix f x =
+    (\y -> x { _lqrQueueNamePrefix = y })
+       <$> f (_lqrQueueNamePrefix x)
+{-# INLINE lqrQueueNamePrefix #-}
 
 instance ToQuery ListQueues where
     toQuery = genericQuery def
@@ -57,7 +80,17 @@ data ListQueuesResponse = ListQueuesResponse
       -- ^ A list of queue URLs, up to 1000 entries.
     } deriving (Show, Generic)
 
-makeLenses ''ListQueuesResponse
+-- | A list of queue URLs, up to 1000 entries.
+lqsQueueUrls
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListQueuesResponse
+    -> f ListQueuesResponse
+lqsQueueUrls f x =
+    (\y -> x { _lqsQueueUrls = y })
+       <$> f (_lqsQueueUrls x)
+{-# INLINE lqsQueueUrls #-}
 
 instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,12 +37,35 @@
 -- 12:00:02 GMT Content-Type: application/x-amz-json-1.1 Content-length: 85 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.AddCache where
+module Network.AWS.StorageGateway.V2013_06_30.AddCache
+    (
+    -- * Request
+      AddCache
+    -- ** Request constructor
+    , addCache
+    -- ** Request lenses
+    , aciDiskIds
+    , aciGatewayARN
+
+    -- * Response
+    , AddCacheResponse
+    -- ** Response lenses
+    , acoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'AddCache' request.
+addCache :: [Text] -- ^ 'aciDiskIds'
+         -> Text -- ^ 'aciGatewayARN'
+         -> AddCache
+addCache p1 p2 = AddCache
+    { _aciDiskIds = p1
+    , _aciGatewayARN = p2
+    }
 
 data AddCache = AddCache
     { _aciDiskIds :: [Text]
@@ -53,7 +75,29 @@ data AddCache = AddCache
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''AddCache
+aciDiskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddCache
+    -> f AddCache
+aciDiskIds f x =
+    (\y -> x { _aciDiskIds = y })
+       <$> f (_aciDiskIds x)
+{-# INLINE aciDiskIds #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+aciGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddCache
+    -> f AddCache
+aciGatewayARN f x =
+    (\y -> x { _aciGatewayARN = y })
+       <$> f (_aciGatewayARN x)
+{-# INLINE aciGatewayARN #-}
 
 instance ToPath AddCache
 
@@ -70,7 +114,18 @@ data AddCacheResponse = AddCacheResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''AddCacheResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+acoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddCacheResponse
+    -> f AddCacheResponse
+acoGatewayARN f x =
+    (\y -> x { _acoGatewayARN = y })
+       <$> f (_acoGatewayARN x)
+{-# INLINE acoGatewayARN #-}
 
 instance FromJSON AddCacheResponse
 

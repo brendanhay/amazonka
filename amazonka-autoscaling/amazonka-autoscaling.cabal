@@ -45,51 +45,51 @@ library
           Network.AWS.AutoScaling
         , Network.AWS.AutoScaling.V2011_01_01
         , Network.AWS.AutoScaling.V2011_01_01.Types
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
-        , Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeTags
-        , Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration
-        , Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy
-        , Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
-        , Network.AWS.AutoScaling.V2011_01_01.EnterStandby
-        , Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses
-        , Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
-        , Network.AWS.AutoScaling.V2011_01_01.ExitStandby
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
-        , Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat
-        , Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
-        , Network.AWS.AutoScaling.V2011_01_01.DetachInstances
-        , Network.AWS.AutoScaling.V2011_01_01.EnableMetricsCollection
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
-        , Network.AWS.AutoScaling.V2011_01_01.DeleteTags
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
-        , Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction
-        , Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions
-        , Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
-        , Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction
-        , Network.AWS.AutoScaling.V2011_01_01.DeletePolicy
         , Network.AWS.AutoScaling.V2011_01_01.AttachInstances
-        , Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup
-        , Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup
-        , Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook
-        , Network.AWS.AutoScaling.V2011_01_01.DeleteLifecycleHook
-        , Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses
-        , Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
-        , Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
-        , Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction
-        , Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
-        , Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
+        , Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction
         , Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup
         , Network.AWS.AutoScaling.V2011_01_01.CreateLaunchConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteLifecycleHook
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.DeletePolicy
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction
+        , Network.AWS.AutoScaling.V2011_01_01.DeleteTags
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
+        , Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeTags
+        , Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
+        , Network.AWS.AutoScaling.V2011_01_01.DetachInstances
+        , Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
+        , Network.AWS.AutoScaling.V2011_01_01.EnableMetricsCollection
+        , Network.AWS.AutoScaling.V2011_01_01.EnterStandby
+        , Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy
+        , Network.AWS.AutoScaling.V2011_01_01.ExitStandby
+        , Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook
+        , Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration
+        , Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy
+        , Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction
+        , Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat
+        , Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses
+        , Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity
+        , Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
+        , Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses
+        , Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
+        , Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup
 
     build-depends:
           amazonka-core

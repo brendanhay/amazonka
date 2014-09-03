@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,11 +28,29 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=DeleteIdentity
 -- &Identity=domain.com &Timestamp=2012-05-12T05%3A25%3A58.000Z
 -- &Version=2010-12-01 d96bd874-9bf2-11e1-8ee7-c98a0037a2b6.
-module Network.AWS.SES.V2010_12_01.DeleteIdentity where
+module Network.AWS.SES.V2010_12_01.DeleteIdentity
+    (
+    -- * Request
+      DeleteIdentity
+    -- ** Request constructor
+    , deleteIdentity
+    -- ** Request lenses
+    , dirIdentity
+
+    -- * Response
+    , DeleteIdentityResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteIdentity' request.
+deleteIdentity :: Text -- ^ 'dirIdentity'
+               -> DeleteIdentity
+deleteIdentity p1 = DeleteIdentity
+    { _dirIdentity = p1
+    }
 
 data DeleteIdentity = DeleteIdentity
     { _dirIdentity :: Text
@@ -41,15 +58,23 @@ data DeleteIdentity = DeleteIdentity
       -- AWS Account.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteIdentity
+-- | The identity to be removed from the list of identities for the AWS Account.
+dirIdentity
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteIdentity
+    -> f DeleteIdentity
+dirIdentity f x =
+    (\y -> x { _dirIdentity = y })
+       <$> f (_dirIdentity x)
+{-# INLINE dirIdentity #-}
 
 instance ToQuery DeleteIdentity where
     toQuery = genericQuery def
 
 data DeleteIdentityResponse = DeleteIdentityResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteIdentityResponse
 
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES

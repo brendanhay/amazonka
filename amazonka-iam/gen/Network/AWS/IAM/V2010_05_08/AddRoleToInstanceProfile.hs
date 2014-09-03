@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,11 +23,32 @@
 -- https://iam.amazonaws.com/ ?Action=AddRoleToInstanceProfile
 -- &InstanceProfileName=Webserver &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS 12657608-99f2-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile where
+module Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
+    (
+    -- * Request
+      AddRoleToInstanceProfile
+    -- ** Request constructor
+    , addRoleToInstanceProfile
+    -- ** Request lenses
+    , artiprInstanceProfileName
+    , artiprRoleName
+
+    -- * Response
+    , AddRoleToInstanceProfileResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'AddRoleToInstanceProfile' request.
+addRoleToInstanceProfile :: Text -- ^ 'artiprInstanceProfileName'
+                         -> Text -- ^ 'artiprRoleName'
+                         -> AddRoleToInstanceProfile
+addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
+    { _artiprInstanceProfileName = p1
+    , _artiprRoleName = p2
+    }
 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artiprInstanceProfileName :: Text
@@ -37,15 +57,35 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile
       -- ^ Name of the role to add.
     } deriving (Show, Generic)
 
-makeLenses ''AddRoleToInstanceProfile
+-- | Name of the instance profile to update.
+artiprInstanceProfileName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddRoleToInstanceProfile
+    -> f AddRoleToInstanceProfile
+artiprInstanceProfileName f x =
+    (\y -> x { _artiprInstanceProfileName = y })
+       <$> f (_artiprInstanceProfileName x)
+{-# INLINE artiprInstanceProfileName #-}
+
+-- | Name of the role to add.
+artiprRoleName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddRoleToInstanceProfile
+    -> f AddRoleToInstanceProfile
+artiprRoleName f x =
+    (\y -> x { _artiprRoleName = y })
+       <$> f (_artiprRoleName x)
+{-# INLINE artiprRoleName #-}
 
 instance ToQuery AddRoleToInstanceProfile where
     toQuery = genericQuery def
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AddRoleToInstanceProfileResponse
 
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM

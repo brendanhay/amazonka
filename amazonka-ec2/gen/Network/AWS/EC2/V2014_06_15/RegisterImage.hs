@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -67,34 +66,23 @@ module Network.AWS.EC2.V2014_06_15.RegisterImage
     (
     -- * Request
       RegisterImage
-    -- ** Default constructor
+    -- ** Request constructor
     , registerImage
-    -- ** Accessors and lenses
-    , _rivName
+    -- ** Request lenses
     , rivName
-    , _rivArchitecture
     , rivArchitecture
-    , _rivBlockDeviceMappings
     , rivBlockDeviceMappings
-    , _rivImageLocation
     , rivImageLocation
-    , _rivDescription
     , rivDescription
-    , _rivKernelId
     , rivKernelId
-    , _rivRamdiskId
     , rivRamdiskId
-    , _rivRootDeviceName
     , rivRootDeviceName
-    , _rivVirtualizationType
     , rivVirtualizationType
-    , _rivSriovNetSupport
     , rivSriovNetSupport
 
     -- * Response
     , RegisterImageResponse
-    -- ** Accessors and lenses
-    , _riwImageId
+    -- ** Response lenses
     , riwImageId
     ) where
 
@@ -119,8 +107,162 @@ registerImage p1 = RegisterImage
     }
 
 data RegisterImage = RegisterImage
+    { _rivName :: Text
+      -- ^ A name for your AMI. Constraints: 3-128 alphanumeric characters,
+      -- parenthesis (()), commas (,), slashes (/), dashes (-), or
+      -- underscores (_).
+    , _rivArchitecture :: Maybe ArchitectureValues
+      -- ^ The architecture of the AMI. Default: For Amazon EBS-backed AMIs,
+      -- i386. For instance store-backed AMIs, the architecture specified
+      -- in the manifest file.
+    , _rivBlockDeviceMappings :: [BlockDeviceMapping]
+      -- ^ One or more block device mapping entries.
+    , _rivImageLocation :: Maybe Text
+      -- ^ The full path to your AMI manifest in Amazon S3 storage.
+    , _rivDescription :: Maybe Text
+      -- ^ A description for your AMI.
+    , _rivKernelId :: Maybe Text
+      -- ^ The ID of the kernel.
+    , _rivRamdiskId :: Maybe Text
+      -- ^ The ID of the RAM disk.
+    , _rivRootDeviceName :: Maybe Text
+      -- ^ The name of the root device (for example, /dev/sda1, or xvda).
+    , _rivVirtualizationType :: Maybe VirtualizationType
+      -- ^ The type of virtualization.
+    , _rivSriovNetSupport :: Maybe Text
+      -- ^ Set to simple to enable enhanced networking for the AMI and any
+      -- instances that you launch from the AMI. There is no way to
+      -- disable enhanced networking at this time. This option is
+      -- supported only for HVM AMIs. Specifying this option with a PV AMI
+      -- can make instances launched from the AMI unreachable.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''RegisterImage
+-- | A name for your AMI. Constraints: 3-128 alphanumeric characters,
+-- parenthesis (()), commas (,), slashes (/), dashes (-), or underscores (_).
+rivName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivName f x =
+    (\y -> x { _rivName = y })
+       <$> f (_rivName x)
+{-# INLINE rivName #-}
+
+-- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386. For
+-- instance store-backed AMIs, the architecture specified in the manifest
+-- file.
+rivArchitecture
+    :: Functor f
+    => (Maybe ArchitectureValues
+    -> f (Maybe ArchitectureValues))
+    -> RegisterImage
+    -> f RegisterImage
+rivArchitecture f x =
+    (\y -> x { _rivArchitecture = y })
+       <$> f (_rivArchitecture x)
+{-# INLINE rivArchitecture #-}
+
+-- | One or more block device mapping entries.
+rivBlockDeviceMappings
+    :: Functor f
+    => ([BlockDeviceMapping]
+    -> f ([BlockDeviceMapping]))
+    -> RegisterImage
+    -> f RegisterImage
+rivBlockDeviceMappings f x =
+    (\y -> x { _rivBlockDeviceMappings = y })
+       <$> f (_rivBlockDeviceMappings x)
+{-# INLINE rivBlockDeviceMappings #-}
+
+-- | The full path to your AMI manifest in Amazon S3 storage.
+rivImageLocation
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivImageLocation f x =
+    (\y -> x { _rivImageLocation = y })
+       <$> f (_rivImageLocation x)
+{-# INLINE rivImageLocation #-}
+
+-- | A description for your AMI.
+rivDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivDescription f x =
+    (\y -> x { _rivDescription = y })
+       <$> f (_rivDescription x)
+{-# INLINE rivDescription #-}
+
+-- | The ID of the kernel.
+rivKernelId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivKernelId f x =
+    (\y -> x { _rivKernelId = y })
+       <$> f (_rivKernelId x)
+{-# INLINE rivKernelId #-}
+
+-- | The ID of the RAM disk.
+rivRamdiskId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivRamdiskId f x =
+    (\y -> x { _rivRamdiskId = y })
+       <$> f (_rivRamdiskId x)
+{-# INLINE rivRamdiskId #-}
+
+-- | The name of the root device (for example, /dev/sda1, or xvda).
+rivRootDeviceName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivRootDeviceName f x =
+    (\y -> x { _rivRootDeviceName = y })
+       <$> f (_rivRootDeviceName x)
+{-# INLINE rivRootDeviceName #-}
+
+-- | The type of virtualization.
+rivVirtualizationType
+    :: Functor f
+    => (Maybe VirtualizationType
+    -> f (Maybe VirtualizationType))
+    -> RegisterImage
+    -> f RegisterImage
+rivVirtualizationType f x =
+    (\y -> x { _rivVirtualizationType = y })
+       <$> f (_rivVirtualizationType x)
+{-# INLINE rivVirtualizationType #-}
+
+-- | Set to simple to enable enhanced networking for the AMI and any instances
+-- that you launch from the AMI. There is no way to disable enhanced
+-- networking at this time. This option is supported only for HVM AMIs.
+-- Specifying this option with a PV AMI can make instances launched from the
+-- AMI unreachable.
+rivSriovNetSupport
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImage
+    -> f RegisterImage
+rivSriovNetSupport f x =
+    (\y -> x { _rivSriovNetSupport = y })
+       <$> f (_rivSriovNetSupport x)
+{-# INLINE rivSriovNetSupport #-}
 
 instance ToQuery RegisterImage where
     toQuery = genericQuery def
@@ -130,7 +272,17 @@ data RegisterImageResponse = RegisterImageResponse
       -- ^ The ID of the newly registered AMI.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''RegisterImageResponse
+-- | The ID of the newly registered AMI.
+riwImageId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RegisterImageResponse
+    -> f RegisterImageResponse
+riwImageId f x =
+    (\y -> x { _riwImageId = y })
+       <$> f (_riwImageId x)
+{-# INLINE riwImageId #-}
 
 instance FromXML RegisterImageResponse where
     fromXMLOptions = xmlOptions
@@ -141,43 +293,3 @@ instance AWSRequest RegisterImage where
 
     request = post "RegisterImage"
     response _ = xmlResponse
-
--- | A name for your AMI. Constraints: 3-128 alphanumeric characters,
--- parenthesis (()), commas (,), slashes (/), dashes (-), or underscores (_).
-rivName :: Lens' RegisterImage (Text)
-
--- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386. For
--- instance store-backed AMIs, the architecture specified in the manifest
--- file.
-rivArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
-
--- | One or more block device mapping entries.
-rivBlockDeviceMappings :: Lens' RegisterImage ([BlockDeviceMapping])
-
--- | The full path to your AMI manifest in Amazon S3 storage.
-rivImageLocation :: Lens' RegisterImage (Maybe Text)
-
--- | A description for your AMI.
-rivDescription :: Lens' RegisterImage (Maybe Text)
-
--- | The ID of the kernel.
-rivKernelId :: Lens' RegisterImage (Maybe Text)
-
--- | The ID of the RAM disk.
-rivRamdiskId :: Lens' RegisterImage (Maybe Text)
-
--- | The name of the root device (for example, /dev/sda1, or xvda).
-rivRootDeviceName :: Lens' RegisterImage (Maybe Text)
-
--- | The type of virtualization.
-rivVirtualizationType :: Lens' RegisterImage (Maybe VirtualizationType)
-
--- | Set to simple to enable enhanced networking for the AMI and any instances
--- that you launch from the AMI. There is no way to disable enhanced
--- networking at this time. This option is supported only for HVM AMIs.
--- Specifying this option with a PV AMI can make instances launched from the
--- AMI unreachable.
-rivSriovNetSupport :: Lens' RegisterImage (Maybe Text)
-
--- | The ID of the newly registered AMI.
-riwImageId :: Lens' RegisterImageResponse (Maybe Text)

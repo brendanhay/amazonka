@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,17 +19,46 @@
 
 -- | Returns the logging status of a bucket and the permissions users have to
 -- view and modify that status. To use GET, you must be the bucket owner.
-module Network.AWS.S3.V2006_03_01.GetBucketLogging where
+module Network.AWS.S3.V2006_03_01.GetBucketLogging
+    (
+    -- * Request
+      GetBucketLogging
+    -- ** Request constructor
+    , getBucketLogging
+    -- ** Request lenses
+    , gbltBucket
+
+    -- * Response
+    , GetBucketLoggingResponse
+    -- ** Response lenses
+    , gblqLoggingEnabled
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketLogging' request.
+getBucketLogging :: BucketName -- ^ 'gbltBucket'
+                 -> GetBucketLogging
+getBucketLogging p1 = GetBucketLogging
+    { _gbltBucket = p1
+    }
+
 data GetBucketLogging = GetBucketLogging
     { _gbltBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketLogging
+gbltBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketLogging
+    -> f GetBucketLogging
+gbltBucket f x =
+    (\y -> x { _gbltBucket = y })
+       <$> f (_gbltBucket x)
+{-# INLINE gbltBucket #-}
 
 instance ToPath GetBucketLogging where
     toPath GetBucketLogging{..} = mconcat
@@ -51,7 +79,16 @@ data GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblqLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketLoggingResponse
+gblqLoggingEnabled
+    :: Functor f
+    => (Maybe LoggingEnabled
+    -> f (Maybe LoggingEnabled))
+    -> GetBucketLoggingResponse
+    -> f GetBucketLoggingResponse
+gblqLoggingEnabled f x =
+    (\y -> x { _gblqLoggingEnabled = y })
+       <$> f (_gblqLoggingEnabled x)
+{-# INLINE gblqLoggingEnabled #-}
 
 instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions

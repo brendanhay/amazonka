@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,14 +29,38 @@
 -- &AWSAccessKeyId=[AWS Access KeyID] &Signature=[Signature]
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83.
 -- 
-module Network.AWS.CloudFormation.V2010_05_15.CreateStack where
+module Network.AWS.CloudFormation.V2010_05_15.CreateStack
+    (
+    -- * Request
+      CreateStack
+    -- ** Request constructor
+    , createStack
+    -- ** Request lenses
+    , csiStackName
+    , csiCapabilities
+    , csiDisableRollback
+    , csiNotificationARNs
+    , csiOnFailure
+    , csiParameters
+    , csiStackPolicyBody
+    , csiStackPolicyURL
+    , csiTags
+    , csiTemplateBody
+    , csiTemplateURL
+    , csiTimeoutInMinutes
+
+    -- * Response
+    , CreateStackResponse
+    -- ** Response lenses
+    , csoStackId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateStack' request.
-createStack :: Text -- ^ '_csiStackName'
+createStack :: Text -- ^ 'csiStackName'
             -> CreateStack
 createStack p1 = CreateStack
     { _csiStackName = p1
@@ -119,7 +142,183 @@ data CreateStack = CreateStack
       -- the stack will be rolled back.
     } deriving (Show, Generic)
 
-makeLenses ''CreateStack
+-- | The name associated with the stack. The name must be unique within your AWS
+-- account. Must contain only alphanumeric characters (case sensitive) and
+-- start with an alpha character. Maximum length of the name is 255
+-- characters.
+csiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateStack
+    -> f CreateStack
+csiStackName f x =
+    (\y -> x { _csiStackName = y })
+       <$> f (_csiStackName x)
+{-# INLINE csiStackName #-}
+
+-- | The list of capabilities that you want to allow in the stack. If your
+-- template contains certain resources, you must specify the CAPABILITY_IAM
+-- value for this parameter; otherwise, this action returns an
+-- InsufficientCapabilities error. The following resources require you to
+-- specify the capabilities parameter: AWS::CloudFormation::Stack,
+-- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
+-- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
+-- AWS::IAM::UserToGroupAddition.
+csiCapabilities
+    :: Functor f
+    => ([Capability]
+    -> f ([Capability]))
+    -> CreateStack
+    -> f CreateStack
+csiCapabilities f x =
+    (\y -> x { _csiCapabilities = y })
+       <$> f (_csiCapabilities x)
+{-# INLINE csiCapabilities #-}
+
+-- | Set to true to disable rollback of the stack if stack creation failed. You
+-- can specify either DisableRollback or OnFailure, but not both. Default:
+-- false.
+csiDisableRollback
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateStack
+    -> f CreateStack
+csiDisableRollback f x =
+    (\y -> x { _csiDisableRollback = y })
+       <$> f (_csiDisableRollback x)
+{-# INLINE csiDisableRollback #-}
+
+-- | The Simple Notification Service (SNS) topic ARNs to publish stack related
+-- events. You can find your SNS topic ARNs using the SNS console or your
+-- Command Line Interface (CLI).
+csiNotificationARNs
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateStack
+    -> f CreateStack
+csiNotificationARNs f x =
+    (\y -> x { _csiNotificationARNs = y })
+       <$> f (_csiNotificationARNs x)
+{-# INLINE csiNotificationARNs #-}
+
+-- | Determines what action will be taken if stack creation fails. This must be
+-- one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either OnFailure
+-- or DisableRollback, but not both. Default: ROLLBACK.
+csiOnFailure
+    :: Functor f
+    => (Maybe OnFailure
+    -> f (Maybe OnFailure))
+    -> CreateStack
+    -> f CreateStack
+csiOnFailure f x =
+    (\y -> x { _csiOnFailure = y })
+       <$> f (_csiOnFailure x)
+{-# INLINE csiOnFailure #-}
+
+-- | A list of Parameter structures that specify input parameters for the stack.
+csiParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> CreateStack
+    -> f CreateStack
+csiParameters f x =
+    (\y -> x { _csiParameters = y })
+       <$> f (_csiParameters x)
+{-# INLINE csiParameters #-}
+
+-- | Structure containing the stack policy body. For more information, go to
+-- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
+-- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
+-- but not both.
+csiStackPolicyBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStack
+    -> f CreateStack
+csiStackPolicyBody f x =
+    (\y -> x { _csiStackPolicyBody = y })
+       <$> f (_csiStackPolicyBody x)
+{-# INLINE csiStackPolicyBody #-}
+
+-- | Location of a file containing the stack policy. The URL must point to a
+-- policy (max size: 16KB) located in an S3 bucket in the same region as the
+-- stack. You can specify either the StackPolicyBody or the StackPolicyURL
+-- parameter, but not both.
+csiStackPolicyURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStack
+    -> f CreateStack
+csiStackPolicyURL f x =
+    (\y -> x { _csiStackPolicyURL = y })
+       <$> f (_csiStackPolicyURL x)
+{-# INLINE csiStackPolicyURL #-}
+
+-- | A set of user-defined Tags to associate with this stack, represented by
+-- key/value pairs. Tags defined for the stack are propagated to EC2 resources
+-- that are created as part of the stack. A maximum number of 10 tags can be
+-- specified.
+csiTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateStack
+    -> f CreateStack
+csiTags f x =
+    (\y -> x { _csiTags = y })
+       <$> f (_csiTags x)
+{-# INLINE csiTags #-}
+
+-- | Structure containing the template body with a minimum length of 1 byte and
+-- a maximum length of 51,200 bytes. For more information, go to Template
+-- Anatomy in the AWS CloudFormation User Guide. Conditional: You must specify
+-- either the TemplateBody or the TemplateURL parameter, but not both.
+csiTemplateBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStack
+    -> f CreateStack
+csiTemplateBody f x =
+    (\y -> x { _csiTemplateBody = y })
+       <$> f (_csiTemplateBody x)
+{-# INLINE csiTemplateBody #-}
+
+-- | Location of file containing the template body. The URL must point to a
+-- template (max size: 307,200 bytes) located in an S3 bucket in the same
+-- region as the stack. For more information, go to the Template Anatomy in
+-- the AWS CloudFormation User Guide. Conditional: You must specify either the
+-- TemplateBody or the TemplateURL parameter, but not both.
+csiTemplateURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStack
+    -> f CreateStack
+csiTemplateURL f x =
+    (\y -> x { _csiTemplateURL = y })
+       <$> f (_csiTemplateURL x)
+{-# INLINE csiTemplateURL #-}
+
+-- | The amount of time that can pass before the stack status becomes
+-- CREATE_FAILED; if DisableRollback is not set or is set to false, the stack
+-- will be rolled back.
+csiTimeoutInMinutes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> CreateStack
+    -> f CreateStack
+csiTimeoutInMinutes f x =
+    (\y -> x { _csiTimeoutInMinutes = y })
+       <$> f (_csiTimeoutInMinutes x)
+{-# INLINE csiTimeoutInMinutes #-}
 
 instance ToQuery CreateStack where
     toQuery = genericQuery def
@@ -129,7 +328,17 @@ data CreateStackResponse = CreateStackResponse
       -- ^ Unique identifier of the stack.
     } deriving (Show, Generic)
 
-makeLenses ''CreateStackResponse
+-- | Unique identifier of the stack.
+csoStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateStackResponse
+    -> f CreateStackResponse
+csoStackId f x =
+    (\y -> x { _csoStackId = y })
+       <$> f (_csoStackId x)
+{-# INLINE csoStackId #-}
 
 instance FromXML CreateStackResponse where
     fromXMLOptions = xmlOptions

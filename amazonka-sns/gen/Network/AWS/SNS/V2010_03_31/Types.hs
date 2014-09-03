@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,42 @@
 -- published to Amazon SNS are stored redundantly across multiple availability
 -- zones.
 module Network.AWS.SNS.V2010_03_31.Types
-    ( module Network.AWS.SNS.V2010_03_31.Types
+    (
+    -- * Service
+      SNS
+    -- ** Errors
+    , Er (..)
+    -- ** XML
+    , xmlOptions
+
+    -- * Topic
+    , Topic (..)
+    , tcTopicArn
+
+    -- * Endpoint
+    , Endpoint (..)
+    , fEndpointArn
+    , fAttributes
+
+    -- * MessageAttributeValue
+    , MessageAttributeValue (..)
+    , mavDataType
+    , mavStringValue
+    , mavBinaryValue
+
+    -- * PlatformApplication
+    , PlatformApplication (..)
+    , paPlatformApplicationArn
+    , paAttributes
+
+    -- * Subscription
+    , Subscription (..)
+    , ssnSubscriptionArn
+    , ssnOwner
+    , ssnProtocol
+    , ssnEndpoint
+    , ssnTopicArn
+
     ) where
 
 import Network.AWS.Prelude
@@ -102,9 +136,21 @@ xmlOptions = Tagged def
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a
 -- topic's attributes, use GetTopicAttributes.
 newtype Topic = Topic
-    { _tTopicArn :: Maybe Text
+    { _tcTopicArn :: Maybe Text
       -- ^ The topic's ARN.
     } deriving (Show, Generic)
+
+-- | The topic's ARN.
+tcTopicArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Topic
+    -> f Topic
+tcTopicArn f x =
+    (\y -> x { _tcTopicArn = y })
+       <$> f (_tcTopicArn x)
+{-# INLINE tcTopicArn #-}
 
 instance FromXML Topic where
     fromXMLOptions = xmlOptions
@@ -117,6 +163,30 @@ data Endpoint = Endpoint
     , _fAttributes :: Map Text Text
       -- ^ Attributes for endpoint.
     } deriving (Show, Generic)
+
+-- | EndpointArn for mobile app and device.
+fEndpointArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Endpoint
+    -> f Endpoint
+fEndpointArn f x =
+    (\y -> x { _fEndpointArn = y })
+       <$> f (_fEndpointArn x)
+{-# INLINE fEndpointArn #-}
+
+-- | Attributes for endpoint.
+fAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> Endpoint
+    -> f Endpoint
+fAttributes f x =
+    (\y -> x { _fAttributes = y })
+       <$> f (_fAttributes x)
+{-# INLINE fAttributes #-}
 
 instance FromXML Endpoint where
     fromXMLOptions = xmlOptions
@@ -144,16 +214,79 @@ data MessageAttributeValue = MessageAttributeValue
       -- compressed data, encrypted data, or images.
     } deriving (Show, Generic)
 
+-- | Amazon SNS supports the following logical data types: String, Number, and
+-- Binary. For more information, see Message Attribute Data Types.
+mavDataType
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> MessageAttributeValue
+    -> f MessageAttributeValue
+mavDataType f x =
+    (\y -> x { _mavDataType = y })
+       <$> f (_mavDataType x)
+{-# INLINE mavDataType #-}
+
+-- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
+-- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
+mavStringValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MessageAttributeValue
+    -> f MessageAttributeValue
+mavStringValue f x =
+    (\y -> x { _mavStringValue = y })
+       <$> f (_mavStringValue x)
+{-# INLINE mavStringValue #-}
+
+-- | Binary type attributes can store any binary data, for example, compressed
+-- data, encrypted data, or images.
+mavBinaryValue
+    :: Functor f
+    => (Maybe ByteString
+    -> f (Maybe ByteString))
+    -> MessageAttributeValue
+    -> f MessageAttributeValue
+mavBinaryValue f x =
+    (\y -> x { _mavBinaryValue = y })
+       <$> f (_mavBinaryValue x)
+{-# INLINE mavBinaryValue #-}
+
 instance ToQuery MessageAttributeValue where
     toQuery = genericQuery def
 
 -- | Platform application object.
 data PlatformApplication = PlatformApplication
-    { _paAttributes :: Map Text Text
-      -- ^ Attributes for platform application object.
-    , _paPlatformApplicationArn :: Maybe Text
+    { _paPlatformApplicationArn :: Maybe Text
       -- ^ PlatformApplicationArn for platform application object.
+    , _paAttributes :: Map Text Text
+      -- ^ Attributes for platform application object.
     } deriving (Show, Generic)
+
+-- | PlatformApplicationArn for platform application object.
+paPlatformApplicationArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PlatformApplication
+    -> f PlatformApplication
+paPlatformApplicationArn f x =
+    (\y -> x { _paPlatformApplicationArn = y })
+       <$> f (_paPlatformApplicationArn x)
+{-# INLINE paPlatformApplicationArn #-}
+
+-- | Attributes for platform application object.
+paAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> PlatformApplication
+    -> f PlatformApplication
+paAttributes f x =
+    (\y -> x { _paAttributes = y })
+       <$> f (_paAttributes x)
+{-# INLINE paAttributes #-}
 
 instance FromXML PlatformApplication where
     fromXMLOptions = xmlOptions
@@ -161,24 +294,78 @@ instance FromXML PlatformApplication where
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 data Subscription = Subscription
-    { _snSubscriptionArn :: Maybe Text
+    { _ssnSubscriptionArn :: Maybe Text
       -- ^ The subscription's ARN.
-    , _snEndpoint :: Maybe Text
-      -- ^ The subscription's endpoint (format depends on the protocol).
-    , _snTopicArn :: Maybe Text
-      -- ^ The ARN of the subscription's topic.
-    , _snOwner :: Maybe Text
+    , _ssnOwner :: Maybe Text
       -- ^ The subscription's owner.
-    , _snProtocol :: Maybe Text
+    , _ssnProtocol :: Maybe Text
       -- ^ The subscription's protocol.
+    , _ssnEndpoint :: Maybe Text
+      -- ^ The subscription's endpoint (format depends on the protocol).
+    , _ssnTopicArn :: Maybe Text
+      -- ^ The ARN of the subscription's topic.
     } deriving (Show, Generic)
+
+-- | The subscription's ARN.
+ssnSubscriptionArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Subscription
+    -> f Subscription
+ssnSubscriptionArn f x =
+    (\y -> x { _ssnSubscriptionArn = y })
+       <$> f (_ssnSubscriptionArn x)
+{-# INLINE ssnSubscriptionArn #-}
+
+-- | The subscription's owner.
+ssnOwner
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Subscription
+    -> f Subscription
+ssnOwner f x =
+    (\y -> x { _ssnOwner = y })
+       <$> f (_ssnOwner x)
+{-# INLINE ssnOwner #-}
+
+-- | The subscription's protocol.
+ssnProtocol
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Subscription
+    -> f Subscription
+ssnProtocol f x =
+    (\y -> x { _ssnProtocol = y })
+       <$> f (_ssnProtocol x)
+{-# INLINE ssnProtocol #-}
+
+-- | The subscription's endpoint (format depends on the protocol).
+ssnEndpoint
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Subscription
+    -> f Subscription
+ssnEndpoint f x =
+    (\y -> x { _ssnEndpoint = y })
+       <$> f (_ssnEndpoint x)
+{-# INLINE ssnEndpoint #-}
+
+-- | The ARN of the subscription's topic.
+ssnTopicArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Subscription
+    -> f Subscription
+ssnTopicArn f x =
+    (\y -> x { _ssnTopicArn = y })
+       <$> f (_ssnTopicArn x)
+{-# INLINE ssnTopicArn #-}
 
 instance FromXML Subscription where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Subscription"
-
-makeLenses ''Topic
-makeLenses ''Endpoint
-makeLenses ''MessageAttributeValue
-makeLenses ''PlatformApplication
-makeLenses ''Subscription

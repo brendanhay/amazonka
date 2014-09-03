@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -42,21 +41,53 @@
 -- "stringValue": "924374875933"}, {"key": "@accountId", "stringValue":
 -- "924374875933"}, {"key": "uniqueId", "stringValue": "1234567890"} ],
 -- "name": "myPipeline", "pipelineId": "df-0937003356ZJEXAMPLE"} ] }.
-module Network.AWS.DataPipeline.V2012_10_29.DescribePipelines where
+module Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
+    (
+    -- * Request
+      DescribePipelines
+    -- ** Request constructor
+    , describePipelines
+    -- ** Request lenses
+    , dpjPipelineIds
+
+    -- * Response
+    , DescribePipelinesResponse
+    -- ** Response lenses
+    , dpoPipelineDescriptionList
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribePipelines' request.
+describePipelines :: [Text] -- ^ 'dpjPipelineIds'
+                  -> DescribePipelines
+describePipelines p1 = DescribePipelines
+    { _dpjPipelineIds = p1
+    }
+
 data DescribePipelines = DescribePipelines
-    { _dpiPipelineIds :: [Text]
+    { _dpjPipelineIds :: [Text]
       -- ^ Identifiers of the pipelines to describe. You can pass as many as
       -- 25 identifiers in a single call to DescribePipelines. You can
       -- obtain pipeline identifiers by calling ListPipelines.
     } deriving (Show, Generic)
 
-makeLenses ''DescribePipelines
+-- | Identifiers of the pipelines to describe. You can pass as many as 25
+-- identifiers in a single call to DescribePipelines. You can obtain pipeline
+-- identifiers by calling ListPipelines.
+dpjPipelineIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribePipelines
+    -> f DescribePipelines
+dpjPipelineIds f x =
+    (\y -> x { _dpjPipelineIds = y })
+       <$> f (_dpjPipelineIds x)
+{-# INLINE dpjPipelineIds #-}
 
 instance ToPath DescribePipelines
 
@@ -71,7 +102,17 @@ data DescribePipelinesResponse = DescribePipelinesResponse
       -- ^ An array of descriptions returned for the specified pipelines.
     } deriving (Show, Generic)
 
-makeLenses ''DescribePipelinesResponse
+-- | An array of descriptions returned for the specified pipelines.
+dpoPipelineDescriptionList
+    :: Functor f
+    => ([PipelineDescription]
+    -> f ([PipelineDescription]))
+    -> DescribePipelinesResponse
+    -> f DescribePipelinesResponse
+dpoPipelineDescriptionList f x =
+    (\y -> x { _dpoPipelineDescriptionList = y })
+       <$> f (_dpoPipelineDescriptionList x)
+{-# INLINE dpoPipelineDescriptionList #-}
 
 instance FromJSON DescribePipelinesResponse
 

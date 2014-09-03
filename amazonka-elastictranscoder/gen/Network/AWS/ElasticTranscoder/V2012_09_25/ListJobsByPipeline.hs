@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -61,7 +60,23 @@
 -- "StatusDetail":"",
 -- "ThumbnailPattern":"cooking/baked-ziti-{count}-KindleFireHD" },
 -- "PipelineId":"1111111111111-abcde1" } ], "NextPageToken":null.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
+    (
+    -- * Request
+      ListJobsByPipeline
+    -- ** Request constructor
+    , listJobsByPipeline
+    -- ** Request lenses
+    , ljbprPipelineId
+    , ljbprAscending
+    , ljbprPageToken
+
+    -- * Response
+    , ListJobsByPipelineResponse
+    -- ** Response lenses
+    , ljbpsNextPageToken
+    , ljbpsJobs
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
@@ -69,7 +84,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListJobsByPipeline' request.
-listJobsByPipeline :: Text -- ^ '_ljbprPipelineId'
+listJobsByPipeline :: Text -- ^ 'ljbprPipelineId'
                    -> ListJobsByPipeline
 listJobsByPipeline p1 = ListJobsByPipeline
     { _ljbprPipelineId = p1
@@ -90,7 +105,45 @@ data ListJobsByPipeline = ListJobsByPipeline
       -- page of results.
     } deriving (Show, Generic)
 
-makeLenses ''ListJobsByPipeline
+-- | The ID of the pipeline for which you want to get job information.
+ljbprPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListJobsByPipeline
+    -> f ListJobsByPipeline
+ljbprPipelineId f x =
+    (\y -> x { _ljbprPipelineId = y })
+       <$> f (_ljbprPipelineId x)
+{-# INLINE ljbprPipelineId #-}
+
+-- | To list jobs in chronological order by the date and time that they were
+-- submitted, enter true. To list jobs in reverse chronological order, enter
+-- false.
+ljbprAscending
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobsByPipeline
+    -> f ListJobsByPipeline
+ljbprAscending f x =
+    (\y -> x { _ljbprAscending = y })
+       <$> f (_ljbprAscending x)
+{-# INLINE ljbprAscending #-}
+
+-- | When Elastic Transcoder returns more than one page of results, use
+-- pageToken in subsequent GET requests to get each successive page of
+-- results.
+ljbprPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobsByPipeline
+    -> f ListJobsByPipeline
+ljbprPageToken f x =
+    (\y -> x { _ljbprPageToken = y })
+       <$> f (_ljbprPageToken x)
+{-# INLINE ljbprPageToken #-}
 
 instance ToPath ListJobsByPipeline where
     toPath ListJobsByPipeline{..} = mconcat
@@ -118,7 +171,32 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
       -- ^ An array of Job objects that are in the specified pipeline.
     } deriving (Show, Generic)
 
-makeLenses ''ListJobsByPipelineResponse
+-- | A value that you use to access the second and subsequent pages of results,
+-- if any. When the jobs in the specified pipeline fit on one page or when
+-- you've reached the last page of results, the value of NextPageToken is
+-- null.
+ljbpsNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListJobsByPipelineResponse
+    -> f ListJobsByPipelineResponse
+ljbpsNextPageToken f x =
+    (\y -> x { _ljbpsNextPageToken = y })
+       <$> f (_ljbpsNextPageToken x)
+{-# INLINE ljbpsNextPageToken #-}
+
+-- | An array of Job objects that are in the specified pipeline.
+ljbpsJobs
+    :: Functor f
+    => ([Job]
+    -> f ([Job]))
+    -> ListJobsByPipelineResponse
+    -> f ListJobsByPipelineResponse
+ljbpsJobs f x =
+    (\y -> x { _ljbpsJobs = y })
+       <$> f (_ljbpsJobs x)
+{-# INLINE ljbpsJobs #-}
 
 instance FromJSON ListJobsByPipelineResponse
 

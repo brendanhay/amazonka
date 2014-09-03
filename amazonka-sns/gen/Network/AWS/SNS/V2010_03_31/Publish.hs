@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -58,14 +57,32 @@
 -- &lt;/PublishResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;d74b8436-ae13-5ab4-a9ff-ce54dfea72a0&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/PublishResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.Publish where
+module Network.AWS.SNS.V2010_03_31.Publish
+    (
+    -- * Request
+      Publish
+    -- ** Request constructor
+    , publish
+    -- ** Request lenses
+    , piMessage
+    , piMessageAttributes
+    , piMessageStructure
+    , piTargetArn
+    , piSubject
+    , piTopicArn
+
+    -- * Response
+    , PublishResponse
+    -- ** Response lenses
+    , prMessageId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'Publish' request.
-publish :: Text -- ^ '_piMessage'
+publish :: Text -- ^ 'piMessage'
         -> Publish
 publish p1 = Publish
     { _piMessage = p1
@@ -129,7 +146,110 @@ data Publish = Publish
       -- ^ The topic you want to publish to.
     } deriving (Show, Generic)
 
-makeLenses ''Publish
+-- | The message you want to send to the topic. If you want to send the same
+-- message to all transport protocols, include the text of the message as a
+-- String value. If you want to send different messages for each transport
+-- protocol, set the value of the MessageStructure parameter to json and use a
+-- JSON object for the Message parameter. See the Examples section for the
+-- format of the JSON object. Constraints: Messages must be UTF-8 encoded
+-- strings at most 256 KB in size (262144 bytes, not 262144 characters).
+-- JSON-specific constraints: Keys in the JSON object that correspond to
+-- supported transport protocols must have simple JSON string values. The
+-- values will be parsed (unescaped) before they are used in outgoing
+-- messages. Outbound notifications are JSON encoded (meaning that the
+-- characters will be reescaped for sending). Values have a minimum length of
+-- 0 (the empty string, "", is allowed). Values have a maximum length bounded
+-- by the overall message size (so, including multiple protocols may limit
+-- message sizes). Non-string values will cause the key to be ignored. Keys
+-- that do not correspond to supported transport protocols are ignored.
+-- Duplicate keys are not allowed. Failure to parse or validate any key or
+-- value in the message will cause the Publish call to return an error (no
+-- partial delivery).
+piMessage
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Publish
+    -> f Publish
+piMessage f x =
+    (\y -> x { _piMessage = y })
+       <$> f (_piMessage x)
+{-# INLINE piMessage #-}
+
+-- | Message attributes for Publish action.
+piMessageAttributes
+    :: Functor f
+    => (Map Text MessageAttributeValue
+    -> f (Map Text MessageAttributeValue))
+    -> Publish
+    -> f Publish
+piMessageAttributes f x =
+    (\y -> x { _piMessageAttributes = y })
+       <$> f (_piMessageAttributes x)
+{-# INLINE piMessageAttributes #-}
+
+-- | Set MessageStructure to json if you want to send a different message for
+-- each protocol. For example, using one publish action, you can send a short
+-- message to your SMS subscribers and a longer message to your email
+-- subscribers. If you set MessageStructure to json, the value of the Message
+-- parameter must: be a syntactically valid JSON object; and contain at least
+-- a top-level JSON key of "default" with a value that is a string. You can
+-- define other top-level keys that define the message you want to send to a
+-- specific transport protocol (e.g., "http"). For information about sending
+-- different messages for each protocol using the AWS Management Console, go
+-- to Create Different Messages for Each Protocol in the Amazon Simple
+-- Notification Service Getting Started Guide. Valid value: json.
+piMessageStructure
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Publish
+    -> f Publish
+piMessageStructure f x =
+    (\y -> x { _piMessageStructure = y })
+       <$> f (_piMessageStructure x)
+{-# INLINE piMessageStructure #-}
+
+-- | Either TopicArn or EndpointArn, but not both.
+piTargetArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Publish
+    -> f Publish
+piTargetArn f x =
+    (\y -> x { _piTargetArn = y })
+       <$> f (_piTargetArn x)
+{-# INLINE piTargetArn #-}
+
+-- | Optional parameter to be used as the "Subject" line when the message is
+-- delivered to email endpoints. This field will also be included, if present,
+-- in the standard JSON messages delivered to other endpoints. Constraints:
+-- Subjects must be ASCII text that begins with a letter, number, or
+-- punctuation mark; must not include line breaks or control characters; and
+-- must be less than 100 characters long.
+piSubject
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Publish
+    -> f Publish
+piSubject f x =
+    (\y -> x { _piSubject = y })
+       <$> f (_piSubject x)
+{-# INLINE piSubject #-}
+
+-- | The topic you want to publish to.
+piTopicArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Publish
+    -> f Publish
+piTopicArn f x =
+    (\y -> x { _piTopicArn = y })
+       <$> f (_piTopicArn x)
+{-# INLINE piTopicArn #-}
 
 instance ToQuery Publish where
     toQuery = genericQuery def
@@ -140,7 +260,18 @@ data PublishResponse = PublishResponse
       -- Constraint: Maximum 100 characters.
     } deriving (Show, Generic)
 
-makeLenses ''PublishResponse
+-- | Unique identifier assigned to the published message. Length Constraint:
+-- Maximum 100 characters.
+prMessageId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PublishResponse
+    -> f PublishResponse
+prMessageId f x =
+    (\y -> x { _prMessageId = y })
+       <$> f (_prMessageId x)
+{-# INLINE prMessageId #-}
 
 instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions

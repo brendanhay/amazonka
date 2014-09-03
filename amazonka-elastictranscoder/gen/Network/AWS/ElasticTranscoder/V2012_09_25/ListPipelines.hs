@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -59,7 +58,22 @@
 -- "Grantee":"marketing-promos-amsterdam@example.com", "Access":[
 -- "FullControl" ] } ], "StorageClass":"ReducedRedundancy" },
 -- "Status":"Active" } ] }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines
+    (
+    -- * Request
+      ListPipelines
+    -- ** Request constructor
+    , listPipelines
+    -- ** Request lenses
+    , lprAscending
+    , lprPageToken
+
+    -- * Response
+    , ListPipelinesResponse
+    -- ** Response lenses
+    , lpsNextPageToken
+    , lpsPipelines
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
@@ -84,7 +98,33 @@ data ListPipelines = ListPipelines
       -- page of results.
     } deriving (Show, Generic)
 
-makeLenses ''ListPipelines
+-- | To list pipelines in chronological order by the date and time that they
+-- were created, enter true. To list pipelines in reverse chronological order,
+-- enter false.
+lprAscending
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPipelines
+    -> f ListPipelines
+lprAscending f x =
+    (\y -> x { _lprAscending = y })
+       <$> f (_lprAscending x)
+{-# INLINE lprAscending #-}
+
+-- | When Elastic Transcoder returns more than one page of results, use
+-- pageToken in subsequent GET requests to get each successive page of
+-- results.
+lprPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPipelines
+    -> f ListPipelines
+lprPageToken f x =
+    (\y -> x { _lprPageToken = y })
+       <$> f (_lprPageToken x)
+{-# INLINE lprPageToken #-}
 
 instance ToPath ListPipelines where
     toPath = const "/2012-09-25/pipelines"
@@ -109,7 +149,31 @@ data ListPipelinesResponse = ListPipelinesResponse
       -- ^ An array of Pipeline objects.
     } deriving (Show, Generic)
 
-makeLenses ''ListPipelinesResponse
+-- | A value that you use to access the second and subsequent pages of results,
+-- if any. When the pipelines fit on one page or when you've reached the last
+-- page of results, the value of NextPageToken is null.
+lpsNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPipelinesResponse
+    -> f ListPipelinesResponse
+lpsNextPageToken f x =
+    (\y -> x { _lpsNextPageToken = y })
+       <$> f (_lpsNextPageToken x)
+{-# INLINE lpsNextPageToken #-}
+
+-- | An array of Pipeline objects.
+lpsPipelines
+    :: Functor f
+    => ([Pipeline]
+    -> f ([Pipeline]))
+    -> ListPipelinesResponse
+    -> f ListPipelinesResponse
+lpsPipelines f x =
+    (\y -> x { _lpsPipelines = y })
+       <$> f (_lpsPipelines x)
+{-# INLINE lpsPipelines #-}
 
 instance FromJSON ListPipelinesResponse
 

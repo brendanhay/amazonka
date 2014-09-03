@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,14 +27,29 @@
 -- default.mysql5.1 active default 00:00-00:30 true sat:07:30-sat:08:00
 -- us-east-1a 2011-05-23T06:06:43.110Z 10 db.m1.large master
 -- f61a020f-8512-11e0-90aa-eb648410240d.
-module Network.AWS.RDS.V2013_09_09.PromoteReadReplica where
+module Network.AWS.RDS.V2013_09_09.PromoteReadReplica
+    (
+    -- * Request
+      PromoteReadReplica
+    -- ** Request constructor
+    , promoteReadReplica
+    -- ** Request lenses
+    , prrmDBInstanceIdentifier
+    , prrmBackupRetentionPeriod
+    , prrmPreferredBackupWindow
+
+    -- * Response
+    , PromoteReadReplicaResponse
+    -- ** Response lenses
+    , dbidrDBInstance
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PromoteReadReplica' request.
-promoteReadReplica :: Text -- ^ '_prrmDBInstanceIdentifier'
+promoteReadReplica :: Text -- ^ 'prrmDBInstanceIdentifier'
                    -> PromoteReadReplica
 promoteReadReplica p1 = PromoteReadReplica
     { _prrmDBInstanceIdentifier = p1
@@ -68,20 +82,79 @@ data PromoteReadReplica = PromoteReadReplica
       -- Must be at least 30 minutes.
     } deriving (Show, Generic)
 
-makeLenses ''PromoteReadReplica
+-- | The DB instance identifier. This value is stored as a lowercase string.
+-- Constraints: Must be the identifier for an existing read replica DB
+-- instance Must contain from 1 to 63 alphanumeric characters or hyphens First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens Example: mydbinstance.
+prrmDBInstanceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PromoteReadReplica
+    -> f PromoteReadReplica
+prrmDBInstanceIdentifier f x =
+    (\y -> x { _prrmDBInstanceIdentifier = y })
+       <$> f (_prrmDBInstanceIdentifier x)
+{-# INLINE prrmDBInstanceIdentifier #-}
+
+-- | The number of days to retain automated backups. Setting this parameter to a
+-- positive number enables backups. Setting this parameter to 0 disables
+-- automated backups. Default: 1 Constraints: Must be a value from 0 to 8.
+prrmBackupRetentionPeriod
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> PromoteReadReplica
+    -> f PromoteReadReplica
+prrmBackupRetentionPeriod f x =
+    (\y -> x { _prrmBackupRetentionPeriod = y })
+       <$> f (_prrmBackupRetentionPeriod x)
+{-# INLINE prrmBackupRetentionPeriod #-}
+
+-- | The daily time range during which automated backups are created if
+-- automated backups are enabled, using the BackupRetentionPeriod parameter.
+-- Default: A 30-minute window selected at random from an 8-hour block of time
+-- per region. See the Amazon RDS User Guide for the time blocks for each
+-- region from which the default backup windows are assigned. Constraints:
+-- Must be in the format hh24:mi-hh24:mi. Times should be Universal Time
+-- Coordinated (UTC). Must not conflict with the preferred maintenance window.
+-- Must be at least 30 minutes.
+prrmPreferredBackupWindow
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PromoteReadReplica
+    -> f PromoteReadReplica
+prrmPreferredBackupWindow f x =
+    (\y -> x { _prrmPreferredBackupWindow = y })
+       <$> f (_prrmPreferredBackupWindow x)
+{-# INLINE prrmPreferredBackupWindow #-}
 
 instance ToQuery PromoteReadReplica where
     toQuery = genericQuery def
 
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse
-    { _dbiwDBInstance :: Maybe DBInstance
+    { _dbidrDBInstance :: Maybe DBInstance
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
       -- data type is used as a response element in the
       -- DescribeDBInstances action.
     } deriving (Show, Generic)
 
-makeLenses ''PromoteReadReplicaResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
+-- as a response element in the DescribeDBInstances action.
+dbidrDBInstance
+    :: Functor f
+    => (Maybe DBInstance
+    -> f (Maybe DBInstance))
+    -> PromoteReadReplicaResponse
+    -> f PromoteReadReplicaResponse
+dbidrDBInstance f x =
+    (\y -> x { _dbidrDBInstance = y })
+       <$> f (_dbidrDBInstance x)
+{-# INLINE dbidrDBInstance #-}
 
 instance FromXML PromoteReadReplicaResponse where
     fromXMLOptions = xmlOptions

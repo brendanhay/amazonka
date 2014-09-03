@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,10 @@ module Network.AWS.EC2.V2014_06_15.CancelConversionTask
     (
     -- * Request
       CancelConversionTask
-    -- ** Default constructor
+    -- ** Request constructor
     , cancelConversionTask
-    -- ** Accessors and lenses
-    , _ccrConversionTaskId
+    -- ** Request lenses
     , ccrConversionTaskId
-    , _ccrReasonMessage
     , ccrReasonMessage
 
     -- * Response
@@ -58,8 +55,35 @@ cancelConversionTask p1 = CancelConversionTask
     }
 
 data CancelConversionTask = CancelConversionTask
+    { _ccrConversionTaskId :: Text
+      -- ^ The ID of the conversion task.
+    , _ccrReasonMessage :: Maybe Text
+      -- ^ 
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CancelConversionTask
+-- | The ID of the conversion task.
+ccrConversionTaskId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelConversionTask
+    -> f CancelConversionTask
+ccrConversionTaskId f x =
+    (\y -> x { _ccrConversionTaskId = y })
+       <$> f (_ccrConversionTaskId x)
+{-# INLINE ccrConversionTaskId #-}
+
+-- | 
+ccrReasonMessage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CancelConversionTask
+    -> f CancelConversionTask
+ccrReasonMessage f x =
+    (\y -> x { _ccrReasonMessage = y })
+       <$> f (_ccrReasonMessage x)
+{-# INLINE ccrReasonMessage #-}
 
 instance ToQuery CancelConversionTask where
     toQuery = genericQuery def
@@ -67,17 +91,9 @@ instance ToQuery CancelConversionTask where
 data CancelConversionTaskResponse = CancelConversionTaskResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''CancelConversionTaskResponse
-
 instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2
     type Rs CancelConversionTask = CancelConversionTaskResponse
 
     request = post "CancelConversionTask"
     response _ = nullaryResponse CancelConversionTaskResponse
-
--- | The ID of the conversion task.
-ccrConversionTaskId :: Lens' CancelConversionTask (Text)
-
--- | 
-ccrReasonMessage :: Lens' CancelConversionTask (Maybe Text)

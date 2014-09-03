@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,14 +24,26 @@
 -- https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
 -- &ForceDelete=true &Version=2011-01-01 &Action=DeleteAutoScalingGroup
 -- &AUTHPARAMS 70a76d42-9665-11e2-9fdf-211deEXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup where
+module Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup
+    (
+    -- * Request
+      DeleteAutoScalingGroup
+    -- ** Request constructor
+    , deleteAutoScalingGroup
+    -- ** Request lenses
+    , dasgtAutoScalingGroupName
+    , dasgtForceDelete
+
+    -- * Response
+    , DeleteAutoScalingGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteAutoScalingGroup' request.
-deleteAutoScalingGroup :: Text -- ^ '_dasgtAutoScalingGroupName'
+deleteAutoScalingGroup :: Text -- ^ 'dasgtAutoScalingGroupName'
                        -> DeleteAutoScalingGroup
 deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
     { _dasgtAutoScalingGroupName = p1
@@ -50,15 +61,38 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
       -- associated with the group.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAutoScalingGroup
+-- | The name of the Auto Scaling group to delete.
+dasgtAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAutoScalingGroup
+    -> f DeleteAutoScalingGroup
+dasgtAutoScalingGroupName f x =
+    (\y -> x { _dasgtAutoScalingGroupName = y })
+       <$> f (_dasgtAutoScalingGroupName x)
+{-# INLINE dasgtAutoScalingGroupName #-}
+
+-- | Starting with API version 2011-01-01, specifies that the Auto Scaling group
+-- will be deleted along with all instances associated with the group, without
+-- waiting for all instances to be terminated. This parameter also deletes any
+-- lifecycle actions associated with the group.
+dasgtForceDelete
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeleteAutoScalingGroup
+    -> f DeleteAutoScalingGroup
+dasgtForceDelete f x =
+    (\y -> x { _dasgtForceDelete = y })
+       <$> f (_dasgtForceDelete x)
+{-# INLINE dasgtForceDelete #-}
 
 instance ToQuery DeleteAutoScalingGroup where
     toQuery = genericQuery def
 
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAutoScalingGroupResponse
 
 instance AWSRequest DeleteAutoScalingGroup where
     type Sv DeleteAutoScalingGroup = AutoScaling

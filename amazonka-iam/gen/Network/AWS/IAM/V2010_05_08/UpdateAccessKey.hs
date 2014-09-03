@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,15 +28,28 @@
 -- https://iam.amazonaws.com/ ?Action=UpdateAccessKey &UserName=Bob
 -- &AccessKeyId=AKIAIOSFODNN7EXAMPLE &Status=Inactive &Version=2010-05-08
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.UpdateAccessKey where
+module Network.AWS.IAM.V2010_05_08.UpdateAccessKey
+    (
+    -- * Request
+      UpdateAccessKey
+    -- ** Request constructor
+    , updateAccessKey
+    -- ** Request lenses
+    , uakrAccessKeyId
+    , uakrStatus
+    , uakrUserName
+
+    -- * Response
+    , UpdateAccessKeyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateAccessKey' request.
-updateAccessKey :: Text -- ^ '_uakrAccessKeyId'
-                -> StatusType -- ^ '_uakrStatus'
+updateAccessKey :: Text -- ^ 'uakrAccessKeyId'
+                -> StatusType -- ^ 'uakrStatus'
                 -> UpdateAccessKey
 updateAccessKey p1 p2 = UpdateAccessKey
     { _uakrAccessKeyId = p1
@@ -56,15 +68,49 @@ data UpdateAccessKey = UpdateAccessKey
       -- ^ Name of the user whose key you want to update.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateAccessKey
+-- | The access key ID of the secret access key you want to update.
+uakrAccessKeyId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateAccessKey
+    -> f UpdateAccessKey
+uakrAccessKeyId f x =
+    (\y -> x { _uakrAccessKeyId = y })
+       <$> f (_uakrAccessKeyId x)
+{-# INLINE uakrAccessKeyId #-}
+
+-- | The status you want to assign to the secret access key. Active means the
+-- key can be used for API calls to AWS, while Inactive means the key cannot
+-- be used.
+uakrStatus
+    :: Functor f
+    => (StatusType
+    -> f (StatusType))
+    -> UpdateAccessKey
+    -> f UpdateAccessKey
+uakrStatus f x =
+    (\y -> x { _uakrStatus = y })
+       <$> f (_uakrStatus x)
+{-# INLINE uakrStatus #-}
+
+-- | Name of the user whose key you want to update.
+uakrUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateAccessKey
+    -> f UpdateAccessKey
+uakrUserName f x =
+    (\y -> x { _uakrUserName = y })
+       <$> f (_uakrUserName x)
+{-# INLINE uakrUserName #-}
 
 instance ToQuery UpdateAccessKey where
     toQuery = genericQuery def
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateAccessKeyResponse
 
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM

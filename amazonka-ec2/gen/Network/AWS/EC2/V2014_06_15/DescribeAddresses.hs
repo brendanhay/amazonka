@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -62,20 +61,16 @@ module Network.AWS.EC2.V2014_06_15.DescribeAddresses
     (
     -- * Request
       DescribeAddresses
-    -- ** Default constructor
+    -- ** Request constructor
     , describeAddresses
-    -- ** Accessors and lenses
-    , _darAllocationIds
+    -- ** Request lenses
     , darAllocationIds
-    , _darFilters
     , darFilters
-    , _darPublicIps
     , darPublicIps
 
     -- * Response
     , DescribeAddressesResponse
-    -- ** Accessors and lenses
-    , _dasAddresses
+    -- ** Response lenses
     , dasAddresses
     ) where
 
@@ -92,32 +87,37 @@ describeAddresses = DescribeAddresses
     }
 
 data DescribeAddresses = DescribeAddresses
-
-makeSiglessLenses ''DescribeAddresses
-
-instance ToQuery DescribeAddresses where
-    toQuery = genericQuery def
-
-data DescribeAddressesResponse = DescribeAddressesResponse
-    { _dasAddresses :: [Address]
-      -- ^ Information about one or more Elastic IP addresses.
+    { _darAllocationIds :: [Text]
+      -- ^ [EC2-VPC] One or more allocation IDs. Default: Describes all your
+      -- Elastic IP addresses.
+    , _darFilters :: [Filter]
+      -- ^ One or more filters. allocation-id - [EC2-VPC] The allocation ID
+      -- for the address. association-id - [EC2-VPC] The association ID
+      -- for the address. domain - Indicates whether the address is for
+      -- use in EC2-Classic (standard) or in a VPC (vpc). instance-id -
+      -- The ID of the instance the address is associated with, if any.
+      -- network-interface-id - [EC2-VPC] The ID of the network interface
+      -- that the address is associated with, if any.
+      -- network-interface-owner-id - The AWS account ID of the owner.
+      -- private-ip-address - [EC2-VPC] The private IP address associated
+      -- with the Elastic IP address. public-ip - The Elastic IP address.
+    , _darPublicIps :: [Text]
+      -- ^ [EC2-Classic] One or more Elastic IP addresses. Default:
+      -- Describes all your Elastic IP addresses.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeAddressesResponse
-
-instance FromXML DescribeAddressesResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeAddresses where
-    type Sv DescribeAddresses = EC2
-    type Rs DescribeAddresses = DescribeAddressesResponse
-
-    request = post "DescribeAddresses"
-    response _ = xmlResponse
 
 -- | [EC2-VPC] One or more allocation IDs. Default: Describes all your Elastic
 -- IP addresses.
-darAllocationIds :: Lens' DescribeAddresses ([Text])
+darAllocationIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeAddresses
+    -> f DescribeAddresses
+darAllocationIds f x =
+    (\y -> x { _darAllocationIds = y })
+       <$> f (_darAllocationIds x)
+{-# INLINE darAllocationIds #-}
 
 -- | One or more filters. allocation-id - [EC2-VPC] The allocation ID for the
 -- address. association-id - [EC2-VPC] The association ID for the address.
@@ -128,11 +128,56 @@ darAllocationIds :: Lens' DescribeAddresses ([Text])
 -- network-interface-owner-id - The AWS account ID of the owner.
 -- private-ip-address - [EC2-VPC] The private IP address associated with the
 -- Elastic IP address. public-ip - The Elastic IP address.
-darFilters :: Lens' DescribeAddresses ([Filter])
+darFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeAddresses
+    -> f DescribeAddresses
+darFilters f x =
+    (\y -> x { _darFilters = y })
+       <$> f (_darFilters x)
+{-# INLINE darFilters #-}
 
 -- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all your
 -- Elastic IP addresses.
-darPublicIps :: Lens' DescribeAddresses ([Text])
+darPublicIps
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeAddresses
+    -> f DescribeAddresses
+darPublicIps f x =
+    (\y -> x { _darPublicIps = y })
+       <$> f (_darPublicIps x)
+{-# INLINE darPublicIps #-}
+
+instance ToQuery DescribeAddresses where
+    toQuery = genericQuery def
+
+data DescribeAddressesResponse = DescribeAddressesResponse
+    { _dasAddresses :: [Address]
+      -- ^ Information about one or more Elastic IP addresses.
+    } deriving (Show, Generic)
 
 -- | Information about one or more Elastic IP addresses.
-dasAddresses :: Lens' DescribeAddressesResponse ([Address])
+dasAddresses
+    :: Functor f
+    => ([Address]
+    -> f ([Address]))
+    -> DescribeAddressesResponse
+    -> f DescribeAddressesResponse
+dasAddresses f x =
+    (\y -> x { _dasAddresses = y })
+       <$> f (_dasAddresses x)
+{-# INLINE dasAddresses #-}
+
+instance FromXML DescribeAddressesResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeAddresses where
+    type Sv DescribeAddresses = EC2
+    type Rs DescribeAddresses = DescribeAddressesResponse
+
+    request = post "DescribeAddresses"
+    response _ = xmlResponse

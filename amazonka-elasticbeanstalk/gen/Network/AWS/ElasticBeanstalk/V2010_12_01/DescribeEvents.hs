@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,7 +33,31 @@
 -- healthy instances - Environment may not be available. 2010-11-17T20:19:28Z
 -- New Version SampleApp SampleAppVersion WARN
 -- f10d02dd-f288-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents
+    (
+    -- * Request
+      DescribeEvents
+    -- ** Request constructor
+    , describeEvents
+    -- ** Request lenses
+    , denApplicationName
+    , denTemplateName
+    , denEnvironmentId
+    , denEnvironmentName
+    , denSeverity
+    , denMaxRecords
+    , denRequestId
+    , denEndTime
+    , denStartTime
+    , denNextToken
+    , denVersionLabel
+
+    -- * Response
+    , DescribeEventsResponse
+    -- ** Response lenses
+    , ednEvents
+    , ednNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -43,73 +66,237 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeEvents' request.
 describeEvents :: DescribeEvents
 describeEvents = DescribeEvents
-    { _demApplicationName = Nothing
-    , _demTemplateName = Nothing
-    , _demEnvironmentId = Nothing
-    , _demEnvironmentName = Nothing
-    , _demSeverity = Nothing
-    , _demMaxRecords = Nothing
-    , _demRequestId = Nothing
-    , _demEndTime = Nothing
-    , _demStartTime = Nothing
-    , _demNextToken = Nothing
-    , _demVersionLabel = Nothing
+    { _denApplicationName = Nothing
+    , _denTemplateName = Nothing
+    , _denEnvironmentId = Nothing
+    , _denEnvironmentName = Nothing
+    , _denSeverity = Nothing
+    , _denMaxRecords = Nothing
+    , _denRequestId = Nothing
+    , _denEndTime = Nothing
+    , _denStartTime = Nothing
+    , _denNextToken = Nothing
+    , _denVersionLabel = Nothing
     }
 
 data DescribeEvents = DescribeEvents
-    { _demApplicationName :: Maybe Text
+    { _denApplicationName :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to include only those associated with this
       -- application.
-    , _demTemplateName :: Maybe Text
+    , _denTemplateName :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to those that are associated with this environment
       -- configuration.
-    , _demEnvironmentId :: Maybe Text
+    , _denEnvironmentId :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to those associated with this environment.
-    , _demEnvironmentName :: Maybe Text
+    , _denEnvironmentName :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to those associated with this environment.
-    , _demSeverity :: Maybe EventSeverity
+    , _denSeverity :: Maybe EventSeverity
       -- ^ If specified, limits the events returned from this call to
       -- include only those with the specified severity or higher.
-    , _demMaxRecords :: Maybe Integer
+    , _denMaxRecords :: Maybe Integer
       -- ^ Specifies the maximum number of events that can be returned,
       -- beginning with the most recent event.
-    , _demRequestId :: Maybe Text
+    , _denRequestId :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the described
       -- events to include only those associated with this request ID.
-    , _demEndTime :: Maybe ISO8601
+    , _denEndTime :: Maybe ISO8601
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to those that occur up to, but not including, the
       -- EndTime.
-    , _demStartTime :: Maybe ISO8601
+    , _denStartTime :: Maybe ISO8601
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to those that occur on or after this time.
-    , _demNextToken :: Maybe Text
+    , _denNextToken :: Maybe Text
       -- ^ Pagination token. If specified, the events return the next batch
       -- of results.
-    , _demVersionLabel :: Maybe Text
+    , _denVersionLabel :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to those associated with this application version.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEvents
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- include only those associated with this application.
+denApplicationName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denApplicationName f x =
+    (\y -> x { _denApplicationName = y })
+       <$> f (_denApplicationName x)
+{-# INLINE denApplicationName #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- those that are associated with this environment configuration.
+denTemplateName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denTemplateName f x =
+    (\y -> x { _denTemplateName = y })
+       <$> f (_denTemplateName x)
+{-# INLINE denTemplateName #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- those associated with this environment.
+denEnvironmentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denEnvironmentId f x =
+    (\y -> x { _denEnvironmentId = y })
+       <$> f (_denEnvironmentId x)
+{-# INLINE denEnvironmentId #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- those associated with this environment.
+denEnvironmentName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denEnvironmentName f x =
+    (\y -> x { _denEnvironmentName = y })
+       <$> f (_denEnvironmentName x)
+{-# INLINE denEnvironmentName #-}
+
+-- | If specified, limits the events returned from this call to include only
+-- those with the specified severity or higher.
+denSeverity
+    :: Functor f
+    => (Maybe EventSeverity
+    -> f (Maybe EventSeverity))
+    -> DescribeEvents
+    -> f DescribeEvents
+denSeverity f x =
+    (\y -> x { _denSeverity = y })
+       <$> f (_denSeverity x)
+{-# INLINE denSeverity #-}
+
+-- | Specifies the maximum number of events that can be returned, beginning with
+-- the most recent event.
+denMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEvents
+    -> f DescribeEvents
+denMaxRecords f x =
+    (\y -> x { _denMaxRecords = y })
+       <$> f (_denMaxRecords x)
+{-# INLINE denMaxRecords #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the described events to
+-- include only those associated with this request ID.
+denRequestId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denRequestId f x =
+    (\y -> x { _denRequestId = y })
+       <$> f (_denRequestId x)
+{-# INLINE denRequestId #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- those that occur up to, but not including, the EndTime.
+denEndTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+denEndTime f x =
+    (\y -> x { _denEndTime = y })
+       <$> f (_denEndTime x)
+{-# INLINE denEndTime #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- those that occur on or after this time.
+denStartTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DescribeEvents
+    -> f DescribeEvents
+denStartTime f x =
+    (\y -> x { _denStartTime = y })
+       <$> f (_denStartTime x)
+{-# INLINE denStartTime #-}
+
+-- | Pagination token. If specified, the events return the next batch of
+-- results.
+denNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denNextToken f x =
+    (\y -> x { _denNextToken = y })
+       <$> f (_denNextToken x)
+{-# INLINE denNextToken #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- those associated with this application version.
+denVersionLabel
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEvents
+    -> f DescribeEvents
+denVersionLabel f x =
+    (\y -> x { _denVersionLabel = y })
+       <$> f (_denVersionLabel x)
+{-# INLINE denVersionLabel #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _edmEvents :: [EventDescription]
+    { _ednEvents :: [EventDescription]
       -- ^ A list of EventDescription.
-    , _edmNextToken :: Maybe Text
+    , _ednNextToken :: Maybe Text
       -- ^ If returned, this indicates that there are more results to
       -- obtain. Use this token in the next DescribeEvents call to get the
       -- next batch of events.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventsResponse
+-- | A list of EventDescription.
+ednEvents
+    :: Functor f
+    => ([EventDescription]
+    -> f ([EventDescription]))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+ednEvents f x =
+    (\y -> x { _ednEvents = y })
+       <$> f (_ednEvents x)
+{-# INLINE ednEvents #-}
+
+-- | If returned, this indicates that there are more results to obtain. Use this
+-- token in the next DescribeEvents call to get the next batch of events.
+ednNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEventsResponse
+    -> f DescribeEventsResponse
+ednNextToken f x =
+    (\y -> x { _ednNextToken = y })
+       <$> f (_ednNextToken x)
+{-# INLINE ednNextToken #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -122,5 +309,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _demNextToken = Just x })
-        <$> (_edmNextToken rs)
+    next rq rs = (\x -> rq { _denNextToken = Just x })
+        <$> (_ednNextToken rs)

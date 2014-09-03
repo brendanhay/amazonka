@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,24 +34,16 @@ module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry
     (
     -- * Request
       ReplaceNetworkAclEntry
-    -- ** Default constructor
+    -- ** Request constructor
     , replaceNetworkAclEntry
-    -- ** Accessors and lenses
-    , _rnaerEgress
+    -- ** Request lenses
     , rnaerEgress
-    , _rnaerRuleNumber
     , rnaerRuleNumber
-    , _rnaerRuleAction
     , rnaerRuleAction
-    , _rnaerNetworkAclId
     , rnaerNetworkAclId
-    , _rnaerProtocol
     , rnaerProtocol
-    , _rnaerCidrBlock
     , rnaerCidrBlock
-    , _rnaerIcmpTypeCode
     , rnaerIcmpTypeCode
-    , _rnaerPortRange
     , rnaerPortRange
 
     -- * Response
@@ -83,8 +74,122 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     }
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
+    { _rnaerEgress :: Bool
+      -- ^ Indicates whether to replace the egress rule. Default: If no
+      -- value is specified, we replace the ingress rule.
+    , _rnaerRuleNumber :: Integer
+      -- ^ The rule number of the entry to replace.
+    , _rnaerRuleAction :: RuleAction
+      -- ^ Indicates whether to allow or deny the traffic that matches the
+      -- rule.
+    , _rnaerNetworkAclId :: Text
+      -- ^ The ID of the ACL.
+    , _rnaerProtocol :: Text
+      -- ^ The IP protocol. You can specify all or -1 to mean all protocols.
+    , _rnaerCidrBlock :: Text
+      -- ^ The network range to allow or deny, in CIDR notation.
+    , _rnaerIcmpTypeCode :: Maybe IcmpTypeCode
+      -- ^ ICMP protocol: The ICMP type and code.
+    , _rnaerPortRange :: Maybe PortRange
+      -- ^ TCP or UDP protocols: The range of ports the rule applies to.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ReplaceNetworkAclEntry
+-- | Indicates whether to replace the egress rule. Default: If no value is
+-- specified, we replace the ingress rule.
+rnaerEgress
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerEgress f x =
+    (\y -> x { _rnaerEgress = y })
+       <$> f (_rnaerEgress x)
+{-# INLINE rnaerEgress #-}
+
+-- | The rule number of the entry to replace.
+rnaerRuleNumber
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerRuleNumber f x =
+    (\y -> x { _rnaerRuleNumber = y })
+       <$> f (_rnaerRuleNumber x)
+{-# INLINE rnaerRuleNumber #-}
+
+-- | Indicates whether to allow or deny the traffic that matches the rule.
+rnaerRuleAction
+    :: Functor f
+    => (RuleAction
+    -> f (RuleAction))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerRuleAction f x =
+    (\y -> x { _rnaerRuleAction = y })
+       <$> f (_rnaerRuleAction x)
+{-# INLINE rnaerRuleAction #-}
+
+-- | The ID of the ACL.
+rnaerNetworkAclId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerNetworkAclId f x =
+    (\y -> x { _rnaerNetworkAclId = y })
+       <$> f (_rnaerNetworkAclId x)
+{-# INLINE rnaerNetworkAclId #-}
+
+-- | The IP protocol. You can specify all or -1 to mean all protocols.
+rnaerProtocol
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerProtocol f x =
+    (\y -> x { _rnaerProtocol = y })
+       <$> f (_rnaerProtocol x)
+{-# INLINE rnaerProtocol #-}
+
+-- | The network range to allow or deny, in CIDR notation.
+rnaerCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerCidrBlock f x =
+    (\y -> x { _rnaerCidrBlock = y })
+       <$> f (_rnaerCidrBlock x)
+{-# INLINE rnaerCidrBlock #-}
+
+-- | ICMP protocol: The ICMP type and code.
+rnaerIcmpTypeCode
+    :: Functor f
+    => (Maybe IcmpTypeCode
+    -> f (Maybe IcmpTypeCode))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerIcmpTypeCode f x =
+    (\y -> x { _rnaerIcmpTypeCode = y })
+       <$> f (_rnaerIcmpTypeCode x)
+{-# INLINE rnaerIcmpTypeCode #-}
+
+-- | TCP or UDP protocols: The range of ports the rule applies to.
+rnaerPortRange
+    :: Functor f
+    => (Maybe PortRange
+    -> f (Maybe PortRange))
+    -> ReplaceNetworkAclEntry
+    -> f ReplaceNetworkAclEntry
+rnaerPortRange f x =
+    (\y -> x { _rnaerPortRange = y })
+       <$> f (_rnaerPortRange x)
+{-# INLINE rnaerPortRange #-}
 
 instance ToQuery ReplaceNetworkAclEntry where
     toQuery = genericQuery def
@@ -92,36 +197,9 @@ instance ToQuery ReplaceNetworkAclEntry where
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ReplaceNetworkAclEntryResponse
-
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse
 
     request = post "ReplaceNetworkAclEntry"
     response _ = nullaryResponse ReplaceNetworkAclEntryResponse
-
--- | Indicates whether to replace the egress rule. Default: If no value is
--- specified, we replace the ingress rule.
-rnaerEgress :: Lens' ReplaceNetworkAclEntry (Bool)
-
--- | The rule number of the entry to replace.
-rnaerRuleNumber :: Lens' ReplaceNetworkAclEntry (Integer)
-
--- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaerRuleAction :: Lens' ReplaceNetworkAclEntry (RuleAction)
-
--- | The ID of the ACL.
-rnaerNetworkAclId :: Lens' ReplaceNetworkAclEntry (Text)
-
--- | The IP protocol. You can specify all or -1 to mean all protocols.
-rnaerProtocol :: Lens' ReplaceNetworkAclEntry (Text)
-
--- | The network range to allow or deny, in CIDR notation.
-rnaerCidrBlock :: Lens' ReplaceNetworkAclEntry (Text)
-
--- | ICMP protocol: The ICMP type and code.
-rnaerIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
-
--- | TCP or UDP protocols: The range of ports the rule applies to.
-rnaerPortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,14 +26,30 @@
 -- Utilization USD mysql 438012d3-4052-4cc7-b2e3-8d3372e0e706 true
 -- payment-pending myreservationID 10 2011-12-18T23:24:56.577Z 31536000 123.0
 -- 0.123 db.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
-module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering where
+module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering
+    (
+    -- * Request
+      PurchaseReservedDBInstancesOffering
+    -- ** Request constructor
+    , purchaseReservedDBInstancesOffering
+    -- ** Request lenses
+    , prdbiomReservedDBInstancesOfferingId
+    , prdbiomDBInstanceCount
+    , prdbiomReservedDBInstanceId
+    , prdbiomTags
+
+    -- * Response
+    , PurchaseReservedDBInstancesOfferingResponse
+    -- ** Response lenses
+    , rdbiwReservedDBInstance
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PurchaseReservedDBInstancesOffering' request.
-purchaseReservedDBInstancesOffering :: Text -- ^ '_prdbiomReservedDBInstancesOfferingId'
+purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
                                     -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     { _prdbiomReservedDBInstancesOfferingId = p1
@@ -56,7 +71,55 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedDBInstancesOffering
+-- | The ID of the Reserved DB instance offering to purchase. Example:
+-- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
+prdbiomReservedDBInstancesOfferingId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PurchaseReservedDBInstancesOffering
+    -> f PurchaseReservedDBInstancesOffering
+prdbiomReservedDBInstancesOfferingId f x =
+    (\y -> x { _prdbiomReservedDBInstancesOfferingId = y })
+       <$> f (_prdbiomReservedDBInstancesOfferingId x)
+{-# INLINE prdbiomReservedDBInstancesOfferingId #-}
+
+-- | The number of instances to reserve. Default: 1.
+prdbiomDBInstanceCount
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> PurchaseReservedDBInstancesOffering
+    -> f PurchaseReservedDBInstancesOffering
+prdbiomDBInstanceCount f x =
+    (\y -> x { _prdbiomDBInstanceCount = y })
+       <$> f (_prdbiomDBInstanceCount x)
+{-# INLINE prdbiomDBInstanceCount #-}
+
+-- | Customer-specified identifier to track this reservation. Example:
+-- myreservationID.
+prdbiomReservedDBInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PurchaseReservedDBInstancesOffering
+    -> f PurchaseReservedDBInstancesOffering
+prdbiomReservedDBInstanceId f x =
+    (\y -> x { _prdbiomReservedDBInstanceId = y })
+       <$> f (_prdbiomReservedDBInstanceId x)
+{-# INLINE prdbiomReservedDBInstanceId #-}
+
+-- | A list of tags.
+prdbiomTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> PurchaseReservedDBInstancesOffering
+    -> f PurchaseReservedDBInstancesOffering
+prdbiomTags f x =
+    (\y -> x { _prdbiomTags = y })
+       <$> f (_prdbiomTags x)
+{-# INLINE prdbiomTags #-}
 
 instance ToQuery PurchaseReservedDBInstancesOffering where
     toQuery = genericQuery def
@@ -68,7 +131,19 @@ data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOf
       -- PurchaseReservedDBInstancesOffering actions.
     } deriving (Show, Generic)
 
-makeLenses ''PurchaseReservedDBInstancesOfferingResponse
+-- | This data type is used as a response element in the
+-- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
+-- actions.
+rdbiwReservedDBInstance
+    :: Functor f
+    => (Maybe ReservedDBInstance
+    -> f (Maybe ReservedDBInstance))
+    -> PurchaseReservedDBInstancesOfferingResponse
+    -> f PurchaseReservedDBInstancesOfferingResponse
+rdbiwReservedDBInstance f x =
+    (\y -> x { _rdbiwReservedDBInstance = y })
+       <$> f (_rdbiwReservedDBInstance x)
+{-# INLINE rdbiwReservedDBInstance #-}
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

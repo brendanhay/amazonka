@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,26 +30,52 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=VerifyEmailAddress
 -- &EmailAddress=user%40example.com &Timestamp=2011-08-18T22%3A28%3A27.000Z
 -- 8edd7eb2-c864-11e0-9f8f-3da8fc215a7e.
-module Network.AWS.SES.V2010_12_01.VerifyEmailAddress where
+module Network.AWS.SES.V2010_12_01.VerifyEmailAddress
+    (
+    -- * Request
+      VerifyEmailAddress
+    -- ** Request constructor
+    , verifyEmailAddress
+    -- ** Request lenses
+    , vearEmailAddress
+
+    -- * Response
+    , VerifyEmailAddressResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'VerifyEmailAddress' request.
+verifyEmailAddress :: Text -- ^ 'vearEmailAddress'
+                   -> VerifyEmailAddress
+verifyEmailAddress p1 = VerifyEmailAddress
+    { _vearEmailAddress = p1
+    }
 
 data VerifyEmailAddress = VerifyEmailAddress
     { _vearEmailAddress :: Text
       -- ^ The email address to be verified.
     } deriving (Show, Generic)
 
-makeLenses ''VerifyEmailAddress
+-- | The email address to be verified.
+vearEmailAddress
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> VerifyEmailAddress
+    -> f VerifyEmailAddress
+vearEmailAddress f x =
+    (\y -> x { _vearEmailAddress = y })
+       <$> f (_vearEmailAddress x)
+{-# INLINE vearEmailAddress #-}
 
 instance ToQuery VerifyEmailAddress where
     toQuery = genericQuery def
 
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''VerifyEmailAddressResponse
 
 instance AWSRequest VerifyEmailAddress where
     type Sv VerifyEmailAddress = SES

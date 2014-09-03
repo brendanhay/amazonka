@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,7 +54,25 @@
 -- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
 -- Date: ]]> { "SequenceNumber": "21269319989653637946712965403778482177",
 -- "ShardId": "shardId-000000000001" }.
-module Network.AWS.Kinesis.V2013_12_02.PutRecord where
+module Network.AWS.Kinesis.V2013_12_02.PutRecord
+    (
+    -- * Request
+      PutRecord
+    -- ** Request constructor
+    , putRecord
+    -- ** Request lenses
+    , priData
+    , priPartitionKey
+    , priStreamName
+    , priExplicitHashKey
+    , priSequenceNumberForOrdering
+
+    -- * Response
+    , PutRecordResponse
+    -- ** Response lenses
+    , proSequenceNumber
+    , proShardId
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
@@ -63,9 +80,9 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'PutRecord' request.
-putRecord :: Base64 -- ^ '_priData'
-          -> Text -- ^ '_priPartitionKey'
-          -> Text -- ^ '_priStreamName'
+putRecord :: Base64 -- ^ 'priData'
+          -> Text -- ^ 'priPartitionKey'
+          -> Text -- ^ 'priStreamName'
           -> PutRecord
 putRecord p1 p2 p3 = PutRecord
     { _priData = p1
@@ -104,7 +121,80 @@ data PutRecord = PutRecord
       -- coarsely ordered based on arrival time.
     } deriving (Show, Generic)
 
-makeLenses ''PutRecord
+-- | The data blob to put into the record, which is Base64-encoded when the blob
+-- is serialized. The maximum size of the data blob (the payload after
+-- Base64-decoding) is 50 kilobytes (KB).
+priData
+    :: Functor f
+    => (Base64
+    -> f (Base64))
+    -> PutRecord
+    -> f PutRecord
+priData f x =
+    (\y -> x { _priData = y })
+       <$> f (_priData x)
+{-# INLINE priData #-}
+
+-- | Determines which shard in the stream the data record is assigned to.
+-- Partition keys are Unicode strings with a maximum length limit of 256
+-- bytes. Amazon Kinesis uses the partition key as input to a hash function
+-- that maps the partition key and associated data to a specific shard.
+-- Specifically, an MD5 hash function is used to map partition keys to 128-bit
+-- integer values and to map associated data records to shards. As a result of
+-- this hashing mechanism, all data records with the same partition key will
+-- map to the same shard within the stream.
+priPartitionKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRecord
+    -> f PutRecord
+priPartitionKey f x =
+    (\y -> x { _priPartitionKey = y })
+       <$> f (_priPartitionKey x)
+{-# INLINE priPartitionKey #-}
+
+-- | The name of the stream to put the data record into.
+priStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRecord
+    -> f PutRecord
+priStreamName f x =
+    (\y -> x { _priStreamName = y })
+       <$> f (_priStreamName x)
+{-# INLINE priStreamName #-}
+
+-- | The hash value used to explicitly determine the shard the data record is
+-- assigned to by overriding the partition key hash.
+priExplicitHashKey
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutRecord
+    -> f PutRecord
+priExplicitHashKey f x =
+    (\y -> x { _priExplicitHashKey = y })
+       <$> f (_priExplicitHashKey x)
+{-# INLINE priExplicitHashKey #-}
+
+-- | Guarantees strictly increasing sequence numbers, for puts from the same
+-- client and to the same partition key. Usage: set the
+-- SequenceNumberForOrdering of record n to the sequence number of record n-1
+-- (as returned in the PutRecordResult when putting record n-1). If this
+-- parameter is not set, records will be coarsely ordered based on arrival
+-- time.
+priSequenceNumberForOrdering
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutRecord
+    -> f PutRecord
+priSequenceNumberForOrdering f x =
+    (\y -> x { _priSequenceNumberForOrdering = y })
+       <$> f (_priSequenceNumberForOrdering x)
+{-# INLINE priSequenceNumberForOrdering #-}
 
 instance ToPath PutRecord
 
@@ -124,7 +214,32 @@ data PutRecordResponse = PutRecordResponse
       -- ^ The shard ID of the shard where the data record was placed.
     } deriving (Show, Generic)
 
-makeLenses ''PutRecordResponse
+-- | The sequence number identifier that was assigned to the put data record.
+-- The sequence number for the record is unique across all records in the
+-- stream. A sequence number is the identifier associated with every record
+-- put into the stream.
+proSequenceNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRecordResponse
+    -> f PutRecordResponse
+proSequenceNumber f x =
+    (\y -> x { _proSequenceNumber = y })
+       <$> f (_proSequenceNumber x)
+{-# INLINE proSequenceNumber #-}
+
+-- | The shard ID of the shard where the data record was placed.
+proShardId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PutRecordResponse
+    -> f PutRecordResponse
+proShardId f x =
+    (\y -> x { _proShardId = y })
+       <$> f (_proShardId x)
+{-# INLINE proShardId #-}
 
 instance FromJSON PutRecordResponse
 

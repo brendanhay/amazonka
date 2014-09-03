@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,18 +36,48 @@
 -- &lt;RequestId&gt;74848df2-87f6-55ed-890c-c7be80442462&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/GetPlatformApplicationAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes where
+module Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
+    (
+    -- * Request
+      GetPlatformApplicationAttributes
+    -- ** Request constructor
+    , getPlatformApplicationAttributes
+    -- ** Request lenses
+    , gpaaiPlatformApplicationArn
+
+    -- * Response
+    , GetPlatformApplicationAttributesResponse
+    -- ** Response lenses
+    , gpaarAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetPlatformApplicationAttributes' request.
+getPlatformApplicationAttributes :: Text -- ^ 'gpaaiPlatformApplicationArn'
+                                 -> GetPlatformApplicationAttributes
+getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
+    { _gpaaiPlatformApplicationArn = p1
+    }
 
 data GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaiPlatformApplicationArn :: Text
       -- ^ PlatformApplicationArn for GetPlatformApplicationAttributesInput.
     } deriving (Show, Generic)
 
-makeLenses ''GetPlatformApplicationAttributes
+-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
+gpaaiPlatformApplicationArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetPlatformApplicationAttributes
+    -> f GetPlatformApplicationAttributes
+gpaaiPlatformApplicationArn f x =
+    (\y -> x { _gpaaiPlatformApplicationArn = y })
+       <$> f (_gpaaiPlatformApplicationArn x)
+{-# INLINE gpaaiPlatformApplicationArn #-}
 
 instance ToQuery GetPlatformApplicationAttributes where
     toQuery = genericQuery def
@@ -65,7 +94,24 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
       -- (permanent) to one of the application's endpoints.
     } deriving (Show, Generic)
 
-makeLenses ''GetPlatformApplicationAttributesResponse
+-- | Attributes include the following: EventEndpointCreated -- Topic ARN to
+-- which EndpointCreated event notifications should be sent.
+-- EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+-- notifications should be sent. EventEndpointUpdated -- Topic ARN to which
+-- EndpointUpdate event notifications should be sent. EventDeliveryFailure --
+-- Topic ARN to which DeliveryFailure event notifications should be sent upon
+-- Direct Publish delivery failure (permanent) to one of the application's
+-- endpoints.
+gpaarAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> GetPlatformApplicationAttributesResponse
+    -> f GetPlatformApplicationAttributesResponse
+gpaarAttributes f x =
+    (\y -> x { _gpaarAttributes = y })
+       <$> f (_gpaarAttributes x)
+{-# INLINE gpaarAttributes #-}
 
 instance FromXML GetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions

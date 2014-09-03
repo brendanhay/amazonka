@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,19 +38,47 @@
 -- Kinesis_20131202.DeleteStream { "StreamName":"exampleStreamName" } HTTP/1.1
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.Kinesis.V2013_12_02.DeleteStream where
+module Network.AWS.Kinesis.V2013_12_02.DeleteStream
+    (
+    -- * Request
+      DeleteStream
+    -- ** Request constructor
+    , deleteStream
+    -- ** Request lenses
+    , dsiStreamName
+
+    -- * Response
+    , DeleteStreamResponse
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteStream' request.
+deleteStream :: Text -- ^ 'dsiStreamName'
+             -> DeleteStream
+deleteStream p1 = DeleteStream
+    { _dsiStreamName = p1
+    }
+
 data DeleteStream = DeleteStream
     { _dsiStreamName :: Text
       -- ^ The name of the stream to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteStream
+-- | The name of the stream to delete.
+dsiStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteStream
+    -> f DeleteStream
+dsiStreamName f x =
+    (\y -> x { _dsiStreamName = y })
+       <$> f (_dsiStreamName x)
+{-# INLINE dsiStreamName #-}
 
 instance ToPath DeleteStream
 
@@ -63,8 +90,6 @@ instance ToJSON DeleteStream
 
 data DeleteStreamResponse = DeleteStreamResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteStreamResponse
 
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis

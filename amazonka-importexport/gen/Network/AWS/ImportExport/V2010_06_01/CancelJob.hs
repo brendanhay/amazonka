@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,29 +19,69 @@
 
 -- | This operation cancels a specified job. Only the job owner can cancel it.
 -- The operation fails if the job has already started or is complete.
-module Network.AWS.ImportExport.V2010_06_01.CancelJob where
+module Network.AWS.ImportExport.V2010_06_01.CancelJob
+    (
+    -- * Request
+      CancelJob
+    -- ** Request constructor
+    , cancelJob
+    -- ** Request lenses
+    , cjiJobId
+
+    -- * Response
+    , CancelJobResponse
+    -- ** Response lenses
+    , cjoSuccess
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CancelJob' request.
+cancelJob :: Text -- ^ 'cjiJobId'
+          -> CancelJob
+cancelJob p1 = CancelJob
+    { _cjiJobId = p1
+    }
+
 data CancelJob = CancelJob
-    { _cjjJobId :: Text
+    { _cjiJobId :: Text
       -- ^ A unique identifier which refers to a particular job.
     } deriving (Show, Generic)
 
-makeLenses ''CancelJob
+-- | A unique identifier which refers to a particular job.
+cjiJobId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CancelJob
+    -> f CancelJob
+cjiJobId f x =
+    (\y -> x { _cjiJobId = y })
+       <$> f (_cjiJobId x)
+{-# INLINE cjiJobId #-}
 
 instance ToQuery CancelJob where
     toQuery = genericQuery def
 
 data CancelJobResponse = CancelJobResponse
-    { _cjpSuccess :: Maybe Bool
+    { _cjoSuccess :: Maybe Bool
       -- ^ Specifies whether (true) or not (false) AWS Import/Export updated
       -- your job.
     } deriving (Show, Generic)
 
-makeLenses ''CancelJobResponse
+-- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
+cjoSuccess
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CancelJobResponse
+    -> f CancelJobResponse
+cjoSuccess f x =
+    (\y -> x { _cjoSuccess = y })
+       <$> f (_cjoSuccess x)
+{-# INLINE cjoSuccess #-}
 
 instance FromXML CancelJobResponse where
     fromXMLOptions = xmlOptions

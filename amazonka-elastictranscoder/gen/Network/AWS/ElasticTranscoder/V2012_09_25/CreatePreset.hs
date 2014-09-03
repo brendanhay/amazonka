@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -72,7 +71,26 @@
 -- "HorizontalAlign":"Right", "HorizontalOffset":"10px",
 -- "VerticalAlign":"Bottom", "VerticalOffset":"10px", "Opacity":"55.5",
 -- "Target":"Content" } ] } }, "Warning":"" }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset where
+module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset
+    (
+    -- * Request
+      CreatePreset
+    -- ** Request constructor
+    , createPreset
+    -- ** Request lenses
+    , cptName
+    , cptContainer
+    , cptAudio
+    , cptDescription
+    , cptThumbnails
+    , cptVideo
+
+    -- * Response
+    , CreatePresetResponse
+    -- ** Response lenses
+    , cpuPreset
+    , cpuWarning
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
@@ -80,39 +98,112 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CreatePreset' request.
-createPreset :: Text -- ^ '_cprName'
-             -> Text -- ^ '_cprContainer'
+createPreset :: Text -- ^ 'cptName'
+             -> Text -- ^ 'cptContainer'
              -> CreatePreset
 createPreset p1 p2 = CreatePreset
-    { _cprName = p1
-    , _cprContainer = p2
-    , _cprAudio = Nothing
-    , _cprDescription = Nothing
-    , _cprThumbnails = Nothing
-    , _cprVideo = Nothing
+    { _cptName = p1
+    , _cptContainer = p2
+    , _cptAudio = Nothing
+    , _cptDescription = Nothing
+    , _cptThumbnails = Nothing
+    , _cptVideo = Nothing
     }
 
 data CreatePreset = CreatePreset
-    { _cprName :: Text
+    { _cptName :: Text
       -- ^ The name of the preset. We recommend that the name be unique
       -- within the AWS account, but uniqueness is not enforced.
-    , _cprContainer :: Text
+    , _cptContainer :: Text
       -- ^ The container type for the output file. Valid values include mp3,
       -- mp4, ogg, ts, and webm.
-    , _cprAudio :: Maybe AudioParameters
+    , _cptAudio :: Maybe AudioParameters
       -- ^ A section of the request body that specifies the audio
       -- parameters.
-    , _cprDescription :: Maybe Text
+    , _cptDescription :: Maybe Text
       -- ^ A description of the preset.
-    , _cprThumbnails :: Maybe Thumbnails
+    , _cptThumbnails :: Maybe Thumbnails
       -- ^ A section of the request body that specifies the thumbnail
       -- parameters, if any.
-    , _cprVideo :: Maybe VideoParameters
+    , _cptVideo :: Maybe VideoParameters
       -- ^ A section of the request body that specifies the video
       -- parameters.
     } deriving (Show, Generic)
 
-makeLenses ''CreatePreset
+-- | The name of the preset. We recommend that the name be unique within the AWS
+-- account, but uniqueness is not enforced.
+cptName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreatePreset
+    -> f CreatePreset
+cptName f x =
+    (\y -> x { _cptName = y })
+       <$> f (_cptName x)
+{-# INLINE cptName #-}
+
+-- | The container type for the output file. Valid values include mp3, mp4, ogg,
+-- ts, and webm.
+cptContainer
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreatePreset
+    -> f CreatePreset
+cptContainer f x =
+    (\y -> x { _cptContainer = y })
+       <$> f (_cptContainer x)
+{-# INLINE cptContainer #-}
+
+-- | A section of the request body that specifies the audio parameters.
+cptAudio
+    :: Functor f
+    => (Maybe AudioParameters
+    -> f (Maybe AudioParameters))
+    -> CreatePreset
+    -> f CreatePreset
+cptAudio f x =
+    (\y -> x { _cptAudio = y })
+       <$> f (_cptAudio x)
+{-# INLINE cptAudio #-}
+
+-- | A description of the preset.
+cptDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreatePreset
+    -> f CreatePreset
+cptDescription f x =
+    (\y -> x { _cptDescription = y })
+       <$> f (_cptDescription x)
+{-# INLINE cptDescription #-}
+
+-- | A section of the request body that specifies the thumbnail parameters, if
+-- any.
+cptThumbnails
+    :: Functor f
+    => (Maybe Thumbnails
+    -> f (Maybe Thumbnails))
+    -> CreatePreset
+    -> f CreatePreset
+cptThumbnails f x =
+    (\y -> x { _cptThumbnails = y })
+       <$> f (_cptThumbnails x)
+{-# INLINE cptThumbnails #-}
+
+-- | A section of the request body that specifies the video parameters.
+cptVideo
+    :: Functor f
+    => (Maybe VideoParameters
+    -> f (Maybe VideoParameters))
+    -> CreatePreset
+    -> f CreatePreset
+cptVideo f x =
+    (\y -> x { _cptVideo = y })
+       <$> f (_cptVideo x)
+{-# INLINE cptVideo #-}
 
 instance ToPath CreatePreset where
     toPath = const "/2012-09-25/presets"
@@ -124,10 +215,10 @@ instance ToHeaders CreatePreset
 instance ToJSON CreatePreset
 
 data CreatePresetResponse = CreatePresetResponse
-    { _cpsPreset :: Maybe Preset
+    { _cpuPreset :: Maybe Preset
       -- ^ A section of the response body that provides information about
       -- the preset that is created.
-    , _cpsWarning :: Maybe Text
+    , _cpuWarning :: Maybe Text
       -- ^ If the preset settings don't comply with the standards for the
       -- video codec but Elastic Transcoder created the preset, this
       -- message explains the reason the preset settings don't meet the
@@ -135,7 +226,33 @@ data CreatePresetResponse = CreatePresetResponse
       -- settings might produce acceptable output.
     } deriving (Show, Generic)
 
-makeLenses ''CreatePresetResponse
+-- | A section of the response body that provides information about the preset
+-- that is created.
+cpuPreset
+    :: Functor f
+    => (Maybe Preset
+    -> f (Maybe Preset))
+    -> CreatePresetResponse
+    -> f CreatePresetResponse
+cpuPreset f x =
+    (\y -> x { _cpuPreset = y })
+       <$> f (_cpuPreset x)
+{-# INLINE cpuPreset #-}
+
+-- | If the preset settings don't comply with the standards for the video codec
+-- but Elastic Transcoder created the preset, this message explains the reason
+-- the preset settings don't meet the standard. Elastic Transcoder created the
+-- preset because the settings might produce acceptable output.
+cpuWarning
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreatePresetResponse
+    -> f CreatePresetResponse
+cpuWarning f x =
+    (\y -> x { _cpuWarning = y })
+       <$> f (_cpuWarning x)
+{-# INLINE cpuWarning #-}
 
 instance FromJSON CreatePresetResponse
 

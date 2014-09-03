@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,12 +33,33 @@
 -- HTTP/1.1 200 OK x-amzn-RequestId: 9da5a349-ed9e-11e2-90db-69a5154aeb8d
 -- Content-Type: application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15
 -- Jul 2013 22:33:47 GMT { }.
-module Network.AWS.EMR.V2009_03_31.RemoveTags where
+module Network.AWS.EMR.V2009_03_31.RemoveTags
+    (
+    -- * Request
+      RemoveTags
+    -- ** Request constructor
+    , removeTags
+    -- ** Request lenses
+    , rtiResourceId
+    , rtiTagKeys
+
+    -- * Response
+    , RemoveTagsResponse
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'RemoveTags' request.
+removeTags :: Text -- ^ 'rtiResourceId'
+           -> [Text] -- ^ 'rtiTagKeys'
+           -> RemoveTags
+removeTags p1 p2 = RemoveTags
+    { _rtiResourceId = p1
+    , _rtiTagKeys = p2
+    }
 
 data RemoveTags = RemoveTags
     { _rtiResourceId :: Text
@@ -49,7 +69,30 @@ data RemoveTags = RemoveTags
       -- ^ A list of tag keys to remove from a resource.
     } deriving (Show, Generic)
 
-makeLenses ''RemoveTags
+-- | The Amazon EMR resource identifier from which tags will be removed. This
+-- value must be a cluster identifier.
+rtiResourceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RemoveTags
+    -> f RemoveTags
+rtiResourceId f x =
+    (\y -> x { _rtiResourceId = y })
+       <$> f (_rtiResourceId x)
+{-# INLINE rtiResourceId #-}
+
+-- | A list of tag keys to remove from a resource.
+rtiTagKeys
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> RemoveTags
+    -> f RemoveTags
+rtiTagKeys f x =
+    (\y -> x { _rtiTagKeys = y })
+       <$> f (_rtiTagKeys x)
+{-# INLINE rtiTagKeys #-}
 
 instance ToPath RemoveTags
 
@@ -61,8 +104,6 @@ instance ToJSON RemoveTags
 
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''RemoveTagsResponse
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR

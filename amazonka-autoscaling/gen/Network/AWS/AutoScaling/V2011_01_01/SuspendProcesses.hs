@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,24 +25,36 @@
 -- functioning properly. To resume processes that have been suspended, use
 -- ResumeProcesses For more information on suspending and resuming Auto
 -- Scaling process, see Suspend and Resume Auto Scaling Process.
-module Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses where
+module Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses
+    (
+    -- * Request
+      SuspendProcesses
+    -- ** Request constructor
+    , suspendProcesses
+    -- ** Request lenses
+    , sprAutoScalingGroupName
+    , sprScalingProcesses
+
+    -- * Response
+    , SuspendProcessesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SuspendProcesses' request.
-suspendProcesses :: Text -- ^ '_spqAutoScalingGroupName'
+suspendProcesses :: Text -- ^ 'sprAutoScalingGroupName'
                  -> SuspendProcesses
 suspendProcesses p1 = SuspendProcesses
-    { _spqAutoScalingGroupName = p1
-    , _spqScalingProcesses = mempty
+    { _sprAutoScalingGroupName = p1
+    , _sprScalingProcesses = mempty
     }
 
 data SuspendProcesses = SuspendProcesses
-    { _spqAutoScalingGroupName :: Text
+    { _sprAutoScalingGroupName :: Text
       -- ^ The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-    , _spqScalingProcesses :: [Text]
+    , _sprScalingProcesses :: [Text]
       -- ^ The processes that you want to suspend or resume, which can
       -- include one or more of the following: Launch Terminate
       -- HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification
@@ -51,15 +62,38 @@ data SuspendProcesses = SuspendProcesses
       -- omit this parameter.
     } deriving (Show, Generic)
 
-makeLenses ''SuspendProcesses
+-- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+sprAutoScalingGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SuspendProcesses
+    -> f SuspendProcesses
+sprAutoScalingGroupName f x =
+    (\y -> x { _sprAutoScalingGroupName = y })
+       <$> f (_sprAutoScalingGroupName x)
+{-# INLINE sprAutoScalingGroupName #-}
+
+-- | The processes that you want to suspend or resume, which can include one or
+-- more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
+-- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
+-- all process types, omit this parameter.
+sprScalingProcesses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SuspendProcesses
+    -> f SuspendProcesses
+sprScalingProcesses f x =
+    (\y -> x { _sprScalingProcesses = y })
+       <$> f (_sprScalingProcesses x)
+{-# INLINE sprScalingProcesses #-}
 
 instance ToQuery SuspendProcesses where
     toQuery = genericQuery def
 
 data SuspendProcessesResponse = SuspendProcessesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SuspendProcessesResponse
 
 instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling

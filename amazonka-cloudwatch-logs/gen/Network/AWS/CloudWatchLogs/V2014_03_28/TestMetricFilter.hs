@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -186,19 +185,62 @@
 -- application/x-amz-json-1.1 Content-Length: Date: ]]> { "matches": [ {
 -- "eventNumber": 3, "eventMessage": "02 May 2014 00:34:16,142 [ERROR]
 -- Unhanded exception: InvalidQueryException", "extractedValues": {} } ] }.
-module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter where
+module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
+    (
+    -- * Request
+      TestMetricFilter
+    -- ** Request constructor
+    , testMetricFilter
+    -- ** Request lenses
+    , tmfrFilterPattern
+    , tmfrLogEventMessages
+
+    -- * Response
+    , TestMetricFilterResponse
+    -- ** Response lenses
+    , tmfsMatches
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'TestMetricFilter' request.
+testMetricFilter :: Text -- ^ 'tmfrFilterPattern'
+                 -> [Text] -- ^ 'tmfrLogEventMessages'
+                 -> TestMetricFilter
+testMetricFilter p1 p2 = TestMetricFilter
+    { _tmfrFilterPattern = p1
+    , _tmfrLogEventMessages = p2
+    }
+
 data TestMetricFilter = TestMetricFilter
     { _tmfrFilterPattern :: Text
     , _tmfrLogEventMessages :: [Text]
     } deriving (Show, Generic)
 
-makeLenses ''TestMetricFilter
+tmfrFilterPattern
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TestMetricFilter
+    -> f TestMetricFilter
+tmfrFilterPattern f x =
+    (\y -> x { _tmfrFilterPattern = y })
+       <$> f (_tmfrFilterPattern x)
+{-# INLINE tmfrFilterPattern #-}
+
+tmfrLogEventMessages
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> TestMetricFilter
+    -> f TestMetricFilter
+tmfrLogEventMessages f x =
+    (\y -> x { _tmfrLogEventMessages = y })
+       <$> f (_tmfrLogEventMessages x)
+{-# INLINE tmfrLogEventMessages #-}
 
 instance ToPath TestMetricFilter
 
@@ -212,7 +254,16 @@ data TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfsMatches :: [MetricFilterMatchRecord]
     } deriving (Show, Generic)
 
-makeLenses ''TestMetricFilterResponse
+tmfsMatches
+    :: Functor f
+    => ([MetricFilterMatchRecord]
+    -> f ([MetricFilterMatchRecord]))
+    -> TestMetricFilterResponse
+    -> f TestMetricFilterResponse
+tmfsMatches f x =
+    (\y -> x { _tmfsMatches = y })
+       <$> f (_tmfsMatches x)
+{-# INLINE tmfsMatches #-}
 
 instance FromJSON TestMetricFilterResponse
 

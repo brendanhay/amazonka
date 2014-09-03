@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,7 +28,22 @@
 -- &Signature=[Signature]
 -- http://calculator.s3.amazonaws.com/calc5.html?key=cf-2e351785-e821-450c-9d58-625e1e1ebfb6.
 -- 
-module Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost where
+module Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
+    (
+    -- * Request
+      EstimateTemplateCost
+    -- ** Request constructor
+    , estimateTemplateCost
+    -- ** Request lenses
+    , etciParameters
+    , etciTemplateBody
+    , etciTemplateURL
+
+    -- * Response
+    , EstimateTemplateCostResponse
+    -- ** Response lenses
+    , etcoUrl
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
@@ -60,7 +74,48 @@ data EstimateTemplateCost = EstimateTemplateCost
       -- or TemplateBody. If both are passed, only TemplateBody is used.
     } deriving (Show, Generic)
 
-makeLenses ''EstimateTemplateCost
+-- | A list of Parameter structures that specify input parameters.
+etciParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> EstimateTemplateCost
+    -> f EstimateTemplateCost
+etciParameters f x =
+    (\y -> x { _etciParameters = y })
+       <$> f (_etciParameters x)
+{-# INLINE etciParameters #-}
+
+-- | Structure containing the template body with a minimum length of 1 byte and
+-- a maximum length of 51,200 bytes. (For more information, go to Template
+-- Anatomy in the AWS CloudFormation User Guide.) Conditional: You must pass
+-- TemplateBody or TemplateURL. If both are passed, only TemplateBody is used.
+etciTemplateBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> EstimateTemplateCost
+    -> f EstimateTemplateCost
+etciTemplateBody f x =
+    (\y -> x { _etciTemplateBody = y })
+       <$> f (_etciTemplateBody x)
+{-# INLINE etciTemplateBody #-}
+
+-- | Location of file containing the template body. The URL must point to a
+-- template located in an S3 bucket in the same region as the stack. For more
+-- information, go to Template Anatomy in the AWS CloudFormation User Guide.
+-- Conditional: You must pass TemplateURL or TemplateBody. If both are passed,
+-- only TemplateBody is used.
+etciTemplateURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> EstimateTemplateCost
+    -> f EstimateTemplateCost
+etciTemplateURL f x =
+    (\y -> x { _etciTemplateURL = y })
+       <$> f (_etciTemplateURL x)
+{-# INLINE etciTemplateURL #-}
 
 instance ToQuery EstimateTemplateCost where
     toQuery = genericQuery def
@@ -71,7 +126,18 @@ data EstimateTemplateCostResponse = EstimateTemplateCostResponse
       -- describes the resources required to run the template.
     } deriving (Show, Generic)
 
-makeLenses ''EstimateTemplateCostResponse
+-- | An AWS Simple Monthly Calculator URL with a query string that describes the
+-- resources required to run the template.
+etcoUrl
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> EstimateTemplateCostResponse
+    -> f EstimateTemplateCostResponse
+etcoUrl f x =
+    (\y -> x { _etcoUrl = y })
+       <$> f (_etcoUrl x)
+{-# INLINE etcoUrl #-}
 
 instance FromXML EstimateTemplateCostResponse where
     fromXMLOptions = xmlOptions

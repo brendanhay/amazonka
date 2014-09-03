@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,11 +42,35 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE change_visibility_msg_2
 -- change_visibility_msg_3 ca9668f7-ab1b-4f7a-8859-f15747ab17a7.
-module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch where
+module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
+    (
+    -- * Request
+      ChangeMessageVisibilityBatch
+    -- ** Request constructor
+    , changeMessageVisibilityBatch
+    -- ** Request lenses
+    , cmvbrEntries
+    , cmvbrQueueUrl
+
+    -- * Response
+    , ChangeMessageVisibilityBatchResponse
+    -- ** Response lenses
+    , cmvbsFailed
+    , cmvbsSuccessful
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ChangeMessageVisibilityBatch' request.
+changeMessageVisibilityBatch :: [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbrEntries'
+                             -> Text -- ^ 'cmvbrQueueUrl'
+                             -> ChangeMessageVisibilityBatch
+changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
+    { _cmvbrEntries = p1
+    , _cmvbrQueueUrl = p2
+    }
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbrEntries :: [ChangeMessageVisibilityBatchRequestEntry]
@@ -57,7 +80,30 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
       -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
-makeLenses ''ChangeMessageVisibilityBatch
+-- | A list of receipt handles of the messages for which the visibility timeout
+-- must be changed.
+cmvbrEntries
+    :: Functor f
+    => ([ChangeMessageVisibilityBatchRequestEntry]
+    -> f ([ChangeMessageVisibilityBatchRequestEntry]))
+    -> ChangeMessageVisibilityBatch
+    -> f ChangeMessageVisibilityBatch
+cmvbrEntries f x =
+    (\y -> x { _cmvbrEntries = y })
+       <$> f (_cmvbrEntries x)
+{-# INLINE cmvbrEntries #-}
+
+-- | The URL of the Amazon SQS queue to take action on.
+cmvbrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ChangeMessageVisibilityBatch
+    -> f ChangeMessageVisibilityBatch
+cmvbrQueueUrl f x =
+    (\y -> x { _cmvbrQueueUrl = y })
+       <$> f (_cmvbrQueueUrl x)
+{-# INLINE cmvbrQueueUrl #-}
 
 instance ToQuery ChangeMessageVisibilityBatch where
     toQuery = genericQuery def
@@ -69,7 +115,29 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
       -- ^ A list of ChangeMessageVisibilityBatchResultEntry items.
     } deriving (Show, Generic)
 
-makeLenses ''ChangeMessageVisibilityBatchResponse
+-- | A list of BatchResultErrorEntry items.
+cmvbsFailed
+    :: Functor f
+    => ([BatchResultErrorEntry]
+    -> f ([BatchResultErrorEntry]))
+    -> ChangeMessageVisibilityBatchResponse
+    -> f ChangeMessageVisibilityBatchResponse
+cmvbsFailed f x =
+    (\y -> x { _cmvbsFailed = y })
+       <$> f (_cmvbsFailed x)
+{-# INLINE cmvbsFailed #-}
+
+-- | A list of ChangeMessageVisibilityBatchResultEntry items.
+cmvbsSuccessful
+    :: Functor f
+    => ([ChangeMessageVisibilityBatchResultEntry]
+    -> f ([ChangeMessageVisibilityBatchResultEntry]))
+    -> ChangeMessageVisibilityBatchResponse
+    -> f ChangeMessageVisibilityBatchResponse
+cmvbsSuccessful f x =
+    (\y -> x { _cmvbsSuccessful = y })
+       <$> f (_cmvbsSuccessful x)
+{-# INLINE cmvbsSuccessful #-}
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     fromXMLOptions = xmlOptions

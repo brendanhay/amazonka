@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,20 +34,14 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRoute
     (
     -- * Request
       ReplaceRoute
-    -- ** Default constructor
+    -- ** Request constructor
     , replaceRoute
-    -- ** Accessors and lenses
-    , _rrrRouteTableId
+    -- ** Request lenses
     , rrrRouteTableId
-    , _rrrDestinationCidrBlock
     , rrrDestinationCidrBlock
-    , _rrrGatewayId
     , rrrGatewayId
-    , _rrrInstanceId
     , rrrInstanceId
-    , _rrrNetworkInterfaceId
     , rrrNetworkInterfaceId
-    , _rrrVpcPeeringConnectionId
     , rrrVpcPeeringConnectionId
 
     -- * Response
@@ -73,8 +66,94 @@ replaceRoute p1 p2 = ReplaceRoute
     }
 
 data ReplaceRoute = ReplaceRoute
+    { _rrrRouteTableId :: Text
+      -- ^ The ID of the route table.
+    , _rrrDestinationCidrBlock :: Text
+      -- ^ The CIDR address block used for the destination match. The value
+      -- you provide must match the CIDR of an existing route in the
+      -- table.
+    , _rrrGatewayId :: Maybe Text
+      -- ^ The ID of an Internet gateway attached to your VPC.
+    , _rrrInstanceId :: Maybe Text
+      -- ^ The ID of a NAT instance in your VPC.
+    , _rrrNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of a network interface.
+    , _rrrVpcPeeringConnectionId :: Maybe Text
+      -- ^ The ID of a VPC peering connection.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ReplaceRoute
+-- | The ID of the route table.
+rrrRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceRoute
+    -> f ReplaceRoute
+rrrRouteTableId f x =
+    (\y -> x { _rrrRouteTableId = y })
+       <$> f (_rrrRouteTableId x)
+{-# INLINE rrrRouteTableId #-}
+
+-- | The CIDR address block used for the destination match. The value you
+-- provide must match the CIDR of an existing route in the table.
+rrrDestinationCidrBlock
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceRoute
+    -> f ReplaceRoute
+rrrDestinationCidrBlock f x =
+    (\y -> x { _rrrDestinationCidrBlock = y })
+       <$> f (_rrrDestinationCidrBlock x)
+{-# INLINE rrrDestinationCidrBlock #-}
+
+-- | The ID of an Internet gateway attached to your VPC.
+rrrGatewayId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReplaceRoute
+    -> f ReplaceRoute
+rrrGatewayId f x =
+    (\y -> x { _rrrGatewayId = y })
+       <$> f (_rrrGatewayId x)
+{-# INLINE rrrGatewayId #-}
+
+-- | The ID of a NAT instance in your VPC.
+rrrInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReplaceRoute
+    -> f ReplaceRoute
+rrrInstanceId f x =
+    (\y -> x { _rrrInstanceId = y })
+       <$> f (_rrrInstanceId x)
+{-# INLINE rrrInstanceId #-}
+
+-- | The ID of a network interface.
+rrrNetworkInterfaceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReplaceRoute
+    -> f ReplaceRoute
+rrrNetworkInterfaceId f x =
+    (\y -> x { _rrrNetworkInterfaceId = y })
+       <$> f (_rrrNetworkInterfaceId x)
+{-# INLINE rrrNetworkInterfaceId #-}
+
+-- | The ID of a VPC peering connection.
+rrrVpcPeeringConnectionId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReplaceRoute
+    -> f ReplaceRoute
+rrrVpcPeeringConnectionId f x =
+    (\y -> x { _rrrVpcPeeringConnectionId = y })
+       <$> f (_rrrVpcPeeringConnectionId x)
+{-# INLINE rrrVpcPeeringConnectionId #-}
 
 instance ToQuery ReplaceRoute where
     toQuery = genericQuery def
@@ -82,30 +161,9 @@ instance ToQuery ReplaceRoute where
 data ReplaceRouteResponse = ReplaceRouteResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ReplaceRouteResponse
-
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2
     type Rs ReplaceRoute = ReplaceRouteResponse
 
     request = post "ReplaceRoute"
     response _ = nullaryResponse ReplaceRouteResponse
-
--- | The ID of the route table.
-rrrRouteTableId :: Lens' ReplaceRoute (Text)
-
--- | The CIDR address block used for the destination match. The value you
--- provide must match the CIDR of an existing route in the table.
-rrrDestinationCidrBlock :: Lens' ReplaceRoute (Text)
-
--- | The ID of an Internet gateway attached to your VPC.
-rrrGatewayId :: Lens' ReplaceRoute (Maybe Text)
-
--- | The ID of a NAT instance in your VPC.
-rrrInstanceId :: Lens' ReplaceRoute (Maybe Text)
-
--- | The ID of a network interface.
-rrrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
-
--- | The ID of a VPC peering connection.
-rrrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)

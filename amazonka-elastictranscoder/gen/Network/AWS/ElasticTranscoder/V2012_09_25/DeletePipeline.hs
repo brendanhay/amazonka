@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,24 +32,52 @@
 -- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline where
+module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline
+    (
+    -- * Request
+      DeletePipeline
+    -- ** Request constructor
+    , deletePipeline
+    -- ** Request lenses
+    , dprId
+
+    -- * Response
+    , DeletePipelineResponse
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeletePipeline' request.
+deletePipeline :: Text -- ^ 'dprId'
+               -> DeletePipeline
+deletePipeline p1 = DeletePipeline
+    { _dprId = p1
+    }
+
 data DeletePipeline = DeletePipeline
-    { _dptId :: Text
+    { _dprId :: Text
       -- ^ The identifier of the pipeline that you want to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeletePipeline
+-- | The identifier of the pipeline that you want to delete.
+dprId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletePipeline
+    -> f DeletePipeline
+dprId f x =
+    (\y -> x { _dprId = y })
+       <$> f (_dprId x)
+{-# INLINE dprId #-}
 
 instance ToPath DeletePipeline where
     toPath DeletePipeline{..} = mconcat
         [ "/2012-09-25/pipelines/"
-        , toBS _dptId
+        , toBS _dprId
         ]
 
 instance ToQuery DeletePipeline
@@ -61,8 +88,6 @@ instance ToJSON DeletePipeline
 
 data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeletePipelineResponse
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder

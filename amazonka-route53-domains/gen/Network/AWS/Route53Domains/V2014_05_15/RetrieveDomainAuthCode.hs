@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,32 @@
 -- content-length:[number of characters in the JSON string] {
 -- "DomainName":"example.com" } HTTP/1.1 200 Content-Length:[number of
 -- characters in the JSON string] { "AuthCode":"rqL3*REjYH" }.
-module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode where
+module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
+    (
+    -- * Request
+      RetrieveDomainAuthCode
+    -- ** Request constructor
+    , retrieveDomainAuthCode
+    -- ** Request lenses
+    , rdacrDomainName
+
+    -- * Response
+    , RetrieveDomainAuthCodeResponse
+    -- ** Response lenses
+    , rdacsAuthCode
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'RetrieveDomainAuthCode' request.
+retrieveDomainAuthCode :: Text -- ^ 'rdacrDomainName'
+                       -> RetrieveDomainAuthCode
+retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
+    { _rdacrDomainName = p1
+    }
 
 data RetrieveDomainAuthCode = RetrieveDomainAuthCode
     { _rdacrDomainName :: Text
@@ -48,7 +67,20 @@ data RetrieveDomainAuthCode = RetrieveDomainAuthCode
       -- not supported. Required: Yes.
     } deriving (Show, Generic)
 
-makeLenses ''RetrieveDomainAuthCode
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+rdacrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RetrieveDomainAuthCode
+    -> f RetrieveDomainAuthCode
+rdacrDomainName f x =
+    (\y -> x { _rdacrDomainName = y })
+       <$> f (_rdacrDomainName x)
+{-# INLINE rdacrDomainName #-}
 
 instance ToPath RetrieveDomainAuthCode
 
@@ -63,7 +95,17 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
       -- ^ The authorization code for the domain. Type: String.
     } deriving (Show, Generic)
 
-makeLenses ''RetrieveDomainAuthCodeResponse
+-- | The authorization code for the domain. Type: String.
+rdacsAuthCode
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RetrieveDomainAuthCodeResponse
+    -> f RetrieveDomainAuthCodeResponse
+rdacsAuthCode f x =
+    (\y -> x { _rdacsAuthCode = y })
+       <$> f (_rdacsAuthCode x)
+{-# INLINE rdacsAuthCode #-}
 
 instance FromJSON RetrieveDomainAuthCodeResponse
 

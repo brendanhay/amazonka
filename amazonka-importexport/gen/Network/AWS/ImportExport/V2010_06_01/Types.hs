@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,7 +24,24 @@
 -- Import/Export is often faster than Internet transfer and more cost
 -- effective than upgrading your connectivity.
 module Network.AWS.ImportExport.V2010_06_01.Types
-    ( module Network.AWS.ImportExport.V2010_06_01.Types
+    (
+    -- * Service
+      ImportExport
+    -- ** Errors
+    , Er (..)
+    -- ** XML
+    , xmlOptions
+
+    -- * JobType
+    , JobType (..)
+
+    -- * Job
+    , Job (..)
+    , jJobId
+    , jCreationDate
+    , jIsCanceled
+    , jJobType
+
     ) where
 
 import Network.AWS.Prelude
@@ -145,19 +161,66 @@ instance ToQuery JobType where
 
 -- | Representation of a job returned by the ListJobs operation.
 data Job = Job
-    { _jCreationDate :: ISO8601
+    { _jJobId :: Text
+      -- ^ A unique identifier which refers to a particular job.
+    , _jCreationDate :: ISO8601
       -- ^ Timestamp of the CreateJob request in ISO8601 date format. For
       -- example "2010-03-28T20:27:35Z".
     , _jIsCanceled :: Bool
       -- ^ Indicates whether the job was canceled.
-    , _jJobId :: Text
-      -- ^ A unique identifier which refers to a particular job.
     , _jJobType :: JobType
       -- ^ Specifies whether the job to initiate is an import or export job.
     } deriving (Show, Generic)
 
+-- | A unique identifier which refers to a particular job.
+jJobId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Job
+    -> f Job
+jJobId f x =
+    (\y -> x { _jJobId = y })
+       <$> f (_jJobId x)
+{-# INLINE jJobId #-}
+
+-- | Timestamp of the CreateJob request in ISO8601 date format. For example
+-- "2010-03-28T20:27:35Z".
+jCreationDate
+    :: Functor f
+    => (ISO8601
+    -> f (ISO8601))
+    -> Job
+    -> f Job
+jCreationDate f x =
+    (\y -> x { _jCreationDate = y })
+       <$> f (_jCreationDate x)
+{-# INLINE jCreationDate #-}
+
+-- | Indicates whether the job was canceled.
+jIsCanceled
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> Job
+    -> f Job
+jIsCanceled f x =
+    (\y -> x { _jIsCanceled = y })
+       <$> f (_jIsCanceled x)
+{-# INLINE jIsCanceled #-}
+
+-- | Specifies whether the job to initiate is an import or export job.
+jJobType
+    :: Functor f
+    => (JobType
+    -> f (JobType))
+    -> Job
+    -> f Job
+jJobType f x =
+    (\y -> x { _jJobType = y })
+       <$> f (_jJobType x)
+{-# INLINE jJobType #-}
+
 instance FromXML Job where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Job"
-
-makeLenses ''Job

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- a table named comp2 and ending after three table names have been returned.
 -- { "LastEvaluatedTableName": "Thread", "TableNames":
 -- ["Forum","Reply","Thread"] }.
-module Network.AWS.DynamoDB.V2012_08_10.ListTables where
+module Network.AWS.DynamoDB.V2012_08_10.ListTables
+    (
+    -- * Request
+      ListTables
+    -- ** Request constructor
+    , listTables
+    -- ** Request lenses
+    , ltiLimit
+    , ltiExclusiveStartTableName
+
+    -- * Response
+    , ListTablesResponse
+    -- ** Response lenses
+    , ltoLastEvaluatedTableName
+    , ltoTableNames
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -46,7 +60,31 @@ data ListTables = ListTables
       -- in the response, use that value here to continue the list.
     } deriving (Show, Generic)
 
-makeLenses ''ListTables
+-- | A maximum number of table names to return.
+ltiLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListTables
+    -> f ListTables
+ltiLimit f x =
+    (\y -> x { _ltiLimit = y })
+       <$> f (_ltiLimit x)
+{-# INLINE ltiLimit #-}
+
+-- | The name of the table that starts the list. If you already ran a ListTables
+-- operation and received a LastEvaluatedTableName value in the response, use
+-- that value here to continue the list.
+ltiExclusiveStartTableName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListTables
+    -> f ListTables
+ltiExclusiveStartTableName f x =
+    (\y -> x { _ltiExclusiveStartTableName = y })
+       <$> f (_ltiExclusiveStartTableName x)
+{-# INLINE ltiExclusiveStartTableName #-}
 
 instance ToPath ListTables
 
@@ -69,7 +107,34 @@ data ListTablesResponse = ListTablesResponse
       -- the current endpoint.
     } deriving (Show, Generic)
 
-makeLenses ''ListTablesResponse
+-- | The name of the last table in the current list, only if some tables for the
+-- account and endpoint have not been returned. This value does not exist in a
+-- response if all table names are already returned. Use this value as the
+-- ExclusiveStartTableName in a new request to continue the list until all the
+-- table names are returned.
+ltoLastEvaluatedTableName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListTablesResponse
+    -> f ListTablesResponse
+ltoLastEvaluatedTableName f x =
+    (\y -> x { _ltoLastEvaluatedTableName = y })
+       <$> f (_ltoLastEvaluatedTableName x)
+{-# INLINE ltoLastEvaluatedTableName #-}
+
+-- | The names of the tables associated with the current account at the current
+-- endpoint.
+ltoTableNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListTablesResponse
+    -> f ListTablesResponse
+ltoTableNames f x =
+    (\y -> x { _ltoTableNames = y })
+       <$> f (_ltoTableNames x)
+{-# INLINE ltoTableNames #-}
 
 instance FromJSON ListTablesResponse
 

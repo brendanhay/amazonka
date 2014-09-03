@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,7 +20,20 @@
 -- | Displays a list of event categories for all event source types, or for a
 -- specified source type. For a list of the event categories and source types,
 -- go to Amazon Redshift Event Notifications.
-module Network.AWS.Redshift.V2012_12_01.DescribeEventCategories where
+module Network.AWS.Redshift.V2012_12_01.DescribeEventCategories
+    (
+    -- * Request
+      DescribeEventCategories
+    -- ** Request constructor
+    , describeEventCategories
+    -- ** Request lenses
+    , decmSourceType
+
+    -- * Response
+    , DescribeEventCategoriesResponse
+    -- ** Response lenses
+    , ecnEventCategoriesMapList
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
@@ -40,17 +52,39 @@ data DescribeEventCategories = DescribeEventCategories
       -- snapshot, parameter group, and security group.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventCategories
+-- | The source type, such as cluster or parameter group, to which the described
+-- event categories apply. Valid values: cluster, snapshot, parameter group,
+-- and security group.
+decmSourceType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEventCategories
+    -> f DescribeEventCategories
+decmSourceType f x =
+    (\y -> x { _decmSourceType = y })
+       <$> f (_decmSourceType x)
+{-# INLINE decmSourceType #-}
 
 instance ToQuery DescribeEventCategories where
     toQuery = genericQuery def
 
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _ecrEventCategoriesMapList :: [EventCategoriesMap]
+    { _ecnEventCategoriesMapList :: [EventCategoriesMap]
       -- ^ A list of event categories descriptions.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEventCategoriesResponse
+-- | A list of event categories descriptions.
+ecnEventCategoriesMapList
+    :: Functor f
+    => ([EventCategoriesMap]
+    -> f ([EventCategoriesMap]))
+    -> DescribeEventCategoriesResponse
+    -> f DescribeEventCategoriesResponse
+ecnEventCategoriesMapList f x =
+    (\y -> x { _ecnEventCategoriesMapList = y })
+       <$> f (_ecnEventCategoriesMapList x)
+{-# INLINE ecnEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions

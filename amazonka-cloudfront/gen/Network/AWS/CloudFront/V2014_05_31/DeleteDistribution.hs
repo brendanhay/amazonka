@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,14 +18,26 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete a distribution.
-module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution where
+module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution
+    (
+    -- * Request
+      DeleteDistribution
+    -- ** Request constructor
+    , deleteDistribution
+    -- ** Request lenses
+    , ddrId
+    , ddrIfMatch
+
+    -- * Response
+    , DeleteDistributionResponse
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteDistribution' request.
-deleteDistribution :: Text -- ^ '_ddrId'
+deleteDistribution :: Text -- ^ 'ddrId'
                    -> DeleteDistribution
 deleteDistribution p1 = DeleteDistribution
     { _ddrId = p1
@@ -41,7 +52,30 @@ data DeleteDistribution = DeleteDistribution
       -- distribution. For example: E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDistribution
+-- | The distribution id.
+ddrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDistribution
+    -> f DeleteDistribution
+ddrId f x =
+    (\y -> x { _ddrId = y })
+       <$> f (_ddrId x)
+{-# INLINE ddrId #-}
+
+-- | The value of the ETag header you received when you disabled the
+-- distribution. For example: E2QWRUHAPOMQZL.
+ddrIfMatch
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteDistribution
+    -> f DeleteDistribution
+ddrIfMatch f x =
+    (\y -> x { _ddrIfMatch = y })
+       <$> f (_ddrIfMatch x)
+{-# INLINE ddrIfMatch #-}
 
 instance ToPath DeleteDistribution where
     toPath DeleteDistribution{..} = mconcat
@@ -62,8 +96,6 @@ instance ToXML DeleteDistribution where
 
 data DeleteDistributionResponse = DeleteDistributionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteDistributionResponse
 
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront

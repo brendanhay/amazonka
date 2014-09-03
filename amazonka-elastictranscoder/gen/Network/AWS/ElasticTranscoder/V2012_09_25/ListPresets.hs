@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,7 +39,22 @@
 -- "DisplayAspectRatio":"auto", "FixedGOP":"false", "FrameRate":"30",
 -- "KeyframesMaxDist":"240", "MaxHeight":"auto", "MaxWidth":"auto",
 -- "PaddingPolicy":"Pad", "SizingPolicy":"Fit" } }, {...} ] }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
+    (
+    -- * Request
+      ListPresets
+    -- ** Request constructor
+    , listPresets
+    -- ** Request lenses
+    , lptAscending
+    , lptPageToken
+
+    -- * Response
+    , ListPresetsResponse
+    -- ** Response lenses
+    , lpuNextPageToken
+    , lpuPresets
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
@@ -65,7 +79,33 @@ data ListPresets = ListPresets
       -- page of results.
     } deriving (Show, Generic)
 
-makeLenses ''ListPresets
+-- | To list presets in chronological order by the date and time that they were
+-- created, enter true. To list presets in reverse chronological order, enter
+-- false.
+lptAscending
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPresets
+    -> f ListPresets
+lptAscending f x =
+    (\y -> x { _lptAscending = y })
+       <$> f (_lptAscending x)
+{-# INLINE lptAscending #-}
+
+-- | When Elastic Transcoder returns more than one page of results, use
+-- pageToken in subsequent GET requests to get each successive page of
+-- results.
+lptPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPresets
+    -> f ListPresets
+lptPageToken f x =
+    (\y -> x { _lptPageToken = y })
+       <$> f (_lptPageToken x)
+{-# INLINE lptPageToken #-}
 
 instance ToPath ListPresets where
     toPath = const "/2012-09-25/presets"
@@ -90,7 +130,31 @@ data ListPresetsResponse = ListPresetsResponse
       -- ^ An array of Preset objects.
     } deriving (Show, Generic)
 
-makeLenses ''ListPresetsResponse
+-- | A value that you use to access the second and subsequent pages of results,
+-- if any. When the presets fit on one page or when you've reached the last
+-- page of results, the value of NextPageToken is null.
+lpuNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListPresetsResponse
+    -> f ListPresetsResponse
+lpuNextPageToken f x =
+    (\y -> x { _lpuNextPageToken = y })
+       <$> f (_lpuNextPageToken x)
+{-# INLINE lpuNextPageToken #-}
+
+-- | An array of Preset objects.
+lpuPresets
+    :: Functor f
+    => ([Preset]
+    -> f ([Preset]))
+    -> ListPresetsResponse
+    -> f ListPresetsResponse
+lpuPresets f x =
+    (\y -> x { _lpuPresets = y })
+       <$> f (_lpuPresets x)
+{-# INLINE lpuPresets #-}
 
 instance FromJSON ListPresetsResponse
 

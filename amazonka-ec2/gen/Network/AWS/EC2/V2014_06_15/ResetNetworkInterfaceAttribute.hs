@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,12 +31,10 @@ module Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute
     (
     -- * Request
       ResetNetworkInterfaceAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , resetNetworkInterfaceAttribute
-    -- ** Accessors and lenses
-    , _rniarNetworkInterfaceId
+    -- ** Request lenses
     , rniarNetworkInterfaceId
-    , _rniarSourceDestCheck
     , rniarSourceDestCheck
 
     -- * Response
@@ -57,8 +54,40 @@ resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     }
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
+    { _rniarNetworkInterfaceId :: Text
+      -- ^ The ID of the network interface.
+    , _rniarSourceDestCheck :: Maybe Text
+      -- ^ Indicates whether source/destination checking is enabled. A value
+      -- of true means checking is enabled, and false means checking is
+      -- disabled. This value must be false for a NAT instance to perform
+      -- NAT.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ResetNetworkInterfaceAttribute
+-- | The ID of the network interface.
+rniarNetworkInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResetNetworkInterfaceAttribute
+    -> f ResetNetworkInterfaceAttribute
+rniarNetworkInterfaceId f x =
+    (\y -> x { _rniarNetworkInterfaceId = y })
+       <$> f (_rniarNetworkInterfaceId x)
+{-# INLINE rniarNetworkInterfaceId #-}
+
+-- | Indicates whether source/destination checking is enabled. A value of true
+-- means checking is enabled, and false means checking is disabled. This value
+-- must be false for a NAT instance to perform NAT.
+rniarSourceDestCheck
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResetNetworkInterfaceAttribute
+    -> f ResetNetworkInterfaceAttribute
+rniarSourceDestCheck f x =
+    (\y -> x { _rniarSourceDestCheck = y })
+       <$> f (_rniarSourceDestCheck x)
+{-# INLINE rniarSourceDestCheck #-}
 
 instance ToQuery ResetNetworkInterfaceAttribute where
     toQuery = genericQuery def
@@ -66,19 +95,9 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ResetNetworkInterfaceAttributeResponse
-
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
 
     request = post "ResetNetworkInterfaceAttribute"
     response _ = nullaryResponse ResetNetworkInterfaceAttributeResponse
-
--- | The ID of the network interface.
-rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute (Text)
-
--- | Indicates whether source/destination checking is enabled. A value of true
--- means checking is enabled, and false means checking is disabled. This value
--- must be false for a NAT instance to perform NAT.
-rniarSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)

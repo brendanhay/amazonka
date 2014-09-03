@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,18 +28,48 @@
 -- &Domain=domain.com &Timestamp=2012-05-12T05%3A24%3A02.000Z
 -- &Version=2010-12-01 QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=
 -- 94f6368e-9bf2-11e1-8ee7-c98a0037a2b6.
-module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity where
+module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
+    (
+    -- * Request
+      VerifyDomainIdentity
+    -- ** Request constructor
+    , verifyDomainIdentity
+    -- ** Request lenses
+    , vdirDomain
+
+    -- * Response
+    , VerifyDomainIdentityResponse
+    -- ** Response lenses
+    , vdisVerificationToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'VerifyDomainIdentity' request.
+verifyDomainIdentity :: Text -- ^ 'vdirDomain'
+                     -> VerifyDomainIdentity
+verifyDomainIdentity p1 = VerifyDomainIdentity
+    { _vdirDomain = p1
+    }
 
 data VerifyDomainIdentity = VerifyDomainIdentity
     { _vdirDomain :: Text
       -- ^ The domain to be verified.
     } deriving (Show, Generic)
 
-makeLenses ''VerifyDomainIdentity
+-- | The domain to be verified.
+vdirDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> VerifyDomainIdentity
+    -> f VerifyDomainIdentity
+vdirDomain f x =
+    (\y -> x { _vdirDomain = y })
+       <$> f (_vdirDomain x)
+{-# INLINE vdirDomain #-}
 
 instance ToQuery VerifyDomainIdentity where
     toQuery = genericQuery def
@@ -51,7 +80,18 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
       -- domain, in order to complete domain verification.
     } deriving (Show, Generic)
 
-makeLenses ''VerifyDomainIdentityResponse
+-- | A TXT record that must be placed in the DNS settings for the domain, in
+-- order to complete domain verification.
+vdisVerificationToken
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> VerifyDomainIdentityResponse
+    -> f VerifyDomainIdentityResponse
+vdisVerificationToken f x =
+    (\y -> x { _vdisVerificationToken = y })
+       <$> f (_vdisVerificationToken x)
+{-# INLINE vdisVerificationToken #-}
 
 instance FromXML VerifyDomainIdentityResponse where
     fromXMLOptions = xmlOptions

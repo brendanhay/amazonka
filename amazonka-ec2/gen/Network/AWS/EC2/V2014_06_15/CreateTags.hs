@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,12 +34,10 @@ module Network.AWS.EC2.V2014_06_15.CreateTags
     (
     -- * Request
       CreateTags
-    -- ** Default constructor
+    -- ** Request constructor
     , createTags
-    -- ** Accessors and lenses
-    , _ctrResources
+    -- ** Request lenses
     , ctrResources
-    , _ctrTags
     , ctrTags
 
     -- * Response
@@ -61,8 +58,40 @@ createTags p1 p2 = CreateTags
     }
 
 data CreateTags = CreateTags
+    { _ctrResources :: [Text]
+      -- ^ The IDs of one or more resources to tag. For example,
+      -- ami-1a2b3c4d.
+    , _ctrTags :: [Tag]
+      -- ^ One or more tags. The value parameter is required, but if you
+      -- don't want the tag to have a value, specify the parameter with no
+      -- value, and we set the value to an empty string.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateTags
+-- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
+ctrResources
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateTags
+    -> f CreateTags
+ctrResources f x =
+    (\y -> x { _ctrResources = y })
+       <$> f (_ctrResources x)
+{-# INLINE ctrResources #-}
+
+-- | One or more tags. The value parameter is required, but if you don't want
+-- the tag to have a value, specify the parameter with no value, and we set
+-- the value to an empty string.
+ctrTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateTags
+    -> f CreateTags
+ctrTags f x =
+    (\y -> x { _ctrTags = y })
+       <$> f (_ctrTags x)
+{-# INLINE ctrTags #-}
 
 instance ToQuery CreateTags where
     toQuery = genericQuery def
@@ -70,19 +99,9 @@ instance ToQuery CreateTags where
 data CreateTagsResponse = CreateTagsResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''CreateTagsResponse
-
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2
     type Rs CreateTags = CreateTagsResponse
 
     request = post "CreateTags"
     response _ = nullaryResponse CreateTagsResponse
-
--- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ctrResources :: Lens' CreateTags ([Text])
-
--- | One or more tags. The value parameter is required, but if you don't want
--- the tag to have a value, specify the parameter with no value, and we set
--- the value to an empty string.
-ctrTags :: Lens' CreateTags ([Tag])

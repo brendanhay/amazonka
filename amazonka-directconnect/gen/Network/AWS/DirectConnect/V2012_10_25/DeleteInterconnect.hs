@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,19 +18,49 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified interconnect.
-module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect where
+module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
+    (
+    -- * Request
+      DeleteInterconnect
+    -- ** Request constructor
+    , deleteInterconnect
+    -- ** Request lenses
+    , dirInterconnectId
+
+    -- * Response
+    , DeleteInterconnectResponse
+    -- ** Response lenses
+    , disInterconnectState
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteInterconnect' request.
+deleteInterconnect :: Text -- ^ 'dirInterconnectId'
+                   -> DeleteInterconnect
+deleteInterconnect p1 = DeleteInterconnect
+    { _dirInterconnectId = p1
+    }
+
 data DeleteInterconnect = DeleteInterconnect
-    { _disInterconnectId :: Text
+    { _dirInterconnectId :: Text
       -- ^ The ID of the interconnect. Example: dxcon-abc123.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteInterconnect
+-- | The ID of the interconnect. Example: dxcon-abc123.
+dirInterconnectId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteInterconnect
+    -> f DeleteInterconnect
+dirInterconnectId f x =
+    (\y -> x { _dirInterconnectId = y })
+       <$> f (_dirInterconnectId x)
+{-# INLINE dirInterconnectId #-}
 
 instance ToPath DeleteInterconnect
 
@@ -42,7 +71,7 @@ instance ToHeaders DeleteInterconnect
 instance ToJSON DeleteInterconnect
 
 data DeleteInterconnectResponse = DeleteInterconnectResponse
-    { _ditInterconnectState :: Maybe InterconnectState
+    { _disInterconnectState :: Maybe InterconnectState
       -- ^ State of the interconnect. Requested: The initial state of an
       -- interconnect. The interconnect stays in the requested state until
       -- the Letter of Authorization (LOA) is sent to the customer.
@@ -52,7 +81,22 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse
       -- Deleted: The interconnect has been deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteInterconnectResponse
+-- | State of the interconnect. Requested: The initial state of an interconnect.
+-- The interconnect stays in the requested state until the Letter of
+-- Authorization (LOA) is sent to the customer. Pending: The interconnect has
+-- been approved, and is being initialized. Available: The network link is up,
+-- and the interconnect is ready for use. Down: The network link is down.
+-- Deleted: The interconnect has been deleted.
+disInterconnectState
+    :: Functor f
+    => (Maybe InterconnectState
+    -> f (Maybe InterconnectState))
+    -> DeleteInterconnectResponse
+    -> f DeleteInterconnectResponse
+disInterconnectState f x =
+    (\y -> x { _disInterconnectState = y })
+       <$> f (_disInterconnectState x)
+{-# INLINE disInterconnectState #-}
 
 instance FromJSON DeleteInterconnectResponse
 

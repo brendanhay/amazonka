@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,18 +30,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeRegions
     (
     -- * Request
       DescribeRegions
-    -- ** Default constructor
+    -- ** Request constructor
     , describeRegions
-    -- ** Accessors and lenses
-    , _drsFilters
+    -- ** Request lenses
     , drsFilters
-    , _drsRegionNames
     , drsRegionNames
 
     -- * Response
     , DescribeRegionsResponse
-    -- ** Accessors and lenses
-    , _drtRegions
+    -- ** Response lenses
     , drtRegions
     ) where
 
@@ -58,8 +54,39 @@ describeRegions = DescribeRegions
     }
 
 data DescribeRegions = DescribeRegions
+    { _drsFilters :: [Filter]
+      -- ^ One or more filters. endpoint - The endpoint of the region (for
+      -- example, ec2.us-east-1.amazonaws.com). region-name - The name of
+      -- the region (for example, us-east-1).
+    , _drsRegionNames :: [Text]
+      -- ^ The names of one or more regions.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeRegions
+-- | One or more filters. endpoint - The endpoint of the region (for example,
+-- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
+-- example, us-east-1).
+drsFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeRegions
+    -> f DescribeRegions
+drsFilters f x =
+    (\y -> x { _drsFilters = y })
+       <$> f (_drsFilters x)
+{-# INLINE drsFilters #-}
+
+-- | The names of one or more regions.
+drsRegionNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeRegions
+    -> f DescribeRegions
+drsRegionNames f x =
+    (\y -> x { _drsRegionNames = y })
+       <$> f (_drsRegionNames x)
+{-# INLINE drsRegionNames #-}
 
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
@@ -69,7 +96,17 @@ data DescribeRegionsResponse = DescribeRegionsResponse
       -- ^ Information about one or more regions.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeRegionsResponse
+-- | Information about one or more regions.
+drtRegions
+    :: Functor f
+    => ([Region]
+    -> f ([Region]))
+    -> DescribeRegionsResponse
+    -> f DescribeRegionsResponse
+drtRegions f x =
+    (\y -> x { _drtRegions = y })
+       <$> f (_drtRegions x)
+{-# INLINE drtRegions #-}
 
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions
@@ -80,14 +117,3 @@ instance AWSRequest DescribeRegions where
 
     request = post "DescribeRegions"
     response _ = xmlResponse
-
--- | One or more filters. endpoint - The endpoint of the region (for example,
--- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
--- example, us-east-1).
-drsFilters :: Lens' DescribeRegions ([Filter])
-
--- | The names of one or more regions.
-drsRegionNames :: Lens' DescribeRegions ([Text])
-
--- | Information about one or more regions.
-drtRegions :: Lens' DescribeRegionsResponse ([Region])

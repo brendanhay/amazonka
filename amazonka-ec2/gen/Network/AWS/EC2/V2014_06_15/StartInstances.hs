@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,18 +45,15 @@ module Network.AWS.EC2.V2014_06_15.StartInstances
     (
     -- * Request
       StartInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , startInstances
-    -- ** Accessors and lenses
-    , _sistInstanceIds
+    -- ** Request lenses
     , sistInstanceIds
-    , _sistAdditionalInfo
     , sistAdditionalInfo
 
     -- * Response
     , StartInstancesResponse
-    -- ** Accessors and lenses
-    , _sisuStartingInstances
+    -- ** Response lenses
     , sisuStartingInstances
     ) where
 
@@ -74,8 +70,35 @@ startInstances p1 = StartInstances
     }
 
 data StartInstances = StartInstances
+    { _sistInstanceIds :: [Text]
+      -- ^ One or more instance IDs.
+    , _sistAdditionalInfo :: Maybe Text
+      -- ^ Reserved.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''StartInstances
+-- | One or more instance IDs.
+sistInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> StartInstances
+    -> f StartInstances
+sistInstanceIds f x =
+    (\y -> x { _sistInstanceIds = y })
+       <$> f (_sistInstanceIds x)
+{-# INLINE sistInstanceIds #-}
+
+-- | Reserved.
+sistAdditionalInfo
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> StartInstances
+    -> f StartInstances
+sistAdditionalInfo f x =
+    (\y -> x { _sistAdditionalInfo = y })
+       <$> f (_sistAdditionalInfo x)
+{-# INLINE sistAdditionalInfo #-}
 
 instance ToQuery StartInstances where
     toQuery = genericQuery def
@@ -85,7 +108,17 @@ data StartInstancesResponse = StartInstancesResponse
       -- ^ Information about one or more started instances.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''StartInstancesResponse
+-- | Information about one or more started instances.
+sisuStartingInstances
+    :: Functor f
+    => ([InstanceStateChange]
+    -> f ([InstanceStateChange]))
+    -> StartInstancesResponse
+    -> f StartInstancesResponse
+sisuStartingInstances f x =
+    (\y -> x { _sisuStartingInstances = y })
+       <$> f (_sisuStartingInstances x)
+{-# INLINE sisuStartingInstances #-}
 
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -96,12 +129,3 @@ instance AWSRequest StartInstances where
 
     request = post "StartInstances"
     response _ = xmlResponse
-
--- | One or more instance IDs.
-sistInstanceIds :: Lens' StartInstances ([Text])
-
--- | Reserved.
-sistAdditionalInfo :: Lens' StartInstances (Maybe Text)
-
--- | Information about one or more started instances.
-sisuStartingInstances :: Lens' StartInstancesResponse ([InstanceStateChange])

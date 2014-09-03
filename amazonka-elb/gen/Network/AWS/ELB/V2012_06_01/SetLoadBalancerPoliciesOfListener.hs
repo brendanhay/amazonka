@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,11 +25,35 @@
 -- &LoadBalancerName=MyInternalLoadBalancer &LoadBalancerPort=443
 -- &Version=2012-06-01 &Action=SetLoadBalancerPoliciesOfListener &AUTHPARAMS
 -- azonaws.com/doc/2012-06-01/"> 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
-module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener where
+module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener
+    (
+    -- * Request
+      SetLoadBalancerPoliciesOfListener
+    -- ** Request constructor
+    , setLoadBalancerPoliciesOfListener
+    -- ** Request lenses
+    , slbpoliLoadBalancerName
+    , slbpoliLoadBalancerPort
+    , slbpoliPolicyNames
+
+    -- * Response
+    , SetLoadBalancerPoliciesOfListenerResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SetLoadBalancerPoliciesOfListener' request.
+setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpoliLoadBalancerName'
+                                  -> Integer -- ^ 'slbpoliLoadBalancerPort'
+                                  -> [Text] -- ^ 'slbpoliPolicyNames'
+                                  -> SetLoadBalancerPoliciesOfListener
+setLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
+    { _slbpoliLoadBalancerName = p1
+    , _slbpoliLoadBalancerPort = p2
+    , _slbpoliPolicyNames = p3
+    }
 
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpoliLoadBalancerName :: Text
@@ -42,15 +65,48 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
       -- is empty, the current policy is removed from the listener.
     } deriving (Show, Generic)
 
-makeLenses ''SetLoadBalancerPoliciesOfListener
+-- | The name of the load balancer.
+slbpoliLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetLoadBalancerPoliciesOfListener
+    -> f SetLoadBalancerPoliciesOfListener
+slbpoliLoadBalancerName f x =
+    (\y -> x { _slbpoliLoadBalancerName = y })
+       <$> f (_slbpoliLoadBalancerName x)
+{-# INLINE slbpoliLoadBalancerName #-}
+
+-- | The external port of the load balancer to associate the policy.
+slbpoliLoadBalancerPort
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> SetLoadBalancerPoliciesOfListener
+    -> f SetLoadBalancerPoliciesOfListener
+slbpoliLoadBalancerPort f x =
+    (\y -> x { _slbpoliLoadBalancerPort = y })
+       <$> f (_slbpoliLoadBalancerPort x)
+{-# INLINE slbpoliLoadBalancerPort #-}
+
+-- | List of policies to be associated with the listener. If the list is empty,
+-- the current policy is removed from the listener.
+slbpoliPolicyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SetLoadBalancerPoliciesOfListener
+    -> f SetLoadBalancerPoliciesOfListener
+slbpoliPolicyNames f x =
+    (\y -> x { _slbpoliPolicyNames = y })
+       <$> f (_slbpoliPolicyNames x)
+{-# INLINE slbpoliPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesOfListener where
     toQuery = genericQuery def
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetLoadBalancerPoliciesOfListenerResponse
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Sv SetLoadBalancerPoliciesOfListener = ELB

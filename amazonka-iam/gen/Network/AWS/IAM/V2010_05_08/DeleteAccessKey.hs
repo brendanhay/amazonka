@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,14 +24,26 @@
 -- even if the AWS account has no associated users. https://iam.amazonaws.com/
 -- ?Action=DeleteAccessKey &UserName=Bob &AccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteAccessKey where
+module Network.AWS.IAM.V2010_05_08.DeleteAccessKey
+    (
+    -- * Request
+      DeleteAccessKey
+    -- ** Request constructor
+    , deleteAccessKey
+    -- ** Request lenses
+    , dakrAccessKeyId
+    , dakrUserName
+
+    -- * Response
+    , DeleteAccessKeyResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteAccessKey' request.
-deleteAccessKey :: Text -- ^ '_dakrAccessKeyId'
+deleteAccessKey :: Text -- ^ 'dakrAccessKeyId'
                 -> DeleteAccessKey
 deleteAccessKey p1 = DeleteAccessKey
     { _dakrAccessKeyId = p1
@@ -47,15 +58,36 @@ data DeleteAccessKey = DeleteAccessKey
       -- ^ Name of the user whose key you want to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAccessKey
+-- | The access key ID for the access key ID and secret access key you want to
+-- delete.
+dakrAccessKeyId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAccessKey
+    -> f DeleteAccessKey
+dakrAccessKeyId f x =
+    (\y -> x { _dakrAccessKeyId = y })
+       <$> f (_dakrAccessKeyId x)
+{-# INLINE dakrAccessKeyId #-}
+
+-- | Name of the user whose key you want to delete.
+dakrUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteAccessKey
+    -> f DeleteAccessKey
+dakrUserName f x =
+    (\y -> x { _dakrUserName = y })
+       <$> f (_dakrUserName x)
+{-# INLINE dakrUserName #-}
 
 instance ToQuery DeleteAccessKey where
     toQuery = genericQuery def
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteAccessKeyResponse
 
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM

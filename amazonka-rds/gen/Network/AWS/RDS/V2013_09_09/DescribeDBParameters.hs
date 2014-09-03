@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,14 +27,31 @@
 -- SQL statements for the binary log during a transaction. dynamic
 -- 4096-9223372036854775807 binlog_cache_size
 -- 8743f2cf-bf41-11de-8c8e-49155882c409.
-module Network.AWS.RDS.V2013_09_09.DescribeDBParameters where
+module Network.AWS.RDS.V2013_09_09.DescribeDBParameters
+    (
+    -- * Request
+      DescribeDBParameters
+    -- ** Request constructor
+    , describeDBParameters
+    -- ** Request lenses
+    , ddbpmDBParameterGroupName
+    , ddbpmMaxRecords
+    , ddbpmSource
+    , ddbpmMarker
+
+    -- * Response
+    , DescribeDBParametersResponse
+    -- ** Response lenses
+    , dbpgdParameters
+    , dbpgdMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeDBParameters' request.
-describeDBParameters :: Text -- ^ '_ddbpmDBParameterGroupName'
+describeDBParameters :: Text -- ^ 'ddbpmDBParameterGroupName'
                      -> DescribeDBParameters
 describeDBParameters p1 = DescribeDBParameters
     { _ddbpmDBParameterGroupName = p1
@@ -66,7 +82,61 @@ data DescribeDBParameters = DescribeDBParameters
       -- specified by MaxRecords.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDBParameters
+-- | The name of a specific DB parameter group to return details for.
+-- Constraints: Must be 1 to 255 alphanumeric characters First character must
+-- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
+ddbpmDBParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeDBParameters
+    -> f DescribeDBParameters
+ddbpmDBParameterGroupName f x =
+    (\y -> x { _ddbpmDBParameterGroupName = y })
+       <$> f (_ddbpmDBParameterGroupName x)
+{-# INLINE ddbpmDBParameterGroupName #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a pagination token called a
+-- marker is included in the response so that the remaining results may be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+ddbpmMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeDBParameters
+    -> f DescribeDBParameters
+ddbpmMaxRecords f x =
+    (\y -> x { _ddbpmMaxRecords = y })
+       <$> f (_ddbpmMaxRecords x)
+{-# INLINE ddbpmMaxRecords #-}
+
+-- | The parameter types to return. Default: All parameter types returned Valid
+-- Values: user | system | engine-default.
+ddbpmSource
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDBParameters
+    -> f DescribeDBParameters
+ddbpmSource f x =
+    (\y -> x { _ddbpmSource = y })
+       <$> f (_ddbpmSource x)
+{-# INLINE ddbpmSource #-}
+
+-- | An optional pagination token provided by a previous DescribeDBParameters
+-- request. If this parameter is specified, the response includes only records
+-- beyond the marker, up to the value specified by MaxRecords.
+ddbpmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDBParameters
+    -> f DescribeDBParameters
+ddbpmMarker f x =
+    (\y -> x { _ddbpmMarker = y })
+       <$> f (_ddbpmMarker x)
+{-# INLINE ddbpmMarker #-}
 
 instance ToQuery DescribeDBParameters where
     toQuery = genericQuery def
@@ -80,7 +150,31 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
       -- beyond the marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDBParametersResponse
+-- | A list of Parameter values.
+dbpgdParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> DescribeDBParametersResponse
+    -> f DescribeDBParametersResponse
+dbpgdParameters f x =
+    (\y -> x { _dbpgdParameters = y })
+       <$> f (_dbpgdParameters x)
+{-# INLINE dbpgdParameters #-}
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by MaxRecords.
+dbpgdMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDBParametersResponse
+    -> f DescribeDBParametersResponse
+dbpgdMarker f x =
+    (\y -> x { _dbpgdMarker = y })
+       <$> f (_dbpgdMarker x)
+{-# INLINE dbpgdMarker #-}
 
 instance FromXML DescribeDBParametersResponse where
     fromXMLOptions = xmlOptions

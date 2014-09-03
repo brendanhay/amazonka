@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -54,19 +53,38 @@
 -- creation deletion EventSubscription03
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- d064b48c-68eb-11e2-ab10-11125abcb784.
-module Network.AWS.RDS.V2013_09_09.CreateEventSubscription where
+module Network.AWS.RDS.V2013_09_09.CreateEventSubscription
+    (
+    -- * Request
+      CreateEventSubscription
+    -- ** Request constructor
+    , createEventSubscription
+    -- ** Request lenses
+    , cesmSubscriptionName
+    , cesmSnsTopicArn
+    , cesmEnabled
+    , cesmEventCategories
+    , cesmSourceIds
+    , cesmSourceType
+    , cesmTags
+
+    -- * Response
+    , CreateEventSubscriptionResponse
+    -- ** Response lenses
+    , esxEventSubscription
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateEventSubscription' request.
-createEventSubscription :: Text -- ^ '_cesmSnsTopicArn'
-                        -> Text -- ^ '_cesmSubscriptionName'
+createEventSubscription :: Text -- ^ 'cesmSubscriptionName'
+                        -> Text -- ^ 'cesmSnsTopicArn'
                         -> CreateEventSubscription
 createEventSubscription p1 p2 = CreateEventSubscription
-    { _cesmSnsTopicArn = p1
-    , _cesmSubscriptionName = p2
+    { _cesmSubscriptionName = p1
+    , _cesmSnsTopicArn = p2
     , _cesmEnabled = Nothing
     , _cesmEventCategories = mempty
     , _cesmSourceIds = mempty
@@ -75,13 +93,13 @@ createEventSubscription p1 p2 = CreateEventSubscription
     }
 
 data CreateEventSubscription = CreateEventSubscription
-    { _cesmSnsTopicArn :: Text
+    { _cesmSubscriptionName :: Text
+      -- ^ The name of the subscription. Constraints: The name must be less
+      -- than 255 characters.
+    , _cesmSnsTopicArn :: Text
       -- ^ The Amazon Resource Name (ARN) of the SNS topic created for event
       -- notification. The ARN is created by Amazon SNS when you create a
       -- topic and subscribe to it.
-    , _cesmSubscriptionName :: Text
-      -- ^ The name of the subscription. Constraints: The name must be less
-      -- than 255 characters.
     , _cesmEnabled :: Maybe Bool
       -- ^ A Boolean value; set to true to activate the subscription, set to
       -- false to create the subscription but not active it.
@@ -114,18 +132,131 @@ data CreateEventSubscription = CreateEventSubscription
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''CreateEventSubscription
+-- | The name of the subscription. Constraints: The name must be less than 255
+-- characters.
+cesmSubscriptionName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmSubscriptionName f x =
+    (\y -> x { _cesmSubscriptionName = y })
+       <$> f (_cesmSubscriptionName x)
+{-# INLINE cesmSubscriptionName #-}
+
+-- | The Amazon Resource Name (ARN) of the SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic and
+-- subscribe to it.
+cesmSnsTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmSnsTopicArn f x =
+    (\y -> x { _cesmSnsTopicArn = y })
+       <$> f (_cesmSnsTopicArn x)
+{-# INLINE cesmSnsTopicArn #-}
+
+-- | A Boolean value; set to true to activate the subscription, set to false to
+-- create the subscription but not active it.
+cesmEnabled
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmEnabled f x =
+    (\y -> x { _cesmEnabled = y })
+       <$> f (_cesmEnabled x)
+{-# INLINE cesmEnabled #-}
+
+-- | A list of event categories for a SourceType that you want to subscribe to.
+-- You can see a list of the categories for a given SourceType in the Events
+-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
+-- action.
+cesmEventCategories
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmEventCategories f x =
+    (\y -> x { _cesmEventCategories = y })
+       <$> f (_cesmEventCategories x)
+{-# INLINE cesmEventCategories #-}
+
+-- | The list of identifiers of the event sources for which events will be
+-- returned. If not specified, then all sources are included in the response.
+-- An identifier must begin with a letter and must contain only ASCII letters,
+-- digits, and hyphens; it cannot end with a hyphen or contain two consecutive
+-- hyphens. Constraints: If SourceIds are supplied, SourceType must also be
+-- provided. If the source type is a DB instance, then a DBInstanceIdentifier
+-- must be supplied. If the source type is a DB security group, a
+-- DBSecurityGroupName must be supplied. If the source type is a DB parameter
+-- group, a DBParameterGroupName must be supplied. If the source type is a DB
+-- snapshot, a DBSnapshotIdentifier must be supplied.
+cesmSourceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmSourceIds f x =
+    (\y -> x { _cesmSourceIds = y })
+       <$> f (_cesmSourceIds x)
+{-# INLINE cesmSourceIds #-}
+
+-- | The type of source that will be generating the events. For example, if you
+-- want to be notified of events generated by a DB instance, you would set
+-- this parameter to db-instance. if this value is not specified, all events
+-- are returned. Valid values: db-instance | db-parameter-group |
+-- db-security-group | db-snapshot.
+cesmSourceType
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmSourceType f x =
+    (\y -> x { _cesmSourceType = y })
+       <$> f (_cesmSourceType x)
+{-# INLINE cesmSourceType #-}
+
+-- | A list of tags.
+cesmTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> CreateEventSubscription
+    -> f CreateEventSubscription
+cesmTags f x =
+    (\y -> x { _cesmTags = y })
+       <$> f (_cesmTags x)
+{-# INLINE cesmTags #-}
 
 instance ToQuery CreateEventSubscription where
     toQuery = genericQuery def
 
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
-    { _eszEventSubscription :: Maybe EventSubscription
+    { _esxEventSubscription :: Maybe EventSubscription
       -- ^ Contains the results of a successful invocation of the
       -- DescribeEventSubscriptions action.
     } deriving (Show, Generic)
 
-makeLenses ''CreateEventSubscriptionResponse
+-- | Contains the results of a successful invocation of the
+-- DescribeEventSubscriptions action.
+esxEventSubscription
+    :: Functor f
+    => (Maybe EventSubscription
+    -> f (Maybe EventSubscription))
+    -> CreateEventSubscriptionResponse
+    -> f CreateEventSubscriptionResponse
+esxEventSubscription f x =
+    (\y -> x { _esxEventSubscription = y })
+       <$> f (_esxEventSubscription x)
+{-# INLINE esxEventSubscription #-}
 
 instance FromXML CreateEventSubscriptionResponse where
     fromXMLOptions = xmlOptions

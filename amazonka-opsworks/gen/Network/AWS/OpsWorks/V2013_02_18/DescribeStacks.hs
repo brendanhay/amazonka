@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,20 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeStacks where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
+    (
+    -- * Request
+      DescribeStacks
+    -- ** Request constructor
+    , describeStacks
+    -- ** Request lenses
+    , dssStackIds
+
+    -- * Response
+    , DescribeStacksResponse
+    -- ** Response lenses
+    , dstStacks
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -43,7 +55,18 @@ data DescribeStacks = DescribeStacks
       -- every stack.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStacks
+-- | An array of stack IDs that specify the stacks to be described. If you omit
+-- this parameter, DescribeStacks returns a description of every stack.
+dssStackIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeStacks
+    -> f DescribeStacks
+dssStackIds f x =
+    (\y -> x { _dssStackIds = y })
+       <$> f (_dssStackIds x)
+{-# INLINE dssStackIds #-}
 
 instance ToPath DescribeStacks
 
@@ -58,7 +81,17 @@ data DescribeStacksResponse = DescribeStacksResponse
       -- ^ An array of Stack objects that describe the stacks.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStacksResponse
+-- | An array of Stack objects that describe the stacks.
+dstStacks
+    :: Functor f
+    => ([Stack]
+    -> f ([Stack]))
+    -> DescribeStacksResponse
+    -> f DescribeStacksResponse
+dstStacks f x =
+    (\y -> x { _dstStacks = y })
+       <$> f (_dstStacks x)
+{-# INLINE dstStacks #-}
 
 instance FromJSON DescribeStacksResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,7 +23,20 @@
 -- source IP address, the request parameters, and the response elements
 -- returned by the service.
 module Network.AWS.CloudTrail.V2013_11_01.Types
-    ( module Network.AWS.CloudTrail.V2013_11_01.Types
+    (
+    -- * Service
+      CloudTrail
+    -- ** Errors
+    , Er (..)
+
+    -- * Trail
+    , Trail (..)
+    , tmName
+    , tmS3BucketName
+    , tmS3KeyPrefix
+    , tmSnsTopicName
+    , tmIncludeGlobalServiceEvents
+
     ) where
 
 import Network.AWS.Prelude
@@ -73,22 +85,83 @@ instance Exception (Er CloudTrail)
 
 -- | The settings for a trail.
 data Trail = Trail
-    { _tS3BucketName :: Maybe Text
+    { _tmName :: Maybe Text
+      -- ^ Name of the trail set by calling CreateTrail.
+    , _tmS3BucketName :: Maybe Text
       -- ^ Name of the Amazon S3 bucket into which CloudTrail delivers your
       -- trail files.
-    , _tIncludeGlobalServiceEvents :: Maybe Bool
-      -- ^ Set to True to include AWS API calls from AWS global services
-      -- such as IAM. Otherwise, False.
-    , _tName :: Maybe Text
-      -- ^ Name of the trail set by calling CreateTrail.
-    , _tSnsTopicName :: Maybe Text
+    , _tmS3KeyPrefix :: Maybe Text
+      -- ^ Value of the Amazon S3 prefix.
+    , _tmSnsTopicName :: Maybe Text
       -- ^ Name of the existing Amazon SNS topic that CloudTrail uses to
       -- notify the account owner when new CloudTrail log files have been
       -- delivered.
-    , _tS3KeyPrefix :: Maybe Text
-      -- ^ Value of the Amazon S3 prefix.
+    , _tmIncludeGlobalServiceEvents :: Maybe Bool
+      -- ^ Set to True to include AWS API calls from AWS global services
+      -- such as IAM. Otherwise, False.
     } deriving (Show, Generic)
 
-instance FromJSON Trail
+-- | Name of the trail set by calling CreateTrail.
+tmName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Trail
+    -> f Trail
+tmName f x =
+    (\y -> x { _tmName = y })
+       <$> f (_tmName x)
+{-# INLINE tmName #-}
 
-makeLenses ''Trail
+-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
+-- files.
+tmS3BucketName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Trail
+    -> f Trail
+tmS3BucketName f x =
+    (\y -> x { _tmS3BucketName = y })
+       <$> f (_tmS3BucketName x)
+{-# INLINE tmS3BucketName #-}
+
+-- | Value of the Amazon S3 prefix.
+tmS3KeyPrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Trail
+    -> f Trail
+tmS3KeyPrefix f x =
+    (\y -> x { _tmS3KeyPrefix = y })
+       <$> f (_tmS3KeyPrefix x)
+{-# INLINE tmS3KeyPrefix #-}
+
+-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
+-- account owner when new CloudTrail log files have been delivered.
+tmSnsTopicName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Trail
+    -> f Trail
+tmSnsTopicName f x =
+    (\y -> x { _tmSnsTopicName = y })
+       <$> f (_tmSnsTopicName x)
+{-# INLINE tmSnsTopicName #-}
+
+-- | Set to True to include AWS API calls from AWS global services such as IAM.
+-- Otherwise, False.
+tmIncludeGlobalServiceEvents
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> Trail
+    -> f Trail
+tmIncludeGlobalServiceEvents f x =
+    (\y -> x { _tmIncludeGlobalServiceEvents = y })
+       <$> f (_tmIncludeGlobalServiceEvents x)
+{-# INLINE tmIncludeGlobalServiceEvents #-}
+
+instance FromJSON Trail

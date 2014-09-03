@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -57,12 +56,35 @@
 -- x-amzn-RequestId: 6514261f-ee5b-11e2-9345-5332e9ab2e6d Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:05:07 GMT.
-module Network.AWS.EMR.V2009_03_31.AddJobFlowSteps where
+module Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
+    (
+    -- * Request
+      AddJobFlowSteps
+    -- ** Request constructor
+    , addJobFlowSteps
+    -- ** Request lenses
+    , ajfsiSteps
+    , ajfsiJobFlowId
+
+    -- * Response
+    , AddJobFlowStepsResponse
+    -- ** Response lenses
+    , ajfsoStepIds
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'AddJobFlowSteps' request.
+addJobFlowSteps :: [StepConfig] -- ^ 'ajfsiSteps'
+                -> Text -- ^ 'ajfsiJobFlowId'
+                -> AddJobFlowSteps
+addJobFlowSteps p1 p2 = AddJobFlowSteps
+    { _ajfsiSteps = p1
+    , _ajfsiJobFlowId = p2
+    }
 
 data AddJobFlowSteps = AddJobFlowSteps
     { _ajfsiSteps :: [StepConfig]
@@ -73,7 +95,30 @@ data AddJobFlowSteps = AddJobFlowSteps
       -- ListClusters.
     } deriving (Show, Generic)
 
-makeLenses ''AddJobFlowSteps
+-- | A list of StepConfig to be executed by the job flow.
+ajfsiSteps
+    :: Functor f
+    => ([StepConfig]
+    -> f ([StepConfig]))
+    -> AddJobFlowSteps
+    -> f AddJobFlowSteps
+ajfsiSteps f x =
+    (\y -> x { _ajfsiSteps = y })
+       <$> f (_ajfsiSteps x)
+{-# INLINE ajfsiSteps #-}
+
+-- | A string that uniquely identifies the job flow. This identifier is returned
+-- by RunJobFlow and can also be obtained from ListClusters.
+ajfsiJobFlowId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddJobFlowSteps
+    -> f AddJobFlowSteps
+ajfsiJobFlowId f x =
+    (\y -> x { _ajfsiJobFlowId = y })
+       <$> f (_ajfsiJobFlowId x)
+{-# INLINE ajfsiJobFlowId #-}
 
 instance ToPath AddJobFlowSteps
 
@@ -88,7 +133,17 @@ data AddJobFlowStepsResponse = AddJobFlowStepsResponse
       -- ^ The identifiers of the list of steps added to the job flow.
     } deriving (Show, Generic)
 
-makeLenses ''AddJobFlowStepsResponse
+-- | The identifiers of the list of steps added to the job flow.
+ajfsoStepIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddJobFlowStepsResponse
+    -> f AddJobFlowStepsResponse
+ajfsoStepIds f x =
+    (\y -> x { _ajfsoStepIds = y })
+       <$> f (_ajfsoStepIds x)
+{-# INLINE ajfsoStepIds #-}
 
 instance FromJSON AddJobFlowStepsResponse
 

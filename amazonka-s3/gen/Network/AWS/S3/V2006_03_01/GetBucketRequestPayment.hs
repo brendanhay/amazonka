@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,46 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the request payment configuration of a bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment where
+module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
+    (
+    -- * Request
+      GetBucketRequestPayment
+    -- ** Request constructor
+    , getBucketRequestPayment
+    -- ** Request lenses
+    , gbrprBucket
+
+    -- * Response
+    , GetBucketRequestPaymentResponse
+    -- ** Response lenses
+    , gbrpoPayer
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketRequestPayment' request.
+getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
+                        -> GetBucketRequestPayment
+getBucketRequestPayment p1 = GetBucketRequestPayment
+    { _gbrprBucket = p1
+    }
+
 data GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrprBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketRequestPayment
+gbrprBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketRequestPayment
+    -> f GetBucketRequestPayment
+gbrprBucket f x =
+    (\y -> x { _gbrprBucket = y })
+       <$> f (_gbrprBucket x)
+{-# INLINE gbrprBucket #-}
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
@@ -51,7 +79,17 @@ data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketRequestPaymentResponse
+-- | Specifies who pays for the download and request fees.
+gbrpoPayer
+    :: Functor f
+    => (Maybe Payer
+    -> f (Maybe Payer))
+    -> GetBucketRequestPaymentResponse
+    -> f GetBucketRequestPaymentResponse
+gbrpoPayer f x =
+    (\y -> x { _gbrpoPayer = y })
+       <$> f (_gbrpoPayer x)
+{-# INLINE gbrpoPayer #-}
 
 instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions

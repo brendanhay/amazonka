@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- have a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.SetPermission where
+module Network.AWS.OpsWorks.V2013_02_18.SetPermission
+    (
+    -- * Request
+      SetPermission
+    -- ** Request constructor
+    , setPermission
+    -- ** Request lenses
+    , sprStackId
+    , sprIamUserArn
+    , sprAllowSsh
+    , sprAllowSudo
+    , sprLevel
+
+    -- * Response
+    , SetPermissionResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -31,8 +45,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'SetPermission' request.
-setPermission :: Text -- ^ '_sprStackId'
-              -> Text -- ^ '_sprIamUserArn'
+setPermission :: Text -- ^ 'sprStackId'
+              -> Text -- ^ 'sprIamUserArn'
               -> SetPermission
 setPermission p1 p2 = SetPermission
     { _sprStackId = p1
@@ -59,7 +73,68 @@ data SetPermission = SetPermission
       -- Permissions.
     } deriving (Show, Generic)
 
-makeLenses ''SetPermission
+-- | The stack ID.
+sprStackId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetPermission
+    -> f SetPermission
+sprStackId f x =
+    (\y -> x { _sprStackId = y })
+       <$> f (_sprStackId x)
+{-# INLINE sprStackId #-}
+
+-- | The user's IAM ARN.
+sprIamUserArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetPermission
+    -> f SetPermission
+sprIamUserArn f x =
+    (\y -> x { _sprIamUserArn = y })
+       <$> f (_sprIamUserArn x)
+{-# INLINE sprIamUserArn #-}
+
+-- | The user is allowed to use SSH to communicate with the instance.
+sprAllowSsh
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> SetPermission
+    -> f SetPermission
+sprAllowSsh f x =
+    (\y -> x { _sprAllowSsh = y })
+       <$> f (_sprAllowSsh x)
+{-# INLINE sprAllowSsh #-}
+
+-- | The user is allowed to use sudo to elevate privileges.
+sprAllowSudo
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> SetPermission
+    -> f SetPermission
+sprAllowSudo f x =
+    (\y -> x { _sprAllowSudo = y })
+       <$> f (_sprAllowSudo x)
+{-# INLINE sprAllowSudo #-}
+
+-- | The user's permission level, which must be set to one of the following
+-- strings. You cannot set your own permissions level. deny show deploy manage
+-- iam_only For more information on the permissions associated with these
+-- levels, see Managing User Permissions.
+sprLevel
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetPermission
+    -> f SetPermission
+sprLevel f x =
+    (\y -> x { _sprLevel = y })
+       <$> f (_sprLevel x)
+{-# INLINE sprLevel #-}
 
 instance ToPath SetPermission
 
@@ -71,8 +146,6 @@ instance ToJSON SetPermission
 
 data SetPermissionResponse = SetPermissionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetPermissionResponse
 
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks

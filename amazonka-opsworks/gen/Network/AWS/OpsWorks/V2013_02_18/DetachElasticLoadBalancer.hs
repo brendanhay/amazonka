@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,22 +22,66 @@
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer where
+module Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer
+    (
+    -- * Request
+      DetachElasticLoadBalancer
+    -- ** Request constructor
+    , detachElasticLoadBalancer
+    -- ** Request lenses
+    , delbtElasticLoadBalancerName
+    , delbtLayerId
+
+    -- * Response
+    , DetachElasticLoadBalancerResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DetachElasticLoadBalancer' request.
+detachElasticLoadBalancer :: Text -- ^ 'delbtElasticLoadBalancerName'
+                          -> Text -- ^ 'delbtLayerId'
+                          -> DetachElasticLoadBalancer
+detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
+    { _delbtElasticLoadBalancerName = p1
+    , _delbtLayerId = p2
+    }
+
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
-    { _delbrLayerId :: Text
+    { _delbtElasticLoadBalancerName :: Text
+      -- ^ The Elastic Load Balancing instance's name.
+    , _delbtLayerId :: Text
       -- ^ The ID of the layer that the Elastic Load Balancing instance is
       -- attached to.
-    , _delbrElasticLoadBalancerName :: Text
-      -- ^ The Elastic Load Balancing instance's name.
     } deriving (Show, Generic)
 
-makeLenses ''DetachElasticLoadBalancer
+-- | The Elastic Load Balancing instance's name.
+delbtElasticLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachElasticLoadBalancer
+    -> f DetachElasticLoadBalancer
+delbtElasticLoadBalancerName f x =
+    (\y -> x { _delbtElasticLoadBalancerName = y })
+       <$> f (_delbtElasticLoadBalancerName x)
+{-# INLINE delbtElasticLoadBalancerName #-}
+
+-- | The ID of the layer that the Elastic Load Balancing instance is attached
+-- to.
+delbtLayerId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachElasticLoadBalancer
+    -> f DetachElasticLoadBalancer
+delbtLayerId f x =
+    (\y -> x { _delbtLayerId = y })
+       <$> f (_delbtLayerId x)
+{-# INLINE delbtLayerId #-}
 
 instance ToPath DetachElasticLoadBalancer
 
@@ -50,8 +93,6 @@ instance ToJSON DetachElasticLoadBalancer
 
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DetachElasticLoadBalancerResponse
 
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks

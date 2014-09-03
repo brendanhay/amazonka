@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,12 +34,32 @@
 -- "Output":{ "Key":"", "PresetId":"5555555555555-abcde5", "Rotate":"0",
 -- "Status":"Submitted", "StatusDetail":"", "ThumbnailPattern":"{count}" },
 -- "PipelineId":"1111111111111-abcde1" } }.
-module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob where
+module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob
+    (
+    -- * Request
+      ReadJob
+    -- ** Request constructor
+    , readJob
+    -- ** Request lenses
+    , rjrId
+
+    -- * Response
+    , ReadJobResponse
+    -- ** Response lenses
+    , rjsJob
+    ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'ReadJob' request.
+readJob :: Text -- ^ 'rjrId'
+        -> ReadJob
+readJob p1 = ReadJob
+    { _rjrId = p1
+    }
 
 data ReadJob = ReadJob
     { _rjrId :: Text
@@ -48,7 +67,17 @@ data ReadJob = ReadJob
       -- information.
     } deriving (Show, Generic)
 
-makeLenses ''ReadJob
+-- | The identifier of the job for which you want to get detailed information.
+rjrId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReadJob
+    -> f ReadJob
+rjrId f x =
+    (\y -> x { _rjrId = y })
+       <$> f (_rjrId x)
+{-# INLINE rjrId #-}
 
 instance ToPath ReadJob where
     toPath ReadJob{..} = mconcat
@@ -68,7 +97,17 @@ data ReadJobResponse = ReadJobResponse
       -- the job.
     } deriving (Show, Generic)
 
-makeLenses ''ReadJobResponse
+-- | A section of the response body that provides information about the job.
+rjsJob
+    :: Functor f
+    => (Maybe Job
+    -> f (Maybe Job))
+    -> ReadJobResponse
+    -> f ReadJobResponse
+rjsJob f x =
+    (\y -> x { _rjsJob = y })
+       <$> f (_rjsJob x)
+{-# INLINE rjsJob #-}
 
 instance FromJSON ReadJobResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,11 +28,34 @@
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= mycacheparametergroup
 -- fcedeef2-b7ff-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup where
+module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup
+    (
+    -- * Request
+      ModifyCacheParameterGroup
+    -- ** Request constructor
+    , modifyCacheParameterGroup
+    -- ** Request lenses
+    , mcpgmParameterNameValues
+    , mcpgmCacheParameterGroupName
+
+    -- * Response
+    , ModifyCacheParameterGroupResponse
+    -- ** Response lenses
+    , cpgnmCacheParameterGroupName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ModifyCacheParameterGroup' request.
+modifyCacheParameterGroup :: [ParameterNameValue] -- ^ 'mcpgmParameterNameValues'
+                          -> Text -- ^ 'mcpgmCacheParameterGroupName'
+                          -> ModifyCacheParameterGroup
+modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
+    { _mcpgmParameterNameValues = p1
+    , _mcpgmCacheParameterGroupName = p2
+    }
 
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgmParameterNameValues :: [ParameterNameValue]
@@ -45,7 +67,31 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup
       -- ^ The name of the cache parameter group to modify.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyCacheParameterGroup
+-- | An array of parameter names and values for the parameter update. You must
+-- supply at least one parameter name and value; subsequent arguments are
+-- optional. A maximum of 20 parameters may be modified per request.
+mcpgmParameterNameValues
+    :: Functor f
+    => ([ParameterNameValue]
+    -> f ([ParameterNameValue]))
+    -> ModifyCacheParameterGroup
+    -> f ModifyCacheParameterGroup
+mcpgmParameterNameValues f x =
+    (\y -> x { _mcpgmParameterNameValues = y })
+       <$> f (_mcpgmParameterNameValues x)
+{-# INLINE mcpgmParameterNameValues #-}
+
+-- | The name of the cache parameter group to modify.
+mcpgmCacheParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyCacheParameterGroup
+    -> f ModifyCacheParameterGroup
+mcpgmCacheParameterGroupName f x =
+    (\y -> x { _mcpgmCacheParameterGroupName = y })
+       <$> f (_mcpgmCacheParameterGroupName x)
+{-# INLINE mcpgmCacheParameterGroupName #-}
 
 instance ToQuery ModifyCacheParameterGroup where
     toQuery = genericQuery def
@@ -55,7 +101,17 @@ data ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
       -- ^ The name of the cache parameter group.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyCacheParameterGroupResponse
+-- | The name of the cache parameter group.
+cpgnmCacheParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyCacheParameterGroupResponse
+    -> f ModifyCacheParameterGroupResponse
+cpgnmCacheParameterGroupName f x =
+    (\y -> x { _cpgnmCacheParameterGroupName = y })
+       <$> f (_cpgnmCacheParameterGroupName x)
+{-# INLINE cpgnmCacheParameterGroupName #-}
 
 instance FromXML ModifyCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions

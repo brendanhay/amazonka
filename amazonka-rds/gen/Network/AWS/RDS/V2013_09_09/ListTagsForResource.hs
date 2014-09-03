@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,11 +19,31 @@
 
 -- | Lists all tags on an Amazon RDS resource. For an overview on tagging an
 -- Amazon RDS resource, see Tagging Amazon RDS Resources.
-module Network.AWS.RDS.V2013_09_09.ListTagsForResource where
+module Network.AWS.RDS.V2013_09_09.ListTagsForResource
+    (
+    -- * Request
+      ListTagsForResource
+    -- ** Request constructor
+    , listTagsForResource
+    -- ** Request lenses
+    , ltfrmResourceName
+
+    -- * Response
+    , ListTagsForResourceResponse
+    -- ** Response lenses
+    , tlmTagList
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ListTagsForResource' request.
+listTagsForResource :: Text -- ^ 'ltfrmResourceName'
+                    -> ListTagsForResource
+listTagsForResource p1 = ListTagsForResource
+    { _ltfrmResourceName = p1
+    }
 
 data ListTagsForResource = ListTagsForResource
     { _ltfrmResourceName :: Text
@@ -33,7 +52,19 @@ data ListTagsForResource = ListTagsForResource
       -- ARN, see Constructing an RDS Amazon Resource Name (ARN).
     } deriving (Show, Generic)
 
-makeLenses ''ListTagsForResource
+-- | The Amazon RDS resource with tags to be listed. This value is an Amazon
+-- Resource Name (ARN). For information about creating an ARN, see
+-- Constructing an RDS Amazon Resource Name (ARN).
+ltfrmResourceName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListTagsForResource
+    -> f ListTagsForResource
+ltfrmResourceName f x =
+    (\y -> x { _ltfrmResourceName = y })
+       <$> f (_ltfrmResourceName x)
+{-# INLINE ltfrmResourceName #-}
 
 instance ToQuery ListTagsForResource where
     toQuery = genericQuery def
@@ -43,7 +74,17 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse
       -- ^ List of tags returned by the ListTagsForResource operation.
     } deriving (Show, Generic)
 
-makeLenses ''ListTagsForResourceResponse
+-- | List of tags returned by the ListTagsForResource operation.
+tlmTagList
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> ListTagsForResourceResponse
+    -> f ListTagsForResourceResponse
+tlmTagList f x =
+    (\y -> x { _tlmTagList = y })
+       <$> f (_tlmTagList x)
+{-# INLINE tlmTagList #-}
 
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions

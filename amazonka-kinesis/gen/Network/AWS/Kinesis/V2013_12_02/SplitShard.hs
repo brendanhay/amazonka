@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -63,15 +62,39 @@
 -- "ShardToSplit": "shardId-000000000000", "NewStartingHashKey": "10" }
 -- HTTP/1.1 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.Kinesis.V2013_12_02.SplitShard where
+module Network.AWS.Kinesis.V2013_12_02.SplitShard
+    (
+    -- * Request
+      SplitShard
+    -- ** Request constructor
+    , splitShard
+    -- ** Request lenses
+    , sskNewStartingHashKey
+    , sskShardToSplit
+    , sskStreamName
+
+    -- * Response
+    , SplitShardResponse
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'SplitShard' request.
+splitShard :: Text -- ^ 'sskNewStartingHashKey'
+           -> Text -- ^ 'sskShardToSplit'
+           -> Text -- ^ 'sskStreamName'
+           -> SplitShard
+splitShard p1 p2 p3 = SplitShard
+    { _sskNewStartingHashKey = p1
+    , _sskShardToSplit = p2
+    , _sskStreamName = p3
+    }
+
 data SplitShard = SplitShard
-    { _ssiNewStartingHashKey :: Text
+    { _sskNewStartingHashKey :: Text
       -- ^ A hash key value for the starting hash key of one of the child
       -- shards created by the split. The hash key range for a given shard
       -- constitutes a set of ordered contiguous positive integers. The
@@ -80,13 +103,53 @@ data SplitShard = SplitShard
       -- value and all higher hash key values in hash key range are
       -- distributed to one of the child shards. All the lower hash key
       -- values in the range are distributed to the other child shard.
-    , _ssiShardToSplit :: Text
+    , _sskShardToSplit :: Text
       -- ^ The shard ID of the shard to split.
-    , _ssiStreamName :: Text
+    , _sskStreamName :: Text
       -- ^ The name of the stream for the shard split.
     } deriving (Show, Generic)
 
-makeLenses ''SplitShard
+-- | A hash key value for the starting hash key of one of the child shards
+-- created by the split. The hash key range for a given shard constitutes a
+-- set of ordered contiguous positive integers. The value for
+-- NewStartingHashKey must be in the range of hash keys being mapped into the
+-- shard. The NewStartingHashKey hash key value and all higher hash key values
+-- in hash key range are distributed to one of the child shards. All the lower
+-- hash key values in the range are distributed to the other child shard.
+sskNewStartingHashKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SplitShard
+    -> f SplitShard
+sskNewStartingHashKey f x =
+    (\y -> x { _sskNewStartingHashKey = y })
+       <$> f (_sskNewStartingHashKey x)
+{-# INLINE sskNewStartingHashKey #-}
+
+-- | The shard ID of the shard to split.
+sskShardToSplit
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SplitShard
+    -> f SplitShard
+sskShardToSplit f x =
+    (\y -> x { _sskShardToSplit = y })
+       <$> f (_sskShardToSplit x)
+{-# INLINE sskShardToSplit #-}
+
+-- | The name of the stream for the shard split.
+sskStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SplitShard
+    -> f SplitShard
+sskStreamName f x =
+    (\y -> x { _sskStreamName = y })
+       <$> f (_sskStreamName x)
+{-# INLINE sskStreamName #-}
 
 instance ToPath SplitShard
 
@@ -98,8 +161,6 @@ instance ToJSON SplitShard
 
 data SplitShardResponse = SplitShardResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SplitShardResponse
 
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis

@@ -35,15 +35,15 @@ library
           Network.AWS.Kinesis
         , Network.AWS.Kinesis.V2013_12_02
         , Network.AWS.Kinesis.V2013_12_02.Types
-        , Network.AWS.Kinesis.V2013_12_02.PutRecord
-        , Network.AWS.Kinesis.V2013_12_02.MergeShards
-        , Network.AWS.Kinesis.V2013_12_02.GetShardIterator
-        , Network.AWS.Kinesis.V2013_12_02.GetRecords
-        , Network.AWS.Kinesis.V2013_12_02.DeleteStream
-        , Network.AWS.Kinesis.V2013_12_02.ListStreams
         , Network.AWS.Kinesis.V2013_12_02.CreateStream
-        , Network.AWS.Kinesis.V2013_12_02.SplitShard
+        , Network.AWS.Kinesis.V2013_12_02.DeleteStream
         , Network.AWS.Kinesis.V2013_12_02.DescribeStream
+        , Network.AWS.Kinesis.V2013_12_02.GetRecords
+        , Network.AWS.Kinesis.V2013_12_02.GetShardIterator
+        , Network.AWS.Kinesis.V2013_12_02.ListStreams
+        , Network.AWS.Kinesis.V2013_12_02.MergeShards
+        , Network.AWS.Kinesis.V2013_12_02.PutRecord
+        , Network.AWS.Kinesis.V2013_12_02.SplitShard
 
     build-depends:
           amazonka-core

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,11 +18,32 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes listeners from the load balancer for the specified port.
-module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners where
+module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners
+    (
+    -- * Request
+      DeleteLoadBalancerListeners
+    -- ** Request constructor
+    , deleteLoadBalancerListeners
+    -- ** Request lenses
+    , dlbliLoadBalancerName
+    , dlbliLoadBalancerPorts
+
+    -- * Response
+    , DeleteLoadBalancerListenersResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteLoadBalancerListeners' request.
+deleteLoadBalancerListeners :: Text -- ^ 'dlbliLoadBalancerName'
+                            -> [Integer] -- ^ 'dlbliLoadBalancerPorts'
+                            -> DeleteLoadBalancerListeners
+deleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
+    { _dlbliLoadBalancerName = p1
+    , _dlbliLoadBalancerPorts = p2
+    }
 
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlbliLoadBalancerName :: Text
@@ -33,15 +53,35 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
       -- removed.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLoadBalancerListeners
+-- | The mnemonic name associated with the load balancer.
+dlbliLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLoadBalancerListeners
+    -> f DeleteLoadBalancerListeners
+dlbliLoadBalancerName f x =
+    (\y -> x { _dlbliLoadBalancerName = y })
+       <$> f (_dlbliLoadBalancerName x)
+{-# INLINE dlbliLoadBalancerName #-}
+
+-- | The client port number(s) of the load balancer listener(s) to be removed.
+dlbliLoadBalancerPorts
+    :: Functor f
+    => ([Integer]
+    -> f ([Integer]))
+    -> DeleteLoadBalancerListeners
+    -> f DeleteLoadBalancerListeners
+dlbliLoadBalancerPorts f x =
+    (\y -> x { _dlbliLoadBalancerPorts = y })
+       <$> f (_dlbliLoadBalancerPorts x)
+{-# INLINE dlbliLoadBalancerPorts #-}
 
 instance ToQuery DeleteLoadBalancerListeners where
     toQuery = genericQuery def
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLoadBalancerListenersResponse
 
 instance AWSRequest DeleteLoadBalancerListeners where
     type Sv DeleteLoadBalancerListeners = ELB

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,22 @@
 -- the ExpiryTime returned in the response indicates when the set expires. The
 -- maximum number of attachments in a set is 3, and the maximum size of any
 -- attachment in the set is 5 MB.
-module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet where
+module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
+    (
+    -- * Request
+      AddAttachmentsToSet
+    -- ** Request constructor
+    , addAttachmentsToSet
+    -- ** Request lenses
+    , aatsrAttachments
+    , aatsrAttachmentSetId
+
+    -- * Response
+    , AddAttachmentsToSetResponse
+    -- ** Response lenses
+    , aatssAttachmentSetId
+    , aatssExpiryTime
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
@@ -35,7 +49,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'AddAttachmentsToSet' request.
-addAttachmentsToSet :: [Attachment] -- ^ '_aatsrAttachments'
+addAttachmentsToSet :: [Attachment] -- ^ 'aatsrAttachments'
                     -> AddAttachmentsToSet
 addAttachmentsToSet p1 = AddAttachmentsToSet
     { _aatsrAttachments = p1
@@ -53,7 +67,33 @@ data AddAttachmentsToSet = AddAttachmentsToSet
       -- the attachments are added to the specified set, if it exists.
     } deriving (Show, Generic)
 
-makeLenses ''AddAttachmentsToSet
+-- | One or more attachments to add to the set. The limit is 3 attachments per
+-- set, and the size limit is 5 MB per attachment.
+aatsrAttachments
+    :: Functor f
+    => ([Attachment]
+    -> f ([Attachment]))
+    -> AddAttachmentsToSet
+    -> f AddAttachmentsToSet
+aatsrAttachments f x =
+    (\y -> x { _aatsrAttachments = y })
+       <$> f (_aatsrAttachments x)
+{-# INLINE aatsrAttachments #-}
+
+-- | The ID of the attachment set. If an AttachmentSetId is not specified, a new
+-- attachment set is created, and the ID of the set is returned in the
+-- response. If an AttachmentSetId is specified, the attachments are added to
+-- the specified set, if it exists.
+aatsrAttachmentSetId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddAttachmentsToSet
+    -> f AddAttachmentsToSet
+aatsrAttachmentSetId f x =
+    (\y -> x { _aatsrAttachmentSetId = y })
+       <$> f (_aatsrAttachmentSetId x)
+{-# INLINE aatsrAttachmentSetId #-}
 
 instance ToPath AddAttachmentsToSet
 
@@ -73,7 +113,32 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
       -- ^ The time and date when the attachment set expires.
     } deriving (Show, Generic)
 
-makeLenses ''AddAttachmentsToSetResponse
+-- | The ID of the attachment set. If an AttachmentSetId was not specified, a
+-- new attachment set is created, and the ID of the set is returned in the
+-- response. If an AttachmentSetId was specified, the attachments are added to
+-- the specified set, if it exists.
+aatssAttachmentSetId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddAttachmentsToSetResponse
+    -> f AddAttachmentsToSetResponse
+aatssAttachmentSetId f x =
+    (\y -> x { _aatssAttachmentSetId = y })
+       <$> f (_aatssAttachmentSetId x)
+{-# INLINE aatssAttachmentSetId #-}
+
+-- | The time and date when the attachment set expires.
+aatssExpiryTime
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AddAttachmentsToSetResponse
+    -> f AddAttachmentsToSetResponse
+aatssExpiryTime f x =
+    (\y -> x { _aatssExpiryTime = y })
+       <$> f (_aatssExpiryTime x)
+{-# INLINE aatssExpiryTime #-}
 
 instance FromJSON AddAttachmentsToSetResponse
 

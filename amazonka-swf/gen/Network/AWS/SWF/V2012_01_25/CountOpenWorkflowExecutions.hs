@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,7 +49,25 @@
 -- 1356998399}, "tagFilter": {"tag": "ricoh-the-dog"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 5ea6789e-3f05-11e1-9e8f-57bb03e21482 {"count":1,"truncated":false}.
-module Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions where
+module Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
+    (
+    -- * Request
+      CountOpenWorkflowExecutions
+    -- ** Request constructor
+    , countOpenWorkflowExecutions
+    -- ** Request lenses
+    , coweiDomain
+    , coweiStartTimeFilter
+    , coweiTagFilter
+    , coweiExecutionFilter
+    , coweiTypeFilter
+
+    -- * Response
+    , CountOpenWorkflowExecutionsResponse
+    -- ** Response lenses
+    , wedCount
+    , wedTruncated
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -58,8 +75,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CountOpenWorkflowExecutions' request.
-countOpenWorkflowExecutions :: Text -- ^ '_coweiDomain'
-                            -> ExecutionTimeFilter -- ^ '_coweiStartTimeFilter'
+countOpenWorkflowExecutions :: Text -- ^ 'coweiDomain'
+                            -> ExecutionTimeFilter -- ^ 'coweiStartTimeFilter'
                             -> CountOpenWorkflowExecutions
 countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
     { _coweiDomain = p1
@@ -92,7 +109,72 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
       -- You can specify at most one of these in a request.
     } deriving (Show, Generic)
 
-makeLenses ''CountOpenWorkflowExecutions
+-- | The name of the domain containing the workflow executions to count.
+coweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CountOpenWorkflowExecutions
+    -> f CountOpenWorkflowExecutions
+coweiDomain f x =
+    (\y -> x { _coweiDomain = y })
+       <$> f (_coweiDomain x)
+{-# INLINE coweiDomain #-}
+
+-- | Specifies the start time criteria that workflow executions must meet in
+-- order to be counted.
+coweiStartTimeFilter
+    :: Functor f
+    => (ExecutionTimeFilter
+    -> f (ExecutionTimeFilter))
+    -> CountOpenWorkflowExecutions
+    -> f CountOpenWorkflowExecutions
+coweiStartTimeFilter f x =
+    (\y -> x { _coweiStartTimeFilter = y })
+       <$> f (_coweiStartTimeFilter x)
+{-# INLINE coweiStartTimeFilter #-}
+
+-- | If specified, only executions that have a tag that matches the filter are
+-- counted. executionFilter, typeFilter and tagFilter are mutually exclusive.
+-- You can specify at most one of these in a request.
+coweiTagFilter
+    :: Functor f
+    => (Maybe TagFilter
+    -> f (Maybe TagFilter))
+    -> CountOpenWorkflowExecutions
+    -> f CountOpenWorkflowExecutions
+coweiTagFilter f x =
+    (\y -> x { _coweiTagFilter = y })
+       <$> f (_coweiTagFilter x)
+{-# INLINE coweiTagFilter #-}
+
+-- | If specified, only workflow executions matching the WorkflowId in the
+-- filter are counted. executionFilter, typeFilter and tagFilter are mutually
+-- exclusive. You can specify at most one of these in a request.
+coweiExecutionFilter
+    :: Functor f
+    => (Maybe WorkflowExecutionFilter
+    -> f (Maybe WorkflowExecutionFilter))
+    -> CountOpenWorkflowExecutions
+    -> f CountOpenWorkflowExecutions
+coweiExecutionFilter f x =
+    (\y -> x { _coweiExecutionFilter = y })
+       <$> f (_coweiExecutionFilter x)
+{-# INLINE coweiExecutionFilter #-}
+
+-- | Specifies the type of the workflow executions to be counted.
+-- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
+-- specify at most one of these in a request.
+coweiTypeFilter
+    :: Functor f
+    => (Maybe WorkflowTypeFilter
+    -> f (Maybe WorkflowTypeFilter))
+    -> CountOpenWorkflowExecutions
+    -> f CountOpenWorkflowExecutions
+coweiTypeFilter f x =
+    (\y -> x { _coweiTypeFilter = y })
+       <$> f (_coweiTypeFilter x)
+{-# INLINE coweiTypeFilter #-}
 
 instance ToPath CountOpenWorkflowExecutions
 
@@ -103,15 +185,38 @@ instance ToHeaders CountOpenWorkflowExecutions
 instance ToJSON CountOpenWorkflowExecutions
 
 data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
-    { _wecCount :: Integer
+    { _wedCount :: Integer
       -- ^ The number of workflow executions.
-    , _wecTruncated :: Maybe Bool
+    , _wedTruncated :: Maybe Bool
       -- ^ If set to true, indicates that the actual count was more than the
       -- maximum supported by this API and the count returned is the
       -- truncated value.
     } deriving (Show, Generic)
 
-makeLenses ''CountOpenWorkflowExecutionsResponse
+-- | The number of workflow executions.
+wedCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CountOpenWorkflowExecutionsResponse
+    -> f CountOpenWorkflowExecutionsResponse
+wedCount f x =
+    (\y -> x { _wedCount = y })
+       <$> f (_wedCount x)
+{-# INLINE wedCount #-}
+
+-- | If set to true, indicates that the actual count was more than the maximum
+-- supported by this API and the count returned is the truncated value.
+wedTruncated
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CountOpenWorkflowExecutionsResponse
+    -> f CountOpenWorkflowExecutionsResponse
+wedTruncated f x =
+    (\y -> x { _wedTruncated = y })
+       <$> f (_wedTruncated x)
+{-# INLINE wedTruncated #-}
 
 instance FromJSON CountOpenWorkflowExecutionsResponse
 

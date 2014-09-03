@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,11 +37,32 @@
 -- &DkimEnabled=true&Identity=user%40example.com
 -- &Timestamp=2012-06-29T22%3A42%3A08.000Z &Version=2010-12-01
 -- 7aa61362-c469-11e1-aee5-6bbb4608fbcc.
-module Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled where
+module Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled
+    (
+    -- * Request
+      SetIdentityDkimEnabled
+    -- ** Request constructor
+    , setIdentityDkimEnabled
+    -- ** Request lenses
+    , siderDkimEnabled
+    , siderIdentity
+
+    -- * Response
+    , SetIdentityDkimEnabledResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SetIdentityDkimEnabled' request.
+setIdentityDkimEnabled :: Bool -- ^ 'siderDkimEnabled'
+                       -> Text -- ^ 'siderIdentity'
+                       -> SetIdentityDkimEnabled
+setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
+    { _siderDkimEnabled = p1
+    , _siderIdentity = p2
+    }
 
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _siderDkimEnabled :: Bool
@@ -53,15 +73,36 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled
       -- disabled.
     } deriving (Show, Generic)
 
-makeLenses ''SetIdentityDkimEnabled
+-- | Sets whether DKIM signing is enabled for an identity. Set to true to enable
+-- DKIM signing for this identity; false to disable it.
+siderDkimEnabled
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> SetIdentityDkimEnabled
+    -> f SetIdentityDkimEnabled
+siderDkimEnabled f x =
+    (\y -> x { _siderDkimEnabled = y })
+       <$> f (_siderDkimEnabled x)
+{-# INLINE siderDkimEnabled #-}
+
+-- | The identity for which DKIM signing should be enabled or disabled.
+siderIdentity
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetIdentityDkimEnabled
+    -> f SetIdentityDkimEnabled
+siderIdentity f x =
+    (\y -> x { _siderIdentity = y })
+       <$> f (_siderIdentity x)
+{-# INLINE siderIdentity #-}
 
 instance ToQuery SetIdentityDkimEnabled where
     toQuery = genericQuery def
 
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetIdentityDkimEnabledResponse
 
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES

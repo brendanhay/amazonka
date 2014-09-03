@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,21 @@
 -- a Show, Deploy, or Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays
+    (
+    -- * Request
+      DescribeRaidArrays
+    -- ** Request constructor
+    , describeRaidArrays
+    -- ** Request lenses
+    , drarInstanceId
+    , drarRaidArrayIds
+
+    -- * Response
+    , DescribeRaidArraysResponse
+    -- ** Response lenses
+    , drasRaidArrays
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -48,7 +61,32 @@ data DescribeRaidArrays = DescribeRaidArrays
       -- Otherwise, it returns a description of every array.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeRaidArrays
+-- | The instance ID. If you use this parameter, DescribeRaidArrays returns
+-- descriptions of the RAID arrays associated with the specified instance.
+drarInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeRaidArrays
+    -> f DescribeRaidArrays
+drarInstanceId f x =
+    (\y -> x { _drarInstanceId = y })
+       <$> f (_drarInstanceId x)
+{-# INLINE drarInstanceId #-}
+
+-- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
+-- returns descriptions of the specified arrays. Otherwise, it returns a
+-- description of every array.
+drarRaidArrayIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeRaidArrays
+    -> f DescribeRaidArrays
+drarRaidArrayIds f x =
+    (\y -> x { _drarRaidArrayIds = y })
+       <$> f (_drarRaidArrayIds x)
+{-# INLINE drarRaidArrayIds #-}
 
 instance ToPath DescribeRaidArrays
 
@@ -63,7 +101,17 @@ data DescribeRaidArraysResponse = DescribeRaidArraysResponse
       -- ^ A RaidArrays object that describes the specified RAID arrays.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeRaidArraysResponse
+-- | A RaidArrays object that describes the specified RAID arrays.
+drasRaidArrays
+    :: Functor f
+    => ([RaidArray]
+    -> f ([RaidArray]))
+    -> DescribeRaidArraysResponse
+    -> f DescribeRaidArraysResponse
+drasRaidArrays f x =
+    (\y -> x { _drasRaidArrays = y })
+       <$> f (_drasRaidArrays x)
+{-# INLINE drasRaidArrays #-}
 
 instance FromJSON DescribeRaidArraysResponse
 

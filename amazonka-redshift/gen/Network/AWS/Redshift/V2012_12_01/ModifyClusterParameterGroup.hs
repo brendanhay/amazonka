@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,11 +31,35 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date Your parameter group has
 -- been updated but changes won't get applied until you reboot the associated
 -- Clusters. parametergroup1 86e64043-40de-11e2-8a25-eb010998df4e.
-module Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup where
+module Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup
+    (
+    -- * Request
+      ModifyClusterParameterGroup
+    -- ** Request constructor
+    , modifyClusterParameterGroup
+    -- ** Request lenses
+    , mcpgmParameters
+    , mcpgmParameterGroupName
+
+    -- * Response
+    , ModifyClusterParameterGroupResponse
+    -- ** Response lenses
+    , cpgnmParameterGroupName
+    , cpgnmParameterGroupStatus
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ModifyClusterParameterGroup' request.
+modifyClusterParameterGroup :: [Parameter] -- ^ 'mcpgmParameters'
+                            -> Text -- ^ 'mcpgmParameterGroupName'
+                            -> ModifyClusterParameterGroup
+modifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
+    { _mcpgmParameters = p1
+    , _mcpgmParameterGroupName = p2
+    }
 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgmParameters :: [Parameter]
@@ -51,21 +74,72 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup
       -- ^ The name of the parameter group to be modified.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyClusterParameterGroup
+-- | An array of parameters to be modified. A maximum of 20 parameters can be
+-- modified in a single request. For each parameter to be modified, you must
+-- supply at least the parameter name and parameter value; other name-value
+-- pairs of the parameter are optional. For the workload management (WLM)
+-- configuration, you must supply all the name-value pairs in the
+-- wlm_json_configuration parameter.
+mcpgmParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> ModifyClusterParameterGroup
+    -> f ModifyClusterParameterGroup
+mcpgmParameters f x =
+    (\y -> x { _mcpgmParameters = y })
+       <$> f (_mcpgmParameters x)
+{-# INLINE mcpgmParameters #-}
+
+-- | The name of the parameter group to be modified.
+mcpgmParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyClusterParameterGroup
+    -> f ModifyClusterParameterGroup
+mcpgmParameterGroupName f x =
+    (\y -> x { _mcpgmParameterGroupName = y })
+       <$> f (_mcpgmParameterGroupName x)
+{-# INLINE mcpgmParameterGroupName #-}
 
 instance ToQuery ModifyClusterParameterGroup where
     toQuery = genericQuery def
 
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
-    { _cpgnnParameterGroupName :: Maybe Text
+    { _cpgnmParameterGroupName :: Maybe Text
       -- ^ The name of the cluster parameter group.
-    , _cpgnnParameterGroupStatus :: Maybe Text
+    , _cpgnmParameterGroupStatus :: Maybe Text
       -- ^ The status of the parameter group. For example, if you made a
       -- change to a parameter group name-value pair, then the change
       -- could be pending a reboot of an associated cluster.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyClusterParameterGroupResponse
+-- | The name of the cluster parameter group.
+cpgnmParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyClusterParameterGroupResponse
+    -> f ModifyClusterParameterGroupResponse
+cpgnmParameterGroupName f x =
+    (\y -> x { _cpgnmParameterGroupName = y })
+       <$> f (_cpgnmParameterGroupName x)
+{-# INLINE cpgnmParameterGroupName #-}
+
+-- | The status of the parameter group. For example, if you made a change to a
+-- parameter group name-value pair, then the change could be pending a reboot
+-- of an associated cluster.
+cpgnmParameterGroupStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyClusterParameterGroupResponse
+    -> f ModifyClusterParameterGroupResponse
+cpgnmParameterGroupStatus f x =
+    (\y -> x { _cpgnmParameterGroupStatus = y })
+       <$> f (_cpgnmParameterGroupStatus x)
+{-# INLINE cpgnmParameterGroupStatus #-}
 
 instance FromXML ModifyClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

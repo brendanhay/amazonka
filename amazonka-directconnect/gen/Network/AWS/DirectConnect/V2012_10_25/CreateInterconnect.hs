@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,12 +30,43 @@
 -- calling AllocateConnectionOnInterconnect. The end customer can then connect
 -- to AWS resources by creating a virtual interface on their connection, using
 -- the VLAN assigned to them by the AWS Direct Connect partner.
-module Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect where
+module Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
+    (
+    -- * Request
+      CreateInterconnect
+    -- ** Request constructor
+    , createInterconnect
+    -- ** Request lenses
+    , cirBandwidth
+    , cirInterconnectName
+    , cirLocation
+
+    -- * Response
+    , CreateInterconnectResponse
+    -- ** Response lenses
+    , iBandwidth
+    , iInterconnectId
+    , iInterconnectName
+    , iInterconnectState
+    , iLocation
+    , iRegion
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'CreateInterconnect' request.
+createInterconnect :: Text -- ^ 'cirBandwidth'
+                   -> Text -- ^ 'cirInterconnectName'
+                   -> Text -- ^ 'cirLocation'
+                   -> CreateInterconnect
+createInterconnect p1 p2 p3 = CreateInterconnect
+    { _cirBandwidth = p1
+    , _cirInterconnectName = p2
+    , _cirLocation = p3
+    }
 
 data CreateInterconnect = CreateInterconnect
     { _cirBandwidth :: Text
@@ -49,7 +79,43 @@ data CreateInterconnect = CreateInterconnect
       -- ^ Where the interconnect is located Example: EqSV5 Default: None.
     } deriving (Show, Generic)
 
-makeLenses ''CreateInterconnect
+-- | The port bandwidth Example: 1Gbps Default: None Available values:
+-- 1Gbps,10Gbps.
+cirBandwidth
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateInterconnect
+    -> f CreateInterconnect
+cirBandwidth f x =
+    (\y -> x { _cirBandwidth = y })
+       <$> f (_cirBandwidth x)
+{-# INLINE cirBandwidth #-}
+
+-- | The name of the interconnect. Example: "1G Interconnect to AWS" Default:
+-- None.
+cirInterconnectName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateInterconnect
+    -> f CreateInterconnect
+cirInterconnectName f x =
+    (\y -> x { _cirInterconnectName = y })
+       <$> f (_cirInterconnectName x)
+{-# INLINE cirInterconnectName #-}
+
+-- | Where the interconnect is located Example: EqSV5 Default: None.
+cirLocation
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateInterconnect
+    -> f CreateInterconnect
+cirLocation f x =
+    (\y -> x { _cirLocation = y })
+       <$> f (_cirLocation x)
+{-# INLINE cirLocation #-}
 
 instance ToPath CreateInterconnect
 
@@ -60,13 +126,13 @@ instance ToHeaders CreateInterconnect
 instance ToJSON CreateInterconnect
 
 data CreateInterconnectResponse = CreateInterconnectResponse
-    { _iuBandwidth :: Maybe Text
+    { _iBandwidth :: Maybe Text
       -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
-    , _iuInterconnectId :: Maybe Text
+    , _iInterconnectId :: Maybe Text
       -- ^ The ID of the interconnect. Example: dxcon-abc123.
-    , _iuInterconnectName :: Maybe Text
+    , _iInterconnectName :: Maybe Text
       -- ^ The name of the interconnect. Example: "1G Interconnect to AWS".
-    , _iuInterconnectState :: Maybe InterconnectState
+    , _iInterconnectState :: Maybe InterconnectState
       -- ^ State of the interconnect. Requested: The initial state of an
       -- interconnect. The interconnect stays in the requested state until
       -- the Letter of Authorization (LOA) is sent to the customer.
@@ -74,14 +140,90 @@ data CreateInterconnectResponse = CreateInterconnectResponse
       -- initialized. Available: The network link is up, and the
       -- interconnect is ready for use. Down: The network link is down.
       -- Deleted: The interconnect has been deleted.
-    , _iuLocation :: Maybe Text
+    , _iLocation :: Maybe Text
       -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _iuRegion :: Maybe Text
+    , _iRegion :: Maybe Text
       -- ^ The AWS region where the connection is located. Example:
       -- us-east-1 Default: None.
     } deriving (Show, Generic)
 
-makeLenses ''CreateInterconnectResponse
+-- | Bandwidth of the connection. Example: 1Gbps Default: None.
+iBandwidth
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInterconnectResponse
+    -> f CreateInterconnectResponse
+iBandwidth f x =
+    (\y -> x { _iBandwidth = y })
+       <$> f (_iBandwidth x)
+{-# INLINE iBandwidth #-}
+
+-- | The ID of the interconnect. Example: dxcon-abc123.
+iInterconnectId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInterconnectResponse
+    -> f CreateInterconnectResponse
+iInterconnectId f x =
+    (\y -> x { _iInterconnectId = y })
+       <$> f (_iInterconnectId x)
+{-# INLINE iInterconnectId #-}
+
+-- | The name of the interconnect. Example: "1G Interconnect to AWS".
+iInterconnectName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInterconnectResponse
+    -> f CreateInterconnectResponse
+iInterconnectName f x =
+    (\y -> x { _iInterconnectName = y })
+       <$> f (_iInterconnectName x)
+{-# INLINE iInterconnectName #-}
+
+-- | State of the interconnect. Requested: The initial state of an interconnect.
+-- The interconnect stays in the requested state until the Letter of
+-- Authorization (LOA) is sent to the customer. Pending: The interconnect has
+-- been approved, and is being initialized. Available: The network link is up,
+-- and the interconnect is ready for use. Down: The network link is down.
+-- Deleted: The interconnect has been deleted.
+iInterconnectState
+    :: Functor f
+    => (Maybe InterconnectState
+    -> f (Maybe InterconnectState))
+    -> CreateInterconnectResponse
+    -> f CreateInterconnectResponse
+iInterconnectState f x =
+    (\y -> x { _iInterconnectState = y })
+       <$> f (_iInterconnectState x)
+{-# INLINE iInterconnectState #-}
+
+-- | Where the connection is located. Example: EqSV5 Default: None.
+iLocation
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInterconnectResponse
+    -> f CreateInterconnectResponse
+iLocation f x =
+    (\y -> x { _iLocation = y })
+       <$> f (_iLocation x)
+{-# INLINE iLocation #-}
+
+-- | The AWS region where the connection is located. Example: us-east-1 Default:
+-- None.
+iRegion
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateInterconnectResponse
+    -> f CreateInterconnectResponse
+iRegion f x =
+    (\y -> x { _iRegion = y })
+       <$> f (_iRegion x)
+{-# INLINE iRegion #-}
 
 instance FromJSON CreateInterconnectResponse
 

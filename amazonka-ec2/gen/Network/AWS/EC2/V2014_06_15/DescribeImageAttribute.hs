@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,32 +32,22 @@ module Network.AWS.EC2.V2014_06_15.DescribeImageAttribute
     (
     -- * Request
       DescribeImageAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , describeImageAttribute
-    -- ** Accessors and lenses
-    , _diarAttribute
+    -- ** Request lenses
     , diarAttribute
-    , _diarImageId
     , diarImageId
 
     -- * Response
     , DescribeImageAttributeResponse
-    -- ** Accessors and lenses
-    , _iaKernelId
+    -- ** Response lenses
     , iaKernelId
-    , _iaRamdiskId
     , iaRamdiskId
-    , _iaDescription
     , iaDescription
-    , _iaSriovNetSupport
     , iaSriovNetSupport
-    , _iaBlockDeviceMappings
     , iaBlockDeviceMappings
-    , _iaLaunchPermissions
     , iaLaunchPermissions
-    , _iaProductCodes
     , iaProductCodes
-    , _iaImageId
     , iaImageId
     ) where
 
@@ -76,8 +65,35 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
     }
 
 data DescribeImageAttribute = DescribeImageAttribute
+    { _diarAttribute :: ImageAttributeName
+      -- ^ The AMI attribute.
+    , _diarImageId :: Text
+      -- ^ The ID of the AMI.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeImageAttribute
+-- | The AMI attribute.
+diarAttribute
+    :: Functor f
+    => (ImageAttributeName
+    -> f (ImageAttributeName))
+    -> DescribeImageAttribute
+    -> f DescribeImageAttribute
+diarAttribute f x =
+    (\y -> x { _diarAttribute = y })
+       <$> f (_diarAttribute x)
+{-# INLINE diarAttribute #-}
+
+-- | The ID of the AMI.
+diarImageId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeImageAttribute
+    -> f DescribeImageAttribute
+diarImageId f x =
+    (\y -> x { _diarImageId = y })
+       <$> f (_diarImageId x)
+{-# INLINE diarImageId #-}
 
 instance ToQuery DescribeImageAttribute where
     toQuery = genericQuery def
@@ -101,7 +117,101 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
       -- ^ The ID of the AMI.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeImageAttributeResponse
+-- | The kernel ID.
+iaKernelId
+    :: Functor f
+    => (Maybe AttributeValue
+    -> f (Maybe AttributeValue))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaKernelId f x =
+    (\y -> x { _iaKernelId = y })
+       <$> f (_iaKernelId x)
+{-# INLINE iaKernelId #-}
+
+-- | The RAM disk ID.
+iaRamdiskId
+    :: Functor f
+    => (Maybe AttributeValue
+    -> f (Maybe AttributeValue))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaRamdiskId f x =
+    (\y -> x { _iaRamdiskId = y })
+       <$> f (_iaRamdiskId x)
+{-# INLINE iaRamdiskId #-}
+
+-- | A description for the AMI.
+iaDescription
+    :: Functor f
+    => (Maybe AttributeValue
+    -> f (Maybe AttributeValue))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaDescription f x =
+    (\y -> x { _iaDescription = y })
+       <$> f (_iaDescription x)
+{-# INLINE iaDescription #-}
+
+-- | 
+iaSriovNetSupport
+    :: Functor f
+    => (Maybe AttributeValue
+    -> f (Maybe AttributeValue))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaSriovNetSupport f x =
+    (\y -> x { _iaSriovNetSupport = y })
+       <$> f (_iaSriovNetSupport x)
+{-# INLINE iaSriovNetSupport #-}
+
+-- | One or more block device mapping entries.
+iaBlockDeviceMappings
+    :: Functor f
+    => ([BlockDeviceMapping]
+    -> f ([BlockDeviceMapping]))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaBlockDeviceMappings f x =
+    (\y -> x { _iaBlockDeviceMappings = y })
+       <$> f (_iaBlockDeviceMappings x)
+{-# INLINE iaBlockDeviceMappings #-}
+
+-- | One or more launch permissions.
+iaLaunchPermissions
+    :: Functor f
+    => ([LaunchPermission]
+    -> f ([LaunchPermission]))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaLaunchPermissions f x =
+    (\y -> x { _iaLaunchPermissions = y })
+       <$> f (_iaLaunchPermissions x)
+{-# INLINE iaLaunchPermissions #-}
+
+-- | One or more product codes.
+iaProductCodes
+    :: Functor f
+    => ([ProductCode]
+    -> f ([ProductCode]))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaProductCodes f x =
+    (\y -> x { _iaProductCodes = y })
+       <$> f (_iaProductCodes x)
+{-# INLINE iaProductCodes #-}
+
+-- | The ID of the AMI.
+iaImageId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeImageAttributeResponse
+    -> f DescribeImageAttributeResponse
+iaImageId f x =
+    (\y -> x { _iaImageId = y })
+       <$> f (_iaImageId x)
+{-# INLINE iaImageId #-}
 
 instance FromXML DescribeImageAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -112,33 +222,3 @@ instance AWSRequest DescribeImageAttribute where
 
     request = post "DescribeImageAttribute"
     response _ = xmlResponse
-
--- | The AMI attribute.
-diarAttribute :: Lens' DescribeImageAttribute (ImageAttributeName)
-
--- | The ID of the AMI.
-diarImageId :: Lens' DescribeImageAttribute (Text)
-
--- | The kernel ID.
-iaKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-
--- | The RAM disk ID.
-iaRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-
--- | A description for the AMI.
-iaDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-
--- | 
-iaSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-
--- | One or more block device mapping entries.
-iaBlockDeviceMappings :: Lens' DescribeImageAttributeResponse ([BlockDeviceMapping])
-
--- | One or more launch permissions.
-iaLaunchPermissions :: Lens' DescribeImageAttributeResponse ([LaunchPermission])
-
--- | One or more product codes.
-iaProductCodes :: Lens' DescribeImageAttributeResponse ([ProductCode])
-
--- | The ID of the AMI.
-iaImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)

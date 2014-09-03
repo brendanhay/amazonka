@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,12 +30,10 @@ module Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation
     (
     -- * Request
       EnableVgwRoutePropagation
-    -- ** Default constructor
+    -- ** Request constructor
     , enableVgwRoutePropagation
-    -- ** Accessors and lenses
-    , _evrprRouteTableId
+    -- ** Request lenses
     , evrprRouteTableId
-    , _evrprGatewayId
     , evrprGatewayId
 
     -- * Response
@@ -57,8 +54,35 @@ enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     }
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
+    { _evrprRouteTableId :: Text
+      -- ^ The ID of the routing table.
+    , _evrprGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''EnableVgwRoutePropagation
+-- | The ID of the routing table.
+evrprRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableVgwRoutePropagation
+    -> f EnableVgwRoutePropagation
+evrprRouteTableId f x =
+    (\y -> x { _evrprRouteTableId = y })
+       <$> f (_evrprRouteTableId x)
+{-# INLINE evrprRouteTableId #-}
+
+-- | The ID of the virtual private gateway.
+evrprGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableVgwRoutePropagation
+    -> f EnableVgwRoutePropagation
+evrprGatewayId f x =
+    (\y -> x { _evrprGatewayId = y })
+       <$> f (_evrprGatewayId x)
+{-# INLINE evrprGatewayId #-}
 
 instance ToQuery EnableVgwRoutePropagation where
     toQuery = genericQuery def
@@ -66,17 +90,9 @@ instance ToQuery EnableVgwRoutePropagation where
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''EnableVgwRoutePropagationResponse
-
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse
 
     request = post "EnableVgwRoutePropagation"
     response _ = nullaryResponse EnableVgwRoutePropagationResponse
-
--- | The ID of the routing table.
-evrprRouteTableId :: Lens' EnableVgwRoutePropagation (Text)
-
--- | The ID of the virtual private gateway.
-evrprGatewayId :: Lens' EnableVgwRoutePropagation (Text)

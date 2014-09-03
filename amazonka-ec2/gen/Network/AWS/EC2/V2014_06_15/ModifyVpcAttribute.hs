@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,14 +26,11 @@ module Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute
     (
     -- * Request
       ModifyVpcAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , modifyVpcAttribute
-    -- ** Accessors and lenses
-    , _mvasVpcId
+    -- ** Request lenses
     , mvasVpcId
-    , _mvasEnableDnsSupport
     , mvasEnableDnsSupport
-    , _mvasEnableDnsHostnames
     , mvasEnableDnsHostnames
 
     -- * Response
@@ -55,26 +51,35 @@ modifyVpcAttribute p1 = ModifyVpcAttribute
     }
 
 data ModifyVpcAttribute = ModifyVpcAttribute
-
-makeSiglessLenses ''ModifyVpcAttribute
-
-instance ToQuery ModifyVpcAttribute where
-    toQuery = genericQuery def
-
-data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
-    deriving (Eq, Show, Generic)
-
-makeSiglessLenses ''ModifyVpcAttributeResponse
-
-instance AWSRequest ModifyVpcAttribute where
-    type Sv ModifyVpcAttribute = EC2
-    type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
-
-    request = post "ModifyVpcAttribute"
-    response _ = nullaryResponse ModifyVpcAttributeResponse
+    { _mvasVpcId :: Text
+      -- ^ The ID of the VPC.
+    , _mvasEnableDnsSupport :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the DNS resolution is supported for the VPC. If
+      -- this attribute is false, the Amazon provided DNS service in the
+      -- VPC that resolves public DNS hostnames to IP addresses is not
+      -- enabled. If this attribute is true, queries to the Amazon
+      -- provided DNS server at the 169.254.169.253 IP address, or the
+      -- reserved IP address at the base of the VPC network range "plus
+      -- two" will succeed.
+    , _mvasEnableDnsHostnames :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the instances launched in the VPC get DNS
+      -- hostnames. If this attribute is true, instances in the VPC get
+      -- DNS hostnames; otherwise, they do not. You can only set
+      -- enableDnsHostnames to true if you also set the EnableDnsSupport
+      -- attribute to true.
+    } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-mvasVpcId :: Lens' ModifyVpcAttribute (Text)
+mvasVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyVpcAttribute
+    -> f ModifyVpcAttribute
+mvasVpcId f x =
+    (\y -> x { _mvasVpcId = y })
+       <$> f (_mvasVpcId x)
+{-# INLINE mvasVpcId #-}
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If this
 -- attribute is false, the Amazon provided DNS service in the VPC that
@@ -82,10 +87,41 @@ mvasVpcId :: Lens' ModifyVpcAttribute (Text)
 -- attribute is true, queries to the Amazon provided DNS server at the
 -- 169.254.169.253 IP address, or the reserved IP address at the base of the
 -- VPC network range "plus two" will succeed.
-mvasEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
+mvasEnableDnsSupport
+    :: Functor f
+    => (Maybe AttributeBooleanValue
+    -> f (Maybe AttributeBooleanValue))
+    -> ModifyVpcAttribute
+    -> f ModifyVpcAttribute
+mvasEnableDnsSupport f x =
+    (\y -> x { _mvasEnableDnsSupport = y })
+       <$> f (_mvasEnableDnsSupport x)
+{-# INLINE mvasEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
 -- they do not. You can only set enableDnsHostnames to true if you also set
 -- the EnableDnsSupport attribute to true.
-mvasEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
+mvasEnableDnsHostnames
+    :: Functor f
+    => (Maybe AttributeBooleanValue
+    -> f (Maybe AttributeBooleanValue))
+    -> ModifyVpcAttribute
+    -> f ModifyVpcAttribute
+mvasEnableDnsHostnames f x =
+    (\y -> x { _mvasEnableDnsHostnames = y })
+       <$> f (_mvasEnableDnsHostnames x)
+{-# INLINE mvasEnableDnsHostnames #-}
+
+instance ToQuery ModifyVpcAttribute where
+    toQuery = genericQuery def
+
+data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
+    deriving (Eq, Show, Generic)
+
+instance AWSRequest ModifyVpcAttribute where
+    type Sv ModifyVpcAttribute = EC2
+    type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
+
+    request = post "ModifyVpcAttribute"
+    response _ = nullaryResponse ModifyVpcAttributeResponse

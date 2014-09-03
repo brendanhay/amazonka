@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,18 +39,48 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;6c725a19-a142-5b77-94f9-1055a9ea04e7&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetEndpointAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes where
+module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
+    (
+    -- * Request
+      GetEndpointAttributes
+    -- ** Request constructor
+    , getEndpointAttributes
+    -- ** Request lenses
+    , geaiEndpointArn
+
+    -- * Response
+    , GetEndpointAttributesResponse
+    -- ** Response lenses
+    , gearAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetEndpointAttributes' request.
+getEndpointAttributes :: Text -- ^ 'geaiEndpointArn'
+                      -> GetEndpointAttributes
+getEndpointAttributes p1 = GetEndpointAttributes
+    { _geaiEndpointArn = p1
+    }
 
 data GetEndpointAttributes = GetEndpointAttributes
     { _geaiEndpointArn :: Text
       -- ^ EndpointArn for GetEndpointAttributes input.
     } deriving (Show, Generic)
 
-makeLenses ''GetEndpointAttributes
+-- | EndpointArn for GetEndpointAttributes input.
+geaiEndpointArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetEndpointAttributes
+    -> f GetEndpointAttributes
+geaiEndpointArn f x =
+    (\y -> x { _geaiEndpointArn = y })
+       <$> f (_geaiEndpointArn x)
+{-# INLINE geaiEndpointArn #-}
 
 instance ToQuery GetEndpointAttributes where
     toQuery = genericQuery def
@@ -71,7 +100,25 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse
       -- notification service.
     } deriving (Show, Generic)
 
-makeLenses ''GetEndpointAttributesResponse
+-- | Attributes include the following: CustomUserData -- arbitrary user data to
+-- associate with the endpoint. Amazon SNS does not use this data. The data
+-- must be in UTF-8 format and less than 2KB. Enabled -- flag that
+-- enables/disables delivery to the endpoint. Amazon SNS will set this to
+-- false when a notification service indicates to Amazon SNS that the endpoint
+-- is invalid. Users can set it back to true, typically after updating Token.
+-- Token -- device token, also referred to as a registration id, for an app
+-- and mobile device. This is returned from the notification service when an
+-- app and mobile device are registered with the notification service.
+gearAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> GetEndpointAttributesResponse
+    -> f GetEndpointAttributesResponse
+gearAttributes f x =
+    (\y -> x { _gearAttributes = y })
+       <$> f (_gearAttributes x)
+{-# INLINE gearAttributes #-}
 
 instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions

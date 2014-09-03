@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- an IAM user must have a Show, Deploy, or Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments
+    (
+    -- * Request
+      DescribeDeployments
+    -- ** Request constructor
+    , describeDeployments
+    -- ** Request lenses
+    , ddrStackId
+    , ddrAppId
+    , ddrDeploymentIds
+
+    -- * Response
+    , DescribeDeploymentsResponse
+    -- ** Response lenses
+    , ddsDeployments
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -54,7 +68,45 @@ data DescribeDeployments = DescribeDeployments
       -- every deployment.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDeployments
+-- | The stack ID. If you include this parameter, DescribeDeployments returns a
+-- description of the commands associated with the specified stack.
+ddrStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDeployments
+    -> f DescribeDeployments
+ddrStackId f x =
+    (\y -> x { _ddrStackId = y })
+       <$> f (_ddrStackId x)
+{-# INLINE ddrStackId #-}
+
+-- | The app ID. If you include this parameter, DescribeDeployments returns a
+-- description of the commands associated with the specified app.
+ddrAppId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDeployments
+    -> f DescribeDeployments
+ddrAppId f x =
+    (\y -> x { _ddrAppId = y })
+       <$> f (_ddrAppId x)
+{-# INLINE ddrAppId #-}
+
+-- | An array of deployment IDs to be described. If you include this parameter,
+-- DescribeDeployments returns a description of the specified deployments.
+-- Otherwise, it returns a description of every deployment.
+ddrDeploymentIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeDeployments
+    -> f DescribeDeployments
+ddrDeploymentIds f x =
+    (\y -> x { _ddrDeploymentIds = y })
+       <$> f (_ddrDeploymentIds x)
+{-# INLINE ddrDeploymentIds #-}
 
 instance ToPath DescribeDeployments
 
@@ -69,7 +121,17 @@ data DescribeDeploymentsResponse = DescribeDeploymentsResponse
       -- ^ An array of Deployment objects that describe the deployments.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDeploymentsResponse
+-- | An array of Deployment objects that describe the deployments.
+ddsDeployments
+    :: Functor f
+    => ([Deployment]
+    -> f ([Deployment]))
+    -> DescribeDeploymentsResponse
+    -> f DescribeDeploymentsResponse
+ddsDeployments f x =
+    (\y -> x { _ddsDeployments = y })
+       <$> f (_ddsDeployments x)
+{-# INLINE ddsDeployments #-}
 
 instance FromJSON DescribeDeploymentsResponse
 

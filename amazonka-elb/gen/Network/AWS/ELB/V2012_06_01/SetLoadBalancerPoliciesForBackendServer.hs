@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,11 +34,35 @@
 -- 0eb9b381-dde0-11e2-8d78-6ddbaEXAMPLE You can use DescribeLoadBalancers or
 -- DescribeLoadBalancerPolicies action to verify that the policy has been
 -- associated with the back-end server.
-module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer where
+module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer
+    (
+    -- * Request
+      SetLoadBalancerPoliciesForBackendServer
+    -- ** Request constructor
+    , setLoadBalancerPoliciesForBackendServer
+    -- ** Request lenses
+    , slbpfbsiLoadBalancerName
+    , slbpfbsiInstancePort
+    , slbpfbsiPolicyNames
+
+    -- * Response
+    , SetLoadBalancerPoliciesForBackendServerResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SetLoadBalancerPoliciesForBackendServer' request.
+setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsiLoadBalancerName'
+                                        -> Integer -- ^ 'slbpfbsiInstancePort'
+                                        -> [Text] -- ^ 'slbpfbsiPolicyNames'
+                                        -> SetLoadBalancerPoliciesForBackendServer
+setLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForBackendServer
+    { _slbpfbsiLoadBalancerName = p1
+    , _slbpfbsiInstancePort = p2
+    , _slbpfbsiPolicyNames = p3
+    }
 
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsiLoadBalancerName :: Text
@@ -52,15 +75,49 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
       -- current polices are removed from the back-end server.
     } deriving (Show, Generic)
 
-makeLenses ''SetLoadBalancerPoliciesForBackendServer
+-- | The mnemonic name associated with the load balancer. This name must be
+-- unique within the set of your load balancers.
+slbpfbsiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetLoadBalancerPoliciesForBackendServer
+    -> f SetLoadBalancerPoliciesForBackendServer
+slbpfbsiLoadBalancerName f x =
+    (\y -> x { _slbpfbsiLoadBalancerName = y })
+       <$> f (_slbpfbsiLoadBalancerName x)
+{-# INLINE slbpfbsiLoadBalancerName #-}
+
+-- | The port number associated with the back-end server.
+slbpfbsiInstancePort
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> SetLoadBalancerPoliciesForBackendServer
+    -> f SetLoadBalancerPoliciesForBackendServer
+slbpfbsiInstancePort f x =
+    (\y -> x { _slbpfbsiInstancePort = y })
+       <$> f (_slbpfbsiInstancePort x)
+{-# INLINE slbpfbsiInstancePort #-}
+
+-- | List of policy names to be set. If the list is empty, then all current
+-- polices are removed from the back-end server.
+slbpfbsiPolicyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SetLoadBalancerPoliciesForBackendServer
+    -> f SetLoadBalancerPoliciesForBackendServer
+slbpfbsiPolicyNames f x =
+    (\y -> x { _slbpfbsiPolicyNames = y })
+       <$> f (_slbpfbsiPolicyNames x)
+{-# INLINE slbpfbsiPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesForBackendServer where
     toQuery = genericQuery def
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetLoadBalancerPoliciesForBackendServerResponse
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Sv SetLoadBalancerPoliciesForBackendServer = ELB

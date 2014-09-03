@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,20 +18,65 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about an invalidation.
-module Network.AWS.CloudFront.V2014_05_31.GetInvalidation where
+module Network.AWS.CloudFront.V2014_05_31.GetInvalidation
+    (
+    -- * Request
+      GetInvalidation
+    -- ** Request constructor
+    , getInvalidation
+    -- ** Request lenses
+    , girDistributionId
+    , girId
+
+    -- * Response
+    , GetInvalidationResponse
+    -- ** Response lenses
+    , gisInvalidation
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetInvalidation' request.
+getInvalidation :: Text -- ^ 'girDistributionId'
+                -> Text -- ^ 'girId'
+                -> GetInvalidation
+getInvalidation p1 p2 = GetInvalidation
+    { _girDistributionId = p1
+    , _girId = p2
+    }
+
 data GetInvalidation = GetInvalidation
-    { _girId :: Text
-      -- ^ The invalidation's id.
-    , _girDistributionId :: Text
+    { _girDistributionId :: Text
       -- ^ The distribution's id.
+    , _girId :: Text
+      -- ^ The invalidation's id.
     } deriving (Show, Generic)
 
-makeLenses ''GetInvalidation
+-- | The distribution's id.
+girDistributionId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetInvalidation
+    -> f GetInvalidation
+girDistributionId f x =
+    (\y -> x { _girDistributionId = y })
+       <$> f (_girDistributionId x)
+{-# INLINE girDistributionId #-}
+
+-- | The invalidation's id.
+girId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetInvalidation
+    -> f GetInvalidation
+girId f x =
+    (\y -> x { _girId = y })
+       <$> f (_girId x)
+{-# INLINE girId #-}
 
 instance ToPath GetInvalidation where
     toPath GetInvalidation{..} = mconcat
@@ -55,7 +99,17 @@ data GetInvalidationResponse = GetInvalidationResponse
       -- ^ The invalidation's information.
     } deriving (Show, Generic)
 
-makeLenses ''GetInvalidationResponse
+-- | The invalidation's information.
+gisInvalidation
+    :: Functor f
+    => (Maybe Invalidation
+    -> f (Maybe Invalidation))
+    -> GetInvalidationResponse
+    -> f GetInvalidationResponse
+gisInvalidation f x =
+    (\y -> x { _gisInvalidation = y })
+       <$> f (_gisInvalidation x)
+{-# INLINE gisInvalidation #-}
 
 instance FromXML GetInvalidationResponse where
     fromXMLOptions = xmlOptions

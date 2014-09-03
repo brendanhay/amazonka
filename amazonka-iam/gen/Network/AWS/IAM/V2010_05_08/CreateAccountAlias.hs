@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,26 +22,52 @@
 -- the Using IAM guide. https://iam.amazonaws.com/ ?Action=CreateAccountAlias
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 36b5db08-f1b0-11df-8fbe-45274EXAMPLE.
-module Network.AWS.IAM.V2010_05_08.CreateAccountAlias where
+module Network.AWS.IAM.V2010_05_08.CreateAccountAlias
+    (
+    -- * Request
+      CreateAccountAlias
+    -- ** Request constructor
+    , createAccountAlias
+    -- ** Request lenses
+    , caarAccountAlias
+
+    -- * Response
+    , CreateAccountAliasResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateAccountAlias' request.
+createAccountAlias :: Text -- ^ 'caarAccountAlias'
+                   -> CreateAccountAlias
+createAccountAlias p1 = CreateAccountAlias
+    { _caarAccountAlias = p1
+    }
 
 data CreateAccountAlias = CreateAccountAlias
     { _caarAccountAlias :: Text
       -- ^ Name of the account alias to create.
     } deriving (Show, Generic)
 
-makeLenses ''CreateAccountAlias
+-- | Name of the account alias to create.
+caarAccountAlias
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateAccountAlias
+    -> f CreateAccountAlias
+caarAccountAlias f x =
+    (\y -> x { _caarAccountAlias = y })
+       <$> f (_caarAccountAlias x)
+{-# INLINE caarAccountAlias #-}
 
 instance ToQuery CreateAccountAlias where
     toQuery = genericQuery def
 
 data CreateAccountAliasResponse = CreateAccountAliasResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''CreateAccountAliasResponse
 
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM

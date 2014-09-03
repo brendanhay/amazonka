@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,7 +19,18 @@
 
 -- | Returns a list of all buckets owned by the authenticated sender of the
 -- request.
-module Network.AWS.S3.V2006_03_01.ListBuckets where
+module Network.AWS.S3.V2006_03_01.ListBuckets
+    (
+    -- * Request
+      ListBuckets
+    -- ** Request constructor
+    , listBuckets
+    -- * Response
+    , ListBucketsResponse
+    -- ** Response lenses
+    , lboBuckets
+    , lboOwner
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
@@ -28,10 +38,12 @@ import Network.AWS.Prelude
 
 type GetService = ListBuckets
 
+-- | Minimum specification for a 'ListBuckets' request.
+listBuckets :: ListBuckets
+listBuckets = ListBuckets
+
 data ListBuckets = ListBuckets
     deriving (Eq, Show, Generic)
-
-makeLenses ''ListBuckets
 
 instance ToPath ListBuckets where
     toPath = const "/"
@@ -47,7 +59,27 @@ data ListBucketsResponse = ListBucketsResponse
     , _lboOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-makeLenses ''ListBucketsResponse
+lboBuckets
+    :: Functor f
+    => ([Bucket]
+    -> f ([Bucket]))
+    -> ListBucketsResponse
+    -> f ListBucketsResponse
+lboBuckets f x =
+    (\y -> x { _lboBuckets = y })
+       <$> f (_lboBuckets x)
+{-# INLINE lboBuckets #-}
+
+lboOwner
+    :: Functor f
+    => (Maybe Owner
+    -> f (Maybe Owner))
+    -> ListBucketsResponse
+    -> f ListBucketsResponse
+lboOwner f x =
+    (\y -> x { _lboOwner = y })
+       <$> f (_lboOwner x)
+{-# INLINE lboOwner #-}
 
 instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions

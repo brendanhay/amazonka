@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,22 +29,17 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute
     (
     -- * Request
       DescribeSnapshotAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , describeSnapshotAttribute
-    -- ** Accessors and lenses
-    , _dsarAttribute
+    -- ** Request lenses
     , dsarAttribute
-    , _dsarSnapshotId
     , dsarSnapshotId
 
     -- * Response
     , DescribeSnapshotAttributeResponse
-    -- ** Accessors and lenses
-    , _dsasCreateVolumePermissions
+    -- ** Response lenses
     , dsasCreateVolumePermissions
-    , _dsasProductCodes
     , dsasProductCodes
-    , _dsasSnapshotId
     , dsasSnapshotId
     ) where
 
@@ -63,8 +57,35 @@ describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     }
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
+    { _dsarAttribute :: SnapshotAttributeName
+      -- ^ The snapshot attribute you would like to view.
+    , _dsarSnapshotId :: Text
+      -- ^ The ID of the Amazon EBS snapshot.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeSnapshotAttribute
+-- | The snapshot attribute you would like to view.
+dsarAttribute
+    :: Functor f
+    => (SnapshotAttributeName
+    -> f (SnapshotAttributeName))
+    -> DescribeSnapshotAttribute
+    -> f DescribeSnapshotAttribute
+dsarAttribute f x =
+    (\y -> x { _dsarAttribute = y })
+       <$> f (_dsarAttribute x)
+{-# INLINE dsarAttribute #-}
+
+-- | The ID of the Amazon EBS snapshot.
+dsarSnapshotId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeSnapshotAttribute
+    -> f DescribeSnapshotAttribute
+dsarSnapshotId f x =
+    (\y -> x { _dsarSnapshotId = y })
+       <$> f (_dsarSnapshotId x)
+{-# INLINE dsarSnapshotId #-}
 
 instance ToQuery DescribeSnapshotAttribute where
     toQuery = genericQuery def
@@ -78,7 +99,41 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
       -- ^ The ID of the Amazon EBS snapshot.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeSnapshotAttributeResponse
+-- | A list of permissions for creating volumes from the snapshot.
+dsasCreateVolumePermissions
+    :: Functor f
+    => ([CreateVolumePermission]
+    -> f ([CreateVolumePermission]))
+    -> DescribeSnapshotAttributeResponse
+    -> f DescribeSnapshotAttributeResponse
+dsasCreateVolumePermissions f x =
+    (\y -> x { _dsasCreateVolumePermissions = y })
+       <$> f (_dsasCreateVolumePermissions x)
+{-# INLINE dsasCreateVolumePermissions #-}
+
+-- | A list of product codes.
+dsasProductCodes
+    :: Functor f
+    => ([ProductCode]
+    -> f ([ProductCode]))
+    -> DescribeSnapshotAttributeResponse
+    -> f DescribeSnapshotAttributeResponse
+dsasProductCodes f x =
+    (\y -> x { _dsasProductCodes = y })
+       <$> f (_dsasProductCodes x)
+{-# INLINE dsasProductCodes #-}
+
+-- | The ID of the Amazon EBS snapshot.
+dsasSnapshotId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeSnapshotAttributeResponse
+    -> f DescribeSnapshotAttributeResponse
+dsasSnapshotId f x =
+    (\y -> x { _dsasSnapshotId = y })
+       <$> f (_dsasSnapshotId x)
+{-# INLINE dsasSnapshotId #-}
 
 instance FromXML DescribeSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions
@@ -89,18 +144,3 @@ instance AWSRequest DescribeSnapshotAttribute where
 
     request = post "DescribeSnapshotAttribute"
     response _ = xmlResponse
-
--- | The snapshot attribute you would like to view.
-dsarAttribute :: Lens' DescribeSnapshotAttribute (SnapshotAttributeName)
-
--- | The ID of the Amazon EBS snapshot.
-dsarSnapshotId :: Lens' DescribeSnapshotAttribute (Text)
-
--- | A list of permissions for creating volumes from the snapshot.
-dsasCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse ([CreateVolumePermission])
-
--- | A list of product codes.
-dsasProductCodes :: Lens' DescribeSnapshotAttributeResponse ([ProductCode])
-
--- | The ID of the Amazon EBS snapshot.
-dsasSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)

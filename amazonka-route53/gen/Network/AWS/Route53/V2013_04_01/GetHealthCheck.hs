@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,18 +19,48 @@
 
 -- | To retrieve the health check, send a GET request to the
 -- 2013-04-01/healthcheck/health check ID resource.
-module Network.AWS.Route53.V2013_04_01.GetHealthCheck where
+module Network.AWS.Route53.V2013_04_01.GetHealthCheck
+    (
+    -- * Request
+      GetHealthCheck
+    -- ** Request constructor
+    , getHealthCheck
+    -- ** Request lenses
+    , ghcrHealthCheckId
+
+    -- * Response
+    , GetHealthCheckResponse
+    -- ** Response lenses
+    , ghcsHealthCheck
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetHealthCheck' request.
+getHealthCheck :: Text -- ^ 'ghcrHealthCheckId'
+               -> GetHealthCheck
+getHealthCheck p1 = GetHealthCheck
+    { _ghcrHealthCheckId = p1
+    }
 
 data GetHealthCheck = GetHealthCheck
     { _ghcrHealthCheckId :: Text
       -- ^ The ID of the health check to retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''GetHealthCheck
+-- | The ID of the health check to retrieve.
+ghcrHealthCheckId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetHealthCheck
+    -> f GetHealthCheck
+ghcrHealthCheckId f x =
+    (\y -> x { _ghcrHealthCheckId = y })
+       <$> f (_ghcrHealthCheckId x)
+{-# INLINE ghcrHealthCheckId #-}
 
 instance ToPath GetHealthCheck where
     toPath GetHealthCheck{..} = mconcat
@@ -53,7 +82,18 @@ data GetHealthCheckResponse = GetHealthCheckResponse
       -- health check.
     } deriving (Show, Generic)
 
-makeLenses ''GetHealthCheckResponse
+-- | A complex type that contains the information about the specified health
+-- check.
+ghcsHealthCheck
+    :: Functor f
+    => (HealthCheck
+    -> f (HealthCheck))
+    -> GetHealthCheckResponse
+    -> f GetHealthCheckResponse
+ghcsHealthCheck f x =
+    (\y -> x { _ghcsHealthCheck = y })
+       <$> f (_ghcsHealthCheck x)
+{-# INLINE ghcsHealthCheck #-}
 
 instance FromXML GetHealthCheckResponse where
     fromXMLOptions = xmlOptions

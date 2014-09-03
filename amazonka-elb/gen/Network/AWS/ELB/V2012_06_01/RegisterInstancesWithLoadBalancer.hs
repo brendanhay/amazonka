@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,11 +42,34 @@
 -- &LoadBalancerName=my-test-loadbalancer &Version=2012-06-01
 -- &Action=RegisterInstancesWithLoadBalancer &AUTHPARAMS i-315b7e51
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
+    (
+    -- * Request
+      RegisterInstancesWithLoadBalancer
+    -- ** Request constructor
+    , registerInstancesWithLoadBalancer
+    -- ** Request lenses
+    , repiLoadBalancerName
+    , repiInstances
+
+    -- * Response
+    , RegisterInstancesWithLoadBalancerResponse
+    -- ** Response lenses
+    , repoInstances
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'RegisterInstancesWithLoadBalancer' request.
+registerInstancesWithLoadBalancer :: Text -- ^ 'repiLoadBalancerName'
+                                  -> [Instance] -- ^ 'repiInstances'
+                                  -> RegisterInstancesWithLoadBalancer
+registerInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
+    { _repiLoadBalancerName = p1
+    , _repiInstances = p2
+    }
 
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { _repiLoadBalancerName :: Text
@@ -58,7 +80,30 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
       -- balancer.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterInstancesWithLoadBalancer
+-- | The name associated with the load balancer. The name must be unique within
+-- your set of load balancers.
+repiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RegisterInstancesWithLoadBalancer
+    -> f RegisterInstancesWithLoadBalancer
+repiLoadBalancerName f x =
+    (\y -> x { _repiLoadBalancerName = y })
+       <$> f (_repiLoadBalancerName x)
+{-# INLINE repiLoadBalancerName #-}
+
+-- | A list of instance IDs that should be registered with the load balancer.
+repiInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> RegisterInstancesWithLoadBalancer
+    -> f RegisterInstancesWithLoadBalancer
+repiInstances f x =
+    (\y -> x { _repiInstances = y })
+       <$> f (_repiInstances x)
+{-# INLINE repiInstances #-}
 
 instance ToQuery RegisterInstancesWithLoadBalancer where
     toQuery = genericQuery def
@@ -68,7 +113,17 @@ data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalanc
       -- ^ An updated list of instances for the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''RegisterInstancesWithLoadBalancerResponse
+-- | An updated list of instances for the load balancer.
+repoInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> RegisterInstancesWithLoadBalancerResponse
+    -> f RegisterInstancesWithLoadBalancerResponse
+repoInstances f x =
+    (\y -> x { _repoInstances = y })
+       <$> f (_repoInstances x)
+{-# INLINE repoInstances #-}
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     fromXMLOptions = xmlOptions

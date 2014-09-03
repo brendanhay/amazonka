@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,7 +34,21 @@
 -- connections:Keep-Alive { "DomainName":"example.com" } HTTP/1.1 200
 -- Content-Length:[number of characters in the JSON string] {
 -- "Availability":"AVAILABLE" }.
-module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability where
+module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
+    (
+    -- * Request
+      CheckDomainAvailability
+    -- ** Request constructor
+    , checkDomainAvailability
+    -- ** Request lenses
+    , cdarDomainName
+    , cdarIdnLangCode
+
+    -- * Response
+    , CheckDomainAvailabilityResponse
+    -- ** Response lenses
+    , cdasAvailability
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
@@ -43,7 +56,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CheckDomainAvailability' request.
-checkDomainAvailability :: Text -- ^ '_cdarDomainName'
+checkDomainAvailability :: Text -- ^ 'cdarDomainName'
                         -> CheckDomainAvailability
 checkDomainAvailability p1 = CheckDomainAvailability
     { _cdarDomainName = p1
@@ -60,7 +73,32 @@ data CheckDomainAvailability = CheckDomainAvailability
       -- ^ Reserved for future use.
     } deriving (Show, Generic)
 
-makeLenses ''CheckDomainAvailability
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+cdarDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CheckDomainAvailability
+    -> f CheckDomainAvailability
+cdarDomainName f x =
+    (\y -> x { _cdarDomainName = y })
+       <$> f (_cdarDomainName x)
+{-# INLINE cdarDomainName #-}
+
+-- | Reserved for future use.
+cdarIdnLangCode
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CheckDomainAvailability
+    -> f CheckDomainAvailability
+cdarIdnLangCode f x =
+    (\y -> x { _cdarIdnLangCode = y })
+       <$> f (_cdarIdnLangCode x)
+{-# INLINE cdarIdnLangCode #-}
 
 instance ToPath CheckDomainAvailability
 
@@ -84,7 +122,24 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
       -- or organization.
     } deriving (Show, Generic)
 
-makeLenses ''CheckDomainAvailabilityResponse
+-- | Whether the domain name is available for registering. You can only register
+-- domains designated as AVAILABLE. Type: String Valid values: AVAILABLE – The
+-- domain name is available. AVAILABLE_RESERVED – The domain name is reserved
+-- under specific conditions. AVAILABLE_PREORDER – The domain name is
+-- available and can be preordered. UNAVAILABLE – The domain name is not
+-- available. UNAVAILABLE_PREMIUM – The domain name is not available.
+-- UNAVAILABLE_RESTRICTED – The domain name is forbidden. RESERVED – The
+-- domain name has been reserved for another person or organization.
+cdasAvailability
+    :: Functor f
+    => (DomainAvailability
+    -> f (DomainAvailability))
+    -> CheckDomainAvailabilityResponse
+    -> f CheckDomainAvailabilityResponse
+cdasAvailability f x =
+    (\y -> x { _cdasAvailability = y })
+       <$> f (_cdasAvailability x)
+{-# INLINE cdasAvailability #-}
 
 instance FromJSON CheckDomainAvailabilityResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,14 +32,28 @@
 -- 2K5K5XTLA7GGE75TQLYEXAMPLEEXAMPLEEXAMPLECHDFW4KJYZ6 UFQ75LL7COCYKM
 -- 89504E470D0A1A0AASDFAHSDFKJKLJFKALSDFJASDF
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice where
+module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
+    (
+    -- * Request
+      CreateVirtualMFADevice
+    -- ** Request constructor
+    , createVirtualMFADevice
+    -- ** Request lenses
+    , cvmfadrVirtualMFADeviceName
+    , cvmfadrPath
+
+    -- * Response
+    , CreateVirtualMFADeviceResponse
+    -- ** Response lenses
+    , cvmfadsVirtualMFADevice
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'CreateVirtualMFADevice' request.
-createVirtualMFADevice :: Text -- ^ '_cvmfadrVirtualMFADeviceName'
+createVirtualMFADevice :: Text -- ^ 'cvmfadrVirtualMFADeviceName'
                        -> CreateVirtualMFADevice
 createVirtualMFADevice p1 = CreateVirtualMFADevice
     { _cvmfadrVirtualMFADeviceName = p1
@@ -58,7 +71,32 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice
       -- a slash (/).
     } deriving (Show, Generic)
 
-makeLenses ''CreateVirtualMFADevice
+-- | The name of the virtual MFA device. Use with path to uniquely identify a
+-- virtual MFA device.
+cvmfadrVirtualMFADeviceName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateVirtualMFADevice
+    -> f CreateVirtualMFADevice
+cvmfadrVirtualMFADeviceName f x =
+    (\y -> x { _cvmfadrVirtualMFADeviceName = y })
+       <$> f (_cvmfadrVirtualMFADeviceName x)
+{-# INLINE cvmfadrVirtualMFADeviceName #-}
+
+-- | The path for the virtual MFA device. For more information about paths, see
+-- Identifiers for IAM Entities in the Using IAM guide. This parameter is
+-- optional. If it is not included, it defaults to a slash (/).
+cvmfadrPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVirtualMFADevice
+    -> f CreateVirtualMFADevice
+cvmfadrPath f x =
+    (\y -> x { _cvmfadrPath = y })
+       <$> f (_cvmfadrPath x)
+{-# INLINE cvmfadrPath #-}
 
 instance ToQuery CreateVirtualMFADevice where
     toQuery = genericQuery def
@@ -68,7 +106,17 @@ data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
       -- ^ A newly created virtual MFA device.
     } deriving (Show, Generic)
 
-makeLenses ''CreateVirtualMFADeviceResponse
+-- | A newly created virtual MFA device.
+cvmfadsVirtualMFADevice
+    :: Functor f
+    => (VirtualMFADevice
+    -> f (VirtualMFADevice))
+    -> CreateVirtualMFADeviceResponse
+    -> f CreateVirtualMFADeviceResponse
+cvmfadsVirtualMFADevice f x =
+    (\y -> x { _cvmfadsVirtualMFADevice = y })
+       <$> f (_cvmfadsVirtualMFADevice x)
+{-# INLINE cvmfadsVirtualMFADevice #-}
 
 instance FromXML CreateVirtualMFADeviceResponse where
     fromXMLOptions = xmlOptions

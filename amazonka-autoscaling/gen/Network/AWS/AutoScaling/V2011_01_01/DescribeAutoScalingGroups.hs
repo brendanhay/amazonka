@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,23 @@
 -- arn:aws:autoscaling:us-east-1:803981987763:autoScalingGroup:ca861182-c8f9-4ca7-b1eb-cd35505f5ebb
 -- :autoScalingGroupName/my-test-asg-lbs Default 10
 -- 0f02a07d-b677-11e2-9eb0-dd50EXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
+    (
+    -- * Request
+      DescribeAutoScalingGroups
+    -- ** Request constructor
+    , describeAutoScalingGroups
+    -- ** Request lenses
+    , asgntAutoScalingGroupNames
+    , asgntMaxRecords
+    , asgntNextToken
+
+    -- * Response
+    , DescribeAutoScalingGroupsResponse
+    -- ** Response lenses
+    , asgtAutoScalingGroups
+    , asgtNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
@@ -55,7 +70,41 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAutoScalingGroups
+-- | A list of Auto Scaling group names.
+asgntAutoScalingGroupNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeAutoScalingGroups
+    -> f DescribeAutoScalingGroups
+asgntAutoScalingGroupNames f x =
+    (\y -> x { _asgntAutoScalingGroupNames = y })
+       <$> f (_asgntAutoScalingGroupNames x)
+{-# INLINE asgntAutoScalingGroupNames #-}
+
+-- | The maximum number of records to return.
+asgntMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeAutoScalingGroups
+    -> f DescribeAutoScalingGroups
+asgntMaxRecords f x =
+    (\y -> x { _asgntMaxRecords = y })
+       <$> f (_asgntMaxRecords x)
+{-# INLINE asgntMaxRecords #-}
+
+-- | A string that marks the start of the next batch of returned results.
+asgntNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeAutoScalingGroups
+    -> f DescribeAutoScalingGroups
+asgntNextToken f x =
+    (\y -> x { _asgntNextToken = y })
+       <$> f (_asgntNextToken x)
+{-# INLINE asgntNextToken #-}
 
 instance ToQuery DescribeAutoScalingGroups where
     toQuery = genericQuery def
@@ -68,7 +117,29 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeAutoScalingGroupsResponse
+-- | A list of Auto Scaling groups.
+asgtAutoScalingGroups
+    :: Functor f
+    => ([AutoScalingGroup]
+    -> f ([AutoScalingGroup]))
+    -> DescribeAutoScalingGroupsResponse
+    -> f DescribeAutoScalingGroupsResponse
+asgtAutoScalingGroups f x =
+    (\y -> x { _asgtAutoScalingGroups = y })
+       <$> f (_asgtAutoScalingGroups x)
+{-# INLINE asgtAutoScalingGroups #-}
+
+-- | A string that marks the start of the next batch of returned results.
+asgtNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeAutoScalingGroupsResponse
+    -> f DescribeAutoScalingGroupsResponse
+asgtNextToken f x =
+    (\y -> x { _asgtNextToken = y })
+       <$> f (_asgtNextToken x)
+{-# INLINE asgtNextToken #-}
 
 instance FromXML DescribeAutoScalingGroupsResponse where
     fromXMLOptions = xmlOptions

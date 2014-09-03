@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,7 +26,24 @@
 -- m1.small false WebServerPort The TCP port for the Web Server 8888 false
 -- KeyName Name of an existing EC2 KeyPair to enable SSH access into the
 -- server 0be7b6e8-e4a0-11e0-a5bd-9f8d5a7dbc91.
-module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate where
+module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
+    (
+    -- * Request
+      ValidateTemplate
+    -- ** Request constructor
+    , validateTemplate
+    -- ** Request lenses
+    , vtiTemplateBody
+    , vtiTemplateURL
+
+    -- * Response
+    , ValidateTemplateResponse
+    -- ** Response lenses
+    , vtoCapabilities
+    , vtoCapabilitiesReason
+    , vtoDescription
+    , vtoParameters
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
@@ -56,7 +72,36 @@ data ValidateTemplate = ValidateTemplate
       -- are passed, only TemplateBody is used.
     } deriving (Show, Generic)
 
-makeLenses ''ValidateTemplate
+-- | Structure containing the template body with a minimum length of 1 byte and
+-- a maximum length of 51,200 bytes. For more information, go to Template
+-- Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass
+-- TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
+vtiTemplateBody
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidateTemplate
+    -> f ValidateTemplate
+vtiTemplateBody f x =
+    (\y -> x { _vtiTemplateBody = y })
+       <$> f (_vtiTemplateBody x)
+{-# INLINE vtiTemplateBody #-}
+
+-- | Location of file containing the template body. The URL must point to a
+-- template (max size: 307,200 bytes) located in an S3 bucket in the same
+-- region as the stack. For more information, go to Template Anatomy in the
+-- AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or
+-- TemplateBody. If both are passed, only TemplateBody is used.
+vtiTemplateURL
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidateTemplate
+    -> f ValidateTemplate
+vtiTemplateURL f x =
+    (\y -> x { _vtiTemplateURL = y })
+       <$> f (_vtiTemplateURL x)
+{-# INLINE vtiTemplateURL #-}
 
 instance ToQuery ValidateTemplate where
     toQuery = genericQuery def
@@ -77,7 +122,57 @@ data ValidateTemplateResponse = ValidateTemplateResponse
       -- ^ A list of TemplateParameter structures.
     } deriving (Show, Generic)
 
-makeLenses ''ValidateTemplateResponse
+-- | The capabilities found within the template. Currently, CAPABILITY_IAM is
+-- the only capability detected. If your template contains IAM resources, you
+-- must specify the CAPABILITY_IAM value for this parameter when you use the
+-- CreateStack or UpdateStack actions with your template; otherwise, those
+-- actions return an InsufficientCapabilities error.
+vtoCapabilities
+    :: Functor f
+    => ([Capability]
+    -> f ([Capability]))
+    -> ValidateTemplateResponse
+    -> f ValidateTemplateResponse
+vtoCapabilities f x =
+    (\y -> x { _vtoCapabilities = y })
+       <$> f (_vtoCapabilities x)
+{-# INLINE vtoCapabilities #-}
+
+-- | The capabilities reason found within the template.
+vtoCapabilitiesReason
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidateTemplateResponse
+    -> f ValidateTemplateResponse
+vtoCapabilitiesReason f x =
+    (\y -> x { _vtoCapabilitiesReason = y })
+       <$> f (_vtoCapabilitiesReason x)
+{-# INLINE vtoCapabilitiesReason #-}
+
+-- | The description found within the template.
+vtoDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidateTemplateResponse
+    -> f ValidateTemplateResponse
+vtoDescription f x =
+    (\y -> x { _vtoDescription = y })
+       <$> f (_vtoDescription x)
+{-# INLINE vtoDescription #-}
+
+-- | A list of TemplateParameter structures.
+vtoParameters
+    :: Functor f
+    => ([TemplateParameter]
+    -> f ([TemplateParameter]))
+    -> ValidateTemplateResponse
+    -> f ValidateTemplateResponse
+vtoParameters f x =
+    (\y -> x { _vtoParameters = y })
+       <$> f (_vtoParameters x)
+{-# INLINE vtoParameters #-}
 
 instance FromXML ValidateTemplateResponse where
     fromXMLOptions = xmlOptions

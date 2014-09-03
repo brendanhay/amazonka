@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,18 +54,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeSubnets
     (
     -- * Request
       DescribeSubnets
-    -- ** Default constructor
+    -- ** Request constructor
     , describeSubnets
-    -- ** Accessors and lenses
-    , _dsxFilters
+    -- ** Request lenses
     , dsxFilters
-    , _dsxSubnetIds
     , dsxSubnetIds
 
     -- * Response
     , DescribeSubnetsResponse
-    -- ** Accessors and lenses
-    , _dsySubnets
+    -- ** Response lenses
     , dsySubnets
     ) where
 
@@ -82,28 +78,31 @@ describeSubnets = DescribeSubnets
     }
 
 data DescribeSubnets = DescribeSubnets
-
-makeSiglessLenses ''DescribeSubnets
-
-instance ToQuery DescribeSubnets where
-    toQuery = genericQuery def
-
-data DescribeSubnetsResponse = DescribeSubnetsResponse
-    { _dsySubnets :: [Subnet]
-      -- ^ Information about one or more subnets.
+    { _dsxFilters :: [Filter]
+      -- ^ One or more filters. availabilityZone - The Availability Zone for
+      -- the subnet. You can also use availability-zone as the filter
+      -- name. available-ip-address-count - The number of IP addresses in
+      -- the subnet that are available. cidrBlock - The CIDR block of the
+      -- subnet. The CIDR block you specify must exactly match the
+      -- subnet's CIDR block for information to be returned for the
+      -- subnet. You can also use cidr or cidr-block as the filter names.
+      -- defaultForAz - Indicates whether this is the default subnet for
+      -- the Availability Zone. You can also use default-for-az as the
+      -- filter name. state - The state of the subnet (pending |
+      -- available). subnet-id - The ID of the subnet. tag:key=value - The
+      -- key/value combination of a tag assigned to the resource. tag-key
+      -- - The key of a tag assigned to the resource. This filter is
+      -- independent of the tag-value filter. For example, if you use both
+      -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
+      -- get any resources assigned both the tag key Purpose (regardless
+      -- of what the tag's value is), and the tag value X (regardless of
+      -- what the tag's key is). If you want to list only resources where
+      -- Purpose is X, see the tag:key=value filter. tag-value - The value
+      -- of a tag assigned to the resource. This filter is independent of
+      -- the tag-key filter. vpc-id - The ID of the VPC for the subnet.
+    , _dsxSubnetIds :: [Text]
+      -- ^ One or more subnet IDs. Default: Describes all your subnets.
     } deriving (Show, Generic)
-
-makeSiglessLenses ''DescribeSubnetsResponse
-
-instance FromXML DescribeSubnetsResponse where
-    fromXMLOptions = xmlOptions
-
-instance AWSRequest DescribeSubnets where
-    type Sv DescribeSubnets = EC2
-    type Rs DescribeSubnets = DescribeSubnetsResponse
-
-    request = post "DescribeSubnets"
-    response _ = xmlResponse
 
 -- | One or more filters. availabilityZone - The Availability Zone for the
 -- subnet. You can also use availability-zone as the filter name.
@@ -124,10 +123,55 @@ instance AWSRequest DescribeSubnets where
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the subnet.
-dsxFilters :: Lens' DescribeSubnets ([Filter])
+dsxFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeSubnets
+    -> f DescribeSubnets
+dsxFilters f x =
+    (\y -> x { _dsxFilters = y })
+       <$> f (_dsxFilters x)
+{-# INLINE dsxFilters #-}
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
-dsxSubnetIds :: Lens' DescribeSubnets ([Text])
+dsxSubnetIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeSubnets
+    -> f DescribeSubnets
+dsxSubnetIds f x =
+    (\y -> x { _dsxSubnetIds = y })
+       <$> f (_dsxSubnetIds x)
+{-# INLINE dsxSubnetIds #-}
+
+instance ToQuery DescribeSubnets where
+    toQuery = genericQuery def
+
+data DescribeSubnetsResponse = DescribeSubnetsResponse
+    { _dsySubnets :: [Subnet]
+      -- ^ Information about one or more subnets.
+    } deriving (Show, Generic)
 
 -- | Information about one or more subnets.
-dsySubnets :: Lens' DescribeSubnetsResponse ([Subnet])
+dsySubnets
+    :: Functor f
+    => ([Subnet]
+    -> f ([Subnet]))
+    -> DescribeSubnetsResponse
+    -> f DescribeSubnetsResponse
+dsySubnets f x =
+    (\y -> x { _dsySubnets = y })
+       <$> f (_dsySubnets x)
+{-# INLINE dsySubnets #-}
+
+instance FromXML DescribeSubnetsResponse where
+    fromXMLOptions = xmlOptions
+
+instance AWSRequest DescribeSubnets where
+    type Sv DescribeSubnets = EC2
+    type Rs DescribeSubnets = DescribeSubnetsResponse
+
+    request = post "DescribeSubnets"
+    response _ = xmlResponse

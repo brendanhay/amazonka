@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,20 +54,16 @@ module Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection
     (
     -- * Request
       CreateVpcPeeringConnection
-    -- ** Default constructor
+    -- ** Request constructor
     , createVpcPeeringConnection
-    -- ** Accessors and lenses
-    , _cvpcrVpcId
+    -- ** Request lenses
     , cvpcrVpcId
-    , _cvpcrPeerVpcId
     , cvpcrPeerVpcId
-    , _cvpcrPeerOwnerId
     , cvpcrPeerOwnerId
 
     -- * Response
     , CreateVpcPeeringConnectionResponse
-    -- ** Accessors and lenses
-    , _cvpcsVpcPeeringConnection
+    -- ** Response lenses
     , cvpcsVpcPeeringConnection
     ) where
 
@@ -85,8 +80,52 @@ createVpcPeeringConnection = CreateVpcPeeringConnection
     }
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
+    { _cvpcrVpcId :: Maybe Text
+      -- ^ The ID of the requester VPC.
+    , _cvpcrPeerVpcId :: Maybe Text
+      -- ^ The ID of the VPC with which you are creating the VPC peering
+      -- connection.
+    , _cvpcrPeerOwnerId :: Maybe Text
+      -- ^ The AWS account ID of the owner of the peer VPC. Default: Your
+      -- AWS account ID.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpcPeeringConnection
+-- | The ID of the requester VPC.
+cvpcrVpcId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVpcPeeringConnection
+    -> f CreateVpcPeeringConnection
+cvpcrVpcId f x =
+    (\y -> x { _cvpcrVpcId = y })
+       <$> f (_cvpcrVpcId x)
+{-# INLINE cvpcrVpcId #-}
+
+-- | The ID of the VPC with which you are creating the VPC peering connection.
+cvpcrPeerVpcId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVpcPeeringConnection
+    -> f CreateVpcPeeringConnection
+cvpcrPeerVpcId f x =
+    (\y -> x { _cvpcrPeerVpcId = y })
+       <$> f (_cvpcrPeerVpcId x)
+{-# INLINE cvpcrPeerVpcId #-}
+
+-- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
+-- ID.
+cvpcrPeerOwnerId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVpcPeeringConnection
+    -> f CreateVpcPeeringConnection
+cvpcrPeerOwnerId f x =
+    (\y -> x { _cvpcrPeerOwnerId = y })
+       <$> f (_cvpcrPeerOwnerId x)
+{-# INLINE cvpcrPeerOwnerId #-}
 
 instance ToQuery CreateVpcPeeringConnection where
     toQuery = genericQuery def
@@ -96,7 +135,17 @@ data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
       -- ^ Information about the VPC peering connection.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpcPeeringConnectionResponse
+-- | Information about the VPC peering connection.
+cvpcsVpcPeeringConnection
+    :: Functor f
+    => (Maybe VpcPeeringConnection
+    -> f (Maybe VpcPeeringConnection))
+    -> CreateVpcPeeringConnectionResponse
+    -> f CreateVpcPeeringConnectionResponse
+cvpcsVpcPeeringConnection f x =
+    (\y -> x { _cvpcsVpcPeeringConnection = y })
+       <$> f (_cvpcsVpcPeeringConnection x)
+{-# INLINE cvpcsVpcPeeringConnection #-}
 
 instance FromXML CreateVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
@@ -107,16 +156,3 @@ instance AWSRequest CreateVpcPeeringConnection where
 
     request = post "CreateVpcPeeringConnection"
     response _ = xmlResponse
-
--- | The ID of the requester VPC.
-cvpcrVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-
--- | The ID of the VPC with which you are creating the VPC peering connection.
-cvpcrPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-
--- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
--- ID.
-cvpcrPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-
--- | Information about the VPC peering connection.
-cvpcsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,14 +30,29 @@
 -- maximum configurable amount of memory to use to store items, in megabytes.
 -- 1-100000 max_cache_memory 1.4.5 (...output omitted...)
 -- 061282fe-b7fd-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters where
+module Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters
+    (
+    -- * Request
+      DescribeEngineDefaultParameters
+    -- ** Request constructor
+    , describeEngineDefaultParameters
+    -- ** Request lenses
+    , dedpmCacheParameterGroupFamily
+    , dedpmMaxRecords
+    , dedpmMarker
+
+    -- * Response
+    , DescribeEngineDefaultParametersResponse
+    -- ** Response lenses
+    , edwEngineDefaults
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeEngineDefaultParameters' request.
-describeEngineDefaultParameters :: Text -- ^ '_dedpmCacheParameterGroupFamily'
+describeEngineDefaultParameters :: Text -- ^ 'dedpmCacheParameterGroupFamily'
                                 -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     { _dedpmCacheParameterGroupFamily = p1
@@ -62,7 +76,48 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
       -- marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEngineDefaultParameters
+-- | The name of the cache parameter group family. Valid values are:
+-- memcached1.4 | redis2.6 | redis2.8.
+dedpmCacheParameterGroupFamily
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeEngineDefaultParameters
+    -> f DescribeEngineDefaultParameters
+dedpmCacheParameterGroupFamily f x =
+    (\y -> x { _dedpmCacheParameterGroupFamily = y })
+       <$> f (_dedpmCacheParameterGroupFamily x)
+{-# INLINE dedpmCacheParameterGroupFamily #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a marker is included in the
+-- response so that the remaining results can be retrieved. Default: 100
+-- Constraints: minimum 20; maximum 100.
+dedpmMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeEngineDefaultParameters
+    -> f DescribeEngineDefaultParameters
+dedpmMaxRecords f x =
+    (\y -> x { _dedpmMaxRecords = y })
+       <$> f (_dedpmMaxRecords x)
+{-# INLINE dedpmMaxRecords #-}
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by MaxRecords.
+dedpmMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeEngineDefaultParameters
+    -> f DescribeEngineDefaultParameters
+dedpmMarker f x =
+    (\y -> x { _dedpmMarker = y })
+       <$> f (_dedpmMarker x)
+{-# INLINE dedpmMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
@@ -73,7 +128,17 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
       -- operation.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeEngineDefaultParametersResponse
+-- | Represents the output of a DescribeEngineDefaultParameters operation.
+edwEngineDefaults
+    :: Functor f
+    => (EngineDefaults
+    -> f (EngineDefaults))
+    -> DescribeEngineDefaultParametersResponse
+    -> f DescribeEngineDefaultParametersResponse
+edwEngineDefaults f x =
+    (\y -> x { _edwEngineDefaults = y })
+       <$> f (_edwEngineDefaults x)
+{-# INLINE edwEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions

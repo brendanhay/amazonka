@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,21 +44,52 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway where
+module Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
+    (
+    -- * Request
+      ShutdownGateway
+    -- ** Request constructor
+    , shutdownGateway
+    -- ** Request lenses
+    , sgiGatewayARN
+
+    -- * Response
+    , ShutdownGatewayResponse
+    -- ** Response lenses
+    , sgoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'ShutdownGateway' request.
+shutdownGateway :: Text -- ^ 'sgiGatewayARN'
+                -> ShutdownGateway
+shutdownGateway p1 = ShutdownGateway
+    { _sgiGatewayARN = p1
+    }
+
 data ShutdownGateway = ShutdownGateway
-    { _sgjGatewayARN :: Text
+    { _sgiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''ShutdownGateway
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+sgiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ShutdownGateway
+    -> f ShutdownGateway
+sgiGatewayARN f x =
+    (\y -> x { _sgiGatewayARN = y })
+       <$> f (_sgiGatewayARN x)
+{-# INLINE sgiGatewayARN #-}
 
 instance ToPath ShutdownGateway
 
@@ -70,13 +100,24 @@ instance ToHeaders ShutdownGateway
 instance ToJSON ShutdownGateway
 
 data ShutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgpGatewayARN :: Maybe Text
+    { _sgoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''ShutdownGatewayResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+sgoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ShutdownGatewayResponse
+    -> f ShutdownGatewayResponse
+sgoGatewayARN f x =
+    (\y -> x { _sgoGatewayARN = y })
+       <$> f (_sgoGatewayARN x)
+{-# INLINE sgoGatewayARN #-}
 
 instance FromJSON ShutdownGatewayResponse
 

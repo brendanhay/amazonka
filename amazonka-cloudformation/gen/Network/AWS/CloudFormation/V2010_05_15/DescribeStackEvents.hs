@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,14 +34,29 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- MyStack MySG1 MyStack_SG1 AWS:: SecurityGroup 2010-07-27T22:28:28Z
 -- CREATE_COMPLETE.
-module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents where
+module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
+    (
+    -- * Request
+      DescribeStackEvents
+    -- ** Request constructor
+    , describeStackEvents
+    -- ** Request lenses
+    , dseiStackName
+    , dseiNextToken
+
+    -- * Response
+    , DescribeStackEventsResponse
+    -- ** Response lenses
+    , dseoNextToken
+    , dseoStackEvents
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DescribeStackEvents' request.
-describeStackEvents :: Text -- ^ '_dseiStackName'
+describeStackEvents :: Text -- ^ 'dseiStackName'
                     -> DescribeStackEvents
 describeStackEvents p1 = DescribeStackEvents
     { _dseiStackName = p1
@@ -61,7 +75,33 @@ data DescribeStackEvents = DescribeStackEvents
       -- there is one. Default: There is no default value.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStackEvents
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value.
+dseiStackName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeStackEvents
+    -> f DescribeStackEvents
+dseiStackName f x =
+    (\y -> x { _dseiStackName = y })
+       <$> f (_dseiStackName x)
+{-# INLINE dseiStackName #-}
+
+-- | String that identifies the start of the next list of events, if there is
+-- one. Default: There is no default value.
+dseiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStackEvents
+    -> f DescribeStackEvents
+dseiNextToken f x =
+    (\y -> x { _dseiNextToken = y })
+       <$> f (_dseiNextToken x)
+{-# INLINE dseiNextToken #-}
 
 instance ToQuery DescribeStackEvents where
     toQuery = genericQuery def
@@ -74,7 +114,30 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse
       -- ^ A list of StackEvents structures.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStackEventsResponse
+-- | String that identifies the start of the next list of events, if there is
+-- one.
+dseoNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStackEventsResponse
+    -> f DescribeStackEventsResponse
+dseoNextToken f x =
+    (\y -> x { _dseoNextToken = y })
+       <$> f (_dseoNextToken x)
+{-# INLINE dseoNextToken #-}
+
+-- | A list of StackEvents structures.
+dseoStackEvents
+    :: Functor f
+    => ([StackEvent]
+    -> f ([StackEvent]))
+    -> DescribeStackEventsResponse
+    -> f DescribeStackEventsResponse
+dseoStackEvents f x =
+    (\y -> x { _dseoStackEvents = y })
+       <$> f (_dseoStackEvents x)
+{-# INLINE dseoStackEvents #-}
 
 instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,18 +31,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeKeyPairs
     (
     -- * Request
       DescribeKeyPairs
-    -- ** Default constructor
+    -- ** Request constructor
     , describeKeyPairs
-    -- ** Accessors and lenses
-    , _dkpsFilters
+    -- ** Request lenses
     , dkpsFilters
-    , _dkpsKeyNames
     , dkpsKeyNames
 
     -- * Response
     , DescribeKeyPairsResponse
-    -- ** Accessors and lenses
-    , _dkptKeyPairs
+    -- ** Response lenses
     , dkptKeyPairs
     ) where
 
@@ -59,8 +55,38 @@ describeKeyPairs = DescribeKeyPairs
     }
 
 data DescribeKeyPairs = DescribeKeyPairs
+    { _dkpsFilters :: [Filter]
+      -- ^ One or more filters. fingerprint - The fingerprint of the key
+      -- pair. key-name - The name of the key pair.
+    , _dkpsKeyNames :: [Text]
+      -- ^ One or more key pair names. Default: Describes all your key
+      -- pairs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeKeyPairs
+-- | One or more filters. fingerprint - The fingerprint of the key pair.
+-- key-name - The name of the key pair.
+dkpsFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeKeyPairs
+    -> f DescribeKeyPairs
+dkpsFilters f x =
+    (\y -> x { _dkpsFilters = y })
+       <$> f (_dkpsFilters x)
+{-# INLINE dkpsFilters #-}
+
+-- | One or more key pair names. Default: Describes all your key pairs.
+dkpsKeyNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeKeyPairs
+    -> f DescribeKeyPairs
+dkpsKeyNames f x =
+    (\y -> x { _dkpsKeyNames = y })
+       <$> f (_dkpsKeyNames x)
+{-# INLINE dkpsKeyNames #-}
 
 instance ToQuery DescribeKeyPairs where
     toQuery = genericQuery def
@@ -70,7 +96,17 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse
       -- ^ Information about one or more key pairs.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeKeyPairsResponse
+-- | Information about one or more key pairs.
+dkptKeyPairs
+    :: Functor f
+    => ([KeyPairInfo]
+    -> f ([KeyPairInfo]))
+    -> DescribeKeyPairsResponse
+    -> f DescribeKeyPairsResponse
+dkptKeyPairs f x =
+    (\y -> x { _dkptKeyPairs = y })
+       <$> f (_dkptKeyPairs x)
+{-# INLINE dkptKeyPairs #-}
 
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions
@@ -81,13 +117,3 @@ instance AWSRequest DescribeKeyPairs where
 
     request = post "DescribeKeyPairs"
     response _ = xmlResponse
-
--- | One or more filters. fingerprint - The fingerprint of the key pair.
--- key-name - The name of the key pair.
-dkpsFilters :: Lens' DescribeKeyPairs ([Filter])
-
--- | One or more key pair names. Default: Describes all your key pairs.
-dkpsKeyNames :: Lens' DescribeKeyPairs ([Text])
-
--- | Information about one or more key pairs.
-dkptKeyPairs :: Lens' DescribeKeyPairsResponse ([KeyPairInfo])

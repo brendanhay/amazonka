@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -38,15 +37,28 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;a8763b99-33a7-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetSubscriptionAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes where
+module Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
+    (
+    -- * Request
+      SetSubscriptionAttributes
+    -- ** Request constructor
+    , setSubscriptionAttributes
+    -- ** Request lenses
+    , ssaiAttributeName
+    , ssaiSubscriptionArn
+    , ssaiAttributeValue
+
+    -- * Response
+    , SetSubscriptionAttributesResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SetSubscriptionAttributes' request.
-setSubscriptionAttributes :: Text -- ^ '_ssaiAttributeName'
-                          -> Text -- ^ '_ssaiSubscriptionArn'
+setSubscriptionAttributes :: Text -- ^ 'ssaiAttributeName'
+                          -> Text -- ^ 'ssaiSubscriptionArn'
                           -> SetSubscriptionAttributes
 setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
     { _ssaiAttributeName = p1
@@ -65,15 +77,49 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
       -- ^ The new value for the attribute in JSON format.
     } deriving (Show, Generic)
 
-makeLenses ''SetSubscriptionAttributes
+-- | The name of the attribute you want to set. Only a subset of the
+-- subscriptions attributes are mutable. Valid values: DeliveryPolicy |
+-- RawMessageDelivery.
+ssaiAttributeName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetSubscriptionAttributes
+    -> f SetSubscriptionAttributes
+ssaiAttributeName f x =
+    (\y -> x { _ssaiAttributeName = y })
+       <$> f (_ssaiAttributeName x)
+{-# INLINE ssaiAttributeName #-}
+
+-- | The ARN of the subscription to modify.
+ssaiSubscriptionArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SetSubscriptionAttributes
+    -> f SetSubscriptionAttributes
+ssaiSubscriptionArn f x =
+    (\y -> x { _ssaiSubscriptionArn = y })
+       <$> f (_ssaiSubscriptionArn x)
+{-# INLINE ssaiSubscriptionArn #-}
+
+-- | The new value for the attribute in JSON format.
+ssaiAttributeValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SetSubscriptionAttributes
+    -> f SetSubscriptionAttributes
+ssaiAttributeValue f x =
+    (\y -> x { _ssaiAttributeValue = y })
+       <$> f (_ssaiAttributeValue x)
+{-# INLINE ssaiAttributeValue #-}
 
 instance ToQuery SetSubscriptionAttributes where
     toQuery = genericQuery def
 
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetSubscriptionAttributesResponse
 
 instance AWSRequest SetSubscriptionAttributes where
     type Sv SetSubscriptionAttributes = SNS

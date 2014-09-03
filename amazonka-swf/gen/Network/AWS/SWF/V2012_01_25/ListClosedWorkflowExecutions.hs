@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -69,7 +68,30 @@
 -- "executionStatus": "CLOSED", "startTimestamp": 1326581114.02, "tagList":
 -- ["music purchase", "digital", "ricoh-the-dog"], "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
-module Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions where
+module Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
+    (
+    -- * Request
+      ListClosedWorkflowExecutions
+    -- ** Request constructor
+    , listClosedWorkflowExecutions
+    -- ** Request lenses
+    , lcweiDomain
+    , lcweiCloseStatusFilter
+    , lcweiStartTimeFilter
+    , lcweiCloseTimeFilter
+    , lcweiMaximumPageSize
+    , lcweiNextPageToken
+    , lcweiReverseOrder
+    , lcweiTagFilter
+    , lcweiExecutionFilter
+    , lcweiTypeFilter
+
+    -- * Response
+    , ListClosedWorkflowExecutionsResponse
+    -- ** Response lenses
+    , wekExecutionInfos
+    , wekNextPageToken
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -77,7 +99,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListClosedWorkflowExecutions' request.
-listClosedWorkflowExecutions :: Text -- ^ '_lcweiDomain'
+listClosedWorkflowExecutions :: Text -- ^ 'lcweiDomain'
                              -> ListClosedWorkflowExecutions
 listClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
     { _lcweiDomain = p1
@@ -150,7 +172,155 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
       -- these in a request.
     } deriving (Show, Generic)
 
-makeLenses ''ListClosedWorkflowExecutions
+-- | The name of the domain that contains the workflow executions to list.
+lcweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiDomain f x =
+    (\y -> x { _lcweiDomain = y })
+       <$> f (_lcweiDomain x)
+{-# INLINE lcweiDomain #-}
+
+-- | If specified, only workflow executions that match this close status are
+-- listed. For example, if TERMINATED is specified, then only TERMINATED
+-- workflow executions are listed. closeStatusFilter, executionFilter,
+-- typeFilter and tagFilter are mutually exclusive. You can specify at most
+-- one of these in a request.
+lcweiCloseStatusFilter
+    :: Functor f
+    => (Maybe CloseStatusFilter
+    -> f (Maybe CloseStatusFilter))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiCloseStatusFilter f x =
+    (\y -> x { _lcweiCloseStatusFilter = y })
+       <$> f (_lcweiCloseStatusFilter x)
+{-# INLINE lcweiCloseStatusFilter #-}
+
+-- | If specified, the workflow executions are included in the returned results
+-- based on whether their start times are within the range specified by this
+-- filter. Also, if this parameter is specified, the returned results are
+-- ordered by their start times. startTimeFilter and closeTimeFilter are
+-- mutually exclusive. You must specify one of these in a request but not
+-- both.
+lcweiStartTimeFilter
+    :: Functor f
+    => (Maybe ExecutionTimeFilter
+    -> f (Maybe ExecutionTimeFilter))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiStartTimeFilter f x =
+    (\y -> x { _lcweiStartTimeFilter = y })
+       <$> f (_lcweiStartTimeFilter x)
+{-# INLINE lcweiStartTimeFilter #-}
+
+-- | If specified, the workflow executions are included in the returned results
+-- based on whether their close times are within the range specified by this
+-- filter. Also, if this parameter is specified, the returned results are
+-- ordered by their close times. startTimeFilter and closeTimeFilter are
+-- mutually exclusive. You must specify one of these in a request but not
+-- both.
+lcweiCloseTimeFilter
+    :: Functor f
+    => (Maybe ExecutionTimeFilter
+    -> f (Maybe ExecutionTimeFilter))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiCloseTimeFilter f x =
+    (\y -> x { _lcweiCloseTimeFilter = y })
+       <$> f (_lcweiCloseTimeFilter x)
+{-# INLINE lcweiCloseTimeFilter #-}
+
+-- | The maximum number of results returned in each page. The default is 100,
+-- but the caller can override this value to a page size smaller than the
+-- default. You cannot specify a page size greater than 100. Note that the
+-- number of executions may be less than the maxiumum page size, in which
+-- case, the returned page will have fewer results than the maximumPageSize
+-- specified.
+lcweiMaximumPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiMaximumPageSize f x =
+    (\y -> x { _lcweiMaximumPageSize = y })
+       <$> f (_lcweiMaximumPageSize x)
+{-# INLINE lcweiMaximumPageSize #-}
+
+-- | If on a previous call to this method a NextPageToken was returned, the
+-- results are being paginated. To get the next page of results, repeat the
+-- call with the returned token and all other arguments unchanged.
+lcweiNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiNextPageToken f x =
+    (\y -> x { _lcweiNextPageToken = y })
+       <$> f (_lcweiNextPageToken x)
+{-# INLINE lcweiNextPageToken #-}
+
+-- | When set to true, returns the results in reverse order. By default the
+-- results are returned in descending order of the start or the close time of
+-- the executions.
+lcweiReverseOrder
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiReverseOrder f x =
+    (\y -> x { _lcweiReverseOrder = y })
+       <$> f (_lcweiReverseOrder x)
+{-# INLINE lcweiReverseOrder #-}
+
+-- | If specified, only executions that have the matching tag are listed.
+-- closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
+-- exclusive. You can specify at most one of these in a request.
+lcweiTagFilter
+    :: Functor f
+    => (Maybe TagFilter
+    -> f (Maybe TagFilter))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiTagFilter f x =
+    (\y -> x { _lcweiTagFilter = y })
+       <$> f (_lcweiTagFilter x)
+{-# INLINE lcweiTagFilter #-}
+
+-- | If specified, only workflow executions matching the workflow id specified
+-- in the filter are returned. closeStatusFilter, executionFilter, typeFilter
+-- and tagFilter are mutually exclusive. You can specify at most one of these
+-- in a request.
+lcweiExecutionFilter
+    :: Functor f
+    => (Maybe WorkflowExecutionFilter
+    -> f (Maybe WorkflowExecutionFilter))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiExecutionFilter f x =
+    (\y -> x { _lcweiExecutionFilter = y })
+       <$> f (_lcweiExecutionFilter x)
+{-# INLINE lcweiExecutionFilter #-}
+
+-- | If specified, only executions of the type specified in the filter are
+-- returned. closeStatusFilter, executionFilter, typeFilter and tagFilter are
+-- mutually exclusive. You can specify at most one of these in a request.
+lcweiTypeFilter
+    :: Functor f
+    => (Maybe WorkflowTypeFilter
+    -> f (Maybe WorkflowTypeFilter))
+    -> ListClosedWorkflowExecutions
+    -> f ListClosedWorkflowExecutions
+lcweiTypeFilter f x =
+    (\y -> x { _lcweiTypeFilter = y })
+       <$> f (_lcweiTypeFilter x)
+{-# INLINE lcweiTypeFilter #-}
 
 instance ToPath ListClosedWorkflowExecutions
 
@@ -161,16 +331,40 @@ instance ToHeaders ListClosedWorkflowExecutions
 instance ToJSON ListClosedWorkflowExecutions
 
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
-    { _welExecutionInfos :: [WorkflowExecutionInfo]
+    { _wekExecutionInfos :: [WorkflowExecutionInfo]
       -- ^ The list of workflow information structures.
-    , _welNextPageToken :: Maybe Text
+    , _wekNextPageToken :: Maybe Text
       -- ^ The token of the next page in the result. If set, the results
       -- have more than one page. The next page can be retrieved by
       -- repeating the request with this token and all other arguments
       -- unchanged.
     } deriving (Show, Generic)
 
-makeLenses ''ListClosedWorkflowExecutionsResponse
+-- | The list of workflow information structures.
+wekExecutionInfos
+    :: Functor f
+    => ([WorkflowExecutionInfo]
+    -> f ([WorkflowExecutionInfo]))
+    -> ListClosedWorkflowExecutionsResponse
+    -> f ListClosedWorkflowExecutionsResponse
+wekExecutionInfos f x =
+    (\y -> x { _wekExecutionInfos = y })
+       <$> f (_wekExecutionInfos x)
+{-# INLINE wekExecutionInfos #-}
+
+-- | The token of the next page in the result. If set, the results have more
+-- than one page. The next page can be retrieved by repeating the request with
+-- this token and all other arguments unchanged.
+wekNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListClosedWorkflowExecutionsResponse
+    -> f ListClosedWorkflowExecutionsResponse
+wekNextPageToken f x =
+    (\y -> x { _wekNextPageToken = y })
+       <$> f (_wekNextPageToken x)
+{-# INLINE wekNextPageToken #-}
 
 instance FromJSON ListClosedWorkflowExecutionsResponse
 
@@ -183,4 +377,4 @@ instance AWSRequest ListClosedWorkflowExecutions where
 
 instance AWSPager ListClosedWorkflowExecutions where
     next rq rs = (\x -> rq { _lcweiNextPageToken = Just x })
-        <$> (_welNextPageToken rs)
+        <$> (_wekNextPageToken rs)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,15 +23,28 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &VersionLabel=First%20Release &Operation=DeleteApplicationVersion
 -- &AuthParams 58dc7339-f272-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion
+    (
+    -- * Request
+      DeleteApplicationVersion
+    -- ** Request constructor
+    , deleteApplicationVersion
+    -- ** Request lenses
+    , davmApplicationName
+    , davmVersionLabel
+    , davmDeleteSourceBundle
+
+    -- * Response
+    , DeleteApplicationVersionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteApplicationVersion' request.
-deleteApplicationVersion :: Text -- ^ '_davmApplicationName'
-                         -> Text -- ^ '_davmVersionLabel'
+deleteApplicationVersion :: Text -- ^ 'davmApplicationName'
+                         -> Text -- ^ 'davmVersionLabel'
                          -> DeleteApplicationVersion
 deleteApplicationVersion p1 p2 = DeleteApplicationVersion
     { _davmApplicationName = p1
@@ -53,15 +65,50 @@ data DeleteApplicationVersion = DeleteApplicationVersion
       -- of creation. Valid Values: true | false.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteApplicationVersion
+-- | The name of the application to delete releases from.
+davmApplicationName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteApplicationVersion
+    -> f DeleteApplicationVersion
+davmApplicationName f x =
+    (\y -> x { _davmApplicationName = y })
+       <$> f (_davmApplicationName x)
+{-# INLINE davmApplicationName #-}
+
+-- | The label of the version to delete.
+davmVersionLabel
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteApplicationVersion
+    -> f DeleteApplicationVersion
+davmVersionLabel f x =
+    (\y -> x { _davmVersionLabel = y })
+       <$> f (_davmVersionLabel x)
+{-# INLINE davmVersionLabel #-}
+
+-- | Indicates whether to delete the associated source bundle from Amazon S3:
+-- true: An attempt is made to delete the associated Amazon S3 source bundle
+-- specified at time of creation. false: No action is taken on the Amazon S3
+-- source bundle specified at time of creation. Valid Values: true | false.
+davmDeleteSourceBundle
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeleteApplicationVersion
+    -> f DeleteApplicationVersion
+davmDeleteSourceBundle f x =
+    (\y -> x { _davmDeleteSourceBundle = y })
+       <$> f (_davmDeleteSourceBundle x)
+{-# INLINE davmDeleteSourceBundle #-}
 
 instance ToQuery DeleteApplicationVersion where
     toQuery = genericQuery def
 
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteApplicationVersionResponse
 
 instance AWSRequest DeleteApplicationVersion where
     type Sv DeleteApplicationVersion = ElasticBeanstalk

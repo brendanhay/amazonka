@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,24 +35,18 @@ module Network.AWS.EC2.V2014_06_15.CreateImage
     (
     -- * Request
       CreateImage
-    -- ** Default constructor
+    -- ** Request constructor
     , createImage
-    -- ** Accessors and lenses
-    , _citInstanceId
+    -- ** Request lenses
     , citInstanceId
-    , _citName
     , citName
-    , _citBlockDeviceMappings
     , citBlockDeviceMappings
-    , _citNoReboot
     , citNoReboot
-    , _citDescription
     , citDescription
 
     -- * Response
     , CreateImageResponse
-    -- ** Accessors and lenses
-    , _ciuImageId
+    -- ** Response lenses
     , ciuImageId
     ) where
 
@@ -74,8 +67,89 @@ createImage p1 p2 = CreateImage
     }
 
 data CreateImage = CreateImage
+    { _citInstanceId :: Text
+      -- ^ The ID of the instance.
+    , _citName :: Text
+      -- ^ A name for the new image. Constraints: 3-128 alphanumeric
+      -- characters, parenthesis (()), periods (.), slashes (/), dashes
+      -- (-), or underscores(_).
+    , _citBlockDeviceMappings :: [BlockDeviceMapping]
+      -- ^ Information about one or more block device mappings.
+    , _citNoReboot :: Maybe Bool
+      -- ^ By default, this parameter is set to false, which means Amazon
+      -- EC2 attempts to shut down the instance cleanly before image
+      -- creation and then reboots the instance. When the parameter is set
+      -- to true, Amazon EC2 doesn't shut down the instance before
+      -- creating the image. When this option is used, file system
+      -- integrity on the created image can't be guaranteed.
+    , _citDescription :: Maybe Text
+      -- ^ A description for the new image.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateImage
+-- | The ID of the instance.
+citInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateImage
+    -> f CreateImage
+citInstanceId f x =
+    (\y -> x { _citInstanceId = y })
+       <$> f (_citInstanceId x)
+{-# INLINE citInstanceId #-}
+
+-- | A name for the new image. Constraints: 3-128 alphanumeric characters,
+-- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
+citName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateImage
+    -> f CreateImage
+citName f x =
+    (\y -> x { _citName = y })
+       <$> f (_citName x)
+{-# INLINE citName #-}
+
+-- | Information about one or more block device mappings.
+citBlockDeviceMappings
+    :: Functor f
+    => ([BlockDeviceMapping]
+    -> f ([BlockDeviceMapping]))
+    -> CreateImage
+    -> f CreateImage
+citBlockDeviceMappings f x =
+    (\y -> x { _citBlockDeviceMappings = y })
+       <$> f (_citBlockDeviceMappings x)
+{-# INLINE citBlockDeviceMappings #-}
+
+-- | By default, this parameter is set to false, which means Amazon EC2 attempts
+-- to shut down the instance cleanly before image creation and then reboots
+-- the instance. When the parameter is set to true, Amazon EC2 doesn't shut
+-- down the instance before creating the image. When this option is used, file
+-- system integrity on the created image can't be guaranteed.
+citNoReboot
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CreateImage
+    -> f CreateImage
+citNoReboot f x =
+    (\y -> x { _citNoReboot = y })
+       <$> f (_citNoReboot x)
+{-# INLINE citNoReboot #-}
+
+-- | A description for the new image.
+citDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateImage
+    -> f CreateImage
+citDescription f x =
+    (\y -> x { _citDescription = y })
+       <$> f (_citDescription x)
+{-# INLINE citDescription #-}
 
 instance ToQuery CreateImage where
     toQuery = genericQuery def
@@ -85,7 +159,17 @@ data CreateImageResponse = CreateImageResponse
       -- ^ The ID of the new AMI.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateImageResponse
+-- | The ID of the new AMI.
+ciuImageId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateImageResponse
+    -> f CreateImageResponse
+ciuImageId f x =
+    (\y -> x { _ciuImageId = y })
+       <$> f (_ciuImageId x)
+{-# INLINE ciuImageId #-}
 
 instance FromXML CreateImageResponse where
     fromXMLOptions = xmlOptions
@@ -96,26 +180,3 @@ instance AWSRequest CreateImage where
 
     request = post "CreateImage"
     response _ = xmlResponse
-
--- | The ID of the instance.
-citInstanceId :: Lens' CreateImage (Text)
-
--- | A name for the new image. Constraints: 3-128 alphanumeric characters,
--- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
-citName :: Lens' CreateImage (Text)
-
--- | Information about one or more block device mappings.
-citBlockDeviceMappings :: Lens' CreateImage ([BlockDeviceMapping])
-
--- | By default, this parameter is set to false, which means Amazon EC2 attempts
--- to shut down the instance cleanly before image creation and then reboots
--- the instance. When the parameter is set to true, Amazon EC2 doesn't shut
--- down the instance before creating the image. When this option is used, file
--- system integrity on the created image can't be guaranteed.
-citNoReboot :: Lens' CreateImage (Maybe Bool)
-
--- | A description for the new image.
-citDescription :: Lens' CreateImage (Maybe Text)
-
--- | The ID of the new AMI.
-ciuImageId :: Lens' CreateImageResponse (Maybe Text)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,20 @@
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.UpdateVolume where
+module Network.AWS.OpsWorks.V2013_02_18.UpdateVolume
+    (
+    -- * Request
+      UpdateVolume
+    -- ** Request constructor
+    , updateVolume
+    -- ** Request lenses
+    , uvsVolumeId
+    , uvsName
+    , uvsMountPoint
+
+    -- * Response
+    , UpdateVolumeResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -31,24 +43,58 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateVolume' request.
-updateVolume :: Text -- ^ '_uvsVolumeId'
+updateVolume :: Text -- ^ 'uvsVolumeId'
              -> UpdateVolume
 updateVolume p1 = UpdateVolume
     { _uvsVolumeId = p1
-    , _uvsMountPoint = Nothing
     , _uvsName = Nothing
+    , _uvsMountPoint = Nothing
     }
 
 data UpdateVolume = UpdateVolume
     { _uvsVolumeId :: Text
       -- ^ The volume ID.
-    , _uvsMountPoint :: Maybe Text
-      -- ^ The new mount point.
     , _uvsName :: Maybe Text
       -- ^ The new name.
+    , _uvsMountPoint :: Maybe Text
+      -- ^ The new mount point.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateVolume
+-- | The volume ID.
+uvsVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateVolume
+    -> f UpdateVolume
+uvsVolumeId f x =
+    (\y -> x { _uvsVolumeId = y })
+       <$> f (_uvsVolumeId x)
+{-# INLINE uvsVolumeId #-}
+
+-- | The new name.
+uvsName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateVolume
+    -> f UpdateVolume
+uvsName f x =
+    (\y -> x { _uvsName = y })
+       <$> f (_uvsName x)
+{-# INLINE uvsName #-}
+
+-- | The new mount point.
+uvsMountPoint
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateVolume
+    -> f UpdateVolume
+uvsMountPoint f x =
+    (\y -> x { _uvsMountPoint = y })
+       <$> f (_uvsMountPoint x)
+{-# INLINE uvsMountPoint #-}
 
 instance ToPath UpdateVolume
 
@@ -60,8 +106,6 @@ instance ToJSON UpdateVolume
 
 data UpdateVolumeResponse = UpdateVolumeResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateVolumeResponse
 
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks

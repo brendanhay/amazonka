@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,14 +18,26 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete an origin access identity.
-module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity where
+module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
+    (
+    -- * Request
+      DeleteCloudFrontOriginAccessIdentity
+    -- ** Request constructor
+    , deleteCloudFrontOriginAccessIdentity
+    -- ** Request lenses
+    , dcfoairId
+    , dcfoairIfMatch
+
+    -- * Response
+    , DeleteCloudFrontOriginAccessIdentityResponse
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteCloudFrontOriginAccessIdentity' request.
-deleteCloudFrontOriginAccessIdentity :: Text -- ^ '_dcfoairId'
+deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoairId'
                                      -> DeleteCloudFrontOriginAccessIdentity
 deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoairId = p1
@@ -41,7 +52,30 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
       -- PUT request. For example: E2QWRUHAPOMQZL.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteCloudFrontOriginAccessIdentity
+-- | The origin access identity's id.
+dcfoairId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteCloudFrontOriginAccessIdentity
+    -> f DeleteCloudFrontOriginAccessIdentity
+dcfoairId f x =
+    (\y -> x { _dcfoairId = y })
+       <$> f (_dcfoairId x)
+{-# INLINE dcfoairId #-}
+
+-- | The value of the ETag header you received from a previous GET or PUT
+-- request. For example: E2QWRUHAPOMQZL.
+dcfoairIfMatch
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteCloudFrontOriginAccessIdentity
+    -> f DeleteCloudFrontOriginAccessIdentity
+dcfoairIfMatch f x =
+    (\y -> x { _dcfoairIfMatch = y })
+       <$> f (_dcfoairIfMatch x)
+{-# INLINE dcfoairIfMatch #-}
 
 instance ToPath DeleteCloudFrontOriginAccessIdentity where
     toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
@@ -62,8 +96,6 @@ instance ToXML DeleteCloudFrontOriginAccessIdentity where
 
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteCloudFrontOriginAccessIdentityResponse
 
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront

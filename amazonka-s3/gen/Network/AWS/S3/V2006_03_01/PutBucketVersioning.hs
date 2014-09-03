@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,15 +19,29 @@
 
 -- | Sets the versioning state of an existing bucket. To set the versioning
 -- state, you must be the bucket owner.
-module Network.AWS.S3.V2006_03_01.PutBucketVersioning where
+module Network.AWS.S3.V2006_03_01.PutBucketVersioning
+    (
+    -- * Request
+      PutBucketVersioning
+    -- ** Request constructor
+    , putBucketVersioning
+    -- ** Request lenses
+    , pbvrVersioningConfiguration
+    , pbvrBucket
+    , pbvrContentMD5
+    , pbvrMFA
+
+    -- * Response
+    , PutBucketVersioningResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketVersioning' request.
-putBucketVersioning :: VersioningConfiguration -- ^ '_pbvrVersioningConfiguration'
-                    -> BucketName -- ^ '_pbvrBucket'
+putBucketVersioning :: VersioningConfiguration -- ^ 'pbvrVersioningConfiguration'
+                    -> BucketName -- ^ 'pbvrBucket'
                     -> PutBucketVersioning
 putBucketVersioning p1 p2 = PutBucketVersioning
     { _pbvrVersioningConfiguration = p1
@@ -47,7 +60,51 @@ data PutBucketVersioning = PutBucketVersioning
       -- device.
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketVersioning
+pbvrVersioningConfiguration
+    :: Functor f
+    => (VersioningConfiguration
+    -> f (VersioningConfiguration))
+    -> PutBucketVersioning
+    -> f PutBucketVersioning
+pbvrVersioningConfiguration f x =
+    (\y -> x { _pbvrVersioningConfiguration = y })
+       <$> f (_pbvrVersioningConfiguration x)
+{-# INLINE pbvrVersioningConfiguration #-}
+
+pbvrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketVersioning
+    -> f PutBucketVersioning
+pbvrBucket f x =
+    (\y -> x { _pbvrBucket = y })
+       <$> f (_pbvrBucket x)
+{-# INLINE pbvrBucket #-}
+
+pbvrContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketVersioning
+    -> f PutBucketVersioning
+pbvrContentMD5 f x =
+    (\y -> x { _pbvrContentMD5 = y })
+       <$> f (_pbvrContentMD5 x)
+{-# INLINE pbvrContentMD5 #-}
+
+-- | The concatenation of the authentication device's serial number, a space,
+-- and the value that is displayed on your authentication device.
+pbvrMFA
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketVersioning
+    -> f PutBucketVersioning
+pbvrMFA f x =
+    (\y -> x { _pbvrMFA = y })
+       <$> f (_pbvrMFA x)
+{-# INLINE pbvrMFA #-}
 
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat
@@ -71,8 +128,6 @@ instance ToBody PutBucketVersioning where
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketVersioningResponse
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3

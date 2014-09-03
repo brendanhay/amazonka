@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,11 +33,31 @@
 -- &lt;/CreateTopicResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;a8dec8b3-33a4-11df-8963-01868b7c937a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreateTopicResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.CreateTopic where
+module Network.AWS.SNS.V2010_03_31.CreateTopic
+    (
+    -- * Request
+      CreateTopic
+    -- ** Request constructor
+    , createTopic
+    -- ** Request lenses
+    , ctiName
+
+    -- * Response
+    , CreateTopicResponse
+    -- ** Response lenses
+    , ctrTopicArn
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreateTopic' request.
+createTopic :: Text -- ^ 'ctiName'
+            -> CreateTopic
+createTopic p1 = CreateTopic
+    { _ctiName = p1
+    }
 
 data CreateTopic = CreateTopic
     { _ctiName :: Text
@@ -48,7 +67,19 @@ data CreateTopic = CreateTopic
       -- and 256 characters long.
     } deriving (Show, Generic)
 
-makeLenses ''CreateTopic
+-- | The name of the topic you want to create. Constraints: Topic names must be
+-- made up of only uppercase and lowercase ASCII letters, numbers,
+-- underscores, and hyphens, and must be between 1 and 256 characters long.
+ctiName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateTopic
+    -> f CreateTopic
+ctiName f x =
+    (\y -> x { _ctiName = y })
+       <$> f (_ctiName x)
+{-# INLINE ctiName #-}
 
 instance ToQuery CreateTopic where
     toQuery = genericQuery def
@@ -58,7 +89,17 @@ data CreateTopicResponse = CreateTopicResponse
       -- ^ The Amazon Resource Name (ARN) assigned to the created topic.
     } deriving (Show, Generic)
 
-makeLenses ''CreateTopicResponse
+-- | The Amazon Resource Name (ARN) assigned to the created topic.
+ctrTopicArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateTopicResponse
+    -> f CreateTopicResponse
+ctrTopicArn f x =
+    (\y -> x { _ctrTopicArn = y })
+       <$> f (_ctrTopicArn x)
+{-# INLINE ctrTopicArn #-}
 
 instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions

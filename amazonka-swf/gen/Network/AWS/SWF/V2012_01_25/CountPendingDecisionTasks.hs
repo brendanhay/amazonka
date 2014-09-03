@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -47,12 +46,36 @@
 -- "867530901", "taskList": {"name": "specialTaskList"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 4718a364-3fd0-11e1-9914-a356b6ea8bdf {"count": 2, "truncated": false}.
-module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks where
+module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
+    (
+    -- * Request
+      CountPendingDecisionTasks
+    -- ** Request constructor
+    , countPendingDecisionTasks
+    -- ** Request lenses
+    , cpdtiDomain
+    , cpdtiTaskList
+
+    -- * Response
+    , CountPendingDecisionTasksResponse
+    -- ** Response lenses
+    , ptdCount
+    , ptdTruncated
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'CountPendingDecisionTasks' request.
+countPendingDecisionTasks :: Text -- ^ 'cpdtiDomain'
+                          -> TaskList -- ^ 'cpdtiTaskList'
+                          -> CountPendingDecisionTasks
+countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
+    { _cpdtiDomain = p1
+    , _cpdtiTaskList = p2
+    }
 
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtiDomain :: Text
@@ -61,7 +84,29 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks
       -- ^ The name of the task list.
     } deriving (Show, Generic)
 
-makeLenses ''CountPendingDecisionTasks
+-- | The name of the domain that contains the task list.
+cpdtiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CountPendingDecisionTasks
+    -> f CountPendingDecisionTasks
+cpdtiDomain f x =
+    (\y -> x { _cpdtiDomain = y })
+       <$> f (_cpdtiDomain x)
+{-# INLINE cpdtiDomain #-}
+
+-- | The name of the task list.
+cpdtiTaskList
+    :: Functor f
+    => (TaskList
+    -> f (TaskList))
+    -> CountPendingDecisionTasks
+    -> f CountPendingDecisionTasks
+cpdtiTaskList f x =
+    (\y -> x { _cpdtiTaskList = y })
+       <$> f (_cpdtiTaskList x)
+{-# INLINE cpdtiTaskList #-}
 
 instance ToPath CountPendingDecisionTasks
 
@@ -80,7 +125,30 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
       -- truncated value.
     } deriving (Show, Generic)
 
-makeLenses ''CountPendingDecisionTasksResponse
+-- | The number of tasks in the task list.
+ptdCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CountPendingDecisionTasksResponse
+    -> f CountPendingDecisionTasksResponse
+ptdCount f x =
+    (\y -> x { _ptdCount = y })
+       <$> f (_ptdCount x)
+{-# INLINE ptdCount #-}
+
+-- | If set to true, indicates that the actual count was more than the maximum
+-- supported by this API and the count returned is the truncated value.
+ptdTruncated
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CountPendingDecisionTasksResponse
+    -> f CountPendingDecisionTasksResponse
+ptdTruncated f x =
+    (\y -> x { _ptdTruncated = y })
+       <$> f (_ptdTruncated x)
+{-# INLINE ptdTruncated #-}
 
 instance FromJSON CountPendingDecisionTasksResponse
 

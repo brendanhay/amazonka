@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,14 +23,31 @@
 -- &AUTHPARAMS / Admins AGPACKCEVSQ6C2EXAMPLE
 -- arn:aws:iam::123456789012:group/Admins false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListGroupsForUser where
+module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
+    (
+    -- * Request
+      ListGroupsForUser
+    -- ** Request constructor
+    , listGroupsForUser
+    -- ** Request lenses
+    , lgfurUserName
+    , lgfurMarker
+    , lgfurMaxItems
+
+    -- * Response
+    , ListGroupsForUserResponse
+    -- ** Response lenses
+    , lgfusIsTruncated
+    , lgfusGroups
+    , lgfusMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ListGroupsForUser' request.
-listGroupsForUser :: Text -- ^ '_lgfurUserName'
+listGroupsForUser :: Text -- ^ 'lgfurUserName'
                   -> ListGroupsForUser
 listGroupsForUser p1 = ListGroupsForUser
     { _lgfurUserName = p1
@@ -55,7 +71,46 @@ data ListGroupsForUser = ListGroupsForUser
       -- not include it, it defaults to 100.
     } deriving (Show, Generic)
 
-makeLenses ''ListGroupsForUser
+-- | The name of the user to list groups for.
+lgfurUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListGroupsForUser
+    -> f ListGroupsForUser
+lgfurUserName f x =
+    (\y -> x { _lgfurUserName = y })
+       <$> f (_lgfurUserName x)
+{-# INLINE lgfurUserName #-}
+
+-- | Use this only when paginating results, and only in a subsequent request
+-- after you've received a response where the results are truncated. Set it to
+-- the value of the Marker element in the response you just received.
+lgfurMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListGroupsForUser
+    -> f ListGroupsForUser
+lgfurMarker f x =
+    (\y -> x { _lgfurMarker = y })
+       <$> f (_lgfurMarker x)
+{-# INLINE lgfurMarker #-}
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- groups you want in the response. If there are additional groups beyond the
+-- maximum you specify, the IsTruncated response element is true. This
+-- parameter is optional. If you do not include it, it defaults to 100.
+lgfurMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListGroupsForUser
+    -> f ListGroupsForUser
+lgfurMaxItems f x =
+    (\y -> x { _lgfurMaxItems = y })
+       <$> f (_lgfurMaxItems x)
+{-# INLINE lgfurMaxItems #-}
 
 instance ToQuery ListGroupsForUser where
     toQuery = genericQuery def
@@ -74,7 +129,44 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListGroupsForUserResponse
+-- | A flag that indicates whether there are more groups to list. If your
+-- results were truncated, you can make a subsequent pagination request using
+-- the Marker request parameter to retrieve more groups in the list.
+lgfusIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListGroupsForUserResponse
+    -> f ListGroupsForUserResponse
+lgfusIsTruncated f x =
+    (\y -> x { _lgfusIsTruncated = y })
+       <$> f (_lgfusIsTruncated x)
+{-# INLINE lgfusIsTruncated #-}
+
+-- | A list of groups.
+lgfusGroups
+    :: Functor f
+    => ([Group]
+    -> f ([Group]))
+    -> ListGroupsForUserResponse
+    -> f ListGroupsForUserResponse
+lgfusGroups f x =
+    (\y -> x { _lgfusGroups = y })
+       <$> f (_lgfusGroups x)
+{-# INLINE lgfusGroups #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lgfusMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListGroupsForUserResponse
+    -> f ListGroupsForUserResponse
+lgfusMarker f x =
+    (\y -> x { _lgfusMarker = y })
+       <$> f (_lgfusMarker x)
+{-# INLINE lgfusMarker #-}
 
 instance FromXML ListGroupsForUserResponse where
     fromXMLOptions = xmlOptions

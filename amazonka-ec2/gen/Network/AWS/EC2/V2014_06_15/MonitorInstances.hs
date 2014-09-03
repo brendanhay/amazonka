@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,16 +36,14 @@ module Network.AWS.EC2.V2014_06_15.MonitorInstances
     (
     -- * Request
       MonitorInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , monitorInstances
-    -- ** Accessors and lenses
-    , _mirInstanceIds
+    -- ** Request lenses
     , mirInstanceIds
 
     -- * Response
     , MonitorInstancesResponse
-    -- ** Accessors and lenses
-    , _misInstanceMonitorings
+    -- ** Response lenses
     , misInstanceMonitorings
     ) where
 
@@ -62,8 +59,21 @@ monitorInstances p1 = MonitorInstances
     }
 
 data MonitorInstances = MonitorInstances
+    { _mirInstanceIds :: [Text]
+      -- ^ One or more instance IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''MonitorInstances
+-- | One or more instance IDs.
+mirInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> MonitorInstances
+    -> f MonitorInstances
+mirInstanceIds f x =
+    (\y -> x { _mirInstanceIds = y })
+       <$> f (_mirInstanceIds x)
+{-# INLINE mirInstanceIds #-}
 
 instance ToQuery MonitorInstances where
     toQuery = genericQuery def
@@ -73,7 +83,17 @@ data MonitorInstancesResponse = MonitorInstancesResponse
       -- ^ Monitoring information for one or more instances.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''MonitorInstancesResponse
+-- | Monitoring information for one or more instances.
+misInstanceMonitorings
+    :: Functor f
+    => ([InstanceMonitoring]
+    -> f ([InstanceMonitoring]))
+    -> MonitorInstancesResponse
+    -> f MonitorInstancesResponse
+misInstanceMonitorings f x =
+    (\y -> x { _misInstanceMonitorings = y })
+       <$> f (_misInstanceMonitorings x)
+{-# INLINE misInstanceMonitorings #-}
 
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -84,9 +104,3 @@ instance AWSRequest MonitorInstances where
 
     request = post "MonitorInstances"
     response _ = xmlResponse
-
--- | One or more instance IDs.
-mirInstanceIds :: Lens' MonitorInstances ([Text])
-
--- | Monitoring information for one or more instances.
-misInstanceMonitorings :: Lens' MonitorInstancesResponse ([InstanceMonitoring])

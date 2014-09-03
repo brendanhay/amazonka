@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,20 +54,16 @@ module Network.AWS.EC2.V2014_06_15.CreateKeyPair
     (
     -- * Request
       CreateKeyPair
-    -- ** Default constructor
+    -- ** Request constructor
     , createKeyPair
-    -- ** Accessors and lenses
-    , _ckprKeyName
+    -- ** Request lenses
     , ckprKeyName
 
     -- * Response
     , CreateKeyPairResponse
-    -- ** Accessors and lenses
-    , _ckpsKeyName
+    -- ** Response lenses
     , ckpsKeyName
-    , _ckpsKeyFingerprint
     , ckpsKeyFingerprint
-    , _ckpsKeyMaterial
     , ckpsKeyMaterial
     ) where
 
@@ -84,8 +79,21 @@ createKeyPair p1 = CreateKeyPair
     }
 
 data CreateKeyPair = CreateKeyPair
+    { _ckprKeyName :: Text
+      -- ^ A unique name for the key pair.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateKeyPair
+-- | A unique name for the key pair.
+ckprKeyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateKeyPair
+    -> f CreateKeyPair
+ckprKeyName f x =
+    (\y -> x { _ckprKeyName = y })
+       <$> f (_ckprKeyName x)
+{-# INLINE ckprKeyName #-}
 
 instance ToQuery CreateKeyPair where
     toQuery = genericQuery def
@@ -99,7 +107,41 @@ data CreateKeyPairResponse = CreateKeyPairResponse
       -- ^ An unencrypted PEM encoded RSA private key.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateKeyPairResponse
+-- | The name of the key pair.
+ckpsKeyName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateKeyPairResponse
+    -> f CreateKeyPairResponse
+ckpsKeyName f x =
+    (\y -> x { _ckpsKeyName = y })
+       <$> f (_ckpsKeyName x)
+{-# INLINE ckpsKeyName #-}
+
+-- | The SHA-1 digest of the DER encoded private key.
+ckpsKeyFingerprint
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateKeyPairResponse
+    -> f CreateKeyPairResponse
+ckpsKeyFingerprint f x =
+    (\y -> x { _ckpsKeyFingerprint = y })
+       <$> f (_ckpsKeyFingerprint x)
+{-# INLINE ckpsKeyFingerprint #-}
+
+-- | An unencrypted PEM encoded RSA private key.
+ckpsKeyMaterial
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateKeyPairResponse
+    -> f CreateKeyPairResponse
+ckpsKeyMaterial f x =
+    (\y -> x { _ckpsKeyMaterial = y })
+       <$> f (_ckpsKeyMaterial x)
+{-# INLINE ckpsKeyMaterial #-}
 
 instance FromXML CreateKeyPairResponse where
     fromXMLOptions = xmlOptions
@@ -110,15 +152,3 @@ instance AWSRequest CreateKeyPair where
 
     request = post "CreateKeyPair"
     response _ = xmlResponse
-
--- | A unique name for the key pair.
-ckprKeyName :: Lens' CreateKeyPair (Text)
-
--- | The name of the key pair.
-ckpsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
-
--- | The SHA-1 digest of the DER encoded private key.
-ckpsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
-
--- | An unencrypted PEM encoded RSA private key.
-ckpsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -58,20 +57,16 @@ module Network.AWS.EC2.V2014_06_15.CreateSecurityGroup
     (
     -- * Request
       CreateSecurityGroup
-    -- ** Default constructor
+    -- ** Request constructor
     , createSecurityGroup
-    -- ** Accessors and lenses
-    , _csgrGroupName
+    -- ** Request lenses
     , csgrGroupName
-    , _csgrDescription
     , csgrDescription
-    , _csgrVpcId
     , csgrVpcId
 
     -- * Response
     , CreateSecurityGroupResponse
-    -- ** Accessors and lenses
-    , _csgsGroupId
+    -- ** Response lenses
     , csgsGroupId
     ) where
 
@@ -90,8 +85,54 @@ createSecurityGroup p1 p2 = CreateSecurityGroup
     }
 
 data CreateSecurityGroup = CreateSecurityGroup
+    { _csgrGroupName :: Text
+      -- ^ The name of the security group. Constraints: Up to 255 characters
+      -- in length Constraints for EC2-Classic: ASCII characters
+      -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
+      -- ._-:/()#,@[]+=&amp;;{}!$*.
+    , _csgrDescription :: Text
+      -- ^ A description for the security group. This is informational only.
+    , _csgrVpcId :: Maybe Text
+      -- ^ [EC2-VPC] The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateSecurityGroup
+-- | The name of the security group. Constraints: Up to 255 characters in length
+-- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
+-- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
+csgrGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSecurityGroup
+    -> f CreateSecurityGroup
+csgrGroupName f x =
+    (\y -> x { _csgrGroupName = y })
+       <$> f (_csgrGroupName x)
+{-# INLINE csgrGroupName #-}
+
+-- | A description for the security group. This is informational only.
+csgrDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateSecurityGroup
+    -> f CreateSecurityGroup
+csgrDescription f x =
+    (\y -> x { _csgrDescription = y })
+       <$> f (_csgrDescription x)
+{-# INLINE csgrDescription #-}
+
+-- | [EC2-VPC] The ID of the VPC.
+csgrVpcId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSecurityGroup
+    -> f CreateSecurityGroup
+csgrVpcId f x =
+    (\y -> x { _csgrVpcId = y })
+       <$> f (_csgrVpcId x)
+{-# INLINE csgrVpcId #-}
 
 instance ToQuery CreateSecurityGroup where
     toQuery = genericQuery def
@@ -101,7 +142,17 @@ data CreateSecurityGroupResponse = CreateSecurityGroupResponse
       -- ^ The ID of the security group.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateSecurityGroupResponse
+-- | The ID of the security group.
+csgsGroupId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateSecurityGroupResponse
+    -> f CreateSecurityGroupResponse
+csgsGroupId f x =
+    (\y -> x { _csgsGroupId = y })
+       <$> f (_csgsGroupId x)
+{-# INLINE csgsGroupId #-}
 
 instance FromXML CreateSecurityGroupResponse where
     fromXMLOptions = xmlOptions
@@ -112,17 +163,3 @@ instance AWSRequest CreateSecurityGroup where
 
     request = post "CreateSecurityGroup"
     response _ = xmlResponse
-
--- | The name of the security group. Constraints: Up to 255 characters in length
--- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
--- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
-csgrGroupName :: Lens' CreateSecurityGroup (Text)
-
--- | A description for the security group. This is informational only.
-csgrDescription :: Lens' CreateSecurityGroup (Text)
-
--- | [EC2-VPC] The ID of the VPC.
-csgrVpcId :: Lens' CreateSecurityGroup (Maybe Text)
-
--- | The ID of the security group.
-csgsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)

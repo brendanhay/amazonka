@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -37,18 +36,15 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnGateway
     (
     -- * Request
       CreateVpnGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , createVpnGateway
-    -- ** Accessors and lenses
-    , _cvgrType
+    -- ** Request lenses
     , cvgrType
-    , _cvgrAvailabilityZone
     , cvgrAvailabilityZone
 
     -- * Response
     , CreateVpnGatewayResponse
-    -- ** Accessors and lenses
-    , _cvgsVpnGateway
+    -- ** Response lenses
     , cvgsVpnGateway
     ) where
 
@@ -65,8 +61,35 @@ createVpnGateway p1 = CreateVpnGateway
     }
 
 data CreateVpnGateway = CreateVpnGateway
+    { _cvgrType :: GatewayType
+      -- ^ The type of VPN connection this virtual private gateway supports.
+    , _cvgrAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone for the virtual private gateway.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpnGateway
+-- | The type of VPN connection this virtual private gateway supports.
+cvgrType
+    :: Functor f
+    => (GatewayType
+    -> f (GatewayType))
+    -> CreateVpnGateway
+    -> f CreateVpnGateway
+cvgrType f x =
+    (\y -> x { _cvgrType = y })
+       <$> f (_cvgrType x)
+{-# INLINE cvgrType #-}
+
+-- | The Availability Zone for the virtual private gateway.
+cvgrAvailabilityZone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateVpnGateway
+    -> f CreateVpnGateway
+cvgrAvailabilityZone f x =
+    (\y -> x { _cvgrAvailabilityZone = y })
+       <$> f (_cvgrAvailabilityZone x)
+{-# INLINE cvgrAvailabilityZone #-}
 
 instance ToQuery CreateVpnGateway where
     toQuery = genericQuery def
@@ -76,7 +99,17 @@ data CreateVpnGatewayResponse = CreateVpnGatewayResponse
       -- ^ Information about the virtual private gateway.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateVpnGatewayResponse
+-- | Information about the virtual private gateway.
+cvgsVpnGateway
+    :: Functor f
+    => (Maybe VpnGateway
+    -> f (Maybe VpnGateway))
+    -> CreateVpnGatewayResponse
+    -> f CreateVpnGatewayResponse
+cvgsVpnGateway f x =
+    (\y -> x { _cvgsVpnGateway = y })
+       <$> f (_cvgsVpnGateway x)
+{-# INLINE cvgsVpnGateway #-}
 
 instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions
@@ -87,12 +120,3 @@ instance AWSRequest CreateVpnGateway where
 
     request = post "CreateVpnGateway"
     response _ = xmlResponse
-
--- | The type of VPN connection this virtual private gateway supports.
-cvgrType :: Lens' CreateVpnGateway (GatewayType)
-
--- | The Availability Zone for the virtual private gateway.
-cvgrAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
-
--- | Information about the virtual private gateway.
-cvgsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)

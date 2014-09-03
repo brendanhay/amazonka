@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -57,7 +56,24 @@
 -- {"description": "", "name": "testDomain3", "status": "REGISTERED"},
 -- {"description": "", "name": "testDomain4", "status": "REGISTERED"},
 -- {"description": "", "name": "zsxfvgsxcv", "status": "REGISTERED"} ] }.
-module Network.AWS.SWF.V2012_01_25.ListDomains where
+module Network.AWS.SWF.V2012_01_25.ListDomains
+    (
+    -- * Request
+      ListDomains
+    -- ** Request constructor
+    , listDomains
+    -- ** Request lenses
+    , ldiRegistrationStatus
+    , ldiMaximumPageSize
+    , ldiNextPageToken
+    , ldiReverseOrder
+
+    -- * Response
+    , ListDomainsResponse
+    -- ** Response lenses
+    , ddwDomainInfos
+    , ddwNextPageToken
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -65,7 +81,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListDomains' request.
-listDomains :: RegistrationStatus -- ^ '_ldiRegistrationStatus'
+listDomains :: RegistrationStatus -- ^ 'ldiRegistrationStatus'
             -> ListDomains
 listDomains p1 = ListDomains
     { _ldiRegistrationStatus = p1
@@ -95,7 +111,62 @@ data ListDomains = ListDomains
       -- of the name of the domains.
     } deriving (Show, Generic)
 
-makeLenses ''ListDomains
+-- | Specifies the registration status of the domains to list.
+ldiRegistrationStatus
+    :: Functor f
+    => (RegistrationStatus
+    -> f (RegistrationStatus))
+    -> ListDomains
+    -> f ListDomains
+ldiRegistrationStatus f x =
+    (\y -> x { _ldiRegistrationStatus = y })
+       <$> f (_ldiRegistrationStatus x)
+{-# INLINE ldiRegistrationStatus #-}
+
+-- | The maximum number of results returned in each page. The default is 100,
+-- but the caller can override this value to a page size smaller than the
+-- default. You cannot specify a page size greater than 100. Note that the
+-- number of domains may be less than the maxiumum page size, in which case,
+-- the returned page will have fewer results than the maximumPageSize
+-- specified.
+ldiMaximumPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListDomains
+    -> f ListDomains
+ldiMaximumPageSize f x =
+    (\y -> x { _ldiMaximumPageSize = y })
+       <$> f (_ldiMaximumPageSize x)
+{-# INLINE ldiMaximumPageSize #-}
+
+-- | If on a previous call to this method a NextPageToken was returned, the
+-- result has more than one page. To get the next page of results, repeat the
+-- call with the returned token and all other arguments unchanged.
+ldiNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListDomains
+    -> f ListDomains
+ldiNextPageToken f x =
+    (\y -> x { _ldiNextPageToken = y })
+       <$> f (_ldiNextPageToken x)
+{-# INLINE ldiNextPageToken #-}
+
+-- | When set to true, returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the name of the
+-- domains.
+ldiReverseOrder
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ListDomains
+    -> f ListDomains
+ldiReverseOrder f x =
+    (\y -> x { _ldiReverseOrder = y })
+       <$> f (_ldiReverseOrder x)
+{-# INLINE ldiReverseOrder #-}
 
 instance ToPath ListDomains
 
@@ -106,15 +177,39 @@ instance ToHeaders ListDomains
 instance ToJSON ListDomains
 
 data ListDomainsResponse = ListDomainsResponse
-    { _dddddsDomainInfos :: [DomainInfo]
+    { _ddwDomainInfos :: [DomainInfo]
       -- ^ A list of DomainInfo structures.
-    , _dddddsNextPageToken :: Maybe Text
+    , _ddwNextPageToken :: Maybe Text
       -- ^ Returns a value if the results are paginated. To get the next
       -- page of results, repeat the request specifying this token and all
       -- other arguments unchanged.
     } deriving (Show, Generic)
 
-makeLenses ''ListDomainsResponse
+-- | A list of DomainInfo structures.
+ddwDomainInfos
+    :: Functor f
+    => ([DomainInfo]
+    -> f ([DomainInfo]))
+    -> ListDomainsResponse
+    -> f ListDomainsResponse
+ddwDomainInfos f x =
+    (\y -> x { _ddwDomainInfos = y })
+       <$> f (_ddwDomainInfos x)
+{-# INLINE ddwDomainInfos #-}
+
+-- | Returns a value if the results are paginated. To get the next page of
+-- results, repeat the request specifying this token and all other arguments
+-- unchanged.
+ddwNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListDomainsResponse
+    -> f ListDomainsResponse
+ddwNextPageToken f x =
+    (\y -> x { _ddwNextPageToken = y })
+       <$> f (_ddwNextPageToken x)
+{-# INLINE ddwNextPageToken #-}
 
 instance FromJSON ListDomainsResponse
 
@@ -127,4 +222,4 @@ instance AWSRequest ListDomains where
 
 instance AWSPager ListDomains where
     next rq rs = (\x -> rq { _ldiNextPageToken = Just x })
-        <$> (_dddddsNextPageToken rs)
+        <$> (_ddwNextPageToken rs)

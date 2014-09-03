@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,11 +23,29 @@
 -- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &Timestamp=2011-02-15T17%3A48%3A21.746Z &AWSAccessKeyId= &Signature=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
-module Network.AWS.RDS.V2013_09_09.DeleteDBSubnetGroup where
+module Network.AWS.RDS.V2013_09_09.DeleteDBSubnetGroup
+    (
+    -- * Request
+      DeleteDBSubnetGroup
+    -- ** Request constructor
+    , deleteDBSubnetGroup
+    -- ** Request lenses
+    , ddbsgnDBSubnetGroupName
+
+    -- * Response
+    , DeleteDBSubnetGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteDBSubnetGroup' request.
+deleteDBSubnetGroup :: Text -- ^ 'ddbsgnDBSubnetGroupName'
+                    -> DeleteDBSubnetGroup
+deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
+    { _ddbsgnDBSubnetGroupName = p1
+    }
 
 data DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsgnDBSubnetGroupName :: Text
@@ -38,15 +55,26 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup
       -- end with a hyphen or contain two consecutive hyphens.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDBSubnetGroup
+-- | The name of the database subnet group to delete. You cannot delete the
+-- default subnet group. Constraints: Must be 1 to 255 alphanumeric characters
+-- First character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens.
+ddbsgnDBSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDBSubnetGroup
+    -> f DeleteDBSubnetGroup
+ddbsgnDBSubnetGroupName f x =
+    (\y -> x { _ddbsgnDBSubnetGroupName = y })
+       <$> f (_ddbsgnDBSubnetGroupName x)
+{-# INLINE ddbsgnDBSubnetGroupName #-}
 
 instance ToQuery DeleteDBSubnetGroup where
     toQuery = genericQuery def
 
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteDBSubnetGroupResponse
 
 instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS

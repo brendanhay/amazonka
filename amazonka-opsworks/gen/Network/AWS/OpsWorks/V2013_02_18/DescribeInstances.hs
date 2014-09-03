@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- must have a Show, Deploy, or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeInstances where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
+    (
+    -- * Request
+      DescribeInstances
+    -- ** Request constructor
+    , describeInstances
+    -- ** Request lenses
+    , disStackId
+    , disLayerId
+    , disInstanceIds
+
+    -- * Response
+    , DescribeInstancesResponse
+    -- ** Response lenses
+    , ditInstances
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,20 +47,20 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeInstances' request.
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _disLayerId = Nothing
-    , _disStackId = Nothing
+    { _disStackId = Nothing
+    , _disLayerId = Nothing
     , _disInstanceIds = mempty
     }
 
 data DescribeInstances = DescribeInstances
-    { _disLayerId :: Maybe Text
-      -- ^ A layer ID. If you use this parameter, DescribeInstances returns
-      -- descriptions of the instances associated with the specified
-      -- layer.
-    , _disStackId :: Maybe Text
+    { _disStackId :: Maybe Text
       -- ^ A stack ID. If you use this parameter, DescribeInstances returns
       -- descriptions of the instances associated with the specified
       -- stack.
+    , _disLayerId :: Maybe Text
+      -- ^ A layer ID. If you use this parameter, DescribeInstances returns
+      -- descriptions of the instances associated with the specified
+      -- layer.
     , _disInstanceIds :: [Text]
       -- ^ An array of instance IDs to be described. If you use this
       -- parameter, DescribeInstances returns a description of the
@@ -54,7 +68,45 @@ data DescribeInstances = DescribeInstances
       -- instance.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInstances
+-- | A stack ID. If you use this parameter, DescribeInstances returns
+-- descriptions of the instances associated with the specified stack.
+disStackId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeInstances
+    -> f DescribeInstances
+disStackId f x =
+    (\y -> x { _disStackId = y })
+       <$> f (_disStackId x)
+{-# INLINE disStackId #-}
+
+-- | A layer ID. If you use this parameter, DescribeInstances returns
+-- descriptions of the instances associated with the specified layer.
+disLayerId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeInstances
+    -> f DescribeInstances
+disLayerId f x =
+    (\y -> x { _disLayerId = y })
+       <$> f (_disLayerId x)
+{-# INLINE disLayerId #-}
+
+-- | An array of instance IDs to be described. If you use this parameter,
+-- DescribeInstances returns a description of the specified instances.
+-- Otherwise, it returns a description of every instance.
+disInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeInstances
+    -> f DescribeInstances
+disInstanceIds f x =
+    (\y -> x { _disInstanceIds = y })
+       <$> f (_disInstanceIds x)
+{-# INLINE disInstanceIds #-}
 
 instance ToPath DescribeInstances
 
@@ -69,7 +121,17 @@ data DescribeInstancesResponse = DescribeInstancesResponse
       -- ^ An array of Instance objects that describe the instances.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeInstancesResponse
+-- | An array of Instance objects that describe the instances.
+ditInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> DescribeInstancesResponse
+    -> f DescribeInstancesResponse
+ditInstances f x =
+    (\y -> x { _ditInstances = y })
+       <$> f (_ditInstances x)
+{-# INLINE ditInstances #-}
 
 instance FromJSON DescribeInstancesResponse
 

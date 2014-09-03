@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,18 +25,48 @@
 -- http://sqs.us-east-1.amazonaws.com/123456789012/MySourceQueue
 -- 8ffb921f-b85e-53d9-abcf-d8d0057f38fc For more information about using dead
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
-module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues where
+module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
+    (
+    -- * Request
+      ListDeadLetterSourceQueues
+    -- ** Request constructor
+    , listDeadLetterSourceQueues
+    -- ** Request lenses
+    , ldlsqrQueueUrl
+
+    -- * Response
+    , ListDeadLetterSourceQueuesResponse
+    -- ** Response lenses
+    , ldlsqsQueueUrls
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ListDeadLetterSourceQueues' request.
+listDeadLetterSourceQueues :: Text -- ^ 'ldlsqrQueueUrl'
+                           -> ListDeadLetterSourceQueues
+listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
+    { _ldlsqrQueueUrl = p1
+    }
 
 data ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqrQueueUrl :: Text
       -- ^ The queue URL of a dead letter queue.
     } deriving (Show, Generic)
 
-makeLenses ''ListDeadLetterSourceQueues
+-- | The queue URL of a dead letter queue.
+ldlsqrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListDeadLetterSourceQueues
+    -> f ListDeadLetterSourceQueues
+ldlsqrQueueUrl f x =
+    (\y -> x { _ldlsqrQueueUrl = y })
+       <$> f (_ldlsqrQueueUrl x)
+{-# INLINE ldlsqrQueueUrl #-}
 
 instance ToQuery ListDeadLetterSourceQueues where
     toQuery = genericQuery def
@@ -48,7 +77,18 @@ data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
       -- attribute configured with a dead letter queue.
     } deriving (Show, Generic)
 
-makeLenses ''ListDeadLetterSourceQueuesResponse
+-- | A list of source queue URLs that have the RedrivePolicy queue attribute
+-- configured with a dead letter queue.
+ldlsqsQueueUrls
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ListDeadLetterSourceQueuesResponse
+    -> f ListDeadLetterSourceQueuesResponse
+ldlsqsQueueUrls f x =
+    (\y -> x { _ldlsqsQueueUrls = y })
+       <$> f (_ldlsqsQueueUrls x)
+{-# INLINE ldlsqsQueueUrls #-}
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions

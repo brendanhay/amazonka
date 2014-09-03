@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,15 +27,30 @@
 -- 990524496922 Complete My modified DBSubnetGroup mydbsubnetgroup Active
 -- subnet-7c5b4115 us-east-1c Active subnet-7b5b4112 us-east-1b Active
 -- subnet-3ea6bd57 us-east-1d ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.RDS.V2013_09_09.ModifyDBSubnetGroup where
+module Network.AWS.RDS.V2013_09_09.ModifyDBSubnetGroup
+    (
+    -- * Request
+      ModifyDBSubnetGroup
+    -- ** Request constructor
+    , modifyDBSubnetGroup
+    -- ** Request lenses
+    , mdbsgmDBSubnetGroupName
+    , mdbsgmSubnetIds
+    , mdbsgmDBSubnetGroupDescription
+
+    -- * Response
+    , ModifyDBSubnetGroupResponse
+    -- ** Response lenses
+    , dbsgzDBSubnetGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ModifyDBSubnetGroup' request.
-modifyDBSubnetGroup :: Text -- ^ '_mdbsgmDBSubnetGroupName'
-                    -> [Text] -- ^ '_mdbsgmSubnetIds'
+modifyDBSubnetGroup :: Text -- ^ 'mdbsgmDBSubnetGroupName'
+                    -> [Text] -- ^ 'mdbsgmSubnetIds'
                     -> ModifyDBSubnetGroup
 modifyDBSubnetGroup p1 p2 = ModifyDBSubnetGroup
     { _mdbsgmDBSubnetGroupName = p1
@@ -56,20 +70,69 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
       -- ^ The description for the DB subnet group.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyDBSubnetGroup
+-- | The name for the DB subnet group. This value is stored as a lowercase
+-- string. Constraints: Must contain no more than 255 alphanumeric characters
+-- or hyphens. Must not be "Default". Example: mySubnetgroup.
+mdbsgmDBSubnetGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyDBSubnetGroup
+    -> f ModifyDBSubnetGroup
+mdbsgmDBSubnetGroupName f x =
+    (\y -> x { _mdbsgmDBSubnetGroupName = y })
+       <$> f (_mdbsgmDBSubnetGroupName x)
+{-# INLINE mdbsgmDBSubnetGroupName #-}
+
+-- | The EC2 subnet IDs for the DB subnet group.
+mdbsgmSubnetIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyDBSubnetGroup
+    -> f ModifyDBSubnetGroup
+mdbsgmSubnetIds f x =
+    (\y -> x { _mdbsgmSubnetIds = y })
+       <$> f (_mdbsgmSubnetIds x)
+{-# INLINE mdbsgmSubnetIds #-}
+
+-- | The description for the DB subnet group.
+mdbsgmDBSubnetGroupDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyDBSubnetGroup
+    -> f ModifyDBSubnetGroup
+mdbsgmDBSubnetGroupDescription f x =
+    (\y -> x { _mdbsgmDBSubnetGroupDescription = y })
+       <$> f (_mdbsgmDBSubnetGroupDescription x)
+{-# INLINE mdbsgmDBSubnetGroupDescription #-}
 
 instance ToQuery ModifyDBSubnetGroup where
     toQuery = genericQuery def
 
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
-    { _dbsgwDBSubnetGroup :: Maybe DBSubnetGroup
+    { _dbsgzDBSubnetGroup :: Maybe DBSubnetGroup
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBSubnetGroup ModifyDBSubnetGroup
       -- DescribeDBSubnetGroups DeleteDBSubnetGroup This data type is used
       -- as a response element in the DescribeDBSubnetGroups action.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyDBSubnetGroupResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
+-- DeleteDBSubnetGroup This data type is used as a response element in the
+-- DescribeDBSubnetGroups action.
+dbsgzDBSubnetGroup
+    :: Functor f
+    => (Maybe DBSubnetGroup
+    -> f (Maybe DBSubnetGroup))
+    -> ModifyDBSubnetGroupResponse
+    -> f ModifyDBSubnetGroupResponse
+dbsgzDBSubnetGroup f x =
+    (\y -> x { _dbsgzDBSubnetGroup = y })
+       <$> f (_dbsgzDBSubnetGroup x)
+{-# INLINE dbsgzDBSubnetGroup #-}
 
 instance FromXML ModifyDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

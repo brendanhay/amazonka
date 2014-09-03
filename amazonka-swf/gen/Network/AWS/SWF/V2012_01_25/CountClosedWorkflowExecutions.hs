@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,7 +49,27 @@
 -- 1356998399}, "closeStatusFilter": {"status": "TIMED_OUT"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 9bfad387-3f22-11e1-9914-a356b6ea8bdf { "count":3, "truncated":false }.
-module Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions where
+module Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
+    (
+    -- * Request
+      CountClosedWorkflowExecutions
+    -- ** Request constructor
+    , countClosedWorkflowExecutions
+    -- ** Request lenses
+    , ccweiDomain
+    , ccweiCloseStatusFilter
+    , ccweiStartTimeFilter
+    , ccweiCloseTimeFilter
+    , ccweiTagFilter
+    , ccweiExecutionFilter
+    , ccweiTypeFilter
+
+    -- * Response
+    , CountClosedWorkflowExecutionsResponse
+    -- ** Response lenses
+    , wecCount
+    , wecTruncated
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -58,7 +77,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'CountClosedWorkflowExecutions' request.
-countClosedWorkflowExecutions :: Text -- ^ '_ccweiDomain'
+countClosedWorkflowExecutions :: Text -- ^ 'ccweiDomain'
                               -> CountClosedWorkflowExecutions
 countClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
     { _ccweiDomain = p1
@@ -107,7 +126,103 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
       -- these in a request.
     } deriving (Show, Generic)
 
-makeLenses ''CountClosedWorkflowExecutions
+-- | The name of the domain containing the workflow executions to count.
+ccweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiDomain f x =
+    (\y -> x { _ccweiDomain = y })
+       <$> f (_ccweiDomain x)
+{-# INLINE ccweiDomain #-}
+
+-- | If specified, only workflow executions that match this close status are
+-- counted. This filter has an affect only if executionStatus is specified as
+-- CLOSED. closeStatusFilter, executionFilter, typeFilter and tagFilter are
+-- mutually exclusive. You can specify at most one of these in a request.
+ccweiCloseStatusFilter
+    :: Functor f
+    => (Maybe CloseStatusFilter
+    -> f (Maybe CloseStatusFilter))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiCloseStatusFilter f x =
+    (\y -> x { _ccweiCloseStatusFilter = y })
+       <$> f (_ccweiCloseStatusFilter x)
+{-# INLINE ccweiCloseStatusFilter #-}
+
+-- | If specified, only workflow executions that meet the start time criteria of
+-- the filter are counted. startTimeFilter and closeTimeFilter are mutually
+-- exclusive. You must specify one of these in a request but not both.
+ccweiStartTimeFilter
+    :: Functor f
+    => (Maybe ExecutionTimeFilter
+    -> f (Maybe ExecutionTimeFilter))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiStartTimeFilter f x =
+    (\y -> x { _ccweiStartTimeFilter = y })
+       <$> f (_ccweiStartTimeFilter x)
+{-# INLINE ccweiStartTimeFilter #-}
+
+-- | If specified, only workflow executions that meet the close time criteria of
+-- the filter are counted. startTimeFilter and closeTimeFilter are mutually
+-- exclusive. You must specify one of these in a request but not both.
+ccweiCloseTimeFilter
+    :: Functor f
+    => (Maybe ExecutionTimeFilter
+    -> f (Maybe ExecutionTimeFilter))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiCloseTimeFilter f x =
+    (\y -> x { _ccweiCloseTimeFilter = y })
+       <$> f (_ccweiCloseTimeFilter x)
+{-# INLINE ccweiCloseTimeFilter #-}
+
+-- | If specified, only executions that have a tag that matches the filter are
+-- counted. closeStatusFilter, executionFilter, typeFilter and tagFilter are
+-- mutually exclusive. You can specify at most one of these in a request.
+ccweiTagFilter
+    :: Functor f
+    => (Maybe TagFilter
+    -> f (Maybe TagFilter))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiTagFilter f x =
+    (\y -> x { _ccweiTagFilter = y })
+       <$> f (_ccweiTagFilter x)
+{-# INLINE ccweiTagFilter #-}
+
+-- | If specified, only workflow executions matching the WorkflowId in the
+-- filter are counted. closeStatusFilter, executionFilter, typeFilter and
+-- tagFilter are mutually exclusive. You can specify at most one of these in a
+-- request.
+ccweiExecutionFilter
+    :: Functor f
+    => (Maybe WorkflowExecutionFilter
+    -> f (Maybe WorkflowExecutionFilter))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiExecutionFilter f x =
+    (\y -> x { _ccweiExecutionFilter = y })
+       <$> f (_ccweiExecutionFilter x)
+{-# INLINE ccweiExecutionFilter #-}
+
+-- | If specified, indicates the type of the workflow executions to be counted.
+-- closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
+-- exclusive. You can specify at most one of these in a request.
+ccweiTypeFilter
+    :: Functor f
+    => (Maybe WorkflowTypeFilter
+    -> f (Maybe WorkflowTypeFilter))
+    -> CountClosedWorkflowExecutions
+    -> f CountClosedWorkflowExecutions
+ccweiTypeFilter f x =
+    (\y -> x { _ccweiTypeFilter = y })
+       <$> f (_ccweiTypeFilter x)
+{-# INLINE ccweiTypeFilter #-}
 
 instance ToPath CountClosedWorkflowExecutions
 
@@ -118,15 +233,38 @@ instance ToHeaders CountClosedWorkflowExecutions
 instance ToJSON CountClosedWorkflowExecutions
 
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
-    { _weoCount :: Integer
+    { _wecCount :: Integer
       -- ^ The number of workflow executions.
-    , _weoTruncated :: Maybe Bool
+    , _wecTruncated :: Maybe Bool
       -- ^ If set to true, indicates that the actual count was more than the
       -- maximum supported by this API and the count returned is the
       -- truncated value.
     } deriving (Show, Generic)
 
-makeLenses ''CountClosedWorkflowExecutionsResponse
+-- | The number of workflow executions.
+wecCount
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> CountClosedWorkflowExecutionsResponse
+    -> f CountClosedWorkflowExecutionsResponse
+wecCount f x =
+    (\y -> x { _wecCount = y })
+       <$> f (_wecCount x)
+{-# INLINE wecCount #-}
+
+-- | If set to true, indicates that the actual count was more than the maximum
+-- supported by this API and the count returned is the truncated value.
+wecTruncated
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> CountClosedWorkflowExecutionsResponse
+    -> f CountClosedWorkflowExecutionsResponse
+wecTruncated f x =
+    (\y -> x { _wecTruncated = y })
+       <$> f (_wecTruncated x)
+{-# INLINE wecTruncated #-}
 
 instance FromJSON CountClosedWorkflowExecutionsResponse
 

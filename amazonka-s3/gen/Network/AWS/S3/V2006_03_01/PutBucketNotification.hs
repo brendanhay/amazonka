@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,15 +18,28 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables notifications of specified events for a bucket.
-module Network.AWS.S3.V2006_03_01.PutBucketNotification where
+module Network.AWS.S3.V2006_03_01.PutBucketNotification
+    (
+    -- * Request
+      PutBucketNotification
+    -- ** Request constructor
+    , putBucketNotification
+    -- ** Request lenses
+    , pbnrNotificationConfiguration
+    , pbnrBucket
+    , pbnrContentMD5
+
+    -- * Response
+    , PutBucketNotificationResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketNotification' request.
-putBucketNotification :: NotificationConfiguration -- ^ '_pbnrNotificationConfiguration'
-                      -> BucketName -- ^ '_pbnrBucket'
+putBucketNotification :: NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
+                      -> BucketName -- ^ 'pbnrBucket'
                       -> PutBucketNotification
 putBucketNotification p1 p2 = PutBucketNotification
     { _pbnrNotificationConfiguration = p1
@@ -41,7 +53,38 @@ data PutBucketNotification = PutBucketNotification
     , _pbnrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketNotification
+pbnrNotificationConfiguration
+    :: Functor f
+    => (NotificationConfiguration
+    -> f (NotificationConfiguration))
+    -> PutBucketNotification
+    -> f PutBucketNotification
+pbnrNotificationConfiguration f x =
+    (\y -> x { _pbnrNotificationConfiguration = y })
+       <$> f (_pbnrNotificationConfiguration x)
+{-# INLINE pbnrNotificationConfiguration #-}
+
+pbnrBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketNotification
+    -> f PutBucketNotification
+pbnrBucket f x =
+    (\y -> x { _pbnrBucket = y })
+       <$> f (_pbnrBucket x)
+{-# INLINE pbnrBucket #-}
+
+pbnrContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketNotification
+    -> f PutBucketNotification
+pbnrContentMD5 f x =
+    (\y -> x { _pbnrContentMD5 = y })
+       <$> f (_pbnrContentMD5 x)
+{-# INLINE pbnrContentMD5 #-}
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat
@@ -64,8 +107,6 @@ instance ToBody PutBucketNotification where
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketNotificationResponse
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3

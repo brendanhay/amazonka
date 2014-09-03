@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,24 @@
 -- filtering by cluster creation date and time or by status. This call returns
 -- a maximum of 50 clusters per call, but returns a marker to track the paging
 -- of the cluster list across multiple ListClusters calls.
-module Network.AWS.EMR.V2009_03_31.ListClusters where
+module Network.AWS.EMR.V2009_03_31.ListClusters
+    (
+    -- * Request
+      ListClusters
+    -- ** Request constructor
+    , listClusters
+    -- ** Request lenses
+    , lciClusterStates
+    , lciCreatedAfter
+    , lciCreatedBefore
+    , lciMarker
+
+    -- * Response
+    , ListClustersResponse
+    -- ** Response lenses
+    , lcoClusters
+    , lcoMarker
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -34,26 +50,72 @@ import qualified Network.AWS.Types.Map    as Map
 listClusters :: ListClusters
 listClusters = ListClusters
     { _lciClusterStates = mempty
-    , _lciCreatedBefore = Nothing
     , _lciCreatedAfter = Nothing
+    , _lciCreatedBefore = Nothing
     , _lciMarker = Nothing
     }
 
 data ListClusters = ListClusters
     { _lciClusterStates :: [ClusterState]
       -- ^ The cluster state filters to apply when listing clusters.
-    , _lciCreatedBefore :: Maybe POSIX
-      -- ^ The creation date and time end value filter for listing clusters
-      -- .
     , _lciCreatedAfter :: Maybe POSIX
       -- ^ The creation date and time beginning value filter for listing
       -- clusters .
+    , _lciCreatedBefore :: Maybe POSIX
+      -- ^ The creation date and time end value filter for listing clusters
+      -- .
     , _lciMarker :: Maybe Text
       -- ^ The pagination token that indicates the next set of results to
       -- retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''ListClusters
+-- | The cluster state filters to apply when listing clusters.
+lciClusterStates
+    :: Functor f
+    => ([ClusterState]
+    -> f ([ClusterState]))
+    -> ListClusters
+    -> f ListClusters
+lciClusterStates f x =
+    (\y -> x { _lciClusterStates = y })
+       <$> f (_lciClusterStates x)
+{-# INLINE lciClusterStates #-}
+
+-- | The creation date and time beginning value filter for listing clusters .
+lciCreatedAfter
+    :: Functor f
+    => (Maybe POSIX
+    -> f (Maybe POSIX))
+    -> ListClusters
+    -> f ListClusters
+lciCreatedAfter f x =
+    (\y -> x { _lciCreatedAfter = y })
+       <$> f (_lciCreatedAfter x)
+{-# INLINE lciCreatedAfter #-}
+
+-- | The creation date and time end value filter for listing clusters .
+lciCreatedBefore
+    :: Functor f
+    => (Maybe POSIX
+    -> f (Maybe POSIX))
+    -> ListClusters
+    -> f ListClusters
+lciCreatedBefore f x =
+    (\y -> x { _lciCreatedBefore = y })
+       <$> f (_lciCreatedBefore x)
+{-# INLINE lciCreatedBefore #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+lciMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListClusters
+    -> f ListClusters
+lciMarker f x =
+    (\y -> x { _lciMarker = y })
+       <$> f (_lciMarker x)
+{-# INLINE lciMarker #-}
 
 instance ToPath ListClusters
 
@@ -71,7 +133,29 @@ data ListClustersResponse = ListClustersResponse
       -- retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''ListClustersResponse
+-- | The list of clusters for the account based on the given filters.
+lcoClusters
+    :: Functor f
+    => ([ClusterSummary]
+    -> f ([ClusterSummary]))
+    -> ListClustersResponse
+    -> f ListClustersResponse
+lcoClusters f x =
+    (\y -> x { _lcoClusters = y })
+       <$> f (_lcoClusters x)
+{-# INLINE lcoClusters #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+lcoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListClustersResponse
+    -> f ListClustersResponse
+lcoMarker f x =
+    (\y -> x { _lcoMarker = y })
+       <$> f (_lcoMarker x)
+{-# INLINE lcoMarker #-}
 
 instance FromJSON ListClustersResponse
 

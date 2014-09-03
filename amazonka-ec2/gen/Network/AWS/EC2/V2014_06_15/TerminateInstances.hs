@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -48,16 +47,14 @@ module Network.AWS.EC2.V2014_06_15.TerminateInstances
     (
     -- * Request
       TerminateInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , terminateInstances
-    -- ** Accessors and lenses
-    , _tirInstanceIds
+    -- ** Request lenses
     , tirInstanceIds
 
     -- * Response
     , TerminateInstancesResponse
-    -- ** Accessors and lenses
-    , _tisTerminatingInstances
+    -- ** Response lenses
     , tisTerminatingInstances
     ) where
 
@@ -73,8 +70,21 @@ terminateInstances p1 = TerminateInstances
     }
 
 data TerminateInstances = TerminateInstances
+    { _tirInstanceIds :: [Text]
+      -- ^ One or more instance IDs.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''TerminateInstances
+-- | One or more instance IDs.
+tirInstanceIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> TerminateInstances
+    -> f TerminateInstances
+tirInstanceIds f x =
+    (\y -> x { _tirInstanceIds = y })
+       <$> f (_tirInstanceIds x)
+{-# INLINE tirInstanceIds #-}
 
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
@@ -84,7 +94,17 @@ data TerminateInstancesResponse = TerminateInstancesResponse
       -- ^ Information about one or more terminated instances.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''TerminateInstancesResponse
+-- | Information about one or more terminated instances.
+tisTerminatingInstances
+    :: Functor f
+    => ([InstanceStateChange]
+    -> f ([InstanceStateChange]))
+    -> TerminateInstancesResponse
+    -> f TerminateInstancesResponse
+tisTerminatingInstances f x =
+    (\y -> x { _tisTerminatingInstances = y })
+       <$> f (_tisTerminatingInstances x)
+{-# INLINE tisTerminatingInstances #-}
 
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -95,9 +115,3 @@ instance AWSRequest TerminateInstances where
 
     request = post "TerminateInstances"
     response _ = xmlResponse
-
--- | One or more instance IDs.
-tirInstanceIds :: Lens' TerminateInstances ([Text])
-
--- | Information about one or more terminated instances.
-tisTerminatingInstances :: Lens' TerminateInstancesResponse ([InstanceStateChange])

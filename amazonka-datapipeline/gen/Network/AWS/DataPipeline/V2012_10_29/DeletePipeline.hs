@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,19 +31,47 @@
 -- b7a88c81-0754-11e2-af6f-6bc7a6be60d9 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
-module Network.AWS.DataPipeline.V2012_10_29.DeletePipeline where
+module Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
+    (
+    -- * Request
+      DeletePipeline
+    -- ** Request constructor
+    , deletePipeline
+    -- ** Request lenses
+    , dpiPipelineId
+
+    -- * Response
+    , DeletePipelineResponse
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeletePipeline' request.
+deletePipeline :: Text -- ^ 'dpiPipelineId'
+               -> DeletePipeline
+deletePipeline p1 = DeletePipeline
+    { _dpiPipelineId = p1
+    }
+
 data DeletePipeline = DeletePipeline
-    { _dpjPipelineId :: Text
+    { _dpiPipelineId :: Text
       -- ^ The identifier of the pipeline to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeletePipeline
+-- | The identifier of the pipeline to be deleted.
+dpiPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletePipeline
+    -> f DeletePipeline
+dpiPipelineId f x =
+    (\y -> x { _dpiPipelineId = y })
+       <$> f (_dpiPipelineId x)
+{-# INLINE dpiPipelineId #-}
 
 instance ToPath DeletePipeline
 
@@ -56,8 +83,6 @@ instance ToJSON DeletePipeline
 
 data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeletePipelineResponse
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline

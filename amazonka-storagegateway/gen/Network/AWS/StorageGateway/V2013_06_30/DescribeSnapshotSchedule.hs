@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,20 +34,55 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "StartAt": 6, "RecurrenceInHours": 24, "Description":
 -- "sgw-AABB1122:vol-AABB1122:Schedule", "Timezone": "GMT+7:00" }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
+    (
+    -- * Request
+      DescribeSnapshotSchedule
+    -- ** Request constructor
+    , describeSnapshotSchedule
+    -- ** Request lenses
+    , dssjVolumeARN
+
+    -- * Response
+    , DescribeSnapshotScheduleResponse
+    -- ** Response lenses
+    , dsspDescription
+    , dsspTimezone
+    , dsspStartAt
+    , dsspRecurrenceInHours
+    , dsspVolumeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeSnapshotSchedule' request.
+describeSnapshotSchedule :: Text -- ^ 'dssjVolumeARN'
+                         -> DescribeSnapshotSchedule
+describeSnapshotSchedule p1 = DescribeSnapshotSchedule
+    { _dssjVolumeARN = p1
+    }
+
 data DescribeSnapshotSchedule = DescribeSnapshotSchedule
-    { _dssiVolumeARN :: Text
+    { _dssjVolumeARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
       -- operation to return a list of gateway volumes.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSnapshotSchedule
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
+-- to return a list of gateway volumes.
+dssjVolumeARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeSnapshotSchedule
+    -> f DescribeSnapshotSchedule
+dssjVolumeARN f x =
+    (\y -> x { _dssjVolumeARN = y })
+       <$> f (_dssjVolumeARN x)
+{-# INLINE dssjVolumeARN #-}
 
 instance ToPath DescribeSnapshotSchedule
 
@@ -59,14 +93,67 @@ instance ToHeaders DescribeSnapshotSchedule
 instance ToJSON DescribeSnapshotSchedule
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssoDescription :: Maybe Text
-    , _dssoTimezone :: Maybe Text
-    , _dssoStartAt :: Maybe Integer
-    , _dssoRecurrenceInHours :: Maybe Integer
-    , _dssoVolumeARN :: Maybe Text
+    { _dsspDescription :: Maybe Text
+    , _dsspTimezone :: Maybe Text
+    , _dsspStartAt :: Maybe Integer
+    , _dsspRecurrenceInHours :: Maybe Integer
+    , _dsspVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''DescribeSnapshotScheduleResponse
+dsspDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeSnapshotScheduleResponse
+    -> f DescribeSnapshotScheduleResponse
+dsspDescription f x =
+    (\y -> x { _dsspDescription = y })
+       <$> f (_dsspDescription x)
+{-# INLINE dsspDescription #-}
+
+dsspTimezone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeSnapshotScheduleResponse
+    -> f DescribeSnapshotScheduleResponse
+dsspTimezone f x =
+    (\y -> x { _dsspTimezone = y })
+       <$> f (_dsspTimezone x)
+{-# INLINE dsspTimezone #-}
+
+dsspStartAt
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeSnapshotScheduleResponse
+    -> f DescribeSnapshotScheduleResponse
+dsspStartAt f x =
+    (\y -> x { _dsspStartAt = y })
+       <$> f (_dsspStartAt x)
+{-# INLINE dsspStartAt #-}
+
+dsspRecurrenceInHours
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeSnapshotScheduleResponse
+    -> f DescribeSnapshotScheduleResponse
+dsspRecurrenceInHours f x =
+    (\y -> x { _dsspRecurrenceInHours = y })
+       <$> f (_dsspRecurrenceInHours x)
+{-# INLINE dsspRecurrenceInHours #-}
+
+dsspVolumeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeSnapshotScheduleResponse
+    -> f DescribeSnapshotScheduleResponse
+dsspVolumeARN f x =
+    (\y -> x { _dsspVolumeARN = y })
+       <$> f (_dsspVolumeARN x)
+{-# INLINE dsspVolumeARN #-}
 
 instance FromJSON DescribeSnapshotScheduleResponse
 

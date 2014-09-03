@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -45,16 +44,33 @@
 -- &Timestamp=2011-08-18T22%3A25%3A27.000Z
 -- 00000131d51d2292-159ad6eb-077c-46e6-ad09-ae7c05925ed4-000000
 -- d5964849-c866-11e0-9beb-01a62d68c57f.
-module Network.AWS.SES.V2010_12_01.SendEmail where
+module Network.AWS.SES.V2010_12_01.SendEmail
+    (
+    -- * Request
+      SendEmail
+    -- ** Request constructor
+    , sendEmail
+    -- ** Request lenses
+    , serSource
+    , serDestination
+    , serMessage
+    , serReturnPath
+    , serReplyToAddresses
+
+    -- * Response
+    , SendEmailResponse
+    -- ** Response lenses
+    , sesMessageId
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'SendEmail' request.
-sendEmail :: Text -- ^ '_serSource'
-          -> Destination -- ^ '_serDestination'
-          -> Message -- ^ '_serMessage'
+sendEmail :: Text -- ^ 'serSource'
+          -> Destination -- ^ 'serDestination'
+          -> Message -- ^ 'serMessage'
           -> SendEmail
 sendEmail p1 p2 p3 = SendEmail
     { _serSource = p1
@@ -90,7 +106,74 @@ data SendEmail = SendEmail
       -- reply.
     } deriving (Show, Generic)
 
-makeLenses ''SendEmail
+-- | The identity's email address. By default, the string must be 7-bit ASCII.
+-- If the text must contain any other characters, then you must use MIME
+-- encoded-word syntax (RFC 2047) instead of a literal string. MIME
+-- encoded-word syntax uses the following form:
+-- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
+serSource
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SendEmail
+    -> f SendEmail
+serSource f x =
+    (\y -> x { _serSource = y })
+       <$> f (_serSource x)
+{-# INLINE serSource #-}
+
+-- | The destination for this email, composed of To:, CC:, and BCC: fields.
+serDestination
+    :: Functor f
+    => (Destination
+    -> f (Destination))
+    -> SendEmail
+    -> f SendEmail
+serDestination f x =
+    (\y -> x { _serDestination = y })
+       <$> f (_serDestination x)
+{-# INLINE serDestination #-}
+
+-- | The message to be sent.
+serMessage
+    :: Functor f
+    => (Message
+    -> f (Message))
+    -> SendEmail
+    -> f SendEmail
+serMessage f x =
+    (\y -> x { _serMessage = y })
+       <$> f (_serMessage x)
+{-# INLINE serMessage #-}
+
+-- | The email address to which bounces and complaints are to be forwarded when
+-- feedback forwarding is enabled. If the message cannot be delivered to the
+-- recipient, then an error message will be returned from the recipient's ISP;
+-- this message will then be forwarded to the email address specified by the
+-- ReturnPath parameter.
+serReturnPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SendEmail
+    -> f SendEmail
+serReturnPath f x =
+    (\y -> x { _serReturnPath = y })
+       <$> f (_serReturnPath x)
+{-# INLINE serReturnPath #-}
+
+-- | The reply-to email address(es) for the message. If the recipient replies to
+-- the message, each reply-to address will receive the reply.
+serReplyToAddresses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SendEmail
+    -> f SendEmail
+serReplyToAddresses f x =
+    (\y -> x { _serReplyToAddresses = y })
+       <$> f (_serReplyToAddresses x)
+{-# INLINE serReplyToAddresses #-}
 
 instance ToQuery SendEmail where
     toQuery = genericQuery def
@@ -100,7 +183,17 @@ data SendEmailResponse = SendEmailResponse
       -- ^ The unique message identifier returned from the SendEmail action.
     } deriving (Show, Generic)
 
-makeLenses ''SendEmailResponse
+-- | The unique message identifier returned from the SendEmail action.
+sesMessageId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SendEmailResponse
+    -> f SendEmailResponse
+sesMessageId f x =
+    (\y -> x { _sesMessageId = y })
+       <$> f (_sesMessageId x)
+{-# INLINE sesMessageId #-}
 
 instance FromXML SendEmailResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,7 +35,24 @@
 -- does not exist. Launching EC2 instance failed. 2012-04-12T17:32:08Z The
 -- image id 'ami-4edb0327' does not exist. Launching EC2 instance failed.
 -- 7a641adc-84c5-11e1-a8a5-217ebEXAMPLE.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
+    (
+    -- * Request
+      DescribeScalingActivities
+    -- ** Request constructor
+    , describeScalingActivities
+    -- ** Request lenses
+    , dsauActivityIds
+    , dsauMaxRecords
+    , dsauAutoScalingGroupName
+    , dsauNextToken
+
+    -- * Response
+    , DescribeScalingActivitiesResponse
+    -- ** Response lenses
+    , avActivities
+    , avNextToken
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
@@ -45,45 +61,120 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeScalingActivities' request.
 describeScalingActivities :: DescribeScalingActivities
 describeScalingActivities = DescribeScalingActivities
-    { _dsavActivityIds = mempty
-    , _dsavMaxRecords = Nothing
-    , _dsavAutoScalingGroupName = Nothing
-    , _dsavNextToken = Nothing
+    { _dsauActivityIds = mempty
+    , _dsauMaxRecords = Nothing
+    , _dsauAutoScalingGroupName = Nothing
+    , _dsauNextToken = Nothing
     }
 
 data DescribeScalingActivities = DescribeScalingActivities
-    { _dsavActivityIds :: [Text]
+    { _dsauActivityIds :: [Text]
       -- ^ A list containing the activity IDs of the desired scaling
       -- activities. If this list is omitted, all activities are
       -- described. If an AutoScalingGroupName is provided, the results
       -- are limited to that group. The list of requested activities
       -- cannot contain more than 50 items. If unknown activities are
       -- requested, they are ignored with no error.
-    , _dsavMaxRecords :: Maybe Integer
+    , _dsauMaxRecords :: Maybe Integer
       -- ^ The maximum number of scaling activities to return.
-    , _dsavAutoScalingGroupName :: Maybe Text
+    , _dsauAutoScalingGroupName :: Maybe Text
       -- ^ The name of the AutoScalingGroup.
-    , _dsavNextToken :: Maybe Text
+    , _dsauNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results for pagination.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeScalingActivities
+-- | A list containing the activity IDs of the desired scaling activities. If
+-- this list is omitted, all activities are described. If an
+-- AutoScalingGroupName is provided, the results are limited to that group.
+-- The list of requested activities cannot contain more than 50 items. If
+-- unknown activities are requested, they are ignored with no error.
+dsauActivityIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeScalingActivities
+    -> f DescribeScalingActivities
+dsauActivityIds f x =
+    (\y -> x { _dsauActivityIds = y })
+       <$> f (_dsauActivityIds x)
+{-# INLINE dsauActivityIds #-}
+
+-- | The maximum number of scaling activities to return.
+dsauMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeScalingActivities
+    -> f DescribeScalingActivities
+dsauMaxRecords f x =
+    (\y -> x { _dsauMaxRecords = y })
+       <$> f (_dsauMaxRecords x)
+{-# INLINE dsauMaxRecords #-}
+
+-- | The name of the AutoScalingGroup.
+dsauAutoScalingGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeScalingActivities
+    -> f DescribeScalingActivities
+dsauAutoScalingGroupName f x =
+    (\y -> x { _dsauAutoScalingGroupName = y })
+       <$> f (_dsauAutoScalingGroupName x)
+{-# INLINE dsauAutoScalingGroupName #-}
+
+-- | A string that marks the start of the next batch of returned results for
+-- pagination.
+dsauNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeScalingActivities
+    -> f DescribeScalingActivities
+dsauNextToken f x =
+    (\y -> x { _dsauNextToken = y })
+       <$> f (_dsauNextToken x)
+{-# INLINE dsauNextToken #-}
 
 instance ToQuery DescribeScalingActivities where
     toQuery = genericQuery def
 
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
-    { _auActivities :: [Activity]
+    { _avActivities :: [Activity]
       -- ^ A list of the requested scaling activities.
-    , _auNextToken :: Maybe Text
+    , _avNextToken :: Maybe Text
       -- ^ Acts as a paging mechanism for large result sets. Set to a
       -- non-empty string if there are additional results waiting to be
       -- returned. Pass this in to subsequent calls to return additional
       -- results.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeScalingActivitiesResponse
+-- | A list of the requested scaling activities.
+avActivities
+    :: Functor f
+    => ([Activity]
+    -> f ([Activity]))
+    -> DescribeScalingActivitiesResponse
+    -> f DescribeScalingActivitiesResponse
+avActivities f x =
+    (\y -> x { _avActivities = y })
+       <$> f (_avActivities x)
+{-# INLINE avActivities #-}
+
+-- | Acts as a paging mechanism for large result sets. Set to a non-empty string
+-- if there are additional results waiting to be returned. Pass this in to
+-- subsequent calls to return additional results.
+avNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeScalingActivitiesResponse
+    -> f DescribeScalingActivitiesResponse
+avNextToken f x =
+    (\y -> x { _avNextToken = y })
+       <$> f (_avNextToken x)
+{-# INLINE avNextToken #-}
 
 instance FromXML DescribeScalingActivitiesResponse where
     fromXMLOptions = xmlOptions
@@ -96,5 +187,5 @@ instance AWSRequest DescribeScalingActivities where
     response _ = xmlResponse
 
 instance AWSPager DescribeScalingActivities where
-    next rq rs = (\x -> rq { _dsavNextToken = Just x })
-        <$> (_auNextToken rs)
+    next rq rs = (\x -> rq { _dsauNextToken = Just x })
+        <$> (_avNextToken rs)

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -35,20 +34,16 @@ module Network.AWS.EC2.V2014_06_15.ModifyReservedInstances
     (
     -- * Request
       ModifyReservedInstances
-    -- ** Default constructor
+    -- ** Request constructor
     , modifyReservedInstances
-    -- ** Accessors and lenses
-    , _mrirTargetConfigurations
+    -- ** Request lenses
     , mrirTargetConfigurations
-    , _mrirReservedInstancesIds
     , mrirReservedInstancesIds
-    , _mrirClientToken
     , mrirClientToken
 
     -- * Response
     , ModifyReservedInstancesResponse
-    -- ** Accessors and lenses
-    , _mrisReservedInstancesModificationId
+    -- ** Response lenses
     , mrisReservedInstancesModificationId
     ) where
 
@@ -67,8 +62,51 @@ modifyReservedInstances p1 p2 = ModifyReservedInstances
     }
 
 data ModifyReservedInstances = ModifyReservedInstances
+    { _mrirTargetConfigurations :: [ReservedInstancesConfiguration]
+      -- ^ The configuration settings for the Reserved Instances to modify.
+    , _mrirReservedInstancesIds :: [Text]
+      -- ^ The IDs of the Reserved Instances to modify.
+    , _mrirClientToken :: Maybe Text
+      -- ^ A unique, case-sensitive token you provide to ensure idempotency
+      -- of your modification request.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ModifyReservedInstances
+-- | The configuration settings for the Reserved Instances to modify.
+mrirTargetConfigurations
+    :: Functor f
+    => ([ReservedInstancesConfiguration]
+    -> f ([ReservedInstancesConfiguration]))
+    -> ModifyReservedInstances
+    -> f ModifyReservedInstances
+mrirTargetConfigurations f x =
+    (\y -> x { _mrirTargetConfigurations = y })
+       <$> f (_mrirTargetConfigurations x)
+{-# INLINE mrirTargetConfigurations #-}
+
+-- | The IDs of the Reserved Instances to modify.
+mrirReservedInstancesIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ModifyReservedInstances
+    -> f ModifyReservedInstances
+mrirReservedInstancesIds f x =
+    (\y -> x { _mrirReservedInstancesIds = y })
+       <$> f (_mrirReservedInstancesIds x)
+{-# INLINE mrirReservedInstancesIds #-}
+
+-- | A unique, case-sensitive token you provide to ensure idempotency of your
+-- modification request.
+mrirClientToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyReservedInstances
+    -> f ModifyReservedInstances
+mrirClientToken f x =
+    (\y -> x { _mrirClientToken = y })
+       <$> f (_mrirClientToken x)
+{-# INLINE mrirClientToken #-}
 
 instance ToQuery ModifyReservedInstances where
     toQuery = genericQuery def
@@ -78,7 +116,17 @@ data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
       -- ^ The ID for the modification.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ModifyReservedInstancesResponse
+-- | The ID for the modification.
+mrisReservedInstancesModificationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyReservedInstancesResponse
+    -> f ModifyReservedInstancesResponse
+mrisReservedInstancesModificationId f x =
+    (\y -> x { _mrisReservedInstancesModificationId = y })
+       <$> f (_mrisReservedInstancesModificationId x)
+{-# INLINE mrisReservedInstancesModificationId #-}
 
 instance FromXML ModifyReservedInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -89,16 +137,3 @@ instance AWSRequest ModifyReservedInstances where
 
     request = post "ModifyReservedInstances"
     response _ = xmlResponse
-
--- | The configuration settings for the Reserved Instances to modify.
-mrirTargetConfigurations :: Lens' ModifyReservedInstances ([ReservedInstancesConfiguration])
-
--- | The IDs of the Reserved Instances to modify.
-mrirReservedInstancesIds :: Lens' ModifyReservedInstances ([Text])
-
--- | A unique, case-sensitive token you provide to ensure idempotency of your
--- modification request.
-mrirClientToken :: Lens' ModifyReservedInstances (Maybe Text)
-
--- | The ID for the modification.
-mrisReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)

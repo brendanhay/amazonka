@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -55,12 +54,39 @@
 -- "customerOrderWorkflow", "version": "1.0"} }, "openCounts":
 -- {"openActivityTasks": 0, "openChildWorkflowExecutions": 0,
 -- "openDecisionTasks": 1, "openTimers": 0} }.
-module Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution where
+module Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
+    (
+    -- * Request
+      DescribeWorkflowExecution
+    -- ** Request constructor
+    , describeWorkflowExecution
+    -- ** Request lenses
+    , dweiDomain
+    , dweiExecution
+
+    -- * Response
+    , DescribeWorkflowExecutionResponse
+    -- ** Response lenses
+    , weeExecutionConfiguration
+    , weeExecutionInfo
+    , weeOpenCounts
+    , weeLatestExecutionContext
+    , weeLatestActivityTaskTimestamp
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeWorkflowExecution' request.
+describeWorkflowExecution :: Text -- ^ 'dweiDomain'
+                          -> WorkflowExecution -- ^ 'dweiExecution'
+                          -> DescribeWorkflowExecution
+describeWorkflowExecution p1 p2 = DescribeWorkflowExecution
+    { _dweiDomain = p1
+    , _dweiExecution = p2
+    }
 
 data DescribeWorkflowExecution = DescribeWorkflowExecution
     { _dweiDomain :: Text
@@ -69,7 +95,29 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution
       -- ^ The workflow execution to describe.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeWorkflowExecution
+-- | The name of the domain containing the workflow execution.
+dweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeWorkflowExecution
+    -> f DescribeWorkflowExecution
+dweiDomain f x =
+    (\y -> x { _dweiDomain = y })
+       <$> f (_dweiDomain x)
+{-# INLINE dweiDomain #-}
+
+-- | The workflow execution to describe.
+dweiExecution
+    :: Functor f
+    => (WorkflowExecution
+    -> f (WorkflowExecution))
+    -> DescribeWorkflowExecution
+    -> f DescribeWorkflowExecution
+dweiExecution f x =
+    (\y -> x { _dweiExecution = y })
+       <$> f (_dweiExecution x)
+{-# INLINE dweiExecution #-}
 
 instance ToPath DescribeWorkflowExecution
 
@@ -80,27 +128,92 @@ instance ToHeaders DescribeWorkflowExecution
 instance ToJSON DescribeWorkflowExecution
 
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
-    { _wedExecutionConfiguration :: WorkflowExecutionConfiguration
+    { _weeExecutionConfiguration :: WorkflowExecutionConfiguration
       -- ^ The configuration settings for this workflow execution including
       -- timeout values, tasklist etc.
-    , _wedExecutionInfo :: WorkflowExecutionInfo
+    , _weeExecutionInfo :: WorkflowExecutionInfo
       -- ^ Information about the workflow execution.
-    , _wedOpenCounts :: WorkflowExecutionOpenCounts
+    , _weeOpenCounts :: WorkflowExecutionOpenCounts
       -- ^ The number of tasks for this workflow execution. This includes
       -- open and closed tasks of all types.
-    , _wedLatestExecutionContext :: Maybe Text
+    , _weeLatestExecutionContext :: Maybe Text
       -- ^ The latest executionContext provided by the decider for this
       -- workflow execution. A decider can provide an executionContext,
       -- which is a free form string, when closing a decision task using
       -- RespondDecisionTaskCompleted.
-    , _wedLatestActivityTaskTimestamp :: Maybe POSIX
+    , _weeLatestActivityTaskTimestamp :: Maybe POSIX
       -- ^ The time when the last activity task was scheduled for this
       -- workflow execution. You can use this information to determine if
       -- the workflow has not made progress for an unusually long period
       -- of time and might require a corrective action.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeWorkflowExecutionResponse
+-- | The configuration settings for this workflow execution including timeout
+-- values, tasklist etc.
+weeExecutionConfiguration
+    :: Functor f
+    => (WorkflowExecutionConfiguration
+    -> f (WorkflowExecutionConfiguration))
+    -> DescribeWorkflowExecutionResponse
+    -> f DescribeWorkflowExecutionResponse
+weeExecutionConfiguration f x =
+    (\y -> x { _weeExecutionConfiguration = y })
+       <$> f (_weeExecutionConfiguration x)
+{-# INLINE weeExecutionConfiguration #-}
+
+-- | Information about the workflow execution.
+weeExecutionInfo
+    :: Functor f
+    => (WorkflowExecutionInfo
+    -> f (WorkflowExecutionInfo))
+    -> DescribeWorkflowExecutionResponse
+    -> f DescribeWorkflowExecutionResponse
+weeExecutionInfo f x =
+    (\y -> x { _weeExecutionInfo = y })
+       <$> f (_weeExecutionInfo x)
+{-# INLINE weeExecutionInfo #-}
+
+-- | The number of tasks for this workflow execution. This includes open and
+-- closed tasks of all types.
+weeOpenCounts
+    :: Functor f
+    => (WorkflowExecutionOpenCounts
+    -> f (WorkflowExecutionOpenCounts))
+    -> DescribeWorkflowExecutionResponse
+    -> f DescribeWorkflowExecutionResponse
+weeOpenCounts f x =
+    (\y -> x { _weeOpenCounts = y })
+       <$> f (_weeOpenCounts x)
+{-# INLINE weeOpenCounts #-}
+
+-- | The latest executionContext provided by the decider for this workflow
+-- execution. A decider can provide an executionContext, which is a free form
+-- string, when closing a decision task using RespondDecisionTaskCompleted.
+weeLatestExecutionContext
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeWorkflowExecutionResponse
+    -> f DescribeWorkflowExecutionResponse
+weeLatestExecutionContext f x =
+    (\y -> x { _weeLatestExecutionContext = y })
+       <$> f (_weeLatestExecutionContext x)
+{-# INLINE weeLatestExecutionContext #-}
+
+-- | The time when the last activity task was scheduled for this workflow
+-- execution. You can use this information to determine if the workflow has
+-- not made progress for an unusually long period of time and might require a
+-- corrective action.
+weeLatestActivityTaskTimestamp
+    :: Functor f
+    => (Maybe POSIX
+    -> f (Maybe POSIX))
+    -> DescribeWorkflowExecutionResponse
+    -> f DescribeWorkflowExecutionResponse
+weeLatestActivityTaskTimestamp f x =
+    (\y -> x { _weeLatestActivityTaskTimestamp = y })
+       <$> f (_weeLatestActivityTaskTimestamp x)
+{-# INLINE weeLatestActivityTaskTimestamp #-}
 
 instance FromJSON DescribeWorkflowExecutionResponse
 

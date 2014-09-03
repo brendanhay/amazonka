@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,11 +22,32 @@
 -- resources, or used in Condition statement in IAM policy for Amazon RDS. For
 -- an overview on tagging Amazon RDS resources, see Tagging Amazon RDS
 -- Resources.
-module Network.AWS.RDS.V2013_09_09.AddTagsToResource where
+module Network.AWS.RDS.V2013_09_09.AddTagsToResource
+    (
+    -- * Request
+      AddTagsToResource
+    -- ** Request constructor
+    , addTagsToResource
+    -- ** Request lenses
+    , attrmResourceName
+    , attrmTags
+
+    -- * Response
+    , AddTagsToResourceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'AddTagsToResource' request.
+addTagsToResource :: Text -- ^ 'attrmResourceName'
+                  -> [Tag] -- ^ 'attrmTags'
+                  -> AddTagsToResource
+addTagsToResource p1 p2 = AddTagsToResource
+    { _attrmResourceName = p1
+    , _attrmTags = p2
+    }
 
 data AddTagsToResource = AddTagsToResource
     { _attrmResourceName :: Text
@@ -38,15 +58,37 @@ data AddTagsToResource = AddTagsToResource
       -- ^ The tags to be assigned to the Amazon RDS resource.
     } deriving (Show, Generic)
 
-makeLenses ''AddTagsToResource
+-- | The Amazon RDS resource the tags will be added to. This value is an Amazon
+-- Resource Name (ARN). For information about creating an ARN, see
+-- Constructing an RDS Amazon Resource Name (ARN).
+attrmResourceName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddTagsToResource
+    -> f AddTagsToResource
+attrmResourceName f x =
+    (\y -> x { _attrmResourceName = y })
+       <$> f (_attrmResourceName x)
+{-# INLINE attrmResourceName #-}
+
+-- | The tags to be assigned to the Amazon RDS resource.
+attrmTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> AddTagsToResource
+    -> f AddTagsToResource
+attrmTags f x =
+    (\y -> x { _attrmTags = y })
+       <$> f (_attrmTags x)
+{-# INLINE attrmTags #-}
 
 instance ToQuery AddTagsToResource where
     toQuery = genericQuery def
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AddTagsToResourceResponse
 
 instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,22 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides all available details about the instance groups in a cluster.
-module Network.AWS.EMR.V2009_03_31.ListInstanceGroups where
+module Network.AWS.EMR.V2009_03_31.ListInstanceGroups
+    (
+    -- * Request
+      ListInstanceGroups
+    -- ** Request constructor
+    , listInstanceGroups
+    -- ** Request lenses
+    , ligiClusterId
+    , ligiMarker
+
+    -- * Response
+    , ListInstanceGroupsResponse
+    -- ** Response lenses
+    , ligoInstanceGroups
+    , ligoMarker
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -27,7 +41,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListInstanceGroups' request.
-listInstanceGroups :: Text -- ^ '_ligiClusterId'
+listInstanceGroups :: Text -- ^ 'ligiClusterId'
                    -> ListInstanceGroups
 listInstanceGroups p1 = ListInstanceGroups
     { _ligiClusterId = p1
@@ -43,7 +57,29 @@ data ListInstanceGroups = ListInstanceGroups
       -- retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''ListInstanceGroups
+-- | The identifier of the cluster for which to list the instance groups.
+ligiClusterId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListInstanceGroups
+    -> f ListInstanceGroups
+ligiClusterId f x =
+    (\y -> x { _ligiClusterId = y })
+       <$> f (_ligiClusterId x)
+{-# INLINE ligiClusterId #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+ligiMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstanceGroups
+    -> f ListInstanceGroups
+ligiMarker f x =
+    (\y -> x { _ligiMarker = y })
+       <$> f (_ligiMarker x)
+{-# INLINE ligiMarker #-}
 
 instance ToPath ListInstanceGroups
 
@@ -61,7 +97,29 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse
       -- retrieve.
     } deriving (Show, Generic)
 
-makeLenses ''ListInstanceGroupsResponse
+-- | The list of instance groups for the cluster and given filters.
+ligoInstanceGroups
+    :: Functor f
+    => ([InstanceGroup]
+    -> f ([InstanceGroup]))
+    -> ListInstanceGroupsResponse
+    -> f ListInstanceGroupsResponse
+ligoInstanceGroups f x =
+    (\y -> x { _ligoInstanceGroups = y })
+       <$> f (_ligoInstanceGroups x)
+{-# INLINE ligoInstanceGroups #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+ligoMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstanceGroupsResponse
+    -> f ListInstanceGroupsResponse
+ligoMarker f x =
+    (\y -> x { _ligoMarker = y })
+       <$> f (_ligoMarker x)
+{-# INLINE ligoMarker #-}
 
 instance FromJSON ListInstanceGroupsResponse
 

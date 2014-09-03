@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -73,7 +72,23 @@
 -- "/home/hadoop/contrib/streaming/hadoop-streaming.jar", "Properties": [] },
 -- "Name": "Example Streaming Step" } }], "SupportedProducts": [],
 -- "VisibleToAllUsers": false }]}.
-module Network.AWS.EMR.V2009_03_31.DescribeJobFlows where
+module Network.AWS.EMR.V2009_03_31.DescribeJobFlows
+    (
+    -- * Request
+      DescribeJobFlows
+    -- ** Request constructor
+    , describeJobFlows
+    -- ** Request lenses
+    , djfiCreatedAfter
+    , djfiCreatedBefore
+    , djfiJobFlowStates
+    , djfiJobFlowIds
+
+    -- * Response
+    , DescribeJobFlowsResponse
+    -- ** Response lenses
+    , djfoJobFlows
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
@@ -83,17 +98,17 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeJobFlows' request.
 describeJobFlows :: DescribeJobFlows
 describeJobFlows = DescribeJobFlows
-    { _djfiCreatedBefore = Nothing
-    , _djfiCreatedAfter = Nothing
+    { _djfiCreatedAfter = Nothing
+    , _djfiCreatedBefore = Nothing
     , _djfiJobFlowStates = mempty
     , _djfiJobFlowIds = mempty
     }
 
 data DescribeJobFlows = DescribeJobFlows
-    { _djfiCreatedBefore :: Maybe POSIX
-      -- ^ Return only job flows created before this date and time.
-    , _djfiCreatedAfter :: Maybe POSIX
+    { _djfiCreatedAfter :: Maybe POSIX
       -- ^ Return only job flows created after this date and time.
+    , _djfiCreatedBefore :: Maybe POSIX
+      -- ^ Return only job flows created before this date and time.
     , _djfiJobFlowStates :: [JobFlowExecutionState]
       -- ^ Return only job flows whose state is contained in this list.
     , _djfiJobFlowIds :: [Text]
@@ -101,7 +116,53 @@ data DescribeJobFlows = DescribeJobFlows
       -- list.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeJobFlows
+-- | Return only job flows created after this date and time.
+djfiCreatedAfter
+    :: Functor f
+    => (Maybe POSIX
+    -> f (Maybe POSIX))
+    -> DescribeJobFlows
+    -> f DescribeJobFlows
+djfiCreatedAfter f x =
+    (\y -> x { _djfiCreatedAfter = y })
+       <$> f (_djfiCreatedAfter x)
+{-# INLINE djfiCreatedAfter #-}
+
+-- | Return only job flows created before this date and time.
+djfiCreatedBefore
+    :: Functor f
+    => (Maybe POSIX
+    -> f (Maybe POSIX))
+    -> DescribeJobFlows
+    -> f DescribeJobFlows
+djfiCreatedBefore f x =
+    (\y -> x { _djfiCreatedBefore = y })
+       <$> f (_djfiCreatedBefore x)
+{-# INLINE djfiCreatedBefore #-}
+
+-- | Return only job flows whose state is contained in this list.
+djfiJobFlowStates
+    :: Functor f
+    => ([JobFlowExecutionState]
+    -> f ([JobFlowExecutionState]))
+    -> DescribeJobFlows
+    -> f DescribeJobFlows
+djfiJobFlowStates f x =
+    (\y -> x { _djfiJobFlowStates = y })
+       <$> f (_djfiJobFlowStates x)
+{-# INLINE djfiJobFlowStates #-}
+
+-- | Return only job flows whose job flow ID is contained in this list.
+djfiJobFlowIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeJobFlows
+    -> f DescribeJobFlows
+djfiJobFlowIds f x =
+    (\y -> x { _djfiJobFlowIds = y })
+       <$> f (_djfiJobFlowIds x)
+{-# INLINE djfiJobFlowIds #-}
 
 instance ToPath DescribeJobFlows
 
@@ -116,7 +177,17 @@ data DescribeJobFlowsResponse = DescribeJobFlowsResponse
       -- ^ A list of job flows matching the parameters supplied.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeJobFlowsResponse
+-- | A list of job flows matching the parameters supplied.
+djfoJobFlows
+    :: Functor f
+    => ([JobFlowDetail]
+    -> f ([JobFlowDetail]))
+    -> DescribeJobFlowsResponse
+    -> f DescribeJobFlowsResponse
+djfoJobFlows f x =
+    (\y -> x { _djfoJobFlows = y })
+       <$> f (_djfoJobFlows x)
+{-# INLINE djfoJobFlows #-}
 
 instance FromJSON DescribeJobFlowsResponse
 

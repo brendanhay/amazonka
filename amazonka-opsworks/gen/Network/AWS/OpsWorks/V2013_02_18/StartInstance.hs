@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,19 +22,47 @@
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.StartInstance where
+module Network.AWS.OpsWorks.V2013_02_18.StartInstance
+    (
+    -- * Request
+      StartInstance
+    -- ** Request constructor
+    , startInstance
+    -- ** Request lenses
+    , sirInstanceId
+
+    -- * Response
+    , StartInstanceResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'StartInstance' request.
+startInstance :: Text -- ^ 'sirInstanceId'
+              -> StartInstance
+startInstance p1 = StartInstance
+    { _sirInstanceId = p1
+    }
+
 data StartInstance = StartInstance
-    { _sisInstanceId :: Text
+    { _sirInstanceId :: Text
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
-makeLenses ''StartInstance
+-- | The instance ID.
+sirInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StartInstance
+    -> f StartInstance
+sirInstanceId f x =
+    (\y -> x { _sirInstanceId = y })
+       <$> f (_sirInstanceId x)
+{-# INLINE sirInstanceId #-}
 
 instance ToPath StartInstance
 
@@ -47,8 +74,6 @@ instance ToJSON StartInstance
 
 data StartInstanceResponse = StartInstanceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''StartInstanceResponse
 
 instance AWSRequest StartInstance where
     type Sv StartInstance = OpsWorks

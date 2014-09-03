@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -48,19 +47,47 @@
 -- Content-Length: 21 Pragma: no-cache Cache-Control: no-cache {"name":
 -- "867530901"} HTTP/1.1 200 OK Content-Length: 0 Content-Type:
 -- application/json x-amzn-RequestId: 0800c01a-4000-11e1-9914-a356b6ea8bdf.
-module Network.AWS.SWF.V2012_01_25.DeprecateDomain where
+module Network.AWS.SWF.V2012_01_25.DeprecateDomain
+    (
+    -- * Request
+      DeprecateDomain
+    -- ** Request constructor
+    , deprecateDomain
+    -- ** Request lenses
+    , ddiName
+
+    -- * Response
+    , DeprecateDomainResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeprecateDomain' request.
+deprecateDomain :: Text -- ^ 'ddiName'
+                -> DeprecateDomain
+deprecateDomain p1 = DeprecateDomain
+    { _ddiName = p1
+    }
+
 data DeprecateDomain = DeprecateDomain
-    { _ddduName :: Text
+    { _ddiName :: Text
       -- ^ The name of the domain to deprecate.
     } deriving (Show, Generic)
 
-makeLenses ''DeprecateDomain
+-- | The name of the domain to deprecate.
+ddiName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeprecateDomain
+    -> f DeprecateDomain
+ddiName f x =
+    (\y -> x { _ddiName = y })
+       <$> f (_ddiName x)
+{-# INLINE ddiName #-}
 
 instance ToPath DeprecateDomain
 
@@ -72,8 +99,6 @@ instance ToJSON DeprecateDomain
 
 data DeprecateDomainResponse = DeprecateDomainResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeprecateDomainResponse
 
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -43,12 +42,32 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.DeleteGateway where
+module Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
+    (
+    -- * Request
+      DeleteGateway
+    -- ** Request constructor
+    , deleteGateway
+    -- ** Request lenses
+    , dgiGatewayARN
+
+    -- * Response
+    , DeleteGatewayResponse
+    -- ** Response lenses
+    , dgoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DeleteGateway' request.
+deleteGateway :: Text -- ^ 'dgiGatewayARN'
+              -> DeleteGateway
+deleteGateway p1 = DeleteGateway
+    { _dgiGatewayARN = p1
+    }
 
 data DeleteGateway = DeleteGateway
     { _dgiGatewayARN :: Text
@@ -57,7 +76,18 @@ data DeleteGateway = DeleteGateway
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteGateway
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dgiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteGateway
+    -> f DeleteGateway
+dgiGatewayARN f x =
+    (\y -> x { _dgiGatewayARN = y })
+       <$> f (_dgiGatewayARN x)
+{-# INLINE dgiGatewayARN #-}
 
 instance ToPath DeleteGateway
 
@@ -74,7 +104,18 @@ data DeleteGatewayResponse = DeleteGatewayResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteGatewayResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dgoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteGatewayResponse
+    -> f DeleteGatewayResponse
+dgoGatewayARN f x =
+    (\y -> x { _dgoGatewayARN = y })
+       <$> f (_dgoGatewayARN x)
+{-# INLINE dgoGatewayARN #-}
 
 instance FromJSON DeleteGatewayResponse
 

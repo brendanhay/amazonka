@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -63,16 +62,14 @@ module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
     (
     -- * Request
       CreateDhcpOptions
-    -- ** Default constructor
+    -- ** Request constructor
     , createDhcpOptions
-    -- ** Accessors and lenses
-    , _cdorDhcpConfigurations
+    -- ** Request lenses
     , cdorDhcpConfigurations
 
     -- * Response
     , CreateDhcpOptionsResponse
-    -- ** Accessors and lenses
-    , _cdosDhcpOptions
+    -- ** Response lenses
     , cdosDhcpOptions
     ) where
 
@@ -88,8 +85,21 @@ createDhcpOptions p1 = CreateDhcpOptions
     }
 
 data CreateDhcpOptions = CreateDhcpOptions
+    { _cdorDhcpConfigurations :: [DhcpConfiguration]
+      -- ^ A DHCP configuration option.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateDhcpOptions
+-- | A DHCP configuration option.
+cdorDhcpConfigurations
+    :: Functor f
+    => ([DhcpConfiguration]
+    -> f ([DhcpConfiguration]))
+    -> CreateDhcpOptions
+    -> f CreateDhcpOptions
+cdorDhcpConfigurations f x =
+    (\y -> x { _cdorDhcpConfigurations = y })
+       <$> f (_cdorDhcpConfigurations x)
+{-# INLINE cdorDhcpConfigurations #-}
 
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def
@@ -99,7 +109,17 @@ data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
       -- ^ A set of DHCP options.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''CreateDhcpOptionsResponse
+-- | A set of DHCP options.
+cdosDhcpOptions
+    :: Functor f
+    => (Maybe DhcpOptions
+    -> f (Maybe DhcpOptions))
+    -> CreateDhcpOptionsResponse
+    -> f CreateDhcpOptionsResponse
+cdosDhcpOptions f x =
+    (\y -> x { _cdosDhcpOptions = y })
+       <$> f (_cdosDhcpOptions x)
+{-# INLINE cdosDhcpOptions #-}
 
 instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -110,9 +130,3 @@ instance AWSRequest CreateDhcpOptions where
 
     request = post "CreateDhcpOptions"
     response _ = xmlResponse
-
--- | A DHCP configuration option.
-cdorDhcpConfigurations :: Lens' CreateDhcpOptions ([DhcpConfiguration])
-
--- | A set of DHCP options.
-cdosDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)

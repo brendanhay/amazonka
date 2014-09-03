@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,18 +35,15 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation
     (
     -- * Request
       ReplaceRouteTableAssociation
-    -- ** Default constructor
+    -- ** Request constructor
     , replaceRouteTableAssociation
-    -- ** Accessors and lenses
-    , _rrtarAssociationId
+    -- ** Request lenses
     , rrtarAssociationId
-    , _rrtarRouteTableId
     , rrtarRouteTableId
 
     -- * Response
     , ReplaceRouteTableAssociationResponse
-    -- ** Accessors and lenses
-    , _rrtasNewAssociationId
+    -- ** Response lenses
     , rrtasNewAssociationId
     ) where
 
@@ -65,8 +61,35 @@ replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     }
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
+    { _rrtarAssociationId :: Text
+      -- ^ The association ID.
+    , _rrtarRouteTableId :: Text
+      -- ^ The ID of the new route table to associate with the subnet.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ReplaceRouteTableAssociation
+-- | The association ID.
+rrtarAssociationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceRouteTableAssociation
+    -> f ReplaceRouteTableAssociation
+rrtarAssociationId f x =
+    (\y -> x { _rrtarAssociationId = y })
+       <$> f (_rrtarAssociationId x)
+{-# INLINE rrtarAssociationId #-}
+
+-- | The ID of the new route table to associate with the subnet.
+rrtarRouteTableId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceRouteTableAssociation
+    -> f ReplaceRouteTableAssociation
+rrtarRouteTableId f x =
+    (\y -> x { _rrtarRouteTableId = y })
+       <$> f (_rrtarRouteTableId x)
+{-# INLINE rrtarRouteTableId #-}
 
 instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
@@ -76,7 +99,17 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
       -- ^ The ID of the new association.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''ReplaceRouteTableAssociationResponse
+-- | The ID of the new association.
+rrtasNewAssociationId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ReplaceRouteTableAssociationResponse
+    -> f ReplaceRouteTableAssociationResponse
+rrtasNewAssociationId f x =
+    (\y -> x { _rrtasNewAssociationId = y })
+       <$> f (_rrtasNewAssociationId x)
+{-# INLINE rrtasNewAssociationId #-}
 
 instance FromXML ReplaceRouteTableAssociationResponse where
     fromXMLOptions = xmlOptions
@@ -87,12 +120,3 @@ instance AWSRequest ReplaceRouteTableAssociation where
 
     request = post "ReplaceRouteTableAssociation"
     response _ = xmlResponse
-
--- | The association ID.
-rrtarAssociationId :: Lens' ReplaceRouteTableAssociation (Text)
-
--- | The ID of the new route table to associate with the subnet.
-rrtarRouteTableId :: Lens' ReplaceRouteTableAssociation (Text)
-
--- | The ID of the new association.
-rrtasNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)

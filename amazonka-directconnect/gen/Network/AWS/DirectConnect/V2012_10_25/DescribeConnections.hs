@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,7 +19,20 @@
 
 -- | Displays all connections in this region. If a connection ID is provided,
 -- the call returns only that particular connection.
-module Network.AWS.DirectConnect.V2012_10_25.DescribeConnections where
+module Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
+    (
+    -- * Request
+      DescribeConnections
+    -- ** Request constructor
+    , describeConnections
+    -- ** Request lenses
+    , dcsConnectionId
+
+    -- * Response
+    , DescribeConnectionsResponse
+    -- ** Response lenses
+    , mConnections
+    ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
 import           Network.AWS.Prelude
@@ -38,7 +50,17 @@ data DescribeConnections = DescribeConnections
       -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConnections
+-- | ID of the connection. Example: dxcon-fg5678gh Default: None.
+dcsConnectionId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeConnections
+    -> f DescribeConnections
+dcsConnectionId f x =
+    (\y -> x { _dcsConnectionId = y })
+       <$> f (_dcsConnectionId x)
+{-# INLINE dcsConnectionId #-}
 
 instance ToPath DescribeConnections
 
@@ -49,11 +71,21 @@ instance ToHeaders DescribeConnections
 instance ToJSON DescribeConnections
 
 data DescribeConnectionsResponse = DescribeConnectionsResponse
-    { _hConnections :: [Connection]
+    { _mConnections :: [Connection]
       -- ^ A list of connections.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeConnectionsResponse
+-- | A list of connections.
+mConnections
+    :: Functor f
+    => ([Connection]
+    -> f ([Connection]))
+    -> DescribeConnectionsResponse
+    -> f DescribeConnectionsResponse
+mConnections f x =
+    (\y -> x { _mConnections = y })
+       <$> f (_mConnections x)
+{-# INLINE mConnections #-}
 
 instance FromJSON DescribeConnectionsResponse
 

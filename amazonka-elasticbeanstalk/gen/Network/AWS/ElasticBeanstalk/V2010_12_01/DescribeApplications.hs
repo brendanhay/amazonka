@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,20 @@
 -- &Operation=DescribeApplications &AuthParams Sample Description
 -- SampleApplication 2010-11-16T20:20:51.974Z 2010-11-16T20:20:51.974Z Default
 -- 577c70ff-f1d7-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications where
+module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications
+    (
+    -- * Request
+      DescribeApplications
+    -- ** Request constructor
+    , describeApplications
+    -- ** Request lenses
+    , danApplicationNames
+
+    -- * Response
+    , DescribeApplicationsResponse
+    -- ** Response lenses
+    , adnApplications
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
@@ -32,26 +44,47 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeApplications' request.
 describeApplications :: DescribeApplications
 describeApplications = DescribeApplications
-    { _damApplicationNames = mempty
+    { _danApplicationNames = mempty
     }
 
 data DescribeApplications = DescribeApplications
-    { _damApplicationNames :: [Text]
+    { _danApplicationNames :: [Text]
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to only include those with the specified names.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeApplications
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- only include those with the specified names.
+danApplicationNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeApplications
+    -> f DescribeApplications
+danApplicationNames f x =
+    (\y -> x { _danApplicationNames = y })
+       <$> f (_danApplicationNames x)
+{-# INLINE danApplicationNames #-}
 
 instance ToQuery DescribeApplications where
     toQuery = genericQuery def
 
 data DescribeApplicationsResponse = DescribeApplicationsResponse
-    { _admApplications :: [ApplicationDescription]
+    { _adnApplications :: [ApplicationDescription]
       -- ^ This parameter contains a list of ApplicationDescription.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeApplicationsResponse
+-- | This parameter contains a list of ApplicationDescription.
+adnApplications
+    :: Functor f
+    => ([ApplicationDescription]
+    -> f ([ApplicationDescription]))
+    -> DescribeApplicationsResponse
+    -> f DescribeApplicationsResponse
+adnApplications f x =
+    (\y -> x { _adnApplications = y })
+       <$> f (_adnApplications x)
+{-# INLINE adnApplications #-}
 
 instance FromXML DescribeApplicationsResponse where
     fromXMLOptions = xmlOptions

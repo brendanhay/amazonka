@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,19 +27,52 @@
 -- "MyIdentityPool", "SupportedLoginProviders": { "www.amazon.com":
 -- "Amazon_App_ID", "graph.facebook.com": "Facebook_App_ID",
 -- "accounts.google.com": "Google_App_ID" }, "Unauthenticated": true }.
-module Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool where
+module Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
+    (
+    -- * Request
+      DescribeIdentityPool
+    -- ** Request constructor
+    , describeIdentityPool
+    -- ** Request lenses
+    , dipjIdentityPoolId
+
+    -- * Response
+    , DescribeIdentityPoolResponse
+    -- ** Response lenses
+    , isIdentityPoolId
+    , isIdentityPoolName
+    , isAllowUnauthenticatedIdentities
+    , isSupportedLoginProviders
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DescribeIdentityPool' request.
+describeIdentityPool :: Text -- ^ 'dipjIdentityPoolId'
+                     -> DescribeIdentityPool
+describeIdentityPool p1 = DescribeIdentityPool
+    { _dipjIdentityPoolId = p1
+    }
+
 data DescribeIdentityPool = DescribeIdentityPool
-    { _dipiIdentityPoolId :: Text
+    { _dipjIdentityPoolId :: Text
       -- ^ An identity pool ID in the format REGION:GUID.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeIdentityPool
+-- | An identity pool ID in the format REGION:GUID.
+dipjIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeIdentityPool
+    -> f DescribeIdentityPool
+dipjIdentityPoolId f x =
+    (\y -> x { _dipjIdentityPoolId = y })
+       <$> f (_dipjIdentityPoolId x)
+{-# INLINE dipjIdentityPoolId #-}
 
 instance ToPath DescribeIdentityPool
 
@@ -51,18 +83,64 @@ instance ToHeaders DescribeIdentityPool
 instance ToJSON DescribeIdentityPool
 
 data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
-    { _ipIdentityPoolId :: Text
+    { _isIdentityPoolId :: Text
       -- ^ An identity pool ID in the format REGION:GUID.
-    , _ipIdentityPoolName :: Text
+    , _isIdentityPoolName :: Text
       -- ^ A string that you provide.
-    , _ipAllowUnauthenticatedIdentities :: Bool
+    , _isAllowUnauthenticatedIdentities :: Bool
       -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _ipSupportedLoginProviders :: Map Text Text
+    , _isSupportedLoginProviders :: Map Text Text
       -- ^ Optional key:value pairs mapping provider names to provider app
       -- IDs.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeIdentityPoolResponse
+-- | An identity pool ID in the format REGION:GUID.
+isIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeIdentityPoolResponse
+    -> f DescribeIdentityPoolResponse
+isIdentityPoolId f x =
+    (\y -> x { _isIdentityPoolId = y })
+       <$> f (_isIdentityPoolId x)
+{-# INLINE isIdentityPoolId #-}
+
+-- | A string that you provide.
+isIdentityPoolName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeIdentityPoolResponse
+    -> f DescribeIdentityPoolResponse
+isIdentityPoolName f x =
+    (\y -> x { _isIdentityPoolName = y })
+       <$> f (_isIdentityPoolName x)
+{-# INLINE isIdentityPoolName #-}
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+isAllowUnauthenticatedIdentities
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> DescribeIdentityPoolResponse
+    -> f DescribeIdentityPoolResponse
+isAllowUnauthenticatedIdentities f x =
+    (\y -> x { _isAllowUnauthenticatedIdentities = y })
+       <$> f (_isAllowUnauthenticatedIdentities x)
+{-# INLINE isAllowUnauthenticatedIdentities #-}
+
+-- | Optional key:value pairs mapping provider names to provider app IDs.
+isSupportedLoginProviders
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> DescribeIdentityPoolResponse
+    -> f DescribeIdentityPoolResponse
+isSupportedLoginProviders f x =
+    (\y -> x { _isSupportedLoginProviders = y })
+       <$> f (_isSupportedLoginProviders x)
+{-# INLINE isSupportedLoginProviders #-}
 
 instance FromJSON DescribeIdentityPoolResponse
 

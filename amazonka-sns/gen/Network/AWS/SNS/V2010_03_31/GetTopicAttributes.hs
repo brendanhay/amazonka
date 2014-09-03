@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -44,18 +43,48 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;057f074c-33a7-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.GetTopicAttributes where
+module Network.AWS.SNS.V2010_03_31.GetTopicAttributes
+    (
+    -- * Request
+      GetTopicAttributes
+    -- ** Request constructor
+    , getTopicAttributes
+    -- ** Request lenses
+    , gtaiTopicArn
+
+    -- * Response
+    , GetTopicAttributesResponse
+    -- ** Response lenses
+    , gtarAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetTopicAttributes' request.
+getTopicAttributes :: Text -- ^ 'gtaiTopicArn'
+                   -> GetTopicAttributes
+getTopicAttributes p1 = GetTopicAttributes
+    { _gtaiTopicArn = p1
+    }
 
 data GetTopicAttributes = GetTopicAttributes
     { _gtaiTopicArn :: Text
       -- ^ The ARN of the topic whose properties you want to get.
     } deriving (Show, Generic)
 
-makeLenses ''GetTopicAttributes
+-- | The ARN of the topic whose properties you want to get.
+gtaiTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetTopicAttributes
+    -> f GetTopicAttributes
+gtaiTopicArn f x =
+    (\y -> x { _gtaiTopicArn = y })
+       <$> f (_gtaiTopicArn x)
+{-# INLINE gtaiTopicArn #-}
 
 instance ToQuery GetTopicAttributes where
     toQuery = genericQuery def
@@ -78,7 +107,27 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse
       -- defaults.
     } deriving (Show, Generic)
 
-makeLenses ''GetTopicAttributesResponse
+-- | A map of the topic's attributes. Attributes in this map include the
+-- following: TopicArn -- the topic's ARN Owner -- the AWS account ID of the
+-- topic's owner Policy -- the JSON serialization of the topic's access
+-- control policy DisplayName -- the human-readable name used in the "From"
+-- field for notifications to email and email-json endpoints
+-- SubscriptionsPending -- the number of subscriptions pending confirmation on
+-- this topic SubscriptionsConfirmed -- the number of confirmed subscriptions
+-- on this topic SubscriptionsDeleted -- the number of deleted subscriptions
+-- on this topic DeliveryPolicy -- the JSON serialization of the topic's
+-- delivery policy EffectiveDeliveryPolicy -- the JSON serialization of the
+-- effective delivery policy that takes into account system defaults.
+gtarAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> GetTopicAttributesResponse
+    -> f GetTopicAttributesResponse
+gtarAttributes f x =
+    (\y -> x { _gtarAttributes = y })
+       <$> f (_gtarAttributes x)
+{-# INLINE gtarAttributes #-}
 
 instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions

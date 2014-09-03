@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,7 +35,20 @@
 -- whether to include the IP address and port of the originating request for
 -- TCP messages. This policy operates on TCP/SSL listeners only
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes where
+module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes
+    (
+    -- * Request
+      DescribeLoadBalancerPolicyTypes
+    -- ** Request constructor
+    , describeLoadBalancerPolicyTypes
+    -- ** Request lenses
+    , dlbptiPolicyTypeNames
+
+    -- * Response
+    , DescribeLoadBalancerPolicyTypesResponse
+    -- ** Response lenses
+    , dlbptoPolicyTypeDescriptions
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
@@ -55,7 +67,19 @@ data DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
       -- defined by Elastic Load Balancing service.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBalancerPolicyTypes
+-- | Specifies the name of the policy types. If no names are specified, returns
+-- the description of all the policy types defined by Elastic Load Balancing
+-- service.
+dlbptiPolicyTypeNames
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeLoadBalancerPolicyTypes
+    -> f DescribeLoadBalancerPolicyTypes
+dlbptiPolicyTypeNames f x =
+    (\y -> x { _dlbptiPolicyTypeNames = y })
+       <$> f (_dlbptiPolicyTypeNames x)
+{-# INLINE dlbptiPolicyTypeNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicyTypes where
     toQuery = genericQuery def
@@ -68,7 +92,19 @@ data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRe
       -- Balancing service.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeLoadBalancerPolicyTypesResponse
+-- | List of policy type description structures of the specified policy type. If
+-- no policy type names are specified, returns the description of all the
+-- policy types defined by Elastic Load Balancing service.
+dlbptoPolicyTypeDescriptions
+    :: Functor f
+    => ([PolicyTypeDescription]
+    -> f ([PolicyTypeDescription]))
+    -> DescribeLoadBalancerPolicyTypesResponse
+    -> f DescribeLoadBalancerPolicyTypesResponse
+dlbptoPolicyTypeDescriptions f x =
+    (\y -> x { _dlbptoPolicyTypeDescriptions = y })
+       <$> f (_dlbptoPolicyTypeDescriptions x)
+{-# INLINE dlbptoPolicyTypeDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,32 +21,103 @@
 -- https://iam.amazonaws.com/ ?Action=ResyncMFADevice &UserName=Bob
 -- &SerialNumber=R1234 &AuthenticationCode1=234567 &AuthenticationCode2=987654
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ResyncMFADevice where
+module Network.AWS.IAM.V2010_05_08.ResyncMFADevice
+    (
+    -- * Request
+      ResyncMFADevice
+    -- ** Request constructor
+    , resyncMFADevice
+    -- ** Request lenses
+    , rmfadrAuthenticationCode1
+    , rmfadrAuthenticationCode2
+    , rmfadrUserName
+    , rmfadrSerialNumber
+
+    -- * Response
+    , ResyncMFADeviceResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ResyncMFADevice' request.
+resyncMFADevice :: Text -- ^ 'rmfadrAuthenticationCode1'
+                -> Text -- ^ 'rmfadrAuthenticationCode2'
+                -> Text -- ^ 'rmfadrUserName'
+                -> Text -- ^ 'rmfadrSerialNumber'
+                -> ResyncMFADevice
+resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
+    { _rmfadrAuthenticationCode1 = p1
+    , _rmfadrAuthenticationCode2 = p2
+    , _rmfadrUserName = p3
+    , _rmfadrSerialNumber = p4
+    }
+
 data ResyncMFADevice = ResyncMFADevice
-    { _rmfadrAuthenticationCode2 :: Text
-      -- ^ A subsequent authentication code emitted by the device.
-    , _rmfadrAuthenticationCode1 :: Text
+    { _rmfadrAuthenticationCode1 :: Text
       -- ^ An authentication code emitted by the device.
+    , _rmfadrAuthenticationCode2 :: Text
+      -- ^ A subsequent authentication code emitted by the device.
     , _rmfadrUserName :: Text
       -- ^ Name of the user whose MFA device you want to resynchronize.
     , _rmfadrSerialNumber :: Text
       -- ^ Serial number that uniquely identifies the MFA device.
     } deriving (Show, Generic)
 
-makeLenses ''ResyncMFADevice
+-- | An authentication code emitted by the device.
+rmfadrAuthenticationCode1
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResyncMFADevice
+    -> f ResyncMFADevice
+rmfadrAuthenticationCode1 f x =
+    (\y -> x { _rmfadrAuthenticationCode1 = y })
+       <$> f (_rmfadrAuthenticationCode1 x)
+{-# INLINE rmfadrAuthenticationCode1 #-}
+
+-- | A subsequent authentication code emitted by the device.
+rmfadrAuthenticationCode2
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResyncMFADevice
+    -> f ResyncMFADevice
+rmfadrAuthenticationCode2 f x =
+    (\y -> x { _rmfadrAuthenticationCode2 = y })
+       <$> f (_rmfadrAuthenticationCode2 x)
+{-# INLINE rmfadrAuthenticationCode2 #-}
+
+-- | Name of the user whose MFA device you want to resynchronize.
+rmfadrUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResyncMFADevice
+    -> f ResyncMFADevice
+rmfadrUserName f x =
+    (\y -> x { _rmfadrUserName = y })
+       <$> f (_rmfadrUserName x)
+{-# INLINE rmfadrUserName #-}
+
+-- | Serial number that uniquely identifies the MFA device.
+rmfadrSerialNumber
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResyncMFADevice
+    -> f ResyncMFADevice
+rmfadrSerialNumber f x =
+    (\y -> x { _rmfadrSerialNumber = y })
+       <$> f (_rmfadrSerialNumber x)
+{-# INLINE rmfadrSerialNumber #-}
 
 instance ToQuery ResyncMFADevice where
     toQuery = genericQuery def
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''ResyncMFADeviceResponse
 
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM

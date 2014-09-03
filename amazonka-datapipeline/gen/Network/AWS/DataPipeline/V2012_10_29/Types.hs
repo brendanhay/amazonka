@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,78 @@
 -- data-driven workflows, so that tasks can be dependent on the successful
 -- completion of previous tasks.
 module Network.AWS.DataPipeline.V2012_10_29.Types
-    ( module Network.AWS.DataPipeline.V2012_10_29.Types
+    (
+    -- * Service
+      DataPipeline
+    -- ** Errors
+    , Er (..)
+
+    -- * OperatorType
+    , OperatorType (..)
+
+    -- * TaskStatus
+    , TaskStatus (..)
+
+    -- * Query
+    , Query (..)
+    , qySelectors
+
+    -- * Field
+    , Field (..)
+    , fKey
+    , fStringValue
+    , fRefValue
+
+    -- * InstanceIdentity
+    , InstanceIdentity (..)
+    , ijDocument
+    , ijSignature
+
+    -- * Operator
+    , Operator (..)
+    , orType
+    , orValues
+
+    -- * PipelineDescription
+    , PipelineDescription (..)
+    , pdPipelineId
+    , pdName
+    , pdFields
+    , pdDescription
+
+    -- * PipelineIdName
+    , PipelineIdName (..)
+    , pinId
+    , pinName
+
+    -- * PipelineObject
+    , PipelineObject (..)
+    , poId
+    , poName
+    , poFields
+
+    -- * Selector
+    , Selector (..)
+    , srFieldName
+    , srOperator
+
+    -- * TaskObject
+    , TaskObject (..)
+    , toTaskId
+    , toPipelineId
+    , toAttemptId
+    , toObjects
+
+    -- * ValidationError
+    , ValidationError (..)
+    , vfId
+    , vfErrors
+
+    -- * ValidationWarning
+    , ValidationWarning (..)
+    , vxId
+    , vxWarnings
+
     ) where
 
 import Network.AWS.Prelude
@@ -169,10 +239,23 @@ instance ToJSON TaskStatus
 -- top-level String fields in the object. These filters can be applied to
 -- components, instances, and attempts.
 newtype Query = Query
-    { _qSelectors :: [Selector]
+    { _qySelectors :: [Selector]
       -- ^ List of selectors that define the query. An object must satisfy
       -- all of the selectors to match the query.
     } deriving (Show, Generic)
+
+-- | List of selectors that define the query. An object must satisfy all of the
+-- selectors to match the query.
+qySelectors
+    :: Functor f
+    => ([Selector]
+    -> f ([Selector]))
+    -> Query
+    -> f Query
+qySelectors f x =
+    (\y -> x { _qySelectors = y })
+       <$> f (_qySelectors x)
+{-# INLINE qySelectors #-}
 
 instance ToJSON Query
 
@@ -188,6 +271,42 @@ data Field = Field
       -- ^ The field value, expressed as the identifier of another object.
     } deriving (Show, Generic)
 
+-- | The field identifier.
+fKey
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Field
+    -> f Field
+fKey f x =
+    (\y -> x { _fKey = y })
+       <$> f (_fKey x)
+{-# INLINE fKey #-}
+
+-- | The field value, expressed as a String.
+fStringValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Field
+    -> f Field
+fStringValue f x =
+    (\y -> x { _fStringValue = y })
+       <$> f (_fStringValue x)
+{-# INLINE fStringValue #-}
+
+-- | The field value, expressed as the identifier of another object.
+fRefValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Field
+    -> f Field
+fRefValue f x =
+    (\y -> x { _fRefValue = y })
+       <$> f (_fRefValue x)
+{-# INLINE fRefValue #-}
+
 instance FromJSON Field
 
 instance ToJSON Field
@@ -200,23 +319,50 @@ instance ToJSON Field
 -- running on an EC2 instance, and ensures the proper AWS Data Pipeline
 -- service charges are applied to your pipeline.
 data InstanceIdentity = InstanceIdentity
-    { _ikDocument :: Maybe Text
+    { _ijDocument :: Maybe Text
       -- ^ A description of an Amazon EC2 instance that is generated when
       -- the instance is launched and exposed to the instance via the
       -- instance metadata service in the form of a JSON representation of
       -- an object.
-    , _ikSignature :: Maybe Text
+    , _ijSignature :: Maybe Text
       -- ^ A signature which can be used to verify the accuracy and
       -- authenticity of the information provided in the instance identity
       -- document.
     } deriving (Show, Generic)
+
+-- | A description of an Amazon EC2 instance that is generated when the instance
+-- is launched and exposed to the instance via the instance metadata service
+-- in the form of a JSON representation of an object.
+ijDocument
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> InstanceIdentity
+    -> f InstanceIdentity
+ijDocument f x =
+    (\y -> x { _ijDocument = y })
+       <$> f (_ijDocument x)
+{-# INLINE ijDocument #-}
+
+-- | A signature which can be used to verify the accuracy and authenticity of
+-- the information provided in the instance identity document.
+ijSignature
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> InstanceIdentity
+    -> f InstanceIdentity
+ijSignature f x =
+    (\y -> x { _ijSignature = y })
+       <$> f (_ijSignature x)
+{-# INLINE ijSignature #-}
 
 instance ToJSON InstanceIdentity
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
 data Operator = Operator
-    { _oType :: Maybe OperatorType
+    { _orType :: Maybe OperatorType
       -- ^ The logical operation to be performed: equal (EQ), equal
       -- reference (REF_EQ), less than or equal (LE), greater than or
       -- equal (GE), or between (BETWEEN). Equal reference (REF_EQ) can be
@@ -234,9 +380,47 @@ data Operator = Operator
       -- alpha-numeric values, as symbols may be reserved by AWS Data
       -- Pipeline. User-defined fields that you add to a pipeline should
       -- prefix their name with the string "my".
-    , _oValues :: [Text]
+    , _orValues :: [Text]
       -- ^ The value that the actual field value will be compared with.
     } deriving (Show, Generic)
+
+-- | The logical operation to be performed: equal (EQ), equal reference
+-- (REF_EQ), less than or equal (LE), greater than or equal (GE), or between
+-- (BETWEEN). Equal reference (REF_EQ) can be used only with reference fields.
+-- The other comparison types can be used only with String fields. The
+-- comparison types you can use apply only to certain object fields, as
+-- detailed below. The comparison operators EQ and REF_EQ act on the following
+-- fields: name @sphere parent @componentParent @instanceParent @status
+-- @scheduledStartTime @scheduledEndTime @actualStartTime @actualEndTime The
+-- comparison operators GE, LE, and BETWEEN act on the following fields:
+-- @scheduledStartTime @scheduledEndTime @actualStartTime @actualEndTime Note
+-- that fields beginning with the at sign (@) are read-only and set by the web
+-- service. When you name fields, you should choose names containing only
+-- alpha-numeric values, as symbols may be reserved by AWS Data Pipeline.
+-- User-defined fields that you add to a pipeline should prefix their name
+-- with the string "my".
+orType
+    :: Functor f
+    => (Maybe OperatorType
+    -> f (Maybe OperatorType))
+    -> Operator
+    -> f Operator
+orType f x =
+    (\y -> x { _orType = y })
+       <$> f (_orType x)
+{-# INLINE orType #-}
+
+-- | The value that the actual field value will be compared with.
+orValues
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> Operator
+    -> f Operator
+orValues f x =
+    (\y -> x { _orValues = y })
+       <$> f (_orValues x)
+{-# INLINE orValues #-}
 
 instance FromJSON Operator
 
@@ -244,17 +428,67 @@ instance ToJSON Operator
 
 -- | Contains pipeline metadata.
 data PipelineDescription = PipelineDescription
-    { _pdFields :: [Field]
+    { _pdPipelineId :: Text
+      -- ^ The pipeline identifier that was assigned by AWS Data Pipeline.
+      -- This is a string of the form df-297EG78HU43EEXAMPLE.
+    , _pdName :: Text
+      -- ^ Name of the pipeline.
+    , _pdFields :: [Field]
       -- ^ A list of read-only fields that contain metadata about the
       -- pipeline: @userId, @accountId, and @pipelineState.
     , _pdDescription :: Maybe Text
       -- ^ Description of the pipeline.
-    , _pdName :: Text
-      -- ^ Name of the pipeline.
-    , _pdPipelineId :: Text
-      -- ^ The pipeline identifier that was assigned by AWS Data Pipeline.
-      -- This is a string of the form df-297EG78HU43EEXAMPLE.
     } deriving (Show, Generic)
+
+-- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
+-- string of the form df-297EG78HU43EEXAMPLE.
+pdPipelineId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PipelineDescription
+    -> f PipelineDescription
+pdPipelineId f x =
+    (\y -> x { _pdPipelineId = y })
+       <$> f (_pdPipelineId x)
+{-# INLINE pdPipelineId #-}
+
+-- | Name of the pipeline.
+pdName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PipelineDescription
+    -> f PipelineDescription
+pdName f x =
+    (\y -> x { _pdName = y })
+       <$> f (_pdName x)
+{-# INLINE pdName #-}
+
+-- | A list of read-only fields that contain metadata about the pipeline:
+-- @userId, @accountId, and @pipelineState.
+pdFields
+    :: Functor f
+    => ([Field]
+    -> f ([Field]))
+    -> PipelineDescription
+    -> f PipelineDescription
+pdFields f x =
+    (\y -> x { _pdFields = y })
+       <$> f (_pdFields x)
+{-# INLINE pdFields #-}
+
+-- | Description of the pipeline.
+pdDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PipelineDescription
+    -> f PipelineDescription
+pdDescription f x =
+    (\y -> x { _pdDescription = y })
+       <$> f (_pdDescription x)
+{-# INLINE pdDescription #-}
 
 instance FromJSON PipelineDescription
 
@@ -267,19 +501,80 @@ data PipelineIdName = PipelineIdName
       -- ^ Name of the pipeline.
     } deriving (Show, Generic)
 
+-- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is
+-- a string of the form df-297EG78HU43EEXAMPLE.
+pinId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PipelineIdName
+    -> f PipelineIdName
+pinId f x =
+    (\y -> x { _pinId = y })
+       <$> f (_pinId x)
+{-# INLINE pinId #-}
+
+-- | Name of the pipeline.
+pinName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PipelineIdName
+    -> f PipelineIdName
+pinName f x =
+    (\y -> x { _pinName = y })
+       <$> f (_pinName x)
+{-# INLINE pinName #-}
+
 instance FromJSON PipelineIdName
 
 -- | Contains information about a pipeline object. This can be a logical,
 -- physical, or physical attempt pipeline object. The complete set of
 -- components of a pipeline defines the pipeline.
 data PipelineObject = PipelineObject
-    { _poFields :: [Field]
-      -- ^ Key-value pairs that define the properties of the object.
-    , _poId :: Text
+    { _poId :: Text
       -- ^ Identifier of the object.
     , _poName :: Text
       -- ^ Name of the object.
+    , _poFields :: [Field]
+      -- ^ Key-value pairs that define the properties of the object.
     } deriving (Show, Generic)
+
+-- | Identifier of the object.
+poId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PipelineObject
+    -> f PipelineObject
+poId f x =
+    (\y -> x { _poId = y })
+       <$> f (_poId x)
+{-# INLINE poId #-}
+
+-- | Name of the object.
+poName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PipelineObject
+    -> f PipelineObject
+poName f x =
+    (\y -> x { _poName = y })
+       <$> f (_poName x)
+{-# INLINE poName #-}
+
+-- | Key-value pairs that define the properties of the object.
+poFields
+    :: Functor f
+    => ([Field]
+    -> f ([Field]))
+    -> PipelineObject
+    -> f PipelineObject
+poFields f x =
+    (\y -> x { _poFields = y })
+       <$> f (_poFields x)
+{-# INLINE poFields #-}
 
 instance FromJSON PipelineObject
 
@@ -288,15 +583,43 @@ instance ToJSON PipelineObject
 -- | A comparision that is used to determine whether a query should return this
 -- object.
 data Selector = Selector
-    { _uFieldName :: Maybe Text
+    { _srFieldName :: Maybe Text
       -- ^ The name of the field that the operator will be applied to. The
       -- field name is the "key" portion of the field definition in the
       -- pipeline definition syntax that is used by the AWS Data Pipeline
       -- API. If the field is not set on the object, the condition fails.
-    , _uOperator :: Maybe Operator
+    , _srOperator :: Maybe Operator
       -- ^ Contains a logical operation for comparing the value of a field
       -- with a specified value.
     } deriving (Show, Generic)
+
+-- | The name of the field that the operator will be applied to. The field name
+-- is the "key" portion of the field definition in the pipeline definition
+-- syntax that is used by the AWS Data Pipeline API. If the field is not set
+-- on the object, the condition fails.
+srFieldName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Selector
+    -> f Selector
+srFieldName f x =
+    (\y -> x { _srFieldName = y })
+       <$> f (_srFieldName x)
+{-# INLINE srFieldName #-}
+
+-- | Contains a logical operation for comparing the value of a field with a
+-- specified value.
+srOperator
+    :: Functor f
+    => (Maybe Operator
+    -> f (Maybe Operator))
+    -> Selector
+    -> f Selector
+srOperator f x =
+    (\y -> x { _srOperator = y })
+       <$> f (_srOperator x)
+{-# INLINE srOperator #-}
 
 instance ToJSON Selector
 
@@ -307,18 +630,69 @@ instance ToJSON Selector
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
 data TaskObject = TaskObject
-    { _toObjects :: Map Text PipelineObject
-      -- ^ Connection information for the location where the task runner
-      -- will publish the output of the task.
-    , _toTaskId :: Maybe Text
+    { _toTaskId :: Maybe Text
       -- ^ An internal identifier for the task. This ID is passed to the
       -- SetTaskStatus and ReportTaskProgress actions.
+    , _toPipelineId :: Maybe Text
+      -- ^ Identifier of the pipeline that provided the task.
     , _toAttemptId :: Maybe Text
       -- ^ Identifier of the pipeline task attempt object. AWS Data Pipeline
       -- uses this value to track how many times a task is attempted.
-    , _toPipelineId :: Maybe Text
-      -- ^ Identifier of the pipeline that provided the task.
+    , _toObjects :: Map Text PipelineObject
+      -- ^ Connection information for the location where the task runner
+      -- will publish the output of the task.
     } deriving (Show, Generic)
+
+-- | An internal identifier for the task. This ID is passed to the SetTaskStatus
+-- and ReportTaskProgress actions.
+toTaskId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TaskObject
+    -> f TaskObject
+toTaskId f x =
+    (\y -> x { _toTaskId = y })
+       <$> f (_toTaskId x)
+{-# INLINE toTaskId #-}
+
+-- | Identifier of the pipeline that provided the task.
+toPipelineId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TaskObject
+    -> f TaskObject
+toPipelineId f x =
+    (\y -> x { _toPipelineId = y })
+       <$> f (_toPipelineId x)
+{-# INLINE toPipelineId #-}
+
+-- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this
+-- value to track how many times a task is attempted.
+toAttemptId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TaskObject
+    -> f TaskObject
+toAttemptId f x =
+    (\y -> x { _toAttemptId = y })
+       <$> f (_toAttemptId x)
+{-# INLINE toAttemptId #-}
+
+-- | Connection information for the location where the task runner will publish
+-- the output of the task.
+toObjects
+    :: Functor f
+    => (Map Text PipelineObject
+    -> f (Map Text PipelineObject))
+    -> TaskObject
+    -> f TaskObject
+toObjects f x =
+    (\y -> x { _toObjects = y })
+       <$> f (_toObjects x)
+{-# INLINE toObjects #-}
 
 instance FromJSON TaskObject
 
@@ -327,11 +701,35 @@ instance FromJSON TaskObject
 -- The set of validation errors that can be returned are defined by AWS Data
 -- Pipeline.
 data ValidationError = ValidationError
-    { _vfErrors :: [Text]
-      -- ^ A description of the validation error.
-    , _vfId :: Maybe Text
+    { _vfId :: Maybe Text
       -- ^ The identifier of the object that contains the validation error.
+    , _vfErrors :: [Text]
+      -- ^ A description of the validation error.
     } deriving (Show, Generic)
+
+-- | The identifier of the object that contains the validation error.
+vfId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidationError
+    -> f ValidationError
+vfId f x =
+    (\y -> x { _vfId = y })
+       <$> f (_vfId x)
+{-# INLINE vfId #-}
+
+-- | A description of the validation error.
+vfErrors
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ValidationError
+    -> f ValidationError
+vfErrors f x =
+    (\y -> x { _vfErrors = y })
+       <$> f (_vfErrors x)
+{-# INLINE vfErrors #-}
 
 instance FromJSON ValidationError
 
@@ -347,16 +745,28 @@ data ValidationWarning = ValidationWarning
       -- ^ A description of the validation warning.
     } deriving (Show, Generic)
 
-instance FromJSON ValidationWarning
+-- | The identifier of the object that contains the validation warning.
+vxId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ValidationWarning
+    -> f ValidationWarning
+vxId f x =
+    (\y -> x { _vxId = y })
+       <$> f (_vxId x)
+{-# INLINE vxId #-}
 
-makeLenses ''Query
-makeLenses ''Field
-makeLenses ''InstanceIdentity
-makeLenses ''Operator
-makeLenses ''PipelineDescription
-makeLenses ''PipelineIdName
-makeLenses ''PipelineObject
-makeLenses ''Selector
-makeLenses ''TaskObject
-makeLenses ''ValidationError
-makeLenses ''ValidationWarning
+-- | A description of the validation warning.
+vxWarnings
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> ValidationWarning
+    -> f ValidationWarning
+vxWarnings f x =
+    (\y -> x { _vxWarnings = y })
+       <$> f (_vxWarnings x)
+{-# INLINE vxWarnings #-}
+
+instance FromJSON ValidationWarning

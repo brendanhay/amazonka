@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,7 +28,103 @@
 -- operational health. You can use these insights to react and keep your
 -- application running smoothly.
 module Network.AWS.CloudWatch.V2010_08_01.Types
-    ( module Network.AWS.CloudWatch.V2010_08_01.Types
+    (
+    -- * Service
+      CloudWatch
+    -- ** Errors
+    , Er (..)
+    -- ** XML
+    , xmlOptions
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- * HistoryItemType
+    , HistoryItemType (..)
+
+    -- * StandardUnit
+    , StandardUnit (..)
+
+    -- * StateValue
+    , StateValue (..)
+
+    -- * Statistic
+    , Statistic (..)
+
+    -- * AlarmHistoryItem
+    , AlarmHistoryItem (..)
+    , ahjAlarmName
+    , ahjTimestamp
+    , ahjHistoryItemType
+    , ahjHistorySummary
+    , ahjHistoryData
+
+    -- * Datapoint
+    , Datapoint (..)
+    , mTimestamp
+    , mSampleCount
+    , mAverage
+    , mSum
+    , mMinimum
+    , mMaximum
+    , mUnit
+
+    -- * Dimension
+    , Dimension (..)
+    , eName
+    , eValue
+
+    -- * DimensionFilter
+    , DimensionFilter (..)
+    , dgName
+    , dgValue
+
+    -- * Metric
+    , Metric (..)
+    , meNamespace
+    , meMetricName
+    , meDimensions
+
+    -- * MetricAlarm
+    , MetricAlarm (..)
+    , mbAlarmName
+    , mbAlarmArn
+    , mbAlarmDescription
+    , mbAlarmConfigurationUpdatedTimestamp
+    , mbActionsEnabled
+    , mbOKActions
+    , mbAlarmActions
+    , mbInsufficientDataActions
+    , mbStateValue
+    , mbStateReason
+    , mbStateReasonData
+    , mbStateUpdatedTimestamp
+    , mbMetricName
+    , mbNamespace
+    , mbStatistic
+    , mbDimensions
+    , mbPeriod
+    , mbUnit
+    , mbEvaluationPeriods
+    , mbThreshold
+    , mbComparisonOperator
+
+    -- * MetricDatum
+    , MetricDatum (..)
+    , mgMetricName
+    , mgDimensions
+    , mgTimestamp
+    , mgValue
+    , mgStatisticValues
+    , mgUnit
+
+    -- * StatisticSet
+    , StatisticSet (..)
+    , sswSampleCount
+    , sswSum
+    , sswMinimum
+    , sswMaximum
+
     ) where
 
 import Network.AWS.Prelude
@@ -155,7 +250,7 @@ instance FromXML HistoryItemType where
 instance ToQuery HistoryItemType where
     toQuery = genericQuery def
 
--- | The unit of the metric.
+-- | The unit of the alarm's associated metric.
 data StandardUnit
     = StandardUnitBits -- ^ Bits
     | StandardUnitBitsSecond -- ^ Bits/Second
@@ -322,17 +417,77 @@ instance ToQuery Statistic where
 -- CloudWatch returns this data type as part of the DescribeAlarmHistoryResult
 -- data type.
 data AlarmHistoryItem = AlarmHistoryItem
-    { _ahjTimestamp :: Maybe ISO8601
+    { _ahjAlarmName :: Maybe Text
+      -- ^ The descriptive name for the alarm.
+    , _ahjTimestamp :: Maybe ISO8601
       -- ^ The time stamp for the alarm history item.
+    , _ahjHistoryItemType :: Maybe HistoryItemType
+      -- ^ The type of alarm history item.
     , _ahjHistorySummary :: Maybe Text
       -- ^ A human-readable summary of the alarm history.
     , _ahjHistoryData :: Maybe Text
       -- ^ Machine-readable data about the alarm in JSON format.
-    , _ahjHistoryItemType :: Maybe HistoryItemType
-      -- ^ The type of alarm history item.
-    , _ahjAlarmName :: Maybe Text
-      -- ^ The descriptive name for the alarm.
     } deriving (Show, Generic)
+
+-- | The descriptive name for the alarm.
+ahjAlarmName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AlarmHistoryItem
+    -> f AlarmHistoryItem
+ahjAlarmName f x =
+    (\y -> x { _ahjAlarmName = y })
+       <$> f (_ahjAlarmName x)
+{-# INLINE ahjAlarmName #-}
+
+-- | The time stamp for the alarm history item.
+ahjTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> AlarmHistoryItem
+    -> f AlarmHistoryItem
+ahjTimestamp f x =
+    (\y -> x { _ahjTimestamp = y })
+       <$> f (_ahjTimestamp x)
+{-# INLINE ahjTimestamp #-}
+
+-- | The type of alarm history item.
+ahjHistoryItemType
+    :: Functor f
+    => (Maybe HistoryItemType
+    -> f (Maybe HistoryItemType))
+    -> AlarmHistoryItem
+    -> f AlarmHistoryItem
+ahjHistoryItemType f x =
+    (\y -> x { _ahjHistoryItemType = y })
+       <$> f (_ahjHistoryItemType x)
+{-# INLINE ahjHistoryItemType #-}
+
+-- | A human-readable summary of the alarm history.
+ahjHistorySummary
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AlarmHistoryItem
+    -> f AlarmHistoryItem
+ahjHistorySummary f x =
+    (\y -> x { _ahjHistorySummary = y })
+       <$> f (_ahjHistorySummary x)
+{-# INLINE ahjHistorySummary #-}
+
+-- | Machine-readable data about the alarm in JSON format.
+ahjHistoryData
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AlarmHistoryItem
+    -> f AlarmHistoryItem
+ahjHistoryData f x =
+    (\y -> x { _ahjHistoryData = y })
+       <$> f (_ahjHistoryData x)
+{-# INLINE ahjHistoryData #-}
 
 instance FromXML AlarmHistoryItem where
     fromXMLOptions = xmlOptions
@@ -341,22 +496,107 @@ instance FromXML AlarmHistoryItem where
 -- | The Datapoint data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 data Datapoint = Datapoint
-    { _dtTimestamp :: Maybe ISO8601
+    { _mTimestamp :: Maybe ISO8601
       -- ^ The time stamp used for the datapoint.
-    , _dtUnit :: Maybe StandardUnit
-      -- ^ The standard unit used for the datapoint.
-    , _dtSum :: Maybe Double
-      -- ^ The sum of metric values used for the datapoint.
-    , _dtMinimum :: Maybe Double
-      -- ^ The minimum metric value used for the datapoint.
-    , _dtAverage :: Maybe Double
-      -- ^ The average of metric values that correspond to the datapoint.
-    , _dtMaximum :: Maybe Double
-      -- ^ The maximum of the metric value used for the datapoint.
-    , _dtSampleCount :: Maybe Double
+    , _mSampleCount :: Maybe Double
       -- ^ The number of metric values that contributed to the aggregate
       -- value of this datapoint.
+    , _mAverage :: Maybe Double
+      -- ^ The average of metric values that correspond to the datapoint.
+    , _mSum :: Maybe Double
+      -- ^ The sum of metric values used for the datapoint.
+    , _mMinimum :: Maybe Double
+      -- ^ The minimum metric value used for the datapoint.
+    , _mMaximum :: Maybe Double
+      -- ^ The maximum of the metric value used for the datapoint.
+    , _mUnit :: Maybe StandardUnit
+      -- ^ The standard unit used for the datapoint.
     } deriving (Show, Generic)
+
+-- | The time stamp used for the datapoint.
+mTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> Datapoint
+    -> f Datapoint
+mTimestamp f x =
+    (\y -> x { _mTimestamp = y })
+       <$> f (_mTimestamp x)
+{-# INLINE mTimestamp #-}
+
+-- | The number of metric values that contributed to the aggregate value of this
+-- datapoint.
+mSampleCount
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> Datapoint
+    -> f Datapoint
+mSampleCount f x =
+    (\y -> x { _mSampleCount = y })
+       <$> f (_mSampleCount x)
+{-# INLINE mSampleCount #-}
+
+-- | The average of metric values that correspond to the datapoint.
+mAverage
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> Datapoint
+    -> f Datapoint
+mAverage f x =
+    (\y -> x { _mAverage = y })
+       <$> f (_mAverage x)
+{-# INLINE mAverage #-}
+
+-- | The sum of metric values used for the datapoint.
+mSum
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> Datapoint
+    -> f Datapoint
+mSum f x =
+    (\y -> x { _mSum = y })
+       <$> f (_mSum x)
+{-# INLINE mSum #-}
+
+-- | The minimum metric value used for the datapoint.
+mMinimum
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> Datapoint
+    -> f Datapoint
+mMinimum f x =
+    (\y -> x { _mMinimum = y })
+       <$> f (_mMinimum x)
+{-# INLINE mMinimum #-}
+
+-- | The maximum of the metric value used for the datapoint.
+mMaximum
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> Datapoint
+    -> f Datapoint
+mMaximum f x =
+    (\y -> x { _mMaximum = y })
+       <$> f (_mMaximum x)
+{-# INLINE mMaximum #-}
+
+-- | The standard unit used for the datapoint.
+mUnit
+    :: Functor f
+    => (Maybe StandardUnit
+    -> f (Maybe StandardUnit))
+    -> Datapoint
+    -> f Datapoint
+mUnit f x =
+    (\y -> x { _mUnit = y })
+       <$> f (_mUnit x)
+{-# INLINE mUnit #-}
 
 instance FromXML Datapoint where
     fromXMLOptions = xmlOptions
@@ -370,6 +610,30 @@ data Dimension = Dimension
     , _eValue :: Text
       -- ^ The value representing the dimension measurement.
     } deriving (Show, Generic)
+
+-- | The name of the dimension.
+eName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Dimension
+    -> f Dimension
+eName f x =
+    (\y -> x { _eName = y })
+       <$> f (_eName x)
+{-# INLINE eName #-}
+
+-- | The value representing the dimension measurement.
+eValue
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Dimension
+    -> f Dimension
+eValue f x =
+    (\y -> x { _eValue = y })
+       <$> f (_eValue x)
+{-# INLINE eValue #-}
 
 instance FromXML Dimension where
     fromXMLOptions = xmlOptions
@@ -388,6 +652,31 @@ data DimensionFilter = DimensionFilter
       -- that Name.
     } deriving (Show, Generic)
 
+-- | The dimension name to be matched.
+dgName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DimensionFilter
+    -> f DimensionFilter
+dgName f x =
+    (\y -> x { _dgName = y })
+       <$> f (_dgName x)
+{-# INLINE dgName #-}
+
+-- | The value of the dimension to be matched. Specifying a Name without
+-- specifying a Value returns all values associated with that Name.
+dgValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DimensionFilter
+    -> f DimensionFilter
+dgValue f x =
+    (\y -> x { _dgValue = y })
+       <$> f (_dgValue x)
+{-# INLINE dgValue #-}
+
 instance ToQuery DimensionFilter where
     toQuery = genericQuery def
 
@@ -395,13 +684,49 @@ instance ToQuery DimensionFilter where
 -- call ListMetrics, Amazon CloudWatch returns information contained by this
 -- data type.
 data Metric = Metric
-    { _rDimensions :: [Dimension]
-      -- ^ A list of dimensions associated with the metric.
-    , _rNamespace :: Maybe Text
+    { _meNamespace :: Maybe Text
       -- ^ The namespace of the metric.
-    , _rMetricName :: Maybe Text
+    , _meMetricName :: Maybe Text
       -- ^ The name of the metric.
+    , _meDimensions :: [Dimension]
+      -- ^ A list of dimensions associated with the metric.
     } deriving (Show, Generic)
+
+-- | The namespace of the metric.
+meNamespace
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Metric
+    -> f Metric
+meNamespace f x =
+    (\y -> x { _meNamespace = y })
+       <$> f (_meNamespace x)
+{-# INLINE meNamespace #-}
+
+-- | The name of the metric.
+meMetricName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Metric
+    -> f Metric
+meMetricName f x =
+    (\y -> x { _meMetricName = y })
+       <$> f (_meMetricName x)
+{-# INLINE meMetricName #-}
+
+-- | A list of dimensions associated with the metric.
+meDimensions
+    :: Functor f
+    => ([Dimension]
+    -> f ([Dimension]))
+    -> Metric
+    -> f Metric
+meDimensions f x =
+    (\y -> x { _meDimensions = y })
+       <$> f (_meDimensions x)
+{-# INLINE meDimensions #-}
 
 instance FromXML Metric where
     fromXMLOptions = xmlOptions
@@ -410,67 +735,331 @@ instance FromXML Metric where
 -- | The MetricAlarm data type represents an alarm. You can use PutMetricAlarm
 -- to create or update an alarm.
 data MetricAlarm = MetricAlarm
-    { _mbStatistic :: Maybe Statistic
-      -- ^ The statistic to apply to the alarm's associated metric.
-    , _mbUnit :: Maybe StandardUnit
-      -- ^ The unit of the alarm's associated metric.
-    , _mbAlarmActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an ALARM state from any other state. Each action is specified as
-      -- an Amazon Resource Number (ARN). Currently the only actions
-      -- supported are publishing to an Amazon SNS topic and triggering an
-      -- Auto Scaling policy.
+    { _mbAlarmName :: Maybe Text
+      -- ^ The name of the alarm.
     , _mbAlarmArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the alarm.
-    , _mbDimensions :: [Dimension]
-      -- ^ The list of dimensions associated with the alarm's associated
-      -- metric.
-    , _mbStateReasonData :: Maybe Text
-      -- ^ An explanation for the alarm's state in machine-readable JSON
-      -- format.
-    , _mbStateReason :: Maybe Text
-      -- ^ A human-readable explanation for the alarm's state.
-    , _mbInsufficientDataActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an INSUFFICIENT_DATA state from any other state. Each action is
-      -- specified as an Amazon Resource Number (ARN). Currently the only
-      -- actions supported are publishing to an Amazon SNS topic or
-      -- triggering an Auto Scaling policy.
+    , _mbAlarmDescription :: Maybe Text
+      -- ^ The description for the alarm.
+    , _mbAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
+      -- ^ The time stamp of the last update to the alarm configuration.
     , _mbActionsEnabled :: Maybe Bool
       -- ^ Indicates whether actions should be executed during any changes
       -- to the alarm's state.
-    , _mbAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
-      -- ^ The time stamp of the last update to the alarm configuration.
-    , _mbThreshold :: Maybe Double
-      -- ^ The value against which the specified statistic is compared.
-    , _mbStateValue :: Maybe StateValue
-      -- ^ The state value for the alarm.
     , _mbOKActions :: [Text]
       -- ^ The list of actions to execute when this alarm transitions into
       -- an OK state from any other state. Each action is specified as an
       -- Amazon Resource Number (ARN). Currently the only actions
       -- supported are publishing to an Amazon SNS topic and triggering an
       -- Auto Scaling policy.
+    , _mbAlarmActions :: [Text]
+      -- ^ The list of actions to execute when this alarm transitions into
+      -- an ALARM state from any other state. Each action is specified as
+      -- an Amazon Resource Number (ARN). Currently the only actions
+      -- supported are publishing to an Amazon SNS topic and triggering an
+      -- Auto Scaling policy.
+    , _mbInsufficientDataActions :: [Text]
+      -- ^ The list of actions to execute when this alarm transitions into
+      -- an INSUFFICIENT_DATA state from any other state. Each action is
+      -- specified as an Amazon Resource Number (ARN). Currently the only
+      -- actions supported are publishing to an Amazon SNS topic or
+      -- triggering an Auto Scaling policy.
+    , _mbStateValue :: Maybe StateValue
+      -- ^ The state value for the alarm.
+    , _mbStateReason :: Maybe Text
+      -- ^ A human-readable explanation for the alarm's state.
+    , _mbStateReasonData :: Maybe Text
+      -- ^ An explanation for the alarm's state in machine-readable JSON
+      -- format.
+    , _mbStateUpdatedTimestamp :: Maybe ISO8601
+      -- ^ The time stamp of the last update to the alarm's state.
+    , _mbMetricName :: Maybe Text
+      -- ^ The name of the alarm's metric.
+    , _mbNamespace :: Maybe Text
+      -- ^ The namespace of alarm's associated metric.
+    , _mbStatistic :: Maybe Statistic
+      -- ^ The statistic to apply to the alarm's associated metric.
+    , _mbDimensions :: [Dimension]
+      -- ^ The list of dimensions associated with the alarm's associated
+      -- metric.
+    , _mbPeriod :: Maybe Integer
+      -- ^ The period in seconds over which the statistic is applied.
+    , _mbUnit :: Maybe StandardUnit
+      -- ^ The unit of the alarm's associated metric.
+    , _mbEvaluationPeriods :: Maybe Integer
+      -- ^ The number of periods over which data is compared to the
+      -- specified threshold.
+    , _mbThreshold :: Maybe Double
+      -- ^ The value against which the specified statistic is compared.
     , _mbComparisonOperator :: Maybe ComparisonOperator
       -- ^ The arithmetic operation to use when comparing the specified
       -- Statistic and Threshold. The specified Statistic value is used as
       -- the first operand.
-    , _mbNamespace :: Maybe Text
-      -- ^ The namespace of alarm's associated metric.
-    , _mbMetricName :: Maybe Text
-      -- ^ The name of the alarm's metric.
-    , _mbEvaluationPeriods :: Maybe Integer
-      -- ^ The number of periods over which data is compared to the
-      -- specified threshold.
-    , _mbAlarmDescription :: Maybe Text
-      -- ^ The description for the alarm.
-    , _mbPeriod :: Maybe Integer
-      -- ^ The period in seconds over which the statistic is applied.
-    , _mbStateUpdatedTimestamp :: Maybe ISO8601
-      -- ^ The time stamp of the last update to the alarm's state.
-    , _mbAlarmName :: Maybe Text
-      -- ^ The name of the alarm.
     } deriving (Show, Generic)
+
+-- | The name of the alarm.
+mbAlarmName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbAlarmName f x =
+    (\y -> x { _mbAlarmName = y })
+       <$> f (_mbAlarmName x)
+{-# INLINE mbAlarmName #-}
+
+-- | The Amazon Resource Name (ARN) of the alarm.
+mbAlarmArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbAlarmArn f x =
+    (\y -> x { _mbAlarmArn = y })
+       <$> f (_mbAlarmArn x)
+{-# INLINE mbAlarmArn #-}
+
+-- | The description for the alarm.
+mbAlarmDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbAlarmDescription f x =
+    (\y -> x { _mbAlarmDescription = y })
+       <$> f (_mbAlarmDescription x)
+{-# INLINE mbAlarmDescription #-}
+
+-- | The time stamp of the last update to the alarm configuration.
+mbAlarmConfigurationUpdatedTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbAlarmConfigurationUpdatedTimestamp f x =
+    (\y -> x { _mbAlarmConfigurationUpdatedTimestamp = y })
+       <$> f (_mbAlarmConfigurationUpdatedTimestamp x)
+{-# INLINE mbAlarmConfigurationUpdatedTimestamp #-}
+
+-- | Indicates whether actions should be executed during any changes to the
+-- alarm's state.
+mbActionsEnabled
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbActionsEnabled f x =
+    (\y -> x { _mbActionsEnabled = y })
+       <$> f (_mbActionsEnabled x)
+{-# INLINE mbActionsEnabled #-}
+
+-- | The list of actions to execute when this alarm transitions into an OK state
+-- from any other state. Each action is specified as an Amazon Resource Number
+-- (ARN). Currently the only actions supported are publishing to an Amazon SNS
+-- topic and triggering an Auto Scaling policy.
+mbOKActions
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbOKActions f x =
+    (\y -> x { _mbOKActions = y })
+       <$> f (_mbOKActions x)
+{-# INLINE mbOKActions #-}
+
+-- | The list of actions to execute when this alarm transitions into an ALARM
+-- state from any other state. Each action is specified as an Amazon Resource
+-- Number (ARN). Currently the only actions supported are publishing to an
+-- Amazon SNS topic and triggering an Auto Scaling policy.
+mbAlarmActions
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbAlarmActions f x =
+    (\y -> x { _mbAlarmActions = y })
+       <$> f (_mbAlarmActions x)
+{-# INLINE mbAlarmActions #-}
+
+-- | The list of actions to execute when this alarm transitions into an
+-- INSUFFICIENT_DATA state from any other state. Each action is specified as
+-- an Amazon Resource Number (ARN). Currently the only actions supported are
+-- publishing to an Amazon SNS topic or triggering an Auto Scaling policy.
+mbInsufficientDataActions
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbInsufficientDataActions f x =
+    (\y -> x { _mbInsufficientDataActions = y })
+       <$> f (_mbInsufficientDataActions x)
+{-# INLINE mbInsufficientDataActions #-}
+
+-- | The state value for the alarm.
+mbStateValue
+    :: Functor f
+    => (Maybe StateValue
+    -> f (Maybe StateValue))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbStateValue f x =
+    (\y -> x { _mbStateValue = y })
+       <$> f (_mbStateValue x)
+{-# INLINE mbStateValue #-}
+
+-- | A human-readable explanation for the alarm's state.
+mbStateReason
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbStateReason f x =
+    (\y -> x { _mbStateReason = y })
+       <$> f (_mbStateReason x)
+{-# INLINE mbStateReason #-}
+
+-- | An explanation for the alarm's state in machine-readable JSON format.
+mbStateReasonData
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbStateReasonData f x =
+    (\y -> x { _mbStateReasonData = y })
+       <$> f (_mbStateReasonData x)
+{-# INLINE mbStateReasonData #-}
+
+-- | The time stamp of the last update to the alarm's state.
+mbStateUpdatedTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbStateUpdatedTimestamp f x =
+    (\y -> x { _mbStateUpdatedTimestamp = y })
+       <$> f (_mbStateUpdatedTimestamp x)
+{-# INLINE mbStateUpdatedTimestamp #-}
+
+-- | The name of the alarm's metric.
+mbMetricName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbMetricName f x =
+    (\y -> x { _mbMetricName = y })
+       <$> f (_mbMetricName x)
+{-# INLINE mbMetricName #-}
+
+-- | The namespace of alarm's associated metric.
+mbNamespace
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbNamespace f x =
+    (\y -> x { _mbNamespace = y })
+       <$> f (_mbNamespace x)
+{-# INLINE mbNamespace #-}
+
+-- | The statistic to apply to the alarm's associated metric.
+mbStatistic
+    :: Functor f
+    => (Maybe Statistic
+    -> f (Maybe Statistic))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbStatistic f x =
+    (\y -> x { _mbStatistic = y })
+       <$> f (_mbStatistic x)
+{-# INLINE mbStatistic #-}
+
+-- | The list of dimensions associated with the alarm's associated metric.
+mbDimensions
+    :: Functor f
+    => ([Dimension]
+    -> f ([Dimension]))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbDimensions f x =
+    (\y -> x { _mbDimensions = y })
+       <$> f (_mbDimensions x)
+{-# INLINE mbDimensions #-}
+
+-- | The period in seconds over which the statistic is applied.
+mbPeriod
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbPeriod f x =
+    (\y -> x { _mbPeriod = y })
+       <$> f (_mbPeriod x)
+{-# INLINE mbPeriod #-}
+
+-- | The unit of the alarm's associated metric.
+mbUnit
+    :: Functor f
+    => (Maybe StandardUnit
+    -> f (Maybe StandardUnit))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbUnit f x =
+    (\y -> x { _mbUnit = y })
+       <$> f (_mbUnit x)
+{-# INLINE mbUnit #-}
+
+-- | The number of periods over which data is compared to the specified
+-- threshold.
+mbEvaluationPeriods
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbEvaluationPeriods f x =
+    (\y -> x { _mbEvaluationPeriods = y })
+       <$> f (_mbEvaluationPeriods x)
+{-# INLINE mbEvaluationPeriods #-}
+
+-- | The value against which the specified statistic is compared.
+mbThreshold
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbThreshold f x =
+    (\y -> x { _mbThreshold = y })
+       <$> f (_mbThreshold x)
+{-# INLINE mbThreshold #-}
+
+-- | The arithmetic operation to use when comparing the specified Statistic and
+-- Threshold. The specified Statistic value is used as the first operand.
+mbComparisonOperator
+    :: Functor f
+    => (Maybe ComparisonOperator
+    -> f (Maybe ComparisonOperator))
+    -> MetricAlarm
+    -> f MetricAlarm
+mbComparisonOperator f x =
+    (\y -> x { _mbComparisonOperator = y })
+       <$> f (_mbComparisonOperator x)
+{-# INLINE mbComparisonOperator #-}
 
 instance FromXML MetricAlarm where
     fromXMLOptions = xmlOptions
@@ -480,39 +1069,164 @@ instance FromXML MetricAlarm where
 -- PutMetricData to either create a new metric or add new values to be
 -- aggregated into an existing metric.
 data MetricDatum = MetricDatum
-    { _meStatisticValues :: Maybe StatisticSet
-      -- ^ A set of statistical values describing the metric.
-    , _meTimestamp :: Maybe ISO8601
+    { _mgMetricName :: Text
+      -- ^ The name of the metric.
+    , _mgDimensions :: [Dimension]
+      -- ^ A list of dimensions associated with the metric.
+    , _mgTimestamp :: Maybe ISO8601
       -- ^ The time stamp used for the metric. If not specified, the default
       -- value is set to the time the metric data was received.
-    , _meUnit :: Maybe StandardUnit
-      -- ^ The unit of the metric.
-    , _meDimensions :: [Dimension]
-      -- ^ A list of dimensions associated with the metric.
-    , _meValue :: Maybe Double
+    , _mgValue :: Maybe Double
       -- ^ The value for the metric. Although the Value parameter accepts
       -- numbers of type Double, Amazon CloudWatch truncates values with
       -- very large exponents. Values with base-10 exponents greater than
       -- 126 (1 x 10^126) are truncated. Likewise, values with base-10
       -- exponents less than -130 (1 x 10^-130) are also truncated.
-    , _meMetricName :: Text
-      -- ^ The name of the metric.
+    , _mgStatisticValues :: Maybe StatisticSet
+      -- ^ A set of statistical values describing the metric.
+    , _mgUnit :: Maybe StandardUnit
+      -- ^ The unit of the metric.
     } deriving (Show, Generic)
+
+-- | The name of the metric.
+mgMetricName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> MetricDatum
+    -> f MetricDatum
+mgMetricName f x =
+    (\y -> x { _mgMetricName = y })
+       <$> f (_mgMetricName x)
+{-# INLINE mgMetricName #-}
+
+-- | A list of dimensions associated with the metric.
+mgDimensions
+    :: Functor f
+    => ([Dimension]
+    -> f ([Dimension]))
+    -> MetricDatum
+    -> f MetricDatum
+mgDimensions f x =
+    (\y -> x { _mgDimensions = y })
+       <$> f (_mgDimensions x)
+{-# INLINE mgDimensions #-}
+
+-- | The time stamp used for the metric. If not specified, the default value is
+-- set to the time the metric data was received.
+mgTimestamp
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> MetricDatum
+    -> f MetricDatum
+mgTimestamp f x =
+    (\y -> x { _mgTimestamp = y })
+       <$> f (_mgTimestamp x)
+{-# INLINE mgTimestamp #-}
+
+-- | The value for the metric. Although the Value parameter accepts numbers of
+-- type Double, Amazon CloudWatch truncates values with very large exponents.
+-- Values with base-10 exponents greater than 126 (1 x 10^126) are truncated.
+-- Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are
+-- also truncated.
+mgValue
+    :: Functor f
+    => (Maybe Double
+    -> f (Maybe Double))
+    -> MetricDatum
+    -> f MetricDatum
+mgValue f x =
+    (\y -> x { _mgValue = y })
+       <$> f (_mgValue x)
+{-# INLINE mgValue #-}
+
+-- | A set of statistical values describing the metric.
+mgStatisticValues
+    :: Functor f
+    => (Maybe StatisticSet
+    -> f (Maybe StatisticSet))
+    -> MetricDatum
+    -> f MetricDatum
+mgStatisticValues f x =
+    (\y -> x { _mgStatisticValues = y })
+       <$> f (_mgStatisticValues x)
+{-# INLINE mgStatisticValues #-}
+
+-- | The unit of the metric.
+mgUnit
+    :: Functor f
+    => (Maybe StandardUnit
+    -> f (Maybe StandardUnit))
+    -> MetricDatum
+    -> f MetricDatum
+mgUnit f x =
+    (\y -> x { _mgUnit = y })
+       <$> f (_mgUnit x)
+{-# INLINE mgUnit #-}
 
 instance ToQuery MetricDatum where
     toQuery = genericQuery def
 
 -- | A set of statistical values describing the metric.
 data StatisticSet = StatisticSet
-    { _ssSum :: Double
-      -- ^ The sum of values for the sample set.
-    , _ssMinimum :: Double
-      -- ^ The minimum value of the sample set.
-    , _ssMaximum :: Double
-      -- ^ The maximum value of the sample set.
-    , _ssSampleCount :: Double
+    { _sswSampleCount :: Double
       -- ^ The number of samples used for the statistic set.
+    , _sswSum :: Double
+      -- ^ The sum of values for the sample set.
+    , _sswMinimum :: Double
+      -- ^ The minimum value of the sample set.
+    , _sswMaximum :: Double
+      -- ^ The maximum value of the sample set.
     } deriving (Show, Generic)
+
+-- | The number of samples used for the statistic set.
+sswSampleCount
+    :: Functor f
+    => (Double
+    -> f (Double))
+    -> StatisticSet
+    -> f StatisticSet
+sswSampleCount f x =
+    (\y -> x { _sswSampleCount = y })
+       <$> f (_sswSampleCount x)
+{-# INLINE sswSampleCount #-}
+
+-- | The sum of values for the sample set.
+sswSum
+    :: Functor f
+    => (Double
+    -> f (Double))
+    -> StatisticSet
+    -> f StatisticSet
+sswSum f x =
+    (\y -> x { _sswSum = y })
+       <$> f (_sswSum x)
+{-# INLINE sswSum #-}
+
+-- | The minimum value of the sample set.
+sswMinimum
+    :: Functor f
+    => (Double
+    -> f (Double))
+    -> StatisticSet
+    -> f StatisticSet
+sswMinimum f x =
+    (\y -> x { _sswMinimum = y })
+       <$> f (_sswMinimum x)
+{-# INLINE sswMinimum #-}
+
+-- | The maximum value of the sample set.
+sswMaximum
+    :: Functor f
+    => (Double
+    -> f (Double))
+    -> StatisticSet
+    -> f StatisticSet
+sswMaximum f x =
+    (\y -> x { _sswMaximum = y })
+       <$> f (_sswMaximum x)
+{-# INLINE sswMaximum #-}
 
 instance FromXML StatisticSet where
     fromXMLOptions = xmlOptions
@@ -520,12 +1234,3 @@ instance FromXML StatisticSet where
 
 instance ToQuery StatisticSet where
     toQuery = genericQuery def
-
-makeLenses ''AlarmHistoryItem
-makeLenses ''Datapoint
-makeLenses ''Dimension
-makeLenses ''DimensionFilter
-makeLenses ''Metric
-makeLenses ''MetricAlarm
-makeLenses ''MetricDatum
-makeLenses ''StatisticSet

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -47,11 +46,35 @@
 -- &LoadBalancerAttributes.ConnectionSettings.IdleTimeout=30
 -- &Version=2012-06-01 &Action=ModifyLoadBalancerAttributes &AUTHPARAMS
 -- my-test-loadbalancer 30 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes where
+module Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes
+    (
+    -- * Request
+      ModifyLoadBalancerAttributes
+    -- ** Request constructor
+    , modifyLoadBalancerAttributes
+    -- ** Request lenses
+    , mlbaiLoadBalancerName
+    , mlbaiLoadBalancerAttributes
+
+    -- * Response
+    , ModifyLoadBalancerAttributesResponse
+    -- ** Response lenses
+    , mlbaoLoadBalancerName
+    , mlbaoLoadBalancerAttributes
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'ModifyLoadBalancerAttributes' request.
+modifyLoadBalancerAttributes :: Text -- ^ 'mlbaiLoadBalancerName'
+                             -> LoadBalancerAttributes -- ^ 'mlbaiLoadBalancerAttributes'
+                             -> ModifyLoadBalancerAttributes
+modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
+    { _mlbaiLoadBalancerName = p1
+    , _mlbaiLoadBalancerAttributes = p2
+    }
 
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     { _mlbaiLoadBalancerName :: Text
@@ -60,7 +83,29 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
       -- ^ Attributes of the load balancer.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyLoadBalancerAttributes
+-- | The name of the load balancer.
+mlbaiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ModifyLoadBalancerAttributes
+    -> f ModifyLoadBalancerAttributes
+mlbaiLoadBalancerName f x =
+    (\y -> x { _mlbaiLoadBalancerName = y })
+       <$> f (_mlbaiLoadBalancerName x)
+{-# INLINE mlbaiLoadBalancerName #-}
+
+-- | Attributes of the load balancer.
+mlbaiLoadBalancerAttributes
+    :: Functor f
+    => (LoadBalancerAttributes
+    -> f (LoadBalancerAttributes))
+    -> ModifyLoadBalancerAttributes
+    -> f ModifyLoadBalancerAttributes
+mlbaiLoadBalancerAttributes f x =
+    (\y -> x { _mlbaiLoadBalancerAttributes = y })
+       <$> f (_mlbaiLoadBalancerAttributes x)
+{-# INLINE mlbaiLoadBalancerAttributes #-}
 
 instance ToQuery ModifyLoadBalancerAttributes where
     toQuery = genericQuery def
@@ -72,7 +117,29 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
       -- ^ The LoadBalancerAttributes data type.
     } deriving (Show, Generic)
 
-makeLenses ''ModifyLoadBalancerAttributesResponse
+-- | The name of the load balancer.
+mlbaoLoadBalancerName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ModifyLoadBalancerAttributesResponse
+    -> f ModifyLoadBalancerAttributesResponse
+mlbaoLoadBalancerName f x =
+    (\y -> x { _mlbaoLoadBalancerName = y })
+       <$> f (_mlbaoLoadBalancerName x)
+{-# INLINE mlbaoLoadBalancerName #-}
+
+-- | The LoadBalancerAttributes data type.
+mlbaoLoadBalancerAttributes
+    :: Functor f
+    => (Maybe LoadBalancerAttributes
+    -> f (Maybe LoadBalancerAttributes))
+    -> ModifyLoadBalancerAttributesResponse
+    -> f ModifyLoadBalancerAttributesResponse
+mlbaoLoadBalancerAttributes f x =
+    (\y -> x { _mlbaoLoadBalancerAttributes = y })
+       <$> f (_mlbaoLoadBalancerAttributes x)
+{-# INLINE mlbaoLoadBalancerAttributes #-}
 
 instance FromXML ModifyLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions

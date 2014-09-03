@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,19 +18,47 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deregisters an Amazon RDS instance.
-module Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance where
+module Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance
+    (
+    -- * Request
+      DeregisterRdsDbInstance
+    -- ** Request constructor
+    , deregisterRdsDbInstance
+    -- ** Request lenses
+    , drdirRdsDbInstanceArn
+
+    -- * Response
+    , DeregisterRdsDbInstanceResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeregisterRdsDbInstance' request.
+deregisterRdsDbInstance :: Text -- ^ 'drdirRdsDbInstanceArn'
+                        -> DeregisterRdsDbInstance
+deregisterRdsDbInstance p1 = DeregisterRdsDbInstance
+    { _drdirRdsDbInstanceArn = p1
+    }
+
 data DeregisterRdsDbInstance = DeregisterRdsDbInstance
-    { _drditRdsDbInstanceArn :: Text
+    { _drdirRdsDbInstanceArn :: Text
       -- ^ The Amazon RDS instance's ARN.
     } deriving (Show, Generic)
 
-makeLenses ''DeregisterRdsDbInstance
+-- | The Amazon RDS instance's ARN.
+drdirRdsDbInstanceArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeregisterRdsDbInstance
+    -> f DeregisterRdsDbInstance
+drdirRdsDbInstanceArn f x =
+    (\y -> x { _drdirRdsDbInstanceArn = y })
+       <$> f (_drdirRdsDbInstanceArn x)
+{-# INLINE drdirRdsDbInstanceArn #-}
 
 instance ToPath DeregisterRdsDbInstance
 
@@ -43,8 +70,6 @@ instance ToJSON DeregisterRdsDbInstance
 
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeregisterRdsDbInstanceResponse
 
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks

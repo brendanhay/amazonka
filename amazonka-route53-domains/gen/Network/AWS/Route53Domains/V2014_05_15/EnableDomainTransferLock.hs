@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,12 +35,32 @@
 -- "DomainName":"example.com" } HTTP/1.1 200 Content-Length:[number of
 -- characters in the JSON string] {
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
-module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock where
+module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
+    (
+    -- * Request
+      EnableDomainTransferLock
+    -- ** Request constructor
+    , enableDomainTransferLock
+    -- ** Request lenses
+    , edtlrDomainName
+
+    -- * Response
+    , EnableDomainTransferLockResponse
+    -- ** Response lenses
+    , edtlsOperationId
+    ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'EnableDomainTransferLock' request.
+enableDomainTransferLock :: Text -- ^ 'edtlrDomainName'
+                         -> EnableDomainTransferLock
+enableDomainTransferLock p1 = EnableDomainTransferLock
+    { _edtlrDomainName = p1
+    }
 
 data EnableDomainTransferLock = EnableDomainTransferLock
     { _edtlrDomainName :: Text
@@ -51,7 +70,20 @@ data EnableDomainTransferLock = EnableDomainTransferLock
       -- not supported. Required: Yes.
     } deriving (Show, Generic)
 
-makeLenses ''EnableDomainTransferLock
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+edtlrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableDomainTransferLock
+    -> f EnableDomainTransferLock
+edtlrDomainName f x =
+    (\y -> x { _edtlrDomainName = y })
+       <$> f (_edtlrDomainName x)
+{-# INLINE edtlrDomainName #-}
 
 instance ToPath EnableDomainTransferLock
 
@@ -68,7 +100,19 @@ data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
       -- String Default: None Constraints: Maximum 255 characters.
     } deriving (Show, Generic)
 
-makeLenses ''EnableDomainTransferLockResponse
+-- | Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail. Type: String Default:
+-- None Constraints: Maximum 255 characters.
+edtlsOperationId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableDomainTransferLockResponse
+    -> f EnableDomainTransferLockResponse
+edtlsOperationId f x =
+    (\y -> x { _edtlsOperationId = y })
+       <$> f (_edtlsOperationId x)
+{-# INLINE edtlsOperationId #-}
 
 instance FromJSON EnableDomainTransferLockResponse
 

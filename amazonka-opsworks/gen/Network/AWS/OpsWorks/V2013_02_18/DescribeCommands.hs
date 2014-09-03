@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,7 +22,22 @@
 -- must have a Show, Deploy, or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.DescribeCommands where
+module Network.AWS.OpsWorks.V2013_02_18.DescribeCommands
+    (
+    -- * Request
+      DescribeCommands
+    -- ** Request constructor
+    , describeCommands
+    -- ** Request lenses
+    , dcrDeploymentId
+    , dcrInstanceId
+    , dcrCommandIds
+
+    -- * Response
+    , DescribeCommandsResponse
+    -- ** Response lenses
+    , dcsCommands
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
@@ -33,27 +47,65 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeCommands' request.
 describeCommands :: DescribeCommands
 describeCommands = DescribeCommands
-    { _dcrInstanceId = Nothing
-    , _dcrDeploymentId = Nothing
+    { _dcrDeploymentId = Nothing
+    , _dcrInstanceId = Nothing
     , _dcrCommandIds = mempty
     }
 
 data DescribeCommands = DescribeCommands
-    { _dcrInstanceId :: Maybe Text
-      -- ^ The instance ID. If you include this parameter, DescribeCommands
-      -- returns a description of the commands associated with the
-      -- specified instance.
-    , _dcrDeploymentId :: Maybe Text
+    { _dcrDeploymentId :: Maybe Text
       -- ^ The deployment ID. If you include this parameter,
       -- DescribeCommands returns a description of the commands associated
       -- with the specified deployment.
+    , _dcrInstanceId :: Maybe Text
+      -- ^ The instance ID. If you include this parameter, DescribeCommands
+      -- returns a description of the commands associated with the
+      -- specified instance.
     , _dcrCommandIds :: [Text]
       -- ^ An array of command IDs. If you include this parameter,
       -- DescribeCommands returns a description of the specified commands.
       -- Otherwise, it returns a description of every command.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCommands
+-- | The deployment ID. If you include this parameter, DescribeCommands returns
+-- a description of the commands associated with the specified deployment.
+dcrDeploymentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCommands
+    -> f DescribeCommands
+dcrDeploymentId f x =
+    (\y -> x { _dcrDeploymentId = y })
+       <$> f (_dcrDeploymentId x)
+{-# INLINE dcrDeploymentId #-}
+
+-- | The instance ID. If you include this parameter, DescribeCommands returns a
+-- description of the commands associated with the specified instance.
+dcrInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeCommands
+    -> f DescribeCommands
+dcrInstanceId f x =
+    (\y -> x { _dcrInstanceId = y })
+       <$> f (_dcrInstanceId x)
+{-# INLINE dcrInstanceId #-}
+
+-- | An array of command IDs. If you include this parameter, DescribeCommands
+-- returns a description of the specified commands. Otherwise, it returns a
+-- description of every command.
+dcrCommandIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeCommands
+    -> f DescribeCommands
+dcrCommandIds f x =
+    (\y -> x { _dcrCommandIds = y })
+       <$> f (_dcrCommandIds x)
+{-# INLINE dcrCommandIds #-}
 
 instance ToPath DescribeCommands
 
@@ -69,7 +121,17 @@ data DescribeCommandsResponse = DescribeCommandsResponse
       -- commands.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeCommandsResponse
+-- | An array of Command objects that describe each of the specified commands.
+dcsCommands
+    :: Functor f
+    => ([Command]
+    -> f ([Command]))
+    -> DescribeCommandsResponse
+    -> f DescribeCommandsResponse
+dcsCommands f x =
+    (\y -> x { _dcsCommands = y })
+       <$> f (_dcsCommands x)
+{-# INLINE dcsCommands #-}
 
 instance FromJSON DescribeCommandsResponse
 

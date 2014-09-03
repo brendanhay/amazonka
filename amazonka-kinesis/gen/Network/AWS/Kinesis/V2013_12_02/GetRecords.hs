@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -56,7 +55,22 @@
 -- "AAAAAAAAAAHsW8zCWf9164uy8Epue6WS3w6wmj4a4USt+CNvMd6uXQ+HL5vAJMznqqC0DLKsIjuoiTi1BpT6nW0LN2M2D56zM5H8anHm30Gbri9ua+qaGgj+3XTyvbhpERfrezgLHbPB/rIcVpykJbaSj5tmcXYRmFnqZBEyHwtZYFmh6hvWVFkIwLuMZLMrpWhG5r5hzkE=",
 -- "Records": [ { "Data": "XzxkYXRhPl8w", "PartitionKey": "partitionKey",
 -- "SequenceNumber": "21269319989652663814458848515492872193" } ] }.
-module Network.AWS.Kinesis.V2013_12_02.GetRecords where
+module Network.AWS.Kinesis.V2013_12_02.GetRecords
+    (
+    -- * Request
+      GetRecords
+    -- ** Request constructor
+    , getRecords
+    -- ** Request lenses
+    , griShardIterator
+    , griLimit
+
+    -- * Response
+    , GetRecordsResponse
+    -- ** Response lenses
+    , groRecords
+    , groNextShardIterator
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
@@ -64,7 +78,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'GetRecords' request.
-getRecords :: Text -- ^ '_griShardIterator'
+getRecords :: Text -- ^ 'griShardIterator'
            -> GetRecords
 getRecords p1 = GetRecords
     { _griShardIterator = p1
@@ -80,7 +94,31 @@ data GetRecords = GetRecords
       -- value of up to 10,000.
     } deriving (Show, Generic)
 
-makeLenses ''GetRecords
+-- | The position in the shard from which you want to start sequentially reading
+-- data records.
+griShardIterator
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetRecords
+    -> f GetRecords
+griShardIterator f x =
+    (\y -> x { _griShardIterator = y })
+       <$> f (_griShardIterator x)
+{-# INLINE griShardIterator #-}
+
+-- | The maximum number of records to return, which can be set to a value of up
+-- to 10,000.
+griLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> GetRecords
+    -> f GetRecords
+griLimit f x =
+    (\y -> x { _griLimit = y })
+       <$> f (_griLimit x)
+{-# INLINE griLimit #-}
 
 instance ToPath GetRecords
 
@@ -99,7 +137,31 @@ data GetRecordsResponse = GetRecordsResponse
       -- and the requested iterator will not return any more data.
     } deriving (Show, Generic)
 
-makeLenses ''GetRecordsResponse
+-- | The data records retrieved from the shard.
+groRecords
+    :: Functor f
+    => ([Record]
+    -> f ([Record]))
+    -> GetRecordsResponse
+    -> f GetRecordsResponse
+groRecords f x =
+    (\y -> x { _groRecords = y })
+       <$> f (_groRecords x)
+{-# INLINE groRecords #-}
+
+-- | The next position in the shard from which to start sequentially reading
+-- data records. If set to null, the shard has been closed and the requested
+-- iterator will not return any more data.
+groNextShardIterator
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GetRecordsResponse
+    -> f GetRecordsResponse
+groNextShardIterator f x =
+    (\y -> x { _groNextShardIterator = y })
+       <$> f (_groNextShardIterator x)
+{-# INLINE groNextShardIterator #-}
 
 instance FromJSON GetRecordsResponse
 

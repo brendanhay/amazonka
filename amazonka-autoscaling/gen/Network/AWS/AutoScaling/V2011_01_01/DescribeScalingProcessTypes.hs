@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,26 +23,48 @@
 -- &Action=DescribeScalingProcessTypes &AUTHPARAMS AZRebalance
 -- AddToLoadBalancer AlarmNotification HealthCheck Launch ReplaceUnhealthy
 -- ScheduledActions Terminate 27f2eacc-b73f-11e2-ad99-c7aba3a9c963.
-module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes where
+module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
+    (
+    -- * Request
+      DescribeScalingProcessTypes
+    -- ** Request constructor
+    , describeScalingProcessTypes
+    -- * Response
+    , DescribeScalingProcessTypesResponse
+    -- ** Response lenses
+    , puProcesses
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DescribeScalingProcessTypes' request.
+describeScalingProcessTypes :: DescribeScalingProcessTypes
+describeScalingProcessTypes = DescribeScalingProcessTypes
+
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
     deriving (Eq, Show, Generic)
-
-makeLenses ''DescribeScalingProcessTypes
 
 instance ToQuery DescribeScalingProcessTypes where
     toQuery = genericQuery def
 
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
-    { _ptProcesses :: [ProcessType]
+    { _puProcesses :: [ProcessType]
       -- ^ A list of ProcessType names.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeScalingProcessTypesResponse
+-- | A list of ProcessType names.
+puProcesses
+    :: Functor f
+    => ([ProcessType]
+    -> f ([ProcessType]))
+    -> DescribeScalingProcessTypesResponse
+    -> f DescribeScalingProcessTypesResponse
+puProcesses f x =
+    (\y -> x { _puProcesses = y })
+       <$> f (_puProcesses x)
+{-# INLINE puProcesses #-}
 
 instance FromXML DescribeScalingProcessTypesResponse where
     fromXMLOptions = xmlOptions

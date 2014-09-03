@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,28 +20,68 @@
 -- | Permanently deletes a search domain and all of its data. Once a domain has
 -- been deleted, it cannot be recovered. For more information, see Deleting a
 -- Search Domain in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DeleteDomain where
+module Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
+    (
+    -- * Request
+      DeleteDomain
+    -- ** Request constructor
+    , deleteDomain
+    -- ** Request lenses
+    , ddrDomainName
+
+    -- * Response
+    , DeleteDomainResponse
+    -- ** Response lenses
+    , ddsDomainStatus
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteDomain' request.
+deleteDomain :: Text -- ^ 'ddrDomainName'
+             -> DeleteDomain
+deleteDomain p1 = DeleteDomain
+    { _ddrDomainName = p1
+    }
+
 data DeleteDomain = DeleteDomain
-    { _ddyDomainName :: Text
+    { _ddrDomainName :: Text
       -- ^ The name of the domain you want to permanently delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDomain
+-- | The name of the domain you want to permanently delete.
+ddrDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteDomain
+    -> f DeleteDomain
+ddrDomainName f x =
+    (\y -> x { _ddrDomainName = y })
+       <$> f (_ddrDomainName x)
+{-# INLINE ddrDomainName #-}
 
 instance ToQuery DeleteDomain where
     toQuery = genericQuery def
 
 data DeleteDomainResponse = DeleteDomainResponse
-    { _ddzDomainStatus :: Maybe DomainStatus
+    { _ddsDomainStatus :: Maybe DomainStatus
       -- ^ The current status of the search domain.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteDomainResponse
+-- | The current status of the search domain.
+ddsDomainStatus
+    :: Functor f
+    => (Maybe DomainStatus
+    -> f (Maybe DomainStatus))
+    -> DeleteDomainResponse
+    -> f DeleteDomainResponse
+ddsDomainStatus f x =
+    (\y -> x { _ddsDomainStatus = y })
+       <$> f (_ddsDomainStatus x)
+{-# INLINE ddsDomainStatus #-}
 
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions

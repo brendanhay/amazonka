@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,12 +32,41 @@
 -- Date: Wed, 25 Apr 2012 12:00:02 GMT Content-type:
 -- application/x-amz-json-1.1 Content-length: 80 { "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime where
+module Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
+    (
+    -- * Request
+      UpdateMaintenanceStartTime
+    -- ** Request constructor
+    , updateMaintenanceStartTime
+    -- ** Request lenses
+    , umstiDayOfWeek
+    , umstiGatewayARN
+    , umstiHourOfDay
+    , umstiMinuteOfHour
+
+    -- * Response
+    , UpdateMaintenanceStartTimeResponse
+    -- ** Response lenses
+    , umstoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'UpdateMaintenanceStartTime' request.
+updateMaintenanceStartTime :: Integer -- ^ 'umstiDayOfWeek'
+                           -> Text -- ^ 'umstiGatewayARN'
+                           -> Integer -- ^ 'umstiHourOfDay'
+                           -> Integer -- ^ 'umstiMinuteOfHour'
+                           -> UpdateMaintenanceStartTime
+updateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
+    { _umstiDayOfWeek = p1
+    , _umstiGatewayARN = p2
+    , _umstiHourOfDay = p3
+    , _umstiMinuteOfHour = p4
+    }
 
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     { _umstiDayOfWeek :: Integer
@@ -57,7 +85,58 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
       -- in the time zone of the gateway.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateMaintenanceStartTime
+-- | The maintenance start time day of the week.
+umstiDayOfWeek
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> UpdateMaintenanceStartTime
+    -> f UpdateMaintenanceStartTime
+umstiDayOfWeek f x =
+    (\y -> x { _umstiDayOfWeek = y })
+       <$> f (_umstiDayOfWeek x)
+{-# INLINE umstiDayOfWeek #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+umstiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateMaintenanceStartTime
+    -> f UpdateMaintenanceStartTime
+umstiGatewayARN f x =
+    (\y -> x { _umstiGatewayARN = y })
+       <$> f (_umstiGatewayARN x)
+{-# INLINE umstiGatewayARN #-}
+
+-- | The hour component of the maintenance start time represented as hh, where
+-- hh is the hour (00 to 23). The hour of the day is in the time zone of the
+-- gateway.
+umstiHourOfDay
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> UpdateMaintenanceStartTime
+    -> f UpdateMaintenanceStartTime
+umstiHourOfDay f x =
+    (\y -> x { _umstiHourOfDay = y })
+       <$> f (_umstiHourOfDay x)
+{-# INLINE umstiHourOfDay #-}
+
+-- | The minute component of the maintenance start time represented as mm, where
+-- mm is the minute (00 to 59). The minute of the hour is in the time zone of
+-- the gateway.
+umstiMinuteOfHour
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> UpdateMaintenanceStartTime
+    -> f UpdateMaintenanceStartTime
+umstiMinuteOfHour f x =
+    (\y -> x { _umstiMinuteOfHour = y })
+       <$> f (_umstiMinuteOfHour x)
+{-# INLINE umstiMinuteOfHour #-}
 
 instance ToPath UpdateMaintenanceStartTime
 
@@ -74,7 +153,18 @@ data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateMaintenanceStartTimeResponse
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+umstoGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateMaintenanceStartTimeResponse
+    -> f UpdateMaintenanceStartTimeResponse
+umstoGatewayARN f x =
+    (\y -> x { _umstoGatewayARN = y })
+       <$> f (_umstoGatewayARN x)
+{-# INLINE umstoGatewayARN #-}
 
 instance FromJSON UpdateMaintenanceStartTimeResponse
 

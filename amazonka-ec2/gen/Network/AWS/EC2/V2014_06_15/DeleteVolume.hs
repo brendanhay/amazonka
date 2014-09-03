@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,10 +31,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVolume
     (
     -- * Request
       DeleteVolume
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteVolume
-    -- ** Accessors and lenses
-    , _dvrVolumeId
+    -- ** Request lenses
     , dvrVolumeId
 
     -- * Response
@@ -54,8 +52,21 @@ deleteVolume p1 = DeleteVolume
     }
 
 data DeleteVolume = DeleteVolume
+    { _dvrVolumeId :: Text
+      -- ^ The ID of the volume.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVolume
+-- | The ID of the volume.
+dvrVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVolume
+    -> f DeleteVolume
+dvrVolumeId f x =
+    (\y -> x { _dvrVolumeId = y })
+       <$> f (_dvrVolumeId x)
+{-# INLINE dvrVolumeId #-}
 
 instance ToQuery DeleteVolume where
     toQuery = genericQuery def
@@ -63,14 +74,9 @@ instance ToQuery DeleteVolume where
 data DeleteVolumeResponse = DeleteVolumeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteVolumeResponse
-
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request = post "DeleteVolume"
     response _ = nullaryResponse DeleteVolumeResponse
-
--- | The ID of the volume.
-dvrVolumeId :: Lens' DeleteVolume (Text)

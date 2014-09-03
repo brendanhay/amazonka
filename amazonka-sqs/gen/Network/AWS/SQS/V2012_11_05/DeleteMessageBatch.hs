@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,11 +38,35 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE msg1 msg2
 -- d6f86b7a-74d1-4439-b43f-196a1e29cd85.
-module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch where
+module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
+    (
+    -- * Request
+      DeleteMessageBatch
+    -- ** Request constructor
+    , deleteMessageBatch
+    -- ** Request lenses
+    , dmbrEntries
+    , dmbrQueueUrl
+
+    -- * Response
+    , DeleteMessageBatchResponse
+    -- ** Response lenses
+    , dmbsFailed
+    , dmbsSuccessful
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteMessageBatch' request.
+deleteMessageBatch :: [DeleteMessageBatchRequestEntry] -- ^ 'dmbrEntries'
+                   -> Text -- ^ 'dmbrQueueUrl'
+                   -> DeleteMessageBatch
+deleteMessageBatch p1 p2 = DeleteMessageBatch
+    { _dmbrEntries = p1
+    , _dmbrQueueUrl = p2
+    }
 
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbrEntries :: [DeleteMessageBatchRequestEntry]
@@ -52,7 +75,29 @@ data DeleteMessageBatch = DeleteMessageBatch
       -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteMessageBatch
+-- | A list of receipt handles for the messages to be deleted.
+dmbrEntries
+    :: Functor f
+    => ([DeleteMessageBatchRequestEntry]
+    -> f ([DeleteMessageBatchRequestEntry]))
+    -> DeleteMessageBatch
+    -> f DeleteMessageBatch
+dmbrEntries f x =
+    (\y -> x { _dmbrEntries = y })
+       <$> f (_dmbrEntries x)
+{-# INLINE dmbrEntries #-}
+
+-- | The URL of the Amazon SQS queue to take action on.
+dmbrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteMessageBatch
+    -> f DeleteMessageBatch
+dmbrQueueUrl f x =
+    (\y -> x { _dmbrQueueUrl = y })
+       <$> f (_dmbrQueueUrl x)
+{-# INLINE dmbrQueueUrl #-}
 
 instance ToQuery DeleteMessageBatch where
     toQuery = genericQuery def
@@ -64,7 +109,29 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
       -- ^ A list of DeleteMessageBatchResultEntry items.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteMessageBatchResponse
+-- | A list of BatchResultErrorEntry items.
+dmbsFailed
+    :: Functor f
+    => ([BatchResultErrorEntry]
+    -> f ([BatchResultErrorEntry]))
+    -> DeleteMessageBatchResponse
+    -> f DeleteMessageBatchResponse
+dmbsFailed f x =
+    (\y -> x { _dmbsFailed = y })
+       <$> f (_dmbsFailed x)
+{-# INLINE dmbsFailed #-}
+
+-- | A list of DeleteMessageBatchResultEntry items.
+dmbsSuccessful
+    :: Functor f
+    => ([DeleteMessageBatchResultEntry]
+    -> f ([DeleteMessageBatchResultEntry]))
+    -> DeleteMessageBatchResponse
+    -> f DeleteMessageBatchResponse
+dmbsSuccessful f x =
+    (\y -> x { _dmbsSuccessful = y })
+       <$> f (_dmbsSuccessful x)
+{-# INLINE dmbsSuccessful #-}
 
 instance FromXML DeleteMessageBatchResponse where
     fromXMLOptions = xmlOptions

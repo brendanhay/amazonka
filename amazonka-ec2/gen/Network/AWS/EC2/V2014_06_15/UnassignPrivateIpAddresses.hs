@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,12 +31,10 @@ module Network.AWS.EC2.V2014_06_15.UnassignPrivateIpAddresses
     (
     -- * Request
       UnassignPrivateIpAddresses
-    -- ** Default constructor
+    -- ** Request constructor
     , unassignPrivateIpAddresses
-    -- ** Accessors and lenses
-    , _upiarPrivateIpAddresses
+    -- ** Request lenses
     , upiarPrivateIpAddresses
-    , _upiarNetworkInterfaceId
     , upiarNetworkInterfaceId
 
     -- * Response
@@ -58,8 +55,39 @@ unassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
     }
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
+    { _upiarPrivateIpAddresses :: [Text]
+      -- ^ The secondary private IP addresses to unassign from the network
+      -- interface. You can specify this option multiple times to unassign
+      -- more than one IP address.
+    , _upiarNetworkInterfaceId :: Text
+      -- ^ The ID of the network interface.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''UnassignPrivateIpAddresses
+-- | The secondary private IP addresses to unassign from the network interface.
+-- You can specify this option multiple times to unassign more than one IP
+-- address.
+upiarPrivateIpAddresses
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> UnassignPrivateIpAddresses
+    -> f UnassignPrivateIpAddresses
+upiarPrivateIpAddresses f x =
+    (\y -> x { _upiarPrivateIpAddresses = y })
+       <$> f (_upiarPrivateIpAddresses x)
+{-# INLINE upiarPrivateIpAddresses #-}
+
+-- | The ID of the network interface.
+upiarNetworkInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UnassignPrivateIpAddresses
+    -> f UnassignPrivateIpAddresses
+upiarNetworkInterfaceId f x =
+    (\y -> x { _upiarNetworkInterfaceId = y })
+       <$> f (_upiarNetworkInterfaceId x)
+{-# INLINE upiarNetworkInterfaceId #-}
 
 instance ToQuery UnassignPrivateIpAddresses where
     toQuery = genericQuery def
@@ -67,19 +95,9 @@ instance ToQuery UnassignPrivateIpAddresses where
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''UnassignPrivateIpAddressesResponse
-
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse
 
     request = post "UnassignPrivateIpAddresses"
     response _ = nullaryResponse UnassignPrivateIpAddressesResponse
-
--- | The secondary private IP addresses to unassign from the network interface.
--- You can specify this option multiple times to unassign more than one IP
--- address.
-upiarPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses ([Text])
-
--- | The ID of the network interface.
-upiarNetworkInterfaceId :: Lens' UnassignPrivateIpAddresses (Text)

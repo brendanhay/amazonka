@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,12 +38,33 @@
 -- HTTP/1.1 200 OK x-amzn-RequestId: 2be9cde9-ed9c-11e2-82b6-2351cde3f33f
 -- Content-Type: application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 15
 -- Jul 2013 22:16:18 GMT.
-module Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers where
+module Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers
+    (
+    -- * Request
+      SetVisibleToAllUsers
+    -- ** Request constructor
+    , setVisibleToAllUsers
+    -- ** Request lenses
+    , svtauiVisibleToAllUsers
+    , svtauiJobFlowIds
+
+    -- * Response
+    , SetVisibleToAllUsersResponse
+    ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'SetVisibleToAllUsers' request.
+setVisibleToAllUsers :: Bool -- ^ 'svtauiVisibleToAllUsers'
+                     -> [Text] -- ^ 'svtauiJobFlowIds'
+                     -> SetVisibleToAllUsers
+setVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
+    { _svtauiVisibleToAllUsers = p1
+    , _svtauiJobFlowIds = p2
+    }
 
 data SetVisibleToAllUsers = SetVisibleToAllUsers
     { _svtauiVisibleToAllUsers :: Bool
@@ -59,7 +79,33 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers
       -- setting.
     } deriving (Show, Generic)
 
-makeLenses ''SetVisibleToAllUsers
+-- | Whether the specified job flows are visible to all IAM users of the AWS
+-- account associated with the job flow. If this value is set to True, all IAM
+-- users of that AWS account can view and, if they have the proper IAM policy
+-- permissions set, manage the job flows. If it is set to False, only the IAM
+-- user that created a job flow can view and manage it.
+svtauiVisibleToAllUsers
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> SetVisibleToAllUsers
+    -> f SetVisibleToAllUsers
+svtauiVisibleToAllUsers f x =
+    (\y -> x { _svtauiVisibleToAllUsers = y })
+       <$> f (_svtauiVisibleToAllUsers x)
+{-# INLINE svtauiVisibleToAllUsers #-}
+
+-- | Identifiers of the job flows to receive the new visibility setting.
+svtauiJobFlowIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> SetVisibleToAllUsers
+    -> f SetVisibleToAllUsers
+svtauiJobFlowIds f x =
+    (\y -> x { _svtauiJobFlowIds = y })
+       <$> f (_svtauiJobFlowIds x)
+{-# INLINE svtauiJobFlowIds #-}
 
 instance ToPath SetVisibleToAllUsers
 
@@ -71,8 +117,6 @@ instance ToJSON SetVisibleToAllUsers
 
 data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SetVisibleToAllUsersResponse
 
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR

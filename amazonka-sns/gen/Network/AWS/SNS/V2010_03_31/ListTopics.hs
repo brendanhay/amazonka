@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,7 +31,21 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;3f1478c7-33a9-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListTopicsResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.ListTopics where
+module Network.AWS.SNS.V2010_03_31.ListTopics
+    (
+    -- * Request
+      ListTopics
+    -- ** Request constructor
+    , listTopics
+    -- ** Request lenses
+    , ltiNextToken
+
+    -- * Response
+    , ListTopicsResponse
+    -- ** Response lenses
+    , ltrNextToken
+    , ltrTopics
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
@@ -49,7 +62,17 @@ data ListTopics = ListTopics
       -- ^ Token returned by the previous ListTopics request.
     } deriving (Show, Generic)
 
-makeLenses ''ListTopics
+-- | Token returned by the previous ListTopics request.
+ltiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListTopics
+    -> f ListTopics
+ltiNextToken f x =
+    (\y -> x { _ltiNextToken = y })
+       <$> f (_ltiNextToken x)
+{-# INLINE ltiNextToken #-}
 
 instance ToQuery ListTopics where
     toQuery = genericQuery def
@@ -62,7 +85,30 @@ data ListTopicsResponse = ListTopicsResponse
       -- ^ A list of topic ARNs.
     } deriving (Show, Generic)
 
-makeLenses ''ListTopicsResponse
+-- | Token to pass along to the next ListTopics request. This element is
+-- returned if there are additional topics to retrieve.
+ltrNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListTopicsResponse
+    -> f ListTopicsResponse
+ltrNextToken f x =
+    (\y -> x { _ltrNextToken = y })
+       <$> f (_ltrNextToken x)
+{-# INLINE ltrNextToken #-}
+
+-- | A list of topic ARNs.
+ltrTopics
+    :: Functor f
+    => ([Topic]
+    -> f ([Topic]))
+    -> ListTopicsResponse
+    -> f ListTopicsResponse
+ltrTopics f x =
+    (\y -> x { _ltrTopics = y })
+       <$> f (_ltrTopics x)
+{-# INLINE ltrTopics #-}
 
 instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions

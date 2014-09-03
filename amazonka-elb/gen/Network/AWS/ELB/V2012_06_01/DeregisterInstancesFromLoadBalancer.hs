@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,11 +29,34 @@
 -- &LoadBalancerName=MyHTTPSLoadBalancer &Version=2012-06-01
 -- &Action=DeregisterInstancesFromLoadBalancer &AUTHPARAMS i-6ec63d59
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer where
+module Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
+    (
+    -- * Request
+      DeregisterInstancesFromLoadBalancer
+    -- ** Request constructor
+    , deregisterInstancesFromLoadBalancer
+    -- ** Request lenses
+    , depiLoadBalancerName
+    , depiInstances
+
+    -- * Response
+    , DeregisterInstancesFromLoadBalancerResponse
+    -- ** Response lenses
+    , depoInstances
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeregisterInstancesFromLoadBalancer' request.
+deregisterInstancesFromLoadBalancer :: Text -- ^ 'depiLoadBalancerName'
+                                    -> [Instance] -- ^ 'depiInstances'
+                                    -> DeregisterInstancesFromLoadBalancer
+deregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
+    { _depiLoadBalancerName = p1
+    , _depiInstances = p2
+    }
 
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { _depiLoadBalancerName :: Text
@@ -44,7 +66,29 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
       -- deregistered.
     } deriving (Show, Generic)
 
-makeLenses ''DeregisterInstancesFromLoadBalancer
+-- | The name associated with the load balancer.
+depiLoadBalancerName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeregisterInstancesFromLoadBalancer
+    -> f DeregisterInstancesFromLoadBalancer
+depiLoadBalancerName f x =
+    (\y -> x { _depiLoadBalancerName = y })
+       <$> f (_depiLoadBalancerName x)
+{-# INLINE depiLoadBalancerName #-}
+
+-- | A list of EC2 instance IDs consisting of all instances to be deregistered.
+depiInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> DeregisterInstancesFromLoadBalancer
+    -> f DeregisterInstancesFromLoadBalancer
+depiInstances f x =
+    (\y -> x { _depiInstances = y })
+       <$> f (_depiInstances x)
+{-# INLINE depiInstances #-}
 
 instance ToQuery DeregisterInstancesFromLoadBalancer where
     toQuery = genericQuery def
@@ -55,7 +99,17 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
       -- balancer.
     } deriving (Show, Generic)
 
-makeLenses ''DeregisterInstancesFromLoadBalancerResponse
+-- | An updated list of remaining instances registered with the load balancer.
+depoInstances
+    :: Functor f
+    => ([Instance]
+    -> f ([Instance]))
+    -> DeregisterInstancesFromLoadBalancerResponse
+    -> f DeregisterInstancesFromLoadBalancerResponse
+depoInstances f x =
+    (\y -> x { _depoInstances = y })
+       <$> f (_depoInstances x)
+{-# INLINE depoInstances #-}
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     fromXMLOptions = xmlOptions

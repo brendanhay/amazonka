@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,7 +25,24 @@
 -- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }, { "IdentityId":
 -- "us-east-1:921a3843-2dd6-46b8-ab2f-c679EXAMPLE5" } ], "IdentityPoolId":
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
-module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities where
+module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
+    (
+    -- * Request
+      ListIdentities
+    -- ** Request constructor
+    , listIdentities
+    -- ** Request lenses
+    , liiIdentityPoolId
+    , liiMaxResults
+    , liiNextToken
+
+    -- * Response
+    , ListIdentitiesResponse
+    -- ** Response lenses
+    , lirIdentities
+    , lirIdentityPoolId
+    , lirNextToken
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
@@ -34,8 +50,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListIdentities' request.
-listIdentities :: Text -- ^ '_liiIdentityPoolId'
-               -> Integer -- ^ '_liiMaxResults'
+listIdentities :: Text -- ^ 'liiIdentityPoolId'
+               -> Integer -- ^ 'liiMaxResults'
                -> ListIdentities
 listIdentities p1 p2 = ListIdentities
     { _liiIdentityPoolId = p1
@@ -52,7 +68,41 @@ data ListIdentities = ListIdentities
       -- ^ A pagination token.
     } deriving (Show, Generic)
 
-makeLenses ''ListIdentities
+-- | An identity pool ID in the format REGION:GUID.
+liiIdentityPoolId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListIdentities
+    -> f ListIdentities
+liiIdentityPoolId f x =
+    (\y -> x { _liiIdentityPoolId = y })
+       <$> f (_liiIdentityPoolId x)
+{-# INLINE liiIdentityPoolId #-}
+
+-- | The maximum number of identities to return.
+liiMaxResults
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> ListIdentities
+    -> f ListIdentities
+liiMaxResults f x =
+    (\y -> x { _liiMaxResults = y })
+       <$> f (_liiMaxResults x)
+{-# INLINE liiMaxResults #-}
+
+-- | A pagination token.
+liiNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListIdentities
+    -> f ListIdentities
+liiNextToken f x =
+    (\y -> x { _liiNextToken = y })
+       <$> f (_liiNextToken x)
+{-# INLINE liiNextToken #-}
 
 instance ToPath ListIdentities
 
@@ -71,7 +121,41 @@ data ListIdentitiesResponse = ListIdentitiesResponse
       -- ^ A pagination token.
     } deriving (Show, Generic)
 
-makeLenses ''ListIdentitiesResponse
+-- | An object containing a set of identities and associated mappings.
+lirIdentities
+    :: Functor f
+    => ([IdentityDescription]
+    -> f ([IdentityDescription]))
+    -> ListIdentitiesResponse
+    -> f ListIdentitiesResponse
+lirIdentities f x =
+    (\y -> x { _lirIdentities = y })
+       <$> f (_lirIdentities x)
+{-# INLINE lirIdentities #-}
+
+-- | An identity pool ID in the format REGION:GUID.
+lirIdentityPoolId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListIdentitiesResponse
+    -> f ListIdentitiesResponse
+lirIdentityPoolId f x =
+    (\y -> x { _lirIdentityPoolId = y })
+       <$> f (_lirIdentityPoolId x)
+{-# INLINE lirIdentityPoolId #-}
+
+-- | A pagination token.
+lirNextToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListIdentitiesResponse
+    -> f ListIdentitiesResponse
+lirNextToken f x =
+    (\y -> x { _lirNextToken = y })
+       <$> f (_lirNextToken x)
+{-# INLINE lirNextToken #-}
 
 instance FromJSON ListIdentitiesResponse
 

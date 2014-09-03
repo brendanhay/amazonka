@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,28 +20,63 @@
 -- | Generates a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
-module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport where
+module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
+    (
+    -- * Request
+      GenerateCredentialReport
+    -- ** Request constructor
+    , generateCredentialReport
+    -- * Response
+    , GenerateCredentialReportResponse
+    -- ** Response lenses
+    , gcrrDescription
+    , gcrrState
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GenerateCredentialReport' request.
+generateCredentialReport :: GenerateCredentialReport
+generateCredentialReport = GenerateCredentialReport
+
 data GenerateCredentialReport = GenerateCredentialReport
     deriving (Eq, Show, Generic)
-
-makeLenses ''GenerateCredentialReport
 
 instance ToQuery GenerateCredentialReport where
     toQuery = genericQuery def
 
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrsDescription :: Maybe Text
+    { _gcrrDescription :: Maybe Text
       -- ^ Information about the credential report.
-    , _gcrsState :: Maybe ReportStateType
+    , _gcrrState :: Maybe ReportStateType
       -- ^ Information about the state of a credential report.
     } deriving (Show, Generic)
 
-makeLenses ''GenerateCredentialReportResponse
+-- | Information about the credential report.
+gcrrDescription
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> GenerateCredentialReportResponse
+    -> f GenerateCredentialReportResponse
+gcrrDescription f x =
+    (\y -> x { _gcrrDescription = y })
+       <$> f (_gcrrDescription x)
+{-# INLINE gcrrDescription #-}
+
+-- | Information about the state of a credential report.
+gcrrState
+    :: Functor f
+    => (Maybe ReportStateType
+    -> f (Maybe ReportStateType))
+    -> GenerateCredentialReportResponse
+    -> f GenerateCredentialReportResponse
+gcrrState f x =
+    (\y -> x { _gcrrState = y })
+       <$> f (_gcrrState x)
+{-# INLINE gcrrState #-}
 
 instance FromXML GenerateCredentialReportResponse where
     fromXMLOptions = xmlOptions

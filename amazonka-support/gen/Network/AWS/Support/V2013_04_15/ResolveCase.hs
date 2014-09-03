@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,7 +19,21 @@
 
 -- | Takes a CaseId and returns the initial state of the case along with the
 -- state of the case after the call to ResolveCase completed.
-module Network.AWS.Support.V2013_04_15.ResolveCase where
+module Network.AWS.Support.V2013_04_15.ResolveCase
+    (
+    -- * Request
+      ResolveCase
+    -- ** Request constructor
+    , resolveCase
+    -- ** Request lenses
+    , rcrCaseId
+
+    -- * Response
+    , ResolveCaseResponse
+    -- ** Response lenses
+    , rcsInitialCaseStatus
+    , rcsFinalCaseStatus
+    ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
 import           Network.AWS.Prelude
@@ -40,7 +53,19 @@ data ResolveCase = ResolveCase
       -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
     } deriving (Show, Generic)
 
-makeLenses ''ResolveCase
+-- | The AWS Support case ID requested or returned in the call. The case ID is
+-- an alphanumeric string formatted as shown in this example:
+-- case-12345678910-2013-c4c1d2bf33c5cf47.
+rcrCaseId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResolveCase
+    -> f ResolveCase
+rcrCaseId f x =
+    (\y -> x { _rcrCaseId = y })
+       <$> f (_rcrCaseId x)
+{-# INLINE rcrCaseId #-}
 
 instance ToPath ResolveCase
 
@@ -51,14 +76,36 @@ instance ToHeaders ResolveCase
 instance ToJSON ResolveCase
 
 data ResolveCaseResponse = ResolveCaseResponse
-    { _rcsFinalCaseStatus :: Maybe Text
+    { _rcsInitialCaseStatus :: Maybe Text
+      -- ^ The status of the case when the ResolveCase request was sent.
+    , _rcsFinalCaseStatus :: Maybe Text
       -- ^ The status of the case after the ResolveCase request was
       -- processed.
-    , _rcsInitialCaseStatus :: Maybe Text
-      -- ^ The status of the case when the ResolveCase request was sent.
     } deriving (Show, Generic)
 
-makeLenses ''ResolveCaseResponse
+-- | The status of the case when the ResolveCase request was sent.
+rcsInitialCaseStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResolveCaseResponse
+    -> f ResolveCaseResponse
+rcsInitialCaseStatus f x =
+    (\y -> x { _rcsInitialCaseStatus = y })
+       <$> f (_rcsInitialCaseStatus x)
+{-# INLINE rcsInitialCaseStatus #-}
+
+-- | The status of the case after the ResolveCase request was processed.
+rcsFinalCaseStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResolveCaseResponse
+    -> f ResolveCaseResponse
+rcsFinalCaseStatus f x =
+    (\y -> x { _rcsFinalCaseStatus = y })
+       <$> f (_rcsFinalCaseStatus x)
+{-# INLINE rcsFinalCaseStatus #-}
 
 instance FromJSON ResolveCaseResponse
 

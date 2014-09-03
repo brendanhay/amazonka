@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription
     (
     -- * Request
       DeleteSpotDatafeedSubscription
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteSpotDatafeedSubscription
     -- * Response
     , DeleteSpotDatafeedSubscriptionResponse
@@ -46,16 +45,13 @@ deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 
 data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-
-makeSiglessLenses ''DeleteSpotDatafeedSubscription
+    deriving (Eq, Show, Generic)
 
 instance ToQuery DeleteSpotDatafeedSubscription where
     toQuery = genericQuery def
 
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
     deriving (Eq, Show, Generic)
-
-makeSiglessLenses ''DeleteSpotDatafeedSubscriptionResponse
 
 instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2

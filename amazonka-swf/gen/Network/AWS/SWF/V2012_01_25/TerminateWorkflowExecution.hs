@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -54,7 +53,23 @@
 -- "details": "customer credit card declined", "childPolicy": "TERMINATE"}
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 76d68a47-3ffe-11e1-b118-3bfa5e8e7fc3.
-module Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution where
+module Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
+    (
+    -- * Request
+      TerminateWorkflowExecution
+    -- ** Request constructor
+    , terminateWorkflowExecution
+    -- ** Request lenses
+    , tweiDomain
+    , tweiWorkflowId
+    , tweiChildPolicy
+    , tweiDetails
+    , tweiRunId
+    , tweiReason
+
+    -- * Response
+    , TerminateWorkflowExecutionResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -62,8 +77,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'TerminateWorkflowExecution' request.
-terminateWorkflowExecution :: Text -- ^ '_tweiDomain'
-                           -> Text -- ^ '_tweiWorkflowId'
+terminateWorkflowExecution :: Text -- ^ 'tweiDomain'
+                           -> Text -- ^ 'tweiWorkflowId'
                            -> TerminateWorkflowExecution
 terminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
     { _tweiDomain = p1
@@ -104,7 +119,89 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
       -- execution.
     } deriving (Show, Generic)
 
-makeLenses ''TerminateWorkflowExecution
+-- | The domain of the workflow execution to terminate.
+tweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TerminateWorkflowExecution
+    -> f TerminateWorkflowExecution
+tweiDomain f x =
+    (\y -> x { _tweiDomain = y })
+       <$> f (_tweiDomain x)
+{-# INLINE tweiDomain #-}
+
+-- | The workflowId of the workflow execution to terminate.
+tweiWorkflowId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> TerminateWorkflowExecution
+    -> f TerminateWorkflowExecution
+tweiWorkflowId f x =
+    (\y -> x { _tweiWorkflowId = y })
+       <$> f (_tweiWorkflowId x)
+{-# INLINE tweiWorkflowId #-}
+
+-- | If set, specifies the policy to use for the child workflow executions of
+-- the workflow execution being terminated. This policy overrides the child
+-- policy specified for the workflow execution at registration time or when
+-- starting the execution. The supported child policies are: TERMINATE: the
+-- child executions will be terminated. REQUEST_CANCEL: a request to cancel
+-- will be attempted for each child execution by recording a
+-- WorkflowExecutionCancelRequested event in its history. It is up to the
+-- decider to take appropriate actions when it receives an execution history
+-- with this event. ABANDON: no action will be taken. The child executions
+-- will continue to run. A child policy for this workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default child policy was
+-- specified at registration time, a fault will be returned.
+tweiChildPolicy
+    :: Functor f
+    => (Maybe ChildPolicy
+    -> f (Maybe ChildPolicy))
+    -> TerminateWorkflowExecution
+    -> f TerminateWorkflowExecution
+tweiChildPolicy f x =
+    (\y -> x { _tweiChildPolicy = y })
+       <$> f (_tweiChildPolicy x)
+{-# INLINE tweiChildPolicy #-}
+
+-- | Optional details for terminating the workflow execution.
+tweiDetails
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TerminateWorkflowExecution
+    -> f TerminateWorkflowExecution
+tweiDetails f x =
+    (\y -> x { _tweiDetails = y })
+       <$> f (_tweiDetails x)
+{-# INLINE tweiDetails #-}
+
+-- | The runId of the workflow execution to terminate.
+tweiRunId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TerminateWorkflowExecution
+    -> f TerminateWorkflowExecution
+tweiRunId f x =
+    (\y -> x { _tweiRunId = y })
+       <$> f (_tweiRunId x)
+{-# INLINE tweiRunId #-}
+
+-- | An optional descriptive reason for terminating the workflow execution.
+tweiReason
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> TerminateWorkflowExecution
+    -> f TerminateWorkflowExecution
+tweiReason f x =
+    (\y -> x { _tweiReason = y })
+       <$> f (_tweiReason x)
+{-# INLINE tweiReason #-}
 
 instance ToPath TerminateWorkflowExecution
 
@@ -116,8 +213,6 @@ instance ToJSON TerminateWorkflowExecution
 
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''TerminateWorkflowExecutionResponse
 
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,19 +21,47 @@
 -- IAM user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
-module Network.AWS.OpsWorks.V2013_02_18.StartStack where
+module Network.AWS.OpsWorks.V2013_02_18.StartStack
+    (
+    -- * Request
+      StartStack
+    -- ** Request constructor
+    , startStack
+    -- ** Request lenses
+    , ssssssssssssssssssssxStackId
+
+    -- * Response
+    , StartStackResponse
+    ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'StartStack' request.
+startStack :: Text -- ^ 'ssssssssssssssssssssxStackId'
+           -> StartStack
+startStack p1 = StartStack
+    { _ssssssssssssssssssssxStackId = p1
+    }
+
 data StartStack = StartStack
-    { _sssssssssssssssssssssstStackId :: Text
+    { _ssssssssssssssssssssxStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
-makeLenses ''StartStack
+-- | The stack ID.
+ssssssssssssssssssssxStackId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> StartStack
+    -> f StartStack
+ssssssssssssssssssssxStackId f x =
+    (\y -> x { _ssssssssssssssssssssxStackId = y })
+       <$> f (_ssssssssssssssssssssxStackId x)
+{-# INLINE ssssssssssssssssssssxStackId #-}
 
 instance ToPath StartStack
 
@@ -46,8 +73,6 @@ instance ToJSON StartStack
 
 data StartStackResponse = StartStackResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''StartStackResponse
 
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks

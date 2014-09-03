@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,7 +28,22 @@
 -- that uniquely identify their device and any information provided about
 -- third-party logins.
 module Network.AWS.CognitoIdentity.V2014_06_30.Types
-    ( module Network.AWS.CognitoIdentity.V2014_06_30.Types
+    (
+    -- * Service
+      CognitoIdentity
+    -- ** Errors
+    , Er (..)
+
+    -- * IdentityDescription
+    , IdentityDescription (..)
+    , idIdentityId
+    , idLogins
+
+    -- * IdentityPoolShortDescription
+    , IdentityPoolShortDescription (..)
+    , ipsdIdentityPoolId
+    , ipsdIdentityPoolName
+
     ) where
 
 import Network.AWS.Prelude
@@ -96,17 +110,63 @@ data IdentityDescription = IdentityDescription
       -- provider tokens.
     } deriving (Show, Generic)
 
+-- | A unique identifier in the format REGION:GUID.
+idIdentityId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> IdentityDescription
+    -> f IdentityDescription
+idIdentityId f x =
+    (\y -> x { _idIdentityId = y })
+       <$> f (_idIdentityId x)
+{-# INLINE idIdentityId #-}
+
+-- | A set of optional name/value pairs that map provider names to provider
+-- tokens.
+idLogins
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> IdentityDescription
+    -> f IdentityDescription
+idLogins f x =
+    (\y -> x { _idLogins = y })
+       <$> f (_idLogins x)
+{-# INLINE idLogins #-}
+
 instance FromJSON IdentityDescription
 
 -- | A description of the identity pool.
 data IdentityPoolShortDescription = IdentityPoolShortDescription
-    { _ipsdIdentityPoolName :: Maybe Text
-      -- ^ A string that you provide.
-    , _ipsdIdentityPoolId :: Maybe Text
+    { _ipsdIdentityPoolId :: Maybe Text
       -- ^ An identity pool ID in the format REGION:GUID.
+    , _ipsdIdentityPoolName :: Maybe Text
+      -- ^ A string that you provide.
     } deriving (Show, Generic)
 
-instance FromJSON IdentityPoolShortDescription
+-- | An identity pool ID in the format REGION:GUID.
+ipsdIdentityPoolId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> IdentityPoolShortDescription
+    -> f IdentityPoolShortDescription
+ipsdIdentityPoolId f x =
+    (\y -> x { _ipsdIdentityPoolId = y })
+       <$> f (_ipsdIdentityPoolId x)
+{-# INLINE ipsdIdentityPoolId #-}
 
-makeLenses ''IdentityDescription
-makeLenses ''IdentityPoolShortDescription
+-- | A string that you provide.
+ipsdIdentityPoolName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> IdentityPoolShortDescription
+    -> f IdentityPoolShortDescription
+ipsdIdentityPoolName f x =
+    (\y -> x { _ipsdIdentityPoolName = y })
+       <$> f (_ipsdIdentityPoolName x)
+{-# INLINE ipsdIdentityPoolName #-}
+
+instance FromJSON IdentityPoolShortDescription

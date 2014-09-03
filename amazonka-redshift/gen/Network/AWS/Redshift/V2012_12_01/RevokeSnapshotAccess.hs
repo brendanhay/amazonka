@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,29 +22,44 @@
 -- restore will run to completion. For more information about working with
 -- snapshots, go to Amazon Redshift Snapshots in the Amazon Redshift
 -- Management Guide.
-module Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess where
+module Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess
+    (
+    -- * Request
+      RevokeSnapshotAccess
+    -- ** Request constructor
+    , revokeSnapshotAccess
+    -- ** Request lenses
+    , rsamSnapshotIdentifier
+    , rsamAccountWithRestoreAccess
+    , rsamSnapshotClusterIdentifier
+
+    -- * Response
+    , RevokeSnapshotAccessResponse
+    -- ** Response lenses
+    , sssssssssssssssssssssssssssssssssssssrSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RevokeSnapshotAccess' request.
-revokeSnapshotAccess :: Text -- ^ '_rsamAccountWithRestoreAccess'
-                     -> Text -- ^ '_rsamSnapshotIdentifier'
+revokeSnapshotAccess :: Text -- ^ 'rsamSnapshotIdentifier'
+                     -> Text -- ^ 'rsamAccountWithRestoreAccess'
                      -> RevokeSnapshotAccess
 revokeSnapshotAccess p1 p2 = RevokeSnapshotAccess
-    { _rsamAccountWithRestoreAccess = p1
-    , _rsamSnapshotIdentifier = p2
+    { _rsamSnapshotIdentifier = p1
+    , _rsamAccountWithRestoreAccess = p2
     , _rsamSnapshotClusterIdentifier = Nothing
     }
 
 data RevokeSnapshotAccess = RevokeSnapshotAccess
-    { _rsamAccountWithRestoreAccess :: Text
-      -- ^ The identifier of the AWS customer account that can no longer
-      -- restore the specified snapshot.
-    , _rsamSnapshotIdentifier :: Text
+    { _rsamSnapshotIdentifier :: Text
       -- ^ The identifier of the snapshot that the account can no longer
       -- access.
+    , _rsamAccountWithRestoreAccess :: Text
+      -- ^ The identifier of the AWS customer account that can no longer
+      -- restore the specified snapshot.
     , _rsamSnapshotClusterIdentifier :: Maybe Text
       -- ^ The identifier of the cluster the snapshot was created from. This
       -- parameter is required if your IAM user has a policy containing a
@@ -53,17 +67,64 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
       -- for the cluster name.
     } deriving (Show, Generic)
 
-makeLenses ''RevokeSnapshotAccess
+-- | The identifier of the snapshot that the account can no longer access.
+rsamSnapshotIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RevokeSnapshotAccess
+    -> f RevokeSnapshotAccess
+rsamSnapshotIdentifier f x =
+    (\y -> x { _rsamSnapshotIdentifier = y })
+       <$> f (_rsamSnapshotIdentifier x)
+{-# INLINE rsamSnapshotIdentifier #-}
+
+-- | The identifier of the AWS customer account that can no longer restore the
+-- specified snapshot.
+rsamAccountWithRestoreAccess
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RevokeSnapshotAccess
+    -> f RevokeSnapshotAccess
+rsamAccountWithRestoreAccess f x =
+    (\y -> x { _rsamAccountWithRestoreAccess = y })
+       <$> f (_rsamAccountWithRestoreAccess x)
+{-# INLINE rsamAccountWithRestoreAccess #-}
+
+-- | The identifier of the cluster the snapshot was created from. This parameter
+-- is required if your IAM user has a policy containing a snapshot resource
+-- element that specifies anything other than * for the cluster name.
+rsamSnapshotClusterIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RevokeSnapshotAccess
+    -> f RevokeSnapshotAccess
+rsamSnapshotClusterIdentifier f x =
+    (\y -> x { _rsamSnapshotClusterIdentifier = y })
+       <$> f (_rsamSnapshotClusterIdentifier x)
+{-# INLINE rsamSnapshotClusterIdentifier #-}
 
 instance ToQuery RevokeSnapshotAccess where
     toQuery = genericQuery def
 
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
-    { _sssssssssssssssssssssssssssssssssssrSnapshot :: Maybe Snapshot
+    { _sssssssssssssssssssssssssssssssssssssrSnapshot :: Maybe Snapshot
       -- ^ Describes a snapshot.
     } deriving (Show, Generic)
 
-makeLenses ''RevokeSnapshotAccessResponse
+-- | Describes a snapshot.
+sssssssssssssssssssssssssssssssssssssrSnapshot
+    :: Functor f
+    => (Maybe Snapshot
+    -> f (Maybe Snapshot))
+    -> RevokeSnapshotAccessResponse
+    -> f RevokeSnapshotAccessResponse
+sssssssssssssssssssssssssssssssssssssrSnapshot f x =
+    (\y -> x { _sssssssssssssssssssssssssssssssssssssrSnapshot = y })
+       <$> f (_sssssssssssssssssssssssssssssssssssssrSnapshot x)
+{-# INLINE sssssssssssssssssssssssssssssssssssssrSnapshot #-}
 
 instance FromXML RevokeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions

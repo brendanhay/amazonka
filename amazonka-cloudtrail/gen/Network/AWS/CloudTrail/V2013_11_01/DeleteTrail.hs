@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,19 +18,47 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a trail.
-module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail where
+module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
+    (
+    -- * Request
+      DeleteTrail
+    -- ** Request constructor
+    , deleteTrail
+    -- ** Request lenses
+    , dtrName
+
+    -- * Response
+    , DeleteTrailResponse
+    ) where
 
 import           Network.AWS.CloudTrail.V2013_11_01.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteTrail' request.
+deleteTrail :: Text -- ^ 'dtrName'
+            -> DeleteTrail
+deleteTrail p1 = DeleteTrail
+    { _dtrName = p1
+    }
+
 data DeleteTrail = DeleteTrail
-    { _dttName :: Text
+    { _dtrName :: Text
       -- ^ The name of a trail to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTrail
+-- | The name of a trail to be deleted.
+dtrName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteTrail
+    -> f DeleteTrail
+dtrName f x =
+    (\y -> x { _dtrName = y })
+       <$> f (_dtrName x)
+{-# INLINE dtrName #-}
 
 instance ToPath DeleteTrail
 
@@ -43,8 +70,6 @@ instance ToJSON DeleteTrail
 
 data DeleteTrailResponse = DeleteTrailResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteTrailResponse
 
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail

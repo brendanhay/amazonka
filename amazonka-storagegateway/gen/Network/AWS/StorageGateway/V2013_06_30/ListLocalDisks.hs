@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -39,12 +38,33 @@
 -- "pci-0000:03:00.0-scsi-0:0:1:0", "DiskNode": "SCSI(0:1)", "DiskPath":
 -- "/dev/sdb", "DiskSizeInBytes": 1099511627776 } ], "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks where
+module Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
+    (
+    -- * Request
+      ListLocalDisks
+    -- ** Request constructor
+    , listLocalDisks
+    -- ** Request lenses
+    , lldiGatewayARN
+
+    -- * Response
+    , ListLocalDisksResponse
+    -- ** Response lenses
+    , lldoDisks
+    , lldoGatewayARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'ListLocalDisks' request.
+listLocalDisks :: Text -- ^ 'lldiGatewayARN'
+               -> ListLocalDisks
+listLocalDisks p1 = ListLocalDisks
+    { _lldiGatewayARN = p1
+    }
 
 data ListLocalDisks = ListLocalDisks
     { _lldiGatewayARN :: Text
@@ -53,7 +73,18 @@ data ListLocalDisks = ListLocalDisks
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''ListLocalDisks
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+lldiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListLocalDisks
+    -> f ListLocalDisks
+lldiGatewayARN f x =
+    (\y -> x { _lldiGatewayARN = y })
+       <$> f (_lldiGatewayARN x)
+{-# INLINE lldiGatewayARN #-}
 
 instance ToPath ListLocalDisks
 
@@ -71,7 +102,29 @@ data ListLocalDisksResponse = ListLocalDisksResponse
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''ListLocalDisksResponse
+lldoDisks
+    :: Functor f
+    => ([DiskInformation]
+    -> f ([DiskInformation]))
+    -> ListLocalDisksResponse
+    -> f ListLocalDisksResponse
+lldoDisks f x =
+    (\y -> x { _lldoDisks = y })
+       <$> f (_lldoDisks x)
+{-# INLINE lldoDisks #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+lldoGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListLocalDisksResponse
+    -> f ListLocalDisksResponse
+lldoGatewayARN f x =
+    (\y -> x { _lldoGatewayARN = y })
+       <$> f (_lldoGatewayARN x)
+{-# INLINE lldoGatewayARN #-}
 
 instance FromJSON ListLocalDisksResponse
 

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,29 +27,70 @@
 -- 2014-04-01T18:46:57.972Z 2.8.6 manual true wed:09:00-wed:10:00
 -- my-manual-snapshot 5 2014-04-01T18:54:12Z 2014-04-01T18:46:57.972Z 0001 3
 -- MB deleting 1 07:30-08:30 694d7017-b9d2-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot where
+module Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
+    (
+    -- * Request
+      DeleteSnapshot
+    -- ** Request constructor
+    , deleteSnapshot
+    -- ** Request lenses
+    , dsmSnapshotName
+
+    -- * Response
+    , DeleteSnapshotResponse
+    -- ** Response lenses
+    , ssssssssszSnapshot
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteSnapshot' request.
+deleteSnapshot :: Text -- ^ 'dsmSnapshotName'
+               -> DeleteSnapshot
+deleteSnapshot p1 = DeleteSnapshot
+    { _dsmSnapshotName = p1
+    }
+
 data DeleteSnapshot = DeleteSnapshot
-    { _dsnSnapshotName :: Text
+    { _dsmSnapshotName :: Text
       -- ^ The name of the snapshot to be deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteSnapshot
+-- | The name of the snapshot to be deleted.
+dsmSnapshotName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteSnapshot
+    -> f DeleteSnapshot
+dsmSnapshotName f x =
+    (\y -> x { _dsmSnapshotName = y })
+       <$> f (_dsmSnapshotName x)
+{-# INLINE dsmSnapshotName #-}
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
 
 data DeleteSnapshotResponse = DeleteSnapshotResponse
-    { _sssssssssssssssssssrSnapshot :: Maybe Snapshot
+    { _ssssssssszSnapshot :: Maybe Snapshot
       -- ^ Represents a copy of an entire cache cluster as of the time when
       -- the snapshot was taken.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteSnapshotResponse
+-- | Represents a copy of an entire cache cluster as of the time when the
+-- snapshot was taken.
+ssssssssszSnapshot
+    :: Functor f
+    => (Maybe Snapshot
+    -> f (Maybe Snapshot))
+    -> DeleteSnapshotResponse
+    -> f DeleteSnapshotResponse
+ssssssssszSnapshot f x =
+    (\y -> x { _ssssssssszSnapshot = y })
+       <$> f (_ssssssssszSnapshot x)
+{-# INLINE ssssssssszSnapshot #-}
 
 instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions

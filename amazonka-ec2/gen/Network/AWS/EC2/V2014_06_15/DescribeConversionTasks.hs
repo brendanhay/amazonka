@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,18 +29,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeConversionTasks
     (
     -- * Request
       DescribeConversionTasks
-    -- ** Default constructor
+    -- ** Request constructor
     , describeConversionTasks
-    -- ** Accessors and lenses
-    , _dctrConversionTaskIds
+    -- ** Request lenses
     , dctrConversionTaskIds
-    , _dctrFilters
     , dctrFilters
 
     -- * Response
     , DescribeConversionTasksResponse
-    -- ** Accessors and lenses
-    , _dctsConversionTasks
+    -- ** Response lenses
     , dctsConversionTasks
     ) where
 
@@ -57,8 +53,35 @@ describeConversionTasks = DescribeConversionTasks
     }
 
 data DescribeConversionTasks = DescribeConversionTasks
+    { _dctrConversionTaskIds :: [Text]
+      -- ^ One or more conversion task IDs.
+    , _dctrFilters :: [Filter]
+      -- ^ 
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeConversionTasks
+-- | One or more conversion task IDs.
+dctrConversionTaskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeConversionTasks
+    -> f DescribeConversionTasks
+dctrConversionTaskIds f x =
+    (\y -> x { _dctrConversionTaskIds = y })
+       <$> f (_dctrConversionTaskIds x)
+{-# INLINE dctrConversionTaskIds #-}
+
+-- | 
+dctrFilters
+    :: Functor f
+    => ([Filter]
+    -> f ([Filter]))
+    -> DescribeConversionTasks
+    -> f DescribeConversionTasks
+dctrFilters f x =
+    (\y -> x { _dctrFilters = y })
+       <$> f (_dctrFilters x)
+{-# INLINE dctrFilters #-}
 
 instance ToQuery DescribeConversionTasks where
     toQuery = genericQuery def
@@ -68,7 +91,17 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse
       -- ^ 
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DescribeConversionTasksResponse
+-- | 
+dctsConversionTasks
+    :: Functor f
+    => ([ConversionTask]
+    -> f ([ConversionTask]))
+    -> DescribeConversionTasksResponse
+    -> f DescribeConversionTasksResponse
+dctsConversionTasks f x =
+    (\y -> x { _dctsConversionTasks = y })
+       <$> f (_dctsConversionTasks x)
+{-# INLINE dctsConversionTasks #-}
 
 instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions
@@ -79,12 +112,3 @@ instance AWSRequest DescribeConversionTasks where
 
     request = post "DescribeConversionTasks"
     response _ = xmlResponse
-
--- | One or more conversion task IDs.
-dctrConversionTaskIds :: Lens' DescribeConversionTasks ([Text])
-
--- | 
-dctrFilters :: Lens' DescribeConversionTasks ([Filter])
-
--- | 
-dctsConversionTasks :: Lens' DescribeConversionTasksResponse ([ConversionTask])

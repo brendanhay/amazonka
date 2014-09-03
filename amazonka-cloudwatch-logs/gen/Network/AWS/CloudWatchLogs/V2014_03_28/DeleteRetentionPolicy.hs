@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,18 +28,45 @@
 -- X-Amz-Target: Logs_20140328.DeleteRetentionPolicy { "logGroupName":
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy where
+module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy
+    (
+    -- * Request
+      DeleteRetentionPolicy
+    -- ** Request constructor
+    , deleteRetentionPolicy
+    -- ** Request lenses
+    , drprLogGroupName
+
+    -- * Response
+    , DeleteRetentionPolicyResponse
+    ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteRetentionPolicy' request.
+deleteRetentionPolicy :: Text -- ^ 'drprLogGroupName'
+                      -> DeleteRetentionPolicy
+deleteRetentionPolicy p1 = DeleteRetentionPolicy
+    { _drprLogGroupName = p1
+    }
+
 data DeleteRetentionPolicy = DeleteRetentionPolicy
     { _drprLogGroupName :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteRetentionPolicy
+drprLogGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteRetentionPolicy
+    -> f DeleteRetentionPolicy
+drprLogGroupName f x =
+    (\y -> x { _drprLogGroupName = y })
+       <$> f (_drprLogGroupName x)
+{-# INLINE drprLogGroupName #-}
 
 instance ToPath DeleteRetentionPolicy
 
@@ -52,8 +78,6 @@ instance ToJSON DeleteRetentionPolicy
 
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteRetentionPolicyResponse
 
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -49,11 +48,37 @@
 -- &lt;/CreatePlatformApplicationResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;b6f0e78b-e9d4-5a0e-b973-adc04e8a4ff9&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformApplicationResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.CreatePlatformApplication where
+module Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
+    (
+    -- * Request
+      CreatePlatformApplication
+    -- ** Request constructor
+    , createPlatformApplication
+    -- ** Request lenses
+    , cpaiAttributes
+    , cpaiName
+    , cpaiPlatform
+
+    -- * Response
+    , CreatePlatformApplicationResponse
+    -- ** Response lenses
+    , cparPlatformApplicationArn
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'CreatePlatformApplication' request.
+createPlatformApplication :: Map Text Text -- ^ 'cpaiAttributes'
+                          -> Text -- ^ 'cpaiName'
+                          -> Text -- ^ 'cpaiPlatform'
+                          -> CreatePlatformApplication
+createPlatformApplication p1 p2 p3 = CreatePlatformApplication
+    { _cpaiAttributes = p1
+    , _cpaiName = p2
+    , _cpaiPlatform = p3
+    }
 
 data CreatePlatformApplication = CreatePlatformApplication
     { _cpaiAttributes :: Map Text Text
@@ -68,7 +93,45 @@ data CreatePlatformApplication = CreatePlatformApplication
       -- and GCM (Google Cloud Messaging).
     } deriving (Show, Generic)
 
-makeLenses ''CreatePlatformApplication
+-- | For a list of attributes, see SetPlatformApplicationAttributes.
+cpaiAttributes
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> CreatePlatformApplication
+    -> f CreatePlatformApplication
+cpaiAttributes f x =
+    (\y -> x { _cpaiAttributes = y })
+       <$> f (_cpaiAttributes x)
+{-# INLINE cpaiAttributes #-}
+
+-- | Application names must be made up of only uppercase and lowercase ASCII
+-- letters, numbers, underscores, hyphens, and periods, and must be between 1
+-- and 256 characters long.
+cpaiName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreatePlatformApplication
+    -> f CreatePlatformApplication
+cpaiName f x =
+    (\y -> x { _cpaiName = y })
+       <$> f (_cpaiName x)
+{-# INLINE cpaiName #-}
+
+-- | The following platforms are supported: ADM (Amazon Device Messaging), APNS
+-- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
+-- Messaging).
+cpaiPlatform
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreatePlatformApplication
+    -> f CreatePlatformApplication
+cpaiPlatform f x =
+    (\y -> x { _cpaiPlatform = y })
+       <$> f (_cpaiPlatform x)
+{-# INLINE cpaiPlatform #-}
 
 instance ToQuery CreatePlatformApplication where
     toQuery = genericQuery def
@@ -78,7 +141,17 @@ data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
       -- ^ PlatformApplicationArn is returned.
     } deriving (Show, Generic)
 
-makeLenses ''CreatePlatformApplicationResponse
+-- | PlatformApplicationArn is returned.
+cparPlatformApplicationArn
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreatePlatformApplicationResponse
+    -> f CreatePlatformApplicationResponse
+cparPlatformApplicationArn f x =
+    (\y -> x { _cparPlatformApplicationArn = y })
+       <$> f (_cparPlatformApplicationArn x)
+{-# INLINE cparPlatformApplicationArn #-}
 
 instance FromXML CreatePlatformApplicationResponse where
     fromXMLOptions = xmlOptions

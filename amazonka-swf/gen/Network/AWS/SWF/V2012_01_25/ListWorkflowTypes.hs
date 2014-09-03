@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -47,7 +46,26 @@
 -- {"typeInfos": [ {"creationDate": 1326481174.027, "description": "Handle
 -- customer orders", "status": "REGISTERED", "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
-module Network.AWS.SWF.V2012_01_25.ListWorkflowTypes where
+module Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
+    (
+    -- * Request
+      ListWorkflowTypes
+    -- ** Request constructor
+    , listWorkflowTypes
+    -- ** Request lenses
+    , lwtiDomain
+    , lwtiRegistrationStatus
+    , lwtiName
+    , lwtiMaximumPageSize
+    , lwtiNextPageToken
+    , lwtiReverseOrder
+
+    -- * Response
+    , ListWorkflowTypesResponse
+    -- ** Response lenses
+    , wtkTypeInfos
+    , wtkNextPageToken
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -55,8 +73,8 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'ListWorkflowTypes' request.
-listWorkflowTypes :: Text -- ^ '_lwtiDomain'
-                  -> RegistrationStatus -- ^ '_lwtiRegistrationStatus'
+listWorkflowTypes :: Text -- ^ 'lwtiDomain'
+                  -> RegistrationStatus -- ^ 'lwtiRegistrationStatus'
                   -> ListWorkflowTypes
 listWorkflowTypes p1 p2 = ListWorkflowTypes
     { _lwtiDomain = p1
@@ -93,7 +111,85 @@ data ListWorkflowTypes = ListWorkflowTypes
       -- of the name of the workflow types.
     } deriving (Show, Generic)
 
-makeLenses ''ListWorkflowTypes
+-- | The name of the domain in which the workflow types have been registered.
+lwtiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ListWorkflowTypes
+    -> f ListWorkflowTypes
+lwtiDomain f x =
+    (\y -> x { _lwtiDomain = y })
+       <$> f (_lwtiDomain x)
+{-# INLINE lwtiDomain #-}
+
+-- | Specifies the registration status of the workflow types to list.
+lwtiRegistrationStatus
+    :: Functor f
+    => (RegistrationStatus
+    -> f (RegistrationStatus))
+    -> ListWorkflowTypes
+    -> f ListWorkflowTypes
+lwtiRegistrationStatus f x =
+    (\y -> x { _lwtiRegistrationStatus = y })
+       <$> f (_lwtiRegistrationStatus x)
+{-# INLINE lwtiRegistrationStatus #-}
+
+-- | If specified, lists the workflow type with this name.
+lwtiName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListWorkflowTypes
+    -> f ListWorkflowTypes
+lwtiName f x =
+    (\y -> x { _lwtiName = y })
+       <$> f (_lwtiName x)
+{-# INLINE lwtiName #-}
+
+-- | The maximum number of results returned in each page. The default is 100,
+-- but the caller can override this value to a page size smaller than the
+-- default. You cannot specify a page size greater than 100. Note that the
+-- number of types may be less than the maxiumum page size, in which case, the
+-- returned page will have fewer results than the maximumPageSize specified.
+lwtiMaximumPageSize
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListWorkflowTypes
+    -> f ListWorkflowTypes
+lwtiMaximumPageSize f x =
+    (\y -> x { _lwtiMaximumPageSize = y })
+       <$> f (_lwtiMaximumPageSize x)
+{-# INLINE lwtiMaximumPageSize #-}
+
+-- | If on a previous call to this method a NextPageToken was returned, the
+-- results are being paginated. To get the next page of results, repeat the
+-- call with the returned token and all other arguments unchanged.
+lwtiNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListWorkflowTypes
+    -> f ListWorkflowTypes
+lwtiNextPageToken f x =
+    (\y -> x { _lwtiNextPageToken = y })
+       <$> f (_lwtiNextPageToken x)
+{-# INLINE lwtiNextPageToken #-}
+
+-- | When set to true, returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the name of the
+-- workflow types.
+lwtiReverseOrder
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ListWorkflowTypes
+    -> f ListWorkflowTypes
+lwtiReverseOrder f x =
+    (\y -> x { _lwtiReverseOrder = y })
+       <$> f (_lwtiReverseOrder x)
+{-# INLINE lwtiReverseOrder #-}
 
 instance ToPath ListWorkflowTypes
 
@@ -104,16 +200,41 @@ instance ToHeaders ListWorkflowTypes
 instance ToJSON ListWorkflowTypes
 
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
-    { _wtiTypeInfos :: [WorkflowTypeInfo]
+    { _wtkTypeInfos :: [WorkflowTypeInfo]
       -- ^ The list of workflow type information.
-    , _wtiNextPageToken :: Maybe Text
+    , _wtkNextPageToken :: Maybe Text
       -- ^ The token for the next page of type information. If set then the
       -- list consists of more than one page. You can retrieve the next
       -- page by repeating the request (that returned the structure) with
       -- the this token and all other arguments unchanged.
     } deriving (Show, Generic)
 
-makeLenses ''ListWorkflowTypesResponse
+-- | The list of workflow type information.
+wtkTypeInfos
+    :: Functor f
+    => ([WorkflowTypeInfo]
+    -> f ([WorkflowTypeInfo]))
+    -> ListWorkflowTypesResponse
+    -> f ListWorkflowTypesResponse
+wtkTypeInfos f x =
+    (\y -> x { _wtkTypeInfos = y })
+       <$> f (_wtkTypeInfos x)
+{-# INLINE wtkTypeInfos #-}
+
+-- | The token for the next page of type information. If set then the list
+-- consists of more than one page. You can retrieve the next page by repeating
+-- the request (that returned the structure) with the this token and all other
+-- arguments unchanged.
+wtkNextPageToken
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListWorkflowTypesResponse
+    -> f ListWorkflowTypesResponse
+wtkNextPageToken f x =
+    (\y -> x { _wtkNextPageToken = y })
+       <$> f (_wtkNextPageToken x)
+{-# INLINE wtkNextPageToken #-}
 
 instance FromJSON ListWorkflowTypesResponse
 
@@ -126,4 +247,4 @@ instance AWSRequest ListWorkflowTypes where
 
 instance AWSPager ListWorkflowTypes where
     next rq rs = (\x -> rq { _lwtiNextPageToken = Just x })
-        <$> (_wtiNextPageToken rs)
+        <$> (_wtkNextPageToken rs)

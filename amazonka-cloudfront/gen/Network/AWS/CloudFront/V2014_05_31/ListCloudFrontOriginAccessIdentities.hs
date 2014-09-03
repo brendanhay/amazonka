@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,7 +18,21 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List origin access identities.
-module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities where
+module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
+    (
+    -- * Request
+      ListCloudFrontOriginAccessIdentities
+    -- ** Request constructor
+    , listCloudFrontOriginAccessIdentities
+    -- ** Request lenses
+    , lcfoairMarker
+    , lcfoairMaxItems
+
+    -- * Response
+    , ListCloudFrontOriginAccessIdentitiesResponse
+    -- ** Response lenses
+    , lcfoaisCloudFrontOriginAccessIdentityList
+    ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
@@ -28,24 +41,51 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListCloudFrontOriginAccessIdentities' request.
 listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
-    { _lcfoairMaxItems = Nothing
-    , _lcfoairMarker = Nothing
+    { _lcfoairMarker = Nothing
+    , _lcfoairMaxItems = Nothing
     }
 
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
-    { _lcfoairMaxItems :: Maybe Text
-      -- ^ The maximum number of origin access identities you want in the
-      -- response body.
-    , _lcfoairMarker :: Maybe Text
+    { _lcfoairMarker :: Maybe Text
       -- ^ Use this when paginating results to indicate where to begin in
       -- your list of origin access identities. The results include
       -- identities in the list that occur after the marker. To get the
       -- next page of results, set the Marker to the value of the
       -- NextMarker from the current page's response (which is also the ID
       -- of the last identity on that page).
+    , _lcfoairMaxItems :: Maybe Text
+      -- ^ The maximum number of origin access identities you want in the
+      -- response body.
     } deriving (Show, Generic)
 
-makeLenses ''ListCloudFrontOriginAccessIdentities
+-- | Use this when paginating results to indicate where to begin in your list of
+-- origin access identities. The results include identities in the list that
+-- occur after the marker. To get the next page of results, set the Marker to
+-- the value of the NextMarker from the current page's response (which is also
+-- the ID of the last identity on that page).
+lcfoairMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListCloudFrontOriginAccessIdentities
+    -> f ListCloudFrontOriginAccessIdentities
+lcfoairMarker f x =
+    (\y -> x { _lcfoairMarker = y })
+       <$> f (_lcfoairMarker x)
+{-# INLINE lcfoairMarker #-}
+
+-- | The maximum number of origin access identities you want in the response
+-- body.
+lcfoairMaxItems
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListCloudFrontOriginAccessIdentities
+    -> f ListCloudFrontOriginAccessIdentities
+lcfoairMaxItems f x =
+    (\y -> x { _lcfoairMaxItems = y })
+       <$> f (_lcfoairMaxItems x)
+{-# INLINE lcfoairMaxItems #-}
 
 instance ToPath ListCloudFrontOriginAccessIdentities where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
@@ -67,7 +107,17 @@ data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessId
       -- ^ The CloudFrontOriginAccessIdentityList type.
     } deriving (Show, Generic)
 
-makeLenses ''ListCloudFrontOriginAccessIdentitiesResponse
+-- | The CloudFrontOriginAccessIdentityList type.
+lcfoaisCloudFrontOriginAccessIdentityList
+    :: Functor f
+    => (CloudFrontOriginAccessIdentityList
+    -> f (CloudFrontOriginAccessIdentityList))
+    -> ListCloudFrontOriginAccessIdentitiesResponse
+    -> f ListCloudFrontOriginAccessIdentitiesResponse
+lcfoaisCloudFrontOriginAccessIdentityList f x =
+    (\y -> x { _lcfoaisCloudFrontOriginAccessIdentityList = y })
+       <$> f (_lcfoaisCloudFrontOriginAccessIdentityList x)
+{-# INLINE lcfoaisCloudFrontOriginAccessIdentityList #-}
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     fromXMLOptions = xmlOptions

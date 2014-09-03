@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,14 +31,27 @@
 -- AGP2MAB8DPLSRHEXAMPLE
 -- arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/
 -- product_1234/engineering/Test_1 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.UpdateGroup where
+module Network.AWS.IAM.V2010_05_08.UpdateGroup
+    (
+    -- * Request
+      UpdateGroup
+    -- ** Request constructor
+    , updateGroup
+    -- ** Request lenses
+    , ugrGroupName
+    , ugrNewGroupName
+    , ugrNewPath
+
+    -- * Response
+    , UpdateGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'UpdateGroup' request.
-updateGroup :: Text -- ^ '_ugrGroupName'
+updateGroup :: Text -- ^ 'ugrGroupName'
             -> UpdateGroup
 updateGroup p1 = UpdateGroup
     { _ugrGroupName = p1
@@ -59,15 +71,48 @@ data UpdateGroup = UpdateGroup
       -- path.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateGroup
+-- | Name of the group to update. If you're changing the name of the group, this
+-- is the original name.
+ugrGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateGroup
+    -> f UpdateGroup
+ugrGroupName f x =
+    (\y -> x { _ugrGroupName = y })
+       <$> f (_ugrGroupName x)
+{-# INLINE ugrGroupName #-}
+
+-- | New name for the group. Only include this if changing the group's name.
+ugrNewGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateGroup
+    -> f UpdateGroup
+ugrNewGroupName f x =
+    (\y -> x { _ugrNewGroupName = y })
+       <$> f (_ugrNewGroupName x)
+{-# INLINE ugrNewGroupName #-}
+
+-- | New path for the group. Only include this if changing the group's path.
+ugrNewPath
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateGroup
+    -> f UpdateGroup
+ugrNewPath f x =
+    (\y -> x { _ugrNewPath = y })
+       <$> f (_ugrNewPath x)
+{-# INLINE ugrNewPath #-}
 
 instance ToQuery UpdateGroup where
     toQuery = genericQuery def
 
 data UpdateGroupResponse = UpdateGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UpdateGroupResponse
 
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM

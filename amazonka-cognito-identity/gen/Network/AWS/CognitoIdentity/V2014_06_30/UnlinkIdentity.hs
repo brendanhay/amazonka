@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -21,12 +20,36 @@
 -- | Unlinks a federated identity from an existing account. Unlinked logins will
 -- be considered new identities next time they are seen. Removing the last
 -- linked login will make this identity inaccessible.
-module Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity where
+module Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
+    (
+    -- * Request
+      UnlinkIdentity
+    -- ** Request constructor
+    , unlinkIdentity
+    -- ** Request lenses
+    , uiiIdentityId
+    , uiiLoginsToRemove
+    , uiiLogins
+
+    -- * Response
+    , UnlinkIdentityResponse
+    ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'UnlinkIdentity' request.
+unlinkIdentity :: Text -- ^ 'uiiIdentityId'
+               -> [Text] -- ^ 'uiiLoginsToRemove'
+               -> Map Text Text -- ^ 'uiiLogins'
+               -> UnlinkIdentity
+unlinkIdentity p1 p2 p3 = UnlinkIdentity
+    { _uiiIdentityId = p1
+    , _uiiLoginsToRemove = p2
+    , _uiiLogins = p3
+    }
 
 data UnlinkIdentity = UnlinkIdentity
     { _uiiIdentityId :: Text
@@ -38,7 +61,42 @@ data UnlinkIdentity = UnlinkIdentity
       -- provider tokens.
     } deriving (Show, Generic)
 
-makeLenses ''UnlinkIdentity
+-- | A unique identifier in the format REGION:GUID.
+uiiIdentityId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UnlinkIdentity
+    -> f UnlinkIdentity
+uiiIdentityId f x =
+    (\y -> x { _uiiIdentityId = y })
+       <$> f (_uiiIdentityId x)
+{-# INLINE uiiIdentityId #-}
+
+-- | Provider names to unlink from this identity.
+uiiLoginsToRemove
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> UnlinkIdentity
+    -> f UnlinkIdentity
+uiiLoginsToRemove f x =
+    (\y -> x { _uiiLoginsToRemove = y })
+       <$> f (_uiiLoginsToRemove x)
+{-# INLINE uiiLoginsToRemove #-}
+
+-- | A set of optional name/value pairs that map provider names to provider
+-- tokens.
+uiiLogins
+    :: Functor f
+    => (Map Text Text
+    -> f (Map Text Text))
+    -> UnlinkIdentity
+    -> f UnlinkIdentity
+uiiLogins f x =
+    (\y -> x { _uiiLogins = y })
+       <$> f (_uiiLogins x)
+{-# INLINE uiiLogins #-}
 
 instance ToPath UnlinkIdentity
 
@@ -50,8 +108,6 @@ instance ToJSON UnlinkIdentity
 
 data UnlinkIdentityResponse = UnlinkIdentityResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''UnlinkIdentityResponse
 
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity

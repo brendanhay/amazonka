@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,7 +33,20 @@
 -- &Version=2010-05-08 &AUTHPARAMS Bob AKIAIOSFODNN7EXAMPLE Active
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.CreateAccessKey where
+module Network.AWS.IAM.V2010_05_08.CreateAccessKey
+    (
+    -- * Request
+      CreateAccessKey
+    -- ** Request constructor
+    , createAccessKey
+    -- ** Request lenses
+    , cakrUserName
+
+    -- * Response
+    , CreateAccessKeyResponse
+    -- ** Response lenses
+    , caksAccessKey
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -51,7 +63,17 @@ data CreateAccessKey = CreateAccessKey
       -- ^ The user name that the new key will belong to.
     } deriving (Show, Generic)
 
-makeLenses ''CreateAccessKey
+-- | The user name that the new key will belong to.
+cakrUserName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> CreateAccessKey
+    -> f CreateAccessKey
+cakrUserName f x =
+    (\y -> x { _cakrUserName = y })
+       <$> f (_cakrUserName x)
+{-# INLINE cakrUserName #-}
 
 instance ToQuery CreateAccessKey where
     toQuery = genericQuery def
@@ -61,7 +83,17 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse
       -- ^ Information about the access key.
     } deriving (Show, Generic)
 
-makeLenses ''CreateAccessKeyResponse
+-- | Information about the access key.
+caksAccessKey
+    :: Functor f
+    => (AccessKey
+    -> f (AccessKey))
+    -> CreateAccessKeyResponse
+    -> f CreateAccessKeyResponse
+caksAccessKey f x =
+    (\y -> x { _caksAccessKey = y })
+       <$> f (_caksAccessKey x)
+{-# INLINE caksAccessKey #-}
 
 instance FromXML CreateAccessKeyResponse where
     fromXMLOptions = xmlOptions

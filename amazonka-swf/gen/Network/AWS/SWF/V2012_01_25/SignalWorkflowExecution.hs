@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -51,7 +50,22 @@
 -- "f5ebbac6-941c-4342-ad69-dfd2f8be6689", "signalName": "CancelOrder",
 -- "input": "order 3553"} HTTP/1.1 200 OK Content-Length: 0 Content-Type:
 -- application/json x-amzn-RequestId: bf78ae15-3f0c-11e1-9914-a356b6ea8bdf.
-module Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution where
+module Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
+    (
+    -- * Request
+      SignalWorkflowExecution
+    -- ** Request constructor
+    , signalWorkflowExecution
+    -- ** Request lenses
+    , sweiDomain
+    , sweiSignalName
+    , sweiWorkflowId
+    , sweiInput
+    , sweiRunId
+
+    -- * Response
+    , SignalWorkflowExecutionResponse
+    ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
 import           Network.AWS.Prelude
@@ -59,9 +73,9 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'SignalWorkflowExecution' request.
-signalWorkflowExecution :: Text -- ^ '_sweiDomain'
-                        -> Text -- ^ '_sweiSignalName'
-                        -> Text -- ^ '_sweiWorkflowId'
+signalWorkflowExecution :: Text -- ^ 'sweiDomain'
+                        -> Text -- ^ 'sweiSignalName'
+                        -> Text -- ^ 'sweiWorkflowId'
                         -> SignalWorkflowExecution
 signalWorkflowExecution p1 p2 p3 = SignalWorkflowExecution
     { _sweiDomain = p1
@@ -87,7 +101,67 @@ data SignalWorkflowExecution = SignalWorkflowExecution
       -- ^ The runId of the workflow execution to signal.
     } deriving (Show, Generic)
 
-makeLenses ''SignalWorkflowExecution
+-- | The name of the domain containing the workflow execution to signal.
+sweiDomain
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SignalWorkflowExecution
+    -> f SignalWorkflowExecution
+sweiDomain f x =
+    (\y -> x { _sweiDomain = y })
+       <$> f (_sweiDomain x)
+{-# INLINE sweiDomain #-}
+
+-- | The name of the signal. This name must be meaningful to the target
+-- workflow.
+sweiSignalName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SignalWorkflowExecution
+    -> f SignalWorkflowExecution
+sweiSignalName f x =
+    (\y -> x { _sweiSignalName = y })
+       <$> f (_sweiSignalName x)
+{-# INLINE sweiSignalName #-}
+
+-- | The workflowId of the workflow execution to signal.
+sweiWorkflowId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SignalWorkflowExecution
+    -> f SignalWorkflowExecution
+sweiWorkflowId f x =
+    (\y -> x { _sweiWorkflowId = y })
+       <$> f (_sweiWorkflowId x)
+{-# INLINE sweiWorkflowId #-}
+
+-- | Data to attach to the WorkflowExecutionSignaled event in the target
+-- workflow execution's history.
+sweiInput
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SignalWorkflowExecution
+    -> f SignalWorkflowExecution
+sweiInput f x =
+    (\y -> x { _sweiInput = y })
+       <$> f (_sweiInput x)
+{-# INLINE sweiInput #-}
+
+-- | The runId of the workflow execution to signal.
+sweiRunId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> SignalWorkflowExecution
+    -> f SignalWorkflowExecution
+sweiRunId f x =
+    (\y -> x { _sweiRunId = y })
+       <$> f (_sweiRunId x)
+{-# INLINE sweiRunId #-}
 
 instance ToPath SignalWorkflowExecution
 
@@ -99,8 +173,6 @@ instance ToJSON SignalWorkflowExecution
 
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''SignalWorkflowExecutionResponse
 
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF

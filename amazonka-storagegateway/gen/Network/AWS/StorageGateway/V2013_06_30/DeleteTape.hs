@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -18,22 +17,67 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway.V2013_06_30.DeleteTape where
+module Network.AWS.StorageGateway.V2013_06_30.DeleteTape
+    (
+    -- * Request
+      DeleteTape
+    -- ** Request constructor
+    , deleteTape
+    -- ** Request lenses
+    , dtiGatewayARN
+    , dtiTapeARN
+
+    -- * Response
+    , DeleteTapeResponse
+    -- ** Response lenses
+    , dtoTapeARN
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Minimum specification for a 'DeleteTape' request.
+deleteTape :: Text -- ^ 'dtiGatewayARN'
+           -> Text -- ^ 'dtiTapeARN'
+           -> DeleteTape
+deleteTape p1 p2 = DeleteTape
+    { _dtiGatewayARN = p1
+    , _dtiTapeARN = p2
+    }
+
 data DeleteTape = DeleteTape
-    { _dtjGatewayARN :: Text
+    { _dtiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _dtjTapeARN :: Text
+    , _dtiTapeARN :: Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTape
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dtiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteTape
+    -> f DeleteTape
+dtiGatewayARN f x =
+    (\y -> x { _dtiGatewayARN = y })
+       <$> f (_dtiGatewayARN x)
+{-# INLINE dtiGatewayARN #-}
+
+dtiTapeARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteTape
+    -> f DeleteTape
+dtiTapeARN f x =
+    (\y -> x { _dtiTapeARN = y })
+       <$> f (_dtiTapeARN x)
+{-# INLINE dtiTapeARN #-}
 
 instance ToPath DeleteTape
 
@@ -44,10 +88,19 @@ instance ToHeaders DeleteTape
 instance ToJSON DeleteTape
 
 data DeleteTapeResponse = DeleteTapeResponse
-    { _dtpTapeARN :: Maybe Text
+    { _dtoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTapeResponse
+dtoTapeARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteTapeResponse
+    -> f DeleteTapeResponse
+dtoTapeARN f x =
+    (\y -> x { _dtoTapeARN = y })
+       <$> f (_dtoTapeARN x)
+{-# INLINE dtoTapeARN #-}
 
 instance FromJSON DeleteTapeResponse
 

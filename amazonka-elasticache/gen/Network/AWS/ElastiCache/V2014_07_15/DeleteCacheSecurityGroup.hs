@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,11 +24,29 @@
 -- &CacheSecurityGroupName=mycachesecuritygroup3 &Version=2014-03-24
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= c130cfb7-3650-11e0-ae57-f96cfe56749c.
-module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup where
+module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup
+    (
+    -- * Request
+      DeleteCacheSecurityGroup
+    -- ** Request constructor
+    , deleteCacheSecurityGroup
+    -- ** Request lenses
+    , dcsgmCacheSecurityGroupName
+
+    -- * Response
+    , DeleteCacheSecurityGroupResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteCacheSecurityGroup' request.
+deleteCacheSecurityGroup :: Text -- ^ 'dcsgmCacheSecurityGroupName'
+                         -> DeleteCacheSecurityGroup
+deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
+    { _dcsgmCacheSecurityGroupName = p1
+    }
 
 data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgmCacheSecurityGroupName :: Text
@@ -37,15 +54,24 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
       -- the default security group.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteCacheSecurityGroup
+-- | The name of the cache security group to delete. You cannot delete the
+-- default security group.
+dcsgmCacheSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteCacheSecurityGroup
+    -> f DeleteCacheSecurityGroup
+dcsgmCacheSecurityGroupName f x =
+    (\y -> x { _dcsgmCacheSecurityGroupName = y })
+       <$> f (_dcsgmCacheSecurityGroupName x)
+{-# INLINE dcsgmCacheSecurityGroupName #-}
 
 instance ToQuery DeleteCacheSecurityGroup where
     toQuery = genericQuery def
 
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteCacheSecurityGroupResponse
 
 instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,34 +28,93 @@
 -- &x-amz-date=20130123T005817Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date my security group
 -- securitygroup1 f9ee270f-64f7-11e2-a8da-655adc216806.
-module Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup where
+module Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup
+    (
+    -- * Request
+      CreateClusterSecurityGroup
+    -- ** Request constructor
+    , createClusterSecurityGroup
+    -- ** Request lenses
+    , ccsgmClusterSecurityGroupName
+    , ccsgmDescription
+
+    -- * Response
+    , CreateClusterSecurityGroupResponse
+    -- ** Response lenses
+    , csgxClusterSecurityGroup
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateClusterSecurityGroup' request.
+createClusterSecurityGroup :: Text -- ^ 'ccsgmClusterSecurityGroupName'
+                           -> Text -- ^ 'ccsgmDescription'
+                           -> CreateClusterSecurityGroup
+createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
+    { _ccsgmClusterSecurityGroupName = p1
+    , _ccsgmDescription = p2
+    }
+
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
-    { _ccsgnDescription :: Text
-      -- ^ A description for the security group.
-    , _ccsgnClusterSecurityGroupName :: Text
+    { _ccsgmClusterSecurityGroupName :: Text
       -- ^ The name for the security group. Amazon Redshift stores the value
       -- as a lowercase string. Constraints: Must contain no more than 255
       -- alphanumeric characters or hyphens. Must not be "Default". Must
       -- be unique for all security groups that are created by your AWS
       -- account. Example: examplesecuritygroup.
+    , _ccsgmDescription :: Text
+      -- ^ A description for the security group.
     } deriving (Show, Generic)
 
-makeLenses ''CreateClusterSecurityGroup
+-- | The name for the security group. Amazon Redshift stores the value as a
+-- lowercase string. Constraints: Must contain no more than 255 alphanumeric
+-- characters or hyphens. Must not be "Default". Must be unique for all
+-- security groups that are created by your AWS account. Example:
+-- examplesecuritygroup.
+ccsgmClusterSecurityGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateClusterSecurityGroup
+    -> f CreateClusterSecurityGroup
+ccsgmClusterSecurityGroupName f x =
+    (\y -> x { _ccsgmClusterSecurityGroupName = y })
+       <$> f (_ccsgmClusterSecurityGroupName x)
+{-# INLINE ccsgmClusterSecurityGroupName #-}
+
+-- | A description for the security group.
+ccsgmDescription
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> CreateClusterSecurityGroup
+    -> f CreateClusterSecurityGroup
+ccsgmDescription f x =
+    (\y -> x { _ccsgmDescription = y })
+       <$> f (_ccsgmDescription x)
+{-# INLINE ccsgmDescription #-}
 
 instance ToQuery CreateClusterSecurityGroup where
     toQuery = genericQuery def
 
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
-    { _csgyClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _csgxClusterSecurityGroup :: Maybe ClusterSecurityGroup
       -- ^ Describes a security group.
     } deriving (Show, Generic)
 
-makeLenses ''CreateClusterSecurityGroupResponse
+-- | Describes a security group.
+csgxClusterSecurityGroup
+    :: Functor f
+    => (Maybe ClusterSecurityGroup
+    -> f (Maybe ClusterSecurityGroup))
+    -> CreateClusterSecurityGroupResponse
+    -> f CreateClusterSecurityGroupResponse
+csgxClusterSecurityGroup f x =
+    (\y -> x { _csgxClusterSecurityGroup = y })
+       <$> f (_csgxClusterSecurityGroup x)
+{-# INLINE csgxClusterSecurityGroup #-}
 
 instance FromXML CreateClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions

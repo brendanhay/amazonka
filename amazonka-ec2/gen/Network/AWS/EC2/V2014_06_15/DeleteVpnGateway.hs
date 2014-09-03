@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,10 +31,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnGateway
     (
     -- * Request
       DeleteVpnGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , deleteVpnGateway
-    -- ** Accessors and lenses
-    , _dvgrVpnGatewayId
+    -- ** Request lenses
     , dvgrVpnGatewayId
 
     -- * Response
@@ -54,8 +52,21 @@ deleteVpnGateway p1 = DeleteVpnGateway
     }
 
 data DeleteVpnGateway = DeleteVpnGateway
+    { _dvgrVpnGatewayId :: Text
+      -- ^ The ID of the virtual private gateway.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DeleteVpnGateway
+-- | The ID of the virtual private gateway.
+dvgrVpnGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteVpnGateway
+    -> f DeleteVpnGateway
+dvgrVpnGatewayId f x =
+    (\y -> x { _dvgrVpnGatewayId = y })
+       <$> f (_dvgrVpnGatewayId x)
+{-# INLINE dvgrVpnGatewayId #-}
 
 instance ToQuery DeleteVpnGateway where
     toQuery = genericQuery def
@@ -63,14 +74,9 @@ instance ToQuery DeleteVpnGateway where
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DeleteVpnGatewayResponse
-
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
 
     request = post "DeleteVpnGateway"
     response _ = nullaryResponse DeleteVpnGatewayResponse
-
--- | The ID of the virtual private gateway.
-dvgrVpnGatewayId :: Lens' DeleteVpnGateway (Text)

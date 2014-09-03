@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -42,32 +41,22 @@ module Network.AWS.EC2.V2014_06_15.DetachVolume
     (
     -- * Request
       DetachVolume
-    -- ** Default constructor
+    -- ** Request constructor
     , detachVolume
-    -- ** Accessors and lenses
-    , _dvxVolumeId
+    -- ** Request lenses
     , dvxVolumeId
-    , _dvxForce
     , dvxForce
-    , _dvxInstanceId
     , dvxInstanceId
-    , _dvxDevice
     , dvxDevice
 
     -- * Response
     , DetachVolumeResponse
-    -- ** Accessors and lenses
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination
+    -- ** Response lenses
     , vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime
     , vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId
     , vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId
     , vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice
     , vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice
-    , _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState
     , vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState
     ) where
 
@@ -86,8 +75,76 @@ detachVolume p1 = DetachVolume
     }
 
 data DetachVolume = DetachVolume
+    { _dvxVolumeId :: Text
+      -- ^ The ID of the volume.
+    , _dvxForce :: Maybe Bool
+      -- ^ Forces detachment if the previous detachment attempt did not
+      -- occur cleanly (for example, logging into an instance, unmounting
+      -- the volume, and detaching normally). This option can lead to data
+      -- loss or a corrupted file system. Use this option only as a last
+      -- resort to detach a volume from a failed instance. The instance
+      -- won't have an opportunity to flush file system caches or file
+      -- system metadata. If you use this option, you must perform file
+      -- system check and repair procedures.
+    , _dvxInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
+    , _dvxDevice :: Maybe Text
+      -- ^ The device name.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DetachVolume
+-- | The ID of the volume.
+dvxVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachVolume
+    -> f DetachVolume
+dvxVolumeId f x =
+    (\y -> x { _dvxVolumeId = y })
+       <$> f (_dvxVolumeId x)
+{-# INLINE dvxVolumeId #-}
+
+-- | Forces detachment if the previous detachment attempt did not occur cleanly
+-- (for example, logging into an instance, unmounting the volume, and
+-- detaching normally). This option can lead to data loss or a corrupted file
+-- system. Use this option only as a last resort to detach a volume from a
+-- failed instance. The instance won't have an opportunity to flush file
+-- system caches or file system metadata. If you use this option, you must
+-- perform file system check and repair procedures.
+dvxForce
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DetachVolume
+    -> f DetachVolume
+dvxForce f x =
+    (\y -> x { _dvxForce = y })
+       <$> f (_dvxForce x)
+{-# INLINE dvxForce #-}
+
+-- | The ID of the instance.
+dvxInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DetachVolume
+    -> f DetachVolume
+dvxInstanceId f x =
+    (\y -> x { _dvxInstanceId = y })
+       <$> f (_dvxInstanceId x)
+{-# INLINE dvxInstanceId #-}
+
+-- | The device name.
+dvxDevice
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DetachVolume
+    -> f DetachVolume
+dvxDevice f x =
+    (\y -> x { _dvxDevice = y })
+       <$> f (_dvxDevice x)
+{-# INLINE dvxDevice #-}
 
 instance ToQuery DetachVolume where
     toQuery = genericQuery def
@@ -108,7 +165,77 @@ data DetachVolumeResponse = DetachVolumeResponse
       -- ^ The attachment state of the volume.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''DetachVolumeResponse
+-- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DetachVolumeResponse
+    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination f x =
+    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination = y })
+       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination x)
+{-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination #-}
+
+-- | The time stamp when the attachment initiated.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> DetachVolumeResponse
+    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime f x =
+    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime = y })
+       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime x)
+{-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime #-}
+
+-- | The ID of the volume.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DetachVolumeResponse
+    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId f x =
+    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId = y })
+       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId x)
+{-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId #-}
+
+-- | The ID of the instance.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DetachVolumeResponse
+    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId f x =
+    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId = y })
+       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId x)
+{-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId #-}
+
+-- | The device name.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DetachVolumeResponse
+    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice f x =
+    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice = y })
+       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice x)
+{-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice #-}
+
+-- | The attachment state of the volume.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState
+    :: Functor f
+    => (Maybe VolumeAttachmentState
+    -> f (Maybe VolumeAttachmentState))
+    -> DetachVolumeResponse
+    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState f x =
+    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState = y })
+       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState x)
+{-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState #-}
 
 instance FromXML DetachVolumeResponse where
     fromXMLOptions = xmlOptions
@@ -119,39 +246,3 @@ instance AWSRequest DetachVolume where
 
     request = post "DetachVolume"
     response _ = xmlResponse
-
--- | The ID of the volume.
-dvxVolumeId :: Lens' DetachVolume (Text)
-
--- | Forces detachment if the previous detachment attempt did not occur cleanly
--- (for example, logging into an instance, unmounting the volume, and
--- detaching normally). This option can lead to data loss or a corrupted file
--- system. Use this option only as a last resort to detach a volume from a
--- failed instance. The instance won't have an opportunity to flush file
--- system caches or file system metadata. If you use this option, you must
--- perform file system check and repair procedures.
-dvxForce :: Lens' DetachVolume (Maybe Bool)
-
--- | The ID of the instance.
-dvxInstanceId :: Lens' DetachVolume (Maybe Text)
-
--- | The device name.
-dvxDevice :: Lens' DetachVolume (Maybe Text)
-
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
-
--- | The time stamp when the attachment initiated.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
-
--- | The ID of the volume.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
-
--- | The ID of the instance.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
-
--- | The device name.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice :: Lens' DetachVolumeResponse (Maybe Text)
-
--- | The attachment state of the volume.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)

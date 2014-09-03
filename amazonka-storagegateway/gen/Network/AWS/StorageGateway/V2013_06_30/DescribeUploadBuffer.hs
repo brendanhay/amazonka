@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -40,12 +39,35 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "UploadBufferAllocatedInBytes": 161061273600, "UploadBufferUsedInBytes": 0
 -- }.
-module Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer where
+module Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer
+    (
+    -- * Request
+      DescribeUploadBuffer
+    -- ** Request constructor
+    , describeUploadBuffer
+    -- ** Request lenses
+    , dubiGatewayARN
+
+    -- * Response
+    , DescribeUploadBufferResponse
+    -- ** Response lenses
+    , duboDiskIds
+    , duboGatewayARN
+    , duboUploadBufferUsedInBytes
+    , duboUploadBufferAllocatedInBytes
+    ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
+
+-- | Minimum specification for a 'DescribeUploadBuffer' request.
+describeUploadBuffer :: Text -- ^ 'dubiGatewayARN'
+                     -> DescribeUploadBuffer
+describeUploadBuffer p1 = DescribeUploadBuffer
+    { _dubiGatewayARN = p1
+    }
 
 data DescribeUploadBuffer = DescribeUploadBuffer
     { _dubiGatewayARN :: Text
@@ -54,7 +76,18 @@ data DescribeUploadBuffer = DescribeUploadBuffer
       -- account and region.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeUploadBuffer
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+dubiGatewayARN
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeUploadBuffer
+    -> f DescribeUploadBuffer
+dubiGatewayARN f x =
+    (\y -> x { _dubiGatewayARN = y })
+       <$> f (_dubiGatewayARN x)
+{-# INLINE dubiGatewayARN #-}
 
 instance ToPath DescribeUploadBuffer
 
@@ -74,7 +107,51 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     , _duboUploadBufferAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-makeLenses ''DescribeUploadBufferResponse
+duboDiskIds
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> DescribeUploadBufferResponse
+    -> f DescribeUploadBufferResponse
+duboDiskIds f x =
+    (\y -> x { _duboDiskIds = y })
+       <$> f (_duboDiskIds x)
+{-# INLINE duboDiskIds #-}
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+duboGatewayARN
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeUploadBufferResponse
+    -> f DescribeUploadBufferResponse
+duboGatewayARN f x =
+    (\y -> x { _duboGatewayARN = y })
+       <$> f (_duboGatewayARN x)
+{-# INLINE duboGatewayARN #-}
+
+duboUploadBufferUsedInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeUploadBufferResponse
+    -> f DescribeUploadBufferResponse
+duboUploadBufferUsedInBytes f x =
+    (\y -> x { _duboUploadBufferUsedInBytes = y })
+       <$> f (_duboUploadBufferUsedInBytes x)
+{-# INLINE duboUploadBufferUsedInBytes #-}
+
+duboUploadBufferAllocatedInBytes
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeUploadBufferResponse
+    -> f DescribeUploadBufferResponse
+duboUploadBufferAllocatedInBytes f x =
+    (\y -> x { _duboUploadBufferAllocatedInBytes = y })
+       <$> f (_duboUploadBufferAllocatedInBytes x)
+{-# INLINE duboUploadBufferAllocatedInBytes #-}
 
 instance FromJSON DescribeUploadBufferResponse
 

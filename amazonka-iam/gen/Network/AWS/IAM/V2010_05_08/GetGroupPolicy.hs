@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -25,11 +24,36 @@
 -- &PolicyName=AdminRoot &AUTHPARAMS Admins AdminRoot
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.GetGroupPolicy where
+module Network.AWS.IAM.V2010_05_08.GetGroupPolicy
+    (
+    -- * Request
+      GetGroupPolicy
+    -- ** Request constructor
+    , getGroupPolicy
+    -- ** Request lenses
+    , ggprGroupName
+    , ggprPolicyName
+
+    -- * Response
+    , GetGroupPolicyResponse
+    -- ** Response lenses
+    , ggpsGroupName
+    , ggpsPolicyDocument
+    , ggpsPolicyName
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'GetGroupPolicy' request.
+getGroupPolicy :: Text -- ^ 'ggprGroupName'
+               -> Text -- ^ 'ggprPolicyName'
+               -> GetGroupPolicy
+getGroupPolicy p1 p2 = GetGroupPolicy
+    { _ggprGroupName = p1
+    , _ggprPolicyName = p2
+    }
 
 data GetGroupPolicy = GetGroupPolicy
     { _ggprGroupName :: Text
@@ -38,7 +62,29 @@ data GetGroupPolicy = GetGroupPolicy
       -- ^ Name of the policy document to get.
     } deriving (Show, Generic)
 
-makeLenses ''GetGroupPolicy
+-- | Name of the group the policy is associated with.
+ggprGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetGroupPolicy
+    -> f GetGroupPolicy
+ggprGroupName f x =
+    (\y -> x { _ggprGroupName = y })
+       <$> f (_ggprGroupName x)
+{-# INLINE ggprGroupName #-}
+
+-- | Name of the policy document to get.
+ggprPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetGroupPolicy
+    -> f GetGroupPolicy
+ggprPolicyName f x =
+    (\y -> x { _ggprPolicyName = y })
+       <$> f (_ggprPolicyName x)
+{-# INLINE ggprPolicyName #-}
 
 instance ToQuery GetGroupPolicy where
     toQuery = genericQuery def
@@ -52,7 +98,41 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
       -- ^ The name of the policy.
     } deriving (Show, Generic)
 
-makeLenses ''GetGroupPolicyResponse
+-- | The group the policy is associated with.
+ggpsGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetGroupPolicyResponse
+    -> f GetGroupPolicyResponse
+ggpsGroupName f x =
+    (\y -> x { _ggpsGroupName = y })
+       <$> f (_ggpsGroupName x)
+{-# INLINE ggpsGroupName #-}
+
+-- | The policy document.
+ggpsPolicyDocument
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetGroupPolicyResponse
+    -> f GetGroupPolicyResponse
+ggpsPolicyDocument f x =
+    (\y -> x { _ggpsPolicyDocument = y })
+       <$> f (_ggpsPolicyDocument x)
+{-# INLINE ggpsPolicyDocument #-}
+
+-- | The name of the policy.
+ggpsPolicyName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> GetGroupPolicyResponse
+    -> f GetGroupPolicyResponse
+ggpsPolicyName f x =
+    (\y -> x { _ggpsPolicyName = y })
+       <$> f (_ggpsPolicyName x)
+{-# INLINE ggpsPolicyName #-}
 
 instance FromXML GetGroupPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,7 +27,23 @@
 -- default.mysql5.1 active default 00:00-00:30 true sat:07:30-sat:08:00
 -- us-east-1a 2011-05-23T06:06:43.110Z 10 default.mysql5.1 in-sync db.m1.large
 -- master 9135fff3-8509-11e0-bd9b-a7b1ece36d51.
-module Network.AWS.RDS.V2013_09_09.DescribeDBInstances where
+module Network.AWS.RDS.V2013_09_09.DescribeDBInstances
+    (
+    -- * Request
+      DescribeDBInstances
+    -- ** Request constructor
+    , describeDBInstances
+    -- ** Request lenses
+    , ddbinMaxRecords
+    , ddbinDBInstanceIdentifier
+    , ddbinMarker
+
+    -- * Response
+    , DescribeDBInstancesResponse
+    -- ** Response lenses
+    , dbimDBInstances
+    , dbimMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
@@ -38,8 +53,8 @@ import Network.AWS.Prelude
 describeDBInstances :: DescribeDBInstances
 describeDBInstances = DescribeDBInstances
     { _ddbinMaxRecords = Nothing
-    , _ddbinMarker = Nothing
     , _ddbinDBInstanceIdentifier = Nothing
+    , _ddbinMarker = Nothing
     }
 
 data DescribeDBInstances = DescribeDBInstances
@@ -49,11 +64,6 @@ data DescribeDBInstances = DescribeDBInstances
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _ddbinMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeDBInstances request. If this parameter is specified, the
-      -- response includes only records beyond the marker, up to the value
-      -- specified by MaxRecords .
     , _ddbinDBInstanceIdentifier :: Maybe Text
       -- ^ The user-supplied instance identifier. If this parameter is
       -- specified, information from only the specific DB instance is
@@ -61,9 +71,57 @@ data DescribeDBInstances = DescribeDBInstances
       -- contain from 1 to 63 alphanumeric characters or hyphens First
       -- character must be a letter Cannot end with a hyphen or contain
       -- two consecutive hyphens.
+    , _ddbinMarker :: Maybe Text
+      -- ^ An optional pagination token provided by a previous
+      -- DescribeDBInstances request. If this parameter is specified, the
+      -- response includes only records beyond the marker, up to the value
+      -- specified by MaxRecords .
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDBInstances
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a pagination token called a
+-- marker is included in the response so that the remaining results may be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+ddbinMaxRecords
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeDBInstances
+    -> f DescribeDBInstances
+ddbinMaxRecords f x =
+    (\y -> x { _ddbinMaxRecords = y })
+       <$> f (_ddbinMaxRecords x)
+{-# INLINE ddbinMaxRecords #-}
+
+-- | The user-supplied instance identifier. If this parameter is specified,
+-- information from only the specific DB instance is returned. This parameter
+-- isn't case sensitive. Constraints: Must contain from 1 to 63 alphanumeric
+-- characters or hyphens First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens.
+ddbinDBInstanceIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDBInstances
+    -> f DescribeDBInstances
+ddbinDBInstanceIdentifier f x =
+    (\y -> x { _ddbinDBInstanceIdentifier = y })
+       <$> f (_ddbinDBInstanceIdentifier x)
+{-# INLINE ddbinDBInstanceIdentifier #-}
+
+-- | An optional pagination token provided by a previous DescribeDBInstances
+-- request. If this parameter is specified, the response includes only records
+-- beyond the marker, up to the value specified by MaxRecords .
+ddbinMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDBInstances
+    -> f DescribeDBInstances
+ddbinMarker f x =
+    (\y -> x { _ddbinMarker = y })
+       <$> f (_ddbinMarker x)
+{-# INLINE ddbinMarker #-}
 
 instance ToQuery DescribeDBInstances where
     toQuery = genericQuery def
@@ -77,7 +135,31 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
       -- beyond the marker, up to the value specified by MaxRecords .
     } deriving (Show, Generic)
 
-makeLenses ''DescribeDBInstancesResponse
+-- | A list of DBInstance instances.
+dbimDBInstances
+    :: Functor f
+    => ([DBInstance]
+    -> f ([DBInstance]))
+    -> DescribeDBInstancesResponse
+    -> f DescribeDBInstancesResponse
+dbimDBInstances f x =
+    (\y -> x { _dbimDBInstances = y })
+       <$> f (_dbimDBInstances x)
+{-# INLINE dbimDBInstances #-}
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by MaxRecords .
+dbimMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeDBInstancesResponse
+    -> f DescribeDBInstancesResponse
+dbimMarker f x =
+    (\y -> x { _dbimMarker = y })
+       <$> f (_dbimMarker x)
+{-# INLINE dbimMarker #-}
 
 instance FromXML DescribeDBInstancesResponse where
     fromXMLOptions = xmlOptions

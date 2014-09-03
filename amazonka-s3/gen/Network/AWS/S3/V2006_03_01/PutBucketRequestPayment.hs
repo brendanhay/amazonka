@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -22,15 +21,28 @@
 -- owner pays for downloads from the bucket. This configuration parameter
 -- enables the bucket owner (only) to specify that the person requesting the
 -- download will be charged for the download.
-module Network.AWS.S3.V2006_03_01.PutBucketRequestPayment where
+module Network.AWS.S3.V2006_03_01.PutBucketRequestPayment
+    (
+    -- * Request
+      PutBucketRequestPayment
+    -- ** Request constructor
+    , putBucketRequestPayment
+    -- ** Request lenses
+    , pbrprRequestPaymentConfiguration
+    , pbrprBucket
+    , pbrprContentMD5
+
+    -- * Response
+    , PutBucketRequestPaymentResponse
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'PutBucketRequestPayment' request.
-putBucketRequestPayment :: RequestPaymentConfiguration -- ^ '_pbrprRequestPaymentConfiguration'
-                        -> BucketName -- ^ '_pbrprBucket'
+putBucketRequestPayment :: RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
+                        -> BucketName -- ^ 'pbrprBucket'
                         -> PutBucketRequestPayment
 putBucketRequestPayment p1 p2 = PutBucketRequestPayment
     { _pbrprRequestPaymentConfiguration = p1
@@ -44,7 +56,38 @@ data PutBucketRequestPayment = PutBucketRequestPayment
     , _pbrprContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-makeLenses ''PutBucketRequestPayment
+pbrprRequestPaymentConfiguration
+    :: Functor f
+    => (RequestPaymentConfiguration
+    -> f (RequestPaymentConfiguration))
+    -> PutBucketRequestPayment
+    -> f PutBucketRequestPayment
+pbrprRequestPaymentConfiguration f x =
+    (\y -> x { _pbrprRequestPaymentConfiguration = y })
+       <$> f (_pbrprRequestPaymentConfiguration x)
+{-# INLINE pbrprRequestPaymentConfiguration #-}
+
+pbrprBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> PutBucketRequestPayment
+    -> f PutBucketRequestPayment
+pbrprBucket f x =
+    (\y -> x { _pbrprBucket = y })
+       <$> f (_pbrprBucket x)
+{-# INLINE pbrprBucket #-}
+
+pbrprContentMD5
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PutBucketRequestPayment
+    -> f PutBucketRequestPayment
+pbrprContentMD5 f x =
+    (\y -> x { _pbrprContentMD5 = y })
+       <$> f (_pbrprContentMD5 x)
+{-# INLINE pbrprContentMD5 #-}
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat
@@ -67,8 +110,6 @@ instance ToBody PutBucketRequestPayment where
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''PutBucketRequestPaymentResponse
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3

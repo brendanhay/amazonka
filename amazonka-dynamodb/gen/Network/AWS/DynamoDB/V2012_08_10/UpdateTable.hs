@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -46,7 +45,22 @@
 -- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "UPDATING"
 -- } }.
-module Network.AWS.DynamoDB.V2012_08_10.UpdateTable where
+module Network.AWS.DynamoDB.V2012_08_10.UpdateTable
+    (
+    -- * Request
+      UpdateTable
+    -- ** Request constructor
+    , updateTable
+    -- ** Request lenses
+    , utiTableName
+    , utiGlobalSecondaryIndexUpdates
+    , utiProvisionedThroughput
+
+    -- * Response
+    , UpdateTableResponse
+    -- ** Response lenses
+    , utoTableDescription
+    ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
 import           Network.AWS.Prelude
@@ -54,7 +68,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'UpdateTable' request.
-updateTable :: Text -- ^ '_utiTableName'
+updateTable :: Text -- ^ 'utiTableName'
             -> UpdateTable
 updateTable p1 = UpdateTable
     { _utiTableName = p1
@@ -76,7 +90,45 @@ data UpdateTable = UpdateTable
       -- Developer Guide.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateTable
+-- | The name of the table to be updated.
+utiTableName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> UpdateTable
+    -> f UpdateTable
+utiTableName f x =
+    (\y -> x { _utiTableName = y })
+       <$> f (_utiTableName x)
+{-# INLINE utiTableName #-}
+
+-- | An array of one or more global secondary indexes on the table, together
+-- with provisioned throughput settings for each index.
+utiGlobalSecondaryIndexUpdates
+    :: Functor f
+    => ([GlobalSecondaryIndexUpdate]
+    -> f ([GlobalSecondaryIndexUpdate]))
+    -> UpdateTable
+    -> f UpdateTable
+utiGlobalSecondaryIndexUpdates f x =
+    (\y -> x { _utiGlobalSecondaryIndexUpdates = y })
+       <$> f (_utiGlobalSecondaryIndexUpdates x)
+{-# INLINE utiGlobalSecondaryIndexUpdates #-}
+
+-- | Represents the provisioned throughput settings for a specified table or
+-- index. The settings can be modified using the UpdateTable operation. For
+-- current minimum and maximum provisioned throughput values, see Limits in
+-- the Amazon DynamoDB Developer Guide.
+utiProvisionedThroughput
+    :: Functor f
+    => (Maybe ProvisionedThroughput
+    -> f (Maybe ProvisionedThroughput))
+    -> UpdateTable
+    -> f UpdateTable
+utiProvisionedThroughput f x =
+    (\y -> x { _utiProvisionedThroughput = y })
+       <$> f (_utiProvisionedThroughput x)
+{-# INLINE utiProvisionedThroughput #-}
 
 instance ToPath UpdateTable
 
@@ -91,7 +143,17 @@ data UpdateTableResponse = UpdateTableResponse
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
-makeLenses ''UpdateTableResponse
+-- | Represents the properties of a table.
+utoTableDescription
+    :: Functor f
+    => (Maybe TableDescription
+    -> f (Maybe TableDescription))
+    -> UpdateTableResponse
+    -> f UpdateTableResponse
+utoTableDescription f x =
+    (\y -> x { _utoTableDescription = y })
+       <$> f (_utoTableDescription x)
+{-# INLINE utoTableDescription #-}
 
 instance FromJSON UpdateTableResponse
 

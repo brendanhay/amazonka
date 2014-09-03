@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,7 +31,24 @@
 -- arn:aws:iam::123456789012:server-certificate/company/servercerts/TestServerCert
 -- 2010-05-08T03:01:02.004Z ASCACKCEVSQ6CEXAMPLE3 2012-05-08T03:01:02.004Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.ListServerCertificates where
+module Network.AWS.IAM.V2010_05_08.ListServerCertificates
+    (
+    -- * Request
+      ListServerCertificates
+    -- ** Request constructor
+    , listServerCertificates
+    -- ** Request lenses
+    , lscrMarker
+    , lscrMaxItems
+    , lscrPathPrefix
+
+    -- * Response
+    , ListServerCertificatesResponse
+    -- ** Response lenses
+    , lscsIsTruncated
+    , lscsServerCertificateMetadataList
+    , lscsMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -67,7 +83,50 @@ data ListServerCertificates = ListServerCertificates
       -- listing all server certificates.
     } deriving (Show, Generic)
 
-makeLenses ''ListServerCertificates
+-- | Use this only when paginating results, and only in a subsequent request
+-- after you've received a response where the results are truncated. Set it to
+-- the value of the Marker element in the response you just received.
+lscrMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListServerCertificates
+    -> f ListServerCertificates
+lscrMarker f x =
+    (\y -> x { _lscrMarker = y })
+       <$> f (_lscrMarker x)
+{-# INLINE lscrMarker #-}
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- server certificates you want in the response. If there are additional
+-- server certificates beyond the maximum you specify, the IsTruncated
+-- response element will be set to true. This parameter is optional. If you do
+-- not include it, it defaults to 100.
+lscrMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListServerCertificates
+    -> f ListServerCertificates
+lscrMaxItems f x =
+    (\y -> x { _lscrMaxItems = y })
+       <$> f (_lscrMaxItems x)
+{-# INLINE lscrMaxItems #-}
+
+-- | The path prefix for filtering the results. For example:
+-- /company/servercerts would get all server certificates for which the path
+-- starts with /company/servercerts. This parameter is optional. If it is not
+-- included, it defaults to a slash (/), listing all server certificates.
+lscrPathPrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListServerCertificates
+    -> f ListServerCertificates
+lscrPathPrefix f x =
+    (\y -> x { _lscrPathPrefix = y })
+       <$> f (_lscrPathPrefix x)
+{-# INLINE lscrPathPrefix #-}
 
 instance ToQuery ListServerCertificates where
     toQuery = genericQuery def
@@ -86,7 +145,45 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListServerCertificatesResponse
+-- | A flag that indicates whether there are more server certificates to list.
+-- If your results were truncated, you can make a subsequent pagination
+-- request using the Marker request parameter to retrieve more server
+-- certificates in the list.
+lscsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListServerCertificatesResponse
+    -> f ListServerCertificatesResponse
+lscsIsTruncated f x =
+    (\y -> x { _lscsIsTruncated = y })
+       <$> f (_lscsIsTruncated x)
+{-# INLINE lscsIsTruncated #-}
+
+-- | A list of server certificates.
+lscsServerCertificateMetadataList
+    :: Functor f
+    => ([ServerCertificateMetadata]
+    -> f ([ServerCertificateMetadata]))
+    -> ListServerCertificatesResponse
+    -> f ListServerCertificatesResponse
+lscsServerCertificateMetadataList f x =
+    (\y -> x { _lscsServerCertificateMetadataList = y })
+       <$> f (_lscsServerCertificateMetadataList x)
+{-# INLINE lscsServerCertificateMetadataList #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lscsMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListServerCertificatesResponse
+    -> f ListServerCertificatesResponse
+lscsMarker f x =
+    (\y -> x { _lscsMarker = y })
+       <$> f (_lscsMarker x)
+{-# INLINE lscsMarker #-}
 
 instance FromXML ListServerCertificatesResponse where
     fromXMLOptions = xmlOptions

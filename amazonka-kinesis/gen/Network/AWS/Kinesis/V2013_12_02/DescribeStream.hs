@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -61,7 +60,22 @@
 -- "ShardId": "shardId-000000000002" } ], "StreamARN":
 -- "arn:aws:kinesis:us-east-1:052958737983:exampleStreamName", "StreamName":
 -- "exampleStreamName", "StreamStatus": "ACTIVE" } }.
-module Network.AWS.Kinesis.V2013_12_02.DescribeStream where
+module Network.AWS.Kinesis.V2013_12_02.DescribeStream
+    (
+    -- * Request
+      DescribeStream
+    -- ** Request constructor
+    , describeStream
+    -- ** Request lenses
+    , dsjStreamName
+    , dsjLimit
+    , dsjExclusiveStartShardId
+
+    -- * Response
+    , DescribeStreamResponse
+    -- ** Response lenses
+    , dsoStreamDescription
+    ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
 import           Network.AWS.Prelude
@@ -69,7 +83,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'DescribeStream' request.
-describeStream :: Text -- ^ '_dsjStreamName'
+describeStream :: Text -- ^ 'dsjStreamName'
                -> DescribeStream
 describeStream p1 = DescribeStream
     { _dsjStreamName = p1
@@ -87,7 +101,41 @@ data DescribeStream = DescribeStream
       -- description.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStream
+-- | The name of the stream to describe.
+dsjStreamName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DescribeStream
+    -> f DescribeStream
+dsjStreamName f x =
+    (\y -> x { _dsjStreamName = y })
+       <$> f (_dsjStreamName x)
+{-# INLINE dsjStreamName #-}
+
+-- | The maximum number of shards to return.
+dsjLimit
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> DescribeStream
+    -> f DescribeStream
+dsjLimit f x =
+    (\y -> x { _dsjLimit = y })
+       <$> f (_dsjLimit x)
+{-# INLINE dsjLimit #-}
+
+-- | The shard ID of the shard to start with for the stream description.
+dsjExclusiveStartShardId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DescribeStream
+    -> f DescribeStream
+dsjExclusiveStartShardId f x =
+    (\y -> x { _dsjExclusiveStartShardId = y })
+       <$> f (_dsjExclusiveStartShardId x)
+{-# INLINE dsjExclusiveStartShardId #-}
 
 instance ToPath DescribeStream
 
@@ -104,7 +152,19 @@ data DescribeStreamResponse = DescribeStreamResponse
       -- whether there are more shards available.
     } deriving (Show, Generic)
 
-makeLenses ''DescribeStreamResponse
+-- | Contains the current status of the stream, the stream ARN, an array of
+-- shard objects that comprise the stream, and states whether there are more
+-- shards available.
+dsoStreamDescription
+    :: Functor f
+    => (StreamDescription
+    -> f (StreamDescription))
+    -> DescribeStreamResponse
+    -> f DescribeStreamResponse
+dsoStreamDescription f x =
+    (\y -> x { _dsoStreamDescription = y })
+       <$> f (_dsoStreamDescription x)
+{-# INLINE dsoStreamDescription #-}
 
 instance FromJSON DescribeStreamResponse
 

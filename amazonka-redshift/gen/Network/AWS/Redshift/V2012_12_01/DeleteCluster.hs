@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,36 +35,51 @@
 -- true true dev sun:10:30-sun:11:00 in-sync default.redshift-1.0
 -- 2013-01-23T00:11:32.804Z active default us-east-1a dw1.xlarge
 -- examplecluster2 true masteruser f2e6b87e-6503-11e2-b343-393adc3f0a21.
-module Network.AWS.Redshift.V2012_12_01.DeleteCluster where
+module Network.AWS.Redshift.V2012_12_01.DeleteCluster
+    (
+    -- * Request
+      DeleteCluster
+    -- ** Request constructor
+    , deleteCluster
+    -- ** Request lenses
+    , dcmClusterIdentifier
+    , dcmSkipFinalClusterSnapshot
+    , dcmFinalClusterSnapshotIdentifier
+
+    -- * Response
+    , DeleteClusterResponse
+    -- ** Response lenses
+    , cxCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'DeleteCluster' request.
-deleteCluster :: Text -- ^ '_dcnClusterIdentifier'
+deleteCluster :: Text -- ^ 'dcmClusterIdentifier'
               -> DeleteCluster
 deleteCluster p1 = DeleteCluster
-    { _dcnClusterIdentifier = p1
-    , _dcnSkipFinalClusterSnapshot = Nothing
-    , _dcnFinalClusterSnapshotIdentifier = Nothing
+    { _dcmClusterIdentifier = p1
+    , _dcmSkipFinalClusterSnapshot = Nothing
+    , _dcmFinalClusterSnapshotIdentifier = Nothing
     }
 
 data DeleteCluster = DeleteCluster
-    { _dcnClusterIdentifier :: Text
+    { _dcmClusterIdentifier :: Text
       -- ^ The identifier of the cluster to be deleted. Constraints: Must
       -- contain lowercase characters. Must contain from 1 to 63
       -- alphanumeric characters or hyphens. First character must be a
       -- letter. Cannot end with a hyphen or contain two consecutive
       -- hyphens.
-    , _dcnSkipFinalClusterSnapshot :: Maybe Bool
+    , _dcmSkipFinalClusterSnapshot :: Maybe Bool
       -- ^ Determines whether a final snapshot of the cluster is created
       -- before Amazon Redshift deletes the cluster. If true, a final
       -- cluster snapshot is not created. If false, a final cluster
       -- snapshot is created before the cluster is deleted. The
       -- FinalClusterSnapshotIdentifier parameter must be specified if
       -- SkipFinalClusterSnapshot is false. Default: false.
-    , _dcnFinalClusterSnapshotIdentifier :: Maybe Text
+    , _dcmFinalClusterSnapshotIdentifier :: Maybe Text
       -- ^ The identifier of the final snapshot that is to be created
       -- immediately before deleting the cluster. If this parameter is
       -- provided, SkipFinalClusterSnapshot must be false. Constraints:
@@ -74,17 +88,72 @@ data DeleteCluster = DeleteCluster
       -- hyphens.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteCluster
+-- | The identifier of the cluster to be deleted. Constraints: Must contain
+-- lowercase characters. Must contain from 1 to 63 alphanumeric characters or
+-- hyphens. First character must be a letter. Cannot end with a hyphen or
+-- contain two consecutive hyphens.
+dcmClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteCluster
+    -> f DeleteCluster
+dcmClusterIdentifier f x =
+    (\y -> x { _dcmClusterIdentifier = y })
+       <$> f (_dcmClusterIdentifier x)
+{-# INLINE dcmClusterIdentifier #-}
+
+-- | Determines whether a final snapshot of the cluster is created before Amazon
+-- Redshift deletes the cluster. If true, a final cluster snapshot is not
+-- created. If false, a final cluster snapshot is created before the cluster
+-- is deleted. The FinalClusterSnapshotIdentifier parameter must be specified
+-- if SkipFinalClusterSnapshot is false. Default: false.
+dcmSkipFinalClusterSnapshot
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> DeleteCluster
+    -> f DeleteCluster
+dcmSkipFinalClusterSnapshot f x =
+    (\y -> x { _dcmSkipFinalClusterSnapshot = y })
+       <$> f (_dcmSkipFinalClusterSnapshot x)
+{-# INLINE dcmSkipFinalClusterSnapshot #-}
+
+-- | The identifier of the final snapshot that is to be created immediately
+-- before deleting the cluster. If this parameter is provided,
+-- SkipFinalClusterSnapshot must be false. Constraints: Must be 1 to 255
+-- alphanumeric characters. First character must be a letter. Cannot end with
+-- a hyphen or contain two consecutive hyphens.
+dcmFinalClusterSnapshotIdentifier
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DeleteCluster
+    -> f DeleteCluster
+dcmFinalClusterSnapshotIdentifier f x =
+    (\y -> x { _dcmFinalClusterSnapshotIdentifier = y })
+       <$> f (_dcmFinalClusterSnapshotIdentifier x)
+{-# INLINE dcmFinalClusterSnapshotIdentifier #-}
 
 instance ToQuery DeleteCluster where
     toQuery = genericQuery def
 
 data DeleteClusterResponse = DeleteClusterResponse
-    { _czCluster :: Maybe Cluster
+    { _cxCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteClusterResponse
+-- | Describes a cluster.
+cxCluster
+    :: Functor f
+    => (Maybe Cluster
+    -> f (Maybe Cluster))
+    -> DeleteClusterResponse
+    -> f DeleteClusterResponse
+cxCluster f x =
+    (\y -> x { _cxCluster = y })
+       <$> f (_cxCluster x)
+{-# INLINE cxCluster #-}
 
 instance FromXML DeleteClusterResponse where
     fromXMLOptions = xmlOptions

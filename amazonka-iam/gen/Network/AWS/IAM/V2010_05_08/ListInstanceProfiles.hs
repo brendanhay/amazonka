@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,7 +29,24 @@
 -- /application_abc/component_xyz/
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:27:11Z fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM.V2010_05_08.ListInstanceProfiles where
+module Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
+    (
+    -- * Request
+      ListInstanceProfiles
+    -- ** Request constructor
+    , listInstanceProfiles
+    -- ** Request lenses
+    , liprMarker
+    , liprMaxItems
+    , liprPathPrefix
+
+    -- * Response
+    , ListInstanceProfilesResponse
+    -- ** Response lenses
+    , lipsIsTruncated
+    , lipsInstanceProfiles
+    , lipsMarker
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
@@ -64,7 +80,52 @@ data ListInstanceProfiles = ListInstanceProfiles
       -- a slash (/), listing all instance profiles.
     } deriving (Show, Generic)
 
-makeLenses ''ListInstanceProfiles
+-- | Use this parameter only when paginating results, and only in a subsequent
+-- request after you've received a response where the results are truncated.
+-- Set it to the value of the Marker element in the response you just
+-- received.
+liprMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstanceProfiles
+    -> f ListInstanceProfiles
+liprMarker f x =
+    (\y -> x { _liprMarker = y })
+       <$> f (_liprMarker x)
+{-# INLINE liprMarker #-}
+
+-- | Use this parameter only when paginating results to indicate the maximum
+-- number of user names you want in the response. If there are additional user
+-- names beyond the maximum you specify, the IsTruncated response element is
+-- true. This parameter is optional. If you do not include it, it defaults to
+-- 100.
+liprMaxItems
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> ListInstanceProfiles
+    -> f ListInstanceProfiles
+liprMaxItems f x =
+    (\y -> x { _liprMaxItems = y })
+       <$> f (_liprMaxItems x)
+{-# INLINE liprMaxItems #-}
+
+-- | The path prefix for filtering the results. For example:
+-- /application_abc/component_xyz/, which would get all instance profiles
+-- whose path starts with /application_abc/component_xyz/. This parameter is
+-- optional. If it is not included, it defaults to a slash (/), listing all
+-- instance profiles.
+liprPathPrefix
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstanceProfiles
+    -> f ListInstanceProfiles
+liprPathPrefix f x =
+    (\y -> x { _liprPathPrefix = y })
+       <$> f (_liprPathPrefix x)
+{-# INLINE liprPathPrefix #-}
 
 instance ToQuery ListInstanceProfiles where
     toQuery = genericQuery def
@@ -83,7 +144,45 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
       -- request.
     } deriving (Show, Generic)
 
-makeLenses ''ListInstanceProfilesResponse
+-- | A flag that indicates whether there are more instance profiles to list. If
+-- your results were truncated, you can make a subsequent pagination request
+-- using the Marker request parameter to retrieve more instance profiles in
+-- the list.
+lipsIsTruncated
+    :: Functor f
+    => (Bool
+    -> f (Bool))
+    -> ListInstanceProfilesResponse
+    -> f ListInstanceProfilesResponse
+lipsIsTruncated f x =
+    (\y -> x { _lipsIsTruncated = y })
+       <$> f (_lipsIsTruncated x)
+{-# INLINE lipsIsTruncated #-}
+
+-- | A list of instance profiles.
+lipsInstanceProfiles
+    :: Functor f
+    => ([InstanceProfile]
+    -> f ([InstanceProfile]))
+    -> ListInstanceProfilesResponse
+    -> f ListInstanceProfilesResponse
+lipsInstanceProfiles f x =
+    (\y -> x { _lipsInstanceProfiles = y })
+       <$> f (_lipsInstanceProfiles x)
+{-# INLINE lipsInstanceProfiles #-}
+
+-- | If IsTruncated is true, this element is present and contains the value to
+-- use for the Marker parameter in a subsequent pagination request.
+lipsMarker
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ListInstanceProfilesResponse
+    -> f ListInstanceProfilesResponse
+lipsMarker f x =
+    (\y -> x { _lipsMarker = y })
+       <$> f (_lipsMarker x)
+{-# INLINE lipsMarker #-}
 
 instance FromXML ListInstanceProfilesResponse where
     fromXMLOptions = xmlOptions

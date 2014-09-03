@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,32 +31,61 @@
 -- restored-db in-sync default.mysql5.1 active default 00:00-00:30 true
 -- sat:07:30-sat:08:00 10 db.m1.large master
 -- 1ef546bc-850b-11e0-90aa-eb648410240d.
-module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceToPointInTime where
+module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceToPointInTime
+    (
+    -- * Request
+      RestoreDBInstanceToPointInTime
+    -- ** Request constructor
+    , restoreDBInstanceToPointInTime
+    -- ** Request lenses
+    , rdbitpitmSourceDBInstanceIdentifier
+    , rdbitpitmTargetDBInstanceIdentifier
+    , rdbitpitmUseLatestRestorableTime
+    , rdbitpitmMultiAZ
+    , rdbitpitmPubliclyAccessible
+    , rdbitpitmAutoMinorVersionUpgrade
+    , rdbitpitmPort
+    , rdbitpitmIops
+    , rdbitpitmDBInstanceClass
+    , rdbitpitmAvailabilityZone
+    , rdbitpitmDBSubnetGroupName
+    , rdbitpitmLicenseModel
+    , rdbitpitmDBName
+    , rdbitpitmEngine
+    , rdbitpitmOptionGroupName
+    , rdbitpitmRestoreTime
+    , rdbitpitmTags
+
+    -- * Response
+    , RestoreDBInstanceToPointInTimeResponse
+    -- ** Response lenses
+    , dbiduDBInstance
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'RestoreDBInstanceToPointInTime' request.
-restoreDBInstanceToPointInTime :: Text -- ^ '_rdbitpitmSourceDBInstanceIdentifier'
-                               -> Text -- ^ '_rdbitpitmTargetDBInstanceIdentifier'
+restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitmSourceDBInstanceIdentifier'
+                               -> Text -- ^ 'rdbitpitmTargetDBInstanceIdentifier'
                                -> RestoreDBInstanceToPointInTime
 restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
     { _rdbitpitmSourceDBInstanceIdentifier = p1
     , _rdbitpitmTargetDBInstanceIdentifier = p2
     , _rdbitpitmUseLatestRestorableTime = Nothing
     , _rdbitpitmMultiAZ = Nothing
-    , _rdbitpitmAutoMinorVersionUpgrade = Nothing
     , _rdbitpitmPubliclyAccessible = Nothing
+    , _rdbitpitmAutoMinorVersionUpgrade = Nothing
     , _rdbitpitmPort = Nothing
     , _rdbitpitmIops = Nothing
-    , _rdbitpitmDBName = Nothing
-    , _rdbitpitmOptionGroupName = Nothing
-    , _rdbitpitmAvailabilityZone = Nothing
-    , _rdbitpitmLicenseModel = Nothing
     , _rdbitpitmDBInstanceClass = Nothing
-    , _rdbitpitmEngine = Nothing
+    , _rdbitpitmAvailabilityZone = Nothing
     , _rdbitpitmDBSubnetGroupName = Nothing
+    , _rdbitpitmLicenseModel = Nothing
+    , _rdbitpitmDBName = Nothing
+    , _rdbitpitmEngine = Nothing
+    , _rdbitpitmOptionGroupName = Nothing
     , _rdbitpitmRestoreTime = Nothing
     , _rdbitpitmTags = mempty
     }
@@ -82,9 +110,6 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
       -- ^ Specifies if the DB instance is a Multi-AZ deployment.
       -- Constraint: You cannot specify the AvailabilityZone parameter if
       -- the MultiAZ parameter is set to true.
-    , _rdbitpitmAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that minor version upgrades will be applied
-      -- automatically to the DB instance during the maintenance window.
     , _rdbitpitmPubliclyAccessible :: Maybe Bool
       -- ^ Specifies the accessibility options for the DB instance. A value
       -- of true specifies an Internet-facing instance with a publicly
@@ -99,6 +124,9 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
       -- a specific DB subnet group has been specified as part of the
       -- request and the PubliclyAccessible value has not been set, the DB
       -- instance will be private.
+    , _rdbitpitmAutoMinorVersionUpgrade :: Maybe Bool
+      -- ^ Indicates that minor version upgrades will be applied
+      -- automatically to the DB instance during the maintenance window.
     , _rdbitpitmPort :: Maybe Integer
       -- ^ The port number on which the database accepts connections.
       -- Constraints: Value must be 1150-65535 Default: The same port as
@@ -107,9 +135,29 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
       -- ^ The amount of Provisioned IOPS (input/output operations per
       -- second) to be initially allocated for the DB instance.
       -- Constraints: Must be an integer greater than 1000.
+    , _rdbitpitmDBInstanceClass :: Maybe Text
+      -- ^ The compute and memory capacity of the Amazon RDS DB instance.
+      -- Valid Values: db.t1.micro | db.m1.small | db.m1.medium |
+      -- db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge
+      -- Default: The same DBInstanceClass as the original DB instance.
+    , _rdbitpitmAvailabilityZone :: Maybe Text
+      -- ^ The EC2 Availability Zone that the database instance will be
+      -- created in. Default: A random, system-chosen Availability Zone.
+      -- Constraint: You cannot specify the AvailabilityZone parameter if
+      -- the MultiAZ parameter is set to true. Example: us-east-1a.
+    , _rdbitpitmDBSubnetGroupName :: Maybe Text
+      -- ^ The DB subnet group name to use for the new instance.
+    , _rdbitpitmLicenseModel :: Maybe Text
+      -- ^ License model information for the restored DB instance. Default:
+      -- Same as source. Valid values: license-included |
+      -- bring-your-own-license | general-public-license.
     , _rdbitpitmDBName :: Maybe Text
       -- ^ The database name for the restored DB instance. This parameter is
       -- not used for the MySQL engine.
+    , _rdbitpitmEngine :: Maybe Text
+      -- ^ The database engine to use for the new instance. Default: The
+      -- same as source Constraint: Must be compatible with the engine of
+      -- the source Example: oracle-ee.
     , _rdbitpitmOptionGroupName :: Maybe Text
       -- ^ The name of the option group to be used for the restored DB
       -- instance. cannot be removed from an option group while DB
@@ -118,26 +166,6 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
       -- cannot be removed from an option group, and that option group
       -- cannot be removed from a DB instance once it is associated with a
       -- DB instance.
-    , _rdbitpitmAvailabilityZone :: Maybe Text
-      -- ^ The EC2 Availability Zone that the database instance will be
-      -- created in. Default: A random, system-chosen Availability Zone.
-      -- Constraint: You cannot specify the AvailabilityZone parameter if
-      -- the MultiAZ parameter is set to true. Example: us-east-1a.
-    , _rdbitpitmLicenseModel :: Maybe Text
-      -- ^ License model information for the restored DB instance. Default:
-      -- Same as source. Valid values: license-included |
-      -- bring-your-own-license | general-public-license.
-    , _rdbitpitmDBInstanceClass :: Maybe Text
-      -- ^ The compute and memory capacity of the Amazon RDS DB instance.
-      -- Valid Values: db.t1.micro | db.m1.small | db.m1.medium |
-      -- db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge
-      -- Default: The same DBInstanceClass as the original DB instance.
-    , _rdbitpitmEngine :: Maybe Text
-      -- ^ The database engine to use for the new instance. Default: The
-      -- same as source Constraint: Must be compatible with the engine of
-      -- the source Example: oracle-ee.
-    , _rdbitpitmDBSubnetGroupName :: Maybe Text
-      -- ^ The DB subnet group name to use for the new instance.
     , _rdbitpitmRestoreTime :: Maybe ISO8601
       -- ^ The date and time to restore from. Valid Values: Value must be a
       -- UTC time Constraints: Must be before the latest restorable time
@@ -148,20 +176,279 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
       -- ^ A list of tags.
     } deriving (Show, Generic)
 
-makeLenses ''RestoreDBInstanceToPointInTime
+-- | The identifier of the source DB instance from which to restore.
+-- Constraints: Must be the identifier of an existing database instance Must
+-- contain from 1 to 63 alphanumeric characters or hyphens First character
+-- must be a letter Cannot end with a hyphen or contain two consecutive
+-- hyphens.
+rdbitpitmSourceDBInstanceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmSourceDBInstanceIdentifier f x =
+    (\y -> x { _rdbitpitmSourceDBInstanceIdentifier = y })
+       <$> f (_rdbitpitmSourceDBInstanceIdentifier x)
+{-# INLINE rdbitpitmSourceDBInstanceIdentifier #-}
+
+-- | The name of the new database instance to be created. Constraints: Must
+-- contain from 1 to 63 alphanumeric characters or hyphens First character
+-- must be a letter Cannot end with a hyphen or contain two consecutive
+-- hyphens.
+rdbitpitmTargetDBInstanceIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmTargetDBInstanceIdentifier f x =
+    (\y -> x { _rdbitpitmTargetDBInstanceIdentifier = y })
+       <$> f (_rdbitpitmTargetDBInstanceIdentifier x)
+{-# INLINE rdbitpitmTargetDBInstanceIdentifier #-}
+
+-- | Specifies whether (true) or not (false) the DB instance is restored from
+-- the latest backup time. Default: false Constraints: Cannot be specified if
+-- RestoreTime parameter is provided.
+rdbitpitmUseLatestRestorableTime
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmUseLatestRestorableTime f x =
+    (\y -> x { _rdbitpitmUseLatestRestorableTime = y })
+       <$> f (_rdbitpitmUseLatestRestorableTime x)
+{-# INLINE rdbitpitmUseLatestRestorableTime #-}
+
+-- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You
+-- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
+-- set to true.
+rdbitpitmMultiAZ
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmMultiAZ f x =
+    (\y -> x { _rdbitpitmMultiAZ = y })
+       <$> f (_rdbitpitmMultiAZ x)
+{-# INLINE rdbitpitmMultiAZ #-}
+
+-- | Specifies the accessibility options for the DB instance. A value of true
+-- specifies an Internet-facing instance with a publicly resolvable DNS name,
+-- which resolves to a public IP address. A value of false specifies an
+-- internal instance with a DNS name that resolves to a private IP address.
+-- Default: The default behavior varies depending on whether a VPC has been
+-- requested or not. The following list shows the default behavior in each
+-- case. Default VPC:true VPC:false If no DB subnet group has been specified
+-- as part of the request and the PubliclyAccessible value has not been set,
+-- the DB instance will be publicly accessible. If a specific DB subnet group
+-- has been specified as part of the request and the PubliclyAccessible value
+-- has not been set, the DB instance will be private.
+rdbitpitmPubliclyAccessible
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmPubliclyAccessible f x =
+    (\y -> x { _rdbitpitmPubliclyAccessible = y })
+       <$> f (_rdbitpitmPubliclyAccessible x)
+{-# INLINE rdbitpitmPubliclyAccessible #-}
+
+-- | Indicates that minor version upgrades will be applied automatically to the
+-- DB instance during the maintenance window.
+rdbitpitmAutoMinorVersionUpgrade
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmAutoMinorVersionUpgrade f x =
+    (\y -> x { _rdbitpitmAutoMinorVersionUpgrade = y })
+       <$> f (_rdbitpitmAutoMinorVersionUpgrade x)
+{-# INLINE rdbitpitmAutoMinorVersionUpgrade #-}
+
+-- | The port number on which the database accepts connections. Constraints:
+-- Value must be 1150-65535 Default: The same port as the original DB
+-- instance.
+rdbitpitmPort
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmPort f x =
+    (\y -> x { _rdbitpitmPort = y })
+       <$> f (_rdbitpitmPort x)
+{-# INLINE rdbitpitmPort #-}
+
+-- | The amount of Provisioned IOPS (input/output operations per second) to be
+-- initially allocated for the DB instance. Constraints: Must be an integer
+-- greater than 1000.
+rdbitpitmIops
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmIops f x =
+    (\y -> x { _rdbitpitmIops = y })
+       <$> f (_rdbitpitmIops x)
+{-# INLINE rdbitpitmIops #-}
+
+-- | The compute and memory capacity of the Amazon RDS DB instance. Valid
+-- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
+-- db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge Default: The same
+-- DBInstanceClass as the original DB instance.
+rdbitpitmDBInstanceClass
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmDBInstanceClass f x =
+    (\y -> x { _rdbitpitmDBInstanceClass = y })
+       <$> f (_rdbitpitmDBInstanceClass x)
+{-# INLINE rdbitpitmDBInstanceClass #-}
+
+-- | The EC2 Availability Zone that the database instance will be created in.
+-- Default: A random, system-chosen Availability Zone. Constraint: You cannot
+-- specify the AvailabilityZone parameter if the MultiAZ parameter is set to
+-- true. Example: us-east-1a.
+rdbitpitmAvailabilityZone
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmAvailabilityZone f x =
+    (\y -> x { _rdbitpitmAvailabilityZone = y })
+       <$> f (_rdbitpitmAvailabilityZone x)
+{-# INLINE rdbitpitmAvailabilityZone #-}
+
+-- | The DB subnet group name to use for the new instance.
+rdbitpitmDBSubnetGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmDBSubnetGroupName f x =
+    (\y -> x { _rdbitpitmDBSubnetGroupName = y })
+       <$> f (_rdbitpitmDBSubnetGroupName x)
+{-# INLINE rdbitpitmDBSubnetGroupName #-}
+
+-- | License model information for the restored DB instance. Default: Same as
+-- source. Valid values: license-included | bring-your-own-license |
+-- general-public-license.
+rdbitpitmLicenseModel
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmLicenseModel f x =
+    (\y -> x { _rdbitpitmLicenseModel = y })
+       <$> f (_rdbitpitmLicenseModel x)
+{-# INLINE rdbitpitmLicenseModel #-}
+
+-- | The database name for the restored DB instance. This parameter is not used
+-- for the MySQL engine.
+rdbitpitmDBName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmDBName f x =
+    (\y -> x { _rdbitpitmDBName = y })
+       <$> f (_rdbitpitmDBName x)
+{-# INLINE rdbitpitmDBName #-}
+
+-- | The database engine to use for the new instance. Default: The same as
+-- source Constraint: Must be compatible with the engine of the source
+-- Example: oracle-ee.
+rdbitpitmEngine
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmEngine f x =
+    (\y -> x { _rdbitpitmEngine = y })
+       <$> f (_rdbitpitmEngine x)
+{-# INLINE rdbitpitmEngine #-}
+
+-- | The name of the option group to be used for the restored DB instance.
+-- cannot be removed from an option group while DB instances are associated
+-- with the option group. --> Permanent options, such as the TDE option for
+-- Oracle Advanced Security TDE, cannot be removed from an option group, and
+-- that option group cannot be removed from a DB instance once it is
+-- associated with a DB instance.
+rdbitpitmOptionGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmOptionGroupName f x =
+    (\y -> x { _rdbitpitmOptionGroupName = y })
+       <$> f (_rdbitpitmOptionGroupName x)
+{-# INLINE rdbitpitmOptionGroupName #-}
+
+-- | The date and time to restore from. Valid Values: Value must be a UTC time
+-- Constraints: Must be before the latest restorable time for the DB instance
+-- Cannot be specified if UseLatestRestorableTime parameter is true Example:
+-- 2009-09-07T23:45:00Z.
+rdbitpitmRestoreTime
+    :: Functor f
+    => (Maybe ISO8601
+    -> f (Maybe ISO8601))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmRestoreTime f x =
+    (\y -> x { _rdbitpitmRestoreTime = y })
+       <$> f (_rdbitpitmRestoreTime x)
+{-# INLINE rdbitpitmRestoreTime #-}
+
+-- | A list of tags.
+rdbitpitmTags
+    :: Functor f
+    => ([Tag]
+    -> f ([Tag]))
+    -> RestoreDBInstanceToPointInTime
+    -> f RestoreDBInstanceToPointInTime
+rdbitpitmTags f x =
+    (\y -> x { _rdbitpitmTags = y })
+       <$> f (_rdbitpitmTags x)
+{-# INLINE rdbitpitmTags #-}
 
 instance ToQuery RestoreDBInstanceToPointInTime where
     toQuery = genericQuery def
 
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
-    { _dbidrDBInstance :: Maybe DBInstance
+    { _dbiduDBInstance :: Maybe DBInstance
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
       -- data type is used as a response element in the
       -- DescribeDBInstances action.
     } deriving (Show, Generic)
 
-makeLenses ''RestoreDBInstanceToPointInTimeResponse
+-- | Contains the result of a successful invocation of the following actions:
+-- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
+-- as a response element in the DescribeDBInstances action.
+dbiduDBInstance
+    :: Functor f
+    => (Maybe DBInstance
+    -> f (Maybe DBInstance))
+    -> RestoreDBInstanceToPointInTimeResponse
+    -> f RestoreDBInstanceToPointInTimeResponse
+dbiduDBInstance f x =
+    (\y -> x { _dbiduDBInstance = y })
+       <$> f (_dbiduDBInstance x)
+{-# INLINE dbiduDBInstance #-}
 
 instance FromXML RestoreDBInstanceToPointInTimeResponse where
     fromXMLOptions = xmlOptions

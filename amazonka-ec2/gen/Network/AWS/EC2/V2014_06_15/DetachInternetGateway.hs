@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,12 +31,10 @@ module Network.AWS.EC2.V2014_06_15.DetachInternetGateway
     (
     -- * Request
       DetachInternetGateway
-    -- ** Default constructor
+    -- ** Request constructor
     , detachInternetGateway
-    -- ** Accessors and lenses
-    , _diguInternetGatewayId
+    -- ** Request lenses
     , diguInternetGatewayId
-    , _diguVpcId
     , diguVpcId
 
     -- * Response
@@ -58,8 +55,35 @@ detachInternetGateway p1 p2 = DetachInternetGateway
     }
 
 data DetachInternetGateway = DetachInternetGateway
+    { _diguInternetGatewayId :: Text
+      -- ^ The ID of the Internet gateway.
+    , _diguVpcId :: Text
+      -- ^ The ID of the VPC.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''DetachInternetGateway
+-- | The ID of the Internet gateway.
+diguInternetGatewayId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachInternetGateway
+    -> f DetachInternetGateway
+diguInternetGatewayId f x =
+    (\y -> x { _diguInternetGatewayId = y })
+       <$> f (_diguInternetGatewayId x)
+{-# INLINE diguInternetGatewayId #-}
+
+-- | The ID of the VPC.
+diguVpcId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DetachInternetGateway
+    -> f DetachInternetGateway
+diguVpcId f x =
+    (\y -> x { _diguVpcId = y })
+       <$> f (_diguVpcId x)
+{-# INLINE diguVpcId #-}
 
 instance ToQuery DetachInternetGateway where
     toQuery = genericQuery def
@@ -67,17 +91,9 @@ instance ToQuery DetachInternetGateway where
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''DetachInternetGatewayResponse
-
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2
     type Rs DetachInternetGateway = DetachInternetGatewayResponse
 
     request = post "DetachInternetGateway"
     response _ = nullaryResponse DetachInternetGatewayResponse
-
--- | The ID of the Internet gateway.
-diguInternetGatewayId :: Lens' DetachInternetGateway (Text)
-
--- | The ID of the VPC.
-diguVpcId :: Lens' DetachInternetGateway (Text)

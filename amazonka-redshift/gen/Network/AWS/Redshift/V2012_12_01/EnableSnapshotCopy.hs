@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,49 +19,114 @@
 
 -- | Enables the automatic copy of snapshots from one region to another region
 -- for a specified cluster.
-module Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy where
+module Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy
+    (
+    -- * Request
+      EnableSnapshotCopy
+    -- ** Request constructor
+    , enableSnapshotCopy
+    -- ** Request lenses
+    , escmClusterIdentifier
+    , escmDestinationRegion
+    , escmRetentionPeriod
+
+    -- * Response
+    , EnableSnapshotCopyResponse
+    -- ** Response lenses
+    , czCluster
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'EnableSnapshotCopy' request.
-enableSnapshotCopy :: Text -- ^ '_escmDestinationRegion'
-                   -> Text -- ^ '_escmClusterIdentifier'
+enableSnapshotCopy :: Text -- ^ 'escmClusterIdentifier'
+                   -> Text -- ^ 'escmDestinationRegion'
                    -> EnableSnapshotCopy
 enableSnapshotCopy p1 p2 = EnableSnapshotCopy
-    { _escmDestinationRegion = p1
-    , _escmClusterIdentifier = p2
+    { _escmClusterIdentifier = p1
+    , _escmDestinationRegion = p2
     , _escmRetentionPeriod = Nothing
     }
 
 data EnableSnapshotCopy = EnableSnapshotCopy
-    { _escmDestinationRegion :: Text
+    { _escmClusterIdentifier :: Text
+      -- ^ The unique identifier of the source cluster to copy snapshots
+      -- from. Constraints: Must be the valid name of an existing cluster
+      -- that does not already have cross-region snapshot copy enabled.
+    , _escmDestinationRegion :: Text
       -- ^ The destination region that you want to copy snapshots to.
       -- Constraints: Must be the name of a valid region. For more
       -- information, see Regions and Endpoints in the Amazon Web Services
       -- General Reference.
-    , _escmClusterIdentifier :: Text
-      -- ^ The unique identifier of the source cluster to copy snapshots
-      -- from. Constraints: Must be the valid name of an existing cluster
-      -- that does not already have cross-region snapshot copy enabled.
     , _escmRetentionPeriod :: Maybe Integer
       -- ^ The number of days to retain automated snapshots in the
       -- destination region after they are copied from the source region.
       -- Default: 7. Constraints: Must be at least 1 and no more than 35.
     } deriving (Show, Generic)
 
-makeLenses ''EnableSnapshotCopy
+-- | The unique identifier of the source cluster to copy snapshots from.
+-- Constraints: Must be the valid name of an existing cluster that does not
+-- already have cross-region snapshot copy enabled.
+escmClusterIdentifier
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableSnapshotCopy
+    -> f EnableSnapshotCopy
+escmClusterIdentifier f x =
+    (\y -> x { _escmClusterIdentifier = y })
+       <$> f (_escmClusterIdentifier x)
+{-# INLINE escmClusterIdentifier #-}
+
+-- | The destination region that you want to copy snapshots to. Constraints:
+-- Must be the name of a valid region. For more information, see Regions and
+-- Endpoints in the Amazon Web Services General Reference.
+escmDestinationRegion
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableSnapshotCopy
+    -> f EnableSnapshotCopy
+escmDestinationRegion f x =
+    (\y -> x { _escmDestinationRegion = y })
+       <$> f (_escmDestinationRegion x)
+{-# INLINE escmDestinationRegion #-}
+
+-- | The number of days to retain automated snapshots in the destination region
+-- after they are copied from the source region. Default: 7. Constraints: Must
+-- be at least 1 and no more than 35.
+escmRetentionPeriod
+    :: Functor f
+    => (Maybe Integer
+    -> f (Maybe Integer))
+    -> EnableSnapshotCopy
+    -> f EnableSnapshotCopy
+escmRetentionPeriod f x =
+    (\y -> x { _escmRetentionPeriod = y })
+       <$> f (_escmRetentionPeriod x)
+{-# INLINE escmRetentionPeriod #-}
 
 instance ToQuery EnableSnapshotCopy where
     toQuery = genericQuery def
 
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
-    { _cwCluster :: Maybe Cluster
+    { _czCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
-makeLenses ''EnableSnapshotCopyResponse
+-- | Describes a cluster.
+czCluster
+    :: Functor f
+    => (Maybe Cluster
+    -> f (Maybe Cluster))
+    -> EnableSnapshotCopyResponse
+    -> f EnableSnapshotCopyResponse
+czCluster f x =
+    (\y -> x { _czCluster = y })
+       <$> f (_czCluster x)
+{-# INLINE czCluster #-}
 
 instance FromXML EnableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

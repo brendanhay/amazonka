@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,14 +30,30 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date Your parameter group has
 -- been updated but changes won't get applied until you reboot the associated
 -- Clusters. parametergroup1 625d23c1-40dc-11e2-8a25-eb010998df4e.
-module Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup where
+module Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup
+    (
+    -- * Request
+      ResetClusterParameterGroup
+    -- ** Request constructor
+    , resetClusterParameterGroup
+    -- ** Request lenses
+    , rcpgmParameterGroupName
+    , rcpgmResetAllParameters
+    , rcpgmParameters
+
+    -- * Response
+    , ResetClusterParameterGroupResponse
+    -- ** Response lenses
+    , cpgnnParameterGroupName
+    , cpgnnParameterGroupStatus
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
 -- | Minimum specification for a 'ResetClusterParameterGroup' request.
-resetClusterParameterGroup :: Text -- ^ '_rcpgmParameterGroupName'
+resetClusterParameterGroup :: Text -- ^ 'rcpgmParameterGroupName'
                            -> ResetClusterParameterGroup
 resetClusterParameterGroup p1 = ResetClusterParameterGroup
     { _rcpgmParameterGroupName = p1
@@ -59,21 +74,82 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
       -- parameters can be reset in a single request.
     } deriving (Show, Generic)
 
-makeLenses ''ResetClusterParameterGroup
+-- | The name of the cluster parameter group to be reset.
+rcpgmParameterGroupName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResetClusterParameterGroup
+    -> f ResetClusterParameterGroup
+rcpgmParameterGroupName f x =
+    (\y -> x { _rcpgmParameterGroupName = y })
+       <$> f (_rcpgmParameterGroupName x)
+{-# INLINE rcpgmParameterGroupName #-}
+
+-- | If true, all parameters in the specified parameter group will be reset to
+-- their default values. Default: true.
+rcpgmResetAllParameters
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ResetClusterParameterGroup
+    -> f ResetClusterParameterGroup
+rcpgmResetAllParameters f x =
+    (\y -> x { _rcpgmResetAllParameters = y })
+       <$> f (_rcpgmResetAllParameters x)
+{-# INLINE rcpgmResetAllParameters #-}
+
+-- | An array of names of parameters to be reset. If ResetAllParameters option
+-- is not used, then at least one parameter name must be supplied.
+-- Constraints: A maximum of 20 parameters can be reset in a single request.
+rcpgmParameters
+    :: Functor f
+    => ([Parameter]
+    -> f ([Parameter]))
+    -> ResetClusterParameterGroup
+    -> f ResetClusterParameterGroup
+rcpgmParameters f x =
+    (\y -> x { _rcpgmParameters = y })
+       <$> f (_rcpgmParameters x)
+{-# INLINE rcpgmParameters #-}
 
 instance ToQuery ResetClusterParameterGroup where
     toQuery = genericQuery def
 
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
-    { _cpgnmParameterGroupName :: Maybe Text
+    { _cpgnnParameterGroupName :: Maybe Text
       -- ^ The name of the cluster parameter group.
-    , _cpgnmParameterGroupStatus :: Maybe Text
+    , _cpgnnParameterGroupStatus :: Maybe Text
       -- ^ The status of the parameter group. For example, if you made a
       -- change to a parameter group name-value pair, then the change
       -- could be pending a reboot of an associated cluster.
     } deriving (Show, Generic)
 
-makeLenses ''ResetClusterParameterGroupResponse
+-- | The name of the cluster parameter group.
+cpgnnParameterGroupName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResetClusterParameterGroupResponse
+    -> f ResetClusterParameterGroupResponse
+cpgnnParameterGroupName f x =
+    (\y -> x { _cpgnnParameterGroupName = y })
+       <$> f (_cpgnnParameterGroupName x)
+{-# INLINE cpgnnParameterGroupName #-}
+
+-- | The status of the parameter group. For example, if you made a change to a
+-- parameter group name-value pair, then the change could be pending a reboot
+-- of an associated cluster.
+cpgnnParameterGroupStatus
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> ResetClusterParameterGroupResponse
+    -> f ResetClusterParameterGroupResponse
+cpgnnParameterGroupStatus f x =
+    (\y -> x { _cpgnnParameterGroupStatus = y })
+       <$> f (_cpgnnParameterGroupStatus x)
+{-# INLINE cpgnnParameterGroupStatus #-}
 
 instance FromXML ResetClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

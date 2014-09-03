@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,10 +29,9 @@ module Network.AWS.EC2.V2014_06_15.EnableVolumeIO
     (
     -- * Request
       EnableVolumeIO
-    -- ** Default constructor
+    -- ** Request constructor
     , enableVolumeIO
-    -- ** Accessors and lenses
-    , _eviorVolumeId
+    -- ** Request lenses
     , eviorVolumeId
 
     -- * Response
@@ -52,8 +50,21 @@ enableVolumeIO p1 = EnableVolumeIO
     }
 
 data EnableVolumeIO = EnableVolumeIO
+    { _eviorVolumeId :: Text
+      -- ^ The ID of the volume.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''EnableVolumeIO
+-- | The ID of the volume.
+eviorVolumeId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> EnableVolumeIO
+    -> f EnableVolumeIO
+eviorVolumeId f x =
+    (\y -> x { _eviorVolumeId = y })
+       <$> f (_eviorVolumeId x)
+{-# INLINE eviorVolumeId #-}
 
 instance ToQuery EnableVolumeIO where
     toQuery = genericQuery def
@@ -61,14 +72,9 @@ instance ToQuery EnableVolumeIO where
 data EnableVolumeIOResponse = EnableVolumeIOResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''EnableVolumeIOResponse
-
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2
     type Rs EnableVolumeIO = EnableVolumeIOResponse
 
     request = post "EnableVolumeIO"
     response _ = nullaryResponse EnableVolumeIOResponse
-
--- | The ID of the volume.
-eviorVolumeId :: Lens' EnableVolumeIO (Text)

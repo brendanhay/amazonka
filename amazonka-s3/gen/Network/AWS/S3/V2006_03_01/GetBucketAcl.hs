@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -19,17 +18,47 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets the access control policy for the bucket.
-module Network.AWS.S3.V2006_03_01.GetBucketAcl where
+module Network.AWS.S3.V2006_03_01.GetBucketAcl
+    (
+    -- * Request
+      GetBucketAcl
+    -- ** Request constructor
+    , getBucketAcl
+    -- ** Request lenses
+    , gbarBucket
+
+    -- * Response
+    , GetBucketAclResponse
+    -- ** Response lenses
+    , gbaoGrants
+    , gbaoOwner
+    ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetBucketAcl' request.
+getBucketAcl :: BucketName -- ^ 'gbarBucket'
+             -> GetBucketAcl
+getBucketAcl p1 = GetBucketAcl
+    { _gbarBucket = p1
+    }
+
 data GetBucketAcl = GetBucketAcl
     { _gbarBucket :: BucketName
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketAcl
+gbarBucket
+    :: Functor f
+    => (BucketName
+    -> f (BucketName))
+    -> GetBucketAcl
+    -> f GetBucketAcl
+gbarBucket f x =
+    (\y -> x { _gbarBucket = y })
+       <$> f (_gbarBucket x)
+{-# INLINE gbarBucket #-}
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
@@ -52,7 +81,28 @@ data GetBucketAclResponse = GetBucketAclResponse
     , _gbaoOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-makeLenses ''GetBucketAclResponse
+-- | A list of grants.
+gbaoGrants
+    :: Functor f
+    => ([Grant]
+    -> f ([Grant]))
+    -> GetBucketAclResponse
+    -> f GetBucketAclResponse
+gbaoGrants f x =
+    (\y -> x { _gbaoGrants = y })
+       <$> f (_gbaoGrants x)
+{-# INLINE gbaoGrants #-}
+
+gbaoOwner
+    :: Functor f
+    => (Maybe Owner
+    -> f (Maybe Owner))
+    -> GetBucketAclResponse
+    -> f GetBucketAclResponse
+gbaoOwner f x =
+    (\y -> x { _gbaoOwner = y })
+       <$> f (_gbaoOwner x)
+{-# INLINE gbaoOwner #-}
 
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions

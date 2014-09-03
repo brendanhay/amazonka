@@ -49,31 +49,31 @@ library
           Network.AWS.SNS
         , Network.AWS.SNS.V2010_03_31
         , Network.AWS.SNS.V2010_03_31.Types
-        , Network.AWS.SNS.V2010_03_31.DeleteEndpoint
-        , Network.AWS.SNS.V2010_03_31.RemovePermission
-        , Network.AWS.SNS.V2010_03_31.DeleteTopic
-        , Network.AWS.SNS.V2010_03_31.ListTopics
-        , Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
-        , Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
-        , Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
-        , Network.AWS.SNS.V2010_03_31.GetTopicAttributes
-        , Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
-        , Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
-        , Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
-        , Network.AWS.SNS.V2010_03_31.SetTopicAttributes
-        , Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
-        , Network.AWS.SNS.V2010_03_31.ListPlatformApplications
         , Network.AWS.SNS.V2010_03_31.AddPermission
-        , Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
-        , Network.AWS.SNS.V2010_03_31.ListSubscriptions
-        , Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
+        , Network.AWS.SNS.V2010_03_31.ConfirmSubscription
+        , Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
+        , Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
         , Network.AWS.SNS.V2010_03_31.CreateTopic
+        , Network.AWS.SNS.V2010_03_31.DeleteEndpoint
+        , Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
+        , Network.AWS.SNS.V2010_03_31.DeleteTopic
+        , Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
+        , Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
+        , Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
+        , Network.AWS.SNS.V2010_03_31.GetTopicAttributes
+        , Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
+        , Network.AWS.SNS.V2010_03_31.ListPlatformApplications
+        , Network.AWS.SNS.V2010_03_31.ListSubscriptions
+        , Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
+        , Network.AWS.SNS.V2010_03_31.ListTopics
+        , Network.AWS.SNS.V2010_03_31.Publish
+        , Network.AWS.SNS.V2010_03_31.RemovePermission
+        , Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
+        , Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
+        , Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
+        , Network.AWS.SNS.V2010_03_31.SetTopicAttributes
         , Network.AWS.SNS.V2010_03_31.Subscribe
         , Network.AWS.SNS.V2010_03_31.Unsubscribe
-        , Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
-        , Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
-        , Network.AWS.SNS.V2010_03_31.ConfirmSubscription
-        , Network.AWS.SNS.V2010_03_31.Publish
 
     build-depends:
           amazonka-core

@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,12 +35,10 @@ module Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute
     (
     -- * Request
       ResetInstanceAttribute
-    -- ** Default constructor
+    -- ** Request constructor
     , resetInstanceAttribute
-    -- ** Accessors and lenses
-    , _riasAttribute
+    -- ** Request lenses
     , riasAttribute
-    , _riasInstanceId
     , riasInstanceId
 
     -- * Response
@@ -62,8 +59,35 @@ resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     }
 
 data ResetInstanceAttribute = ResetInstanceAttribute
+    { _riasAttribute :: InstanceAttributeName
+      -- ^ The attribute to reset.
+    , _riasInstanceId :: Text
+      -- ^ The ID of the instance.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''ResetInstanceAttribute
+-- | The attribute to reset.
+riasAttribute
+    :: Functor f
+    => (InstanceAttributeName
+    -> f (InstanceAttributeName))
+    -> ResetInstanceAttribute
+    -> f ResetInstanceAttribute
+riasAttribute f x =
+    (\y -> x { _riasAttribute = y })
+       <$> f (_riasAttribute x)
+{-# INLINE riasAttribute #-}
+
+-- | The ID of the instance.
+riasInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ResetInstanceAttribute
+    -> f ResetInstanceAttribute
+riasInstanceId f x =
+    (\y -> x { _riasInstanceId = y })
+       <$> f (_riasInstanceId x)
+{-# INLINE riasInstanceId #-}
 
 instance ToQuery ResetInstanceAttribute where
     toQuery = genericQuery def
@@ -71,17 +95,9 @@ instance ToQuery ResetInstanceAttribute where
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
     deriving (Eq, Show, Generic)
 
-makeSiglessLenses ''ResetInstanceAttributeResponse
-
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2
     type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
 
     request = post "ResetInstanceAttribute"
     response _ = nullaryResponse ResetInstanceAttributeResponse
-
--- | The attribute to reset.
-riasAttribute :: Lens' ResetInstanceAttribute (InstanceAttributeName)
-
--- | The ID of the instance.
-riasInstanceId :: Lens' ResetInstanceAttribute (Text)

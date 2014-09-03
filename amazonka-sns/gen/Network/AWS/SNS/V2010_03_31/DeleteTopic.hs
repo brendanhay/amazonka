@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,11 +31,29 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;f3aa9ac9-3c3d-11df-8235-9dab105e9c32&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.DeleteTopic where
+module Network.AWS.SNS.V2010_03_31.DeleteTopic
+    (
+    -- * Request
+      DeleteTopic
+    -- ** Request constructor
+    , deleteTopic
+    -- ** Request lenses
+    , dtiTopicArn
+
+    -- * Response
+    , DeleteTopicResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteTopic' request.
+deleteTopic :: Text -- ^ 'dtiTopicArn'
+            -> DeleteTopic
+deleteTopic p1 = DeleteTopic
+    { _dtiTopicArn = p1
+    }
 
 data DeleteTopic = DeleteTopic
     { _dtiTopicArn :: Text
@@ -55,15 +72,34 @@ data DeleteTopic = DeleteTopic
       -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteTopic
+-- | The ARN of the topic you want to delete.
+-- http://sns.us-east-1.amazonaws.com/
+-- ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic
+-- &amp;Action=DeleteTopic &amp;SignatureVersion=2
+-- &amp;SignatureMethod=HmacSHA256 &amp;Timestamp=2010-03-31T12%3A00%3A00.000Z
+-- &amp;AWSAccessKeyId=(AWS Access Key ID)
+-- &amp;Signature=DjHBa%2BbYCKQAzctOPnLP7MbHnrHT3%2FK3kFEZjwcf9%2FU%3D
+-- &lt;DeleteTopicResponse
+-- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
+-- &lt;ResponseMetadata&gt;
+-- &lt;RequestId&gt;fba800b9-3765-11df-8cf3-c58c53254dfb&lt;/RequestId&gt;
+-- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
+dtiTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteTopic
+    -> f DeleteTopic
+dtiTopicArn f x =
+    (\y -> x { _dtiTopicArn = y })
+       <$> f (_dtiTopicArn x)
+{-# INLINE dtiTopicArn #-}
 
 instance ToQuery DeleteTopic where
     toQuery = genericQuery def
 
 data DeleteTopicResponse = DeleteTopicResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteTopicResponse
 
 instance AWSRequest DeleteTopic where
     type Sv DeleteTopic = SNS

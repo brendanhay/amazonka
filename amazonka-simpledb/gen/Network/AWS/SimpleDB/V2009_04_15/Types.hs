@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,7 +32,49 @@
 -- provisioning, high availability, software maintenance, schema and index
 -- management, or performance tuning.
 module Network.AWS.SimpleDB.V2009_04_15.Types
-    ( module Network.AWS.SimpleDB.V2009_04_15.Types
+    (
+    -- * Service
+      SimpleDB
+    -- ** Errors
+    , Er (..)
+    -- ** XML
+    , xmlOptions
+
+    -- * Attribute
+    , Attribute (..)
+    , aName
+    , aAlternateNameEncoding
+    , aValue
+    , aAlternateValueEncoding
+
+    -- * DeletableItem
+    , DeletableItem (..)
+    , diName
+    , diAttributes
+
+    -- * Item
+    , Item (..)
+    , imName
+    , imAlternateNameEncoding
+    , imAttributes
+
+    -- * ReplaceableAttribute
+    , ReplaceableAttribute (..)
+    , raName
+    , raValue
+    , raReplace
+
+    -- * ReplaceableItem
+    , ReplaceableItem (..)
+    , riName
+    , riAttributes
+
+    -- * UpdateCondition
+    , UpdateCondition (..)
+    , ucName
+    , ucValue
+    , ucExists
+
     ) where
 
 import Network.AWS.Prelude
@@ -138,6 +179,54 @@ data Attribute = Attribute
       -- ^ 
     } deriving (Show, Generic)
 
+-- | The name of the attribute.
+aName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Attribute
+    -> f Attribute
+aName f x =
+    (\y -> x { _aName = y })
+       <$> f (_aName x)
+{-# INLINE aName #-}
+
+-- | 
+aAlternateNameEncoding
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Attribute
+    -> f Attribute
+aAlternateNameEncoding f x =
+    (\y -> x { _aAlternateNameEncoding = y })
+       <$> f (_aAlternateNameEncoding x)
+{-# INLINE aAlternateNameEncoding #-}
+
+-- | The value of the attribute.
+aValue
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Attribute
+    -> f Attribute
+aValue f x =
+    (\y -> x { _aValue = y })
+       <$> f (_aValue x)
+{-# INLINE aValue #-}
+
+-- | 
+aAlternateValueEncoding
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Attribute
+    -> f Attribute
+aAlternateValueEncoding f x =
+    (\y -> x { _aAlternateValueEncoding = y })
+       <$> f (_aAlternateValueEncoding x)
+{-# INLINE aAlternateValueEncoding #-}
+
 instance FromXML Attribute where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Attribute"
@@ -150,18 +239,76 @@ data DeletableItem = DeletableItem
     , _diAttributes :: [Attribute]
     } deriving (Show, Generic)
 
+diName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeletableItem
+    -> f DeletableItem
+diName f x =
+    (\y -> x { _diName = y })
+       <$> f (_diName x)
+{-# INLINE diName #-}
+
+diAttributes
+    :: Functor f
+    => ([Attribute]
+    -> f ([Attribute]))
+    -> DeletableItem
+    -> f DeletableItem
+diAttributes f x =
+    (\y -> x { _diAttributes = y })
+       <$> f (_diAttributes x)
+{-# INLINE diAttributes #-}
+
 instance ToQuery DeletableItem where
     toQuery = genericQuery def
 
 -- | 
 data Item = Item
-    { _pName :: Text
+    { _imName :: Text
       -- ^ The name of the item.
-    , _pAttributes :: [Attribute]
-      -- ^ A list of attributes.
-    , _pAlternateNameEncoding :: Maybe Text
+    , _imAlternateNameEncoding :: Maybe Text
       -- ^ 
+    , _imAttributes :: [Attribute]
+      -- ^ A list of attributes.
     } deriving (Show, Generic)
+
+-- | The name of the item.
+imName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> Item
+    -> f Item
+imName f x =
+    (\y -> x { _imName = y })
+       <$> f (_imName x)
+{-# INLINE imName #-}
+
+-- | 
+imAlternateNameEncoding
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> Item
+    -> f Item
+imAlternateNameEncoding f x =
+    (\y -> x { _imAlternateNameEncoding = y })
+       <$> f (_imAlternateNameEncoding x)
+{-# INLINE imAlternateNameEncoding #-}
+
+-- | A list of attributes.
+imAttributes
+    :: Functor f
+    => ([Attribute]
+    -> f ([Attribute]))
+    -> Item
+    -> f Item
+imAttributes f x =
+    (\y -> x { _imAttributes = y })
+       <$> f (_imAttributes x)
+{-# INLINE imAttributes #-}
 
 instance FromXML Item where
     fromXMLOptions = xmlOptions
@@ -179,6 +326,43 @@ data ReplaceableAttribute = ReplaceableAttribute
       -- false.
     } deriving (Show, Generic)
 
+-- | The name of the replaceable attribute.
+raName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceableAttribute
+    -> f ReplaceableAttribute
+raName f x =
+    (\y -> x { _raName = y })
+       <$> f (_raName x)
+{-# INLINE raName #-}
+
+-- | The value of the replaceable attribute.
+raValue
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceableAttribute
+    -> f ReplaceableAttribute
+raValue f x =
+    (\y -> x { _raValue = y })
+       <$> f (_raValue x)
+{-# INLINE raValue #-}
+
+-- | A flag specifying whether or not to replace the attribute/value pair or to
+-- add a new attribute/value pair. The default setting is false.
+raReplace
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> ReplaceableAttribute
+    -> f ReplaceableAttribute
+raReplace f x =
+    (\y -> x { _raReplace = y })
+       <$> f (_raReplace x)
+{-# INLINE raReplace #-}
+
 instance FromXML ReplaceableAttribute where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Attribute"
@@ -193,6 +377,30 @@ data ReplaceableItem = ReplaceableItem
     , _riAttributes :: [ReplaceableAttribute]
       -- ^ The list of attributes for a replaceable item.
     } deriving (Show, Generic)
+
+-- | The name of the replaceable item.
+riName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> ReplaceableItem
+    -> f ReplaceableItem
+riName f x =
+    (\y -> x { _riName = y })
+       <$> f (_riName x)
+{-# INLINE riName #-}
+
+-- | The list of attributes for a replaceable item.
+riAttributes
+    :: Functor f
+    => ([ReplaceableAttribute]
+    -> f ([ReplaceableAttribute]))
+    -> ReplaceableItem
+    -> f ReplaceableItem
+riAttributes f x =
+    (\y -> x { _riAttributes = y })
+       <$> f (_riAttributes x)
+{-# INLINE riAttributes #-}
 
 instance ToQuery ReplaceableItem where
     toQuery = genericQuery def
@@ -215,12 +423,46 @@ data UpdateCondition = UpdateCondition
       -- satisfied.
     } deriving (Show, Generic)
 
+-- | The name of the attribute involved in the condition.
+ucName
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateCondition
+    -> f UpdateCondition
+ucName f x =
+    (\y -> x { _ucName = y })
+       <$> f (_ucName x)
+{-# INLINE ucName #-}
+
+-- | The value of an attribute. This value can only be specified when the Exists
+-- parameter is equal to true.
+ucValue
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> UpdateCondition
+    -> f UpdateCondition
+ucValue f x =
+    (\y -> x { _ucValue = y })
+       <$> f (_ucValue x)
+{-# INLINE ucValue #-}
+
+-- | A value specifying whether or not the specified attribute must exist with
+-- the specified value in order for the update condition to be satisfied.
+-- Specify true if the attribute must exist for the update condition to be
+-- satisfied. Specify false if the attribute should not exist in order for the
+-- update condition to be satisfied.
+ucExists
+    :: Functor f
+    => (Maybe Bool
+    -> f (Maybe Bool))
+    -> UpdateCondition
+    -> f UpdateCondition
+ucExists f x =
+    (\y -> x { _ucExists = y })
+       <$> f (_ucExists x)
+{-# INLINE ucExists #-}
+
 instance ToQuery UpdateCondition where
     toQuery = genericQuery def
-
-makeLenses ''Attribute
-makeLenses ''DeletableItem
-makeLenses ''Item
-makeLenses ''ReplaceableAttribute
-makeLenses ''ReplaceableItem
-makeLenses ''UpdateCondition

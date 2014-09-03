@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,11 +33,38 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;6a213e4e-33a8-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/AddPermissionResponse&gt;.
-module Network.AWS.SNS.V2010_03_31.AddPermission where
+module Network.AWS.SNS.V2010_03_31.AddPermission
+    (
+    -- * Request
+      AddPermission
+    -- ** Request constructor
+    , addPermission
+    -- ** Request lenses
+    , apiActionName
+    , apiAWSAccountId
+    , apiLabel
+    , apiTopicArn
+
+    -- * Response
+    , AddPermissionResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'AddPermission' request.
+addPermission :: [Text] -- ^ 'apiActionName'
+              -> [Text] -- ^ 'apiAWSAccountId'
+              -> Text -- ^ 'apiLabel'
+              -> Text -- ^ 'apiTopicArn'
+              -> AddPermission
+addPermission p1 p2 p3 p4 = AddPermission
+    { _apiActionName = p1
+    , _apiAWSAccountId = p2
+    , _apiLabel = p3
+    , _apiTopicArn = p4
+    }
 
 data AddPermission = AddPermission
     { _apiActionName :: [Text]
@@ -55,15 +81,62 @@ data AddPermission = AddPermission
       -- modify.
     } deriving (Show, Generic)
 
-makeLenses ''AddPermission
+-- | The action you want to allow for the specified principal(s). Valid values:
+-- any Amazon SNS action name.
+apiActionName
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddPermission
+    -> f AddPermission
+apiActionName f x =
+    (\y -> x { _apiActionName = y })
+       <$> f (_apiActionName x)
+{-# INLINE apiActionName #-}
+
+-- | The AWS account IDs of the users (principals) who will be given access to
+-- the specified actions. The users must have AWS accounts, but do not need to
+-- be signed up for this service.
+apiAWSAccountId
+    :: Functor f
+    => ([Text]
+    -> f ([Text]))
+    -> AddPermission
+    -> f AddPermission
+apiAWSAccountId f x =
+    (\y -> x { _apiAWSAccountId = y })
+       <$> f (_apiAWSAccountId x)
+{-# INLINE apiAWSAccountId #-}
+
+-- | A unique identifier for the new policy statement.
+apiLabel
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddPermission
+    -> f AddPermission
+apiLabel f x =
+    (\y -> x { _apiLabel = y })
+       <$> f (_apiLabel x)
+{-# INLINE apiLabel #-}
+
+-- | The ARN of the topic whose access control policy you wish to modify.
+apiTopicArn
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AddPermission
+    -> f AddPermission
+apiTopicArn f x =
+    (\y -> x { _apiTopicArn = y })
+       <$> f (_apiTopicArn x)
+{-# INLINE apiTopicArn #-}
 
 instance ToQuery AddPermission where
     toQuery = genericQuery def
 
 data AddPermissionResponse = AddPermissionResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''AddPermissionResponse
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SNS

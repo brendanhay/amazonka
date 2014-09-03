@@ -1,4 +1,4 @@
-{-# LANGUAGE PatternSynonyms #-}
+{-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 
 -- Module      : Network.AWS.Prelude.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,12 +45,14 @@ module Network.AWS.Prelude
     , Switch          (..)
 
     -- * Lenses
-     , makeLenses
+    , Lens'
+    , makeLenses
+    , makeSiglessLens
     ) where
 
 import Control.Applicative   as Export
 import Control.Exception     (Exception)
-import Control.Lens.TH       (makeLenses)
+import Control.Lens          hiding (Action)
 import Data.Aeson            (FromJSON(..), ToJSON(..))
 import Data.Bifunctor        as Export
 import Data.ByteString       (ByteString)
@@ -68,3 +70,7 @@ import Network.AWS.Types
 import Network.AWS.Types.Map (Map(..))
 import Network.HTTP.Client   (HttpException, RequestBody, Response)
 import Prelude               as Export hiding (head)
+
+makeSiglessLens k v = makeLensesWith
+    $ lensRulesFor [(k, v)]
+    & generateSignatures .~ False

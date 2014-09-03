@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -20,34 +19,92 @@
 
 -- | Deletes an analysis scheme. For more information, see Configuring Analysis
 -- Schemes in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme where
+module Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
+    (
+    -- * Request
+      DeleteAnalysisScheme
+    -- ** Request constructor
+    , deleteAnalysisScheme
+    -- ** Request lenses
+    , dastDomainName
+    , dastAnalysisSchemeName
+
+    -- * Response
+    , DeleteAnalysisSchemeResponse
+    -- ** Response lenses
+    , dasuAnalysisScheme
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteAnalysisScheme' request.
+deleteAnalysisScheme :: Text -- ^ 'dastDomainName'
+                     -> Text -- ^ 'dastAnalysisSchemeName'
+                     -> DeleteAnalysisScheme
+deleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
+    { _dastDomainName = p1
+    , _dastAnalysisSchemeName = p2
+    }
+
 data DeleteAnalysisScheme = DeleteAnalysisScheme
-    { _dasrDomainName :: Text
+    { _dastDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
       -- region. Domain names start with a letter or number and can
       -- contain the following characters: a-z (lowercase), 0-9, and -
       -- (hyphen).
-    , _dasrAnalysisSchemeName :: Text
+    , _dastAnalysisSchemeName :: Text
       -- ^ The name of the analysis scheme you want to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAnalysisScheme
+-- | A string that represents the name of a domain. Domain names are unique
+-- across the domains owned by an account within an AWS region. Domain names
+-- start with a letter or number and can contain the following characters: a-z
+-- (lowercase), 0-9, and - (hyphen).
+dastDomainName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAnalysisScheme
+    -> f DeleteAnalysisScheme
+dastDomainName f x =
+    (\y -> x { _dastDomainName = y })
+       <$> f (_dastDomainName x)
+{-# INLINE dastDomainName #-}
+
+-- | The name of the analysis scheme you want to delete.
+dastAnalysisSchemeName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteAnalysisScheme
+    -> f DeleteAnalysisScheme
+dastAnalysisSchemeName f x =
+    (\y -> x { _dastAnalysisSchemeName = y })
+       <$> f (_dastAnalysisSchemeName x)
+{-# INLINE dastAnalysisSchemeName #-}
 
 instance ToQuery DeleteAnalysisScheme where
     toQuery = genericQuery def
 
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
-    { _dassAnalysisScheme :: AnalysisSchemeStatus
+    { _dasuAnalysisScheme :: AnalysisSchemeStatus
       -- ^ The status of the analysis scheme being deleted.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteAnalysisSchemeResponse
+-- | The status of the analysis scheme being deleted.
+dasuAnalysisScheme
+    :: Functor f
+    => (AnalysisSchemeStatus
+    -> f (AnalysisSchemeStatus))
+    -> DeleteAnalysisSchemeResponse
+    -> f DeleteAnalysisSchemeResponse
+dasuAnalysisScheme f x =
+    (\y -> x { _dasuAnalysisScheme = y })
+       <$> f (_dasuAnalysisScheme x)
+{-# INLINE dasuAnalysisScheme #-}
 
 instance FromXML DeleteAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

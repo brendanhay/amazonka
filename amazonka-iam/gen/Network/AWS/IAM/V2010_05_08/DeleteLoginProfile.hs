@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,26 +25,52 @@
 -- about making keys inactive or deleting them, see UpdateAccessKey and
 -- DeleteAccessKey. https://iam.amazonaws.com/ ?Action=DeleteLoginProfile
 -- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM.V2010_05_08.DeleteLoginProfile where
+module Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
+    (
+    -- * Request
+      DeleteLoginProfile
+    -- ** Request constructor
+    , deleteLoginProfile
+    -- ** Request lenses
+    , dlprUserName
+
+    -- * Response
+    , DeleteLoginProfileResponse
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DeleteLoginProfile' request.
+deleteLoginProfile :: Text -- ^ 'dlprUserName'
+                   -> DeleteLoginProfile
+deleteLoginProfile p1 = DeleteLoginProfile
+    { _dlprUserName = p1
+    }
 
 data DeleteLoginProfile = DeleteLoginProfile
     { _dlprUserName :: Text
       -- ^ Name of the user whose password you want to delete.
     } deriving (Show, Generic)
 
-makeLenses ''DeleteLoginProfile
+-- | Name of the user whose password you want to delete.
+dlprUserName
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DeleteLoginProfile
+    -> f DeleteLoginProfile
+dlprUserName f x =
+    (\y -> x { _dlprUserName = y })
+       <$> f (_dlprUserName x)
+{-# INLINE dlprUserName #-}
 
 instance ToQuery DeleteLoginProfile where
     toQuery = genericQuery def
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
     deriving (Eq, Show, Generic)
-
-makeLenses ''DeleteLoginProfileResponse
 
 instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM

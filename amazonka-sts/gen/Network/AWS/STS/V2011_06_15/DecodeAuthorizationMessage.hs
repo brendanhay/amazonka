@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -50,18 +49,48 @@
 -- "item": { "key": "ec2:Tenancy", "values": ["default"] }, { "item": { "key":
 -- "ec2:ResourceTag/elasticbeanstalk:environment-name", "values":
 -- ["Default-Environment"] } }, (Additional items ...) ] } }.
-module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage where
+module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
+    (
+    -- * Request
+      DecodeAuthorizationMessage
+    -- ** Request constructor
+    , decodeAuthorizationMessage
+    -- ** Request lenses
+    , damrEncodedMessage
+
+    -- * Response
+    , DecodeAuthorizationMessageResponse
+    -- ** Response lenses
+    , damsDecodedMessage
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'DecodeAuthorizationMessage' request.
+decodeAuthorizationMessage :: Text -- ^ 'damrEncodedMessage'
+                           -> DecodeAuthorizationMessage
+decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
+    { _damrEncodedMessage = p1
+    }
 
 data DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damrEncodedMessage :: Text
       -- ^ The encoded message that was returned with the response.
     } deriving (Show, Generic)
 
-makeLenses ''DecodeAuthorizationMessage
+-- | The encoded message that was returned with the response.
+damrEncodedMessage
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> DecodeAuthorizationMessage
+    -> f DecodeAuthorizationMessage
+damrEncodedMessage f x =
+    (\y -> x { _damrEncodedMessage = y })
+       <$> f (_damrEncodedMessage x)
+{-# INLINE damrEncodedMessage #-}
 
 instance ToQuery DecodeAuthorizationMessage where
     toQuery = genericQuery def
@@ -72,7 +101,18 @@ data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
       -- information, see DecodeAuthorizationMessage.
     } deriving (Show, Generic)
 
-makeLenses ''DecodeAuthorizationMessageResponse
+-- | An XML document that contains the decoded message. For more information,
+-- see DecodeAuthorizationMessage.
+damsDecodedMessage
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> DecodeAuthorizationMessageResponse
+    -> f DecodeAuthorizationMessageResponse
+damsDecodedMessage f x =
+    (\y -> x { _damsDecodedMessage = y })
+       <$> f (_damsDecodedMessage x)
+{-# INLINE damsDecodedMessage #-}
 
 instance FromXML DecodeAuthorizationMessageResponse where
     fromXMLOptions = xmlOptions

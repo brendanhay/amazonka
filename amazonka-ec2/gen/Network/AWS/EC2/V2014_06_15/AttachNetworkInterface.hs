@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,20 +30,16 @@ module Network.AWS.EC2.V2014_06_15.AttachNetworkInterface
     (
     -- * Request
       AttachNetworkInterface
-    -- ** Default constructor
+    -- ** Request constructor
     , attachNetworkInterface
-    -- ** Accessors and lenses
-    , _anirDeviceIndex
+    -- ** Request lenses
     , anirDeviceIndex
-    , _anirNetworkInterfaceId
     , anirNetworkInterfaceId
-    , _anirInstanceId
     , anirInstanceId
 
     -- * Response
     , AttachNetworkInterfaceResponse
-    -- ** Accessors and lenses
-    , _anisAttachmentId
+    -- ** Response lenses
     , anisAttachmentId
     ) where
 
@@ -64,8 +59,49 @@ attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
     }
 
 data AttachNetworkInterface = AttachNetworkInterface
+    { _anirDeviceIndex :: Integer
+      -- ^ The index of the device for the network interface attachment.
+    , _anirNetworkInterfaceId :: Text
+      -- ^ The ID of the network interface.
+    , _anirInstanceId :: Text
+      -- ^ The ID of the instance.
+    } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachNetworkInterface
+-- | The index of the device for the network interface attachment.
+anirDeviceIndex
+    :: Functor f
+    => (Integer
+    -> f (Integer))
+    -> AttachNetworkInterface
+    -> f AttachNetworkInterface
+anirDeviceIndex f x =
+    (\y -> x { _anirDeviceIndex = y })
+       <$> f (_anirDeviceIndex x)
+{-# INLINE anirDeviceIndex #-}
+
+-- | The ID of the network interface.
+anirNetworkInterfaceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachNetworkInterface
+    -> f AttachNetworkInterface
+anirNetworkInterfaceId f x =
+    (\y -> x { _anirNetworkInterfaceId = y })
+       <$> f (_anirNetworkInterfaceId x)
+{-# INLINE anirNetworkInterfaceId #-}
+
+-- | The ID of the instance.
+anirInstanceId
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> AttachNetworkInterface
+    -> f AttachNetworkInterface
+anirInstanceId f x =
+    (\y -> x { _anirInstanceId = y })
+       <$> f (_anirInstanceId x)
+{-# INLINE anirInstanceId #-}
 
 instance ToQuery AttachNetworkInterface where
     toQuery = genericQuery def
@@ -75,7 +111,17 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
       -- ^ The ID of the network interface attachment.
     } deriving (Show, Generic)
 
-makeSiglessLenses ''AttachNetworkInterfaceResponse
+-- | The ID of the network interface attachment.
+anisAttachmentId
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> AttachNetworkInterfaceResponse
+    -> f AttachNetworkInterfaceResponse
+anisAttachmentId f x =
+    (\y -> x { _anisAttachmentId = y })
+       <$> f (_anisAttachmentId x)
+{-# INLINE anisAttachmentId #-}
 
 instance FromXML AttachNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
@@ -86,15 +132,3 @@ instance AWSRequest AttachNetworkInterface where
 
     request = post "AttachNetworkInterface"
     response _ = xmlResponse
-
--- | The index of the device for the network interface attachment.
-anirDeviceIndex :: Lens' AttachNetworkInterface (Integer)
-
--- | The ID of the network interface.
-anirNetworkInterfaceId :: Lens' AttachNetworkInterface (Text)
-
--- | The ID of the instance.
-anirInstanceId :: Lens' AttachNetworkInterface (Text)
-
--- | The ID of the network interface attachment.
-anisAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)

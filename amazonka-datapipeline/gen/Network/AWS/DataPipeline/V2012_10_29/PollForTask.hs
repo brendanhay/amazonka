@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -58,7 +57,22 @@
 -- "df-0937003356ZJEXAMPLE", "taskId":
 -- "2xaM4wRs5zOsIH+g9U3oVHfAgAlbSqU6XduncB0HhZ3xMnmvfePZPn4dIbYXHyWyRK+cU15MqDHwdrvftx/4wv+sNS4w34vJfv7QA9aOoOazW28l1GYSb2ZRR0N0paiQp+d1MhSKo10hOTWOsVK5S5Lnx9Qm6omFgXHyIvZRIvTlrQMpr1xuUrflyGOfbFOGpOLpvPE172MYdqpZKnbSS4TcuqgQKSWV2833fEubI57DPOP7ghWa2TcYeSIv4pdLYG53fTuwfbnbdc98g2LNUQzSVhSnt7BoqyNwht2aQ6b/UHg9A80+KVpuXuqmz3m1MXwHFgxjdmuesXNOrrlGpeLCcRWD+aGo0RN1NqhQRzNAig8V4GlaPTQzMsRCljKqvrIyAoP3Tt2XEGsHkkQo12rEX8Z90957XX2qKRwhruwYzqGkSLWjINoLdAxUJdpRXRc5DJTrBd3D5mdzn7kY1l7NEh4kFHJDt3Cx4Z3Mk8MYCACyCk/CEyy9DwuPi66cLz0NBcgbCM5LKjTBOwo1m+am+pvM1kSposE9FPP1+RFGb8k6jQBTJx3TRz1yKilnGXQTZ5xvdOFpJrklIT0OXP1MG3+auM9FlJA+1dX90QoNJE5z7axmK//MOGXUdkqFe2kiDkorqjxwDvc0Js9pVKfKvAmW8YqUbmI9l0ERpWCXXnLVHNmPWz3jaPY+OBAmuJWDmxB/Z8p94aEDg4BVXQ7LvsKQ3DLYhaB7yJ390CJT+i0mm+EBqY60V6YikPSWDFrYQ/NPi2b1DgE19mX8zHqw8qprIl4yh1Ckx2Iige4En/N5ktOoIxnASxAw/TzcE2skxdw5KlHDF+UTj71m16CR/dIaKlXijlfNlNzUBo/bNSadCQn3G5NoO501wPKI:XO50TgDNyo8EXAMPLE/g==:1"}
 -- }.
-module Network.AWS.DataPipeline.V2012_10_29.PollForTask where
+module Network.AWS.DataPipeline.V2012_10_29.PollForTask
+    (
+    -- * Request
+      PollForTask
+    -- ** Request constructor
+    , pollForTask
+    -- ** Request lenses
+    , pftiWorkerGroup
+    , pftiHostname
+    , pftiInstanceIdentity
+
+    -- * Response
+    , PollForTaskResponse
+    -- ** Response lenses
+    , pftoTaskObject
+    ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
 import           Network.AWS.Prelude
@@ -66,7 +80,7 @@ import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
 -- | Minimum specification for a 'PollForTask' request.
-pollForTask :: Text -- ^ '_pftiWorkerGroup'
+pollForTask :: Text -- ^ 'pftiWorkerGroup'
             -> PollForTask
 pollForTask p1 = PollForTask
     { _pftiWorkerGroup = p1
@@ -95,7 +109,51 @@ data PollForTask = PollForTask
       -- to your pipeline.
     } deriving (Show, Generic)
 
-makeLenses ''PollForTask
+-- | Indicates the type of task the task runner is configured to accept and
+-- process. The worker group is set as a field on objects in the pipeline when
+-- they are created. You can only specify a single value for workerGroup in
+-- the call to PollForTask. There are no wildcard values permitted in
+-- workerGroup, the string must be an exact, case-sensitive, match.
+pftiWorkerGroup
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> PollForTask
+    -> f PollForTask
+pftiWorkerGroup f x =
+    (\y -> x { _pftiWorkerGroup = y })
+       <$> f (_pftiWorkerGroup x)
+{-# INLINE pftiWorkerGroup #-}
+
+-- | The public DNS name of the calling task runner.
+pftiHostname
+    :: Functor f
+    => (Maybe Text
+    -> f (Maybe Text))
+    -> PollForTask
+    -> f PollForTask
+pftiHostname f x =
+    (\y -> x { _pftiHostname = y })
+       <$> f (_pftiHostname x)
+{-# INLINE pftiHostname #-}
+
+-- | Identity information for the Amazon EC2 instance that is hosting the task
+-- runner. You can get this value by calling the URI,
+-- http://169.254.169.254/latest/meta-data/instance-id, from the EC2 instance.
+-- For more information, go to Instance Metadata in the Amazon Elastic Compute
+-- Cloud User Guide. Passing in this value proves that your task runner is
+-- running on an EC2 instance, and ensures the proper AWS Data Pipeline
+-- service charges are applied to your pipeline.
+pftiInstanceIdentity
+    :: Functor f
+    => (Maybe InstanceIdentity
+    -> f (Maybe InstanceIdentity))
+    -> PollForTask
+    -> f PollForTask
+pftiInstanceIdentity f x =
+    (\y -> x { _pftiInstanceIdentity = y })
+       <$> f (_pftiInstanceIdentity x)
+{-# INLINE pftiInstanceIdentity #-}
 
 instance ToPath PollForTask
 
@@ -116,7 +174,22 @@ data PollForTaskResponse = PollForTaskResponse
       -- ReportTaskProgress and SetTaskStatus.
     } deriving (Show, Generic)
 
-makeLenses ''PollForTaskResponse
+-- | An instance of PollForTaskResult, which contains an instance of TaskObject.
+-- The returned object contains all the information needed to complete the
+-- task that is being assigned to the task runner. One of the fields returned
+-- in this object is taskId, which contains an identifier for the task being
+-- assigned. The calling task runner uses taskId in subsequent calls to
+-- ReportTaskProgress and SetTaskStatus.
+pftoTaskObject
+    :: Functor f
+    => (Maybe TaskObject
+    -> f (Maybe TaskObject))
+    -> PollForTaskResponse
+    -> f PollForTaskResponse
+pftoTaskObject f x =
+    (\y -> x { _pftoTaskObject = y })
+       <$> f (_pftoTaskObject x)
+{-# INLINE pftoTaskObject #-}
 
 instance FromJSON PollForTaskResponse
 

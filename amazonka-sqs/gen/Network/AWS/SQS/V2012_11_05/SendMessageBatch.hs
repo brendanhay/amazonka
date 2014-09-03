@@ -3,7 +3,6 @@
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TemplateHaskell             #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -56,11 +55,35 @@
 -- 0e024d309850c78cba5eabbeff7cae71 test_msg_002
 -- 15ee1ed3-87e7-40c1-bdaa-2e49968ea7e9 7fb8146a82f95e0af155278f406862c2
 -- 295c5fa15a51aae6884d1d7c1d99ca50 ca1ad5d0-8271-408b-8d0f-1351bf547e74.
-module Network.AWS.SQS.V2012_11_05.SendMessageBatch where
+module Network.AWS.SQS.V2012_11_05.SendMessageBatch
+    (
+    -- * Request
+      SendMessageBatch
+    -- ** Request constructor
+    , sendMessageBatch
+    -- ** Request lenses
+    , smbrEntries
+    , smbrQueueUrl
+
+    -- * Response
+    , SendMessageBatchResponse
+    -- ** Response lenses
+    , smbsFailed
+    , smbsSuccessful
+    ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
+
+-- | Minimum specification for a 'SendMessageBatch' request.
+sendMessageBatch :: [SendMessageBatchRequestEntry] -- ^ 'smbrEntries'
+                 -> Text -- ^ 'smbrQueueUrl'
+                 -> SendMessageBatch
+sendMessageBatch p1 p2 = SendMessageBatch
+    { _smbrEntries = p1
+    , _smbrQueueUrl = p2
+    }
 
 data SendMessageBatch = SendMessageBatch
     { _smbrEntries :: [SendMessageBatchRequestEntry]
@@ -69,7 +92,29 @@ data SendMessageBatch = SendMessageBatch
       -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
-makeLenses ''SendMessageBatch
+-- | A list of SendMessageBatchRequestEntry items.
+smbrEntries
+    :: Functor f
+    => ([SendMessageBatchRequestEntry]
+    -> f ([SendMessageBatchRequestEntry]))
+    -> SendMessageBatch
+    -> f SendMessageBatch
+smbrEntries f x =
+    (\y -> x { _smbrEntries = y })
+       <$> f (_smbrEntries x)
+{-# INLINE smbrEntries #-}
+
+-- | The URL of the Amazon SQS queue to take action on.
+smbrQueueUrl
+    :: Functor f
+    => (Text
+    -> f (Text))
+    -> SendMessageBatch
+    -> f SendMessageBatch
+smbrQueueUrl f x =
+    (\y -> x { _smbrQueueUrl = y })
+       <$> f (_smbrQueueUrl x)
+{-# INLINE smbrQueueUrl #-}
 
 instance ToQuery SendMessageBatch where
     toQuery = genericQuery def
@@ -82,7 +127,30 @@ data SendMessageBatchResponse = SendMessageBatchResponse
       -- ^ A list of SendMessageBatchResultEntry items.
     } deriving (Show, Generic)
 
-makeLenses ''SendMessageBatchResponse
+-- | A list of BatchResultErrorEntry items with the error detail about each
+-- message that could not be enqueued.
+smbsFailed
+    :: Functor f
+    => ([BatchResultErrorEntry]
+    -> f ([BatchResultErrorEntry]))
+    -> SendMessageBatchResponse
+    -> f SendMessageBatchResponse
+smbsFailed f x =
+    (\y -> x { _smbsFailed = y })
+       <$> f (_smbsFailed x)
+{-# INLINE smbsFailed #-}
+
+-- | A list of SendMessageBatchResultEntry items.
+smbsSuccessful
+    :: Functor f
+    => ([SendMessageBatchResultEntry]
+    -> f ([SendMessageBatchResultEntry]))
+    -> SendMessageBatchResponse
+    -> f SendMessageBatchResponse
+smbsSuccessful f x =
+    (\y -> x { _smbsSuccessful = y })
+       <$> f (_smbsSuccessful x)
+{-# INLINE smbsSuccessful #-}
 
 instance FromXML SendMessageBatchResponse where
     fromXMLOptions = xmlOptions

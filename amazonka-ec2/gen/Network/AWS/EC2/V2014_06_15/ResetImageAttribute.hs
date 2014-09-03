@@ -32,6 +32,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ResetImageAttribute' request.
+resetImageAttribute :: ResetImageAttributeName -- ^ '_riarAttribute'
+                    -> Text -- ^ '_riarImageId'
+                    -> ResetImageAttribute
+resetImageAttribute p1 p2 = ResetImageAttribute
+    { _riarAttribute = p1
+    , _riarImageId = p2
+    }
+
 data ResetImageAttribute = ResetImageAttribute
     { _riarAttribute :: ResetImageAttributeName
       -- ^ The attribute to reset (currently you can only reset the launch

@@ -39,6 +39,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ReplaceNetworkAclAssociation' request.
+replaceNetworkAclAssociation :: Text -- ^ '_rnaarAssociationId'
+                             -> Text -- ^ '_rnaarNetworkAclId'
+                             -> ReplaceNetworkAclAssociation
+replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
+    { _rnaarAssociationId = p1
+    , _rnaarNetworkAclId = p2
+    }
+
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaarAssociationId :: Text
       -- ^ The ID of the current association between the original network

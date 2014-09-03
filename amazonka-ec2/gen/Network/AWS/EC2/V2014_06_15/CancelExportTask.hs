@@ -32,6 +32,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CancelExportTask' request.
+cancelExportTask :: Text -- ^ '_cetrExportTaskId'
+                 -> CancelExportTask
+cancelExportTask p1 = CancelExportTask
+    { _cetrExportTaskId = p1
+    }
+
 data CancelExportTask = CancelExportTask
     { _cetrExportTaskId :: Text
       -- ^ The ID of the export task. This is the ID returned by

@@ -42,6 +42,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CancelSpotInstanceRequests' request.
+cancelSpotInstanceRequests :: [Text] -- ^ '_csirrSpotInstanceRequestIds'
+                           -> CancelSpotInstanceRequests
+cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
+    { _csirrSpotInstanceRequestIds = p1
+    }
+
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirrSpotInstanceRequestIds :: [Text]
       -- ^ One or more Spot Instance request IDs.

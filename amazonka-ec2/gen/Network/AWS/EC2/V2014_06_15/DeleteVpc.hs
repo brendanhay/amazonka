@@ -35,6 +35,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteVpc' request.
+deleteVpc :: Text -- ^ '_dvsVpcId'
+          -> DeleteVpc
+deleteVpc p1 = DeleteVpc
+    { _dvsVpcId = p1
+    }
+
 data DeleteVpc = DeleteVpc
     { _dvsVpcId :: Text
       -- ^ The ID of the VPC.

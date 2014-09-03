@@ -35,6 +35,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreatePlacementGroup' request.
+createPlacementGroup :: PlacementStrategy -- ^ '_cpgrStrategy'
+                     -> Text -- ^ '_cpgrGroupName'
+                     -> CreatePlacementGroup
+createPlacementGroup p1 p2 = CreatePlacementGroup
+    { _cpgrStrategy = p1
+    , _cpgrGroupName = p2
+    }
+
 data CreatePlacementGroup = CreatePlacementGroup
     { _cpgrStrategy :: PlacementStrategy
       -- ^ The placement strategy.

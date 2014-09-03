@@ -36,6 +36,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CancelReservedInstancesListing' request.
+cancelReservedInstancesListing :: Text -- ^ '_crilrReservedInstancesListingId'
+                               -> CancelReservedInstancesListing
+cancelReservedInstancesListing p1 = CancelReservedInstancesListing
+    { _crilrReservedInstancesListingId = p1
+    }
+
 data CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilrReservedInstancesListingId :: Text
       -- ^ The ID of the Reserved Instance listing.

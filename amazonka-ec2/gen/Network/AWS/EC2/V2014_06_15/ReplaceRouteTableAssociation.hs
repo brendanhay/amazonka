@@ -38,6 +38,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ReplaceRouteTableAssociation' request.
+replaceRouteTableAssociation :: Text -- ^ '_rrtarAssociationId'
+                             -> Text -- ^ '_rrtarRouteTableId'
+                             -> ReplaceRouteTableAssociation
+replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
+    { _rrtarAssociationId = p1
+    , _rrtarRouteTableId = p2
+    }
+
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtarAssociationId :: Text
       -- ^ The association ID.

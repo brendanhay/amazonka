@@ -41,6 +41,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetPasswordData' request.
+getPasswordData :: Text -- ^ '_gpdrInstanceId'
+                -> GetPasswordData
+getPasswordData p1 = GetPasswordData
+    { _gpdrInstanceId = p1
+    }
+
 data GetPasswordData = GetPasswordData
     { _gpdrInstanceId :: Text
       -- ^ The ID of the Windows instance.

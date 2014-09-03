@@ -34,6 +34,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DetachInternetGateway' request.
+detachInternetGateway :: Text -- ^ '_diguInternetGatewayId'
+                      -> Text -- ^ '_diguVpcId'
+                      -> DetachInternetGateway
+detachInternetGateway p1 p2 = DetachInternetGateway
+    { _diguInternetGatewayId = p1
+    , _diguVpcId = p2
+    }
+
 data DetachInternetGateway = DetachInternetGateway
     { _diguInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.

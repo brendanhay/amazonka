@@ -35,6 +35,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'AttachInternetGateway' request.
+attachInternetGateway :: Text -- ^ '_aigrInternetGatewayId'
+                      -> Text -- ^ '_aigrVpcId'
+                      -> AttachInternetGateway
+attachInternetGateway p1 p2 = AttachInternetGateway
+    { _aigrInternetGatewayId = p1
+    , _aigrVpcId = p2
+    }
+
 data AttachInternetGateway = AttachInternetGateway
     { _aigrInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.

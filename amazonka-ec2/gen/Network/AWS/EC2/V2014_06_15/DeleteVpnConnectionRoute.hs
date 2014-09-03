@@ -37,6 +37,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteVpnConnectionRoute' request.
+deleteVpnConnectionRoute :: Text -- ^ '_dvcrrVpnConnectionId'
+                         -> Text -- ^ '_dvcrrDestinationCidrBlock'
+                         -> DeleteVpnConnectionRoute
+deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
+    { _dvcrrVpnConnectionId = p1
+    , _dvcrrDestinationCidrBlock = p2
+    }
+
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrrVpnConnectionId :: Text
       -- ^ The ID of the VPN connection.

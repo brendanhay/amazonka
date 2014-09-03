@@ -33,6 +33,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteNetworkAclEntry' request.
+deleteNetworkAclEntry :: Bool -- ^ '_dnaerEgress'
+                      -> Integer -- ^ '_dnaerRuleNumber'
+                      -> Text -- ^ '_dnaerNetworkAclId'
+                      -> DeleteNetworkAclEntry
+deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
+    { _dnaerEgress = p1
+    , _dnaerRuleNumber = p2
+    , _dnaerNetworkAclId = p3
+    }
+
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     { _dnaerEgress :: Bool
       -- ^ Indicates whether the rule is an egress rule.

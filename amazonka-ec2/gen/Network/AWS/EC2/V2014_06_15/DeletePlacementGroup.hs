@@ -34,6 +34,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeletePlacementGroup' request.
+deletePlacementGroup :: Text -- ^ '_dpgrGroupName'
+                     -> DeletePlacementGroup
+deletePlacementGroup p1 = DeletePlacementGroup
+    { _dpgrGroupName = p1
+    }
+
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgrGroupName :: Text
       -- ^ The name of the placement group.

@@ -38,6 +38,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'ResetInstanceAttribute' request.
+resetInstanceAttribute :: InstanceAttributeName -- ^ '_riasAttribute'
+                       -> Text -- ^ '_riasInstanceId'
+                       -> ResetInstanceAttribute
+resetInstanceAttribute p1 p2 = ResetInstanceAttribute
+    { _riasAttribute = p1
+    , _riasInstanceId = p2
+    }
+
 data ResetInstanceAttribute = ResetInstanceAttribute
     { _riasAttribute :: InstanceAttributeName
       -- ^ The attribute to reset.

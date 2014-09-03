@@ -33,6 +33,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteNetworkInterface' request.
+deleteNetworkInterface :: Text -- ^ '_dnirNetworkInterfaceId'
+                       -> DeleteNetworkInterface
+deleteNetworkInterface p1 = DeleteNetworkInterface
+    { _dnirNetworkInterfaceId = p1
+    }
+
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dnirNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.

@@ -32,6 +32,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'EnableVolumeIO' request.
+enableVolumeIO :: Text -- ^ '_eviorVolumeId'
+               -> EnableVolumeIO
+enableVolumeIO p1 = EnableVolumeIO
+    { _eviorVolumeId = p1
+    }
+
 data EnableVolumeIO = EnableVolumeIO
     { _eviorVolumeId :: Text
       -- ^ The ID of the volume.

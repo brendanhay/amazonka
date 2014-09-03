@@ -38,6 +38,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'RebootInstances' request.
+rebootInstances :: [Text] -- ^ '_riuInstanceIds'
+                -> RebootInstances
+rebootInstances p1 = RebootInstances
+    { _riuInstanceIds = p1
+    }
+
 data RebootInstances = RebootInstances
     { _riuInstanceIds :: [Text]
       -- ^ One or more instance IDs.

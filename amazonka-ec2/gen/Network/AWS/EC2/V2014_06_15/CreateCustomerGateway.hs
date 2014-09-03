@@ -51,6 +51,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateCustomerGateway' request.
+createCustomerGateway :: GatewayType -- ^ '_ccgrType'
+                      -> Integer -- ^ '_ccgrBgpAsn'
+                      -> Text -- ^ '_ccgrPublicIp'
+                      -> CreateCustomerGateway
+createCustomerGateway p1 p2 p3 = CreateCustomerGateway
+    { _ccgrType = p1
+    , _ccgrBgpAsn = p2
+    , _ccgrPublicIp = p3
+    }
+
 data CreateCustomerGateway = CreateCustomerGateway
     { _ccgrType :: GatewayType
       -- ^ The type of VPN connection that this customer gateway supports.

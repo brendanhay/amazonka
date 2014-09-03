@@ -35,6 +35,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DisableVgwRoutePropagation' request.
+disableVgwRoutePropagation :: Text -- ^ '_dvrprRouteTableId'
+                           -> Text -- ^ '_dvrprGatewayId'
+                           -> DisableVgwRoutePropagation
+disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
+    { _dvrprRouteTableId = p1
+    , _dvrprGatewayId = p2
+    }
+
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrprRouteTableId :: Text
       -- ^ The ID of the routing table.

@@ -59,6 +59,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'GetConsoleOutput' request.
+getConsoleOutput :: Text -- ^ '_gcorInstanceId'
+                 -> GetConsoleOutput
+getConsoleOutput p1 = GetConsoleOutput
+    { _gcorInstanceId = p1
+    }
+
 data GetConsoleOutput = GetConsoleOutput
     { _gcorInstanceId :: Text
       -- ^ The ID of the instance.

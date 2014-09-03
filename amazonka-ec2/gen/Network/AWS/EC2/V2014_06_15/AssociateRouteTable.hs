@@ -39,6 +39,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'AssociateRouteTable' request.
+associateRouteTable :: Text -- ^ '_artrSubnetId'
+                    -> Text -- ^ '_artrRouteTableId'
+                    -> AssociateRouteTable
+associateRouteTable p1 p2 = AssociateRouteTable
+    { _artrSubnetId = p1
+    , _artrRouteTableId = p2
+    }
+
 data AssociateRouteTable = AssociateRouteTable
     { _artrSubnetId :: Text
       -- ^ The ID of the subnet.

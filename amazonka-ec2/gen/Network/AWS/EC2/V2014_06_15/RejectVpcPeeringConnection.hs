@@ -35,6 +35,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'RejectVpcPeeringConnection' request.
+rejectVpcPeeringConnection :: Text -- ^ '_rvpcrVpcPeeringConnectionId'
+                           -> RejectVpcPeeringConnection
+rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
+    { _rvpcrVpcPeeringConnectionId = p1
+    }
+
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcrVpcPeeringConnectionId :: Text
       -- ^ The ID of the VPC peering connection.

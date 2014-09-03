@@ -32,6 +32,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteRoute' request.
+deleteRoute :: Text -- ^ '_drrRouteTableId'
+            -> Text -- ^ '_drrDestinationCidrBlock'
+            -> DeleteRoute
+deleteRoute p1 p2 = DeleteRoute
+    { _drrRouteTableId = p1
+    , _drrDestinationCidrBlock = p2
+    }
+
 data DeleteRoute = DeleteRoute
     { _drrRouteTableId :: Text
       -- ^ The ID of the route table.

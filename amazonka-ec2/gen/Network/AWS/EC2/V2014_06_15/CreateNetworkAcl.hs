@@ -37,6 +37,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateNetworkAcl' request.
+createNetworkAcl :: Text -- ^ '_cnarVpcId'
+                 -> CreateNetworkAcl
+createNetworkAcl p1 = CreateNetworkAcl
+    { _cnarVpcId = p1
+    }
+
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnarVpcId :: Text
       -- ^ The ID of the VPC.

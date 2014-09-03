@@ -65,6 +65,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateDhcpOptions' request.
+createDhcpOptions :: [DhcpConfiguration] -- ^ '_cdorDhcpConfigurations'
+                  -> CreateDhcpOptions
+createDhcpOptions p1 = CreateDhcpOptions
+    { _cdorDhcpConfigurations = p1
+    }
+
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdorDhcpConfigurations :: [DhcpConfiguration]
       -- ^ A DHCP configuration option.

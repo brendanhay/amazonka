@@ -46,6 +46,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'CreateReservedInstancesListing' request.
+createReservedInstancesListing :: Integer -- ^ '_criltInstanceCount'
+                               -> [PriceScheduleSpecification] -- ^ '_criltPriceSchedules'
+                               -> Text -- ^ '_criltReservedInstancesId'
+                               -> Text -- ^ '_criltClientToken'
+                               -> CreateReservedInstancesListing
+createReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
+    { _criltInstanceCount = p1
+    , _criltPriceSchedules = p2
+    , _criltReservedInstancesId = p3
+    , _criltClientToken = p4
+    }
+
 data CreateReservedInstancesListing = CreateReservedInstancesListing
     { _criltInstanceCount :: Integer
       -- ^ The number of instances that are a part of a Reserved Instance

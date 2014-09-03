@@ -31,6 +31,13 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'DeleteKeyPair' request.
+deleteKeyPair :: Text -- ^ '_dkprKeyName'
+              -> DeleteKeyPair
+deleteKeyPair p1 = DeleteKeyPair
+    { _dkprKeyName = p1
+    }
+
 data DeleteKeyPair = DeleteKeyPair
     { _dkprKeyName :: Text
       -- ^ The name of the key pair.

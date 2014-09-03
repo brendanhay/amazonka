@@ -33,6 +33,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | Minimum specification for a 'AttachNetworkInterface' request.
+attachNetworkInterface :: Integer -- ^ '_anirDeviceIndex'
+                       -> Text -- ^ '_anirNetworkInterfaceId'
+                       -> Text -- ^ '_anirInstanceId'
+                       -> AttachNetworkInterface
+attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
+    { _anirDeviceIndex = p1
+    , _anirNetworkInterfaceId = p2
+    , _anirInstanceId = p3
+    }
+
 data AttachNetworkInterface = AttachNetworkInterface
     { _anirDeviceIndex :: Integer
       -- ^ The index of the device for the network interface attachment.

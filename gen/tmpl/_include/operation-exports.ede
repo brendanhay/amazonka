@@ -16,6 +16,10 @@ module {{ scope.namespace }}
     (
     -- * Request
       {{ scope.request.name }}
+{% if scope.alias %}
+    -- ** Request alias
+    , {{ scope.alias }}
+{% endif %}
     -- ** Request constructor
     , {{ scope.request.default }}
 {% for lens in scope.request.fields %}

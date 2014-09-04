@@ -19,14 +19,13 @@ module {{ scope.types_namespace }}
     -- ** Errors
     , Er (..)
 {% case scope.type %}
-{% when "xml" %}
+{% when "json" %}
+{% when "restjson" %}
+{% else %}
     -- ** XML
     , xmlOptions
-{% when "query" %}
-    -- ** XML
-    , xmlOptions
-{% endcase %}
 
+{% endcase %}
 {% for data in scope.types %}
     -- * {{ data.value.name }}
     , {{ data.value.name }} (..)

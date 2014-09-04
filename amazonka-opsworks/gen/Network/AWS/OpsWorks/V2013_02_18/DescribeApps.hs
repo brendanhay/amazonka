@@ -49,6 +49,7 @@ describeApps = DescribeApps
     { _dasStackId = Nothing
     , _dasAppIds = mempty
     }
+{-# INLINE describeApps #-}
 
 data DescribeApps = DescribeApps
     { _dasStackId :: Maybe Text
@@ -62,29 +63,19 @@ data DescribeApps = DescribeApps
 
 -- | The app stack ID. If you use this parameter, DescribeApps returns a
 -- description of the apps in the specified stack.
-dasStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeApps
-    -> f DescribeApps
+dasStackId :: Lens' DescribeApps (Maybe Text)
 dasStackId f x =
-    (\y -> x { _dasStackId = y })
-       <$> f (_dasStackId x)
+    f (_dasStackId x)
+        <&> \y -> x { _dasStackId = y }
 {-# INLINE dasStackId #-}
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, DescribeApps returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-dasAppIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeApps
-    -> f DescribeApps
+dasAppIds :: Lens' DescribeApps ([Text])
 dasAppIds f x =
-    (\y -> x { _dasAppIds = y })
-       <$> f (_dasAppIds x)
+    f (_dasAppIds x)
+        <&> \y -> x { _dasAppIds = y }
 {-# INLINE dasAppIds #-}
 
 instance ToPath DescribeApps
@@ -101,15 +92,10 @@ data DescribeAppsResponse = DescribeAppsResponse
     } deriving (Show, Generic)
 
 -- | An array of App objects that describe the specified apps.
-datApps
-    :: Functor f
-    => ([App]
-    -> f ([App]))
-    -> DescribeAppsResponse
-    -> f DescribeAppsResponse
+datApps :: Lens' DescribeAppsResponse ([App])
 datApps f x =
-    (\y -> x { _datApps = y })
-       <$> f (_datApps x)
+    f (_datApps x)
+        <&> \y -> x { _datApps = y }
 {-# INLINE datApps #-}
 
 instance FromJSON DescribeAppsResponse

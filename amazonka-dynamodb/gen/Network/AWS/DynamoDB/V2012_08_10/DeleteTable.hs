@@ -58,6 +58,7 @@ deleteTable :: Text -- ^ 'dtiTableName'
 deleteTable p1 = DeleteTable
     { _dtiTableName = p1
     }
+{-# INLINE deleteTable #-}
 
 data DeleteTable = DeleteTable
     { _dtiTableName :: Text
@@ -65,15 +66,10 @@ data DeleteTable = DeleteTable
     } deriving (Show, Generic)
 
 -- | The name of the table to delete.
-dtiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteTable
-    -> f DeleteTable
+dtiTableName :: Lens' DeleteTable (Text)
 dtiTableName f x =
-    (\y -> x { _dtiTableName = y })
-       <$> f (_dtiTableName x)
+    f (_dtiTableName x)
+        <&> \y -> x { _dtiTableName = y }
 {-# INLINE dtiTableName #-}
 
 instance ToPath DeleteTable
@@ -90,15 +86,10 @@ data DeleteTableResponse = DeleteTableResponse
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-dtoTableDescription
-    :: Functor f
-    => (Maybe TableDescription
-    -> f (Maybe TableDescription))
-    -> DeleteTableResponse
-    -> f DeleteTableResponse
+dtoTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtoTableDescription f x =
-    (\y -> x { _dtoTableDescription = y })
-       <$> f (_dtoTableDescription x)
+    f (_dtoTableDescription x)
+        <&> \y -> x { _dtoTableDescription = y }
 {-# INLINE dtoTableDescription #-}
 
 instance FromJSON DeleteTableResponse

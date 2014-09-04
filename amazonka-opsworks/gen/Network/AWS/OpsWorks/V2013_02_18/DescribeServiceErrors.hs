@@ -50,6 +50,7 @@ describeServiceErrors = DescribeServiceErrors
     , _dserInstanceId = Nothing
     , _dserServiceErrorIds = mempty
     }
+{-# INLINE describeServiceErrors #-}
 
 data DescribeServiceErrors = DescribeServiceErrors
     { _dserStackId :: Maybe Text
@@ -68,42 +69,27 @@ data DescribeServiceErrors = DescribeServiceErrors
 
 -- | The stack ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified stack.
-dserStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeServiceErrors
-    -> f DescribeServiceErrors
+dserStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dserStackId f x =
-    (\y -> x { _dserStackId = y })
-       <$> f (_dserStackId x)
+    f (_dserStackId x)
+        <&> \y -> x { _dserStackId = y }
 {-# INLINE dserStackId #-}
 
 -- | The instance ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified instance.
-dserInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeServiceErrors
-    -> f DescribeServiceErrors
+dserInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
 dserInstanceId f x =
-    (\y -> x { _dserInstanceId = y })
-       <$> f (_dserInstanceId x)
+    f (_dserInstanceId x)
+        <&> \y -> x { _dserInstanceId = y }
 {-# INLINE dserInstanceId #-}
 
 -- | An array of service error IDs. If you use this parameter,
 -- DescribeServiceErrors returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
-dserServiceErrorIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeServiceErrors
-    -> f DescribeServiceErrors
+dserServiceErrorIds :: Lens' DescribeServiceErrors ([Text])
 dserServiceErrorIds f x =
-    (\y -> x { _dserServiceErrorIds = y })
-       <$> f (_dserServiceErrorIds x)
+    f (_dserServiceErrorIds x)
+        <&> \y -> x { _dserServiceErrorIds = y }
 {-# INLINE dserServiceErrorIds #-}
 
 instance ToPath DescribeServiceErrors
@@ -122,15 +108,10 @@ data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
 
 -- | An array of ServiceError objects that describe the specified service
 -- errors.
-dsesServiceErrors
-    :: Functor f
-    => ([ServiceError]
-    -> f ([ServiceError]))
-    -> DescribeServiceErrorsResponse
-    -> f DescribeServiceErrorsResponse
+dsesServiceErrors :: Lens' DescribeServiceErrorsResponse ([ServiceError])
 dsesServiceErrors f x =
-    (\y -> x { _dsesServiceErrors = y })
-       <$> f (_dsesServiceErrors x)
+    f (_dsesServiceErrors x)
+        <&> \y -> x { _dsesServiceErrors = y }
 {-# INLINE dsesServiceErrors #-}
 
 instance FromJSON DescribeServiceErrorsResponse

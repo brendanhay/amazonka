@@ -58,6 +58,7 @@ retrieveDomainAuthCode :: Text -- ^ 'rdacrDomainName'
 retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
     { _rdacrDomainName = p1
     }
+{-# INLINE retrieveDomainAuthCode #-}
 
 data RetrieveDomainAuthCode = RetrieveDomainAuthCode
     { _rdacrDomainName :: Text
@@ -71,15 +72,10 @@ data RetrieveDomainAuthCode = RetrieveDomainAuthCode
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-rdacrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RetrieveDomainAuthCode
-    -> f RetrieveDomainAuthCode
+rdacrDomainName :: Lens' RetrieveDomainAuthCode (Text)
 rdacrDomainName f x =
-    (\y -> x { _rdacrDomainName = y })
-       <$> f (_rdacrDomainName x)
+    f (_rdacrDomainName x)
+        <&> \y -> x { _rdacrDomainName = y }
 {-# INLINE rdacrDomainName #-}
 
 instance ToPath RetrieveDomainAuthCode
@@ -96,15 +92,10 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
     } deriving (Show, Generic)
 
 -- | The authorization code for the domain. Type: String.
-rdacsAuthCode
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RetrieveDomainAuthCodeResponse
-    -> f RetrieveDomainAuthCodeResponse
+rdacsAuthCode :: Lens' RetrieveDomainAuthCodeResponse (Text)
 rdacsAuthCode f x =
-    (\y -> x { _rdacsAuthCode = y })
-       <$> f (_rdacsAuthCode x)
+    f (_rdacsAuthCode x)
+        <&> \y -> x { _rdacsAuthCode = y }
 {-# INLINE rdacsAuthCode #-}
 
 instance FromJSON RetrieveDomainAuthCodeResponse

@@ -67,6 +67,7 @@ updateDomainNameservers p1 p2 = UpdateDomainNameservers
     { _udnrDomainName = p1
     , _udnrNameservers = p2
     }
+{-# INLINE updateDomainNameservers #-}
 
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnrDomainName :: Text
@@ -83,28 +84,18 @@ data UpdateDomainNameservers = UpdateDomainNameservers
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-udnrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDomainNameservers
-    -> f UpdateDomainNameservers
+udnrDomainName :: Lens' UpdateDomainNameservers (Text)
 udnrDomainName f x =
-    (\y -> x { _udnrDomainName = y })
-       <$> f (_udnrDomainName x)
+    f (_udnrDomainName x)
+        <&> \y -> x { _udnrDomainName = y }
 {-# INLINE udnrDomainName #-}
 
 -- | A list of new name servers for the domain. Type: Complex Children: Name,
 -- GlueIps Required: Yes.
-udnrNameservers
-    :: Functor f
-    => ([Nameserver]
-    -> f ([Nameserver]))
-    -> UpdateDomainNameservers
-    -> f UpdateDomainNameservers
+udnrNameservers :: Lens' UpdateDomainNameservers ([Nameserver])
 udnrNameservers f x =
-    (\y -> x { _udnrNameservers = y })
-       <$> f (_udnrNameservers x)
+    f (_udnrNameservers x)
+        <&> \y -> x { _udnrNameservers = y }
 {-# INLINE udnrNameservers #-}
 
 instance ToPath UpdateDomainNameservers
@@ -125,15 +116,10 @@ data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udnsOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDomainNameserversResponse
-    -> f UpdateDomainNameserversResponse
+udnsOperationId :: Lens' UpdateDomainNameserversResponse (Text)
 udnsOperationId f x =
-    (\y -> x { _udnsOperationId = y })
-       <$> f (_udnsOperationId x)
+    f (_udnsOperationId x)
+        <&> \y -> x { _udnsOperationId = y }
 {-# INLINE udnsOperationId #-}
 
 instance FromJSON UpdateDomainNameserversResponse

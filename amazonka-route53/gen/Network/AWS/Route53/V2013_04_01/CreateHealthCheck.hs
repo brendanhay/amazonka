@@ -51,6 +51,7 @@ createHealthCheck p1 p2 = CreateHealthCheck
     { _chcrHealthCheckConfig = p1
     , _chcrCallerReference = p2
     }
+{-# INLINE createHealthCheck #-}
 
 data CreateHealthCheck = CreateHealthCheck
     { _chcrHealthCheckConfig :: HealthCheckConfig
@@ -67,15 +68,10 @@ data CreateHealthCheck = CreateHealthCheck
     } deriving (Show, Generic)
 
 -- | A complex type that contains health check configuration.
-chcrHealthCheckConfig
-    :: Functor f
-    => (HealthCheckConfig
-    -> f (HealthCheckConfig))
-    -> CreateHealthCheck
-    -> f CreateHealthCheck
+chcrHealthCheckConfig :: Lens' CreateHealthCheck (HealthCheckConfig)
 chcrHealthCheckConfig f x =
-    (\y -> x { _chcrHealthCheckConfig = y })
-       <$> f (_chcrHealthCheckConfig x)
+    f (_chcrHealthCheckConfig x)
+        <&> \y -> x { _chcrHealthCheckConfig = y }
 {-# INLINE chcrHealthCheckConfig #-}
 
 -- | A unique string that identifies the request and that allows failed
@@ -85,15 +81,10 @@ chcrHealthCheckConfig f x =
 -- might choose to use a string that identifies your project. Valid characters
 -- are any Unicode code points that are legal in an XML 1.0 document. The
 -- UTF-8 encoding of the value must be less than 128 bytes.
-chcrCallerReference
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHealthCheck
-    -> f CreateHealthCheck
+chcrCallerReference :: Lens' CreateHealthCheck (Text)
 chcrCallerReference f x =
-    (\y -> x { _chcrCallerReference = y })
-       <$> f (_chcrCallerReference x)
+    f (_chcrCallerReference x)
+        <&> \y -> x { _chcrCallerReference = y }
 {-# INLINE chcrCallerReference #-}
 
 instance ToPath CreateHealthCheck where
@@ -117,27 +108,17 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
 
 -- | A complex type that contains identifying information about the health
 -- check.
-chcsHealthCheck
-    :: Functor f
-    => (HealthCheck
-    -> f (HealthCheck))
-    -> CreateHealthCheckResponse
-    -> f CreateHealthCheckResponse
+chcsHealthCheck :: Lens' CreateHealthCheckResponse (HealthCheck)
 chcsHealthCheck f x =
-    (\y -> x { _chcsHealthCheck = y })
-       <$> f (_chcsHealthCheck x)
+    f (_chcsHealthCheck x)
+        <&> \y -> x { _chcsHealthCheck = y }
 {-# INLINE chcsHealthCheck #-}
 
 -- | The unique URL representing the new health check.
-chcsLocation
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHealthCheckResponse
-    -> f CreateHealthCheckResponse
+chcsLocation :: Lens' CreateHealthCheckResponse (Text)
 chcsLocation f x =
-    (\y -> x { _chcsLocation = y })
-       <$> f (_chcsLocation x)
+    f (_chcsLocation x)
+        <&> \y -> x { _chcsLocation = y }
 {-# INLINE chcsLocation #-}
 
 instance AWSRequest CreateHealthCheck where

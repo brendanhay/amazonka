@@ -65,6 +65,7 @@ changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
     { _crrsrChangeBatch = p1
     , _crrsrHostedZoneId = p2
     }
+{-# INLINE changeResourceRecordSets #-}
 
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { _crrsrChangeBatch :: ChangeBatch
@@ -76,28 +77,18 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
     } deriving (Show, Generic)
 
 -- | A complex type that contains an optional comment and the Changes element.
-crrsrChangeBatch
-    :: Functor f
-    => (ChangeBatch
-    -> f (ChangeBatch))
-    -> ChangeResourceRecordSets
-    -> f ChangeResourceRecordSets
+crrsrChangeBatch :: Lens' ChangeResourceRecordSets (ChangeBatch)
 crrsrChangeBatch f x =
-    (\y -> x { _crrsrChangeBatch = y })
-       <$> f (_crrsrChangeBatch x)
+    f (_crrsrChangeBatch x)
+        <&> \y -> x { _crrsrChangeBatch = y }
 {-# INLINE crrsrChangeBatch #-}
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to change.
-crrsrHostedZoneId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangeResourceRecordSets
-    -> f ChangeResourceRecordSets
+crrsrHostedZoneId :: Lens' ChangeResourceRecordSets (Text)
 crrsrHostedZoneId f x =
-    (\y -> x { _crrsrHostedZoneId = y })
-       <$> f (_crrsrHostedZoneId x)
+    f (_crrsrHostedZoneId x)
+        <&> \y -> x { _crrsrHostedZoneId = y }
 {-# INLINE crrsrHostedZoneId #-}
 
 instance ToPath ChangeResourceRecordSets where
@@ -126,15 +117,10 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
 -- | A complex type that contains information about changes made to your hosted
 -- zone. This element contains an ID that you use when performing a GetChange
 -- action to get detailed information about the change.
-crrssChangeInfo
-    :: Functor f
-    => (ChangeInfo
-    -> f (ChangeInfo))
-    -> ChangeResourceRecordSetsResponse
-    -> f ChangeResourceRecordSetsResponse
+crrssChangeInfo :: Lens' ChangeResourceRecordSetsResponse (ChangeInfo)
 crrssChangeInfo f x =
-    (\y -> x { _crrssChangeInfo = y })
-       <$> f (_crrssChangeInfo x)
+    f (_crrssChangeInfo x)
+        <&> \y -> x { _crrssChangeInfo = y }
 {-# INLINE crrssChangeInfo #-}
 
 instance FromXML ChangeResourceRecordSetsResponse where

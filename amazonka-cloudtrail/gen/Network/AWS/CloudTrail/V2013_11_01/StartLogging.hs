@@ -42,6 +42,7 @@ startLogging :: Text -- ^ 'slrName'
 startLogging p1 = StartLogging
     { _slrName = p1
     }
+{-# INLINE startLogging #-}
 
 data StartLogging = StartLogging
     { _slrName :: Text
@@ -49,15 +50,10 @@ data StartLogging = StartLogging
     } deriving (Show, Generic)
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
-slrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartLogging
-    -> f StartLogging
+slrName :: Lens' StartLogging (Text)
 slrName f x =
-    (\y -> x { _slrName = y })
-       <$> f (_slrName x)
+    f (_slrName x)
+        <&> \y -> x { _slrName = y }
 {-# INLINE slrName #-}
 
 instance ToPath StartLogging

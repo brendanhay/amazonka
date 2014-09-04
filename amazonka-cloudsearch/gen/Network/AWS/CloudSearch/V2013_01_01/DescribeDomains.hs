@@ -48,6 +48,7 @@ describeDomains :: DescribeDomains
 describeDomains = DescribeDomains
     { _ddwDomainNames = mempty
     }
+{-# INLINE describeDomains #-}
 
 data DescribeDomains = DescribeDomains
     { _ddwDomainNames :: [Text]
@@ -55,15 +56,10 @@ data DescribeDomains = DescribeDomains
     } deriving (Show, Generic)
 
 -- | The names of the domains you want to include in the response.
-ddwDomainNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeDomains
-    -> f DescribeDomains
+ddwDomainNames :: Lens' DescribeDomains ([Text])
 ddwDomainNames f x =
-    (\y -> x { _ddwDomainNames = y })
-       <$> f (_ddwDomainNames x)
+    f (_ddwDomainNames x)
+        <&> \y -> x { _ddwDomainNames = y }
 {-# INLINE ddwDomainNames #-}
 
 instance ToQuery DescribeDomains where
@@ -75,15 +71,10 @@ data DescribeDomainsResponse = DescribeDomainsResponse
     } deriving (Show, Generic)
 
 -- | A list that contains the status of each requested domain.
-ddxDomainStatusList
-    :: Functor f
-    => ([DomainStatus]
-    -> f ([DomainStatus]))
-    -> DescribeDomainsResponse
-    -> f DescribeDomainsResponse
+ddxDomainStatusList :: Lens' DescribeDomainsResponse ([DomainStatus])
 ddxDomainStatusList f x =
-    (\y -> x { _ddxDomainStatusList = y })
-       <$> f (_ddxDomainStatusList x)
+    f (_ddxDomainStatusList x)
+        <&> \y -> x { _ddxDomainStatusList = y }
 {-# INLINE ddxDomainStatusList #-}
 
 instance FromXML DescribeDomainsResponse where

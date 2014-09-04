@@ -83,6 +83,7 @@ createTable p1 p2 p3 p4 = CreateTable
     , _ctiGlobalSecondaryIndexes = mempty
     , _ctiLocalSecondaryIndexes = mempty
     }
+{-# INLINE createTable #-}
 
 data CreateTable = CreateTable
     { _ctiAttributeDefinitions :: [AttributeDefinition]
@@ -164,15 +165,10 @@ data CreateTable = CreateTable
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
-ctiAttributeDefinitions
-    :: Functor f
-    => ([AttributeDefinition]
-    -> f ([AttributeDefinition]))
-    -> CreateTable
-    -> f CreateTable
+ctiAttributeDefinitions :: Lens' CreateTable ([AttributeDefinition])
 ctiAttributeDefinitions f x =
-    (\y -> x { _ctiAttributeDefinitions = y })
-       <$> f (_ctiAttributeDefinitions x)
+    f (_ctiAttributeDefinitions x)
+        <&> \y -> x { _ctiAttributeDefinitions = y }
 {-# INLINE ctiAttributeDefinitions #-}
 
 -- | Specifies the attributes that make up the primary key for a table or an
@@ -187,42 +183,27 @@ ctiAttributeDefinitions f x =
 -- element must have a KeyType of HASH, and the second element must have a
 -- KeyType of RANGE. For more information, see Specifying the Primary Key in
 -- the Amazon DynamoDB Developer Guide.
-ctiKeySchema
-    :: Functor f
-    => ([KeySchemaElement]
-    -> f ([KeySchemaElement]))
-    -> CreateTable
-    -> f CreateTable
+ctiKeySchema :: Lens' CreateTable ([KeySchemaElement])
 ctiKeySchema f x =
-    (\y -> x { _ctiKeySchema = y })
-       <$> f (_ctiKeySchema x)
+    f (_ctiKeySchema x)
+        <&> \y -> x { _ctiKeySchema = y }
 {-# INLINE ctiKeySchema #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
 -- current minimum and maximum provisioned throughput values, see Limits in
 -- the Amazon DynamoDB Developer Guide.
-ctiProvisionedThroughput
-    :: Functor f
-    => (ProvisionedThroughput
-    -> f (ProvisionedThroughput))
-    -> CreateTable
-    -> f CreateTable
+ctiProvisionedThroughput :: Lens' CreateTable (ProvisionedThroughput)
 ctiProvisionedThroughput f x =
-    (\y -> x { _ctiProvisionedThroughput = y })
-       <$> f (_ctiProvisionedThroughput x)
+    f (_ctiProvisionedThroughput x)
+        <&> \y -> x { _ctiProvisionedThroughput = y }
 {-# INLINE ctiProvisionedThroughput #-}
 
 -- | The name of the table to create.
-ctiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateTable
-    -> f CreateTable
+ctiTableName :: Lens' CreateTable (Text)
 ctiTableName f x =
-    (\y -> x { _ctiTableName = y })
-       <$> f (_ctiTableName x)
+    f (_ctiTableName x)
+        <&> \y -> x { _ctiTableName = y }
 {-# INLINE ctiTableName #-}
 
 -- | One or more global secondary indexes (the maximum is five) to be created on
@@ -244,15 +225,10 @@ ctiTableName f x =
 -- this counts as two distinct attributes when determining the total.
 -- ProvisionedThroughput - The provisioned throughput settings for the global
 -- secondary index, consisting of read and write capacity units.
-ctiGlobalSecondaryIndexes
-    :: Functor f
-    => ([GlobalSecondaryIndex]
-    -> f ([GlobalSecondaryIndex]))
-    -> CreateTable
-    -> f CreateTable
+ctiGlobalSecondaryIndexes :: Lens' CreateTable ([GlobalSecondaryIndex])
 ctiGlobalSecondaryIndexes f x =
-    (\y -> x { _ctiGlobalSecondaryIndexes = y })
-       <$> f (_ctiGlobalSecondaryIndexes x)
+    f (_ctiGlobalSecondaryIndexes x)
+        <&> \y -> x { _ctiGlobalSecondaryIndexes = y }
 {-# INLINE ctiGlobalSecondaryIndexes #-}
 
 -- | One or more local secondary indexes (the maximum is five) to be created on
@@ -275,15 +251,10 @@ ctiGlobalSecondaryIndexes f x =
 -- specified in NonKeyAttributes, summed across all of the secondary indexes,
 -- must not exceed 20. If you project the same attribute into two different
 -- indexes, this counts as two distinct attributes when determining the total.
-ctiLocalSecondaryIndexes
-    :: Functor f
-    => ([LocalSecondaryIndex]
-    -> f ([LocalSecondaryIndex]))
-    -> CreateTable
-    -> f CreateTable
+ctiLocalSecondaryIndexes :: Lens' CreateTable ([LocalSecondaryIndex])
 ctiLocalSecondaryIndexes f x =
-    (\y -> x { _ctiLocalSecondaryIndexes = y })
-       <$> f (_ctiLocalSecondaryIndexes x)
+    f (_ctiLocalSecondaryIndexes x)
+        <&> \y -> x { _ctiLocalSecondaryIndexes = y }
 {-# INLINE ctiLocalSecondaryIndexes #-}
 
 instance ToPath CreateTable
@@ -300,15 +271,10 @@ data CreateTableResponse = CreateTableResponse
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-ctoTableDescription
-    :: Functor f
-    => (Maybe TableDescription
-    -> f (Maybe TableDescription))
-    -> CreateTableResponse
-    -> f CreateTableResponse
+ctoTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctoTableDescription f x =
-    (\y -> x { _ctoTableDescription = y })
-       <$> f (_ctoTableDescription x)
+    f (_ctoTableDescription x)
+        <&> \y -> x { _ctoTableDescription = y }
 {-# INLINE ctoTableDescription #-}
 
 instance FromJSON CreateTableResponse

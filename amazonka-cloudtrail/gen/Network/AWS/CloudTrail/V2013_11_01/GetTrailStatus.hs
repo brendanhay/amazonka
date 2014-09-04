@@ -52,6 +52,7 @@ getTrailStatus :: Text -- ^ 'gtsrName'
 getTrailStatus p1 = GetTrailStatus
     { _gtsrName = p1
     }
+{-# INLINE getTrailStatus #-}
 
 data GetTrailStatus = GetTrailStatus
     { _gtsrName :: Text
@@ -60,15 +61,10 @@ data GetTrailStatus = GetTrailStatus
     } deriving (Show, Generic)
 
 -- | The name of the trail for which you are requesting the current status.
-gtsrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetTrailStatus
-    -> f GetTrailStatus
+gtsrName :: Lens' GetTrailStatus (Text)
 gtsrName f x =
-    (\y -> x { _gtsrName = y })
-       <$> f (_gtsrName x)
+    f (_gtsrName x)
+        <&> \y -> x { _gtsrName = y }
 {-# INLINE gtsrName #-}
 
 instance ToPath GetTrailStatus
@@ -107,95 +103,60 @@ data GetTrailStatusResponse = GetTrailStatusResponse
     } deriving (Show, Generic)
 
 -- | Whether the CloudTrail is currently logging AWS API calls.
-gtssIsLogging
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
 gtssIsLogging f x =
-    (\y -> x { _gtssIsLogging = y })
-       <$> f (_gtssIsLogging x)
+    f (_gtssIsLogging x)
+        <&> \y -> x { _gtssIsLogging = y }
 {-# INLINE gtssIsLogging #-}
 
 -- | Specifies the date and time that CloudTrail last delivered log files to an
 -- account's Amazon S3 bucket.
-gtssLatestDeliveryTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssLatestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
 gtssLatestDeliveryTime f x =
-    (\y -> x { _gtssLatestDeliveryTime = y })
-       <$> f (_gtssLatestDeliveryTime x)
+    f (_gtssLatestDeliveryTime x)
+        <&> \y -> x { _gtssLatestDeliveryTime = y }
 {-# INLINE gtssLatestDeliveryTime #-}
 
 -- | Specifies the date and time of the most recent Amazon SNS notification that
 -- CloudTrail has written a new log file to an account's Amazon S3 bucket.
-gtssLatestNotificationTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
 gtssLatestNotificationTime f x =
-    (\y -> x { _gtssLatestNotificationTime = y })
-       <$> f (_gtssLatestNotificationTime x)
+    f (_gtssLatestNotificationTime x)
+        <&> \y -> x { _gtssLatestNotificationTime = y }
 {-# INLINE gtssLatestNotificationTime #-}
 
 -- | Specifies the most recent date and time when CloudTrail started recording
 -- API calls for an AWS account.
-gtssStartLoggingTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssStartLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
 gtssStartLoggingTime f x =
-    (\y -> x { _gtssStartLoggingTime = y })
-       <$> f (_gtssStartLoggingTime x)
+    f (_gtssStartLoggingTime x)
+        <&> \y -> x { _gtssStartLoggingTime = y }
 {-# INLINE gtssStartLoggingTime #-}
 
 -- | Specifies the most recent date and time when CloudTrail stopped recording
 -- API calls for an AWS account.
-gtssStopLoggingTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
 gtssStopLoggingTime f x =
-    (\y -> x { _gtssStopLoggingTime = y })
-       <$> f (_gtssStopLoggingTime x)
+    f (_gtssStopLoggingTime x)
+        <&> \y -> x { _gtssStopLoggingTime = y }
 {-# INLINE gtssStopLoggingTime #-}
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting to
 -- deliver log files to the designated bucket. For more information see the
 -- topic Error Responses in the Amazon S3 API Reference.
-gtssLatestDeliveryError
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtssLatestDeliveryError f x =
-    (\y -> x { _gtssLatestDeliveryError = y })
-       <$> f (_gtssLatestDeliveryError x)
+    f (_gtssLatestDeliveryError x)
+        <&> \y -> x { _gtssLatestDeliveryError = y }
 {-# INLINE gtssLatestDeliveryError #-}
 
 -- | Displays any Amazon SNS error that CloudTrail encountered when attempting
 -- to send a notification. For more information about Amazon SNS errors, see
 -- the Amazon SNS Developer Guide.
-gtssLatestNotificationError
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetTrailStatusResponse
-    -> f GetTrailStatusResponse
+gtssLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtssLatestNotificationError f x =
-    (\y -> x { _gtssLatestNotificationError = y })
-       <$> f (_gtssLatestNotificationError x)
+    f (_gtssLatestNotificationError x)
+        <&> \y -> x { _gtssLatestNotificationError = y }
 {-# INLINE gtssLatestNotificationError #-}
 
 instance FromJSON GetTrailStatusResponse

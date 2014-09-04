@@ -56,6 +56,7 @@ promoteReadReplica p1 = PromoteReadReplica
     , _prrmBackupRetentionPeriod = Nothing
     , _prrmPreferredBackupWindow = Nothing
     }
+{-# INLINE promoteReadReplica #-}
 
 data PromoteReadReplica = PromoteReadReplica
     { _prrmDBInstanceIdentifier :: Text
@@ -87,29 +88,19 @@ data PromoteReadReplica = PromoteReadReplica
 -- instance Must contain from 1 to 63 alphanumeric characters or hyphens First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: mydbinstance.
-prrmDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PromoteReadReplica
-    -> f PromoteReadReplica
+prrmDBInstanceIdentifier :: Lens' PromoteReadReplica (Text)
 prrmDBInstanceIdentifier f x =
-    (\y -> x { _prrmDBInstanceIdentifier = y })
-       <$> f (_prrmDBInstanceIdentifier x)
+    f (_prrmDBInstanceIdentifier x)
+        <&> \y -> x { _prrmDBInstanceIdentifier = y }
 {-# INLINE prrmDBInstanceIdentifier #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
 -- positive number enables backups. Setting this parameter to 0 disables
 -- automated backups. Default: 1 Constraints: Must be a value from 0 to 8.
-prrmBackupRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PromoteReadReplica
-    -> f PromoteReadReplica
+prrmBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Integer)
 prrmBackupRetentionPeriod f x =
-    (\y -> x { _prrmBackupRetentionPeriod = y })
-       <$> f (_prrmBackupRetentionPeriod x)
+    f (_prrmBackupRetentionPeriod x)
+        <&> \y -> x { _prrmBackupRetentionPeriod = y }
 {-# INLINE prrmBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
@@ -120,15 +111,10 @@ prrmBackupRetentionPeriod f x =
 -- Must be in the format hh24:mi-hh24:mi. Times should be Universal Time
 -- Coordinated (UTC). Must not conflict with the preferred maintenance window.
 -- Must be at least 30 minutes.
-prrmPreferredBackupWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PromoteReadReplica
-    -> f PromoteReadReplica
+prrmPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrmPreferredBackupWindow f x =
-    (\y -> x { _prrmPreferredBackupWindow = y })
-       <$> f (_prrmPreferredBackupWindow x)
+    f (_prrmPreferredBackupWindow x)
+        <&> \y -> x { _prrmPreferredBackupWindow = y }
 {-# INLINE prrmPreferredBackupWindow #-}
 
 instance ToQuery PromoteReadReplica where
@@ -145,15 +131,10 @@ data PromoteReadReplicaResponse = PromoteReadReplicaResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbidrDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> PromoteReadReplicaResponse
-    -> f PromoteReadReplicaResponse
+dbidrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 dbidrDBInstance f x =
-    (\y -> x { _dbidrDBInstance = y })
-       <$> f (_dbidrDBInstance x)
+    f (_dbidrDBInstance x)
+        <&> \y -> x { _dbidrDBInstance = y }
 {-# INLINE dbidrDBInstance #-}
 
 instance FromXML PromoteReadReplicaResponse where

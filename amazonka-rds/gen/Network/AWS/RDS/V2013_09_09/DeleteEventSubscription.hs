@@ -50,6 +50,7 @@ deleteEventSubscription :: Text -- ^ 'desmSubscriptionName'
 deleteEventSubscription p1 = DeleteEventSubscription
     { _desmSubscriptionName = p1
     }
+{-# INLINE deleteEventSubscription #-}
 
 data DeleteEventSubscription = DeleteEventSubscription
     { _desmSubscriptionName :: Text
@@ -58,15 +59,10 @@ data DeleteEventSubscription = DeleteEventSubscription
     } deriving (Show, Generic)
 
 -- | The name of the RDS event notification subscription you want to delete.
-desmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteEventSubscription
-    -> f DeleteEventSubscription
+desmSubscriptionName :: Lens' DeleteEventSubscription (Text)
 desmSubscriptionName f x =
-    (\y -> x { _desmSubscriptionName = y })
-       <$> f (_desmSubscriptionName x)
+    f (_desmSubscriptionName x)
+        <&> \y -> x { _desmSubscriptionName = y }
 {-# INLINE desmSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where
@@ -80,15 +76,10 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-esyEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> DeleteEventSubscriptionResponse
-    -> f DeleteEventSubscriptionResponse
+esyEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 esyEventSubscription f x =
-    (\y -> x { _esyEventSubscription = y })
-       <$> f (_esyEventSubscription x)
+    f (_esyEventSubscription x)
+        <&> \y -> x { _esyEventSubscription = y }
 {-# INLINE esyEventSubscription #-}
 
 instance FromXML DeleteEventSubscriptionResponse where

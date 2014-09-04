@@ -47,6 +47,7 @@ unassignVolume :: Text -- ^ 'uvrVolumeId'
 unassignVolume p1 = UnassignVolume
     { _uvrVolumeId = p1
     }
+{-# INLINE unassignVolume #-}
 
 data UnassignVolume = UnassignVolume
     { _uvrVolumeId :: Text
@@ -54,15 +55,10 @@ data UnassignVolume = UnassignVolume
     } deriving (Show, Generic)
 
 -- | The volume ID.
-uvrVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UnassignVolume
-    -> f UnassignVolume
+uvrVolumeId :: Lens' UnassignVolume (Text)
 uvrVolumeId f x =
-    (\y -> x { _uvrVolumeId = y })
-       <$> f (_uvrVolumeId x)
+    f (_uvrVolumeId x)
+        <&> \y -> x { _uvrVolumeId = y }
 {-# INLINE uvrVolumeId #-}
 
 instance ToPath UnassignVolume

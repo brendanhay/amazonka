@@ -50,6 +50,7 @@ modifyClusterSubnetGroup p1 p2 = ModifyClusterSubnetGroup
     , _mcsgmSubnetIds = p2
     , _mcsgmDescription = Nothing
     }
+{-# INLINE modifyClusterSubnetGroup #-}
 
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgmClusterSubnetGroupName :: Text
@@ -62,40 +63,25 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     } deriving (Show, Generic)
 
 -- | The name of the subnet group to be modified.
-mcsgmClusterSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyClusterSubnetGroup
-    -> f ModifyClusterSubnetGroup
+mcsgmClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup (Text)
 mcsgmClusterSubnetGroupName f x =
-    (\y -> x { _mcsgmClusterSubnetGroupName = y })
-       <$> f (_mcsgmClusterSubnetGroupName x)
+    f (_mcsgmClusterSubnetGroupName x)
+        <&> \y -> x { _mcsgmClusterSubnetGroupName = y }
 {-# INLINE mcsgmClusterSubnetGroupName #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-mcsgmSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyClusterSubnetGroup
-    -> f ModifyClusterSubnetGroup
+mcsgmSubnetIds :: Lens' ModifyClusterSubnetGroup ([Text])
 mcsgmSubnetIds f x =
-    (\y -> x { _mcsgmSubnetIds = y })
-       <$> f (_mcsgmSubnetIds x)
+    f (_mcsgmSubnetIds x)
+        <&> \y -> x { _mcsgmSubnetIds = y }
 {-# INLINE mcsgmSubnetIds #-}
 
 -- | A text description of the subnet group to be modified.
-mcsgmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyClusterSubnetGroup
-    -> f ModifyClusterSubnetGroup
+mcsgmDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
 mcsgmDescription f x =
-    (\y -> x { _mcsgmDescription = y })
-       <$> f (_mcsgmDescription x)
+    f (_mcsgmDescription x)
+        <&> \y -> x { _mcsgmDescription = y }
 {-# INLINE mcsgmDescription #-}
 
 instance ToQuery ModifyClusterSubnetGroup where
@@ -107,15 +93,10 @@ data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     } deriving (Show, Generic)
 
 -- | Describes a subnet group.
-csgzClusterSubnetGroup
-    :: Functor f
-    => (Maybe ClusterSubnetGroup
-    -> f (Maybe ClusterSubnetGroup))
-    -> ModifyClusterSubnetGroupResponse
-    -> f ModifyClusterSubnetGroupResponse
+csgzClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 csgzClusterSubnetGroup f x =
-    (\y -> x { _csgzClusterSubnetGroup = y })
-       <$> f (_csgzClusterSubnetGroup x)
+    f (_csgzClusterSubnetGroup x)
+        <&> \y -> x { _csgzClusterSubnetGroup = y }
 {-# INLINE csgzClusterSubnetGroup #-}
 
 instance FromXML ModifyClusterSubnetGroupResponse where

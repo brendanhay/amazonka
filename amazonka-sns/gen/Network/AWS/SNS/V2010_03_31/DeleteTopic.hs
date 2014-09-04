@@ -54,6 +54,7 @@ deleteTopic :: Text -- ^ 'dtiTopicArn'
 deleteTopic p1 = DeleteTopic
     { _dtiTopicArn = p1
     }
+{-# INLINE deleteTopic #-}
 
 data DeleteTopic = DeleteTopic
     { _dtiTopicArn :: Text
@@ -84,15 +85,10 @@ data DeleteTopic = DeleteTopic
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;fba800b9-3765-11df-8cf3-c58c53254dfb&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
-dtiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteTopic
-    -> f DeleteTopic
+dtiTopicArn :: Lens' DeleteTopic (Text)
 dtiTopicArn f x =
-    (\y -> x { _dtiTopicArn = y })
-       <$> f (_dtiTopicArn x)
+    f (_dtiTopicArn x)
+        <&> \y -> x { _dtiTopicArn = y }
 {-# INLINE dtiTopicArn #-}
 
 instance ToQuery DeleteTopic where

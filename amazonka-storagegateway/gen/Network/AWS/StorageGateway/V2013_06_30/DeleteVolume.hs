@@ -67,6 +67,7 @@ deleteVolume :: Text -- ^ 'dviVolumeARN'
 deleteVolume p1 = DeleteVolume
     { _dviVolumeARN = p1
     }
+{-# INLINE deleteVolume #-}
 
 data DeleteVolume = DeleteVolume
     { _dviVolumeARN :: Text
@@ -76,15 +77,10 @@ data DeleteVolume = DeleteVolume
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-dviVolumeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVolume
-    -> f DeleteVolume
+dviVolumeARN :: Lens' DeleteVolume (Text)
 dviVolumeARN f x =
-    (\y -> x { _dviVolumeARN = y })
-       <$> f (_dviVolumeARN x)
+    f (_dviVolumeARN x)
+        <&> \y -> x { _dviVolumeARN = y }
 {-# INLINE dviVolumeARN #-}
 
 instance ToPath DeleteVolume
@@ -103,15 +99,10 @@ data DeleteVolumeResponse = DeleteVolumeResponse
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It
 -- is the same ARN you provided in the request.
-dvoVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteVolumeResponse
-    -> f DeleteVolumeResponse
+dvoVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvoVolumeARN f x =
-    (\y -> x { _dvoVolumeARN = y })
-       <$> f (_dvoVolumeARN x)
+    f (_dvoVolumeARN x)
+        <&> \y -> x { _dvoVolumeARN = y }
 {-# INLINE dvoVolumeARN #-}
 
 instance FromJSON DeleteVolumeResponse

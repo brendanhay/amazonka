@@ -56,6 +56,7 @@ listTopics :: ListTopics
 listTopics = ListTopics
     { _ltiNextToken = Nothing
     }
+{-# INLINE listTopics #-}
 
 data ListTopics = ListTopics
     { _ltiNextToken :: Maybe Text
@@ -63,15 +64,10 @@ data ListTopics = ListTopics
     } deriving (Show, Generic)
 
 -- | Token returned by the previous ListTopics request.
-ltiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListTopics
-    -> f ListTopics
+ltiNextToken :: Lens' ListTopics (Maybe Text)
 ltiNextToken f x =
-    (\y -> x { _ltiNextToken = y })
-       <$> f (_ltiNextToken x)
+    f (_ltiNextToken x)
+        <&> \y -> x { _ltiNextToken = y }
 {-# INLINE ltiNextToken #-}
 
 instance ToQuery ListTopics where
@@ -87,27 +83,17 @@ data ListTopicsResponse = ListTopicsResponse
 
 -- | Token to pass along to the next ListTopics request. This element is
 -- returned if there are additional topics to retrieve.
-ltrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListTopicsResponse
-    -> f ListTopicsResponse
+ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrNextToken f x =
-    (\y -> x { _ltrNextToken = y })
-       <$> f (_ltrNextToken x)
+    f (_ltrNextToken x)
+        <&> \y -> x { _ltrNextToken = y }
 {-# INLINE ltrNextToken #-}
 
 -- | A list of topic ARNs.
-ltrTopics
-    :: Functor f
-    => ([Topic]
-    -> f ([Topic]))
-    -> ListTopicsResponse
-    -> f ListTopicsResponse
+ltrTopics :: Lens' ListTopicsResponse ([Topic])
 ltrTopics f x =
-    (\y -> x { _ltrTopics = y })
-       <$> f (_ltrTopics x)
+    f (_ltrTopics x)
+        <&> \y -> x { _ltrTopics = y }
 {-# INLINE ltrTopics #-}
 
 instance FromXML ListTopicsResponse where

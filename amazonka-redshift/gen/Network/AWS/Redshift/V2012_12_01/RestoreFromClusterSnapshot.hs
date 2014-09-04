@@ -95,6 +95,7 @@ restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     , _rfcsmPreferredMaintenanceWindow = Nothing
     , _rfcsmVpcSecurityGroupIds = mempty
     }
+{-# INLINE restoreFromClusterSnapshot #-}
 
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     { _rfcsmClusterIdentifier :: Text
@@ -188,80 +189,50 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 -- hyphens. Alphabetic characters must be lowercase. First character must be a
 -- letter. Cannot end with a hyphen or contain two consecutive hyphens. Must
 -- be unique for all clusters within an AWS account.
-rfcsmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Text)
 rfcsmClusterIdentifier f x =
-    (\y -> x { _rfcsmClusterIdentifier = y })
-       <$> f (_rfcsmClusterIdentifier x)
+    f (_rfcsmClusterIdentifier x)
+        <&> \y -> x { _rfcsmClusterIdentifier = y }
 {-# INLINE rfcsmClusterIdentifier #-}
 
 -- | The name of the snapshot from which to create the new cluster. This
 -- parameter isn't case sensitive. Example: my-snapshot-id.
-rfcsmSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot (Text)
 rfcsmSnapshotIdentifier f x =
-    (\y -> x { _rfcsmSnapshotIdentifier = y })
-       <$> f (_rfcsmSnapshotIdentifier x)
+    f (_rfcsmSnapshotIdentifier x)
+        <&> \y -> x { _rfcsmSnapshotIdentifier = y }
 {-# INLINE rfcsmSnapshotIdentifier #-}
 
 -- | If true, upgrades can be applied during the maintenance window to the
 -- Amazon Redshift engine that is running on the cluster. Default: true.
-rfcsmAllowVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsmAllowVersionUpgrade f x =
-    (\y -> x { _rfcsmAllowVersionUpgrade = y })
-       <$> f (_rfcsmAllowVersionUpgrade x)
+    f (_rfcsmAllowVersionUpgrade x)
+        <&> \y -> x { _rfcsmAllowVersionUpgrade = y }
 {-# INLINE rfcsmAllowVersionUpgrade #-}
 
 -- | If true, the cluster can be accessed from a public network.
-rfcsmPubliclyAccessible
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsmPubliclyAccessible f x =
-    (\y -> x { _rfcsmPubliclyAccessible = y })
-       <$> f (_rfcsmPubliclyAccessible x)
+    f (_rfcsmPubliclyAccessible x)
+        <&> \y -> x { _rfcsmPubliclyAccessible = y }
 {-# INLINE rfcsmPubliclyAccessible #-}
 
 -- | A list of security groups to be associated with this cluster. Default: The
 -- default cluster security group for Amazon Redshift. Cluster security groups
 -- only apply to clusters outside of VPCs.
-rfcsmClusterSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot ([Text])
 rfcsmClusterSecurityGroups f x =
-    (\y -> x { _rfcsmClusterSecurityGroups = y })
-       <$> f (_rfcsmClusterSecurityGroups x)
+    f (_rfcsmClusterSecurityGroups x)
+        <&> \y -> x { _rfcsmClusterSecurityGroups = y }
 {-# INLINE rfcsmClusterSecurityGroups #-}
 
 -- | The port number on which the cluster accepts connections. Default: The same
 -- port as the original cluster. Constraints: Must be between 1115 and 65535.
-rfcsmPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmPort :: Lens' RestoreFromClusterSnapshot (Maybe Integer)
 rfcsmPort f x =
-    (\y -> x { _rfcsmPort = y })
-       <$> f (_rfcsmPort x)
+    f (_rfcsmPort x)
+        <&> \y -> x { _rfcsmPort = y }
 {-# INLINE rfcsmPort #-}
 
 -- | The number of days that automated snapshots are retained. If the value is
@@ -269,108 +240,68 @@ rfcsmPort f x =
 -- disabled, you can still create manual snapshots when you want with
 -- CreateClusterSnapshot. Default: The value selected for the cluster from
 -- which the snapshot was taken. Constraints: Must be a value from 0 to 35.
-rfcsmAutomatedSnapshotRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Integer)
 rfcsmAutomatedSnapshotRetentionPeriod f x =
-    (\y -> x { _rfcsmAutomatedSnapshotRetentionPeriod = y })
-       <$> f (_rfcsmAutomatedSnapshotRetentionPeriod x)
+    f (_rfcsmAutomatedSnapshotRetentionPeriod x)
+        <&> \y -> x { _rfcsmAutomatedSnapshotRetentionPeriod = y }
 {-# INLINE rfcsmAutomatedSnapshotRetentionPeriod #-}
 
 -- | The name of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster name.
-rfcsmSnapshotClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmSnapshotClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmSnapshotClusterIdentifier f x =
-    (\y -> x { _rfcsmSnapshotClusterIdentifier = y })
-       <$> f (_rfcsmSnapshotClusterIdentifier x)
+    f (_rfcsmSnapshotClusterIdentifier x)
+        <&> \y -> x { _rfcsmSnapshotClusterIdentifier = y }
 {-# INLINE rfcsmSnapshotClusterIdentifier #-}
 
 -- | The Amazon EC2 Availability Zone in which to restore the cluster. Default:
 -- A random, system-chosen Availability Zone. Example: us-east-1a.
-rfcsmAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmAvailabilityZone f x =
-    (\y -> x { _rfcsmAvailabilityZone = y })
-       <$> f (_rfcsmAvailabilityZone x)
+    f (_rfcsmAvailabilityZone x)
+        <&> \y -> x { _rfcsmAvailabilityZone = y }
 {-# INLINE rfcsmAvailabilityZone #-}
 
 -- | The name of the subnet group where you want to cluster restored. A snapshot
 -- of cluster in VPC can be restored only in VPC. Therefore, you must provide
 -- subnet group name where you want the cluster restored.
-rfcsmClusterSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmClusterSubnetGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmClusterSubnetGroupName f x =
-    (\y -> x { _rfcsmClusterSubnetGroupName = y })
-       <$> f (_rfcsmClusterSubnetGroupName x)
+    f (_rfcsmClusterSubnetGroupName x)
+        <&> \y -> x { _rfcsmClusterSubnetGroupName = y }
 {-# INLINE rfcsmClusterSubnetGroupName #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Required if
 -- you are restoring a snapshot you do not own, optional if you own the
 -- snapshot.
-rfcsmOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmOwnerAccount :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmOwnerAccount f x =
-    (\y -> x { _rfcsmOwnerAccount = y })
-       <$> f (_rfcsmOwnerAccount x)
+    f (_rfcsmOwnerAccount x)
+        <&> \y -> x { _rfcsmOwnerAccount = y }
 {-# INLINE rfcsmOwnerAccount #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-rfcsmHsmClientCertificateIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmHsmClientCertificateIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmHsmClientCertificateIdentifier f x =
-    (\y -> x { _rfcsmHsmClientCertificateIdentifier = y })
-       <$> f (_rfcsmHsmClientCertificateIdentifier x)
+    f (_rfcsmHsmClientCertificateIdentifier x)
+        <&> \y -> x { _rfcsmHsmClientCertificateIdentifier = y }
 {-# INLINE rfcsmHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-rfcsmHsmConfigurationIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmHsmConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmHsmConfigurationIdentifier f x =
-    (\y -> x { _rfcsmHsmConfigurationIdentifier = y })
-       <$> f (_rfcsmHsmConfigurationIdentifier x)
+    f (_rfcsmHsmConfigurationIdentifier x)
+        <&> \y -> x { _rfcsmHsmConfigurationIdentifier = y }
 {-# INLINE rfcsmHsmConfigurationIdentifier #-}
 
 -- | The elastic IP (EIP) address for the cluster.
-rfcsmElasticIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmElasticIp :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmElasticIp f x =
-    (\y -> x { _rfcsmElasticIp = y })
-       <$> f (_rfcsmElasticIp x)
+    f (_rfcsmElasticIp x)
+        <&> \y -> x { _rfcsmElasticIp = y }
 {-# INLINE rfcsmElasticIp #-}
 
 -- | The name of the parameter group to be associated with this cluster.
@@ -379,15 +310,10 @@ rfcsmElasticIp f x =
 -- Redshift Parameter Groups. Constraints: Must be 1 to 255 alphanumeric
 -- characters or hyphens. First character must be a letter. Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-rfcsmClusterParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmClusterParameterGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmClusterParameterGroupName f x =
-    (\y -> x { _rfcsmClusterParameterGroupName = y })
-       <$> f (_rfcsmClusterParameterGroupName x)
+    f (_rfcsmClusterParameterGroupName x)
+        <&> \y -> x { _rfcsmClusterParameterGroupName = y }
 {-# INLINE rfcsmClusterParameterGroupName #-}
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
@@ -399,29 +325,19 @@ rfcsmClusterParameterGroupName f x =
 -- Pacific (Singapore) Region 14:00-22:00 UTC Asia Pacific (Sydney) Region
 -- 12:00-20:00 UTC Asia Pacific (Tokyo) Region 17:00-03:00 UTC Valid Days: Mon
 -- | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
-rfcsmPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsmPreferredMaintenanceWindow f x =
-    (\y -> x { _rfcsmPreferredMaintenanceWindow = y })
-       <$> f (_rfcsmPreferredMaintenanceWindow x)
+    f (_rfcsmPreferredMaintenanceWindow x)
+        <&> \y -> x { _rfcsmPreferredMaintenanceWindow = y }
 {-# INLINE rfcsmPreferredMaintenanceWindow #-}
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated with
 -- the cluster. Default: The default VPC security group is associated with the
 -- cluster. VPC security groups only apply to clusters in VPCs.
-rfcsmVpcSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RestoreFromClusterSnapshot
-    -> f RestoreFromClusterSnapshot
+rfcsmVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshot ([Text])
 rfcsmVpcSecurityGroupIds f x =
-    (\y -> x { _rfcsmVpcSecurityGroupIds = y })
-       <$> f (_rfcsmVpcSecurityGroupIds x)
+    f (_rfcsmVpcSecurityGroupIds x)
+        <&> \y -> x { _rfcsmVpcSecurityGroupIds = y }
 {-# INLINE rfcsmVpcSecurityGroupIds #-}
 
 instance ToQuery RestoreFromClusterSnapshot where
@@ -433,15 +349,10 @@ data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccyCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> RestoreFromClusterSnapshotResponse
-    -> f RestoreFromClusterSnapshotResponse
+ccyCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 ccyCluster f x =
-    (\y -> x { _ccyCluster = y })
-       <$> f (_ccyCluster x)
+    f (_ccyCluster x)
+        <&> \y -> x { _ccyCluster = y }
 {-# INLINE ccyCluster #-}
 
 instance FromXML RestoreFromClusterSnapshotResponse where

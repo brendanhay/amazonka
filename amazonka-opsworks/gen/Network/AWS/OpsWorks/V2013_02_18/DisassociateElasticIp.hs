@@ -47,6 +47,7 @@ disassociateElasticIp :: Text -- ^ 'deiuElasticIp'
 disassociateElasticIp p1 = DisassociateElasticIp
     { _deiuElasticIp = p1
     }
+{-# INLINE disassociateElasticIp #-}
 
 data DisassociateElasticIp = DisassociateElasticIp
     { _deiuElasticIp :: Text
@@ -54,15 +55,10 @@ data DisassociateElasticIp = DisassociateElasticIp
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-deiuElasticIp
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisassociateElasticIp
-    -> f DisassociateElasticIp
+deiuElasticIp :: Lens' DisassociateElasticIp (Text)
 deiuElasticIp f x =
-    (\y -> x { _deiuElasticIp = y })
-       <$> f (_deiuElasticIp x)
+    f (_deiuElasticIp x)
+        <&> \y -> x { _deiuElasticIp = y }
 {-# INLINE deiuElasticIp #-}
 
 instance ToPath DisassociateElasticIp

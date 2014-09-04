@@ -78,6 +78,7 @@ updateStack p1 = UpdateStack
     , _usiTemplateURL = Nothing
     , _usiUsePreviousTemplate = Nothing
     }
+{-# INLINE updateStack #-}
 
 data UpdateStack = UpdateStack
     { _usiStackName :: Text
@@ -152,15 +153,10 @@ data UpdateStack = UpdateStack
 -- | The name or stack ID of the stack to update. Must contain only alphanumeric
 -- characters (case sensitive) and start with an alpha character. Maximum
 -- length of the name is 255 characters.
-usiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiStackName :: Lens' UpdateStack (Text)
 usiStackName f x =
-    (\y -> x { _usiStackName = y })
-       <$> f (_usiStackName x)
+    f (_usiStackName x)
+        <&> \y -> x { _usiStackName = y }
 {-# INLINE usiStackName #-}
 
 -- | The list of capabilities that you want to allow in the stack. If your stack
@@ -169,40 +165,25 @@ usiStackName f x =
 -- error. IAM resources are the following: AWS::IAM::AccessKey,
 -- AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::User, and
 -- AWS::IAM::UserToGroupAddition.
-usiCapabilities
-    :: Functor f
-    => ([Capability]
-    -> f ([Capability]))
-    -> UpdateStack
-    -> f UpdateStack
+usiCapabilities :: Lens' UpdateStack ([Capability])
 usiCapabilities f x =
-    (\y -> x { _usiCapabilities = y })
-       <$> f (_usiCapabilities x)
+    f (_usiCapabilities x)
+        <&> \y -> x { _usiCapabilities = y }
 {-# INLINE usiCapabilities #-}
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
-usiNotificationARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UpdateStack
-    -> f UpdateStack
+usiNotificationARNs :: Lens' UpdateStack ([Text])
 usiNotificationARNs f x =
-    (\y -> x { _usiNotificationARNs = y })
-       <$> f (_usiNotificationARNs x)
+    f (_usiNotificationARNs x)
+        <&> \y -> x { _usiNotificationARNs = y }
 {-# INLINE usiNotificationARNs #-}
 
 -- | A list of Parameter structures that specify input parameters for the stack.
-usiParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> UpdateStack
-    -> f UpdateStack
+usiParameters :: Lens' UpdateStack ([Parameter])
 usiParameters f x =
-    (\y -> x { _usiParameters = y })
-       <$> f (_usiParameters x)
+    f (_usiParameters x)
+        <&> \y -> x { _usiParameters = y }
 {-# INLINE usiParameters #-}
 
 -- | Structure containing a new stack policy body. You can specify either the
@@ -210,15 +191,10 @@ usiParameters f x =
 -- update the stack policy, for example, in order to protect a new resource
 -- that you created during a stack update. If you do not specify a stack
 -- policy, the current policy that is associated with the stack is unchanged.
-usiStackPolicyBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiStackPolicyBody :: Lens' UpdateStack (Maybe Text)
 usiStackPolicyBody f x =
-    (\y -> x { _usiStackPolicyBody = y })
-       <$> f (_usiStackPolicyBody x)
+    f (_usiStackPolicyBody x)
+        <&> \y -> x { _usiStackPolicyBody = y }
 {-# INLINE usiStackPolicyBody #-}
 
 -- | Structure containing the temporary overriding stack policy body. You can
@@ -227,15 +203,10 @@ usiStackPolicyBody f x =
 -- protected resources, specify a temporary overriding stack policy during
 -- this update. If you do not specify a stack policy, the current policy that
 -- is associated with the stack will be used.
-usiStackPolicyDuringUpdateBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
 usiStackPolicyDuringUpdateBody f x =
-    (\y -> x { _usiStackPolicyDuringUpdateBody = y })
-       <$> f (_usiStackPolicyDuringUpdateBody x)
+    f (_usiStackPolicyDuringUpdateBody x)
+        <&> \y -> x { _usiStackPolicyDuringUpdateBody = y }
 {-# INLINE usiStackPolicyDuringUpdateBody #-}
 
 -- | Location of a file containing the temporary overriding stack policy. The
@@ -246,15 +217,10 @@ usiStackPolicyDuringUpdateBody f x =
 -- temporary overriding stack policy during this update. If you do not specify
 -- a stack policy, the current policy that is associated with the stack will
 -- be used.
-usiStackPolicyDuringUpdateURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
 usiStackPolicyDuringUpdateURL f x =
-    (\y -> x { _usiStackPolicyDuringUpdateURL = y })
-       <$> f (_usiStackPolicyDuringUpdateURL x)
+    f (_usiStackPolicyDuringUpdateURL x)
+        <&> \y -> x { _usiStackPolicyDuringUpdateURL = y }
 {-# INLINE usiStackPolicyDuringUpdateURL #-}
 
 -- | Location of a file containing the updated stack policy. The URL must point
@@ -264,30 +230,20 @@ usiStackPolicyDuringUpdateURL f x =
 -- order to protect a new resource that you created during a stack update. If
 -- you do not specify a stack policy, the current policy that is associated
 -- with the stack is unchanged.
-usiStackPolicyURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiStackPolicyURL :: Lens' UpdateStack (Maybe Text)
 usiStackPolicyURL f x =
-    (\y -> x { _usiStackPolicyURL = y })
-       <$> f (_usiStackPolicyURL x)
+    f (_usiStackPolicyURL x)
+        <&> \y -> x { _usiStackPolicyURL = y }
 {-# INLINE usiStackPolicyURL #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. (For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide.) Conditional: You must
 -- specify either the TemplateBody or the TemplateURL parameter, but not both.
-usiTemplateBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiTemplateBody :: Lens' UpdateStack (Maybe Text)
 usiTemplateBody f x =
-    (\y -> x { _usiTemplateBody = y })
-       <$> f (_usiTemplateBody x)
+    f (_usiTemplateBody x)
+        <&> \y -> x { _usiTemplateBody = y }
 {-# INLINE usiTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
@@ -295,28 +251,18 @@ usiTemplateBody f x =
 -- information, go to Template Anatomy in the AWS CloudFormation User Guide.
 -- Conditional: You must specify either the TemplateBody or the TemplateURL
 -- parameter, but not both.
-usiTemplateURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usiTemplateURL :: Lens' UpdateStack (Maybe Text)
 usiTemplateURL f x =
-    (\y -> x { _usiTemplateURL = y })
-       <$> f (_usiTemplateURL x)
+    f (_usiTemplateURL x)
+        <&> \y -> x { _usiTemplateURL = y }
 {-# INLINE usiTemplateURL #-}
 
 -- | Reuse the existing template that is associated with the stack that you are
 -- updating.
-usiUsePreviousTemplate
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateStack
-    -> f UpdateStack
+usiUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
 usiUsePreviousTemplate f x =
-    (\y -> x { _usiUsePreviousTemplate = y })
-       <$> f (_usiUsePreviousTemplate x)
+    f (_usiUsePreviousTemplate x)
+        <&> \y -> x { _usiUsePreviousTemplate = y }
 {-# INLINE usiUsePreviousTemplate #-}
 
 instance ToQuery UpdateStack where
@@ -328,15 +274,10 @@ data UpdateStackResponse = UpdateStackResponse
     } deriving (Show, Generic)
 
 -- | Unique identifier of the stack.
-usoStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStackResponse
-    -> f UpdateStackResponse
+usoStackId :: Lens' UpdateStackResponse (Maybe Text)
 usoStackId f x =
-    (\y -> x { _usoStackId = y })
-       <$> f (_usoStackId x)
+    f (_usoStackId x)
+        <&> \y -> x { _usoStackId = y }
 {-# INLINE usoStackId #-}
 
 instance FromXML UpdateStackResponse where

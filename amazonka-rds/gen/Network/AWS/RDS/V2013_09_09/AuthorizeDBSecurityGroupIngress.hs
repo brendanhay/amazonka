@@ -68,6 +68,7 @@ authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
     , _adbsgimEC2SecurityGroupId = Nothing
     , _adbsgimEC2SecurityGroupOwnerId = Nothing
     }
+{-# INLINE authorizeDBSecurityGroupIngress #-}
 
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     { _adbsgimDBSecurityGroupName :: Text
@@ -94,55 +95,35 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     } deriving (Show, Generic)
 
 -- | The name of the DB security group to add authorization to.
-adbsgimDBSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeDBSecurityGroupIngress
-    -> f AuthorizeDBSecurityGroupIngress
+adbsgimDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Text)
 adbsgimDBSecurityGroupName f x =
-    (\y -> x { _adbsgimDBSecurityGroupName = y })
-       <$> f (_adbsgimDBSecurityGroupName x)
+    f (_adbsgimDBSecurityGroupName x)
+        <&> \y -> x { _adbsgimDBSecurityGroupName = y }
 {-# INLINE adbsgimDBSecurityGroupName #-}
 
 -- | The IP range to authorize.
-adbsgimCIDRIP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeDBSecurityGroupIngress
-    -> f AuthorizeDBSecurityGroupIngress
+adbsgimCIDRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgimCIDRIP f x =
-    (\y -> x { _adbsgimCIDRIP = y })
-       <$> f (_adbsgimCIDRIP x)
+    f (_adbsgimCIDRIP x)
+        <&> \y -> x { _adbsgimCIDRIP = y }
 {-# INLINE adbsgimCIDRIP #-}
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
 -- EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
 -- either EC2SecurityGroupName or EC2SecurityGroupId must be provided.
-adbsgimEC2SecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeDBSecurityGroupIngress
-    -> f AuthorizeDBSecurityGroupIngress
+adbsgimEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgimEC2SecurityGroupName f x =
-    (\y -> x { _adbsgimEC2SecurityGroupName = y })
-       <$> f (_adbsgimEC2SecurityGroupName x)
+    f (_adbsgimEC2SecurityGroupName x)
+        <&> \y -> x { _adbsgimEC2SecurityGroupName = y }
 {-# INLINE adbsgimEC2SecurityGroupName #-}
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
 -- EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
 -- either EC2SecurityGroupName or EC2SecurityGroupId must be provided.
-adbsgimEC2SecurityGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeDBSecurityGroupIngress
-    -> f AuthorizeDBSecurityGroupIngress
+adbsgimEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgimEC2SecurityGroupId f x =
-    (\y -> x { _adbsgimEC2SecurityGroupId = y })
-       <$> f (_adbsgimEC2SecurityGroupId x)
+    f (_adbsgimEC2SecurityGroupId x)
+        <&> \y -> x { _adbsgimEC2SecurityGroupId = y }
 {-# INLINE adbsgimEC2SecurityGroupId #-}
 
 -- | AWS Account Number of the owner of the EC2 security group specified in the
@@ -150,15 +131,10 @@ adbsgimEC2SecurityGroupId f x =
 -- value. For VPC DB security groups, EC2SecurityGroupId must be provided.
 -- Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId must be provided.
-adbsgimEC2SecurityGroupOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeDBSecurityGroupIngress
-    -> f AuthorizeDBSecurityGroupIngress
+adbsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgimEC2SecurityGroupOwnerId f x =
-    (\y -> x { _adbsgimEC2SecurityGroupOwnerId = y })
-       <$> f (_adbsgimEC2SecurityGroupOwnerId x)
+    f (_adbsgimEC2SecurityGroupOwnerId x)
+        <&> \y -> x { _adbsgimEC2SecurityGroupOwnerId = y }
 {-# INLINE adbsgimEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeDBSecurityGroupIngress where
@@ -177,15 +153,10 @@ data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressRe
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-dbsgwDBSecurityGroup
-    :: Functor f
-    => (Maybe DBSecurityGroup
-    -> f (Maybe DBSecurityGroup))
-    -> AuthorizeDBSecurityGroupIngressResponse
-    -> f AuthorizeDBSecurityGroupIngressResponse
+dbsgwDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 dbsgwDBSecurityGroup f x =
-    (\y -> x { _dbsgwDBSecurityGroup = y })
-       <$> f (_dbsgwDBSecurityGroup x)
+    f (_dbsgwDBSecurityGroup x)
+        <&> \y -> x { _dbsgwDBSecurityGroup = y }
 {-# INLINE dbsgwDBSecurityGroup #-}
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where

@@ -51,6 +51,7 @@ updateUserProfile p1 = UpdateUserProfile
     , _uuprSshUsername = Nothing
     , _uuprSshPublicKey = Nothing
     }
+{-# INLINE updateUserProfile #-}
 
 data UpdateUserProfile = UpdateUserProfile
     { _uuprIamUserArn :: Text
@@ -70,28 +71,18 @@ data UpdateUserProfile = UpdateUserProfile
     } deriving (Show, Generic)
 
 -- | The user IAM ARN.
-uuprIamUserArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateUserProfile
-    -> f UpdateUserProfile
+uuprIamUserArn :: Lens' UpdateUserProfile (Text)
 uuprIamUserArn f x =
-    (\y -> x { _uuprIamUserArn = y })
-       <$> f (_uuprIamUserArn x)
+    f (_uuprIamUserArn x)
+        <&> \y -> x { _uuprIamUserArn = y }
 {-# INLINE uuprIamUserArn #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see Managing User Permissions.
-uuprAllowSelfManagement
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateUserProfile
-    -> f UpdateUserProfile
+uuprAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
 uuprAllowSelfManagement f x =
-    (\y -> x { _uuprAllowSelfManagement = y })
-       <$> f (_uuprAllowSelfManagement x)
+    f (_uuprAllowSelfManagement x)
+        <&> \y -> x { _uuprAllowSelfManagement = y }
 {-# INLINE uuprAllowSelfManagement #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
@@ -99,27 +90,17 @@ uuprAllowSelfManagement f x =
 -- OpsWorks removes them. For example, my.name will be changed to myname. If
 -- you do not specify an SSH user name, AWS OpsWorks generates one from the
 -- IAM user name.
-uuprSshUsername
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateUserProfile
-    -> f UpdateUserProfile
+uuprSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uuprSshUsername f x =
-    (\y -> x { _uuprSshUsername = y })
-       <$> f (_uuprSshUsername x)
+    f (_uuprSshUsername x)
+        <&> \y -> x { _uuprSshUsername = y }
 {-# INLINE uuprSshUsername #-}
 
 -- | The user's new SSH public key.
-uuprSshPublicKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateUserProfile
-    -> f UpdateUserProfile
+uuprSshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 uuprSshPublicKey f x =
-    (\y -> x { _uuprSshPublicKey = y })
-       <$> f (_uuprSshPublicKey x)
+    f (_uuprSshPublicKey x)
+        <&> \y -> x { _uuprSshPublicKey = y }
 {-# INLINE uuprSshPublicKey #-}
 
 instance ToPath UpdateUserProfile

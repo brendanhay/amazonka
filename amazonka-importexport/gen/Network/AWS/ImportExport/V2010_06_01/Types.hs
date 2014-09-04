@@ -173,52 +173,32 @@ data Job = Job
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
-jJobId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Job
-    -> f Job
+jJobId :: Lens' Job (Text)
 jJobId f x =
-    (\y -> x { _jJobId = y })
-       <$> f (_jJobId x)
+    f (_jJobId x)
+        <&> \y -> x { _jJobId = y }
 {-# INLINE jJobId #-}
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
-jCreationDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Job
-    -> f Job
+jCreationDate :: Lens' Job (ISO8601)
 jCreationDate f x =
-    (\y -> x { _jCreationDate = y })
-       <$> f (_jCreationDate x)
+    f (_jCreationDate x)
+        <&> \y -> x { _jCreationDate = y }
 {-# INLINE jCreationDate #-}
 
 -- | Indicates whether the job was canceled.
-jIsCanceled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> Job
-    -> f Job
+jIsCanceled :: Lens' Job (Bool)
 jIsCanceled f x =
-    (\y -> x { _jIsCanceled = y })
-       <$> f (_jIsCanceled x)
+    f (_jIsCanceled x)
+        <&> \y -> x { _jIsCanceled = y }
 {-# INLINE jIsCanceled #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
-jJobType
-    :: Functor f
-    => (JobType
-    -> f (JobType))
-    -> Job
-    -> f Job
+jJobType :: Lens' Job (JobType)
 jJobType f x =
-    (\y -> x { _jJobType = y })
-       <$> f (_jJobType x)
+    f (_jJobType x)
+        <&> \y -> x { _jJobType = y }
 {-# INLINE jJobType #-}
 
 instance FromXML Job where

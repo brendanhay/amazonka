@@ -76,6 +76,7 @@ putLogEvents p1 p2 p3 = PutLogEvents
     , _plerLogStreamName = p3
     , _plerSequenceToken = Nothing
     }
+{-# INLINE putLogEvents #-}
 
 data PutLogEvents = PutLogEvents
     { _plerLogEvents :: [InputLogEvent]
@@ -88,50 +89,30 @@ data PutLogEvents = PutLogEvents
     } deriving (Show, Generic)
 
 -- | A list of events belonging to a log stream.
-plerLogEvents
-    :: Functor f
-    => ([InputLogEvent]
-    -> f ([InputLogEvent]))
-    -> PutLogEvents
-    -> f PutLogEvents
+plerLogEvents :: Lens' PutLogEvents ([InputLogEvent])
 plerLogEvents f x =
-    (\y -> x { _plerLogEvents = y })
-       <$> f (_plerLogEvents x)
+    f (_plerLogEvents x)
+        <&> \y -> x { _plerLogEvents = y }
 {-# INLINE plerLogEvents #-}
 
-plerLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutLogEvents
-    -> f PutLogEvents
+plerLogGroupName :: Lens' PutLogEvents (Text)
 plerLogGroupName f x =
-    (\y -> x { _plerLogGroupName = y })
-       <$> f (_plerLogGroupName x)
+    f (_plerLogGroupName x)
+        <&> \y -> x { _plerLogGroupName = y }
 {-# INLINE plerLogGroupName #-}
 
-plerLogStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutLogEvents
-    -> f PutLogEvents
+plerLogStreamName :: Lens' PutLogEvents (Text)
 plerLogStreamName f x =
-    (\y -> x { _plerLogStreamName = y })
-       <$> f (_plerLogStreamName x)
+    f (_plerLogStreamName x)
+        <&> \y -> x { _plerLogStreamName = y }
 {-# INLINE plerLogStreamName #-}
 
 -- | A string token that must be obtained from the response of the previous
 -- PutLogEvents request.
-plerSequenceToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLogEvents
-    -> f PutLogEvents
+plerSequenceToken :: Lens' PutLogEvents (Maybe Text)
 plerSequenceToken f x =
-    (\y -> x { _plerSequenceToken = y })
-       <$> f (_plerSequenceToken x)
+    f (_plerSequenceToken x)
+        <&> \y -> x { _plerSequenceToken = y }
 {-# INLINE plerSequenceToken #-}
 
 instance ToPath PutLogEvents
@@ -153,15 +134,10 @@ data PutLogEventsResponse = PutLogEventsResponse
 -- | A string token used for making PutLogEvents requests. A sequenceToken can
 -- only be used once, and PutLogEvents requests must include the sequenceToken
 -- obtained from the response of the previous request.
-plesNextSequenceToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLogEventsResponse
-    -> f PutLogEventsResponse
+plesNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plesNextSequenceToken f x =
-    (\y -> x { _plesNextSequenceToken = y })
-       <$> f (_plesNextSequenceToken x)
+    f (_plesNextSequenceToken x)
+        <&> \y -> x { _plesNextSequenceToken = y }
 {-# INLINE plesNextSequenceToken #-}
 
 instance FromJSON PutLogEventsResponse

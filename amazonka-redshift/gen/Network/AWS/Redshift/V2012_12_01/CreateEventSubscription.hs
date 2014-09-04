@@ -75,6 +75,7 @@ createEventSubscription p1 p2 = CreateEventSubscription
     , _cesmSourceType = Nothing
     , _cesmSeverity = Nothing
     }
+{-# INLINE createEventSubscription #-}
 
 data CreateEventSubscription = CreateEventSubscription
     { _cesmSubscriptionName :: Text
@@ -120,56 +121,36 @@ data CreateEventSubscription = CreateEventSubscription
 -- null, empty, or blank. Must contain from 1 to 255 alphanumeric characters
 -- or hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-cesmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSubscriptionName :: Lens' CreateEventSubscription (Text)
 cesmSubscriptionName f x =
-    (\y -> x { _cesmSubscriptionName = y })
-       <$> f (_cesmSubscriptionName x)
+    f (_cesmSubscriptionName x)
+        <&> \y -> x { _cesmSubscriptionName = y }
 {-# INLINE cesmSubscriptionName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the
 -- event notifications. The ARN is created by Amazon SNS when you create a
 -- topic and subscribe to it.
-cesmSnsTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSnsTopicArn :: Lens' CreateEventSubscription (Text)
 cesmSnsTopicArn f x =
-    (\y -> x { _cesmSnsTopicArn = y })
-       <$> f (_cesmSnsTopicArn x)
+    f (_cesmSnsTopicArn x)
+        <&> \y -> x { _cesmSnsTopicArn = y }
 {-# INLINE cesmSnsTopicArn #-}
 
 -- | A Boolean value; set to true to activate the subscription, set to false to
 -- create the subscription but not active it.
-cesmEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesmEnabled f x =
-    (\y -> x { _cesmEnabled = y })
-       <$> f (_cesmEnabled x)
+    f (_cesmEnabled x)
+        <&> \y -> x { _cesmEnabled = y }
 {-# INLINE cesmEnabled #-}
 
 -- | Specifies the Amazon Redshift event categories to be published by the event
 -- notification subscription. Values: Configuration, Management, Monitoring,
 -- Security.
-cesmEventCategories
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmEventCategories :: Lens' CreateEventSubscription ([Text])
 cesmEventCategories f x =
-    (\y -> x { _cesmEventCategories = y })
-       <$> f (_cesmEventCategories x)
+    f (_cesmEventCategories x)
+        <&> \y -> x { _cesmEventCategories = y }
 {-# INLINE cesmEventCategories #-}
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All of
@@ -178,15 +159,10 @@ cesmEventCategories f x =
 -- specified objects. If not specified, then events are returned for all
 -- objects within the source type specified. Example: my-cluster-1,
 -- my-cluster-2 Example: my-snapshot-20131010.
-cesmSourceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSourceIds :: Lens' CreateEventSubscription ([Text])
 cesmSourceIds f x =
-    (\y -> x { _cesmSourceIds = y })
-       <$> f (_cesmSourceIds x)
+    f (_cesmSourceIds x)
+        <&> \y -> x { _cesmSourceIds = y }
 {-# INLINE cesmSourceIds #-}
 
 -- | The type of source that will be generating the events. For example, if you
@@ -195,28 +171,18 @@ cesmSourceIds f x =
 -- for all Amazon Redshift objects in your AWS account. You must specify a
 -- source type in order to specify source IDs. Valid values: cluster,
 -- cluster-parameter-group, cluster-security-group, and cluster-snapshot.
-cesmSourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSourceType :: Lens' CreateEventSubscription (Maybe Text)
 cesmSourceType f x =
-    (\y -> x { _cesmSourceType = y })
-       <$> f (_cesmSourceType x)
+    f (_cesmSourceType x)
+        <&> \y -> x { _cesmSourceType = y }
 {-# INLINE cesmSourceType #-}
 
 -- | Specifies the Amazon Redshift event severity to be published by the event
 -- notification subscription. Values: ERROR, INFO.
-cesmSeverity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSeverity :: Lens' CreateEventSubscription (Maybe Text)
 cesmSeverity f x =
-    (\y -> x { _cesmSeverity = y })
-       <$> f (_cesmSeverity x)
+    f (_cesmSeverity x)
+        <&> \y -> x { _cesmSeverity = y }
 {-# INLINE cesmSeverity #-}
 
 instance ToQuery CreateEventSubscription where
@@ -228,15 +194,10 @@ data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     } deriving (Show, Generic)
 
 -- | 
-eswEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> CreateEventSubscriptionResponse
-    -> f CreateEventSubscriptionResponse
+eswEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 eswEventSubscription f x =
-    (\y -> x { _eswEventSubscription = y })
-       <$> f (_eswEventSubscription x)
+    f (_eswEventSubscription x)
+        <&> \y -> x { _eswEventSubscription = y }
 {-# INLINE eswEventSubscription #-}
 
 instance FromXML CreateEventSubscriptionResponse where

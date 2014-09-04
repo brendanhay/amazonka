@@ -62,6 +62,7 @@ createDeployment p1 p2 = CreateDeployment
     , _cdrCustomJson = Nothing
     , _cdrInstanceIds = mempty
     }
+{-# INLINE createDeployment #-}
 
 data CreateDeployment = CreateDeployment
     { _cdrCommand :: DeploymentCommand
@@ -87,52 +88,32 @@ data CreateDeployment = CreateDeployment
 
 -- | A DeploymentCommand object that specifies the deployment command and any
 -- associated arguments.
-cdrCommand
-    :: Functor f
-    => (DeploymentCommand
-    -> f (DeploymentCommand))
-    -> CreateDeployment
-    -> f CreateDeployment
+cdrCommand :: Lens' CreateDeployment (DeploymentCommand)
 cdrCommand f x =
-    (\y -> x { _cdrCommand = y })
-       <$> f (_cdrCommand x)
+    f (_cdrCommand x)
+        <&> \y -> x { _cdrCommand = y }
 {-# INLINE cdrCommand #-}
 
 -- | The stack ID.
-cdrStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDeployment
-    -> f CreateDeployment
+cdrStackId :: Lens' CreateDeployment (Text)
 cdrStackId f x =
-    (\y -> x { _cdrStackId = y })
-       <$> f (_cdrStackId x)
+    f (_cdrStackId x)
+        <&> \y -> x { _cdrStackId = y }
 {-# INLINE cdrStackId #-}
 
 -- | The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
-cdrAppId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDeployment
-    -> f CreateDeployment
+cdrAppId :: Lens' CreateDeployment (Maybe Text)
 cdrAppId f x =
-    (\y -> x { _cdrAppId = y })
-       <$> f (_cdrAppId x)
+    f (_cdrAppId x)
+        <&> \y -> x { _cdrAppId = y }
 {-# INLINE cdrAppId #-}
 
 -- | A user-defined comment.
-cdrComment
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDeployment
-    -> f CreateDeployment
+cdrComment :: Lens' CreateDeployment (Maybe Text)
 cdrComment f x =
-    (\y -> x { _cdrComment = y })
-       <$> f (_cdrComment x)
+    f (_cdrComment x)
+        <&> \y -> x { _cdrComment = y }
 {-# INLINE cdrComment #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -140,27 +121,17 @@ cdrComment f x =
 -- should be in the following format and must escape characters such as '"'.:
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
-cdrCustomJson
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDeployment
-    -> f CreateDeployment
+cdrCustomJson :: Lens' CreateDeployment (Maybe Text)
 cdrCustomJson f x =
-    (\y -> x { _cdrCustomJson = y })
-       <$> f (_cdrCustomJson x)
+    f (_cdrCustomJson x)
+        <&> \y -> x { _cdrCustomJson = y }
 {-# INLINE cdrCustomJson #-}
 
 -- | The instance IDs for the deployment targets.
-cdrInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateDeployment
-    -> f CreateDeployment
+cdrInstanceIds :: Lens' CreateDeployment ([Text])
 cdrInstanceIds f x =
-    (\y -> x { _cdrInstanceIds = y })
-       <$> f (_cdrInstanceIds x)
+    f (_cdrInstanceIds x)
+        <&> \y -> x { _cdrInstanceIds = y }
 {-# INLINE cdrInstanceIds #-}
 
 instance ToPath CreateDeployment
@@ -179,15 +150,10 @@ data CreateDeploymentResponse = CreateDeploymentResponse
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
-cdsDeploymentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDeploymentResponse
-    -> f CreateDeploymentResponse
+cdsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdsDeploymentId f x =
-    (\y -> x { _cdsDeploymentId = y })
-       <$> f (_cdsDeploymentId x)
+    f (_cdsDeploymentId x)
+        <&> \y -> x { _cdsDeploymentId = y }
 {-# INLINE cdsDeploymentId #-}
 
 instance FromJSON CreateDeploymentResponse

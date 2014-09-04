@@ -55,6 +55,7 @@ describeCacheSubnetGroups = DescribeCacheSubnetGroups
     , _dcsgpCacheSubnetGroupName = Nothing
     , _dcsgpMarker = Nothing
     }
+{-# INLINE describeCacheSubnetGroups #-}
 
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsgpMaxRecords :: Maybe Integer
@@ -75,42 +76,27 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcsgpMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCacheSubnetGroups
-    -> f DescribeCacheSubnetGroups
+dcsgpMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Integer)
 dcsgpMaxRecords f x =
-    (\y -> x { _dcsgpMaxRecords = y })
-       <$> f (_dcsgpMaxRecords x)
+    f (_dcsgpMaxRecords x)
+        <&> \y -> x { _dcsgpMaxRecords = y }
 {-# INLINE dcsgpMaxRecords #-}
 
 -- | The name of the cache subnet group to return details for.
-dcsgpCacheSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheSubnetGroups
-    -> f DescribeCacheSubnetGroups
+dcsgpCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgpCacheSubnetGroupName f x =
-    (\y -> x { _dcsgpCacheSubnetGroupName = y })
-       <$> f (_dcsgpCacheSubnetGroupName x)
+    f (_dcsgpCacheSubnetGroupName x)
+        <&> \y -> x { _dcsgpCacheSubnetGroupName = y }
 {-# INLINE dcsgpCacheSubnetGroupName #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dcsgpMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheSubnetGroups
-    -> f DescribeCacheSubnetGroups
+dcsgpMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgpMarker f x =
-    (\y -> x { _dcsgpMarker = y })
-       <$> f (_dcsgpMarker x)
+    f (_dcsgpMarker x)
+        <&> \y -> x { _dcsgpMarker = y }
 {-# INLINE dcsgpMarker #-}
 
 instance ToQuery DescribeCacheSubnetGroups where
@@ -126,27 +112,17 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
-csgqCacheSubnetGroups
-    :: Functor f
-    => ([CacheSubnetGroup]
-    -> f ([CacheSubnetGroup]))
-    -> DescribeCacheSubnetGroupsResponse
-    -> f DescribeCacheSubnetGroupsResponse
+csgqCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse ([CacheSubnetGroup])
 csgqCacheSubnetGroups f x =
-    (\y -> x { _csgqCacheSubnetGroups = y })
-       <$> f (_csgqCacheSubnetGroups x)
+    f (_csgqCacheSubnetGroups x)
+        <&> \y -> x { _csgqCacheSubnetGroups = y }
 {-# INLINE csgqCacheSubnetGroups #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-csgqMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheSubnetGroupsResponse
-    -> f DescribeCacheSubnetGroupsResponse
+csgqMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
 csgqMarker f x =
-    (\y -> x { _csgqMarker = y })
-       <$> f (_csgqMarker x)
+    f (_csgqMarker x)
+        <&> \y -> x { _csgqMarker = y }
 {-# INLINE csgqMarker #-}
 
 instance FromXML DescribeCacheSubnetGroupsResponse where

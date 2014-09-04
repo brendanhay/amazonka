@@ -46,6 +46,7 @@ deleteTape p1 p2 = DeleteTape
     { _dtiGatewayARN = p1
     , _dtiTapeARN = p2
     }
+{-# INLINE deleteTape #-}
 
 data DeleteTape = DeleteTape
     { _dtiGatewayARN :: Text
@@ -57,26 +58,16 @@ data DeleteTape = DeleteTape
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteTape
-    -> f DeleteTape
+dtiGatewayARN :: Lens' DeleteTape (Text)
 dtiGatewayARN f x =
-    (\y -> x { _dtiGatewayARN = y })
-       <$> f (_dtiGatewayARN x)
+    f (_dtiGatewayARN x)
+        <&> \y -> x { _dtiGatewayARN = y }
 {-# INLINE dtiGatewayARN #-}
 
-dtiTapeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteTape
-    -> f DeleteTape
+dtiTapeARN :: Lens' DeleteTape (Text)
 dtiTapeARN f x =
-    (\y -> x { _dtiTapeARN = y })
-       <$> f (_dtiTapeARN x)
+    f (_dtiTapeARN x)
+        <&> \y -> x { _dtiTapeARN = y }
 {-# INLINE dtiTapeARN #-}
 
 instance ToPath DeleteTape
@@ -91,15 +82,10 @@ data DeleteTapeResponse = DeleteTapeResponse
     { _dtoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dtoTapeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteTapeResponse
-    -> f DeleteTapeResponse
+dtoTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtoTapeARN f x =
-    (\y -> x { _dtoTapeARN = y })
-       <$> f (_dtoTapeARN x)
+    f (_dtoTapeARN x)
+        <&> \y -> x { _dtoTapeARN = y }
 {-# INLINE dtoTapeARN #-}
 
 instance FromJSON DeleteTapeResponse

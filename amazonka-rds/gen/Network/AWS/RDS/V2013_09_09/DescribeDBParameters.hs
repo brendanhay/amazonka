@@ -59,6 +59,7 @@ describeDBParameters p1 = DescribeDBParameters
     , _ddbpmSource = Nothing
     , _ddbpmMarker = Nothing
     }
+{-# INLINE describeDBParameters #-}
 
 data DescribeDBParameters = DescribeDBParameters
     { _ddbpmDBParameterGroupName :: Text
@@ -85,57 +86,37 @@ data DescribeDBParameters = DescribeDBParameters
 -- | The name of a specific DB parameter group to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
-ddbpmDBParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeDBParameters
-    -> f DescribeDBParameters
+ddbpmDBParameterGroupName :: Lens' DescribeDBParameters (Text)
 ddbpmDBParameterGroupName f x =
-    (\y -> x { _ddbpmDBParameterGroupName = y })
-       <$> f (_ddbpmDBParameterGroupName x)
+    f (_ddbpmDBParameterGroupName x)
+        <&> \y -> x { _ddbpmDBParameterGroupName = y }
 {-# INLINE ddbpmDBParameterGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbpmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBParameters
-    -> f DescribeDBParameters
+ddbpmMaxRecords :: Lens' DescribeDBParameters (Maybe Integer)
 ddbpmMaxRecords f x =
-    (\y -> x { _ddbpmMaxRecords = y })
-       <$> f (_ddbpmMaxRecords x)
+    f (_ddbpmMaxRecords x)
+        <&> \y -> x { _ddbpmMaxRecords = y }
 {-# INLINE ddbpmMaxRecords #-}
 
 -- | The parameter types to return. Default: All parameter types returned Valid
 -- Values: user | system | engine-default.
-ddbpmSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBParameters
-    -> f DescribeDBParameters
+ddbpmSource :: Lens' DescribeDBParameters (Maybe Text)
 ddbpmSource f x =
-    (\y -> x { _ddbpmSource = y })
-       <$> f (_ddbpmSource x)
+    f (_ddbpmSource x)
+        <&> \y -> x { _ddbpmSource = y }
 {-# INLINE ddbpmSource #-}
 
 -- | An optional pagination token provided by a previous DescribeDBParameters
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
-ddbpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBParameters
-    -> f DescribeDBParameters
+ddbpmMarker :: Lens' DescribeDBParameters (Maybe Text)
 ddbpmMarker f x =
-    (\y -> x { _ddbpmMarker = y })
-       <$> f (_ddbpmMarker x)
+    f (_ddbpmMarker x)
+        <&> \y -> x { _ddbpmMarker = y }
 {-# INLINE ddbpmMarker #-}
 
 instance ToQuery DescribeDBParameters where
@@ -151,29 +132,19 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
     } deriving (Show, Generic)
 
 -- | A list of Parameter values.
-dbpgdParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> DescribeDBParametersResponse
-    -> f DescribeDBParametersResponse
+dbpgdParameters :: Lens' DescribeDBParametersResponse ([Parameter])
 dbpgdParameters f x =
-    (\y -> x { _dbpgdParameters = y })
-       <$> f (_dbpgdParameters x)
+    f (_dbpgdParameters x)
+        <&> \y -> x { _dbpgdParameters = y }
 {-# INLINE dbpgdParameters #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbpgdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBParametersResponse
-    -> f DescribeDBParametersResponse
+dbpgdMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 dbpgdMarker f x =
-    (\y -> x { _dbpgdMarker = y })
-       <$> f (_dbpgdMarker x)
+    f (_dbpgdMarker x)
+        <&> \y -> x { _dbpgdMarker = y }
 {-# INLINE dbpgdMarker #-}
 
 instance FromXML DescribeDBParametersResponse where

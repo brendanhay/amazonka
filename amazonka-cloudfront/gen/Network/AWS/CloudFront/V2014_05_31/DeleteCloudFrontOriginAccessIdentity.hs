@@ -43,6 +43,7 @@ deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoairId = p1
     , _dcfoairIfMatch = Nothing
     }
+{-# INLINE deleteCloudFrontOriginAccessIdentity #-}
 
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
     { _dcfoairId :: Text
@@ -53,28 +54,18 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | The origin access identity's id.
-dcfoairId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCloudFrontOriginAccessIdentity
-    -> f DeleteCloudFrontOriginAccessIdentity
+dcfoairId :: Lens' DeleteCloudFrontOriginAccessIdentity (Text)
 dcfoairId f x =
-    (\y -> x { _dcfoairId = y })
-       <$> f (_dcfoairId x)
+    f (_dcfoairId x)
+        <&> \y -> x { _dcfoairId = y }
 {-# INLINE dcfoairId #-}
 
 -- | The value of the ETag header you received from a previous GET or PUT
 -- request. For example: E2QWRUHAPOMQZL.
-dcfoairIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteCloudFrontOriginAccessIdentity
-    -> f DeleteCloudFrontOriginAccessIdentity
+dcfoairIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoairIfMatch f x =
-    (\y -> x { _dcfoairIfMatch = y })
-       <$> f (_dcfoairIfMatch x)
+    f (_dcfoairIfMatch x)
+        <&> \y -> x { _dcfoairIfMatch = y }
 {-# INLINE dcfoairIfMatch #-}
 
 instance ToPath DeleteCloudFrontOriginAccessIdentity where

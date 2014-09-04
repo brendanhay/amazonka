@@ -46,6 +46,7 @@ describeScalingParameters :: Text -- ^ 'dsprDomainName'
 describeScalingParameters p1 = DescribeScalingParameters
     { _dsprDomainName = p1
     }
+{-# INLINE describeScalingParameters #-}
 
 data DescribeScalingParameters = DescribeScalingParameters
     { _dsprDomainName :: Text
@@ -60,15 +61,10 @@ data DescribeScalingParameters = DescribeScalingParameters
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dsprDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeScalingParameters
-    -> f DescribeScalingParameters
+dsprDomainName :: Lens' DescribeScalingParameters (Text)
 dsprDomainName f x =
-    (\y -> x { _dsprDomainName = y })
-       <$> f (_dsprDomainName x)
+    f (_dsprDomainName x)
+        <&> \y -> x { _dsprDomainName = y }
 {-# INLINE dsprDomainName #-}
 
 instance ToQuery DescribeScalingParameters where
@@ -81,15 +77,10 @@ data DescribeScalingParametersResponse = DescribeScalingParametersResponse
     } deriving (Show, Generic)
 
 -- | The status and configuration of a search domain's scaling parameters.
-dspsScalingParameters
-    :: Functor f
-    => (ScalingParametersStatus
-    -> f (ScalingParametersStatus))
-    -> DescribeScalingParametersResponse
-    -> f DescribeScalingParametersResponse
+dspsScalingParameters :: Lens' DescribeScalingParametersResponse (ScalingParametersStatus)
 dspsScalingParameters f x =
-    (\y -> x { _dspsScalingParameters = y })
-       <$> f (_dspsScalingParameters x)
+    f (_dspsScalingParameters x)
+        <&> \y -> x { _dspsScalingParameters = y }
 {-# INLINE dspsScalingParameters #-}
 
 instance FromXML DescribeScalingParametersResponse where

@@ -46,6 +46,7 @@ describeApplications :: DescribeApplications
 describeApplications = DescribeApplications
     { _danApplicationNames = mempty
     }
+{-# INLINE describeApplications #-}
 
 data DescribeApplications = DescribeApplications
     { _danApplicationNames :: [Text]
@@ -55,15 +56,10 @@ data DescribeApplications = DescribeApplications
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include those with the specified names.
-danApplicationNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeApplications
-    -> f DescribeApplications
+danApplicationNames :: Lens' DescribeApplications ([Text])
 danApplicationNames f x =
-    (\y -> x { _danApplicationNames = y })
-       <$> f (_danApplicationNames x)
+    f (_danApplicationNames x)
+        <&> \y -> x { _danApplicationNames = y }
 {-# INLINE danApplicationNames #-}
 
 instance ToQuery DescribeApplications where
@@ -75,15 +71,10 @@ data DescribeApplicationsResponse = DescribeApplicationsResponse
     } deriving (Show, Generic)
 
 -- | This parameter contains a list of ApplicationDescription.
-adnApplications
-    :: Functor f
-    => ([ApplicationDescription]
-    -> f ([ApplicationDescription]))
-    -> DescribeApplicationsResponse
-    -> f DescribeApplicationsResponse
+adnApplications :: Lens' DescribeApplicationsResponse ([ApplicationDescription])
 adnApplications f x =
-    (\y -> x { _adnApplications = y })
-       <$> f (_adnApplications x)
+    f (_adnApplications x)
+        <&> \y -> x { _adnApplications = y }
 {-# INLINE adnApplications #-}
 
 instance FromXML DescribeApplicationsResponse where

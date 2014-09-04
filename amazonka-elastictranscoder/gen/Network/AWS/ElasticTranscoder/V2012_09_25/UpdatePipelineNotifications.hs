@@ -67,6 +67,7 @@ updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
     { _upnrNotifications = p1
     , _upnrId = p2
     }
+{-# INLINE updatePipelineNotifications #-}
 
 data UpdatePipelineNotifications = UpdatePipelineNotifications
     { _upnrNotifications :: Notifications
@@ -107,28 +108,18 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications
 -- created the topic. Error: The topic ARN for the Amazon SNS topic that you
 -- want to notify when Elastic Transcoder encounters an error condition. This
 -- is the ARN that Amazon SNS returned when you created the topic.
-upnrNotifications
-    :: Functor f
-    => (Notifications
-    -> f (Notifications))
-    -> UpdatePipelineNotifications
-    -> f UpdatePipelineNotifications
+upnrNotifications :: Lens' UpdatePipelineNotifications (Notifications)
 upnrNotifications f x =
-    (\y -> x { _upnrNotifications = y })
-       <$> f (_upnrNotifications x)
+    f (_upnrNotifications x)
+        <&> \y -> x { _upnrNotifications = y }
 {-# INLINE upnrNotifications #-}
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
-upnrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdatePipelineNotifications
-    -> f UpdatePipelineNotifications
+upnrId :: Lens' UpdatePipelineNotifications (Text)
 upnrId f x =
-    (\y -> x { _upnrId = y })
-       <$> f (_upnrId x)
+    f (_upnrId x)
+        <&> \y -> x { _upnrId = y }
 {-# INLINE upnrId #-}
 
 instance ToPath UpdatePipelineNotifications where
@@ -152,15 +143,10 @@ data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upnsPipeline
-    :: Functor f
-    => (Maybe Pipeline
-    -> f (Maybe Pipeline))
-    -> UpdatePipelineNotificationsResponse
-    -> f UpdatePipelineNotificationsResponse
+upnsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnsPipeline f x =
-    (\y -> x { _upnsPipeline = y })
-       <$> f (_upnsPipeline x)
+    f (_upnsPipeline x)
+        <&> \y -> x { _upnsPipeline = y }
 {-# INLINE upnsPipeline #-}
 
 instance FromJSON UpdatePipelineNotificationsResponse

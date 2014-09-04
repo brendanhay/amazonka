@@ -45,6 +45,7 @@ describeConnectionsOnInterconnect :: Text -- ^ 'dcoirInterconnectId'
 describeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
     { _dcoirInterconnectId = p1
     }
+{-# INLINE describeConnectionsOnInterconnect #-}
 
 data DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoirInterconnectId :: Text
@@ -54,15 +55,10 @@ data DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
 
 -- | ID of the interconnect on which a list of connection is provisioned.
 -- Example: dxcon-abc123 Default: None.
-dcoirInterconnectId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeConnectionsOnInterconnect
-    -> f DescribeConnectionsOnInterconnect
+dcoirInterconnectId :: Lens' DescribeConnectionsOnInterconnect (Text)
 dcoirInterconnectId f x =
-    (\y -> x { _dcoirInterconnectId = y })
-       <$> f (_dcoirInterconnectId x)
+    f (_dcoirInterconnectId x)
+        <&> \y -> x { _dcoirInterconnectId = y }
 {-# INLINE dcoirInterconnectId #-}
 
 instance ToPath DescribeConnectionsOnInterconnect
@@ -79,15 +75,10 @@ data DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconne
     } deriving (Show, Generic)
 
 -- | A list of connections.
-pConnections
-    :: Functor f
-    => ([Connection]
-    -> f ([Connection]))
-    -> DescribeConnectionsOnInterconnectResponse
-    -> f DescribeConnectionsOnInterconnectResponse
+pConnections :: Lens' DescribeConnectionsOnInterconnectResponse ([Connection])
 pConnections f x =
-    (\y -> x { _pConnections = y })
-       <$> f (_pConnections x)
+    f (_pConnections x)
+        <&> \y -> x { _pConnections = y }
 {-# INLINE pConnections #-}
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse

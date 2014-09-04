@@ -71,6 +71,7 @@ changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
     { _cmvbrEntries = p1
     , _cmvbrQueueUrl = p2
     }
+{-# INLINE changeMessageVisibilityBatch #-}
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbrEntries :: [ChangeMessageVisibilityBatchRequestEntry]
@@ -82,27 +83,17 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
 
 -- | A list of receipt handles of the messages for which the visibility timeout
 -- must be changed.
-cmvbrEntries
-    :: Functor f
-    => ([ChangeMessageVisibilityBatchRequestEntry]
-    -> f ([ChangeMessageVisibilityBatchRequestEntry]))
-    -> ChangeMessageVisibilityBatch
-    -> f ChangeMessageVisibilityBatch
+cmvbrEntries :: Lens' ChangeMessageVisibilityBatch ([ChangeMessageVisibilityBatchRequestEntry])
 cmvbrEntries f x =
-    (\y -> x { _cmvbrEntries = y })
-       <$> f (_cmvbrEntries x)
+    f (_cmvbrEntries x)
+        <&> \y -> x { _cmvbrEntries = y }
 {-# INLINE cmvbrEntries #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
-cmvbrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangeMessageVisibilityBatch
-    -> f ChangeMessageVisibilityBatch
+cmvbrQueueUrl :: Lens' ChangeMessageVisibilityBatch (Text)
 cmvbrQueueUrl f x =
-    (\y -> x { _cmvbrQueueUrl = y })
-       <$> f (_cmvbrQueueUrl x)
+    f (_cmvbrQueueUrl x)
+        <&> \y -> x { _cmvbrQueueUrl = y }
 {-# INLINE cmvbrQueueUrl #-}
 
 instance ToQuery ChangeMessageVisibilityBatch where
@@ -116,27 +107,17 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     } deriving (Show, Generic)
 
 -- | A list of BatchResultErrorEntry items.
-cmvbsFailed
-    :: Functor f
-    => ([BatchResultErrorEntry]
-    -> f ([BatchResultErrorEntry]))
-    -> ChangeMessageVisibilityBatchResponse
-    -> f ChangeMessageVisibilityBatchResponse
+cmvbsFailed :: Lens' ChangeMessageVisibilityBatchResponse ([BatchResultErrorEntry])
 cmvbsFailed f x =
-    (\y -> x { _cmvbsFailed = y })
-       <$> f (_cmvbsFailed x)
+    f (_cmvbsFailed x)
+        <&> \y -> x { _cmvbsFailed = y }
 {-# INLINE cmvbsFailed #-}
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
-cmvbsSuccessful
-    :: Functor f
-    => ([ChangeMessageVisibilityBatchResultEntry]
-    -> f ([ChangeMessageVisibilityBatchResultEntry]))
-    -> ChangeMessageVisibilityBatchResponse
-    -> f ChangeMessageVisibilityBatchResponse
+cmvbsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse ([ChangeMessageVisibilityBatchResultEntry])
 cmvbsSuccessful f x =
-    (\y -> x { _cmvbsSuccessful = y })
-       <$> f (_cmvbsSuccessful x)
+    f (_cmvbsSuccessful x)
+        <&> \y -> x { _cmvbsSuccessful = y }
 {-# INLINE cmvbsSuccessful #-}
 
 instance FromXML ChangeMessageVisibilityBatchResponse where

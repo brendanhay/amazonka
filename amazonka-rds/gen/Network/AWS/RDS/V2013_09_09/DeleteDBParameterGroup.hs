@@ -48,6 +48,7 @@ deleteDBParameterGroup :: Text -- ^ 'ddbpgmDBParameterGroupName'
 deleteDBParameterGroup p1 = DeleteDBParameterGroup
     { _ddbpgmDBParameterGroupName = p1
     }
+{-# INLINE deleteDBParameterGroup #-}
 
 data DeleteDBParameterGroup = DeleteDBParameterGroup
     { _ddbpgmDBParameterGroupName :: Text
@@ -59,15 +60,10 @@ data DeleteDBParameterGroup = DeleteDBParameterGroup
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group You cannot delete a default DB parameter group
 -- Cannot be associated with any DB instances.
-ddbpgmDBParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDBParameterGroup
-    -> f DeleteDBParameterGroup
+ddbpgmDBParameterGroupName :: Lens' DeleteDBParameterGroup (Text)
 ddbpgmDBParameterGroupName f x =
-    (\y -> x { _ddbpgmDBParameterGroupName = y })
-       <$> f (_ddbpgmDBParameterGroupName x)
+    f (_ddbpgmDBParameterGroupName x)
+        <&> \y -> x { _ddbpgmDBParameterGroupName = y }
 {-# INLINE ddbpgmDBParameterGroupName #-}
 
 instance ToQuery DeleteDBParameterGroup where

@@ -53,6 +53,7 @@ defineIndexField p1 p2 = DefineIndexField
     { _difrDomainName = p1
     , _difrIndexField = p2
     }
+{-# INLINE defineIndexField #-}
 
 data DefineIndexField = DefineIndexField
     { _difrDomainName :: Text
@@ -69,27 +70,17 @@ data DefineIndexField = DefineIndexField
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-difrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DefineIndexField
-    -> f DefineIndexField
+difrDomainName :: Lens' DefineIndexField (Text)
 difrDomainName f x =
-    (\y -> x { _difrDomainName = y })
-       <$> f (_difrDomainName x)
+    f (_difrDomainName x)
+        <&> \y -> x { _difrDomainName = y }
 {-# INLINE difrDomainName #-}
 
 -- | The index field and field options you want to configure.
-difrIndexField
-    :: Functor f
-    => (IndexField
-    -> f (IndexField))
-    -> DefineIndexField
-    -> f DefineIndexField
+difrIndexField :: Lens' DefineIndexField (IndexField)
 difrIndexField f x =
-    (\y -> x { _difrIndexField = y })
-       <$> f (_difrIndexField x)
+    f (_difrIndexField x)
+        <&> \y -> x { _difrIndexField = y }
 {-# INLINE difrIndexField #-}
 
 instance ToQuery DefineIndexField where
@@ -101,15 +92,10 @@ data DefineIndexFieldResponse = DefineIndexFieldResponse
     } deriving (Show, Generic)
 
 -- | The value of an IndexField and its current status.
-difsIndexField
-    :: Functor f
-    => (IndexFieldStatus
-    -> f (IndexFieldStatus))
-    -> DefineIndexFieldResponse
-    -> f DefineIndexFieldResponse
+difsIndexField :: Lens' DefineIndexFieldResponse (IndexFieldStatus)
 difsIndexField f x =
-    (\y -> x { _difsIndexField = y })
-       <$> f (_difsIndexField x)
+    f (_difsIndexField x)
+        <&> \y -> x { _difsIndexField = y }
 {-# INLINE difsIndexField #-}
 
 instance FromXML DefineIndexFieldResponse where

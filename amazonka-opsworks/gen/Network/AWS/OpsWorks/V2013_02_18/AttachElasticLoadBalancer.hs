@@ -52,6 +52,7 @@ attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
     { _aelbrElasticLoadBalancerName = p1
     , _aelbrLayerId = p2
     }
+{-# INLINE attachElasticLoadBalancer #-}
 
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
     { _aelbrElasticLoadBalancerName :: Text
@@ -62,28 +63,18 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer
     } deriving (Show, Generic)
 
 -- | The Elastic Load Balancing instance's name.
-aelbrElasticLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachElasticLoadBalancer
-    -> f AttachElasticLoadBalancer
+aelbrElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer (Text)
 aelbrElasticLoadBalancerName f x =
-    (\y -> x { _aelbrElasticLoadBalancerName = y })
-       <$> f (_aelbrElasticLoadBalancerName x)
+    f (_aelbrElasticLoadBalancerName x)
+        <&> \y -> x { _aelbrElasticLoadBalancerName = y }
 {-# INLINE aelbrElasticLoadBalancerName #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is to be
 -- attached to.
-aelbrLayerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachElasticLoadBalancer
-    -> f AttachElasticLoadBalancer
+aelbrLayerId :: Lens' AttachElasticLoadBalancer (Text)
 aelbrLayerId f x =
-    (\y -> x { _aelbrLayerId = y })
-       <$> f (_aelbrLayerId x)
+    f (_aelbrLayerId x)
+        <&> \y -> x { _aelbrLayerId = y }
 {-# INLINE aelbrLayerId #-}
 
 instance ToPath AttachElasticLoadBalancer

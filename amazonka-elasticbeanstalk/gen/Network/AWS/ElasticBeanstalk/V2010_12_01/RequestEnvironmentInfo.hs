@@ -53,6 +53,7 @@ requestEnvironmentInfo p1 = RequestEnvironmentInfo
     , _reimEnvironmentId = Nothing
     , _reimEnvironmentName = Nothing
     }
+{-# INLINE requestEnvironmentInfo #-}
 
 data RequestEnvironmentInfo = RequestEnvironmentInfo
     { _reimInfoType :: EnvironmentInfoType
@@ -73,15 +74,10 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
     } deriving (Show, Generic)
 
 -- | The type of information to request.
-reimInfoType
-    :: Functor f
-    => (EnvironmentInfoType
-    -> f (EnvironmentInfoType))
-    -> RequestEnvironmentInfo
-    -> f RequestEnvironmentInfo
+reimInfoType :: Lens' RequestEnvironmentInfo (EnvironmentInfoType)
 reimInfoType f x =
-    (\y -> x { _reimInfoType = y })
-       <$> f (_reimInfoType x)
+    f (_reimInfoType x)
+        <&> \y -> x { _reimInfoType = y }
 {-# INLINE reimInfoType #-}
 
 -- | The ID of the environment of the requested data. If no such environment is
@@ -89,15 +85,10 @@ reimInfoType f x =
 -- Condition: You must specify either this or an EnvironmentName, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-reimEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestEnvironmentInfo
-    -> f RequestEnvironmentInfo
+reimEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
 reimEnvironmentId f x =
-    (\y -> x { _reimEnvironmentId = y })
-       <$> f (_reimEnvironmentId x)
+    f (_reimEnvironmentId x)
+        <&> \y -> x { _reimEnvironmentId = y }
 {-# INLINE reimEnvironmentId #-}
 
 -- | The name of the environment of the requested data. If no such environment
@@ -105,15 +96,10 @@ reimEnvironmentId f x =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-reimEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestEnvironmentInfo
-    -> f RequestEnvironmentInfo
+reimEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
 reimEnvironmentName f x =
-    (\y -> x { _reimEnvironmentName = y })
-       <$> f (_reimEnvironmentName x)
+    f (_reimEnvironmentName x)
+        <&> \y -> x { _reimEnvironmentName = y }
 {-# INLINE reimEnvironmentName #-}
 
 instance ToQuery RequestEnvironmentInfo where

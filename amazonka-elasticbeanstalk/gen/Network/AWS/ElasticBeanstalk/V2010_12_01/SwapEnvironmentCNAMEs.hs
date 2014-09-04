@@ -49,6 +49,7 @@ swapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     , _secnamemSourceEnvironmentName = Nothing
     , _secnamemDestinationEnvironmentName = Nothing
     }
+{-# INLINE swapEnvironmentCNAMEs #-}
 
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     { _secnamemSourceEnvironmentId :: Maybe Text
@@ -80,60 +81,40 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
 -- SourceEnvironmentID or the SourceEnvironmentName. You may also specify
 -- both. If you specify the SourceEnvironmentId, you must specify the
 -- DestinationEnvironmentId.
-secnamemSourceEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SwapEnvironmentCNAMEs
-    -> f SwapEnvironmentCNAMEs
+secnamemSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnamemSourceEnvironmentId f x =
-    (\y -> x { _secnamemSourceEnvironmentId = y })
-       <$> f (_secnamemSourceEnvironmentId x)
+    f (_secnamemSourceEnvironmentId x)
+        <&> \y -> x { _secnamemSourceEnvironmentId = y }
 {-# INLINE secnamemSourceEnvironmentId #-}
 
 -- | The ID of the destination environment. Condition: You must specify at least
 -- the DestinationEnvironmentID or the DestinationEnvironmentName. You may
 -- also specify both. You must specify the SourceEnvironmentId with the
 -- DestinationEnvironmentId.
-secnamemDestinationEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SwapEnvironmentCNAMEs
-    -> f SwapEnvironmentCNAMEs
+secnamemDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnamemDestinationEnvironmentId f x =
-    (\y -> x { _secnamemDestinationEnvironmentId = y })
-       <$> f (_secnamemDestinationEnvironmentId x)
+    f (_secnamemDestinationEnvironmentId x)
+        <&> \y -> x { _secnamemDestinationEnvironmentId = y }
 {-# INLINE secnamemDestinationEnvironmentId #-}
 
 -- | The name of the source environment. Condition: You must specify at least
 -- the SourceEnvironmentID or the SourceEnvironmentName. You may also specify
 -- both. If you specify the SourceEnvironmentName, you must specify the
 -- DestinationEnvironmentName.
-secnamemSourceEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SwapEnvironmentCNAMEs
-    -> f SwapEnvironmentCNAMEs
+secnamemSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnamemSourceEnvironmentName f x =
-    (\y -> x { _secnamemSourceEnvironmentName = y })
-       <$> f (_secnamemSourceEnvironmentName x)
+    f (_secnamemSourceEnvironmentName x)
+        <&> \y -> x { _secnamemSourceEnvironmentName = y }
 {-# INLINE secnamemSourceEnvironmentName #-}
 
 -- | The name of the destination environment. Condition: You must specify at
 -- least the DestinationEnvironmentID or the DestinationEnvironmentName. You
 -- may also specify both. You must specify the SourceEnvironmentName with the
 -- DestinationEnvironmentName.
-secnamemDestinationEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SwapEnvironmentCNAMEs
-    -> f SwapEnvironmentCNAMEs
+secnamemDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnamemDestinationEnvironmentName f x =
-    (\y -> x { _secnamemDestinationEnvironmentName = y })
-       <$> f (_secnamemDestinationEnvironmentName x)
+    f (_secnamemDestinationEnvironmentName x)
+        <&> \y -> x { _secnamemDestinationEnvironmentName = y }
 {-# INLINE secnamemDestinationEnvironmentName #-}
 
 instance ToQuery SwapEnvironmentCNAMEs where

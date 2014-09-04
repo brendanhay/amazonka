@@ -112,6 +112,7 @@ registerDomain p1 p2 p3 p4 p5 = RegisterDomain
     , _rdrPrivacyProtectTechContact = Nothing
     , _rdrIdnLangCode = Nothing
     }
+{-# INLINE registerDomain #-}
 
 data RegisterDomain = RegisterDomain
     { _rdrAdminContact :: ContactDetail
@@ -170,146 +171,96 @@ data RegisterDomain = RegisterDomain
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-rdrAdminContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrAdminContact :: Lens' RegisterDomain (ContactDetail)
 rdrAdminContact f x =
-    (\y -> x { _rdrAdminContact = y })
-       <$> f (_rdrAdminContact x)
+    f (_rdrAdminContact x)
+        <&> \y -> x { _rdrAdminContact = y }
 {-# INLINE rdrAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-rdrRegistrantContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrRegistrantContact :: Lens' RegisterDomain (ContactDetail)
 rdrRegistrantContact f x =
-    (\y -> x { _rdrRegistrantContact = y })
-       <$> f (_rdrRegistrantContact x)
+    f (_rdrRegistrantContact x)
+        <&> \y -> x { _rdrRegistrantContact = y }
 {-# INLINE rdrRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-rdrTechContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrTechContact :: Lens' RegisterDomain (ContactDetail)
 rdrTechContact f x =
-    (\y -> x { _rdrTechContact = y })
-       <$> f (_rdrTechContact x)
+    f (_rdrTechContact x)
+        <&> \y -> x { _rdrTechContact = y }
 {-# INLINE rdrTechContact #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-rdrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrDomainName :: Lens' RegisterDomain (Text)
 rdrDomainName f x =
-    (\y -> x { _rdrDomainName = y })
-       <$> f (_rdrDomainName x)
+    f (_rdrDomainName x)
+        <&> \y -> x { _rdrDomainName = y }
 {-# INLINE rdrDomainName #-}
 
 -- | The number of years the domain will be registered. Domains are registered
 -- for a minimum of one year. The maximum period depends on the top-level
 -- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
 -- Required: Yes.
-rdrDurationInYears
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrDurationInYears :: Lens' RegisterDomain (Integer)
 rdrDurationInYears f x =
-    (\y -> x { _rdrDurationInYears = y })
-       <$> f (_rdrDurationInYears x)
+    f (_rdrDurationInYears x)
+        <&> \y -> x { _rdrDurationInYears = y }
 {-# INLINE rdrDurationInYears #-}
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged. Type:
 -- Boolean Valid values: true | false Default: true Required: No.
-rdrAutoRenew
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrAutoRenew :: Lens' RegisterDomain (Maybe Bool)
 rdrAutoRenew f x =
-    (\y -> x { _rdrAutoRenew = y })
-       <$> f (_rdrAutoRenew x)
+    f (_rdrAutoRenew x)
+        <&> \y -> x { _rdrAutoRenew = y }
 {-# INLINE rdrAutoRenew #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-rdrPrivacyProtectAdminContact
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
 rdrPrivacyProtectAdminContact f x =
-    (\y -> x { _rdrPrivacyProtectAdminContact = y })
-       <$> f (_rdrPrivacyProtectAdminContact x)
+    f (_rdrPrivacyProtectAdminContact x)
+        <&> \y -> x { _rdrPrivacyProtectAdminContact = y }
 {-# INLINE rdrPrivacyProtectAdminContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-rdrPrivacyProtectRegistrantContact
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
 rdrPrivacyProtectRegistrantContact f x =
-    (\y -> x { _rdrPrivacyProtectRegistrantContact = y })
-       <$> f (_rdrPrivacyProtectRegistrantContact x)
+    f (_rdrPrivacyProtectRegistrantContact x)
+        <&> \y -> x { _rdrPrivacyProtectRegistrantContact = y }
 {-# INLINE rdrPrivacyProtectRegistrantContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-rdrPrivacyProtectTechContact
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
 rdrPrivacyProtectTechContact f x =
-    (\y -> x { _rdrPrivacyProtectTechContact = y })
-       <$> f (_rdrPrivacyProtectTechContact x)
+    f (_rdrPrivacyProtectTechContact x)
+        <&> \y -> x { _rdrPrivacyProtectTechContact = y }
 {-# INLINE rdrPrivacyProtectTechContact #-}
 
 -- | Reserved for future use.
-rdrIdnLangCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdrIdnLangCode :: Lens' RegisterDomain (Maybe Text)
 rdrIdnLangCode f x =
-    (\y -> x { _rdrIdnLangCode = y })
-       <$> f (_rdrIdnLangCode x)
+    f (_rdrIdnLangCode x)
+        <&> \y -> x { _rdrIdnLangCode = y }
 {-# INLINE rdrIdnLangCode #-}
 
 instance ToPath RegisterDomain
@@ -330,15 +281,10 @@ data RegisterDomainResponse = RegisterDomainResponse
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-rdsOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterDomainResponse
-    -> f RegisterDomainResponse
+rdsOperationId :: Lens' RegisterDomainResponse (Text)
 rdsOperationId f x =
-    (\y -> x { _rdsOperationId = y })
-       <$> f (_rdsOperationId x)
+    f (_rdsOperationId x)
+        <&> \y -> x { _rdsOperationId = y }
 {-# INLINE rdsOperationId #-}
 
 instance FromJSON RegisterDomainResponse

@@ -23,6 +23,8 @@ module Network.AWS.S3.V2006_03_01.ListBuckets
     (
     -- * Request
       ListBuckets
+    -- ** Request alias
+    , GetService
     -- ** Request constructor
     , listBuckets
     -- * Response

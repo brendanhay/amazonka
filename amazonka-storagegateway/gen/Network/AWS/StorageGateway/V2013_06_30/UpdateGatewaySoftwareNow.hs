@@ -68,6 +68,7 @@ updateGatewaySoftwareNow :: Text -- ^ 'ugsniGatewayARN'
 updateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
     { _ugsniGatewayARN = p1
     }
+{-# INLINE updateGatewaySoftwareNow #-}
 
 data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
     { _ugsniGatewayARN :: Text
@@ -78,15 +79,10 @@ data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugsniGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateGatewaySoftwareNow
-    -> f UpdateGatewaySoftwareNow
+ugsniGatewayARN :: Lens' UpdateGatewaySoftwareNow (Text)
 ugsniGatewayARN f x =
-    (\y -> x { _ugsniGatewayARN = y })
-       <$> f (_ugsniGatewayARN x)
+    f (_ugsniGatewayARN x)
+        <&> \y -> x { _ugsniGatewayARN = y }
 {-# INLINE ugsniGatewayARN #-}
 
 instance ToPath UpdateGatewaySoftwareNow
@@ -106,15 +102,10 @@ data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugsnoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateGatewaySoftwareNowResponse
-    -> f UpdateGatewaySoftwareNowResponse
+ugsnoGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnoGatewayARN f x =
-    (\y -> x { _ugsnoGatewayARN = y })
-       <$> f (_ugsnoGatewayARN x)
+    f (_ugsnoGatewayARN x)
+        <&> \y -> x { _ugsnoGatewayARN = y }
 {-# INLINE ugsnoGatewayARN #-}
 
 instance FromJSON UpdateGatewaySoftwareNowResponse

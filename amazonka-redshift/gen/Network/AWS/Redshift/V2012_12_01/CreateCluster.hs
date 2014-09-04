@@ -115,6 +115,7 @@ createCluster p1 p2 p3 p4 = CreateCluster
     , _ccmElasticIp = Nothing
     , _ccmVpcSecurityGroupIds = mempty
     }
+{-# INLINE createCluster #-}
 
 data CreateCluster = CreateCluster
     { _ccmClusterIdentifier :: Text
@@ -265,29 +266,19 @@ data CreateCluster = CreateCluster
 -- Alphabetic characters must be lowercase. First character must be a letter.
 -- Cannot end with a hyphen or contain two consecutive hyphens. Must be unique
 -- for all clusters within an AWS account. Example: myexamplecluster.
-ccmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmClusterIdentifier :: Lens' CreateCluster (Text)
 ccmClusterIdentifier f x =
-    (\y -> x { _ccmClusterIdentifier = y })
-       <$> f (_ccmClusterIdentifier x)
+    f (_ccmClusterIdentifier x)
+        <&> \y -> x { _ccmClusterIdentifier = y }
 {-# INLINE ccmClusterIdentifier #-}
 
 -- | The node type to be provisioned for the cluster. For information about node
 -- types, go to Working with Clusters in the Amazon Redshift Management Guide.
 -- Valid Values: dw1.xlarge | dw1.8xlarge | dw2.large | dw2.8xlarge.
-ccmNodeType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmNodeType :: Lens' CreateCluster (Text)
 ccmNodeType f x =
-    (\y -> x { _ccmNodeType = y })
-       <$> f (_ccmNodeType x)
+    f (_ccmNodeType x)
+        <&> \y -> x { _ccmNodeType = y }
 {-# INLINE ccmNodeType #-}
 
 -- | The user name associated with the master user account for the cluster that
@@ -295,15 +286,10 @@ ccmNodeType f x =
 -- First character must be a letter. Cannot be a reserved word. A list of
 -- reserved words can be found in Reserved Words in the Amazon Redshift
 -- Database Developer Guide.
-ccmMasterUsername
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmMasterUsername :: Lens' CreateCluster (Text)
 ccmMasterUsername f x =
-    (\y -> x { _ccmMasterUsername = y })
-       <$> f (_ccmMasterUsername x)
+    f (_ccmMasterUsername x)
+        <&> \y -> x { _ccmMasterUsername = y }
 {-# INLINE ccmMasterUsername #-}
 
 -- | The password associated with the master user account for the cluster that
@@ -312,15 +298,10 @@ ccmMasterUsername f x =
 -- one lowercase letter. Must contain one number. Can be any printable ASCII
 -- character (ASCII code 33 to 126) except ' (single quote), " (double quote),
 -- \, /, @, or space.
-ccmMasterUserPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmMasterUserPassword :: Lens' CreateCluster (Text)
 ccmMasterUserPassword f x =
-    (\y -> x { _ccmMasterUserPassword = y })
-       <$> f (_ccmMasterUserPassword x)
+    f (_ccmMasterUserPassword x)
+        <&> \y -> x { _ccmMasterUserPassword = y }
 {-# INLINE ccmMasterUserPassword #-}
 
 -- | If true, upgrades can be applied during the maintenance window to the
@@ -328,52 +309,32 @@ ccmMasterUserPassword f x =
 -- of the Amazon Redshift engine is released, you can request that the service
 -- automatically apply upgrades during the maintenance window to the Amazon
 -- Redshift engine that is running on your cluster. Default: true.
-ccmAllowVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateCluster
-    -> f CreateCluster
+ccmAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
 ccmAllowVersionUpgrade f x =
-    (\y -> x { _ccmAllowVersionUpgrade = y })
-       <$> f (_ccmAllowVersionUpgrade x)
+    f (_ccmAllowVersionUpgrade x)
+        <&> \y -> x { _ccmAllowVersionUpgrade = y }
 {-# INLINE ccmAllowVersionUpgrade #-}
 
 -- | If true, the cluster can be accessed from a public network.
-ccmPubliclyAccessible
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateCluster
-    -> f CreateCluster
+ccmPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccmPubliclyAccessible f x =
-    (\y -> x { _ccmPubliclyAccessible = y })
-       <$> f (_ccmPubliclyAccessible x)
+    f (_ccmPubliclyAccessible x)
+        <&> \y -> x { _ccmPubliclyAccessible = y }
 {-# INLINE ccmPubliclyAccessible #-}
 
 -- | If true, the data in the cluster is encrypted at rest. Default: false.
-ccmEncrypted
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateCluster
-    -> f CreateCluster
+ccmEncrypted :: Lens' CreateCluster (Maybe Bool)
 ccmEncrypted f x =
-    (\y -> x { _ccmEncrypted = y })
-       <$> f (_ccmEncrypted x)
+    f (_ccmEncrypted x)
+        <&> \y -> x { _ccmEncrypted = y }
 {-# INLINE ccmEncrypted #-}
 
 -- | A list of security groups to be associated with this cluster. Default: The
 -- default cluster security group for Amazon Redshift.
-ccmClusterSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCluster
-    -> f CreateCluster
+ccmClusterSecurityGroups :: Lens' CreateCluster ([Text])
 ccmClusterSecurityGroups f x =
-    (\y -> x { _ccmClusterSecurityGroups = y })
-       <$> f (_ccmClusterSecurityGroups x)
+    f (_ccmClusterSecurityGroups x)
+        <&> \y -> x { _ccmClusterSecurityGroups = y }
 {-# INLINE ccmClusterSecurityGroups #-}
 
 -- | The number of days that automated snapshots are retained. If the value is
@@ -381,30 +342,20 @@ ccmClusterSecurityGroups f x =
 -- disabled, you can still create manual snapshots when you want with
 -- CreateClusterSnapshot. Default: 1 Constraints: Must be a value from 0 to
 -- 35.
-ccmAutomatedSnapshotRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateCluster
-    -> f CreateCluster
+ccmAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Integer)
 ccmAutomatedSnapshotRetentionPeriod f x =
-    (\y -> x { _ccmAutomatedSnapshotRetentionPeriod = y })
-       <$> f (_ccmAutomatedSnapshotRetentionPeriod x)
+    f (_ccmAutomatedSnapshotRetentionPeriod x)
+        <&> \y -> x { _ccmAutomatedSnapshotRetentionPeriod = y }
 {-# INLINE ccmAutomatedSnapshotRetentionPeriod #-}
 
 -- | The port number on which the cluster accepts incoming connections. The
 -- cluster is accessible only via the JDBC and ODBC connection strings. Part
 -- of the connection string requires the port on which the cluster will listen
 -- for incoming connections. Default: 5439 Valid Values: 1150-65535.
-ccmPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateCluster
-    -> f CreateCluster
+ccmPort :: Lens' CreateCluster (Maybe Integer)
 ccmPort f x =
-    (\y -> x { _ccmPort = y })
-       <$> f (_ccmPort x)
+    f (_ccmPort x)
+        <&> \y -> x { _ccmPort = y }
 {-# INLINE ccmPort #-}
 
 -- | The number of compute nodes in the cluster. This parameter is required when
@@ -414,15 +365,10 @@ ccmPort f x =
 -- get a single-node cluster. When requesting a multi-node cluster, you must
 -- specify the number of nodes that you want in the cluster. Default: 1
 -- Constraints: Value must be at least 1 and no more than 100.
-ccmNumberOfNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateCluster
-    -> f CreateCluster
+ccmNumberOfNodes :: Lens' CreateCluster (Maybe Integer)
 ccmNumberOfNodes f x =
-    (\y -> x { _ccmNumberOfNodes = y })
-       <$> f (_ccmNumberOfNodes x)
+    f (_ccmNumberOfNodes x)
+        <&> \y -> x { _ccmNumberOfNodes = y }
 {-# INLINE ccmNumberOfNodes #-}
 
 -- | The name of the first database to be created when the cluster is created.
@@ -433,44 +379,29 @@ ccmNumberOfNodes f x =
 -- alphanumeric characters. Must contain only lowercase letters. Cannot be a
 -- word that is reserved by the service. A list of reserved words can be found
 -- in Reserved Words in the Amazon Redshift Database Developer Guide.
-ccmDBName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmDBName :: Lens' CreateCluster (Maybe Text)
 ccmDBName f x =
-    (\y -> x { _ccmDBName = y })
-       <$> f (_ccmDBName x)
+    f (_ccmDBName x)
+        <&> \y -> x { _ccmDBName = y }
 {-# INLINE ccmDBName #-}
 
 -- | The type of the cluster. When cluster type is specified as single-node, the
 -- NumberOfNodes parameter is not required. multi-node, the NumberOfNodes
 -- parameter is required. Valid Values: multi-node | single-node Default:
 -- multi-node.
-ccmClusterType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmClusterType :: Lens' CreateCluster (Maybe Text)
 ccmClusterType f x =
-    (\y -> x { _ccmClusterType = y })
-       <$> f (_ccmClusterType x)
+    f (_ccmClusterType x)
+        <&> \y -> x { _ccmClusterType = y }
 {-# INLINE ccmClusterType #-}
 
 -- | The name of a cluster subnet group to be associated with this cluster. If
 -- this parameter is not provided the resulting cluster will be deployed
 -- outside virtual private cloud (VPC).
-ccmClusterSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
 ccmClusterSubnetGroupName f x =
-    (\y -> x { _ccmClusterSubnetGroupName = y })
-       <$> f (_ccmClusterSubnetGroupName x)
+    f (_ccmClusterSubnetGroupName x)
+        <&> \y -> x { _ccmClusterSubnetGroupName = y }
 {-# INLINE ccmClusterSubnetGroupName #-}
 
 -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
@@ -480,15 +411,10 @@ ccmClusterSubnetGroupName f x =
 -- Default: A random, system-chosen Availability Zone in the region that is
 -- specified by the endpoint. Example: us-east-1d Constraint: The specified
 -- Availability Zone must be in the same region as the current endpoint.
-ccmAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmAvailabilityZone :: Lens' CreateCluster (Maybe Text)
 ccmAvailabilityZone f x =
-    (\y -> x { _ccmAvailabilityZone = y })
-       <$> f (_ccmAvailabilityZone x)
+    f (_ccmAvailabilityZone x)
+        <&> \y -> x { _ccmAvailabilityZone = y }
 {-# INLINE ccmAvailabilityZone #-}
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
@@ -501,15 +427,10 @@ ccmAvailabilityZone f x =
 -- (Singapore) Region 14:00-22:00 UTC Asia Pacific (Sydney) Region 12:00-20:00
 -- UTC Asia Pacific (Tokyo) Region 17:00-03:00 UTC Valid Days: Mon | Tue | Wed
 -- | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
-ccmPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
 ccmPreferredMaintenanceWindow f x =
-    (\y -> x { _ccmPreferredMaintenanceWindow = y })
-       <$> f (_ccmPreferredMaintenanceWindow x)
+    f (_ccmPreferredMaintenanceWindow x)
+        <&> \y -> x { _ccmPreferredMaintenanceWindow = y }
 {-# INLINE ccmPreferredMaintenanceWindow #-}
 
 -- | The name of the parameter group to be associated with this cluster.
@@ -518,55 +439,35 @@ ccmPreferredMaintenanceWindow f x =
 -- Redshift Parameter Groups Constraints: Must be 1 to 255 alphanumeric
 -- characters or hyphens. First character must be a letter. Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ccmClusterParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
 ccmClusterParameterGroupName f x =
-    (\y -> x { _ccmClusterParameterGroupName = y })
-       <$> f (_ccmClusterParameterGroupName x)
+    f (_ccmClusterParameterGroupName x)
+        <&> \y -> x { _ccmClusterParameterGroupName = y }
 {-# INLINE ccmClusterParameterGroupName #-}
 
 -- | The version of the Amazon Redshift engine software that you want to deploy
 -- on the cluster. The version selected runs on all the nodes in the cluster.
 -- Constraints: Only version 1.0 is currently available. Example: 1.0.
-ccmClusterVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmClusterVersion :: Lens' CreateCluster (Maybe Text)
 ccmClusterVersion f x =
-    (\y -> x { _ccmClusterVersion = y })
-       <$> f (_ccmClusterVersion x)
+    f (_ccmClusterVersion x)
+        <&> \y -> x { _ccmClusterVersion = y }
 {-# INLINE ccmClusterVersion #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-ccmHsmClientCertificateIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmHsmClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
 ccmHsmClientCertificateIdentifier f x =
-    (\y -> x { _ccmHsmClientCertificateIdentifier = y })
-       <$> f (_ccmHsmClientCertificateIdentifier x)
+    f (_ccmHsmClientCertificateIdentifier x)
+        <&> \y -> x { _ccmHsmClientCertificateIdentifier = y }
 {-# INLINE ccmHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-ccmHsmConfigurationIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmHsmConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
 ccmHsmConfigurationIdentifier f x =
-    (\y -> x { _ccmHsmConfigurationIdentifier = y })
-       <$> f (_ccmHsmConfigurationIdentifier x)
+    f (_ccmHsmConfigurationIdentifier x)
+        <&> \y -> x { _ccmHsmConfigurationIdentifier = y }
 {-# INLINE ccmHsmConfigurationIdentifier #-}
 
 -- | The Elastic IP (EIP) address for the cluster. Constraints: The cluster must
@@ -574,29 +475,19 @@ ccmHsmConfigurationIdentifier f x =
 -- gateway. For more information about provisioning clusters in EC2-VPC, go to
 -- Supported Platforms to Launch Your Cluster in the Amazon Redshift
 -- Management Guide.
-ccmElasticIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCluster
-    -> f CreateCluster
+ccmElasticIp :: Lens' CreateCluster (Maybe Text)
 ccmElasticIp f x =
-    (\y -> x { _ccmElasticIp = y })
-       <$> f (_ccmElasticIp x)
+    f (_ccmElasticIp x)
+        <&> \y -> x { _ccmElasticIp = y }
 {-# INLINE ccmElasticIp #-}
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated with
 -- the cluster. Default: The default VPC security group is associated with the
 -- cluster.
-ccmVpcSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCluster
-    -> f CreateCluster
+ccmVpcSecurityGroupIds :: Lens' CreateCluster ([Text])
 ccmVpcSecurityGroupIds f x =
-    (\y -> x { _ccmVpcSecurityGroupIds = y })
-       <$> f (_ccmVpcSecurityGroupIds x)
+    f (_ccmVpcSecurityGroupIds x)
+        <&> \y -> x { _ccmVpcSecurityGroupIds = y }
 {-# INLINE ccmVpcSecurityGroupIds #-}
 
 instance ToQuery CreateCluster where
@@ -608,15 +499,10 @@ data CreateClusterResponse = CreateClusterResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cwCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> CreateClusterResponse
-    -> f CreateClusterResponse
+cwCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 cwCluster f x =
-    (\y -> x { _cwCluster = y })
-       <$> f (_cwCluster x)
+    f (_cwCluster x)
+        <&> \y -> x { _cwCluster = y }
 {-# INLINE cwCluster #-}
 
 instance FromXML CreateClusterResponse where

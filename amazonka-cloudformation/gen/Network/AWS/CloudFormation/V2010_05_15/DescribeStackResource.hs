@@ -56,6 +56,7 @@ describeStackResource p1 p2 = DescribeStackResource
     { _dsriLogicalResourceId = p1
     , _dsriStackName = p2
     }
+{-# INLINE describeStackResource #-}
 
 data DescribeStackResource = DescribeStackResource
     { _dsriLogicalResourceId :: Text
@@ -71,30 +72,20 @@ data DescribeStackResource = DescribeStackResource
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
-dsriLogicalResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStackResource
-    -> f DescribeStackResource
+dsriLogicalResourceId :: Lens' DescribeStackResource (Text)
 dsriLogicalResourceId f x =
-    (\y -> x { _dsriLogicalResourceId = y })
-       <$> f (_dsriLogicalResourceId x)
+    f (_dsriLogicalResourceId x)
+        <&> \y -> x { _dsriLogicalResourceId = y }
 {-# INLINE dsriLogicalResourceId #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-dsriStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStackResource
-    -> f DescribeStackResource
+dsriStackName :: Lens' DescribeStackResource (Text)
 dsriStackName f x =
-    (\y -> x { _dsriStackName = y })
-       <$> f (_dsriStackName x)
+    f (_dsriStackName x)
+        <&> \y -> x { _dsriStackName = y }
 {-# INLINE dsriStackName #-}
 
 instance ToQuery DescribeStackResource where
@@ -108,15 +99,10 @@ data DescribeStackResourceResponse = DescribeStackResourceResponse
 
 -- | A StackResourceDetail structure containing the description of the specified
 -- resource in the specified stack.
-dsroStackResourceDetail
-    :: Functor f
-    => (Maybe StackResourceDetail
-    -> f (Maybe StackResourceDetail))
-    -> DescribeStackResourceResponse
-    -> f DescribeStackResourceResponse
+dsroStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsroStackResourceDetail f x =
-    (\y -> x { _dsroStackResourceDetail = y })
-       <$> f (_dsroStackResourceDetail x)
+    f (_dsroStackResourceDetail x)
+        <&> \y -> x { _dsroStackResourceDetail = y }
 {-# INLINE dsroStackResourceDetail #-}
 
 instance FromXML DescribeStackResourceResponse where

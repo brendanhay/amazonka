@@ -91,6 +91,7 @@ putRecord p1 p2 p3 = PutRecord
     , _priExplicitHashKey = Nothing
     , _priSequenceNumberForOrdering = Nothing
     }
+{-# INLINE putRecord #-}
 
 data PutRecord = PutRecord
     { _priData :: Base64
@@ -124,15 +125,10 @@ data PutRecord = PutRecord
 -- | The data blob to put into the record, which is Base64-encoded when the blob
 -- is serialized. The maximum size of the data blob (the payload after
 -- Base64-decoding) is 50 kilobytes (KB).
-priData
-    :: Functor f
-    => (Base64
-    -> f (Base64))
-    -> PutRecord
-    -> f PutRecord
+priData :: Lens' PutRecord (Base64)
 priData f x =
-    (\y -> x { _priData = y })
-       <$> f (_priData x)
+    f (_priData x)
+        <&> \y -> x { _priData = y }
 {-# INLINE priData #-}
 
 -- | Determines which shard in the stream the data record is assigned to.
@@ -143,40 +139,25 @@ priData f x =
 -- integer values and to map associated data records to shards. As a result of
 -- this hashing mechanism, all data records with the same partition key will
 -- map to the same shard within the stream.
-priPartitionKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRecord
-    -> f PutRecord
+priPartitionKey :: Lens' PutRecord (Text)
 priPartitionKey f x =
-    (\y -> x { _priPartitionKey = y })
-       <$> f (_priPartitionKey x)
+    f (_priPartitionKey x)
+        <&> \y -> x { _priPartitionKey = y }
 {-# INLINE priPartitionKey #-}
 
 -- | The name of the stream to put the data record into.
-priStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRecord
-    -> f PutRecord
+priStreamName :: Lens' PutRecord (Text)
 priStreamName f x =
-    (\y -> x { _priStreamName = y })
-       <$> f (_priStreamName x)
+    f (_priStreamName x)
+        <&> \y -> x { _priStreamName = y }
 {-# INLINE priStreamName #-}
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.
-priExplicitHashKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutRecord
-    -> f PutRecord
+priExplicitHashKey :: Lens' PutRecord (Maybe Text)
 priExplicitHashKey f x =
-    (\y -> x { _priExplicitHashKey = y })
-       <$> f (_priExplicitHashKey x)
+    f (_priExplicitHashKey x)
+        <&> \y -> x { _priExplicitHashKey = y }
 {-# INLINE priExplicitHashKey #-}
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
@@ -185,15 +166,10 @@ priExplicitHashKey f x =
 -- (as returned in the PutRecordResult when putting record n-1). If this
 -- parameter is not set, records will be coarsely ordered based on arrival
 -- time.
-priSequenceNumberForOrdering
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutRecord
-    -> f PutRecord
+priSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
 priSequenceNumberForOrdering f x =
-    (\y -> x { _priSequenceNumberForOrdering = y })
-       <$> f (_priSequenceNumberForOrdering x)
+    f (_priSequenceNumberForOrdering x)
+        <&> \y -> x { _priSequenceNumberForOrdering = y }
 {-# INLINE priSequenceNumberForOrdering #-}
 
 instance ToPath PutRecord
@@ -218,27 +194,17 @@ data PutRecordResponse = PutRecordResponse
 -- The sequence number for the record is unique across all records in the
 -- stream. A sequence number is the identifier associated with every record
 -- put into the stream.
-proSequenceNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRecordResponse
-    -> f PutRecordResponse
+proSequenceNumber :: Lens' PutRecordResponse (Text)
 proSequenceNumber f x =
-    (\y -> x { _proSequenceNumber = y })
-       <$> f (_proSequenceNumber x)
+    f (_proSequenceNumber x)
+        <&> \y -> x { _proSequenceNumber = y }
 {-# INLINE proSequenceNumber #-}
 
 -- | The shard ID of the shard where the data record was placed.
-proShardId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRecordResponse
-    -> f PutRecordResponse
+proShardId :: Lens' PutRecordResponse (Text)
 proShardId f x =
-    (\y -> x { _proShardId = y })
-       <$> f (_proShardId x)
+    f (_proShardId x)
+        <&> \y -> x { _proShardId = y }
 {-# INLINE proShardId #-}
 
 instance FromJSON PutRecordResponse

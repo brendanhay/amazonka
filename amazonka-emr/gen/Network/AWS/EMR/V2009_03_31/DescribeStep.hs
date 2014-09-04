@@ -47,6 +47,7 @@ describeStep p1 p2 = DescribeStep
     { _dsiClusterId = p1
     , _dsiStepId = p2
     }
+{-# INLINE describeStep #-}
 
 data DescribeStep = DescribeStep
     { _dsiClusterId :: Text
@@ -56,27 +57,17 @@ data DescribeStep = DescribeStep
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster with steps to describe.
-dsiClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStep
-    -> f DescribeStep
+dsiClusterId :: Lens' DescribeStep (Text)
 dsiClusterId f x =
-    (\y -> x { _dsiClusterId = y })
-       <$> f (_dsiClusterId x)
+    f (_dsiClusterId x)
+        <&> \y -> x { _dsiClusterId = y }
 {-# INLINE dsiClusterId #-}
 
 -- | The identifier of the step to describe.
-dsiStepId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStep
-    -> f DescribeStep
+dsiStepId :: Lens' DescribeStep (Text)
 dsiStepId f x =
-    (\y -> x { _dsiStepId = y })
-       <$> f (_dsiStepId x)
+    f (_dsiStepId x)
+        <&> \y -> x { _dsiStepId = y }
 {-# INLINE dsiStepId #-}
 
 instance ToPath DescribeStep
@@ -93,15 +84,10 @@ data DescribeStepResponse = DescribeStepResponse
     } deriving (Show, Generic)
 
 -- | The step details for the requested step identifier.
-dsoStep
-    :: Functor f
-    => (Maybe Step
-    -> f (Maybe Step))
-    -> DescribeStepResponse
-    -> f DescribeStepResponse
+dsoStep :: Lens' DescribeStepResponse (Maybe Step)
 dsoStep f x =
-    (\y -> x { _dsoStep = y })
-       <$> f (_dsoStep x)
+    f (_dsoStep x)
+        <&> \y -> x { _dsoStep = y }
 {-# INLINE dsoStep #-}
 
 instance FromJSON DescribeStepResponse

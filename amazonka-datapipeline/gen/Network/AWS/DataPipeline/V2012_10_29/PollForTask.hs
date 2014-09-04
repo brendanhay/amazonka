@@ -87,6 +87,7 @@ pollForTask p1 = PollForTask
     , _pftiHostname = Nothing
     , _pftiInstanceIdentity = Nothing
     }
+{-# INLINE pollForTask #-}
 
 data PollForTask = PollForTask
     { _pftiWorkerGroup :: Text
@@ -114,27 +115,17 @@ data PollForTask = PollForTask
 -- they are created. You can only specify a single value for workerGroup in
 -- the call to PollForTask. There are no wildcard values permitted in
 -- workerGroup, the string must be an exact, case-sensitive, match.
-pftiWorkerGroup
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PollForTask
-    -> f PollForTask
+pftiWorkerGroup :: Lens' PollForTask (Text)
 pftiWorkerGroup f x =
-    (\y -> x { _pftiWorkerGroup = y })
-       <$> f (_pftiWorkerGroup x)
+    f (_pftiWorkerGroup x)
+        <&> \y -> x { _pftiWorkerGroup = y }
 {-# INLINE pftiWorkerGroup #-}
 
 -- | The public DNS name of the calling task runner.
-pftiHostname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PollForTask
-    -> f PollForTask
+pftiHostname :: Lens' PollForTask (Maybe Text)
 pftiHostname f x =
-    (\y -> x { _pftiHostname = y })
-       <$> f (_pftiHostname x)
+    f (_pftiHostname x)
+        <&> \y -> x { _pftiHostname = y }
 {-# INLINE pftiHostname #-}
 
 -- | Identity information for the Amazon EC2 instance that is hosting the task
@@ -144,15 +135,10 @@ pftiHostname f x =
 -- Cloud User Guide. Passing in this value proves that your task runner is
 -- running on an EC2 instance, and ensures the proper AWS Data Pipeline
 -- service charges are applied to your pipeline.
-pftiInstanceIdentity
-    :: Functor f
-    => (Maybe InstanceIdentity
-    -> f (Maybe InstanceIdentity))
-    -> PollForTask
-    -> f PollForTask
+pftiInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
 pftiInstanceIdentity f x =
-    (\y -> x { _pftiInstanceIdentity = y })
-       <$> f (_pftiInstanceIdentity x)
+    f (_pftiInstanceIdentity x)
+        <&> \y -> x { _pftiInstanceIdentity = y }
 {-# INLINE pftiInstanceIdentity #-}
 
 instance ToPath PollForTask
@@ -180,15 +166,10 @@ data PollForTaskResponse = PollForTaskResponse
 -- in this object is taskId, which contains an identifier for the task being
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
-pftoTaskObject
-    :: Functor f
-    => (Maybe TaskObject
-    -> f (Maybe TaskObject))
-    -> PollForTaskResponse
-    -> f PollForTaskResponse
+pftoTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftoTaskObject f x =
-    (\y -> x { _pftoTaskObject = y })
-       <$> f (_pftoTaskObject x)
+    f (_pftoTaskObject x)
+        <&> \y -> x { _pftoTaskObject = y }
 {-# INLINE pftoTaskObject #-}
 
 instance FromJSON PollForTaskResponse

@@ -88,6 +88,7 @@ createCachediSCSIVolume p1 p2 p3 p4 p5 = CreateCachediSCSIVolume
     , _ccscsiviTargetName = p5
     , _ccscsiviSnapshotId = Nothing
     }
+{-# INLINE createCachediSCSIVolume #-}
 
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     { _ccscsiviClientToken :: Text
@@ -101,72 +102,42 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     , _ccscsiviSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
-ccscsiviClientToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCachediSCSIVolume
-    -> f CreateCachediSCSIVolume
+ccscsiviClientToken :: Lens' CreateCachediSCSIVolume (Text)
 ccscsiviClientToken f x =
-    (\y -> x { _ccscsiviClientToken = y })
-       <$> f (_ccscsiviClientToken x)
+    f (_ccscsiviClientToken x)
+        <&> \y -> x { _ccscsiviClientToken = y }
 {-# INLINE ccscsiviClientToken #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ccscsiviGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCachediSCSIVolume
-    -> f CreateCachediSCSIVolume
+ccscsiviGatewayARN :: Lens' CreateCachediSCSIVolume (Text)
 ccscsiviGatewayARN f x =
-    (\y -> x { _ccscsiviGatewayARN = y })
-       <$> f (_ccscsiviGatewayARN x)
+    f (_ccscsiviGatewayARN x)
+        <&> \y -> x { _ccscsiviGatewayARN = y }
 {-# INLINE ccscsiviGatewayARN #-}
 
-ccscsiviVolumeSizeInBytes
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateCachediSCSIVolume
-    -> f CreateCachediSCSIVolume
+ccscsiviVolumeSizeInBytes :: Lens' CreateCachediSCSIVolume (Integer)
 ccscsiviVolumeSizeInBytes f x =
-    (\y -> x { _ccscsiviVolumeSizeInBytes = y })
-       <$> f (_ccscsiviVolumeSizeInBytes x)
+    f (_ccscsiviVolumeSizeInBytes x)
+        <&> \y -> x { _ccscsiviVolumeSizeInBytes = y }
 {-# INLINE ccscsiviVolumeSizeInBytes #-}
 
-ccscsiviNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCachediSCSIVolume
-    -> f CreateCachediSCSIVolume
+ccscsiviNetworkInterfaceId :: Lens' CreateCachediSCSIVolume (Text)
 ccscsiviNetworkInterfaceId f x =
-    (\y -> x { _ccscsiviNetworkInterfaceId = y })
-       <$> f (_ccscsiviNetworkInterfaceId x)
+    f (_ccscsiviNetworkInterfaceId x)
+        <&> \y -> x { _ccscsiviNetworkInterfaceId = y }
 {-# INLINE ccscsiviNetworkInterfaceId #-}
 
-ccscsiviTargetName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCachediSCSIVolume
-    -> f CreateCachediSCSIVolume
+ccscsiviTargetName :: Lens' CreateCachediSCSIVolume (Text)
 ccscsiviTargetName f x =
-    (\y -> x { _ccscsiviTargetName = y })
-       <$> f (_ccscsiviTargetName x)
+    f (_ccscsiviTargetName x)
+        <&> \y -> x { _ccscsiviTargetName = y }
 {-# INLINE ccscsiviTargetName #-}
 
-ccscsiviSnapshotId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCachediSCSIVolume
-    -> f CreateCachediSCSIVolume
+ccscsiviSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
 ccscsiviSnapshotId f x =
-    (\y -> x { _ccscsiviSnapshotId = y })
-       <$> f (_ccscsiviSnapshotId x)
+    f (_ccscsiviSnapshotId x)
+        <&> \y -> x { _ccscsiviSnapshotId = y }
 {-# INLINE ccscsiviSnapshotId #-}
 
 instance ToPath CreateCachediSCSIVolume
@@ -182,26 +153,16 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     , _ccscsivoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-ccscsivoTargetARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCachediSCSIVolumeResponse
-    -> f CreateCachediSCSIVolumeResponse
+ccscsivoTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivoTargetARN f x =
-    (\y -> x { _ccscsivoTargetARN = y })
-       <$> f (_ccscsivoTargetARN x)
+    f (_ccscsivoTargetARN x)
+        <&> \y -> x { _ccscsivoTargetARN = y }
 {-# INLINE ccscsivoTargetARN #-}
 
-ccscsivoVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCachediSCSIVolumeResponse
-    -> f CreateCachediSCSIVolumeResponse
+ccscsivoVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivoVolumeARN f x =
-    (\y -> x { _ccscsivoVolumeARN = y })
-       <$> f (_ccscsivoVolumeARN x)
+    f (_ccscsivoVolumeARN x)
+        <&> \y -> x { _ccscsivoVolumeARN = y }
 {-# INLINE ccscsivoVolumeARN #-}
 
 instance FromJSON CreateCachediSCSIVolumeResponse

@@ -51,6 +51,7 @@ registerRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
     , _rrdirDbUser = p3
     , _rrdirDbPassword = p4
     }
+{-# INLINE registerRdsDbInstance #-}
 
 data RegisterRdsDbInstance = RegisterRdsDbInstance
     { _rrdirStackId :: Text
@@ -64,51 +65,31 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
     } deriving (Show, Generic)
 
 -- | The stack ID.
-rrdirStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterRdsDbInstance
-    -> f RegisterRdsDbInstance
+rrdirStackId :: Lens' RegisterRdsDbInstance (Text)
 rrdirStackId f x =
-    (\y -> x { _rrdirStackId = y })
-       <$> f (_rrdirStackId x)
+    f (_rrdirStackId x)
+        <&> \y -> x { _rrdirStackId = y }
 {-# INLINE rrdirStackId #-}
 
 -- | The Amazon RDS instance's ARN.
-rrdirRdsDbInstanceArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterRdsDbInstance
-    -> f RegisterRdsDbInstance
+rrdirRdsDbInstanceArn :: Lens' RegisterRdsDbInstance (Text)
 rrdirRdsDbInstanceArn f x =
-    (\y -> x { _rrdirRdsDbInstanceArn = y })
-       <$> f (_rrdirRdsDbInstanceArn x)
+    f (_rrdirRdsDbInstanceArn x)
+        <&> \y -> x { _rrdirRdsDbInstanceArn = y }
 {-# INLINE rrdirRdsDbInstanceArn #-}
 
 -- | The database's master user name.
-rrdirDbUser
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterRdsDbInstance
-    -> f RegisterRdsDbInstance
+rrdirDbUser :: Lens' RegisterRdsDbInstance (Text)
 rrdirDbUser f x =
-    (\y -> x { _rrdirDbUser = y })
-       <$> f (_rrdirDbUser x)
+    f (_rrdirDbUser x)
+        <&> \y -> x { _rrdirDbUser = y }
 {-# INLINE rrdirDbUser #-}
 
 -- | The database password.
-rrdirDbPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterRdsDbInstance
-    -> f RegisterRdsDbInstance
+rrdirDbPassword :: Lens' RegisterRdsDbInstance (Text)
 rrdirDbPassword f x =
-    (\y -> x { _rrdirDbPassword = y })
-       <$> f (_rrdirDbPassword x)
+    f (_rrdirDbPassword x)
+        <&> \y -> x { _rrdirDbPassword = y }
 {-# INLINE rrdirDbPassword #-}
 
 instance ToPath RegisterRdsDbInstance

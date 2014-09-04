@@ -62,6 +62,7 @@ rebootCacheCluster p1 p2 = RebootCacheCluster
     { _rccmCacheNodeIdsToReboot = p1
     , _rccmCacheClusterId = p2
     }
+{-# INLINE rebootCacheCluster #-}
 
 data RebootCacheCluster = RebootCacheCluster
     { _rccmCacheNodeIdsToReboot :: [Text]
@@ -76,28 +77,18 @@ data RebootCacheCluster = RebootCacheCluster
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the
 -- cache node IDs.
-rccmCacheNodeIdsToReboot
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RebootCacheCluster
-    -> f RebootCacheCluster
+rccmCacheNodeIdsToReboot :: Lens' RebootCacheCluster ([Text])
 rccmCacheNodeIdsToReboot f x =
-    (\y -> x { _rccmCacheNodeIdsToReboot = y })
-       <$> f (_rccmCacheNodeIdsToReboot x)
+    f (_rccmCacheNodeIdsToReboot x)
+        <&> \y -> x { _rccmCacheNodeIdsToReboot = y }
 {-# INLINE rccmCacheNodeIdsToReboot #-}
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.
-rccmCacheClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RebootCacheCluster
-    -> f RebootCacheCluster
+rccmCacheClusterId :: Lens' RebootCacheCluster (Text)
 rccmCacheClusterId f x =
-    (\y -> x { _rccmCacheClusterId = y })
-       <$> f (_rccmCacheClusterId x)
+    f (_rccmCacheClusterId x)
+        <&> \y -> x { _rccmCacheClusterId = y }
 {-# INLINE rccmCacheClusterId #-}
 
 instance ToQuery RebootCacheCluster where
@@ -109,15 +100,10 @@ data RebootCacheClusterResponse = RebootCacheClusterResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-cczCacheCluster
-    :: Functor f
-    => (Maybe CacheCluster
-    -> f (Maybe CacheCluster))
-    -> RebootCacheClusterResponse
-    -> f RebootCacheClusterResponse
+cczCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 cczCacheCluster f x =
-    (\y -> x { _cczCacheCluster = y })
-       <$> f (_cczCacheCluster x)
+    f (_cczCacheCluster x)
+        <&> \y -> x { _cczCacheCluster = y }
 {-# INLINE cczCacheCluster #-}
 
 instance FromXML RebootCacheClusterResponse where

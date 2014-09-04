@@ -49,6 +49,7 @@ listJobs = ListJobs
     { _ljiMarker = Nothing
     , _ljiMaxJobs = Nothing
     }
+{-# INLINE listJobs #-}
 
 data ListJobs = ListJobs
     { _ljiMarker :: Maybe Text
@@ -66,30 +67,20 @@ data ListJobs = ListJobs
 -- | Specifies the JOBID to start after when listing the jobs created with your
 -- account. AWS Import/Export lists your jobs in reverse chronological order.
 -- See MaxJobs.
-ljiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobs
-    -> f ListJobs
+ljiMarker :: Lens' ListJobs (Maybe Text)
 ljiMarker f x =
-    (\y -> x { _ljiMarker = y })
-       <$> f (_ljiMarker x)
+    f (_ljiMarker x)
+        <&> \y -> x { _ljiMarker = y }
 {-# INLINE ljiMarker #-}
 
 -- | Sets the maximum number of jobs returned in the response. If there are
 -- additional jobs that were not returned because MaxJobs was exceeded, the
 -- response contains &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return
 -- the additional jobs, see Marker.
-ljiMaxJobs
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListJobs
-    -> f ListJobs
+ljiMaxJobs :: Lens' ListJobs (Maybe Integer)
 ljiMaxJobs f x =
-    (\y -> x { _ljiMaxJobs = y })
-       <$> f (_ljiMaxJobs x)
+    f (_ljiMaxJobs x)
+        <&> \y -> x { _ljiMaxJobs = y }
 {-# INLINE ljiMaxJobs #-}
 
 instance ToQuery ListJobs where
@@ -105,27 +96,17 @@ data ListJobsResponse = ListJobsResponse
 
 -- | Indicates whether the list of jobs was truncated. If true, then call
 -- ListJobs again using the last JobId element as the marker.
-ljoIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListJobsResponse
-    -> f ListJobsResponse
+ljoIsTruncated :: Lens' ListJobsResponse (Bool)
 ljoIsTruncated f x =
-    (\y -> x { _ljoIsTruncated = y })
-       <$> f (_ljoIsTruncated x)
+    f (_ljoIsTruncated x)
+        <&> \y -> x { _ljoIsTruncated = y }
 {-# INLINE ljoIsTruncated #-}
 
 -- | A list container for Jobs returned by the ListJobs operation.
-ljoJobs
-    :: Functor f
-    => ([Job]
-    -> f ([Job]))
-    -> ListJobsResponse
-    -> f ListJobsResponse
+ljoJobs :: Lens' ListJobsResponse ([Job])
 ljoJobs f x =
-    (\y -> x { _ljoJobs = y })
-       <$> f (_ljoJobs x)
+    f (_ljoJobs x)
+        <&> \y -> x { _ljoJobs = y }
 {-# INLINE ljoJobs #-}
 
 instance FromXML ListJobsResponse where

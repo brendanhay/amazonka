@@ -41,6 +41,7 @@ enableAlarmActions :: [Text] -- ^ 'eaaiAlarmNames'
 enableAlarmActions p1 = EnableAlarmActions
     { _eaaiAlarmNames = p1
     }
+{-# INLINE enableAlarmActions #-}
 
 data EnableAlarmActions = EnableAlarmActions
     { _eaaiAlarmNames :: [Text]
@@ -48,15 +49,10 @@ data EnableAlarmActions = EnableAlarmActions
     } deriving (Show, Generic)
 
 -- | The names of the alarms to enable actions for.
-eaaiAlarmNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> EnableAlarmActions
-    -> f EnableAlarmActions
+eaaiAlarmNames :: Lens' EnableAlarmActions ([Text])
 eaaiAlarmNames f x =
-    (\y -> x { _eaaiAlarmNames = y })
-       <$> f (_eaaiAlarmNames x)
+    f (_eaaiAlarmNames x)
+        <&> \y -> x { _eaaiAlarmNames = y }
 {-# INLINE eaaiAlarmNames #-}
 
 instance ToQuery EnableAlarmActions where

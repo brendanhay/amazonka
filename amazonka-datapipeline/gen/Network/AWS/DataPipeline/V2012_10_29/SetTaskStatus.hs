@@ -63,6 +63,7 @@ setTaskStatus p1 p2 = SetTaskStatus
     , _stsiErrorId = Nothing
     , _stsiErrorStackTrace = Nothing
     }
+{-# INLINE setTaskStatus #-}
 
 data SetTaskStatus = SetTaskStatus
     { _stsiTaskId :: Text
@@ -91,73 +92,48 @@ data SetTaskStatus = SetTaskStatus
 
 -- | Identifies the task assigned to the task runner. This value is set in the
 -- TaskObject that is returned by the PollForTask action.
-stsiTaskId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetTaskStatus
-    -> f SetTaskStatus
+stsiTaskId :: Lens' SetTaskStatus (Text)
 stsiTaskId f x =
-    (\y -> x { _stsiTaskId = y })
-       <$> f (_stsiTaskId x)
+    f (_stsiTaskId x)
+        <&> \y -> x { _stsiTaskId = y }
 {-# INLINE stsiTaskId #-}
 
 -- | If FINISHED, the task successfully completed. If FAILED the task ended
 -- unsuccessfully. The FALSE value is used by preconditions.
-stsiTaskStatus
-    :: Functor f
-    => (TaskStatus
-    -> f (TaskStatus))
-    -> SetTaskStatus
-    -> f SetTaskStatus
+stsiTaskStatus :: Lens' SetTaskStatus (TaskStatus)
 stsiTaskStatus f x =
-    (\y -> x { _stsiTaskStatus = y })
-       <$> f (_stsiTaskStatus x)
+    f (_stsiTaskStatus x)
+        <&> \y -> x { _stsiTaskStatus = y }
 {-# INLINE stsiTaskStatus #-}
 
 -- | If an error occurred during the task, this value specifies a text
 -- description of the error. This value is set on the physical attempt object.
 -- It is used to display error information to the user. The web service does
 -- not parse this value.
-stsiErrorMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetTaskStatus
-    -> f SetTaskStatus
+stsiErrorMessage :: Lens' SetTaskStatus (Maybe Text)
 stsiErrorMessage f x =
-    (\y -> x { _stsiErrorMessage = y })
-       <$> f (_stsiErrorMessage x)
+    f (_stsiErrorMessage x)
+        <&> \y -> x { _stsiErrorMessage = y }
 {-# INLINE stsiErrorMessage #-}
 
 -- | If an error occurred during the task, this value specifies an id value that
 -- represents the error. This value is set on the physical attempt object. It
 -- is used to display error information to the user. It should not start with
 -- string "Service_" which is reserved by the system.
-stsiErrorId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetTaskStatus
-    -> f SetTaskStatus
+stsiErrorId :: Lens' SetTaskStatus (Maybe Text)
 stsiErrorId f x =
-    (\y -> x { _stsiErrorId = y })
-       <$> f (_stsiErrorId x)
+    f (_stsiErrorId x)
+        <&> \y -> x { _stsiErrorId = y }
 {-# INLINE stsiErrorId #-}
 
 -- | If an error occurred during the task, this value specifies the stack trace
 -- associated with the error. This value is set on the physical attempt
 -- object. It is used to display error information to the user. The web
 -- service does not parse this value.
-stsiErrorStackTrace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetTaskStatus
-    -> f SetTaskStatus
+stsiErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
 stsiErrorStackTrace f x =
-    (\y -> x { _stsiErrorStackTrace = y })
-       <$> f (_stsiErrorStackTrace x)
+    f (_stsiErrorStackTrace x)
+        <&> \y -> x { _stsiErrorStackTrace = y }
 {-# INLINE stsiErrorStackTrace #-}
 
 instance ToPath SetTaskStatus

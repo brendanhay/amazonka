@@ -50,6 +50,7 @@ setStackPolicy p1 = SetStackPolicy
     , _sspiStackPolicyBody = Nothing
     , _sspiStackPolicyURL = Nothing
     }
+{-# INLINE setStackPolicy #-}
 
 data SetStackPolicy = SetStackPolicy
     { _sspiStackName :: Text
@@ -67,45 +68,30 @@ data SetStackPolicy = SetStackPolicy
     } deriving (Show, Generic)
 
 -- | The name or stack ID that you want to associate a policy with.
-sspiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetStackPolicy
-    -> f SetStackPolicy
+sspiStackName :: Lens' SetStackPolicy (Text)
 sspiStackName f x =
-    (\y -> x { _sspiStackName = y })
-       <$> f (_sspiStackName x)
+    f (_sspiStackName x)
+        <&> \y -> x { _sspiStackName = y }
 {-# INLINE sspiStackName #-}
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
 -- but not both.
-sspiStackPolicyBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetStackPolicy
-    -> f SetStackPolicy
+sspiStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
 sspiStackPolicyBody f x =
-    (\y -> x { _sspiStackPolicyBody = y })
-       <$> f (_sspiStackPolicyBody x)
+    f (_sspiStackPolicyBody x)
+        <&> \y -> x { _sspiStackPolicyBody = y }
 {-# INLINE sspiStackPolicyBody #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-sspiStackPolicyURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetStackPolicy
-    -> f SetStackPolicy
+sspiStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
 sspiStackPolicyURL f x =
-    (\y -> x { _sspiStackPolicyURL = y })
-       <$> f (_sspiStackPolicyURL x)
+    f (_sspiStackPolicyURL x)
+        <&> \y -> x { _sspiStackPolicyURL = y }
 {-# INLINE sspiStackPolicyURL #-}
 
 instance ToQuery SetStackPolicy where

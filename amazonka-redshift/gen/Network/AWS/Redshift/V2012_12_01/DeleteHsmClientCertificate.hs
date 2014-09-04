@@ -41,6 +41,7 @@ deleteHsmClientCertificate :: Text -- ^ 'dhccmHsmClientCertificateIdentifier'
 deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
     { _dhccmHsmClientCertificateIdentifier = p1
     }
+{-# INLINE deleteHsmClientCertificate #-}
 
 data DeleteHsmClientCertificate = DeleteHsmClientCertificate
     { _dhccmHsmClientCertificateIdentifier :: Text
@@ -48,15 +49,10 @@ data DeleteHsmClientCertificate = DeleteHsmClientCertificate
     } deriving (Show, Generic)
 
 -- | The identifier of the HSM client certificate to be deleted.
-dhccmHsmClientCertificateIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteHsmClientCertificate
-    -> f DeleteHsmClientCertificate
+dhccmHsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate (Text)
 dhccmHsmClientCertificateIdentifier f x =
-    (\y -> x { _dhccmHsmClientCertificateIdentifier = y })
-       <$> f (_dhccmHsmClientCertificateIdentifier x)
+    f (_dhccmHsmClientCertificateIdentifier x)
+        <&> \y -> x { _dhccmHsmClientCertificateIdentifier = y }
 {-# INLINE dhccmHsmClientCertificateIdentifier #-}
 
 instance ToQuery DeleteHsmClientCertificate where

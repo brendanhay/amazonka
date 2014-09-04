@@ -48,6 +48,7 @@ updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
     { _usaprDomainName = p1
     , _usaprAccessPolicies = p2
     }
+{-# INLINE updateServiceAccessPolicies #-}
 
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usaprDomainName :: Text
@@ -65,28 +66,18 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-usaprDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateServiceAccessPolicies
-    -> f UpdateServiceAccessPolicies
+usaprDomainName :: Lens' UpdateServiceAccessPolicies (Text)
 usaprDomainName f x =
-    (\y -> x { _usaprDomainName = y })
-       <$> f (_usaprDomainName x)
+    f (_usaprDomainName x)
+        <&> \y -> x { _usaprDomainName = y }
 {-# INLINE usaprDomainName #-}
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
-usaprAccessPolicies
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateServiceAccessPolicies
-    -> f UpdateServiceAccessPolicies
+usaprAccessPolicies :: Lens' UpdateServiceAccessPolicies (Text)
 usaprAccessPolicies f x =
-    (\y -> x { _usaprAccessPolicies = y })
-       <$> f (_usaprAccessPolicies x)
+    f (_usaprAccessPolicies x)
+        <&> \y -> x { _usaprAccessPolicies = y }
 {-# INLINE usaprAccessPolicies #-}
 
 instance ToQuery UpdateServiceAccessPolicies where
@@ -98,15 +89,10 @@ data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain.
-usapsAccessPolicies
-    :: Functor f
-    => (AccessPoliciesStatus
-    -> f (AccessPoliciesStatus))
-    -> UpdateServiceAccessPoliciesResponse
-    -> f UpdateServiceAccessPoliciesResponse
+usapsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse (AccessPoliciesStatus)
 usapsAccessPolicies f x =
-    (\y -> x { _usapsAccessPolicies = y })
-       <$> f (_usapsAccessPolicies x)
+    f (_usapsAccessPolicies x)
+        <&> \y -> x { _usapsAccessPolicies = y }
 {-# INLINE usapsAccessPolicies #-}
 
 instance FromXML UpdateServiceAccessPoliciesResponse where

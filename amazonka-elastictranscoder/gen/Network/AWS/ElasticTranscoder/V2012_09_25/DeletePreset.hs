@@ -54,6 +54,7 @@ deletePreset :: Text -- ^ 'dptId'
 deletePreset p1 = DeletePreset
     { _dptId = p1
     }
+{-# INLINE deletePreset #-}
 
 data DeletePreset = DeletePreset
     { _dptId :: Text
@@ -63,15 +64,10 @@ data DeletePreset = DeletePreset
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-dptId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeletePreset
-    -> f DeletePreset
+dptId :: Lens' DeletePreset (Text)
 dptId f x =
-    (\y -> x { _dptId = y })
-       <$> f (_dptId x)
+    f (_dptId x)
+        <&> \y -> x { _dptId = y }
 {-# INLINE dptId #-}
 
 instance ToPath DeletePreset where

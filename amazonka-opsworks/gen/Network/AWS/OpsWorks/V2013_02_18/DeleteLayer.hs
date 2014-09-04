@@ -47,6 +47,7 @@ deleteLayer :: Text -- ^ 'dlrLayerId'
 deleteLayer p1 = DeleteLayer
     { _dlrLayerId = p1
     }
+{-# INLINE deleteLayer #-}
 
 data DeleteLayer = DeleteLayer
     { _dlrLayerId :: Text
@@ -54,15 +55,10 @@ data DeleteLayer = DeleteLayer
     } deriving (Show, Generic)
 
 -- | The layer ID.
-dlrLayerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLayer
-    -> f DeleteLayer
+dlrLayerId :: Lens' DeleteLayer (Text)
 dlrLayerId f x =
-    (\y -> x { _dlrLayerId = y })
-       <$> f (_dlrLayerId x)
+    f (_dlrLayerId x)
+        <&> \y -> x { _dlrLayerId = y }
 {-# INLINE dlrLayerId #-}
 
 instance ToPath DeleteLayer

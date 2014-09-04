@@ -23,6 +23,8 @@ module Network.AWS.S3.V2006_03_01.DeleteObjects
     (
     -- * Request
       DeleteObjects
+    -- ** Request alias
+    , DeleteMultipleObjects
     -- ** Request constructor
     , deleteObjects
     -- ** Request lenses

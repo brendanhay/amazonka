@@ -57,6 +57,7 @@ modifyOptionGroup p1 = ModifyOptionGroup
     , _mogmOptionsToInclude = mempty
     , _mogmOptionsToRemove = mempty
     }
+{-# INLINE modifyOptionGroup #-}
 
 data ModifyOptionGroup = ModifyOptionGroup
     { _mogmOptionGroupName :: Text
@@ -83,53 +84,33 @@ data ModifyOptionGroup = ModifyOptionGroup
 -- Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 -- cannot be removed from an option group, and that option group cannot be
 -- removed from a DB instance once it is associated with a DB instance.
-mogmOptionGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyOptionGroup
-    -> f ModifyOptionGroup
+mogmOptionGroupName :: Lens' ModifyOptionGroup (Text)
 mogmOptionGroupName f x =
-    (\y -> x { _mogmOptionGroupName = y })
-       <$> f (_mogmOptionGroupName x)
+    f (_mogmOptionGroupName x)
+        <&> \y -> x { _mogmOptionGroupName = y }
 {-# INLINE mogmOptionGroupName #-}
 
 -- | Indicates whether the changes should be applied immediately, or during the
 -- next maintenance window for each instance associated with the option group.
-mogmApplyImmediately
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyOptionGroup
-    -> f ModifyOptionGroup
+mogmApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
 mogmApplyImmediately f x =
-    (\y -> x { _mogmApplyImmediately = y })
-       <$> f (_mogmApplyImmediately x)
+    f (_mogmApplyImmediately x)
+        <&> \y -> x { _mogmApplyImmediately = y }
 {-# INLINE mogmApplyImmediately #-}
 
 -- | Options in this list are added to the option group or, if already present,
 -- the specified configuration is used to update the existing configuration.
-mogmOptionsToInclude
-    :: Functor f
-    => ([OptionConfiguration]
-    -> f ([OptionConfiguration]))
-    -> ModifyOptionGroup
-    -> f ModifyOptionGroup
+mogmOptionsToInclude :: Lens' ModifyOptionGroup ([OptionConfiguration])
 mogmOptionsToInclude f x =
-    (\y -> x { _mogmOptionsToInclude = y })
-       <$> f (_mogmOptionsToInclude x)
+    f (_mogmOptionsToInclude x)
+        <&> \y -> x { _mogmOptionsToInclude = y }
 {-# INLINE mogmOptionsToInclude #-}
 
 -- | Options in this list are removed from the option group.
-mogmOptionsToRemove
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyOptionGroup
-    -> f ModifyOptionGroup
+mogmOptionsToRemove :: Lens' ModifyOptionGroup ([Text])
 mogmOptionsToRemove f x =
-    (\y -> x { _mogmOptionsToRemove = y })
-       <$> f (_mogmOptionsToRemove x)
+    f (_mogmOptionsToRemove x)
+        <&> \y -> x { _mogmOptionsToRemove = y }
 {-# INLINE mogmOptionsToRemove #-}
 
 instance ToQuery ModifyOptionGroup where
@@ -141,15 +122,10 @@ data ModifyOptionGroupResponse = ModifyOptionGroupResponse
     } deriving (Show, Generic)
 
 -- | 
-ogxOptionGroup
-    :: Functor f
-    => (Maybe OptionGroup
-    -> f (Maybe OptionGroup))
-    -> ModifyOptionGroupResponse
-    -> f ModifyOptionGroupResponse
+ogxOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 ogxOptionGroup f x =
-    (\y -> x { _ogxOptionGroup = y })
-       <$> f (_ogxOptionGroup x)
+    f (_ogxOptionGroup x)
+        <&> \y -> x { _ogxOptionGroup = y }
 {-# INLINE ogxOptionGroup #-}
 
 instance FromXML ModifyOptionGroupResponse where

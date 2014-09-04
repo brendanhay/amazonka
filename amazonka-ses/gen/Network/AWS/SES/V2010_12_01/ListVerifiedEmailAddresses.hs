@@ -49,6 +49,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListVerifiedEmailAddresses' request.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses
+{-# INLINE listVerifiedEmailAddresses #-}
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
     deriving (Eq, Show, Generic)
@@ -62,15 +63,10 @@ data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     } deriving (Show, Generic)
 
 -- | A list of email addresses that have been verified.
-lvearVerifiedEmailAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListVerifiedEmailAddressesResponse
-    -> f ListVerifiedEmailAddressesResponse
+lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse ([Text])
 lvearVerifiedEmailAddresses f x =
-    (\y -> x { _lvearVerifiedEmailAddresses = y })
-       <$> f (_lvearVerifiedEmailAddresses x)
+    f (_lvearVerifiedEmailAddresses x)
+        <&> \y -> x { _lvearVerifiedEmailAddresses = y }
 {-# INLINE lvearVerifiedEmailAddresses #-}
 
 instance FromXML ListVerifiedEmailAddressesResponse where

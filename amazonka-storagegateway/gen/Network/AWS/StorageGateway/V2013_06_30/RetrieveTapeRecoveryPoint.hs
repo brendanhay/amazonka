@@ -46,6 +46,7 @@ retrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
     { _rtrpiGatewayARN = p1
     , _rtrpiTapeARN = p2
     }
+{-# INLINE retrieveTapeRecoveryPoint #-}
 
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
     { _rtrpiGatewayARN :: Text
@@ -57,26 +58,16 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-rtrpiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RetrieveTapeRecoveryPoint
-    -> f RetrieveTapeRecoveryPoint
+rtrpiGatewayARN :: Lens' RetrieveTapeRecoveryPoint (Text)
 rtrpiGatewayARN f x =
-    (\y -> x { _rtrpiGatewayARN = y })
-       <$> f (_rtrpiGatewayARN x)
+    f (_rtrpiGatewayARN x)
+        <&> \y -> x { _rtrpiGatewayARN = y }
 {-# INLINE rtrpiGatewayARN #-}
 
-rtrpiTapeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RetrieveTapeRecoveryPoint
-    -> f RetrieveTapeRecoveryPoint
+rtrpiTapeARN :: Lens' RetrieveTapeRecoveryPoint (Text)
 rtrpiTapeARN f x =
-    (\y -> x { _rtrpiTapeARN = y })
-       <$> f (_rtrpiTapeARN x)
+    f (_rtrpiTapeARN x)
+        <&> \y -> x { _rtrpiTapeARN = y }
 {-# INLINE rtrpiTapeARN #-}
 
 instance ToPath RetrieveTapeRecoveryPoint
@@ -91,15 +82,10 @@ data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrpoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-rtrpoTapeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RetrieveTapeRecoveryPointResponse
-    -> f RetrieveTapeRecoveryPointResponse
+rtrpoTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrpoTapeARN f x =
-    (\y -> x { _rtrpoTapeARN = y })
-       <$> f (_rtrpoTapeARN x)
+    f (_rtrpoTapeARN x)
+        <&> \y -> x { _rtrpoTapeARN = y }
 {-# INLINE rtrpoTapeARN #-}
 
 instance FromJSON RetrieveTapeRecoveryPointResponse

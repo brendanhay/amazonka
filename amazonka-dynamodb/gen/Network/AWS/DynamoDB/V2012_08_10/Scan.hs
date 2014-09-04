@@ -87,6 +87,7 @@ scan p1 = Scan
     , _siTotalSegments = Nothing
     , _siSelect = Nothing
     }
+{-# INLINE scan #-}
 
 data Scan = Scan
     { _siTableName :: Text
@@ -258,40 +259,25 @@ data Scan = Scan
     } deriving (Show, Generic)
 
 -- | The name of the table containing the requested items.
-siTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Scan
-    -> f Scan
+siTableName :: Lens' Scan (Text)
 siTableName f x =
-    (\y -> x { _siTableName = y })
-       <$> f (_siTableName x)
+    f (_siTableName x)
+        <&> \y -> x { _siTableName = y }
 {-# INLINE siTableName #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
-siAttributesToGet
-    :: Functor f
-    => (Maybe [Text]
-    -> f (Maybe [Text]))
-    -> Scan
-    -> f Scan
+siAttributesToGet :: Lens' Scan (Maybe [Text])
 siAttributesToGet f x =
-    (\y -> x { _siAttributesToGet = y })
-       <$> f (_siAttributesToGet x)
+    f (_siAttributesToGet x)
+        <&> \y -> x { _siAttributesToGet = y }
 {-# INLINE siAttributesToGet #-}
 
-siConditionalOperator
-    :: Functor f
-    => (Maybe ConditionalOperator
-    -> f (Maybe ConditionalOperator))
-    -> Scan
-    -> f Scan
+siConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
 siConditionalOperator f x =
-    (\y -> x { _siConditionalOperator = y })
-       <$> f (_siConditionalOperator x)
+    f (_siConditionalOperator x)
+        <&> \y -> x { _siConditionalOperator = y }
 {-# INLINE siConditionalOperator #-}
 
 -- | Evaluates the scan results and returns only the desired values. Multiple
@@ -375,15 +361,10 @@ siConditionalOperator f x =
 -- one specified in the request, the value does not match. For example,
 -- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
 -- to {"NS":["6", "2", "1"]}.
-siScanFilter
-    :: Functor f
-    => (Map Text Condition
-    -> f (Map Text Condition))
-    -> Scan
-    -> f Scan
+siScanFilter :: Lens' Scan (Map Text Condition)
 siScanFilter f x =
-    (\y -> x { _siScanFilter = y })
-       <$> f (_siScanFilter x)
+    f (_siScanFilter x)
+        <&> \y -> x { _siScanFilter = y }
 {-# INLINE siScanFilter #-}
 
 -- | The primary key of the first item that this operation will evalute. Use the
@@ -392,15 +373,10 @@ siScanFilter f x =
 -- data types are allowed. In a parallel scan, a Scan request that includes
 -- ExclusiveStartKey must specify the same segment whose previous Scan
 -- returned the corresponding value of LastEvaluatedKey.
-siExclusiveStartKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> Scan
-    -> f Scan
+siExclusiveStartKey :: Lens' Scan (Map Text AttributeValue)
 siExclusiveStartKey f x =
-    (\y -> x { _siExclusiveStartKey = y })
-       <$> f (_siExclusiveStartKey x)
+    f (_siExclusiveStartKey x)
+        <&> \y -> x { _siExclusiveStartKey = y }
 {-# INLINE siExclusiveStartKey #-}
 
 -- | The maximum number of items to evaluate (not necessarily the number of
@@ -414,30 +390,20 @@ siExclusiveStartKey f x =
 -- continue the operation. For more information see
 -- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
 -- >Query and Scan in the Amazon DynamoDB Developer Guide.
-siLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Scan
-    -> f Scan
+siLimit :: Lens' Scan (Maybe Integer)
 siLimit f x =
-    (\y -> x { _siLimit = y })
-       <$> f (_siLimit x)
+    f (_siLimit x)
+        <&> \y -> x { _siLimit = y }
 {-# INLINE siLimit #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-siReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> Scan
-    -> f Scan
+siReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
 siReturnConsumedCapacity f x =
-    (\y -> x { _siReturnConsumedCapacity = y })
-       <$> f (_siReturnConsumedCapacity x)
+    f (_siReturnConsumedCapacity x)
+        <&> \y -> x { _siReturnConsumedCapacity = y }
 {-# INLINE siReturnConsumedCapacity #-}
 
 -- | For a parallel Scan request, Segment identifies an individual segment to be
@@ -450,15 +416,10 @@ siReturnConsumedCapacity f x =
 -- Segment must be greater than or equal to 0, and less than the value
 -- provided for TotalSegments. If you specify Segment, you must also specify
 -- TotalSegments.
-siSegment
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Scan
-    -> f Scan
+siSegment :: Lens' Scan (Maybe Integer)
 siSegment f x =
-    (\y -> x { _siSegment = y })
-       <$> f (_siSegment x)
+    f (_siSegment x)
+        <&> \y -> x { _siSegment = y }
 {-# INLINE siSegment #-}
 
 -- | For a parallel Scan request, TotalSegments represents the total number of
@@ -470,15 +431,10 @@ siSegment f x =
 -- or equal to 4096. If you specify a TotalSegments value of 1, the Scan will
 -- be sequential rather than parallel. If you specify TotalSegments, you must
 -- also specify Segment.
-siTotalSegments
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Scan
-    -> f Scan
+siTotalSegments :: Lens' Scan (Maybe Integer)
 siTotalSegments f x =
-    (\y -> x { _siTotalSegments = y })
-       <$> f (_siTotalSegments x)
+    f (_siTotalSegments x)
+        <&> \y -> x { _siTotalSegments = y }
 {-# INLINE siTotalSegments #-}
 
 -- | The attributes to be returned in the result. You can retrieve all item
@@ -492,15 +448,10 @@ siTotalSegments f x =
 -- and AttributesToGet together in a single request, unless the value for
 -- Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
 -- AttributesToGet without any value for Select.).
-siSelect
-    :: Functor f
-    => (Maybe Select
-    -> f (Maybe Select))
-    -> Scan
-    -> f Scan
+siSelect :: Lens' Scan (Maybe Select)
 siSelect f x =
-    (\y -> x { _siSelect = y })
-       <$> f (_siSelect x)
+    f (_siSelect x)
+        <&> \y -> x { _siSelect = y }
 {-# INLINE siSelect #-}
 
 instance ToPath Scan
@@ -548,55 +499,35 @@ data ScanResponse = ScanResponse
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-soConsumedCapacity
-    :: Functor f
-    => (Maybe ConsumedCapacity
-    -> f (Maybe ConsumedCapacity))
-    -> ScanResponse
-    -> f ScanResponse
+soConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 soConsumedCapacity f x =
-    (\y -> x { _soConsumedCapacity = y })
-       <$> f (_soConsumedCapacity x)
+    f (_soConsumedCapacity x)
+        <&> \y -> x { _soConsumedCapacity = y }
 {-# INLINE soConsumedCapacity #-}
 
 -- | The number of items in the response.
-soCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScanResponse
-    -> f ScanResponse
+soCount :: Lens' ScanResponse (Maybe Integer)
 soCount f x =
-    (\y -> x { _soCount = y })
-       <$> f (_soCount x)
+    f (_soCount x)
+        <&> \y -> x { _soCount = y }
 {-# INLINE soCount #-}
 
 -- | The number of items in the complete scan, before any filters are applied. A
 -- high ScannedCount value with few, or no, Count results indicates an
 -- inefficient Scan operation. For more information, see Count and
 -- ScannedCount in the Amazon DynamoDB Developer Guide.
-soScannedCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScanResponse
-    -> f ScanResponse
+soScannedCount :: Lens' ScanResponse (Maybe Integer)
 soScannedCount f x =
-    (\y -> x { _soScannedCount = y })
-       <$> f (_soScannedCount x)
+    f (_soScannedCount x)
+        <&> \y -> x { _soScannedCount = y }
 {-# INLINE soScannedCount #-}
 
 -- | An array of item attributes that match the scan criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.
-soItems
-    :: Functor f
-    => ([Map Text AttributeValue]
-    -> f ([Map Text AttributeValue]))
-    -> ScanResponse
-    -> f ScanResponse
+soItems :: Lens' ScanResponse ([Map Text AttributeValue])
 soItems f x =
-    (\y -> x { _soItems = y })
-       <$> f (_soItems x)
+    f (_soItems x)
+        <&> \y -> x { _soItems = y }
 {-# INLINE soItems #-}
 
 -- | The primary key of the item where the operation stopped, inclusive of the
@@ -607,15 +538,10 @@ soItems f x =
 -- necessarily mean that there is more data in the result set. The only way to
 -- know when you have reached the end of the result set is when
 -- LastEvaluatedKey is null.
-soLastEvaluatedKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> ScanResponse
-    -> f ScanResponse
+soLastEvaluatedKey :: Lens' ScanResponse (Map Text AttributeValue)
 soLastEvaluatedKey f x =
-    (\y -> x { _soLastEvaluatedKey = y })
-       <$> f (_soLastEvaluatedKey x)
+    f (_soLastEvaluatedKey x)
+        <&> \y -> x { _soLastEvaluatedKey = y }
 {-# INLINE soLastEvaluatedKey #-}
 
 instance FromJSON ScanResponse

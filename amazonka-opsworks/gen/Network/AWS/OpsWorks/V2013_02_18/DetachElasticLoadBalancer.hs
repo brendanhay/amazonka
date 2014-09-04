@@ -49,6 +49,7 @@ detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
     { _delbtElasticLoadBalancerName = p1
     , _delbtLayerId = p2
     }
+{-# INLINE detachElasticLoadBalancer #-}
 
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
     { _delbtElasticLoadBalancerName :: Text
@@ -59,28 +60,18 @@ data DetachElasticLoadBalancer = DetachElasticLoadBalancer
     } deriving (Show, Generic)
 
 -- | The Elastic Load Balancing instance's name.
-delbtElasticLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachElasticLoadBalancer
-    -> f DetachElasticLoadBalancer
+delbtElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer (Text)
 delbtElasticLoadBalancerName f x =
-    (\y -> x { _delbtElasticLoadBalancerName = y })
-       <$> f (_delbtElasticLoadBalancerName x)
+    f (_delbtElasticLoadBalancerName x)
+        <&> \y -> x { _delbtElasticLoadBalancerName = y }
 {-# INLINE delbtElasticLoadBalancerName #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached
 -- to.
-delbtLayerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachElasticLoadBalancer
-    -> f DetachElasticLoadBalancer
+delbtLayerId :: Lens' DetachElasticLoadBalancer (Text)
 delbtLayerId f x =
-    (\y -> x { _delbtLayerId = y })
-       <$> f (_delbtLayerId x)
+    f (_delbtLayerId x)
+        <&> \y -> x { _delbtLayerId = y }
 {-# INLINE delbtLayerId #-}
 
 instance ToPath DetachElasticLoadBalancer

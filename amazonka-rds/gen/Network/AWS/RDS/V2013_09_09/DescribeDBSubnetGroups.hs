@@ -57,6 +57,7 @@ describeDBSubnetGroups = DescribeDBSubnetGroups
     , _ddbsgpDBSubnetGroupName = Nothing
     , _ddbsgpMarker = Nothing
     }
+{-# INLINE describeDBSubnetGroups #-}
 
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsgpMaxRecords :: Maybe Integer
@@ -78,41 +79,26 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbsgpMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBSubnetGroups
-    -> f DescribeDBSubnetGroups
+ddbsgpMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Integer)
 ddbsgpMaxRecords f x =
-    (\y -> x { _ddbsgpMaxRecords = y })
-       <$> f (_ddbsgpMaxRecords x)
+    f (_ddbsgpMaxRecords x)
+        <&> \y -> x { _ddbsgpMaxRecords = y }
 {-# INLINE ddbsgpMaxRecords #-}
 
 -- | The name of the DB subnet group to return details for.
-ddbsgpDBSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSubnetGroups
-    -> f DescribeDBSubnetGroups
+ddbsgpDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsgpDBSubnetGroupName f x =
-    (\y -> x { _ddbsgpDBSubnetGroupName = y })
-       <$> f (_ddbsgpDBSubnetGroupName x)
+    f (_ddbsgpDBSubnetGroupName x)
+        <&> \y -> x { _ddbsgpDBSubnetGroupName = y }
 {-# INLINE ddbsgpDBSubnetGroupName #-}
 
 -- | An optional pagination token provided by a previous DescribeDBSubnetGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
-ddbsgpMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSubnetGroups
-    -> f DescribeDBSubnetGroups
+ddbsgpMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsgpMarker f x =
-    (\y -> x { _ddbsgpMarker = y })
-       <$> f (_ddbsgpMarker x)
+    f (_ddbsgpMarker x)
+        <&> \y -> x { _ddbsgpMarker = y }
 {-# INLINE ddbsgpMarker #-}
 
 instance ToQuery DescribeDBSubnetGroups where
@@ -128,29 +114,19 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     } deriving (Show, Generic)
 
 -- | A list of DBSubnetGroup instances.
-dbsgsDBSubnetGroups
-    :: Functor f
-    => ([DBSubnetGroup]
-    -> f ([DBSubnetGroup]))
-    -> DescribeDBSubnetGroupsResponse
-    -> f DescribeDBSubnetGroupsResponse
+dbsgsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse ([DBSubnetGroup])
 dbsgsDBSubnetGroups f x =
-    (\y -> x { _dbsgsDBSubnetGroups = y })
-       <$> f (_dbsgsDBSubnetGroups x)
+    f (_dbsgsDBSubnetGroups x)
+        <&> \y -> x { _dbsgsDBSubnetGroups = y }
 {-# INLINE dbsgsDBSubnetGroups #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbsgsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSubnetGroupsResponse
-    -> f DescribeDBSubnetGroupsResponse
+dbsgsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 dbsgsMarker f x =
-    (\y -> x { _dbsgsMarker = y })
-       <$> f (_dbsgsMarker x)
+    f (_dbsgsMarker x)
+        <&> \y -> x { _dbsgsMarker = y }
 {-# INLINE dbsgsMarker #-}
 
 instance FromXML DescribeDBSubnetGroupsResponse where

@@ -55,6 +55,7 @@ createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
     , _cdbsgmDBSecurityGroupDescription = p2
     , _cdbsgmTags = mempty
     }
+{-# INLINE createDBSecurityGroup #-}
 
 data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgmDBSecurityGroupName :: Text
@@ -74,39 +75,24 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Must not be "Default" May not contain spaces Example:
 -- mysecuritygroup.
-cdbsgmDBSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBSecurityGroup
-    -> f CreateDBSecurityGroup
+cdbsgmDBSecurityGroupName :: Lens' CreateDBSecurityGroup (Text)
 cdbsgmDBSecurityGroupName f x =
-    (\y -> x { _cdbsgmDBSecurityGroupName = y })
-       <$> f (_cdbsgmDBSecurityGroupName x)
+    f (_cdbsgmDBSecurityGroupName x)
+        <&> \y -> x { _cdbsgmDBSecurityGroupName = y }
 {-# INLINE cdbsgmDBSecurityGroupName #-}
 
 -- | The description for the DB security group.
-cdbsgmDBSecurityGroupDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBSecurityGroup
-    -> f CreateDBSecurityGroup
+cdbsgmDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup (Text)
 cdbsgmDBSecurityGroupDescription f x =
-    (\y -> x { _cdbsgmDBSecurityGroupDescription = y })
-       <$> f (_cdbsgmDBSecurityGroupDescription x)
+    f (_cdbsgmDBSecurityGroupDescription x)
+        <&> \y -> x { _cdbsgmDBSecurityGroupDescription = y }
 {-# INLINE cdbsgmDBSecurityGroupDescription #-}
 
 -- | A list of tags.
-cdbsgmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateDBSecurityGroup
-    -> f CreateDBSecurityGroup
+cdbsgmTags :: Lens' CreateDBSecurityGroup ([Tag])
 cdbsgmTags f x =
-    (\y -> x { _cdbsgmTags = y })
-       <$> f (_cdbsgmTags x)
+    f (_cdbsgmTags x)
+        <&> \y -> x { _cdbsgmTags = y }
 {-# INLINE cdbsgmTags #-}
 
 instance ToQuery CreateDBSecurityGroup where
@@ -125,15 +111,10 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-dbsgxDBSecurityGroup
-    :: Functor f
-    => (Maybe DBSecurityGroup
-    -> f (Maybe DBSecurityGroup))
-    -> CreateDBSecurityGroupResponse
-    -> f CreateDBSecurityGroupResponse
+dbsgxDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 dbsgxDBSecurityGroup f x =
-    (\y -> x { _dbsgxDBSecurityGroup = y })
-       <$> f (_dbsgxDBSecurityGroup x)
+    f (_dbsgxDBSecurityGroup x)
+        <&> \y -> x { _dbsgxDBSecurityGroup = y }
 {-# INLINE dbsgxDBSecurityGroup #-}
 
 instance FromXML CreateDBSecurityGroupResponse where

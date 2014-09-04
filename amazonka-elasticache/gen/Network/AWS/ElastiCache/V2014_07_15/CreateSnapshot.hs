@@ -54,6 +54,7 @@ createSnapshot p1 p2 = CreateSnapshot
     { _csnCacheClusterId = p1
     , _csnSnapshotName = p2
     }
+{-# INLINE createSnapshot #-}
 
 data CreateSnapshot = CreateSnapshot
     { _csnCacheClusterId :: Text
@@ -65,27 +66,17 @@ data CreateSnapshot = CreateSnapshot
 
 -- | The identifier of an existing cache cluster. The snapshot will be created
 -- from this cache cluster.
-csnCacheClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSnapshot
-    -> f CreateSnapshot
+csnCacheClusterId :: Lens' CreateSnapshot (Text)
 csnCacheClusterId f x =
-    (\y -> x { _csnCacheClusterId = y })
-       <$> f (_csnCacheClusterId x)
+    f (_csnCacheClusterId x)
+        <&> \y -> x { _csnCacheClusterId = y }
 {-# INLINE csnCacheClusterId #-}
 
 -- | A name for the snapshot being created.
-csnSnapshotName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSnapshot
-    -> f CreateSnapshot
+csnSnapshotName :: Lens' CreateSnapshot (Text)
 csnSnapshotName f x =
-    (\y -> x { _csnSnapshotName = y })
-       <$> f (_csnSnapshotName x)
+    f (_csnSnapshotName x)
+        <&> \y -> x { _csnSnapshotName = y }
 {-# INLINE csnSnapshotName #-}
 
 instance ToQuery CreateSnapshot where
@@ -99,15 +90,10 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-ssssssrSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> CreateSnapshotResponse
-    -> f CreateSnapshotResponse
+ssssssrSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 ssssssrSnapshot f x =
-    (\y -> x { _ssssssrSnapshot = y })
-       <$> f (_ssssssrSnapshot x)
+    f (_ssssssrSnapshot x)
+        <&> \y -> x { _ssssssrSnapshot = y }
 {-# INLINE ssssssrSnapshot #-}
 
 instance FromXML CreateSnapshotResponse where

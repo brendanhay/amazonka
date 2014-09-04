@@ -62,6 +62,7 @@ describeStackEvents p1 = DescribeStackEvents
     { _dseiStackName = p1
     , _dseiNextToken = Nothing
     }
+{-# INLINE describeStackEvents #-}
 
 data DescribeStackEvents = DescribeStackEvents
     { _dseiStackName :: Text
@@ -79,28 +80,18 @@ data DescribeStackEvents = DescribeStackEvents
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-dseiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStackEvents
-    -> f DescribeStackEvents
+dseiStackName :: Lens' DescribeStackEvents (Text)
 dseiStackName f x =
-    (\y -> x { _dseiStackName = y })
-       <$> f (_dseiStackName x)
+    f (_dseiStackName x)
+        <&> \y -> x { _dseiStackName = y }
 {-# INLINE dseiStackName #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one. Default: There is no default value.
-dseiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStackEvents
-    -> f DescribeStackEvents
+dseiNextToken :: Lens' DescribeStackEvents (Maybe Text)
 dseiNextToken f x =
-    (\y -> x { _dseiNextToken = y })
-       <$> f (_dseiNextToken x)
+    f (_dseiNextToken x)
+        <&> \y -> x { _dseiNextToken = y }
 {-# INLINE dseiNextToken #-}
 
 instance ToQuery DescribeStackEvents where
@@ -116,27 +107,17 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
-dseoNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStackEventsResponse
-    -> f DescribeStackEventsResponse
+dseoNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dseoNextToken f x =
-    (\y -> x { _dseoNextToken = y })
-       <$> f (_dseoNextToken x)
+    f (_dseoNextToken x)
+        <&> \y -> x { _dseoNextToken = y }
 {-# INLINE dseoNextToken #-}
 
 -- | A list of StackEvents structures.
-dseoStackEvents
-    :: Functor f
-    => ([StackEvent]
-    -> f ([StackEvent]))
-    -> DescribeStackEventsResponse
-    -> f DescribeStackEventsResponse
+dseoStackEvents :: Lens' DescribeStackEventsResponse ([StackEvent])
 dseoStackEvents f x =
-    (\y -> x { _dseoStackEvents = y })
-       <$> f (_dseoStackEvents x)
+    f (_dseoStackEvents x)
+        <&> \y -> x { _dseoStackEvents = y }
 {-# INLINE dseoStackEvents #-}
 
 instance FromXML DescribeStackEventsResponse where

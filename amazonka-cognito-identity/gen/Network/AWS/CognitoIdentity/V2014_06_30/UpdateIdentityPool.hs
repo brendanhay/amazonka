@@ -67,6 +67,7 @@ updateIdentityPool p1 p2 p3 = UpdateIdentityPool
     , _iuAllowUnauthenticatedIdentities = p3
     , _iuSupportedLoginProviders = mempty
     }
+{-# INLINE updateIdentityPool #-}
 
 data UpdateIdentityPool = UpdateIdentityPool
     { _iuIdentityPoolId :: Text
@@ -81,51 +82,31 @@ data UpdateIdentityPool = UpdateIdentityPool
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-iuIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateIdentityPool
-    -> f UpdateIdentityPool
+iuIdentityPoolId :: Lens' UpdateIdentityPool (Text)
 iuIdentityPoolId f x =
-    (\y -> x { _iuIdentityPoolId = y })
-       <$> f (_iuIdentityPoolId x)
+    f (_iuIdentityPoolId x)
+        <&> \y -> x { _iuIdentityPoolId = y }
 {-# INLINE iuIdentityPoolId #-}
 
 -- | A string that you provide.
-iuIdentityPoolName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateIdentityPool
-    -> f UpdateIdentityPool
+iuIdentityPoolName :: Lens' UpdateIdentityPool (Text)
 iuIdentityPoolName f x =
-    (\y -> x { _iuIdentityPoolName = y })
-       <$> f (_iuIdentityPoolName x)
+    f (_iuIdentityPoolName x)
+        <&> \y -> x { _iuIdentityPoolName = y }
 {-# INLINE iuIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-iuAllowUnauthenticatedIdentities
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> UpdateIdentityPool
-    -> f UpdateIdentityPool
+iuAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool (Bool)
 iuAllowUnauthenticatedIdentities f x =
-    (\y -> x { _iuAllowUnauthenticatedIdentities = y })
-       <$> f (_iuAllowUnauthenticatedIdentities x)
+    f (_iuAllowUnauthenticatedIdentities x)
+        <&> \y -> x { _iuAllowUnauthenticatedIdentities = y }
 {-# INLINE iuAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-iuSupportedLoginProviders
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> UpdateIdentityPool
-    -> f UpdateIdentityPool
+iuSupportedLoginProviders :: Lens' UpdateIdentityPool (Map Text Text)
 iuSupportedLoginProviders f x =
-    (\y -> x { _iuSupportedLoginProviders = y })
-       <$> f (_iuSupportedLoginProviders x)
+    f (_iuSupportedLoginProviders x)
+        <&> \y -> x { _iuSupportedLoginProviders = y }
 {-# INLINE iuSupportedLoginProviders #-}
 
 instance ToPath UpdateIdentityPool
@@ -149,51 +130,31 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-iwIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateIdentityPoolResponse
-    -> f UpdateIdentityPoolResponse
+iwIdentityPoolId :: Lens' UpdateIdentityPoolResponse (Text)
 iwIdentityPoolId f x =
-    (\y -> x { _iwIdentityPoolId = y })
-       <$> f (_iwIdentityPoolId x)
+    f (_iwIdentityPoolId x)
+        <&> \y -> x { _iwIdentityPoolId = y }
 {-# INLINE iwIdentityPoolId #-}
 
 -- | A string that you provide.
-iwIdentityPoolName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateIdentityPoolResponse
-    -> f UpdateIdentityPoolResponse
+iwIdentityPoolName :: Lens' UpdateIdentityPoolResponse (Text)
 iwIdentityPoolName f x =
-    (\y -> x { _iwIdentityPoolName = y })
-       <$> f (_iwIdentityPoolName x)
+    f (_iwIdentityPoolName x)
+        <&> \y -> x { _iwIdentityPoolName = y }
 {-# INLINE iwIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-iwAllowUnauthenticatedIdentities
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> UpdateIdentityPoolResponse
-    -> f UpdateIdentityPoolResponse
+iwAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPoolResponse (Bool)
 iwAllowUnauthenticatedIdentities f x =
-    (\y -> x { _iwAllowUnauthenticatedIdentities = y })
-       <$> f (_iwAllowUnauthenticatedIdentities x)
+    f (_iwAllowUnauthenticatedIdentities x)
+        <&> \y -> x { _iwAllowUnauthenticatedIdentities = y }
 {-# INLINE iwAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-iwSupportedLoginProviders
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> UpdateIdentityPoolResponse
-    -> f UpdateIdentityPoolResponse
+iwSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (Map Text Text)
 iwSupportedLoginProviders f x =
-    (\y -> x { _iwSupportedLoginProviders = y })
-       <$> f (_iwSupportedLoginProviders x)
+    f (_iwSupportedLoginProviders x)
+        <&> \y -> x { _iwSupportedLoginProviders = y }
 {-# INLINE iwSupportedLoginProviders #-}
 
 instance FromJSON UpdateIdentityPoolResponse

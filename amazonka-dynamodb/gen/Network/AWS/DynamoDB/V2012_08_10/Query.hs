@@ -91,6 +91,7 @@ query p1 = Query
     , _qiReturnConsumedCapacity = Nothing
     , _qiSelect = Nothing
     }
+{-# INLINE query #-}
 
 data Query = Query
     { _qiTableName :: Text
@@ -264,15 +265,10 @@ data Query = Query
     } deriving (Show, Generic)
 
 -- | The name of the table containing the requested items.
-qiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Query
-    -> f Query
+qiTableName :: Lens' Query (Text)
 qiTableName f x =
-    (\y -> x { _qiTableName = y })
-       <$> f (_qiTableName x)
+    f (_qiTableName x)
+        <&> \y -> x { _qiTableName = y }
 {-# INLINE qiTableName #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
@@ -289,15 +285,10 @@ qiTableName f x =
 -- latency. If you are querying a global secondary index, you can only request
 -- attributes that are projected into the index. Global secondary index
 -- queries cannot fetch attributes from the parent table.
-qiAttributesToGet
-    :: Functor f
-    => (Maybe [Text]
-    -> f (Maybe [Text]))
-    -> Query
-    -> f Query
+qiAttributesToGet :: Lens' Query (Maybe [Text])
 qiAttributesToGet f x =
-    (\y -> x { _qiAttributesToGet = y })
-       <$> f (_qiAttributesToGet x)
+    f (_qiAttributesToGet x)
+        <&> \y -> x { _qiAttributesToGet = y }
 {-# INLINE qiAttributesToGet #-}
 
 -- | Specifies ascending (true) or descending (false) traversal of the index.
@@ -307,26 +298,16 @@ qiAttributesToGet f x =
 -- code values. For Binary, Amazon DynamoDB treats each byte of the binary
 -- data as unsigned when it compares binary values. If ScanIndexForward is not
 -- specified, the results are returned in ascending order.
-qiScanIndexForward
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Query
-    -> f Query
+qiScanIndexForward :: Lens' Query (Maybe Bool)
 qiScanIndexForward f x =
-    (\y -> x { _qiScanIndexForward = y })
-       <$> f (_qiScanIndexForward x)
+    f (_qiScanIndexForward x)
+        <&> \y -> x { _qiScanIndexForward = y }
 {-# INLINE qiScanIndexForward #-}
 
-qiConditionalOperator
-    :: Functor f
-    => (Maybe ConditionalOperator
-    -> f (Maybe ConditionalOperator))
-    -> Query
-    -> f Query
+qiConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
 qiConditionalOperator f x =
-    (\y -> x { _qiConditionalOperator = y })
-       <$> f (_qiConditionalOperator x)
+    f (_qiConditionalOperator x)
+        <&> \y -> x { _qiConditionalOperator = y }
 {-# INLINE qiConditionalOperator #-}
 
 -- | If set to true, then the operation uses strongly consistent reads;
@@ -334,54 +315,34 @@ qiConditionalOperator f x =
 -- are not supported on global secondary indexes. If you query a global
 -- secondary index with ConsistentRead set to true, you will receive an error
 -- message.
-qiConsistentRead
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Query
-    -> f Query
+qiConsistentRead :: Lens' Query (Maybe Bool)
 qiConsistentRead f x =
-    (\y -> x { _qiConsistentRead = y })
-       <$> f (_qiConsistentRead x)
+    f (_qiConsistentRead x)
+        <&> \y -> x { _qiConsistentRead = y }
 {-# INLINE qiConsistentRead #-}
 
-qiQueryFilter
-    :: Functor f
-    => (Map Text Condition
-    -> f (Map Text Condition))
-    -> Query
-    -> f Query
+qiQueryFilter :: Lens' Query (Map Text Condition)
 qiQueryFilter f x =
-    (\y -> x { _qiQueryFilter = y })
-       <$> f (_qiQueryFilter x)
+    f (_qiQueryFilter x)
+        <&> \y -> x { _qiQueryFilter = y }
 {-# INLINE qiQueryFilter #-}
 
 -- | The name of an index to query. This can be any local secondary index or
 -- global secondary index on the table.
-qiIndexName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Query
-    -> f Query
+qiIndexName :: Lens' Query (Maybe Text)
 qiIndexName f x =
-    (\y -> x { _qiIndexName = y })
-       <$> f (_qiIndexName x)
+    f (_qiIndexName x)
+        <&> \y -> x { _qiIndexName = y }
 {-# INLINE qiIndexName #-}
 
 -- | The primary key of the first item that this operation will evalute. Use the
 -- value that was returned for LastEvaluatedKey in the previous operation. The
 -- data type for ExclusiveStartKey must be String, Number or Binary. No set
 -- data types are allowed.
-qiExclusiveStartKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> Query
-    -> f Query
+qiExclusiveStartKey :: Lens' Query (Map Text AttributeValue)
 qiExclusiveStartKey f x =
-    (\y -> x { _qiExclusiveStartKey = y })
-       <$> f (_qiExclusiveStartKey x)
+    f (_qiExclusiveStartKey x)
+        <&> \y -> x { _qiExclusiveStartKey = y }
 {-# INLINE qiExclusiveStartKey #-}
 
 -- | The selection criteria for the query. For a query on a table, you can only
@@ -446,15 +407,10 @@ qiExclusiveStartKey f x =
 -- one specified in the request, the value does not match. For example,
 -- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
 -- to {"NS":["6", "2", "1"]}.
-qiKeyConditions
-    :: Functor f
-    => (Map Text Condition
-    -> f (Map Text Condition))
-    -> Query
-    -> f Query
+qiKeyConditions :: Lens' Query (Map Text Condition)
 qiKeyConditions f x =
-    (\y -> x { _qiKeyConditions = y })
-       <$> f (_qiKeyConditions x)
+    f (_qiKeyConditions x)
+        <&> \y -> x { _qiKeyConditions = y }
 {-# INLINE qiKeyConditions #-}
 
 -- | The maximum number of items to evaluate (not necessarily the number of
@@ -468,30 +424,20 @@ qiKeyConditions f x =
 -- continue the operation. For more information see
 -- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
 -- >Query and Scan in the Amazon DynamoDB Developer Guide.
-qiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Query
-    -> f Query
+qiLimit :: Lens' Query (Maybe Integer)
 qiLimit f x =
-    (\y -> x { _qiLimit = y })
-       <$> f (_qiLimit x)
+    f (_qiLimit x)
+        <&> \y -> x { _qiLimit = y }
 {-# INLINE qiLimit #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-qiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> Query
-    -> f Query
+qiReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
 qiReturnConsumedCapacity f x =
-    (\y -> x { _qiReturnConsumedCapacity = y })
-       <$> f (_qiReturnConsumedCapacity x)
+    f (_qiReturnConsumedCapacity x)
+        <&> \y -> x { _qiReturnConsumedCapacity = y }
 {-# INLINE qiReturnConsumedCapacity #-}
 
 -- | The attributes to be returned in the result. You can retrieve all item
@@ -523,15 +469,10 @@ qiReturnConsumedCapacity f x =
 -- Select and AttributesToGet together in a single request, unless the value
 -- for Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
 -- AttributesToGet without any value for Select.).
-qiSelect
-    :: Functor f
-    => (Maybe Select
-    -> f (Maybe Select))
-    -> Query
-    -> f Query
+qiSelect :: Lens' Query (Maybe Select)
 qiSelect f x =
-    (\y -> x { _qiSelect = y })
-       <$> f (_qiSelect x)
+    f (_qiSelect x)
+        <&> \y -> x { _qiSelect = y }
 {-# INLINE qiSelect #-}
 
 instance ToPath Query
@@ -574,51 +515,31 @@ data QueryResponse = QueryResponse
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-qoConsumedCapacity
-    :: Functor f
-    => (Maybe ConsumedCapacity
-    -> f (Maybe ConsumedCapacity))
-    -> QueryResponse
-    -> f QueryResponse
+qoConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
 qoConsumedCapacity f x =
-    (\y -> x { _qoConsumedCapacity = y })
-       <$> f (_qoConsumedCapacity x)
+    f (_qoConsumedCapacity x)
+        <&> \y -> x { _qoConsumedCapacity = y }
 {-# INLINE qoConsumedCapacity #-}
 
 -- | The number of items in the response.
-qoCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> QueryResponse
-    -> f QueryResponse
+qoCount :: Lens' QueryResponse (Maybe Integer)
 qoCount f x =
-    (\y -> x { _qoCount = y })
-       <$> f (_qoCount x)
+    f (_qoCount x)
+        <&> \y -> x { _qoCount = y }
 {-# INLINE qoCount #-}
 
-qoScannedCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> QueryResponse
-    -> f QueryResponse
+qoScannedCount :: Lens' QueryResponse (Maybe Integer)
 qoScannedCount f x =
-    (\y -> x { _qoScannedCount = y })
-       <$> f (_qoScannedCount x)
+    f (_qoScannedCount x)
+        <&> \y -> x { _qoScannedCount = y }
 {-# INLINE qoScannedCount #-}
 
 -- | An array of item attributes that match the query criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.
-qoItems
-    :: Functor f
-    => ([Map Text AttributeValue]
-    -> f ([Map Text AttributeValue]))
-    -> QueryResponse
-    -> f QueryResponse
+qoItems :: Lens' QueryResponse ([Map Text AttributeValue])
 qoItems f x =
-    (\y -> x { _qoItems = y })
-       <$> f (_qoItems x)
+    f (_qoItems x)
+        <&> \y -> x { _qoItems = y }
 {-# INLINE qoItems #-}
 
 -- | The primary key of the item where the operation stopped, inclusive of the
@@ -629,15 +550,10 @@ qoItems f x =
 -- necessarily mean that there is more data in the result set. The only way to
 -- know when you have reached the end of the result set is when
 -- LastEvaluatedKey is null.
-qoLastEvaluatedKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> QueryResponse
-    -> f QueryResponse
+qoLastEvaluatedKey :: Lens' QueryResponse (Map Text AttributeValue)
 qoLastEvaluatedKey f x =
-    (\y -> x { _qoLastEvaluatedKey = y })
-       <$> f (_qoLastEvaluatedKey x)
+    f (_qoLastEvaluatedKey x)
+        <&> \y -> x { _qoLastEvaluatedKey = y }
 {-# INLINE qoLastEvaluatedKey #-}
 
 instance FromJSON QueryResponse

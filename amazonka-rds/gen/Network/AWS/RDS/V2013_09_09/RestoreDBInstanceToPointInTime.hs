@@ -89,6 +89,7 @@ restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
     , _rdbitpitmRestoreTime = Nothing
     , _rdbitpitmTags = mempty
     }
+{-# INLINE restoreDBInstanceToPointInTime #-}
 
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     { _rdbitpitmSourceDBInstanceIdentifier :: Text
@@ -181,58 +182,38 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-rdbitpitmSourceDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmSourceDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime (Text)
 rdbitpitmSourceDBInstanceIdentifier f x =
-    (\y -> x { _rdbitpitmSourceDBInstanceIdentifier = y })
-       <$> f (_rdbitpitmSourceDBInstanceIdentifier x)
+    f (_rdbitpitmSourceDBInstanceIdentifier x)
+        <&> \y -> x { _rdbitpitmSourceDBInstanceIdentifier = y }
 {-# INLINE rdbitpitmSourceDBInstanceIdentifier #-}
 
 -- | The name of the new database instance to be created. Constraints: Must
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-rdbitpitmTargetDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime (Text)
 rdbitpitmTargetDBInstanceIdentifier f x =
-    (\y -> x { _rdbitpitmTargetDBInstanceIdentifier = y })
-       <$> f (_rdbitpitmTargetDBInstanceIdentifier x)
+    f (_rdbitpitmTargetDBInstanceIdentifier x)
+        <&> \y -> x { _rdbitpitmTargetDBInstanceIdentifier = y }
 {-# INLINE rdbitpitmTargetDBInstanceIdentifier #-}
 
 -- | Specifies whether (true) or not (false) the DB instance is restored from
 -- the latest backup time. Default: false Constraints: Cannot be specified if
 -- RestoreTime parameter is provided.
-rdbitpitmUseLatestRestorableTime
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rdbitpitmUseLatestRestorableTime f x =
-    (\y -> x { _rdbitpitmUseLatestRestorableTime = y })
-       <$> f (_rdbitpitmUseLatestRestorableTime x)
+    f (_rdbitpitmUseLatestRestorableTime x)
+        <&> \y -> x { _rdbitpitmUseLatestRestorableTime = y }
 {-# INLINE rdbitpitmUseLatestRestorableTime #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
 -- set to true.
-rdbitpitmMultiAZ
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rdbitpitmMultiAZ f x =
-    (\y -> x { _rdbitpitmMultiAZ = y })
-       <$> f (_rdbitpitmMultiAZ x)
+    f (_rdbitpitmMultiAZ x)
+        <&> \y -> x { _rdbitpitmMultiAZ = y }
 {-# INLINE rdbitpitmMultiAZ #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
@@ -246,139 +227,89 @@ rdbitpitmMultiAZ f x =
 -- the DB instance will be publicly accessible. If a specific DB subnet group
 -- has been specified as part of the request and the PubliclyAccessible value
 -- has not been set, the DB instance will be private.
-rdbitpitmPubliclyAccessible
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmPubliclyAccessible :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rdbitpitmPubliclyAccessible f x =
-    (\y -> x { _rdbitpitmPubliclyAccessible = y })
-       <$> f (_rdbitpitmPubliclyAccessible x)
+    f (_rdbitpitmPubliclyAccessible x)
+        <&> \y -> x { _rdbitpitmPubliclyAccessible = y }
 {-# INLINE rdbitpitmPubliclyAccessible #-}
 
 -- | Indicates that minor version upgrades will be applied automatically to the
 -- DB instance during the maintenance window.
-rdbitpitmAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rdbitpitmAutoMinorVersionUpgrade f x =
-    (\y -> x { _rdbitpitmAutoMinorVersionUpgrade = y })
-       <$> f (_rdbitpitmAutoMinorVersionUpgrade x)
+    f (_rdbitpitmAutoMinorVersionUpgrade x)
+        <&> \y -> x { _rdbitpitmAutoMinorVersionUpgrade = y }
 {-# INLINE rdbitpitmAutoMinorVersionUpgrade #-}
 
 -- | The port number on which the database accepts connections. Constraints:
 -- Value must be 1150-65535 Default: The same port as the original DB
 -- instance.
-rdbitpitmPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Integer)
 rdbitpitmPort f x =
-    (\y -> x { _rdbitpitmPort = y })
-       <$> f (_rdbitpitmPort x)
+    f (_rdbitpitmPort x)
+        <&> \y -> x { _rdbitpitmPort = y }
 {-# INLINE rdbitpitmPort #-}
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance. Constraints: Must be an integer
 -- greater than 1000.
-rdbitpitmIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmIops :: Lens' RestoreDBInstanceToPointInTime (Maybe Integer)
 rdbitpitmIops f x =
-    (\y -> x { _rdbitpitmIops = y })
-       <$> f (_rdbitpitmIops x)
+    f (_rdbitpitmIops x)
+        <&> \y -> x { _rdbitpitmIops = y }
 {-# INLINE rdbitpitmIops #-}
 
 -- | The compute and memory capacity of the Amazon RDS DB instance. Valid
 -- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 -- db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge Default: The same
 -- DBInstanceClass as the original DB instance.
-rdbitpitmDBInstanceClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmDBInstanceClass f x =
-    (\y -> x { _rdbitpitmDBInstanceClass = y })
-       <$> f (_rdbitpitmDBInstanceClass x)
+    f (_rdbitpitmDBInstanceClass x)
+        <&> \y -> x { _rdbitpitmDBInstanceClass = y }
 {-# INLINE rdbitpitmDBInstanceClass #-}
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone. Constraint: You cannot
 -- specify the AvailabilityZone parameter if the MultiAZ parameter is set to
 -- true. Example: us-east-1a.
-rdbitpitmAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmAvailabilityZone f x =
-    (\y -> x { _rdbitpitmAvailabilityZone = y })
-       <$> f (_rdbitpitmAvailabilityZone x)
+    f (_rdbitpitmAvailabilityZone x)
+        <&> \y -> x { _rdbitpitmAvailabilityZone = y }
 {-# INLINE rdbitpitmAvailabilityZone #-}
 
 -- | The DB subnet group name to use for the new instance.
-rdbitpitmDBSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmDBSubnetGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmDBSubnetGroupName f x =
-    (\y -> x { _rdbitpitmDBSubnetGroupName = y })
-       <$> f (_rdbitpitmDBSubnetGroupName x)
+    f (_rdbitpitmDBSubnetGroupName x)
+        <&> \y -> x { _rdbitpitmDBSubnetGroupName = y }
 {-# INLINE rdbitpitmDBSubnetGroupName #-}
 
 -- | License model information for the restored DB instance. Default: Same as
 -- source. Valid values: license-included | bring-your-own-license |
 -- general-public-license.
-rdbitpitmLicenseModel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmLicenseModel :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmLicenseModel f x =
-    (\y -> x { _rdbitpitmLicenseModel = y })
-       <$> f (_rdbitpitmLicenseModel x)
+    f (_rdbitpitmLicenseModel x)
+        <&> \y -> x { _rdbitpitmLicenseModel = y }
 {-# INLINE rdbitpitmLicenseModel #-}
 
 -- | The database name for the restored DB instance. This parameter is not used
 -- for the MySQL engine.
-rdbitpitmDBName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmDBName f x =
-    (\y -> x { _rdbitpitmDBName = y })
-       <$> f (_rdbitpitmDBName x)
+    f (_rdbitpitmDBName x)
+        <&> \y -> x { _rdbitpitmDBName = y }
 {-# INLINE rdbitpitmDBName #-}
 
 -- | The database engine to use for the new instance. Default: The same as
 -- source Constraint: Must be compatible with the engine of the source
 -- Example: oracle-ee.
-rdbitpitmEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmEngine f x =
-    (\y -> x { _rdbitpitmEngine = y })
-       <$> f (_rdbitpitmEngine x)
+    f (_rdbitpitmEngine x)
+        <&> \y -> x { _rdbitpitmEngine = y }
 {-# INLINE rdbitpitmEngine #-}
 
 -- | The name of the option group to be used for the restored DB instance.
@@ -387,42 +318,27 @@ rdbitpitmEngine f x =
 -- Oracle Advanced Security TDE, cannot be removed from an option group, and
 -- that option group cannot be removed from a DB instance once it is
 -- associated with a DB instance.
-rdbitpitmOptionGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmOptionGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitmOptionGroupName f x =
-    (\y -> x { _rdbitpitmOptionGroupName = y })
-       <$> f (_rdbitpitmOptionGroupName x)
+    f (_rdbitpitmOptionGroupName x)
+        <&> \y -> x { _rdbitpitmOptionGroupName = y }
 {-# INLINE rdbitpitmOptionGroupName #-}
 
 -- | The date and time to restore from. Valid Values: Value must be a UTC time
 -- Constraints: Must be before the latest restorable time for the DB instance
 -- Cannot be specified if UseLatestRestorableTime parameter is true Example:
 -- 2009-09-07T23:45:00Z.
-rdbitpitmRestoreTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmRestoreTime :: Lens' RestoreDBInstanceToPointInTime (Maybe ISO8601)
 rdbitpitmRestoreTime f x =
-    (\y -> x { _rdbitpitmRestoreTime = y })
-       <$> f (_rdbitpitmRestoreTime x)
+    f (_rdbitpitmRestoreTime x)
+        <&> \y -> x { _rdbitpitmRestoreTime = y }
 {-# INLINE rdbitpitmRestoreTime #-}
 
 -- | A list of tags.
-rdbitpitmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> RestoreDBInstanceToPointInTime
-    -> f RestoreDBInstanceToPointInTime
+rdbitpitmTags :: Lens' RestoreDBInstanceToPointInTime ([Tag])
 rdbitpitmTags f x =
-    (\y -> x { _rdbitpitmTags = y })
-       <$> f (_rdbitpitmTags x)
+    f (_rdbitpitmTags x)
+        <&> \y -> x { _rdbitpitmTags = y }
 {-# INLINE rdbitpitmTags #-}
 
 instance ToQuery RestoreDBInstanceToPointInTime where
@@ -439,15 +355,10 @@ data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResp
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbiduDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> RestoreDBInstanceToPointInTimeResponse
-    -> f RestoreDBInstanceToPointInTimeResponse
+dbiduDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
 dbiduDBInstance f x =
-    (\y -> x { _dbiduDBInstance = y })
-       <$> f (_dbiduDBInstance x)
+    f (_dbiduDBInstance x)
+        <&> \y -> x { _dbiduDBInstance = y }
 {-# INLINE dbiduDBInstance #-}
 
 instance FromXML RestoreDBInstanceToPointInTimeResponse where

@@ -99,6 +99,7 @@ createCacheCluster p1 = CreateCacheCluster
     , _cccmNotificationTopicArn = Nothing
     , _cccmSnapshotWindow = Nothing
     }
+{-# INLINE createCacheCluster #-}
 
 data CreateCacheCluster = CreateCacheCluster
     { _cccmCacheClusterId :: Text
@@ -235,43 +236,28 @@ data CreateCacheCluster = CreateCacheCluster
 -- string. Constraints: Must contain from 1 to 20 alphanumeric characters or
 -- hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-cccmCacheClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmCacheClusterId :: Lens' CreateCacheCluster (Text)
 cccmCacheClusterId f x =
-    (\y -> x { _cccmCacheClusterId = y })
-       <$> f (_cccmCacheClusterId x)
+    f (_cccmCacheClusterId x)
+        <&> \y -> x { _cccmCacheClusterId = y }
 {-# INLINE cccmCacheClusterId #-}
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- the cache cluster during the maintenance window. A value of true allows
 -- these upgrades to occur; false disables automatic upgrades. Default: true.
-cccmAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
 cccmAutoMinorVersionUpgrade f x =
-    (\y -> x { _cccmAutoMinorVersionUpgrade = y })
-       <$> f (_cccmAutoMinorVersionUpgrade x)
+    f (_cccmAutoMinorVersionUpgrade x)
+        <&> \y -> x { _cccmAutoMinorVersionUpgrade = y }
 {-# INLINE cccmAutoMinorVersionUpgrade #-}
 
 -- | A list of cache security group names to associate with this cache cluster.
 -- Use this parameter only when you are creating a cluster outside of an
 -- Amazon Virtual Private Cloud (VPC).
-cccmCacheSecurityGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmCacheSecurityGroupNames :: Lens' CreateCacheCluster ([Text])
 cccmCacheSecurityGroupNames f x =
-    (\y -> x { _cccmCacheSecurityGroupNames = y })
-       <$> f (_cccmCacheSecurityGroupNames x)
+    f (_cccmCacheSecurityGroupNames x)
+        <&> \y -> x { _cccmCacheSecurityGroupNames = y }
 {-# INLINE cccmCacheSecurityGroupNames #-}
 
 -- | The initial number of cache nodes that the cache cluster will have. For a
@@ -279,27 +265,17 @@ cccmCacheSecurityGroupNames f x =
 -- this limit, please fill out the ElastiCache Limit Increase Request form at
 -- . For Redis, only single-node cache clusters are supported at this time, so
 -- the value for this parameter must be 1.
-cccmNumCacheNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmNumCacheNodes :: Lens' CreateCacheCluster (Maybe Integer)
 cccmNumCacheNodes f x =
-    (\y -> x { _cccmNumCacheNodes = y })
-       <$> f (_cccmNumCacheNodes x)
+    f (_cccmNumCacheNodes x)
+        <&> \y -> x { _cccmNumCacheNodes = y }
 {-# INLINE cccmNumCacheNodes #-}
 
 -- | The port number on which each of the cache nodes will accept connections.
-cccmPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmPort :: Lens' CreateCacheCluster (Maybe Integer)
 cccmPort f x =
-    (\y -> x { _cccmPort = y })
-       <$> f (_cccmPort x)
+    f (_cccmPort x)
+        <&> \y -> x { _cccmPort = y }
 {-# INLINE cccmPort #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
@@ -308,15 +284,10 @@ cccmPort f x =
 -- retained for 5 days before being deleted. If you do not specify this
 -- parameter, then SnapshotRetentionLimit will be set to 0 (i.e., automatic
 -- backups will be disabled for this cache cluster).
-cccmSnapshotRetentionLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmSnapshotRetentionLimit :: Lens' CreateCacheCluster (Maybe Integer)
 cccmSnapshotRetentionLimit f x =
-    (\y -> x { _cccmSnapshotRetentionLimit = y })
-       <$> f (_cccmSnapshotRetentionLimit x)
+    f (_cccmSnapshotRetentionLimit x)
+        <&> \y -> x { _cccmSnapshotRetentionLimit = y }
 {-# INLINE cccmSnapshotRetentionLimit #-}
 
 -- | A list of the Availability Zones in which nodes will be created. The order
@@ -333,29 +304,19 @@ cccmSnapshotRetentionLimit f x =
 -- Example: All three Memcached nodes in one Availability Zone:
 -- PreferredAvailabilityZones.member.1=us-east-1a&amp;PreferredAvailabilityZones.member.2=us-east-1a&amp;PreferredAvailabilityZones.member.3=us-east-1a.
 -- 
-cccmPreferredAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmPreferredAvailabilityZones :: Lens' CreateCacheCluster ([Text])
 cccmPreferredAvailabilityZones f x =
-    (\y -> x { _cccmPreferredAvailabilityZones = y })
-       <$> f (_cccmPreferredAvailabilityZones x)
+    f (_cccmPreferredAvailabilityZones x)
+        <&> \y -> x { _cccmPreferredAvailabilityZones = y }
 {-# INLINE cccmPreferredAvailabilityZones #-}
 
 -- | One or more VPC security groups associated with the cache cluster. Use this
 -- parameter only when you are creating a cluster in an Amazon Virtual Private
 -- Cloud (VPC).
-cccmSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmSecurityGroupIds :: Lens' CreateCacheCluster ([Text])
 cccmSecurityGroupIds f x =
-    (\y -> x { _cccmSecurityGroupIds = y })
-       <$> f (_cccmSecurityGroupIds x)
+    f (_cccmSecurityGroupIds x)
+        <&> \y -> x { _cccmSecurityGroupIds = y }
 {-# INLINE cccmSecurityGroupIds #-}
 
 -- | A single-element string list containing an Amazon Resource Name (ARN) that
@@ -365,30 +326,20 @@ cccmSecurityGroupIds f x =
 -- Here is an example of an Amazon S3 ARN:
 -- arn:aws:s3:::my_bucket/snapshot1.rdb Note: This parameter is only valid if
 -- the Engine parameter is redis.
-cccmSnapshotArns
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmSnapshotArns :: Lens' CreateCacheCluster ([Text])
 cccmSnapshotArns f x =
-    (\y -> x { _cccmSnapshotArns = y })
-       <$> f (_cccmSnapshotArns x)
+    f (_cccmSnapshotArns x)
+        <&> \y -> x { _cccmSnapshotArns = y }
 {-# INLINE cccmSnapshotArns #-}
 
 -- | The replication group to which this cache cluster should belong. If this
 -- parameter is specified, the cache cluster will be added to the specified
 -- replication group as a read replica; otherwise, the cache cluster will be a
 -- standalone primary that is not part of any replication group.
-cccmReplicationGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmReplicationGroupId :: Lens' CreateCacheCluster (Maybe Text)
 cccmReplicationGroupId f x =
-    (\y -> x { _cccmReplicationGroupId = y })
-       <$> f (_cccmReplicationGroupId x)
+    f (_cccmReplicationGroupId x)
+        <&> \y -> x { _cccmReplicationGroupId = y }
 {-# INLINE cccmReplicationGroupId #-}
 
 -- | The compute and memory capacity of the nodes in the cache cluster. Valid
@@ -402,84 +353,54 @@ cccmReplicationGroupId f x =
 -- types and specifications, see Cache Node Type-Specific Parameters for
 -- Memcached or Cache Node Type-Specific Parameters for Redis and Amazon
 -- ElastiCache Product Features and Details.
-cccmCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmCacheNodeType :: Lens' CreateCacheCluster (Maybe Text)
 cccmCacheNodeType f x =
-    (\y -> x { _cccmCacheNodeType = y })
-       <$> f (_cccmCacheNodeType x)
+    f (_cccmCacheNodeType x)
+        <&> \y -> x { _cccmCacheNodeType = y }
 {-# INLINE cccmCacheNodeType #-}
 
 -- | The name of the cache engine to be used for this cache cluster. Valid
 -- values for this parameter are: memcached | redis.
-cccmEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmEngine :: Lens' CreateCacheCluster (Maybe Text)
 cccmEngine f x =
-    (\y -> x { _cccmEngine = y })
-       <$> f (_cccmEngine x)
+    f (_cccmEngine x)
+        <&> \y -> x { _cccmEngine = y }
 {-# INLINE cccmEngine #-}
 
 -- | The version number of the cache engine to be used for this cluster. To view
 -- the supported cache engine versions, use the DescribeCacheEngineVersions
 -- operation.
-cccmEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
 cccmEngineVersion f x =
-    (\y -> x { _cccmEngineVersion = y })
-       <$> f (_cccmEngineVersion x)
+    f (_cccmEngineVersion x)
+        <&> \y -> x { _cccmEngineVersion = y }
 {-# INLINE cccmEngineVersion #-}
 
 -- | The name of the cache parameter group to associate with this cache cluster.
 -- If this argument is omitted, the default cache parameter group for the
 -- specified engine will be used.
-cccmCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmCacheParameterGroupName :: Lens' CreateCacheCluster (Maybe Text)
 cccmCacheParameterGroupName f x =
-    (\y -> x { _cccmCacheParameterGroupName = y })
-       <$> f (_cccmCacheParameterGroupName x)
+    f (_cccmCacheParameterGroupName x)
+        <&> \y -> x { _cccmCacheParameterGroupName = y }
 {-# INLINE cccmCacheParameterGroupName #-}
 
 -- | The name of the cache subnet group to be used for the cache cluster. Use
 -- this parameter only when you are creating a cluster in an Amazon Virtual
 -- Private Cloud (VPC).
-cccmCacheSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmCacheSubnetGroupName :: Lens' CreateCacheCluster (Maybe Text)
 cccmCacheSubnetGroupName f x =
-    (\y -> x { _cccmCacheSubnetGroupName = y })
-       <$> f (_cccmCacheSubnetGroupName x)
+    f (_cccmCacheSubnetGroupName x)
+        <&> \y -> x { _cccmCacheSubnetGroupName = y }
 {-# INLINE cccmCacheSubnetGroupName #-}
 
 -- | The name of a snapshot from which to restore data into the new cache
 -- cluster. The snapshot's status changes to restoring while the new cache
 -- cluster is being created.
-cccmSnapshotName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmSnapshotName :: Lens' CreateCacheCluster (Maybe Text)
 cccmSnapshotName f x =
-    (\y -> x { _cccmSnapshotName = y })
-       <$> f (_cccmSnapshotName x)
+    f (_cccmSnapshotName x)
+        <&> \y -> x { _cccmSnapshotName = y }
 {-# INLINE cccmSnapshotName #-}
 
 -- | Specifies whether the nodes in this Memcached cache cluster are created in
@@ -487,15 +408,10 @@ cccmSnapshotName f x =
 -- This option is only supported for Memcached cache clusters. If the AZMode
 -- and PreferredAvailabilityZones are not specified, ElastiCache assumes
 -- single-az mode. Valid values: single-az | cross-az.
-cccmAZMode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmAZMode :: Lens' CreateCacheCluster (Maybe Text)
 cccmAZMode f x =
-    (\y -> x { _cccmAZMode = y })
-       <$> f (_cccmAZMode x)
+    f (_cccmAZMode x)
+        <&> \y -> x { _cccmAZMode = y }
 {-# INLINE cccmAZMode #-}
 
 -- | The EC2 Availability Zone in which the cache cluster will be created. All
@@ -503,57 +419,37 @@ cccmAZMode f x =
 -- preferred Availability Zone. If you want to create your cache nodes across
 -- multiple Availability Zones, use PreferredAvailabilityZones. Default:
 -- System chosen Availability Zone.
-cccmPreferredAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmPreferredAvailabilityZone :: Lens' CreateCacheCluster (Maybe Text)
 cccmPreferredAvailabilityZone f x =
-    (\y -> x { _cccmPreferredAvailabilityZone = y })
-       <$> f (_cccmPreferredAvailabilityZone x)
+    f (_cccmPreferredAvailabilityZone x)
+        <&> \y -> x { _cccmPreferredAvailabilityZone = y }
 {-# INLINE cccmPreferredAvailabilityZone #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.
-cccmPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmPreferredMaintenanceWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccmPreferredMaintenanceWindow f x =
-    (\y -> x { _cccmPreferredMaintenanceWindow = y })
-       <$> f (_cccmPreferredMaintenanceWindow x)
+    f (_cccmPreferredMaintenanceWindow x)
+        <&> \y -> x { _cccmPreferredMaintenanceWindow = y }
 {-# INLINE cccmPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent. The Amazon SNS topic owner
 -- must be the same as the cache cluster owner.
-cccmNotificationTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmNotificationTopicArn :: Lens' CreateCacheCluster (Maybe Text)
 cccmNotificationTopicArn f x =
-    (\y -> x { _cccmNotificationTopicArn = y })
-       <$> f (_cccmNotificationTopicArn x)
+    f (_cccmNotificationTopicArn x)
+        <&> \y -> x { _cccmNotificationTopicArn = y }
 {-# INLINE cccmNotificationTopicArn #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of your cache cluster. Example: 05:00-09:00 If you do not
 -- specify this parameter, then ElastiCache will automatically choose an
 -- appropriate time range.
-cccmSnapshotWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCacheCluster
-    -> f CreateCacheCluster
+cccmSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccmSnapshotWindow f x =
-    (\y -> x { _cccmSnapshotWindow = y })
-       <$> f (_cccmSnapshotWindow x)
+    f (_cccmSnapshotWindow x)
+        <&> \y -> x { _cccmSnapshotWindow = y }
 {-# INLINE cccmSnapshotWindow #-}
 
 instance ToQuery CreateCacheCluster where
@@ -565,15 +461,10 @@ data CreateCacheClusterResponse = CreateCacheClusterResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-ccwCacheCluster
-    :: Functor f
-    => (Maybe CacheCluster
-    -> f (Maybe CacheCluster))
-    -> CreateCacheClusterResponse
-    -> f CreateCacheClusterResponse
+ccwCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 ccwCacheCluster f x =
-    (\y -> x { _ccwCacheCluster = y })
-       <$> f (_ccwCacheCluster x)
+    f (_ccwCacheCluster x)
+        <&> \y -> x { _ccwCacheCluster = y }
 {-# INLINE ccwCacheCluster #-}
 
 instance FromXML CreateCacheClusterResponse where

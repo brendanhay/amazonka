@@ -84,6 +84,7 @@ createLayer p1 p2 p3 p4 = CreateLayer
     , _clrPackages = mempty
     , _clrVolumeConfigurations = mempty
     }
+{-# INLINE createLayer #-}
 
 data CreateLayer = CreateLayer
     { _clrType :: LayerType
@@ -151,93 +152,58 @@ data CreateLayer = CreateLayer
 -- lb: An HAProxy layer memcached: A Memcached layer monitoring-master: A
 -- Ganglia layer nodejs-app: A Node.js App Server layer php-app: A PHP App
 -- Server layer web: A Static Web Server layer.
-clrType
-    :: Functor f
-    => (LayerType
-    -> f (LayerType))
-    -> CreateLayer
-    -> f CreateLayer
+clrType :: Lens' CreateLayer (LayerType)
 clrType f x =
-    (\y -> x { _clrType = y })
-       <$> f (_clrType x)
+    f (_clrType x)
+        <&> \y -> x { _clrType = y }
 {-# INLINE clrType #-}
 
 -- | The layer stack ID.
-clrStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLayer
-    -> f CreateLayer
+clrStackId :: Lens' CreateLayer (Text)
 clrStackId f x =
-    (\y -> x { _clrStackId = y })
-       <$> f (_clrStackId x)
+    f (_clrStackId x)
+        <&> \y -> x { _clrStackId = y }
 {-# INLINE clrStackId #-}
 
 -- | The layer name, which is used by the console.
-clrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLayer
-    -> f CreateLayer
+clrName :: Lens' CreateLayer (Text)
 clrName f x =
-    (\y -> x { _clrName = y })
-       <$> f (_clrName x)
+    f (_clrName x)
+        <&> \y -> x { _clrName = y }
 {-# INLINE clrName #-}
 
 -- | The layer short name, which is used internally by AWS OpsWorks and by Chef
 -- recipes. The short name is also used as the name for the directory where
 -- your app files are installed. It can have a maximum of 200 characters,
 -- which are limited to the alphanumeric characters, '-', '_', and '.'.
-clrShortname
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLayer
-    -> f CreateLayer
+clrShortname :: Lens' CreateLayer (Text)
 clrShortname f x =
-    (\y -> x { _clrShortname = y })
-       <$> f (_clrShortname x)
+    f (_clrShortname x)
+        <&> \y -> x { _clrShortname = y }
 {-# INLINE clrShortname #-}
 
 -- | Whether to disable auto healing for the layer.
-clrEnableAutoHealing
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLayer
-    -> f CreateLayer
+clrEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
 clrEnableAutoHealing f x =
-    (\y -> x { _clrEnableAutoHealing = y })
-       <$> f (_clrEnableAutoHealing x)
+    f (_clrEnableAutoHealing x)
+        <&> \y -> x { _clrEnableAutoHealing = y }
 {-# INLINE clrEnableAutoHealing #-}
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
-clrAutoAssignElasticIps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLayer
-    -> f CreateLayer
+clrAutoAssignElasticIps :: Lens' CreateLayer (Maybe Bool)
 clrAutoAssignElasticIps f x =
-    (\y -> x { _clrAutoAssignElasticIps = y })
-       <$> f (_clrAutoAssignElasticIps x)
+    f (_clrAutoAssignElasticIps x)
+        <&> \y -> x { _clrAutoAssignElasticIps = y }
 {-# INLINE clrAutoAssignElasticIps #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer's instances. For more information, see How
 -- to Edit a Layer.
-clrAutoAssignPublicIps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLayer
-    -> f CreateLayer
+clrAutoAssignPublicIps :: Lens' CreateLayer (Maybe Bool)
 clrAutoAssignPublicIps f x =
-    (\y -> x { _clrAutoAssignPublicIps = y })
-       <$> f (_clrAutoAssignPublicIps x)
+    f (_clrAutoAssignPublicIps x)
+        <&> \y -> x { _clrAutoAssignPublicIps = y }
 {-# INLINE clrAutoAssignPublicIps #-}
 
 -- | Whether to install operating system and package updates when the instance
@@ -247,102 +213,62 @@ clrAutoAssignPublicIps f x =
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 -- We strongly recommend using the default value of true, to ensure that your
 -- instances have the latest security updates.
-clrInstallUpdatesOnBoot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLayer
-    -> f CreateLayer
+clrInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clrInstallUpdatesOnBoot f x =
-    (\y -> x { _clrInstallUpdatesOnBoot = y })
-       <$> f (_clrInstallUpdatesOnBoot x)
+    f (_clrInstallUpdatesOnBoot x)
+        <&> \y -> x { _clrInstallUpdatesOnBoot = y }
 {-# INLINE clrInstallUpdatesOnBoot #-}
 
 -- | Whether to use Amazon EBS-optimized instances.
-clrUseEbsOptimizedInstances
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLayer
-    -> f CreateLayer
+clrUseEbsOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
 clrUseEbsOptimizedInstances f x =
-    (\y -> x { _clrUseEbsOptimizedInstances = y })
-       <$> f (_clrUseEbsOptimizedInstances x)
+    f (_clrUseEbsOptimizedInstances x)
+        <&> \y -> x { _clrUseEbsOptimizedInstances = y }
 {-# INLINE clrUseEbsOptimizedInstances #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-clrAttributes
-    :: Functor f
-    => (Map LayerAttributesKeys Text
-    -> f (Map LayerAttributesKeys Text))
-    -> CreateLayer
-    -> f CreateLayer
+clrAttributes :: Lens' CreateLayer (Map LayerAttributesKeys Text)
 clrAttributes f x =
-    (\y -> x { _clrAttributes = y })
-       <$> f (_clrAttributes x)
+    f (_clrAttributes x)
+        <&> \y -> x { _clrAttributes = y }
 {-# INLINE clrAttributes #-}
 
 -- | A LayerCustomRecipes object that specifies the layer custom recipes.
-clrCustomRecipes
-    :: Functor f
-    => (Maybe Recipes
-    -> f (Maybe Recipes))
-    -> CreateLayer
-    -> f CreateLayer
+clrCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
 clrCustomRecipes f x =
-    (\y -> x { _clrCustomRecipes = y })
-       <$> f (_clrCustomRecipes x)
+    f (_clrCustomRecipes x)
+        <&> \y -> x { _clrCustomRecipes = y }
 {-# INLINE clrCustomRecipes #-}
 
 -- | The ARN of an IAM profile that to be used for the layer's EC2 instances.
 -- For more information about IAM ARNs, see Using Identifiers.
-clrCustomInstanceProfileArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLayer
-    -> f CreateLayer
+clrCustomInstanceProfileArn :: Lens' CreateLayer (Maybe Text)
 clrCustomInstanceProfileArn f x =
-    (\y -> x { _clrCustomInstanceProfileArn = y })
-       <$> f (_clrCustomInstanceProfileArn x)
+    f (_clrCustomInstanceProfileArn x)
+        <&> \y -> x { _clrCustomInstanceProfileArn = y }
 {-# INLINE clrCustomInstanceProfileArn #-}
 
 -- | An array containing the layer custom security group IDs.
-clrCustomSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateLayer
-    -> f CreateLayer
+clrCustomSecurityGroupIds :: Lens' CreateLayer ([Text])
 clrCustomSecurityGroupIds f x =
-    (\y -> x { _clrCustomSecurityGroupIds = y })
-       <$> f (_clrCustomSecurityGroupIds x)
+    f (_clrCustomSecurityGroupIds x)
+        <&> \y -> x { _clrCustomSecurityGroupIds = y }
 {-# INLINE clrCustomSecurityGroupIds #-}
 
 -- | An array of Package objects that describe the layer packages.
-clrPackages
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateLayer
-    -> f CreateLayer
+clrPackages :: Lens' CreateLayer ([Text])
 clrPackages f x =
-    (\y -> x { _clrPackages = y })
-       <$> f (_clrPackages x)
+    f (_clrPackages x)
+        <&> \y -> x { _clrPackages = y }
 {-# INLINE clrPackages #-}
 
 -- | A VolumeConfigurations object that describes the layer's Amazon EBS
 -- volumes.
-clrVolumeConfigurations
-    :: Functor f
-    => ([VolumeConfiguration]
-    -> f ([VolumeConfiguration]))
-    -> CreateLayer
-    -> f CreateLayer
+clrVolumeConfigurations :: Lens' CreateLayer ([VolumeConfiguration])
 clrVolumeConfigurations f x =
-    (\y -> x { _clrVolumeConfigurations = y })
-       <$> f (_clrVolumeConfigurations x)
+    f (_clrVolumeConfigurations x)
+        <&> \y -> x { _clrVolumeConfigurations = y }
 {-# INLINE clrVolumeConfigurations #-}
 
 instance ToPath CreateLayer
@@ -359,15 +285,10 @@ data CreateLayerResponse = CreateLayerResponse
     } deriving (Show, Generic)
 
 -- | The layer ID.
-clsLayerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLayerResponse
-    -> f CreateLayerResponse
+clsLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clsLayerId f x =
-    (\y -> x { _clsLayerId = y })
-       <$> f (_clsLayerId x)
+    f (_clsLayerId x)
+        <&> \y -> x { _clsLayerId = y }
 {-# INLINE clsLayerId #-}
 
 instance FromJSON CreateLayerResponse

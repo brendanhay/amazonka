@@ -60,6 +60,7 @@ setIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnable
     { _sifferForwardingEnabled = p1
     , _sifferIdentity = p2
     }
+{-# INLINE setIdentityFeedbackForwardingEnabled #-}
 
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _sifferForwardingEnabled :: Bool
@@ -83,28 +84,18 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 -- and complaint notifications only through Amazon SNS. This value can only be
 -- set to false when Amazon SNS topics are set for both Bounce and Complaint
 -- notification types.
-sifferForwardingEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> SetIdentityFeedbackForwardingEnabled
-    -> f SetIdentityFeedbackForwardingEnabled
+sifferForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled (Bool)
 sifferForwardingEnabled f x =
-    (\y -> x { _sifferForwardingEnabled = y })
-       <$> f (_sifferForwardingEnabled x)
+    f (_sifferForwardingEnabled x)
+        <&> \y -> x { _sifferForwardingEnabled = y }
 {-# INLINE sifferForwardingEnabled #-}
 
 -- | The identity for which to set bounce and complaint notification forwarding.
 -- Examples: user@example.com, example.com.
-sifferIdentity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetIdentityFeedbackForwardingEnabled
-    -> f SetIdentityFeedbackForwardingEnabled
+sifferIdentity :: Lens' SetIdentityFeedbackForwardingEnabled (Text)
 sifferIdentity f x =
-    (\y -> x { _sifferIdentity = y })
-       <$> f (_sifferIdentity x)
+    f (_sifferIdentity x)
+        <&> \y -> x { _sifferIdentity = y }
 {-# INLINE sifferIdentity #-}
 
 instance ToQuery SetIdentityFeedbackForwardingEnabled where

@@ -53,6 +53,7 @@ describeStacks = DescribeStacks
     { _dsjNextToken = Nothing
     , _dsjStackName = Nothing
     }
+{-# INLINE describeStacks #-}
 
 data DescribeStacks = DescribeStacks
     { _dsjNextToken :: Maybe Text
@@ -68,30 +69,20 @@ data DescribeStacks = DescribeStacks
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsjNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStacks
-    -> f DescribeStacks
+dsjNextToken :: Lens' DescribeStacks (Maybe Text)
 dsjNextToken f x =
-    (\y -> x { _dsjNextToken = y })
-       <$> f (_dsjNextToken x)
+    f (_dsjNextToken x)
+        <&> \y -> x { _dsjNextToken = y }
 {-# INLINE dsjNextToken #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-dsjStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStacks
-    -> f DescribeStacks
+dsjStackName :: Lens' DescribeStacks (Maybe Text)
 dsjStackName f x =
-    (\y -> x { _dsjStackName = y })
-       <$> f (_dsjStackName x)
+    f (_dsjStackName x)
+        <&> \y -> x { _dsjStackName = y }
 {-# INLINE dsjStackName #-}
 
 instance ToQuery DescribeStacks where
@@ -107,27 +98,17 @@ data DescribeStacksResponse = DescribeStacksResponse
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsoNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStacksResponse
-    -> f DescribeStacksResponse
+dsoNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsoNextToken f x =
-    (\y -> x { _dsoNextToken = y })
-       <$> f (_dsoNextToken x)
+    f (_dsoNextToken x)
+        <&> \y -> x { _dsoNextToken = y }
 {-# INLINE dsoNextToken #-}
 
 -- | A list of stack structures.
-dsoStacks
-    :: Functor f
-    => ([Stack]
-    -> f ([Stack]))
-    -> DescribeStacksResponse
-    -> f DescribeStacksResponse
+dsoStacks :: Lens' DescribeStacksResponse ([Stack])
 dsoStacks f x =
-    (\y -> x { _dsoStacks = y })
-       <$> f (_dsoStacks x)
+    f (_dsoStacks x)
+        <&> \y -> x { _dsoStacks = y }
 {-# INLINE dsoStacks #-}
 
 instance FromXML DescribeStacksResponse where

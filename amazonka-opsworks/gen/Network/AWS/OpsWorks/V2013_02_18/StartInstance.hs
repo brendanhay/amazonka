@@ -46,6 +46,7 @@ startInstance :: Text -- ^ 'sirInstanceId'
 startInstance p1 = StartInstance
     { _sirInstanceId = p1
     }
+{-# INLINE startInstance #-}
 
 data StartInstance = StartInstance
     { _sirInstanceId :: Text
@@ -53,15 +54,10 @@ data StartInstance = StartInstance
     } deriving (Show, Generic)
 
 -- | The instance ID.
-sirInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartInstance
-    -> f StartInstance
+sirInstanceId :: Lens' StartInstance (Text)
 sirInstanceId f x =
-    (\y -> x { _sirInstanceId = y })
-       <$> f (_sirInstanceId x)
+    f (_sirInstanceId x)
+        <&> \y -> x { _sirInstanceId = y }
 {-# INLINE sirInstanceId #-}
 
 instance ToPath StartInstance

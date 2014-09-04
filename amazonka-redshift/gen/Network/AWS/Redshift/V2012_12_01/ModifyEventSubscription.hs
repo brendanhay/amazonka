@@ -55,6 +55,7 @@ modifyEventSubscription p1 = ModifyEventSubscription
     , _mesmSourceType = Nothing
     , _mesmSeverity = Nothing
     }
+{-# INLINE modifyEventSubscription #-}
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesmSubscriptionName :: Text
@@ -93,42 +94,27 @@ data ModifyEventSubscription = ModifyEventSubscription
     } deriving (Show, Generic)
 
 -- | The name of the modified Amazon Redshift event notification subscription.
-mesmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSubscriptionName :: Lens' ModifyEventSubscription (Text)
 mesmSubscriptionName f x =
-    (\y -> x { _mesmSubscriptionName = y })
-       <$> f (_mesmSubscriptionName x)
+    f (_mesmSubscriptionName x)
+        <&> \y -> x { _mesmSubscriptionName = y }
 {-# INLINE mesmSubscriptionName #-}
 
 -- | A Boolean value indicating if the subscription is enabled. true indicates
 -- the subscription is enabled.
-mesmEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
 mesmEnabled f x =
-    (\y -> x { _mesmEnabled = y })
-       <$> f (_mesmEnabled x)
+    f (_mesmEnabled x)
+        <&> \y -> x { _mesmEnabled = y }
 {-# INLINE mesmEnabled #-}
 
 -- | Specifies the Amazon Redshift event categories to be published by the event
 -- notification subscription. Values: Configuration, Management, Monitoring,
 -- Security.
-mesmEventCategories
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmEventCategories :: Lens' ModifyEventSubscription ([Text])
 mesmEventCategories f x =
-    (\y -> x { _mesmEventCategories = y })
-       <$> f (_mesmEventCategories x)
+    f (_mesmEventCategories x)
+        <&> \y -> x { _mesmEventCategories = y }
 {-# INLINE mesmEventCategories #-}
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All of
@@ -137,28 +123,18 @@ mesmEventCategories f x =
 -- specified objects. If not specified, then events are returned for all
 -- objects within the source type specified. Example: my-cluster-1,
 -- my-cluster-2 Example: my-snapshot-20131010.
-mesmSourceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSourceIds :: Lens' ModifyEventSubscription ([Text])
 mesmSourceIds f x =
-    (\y -> x { _mesmSourceIds = y })
-       <$> f (_mesmSourceIds x)
+    f (_mesmSourceIds x)
+        <&> \y -> x { _mesmSourceIds = y }
 {-# INLINE mesmSourceIds #-}
 
 -- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
 -- notification subscription.
-mesmSnsTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSnsTopicArn :: Lens' ModifyEventSubscription (Maybe Text)
 mesmSnsTopicArn f x =
-    (\y -> x { _mesmSnsTopicArn = y })
-       <$> f (_mesmSnsTopicArn x)
+    f (_mesmSnsTopicArn x)
+        <&> \y -> x { _mesmSnsTopicArn = y }
 {-# INLINE mesmSnsTopicArn #-}
 
 -- | The type of source that will be generating the events. For example, if you
@@ -167,28 +143,18 @@ mesmSnsTopicArn f x =
 -- for all Amazon Redshift objects in your AWS account. You must specify a
 -- source type in order to specify source IDs. Valid values: cluster,
 -- cluster-parameter-group, cluster-security-group, and cluster-snapshot.
-mesmSourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSourceType :: Lens' ModifyEventSubscription (Maybe Text)
 mesmSourceType f x =
-    (\y -> x { _mesmSourceType = y })
-       <$> f (_mesmSourceType x)
+    f (_mesmSourceType x)
+        <&> \y -> x { _mesmSourceType = y }
 {-# INLINE mesmSourceType #-}
 
 -- | Specifies the Amazon Redshift event severity to be published by the event
 -- notification subscription. Values: ERROR, INFO.
-mesmSeverity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSeverity :: Lens' ModifyEventSubscription (Maybe Text)
 mesmSeverity f x =
-    (\y -> x { _mesmSeverity = y })
-       <$> f (_mesmSeverity x)
+    f (_mesmSeverity x)
+        <&> \y -> x { _mesmSeverity = y }
 {-# INLINE mesmSeverity #-}
 
 instance ToQuery ModifyEventSubscription where
@@ -200,15 +166,10 @@ data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     } deriving (Show, Generic)
 
 -- | 
-esxEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> ModifyEventSubscriptionResponse
-    -> f ModifyEventSubscriptionResponse
+esxEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 esxEventSubscription f x =
-    (\y -> x { _esxEventSubscription = y })
-       <$> f (_esxEventSubscription x)
+    f (_esxEventSubscription x)
+        <&> \y -> x { _esxEventSubscription = y }
 {-# INLINE esxEventSubscription #-}
 
 instance FromXML ModifyEventSubscriptionResponse where

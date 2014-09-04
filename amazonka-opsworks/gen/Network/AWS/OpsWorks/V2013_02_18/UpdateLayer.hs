@@ -71,6 +71,7 @@ updateLayer p1 = UpdateLayer
     , _ulrPackages = mempty
     , _ulrVolumeConfigurations = mempty
     }
+{-# INLINE updateLayer #-}
 
 data UpdateLayer = UpdateLayer
     { _ulrLayerId :: Text
@@ -123,54 +124,34 @@ data UpdateLayer = UpdateLayer
     } deriving (Show, Generic)
 
 -- | The layer ID.
-ulrLayerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrLayerId :: Lens' UpdateLayer (Text)
 ulrLayerId f x =
-    (\y -> x { _ulrLayerId = y })
-       <$> f (_ulrLayerId x)
+    f (_ulrLayerId x)
+        <&> \y -> x { _ulrLayerId = y }
 {-# INLINE ulrLayerId #-}
 
 -- | Whether to disable auto healing for the layer.
-ulrEnableAutoHealing
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
 ulrEnableAutoHealing f x =
-    (\y -> x { _ulrEnableAutoHealing = y })
-       <$> f (_ulrEnableAutoHealing x)
+    f (_ulrEnableAutoHealing x)
+        <&> \y -> x { _ulrEnableAutoHealing = y }
 {-# INLINE ulrEnableAutoHealing #-}
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
-ulrAutoAssignElasticIps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrAutoAssignElasticIps :: Lens' UpdateLayer (Maybe Bool)
 ulrAutoAssignElasticIps f x =
-    (\y -> x { _ulrAutoAssignElasticIps = y })
-       <$> f (_ulrAutoAssignElasticIps x)
+    f (_ulrAutoAssignElasticIps x)
+        <&> \y -> x { _ulrAutoAssignElasticIps = y }
 {-# INLINE ulrAutoAssignElasticIps #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer's instances. For more information, see How
 -- to Edit a Layer.
-ulrAutoAssignPublicIps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrAutoAssignPublicIps :: Lens' UpdateLayer (Maybe Bool)
 ulrAutoAssignPublicIps f x =
-    (\y -> x { _ulrAutoAssignPublicIps = y })
-       <$> f (_ulrAutoAssignPublicIps x)
+    f (_ulrAutoAssignPublicIps x)
+        <&> \y -> x { _ulrAutoAssignPublicIps = y }
 {-# INLINE ulrAutoAssignPublicIps #-}
 
 -- | Whether to install operating system and package updates when the instance
@@ -180,129 +161,79 @@ ulrAutoAssignPublicIps f x =
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 -- We strongly recommend using the default value of true, to ensure that your
 -- instances have the latest security updates.
-ulrInstallUpdatesOnBoot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulrInstallUpdatesOnBoot f x =
-    (\y -> x { _ulrInstallUpdatesOnBoot = y })
-       <$> f (_ulrInstallUpdatesOnBoot x)
+    f (_ulrInstallUpdatesOnBoot x)
+        <&> \y -> x { _ulrInstallUpdatesOnBoot = y }
 {-# INLINE ulrInstallUpdatesOnBoot #-}
 
 -- | Whether to use Amazon EBS-optimized instances.
-ulrUseEbsOptimizedInstances
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrUseEbsOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
 ulrUseEbsOptimizedInstances f x =
-    (\y -> x { _ulrUseEbsOptimizedInstances = y })
-       <$> f (_ulrUseEbsOptimizedInstances x)
+    f (_ulrUseEbsOptimizedInstances x)
+        <&> \y -> x { _ulrUseEbsOptimizedInstances = y }
 {-# INLINE ulrUseEbsOptimizedInstances #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-ulrAttributes
-    :: Functor f
-    => (Map LayerAttributesKeys Text
-    -> f (Map LayerAttributesKeys Text))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrAttributes :: Lens' UpdateLayer (Map LayerAttributesKeys Text)
 ulrAttributes f x =
-    (\y -> x { _ulrAttributes = y })
-       <$> f (_ulrAttributes x)
+    f (_ulrAttributes x)
+        <&> \y -> x { _ulrAttributes = y }
 {-# INLINE ulrAttributes #-}
 
 -- | A LayerCustomRecipes object that specifies the layer's custom recipes.
-ulrCustomRecipes
-    :: Functor f
-    => (Maybe Recipes
-    -> f (Maybe Recipes))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
 ulrCustomRecipes f x =
-    (\y -> x { _ulrCustomRecipes = y })
-       <$> f (_ulrCustomRecipes x)
+    f (_ulrCustomRecipes x)
+        <&> \y -> x { _ulrCustomRecipes = y }
 {-# INLINE ulrCustomRecipes #-}
 
 -- | The layer name, which is used by the console.
-ulrName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrName :: Lens' UpdateLayer (Maybe Text)
 ulrName f x =
-    (\y -> x { _ulrName = y })
-       <$> f (_ulrName x)
+    f (_ulrName x)
+        <&> \y -> x { _ulrName = y }
 {-# INLINE ulrName #-}
 
 -- | The layer short name, which is used internally by AWS OpsWorksand by Chef.
 -- The short name is also used as the name for the directory where your app
 -- files are installed. It can have a maximum of 200 characters and must be in
 -- the following format: /\A[a-z0-9\-\_\.]+\Z/.
-ulrShortname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrShortname :: Lens' UpdateLayer (Maybe Text)
 ulrShortname f x =
-    (\y -> x { _ulrShortname = y })
-       <$> f (_ulrShortname x)
+    f (_ulrShortname x)
+        <&> \y -> x { _ulrShortname = y }
 {-# INLINE ulrShortname #-}
 
 -- | The ARN of an IAM profile to be used for all of the layer's EC2 instances.
 -- For more information about IAM ARNs, see Using Identifiers.
-ulrCustomInstanceProfileArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrCustomInstanceProfileArn :: Lens' UpdateLayer (Maybe Text)
 ulrCustomInstanceProfileArn f x =
-    (\y -> x { _ulrCustomInstanceProfileArn = y })
-       <$> f (_ulrCustomInstanceProfileArn x)
+    f (_ulrCustomInstanceProfileArn x)
+        <&> \y -> x { _ulrCustomInstanceProfileArn = y }
 {-# INLINE ulrCustomInstanceProfileArn #-}
 
 -- | An array containing the layer's custom security group IDs.
-ulrCustomSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrCustomSecurityGroupIds :: Lens' UpdateLayer ([Text])
 ulrCustomSecurityGroupIds f x =
-    (\y -> x { _ulrCustomSecurityGroupIds = y })
-       <$> f (_ulrCustomSecurityGroupIds x)
+    f (_ulrCustomSecurityGroupIds x)
+        <&> \y -> x { _ulrCustomSecurityGroupIds = y }
 {-# INLINE ulrCustomSecurityGroupIds #-}
 
 -- | An array of Package objects that describe the layer's packages.
-ulrPackages
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrPackages :: Lens' UpdateLayer ([Text])
 ulrPackages f x =
-    (\y -> x { _ulrPackages = y })
-       <$> f (_ulrPackages x)
+    f (_ulrPackages x)
+        <&> \y -> x { _ulrPackages = y }
 {-# INLINE ulrPackages #-}
 
 -- | A VolumeConfigurations object that describes the layer's Amazon EBS
 -- volumes.
-ulrVolumeConfigurations
-    :: Functor f
-    => ([VolumeConfiguration]
-    -> f ([VolumeConfiguration]))
-    -> UpdateLayer
-    -> f UpdateLayer
+ulrVolumeConfigurations :: Lens' UpdateLayer ([VolumeConfiguration])
 ulrVolumeConfigurations f x =
-    (\y -> x { _ulrVolumeConfigurations = y })
-       <$> f (_ulrVolumeConfigurations x)
+    f (_ulrVolumeConfigurations x)
+        <&> \y -> x { _ulrVolumeConfigurations = y }
 {-# INLINE ulrVolumeConfigurations #-}
 
 instance ToPath UpdateLayer

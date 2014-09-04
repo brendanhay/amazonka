@@ -47,6 +47,7 @@ deleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
     { _dastDomainName = p1
     , _dastAnalysisSchemeName = p2
     }
+{-# INLINE deleteAnalysisScheme #-}
 
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _dastDomainName :: Text
@@ -63,27 +64,17 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dastDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAnalysisScheme
-    -> f DeleteAnalysisScheme
+dastDomainName :: Lens' DeleteAnalysisScheme (Text)
 dastDomainName f x =
-    (\y -> x { _dastDomainName = y })
-       <$> f (_dastDomainName x)
+    f (_dastDomainName x)
+        <&> \y -> x { _dastDomainName = y }
 {-# INLINE dastDomainName #-}
 
 -- | The name of the analysis scheme you want to delete.
-dastAnalysisSchemeName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAnalysisScheme
-    -> f DeleteAnalysisScheme
+dastAnalysisSchemeName :: Lens' DeleteAnalysisScheme (Text)
 dastAnalysisSchemeName f x =
-    (\y -> x { _dastAnalysisSchemeName = y })
-       <$> f (_dastAnalysisSchemeName x)
+    f (_dastAnalysisSchemeName x)
+        <&> \y -> x { _dastAnalysisSchemeName = y }
 {-# INLINE dastAnalysisSchemeName #-}
 
 instance ToQuery DeleteAnalysisScheme where
@@ -95,15 +86,10 @@ data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     } deriving (Show, Generic)
 
 -- | The status of the analysis scheme being deleted.
-dasuAnalysisScheme
-    :: Functor f
-    => (AnalysisSchemeStatus
-    -> f (AnalysisSchemeStatus))
-    -> DeleteAnalysisSchemeResponse
-    -> f DeleteAnalysisSchemeResponse
+dasuAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse (AnalysisSchemeStatus)
 dasuAnalysisScheme f x =
-    (\y -> x { _dasuAnalysisScheme = y })
-       <$> f (_dasuAnalysisScheme x)
+    f (_dasuAnalysisScheme x)
+        <&> \y -> x { _dasuAnalysisScheme = y }
 {-# INLINE dasuAnalysisScheme #-}
 
 instance FromXML DeleteAnalysisSchemeResponse where

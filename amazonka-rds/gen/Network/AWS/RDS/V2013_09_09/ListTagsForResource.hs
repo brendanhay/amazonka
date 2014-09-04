@@ -44,6 +44,7 @@ listTagsForResource :: Text -- ^ 'ltfrmResourceName'
 listTagsForResource p1 = ListTagsForResource
     { _ltfrmResourceName = p1
     }
+{-# INLINE listTagsForResource #-}
 
 data ListTagsForResource = ListTagsForResource
     { _ltfrmResourceName :: Text
@@ -55,15 +56,10 @@ data ListTagsForResource = ListTagsForResource
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
-ltfrmResourceName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListTagsForResource
-    -> f ListTagsForResource
+ltfrmResourceName :: Lens' ListTagsForResource (Text)
 ltfrmResourceName f x =
-    (\y -> x { _ltfrmResourceName = y })
-       <$> f (_ltfrmResourceName x)
+    f (_ltfrmResourceName x)
+        <&> \y -> x { _ltfrmResourceName = y }
 {-# INLINE ltfrmResourceName #-}
 
 instance ToQuery ListTagsForResource where
@@ -75,15 +71,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse
     } deriving (Show, Generic)
 
 -- | List of tags returned by the ListTagsForResource operation.
-tlmTagList
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> ListTagsForResourceResponse
-    -> f ListTagsForResourceResponse
+tlmTagList :: Lens' ListTagsForResourceResponse ([Tag])
 tlmTagList f x =
-    (\y -> x { _tlmTagList = y })
-       <$> f (_tlmTagList x)
+    f (_tlmTagList x)
+        <&> \y -> x { _tlmTagList = y }
 {-# INLINE tlmTagList #-}
 
 instance FromXML ListTagsForResourceResponse where

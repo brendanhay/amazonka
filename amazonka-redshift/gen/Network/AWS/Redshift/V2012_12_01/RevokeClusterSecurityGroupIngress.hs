@@ -61,6 +61,7 @@ revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
     , _rcsgimEC2SecurityGroupName = Nothing
     , _rcsgimEC2SecurityGroupOwnerId = Nothing
     }
+{-# INLINE revokeClusterSecurityGroupIngress #-}
 
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
     { _rcsgimClusterSecurityGroupName :: Text
@@ -84,59 +85,39 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
     } deriving (Show, Generic)
 
 -- | The name of the security Group from which to revoke the ingress rule.
-rcsgimClusterSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RevokeClusterSecurityGroupIngress
-    -> f RevokeClusterSecurityGroupIngress
+rcsgimClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Text)
 rcsgimClusterSecurityGroupName f x =
-    (\y -> x { _rcsgimClusterSecurityGroupName = y })
-       <$> f (_rcsgimClusterSecurityGroupName x)
+    f (_rcsgimClusterSecurityGroupName x)
+        <&> \y -> x { _rcsgimClusterSecurityGroupName = y }
 {-# INLINE rcsgimClusterSecurityGroupName #-}
 
 -- | The IP range for which to revoke access. This range must be a valid
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If CIDRIP is
 -- specified, EC2SecurityGroupName and EC2SecurityGroupOwnerId cannot be
 -- provided.
-rcsgimCIDRIP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RevokeClusterSecurityGroupIngress
-    -> f RevokeClusterSecurityGroupIngress
+rcsgimCIDRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgimCIDRIP f x =
-    (\y -> x { _rcsgimCIDRIP = y })
-       <$> f (_rcsgimCIDRIP x)
+    f (_rcsgimCIDRIP x)
+        <&> \y -> x { _rcsgimCIDRIP = y }
 {-# INLINE rcsgimCIDRIP #-}
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If
 -- EC2SecurityGroupName is specified, EC2SecurityGroupOwnerId must also be
 -- provided and CIDRIP cannot be provided.
-rcsgimEC2SecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RevokeClusterSecurityGroupIngress
-    -> f RevokeClusterSecurityGroupIngress
+rcsgimEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgimEC2SecurityGroupName f x =
-    (\y -> x { _rcsgimEC2SecurityGroupName = y })
-       <$> f (_rcsgimEC2SecurityGroupName x)
+    f (_rcsgimEC2SecurityGroupName x)
+        <&> \y -> x { _rcsgimEC2SecurityGroupName = y }
 {-# INLINE rcsgimEC2SecurityGroupName #-}
 
 -- | The AWS account number of the owner of the security group specified in the
 -- EC2SecurityGroupName parameter. The AWS access key ID is not an acceptable
 -- value. If EC2SecurityGroupOwnerId is specified, EC2SecurityGroupName must
 -- also be provided. and CIDRIP cannot be provided. Example: 111122223333.
-rcsgimEC2SecurityGroupOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RevokeClusterSecurityGroupIngress
-    -> f RevokeClusterSecurityGroupIngress
+rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgimEC2SecurityGroupOwnerId f x =
-    (\y -> x { _rcsgimEC2SecurityGroupOwnerId = y })
-       <$> f (_rcsgimEC2SecurityGroupOwnerId x)
+    f (_rcsgimEC2SecurityGroupOwnerId x)
+        <&> \y -> x { _rcsgimEC2SecurityGroupOwnerId = y }
 {-# INLINE rcsgimEC2SecurityGroupOwnerId #-}
 
 instance ToQuery RevokeClusterSecurityGroupIngress where
@@ -148,15 +129,10 @@ data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngre
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-csgcrClusterSecurityGroup
-    :: Functor f
-    => (Maybe ClusterSecurityGroup
-    -> f (Maybe ClusterSecurityGroup))
-    -> RevokeClusterSecurityGroupIngressResponse
-    -> f RevokeClusterSecurityGroupIngressResponse
+csgcrClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 csgcrClusterSecurityGroup f x =
-    (\y -> x { _csgcrClusterSecurityGroup = y })
-       <$> f (_csgcrClusterSecurityGroup x)
+    f (_csgcrClusterSecurityGroup x)
+        <&> \y -> x { _csgcrClusterSecurityGroup = y }
 {-# INLINE csgcrClusterSecurityGroup #-}
 
 instance FromXML RevokeClusterSecurityGroupIngressResponse where

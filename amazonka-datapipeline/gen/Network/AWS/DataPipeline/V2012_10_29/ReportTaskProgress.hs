@@ -64,6 +64,7 @@ reportTaskProgress :: Text -- ^ 'rtpiTaskId'
 reportTaskProgress p1 = ReportTaskProgress
     { _rtpiTaskId = p1
     }
+{-# INLINE reportTaskProgress #-}
 
 data ReportTaskProgress = ReportTaskProgress
     { _rtpiTaskId :: Text
@@ -75,15 +76,10 @@ data ReportTaskProgress = ReportTaskProgress
 -- | Identifier of the task assigned to the task runner. This value is provided
 -- in the TaskObject that the service returns with the response for the
 -- PollForTask action.
-rtpiTaskId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReportTaskProgress
-    -> f ReportTaskProgress
+rtpiTaskId :: Lens' ReportTaskProgress (Text)
 rtpiTaskId f x =
-    (\y -> x { _rtpiTaskId = y })
-       <$> f (_rtpiTaskId x)
+    f (_rtpiTaskId x)
+        <&> \y -> x { _rtpiTaskId = y }
 {-# INLINE rtpiTaskId #-}
 
 instance ToPath ReportTaskProgress
@@ -103,15 +99,10 @@ data ReportTaskProgressResponse = ReportTaskProgressResponse
 
 -- | If True, the calling task runner should cancel processing of the task. The
 -- task runner does not need to call SetTaskStatus for canceled tasks.
-rtpoCanceled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ReportTaskProgressResponse
-    -> f ReportTaskProgressResponse
+rtpoCanceled :: Lens' ReportTaskProgressResponse (Bool)
 rtpoCanceled f x =
-    (\y -> x { _rtpoCanceled = y })
-       <$> f (_rtpoCanceled x)
+    f (_rtpoCanceled x)
+        <&> \y -> x { _rtpoCanceled = y }
 {-# INLINE rtpoCanceled #-}
 
 instance FromJSON ReportTaskProgressResponse

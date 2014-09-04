@@ -84,6 +84,7 @@ getLogEvents p1 p2 = GetLogEvents
     , _glerStartTime = Nothing
     , _glerEndTime = Nothing
     }
+{-# INLINE getLogEvents #-}
 
 data GetLogEvents = GetLogEvents
     { _glerLogGroupName :: Text
@@ -107,91 +108,56 @@ data GetLogEvents = GetLogEvents
       -- 1970 00:00:00 UTC.
     } deriving (Show, Generic)
 
-glerLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerLogGroupName :: Lens' GetLogEvents (Text)
 glerLogGroupName f x =
-    (\y -> x { _glerLogGroupName = y })
-       <$> f (_glerLogGroupName x)
+    f (_glerLogGroupName x)
+        <&> \y -> x { _glerLogGroupName = y }
 {-# INLINE glerLogGroupName #-}
 
-glerLogStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerLogStreamName :: Lens' GetLogEvents (Text)
 glerLogStreamName f x =
-    (\y -> x { _glerLogStreamName = y })
-       <$> f (_glerLogStreamName x)
+    f (_glerLogStreamName x)
+        <&> \y -> x { _glerLogStreamName = y }
 {-# INLINE glerLogStreamName #-}
 
 -- | The maximum number of log events returned in the response. If you don't
 -- specify a value, the request would return as much log events as can fit in
 -- a response size of 1MB, up to 10,000 log events.
-glerLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerLimit :: Lens' GetLogEvents (Maybe Integer)
 glerLimit f x =
-    (\y -> x { _glerLimit = y })
-       <$> f (_glerLimit x)
+    f (_glerLimit x)
+        <&> \y -> x { _glerLimit = y }
 {-# INLINE glerLimit #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the nextForwardToken or nextBackwardToken
 -- fields in the response of the previous GetLogEvents request.
-glerNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerNextToken :: Lens' GetLogEvents (Maybe Text)
 glerNextToken f x =
-    (\y -> x { _glerNextToken = y })
-       <$> f (_glerNextToken x)
+    f (_glerNextToken x)
+        <&> \y -> x { _glerNextToken = y }
 {-# INLINE glerNextToken #-}
 
-glerStartFromHead
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerStartFromHead :: Lens' GetLogEvents (Maybe Bool)
 glerStartFromHead f x =
-    (\y -> x { _glerStartFromHead = y })
-       <$> f (_glerStartFromHead x)
+    f (_glerStartFromHead x)
+        <&> \y -> x { _glerStartFromHead = y }
 {-# INLINE glerStartFromHead #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-glerStartTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerStartTime :: Lens' GetLogEvents (Maybe Integer)
 glerStartTime f x =
-    (\y -> x { _glerStartTime = y })
-       <$> f (_glerStartTime x)
+    f (_glerStartTime x)
+        <&> \y -> x { _glerStartTime = y }
 {-# INLINE glerStartTime #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-glerEndTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetLogEvents
-    -> f GetLogEvents
+glerEndTime :: Lens' GetLogEvents (Maybe Integer)
 glerEndTime f x =
-    (\y -> x { _glerEndTime = y })
-       <$> f (_glerEndTime x)
+    f (_glerEndTime x)
+        <&> \y -> x { _glerEndTime = y }
 {-# INLINE glerEndTime #-}
 
 instance ToPath GetLogEvents
@@ -217,40 +183,25 @@ data GetLogEventsResponse = GetLogEventsResponse
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-glesNextForwardToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetLogEventsResponse
-    -> f GetLogEventsResponse
+glesNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glesNextForwardToken f x =
-    (\y -> x { _glesNextForwardToken = y })
-       <$> f (_glesNextForwardToken x)
+    f (_glesNextForwardToken x)
+        <&> \y -> x { _glesNextForwardToken = y }
 {-# INLINE glesNextForwardToken #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-glesNextBackwardToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetLogEventsResponse
-    -> f GetLogEventsResponse
+glesNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glesNextBackwardToken f x =
-    (\y -> x { _glesNextBackwardToken = y })
-       <$> f (_glesNextBackwardToken x)
+    f (_glesNextBackwardToken x)
+        <&> \y -> x { _glesNextBackwardToken = y }
 {-# INLINE glesNextBackwardToken #-}
 
-glesEvents
-    :: Functor f
-    => ([OutputLogEvent]
-    -> f ([OutputLogEvent]))
-    -> GetLogEventsResponse
-    -> f GetLogEventsResponse
+glesEvents :: Lens' GetLogEventsResponse ([OutputLogEvent])
 glesEvents f x =
-    (\y -> x { _glesEvents = y })
-       <$> f (_glesEvents x)
+    f (_glesEvents x)
+        <&> \y -> x { _glesEvents = y }
 {-# INLINE glesEvents #-}
 
 instance FromJSON GetLogEventsResponse

@@ -56,6 +56,7 @@ describeAlarmHistory = DescribeAlarmHistory
     , _dahiStartDate = Nothing
     , _dahiEndDate = Nothing
     }
+{-# INLINE describeAlarmHistory #-}
 
 data DescribeAlarmHistory = DescribeAlarmHistory
     { _dahiAlarmName :: Maybe Text
@@ -74,76 +75,46 @@ data DescribeAlarmHistory = DescribeAlarmHistory
     } deriving (Show, Generic)
 
 -- | The name of the alarm.
-dahiAlarmName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarmHistory
-    -> f DescribeAlarmHistory
+dahiAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
 dahiAlarmName f x =
-    (\y -> x { _dahiAlarmName = y })
-       <$> f (_dahiAlarmName x)
+    f (_dahiAlarmName x)
+        <&> \y -> x { _dahiAlarmName = y }
 {-# INLINE dahiAlarmName #-}
 
 -- | The type of alarm histories to retrieve.
-dahiHistoryItemType
-    :: Functor f
-    => (Maybe HistoryItemType
-    -> f (Maybe HistoryItemType))
-    -> DescribeAlarmHistory
-    -> f DescribeAlarmHistory
+dahiHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
 dahiHistoryItemType f x =
-    (\y -> x { _dahiHistoryItemType = y })
-       <$> f (_dahiHistoryItemType x)
+    f (_dahiHistoryItemType x)
+        <&> \y -> x { _dahiHistoryItemType = y }
 {-# INLINE dahiHistoryItemType #-}
 
 -- | The maximum number of alarm history records to retrieve.
-dahiMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAlarmHistory
-    -> f DescribeAlarmHistory
+dahiMaxRecords :: Lens' DescribeAlarmHistory (Maybe Integer)
 dahiMaxRecords f x =
-    (\y -> x { _dahiMaxRecords = y })
-       <$> f (_dahiMaxRecords x)
+    f (_dahiMaxRecords x)
+        <&> \y -> x { _dahiMaxRecords = y }
 {-# INLINE dahiMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dahiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarmHistory
-    -> f DescribeAlarmHistory
+dahiNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
 dahiNextToken f x =
-    (\y -> x { _dahiNextToken = y })
-       <$> f (_dahiNextToken x)
+    f (_dahiNextToken x)
+        <&> \y -> x { _dahiNextToken = y }
 {-# INLINE dahiNextToken #-}
 
 -- | The starting date to retrieve alarm history.
-dahiStartDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeAlarmHistory
-    -> f DescribeAlarmHistory
+dahiStartDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
 dahiStartDate f x =
-    (\y -> x { _dahiStartDate = y })
-       <$> f (_dahiStartDate x)
+    f (_dahiStartDate x)
+        <&> \y -> x { _dahiStartDate = y }
 {-# INLINE dahiStartDate #-}
 
 -- | The ending date to retrieve alarm history.
-dahiEndDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeAlarmHistory
-    -> f DescribeAlarmHistory
+dahiEndDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
 dahiEndDate f x =
-    (\y -> x { _dahiEndDate = y })
-       <$> f (_dahiEndDate x)
+    f (_dahiEndDate x)
+        <&> \y -> x { _dahiEndDate = y }
 {-# INLINE dahiEndDate #-}
 
 instance ToQuery DescribeAlarmHistory where
@@ -158,27 +129,17 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     } deriving (Show, Generic)
 
 -- | A list of alarm histories in JSON format.
-dahoAlarmHistoryItems
-    :: Functor f
-    => ([AlarmHistoryItem]
-    -> f ([AlarmHistoryItem]))
-    -> DescribeAlarmHistoryResponse
-    -> f DescribeAlarmHistoryResponse
+dahoAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse ([AlarmHistoryItem])
 dahoAlarmHistoryItems f x =
-    (\y -> x { _dahoAlarmHistoryItems = y })
-       <$> f (_dahoAlarmHistoryItems x)
+    f (_dahoAlarmHistoryItems x)
+        <&> \y -> x { _dahoAlarmHistoryItems = y }
 {-# INLINE dahoAlarmHistoryItems #-}
 
 -- | A string that marks the start of the next batch of returned results.
-dahoNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarmHistoryResponse
-    -> f DescribeAlarmHistoryResponse
+dahoNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahoNextToken f x =
-    (\y -> x { _dahoNextToken = y })
-       <$> f (_dahoNextToken x)
+    f (_dahoNextToken x)
+        <&> \y -> x { _dahoNextToken = y }
 {-# INLINE dahoNextToken #-}
 
 instance FromXML DescribeAlarmHistoryResponse where

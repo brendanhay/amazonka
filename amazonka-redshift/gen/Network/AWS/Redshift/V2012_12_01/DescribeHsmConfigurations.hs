@@ -49,6 +49,7 @@ describeHsmConfigurations = DescribeHsmConfigurations
     , _dhcnHsmConfigurationIdentifier = Nothing
     , _dhcnMarker = Nothing
     }
+{-# INLINE describeHsmConfigurations #-}
 
 data DescribeHsmConfigurations = DescribeHsmConfigurations
     { _dhcnMaxRecords :: Maybe Integer
@@ -78,29 +79,19 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dhcnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeHsmConfigurations
-    -> f DescribeHsmConfigurations
+dhcnMaxRecords :: Lens' DescribeHsmConfigurations (Maybe Integer)
 dhcnMaxRecords f x =
-    (\y -> x { _dhcnMaxRecords = y })
-       <$> f (_dhcnMaxRecords x)
+    f (_dhcnMaxRecords x)
+        <&> \y -> x { _dhcnMaxRecords = y }
 {-# INLINE dhcnMaxRecords #-}
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for all
 -- HSM configurations owned by your AWS customer account.
-dhcnHsmConfigurationIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeHsmConfigurations
-    -> f DescribeHsmConfigurations
+dhcnHsmConfigurationIdentifier :: Lens' DescribeHsmConfigurations (Maybe Text)
 dhcnHsmConfigurationIdentifier f x =
-    (\y -> x { _dhcnHsmConfigurationIdentifier = y })
-       <$> f (_dhcnHsmConfigurationIdentifier x)
+    f (_dhcnHsmConfigurationIdentifier x)
+        <&> \y -> x { _dhcnHsmConfigurationIdentifier = y }
 {-# INLINE dhcnHsmConfigurationIdentifier #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -109,15 +100,10 @@ dhcnHsmConfigurationIdentifier f x =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dhcnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeHsmConfigurations
-    -> f DescribeHsmConfigurations
+dhcnMarker :: Lens' DescribeHsmConfigurations (Maybe Text)
 dhcnMarker f x =
-    (\y -> x { _dhcnMarker = y })
-       <$> f (_dhcnMarker x)
+    f (_dhcnMarker x)
+        <&> \y -> x { _dhcnMarker = y }
 {-# INLINE dhcnMarker #-}
 
 instance ToQuery DescribeHsmConfigurations where
@@ -136,15 +122,10 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     } deriving (Show, Generic)
 
 -- | A list of Amazon Redshift HSM configurations.
-hcmHsmConfigurations
-    :: Functor f
-    => ([HsmConfiguration]
-    -> f ([HsmConfiguration]))
-    -> DescribeHsmConfigurationsResponse
-    -> f DescribeHsmConfigurationsResponse
+hcmHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse ([HsmConfiguration])
 hcmHsmConfigurations f x =
-    (\y -> x { _hcmHsmConfigurations = y })
-       <$> f (_hcmHsmConfigurations x)
+    f (_hcmHsmConfigurations x)
+        <&> \y -> x { _hcmHsmConfigurations = y }
 {-# INLINE hcmHsmConfigurations #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -152,15 +133,10 @@ hcmHsmConfigurations f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-hcmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeHsmConfigurationsResponse
-    -> f DescribeHsmConfigurationsResponse
+hcmMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
 hcmMarker f x =
-    (\y -> x { _hcmMarker = y })
-       <$> f (_hcmMarker x)
+    f (_hcmMarker x)
+        <&> \y -> x { _hcmMarker = y }
 {-# INLINE hcmMarker #-}
 
 instance FromXML DescribeHsmConfigurationsResponse where

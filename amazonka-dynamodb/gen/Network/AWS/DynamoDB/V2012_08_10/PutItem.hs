@@ -78,6 +78,7 @@ putItem p1 p2 = PutItem
     , _piiReturnItemCollectionMetrics = Nothing
     , _piiReturnValues = Nothing
     }
+{-# INLINE putItem #-}
 
 data PutItem = PutItem
     { _piiItem :: Map Text AttributeValue
@@ -150,38 +151,23 @@ data PutItem = PutItem
 -- match those of the schema in the table's attribute definition. For more
 -- information about primary keys, see Primary Key in the Amazon DynamoDB
 -- Developer Guide. Each element in the Item map is an AttributeValue object.
-piiItem
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> PutItem
-    -> f PutItem
+piiItem :: Lens' PutItem (Map Text AttributeValue)
 piiItem f x =
-    (\y -> x { _piiItem = y })
-       <$> f (_piiItem x)
+    f (_piiItem x)
+        <&> \y -> x { _piiItem = y }
 {-# INLINE piiItem #-}
 
 -- | The name of the table to contain the item.
-piiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutItem
-    -> f PutItem
+piiTableName :: Lens' PutItem (Text)
 piiTableName f x =
-    (\y -> x { _piiTableName = y })
-       <$> f (_piiTableName x)
+    f (_piiTableName x)
+        <&> \y -> x { _piiTableName = y }
 {-# INLINE piiTableName #-}
 
-piiConditionalOperator
-    :: Functor f
-    => (Maybe ConditionalOperator
-    -> f (Maybe ConditionalOperator))
-    -> PutItem
-    -> f PutItem
+piiConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piiConditionalOperator f x =
-    (\y -> x { _piiConditionalOperator = y })
-       <$> f (_piiConditionalOperator x)
+    f (_piiConditionalOperator x)
+        <&> \y -> x { _piiConditionalOperator = y }
 {-# INLINE piiConditionalOperator #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
@@ -210,44 +196,29 @@ piiConditionalOperator f x =
 -- exist.) If you specify more than one condition for Exists, then all of the
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
-piiExpected
-    :: Functor f
-    => (Map Text ExpectedAttributeValue
-    -> f (Map Text ExpectedAttributeValue))
-    -> PutItem
-    -> f PutItem
+piiExpected :: Lens' PutItem (Map Text ExpectedAttributeValue)
 piiExpected f x =
-    (\y -> x { _piiExpected = y })
-       <$> f (_piiExpected x)
+    f (_piiExpected x)
+        <&> \y -> x { _piiExpected = y }
 {-# INLINE piiExpected #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-piiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> PutItem
-    -> f PutItem
+piiReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
 piiReturnConsumedCapacity f x =
-    (\y -> x { _piiReturnConsumedCapacity = y })
-       <$> f (_piiReturnConsumedCapacity x)
+    f (_piiReturnConsumedCapacity x)
+        <&> \y -> x { _piiReturnConsumedCapacity = y }
 {-# INLINE piiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
-piiReturnItemCollectionMetrics
-    :: Functor f
-    => (Maybe ReturnItemCollectionMetrics
-    -> f (Maybe ReturnItemCollectionMetrics))
-    -> PutItem
-    -> f PutItem
+piiReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
 piiReturnItemCollectionMetrics f x =
-    (\y -> x { _piiReturnItemCollectionMetrics = y })
-       <$> f (_piiReturnItemCollectionMetrics x)
+    f (_piiReturnItemCollectionMetrics x)
+        <&> \y -> x { _piiReturnItemCollectionMetrics = y }
 {-# INLINE piiReturnItemCollectionMetrics #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
@@ -256,15 +227,10 @@ piiReturnItemCollectionMetrics f x =
 -- NONE, then nothing is returned. (This is the default for ReturnValues.)
 -- ALL_OLD - If PutItem overwrote an attribute name-value pair, then the
 -- content of the old item is returned.
-piiReturnValues
-    :: Functor f
-    => (Maybe ReturnValue
-    -> f (Maybe ReturnValue))
-    -> PutItem
-    -> f PutItem
+piiReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piiReturnValues f x =
-    (\y -> x { _piiReturnValues = y })
-       <$> f (_piiReturnValues x)
+    f (_piiReturnValues x)
+        <&> \y -> x { _piiReturnValues = y }
 {-# INLINE piiReturnValues #-}
 
 instance ToPath PutItem
@@ -310,15 +276,10 @@ data PutItemResponse = PutItemResponse
 -- | The attribute values as they appeared before the PutItem operation, but
 -- only if ReturnValues is specified as ALL_OLD in the request. Each element
 -- consists of an attribute name and an attribute value.
-pioAttributes
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> PutItemResponse
-    -> f PutItemResponse
+pioAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
 pioAttributes f x =
-    (\y -> x { _pioAttributes = y })
-       <$> f (_pioAttributes x)
+    f (_pioAttributes x)
+        <&> \y -> x { _pioAttributes = y }
 {-# INLINE pioAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -326,15 +287,10 @@ pioAttributes f x =
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-pioConsumedCapacity
-    :: Functor f
-    => (Maybe ConsumedCapacity
-    -> f (Maybe ConsumedCapacity))
-    -> PutItemResponse
-    -> f PutItemResponse
+pioConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
 pioConsumedCapacity f x =
-    (\y -> x { _pioConsumedCapacity = y })
-       <$> f (_pioConsumedCapacity x)
+    f (_pioConsumedCapacity x)
+        <&> \y -> x { _pioConsumedCapacity = y }
 {-# INLINE pioConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
@@ -351,15 +307,10 @@ pioConsumedCapacity f x =
 -- secondary index is approaching its size limit. The estimate is subject to
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
-pioItemCollectionMetrics
-    :: Functor f
-    => (Maybe ItemCollectionMetrics
-    -> f (Maybe ItemCollectionMetrics))
-    -> PutItemResponse
-    -> f PutItemResponse
+pioItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
 pioItemCollectionMetrics f x =
-    (\y -> x { _pioItemCollectionMetrics = y })
-       <$> f (_pioItemCollectionMetrics x)
+    f (_pioItemCollectionMetrics x)
+        <&> \y -> x { _pioItemCollectionMetrics = y }
 {-# INLINE pioItemCollectionMetrics #-}
 
 instance FromJSON PutItemResponse

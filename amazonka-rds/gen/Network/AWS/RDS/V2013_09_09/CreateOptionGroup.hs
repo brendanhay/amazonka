@@ -59,6 +59,7 @@ createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
     , _cogmOptionGroupDescription = p4
     , _cogmTags = mempty
     }
+{-# INLINE createOptionGroup #-}
 
 data CreateOptionGroup = CreateOptionGroup
     { _cogmOptionGroupName :: Text
@@ -82,65 +83,40 @@ data CreateOptionGroup = CreateOptionGroup
 -- 1 to 255 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens Example:
 -- myoptiongroup.
-cogmOptionGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateOptionGroup
-    -> f CreateOptionGroup
+cogmOptionGroupName :: Lens' CreateOptionGroup (Text)
 cogmOptionGroupName f x =
-    (\y -> x { _cogmOptionGroupName = y })
-       <$> f (_cogmOptionGroupName x)
+    f (_cogmOptionGroupName x)
+        <&> \y -> x { _cogmOptionGroupName = y }
 {-# INLINE cogmOptionGroupName #-}
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
-cogmEngineName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateOptionGroup
-    -> f CreateOptionGroup
+cogmEngineName :: Lens' CreateOptionGroup (Text)
 cogmEngineName f x =
-    (\y -> x { _cogmEngineName = y })
-       <$> f (_cogmEngineName x)
+    f (_cogmEngineName x)
+        <&> \y -> x { _cogmEngineName = y }
 {-# INLINE cogmEngineName #-}
 
 -- | Specifies the major version of the engine that this option group should be
 -- associated with.
-cogmMajorEngineVersion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateOptionGroup
-    -> f CreateOptionGroup
+cogmMajorEngineVersion :: Lens' CreateOptionGroup (Text)
 cogmMajorEngineVersion f x =
-    (\y -> x { _cogmMajorEngineVersion = y })
-       <$> f (_cogmMajorEngineVersion x)
+    f (_cogmMajorEngineVersion x)
+        <&> \y -> x { _cogmMajorEngineVersion = y }
 {-# INLINE cogmMajorEngineVersion #-}
 
 -- | The description of the option group.
-cogmOptionGroupDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateOptionGroup
-    -> f CreateOptionGroup
+cogmOptionGroupDescription :: Lens' CreateOptionGroup (Text)
 cogmOptionGroupDescription f x =
-    (\y -> x { _cogmOptionGroupDescription = y })
-       <$> f (_cogmOptionGroupDescription x)
+    f (_cogmOptionGroupDescription x)
+        <&> \y -> x { _cogmOptionGroupDescription = y }
 {-# INLINE cogmOptionGroupDescription #-}
 
 -- | A list of tags.
-cogmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateOptionGroup
-    -> f CreateOptionGroup
+cogmTags :: Lens' CreateOptionGroup ([Tag])
 cogmTags f x =
-    (\y -> x { _cogmTags = y })
-       <$> f (_cogmTags x)
+    f (_cogmTags x)
+        <&> \y -> x { _cogmTags = y }
 {-# INLINE cogmTags #-}
 
 instance ToQuery CreateOptionGroup where
@@ -152,15 +128,10 @@ data CreateOptionGroupResponse = CreateOptionGroupResponse
     } deriving (Show, Generic)
 
 -- | 
-ogwOptionGroup
-    :: Functor f
-    => (Maybe OptionGroup
-    -> f (Maybe OptionGroup))
-    -> CreateOptionGroupResponse
-    -> f CreateOptionGroupResponse
+ogwOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 ogwOptionGroup f x =
-    (\y -> x { _ogwOptionGroup = y })
-       <$> f (_ogwOptionGroup x)
+    f (_ogwOptionGroup x)
+        <&> \y -> x { _ogwOptionGroup = y }
 {-# INLINE ogwOptionGroup #-}
 
 instance FromXML CreateOptionGroupResponse where

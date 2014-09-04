@@ -79,6 +79,7 @@ createPlatformApplication p1 p2 p3 = CreatePlatformApplication
     , _cpaiName = p2
     , _cpaiPlatform = p3
     }
+{-# INLINE createPlatformApplication #-}
 
 data CreatePlatformApplication = CreatePlatformApplication
     { _cpaiAttributes :: Map Text Text
@@ -94,43 +95,28 @@ data CreatePlatformApplication = CreatePlatformApplication
     } deriving (Show, Generic)
 
 -- | For a list of attributes, see SetPlatformApplicationAttributes.
-cpaiAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> CreatePlatformApplication
-    -> f CreatePlatformApplication
+cpaiAttributes :: Lens' CreatePlatformApplication (Map Text Text)
 cpaiAttributes f x =
-    (\y -> x { _cpaiAttributes = y })
-       <$> f (_cpaiAttributes x)
+    f (_cpaiAttributes x)
+        <&> \y -> x { _cpaiAttributes = y }
 {-# INLINE cpaiAttributes #-}
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between 1
 -- and 256 characters long.
-cpaiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePlatformApplication
-    -> f CreatePlatformApplication
+cpaiName :: Lens' CreatePlatformApplication (Text)
 cpaiName f x =
-    (\y -> x { _cpaiName = y })
-       <$> f (_cpaiName x)
+    f (_cpaiName x)
+        <&> \y -> x { _cpaiName = y }
 {-# INLINE cpaiName #-}
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS
 -- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
 -- Messaging).
-cpaiPlatform
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePlatformApplication
-    -> f CreatePlatformApplication
+cpaiPlatform :: Lens' CreatePlatformApplication (Text)
 cpaiPlatform f x =
-    (\y -> x { _cpaiPlatform = y })
-       <$> f (_cpaiPlatform x)
+    f (_cpaiPlatform x)
+        <&> \y -> x { _cpaiPlatform = y }
 {-# INLINE cpaiPlatform #-}
 
 instance ToQuery CreatePlatformApplication where
@@ -142,15 +128,10 @@ data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn is returned.
-cparPlatformApplicationArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePlatformApplicationResponse
-    -> f CreatePlatformApplicationResponse
+cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparPlatformApplicationArn f x =
-    (\y -> x { _cparPlatformApplicationArn = y })
-       <$> f (_cparPlatformApplicationArn x)
+    f (_cparPlatformApplicationArn x)
+        <&> \y -> x { _cparPlatformApplicationArn = y }
 {-# INLINE cparPlatformApplicationArn #-}
 
 instance FromXML CreatePlatformApplicationResponse where

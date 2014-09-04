@@ -45,6 +45,7 @@ createDistribution :: DistributionConfig -- ^ 'cdrDistributionConfig'
 createDistribution p1 = CreateDistribution
     { _cdrDistributionConfig = p1
     }
+{-# INLINE createDistribution #-}
 
 data CreateDistribution = CreateDistribution
     { _cdrDistributionConfig :: DistributionConfig
@@ -52,15 +53,10 @@ data CreateDistribution = CreateDistribution
     } deriving (Show, Generic)
 
 -- | The distribution's configuration information.
-cdrDistributionConfig
-    :: Functor f
-    => (DistributionConfig
-    -> f (DistributionConfig))
-    -> CreateDistribution
-    -> f CreateDistribution
+cdrDistributionConfig :: Lens' CreateDistribution (DistributionConfig)
 cdrDistributionConfig f x =
-    (\y -> x { _cdrDistributionConfig = y })
-       <$> f (_cdrDistributionConfig x)
+    f (_cdrDistributionConfig x)
+        <&> \y -> x { _cdrDistributionConfig = y }
 {-# INLINE cdrDistributionConfig #-}
 
 instance ToPath CreateDistribution where
@@ -87,41 +83,26 @@ data CreateDistributionResponse = CreateDistributionResponse
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-cdsDistribution
-    :: Functor f
-    => (Maybe Distribution
-    -> f (Maybe Distribution))
-    -> CreateDistributionResponse
-    -> f CreateDistributionResponse
+cdsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdsDistribution f x =
-    (\y -> x { _cdsDistribution = y })
-       <$> f (_cdsDistribution x)
+    f (_cdsDistribution x)
+        <&> \y -> x { _cdsDistribution = y }
 {-# INLINE cdsDistribution #-}
 
 -- | The fully qualified URI of the new distribution resource just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-cdsLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDistributionResponse
-    -> f CreateDistributionResponse
+cdsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdsLocation f x =
-    (\y -> x { _cdsLocation = y })
-       <$> f (_cdsLocation x)
+    f (_cdsLocation x)
+        <&> \y -> x { _cdsLocation = y }
 {-# INLINE cdsLocation #-}
 
 -- | The current version of the distribution created.
-cdsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDistributionResponse
-    -> f CreateDistributionResponse
+cdsETag :: Lens' CreateDistributionResponse (Maybe Text)
 cdsETag f x =
-    (\y -> x { _cdsETag = y })
-       <$> f (_cdsETag x)
+    f (_cdsETag x)
+        <&> \y -> x { _cdsETag = y }
 {-# INLINE cdsETag #-}
 
 instance AWSRequest CreateDistribution where

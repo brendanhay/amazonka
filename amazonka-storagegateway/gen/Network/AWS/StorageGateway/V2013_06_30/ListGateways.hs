@@ -67,6 +67,7 @@ listGateways = ListGateways
     { _lgiMarker = Nothing
     , _lgiLimit = Nothing
     }
+{-# INLINE listGateways #-}
 
 data ListGateways = ListGateways
     { _lgiMarker :: Maybe Text
@@ -79,28 +80,18 @@ data ListGateways = ListGateways
 
 -- | An opaque string that indicates the position at which to begin the returned
 -- list of gateways.
-lgiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGateways
-    -> f ListGateways
+lgiMarker :: Lens' ListGateways (Maybe Text)
 lgiMarker f x =
-    (\y -> x { _lgiMarker = y })
-       <$> f (_lgiMarker x)
+    f (_lgiMarker x)
+        <&> \y -> x { _lgiMarker = y }
 {-# INLINE lgiMarker #-}
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-lgiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListGateways
-    -> f ListGateways
+lgiLimit :: Lens' ListGateways (Maybe Integer)
 lgiLimit f x =
-    (\y -> x { _lgiLimit = y })
-       <$> f (_lgiLimit x)
+    f (_lgiLimit x)
+        <&> \y -> x { _lgiLimit = y }
 {-# INLINE lgiLimit #-}
 
 instance ToPath ListGateways
@@ -116,26 +107,16 @@ data ListGatewaysResponse = ListGatewaysResponse
     , _lgoMarker :: Maybe Text
     } deriving (Show, Generic)
 
-lgoGateways
-    :: Functor f
-    => ([GatewayInformation]
-    -> f ([GatewayInformation]))
-    -> ListGatewaysResponse
-    -> f ListGatewaysResponse
+lgoGateways :: Lens' ListGatewaysResponse ([GatewayInformation])
 lgoGateways f x =
-    (\y -> x { _lgoGateways = y })
-       <$> f (_lgoGateways x)
+    f (_lgoGateways x)
+        <&> \y -> x { _lgoGateways = y }
 {-# INLINE lgoGateways #-}
 
-lgoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGatewaysResponse
-    -> f ListGatewaysResponse
+lgoMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgoMarker f x =
-    (\y -> x { _lgoMarker = y })
-       <$> f (_lgoMarker x)
+    f (_lgoMarker x)
+        <&> \y -> x { _lgoMarker = y }
 {-# INLINE lgoMarker #-}
 
 instance FromJSON ListGatewaysResponse

@@ -64,20 +64,16 @@ deleteSnapshotSchedule :: Text -- ^ 'dssiVolumeARN'
 deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
     { _dssiVolumeARN = p1
     }
+{-# INLINE deleteSnapshotSchedule #-}
 
 data DeleteSnapshotSchedule = DeleteSnapshotSchedule
     { _dssiVolumeARN :: Text
     } deriving (Show, Generic)
 
-dssiVolumeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSnapshotSchedule
-    -> f DeleteSnapshotSchedule
+dssiVolumeARN :: Lens' DeleteSnapshotSchedule (Text)
 dssiVolumeARN f x =
-    (\y -> x { _dssiVolumeARN = y })
-       <$> f (_dssiVolumeARN x)
+    f (_dssiVolumeARN x)
+        <&> \y -> x { _dssiVolumeARN = y }
 {-# INLINE dssiVolumeARN #-}
 
 instance ToPath DeleteSnapshotSchedule
@@ -92,15 +88,10 @@ data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dssoVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteSnapshotScheduleResponse
-    -> f DeleteSnapshotScheduleResponse
+dssoVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssoVolumeARN f x =
-    (\y -> x { _dssoVolumeARN = y })
-       <$> f (_dssoVolumeARN x)
+    f (_dssoVolumeARN x)
+        <&> \y -> x { _dssoVolumeARN = y }
 {-# INLINE dssoVolumeARN #-}
 
 instance FromJSON DeleteSnapshotScheduleResponse

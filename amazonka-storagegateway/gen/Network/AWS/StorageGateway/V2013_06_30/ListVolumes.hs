@@ -76,6 +76,7 @@ listVolumes p1 = ListVolumes
     , _lviMarker = Nothing
     , _lviLimit = Nothing
     }
+{-# INLINE listVolumes #-}
 
 data ListVolumes = ListVolumes
     { _lviGatewayARN :: Text
@@ -93,42 +94,27 @@ data ListVolumes = ListVolumes
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lviGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListVolumes
-    -> f ListVolumes
+lviGatewayARN :: Lens' ListVolumes (Text)
 lviGatewayARN f x =
-    (\y -> x { _lviGatewayARN = y })
-       <$> f (_lviGatewayARN x)
+    f (_lviGatewayARN x)
+        <&> \y -> x { _lviGatewayARN = y }
 {-# INLINE lviGatewayARN #-}
 
 -- | A string that indicates the position at which to begin the returned list of
 -- volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
-lviMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListVolumes
-    -> f ListVolumes
+lviMarker :: Lens' ListVolumes (Maybe Text)
 lviMarker f x =
-    (\y -> x { _lviMarker = y })
-       <$> f (_lviMarker x)
+    f (_lviMarker x)
+        <&> \y -> x { _lviMarker = y }
 {-# INLINE lviMarker #-}
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
-lviLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListVolumes
-    -> f ListVolumes
+lviLimit :: Lens' ListVolumes (Maybe Integer)
 lviLimit f x =
-    (\y -> x { _lviLimit = y })
-       <$> f (_lviLimit x)
+    f (_lviLimit x)
+        <&> \y -> x { _lviLimit = y }
 {-# INLINE lviLimit #-}
 
 instance ToPath ListVolumes
@@ -150,37 +136,22 @@ data ListVolumesResponse = ListVolumesResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListVolumesResponse
-    -> f ListVolumesResponse
+lvoGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
 lvoGatewayARN f x =
-    (\y -> x { _lvoGatewayARN = y })
-       <$> f (_lvoGatewayARN x)
+    f (_lvoGatewayARN x)
+        <&> \y -> x { _lvoGatewayARN = y }
 {-# INLINE lvoGatewayARN #-}
 
-lvoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListVolumesResponse
-    -> f ListVolumesResponse
+lvoMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvoMarker f x =
-    (\y -> x { _lvoMarker = y })
-       <$> f (_lvoMarker x)
+    f (_lvoMarker x)
+        <&> \y -> x { _lvoMarker = y }
 {-# INLINE lvoMarker #-}
 
-lvoVolumeInfos
-    :: Functor f
-    => ([VolumeInformation]
-    -> f ([VolumeInformation]))
-    -> ListVolumesResponse
-    -> f ListVolumesResponse
+lvoVolumeInfos :: Lens' ListVolumesResponse ([VolumeInformation])
 lvoVolumeInfos f x =
-    (\y -> x { _lvoVolumeInfos = y })
-       <$> f (_lvoVolumeInfos x)
+    f (_lvoVolumeInfos x)
+        <&> \y -> x { _lvoVolumeInfos = y }
 {-# INLINE lvoVolumeInfos #-}
 
 instance FromJSON ListVolumesResponse

@@ -58,6 +58,7 @@ setStatus p1 p2 p3 = SetStatus
     , _ssiObjectIds = p2
     , _ssiStatus = p3
     }
+{-# INLINE setStatus #-}
 
 data SetStatus = SetStatus
     { _ssiPipelineId :: Text
@@ -72,42 +73,27 @@ data SetStatus = SetStatus
     } deriving (Show, Generic)
 
 -- | Identifies the pipeline that contains the objects.
-ssiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetStatus
-    -> f SetStatus
+ssiPipelineId :: Lens' SetStatus (Text)
 ssiPipelineId f x =
-    (\y -> x { _ssiPipelineId = y })
-       <$> f (_ssiPipelineId x)
+    f (_ssiPipelineId x)
+        <&> \y -> x { _ssiPipelineId = y }
 {-# INLINE ssiPipelineId #-}
 
 -- | Identifies an array of objects. The corresponding objects can be either
 -- physical or components, but not a mix of both types.
-ssiObjectIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SetStatus
-    -> f SetStatus
+ssiObjectIds :: Lens' SetStatus ([Text])
 ssiObjectIds f x =
-    (\y -> x { _ssiObjectIds = y })
-       <$> f (_ssiObjectIds x)
+    f (_ssiObjectIds x)
+        <&> \y -> x { _ssiObjectIds = y }
 {-# INLINE ssiObjectIds #-}
 
 -- | Specifies the status to be set on all the objects in objectIds. For
 -- components, this can be either PAUSE or RESUME. For instances, this can be
 -- either CANCEL, RERUN, or MARK_FINISHED.
-ssiStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetStatus
-    -> f SetStatus
+ssiStatus :: Lens' SetStatus (Text)
 ssiStatus f x =
-    (\y -> x { _ssiStatus = y })
-       <$> f (_ssiStatus x)
+    f (_ssiStatus x)
+        <&> \y -> x { _ssiStatus = y }
 {-# INLINE ssiStatus #-}
 
 instance ToPath SetStatus

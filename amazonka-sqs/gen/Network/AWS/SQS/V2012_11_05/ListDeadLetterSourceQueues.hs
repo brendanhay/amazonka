@@ -50,6 +50,7 @@ listDeadLetterSourceQueues :: Text -- ^ 'ldlsqrQueueUrl'
 listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
     { _ldlsqrQueueUrl = p1
     }
+{-# INLINE listDeadLetterSourceQueues #-}
 
 data ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqrQueueUrl :: Text
@@ -57,15 +58,10 @@ data ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     } deriving (Show, Generic)
 
 -- | The queue URL of a dead letter queue.
-ldlsqrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListDeadLetterSourceQueues
-    -> f ListDeadLetterSourceQueues
+ldlsqrQueueUrl :: Lens' ListDeadLetterSourceQueues (Text)
 ldlsqrQueueUrl f x =
-    (\y -> x { _ldlsqrQueueUrl = y })
-       <$> f (_ldlsqrQueueUrl x)
+    f (_ldlsqrQueueUrl x)
+        <&> \y -> x { _ldlsqrQueueUrl = y }
 {-# INLINE ldlsqrQueueUrl #-}
 
 instance ToQuery ListDeadLetterSourceQueues where
@@ -79,15 +75,10 @@ data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
-ldlsqsQueueUrls
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListDeadLetterSourceQueuesResponse
-    -> f ListDeadLetterSourceQueuesResponse
+ldlsqsQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse ([Text])
 ldlsqsQueueUrls f x =
-    (\y -> x { _ldlsqsQueueUrls = y })
-       <$> f (_ldlsqsQueueUrls x)
+    f (_ldlsqsQueueUrls x)
+        <&> \y -> x { _ldlsqsQueueUrls = y }
 {-# INLINE ldlsqsQueueUrls #-}
 
 instance FromXML ListDeadLetterSourceQueuesResponse where

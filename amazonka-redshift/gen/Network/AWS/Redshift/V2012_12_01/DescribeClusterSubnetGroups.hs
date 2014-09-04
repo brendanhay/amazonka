@@ -57,6 +57,7 @@ describeClusterSubnetGroups = DescribeClusterSubnetGroups
     , _dcsgpClusterSubnetGroupName = Nothing
     , _dcsgpMarker = Nothing
     }
+{-# INLINE describeClusterSubnetGroups #-}
 
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsgpMaxRecords :: Maybe Integer
@@ -84,27 +85,17 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsgpMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeClusterSubnetGroups
-    -> f DescribeClusterSubnetGroups
+dcsgpMaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Integer)
 dcsgpMaxRecords f x =
-    (\y -> x { _dcsgpMaxRecords = y })
-       <$> f (_dcsgpMaxRecords x)
+    f (_dcsgpMaxRecords x)
+        <&> \y -> x { _dcsgpMaxRecords = y }
 {-# INLINE dcsgpMaxRecords #-}
 
 -- | The name of the cluster subnet group for which information is requested.
-dcsgpClusterSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSubnetGroups
-    -> f DescribeClusterSubnetGroups
+dcsgpClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsgpClusterSubnetGroupName f x =
-    (\y -> x { _dcsgpClusterSubnetGroupName = y })
-       <$> f (_dcsgpClusterSubnetGroupName x)
+    f (_dcsgpClusterSubnetGroupName x)
+        <&> \y -> x { _dcsgpClusterSubnetGroupName = y }
 {-# INLINE dcsgpClusterSubnetGroupName #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -113,15 +104,10 @@ dcsgpClusterSubnetGroupName f x =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dcsgpMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSubnetGroups
-    -> f DescribeClusterSubnetGroups
+dcsgpMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsgpMarker f x =
-    (\y -> x { _dcsgpMarker = y })
-       <$> f (_dcsgpMarker x)
+    f (_dcsgpMarker x)
+        <&> \y -> x { _dcsgpMarker = y }
 {-# INLINE dcsgpMarker #-}
 
 instance ToQuery DescribeClusterSubnetGroups where
@@ -140,15 +126,10 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     } deriving (Show, Generic)
 
 -- | A list of ClusterSubnetGroup instances.
-csgpClusterSubnetGroups
-    :: Functor f
-    => ([ClusterSubnetGroup]
-    -> f ([ClusterSubnetGroup]))
-    -> DescribeClusterSubnetGroupsResponse
-    -> f DescribeClusterSubnetGroupsResponse
+csgpClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse ([ClusterSubnetGroup])
 csgpClusterSubnetGroups f x =
-    (\y -> x { _csgpClusterSubnetGroups = y })
-       <$> f (_csgpClusterSubnetGroups x)
+    f (_csgpClusterSubnetGroups x)
+        <&> \y -> x { _csgpClusterSubnetGroups = y }
 {-# INLINE csgpClusterSubnetGroups #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -156,15 +137,10 @@ csgpClusterSubnetGroups f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-csgpMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSubnetGroupsResponse
-    -> f DescribeClusterSubnetGroupsResponse
+csgpMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 csgpMarker f x =
-    (\y -> x { _csgpMarker = y })
-       <$> f (_csgpMarker x)
+    f (_csgpMarker x)
+        <&> \y -> x { _csgpMarker = y }
 {-# INLINE csgpMarker #-}
 
 instance FromXML DescribeClusterSubnetGroupsResponse where

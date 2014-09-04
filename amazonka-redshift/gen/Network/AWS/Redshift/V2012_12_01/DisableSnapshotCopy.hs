@@ -44,6 +44,7 @@ disableSnapshotCopy :: Text -- ^ 'dscmClusterIdentifier'
 disableSnapshotCopy p1 = DisableSnapshotCopy
     { _dscmClusterIdentifier = p1
     }
+{-# INLINE disableSnapshotCopy #-}
 
 data DisableSnapshotCopy = DisableSnapshotCopy
     { _dscmClusterIdentifier :: Text
@@ -57,15 +58,10 @@ data DisableSnapshotCopy = DisableSnapshotCopy
 -- copying of snapshots to a destination region. Constraints: Must be the
 -- valid name of an existing cluster that has cross-region snapshot copy
 -- enabled.
-dscmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableSnapshotCopy
-    -> f DisableSnapshotCopy
+dscmClusterIdentifier :: Lens' DisableSnapshotCopy (Text)
 dscmClusterIdentifier f x =
-    (\y -> x { _dscmClusterIdentifier = y })
-       <$> f (_dscmClusterIdentifier x)
+    f (_dscmClusterIdentifier x)
+        <&> \y -> x { _dscmClusterIdentifier = y }
 {-# INLINE dscmClusterIdentifier #-}
 
 instance ToQuery DisableSnapshotCopy where
@@ -77,15 +73,10 @@ data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cyCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> DisableSnapshotCopyResponse
-    -> f DisableSnapshotCopyResponse
+cyCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 cyCluster f x =
-    (\y -> x { _cyCluster = y })
-       <$> f (_cyCluster x)
+    f (_cyCluster x)
+        <&> \y -> x { _cyCluster = y }
 {-# INLINE cyCluster #-}
 
 instance FromXML DisableSnapshotCopyResponse where

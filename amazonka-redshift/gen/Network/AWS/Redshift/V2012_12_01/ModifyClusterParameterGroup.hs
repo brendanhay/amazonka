@@ -60,6 +60,7 @@ modifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
     { _mcpgmParameters = p1
     , _mcpgmParameterGroupName = p2
     }
+{-# INLINE modifyClusterParameterGroup #-}
 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgmParameters :: [Parameter]
@@ -80,27 +81,17 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup
 -- pairs of the parameter are optional. For the workload management (WLM)
 -- configuration, you must supply all the name-value pairs in the
 -- wlm_json_configuration parameter.
-mcpgmParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> ModifyClusterParameterGroup
-    -> f ModifyClusterParameterGroup
+mcpgmParameters :: Lens' ModifyClusterParameterGroup ([Parameter])
 mcpgmParameters f x =
-    (\y -> x { _mcpgmParameters = y })
-       <$> f (_mcpgmParameters x)
+    f (_mcpgmParameters x)
+        <&> \y -> x { _mcpgmParameters = y }
 {-# INLINE mcpgmParameters #-}
 
 -- | The name of the parameter group to be modified.
-mcpgmParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyClusterParameterGroup
-    -> f ModifyClusterParameterGroup
+mcpgmParameterGroupName :: Lens' ModifyClusterParameterGroup (Text)
 mcpgmParameterGroupName f x =
-    (\y -> x { _mcpgmParameterGroupName = y })
-       <$> f (_mcpgmParameterGroupName x)
+    f (_mcpgmParameterGroupName x)
+        <&> \y -> x { _mcpgmParameterGroupName = y }
 {-# INLINE mcpgmParameterGroupName #-}
 
 instance ToQuery ModifyClusterParameterGroup where
@@ -116,29 +107,19 @@ data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group.
-cpgnmParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyClusterParameterGroupResponse
-    -> f ModifyClusterParameterGroupResponse
+cpgnmParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
 cpgnmParameterGroupName f x =
-    (\y -> x { _cpgnmParameterGroupName = y })
-       <$> f (_cpgnmParameterGroupName x)
+    f (_cpgnmParameterGroupName x)
+        <&> \y -> x { _cpgnmParameterGroupName = y }
 {-# INLINE cpgnmParameterGroupName #-}
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
 -- of an associated cluster.
-cpgnmParameterGroupStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyClusterParameterGroupResponse
-    -> f ModifyClusterParameterGroupResponse
+cpgnmParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
 cpgnmParameterGroupStatus f x =
-    (\y -> x { _cpgnmParameterGroupStatus = y })
-       <$> f (_cpgnmParameterGroupStatus x)
+    f (_cpgnmParameterGroupStatus x)
+        <&> \y -> x { _cpgnmParameterGroupStatus = y }
 {-# INLINE cpgnmParameterGroupStatus #-}
 
 instance FromXML ModifyClusterParameterGroupResponse where

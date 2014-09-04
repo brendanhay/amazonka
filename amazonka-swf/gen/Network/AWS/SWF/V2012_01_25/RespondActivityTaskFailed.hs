@@ -78,6 +78,7 @@ respondActivityTaskFailed p1 = RespondActivityTaskFailed
     , _ratfiDetails = Nothing
     , _ratfiReason = Nothing
     }
+{-# INLINE respondActivityTaskFailed #-}
 
 data RespondActivityTaskFailed = RespondActivityTaskFailed
     { _ratfiTaskToken :: Text
@@ -95,39 +96,24 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
 -- service and should be treated as an opaque value. If the task is passed to
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
-ratfiTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RespondActivityTaskFailed
-    -> f RespondActivityTaskFailed
+ratfiTaskToken :: Lens' RespondActivityTaskFailed (Text)
 ratfiTaskToken f x =
-    (\y -> x { _ratfiTaskToken = y })
-       <$> f (_ratfiTaskToken x)
+    f (_ratfiTaskToken x)
+        <&> \y -> x { _ratfiTaskToken = y }
 {-# INLINE ratfiTaskToken #-}
 
 -- | Optional detailed information about the failure.
-ratfiDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RespondActivityTaskFailed
-    -> f RespondActivityTaskFailed
+ratfiDetails :: Lens' RespondActivityTaskFailed (Maybe Text)
 ratfiDetails f x =
-    (\y -> x { _ratfiDetails = y })
-       <$> f (_ratfiDetails x)
+    f (_ratfiDetails x)
+        <&> \y -> x { _ratfiDetails = y }
 {-# INLINE ratfiDetails #-}
 
 -- | Description of the error that may assist in diagnostics.
-ratfiReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RespondActivityTaskFailed
-    -> f RespondActivityTaskFailed
+ratfiReason :: Lens' RespondActivityTaskFailed (Maybe Text)
 ratfiReason f x =
-    (\y -> x { _ratfiReason = y })
-       <$> f (_ratfiReason x)
+    f (_ratfiReason x)
+        <&> \y -> x { _ratfiReason = y }
 {-# INLINE ratfiReason #-}
 
 instance ToPath RespondActivityTaskFailed

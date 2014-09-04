@@ -47,6 +47,7 @@ deregisterElasticIp :: Text -- ^ 'deirElasticIp'
 deregisterElasticIp p1 = DeregisterElasticIp
     { _deirElasticIp = p1
     }
+{-# INLINE deregisterElasticIp #-}
 
 data DeregisterElasticIp = DeregisterElasticIp
     { _deirElasticIp :: Text
@@ -54,15 +55,10 @@ data DeregisterElasticIp = DeregisterElasticIp
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-deirElasticIp
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeregisterElasticIp
-    -> f DeregisterElasticIp
+deirElasticIp :: Lens' DeregisterElasticIp (Text)
 deirElasticIp f x =
-    (\y -> x { _deirElasticIp = y })
-       <$> f (_deirElasticIp x)
+    f (_deirElasticIp x)
+        <&> \y -> x { _deirElasticIp = y }
 {-# INLINE deirElasticIp #-}
 
 instance ToPath DeregisterElasticIp

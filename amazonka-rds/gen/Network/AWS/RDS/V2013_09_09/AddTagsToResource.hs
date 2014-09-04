@@ -48,6 +48,7 @@ addTagsToResource p1 p2 = AddTagsToResource
     { _attrmResourceName = p1
     , _attrmTags = p2
     }
+{-# INLINE addTagsToResource #-}
 
 data AddTagsToResource = AddTagsToResource
     { _attrmResourceName :: Text
@@ -61,27 +62,17 @@ data AddTagsToResource = AddTagsToResource
 -- | The Amazon RDS resource the tags will be added to. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
-attrmResourceName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddTagsToResource
-    -> f AddTagsToResource
+attrmResourceName :: Lens' AddTagsToResource (Text)
 attrmResourceName f x =
-    (\y -> x { _attrmResourceName = y })
-       <$> f (_attrmResourceName x)
+    f (_attrmResourceName x)
+        <&> \y -> x { _attrmResourceName = y }
 {-# INLINE attrmResourceName #-}
 
 -- | The tags to be assigned to the Amazon RDS resource.
-attrmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> AddTagsToResource
-    -> f AddTagsToResource
+attrmTags :: Lens' AddTagsToResource ([Tag])
 attrmTags f x =
-    (\y -> x { _attrmTags = y })
-       <$> f (_attrmTags x)
+    f (_attrmTags x)
+        <&> \y -> x { _attrmTags = y }
 {-# INLINE attrmTags #-}
 
 instance ToQuery AddTagsToResource where

@@ -67,6 +67,7 @@ rebootDBInstance p1 = RebootDBInstance
     { _rdbinDBInstanceIdentifier = p1
     , _rdbinForceFailover = Nothing
     }
+{-# INLINE rebootDBInstance #-}
 
 data RebootDBInstance = RebootDBInstance
     { _rdbinDBInstanceIdentifier :: Text
@@ -85,29 +86,19 @@ data RebootDBInstance = RebootDBInstance
 -- Constraints: Must contain from 1 to 63 alphanumeric characters or hyphens
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-rdbinDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RebootDBInstance
-    -> f RebootDBInstance
+rdbinDBInstanceIdentifier :: Lens' RebootDBInstance (Text)
 rdbinDBInstanceIdentifier f x =
-    (\y -> x { _rdbinDBInstanceIdentifier = y })
-       <$> f (_rdbinDBInstanceIdentifier x)
+    f (_rdbinDBInstanceIdentifier x)
+        <&> \y -> x { _rdbinDBInstanceIdentifier = y }
 {-# INLINE rdbinDBInstanceIdentifier #-}
 
 -- | When true, the reboot will be conducted through a MultiAZ failover.
 -- Constraint: You cannot specify true if the instance is not configured for
 -- MultiAZ.
-rdbinForceFailover
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RebootDBInstance
-    -> f RebootDBInstance
+rdbinForceFailover :: Lens' RebootDBInstance (Maybe Bool)
 rdbinForceFailover f x =
-    (\y -> x { _rdbinForceFailover = y })
-       <$> f (_rdbinForceFailover x)
+    f (_rdbinForceFailover x)
+        <&> \y -> x { _rdbinForceFailover = y }
 {-# INLINE rdbinForceFailover #-}
 
 instance ToQuery RebootDBInstance where
@@ -124,15 +115,10 @@ data RebootDBInstanceResponse = RebootDBInstanceResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbidsDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> RebootDBInstanceResponse
-    -> f RebootDBInstanceResponse
+dbidsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 dbidsDBInstance f x =
-    (\y -> x { _dbidsDBInstance = y })
-       <$> f (_dbidsDBInstance x)
+    f (_dbidsDBInstance x)
+        <&> \y -> x { _dbidsDBInstance = y }
 {-# INLINE dbidsDBInstance #-}
 
 instance FromXML RebootDBInstanceResponse where

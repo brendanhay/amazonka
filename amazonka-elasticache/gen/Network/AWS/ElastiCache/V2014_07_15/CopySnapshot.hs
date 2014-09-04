@@ -46,6 +46,7 @@ copySnapshot p1 p2 = CopySnapshot
     { _csmSourceSnapshotName = p1
     , _csmTargetSnapshotName = p2
     }
+{-# INLINE copySnapshot #-}
 
 data CopySnapshot = CopySnapshot
     { _csmSourceSnapshotName :: Text
@@ -55,27 +56,17 @@ data CopySnapshot = CopySnapshot
     } deriving (Show, Generic)
 
 -- | The name of an existing snapshot from which to copy.
-csmSourceSnapshotName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csmSourceSnapshotName :: Lens' CopySnapshot (Text)
 csmSourceSnapshotName f x =
-    (\y -> x { _csmSourceSnapshotName = y })
-       <$> f (_csmSourceSnapshotName x)
+    f (_csmSourceSnapshotName x)
+        <&> \y -> x { _csmSourceSnapshotName = y }
 {-# INLINE csmSourceSnapshotName #-}
 
 -- | A name for the copied snapshot.
-csmTargetSnapshotName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csmTargetSnapshotName :: Lens' CopySnapshot (Text)
 csmTargetSnapshotName f x =
-    (\y -> x { _csmTargetSnapshotName = y })
-       <$> f (_csmTargetSnapshotName x)
+    f (_csmTargetSnapshotName x)
+        <&> \y -> x { _csmTargetSnapshotName = y }
 {-# INLINE csmTargetSnapshotName #-}
 
 instance ToQuery CopySnapshot where
@@ -89,15 +80,10 @@ data CopySnapshotResponse = CopySnapshotResponse
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-swSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> CopySnapshotResponse
-    -> f CopySnapshotResponse
+swSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 swSnapshot f x =
-    (\y -> x { _swSnapshot = y })
-       <$> f (_swSnapshot x)
+    f (_swSnapshot x)
+        <&> \y -> x { _swSnapshot = y }
 {-# INLINE swSnapshot #-}
 
 instance FromXML CopySnapshotResponse where

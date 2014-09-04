@@ -46,6 +46,7 @@ cancelArchival p1 p2 = CancelArchival
     { _caiGatewayARN = p1
     , _caiTapeARN = p2
     }
+{-# INLINE cancelArchival #-}
 
 data CancelArchival = CancelArchival
     { _caiGatewayARN :: Text
@@ -57,26 +58,16 @@ data CancelArchival = CancelArchival
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-caiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelArchival
-    -> f CancelArchival
+caiGatewayARN :: Lens' CancelArchival (Text)
 caiGatewayARN f x =
-    (\y -> x { _caiGatewayARN = y })
-       <$> f (_caiGatewayARN x)
+    f (_caiGatewayARN x)
+        <&> \y -> x { _caiGatewayARN = y }
 {-# INLINE caiGatewayARN #-}
 
-caiTapeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelArchival
-    -> f CancelArchival
+caiTapeARN :: Lens' CancelArchival (Text)
 caiTapeARN f x =
-    (\y -> x { _caiTapeARN = y })
-       <$> f (_caiTapeARN x)
+    f (_caiTapeARN x)
+        <&> \y -> x { _caiTapeARN = y }
 {-# INLINE caiTapeARN #-}
 
 instance ToPath CancelArchival
@@ -91,15 +82,10 @@ data CancelArchivalResponse = CancelArchivalResponse
     { _caoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-caoTapeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CancelArchivalResponse
-    -> f CancelArchivalResponse
+caoTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 caoTapeARN f x =
-    (\y -> x { _caoTapeARN = y })
-       <$> f (_caoTapeARN x)
+    f (_caoTapeARN x)
+        <&> \y -> x { _caoTapeARN = y }
 {-# INLINE caoTapeARN #-}
 
 instance FromJSON CancelArchivalResponse

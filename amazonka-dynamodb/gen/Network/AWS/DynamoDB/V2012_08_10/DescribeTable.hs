@@ -59,6 +59,7 @@ describeTable :: Text -- ^ 'dtjTableName'
 describeTable p1 = DescribeTable
     { _dtjTableName = p1
     }
+{-# INLINE describeTable #-}
 
 data DescribeTable = DescribeTable
     { _dtjTableName :: Text
@@ -66,15 +67,10 @@ data DescribeTable = DescribeTable
     } deriving (Show, Generic)
 
 -- | The name of the table to describe.
-dtjTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeTable
-    -> f DescribeTable
+dtjTableName :: Lens' DescribeTable (Text)
 dtjTableName f x =
-    (\y -> x { _dtjTableName = y })
-       <$> f (_dtjTableName x)
+    f (_dtjTableName x)
+        <&> \y -> x { _dtjTableName = y }
 {-# INLINE dtjTableName #-}
 
 instance ToPath DescribeTable
@@ -91,15 +87,10 @@ data DescribeTableResponse = DescribeTableResponse
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-dtpTable
-    :: Functor f
-    => (Maybe TableDescription
-    -> f (Maybe TableDescription))
-    -> DescribeTableResponse
-    -> f DescribeTableResponse
+dtpTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 dtpTable f x =
-    (\y -> x { _dtpTable = y })
-       <$> f (_dtpTable x)
+    f (_dtpTable x)
+        <&> \y -> x { _dtpTable = y }
 {-# INLINE dtpTable #-}
 
 instance FromJSON DescribeTableResponse

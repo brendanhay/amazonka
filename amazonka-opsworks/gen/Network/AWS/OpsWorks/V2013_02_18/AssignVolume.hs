@@ -50,6 +50,7 @@ assignVolume p1 = AssignVolume
     { _avrVolumeId = p1
     , _avrInstanceId = Nothing
     }
+{-# INLINE assignVolume #-}
 
 data AssignVolume = AssignVolume
     { _avrVolumeId :: Text
@@ -59,27 +60,17 @@ data AssignVolume = AssignVolume
     } deriving (Show, Generic)
 
 -- | The volume ID.
-avrVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssignVolume
-    -> f AssignVolume
+avrVolumeId :: Lens' AssignVolume (Text)
 avrVolumeId f x =
-    (\y -> x { _avrVolumeId = y })
-       <$> f (_avrVolumeId x)
+    f (_avrVolumeId x)
+        <&> \y -> x { _avrVolumeId = y }
 {-# INLINE avrVolumeId #-}
 
 -- | The instance ID.
-avrInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssignVolume
-    -> f AssignVolume
+avrInstanceId :: Lens' AssignVolume (Maybe Text)
 avrInstanceId f x =
-    (\y -> x { _avrInstanceId = y })
-       <$> f (_avrInstanceId x)
+    f (_avrInstanceId x)
+        <&> \y -> x { _avrInstanceId = y }
 {-# INLINE avrInstanceId #-}
 
 instance ToPath AssignVolume

@@ -84,6 +84,7 @@ signalWorkflowExecution p1 p2 p3 = SignalWorkflowExecution
     , _sweiInput = Nothing
     , _sweiRunId = Nothing
     }
+{-# INLINE signalWorkflowExecution #-}
 
 data SignalWorkflowExecution = SignalWorkflowExecution
     { _sweiDomain :: Text
@@ -102,65 +103,40 @@ data SignalWorkflowExecution = SignalWorkflowExecution
     } deriving (Show, Generic)
 
 -- | The name of the domain containing the workflow execution to signal.
-sweiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalWorkflowExecution
-    -> f SignalWorkflowExecution
+sweiDomain :: Lens' SignalWorkflowExecution (Text)
 sweiDomain f x =
-    (\y -> x { _sweiDomain = y })
-       <$> f (_sweiDomain x)
+    f (_sweiDomain x)
+        <&> \y -> x { _sweiDomain = y }
 {-# INLINE sweiDomain #-}
 
 -- | The name of the signal. This name must be meaningful to the target
 -- workflow.
-sweiSignalName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalWorkflowExecution
-    -> f SignalWorkflowExecution
+sweiSignalName :: Lens' SignalWorkflowExecution (Text)
 sweiSignalName f x =
-    (\y -> x { _sweiSignalName = y })
-       <$> f (_sweiSignalName x)
+    f (_sweiSignalName x)
+        <&> \y -> x { _sweiSignalName = y }
 {-# INLINE sweiSignalName #-}
 
 -- | The workflowId of the workflow execution to signal.
-sweiWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalWorkflowExecution
-    -> f SignalWorkflowExecution
+sweiWorkflowId :: Lens' SignalWorkflowExecution (Text)
 sweiWorkflowId f x =
-    (\y -> x { _sweiWorkflowId = y })
-       <$> f (_sweiWorkflowId x)
+    f (_sweiWorkflowId x)
+        <&> \y -> x { _sweiWorkflowId = y }
 {-# INLINE sweiWorkflowId #-}
 
 -- | Data to attach to the WorkflowExecutionSignaled event in the target
 -- workflow execution's history.
-sweiInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalWorkflowExecution
-    -> f SignalWorkflowExecution
+sweiInput :: Lens' SignalWorkflowExecution (Maybe Text)
 sweiInput f x =
-    (\y -> x { _sweiInput = y })
-       <$> f (_sweiInput x)
+    f (_sweiInput x)
+        <&> \y -> x { _sweiInput = y }
 {-# INLINE sweiInput #-}
 
 -- | The runId of the workflow execution to signal.
-sweiRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalWorkflowExecution
-    -> f SignalWorkflowExecution
+sweiRunId :: Lens' SignalWorkflowExecution (Maybe Text)
 sweiRunId f x =
-    (\y -> x { _sweiRunId = y })
-       <$> f (_sweiRunId x)
+    f (_sweiRunId x)
+        <&> \y -> x { _sweiRunId = y }
 {-# INLINE sweiRunId #-}
 
 instance ToPath SignalWorkflowExecution

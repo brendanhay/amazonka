@@ -56,6 +56,7 @@ estimateTemplateCost = EstimateTemplateCost
     , _etciTemplateBody = Nothing
     , _etciTemplateURL = Nothing
     }
+{-# INLINE estimateTemplateCost #-}
 
 data EstimateTemplateCost = EstimateTemplateCost
     { _etciParameters :: [Parameter]
@@ -75,30 +76,20 @@ data EstimateTemplateCost = EstimateTemplateCost
     } deriving (Show, Generic)
 
 -- | A list of Parameter structures that specify input parameters.
-etciParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> EstimateTemplateCost
-    -> f EstimateTemplateCost
+etciParameters :: Lens' EstimateTemplateCost ([Parameter])
 etciParameters f x =
-    (\y -> x { _etciParameters = y })
-       <$> f (_etciParameters x)
+    f (_etciParameters x)
+        <&> \y -> x { _etciParameters = y }
 {-# INLINE etciParameters #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. (For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide.) Conditional: You must pass
 -- TemplateBody or TemplateURL. If both are passed, only TemplateBody is used.
-etciTemplateBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EstimateTemplateCost
-    -> f EstimateTemplateCost
+etciTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
 etciTemplateBody f x =
-    (\y -> x { _etciTemplateBody = y })
-       <$> f (_etciTemplateBody x)
+    f (_etciTemplateBody x)
+        <&> \y -> x { _etciTemplateBody = y }
 {-# INLINE etciTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
@@ -106,15 +97,10 @@ etciTemplateBody f x =
 -- information, go to Template Anatomy in the AWS CloudFormation User Guide.
 -- Conditional: You must pass TemplateURL or TemplateBody. If both are passed,
 -- only TemplateBody is used.
-etciTemplateURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EstimateTemplateCost
-    -> f EstimateTemplateCost
+etciTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etciTemplateURL f x =
-    (\y -> x { _etciTemplateURL = y })
-       <$> f (_etciTemplateURL x)
+    f (_etciTemplateURL x)
+        <&> \y -> x { _etciTemplateURL = y }
 {-# INLINE etciTemplateURL #-}
 
 instance ToQuery EstimateTemplateCost where
@@ -128,15 +114,10 @@ data EstimateTemplateCostResponse = EstimateTemplateCostResponse
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
-etcoUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EstimateTemplateCostResponse
-    -> f EstimateTemplateCostResponse
+etcoUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcoUrl f x =
-    (\y -> x { _etcoUrl = y })
-       <$> f (_etcoUrl x)
+    f (_etcoUrl x)
+        <&> \y -> x { _etcoUrl = y }
 {-# INLINE etcoUrl #-}
 
 instance FromXML EstimateTemplateCostResponse where

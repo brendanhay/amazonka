@@ -92,6 +92,7 @@ publish p1 = Publish
     , _piSubject = Nothing
     , _piTopicArn = Nothing
     }
+{-# INLINE publish #-}
 
 data Publish = Publish
     { _piMessage :: Text
@@ -165,27 +166,17 @@ data Publish = Publish
 -- Duplicate keys are not allowed. Failure to parse or validate any key or
 -- value in the message will cause the Publish call to return an error (no
 -- partial delivery).
-piMessage
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Publish
-    -> f Publish
+piMessage :: Lens' Publish (Text)
 piMessage f x =
-    (\y -> x { _piMessage = y })
-       <$> f (_piMessage x)
+    f (_piMessage x)
+        <&> \y -> x { _piMessage = y }
 {-# INLINE piMessage #-}
 
 -- | Message attributes for Publish action.
-piMessageAttributes
-    :: Functor f
-    => (Map Text MessageAttributeValue
-    -> f (Map Text MessageAttributeValue))
-    -> Publish
-    -> f Publish
+piMessageAttributes :: Lens' Publish (Map Text MessageAttributeValue)
 piMessageAttributes f x =
-    (\y -> x { _piMessageAttributes = y })
-       <$> f (_piMessageAttributes x)
+    f (_piMessageAttributes x)
+        <&> \y -> x { _piMessageAttributes = y }
 {-# INLINE piMessageAttributes #-}
 
 -- | Set MessageStructure to json if you want to send a different message for
@@ -199,27 +190,17 @@ piMessageAttributes f x =
 -- different messages for each protocol using the AWS Management Console, go
 -- to Create Different Messages for Each Protocol in the Amazon Simple
 -- Notification Service Getting Started Guide. Valid value: json.
-piMessageStructure
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Publish
-    -> f Publish
+piMessageStructure :: Lens' Publish (Maybe Text)
 piMessageStructure f x =
-    (\y -> x { _piMessageStructure = y })
-       <$> f (_piMessageStructure x)
+    f (_piMessageStructure x)
+        <&> \y -> x { _piMessageStructure = y }
 {-# INLINE piMessageStructure #-}
 
 -- | Either TopicArn or EndpointArn, but not both.
-piTargetArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Publish
-    -> f Publish
+piTargetArn :: Lens' Publish (Maybe Text)
 piTargetArn f x =
-    (\y -> x { _piTargetArn = y })
-       <$> f (_piTargetArn x)
+    f (_piTargetArn x)
+        <&> \y -> x { _piTargetArn = y }
 {-# INLINE piTargetArn #-}
 
 -- | Optional parameter to be used as the "Subject" line when the message is
@@ -228,27 +209,17 @@ piTargetArn f x =
 -- Subjects must be ASCII text that begins with a letter, number, or
 -- punctuation mark; must not include line breaks or control characters; and
 -- must be less than 100 characters long.
-piSubject
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Publish
-    -> f Publish
+piSubject :: Lens' Publish (Maybe Text)
 piSubject f x =
-    (\y -> x { _piSubject = y })
-       <$> f (_piSubject x)
+    f (_piSubject x)
+        <&> \y -> x { _piSubject = y }
 {-# INLINE piSubject #-}
 
 -- | The topic you want to publish to.
-piTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Publish
-    -> f Publish
+piTopicArn :: Lens' Publish (Maybe Text)
 piTopicArn f x =
-    (\y -> x { _piTopicArn = y })
-       <$> f (_piTopicArn x)
+    f (_piTopicArn x)
+        <&> \y -> x { _piTopicArn = y }
 {-# INLINE piTopicArn #-}
 
 instance ToQuery Publish where
@@ -262,15 +233,10 @@ data PublishResponse = PublishResponse
 
 -- | Unique identifier assigned to the published message. Length Constraint:
 -- Maximum 100 characters.
-prMessageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PublishResponse
-    -> f PublishResponse
+prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId f x =
-    (\y -> x { _prMessageId = y })
-       <$> f (_prMessageId x)
+    f (_prMessageId x)
+        <&> \y -> x { _prMessageId = y }
 {-# INLINE prMessageId #-}
 
 instance FromXML PublishResponse where

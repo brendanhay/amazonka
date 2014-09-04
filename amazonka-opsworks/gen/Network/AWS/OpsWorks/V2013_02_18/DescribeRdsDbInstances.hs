@@ -46,6 +46,7 @@ describeRdsDbInstances p1 = DescribeRdsDbInstances
     { _drdisStackId = p1
     , _drdisRdsDbInstanceArns = mempty
     }
+{-# INLINE describeRdsDbInstances #-}
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
     { _drdisStackId :: Text
@@ -58,27 +59,17 @@ data DescribeRdsDbInstances = DescribeRdsDbInstances
 
 -- | The stack ID that the instances are registered with. The operation returns
 -- descriptions of all registered Amazon RDS instances.
-drdisStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeRdsDbInstances
-    -> f DescribeRdsDbInstances
+drdisStackId :: Lens' DescribeRdsDbInstances (Text)
 drdisStackId f x =
-    (\y -> x { _drdisStackId = y })
-       <$> f (_drdisStackId x)
+    f (_drdisStackId x)
+        <&> \y -> x { _drdisStackId = y }
 {-# INLINE drdisStackId #-}
 
 -- | An array containing the ARNs of the instances to be described.
-drdisRdsDbInstanceArns
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeRdsDbInstances
-    -> f DescribeRdsDbInstances
+drdisRdsDbInstanceArns :: Lens' DescribeRdsDbInstances ([Text])
 drdisRdsDbInstanceArns f x =
-    (\y -> x { _drdisRdsDbInstanceArns = y })
-       <$> f (_drdisRdsDbInstanceArns x)
+    f (_drdisRdsDbInstanceArns x)
+        <&> \y -> x { _drdisRdsDbInstanceArns = y }
 {-# INLINE drdisRdsDbInstanceArns #-}
 
 instance ToPath DescribeRdsDbInstances
@@ -95,15 +86,10 @@ data DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     } deriving (Show, Generic)
 
 -- | An a array of RdsDbInstance objects that describe the instances.
-drditRdsDbInstances
-    :: Functor f
-    => ([RdsDbInstance]
-    -> f ([RdsDbInstance]))
-    -> DescribeRdsDbInstancesResponse
-    -> f DescribeRdsDbInstancesResponse
+drditRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse ([RdsDbInstance])
 drditRdsDbInstances f x =
-    (\y -> x { _drditRdsDbInstances = y })
-       <$> f (_drditRdsDbInstances x)
+    f (_drditRdsDbInstances x)
+        <&> \y -> x { _drditRdsDbInstances = y }
 {-# INLINE drditRdsDbInstances #-}
 
 instance FromJSON DescribeRdsDbInstancesResponse

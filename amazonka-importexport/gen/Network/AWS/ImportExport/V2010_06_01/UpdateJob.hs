@@ -57,6 +57,7 @@ updateJob p1 p2 p3 p4 = UpdateJob
     , _ujiManifest = p3
     , _ujiValidateOnly = p4
     }
+{-# INLINE updateJob #-}
 
 data UpdateJob = UpdateJob
     { _ujiJobId :: Text
@@ -71,52 +72,32 @@ data UpdateJob = UpdateJob
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
-ujiJobId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateJob
-    -> f UpdateJob
+ujiJobId :: Lens' UpdateJob (Text)
 ujiJobId f x =
-    (\y -> x { _ujiJobId = y })
-       <$> f (_ujiJobId x)
+    f (_ujiJobId x)
+        <&> \y -> x { _ujiJobId = y }
 {-# INLINE ujiJobId #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
-ujiJobType
-    :: Functor f
-    => (JobType
-    -> f (JobType))
-    -> UpdateJob
-    -> f UpdateJob
+ujiJobType :: Lens' UpdateJob (JobType)
 ujiJobType f x =
-    (\y -> x { _ujiJobType = y })
-       <$> f (_ujiJobType x)
+    f (_ujiJobType x)
+        <&> \y -> x { _ujiJobType = y }
 {-# INLINE ujiJobType #-}
 
 -- | The UTF-8 encoded text of the manifest file.
-ujiManifest
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateJob
-    -> f UpdateJob
+ujiManifest :: Lens' UpdateJob (Text)
 ujiManifest f x =
-    (\y -> x { _ujiManifest = y })
-       <$> f (_ujiManifest x)
+    f (_ujiManifest x)
+        <&> \y -> x { _ujiManifest = y }
 {-# INLINE ujiManifest #-}
 
 -- | Validate the manifest and parameter values in the request but do not
 -- actually create a job.
-ujiValidateOnly
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> UpdateJob
-    -> f UpdateJob
+ujiValidateOnly :: Lens' UpdateJob (Bool)
 ujiValidateOnly f x =
-    (\y -> x { _ujiValidateOnly = y })
-       <$> f (_ujiValidateOnly x)
+    f (_ujiValidateOnly x)
+        <&> \y -> x { _ujiValidateOnly = y }
 {-# INLINE ujiValidateOnly #-}
 
 instance ToQuery UpdateJob where
@@ -132,28 +113,18 @@ data UpdateJobResponse = UpdateJobResponse
     } deriving (Show, Generic)
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
-ujoSuccess
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateJobResponse
-    -> f UpdateJobResponse
+ujoSuccess :: Lens' UpdateJobResponse (Maybe Bool)
 ujoSuccess f x =
-    (\y -> x { _ujoSuccess = y })
-       <$> f (_ujoSuccess x)
+    f (_ujoSuccess x)
+        <&> \y -> x { _ujoSuccess = y }
 {-# INLINE ujoSuccess #-}
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
-ujoWarningMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateJobResponse
-    -> f UpdateJobResponse
+ujoWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujoWarningMessage f x =
-    (\y -> x { _ujoWarningMessage = y })
-       <$> f (_ujoWarningMessage x)
+    f (_ujoWarningMessage x)
+        <&> \y -> x { _ujoWarningMessage = y }
 {-# INLINE ujoWarningMessage #-}
 
 instance FromXML UpdateJobResponse where

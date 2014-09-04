@@ -125,6 +125,7 @@ assumeRole p1 p2 = AssumeRole
     , _arrPolicy = Nothing
     , _arrTokenCode = Nothing
     }
+{-# INLINE assumeRole #-}
 
 data AssumeRole = AssumeRole
     { _arrRoleArn :: Text
@@ -176,28 +177,18 @@ data AssumeRole = AssumeRole
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arrRoleArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRole
-    -> f AssumeRole
+arrRoleArn :: Lens' AssumeRole (Text)
 arrRoleArn f x =
-    (\y -> x { _arrRoleArn = y })
-       <$> f (_arrRoleArn x)
+    f (_arrRoleArn x)
+        <&> \y -> x { _arrRoleArn = y }
 {-# INLINE arrRoleArn #-}
 
 -- | An identifier for the assumed role session. The session name is included as
 -- part of the AssumedRoleUser.
-arrRoleSessionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRole
-    -> f AssumeRole
+arrRoleSessionName :: Lens' AssumeRole (Text)
 arrRoleSessionName f x =
-    (\y -> x { _arrRoleSessionName = y })
-       <$> f (_arrRoleSessionName x)
+    f (_arrRoleSessionName x)
+        <&> \y -> x { _arrRoleSessionName = y }
 {-# INLINE arrRoleSessionName #-}
 
 -- | A unique identifier that is used by third parties to assume a role in their
@@ -208,29 +199,19 @@ arrRoleSessionName f x =
 -- help third parties bind a role to the customer who created it. For more
 -- information about the external ID, see About the External ID in Using
 -- Temporary Security Credentials.
-arrExternalId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRole
-    -> f AssumeRole
+arrExternalId :: Lens' AssumeRole (Maybe Text)
 arrExternalId f x =
-    (\y -> x { _arrExternalId = y })
-       <$> f (_arrExternalId x)
+    f (_arrExternalId x)
+        <&> \y -> x { _arrExternalId = y }
 {-# INLINE arrExternalId #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
 -- to 3600 seconds.
-arrDurationSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssumeRole
-    -> f AssumeRole
+arrDurationSeconds :: Lens' AssumeRole (Maybe Integer)
 arrDurationSeconds f x =
-    (\y -> x { _arrDurationSeconds = y })
-       <$> f (_arrDurationSeconds x)
+    f (_arrDurationSeconds x)
+        <&> \y -> x { _arrDurationSeconds = y }
 {-# INLINE arrDurationSeconds #-}
 
 -- | The identification number of the MFA device that is associated with the
@@ -239,15 +220,10 @@ arrDurationSeconds f x =
 -- authentication. The value is either the serial number for a hardware device
 -- (such as GAHT12345678) or an Amazon Resource Name (ARN) for a virtual
 -- device (such as arn:aws:iam::123456789012:mfa/user).
-arrSerialNumber
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRole
-    -> f AssumeRole
+arrSerialNumber :: Lens' AssumeRole (Maybe Text)
 arrSerialNumber f x =
-    (\y -> x { _arrSerialNumber = y })
-       <$> f (_arrSerialNumber x)
+    f (_arrSerialNumber x)
+        <&> \y -> x { _arrSerialNumber = y }
 {-# INLINE arrSerialNumber #-}
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you pass
@@ -259,15 +235,10 @@ arrSerialNumber f x =
 -- that are in excess of those allowed by the access policy of the role that
 -- is being assumed. For more information, see Permissions for AssumeRole in
 -- Using Temporary Security Credentials.
-arrPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRole
-    -> f AssumeRole
+arrPolicy :: Lens' AssumeRole (Maybe Text)
 arrPolicy f x =
-    (\y -> x { _arrPolicy = y })
-       <$> f (_arrPolicy x)
+    f (_arrPolicy x)
+        <&> \y -> x { _arrPolicy = y }
 {-# INLINE arrPolicy #-}
 
 -- | The value provided by the MFA device, if the trust policy of the role being
@@ -275,15 +246,10 @@ arrPolicy f x =
 -- tests for MFA). If the role being assumed requires MFA and if the TokenCode
 -- value is missing or expired, the AssumeRole call returns an "access denied"
 -- error.
-arrTokenCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRole
-    -> f AssumeRole
+arrTokenCode :: Lens' AssumeRole (Maybe Text)
 arrTokenCode f x =
-    (\y -> x { _arrTokenCode = y })
-       <$> f (_arrTokenCode x)
+    f (_arrTokenCode x)
+        <&> \y -> x { _arrTokenCode = y }
 {-# INLINE arrTokenCode #-}
 
 instance ToQuery AssumeRole where
@@ -313,42 +279,27 @@ data AssumeRoleResponse = AssumeRoleResponse
 -- principal in a resource-based policy by using the ARN or assumed role ID.
 -- The ARN and ID include the RoleSessionName that you specified when you
 -- called AssumeRole.
-arsAssumedRoleUser
-    :: Functor f
-    => (Maybe AssumedRoleUser
-    -> f (Maybe AssumedRoleUser))
-    -> AssumeRoleResponse
-    -> f AssumeRoleResponse
+arsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arsAssumedRoleUser f x =
-    (\y -> x { _arsAssumedRoleUser = y })
-       <$> f (_arsAssumedRoleUser x)
+    f (_arsAssumedRoleUser x)
+        <&> \y -> x { _arsAssumedRoleUser = y }
 {-# INLINE arsAssumedRoleUser #-}
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.
-arsCredentials
-    :: Functor f
-    => (Maybe Credentials
-    -> f (Maybe Credentials))
-    -> AssumeRoleResponse
-    -> f AssumeRoleResponse
+arsCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
 arsCredentials f x =
-    (\y -> x { _arsCredentials = y })
-       <$> f (_arsCredentials x)
+    f (_arsCredentials x)
+        <&> \y -> x { _arsCredentials = y }
 {-# INLINE arsCredentials #-}
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arsPackedPolicySize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssumeRoleResponse
-    -> f AssumeRoleResponse
+arsPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Integer)
 arsPackedPolicySize f x =
-    (\y -> x { _arsPackedPolicySize = y })
-       <$> f (_arsPackedPolicySize x)
+    f (_arsPackedPolicySize x)
+        <&> \y -> x { _arsPackedPolicySize = y }
 {-# INLINE arsPackedPolicySize #-}
 
 instance FromXML AssumeRoleResponse where

@@ -27,7 +27,6 @@ module Network.AWS.OpsWorks.V2013_02_18.Types
       OpsWorks
     -- ** Errors
     , Er (..)
-
     -- * AppAttributesKeys
     , AppAttributesKeys (..)
 
@@ -961,160 +960,95 @@ data App = App
     } deriving (Show, Generic)
 
 -- | The app ID.
-apAppId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> App
-    -> f App
+apAppId :: Lens' App (Maybe Text)
 apAppId f x =
-    (\y -> x { _apAppId = y })
-       <$> f (_apAppId x)
+    f (_apAppId x)
+        <&> \y -> x { _apAppId = y }
 {-# INLINE apAppId #-}
 
 -- | The app stack ID.
-apStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> App
-    -> f App
+apStackId :: Lens' App (Maybe Text)
 apStackId f x =
-    (\y -> x { _apStackId = y })
-       <$> f (_apStackId x)
+    f (_apStackId x)
+        <&> \y -> x { _apStackId = y }
 {-# INLINE apStackId #-}
 
 -- | The app's short name.
-apShortname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> App
-    -> f App
+apShortname :: Lens' App (Maybe Text)
 apShortname f x =
-    (\y -> x { _apShortname = y })
-       <$> f (_apShortname x)
+    f (_apShortname x)
+        <&> \y -> x { _apShortname = y }
 {-# INLINE apShortname #-}
 
 -- | The app name.
-apName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> App
-    -> f App
+apName :: Lens' App (Maybe Text)
 apName f x =
-    (\y -> x { _apName = y })
-       <$> f (_apName x)
+    f (_apName x)
+        <&> \y -> x { _apName = y }
 {-# INLINE apName #-}
 
 -- | A description of the app.
-apDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> App
-    -> f App
+apDescription :: Lens' App (Maybe Text)
 apDescription f x =
-    (\y -> x { _apDescription = y })
-       <$> f (_apDescription x)
+    f (_apDescription x)
+        <&> \y -> x { _apDescription = y }
 {-# INLINE apDescription #-}
 
 -- | The app's data sources.
-apDataSources
-    :: Functor f
-    => ([DataSource]
-    -> f ([DataSource]))
-    -> App
-    -> f App
+apDataSources :: Lens' App ([DataSource])
 apDataSources f x =
-    (\y -> x { _apDataSources = y })
-       <$> f (_apDataSources x)
+    f (_apDataSources x)
+        <&> \y -> x { _apDataSources = y }
 {-# INLINE apDataSources #-}
 
 -- | The app type.
-apType
-    :: Functor f
-    => (Maybe AppType
-    -> f (Maybe AppType))
-    -> App
-    -> f App
+apType :: Lens' App (Maybe AppType)
 apType f x =
-    (\y -> x { _apType = y })
-       <$> f (_apType x)
+    f (_apType x)
+        <&> \y -> x { _apType = y }
 {-# INLINE apType #-}
 
 -- | A Source object that describes the app repository.
-apAppSource
-    :: Functor f
-    => (Maybe Source
-    -> f (Maybe Source))
-    -> App
-    -> f App
+apAppSource :: Lens' App (Maybe Source)
 apAppSource f x =
-    (\y -> x { _apAppSource = y })
-       <$> f (_apAppSource x)
+    f (_apAppSource x)
+        <&> \y -> x { _apAppSource = y }
 {-# INLINE apAppSource #-}
 
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: 'www.example.com, example.com'.
-apDomains
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> App
-    -> f App
+apDomains :: Lens' App ([Text])
 apDomains f x =
-    (\y -> x { _apDomains = y })
-       <$> f (_apDomains x)
+    f (_apDomains x)
+        <&> \y -> x { _apDomains = y }
 {-# INLINE apDomains #-}
 
 -- | Whether to enable SSL for the app.
-apEnableSsl
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> App
-    -> f App
+apEnableSsl :: Lens' App (Maybe Bool)
 apEnableSsl f x =
-    (\y -> x { _apEnableSsl = y })
-       <$> f (_apEnableSsl x)
+    f (_apEnableSsl x)
+        <&> \y -> x { _apEnableSsl = y }
 {-# INLINE apEnableSsl #-}
 
 -- | An SslConfiguration object with the SSL configuration.
-apSslConfiguration
-    :: Functor f
-    => (Maybe SslConfiguration
-    -> f (Maybe SslConfiguration))
-    -> App
-    -> f App
+apSslConfiguration :: Lens' App (Maybe SslConfiguration)
 apSslConfiguration f x =
-    (\y -> x { _apSslConfiguration = y })
-       <$> f (_apSslConfiguration x)
+    f (_apSslConfiguration x)
+        <&> \y -> x { _apSslConfiguration = y }
 {-# INLINE apSslConfiguration #-}
 
 -- | The stack attributes.
-apAttributes
-    :: Functor f
-    => (Map AppAttributesKeys Text
-    -> f (Map AppAttributesKeys Text))
-    -> App
-    -> f App
+apAttributes :: Lens' App (Map AppAttributesKeys Text)
 apAttributes f x =
-    (\y -> x { _apAttributes = y })
-       <$> f (_apAttributes x)
+    f (_apAttributes x)
+        <&> \y -> x { _apAttributes = y }
 {-# INLINE apAttributes #-}
 
 -- | When the app was created.
-apCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> App
-    -> f App
+apCreatedAt :: Lens' App (Maybe Text)
 apCreatedAt f x =
-    (\y -> x { _apCreatedAt = y })
-       <$> f (_apCreatedAt x)
+    f (_apCreatedAt x)
+        <&> \y -> x { _apCreatedAt = y }
 {-# INLINE apCreatedAt #-}
 
 instance FromJSON App
@@ -1150,28 +1084,18 @@ data AutoScalingThresholds = AutoScalingThresholds
     } deriving (Show, Generic)
 
 -- | The number of instances to add or remove when the load exceeds a threshold.
-asvInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AutoScalingThresholds
-    -> f AutoScalingThresholds
+asvInstanceCount :: Lens' AutoScalingThresholds (Maybe Integer)
 asvInstanceCount f x =
-    (\y -> x { _asvInstanceCount = y })
-       <$> f (_asvInstanceCount x)
+    f (_asvInstanceCount x)
+        <&> \y -> x { _asvInstanceCount = y }
 {-# INLINE asvInstanceCount #-}
 
 -- | The amount of time, in minutes, that the load must exceed a threshold
 -- before more instances are added or removed.
-asvThresholdsWaitTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AutoScalingThresholds
-    -> f AutoScalingThresholds
+asvThresholdsWaitTime :: Lens' AutoScalingThresholds (Maybe Integer)
 asvThresholdsWaitTime f x =
-    (\y -> x { _asvThresholdsWaitTime = y })
-       <$> f (_asvThresholdsWaitTime x)
+    f (_asvThresholdsWaitTime x)
+        <&> \y -> x { _asvThresholdsWaitTime = y }
 {-# INLINE asvThresholdsWaitTime #-}
 
 -- | The amount of time (in minutes) after a scaling event occurs that AWS
@@ -1182,52 +1106,32 @@ asvThresholdsWaitTime f x =
 -- during that operation, which typically takes several minutes.
 -- IgnoreMetricsTime allows you to direct AWS OpsWorks to not raise any
 -- scaling events long enough to get the new instances online.
-asvIgnoreMetricsTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AutoScalingThresholds
-    -> f AutoScalingThresholds
+asvIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Integer)
 asvIgnoreMetricsTime f x =
-    (\y -> x { _asvIgnoreMetricsTime = y })
-       <$> f (_asvIgnoreMetricsTime x)
+    f (_asvIgnoreMetricsTime x)
+        <&> \y -> x { _asvIgnoreMetricsTime = y }
 {-# INLINE asvIgnoreMetricsTime #-}
 
 -- | The CPU utilization threshold, as a percent of the available CPU.
-asvCpuThreshold
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> AutoScalingThresholds
-    -> f AutoScalingThresholds
+asvCpuThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 asvCpuThreshold f x =
-    (\y -> x { _asvCpuThreshold = y })
-       <$> f (_asvCpuThreshold x)
+    f (_asvCpuThreshold x)
+        <&> \y -> x { _asvCpuThreshold = y }
 {-# INLINE asvCpuThreshold #-}
 
 -- | The memory utilization threshold, as a percent of the available memory.
-asvMemoryThreshold
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> AutoScalingThresholds
-    -> f AutoScalingThresholds
+asvMemoryThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 asvMemoryThreshold f x =
-    (\y -> x { _asvMemoryThreshold = y })
-       <$> f (_asvMemoryThreshold x)
+    f (_asvMemoryThreshold x)
+        <&> \y -> x { _asvMemoryThreshold = y }
 {-# INLINE asvMemoryThreshold #-}
 
 -- | The load threshold. For more information about how load is computed, see
 -- Load (computing).
-asvLoadThreshold
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> AutoScalingThresholds
-    -> f AutoScalingThresholds
+asvLoadThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 asvLoadThreshold f x =
-    (\y -> x { _asvLoadThreshold = y })
-       <$> f (_asvLoadThreshold x)
+    f (_asvLoadThreshold x)
+        <&> \y -> x { _asvLoadThreshold = y }
 {-# INLINE asvLoadThreshold #-}
 
 instance FromJSON AutoScalingThresholds
@@ -1245,27 +1149,17 @@ data ChefConfiguration = ChefConfiguration
     } deriving (Show, Generic)
 
 -- | Whether to enable Berkshelf.
-ccManageBerkshelf
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ChefConfiguration
-    -> f ChefConfiguration
+ccManageBerkshelf :: Lens' ChefConfiguration (Maybe Bool)
 ccManageBerkshelf f x =
-    (\y -> x { _ccManageBerkshelf = y })
-       <$> f (_ccManageBerkshelf x)
+    f (_ccManageBerkshelf x)
+        <&> \y -> x { _ccManageBerkshelf = y }
 {-# INLINE ccManageBerkshelf #-}
 
 -- | The Berkshelf version.
-ccBerkshelfVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ChefConfiguration
-    -> f ChefConfiguration
+ccBerkshelfVersion :: Lens' ChefConfiguration (Maybe Text)
 ccBerkshelfVersion f x =
-    (\y -> x { _ccBerkshelfVersion = y })
-       <$> f (_ccBerkshelfVersion x)
+    f (_ccBerkshelfVersion x)
+        <&> \y -> x { _ccBerkshelfVersion = y }
 {-# INLINE ccBerkshelfVersion #-}
 
 instance FromJSON ChefConfiguration
@@ -1299,125 +1193,75 @@ data Command = Command
     } deriving (Show, Generic)
 
 -- | The command ID.
-ceCommandId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceCommandId :: Lens' Command (Maybe Text)
 ceCommandId f x =
-    (\y -> x { _ceCommandId = y })
-       <$> f (_ceCommandId x)
+    f (_ceCommandId x)
+        <&> \y -> x { _ceCommandId = y }
 {-# INLINE ceCommandId #-}
 
 -- | The ID of the instance where the command was executed.
-ceInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceInstanceId :: Lens' Command (Maybe Text)
 ceInstanceId f x =
-    (\y -> x { _ceInstanceId = y })
-       <$> f (_ceInstanceId x)
+    f (_ceInstanceId x)
+        <&> \y -> x { _ceInstanceId = y }
 {-# INLINE ceInstanceId #-}
 
 -- | The command deployment ID.
-ceDeploymentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceDeploymentId :: Lens' Command (Maybe Text)
 ceDeploymentId f x =
-    (\y -> x { _ceDeploymentId = y })
-       <$> f (_ceDeploymentId x)
+    f (_ceDeploymentId x)
+        <&> \y -> x { _ceDeploymentId = y }
 {-# INLINE ceDeploymentId #-}
 
 -- | Date and time when the command was run.
-ceCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceCreatedAt :: Lens' Command (Maybe Text)
 ceCreatedAt f x =
-    (\y -> x { _ceCreatedAt = y })
-       <$> f (_ceCreatedAt x)
+    f (_ceCreatedAt x)
+        <&> \y -> x { _ceCreatedAt = y }
 {-# INLINE ceCreatedAt #-}
 
 -- | Date and time when the command was acknowledged.
-ceAcknowledgedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceAcknowledgedAt :: Lens' Command (Maybe Text)
 ceAcknowledgedAt f x =
-    (\y -> x { _ceAcknowledgedAt = y })
-       <$> f (_ceAcknowledgedAt x)
+    f (_ceAcknowledgedAt x)
+        <&> \y -> x { _ceAcknowledgedAt = y }
 {-# INLINE ceAcknowledgedAt #-}
 
 -- | Date when the command completed.
-ceCompletedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceCompletedAt :: Lens' Command (Maybe Text)
 ceCompletedAt f x =
-    (\y -> x { _ceCompletedAt = y })
-       <$> f (_ceCompletedAt x)
+    f (_ceCompletedAt x)
+        <&> \y -> x { _ceCompletedAt = y }
 {-# INLINE ceCompletedAt #-}
 
 -- | The command status: failed successful skipped pending.
-ceStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceStatus :: Lens' Command (Maybe Text)
 ceStatus f x =
-    (\y -> x { _ceStatus = y })
-       <$> f (_ceStatus x)
+    f (_ceStatus x)
+        <&> \y -> x { _ceStatus = y }
 {-# INLINE ceStatus #-}
 
 -- | The command exit code.
-ceExitCode
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Command
-    -> f Command
+ceExitCode :: Lens' Command (Maybe Integer)
 ceExitCode f x =
-    (\y -> x { _ceExitCode = y })
-       <$> f (_ceExitCode x)
+    f (_ceExitCode x)
+        <&> \y -> x { _ceExitCode = y }
 {-# INLINE ceExitCode #-}
 
 -- | The URL of the command log.
-ceLogUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceLogUrl :: Lens' Command (Maybe Text)
 ceLogUrl f x =
-    (\y -> x { _ceLogUrl = y })
-       <$> f (_ceLogUrl x)
+    f (_ceLogUrl x)
+        <&> \y -> x { _ceLogUrl = y }
 {-# INLINE ceLogUrl #-}
 
 -- | The command type: deploy rollback start stop restart undeploy
 -- update_dependencies install_dependencies update_custom_cookbooks
 -- execute_recipes.
-ceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+ceType :: Lens' Command (Maybe Text)
 ceType f x =
-    (\y -> x { _ceType = y })
-       <$> f (_ceType x)
+    f (_ceType x)
+        <&> \y -> x { _ceType = y }
 {-# INLINE ceType #-}
 
 instance FromJSON Command
@@ -1435,39 +1279,24 @@ data DataSource = DataSource
 
 -- | The data source's type, AutoSelectOpsworksMysqlInstance,
 -- OpsworksMysqlInstance, or RdsDbInstance.
-dtType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DataSource
-    -> f DataSource
+dtType :: Lens' DataSource (Maybe Text)
 dtType f x =
-    (\y -> x { _dtType = y })
-       <$> f (_dtType x)
+    f (_dtType x)
+        <&> \y -> x { _dtType = y }
 {-# INLINE dtType #-}
 
 -- | The data source's ARN.
-dtArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DataSource
-    -> f DataSource
+dtArn :: Lens' DataSource (Maybe Text)
 dtArn f x =
-    (\y -> x { _dtArn = y })
-       <$> f (_dtArn x)
+    f (_dtArn x)
+        <&> \y -> x { _dtArn = y }
 {-# INLINE dtArn #-}
 
 -- | The database name.
-dtDatabaseName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DataSource
-    -> f DataSource
+dtDatabaseName :: Lens' DataSource (Maybe Text)
 dtDatabaseName f x =
-    (\y -> x { _dtDatabaseName = y })
-       <$> f (_dtDatabaseName x)
+    f (_dtDatabaseName x)
+        <&> \y -> x { _dtDatabaseName = y }
 {-# INLINE dtDatabaseName #-}
 
 instance FromJSON DataSource
@@ -1508,123 +1337,73 @@ data Deployment = Deployment
     } deriving (Show, Generic)
 
 -- | The deployment ID.
-ddtDeploymentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtDeploymentId :: Lens' Deployment (Maybe Text)
 ddtDeploymentId f x =
-    (\y -> x { _ddtDeploymentId = y })
-       <$> f (_ddtDeploymentId x)
+    f (_ddtDeploymentId x)
+        <&> \y -> x { _ddtDeploymentId = y }
 {-# INLINE ddtDeploymentId #-}
 
 -- | The stack ID.
-ddtStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtStackId :: Lens' Deployment (Maybe Text)
 ddtStackId f x =
-    (\y -> x { _ddtStackId = y })
-       <$> f (_ddtStackId x)
+    f (_ddtStackId x)
+        <&> \y -> x { _ddtStackId = y }
 {-# INLINE ddtStackId #-}
 
 -- | The app ID.
-ddtAppId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtAppId :: Lens' Deployment (Maybe Text)
 ddtAppId f x =
-    (\y -> x { _ddtAppId = y })
-       <$> f (_ddtAppId x)
+    f (_ddtAppId x)
+        <&> \y -> x { _ddtAppId = y }
 {-# INLINE ddtAppId #-}
 
 -- | Date when the deployment was created.
-ddtCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtCreatedAt :: Lens' Deployment (Maybe Text)
 ddtCreatedAt f x =
-    (\y -> x { _ddtCreatedAt = y })
-       <$> f (_ddtCreatedAt x)
+    f (_ddtCreatedAt x)
+        <&> \y -> x { _ddtCreatedAt = y }
 {-# INLINE ddtCreatedAt #-}
 
 -- | Date when the deployment completed.
-ddtCompletedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtCompletedAt :: Lens' Deployment (Maybe Text)
 ddtCompletedAt f x =
-    (\y -> x { _ddtCompletedAt = y })
-       <$> f (_ddtCompletedAt x)
+    f (_ddtCompletedAt x)
+        <&> \y -> x { _ddtCompletedAt = y }
 {-# INLINE ddtCompletedAt #-}
 
 -- | The deployment duration.
-ddtDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Deployment
-    -> f Deployment
+ddtDuration :: Lens' Deployment (Maybe Integer)
 ddtDuration f x =
-    (\y -> x { _ddtDuration = y })
-       <$> f (_ddtDuration x)
+    f (_ddtDuration x)
+        <&> \y -> x { _ddtDuration = y }
 {-# INLINE ddtDuration #-}
 
 -- | The user's IAM ARN.
-ddtIamUserArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtIamUserArn :: Lens' Deployment (Maybe Text)
 ddtIamUserArn f x =
-    (\y -> x { _ddtIamUserArn = y })
-       <$> f (_ddtIamUserArn x)
+    f (_ddtIamUserArn x)
+        <&> \y -> x { _ddtIamUserArn = y }
 {-# INLINE ddtIamUserArn #-}
 
 -- | A user-defined comment.
-ddtComment
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtComment :: Lens' Deployment (Maybe Text)
 ddtComment f x =
-    (\y -> x { _ddtComment = y })
-       <$> f (_ddtComment x)
+    f (_ddtComment x)
+        <&> \y -> x { _ddtComment = y }
 {-# INLINE ddtComment #-}
 
 -- | Used to specify a deployment operation.
-ddtCommand
-    :: Functor f
-    => (Maybe DeploymentCommand
-    -> f (Maybe DeploymentCommand))
-    -> Deployment
-    -> f Deployment
+ddtCommand :: Lens' Deployment (Maybe DeploymentCommand)
 ddtCommand f x =
-    (\y -> x { _ddtCommand = y })
-       <$> f (_ddtCommand x)
+    f (_ddtCommand x)
+        <&> \y -> x { _ddtCommand = y }
 {-# INLINE ddtCommand #-}
 
 -- | The deployment status: running successful failed.
-ddtStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtStatus :: Lens' Deployment (Maybe Text)
 ddtStatus f x =
-    (\y -> x { _ddtStatus = y })
-       <$> f (_ddtStatus x)
+    f (_ddtStatus x)
+        <&> \y -> x { _ddtStatus = y }
 {-# INLINE ddtStatus #-}
 
 -- | A string that contains user-defined custom JSON. It is used to override the
@@ -1632,27 +1411,17 @@ ddtStatus f x =
 -- should be in the following format and must escape characters such as '"'.:
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
-ddtCustomJson
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Deployment
-    -> f Deployment
+ddtCustomJson :: Lens' Deployment (Maybe Text)
 ddtCustomJson f x =
-    (\y -> x { _ddtCustomJson = y })
-       <$> f (_ddtCustomJson x)
+    f (_ddtCustomJson x)
+        <&> \y -> x { _ddtCustomJson = y }
 {-# INLINE ddtCustomJson #-}
 
 -- | The IDs of the target instances.
-ddtInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Deployment
-    -> f Deployment
+ddtInstanceIds :: Lens' Deployment ([Text])
 ddtInstanceIds f x =
-    (\y -> x { _ddtInstanceIds = y })
-       <$> f (_ddtInstanceIds x)
+    f (_ddtInstanceIds x)
+        <&> \y -> x { _ddtInstanceIds = y }
 {-# INLINE ddtInstanceIds #-}
 
 instance FromJSON Deployment
@@ -1702,29 +1471,19 @@ data DeploymentCommand = DeploymentCommand
 -- many as four versions. start: Start the app's web or application server.
 -- stop: Stop the app's web or application server. restart: Restart the app's
 -- web or application server. undeploy: Undeploy the app.
-dcName
-    :: Functor f
-    => (DeploymentCommandName
-    -> f (DeploymentCommandName))
-    -> DeploymentCommand
-    -> f DeploymentCommand
+dcName :: Lens' DeploymentCommand (DeploymentCommandName)
 dcName f x =
-    (\y -> x { _dcName = y })
-       <$> f (_dcName x)
+    f (_dcName x)
+        <&> \y -> x { _dcName = y }
 {-# INLINE dcName #-}
 
 -- | The arguments of those commands that take arguments. It should be set to a
 -- JSON object with the following format: {"arg_name":["value1", "value2",
 -- ...]}.
-dcArgs
-    :: Functor f
-    => (Map Text [Text]
-    -> f (Map Text [Text]))
-    -> DeploymentCommand
-    -> f DeploymentCommand
+dcArgs :: Lens' DeploymentCommand (Map Text [Text])
 dcArgs f x =
-    (\y -> x { _dcArgs = y })
-       <$> f (_dcArgs x)
+    f (_dcArgs x)
+        <&> \y -> x { _dcArgs = y }
 {-# INLINE dcArgs #-}
 
 instance FromJSON DeploymentCommand
@@ -1746,63 +1505,38 @@ data ElasticIp = ElasticIp
     } deriving (Show, Generic)
 
 -- | The IP address.
-ejIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticIp
-    -> f ElasticIp
+ejIp :: Lens' ElasticIp (Maybe Text)
 ejIp f x =
-    (\y -> x { _ejIp = y })
-       <$> f (_ejIp x)
+    f (_ejIp x)
+        <&> \y -> x { _ejIp = y }
 {-# INLINE ejIp #-}
 
 -- | The name.
-ejName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticIp
-    -> f ElasticIp
+ejName :: Lens' ElasticIp (Maybe Text)
 ejName f x =
-    (\y -> x { _ejName = y })
-       <$> f (_ejName x)
+    f (_ejName x)
+        <&> \y -> x { _ejName = y }
 {-# INLINE ejName #-}
 
 -- | The domain.
-ejDomain
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticIp
-    -> f ElasticIp
+ejDomain :: Lens' ElasticIp (Maybe Text)
 ejDomain f x =
-    (\y -> x { _ejDomain = y })
-       <$> f (_ejDomain x)
+    f (_ejDomain x)
+        <&> \y -> x { _ejDomain = y }
 {-# INLINE ejDomain #-}
 
 -- | The AWS region. For more information, see Regions and Endpoints.
-ejRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticIp
-    -> f ElasticIp
+ejRegion :: Lens' ElasticIp (Maybe Text)
 ejRegion f x =
-    (\y -> x { _ejRegion = y })
-       <$> f (_ejRegion x)
+    f (_ejRegion x)
+        <&> \y -> x { _ejRegion = y }
 {-# INLINE ejRegion #-}
 
 -- | The ID of the instance that the address is attached to.
-ejInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticIp
-    -> f ElasticIp
+ejInstanceId :: Lens' ElasticIp (Maybe Text)
 ejInstanceId f x =
-    (\y -> x { _ejInstanceId = y })
-       <$> f (_ejInstanceId x)
+    f (_ejInstanceId x)
+        <&> \y -> x { _ejInstanceId = y }
 {-# INLINE ejInstanceId #-}
 
 instance FromJSON ElasticIp
@@ -1831,112 +1565,67 @@ data ElasticLoadBalancer = ElasticLoadBalancer
     } deriving (Show, Generic)
 
 -- | The Elastic Load Balancing instance's name.
-elcElasticLoadBalancerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcElasticLoadBalancerName :: Lens' ElasticLoadBalancer (Maybe Text)
 elcElasticLoadBalancerName f x =
-    (\y -> x { _elcElasticLoadBalancerName = y })
-       <$> f (_elcElasticLoadBalancerName x)
+    f (_elcElasticLoadBalancerName x)
+        <&> \y -> x { _elcElasticLoadBalancerName = y }
 {-# INLINE elcElasticLoadBalancerName #-}
 
 -- | The instance's AWS region.
-elcRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcRegion :: Lens' ElasticLoadBalancer (Maybe Text)
 elcRegion f x =
-    (\y -> x { _elcRegion = y })
-       <$> f (_elcRegion x)
+    f (_elcRegion x)
+        <&> \y -> x { _elcRegion = y }
 {-# INLINE elcRegion #-}
 
 -- | The instance's public DNS name.
-elcDnsName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcDnsName :: Lens' ElasticLoadBalancer (Maybe Text)
 elcDnsName f x =
-    (\y -> x { _elcDnsName = y })
-       <$> f (_elcDnsName x)
+    f (_elcDnsName x)
+        <&> \y -> x { _elcDnsName = y }
 {-# INLINE elcDnsName #-}
 
 -- | The ID of the stack that the instance is associated with.
-elcStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcStackId :: Lens' ElasticLoadBalancer (Maybe Text)
 elcStackId f x =
-    (\y -> x { _elcStackId = y })
-       <$> f (_elcStackId x)
+    f (_elcStackId x)
+        <&> \y -> x { _elcStackId = y }
 {-# INLINE elcStackId #-}
 
 -- | The ID of the layer that the instance is attached to.
-elcLayerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcLayerId :: Lens' ElasticLoadBalancer (Maybe Text)
 elcLayerId f x =
-    (\y -> x { _elcLayerId = y })
-       <$> f (_elcLayerId x)
+    f (_elcLayerId x)
+        <&> \y -> x { _elcLayerId = y }
 {-# INLINE elcLayerId #-}
 
 -- | The VPC ID.
-elcVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcVpcId :: Lens' ElasticLoadBalancer (Maybe Text)
 elcVpcId f x =
-    (\y -> x { _elcVpcId = y })
-       <$> f (_elcVpcId x)
+    f (_elcVpcId x)
+        <&> \y -> x { _elcVpcId = y }
 {-# INLINE elcVpcId #-}
 
 -- | A list of Availability Zones.
-elcAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcAvailabilityZones :: Lens' ElasticLoadBalancer ([Text])
 elcAvailabilityZones f x =
-    (\y -> x { _elcAvailabilityZones = y })
-       <$> f (_elcAvailabilityZones x)
+    f (_elcAvailabilityZones x)
+        <&> \y -> x { _elcAvailabilityZones = y }
 {-# INLINE elcAvailabilityZones #-}
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
-elcSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcSubnetIds :: Lens' ElasticLoadBalancer ([Text])
 elcSubnetIds f x =
-    (\y -> x { _elcSubnetIds = y })
-       <$> f (_elcSubnetIds x)
+    f (_elcSubnetIds x)
+        <&> \y -> x { _elcSubnetIds = y }
 {-# INLINE elcSubnetIds #-}
 
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
-elcEc2InstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ElasticLoadBalancer
-    -> f ElasticLoadBalancer
+elcEc2InstanceIds :: Lens' ElasticLoadBalancer ([Text])
 elcEc2InstanceIds f x =
-    (\y -> x { _elcEc2InstanceIds = y })
-       <$> f (_elcEc2InstanceIds x)
+    f (_elcEc2InstanceIds x)
+        <&> \y -> x { _elcEc2InstanceIds = y }
 {-# INLINE elcEc2InstanceIds #-}
 
 instance FromJSON ElasticLoadBalancer
@@ -2029,239 +1718,144 @@ data Instance = Instance
     } deriving (Show, Generic)
 
 -- | The instance ID.
-ieInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieInstanceId :: Lens' Instance (Maybe Text)
 ieInstanceId f x =
-    (\y -> x { _ieInstanceId = y })
-       <$> f (_ieInstanceId x)
+    f (_ieInstanceId x)
+        <&> \y -> x { _ieInstanceId = y }
 {-# INLINE ieInstanceId #-}
 
 -- | The ID of the associated Amazon EC2 instance.
-ieEc2InstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieEc2InstanceId :: Lens' Instance (Maybe Text)
 ieEc2InstanceId f x =
-    (\y -> x { _ieEc2InstanceId = y })
-       <$> f (_ieEc2InstanceId x)
+    f (_ieEc2InstanceId x)
+        <&> \y -> x { _ieEc2InstanceId = y }
 {-# INLINE ieEc2InstanceId #-}
 
 -- | The instance's virtualization type, paravirtual or hvm.
-ieVirtualizationType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieVirtualizationType :: Lens' Instance (Maybe Text)
 ieVirtualizationType f x =
-    (\y -> x { _ieVirtualizationType = y })
-       <$> f (_ieVirtualizationType x)
+    f (_ieVirtualizationType x)
+        <&> \y -> x { _ieVirtualizationType = y }
 {-# INLINE ieVirtualizationType #-}
 
 -- | The instance host name.
-ieHostname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieHostname :: Lens' Instance (Maybe Text)
 ieHostname f x =
-    (\y -> x { _ieHostname = y })
-       <$> f (_ieHostname x)
+    f (_ieHostname x)
+        <&> \y -> x { _ieHostname = y }
 {-# INLINE ieHostname #-}
 
 -- | The stack ID.
-ieStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieStackId :: Lens' Instance (Maybe Text)
 ieStackId f x =
-    (\y -> x { _ieStackId = y })
-       <$> f (_ieStackId x)
+    f (_ieStackId x)
+        <&> \y -> x { _ieStackId = y }
 {-# INLINE ieStackId #-}
 
 -- | An array containing the instance layer IDs.
-ieLayerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Instance
-    -> f Instance
+ieLayerIds :: Lens' Instance ([Text])
 ieLayerIds f x =
-    (\y -> x { _ieLayerIds = y })
-       <$> f (_ieLayerIds x)
+    f (_ieLayerIds x)
+        <&> \y -> x { _ieLayerIds = y }
 {-# INLINE ieLayerIds #-}
 
 -- | An array containing the instance security group IDs.
-ieSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Instance
-    -> f Instance
+ieSecurityGroupIds :: Lens' Instance ([Text])
 ieSecurityGroupIds f x =
-    (\y -> x { _ieSecurityGroupIds = y })
-       <$> f (_ieSecurityGroupIds x)
+    f (_ieSecurityGroupIds x)
+        <&> \y -> x { _ieSecurityGroupIds = y }
 {-# INLINE ieSecurityGroupIds #-}
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
 -- Compute, Cluster GPU, and High Memory Cluster. For more information, see
 -- Instance Families and Types. The parameter values that specify the various
 -- types are in the API Name column of the Available Instance Types table.
-ieInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieInstanceType :: Lens' Instance (Maybe Text)
 ieInstanceType f x =
-    (\y -> x { _ieInstanceType = y })
-       <$> f (_ieInstanceType x)
+    f (_ieInstanceType x)
+        <&> \y -> x { _ieInstanceType = y }
 {-# INLINE ieInstanceType #-}
 
 -- | The ARN of the instance's IAM profile. For more information about IAM ARNs,
 -- see Using Identifiers.
-ieInstanceProfileArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieInstanceProfileArn :: Lens' Instance (Maybe Text)
 ieInstanceProfileArn f x =
-    (\y -> x { _ieInstanceProfileArn = y })
-       <$> f (_ieInstanceProfileArn x)
+    f (_ieInstanceProfileArn x)
+        <&> \y -> x { _ieInstanceProfileArn = y }
 {-# INLINE ieInstanceProfileArn #-}
 
 -- | The instance status: requested booting running_setup online setup_failed
 -- start_failed terminating terminated stopped connection_lost.
-ieStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieStatus :: Lens' Instance (Maybe Text)
 ieStatus f x =
-    (\y -> x { _ieStatus = y })
-       <$> f (_ieStatus x)
+    f (_ieStatus x)
+        <&> \y -> x { _ieStatus = y }
 {-# INLINE ieStatus #-}
 
 -- | The instance operating system.
-ieOs
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieOs :: Lens' Instance (Maybe Text)
 ieOs f x =
-    (\y -> x { _ieOs = y })
-       <$> f (_ieOs x)
+    f (_ieOs x)
+        <&> \y -> x { _ieOs = y }
 {-# INLINE ieOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
-ieAmiId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieAmiId :: Lens' Instance (Maybe Text)
 ieAmiId f x =
-    (\y -> x { _ieAmiId = y })
-       <$> f (_ieAmiId x)
+    f (_ieAmiId x)
+        <&> \y -> x { _ieAmiId = y }
 {-# INLINE ieAmiId #-}
 
 -- | The instance Availability Zone. For more information, see Regions and
 -- Endpoints.
-ieAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieAvailabilityZone :: Lens' Instance (Maybe Text)
 ieAvailabilityZone f x =
-    (\y -> x { _ieAvailabilityZone = y })
-       <$> f (_ieAvailabilityZone x)
+    f (_ieAvailabilityZone x)
+        <&> \y -> x { _ieAvailabilityZone = y }
 {-# INLINE ieAvailabilityZone #-}
 
 -- | The instance's subnet ID, if the stack is running in a VPC.
-ieSubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieSubnetId :: Lens' Instance (Maybe Text)
 ieSubnetId f x =
-    (\y -> x { _ieSubnetId = y })
-       <$> f (_ieSubnetId x)
+    f (_ieSubnetId x)
+        <&> \y -> x { _ieSubnetId = y }
 {-# INLINE ieSubnetId #-}
 
 -- | The instance public DNS name.
-iePublicDns
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePublicDns :: Lens' Instance (Maybe Text)
 iePublicDns f x =
-    (\y -> x { _iePublicDns = y })
-       <$> f (_iePublicDns x)
+    f (_iePublicDns x)
+        <&> \y -> x { _iePublicDns = y }
 {-# INLINE iePublicDns #-}
 
 -- | The instance private DNS name.
-iePrivateDns
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePrivateDns :: Lens' Instance (Maybe Text)
 iePrivateDns f x =
-    (\y -> x { _iePrivateDns = y })
-       <$> f (_iePrivateDns x)
+    f (_iePrivateDns x)
+        <&> \y -> x { _iePrivateDns = y }
 {-# INLINE iePrivateDns #-}
 
 -- | The instance public IP address.
-iePublicIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePublicIp :: Lens' Instance (Maybe Text)
 iePublicIp f x =
-    (\y -> x { _iePublicIp = y })
-       <$> f (_iePublicIp x)
+    f (_iePublicIp x)
+        <&> \y -> x { _iePublicIp = y }
 {-# INLINE iePublicIp #-}
 
 -- | The instance private IP address.
-iePrivateIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePrivateIp :: Lens' Instance (Maybe Text)
 iePrivateIp f x =
-    (\y -> x { _iePrivateIp = y })
-       <$> f (_iePrivateIp x)
+    f (_iePrivateIp x)
+        <&> \y -> x { _iePrivateIp = y }
 {-# INLINE iePrivateIp #-}
 
 -- | The instance Elastic IP address .
-ieElasticIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieElasticIp :: Lens' Instance (Maybe Text)
 ieElasticIp f x =
-    (\y -> x { _ieElasticIp = y })
-       <$> f (_ieElasticIp x)
+    f (_ieElasticIp x)
+        <&> \y -> x { _ieElasticIp = y }
 {-# INLINE ieElasticIp #-}
 
 -- | The instance's auto scaling type, which has three possible values:
@@ -2270,113 +1864,68 @@ ieElasticIp f x =
 -- and stopped based on a specified schedule. LoadBasedAutoScaling: A
 -- load-based auto scaling instance, which is started and stopped based on
 -- load metrics.
-ieAutoScalingType
-    :: Functor f
-    => (Maybe AutoScalingType
-    -> f (Maybe AutoScalingType))
-    -> Instance
-    -> f Instance
+ieAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 ieAutoScalingType f x =
-    (\y -> x { _ieAutoScalingType = y })
-       <$> f (_ieAutoScalingType x)
+    f (_ieAutoScalingType x)
+        <&> \y -> x { _ieAutoScalingType = y }
 {-# INLINE ieAutoScalingType #-}
 
 -- | The instance SSH key name.
-ieSshKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieSshKeyName :: Lens' Instance (Maybe Text)
 ieSshKeyName f x =
-    (\y -> x { _ieSshKeyName = y })
-       <$> f (_ieSshKeyName x)
+    f (_ieSshKeyName x)
+        <&> \y -> x { _ieSshKeyName = y }
 {-# INLINE ieSshKeyName #-}
 
 -- | The SSH key's RSA fingerprint.
-ieSshHostRsaKeyFingerprint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieSshHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
 ieSshHostRsaKeyFingerprint f x =
-    (\y -> x { _ieSshHostRsaKeyFingerprint = y })
-       <$> f (_ieSshHostRsaKeyFingerprint x)
+    f (_ieSshHostRsaKeyFingerprint x)
+        <&> \y -> x { _ieSshHostRsaKeyFingerprint = y }
 {-# INLINE ieSshHostRsaKeyFingerprint #-}
 
 -- | The SSH key's DSA fingerprint.
-ieSshHostDsaKeyFingerprint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieSshHostDsaKeyFingerprint :: Lens' Instance (Maybe Text)
 ieSshHostDsaKeyFingerprint f x =
-    (\y -> x { _ieSshHostDsaKeyFingerprint = y })
-       <$> f (_ieSshHostDsaKeyFingerprint x)
+    f (_ieSshHostDsaKeyFingerprint x)
+        <&> \y -> x { _ieSshHostDsaKeyFingerprint = y }
 {-# INLINE ieSshHostDsaKeyFingerprint #-}
 
 -- | The time that the instance was created.
-ieCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieCreatedAt :: Lens' Instance (Maybe Text)
 ieCreatedAt f x =
-    (\y -> x { _ieCreatedAt = y })
-       <$> f (_ieCreatedAt x)
+    f (_ieCreatedAt x)
+        <&> \y -> x { _ieCreatedAt = y }
 {-# INLINE ieCreatedAt #-}
 
 -- | The ID of the last service error. For more information, call
 -- DescribeServiceErrors.
-ieLastServiceErrorId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieLastServiceErrorId :: Lens' Instance (Maybe Text)
 ieLastServiceErrorId f x =
-    (\y -> x { _ieLastServiceErrorId = y })
-       <$> f (_ieLastServiceErrorId x)
+    f (_ieLastServiceErrorId x)
+        <&> \y -> x { _ieLastServiceErrorId = y }
 {-# INLINE ieLastServiceErrorId #-}
 
 -- | The instance architecture, "i386" or "x86_64".
-ieArchitecture
-    :: Functor f
-    => (Maybe Architecture
-    -> f (Maybe Architecture))
-    -> Instance
-    -> f Instance
+ieArchitecture :: Lens' Instance (Maybe Architecture)
 ieArchitecture f x =
-    (\y -> x { _ieArchitecture = y })
-       <$> f (_ieArchitecture x)
+    f (_ieArchitecture x)
+        <&> \y -> x { _ieArchitecture = y }
 {-# INLINE ieArchitecture #-}
 
 -- | The instance root device type. For more information, see Storage for the
 -- Root Device.
-ieRootDeviceType
-    :: Functor f
-    => (Maybe RootDeviceType
-    -> f (Maybe RootDeviceType))
-    -> Instance
-    -> f Instance
+ieRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 ieRootDeviceType f x =
-    (\y -> x { _ieRootDeviceType = y })
-       <$> f (_ieRootDeviceType x)
+    f (_ieRootDeviceType x)
+        <&> \y -> x { _ieRootDeviceType = y }
 {-# INLINE ieRootDeviceType #-}
 
 -- | The root device volume ID.
-ieRootDeviceVolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieRootDeviceVolumeId :: Lens' Instance (Maybe Text)
 ieRootDeviceVolumeId f x =
-    (\y -> x { _ieRootDeviceVolumeId = y })
-       <$> f (_ieRootDeviceVolumeId x)
+    f (_ieRootDeviceVolumeId x)
+        <&> \y -> x { _ieRootDeviceVolumeId = y }
 {-# INLINE ieRootDeviceVolumeId #-}
 
 -- | Whether to install operating system and package updates when the instance
@@ -2386,27 +1935,17 @@ ieRootDeviceVolumeId f x =
 -- apt-get (Ubuntu) on the instances. We strongly recommend using the default
 -- value of true, to ensure that your instances have the latest security
 -- updates.
-ieInstallUpdatesOnBoot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Instance
-    -> f Instance
+ieInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
 ieInstallUpdatesOnBoot f x =
-    (\y -> x { _ieInstallUpdatesOnBoot = y })
-       <$> f (_ieInstallUpdatesOnBoot x)
+    f (_ieInstallUpdatesOnBoot x)
+        <&> \y -> x { _ieInstallUpdatesOnBoot = y }
 {-# INLINE ieInstallUpdatesOnBoot #-}
 
 -- | Whether this is an Amazon EBS-optimized instance.
-ieEbsOptimized
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Instance
-    -> f Instance
+ieEbsOptimized :: Lens' Instance (Maybe Bool)
 ieEbsOptimized f x =
-    (\y -> x { _ieEbsOptimized = y })
-       <$> f (_ieEbsOptimized x)
+    f (_ieEbsOptimized x)
+        <&> \y -> x { _ieEbsOptimized = y }
 {-# INLINE ieEbsOptimized #-}
 
 instance FromJSON Instance
@@ -2444,171 +1983,101 @@ data InstancesCount = InstancesCount
     } deriving (Show, Generic)
 
 -- | The number of instances with booting status.
-icBooting
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icBooting :: Lens' InstancesCount (Maybe Integer)
 icBooting f x =
-    (\y -> x { _icBooting = y })
-       <$> f (_icBooting x)
+    f (_icBooting x)
+        <&> \y -> x { _icBooting = y }
 {-# INLINE icBooting #-}
 
 -- | The number of instances with connection_lost status.
-icConnectionLost
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icConnectionLost :: Lens' InstancesCount (Maybe Integer)
 icConnectionLost f x =
-    (\y -> x { _icConnectionLost = y })
-       <$> f (_icConnectionLost x)
+    f (_icConnectionLost x)
+        <&> \y -> x { _icConnectionLost = y }
 {-# INLINE icConnectionLost #-}
 
 -- | The number of instances with online status.
-icOnline
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icOnline :: Lens' InstancesCount (Maybe Integer)
 icOnline f x =
-    (\y -> x { _icOnline = y })
-       <$> f (_icOnline x)
+    f (_icOnline x)
+        <&> \y -> x { _icOnline = y }
 {-# INLINE icOnline #-}
 
 -- | The number of instances with pending status.
-icPending
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icPending :: Lens' InstancesCount (Maybe Integer)
 icPending f x =
-    (\y -> x { _icPending = y })
-       <$> f (_icPending x)
+    f (_icPending x)
+        <&> \y -> x { _icPending = y }
 {-# INLINE icPending #-}
 
 -- | The number of instances with rebooting status.
-icRebooting
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icRebooting :: Lens' InstancesCount (Maybe Integer)
 icRebooting f x =
-    (\y -> x { _icRebooting = y })
-       <$> f (_icRebooting x)
+    f (_icRebooting x)
+        <&> \y -> x { _icRebooting = y }
 {-# INLINE icRebooting #-}
 
 -- | The number of instances with requested status.
-icRequested
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icRequested :: Lens' InstancesCount (Maybe Integer)
 icRequested f x =
-    (\y -> x { _icRequested = y })
-       <$> f (_icRequested x)
+    f (_icRequested x)
+        <&> \y -> x { _icRequested = y }
 {-# INLINE icRequested #-}
 
 -- | The number of instances with running_setup status.
-icRunningSetup
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icRunningSetup :: Lens' InstancesCount (Maybe Integer)
 icRunningSetup f x =
-    (\y -> x { _icRunningSetup = y })
-       <$> f (_icRunningSetup x)
+    f (_icRunningSetup x)
+        <&> \y -> x { _icRunningSetup = y }
 {-# INLINE icRunningSetup #-}
 
 -- | The number of instances with setup_failed status.
-icSetupFailed
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icSetupFailed :: Lens' InstancesCount (Maybe Integer)
 icSetupFailed f x =
-    (\y -> x { _icSetupFailed = y })
-       <$> f (_icSetupFailed x)
+    f (_icSetupFailed x)
+        <&> \y -> x { _icSetupFailed = y }
 {-# INLINE icSetupFailed #-}
 
 -- | The number of instances with shutting_down status.
-icShuttingDown
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icShuttingDown :: Lens' InstancesCount (Maybe Integer)
 icShuttingDown f x =
-    (\y -> x { _icShuttingDown = y })
-       <$> f (_icShuttingDown x)
+    f (_icShuttingDown x)
+        <&> \y -> x { _icShuttingDown = y }
 {-# INLINE icShuttingDown #-}
 
 -- | The number of instances with start_failed status.
-icStartFailed
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icStartFailed :: Lens' InstancesCount (Maybe Integer)
 icStartFailed f x =
-    (\y -> x { _icStartFailed = y })
-       <$> f (_icStartFailed x)
+    f (_icStartFailed x)
+        <&> \y -> x { _icStartFailed = y }
 {-# INLINE icStartFailed #-}
 
 -- | The number of instances with stopped status.
-icStopped
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icStopped :: Lens' InstancesCount (Maybe Integer)
 icStopped f x =
-    (\y -> x { _icStopped = y })
-       <$> f (_icStopped x)
+    f (_icStopped x)
+        <&> \y -> x { _icStopped = y }
 {-# INLINE icStopped #-}
 
 -- | The number of instances with stopping status.
-icStopping
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icStopping :: Lens' InstancesCount (Maybe Integer)
 icStopping f x =
-    (\y -> x { _icStopping = y })
-       <$> f (_icStopping x)
+    f (_icStopping x)
+        <&> \y -> x { _icStopping = y }
 {-# INLINE icStopping #-}
 
 -- | The number of instances with terminated status.
-icTerminated
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icTerminated :: Lens' InstancesCount (Maybe Integer)
 icTerminated f x =
-    (\y -> x { _icTerminated = y })
-       <$> f (_icTerminated x)
+    f (_icTerminated x)
+        <&> \y -> x { _icTerminated = y }
 {-# INLINE icTerminated #-}
 
 -- | The number of instances with terminating status.
-icTerminating
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstancesCount
-    -> f InstancesCount
+icTerminating :: Lens' InstancesCount (Maybe Integer)
 icTerminating f x =
-    (\y -> x { _icTerminating = y })
-       <$> f (_icTerminating x)
+    f (_icTerminating x)
+        <&> \y -> x { _icTerminating = y }
 {-# INLINE icTerminating #-}
 
 instance FromJSON InstancesCount
@@ -2682,178 +2151,108 @@ data Layer = Layer
     } deriving (Show, Generic)
 
 -- | The layer stack ID.
-lrStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Layer
-    -> f Layer
+lrStackId :: Lens' Layer (Maybe Text)
 lrStackId f x =
-    (\y -> x { _lrStackId = y })
-       <$> f (_lrStackId x)
+    f (_lrStackId x)
+        <&> \y -> x { _lrStackId = y }
 {-# INLINE lrStackId #-}
 
 -- | The layer ID.
-lrLayerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Layer
-    -> f Layer
+lrLayerId :: Lens' Layer (Maybe Text)
 lrLayerId f x =
-    (\y -> x { _lrLayerId = y })
-       <$> f (_lrLayerId x)
+    f (_lrLayerId x)
+        <&> \y -> x { _lrLayerId = y }
 {-# INLINE lrLayerId #-}
 
 -- | The layer type, which must be one of the following: Custom
 -- GangliaMonitoringMaster HaProxy MemcachedServer MySqlMaster NodeJsAppServer
 -- PhpAppServer RailsAppServer WebServer.
-lrType
-    :: Functor f
-    => (Maybe LayerType
-    -> f (Maybe LayerType))
-    -> Layer
-    -> f Layer
+lrType :: Lens' Layer (Maybe LayerType)
 lrType f x =
-    (\y -> x { _lrType = y })
-       <$> f (_lrType x)
+    f (_lrType x)
+        <&> \y -> x { _lrType = y }
 {-# INLINE lrType #-}
 
 -- | The layer name.
-lrName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Layer
-    -> f Layer
+lrName :: Lens' Layer (Maybe Text)
 lrName f x =
-    (\y -> x { _lrName = y })
-       <$> f (_lrName x)
+    f (_lrName x)
+        <&> \y -> x { _lrName = y }
 {-# INLINE lrName #-}
 
 -- | The layer short name.
-lrShortname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Layer
-    -> f Layer
+lrShortname :: Lens' Layer (Maybe Text)
 lrShortname f x =
-    (\y -> x { _lrShortname = y })
-       <$> f (_lrShortname x)
+    f (_lrShortname x)
+        <&> \y -> x { _lrShortname = y }
 {-# INLINE lrShortname #-}
 
 -- | The layer attributes.
-lrAttributes
-    :: Functor f
-    => (Map LayerAttributesKeys Text
-    -> f (Map LayerAttributesKeys Text))
-    -> Layer
-    -> f Layer
+lrAttributes :: Lens' Layer (Map LayerAttributesKeys Text)
 lrAttributes f x =
-    (\y -> x { _lrAttributes = y })
-       <$> f (_lrAttributes x)
+    f (_lrAttributes x)
+        <&> \y -> x { _lrAttributes = y }
 {-# INLINE lrAttributes #-}
 
 -- | The ARN of the default IAM profile to be used for the layer's EC2
 -- instances. For more information about IAM ARNs, see Using Identifiers.
-lrCustomInstanceProfileArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Layer
-    -> f Layer
+lrCustomInstanceProfileArn :: Lens' Layer (Maybe Text)
 lrCustomInstanceProfileArn f x =
-    (\y -> x { _lrCustomInstanceProfileArn = y })
-       <$> f (_lrCustomInstanceProfileArn x)
+    f (_lrCustomInstanceProfileArn x)
+        <&> \y -> x { _lrCustomInstanceProfileArn = y }
 {-# INLINE lrCustomInstanceProfileArn #-}
 
 -- | An array containing the layer's custom security group IDs.
-lrCustomSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Layer
-    -> f Layer
+lrCustomSecurityGroupIds :: Lens' Layer ([Text])
 lrCustomSecurityGroupIds f x =
-    (\y -> x { _lrCustomSecurityGroupIds = y })
-       <$> f (_lrCustomSecurityGroupIds x)
+    f (_lrCustomSecurityGroupIds x)
+        <&> \y -> x { _lrCustomSecurityGroupIds = y }
 {-# INLINE lrCustomSecurityGroupIds #-}
 
 -- | An array containing the layer's security group names.
-lrDefaultSecurityGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Layer
-    -> f Layer
+lrDefaultSecurityGroupNames :: Lens' Layer ([Text])
 lrDefaultSecurityGroupNames f x =
-    (\y -> x { _lrDefaultSecurityGroupNames = y })
-       <$> f (_lrDefaultSecurityGroupNames x)
+    f (_lrDefaultSecurityGroupNames x)
+        <&> \y -> x { _lrDefaultSecurityGroupNames = y }
 {-# INLINE lrDefaultSecurityGroupNames #-}
 
 -- | An array of Package objects that describe the layer's packages.
-lrPackages
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Layer
-    -> f Layer
+lrPackages :: Lens' Layer ([Text])
 lrPackages f x =
-    (\y -> x { _lrPackages = y })
-       <$> f (_lrPackages x)
+    f (_lrPackages x)
+        <&> \y -> x { _lrPackages = y }
 {-# INLINE lrPackages #-}
 
 -- | A VolumeConfigurations object that describes the layer's Amazon EBS
 -- volumes.
-lrVolumeConfigurations
-    :: Functor f
-    => ([VolumeConfiguration]
-    -> f ([VolumeConfiguration]))
-    -> Layer
-    -> f Layer
+lrVolumeConfigurations :: Lens' Layer ([VolumeConfiguration])
 lrVolumeConfigurations f x =
-    (\y -> x { _lrVolumeConfigurations = y })
-       <$> f (_lrVolumeConfigurations x)
+    f (_lrVolumeConfigurations x)
+        <&> \y -> x { _lrVolumeConfigurations = y }
 {-# INLINE lrVolumeConfigurations #-}
 
 -- | Whether auto healing is disabled for the layer.
-lrEnableAutoHealing
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Layer
-    -> f Layer
+lrEnableAutoHealing :: Lens' Layer (Maybe Bool)
 lrEnableAutoHealing f x =
-    (\y -> x { _lrEnableAutoHealing = y })
-       <$> f (_lrEnableAutoHealing x)
+    f (_lrEnableAutoHealing x)
+        <&> \y -> x { _lrEnableAutoHealing = y }
 {-# INLINE lrEnableAutoHealing #-}
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
-lrAutoAssignElasticIps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Layer
-    -> f Layer
+lrAutoAssignElasticIps :: Lens' Layer (Maybe Bool)
 lrAutoAssignElasticIps f x =
-    (\y -> x { _lrAutoAssignElasticIps = y })
-       <$> f (_lrAutoAssignElasticIps x)
+    f (_lrAutoAssignElasticIps x)
+        <&> \y -> x { _lrAutoAssignElasticIps = y }
 {-# INLINE lrAutoAssignElasticIps #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer's instances. For more information, see How
 -- to Edit a Layer.
-lrAutoAssignPublicIps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Layer
-    -> f Layer
+lrAutoAssignPublicIps :: Lens' Layer (Maybe Bool)
 lrAutoAssignPublicIps f x =
-    (\y -> x { _lrAutoAssignPublicIps = y })
-       <$> f (_lrAutoAssignPublicIps x)
+    f (_lrAutoAssignPublicIps x)
+        <&> \y -> x { _lrAutoAssignPublicIps = y }
 {-# INLINE lrAutoAssignPublicIps #-}
 
 -- | AWS OpsWorks supports five lifecycle events, setup, configuration, deploy,
@@ -2866,39 +2265,24 @@ lrAutoAssignPublicIps f x =
 -- followed by two colons and the recipe name, which is the recipe's file name
 -- without the .rb extension. For example: phpapp2::dbsetup specifies the
 -- dbsetup.rb recipe in the repository's phpapp2 folder.
-lrDefaultRecipes
-    :: Functor f
-    => (Maybe Recipes
-    -> f (Maybe Recipes))
-    -> Layer
-    -> f Layer
+lrDefaultRecipes :: Lens' Layer (Maybe Recipes)
 lrDefaultRecipes f x =
-    (\y -> x { _lrDefaultRecipes = y })
-       <$> f (_lrDefaultRecipes x)
+    f (_lrDefaultRecipes x)
+        <&> \y -> x { _lrDefaultRecipes = y }
 {-# INLINE lrDefaultRecipes #-}
 
 -- | A LayerCustomRecipes object that specifies the layer's custom recipes.
-lrCustomRecipes
-    :: Functor f
-    => (Maybe Recipes
-    -> f (Maybe Recipes))
-    -> Layer
-    -> f Layer
+lrCustomRecipes :: Lens' Layer (Maybe Recipes)
 lrCustomRecipes f x =
-    (\y -> x { _lrCustomRecipes = y })
-       <$> f (_lrCustomRecipes x)
+    f (_lrCustomRecipes x)
+        <&> \y -> x { _lrCustomRecipes = y }
 {-# INLINE lrCustomRecipes #-}
 
 -- | Date when the layer was created.
-lrCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Layer
-    -> f Layer
+lrCreatedAt :: Lens' Layer (Maybe Text)
 lrCreatedAt f x =
-    (\y -> x { _lrCreatedAt = y })
-       <$> f (_lrCreatedAt x)
+    f (_lrCreatedAt x)
+        <&> \y -> x { _lrCreatedAt = y }
 {-# INLINE lrCreatedAt #-}
 
 -- | Whether to install operating system and package updates when the instance
@@ -2908,27 +2292,17 @@ lrCreatedAt f x =
 -- apt-get (Ubuntu) on the instances. We strongly recommend using the default
 -- value of true, to ensure that your instances have the latest security
 -- updates.
-lrInstallUpdatesOnBoot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Layer
-    -> f Layer
+lrInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lrInstallUpdatesOnBoot f x =
-    (\y -> x { _lrInstallUpdatesOnBoot = y })
-       <$> f (_lrInstallUpdatesOnBoot x)
+    f (_lrInstallUpdatesOnBoot x)
+        <&> \y -> x { _lrInstallUpdatesOnBoot = y }
 {-# INLINE lrInstallUpdatesOnBoot #-}
 
 -- | Whether the layer uses Amazon EBS-optimized instances.
-lrUseEbsOptimizedInstances
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Layer
-    -> f Layer
+lrUseEbsOptimizedInstances :: Lens' Layer (Maybe Bool)
 lrUseEbsOptimizedInstances f x =
-    (\y -> x { _lrUseEbsOptimizedInstances = y })
-       <$> f (_lrUseEbsOptimizedInstances x)
+    f (_lrUseEbsOptimizedInstances x)
+        <&> \y -> x { _lrUseEbsOptimizedInstances = y }
 {-# INLINE lrUseEbsOptimizedInstances #-}
 
 instance FromJSON Layer
@@ -2950,55 +2324,35 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     } deriving (Show, Generic)
 
 -- | The layer ID.
-lbasdLayerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBasedAutoScalingConfiguration
-    -> f LoadBasedAutoScalingConfiguration
+lbasdLayerId :: Lens' LoadBasedAutoScalingConfiguration (Maybe Text)
 lbasdLayerId f x =
-    (\y -> x { _lbasdLayerId = y })
-       <$> f (_lbasdLayerId x)
+    f (_lbasdLayerId x)
+        <&> \y -> x { _lbasdLayerId = y }
 {-# INLINE lbasdLayerId #-}
 
 -- | Whether load-based auto scaling is enabled for the layer.
-lbasdEnable
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LoadBasedAutoScalingConfiguration
-    -> f LoadBasedAutoScalingConfiguration
+lbasdEnable :: Lens' LoadBasedAutoScalingConfiguration (Maybe Bool)
 lbasdEnable f x =
-    (\y -> x { _lbasdEnable = y })
-       <$> f (_lbasdEnable x)
+    f (_lbasdEnable x)
+        <&> \y -> x { _lbasdEnable = y }
 {-# INLINE lbasdEnable #-}
 
 -- | A LoadBasedAutoscalingInstruction object that describes the upscaling
 -- configuration, which defines how and when AWS OpsWorks increases the number
 -- of instances.
-lbasdUpScaling
-    :: Functor f
-    => (Maybe AutoScalingThresholds
-    -> f (Maybe AutoScalingThresholds))
-    -> LoadBasedAutoScalingConfiguration
-    -> f LoadBasedAutoScalingConfiguration
+lbasdUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbasdUpScaling f x =
-    (\y -> x { _lbasdUpScaling = y })
-       <$> f (_lbasdUpScaling x)
+    f (_lbasdUpScaling x)
+        <&> \y -> x { _lbasdUpScaling = y }
 {-# INLINE lbasdUpScaling #-}
 
 -- | A LoadBasedAutoscalingInstruction object that describes the downscaling
 -- configuration, which defines how and when AWS OpsWorks reduces the number
 -- of instances.
-lbasdDownScaling
-    :: Functor f
-    => (Maybe AutoScalingThresholds
-    -> f (Maybe AutoScalingThresholds))
-    -> LoadBasedAutoScalingConfiguration
-    -> f LoadBasedAutoScalingConfiguration
+lbasdDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbasdDownScaling f x =
-    (\y -> x { _lbasdDownScaling = y })
-       <$> f (_lbasdDownScaling x)
+    f (_lbasdDownScaling x)
+        <&> \y -> x { _lbasdDownScaling = y }
 {-# INLINE lbasdDownScaling #-}
 
 instance FromJSON LoadBasedAutoScalingConfiguration
@@ -3023,66 +2377,41 @@ data Permission = Permission
     } deriving (Show, Generic)
 
 -- | A stack ID.
-pnStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Permission
-    -> f Permission
+pnStackId :: Lens' Permission (Maybe Text)
 pnStackId f x =
-    (\y -> x { _pnStackId = y })
-       <$> f (_pnStackId x)
+    f (_pnStackId x)
+        <&> \y -> x { _pnStackId = y }
 {-# INLINE pnStackId #-}
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
 -- (IAM) role. For more information about IAM ARNs, see Using Identifiers.
-pnIamUserArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Permission
-    -> f Permission
+pnIamUserArn :: Lens' Permission (Maybe Text)
 pnIamUserArn f x =
-    (\y -> x { _pnIamUserArn = y })
-       <$> f (_pnIamUserArn x)
+    f (_pnIamUserArn x)
+        <&> \y -> x { _pnIamUserArn = y }
 {-# INLINE pnIamUserArn #-}
 
 -- | Whether the user can use SSH.
-pnAllowSsh
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Permission
-    -> f Permission
+pnAllowSsh :: Lens' Permission (Maybe Bool)
 pnAllowSsh f x =
-    (\y -> x { _pnAllowSsh = y })
-       <$> f (_pnAllowSsh x)
+    f (_pnAllowSsh x)
+        <&> \y -> x { _pnAllowSsh = y }
 {-# INLINE pnAllowSsh #-}
 
 -- | Whether the user can use sudo.
-pnAllowSudo
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Permission
-    -> f Permission
+pnAllowSudo :: Lens' Permission (Maybe Bool)
 pnAllowSudo f x =
-    (\y -> x { _pnAllowSudo = y })
-       <$> f (_pnAllowSudo x)
+    f (_pnAllowSudo x)
+        <&> \y -> x { _pnAllowSudo = y }
 {-# INLINE pnAllowSudo #-}
 
 -- | The user's permission level, which must be the following: deny show deploy
 -- manage iam_only For more information on the permissions associated with
 -- these levels, see Managing User Permissions.
-pnLevel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Permission
-    -> f Permission
+pnLevel :: Lens' Permission (Maybe Text)
 pnLevel f x =
-    (\y -> x { _pnLevel = y })
-       <$> f (_pnLevel x)
+    f (_pnLevel x)
+        <&> \y -> x { _pnLevel = y }
 {-# INLINE pnLevel #-}
 
 instance FromJSON Permission
@@ -3117,148 +2446,88 @@ data RaidArray = RaidArray
     } deriving (Show, Generic)
 
 -- | The array ID.
-rbRaidArrayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbRaidArrayId :: Lens' RaidArray (Maybe Text)
 rbRaidArrayId f x =
-    (\y -> x { _rbRaidArrayId = y })
-       <$> f (_rbRaidArrayId x)
+    f (_rbRaidArrayId x)
+        <&> \y -> x { _rbRaidArrayId = y }
 {-# INLINE rbRaidArrayId #-}
 
 -- | The instance ID.
-rbInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbInstanceId :: Lens' RaidArray (Maybe Text)
 rbInstanceId f x =
-    (\y -> x { _rbInstanceId = y })
-       <$> f (_rbInstanceId x)
+    f (_rbInstanceId x)
+        <&> \y -> x { _rbInstanceId = y }
 {-# INLINE rbInstanceId #-}
 
 -- | The array name.
-rbName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbName :: Lens' RaidArray (Maybe Text)
 rbName f x =
-    (\y -> x { _rbName = y })
-       <$> f (_rbName x)
+    f (_rbName x)
+        <&> \y -> x { _rbName = y }
 {-# INLINE rbName #-}
 
 -- | The RAID level.
-rbRaidLevel
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RaidArray
-    -> f RaidArray
+rbRaidLevel :: Lens' RaidArray (Maybe Integer)
 rbRaidLevel f x =
-    (\y -> x { _rbRaidLevel = y })
-       <$> f (_rbRaidLevel x)
+    f (_rbRaidLevel x)
+        <&> \y -> x { _rbRaidLevel = y }
 {-# INLINE rbRaidLevel #-}
 
 -- | The number of disks in the array.
-rbNumberOfDisks
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RaidArray
-    -> f RaidArray
+rbNumberOfDisks :: Lens' RaidArray (Maybe Integer)
 rbNumberOfDisks f x =
-    (\y -> x { _rbNumberOfDisks = y })
-       <$> f (_rbNumberOfDisks x)
+    f (_rbNumberOfDisks x)
+        <&> \y -> x { _rbNumberOfDisks = y }
 {-# INLINE rbNumberOfDisks #-}
 
 -- | The array's size.
-rbSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RaidArray
-    -> f RaidArray
+rbSize :: Lens' RaidArray (Maybe Integer)
 rbSize f x =
-    (\y -> x { _rbSize = y })
-       <$> f (_rbSize x)
+    f (_rbSize x)
+        <&> \y -> x { _rbSize = y }
 {-# INLINE rbSize #-}
 
 -- | The array's Linux device. For example /dev/mdadm0.
-rbDevice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbDevice :: Lens' RaidArray (Maybe Text)
 rbDevice f x =
-    (\y -> x { _rbDevice = y })
-       <$> f (_rbDevice x)
+    f (_rbDevice x)
+        <&> \y -> x { _rbDevice = y }
 {-# INLINE rbDevice #-}
 
 -- | The array's mount point.
-rbMountPoint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbMountPoint :: Lens' RaidArray (Maybe Text)
 rbMountPoint f x =
-    (\y -> x { _rbMountPoint = y })
-       <$> f (_rbMountPoint x)
+    f (_rbMountPoint x)
+        <&> \y -> x { _rbMountPoint = y }
 {-# INLINE rbMountPoint #-}
 
 -- | The array's Availability Zone. For more information, see Regions and
 -- Endpoints.
-rbAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbAvailabilityZone :: Lens' RaidArray (Maybe Text)
 rbAvailabilityZone f x =
-    (\y -> x { _rbAvailabilityZone = y })
-       <$> f (_rbAvailabilityZone x)
+    f (_rbAvailabilityZone x)
+        <&> \y -> x { _rbAvailabilityZone = y }
 {-# INLINE rbAvailabilityZone #-}
 
 -- | When the RAID array was created.
-rbCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbCreatedAt :: Lens' RaidArray (Maybe Text)
 rbCreatedAt f x =
-    (\y -> x { _rbCreatedAt = y })
-       <$> f (_rbCreatedAt x)
+    f (_rbCreatedAt x)
+        <&> \y -> x { _rbCreatedAt = y }
 {-# INLINE rbCreatedAt #-}
 
 -- | The volume type, standard or PIOPS.
-rbVolumeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RaidArray
-    -> f RaidArray
+rbVolumeType :: Lens' RaidArray (Maybe Text)
 rbVolumeType f x =
-    (\y -> x { _rbVolumeType = y })
-       <$> f (_rbVolumeType x)
+    f (_rbVolumeType x)
+        <&> \y -> x { _rbVolumeType = y }
 {-# INLINE rbVolumeType #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
-rbIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RaidArray
-    -> f RaidArray
+rbIops :: Lens' RaidArray (Maybe Integer)
 rbIops f x =
-    (\y -> x { _rbIops = y })
-       <$> f (_rbIops x)
+    f (_rbIops x)
+        <&> \y -> x { _rbIops = y }
 {-# INLINE rbIops #-}
 
 instance FromJSON RaidArray
@@ -3289,113 +2558,68 @@ data RdsDbInstance = RdsDbInstance
     } deriving (Show, Generic)
 
 -- | The instance's ARN.
-rdjRdsDbInstanceArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjRdsDbInstanceArn :: Lens' RdsDbInstance (Maybe Text)
 rdjRdsDbInstanceArn f x =
-    (\y -> x { _rdjRdsDbInstanceArn = y })
-       <$> f (_rdjRdsDbInstanceArn x)
+    f (_rdjRdsDbInstanceArn x)
+        <&> \y -> x { _rdjRdsDbInstanceArn = y }
 {-# INLINE rdjRdsDbInstanceArn #-}
 
 -- | The DB instance identifier.
-rdjDbInstanceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjDbInstanceIdentifier :: Lens' RdsDbInstance (Maybe Text)
 rdjDbInstanceIdentifier f x =
-    (\y -> x { _rdjDbInstanceIdentifier = y })
-       <$> f (_rdjDbInstanceIdentifier x)
+    f (_rdjDbInstanceIdentifier x)
+        <&> \y -> x { _rdjDbInstanceIdentifier = y }
 {-# INLINE rdjDbInstanceIdentifier #-}
 
 -- | The master user name.
-rdjDbUser
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjDbUser :: Lens' RdsDbInstance (Maybe Text)
 rdjDbUser f x =
-    (\y -> x { _rdjDbUser = y })
-       <$> f (_rdjDbUser x)
+    f (_rdjDbUser x)
+        <&> \y -> x { _rdjDbUser = y }
 {-# INLINE rdjDbUser #-}
 
 -- | The database password.
-rdjDbPassword
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjDbPassword :: Lens' RdsDbInstance (Maybe Text)
 rdjDbPassword f x =
-    (\y -> x { _rdjDbPassword = y })
-       <$> f (_rdjDbPassword x)
+    f (_rdjDbPassword x)
+        <&> \y -> x { _rdjDbPassword = y }
 {-# INLINE rdjDbPassword #-}
 
 -- | The instance's AWS region.
-rdjRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjRegion :: Lens' RdsDbInstance (Maybe Text)
 rdjRegion f x =
-    (\y -> x { _rdjRegion = y })
-       <$> f (_rdjRegion x)
+    f (_rdjRegion x)
+        <&> \y -> x { _rdjRegion = y }
 {-# INLINE rdjRegion #-}
 
 -- | The instance's address.
-rdjAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjAddress :: Lens' RdsDbInstance (Maybe Text)
 rdjAddress f x =
-    (\y -> x { _rdjAddress = y })
-       <$> f (_rdjAddress x)
+    f (_rdjAddress x)
+        <&> \y -> x { _rdjAddress = y }
 {-# INLINE rdjAddress #-}
 
 -- | The instance's database engine.
-rdjEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjEngine :: Lens' RdsDbInstance (Maybe Text)
 rdjEngine f x =
-    (\y -> x { _rdjEngine = y })
-       <$> f (_rdjEngine x)
+    f (_rdjEngine x)
+        <&> \y -> x { _rdjEngine = y }
 {-# INLINE rdjEngine #-}
 
 -- | The ID of the stack that the instance is registered with.
-rdjStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjStackId :: Lens' RdsDbInstance (Maybe Text)
 rdjStackId f x =
-    (\y -> x { _rdjStackId = y })
-       <$> f (_rdjStackId x)
+    f (_rdjStackId x)
+        <&> \y -> x { _rdjStackId = y }
 {-# INLINE rdjStackId #-}
 
 -- | Set to true if AWS OpsWorks was unable to discover the Amazon RDS instance.
 -- AWS OpsWorks attempts to discover the instance only once. If this value is
 -- set to true, you must deregister the instance and then register it again.
-rdjMissingOnRds
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RdsDbInstance
-    -> f RdsDbInstance
+rdjMissingOnRds :: Lens' RdsDbInstance (Maybe Bool)
 rdjMissingOnRds f x =
-    (\y -> x { _rdjMissingOnRds = y })
-       <$> f (_rdjMissingOnRds x)
+    f (_rdjMissingOnRds x)
+        <&> \y -> x { _rdjMissingOnRds = y }
 {-# INLINE rdjMissingOnRds #-}
 
 instance FromJSON RdsDbInstance
@@ -3420,63 +2644,38 @@ data Recipes = Recipes
     } deriving (Show, Generic)
 
 -- | An array of custom recipe names to be run following a setup event.
-rSetup
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Recipes
-    -> f Recipes
+rSetup :: Lens' Recipes ([Text])
 rSetup f x =
-    (\y -> x { _rSetup = y })
-       <$> f (_rSetup x)
+    f (_rSetup x)
+        <&> \y -> x { _rSetup = y }
 {-# INLINE rSetup #-}
 
 -- | An array of custom recipe names to be run following a configure event.
-rConfigure
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Recipes
-    -> f Recipes
+rConfigure :: Lens' Recipes ([Text])
 rConfigure f x =
-    (\y -> x { _rConfigure = y })
-       <$> f (_rConfigure x)
+    f (_rConfigure x)
+        <&> \y -> x { _rConfigure = y }
 {-# INLINE rConfigure #-}
 
 -- | An array of custom recipe names to be run following a deploy event.
-rDeploy
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Recipes
-    -> f Recipes
+rDeploy :: Lens' Recipes ([Text])
 rDeploy f x =
-    (\y -> x { _rDeploy = y })
-       <$> f (_rDeploy x)
+    f (_rDeploy x)
+        <&> \y -> x { _rDeploy = y }
 {-# INLINE rDeploy #-}
 
 -- | An array of custom recipe names to be run following a undeploy event.
-rUndeploy
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Recipes
-    -> f Recipes
+rUndeploy :: Lens' Recipes ([Text])
 rUndeploy f x =
-    (\y -> x { _rUndeploy = y })
-       <$> f (_rUndeploy x)
+    f (_rUndeploy x)
+        <&> \y -> x { _rUndeploy = y }
 {-# INLINE rUndeploy #-}
 
 -- | An array of custom recipe names to be run following a shutdown event.
-rShutdown
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Recipes
-    -> f Recipes
+rShutdown :: Lens' Recipes ([Text])
 rShutdown f x =
-    (\y -> x { _rShutdown = y })
-       <$> f (_rShutdown x)
+    f (_rShutdown x)
+        <&> \y -> x { _rShutdown = y }
 {-# INLINE rShutdown #-}
 
 instance FromJSON Recipes
@@ -3496,51 +2695,31 @@ data SelfUserProfile = SelfUserProfile
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
-supIamUserArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SelfUserProfile
-    -> f SelfUserProfile
+supIamUserArn :: Lens' SelfUserProfile (Maybe Text)
 supIamUserArn f x =
-    (\y -> x { _supIamUserArn = y })
-       <$> f (_supIamUserArn x)
+    f (_supIamUserArn x)
+        <&> \y -> x { _supIamUserArn = y }
 {-# INLINE supIamUserArn #-}
 
 -- | The user's name.
-supName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SelfUserProfile
-    -> f SelfUserProfile
+supName :: Lens' SelfUserProfile (Maybe Text)
 supName f x =
-    (\y -> x { _supName = y })
-       <$> f (_supName x)
+    f (_supName x)
+        <&> \y -> x { _supName = y }
 {-# INLINE supName #-}
 
 -- | The user's SSH user name.
-supSshUsername
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SelfUserProfile
-    -> f SelfUserProfile
+supSshUsername :: Lens' SelfUserProfile (Maybe Text)
 supSshUsername f x =
-    (\y -> x { _supSshUsername = y })
-       <$> f (_supSshUsername x)
+    f (_supSshUsername x)
+        <&> \y -> x { _supSshUsername = y }
 {-# INLINE supSshUsername #-}
 
 -- | The user's SSH public key.
-supSshPublicKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SelfUserProfile
-    -> f SelfUserProfile
+supSshPublicKey :: Lens' SelfUserProfile (Maybe Text)
 supSshPublicKey f x =
-    (\y -> x { _supSshPublicKey = y })
-       <$> f (_supSshPublicKey x)
+    f (_supSshPublicKey x)
+        <&> \y -> x { _supSshPublicKey = y }
 {-# INLINE supSshPublicKey #-}
 
 instance FromJSON SelfUserProfile
@@ -3562,75 +2741,45 @@ data ServiceError = ServiceError
     } deriving (Show, Generic)
 
 -- | The error ID.
-sssssssssssssssxServiceErrorId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceError
-    -> f ServiceError
+sssssssssssssssxServiceErrorId :: Lens' ServiceError (Maybe Text)
 sssssssssssssssxServiceErrorId f x =
-    (\y -> x { _sssssssssssssssxServiceErrorId = y })
-       <$> f (_sssssssssssssssxServiceErrorId x)
+    f (_sssssssssssssssxServiceErrorId x)
+        <&> \y -> x { _sssssssssssssssxServiceErrorId = y }
 {-# INLINE sssssssssssssssxServiceErrorId #-}
 
 -- | The stack ID.
-sssssssssssssssxStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceError
-    -> f ServiceError
+sssssssssssssssxStackId :: Lens' ServiceError (Maybe Text)
 sssssssssssssssxStackId f x =
-    (\y -> x { _sssssssssssssssxStackId = y })
-       <$> f (_sssssssssssssssxStackId x)
+    f (_sssssssssssssssxStackId x)
+        <&> \y -> x { _sssssssssssssssxStackId = y }
 {-# INLINE sssssssssssssssxStackId #-}
 
 -- | The instance ID.
-sssssssssssssssxInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceError
-    -> f ServiceError
+sssssssssssssssxInstanceId :: Lens' ServiceError (Maybe Text)
 sssssssssssssssxInstanceId f x =
-    (\y -> x { _sssssssssssssssxInstanceId = y })
-       <$> f (_sssssssssssssssxInstanceId x)
+    f (_sssssssssssssssxInstanceId x)
+        <&> \y -> x { _sssssssssssssssxInstanceId = y }
 {-# INLINE sssssssssssssssxInstanceId #-}
 
 -- | The error type.
-sssssssssssssssxType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceError
-    -> f ServiceError
+sssssssssssssssxType :: Lens' ServiceError (Maybe Text)
 sssssssssssssssxType f x =
-    (\y -> x { _sssssssssssssssxType = y })
-       <$> f (_sssssssssssssssxType x)
+    f (_sssssssssssssssxType x)
+        <&> \y -> x { _sssssssssssssssxType = y }
 {-# INLINE sssssssssssssssxType #-}
 
 -- | A message that describes the error.
-sssssssssssssssxMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceError
-    -> f ServiceError
+sssssssssssssssxMessage :: Lens' ServiceError (Maybe Text)
 sssssssssssssssxMessage f x =
-    (\y -> x { _sssssssssssssssxMessage = y })
-       <$> f (_sssssssssssssssxMessage x)
+    f (_sssssssssssssssxMessage x)
+        <&> \y -> x { _sssssssssssssssxMessage = y }
 {-# INLINE sssssssssssssssxMessage #-}
 
 -- | When the error occurred.
-sssssssssssssssxCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceError
-    -> f ServiceError
+sssssssssssssssxCreatedAt :: Lens' ServiceError (Maybe Text)
 sssssssssssssssxCreatedAt f x =
-    (\y -> x { _sssssssssssssssxCreatedAt = y })
-       <$> f (_sssssssssssssssxCreatedAt x)
+    f (_sssssssssssssssxCreatedAt x)
+        <&> \y -> x { _sssssssssssssssxCreatedAt = y }
 {-# INLINE sssssssssssssssxCreatedAt #-}
 
 instance FromJSON ServiceError
@@ -3665,83 +2814,53 @@ data Source = Source
     } deriving (Show, Generic)
 
 -- | The repository type.
-seType
-    :: Functor f
-    => (Maybe SourceType
-    -> f (Maybe SourceType))
-    -> Source
-    -> f Source
+seType :: Lens' Source (Maybe SourceType)
 seType f x =
-    (\y -> x { _seType = y })
-       <$> f (_seType x)
+    f (_seType x)
+        <&> \y -> x { _seType = y }
 {-# INLINE seType #-}
 
 -- | The source URL.
-seUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Source
-    -> f Source
+seUrl :: Lens' Source (Maybe Text)
 seUrl f x =
-    (\y -> x { _seUrl = y })
-       <$> f (_seUrl x)
+    f (_seUrl x)
+        <&> \y -> x { _seUrl = y }
 {-# INLINE seUrl #-}
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Username to the appropriate IAM access key ID. For HTTP bundles, Git
 -- repositories, and Subversion repositories, set Username to the user name.
-seUsername
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Source
-    -> f Source
+seUsername :: Lens' Source (Maybe Text)
 seUsername f x =
-    (\y -> x { _seUsername = y })
-       <$> f (_seUsername x)
+    f (_seUsername x)
+        <&> \y -> x { _seUsername = y }
 {-# INLINE seUsername #-}
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Password to the appropriate IAM secret access key. For HTTP bundles and
 -- Subversion repositories, set Password to the password. For more information
 -- on how to safely handle IAM credentials, see .
-sePassword
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Source
-    -> f Source
+sePassword :: Lens' Source (Maybe Text)
 sePassword f x =
-    (\y -> x { _sePassword = y })
-       <$> f (_sePassword x)
+    f (_sePassword x)
+        <&> \y -> x { _sePassword = y }
 {-# INLINE sePassword #-}
 
 -- | The repository's SSH key.
-seSshKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Source
-    -> f Source
+seSshKey :: Lens' Source (Maybe Text)
 seSshKey f x =
-    (\y -> x { _seSshKey = y })
-       <$> f (_seSshKey x)
+    f (_seSshKey x)
+        <&> \y -> x { _seSshKey = y }
 {-# INLINE seSshKey #-}
 
 -- | The application's version. AWS OpsWorks enables you to easily deploy new
 -- versions of an application. One of the simplest approaches is to have
 -- branches or revisions in your repository that represent different versions
 -- that can potentially be deployed.
-seRevision
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Source
-    -> f Source
+seRevision :: Lens' Source (Maybe Text)
 seRevision f x =
-    (\y -> x { _seRevision = y })
-       <$> f (_seRevision x)
+    f (_seRevision x)
+        <&> \y -> x { _seRevision = y }
 {-# INLINE seRevision #-}
 
 instance FromJSON Source
@@ -3761,40 +2880,25 @@ data SslConfiguration = SslConfiguration
     } deriving (Show, Generic)
 
 -- | The contents of the certificate's domain.crt file.
-scCertificate
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SslConfiguration
-    -> f SslConfiguration
+scCertificate :: Lens' SslConfiguration (Text)
 scCertificate f x =
-    (\y -> x { _scCertificate = y })
-       <$> f (_scCertificate x)
+    f (_scCertificate x)
+        <&> \y -> x { _scCertificate = y }
 {-# INLINE scCertificate #-}
 
 -- | The private key; the contents of the certificate's domain.kex file.
-scPrivateKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SslConfiguration
-    -> f SslConfiguration
+scPrivateKey :: Lens' SslConfiguration (Text)
 scPrivateKey f x =
-    (\y -> x { _scPrivateKey = y })
-       <$> f (_scPrivateKey x)
+    f (_scPrivateKey x)
+        <&> \y -> x { _scPrivateKey = y }
 {-# INLINE scPrivateKey #-}
 
 -- | Optional. Can be used to specify an intermediate certificate authority key
 -- or client authentication.
-scChain
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SslConfiguration
-    -> f SslConfiguration
+scChain :: Lens' SslConfiguration (Maybe Text)
 scChain f x =
-    (\y -> x { _scChain = y })
-       <$> f (_scChain x)
+    f (_scChain x)
+        <&> \y -> x { _scChain = y }
 {-# INLINE scChain #-}
 
 instance FromJSON SslConfiguration
@@ -3867,152 +2971,92 @@ data Stack = Stack
     } deriving (Show, Generic)
 
 -- | The stack ID.
-ssssssssssssssssoStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoStackId :: Lens' Stack (Maybe Text)
 ssssssssssssssssoStackId f x =
-    (\y -> x { _ssssssssssssssssoStackId = y })
-       <$> f (_ssssssssssssssssoStackId x)
+    f (_ssssssssssssssssoStackId x)
+        <&> \y -> x { _ssssssssssssssssoStackId = y }
 {-# INLINE ssssssssssssssssoStackId #-}
 
 -- | The stack name.
-ssssssssssssssssoName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoName :: Lens' Stack (Maybe Text)
 ssssssssssssssssoName f x =
-    (\y -> x { _ssssssssssssssssoName = y })
-       <$> f (_ssssssssssssssssoName x)
+    f (_ssssssssssssssssoName x)
+        <&> \y -> x { _ssssssssssssssssoName = y }
 {-# INLINE ssssssssssssssssoName #-}
 
 -- | The stack's ARN.
-ssssssssssssssssoArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoArn :: Lens' Stack (Maybe Text)
 ssssssssssssssssoArn f x =
-    (\y -> x { _ssssssssssssssssoArn = y })
-       <$> f (_ssssssssssssssssoArn x)
+    f (_ssssssssssssssssoArn x)
+        <&> \y -> x { _ssssssssssssssssoArn = y }
 {-# INLINE ssssssssssssssssoArn #-}
 
 -- | The stack AWS region, such as "us-east-1". For more information about AWS
 -- regions, see Regions and Endpoints.
-ssssssssssssssssoRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoRegion :: Lens' Stack (Maybe Text)
 ssssssssssssssssoRegion f x =
-    (\y -> x { _ssssssssssssssssoRegion = y })
-       <$> f (_ssssssssssssssssoRegion x)
+    f (_ssssssssssssssssoRegion x)
+        <&> \y -> x { _ssssssssssssssssoRegion = y }
 {-# INLINE ssssssssssssssssoRegion #-}
 
 -- | The VPC ID, if the stack is running in a VPC.
-ssssssssssssssssoVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoVpcId :: Lens' Stack (Maybe Text)
 ssssssssssssssssoVpcId f x =
-    (\y -> x { _ssssssssssssssssoVpcId = y })
-       <$> f (_ssssssssssssssssoVpcId x)
+    f (_ssssssssssssssssoVpcId x)
+        <&> \y -> x { _ssssssssssssssssoVpcId = y }
 {-# INLINE ssssssssssssssssoVpcId #-}
 
 -- | The stack's attributes.
-ssssssssssssssssoAttributes
-    :: Functor f
-    => (Map StackAttributesKeys Text
-    -> f (Map StackAttributesKeys Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoAttributes :: Lens' Stack (Map StackAttributesKeys Text)
 ssssssssssssssssoAttributes f x =
-    (\y -> x { _ssssssssssssssssoAttributes = y })
-       <$> f (_ssssssssssssssssoAttributes x)
+    f (_ssssssssssssssssoAttributes x)
+        <&> \y -> x { _ssssssssssssssssoAttributes = y }
 {-# INLINE ssssssssssssssssoAttributes #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role.
-ssssssssssssssssoServiceRoleArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoServiceRoleArn :: Lens' Stack (Maybe Text)
 ssssssssssssssssoServiceRoleArn f x =
-    (\y -> x { _ssssssssssssssssoServiceRoleArn = y })
-       <$> f (_ssssssssssssssssoServiceRoleArn x)
+    f (_ssssssssssssssssoServiceRoleArn x)
+        <&> \y -> x { _ssssssssssssssssoServiceRoleArn = y }
 {-# INLINE ssssssssssssssssoServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
 -- Identifiers.
-ssssssssssssssssoDefaultInstanceProfileArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoDefaultInstanceProfileArn :: Lens' Stack (Maybe Text)
 ssssssssssssssssoDefaultInstanceProfileArn f x =
-    (\y -> x { _ssssssssssssssssoDefaultInstanceProfileArn = y })
-       <$> f (_ssssssssssssssssoDefaultInstanceProfileArn x)
+    f (_ssssssssssssssssoDefaultInstanceProfileArn x)
+        <&> \y -> x { _ssssssssssssssssoDefaultInstanceProfileArn = y }
 {-# INLINE ssssssssssssssssoDefaultInstanceProfileArn #-}
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
-ssssssssssssssssoDefaultOs
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoDefaultOs :: Lens' Stack (Maybe Text)
 ssssssssssssssssoDefaultOs f x =
-    (\y -> x { _ssssssssssssssssoDefaultOs = y })
-       <$> f (_ssssssssssssssssoDefaultOs x)
+    f (_ssssssssssssssssoDefaultOs x)
+        <&> \y -> x { _ssssssssssssssssoDefaultOs = y }
 {-# INLINE ssssssssssssssssoDefaultOs #-}
 
 -- | The stack host name theme, with spaces replaced by underscores.
-ssssssssssssssssoHostnameTheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoHostnameTheme :: Lens' Stack (Maybe Text)
 ssssssssssssssssoHostnameTheme f x =
-    (\y -> x { _ssssssssssssssssoHostnameTheme = y })
-       <$> f (_ssssssssssssssssoHostnameTheme x)
+    f (_ssssssssssssssssoHostnameTheme x)
+        <&> \y -> x { _ssssssssssssssssoHostnameTheme = y }
 {-# INLINE ssssssssssssssssoHostnameTheme #-}
 
 -- | The stack's default Availability Zone. For more information, see Regions
 -- and Endpoints.
-ssssssssssssssssoDefaultAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 ssssssssssssssssoDefaultAvailabilityZone f x =
-    (\y -> x { _ssssssssssssssssoDefaultAvailabilityZone = y })
-       <$> f (_ssssssssssssssssoDefaultAvailabilityZone x)
+    f (_ssssssssssssssssoDefaultAvailabilityZone x)
+        <&> \y -> x { _ssssssssssssssssoDefaultAvailabilityZone = y }
 {-# INLINE ssssssssssssssssoDefaultAvailabilityZone #-}
 
 -- | The default subnet ID, if the stack is running in a VPC.
-ssssssssssssssssoDefaultSubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoDefaultSubnetId :: Lens' Stack (Maybe Text)
 ssssssssssssssssoDefaultSubnetId f x =
-    (\y -> x { _ssssssssssssssssoDefaultSubnetId = y })
-       <$> f (_ssssssssssssssssoDefaultSubnetId x)
+    f (_ssssssssssssssssoDefaultSubnetId x)
+        <&> \y -> x { _ssssssssssssssssoDefaultSubnetId = y }
 {-# INLINE ssssssssssssssssoDefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -4020,118 +3064,73 @@ ssssssssssssssssoDefaultSubnetId f x =
 -- should be in the following format and must escape characters such as '"'.:
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
-ssssssssssssssssoCustomJson
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoCustomJson :: Lens' Stack (Maybe Text)
 ssssssssssssssssoCustomJson f x =
-    (\y -> x { _ssssssssssssssssoCustomJson = y })
-       <$> f (_ssssssssssssssssoCustomJson x)
+    f (_ssssssssssssssssoCustomJson x)
+        <&> \y -> x { _ssssssssssssssssoCustomJson = y }
 {-# INLINE ssssssssssssssssoCustomJson #-}
 
 -- | The configuration manager.
-ssssssssssssssssoConfigurationManager
-    :: Functor f
-    => (Maybe StackConfigurationManager
-    -> f (Maybe StackConfigurationManager))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoConfigurationManager :: Lens' Stack (Maybe StackConfigurationManager)
 ssssssssssssssssoConfigurationManager f x =
-    (\y -> x { _ssssssssssssssssoConfigurationManager = y })
-       <$> f (_ssssssssssssssssoConfigurationManager x)
+    f (_ssssssssssssssssoConfigurationManager x)
+        <&> \y -> x { _ssssssssssssssssoConfigurationManager = y }
 {-# INLINE ssssssssssssssssoConfigurationManager #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version. For more information, see Create a New Stack.
-ssssssssssssssssoChefConfiguration
-    :: Functor f
-    => (Maybe ChefConfiguration
-    -> f (Maybe ChefConfiguration))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
 ssssssssssssssssoChefConfiguration f x =
-    (\y -> x { _ssssssssssssssssoChefConfiguration = y })
-       <$> f (_ssssssssssssssssoChefConfiguration x)
+    f (_ssssssssssssssssoChefConfiguration x)
+        <&> \y -> x { _ssssssssssssssssoChefConfiguration = y }
 {-# INLINE ssssssssssssssssoChefConfiguration #-}
 
 -- | Whether the stack uses custom cookbooks.
-ssssssssssssssssoUseCustomCookbooks
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoUseCustomCookbooks :: Lens' Stack (Maybe Bool)
 ssssssssssssssssoUseCustomCookbooks f x =
-    (\y -> x { _ssssssssssssssssoUseCustomCookbooks = y })
-       <$> f (_ssssssssssssssssoUseCustomCookbooks x)
+    f (_ssssssssssssssssoUseCustomCookbooks x)
+        <&> \y -> x { _ssssssssssssssssoUseCustomCookbooks = y }
 {-# INLINE ssssssssssssssssoUseCustomCookbooks #-}
 
 -- | Whether the stack automatically associates the AWS OpsWorks built-in
 -- security groups with the stack's layers.
-ssssssssssssssssoUseOpsworksSecurityGroups
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
 ssssssssssssssssoUseOpsworksSecurityGroups f x =
-    (\y -> x { _ssssssssssssssssoUseOpsworksSecurityGroups = y })
-       <$> f (_ssssssssssssssssoUseOpsworksSecurityGroups x)
+    f (_ssssssssssssssssoUseOpsworksSecurityGroups x)
+        <&> \y -> x { _ssssssssssssssssoUseOpsworksSecurityGroups = y }
 {-# INLINE ssssssssssssssssoUseOpsworksSecurityGroups #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-ssssssssssssssssoCustomCookbooksSource
-    :: Functor f
-    => (Maybe Source
-    -> f (Maybe Source))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoCustomCookbooksSource :: Lens' Stack (Maybe Source)
 ssssssssssssssssoCustomCookbooksSource f x =
-    (\y -> x { _ssssssssssssssssoCustomCookbooksSource = y })
-       <$> f (_ssssssssssssssssoCustomCookbooksSource x)
+    f (_ssssssssssssssssoCustomCookbooksSource x)
+        <&> \y -> x { _ssssssssssssssssoCustomCookbooksSource = y }
 {-# INLINE ssssssssssssssssoCustomCookbooksSource #-}
 
 -- | A default SSH key for the stack's instances. You can override this value
 -- when you create or update an instance.
-ssssssssssssssssoDefaultSshKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoDefaultSshKeyName :: Lens' Stack (Maybe Text)
 ssssssssssssssssoDefaultSshKeyName f x =
-    (\y -> x { _ssssssssssssssssoDefaultSshKeyName = y })
-       <$> f (_ssssssssssssssssoDefaultSshKeyName x)
+    f (_ssssssssssssssssoDefaultSshKeyName x)
+        <&> \y -> x { _ssssssssssssssssoDefaultSshKeyName = y }
 {-# INLINE ssssssssssssssssoDefaultSshKeyName #-}
 
 -- | Date when the stack was created.
-ssssssssssssssssoCreatedAt
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoCreatedAt :: Lens' Stack (Maybe Text)
 ssssssssssssssssoCreatedAt f x =
-    (\y -> x { _ssssssssssssssssoCreatedAt = y })
-       <$> f (_ssssssssssssssssoCreatedAt x)
+    f (_ssssssssssssssssoCreatedAt x)
+        <&> \y -> x { _ssssssssssssssssoCreatedAt = y }
 {-# INLINE ssssssssssssssssoCreatedAt #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see Storage for the Root Device.
-ssssssssssssssssoDefaultRootDeviceType
-    :: Functor f
-    => (Maybe RootDeviceType
-    -> f (Maybe RootDeviceType))
-    -> Stack
-    -> f Stack
+ssssssssssssssssoDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 ssssssssssssssssoDefaultRootDeviceType f x =
-    (\y -> x { _ssssssssssssssssoDefaultRootDeviceType = y })
-       <$> f (_ssssssssssssssssoDefaultRootDeviceType x)
+    f (_ssssssssssssssssoDefaultRootDeviceType x)
+        <&> \y -> x { _ssssssssssssssssoDefaultRootDeviceType = y }
 {-# INLINE ssssssssssssssssoDefaultRootDeviceType #-}
 
 instance FromJSON Stack
@@ -4148,28 +3147,18 @@ data StackConfigurationManager = StackConfigurationManager
     } deriving (Show, Generic)
 
 -- | The name. This parameter must be set to "Chef".
-scmName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackConfigurationManager
-    -> f StackConfigurationManager
+scmName :: Lens' StackConfigurationManager (Maybe Text)
 scmName f x =
-    (\y -> x { _scmName = y })
-       <$> f (_scmName x)
+    f (_scmName x)
+        <&> \y -> x { _scmName = y }
 {-# INLINE scmName #-}
 
 -- | The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The
 -- default value is 11.4.
-scmVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackConfigurationManager
-    -> f StackConfigurationManager
+scmVersion :: Lens' StackConfigurationManager (Maybe Text)
 scmVersion f x =
-    (\y -> x { _scmVersion = y })
-       <$> f (_scmVersion x)
+    f (_scmVersion x)
+        <&> \y -> x { _scmVersion = y }
 {-# INLINE scmVersion #-}
 
 instance FromJSON StackConfigurationManager
@@ -4194,75 +3183,45 @@ data StackSummary = StackSummary
     } deriving (Show, Generic)
 
 -- | The stack ID.
-ssssssssssssssssyStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackSummary
-    -> f StackSummary
+ssssssssssssssssyStackId :: Lens' StackSummary (Maybe Text)
 ssssssssssssssssyStackId f x =
-    (\y -> x { _ssssssssssssssssyStackId = y })
-       <$> f (_ssssssssssssssssyStackId x)
+    f (_ssssssssssssssssyStackId x)
+        <&> \y -> x { _ssssssssssssssssyStackId = y }
 {-# INLINE ssssssssssssssssyStackId #-}
 
 -- | The stack name.
-ssssssssssssssssyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackSummary
-    -> f StackSummary
+ssssssssssssssssyName :: Lens' StackSummary (Maybe Text)
 ssssssssssssssssyName f x =
-    (\y -> x { _ssssssssssssssssyName = y })
-       <$> f (_ssssssssssssssssyName x)
+    f (_ssssssssssssssssyName x)
+        <&> \y -> x { _ssssssssssssssssyName = y }
 {-# INLINE ssssssssssssssssyName #-}
 
 -- | The stack's ARN.
-ssssssssssssssssyArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackSummary
-    -> f StackSummary
+ssssssssssssssssyArn :: Lens' StackSummary (Maybe Text)
 ssssssssssssssssyArn f x =
-    (\y -> x { _ssssssssssssssssyArn = y })
-       <$> f (_ssssssssssssssssyArn x)
+    f (_ssssssssssssssssyArn x)
+        <&> \y -> x { _ssssssssssssssssyArn = y }
 {-# INLINE ssssssssssssssssyArn #-}
 
 -- | The number of layers.
-ssssssssssssssssyLayersCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> StackSummary
-    -> f StackSummary
+ssssssssssssssssyLayersCount :: Lens' StackSummary (Maybe Integer)
 ssssssssssssssssyLayersCount f x =
-    (\y -> x { _ssssssssssssssssyLayersCount = y })
-       <$> f (_ssssssssssssssssyLayersCount x)
+    f (_ssssssssssssssssyLayersCount x)
+        <&> \y -> x { _ssssssssssssssssyLayersCount = y }
 {-# INLINE ssssssssssssssssyLayersCount #-}
 
 -- | The number of apps.
-ssssssssssssssssyAppsCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> StackSummary
-    -> f StackSummary
+ssssssssssssssssyAppsCount :: Lens' StackSummary (Maybe Integer)
 ssssssssssssssssyAppsCount f x =
-    (\y -> x { _ssssssssssssssssyAppsCount = y })
-       <$> f (_ssssssssssssssssyAppsCount x)
+    f (_ssssssssssssssssyAppsCount x)
+        <&> \y -> x { _ssssssssssssssssyAppsCount = y }
 {-# INLINE ssssssssssssssssyAppsCount #-}
 
 -- | An InstancesCount object with the number of instances in each status.
-ssssssssssssssssyInstancesCount
-    :: Functor f
-    => (Maybe InstancesCount
-    -> f (Maybe InstancesCount))
-    -> StackSummary
-    -> f StackSummary
+ssssssssssssssssyInstancesCount :: Lens' StackSummary (Maybe InstancesCount)
 ssssssssssssssssyInstancesCount f x =
-    (\y -> x { _ssssssssssssssssyInstancesCount = y })
-       <$> f (_ssssssssssssssssyInstancesCount x)
+    f (_ssssssssssssssssyInstancesCount x)
+        <&> \y -> x { _ssssssssssssssssyInstancesCount = y }
 {-# INLINE ssssssssssssssssyInstancesCount #-}
 
 instance FromJSON StackSummary
@@ -4276,27 +3235,17 @@ data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     } deriving (Show, Generic)
 
 -- | The instance ID.
-tbasdInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TimeBasedAutoScalingConfiguration
-    -> f TimeBasedAutoScalingConfiguration
+tbasdInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
 tbasdInstanceId f x =
-    (\y -> x { _tbasdInstanceId = y })
-       <$> f (_tbasdInstanceId x)
+    f (_tbasdInstanceId x)
+        <&> \y -> x { _tbasdInstanceId = y }
 {-# INLINE tbasdInstanceId #-}
 
 -- | A WeeklyAutoScalingSchedule object with the instance schedule.
-tbasdAutoScalingSchedule
-    :: Functor f
-    => (Maybe WeeklyAutoScalingSchedule
-    -> f (Maybe WeeklyAutoScalingSchedule))
-    -> TimeBasedAutoScalingConfiguration
-    -> f TimeBasedAutoScalingConfiguration
+tbasdAutoScalingSchedule :: Lens' TimeBasedAutoScalingConfiguration (Maybe WeeklyAutoScalingSchedule)
 tbasdAutoScalingSchedule f x =
-    (\y -> x { _tbasdAutoScalingSchedule = y })
-       <$> f (_tbasdAutoScalingSchedule x)
+    f (_tbasdAutoScalingSchedule x)
+        <&> \y -> x { _tbasdAutoScalingSchedule = y }
 {-# INLINE tbasdAutoScalingSchedule #-}
 
 instance FromJSON TimeBasedAutoScalingConfiguration
@@ -4318,64 +3267,39 @@ data UserProfile = UserProfile
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
-uxIamUserArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UserProfile
-    -> f UserProfile
+uxIamUserArn :: Lens' UserProfile (Maybe Text)
 uxIamUserArn f x =
-    (\y -> x { _uxIamUserArn = y })
-       <$> f (_uxIamUserArn x)
+    f (_uxIamUserArn x)
+        <&> \y -> x { _uxIamUserArn = y }
 {-# INLINE uxIamUserArn #-}
 
 -- | The user's name.
-uxName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UserProfile
-    -> f UserProfile
+uxName :: Lens' UserProfile (Maybe Text)
 uxName f x =
-    (\y -> x { _uxName = y })
-       <$> f (_uxName x)
+    f (_uxName x)
+        <&> \y -> x { _uxName = y }
 {-# INLINE uxName #-}
 
 -- | The user's SSH user name.
-uxSshUsername
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UserProfile
-    -> f UserProfile
+uxSshUsername :: Lens' UserProfile (Maybe Text)
 uxSshUsername f x =
-    (\y -> x { _uxSshUsername = y })
-       <$> f (_uxSshUsername x)
+    f (_uxSshUsername x)
+        <&> \y -> x { _uxSshUsername = y }
 {-# INLINE uxSshUsername #-}
 
 -- | The user's SSH public key.
-uxSshPublicKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UserProfile
-    -> f UserProfile
+uxSshPublicKey :: Lens' UserProfile (Maybe Text)
 uxSshPublicKey f x =
-    (\y -> x { _uxSshPublicKey = y })
-       <$> f (_uxSshPublicKey x)
+    f (_uxSshPublicKey x)
+        <&> \y -> x { _uxSshPublicKey = y }
 {-# INLINE uxSshPublicKey #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see Managing User Permissions.
-uxAllowSelfManagement
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UserProfile
-    -> f UserProfile
+uxAllowSelfManagement :: Lens' UserProfile (Maybe Bool)
 uxAllowSelfManagement f x =
-    (\y -> x { _uxAllowSelfManagement = y })
-       <$> f (_uxAllowSelfManagement x)
+    f (_uxAllowSelfManagement x)
+        <&> \y -> x { _uxAllowSelfManagement = y }
 {-# INLINE uxAllowSelfManagement #-}
 
 instance FromJSON UserProfile
@@ -4413,161 +3337,96 @@ data Volume = Volume
     } deriving (Show, Generic)
 
 -- | The volume ID.
-vgVolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgVolumeId :: Lens' Volume (Maybe Text)
 vgVolumeId f x =
-    (\y -> x { _vgVolumeId = y })
-       <$> f (_vgVolumeId x)
+    f (_vgVolumeId x)
+        <&> \y -> x { _vgVolumeId = y }
 {-# INLINE vgVolumeId #-}
 
 -- | The Amazon EC2 volume ID.
-vgEc2VolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgEc2VolumeId :: Lens' Volume (Maybe Text)
 vgEc2VolumeId f x =
-    (\y -> x { _vgEc2VolumeId = y })
-       <$> f (_vgEc2VolumeId x)
+    f (_vgEc2VolumeId x)
+        <&> \y -> x { _vgEc2VolumeId = y }
 {-# INLINE vgEc2VolumeId #-}
 
 -- | The volume name.
-vgName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgName :: Lens' Volume (Maybe Text)
 vgName f x =
-    (\y -> x { _vgName = y })
-       <$> f (_vgName x)
+    f (_vgName x)
+        <&> \y -> x { _vgName = y }
 {-# INLINE vgName #-}
 
 -- | The RAID array ID.
-vgRaidArrayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgRaidArrayId :: Lens' Volume (Maybe Text)
 vgRaidArrayId f x =
-    (\y -> x { _vgRaidArrayId = y })
-       <$> f (_vgRaidArrayId x)
+    f (_vgRaidArrayId x)
+        <&> \y -> x { _vgRaidArrayId = y }
 {-# INLINE vgRaidArrayId #-}
 
 -- | The instance ID.
-vgInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgInstanceId :: Lens' Volume (Maybe Text)
 vgInstanceId f x =
-    (\y -> x { _vgInstanceId = y })
-       <$> f (_vgInstanceId x)
+    f (_vgInstanceId x)
+        <&> \y -> x { _vgInstanceId = y }
 {-# INLINE vgInstanceId #-}
 
 -- | The value returned by DescribeVolumes.
-vgStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgStatus :: Lens' Volume (Maybe Text)
 vgStatus f x =
-    (\y -> x { _vgStatus = y })
-       <$> f (_vgStatus x)
+    f (_vgStatus x)
+        <&> \y -> x { _vgStatus = y }
 {-# INLINE vgStatus #-}
 
 -- | The volume size.
-vgSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Volume
-    -> f Volume
+vgSize :: Lens' Volume (Maybe Integer)
 vgSize f x =
-    (\y -> x { _vgSize = y })
-       <$> f (_vgSize x)
+    f (_vgSize x)
+        <&> \y -> x { _vgSize = y }
 {-# INLINE vgSize #-}
 
 -- | The device name.
-vgDevice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgDevice :: Lens' Volume (Maybe Text)
 vgDevice f x =
-    (\y -> x { _vgDevice = y })
-       <$> f (_vgDevice x)
+    f (_vgDevice x)
+        <&> \y -> x { _vgDevice = y }
 {-# INLINE vgDevice #-}
 
 -- | The volume mount point. For example "/dev/sdh".
-vgMountPoint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgMountPoint :: Lens' Volume (Maybe Text)
 vgMountPoint f x =
-    (\y -> x { _vgMountPoint = y })
-       <$> f (_vgMountPoint x)
+    f (_vgMountPoint x)
+        <&> \y -> x { _vgMountPoint = y }
 {-# INLINE vgMountPoint #-}
 
 -- | The AWS region. For more information about AWS regions, see Regions and
 -- Endpoints.
-vgRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgRegion :: Lens' Volume (Maybe Text)
 vgRegion f x =
-    (\y -> x { _vgRegion = y })
-       <$> f (_vgRegion x)
+    f (_vgRegion x)
+        <&> \y -> x { _vgRegion = y }
 {-# INLINE vgRegion #-}
 
 -- | The volume Availability Zone. For more information, see Regions and
 -- Endpoints.
-vgAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgAvailabilityZone :: Lens' Volume (Maybe Text)
 vgAvailabilityZone f x =
-    (\y -> x { _vgAvailabilityZone = y })
-       <$> f (_vgAvailabilityZone x)
+    f (_vgAvailabilityZone x)
+        <&> \y -> x { _vgAvailabilityZone = y }
 {-# INLINE vgAvailabilityZone #-}
 
 -- | The volume type, standard or PIOPS.
-vgVolumeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Volume
-    -> f Volume
+vgVolumeType :: Lens' Volume (Maybe Text)
 vgVolumeType f x =
-    (\y -> x { _vgVolumeType = y })
-       <$> f (_vgVolumeType x)
+    f (_vgVolumeType x)
+        <&> \y -> x { _vgVolumeType = y }
 {-# INLINE vgVolumeType #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
-vgIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Volume
-    -> f Volume
+vgIops :: Lens' Volume (Maybe Integer)
 vgIops f x =
-    (\y -> x { _vgIops = y })
-       <$> f (_vgIops x)
+    f (_vgIops x)
+        <&> \y -> x { _vgIops = y }
 {-# INLINE vgIops #-}
 
 instance FromJSON Volume
@@ -4589,75 +3448,45 @@ data VolumeConfiguration = VolumeConfiguration
     } deriving (Show, Generic)
 
 -- | The volume mount point. For example "/dev/sdh".
-vdMountPoint
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> VolumeConfiguration
-    -> f VolumeConfiguration
+vdMountPoint :: Lens' VolumeConfiguration (Text)
 vdMountPoint f x =
-    (\y -> x { _vdMountPoint = y })
-       <$> f (_vdMountPoint x)
+    f (_vdMountPoint x)
+        <&> \y -> x { _vdMountPoint = y }
 {-# INLINE vdMountPoint #-}
 
 -- | The volume RAID level.
-vdRaidLevel
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> VolumeConfiguration
-    -> f VolumeConfiguration
+vdRaidLevel :: Lens' VolumeConfiguration (Maybe Integer)
 vdRaidLevel f x =
-    (\y -> x { _vdRaidLevel = y })
-       <$> f (_vdRaidLevel x)
+    f (_vdRaidLevel x)
+        <&> \y -> x { _vdRaidLevel = y }
 {-# INLINE vdRaidLevel #-}
 
 -- | The number of disks in the volume.
-vdNumberOfDisks
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> VolumeConfiguration
-    -> f VolumeConfiguration
+vdNumberOfDisks :: Lens' VolumeConfiguration (Integer)
 vdNumberOfDisks f x =
-    (\y -> x { _vdNumberOfDisks = y })
-       <$> f (_vdNumberOfDisks x)
+    f (_vdNumberOfDisks x)
+        <&> \y -> x { _vdNumberOfDisks = y }
 {-# INLINE vdNumberOfDisks #-}
 
 -- | The volume size.
-vdSize
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> VolumeConfiguration
-    -> f VolumeConfiguration
+vdSize :: Lens' VolumeConfiguration (Integer)
 vdSize f x =
-    (\y -> x { _vdSize = y })
-       <$> f (_vdSize x)
+    f (_vdSize x)
+        <&> \y -> x { _vdSize = y }
 {-# INLINE vdSize #-}
 
 -- | The volume type, standard or PIOPS.
-vdVolumeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VolumeConfiguration
-    -> f VolumeConfiguration
+vdVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vdVolumeType f x =
-    (\y -> x { _vdVolumeType = y })
-       <$> f (_vdVolumeType x)
+    f (_vdVolumeType x)
+        <&> \y -> x { _vdVolumeType = y }
 {-# INLINE vdVolumeType #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
-vdIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> VolumeConfiguration
-    -> f VolumeConfiguration
+vdIops :: Lens' VolumeConfiguration (Maybe Integer)
 vdIops f x =
-    (\y -> x { _vdIops = y })
-       <$> f (_vdIops x)
+    f (_vdIops x)
+        <&> \y -> x { _vdIops = y }
 {-# INLINE vdIops #-}
 
 instance FromJSON VolumeConfiguration
@@ -4683,87 +3512,52 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     } deriving (Show, Generic)
 
 -- | The schedule for Monday.
-wassMonday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassMonday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassMonday f x =
-    (\y -> x { _wassMonday = y })
-       <$> f (_wassMonday x)
+    f (_wassMonday x)
+        <&> \y -> x { _wassMonday = y }
 {-# INLINE wassMonday #-}
 
 -- | The schedule for Tuesday.
-wassTuesday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassTuesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassTuesday f x =
-    (\y -> x { _wassTuesday = y })
-       <$> f (_wassTuesday x)
+    f (_wassTuesday x)
+        <&> \y -> x { _wassTuesday = y }
 {-# INLINE wassTuesday #-}
 
 -- | The schedule for Wednesday.
-wassWednesday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassWednesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassWednesday f x =
-    (\y -> x { _wassWednesday = y })
-       <$> f (_wassWednesday x)
+    f (_wassWednesday x)
+        <&> \y -> x { _wassWednesday = y }
 {-# INLINE wassWednesday #-}
 
 -- | The schedule for Thursday.
-wassThursday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassThursday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassThursday f x =
-    (\y -> x { _wassThursday = y })
-       <$> f (_wassThursday x)
+    f (_wassThursday x)
+        <&> \y -> x { _wassThursday = y }
 {-# INLINE wassThursday #-}
 
 -- | The schedule for Friday.
-wassFriday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassFriday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassFriday f x =
-    (\y -> x { _wassFriday = y })
-       <$> f (_wassFriday x)
+    f (_wassFriday x)
+        <&> \y -> x { _wassFriday = y }
 {-# INLINE wassFriday #-}
 
 -- | The schedule for Saturday.
-wassSaturday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassSaturday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassSaturday f x =
-    (\y -> x { _wassSaturday = y })
-       <$> f (_wassSaturday x)
+    f (_wassSaturday x)
+        <&> \y -> x { _wassSaturday = y }
 {-# INLINE wassSaturday #-}
 
 -- | The schedule for Sunday.
-wassSunday
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> WeeklyAutoScalingSchedule
-    -> f WeeklyAutoScalingSchedule
+wassSunday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassSunday f x =
-    (\y -> x { _wassSunday = y })
-       <$> f (_wassSunday x)
+    f (_wassSunday x)
+        <&> \y -> x { _wassSunday = y }
 {-# INLINE wassSunday #-}
 
 instance FromJSON WeeklyAutoScalingSchedule

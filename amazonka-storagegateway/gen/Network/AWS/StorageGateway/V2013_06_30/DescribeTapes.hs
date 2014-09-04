@@ -50,6 +50,7 @@ describeTapes p1 = DescribeTapes
     , _dtjLimit = Nothing
     , _dtjTapeARNs = mempty
     }
+{-# INLINE describeTapes #-}
 
 data DescribeTapes = DescribeTapes
     { _dtjGatewayARN :: Text
@@ -63,48 +64,28 @@ data DescribeTapes = DescribeTapes
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtjGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeTapes
-    -> f DescribeTapes
+dtjGatewayARN :: Lens' DescribeTapes (Text)
 dtjGatewayARN f x =
-    (\y -> x { _dtjGatewayARN = y })
-       <$> f (_dtjGatewayARN x)
+    f (_dtjGatewayARN x)
+        <&> \y -> x { _dtjGatewayARN = y }
 {-# INLINE dtjGatewayARN #-}
 
-dtjMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapes
-    -> f DescribeTapes
+dtjMarker :: Lens' DescribeTapes (Maybe Text)
 dtjMarker f x =
-    (\y -> x { _dtjMarker = y })
-       <$> f (_dtjMarker x)
+    f (_dtjMarker x)
+        <&> \y -> x { _dtjMarker = y }
 {-# INLINE dtjMarker #-}
 
-dtjLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeTapes
-    -> f DescribeTapes
+dtjLimit :: Lens' DescribeTapes (Maybe Integer)
 dtjLimit f x =
-    (\y -> x { _dtjLimit = y })
-       <$> f (_dtjLimit x)
+    f (_dtjLimit x)
+        <&> \y -> x { _dtjLimit = y }
 {-# INLINE dtjLimit #-}
 
-dtjTapeARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTapes
-    -> f DescribeTapes
+dtjTapeARNs :: Lens' DescribeTapes ([Text])
 dtjTapeARNs f x =
-    (\y -> x { _dtjTapeARNs = y })
-       <$> f (_dtjTapeARNs x)
+    f (_dtjTapeARNs x)
+        <&> \y -> x { _dtjTapeARNs = y }
 {-# INLINE dtjTapeARNs #-}
 
 instance ToPath DescribeTapes
@@ -120,26 +101,16 @@ data DescribeTapesResponse = DescribeTapesResponse
     , _dtpTapes :: [Tape]
     } deriving (Show, Generic)
 
-dtpMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapesResponse
-    -> f DescribeTapesResponse
+dtpMarker :: Lens' DescribeTapesResponse (Maybe Text)
 dtpMarker f x =
-    (\y -> x { _dtpMarker = y })
-       <$> f (_dtpMarker x)
+    f (_dtpMarker x)
+        <&> \y -> x { _dtpMarker = y }
 {-# INLINE dtpMarker #-}
 
-dtpTapes
-    :: Functor f
-    => ([Tape]
-    -> f ([Tape]))
-    -> DescribeTapesResponse
-    -> f DescribeTapesResponse
+dtpTapes :: Lens' DescribeTapesResponse ([Tape])
 dtpTapes f x =
-    (\y -> x { _dtpTapes = y })
-       <$> f (_dtpTapes x)
+    f (_dtpTapes x)
+        <&> \y -> x { _dtpTapes = y }
 {-# INLINE dtpTapes #-}
 
 instance FromJSON DescribeTapesResponse

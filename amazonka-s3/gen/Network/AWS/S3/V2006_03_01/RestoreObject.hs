@@ -22,6 +22,8 @@ module Network.AWS.S3.V2006_03_01.RestoreObject
     (
     -- * Request
       RestoreObject
+    -- ** Request alias
+    , PostObjectRestore
     -- ** Request constructor
     , restoreObject
     -- ** Request lenses

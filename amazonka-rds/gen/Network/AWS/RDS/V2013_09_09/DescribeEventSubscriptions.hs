@@ -58,6 +58,7 @@ describeEventSubscriptions = DescribeEventSubscriptions
     , _desnSubscriptionName = Nothing
     , _desnMarker = Nothing
     }
+{-# INLINE describeEventSubscriptions #-}
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
     { _desnMaxRecords :: Maybe Integer
@@ -80,42 +81,27 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-desnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEventSubscriptions
-    -> f DescribeEventSubscriptions
+desnMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Integer)
 desnMaxRecords f x =
-    (\y -> x { _desnMaxRecords = y })
-       <$> f (_desnMaxRecords x)
+    f (_desnMaxRecords x)
+        <&> \y -> x { _desnMaxRecords = y }
 {-# INLINE desnMaxRecords #-}
 
 -- | The name of the RDS event notification subscription you want to describe.
-desnSubscriptionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventSubscriptions
-    -> f DescribeEventSubscriptions
+desnSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 desnSubscriptionName f x =
-    (\y -> x { _desnSubscriptionName = y })
-       <$> f (_desnSubscriptionName x)
+    f (_desnSubscriptionName x)
+        <&> \y -> x { _desnSubscriptionName = y }
 {-# INLINE desnSubscriptionName #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords .
-desnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventSubscriptions
-    -> f DescribeEventSubscriptions
+desnMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 desnMarker f x =
-    (\y -> x { _desnMarker = y })
-       <$> f (_desnMarker x)
+    f (_desnMarker x)
+        <&> \y -> x { _desnMarker = y }
 {-# INLINE desnMarker #-}
 
 instance ToQuery DescribeEventSubscriptions where
@@ -132,30 +118,20 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     } deriving (Show, Generic)
 
 -- | A list of EventSubscriptions data types.
-esmEventSubscriptionsList
-    :: Functor f
-    => ([EventSubscription]
-    -> f ([EventSubscription]))
-    -> DescribeEventSubscriptionsResponse
-    -> f DescribeEventSubscriptionsResponse
+esmEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse ([EventSubscription])
 esmEventSubscriptionsList f x =
-    (\y -> x { _esmEventSubscriptionsList = y })
-       <$> f (_esmEventSubscriptionsList x)
+    f (_esmEventSubscriptionsList x)
+        <&> \y -> x { _esmEventSubscriptionsList = y }
 {-# INLINE esmEventSubscriptionsList #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-esmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventSubscriptionsResponse
-    -> f DescribeEventSubscriptionsResponse
+esmMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 esmMarker f x =
-    (\y -> x { _esmMarker = y })
-       <$> f (_esmMarker x)
+    f (_esmMarker x)
+        <&> \y -> x { _esmMarker = y }
 {-# INLINE esmMarker #-}
 
 instance FromXML DescribeEventSubscriptionsResponse where

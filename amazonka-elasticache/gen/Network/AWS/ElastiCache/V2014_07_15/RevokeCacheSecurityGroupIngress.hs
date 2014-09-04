@@ -58,6 +58,7 @@ revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngress
     , _rcsgimEC2SecurityGroupName = p2
     , _rcsgimEC2SecurityGroupOwnerId = p3
     }
+{-# INLINE revokeCacheSecurityGroupIngress #-}
 
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     { _rcsgimCacheSecurityGroupName :: Text
@@ -71,41 +72,26 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     } deriving (Show, Generic)
 
 -- | The name of the cache security group to revoke ingress from.
-rcsgimCacheSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RevokeCacheSecurityGroupIngress
-    -> f RevokeCacheSecurityGroupIngress
+rcsgimCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress (Text)
 rcsgimCacheSecurityGroupName f x =
-    (\y -> x { _rcsgimCacheSecurityGroupName = y })
-       <$> f (_rcsgimCacheSecurityGroupName x)
+    f (_rcsgimCacheSecurityGroupName x)
+        <&> \y -> x { _rcsgimCacheSecurityGroupName = y }
 {-# INLINE rcsgimCacheSecurityGroupName #-}
 
 -- | The name of the Amazon EC2 security group to revoke access from.
-rcsgimEC2SecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RevokeCacheSecurityGroupIngress
-    -> f RevokeCacheSecurityGroupIngress
+rcsgimEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress (Text)
 rcsgimEC2SecurityGroupName f x =
-    (\y -> x { _rcsgimEC2SecurityGroupName = y })
-       <$> f (_rcsgimEC2SecurityGroupName x)
+    f (_rcsgimEC2SecurityGroupName x)
+        <&> \y -> x { _rcsgimEC2SecurityGroupName = y }
 {-# INLINE rcsgimEC2SecurityGroupName #-}
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-rcsgimEC2SecurityGroupOwnerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RevokeCacheSecurityGroupIngress
-    -> f RevokeCacheSecurityGroupIngress
+rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress (Text)
 rcsgimEC2SecurityGroupOwnerId f x =
-    (\y -> x { _rcsgimEC2SecurityGroupOwnerId = y })
-       <$> f (_rcsgimEC2SecurityGroupOwnerId x)
+    f (_rcsgimEC2SecurityGroupOwnerId x)
+        <&> \y -> x { _rcsgimEC2SecurityGroupOwnerId = y }
 {-# INLINE rcsgimEC2SecurityGroupOwnerId #-}
 
 instance ToQuery RevokeCacheSecurityGroupIngress where
@@ -121,15 +107,10 @@ data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressRe
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
-csgcrCacheSecurityGroup
-    :: Functor f
-    => (Maybe CacheSecurityGroup
-    -> f (Maybe CacheSecurityGroup))
-    -> RevokeCacheSecurityGroupIngressResponse
-    -> f RevokeCacheSecurityGroupIngressResponse
+csgcrCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 csgcrCacheSecurityGroup f x =
-    (\y -> x { _csgcrCacheSecurityGroup = y })
-       <$> f (_csgcrCacheSecurityGroup x)
+    f (_csgcrCacheSecurityGroup x)
+        <&> \y -> x { _csgcrCacheSecurityGroup = y }
 {-# INLINE csgcrCacheSecurityGroup #-}
 
 instance FromXML RevokeCacheSecurityGroupIngressResponse where

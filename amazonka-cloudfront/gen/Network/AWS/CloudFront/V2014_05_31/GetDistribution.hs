@@ -44,6 +44,7 @@ getDistribution :: Text -- ^ 'gdrId'
 getDistribution p1 = GetDistribution
     { _gdrId = p1
     }
+{-# INLINE getDistribution #-}
 
 data GetDistribution = GetDistribution
     { _gdrId :: Text
@@ -51,15 +52,10 @@ data GetDistribution = GetDistribution
     } deriving (Show, Generic)
 
 -- | The distribution's id.
-gdrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetDistribution
-    -> f GetDistribution
+gdrId :: Lens' GetDistribution (Text)
 gdrId f x =
-    (\y -> x { _gdrId = y })
-       <$> f (_gdrId x)
+    f (_gdrId x)
+        <&> \y -> x { _gdrId = y }
 {-# INLINE gdrId #-}
 
 instance ToPath GetDistribution where
@@ -85,28 +81,18 @@ data GetDistributionResponse = GetDistributionResponse
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-gdsDistribution
-    :: Functor f
-    => (Maybe Distribution
-    -> f (Maybe Distribution))
-    -> GetDistributionResponse
-    -> f GetDistributionResponse
+gdsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdsDistribution f x =
-    (\y -> x { _gdsDistribution = y })
-       <$> f (_gdsDistribution x)
+    f (_gdsDistribution x)
+        <&> \y -> x { _gdsDistribution = y }
 {-# INLINE gdsDistribution #-}
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
-gdsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDistributionResponse
-    -> f GetDistributionResponse
+gdsETag :: Lens' GetDistributionResponse (Maybe Text)
 gdsETag f x =
-    (\y -> x { _gdsETag = y })
-       <$> f (_gdsETag x)
+    f (_gdsETag x)
+        <&> \y -> x { _gdsETag = y }
 {-# INLINE gdsETag #-}
 
 instance AWSRequest GetDistribution where

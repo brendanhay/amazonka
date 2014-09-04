@@ -54,6 +54,7 @@ getId p1 p2 = GetId
     , _giiIdentityPoolId = p2
     , _giiLogins = mempty
     }
+{-# INLINE getId #-}
 
 data GetId = GetId
     { _giiAccountId :: Text
@@ -66,40 +67,25 @@ data GetId = GetId
     } deriving (Show, Generic)
 
 -- | A standard AWS account ID (9+ digits).
-giiAccountId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetId
-    -> f GetId
+giiAccountId :: Lens' GetId (Text)
 giiAccountId f x =
-    (\y -> x { _giiAccountId = y })
-       <$> f (_giiAccountId x)
+    f (_giiAccountId x)
+        <&> \y -> x { _giiAccountId = y }
 {-# INLINE giiAccountId #-}
 
 -- | An identity pool ID in the format REGION:GUID.
-giiIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetId
-    -> f GetId
+giiIdentityPoolId :: Lens' GetId (Text)
 giiIdentityPoolId f x =
-    (\y -> x { _giiIdentityPoolId = y })
-       <$> f (_giiIdentityPoolId x)
+    f (_giiIdentityPoolId x)
+        <&> \y -> x { _giiIdentityPoolId = y }
 {-# INLINE giiIdentityPoolId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-giiLogins
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetId
-    -> f GetId
+giiLogins :: Lens' GetId (Map Text Text)
 giiLogins f x =
-    (\y -> x { _giiLogins = y })
-       <$> f (_giiLogins x)
+    f (_giiLogins x)
+        <&> \y -> x { _giiLogins = y }
 {-# INLINE giiLogins #-}
 
 instance ToPath GetId
@@ -116,15 +102,10 @@ data GetIdResponse = GetIdResponse
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
-girIdentityId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetIdResponse
-    -> f GetIdResponse
+girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId f x =
-    (\y -> x { _girIdentityId = y })
-       <$> f (_girIdentityId x)
+    f (_girIdentityId x)
+        <&> \y -> x { _girIdentityId = y }
 {-# INLINE girIdentityId #-}
 
 instance FromJSON GetIdResponse

@@ -66,6 +66,7 @@ getOperationDetail :: Text -- ^ 'godrOperationId'
 getOperationDetail p1 = GetOperationDetail
     { _godrOperationId = p1
     }
+{-# INLINE getOperationDetail #-}
 
 data GetOperationDetail = GetOperationDetail
     { _godrOperationId :: Text
@@ -78,15 +79,10 @@ data GetOperationDetail = GetOperationDetail
 -- | The identifier for the operation for which you want to get the status.
 -- Amazon Route 53 returned the identifier in the response to the original
 -- request. Type: String Default: None Required: Yes.
-godrOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetOperationDetail
-    -> f GetOperationDetail
+godrOperationId :: Lens' GetOperationDetail (Text)
 godrOperationId f x =
-    (\y -> x { _godrOperationId = y })
-       <$> f (_godrOperationId x)
+    f (_godrOperationId x)
+        <&> \y -> x { _godrOperationId = y }
 {-# INLINE godrOperationId #-}
 
 instance ToPath GetOperationDetail
@@ -115,75 +111,45 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     } deriving (Show, Generic)
 
 -- | The name of a domain. Type: String.
-godsDomainName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetOperationDetailResponse
-    -> f GetOperationDetailResponse
+godsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
 godsDomainName f x =
-    (\y -> x { _godsDomainName = y })
-       <$> f (_godsDomainName x)
+    f (_godsDomainName x)
+        <&> \y -> x { _godsDomainName = y }
 {-# INLINE godsDomainName #-}
 
 -- | Detailed information on the status including possible errors. Type: String.
-godsMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetOperationDetailResponse
-    -> f GetOperationDetailResponse
+godsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godsMessage f x =
-    (\y -> x { _godsMessage = y })
-       <$> f (_godsMessage x)
+    f (_godsMessage x)
+        <&> \y -> x { _godsMessage = y }
 {-# INLINE godsMessage #-}
 
 -- | The identifier for the operation. Type: String.
-godsOperationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetOperationDetailResponse
-    -> f GetOperationDetailResponse
+godsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
 godsOperationId f x =
-    (\y -> x { _godsOperationId = y })
-       <$> f (_godsOperationId x)
+    f (_godsOperationId x)
+        <&> \y -> x { _godsOperationId = y }
 {-# INLINE godsOperationId #-}
 
 -- | The current status of the requested operation in the system. Type: String.
-godsStatus
-    :: Functor f
-    => (Maybe OperationStatus
-    -> f (Maybe OperationStatus))
-    -> GetOperationDetailResponse
-    -> f GetOperationDetailResponse
+godsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
 godsStatus f x =
-    (\y -> x { _godsStatus = y })
-       <$> f (_godsStatus x)
+    f (_godsStatus x)
+        <&> \y -> x { _godsStatus = y }
 {-# INLINE godsStatus #-}
 
 -- | The type of operation that was requested. Type: String.
-godsType
-    :: Functor f
-    => (Maybe OperationType
-    -> f (Maybe OperationType))
-    -> GetOperationDetailResponse
-    -> f GetOperationDetailResponse
+godsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
 godsType f x =
-    (\y -> x { _godsType = y })
-       <$> f (_godsType x)
+    f (_godsType x)
+        <&> \y -> x { _godsType = y }
 {-# INLINE godsType #-}
 
 -- | The date when the request was submitted.
-godsSubmittedDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetOperationDetailResponse
-    -> f GetOperationDetailResponse
+godsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
 godsSubmittedDate f x =
-    (\y -> x { _godsSubmittedDate = y })
-       <$> f (_godsSubmittedDate x)
+    f (_godsSubmittedDate x)
+        <&> \y -> x { _godsSubmittedDate = y }
 {-# INLINE godsSubmittedDate #-}
 
 instance FromJSON GetOperationDetailResponse

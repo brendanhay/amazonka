@@ -49,6 +49,7 @@ listSteps p1 = ListSteps
     , _lsiMarker = Nothing
     , _lsiStepStates = mempty
     }
+{-# INLINE listSteps #-}
 
 data ListSteps = ListSteps
     { _lsiClusterId :: Text
@@ -61,39 +62,24 @@ data ListSteps = ListSteps
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster for which to list the steps.
-lsiClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListSteps
-    -> f ListSteps
+lsiClusterId :: Lens' ListSteps (Text)
 lsiClusterId f x =
-    (\y -> x { _lsiClusterId = y })
-       <$> f (_lsiClusterId x)
+    f (_lsiClusterId x)
+        <&> \y -> x { _lsiClusterId = y }
 {-# INLINE lsiClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSteps
-    -> f ListSteps
+lsiMarker :: Lens' ListSteps (Maybe Text)
 lsiMarker f x =
-    (\y -> x { _lsiMarker = y })
-       <$> f (_lsiMarker x)
+    f (_lsiMarker x)
+        <&> \y -> x { _lsiMarker = y }
 {-# INLINE lsiMarker #-}
 
 -- | The filter to limit the step list based on certain states.
-lsiStepStates
-    :: Functor f
-    => ([StepState]
-    -> f ([StepState]))
-    -> ListSteps
-    -> f ListSteps
+lsiStepStates :: Lens' ListSteps ([StepState])
 lsiStepStates f x =
-    (\y -> x { _lsiStepStates = y })
-       <$> f (_lsiStepStates x)
+    f (_lsiStepStates x)
+        <&> \y -> x { _lsiStepStates = y }
 {-# INLINE lsiStepStates #-}
 
 instance ToPath ListSteps
@@ -113,27 +99,17 @@ data ListStepsResponse = ListStepsResponse
     } deriving (Show, Generic)
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStepsResponse
-    -> f ListStepsResponse
+lsoMarker :: Lens' ListStepsResponse (Maybe Text)
 lsoMarker f x =
-    (\y -> x { _lsoMarker = y })
-       <$> f (_lsoMarker x)
+    f (_lsoMarker x)
+        <&> \y -> x { _lsoMarker = y }
 {-# INLINE lsoMarker #-}
 
 -- | The filtered list of steps for the cluster.
-lsoSteps
-    :: Functor f
-    => ([StepSummary]
-    -> f ([StepSummary]))
-    -> ListStepsResponse
-    -> f ListStepsResponse
+lsoSteps :: Lens' ListStepsResponse ([StepSummary])
 lsoSteps f x =
-    (\y -> x { _lsoSteps = y })
-       <$> f (_lsoSteps x)
+    f (_lsoSteps x)
+        <&> \y -> x { _lsoSteps = y }
 {-# INLINE lsoSteps #-}
 
 instance FromJSON ListStepsResponse

@@ -50,6 +50,7 @@ deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
     { _dctmApplicationName = p1
     , _dctmTemplateName = p2
     }
+{-# INLINE deleteConfigurationTemplate #-}
 
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctmApplicationName :: Text
@@ -60,27 +61,17 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     } deriving (Show, Generic)
 
 -- | The name of the application to delete the configuration template from.
-dctmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteConfigurationTemplate
-    -> f DeleteConfigurationTemplate
+dctmApplicationName :: Lens' DeleteConfigurationTemplate (Text)
 dctmApplicationName f x =
-    (\y -> x { _dctmApplicationName = y })
-       <$> f (_dctmApplicationName x)
+    f (_dctmApplicationName x)
+        <&> \y -> x { _dctmApplicationName = y }
 {-# INLINE dctmApplicationName #-}
 
 -- | The name of the configuration template to delete.
-dctmTemplateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteConfigurationTemplate
-    -> f DeleteConfigurationTemplate
+dctmTemplateName :: Lens' DeleteConfigurationTemplate (Text)
 dctmTemplateName f x =
-    (\y -> x { _dctmTemplateName = y })
-       <$> f (_dctmTemplateName x)
+    f (_dctmTemplateName x)
+        <&> \y -> x { _dctmTemplateName = y }
 {-# INLINE dctmTemplateName #-}
 
 instance ToQuery DeleteConfigurationTemplate where

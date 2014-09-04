@@ -48,6 +48,7 @@ cancelUpdateStack :: Text -- ^ 'cusiStackName'
 cancelUpdateStack p1 = CancelUpdateStack
     { _cusiStackName = p1
     }
+{-# INLINE cancelUpdateStack #-}
 
 data CancelUpdateStack = CancelUpdateStack
     { _cusiStackName :: Text
@@ -55,15 +56,10 @@ data CancelUpdateStack = CancelUpdateStack
     } deriving (Show, Generic)
 
 -- | The name or the unique identifier associated with the stack.
-cusiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelUpdateStack
-    -> f CancelUpdateStack
+cusiStackName :: Lens' CancelUpdateStack (Text)
 cusiStackName f x =
-    (\y -> x { _cusiStackName = y })
-       <$> f (_cusiStackName x)
+    f (_cusiStackName x)
+        <&> \y -> x { _cusiStackName = y }
 {-# INLINE cusiStackName #-}
 
 instance ToQuery CancelUpdateStack where

@@ -48,6 +48,7 @@ describeAttachment :: Text -- ^ 'darAttachmentId'
 describeAttachment p1 = DescribeAttachment
     { _darAttachmentId = p1
     }
+{-# INLINE describeAttachment #-}
 
 data DescribeAttachment = DescribeAttachment
     { _darAttachmentId :: Text
@@ -57,15 +58,10 @@ data DescribeAttachment = DescribeAttachment
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
-darAttachmentId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeAttachment
-    -> f DescribeAttachment
+darAttachmentId :: Lens' DescribeAttachment (Text)
 darAttachmentId f x =
-    (\y -> x { _darAttachmentId = y })
-       <$> f (_darAttachmentId x)
+    f (_darAttachmentId x)
+        <&> \y -> x { _darAttachmentId = y }
 {-# INLINE darAttachmentId #-}
 
 instance ToPath DescribeAttachment
@@ -82,15 +78,10 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse
     } deriving (Show, Generic)
 
 -- | The attachment content and file name.
-dasAttachment
-    :: Functor f
-    => (Maybe Attachment
-    -> f (Maybe Attachment))
-    -> DescribeAttachmentResponse
-    -> f DescribeAttachmentResponse
+dasAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 dasAttachment f x =
-    (\y -> x { _dasAttachment = y })
-       <$> f (_dasAttachment x)
+    f (_dasAttachment x)
+        <&> \y -> x { _dasAttachment = y }
 {-# INLINE dasAttachment #-}
 
 instance FromJSON DescribeAttachmentResponse

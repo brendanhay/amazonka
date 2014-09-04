@@ -55,6 +55,7 @@ createTapes p1 p2 p3 p4 p5 = CreateTapes
     , _ctiTapeBarcodePrefix = p4
     , _ctiTapeSizeInBytes = p5
     }
+{-# INLINE createTapes #-}
 
 data CreateTapes = CreateTapes
     { _ctiClientToken :: Text
@@ -67,61 +68,36 @@ data CreateTapes = CreateTapes
     , _ctiTapeSizeInBytes :: Integer
     } deriving (Show, Generic)
 
-ctiClientToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateTapes
-    -> f CreateTapes
+ctiClientToken :: Lens' CreateTapes (Text)
 ctiClientToken f x =
-    (\y -> x { _ctiClientToken = y })
-       <$> f (_ctiClientToken x)
+    f (_ctiClientToken x)
+        <&> \y -> x { _ctiClientToken = y }
 {-# INLINE ctiClientToken #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ctiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateTapes
-    -> f CreateTapes
+ctiGatewayARN :: Lens' CreateTapes (Text)
 ctiGatewayARN f x =
-    (\y -> x { _ctiGatewayARN = y })
-       <$> f (_ctiGatewayARN x)
+    f (_ctiGatewayARN x)
+        <&> \y -> x { _ctiGatewayARN = y }
 {-# INLINE ctiGatewayARN #-}
 
-ctiNumTapesToCreate
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateTapes
-    -> f CreateTapes
+ctiNumTapesToCreate :: Lens' CreateTapes (Integer)
 ctiNumTapesToCreate f x =
-    (\y -> x { _ctiNumTapesToCreate = y })
-       <$> f (_ctiNumTapesToCreate x)
+    f (_ctiNumTapesToCreate x)
+        <&> \y -> x { _ctiNumTapesToCreate = y }
 {-# INLINE ctiNumTapesToCreate #-}
 
-ctiTapeBarcodePrefix
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateTapes
-    -> f CreateTapes
+ctiTapeBarcodePrefix :: Lens' CreateTapes (Text)
 ctiTapeBarcodePrefix f x =
-    (\y -> x { _ctiTapeBarcodePrefix = y })
-       <$> f (_ctiTapeBarcodePrefix x)
+    f (_ctiTapeBarcodePrefix x)
+        <&> \y -> x { _ctiTapeBarcodePrefix = y }
 {-# INLINE ctiTapeBarcodePrefix #-}
 
-ctiTapeSizeInBytes
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateTapes
-    -> f CreateTapes
+ctiTapeSizeInBytes :: Lens' CreateTapes (Integer)
 ctiTapeSizeInBytes f x =
-    (\y -> x { _ctiTapeSizeInBytes = y })
-       <$> f (_ctiTapeSizeInBytes x)
+    f (_ctiTapeSizeInBytes x)
+        <&> \y -> x { _ctiTapeSizeInBytes = y }
 {-# INLINE ctiTapeSizeInBytes #-}
 
 instance ToPath CreateTapes
@@ -136,15 +112,10 @@ data CreateTapesResponse = CreateTapesResponse
     { _ctoTapeARNs :: [Text]
     } deriving (Show, Generic)
 
-ctoTapeARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateTapesResponse
-    -> f CreateTapesResponse
+ctoTapeARNs :: Lens' CreateTapesResponse ([Text])
 ctoTapeARNs f x =
-    (\y -> x { _ctoTapeARNs = y })
-       <$> f (_ctoTapeARNs x)
+    f (_ctoTapeARNs x)
+        <&> \y -> x { _ctoTapeARNs = y }
 {-# INLINE ctoTapeARNs #-}
 
 instance FromJSON CreateTapesResponse

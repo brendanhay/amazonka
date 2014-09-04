@@ -89,6 +89,7 @@ listDomains p1 = ListDomains
     , _ldiNextPageToken = Nothing
     , _ldiReverseOrder = Nothing
     }
+{-# INLINE listDomains #-}
 
 data ListDomains = ListDomains
     { _ldiRegistrationStatus :: RegistrationStatus
@@ -112,15 +113,10 @@ data ListDomains = ListDomains
     } deriving (Show, Generic)
 
 -- | Specifies the registration status of the domains to list.
-ldiRegistrationStatus
-    :: Functor f
-    => (RegistrationStatus
-    -> f (RegistrationStatus))
-    -> ListDomains
-    -> f ListDomains
+ldiRegistrationStatus :: Lens' ListDomains (RegistrationStatus)
 ldiRegistrationStatus f x =
-    (\y -> x { _ldiRegistrationStatus = y })
-       <$> f (_ldiRegistrationStatus x)
+    f (_ldiRegistrationStatus x)
+        <&> \y -> x { _ldiRegistrationStatus = y }
 {-# INLINE ldiRegistrationStatus #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
@@ -129,43 +125,28 @@ ldiRegistrationStatus f x =
 -- number of domains may be less than the maxiumum page size, in which case,
 -- the returned page will have fewer results than the maximumPageSize
 -- specified.
-ldiMaximumPageSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListDomains
-    -> f ListDomains
+ldiMaximumPageSize :: Lens' ListDomains (Maybe Integer)
 ldiMaximumPageSize f x =
-    (\y -> x { _ldiMaximumPageSize = y })
-       <$> f (_ldiMaximumPageSize x)
+    f (_ldiMaximumPageSize x)
+        <&> \y -> x { _ldiMaximumPageSize = y }
 {-# INLINE ldiMaximumPageSize #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- result has more than one page. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
-ldiNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDomains
-    -> f ListDomains
+ldiNextPageToken :: Lens' ListDomains (Maybe Text)
 ldiNextPageToken f x =
-    (\y -> x { _ldiNextPageToken = y })
-       <$> f (_ldiNextPageToken x)
+    f (_ldiNextPageToken x)
+        <&> \y -> x { _ldiNextPageToken = y }
 {-# INLINE ldiNextPageToken #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- domains.
-ldiReverseOrder
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ListDomains
-    -> f ListDomains
+ldiReverseOrder :: Lens' ListDomains (Maybe Bool)
 ldiReverseOrder f x =
-    (\y -> x { _ldiReverseOrder = y })
-       <$> f (_ldiReverseOrder x)
+    f (_ldiReverseOrder x)
+        <&> \y -> x { _ldiReverseOrder = y }
 {-# INLINE ldiReverseOrder #-}
 
 instance ToPath ListDomains
@@ -186,29 +167,19 @@ data ListDomainsResponse = ListDomainsResponse
     } deriving (Show, Generic)
 
 -- | A list of DomainInfo structures.
-ddwDomainInfos
-    :: Functor f
-    => ([DomainInfo]
-    -> f ([DomainInfo]))
-    -> ListDomainsResponse
-    -> f ListDomainsResponse
+ddwDomainInfos :: Lens' ListDomainsResponse ([DomainInfo])
 ddwDomainInfos f x =
-    (\y -> x { _ddwDomainInfos = y })
-       <$> f (_ddwDomainInfos x)
+    f (_ddwDomainInfos x)
+        <&> \y -> x { _ddwDomainInfos = y }
 {-# INLINE ddwDomainInfos #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-ddwNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDomainsResponse
-    -> f ListDomainsResponse
+ddwNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ddwNextPageToken f x =
-    (\y -> x { _ddwNextPageToken = y })
-       <$> f (_ddwNextPageToken x)
+    f (_ddwNextPageToken x)
+        <&> \y -> x { _ddwNextPageToken = y }
 {-# INLINE ddwNextPageToken #-}
 
 instance FromJSON ListDomainsResponse

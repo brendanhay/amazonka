@@ -47,6 +47,7 @@ modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
     { _mscrpmRetentionPeriod = p1
     , _mscrpmClusterIdentifier = p2
     }
+{-# INLINE modifySnapshotCopyRetentionPeriod #-}
 
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
     { _mscrpmRetentionPeriod :: Integer
@@ -70,30 +71,20 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
 -- Amazon Redshift will delete any existing automated snapshots that were
 -- copied to the destination region and that fall outside of the new retention
 -- period. Constraints: Must be at least 1 and no more than 35.
-mscrpmRetentionPeriod
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ModifySnapshotCopyRetentionPeriod
-    -> f ModifySnapshotCopyRetentionPeriod
+mscrpmRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod (Integer)
 mscrpmRetentionPeriod f x =
-    (\y -> x { _mscrpmRetentionPeriod = y })
-       <$> f (_mscrpmRetentionPeriod x)
+    f (_mscrpmRetentionPeriod x)
+        <&> \y -> x { _mscrpmRetentionPeriod = y }
 {-# INLINE mscrpmRetentionPeriod #-}
 
 -- | The unique identifier of the cluster for which you want to change the
 -- retention period for automated snapshots that are copied to a destination
 -- region. Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-mscrpmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifySnapshotCopyRetentionPeriod
-    -> f ModifySnapshotCopyRetentionPeriod
+mscrpmClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod (Text)
 mscrpmClusterIdentifier f x =
-    (\y -> x { _mscrpmClusterIdentifier = y })
-       <$> f (_mscrpmClusterIdentifier x)
+    f (_mscrpmClusterIdentifier x)
+        <&> \y -> x { _mscrpmClusterIdentifier = y }
 {-# INLINE mscrpmClusterIdentifier #-}
 
 instance ToQuery ModifySnapshotCopyRetentionPeriod where
@@ -105,15 +96,10 @@ data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeri
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccuCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> ModifySnapshotCopyRetentionPeriodResponse
-    -> f ModifySnapshotCopyRetentionPeriodResponse
+ccuCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 ccuCluster f x =
-    (\y -> x { _ccuCluster = y })
-       <$> f (_ccuCluster x)
+    f (_ccuCluster x)
+        <&> \y -> x { _ccuCluster = y }
 {-# INLINE ccuCluster #-}
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where

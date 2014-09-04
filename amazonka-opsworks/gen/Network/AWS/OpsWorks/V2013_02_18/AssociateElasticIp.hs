@@ -50,6 +50,7 @@ associateElasticIp p1 = AssociateElasticIp
     { _aeirElasticIp = p1
     , _aeirInstanceId = Nothing
     }
+{-# INLINE associateElasticIp #-}
 
 data AssociateElasticIp = AssociateElasticIp
     { _aeirElasticIp :: Text
@@ -59,27 +60,17 @@ data AssociateElasticIp = AssociateElasticIp
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-aeirElasticIp
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssociateElasticIp
-    -> f AssociateElasticIp
+aeirElasticIp :: Lens' AssociateElasticIp (Text)
 aeirElasticIp f x =
-    (\y -> x { _aeirElasticIp = y })
-       <$> f (_aeirElasticIp x)
+    f (_aeirElasticIp x)
+        <&> \y -> x { _aeirElasticIp = y }
 {-# INLINE aeirElasticIp #-}
 
 -- | The instance ID.
-aeirInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateElasticIp
-    -> f AssociateElasticIp
+aeirInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeirInstanceId f x =
-    (\y -> x { _aeirInstanceId = y })
-       <$> f (_aeirInstanceId x)
+    f (_aeirInstanceId x)
+        <&> \y -> x { _aeirInstanceId = y }
 {-# INLINE aeirInstanceId #-}
 
 instance ToPath AssociateElasticIp

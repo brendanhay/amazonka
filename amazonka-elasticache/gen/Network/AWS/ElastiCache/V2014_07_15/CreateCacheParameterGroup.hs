@@ -59,6 +59,7 @@ createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
     , _ccpgmCacheParameterGroupFamily = p2
     , _ccpgmDescription = p3
     }
+{-# INLINE createCacheParameterGroup #-}
 
 data CreateCacheParameterGroup = CreateCacheParameterGroup
     { _ccpgmCacheParameterGroupName :: Text
@@ -72,40 +73,25 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
     } deriving (Show, Generic)
 
 -- | A user-specified name for the cache parameter group.
-ccpgmCacheParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheParameterGroup
-    -> f CreateCacheParameterGroup
+ccpgmCacheParameterGroupName :: Lens' CreateCacheParameterGroup (Text)
 ccpgmCacheParameterGroupName f x =
-    (\y -> x { _ccpgmCacheParameterGroupName = y })
-       <$> f (_ccpgmCacheParameterGroupName x)
+    f (_ccpgmCacheParameterGroupName x)
+        <&> \y -> x { _ccpgmCacheParameterGroupName = y }
 {-# INLINE ccpgmCacheParameterGroupName #-}
 
 -- | The name of the cache parameter group family the cache parameter group can
 -- be used with. Valid values are: memcached1.4 | redis2.6 | redis2.8.
-ccpgmCacheParameterGroupFamily
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheParameterGroup
-    -> f CreateCacheParameterGroup
+ccpgmCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup (Text)
 ccpgmCacheParameterGroupFamily f x =
-    (\y -> x { _ccpgmCacheParameterGroupFamily = y })
-       <$> f (_ccpgmCacheParameterGroupFamily x)
+    f (_ccpgmCacheParameterGroupFamily x)
+        <&> \y -> x { _ccpgmCacheParameterGroupFamily = y }
 {-# INLINE ccpgmCacheParameterGroupFamily #-}
 
 -- | A user-specified description for the cache parameter group.
-ccpgmDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheParameterGroup
-    -> f CreateCacheParameterGroup
+ccpgmDescription :: Lens' CreateCacheParameterGroup (Text)
 ccpgmDescription f x =
-    (\y -> x { _ccpgmDescription = y })
-       <$> f (_ccpgmDescription x)
+    f (_ccpgmDescription x)
+        <&> \y -> x { _ccpgmDescription = y }
 {-# INLINE ccpgmDescription #-}
 
 instance ToQuery CreateCacheParameterGroup where
@@ -117,15 +103,10 @@ data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | Represents the output of a CreateCacheParameterGroup operation.
-cpgwCacheParameterGroup
-    :: Functor f
-    => (Maybe CacheParameterGroup
-    -> f (Maybe CacheParameterGroup))
-    -> CreateCacheParameterGroupResponse
-    -> f CreateCacheParameterGroupResponse
+cpgwCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 cpgwCacheParameterGroup f x =
-    (\y -> x { _cpgwCacheParameterGroup = y })
-       <$> f (_cpgwCacheParameterGroup x)
+    f (_cpgwCacheParameterGroup x)
+        <&> \y -> x { _cpgwCacheParameterGroup = y }
 {-# INLINE cpgwCacheParameterGroup #-}
 
 instance FromXML CreateCacheParameterGroupResponse where

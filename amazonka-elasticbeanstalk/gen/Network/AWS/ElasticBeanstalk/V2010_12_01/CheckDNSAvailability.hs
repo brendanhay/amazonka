@@ -48,6 +48,7 @@ checkDNSAvailability :: Text -- ^ 'cdnsamCNAMEPrefix'
 checkDNSAvailability p1 = CheckDNSAvailability
     { _cdnsamCNAMEPrefix = p1
     }
+{-# INLINE checkDNSAvailability #-}
 
 data CheckDNSAvailability = CheckDNSAvailability
     { _cdnsamCNAMEPrefix :: Text
@@ -55,15 +56,10 @@ data CheckDNSAvailability = CheckDNSAvailability
     } deriving (Show, Generic)
 
 -- | The prefix used when this CNAME is reserved.
-cdnsamCNAMEPrefix
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CheckDNSAvailability
-    -> f CheckDNSAvailability
+cdnsamCNAMEPrefix :: Lens' CheckDNSAvailability (Text)
 cdnsamCNAMEPrefix f x =
-    (\y -> x { _cdnsamCNAMEPrefix = y })
-       <$> f (_cdnsamCNAMEPrefix x)
+    f (_cdnsamCNAMEPrefix x)
+        <&> \y -> x { _cdnsamCNAMEPrefix = y }
 {-# INLINE cdnsamCNAMEPrefix #-}
 
 instance ToQuery CheckDNSAvailability where
@@ -82,28 +78,18 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
 -- | Indicates if the specified CNAME is available: true : The CNAME is
 -- available. true : The CNAME is not available. true : The CNAME is
 -- available. false : The CNAME is not available.
-cdnsarmAvailable
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CheckDNSAvailabilityResponse
-    -> f CheckDNSAvailabilityResponse
+cdnsarmAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdnsarmAvailable f x =
-    (\y -> x { _cdnsarmAvailable = y })
-       <$> f (_cdnsarmAvailable x)
+    f (_cdnsarmAvailable x)
+        <&> \y -> x { _cdnsarmAvailable = y }
 {-# INLINE cdnsarmAvailable #-}
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called with
 -- the provided prefix.
-cdnsarmFullyQualifiedCNAME
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CheckDNSAvailabilityResponse
-    -> f CheckDNSAvailabilityResponse
+cdnsarmFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdnsarmFullyQualifiedCNAME f x =
-    (\y -> x { _cdnsarmFullyQualifiedCNAME = y })
-       <$> f (_cdnsarmFullyQualifiedCNAME x)
+    f (_cdnsarmFullyQualifiedCNAME x)
+        <&> \y -> x { _cdnsarmFullyQualifiedCNAME = y }
 {-# INLINE cdnsarmFullyQualifiedCNAME #-}
 
 instance FromXML CheckDNSAvailabilityResponse where

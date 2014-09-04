@@ -51,6 +51,7 @@ describeInstances = DescribeInstances
     , _disLayerId = Nothing
     , _disInstanceIds = mempty
     }
+{-# INLINE describeInstances #-}
 
 data DescribeInstances = DescribeInstances
     { _disStackId :: Maybe Text
@@ -70,42 +71,27 @@ data DescribeInstances = DescribeInstances
 
 -- | A stack ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified stack.
-disStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstances
-    -> f DescribeInstances
+disStackId :: Lens' DescribeInstances (Maybe Text)
 disStackId f x =
-    (\y -> x { _disStackId = y })
-       <$> f (_disStackId x)
+    f (_disStackId x)
+        <&> \y -> x { _disStackId = y }
 {-# INLINE disStackId #-}
 
 -- | A layer ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified layer.
-disLayerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstances
-    -> f DescribeInstances
+disLayerId :: Lens' DescribeInstances (Maybe Text)
 disLayerId f x =
-    (\y -> x { _disLayerId = y })
-       <$> f (_disLayerId x)
+    f (_disLayerId x)
+        <&> \y -> x { _disLayerId = y }
 {-# INLINE disLayerId #-}
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- DescribeInstances returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
-disInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeInstances
-    -> f DescribeInstances
+disInstanceIds :: Lens' DescribeInstances ([Text])
 disInstanceIds f x =
-    (\y -> x { _disInstanceIds = y })
-       <$> f (_disInstanceIds x)
+    f (_disInstanceIds x)
+        <&> \y -> x { _disInstanceIds = y }
 {-# INLINE disInstanceIds #-}
 
 instance ToPath DescribeInstances
@@ -122,15 +108,10 @@ data DescribeInstancesResponse = DescribeInstancesResponse
     } deriving (Show, Generic)
 
 -- | An array of Instance objects that describe the instances.
-ditInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> DescribeInstancesResponse
-    -> f DescribeInstancesResponse
+ditInstances :: Lens' DescribeInstancesResponse ([Instance])
 ditInstances f x =
-    (\y -> x { _ditInstances = y })
-       <$> f (_ditInstances x)
+    f (_ditInstances x)
+        <&> \y -> x { _ditInstances = y }
 {-# INLINE ditInstances #-}
 
 instance FromJSON DescribeInstancesResponse

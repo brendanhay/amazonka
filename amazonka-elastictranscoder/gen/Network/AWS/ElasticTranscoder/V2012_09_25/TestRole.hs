@@ -81,6 +81,7 @@ testRole p1 p2 p3 p4 = TestRole
     , _trrRole = p3
     , _trrTopics = p4
     }
+{-# INLINE testRole #-}
 
 data TestRole = TestRole
     { _trrInputBucket :: Text
@@ -101,54 +102,34 @@ data TestRole = TestRole
 
 -- | The Amazon S3 bucket that contains media files to be transcoded. The action
 -- attempts to read from this bucket.
-trrInputBucket
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TestRole
-    -> f TestRole
+trrInputBucket :: Lens' TestRole (Text)
 trrInputBucket f x =
-    (\y -> x { _trrInputBucket = y })
-       <$> f (_trrInputBucket x)
+    f (_trrInputBucket x)
+        <&> \y -> x { _trrInputBucket = y }
 {-# INLINE trrInputBucket #-}
 
 -- | The Amazon S3 bucket that Elastic Transcoder will write transcoded media
 -- files to. The action attempts to read from this bucket.
-trrOutputBucket
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TestRole
-    -> f TestRole
+trrOutputBucket :: Lens' TestRole (Text)
 trrOutputBucket f x =
-    (\y -> x { _trrOutputBucket = y })
-       <$> f (_trrOutputBucket x)
+    f (_trrOutputBucket x)
+        <&> \y -> x { _trrOutputBucket = y }
 {-# INLINE trrOutputBucket #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to test.
-trrRole
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TestRole
-    -> f TestRole
+trrRole :: Lens' TestRole (Text)
 trrRole f x =
-    (\y -> x { _trrRole = y })
-       <$> f (_trrRole x)
+    f (_trrRole x)
+        <&> \y -> x { _trrRole = y }
 {-# INLINE trrRole #-}
 
 -- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
 -- topics that you want the action to send a test notification to.
-trrTopics
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> TestRole
-    -> f TestRole
+trrTopics :: Lens' TestRole ([Text])
 trrTopics f x =
-    (\y -> x { _trrTopics = y })
-       <$> f (_trrTopics x)
+    f (_trrTopics x)
+        <&> \y -> x { _trrTopics = y }
 {-# INLINE trrTopics #-}
 
 instance ToPath TestRole where
@@ -172,28 +153,18 @@ data TestRoleResponse = TestRoleResponse
 
 -- | If the Success element contains false, this value is an array of one or
 -- more error messages that were generated during the test process.
-trsMessages
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> TestRoleResponse
-    -> f TestRoleResponse
+trsMessages :: Lens' TestRoleResponse ([Text])
 trsMessages f x =
-    (\y -> x { _trsMessages = y })
-       <$> f (_trsMessages x)
+    f (_trsMessages x)
+        <&> \y -> x { _trsMessages = y }
 {-# INLINE trsMessages #-}
 
 -- | If the operation is successful, this value is true; otherwise, the value is
 -- false.
-trsSuccess
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TestRoleResponse
-    -> f TestRoleResponse
+trsSuccess :: Lens' TestRoleResponse (Maybe Text)
 trsSuccess f x =
-    (\y -> x { _trsSuccess = y })
-       <$> f (_trsSuccess x)
+    f (_trsSuccess x)
+        <&> \y -> x { _trsSuccess = y }
 {-# INLINE trsSuccess #-}
 
 instance FromJSON TestRoleResponse

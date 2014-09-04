@@ -58,6 +58,7 @@ describeReservedNodes = DescribeReservedNodes
     , _drnmReservedNodeId = Nothing
     , _drnmMarker = Nothing
     }
+{-# INLINE describeReservedNodes #-}
 
 data DescribeReservedNodes = DescribeReservedNodes
     { _drnmMaxRecords :: Maybe Integer
@@ -84,27 +85,17 @@ data DescribeReservedNodes = DescribeReservedNodes
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-drnmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedNodes
-    -> f DescribeReservedNodes
+drnmMaxRecords :: Lens' DescribeReservedNodes (Maybe Integer)
 drnmMaxRecords f x =
-    (\y -> x { _drnmMaxRecords = y })
-       <$> f (_drnmMaxRecords x)
+    f (_drnmMaxRecords x)
+        <&> \y -> x { _drnmMaxRecords = y }
 {-# INLINE drnmMaxRecords #-}
 
 -- | Identifier for the node reservation.
-drnmReservedNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedNodes
-    -> f DescribeReservedNodes
+drnmReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
 drnmReservedNodeId f x =
-    (\y -> x { _drnmReservedNodeId = y })
-       <$> f (_drnmReservedNodeId x)
+    f (_drnmReservedNodeId x)
+        <&> \y -> x { _drnmReservedNodeId = y }
 {-# INLINE drnmReservedNodeId #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -113,15 +104,10 @@ drnmReservedNodeId f x =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-drnmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedNodes
-    -> f DescribeReservedNodes
+drnmMarker :: Lens' DescribeReservedNodes (Maybe Text)
 drnmMarker f x =
-    (\y -> x { _drnmMarker = y })
-       <$> f (_drnmMarker x)
+    f (_drnmMarker x)
+        <&> \y -> x { _drnmMarker = y }
 {-# INLINE drnmMarker #-}
 
 instance ToQuery DescribeReservedNodes where
@@ -140,15 +126,10 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
     } deriving (Show, Generic)
 
 -- | The list of reserved nodes.
-rnmReservedNodes
-    :: Functor f
-    => ([ReservedNode]
-    -> f ([ReservedNode]))
-    -> DescribeReservedNodesResponse
-    -> f DescribeReservedNodesResponse
+rnmReservedNodes :: Lens' DescribeReservedNodesResponse ([ReservedNode])
 rnmReservedNodes f x =
-    (\y -> x { _rnmReservedNodes = y })
-       <$> f (_rnmReservedNodes x)
+    f (_rnmReservedNodes x)
+        <&> \y -> x { _rnmReservedNodes = y }
 {-# INLINE rnmReservedNodes #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -156,15 +137,10 @@ rnmReservedNodes f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-rnmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedNodesResponse
-    -> f DescribeReservedNodesResponse
+rnmMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 rnmMarker f x =
-    (\y -> x { _rnmMarker = y })
-       <$> f (_rnmMarker x)
+    f (_rnmMarker x)
+        <&> \y -> x { _rnmMarker = y }
 {-# INLINE rnmMarker #-}
 
 instance FromXML DescribeReservedNodesResponse where

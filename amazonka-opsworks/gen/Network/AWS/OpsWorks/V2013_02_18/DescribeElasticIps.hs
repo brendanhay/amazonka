@@ -51,6 +51,7 @@ describeElasticIps = DescribeElasticIps
     , _deisStackId = Nothing
     , _deisIps = mempty
     }
+{-# INLINE describeElasticIps #-}
 
 data DescribeElasticIps = DescribeElasticIps
     { _deisInstanceId :: Maybe Text
@@ -71,44 +72,29 @@ data DescribeElasticIps = DescribeElasticIps
 -- | The instance ID. If you include this parameter, DescribeElasticIps returns
 -- a description of the Elastic IP addresses associated with the specified
 -- instance.
-deisInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeElasticIps
-    -> f DescribeElasticIps
+deisInstanceId :: Lens' DescribeElasticIps (Maybe Text)
 deisInstanceId f x =
-    (\y -> x { _deisInstanceId = y })
-       <$> f (_deisInstanceId x)
+    f (_deisInstanceId x)
+        <&> \y -> x { _deisInstanceId = y }
 {-# INLINE deisInstanceId #-}
 
 -- | A stack ID. If you include this parameter, DescribeElasticIps returns a
 -- description of the Elastic IP addresses that are registered with the
 -- specified stack.
-deisStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeElasticIps
-    -> f DescribeElasticIps
+deisStackId :: Lens' DescribeElasticIps (Maybe Text)
 deisStackId f x =
-    (\y -> x { _deisStackId = y })
-       <$> f (_deisStackId x)
+    f (_deisStackId x)
+        <&> \y -> x { _deisStackId = y }
 {-# INLINE deisStackId #-}
 
 -- | An array of Elastic IP addresses to be described. If you include this
 -- parameter, DescribeElasticIps returns a description of the specified
 -- Elastic IP addresses. Otherwise, it returns a description of every Elastic
 -- IP address.
-deisIps
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeElasticIps
-    -> f DescribeElasticIps
+deisIps :: Lens' DescribeElasticIps ([Text])
 deisIps f x =
-    (\y -> x { _deisIps = y })
-       <$> f (_deisIps x)
+    f (_deisIps x)
+        <&> \y -> x { _deisIps = y }
 {-# INLINE deisIps #-}
 
 instance ToPath DescribeElasticIps
@@ -126,15 +112,10 @@ data DescribeElasticIpsResponse = DescribeElasticIpsResponse
     } deriving (Show, Generic)
 
 -- | An ElasticIps object that describes the specified Elastic IP addresses.
-deitElasticIps
-    :: Functor f
-    => ([ElasticIp]
-    -> f ([ElasticIp]))
-    -> DescribeElasticIpsResponse
-    -> f DescribeElasticIpsResponse
+deitElasticIps :: Lens' DescribeElasticIpsResponse ([ElasticIp])
 deitElasticIps f x =
-    (\y -> x { _deitElasticIps = y })
-       <$> f (_deitElasticIps x)
+    f (_deitElasticIps x)
+        <&> \y -> x { _deitElasticIps = y }
 {-# INLINE deitElasticIps #-}
 
 instance FromJSON DescribeElasticIpsResponse

@@ -61,6 +61,7 @@ evaluateExpression p1 p2 p3 = EvaluateExpression
     , _eeiObjectId = p2
     , _eeiExpression = p3
     }
+{-# INLINE evaluateExpression #-}
 
 data EvaluateExpression = EvaluateExpression
     { _eeiPipelineId :: Text
@@ -72,39 +73,24 @@ data EvaluateExpression = EvaluateExpression
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline.
-eeiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EvaluateExpression
-    -> f EvaluateExpression
+eeiPipelineId :: Lens' EvaluateExpression (Text)
 eeiPipelineId f x =
-    (\y -> x { _eeiPipelineId = y })
-       <$> f (_eeiPipelineId x)
+    f (_eeiPipelineId x)
+        <&> \y -> x { _eeiPipelineId = y }
 {-# INLINE eeiPipelineId #-}
 
 -- | The identifier of the object.
-eeiObjectId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EvaluateExpression
-    -> f EvaluateExpression
+eeiObjectId :: Lens' EvaluateExpression (Text)
 eeiObjectId f x =
-    (\y -> x { _eeiObjectId = y })
-       <$> f (_eeiObjectId x)
+    f (_eeiObjectId x)
+        <&> \y -> x { _eeiObjectId = y }
 {-# INLINE eeiObjectId #-}
 
 -- | The expression to evaluate.
-eeiExpression
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EvaluateExpression
-    -> f EvaluateExpression
+eeiExpression :: Lens' EvaluateExpression (Text)
 eeiExpression f x =
-    (\y -> x { _eeiExpression = y })
-       <$> f (_eeiExpression x)
+    f (_eeiExpression x)
+        <&> \y -> x { _eeiExpression = y }
 {-# INLINE eeiExpression #-}
 
 instance ToPath EvaluateExpression
@@ -121,15 +107,10 @@ data EvaluateExpressionResponse = EvaluateExpressionResponse
     } deriving (Show, Generic)
 
 -- | The evaluated expression.
-eeoEvaluatedExpression
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EvaluateExpressionResponse
-    -> f EvaluateExpressionResponse
+eeoEvaluatedExpression :: Lens' EvaluateExpressionResponse (Text)
 eeoEvaluatedExpression f x =
-    (\y -> x { _eeoEvaluatedExpression = y })
-       <$> f (_eeoEvaluatedExpression x)
+    f (_eeoEvaluatedExpression x)
+        <&> \y -> x { _eeoEvaluatedExpression = y }
 {-# INLINE eeoEvaluatedExpression #-}
 
 instance FromJSON EvaluateExpressionResponse

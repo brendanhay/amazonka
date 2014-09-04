@@ -53,6 +53,7 @@ describeAnalysisSchemes p1 = DescribeAnalysisSchemes
     , _dasvDeployed = Nothing
     , _dasvAnalysisSchemeNames = mempty
     }
+{-# INLINE describeAnalysisSchemes #-}
 
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _dasvDomainName :: Text
@@ -65,40 +66,25 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
-dasvDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeAnalysisSchemes
-    -> f DescribeAnalysisSchemes
+dasvDomainName :: Lens' DescribeAnalysisSchemes (Text)
 dasvDomainName f x =
-    (\y -> x { _dasvDomainName = y })
-       <$> f (_dasvDomainName x)
+    f (_dasvDomainName x)
+        <&> \y -> x { _dasvDomainName = y }
 {-# INLINE dasvDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-dasvDeployed
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeAnalysisSchemes
-    -> f DescribeAnalysisSchemes
+dasvDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 dasvDeployed f x =
-    (\y -> x { _dasvDeployed = y })
-       <$> f (_dasvDeployed x)
+    f (_dasvDeployed x)
+        <&> \y -> x { _dasvDeployed = y }
 {-# INLINE dasvDeployed #-}
 
 -- | The analysis schemes you want to describe.
-dasvAnalysisSchemeNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAnalysisSchemes
-    -> f DescribeAnalysisSchemes
+dasvAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes ([Text])
 dasvAnalysisSchemeNames f x =
-    (\y -> x { _dasvAnalysisSchemeNames = y })
-       <$> f (_dasvAnalysisSchemeNames x)
+    f (_dasvAnalysisSchemeNames x)
+        <&> \y -> x { _dasvAnalysisSchemeNames = y }
 {-# INLINE dasvAnalysisSchemeNames #-}
 
 instance ToQuery DescribeAnalysisSchemes where
@@ -110,15 +96,10 @@ data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     } deriving (Show, Generic)
 
 -- | The analysis scheme descriptions.
-daswAnalysisSchemes
-    :: Functor f
-    => ([AnalysisSchemeStatus]
-    -> f ([AnalysisSchemeStatus]))
-    -> DescribeAnalysisSchemesResponse
-    -> f DescribeAnalysisSchemesResponse
+daswAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse ([AnalysisSchemeStatus])
 daswAnalysisSchemes f x =
-    (\y -> x { _daswAnalysisSchemes = y })
-       <$> f (_daswAnalysisSchemes x)
+    f (_daswAnalysisSchemes x)
+        <&> \y -> x { _daswAnalysisSchemes = y }
 {-# INLINE daswAnalysisSchemes #-}
 
 instance FromXML DescribeAnalysisSchemesResponse where

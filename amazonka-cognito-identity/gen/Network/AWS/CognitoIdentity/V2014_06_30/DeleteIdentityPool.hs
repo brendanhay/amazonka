@@ -45,6 +45,7 @@ deleteIdentityPool :: Text -- ^ 'dipiIdentityPoolId'
 deleteIdentityPool p1 = DeleteIdentityPool
     { _dipiIdentityPoolId = p1
     }
+{-# INLINE deleteIdentityPool #-}
 
 data DeleteIdentityPool = DeleteIdentityPool
     { _dipiIdentityPoolId :: Text
@@ -52,15 +53,10 @@ data DeleteIdentityPool = DeleteIdentityPool
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-dipiIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteIdentityPool
-    -> f DeleteIdentityPool
+dipiIdentityPoolId :: Lens' DeleteIdentityPool (Text)
 dipiIdentityPoolId f x =
-    (\y -> x { _dipiIdentityPoolId = y })
-       <$> f (_dipiIdentityPoolId x)
+    f (_dipiIdentityPoolId x)
+        <&> \y -> x { _dipiIdentityPoolId = y }
 {-# INLINE dipiIdentityPoolId #-}
 
 instance ToPath DeleteIdentityPool

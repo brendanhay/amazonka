@@ -59,32 +59,23 @@ createLogStream p1 p2 = CreateLogStream
     { _clsrLogGroupName = p1
     , _clsrLogStreamName = p2
     }
+{-# INLINE createLogStream #-}
 
 data CreateLogStream = CreateLogStream
     { _clsrLogGroupName :: Text
     , _clsrLogStreamName :: Text
     } deriving (Show, Generic)
 
-clsrLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLogStream
-    -> f CreateLogStream
+clsrLogGroupName :: Lens' CreateLogStream (Text)
 clsrLogGroupName f x =
-    (\y -> x { _clsrLogGroupName = y })
-       <$> f (_clsrLogGroupName x)
+    f (_clsrLogGroupName x)
+        <&> \y -> x { _clsrLogGroupName = y }
 {-# INLINE clsrLogGroupName #-}
 
-clsrLogStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLogStream
-    -> f CreateLogStream
+clsrLogStreamName :: Lens' CreateLogStream (Text)
 clsrLogStreamName f x =
-    (\y -> x { _clsrLogStreamName = y })
-       <$> f (_clsrLogStreamName x)
+    f (_clsrLogStreamName x)
+        <&> \y -> x { _clsrLogStreamName = y }
 {-# INLINE clsrLogStreamName #-}
 
 instance ToPath CreateLogStream

@@ -49,6 +49,7 @@ describeLayers = DescribeLayers
     { _dlsStackId = Nothing
     , _dlsLayerIds = mempty
     }
+{-# INLINE describeLayers #-}
 
 data DescribeLayers = DescribeLayers
     { _dlsStackId :: Maybe Text
@@ -60,29 +61,19 @@ data DescribeLayers = DescribeLayers
     } deriving (Show, Generic)
 
 -- | The stack ID.
-dlsStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLayers
-    -> f DescribeLayers
+dlsStackId :: Lens' DescribeLayers (Maybe Text)
 dlsStackId f x =
-    (\y -> x { _dlsStackId = y })
-       <$> f (_dlsStackId x)
+    f (_dlsStackId x)
+        <&> \y -> x { _dlsStackId = y }
 {-# INLINE dlsStackId #-}
 
 -- | An array of layer IDs that specify the layers to be described. If you omit
 -- this parameter, DescribeLayers returns a description of every layer in the
 -- specified stack.
-dlsLayerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLayers
-    -> f DescribeLayers
+dlsLayerIds :: Lens' DescribeLayers ([Text])
 dlsLayerIds f x =
-    (\y -> x { _dlsLayerIds = y })
-       <$> f (_dlsLayerIds x)
+    f (_dlsLayerIds x)
+        <&> \y -> x { _dlsLayerIds = y }
 {-# INLINE dlsLayerIds #-}
 
 instance ToPath DescribeLayers
@@ -99,15 +90,10 @@ data DescribeLayersResponse = DescribeLayersResponse
     } deriving (Show, Generic)
 
 -- | An array of Layer objects that describe the layers.
-dltLayers
-    :: Functor f
-    => ([Layer]
-    -> f ([Layer]))
-    -> DescribeLayersResponse
-    -> f DescribeLayersResponse
+dltLayers :: Lens' DescribeLayersResponse ([Layer])
 dltLayers f x =
-    (\y -> x { _dltLayers = y })
-       <$> f (_dltLayers x)
+    f (_dltLayers x)
+        <&> \y -> x { _dltLayers = y }
 {-# INLINE dltLayers #-}
 
 instance FromJSON DescribeLayersResponse

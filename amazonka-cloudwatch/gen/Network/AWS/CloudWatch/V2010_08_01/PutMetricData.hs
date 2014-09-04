@@ -54,6 +54,7 @@ putMetricData p1 p2 = PutMetricData
     { _pmdiMetricData = p1
     , _pmdiNamespace = p2
     }
+{-# INLINE putMetricData #-}
 
 data PutMetricData = PutMetricData
     { _pmdiMetricData :: [MetricDatum]
@@ -63,27 +64,17 @@ data PutMetricData = PutMetricData
     } deriving (Show, Generic)
 
 -- | A list of data describing the metric.
-pmdiMetricData
-    :: Functor f
-    => ([MetricDatum]
-    -> f ([MetricDatum]))
-    -> PutMetricData
-    -> f PutMetricData
+pmdiMetricData :: Lens' PutMetricData ([MetricDatum])
 pmdiMetricData f x =
-    (\y -> x { _pmdiMetricData = y })
-       <$> f (_pmdiMetricData x)
+    f (_pmdiMetricData x)
+        <&> \y -> x { _pmdiMetricData = y }
 {-# INLINE pmdiMetricData #-}
 
 -- | The namespace for the metric data.
-pmdiNamespace
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricData
-    -> f PutMetricData
+pmdiNamespace :: Lens' PutMetricData (Text)
 pmdiNamespace f x =
-    (\y -> x { _pmdiNamespace = y })
-       <$> f (_pmdiNamespace x)
+    f (_pmdiNamespace x)
+        <&> \y -> x { _pmdiNamespace = y }
 {-# INLINE pmdiNamespace #-}
 
 instance ToQuery PutMetricData where

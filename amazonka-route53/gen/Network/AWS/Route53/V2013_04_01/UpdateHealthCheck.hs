@@ -62,6 +62,7 @@ updateHealthCheck p1 = UpdateHealthCheck
     , _uhcrResourcePath = Nothing
     , _uhcrSearchString = Nothing
     }
+{-# INLINE updateHealthCheck #-}
 
 data UpdateHealthCheck = UpdateHealthCheck
     { _uhcrHealthCheckId :: Text
@@ -105,15 +106,10 @@ data UpdateHealthCheck = UpdateHealthCheck
     } deriving (Show, Generic)
 
 -- | The ID of the health check to update.
-uhcrHealthCheckId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrHealthCheckId :: Lens' UpdateHealthCheck (Text)
 uhcrHealthCheckId f x =
-    (\y -> x { _uhcrHealthCheckId = y })
-       <$> f (_uhcrHealthCheckId x)
+    f (_uhcrHealthCheckId x)
+        <&> \y -> x { _uhcrHealthCheckId = y }
 {-# INLINE uhcrHealthCheckId #-}
 
 -- | The number of consecutive health checks that an endpoint must pass or fail
@@ -122,28 +118,18 @@ uhcrHealthCheckId f x =
 -- information, see "How Amazon Route 53 Determines Whether an Endpoint Is
 -- Healthy" in the Amazon Route 53 Developer Guide. Specify this value only if
 -- you want to change it.
-uhcrFailureThreshold
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrFailureThreshold :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcrFailureThreshold f x =
-    (\y -> x { _uhcrFailureThreshold = y })
-       <$> f (_uhcrFailureThreshold x)
+    f (_uhcrFailureThreshold x)
+        <&> \y -> x { _uhcrFailureThreshold = y }
 {-# INLINE uhcrFailureThreshold #-}
 
 -- | Fully qualified domain name of the instance to be health checked. Specify
 -- this value only if you want to change it.
-uhcrFullyQualifiedDomainName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcrFullyQualifiedDomainName f x =
-    (\y -> x { _uhcrFullyQualifiedDomainName = y })
-       <$> f (_uhcrFullyQualifiedDomainName x)
+    f (_uhcrFullyQualifiedDomainName x)
+        <&> \y -> x { _uhcrFullyQualifiedDomainName = y }
 {-# INLINE uhcrFullyQualifiedDomainName #-}
 
 -- | Optional. When you specify a health check version, Route 53 compares this
@@ -151,41 +137,26 @@ uhcrFullyQualifiedDomainName f x =
 -- updating the health check when the versions don't match. Using
 -- HealthCheckVersion lets you prevent overwriting another change to the
 -- health check.
-uhcrHealthCheckVersion
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcrHealthCheckVersion f x =
-    (\y -> x { _uhcrHealthCheckVersion = y })
-       <$> f (_uhcrHealthCheckVersion x)
+    f (_uhcrHealthCheckVersion x)
+        <&> \y -> x { _uhcrHealthCheckVersion = y }
 {-# INLINE uhcrHealthCheckVersion #-}
 
 -- | The IP address of the resource that you want to check. Specify this value
 -- only if you want to change it.
-uhcrIPAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcrIPAddress f x =
-    (\y -> x { _uhcrIPAddress = y })
-       <$> f (_uhcrIPAddress x)
+    f (_uhcrIPAddress x)
+        <&> \y -> x { _uhcrIPAddress = y }
 {-# INLINE uhcrIPAddress #-}
 
 -- | The port on which you want Route 53 to open a connection to perform health
 -- checks. Specify this value only if you want to change it.
-uhcrPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrPort :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcrPort f x =
-    (\y -> x { _uhcrPort = y })
-       <$> f (_uhcrPort x)
+    f (_uhcrPort x)
+        <&> \y -> x { _uhcrPort = y }
 {-# INLINE uhcrPort #-}
 
 -- | The path that you want Amazon Route 53 to request when performing health
@@ -193,30 +164,20 @@ uhcrPort f x =
 -- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
 -- the file /docs/route53-health-check.html. Specify this value only if you
 -- want to change it.
-uhcrResourcePath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcrResourcePath f x =
-    (\y -> x { _uhcrResourcePath = y })
-       <$> f (_uhcrResourcePath x)
+    f (_uhcrResourcePath x)
+        <&> \y -> x { _uhcrResourcePath = y }
 {-# INLINE uhcrResourcePath #-}
 
 -- | If the value of Type is HTTP_STR_MATCH or HTTP_STR_MATCH, the string that
 -- you want Route 53 to search for in the response body from the specified
 -- resource. If the string appears in the response body, Route 53 considers
 -- the resource healthy. Specify this value only if you want to change it.
-uhcrSearchString
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateHealthCheck
-    -> f UpdateHealthCheck
+uhcrSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcrSearchString f x =
-    (\y -> x { _uhcrSearchString = y })
-       <$> f (_uhcrSearchString x)
+    f (_uhcrSearchString x)
+        <&> \y -> x { _uhcrSearchString = y }
 {-# INLINE uhcrSearchString #-}
 
 instance ToPath UpdateHealthCheck where
@@ -241,15 +202,10 @@ data UpdateHealthCheckResponse = UpdateHealthCheckResponse
 
 -- | A complex type that contains identifying information about the health
 -- check.
-uhcsHealthCheck
-    :: Functor f
-    => (HealthCheck
-    -> f (HealthCheck))
-    -> UpdateHealthCheckResponse
-    -> f UpdateHealthCheckResponse
+uhcsHealthCheck :: Lens' UpdateHealthCheckResponse (HealthCheck)
 uhcsHealthCheck f x =
-    (\y -> x { _uhcsHealthCheck = y })
-       <$> f (_uhcsHealthCheck x)
+    f (_uhcsHealthCheck x)
+        <&> \y -> x { _uhcsHealthCheck = y }
 {-# INLINE uhcsHealthCheck #-}
 
 instance FromXML UpdateHealthCheckResponse where

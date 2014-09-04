@@ -60,6 +60,7 @@ describeCacheEngineVersions = DescribeCacheEngineVersions
     , _dcevmCacheParameterGroupFamily = Nothing
     , _dcevmMarker = Nothing
     }
+{-# INLINE describeCacheEngineVersions #-}
 
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions
     { _dcevmDefaultOnly :: Maybe Bool
@@ -88,83 +89,53 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
 
 -- | If true, specifies that only the default version of the specified engine or
 -- engine and major version combination is to be returned.
-dcevmDefaultOnly
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeCacheEngineVersions
-    -> f DescribeCacheEngineVersions
+dcevmDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
 dcevmDefaultOnly f x =
-    (\y -> x { _dcevmDefaultOnly = y })
-       <$> f (_dcevmDefaultOnly x)
+    f (_dcevmDefaultOnly x)
+        <&> \y -> x { _dcevmDefaultOnly = y }
 {-# INLINE dcevmDefaultOnly #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcevmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCacheEngineVersions
-    -> f DescribeCacheEngineVersions
+dcevmMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Integer)
 dcevmMaxRecords f x =
-    (\y -> x { _dcevmMaxRecords = y })
-       <$> f (_dcevmMaxRecords x)
+    f (_dcevmMaxRecords x)
+        <&> \y -> x { _dcevmMaxRecords = y }
 {-# INLINE dcevmMaxRecords #-}
 
 -- | The cache engine to return. Valid values: memcached | redis.
-dcevmEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheEngineVersions
-    -> f DescribeCacheEngineVersions
+dcevmEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevmEngine f x =
-    (\y -> x { _dcevmEngine = y })
-       <$> f (_dcevmEngine x)
+    f (_dcevmEngine x)
+        <&> \y -> x { _dcevmEngine = y }
 {-# INLINE dcevmEngine #-}
 
 -- | The cache engine version to return. Example: 1.4.14.
-dcevmEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheEngineVersions
-    -> f DescribeCacheEngineVersions
+dcevmEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevmEngineVersion f x =
-    (\y -> x { _dcevmEngineVersion = y })
-       <$> f (_dcevmEngineVersion x)
+    f (_dcevmEngineVersion x)
+        <&> \y -> x { _dcevmEngineVersion = y }
 {-# INLINE dcevmEngineVersion #-}
 
 -- | The name of a specific cache parameter group family to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
-dcevmCacheParameterGroupFamily
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheEngineVersions
-    -> f DescribeCacheEngineVersions
+dcevmCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevmCacheParameterGroupFamily f x =
-    (\y -> x { _dcevmCacheParameterGroupFamily = y })
-       <$> f (_dcevmCacheParameterGroupFamily x)
+    f (_dcevmCacheParameterGroupFamily x)
+        <&> \y -> x { _dcevmCacheParameterGroupFamily = y }
 {-# INLINE dcevmCacheParameterGroupFamily #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dcevmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheEngineVersions
-    -> f DescribeCacheEngineVersions
+dcevmMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevmMarker f x =
-    (\y -> x { _dcevmMarker = y })
-       <$> f (_dcevmMarker x)
+    f (_dcevmMarker x)
+        <&> \y -> x { _dcevmMarker = y }
 {-# INLINE dcevmMarker #-}
 
 instance ToQuery DescribeCacheEngineVersions where
@@ -180,27 +151,17 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
 
 -- | A list of cache engine version details. Each element in the list contains
 -- detailed information about once cache engine version.
-cevmCacheEngineVersions
-    :: Functor f
-    => ([CacheEngineVersion]
-    -> f ([CacheEngineVersion]))
-    -> DescribeCacheEngineVersionsResponse
-    -> f DescribeCacheEngineVersionsResponse
+cevmCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse ([CacheEngineVersion])
 cevmCacheEngineVersions f x =
-    (\y -> x { _cevmCacheEngineVersions = y })
-       <$> f (_cevmCacheEngineVersions x)
+    f (_cevmCacheEngineVersions x)
+        <&> \y -> x { _cevmCacheEngineVersions = y }
 {-# INLINE cevmCacheEngineVersions #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-cevmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheEngineVersionsResponse
-    -> f DescribeCacheEngineVersionsResponse
+cevmMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 cevmMarker f x =
-    (\y -> x { _cevmMarker = y })
-       <$> f (_cevmMarker x)
+    f (_cevmMarker x)
+        <&> \y -> x { _cevmMarker = y }
 {-# INLINE cevmMarker #-}
 
 instance FromXML DescribeCacheEngineVersionsResponse where

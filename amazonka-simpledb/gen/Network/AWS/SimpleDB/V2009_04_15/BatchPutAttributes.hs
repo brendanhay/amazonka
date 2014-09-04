@@ -78,6 +78,7 @@ batchPutAttributes p1 p2 = BatchPutAttributes
     { _bparItems = p1
     , _bparDomainName = p2
     }
+{-# INLINE batchPutAttributes #-}
 
 data BatchPutAttributes = BatchPutAttributes
     { _bparItems :: [ReplaceableItem]
@@ -87,27 +88,17 @@ data BatchPutAttributes = BatchPutAttributes
     } deriving (Show, Generic)
 
 -- | A list of items on which to perform the operation.
-bparItems
-    :: Functor f
-    => ([ReplaceableItem]
-    -> f ([ReplaceableItem]))
-    -> BatchPutAttributes
-    -> f BatchPutAttributes
+bparItems :: Lens' BatchPutAttributes ([ReplaceableItem])
 bparItems f x =
-    (\y -> x { _bparItems = y })
-       <$> f (_bparItems x)
+    f (_bparItems x)
+        <&> \y -> x { _bparItems = y }
 {-# INLINE bparItems #-}
 
 -- | The name of the domain in which the attributes are being stored.
-bparDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> BatchPutAttributes
-    -> f BatchPutAttributes
+bparDomainName :: Lens' BatchPutAttributes (Text)
 bparDomainName f x =
-    (\y -> x { _bparDomainName = y })
-       <$> f (_bparDomainName x)
+    f (_bparDomainName x)
+        <&> \y -> x { _bparDomainName = y }
 {-# INLINE bparDomainName #-}
 
 instance ToQuery BatchPutAttributes where

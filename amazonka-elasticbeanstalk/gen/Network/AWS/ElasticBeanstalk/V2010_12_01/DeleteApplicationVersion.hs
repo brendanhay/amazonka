@@ -51,6 +51,7 @@ deleteApplicationVersion p1 p2 = DeleteApplicationVersion
     , _davmVersionLabel = p2
     , _davmDeleteSourceBundle = Nothing
     }
+{-# INLINE deleteApplicationVersion #-}
 
 data DeleteApplicationVersion = DeleteApplicationVersion
     { _davmApplicationName :: Text
@@ -66,42 +67,27 @@ data DeleteApplicationVersion = DeleteApplicationVersion
     } deriving (Show, Generic)
 
 -- | The name of the application to delete releases from.
-davmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteApplicationVersion
-    -> f DeleteApplicationVersion
+davmApplicationName :: Lens' DeleteApplicationVersion (Text)
 davmApplicationName f x =
-    (\y -> x { _davmApplicationName = y })
-       <$> f (_davmApplicationName x)
+    f (_davmApplicationName x)
+        <&> \y -> x { _davmApplicationName = y }
 {-# INLINE davmApplicationName #-}
 
 -- | The label of the version to delete.
-davmVersionLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteApplicationVersion
-    -> f DeleteApplicationVersion
+davmVersionLabel :: Lens' DeleteApplicationVersion (Text)
 davmVersionLabel f x =
-    (\y -> x { _davmVersionLabel = y })
-       <$> f (_davmVersionLabel x)
+    f (_davmVersionLabel x)
+        <&> \y -> x { _davmVersionLabel = y }
 {-# INLINE davmVersionLabel #-}
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 -- true: An attempt is made to delete the associated Amazon S3 source bundle
 -- specified at time of creation. false: No action is taken on the Amazon S3
 -- source bundle specified at time of creation. Valid Values: true | false.
-davmDeleteSourceBundle
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteApplicationVersion
-    -> f DeleteApplicationVersion
+davmDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davmDeleteSourceBundle f x =
-    (\y -> x { _davmDeleteSourceBundle = y })
-       <$> f (_davmDeleteSourceBundle x)
+    f (_davmDeleteSourceBundle x)
+        <&> \y -> x { _davmDeleteSourceBundle = y }
 {-# INLINE davmDeleteSourceBundle #-}
 
 instance ToQuery DeleteApplicationVersion where

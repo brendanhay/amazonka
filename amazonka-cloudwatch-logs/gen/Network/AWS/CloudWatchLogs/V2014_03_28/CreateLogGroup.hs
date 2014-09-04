@@ -55,20 +55,16 @@ createLogGroup :: Text -- ^ 'clgrLogGroupName'
 createLogGroup p1 = CreateLogGroup
     { _clgrLogGroupName = p1
     }
+{-# INLINE createLogGroup #-}
 
 data CreateLogGroup = CreateLogGroup
     { _clgrLogGroupName :: Text
     } deriving (Show, Generic)
 
-clgrLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLogGroup
-    -> f CreateLogGroup
+clgrLogGroupName :: Lens' CreateLogGroup (Text)
 clgrLogGroupName f x =
-    (\y -> x { _clgrLogGroupName = y })
-       <$> f (_clgrLogGroupName x)
+    f (_clgrLogGroupName x)
+        <&> \y -> x { _clgrLogGroupName = y }
 {-# INLINE clgrLogGroupName #-}
 
 instance ToPath CreateLogGroup

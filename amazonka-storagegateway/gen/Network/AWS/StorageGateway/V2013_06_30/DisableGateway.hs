@@ -43,6 +43,7 @@ disableGateway :: Text -- ^ 'dgjGatewayARN'
 disableGateway p1 = DisableGateway
     { _dgjGatewayARN = p1
     }
+{-# INLINE disableGateway #-}
 
 data DisableGateway = DisableGateway
     { _dgjGatewayARN :: Text
@@ -53,15 +54,10 @@ data DisableGateway = DisableGateway
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgjGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableGateway
-    -> f DisableGateway
+dgjGatewayARN :: Lens' DisableGateway (Text)
 dgjGatewayARN f x =
-    (\y -> x { _dgjGatewayARN = y })
-       <$> f (_dgjGatewayARN x)
+    f (_dgjGatewayARN x)
+        <&> \y -> x { _dgjGatewayARN = y }
 {-# INLINE dgjGatewayARN #-}
 
 instance ToPath DisableGateway
@@ -81,15 +77,10 @@ data DisableGatewayResponse = DisableGatewayResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgpGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DisableGatewayResponse
-    -> f DisableGatewayResponse
+dgpGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dgpGatewayARN f x =
-    (\y -> x { _dgpGatewayARN = y })
-       <$> f (_dgpGatewayARN x)
+    f (_dgpGatewayARN x)
+        <&> \y -> x { _dgpGatewayARN = y }
 {-# INLINE dgpGatewayARN #-}
 
 instance FromJSON DisableGatewayResponse

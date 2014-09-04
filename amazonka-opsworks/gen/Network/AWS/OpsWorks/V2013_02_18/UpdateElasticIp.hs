@@ -48,6 +48,7 @@ updateElasticIp p1 = UpdateElasticIp
     { _ueirElasticIp = p1
     , _ueirName = Nothing
     }
+{-# INLINE updateElasticIp #-}
 
 data UpdateElasticIp = UpdateElasticIp
     { _ueirElasticIp :: Text
@@ -57,27 +58,17 @@ data UpdateElasticIp = UpdateElasticIp
     } deriving (Show, Generic)
 
 -- | The address.
-ueirElasticIp
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateElasticIp
-    -> f UpdateElasticIp
+ueirElasticIp :: Lens' UpdateElasticIp (Text)
 ueirElasticIp f x =
-    (\y -> x { _ueirElasticIp = y })
-       <$> f (_ueirElasticIp x)
+    f (_ueirElasticIp x)
+        <&> \y -> x { _ueirElasticIp = y }
 {-# INLINE ueirElasticIp #-}
 
 -- | The new name.
-ueirName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateElasticIp
-    -> f UpdateElasticIp
+ueirName :: Lens' UpdateElasticIp (Maybe Text)
 ueirName f x =
-    (\y -> x { _ueirName = y })
-       <$> f (_ueirName x)
+    f (_ueirName x)
+        <&> \y -> x { _ueirName = y }
 {-# INLINE ueirName #-}
 
 instance ToPath UpdateElasticIp

@@ -46,6 +46,7 @@ deleteDBSecurityGroup :: Text -- ^ 'ddbsgmDBSecurityGroupName'
 deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
     { _ddbsgmDBSecurityGroupName = p1
     }
+{-# INLINE deleteDBSecurityGroup #-}
 
 data DeleteDBSecurityGroup = DeleteDBSecurityGroup
     { _ddbsgmDBSecurityGroupName :: Text
@@ -60,15 +61,10 @@ data DeleteDBSecurityGroup = DeleteDBSecurityGroup
 -- DB security group. Constraints: Must be 1 to 255 alphanumeric characters
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Must not be "Default" May not contain spaces.
-ddbsgmDBSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDBSecurityGroup
-    -> f DeleteDBSecurityGroup
+ddbsgmDBSecurityGroupName :: Lens' DeleteDBSecurityGroup (Text)
 ddbsgmDBSecurityGroupName f x =
-    (\y -> x { _ddbsgmDBSecurityGroupName = y })
-       <$> f (_ddbsgmDBSecurityGroupName x)
+    f (_ddbsgmDBSecurityGroupName x)
+        <&> \y -> x { _ddbsgmDBSecurityGroupName = y }
 {-# INLINE ddbsgmDBSecurityGroupName #-}
 
 instance ToQuery DeleteDBSecurityGroup where

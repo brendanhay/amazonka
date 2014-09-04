@@ -56,6 +56,7 @@ describeDBInstances = DescribeDBInstances
     , _ddbinDBInstanceIdentifier = Nothing
     , _ddbinMarker = Nothing
     }
+{-# INLINE describeDBInstances #-}
 
 data DescribeDBInstances = DescribeDBInstances
     { _ddbinMaxRecords :: Maybe Integer
@@ -82,15 +83,10 @@ data DescribeDBInstances = DescribeDBInstances
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbinMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBInstances
-    -> f DescribeDBInstances
+ddbinMaxRecords :: Lens' DescribeDBInstances (Maybe Integer)
 ddbinMaxRecords f x =
-    (\y -> x { _ddbinMaxRecords = y })
-       <$> f (_ddbinMaxRecords x)
+    f (_ddbinMaxRecords x)
+        <&> \y -> x { _ddbinMaxRecords = y }
 {-# INLINE ddbinMaxRecords #-}
 
 -- | The user-supplied instance identifier. If this parameter is specified,
@@ -98,29 +94,19 @@ ddbinMaxRecords f x =
 -- isn't case sensitive. Constraints: Must contain from 1 to 63 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ddbinDBInstanceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBInstances
-    -> f DescribeDBInstances
+ddbinDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbinDBInstanceIdentifier f x =
-    (\y -> x { _ddbinDBInstanceIdentifier = y })
-       <$> f (_ddbinDBInstanceIdentifier x)
+    f (_ddbinDBInstanceIdentifier x)
+        <&> \y -> x { _ddbinDBInstanceIdentifier = y }
 {-# INLINE ddbinDBInstanceIdentifier #-}
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords .
-ddbinMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBInstances
-    -> f DescribeDBInstances
+ddbinMarker :: Lens' DescribeDBInstances (Maybe Text)
 ddbinMarker f x =
-    (\y -> x { _ddbinMarker = y })
-       <$> f (_ddbinMarker x)
+    f (_ddbinMarker x)
+        <&> \y -> x { _ddbinMarker = y }
 {-# INLINE ddbinMarker #-}
 
 instance ToQuery DescribeDBInstances where
@@ -136,29 +122,19 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
     } deriving (Show, Generic)
 
 -- | A list of DBInstance instances.
-dbimDBInstances
-    :: Functor f
-    => ([DBInstance]
-    -> f ([DBInstance]))
-    -> DescribeDBInstancesResponse
-    -> f DescribeDBInstancesResponse
+dbimDBInstances :: Lens' DescribeDBInstancesResponse ([DBInstance])
 dbimDBInstances f x =
-    (\y -> x { _dbimDBInstances = y })
-       <$> f (_dbimDBInstances x)
+    f (_dbimDBInstances x)
+        <&> \y -> x { _dbimDBInstances = y }
 {-# INLINE dbimDBInstances #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords .
-dbimMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBInstancesResponse
-    -> f DescribeDBInstancesResponse
+dbimMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 dbimMarker f x =
-    (\y -> x { _dbimMarker = y })
-       <$> f (_dbimMarker x)
+    f (_dbimMarker x)
+        <&> \y -> x { _dbimMarker = y }
 {-# INLINE dbimMarker #-}
 
 instance FromXML DescribeDBInstancesResponse where

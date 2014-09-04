@@ -65,6 +65,7 @@ addPermission p1 p2 p3 p4 = AddPermission
     , _apiLabel = p3
     , _apiTopicArn = p4
     }
+{-# INLINE addPermission #-}
 
 data AddPermission = AddPermission
     { _apiActionName :: [Text]
@@ -83,53 +84,33 @@ data AddPermission = AddPermission
 
 -- | The action you want to allow for the specified principal(s). Valid values:
 -- any Amazon SNS action name.
-apiActionName
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddPermission
-    -> f AddPermission
+apiActionName :: Lens' AddPermission ([Text])
 apiActionName f x =
-    (\y -> x { _apiActionName = y })
-       <$> f (_apiActionName x)
+    f (_apiActionName x)
+        <&> \y -> x { _apiActionName = y }
 {-# INLINE apiActionName #-}
 
 -- | The AWS account IDs of the users (principals) who will be given access to
 -- the specified actions. The users must have AWS accounts, but do not need to
 -- be signed up for this service.
-apiAWSAccountId
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddPermission
-    -> f AddPermission
+apiAWSAccountId :: Lens' AddPermission ([Text])
 apiAWSAccountId f x =
-    (\y -> x { _apiAWSAccountId = y })
-       <$> f (_apiAWSAccountId x)
+    f (_apiAWSAccountId x)
+        <&> \y -> x { _apiAWSAccountId = y }
 {-# INLINE apiAWSAccountId #-}
 
 -- | A unique identifier for the new policy statement.
-apiLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddPermission
-    -> f AddPermission
+apiLabel :: Lens' AddPermission (Text)
 apiLabel f x =
-    (\y -> x { _apiLabel = y })
-       <$> f (_apiLabel x)
+    f (_apiLabel x)
+        <&> \y -> x { _apiLabel = y }
 {-# INLINE apiLabel #-}
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-apiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddPermission
-    -> f AddPermission
+apiTopicArn :: Lens' AddPermission (Text)
 apiTopicArn f x =
-    (\y -> x { _apiTopicArn = y })
-       <$> f (_apiTopicArn x)
+    f (_apiTopicArn x)
+        <&> \y -> x { _apiTopicArn = y }
 {-# INLINE apiTopicArn #-}
 
 instance ToQuery AddPermission where

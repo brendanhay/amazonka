@@ -80,6 +80,7 @@ getSessionToken = GetSessionToken
     , _gstrSerialNumber = Nothing
     , _gstrTokenCode = Nothing
     }
+{-# INLINE getSessionToken #-}
 
 data GetSessionToken = GetSessionToken
     { _gstrDurationSeconds :: Maybe Integer
@@ -115,15 +116,10 @@ data GetSessionToken = GetSessionToken
 -- default. Sessions for AWS account owners are restricted to a maximum of
 -- 3600 seconds (one hour). If the duration is longer than one hour, the
 -- session for AWS account owners defaults to one hour.
-gstrDurationSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetSessionToken
-    -> f GetSessionToken
+gstrDurationSeconds :: Lens' GetSessionToken (Maybe Integer)
 gstrDurationSeconds f x =
-    (\y -> x { _gstrDurationSeconds = y })
-       <$> f (_gstrDurationSeconds x)
+    f (_gstrDurationSeconds x)
+        <&> \y -> x { _gstrDurationSeconds = y }
 {-# INLINE gstrDurationSeconds #-}
 
 -- | The identification number of the MFA device that is associated with the IAM
@@ -134,15 +130,10 @@ gstrDurationSeconds f x =
 -- arn:aws:iam::123456789012:mfa/user). You can find the device for an IAM
 -- user by going to the AWS Management Console and viewing the user's security
 -- credentials.
-gstrSerialNumber
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetSessionToken
-    -> f GetSessionToken
+gstrSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstrSerialNumber f x =
-    (\y -> x { _gstrSerialNumber = y })
-       <$> f (_gstrSerialNumber x)
+    f (_gstrSerialNumber x)
+        <&> \y -> x { _gstrSerialNumber = y }
 {-# INLINE gstrSerialNumber #-}
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
@@ -151,15 +142,10 @@ gstrSerialNumber f x =
 -- requesting a set of temporary security credentials, the user will receive
 -- an "access denied" response when requesting resources that require MFA
 -- authentication.
-gstrTokenCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetSessionToken
-    -> f GetSessionToken
+gstrTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstrTokenCode f x =
-    (\y -> x { _gstrTokenCode = y })
-       <$> f (_gstrTokenCode x)
+    f (_gstrTokenCode x)
+        <&> \y -> x { _gstrTokenCode = y }
 {-# INLINE gstrTokenCode #-}
 
 instance ToQuery GetSessionToken where
@@ -171,15 +157,10 @@ data GetSessionTokenResponse = GetSessionTokenResponse
     } deriving (Show, Generic)
 
 -- | The session credentials for API authentication.
-gstsCredentials
-    :: Functor f
-    => (Maybe Credentials
-    -> f (Maybe Credentials))
-    -> GetSessionTokenResponse
-    -> f GetSessionTokenResponse
+gstsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstsCredentials f x =
-    (\y -> x { _gstsCredentials = y })
-       <$> f (_gstsCredentials x)
+    f (_gstsCredentials x)
+        <&> \y -> x { _gstsCredentials = y }
 {-# INLINE gstsCredentials #-}
 
 instance FromXML GetSessionTokenResponse where

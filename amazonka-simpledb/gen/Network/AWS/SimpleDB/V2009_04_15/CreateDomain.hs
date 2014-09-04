@@ -48,6 +48,7 @@ createDomain :: Text -- ^ 'cdrDomainName'
 createDomain p1 = CreateDomain
     { _cdrDomainName = p1
     }
+{-# INLINE createDomain #-}
 
 data CreateDomain = CreateDomain
     { _cdrDomainName :: Text
@@ -59,15 +60,10 @@ data CreateDomain = CreateDomain
 -- | The name of the domain to create. The name can range between 3 and 255
 -- characters and can contain the following characters: a-z, A-Z, 0-9, '_',
 -- '-', and '.'.
-cdrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDomain
-    -> f CreateDomain
+cdrDomainName :: Lens' CreateDomain (Text)
 cdrDomainName f x =
-    (\y -> x { _cdrDomainName = y })
-       <$> f (_cdrDomainName x)
+    f (_cdrDomainName x)
+        <&> \y -> x { _cdrDomainName = y }
 {-# INLINE cdrDomainName #-}
 
 instance ToQuery CreateDomain where

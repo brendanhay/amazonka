@@ -44,6 +44,7 @@ getHealthCheck :: Text -- ^ 'ghcrHealthCheckId'
 getHealthCheck p1 = GetHealthCheck
     { _ghcrHealthCheckId = p1
     }
+{-# INLINE getHealthCheck #-}
 
 data GetHealthCheck = GetHealthCheck
     { _ghcrHealthCheckId :: Text
@@ -51,15 +52,10 @@ data GetHealthCheck = GetHealthCheck
     } deriving (Show, Generic)
 
 -- | The ID of the health check to retrieve.
-ghcrHealthCheckId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetHealthCheck
-    -> f GetHealthCheck
+ghcrHealthCheckId :: Lens' GetHealthCheck (Text)
 ghcrHealthCheckId f x =
-    (\y -> x { _ghcrHealthCheckId = y })
-       <$> f (_ghcrHealthCheckId x)
+    f (_ghcrHealthCheckId x)
+        <&> \y -> x { _ghcrHealthCheckId = y }
 {-# INLINE ghcrHealthCheckId #-}
 
 instance ToPath GetHealthCheck where
@@ -84,15 +80,10 @@ data GetHealthCheckResponse = GetHealthCheckResponse
 
 -- | A complex type that contains the information about the specified health
 -- check.
-ghcsHealthCheck
-    :: Functor f
-    => (HealthCheck
-    -> f (HealthCheck))
-    -> GetHealthCheckResponse
-    -> f GetHealthCheckResponse
+ghcsHealthCheck :: Lens' GetHealthCheckResponse (HealthCheck)
 ghcsHealthCheck f x =
-    (\y -> x { _ghcsHealthCheck = y })
-       <$> f (_ghcsHealthCheck x)
+    f (_ghcsHealthCheck x)
+        <&> \y -> x { _ghcsHealthCheck = y }
 {-# INLINE ghcsHealthCheck #-}
 
 instance FromXML GetHealthCheckResponse where

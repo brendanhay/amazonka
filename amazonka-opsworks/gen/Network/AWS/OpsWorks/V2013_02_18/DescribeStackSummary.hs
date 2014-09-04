@@ -49,6 +49,7 @@ describeStackSummary :: Text -- ^ 'dssrStackId'
 describeStackSummary p1 = DescribeStackSummary
     { _dssrStackId = p1
     }
+{-# INLINE describeStackSummary #-}
 
 data DescribeStackSummary = DescribeStackSummary
     { _dssrStackId :: Text
@@ -56,15 +57,10 @@ data DescribeStackSummary = DescribeStackSummary
     } deriving (Show, Generic)
 
 -- | The stack ID.
-dssrStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStackSummary
-    -> f DescribeStackSummary
+dssrStackId :: Lens' DescribeStackSummary (Text)
 dssrStackId f x =
-    (\y -> x { _dssrStackId = y })
-       <$> f (_dssrStackId x)
+    f (_dssrStackId x)
+        <&> \y -> x { _dssrStackId = y }
 {-# INLINE dssrStackId #-}
 
 instance ToPath DescribeStackSummary
@@ -81,15 +77,10 @@ data DescribeStackSummaryResponse = DescribeStackSummaryResponse
     } deriving (Show, Generic)
 
 -- | A StackSummary object that contains the results.
-dsssStackSummary
-    :: Functor f
-    => (Maybe StackSummary
-    -> f (Maybe StackSummary))
-    -> DescribeStackSummaryResponse
-    -> f DescribeStackSummaryResponse
+dsssStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dsssStackSummary f x =
-    (\y -> x { _dsssStackSummary = y })
-       <$> f (_dsssStackSummary x)
+    f (_dsssStackSummary x)
+        <&> \y -> x { _dsssStackSummary = y }
 {-# INLINE dsssStackSummary #-}
 
 instance FromJSON DescribeStackSummaryResponse

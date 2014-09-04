@@ -45,6 +45,7 @@ stopLogging :: Text -- ^ 'sltName'
 stopLogging p1 = StopLogging
     { _sltName = p1
     }
+{-# INLINE stopLogging #-}
 
 data StopLogging = StopLogging
     { _sltName :: Text
@@ -54,15 +55,10 @@ data StopLogging = StopLogging
 
 -- | Communicates to CloudTrail the name of the trail for which to stop logging
 -- AWS API calls.
-sltName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StopLogging
-    -> f StopLogging
+sltName :: Lens' StopLogging (Text)
 sltName f x =
-    (\y -> x { _sltName = y })
-       <$> f (_sltName x)
+    f (_sltName x)
+        <&> \y -> x { _sltName = y }
 {-# INLINE sltName #-}
 
 instance ToPath StopLogging

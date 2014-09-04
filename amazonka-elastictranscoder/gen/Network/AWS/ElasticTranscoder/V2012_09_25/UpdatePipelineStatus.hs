@@ -65,6 +65,7 @@ updatePipelineStatus p1 p2 = UpdatePipelineStatus
     { _upsrStatus = p1
     , _upsrId = p2
     }
+{-# INLINE updatePipelineStatus #-}
 
 data UpdatePipelineStatus = UpdatePipelineStatus
     { _upsrStatus :: Text
@@ -77,27 +78,17 @@ data UpdatePipelineStatus = UpdatePipelineStatus
 
 -- | The desired status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
-upsrStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdatePipelineStatus
-    -> f UpdatePipelineStatus
+upsrStatus :: Lens' UpdatePipelineStatus (Text)
 upsrStatus f x =
-    (\y -> x { _upsrStatus = y })
-       <$> f (_upsrStatus x)
+    f (_upsrStatus x)
+        <&> \y -> x { _upsrStatus = y }
 {-# INLINE upsrStatus #-}
 
 -- | The identifier of the pipeline to update.
-upsrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdatePipelineStatus
-    -> f UpdatePipelineStatus
+upsrId :: Lens' UpdatePipelineStatus (Text)
 upsrId f x =
-    (\y -> x { _upsrId = y })
-       <$> f (_upsrId x)
+    f (_upsrId x)
+        <&> \y -> x { _upsrId = y }
 {-# INLINE upsrId #-}
 
 instance ToPath UpdatePipelineStatus where
@@ -121,15 +112,10 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upssPipeline
-    :: Functor f
-    => (Maybe Pipeline
-    -> f (Maybe Pipeline))
-    -> UpdatePipelineStatusResponse
-    -> f UpdatePipelineStatusResponse
+upssPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upssPipeline f x =
-    (\y -> x { _upssPipeline = y })
-       <$> f (_upssPipeline x)
+    f (_upssPipeline x)
+        <&> \y -> x { _upssPipeline = y }
 {-# INLINE upssPipeline #-}
 
 instance FromJSON UpdatePipelineStatusResponse

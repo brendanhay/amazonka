@@ -48,6 +48,7 @@ describeApplicationVersions = DescribeApplicationVersions
     { _davnApplicationName = Nothing
     , _davnVersionLabels = mempty
     }
+{-# INLINE describeApplicationVersions #-}
 
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _davnApplicationName :: Maybe Text
@@ -61,28 +62,18 @@ data DescribeApplicationVersions = DescribeApplicationVersions
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include ones that are associated with the specified application.
-davnApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeApplicationVersions
-    -> f DescribeApplicationVersions
+davnApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 davnApplicationName f x =
-    (\y -> x { _davnApplicationName = y })
-       <$> f (_davnApplicationName x)
+    f (_davnApplicationName x)
+        <&> \y -> x { _davnApplicationName = y }
 {-# INLINE davnApplicationName #-}
 
 -- | If specified, restricts the returned descriptions to only include ones that
 -- have the specified version labels.
-davnVersionLabels
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeApplicationVersions
-    -> f DescribeApplicationVersions
+davnVersionLabels :: Lens' DescribeApplicationVersions ([Text])
 davnVersionLabels f x =
-    (\y -> x { _davnVersionLabels = y })
-       <$> f (_davnVersionLabels x)
+    f (_davnVersionLabels x)
+        <&> \y -> x { _davnVersionLabels = y }
 {-# INLINE davnVersionLabels #-}
 
 instance ToQuery DescribeApplicationVersions where
@@ -94,15 +85,10 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     } deriving (Show, Generic)
 
 -- | A list of ApplicationVersionDescription .
-avdnApplicationVersions
-    :: Functor f
-    => ([ApplicationVersionDescription]
-    -> f ([ApplicationVersionDescription]))
-    -> DescribeApplicationVersionsResponse
-    -> f DescribeApplicationVersionsResponse
+avdnApplicationVersions :: Lens' DescribeApplicationVersionsResponse ([ApplicationVersionDescription])
 avdnApplicationVersions f x =
-    (\y -> x { _avdnApplicationVersions = y })
-       <$> f (_avdnApplicationVersions x)
+    f (_avdnApplicationVersions x)
+        <&> \y -> x { _avdnApplicationVersions = y }
 {-# INLINE avdnApplicationVersions #-}
 
 instance FromXML DescribeApplicationVersionsResponse where

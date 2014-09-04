@@ -56,6 +56,7 @@ purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
     , _prcnomCacheNodeCount = Nothing
     , _prcnomReservedCacheNodeId = Nothing
     }
+{-# INLINE purchaseReservedCacheNodesOffering #-}
 
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnomReservedCacheNodesOfferingId :: Text
@@ -70,40 +71,25 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
 
 -- | The ID of the reserved cache node offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-prcnomReservedCacheNodesOfferingId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PurchaseReservedCacheNodesOffering
-    -> f PurchaseReservedCacheNodesOffering
+prcnomReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering (Text)
 prcnomReservedCacheNodesOfferingId f x =
-    (\y -> x { _prcnomReservedCacheNodesOfferingId = y })
-       <$> f (_prcnomReservedCacheNodesOfferingId x)
+    f (_prcnomReservedCacheNodesOfferingId x)
+        <&> \y -> x { _prcnomReservedCacheNodesOfferingId = y }
 {-# INLINE prcnomReservedCacheNodesOfferingId #-}
 
 -- | The number of cache node instances to reserve. Default: 1.
-prcnomCacheNodeCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PurchaseReservedCacheNodesOffering
-    -> f PurchaseReservedCacheNodesOffering
+prcnomCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Integer)
 prcnomCacheNodeCount f x =
-    (\y -> x { _prcnomCacheNodeCount = y })
-       <$> f (_prcnomCacheNodeCount x)
+    f (_prcnomCacheNodeCount x)
+        <&> \y -> x { _prcnomCacheNodeCount = y }
 {-# INLINE prcnomCacheNodeCount #-}
 
 -- | A customer-specified identifier to track this reservation. Example:
 -- myreservationID.
-prcnomReservedCacheNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PurchaseReservedCacheNodesOffering
-    -> f PurchaseReservedCacheNodesOffering
+prcnomReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
 prcnomReservedCacheNodeId f x =
-    (\y -> x { _prcnomReservedCacheNodeId = y })
-       <$> f (_prcnomReservedCacheNodeId x)
+    f (_prcnomReservedCacheNodeId x)
+        <&> \y -> x { _prcnomReservedCacheNodeId = y }
 {-# INLINE prcnomReservedCacheNodeId #-}
 
 instance ToQuery PurchaseReservedCacheNodesOffering where
@@ -116,15 +102,10 @@ data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOffe
     } deriving (Show, Generic)
 
 -- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
-rcnwReservedCacheNode
-    :: Functor f
-    => (Maybe ReservedCacheNode
-    -> f (Maybe ReservedCacheNode))
-    -> PurchaseReservedCacheNodesOfferingResponse
-    -> f PurchaseReservedCacheNodesOfferingResponse
+rcnwReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 rcnwReservedCacheNode f x =
-    (\y -> x { _rcnwReservedCacheNode = y })
-       <$> f (_rcnwReservedCacheNode x)
+    f (_rcnwReservedCacheNode x)
+        <&> \y -> x { _rcnwReservedCacheNode = y }
 {-# INLINE rcnwReservedCacheNode #-}
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where

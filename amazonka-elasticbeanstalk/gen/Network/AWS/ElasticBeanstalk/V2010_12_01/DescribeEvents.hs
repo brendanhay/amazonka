@@ -78,6 +78,7 @@ describeEvents = DescribeEvents
     , _denNextToken = Nothing
     , _denVersionLabel = Nothing
     }
+{-# INLINE describeEvents #-}
 
 data DescribeEvents = DescribeEvents
     { _denApplicationName :: Maybe Text
@@ -120,145 +121,90 @@ data DescribeEvents = DescribeEvents
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those associated with this application.
-denApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denApplicationName :: Lens' DescribeEvents (Maybe Text)
 denApplicationName f x =
-    (\y -> x { _denApplicationName = y })
-       <$> f (_denApplicationName x)
+    f (_denApplicationName x)
+        <&> \y -> x { _denApplicationName = y }
 {-# INLINE denApplicationName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that are associated with this environment configuration.
-denTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denTemplateName :: Lens' DescribeEvents (Maybe Text)
 denTemplateName f x =
-    (\y -> x { _denTemplateName = y })
-       <$> f (_denTemplateName x)
+    f (_denTemplateName x)
+        <&> \y -> x { _denTemplateName = y }
 {-# INLINE denTemplateName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this environment.
-denEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denEnvironmentId :: Lens' DescribeEvents (Maybe Text)
 denEnvironmentId f x =
-    (\y -> x { _denEnvironmentId = y })
-       <$> f (_denEnvironmentId x)
+    f (_denEnvironmentId x)
+        <&> \y -> x { _denEnvironmentId = y }
 {-# INLINE denEnvironmentId #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this environment.
-denEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denEnvironmentName :: Lens' DescribeEvents (Maybe Text)
 denEnvironmentName f x =
-    (\y -> x { _denEnvironmentName = y })
-       <$> f (_denEnvironmentName x)
+    f (_denEnvironmentName x)
+        <&> \y -> x { _denEnvironmentName = y }
 {-# INLINE denEnvironmentName #-}
 
 -- | If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
-denSeverity
-    :: Functor f
-    => (Maybe EventSeverity
-    -> f (Maybe EventSeverity))
-    -> DescribeEvents
-    -> f DescribeEvents
+denSeverity :: Lens' DescribeEvents (Maybe EventSeverity)
 denSeverity f x =
-    (\y -> x { _denSeverity = y })
-       <$> f (_denSeverity x)
+    f (_denSeverity x)
+        <&> \y -> x { _denSeverity = y }
 {-# INLINE denSeverity #-}
 
 -- | Specifies the maximum number of events that can be returned, beginning with
 -- the most recent event.
-denMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEvents
-    -> f DescribeEvents
+denMaxRecords :: Lens' DescribeEvents (Maybe Integer)
 denMaxRecords f x =
-    (\y -> x { _denMaxRecords = y })
-       <$> f (_denMaxRecords x)
+    f (_denMaxRecords x)
+        <&> \y -> x { _denMaxRecords = y }
 {-# INLINE denMaxRecords #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to
 -- include only those associated with this request ID.
-denRequestId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denRequestId :: Lens' DescribeEvents (Maybe Text)
 denRequestId f x =
-    (\y -> x { _denRequestId = y })
-       <$> f (_denRequestId x)
+    f (_denRequestId x)
+        <&> \y -> x { _denRequestId = y }
 {-# INLINE denRequestId #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that occur up to, but not including, the EndTime.
-denEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEvents
-    -> f DescribeEvents
+denEndTime :: Lens' DescribeEvents (Maybe ISO8601)
 denEndTime f x =
-    (\y -> x { _denEndTime = y })
-       <$> f (_denEndTime x)
+    f (_denEndTime x)
+        <&> \y -> x { _denEndTime = y }
 {-# INLINE denEndTime #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that occur on or after this time.
-denStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEvents
-    -> f DescribeEvents
+denStartTime :: Lens' DescribeEvents (Maybe ISO8601)
 denStartTime f x =
-    (\y -> x { _denStartTime = y })
-       <$> f (_denStartTime x)
+    f (_denStartTime x)
+        <&> \y -> x { _denStartTime = y }
 {-# INLINE denStartTime #-}
 
 -- | Pagination token. If specified, the events return the next batch of
 -- results.
-denNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denNextToken :: Lens' DescribeEvents (Maybe Text)
 denNextToken f x =
-    (\y -> x { _denNextToken = y })
-       <$> f (_denNextToken x)
+    f (_denNextToken x)
+        <&> \y -> x { _denNextToken = y }
 {-# INLINE denNextToken #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this application version.
-denVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+denVersionLabel :: Lens' DescribeEvents (Maybe Text)
 denVersionLabel f x =
-    (\y -> x { _denVersionLabel = y })
-       <$> f (_denVersionLabel x)
+    f (_denVersionLabel x)
+        <&> \y -> x { _denVersionLabel = y }
 {-# INLINE denVersionLabel #-}
 
 instance ToQuery DescribeEvents where
@@ -274,28 +220,18 @@ data DescribeEventsResponse = DescribeEventsResponse
     } deriving (Show, Generic)
 
 -- | A list of EventDescription.
-ednEvents
-    :: Functor f
-    => ([EventDescription]
-    -> f ([EventDescription]))
-    -> DescribeEventsResponse
-    -> f DescribeEventsResponse
+ednEvents :: Lens' DescribeEventsResponse ([EventDescription])
 ednEvents f x =
-    (\y -> x { _ednEvents = y })
-       <$> f (_ednEvents x)
+    f (_ednEvents x)
+        <&> \y -> x { _ednEvents = y }
 {-# INLINE ednEvents #-}
 
 -- | If returned, this indicates that there are more results to obtain. Use this
 -- token in the next DescribeEvents call to get the next batch of events.
-ednNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventsResponse
-    -> f DescribeEventsResponse
+ednNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 ednNextToken f x =
-    (\y -> x { _ednNextToken = y })
-       <$> f (_ednNextToken x)
+    f (_ednNextToken x)
+        <&> \y -> x { _ednNextToken = y }
 {-# INLINE ednNextToken #-}
 
 instance FromXML DescribeEventsResponse where

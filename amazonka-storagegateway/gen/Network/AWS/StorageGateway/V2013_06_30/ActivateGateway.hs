@@ -74,6 +74,7 @@ activateGateway p1 p2 p3 p4 = ActivateGateway
     , _agiGatewayRegion = p4
     , _agiGatewayType = Nothing
     }
+{-# INLINE activateGateway #-}
 
 data ActivateGateway = ActivateGateway
     { _agiActivationKey :: Text
@@ -116,43 +117,28 @@ data ActivateGateway = ActivateGateway
 -- also include other activation-related parameters, however, these are merely
 -- defaults -- the arguments you pass to the ActivateGateway API call
 -- determine the actual configuration of your gateway.
-agiActivationKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivateGateway
-    -> f ActivateGateway
+agiActivationKey :: Lens' ActivateGateway (Text)
 agiActivationKey f x =
-    (\y -> x { _agiActivationKey = y })
-       <$> f (_agiActivationKey x)
+    f (_agiActivationKey x)
+        <&> \y -> x { _agiActivationKey = y }
 {-# INLINE agiActivationKey #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
-agiGatewayName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivateGateway
-    -> f ActivateGateway
+agiGatewayName :: Lens' ActivateGateway (Text)
 agiGatewayName f x =
-    (\y -> x { _agiGatewayName = y })
-       <$> f (_agiGatewayName x)
+    f (_agiGatewayName x)
+        <&> \y -> x { _agiGatewayName = y }
 {-# INLINE agiGatewayName #-}
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots and
 -- your gateway's maintenance schedule.
-agiGatewayTimezone
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivateGateway
-    -> f ActivateGateway
+agiGatewayTimezone :: Lens' ActivateGateway (Text)
 agiGatewayTimezone f x =
-    (\y -> x { _agiGatewayTimezone = y })
-       <$> f (_agiGatewayTimezone x)
+    f (_agiGatewayTimezone x)
+        <&> \y -> x { _agiGatewayTimezone = y }
 {-# INLINE agiGatewayTimezone #-}
 
 -- | One of the values that indicates the region where you want to store the
@@ -162,29 +148,19 @@ agiGatewayTimezone f x =
 -- Endpoints in the Amazon Web Services Glossary. Valid Values: "us-east-1",
 -- "us-west-1", "us-west-2", "eu-west-1", "ap-northeast-1", "ap-southest-1",
 -- "sa-east-1".
-agiGatewayRegion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivateGateway
-    -> f ActivateGateway
+agiGatewayRegion :: Lens' ActivateGateway (Text)
 agiGatewayRegion f x =
-    (\y -> x { _agiGatewayRegion = y })
-       <$> f (_agiGatewayRegion x)
+    f (_agiGatewayRegion x)
+        <&> \y -> x { _agiGatewayRegion = y }
 {-# INLINE agiGatewayRegion #-}
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot be
 -- changed after activation. The default value is STORED.
-agiGatewayType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivateGateway
-    -> f ActivateGateway
+agiGatewayType :: Lens' ActivateGateway (Maybe Text)
 agiGatewayType f x =
-    (\y -> x { _agiGatewayType = y })
-       <$> f (_agiGatewayType x)
+    f (_agiGatewayType x)
+        <&> \y -> x { _agiGatewayType = y }
 {-# INLINE agiGatewayType #-}
 
 instance ToPath ActivateGateway
@@ -204,15 +180,10 @@ data ActivateGatewayResponse = ActivateGatewayResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-agoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivateGatewayResponse
-    -> f ActivateGatewayResponse
+agoGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agoGatewayARN f x =
-    (\y -> x { _agoGatewayARN = y })
-       <$> f (_agoGatewayARN x)
+    f (_agoGatewayARN x)
+        <&> \y -> x { _agoGatewayARN = y }
 {-# INLINE agoGatewayARN #-}
 
 instance FromJSON ActivateGatewayResponse

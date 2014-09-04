@@ -75,6 +75,7 @@ updateTable p1 = UpdateTable
     , _utiGlobalSecondaryIndexUpdates = mempty
     , _utiProvisionedThroughput = Nothing
     }
+{-# INLINE updateTable #-}
 
 data UpdateTable = UpdateTable
     { _utiTableName :: Text
@@ -91,43 +92,28 @@ data UpdateTable = UpdateTable
     } deriving (Show, Generic)
 
 -- | The name of the table to be updated.
-utiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateTable
-    -> f UpdateTable
+utiTableName :: Lens' UpdateTable (Text)
 utiTableName f x =
-    (\y -> x { _utiTableName = y })
-       <$> f (_utiTableName x)
+    f (_utiTableName x)
+        <&> \y -> x { _utiTableName = y }
 {-# INLINE utiTableName #-}
 
 -- | An array of one or more global secondary indexes on the table, together
 -- with provisioned throughput settings for each index.
-utiGlobalSecondaryIndexUpdates
-    :: Functor f
-    => ([GlobalSecondaryIndexUpdate]
-    -> f ([GlobalSecondaryIndexUpdate]))
-    -> UpdateTable
-    -> f UpdateTable
+utiGlobalSecondaryIndexUpdates :: Lens' UpdateTable ([GlobalSecondaryIndexUpdate])
 utiGlobalSecondaryIndexUpdates f x =
-    (\y -> x { _utiGlobalSecondaryIndexUpdates = y })
-       <$> f (_utiGlobalSecondaryIndexUpdates x)
+    f (_utiGlobalSecondaryIndexUpdates x)
+        <&> \y -> x { _utiGlobalSecondaryIndexUpdates = y }
 {-# INLINE utiGlobalSecondaryIndexUpdates #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
 -- current minimum and maximum provisioned throughput values, see Limits in
 -- the Amazon DynamoDB Developer Guide.
-utiProvisionedThroughput
-    :: Functor f
-    => (Maybe ProvisionedThroughput
-    -> f (Maybe ProvisionedThroughput))
-    -> UpdateTable
-    -> f UpdateTable
+utiProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utiProvisionedThroughput f x =
-    (\y -> x { _utiProvisionedThroughput = y })
-       <$> f (_utiProvisionedThroughput x)
+    f (_utiProvisionedThroughput x)
+        <&> \y -> x { _utiProvisionedThroughput = y }
 {-# INLINE utiProvisionedThroughput #-}
 
 instance ToPath UpdateTable
@@ -144,15 +130,10 @@ data UpdateTableResponse = UpdateTableResponse
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-utoTableDescription
-    :: Functor f
-    => (Maybe TableDescription
-    -> f (Maybe TableDescription))
-    -> UpdateTableResponse
-    -> f UpdateTableResponse
+utoTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utoTableDescription f x =
-    (\y -> x { _utoTableDescription = y })
-       <$> f (_utoTableDescription x)
+    f (_utoTableDescription x)
+        <&> \y -> x { _utoTableDescription = y }
 {-# INLINE utoTableDescription #-}
 
 instance FromJSON UpdateTableResponse

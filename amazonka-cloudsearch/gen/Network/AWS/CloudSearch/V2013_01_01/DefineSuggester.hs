@@ -51,6 +51,7 @@ defineSuggester p1 p2 = DefineSuggester
     { _dsrDomainName = p1
     , _dsrSuggester = p2
     }
+{-# INLINE defineSuggester #-}
 
 data DefineSuggester = DefineSuggester
     { _dsrDomainName :: Text
@@ -70,30 +71,20 @@ data DefineSuggester = DefineSuggester
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dsrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DefineSuggester
-    -> f DefineSuggester
+dsrDomainName :: Lens' DefineSuggester (Text)
 dsrDomainName f x =
-    (\y -> x { _dsrDomainName = y })
-       <$> f (_dsrDomainName x)
+    f (_dsrDomainName x)
+        <&> \y -> x { _dsrDomainName = y }
 {-# INLINE dsrDomainName #-}
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for suggestions.
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
-dsrSuggester
-    :: Functor f
-    => (Suggester
-    -> f (Suggester))
-    -> DefineSuggester
-    -> f DefineSuggester
+dsrSuggester :: Lens' DefineSuggester (Suggester)
 dsrSuggester f x =
-    (\y -> x { _dsrSuggester = y })
-       <$> f (_dsrSuggester x)
+    f (_dsrSuggester x)
+        <&> \y -> x { _dsrSuggester = y }
 {-# INLINE dsrSuggester #-}
 
 instance ToQuery DefineSuggester where
@@ -105,15 +96,10 @@ data DefineSuggesterResponse = DefineSuggesterResponse
     } deriving (Show, Generic)
 
 -- | The value of a Suggester and its current status.
-dssSuggester
-    :: Functor f
-    => (SuggesterStatus
-    -> f (SuggesterStatus))
-    -> DefineSuggesterResponse
-    -> f DefineSuggesterResponse
+dssSuggester :: Lens' DefineSuggesterResponse (SuggesterStatus)
 dssSuggester f x =
-    (\y -> x { _dssSuggester = y })
-       <$> f (_dssSuggester x)
+    f (_dssSuggester x)
+        <&> \y -> x { _dssSuggester = y }
 {-# INLINE dssSuggester #-}
 
 instance FromXML DefineSuggesterResponse where

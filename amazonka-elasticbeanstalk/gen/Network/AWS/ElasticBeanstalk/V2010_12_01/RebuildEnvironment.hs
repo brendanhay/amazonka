@@ -47,6 +47,7 @@ rebuildEnvironment = RebuildEnvironment
     { _remEnvironmentId = Nothing
     , _remEnvironmentName = Nothing
     }
+{-# INLINE rebuildEnvironment #-}
 
 data RebuildEnvironment = RebuildEnvironment
     { _remEnvironmentId :: Maybe Text
@@ -64,29 +65,19 @@ data RebuildEnvironment = RebuildEnvironment
 -- | The ID of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-remEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RebuildEnvironment
-    -> f RebuildEnvironment
+remEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 remEnvironmentId f x =
-    (\y -> x { _remEnvironmentId = y })
-       <$> f (_remEnvironmentId x)
+    f (_remEnvironmentId x)
+        <&> \y -> x { _remEnvironmentId = y }
 {-# INLINE remEnvironmentId #-}
 
 -- | The name of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-remEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RebuildEnvironment
-    -> f RebuildEnvironment
+remEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
 remEnvironmentName f x =
-    (\y -> x { _remEnvironmentName = y })
-       <$> f (_remEnvironmentName x)
+    f (_remEnvironmentName x)
+        <&> \y -> x { _remEnvironmentName = y }
 {-# INLINE remEnvironmentName #-}
 
 instance ToQuery RebuildEnvironment where

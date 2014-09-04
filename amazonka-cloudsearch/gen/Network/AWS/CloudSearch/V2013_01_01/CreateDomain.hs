@@ -44,6 +44,7 @@ createDomain :: Text -- ^ 'cdrDomainName'
 createDomain p1 = CreateDomain
     { _cdrDomainName = p1
     }
+{-# INLINE createDomain #-}
 
 data CreateDomain = CreateDomain
     { _cdrDomainName :: Text
@@ -56,15 +57,10 @@ data CreateDomain = CreateDomain
 -- | A name for the domain you are creating. Allowed characters are a-z
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with a
 -- letter or number and be at least 3 and no more than 28 characters long.
-cdrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDomain
-    -> f CreateDomain
+cdrDomainName :: Lens' CreateDomain (Text)
 cdrDomainName f x =
-    (\y -> x { _cdrDomainName = y })
-       <$> f (_cdrDomainName x)
+    f (_cdrDomainName x)
+        <&> \y -> x { _cdrDomainName = y }
 {-# INLINE cdrDomainName #-}
 
 instance ToQuery CreateDomain where
@@ -76,15 +72,10 @@ data CreateDomainResponse = CreateDomainResponse
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
-cdsDomainStatus
-    :: Functor f
-    => (Maybe DomainStatus
-    -> f (Maybe DomainStatus))
-    -> CreateDomainResponse
-    -> f CreateDomainResponse
+cdsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdsDomainStatus f x =
-    (\y -> x { _cdsDomainStatus = y })
-       <$> f (_cdsDomainStatus x)
+    f (_cdsDomainStatus x)
+        <&> \y -> x { _cdsDomainStatus = y }
 {-# INLINE cdsDomainStatus #-}
 
 instance FromXML CreateDomainResponse where

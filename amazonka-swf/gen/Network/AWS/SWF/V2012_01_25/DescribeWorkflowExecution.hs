@@ -87,6 +87,7 @@ describeWorkflowExecution p1 p2 = DescribeWorkflowExecution
     { _dweiDomain = p1
     , _dweiExecution = p2
     }
+{-# INLINE describeWorkflowExecution #-}
 
 data DescribeWorkflowExecution = DescribeWorkflowExecution
     { _dweiDomain :: Text
@@ -96,27 +97,17 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution
     } deriving (Show, Generic)
 
 -- | The name of the domain containing the workflow execution.
-dweiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeWorkflowExecution
-    -> f DescribeWorkflowExecution
+dweiDomain :: Lens' DescribeWorkflowExecution (Text)
 dweiDomain f x =
-    (\y -> x { _dweiDomain = y })
-       <$> f (_dweiDomain x)
+    f (_dweiDomain x)
+        <&> \y -> x { _dweiDomain = y }
 {-# INLINE dweiDomain #-}
 
 -- | The workflow execution to describe.
-dweiExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> DescribeWorkflowExecution
-    -> f DescribeWorkflowExecution
+dweiExecution :: Lens' DescribeWorkflowExecution (WorkflowExecution)
 dweiExecution f x =
-    (\y -> x { _dweiExecution = y })
-       <$> f (_dweiExecution x)
+    f (_dweiExecution x)
+        <&> \y -> x { _dweiExecution = y }
 {-# INLINE dweiExecution #-}
 
 instance ToPath DescribeWorkflowExecution
@@ -150,69 +141,44 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
 
 -- | The configuration settings for this workflow execution including timeout
 -- values, tasklist etc.
-weeExecutionConfiguration
-    :: Functor f
-    => (WorkflowExecutionConfiguration
-    -> f (WorkflowExecutionConfiguration))
-    -> DescribeWorkflowExecutionResponse
-    -> f DescribeWorkflowExecutionResponse
+weeExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse (WorkflowExecutionConfiguration)
 weeExecutionConfiguration f x =
-    (\y -> x { _weeExecutionConfiguration = y })
-       <$> f (_weeExecutionConfiguration x)
+    f (_weeExecutionConfiguration x)
+        <&> \y -> x { _weeExecutionConfiguration = y }
 {-# INLINE weeExecutionConfiguration #-}
 
 -- | Information about the workflow execution.
-weeExecutionInfo
-    :: Functor f
-    => (WorkflowExecutionInfo
-    -> f (WorkflowExecutionInfo))
-    -> DescribeWorkflowExecutionResponse
-    -> f DescribeWorkflowExecutionResponse
+weeExecutionInfo :: Lens' DescribeWorkflowExecutionResponse (WorkflowExecutionInfo)
 weeExecutionInfo f x =
-    (\y -> x { _weeExecutionInfo = y })
-       <$> f (_weeExecutionInfo x)
+    f (_weeExecutionInfo x)
+        <&> \y -> x { _weeExecutionInfo = y }
 {-# INLINE weeExecutionInfo #-}
 
 -- | The number of tasks for this workflow execution. This includes open and
 -- closed tasks of all types.
-weeOpenCounts
-    :: Functor f
-    => (WorkflowExecutionOpenCounts
-    -> f (WorkflowExecutionOpenCounts))
-    -> DescribeWorkflowExecutionResponse
-    -> f DescribeWorkflowExecutionResponse
+weeOpenCounts :: Lens' DescribeWorkflowExecutionResponse (WorkflowExecutionOpenCounts)
 weeOpenCounts f x =
-    (\y -> x { _weeOpenCounts = y })
-       <$> f (_weeOpenCounts x)
+    f (_weeOpenCounts x)
+        <&> \y -> x { _weeOpenCounts = y }
 {-# INLINE weeOpenCounts #-}
 
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext, which is a free form
 -- string, when closing a decision task using RespondDecisionTaskCompleted.
-weeLatestExecutionContext
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeWorkflowExecutionResponse
-    -> f DescribeWorkflowExecutionResponse
+weeLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 weeLatestExecutionContext f x =
-    (\y -> x { _weeLatestExecutionContext = y })
-       <$> f (_weeLatestExecutionContext x)
+    f (_weeLatestExecutionContext x)
+        <&> \y -> x { _weeLatestExecutionContext = y }
 {-# INLINE weeLatestExecutionContext #-}
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
 -- not made progress for an unusually long period of time and might require a
 -- corrective action.
-weeLatestActivityTaskTimestamp
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> DescribeWorkflowExecutionResponse
-    -> f DescribeWorkflowExecutionResponse
+weeLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe POSIX)
 weeLatestActivityTaskTimestamp f x =
-    (\y -> x { _weeLatestActivityTaskTimestamp = y })
-       <$> f (_weeLatestActivityTaskTimestamp x)
+    f (_weeLatestActivityTaskTimestamp x)
+        <&> \y -> x { _weeLatestActivityTaskTimestamp = y }
 {-# INLINE weeLatestActivityTaskTimestamp #-}
 
 instance FromJSON DescribeWorkflowExecutionResponse

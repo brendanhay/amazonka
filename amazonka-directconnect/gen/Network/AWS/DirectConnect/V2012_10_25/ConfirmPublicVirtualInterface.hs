@@ -46,6 +46,7 @@ confirmPublicVirtualInterface :: Text -- ^ 'cpvitVirtualInterfaceId'
 confirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
     { _cpvitVirtualInterfaceId = p1
     }
+{-# INLINE confirmPublicVirtualInterface #-}
 
 data ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     { _cpvitVirtualInterfaceId :: Text
@@ -54,15 +55,10 @@ data ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     } deriving (Show, Generic)
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-cpvitVirtualInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmPublicVirtualInterface
-    -> f ConfirmPublicVirtualInterface
+cpvitVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface (Text)
 cpvitVirtualInterfaceId f x =
-    (\y -> x { _cpvitVirtualInterfaceId = y })
-       <$> f (_cpvitVirtualInterfaceId x)
+    f (_cpvitVirtualInterfaceId x)
+        <&> \y -> x { _cpvitVirtualInterfaceId = y }
 {-# INLINE cpvitVirtualInterfaceId #-}
 
 instance ToPath ConfirmPublicVirtualInterface
@@ -112,15 +108,10 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-cpviuVirtualInterfaceState
-    :: Functor f
-    => (Maybe VirtualInterfaceState
-    -> f (Maybe VirtualInterfaceState))
-    -> ConfirmPublicVirtualInterfaceResponse
-    -> f ConfirmPublicVirtualInterfaceResponse
+cpviuVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpviuVirtualInterfaceState f x =
-    (\y -> x { _cpviuVirtualInterfaceState = y })
-       <$> f (_cpviuVirtualInterfaceState x)
+    f (_cpviuVirtualInterfaceState x)
+        <&> \y -> x { _cpviuVirtualInterfaceState = y }
 {-# INLINE cpviuVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPublicVirtualInterfaceResponse

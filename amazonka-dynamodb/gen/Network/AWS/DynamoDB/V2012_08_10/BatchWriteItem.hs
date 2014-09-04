@@ -98,6 +98,7 @@ batchWriteItem p1 = BatchWriteItem
     , _bwiiReturnConsumedCapacity = Nothing
     , _bwiiReturnItemCollectionMetrics = Nothing
     }
+{-# INLINE batchWriteItem #-}
 
 data BatchWriteItem = BatchWriteItem
     { _bwiiRequestItems :: Map Text [WriteRequest]
@@ -146,44 +147,29 @@ data BatchWriteItem = BatchWriteItem
 -- any attributes that are part of an index key, then the data types for those
 -- attributes must match those of the schema in the table's attribute
 -- definition.
-bwiiRequestItems
-    :: Functor f
-    => (Map Text [WriteRequest]
-    -> f (Map Text [WriteRequest]))
-    -> BatchWriteItem
-    -> f BatchWriteItem
+bwiiRequestItems :: Lens' BatchWriteItem (Map Text [WriteRequest])
 bwiiRequestItems f x =
-    (\y -> x { _bwiiRequestItems = y })
-       <$> f (_bwiiRequestItems x)
+    f (_bwiiRequestItems x)
+        <&> \y -> x { _bwiiRequestItems = y }
 {-# INLINE bwiiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-bwiiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> BatchWriteItem
-    -> f BatchWriteItem
+bwiiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
 bwiiReturnConsumedCapacity f x =
-    (\y -> x { _bwiiReturnConsumedCapacity = y })
-       <$> f (_bwiiReturnConsumedCapacity x)
+    f (_bwiiReturnConsumedCapacity x)
+        <&> \y -> x { _bwiiReturnConsumedCapacity = y }
 {-# INLINE bwiiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
-bwiiReturnItemCollectionMetrics
-    :: Functor f
-    => (Maybe ReturnItemCollectionMetrics
-    -> f (Maybe ReturnItemCollectionMetrics))
-    -> BatchWriteItem
-    -> f BatchWriteItem
+bwiiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
 bwiiReturnItemCollectionMetrics f x =
-    (\y -> x { _bwiiReturnItemCollectionMetrics = y })
-       <$> f (_bwiiReturnItemCollectionMetrics x)
+    f (_bwiiReturnItemCollectionMetrics x)
+        <&> \y -> x { _bwiiReturnItemCollectionMetrics = y }
 {-# INLINE bwiiReturnItemCollectionMetrics #-}
 
 instance ToPath BatchWriteItem
@@ -259,29 +245,19 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 -- ValidationException. If you specify any attributes that are part of an
 -- index key, then the data types for those attributes must match those of the
 -- schema in the table's attribute definition.
-bwioUnprocessedItems
-    :: Functor f
-    => (Map Text [WriteRequest]
-    -> f (Map Text [WriteRequest]))
-    -> BatchWriteItemResponse
-    -> f BatchWriteItemResponse
+bwioUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
 bwioUnprocessedItems f x =
-    (\y -> x { _bwioUnprocessedItems = y })
-       <$> f (_bwioUnprocessedItems x)
+    f (_bwioUnprocessedItems x)
+        <&> \y -> x { _bwioUnprocessedItems = y }
 {-# INLINE bwioUnprocessedItems #-}
 
 -- | The capacity units consumed by the operation. Each element consists of:
 -- TableName - The table that consumed the provisioned throughput.
 -- CapacityUnits - The total number of capacity units consumed.
-bwioConsumedCapacity
-    :: Functor f
-    => ([ConsumedCapacity]
-    -> f ([ConsumedCapacity]))
-    -> BatchWriteItemResponse
-    -> f BatchWriteItemResponse
+bwioConsumedCapacity :: Lens' BatchWriteItemResponse ([ConsumedCapacity])
 bwioConsumedCapacity f x =
-    (\y -> x { _bwioConsumedCapacity = y })
-       <$> f (_bwioConsumedCapacity x)
+    f (_bwioConsumedCapacity x)
+        <&> \y -> x { _bwioConsumedCapacity = y }
 {-# INLINE bwioConsumedCapacity #-}
 
 -- | A list of tables that were processed by BatchWriteItem and, for each table,
@@ -296,15 +272,10 @@ bwioConsumedCapacity f x =
 -- table. Use this estimate to measure whether a local secondary index is
 -- approaching its size limit. The estimate is subject to change over time;
 -- therefore, do not rely on the precision or accuracy of the estimate.
-bwioItemCollectionMetrics
-    :: Functor f
-    => (Map Text [ItemCollectionMetrics]
-    -> f (Map Text [ItemCollectionMetrics]))
-    -> BatchWriteItemResponse
-    -> f BatchWriteItemResponse
+bwioItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollectionMetrics])
 bwioItemCollectionMetrics f x =
-    (\y -> x { _bwioItemCollectionMetrics = y })
-       <$> f (_bwioItemCollectionMetrics x)
+    f (_bwioItemCollectionMetrics x)
+        <&> \y -> x { _bwioItemCollectionMetrics = y }
 {-# INLINE bwioItemCollectionMetrics #-}
 
 instance FromJSON BatchWriteItemResponse

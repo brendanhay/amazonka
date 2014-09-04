@@ -44,5 +44,4 @@ library
 
     build-depends:
           amazonka-core
-        , base          >= 4.6   && < 5
-        , lens          == 4.4.*
+        , base          >= 4.6 && < 5

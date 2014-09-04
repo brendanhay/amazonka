@@ -62,6 +62,7 @@ describeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
     , _drcnomOfferingType = Nothing
     , _drcnomMarker = Nothing
     }
+{-# INLINE describeReservedCacheNodesOfferings #-}
 
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
     { _drcnomMaxRecords :: Maybe Integer
@@ -101,98 +102,63 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-drcnomMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Integer)
 drcnomMaxRecords f x =
-    (\y -> x { _drcnomMaxRecords = y })
-       <$> f (_drcnomMaxRecords x)
+    f (_drcnomMaxRecords x)
+        <&> \y -> x { _drcnomMaxRecords = y }
 {-# INLINE drcnomMaxRecords #-}
 
 -- | The offering identifier filter value. Use this parameter to show only the
 -- available offering that matches the specified reservation identifier.
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-drcnomReservedCacheNodesOfferingId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnomReservedCacheNodesOfferingId f x =
-    (\y -> x { _drcnomReservedCacheNodesOfferingId = y })
-       <$> f (_drcnomReservedCacheNodesOfferingId x)
+    f (_drcnomReservedCacheNodesOfferingId x)
+        <&> \y -> x { _drcnomReservedCacheNodesOfferingId = y }
 {-# INLINE drcnomReservedCacheNodesOfferingId #-}
 
 -- | The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
-drcnomCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnomCacheNodeType f x =
-    (\y -> x { _drcnomCacheNodeType = y })
-       <$> f (_drcnomCacheNodeType x)
+    f (_drcnomCacheNodeType x)
+        <&> \y -> x { _drcnomCacheNodeType = y }
 {-# INLINE drcnomCacheNodeType #-}
 
 -- | Duration filter value, specified in years or seconds. Use this parameter to
 -- show only reservations for a given duration. Valid Values: 1 | 3 | 31536000
 -- | 94608000.
-drcnomDuration
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnomDuration f x =
-    (\y -> x { _drcnomDuration = y })
-       <$> f (_drcnomDuration x)
+    f (_drcnomDuration x)
+        <&> \y -> x { _drcnomDuration = y }
 {-# INLINE drcnomDuration #-}
 
 -- | The product description filter value. Use this parameter to show only the
 -- available offerings matching the specified product description.
-drcnomProductDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnomProductDescription f x =
-    (\y -> x { _drcnomProductDescription = y })
-       <$> f (_drcnomProductDescription x)
+    f (_drcnomProductDescription x)
+        <&> \y -> x { _drcnomProductDescription = y }
 {-# INLINE drcnomProductDescription #-}
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
 -- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
-drcnomOfferingType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnomOfferingType f x =
-    (\y -> x { _drcnomOfferingType = y })
-       <$> f (_drcnomOfferingType x)
+    f (_drcnomOfferingType x)
+        <&> \y -> x { _drcnomOfferingType = y }
 {-# INLINE drcnomOfferingType #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-drcnomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferings
-    -> f DescribeReservedCacheNodesOfferings
+drcnomMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnomMarker f x =
-    (\y -> x { _drcnomMarker = y })
-       <$> f (_drcnomMarker x)
+    f (_drcnomMarker x)
+        <&> \y -> x { _drcnomMarker = y }
 {-# INLINE drcnomMarker #-}
 
 instance ToQuery DescribeReservedCacheNodesOfferings where
@@ -208,27 +174,17 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
 
 -- | A list of reserved cache node offerings. Each element in the list contains
 -- detailed information about one offering.
-rcnomReservedCacheNodesOfferings
-    :: Functor f
-    => ([ReservedCacheNodesOffering]
-    -> f ([ReservedCacheNodesOffering]))
-    -> DescribeReservedCacheNodesOfferingsResponse
-    -> f DescribeReservedCacheNodesOfferingsResponse
+rcnomReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse ([ReservedCacheNodesOffering])
 rcnomReservedCacheNodesOfferings f x =
-    (\y -> x { _rcnomReservedCacheNodesOfferings = y })
-       <$> f (_rcnomReservedCacheNodesOfferings x)
+    f (_rcnomReservedCacheNodesOfferings x)
+        <&> \y -> x { _rcnomReservedCacheNodesOfferings = y }
 {-# INLINE rcnomReservedCacheNodesOfferings #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-rcnomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedCacheNodesOfferingsResponse
-    -> f DescribeReservedCacheNodesOfferingsResponse
+rcnomMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
 rcnomMarker f x =
-    (\y -> x { _rcnomMarker = y })
-       <$> f (_rcnomMarker x)
+    f (_rcnomMarker x)
+        <&> \y -> x { _rcnomMarker = y }
 {-# INLINE rcnomMarker #-}
 
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where

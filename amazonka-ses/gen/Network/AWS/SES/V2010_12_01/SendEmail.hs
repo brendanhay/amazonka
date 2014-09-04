@@ -79,6 +79,7 @@ sendEmail p1 p2 p3 = SendEmail
     , _serReturnPath = Nothing
     , _serReplyToAddresses = mempty
     }
+{-# INLINE sendEmail #-}
 
 data SendEmail = SendEmail
     { _serSource :: Text
@@ -111,39 +112,24 @@ data SendEmail = SendEmail
 -- encoded-word syntax (RFC 2047) instead of a literal string. MIME
 -- encoded-word syntax uses the following form:
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
-serSource
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SendEmail
-    -> f SendEmail
+serSource :: Lens' SendEmail (Text)
 serSource f x =
-    (\y -> x { _serSource = y })
-       <$> f (_serSource x)
+    f (_serSource x)
+        <&> \y -> x { _serSource = y }
 {-# INLINE serSource #-}
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
-serDestination
-    :: Functor f
-    => (Destination
-    -> f (Destination))
-    -> SendEmail
-    -> f SendEmail
+serDestination :: Lens' SendEmail (Destination)
 serDestination f x =
-    (\y -> x { _serDestination = y })
-       <$> f (_serDestination x)
+    f (_serDestination x)
+        <&> \y -> x { _serDestination = y }
 {-# INLINE serDestination #-}
 
 -- | The message to be sent.
-serMessage
-    :: Functor f
-    => (Message
-    -> f (Message))
-    -> SendEmail
-    -> f SendEmail
+serMessage :: Lens' SendEmail (Message)
 serMessage f x =
-    (\y -> x { _serMessage = y })
-       <$> f (_serMessage x)
+    f (_serMessage x)
+        <&> \y -> x { _serMessage = y }
 {-# INLINE serMessage #-}
 
 -- | The email address to which bounces and complaints are to be forwarded when
@@ -151,28 +137,18 @@ serMessage f x =
 -- recipient, then an error message will be returned from the recipient's ISP;
 -- this message will then be forwarded to the email address specified by the
 -- ReturnPath parameter.
-serReturnPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SendEmail
-    -> f SendEmail
+serReturnPath :: Lens' SendEmail (Maybe Text)
 serReturnPath f x =
-    (\y -> x { _serReturnPath = y })
-       <$> f (_serReturnPath x)
+    f (_serReturnPath x)
+        <&> \y -> x { _serReturnPath = y }
 {-# INLINE serReturnPath #-}
 
 -- | The reply-to email address(es) for the message. If the recipient replies to
 -- the message, each reply-to address will receive the reply.
-serReplyToAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SendEmail
-    -> f SendEmail
+serReplyToAddresses :: Lens' SendEmail ([Text])
 serReplyToAddresses f x =
-    (\y -> x { _serReplyToAddresses = y })
-       <$> f (_serReplyToAddresses x)
+    f (_serReplyToAddresses x)
+        <&> \y -> x { _serReplyToAddresses = y }
 {-# INLINE serReplyToAddresses #-}
 
 instance ToQuery SendEmail where
@@ -184,15 +160,10 @@ data SendEmailResponse = SendEmailResponse
     } deriving (Show, Generic)
 
 -- | The unique message identifier returned from the SendEmail action.
-sesMessageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SendEmailResponse
-    -> f SendEmailResponse
+sesMessageId :: Lens' SendEmailResponse (Text)
 sesMessageId f x =
-    (\y -> x { _sesMessageId = y })
-       <$> f (_sesMessageId x)
+    f (_sesMessageId x)
+        <&> \y -> x { _sesMessageId = y }
 {-# INLINE sesMessageId #-}
 
 instance FromXML SendEmailResponse where

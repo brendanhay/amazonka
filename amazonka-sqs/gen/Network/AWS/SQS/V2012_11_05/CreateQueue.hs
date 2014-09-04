@@ -69,6 +69,7 @@ createQueue p1 = CreateQueue
     { _cqrQueueName = p1
     , _cqrAttributes = mempty
     }
+{-# INLINE createQueue #-}
 
 data CreateQueue = CreateQueue
     { _cqrQueueName :: Text
@@ -102,15 +103,10 @@ data CreateQueue = CreateQueue
     } deriving (Show, Generic)
 
 -- | The name for the queue to be created.
-cqrQueueName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateQueue
-    -> f CreateQueue
+cqrQueueName :: Lens' CreateQueue (Text)
 cqrQueueName f x =
-    (\y -> x { _cqrQueueName = y })
-       <$> f (_cqrQueueName x)
+    f (_cqrQueueName x)
+        <&> \y -> x { _cqrQueueName = y }
 {-# INLINE cqrQueueName #-}
 
 -- | A map of attributes with their corresponding values. The following lists
@@ -134,15 +130,10 @@ cqrQueueName f x =
 -- for the queue. An integer from 0 to 43200 (12 hours). The default for this
 -- attribute is 30. For more information about visibility timeout, see
 -- Visibility Timeout in the Amazon SQS Developer Guide.
-cqrAttributes
-    :: Functor f
-    => (Map QueueAttributeName Text
-    -> f (Map QueueAttributeName Text))
-    -> CreateQueue
-    -> f CreateQueue
+cqrAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
 cqrAttributes f x =
-    (\y -> x { _cqrAttributes = y })
-       <$> f (_cqrAttributes x)
+    f (_cqrAttributes x)
+        <&> \y -> x { _cqrAttributes = y }
 {-# INLINE cqrAttributes #-}
 
 instance ToQuery CreateQueue where
@@ -154,15 +145,10 @@ data CreateQueueResponse = CreateQueueResponse
     } deriving (Show, Generic)
 
 -- | The URL for the created Amazon SQS queue.
-cqsQueueUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateQueueResponse
-    -> f CreateQueueResponse
+cqsQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
 cqsQueueUrl f x =
-    (\y -> x { _cqsQueueUrl = y })
-       <$> f (_cqsQueueUrl x)
+    f (_cqsQueueUrl x)
+        <&> \y -> x { _cqsQueueUrl = y }
 {-# INLINE cqsQueueUrl #-}
 
 instance FromXML CreateQueueResponse where

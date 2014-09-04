@@ -37,6 +37,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListDomainNames' request.
 listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
+{-# INLINE listDomainNames #-}
 
 data ListDomainNames = ListDomainNames
     deriving (Eq, Show, Generic)
@@ -50,15 +51,10 @@ data ListDomainNamesResponse = ListDomainNamesResponse
     } deriving (Show, Generic)
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> ListDomainNamesResponse
-    -> f ListDomainNamesResponse
+ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
 ldnrDomainNames f x =
-    (\y -> x { _ldnrDomainNames = y })
-       <$> f (_ldnrDomainNames x)
+    f (_ldnrDomainNames x)
+        <&> \y -> x { _ldnrDomainNames = y }
 {-# INLINE ldnrDomainNames #-}
 
 instance FromXML ListDomainNamesResponse where

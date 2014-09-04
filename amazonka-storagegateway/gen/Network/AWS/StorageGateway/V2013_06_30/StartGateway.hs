@@ -64,6 +64,7 @@ startGateway :: Text -- ^ 'sgjGatewayARN'
 startGateway p1 = StartGateway
     { _sgjGatewayARN = p1
     }
+{-# INLINE startGateway #-}
 
 data StartGateway = StartGateway
     { _sgjGatewayARN :: Text
@@ -74,15 +75,10 @@ data StartGateway = StartGateway
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgjGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartGateway
-    -> f StartGateway
+sgjGatewayARN :: Lens' StartGateway (Text)
 sgjGatewayARN f x =
-    (\y -> x { _sgjGatewayARN = y })
-       <$> f (_sgjGatewayARN x)
+    f (_sgjGatewayARN x)
+        <&> \y -> x { _sgjGatewayARN = y }
 {-# INLINE sgjGatewayARN #-}
 
 instance ToPath StartGateway
@@ -102,15 +98,10 @@ data StartGatewayResponse = StartGatewayResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgpGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartGatewayResponse
-    -> f StartGatewayResponse
+sgpGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 sgpGatewayARN f x =
-    (\y -> x { _sgpGatewayARN = y })
-       <$> f (_sgpGatewayARN x)
+    f (_sgpGatewayARN x)
+        <&> \y -> x { _sgpGatewayARN = y }
 {-# INLINE sgpGatewayARN #-}
 
 instance FromJSON StartGatewayResponse

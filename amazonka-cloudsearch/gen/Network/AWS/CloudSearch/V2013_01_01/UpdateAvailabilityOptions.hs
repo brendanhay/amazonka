@@ -51,6 +51,7 @@ updateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
     { _uaorMultiAZ = p1
     , _uaorDomainName = p2
     }
+{-# INLINE updateAvailabilityOptions #-}
 
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaorMultiAZ :: Bool
@@ -70,30 +71,20 @@ data UpdateAvailabilityOptions = UpdateAvailabilityOptions
 -- setting the Multi-AZ option to true. Similarly, you can turn off the
 -- Multi-AZ option to downgrade the domain to a single Availability Zone by
 -- setting the Multi-AZ option to false.
-uaorMultiAZ
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> UpdateAvailabilityOptions
-    -> f UpdateAvailabilityOptions
+uaorMultiAZ :: Lens' UpdateAvailabilityOptions (Bool)
 uaorMultiAZ f x =
-    (\y -> x { _uaorMultiAZ = y })
-       <$> f (_uaorMultiAZ x)
+    f (_uaorMultiAZ x)
+        <&> \y -> x { _uaorMultiAZ = y }
 {-# INLINE uaorMultiAZ #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-uaorDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateAvailabilityOptions
-    -> f UpdateAvailabilityOptions
+uaorDomainName :: Lens' UpdateAvailabilityOptions (Text)
 uaorDomainName f x =
-    (\y -> x { _uaorDomainName = y })
-       <$> f (_uaorDomainName x)
+    f (_uaorDomainName x)
+        <&> \y -> x { _uaorDomainName = y }
 {-# INLINE uaorDomainName #-}
 
 instance ToQuery UpdateAvailabilityOptions where
@@ -107,15 +98,10 @@ data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
-uaosAvailabilityOptions
-    :: Functor f
-    => (Maybe AvailabilityOptionsStatus
-    -> f (Maybe AvailabilityOptionsStatus))
-    -> UpdateAvailabilityOptionsResponse
-    -> f UpdateAvailabilityOptionsResponse
+uaosAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaosAvailabilityOptions f x =
-    (\y -> x { _uaosAvailabilityOptions = y })
-       <$> f (_uaosAvailabilityOptions x)
+    f (_uaosAvailabilityOptions x)
+        <&> \y -> x { _uaosAvailabilityOptions = y }
 {-# INLINE uaosAvailabilityOptions #-}
 
 instance FromXML UpdateAvailabilityOptionsResponse where

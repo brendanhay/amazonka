@@ -49,6 +49,7 @@ getHostnameSuggestion :: Text -- ^ 'ghsrLayerId'
 getHostnameSuggestion p1 = GetHostnameSuggestion
     { _ghsrLayerId = p1
     }
+{-# INLINE getHostnameSuggestion #-}
 
 data GetHostnameSuggestion = GetHostnameSuggestion
     { _ghsrLayerId :: Text
@@ -56,15 +57,10 @@ data GetHostnameSuggestion = GetHostnameSuggestion
     } deriving (Show, Generic)
 
 -- | The layer ID.
-ghsrLayerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetHostnameSuggestion
-    -> f GetHostnameSuggestion
+ghsrLayerId :: Lens' GetHostnameSuggestion (Text)
 ghsrLayerId f x =
-    (\y -> x { _ghsrLayerId = y })
-       <$> f (_ghsrLayerId x)
+    f (_ghsrLayerId x)
+        <&> \y -> x { _ghsrLayerId = y }
 {-# INLINE ghsrLayerId #-}
 
 instance ToPath GetHostnameSuggestion
@@ -83,27 +79,17 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
     } deriving (Show, Generic)
 
 -- | The layer ID.
-ghssLayerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetHostnameSuggestionResponse
-    -> f GetHostnameSuggestionResponse
+ghssLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghssLayerId f x =
-    (\y -> x { _ghssLayerId = y })
-       <$> f (_ghssLayerId x)
+    f (_ghssLayerId x)
+        <&> \y -> x { _ghssLayerId = y }
 {-# INLINE ghssLayerId #-}
 
 -- | The generated host name.
-ghssHostname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetHostnameSuggestionResponse
-    -> f GetHostnameSuggestionResponse
+ghssHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghssHostname f x =
-    (\y -> x { _ghssHostname = y })
-       <$> f (_ghssHostname x)
+    f (_ghssHostname x)
+        <&> \y -> x { _ghssHostname = y }
 {-# INLINE ghssHostname #-}
 
 instance FromJSON GetHostnameSuggestionResponse

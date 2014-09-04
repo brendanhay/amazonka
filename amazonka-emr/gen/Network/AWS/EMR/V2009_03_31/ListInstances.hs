@@ -55,6 +55,7 @@ listInstances p1 = ListInstances
     , _liiInstanceGroupTypes = mempty
     , _liiMarker = Nothing
     }
+{-# INLINE listInstances #-}
 
 data ListInstances = ListInstances
     { _liiClusterId :: Text
@@ -70,51 +71,31 @@ data ListInstances = ListInstances
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster for which to list the instances.
-liiClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListInstances
-    -> f ListInstances
+liiClusterId :: Lens' ListInstances (Text)
 liiClusterId f x =
-    (\y -> x { _liiClusterId = y })
-       <$> f (_liiClusterId x)
+    f (_liiClusterId x)
+        <&> \y -> x { _liiClusterId = y }
 {-# INLINE liiClusterId #-}
 
 -- | The identifier of the instance group for which to list the instances.
-liiInstanceGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstances
-    -> f ListInstances
+liiInstanceGroupId :: Lens' ListInstances (Maybe Text)
 liiInstanceGroupId f x =
-    (\y -> x { _liiInstanceGroupId = y })
-       <$> f (_liiInstanceGroupId x)
+    f (_liiInstanceGroupId x)
+        <&> \y -> x { _liiInstanceGroupId = y }
 {-# INLINE liiInstanceGroupId #-}
 
 -- | The type of instance group for which to list the instances.
-liiInstanceGroupTypes
-    :: Functor f
-    => ([InstanceGroupType]
-    -> f ([InstanceGroupType]))
-    -> ListInstances
-    -> f ListInstances
+liiInstanceGroupTypes :: Lens' ListInstances ([InstanceGroupType])
 liiInstanceGroupTypes f x =
-    (\y -> x { _liiInstanceGroupTypes = y })
-       <$> f (_liiInstanceGroupTypes x)
+    f (_liiInstanceGroupTypes x)
+        <&> \y -> x { _liiInstanceGroupTypes = y }
 {-# INLINE liiInstanceGroupTypes #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-liiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstances
-    -> f ListInstances
+liiMarker :: Lens' ListInstances (Maybe Text)
 liiMarker f x =
-    (\y -> x { _liiMarker = y })
-       <$> f (_liiMarker x)
+    f (_liiMarker x)
+        <&> \y -> x { _liiMarker = y }
 {-# INLINE liiMarker #-}
 
 instance ToPath ListInstances
@@ -134,27 +115,17 @@ data ListInstancesResponse = ListInstancesResponse
     } deriving (Show, Generic)
 
 -- | The list of instances for the cluster and given filters.
-lioInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> ListInstancesResponse
-    -> f ListInstancesResponse
+lioInstances :: Lens' ListInstancesResponse ([Instance])
 lioInstances f x =
-    (\y -> x { _lioInstances = y })
-       <$> f (_lioInstances x)
+    f (_lioInstances x)
+        <&> \y -> x { _lioInstances = y }
 {-# INLINE lioInstances #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lioMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstancesResponse
-    -> f ListInstancesResponse
+lioMarker :: Lens' ListInstancesResponse (Maybe Text)
 lioMarker f x =
-    (\y -> x { _lioMarker = y })
-       <$> f (_lioMarker x)
+    f (_lioMarker x)
+        <&> \y -> x { _lioMarker = y }
 {-# INLINE lioMarker #-}
 
 instance FromJSON ListInstancesResponse

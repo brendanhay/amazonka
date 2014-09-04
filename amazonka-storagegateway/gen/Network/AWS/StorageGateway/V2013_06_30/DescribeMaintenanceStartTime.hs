@@ -63,6 +63,7 @@ describeMaintenanceStartTime :: Text -- ^ 'dmstiGatewayARN'
 describeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
     { _dmstiGatewayARN = p1
     }
+{-# INLINE describeMaintenanceStartTime #-}
 
 data DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
     { _dmstiGatewayARN :: Text
@@ -73,15 +74,10 @@ data DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dmstiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeMaintenanceStartTime
-    -> f DescribeMaintenanceStartTime
+dmstiGatewayARN :: Lens' DescribeMaintenanceStartTime (Text)
 dmstiGatewayARN f x =
-    (\y -> x { _dmstiGatewayARN = y })
-       <$> f (_dmstiGatewayARN x)
+    f (_dmstiGatewayARN x)
+        <&> \y -> x { _dmstiGatewayARN = y }
 {-# INLINE dmstiGatewayARN #-}
 
 instance ToPath DescribeMaintenanceStartTime
@@ -103,61 +99,36 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstoMinuteOfHour :: Maybe Integer
     } deriving (Show, Generic)
 
-dmstoDayOfWeek
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeMaintenanceStartTimeResponse
-    -> f DescribeMaintenanceStartTimeResponse
+dmstoDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
 dmstoDayOfWeek f x =
-    (\y -> x { _dmstoDayOfWeek = y })
-       <$> f (_dmstoDayOfWeek x)
+    f (_dmstoDayOfWeek x)
+        <&> \y -> x { _dmstoDayOfWeek = y }
 {-# INLINE dmstoDayOfWeek #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dmstoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeMaintenanceStartTimeResponse
-    -> f DescribeMaintenanceStartTimeResponse
+dmstoGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstoGatewayARN f x =
-    (\y -> x { _dmstoGatewayARN = y })
-       <$> f (_dmstoGatewayARN x)
+    f (_dmstoGatewayARN x)
+        <&> \y -> x { _dmstoGatewayARN = y }
 {-# INLINE dmstoGatewayARN #-}
 
-dmstoTimezone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeMaintenanceStartTimeResponse
-    -> f DescribeMaintenanceStartTimeResponse
+dmstoTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstoTimezone f x =
-    (\y -> x { _dmstoTimezone = y })
-       <$> f (_dmstoTimezone x)
+    f (_dmstoTimezone x)
+        <&> \y -> x { _dmstoTimezone = y }
 {-# INLINE dmstoTimezone #-}
 
-dmstoHourOfDay
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeMaintenanceStartTimeResponse
-    -> f DescribeMaintenanceStartTimeResponse
+dmstoHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
 dmstoHourOfDay f x =
-    (\y -> x { _dmstoHourOfDay = y })
-       <$> f (_dmstoHourOfDay x)
+    f (_dmstoHourOfDay x)
+        <&> \y -> x { _dmstoHourOfDay = y }
 {-# INLINE dmstoHourOfDay #-}
 
-dmstoMinuteOfHour
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeMaintenanceStartTimeResponse
-    -> f DescribeMaintenanceStartTimeResponse
+dmstoMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
 dmstoMinuteOfHour f x =
-    (\y -> x { _dmstoMinuteOfHour = y })
-       <$> f (_dmstoMinuteOfHour x)
+    f (_dmstoMinuteOfHour x)
+        <&> \y -> x { _dmstoMinuteOfHour = y }
 {-# INLINE dmstoMinuteOfHour #-}
 
 instance FromJSON DescribeMaintenanceStartTimeResponse

@@ -61,6 +61,7 @@ listStacks = ListStacks
     { _lsiNextToken = Nothing
     , _lsiStackStatusFilter = mempty
     }
+{-# INLINE listStacks #-}
 
 data ListStacks = ListStacks
     { _lsiNextToken :: Maybe Text
@@ -75,29 +76,19 @@ data ListStacks = ListStacks
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one. Default: There is no default value.
-lsiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStacks
-    -> f ListStacks
+lsiNextToken :: Lens' ListStacks (Maybe Text)
 lsiNextToken f x =
-    (\y -> x { _lsiNextToken = y })
-       <$> f (_lsiNextToken x)
+    f (_lsiNextToken x)
+        <&> \y -> x { _lsiNextToken = y }
 {-# INLINE lsiNextToken #-}
 
 -- | Stack status to use as a filter. Specify one or more stack status codes to
 -- list only stacks with the specified status codes. For a complete list of
 -- stack status codes, see the StackStatus parameter of the Stack data type.
-lsiStackStatusFilter
-    :: Functor f
-    => ([StackStatus]
-    -> f ([StackStatus]))
-    -> ListStacks
-    -> f ListStacks
+lsiStackStatusFilter :: Lens' ListStacks ([StackStatus])
 lsiStackStatusFilter f x =
-    (\y -> x { _lsiStackStatusFilter = y })
-       <$> f (_lsiStackStatusFilter x)
+    f (_lsiStackStatusFilter x)
+        <&> \y -> x { _lsiStackStatusFilter = y }
 {-# INLINE lsiStackStatusFilter #-}
 
 instance ToQuery ListStacks where
@@ -114,28 +105,18 @@ data ListStacksResponse = ListStacksResponse
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-lsoNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStacksResponse
-    -> f ListStacksResponse
+lsoNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsoNextToken f x =
-    (\y -> x { _lsoNextToken = y })
-       <$> f (_lsoNextToken x)
+    f (_lsoNextToken x)
+        <&> \y -> x { _lsoNextToken = y }
 {-# INLINE lsoNextToken #-}
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.
-lsoStackSummaries
-    :: Functor f
-    => ([StackSummary]
-    -> f ([StackSummary]))
-    -> ListStacksResponse
-    -> f ListStacksResponse
+lsoStackSummaries :: Lens' ListStacksResponse ([StackSummary])
 lsoStackSummaries f x =
-    (\y -> x { _lsoStackSummaries = y })
-       <$> f (_lsoStackSummaries x)
+    f (_lsoStackSummaries x)
+        <&> \y -> x { _lsoStackSummaries = y }
 {-# INLINE lsoStackSummaries #-}
 
 instance FromXML ListStacksResponse where

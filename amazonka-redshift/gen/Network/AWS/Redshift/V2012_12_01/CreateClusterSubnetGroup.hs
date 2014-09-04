@@ -62,6 +62,7 @@ createClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
     , _ccsgnDescription = p2
     , _ccsgnSubnetIds = p3
     }
+{-# INLINE createClusterSubnetGroup #-}
 
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsgnClusterSubnetGroupName :: Text
@@ -81,40 +82,25 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
 -- characters or hyphens. Must not be "Default". Must be unique for all subnet
 -- groups that are created by your AWS account. Example: examplesubnetgroup.
-ccsgnClusterSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterSubnetGroup
-    -> f CreateClusterSubnetGroup
+ccsgnClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup (Text)
 ccsgnClusterSubnetGroupName f x =
-    (\y -> x { _ccsgnClusterSubnetGroupName = y })
-       <$> f (_ccsgnClusterSubnetGroupName x)
+    f (_ccsgnClusterSubnetGroupName x)
+        <&> \y -> x { _ccsgnClusterSubnetGroupName = y }
 {-# INLINE ccsgnClusterSubnetGroupName #-}
 
 -- | A description for the subnet group.
-ccsgnDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterSubnetGroup
-    -> f CreateClusterSubnetGroup
+ccsgnDescription :: Lens' CreateClusterSubnetGroup (Text)
 ccsgnDescription f x =
-    (\y -> x { _ccsgnDescription = y })
-       <$> f (_ccsgnDescription x)
+    f (_ccsgnDescription x)
+        <&> \y -> x { _ccsgnDescription = y }
 {-# INLINE ccsgnDescription #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-ccsgnSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateClusterSubnetGroup
-    -> f CreateClusterSubnetGroup
+ccsgnSubnetIds :: Lens' CreateClusterSubnetGroup ([Text])
 ccsgnSubnetIds f x =
-    (\y -> x { _ccsgnSubnetIds = y })
-       <$> f (_ccsgnSubnetIds x)
+    f (_ccsgnSubnetIds x)
+        <&> \y -> x { _ccsgnSubnetIds = y }
 {-# INLINE ccsgnSubnetIds #-}
 
 instance ToQuery CreateClusterSubnetGroup where
@@ -126,15 +112,10 @@ data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     } deriving (Show, Generic)
 
 -- | Describes a subnet group.
-csgyClusterSubnetGroup
-    :: Functor f
-    => (Maybe ClusterSubnetGroup
-    -> f (Maybe ClusterSubnetGroup))
-    -> CreateClusterSubnetGroupResponse
-    -> f CreateClusterSubnetGroupResponse
+csgyClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 csgyClusterSubnetGroup f x =
-    (\y -> x { _csgyClusterSubnetGroup = y })
-       <$> f (_csgyClusterSubnetGroup x)
+    f (_csgyClusterSubnetGroup x)
+        <&> \y -> x { _csgyClusterSubnetGroup = y }
 {-# INLINE csgyClusterSubnetGroup #-}
 
 instance FromXML CreateClusterSubnetGroupResponse where

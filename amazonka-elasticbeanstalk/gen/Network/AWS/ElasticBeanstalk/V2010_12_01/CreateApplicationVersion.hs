@@ -63,6 +63,7 @@ createApplicationVersion p1 p2 = CreateApplicationVersion
     , _cavmDescription = Nothing
     , _cavmSourceBundle = Nothing
     }
+{-# INLINE createApplicationVersion #-}
 
 data CreateApplicationVersion = CreateApplicationVersion
     { _cavmApplicationName :: Text
@@ -101,30 +102,20 @@ data CreateApplicationVersion = CreateApplicationVersion
 
 -- | The name of the application. If no application is found with this name, and
 -- AutoCreateApplication is false, returns an InvalidParameterValue error.
-cavmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateApplicationVersion
-    -> f CreateApplicationVersion
+cavmApplicationName :: Lens' CreateApplicationVersion (Text)
 cavmApplicationName f x =
-    (\y -> x { _cavmApplicationName = y })
-       <$> f (_cavmApplicationName x)
+    f (_cavmApplicationName x)
+        <&> \y -> x { _cavmApplicationName = y }
 {-# INLINE cavmApplicationName #-}
 
 -- | A label identifying this version. Constraint: Must be unique per
 -- application. If an application version already exists with this label for
 -- the specified application, AWS Elastic Beanstalk returns an
 -- InvalidParameterValue error.
-cavmVersionLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateApplicationVersion
-    -> f CreateApplicationVersion
+cavmVersionLabel :: Lens' CreateApplicationVersion (Text)
 cavmVersionLabel f x =
-    (\y -> x { _cavmVersionLabel = y })
-       <$> f (_cavmVersionLabel x)
+    f (_cavmVersionLabel x)
+        <&> \y -> x { _cavmVersionLabel = y }
 {-# INLINE cavmVersionLabel #-}
 
 -- | Determines how the system behaves if the specified application for this
@@ -135,27 +126,17 @@ cavmVersionLabel f x =
 -- for this release if it does not already exist. false : Throws an
 -- InvalidParameterValue if the specified application for this release does
 -- not already exist. Default: false Valid Values: true | false.
-cavmAutoCreateApplication
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateApplicationVersion
-    -> f CreateApplicationVersion
+cavmAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
 cavmAutoCreateApplication f x =
-    (\y -> x { _cavmAutoCreateApplication = y })
-       <$> f (_cavmAutoCreateApplication x)
+    f (_cavmAutoCreateApplication x)
+        <&> \y -> x { _cavmAutoCreateApplication = y }
 {-# INLINE cavmAutoCreateApplication #-}
 
 -- | Describes this version.
-cavmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateApplicationVersion
-    -> f CreateApplicationVersion
+cavmDescription :: Lens' CreateApplicationVersion (Maybe Text)
 cavmDescription f x =
-    (\y -> x { _cavmDescription = y })
-       <$> f (_cavmDescription x)
+    f (_cavmDescription x)
+        <&> \y -> x { _cavmDescription = y }
 {-# INLINE cavmDescription #-}
 
 -- | The Amazon S3 bucket and key that identify the location of the source
@@ -166,15 +147,10 @@ cavmDescription f x =
 -- partially specified (for example, a bucket is provided but not the key) or
 -- if no data is found at the Amazon S3 location, AWS Elastic Beanstalk
 -- returns an InvalidParameterCombination error.
-cavmSourceBundle
-    :: Functor f
-    => (Maybe S3Location
-    -> f (Maybe S3Location))
-    -> CreateApplicationVersion
-    -> f CreateApplicationVersion
+cavmSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
 cavmSourceBundle f x =
-    (\y -> x { _cavmSourceBundle = y })
-       <$> f (_cavmSourceBundle x)
+    f (_cavmSourceBundle x)
+        <&> \y -> x { _cavmSourceBundle = y }
 {-# INLINE cavmSourceBundle #-}
 
 instance ToQuery CreateApplicationVersion where
@@ -186,15 +162,10 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse
     } deriving (Show, Generic)
 
 -- | The ApplicationVersionDescription of the application version.
-avdmApplicationVersion
-    :: Functor f
-    => (Maybe ApplicationVersionDescription
-    -> f (Maybe ApplicationVersionDescription))
-    -> CreateApplicationVersionResponse
-    -> f CreateApplicationVersionResponse
+avdmApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 avdmApplicationVersion f x =
-    (\y -> x { _avdmApplicationVersion = y })
-       <$> f (_avdmApplicationVersion x)
+    f (_avdmApplicationVersion x)
+        <&> \y -> x { _avdmApplicationVersion = y }
 {-# INLINE avdmApplicationVersion #-}
 
 instance FromXML CreateApplicationVersionResponse where

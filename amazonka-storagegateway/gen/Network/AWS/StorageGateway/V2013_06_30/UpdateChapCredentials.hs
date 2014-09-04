@@ -73,6 +73,7 @@ updateChapCredentials p1 p2 p3 = UpdateChapCredentials
     , _ucciTargetARN = p3
     , _ucciSecretToAuthenticateTarget = Nothing
     }
+{-# INLINE updateChapCredentials #-}
 
 data UpdateChapCredentials = UpdateChapCredentials
     { _ucciSecretToAuthenticateInitiator :: Text
@@ -91,54 +92,34 @@ data UpdateChapCredentials = UpdateChapCredentials
 
 -- | The secret key that the initiator (e.g. Windows client) must provide to
 -- participate in mutual CHAP with the target.
-ucciSecretToAuthenticateInitiator
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateChapCredentials
-    -> f UpdateChapCredentials
+ucciSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials (Text)
 ucciSecretToAuthenticateInitiator f x =
-    (\y -> x { _ucciSecretToAuthenticateInitiator = y })
-       <$> f (_ucciSecretToAuthenticateInitiator x)
+    f (_ucciSecretToAuthenticateInitiator x)
+        <&> \y -> x { _ucciSecretToAuthenticateInitiator = y }
 {-# INLINE ucciSecretToAuthenticateInitiator #-}
 
 -- | The iSCSI initiator that connects to the target.
-ucciInitiatorName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateChapCredentials
-    -> f UpdateChapCredentials
+ucciInitiatorName :: Lens' UpdateChapCredentials (Text)
 ucciInitiatorName f x =
-    (\y -> x { _ucciInitiatorName = y })
-       <$> f (_ucciInitiatorName x)
+    f (_ucciInitiatorName x)
+        <&> \y -> x { _ucciInitiatorName = y }
 {-# INLINE ucciInitiatorName #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-ucciTargetARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateChapCredentials
-    -> f UpdateChapCredentials
+ucciTargetARN :: Lens' UpdateChapCredentials (Text)
 ucciTargetARN f x =
-    (\y -> x { _ucciTargetARN = y })
-       <$> f (_ucciTargetARN x)
+    f (_ucciTargetARN x)
+        <&> \y -> x { _ucciTargetARN = y }
 {-# INLINE ucciTargetARN #-}
 
 -- | The secret key that the target must provide to participate in mutual CHAP
 -- with the initiator (e.g. Windows client).
-ucciSecretToAuthenticateTarget
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateChapCredentials
-    -> f UpdateChapCredentials
+ucciSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
 ucciSecretToAuthenticateTarget f x =
-    (\y -> x { _ucciSecretToAuthenticateTarget = y })
-       <$> f (_ucciSecretToAuthenticateTarget x)
+    f (_ucciSecretToAuthenticateTarget x)
+        <&> \y -> x { _ucciSecretToAuthenticateTarget = y }
 {-# INLINE ucciSecretToAuthenticateTarget #-}
 
 instance ToPath UpdateChapCredentials
@@ -160,28 +141,18 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
 
 -- | The iSCSI initiator that connects to the target. This is the same initiator
 -- name specified in the request.
-uccoInitiatorName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateChapCredentialsResponse
-    -> f UpdateChapCredentialsResponse
+uccoInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccoInitiatorName f x =
-    (\y -> x { _uccoInitiatorName = y })
-       <$> f (_uccoInitiatorName x)
+    f (_uccoInitiatorName x)
+        <&> \y -> x { _uccoInitiatorName = y }
 {-# INLINE uccoInitiatorName #-}
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
-uccoTargetARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateChapCredentialsResponse
-    -> f UpdateChapCredentialsResponse
+uccoTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccoTargetARN f x =
-    (\y -> x { _uccoTargetARN = y })
-       <$> f (_uccoTargetARN x)
+    f (_uccoTargetARN x)
+        <&> \y -> x { _uccoTargetARN = y }
 {-# INLINE uccoTargetARN #-}
 
 instance FromJSON UpdateChapCredentialsResponse

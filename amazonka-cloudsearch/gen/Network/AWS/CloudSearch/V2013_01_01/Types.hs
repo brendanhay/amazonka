@@ -636,15 +636,10 @@ newtype ServiceEndpoint = ServiceEndpoint
 -- or
 -- doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com.
 -- 
-seEndpoint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServiceEndpoint
-    -> f ServiceEndpoint
+seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
 seEndpoint f x =
-    (\y -> x { _seEndpoint = y })
-       <$> f (_seEndpoint x)
+    f (_seEndpoint x)
+        <&> \y -> x { _seEndpoint = y }
 {-# INLINE seEndpoint #-}
 
 instance FromXML ServiceEndpoint where
@@ -669,27 +664,17 @@ data AccessPoliciesStatus = AccessPoliciesStatus
 -- information, see Configuring Access for a Search Domain in the Amazon
 -- CloudSearch Developer Guide. The maximum size of a policy document is 100
 -- KB.
-apsOptions
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AccessPoliciesStatus
-    -> f AccessPoliciesStatus
+apsOptions :: Lens' AccessPoliciesStatus (Text)
 apsOptions f x =
-    (\y -> x { _apsOptions = y })
-       <$> f (_apsOptions x)
+    f (_apsOptions x)
+        <&> \y -> x { _apsOptions = y }
 {-# INLINE apsOptions #-}
 
 -- | The status of domain configuration option.
-apsStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> AccessPoliciesStatus
-    -> f AccessPoliciesStatus
+apsStatus :: Lens' AccessPoliciesStatus (OptionStatus)
 apsStatus f x =
-    (\y -> x { _apsStatus = y })
-       <$> f (_apsStatus x)
+    f (_apsStatus x)
+        <&> \y -> x { _apsStatus = y }
 {-# INLINE apsStatus #-}
 
 instance FromXML AccessPoliciesStatus where
@@ -738,30 +723,20 @@ data AnalysisOptions = AnalysisOptions
 -- specified term, but the term is not considered a synonym of the alias. For
 -- more information about specifying synonyms, see Synonyms in the Amazon
 -- CloudSearch Developer Guide.
-aoSynonyms
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AnalysisOptions
-    -> f AnalysisOptions
+aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
 aoSynonyms f x =
-    (\y -> x { _aoSynonyms = y })
-       <$> f (_aoSynonyms x)
+    f (_aoSynonyms x)
+        <&> \y -> x { _aoSynonyms = y }
 {-# INLINE aoSynonyms #-}
 
 -- | A JSON array of terms to ignore during indexing and searching. For example,
 -- ["a", "an", "the", "of"]. The stopwords dictionary must explicitly list
 -- each word you want to ignore. Wildcards and regular expressions are not
 -- supported.
-aoStopwords
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AnalysisOptions
-    -> f AnalysisOptions
+aoStopwords :: Lens' AnalysisOptions (Maybe Text)
 aoStopwords f x =
-    (\y -> x { _aoStopwords = y })
-       <$> f (_aoStopwords x)
+    f (_aoStopwords x)
+        <&> \y -> x { _aoStopwords = y }
 {-# INLINE aoStopwords #-}
 
 -- | A JSON object that contains a collection of string:value pairs that each
@@ -770,30 +745,20 @@ aoStopwords f x =
 -- algorithmic stemming. This enables you to override the results of the
 -- algorithmic stemming to correct specific cases of overstemming or
 -- understemming. The maximum size of a stemming dictionary is 500 KB.
-aoStemmingDictionary
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AnalysisOptions
-    -> f AnalysisOptions
+aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
 aoStemmingDictionary f x =
-    (\y -> x { _aoStemmingDictionary = y })
-       <$> f (_aoStemmingDictionary x)
+    f (_aoStemmingDictionary x)
+        <&> \y -> x { _aoStemmingDictionary = y }
 {-# INLINE aoStemmingDictionary #-}
 
 -- | The level of algorithmic stemming to perform: none, minimal, light, or
 -- full. The available levels vary depending on the language. For more
 -- information, see Language Specific Text Processing Settings in the Amazon
 -- CloudSearch Developer Guide.
-aoAlgorithmicStemming
-    :: Functor f
-    => (Maybe AlgorithmicStemming
-    -> f (Maybe AlgorithmicStemming))
-    -> AnalysisOptions
-    -> f AnalysisOptions
+aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
 aoAlgorithmicStemming f x =
-    (\y -> x { _aoAlgorithmicStemming = y })
-       <$> f (_aoAlgorithmicStemming x)
+    f (_aoAlgorithmicStemming x)
+        <&> \y -> x { _aoAlgorithmicStemming = y }
 {-# INLINE aoAlgorithmicStemming #-}
 
 instance FromXML AnalysisOptions where
@@ -824,39 +789,24 @@ data AnalysisScheme = AnalysisScheme
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-asAnalysisSchemeName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AnalysisScheme
-    -> f AnalysisScheme
+asAnalysisSchemeName :: Lens' AnalysisScheme (Text)
 asAnalysisSchemeName f x =
-    (\y -> x { _asAnalysisSchemeName = y })
-       <$> f (_asAnalysisSchemeName x)
+    f (_asAnalysisSchemeName x)
+        <&> \y -> x { _asAnalysisSchemeName = y }
 {-# INLINE asAnalysisSchemeName #-}
 
 -- | An IETF RFC 4646 language code or mul for multiple languages.
-asAnalysisSchemeLanguage
-    :: Functor f
-    => (AnalysisSchemeLanguage
-    -> f (AnalysisSchemeLanguage))
-    -> AnalysisScheme
-    -> f AnalysisScheme
+asAnalysisSchemeLanguage :: Lens' AnalysisScheme (AnalysisSchemeLanguage)
 asAnalysisSchemeLanguage f x =
-    (\y -> x { _asAnalysisSchemeLanguage = y })
-       <$> f (_asAnalysisSchemeLanguage x)
+    f (_asAnalysisSchemeLanguage x)
+        <&> \y -> x { _asAnalysisSchemeLanguage = y }
 {-# INLINE asAnalysisSchemeLanguage #-}
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
-asAnalysisOptions
-    :: Functor f
-    => (Maybe AnalysisOptions
-    -> f (Maybe AnalysisOptions))
-    -> AnalysisScheme
-    -> f AnalysisScheme
+asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
 asAnalysisOptions f x =
-    (\y -> x { _asAnalysisOptions = y })
-       <$> f (_asAnalysisOptions x)
+    f (_asAnalysisOptions x)
+        <&> \y -> x { _asAnalysisOptions = y }
 {-# INLINE asAnalysisOptions #-}
 
 instance FromXML AnalysisScheme where
@@ -882,27 +832,17 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus
 -- a unique name and specifies the language of the text to be processed. The
 -- following options can be configured for an analysis scheme: Synonyms,
 -- Stopwords, StemmingDictionary, and AlgorithmicStemming.
-assOptions
-    :: Functor f
-    => (AnalysisScheme
-    -> f (AnalysisScheme))
-    -> AnalysisSchemeStatus
-    -> f AnalysisSchemeStatus
+assOptions :: Lens' AnalysisSchemeStatus (AnalysisScheme)
 assOptions f x =
-    (\y -> x { _assOptions = y })
-       <$> f (_assOptions x)
+    f (_assOptions x)
+        <&> \y -> x { _assOptions = y }
 {-# INLINE assOptions #-}
 
 -- | The status of domain configuration option.
-assStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> AnalysisSchemeStatus
-    -> f AnalysisSchemeStatus
+assStatus :: Lens' AnalysisSchemeStatus (OptionStatus)
 assStatus f x =
-    (\y -> x { _assStatus = y })
-       <$> f (_assStatus x)
+    f (_assStatus x)
+        <&> \y -> x { _assStatus = y }
 {-# INLINE assStatus #-}
 
 instance FromXML AnalysisSchemeStatus where
@@ -919,27 +859,17 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     } deriving (Show, Generic)
 
 -- | The availability options configured for the domain.
-aosOptions
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> AvailabilityOptionsStatus
-    -> f AvailabilityOptionsStatus
+aosOptions :: Lens' AvailabilityOptionsStatus (Bool)
 aosOptions f x =
-    (\y -> x { _aosOptions = y })
-       <$> f (_aosOptions x)
+    f (_aosOptions x)
+        <&> \y -> x { _aosOptions = y }
 {-# INLINE aosOptions #-}
 
 -- | The status of domain configuration option.
-aosStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> AvailabilityOptionsStatus
-    -> f AvailabilityOptionsStatus
+aosStatus :: Lens' AvailabilityOptionsStatus (OptionStatus)
 aosStatus f x =
-    (\y -> x { _aosStatus = y })
-       <$> f (_aosStatus x)
+    f (_aosStatus x)
+        <&> \y -> x { _aosStatus = y }
 {-# INLINE aosStatus #-}
 
 instance FromXML AvailabilityOptionsStatus where
@@ -965,63 +895,38 @@ data DateArrayOptions = DateArrayOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-dapDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DateArrayOptions
-    -> f DateArrayOptions
+dapDefaultValue :: Lens' DateArrayOptions (Maybe Text)
 dapDefaultValue f x =
-    (\y -> x { _dapDefaultValue = y })
-       <$> f (_dapDefaultValue x)
+    f (_dapDefaultValue x)
+        <&> \y -> x { _dapDefaultValue = y }
 {-# INLINE dapDefaultValue #-}
 
 -- | A list of source fields to map to the field.
-dapSourceFields
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DateArrayOptions
-    -> f DateArrayOptions
+dapSourceFields :: Lens' DateArrayOptions (Maybe Text)
 dapSourceFields f x =
-    (\y -> x { _dapSourceFields = y })
-       <$> f (_dapSourceFields x)
+    f (_dapSourceFields x)
+        <&> \y -> x { _dapSourceFields = y }
 {-# INLINE dapSourceFields #-}
 
 -- | Whether facet information can be returned for the field.
-dapFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateArrayOptions
-    -> f DateArrayOptions
+dapFacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
 dapFacetEnabled f x =
-    (\y -> x { _dapFacetEnabled = y })
-       <$> f (_dapFacetEnabled x)
+    f (_dapFacetEnabled x)
+        <&> \y -> x { _dapFacetEnabled = y }
 {-# INLINE dapFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-dapSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateArrayOptions
-    -> f DateArrayOptions
+dapSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
 dapSearchEnabled f x =
-    (\y -> x { _dapSearchEnabled = y })
-       <$> f (_dapSearchEnabled x)
+    f (_dapSearchEnabled x)
+        <&> \y -> x { _dapSearchEnabled = y }
 {-# INLINE dapSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-dapReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateArrayOptions
-    -> f DateArrayOptions
+dapReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
 dapReturnEnabled f x =
-    (\y -> x { _dapReturnEnabled = y })
-       <$> f (_dapReturnEnabled x)
+    f (_dapReturnEnabled x)
+        <&> \y -> x { _dapReturnEnabled = y }
 {-# INLINE dapReturnEnabled #-}
 
 instance FromXML DateArrayOptions where
@@ -1057,78 +962,48 @@ data DateOptions = DateOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-dvDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DateOptions
-    -> f DateOptions
+dvDefaultValue :: Lens' DateOptions (Maybe Text)
 dvDefaultValue f x =
-    (\y -> x { _dvDefaultValue = y })
-       <$> f (_dvDefaultValue x)
+    f (_dvDefaultValue x)
+        <&> \y -> x { _dvDefaultValue = y }
 {-# INLINE dvDefaultValue #-}
 
 -- | A string that represents the name of an index field. Field names begin with
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-dvSourceField
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DateOptions
-    -> f DateOptions
+dvSourceField :: Lens' DateOptions (Maybe Text)
 dvSourceField f x =
-    (\y -> x { _dvSourceField = y })
-       <$> f (_dvSourceField x)
+    f (_dvSourceField x)
+        <&> \y -> x { _dvSourceField = y }
 {-# INLINE dvSourceField #-}
 
 -- | Whether facet information can be returned for the field.
-dvFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateOptions
-    -> f DateOptions
+dvFacetEnabled :: Lens' DateOptions (Maybe Bool)
 dvFacetEnabled f x =
-    (\y -> x { _dvFacetEnabled = y })
-       <$> f (_dvFacetEnabled x)
+    f (_dvFacetEnabled x)
+        <&> \y -> x { _dvFacetEnabled = y }
 {-# INLINE dvFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-dvSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateOptions
-    -> f DateOptions
+dvSearchEnabled :: Lens' DateOptions (Maybe Bool)
 dvSearchEnabled f x =
-    (\y -> x { _dvSearchEnabled = y })
-       <$> f (_dvSearchEnabled x)
+    f (_dvSearchEnabled x)
+        <&> \y -> x { _dvSearchEnabled = y }
 {-# INLINE dvSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-dvReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateOptions
-    -> f DateOptions
+dvReturnEnabled :: Lens' DateOptions (Maybe Bool)
 dvReturnEnabled f x =
-    (\y -> x { _dvReturnEnabled = y })
-       <$> f (_dvReturnEnabled x)
+    f (_dvReturnEnabled x)
+        <&> \y -> x { _dvReturnEnabled = y }
 {-# INLINE dvReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
-dvSortEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DateOptions
-    -> f DateOptions
+dvSortEnabled :: Lens' DateOptions (Maybe Bool)
 dvSortEnabled f x =
-    (\y -> x { _dvSortEnabled = y })
-       <$> f (_dvSortEnabled x)
+    f (_dvSortEnabled x)
+        <&> \y -> x { _dvSortEnabled = y }
 {-# INLINE dvSortEnabled #-}
 
 instance FromXML DateOptions where
@@ -1155,15 +1030,10 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions
     } deriving (Show, Generic)
 
 -- | The name of the index field you want to use for suggestions.
-dsoSourceField
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DocumentSuggesterOptions
-    -> f DocumentSuggesterOptions
+dsoSourceField :: Lens' DocumentSuggesterOptions (Text)
 dsoSourceField f x =
-    (\y -> x { _dsoSourceField = y })
-       <$> f (_dsoSourceField x)
+    f (_dsoSourceField x)
+        <&> \y -> x { _dsoSourceField = y }
 {-# INLINE dsoSourceField #-}
 
 -- | The level of fuzziness allowed when suggesting matches for a string: none,
@@ -1171,28 +1041,18 @@ dsoSourceField f x =
 -- prefix. With low, suggestions must differ from the specified string by no
 -- more than one character. With high, suggestions can differ by up to two
 -- characters. The default is none.
-dsoFuzzyMatching
-    :: Functor f
-    => (Maybe SuggesterFuzzyMatching
-    -> f (Maybe SuggesterFuzzyMatching))
-    -> DocumentSuggesterOptions
-    -> f DocumentSuggesterOptions
+dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
 dsoFuzzyMatching f x =
-    (\y -> x { _dsoFuzzyMatching = y })
-       <$> f (_dsoFuzzyMatching x)
+    f (_dsoFuzzyMatching x)
+        <&> \y -> x { _dsoFuzzyMatching = y }
 {-# INLINE dsoFuzzyMatching #-}
 
 -- | An expression that computes a score for each suggestion to control how they
 -- are sorted.
-dsoSortExpression
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DocumentSuggesterOptions
-    -> f DocumentSuggesterOptions
+dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
 dsoSortExpression f x =
-    (\y -> x { _dsoSortExpression = y })
-       <$> f (_dsoSortExpression x)
+    f (_dsoSortExpression x)
+        <&> \y -> x { _dsoSortExpression = y }
 {-# INLINE dsoSortExpression #-}
 
 instance FromXML DocumentSuggesterOptions where
@@ -1248,161 +1108,101 @@ data DomainStatus = DomainStatus
     } deriving (Show, Generic)
 
 -- | An internally generated unique identifier for a domain.
-dsDomainId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DomainStatus
-    -> f DomainStatus
+dsDomainId :: Lens' DomainStatus (Text)
 dsDomainId f x =
-    (\y -> x { _dsDomainId = y })
-       <$> f (_dsDomainId x)
+    f (_dsDomainId x)
+        <&> \y -> x { _dsDomainId = y }
 {-# INLINE dsDomainId #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dsDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DomainStatus
-    -> f DomainStatus
+dsDomainName :: Lens' DomainStatus (Text)
 dsDomainName f x =
-    (\y -> x { _dsDomainName = y })
-       <$> f (_dsDomainName x)
+    f (_dsDomainName x)
+        <&> \y -> x { _dsDomainName = y }
 {-# INLINE dsDomainName #-}
 
 -- | The Amazon Resource Name (ARN) of the search domain. See Identifiers for
 -- IAM Entities in Using AWS Identity and Access Management for more
 -- information.
-dsARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DomainStatus
-    -> f DomainStatus
+dsARN :: Lens' DomainStatus (Maybe Text)
 dsARN f x =
-    (\y -> x { _dsARN = y })
-       <$> f (_dsARN x)
+    f (_dsARN x)
+        <&> \y -> x { _dsARN = y }
 {-# INLINE dsARN #-}
 
 -- | True if the search domain is created. It can take several minutes to
 -- initialize a domain when CreateDomain is called. Newly created search
 -- domains are returned from DescribeDomains with a false value for Created
 -- until domain creation is complete.
-dsCreated
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DomainStatus
-    -> f DomainStatus
+dsCreated :: Lens' DomainStatus (Maybe Bool)
 dsCreated f x =
-    (\y -> x { _dsCreated = y })
-       <$> f (_dsCreated x)
+    f (_dsCreated x)
+        <&> \y -> x { _dsCreated = y }
 {-# INLINE dsCreated #-}
 
 -- | True if the search domain has been deleted. The system must clean up
 -- resources dedicated to the search domain when DeleteDomain is called. Newly
 -- deleted search domains are returned from DescribeDomains with a true value
 -- for IsDeleted for several minutes until resource cleanup is complete.
-dsDeleted
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DomainStatus
-    -> f DomainStatus
+dsDeleted :: Lens' DomainStatus (Maybe Bool)
 dsDeleted f x =
-    (\y -> x { _dsDeleted = y })
-       <$> f (_dsDeleted x)
+    f (_dsDeleted x)
+        <&> \y -> x { _dsDeleted = y }
 {-# INLINE dsDeleted #-}
 
 -- | The service endpoint for updating documents in a search domain.
-dsDocService
-    :: Functor f
-    => (Maybe ServiceEndpoint
-    -> f (Maybe ServiceEndpoint))
-    -> DomainStatus
-    -> f DomainStatus
+dsDocService :: Lens' DomainStatus (Maybe ServiceEndpoint)
 dsDocService f x =
-    (\y -> x { _dsDocService = y })
-       <$> f (_dsDocService x)
+    f (_dsDocService x)
+        <&> \y -> x { _dsDocService = y }
 {-# INLINE dsDocService #-}
 
 -- | The service endpoint for requesting search results from a search domain.
-dsSearchService
-    :: Functor f
-    => (Maybe ServiceEndpoint
-    -> f (Maybe ServiceEndpoint))
-    -> DomainStatus
-    -> f DomainStatus
+dsSearchService :: Lens' DomainStatus (Maybe ServiceEndpoint)
 dsSearchService f x =
-    (\y -> x { _dsSearchService = y })
-       <$> f (_dsSearchService x)
+    f (_dsSearchService x)
+        <&> \y -> x { _dsSearchService = y }
 {-# INLINE dsSearchService #-}
 
 -- | True if IndexDocuments needs to be called to activate the current domain
 -- configuration.
-dsRequiresIndexDocuments
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DomainStatus
-    -> f DomainStatus
+dsRequiresIndexDocuments :: Lens' DomainStatus (Bool)
 dsRequiresIndexDocuments f x =
-    (\y -> x { _dsRequiresIndexDocuments = y })
-       <$> f (_dsRequiresIndexDocuments x)
+    f (_dsRequiresIndexDocuments x)
+        <&> \y -> x { _dsRequiresIndexDocuments = y }
 {-# INLINE dsRequiresIndexDocuments #-}
 
 -- | True if processing is being done to activate the current domain
 -- configuration.
-dsProcessing
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DomainStatus
-    -> f DomainStatus
+dsProcessing :: Lens' DomainStatus (Maybe Bool)
 dsProcessing f x =
-    (\y -> x { _dsProcessing = y })
-       <$> f (_dsProcessing x)
+    f (_dsProcessing x)
+        <&> \y -> x { _dsProcessing = y }
 {-# INLINE dsProcessing #-}
 
 -- | The instance type that is being used to process search requests.
-dsSearchInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DomainStatus
-    -> f DomainStatus
+dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
 dsSearchInstanceType f x =
-    (\y -> x { _dsSearchInstanceType = y })
-       <$> f (_dsSearchInstanceType x)
+    f (_dsSearchInstanceType x)
+        <&> \y -> x { _dsSearchInstanceType = y }
 {-# INLINE dsSearchInstanceType #-}
 
 -- | The number of partitions across which the search index is spread.
-dsSearchPartitionCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainStatus
-    -> f DomainStatus
+dsSearchPartitionCount :: Lens' DomainStatus (Maybe Integer)
 dsSearchPartitionCount f x =
-    (\y -> x { _dsSearchPartitionCount = y })
-       <$> f (_dsSearchPartitionCount x)
+    f (_dsSearchPartitionCount x)
+        <&> \y -> x { _dsSearchPartitionCount = y }
 {-# INLINE dsSearchPartitionCount #-}
 
 -- | The number of search instances that are available to process search
 -- requests.
-dsSearchInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainStatus
-    -> f DomainStatus
+dsSearchInstanceCount :: Lens' DomainStatus (Maybe Integer)
 dsSearchInstanceCount f x =
-    (\y -> x { _dsSearchInstanceCount = y })
-       <$> f (_dsSearchInstanceCount x)
+    f (_dsSearchInstanceCount x)
+        <&> \y -> x { _dsSearchInstanceCount = y }
 {-# INLINE dsSearchInstanceCount #-}
 
 instance FromXML DomainStatus where
@@ -1428,63 +1228,38 @@ data DoubleArrayOptions = DoubleArrayOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-daoDefaultValue
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DoubleArrayOptions
-    -> f DoubleArrayOptions
+daoDefaultValue :: Lens' DoubleArrayOptions (Maybe Double)
 daoDefaultValue f x =
-    (\y -> x { _daoDefaultValue = y })
-       <$> f (_daoDefaultValue x)
+    f (_daoDefaultValue x)
+        <&> \y -> x { _daoDefaultValue = y }
 {-# INLINE daoDefaultValue #-}
 
 -- | A list of source fields to map to the field.
-daoSourceFields
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DoubleArrayOptions
-    -> f DoubleArrayOptions
+daoSourceFields :: Lens' DoubleArrayOptions (Maybe Text)
 daoSourceFields f x =
-    (\y -> x { _daoSourceFields = y })
-       <$> f (_daoSourceFields x)
+    f (_daoSourceFields x)
+        <&> \y -> x { _daoSourceFields = y }
 {-# INLINE daoSourceFields #-}
 
 -- | Whether facet information can be returned for the field.
-daoFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleArrayOptions
-    -> f DoubleArrayOptions
+daoFacetEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoFacetEnabled f x =
-    (\y -> x { _daoFacetEnabled = y })
-       <$> f (_daoFacetEnabled x)
+    f (_daoFacetEnabled x)
+        <&> \y -> x { _daoFacetEnabled = y }
 {-# INLINE daoFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-daoSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleArrayOptions
-    -> f DoubleArrayOptions
+daoSearchEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoSearchEnabled f x =
-    (\y -> x { _daoSearchEnabled = y })
-       <$> f (_daoSearchEnabled x)
+    f (_daoSearchEnabled x)
+        <&> \y -> x { _daoSearchEnabled = y }
 {-# INLINE daoSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-daoReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleArrayOptions
-    -> f DoubleArrayOptions
+daoReturnEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoReturnEnabled f x =
-    (\y -> x { _daoReturnEnabled = y })
-       <$> f (_daoReturnEnabled x)
+    f (_daoReturnEnabled x)
+        <&> \y -> x { _daoReturnEnabled = y }
 {-# INLINE daoReturnEnabled #-}
 
 instance FromXML DoubleArrayOptions where
@@ -1518,75 +1293,45 @@ data DoubleOptions = DoubleOptions
 -- | A value to use for the field if the field isn't specified for a document.
 -- This can be important if you are using the field in an expression and that
 -- field is not present in every document.
-duDefaultValue
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DoubleOptions
-    -> f DoubleOptions
+duDefaultValue :: Lens' DoubleOptions (Maybe Double)
 duDefaultValue f x =
-    (\y -> x { _duDefaultValue = y })
-       <$> f (_duDefaultValue x)
+    f (_duDefaultValue x)
+        <&> \y -> x { _duDefaultValue = y }
 {-# INLINE duDefaultValue #-}
 
 -- | The name of the source field to map to the field.
-duSourceField
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DoubleOptions
-    -> f DoubleOptions
+duSourceField :: Lens' DoubleOptions (Maybe Text)
 duSourceField f x =
-    (\y -> x { _duSourceField = y })
-       <$> f (_duSourceField x)
+    f (_duSourceField x)
+        <&> \y -> x { _duSourceField = y }
 {-# INLINE duSourceField #-}
 
 -- | Whether facet information can be returned for the field.
-duFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleOptions
-    -> f DoubleOptions
+duFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
 duFacetEnabled f x =
-    (\y -> x { _duFacetEnabled = y })
-       <$> f (_duFacetEnabled x)
+    f (_duFacetEnabled x)
+        <&> \y -> x { _duFacetEnabled = y }
 {-# INLINE duFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-duSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleOptions
-    -> f DoubleOptions
+duSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
 duSearchEnabled f x =
-    (\y -> x { _duSearchEnabled = y })
-       <$> f (_duSearchEnabled x)
+    f (_duSearchEnabled x)
+        <&> \y -> x { _duSearchEnabled = y }
 {-# INLINE duSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-duReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleOptions
-    -> f DoubleOptions
+duReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
 duReturnEnabled f x =
-    (\y -> x { _duReturnEnabled = y })
-       <$> f (_duReturnEnabled x)
+    f (_duReturnEnabled x)
+        <&> \y -> x { _duReturnEnabled = y }
 {-# INLINE duReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
-duSortEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DoubleOptions
-    -> f DoubleOptions
+duSortEnabled :: Lens' DoubleOptions (Maybe Bool)
 duSortEnabled f x =
-    (\y -> x { _duSortEnabled = y })
-       <$> f (_duSortEnabled x)
+    f (_duSortEnabled x)
+        <&> \y -> x { _duSortEnabled = y }
 {-# INLINE duSortEnabled #-}
 
 instance FromXML DoubleOptions where
@@ -1616,30 +1361,20 @@ data Expression = Expression
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-gExpressionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Expression
-    -> f Expression
+gExpressionName :: Lens' Expression (Text)
 gExpressionName f x =
-    (\y -> x { _gExpressionName = y })
-       <$> f (_gExpressionName x)
+    f (_gExpressionName x)
+        <&> \y -> x { _gExpressionName = y }
 {-# INLINE gExpressionName #-}
 
 -- | The expression to evaluate for sorting while processing a search request.
 -- The Expression syntax is based on JavaScript expressions. For more
 -- information, see Configuring Expressions in the Amazon CloudSearch
 -- Developer Guide.
-gExpressionValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Expression
-    -> f Expression
+gExpressionValue :: Lens' Expression (Text)
 gExpressionValue f x =
-    (\y -> x { _gExpressionValue = y })
-       <$> f (_gExpressionValue x)
+    f (_gExpressionValue x)
+        <&> \y -> x { _gExpressionValue = y }
 {-# INLINE gExpressionValue #-}
 
 instance FromXML Expression where
@@ -1660,27 +1395,17 @@ data ExpressionStatus = ExpressionStatus
 
 -- | The expression that is evaluated for sorting or filtering while processing
 -- a search request.
-esOptions
-    :: Functor f
-    => (Expression
-    -> f (Expression))
-    -> ExpressionStatus
-    -> f ExpressionStatus
+esOptions :: Lens' ExpressionStatus (Expression)
 esOptions f x =
-    (\y -> x { _esOptions = y })
-       <$> f (_esOptions x)
+    f (_esOptions x)
+        <&> \y -> x { _esOptions = y }
 {-# INLINE esOptions #-}
 
 -- | The status of domain configuration option.
-esStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> ExpressionStatus
-    -> f ExpressionStatus
+esStatus :: Lens' ExpressionStatus (OptionStatus)
 esStatus f x =
-    (\y -> x { _esStatus = y })
-       <$> f (_esStatus x)
+    f (_esStatus x)
+        <&> \y -> x { _esStatus = y }
 {-# INLINE esStatus #-}
 
 instance FromXML ExpressionStatus where
@@ -1753,182 +1478,117 @@ data IndexField = IndexField
 -- letter and can contain the following characters: a-z (lowercase), 0-9, and
 -- _ (underscore). Uppercase letters and hyphens are not allowed. The name
 -- "score" is reserved and cannot be specified as field or expression name.
-ifIndexFieldName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> IndexField
-    -> f IndexField
+ifIndexFieldName :: Lens' IndexField (Text)
 ifIndexFieldName f x =
-    (\y -> x { _ifIndexFieldName = y })
-       <$> f (_ifIndexFieldName x)
+    f (_ifIndexFieldName x)
+        <&> \y -> x { _ifIndexFieldName = y }
 {-# INLINE ifIndexFieldName #-}
 
 -- | The type of field. The valid options for a field depend on the field type.
 -- For more information about the supported field types, see Configuring Index
 -- Fields in the Amazon CloudSearch Developer Guide.
-ifIndexFieldType
-    :: Functor f
-    => (IndexFieldType
-    -> f (IndexFieldType))
-    -> IndexField
-    -> f IndexField
+ifIndexFieldType :: Lens' IndexField (IndexFieldType)
 ifIndexFieldType f x =
-    (\y -> x { _ifIndexFieldType = y })
-       <$> f (_ifIndexFieldType x)
+    f (_ifIndexFieldType x)
+        <&> \y -> x { _ifIndexFieldType = y }
 {-# INLINE ifIndexFieldType #-}
 
 -- | Options for a 64-bit signed integer field. Present if IndexFieldType
 -- specifies the field is of type int. All options are enabled by default.
-ifIntOptions
-    :: Functor f
-    => (Maybe IntOptions
-    -> f (Maybe IntOptions))
-    -> IndexField
-    -> f IndexField
+ifIntOptions :: Lens' IndexField (Maybe IntOptions)
 ifIntOptions f x =
-    (\y -> x { _ifIntOptions = y })
-       <$> f (_ifIntOptions x)
+    f (_ifIntOptions x)
+        <&> \y -> x { _ifIntOptions = y }
 {-# INLINE ifIntOptions #-}
 
 -- | Options for a double-precision 64-bit floating point field. Present if
 -- IndexFieldType specifies the field is of type double. All options are
 -- enabled by default.
-ifDoubleOptions
-    :: Functor f
-    => (Maybe DoubleOptions
-    -> f (Maybe DoubleOptions))
-    -> IndexField
-    -> f IndexField
+ifDoubleOptions :: Lens' IndexField (Maybe DoubleOptions)
 ifDoubleOptions f x =
-    (\y -> x { _ifDoubleOptions = y })
-       <$> f (_ifDoubleOptions x)
+    f (_ifDoubleOptions x)
+        <&> \y -> x { _ifDoubleOptions = y }
 {-# INLINE ifDoubleOptions #-}
 
 -- | Options for literal field. Present if IndexFieldType specifies the field is
 -- of type literal. All options are enabled by default.
-ifLiteralOptions
-    :: Functor f
-    => (Maybe LiteralOptions
-    -> f (Maybe LiteralOptions))
-    -> IndexField
-    -> f IndexField
+ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
 ifLiteralOptions f x =
-    (\y -> x { _ifLiteralOptions = y })
-       <$> f (_ifLiteralOptions x)
+    f (_ifLiteralOptions x)
+        <&> \y -> x { _ifLiteralOptions = y }
 {-# INLINE ifLiteralOptions #-}
 
 -- | Options for text field. Present if IndexFieldType specifies the field is of
 -- type text. A text field is always searchable. All options are enabled by
 -- default.
-ifTextOptions
-    :: Functor f
-    => (Maybe TextOptions
-    -> f (Maybe TextOptions))
-    -> IndexField
-    -> f IndexField
+ifTextOptions :: Lens' IndexField (Maybe TextOptions)
 ifTextOptions f x =
-    (\y -> x { _ifTextOptions = y })
-       <$> f (_ifTextOptions x)
+    f (_ifTextOptions x)
+        <&> \y -> x { _ifTextOptions = y }
 {-# INLINE ifTextOptions #-}
 
 -- | Options for a date field. Dates and times are specified in UTC (Coordinated
 -- Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if
 -- IndexFieldType specifies the field is of type date. All options are enabled
 -- by default.
-ifDateOptions
-    :: Functor f
-    => (Maybe DateOptions
-    -> f (Maybe DateOptions))
-    -> IndexField
-    -> f IndexField
+ifDateOptions :: Lens' IndexField (Maybe DateOptions)
 ifDateOptions f x =
-    (\y -> x { _ifDateOptions = y })
-       <$> f (_ifDateOptions x)
+    f (_ifDateOptions x)
+        <&> \y -> x { _ifDateOptions = y }
 {-# INLINE ifDateOptions #-}
 
 -- | Options for a latlon field. A latlon field contains a location stored as a
 -- latitude and longitude value pair. Present if IndexFieldType specifies the
 -- field is of type latlon. All options are enabled by default.
-ifLatLonOptions
-    :: Functor f
-    => (Maybe LatLonOptions
-    -> f (Maybe LatLonOptions))
-    -> IndexField
-    -> f IndexField
+ifLatLonOptions :: Lens' IndexField (Maybe LatLonOptions)
 ifLatLonOptions f x =
-    (\y -> x { _ifLatLonOptions = y })
-       <$> f (_ifLatLonOptions x)
+    f (_ifLatLonOptions x)
+        <&> \y -> x { _ifLatLonOptions = y }
 {-# INLINE ifLatLonOptions #-}
 
 -- | Options for a field that contains an array of 64-bit signed integers.
 -- Present if IndexFieldType specifies the field is of type int-array. All
 -- options are enabled by default.
-ifIntArrayOptions
-    :: Functor f
-    => (Maybe IntArrayOptions
-    -> f (Maybe IntArrayOptions))
-    -> IndexField
-    -> f IndexField
+ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
 ifIntArrayOptions f x =
-    (\y -> x { _ifIntArrayOptions = y })
-       <$> f (_ifIntArrayOptions x)
+    f (_ifIntArrayOptions x)
+        <&> \y -> x { _ifIntArrayOptions = y }
 {-# INLINE ifIntArrayOptions #-}
 
 -- | Options for a field that contains an array of double-precision 64-bit
 -- floating point values. Present if IndexFieldType specifies the field is of
 -- type double-array. All options are enabled by default.
-ifDoubleArrayOptions
-    :: Functor f
-    => (Maybe DoubleArrayOptions
-    -> f (Maybe DoubleArrayOptions))
-    -> IndexField
-    -> f IndexField
+ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
 ifDoubleArrayOptions f x =
-    (\y -> x { _ifDoubleArrayOptions = y })
-       <$> f (_ifDoubleArrayOptions x)
+    f (_ifDoubleArrayOptions x)
+        <&> \y -> x { _ifDoubleArrayOptions = y }
 {-# INLINE ifDoubleArrayOptions #-}
 
 -- | Options for a field that contains an array of literal strings. Present if
 -- IndexFieldType specifies the field is of type literal-array. All options
 -- are enabled by default.
-ifLiteralArrayOptions
-    :: Functor f
-    => (Maybe LiteralArrayOptions
-    -> f (Maybe LiteralArrayOptions))
-    -> IndexField
-    -> f IndexField
+ifLiteralArrayOptions :: Lens' IndexField (Maybe LiteralArrayOptions)
 ifLiteralArrayOptions f x =
-    (\y -> x { _ifLiteralArrayOptions = y })
-       <$> f (_ifLiteralArrayOptions x)
+    f (_ifLiteralArrayOptions x)
+        <&> \y -> x { _ifLiteralArrayOptions = y }
 {-# INLINE ifLiteralArrayOptions #-}
 
 -- | Options for a field that contains an array of text strings. Present if
 -- IndexFieldType specifies the field is of type text-array. A text-array
 -- field is always searchable. All options are enabled by default.
-ifTextArrayOptions
-    :: Functor f
-    => (Maybe TextArrayOptions
-    -> f (Maybe TextArrayOptions))
-    -> IndexField
-    -> f IndexField
+ifTextArrayOptions :: Lens' IndexField (Maybe TextArrayOptions)
 ifTextArrayOptions f x =
-    (\y -> x { _ifTextArrayOptions = y })
-       <$> f (_ifTextArrayOptions x)
+    f (_ifTextArrayOptions x)
+        <&> \y -> x { _ifTextArrayOptions = y }
 {-# INLINE ifTextArrayOptions #-}
 
 -- | Options for a field that contains an array of dates. Present if
 -- IndexFieldType specifies the field is of type date-array. All options are
 -- enabled by default.
-ifDateArrayOptions
-    :: Functor f
-    => (Maybe DateArrayOptions
-    -> f (Maybe DateArrayOptions))
-    -> IndexField
-    -> f IndexField
+ifDateArrayOptions :: Lens' IndexField (Maybe DateArrayOptions)
 ifDateArrayOptions f x =
-    (\y -> x { _ifDateArrayOptions = y })
-       <$> f (_ifDateArrayOptions x)
+    f (_ifDateArrayOptions x)
+        <&> \y -> x { _ifDateArrayOptions = y }
 {-# INLINE ifDateArrayOptions #-}
 
 instance FromXML IndexField where
@@ -1950,27 +1610,17 @@ data IndexFieldStatus = IndexFieldStatus
 
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the IndexFieldType.
-ifsOptions
-    :: Functor f
-    => (IndexField
-    -> f (IndexField))
-    -> IndexFieldStatus
-    -> f IndexFieldStatus
+ifsOptions :: Lens' IndexFieldStatus (IndexField)
 ifsOptions f x =
-    (\y -> x { _ifsOptions = y })
-       <$> f (_ifsOptions x)
+    f (_ifsOptions x)
+        <&> \y -> x { _ifsOptions = y }
 {-# INLINE ifsOptions #-}
 
 -- | The status of domain configuration option.
-ifsStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> IndexFieldStatus
-    -> f IndexFieldStatus
+ifsStatus :: Lens' IndexFieldStatus (OptionStatus)
 ifsStatus f x =
-    (\y -> x { _ifsStatus = y })
-       <$> f (_ifsStatus x)
+    f (_ifsStatus x)
+        <&> \y -> x { _ifsStatus = y }
 {-# INLINE ifsStatus #-}
 
 instance FromXML IndexFieldStatus where
@@ -1996,63 +1646,38 @@ data IntArrayOptions = IntArrayOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-iaoDefaultValue
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> IntArrayOptions
-    -> f IntArrayOptions
+iaoDefaultValue :: Lens' IntArrayOptions (Maybe Integer)
 iaoDefaultValue f x =
-    (\y -> x { _iaoDefaultValue = y })
-       <$> f (_iaoDefaultValue x)
+    f (_iaoDefaultValue x)
+        <&> \y -> x { _iaoDefaultValue = y }
 {-# INLINE iaoDefaultValue #-}
 
 -- | A list of source fields to map to the field.
-iaoSourceFields
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> IntArrayOptions
-    -> f IntArrayOptions
+iaoSourceFields :: Lens' IntArrayOptions (Maybe Text)
 iaoSourceFields f x =
-    (\y -> x { _iaoSourceFields = y })
-       <$> f (_iaoSourceFields x)
+    f (_iaoSourceFields x)
+        <&> \y -> x { _iaoSourceFields = y }
 {-# INLINE iaoSourceFields #-}
 
 -- | Whether facet information can be returned for the field.
-iaoFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntArrayOptions
-    -> f IntArrayOptions
+iaoFacetEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoFacetEnabled f x =
-    (\y -> x { _iaoFacetEnabled = y })
-       <$> f (_iaoFacetEnabled x)
+    f (_iaoFacetEnabled x)
+        <&> \y -> x { _iaoFacetEnabled = y }
 {-# INLINE iaoFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-iaoSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntArrayOptions
-    -> f IntArrayOptions
+iaoSearchEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoSearchEnabled f x =
-    (\y -> x { _iaoSearchEnabled = y })
-       <$> f (_iaoSearchEnabled x)
+    f (_iaoSearchEnabled x)
+        <&> \y -> x { _iaoSearchEnabled = y }
 {-# INLINE iaoSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-iaoReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntArrayOptions
-    -> f IntArrayOptions
+iaoReturnEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoReturnEnabled f x =
-    (\y -> x { _iaoReturnEnabled = y })
-       <$> f (_iaoReturnEnabled x)
+    f (_iaoReturnEnabled x)
+        <&> \y -> x { _iaoReturnEnabled = y }
 {-# INLINE iaoReturnEnabled #-}
 
 instance FromXML IntArrayOptions where
@@ -2085,75 +1710,45 @@ data IntOptions = IntOptions
 -- | A value to use for the field if the field isn't specified for a document.
 -- This can be important if you are using the field in an expression and that
 -- field is not present in every document.
-ioDefaultValue
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> IntOptions
-    -> f IntOptions
+ioDefaultValue :: Lens' IntOptions (Maybe Integer)
 ioDefaultValue f x =
-    (\y -> x { _ioDefaultValue = y })
-       <$> f (_ioDefaultValue x)
+    f (_ioDefaultValue x)
+        <&> \y -> x { _ioDefaultValue = y }
 {-# INLINE ioDefaultValue #-}
 
 -- | The name of the source field to map to the field.
-ioSourceField
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> IntOptions
-    -> f IntOptions
+ioSourceField :: Lens' IntOptions (Maybe Text)
 ioSourceField f x =
-    (\y -> x { _ioSourceField = y })
-       <$> f (_ioSourceField x)
+    f (_ioSourceField x)
+        <&> \y -> x { _ioSourceField = y }
 {-# INLINE ioSourceField #-}
 
 -- | Whether facet information can be returned for the field.
-ioFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntOptions
-    -> f IntOptions
+ioFacetEnabled :: Lens' IntOptions (Maybe Bool)
 ioFacetEnabled f x =
-    (\y -> x { _ioFacetEnabled = y })
-       <$> f (_ioFacetEnabled x)
+    f (_ioFacetEnabled x)
+        <&> \y -> x { _ioFacetEnabled = y }
 {-# INLINE ioFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-ioSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntOptions
-    -> f IntOptions
+ioSearchEnabled :: Lens' IntOptions (Maybe Bool)
 ioSearchEnabled f x =
-    (\y -> x { _ioSearchEnabled = y })
-       <$> f (_ioSearchEnabled x)
+    f (_ioSearchEnabled x)
+        <&> \y -> x { _ioSearchEnabled = y }
 {-# INLINE ioSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-ioReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntOptions
-    -> f IntOptions
+ioReturnEnabled :: Lens' IntOptions (Maybe Bool)
 ioReturnEnabled f x =
-    (\y -> x { _ioReturnEnabled = y })
-       <$> f (_ioReturnEnabled x)
+    f (_ioReturnEnabled x)
+        <&> \y -> x { _ioReturnEnabled = y }
 {-# INLINE ioReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
-ioSortEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> IntOptions
-    -> f IntOptions
+ioSortEnabled :: Lens' IntOptions (Maybe Bool)
 ioSortEnabled f x =
-    (\y -> x { _ioSortEnabled = y })
-       <$> f (_ioSortEnabled x)
+    f (_ioSortEnabled x)
+        <&> \y -> x { _ioSortEnabled = y }
 {-# INLINE ioSortEnabled #-}
 
 instance FromXML IntOptions where
@@ -2188,78 +1783,48 @@ data LatLonOptions = LatLonOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-lloDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LatLonOptions
-    -> f LatLonOptions
+lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
 lloDefaultValue f x =
-    (\y -> x { _lloDefaultValue = y })
-       <$> f (_lloDefaultValue x)
+    f (_lloDefaultValue x)
+        <&> \y -> x { _lloDefaultValue = y }
 {-# INLINE lloDefaultValue #-}
 
 -- | A string that represents the name of an index field. Field names begin with
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-lloSourceField
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LatLonOptions
-    -> f LatLonOptions
+lloSourceField :: Lens' LatLonOptions (Maybe Text)
 lloSourceField f x =
-    (\y -> x { _lloSourceField = y })
-       <$> f (_lloSourceField x)
+    f (_lloSourceField x)
+        <&> \y -> x { _lloSourceField = y }
 {-# INLINE lloSourceField #-}
 
 -- | Whether facet information can be returned for the field.
-lloFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LatLonOptions
-    -> f LatLonOptions
+lloFacetEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloFacetEnabled f x =
-    (\y -> x { _lloFacetEnabled = y })
-       <$> f (_lloFacetEnabled x)
+    f (_lloFacetEnabled x)
+        <&> \y -> x { _lloFacetEnabled = y }
 {-# INLINE lloFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-lloSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LatLonOptions
-    -> f LatLonOptions
+lloSearchEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloSearchEnabled f x =
-    (\y -> x { _lloSearchEnabled = y })
-       <$> f (_lloSearchEnabled x)
+    f (_lloSearchEnabled x)
+        <&> \y -> x { _lloSearchEnabled = y }
 {-# INLINE lloSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-lloReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LatLonOptions
-    -> f LatLonOptions
+lloReturnEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloReturnEnabled f x =
-    (\y -> x { _lloReturnEnabled = y })
-       <$> f (_lloReturnEnabled x)
+    f (_lloReturnEnabled x)
+        <&> \y -> x { _lloReturnEnabled = y }
 {-# INLINE lloReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
-lloSortEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LatLonOptions
-    -> f LatLonOptions
+lloSortEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloSortEnabled f x =
-    (\y -> x { _lloSortEnabled = y })
-       <$> f (_lloSortEnabled x)
+    f (_lloSortEnabled x)
+        <&> \y -> x { _lloSortEnabled = y }
 {-# INLINE lloSortEnabled #-}
 
 instance FromXML LatLonOptions where
@@ -2288,63 +1853,38 @@ data LiteralArrayOptions = LiteralArrayOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-laoDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LiteralArrayOptions
-    -> f LiteralArrayOptions
+laoDefaultValue :: Lens' LiteralArrayOptions (Maybe Text)
 laoDefaultValue f x =
-    (\y -> x { _laoDefaultValue = y })
-       <$> f (_laoDefaultValue x)
+    f (_laoDefaultValue x)
+        <&> \y -> x { _laoDefaultValue = y }
 {-# INLINE laoDefaultValue #-}
 
 -- | A list of source fields to map to the field.
-laoSourceFields
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LiteralArrayOptions
-    -> f LiteralArrayOptions
+laoSourceFields :: Lens' LiteralArrayOptions (Maybe Text)
 laoSourceFields f x =
-    (\y -> x { _laoSourceFields = y })
-       <$> f (_laoSourceFields x)
+    f (_laoSourceFields x)
+        <&> \y -> x { _laoSourceFields = y }
 {-# INLINE laoSourceFields #-}
 
 -- | Whether facet information can be returned for the field.
-laoFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralArrayOptions
-    -> f LiteralArrayOptions
+laoFacetEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoFacetEnabled f x =
-    (\y -> x { _laoFacetEnabled = y })
-       <$> f (_laoFacetEnabled x)
+    f (_laoFacetEnabled x)
+        <&> \y -> x { _laoFacetEnabled = y }
 {-# INLINE laoFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-laoSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralArrayOptions
-    -> f LiteralArrayOptions
+laoSearchEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoSearchEnabled f x =
-    (\y -> x { _laoSearchEnabled = y })
-       <$> f (_laoSearchEnabled x)
+    f (_laoSearchEnabled x)
+        <&> \y -> x { _laoSearchEnabled = y }
 {-# INLINE laoSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-laoReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralArrayOptions
-    -> f LiteralArrayOptions
+laoReturnEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoReturnEnabled f x =
-    (\y -> x { _laoReturnEnabled = y })
-       <$> f (_laoReturnEnabled x)
+    f (_laoReturnEnabled x)
+        <&> \y -> x { _laoReturnEnabled = y }
 {-# INLINE laoReturnEnabled #-}
 
 instance FromXML LiteralArrayOptions where
@@ -2378,78 +1918,48 @@ data LiteralOptions = LiteralOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-loDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LiteralOptions
-    -> f LiteralOptions
+loDefaultValue :: Lens' LiteralOptions (Maybe Text)
 loDefaultValue f x =
-    (\y -> x { _loDefaultValue = y })
-       <$> f (_loDefaultValue x)
+    f (_loDefaultValue x)
+        <&> \y -> x { _loDefaultValue = y }
 {-# INLINE loDefaultValue #-}
 
 -- | A string that represents the name of an index field. Field names begin with
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-loSourceField
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LiteralOptions
-    -> f LiteralOptions
+loSourceField :: Lens' LiteralOptions (Maybe Text)
 loSourceField f x =
-    (\y -> x { _loSourceField = y })
-       <$> f (_loSourceField x)
+    f (_loSourceField x)
+        <&> \y -> x { _loSourceField = y }
 {-# INLINE loSourceField #-}
 
 -- | Whether facet information can be returned for the field.
-loFacetEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralOptions
-    -> f LiteralOptions
+loFacetEnabled :: Lens' LiteralOptions (Maybe Bool)
 loFacetEnabled f x =
-    (\y -> x { _loFacetEnabled = y })
-       <$> f (_loFacetEnabled x)
+    f (_loFacetEnabled x)
+        <&> \y -> x { _loFacetEnabled = y }
 {-# INLINE loFacetEnabled #-}
 
 -- | Whether the contents of the field are searchable.
-loSearchEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralOptions
-    -> f LiteralOptions
+loSearchEnabled :: Lens' LiteralOptions (Maybe Bool)
 loSearchEnabled f x =
-    (\y -> x { _loSearchEnabled = y })
-       <$> f (_loSearchEnabled x)
+    f (_loSearchEnabled x)
+        <&> \y -> x { _loSearchEnabled = y }
 {-# INLINE loSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-loReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralOptions
-    -> f LiteralOptions
+loReturnEnabled :: Lens' LiteralOptions (Maybe Bool)
 loReturnEnabled f x =
-    (\y -> x { _loReturnEnabled = y })
-       <$> f (_loReturnEnabled x)
+    f (_loReturnEnabled x)
+        <&> \y -> x { _loReturnEnabled = y }
 {-# INLINE loReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
-loSortEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LiteralOptions
-    -> f LiteralOptions
+loSortEnabled :: Lens' LiteralOptions (Maybe Bool)
 loSortEnabled f x =
-    (\y -> x { _loSortEnabled = y })
-       <$> f (_loSortEnabled x)
+    f (_loSortEnabled x)
+        <&> \y -> x { _loSortEnabled = y }
 {-# INLINE loSortEnabled #-}
 
 instance FromXML LiteralOptions where
@@ -2484,39 +1994,24 @@ data OptionStatus = OptionStatus
     } deriving (Show, Generic)
 
 -- | A timestamp for when this option was created.
-osCreationDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> OptionStatus
-    -> f OptionStatus
+osCreationDate :: Lens' OptionStatus (ISO8601)
 osCreationDate f x =
-    (\y -> x { _osCreationDate = y })
-       <$> f (_osCreationDate x)
+    f (_osCreationDate x)
+        <&> \y -> x { _osCreationDate = y }
 {-# INLINE osCreationDate #-}
 
 -- | A timestamp for when this option was last updated.
-osUpdateDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> OptionStatus
-    -> f OptionStatus
+osUpdateDate :: Lens' OptionStatus (ISO8601)
 osUpdateDate f x =
-    (\y -> x { _osUpdateDate = y })
-       <$> f (_osUpdateDate x)
+    f (_osUpdateDate x)
+        <&> \y -> x { _osUpdateDate = y }
 {-# INLINE osUpdateDate #-}
 
 -- | A unique integer that indicates when this option was last updated.
-osUpdateVersion
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> OptionStatus
-    -> f OptionStatus
+osUpdateVersion :: Lens' OptionStatus (Maybe Integer)
 osUpdateVersion f x =
-    (\y -> x { _osUpdateVersion = y })
-       <$> f (_osUpdateVersion x)
+    f (_osUpdateVersion x)
+        <&> \y -> x { _osUpdateVersion = y }
 {-# INLINE osUpdateVersion #-}
 
 -- | The state of processing a change to an option. Possible values:
@@ -2527,27 +2022,17 @@ osUpdateVersion f x =
 -- value is not compatible with the domain's data and cannot be used to index
 -- the data. You must either modify the option value or update or remove the
 -- incompatible documents.
-osState
-    :: Functor f
-    => (OptionState
-    -> f (OptionState))
-    -> OptionStatus
-    -> f OptionStatus
+osState :: Lens' OptionStatus (OptionState)
 osState f x =
-    (\y -> x { _osState = y })
-       <$> f (_osState x)
+    f (_osState x)
+        <&> \y -> x { _osState = y }
 {-# INLINE osState #-}
 
 -- | Indicates that the option will be deleted once processing is complete.
-osPendingDeletion
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> OptionStatus
-    -> f OptionStatus
+osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
 osPendingDeletion f x =
-    (\y -> x { _osPendingDeletion = y })
-       <$> f (_osPendingDeletion x)
+    f (_osPendingDeletion x)
+        <&> \y -> x { _osPendingDeletion = y }
 {-# INLINE osPendingDeletion #-}
 
 instance FromXML OptionStatus where
@@ -2574,40 +2059,25 @@ data ScalingParameters = ScalingParameters
 
 -- | The instance type that you want to preconfigure for your domain. For
 -- example, search.m1.small.
-sssDesiredInstanceType
-    :: Functor f
-    => (Maybe PartitionInstanceType
-    -> f (Maybe PartitionInstanceType))
-    -> ScalingParameters
-    -> f ScalingParameters
+sssDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
 sssDesiredInstanceType f x =
-    (\y -> x { _sssDesiredInstanceType = y })
-       <$> f (_sssDesiredInstanceType x)
+    f (_sssDesiredInstanceType x)
+        <&> \y -> x { _sssDesiredInstanceType = y }
 {-# INLINE sssDesiredInstanceType #-}
 
 -- | The number of replicas you want to preconfigure for each index partition.
-sssDesiredReplicationCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScalingParameters
-    -> f ScalingParameters
+sssDesiredReplicationCount :: Lens' ScalingParameters (Maybe Integer)
 sssDesiredReplicationCount f x =
-    (\y -> x { _sssDesiredReplicationCount = y })
-       <$> f (_sssDesiredReplicationCount x)
+    f (_sssDesiredReplicationCount x)
+        <&> \y -> x { _sssDesiredReplicationCount = y }
 {-# INLINE sssDesiredReplicationCount #-}
 
 -- | The number of partitions you want to preconfigure for your domain. Only
 -- valid when you select m2.2xlarge as the desired instance type.
-sssDesiredPartitionCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScalingParameters
-    -> f ScalingParameters
+sssDesiredPartitionCount :: Lens' ScalingParameters (Maybe Integer)
 sssDesiredPartitionCount f x =
-    (\y -> x { _sssDesiredPartitionCount = y })
-       <$> f (_sssDesiredPartitionCount x)
+    f (_sssDesiredPartitionCount x)
+        <&> \y -> x { _sssDesiredPartitionCount = y }
 {-# INLINE sssDesiredPartitionCount #-}
 
 instance FromXML ScalingParameters where
@@ -2628,27 +2098,17 @@ data ScalingParametersStatus = ScalingParametersStatus
 
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
-spsOptions
-    :: Functor f
-    => (ScalingParameters
-    -> f (ScalingParameters))
-    -> ScalingParametersStatus
-    -> f ScalingParametersStatus
+spsOptions :: Lens' ScalingParametersStatus (ScalingParameters)
 spsOptions f x =
-    (\y -> x { _spsOptions = y })
-       <$> f (_spsOptions x)
+    f (_spsOptions x)
+        <&> \y -> x { _spsOptions = y }
 {-# INLINE spsOptions #-}
 
 -- | The status of domain configuration option.
-spsStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> ScalingParametersStatus
-    -> f ScalingParametersStatus
+spsStatus :: Lens' ScalingParametersStatus (OptionStatus)
 spsStatus f x =
-    (\y -> x { _spsStatus = y })
-       <$> f (_spsStatus x)
+    f (_spsStatus x)
+        <&> \y -> x { _spsStatus = y }
 {-# INLINE spsStatus #-}
 
 instance FromXML ScalingParametersStatus where
@@ -2674,27 +2134,17 @@ data Suggester = Suggester
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-srSuggesterName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Suggester
-    -> f Suggester
+srSuggesterName :: Lens' Suggester (Text)
 srSuggesterName f x =
-    (\y -> x { _srSuggesterName = y })
-       <$> f (_srSuggesterName x)
+    f (_srSuggesterName x)
+        <&> \y -> x { _srSuggesterName = y }
 {-# INLINE srSuggesterName #-}
 
 -- | Options for a search suggester.
-srDocumentSuggesterOptions
-    :: Functor f
-    => (DocumentSuggesterOptions
-    -> f (DocumentSuggesterOptions))
-    -> Suggester
-    -> f Suggester
+srDocumentSuggesterOptions :: Lens' Suggester (DocumentSuggesterOptions)
 srDocumentSuggesterOptions f x =
-    (\y -> x { _srDocumentSuggesterOptions = y })
-       <$> f (_srDocumentSuggesterOptions x)
+    f (_srDocumentSuggesterOptions x)
+        <&> \y -> x { _srDocumentSuggesterOptions = y }
 {-# INLINE srDocumentSuggesterOptions #-}
 
 instance FromXML Suggester where
@@ -2719,27 +2169,17 @@ data SuggesterStatus = SuggesterStatus
 -- unique name and specifies the text field you want to use for suggestions.
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
-ssOptions
-    :: Functor f
-    => (Suggester
-    -> f (Suggester))
-    -> SuggesterStatus
-    -> f SuggesterStatus
+ssOptions :: Lens' SuggesterStatus (Suggester)
 ssOptions f x =
-    (\y -> x { _ssOptions = y })
-       <$> f (_ssOptions x)
+    f (_ssOptions x)
+        <&> \y -> x { _ssOptions = y }
 {-# INLINE ssOptions #-}
 
 -- | The status of domain configuration option.
-ssStatus
-    :: Functor f
-    => (OptionStatus
-    -> f (OptionStatus))
-    -> SuggesterStatus
-    -> f SuggesterStatus
+ssStatus :: Lens' SuggesterStatus (OptionStatus)
 ssStatus f x =
-    (\y -> x { _ssStatus = y })
-       <$> f (_ssStatus x)
+    f (_ssStatus x)
+        <&> \y -> x { _ssStatus = y }
 {-# INLINE ssStatus #-}
 
 instance FromXML SuggesterStatus where
@@ -2765,63 +2205,38 @@ data TextArrayOptions = TextArrayOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-taoDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TextArrayOptions
-    -> f TextArrayOptions
+taoDefaultValue :: Lens' TextArrayOptions (Maybe Text)
 taoDefaultValue f x =
-    (\y -> x { _taoDefaultValue = y })
-       <$> f (_taoDefaultValue x)
+    f (_taoDefaultValue x)
+        <&> \y -> x { _taoDefaultValue = y }
 {-# INLINE taoDefaultValue #-}
 
 -- | A list of source fields to map to the field.
-taoSourceFields
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TextArrayOptions
-    -> f TextArrayOptions
+taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
 taoSourceFields f x =
-    (\y -> x { _taoSourceFields = y })
-       <$> f (_taoSourceFields x)
+    f (_taoSourceFields x)
+        <&> \y -> x { _taoSourceFields = y }
 {-# INLINE taoSourceFields #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-taoReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TextArrayOptions
-    -> f TextArrayOptions
+taoReturnEnabled :: Lens' TextArrayOptions (Maybe Bool)
 taoReturnEnabled f x =
-    (\y -> x { _taoReturnEnabled = y })
-       <$> f (_taoReturnEnabled x)
+    f (_taoReturnEnabled x)
+        <&> \y -> x { _taoReturnEnabled = y }
 {-# INLINE taoReturnEnabled #-}
 
 -- | Whether highlights can be returned for the field.
-taoHighlightEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TextArrayOptions
-    -> f TextArrayOptions
+taoHighlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
 taoHighlightEnabled f x =
-    (\y -> x { _taoHighlightEnabled = y })
-       <$> f (_taoHighlightEnabled x)
+    f (_taoHighlightEnabled x)
+        <&> \y -> x { _taoHighlightEnabled = y }
 {-# INLINE taoHighlightEnabled #-}
 
 -- | The name of an analysis scheme for a text-array field.
-taoAnalysisScheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TextArrayOptions
-    -> f TextArrayOptions
+taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
 taoAnalysisScheme f x =
-    (\y -> x { _taoAnalysisScheme = y })
-       <$> f (_taoAnalysisScheme x)
+    f (_taoAnalysisScheme x)
+        <&> \y -> x { _taoAnalysisScheme = y }
 {-# INLINE taoAnalysisScheme #-}
 
 instance FromXML TextArrayOptions where
@@ -2856,78 +2271,48 @@ data TextOptions = TextOptions
     } deriving (Show, Generic)
 
 -- | A value to use for the field if the field isn't specified for a document.
-toDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TextOptions
-    -> f TextOptions
+toDefaultValue :: Lens' TextOptions (Maybe Text)
 toDefaultValue f x =
-    (\y -> x { _toDefaultValue = y })
-       <$> f (_toDefaultValue x)
+    f (_toDefaultValue x)
+        <&> \y -> x { _toDefaultValue = y }
 {-# INLINE toDefaultValue #-}
 
 -- | A string that represents the name of an index field. Field names begin with
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-toSourceField
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TextOptions
-    -> f TextOptions
+toSourceField :: Lens' TextOptions (Maybe Text)
 toSourceField f x =
-    (\y -> x { _toSourceField = y })
-       <$> f (_toSourceField x)
+    f (_toSourceField x)
+        <&> \y -> x { _toSourceField = y }
 {-# INLINE toSourceField #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-toReturnEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TextOptions
-    -> f TextOptions
+toReturnEnabled :: Lens' TextOptions (Maybe Bool)
 toReturnEnabled f x =
-    (\y -> x { _toReturnEnabled = y })
-       <$> f (_toReturnEnabled x)
+    f (_toReturnEnabled x)
+        <&> \y -> x { _toReturnEnabled = y }
 {-# INLINE toReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
-toSortEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TextOptions
-    -> f TextOptions
+toSortEnabled :: Lens' TextOptions (Maybe Bool)
 toSortEnabled f x =
-    (\y -> x { _toSortEnabled = y })
-       <$> f (_toSortEnabled x)
+    f (_toSortEnabled x)
+        <&> \y -> x { _toSortEnabled = y }
 {-# INLINE toSortEnabled #-}
 
 -- | Whether highlights can be returned for the field.
-toHighlightEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TextOptions
-    -> f TextOptions
+toHighlightEnabled :: Lens' TextOptions (Maybe Bool)
 toHighlightEnabled f x =
-    (\y -> x { _toHighlightEnabled = y })
-       <$> f (_toHighlightEnabled x)
+    f (_toHighlightEnabled x)
+        <&> \y -> x { _toHighlightEnabled = y }
 {-# INLINE toHighlightEnabled #-}
 
 -- | The name of an analysis scheme for a text field.
-toAnalysisScheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TextOptions
-    -> f TextOptions
+toAnalysisScheme :: Lens' TextOptions (Maybe Text)
 toAnalysisScheme f x =
-    (\y -> x { _toAnalysisScheme = y })
-       <$> f (_toAnalysisScheme x)
+    f (_toAnalysisScheme x)
+        <&> \y -> x { _toAnalysisScheme = y }
 {-# INLINE toAnalysisScheme #-}
 
 instance FromXML TextOptions where

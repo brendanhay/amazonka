@@ -86,6 +86,7 @@ validatePipelineDefinition p1 p2 = ValidatePipelineDefinition
     { _vpdiPipelineId = p1
     , _vpdiPipelineObjects = p2
     }
+{-# INLINE validatePipelineDefinition #-}
 
 data ValidatePipelineDefinition = ValidatePipelineDefinition
     { _vpdiPipelineId :: Text
@@ -96,28 +97,18 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
     } deriving (Show, Generic)
 
 -- | Identifies the pipeline whose definition is to be validated.
-vpdiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ValidatePipelineDefinition
-    -> f ValidatePipelineDefinition
+vpdiPipelineId :: Lens' ValidatePipelineDefinition (Text)
 vpdiPipelineId f x =
-    (\y -> x { _vpdiPipelineId = y })
-       <$> f (_vpdiPipelineId x)
+    f (_vpdiPipelineId x)
+        <&> \y -> x { _vpdiPipelineId = y }
 {-# INLINE vpdiPipelineId #-}
 
 -- | A list of objects that define the pipeline changes to validate against the
 -- pipeline.
-vpdiPipelineObjects
-    :: Functor f
-    => ([PipelineObject]
-    -> f ([PipelineObject]))
-    -> ValidatePipelineDefinition
-    -> f ValidatePipelineDefinition
+vpdiPipelineObjects :: Lens' ValidatePipelineDefinition ([PipelineObject])
 vpdiPipelineObjects f x =
-    (\y -> x { _vpdiPipelineObjects = y })
-       <$> f (_vpdiPipelineObjects x)
+    f (_vpdiPipelineObjects x)
+        <&> \y -> x { _vpdiPipelineObjects = y }
 {-# INLINE vpdiPipelineObjects #-}
 
 instance ToPath ValidatePipelineDefinition
@@ -140,40 +131,25 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     } deriving (Show, Generic)
 
 -- | If True, there were validation errors.
-vpdoErrored
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ValidatePipelineDefinitionResponse
-    -> f ValidatePipelineDefinitionResponse
+vpdoErrored :: Lens' ValidatePipelineDefinitionResponse (Bool)
 vpdoErrored f x =
-    (\y -> x { _vpdoErrored = y })
-       <$> f (_vpdoErrored x)
+    f (_vpdoErrored x)
+        <&> \y -> x { _vpdoErrored = y }
 {-# INLINE vpdoErrored #-}
 
 -- | Lists the validation errors that were found by ValidatePipelineDefinition.
-vpdoValidationErrors
-    :: Functor f
-    => ([ValidationError]
-    -> f ([ValidationError]))
-    -> ValidatePipelineDefinitionResponse
-    -> f ValidatePipelineDefinitionResponse
+vpdoValidationErrors :: Lens' ValidatePipelineDefinitionResponse ([ValidationError])
 vpdoValidationErrors f x =
-    (\y -> x { _vpdoValidationErrors = y })
-       <$> f (_vpdoValidationErrors x)
+    f (_vpdoValidationErrors x)
+        <&> \y -> x { _vpdoValidationErrors = y }
 {-# INLINE vpdoValidationErrors #-}
 
 -- | Lists the validation warnings that were found by
 -- ValidatePipelineDefinition.
-vpdoValidationWarnings
-    :: Functor f
-    => ([ValidationWarning]
-    -> f ([ValidationWarning]))
-    -> ValidatePipelineDefinitionResponse
-    -> f ValidatePipelineDefinitionResponse
+vpdoValidationWarnings :: Lens' ValidatePipelineDefinitionResponse ([ValidationWarning])
 vpdoValidationWarnings f x =
-    (\y -> x { _vpdoValidationWarnings = y })
-       <$> f (_vpdoValidationWarnings x)
+    f (_vpdoValidationWarnings x)
+        <&> \y -> x { _vpdoValidationWarnings = y }
 {-# INLINE vpdoValidationWarnings #-}
 
 instance FromJSON ValidatePipelineDefinitionResponse

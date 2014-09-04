@@ -52,6 +52,7 @@ revokeSnapshotAccess p1 p2 = RevokeSnapshotAccess
     , _rsamAccountWithRestoreAccess = p2
     , _rsamSnapshotClusterIdentifier = Nothing
     }
+{-# INLINE revokeSnapshotAccess #-}
 
 data RevokeSnapshotAccess = RevokeSnapshotAccess
     { _rsamSnapshotIdentifier :: Text
@@ -68,42 +69,27 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
     } deriving (Show, Generic)
 
 -- | The identifier of the snapshot that the account can no longer access.
-rsamSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RevokeSnapshotAccess
-    -> f RevokeSnapshotAccess
+rsamSnapshotIdentifier :: Lens' RevokeSnapshotAccess (Text)
 rsamSnapshotIdentifier f x =
-    (\y -> x { _rsamSnapshotIdentifier = y })
-       <$> f (_rsamSnapshotIdentifier x)
+    f (_rsamSnapshotIdentifier x)
+        <&> \y -> x { _rsamSnapshotIdentifier = y }
 {-# INLINE rsamSnapshotIdentifier #-}
 
 -- | The identifier of the AWS customer account that can no longer restore the
 -- specified snapshot.
-rsamAccountWithRestoreAccess
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RevokeSnapshotAccess
-    -> f RevokeSnapshotAccess
+rsamAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess (Text)
 rsamAccountWithRestoreAccess f x =
-    (\y -> x { _rsamAccountWithRestoreAccess = y })
-       <$> f (_rsamAccountWithRestoreAccess x)
+    f (_rsamAccountWithRestoreAccess x)
+        <&> \y -> x { _rsamAccountWithRestoreAccess = y }
 {-# INLINE rsamAccountWithRestoreAccess #-}
 
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
 -- element that specifies anything other than * for the cluster name.
-rsamSnapshotClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RevokeSnapshotAccess
-    -> f RevokeSnapshotAccess
+rsamSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
 rsamSnapshotClusterIdentifier f x =
-    (\y -> x { _rsamSnapshotClusterIdentifier = y })
-       <$> f (_rsamSnapshotClusterIdentifier x)
+    f (_rsamSnapshotClusterIdentifier x)
+        <&> \y -> x { _rsamSnapshotClusterIdentifier = y }
 {-# INLINE rsamSnapshotClusterIdentifier #-}
 
 instance ToQuery RevokeSnapshotAccess where
@@ -115,15 +101,10 @@ data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-sssssssssssssssssssssssssssssssssssssrSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> RevokeSnapshotAccessResponse
-    -> f RevokeSnapshotAccessResponse
+sssssssssssssssssssssssssssssssssssssrSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 sssssssssssssssssssssssssssssssssssssrSnapshot f x =
-    (\y -> x { _sssssssssssssssssssssssssssssssssssssrSnapshot = y })
-       <$> f (_sssssssssssssssssssssssssssssssssssssrSnapshot x)
+    f (_sssssssssssssssssssssssssssssssssssssrSnapshot x)
+        <&> \y -> x { _sssssssssssssssssssssssssssssssssssssrSnapshot = y }
 {-# INLINE sssssssssssssssssssssssssssssssssssssrSnapshot #-}
 
 instance FromXML RevokeSnapshotAccessResponse where

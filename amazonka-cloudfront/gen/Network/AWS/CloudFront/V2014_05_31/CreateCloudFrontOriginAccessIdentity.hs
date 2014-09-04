@@ -45,6 +45,7 @@ createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- 
 createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoairCloudFrontOriginAccessIdentityConfig = p1
     }
+{-# INLINE createCloudFrontOriginAccessIdentity #-}
 
 data CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoairCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
@@ -52,15 +53,10 @@ data CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | The origin access identity's configuration information.
-ccfoairCloudFrontOriginAccessIdentityConfig
-    :: Functor f
-    => (CloudFrontOriginAccessIdentityConfig
-    -> f (CloudFrontOriginAccessIdentityConfig))
-    -> CreateCloudFrontOriginAccessIdentity
-    -> f CreateCloudFrontOriginAccessIdentity
+ccfoairCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity (CloudFrontOriginAccessIdentityConfig)
 ccfoairCloudFrontOriginAccessIdentityConfig f x =
-    (\y -> x { _ccfoairCloudFrontOriginAccessIdentityConfig = y })
-       <$> f (_ccfoairCloudFrontOriginAccessIdentityConfig x)
+    f (_ccfoairCloudFrontOriginAccessIdentityConfig x)
+        <&> \y -> x { _ccfoairCloudFrontOriginAccessIdentityConfig = y }
 {-# INLINE ccfoairCloudFrontOriginAccessIdentityConfig #-}
 
 instance ToPath CreateCloudFrontOriginAccessIdentity where
@@ -87,42 +83,27 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     } deriving (Show, Generic)
 
 -- | The origin access identity's information.
-ccfoaisCloudFrontOriginAccessIdentity
-    :: Functor f
-    => (Maybe CloudFrontOriginAccessIdentity
-    -> f (Maybe CloudFrontOriginAccessIdentity))
-    -> CreateCloudFrontOriginAccessIdentityResponse
-    -> f CreateCloudFrontOriginAccessIdentityResponse
+ccfoaisCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ccfoaisCloudFrontOriginAccessIdentity f x =
-    (\y -> x { _ccfoaisCloudFrontOriginAccessIdentity = y })
-       <$> f (_ccfoaisCloudFrontOriginAccessIdentity x)
+    f (_ccfoaisCloudFrontOriginAccessIdentity x)
+        <&> \y -> x { _ccfoaisCloudFrontOriginAccessIdentity = y }
 {-# INLINE ccfoaisCloudFrontOriginAccessIdentity #-}
 
 -- | The fully qualified URI of the new origin access identity just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
 -- 
-ccfoaisLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCloudFrontOriginAccessIdentityResponse
-    -> f CreateCloudFrontOriginAccessIdentityResponse
+ccfoaisLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoaisLocation f x =
-    (\y -> x { _ccfoaisLocation = y })
-       <$> f (_ccfoaisLocation x)
+    f (_ccfoaisLocation x)
+        <&> \y -> x { _ccfoaisLocation = y }
 {-# INLINE ccfoaisLocation #-}
 
 -- | The current version of the origin access identity created.
-ccfoaisETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCloudFrontOriginAccessIdentityResponse
-    -> f CreateCloudFrontOriginAccessIdentityResponse
+ccfoaisETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoaisETag f x =
-    (\y -> x { _ccfoaisETag = y })
-       <$> f (_ccfoaisETag x)
+    f (_ccfoaisETag x)
+        <&> \y -> x { _ccfoaisETag = y }
 {-# INLINE ccfoaisETag #-}
 
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where

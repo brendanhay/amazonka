@@ -53,6 +53,7 @@ registerElasticIp p1 p2 = RegisterElasticIp
     { _reirElasticIp = p1
     , _reirStackId = p2
     }
+{-# INLINE registerElasticIp #-}
 
 data RegisterElasticIp = RegisterElasticIp
     { _reirElasticIp :: Text
@@ -62,27 +63,17 @@ data RegisterElasticIp = RegisterElasticIp
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-reirElasticIp
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterElasticIp
-    -> f RegisterElasticIp
+reirElasticIp :: Lens' RegisterElasticIp (Text)
 reirElasticIp f x =
-    (\y -> x { _reirElasticIp = y })
-       <$> f (_reirElasticIp x)
+    f (_reirElasticIp x)
+        <&> \y -> x { _reirElasticIp = y }
 {-# INLINE reirElasticIp #-}
 
 -- | The stack ID.
-reirStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterElasticIp
-    -> f RegisterElasticIp
+reirStackId :: Lens' RegisterElasticIp (Text)
 reirStackId f x =
-    (\y -> x { _reirStackId = y })
-       <$> f (_reirStackId x)
+    f (_reirStackId x)
+        <&> \y -> x { _reirStackId = y }
 {-# INLINE reirStackId #-}
 
 instance ToPath RegisterElasticIp
@@ -99,15 +90,10 @@ data RegisterElasticIpResponse = RegisterElasticIpResponse
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-reisElasticIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterElasticIpResponse
-    -> f RegisterElasticIpResponse
+reisElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
 reisElasticIp f x =
-    (\y -> x { _reisElasticIp = y })
-       <$> f (_reisElasticIp x)
+    f (_reisElasticIp x)
+        <&> \y -> x { _reisElasticIp = y }
 {-# INLINE reisElasticIp #-}
 
 instance FromJSON RegisterElasticIpResponse

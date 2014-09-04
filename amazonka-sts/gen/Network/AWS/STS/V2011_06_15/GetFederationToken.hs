@@ -110,6 +110,7 @@ getFederationToken p1 = GetFederationToken
     , _gftrDurationSeconds = Nothing
     , _gftrPolicy = Nothing
     }
+{-# INLINE getFederationToken #-}
 
 data GetFederationToken = GetFederationToken
     { _gftrName :: Text
@@ -150,15 +151,10 @@ data GetFederationToken = GetFederationToken
 -- temporary security credentials (such as Bob). For example, you can
 -- reference the federated user name in a resource-based policy, such as in an
 -- Amazon S3 bucket policy.
-gftrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetFederationToken
-    -> f GetFederationToken
+gftrName :: Lens' GetFederationToken (Text)
 gftrName f x =
-    (\y -> x { _gftrName = y })
-       <$> f (_gftrName x)
+    f (_gftrName x)
+        <&> \y -> x { _gftrName = y }
 {-# INLINE gftrName #-}
 
 -- | The duration, in seconds, that the session should last. Acceptable
@@ -168,15 +164,10 @@ gftrName f x =
 -- maximum of 3600 seconds (one hour). If the specified duration is longer
 -- than one hour, the session obtained by using AWS account (root) credentials
 -- defaults to one hour.
-gftrDurationSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetFederationToken
-    -> f GetFederationToken
+gftrDurationSeconds :: Lens' GetFederationToken (Maybe Integer)
 gftrDurationSeconds f x =
-    (\y -> x { _gftrDurationSeconds = y })
-       <$> f (_gftrDurationSeconds x)
+    f (_gftrDurationSeconds x)
+        <&> \y -> x { _gftrDurationSeconds = y }
 {-# INLINE gftrDurationSeconds #-}
 
 -- | An IAM policy in JSON format that is passed with the GetFederationToken
@@ -193,15 +184,10 @@ gftrDurationSeconds f x =
 -- has a resource-based policy that specifically allows the federated user to
 -- access the resource. For more information about how permissions work, see
 -- Permissions for GetFederationToken in Using Temporary Security Credentials.
-gftrPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetFederationToken
-    -> f GetFederationToken
+gftrPolicy :: Lens' GetFederationToken (Maybe Text)
 gftrPolicy f x =
-    (\y -> x { _gftrPolicy = y })
-       <$> f (_gftrPolicy x)
+    f (_gftrPolicy x)
+        <&> \y -> x { _gftrPolicy = y }
 {-# INLINE gftrPolicy #-}
 
 instance ToQuery GetFederationToken where
@@ -222,44 +208,29 @@ data GetFederationTokenResponse = GetFederationTokenResponse
     } deriving (Show, Generic)
 
 -- | Credentials for the service API authentication.
-gftsCredentials
-    :: Functor f
-    => (Maybe Credentials
-    -> f (Maybe Credentials))
-    -> GetFederationTokenResponse
-    -> f GetFederationTokenResponse
+gftsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
 gftsCredentials f x =
-    (\y -> x { _gftsCredentials = y })
-       <$> f (_gftsCredentials x)
+    f (_gftsCredentials x)
+        <&> \y -> x { _gftsCredentials = y }
 {-# INLINE gftsCredentials #-}
 
 -- | Identifiers for the federated user associated with the credentials (such as
 -- arn:aws:sts::123456789012:federated-user/Bob or 123456789012:Bob). You can
 -- use the federated user's ARN in your resource-based policies, such as an
 -- Amazon S3 bucket policy.
-gftsFederatedUser
-    :: Functor f
-    => (Maybe FederatedUser
-    -> f (Maybe FederatedUser))
-    -> GetFederationTokenResponse
-    -> f GetFederationTokenResponse
+gftsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftsFederatedUser f x =
-    (\y -> x { _gftsFederatedUser = y })
-       <$> f (_gftsFederatedUser x)
+    f (_gftsFederatedUser x)
+        <&> \y -> x { _gftsFederatedUser = y }
 {-# INLINE gftsFederatedUser #-}
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
 -- percent of the allowed value.
-gftsPackedPolicySize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetFederationTokenResponse
-    -> f GetFederationTokenResponse
+gftsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Integer)
 gftsPackedPolicySize f x =
-    (\y -> x { _gftsPackedPolicySize = y })
-       <$> f (_gftsPackedPolicySize x)
+    f (_gftsPackedPolicySize x)
+        <&> \y -> x { _gftsPackedPolicySize = y }
 {-# INLINE gftsPackedPolicySize #-}
 
 instance FromXML GetFederationTokenResponse where

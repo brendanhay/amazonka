@@ -111,6 +111,7 @@ createJob p1 p2 = CreateJob
     , _cjtPlaylists = mempty
     , _cjtOutputKeyPrefix = Nothing
     }
+{-# INLINE createJob #-}
 
 data CreateJob = CreateJob
     { _cjtPipelineId :: Text
@@ -144,83 +145,53 @@ data CreateJob = CreateJob
 -- transcoding. The pipeline determines several settings, including the Amazon
 -- S3 bucket from which Elastic Transcoder gets the files to transcode and the
 -- bucket into which Elastic Transcoder puts the transcoded files.
-cjtPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateJob
-    -> f CreateJob
+cjtPipelineId :: Lens' CreateJob (Text)
 cjtPipelineId f x =
-    (\y -> x { _cjtPipelineId = y })
-       <$> f (_cjtPipelineId x)
+    f (_cjtPipelineId x)
+        <&> \y -> x { _cjtPipelineId = y }
 {-# INLINE cjtPipelineId #-}
 
 -- | A section of the request body that provides information about the file that
 -- is being transcoded.
-cjtInput
-    :: Functor f
-    => (JobInput
-    -> f (JobInput))
-    -> CreateJob
-    -> f CreateJob
+cjtInput :: Lens' CreateJob (JobInput)
 cjtInput f x =
-    (\y -> x { _cjtInput = y })
-       <$> f (_cjtInput x)
+    f (_cjtInput x)
+        <&> \y -> x { _cjtInput = y }
 {-# INLINE cjtInput #-}
 
 -- | The CreateJobOutput structure.
-cjtOutput
-    :: Functor f
-    => (Maybe CreateJobOutput
-    -> f (Maybe CreateJobOutput))
-    -> CreateJob
-    -> f CreateJob
+cjtOutput :: Lens' CreateJob (Maybe CreateJobOutput)
 cjtOutput f x =
-    (\y -> x { _cjtOutput = y })
-       <$> f (_cjtOutput x)
+    f (_cjtOutput x)
+        <&> \y -> x { _cjtOutput = y }
 {-# INLINE cjtOutput #-}
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the Outputs syntax
 -- instead of the Output syntax.
-cjtOutputs
-    :: Functor f
-    => ([CreateJobOutput]
-    -> f ([CreateJobOutput]))
-    -> CreateJob
-    -> f CreateJob
+cjtOutputs :: Lens' CreateJob ([CreateJobOutput])
 cjtOutputs f x =
-    (\y -> x { _cjtOutputs = y })
-       <$> f (_cjtOutputs x)
+    f (_cjtOutputs x)
+        <&> \y -> x { _cjtOutputs = y }
 {-# INLINE cjtOutputs #-}
 
 -- | If you specify a preset in PresetId for which the value of Container is ts
 -- (MPEG-TS), Playlists contains information about the master playlists that
 -- you want Elastic Transcoder to create. We recommend that you create only
 -- one master playlist. The maximum number of master playlists in a job is 30.
-cjtPlaylists
-    :: Functor f
-    => ([CreateJobPlaylist]
-    -> f ([CreateJobPlaylist]))
-    -> CreateJob
-    -> f CreateJob
+cjtPlaylists :: Lens' CreateJob ([CreateJobPlaylist])
 cjtPlaylists f x =
-    (\y -> x { _cjtPlaylists = y })
-       <$> f (_cjtPlaylists x)
+    f (_cjtPlaylists x)
+        <&> \y -> x { _cjtPlaylists = y }
 {-# INLINE cjtPlaylists #-}
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the names
 -- of all files that this job creates, including output files, thumbnails, and
 -- playlists.
-cjtOutputKeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJob
-    -> f CreateJob
+cjtOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
 cjtOutputKeyPrefix f x =
-    (\y -> x { _cjtOutputKeyPrefix = y })
-       <$> f (_cjtOutputKeyPrefix x)
+    f (_cjtOutputKeyPrefix x)
+        <&> \y -> x { _cjtOutputKeyPrefix = y }
 {-# INLINE cjtOutputKeyPrefix #-}
 
 instance ToPath CreateJob where
@@ -240,15 +211,10 @@ data CreateJobResponse = CreateJobResponse
 
 -- | A section of the response body that provides information about the job that
 -- is created.
-cjwJob
-    :: Functor f
-    => (Maybe Job
-    -> f (Maybe Job))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjwJob :: Lens' CreateJobResponse (Maybe Job)
 cjwJob f x =
-    (\y -> x { _cjwJob = y })
-       <$> f (_cjwJob x)
+    f (_cjwJob x)
+        <&> \y -> x { _cjwJob = y }
 {-# INLINE cjwJob #-}
 
 instance FromJSON CreateJobResponse

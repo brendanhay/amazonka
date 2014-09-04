@@ -51,6 +51,7 @@ getStackPolicy :: Text -- ^ 'gspiStackName'
 getStackPolicy p1 = GetStackPolicy
     { _gspiStackName = p1
     }
+{-# INLINE getStackPolicy #-}
 
 data GetStackPolicy = GetStackPolicy
     { _gspiStackName :: Text
@@ -60,15 +61,10 @@ data GetStackPolicy = GetStackPolicy
 
 -- | The name or stack ID that is associated with the stack whose policy you
 -- want to get.
-gspiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetStackPolicy
-    -> f GetStackPolicy
+gspiStackName :: Lens' GetStackPolicy (Text)
 gspiStackName f x =
-    (\y -> x { _gspiStackName = y })
-       <$> f (_gspiStackName x)
+    f (_gspiStackName x)
+        <&> \y -> x { _gspiStackName = y }
 {-# INLINE gspiStackName #-}
 
 instance ToQuery GetStackPolicy where
@@ -83,15 +79,10 @@ data GetStackPolicyResponse = GetStackPolicyResponse
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).
-gspoStackPolicyBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStackPolicyResponse
-    -> f GetStackPolicyResponse
+gspoStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gspoStackPolicyBody f x =
-    (\y -> x { _gspoStackPolicyBody = y })
-       <$> f (_gspoStackPolicyBody x)
+    f (_gspoStackPolicyBody x)
+        <&> \y -> x { _gspoStackPolicyBody = y }
 {-# INLINE gspoStackPolicyBody #-}
 
 instance FromXML GetStackPolicyResponse where

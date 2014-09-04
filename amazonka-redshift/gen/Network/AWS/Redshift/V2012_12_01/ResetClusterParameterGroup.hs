@@ -60,6 +60,7 @@ resetClusterParameterGroup p1 = ResetClusterParameterGroup
     , _rcpgmResetAllParameters = Nothing
     , _rcpgmParameters = mempty
     }
+{-# INLINE resetClusterParameterGroup #-}
 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgmParameterGroupName :: Text
@@ -75,42 +76,27 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group to be reset.
-rcpgmParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResetClusterParameterGroup
-    -> f ResetClusterParameterGroup
+rcpgmParameterGroupName :: Lens' ResetClusterParameterGroup (Text)
 rcpgmParameterGroupName f x =
-    (\y -> x { _rcpgmParameterGroupName = y })
-       <$> f (_rcpgmParameterGroupName x)
+    f (_rcpgmParameterGroupName x)
+        <&> \y -> x { _rcpgmParameterGroupName = y }
 {-# INLINE rcpgmParameterGroupName #-}
 
 -- | If true, all parameters in the specified parameter group will be reset to
 -- their default values. Default: true.
-rcpgmResetAllParameters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ResetClusterParameterGroup
-    -> f ResetClusterParameterGroup
+rcpgmResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
 rcpgmResetAllParameters f x =
-    (\y -> x { _rcpgmResetAllParameters = y })
-       <$> f (_rcpgmResetAllParameters x)
+    f (_rcpgmResetAllParameters x)
+        <&> \y -> x { _rcpgmResetAllParameters = y }
 {-# INLINE rcpgmResetAllParameters #-}
 
 -- | An array of names of parameters to be reset. If ResetAllParameters option
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
-rcpgmParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> ResetClusterParameterGroup
-    -> f ResetClusterParameterGroup
+rcpgmParameters :: Lens' ResetClusterParameterGroup ([Parameter])
 rcpgmParameters f x =
-    (\y -> x { _rcpgmParameters = y })
-       <$> f (_rcpgmParameters x)
+    f (_rcpgmParameters x)
+        <&> \y -> x { _rcpgmParameters = y }
 {-# INLINE rcpgmParameters #-}
 
 instance ToQuery ResetClusterParameterGroup where
@@ -126,29 +112,19 @@ data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group.
-cpgnnParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResetClusterParameterGroupResponse
-    -> f ResetClusterParameterGroupResponse
+cpgnnParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
 cpgnnParameterGroupName f x =
-    (\y -> x { _cpgnnParameterGroupName = y })
-       <$> f (_cpgnnParameterGroupName x)
+    f (_cpgnnParameterGroupName x)
+        <&> \y -> x { _cpgnnParameterGroupName = y }
 {-# INLINE cpgnnParameterGroupName #-}
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
 -- of an associated cluster.
-cpgnnParameterGroupStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResetClusterParameterGroupResponse
-    -> f ResetClusterParameterGroupResponse
+cpgnnParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
 cpgnnParameterGroupStatus f x =
-    (\y -> x { _cpgnnParameterGroupStatus = y })
-       <$> f (_cpgnnParameterGroupStatus x)
+    f (_cpgnnParameterGroupStatus x)
+        <&> \y -> x { _cpgnnParameterGroupStatus = y }
 {-# INLINE cpgnnParameterGroupStatus #-}
 
 instance FromXML ResetClusterParameterGroupResponse where

@@ -42,6 +42,7 @@ deregisterRdsDbInstance :: Text -- ^ 'drdirRdsDbInstanceArn'
 deregisterRdsDbInstance p1 = DeregisterRdsDbInstance
     { _drdirRdsDbInstanceArn = p1
     }
+{-# INLINE deregisterRdsDbInstance #-}
 
 data DeregisterRdsDbInstance = DeregisterRdsDbInstance
     { _drdirRdsDbInstanceArn :: Text
@@ -49,15 +50,10 @@ data DeregisterRdsDbInstance = DeregisterRdsDbInstance
     } deriving (Show, Generic)
 
 -- | The Amazon RDS instance's ARN.
-drdirRdsDbInstanceArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeregisterRdsDbInstance
-    -> f DeregisterRdsDbInstance
+drdirRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance (Text)
 drdirRdsDbInstanceArn f x =
-    (\y -> x { _drdirRdsDbInstanceArn = y })
-       <$> f (_drdirRdsDbInstanceArn x)
+    f (_drdirRdsDbInstanceArn x)
+        <&> \y -> x { _drdirRdsDbInstanceArn = y }
 {-# INLINE drdirRdsDbInstanceArn #-}
 
 instance ToPath DeregisterRdsDbInstance

@@ -57,6 +57,7 @@ unsubscribe :: Text -- ^ 'uiSubscriptionArn'
 unsubscribe p1 = Unsubscribe
     { _uiSubscriptionArn = p1
     }
+{-# INLINE unsubscribe #-}
 
 data Unsubscribe = Unsubscribe
     { _uiSubscriptionArn :: Text
@@ -64,15 +65,10 @@ data Unsubscribe = Unsubscribe
     } deriving (Show, Generic)
 
 -- | The ARN of the subscription to be deleted.
-uiSubscriptionArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Unsubscribe
-    -> f Unsubscribe
+uiSubscriptionArn :: Lens' Unsubscribe (Text)
 uiSubscriptionArn f x =
-    (\y -> x { _uiSubscriptionArn = y })
-       <$> f (_uiSubscriptionArn x)
+    f (_uiSubscriptionArn x)
+        <&> \y -> x { _uiSubscriptionArn = y }
 {-# INLINE uiSubscriptionArn #-}
 
 instance ToQuery Unsubscribe where

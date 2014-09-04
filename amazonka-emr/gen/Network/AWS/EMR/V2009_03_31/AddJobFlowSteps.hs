@@ -85,6 +85,7 @@ addJobFlowSteps p1 p2 = AddJobFlowSteps
     { _ajfsiSteps = p1
     , _ajfsiJobFlowId = p2
     }
+{-# INLINE addJobFlowSteps #-}
 
 data AddJobFlowSteps = AddJobFlowSteps
     { _ajfsiSteps :: [StepConfig]
@@ -96,28 +97,18 @@ data AddJobFlowSteps = AddJobFlowSteps
     } deriving (Show, Generic)
 
 -- | A list of StepConfig to be executed by the job flow.
-ajfsiSteps
-    :: Functor f
-    => ([StepConfig]
-    -> f ([StepConfig]))
-    -> AddJobFlowSteps
-    -> f AddJobFlowSteps
+ajfsiSteps :: Lens' AddJobFlowSteps ([StepConfig])
 ajfsiSteps f x =
-    (\y -> x { _ajfsiSteps = y })
-       <$> f (_ajfsiSteps x)
+    f (_ajfsiSteps x)
+        <&> \y -> x { _ajfsiSteps = y }
 {-# INLINE ajfsiSteps #-}
 
 -- | A string that uniquely identifies the job flow. This identifier is returned
 -- by RunJobFlow and can also be obtained from ListClusters.
-ajfsiJobFlowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddJobFlowSteps
-    -> f AddJobFlowSteps
+ajfsiJobFlowId :: Lens' AddJobFlowSteps (Text)
 ajfsiJobFlowId f x =
-    (\y -> x { _ajfsiJobFlowId = y })
-       <$> f (_ajfsiJobFlowId x)
+    f (_ajfsiJobFlowId x)
+        <&> \y -> x { _ajfsiJobFlowId = y }
 {-# INLINE ajfsiJobFlowId #-}
 
 instance ToPath AddJobFlowSteps
@@ -134,15 +125,10 @@ data AddJobFlowStepsResponse = AddJobFlowStepsResponse
     } deriving (Show, Generic)
 
 -- | The identifiers of the list of steps added to the job flow.
-ajfsoStepIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddJobFlowStepsResponse
-    -> f AddJobFlowStepsResponse
+ajfsoStepIds :: Lens' AddJobFlowStepsResponse ([Text])
 ajfsoStepIds f x =
-    (\y -> x { _ajfsoStepIds = y })
-       <$> f (_ajfsoStepIds x)
+    f (_ajfsoStepIds x)
+        <&> \y -> x { _ajfsoStepIds = y }
 {-# INLINE ajfsoStepIds #-}
 
 instance FromJSON AddJobFlowStepsResponse

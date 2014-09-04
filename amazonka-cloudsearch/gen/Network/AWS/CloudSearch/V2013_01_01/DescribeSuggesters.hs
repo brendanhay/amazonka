@@ -53,6 +53,7 @@ describeSuggesters p1 = DescribeSuggesters
     , _dsvDeployed = Nothing
     , _dsvSuggesterNames = mempty
     }
+{-# INLINE describeSuggesters #-}
 
 data DescribeSuggesters = DescribeSuggesters
     { _dsvDomainName :: Text
@@ -65,40 +66,25 @@ data DescribeSuggesters = DescribeSuggesters
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
-dsvDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeSuggesters
-    -> f DescribeSuggesters
+dsvDomainName :: Lens' DescribeSuggesters (Text)
 dsvDomainName f x =
-    (\y -> x { _dsvDomainName = y })
-       <$> f (_dsvDomainName x)
+    f (_dsvDomainName x)
+        <&> \y -> x { _dsvDomainName = y }
 {-# INLINE dsvDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-dsvDeployed
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeSuggesters
-    -> f DescribeSuggesters
+dsvDeployed :: Lens' DescribeSuggesters (Maybe Bool)
 dsvDeployed f x =
-    (\y -> x { _dsvDeployed = y })
-       <$> f (_dsvDeployed x)
+    f (_dsvDeployed x)
+        <&> \y -> x { _dsvDeployed = y }
 {-# INLINE dsvDeployed #-}
 
 -- | The suggesters you want to describe.
-dsvSuggesterNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSuggesters
-    -> f DescribeSuggesters
+dsvSuggesterNames :: Lens' DescribeSuggesters ([Text])
 dsvSuggesterNames f x =
-    (\y -> x { _dsvSuggesterNames = y })
-       <$> f (_dsvSuggesterNames x)
+    f (_dsvSuggesterNames x)
+        <&> \y -> x { _dsvSuggesterNames = y }
 {-# INLINE dsvSuggesterNames #-}
 
 instance ToQuery DescribeSuggesters where
@@ -111,15 +97,10 @@ data DescribeSuggestersResponse = DescribeSuggestersResponse
     } deriving (Show, Generic)
 
 -- | The suggesters configured for the domain specified in the request.
-dswSuggesters
-    :: Functor f
-    => ([SuggesterStatus]
-    -> f ([SuggesterStatus]))
-    -> DescribeSuggestersResponse
-    -> f DescribeSuggestersResponse
+dswSuggesters :: Lens' DescribeSuggestersResponse ([SuggesterStatus])
 dswSuggesters f x =
-    (\y -> x { _dswSuggesters = y })
-       <$> f (_dswSuggesters x)
+    f (_dswSuggesters x)
+        <&> \y -> x { _dswSuggesters = y }
 {-# INLINE dswSuggesters #-}
 
 instance FromXML DescribeSuggestersResponse where

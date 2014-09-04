@@ -45,6 +45,7 @@ describeInterconnects :: DescribeInterconnects
 describeInterconnects = DescribeInterconnects
     { _ditInterconnectId = Nothing
     }
+{-# INLINE describeInterconnects #-}
 
 data DescribeInterconnects = DescribeInterconnects
     { _ditInterconnectId :: Maybe Text
@@ -52,15 +53,10 @@ data DescribeInterconnects = DescribeInterconnects
     } deriving (Show, Generic)
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
-ditInterconnectId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInterconnects
-    -> f DescribeInterconnects
+ditInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 ditInterconnectId f x =
-    (\y -> x { _ditInterconnectId = y })
-       <$> f (_ditInterconnectId x)
+    f (_ditInterconnectId x)
+        <&> \y -> x { _ditInterconnectId = y }
 {-# INLINE ditInterconnectId #-}
 
 instance ToPath DescribeInterconnects
@@ -77,15 +73,10 @@ data DescribeInterconnectsResponse = DescribeInterconnectsResponse
     } deriving (Show, Generic)
 
 -- | A list of interconnects.
-yInterconnects
-    :: Functor f
-    => ([Interconnect]
-    -> f ([Interconnect]))
-    -> DescribeInterconnectsResponse
-    -> f DescribeInterconnectsResponse
+yInterconnects :: Lens' DescribeInterconnectsResponse ([Interconnect])
 yInterconnects f x =
-    (\y -> x { _yInterconnects = y })
-       <$> f (_yInterconnects x)
+    f (_yInterconnects x)
+        <&> \y -> x { _yInterconnects = y }
 {-# INLINE yInterconnects #-}
 
 instance FromJSON DescribeInterconnectsResponse

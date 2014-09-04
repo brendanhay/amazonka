@@ -33,7 +33,6 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Types
       CognitoIdentity
     -- ** Errors
     , Er (..)
-
     -- * IdentityDescription
     , IdentityDescription (..)
     , idIdentityId
@@ -111,28 +110,18 @@ data IdentityDescription = IdentityDescription
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
-idIdentityId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> IdentityDescription
-    -> f IdentityDescription
+idIdentityId :: Lens' IdentityDescription (Maybe Text)
 idIdentityId f x =
-    (\y -> x { _idIdentityId = y })
-       <$> f (_idIdentityId x)
+    f (_idIdentityId x)
+        <&> \y -> x { _idIdentityId = y }
 {-# INLINE idIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-idLogins
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> IdentityDescription
-    -> f IdentityDescription
+idLogins :: Lens' IdentityDescription ([Text])
 idLogins f x =
-    (\y -> x { _idLogins = y })
-       <$> f (_idLogins x)
+    f (_idLogins x)
+        <&> \y -> x { _idLogins = y }
 {-# INLINE idLogins #-}
 
 instance FromJSON IdentityDescription
@@ -146,27 +135,17 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-ipsdIdentityPoolId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> IdentityPoolShortDescription
-    -> f IdentityPoolShortDescription
+ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolId f x =
-    (\y -> x { _ipsdIdentityPoolId = y })
-       <$> f (_ipsdIdentityPoolId x)
+    f (_ipsdIdentityPoolId x)
+        <&> \y -> x { _ipsdIdentityPoolId = y }
 {-# INLINE ipsdIdentityPoolId #-}
 
 -- | A string that you provide.
-ipsdIdentityPoolName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> IdentityPoolShortDescription
-    -> f IdentityPoolShortDescription
+ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolName f x =
-    (\y -> x { _ipsdIdentityPoolName = y })
-       <$> f (_ipsdIdentityPoolName x)
+    f (_ipsdIdentityPoolName x)
+        <&> \y -> x { _ipsdIdentityPoolName = y }
 {-# INLINE ipsdIdentityPoolName #-}
 
 instance FromJSON IdentityPoolShortDescription

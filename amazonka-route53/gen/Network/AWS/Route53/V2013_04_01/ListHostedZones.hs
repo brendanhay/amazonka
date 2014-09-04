@@ -56,6 +56,7 @@ listHostedZones = ListHostedZones
     { _lhzrMarker = Nothing
     , _lhzrMaxItems = Nothing
     }
+{-# INLINE listHostedZones #-}
 
 data ListHostedZones = ListHostedZones
     { _lhzrMarker :: Maybe Text
@@ -70,27 +71,17 @@ data ListHostedZones = ListHostedZones
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
-lhzrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListHostedZones
-    -> f ListHostedZones
+lhzrMarker :: Lens' ListHostedZones (Maybe Text)
 lhzrMarker f x =
-    (\y -> x { _lhzrMarker = y })
-       <$> f (_lhzrMarker x)
+    f (_lhzrMarker x)
+        <&> \y -> x { _lhzrMarker = y }
 {-# INLINE lhzrMarker #-}
 
 -- | Specify the maximum number of hosted zones to return per page of results.
-lhzrMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListHostedZones
-    -> f ListHostedZones
+lhzrMaxItems :: Lens' ListHostedZones (Maybe Text)
 lhzrMaxItems f x =
-    (\y -> x { _lhzrMaxItems = y })
-       <$> f (_lhzrMaxItems x)
+    f (_lhzrMaxItems x)
+        <&> \y -> x { _lhzrMaxItems = y }
 {-# INLINE lhzrMaxItems #-}
 
 instance ToPath ListHostedZones where
@@ -139,29 +130,19 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 
 -- | A complex type that contains information about the hosted zones associated
 -- with the current AWS account.
-lhzsHostedZones
-    :: Functor f
-    => ([HostedZone]
-    -> f ([HostedZone]))
-    -> ListHostedZonesResponse
-    -> f ListHostedZonesResponse
+lhzsHostedZones :: Lens' ListHostedZonesResponse ([HostedZone])
 lhzsHostedZones f x =
-    (\y -> x { _lhzsHostedZones = y })
-       <$> f (_lhzsHostedZones x)
+    f (_lhzsHostedZones x)
+        <&> \y -> x { _lhzsHostedZones = y }
 {-# INLINE lhzsHostedZones #-}
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
-lhzsMarker
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListHostedZonesResponse
-    -> f ListHostedZonesResponse
+lhzsMarker :: Lens' ListHostedZonesResponse (Text)
 lhzsMarker f x =
-    (\y -> x { _lhzsMarker = y })
-       <$> f (_lhzsMarker x)
+    f (_lhzsMarker x)
+        <&> \y -> x { _lhzsMarker = y }
 {-# INLINE lhzsMarker #-}
 
 -- | The maximum number of hosted zones to be included in the response body. If
@@ -170,44 +151,29 @@ lhzsMarker f x =
 -- is true. Call ListHostedZones again and specify the value of
 -- ListHostedZonesResponse$NextMarker in the ListHostedZonesRequest$Marker
 -- element to get the next page of results.
-lhzsMaxItems
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListHostedZonesResponse
-    -> f ListHostedZonesResponse
+lhzsMaxItems :: Lens' ListHostedZonesResponse (Text)
 lhzsMaxItems f x =
-    (\y -> x { _lhzsMaxItems = y })
-       <$> f (_lhzsMaxItems x)
+    f (_lhzsMaxItems x)
+        <&> \y -> x { _lhzsMaxItems = y }
 {-# INLINE lhzsMaxItems #-}
 
 -- | A flag indicating whether there are more hosted zones to be listed. If your
 -- results were truncated, you can make a follow-up request for the next page
 -- of results by using the Marker element. Valid Values: true | false.
-lhzsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListHostedZonesResponse
-    -> f ListHostedZonesResponse
+lhzsIsTruncated :: Lens' ListHostedZonesResponse (Bool)
 lhzsIsTruncated f x =
-    (\y -> x { _lhzsIsTruncated = y })
-       <$> f (_lhzsIsTruncated x)
+    f (_lhzsIsTruncated x)
+        <&> \y -> x { _lhzsIsTruncated = y }
 {-# INLINE lhzsIsTruncated #-}
 
 -- | Indicates where to continue listing hosted zones. If
 -- ListHostedZonesResponse$IsTruncated is true, make another request to
 -- ListHostedZones and include the value of the NextMarker element in the
 -- Marker element to get the next page of results.
-lhzsNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListHostedZonesResponse
-    -> f ListHostedZonesResponse
+lhzsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzsNextMarker f x =
-    (\y -> x { _lhzsNextMarker = y })
-       <$> f (_lhzsNextMarker x)
+    f (_lhzsNextMarker x)
+        <&> \y -> x { _lhzsNextMarker = y }
 {-# INLINE lhzsNextMarker #-}
 
 instance FromXML ListHostedZonesResponse where

@@ -55,6 +55,7 @@ createDBSnapshot p1 p2 = CreateDBSnapshot
     , _cdbsnDBInstanceIdentifier = p2
     , _cdbsnTags = mempty
     }
+{-# INLINE createDBSnapshot #-}
 
 data CreateDBSnapshot = CreateDBSnapshot
     { _cdbsnDBSnapshotIdentifier :: Text
@@ -77,42 +78,27 @@ data CreateDBSnapshot = CreateDBSnapshot
 -- blank Must contain from 1 to 255 alphanumeric characters or hyphens First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: my-snapshot-id.
-cdbsnDBSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBSnapshot
-    -> f CreateDBSnapshot
+cdbsnDBSnapshotIdentifier :: Lens' CreateDBSnapshot (Text)
 cdbsnDBSnapshotIdentifier f x =
-    (\y -> x { _cdbsnDBSnapshotIdentifier = y })
-       <$> f (_cdbsnDBSnapshotIdentifier x)
+    f (_cdbsnDBSnapshotIdentifier x)
+        <&> \y -> x { _cdbsnDBSnapshotIdentifier = y }
 {-# INLINE cdbsnDBSnapshotIdentifier #-}
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
 -- instance. This parameter isn't case sensitive. Constraints: Must contain
 -- from 1 to 63 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens.
-cdbsnDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBSnapshot
-    -> f CreateDBSnapshot
+cdbsnDBInstanceIdentifier :: Lens' CreateDBSnapshot (Text)
 cdbsnDBInstanceIdentifier f x =
-    (\y -> x { _cdbsnDBInstanceIdentifier = y })
-       <$> f (_cdbsnDBInstanceIdentifier x)
+    f (_cdbsnDBInstanceIdentifier x)
+        <&> \y -> x { _cdbsnDBInstanceIdentifier = y }
 {-# INLINE cdbsnDBInstanceIdentifier #-}
 
 -- | A list of tags.
-cdbsnTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateDBSnapshot
-    -> f CreateDBSnapshot
+cdbsnTags :: Lens' CreateDBSnapshot ([Tag])
 cdbsnTags f x =
-    (\y -> x { _cdbsnTags = y })
-       <$> f (_cdbsnTags x)
+    f (_cdbsnTags x)
+        <&> \y -> x { _cdbsnTags = y }
 {-# INLINE cdbsnTags #-}
 
 instance ToQuery CreateDBSnapshot where
@@ -128,15 +114,10 @@ data CreateDBSnapshotResponse = CreateDBSnapshotResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
-dbsxDBSnapshot
-    :: Functor f
-    => (Maybe DBSnapshot
-    -> f (Maybe DBSnapshot))
-    -> CreateDBSnapshotResponse
-    -> f CreateDBSnapshotResponse
+dbsxDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 dbsxDBSnapshot f x =
-    (\y -> x { _dbsxDBSnapshot = y })
-       <$> f (_dbsxDBSnapshot x)
+    f (_dbsxDBSnapshot x)
+        <&> \y -> x { _dbsxDBSnapshot = y }
 {-# INLINE dbsxDBSnapshot #-}
 
 instance FromXML CreateDBSnapshotResponse where

@@ -49,6 +49,7 @@ describeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasrLayerIds'
 describeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
     { _dlbasrLayerIds = p1
     }
+{-# INLINE describeLoadBasedAutoScaling #-}
 
 data DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     { _dlbasrLayerIds :: [Text]
@@ -56,15 +57,10 @@ data DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     } deriving (Show, Generic)
 
 -- | An array of layer IDs.
-dlbasrLayerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLoadBasedAutoScaling
-    -> f DescribeLoadBasedAutoScaling
+dlbasrLayerIds :: Lens' DescribeLoadBasedAutoScaling ([Text])
 dlbasrLayerIds f x =
-    (\y -> x { _dlbasrLayerIds = y })
-       <$> f (_dlbasrLayerIds x)
+    f (_dlbasrLayerIds x)
+        <&> \y -> x { _dlbasrLayerIds = y }
 {-# INLINE dlbasrLayerIds #-}
 
 instance ToPath DescribeLoadBasedAutoScaling
@@ -83,15 +79,10 @@ data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
 
 -- | An array of LoadBasedAutoScalingConfiguration objects that describe each
 -- layer's configuration.
-dlbassLoadBasedAutoScalingConfigurations
-    :: Functor f
-    => ([LoadBasedAutoScalingConfiguration]
-    -> f ([LoadBasedAutoScalingConfiguration]))
-    -> DescribeLoadBasedAutoScalingResponse
-    -> f DescribeLoadBasedAutoScalingResponse
+dlbassLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse ([LoadBasedAutoScalingConfiguration])
 dlbassLoadBasedAutoScalingConfigurations f x =
-    (\y -> x { _dlbassLoadBasedAutoScalingConfigurations = y })
-       <$> f (_dlbassLoadBasedAutoScalingConfigurations x)
+    f (_dlbassLoadBasedAutoScalingConfigurations x)
+        <&> \y -> x { _dlbassLoadBasedAutoScalingConfigurations = y }
 {-# INLINE dlbassLoadBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse

@@ -55,6 +55,7 @@ updateApplicationVersion p1 p2 = UpdateApplicationVersion
     , _uavmVersionLabel = p2
     , _uavmDescription = Nothing
     }
+{-# INLINE updateApplicationVersion #-}
 
 data UpdateApplicationVersion = UpdateApplicationVersion
     { _uavmApplicationName :: Text
@@ -72,40 +73,25 @@ data UpdateApplicationVersion = UpdateApplicationVersion
 -- | The name of the application associated with this version. If no application
 -- is found with this name, UpdateApplication returns an InvalidParameterValue
 -- error.
-uavmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateApplicationVersion
-    -> f UpdateApplicationVersion
+uavmApplicationName :: Lens' UpdateApplicationVersion (Text)
 uavmApplicationName f x =
-    (\y -> x { _uavmApplicationName = y })
-       <$> f (_uavmApplicationName x)
+    f (_uavmApplicationName x)
+        <&> \y -> x { _uavmApplicationName = y }
 {-# INLINE uavmApplicationName #-}
 
 -- | The name of the version to update. If no application version is found with
 -- this label, UpdateApplication returns an InvalidParameterValue error.
-uavmVersionLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateApplicationVersion
-    -> f UpdateApplicationVersion
+uavmVersionLabel :: Lens' UpdateApplicationVersion (Text)
 uavmVersionLabel f x =
-    (\y -> x { _uavmVersionLabel = y })
-       <$> f (_uavmVersionLabel x)
+    f (_uavmVersionLabel x)
+        <&> \y -> x { _uavmVersionLabel = y }
 {-# INLINE uavmVersionLabel #-}
 
 -- | A new description for this release.
-uavmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateApplicationVersion
-    -> f UpdateApplicationVersion
+uavmDescription :: Lens' UpdateApplicationVersion (Maybe Text)
 uavmDescription f x =
-    (\y -> x { _uavmDescription = y })
-       <$> f (_uavmDescription x)
+    f (_uavmDescription x)
+        <&> \y -> x { _uavmDescription = y }
 {-# INLINE uavmDescription #-}
 
 instance ToQuery UpdateApplicationVersion where
@@ -117,15 +103,10 @@ data UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     } deriving (Show, Generic)
 
 -- | The ApplicationVersionDescription of the application version.
-avdoApplicationVersion
-    :: Functor f
-    => (Maybe ApplicationVersionDescription
-    -> f (Maybe ApplicationVersionDescription))
-    -> UpdateApplicationVersionResponse
-    -> f UpdateApplicationVersionResponse
+avdoApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 avdoApplicationVersion f x =
-    (\y -> x { _avdoApplicationVersion = y })
-       <$> f (_avdoApplicationVersion x)
+    f (_avdoApplicationVersion x)
+        <&> \y -> x { _avdoApplicationVersion = y }
 {-# INLINE avdoApplicationVersion #-}
 
 instance FromXML UpdateApplicationVersionResponse where

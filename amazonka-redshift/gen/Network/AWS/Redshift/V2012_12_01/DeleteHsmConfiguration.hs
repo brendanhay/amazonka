@@ -41,6 +41,7 @@ deleteHsmConfiguration :: Text -- ^ 'dhcmHsmConfigurationIdentifier'
 deleteHsmConfiguration p1 = DeleteHsmConfiguration
     { _dhcmHsmConfigurationIdentifier = p1
     }
+{-# INLINE deleteHsmConfiguration #-}
 
 data DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcmHsmConfigurationIdentifier :: Text
@@ -49,15 +50,10 @@ data DeleteHsmConfiguration = DeleteHsmConfiguration
     } deriving (Show, Generic)
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-dhcmHsmConfigurationIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteHsmConfiguration
-    -> f DeleteHsmConfiguration
+dhcmHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration (Text)
 dhcmHsmConfigurationIdentifier f x =
-    (\y -> x { _dhcmHsmConfigurationIdentifier = y })
-       <$> f (_dhcmHsmConfigurationIdentifier x)
+    f (_dhcmHsmConfigurationIdentifier x)
+        <&> \y -> x { _dhcmHsmConfigurationIdentifier = y }
 {-# INLINE dhcmHsmConfigurationIdentifier #-}
 
 instance ToQuery DeleteHsmConfiguration where

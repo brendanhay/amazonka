@@ -82,6 +82,7 @@ restoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsmOptionGroupName = Nothing
     , _rdbifdbsmTags = mempty
     }
+{-# INLINE restoreDBInstanceFromDBSnapshot #-}
 
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     { _rdbifdbsmDBInstanceIdentifier :: Text
@@ -167,44 +168,29 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-rdbifdbsmDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmDBInstanceIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot (Text)
 rdbifdbsmDBInstanceIdentifier f x =
-    (\y -> x { _rdbifdbsmDBInstanceIdentifier = y })
-       <$> f (_rdbifdbsmDBInstanceIdentifier x)
+    f (_rdbifdbsmDBInstanceIdentifier x)
+        <&> \y -> x { _rdbifdbsmDBInstanceIdentifier = y }
 {-# INLINE rdbifdbsmDBInstanceIdentifier #-}
 
 -- | Name of the DB instance to create from the DB snapshot. This parameter
 -- isn't case sensitive. Constraints: Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens Example: my-snapshot-id.
-rdbifdbsmDBSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmDBSnapshotIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot (Text)
 rdbifdbsmDBSnapshotIdentifier f x =
-    (\y -> x { _rdbifdbsmDBSnapshotIdentifier = y })
-       <$> f (_rdbifdbsmDBSnapshotIdentifier x)
+    f (_rdbifdbsmDBSnapshotIdentifier x)
+        <&> \y -> x { _rdbifdbsmDBSnapshotIdentifier = y }
 {-# INLINE rdbifdbsmDBSnapshotIdentifier #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
 -- set to true.
-rdbifdbsmMultiAZ
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmMultiAZ :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdbifdbsmMultiAZ f x =
-    (\y -> x { _rdbifdbsmMultiAZ = y })
-       <$> f (_rdbifdbsmMultiAZ x)
+    f (_rdbifdbsmMultiAZ x)
+        <&> \y -> x { _rdbifdbsmMultiAZ = y }
 {-# INLINE rdbifdbsmMultiAZ #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
@@ -218,42 +204,27 @@ rdbifdbsmMultiAZ f x =
 -- the DB instance will be publicly accessible. If a specific DB subnet group
 -- has been specified as part of the request and the PubliclyAccessible value
 -- has not been set, the DB instance will be private.
-rdbifdbsmPubliclyAccessible
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmPubliclyAccessible :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdbifdbsmPubliclyAccessible f x =
-    (\y -> x { _rdbifdbsmPubliclyAccessible = y })
-       <$> f (_rdbifdbsmPubliclyAccessible x)
+    f (_rdbifdbsmPubliclyAccessible x)
+        <&> \y -> x { _rdbifdbsmPubliclyAccessible = y }
 {-# INLINE rdbifdbsmPubliclyAccessible #-}
 
 -- | Indicates that minor version upgrades will be applied automatically to the
 -- DB instance during the maintenance window.
-rdbifdbsmAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdbifdbsmAutoMinorVersionUpgrade f x =
-    (\y -> x { _rdbifdbsmAutoMinorVersionUpgrade = y })
-       <$> f (_rdbifdbsmAutoMinorVersionUpgrade x)
+    f (_rdbifdbsmAutoMinorVersionUpgrade x)
+        <&> \y -> x { _rdbifdbsmAutoMinorVersionUpgrade = y }
 {-# INLINE rdbifdbsmAutoMinorVersionUpgrade #-}
 
 -- | The port number on which the database accepts connections. Default: The
 -- same port as the original DB instance Constraints: Value must be
 -- 1150-65535.
-rdbifdbsmPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmPort :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Integer)
 rdbifdbsmPort f x =
-    (\y -> x { _rdbifdbsmPort = y })
-       <$> f (_rdbifdbsmPort x)
+    f (_rdbifdbsmPort x)
+        <&> \y -> x { _rdbifdbsmPort = y }
 {-# INLINE rdbifdbsmPort #-}
 
 -- | Specifies the amount of provisioned IOPS for the DB instance, expressed in
@@ -263,97 +234,62 @@ rdbifdbsmPort f x =
 -- additional time, though your DB instance will be available for connections
 -- before the conversion starts. Constraints: Must be an integer greater than
 -- 1000.
-rdbifdbsmIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmIops :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Integer)
 rdbifdbsmIops f x =
-    (\y -> x { _rdbifdbsmIops = y })
-       <$> f (_rdbifdbsmIops x)
+    f (_rdbifdbsmIops x)
+        <&> \y -> x { _rdbifdbsmIops = y }
 {-# INLINE rdbifdbsmIops #-}
 
 -- | The compute and memory capacity of the Amazon RDS DB instance. Valid
 -- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 -- db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-rdbifdbsmDBInstanceClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmDBInstanceClass :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmDBInstanceClass f x =
-    (\y -> x { _rdbifdbsmDBInstanceClass = y })
-       <$> f (_rdbifdbsmDBInstanceClass x)
+    f (_rdbifdbsmDBInstanceClass x)
+        <&> \y -> x { _rdbifdbsmDBInstanceClass = y }
 {-# INLINE rdbifdbsmDBInstanceClass #-}
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone. Constraint: You cannot
 -- specify the AvailabilityZone parameter if the MultiAZ parameter is set to
 -- true. Example: us-east-1a.
-rdbifdbsmAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmAvailabilityZone :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmAvailabilityZone f x =
-    (\y -> x { _rdbifdbsmAvailabilityZone = y })
-       <$> f (_rdbifdbsmAvailabilityZone x)
+    f (_rdbifdbsmAvailabilityZone x)
+        <&> \y -> x { _rdbifdbsmAvailabilityZone = y }
 {-# INLINE rdbifdbsmAvailabilityZone #-}
 
 -- | The DB subnet group name to use for the new instance.
-rdbifdbsmDBSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmDBSubnetGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmDBSubnetGroupName f x =
-    (\y -> x { _rdbifdbsmDBSubnetGroupName = y })
-       <$> f (_rdbifdbsmDBSubnetGroupName x)
+    f (_rdbifdbsmDBSubnetGroupName x)
+        <&> \y -> x { _rdbifdbsmDBSubnetGroupName = y }
 {-# INLINE rdbifdbsmDBSubnetGroupName #-}
 
 -- | License model information for the restored DB instance. Default: Same as
 -- source. Valid values: license-included | bring-your-own-license |
 -- general-public-license.
-rdbifdbsmLicenseModel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmLicenseModel :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmLicenseModel f x =
-    (\y -> x { _rdbifdbsmLicenseModel = y })
-       <$> f (_rdbifdbsmLicenseModel x)
+    f (_rdbifdbsmLicenseModel x)
+        <&> \y -> x { _rdbifdbsmLicenseModel = y }
 {-# INLINE rdbifdbsmLicenseModel #-}
 
 -- | The database name for the restored DB instance. This parameter doesn't
 -- apply to the MySQL engine.
-rdbifdbsmDBName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmDBName f x =
-    (\y -> x { _rdbifdbsmDBName = y })
-       <$> f (_rdbifdbsmDBName x)
+    f (_rdbifdbsmDBName x)
+        <&> \y -> x { _rdbifdbsmDBName = y }
 {-# INLINE rdbifdbsmDBName #-}
 
 -- | The database engine to use for the new instance. Default: The same as
 -- source Constraint: Must be compatible with the engine of the source
 -- Example: oracle-ee.
-rdbifdbsmEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmEngine f x =
-    (\y -> x { _rdbifdbsmEngine = y })
-       <$> f (_rdbifdbsmEngine x)
+    f (_rdbifdbsmEngine x)
+        <&> \y -> x { _rdbifdbsmEngine = y }
 {-# INLINE rdbifdbsmEngine #-}
 
 -- | The name of the option group to be used for the restored DB instance.
@@ -362,27 +298,17 @@ rdbifdbsmEngine f x =
 -- Oracle Advanced Security TDE, cannot be removed from an option group, and
 -- that option group cannot be removed from a DB instance once it is
 -- associated with a DB instance.
-rdbifdbsmOptionGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmOptionGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsmOptionGroupName f x =
-    (\y -> x { _rdbifdbsmOptionGroupName = y })
-       <$> f (_rdbifdbsmOptionGroupName x)
+    f (_rdbifdbsmOptionGroupName x)
+        <&> \y -> x { _rdbifdbsmOptionGroupName = y }
 {-# INLINE rdbifdbsmOptionGroupName #-}
 
 -- | A list of tags.
-rdbifdbsmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> RestoreDBInstanceFromDBSnapshot
-    -> f RestoreDBInstanceFromDBSnapshot
+rdbifdbsmTags :: Lens' RestoreDBInstanceFromDBSnapshot ([Tag])
 rdbifdbsmTags f x =
-    (\y -> x { _rdbifdbsmTags = y })
-       <$> f (_rdbifdbsmTags x)
+    f (_rdbifdbsmTags x)
+        <&> \y -> x { _rdbifdbsmTags = y }
 {-# INLINE rdbifdbsmTags #-}
 
 instance ToQuery RestoreDBInstanceFromDBSnapshot where
@@ -399,15 +325,10 @@ data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotRe
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbidtDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> RestoreDBInstanceFromDBSnapshotResponse
-    -> f RestoreDBInstanceFromDBSnapshotResponse
+dbidtDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
 dbidtDBInstance f x =
-    (\y -> x { _dbidtDBInstance = y })
-       <$> f (_dbidtDBInstance x)
+    f (_dbidtDBInstance x)
+        <&> \y -> x { _dbidtDBInstance = y }
 {-# INLINE dbidtDBInstance #-}
 
 instance FromXML RestoreDBInstanceFromDBSnapshotResponse where

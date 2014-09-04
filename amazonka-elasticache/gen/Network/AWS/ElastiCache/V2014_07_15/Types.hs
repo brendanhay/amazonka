@@ -410,15 +410,10 @@ newtype AvailabilityZone = AvailabilityZone
     } deriving (Show, Generic)
 
 -- | The name of the Availability Zone.
-azName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AvailabilityZone
-    -> f AvailabilityZone
+azName :: Lens' AvailabilityZone (Maybe Text)
 azName f x =
-    (\y -> x { _azName = y })
-       <$> f (_azName x)
+    f (_azName x)
+        <&> \y -> x { _azName = y }
 {-# INLINE azName #-}
 
 instance FromXML AvailabilityZone where
@@ -439,15 +434,10 @@ newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedV
 
 -- | The primary cluster ID which will be applied immediately (if
 -- --apply-immediately was specified), or during the next maintenance window.
-rgpmvPrimaryClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplicationGroupPendingModifiedValues
-    -> f ReplicationGroupPendingModifiedValues
+rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
 rgpmvPrimaryClusterId f x =
-    (\y -> x { _rgpmvPrimaryClusterId = y })
-       <$> f (_rgpmvPrimaryClusterId x)
+    f (_rgpmvPrimaryClusterId x)
+        <&> \y -> x { _rgpmvPrimaryClusterId = y }
 {-# INLINE rgpmvPrimaryClusterId #-}
 
 instance FromXML ReplicationGroupPendingModifiedValues where
@@ -532,254 +522,154 @@ data CacheCluster = CacheCluster
 
 -- | The user-supplied identifier of the cache cluster. This is a unique key
 -- that identifies a cache cluster.
-ccCacheClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterId f x =
-    (\y -> x { _ccCacheClusterId = y })
-       <$> f (_ccCacheClusterId x)
+    f (_ccCacheClusterId x)
+        <&> \y -> x { _ccCacheClusterId = y }
 {-# INLINE ccCacheClusterId #-}
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-ccConfigurationEndpoint
-    :: Functor f
-    => (Maybe Endpoint
-    -> f (Maybe Endpoint))
-    -> CacheCluster
-    -> f CacheCluster
+ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
 ccConfigurationEndpoint f x =
-    (\y -> x { _ccConfigurationEndpoint = y })
-       <$> f (_ccConfigurationEndpoint x)
+    f (_ccConfigurationEndpoint x)
+        <&> \y -> x { _ccConfigurationEndpoint = y }
 {-# INLINE ccConfigurationEndpoint #-}
 
 -- | The URL of the web page where you can download the latest ElastiCache
 -- client library.
-ccClientDownloadLandingPage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccClientDownloadLandingPage :: Lens' CacheCluster (Maybe Text)
 ccClientDownloadLandingPage f x =
-    (\y -> x { _ccClientDownloadLandingPage = y })
-       <$> f (_ccClientDownloadLandingPage x)
+    f (_ccClientDownloadLandingPage x)
+        <&> \y -> x { _ccClientDownloadLandingPage = y }
 {-# INLINE ccClientDownloadLandingPage #-}
 
 -- | The name of the compute and memory capacity node type for the cache
 -- cluster.
-ccCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheNodeType :: Lens' CacheCluster (Maybe Text)
 ccCacheNodeType f x =
-    (\y -> x { _ccCacheNodeType = y })
-       <$> f (_ccCacheNodeType x)
+    f (_ccCacheNodeType x)
+        <&> \y -> x { _ccCacheNodeType = y }
 {-# INLINE ccCacheNodeType #-}
 
 -- | The name of the cache engine (memcached or redis) to be used for this cache
 -- cluster.
-ccEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccEngine :: Lens' CacheCluster (Maybe Text)
 ccEngine f x =
-    (\y -> x { _ccEngine = y })
-       <$> f (_ccEngine x)
+    f (_ccEngine x)
+        <&> \y -> x { _ccEngine = y }
 {-# INLINE ccEngine #-}
 
 -- | The version of the cache engine version that is used in this cache cluster.
-ccEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccEngineVersion :: Lens' CacheCluster (Maybe Text)
 ccEngineVersion f x =
-    (\y -> x { _ccEngineVersion = y })
-       <$> f (_ccEngineVersion x)
+    f (_ccEngineVersion x)
+        <&> \y -> x { _ccEngineVersion = y }
 {-# INLINE ccEngineVersion #-}
 
 -- | The current state of this cache cluster - creating, available, etc.
-ccCacheClusterStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheClusterStatus :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterStatus f x =
-    (\y -> x { _ccCacheClusterStatus = y })
-       <$> f (_ccCacheClusterStatus x)
+    f (_ccCacheClusterStatus x)
+        <&> \y -> x { _ccCacheClusterStatus = y }
 {-# INLINE ccCacheClusterStatus #-}
 
 -- | The number of cache nodes in the cache cluster.
-ccNumCacheNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CacheCluster
-    -> f CacheCluster
+ccNumCacheNodes :: Lens' CacheCluster (Maybe Integer)
 ccNumCacheNodes f x =
-    (\y -> x { _ccNumCacheNodes = y })
-       <$> f (_ccNumCacheNodes x)
+    f (_ccNumCacheNodes x)
+        <&> \y -> x { _ccNumCacheNodes = y }
 {-# INLINE ccNumCacheNodes #-}
 
 -- | The name of the Availability Zone in which the cache cluster is located or
 -- "Multiple" if the cache nodes are located in different Availability Zones.
-ccPreferredAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
 ccPreferredAvailabilityZone f x =
-    (\y -> x { _ccPreferredAvailabilityZone = y })
-       <$> f (_ccPreferredAvailabilityZone x)
+    f (_ccPreferredAvailabilityZone x)
+        <&> \y -> x { _ccPreferredAvailabilityZone = y }
 {-# INLINE ccPreferredAvailabilityZone #-}
 
 -- | The date and time when the cache cluster was created.
-ccCacheClusterCreateTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheClusterCreateTime :: Lens' CacheCluster (Maybe ISO8601)
 ccCacheClusterCreateTime f x =
-    (\y -> x { _ccCacheClusterCreateTime = y })
-       <$> f (_ccCacheClusterCreateTime x)
+    f (_ccCacheClusterCreateTime x)
+        <&> \y -> x { _ccCacheClusterCreateTime = y }
 {-# INLINE ccCacheClusterCreateTime #-}
 
 -- | The time range (in UTC) during which weekly system maintenance can occur.
-ccPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccPreferredMaintenanceWindow :: Lens' CacheCluster (Maybe Text)
 ccPreferredMaintenanceWindow f x =
-    (\y -> x { _ccPreferredMaintenanceWindow = y })
-       <$> f (_ccPreferredMaintenanceWindow x)
+    f (_ccPreferredMaintenanceWindow x)
+        <&> \y -> x { _ccPreferredMaintenanceWindow = y }
 {-# INLINE ccPreferredMaintenanceWindow #-}
 
 -- | A group of settings that will be applied to the cache cluster in the
 -- future, or that are currently being applied.
-ccPendingModifiedValues
-    :: Functor f
-    => (Maybe PendingModifiedValues
-    -> f (Maybe PendingModifiedValues))
-    -> CacheCluster
-    -> f CacheCluster
+ccPendingModifiedValues :: Lens' CacheCluster (Maybe PendingModifiedValues)
 ccPendingModifiedValues f x =
-    (\y -> x { _ccPendingModifiedValues = y })
-       <$> f (_ccPendingModifiedValues x)
+    f (_ccPendingModifiedValues x)
+        <&> \y -> x { _ccPendingModifiedValues = y }
 {-# INLINE ccPendingModifiedValues #-}
 
 -- | Describes a notification topic and its status. Notification topics are used
 -- for publishing ElastiCache events to subscribers using Amazon Simple
 -- Notification Service (SNS).
-ccNotificationConfiguration
-    :: Functor f
-    => (Maybe NotificationConfiguration
-    -> f (Maybe NotificationConfiguration))
-    -> CacheCluster
-    -> f CacheCluster
+ccNotificationConfiguration :: Lens' CacheCluster (Maybe NotificationConfiguration)
 ccNotificationConfiguration f x =
-    (\y -> x { _ccNotificationConfiguration = y })
-       <$> f (_ccNotificationConfiguration x)
+    f (_ccNotificationConfiguration x)
+        <&> \y -> x { _ccNotificationConfiguration = y }
 {-# INLINE ccNotificationConfiguration #-}
 
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
-ccCacheSecurityGroups
-    :: Functor f
-    => ([CacheSecurityGroupMembership]
-    -> f ([CacheSecurityGroupMembership]))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheSecurityGroups :: Lens' CacheCluster ([CacheSecurityGroupMembership])
 ccCacheSecurityGroups f x =
-    (\y -> x { _ccCacheSecurityGroups = y })
-       <$> f (_ccCacheSecurityGroups x)
+    f (_ccCacheSecurityGroups x)
+        <&> \y -> x { _ccCacheSecurityGroups = y }
 {-# INLINE ccCacheSecurityGroups #-}
 
 -- | The status of the cache parameter group.
-ccCacheParameterGroup
-    :: Functor f
-    => (Maybe CacheParameterGroupStatus
-    -> f (Maybe CacheParameterGroupStatus))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheParameterGroup :: Lens' CacheCluster (Maybe CacheParameterGroupStatus)
 ccCacheParameterGroup f x =
-    (\y -> x { _ccCacheParameterGroup = y })
-       <$> f (_ccCacheParameterGroup x)
+    f (_ccCacheParameterGroup x)
+        <&> \y -> x { _ccCacheParameterGroup = y }
 {-# INLINE ccCacheParameterGroup #-}
 
 -- | The name of the cache subnet group associated with the cache cluster.
-ccCacheSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheSubnetGroupName :: Lens' CacheCluster (Maybe Text)
 ccCacheSubnetGroupName f x =
-    (\y -> x { _ccCacheSubnetGroupName = y })
-       <$> f (_ccCacheSubnetGroupName x)
+    f (_ccCacheSubnetGroupName x)
+        <&> \y -> x { _ccCacheSubnetGroupName = y }
 {-# INLINE ccCacheSubnetGroupName #-}
 
 -- | A list of cache nodes that are members of the cache cluster.
-ccCacheNodes
-    :: Functor f
-    => ([CacheNode]
-    -> f ([CacheNode]))
-    -> CacheCluster
-    -> f CacheCluster
+ccCacheNodes :: Lens' CacheCluster ([CacheNode])
 ccCacheNodes f x =
-    (\y -> x { _ccCacheNodes = y })
-       <$> f (_ccCacheNodes x)
+    f (_ccCacheNodes x)
+        <&> \y -> x { _ccCacheNodes = y }
 {-# INLINE ccCacheNodes #-}
 
 -- | If true, then minor version patches are applied automatically; if false,
 -- then automatic minor version patches are disabled.
-ccAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CacheCluster
-    -> f CacheCluster
+ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade f x =
-    (\y -> x { _ccAutoMinorVersionUpgrade = y })
-       <$> f (_ccAutoMinorVersionUpgrade x)
+    f (_ccAutoMinorVersionUpgrade x)
+        <&> \y -> x { _ccAutoMinorVersionUpgrade = y }
 {-# INLINE ccAutoMinorVersionUpgrade #-}
 
 -- | A list of VPC Security Groups associated with the cache cluster.
-ccSecurityGroups
-    :: Functor f
-    => ([SecurityGroupMembership]
-    -> f ([SecurityGroupMembership]))
-    -> CacheCluster
-    -> f CacheCluster
+ccSecurityGroups :: Lens' CacheCluster ([SecurityGroupMembership])
 ccSecurityGroups f x =
-    (\y -> x { _ccSecurityGroups = y })
-       <$> f (_ccSecurityGroups x)
+    f (_ccSecurityGroups x)
+        <&> \y -> x { _ccSecurityGroups = y }
 {-# INLINE ccSecurityGroups #-}
 
 -- | The replication group to which this cache cluster belongs. If this field is
 -- empty, the cache cluster is not associated with any replication group.
-ccReplicationGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccReplicationGroupId :: Lens' CacheCluster (Maybe Text)
 ccReplicationGroupId f x =
-    (\y -> x { _ccReplicationGroupId = y })
-       <$> f (_ccReplicationGroupId x)
+    f (_ccReplicationGroupId x)
+        <&> \y -> x { _ccReplicationGroupId = y }
 {-# INLINE ccReplicationGroupId #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
@@ -787,28 +677,18 @@ ccReplicationGroupId f x =
 -- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
 -- retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
-ccSnapshotRetentionLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CacheCluster
-    -> f CacheCluster
+ccSnapshotRetentionLimit :: Lens' CacheCluster (Maybe Integer)
 ccSnapshotRetentionLimit f x =
-    (\y -> x { _ccSnapshotRetentionLimit = y })
-       <$> f (_ccSnapshotRetentionLimit x)
+    f (_ccSnapshotRetentionLimit x)
+        <&> \y -> x { _ccSnapshotRetentionLimit = y }
 {-# INLINE ccSnapshotRetentionLimit #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of your cache cluster. Example: 05:00-09:00.
-ccSnapshotWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheCluster
-    -> f CacheCluster
+ccSnapshotWindow :: Lens' CacheCluster (Maybe Text)
 ccSnapshotWindow f x =
-    (\y -> x { _ccSnapshotWindow = y })
-       <$> f (_ccSnapshotWindow x)
+    f (_ccSnapshotWindow x)
+        <&> \y -> x { _ccSnapshotWindow = y }
 {-# INLINE ccSnapshotWindow #-}
 
 instance FromXML CacheCluster where
@@ -831,64 +711,39 @@ data CacheEngineVersion = CacheEngineVersion
     } deriving (Show, Generic)
 
 -- | The name of the cache engine.
-cevEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheEngineVersion
-    -> f CacheEngineVersion
+cevEngine :: Lens' CacheEngineVersion (Maybe Text)
 cevEngine f x =
-    (\y -> x { _cevEngine = y })
-       <$> f (_cevEngine x)
+    f (_cevEngine x)
+        <&> \y -> x { _cevEngine = y }
 {-# INLINE cevEngine #-}
 
 -- | The version number of the cache engine.
-cevEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheEngineVersion
-    -> f CacheEngineVersion
+cevEngineVersion :: Lens' CacheEngineVersion (Maybe Text)
 cevEngineVersion f x =
-    (\y -> x { _cevEngineVersion = y })
-       <$> f (_cevEngineVersion x)
+    f (_cevEngineVersion x)
+        <&> \y -> x { _cevEngineVersion = y }
 {-# INLINE cevEngineVersion #-}
 
 -- | The name of the cache parameter group family associated with this cache
 -- engine.
-cevCacheParameterGroupFamily
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheEngineVersion
-    -> f CacheEngineVersion
+cevCacheParameterGroupFamily :: Lens' CacheEngineVersion (Maybe Text)
 cevCacheParameterGroupFamily f x =
-    (\y -> x { _cevCacheParameterGroupFamily = y })
-       <$> f (_cevCacheParameterGroupFamily x)
+    f (_cevCacheParameterGroupFamily x)
+        <&> \y -> x { _cevCacheParameterGroupFamily = y }
 {-# INLINE cevCacheParameterGroupFamily #-}
 
 -- | The description of the cache engine.
-cevCacheEngineDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheEngineVersion
-    -> f CacheEngineVersion
+cevCacheEngineDescription :: Lens' CacheEngineVersion (Maybe Text)
 cevCacheEngineDescription f x =
-    (\y -> x { _cevCacheEngineDescription = y })
-       <$> f (_cevCacheEngineDescription x)
+    f (_cevCacheEngineDescription x)
+        <&> \y -> x { _cevCacheEngineDescription = y }
 {-# INLINE cevCacheEngineDescription #-}
 
 -- | The description of the cache engine version.
-cevCacheEngineVersionDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheEngineVersion
-    -> f CacheEngineVersion
+cevCacheEngineVersionDescription :: Lens' CacheEngineVersion (Maybe Text)
 cevCacheEngineVersionDescription f x =
-    (\y -> x { _cevCacheEngineVersionDescription = y })
-       <$> f (_cevCacheEngineVersionDescription x)
+    f (_cevCacheEngineVersionDescription x)
+        <&> \y -> x { _cevCacheEngineVersionDescription = y }
 {-# INLINE cevCacheEngineVersionDescription #-}
 
 instance FromXML CacheEngineVersion where
@@ -924,89 +779,54 @@ data CacheNode = CacheNode
 -- | The cache node identifier. A node ID is a numeric identifier (0001, 0002,
 -- etc.). The combination of cluster ID and node ID uniquely identifies every
 -- cache node used in a customer's AWS account.
-cnCacheNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNode
-    -> f CacheNode
+cnCacheNodeId :: Lens' CacheNode (Maybe Text)
 cnCacheNodeId f x =
-    (\y -> x { _cnCacheNodeId = y })
-       <$> f (_cnCacheNodeId x)
+    f (_cnCacheNodeId x)
+        <&> \y -> x { _cnCacheNodeId = y }
 {-# INLINE cnCacheNodeId #-}
 
 -- | The current state of this cache node.
-cnCacheNodeStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNode
-    -> f CacheNode
+cnCacheNodeStatus :: Lens' CacheNode (Maybe Text)
 cnCacheNodeStatus f x =
-    (\y -> x { _cnCacheNodeStatus = y })
-       <$> f (_cnCacheNodeStatus x)
+    f (_cnCacheNodeStatus x)
+        <&> \y -> x { _cnCacheNodeStatus = y }
 {-# INLINE cnCacheNodeStatus #-}
 
 -- | The date and time when the cache node was created.
-cnCacheNodeCreateTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> CacheNode
-    -> f CacheNode
+cnCacheNodeCreateTime :: Lens' CacheNode (Maybe ISO8601)
 cnCacheNodeCreateTime f x =
-    (\y -> x { _cnCacheNodeCreateTime = y })
-       <$> f (_cnCacheNodeCreateTime x)
+    f (_cnCacheNodeCreateTime x)
+        <&> \y -> x { _cnCacheNodeCreateTime = y }
 {-# INLINE cnCacheNodeCreateTime #-}
 
 -- | The hostname and IP address for connecting to this cache node.
-cnEndpoint
-    :: Functor f
-    => (Maybe Endpoint
-    -> f (Maybe Endpoint))
-    -> CacheNode
-    -> f CacheNode
+cnEndpoint :: Lens' CacheNode (Maybe Endpoint)
 cnEndpoint f x =
-    (\y -> x { _cnEndpoint = y })
-       <$> f (_cnEndpoint x)
+    f (_cnEndpoint x)
+        <&> \y -> x { _cnEndpoint = y }
 {-# INLINE cnEndpoint #-}
 
 -- | The status of the parameter group applied to this cache node.
-cnParameterGroupStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNode
-    -> f CacheNode
+cnParameterGroupStatus :: Lens' CacheNode (Maybe Text)
 cnParameterGroupStatus f x =
-    (\y -> x { _cnParameterGroupStatus = y })
-       <$> f (_cnParameterGroupStatus x)
+    f (_cnParameterGroupStatus x)
+        <&> \y -> x { _cnParameterGroupStatus = y }
 {-# INLINE cnParameterGroupStatus #-}
 
 -- | The ID of the primary node to which this read replica node is synchronized.
 -- If this field is empty, then this node is not associated with a primary
 -- cache cluster.
-cnSourceCacheNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNode
-    -> f CacheNode
+cnSourceCacheNodeId :: Lens' CacheNode (Maybe Text)
 cnSourceCacheNodeId f x =
-    (\y -> x { _cnSourceCacheNodeId = y })
-       <$> f (_cnSourceCacheNodeId x)
+    f (_cnSourceCacheNodeId x)
+        <&> \y -> x { _cnSourceCacheNodeId = y }
 {-# INLINE cnSourceCacheNodeId #-}
 
 -- | The Availability Zone where this node was created and now resides.
-cnCustomerAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNode
-    -> f CacheNode
+cnCustomerAvailabilityZone :: Lens' CacheNode (Maybe Text)
 cnCustomerAvailabilityZone f x =
-    (\y -> x { _cnCustomerAvailabilityZone = y })
-       <$> f (_cnCustomerAvailabilityZone x)
+    f (_cnCustomerAvailabilityZone x)
+        <&> \y -> x { _cnCustomerAvailabilityZone = y }
 {-# INLINE cnCustomerAvailabilityZone #-}
 
 instance FromXML CacheNode where
@@ -1043,102 +863,62 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     } deriving (Show, Generic)
 
 -- | The name of the parameter.
-cntspParameterName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspParameterName :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspParameterName f x =
-    (\y -> x { _cntspParameterName = y })
-       <$> f (_cntspParameterName x)
+    f (_cntspParameterName x)
+        <&> \y -> x { _cntspParameterName = y }
 {-# INLINE cntspParameterName #-}
 
 -- | A description of the parameter.
-cntspDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspDescription :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspDescription f x =
-    (\y -> x { _cntspDescription = y })
-       <$> f (_cntspDescription x)
+    f (_cntspDescription x)
+        <&> \y -> x { _cntspDescription = y }
 {-# INLINE cntspDescription #-}
 
 -- | The source of the parameter value.
-cntspSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspSource :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspSource f x =
-    (\y -> x { _cntspSource = y })
-       <$> f (_cntspSource x)
+    f (_cntspSource x)
+        <&> \y -> x { _cntspSource = y }
 {-# INLINE cntspSource #-}
 
 -- | The valid data type for the parameter.
-cntspDataType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspDataType :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspDataType f x =
-    (\y -> x { _cntspDataType = y })
-       <$> f (_cntspDataType x)
+    f (_cntspDataType x)
+        <&> \y -> x { _cntspDataType = y }
 {-# INLINE cntspDataType #-}
 
 -- | The valid range of values for the parameter.
-cntspAllowedValues
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspAllowedValues :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspAllowedValues f x =
-    (\y -> x { _cntspAllowedValues = y })
-       <$> f (_cntspAllowedValues x)
+    f (_cntspAllowedValues x)
+        <&> \y -> x { _cntspAllowedValues = y }
 {-# INLINE cntspAllowedValues #-}
 
 -- | Indicates whether (true) or not (false) the parameter can be modified. Some
 -- parameters have security or operational implications that prevent them from
 -- being changed.
-cntspIsModifiable
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspIsModifiable :: Lens' CacheNodeTypeSpecificParameter (Maybe Bool)
 cntspIsModifiable f x =
-    (\y -> x { _cntspIsModifiable = y })
-       <$> f (_cntspIsModifiable x)
+    f (_cntspIsModifiable x)
+        <&> \y -> x { _cntspIsModifiable = y }
 {-# INLINE cntspIsModifiable #-}
 
 -- | The earliest cache engine version to which the parameter can apply.
-cntspMinimumEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspMinimumEngineVersion :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspMinimumEngineVersion f x =
-    (\y -> x { _cntspMinimumEngineVersion = y })
-       <$> f (_cntspMinimumEngineVersion x)
+    f (_cntspMinimumEngineVersion x)
+        <&> \y -> x { _cntspMinimumEngineVersion = y }
 {-# INLINE cntspMinimumEngineVersion #-}
 
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
-cntspCacheNodeTypeSpecificValues
-    :: Functor f
-    => ([CacheNodeTypeSpecificValue]
-    -> f ([CacheNodeTypeSpecificValue]))
-    -> CacheNodeTypeSpecificParameter
-    -> f CacheNodeTypeSpecificParameter
+cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter ([CacheNodeTypeSpecificValue])
 cntspCacheNodeTypeSpecificValues f x =
-    (\y -> x { _cntspCacheNodeTypeSpecificValues = y })
-       <$> f (_cntspCacheNodeTypeSpecificValues x)
+    f (_cntspCacheNodeTypeSpecificValues x)
+        <&> \y -> x { _cntspCacheNodeTypeSpecificValues = y }
 {-# INLINE cntspCacheNodeTypeSpecificValues #-}
 
 instance FromXML CacheNodeTypeSpecificParameter where
@@ -1154,27 +934,17 @@ data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     } deriving (Show, Generic)
 
 -- | The cache node type for which this value applies.
-cntsvCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificValue
-    -> f CacheNodeTypeSpecificValue
+cntsvCacheNodeType :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
 cntsvCacheNodeType f x =
-    (\y -> x { _cntsvCacheNodeType = y })
-       <$> f (_cntsvCacheNodeType x)
+    f (_cntsvCacheNodeType x)
+        <&> \y -> x { _cntsvCacheNodeType = y }
 {-# INLINE cntsvCacheNodeType #-}
 
 -- | The value for the cache node type.
-cntsvValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheNodeTypeSpecificValue
-    -> f CacheNodeTypeSpecificValue
+cntsvValue :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
 cntsvValue f x =
-    (\y -> x { _cntsvValue = y })
-       <$> f (_cntsvValue x)
+    f (_cntsvValue x)
+        <&> \y -> x { _cntsvValue = y }
 {-# INLINE cntsvValue #-}
 
 instance FromXML CacheNodeTypeSpecificValue where
@@ -1196,40 +966,25 @@ data CacheParameterGroup = CacheParameterGroup
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
-cpgCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheParameterGroup
-    -> f CacheParameterGroup
+cpgCacheParameterGroupName :: Lens' CacheParameterGroup (Maybe Text)
 cpgCacheParameterGroupName f x =
-    (\y -> x { _cpgCacheParameterGroupName = y })
-       <$> f (_cpgCacheParameterGroupName x)
+    f (_cpgCacheParameterGroupName x)
+        <&> \y -> x { _cpgCacheParameterGroupName = y }
 {-# INLINE cpgCacheParameterGroupName #-}
 
 -- | The name of the cache parameter group family that this cache parameter
 -- group is compatible with.
-cpgCacheParameterGroupFamily
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheParameterGroup
-    -> f CacheParameterGroup
+cpgCacheParameterGroupFamily :: Lens' CacheParameterGroup (Maybe Text)
 cpgCacheParameterGroupFamily f x =
-    (\y -> x { _cpgCacheParameterGroupFamily = y })
-       <$> f (_cpgCacheParameterGroupFamily x)
+    f (_cpgCacheParameterGroupFamily x)
+        <&> \y -> x { _cpgCacheParameterGroupFamily = y }
 {-# INLINE cpgCacheParameterGroupFamily #-}
 
 -- | The description for this cache parameter group.
-cpgDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheParameterGroup
-    -> f CacheParameterGroup
+cpgDescription :: Lens' CacheParameterGroup (Maybe Text)
 cpgDescription f x =
-    (\y -> x { _cpgDescription = y })
-       <$> f (_cpgDescription x)
+    f (_cpgDescription x)
+        <&> \y -> x { _cpgDescription = y }
 {-# INLINE cpgDescription #-}
 
 instance FromXML CacheParameterGroup where
@@ -1249,41 +1004,26 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
-cpgsCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheParameterGroupStatus
-    -> f CacheParameterGroupStatus
+cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
 cpgsCacheParameterGroupName f x =
-    (\y -> x { _cpgsCacheParameterGroupName = y })
-       <$> f (_cpgsCacheParameterGroupName x)
+    f (_cpgsCacheParameterGroupName x)
+        <&> \y -> x { _cpgsCacheParameterGroupName = y }
 {-# INLINE cpgsCacheParameterGroupName #-}
 
 -- | The status of parameter updates.
-cpgsParameterApplyStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheParameterGroupStatus
-    -> f CacheParameterGroupStatus
+cpgsParameterApplyStatus :: Lens' CacheParameterGroupStatus (Maybe Text)
 cpgsParameterApplyStatus f x =
-    (\y -> x { _cpgsParameterApplyStatus = y })
-       <$> f (_cpgsParameterApplyStatus x)
+    f (_cpgsParameterApplyStatus x)
+        <&> \y -> x { _cpgsParameterApplyStatus = y }
 {-# INLINE cpgsParameterApplyStatus #-}
 
 -- | A list of the cache node IDs which need to be rebooted for parameter
 -- changes to be applied. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
-cpgsCacheNodeIdsToReboot
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CacheParameterGroupStatus
-    -> f CacheParameterGroupStatus
+cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus ([Text])
 cpgsCacheNodeIdsToReboot f x =
-    (\y -> x { _cpgsCacheNodeIdsToReboot = y })
-       <$> f (_cpgsCacheNodeIdsToReboot x)
+    f (_cpgsCacheNodeIdsToReboot x)
+        <&> \y -> x { _cpgsCacheNodeIdsToReboot = y }
 {-# INLINE cpgsCacheNodeIdsToReboot #-}
 
 instance FromXML CacheParameterGroupStatus where
@@ -1309,52 +1049,32 @@ data CacheSecurityGroup = CacheSecurityGroup
     } deriving (Show, Generic)
 
 -- | The AWS account ID of the cache security group owner.
-csgOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSecurityGroup
-    -> f CacheSecurityGroup
+csgOwnerId :: Lens' CacheSecurityGroup (Maybe Text)
 csgOwnerId f x =
-    (\y -> x { _csgOwnerId = y })
-       <$> f (_csgOwnerId x)
+    f (_csgOwnerId x)
+        <&> \y -> x { _csgOwnerId = y }
 {-# INLINE csgOwnerId #-}
 
 -- | The name of the cache security group.
-csgCacheSecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSecurityGroup
-    -> f CacheSecurityGroup
+csgCacheSecurityGroupName :: Lens' CacheSecurityGroup (Maybe Text)
 csgCacheSecurityGroupName f x =
-    (\y -> x { _csgCacheSecurityGroupName = y })
-       <$> f (_csgCacheSecurityGroupName x)
+    f (_csgCacheSecurityGroupName x)
+        <&> \y -> x { _csgCacheSecurityGroupName = y }
 {-# INLINE csgCacheSecurityGroupName #-}
 
 -- | The description of the cache security group.
-csgDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSecurityGroup
-    -> f CacheSecurityGroup
+csgDescription :: Lens' CacheSecurityGroup (Maybe Text)
 csgDescription f x =
-    (\y -> x { _csgDescription = y })
-       <$> f (_csgDescription x)
+    f (_csgDescription x)
+        <&> \y -> x { _csgDescription = y }
 {-# INLINE csgDescription #-}
 
 -- | A list of Amazon EC2 security groups that are associated with this cache
 -- security group.
-csgEC2SecurityGroups
-    :: Functor f
-    => ([EC2SecurityGroup]
-    -> f ([EC2SecurityGroup]))
-    -> CacheSecurityGroup
-    -> f CacheSecurityGroup
+csgEC2SecurityGroups :: Lens' CacheSecurityGroup ([EC2SecurityGroup])
 csgEC2SecurityGroups f x =
-    (\y -> x { _csgEC2SecurityGroups = y })
-       <$> f (_csgEC2SecurityGroups x)
+    f (_csgEC2SecurityGroups x)
+        <&> \y -> x { _csgEC2SecurityGroups = y }
 {-# INLINE csgEC2SecurityGroups #-}
 
 instance FromXML CacheSecurityGroup where
@@ -1373,29 +1093,19 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership
     } deriving (Show, Generic)
 
 -- | The name of the cache security group.
-csgmCacheSecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSecurityGroupMembership
-    -> f CacheSecurityGroupMembership
+csgmCacheSecurityGroupName :: Lens' CacheSecurityGroupMembership (Maybe Text)
 csgmCacheSecurityGroupName f x =
-    (\y -> x { _csgmCacheSecurityGroupName = y })
-       <$> f (_csgmCacheSecurityGroupName x)
+    f (_csgmCacheSecurityGroupName x)
+        <&> \y -> x { _csgmCacheSecurityGroupName = y }
 {-# INLINE csgmCacheSecurityGroupName #-}
 
 -- | The membership status in the cache security group. The status changes when
 -- a cache security group is modified, or when the cache security groups
 -- assigned to a cache cluster are modified.
-csgmStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSecurityGroupMembership
-    -> f CacheSecurityGroupMembership
+csgmStatus :: Lens' CacheSecurityGroupMembership (Maybe Text)
 csgmStatus f x =
-    (\y -> x { _csgmStatus = y })
-       <$> f (_csgmStatus x)
+    f (_csgmStatus x)
+        <&> \y -> x { _csgmStatus = y }
 {-# INLINE csgmStatus #-}
 
 instance FromXML CacheSecurityGroupMembership where
@@ -1420,52 +1130,32 @@ data CacheSubnetGroup = CacheSubnetGroup
     } deriving (Show, Generic)
 
 -- | The name of the cache subnet group.
-csiCacheSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSubnetGroup
-    -> f CacheSubnetGroup
+csiCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
 csiCacheSubnetGroupName f x =
-    (\y -> x { _csiCacheSubnetGroupName = y })
-       <$> f (_csiCacheSubnetGroupName x)
+    f (_csiCacheSubnetGroupName x)
+        <&> \y -> x { _csiCacheSubnetGroupName = y }
 {-# INLINE csiCacheSubnetGroupName #-}
 
 -- | The description of the cache subnet group.
-csiCacheSubnetGroupDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSubnetGroup
-    -> f CacheSubnetGroup
+csiCacheSubnetGroupDescription :: Lens' CacheSubnetGroup (Maybe Text)
 csiCacheSubnetGroupDescription f x =
-    (\y -> x { _csiCacheSubnetGroupDescription = y })
-       <$> f (_csiCacheSubnetGroupDescription x)
+    f (_csiCacheSubnetGroupDescription x)
+        <&> \y -> x { _csiCacheSubnetGroupDescription = y }
 {-# INLINE csiCacheSubnetGroupDescription #-}
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
-csiVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CacheSubnetGroup
-    -> f CacheSubnetGroup
+csiVpcId :: Lens' CacheSubnetGroup (Maybe Text)
 csiVpcId f x =
-    (\y -> x { _csiVpcId = y })
-       <$> f (_csiVpcId x)
+    f (_csiVpcId x)
+        <&> \y -> x { _csiVpcId = y }
 {-# INLINE csiVpcId #-}
 
 -- | A list of subnets associated with the cache subnet group.
-csiSubnets
-    :: Functor f
-    => ([Subnet]
-    -> f ([Subnet]))
-    -> CacheSubnetGroup
-    -> f CacheSubnetGroup
+csiSubnets :: Lens' CacheSubnetGroup ([Subnet])
 csiSubnets f x =
-    (\y -> x { _csiSubnets = y })
-       <$> f (_csiSubnets x)
+    f (_csiSubnets x)
+        <&> \y -> x { _csiSubnets = y }
 {-# INLINE csiSubnets #-}
 
 instance FromXML CacheSubnetGroup where
@@ -1483,39 +1173,24 @@ data EC2SecurityGroup = EC2SecurityGroup
     } deriving (Show, Generic)
 
 -- | The status of the Amazon EC2 security group.
-ecsgStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EC2SecurityGroup
-    -> f EC2SecurityGroup
+ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgStatus f x =
-    (\y -> x { _ecsgStatus = y })
-       <$> f (_ecsgStatus x)
+    f (_ecsgStatus x)
+        <&> \y -> x { _ecsgStatus = y }
 {-# INLINE ecsgStatus #-}
 
 -- | The name of the Amazon EC2 security group.
-ecsgEC2SecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EC2SecurityGroup
-    -> f EC2SecurityGroup
+ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupName f x =
-    (\y -> x { _ecsgEC2SecurityGroupName = y })
-       <$> f (_ecsgEC2SecurityGroupName x)
+    f (_ecsgEC2SecurityGroupName x)
+        <&> \y -> x { _ecsgEC2SecurityGroupName = y }
 {-# INLINE ecsgEC2SecurityGroupName #-}
 
 -- | The AWS account ID of the Amazon EC2 security group owner.
-ecsgEC2SecurityGroupOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EC2SecurityGroup
-    -> f EC2SecurityGroup
+ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupOwnerId f x =
-    (\y -> x { _ecsgEC2SecurityGroupOwnerId = y })
-       <$> f (_ecsgEC2SecurityGroupOwnerId x)
+    f (_ecsgEC2SecurityGroupOwnerId x)
+        <&> \y -> x { _ecsgEC2SecurityGroupOwnerId = y }
 {-# INLINE ecsgEC2SecurityGroupOwnerId #-}
 
 instance FromXML EC2SecurityGroup where
@@ -1535,27 +1210,17 @@ data Endpoint = Endpoint
     } deriving (Show, Generic)
 
 -- | The DNS hostname of the cache node.
-eAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Endpoint
-    -> f Endpoint
+eAddress :: Lens' Endpoint (Maybe Text)
 eAddress f x =
-    (\y -> x { _eAddress = y })
-       <$> f (_eAddress x)
+    f (_eAddress x)
+        <&> \y -> x { _eAddress = y }
 {-# INLINE eAddress #-}
 
 -- | The port number that the cache engine is listening on.
-ePort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Endpoint
-    -> f Endpoint
+ePort :: Lens' Endpoint (Maybe Integer)
 ePort f x =
-    (\y -> x { _ePort = y })
-       <$> f (_ePort x)
+    f (_ePort x)
+        <&> \y -> x { _ePort = y }
 {-# INLINE ePort #-}
 
 instance FromXML Endpoint where
@@ -1582,52 +1247,32 @@ data EngineDefaults = EngineDefaults
 
 -- | Specifies the name of the cache parameter group family to which the engine
 -- default parameters apply.
-edCacheParameterGroupFamily
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EngineDefaults
-    -> f EngineDefaults
+edCacheParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edCacheParameterGroupFamily f x =
-    (\y -> x { _edCacheParameterGroupFamily = y })
-       <$> f (_edCacheParameterGroupFamily x)
+    f (_edCacheParameterGroupFamily x)
+        <&> \y -> x { _edCacheParameterGroupFamily = y }
 {-# INLINE edCacheParameterGroupFamily #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-edMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EngineDefaults
-    -> f EngineDefaults
+edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker f x =
-    (\y -> x { _edMarker = y })
-       <$> f (_edMarker x)
+    f (_edMarker x)
+        <&> \y -> x { _edMarker = y }
 {-# INLINE edMarker #-}
 
 -- | Contains a list of engine default parameters.
-edParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> EngineDefaults
-    -> f EngineDefaults
+edParameters :: Lens' EngineDefaults ([Parameter])
 edParameters f x =
-    (\y -> x { _edParameters = y })
-       <$> f (_edParameters x)
+    f (_edParameters x)
+        <&> \y -> x { _edParameters = y }
 {-# INLINE edParameters #-}
 
 -- | A list of parameters specific to a particular cache node type. Each element
 -- in the list contains detailed information about one parameter.
-edCacheNodeTypeSpecificParameters
-    :: Functor f
-    => ([CacheNodeTypeSpecificParameter]
-    -> f ([CacheNodeTypeSpecificParameter]))
-    -> EngineDefaults
-    -> f EngineDefaults
+edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults ([CacheNodeTypeSpecificParameter])
 edCacheNodeTypeSpecificParameters f x =
-    (\y -> x { _edCacheNodeTypeSpecificParameters = y })
-       <$> f (_edCacheNodeTypeSpecificParameters x)
+    f (_edCacheNodeTypeSpecificParameters x)
+        <&> \y -> x { _edCacheNodeTypeSpecificParameters = y }
 {-# INLINE edCacheNodeTypeSpecificParameters #-}
 
 instance FromXML EngineDefaults where
@@ -1654,52 +1299,32 @@ data Event = Event
 -- | The identifier for the source of the event. For example, if the event
 -- occurred at the cache cluster level, the identifier would be the name of
 -- the cache cluster.
-exSourceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Event
-    -> f Event
+exSourceIdentifier :: Lens' Event (Maybe Text)
 exSourceIdentifier f x =
-    (\y -> x { _exSourceIdentifier = y })
-       <$> f (_exSourceIdentifier x)
+    f (_exSourceIdentifier x)
+        <&> \y -> x { _exSourceIdentifier = y }
 {-# INLINE exSourceIdentifier #-}
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group, a
 -- security group, etc.
-exSourceType
-    :: Functor f
-    => (Maybe SourceType
-    -> f (Maybe SourceType))
-    -> Event
-    -> f Event
+exSourceType :: Lens' Event (Maybe SourceType)
 exSourceType f x =
-    (\y -> x { _exSourceType = y })
-       <$> f (_exSourceType x)
+    f (_exSourceType x)
+        <&> \y -> x { _exSourceType = y }
 {-# INLINE exSourceType #-}
 
 -- | The text of the event.
-exMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Event
-    -> f Event
+exMessage :: Lens' Event (Maybe Text)
 exMessage f x =
-    (\y -> x { _exMessage = y })
-       <$> f (_exMessage x)
+    f (_exMessage x)
+        <&> \y -> x { _exMessage = y }
 {-# INLINE exMessage #-}
 
 -- | The date and time when the event occurred.
-exDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> Event
-    -> f Event
+exDate :: Lens' Event (Maybe ISO8601)
 exDate f x =
-    (\y -> x { _exDate = y })
-       <$> f (_exDate x)
+    f (_exDate x)
+        <&> \y -> x { _exDate = y }
 {-# INLINE exDate #-}
 
 instance FromXML Event where
@@ -1724,52 +1349,32 @@ data NodeGroup = NodeGroup
 
 -- | The identifier for the node group. A replication group contains only one
 -- node group; therefore, the node group ID is 0001.
-ngNodeGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeGroup
-    -> f NodeGroup
+ngNodeGroupId :: Lens' NodeGroup (Maybe Text)
 ngNodeGroupId f x =
-    (\y -> x { _ngNodeGroupId = y })
-       <$> f (_ngNodeGroupId x)
+    f (_ngNodeGroupId x)
+        <&> \y -> x { _ngNodeGroupId = y }
 {-# INLINE ngNodeGroupId #-}
 
 -- | The current state of this replication group - creating, available, etc.
-ngStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeGroup
-    -> f NodeGroup
+ngStatus :: Lens' NodeGroup (Maybe Text)
 ngStatus f x =
-    (\y -> x { _ngStatus = y })
-       <$> f (_ngStatus x)
+    f (_ngStatus x)
+        <&> \y -> x { _ngStatus = y }
 {-# INLINE ngStatus #-}
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-ngPrimaryEndpoint
-    :: Functor f
-    => (Maybe Endpoint
-    -> f (Maybe Endpoint))
-    -> NodeGroup
-    -> f NodeGroup
+ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
 ngPrimaryEndpoint f x =
-    (\y -> x { _ngPrimaryEndpoint = y })
-       <$> f (_ngPrimaryEndpoint x)
+    f (_ngPrimaryEndpoint x)
+        <&> \y -> x { _ngPrimaryEndpoint = y }
 {-# INLINE ngPrimaryEndpoint #-}
 
 -- | A list containing information about individual nodes within the node group.
-ngNodeGroupMembers
-    :: Functor f
-    => ([NodeGroupMember]
-    -> f ([NodeGroupMember]))
-    -> NodeGroup
-    -> f NodeGroup
+ngNodeGroupMembers :: Lens' NodeGroup ([NodeGroupMember])
 ngNodeGroupMembers f x =
-    (\y -> x { _ngNodeGroupMembers = y })
-       <$> f (_ngNodeGroupMembers x)
+    f (_ngNodeGroupMembers x)
+        <&> \y -> x { _ngNodeGroupMembers = y }
 {-# INLINE ngNodeGroupMembers #-}
 
 instance FromXML NodeGroup where
@@ -1797,65 +1402,40 @@ data NodeGroupMember = NodeGroupMember
     } deriving (Show, Generic)
 
 -- | The ID of the cache cluster to which the node belongs.
-ngmCacheClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeGroupMember
-    -> f NodeGroupMember
+ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheClusterId f x =
-    (\y -> x { _ngmCacheClusterId = y })
-       <$> f (_ngmCacheClusterId x)
+    f (_ngmCacheClusterId x)
+        <&> \y -> x { _ngmCacheClusterId = y }
 {-# INLINE ngmCacheClusterId #-}
 
 -- | The ID of the node within its cache cluster. A node ID is a numeric
 -- identifier (0001, 0002, etc.).
-ngmCacheNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeGroupMember
-    -> f NodeGroupMember
+ngmCacheNodeId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheNodeId f x =
-    (\y -> x { _ngmCacheNodeId = y })
-       <$> f (_ngmCacheNodeId x)
+    f (_ngmCacheNodeId x)
+        <&> \y -> x { _ngmCacheNodeId = y }
 {-# INLINE ngmCacheNodeId #-}
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-ngmReadEndpoint
-    :: Functor f
-    => (Maybe Endpoint
-    -> f (Maybe Endpoint))
-    -> NodeGroupMember
-    -> f NodeGroupMember
+ngmReadEndpoint :: Lens' NodeGroupMember (Maybe Endpoint)
 ngmReadEndpoint f x =
-    (\y -> x { _ngmReadEndpoint = y })
-       <$> f (_ngmReadEndpoint x)
+    f (_ngmReadEndpoint x)
+        <&> \y -> x { _ngmReadEndpoint = y }
 {-# INLINE ngmReadEndpoint #-}
 
 -- | The name of the Availability Zone in which the node is located.
-ngmPreferredAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeGroupMember
-    -> f NodeGroupMember
+ngmPreferredAvailabilityZone :: Lens' NodeGroupMember (Maybe Text)
 ngmPreferredAvailabilityZone f x =
-    (\y -> x { _ngmPreferredAvailabilityZone = y })
-       <$> f (_ngmPreferredAvailabilityZone x)
+    f (_ngmPreferredAvailabilityZone x)
+        <&> \y -> x { _ngmPreferredAvailabilityZone = y }
 {-# INLINE ngmPreferredAvailabilityZone #-}
 
 -- | The role that is currently assigned to the node - primary or replica.
-ngmCurrentRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeGroupMember
-    -> f NodeGroupMember
+ngmCurrentRole :: Lens' NodeGroupMember (Maybe Text)
 ngmCurrentRole f x =
-    (\y -> x { _ngmCurrentRole = y })
-       <$> f (_ngmCurrentRole x)
+    f (_ngmCurrentRole x)
+        <&> \y -> x { _ngmCurrentRole = y }
 {-# INLINE ngmCurrentRole #-}
 
 instance FromXML NodeGroupMember where
@@ -1881,53 +1461,33 @@ data NodeSnapshot = NodeSnapshot
     } deriving (Show, Generic)
 
 -- | The cache node identifier for the node in the source cache cluster.
-nsCacheNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeSnapshot
-    -> f NodeSnapshot
+nsCacheNodeId :: Lens' NodeSnapshot (Maybe Text)
 nsCacheNodeId f x =
-    (\y -> x { _nsCacheNodeId = y })
-       <$> f (_nsCacheNodeId x)
+    f (_nsCacheNodeId x)
+        <&> \y -> x { _nsCacheNodeId = y }
 {-# INLINE nsCacheNodeId #-}
 
 -- | The size of the cache on the source cache node.
-nsCacheSize
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NodeSnapshot
-    -> f NodeSnapshot
+nsCacheSize :: Lens' NodeSnapshot (Maybe Text)
 nsCacheSize f x =
-    (\y -> x { _nsCacheSize = y })
-       <$> f (_nsCacheSize x)
+    f (_nsCacheSize x)
+        <&> \y -> x { _nsCacheSize = y }
 {-# INLINE nsCacheSize #-}
 
 -- | The date and time when the cache node was created in the source cache
 -- cluster.
-nsCacheNodeCreateTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> NodeSnapshot
-    -> f NodeSnapshot
+nsCacheNodeCreateTime :: Lens' NodeSnapshot (Maybe ISO8601)
 nsCacheNodeCreateTime f x =
-    (\y -> x { _nsCacheNodeCreateTime = y })
-       <$> f (_nsCacheNodeCreateTime x)
+    f (_nsCacheNodeCreateTime x)
+        <&> \y -> x { _nsCacheNodeCreateTime = y }
 {-# INLINE nsCacheNodeCreateTime #-}
 
 -- | The date and time when the source node's metadata and cache data set was
 -- obtained for the snapshot.
-nsSnapshotCreateTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> NodeSnapshot
-    -> f NodeSnapshot
+nsSnapshotCreateTime :: Lens' NodeSnapshot (Maybe ISO8601)
 nsSnapshotCreateTime f x =
-    (\y -> x { _nsSnapshotCreateTime = y })
-       <$> f (_nsSnapshotCreateTime x)
+    f (_nsSnapshotCreateTime x)
+        <&> \y -> x { _nsSnapshotCreateTime = y }
 {-# INLINE nsSnapshotCreateTime #-}
 
 instance FromXML NodeSnapshot where
@@ -1948,27 +1508,17 @@ data NotificationConfiguration = NotificationConfiguration
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
-ncTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NotificationConfiguration
-    -> f NotificationConfiguration
+ncTopicArn :: Lens' NotificationConfiguration (Maybe Text)
 ncTopicArn f x =
-    (\y -> x { _ncTopicArn = y })
-       <$> f (_ncTopicArn x)
+    f (_ncTopicArn x)
+        <&> \y -> x { _ncTopicArn = y }
 {-# INLINE ncTopicArn #-}
 
 -- | The current state of the topic.
-ncTopicStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NotificationConfiguration
-    -> f NotificationConfiguration
+ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
 ncTopicStatus f x =
-    (\y -> x { _ncTopicStatus = y })
-       <$> f (_ncTopicStatus x)
+    f (_ncTopicStatus x)
+        <&> \y -> x { _ncTopicStatus = y }
 {-# INLINE ncTopicStatus #-}
 
 instance FromXML NotificationConfiguration where
@@ -2003,101 +1553,61 @@ data Parameter = Parameter
     } deriving (Show, Generic)
 
 -- | The name of the parameter.
-prParameterName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prParameterName :: Lens' Parameter (Maybe Text)
 prParameterName f x =
-    (\y -> x { _prParameterName = y })
-       <$> f (_prParameterName x)
+    f (_prParameterName x)
+        <&> \y -> x { _prParameterName = y }
 {-# INLINE prParameterName #-}
 
 -- | The value of the parameter.
-prParameterValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prParameterValue :: Lens' Parameter (Maybe Text)
 prParameterValue f x =
-    (\y -> x { _prParameterValue = y })
-       <$> f (_prParameterValue x)
+    f (_prParameterValue x)
+        <&> \y -> x { _prParameterValue = y }
 {-# INLINE prParameterValue #-}
 
 -- | A description of the parameter.
-prDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prDescription :: Lens' Parameter (Maybe Text)
 prDescription f x =
-    (\y -> x { _prDescription = y })
-       <$> f (_prDescription x)
+    f (_prDescription x)
+        <&> \y -> x { _prDescription = y }
 {-# INLINE prDescription #-}
 
 -- | The source of the parameter.
-prSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prSource :: Lens' Parameter (Maybe Text)
 prSource f x =
-    (\y -> x { _prSource = y })
-       <$> f (_prSource x)
+    f (_prSource x)
+        <&> \y -> x { _prSource = y }
 {-# INLINE prSource #-}
 
 -- | The valid data type for the parameter.
-prDataType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prDataType :: Lens' Parameter (Maybe Text)
 prDataType f x =
-    (\y -> x { _prDataType = y })
-       <$> f (_prDataType x)
+    f (_prDataType x)
+        <&> \y -> x { _prDataType = y }
 {-# INLINE prDataType #-}
 
 -- | The valid range of values for the parameter.
-prAllowedValues
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prAllowedValues :: Lens' Parameter (Maybe Text)
 prAllowedValues f x =
-    (\y -> x { _prAllowedValues = y })
-       <$> f (_prAllowedValues x)
+    f (_prAllowedValues x)
+        <&> \y -> x { _prAllowedValues = y }
 {-# INLINE prAllowedValues #-}
 
 -- | Indicates whether (true) or not (false) the parameter can be modified. Some
 -- parameters have security or operational implications that prevent them from
 -- being changed.
-prIsModifiable
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Parameter
-    -> f Parameter
+prIsModifiable :: Lens' Parameter (Maybe Bool)
 prIsModifiable f x =
-    (\y -> x { _prIsModifiable = y })
-       <$> f (_prIsModifiable x)
+    f (_prIsModifiable x)
+        <&> \y -> x { _prIsModifiable = y }
 {-# INLINE prIsModifiable #-}
 
 -- | The earliest cache engine version to which the parameter can apply.
-prMinimumEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+prMinimumEngineVersion :: Lens' Parameter (Maybe Text)
 prMinimumEngineVersion f x =
-    (\y -> x { _prMinimumEngineVersion = y })
-       <$> f (_prMinimumEngineVersion x)
+    f (_prMinimumEngineVersion x)
+        <&> \y -> x { _prMinimumEngineVersion = y }
 {-# INLINE prMinimumEngineVersion #-}
 
 instance FromXML Parameter where
@@ -2114,27 +1624,17 @@ data ParameterNameValue = ParameterNameValue
     } deriving (Show, Generic)
 
 -- | The name of the parameter.
-pnvParameterName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ParameterNameValue
-    -> f ParameterNameValue
+pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterName f x =
-    (\y -> x { _pnvParameterName = y })
-       <$> f (_pnvParameterName x)
+    f (_pnvParameterName x)
+        <&> \y -> x { _pnvParameterName = y }
 {-# INLINE pnvParameterName #-}
 
 -- | The value of the parameter.
-pnvParameterValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ParameterNameValue
-    -> f ParameterNameValue
+pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterValue f x =
-    (\y -> x { _pnvParameterValue = y })
-       <$> f (_pnvParameterValue x)
+    f (_pnvParameterValue x)
+        <&> \y -> x { _pnvParameterValue = y }
 {-# INLINE pnvParameterValue #-}
 
 instance ToQuery ParameterNameValue where
@@ -2154,40 +1654,25 @@ data PendingModifiedValues = PendingModifiedValues
     } deriving (Show, Generic)
 
 -- | The new number of cache nodes for the cache cluster.
-pmvNumCacheNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PendingModifiedValues
-    -> f PendingModifiedValues
+pmvNumCacheNodes :: Lens' PendingModifiedValues (Maybe Integer)
 pmvNumCacheNodes f x =
-    (\y -> x { _pmvNumCacheNodes = y })
-       <$> f (_pmvNumCacheNodes x)
+    f (_pmvNumCacheNodes x)
+        <&> \y -> x { _pmvNumCacheNodes = y }
 {-# INLINE pmvNumCacheNodes #-}
 
 -- | A list of cache node IDs that are being removed (or will be removed) from
 -- the cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
-pmvCacheNodeIdsToRemove
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> PendingModifiedValues
-    -> f PendingModifiedValues
+pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues ([Text])
 pmvCacheNodeIdsToRemove f x =
-    (\y -> x { _pmvCacheNodeIdsToRemove = y })
-       <$> f (_pmvCacheNodeIdsToRemove x)
+    f (_pmvCacheNodeIdsToRemove x)
+        <&> \y -> x { _pmvCacheNodeIdsToRemove = y }
 {-# INLINE pmvCacheNodeIdsToRemove #-}
 
 -- | The new cache engine version that the cache cluster will run.
-pmvEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PendingModifiedValues
-    -> f PendingModifiedValues
+pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion f x =
-    (\y -> x { _pmvEngineVersion = y })
-       <$> f (_pmvEngineVersion x)
+    f (_pmvEngineVersion x)
+        <&> \y -> x { _pmvEngineVersion = y }
 {-# INLINE pmvEngineVersion #-}
 
 instance FromXML PendingModifiedValues where
@@ -2207,27 +1692,17 @@ data RecurringCharge = RecurringCharge
     } deriving (Show, Generic)
 
 -- | The monetary amount of the recurring charge.
-rcRecurringChargeAmount
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> RecurringCharge
-    -> f RecurringCharge
+rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
 rcRecurringChargeAmount f x =
-    (\y -> x { _rcRecurringChargeAmount = y })
-       <$> f (_rcRecurringChargeAmount x)
+    f (_rcRecurringChargeAmount x)
+        <&> \y -> x { _rcRecurringChargeAmount = y }
 {-# INLINE rcRecurringChargeAmount #-}
 
 -- | The frequency of the recurring charge.
-rcRecurringChargeFrequency
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RecurringCharge
-    -> f RecurringCharge
+rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
 rcRecurringChargeFrequency f x =
-    (\y -> x { _rcRecurringChargeFrequency = y })
-       <$> f (_rcRecurringChargeFrequency x)
+    f (_rcRecurringChargeFrequency x)
+        <&> \y -> x { _rcRecurringChargeFrequency = y }
 {-# INLINE rcRecurringChargeFrequency #-}
 
 instance FromXML RecurringCharge where
@@ -2261,91 +1736,56 @@ data ReplicationGroup = ReplicationGroup
     } deriving (Show, Generic)
 
 -- | The identifier for the replication group.
-rgReplicationGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgReplicationGroupId :: Lens' ReplicationGroup (Maybe Text)
 rgReplicationGroupId f x =
-    (\y -> x { _rgReplicationGroupId = y })
-       <$> f (_rgReplicationGroupId x)
+    f (_rgReplicationGroupId x)
+        <&> \y -> x { _rgReplicationGroupId = y }
 {-# INLINE rgReplicationGroupId #-}
 
 -- | The description of the replication group.
-rgDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgDescription :: Lens' ReplicationGroup (Maybe Text)
 rgDescription f x =
-    (\y -> x { _rgDescription = y })
-       <$> f (_rgDescription x)
+    f (_rgDescription x)
+        <&> \y -> x { _rgDescription = y }
 {-# INLINE rgDescription #-}
 
 -- | The current state of this replication group - creating, available, etc.
-rgStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgStatus :: Lens' ReplicationGroup (Maybe Text)
 rgStatus f x =
-    (\y -> x { _rgStatus = y })
-       <$> f (_rgStatus x)
+    f (_rgStatus x)
+        <&> \y -> x { _rgStatus = y }
 {-# INLINE rgStatus #-}
 
 -- | A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
-rgPendingModifiedValues
-    :: Functor f
-    => (Maybe ReplicationGroupPendingModifiedValues
-    -> f (Maybe ReplicationGroupPendingModifiedValues))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgPendingModifiedValues :: Lens' ReplicationGroup (Maybe ReplicationGroupPendingModifiedValues)
 rgPendingModifiedValues f x =
-    (\y -> x { _rgPendingModifiedValues = y })
-       <$> f (_rgPendingModifiedValues x)
+    f (_rgPendingModifiedValues x)
+        <&> \y -> x { _rgPendingModifiedValues = y }
 {-# INLINE rgPendingModifiedValues #-}
 
 -- | The names of all the cache clusters that are part of this replication
 -- group.
-rgMemberClusters
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgMemberClusters :: Lens' ReplicationGroup ([Text])
 rgMemberClusters f x =
-    (\y -> x { _rgMemberClusters = y })
-       <$> f (_rgMemberClusters x)
+    f (_rgMemberClusters x)
+        <&> \y -> x { _rgMemberClusters = y }
 {-# INLINE rgMemberClusters #-}
 
 -- | A single element list with information about the nodes in the replication
 -- group.
-rgNodeGroups
-    :: Functor f
-    => ([NodeGroup]
-    -> f ([NodeGroup]))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgNodeGroups :: Lens' ReplicationGroup ([NodeGroup])
 rgNodeGroups f x =
-    (\y -> x { _rgNodeGroups = y })
-       <$> f (_rgNodeGroups x)
+    f (_rgNodeGroups x)
+        <&> \y -> x { _rgNodeGroups = y }
 {-# INLINE rgNodeGroups #-}
 
 -- | The cache cluster ID that is used as the daily snapshot source for the
 -- replication group.
-rgSnapshottingClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplicationGroup
-    -> f ReplicationGroup
+rgSnapshottingClusterId :: Lens' ReplicationGroup (Maybe Text)
 rgSnapshottingClusterId f x =
-    (\y -> x { _rgSnapshottingClusterId = y })
-       <$> f (_rgSnapshottingClusterId x)
+    f (_rgSnapshottingClusterId x)
+        <&> \y -> x { _rgSnapshottingClusterId = y }
 {-# INLINE rgSnapshottingClusterId #-}
 
 instance FromXML ReplicationGroup where
@@ -2381,147 +1821,87 @@ data ReservedCacheNode = ReservedCacheNode
     } deriving (Show, Generic)
 
 -- | The unique identifier for the reservation.
-rcnReservedCacheNodeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnReservedCacheNodeId :: Lens' ReservedCacheNode (Maybe Text)
 rcnReservedCacheNodeId f x =
-    (\y -> x { _rcnReservedCacheNodeId = y })
-       <$> f (_rcnReservedCacheNodeId x)
+    f (_rcnReservedCacheNodeId x)
+        <&> \y -> x { _rcnReservedCacheNodeId = y }
 {-# INLINE rcnReservedCacheNodeId #-}
 
 -- | The offering identifier.
-rcnReservedCacheNodesOfferingId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnReservedCacheNodesOfferingId :: Lens' ReservedCacheNode (Maybe Text)
 rcnReservedCacheNodesOfferingId f x =
-    (\y -> x { _rcnReservedCacheNodesOfferingId = y })
-       <$> f (_rcnReservedCacheNodesOfferingId x)
+    f (_rcnReservedCacheNodesOfferingId x)
+        <&> \y -> x { _rcnReservedCacheNodesOfferingId = y }
 {-# INLINE rcnReservedCacheNodesOfferingId #-}
 
 -- | The cache node type for the reserved cache nodes.
-rcnCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnCacheNodeType :: Lens' ReservedCacheNode (Maybe Text)
 rcnCacheNodeType f x =
-    (\y -> x { _rcnCacheNodeType = y })
-       <$> f (_rcnCacheNodeType x)
+    f (_rcnCacheNodeType x)
+        <&> \y -> x { _rcnCacheNodeType = y }
 {-# INLINE rcnCacheNodeType #-}
 
 -- | The time the reservation started.
-rcnStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnStartTime :: Lens' ReservedCacheNode (Maybe ISO8601)
 rcnStartTime f x =
-    (\y -> x { _rcnStartTime = y })
-       <$> f (_rcnStartTime x)
+    f (_rcnStartTime x)
+        <&> \y -> x { _rcnStartTime = y }
 {-# INLINE rcnStartTime #-}
 
 -- | The duration of the reservation in seconds.
-rcnDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnDuration :: Lens' ReservedCacheNode (Maybe Integer)
 rcnDuration f x =
-    (\y -> x { _rcnDuration = y })
-       <$> f (_rcnDuration x)
+    f (_rcnDuration x)
+        <&> \y -> x { _rcnDuration = y }
 {-# INLINE rcnDuration #-}
 
 -- | The fixed price charged for this reserved cache node.
-rcnFixedPrice
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnFixedPrice :: Lens' ReservedCacheNode (Maybe Double)
 rcnFixedPrice f x =
-    (\y -> x { _rcnFixedPrice = y })
-       <$> f (_rcnFixedPrice x)
+    f (_rcnFixedPrice x)
+        <&> \y -> x { _rcnFixedPrice = y }
 {-# INLINE rcnFixedPrice #-}
 
 -- | The hourly price charged for this reserved cache node.
-rcnUsagePrice
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnUsagePrice :: Lens' ReservedCacheNode (Maybe Double)
 rcnUsagePrice f x =
-    (\y -> x { _rcnUsagePrice = y })
-       <$> f (_rcnUsagePrice x)
+    f (_rcnUsagePrice x)
+        <&> \y -> x { _rcnUsagePrice = y }
 {-# INLINE rcnUsagePrice #-}
 
 -- | The number of cache nodes that have been reserved.
-rcnCacheNodeCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnCacheNodeCount :: Lens' ReservedCacheNode (Maybe Integer)
 rcnCacheNodeCount f x =
-    (\y -> x { _rcnCacheNodeCount = y })
-       <$> f (_rcnCacheNodeCount x)
+    f (_rcnCacheNodeCount x)
+        <&> \y -> x { _rcnCacheNodeCount = y }
 {-# INLINE rcnCacheNodeCount #-}
 
 -- | The description of the reserved cache node.
-rcnProductDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnProductDescription :: Lens' ReservedCacheNode (Maybe Text)
 rcnProductDescription f x =
-    (\y -> x { _rcnProductDescription = y })
-       <$> f (_rcnProductDescription x)
+    f (_rcnProductDescription x)
+        <&> \y -> x { _rcnProductDescription = y }
 {-# INLINE rcnProductDescription #-}
 
 -- | The offering type of this reserved cache node.
-rcnOfferingType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnOfferingType :: Lens' ReservedCacheNode (Maybe Text)
 rcnOfferingType f x =
-    (\y -> x { _rcnOfferingType = y })
-       <$> f (_rcnOfferingType x)
+    f (_rcnOfferingType x)
+        <&> \y -> x { _rcnOfferingType = y }
 {-# INLINE rcnOfferingType #-}
 
 -- | The state of the reserved cache node.
-rcnState
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnState :: Lens' ReservedCacheNode (Maybe Text)
 rcnState f x =
-    (\y -> x { _rcnState = y })
-       <$> f (_rcnState x)
+    f (_rcnState x)
+        <&> \y -> x { _rcnState = y }
 {-# INLINE rcnState #-}
 
 -- | The recurring price charged to run this reserved cache node.
-rcnRecurringCharges
-    :: Functor f
-    => ([RecurringCharge]
-    -> f ([RecurringCharge]))
-    -> ReservedCacheNode
-    -> f ReservedCacheNode
+rcnRecurringCharges :: Lens' ReservedCacheNode ([RecurringCharge])
 rcnRecurringCharges f x =
-    (\y -> x { _rcnRecurringCharges = y })
-       <$> f (_rcnRecurringCharges x)
+    f (_rcnRecurringCharges x)
+        <&> \y -> x { _rcnRecurringCharges = y }
 {-# INLINE rcnRecurringCharges #-}
 
 instance FromXML ReservedCacheNode where
@@ -2549,99 +1929,59 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     } deriving (Show, Generic)
 
 -- | A unique identifier for the reserved cache node offering.
-rcnoReservedCacheNodesOfferingId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoReservedCacheNodesOfferingId :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoReservedCacheNodesOfferingId f x =
-    (\y -> x { _rcnoReservedCacheNodesOfferingId = y })
-       <$> f (_rcnoReservedCacheNodesOfferingId x)
+    f (_rcnoReservedCacheNodesOfferingId x)
+        <&> \y -> x { _rcnoReservedCacheNodesOfferingId = y }
 {-# INLINE rcnoReservedCacheNodesOfferingId #-}
 
 -- | The cache node type for the reserved cache node.
-rcnoCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoCacheNodeType :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoCacheNodeType f x =
-    (\y -> x { _rcnoCacheNodeType = y })
-       <$> f (_rcnoCacheNodeType x)
+    f (_rcnoCacheNodeType x)
+        <&> \y -> x { _rcnoCacheNodeType = y }
 {-# INLINE rcnoCacheNodeType #-}
 
 -- | The duration of the offering. in seconds.
-rcnoDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoDuration :: Lens' ReservedCacheNodesOffering (Maybe Integer)
 rcnoDuration f x =
-    (\y -> x { _rcnoDuration = y })
-       <$> f (_rcnoDuration x)
+    f (_rcnoDuration x)
+        <&> \y -> x { _rcnoDuration = y }
 {-# INLINE rcnoDuration #-}
 
 -- | The fixed price charged for this offering.
-rcnoFixedPrice
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoFixedPrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
 rcnoFixedPrice f x =
-    (\y -> x { _rcnoFixedPrice = y })
-       <$> f (_rcnoFixedPrice x)
+    f (_rcnoFixedPrice x)
+        <&> \y -> x { _rcnoFixedPrice = y }
 {-# INLINE rcnoFixedPrice #-}
 
 -- | The hourly price charged for this offering.
-rcnoUsagePrice
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoUsagePrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
 rcnoUsagePrice f x =
-    (\y -> x { _rcnoUsagePrice = y })
-       <$> f (_rcnoUsagePrice x)
+    f (_rcnoUsagePrice x)
+        <&> \y -> x { _rcnoUsagePrice = y }
 {-# INLINE rcnoUsagePrice #-}
 
 -- | The cache engine used by the offering.
-rcnoProductDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoProductDescription :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoProductDescription f x =
-    (\y -> x { _rcnoProductDescription = y })
-       <$> f (_rcnoProductDescription x)
+    f (_rcnoProductDescription x)
+        <&> \y -> x { _rcnoProductDescription = y }
 {-# INLINE rcnoProductDescription #-}
 
 -- | The offering type.
-rcnoOfferingType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoOfferingType :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoOfferingType f x =
-    (\y -> x { _rcnoOfferingType = y })
-       <$> f (_rcnoOfferingType x)
+    f (_rcnoOfferingType x)
+        <&> \y -> x { _rcnoOfferingType = y }
 {-# INLINE rcnoOfferingType #-}
 
 -- | The recurring price charged to run this reserved cache node.
-rcnoRecurringCharges
-    :: Functor f
-    => ([RecurringCharge]
-    -> f ([RecurringCharge]))
-    -> ReservedCacheNodesOffering
-    -> f ReservedCacheNodesOffering
+rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering ([RecurringCharge])
 rcnoRecurringCharges f x =
-    (\y -> x { _rcnoRecurringCharges = y })
-       <$> f (_rcnoRecurringCharges x)
+    f (_rcnoRecurringCharges x)
+        <&> \y -> x { _rcnoRecurringCharges = y }
 {-# INLINE rcnoRecurringCharges #-}
 
 instance FromXML ReservedCacheNodesOffering where
@@ -2659,29 +1999,19 @@ data SecurityGroupMembership = SecurityGroupMembership
     } deriving (Show, Generic)
 
 -- | The identifier of the cache security group.
-sgmSecurityGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SecurityGroupMembership
-    -> f SecurityGroupMembership
+sgmSecurityGroupId :: Lens' SecurityGroupMembership (Maybe Text)
 sgmSecurityGroupId f x =
-    (\y -> x { _sgmSecurityGroupId = y })
-       <$> f (_sgmSecurityGroupId x)
+    f (_sgmSecurityGroupId x)
+        <&> \y -> x { _sgmSecurityGroupId = y }
 {-# INLINE sgmSecurityGroupId #-}
 
 -- | The status of the cache security group membership. The status changes
 -- whenever a cache security group is modified, or when the cache security
 -- groups assigned to a cache cluster are modified.
-sgmStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SecurityGroupMembership
-    -> f SecurityGroupMembership
+sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
 sgmStatus f x =
-    (\y -> x { _sgmStatus = y })
-       <$> f (_sgmStatus x)
+    f (_sgmStatus x)
+        <&> \y -> x { _sgmStatus = y }
 {-# INLINE sgmStatus #-}
 
 instance FromXML SecurityGroupMembership where
@@ -2761,218 +2091,133 @@ data Snapshot = Snapshot
 
 -- | The name of a snapshot. For an automatic snapshot, the name is
 -- system-generated; for a manual snapshot, this is the user-provided name.
-stSnapshotName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stSnapshotName :: Lens' Snapshot (Maybe Text)
 stSnapshotName f x =
-    (\y -> x { _stSnapshotName = y })
-       <$> f (_stSnapshotName x)
+    f (_stSnapshotName x)
+        <&> \y -> x { _stSnapshotName = y }
 {-# INLINE stSnapshotName #-}
 
 -- | The user-supplied identifier of the source cache cluster.
-stCacheClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stCacheClusterId :: Lens' Snapshot (Maybe Text)
 stCacheClusterId f x =
-    (\y -> x { _stCacheClusterId = y })
-       <$> f (_stCacheClusterId x)
+    f (_stCacheClusterId x)
+        <&> \y -> x { _stCacheClusterId = y }
 {-# INLINE stCacheClusterId #-}
 
 -- | The status of the snapshot. Valid values: creating | available | restoring
 -- | copying | deleting.
-stSnapshotStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stSnapshotStatus :: Lens' Snapshot (Maybe Text)
 stSnapshotStatus f x =
-    (\y -> x { _stSnapshotStatus = y })
-       <$> f (_stSnapshotStatus x)
+    f (_stSnapshotStatus x)
+        <&> \y -> x { _stSnapshotStatus = y }
 {-# INLINE stSnapshotStatus #-}
 
 -- | Indicates whether the snapshot is from an automatic backup (automated) or
 -- was created manually (manual).
-stSnapshotSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stSnapshotSource :: Lens' Snapshot (Maybe Text)
 stSnapshotSource f x =
-    (\y -> x { _stSnapshotSource = y })
-       <$> f (_stSnapshotSource x)
+    f (_stSnapshotSource x)
+        <&> \y -> x { _stSnapshotSource = y }
 {-# INLINE stSnapshotSource #-}
 
 -- | The name of the compute and memory capacity node type for the source cache
 -- cluster.
-stCacheNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stCacheNodeType :: Lens' Snapshot (Maybe Text)
 stCacheNodeType f x =
-    (\y -> x { _stCacheNodeType = y })
-       <$> f (_stCacheNodeType x)
+    f (_stCacheNodeType x)
+        <&> \y -> x { _stCacheNodeType = y }
 {-# INLINE stCacheNodeType #-}
 
 -- | The name of the cache engine (memcached or redis) used by the source cache
 -- cluster.
-stEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stEngine :: Lens' Snapshot (Maybe Text)
 stEngine f x =
-    (\y -> x { _stEngine = y })
-       <$> f (_stEngine x)
+    f (_stEngine x)
+        <&> \y -> x { _stEngine = y }
 {-# INLINE stEngine #-}
 
 -- | The version of the cache engine version that is used by the source cache
 -- cluster.
-stEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stEngineVersion :: Lens' Snapshot (Maybe Text)
 stEngineVersion f x =
-    (\y -> x { _stEngineVersion = y })
-       <$> f (_stEngineVersion x)
+    f (_stEngineVersion x)
+        <&> \y -> x { _stEngineVersion = y }
 {-# INLINE stEngineVersion #-}
 
 -- | The number of cache nodes in the source cache cluster.
-stNumCacheNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Snapshot
-    -> f Snapshot
+stNumCacheNodes :: Lens' Snapshot (Maybe Integer)
 stNumCacheNodes f x =
-    (\y -> x { _stNumCacheNodes = y })
-       <$> f (_stNumCacheNodes x)
+    f (_stNumCacheNodes x)
+        <&> \y -> x { _stNumCacheNodes = y }
 {-# INLINE stNumCacheNodes #-}
 
 -- | The name of the Availability Zone in which the source cache cluster is
 -- located.
-stPreferredAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stPreferredAvailabilityZone :: Lens' Snapshot (Maybe Text)
 stPreferredAvailabilityZone f x =
-    (\y -> x { _stPreferredAvailabilityZone = y })
-       <$> f (_stPreferredAvailabilityZone x)
+    f (_stPreferredAvailabilityZone x)
+        <&> \y -> x { _stPreferredAvailabilityZone = y }
 {-# INLINE stPreferredAvailabilityZone #-}
 
 -- | The date and time when the source cache cluster was created.
-stCacheClusterCreateTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> Snapshot
-    -> f Snapshot
+stCacheClusterCreateTime :: Lens' Snapshot (Maybe ISO8601)
 stCacheClusterCreateTime f x =
-    (\y -> x { _stCacheClusterCreateTime = y })
-       <$> f (_stCacheClusterCreateTime x)
+    f (_stCacheClusterCreateTime x)
+        <&> \y -> x { _stCacheClusterCreateTime = y }
 {-# INLINE stCacheClusterCreateTime #-}
 
 -- | The time range (in UTC) during which weekly system maintenance can occur on
 -- the source cache cluster.
-stPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
 stPreferredMaintenanceWindow f x =
-    (\y -> x { _stPreferredMaintenanceWindow = y })
-       <$> f (_stPreferredMaintenanceWindow x)
+    f (_stPreferredMaintenanceWindow x)
+        <&> \y -> x { _stPreferredMaintenanceWindow = y }
 {-# INLINE stPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) for the topic used by the source cache
 -- cluster for publishing notifications.
-stTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stTopicArn :: Lens' Snapshot (Maybe Text)
 stTopicArn f x =
-    (\y -> x { _stTopicArn = y })
-       <$> f (_stTopicArn x)
+    f (_stTopicArn x)
+        <&> \y -> x { _stTopicArn = y }
 {-# INLINE stTopicArn #-}
 
 -- | The port number used by each cache nodes in the source cache cluster.
-stPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Snapshot
-    -> f Snapshot
+stPort :: Lens' Snapshot (Maybe Integer)
 stPort f x =
-    (\y -> x { _stPort = y })
-       <$> f (_stPort x)
+    f (_stPort x)
+        <&> \y -> x { _stPort = y }
 {-# INLINE stPort #-}
 
 -- | The cache parameter group that is associated with the source cache cluster.
-stCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
 stCacheParameterGroupName f x =
-    (\y -> x { _stCacheParameterGroupName = y })
-       <$> f (_stCacheParameterGroupName x)
+    f (_stCacheParameterGroupName x)
+        <&> \y -> x { _stCacheParameterGroupName = y }
 {-# INLINE stCacheParameterGroupName #-}
 
 -- | The name of the cache subnet group associated with the source cache
 -- cluster.
-stCacheSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
 stCacheSubnetGroupName f x =
-    (\y -> x { _stCacheSubnetGroupName = y })
-       <$> f (_stCacheSubnetGroupName x)
+    f (_stCacheSubnetGroupName x)
+        <&> \y -> x { _stCacheSubnetGroupName = y }
 {-# INLINE stCacheSubnetGroupName #-}
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group for the source cache cluster.
-stVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stVpcId :: Lens' Snapshot (Maybe Text)
 stVpcId f x =
-    (\y -> x { _stVpcId = y })
-       <$> f (_stVpcId x)
+    f (_stVpcId x)
+        <&> \y -> x { _stVpcId = y }
 {-# INLINE stVpcId #-}
 
 -- | For the source cache cluster, indicates whether minor version patches are
 -- applied automatically (true) or not (false).
-stAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Snapshot
-    -> f Snapshot
+stAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
 stAutoMinorVersionUpgrade f x =
-    (\y -> x { _stAutoMinorVersionUpgrade = y })
-       <$> f (_stAutoMinorVersionUpgrade x)
+    f (_stAutoMinorVersionUpgrade x)
+        <&> \y -> x { _stAutoMinorVersionUpgrade = y }
 {-# INLINE stAutoMinorVersionUpgrade #-}
 
 -- | For an automatic snapshot, the number of days for which ElastiCache will
@@ -2982,40 +2227,25 @@ stAutoMinorVersionUpgrade f x =
 -- not expire, and can only be deleted using the DeleteSnapshot action.
 -- ImportantIf the value of SnapshotRetentionLimit is set to zero (0), backups
 -- are turned off.
-stSnapshotRetentionLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Snapshot
-    -> f Snapshot
+stSnapshotRetentionLimit :: Lens' Snapshot (Maybe Integer)
 stSnapshotRetentionLimit f x =
-    (\y -> x { _stSnapshotRetentionLimit = y })
-       <$> f (_stSnapshotRetentionLimit x)
+    f (_stSnapshotRetentionLimit x)
+        <&> \y -> x { _stSnapshotRetentionLimit = y }
 {-# INLINE stSnapshotRetentionLimit #-}
 
 -- | The daily time range during which ElastiCache takes daily snapshots of the
 -- source cache cluster.
-stSnapshotWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Snapshot
-    -> f Snapshot
+stSnapshotWindow :: Lens' Snapshot (Maybe Text)
 stSnapshotWindow f x =
-    (\y -> x { _stSnapshotWindow = y })
-       <$> f (_stSnapshotWindow x)
+    f (_stSnapshotWindow x)
+        <&> \y -> x { _stSnapshotWindow = y }
 {-# INLINE stSnapshotWindow #-}
 
 -- | A list of the cache nodes in the source cache cluster.
-stNodeSnapshots
-    :: Functor f
-    => ([NodeSnapshot]
-    -> f ([NodeSnapshot]))
-    -> Snapshot
-    -> f Snapshot
+stNodeSnapshots :: Lens' Snapshot ([NodeSnapshot])
 stNodeSnapshots f x =
-    (\y -> x { _stNodeSnapshots = y })
-       <$> f (_stNodeSnapshots x)
+    f (_stNodeSnapshots x)
+        <&> \y -> x { _stNodeSnapshots = y }
 {-# INLINE stNodeSnapshots #-}
 
 instance FromXML Snapshot where
@@ -3033,27 +2263,17 @@ data Subnet = Subnet
     } deriving (Show, Generic)
 
 -- | The unique identifier for the subnet.
-sssssuSubnetIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subnet
-    -> f Subnet
+sssssuSubnetIdentifier :: Lens' Subnet (Maybe Text)
 sssssuSubnetIdentifier f x =
-    (\y -> x { _sssssuSubnetIdentifier = y })
-       <$> f (_sssssuSubnetIdentifier x)
+    f (_sssssuSubnetIdentifier x)
+        <&> \y -> x { _sssssuSubnetIdentifier = y }
 {-# INLINE sssssuSubnetIdentifier #-}
 
 -- | The Availability Zone associated with the subnet.
-sssssuSubnetAvailabilityZone
-    :: Functor f
-    => (Maybe AvailabilityZone
-    -> f (Maybe AvailabilityZone))
-    -> Subnet
-    -> f Subnet
+sssssuSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
 sssssuSubnetAvailabilityZone f x =
-    (\y -> x { _sssssuSubnetAvailabilityZone = y })
-       <$> f (_sssssuSubnetAvailabilityZone x)
+    f (_sssssuSubnetAvailabilityZone x)
+        <&> \y -> x { _sssssuSubnetAvailabilityZone = y }
 {-# INLINE sssssuSubnetAvailabilityZone #-}
 
 instance FromXML Subnet where

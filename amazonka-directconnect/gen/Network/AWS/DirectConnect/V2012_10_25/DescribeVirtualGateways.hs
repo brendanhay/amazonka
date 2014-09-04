@@ -42,6 +42,7 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeVirtualGateways' request.
 describeVirtualGateways :: DescribeVirtualGateways
 describeVirtualGateways = DescribeVirtualGateways
+{-# INLINE describeVirtualGateways #-}
 
 data DescribeVirtualGateways = DescribeVirtualGateways
     deriving (Eq, Show, Generic)
@@ -60,15 +61,10 @@ data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     } deriving (Show, Generic)
 
 -- | A list of virtual private gateways.
-vgVirtualGateways
-    :: Functor f
-    => ([VirtualGateway]
-    -> f ([VirtualGateway]))
-    -> DescribeVirtualGatewaysResponse
-    -> f DescribeVirtualGatewaysResponse
+vgVirtualGateways :: Lens' DescribeVirtualGatewaysResponse ([VirtualGateway])
 vgVirtualGateways f x =
-    (\y -> x { _vgVirtualGateways = y })
-       <$> f (_vgVirtualGateways x)
+    f (_vgVirtualGateways x)
+        <&> \y -> x { _vgVirtualGateways = y }
 {-# INLINE vgVirtualGateways #-}
 
 instance FromJSON DescribeVirtualGatewaysResponse

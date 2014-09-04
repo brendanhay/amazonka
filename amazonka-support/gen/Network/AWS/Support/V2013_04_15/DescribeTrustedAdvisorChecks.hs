@@ -47,6 +47,7 @@ describeTrustedAdvisorChecks :: Text -- ^ 'dtacrLanguage'
 describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
     { _dtacrLanguage = p1
     }
+{-# INLINE describeTrustedAdvisorChecks #-}
 
 data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
     { _dtacrLanguage :: Text
@@ -59,15 +60,10 @@ data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dtacrLanguage
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeTrustedAdvisorChecks
-    -> f DescribeTrustedAdvisorChecks
+dtacrLanguage :: Lens' DescribeTrustedAdvisorChecks (Text)
 dtacrLanguage f x =
-    (\y -> x { _dtacrLanguage = y })
-       <$> f (_dtacrLanguage x)
+    f (_dtacrLanguage x)
+        <&> \y -> x { _dtacrLanguage = y }
 {-# INLINE dtacrLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorChecks
@@ -84,15 +80,10 @@ data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
     } deriving (Show, Generic)
 
 -- | Information about all available Trusted Advisor checks.
-dtacsChecks
-    :: Functor f
-    => ([TrustedAdvisorCheckDescription]
-    -> f ([TrustedAdvisorCheckDescription]))
-    -> DescribeTrustedAdvisorChecksResponse
-    -> f DescribeTrustedAdvisorChecksResponse
+dtacsChecks :: Lens' DescribeTrustedAdvisorChecksResponse ([TrustedAdvisorCheckDescription])
 dtacsChecks f x =
-    (\y -> x { _dtacsChecks = y })
-       <$> f (_dtacsChecks x)
+    f (_dtacsChecks x)
+        <&> \y -> x { _dtacsChecks = y }
 {-# INLINE dtacsChecks #-}
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse

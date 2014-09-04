@@ -78,6 +78,7 @@ createInstance p1 p2 p3 = CreateInstance
     , _cirVirtualizationType = Nothing
     , _cirSubnetId = Nothing
     }
+{-# INLINE createInstance #-}
 
 data CreateInstance = CreateInstance
     { _cirStackId :: Text
@@ -149,15 +150,10 @@ data CreateInstance = CreateInstance
     } deriving (Show, Generic)
 
 -- | The stack ID.
-cirStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirStackId :: Lens' CreateInstance (Text)
 cirStackId f x =
-    (\y -> x { _cirStackId = y })
-       <$> f (_cirStackId x)
+    f (_cirStackId x)
+        <&> \y -> x { _cirStackId = y }
 {-# INLINE cirStackId #-}
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
@@ -165,42 +161,27 @@ cirStackId f x =
 -- Instance Families and Types. The parameter values that you use to specify
 -- the various types are in the API Name column of the Available Instance
 -- Types table.
-cirInstanceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirInstanceType :: Lens' CreateInstance (Text)
 cirInstanceType f x =
-    (\y -> x { _cirInstanceType = y })
-       <$> f (_cirInstanceType x)
+    f (_cirInstanceType x)
+        <&> \y -> x { _cirInstanceType = y }
 {-# INLINE cirInstanceType #-}
 
 -- | An array that contains the instance layer IDs.
-cirLayerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateInstance
-    -> f CreateInstance
+cirLayerIds :: Lens' CreateInstance ([Text])
 cirLayerIds f x =
-    (\y -> x { _cirLayerIds = y })
-       <$> f (_cirLayerIds x)
+    f (_cirLayerIds x)
+        <&> \y -> x { _cirLayerIds = y }
 {-# INLINE cirLayerIds #-}
 
 -- | The instance architecture. The default option is x86_64. Instance types do
 -- not necessarily support both architectures. For a list of the architectures
 -- that are supported by the different instance types, see Instance Families
 -- and Types.
-cirArchitecture
-    :: Functor f
-    => (Maybe Architecture
-    -> f (Maybe Architecture))
-    -> CreateInstance
-    -> f CreateInstance
+cirArchitecture :: Lens' CreateInstance (Maybe Architecture)
 cirArchitecture f x =
-    (\y -> x { _cirArchitecture = y })
-       <$> f (_cirArchitecture x)
+    f (_cirArchitecture x)
+        <&> \y -> x { _cirArchitecture = y }
 {-# INLINE cirArchitecture #-}
 
 -- | The instance auto scaling type, which has three possible values:
@@ -211,15 +192,10 @@ cirArchitecture f x =
 -- instance, which is started and stopped based on load metrics. To use
 -- load-based auto scaling, you must enable it for the instance layer and
 -- configure the thresholds by calling SetLoadBasedAutoScaling.
-cirAutoScalingType
-    :: Functor f
-    => (Maybe AutoScalingType
-    -> f (Maybe AutoScalingType))
-    -> CreateInstance
-    -> f CreateInstance
+cirAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 cirAutoScalingType f x =
-    (\y -> x { _cirAutoScalingType = y })
-       <$> f (_cirAutoScalingType x)
+    f (_cirAutoScalingType x)
+        <&> \y -> x { _cirAutoScalingType = y }
 {-# INLINE cirAutoScalingType #-}
 
 -- | Whether to install operating system and package updates when the instance
@@ -229,52 +205,32 @@ cirAutoScalingType f x =
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 -- We strongly recommend using the default value of true to ensure that your
 -- instances have the latest security updates.
-cirInstallUpdatesOnBoot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateInstance
-    -> f CreateInstance
+cirInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
 cirInstallUpdatesOnBoot f x =
-    (\y -> x { _cirInstallUpdatesOnBoot = y })
-       <$> f (_cirInstallUpdatesOnBoot x)
+    f (_cirInstallUpdatesOnBoot x)
+        <&> \y -> x { _cirInstallUpdatesOnBoot = y }
 {-# INLINE cirInstallUpdatesOnBoot #-}
 
 -- | Whether to create an Amazon EBS-optimized instance.
-cirEbsOptimized
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateInstance
-    -> f CreateInstance
+cirEbsOptimized :: Lens' CreateInstance (Maybe Bool)
 cirEbsOptimized f x =
-    (\y -> x { _cirEbsOptimized = y })
-       <$> f (_cirEbsOptimized x)
+    f (_cirEbsOptimized x)
+        <&> \y -> x { _cirEbsOptimized = y }
 {-# INLINE cirEbsOptimized #-}
 
 -- | The instance root device type. For more information, see Storage for the
 -- Root Device.
-cirRootDeviceType
-    :: Functor f
-    => (Maybe RootDeviceType
-    -> f (Maybe RootDeviceType))
-    -> CreateInstance
-    -> f CreateInstance
+cirRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
 cirRootDeviceType f x =
-    (\y -> x { _cirRootDeviceType = y })
-       <$> f (_cirRootDeviceType x)
+    f (_cirRootDeviceType x)
+        <&> \y -> x { _cirRootDeviceType = y }
 {-# INLINE cirRootDeviceType #-}
 
 -- | The instance host name.
-cirHostname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirHostname :: Lens' CreateInstance (Maybe Text)
 cirHostname f x =
-    (\y -> x { _cirHostname = y })
-       <$> f (_cirHostname x)
+    f (_cirHostname x)
+        <&> \y -> x { _cirHostname = y }
 {-# INLINE cirHostname #-}
 
 -- | The instance operating system, which must be set to one of the following.
@@ -284,80 +240,50 @@ cirHostname f x =
 -- the custom AMI that you want to use. For more information on the standard
 -- operating systems, see Operating SystemsFor more information on how to use
 -- custom AMIs with OpsWorks, see Using Custom AMIs.
-cirOs
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirOs :: Lens' CreateInstance (Maybe Text)
 cirOs f x =
-    (\y -> x { _cirOs = y })
-       <$> f (_cirOs x)
+    f (_cirOs x)
+        <&> \y -> x { _cirOs = y }
 {-# INLINE cirOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
-cirAmiId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirAmiId :: Lens' CreateInstance (Maybe Text)
 cirAmiId f x =
-    (\y -> x { _cirAmiId = y })
-       <$> f (_cirAmiId x)
+    f (_cirAmiId x)
+        <&> \y -> x { _cirAmiId = y }
 {-# INLINE cirAmiId #-}
 
 -- | The instance SSH key name.
-cirSshKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirSshKeyName :: Lens' CreateInstance (Maybe Text)
 cirSshKeyName f x =
-    (\y -> x { _cirSshKeyName = y })
-       <$> f (_cirSshKeyName x)
+    f (_cirSshKeyName x)
+        <&> \y -> x { _cirSshKeyName = y }
 {-# INLINE cirSshKeyName #-}
 
 -- | The instance Availability Zone. For more information, see Regions and
 -- Endpoints.
-cirAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirAvailabilityZone :: Lens' CreateInstance (Maybe Text)
 cirAvailabilityZone f x =
-    (\y -> x { _cirAvailabilityZone = y })
-       <$> f (_cirAvailabilityZone x)
+    f (_cirAvailabilityZone x)
+        <&> \y -> x { _cirAvailabilityZone = y }
 {-# INLINE cirAvailabilityZone #-}
 
 -- | The instance's virtualization type, paravirtual or hvm.
-cirVirtualizationType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirVirtualizationType :: Lens' CreateInstance (Maybe Text)
 cirVirtualizationType f x =
-    (\y -> x { _cirVirtualizationType = y })
-       <$> f (_cirVirtualizationType x)
+    f (_cirVirtualizationType x)
+        <&> \y -> x { _cirVirtualizationType = y }
 {-# INLINE cirVirtualizationType #-}
 
 -- | The ID of the instance's subnet. If the stack is running in a VPC, you can
 -- use this parameter to override the stack's default subnet ID value and
 -- direct AWS OpsWorks to launch the instance in a different subnet.
-cirSubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstance
-    -> f CreateInstance
+cirSubnetId :: Lens' CreateInstance (Maybe Text)
 cirSubnetId f x =
-    (\y -> x { _cirSubnetId = y })
-       <$> f (_cirSubnetId x)
+    f (_cirSubnetId x)
+        <&> \y -> x { _cirSubnetId = y }
 {-# INLINE cirSubnetId #-}
 
 instance ToPath CreateInstance
@@ -374,15 +300,10 @@ data CreateInstanceResponse = CreateInstanceResponse
     } deriving (Show, Generic)
 
 -- | The instance ID.
-cisInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstanceResponse
-    -> f CreateInstanceResponse
+cisInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cisInstanceId f x =
-    (\y -> x { _cisInstanceId = y })
-       <$> f (_cisInstanceId x)
+    f (_cisInstanceId x)
+        <&> \y -> x { _cisInstanceId = y }
 {-# INLINE cisInstanceId #-}
 
 instance FromJSON CreateInstanceResponse

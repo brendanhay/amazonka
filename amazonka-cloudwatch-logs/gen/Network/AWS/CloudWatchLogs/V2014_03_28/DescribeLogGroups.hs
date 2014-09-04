@@ -68,6 +68,7 @@ describeLogGroups = DescribeLogGroups
     , _dlgsLogGroupNamePrefix = Nothing
     , _dlgsNextToken = Nothing
     }
+{-# INLINE describeLogGroups #-}
 
 data DescribeLogGroups = DescribeLogGroups
     { _dlgsLimit :: Maybe Integer
@@ -82,40 +83,25 @@ data DescribeLogGroups = DescribeLogGroups
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
-dlgsLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeLogGroups
-    -> f DescribeLogGroups
+dlgsLimit :: Lens' DescribeLogGroups (Maybe Integer)
 dlgsLimit f x =
-    (\y -> x { _dlgsLimit = y })
-       <$> f (_dlgsLimit x)
+    f (_dlgsLimit x)
+        <&> \y -> x { _dlgsLimit = y }
 {-# INLINE dlgsLimit #-}
 
-dlgsLogGroupNamePrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLogGroups
-    -> f DescribeLogGroups
+dlgsLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
 dlgsLogGroupNamePrefix f x =
-    (\y -> x { _dlgsLogGroupNamePrefix = y })
-       <$> f (_dlgsLogGroupNamePrefix x)
+    f (_dlgsLogGroupNamePrefix x)
+        <&> \y -> x { _dlgsLogGroupNamePrefix = y }
 {-# INLINE dlgsLogGroupNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeLogGroups request.
-dlgsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLogGroups
-    -> f DescribeLogGroups
+dlgsNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgsNextToken f x =
-    (\y -> x { _dlgsNextToken = y })
-       <$> f (_dlgsNextToken x)
+    f (_dlgsNextToken x)
+        <&> \y -> x { _dlgsNextToken = y }
 {-# INLINE dlgsNextToken #-}
 
 instance ToPath DescribeLogGroups
@@ -136,29 +122,19 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     } deriving (Show, Generic)
 
 -- | A list of log groups.
-dlgtLogGroups
-    :: Functor f
-    => ([LogGroup]
-    -> f ([LogGroup]))
-    -> DescribeLogGroupsResponse
-    -> f DescribeLogGroupsResponse
+dlgtLogGroups :: Lens' DescribeLogGroupsResponse ([LogGroup])
 dlgtLogGroups f x =
-    (\y -> x { _dlgtLogGroups = y })
-       <$> f (_dlgtLogGroups x)
+    f (_dlgtLogGroups x)
+        <&> \y -> x { _dlgtLogGroups = y }
 {-# INLINE dlgtLogGroups #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dlgtNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLogGroupsResponse
-    -> f DescribeLogGroupsResponse
+dlgtNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgtNextToken f x =
-    (\y -> x { _dlgtNextToken = y })
-       <$> f (_dlgtNextToken x)
+    f (_dlgtNextToken x)
+        <&> \y -> x { _dlgtNextToken = y }
 {-# INLINE dlgtNextToken #-}
 
 instance FromJSON DescribeLogGroupsResponse

@@ -67,6 +67,7 @@ describeGatewayInformation :: Text -- ^ 'dgiiGatewayARN'
 describeGatewayInformation p1 = DescribeGatewayInformation
     { _dgiiGatewayARN = p1
     }
+{-# INLINE describeGatewayInformation #-}
 
 data DescribeGatewayInformation = DescribeGatewayInformation
     { _dgiiGatewayARN :: Text
@@ -77,15 +78,10 @@ data DescribeGatewayInformation = DescribeGatewayInformation
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgiiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeGatewayInformation
-    -> f DescribeGatewayInformation
+dgiiGatewayARN :: Lens' DescribeGatewayInformation (Text)
 dgiiGatewayARN f x =
-    (\y -> x { _dgiiGatewayARN = y })
-       <$> f (_dgiiGatewayARN x)
+    f (_dgiiGatewayARN x)
+        <&> \y -> x { _dgiiGatewayARN = y }
 {-# INLINE dgiiGatewayARN #-}
 
 instance ToPath DescribeGatewayInformation
@@ -123,90 +119,55 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgioGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgioGatewayARN f x =
-    (\y -> x { _dgioGatewayARN = y })
-       <$> f (_dgioGatewayARN x)
+    f (_dgioGatewayARN x)
+        <&> \y -> x { _dgioGatewayARN = y }
 {-# INLINE dgioGatewayARN #-}
 
 -- | The gateway ID.
-dgioGatewayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgioGatewayId f x =
-    (\y -> x { _dgioGatewayId = y })
-       <$> f (_dgioGatewayId x)
+    f (_dgioGatewayId x)
+        <&> \y -> x { _dgioGatewayId = y }
 {-# INLINE dgioGatewayId #-}
 
 -- | A NetworkInterface array that contains descriptions of the gateway network
 -- interfaces.
-dgioGatewayNetworkInterfaces
-    :: Functor f
-    => ([NetworkInterface]
-    -> f ([NetworkInterface]))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse ([NetworkInterface])
 dgioGatewayNetworkInterfaces f x =
-    (\y -> x { _dgioGatewayNetworkInterfaces = y })
-       <$> f (_dgioGatewayNetworkInterfaces x)
+    f (_dgioGatewayNetworkInterfaces x)
+        <&> \y -> x { _dgioGatewayNetworkInterfaces = y }
 {-# INLINE dgioGatewayNetworkInterfaces #-}
 
 -- | One of the values that indicates the operating state of the gateway.
-dgioGatewayState
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgioGatewayState f x =
-    (\y -> x { _dgioGatewayState = y })
-       <$> f (_dgioGatewayState x)
+    f (_dgioGatewayState x)
+        <&> \y -> x { _dgioGatewayState = y }
 {-# INLINE dgioGatewayState #-}
 
 -- | One of the values that indicates the time zone configured for the gateway.
-dgioGatewayTimezone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgioGatewayTimezone f x =
-    (\y -> x { _dgioGatewayTimezone = y })
-       <$> f (_dgioGatewayTimezone x)
+    f (_dgioGatewayTimezone x)
+        <&> \y -> x { _dgioGatewayTimezone = y }
 {-# INLINE dgioGatewayTimezone #-}
 
 -- | TBD.
-dgioGatewayType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgioGatewayType f x =
-    (\y -> x { _dgioGatewayType = y })
-       <$> f (_dgioGatewayType x)
+    f (_dgioGatewayType x)
+        <&> \y -> x { _dgioGatewayType = y }
 {-# INLINE dgioGatewayType #-}
 
 -- | The date at which an update to the gateway is available. This date is in
 -- the time zone of the gateway. If the gateway is not available for an update
 -- this field is not returned in the response. response example. -->.
-dgioNextUpdateAvailabilityDate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeGatewayInformationResponse
-    -> f DescribeGatewayInformationResponse
+dgioNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgioNextUpdateAvailabilityDate f x =
-    (\y -> x { _dgioNextUpdateAvailabilityDate = y })
-       <$> f (_dgioNextUpdateAvailabilityDate x)
+    f (_dgioNextUpdateAvailabilityDate x)
+        <&> \y -> x { _dgioNextUpdateAvailabilityDate = y }
 {-# INLINE dgioNextUpdateAvailabilityDate #-}
 
 instance FromJSON DescribeGatewayInformationResponse

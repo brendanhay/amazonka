@@ -47,6 +47,7 @@ changeTagsForResource p1 p2 = ChangeTagsForResource
     , _ctfrrRemoveTagKeys = Nothing
     , _ctfrrAddTags = Nothing
     }
+{-# INLINE changeTagsForResource #-}
 
 data ChangeTagsForResource = ChangeTagsForResource
     { _ctfrrResourceId :: Text
@@ -65,53 +66,33 @@ data ChangeTagsForResource = ChangeTagsForResource
     } deriving (Show, Generic)
 
 -- | The ID of the resource for which you want to add, change, or delete tags.
-ctfrrResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangeTagsForResource
-    -> f ChangeTagsForResource
+ctfrrResourceId :: Lens' ChangeTagsForResource (Text)
 ctfrrResourceId f x =
-    (\y -> x { _ctfrrResourceId = y })
-       <$> f (_ctfrrResourceId x)
+    f (_ctfrrResourceId x)
+        <&> \y -> x { _ctfrrResourceId = y }
 {-# INLINE ctfrrResourceId #-}
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
-ctfrrResourceType
-    :: Functor f
-    => (TagResourceType
-    -> f (TagResourceType))
-    -> ChangeTagsForResource
-    -> f ChangeTagsForResource
+ctfrrResourceType :: Lens' ChangeTagsForResource (TagResourceType)
 ctfrrResourceType f x =
-    (\y -> x { _ctfrrResourceType = y })
-       <$> f (_ctfrrResourceType x)
+    f (_ctfrrResourceType x)
+        <&> \y -> x { _ctfrrResourceType = y }
 {-# INLINE ctfrrResourceType #-}
 
 -- | A list of Tag keys that you want to remove from the specified resource.
-ctfrrRemoveTagKeys
-    :: Functor f
-    => (Maybe [Text]
-    -> f (Maybe [Text]))
-    -> ChangeTagsForResource
-    -> f ChangeTagsForResource
+ctfrrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe [Text])
 ctfrrRemoveTagKeys f x =
-    (\y -> x { _ctfrrRemoveTagKeys = y })
-       <$> f (_ctfrrRemoveTagKeys x)
+    f (_ctfrrRemoveTagKeys x)
+        <&> \y -> x { _ctfrrRemoveTagKeys = y }
 {-# INLINE ctfrrRemoveTagKeys #-}
 
 -- | A complex type that contains a list of Tag elements. Each Tag element
 -- identifies a tag that you want to add or update for the specified resource.
-ctfrrAddTags
-    :: Functor f
-    => (Maybe [Tag]
-    -> f (Maybe [Tag]))
-    -> ChangeTagsForResource
-    -> f ChangeTagsForResource
+ctfrrAddTags :: Lens' ChangeTagsForResource (Maybe [Tag])
 ctfrrAddTags f x =
-    (\y -> x { _ctfrrAddTags = y })
-       <$> f (_ctfrrAddTags x)
+    f (_ctfrrAddTags x)
+        <&> \y -> x { _ctfrrAddTags = y }
 {-# INLINE ctfrrAddTags #-}
 
 instance ToPath ChangeTagsForResource where

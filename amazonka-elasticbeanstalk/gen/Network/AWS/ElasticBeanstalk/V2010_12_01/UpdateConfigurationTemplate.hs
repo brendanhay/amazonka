@@ -107,6 +107,7 @@ updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
     , _uctmDescription = Nothing
     , _uctmOptionsToRemove = mempty
     }
+{-# INLINE updateConfigurationTemplate #-}
 
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     { _uctmApplicationName :: Text
@@ -133,67 +134,42 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
 -- | The name of the application associated with the configuration template to
 -- update. If no application is found with this name,
 -- UpdateConfigurationTemplate returns an InvalidParameterValue error.
-uctmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateConfigurationTemplate
-    -> f UpdateConfigurationTemplate
+uctmApplicationName :: Lens' UpdateConfigurationTemplate (Text)
 uctmApplicationName f x =
-    (\y -> x { _uctmApplicationName = y })
-       <$> f (_uctmApplicationName x)
+    f (_uctmApplicationName x)
+        <&> \y -> x { _uctmApplicationName = y }
 {-# INLINE uctmApplicationName #-}
 
 -- | The name of the configuration template to update. If no configuration
 -- template is found with this name, UpdateConfigurationTemplate returns an
 -- InvalidParameterValue error.
-uctmTemplateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateConfigurationTemplate
-    -> f UpdateConfigurationTemplate
+uctmTemplateName :: Lens' UpdateConfigurationTemplate (Text)
 uctmTemplateName f x =
-    (\y -> x { _uctmTemplateName = y })
-       <$> f (_uctmTemplateName x)
+    f (_uctmTemplateName x)
+        <&> \y -> x { _uctmTemplateName = y }
 {-# INLINE uctmTemplateName #-}
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
-uctmOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> UpdateConfigurationTemplate
-    -> f UpdateConfigurationTemplate
+uctmOptionSettings :: Lens' UpdateConfigurationTemplate ([ConfigurationOptionSetting])
 uctmOptionSettings f x =
-    (\y -> x { _uctmOptionSettings = y })
-       <$> f (_uctmOptionSettings x)
+    f (_uctmOptionSettings x)
+        <&> \y -> x { _uctmOptionSettings = y }
 {-# INLINE uctmOptionSettings #-}
 
 -- | A new description for the configuration.
-uctmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateConfigurationTemplate
-    -> f UpdateConfigurationTemplate
+uctmDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
 uctmDescription f x =
-    (\y -> x { _uctmDescription = y })
-       <$> f (_uctmDescription x)
+    f (_uctmDescription x)
+        <&> \y -> x { _uctmDescription = y }
 {-# INLINE uctmDescription #-}
 
 -- | A list of configuration options to remove from the configuration set.
 -- Constraint: You can remove only UserDefined configuration options.
-uctmOptionsToRemove
-    :: Functor f
-    => ([OptionSpecification]
-    -> f ([OptionSpecification]))
-    -> UpdateConfigurationTemplate
-    -> f UpdateConfigurationTemplate
+uctmOptionsToRemove :: Lens' UpdateConfigurationTemplate ([OptionSpecification])
 uctmOptionsToRemove f x =
-    (\y -> x { _uctmOptionsToRemove = y })
-       <$> f (_uctmOptionsToRemove x)
+    f (_uctmOptionsToRemove x)
+        <&> \y -> x { _uctmOptionsToRemove = y }
 {-# INLINE uctmOptionsToRemove #-}
 
 instance ToQuery UpdateConfigurationTemplate where
@@ -240,15 +216,10 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     } deriving (Show, Generic)
 
 -- | The name of the application associated with this configuration set.
-csgApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgApplicationName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 csgApplicationName f x =
-    (\y -> x { _csgApplicationName = y })
-       <$> f (_csgApplicationName x)
+    f (_csgApplicationName x)
+        <&> \y -> x { _csgApplicationName = y }
 {-# INLINE csgApplicationName #-}
 
 -- | If this configuration set is associated with an environment, the
@@ -264,101 +235,61 @@ csgApplicationName f x =
 -- deploying. deployed: This is the configuration that is currently deployed
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
-csgDeploymentStatus
-    :: Functor f
-    => (Maybe ConfigurationDeploymentStatus
-    -> f (Maybe ConfigurationDeploymentStatus))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 csgDeploymentStatus f x =
-    (\y -> x { _csgDeploymentStatus = y })
-       <$> f (_csgDeploymentStatus x)
+    f (_csgDeploymentStatus x)
+        <&> \y -> x { _csgDeploymentStatus = y }
 {-# INLINE csgDeploymentStatus #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
-csgOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgOptionSettings :: Lens' UpdateConfigurationTemplateResponse ([ConfigurationOptionSetting])
 csgOptionSettings f x =
-    (\y -> x { _csgOptionSettings = y })
-       <$> f (_csgOptionSettings x)
+    f (_csgOptionSettings x)
+        <&> \y -> x { _csgOptionSettings = y }
 {-# INLINE csgOptionSettings #-}
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
-csgTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 csgTemplateName f x =
-    (\y -> x { _csgTemplateName = y })
-       <$> f (_csgTemplateName x)
+    f (_csgTemplateName x)
+        <&> \y -> x { _csgTemplateName = y }
 {-# INLINE csgTemplateName #-}
 
 -- | The date (in UTC time) when this configuration set was created.
-csgDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
 csgDateCreated f x =
-    (\y -> x { _csgDateCreated = y })
-       <$> f (_csgDateCreated x)
+    f (_csgDateCreated x)
+        <&> \y -> x { _csgDateCreated = y }
 {-# INLINE csgDateCreated #-}
 
 -- | Describes this configuration set.
-csgDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgDescription :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 csgDescription f x =
-    (\y -> x { _csgDescription = y })
-       <$> f (_csgDescription x)
+    f (_csgDescription x)
+        <&> \y -> x { _csgDescription = y }
 {-# INLINE csgDescription #-}
 
 -- | If not null, the name of the environment for this configuration set.
-csgEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgEnvironmentName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 csgEnvironmentName f x =
-    (\y -> x { _csgEnvironmentName = y })
-       <$> f (_csgEnvironmentName x)
+    f (_csgEnvironmentName x)
+        <&> \y -> x { _csgEnvironmentName = y }
 {-# INLINE csgEnvironmentName #-}
 
 -- | The name of the solution stack this configuration set uses.
-csgSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 csgSolutionStackName f x =
-    (\y -> x { _csgSolutionStackName = y })
-       <$> f (_csgSolutionStackName x)
+    f (_csgSolutionStackName x)
+        <&> \y -> x { _csgSolutionStackName = y }
 {-# INLINE csgSolutionStackName #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
-csgDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> UpdateConfigurationTemplateResponse
-    -> f UpdateConfigurationTemplateResponse
+csgDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
 csgDateUpdated f x =
-    (\y -> x { _csgDateUpdated = y })
-       <$> f (_csgDateUpdated x)
+    f (_csgDateUpdated x)
+        <&> \y -> x { _csgDateUpdated = y }
 {-# INLINE csgDateUpdated #-}
 
 instance FromXML UpdateConfigurationTemplateResponse where

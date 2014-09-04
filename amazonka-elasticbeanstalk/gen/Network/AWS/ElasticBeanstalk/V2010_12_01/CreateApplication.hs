@@ -53,6 +53,7 @@ createApplication p1 = CreateApplication
     { _camApplicationName = p1
     , _camDescription = Nothing
     }
+{-# INLINE createApplication #-}
 
 data CreateApplication = CreateApplication
     { _camApplicationName :: Text
@@ -66,27 +67,17 @@ data CreateApplication = CreateApplication
 -- | The name of the application. Constraint: This name must be unique within
 -- your account. If the specified name already exists, the action returns an
 -- InvalidParameterValue error.
-camApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateApplication
-    -> f CreateApplication
+camApplicationName :: Lens' CreateApplication (Text)
 camApplicationName f x =
-    (\y -> x { _camApplicationName = y })
-       <$> f (_camApplicationName x)
+    f (_camApplicationName x)
+        <&> \y -> x { _camApplicationName = y }
 {-# INLINE camApplicationName #-}
 
 -- | Describes the application.
-camDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateApplication
-    -> f CreateApplication
+camDescription :: Lens' CreateApplication (Maybe Text)
 camDescription f x =
-    (\y -> x { _camDescription = y })
-       <$> f (_camDescription x)
+    f (_camDescription x)
+        <&> \y -> x { _camDescription = y }
 {-# INLINE camDescription #-}
 
 instance ToQuery CreateApplication where
@@ -98,15 +89,10 @@ data CreateApplicationResponse = CreateApplicationResponse
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
-admApplication
-    :: Functor f
-    => (Maybe ApplicationDescription
-    -> f (Maybe ApplicationDescription))
-    -> CreateApplicationResponse
-    -> f CreateApplicationResponse
+admApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 admApplication f x =
-    (\y -> x { _admApplication = y })
-       <$> f (_admApplication x)
+    f (_admApplication x)
+        <&> \y -> x { _admApplication = y }
 {-# INLINE admApplication #-}
 
 instance FromXML CreateApplicationResponse where

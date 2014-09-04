@@ -80,6 +80,7 @@ respondActivityTaskCompleted p1 = RespondActivityTaskCompleted
     { _ratcjTaskToken = p1
     , _ratcjResult = Nothing
     }
+{-# INLINE respondActivityTaskCompleted #-}
 
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
     { _ratcjTaskToken :: Text
@@ -96,28 +97,18 @@ data RespondActivityTaskCompleted = RespondActivityTaskCompleted
 -- service and should be treated as an opaque value. If the task is passed to
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
-ratcjTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RespondActivityTaskCompleted
-    -> f RespondActivityTaskCompleted
+ratcjTaskToken :: Lens' RespondActivityTaskCompleted (Text)
 ratcjTaskToken f x =
-    (\y -> x { _ratcjTaskToken = y })
-       <$> f (_ratcjTaskToken x)
+    f (_ratcjTaskToken x)
+        <&> \y -> x { _ratcjTaskToken = y }
 {-# INLINE ratcjTaskToken #-}
 
 -- | The result of the activity task. It is a free form string that is
 -- implementation specific.
-ratcjResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RespondActivityTaskCompleted
-    -> f RespondActivityTaskCompleted
+ratcjResult :: Lens' RespondActivityTaskCompleted (Maybe Text)
 ratcjResult f x =
-    (\y -> x { _ratcjResult = y })
-       <$> f (_ratcjResult x)
+    f (_ratcjResult x)
+        <&> \y -> x { _ratcjResult = y }
 {-# INLINE ratcjResult #-}
 
 instance ToPath RespondActivityTaskCompleted

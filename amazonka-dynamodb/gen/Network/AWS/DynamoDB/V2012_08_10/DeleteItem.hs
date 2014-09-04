@@ -76,6 +76,7 @@ deleteItem p1 p2 = DeleteItem
     , _diiReturnItemCollectionMetrics = Nothing
     , _diiReturnValues = Nothing
     }
+{-# INLINE deleteItem #-}
 
 data DeleteItem = DeleteItem
     { _diiKey :: Map Text AttributeValue
@@ -135,38 +136,23 @@ data DeleteItem = DeleteItem
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to delete.
-diiKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> DeleteItem
-    -> f DeleteItem
+diiKey :: Lens' DeleteItem (Map Text AttributeValue)
 diiKey f x =
-    (\y -> x { _diiKey = y })
-       <$> f (_diiKey x)
+    f (_diiKey x)
+        <&> \y -> x { _diiKey = y }
 {-# INLINE diiKey #-}
 
 -- | The name of the table from which to delete the item.
-diiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteItem
-    -> f DeleteItem
+diiTableName :: Lens' DeleteItem (Text)
 diiTableName f x =
-    (\y -> x { _diiTableName = y })
-       <$> f (_diiTableName x)
+    f (_diiTableName x)
+        <&> \y -> x { _diiTableName = y }
 {-# INLINE diiTableName #-}
 
-diiConditionalOperator
-    :: Functor f
-    => (Maybe ConditionalOperator
-    -> f (Maybe ConditionalOperator))
-    -> DeleteItem
-    -> f DeleteItem
+diiConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
 diiConditionalOperator f x =
-    (\y -> x { _diiConditionalOperator = y })
-       <$> f (_diiConditionalOperator x)
+    f (_diiConditionalOperator x)
+        <&> \y -> x { _diiConditionalOperator = y }
 {-# INLINE diiConditionalOperator #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
@@ -195,44 +181,29 @@ diiConditionalOperator f x =
 -- exist.) If you specify more than one condition for Exists, then all of the
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
-diiExpected
-    :: Functor f
-    => (Map Text ExpectedAttributeValue
-    -> f (Map Text ExpectedAttributeValue))
-    -> DeleteItem
-    -> f DeleteItem
+diiExpected :: Lens' DeleteItem (Map Text ExpectedAttributeValue)
 diiExpected f x =
-    (\y -> x { _diiExpected = y })
-       <$> f (_diiExpected x)
+    f (_diiExpected x)
+        <&> \y -> x { _diiExpected = y }
 {-# INLINE diiExpected #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-diiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> DeleteItem
-    -> f DeleteItem
+diiReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
 diiReturnConsumedCapacity f x =
-    (\y -> x { _diiReturnConsumedCapacity = y })
-       <$> f (_diiReturnConsumedCapacity x)
+    f (_diiReturnConsumedCapacity x)
+        <&> \y -> x { _diiReturnConsumedCapacity = y }
 {-# INLINE diiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
-diiReturnItemCollectionMetrics
-    :: Functor f
-    => (Maybe ReturnItemCollectionMetrics
-    -> f (Maybe ReturnItemCollectionMetrics))
-    -> DeleteItem
-    -> f DeleteItem
+diiReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
 diiReturnItemCollectionMetrics f x =
-    (\y -> x { _diiReturnItemCollectionMetrics = y })
-       <$> f (_diiReturnItemCollectionMetrics x)
+    f (_diiReturnItemCollectionMetrics x)
+        <&> \y -> x { _diiReturnItemCollectionMetrics = y }
 {-# INLINE diiReturnItemCollectionMetrics #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
@@ -240,15 +211,10 @@ diiReturnItemCollectionMetrics f x =
 -- ReturnValues is not specified, or if its value is NONE, then nothing is
 -- returned. (This is the default for ReturnValues.) ALL_OLD - The content of
 -- the old item is returned.
-diiReturnValues
-    :: Functor f
-    => (Maybe ReturnValue
-    -> f (Maybe ReturnValue))
-    -> DeleteItem
-    -> f DeleteItem
+diiReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
 diiReturnValues f x =
-    (\y -> x { _diiReturnValues = y })
-       <$> f (_diiReturnValues x)
+    f (_diiReturnValues x)
+        <&> \y -> x { _diiReturnValues = y }
 {-# INLINE diiReturnValues #-}
 
 instance ToPath DeleteItem
@@ -294,15 +260,10 @@ data DeleteItemResponse = DeleteItemResponse
 -- | A map of attribute names to AttributeValue objects, representing the item
 -- as it appeared before the DeleteItem operation. This map appears in the
 -- response only if ReturnValues was specified as ALL_OLD in the request.
-dioAttributes
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> DeleteItemResponse
-    -> f DeleteItemResponse
+dioAttributes :: Lens' DeleteItemResponse (Map Text AttributeValue)
 dioAttributes f x =
-    (\y -> x { _dioAttributes = y })
-       <$> f (_dioAttributes x)
+    f (_dioAttributes x)
+        <&> \y -> x { _dioAttributes = y }
 {-# INLINE dioAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -310,15 +271,10 @@ dioAttributes f x =
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-dioConsumedCapacity
-    :: Functor f
-    => (Maybe ConsumedCapacity
-    -> f (Maybe ConsumedCapacity))
-    -> DeleteItemResponse
-    -> f DeleteItemResponse
+dioConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
 dioConsumedCapacity f x =
-    (\y -> x { _dioConsumedCapacity = y })
-       <$> f (_dioConsumedCapacity x)
+    f (_dioConsumedCapacity x)
+        <&> \y -> x { _dioConsumedCapacity = y }
 {-# INLINE dioConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
@@ -335,15 +291,10 @@ dioConsumedCapacity f x =
 -- secondary index is approaching its size limit. The estimate is subject to
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
-dioItemCollectionMetrics
-    :: Functor f
-    => (Maybe ItemCollectionMetrics
-    -> f (Maybe ItemCollectionMetrics))
-    -> DeleteItemResponse
-    -> f DeleteItemResponse
+dioItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
 dioItemCollectionMetrics f x =
-    (\y -> x { _dioItemCollectionMetrics = y })
-       <$> f (_dioItemCollectionMetrics x)
+    f (_dioItemCollectionMetrics x)
+        <&> \y -> x { _dioItemCollectionMetrics = y }
 {-# INLINE dioItemCollectionMetrics #-}
 
 instance FromJSON DeleteItemResponse

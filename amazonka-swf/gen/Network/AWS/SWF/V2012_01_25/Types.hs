@@ -32,7 +32,6 @@ module Network.AWS.SWF.V2012_01_25.Types
       SWF
     -- ** Errors
     , Er (..)
-
     -- * ActivityTaskTimeoutType
     , ActivityTaskTimeoutType (..)
 
@@ -1857,15 +1856,10 @@ newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes
     } deriving (Show, Generic)
 
 -- | The unique Id of the timer to cancel. This field is required.
-ctdaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelTimerDecisionAttributes
-    -> f CancelTimerDecisionAttributes
+ctdaTimerId :: Lens' CancelTimerDecisionAttributes (Text)
 ctdaTimerId f x =
-    (\y -> x { _ctdaTimerId = y })
-       <$> f (_ctdaTimerId x)
+    f (_ctdaTimerId x)
+        <&> \y -> x { _ctdaTimerId = y }
 {-# INLINE ctdaTimerId #-}
 
 instance FromJSON CancelTimerDecisionAttributes
@@ -1880,15 +1874,10 @@ newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecis
     } deriving (Show, Generic)
 
 -- | Optional details of the cancellation.
-cwedbDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CancelWorkflowExecutionDecisionAttributes
-    -> f CancelWorkflowExecutionDecisionAttributes
+cwedbDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedbDetails f x =
-    (\y -> x { _cwedbDetails = y })
-       <$> f (_cwedbDetails x)
+    f (_cwedbDetails x)
+        <&> \y -> x { _cwedbDetails = y }
 {-# INLINE cwedbDetails #-}
 
 instance FromJSON CancelWorkflowExecutionDecisionAttributes
@@ -1908,15 +1897,10 @@ newtype CloseStatusFilter = CloseStatusFilter
 
 -- | The close status that must match the close status of an execution for it to
 -- meet the criteria of this filter. This field is required.
-csfStatus
-    :: Functor f
-    => (CloseStatus
-    -> f (CloseStatus))
-    -> CloseStatusFilter
-    -> f CloseStatusFilter
+csfStatus :: Lens' CloseStatusFilter (CloseStatus)
 csfStatus f x =
-    (\y -> x { _csfStatus = y })
-       <$> f (_csfStatus x)
+    f (_csfStatus x)
+        <&> \y -> x { _csfStatus = y }
 {-# INLINE csfStatus #-}
 
 instance ToJSON CloseStatusFilter
@@ -1931,15 +1915,10 @@ newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionD
 
 -- | The result of the workflow execution. The form of the result is
 -- implementation defined.
-cwedaResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CompleteWorkflowExecutionDecisionAttributes
-    -> f CompleteWorkflowExecutionDecisionAttributes
+cwedaResult :: Lens' CompleteWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaResult f x =
-    (\y -> x { _cwedaResult = y })
-       <$> f (_cwedaResult x)
+    f (_cwedaResult x)
+        <&> \y -> x { _cwedaResult = y }
 {-# INLINE cwedaResult #-}
 
 instance FromJSON CompleteWorkflowExecutionDecisionAttributes
@@ -1953,15 +1932,10 @@ newtype DomainConfiguration = DomainConfiguration
     } deriving (Show, Generic)
 
 -- | The retention period for workflow executions in this domain.
-dcWorkflowExecutionRetentionPeriodInDays
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DomainConfiguration
-    -> f DomainConfiguration
+dcWorkflowExecutionRetentionPeriodInDays :: Lens' DomainConfiguration (Text)
 dcWorkflowExecutionRetentionPeriodInDays f x =
-    (\y -> x { _dcWorkflowExecutionRetentionPeriodInDays = y })
-       <$> f (_dcWorkflowExecutionRetentionPeriodInDays x)
+    f (_dcWorkflowExecutionRetentionPeriodInDays x)
+        <&> \y -> x { _dcWorkflowExecutionRetentionPeriodInDays = y }
 {-# INLINE dcWorkflowExecutionRetentionPeriodInDays #-}
 
 instance FromJSON DomainConfiguration
@@ -1974,15 +1948,10 @@ newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskD
     } deriving (Show, Generic)
 
 -- | The activityId of the activity task to be canceled.
-rcatdaActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelActivityTaskDecisionAttributes
-    -> f RequestCancelActivityTaskDecisionAttributes
+rcatdaActivityId :: Lens' RequestCancelActivityTaskDecisionAttributes (Text)
 rcatdaActivityId f x =
-    (\y -> x { _rcatdaActivityId = y })
-       <$> f (_rcatdaActivityId x)
+    f (_rcatdaActivityId x)
+        <&> \y -> x { _rcatdaActivityId = y }
 {-# INLINE rcatdaActivityId #-}
 
 instance FromJSON RequestCancelActivityTaskDecisionAttributes
@@ -2000,15 +1969,10 @@ newtype TagFilter = TagFilter
 
 -- | Specifies the tag that must be associated with the execution for it to meet
 -- the filter criteria. This field is required.
-tfTag
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TagFilter
-    -> f TagFilter
+tfTag :: Lens' TagFilter (Text)
 tfTag f x =
-    (\y -> x { _tfTag = y })
-       <$> f (_tfTag x)
+    f (_tfTag x)
+        <&> \y -> x { _tfTag = y }
 {-# INLINE tfTag #-}
 
 instance ToJSON TagFilter
@@ -2020,15 +1984,10 @@ newtype TaskList = TaskList
     } deriving (Show, Generic)
 
 -- | The name of the task list.
-tlName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TaskList
-    -> f TaskList
+tlName :: Lens' TaskList (Text)
 tlName f x =
-    (\y -> x { _tlName = y })
-       <$> f (_tlName x)
+    f (_tlName x)
+        <&> \y -> x { _tlName = y }
 {-# INLINE tlName #-}
 
 instance FromJSON TaskList
@@ -2045,15 +2004,10 @@ newtype WorkflowExecutionFilter = WorkflowExecutionFilter
     } deriving (Show, Generic)
 
 -- | The workflowId to pass of match the criteria of this filter.
-wefWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecutionFilter
-    -> f WorkflowExecutionFilter
+wefWorkflowId :: Lens' WorkflowExecutionFilter (Text)
 wefWorkflowId f x =
-    (\y -> x { _wefWorkflowId = y })
-       <$> f (_wefWorkflowId x)
+    f (_wefWorkflowId x)
+        <&> \y -> x { _wefWorkflowId = y }
 {-# INLINE wefWorkflowId #-}
 
 instance ToJSON WorkflowExecutionFilter
@@ -2076,27 +2030,17 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
 -- task that resulted in the RequestCancelActivityTask decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
-atcreaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskCancelRequestedEventAttributes
-    -> f ActivityTaskCancelRequestedEventAttributes
+atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes (Integer)
 atcreaDecisionTaskCompletedEventId f x =
-    (\y -> x { _atcreaDecisionTaskCompletedEventId = y })
-       <$> f (_atcreaDecisionTaskCompletedEventId x)
+    f (_atcreaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _atcreaDecisionTaskCompletedEventId = y }
 {-# INLINE atcreaDecisionTaskCompletedEventId #-}
 
 -- | The unique ID of the task.
-atcreaActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivityTaskCancelRequestedEventAttributes
-    -> f ActivityTaskCancelRequestedEventAttributes
+atcreaActivityId :: Lens' ActivityTaskCancelRequestedEventAttributes (Text)
 atcreaActivityId f x =
-    (\y -> x { _atcreaActivityId = y })
-       <$> f (_atcreaActivityId x)
+    f (_atcreaActivityId x)
+        <&> \y -> x { _atcreaActivityId = y }
 {-# INLINE atcreaActivityId #-}
 
 instance FromJSON ActivityTaskCancelRequestedEventAttributes
@@ -2127,58 +2071,38 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes
     } deriving (Show, Generic)
 
 -- | Details of the cancellation (if any).
-atcebDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskCanceledEventAttributes
-    -> f ActivityTaskCanceledEventAttributes
+atcebDetails :: Lens' ActivityTaskCanceledEventAttributes (Maybe Text)
 atcebDetails f x =
-    (\y -> x { _atcebDetails = y })
-       <$> f (_atcebDetails x)
+    f (_atcebDetails x)
+        <&> \y -> x { _atcebDetails = y }
 {-# INLINE atcebDetails #-}
 
 -- | The id of the ActivityTaskScheduled event that was recorded when this
 -- activity task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-atcebScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskCanceledEventAttributes
-    -> f ActivityTaskCanceledEventAttributes
+atcebScheduledEventId :: Lens' ActivityTaskCanceledEventAttributes (Integer)
 atcebScheduledEventId f x =
-    (\y -> x { _atcebScheduledEventId = y })
-       <$> f (_atcebScheduledEventId x)
+    f (_atcebScheduledEventId x)
+        <&> \y -> x { _atcebScheduledEventId = y }
 {-# INLINE atcebScheduledEventId #-}
 
 -- | The Id of the ActivityTaskStarted event recorded when this activity task
 -- was started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-atcebStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskCanceledEventAttributes
-    -> f ActivityTaskCanceledEventAttributes
+atcebStartedEventId :: Lens' ActivityTaskCanceledEventAttributes (Integer)
 atcebStartedEventId f x =
-    (\y -> x { _atcebStartedEventId = y })
-       <$> f (_atcebStartedEventId x)
+    f (_atcebStartedEventId x)
+        <&> \y -> x { _atcebStartedEventId = y }
 {-# INLINE atcebStartedEventId #-}
 
 -- | If set, contains the Id of the last ActivityTaskCancelRequested event
 -- recorded for this activity task. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-atcebLatestCancelRequestedEventId
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ActivityTaskCanceledEventAttributes
-    -> f ActivityTaskCanceledEventAttributes
+atcebLatestCancelRequestedEventId :: Lens' ActivityTaskCanceledEventAttributes (Maybe Integer)
 atcebLatestCancelRequestedEventId f x =
-    (\y -> x { _atcebLatestCancelRequestedEventId = y })
-       <$> f (_atcebLatestCancelRequestedEventId x)
+    f (_atcebLatestCancelRequestedEventId x)
+        <&> \y -> x { _atcebLatestCancelRequestedEventId = y }
 {-# INLINE atcebLatestCancelRequestedEventId #-}
 
 instance FromJSON ActivityTaskCanceledEventAttributes
@@ -2204,43 +2128,28 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
     } deriving (Show, Generic)
 
 -- | The results of the activity task (if any).
-atceaResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskCompletedEventAttributes
-    -> f ActivityTaskCompletedEventAttributes
+atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
 atceaResult f x =
-    (\y -> x { _atceaResult = y })
-       <$> f (_atceaResult x)
+    f (_atceaResult x)
+        <&> \y -> x { _atceaResult = y }
 {-# INLINE atceaResult #-}
 
 -- | The id of the ActivityTaskScheduled event that was recorded when this
 -- activity task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-atceaScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskCompletedEventAttributes
-    -> f ActivityTaskCompletedEventAttributes
+atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes (Integer)
 atceaScheduledEventId f x =
-    (\y -> x { _atceaScheduledEventId = y })
-       <$> f (_atceaScheduledEventId x)
+    f (_atceaScheduledEventId x)
+        <&> \y -> x { _atceaScheduledEventId = y }
 {-# INLINE atceaScheduledEventId #-}
 
 -- | The Id of the ActivityTaskStarted event recorded when this activity task
 -- was started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-atceaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskCompletedEventAttributes
-    -> f ActivityTaskCompletedEventAttributes
+atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes (Integer)
 atceaStartedEventId f x =
-    (\y -> x { _atceaStartedEventId = y })
-       <$> f (_atceaStartedEventId x)
+    f (_atceaStartedEventId x)
+        <&> \y -> x { _atceaStartedEventId = y }
 {-# INLINE atceaStartedEventId #-}
 
 instance FromJSON ActivityTaskCompletedEventAttributes
@@ -2268,55 +2177,35 @@ data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes
     } deriving (Show, Generic)
 
 -- | The reason provided for the failure (if any).
-atfeaReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskFailedEventAttributes
-    -> f ActivityTaskFailedEventAttributes
+atfeaReason :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
 atfeaReason f x =
-    (\y -> x { _atfeaReason = y })
-       <$> f (_atfeaReason x)
+    f (_atfeaReason x)
+        <&> \y -> x { _atfeaReason = y }
 {-# INLINE atfeaReason #-}
 
 -- | The details of the failure (if any).
-atfeaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskFailedEventAttributes
-    -> f ActivityTaskFailedEventAttributes
+atfeaDetails :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
 atfeaDetails f x =
-    (\y -> x { _atfeaDetails = y })
-       <$> f (_atfeaDetails x)
+    f (_atfeaDetails x)
+        <&> \y -> x { _atfeaDetails = y }
 {-# INLINE atfeaDetails #-}
 
 -- | The id of the ActivityTaskScheduled event that was recorded when this
 -- activity task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-atfeaScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskFailedEventAttributes
-    -> f ActivityTaskFailedEventAttributes
+atfeaScheduledEventId :: Lens' ActivityTaskFailedEventAttributes (Integer)
 atfeaScheduledEventId f x =
-    (\y -> x { _atfeaScheduledEventId = y })
-       <$> f (_atfeaScheduledEventId x)
+    f (_atfeaScheduledEventId x)
+        <&> \y -> x { _atfeaScheduledEventId = y }
 {-# INLINE atfeaScheduledEventId #-}
 
 -- | The Id of the ActivityTaskStarted event recorded when this activity task
 -- was started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-atfeaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskFailedEventAttributes
-    -> f ActivityTaskFailedEventAttributes
+atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes (Integer)
 atfeaStartedEventId f x =
-    (\y -> x { _atfeaStartedEventId = y })
-       <$> f (_atfeaStartedEventId x)
+    f (_atfeaStartedEventId x)
+        <&> \y -> x { _atfeaStartedEventId = y }
 {-# INLINE atfeaStartedEventId #-}
 
 instance FromJSON ActivityTaskFailedEventAttributes
@@ -2361,116 +2250,71 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
     } deriving (Show, Generic)
 
 -- | The type of the activity task.
-atseaActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaActivityType :: Lens' ActivityTaskScheduledEventAttributes (ActivityType)
 atseaActivityType f x =
-    (\y -> x { _atseaActivityType = y })
-       <$> f (_atseaActivityType x)
+    f (_atseaActivityType x)
+        <&> \y -> x { _atseaActivityType = y }
 {-# INLINE atseaActivityType #-}
 
 -- | The unique id of the activity task.
-atseaActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaActivityId :: Lens' ActivityTaskScheduledEventAttributes (Text)
 atseaActivityId f x =
-    (\y -> x { _atseaActivityId = y })
-       <$> f (_atseaActivityId x)
+    f (_atseaActivityId x)
+        <&> \y -> x { _atseaActivityId = y }
 {-# INLINE atseaActivityId #-}
 
 -- | The input provided to the activity task.
-atseaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaInput :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaInput f x =
-    (\y -> x { _atseaInput = y })
-       <$> f (_atseaInput x)
+    f (_atseaInput x)
+        <&> \y -> x { _atseaInput = y }
 {-# INLINE atseaInput #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data is not sent to the activity.
-atseaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl f x =
-    (\y -> x { _atseaControl = y })
-       <$> f (_atseaControl x)
+    f (_atseaControl x)
+        <&> \y -> x { _atseaControl = y }
 {-# INLINE atseaControl #-}
 
 -- | The maximum amount of time the activity task can wait to be assigned to a
 -- worker.
-atseaScheduleToStartTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaScheduleToStartTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaScheduleToStartTimeout f x =
-    (\y -> x { _atseaScheduleToStartTimeout = y })
-       <$> f (_atseaScheduleToStartTimeout x)
+    f (_atseaScheduleToStartTimeout x)
+        <&> \y -> x { _atseaScheduleToStartTimeout = y }
 {-# INLINE atseaScheduleToStartTimeout #-}
 
 -- | The maximum amount of time for this activity task.
-atseaScheduleToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaScheduleToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaScheduleToCloseTimeout f x =
-    (\y -> x { _atseaScheduleToCloseTimeout = y })
-       <$> f (_atseaScheduleToCloseTimeout x)
+    f (_atseaScheduleToCloseTimeout x)
+        <&> \y -> x { _atseaScheduleToCloseTimeout = y }
 {-# INLINE atseaScheduleToCloseTimeout #-}
 
 -- | The maximum amount of time a worker may take to process the activity task.
-atseaStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaStartToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaStartToCloseTimeout f x =
-    (\y -> x { _atseaStartToCloseTimeout = y })
-       <$> f (_atseaStartToCloseTimeout x)
+    f (_atseaStartToCloseTimeout x)
+        <&> \y -> x { _atseaStartToCloseTimeout = y }
 {-# INLINE atseaStartToCloseTimeout #-}
 
 -- | The task list in which the activity task has been scheduled.
-atseaTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes (TaskList)
 atseaTaskList f x =
-    (\y -> x { _atseaTaskList = y })
-       <$> f (_atseaTaskList x)
+    f (_atseaTaskList x)
+        <&> \y -> x { _atseaTaskList = y }
 {-# INLINE atseaTaskList #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- that resulted in the scheduling of this activity task. This information can
 -- be useful for diagnosing problems by tracing back the chain of events
 -- leading up to this event.
-atseaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaDecisionTaskCompletedEventId :: Lens' ActivityTaskScheduledEventAttributes (Integer)
 atseaDecisionTaskCompletedEventId f x =
-    (\y -> x { _atseaDecisionTaskCompletedEventId = y })
-       <$> f (_atseaDecisionTaskCompletedEventId x)
+    f (_atseaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _atseaDecisionTaskCompletedEventId = y }
 {-# INLINE atseaDecisionTaskCompletedEventId #-}
 
 -- | The maximum time before which the worker processing this task must report
@@ -2478,15 +2322,10 @@ atseaDecisionTaskCompletedEventId f x =
 -- exceeded, the activity task is automatically timed out. If the worker
 -- subsequently attempts to record a heartbeat or return a result, it will be
 -- ignored.
-atseaHeartbeatTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskScheduledEventAttributes
-    -> f ActivityTaskScheduledEventAttributes
+atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaHeartbeatTimeout f x =
-    (\y -> x { _atseaHeartbeatTimeout = y })
-       <$> f (_atseaHeartbeatTimeout x)
+    f (_atseaHeartbeatTimeout x)
+        <&> \y -> x { _atseaHeartbeatTimeout = y }
 {-# INLINE atseaHeartbeatTimeout #-}
 
 instance FromJSON ActivityTaskScheduledEventAttributes
@@ -2510,29 +2349,19 @@ data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
 
 -- | Identity of the worker that was assigned this task. This aids diagnostics
 -- when problems arise. The form of this identity is user defined.
-atsebIdentity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskStartedEventAttributes
-    -> f ActivityTaskStartedEventAttributes
+atsebIdentity :: Lens' ActivityTaskStartedEventAttributes (Maybe Text)
 atsebIdentity f x =
-    (\y -> x { _atsebIdentity = y })
-       <$> f (_atsebIdentity x)
+    f (_atsebIdentity x)
+        <&> \y -> x { _atsebIdentity = y }
 {-# INLINE atsebIdentity #-}
 
 -- | The id of the ActivityTaskScheduled event that was recorded when this
 -- activity task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-atsebScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskStartedEventAttributes
-    -> f ActivityTaskStartedEventAttributes
+atsebScheduledEventId :: Lens' ActivityTaskStartedEventAttributes (Integer)
 atsebScheduledEventId f x =
-    (\y -> x { _atsebScheduledEventId = y })
-       <$> f (_atsebScheduledEventId x)
+    f (_atsebScheduledEventId x)
+        <&> \y -> x { _atsebScheduledEventId = y }
 {-# INLINE atsebScheduledEventId #-}
 
 instance FromJSON ActivityTaskStartedEventAttributes
@@ -2561,56 +2390,36 @@ data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
     } deriving (Show, Generic)
 
 -- | The type of the timeout that caused this event.
-attoeaTimeoutType
-    :: Functor f
-    => (ActivityTaskTimeoutType
-    -> f (ActivityTaskTimeoutType))
-    -> ActivityTaskTimedOutEventAttributes
-    -> f ActivityTaskTimedOutEventAttributes
+attoeaTimeoutType :: Lens' ActivityTaskTimedOutEventAttributes (ActivityTaskTimeoutType)
 attoeaTimeoutType f x =
-    (\y -> x { _attoeaTimeoutType = y })
-       <$> f (_attoeaTimeoutType x)
+    f (_attoeaTimeoutType x)
+        <&> \y -> x { _attoeaTimeoutType = y }
 {-# INLINE attoeaTimeoutType #-}
 
 -- | The id of the ActivityTaskScheduled event that was recorded when this
 -- activity task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-attoeaScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskTimedOutEventAttributes
-    -> f ActivityTaskTimedOutEventAttributes
+attoeaScheduledEventId :: Lens' ActivityTaskTimedOutEventAttributes (Integer)
 attoeaScheduledEventId f x =
-    (\y -> x { _attoeaScheduledEventId = y })
-       <$> f (_attoeaScheduledEventId x)
+    f (_attoeaScheduledEventId x)
+        <&> \y -> x { _attoeaScheduledEventId = y }
 {-# INLINE attoeaScheduledEventId #-}
 
 -- | The Id of the ActivityTaskStarted event recorded when this activity task
 -- was started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-attoeaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActivityTaskTimedOutEventAttributes
-    -> f ActivityTaskTimedOutEventAttributes
+attoeaStartedEventId :: Lens' ActivityTaskTimedOutEventAttributes (Integer)
 attoeaStartedEventId f x =
-    (\y -> x { _attoeaStartedEventId = y })
-       <$> f (_attoeaStartedEventId x)
+    f (_attoeaStartedEventId x)
+        <&> \y -> x { _attoeaStartedEventId = y }
 {-# INLINE attoeaStartedEventId #-}
 
 -- | Contains the content of the details parameter for the last call made by the
 -- activity to RecordActivityTaskHeartbeat.
-attoeaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTaskTimedOutEventAttributes
-    -> f ActivityTaskTimedOutEventAttributes
+attoeaDetails :: Lens' ActivityTaskTimedOutEventAttributes (Maybe Text)
 attoeaDetails f x =
-    (\y -> x { _attoeaDetails = y })
-       <$> f (_attoeaDetails x)
+    f (_attoeaDetails x)
+        <&> \y -> x { _attoeaDetails = y }
 {-# INLINE attoeaDetails #-}
 
 instance FromJSON ActivityTaskTimedOutEventAttributes
@@ -2629,28 +2438,18 @@ data ActivityType = ActivityType
 
 -- | The name of this activity. The combination of activity type name and
 -- version must be unique within a domain.
-atName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivityType
-    -> f ActivityType
+atName :: Lens' ActivityType (Text)
 atName f x =
-    (\y -> x { _atName = y })
-       <$> f (_atName x)
+    f (_atName x)
+        <&> \y -> x { _atName = y }
 {-# INLINE atName #-}
 
 -- | The version of this activity. The combination of activity type name and
 -- version must be unique with in a domain.
-atVersion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivityType
-    -> f ActivityType
+atVersion :: Lens' ActivityType (Text)
 atVersion f x =
-    (\y -> x { _atVersion = y })
-       <$> f (_atVersion x)
+    f (_atVersion x)
+        <&> \y -> x { _atVersion = y }
 {-# INLINE atVersion #-}
 
 instance FromJSON ActivityType
@@ -2710,15 +2509,10 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
 -- values are integers greater than or equal to 0. An integer value can be
 -- used to specify the duration in seconds while NONE can be used to specify
 -- unlimited duration.
-atcDefaultTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTypeConfiguration
-    -> f ActivityTypeConfiguration
+atcDefaultTaskStartToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskStartToCloseTimeout f x =
-    (\y -> x { _atcDefaultTaskStartToCloseTimeout = y })
-       <$> f (_atcDefaultTaskStartToCloseTimeout x)
+    f (_atcDefaultTaskStartToCloseTimeout x)
+        <&> \y -> x { _atcDefaultTaskStartToCloseTimeout = y }
 {-# INLINE atcDefaultTaskStartToCloseTimeout #-}
 
 -- | The optional default maximum time, specified when registering the activity
@@ -2732,15 +2526,10 @@ atcDefaultTaskStartToCloseTimeout f x =
 -- integers greater than or equal to 0. An integer value can be used to
 -- specify the duration in seconds while NONE can be used to specify unlimited
 -- duration.
-atcDefaultTaskHeartbeatTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTypeConfiguration
-    -> f ActivityTypeConfiguration
+atcDefaultTaskHeartbeatTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskHeartbeatTimeout f x =
-    (\y -> x { _atcDefaultTaskHeartbeatTimeout = y })
-       <$> f (_atcDefaultTaskHeartbeatTimeout x)
+    f (_atcDefaultTaskHeartbeatTimeout x)
+        <&> \y -> x { _atcDefaultTaskHeartbeatTimeout = y }
 {-# INLINE atcDefaultTaskHeartbeatTimeout #-}
 
 -- | The optional default task list specified for this activity type at
@@ -2748,15 +2537,10 @@ atcDefaultTaskHeartbeatTimeout f x =
 -- when a task is scheduled through the ScheduleActivityTask Decision. You can
 -- override this default when scheduling a task through the
 -- ScheduleActivityTask Decision.
-atcDefaultTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> ActivityTypeConfiguration
-    -> f ActivityTypeConfiguration
+atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
 atcDefaultTaskList f x =
-    (\y -> x { _atcDefaultTaskList = y })
-       <$> f (_atcDefaultTaskList x)
+    f (_atcDefaultTaskList x)
+        <&> \y -> x { _atcDefaultTaskList = y }
 {-# INLINE atcDefaultTaskList #-}
 
 -- | The optional default maximum duration, specified when registering the
@@ -2765,15 +2549,10 @@ atcDefaultTaskList f x =
 -- through the ScheduleActivityTask Decision. The valid values are integers
 -- greater than or equal to 0. An integer value can be used to specify the
 -- duration in seconds while NONE can be used to specify unlimited duration.
-atcDefaultTaskScheduleToStartTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTypeConfiguration
-    -> f ActivityTypeConfiguration
+atcDefaultTaskScheduleToStartTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToStartTimeout f x =
-    (\y -> x { _atcDefaultTaskScheduleToStartTimeout = y })
-       <$> f (_atcDefaultTaskScheduleToStartTimeout x)
+    f (_atcDefaultTaskScheduleToStartTimeout x)
+        <&> \y -> x { _atcDefaultTaskScheduleToStartTimeout = y }
 {-# INLINE atcDefaultTaskScheduleToStartTimeout #-}
 
 -- | The optional default maximum duration, specified when registering the
@@ -2782,15 +2561,10 @@ atcDefaultTaskScheduleToStartTimeout f x =
 -- The valid values are integers greater than or equal to 0. An integer value
 -- can be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
-atcDefaultTaskScheduleToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTypeConfiguration
-    -> f ActivityTypeConfiguration
+atcDefaultTaskScheduleToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToCloseTimeout f x =
-    (\y -> x { _atcDefaultTaskScheduleToCloseTimeout = y })
-       <$> f (_atcDefaultTaskScheduleToCloseTimeout x)
+    f (_atcDefaultTaskScheduleToCloseTimeout x)
+        <&> \y -> x { _atcDefaultTaskScheduleToCloseTimeout = y }
 {-# INLINE atcDefaultTaskScheduleToCloseTimeout #-}
 
 instance FromJSON ActivityTypeConfiguration
@@ -2818,64 +2592,39 @@ data ActivityTypeInfo = ActivityTypeInfo
     } deriving (Show, Generic)
 
 -- | The ActivityType type structure representing the activity type.
-atiActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> ActivityTypeInfo
-    -> f ActivityTypeInfo
+atiActivityType :: Lens' ActivityTypeInfo (ActivityType)
 atiActivityType f x =
-    (\y -> x { _atiActivityType = y })
-       <$> f (_atiActivityType x)
+    f (_atiActivityType x)
+        <&> \y -> x { _atiActivityType = y }
 {-# INLINE atiActivityType #-}
 
 -- | The current status of the activity type.
-atiStatus
-    :: Functor f
-    => (RegistrationStatus
-    -> f (RegistrationStatus))
-    -> ActivityTypeInfo
-    -> f ActivityTypeInfo
+atiStatus :: Lens' ActivityTypeInfo (RegistrationStatus)
 atiStatus f x =
-    (\y -> x { _atiStatus = y })
-       <$> f (_atiStatus x)
+    f (_atiStatus x)
+        <&> \y -> x { _atiStatus = y }
 {-# INLINE atiStatus #-}
 
 -- | The description of the activity type provided in RegisterActivityType.
-atiDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ActivityTypeInfo
-    -> f ActivityTypeInfo
+atiDescription :: Lens' ActivityTypeInfo (Maybe Text)
 atiDescription f x =
-    (\y -> x { _atiDescription = y })
-       <$> f (_atiDescription x)
+    f (_atiDescription x)
+        <&> \y -> x { _atiDescription = y }
 {-# INLINE atiDescription #-}
 
 -- | The date and time this activity type was created through
 -- RegisterActivityType.
-atiCreationDate
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> ActivityTypeInfo
-    -> f ActivityTypeInfo
+atiCreationDate :: Lens' ActivityTypeInfo (POSIX)
 atiCreationDate f x =
-    (\y -> x { _atiCreationDate = y })
-       <$> f (_atiCreationDate x)
+    f (_atiCreationDate x)
+        <&> \y -> x { _atiCreationDate = y }
 {-# INLINE atiCreationDate #-}
 
 -- | If DEPRECATED, the date and time DeprecateActivityType was called.
-atiDeprecationDate
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ActivityTypeInfo
-    -> f ActivityTypeInfo
+atiDeprecationDate :: Lens' ActivityTypeInfo (Maybe POSIX)
 atiDeprecationDate f x =
-    (\y -> x { _atiDeprecationDate = y })
-       <$> f (_atiDeprecationDate x)
+    f (_atiDeprecationDate x)
+        <&> \y -> x { _atiDeprecationDate = y }
 {-# INLINE atiDeprecationDate #-}
 
 instance FromJSON ActivityTypeInfo
@@ -2901,15 +2650,10 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes
     } deriving (Show, Generic)
 
 -- | The timerId provided in the CancelTimer decision that failed.
-ctfeaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelTimerFailedEventAttributes
-    -> f CancelTimerFailedEventAttributes
+ctfeaTimerId :: Lens' CancelTimerFailedEventAttributes (Text)
 ctfeaTimerId f x =
-    (\y -> x { _ctfeaTimerId = y })
-       <$> f (_ctfeaTimerId x)
+    f (_ctfeaTimerId x)
+        <&> \y -> x { _ctfeaTimerId = y }
 {-# INLINE ctfeaTimerId #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -2917,30 +2661,20 @@ ctfeaTimerId f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-ctfeaCause
-    :: Functor f
-    => (CancelTimerFailedCause
-    -> f (CancelTimerFailedCause))
-    -> CancelTimerFailedEventAttributes
-    -> f CancelTimerFailedEventAttributes
+ctfeaCause :: Lens' CancelTimerFailedEventAttributes (CancelTimerFailedCause)
 ctfeaCause f x =
-    (\y -> x { _ctfeaCause = y })
-       <$> f (_ctfeaCause x)
+    f (_ctfeaCause x)
+        <&> \y -> x { _ctfeaCause = y }
 {-# INLINE ctfeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the CancelTimer decision to cancel this timer. This
 -- information can be useful for diagnosing problems by tracing back the cause
 -- of events.
-ctfeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CancelTimerFailedEventAttributes
-    -> f CancelTimerFailedEventAttributes
+ctfeaDecisionTaskCompletedEventId :: Lens' CancelTimerFailedEventAttributes (Integer)
 ctfeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _ctfeaDecisionTaskCompletedEventId = y })
-       <$> f (_ctfeaDecisionTaskCompletedEventId x)
+    f (_ctfeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _ctfeaDecisionTaskCompletedEventId = y }
 {-# INLINE ctfeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON CancelTimerFailedEventAttributes
@@ -2970,30 +2704,20 @@ data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFaile
 -- OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient
 -- permissions. For details and example IAM policies, see Using IAM to Manage
 -- Access to Amazon SWF Workflows.
-cwefebCause
-    :: Functor f
-    => (CancelWorkflowExecutionFailedCause
-    -> f (CancelWorkflowExecutionFailedCause))
-    -> CancelWorkflowExecutionFailedEventAttributes
-    -> f CancelWorkflowExecutionFailedEventAttributes
+cwefebCause :: Lens' CancelWorkflowExecutionFailedEventAttributes (CancelWorkflowExecutionFailedCause)
 cwefebCause f x =
-    (\y -> x { _cwefebCause = y })
-       <$> f (_cwefebCause x)
+    f (_cwefebCause x)
+        <&> \y -> x { _cwefebCause = y }
 {-# INLINE cwefebCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the CancelWorkflowExecution decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
-cwefebDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CancelWorkflowExecutionFailedEventAttributes
-    -> f CancelWorkflowExecutionFailedEventAttributes
+cwefebDecisionTaskCompletedEventId :: Lens' CancelWorkflowExecutionFailedEventAttributes (Integer)
 cwefebDecisionTaskCompletedEventId f x =
-    (\y -> x { _cwefebDecisionTaskCompletedEventId = y })
-       <$> f (_cwefebDecisionTaskCompletedEventId x)
+    f (_cwefebDecisionTaskCompletedEventId x)
+        <&> \y -> x { _cwefebDecisionTaskCompletedEventId = y }
 {-# INLINE cwefebDecisionTaskCompletedEventId #-}
 
 instance FromJSON CancelWorkflowExecutionFailedEventAttributes
@@ -3024,69 +2748,44 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
     } deriving (Show, Generic)
 
 -- | The child workflow execution that was canceled.
-cwecebWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ChildWorkflowExecutionCanceledEventAttributes
-    -> f ChildWorkflowExecutionCanceledEventAttributes
+cwecebWorkflowExecution :: Lens' ChildWorkflowExecutionCanceledEventAttributes (WorkflowExecution)
 cwecebWorkflowExecution f x =
-    (\y -> x { _cwecebWorkflowExecution = y })
-       <$> f (_cwecebWorkflowExecution x)
+    f (_cwecebWorkflowExecution x)
+        <&> \y -> x { _cwecebWorkflowExecution = y }
 {-# INLINE cwecebWorkflowExecution #-}
 
 -- | The type of the child workflow execution.
-cwecebWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> ChildWorkflowExecutionCanceledEventAttributes
-    -> f ChildWorkflowExecutionCanceledEventAttributes
+cwecebWorkflowType :: Lens' ChildWorkflowExecutionCanceledEventAttributes (WorkflowType)
 cwecebWorkflowType f x =
-    (\y -> x { _cwecebWorkflowType = y })
-       <$> f (_cwecebWorkflowType x)
+    f (_cwecebWorkflowType x)
+        <&> \y -> x { _cwecebWorkflowType = y }
 {-# INLINE cwecebWorkflowType #-}
 
 -- | Details of the cancellation (if provided).
-cwecebDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ChildWorkflowExecutionCanceledEventAttributes
-    -> f ChildWorkflowExecutionCanceledEventAttributes
+cwecebDetails :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Maybe Text)
 cwecebDetails f x =
-    (\y -> x { _cwecebDetails = y })
-       <$> f (_cwecebDetails x)
+    f (_cwecebDetails x)
+        <&> \y -> x { _cwecebDetails = y }
 {-# INLINE cwecebDetails #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-cwecebInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionCanceledEventAttributes
-    -> f ChildWorkflowExecutionCanceledEventAttributes
+cwecebInitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Integer)
 cwecebInitiatedEventId f x =
-    (\y -> x { _cwecebInitiatedEventId = y })
-       <$> f (_cwecebInitiatedEventId x)
+    f (_cwecebInitiatedEventId x)
+        <&> \y -> x { _cwecebInitiatedEventId = y }
 {-# INLINE cwecebInitiatedEventId #-}
 
 -- | The Id of the ChildWorkflowExecutionStarted event recorded when this child
 -- workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-cwecebStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionCanceledEventAttributes
-    -> f ChildWorkflowExecutionCanceledEventAttributes
+cwecebStartedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Integer)
 cwecebStartedEventId f x =
-    (\y -> x { _cwecebStartedEventId = y })
-       <$> f (_cwecebStartedEventId x)
+    f (_cwecebStartedEventId x)
+        <&> \y -> x { _cwecebStartedEventId = y }
 {-# INLINE cwecebStartedEventId #-}
 
 instance FromJSON ChildWorkflowExecutionCanceledEventAttributes
@@ -3117,69 +2816,44 @@ data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionComp
     } deriving (Show, Generic)
 
 -- | The child workflow execution that was completed.
-cweceaWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ChildWorkflowExecutionCompletedEventAttributes
-    -> f ChildWorkflowExecutionCompletedEventAttributes
+cweceaWorkflowExecution :: Lens' ChildWorkflowExecutionCompletedEventAttributes (WorkflowExecution)
 cweceaWorkflowExecution f x =
-    (\y -> x { _cweceaWorkflowExecution = y })
-       <$> f (_cweceaWorkflowExecution x)
+    f (_cweceaWorkflowExecution x)
+        <&> \y -> x { _cweceaWorkflowExecution = y }
 {-# INLINE cweceaWorkflowExecution #-}
 
 -- | The type of the child workflow execution.
-cweceaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> ChildWorkflowExecutionCompletedEventAttributes
-    -> f ChildWorkflowExecutionCompletedEventAttributes
+cweceaWorkflowType :: Lens' ChildWorkflowExecutionCompletedEventAttributes (WorkflowType)
 cweceaWorkflowType f x =
-    (\y -> x { _cweceaWorkflowType = y })
-       <$> f (_cweceaWorkflowType x)
+    f (_cweceaWorkflowType x)
+        <&> \y -> x { _cweceaWorkflowType = y }
 {-# INLINE cweceaWorkflowType #-}
 
 -- | The result of the child workflow execution (if any).
-cweceaResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ChildWorkflowExecutionCompletedEventAttributes
-    -> f ChildWorkflowExecutionCompletedEventAttributes
+cweceaResult :: Lens' ChildWorkflowExecutionCompletedEventAttributes (Maybe Text)
 cweceaResult f x =
-    (\y -> x { _cweceaResult = y })
-       <$> f (_cweceaResult x)
+    f (_cweceaResult x)
+        <&> \y -> x { _cweceaResult = y }
 {-# INLINE cweceaResult #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-cweceaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionCompletedEventAttributes
-    -> f ChildWorkflowExecutionCompletedEventAttributes
+cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes (Integer)
 cweceaInitiatedEventId f x =
-    (\y -> x { _cweceaInitiatedEventId = y })
-       <$> f (_cweceaInitiatedEventId x)
+    f (_cweceaInitiatedEventId x)
+        <&> \y -> x { _cweceaInitiatedEventId = y }
 {-# INLINE cweceaInitiatedEventId #-}
 
 -- | The Id of the ChildWorkflowExecutionStarted event recorded when this child
 -- workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-cweceaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionCompletedEventAttributes
-    -> f ChildWorkflowExecutionCompletedEventAttributes
+cweceaStartedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes (Integer)
 cweceaStartedEventId f x =
-    (\y -> x { _cweceaStartedEventId = y })
-       <$> f (_cweceaStartedEventId x)
+    f (_cweceaStartedEventId x)
+        <&> \y -> x { _cweceaStartedEventId = y }
 {-# INLINE cweceaStartedEventId #-}
 
 instance FromJSON ChildWorkflowExecutionCompletedEventAttributes
@@ -3212,81 +2886,51 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
     } deriving (Show, Generic)
 
 -- | The child workflow execution that failed.
-cwefecWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ChildWorkflowExecutionFailedEventAttributes
-    -> f ChildWorkflowExecutionFailedEventAttributes
+cwefecWorkflowExecution :: Lens' ChildWorkflowExecutionFailedEventAttributes (WorkflowExecution)
 cwefecWorkflowExecution f x =
-    (\y -> x { _cwefecWorkflowExecution = y })
-       <$> f (_cwefecWorkflowExecution x)
+    f (_cwefecWorkflowExecution x)
+        <&> \y -> x { _cwefecWorkflowExecution = y }
 {-# INLINE cwefecWorkflowExecution #-}
 
 -- | The type of the child workflow execution.
-cwefecWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> ChildWorkflowExecutionFailedEventAttributes
-    -> f ChildWorkflowExecutionFailedEventAttributes
+cwefecWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes (WorkflowType)
 cwefecWorkflowType f x =
-    (\y -> x { _cwefecWorkflowType = y })
-       <$> f (_cwefecWorkflowType x)
+    f (_cwefecWorkflowType x)
+        <&> \y -> x { _cwefecWorkflowType = y }
 {-# INLINE cwefecWorkflowType #-}
 
 -- | The reason for the failure (if provided).
-cwefecReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ChildWorkflowExecutionFailedEventAttributes
-    -> f ChildWorkflowExecutionFailedEventAttributes
+cwefecReason :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 cwefecReason f x =
-    (\y -> x { _cwefecReason = y })
-       <$> f (_cwefecReason x)
+    f (_cwefecReason x)
+        <&> \y -> x { _cwefecReason = y }
 {-# INLINE cwefecReason #-}
 
 -- | The details of the failure (if provided).
-cwefecDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ChildWorkflowExecutionFailedEventAttributes
-    -> f ChildWorkflowExecutionFailedEventAttributes
+cwefecDetails :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 cwefecDetails f x =
-    (\y -> x { _cwefecDetails = y })
-       <$> f (_cwefecDetails x)
+    f (_cwefecDetails x)
+        <&> \y -> x { _cwefecDetails = y }
 {-# INLINE cwefecDetails #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-cwefecInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionFailedEventAttributes
-    -> f ChildWorkflowExecutionFailedEventAttributes
+cwefecInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes (Integer)
 cwefecInitiatedEventId f x =
-    (\y -> x { _cwefecInitiatedEventId = y })
-       <$> f (_cwefecInitiatedEventId x)
+    f (_cwefecInitiatedEventId x)
+        <&> \y -> x { _cwefecInitiatedEventId = y }
 {-# INLINE cwefecInitiatedEventId #-}
 
 -- | The Id of the ChildWorkflowExecutionStarted event recorded when this child
 -- workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-cwefecStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionFailedEventAttributes
-    -> f ChildWorkflowExecutionFailedEventAttributes
+cwefecStartedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes (Integer)
 cwefecStartedEventId f x =
-    (\y -> x { _cwefecStartedEventId = y })
-       <$> f (_cwefecStartedEventId x)
+    f (_cwefecStartedEventId x)
+        <&> \y -> x { _cwefecStartedEventId = y }
 {-# INLINE cwefecStartedEventId #-}
 
 instance FromJSON ChildWorkflowExecutionFailedEventAttributes
@@ -3310,42 +2954,27 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
     } deriving (Show, Generic)
 
 -- | The child workflow execution that was started.
-cweseaWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ChildWorkflowExecutionStartedEventAttributes
-    -> f ChildWorkflowExecutionStartedEventAttributes
+cweseaWorkflowExecution :: Lens' ChildWorkflowExecutionStartedEventAttributes (WorkflowExecution)
 cweseaWorkflowExecution f x =
-    (\y -> x { _cweseaWorkflowExecution = y })
-       <$> f (_cweseaWorkflowExecution x)
+    f (_cweseaWorkflowExecution x)
+        <&> \y -> x { _cweseaWorkflowExecution = y }
 {-# INLINE cweseaWorkflowExecution #-}
 
 -- | The type of the child workflow execution.
-cweseaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> ChildWorkflowExecutionStartedEventAttributes
-    -> f ChildWorkflowExecutionStartedEventAttributes
+cweseaWorkflowType :: Lens' ChildWorkflowExecutionStartedEventAttributes (WorkflowType)
 cweseaWorkflowType f x =
-    (\y -> x { _cweseaWorkflowType = y })
-       <$> f (_cweseaWorkflowType x)
+    f (_cweseaWorkflowType x)
+        <&> \y -> x { _cweseaWorkflowType = y }
 {-# INLINE cweseaWorkflowType #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-cweseaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionStartedEventAttributes
-    -> f ChildWorkflowExecutionStartedEventAttributes
+cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes (Integer)
 cweseaInitiatedEventId f x =
-    (\y -> x { _cweseaInitiatedEventId = y })
-       <$> f (_cweseaInitiatedEventId x)
+    f (_cweseaInitiatedEventId x)
+        <&> \y -> x { _cweseaInitiatedEventId = y }
 {-# INLINE cweseaInitiatedEventId #-}
 
 instance FromJSON ChildWorkflowExecutionStartedEventAttributes
@@ -3374,57 +3003,37 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
     } deriving (Show, Generic)
 
 -- | The child workflow execution that was terminated.
-cweteaWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ChildWorkflowExecutionTerminatedEventAttributes
-    -> f ChildWorkflowExecutionTerminatedEventAttributes
+cweteaWorkflowExecution :: Lens' ChildWorkflowExecutionTerminatedEventAttributes (WorkflowExecution)
 cweteaWorkflowExecution f x =
-    (\y -> x { _cweteaWorkflowExecution = y })
-       <$> f (_cweteaWorkflowExecution x)
+    f (_cweteaWorkflowExecution x)
+        <&> \y -> x { _cweteaWorkflowExecution = y }
 {-# INLINE cweteaWorkflowExecution #-}
 
 -- | The type of the child workflow execution.
-cweteaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> ChildWorkflowExecutionTerminatedEventAttributes
-    -> f ChildWorkflowExecutionTerminatedEventAttributes
+cweteaWorkflowType :: Lens' ChildWorkflowExecutionTerminatedEventAttributes (WorkflowType)
 cweteaWorkflowType f x =
-    (\y -> x { _cweteaWorkflowType = y })
-       <$> f (_cweteaWorkflowType x)
+    f (_cweteaWorkflowType x)
+        <&> \y -> x { _cweteaWorkflowType = y }
 {-# INLINE cweteaWorkflowType #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-cweteaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionTerminatedEventAttributes
-    -> f ChildWorkflowExecutionTerminatedEventAttributes
+cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes (Integer)
 cweteaInitiatedEventId f x =
-    (\y -> x { _cweteaInitiatedEventId = y })
-       <$> f (_cweteaInitiatedEventId x)
+    f (_cweteaInitiatedEventId x)
+        <&> \y -> x { _cweteaInitiatedEventId = y }
 {-# INLINE cweteaInitiatedEventId #-}
 
 -- | The Id of the ChildWorkflowExecutionStarted event recorded when this child
 -- workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-cweteaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionTerminatedEventAttributes
-    -> f ChildWorkflowExecutionTerminatedEventAttributes
+cweteaStartedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes (Integer)
 cweteaStartedEventId f x =
-    (\y -> x { _cweteaStartedEventId = y })
-       <$> f (_cweteaStartedEventId x)
+    f (_cweteaStartedEventId x)
+        <&> \y -> x { _cweteaStartedEventId = y }
 {-# INLINE cweteaStartedEventId #-}
 
 instance FromJSON ChildWorkflowExecutionTerminatedEventAttributes
@@ -3456,70 +3065,45 @@ data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimed
     } deriving (Show, Generic)
 
 -- | The child workflow execution that timed out.
-cwetoeaWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ChildWorkflowExecutionTimedOutEventAttributes
-    -> f ChildWorkflowExecutionTimedOutEventAttributes
+cwetoeaWorkflowExecution :: Lens' ChildWorkflowExecutionTimedOutEventAttributes (WorkflowExecution)
 cwetoeaWorkflowExecution f x =
-    (\y -> x { _cwetoeaWorkflowExecution = y })
-       <$> f (_cwetoeaWorkflowExecution x)
+    f (_cwetoeaWorkflowExecution x)
+        <&> \y -> x { _cwetoeaWorkflowExecution = y }
 {-# INLINE cwetoeaWorkflowExecution #-}
 
 -- | The type of the child workflow execution.
-cwetoeaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> ChildWorkflowExecutionTimedOutEventAttributes
-    -> f ChildWorkflowExecutionTimedOutEventAttributes
+cwetoeaWorkflowType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes (WorkflowType)
 cwetoeaWorkflowType f x =
-    (\y -> x { _cwetoeaWorkflowType = y })
-       <$> f (_cwetoeaWorkflowType x)
+    f (_cwetoeaWorkflowType x)
+        <&> \y -> x { _cwetoeaWorkflowType = y }
 {-# INLINE cwetoeaWorkflowType #-}
 
 -- | The type of the timeout that caused the child workflow execution to time
 -- out.
-cwetoeaTimeoutType
-    :: Functor f
-    => (WorkflowExecutionTimeoutType
-    -> f (WorkflowExecutionTimeoutType))
-    -> ChildWorkflowExecutionTimedOutEventAttributes
-    -> f ChildWorkflowExecutionTimedOutEventAttributes
+cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes (WorkflowExecutionTimeoutType)
 cwetoeaTimeoutType f x =
-    (\y -> x { _cwetoeaTimeoutType = y })
-       <$> f (_cwetoeaTimeoutType x)
+    f (_cwetoeaTimeoutType x)
+        <&> \y -> x { _cwetoeaTimeoutType = y }
 {-# INLINE cwetoeaTimeoutType #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-cwetoeaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionTimedOutEventAttributes
-    -> f ChildWorkflowExecutionTimedOutEventAttributes
+cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes (Integer)
 cwetoeaInitiatedEventId f x =
-    (\y -> x { _cwetoeaInitiatedEventId = y })
-       <$> f (_cwetoeaInitiatedEventId x)
+    f (_cwetoeaInitiatedEventId x)
+        <&> \y -> x { _cwetoeaInitiatedEventId = y }
 {-# INLINE cwetoeaInitiatedEventId #-}
 
 -- | The Id of the ChildWorkflowExecutionStarted event recorded when this child
 -- workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-cwetoeaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChildWorkflowExecutionTimedOutEventAttributes
-    -> f ChildWorkflowExecutionTimedOutEventAttributes
+cwetoeaStartedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes (Integer)
 cwetoeaStartedEventId f x =
-    (\y -> x { _cwetoeaStartedEventId = y })
-       <$> f (_cwetoeaStartedEventId x)
+    f (_cwetoeaStartedEventId x)
+        <&> \y -> x { _cwetoeaStartedEventId = y }
 {-# INLINE cwetoeaStartedEventId #-}
 
 instance FromJSON ChildWorkflowExecutionTimedOutEventAttributes
@@ -3549,30 +3133,20 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
 -- OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient
 -- permissions. For details and example IAM policies, see Using IAM to Manage
 -- Access to Amazon SWF Workflows.
-cwefeaCause
-    :: Functor f
-    => (CompleteWorkflowExecutionFailedCause
-    -> f (CompleteWorkflowExecutionFailedCause))
-    -> CompleteWorkflowExecutionFailedEventAttributes
-    -> f CompleteWorkflowExecutionFailedEventAttributes
+cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes (CompleteWorkflowExecutionFailedCause)
 cwefeaCause f x =
-    (\y -> x { _cwefeaCause = y })
-       <$> f (_cwefeaCause x)
+    f (_cwefeaCause x)
+        <&> \y -> x { _cwefeaCause = y }
 {-# INLINE cwefeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the CompleteWorkflowExecution decision to complete
 -- this execution. This information can be useful for diagnosing problems by
 -- tracing back the cause of events.
-cwefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CompleteWorkflowExecutionFailedEventAttributes
-    -> f CompleteWorkflowExecutionFailedEventAttributes
+cwefeaDecisionTaskCompletedEventId :: Lens' CompleteWorkflowExecutionFailedEventAttributes (Integer)
 cwefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _cwefeaDecisionTaskCompletedEventId = y })
-       <$> f (_cwefeaDecisionTaskCompletedEventId x)
+    f (_cwefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _cwefeaDecisionTaskCompletedEventId = y }
 {-# INLINE cwefeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON CompleteWorkflowExecutionFailedEventAttributes
@@ -3637,15 +3211,10 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
     } deriving (Show, Generic)
 
 -- | The input provided to the new workflow execution.
-canwedaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaInput f x =
-    (\y -> x { _canwedaInput = y })
-       <$> f (_canwedaInput x)
+    f (_canwedaInput x)
+        <&> \y -> x { _canwedaInput = y }
 {-# INLINE canwedaInput #-}
 
 -- | If set, specifies the total duration for this workflow execution. This
@@ -3657,27 +3226,17 @@ canwedaInput f x =
 -- as a default for the workflow type or through this field. If neither this
 -- field is set nor a default execution start-to-close timeout was specified
 -- at registration time then a fault will be returned.
-canwedaExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaExecutionStartToCloseTimeout f x =
-    (\y -> x { _canwedaExecutionStartToCloseTimeout = y })
-       <$> f (_canwedaExecutionStartToCloseTimeout x)
+    f (_canwedaExecutionStartToCloseTimeout x)
+        <&> \y -> x { _canwedaExecutionStartToCloseTimeout = y }
 {-# INLINE canwedaExecutionStartToCloseTimeout #-}
 
 -- | Represents a task list.
-canwedaTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe TaskList)
 canwedaTaskList f x =
-    (\y -> x { _canwedaTaskList = y })
-       <$> f (_canwedaTaskList x)
+    f (_canwedaTaskList x)
+        <&> \y -> x { _canwedaTaskList = y }
 {-# INLINE canwedaTaskList #-}
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
@@ -3690,15 +3249,10 @@ canwedaTaskList f x =
 -- type or through this parameter. If neither this parameter is set nor a
 -- default task start-to-close timeout was specified at registration time then
 -- a fault will be returned.
-canwedaTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaTaskStartToCloseTimeout f x =
-    (\y -> x { _canwedaTaskStartToCloseTimeout = y })
-       <$> f (_canwedaTaskStartToCloseTimeout x)
+    f (_canwedaTaskStartToCloseTimeout x)
+        <&> \y -> x { _canwedaTaskStartToCloseTimeout = y }
 {-# INLINE canwedaTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
@@ -3715,41 +3269,26 @@ canwedaTaskStartToCloseTimeout f x =
 -- specified either as a default registered for its workflow type or through
 -- this field. If neither this field is set nor a default child policy was
 -- specified at registration time then a fault will be returned.
-canwedaChildPolicy
-    :: Functor f
-    => (Maybe ChildPolicy
-    -> f (Maybe ChildPolicy))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 canwedaChildPolicy f x =
-    (\y -> x { _canwedaChildPolicy = y })
-       <$> f (_canwedaChildPolicy x)
+    f (_canwedaChildPolicy x)
+        <&> \y -> x { _canwedaChildPolicy = y }
 {-# INLINE canwedaChildPolicy #-}
 
 -- | The list of tags to associate with the new workflow execution. A maximum of
 -- 5 tags can be specified. You can list workflow executions with a specific
 -- tag by calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions
 -- and specifying a TagFilter.
-canwedaTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes ([Text])
 canwedaTagList f x =
-    (\y -> x { _canwedaTagList = y })
-       <$> f (_canwedaTagList x)
+    f (_canwedaTagList x)
+        <&> \y -> x { _canwedaTagList = y }
 {-# INLINE canwedaTagList #-}
 
-canwedaWorkflowTypeVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f ContinueAsNewWorkflowExecutionDecisionAttributes
+canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaWorkflowTypeVersion f x =
-    (\y -> x { _canwedaWorkflowTypeVersion = y })
-       <$> f (_canwedaWorkflowTypeVersion x)
+    f (_canwedaWorkflowTypeVersion x)
+        <&> \y -> x { _canwedaWorkflowTypeVersion = y }
 {-# INLINE canwedaWorkflowTypeVersion #-}
 
 instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes
@@ -3779,30 +3318,20 @@ data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflow
 -- OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient
 -- permissions. For details and example IAM policies, see Using IAM to Manage
 -- Access to Amazon SWF Workflows.
-canwefeaCause
-    :: Functor f
-    => (ContinueAsNewWorkflowExecutionFailedCause
-    -> f (ContinueAsNewWorkflowExecutionFailedCause))
-    -> ContinueAsNewWorkflowExecutionFailedEventAttributes
-    -> f ContinueAsNewWorkflowExecutionFailedEventAttributes
+canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes (ContinueAsNewWorkflowExecutionFailedCause)
 canwefeaCause f x =
-    (\y -> x { _canwefeaCause = y })
-       <$> f (_canwefeaCause x)
+    f (_canwefeaCause x)
+        <&> \y -> x { _canwefeaCause = y }
 {-# INLINE canwefeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the ContinueAsNewWorkflowExecution decision that
 -- started this execution. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
-canwefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ContinueAsNewWorkflowExecutionFailedEventAttributes
-    -> f ContinueAsNewWorkflowExecutionFailedEventAttributes
+canwefeaDecisionTaskCompletedEventId :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes (Integer)
 canwefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _canwefeaDecisionTaskCompletedEventId = y })
-       <$> f (_canwefeaDecisionTaskCompletedEventId x)
+    f (_canwefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _canwefeaDecisionTaskCompletedEventId = y }
 {-# INLINE canwefeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON ContinueAsNewWorkflowExecutionFailedEventAttributes
@@ -3953,171 +3482,106 @@ data Decision = Decision
     } deriving (Show, Generic)
 
 -- | Specifies the type of the decision.
-ddddrDecisionType
-    :: Functor f
-    => (DecisionType
-    -> f (DecisionType))
-    -> Decision
-    -> f Decision
+ddddrDecisionType :: Lens' Decision (DecisionType)
 ddddrDecisionType f x =
-    (\y -> x { _ddddrDecisionType = y })
-       <$> f (_ddddrDecisionType x)
+    f (_ddddrDecisionType x)
+        <&> \y -> x { _ddddrDecisionType = y }
 {-# INLINE ddddrDecisionType #-}
 
 -- | Provides details of the ScheduleActivityTask decision. It is not set for
 -- other decision types.
-ddddrScheduleActivityTaskDecisionAttributes
-    :: Functor f
-    => (Maybe ScheduleActivityTaskDecisionAttributes
-    -> f (Maybe ScheduleActivityTaskDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrScheduleActivityTaskDecisionAttributes :: Lens' Decision (Maybe ScheduleActivityTaskDecisionAttributes)
 ddddrScheduleActivityTaskDecisionAttributes f x =
-    (\y -> x { _ddddrScheduleActivityTaskDecisionAttributes = y })
-       <$> f (_ddddrScheduleActivityTaskDecisionAttributes x)
+    f (_ddddrScheduleActivityTaskDecisionAttributes x)
+        <&> \y -> x { _ddddrScheduleActivityTaskDecisionAttributes = y }
 {-# INLINE ddddrScheduleActivityTaskDecisionAttributes #-}
 
 -- | Provides details of the RequestCancelActivityTask decision. It is not set
 -- for other decision types.
-ddddrRequestCancelActivityTaskDecisionAttributes
-    :: Functor f
-    => (Maybe RequestCancelActivityTaskDecisionAttributes
-    -> f (Maybe RequestCancelActivityTaskDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrRequestCancelActivityTaskDecisionAttributes :: Lens' Decision (Maybe RequestCancelActivityTaskDecisionAttributes)
 ddddrRequestCancelActivityTaskDecisionAttributes f x =
-    (\y -> x { _ddddrRequestCancelActivityTaskDecisionAttributes = y })
-       <$> f (_ddddrRequestCancelActivityTaskDecisionAttributes x)
+    f (_ddddrRequestCancelActivityTaskDecisionAttributes x)
+        <&> \y -> x { _ddddrRequestCancelActivityTaskDecisionAttributes = y }
 {-# INLINE ddddrRequestCancelActivityTaskDecisionAttributes #-}
 
 -- | Provides details of the CompleteWorkflowExecution decision. It is not set
 -- for other decision types.
-ddddrCompleteWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe CompleteWorkflowExecutionDecisionAttributes
-    -> f (Maybe CompleteWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
 ddddrCompleteWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrCompleteWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrCompleteWorkflowExecutionDecisionAttributes x)
+    f (_ddddrCompleteWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrCompleteWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrCompleteWorkflowExecutionDecisionAttributes #-}
 
 -- | Provides details of the FailWorkflowExecution decision. It is not set for
 -- other decision types.
-ddddrFailWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe FailWorkflowExecutionDecisionAttributes
-    -> f (Maybe FailWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrFailWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe FailWorkflowExecutionDecisionAttributes)
 ddddrFailWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrFailWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrFailWorkflowExecutionDecisionAttributes x)
+    f (_ddddrFailWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrFailWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrFailWorkflowExecutionDecisionAttributes #-}
 
 -- | Provides details of the CancelWorkflowExecution decision. It is not set for
 -- other decision types.
-ddddrCancelWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe CancelWorkflowExecutionDecisionAttributes
-    -> f (Maybe CancelWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrCancelWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CancelWorkflowExecutionDecisionAttributes)
 ddddrCancelWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrCancelWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrCancelWorkflowExecutionDecisionAttributes x)
+    f (_ddddrCancelWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrCancelWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrCancelWorkflowExecutionDecisionAttributes #-}
 
 -- | Provides details of the ContinueAsNewWorkflowExecution decision. It is not
 -- set for other decision types.
-ddddrContinueAsNewWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes
-    -> f (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrContinueAsNewWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
 ddddrContinueAsNewWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrContinueAsNewWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrContinueAsNewWorkflowExecutionDecisionAttributes x)
+    f (_ddddrContinueAsNewWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrContinueAsNewWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrContinueAsNewWorkflowExecutionDecisionAttributes #-}
 
 -- | Provides details of the RecordMarker decision. It is not set for other
 -- decision types.
-ddddrRecordMarkerDecisionAttributes
-    :: Functor f
-    => (Maybe RecordMarkerDecisionAttributes
-    -> f (Maybe RecordMarkerDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrRecordMarkerDecisionAttributes :: Lens' Decision (Maybe RecordMarkerDecisionAttributes)
 ddddrRecordMarkerDecisionAttributes f x =
-    (\y -> x { _ddddrRecordMarkerDecisionAttributes = y })
-       <$> f (_ddddrRecordMarkerDecisionAttributes x)
+    f (_ddddrRecordMarkerDecisionAttributes x)
+        <&> \y -> x { _ddddrRecordMarkerDecisionAttributes = y }
 {-# INLINE ddddrRecordMarkerDecisionAttributes #-}
 
 -- | Provides details of the StartTimer decision. It is not set for other
 -- decision types.
-ddddrStartTimerDecisionAttributes
-    :: Functor f
-    => (Maybe StartTimerDecisionAttributes
-    -> f (Maybe StartTimerDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrStartTimerDecisionAttributes :: Lens' Decision (Maybe StartTimerDecisionAttributes)
 ddddrStartTimerDecisionAttributes f x =
-    (\y -> x { _ddddrStartTimerDecisionAttributes = y })
-       <$> f (_ddddrStartTimerDecisionAttributes x)
+    f (_ddddrStartTimerDecisionAttributes x)
+        <&> \y -> x { _ddddrStartTimerDecisionAttributes = y }
 {-# INLINE ddddrStartTimerDecisionAttributes #-}
 
 -- | Provides details of the CancelTimer decision. It is not set for other
 -- decision types.
-ddddrCancelTimerDecisionAttributes
-    :: Functor f
-    => (Maybe CancelTimerDecisionAttributes
-    -> f (Maybe CancelTimerDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrCancelTimerDecisionAttributes :: Lens' Decision (Maybe CancelTimerDecisionAttributes)
 ddddrCancelTimerDecisionAttributes f x =
-    (\y -> x { _ddddrCancelTimerDecisionAttributes = y })
-       <$> f (_ddddrCancelTimerDecisionAttributes x)
+    f (_ddddrCancelTimerDecisionAttributes x)
+        <&> \y -> x { _ddddrCancelTimerDecisionAttributes = y }
 {-# INLINE ddddrCancelTimerDecisionAttributes #-}
 
 -- | Provides details of the SignalExternalWorkflowExecution decision. It is not
 -- set for other decision types.
-ddddrSignalExternalWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe SignalExternalWorkflowExecutionDecisionAttributes
-    -> f (Maybe SignalExternalWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrSignalExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe SignalExternalWorkflowExecutionDecisionAttributes)
 ddddrSignalExternalWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrSignalExternalWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrSignalExternalWorkflowExecutionDecisionAttributes x)
+    f (_ddddrSignalExternalWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrSignalExternalWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrSignalExternalWorkflowExecutionDecisionAttributes #-}
 
 -- | Provides details of the RequestCancelExternalWorkflowExecution decision. It
 -- is not set for other decision types.
-ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes
-    -> f (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
 ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes x)
+    f (_ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrRequestCancelExternalWorkflowExecutionDecisionAttributes #-}
 
 -- | Provides details of the StartChildWorkflowExecution decision. It is not set
 -- for other decision types.
-ddddrStartChildWorkflowExecutionDecisionAttributes
-    :: Functor f
-    => (Maybe StartChildWorkflowExecutionDecisionAttributes
-    -> f (Maybe StartChildWorkflowExecutionDecisionAttributes))
-    -> Decision
-    -> f Decision
+ddddrStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
 ddddrStartChildWorkflowExecutionDecisionAttributes f x =
-    (\y -> x { _ddddrStartChildWorkflowExecutionDecisionAttributes = y })
-       <$> f (_ddddrStartChildWorkflowExecutionDecisionAttributes x)
+    f (_ddddrStartChildWorkflowExecutionDecisionAttributes x)
+        <&> \y -> x { _ddddrStartChildWorkflowExecutionDecisionAttributes = y }
 {-# INLINE ddddrStartChildWorkflowExecutionDecisionAttributes #-}
 
 instance ToJSON Decision
@@ -4141,43 +3605,28 @@ data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
     } deriving (Show, Generic)
 
 -- | User defined context for the workflow execution.
-dtceaExecutionContext
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DecisionTaskCompletedEventAttributes
-    -> f DecisionTaskCompletedEventAttributes
+dtceaExecutionContext :: Lens' DecisionTaskCompletedEventAttributes (Maybe Text)
 dtceaExecutionContext f x =
-    (\y -> x { _dtceaExecutionContext = y })
-       <$> f (_dtceaExecutionContext x)
+    f (_dtceaExecutionContext x)
+        <&> \y -> x { _dtceaExecutionContext = y }
 {-# INLINE dtceaExecutionContext #-}
 
 -- | The id of the DecisionTaskScheduled event that was recorded when this
 -- decision task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-dtceaScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DecisionTaskCompletedEventAttributes
-    -> f DecisionTaskCompletedEventAttributes
+dtceaScheduledEventId :: Lens' DecisionTaskCompletedEventAttributes (Integer)
 dtceaScheduledEventId f x =
-    (\y -> x { _dtceaScheduledEventId = y })
-       <$> f (_dtceaScheduledEventId x)
+    f (_dtceaScheduledEventId x)
+        <&> \y -> x { _dtceaScheduledEventId = y }
 {-# INLINE dtceaScheduledEventId #-}
 
 -- | The Id of the DecisionTaskStarted event recorded when this decision task
 -- was started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-dtceaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DecisionTaskCompletedEventAttributes
-    -> f DecisionTaskCompletedEventAttributes
+dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes (Integer)
 dtceaStartedEventId f x =
-    (\y -> x { _dtceaStartedEventId = y })
-       <$> f (_dtceaStartedEventId x)
+    f (_dtceaStartedEventId x)
+        <&> \y -> x { _dtceaStartedEventId = y }
 {-# INLINE dtceaStartedEventId #-}
 
 instance FromJSON DecisionTaskCompletedEventAttributes
@@ -4200,15 +3649,10 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
     } deriving (Show, Generic)
 
 -- | The name of the task list in which the decision task was scheduled.
-dtseaTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> DecisionTaskScheduledEventAttributes
-    -> f DecisionTaskScheduledEventAttributes
+dtseaTaskList :: Lens' DecisionTaskScheduledEventAttributes (TaskList)
 dtseaTaskList f x =
-    (\y -> x { _dtseaTaskList = y })
-       <$> f (_dtseaTaskList x)
+    f (_dtseaTaskList x)
+        <&> \y -> x { _dtseaTaskList = y }
 {-# INLINE dtseaTaskList #-}
 
 -- | The maximum duration for this decision task. The task is considered timed
@@ -4216,15 +3660,10 @@ dtseaTaskList f x =
 -- integers greater than or equal to 0. An integer value can be used to
 -- specify the duration in seconds while NONE can be used to specify unlimited
 -- duration.
-dtseaStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DecisionTaskScheduledEventAttributes
-    -> f DecisionTaskScheduledEventAttributes
+dtseaStartToCloseTimeout :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
 dtseaStartToCloseTimeout f x =
-    (\y -> x { _dtseaStartToCloseTimeout = y })
-       <$> f (_dtseaStartToCloseTimeout x)
+    f (_dtseaStartToCloseTimeout x)
+        <&> \y -> x { _dtseaStartToCloseTimeout = y }
 {-# INLINE dtseaStartToCloseTimeout #-}
 
 instance FromJSON DecisionTaskScheduledEventAttributes
@@ -4248,29 +3687,19 @@ data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes
 
 -- | Identity of the decider making the request. This enables diagnostic tracing
 -- when problems arise. The form of this identity is user defined.
-dtsebIdentity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DecisionTaskStartedEventAttributes
-    -> f DecisionTaskStartedEventAttributes
+dtsebIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
 dtsebIdentity f x =
-    (\y -> x { _dtsebIdentity = y })
-       <$> f (_dtsebIdentity x)
+    f (_dtsebIdentity x)
+        <&> \y -> x { _dtsebIdentity = y }
 {-# INLINE dtsebIdentity #-}
 
 -- | The id of the DecisionTaskScheduled event that was recorded when this
 -- decision task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-dtsebScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DecisionTaskStartedEventAttributes
-    -> f DecisionTaskStartedEventAttributes
+dtsebScheduledEventId :: Lens' DecisionTaskStartedEventAttributes (Integer)
 dtsebScheduledEventId f x =
-    (\y -> x { _dtsebScheduledEventId = y })
-       <$> f (_dtsebScheduledEventId x)
+    f (_dtsebScheduledEventId x)
+        <&> \y -> x { _dtsebScheduledEventId = y }
 {-# INLINE dtsebScheduledEventId #-}
 
 instance FromJSON DecisionTaskStartedEventAttributes
@@ -4298,43 +3727,28 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
 
 -- | The type of timeout that expired before the decision task could be
 -- completed.
-dttoeaTimeoutType
-    :: Functor f
-    => (DecisionTaskTimeoutType
-    -> f (DecisionTaskTimeoutType))
-    -> DecisionTaskTimedOutEventAttributes
-    -> f DecisionTaskTimedOutEventAttributes
+dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes (DecisionTaskTimeoutType)
 dttoeaTimeoutType f x =
-    (\y -> x { _dttoeaTimeoutType = y })
-       <$> f (_dttoeaTimeoutType x)
+    f (_dttoeaTimeoutType x)
+        <&> \y -> x { _dttoeaTimeoutType = y }
 {-# INLINE dttoeaTimeoutType #-}
 
 -- | The id of the DecisionTaskScheduled event that was recorded when this
 -- decision task was scheduled. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-dttoeaScheduledEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DecisionTaskTimedOutEventAttributes
-    -> f DecisionTaskTimedOutEventAttributes
+dttoeaScheduledEventId :: Lens' DecisionTaskTimedOutEventAttributes (Integer)
 dttoeaScheduledEventId f x =
-    (\y -> x { _dttoeaScheduledEventId = y })
-       <$> f (_dttoeaScheduledEventId x)
+    f (_dttoeaScheduledEventId x)
+        <&> \y -> x { _dttoeaScheduledEventId = y }
 {-# INLINE dttoeaScheduledEventId #-}
 
 -- | The Id of the DecisionTaskStarted event recorded when this decision task
 -- was started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-dttoeaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DecisionTaskTimedOutEventAttributes
-    -> f DecisionTaskTimedOutEventAttributes
+dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes (Integer)
 dttoeaStartedEventId f x =
-    (\y -> x { _dttoeaStartedEventId = y })
-       <$> f (_dttoeaStartedEventId x)
+    f (_dttoeaStartedEventId x)
+        <&> \y -> x { _dttoeaStartedEventId = y }
 {-# INLINE dttoeaStartedEventId #-}
 
 instance FromJSON DecisionTaskTimedOutEventAttributes
@@ -4356,15 +3770,10 @@ data DomainInfo = DomainInfo
     } deriving (Show, Generic)
 
 -- | The name of the domain. This name is unique within the account.
-diName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DomainInfo
-    -> f DomainInfo
+diName :: Lens' DomainInfo (Text)
 diName f x =
-    (\y -> x { _diName = y })
-       <$> f (_diName x)
+    f (_diName x)
+        <&> \y -> x { _diName = y }
 {-# INLINE diName #-}
 
 -- | The status of the domain: REGISTERED: The domain is properly registered and
@@ -4372,27 +3781,17 @@ diName f x =
 -- workflow executions. DEPRECATED: The domain was deprecated using
 -- DeprecateDomain, but is still in use. You should not create new workflow
 -- executions in this domain.
-diStatus
-    :: Functor f
-    => (RegistrationStatus
-    -> f (RegistrationStatus))
-    -> DomainInfo
-    -> f DomainInfo
+diStatus :: Lens' DomainInfo (RegistrationStatus)
 diStatus f x =
-    (\y -> x { _diStatus = y })
-       <$> f (_diStatus x)
+    f (_diStatus x)
+        <&> \y -> x { _diStatus = y }
 {-# INLINE diStatus #-}
 
 -- | The description of the domain provided through RegisterDomain.
-diDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DomainInfo
-    -> f DomainInfo
+diDescription :: Lens' DomainInfo (Maybe Text)
 diDescription f x =
-    (\y -> x { _diDescription = y })
-       <$> f (_diDescription x)
+    f (_diDescription x)
+        <&> \y -> x { _diDescription = y }
 {-# INLINE diDescription #-}
 
 instance FromJSON DomainInfo
@@ -4408,27 +3807,17 @@ data ExecutionTimeFilter = ExecutionTimeFilter
     } deriving (Show, Generic)
 
 -- | Specifies the oldest start or close date and time to return.
-etfOldestDate
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> ExecutionTimeFilter
-    -> f ExecutionTimeFilter
+etfOldestDate :: Lens' ExecutionTimeFilter (POSIX)
 etfOldestDate f x =
-    (\y -> x { _etfOldestDate = y })
-       <$> f (_etfOldestDate x)
+    f (_etfOldestDate x)
+        <&> \y -> x { _etfOldestDate = y }
 {-# INLINE etfOldestDate #-}
 
 -- | Specifies the latest start or close date and time to return.
-etfLatestDate
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ExecutionTimeFilter
-    -> f ExecutionTimeFilter
+etfLatestDate :: Lens' ExecutionTimeFilter (Maybe POSIX)
 etfLatestDate f x =
-    (\y -> x { _etfLatestDate = y })
-       <$> f (_etfLatestDate x)
+    f (_etfLatestDate x)
+        <&> \y -> x { _etfLatestDate = y }
 {-# INLINE etfLatestDate #-}
 
 instance ToJSON ExecutionTimeFilter
@@ -4450,15 +3839,10 @@ data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowE
 
 -- | The external workflow execution to which the cancellation request was
 -- delivered.
-ewecreaWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ExternalWorkflowExecutionCancelRequestedEventAttributes
-    -> f ExternalWorkflowExecutionCancelRequestedEventAttributes
+ewecreaWorkflowExecution :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes (WorkflowExecution)
 ewecreaWorkflowExecution f x =
-    (\y -> x { _ewecreaWorkflowExecution = y })
-       <$> f (_ewecreaWorkflowExecution x)
+    f (_ewecreaWorkflowExecution x)
+        <&> \y -> x { _ewecreaWorkflowExecution = y }
 {-# INLINE ewecreaWorkflowExecution #-}
 
 -- | The id of the RequestCancelExternalWorkflowExecutionInitiated event
@@ -4466,15 +3850,10 @@ ewecreaWorkflowExecution f x =
 -- cancel this external workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-ewecreaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ExternalWorkflowExecutionCancelRequestedEventAttributes
-    -> f ExternalWorkflowExecutionCancelRequestedEventAttributes
+ewecreaInitiatedEventId :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes (Integer)
 ewecreaInitiatedEventId f x =
-    (\y -> x { _ewecreaInitiatedEventId = y })
-       <$> f (_ewecreaInitiatedEventId x)
+    f (_ewecreaInitiatedEventId x)
+        <&> \y -> x { _ewecreaInitiatedEventId = y }
 {-# INLINE ewecreaInitiatedEventId #-}
 
 instance FromJSON ExternalWorkflowExecutionCancelRequestedEventAttributes
@@ -4496,30 +3875,20 @@ data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutio
     } deriving (Show, Generic)
 
 -- | The external workflow execution that the signal was delivered to.
-eweseaWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> ExternalWorkflowExecutionSignaledEventAttributes
-    -> f ExternalWorkflowExecutionSignaledEventAttributes
+eweseaWorkflowExecution :: Lens' ExternalWorkflowExecutionSignaledEventAttributes (WorkflowExecution)
 eweseaWorkflowExecution f x =
-    (\y -> x { _eweseaWorkflowExecution = y })
-       <$> f (_eweseaWorkflowExecution x)
+    f (_eweseaWorkflowExecution x)
+        <&> \y -> x { _eweseaWorkflowExecution = y }
 {-# INLINE eweseaWorkflowExecution #-}
 
 -- | The id of the SignalExternalWorkflowExecutionInitiated event corresponding
 -- to the SignalExternalWorkflowExecution decision to request this signal.
 -- This information can be useful for diagnosing problems by tracing back the
 -- chain of events leading up to this event.
-eweseaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ExternalWorkflowExecutionSignaledEventAttributes
-    -> f ExternalWorkflowExecutionSignaledEventAttributes
+eweseaInitiatedEventId :: Lens' ExternalWorkflowExecutionSignaledEventAttributes (Integer)
 eweseaInitiatedEventId f x =
-    (\y -> x { _eweseaInitiatedEventId = y })
-       <$> f (_eweseaInitiatedEventId x)
+    f (_eweseaInitiatedEventId x)
+        <&> \y -> x { _eweseaInitiatedEventId = y }
 {-# INLINE eweseaInitiatedEventId #-}
 
 instance FromJSON ExternalWorkflowExecutionSignaledEventAttributes
@@ -4537,27 +3906,17 @@ data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttr
     } deriving (Show, Generic)
 
 -- | A descriptive reason for the failure that may help in diagnostics.
-fwedaReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> FailWorkflowExecutionDecisionAttributes
-    -> f FailWorkflowExecutionDecisionAttributes
+fwedaReason :: Lens' FailWorkflowExecutionDecisionAttributes (Maybe Text)
 fwedaReason f x =
-    (\y -> x { _fwedaReason = y })
-       <$> f (_fwedaReason x)
+    f (_fwedaReason x)
+        <&> \y -> x { _fwedaReason = y }
 {-# INLINE fwedaReason #-}
 
 -- | Optional details of the failure.
-fwedaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> FailWorkflowExecutionDecisionAttributes
-    -> f FailWorkflowExecutionDecisionAttributes
+fwedaDetails :: Lens' FailWorkflowExecutionDecisionAttributes (Maybe Text)
 fwedaDetails f x =
-    (\y -> x { _fwedaDetails = y })
-       <$> f (_fwedaDetails x)
+    f (_fwedaDetails x)
+        <&> \y -> x { _fwedaDetails = y }
 {-# INLINE fwedaDetails #-}
 
 instance FromJSON FailWorkflowExecutionDecisionAttributes
@@ -4586,30 +3945,20 @@ data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEve
 -- OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient
 -- permissions. For details and example IAM policies, see Using IAM to Manage
 -- Access to Amazon SWF Workflows.
-fwefeaCause
-    :: Functor f
-    => (FailWorkflowExecutionFailedCause
-    -> f (FailWorkflowExecutionFailedCause))
-    -> FailWorkflowExecutionFailedEventAttributes
-    -> f FailWorkflowExecutionFailedEventAttributes
+fwefeaCause :: Lens' FailWorkflowExecutionFailedEventAttributes (FailWorkflowExecutionFailedCause)
 fwefeaCause f x =
-    (\y -> x { _fwefeaCause = y })
-       <$> f (_fwefeaCause x)
+    f (_fwefeaCause x)
+        <&> \y -> x { _fwefeaCause = y }
 {-# INLINE fwefeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the FailWorkflowExecution decision to fail this
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the cause of events.
-fwefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> FailWorkflowExecutionFailedEventAttributes
-    -> f FailWorkflowExecutionFailedEventAttributes
+fwefeaDecisionTaskCompletedEventId :: Lens' FailWorkflowExecutionFailedEventAttributes (Integer)
 fwefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _fwefeaDecisionTaskCompletedEventId = y })
-       <$> f (_fwefeaDecisionTaskCompletedEventId x)
+    f (_fwefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _fwefeaDecisionTaskCompletedEventId = y }
 {-# INLINE fwefeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON FailWorkflowExecutionFailedEventAttributes
@@ -4887,694 +4236,444 @@ data HistoryEvent = HistoryEvent
     } deriving (Show, Generic)
 
 -- | The date and time when the event occurred.
-heEventTimestamp
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> HistoryEvent
-    -> f HistoryEvent
+heEventTimestamp :: Lens' HistoryEvent (POSIX)
 heEventTimestamp f x =
-    (\y -> x { _heEventTimestamp = y })
-       <$> f (_heEventTimestamp x)
+    f (_heEventTimestamp x)
+        <&> \y -> x { _heEventTimestamp = y }
 {-# INLINE heEventTimestamp #-}
 
 -- | The type of the history event.
-heEventType
-    :: Functor f
-    => (EventType
-    -> f (EventType))
-    -> HistoryEvent
-    -> f HistoryEvent
+heEventType :: Lens' HistoryEvent (EventType)
 heEventType f x =
-    (\y -> x { _heEventType = y })
-       <$> f (_heEventType x)
+    f (_heEventType x)
+        <&> \y -> x { _heEventType = y }
 {-# INLINE heEventType #-}
 
 -- | The system generated id of the event. This id uniquely identifies the event
 -- with in the workflow execution history.
-heEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> HistoryEvent
-    -> f HistoryEvent
+heEventId :: Lens' HistoryEvent (Integer)
 heEventId f x =
-    (\y -> x { _heEventId = y })
-       <$> f (_heEventId x)
+    f (_heEventId x)
+        <&> \y -> x { _heEventId = y }
 {-# INLINE heEventId #-}
 
 -- | If the event is of type WorkflowExecutionStarted then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionStartedEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionStartedEventAttributes
-    -> f (Maybe WorkflowExecutionStartedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionStartedEventAttributes)
 heWorkflowExecutionStartedEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionStartedEventAttributes = y })
-       <$> f (_heWorkflowExecutionStartedEventAttributes x)
+    f (_heWorkflowExecutionStartedEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionStartedEventAttributes = y }
 {-# INLINE heWorkflowExecutionStartedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionCompleted then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionCompletedEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionCompletedEventAttributes
-    -> f (Maybe WorkflowExecutionCompletedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCompletedEventAttributes)
 heWorkflowExecutionCompletedEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionCompletedEventAttributes = y })
-       <$> f (_heWorkflowExecutionCompletedEventAttributes x)
+    f (_heWorkflowExecutionCompletedEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionCompletedEventAttributes = y }
 {-# INLINE heWorkflowExecutionCompletedEventAttributes #-}
 
 -- | If the event is of type CompleteWorkflowExecutionFailed then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heCompleteWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe CompleteWorkflowExecutionFailedEventAttributes
-    -> f (Maybe CompleteWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heCompleteWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CompleteWorkflowExecutionFailedEventAttributes)
 heCompleteWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heCompleteWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heCompleteWorkflowExecutionFailedEventAttributes x)
+    f (_heCompleteWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heCompleteWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heCompleteWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionFailed then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionFailedEventAttributes
-    -> f (Maybe WorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionFailedEventAttributes)
 heWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heWorkflowExecutionFailedEventAttributes x)
+    f (_heWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type FailWorkflowExecutionFailed then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heFailWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe FailWorkflowExecutionFailedEventAttributes
-    -> f (Maybe FailWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heFailWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe FailWorkflowExecutionFailedEventAttributes)
 heFailWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heFailWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heFailWorkflowExecutionFailedEventAttributes x)
+    f (_heFailWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heFailWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heFailWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionTimedOut then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionTimedOutEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionTimedOutEventAttributes
-    -> f (Maybe WorkflowExecutionTimedOutEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTimedOutEventAttributes)
 heWorkflowExecutionTimedOutEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionTimedOutEventAttributes = y })
-       <$> f (_heWorkflowExecutionTimedOutEventAttributes x)
+    f (_heWorkflowExecutionTimedOutEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionTimedOutEventAttributes = y }
 {-# INLINE heWorkflowExecutionTimedOutEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionCanceled then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionCanceledEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionCanceledEventAttributes
-    -> f (Maybe WorkflowExecutionCanceledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCanceledEventAttributes)
 heWorkflowExecutionCanceledEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionCanceledEventAttributes = y })
-       <$> f (_heWorkflowExecutionCanceledEventAttributes x)
+    f (_heWorkflowExecutionCanceledEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionCanceledEventAttributes = y }
 {-# INLINE heWorkflowExecutionCanceledEventAttributes #-}
 
 -- | If the event is of type CancelWorkflowExecutionFailed then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heCancelWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe CancelWorkflowExecutionFailedEventAttributes
-    -> f (Maybe CancelWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
 heCancelWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heCancelWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heCancelWorkflowExecutionFailedEventAttributes x)
+    f (_heCancelWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heCancelWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heCancelWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionContinuedAsNew then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heWorkflowExecutionContinuedAsNewEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionContinuedAsNewEventAttributes
-    -> f (Maybe WorkflowExecutionContinuedAsNewEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionContinuedAsNewEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionContinuedAsNewEventAttributes)
 heWorkflowExecutionContinuedAsNewEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionContinuedAsNewEventAttributes = y })
-       <$> f (_heWorkflowExecutionContinuedAsNewEventAttributes x)
+    f (_heWorkflowExecutionContinuedAsNewEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionContinuedAsNewEventAttributes = y }
 {-# INLINE heWorkflowExecutionContinuedAsNewEventAttributes #-}
 
 -- | If the event is of type ContinueAsNewWorkflowExecutionFailed then this
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
-heContinueAsNewWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes
-    -> f (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heContinueAsNewWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
 heContinueAsNewWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heContinueAsNewWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heContinueAsNewWorkflowExecutionFailedEventAttributes x)
+    f (_heContinueAsNewWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heContinueAsNewWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heContinueAsNewWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionTerminated then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionTerminatedEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionTerminatedEventAttributes
-    -> f (Maybe WorkflowExecutionTerminatedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTerminatedEventAttributes)
 heWorkflowExecutionTerminatedEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionTerminatedEventAttributes = y })
-       <$> f (_heWorkflowExecutionTerminatedEventAttributes x)
+    f (_heWorkflowExecutionTerminatedEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionTerminatedEventAttributes = y }
 {-# INLINE heWorkflowExecutionTerminatedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionCancelRequested then this member
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
-heWorkflowExecutionCancelRequestedEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionCancelRequestedEventAttributes
-    -> f (Maybe WorkflowExecutionCancelRequestedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCancelRequestedEventAttributes)
 heWorkflowExecutionCancelRequestedEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionCancelRequestedEventAttributes = y })
-       <$> f (_heWorkflowExecutionCancelRequestedEventAttributes x)
+    f (_heWorkflowExecutionCancelRequestedEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionCancelRequestedEventAttributes = y }
 {-# INLINE heWorkflowExecutionCancelRequestedEventAttributes #-}
 
 -- | If the event is of type DecisionTaskScheduled then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heDecisionTaskScheduledEventAttributes
-    :: Functor f
-    => (Maybe DecisionTaskScheduledEventAttributes
-    -> f (Maybe DecisionTaskScheduledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heDecisionTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskScheduledEventAttributes)
 heDecisionTaskScheduledEventAttributes f x =
-    (\y -> x { _heDecisionTaskScheduledEventAttributes = y })
-       <$> f (_heDecisionTaskScheduledEventAttributes x)
+    f (_heDecisionTaskScheduledEventAttributes x)
+        <&> \y -> x { _heDecisionTaskScheduledEventAttributes = y }
 {-# INLINE heDecisionTaskScheduledEventAttributes #-}
 
 -- | If the event is of type DecisionTaskStarted then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heDecisionTaskStartedEventAttributes
-    :: Functor f
-    => (Maybe DecisionTaskStartedEventAttributes
-    -> f (Maybe DecisionTaskStartedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heDecisionTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskStartedEventAttributes)
 heDecisionTaskStartedEventAttributes f x =
-    (\y -> x { _heDecisionTaskStartedEventAttributes = y })
-       <$> f (_heDecisionTaskStartedEventAttributes x)
+    f (_heDecisionTaskStartedEventAttributes x)
+        <&> \y -> x { _heDecisionTaskStartedEventAttributes = y }
 {-# INLINE heDecisionTaskStartedEventAttributes #-}
 
 -- | If the event is of type DecisionTaskCompleted then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heDecisionTaskCompletedEventAttributes
-    :: Functor f
-    => (Maybe DecisionTaskCompletedEventAttributes
-    -> f (Maybe DecisionTaskCompletedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heDecisionTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskCompletedEventAttributes)
 heDecisionTaskCompletedEventAttributes f x =
-    (\y -> x { _heDecisionTaskCompletedEventAttributes = y })
-       <$> f (_heDecisionTaskCompletedEventAttributes x)
+    f (_heDecisionTaskCompletedEventAttributes x)
+        <&> \y -> x { _heDecisionTaskCompletedEventAttributes = y }
 {-# INLINE heDecisionTaskCompletedEventAttributes #-}
 
 -- | If the event is of type DecisionTaskTimedOut then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heDecisionTaskTimedOutEventAttributes
-    :: Functor f
-    => (Maybe DecisionTaskTimedOutEventAttributes
-    -> f (Maybe DecisionTaskTimedOutEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heDecisionTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskTimedOutEventAttributes)
 heDecisionTaskTimedOutEventAttributes f x =
-    (\y -> x { _heDecisionTaskTimedOutEventAttributes = y })
-       <$> f (_heDecisionTaskTimedOutEventAttributes x)
+    f (_heDecisionTaskTimedOutEventAttributes x)
+        <&> \y -> x { _heDecisionTaskTimedOutEventAttributes = y }
 {-# INLINE heDecisionTaskTimedOutEventAttributes #-}
 
 -- | If the event is of type ActivityTaskScheduled then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskScheduledEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskScheduledEventAttributes
-    -> f (Maybe ActivityTaskScheduledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskScheduledEventAttributes)
 heActivityTaskScheduledEventAttributes f x =
-    (\y -> x { _heActivityTaskScheduledEventAttributes = y })
-       <$> f (_heActivityTaskScheduledEventAttributes x)
+    f (_heActivityTaskScheduledEventAttributes x)
+        <&> \y -> x { _heActivityTaskScheduledEventAttributes = y }
 {-# INLINE heActivityTaskScheduledEventAttributes #-}
 
 -- | If the event is of type ActivityTaskStarted then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskStartedEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskStartedEventAttributes
-    -> f (Maybe ActivityTaskStartedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskStartedEventAttributes)
 heActivityTaskStartedEventAttributes f x =
-    (\y -> x { _heActivityTaskStartedEventAttributes = y })
-       <$> f (_heActivityTaskStartedEventAttributes x)
+    f (_heActivityTaskStartedEventAttributes x)
+        <&> \y -> x { _heActivityTaskStartedEventAttributes = y }
 {-# INLINE heActivityTaskStartedEventAttributes #-}
 
 -- | If the event is of type ActivityTaskCompleted then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskCompletedEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskCompletedEventAttributes
-    -> f (Maybe ActivityTaskCompletedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCompletedEventAttributes)
 heActivityTaskCompletedEventAttributes f x =
-    (\y -> x { _heActivityTaskCompletedEventAttributes = y })
-       <$> f (_heActivityTaskCompletedEventAttributes x)
+    f (_heActivityTaskCompletedEventAttributes x)
+        <&> \y -> x { _heActivityTaskCompletedEventAttributes = y }
 {-# INLINE heActivityTaskCompletedEventAttributes #-}
 
 -- | If the event is of type ActivityTaskFailed then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskFailedEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskFailedEventAttributes
-    -> f (Maybe ActivityTaskFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskFailedEventAttributes)
 heActivityTaskFailedEventAttributes f x =
-    (\y -> x { _heActivityTaskFailedEventAttributes = y })
-       <$> f (_heActivityTaskFailedEventAttributes x)
+    f (_heActivityTaskFailedEventAttributes x)
+        <&> \y -> x { _heActivityTaskFailedEventAttributes = y }
 {-# INLINE heActivityTaskFailedEventAttributes #-}
 
 -- | If the event is of type ActivityTaskTimedOut then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskTimedOutEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskTimedOutEventAttributes
-    -> f (Maybe ActivityTaskTimedOutEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskTimedOutEventAttributes)
 heActivityTaskTimedOutEventAttributes f x =
-    (\y -> x { _heActivityTaskTimedOutEventAttributes = y })
-       <$> f (_heActivityTaskTimedOutEventAttributes x)
+    f (_heActivityTaskTimedOutEventAttributes x)
+        <&> \y -> x { _heActivityTaskTimedOutEventAttributes = y }
 {-# INLINE heActivityTaskTimedOutEventAttributes #-}
 
 -- | If the event is of type ActivityTaskCanceled then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskCanceledEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskCanceledEventAttributes
-    -> f (Maybe ActivityTaskCanceledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskCanceledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCanceledEventAttributes)
 heActivityTaskCanceledEventAttributes f x =
-    (\y -> x { _heActivityTaskCanceledEventAttributes = y })
-       <$> f (_heActivityTaskCanceledEventAttributes x)
+    f (_heActivityTaskCanceledEventAttributes x)
+        <&> \y -> x { _heActivityTaskCanceledEventAttributes = y }
 {-# INLINE heActivityTaskCanceledEventAttributes #-}
 
 -- | If the event is of type ActivityTaskcancelRequested then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heActivityTaskCancelRequestedEventAttributes
-    :: Functor f
-    => (Maybe ActivityTaskCancelRequestedEventAttributes
-    -> f (Maybe ActivityTaskCancelRequestedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
 heActivityTaskCancelRequestedEventAttributes f x =
-    (\y -> x { _heActivityTaskCancelRequestedEventAttributes = y })
-       <$> f (_heActivityTaskCancelRequestedEventAttributes x)
+    f (_heActivityTaskCancelRequestedEventAttributes x)
+        <&> \y -> x { _heActivityTaskCancelRequestedEventAttributes = y }
 {-# INLINE heActivityTaskCancelRequestedEventAttributes #-}
 
 -- | If the event is of type WorkflowExecutionSignaled then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heWorkflowExecutionSignaledEventAttributes
-    :: Functor f
-    => (Maybe WorkflowExecutionSignaledEventAttributes
-    -> f (Maybe WorkflowExecutionSignaledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionSignaledEventAttributes)
 heWorkflowExecutionSignaledEventAttributes f x =
-    (\y -> x { _heWorkflowExecutionSignaledEventAttributes = y })
-       <$> f (_heWorkflowExecutionSignaledEventAttributes x)
+    f (_heWorkflowExecutionSignaledEventAttributes x)
+        <&> \y -> x { _heWorkflowExecutionSignaledEventAttributes = y }
 {-# INLINE heWorkflowExecutionSignaledEventAttributes #-}
 
 -- | If the event is of type MarkerRecorded then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
-heMarkerRecordedEventAttributes
-    :: Functor f
-    => (Maybe MarkerRecordedEventAttributes
-    -> f (Maybe MarkerRecordedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heMarkerRecordedEventAttributes :: Lens' HistoryEvent (Maybe MarkerRecordedEventAttributes)
 heMarkerRecordedEventAttributes f x =
-    (\y -> x { _heMarkerRecordedEventAttributes = y })
-       <$> f (_heMarkerRecordedEventAttributes x)
+    f (_heMarkerRecordedEventAttributes x)
+        <&> \y -> x { _heMarkerRecordedEventAttributes = y }
 {-# INLINE heMarkerRecordedEventAttributes #-}
 
 -- | If the event is of type DecisionTaskFailed then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heRecordMarkerFailedEventAttributes
-    :: Functor f
-    => (Maybe RecordMarkerFailedEventAttributes
-    -> f (Maybe RecordMarkerFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heRecordMarkerFailedEventAttributes :: Lens' HistoryEvent (Maybe RecordMarkerFailedEventAttributes)
 heRecordMarkerFailedEventAttributes f x =
-    (\y -> x { _heRecordMarkerFailedEventAttributes = y })
-       <$> f (_heRecordMarkerFailedEventAttributes x)
+    f (_heRecordMarkerFailedEventAttributes x)
+        <&> \y -> x { _heRecordMarkerFailedEventAttributes = y }
 {-# INLINE heRecordMarkerFailedEventAttributes #-}
 
 -- | If the event is of type TimerStarted then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
-heTimerStartedEventAttributes
-    :: Functor f
-    => (Maybe TimerStartedEventAttributes
-    -> f (Maybe TimerStartedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heTimerStartedEventAttributes :: Lens' HistoryEvent (Maybe TimerStartedEventAttributes)
 heTimerStartedEventAttributes f x =
-    (\y -> x { _heTimerStartedEventAttributes = y })
-       <$> f (_heTimerStartedEventAttributes x)
+    f (_heTimerStartedEventAttributes x)
+        <&> \y -> x { _heTimerStartedEventAttributes = y }
 {-# INLINE heTimerStartedEventAttributes #-}
 
 -- | If the event is of type TimerFired then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
-heTimerFiredEventAttributes
-    :: Functor f
-    => (Maybe TimerFiredEventAttributes
-    -> f (Maybe TimerFiredEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heTimerFiredEventAttributes :: Lens' HistoryEvent (Maybe TimerFiredEventAttributes)
 heTimerFiredEventAttributes f x =
-    (\y -> x { _heTimerFiredEventAttributes = y })
-       <$> f (_heTimerFiredEventAttributes x)
+    f (_heTimerFiredEventAttributes x)
+        <&> \y -> x { _heTimerFiredEventAttributes = y }
 {-# INLINE heTimerFiredEventAttributes #-}
 
 -- | If the event is of type TimerCanceled then this member is set and provides
 -- detailed information about the event. It is not set for other event types.
-heTimerCanceledEventAttributes
-    :: Functor f
-    => (Maybe TimerCanceledEventAttributes
-    -> f (Maybe TimerCanceledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heTimerCanceledEventAttributes :: Lens' HistoryEvent (Maybe TimerCanceledEventAttributes)
 heTimerCanceledEventAttributes f x =
-    (\y -> x { _heTimerCanceledEventAttributes = y })
-       <$> f (_heTimerCanceledEventAttributes x)
+    f (_heTimerCanceledEventAttributes x)
+        <&> \y -> x { _heTimerCanceledEventAttributes = y }
 {-# INLINE heTimerCanceledEventAttributes #-}
 
 -- | If the event is of type StartChildWorkflowExecutionInitiated then this
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
-heStartChildWorkflowExecutionInitiatedEventAttributes
-    :: Functor f
-    => (Maybe StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f (Maybe StartChildWorkflowExecutionInitiatedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heStartChildWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
 heStartChildWorkflowExecutionInitiatedEventAttributes f x =
-    (\y -> x { _heStartChildWorkflowExecutionInitiatedEventAttributes = y })
-       <$> f (_heStartChildWorkflowExecutionInitiatedEventAttributes x)
+    f (_heStartChildWorkflowExecutionInitiatedEventAttributes x)
+        <&> \y -> x { _heStartChildWorkflowExecutionInitiatedEventAttributes = y }
 {-# INLINE heStartChildWorkflowExecutionInitiatedEventAttributes #-}
 
 -- | If the event is of type ChildWorkflowExecutionStarted then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heChildWorkflowExecutionStartedEventAttributes
-    :: Functor f
-    => (Maybe ChildWorkflowExecutionStartedEventAttributes
-    -> f (Maybe ChildWorkflowExecutionStartedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heChildWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionStartedEventAttributes)
 heChildWorkflowExecutionStartedEventAttributes f x =
-    (\y -> x { _heChildWorkflowExecutionStartedEventAttributes = y })
-       <$> f (_heChildWorkflowExecutionStartedEventAttributes x)
+    f (_heChildWorkflowExecutionStartedEventAttributes x)
+        <&> \y -> x { _heChildWorkflowExecutionStartedEventAttributes = y }
 {-# INLINE heChildWorkflowExecutionStartedEventAttributes #-}
 
 -- | If the event is of type ChildWorkflowExecutionCompleted then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heChildWorkflowExecutionCompletedEventAttributes
-    :: Functor f
-    => (Maybe ChildWorkflowExecutionCompletedEventAttributes
-    -> f (Maybe ChildWorkflowExecutionCompletedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heChildWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCompletedEventAttributes)
 heChildWorkflowExecutionCompletedEventAttributes f x =
-    (\y -> x { _heChildWorkflowExecutionCompletedEventAttributes = y })
-       <$> f (_heChildWorkflowExecutionCompletedEventAttributes x)
+    f (_heChildWorkflowExecutionCompletedEventAttributes x)
+        <&> \y -> x { _heChildWorkflowExecutionCompletedEventAttributes = y }
 {-# INLINE heChildWorkflowExecutionCompletedEventAttributes #-}
 
 -- | If the event is of type ChildWorkflowExecutionFailed then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heChildWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe ChildWorkflowExecutionFailedEventAttributes
-    -> f (Maybe ChildWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionFailedEventAttributes)
 heChildWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heChildWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heChildWorkflowExecutionFailedEventAttributes x)
+    f (_heChildWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heChildWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heChildWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type ChildWorkflowExecutionTimedOut then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heChildWorkflowExecutionTimedOutEventAttributes
-    :: Functor f
-    => (Maybe ChildWorkflowExecutionTimedOutEventAttributes
-    -> f (Maybe ChildWorkflowExecutionTimedOutEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heChildWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTimedOutEventAttributes)
 heChildWorkflowExecutionTimedOutEventAttributes f x =
-    (\y -> x { _heChildWorkflowExecutionTimedOutEventAttributes = y })
-       <$> f (_heChildWorkflowExecutionTimedOutEventAttributes x)
+    f (_heChildWorkflowExecutionTimedOutEventAttributes x)
+        <&> \y -> x { _heChildWorkflowExecutionTimedOutEventAttributes = y }
 {-# INLINE heChildWorkflowExecutionTimedOutEventAttributes #-}
 
 -- | If the event is of type ChildWorkflowExecutionCanceled then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heChildWorkflowExecutionCanceledEventAttributes
-    :: Functor f
-    => (Maybe ChildWorkflowExecutionCanceledEventAttributes
-    -> f (Maybe ChildWorkflowExecutionCanceledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heChildWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCanceledEventAttributes)
 heChildWorkflowExecutionCanceledEventAttributes f x =
-    (\y -> x { _heChildWorkflowExecutionCanceledEventAttributes = y })
-       <$> f (_heChildWorkflowExecutionCanceledEventAttributes x)
+    f (_heChildWorkflowExecutionCanceledEventAttributes x)
+        <&> \y -> x { _heChildWorkflowExecutionCanceledEventAttributes = y }
 {-# INLINE heChildWorkflowExecutionCanceledEventAttributes #-}
 
 -- | If the event is of type ChildWorkflowExecutionTerminated then this member
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
-heChildWorkflowExecutionTerminatedEventAttributes
-    :: Functor f
-    => (Maybe ChildWorkflowExecutionTerminatedEventAttributes
-    -> f (Maybe ChildWorkflowExecutionTerminatedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heChildWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTerminatedEventAttributes)
 heChildWorkflowExecutionTerminatedEventAttributes f x =
-    (\y -> x { _heChildWorkflowExecutionTerminatedEventAttributes = y })
-       <$> f (_heChildWorkflowExecutionTerminatedEventAttributes x)
+    f (_heChildWorkflowExecutionTerminatedEventAttributes x)
+        <&> \y -> x { _heChildWorkflowExecutionTerminatedEventAttributes = y }
 {-# INLINE heChildWorkflowExecutionTerminatedEventAttributes #-}
 
 -- | If the event is of type SignalExternalWorkflowExecutionInitiated then this
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
-heSignalExternalWorkflowExecutionInitiatedEventAttributes
-    :: Functor f
-    => (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
 heSignalExternalWorkflowExecutionInitiatedEventAttributes f x =
-    (\y -> x { _heSignalExternalWorkflowExecutionInitiatedEventAttributes = y })
-       <$> f (_heSignalExternalWorkflowExecutionInitiatedEventAttributes x)
+    f (_heSignalExternalWorkflowExecutionInitiatedEventAttributes x)
+        <&> \y -> x { _heSignalExternalWorkflowExecutionInitiatedEventAttributes = y }
 {-# INLINE heSignalExternalWorkflowExecutionInitiatedEventAttributes #-}
 
 -- | If the event is of type ExternalWorkflowExecutionSignaled then this member
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
-heExternalWorkflowExecutionSignaledEventAttributes
-    :: Functor f
-    => (Maybe ExternalWorkflowExecutionSignaledEventAttributes
-    -> f (Maybe ExternalWorkflowExecutionSignaledEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heExternalWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionSignaledEventAttributes)
 heExternalWorkflowExecutionSignaledEventAttributes f x =
-    (\y -> x { _heExternalWorkflowExecutionSignaledEventAttributes = y })
-       <$> f (_heExternalWorkflowExecutionSignaledEventAttributes x)
+    f (_heExternalWorkflowExecutionSignaledEventAttributes x)
+        <&> \y -> x { _heExternalWorkflowExecutionSignaledEventAttributes = y }
 {-# INLINE heExternalWorkflowExecutionSignaledEventAttributes #-}
 
 -- | If the event is of type SignalExternalWorkflowExecutionFailed then this
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
-heSignalExternalWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f (Maybe SignalExternalWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heSignalExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
 heSignalExternalWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heSignalExternalWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heSignalExternalWorkflowExecutionFailedEventAttributes x)
+    f (_heSignalExternalWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heSignalExternalWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heSignalExternalWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type ExternalWorkflowExecutionCancelRequested then this
 -- member is set and provides detailed information about the event. It is not
 -- set for other event types.
-heExternalWorkflowExecutionCancelRequestedEventAttributes
-    :: Functor f
-    => (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes
-    -> f (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
 heExternalWorkflowExecutionCancelRequestedEventAttributes f x =
-    (\y -> x { _heExternalWorkflowExecutionCancelRequestedEventAttributes = y })
-       <$> f (_heExternalWorkflowExecutionCancelRequestedEventAttributes x)
+    f (_heExternalWorkflowExecutionCancelRequestedEventAttributes x)
+        <&> \y -> x { _heExternalWorkflowExecutionCancelRequestedEventAttributes = y }
 {-# INLINE heExternalWorkflowExecutionCancelRequestedEventAttributes #-}
 
 -- | If the event is of type RequestCancelExternalWorkflowExecutionInitiated
 -- then this member is set and provides detailed information about the event.
 -- It is not set for other event types.
-heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    :: Functor f
-    => (Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    -> f (Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
 heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes f x =
-    (\y -> x { _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = y })
-       <$> f (_heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes x)
+    f (_heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes x)
+        <&> \y -> x { _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = y }
 {-# INLINE heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes #-}
 
 -- | If the event is of type RequestCancelExternalWorkflowExecutionFailed then
 -- this member is set and provides detailed information about the event. It is
 -- not set for other event types.
-heRequestCancelExternalWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heRequestCancelExternalWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heRequestCancelExternalWorkflowExecutionFailedEventAttributes x)
+    f (_heRequestCancelExternalWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heRequestCancelExternalWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heRequestCancelExternalWorkflowExecutionFailedEventAttributes #-}
 
 -- | If the event is of type ScheduleActivityTaskFailed then this member is set
 -- and provides detailed information about the event. It is not set for other
 -- event types.
-heScheduleActivityTaskFailedEventAttributes
-    :: Functor f
-    => (Maybe ScheduleActivityTaskFailedEventAttributes
-    -> f (Maybe ScheduleActivityTaskFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heScheduleActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleActivityTaskFailedEventAttributes)
 heScheduleActivityTaskFailedEventAttributes f x =
-    (\y -> x { _heScheduleActivityTaskFailedEventAttributes = y })
-       <$> f (_heScheduleActivityTaskFailedEventAttributes x)
+    f (_heScheduleActivityTaskFailedEventAttributes x)
+        <&> \y -> x { _heScheduleActivityTaskFailedEventAttributes = y }
 {-# INLINE heScheduleActivityTaskFailedEventAttributes #-}
 
 -- | If the event is of type RequestCancelActivityTaskFailed then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
-heRequestCancelActivityTaskFailedEventAttributes
-    :: Functor f
-    => (Maybe RequestCancelActivityTaskFailedEventAttributes
-    -> f (Maybe RequestCancelActivityTaskFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heRequestCancelActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelActivityTaskFailedEventAttributes)
 heRequestCancelActivityTaskFailedEventAttributes f x =
-    (\y -> x { _heRequestCancelActivityTaskFailedEventAttributes = y })
-       <$> f (_heRequestCancelActivityTaskFailedEventAttributes x)
+    f (_heRequestCancelActivityTaskFailedEventAttributes x)
+        <&> \y -> x { _heRequestCancelActivityTaskFailedEventAttributes = y }
 {-# INLINE heRequestCancelActivityTaskFailedEventAttributes #-}
 
 -- | If the event is of type StartTimerFailed then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heStartTimerFailedEventAttributes
-    :: Functor f
-    => (Maybe StartTimerFailedEventAttributes
-    -> f (Maybe StartTimerFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
 heStartTimerFailedEventAttributes f x =
-    (\y -> x { _heStartTimerFailedEventAttributes = y })
-       <$> f (_heStartTimerFailedEventAttributes x)
+    f (_heStartTimerFailedEventAttributes x)
+        <&> \y -> x { _heStartTimerFailedEventAttributes = y }
 {-# INLINE heStartTimerFailedEventAttributes #-}
 
 -- | If the event is of type CancelTimerFailed then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
-heCancelTimerFailedEventAttributes
-    :: Functor f
-    => (Maybe CancelTimerFailedEventAttributes
-    -> f (Maybe CancelTimerFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heCancelTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelTimerFailedEventAttributes)
 heCancelTimerFailedEventAttributes f x =
-    (\y -> x { _heCancelTimerFailedEventAttributes = y })
-       <$> f (_heCancelTimerFailedEventAttributes x)
+    f (_heCancelTimerFailedEventAttributes x)
+        <&> \y -> x { _heCancelTimerFailedEventAttributes = y }
 {-# INLINE heCancelTimerFailedEventAttributes #-}
 
 -- | If the event is of type StartChildWorkflowExecutionFailed then this member
 -- is set and provides detailed information about the event. It is not set for
 -- other event types.
-heStartChildWorkflowExecutionFailedEventAttributes
-    :: Functor f
-    => (Maybe StartChildWorkflowExecutionFailedEventAttributes
-    -> f (Maybe StartChildWorkflowExecutionFailedEventAttributes))
-    -> HistoryEvent
-    -> f HistoryEvent
+heStartChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionFailedEventAttributes)
 heStartChildWorkflowExecutionFailedEventAttributes f x =
-    (\y -> x { _heStartChildWorkflowExecutionFailedEventAttributes = y })
-       <$> f (_heStartChildWorkflowExecutionFailedEventAttributes x)
+    f (_heStartChildWorkflowExecutionFailedEventAttributes x)
+        <&> \y -> x { _heStartChildWorkflowExecutionFailedEventAttributes = y }
 {-# INLINE heStartChildWorkflowExecutionFailedEventAttributes #-}
 
 instance FromJSON HistoryEvent
@@ -5594,42 +4693,27 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes
     } deriving (Show, Generic)
 
 -- | The name of the marker.
-mreaMarkerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MarkerRecordedEventAttributes
-    -> f MarkerRecordedEventAttributes
+mreaMarkerName :: Lens' MarkerRecordedEventAttributes (Text)
 mreaMarkerName f x =
-    (\y -> x { _mreaMarkerName = y })
-       <$> f (_mreaMarkerName x)
+    f (_mreaMarkerName x)
+        <&> \y -> x { _mreaMarkerName = y }
 {-# INLINE mreaMarkerName #-}
 
 -- | Details of the marker (if any).
-mreaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MarkerRecordedEventAttributes
-    -> f MarkerRecordedEventAttributes
+mreaDetails :: Lens' MarkerRecordedEventAttributes (Maybe Text)
 mreaDetails f x =
-    (\y -> x { _mreaDetails = y })
-       <$> f (_mreaDetails x)
+    f (_mreaDetails x)
+        <&> \y -> x { _mreaDetails = y }
 {-# INLINE mreaDetails #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the RecordMarker decision that requested this marker.
 -- This information can be useful for diagnosing problems by tracing back the
 -- cause of events.
-mreaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> MarkerRecordedEventAttributes
-    -> f MarkerRecordedEventAttributes
+mreaDecisionTaskCompletedEventId :: Lens' MarkerRecordedEventAttributes (Integer)
 mreaDecisionTaskCompletedEventId f x =
-    (\y -> x { _mreaDecisionTaskCompletedEventId = y })
-       <$> f (_mreaDecisionTaskCompletedEventId x)
+    f (_mreaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _mreaDecisionTaskCompletedEventId = y }
 {-# INLINE mreaDecisionTaskCompletedEventId #-}
 
 instance FromJSON MarkerRecordedEventAttributes
@@ -5646,27 +4730,17 @@ data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
     } deriving (Show, Generic)
 
 -- | The name of the marker. This file is required.
-rmdaMarkerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RecordMarkerDecisionAttributes
-    -> f RecordMarkerDecisionAttributes
+rmdaMarkerName :: Lens' RecordMarkerDecisionAttributes (Text)
 rmdaMarkerName f x =
-    (\y -> x { _rmdaMarkerName = y })
-       <$> f (_rmdaMarkerName x)
+    f (_rmdaMarkerName x)
+        <&> \y -> x { _rmdaMarkerName = y }
 {-# INLINE rmdaMarkerName #-}
 
 -- | Optional details of the marker.
-rmdaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RecordMarkerDecisionAttributes
-    -> f RecordMarkerDecisionAttributes
+rmdaDetails :: Lens' RecordMarkerDecisionAttributes (Maybe Text)
 rmdaDetails f x =
-    (\y -> x { _rmdaDetails = y })
-       <$> f (_rmdaDetails x)
+    f (_rmdaDetails x)
+        <&> \y -> x { _rmdaDetails = y }
 {-# INLINE rmdaDetails #-}
 
 instance FromJSON RecordMarkerDecisionAttributes
@@ -5694,15 +4768,10 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
     } deriving (Show, Generic)
 
 -- | The marker's name.
-rmfeaMarkerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RecordMarkerFailedEventAttributes
-    -> f RecordMarkerFailedEventAttributes
+rmfeaMarkerName :: Lens' RecordMarkerFailedEventAttributes (Text)
 rmfeaMarkerName f x =
-    (\y -> x { _rmfeaMarkerName = y })
-       <$> f (_rmfeaMarkerName x)
+    f (_rmfeaMarkerName x)
+        <&> \y -> x { _rmfeaMarkerName = y }
 {-# INLINE rmfeaMarkerName #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -5710,30 +4779,20 @@ rmfeaMarkerName f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-rmfeaCause
-    :: Functor f
-    => (RecordMarkerFailedCause
-    -> f (RecordMarkerFailedCause))
-    -> RecordMarkerFailedEventAttributes
-    -> f RecordMarkerFailedEventAttributes
+rmfeaCause :: Lens' RecordMarkerFailedEventAttributes (RecordMarkerFailedCause)
 rmfeaCause f x =
-    (\y -> x { _rmfeaCause = y })
-       <$> f (_rmfeaCause x)
+    f (_rmfeaCause x)
+        <&> \y -> x { _rmfeaCause = y }
 {-# INLINE rmfeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the RecordMarkerFailed decision for this cancellation
 -- request. This information can be useful for diagnosing problems by tracing
 -- back the cause of events.
-rmfeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RecordMarkerFailedEventAttributes
-    -> f RecordMarkerFailedEventAttributes
+rmfeaDecisionTaskCompletedEventId :: Lens' RecordMarkerFailedEventAttributes (Integer)
 rmfeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _rmfeaDecisionTaskCompletedEventId = y })
-       <$> f (_rmfeaDecisionTaskCompletedEventId x)
+    f (_rmfeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _rmfeaDecisionTaskCompletedEventId = y }
 {-# INLINE rmfeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON RecordMarkerFailedEventAttributes
@@ -5764,15 +4823,10 @@ data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskF
 
 -- | The activityId provided in the RequestCancelActivityTask decision that
 -- failed.
-rcatfeaActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelActivityTaskFailedEventAttributes
-    -> f RequestCancelActivityTaskFailedEventAttributes
+rcatfeaActivityId :: Lens' RequestCancelActivityTaskFailedEventAttributes (Text)
 rcatfeaActivityId f x =
-    (\y -> x { _rcatfeaActivityId = y })
-       <$> f (_rcatfeaActivityId x)
+    f (_rcatfeaActivityId x)
+        <&> \y -> x { _rcatfeaActivityId = y }
 {-# INLINE rcatfeaActivityId #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -5780,30 +4834,20 @@ rcatfeaActivityId f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-rcatfeaCause
-    :: Functor f
-    => (RequestCancelActivityTaskFailedCause
-    -> f (RequestCancelActivityTaskFailedCause))
-    -> RequestCancelActivityTaskFailedEventAttributes
-    -> f RequestCancelActivityTaskFailedEventAttributes
+rcatfeaCause :: Lens' RequestCancelActivityTaskFailedEventAttributes (RequestCancelActivityTaskFailedCause)
 rcatfeaCause f x =
-    (\y -> x { _rcatfeaCause = y })
-       <$> f (_rcatfeaCause x)
+    f (_rcatfeaCause x)
+        <&> \y -> x { _rcatfeaCause = y }
 {-# INLINE rcatfeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the RequestCancelActivityTask decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
-rcatfeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RequestCancelActivityTaskFailedEventAttributes
-    -> f RequestCancelActivityTaskFailedEventAttributes
+rcatfeaDecisionTaskCompletedEventId :: Lens' RequestCancelActivityTaskFailedEventAttributes (Integer)
 rcatfeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _rcatfeaDecisionTaskCompletedEventId = y })
-       <$> f (_rcatfeaDecisionTaskCompletedEventId x)
+    f (_rcatfeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _rcatfeaDecisionTaskCompletedEventId = y }
 {-# INLINE rcatfeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON RequestCancelActivityTaskFailedEventAttributes
@@ -5825,40 +4869,25 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
 
 -- | The workflowId of the external workflow execution to cancel. This field is
 -- required.
-rcewedaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelExternalWorkflowExecutionDecisionAttributes
-    -> f RequestCancelExternalWorkflowExecutionDecisionAttributes
+rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Text)
 rcewedaWorkflowId f x =
-    (\y -> x { _rcewedaWorkflowId = y })
-       <$> f (_rcewedaWorkflowId x)
+    f (_rcewedaWorkflowId x)
+        <&> \y -> x { _rcewedaWorkflowId = y }
 {-# INLINE rcewedaWorkflowId #-}
 
 -- | The runId of the external workflow execution to cancel.
-rcewedaRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelExternalWorkflowExecutionDecisionAttributes
-    -> f RequestCancelExternalWorkflowExecutionDecisionAttributes
+rcewedaRunId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaRunId f x =
-    (\y -> x { _rcewedaRunId = y })
-       <$> f (_rcewedaRunId x)
+    f (_rcewedaRunId x)
+        <&> \y -> x { _rcewedaRunId = y }
 {-# INLINE rcewedaRunId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
-rcewedaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelExternalWorkflowExecutionDecisionAttributes
-    -> f RequestCancelExternalWorkflowExecutionDecisionAttributes
+rcewedaControl :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaControl f x =
-    (\y -> x { _rcewedaControl = y })
-       <$> f (_rcewedaControl x)
+    f (_rcewedaControl x)
+        <&> \y -> x { _rcewedaControl = y }
 {-# INLINE rcewedaControl #-}
 
 instance FromJSON RequestCancelExternalWorkflowExecutionDecisionAttributes
@@ -5898,27 +4927,17 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
 
 -- | The workflowId of the external workflow to which the cancel request was to
 -- be delivered.
-rcewefeaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionFailedEventAttributes
+rcewefeaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Text)
 rcewefeaWorkflowId f x =
-    (\y -> x { _rcewefeaWorkflowId = y })
-       <$> f (_rcewefeaWorkflowId x)
+    f (_rcewefeaWorkflowId x)
+        <&> \y -> x { _rcewefeaWorkflowId = y }
 {-# INLINE rcewefeaWorkflowId #-}
 
 -- | The runId of the external workflow execution.
-rcewefeaRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionFailedEventAttributes
+rcewefeaRunId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaRunId f x =
-    (\y -> x { _rcewefeaRunId = y })
-       <$> f (_rcewefeaRunId x)
+    f (_rcewefeaRunId x)
+        <&> \y -> x { _rcewefeaRunId = y }
 {-# INLINE rcewefeaRunId #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -5926,15 +4945,10 @@ rcewefeaRunId f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-rcewefeaCause
-    :: Functor f
-    => (RequestCancelExternalWorkflowExecutionFailedCause
-    -> f (RequestCancelExternalWorkflowExecutionFailedCause))
-    -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionFailedEventAttributes
+rcewefeaCause :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (RequestCancelExternalWorkflowExecutionFailedCause)
 rcewefeaCause f x =
-    (\y -> x { _rcewefeaCause = y })
-       <$> f (_rcewefeaCause x)
+    f (_rcewefeaCause x)
+        <&> \y -> x { _rcewefeaCause = y }
 {-# INLINE rcewefeaCause #-}
 
 -- | The id of the RequestCancelExternalWorkflowExecutionInitiated event
@@ -5942,41 +4956,26 @@ rcewefeaCause f x =
 -- cancel this external workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to this
 -- event.
-rcewefeaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionFailedEventAttributes
+rcewefeaInitiatedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Integer)
 rcewefeaInitiatedEventId f x =
-    (\y -> x { _rcewefeaInitiatedEventId = y })
-       <$> f (_rcewefeaInitiatedEventId x)
+    f (_rcewefeaInitiatedEventId x)
+        <&> \y -> x { _rcewefeaInitiatedEventId = y }
 {-# INLINE rcewefeaInitiatedEventId #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the RequestCancelExternalWorkflowExecution decision
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the cause of events.
-rcewefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionFailedEventAttributes
+rcewefeaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Integer)
 rcewefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _rcewefeaDecisionTaskCompletedEventId = y })
-       <$> f (_rcewefeaDecisionTaskCompletedEventId x)
+    f (_rcewefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _rcewefeaDecisionTaskCompletedEventId = y }
 {-# INLINE rcewefeaDecisionTaskCompletedEventId #-}
 
-rcewefeaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionFailedEventAttributes
+rcewefeaControl :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaControl f x =
-    (\y -> x { _rcewefeaControl = y })
-       <$> f (_rcewefeaControl x)
+    f (_rcewefeaControl x)
+        <&> \y -> x { _rcewefeaControl = y }
 {-# INLINE rcewefeaControl #-}
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes
@@ -6003,55 +5002,35 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
     } deriving (Show, Generic)
 
 -- | The workflowId of the external workflow execution to be canceled.
-rceweieaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+rceweieaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Text)
 rceweieaWorkflowId f x =
-    (\y -> x { _rceweieaWorkflowId = y })
-       <$> f (_rceweieaWorkflowId x)
+    f (_rceweieaWorkflowId x)
+        <&> \y -> x { _rceweieaWorkflowId = y }
 {-# INLINE rceweieaWorkflowId #-}
 
 -- | The runId of the external workflow execution to be canceled.
-rceweieaRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+rceweieaRunId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaRunId f x =
-    (\y -> x { _rceweieaRunId = y })
-       <$> f (_rceweieaRunId x)
+    f (_rceweieaRunId x)
+        <&> \y -> x { _rceweieaRunId = y }
 {-# INLINE rceweieaRunId #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the RequestCancelExternalWorkflowExecution decision
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the cause of events.
-rceweieaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+rceweieaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Integer)
 rceweieaDecisionTaskCompletedEventId f x =
-    (\y -> x { _rceweieaDecisionTaskCompletedEventId = y })
-       <$> f (_rceweieaDecisionTaskCompletedEventId x)
+    f (_rceweieaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _rceweieaDecisionTaskCompletedEventId = y }
 {-# INLINE rceweieaDecisionTaskCompletedEventId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
-rceweieaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    -> f RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+rceweieaControl :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaControl f x =
-    (\y -> x { _rceweieaControl = y })
-       <$> f (_rceweieaControl x)
+    f (_rceweieaControl x)
+        <&> \y -> x { _rceweieaControl = y }
 {-# INLINE rceweieaControl #-}
 
 instance FromJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
@@ -6136,15 +5115,10 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     } deriving (Show, Generic)
 
 -- | The type of the activity task to schedule. This field is required.
-satdaActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaActivityType :: Lens' ScheduleActivityTaskDecisionAttributes (ActivityType)
 satdaActivityType f x =
-    (\y -> x { _satdaActivityType = y })
-       <$> f (_satdaActivityType x)
+    f (_satdaActivityType x)
+        <&> \y -> x { _satdaActivityType = y }
 {-# INLINE satdaActivityType #-}
 
 -- | The activityId of the activity task. This field is required. The specified
@@ -6152,40 +5126,25 @@ satdaActivityType f x =
 -- (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-satdaActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaActivityId :: Lens' ScheduleActivityTaskDecisionAttributes (Text)
 satdaActivityId f x =
-    (\y -> x { _satdaActivityId = y })
-       <$> f (_satdaActivityId x)
+    f (_satdaActivityId x)
+        <&> \y -> x { _satdaActivityId = y }
 {-# INLINE satdaActivityId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data is not sent to the activity.
-satdaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaControl :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaControl f x =
-    (\y -> x { _satdaControl = y })
-       <$> f (_satdaControl x)
+    f (_satdaControl x)
+        <&> \y -> x { _satdaControl = y }
 {-# INLINE satdaControl #-}
 
 -- | The input provided to the activity task.
-satdaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaInput :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaInput f x =
-    (\y -> x { _satdaInput = y })
-       <$> f (_satdaInput x)
+    f (_satdaInput x)
+        <&> \y -> x { _satdaInput = y }
 {-# INLINE satdaInput #-}
 
 -- | The maximum duration for this activity task. The valid values are integers
@@ -6195,15 +5154,10 @@ satdaInput f x =
 -- as a default for the activity type or through this field. If neither this
 -- field is set nor a default schedule-to-close timeout was specified at
 -- registration time then a fault will be returned.
-satdaScheduleToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaScheduleToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToCloseTimeout f x =
-    (\y -> x { _satdaScheduleToCloseTimeout = y })
-       <$> f (_satdaScheduleToCloseTimeout x)
+    f (_satdaScheduleToCloseTimeout x)
+        <&> \y -> x { _satdaScheduleToCloseTimeout = y }
 {-# INLINE satdaScheduleToCloseTimeout #-}
 
 -- | If set, specifies the name of the task list in which to schedule the
@@ -6216,15 +5170,10 @@ satdaScheduleToCloseTimeout f x =
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-satdaTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaTaskList :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe TaskList)
 satdaTaskList f x =
-    (\y -> x { _satdaTaskList = y })
-       <$> f (_satdaTaskList x)
+    f (_satdaTaskList x)
+        <&> \y -> x { _satdaTaskList = y }
 {-# INLINE satdaTaskList #-}
 
 -- | If set, specifies the maximum duration the activity task can wait to be
@@ -6236,15 +5185,10 @@ satdaTaskList f x =
 -- task must be specified either as a default for the activity type or through
 -- this field. If neither this field is set nor a default schedule-to-start
 -- timeout was specified at registration time then a fault will be returned.
-satdaScheduleToStartTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaScheduleToStartTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToStartTimeout f x =
-    (\y -> x { _satdaScheduleToStartTimeout = y })
-       <$> f (_satdaScheduleToStartTimeout x)
+    f (_satdaScheduleToStartTimeout x)
+        <&> \y -> x { _satdaScheduleToStartTimeout = y }
 {-# INLINE satdaScheduleToStartTimeout #-}
 
 -- | If set, specifies the maximum duration a worker may take to process this
@@ -6256,15 +5200,10 @@ satdaScheduleToStartTimeout f x =
 -- specified either as a default for the activity type or through this field.
 -- If neither this field is set nor a default start-to-close timeout was
 -- specified at registration time then a fault will be returned.
-satdaStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaStartToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaStartToCloseTimeout f x =
-    (\y -> x { _satdaStartToCloseTimeout = y })
-       <$> f (_satdaStartToCloseTimeout x)
+    f (_satdaStartToCloseTimeout x)
+        <&> \y -> x { _satdaStartToCloseTimeout = y }
 {-# INLINE satdaStartToCloseTimeout #-}
 
 -- | If set, specifies the maximum time before which a worker processing a task
@@ -6276,15 +5215,10 @@ satdaStartToCloseTimeout f x =
 -- The valid values are integers greater than or equal to 0. An integer value
 -- can be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
-satdaHeartbeatTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduleActivityTaskDecisionAttributes
-    -> f ScheduleActivityTaskDecisionAttributes
+satdaHeartbeatTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaHeartbeatTimeout f x =
-    (\y -> x { _satdaHeartbeatTimeout = y })
-       <$> f (_satdaHeartbeatTimeout x)
+    f (_satdaHeartbeatTimeout x)
+        <&> \y -> x { _satdaHeartbeatTimeout = y }
 {-# INLINE satdaHeartbeatTimeout #-}
 
 instance FromJSON ScheduleActivityTaskDecisionAttributes
@@ -6317,27 +5251,17 @@ data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEvent
 
 -- | The activity type provided in the ScheduleActivityTask decision that
 -- failed.
-satfeaActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> ScheduleActivityTaskFailedEventAttributes
-    -> f ScheduleActivityTaskFailedEventAttributes
+satfeaActivityType :: Lens' ScheduleActivityTaskFailedEventAttributes (ActivityType)
 satfeaActivityType f x =
-    (\y -> x { _satfeaActivityType = y })
-       <$> f (_satfeaActivityType x)
+    f (_satfeaActivityType x)
+        <&> \y -> x { _satfeaActivityType = y }
 {-# INLINE satfeaActivityType #-}
 
 -- | The activityId provided in the ScheduleActivityTask decision that failed.
-satfeaActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ScheduleActivityTaskFailedEventAttributes
-    -> f ScheduleActivityTaskFailedEventAttributes
+satfeaActivityId :: Lens' ScheduleActivityTaskFailedEventAttributes (Text)
 satfeaActivityId f x =
-    (\y -> x { _satfeaActivityId = y })
-       <$> f (_satfeaActivityId x)
+    f (_satfeaActivityId x)
+        <&> \y -> x { _satfeaActivityId = y }
 {-# INLINE satfeaActivityId #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -6345,30 +5269,20 @@ satfeaActivityId f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-satfeaCause
-    :: Functor f
-    => (ScheduleActivityTaskFailedCause
-    -> f (ScheduleActivityTaskFailedCause))
-    -> ScheduleActivityTaskFailedEventAttributes
-    -> f ScheduleActivityTaskFailedEventAttributes
+satfeaCause :: Lens' ScheduleActivityTaskFailedEventAttributes (ScheduleActivityTaskFailedCause)
 satfeaCause f x =
-    (\y -> x { _satfeaCause = y })
-       <$> f (_satfeaCause x)
+    f (_satfeaCause x)
+        <&> \y -> x { _satfeaCause = y }
 {-# INLINE satfeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- that resulted in the scheduling of this activity task. This information can
 -- be useful for diagnosing problems by tracing back the chain of events
 -- leading up to this event.
-satfeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ScheduleActivityTaskFailedEventAttributes
-    -> f ScheduleActivityTaskFailedEventAttributes
+satfeaDecisionTaskCompletedEventId :: Lens' ScheduleActivityTaskFailedEventAttributes (Integer)
 satfeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _satfeaDecisionTaskCompletedEventId = y })
-       <$> f (_satfeaDecisionTaskCompletedEventId x)
+    f (_satfeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _satfeaDecisionTaskCompletedEventId = y }
 {-# INLINE satfeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON ScheduleActivityTaskFailedEventAttributes
@@ -6398,66 +5312,41 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
 
 -- | The workflowId of the workflow execution to be signaled. This field is
 -- required.
-sewedaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalExternalWorkflowExecutionDecisionAttributes
-    -> f SignalExternalWorkflowExecutionDecisionAttributes
+sewedaWorkflowId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Text)
 sewedaWorkflowId f x =
-    (\y -> x { _sewedaWorkflowId = y })
-       <$> f (_sewedaWorkflowId x)
+    f (_sewedaWorkflowId x)
+        <&> \y -> x { _sewedaWorkflowId = y }
 {-# INLINE sewedaWorkflowId #-}
 
 -- | The runId of the workflow execution to be signaled.
-sewedaRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionDecisionAttributes
-    -> f SignalExternalWorkflowExecutionDecisionAttributes
+sewedaRunId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaRunId f x =
-    (\y -> x { _sewedaRunId = y })
-       <$> f (_sewedaRunId x)
+    f (_sewedaRunId x)
+        <&> \y -> x { _sewedaRunId = y }
 {-# INLINE sewedaRunId #-}
 
 -- | The name of the signal.The target workflow execution will use the signal
 -- name and input to process the signal. This field is required.
-sewedaSignalName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalExternalWorkflowExecutionDecisionAttributes
-    -> f SignalExternalWorkflowExecutionDecisionAttributes
+sewedaSignalName :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Text)
 sewedaSignalName f x =
-    (\y -> x { _sewedaSignalName = y })
-       <$> f (_sewedaSignalName x)
+    f (_sewedaSignalName x)
+        <&> \y -> x { _sewedaSignalName = y }
 {-# INLINE sewedaSignalName #-}
 
 -- | Optional input to be provided with the signal.The target workflow execution
 -- will use the signal name and input to process the signal.
-sewedaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionDecisionAttributes
-    -> f SignalExternalWorkflowExecutionDecisionAttributes
+sewedaInput :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaInput f x =
-    (\y -> x { _sewedaInput = y })
-       <$> f (_sewedaInput x)
+    f (_sewedaInput x)
+        <&> \y -> x { _sewedaInput = y }
 {-# INLINE sewedaInput #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent decision tasks.
-sewedaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionDecisionAttributes
-    -> f SignalExternalWorkflowExecutionDecisionAttributes
+sewedaControl :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaControl f x =
-    (\y -> x { _sewedaControl = y })
-       <$> f (_sewedaControl x)
+    f (_sewedaControl x)
+        <&> \y -> x { _sewedaControl = y }
 {-# INLINE sewedaControl #-}
 
 instance FromJSON SignalExternalWorkflowExecutionDecisionAttributes
@@ -6498,28 +5387,18 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
 
 -- | The workflowId of the external workflow execution that the signal was being
 -- delivered to.
-sewefeaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f SignalExternalWorkflowExecutionFailedEventAttributes
+sewefeaWorkflowId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Text)
 sewefeaWorkflowId f x =
-    (\y -> x { _sewefeaWorkflowId = y })
-       <$> f (_sewefeaWorkflowId x)
+    f (_sewefeaWorkflowId x)
+        <&> \y -> x { _sewefeaWorkflowId = y }
 {-# INLINE sewefeaWorkflowId #-}
 
 -- | The runId of the external workflow execution that the signal was being
 -- delivered to.
-sewefeaRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f SignalExternalWorkflowExecutionFailedEventAttributes
+sewefeaRunId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaRunId f x =
-    (\y -> x { _sewefeaRunId = y })
-       <$> f (_sewefeaRunId x)
+    f (_sewefeaRunId x)
+        <&> \y -> x { _sewefeaRunId = y }
 {-# INLINE sewefeaRunId #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -6527,56 +5406,36 @@ sewefeaRunId f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-sewefeaCause
-    :: Functor f
-    => (SignalExternalWorkflowExecutionFailedCause
-    -> f (SignalExternalWorkflowExecutionFailedCause))
-    -> SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f SignalExternalWorkflowExecutionFailedEventAttributes
+sewefeaCause :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (SignalExternalWorkflowExecutionFailedCause)
 sewefeaCause f x =
-    (\y -> x { _sewefeaCause = y })
-       <$> f (_sewefeaCause x)
+    f (_sewefeaCause x)
+        <&> \y -> x { _sewefeaCause = y }
 {-# INLINE sewefeaCause #-}
 
 -- | The id of the SignalExternalWorkflowExecutionInitiated event corresponding
 -- to the SignalExternalWorkflowExecution decision to request this signal.
 -- This information can be useful for diagnosing problems by tracing back the
 -- chain of events leading up to this event.
-sewefeaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f SignalExternalWorkflowExecutionFailedEventAttributes
+sewefeaInitiatedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Integer)
 sewefeaInitiatedEventId f x =
-    (\y -> x { _sewefeaInitiatedEventId = y })
-       <$> f (_sewefeaInitiatedEventId x)
+    f (_sewefeaInitiatedEventId x)
+        <&> \y -> x { _sewefeaInitiatedEventId = y }
 {-# INLINE sewefeaInitiatedEventId #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the SignalExternalWorkflowExecution decision for this
 -- signal. This information can be useful for diagnosing problems by tracing
 -- back the cause of events leading up to this event.
-sewefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f SignalExternalWorkflowExecutionFailedEventAttributes
+sewefeaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Integer)
 sewefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _sewefeaDecisionTaskCompletedEventId = y })
-       <$> f (_sewefeaDecisionTaskCompletedEventId x)
+    f (_sewefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _sewefeaDecisionTaskCompletedEventId = y }
 {-# INLINE sewefeaDecisionTaskCompletedEventId #-}
 
-sewefeaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionFailedEventAttributes
-    -> f SignalExternalWorkflowExecutionFailedEventAttributes
+sewefeaControl :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaControl f x =
-    (\y -> x { _sewefeaControl = y })
-       <$> f (_sewefeaControl x)
+    f (_sewefeaControl x)
+        <&> \y -> x { _sewefeaControl = y }
 {-# INLINE sewefeaControl #-}
 
 instance FromJSON SignalExternalWorkflowExecutionFailedEventAttributes
@@ -6608,79 +5467,49 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
     } deriving (Show, Generic)
 
 -- | The workflowId of the external workflow execution.
-seweieaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f SignalExternalWorkflowExecutionInitiatedEventAttributes
+seweieaWorkflowId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Text)
 seweieaWorkflowId f x =
-    (\y -> x { _seweieaWorkflowId = y })
-       <$> f (_seweieaWorkflowId x)
+    f (_seweieaWorkflowId x)
+        <&> \y -> x { _seweieaWorkflowId = y }
 {-# INLINE seweieaWorkflowId #-}
 
 -- | The runId of the external workflow execution to send the signal to.
-seweieaRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f SignalExternalWorkflowExecutionInitiatedEventAttributes
+seweieaRunId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaRunId f x =
-    (\y -> x { _seweieaRunId = y })
-       <$> f (_seweieaRunId x)
+    f (_seweieaRunId x)
+        <&> \y -> x { _seweieaRunId = y }
 {-# INLINE seweieaRunId #-}
 
 -- | The name of the signal.
-seweieaSignalName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f SignalExternalWorkflowExecutionInitiatedEventAttributes
+seweieaSignalName :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Text)
 seweieaSignalName f x =
-    (\y -> x { _seweieaSignalName = y })
-       <$> f (_seweieaSignalName x)
+    f (_seweieaSignalName x)
+        <&> \y -> x { _seweieaSignalName = y }
 {-# INLINE seweieaSignalName #-}
 
 -- | Input provided to the signal (if any).
-seweieaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f SignalExternalWorkflowExecutionInitiatedEventAttributes
+seweieaInput :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaInput f x =
-    (\y -> x { _seweieaInput = y })
-       <$> f (_seweieaInput x)
+    f (_seweieaInput x)
+        <&> \y -> x { _seweieaInput = y }
 {-# INLINE seweieaInput #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the SignalExternalWorkflowExecution decision for this
 -- signal. This information can be useful for diagnosing problems by tracing
 -- back the cause of events leading up to this event.
-seweieaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f SignalExternalWorkflowExecutionInitiatedEventAttributes
+seweieaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Integer)
 seweieaDecisionTaskCompletedEventId f x =
-    (\y -> x { _seweieaDecisionTaskCompletedEventId = y })
-       <$> f (_seweieaDecisionTaskCompletedEventId x)
+    f (_seweieaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _seweieaDecisionTaskCompletedEventId = y }
 {-# INLINE seweieaDecisionTaskCompletedEventId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent decision tasks.
-seweieaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -> f SignalExternalWorkflowExecutionInitiatedEventAttributes
+seweieaControl :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaControl f x =
-    (\y -> x { _seweieaControl = y })
-       <$> f (_seweieaControl x)
+    f (_seweieaControl x)
+        <&> \y -> x { _seweieaControl = y }
 {-# INLINE seweieaControl #-}
 
 instance FromJSON SignalExternalWorkflowExecutionInitiatedEventAttributes
@@ -6766,15 +5595,10 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     } deriving (Show, Generic)
 
 -- | The type of the workflow execution to be started. This field is required.
-scwedaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaWorkflowType :: Lens' StartChildWorkflowExecutionDecisionAttributes (WorkflowType)
 scwedaWorkflowType f x =
-    (\y -> x { _scwedaWorkflowType = y })
-       <$> f (_scwedaWorkflowType x)
+    f (_scwedaWorkflowType x)
+        <&> \y -> x { _scwedaWorkflowType = y }
 {-# INLINE scwedaWorkflowType #-}
 
 -- | The workflowId of the workflow execution. This field is required. The
@@ -6782,41 +5606,26 @@ scwedaWorkflowType f x =
 -- a : (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-scwedaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaWorkflowId :: Lens' StartChildWorkflowExecutionDecisionAttributes (Text)
 scwedaWorkflowId f x =
-    (\y -> x { _scwedaWorkflowId = y })
-       <$> f (_scwedaWorkflowId x)
+    f (_scwedaWorkflowId x)
+        <&> \y -> x { _scwedaWorkflowId = y }
 {-# INLINE scwedaWorkflowId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data is not sent to the child workflow
 -- execution.
-scwedaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaControl :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaControl f x =
-    (\y -> x { _scwedaControl = y })
-       <$> f (_scwedaControl x)
+    f (_scwedaControl x)
+        <&> \y -> x { _scwedaControl = y }
 {-# INLINE scwedaControl #-}
 
 -- | The input to be provided to the workflow execution.
-scwedaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaInput :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaInput f x =
-    (\y -> x { _scwedaInput = y })
-       <$> f (_scwedaInput x)
+    f (_scwedaInput x)
+        <&> \y -> x { _scwedaInput = y }
 {-# INLINE scwedaInput #-}
 
 -- | The total duration for this workflow execution. This overrides the
@@ -6828,15 +5637,10 @@ scwedaInput f x =
 -- type or through this parameter. If neither this parameter is set nor a
 -- default execution start-to-close timeout was specified at registration time
 -- then a fault will be returned.
-scwedaExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaExecutionStartToCloseTimeout f x =
-    (\y -> x { _scwedaExecutionStartToCloseTimeout = y })
-       <$> f (_scwedaExecutionStartToCloseTimeout x)
+    f (_scwedaExecutionStartToCloseTimeout x)
+        <&> \y -> x { _scwedaExecutionStartToCloseTimeout = y }
 {-# INLINE scwedaExecutionStartToCloseTimeout #-}
 
 -- | The name of the task list to be used for decision tasks of the child
@@ -6848,15 +5652,10 @@ scwedaExecutionStartToCloseTimeout f x =
 -- (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-scwedaTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaTaskList :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe TaskList)
 scwedaTaskList f x =
-    (\y -> x { _scwedaTaskList = y })
-       <$> f (_scwedaTaskList x)
+    f (_scwedaTaskList x)
+        <&> \y -> x { _scwedaTaskList = y }
 {-# INLINE scwedaTaskList #-}
 
 -- | Specifies the maximum duration of decision tasks for this workflow
@@ -6869,15 +5668,10 @@ scwedaTaskList f x =
 -- through this parameter. If neither this parameter is set nor a default task
 -- start-to-close timeout was specified at registration time then a fault will
 -- be returned.
-scwedaTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaTaskStartToCloseTimeout f x =
-    (\y -> x { _scwedaTaskStartToCloseTimeout = y })
-       <$> f (_scwedaTaskStartToCloseTimeout x)
+    f (_scwedaTaskStartToCloseTimeout x)
+        <&> \y -> x { _scwedaTaskStartToCloseTimeout = y }
 {-# INLINE scwedaTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the policy to use for the child workflow executions if
@@ -6895,30 +5689,20 @@ scwedaTaskStartToCloseTimeout f x =
 -- type or through this field. If neither this field is set nor a default
 -- child policy was specified at registration time then a fault will be
 -- returned.
-scwedaChildPolicy
-    :: Functor f
-    => (Maybe ChildPolicy
-    -> f (Maybe ChildPolicy))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaChildPolicy :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 scwedaChildPolicy f x =
-    (\y -> x { _scwedaChildPolicy = y })
-       <$> f (_scwedaChildPolicy x)
+    f (_scwedaChildPolicy x)
+        <&> \y -> x { _scwedaChildPolicy = y }
 {-# INLINE scwedaChildPolicy #-}
 
 -- | The list of tags to associate with the child workflow execution. A maximum
 -- of 5 tags can be specified. You can list workflow executions with a
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-scwedaTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> StartChildWorkflowExecutionDecisionAttributes
-    -> f StartChildWorkflowExecutionDecisionAttributes
+scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes ([Text])
 scwedaTagList f x =
-    (\y -> x { _scwedaTagList = y })
-       <$> f (_scwedaTagList x)
+    f (_scwedaTagList x)
+        <&> \y -> x { _scwedaTagList = y }
 {-# INLINE scwedaTagList #-}
 
 instance FromJSON StartChildWorkflowExecutionDecisionAttributes
@@ -6958,15 +5742,10 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
 
 -- | The workflow type provided in the StartChildWorkflowExecution Decision that
 -- failed.
-scwefeaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> StartChildWorkflowExecutionFailedEventAttributes
-    -> f StartChildWorkflowExecutionFailedEventAttributes
+scwefeaWorkflowType :: Lens' StartChildWorkflowExecutionFailedEventAttributes (WorkflowType)
 scwefeaWorkflowType f x =
-    (\y -> x { _scwefeaWorkflowType = y })
-       <$> f (_scwefeaWorkflowType x)
+    f (_scwefeaWorkflowType x)
+        <&> \y -> x { _scwefeaWorkflowType = y }
 {-# INLINE scwefeaWorkflowType #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -6974,68 +5753,43 @@ scwefeaWorkflowType f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-scwefeaCause
-    :: Functor f
-    => (StartChildWorkflowExecutionFailedCause
-    -> f (StartChildWorkflowExecutionFailedCause))
-    -> StartChildWorkflowExecutionFailedEventAttributes
-    -> f StartChildWorkflowExecutionFailedEventAttributes
+scwefeaCause :: Lens' StartChildWorkflowExecutionFailedEventAttributes (StartChildWorkflowExecutionFailedCause)
 scwefeaCause f x =
-    (\y -> x { _scwefeaCause = y })
-       <$> f (_scwefeaCause x)
+    f (_scwefeaCause x)
+        <&> \y -> x { _scwefeaCause = y }
 {-# INLINE scwefeaCause #-}
 
 -- | The workflowId of the child workflow execution.
-scwefeaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartChildWorkflowExecutionFailedEventAttributes
-    -> f StartChildWorkflowExecutionFailedEventAttributes
+scwefeaWorkflowId :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Text)
 scwefeaWorkflowId f x =
-    (\y -> x { _scwefeaWorkflowId = y })
-       <$> f (_scwefeaWorkflowId x)
+    f (_scwefeaWorkflowId x)
+        <&> \y -> x { _scwefeaWorkflowId = y }
 {-# INLINE scwefeaWorkflowId #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
 -- the StartChildWorkflowExecution Decision to start this child workflow
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-scwefeaInitiatedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> StartChildWorkflowExecutionFailedEventAttributes
-    -> f StartChildWorkflowExecutionFailedEventAttributes
+scwefeaInitiatedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Integer)
 scwefeaInitiatedEventId f x =
-    (\y -> x { _scwefeaInitiatedEventId = y })
-       <$> f (_scwefeaInitiatedEventId x)
+    f (_scwefeaInitiatedEventId x)
+        <&> \y -> x { _scwefeaInitiatedEventId = y }
 {-# INLINE scwefeaInitiatedEventId #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the StartChildWorkflowExecution Decision to request
 -- this child workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the cause of events.
-scwefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> StartChildWorkflowExecutionFailedEventAttributes
-    -> f StartChildWorkflowExecutionFailedEventAttributes
+scwefeaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Integer)
 scwefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _scwefeaDecisionTaskCompletedEventId = y })
-       <$> f (_scwefeaDecisionTaskCompletedEventId x)
+    f (_scwefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _scwefeaDecisionTaskCompletedEventId = y }
 {-# INLINE scwefeaDecisionTaskCompletedEventId #-}
 
-scwefeaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionFailedEventAttributes
-    -> f StartChildWorkflowExecutionFailedEventAttributes
+scwefeaControl :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 scwefeaControl f x =
-    (\y -> x { _scwefeaControl = y })
-       <$> f (_scwefeaControl x)
+    f (_scwefeaControl x)
+        <&> \y -> x { _scwefeaControl = y }
 {-# INLINE scwefeaControl #-}
 
 instance FromJSON StartChildWorkflowExecutionFailedEventAttributes
@@ -7093,52 +5847,32 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
     } deriving (Show, Generic)
 
 -- | The workflowId of the child workflow execution.
-scweieaWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaWorkflowId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Text)
 scweieaWorkflowId f x =
-    (\y -> x { _scweieaWorkflowId = y })
-       <$> f (_scweieaWorkflowId x)
+    f (_scweieaWorkflowId x)
+        <&> \y -> x { _scweieaWorkflowId = y }
 {-# INLINE scweieaWorkflowId #-}
 
 -- | The type of the child workflow execution.
-scweieaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaWorkflowType :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (WorkflowType)
 scweieaWorkflowType f x =
-    (\y -> x { _scweieaWorkflowType = y })
-       <$> f (_scweieaWorkflowType x)
+    f (_scweieaWorkflowType x)
+        <&> \y -> x { _scweieaWorkflowType = y }
 {-# INLINE scweieaWorkflowType #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent decision tasks. This data is not sent to the activity.
-scweieaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaControl :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaControl f x =
-    (\y -> x { _scweieaControl = y })
-       <$> f (_scweieaControl x)
+    f (_scweieaControl x)
+        <&> \y -> x { _scweieaControl = y }
 {-# INLINE scweieaControl #-}
 
 -- | The inputs provided to the child workflow execution (if any).
-scweieaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaInput :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaInput f x =
-    (\y -> x { _scweieaInput = y })
-       <$> f (_scweieaInput x)
+    f (_scweieaInput x)
+        <&> \y -> x { _scweieaInput = y }
 {-# INLINE scweieaInput #-}
 
 -- | The maximum duration for the child workflow execution. If the workflow
@@ -7146,43 +5880,28 @@ scweieaInput f x =
 -- force terminated. The valid values are integers greater than or equal to 0.
 -- An integer value can be used to specify the duration in seconds while NONE
 -- can be used to specify unlimited duration.
-scweieaExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaExecutionStartToCloseTimeout f x =
-    (\y -> x { _scweieaExecutionStartToCloseTimeout = y })
-       <$> f (_scweieaExecutionStartToCloseTimeout x)
+    f (_scweieaExecutionStartToCloseTimeout x)
+        <&> \y -> x { _scweieaExecutionStartToCloseTimeout = y }
 {-# INLINE scweieaExecutionStartToCloseTimeout #-}
 
 -- | The name of the task list used for the decision tasks of the child workflow
 -- execution.
-scweieaTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaTaskList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (TaskList)
 scweieaTaskList f x =
-    (\y -> x { _scweieaTaskList = y })
-       <$> f (_scweieaTaskList x)
+    f (_scweieaTaskList x)
+        <&> \y -> x { _scweieaTaskList = y }
 {-# INLINE scweieaTaskList #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the StartChildWorkflowExecution Decision to request
 -- this child workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the cause of events.
-scweieaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Integer)
 scweieaDecisionTaskCompletedEventId f x =
-    (\y -> x { _scweieaDecisionTaskCompletedEventId = y })
-       <$> f (_scweieaDecisionTaskCompletedEventId x)
+    f (_scweieaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _scweieaDecisionTaskCompletedEventId = y }
 {-# INLINE scweieaDecisionTaskCompletedEventId #-}
 
 -- | The policy to use for the child workflow executions if this execution gets
@@ -7194,42 +5913,27 @@ scweieaDecisionTaskCompletedEventId f x =
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-scweieaChildPolicy
-    :: Functor f
-    => (ChildPolicy
-    -> f (ChildPolicy))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaChildPolicy :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (ChildPolicy)
 scweieaChildPolicy f x =
-    (\y -> x { _scweieaChildPolicy = y })
-       <$> f (_scweieaChildPolicy x)
+    f (_scweieaChildPolicy x)
+        <&> \y -> x { _scweieaChildPolicy = y }
 {-# INLINE scweieaChildPolicy #-}
 
 -- | The maximum duration allowed for the decision tasks for this workflow
 -- execution. The valid values are integers greater than or equal to 0. An
 -- integer value can be used to specify the duration in seconds while NONE can
 -- be used to specify unlimited duration.
-scweieaTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaTaskStartToCloseTimeout f x =
-    (\y -> x { _scweieaTaskStartToCloseTimeout = y })
-       <$> f (_scweieaTaskStartToCloseTimeout x)
+    f (_scweieaTaskStartToCloseTimeout x)
+        <&> \y -> x { _scweieaTaskStartToCloseTimeout = y }
 {-# INLINE scweieaTaskStartToCloseTimeout #-}
 
 -- | The list of tags to associated with the child workflow execution.
-scweieaTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> StartChildWorkflowExecutionInitiatedEventAttributes
-    -> f StartChildWorkflowExecutionInitiatedEventAttributes
+scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes ([Text])
 scweieaTagList f x =
-    (\y -> x { _scweieaTagList = y })
-       <$> f (_scweieaTagList x)
+    f (_scweieaTagList x)
+        <&> \y -> x { _scweieaTagList = y }
 {-# INLINE scweieaTagList #-}
 
 instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes
@@ -7259,42 +5963,27 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-stdaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartTimerDecisionAttributes
-    -> f StartTimerDecisionAttributes
+stdaTimerId :: Lens' StartTimerDecisionAttributes (Text)
 stdaTimerId f x =
-    (\y -> x { _stdaTimerId = y })
-       <$> f (_stdaTimerId x)
+    f (_stdaTimerId x)
+        <&> \y -> x { _stdaTimerId = y }
 {-# INLINE stdaTimerId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
-stdaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartTimerDecisionAttributes
-    -> f StartTimerDecisionAttributes
+stdaControl :: Lens' StartTimerDecisionAttributes (Maybe Text)
 stdaControl f x =
-    (\y -> x { _stdaControl = y })
-       <$> f (_stdaControl x)
+    f (_stdaControl x)
+        <&> \y -> x { _stdaControl = y }
 {-# INLINE stdaControl #-}
 
 -- | The duration to wait before firing the timer. This field is required. The
 -- duration is specified in seconds. The valid values are integers greater
 -- than or equal to 0.
-stdaStartToFireTimeout
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartTimerDecisionAttributes
-    -> f StartTimerDecisionAttributes
+stdaStartToFireTimeout :: Lens' StartTimerDecisionAttributes (Text)
 stdaStartToFireTimeout f x =
-    (\y -> x { _stdaStartToFireTimeout = y })
-       <$> f (_stdaStartToFireTimeout x)
+    f (_stdaStartToFireTimeout x)
+        <&> \y -> x { _stdaStartToFireTimeout = y }
 {-# INLINE stdaStartToFireTimeout #-}
 
 instance FromJSON StartTimerDecisionAttributes
@@ -7322,15 +6011,10 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes
     } deriving (Show, Generic)
 
 -- | The timerId provided in the StartTimer decision that failed.
-stfeaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartTimerFailedEventAttributes
-    -> f StartTimerFailedEventAttributes
+stfeaTimerId :: Lens' StartTimerFailedEventAttributes (Text)
 stfeaTimerId f x =
-    (\y -> x { _stfeaTimerId = y })
-       <$> f (_stfeaTimerId x)
+    f (_stfeaTimerId x)
+        <&> \y -> x { _stfeaTimerId = y }
 {-# INLINE stfeaTimerId #-}
 
 -- | The cause of the failure to process the decision. This information is
@@ -7338,30 +6022,20 @@ stfeaTimerId f x =
 -- is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked
 -- sufficient permissions. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
-stfeaCause
-    :: Functor f
-    => (StartTimerFailedCause
-    -> f (StartTimerFailedCause))
-    -> StartTimerFailedEventAttributes
-    -> f StartTimerFailedEventAttributes
+stfeaCause :: Lens' StartTimerFailedEventAttributes (StartTimerFailedCause)
 stfeaCause f x =
-    (\y -> x { _stfeaCause = y })
-       <$> f (_stfeaCause x)
+    f (_stfeaCause x)
+        <&> \y -> x { _stfeaCause = y }
 {-# INLINE stfeaCause #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the StartTimer decision for this activity task. This
 -- information can be useful for diagnosing problems by tracing back the cause
 -- of events.
-stfeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> StartTimerFailedEventAttributes
-    -> f StartTimerFailedEventAttributes
+stfeaDecisionTaskCompletedEventId :: Lens' StartTimerFailedEventAttributes (Integer)
 stfeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _stfeaDecisionTaskCompletedEventId = y })
-       <$> f (_stfeaDecisionTaskCompletedEventId x)
+    f (_stfeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _stfeaDecisionTaskCompletedEventId = y }
 {-# INLINE stfeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON StartTimerFailedEventAttributes
@@ -7386,44 +6060,29 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes
     } deriving (Show, Generic)
 
 -- | The unique Id of the timer that was canceled.
-tceaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TimerCanceledEventAttributes
-    -> f TimerCanceledEventAttributes
+tceaTimerId :: Lens' TimerCanceledEventAttributes (Text)
 tceaTimerId f x =
-    (\y -> x { _tceaTimerId = y })
-       <$> f (_tceaTimerId x)
+    f (_tceaTimerId x)
+        <&> \y -> x { _tceaTimerId = y }
 {-# INLINE tceaTimerId #-}
 
 -- | The id of the TimerStarted event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by tracing
 -- back the chain of events leading up to this event.
-tceaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> TimerCanceledEventAttributes
-    -> f TimerCanceledEventAttributes
+tceaStartedEventId :: Lens' TimerCanceledEventAttributes (Integer)
 tceaStartedEventId f x =
-    (\y -> x { _tceaStartedEventId = y })
-       <$> f (_tceaStartedEventId x)
+    f (_tceaStartedEventId x)
+        <&> \y -> x { _tceaStartedEventId = y }
 {-# INLINE tceaStartedEventId #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the CancelTimer decision to cancel this timer. This
 -- information can be useful for diagnosing problems by tracing back the cause
 -- of events.
-tceaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> TimerCanceledEventAttributes
-    -> f TimerCanceledEventAttributes
+tceaDecisionTaskCompletedEventId :: Lens' TimerCanceledEventAttributes (Integer)
 tceaDecisionTaskCompletedEventId f x =
-    (\y -> x { _tceaDecisionTaskCompletedEventId = y })
-       <$> f (_tceaDecisionTaskCompletedEventId x)
+    f (_tceaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _tceaDecisionTaskCompletedEventId = y }
 {-# INLINE tceaDecisionTaskCompletedEventId #-}
 
 instance FromJSON TimerCanceledEventAttributes
@@ -7443,29 +6102,19 @@ data TimerFiredEventAttributes = TimerFiredEventAttributes
     } deriving (Show, Generic)
 
 -- | The unique Id of the timer that fired.
-tfeaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TimerFiredEventAttributes
-    -> f TimerFiredEventAttributes
+tfeaTimerId :: Lens' TimerFiredEventAttributes (Text)
 tfeaTimerId f x =
-    (\y -> x { _tfeaTimerId = y })
-       <$> f (_tfeaTimerId x)
+    f (_tfeaTimerId x)
+        <&> \y -> x { _tfeaTimerId = y }
 {-# INLINE tfeaTimerId #-}
 
 -- | The id of the TimerStarted event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by tracing
 -- back the chain of events leading up to this event.
-tfeaStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> TimerFiredEventAttributes
-    -> f TimerFiredEventAttributes
+tfeaStartedEventId :: Lens' TimerFiredEventAttributes (Integer)
 tfeaStartedEventId f x =
-    (\y -> x { _tfeaStartedEventId = y })
-       <$> f (_tfeaStartedEventId x)
+    f (_tfeaStartedEventId x)
+        <&> \y -> x { _tfeaStartedEventId = y }
 {-# INLINE tfeaStartedEventId #-}
 
 instance FromJSON TimerFiredEventAttributes
@@ -7492,57 +6141,37 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes
     } deriving (Show, Generic)
 
 -- | The unique Id of the timer that was started.
-tseaTimerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TimerStartedEventAttributes
-    -> f TimerStartedEventAttributes
+tseaTimerId :: Lens' TimerStartedEventAttributes (Text)
 tseaTimerId f x =
-    (\y -> x { _tseaTimerId = y })
-       <$> f (_tseaTimerId x)
+    f (_tseaTimerId x)
+        <&> \y -> x { _tseaTimerId = y }
 {-# INLINE tseaTimerId #-}
 
 -- | Optional data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
-tseaControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TimerStartedEventAttributes
-    -> f TimerStartedEventAttributes
+tseaControl :: Lens' TimerStartedEventAttributes (Maybe Text)
 tseaControl f x =
-    (\y -> x { _tseaControl = y })
-       <$> f (_tseaControl x)
+    f (_tseaControl x)
+        <&> \y -> x { _tseaControl = y }
 {-# INLINE tseaControl #-}
 
 -- | The duration of time after which the timer will fire. The duration is
 -- specified in seconds. The valid values are integers greater than or equal
 -- to 0.
-tseaStartToFireTimeout
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TimerStartedEventAttributes
-    -> f TimerStartedEventAttributes
+tseaStartToFireTimeout :: Lens' TimerStartedEventAttributes (Text)
 tseaStartToFireTimeout f x =
-    (\y -> x { _tseaStartToFireTimeout = y })
-       <$> f (_tseaStartToFireTimeout x)
+    f (_tseaStartToFireTimeout x)
+        <&> \y -> x { _tseaStartToFireTimeout = y }
 {-# INLINE tseaStartToFireTimeout #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the StartTimer decision for this activity task. This
 -- information can be useful for diagnosing problems by tracing back the cause
 -- of events.
-tseaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> TimerStartedEventAttributes
-    -> f TimerStartedEventAttributes
+tseaDecisionTaskCompletedEventId :: Lens' TimerStartedEventAttributes (Integer)
 tseaDecisionTaskCompletedEventId f x =
-    (\y -> x { _tseaDecisionTaskCompletedEventId = y })
-       <$> f (_tseaDecisionTaskCompletedEventId x)
+    f (_tseaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _tseaDecisionTaskCompletedEventId = y }
 {-# INLINE tseaDecisionTaskCompletedEventId #-}
 
 instance FromJSON TimerStartedEventAttributes
@@ -7559,27 +6188,17 @@ data WorkflowExecution = WorkflowExecution
     } deriving (Show, Generic)
 
 -- | The user defined identifier associated with the workflow execution.
-weWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecution
-    -> f WorkflowExecution
+weWorkflowId :: Lens' WorkflowExecution (Text)
 weWorkflowId f x =
-    (\y -> x { _weWorkflowId = y })
-       <$> f (_weWorkflowId x)
+    f (_weWorkflowId x)
+        <&> \y -> x { _weWorkflowId = y }
 {-# INLINE weWorkflowId #-}
 
 -- | A system generated unique identifier for the workflow execution.
-weRunId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecution
-    -> f WorkflowExecution
+weRunId :: Lens' WorkflowExecution (Text)
 weRunId f x =
-    (\y -> x { _weRunId = y })
-       <$> f (_weRunId x)
+    f (_weRunId x)
+        <&> \y -> x { _weRunId = y }
 {-# INLINE weRunId #-}
 
 instance FromJSON WorkflowExecution
@@ -7609,15 +6228,10 @@ data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRe
     } deriving (Show, Generic)
 
 -- | The external workflow execution for which the cancellation was requested.
-wecreaExternalWorkflowExecution
-    :: Functor f
-    => (Maybe WorkflowExecution
-    -> f (Maybe WorkflowExecution))
-    -> WorkflowExecutionCancelRequestedEventAttributes
-    -> f WorkflowExecutionCancelRequestedEventAttributes
+wecreaExternalWorkflowExecution :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe WorkflowExecution)
 wecreaExternalWorkflowExecution f x =
-    (\y -> x { _wecreaExternalWorkflowExecution = y })
-       <$> f (_wecreaExternalWorkflowExecution x)
+    f (_wecreaExternalWorkflowExecution x)
+        <&> \y -> x { _wecreaExternalWorkflowExecution = y }
 {-# INLINE wecreaExternalWorkflowExecution #-}
 
 -- | The id of the RequestCancelExternalWorkflowExecutionInitiated event
@@ -7626,30 +6240,20 @@ wecreaExternalWorkflowExecution f x =
 -- in the history of the source workflow execution. This information can be
 -- useful for diagnosing problems by tracing back the chain of events leading
 -- up to this event.
-wecreaExternalInitiatedEventId
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> WorkflowExecutionCancelRequestedEventAttributes
-    -> f WorkflowExecutionCancelRequestedEventAttributes
+wecreaExternalInitiatedEventId :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe Integer)
 wecreaExternalInitiatedEventId f x =
-    (\y -> x { _wecreaExternalInitiatedEventId = y })
-       <$> f (_wecreaExternalInitiatedEventId x)
+    f (_wecreaExternalInitiatedEventId x)
+        <&> \y -> x { _wecreaExternalInitiatedEventId = y }
 {-# INLINE wecreaExternalInitiatedEventId #-}
 
 -- | If set, indicates that the request to cancel the workflow execution was
 -- automatically generated, and specifies the cause. This happens if the
 -- parent workflow execution times out or is terminated, and the child policy
 -- is set to cancel child executions.
-wecreaCause
-    :: Functor f
-    => (Maybe WorkflowExecutionCancelRequestedCause
-    -> f (Maybe WorkflowExecutionCancelRequestedCause))
-    -> WorkflowExecutionCancelRequestedEventAttributes
-    -> f WorkflowExecutionCancelRequestedEventAttributes
+wecreaCause :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe WorkflowExecutionCancelRequestedCause)
 wecreaCause f x =
-    (\y -> x { _wecreaCause = y })
-       <$> f (_wecreaCause x)
+    f (_wecreaCause x)
+        <&> \y -> x { _wecreaCause = y }
 {-# INLINE wecreaCause #-}
 
 instance FromJSON WorkflowExecutionCancelRequestedEventAttributes
@@ -7671,30 +6275,20 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
     } deriving (Show, Generic)
 
 -- | Details for the cancellation (if any).
-wecebDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionCanceledEventAttributes
-    -> f WorkflowExecutionCanceledEventAttributes
+wecebDetails :: Lens' WorkflowExecutionCanceledEventAttributes (Maybe Text)
 wecebDetails f x =
-    (\y -> x { _wecebDetails = y })
-       <$> f (_wecebDetails x)
+    f (_wecebDetails x)
+        <&> \y -> x { _wecebDetails = y }
 {-# INLINE wecebDetails #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the CancelWorkflowExecution decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
-wecebDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionCanceledEventAttributes
-    -> f WorkflowExecutionCanceledEventAttributes
+wecebDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCanceledEventAttributes (Integer)
 wecebDecisionTaskCompletedEventId f x =
-    (\y -> x { _wecebDecisionTaskCompletedEventId = y })
-       <$> f (_wecebDecisionTaskCompletedEventId x)
+    f (_wecebDecisionTaskCompletedEventId x)
+        <&> \y -> x { _wecebDecisionTaskCompletedEventId = y }
 {-# INLINE wecebDecisionTaskCompletedEventId #-}
 
 instance FromJSON WorkflowExecutionCanceledEventAttributes
@@ -7717,30 +6311,20 @@ data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEvent
     } deriving (Show, Generic)
 
 -- | The result produced by the workflow execution upon successful completion.
-weceaResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionCompletedEventAttributes
-    -> f WorkflowExecutionCompletedEventAttributes
+weceaResult :: Lens' WorkflowExecutionCompletedEventAttributes (Maybe Text)
 weceaResult f x =
-    (\y -> x { _weceaResult = y })
-       <$> f (_weceaResult x)
+    f (_weceaResult x)
+        <&> \y -> x { _weceaResult = y }
 {-# INLINE weceaResult #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the CompleteWorkflowExecution decision to complete
 -- this execution. This information can be useful for diagnosing problems by
 -- tracing back the cause of events.
-weceaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionCompletedEventAttributes
-    -> f WorkflowExecutionCompletedEventAttributes
+weceaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCompletedEventAttributes (Integer)
 weceaDecisionTaskCompletedEventId f x =
-    (\y -> x { _weceaDecisionTaskCompletedEventId = y })
-       <$> f (_weceaDecisionTaskCompletedEventId x)
+    f (_weceaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _weceaDecisionTaskCompletedEventId = y }
 {-# INLINE weceaDecisionTaskCompletedEventId #-}
 
 instance FromJSON WorkflowExecutionCompletedEventAttributes
@@ -7780,43 +6364,28 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
 -- execution. The valid values are integers greater than or equal to 0. An
 -- integer value can be used to specify the duration in seconds while NONE can
 -- be used to specify unlimited duration.
-wehTaskStartToCloseTimeout
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecutionConfiguration
-    -> f WorkflowExecutionConfiguration
+wehTaskStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration (Text)
 wehTaskStartToCloseTimeout f x =
-    (\y -> x { _wehTaskStartToCloseTimeout = y })
-       <$> f (_wehTaskStartToCloseTimeout x)
+    f (_wehTaskStartToCloseTimeout x)
+        <&> \y -> x { _wehTaskStartToCloseTimeout = y }
 {-# INLINE wehTaskStartToCloseTimeout #-}
 
 -- | The total duration for this workflow execution. The valid values are
 -- integers greater than or equal to 0. An integer value can be used to
 -- specify the duration in seconds while NONE can be used to specify unlimited
 -- duration.
-wehExecutionStartToCloseTimeout
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecutionConfiguration
-    -> f WorkflowExecutionConfiguration
+wehExecutionStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration (Text)
 wehExecutionStartToCloseTimeout f x =
-    (\y -> x { _wehExecutionStartToCloseTimeout = y })
-       <$> f (_wehExecutionStartToCloseTimeout x)
+    f (_wehExecutionStartToCloseTimeout x)
+        <&> \y -> x { _wehExecutionStartToCloseTimeout = y }
 {-# INLINE wehExecutionStartToCloseTimeout #-}
 
 -- | The task list used for the decision tasks generated for this workflow
 -- execution.
-wehTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> WorkflowExecutionConfiguration
-    -> f WorkflowExecutionConfiguration
+wehTaskList :: Lens' WorkflowExecutionConfiguration (TaskList)
 wehTaskList f x =
-    (\y -> x { _wehTaskList = y })
-       <$> f (_wehTaskList x)
+    f (_wehTaskList x)
+        <&> \y -> x { _wehTaskList = y }
 {-# INLINE wehTaskList #-}
 
 -- | The policy to use for the child workflow executions if this workflow
@@ -7828,15 +6397,10 @@ wehTaskList f x =
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-wehChildPolicy
-    :: Functor f
-    => (ChildPolicy
-    -> f (ChildPolicy))
-    -> WorkflowExecutionConfiguration
-    -> f WorkflowExecutionConfiguration
+wehChildPolicy :: Lens' WorkflowExecutionConfiguration (ChildPolicy)
 wehChildPolicy f x =
-    (\y -> x { _wehChildPolicy = y })
-       <$> f (_wehChildPolicy x)
+    f (_wehChildPolicy x)
+        <&> \y -> x { _wehChildPolicy = y }
 {-# INLINE wehChildPolicy #-}
 
 instance FromJSON WorkflowExecutionConfiguration
@@ -7885,84 +6449,54 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
     } deriving (Show, Generic)
 
 -- | The input provided to the new workflow execution.
-wecaneaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaInput :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaInput f x =
-    (\y -> x { _wecaneaInput = y })
-       <$> f (_wecaneaInput x)
+    f (_wecaneaInput x)
+        <&> \y -> x { _wecaneaInput = y }
 {-# INLINE wecaneaInput #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the ContinueAsNewWorkflowExecution decision that
 -- started this execution. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
-wecaneaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Integer)
 wecaneaDecisionTaskCompletedEventId f x =
-    (\y -> x { _wecaneaDecisionTaskCompletedEventId = y })
-       <$> f (_wecaneaDecisionTaskCompletedEventId x)
+    f (_wecaneaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _wecaneaDecisionTaskCompletedEventId = y }
 {-# INLINE wecaneaDecisionTaskCompletedEventId #-}
 
 -- | The runId of the new workflow execution.
-wecaneaNewExecutionRunId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaNewExecutionRunId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Text)
 wecaneaNewExecutionRunId f x =
-    (\y -> x { _wecaneaNewExecutionRunId = y })
-       <$> f (_wecaneaNewExecutionRunId x)
+    f (_wecaneaNewExecutionRunId x)
+        <&> \y -> x { _wecaneaNewExecutionRunId = y }
 {-# INLINE wecaneaNewExecutionRunId #-}
 
 -- | The total duration allowed for the new workflow execution. The valid values
 -- are integers greater than or equal to 0. An integer value can be used to
 -- specify the duration in seconds while NONE can be used to specify unlimited
 -- duration.
-wecaneaExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaExecutionStartToCloseTimeout f x =
-    (\y -> x { _wecaneaExecutionStartToCloseTimeout = y })
-       <$> f (_wecaneaExecutionStartToCloseTimeout x)
+    f (_wecaneaExecutionStartToCloseTimeout x)
+        <&> \y -> x { _wecaneaExecutionStartToCloseTimeout = y }
 {-# INLINE wecaneaExecutionStartToCloseTimeout #-}
 
 -- | Represents a task list.
-wecaneaTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (TaskList)
 wecaneaTaskList f x =
-    (\y -> x { _wecaneaTaskList = y })
-       <$> f (_wecaneaTaskList x)
+    f (_wecaneaTaskList x)
+        <&> \y -> x { _wecaneaTaskList = y }
 {-# INLINE wecaneaTaskList #-}
 
 -- | The maximum duration of decision tasks for the new workflow execution. The
 -- valid values are integers greater than or equal to 0. An integer value can
 -- be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
-wecaneaTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaTaskStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskStartToCloseTimeout f x =
-    (\y -> x { _wecaneaTaskStartToCloseTimeout = y })
-       <$> f (_wecaneaTaskStartToCloseTimeout x)
+    f (_wecaneaTaskStartToCloseTimeout x)
+        <&> \y -> x { _wecaneaTaskStartToCloseTimeout = y }
 {-# INLINE wecaneaTaskStartToCloseTimeout #-}
 
 -- | The policy to use for the child workflow executions of the new execution if
@@ -7974,39 +6508,24 @@ wecaneaTaskStartToCloseTimeout f x =
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-wecaneaChildPolicy
-    :: Functor f
-    => (ChildPolicy
-    -> f (ChildPolicy))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaChildPolicy :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (ChildPolicy)
 wecaneaChildPolicy f x =
-    (\y -> x { _wecaneaChildPolicy = y })
-       <$> f (_wecaneaChildPolicy x)
+    f (_wecaneaChildPolicy x)
+        <&> \y -> x { _wecaneaChildPolicy = y }
 {-# INLINE wecaneaChildPolicy #-}
 
 -- | The list of tags associated with the new workflow execution.
-wecaneaTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes ([Text])
 wecaneaTagList f x =
-    (\y -> x { _wecaneaTagList = y })
-       <$> f (_wecaneaTagList x)
+    f (_wecaneaTagList x)
+        <&> \y -> x { _wecaneaTagList = y }
 {-# INLINE wecaneaTagList #-}
 
 -- | Represents a workflow type.
-wecaneaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> WorkflowExecutionContinuedAsNewEventAttributes
-    -> f WorkflowExecutionContinuedAsNewEventAttributes
+wecaneaWorkflowType :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (WorkflowType)
 wecaneaWorkflowType f x =
-    (\y -> x { _wecaneaWorkflowType = y })
-       <$> f (_wecaneaWorkflowType x)
+    f (_wecaneaWorkflowType x)
+        <&> \y -> x { _wecaneaWorkflowType = y }
 {-# INLINE wecaneaWorkflowType #-}
 
 instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes
@@ -8029,42 +6548,27 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
     } deriving (Show, Generic)
 
 -- | The descriptive reason provided for the failure (if any).
-wefeaReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionFailedEventAttributes
-    -> f WorkflowExecutionFailedEventAttributes
+wefeaReason :: Lens' WorkflowExecutionFailedEventAttributes (Maybe Text)
 wefeaReason f x =
-    (\y -> x { _wefeaReason = y })
-       <$> f (_wefeaReason x)
+    f (_wefeaReason x)
+        <&> \y -> x { _wefeaReason = y }
 {-# INLINE wefeaReason #-}
 
 -- | The details of the failure (if any).
-wefeaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionFailedEventAttributes
-    -> f WorkflowExecutionFailedEventAttributes
+wefeaDetails :: Lens' WorkflowExecutionFailedEventAttributes (Maybe Text)
 wefeaDetails f x =
-    (\y -> x { _wefeaDetails = y })
-       <$> f (_wefeaDetails x)
+    f (_wefeaDetails x)
+        <&> \y -> x { _wefeaDetails = y }
 {-# INLINE wefeaDetails #-}
 
 -- | The id of the DecisionTaskCompleted event corresponding to the decision
 -- task that resulted in the FailWorkflowExecution decision to fail this
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the cause of events.
-wefeaDecisionTaskCompletedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionFailedEventAttributes
-    -> f WorkflowExecutionFailedEventAttributes
+wefeaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionFailedEventAttributes (Integer)
 wefeaDecisionTaskCompletedEventId f x =
-    (\y -> x { _wefeaDecisionTaskCompletedEventId = y })
-       <$> f (_wefeaDecisionTaskCompletedEventId x)
+    f (_wefeaDecisionTaskCompletedEventId x)
+        <&> \y -> x { _wefeaDecisionTaskCompletedEventId = y }
 {-# INLINE wefeaDecisionTaskCompletedEventId #-}
 
 instance FromJSON WorkflowExecutionFailedEventAttributes
@@ -8110,64 +6614,39 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo
     } deriving (Show, Generic)
 
 -- | The workflow execution this information is about.
-weiExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiExecution :: Lens' WorkflowExecutionInfo (WorkflowExecution)
 weiExecution f x =
-    (\y -> x { _weiExecution = y })
-       <$> f (_weiExecution x)
+    f (_weiExecution x)
+        <&> \y -> x { _weiExecution = y }
 {-# INLINE weiExecution #-}
 
 -- | The type of the workflow execution.
-weiWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiWorkflowType :: Lens' WorkflowExecutionInfo (WorkflowType)
 weiWorkflowType f x =
-    (\y -> x { _weiWorkflowType = y })
-       <$> f (_weiWorkflowType x)
+    f (_weiWorkflowType x)
+        <&> \y -> x { _weiWorkflowType = y }
 {-# INLINE weiWorkflowType #-}
 
 -- | The time when the execution was started.
-weiStartTimestamp
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiStartTimestamp :: Lens' WorkflowExecutionInfo (POSIX)
 weiStartTimestamp f x =
-    (\y -> x { _weiStartTimestamp = y })
-       <$> f (_weiStartTimestamp x)
+    f (_weiStartTimestamp x)
+        <&> \y -> x { _weiStartTimestamp = y }
 {-# INLINE weiStartTimestamp #-}
 
 -- | The time when the workflow execution was closed. Set only if the execution
 -- status is CLOSED.
-weiCloseTimestamp
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiCloseTimestamp :: Lens' WorkflowExecutionInfo (Maybe POSIX)
 weiCloseTimestamp f x =
-    (\y -> x { _weiCloseTimestamp = y })
-       <$> f (_weiCloseTimestamp x)
+    f (_weiCloseTimestamp x)
+        <&> \y -> x { _weiCloseTimestamp = y }
 {-# INLINE weiCloseTimestamp #-}
 
 -- | The current status of the execution.
-weiExecutionStatus
-    :: Functor f
-    => (ExecutionStatus
-    -> f (ExecutionStatus))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiExecutionStatus :: Lens' WorkflowExecutionInfo (ExecutionStatus)
 weiExecutionStatus f x =
-    (\y -> x { _weiExecutionStatus = y })
-       <$> f (_weiExecutionStatus x)
+    f (_weiExecutionStatus x)
+        <&> \y -> x { _weiExecutionStatus = y }
 {-# INLINE weiExecutionStatus #-}
 
 -- | If the execution status is closed then this specifies how the execution was
@@ -8179,54 +6658,34 @@ weiExecutionStatus f x =
 -- out. CONTINUED_AS_NEW: the execution is logically continued. This means the
 -- current execution was completed and a new execution was started to carry on
 -- the workflow.
-weiCloseStatus
-    :: Functor f
-    => (Maybe CloseStatus
-    -> f (Maybe CloseStatus))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiCloseStatus :: Lens' WorkflowExecutionInfo (Maybe CloseStatus)
 weiCloseStatus f x =
-    (\y -> x { _weiCloseStatus = y })
-       <$> f (_weiCloseStatus x)
+    f (_weiCloseStatus x)
+        <&> \y -> x { _weiCloseStatus = y }
 {-# INLINE weiCloseStatus #-}
 
 -- | If this workflow execution is a child of another execution then contains
 -- the workflow execution that started this execution.
-weiParent
-    :: Functor f
-    => (Maybe WorkflowExecution
-    -> f (Maybe WorkflowExecution))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiParent :: Lens' WorkflowExecutionInfo (Maybe WorkflowExecution)
 weiParent f x =
-    (\y -> x { _weiParent = y })
-       <$> f (_weiParent x)
+    f (_weiParent x)
+        <&> \y -> x { _weiParent = y }
 {-# INLINE weiParent #-}
 
 -- | The list of tags associated with the workflow execution. Tags can be used
 -- to identify and list workflow executions of interest through the visibility
 -- APIs. A workflow execution can have a maximum of 5 tags.
-weiTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiTagList :: Lens' WorkflowExecutionInfo ([Text])
 weiTagList f x =
-    (\y -> x { _weiTagList = y })
-       <$> f (_weiTagList x)
+    f (_weiTagList x)
+        <&> \y -> x { _weiTagList = y }
 {-# INLINE weiTagList #-}
 
 -- | Set to true if a cancellation is requested for this workflow execution.
-weiCancelRequested
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> WorkflowExecutionInfo
-    -> f WorkflowExecutionInfo
+weiCancelRequested :: Lens' WorkflowExecutionInfo (Maybe Bool)
 weiCancelRequested f x =
-    (\y -> x { _weiCancelRequested = y })
-       <$> f (_weiCancelRequested x)
+    f (_weiCancelRequested x)
+        <&> \y -> x { _weiCancelRequested = y }
 {-# INLINE weiCancelRequested #-}
 
 instance FromJSON WorkflowExecutionInfo
@@ -8247,53 +6706,33 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
     } deriving (Show, Generic)
 
 -- | The count of activity tasks whose status is OPEN.
-weocOpenActivityTasks
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionOpenCounts
-    -> f WorkflowExecutionOpenCounts
+weocOpenActivityTasks :: Lens' WorkflowExecutionOpenCounts (Integer)
 weocOpenActivityTasks f x =
-    (\y -> x { _weocOpenActivityTasks = y })
-       <$> f (_weocOpenActivityTasks x)
+    f (_weocOpenActivityTasks x)
+        <&> \y -> x { _weocOpenActivityTasks = y }
 {-# INLINE weocOpenActivityTasks #-}
 
 -- | The count of decision tasks whose status is OPEN. A workflow execution can
 -- have at most one open decision task.
-weocOpenDecisionTasks
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionOpenCounts
-    -> f WorkflowExecutionOpenCounts
+weocOpenDecisionTasks :: Lens' WorkflowExecutionOpenCounts (Integer)
 weocOpenDecisionTasks f x =
-    (\y -> x { _weocOpenDecisionTasks = y })
-       <$> f (_weocOpenDecisionTasks x)
+    f (_weocOpenDecisionTasks x)
+        <&> \y -> x { _weocOpenDecisionTasks = y }
 {-# INLINE weocOpenDecisionTasks #-}
 
 -- | The count of timers started by this workflow execution that have not fired
 -- yet.
-weocOpenTimers
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionOpenCounts
-    -> f WorkflowExecutionOpenCounts
+weocOpenTimers :: Lens' WorkflowExecutionOpenCounts (Integer)
 weocOpenTimers f x =
-    (\y -> x { _weocOpenTimers = y })
-       <$> f (_weocOpenTimers x)
+    f (_weocOpenTimers x)
+        <&> \y -> x { _weocOpenTimers = y }
 {-# INLINE weocOpenTimers #-}
 
 -- | The count of child workflow executions whose status is OPEN.
-weocOpenChildWorkflowExecutions
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> WorkflowExecutionOpenCounts
-    -> f WorkflowExecutionOpenCounts
+weocOpenChildWorkflowExecutions :: Lens' WorkflowExecutionOpenCounts (Integer)
 weocOpenChildWorkflowExecutions f x =
-    (\y -> x { _weocOpenChildWorkflowExecutions = y })
-       <$> f (_weocOpenChildWorkflowExecutions x)
+    f (_weocOpenChildWorkflowExecutions x)
+        <&> \y -> x { _weocOpenChildWorkflowExecutions = y }
 {-# INLINE weocOpenChildWorkflowExecutions #-}
 
 instance FromJSON WorkflowExecutionOpenCounts
@@ -8323,41 +6762,26 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 
 -- | The name of the signal received. The decider can use the signal name and
 -- inputs to determine how to the process the signal.
-wesebSignalName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowExecutionSignaledEventAttributes
-    -> f WorkflowExecutionSignaledEventAttributes
+wesebSignalName :: Lens' WorkflowExecutionSignaledEventAttributes (Text)
 wesebSignalName f x =
-    (\y -> x { _wesebSignalName = y })
-       <$> f (_wesebSignalName x)
+    f (_wesebSignalName x)
+        <&> \y -> x { _wesebSignalName = y }
 {-# INLINE wesebSignalName #-}
 
 -- | Inputs provided with the signal (if any). The decider can use the signal
 -- name and inputs to determine how to process the signal.
-wesebInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionSignaledEventAttributes
-    -> f WorkflowExecutionSignaledEventAttributes
+wesebInput :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe Text)
 wesebInput f x =
-    (\y -> x { _wesebInput = y })
-       <$> f (_wesebInput x)
+    f (_wesebInput x)
+        <&> \y -> x { _wesebInput = y }
 {-# INLINE wesebInput #-}
 
 -- | The workflow execution that sent the signal. This is set only of the signal
 -- was sent by another workflow execution.
-wesebExternalWorkflowExecution
-    :: Functor f
-    => (Maybe WorkflowExecution
-    -> f (Maybe WorkflowExecution))
-    -> WorkflowExecutionSignaledEventAttributes
-    -> f WorkflowExecutionSignaledEventAttributes
+wesebExternalWorkflowExecution :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe WorkflowExecution)
 wesebExternalWorkflowExecution f x =
-    (\y -> x { _wesebExternalWorkflowExecution = y })
-       <$> f (_wesebExternalWorkflowExecution x)
+    f (_wesebExternalWorkflowExecution x)
+        <&> \y -> x { _wesebExternalWorkflowExecution = y }
 {-# INLINE wesebExternalWorkflowExecution #-}
 
 -- | The id of the SignalExternalWorkflowExecutionInitiated event corresponding
@@ -8367,15 +6791,10 @@ wesebExternalWorkflowExecution f x =
 -- problems by tracing back the chain of events leading up to this event. This
 -- field is set only if the signal was initiated by another workflow
 -- execution.
-wesebExternalInitiatedEventId
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> WorkflowExecutionSignaledEventAttributes
-    -> f WorkflowExecutionSignaledEventAttributes
+wesebExternalInitiatedEventId :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe Integer)
 wesebExternalInitiatedEventId f x =
-    (\y -> x { _wesebExternalInitiatedEventId = y })
-       <$> f (_wesebExternalInitiatedEventId x)
+    f (_wesebExternalInitiatedEventId x)
+        <&> \y -> x { _wesebExternalInitiatedEventId = y }
 {-# INLINE wesebExternalInitiatedEventId #-}
 
 instance FromJSON WorkflowExecutionSignaledEventAttributes
@@ -8436,45 +6855,30 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
     } deriving (Show, Generic)
 
 -- | The input provided to the workflow execution (if any).
-weseaInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaInput :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaInput f x =
-    (\y -> x { _weseaInput = y })
-       <$> f (_weseaInput x)
+    f (_weseaInput x)
+        <&> \y -> x { _weseaInput = y }
 {-# INLINE weseaInput #-}
 
 -- | The maximum duration for this workflow execution. The valid values are
 -- integers greater than or equal to 0. An integer value can be used to
 -- specify the duration in seconds while NONE can be used to specify unlimited
 -- duration.
-weseaExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaExecutionStartToCloseTimeout f x =
-    (\y -> x { _weseaExecutionStartToCloseTimeout = y })
-       <$> f (_weseaExecutionStartToCloseTimeout x)
+    f (_weseaExecutionStartToCloseTimeout x)
+        <&> \y -> x { _weseaExecutionStartToCloseTimeout = y }
 {-# INLINE weseaExecutionStartToCloseTimeout #-}
 
 -- | The maximum duration of decision tasks for this workflow type. The valid
 -- values are integers greater than or equal to 0. An integer value can be
 -- used to specify the duration in seconds while NONE can be used to specify
 -- unlimited duration.
-weseaTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaTaskStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaTaskStartToCloseTimeout f x =
-    (\y -> x { _weseaTaskStartToCloseTimeout = y })
-       <$> f (_weseaTaskStartToCloseTimeout x)
+    f (_weseaTaskStartToCloseTimeout x)
+        <&> \y -> x { _weseaTaskStartToCloseTimeout = y }
 {-# INLINE weseaTaskStartToCloseTimeout #-}
 
 -- | The policy to use for the child workflow executions if this workflow
@@ -8486,81 +6890,51 @@ weseaTaskStartToCloseTimeout f x =
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-weseaChildPolicy
-    :: Functor f
-    => (ChildPolicy
-    -> f (ChildPolicy))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaChildPolicy :: Lens' WorkflowExecutionStartedEventAttributes (ChildPolicy)
 weseaChildPolicy f x =
-    (\y -> x { _weseaChildPolicy = y })
-       <$> f (_weseaChildPolicy x)
+    f (_weseaChildPolicy x)
+        <&> \y -> x { _weseaChildPolicy = y }
 {-# INLINE weseaChildPolicy #-}
 
 -- | The name of the task list for scheduling the decision tasks for this
 -- workflow execution.
-weseaTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaTaskList :: Lens' WorkflowExecutionStartedEventAttributes (TaskList)
 weseaTaskList f x =
-    (\y -> x { _weseaTaskList = y })
-       <$> f (_weseaTaskList x)
+    f (_weseaTaskList x)
+        <&> \y -> x { _weseaTaskList = y }
 {-# INLINE weseaTaskList #-}
 
 -- | The workflow type of this execution.
-weseaWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaWorkflowType :: Lens' WorkflowExecutionStartedEventAttributes (WorkflowType)
 weseaWorkflowType f x =
-    (\y -> x { _weseaWorkflowType = y })
-       <$> f (_weseaWorkflowType x)
+    f (_weseaWorkflowType x)
+        <&> \y -> x { _weseaWorkflowType = y }
 {-# INLINE weseaWorkflowType #-}
 
 -- | The list of tags associated with this workflow execution. An execution can
 -- have up to 5 tags.
-weseaTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes ([Text])
 weseaTagList f x =
-    (\y -> x { _weseaTagList = y })
-       <$> f (_weseaTagList x)
+    f (_weseaTagList x)
+        <&> \y -> x { _weseaTagList = y }
 {-# INLINE weseaTagList #-}
 
 -- | If this workflow execution was started due to a
 -- ContinueAsNewWorkflowExecution decision, then it contains the runId of the
 -- previous workflow execution that was closed and continued as this
 -- execution.
-weseaContinuedExecutionRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaContinuedExecutionRunId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaContinuedExecutionRunId f x =
-    (\y -> x { _weseaContinuedExecutionRunId = y })
-       <$> f (_weseaContinuedExecutionRunId x)
+    f (_weseaContinuedExecutionRunId x)
+        <&> \y -> x { _weseaContinuedExecutionRunId = y }
 {-# INLINE weseaContinuedExecutionRunId #-}
 
 -- | The source workflow execution that started this workflow execution. The
 -- member is not set if the workflow execution was not started by a workflow.
-weseaParentWorkflowExecution
-    :: Functor f
-    => (Maybe WorkflowExecution
-    -> f (Maybe WorkflowExecution))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaParentWorkflowExecution :: Lens' WorkflowExecutionStartedEventAttributes (Maybe WorkflowExecution)
 weseaParentWorkflowExecution f x =
-    (\y -> x { _weseaParentWorkflowExecution = y })
-       <$> f (_weseaParentWorkflowExecution x)
+    f (_weseaParentWorkflowExecution x)
+        <&> \y -> x { _weseaParentWorkflowExecution = y }
 {-# INLINE weseaParentWorkflowExecution #-}
 
 -- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
@@ -8568,15 +6942,10 @@ weseaParentWorkflowExecution f x =
 -- The source event with this Id can be found in the history of the source
 -- workflow execution. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
-weseaParentInitiatedEventId
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> WorkflowExecutionStartedEventAttributes
-    -> f WorkflowExecutionStartedEventAttributes
+weseaParentInitiatedEventId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Integer)
 weseaParentInitiatedEventId f x =
-    (\y -> x { _weseaParentInitiatedEventId = y })
-       <$> f (_weseaParentInitiatedEventId x)
+    f (_weseaParentInitiatedEventId x)
+        <&> \y -> x { _weseaParentInitiatedEventId = y }
 {-# INLINE weseaParentInitiatedEventId #-}
 
 instance FromJSON WorkflowExecutionStartedEventAttributes
@@ -8608,27 +6977,17 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
     } deriving (Show, Generic)
 
 -- | The reason provided for the termination (if any).
-weteaReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionTerminatedEventAttributes
-    -> f WorkflowExecutionTerminatedEventAttributes
+weteaReason :: Lens' WorkflowExecutionTerminatedEventAttributes (Maybe Text)
 weteaReason f x =
-    (\y -> x { _weteaReason = y })
-       <$> f (_weteaReason x)
+    f (_weteaReason x)
+        <&> \y -> x { _weteaReason = y }
 {-# INLINE weteaReason #-}
 
 -- | The details provided for the termination (if any).
-weteaDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowExecutionTerminatedEventAttributes
-    -> f WorkflowExecutionTerminatedEventAttributes
+weteaDetails :: Lens' WorkflowExecutionTerminatedEventAttributes (Maybe Text)
 weteaDetails f x =
-    (\y -> x { _weteaDetails = y })
-       <$> f (_weteaDetails x)
+    f (_weteaDetails x)
+        <&> \y -> x { _weteaDetails = y }
 {-# INLINE weteaDetails #-}
 
 -- | The policy used for the child workflow executions of this workflow
@@ -8639,30 +6998,20 @@ weteaDetails f x =
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-weteaChildPolicy
-    :: Functor f
-    => (ChildPolicy
-    -> f (ChildPolicy))
-    -> WorkflowExecutionTerminatedEventAttributes
-    -> f WorkflowExecutionTerminatedEventAttributes
+weteaChildPolicy :: Lens' WorkflowExecutionTerminatedEventAttributes (ChildPolicy)
 weteaChildPolicy f x =
-    (\y -> x { _weteaChildPolicy = y })
-       <$> f (_weteaChildPolicy x)
+    f (_weteaChildPolicy x)
+        <&> \y -> x { _weteaChildPolicy = y }
 {-# INLINE weteaChildPolicy #-}
 
 -- | If set, indicates that the workflow execution was automatically terminated,
 -- and specifies the cause. This happens if the parent workflow execution
 -- times out or is terminated and the child policy is set to terminate child
 -- executions.
-weteaCause
-    :: Functor f
-    => (Maybe WorkflowExecutionTerminatedCause
-    -> f (Maybe WorkflowExecutionTerminatedCause))
-    -> WorkflowExecutionTerminatedEventAttributes
-    -> f WorkflowExecutionTerminatedEventAttributes
+weteaCause :: Lens' WorkflowExecutionTerminatedEventAttributes (Maybe WorkflowExecutionTerminatedCause)
 weteaCause f x =
-    (\y -> x { _weteaCause = y })
-       <$> f (_weteaCause x)
+    f (_weteaCause x)
+        <&> \y -> x { _weteaCause = y }
 {-# INLINE weteaCause #-}
 
 instance FromJSON WorkflowExecutionTerminatedEventAttributes
@@ -8687,15 +7036,10 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
     } deriving (Show, Generic)
 
 -- | The type of timeout that caused this event.
-wetoeaTimeoutType
-    :: Functor f
-    => (WorkflowExecutionTimeoutType
-    -> f (WorkflowExecutionTimeoutType))
-    -> WorkflowExecutionTimedOutEventAttributes
-    -> f WorkflowExecutionTimedOutEventAttributes
+wetoeaTimeoutType :: Lens' WorkflowExecutionTimedOutEventAttributes (WorkflowExecutionTimeoutType)
 wetoeaTimeoutType f x =
-    (\y -> x { _wetoeaTimeoutType = y })
-       <$> f (_wetoeaTimeoutType x)
+    f (_wetoeaTimeoutType x)
+        <&> \y -> x { _wetoeaTimeoutType = y }
 {-# INLINE wetoeaTimeoutType #-}
 
 -- | The policy used for the child workflow executions of this workflow
@@ -8706,15 +7050,10 @@ wetoeaTimeoutType f x =
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-wetoeaChildPolicy
-    :: Functor f
-    => (ChildPolicy
-    -> f (ChildPolicy))
-    -> WorkflowExecutionTimedOutEventAttributes
-    -> f WorkflowExecutionTimedOutEventAttributes
+wetoeaChildPolicy :: Lens' WorkflowExecutionTimedOutEventAttributes (ChildPolicy)
 wetoeaChildPolicy f x =
-    (\y -> x { _wetoeaChildPolicy = y })
-       <$> f (_wetoeaChildPolicy x)
+    f (_wetoeaChildPolicy x)
+        <&> \y -> x { _wetoeaChildPolicy = y }
 {-# INLINE wetoeaChildPolicy #-}
 
 instance FromJSON WorkflowExecutionTimedOutEventAttributes
@@ -8735,28 +7074,18 @@ data WorkflowType = WorkflowType
 
 -- | The name of the workflow type. This field is required. The combination of
 -- workflow type name and version must be unique with in a domain.
-wtName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowType
-    -> f WorkflowType
+wtName :: Lens' WorkflowType (Text)
 wtName f x =
-    (\y -> x { _wtName = y })
-       <$> f (_wtName x)
+    f (_wtName x)
+        <&> \y -> x { _wtName = y }
 {-# INLINE wtName #-}
 
 -- | The version of the workflow type. This field is required. The combination
 -- of workflow type name and version must be unique with in a domain.
-wtVersion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowType
-    -> f WorkflowType
+wtVersion :: Lens' WorkflowType (Text)
 wtVersion f x =
-    (\y -> x { _wtVersion = y })
-       <$> f (_wtVersion x)
+    f (_wtVersion x)
+        <&> \y -> x { _wtVersion = y }
 {-# INLINE wtVersion #-}
 
 instance FromJSON WorkflowType
@@ -8820,15 +7149,10 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
 -- StartChildWorkflowExecution Decision. The valid values are integers greater
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
-wtcDefaultTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowTypeConfiguration
-    -> f WorkflowTypeConfiguration
+wtcDefaultTaskStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultTaskStartToCloseTimeout f x =
-    (\y -> x { _wtcDefaultTaskStartToCloseTimeout = y })
-       <$> f (_wtcDefaultTaskStartToCloseTimeout x)
+    f (_wtcDefaultTaskStartToCloseTimeout x)
+        <&> \y -> x { _wtcDefaultTaskStartToCloseTimeout = y }
 {-# INLINE wtcDefaultTaskStartToCloseTimeout #-}
 
 -- | The optional default maximum duration, specified when registering the
@@ -8838,30 +7162,20 @@ wtcDefaultTaskStartToCloseTimeout f x =
 -- The valid values are integers greater than or equal to 0. An integer value
 -- can be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
-wtcDefaultExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowTypeConfiguration
-    -> f WorkflowTypeConfiguration
+wtcDefaultExecutionStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultExecutionStartToCloseTimeout f x =
-    (\y -> x { _wtcDefaultExecutionStartToCloseTimeout = y })
-       <$> f (_wtcDefaultExecutionStartToCloseTimeout x)
+    f (_wtcDefaultExecutionStartToCloseTimeout x)
+        <&> \y -> x { _wtcDefaultExecutionStartToCloseTimeout = y }
 {-# INLINE wtcDefaultExecutionStartToCloseTimeout #-}
 
 -- | The optional default task list, specified when registering the workflow
 -- type, for decisions tasks scheduled for workflow executions of this type.
 -- This default can be overridden when starting a workflow execution using the
 -- StartWorkflowExecution action or the StartChildWorkflowExecution Decision.
-wtcDefaultTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> WorkflowTypeConfiguration
-    -> f WorkflowTypeConfiguration
+wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList f x =
-    (\y -> x { _wtcDefaultTaskList = y })
-       <$> f (_wtcDefaultTaskList x)
+    f (_wtcDefaultTaskList x)
+        <&> \y -> x { _wtcDefaultTaskList = y }
 {-# INLINE wtcDefaultTaskList #-}
 
 -- | The optional default policy to use for the child workflow executions when a
@@ -8875,15 +7189,10 @@ wtcDefaultTaskList f x =
 -- its history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
-wtcDefaultChildPolicy
-    :: Functor f
-    => (Maybe ChildPolicy
-    -> f (Maybe ChildPolicy))
-    -> WorkflowTypeConfiguration
-    -> f WorkflowTypeConfiguration
+wtcDefaultChildPolicy :: Lens' WorkflowTypeConfiguration (Maybe ChildPolicy)
 wtcDefaultChildPolicy f x =
-    (\y -> x { _wtcDefaultChildPolicy = y })
-       <$> f (_wtcDefaultChildPolicy x)
+    f (_wtcDefaultChildPolicy x)
+        <&> \y -> x { _wtcDefaultChildPolicy = y }
 {-# INLINE wtcDefaultChildPolicy #-}
 
 instance FromJSON WorkflowTypeConfiguration
@@ -8899,27 +7208,17 @@ data WorkflowTypeFilter = WorkflowTypeFilter
     } deriving (Show, Generic)
 
 -- | Name of the workflow type. This field is required.
-wtfName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> WorkflowTypeFilter
-    -> f WorkflowTypeFilter
+wtfName :: Lens' WorkflowTypeFilter (Text)
 wtfName f x =
-    (\y -> x { _wtfName = y })
-       <$> f (_wtfName x)
+    f (_wtfName x)
+        <&> \y -> x { _wtfName = y }
 {-# INLINE wtfName #-}
 
 -- | Version of the workflow type.
-wtfVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowTypeFilter
-    -> f WorkflowTypeFilter
+wtfVersion :: Lens' WorkflowTypeFilter (Maybe Text)
 wtfVersion f x =
-    (\y -> x { _wtfVersion = y })
-       <$> f (_wtfVersion x)
+    f (_wtfVersion x)
+        <&> \y -> x { _wtfVersion = y }
 {-# INLINE wtfVersion #-}
 
 instance ToJSON WorkflowTypeFilter
@@ -8947,64 +7246,39 @@ data WorkflowTypeInfo = WorkflowTypeInfo
     } deriving (Show, Generic)
 
 -- | The workflow type this information is about.
-wtiWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> WorkflowTypeInfo
-    -> f WorkflowTypeInfo
+wtiWorkflowType :: Lens' WorkflowTypeInfo (WorkflowType)
 wtiWorkflowType f x =
-    (\y -> x { _wtiWorkflowType = y })
-       <$> f (_wtiWorkflowType x)
+    f (_wtiWorkflowType x)
+        <&> \y -> x { _wtiWorkflowType = y }
 {-# INLINE wtiWorkflowType #-}
 
 -- | The current status of the workflow type.
-wtiStatus
-    :: Functor f
-    => (RegistrationStatus
-    -> f (RegistrationStatus))
-    -> WorkflowTypeInfo
-    -> f WorkflowTypeInfo
+wtiStatus :: Lens' WorkflowTypeInfo (RegistrationStatus)
 wtiStatus f x =
-    (\y -> x { _wtiStatus = y })
-       <$> f (_wtiStatus x)
+    f (_wtiStatus x)
+        <&> \y -> x { _wtiStatus = y }
 {-# INLINE wtiStatus #-}
 
 -- | The description of the type registered through RegisterWorkflowType.
-wtiDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> WorkflowTypeInfo
-    -> f WorkflowTypeInfo
+wtiDescription :: Lens' WorkflowTypeInfo (Maybe Text)
 wtiDescription f x =
-    (\y -> x { _wtiDescription = y })
-       <$> f (_wtiDescription x)
+    f (_wtiDescription x)
+        <&> \y -> x { _wtiDescription = y }
 {-# INLINE wtiDescription #-}
 
 -- | The date when this type was registered.
-wtiCreationDate
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> WorkflowTypeInfo
-    -> f WorkflowTypeInfo
+wtiCreationDate :: Lens' WorkflowTypeInfo (POSIX)
 wtiCreationDate f x =
-    (\y -> x { _wtiCreationDate = y })
-       <$> f (_wtiCreationDate x)
+    f (_wtiCreationDate x)
+        <&> \y -> x { _wtiCreationDate = y }
 {-# INLINE wtiCreationDate #-}
 
 -- | If the type is in deprecated state, then it is set to the date when the
 -- type was deprecated.
-wtiDeprecationDate
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> WorkflowTypeInfo
-    -> f WorkflowTypeInfo
+wtiDeprecationDate :: Lens' WorkflowTypeInfo (Maybe POSIX)
 wtiDeprecationDate f x =
-    (\y -> x { _wtiDeprecationDate = y })
-       <$> f (_wtiDeprecationDate x)
+    f (_wtiDeprecationDate x)
+        <&> \y -> x { _wtiDeprecationDate = y }
 {-# INLINE wtiDeprecationDate #-}
 
 instance FromJSON WorkflowTypeInfo

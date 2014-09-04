@@ -60,6 +60,7 @@ authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
     , _acsgimEC2SecurityGroupName = p2
     , _acsgimEC2SecurityGroupOwnerId = p3
     }
+{-# INLINE authorizeCacheSecurityGroupIngress #-}
 
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     { _acsgimCacheSecurityGroupName :: Text
@@ -74,42 +75,27 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     } deriving (Show, Generic)
 
 -- | The cache security group which will allow network ingress.
-acsgimCacheSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeCacheSecurityGroupIngress
-    -> f AuthorizeCacheSecurityGroupIngress
+acsgimCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress (Text)
 acsgimCacheSecurityGroupName f x =
-    (\y -> x { _acsgimCacheSecurityGroupName = y })
-       <$> f (_acsgimCacheSecurityGroupName x)
+    f (_acsgimCacheSecurityGroupName x)
+        <&> \y -> x { _acsgimCacheSecurityGroupName = y }
 {-# INLINE acsgimCacheSecurityGroupName #-}
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
-acsgimEC2SecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeCacheSecurityGroupIngress
-    -> f AuthorizeCacheSecurityGroupIngress
+acsgimEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress (Text)
 acsgimEC2SecurityGroupName f x =
-    (\y -> x { _acsgimEC2SecurityGroupName = y })
-       <$> f (_acsgimEC2SecurityGroupName x)
+    f (_acsgimEC2SecurityGroupName x)
+        <&> \y -> x { _acsgimEC2SecurityGroupName = y }
 {-# INLINE acsgimEC2SecurityGroupName #-}
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-acsgimEC2SecurityGroupOwnerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeCacheSecurityGroupIngress
-    -> f AuthorizeCacheSecurityGroupIngress
+acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress (Text)
 acsgimEC2SecurityGroupOwnerId f x =
-    (\y -> x { _acsgimEC2SecurityGroupOwnerId = y })
-       <$> f (_acsgimEC2SecurityGroupOwnerId x)
+    f (_acsgimEC2SecurityGroupOwnerId x)
+        <&> \y -> x { _acsgimEC2SecurityGroupOwnerId = y }
 {-# INLINE acsgimEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeCacheSecurityGroupIngress where
@@ -125,15 +111,10 @@ data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIng
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
-csgwCacheSecurityGroup
-    :: Functor f
-    => (Maybe CacheSecurityGroup
-    -> f (Maybe CacheSecurityGroup))
-    -> AuthorizeCacheSecurityGroupIngressResponse
-    -> f AuthorizeCacheSecurityGroupIngressResponse
+csgwCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 csgwCacheSecurityGroup f x =
-    (\y -> x { _csgwCacheSecurityGroup = y })
-       <$> f (_csgwCacheSecurityGroup x)
+    f (_csgwCacheSecurityGroup x)
+        <&> \y -> x { _csgwCacheSecurityGroup = y }
 {-# INLINE csgwCacheSecurityGroup #-}
 
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where

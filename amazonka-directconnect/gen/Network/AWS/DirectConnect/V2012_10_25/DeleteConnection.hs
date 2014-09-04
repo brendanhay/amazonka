@@ -55,6 +55,7 @@ deleteConnection :: Text -- ^ 'dcrConnectionId'
 deleteConnection p1 = DeleteConnection
     { _dcrConnectionId = p1
     }
+{-# INLINE deleteConnection #-}
 
 data DeleteConnection = DeleteConnection
     { _dcrConnectionId :: Text
@@ -62,15 +63,10 @@ data DeleteConnection = DeleteConnection
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dcrConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteConnection
-    -> f DeleteConnection
+dcrConnectionId :: Lens' DeleteConnection (Text)
 dcrConnectionId f x =
-    (\y -> x { _dcrConnectionId = y })
-       <$> f (_dcrConnectionId x)
+    f (_dcrConnectionId x)
+        <&> \y -> x { _dcrConnectionId = y }
 {-# INLINE dcrConnectionId #-}
 
 instance ToPath DeleteConnection
@@ -114,39 +110,24 @@ data DeleteConnectionResponse = DeleteConnectionResponse
     } deriving (Show, Generic)
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-kBandwidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
 kBandwidth f x =
-    (\y -> x { _kBandwidth = y })
-       <$> f (_kBandwidth x)
+    f (_kBandwidth x)
+        <&> \y -> x { _kBandwidth = y }
 {-# INLINE kBandwidth #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-kConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kConnectionId :: Lens' DeleteConnectionResponse (Maybe Text)
 kConnectionId f x =
-    (\y -> x { _kConnectionId = y })
-       <$> f (_kConnectionId x)
+    f (_kConnectionId x)
+        <&> \y -> x { _kConnectionId = y }
 {-# INLINE kConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-kConnectionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
 kConnectionName f x =
-    (\y -> x { _kConnectionName = y })
-       <$> f (_kConnectionName x)
+    f (_kConnectionName x)
+        <&> \y -> x { _kConnectionName = y }
 {-# INLINE kConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -160,74 +141,44 @@ kConnectionName f x =
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-kConnectionState
-    :: Functor f
-    => (Maybe ConnectionState
-    -> f (Maybe ConnectionState))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
 kConnectionState f x =
-    (\y -> x { _kConnectionState = y })
-       <$> f (_kConnectionState x)
+    f (_kConnectionState x)
+        <&> \y -> x { _kConnectionState = y }
 {-# INLINE kConnectionState #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-kLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kLocation :: Lens' DeleteConnectionResponse (Maybe Text)
 kLocation f x =
-    (\y -> x { _kLocation = y })
-       <$> f (_kLocation x)
+    f (_kLocation x)
+        <&> \y -> x { _kLocation = y }
 {-# INLINE kLocation #-}
 
-kOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
 kOwnerAccount f x =
-    (\y -> x { _kOwnerAccount = y })
-       <$> f (_kOwnerAccount x)
+    f (_kOwnerAccount x)
+        <&> \y -> x { _kOwnerAccount = y }
 {-# INLINE kOwnerAccount #-}
 
-kPartnerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kPartnerName :: Lens' DeleteConnectionResponse (Maybe Text)
 kPartnerName f x =
-    (\y -> x { _kPartnerName = y })
-       <$> f (_kPartnerName x)
+    f (_kPartnerName x)
+        <&> \y -> x { _kPartnerName = y }
 {-# INLINE kPartnerName #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-kRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kRegion :: Lens' DeleteConnectionResponse (Maybe Text)
 kRegion f x =
-    (\y -> x { _kRegion = y })
-       <$> f (_kRegion x)
+    f (_kRegion x)
+        <&> \y -> x { _kRegion = y }
 {-# INLINE kRegion #-}
 
 -- | The VLAN ID. Example: 101.
-kVlan
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DeleteConnectionResponse
-    -> f DeleteConnectionResponse
+kVlan :: Lens' DeleteConnectionResponse (Maybe Integer)
 kVlan f x =
-    (\y -> x { _kVlan = y })
-       <$> f (_kVlan x)
+    f (_kVlan x)
+        <&> \y -> x { _kVlan = y }
 {-# INLINE kVlan #-}
 
 instance FromJSON DeleteConnectionResponse

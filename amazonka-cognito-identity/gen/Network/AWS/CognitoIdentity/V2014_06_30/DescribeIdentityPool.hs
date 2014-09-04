@@ -56,6 +56,7 @@ describeIdentityPool :: Text -- ^ 'dipjIdentityPoolId'
 describeIdentityPool p1 = DescribeIdentityPool
     { _dipjIdentityPoolId = p1
     }
+{-# INLINE describeIdentityPool #-}
 
 data DescribeIdentityPool = DescribeIdentityPool
     { _dipjIdentityPoolId :: Text
@@ -63,15 +64,10 @@ data DescribeIdentityPool = DescribeIdentityPool
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-dipjIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeIdentityPool
-    -> f DescribeIdentityPool
+dipjIdentityPoolId :: Lens' DescribeIdentityPool (Text)
 dipjIdentityPoolId f x =
-    (\y -> x { _dipjIdentityPoolId = y })
-       <$> f (_dipjIdentityPoolId x)
+    f (_dipjIdentityPoolId x)
+        <&> \y -> x { _dipjIdentityPoolId = y }
 {-# INLINE dipjIdentityPoolId #-}
 
 instance ToPath DescribeIdentityPool
@@ -95,51 +91,31 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-isIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeIdentityPoolResponse
-    -> f DescribeIdentityPoolResponse
+isIdentityPoolId :: Lens' DescribeIdentityPoolResponse (Text)
 isIdentityPoolId f x =
-    (\y -> x { _isIdentityPoolId = y })
-       <$> f (_isIdentityPoolId x)
+    f (_isIdentityPoolId x)
+        <&> \y -> x { _isIdentityPoolId = y }
 {-# INLINE isIdentityPoolId #-}
 
 -- | A string that you provide.
-isIdentityPoolName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeIdentityPoolResponse
-    -> f DescribeIdentityPoolResponse
+isIdentityPoolName :: Lens' DescribeIdentityPoolResponse (Text)
 isIdentityPoolName f x =
-    (\y -> x { _isIdentityPoolName = y })
-       <$> f (_isIdentityPoolName x)
+    f (_isIdentityPoolName x)
+        <&> \y -> x { _isIdentityPoolName = y }
 {-# INLINE isIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-isAllowUnauthenticatedIdentities
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DescribeIdentityPoolResponse
-    -> f DescribeIdentityPoolResponse
+isAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse (Bool)
 isAllowUnauthenticatedIdentities f x =
-    (\y -> x { _isAllowUnauthenticatedIdentities = y })
-       <$> f (_isAllowUnauthenticatedIdentities x)
+    f (_isAllowUnauthenticatedIdentities x)
+        <&> \y -> x { _isAllowUnauthenticatedIdentities = y }
 {-# INLINE isAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-isSupportedLoginProviders
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> DescribeIdentityPoolResponse
-    -> f DescribeIdentityPoolResponse
+isSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (Map Text Text)
 isSupportedLoginProviders f x =
-    (\y -> x { _isSupportedLoginProviders = y })
-       <$> f (_isSupportedLoginProviders x)
+    f (_isSupportedLoginProviders x)
+        <&> \y -> x { _isSupportedLoginProviders = y }
 {-# INLINE isSupportedLoginProviders #-}
 
 instance FromJSON DescribeIdentityPoolResponse

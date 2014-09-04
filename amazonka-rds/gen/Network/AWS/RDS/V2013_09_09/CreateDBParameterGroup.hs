@@ -65,6 +65,7 @@ createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
     , _cdbpgmDescription = p3
     , _cdbpgmTags = mempty
     }
+{-# INLINE createDBParameterGroup #-}
 
 data CreateDBParameterGroup = CreateDBParameterGroup
     { _cdbpgmDBParameterGroupName :: Text
@@ -88,54 +89,34 @@ data CreateDBParameterGroup = CreateDBParameterGroup
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens This value is stored as a
 -- lower-case string.
-cdbpgmDBParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBParameterGroup
-    -> f CreateDBParameterGroup
+cdbpgmDBParameterGroupName :: Lens' CreateDBParameterGroup (Text)
 cdbpgmDBParameterGroupName f x =
-    (\y -> x { _cdbpgmDBParameterGroupName = y })
-       <$> f (_cdbpgmDBParameterGroupName x)
+    f (_cdbpgmDBParameterGroupName x)
+        <&> \y -> x { _cdbpgmDBParameterGroupName = y }
 {-# INLINE cdbpgmDBParameterGroupName #-}
 
 -- | The DB parameter group family name. A DB parameter group can be associated
 -- with one and only one DB parameter group family, and can be applied only to
 -- a DB instance running a database engine and engine version compatible with
 -- that DB parameter group family.
-cdbpgmDBParameterGroupFamily
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBParameterGroup
-    -> f CreateDBParameterGroup
+cdbpgmDBParameterGroupFamily :: Lens' CreateDBParameterGroup (Text)
 cdbpgmDBParameterGroupFamily f x =
-    (\y -> x { _cdbpgmDBParameterGroupFamily = y })
-       <$> f (_cdbpgmDBParameterGroupFamily x)
+    f (_cdbpgmDBParameterGroupFamily x)
+        <&> \y -> x { _cdbpgmDBParameterGroupFamily = y }
 {-# INLINE cdbpgmDBParameterGroupFamily #-}
 
 -- | The description for the DB parameter group.
-cdbpgmDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBParameterGroup
-    -> f CreateDBParameterGroup
+cdbpgmDescription :: Lens' CreateDBParameterGroup (Text)
 cdbpgmDescription f x =
-    (\y -> x { _cdbpgmDescription = y })
-       <$> f (_cdbpgmDescription x)
+    f (_cdbpgmDescription x)
+        <&> \y -> x { _cdbpgmDescription = y }
 {-# INLINE cdbpgmDescription #-}
 
 -- | A list of tags.
-cdbpgmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateDBParameterGroup
-    -> f CreateDBParameterGroup
+cdbpgmTags :: Lens' CreateDBParameterGroup ([Tag])
 cdbpgmTags f x =
-    (\y -> x { _cdbpgmTags = y })
-       <$> f (_cdbpgmTags x)
+    f (_cdbpgmTags x)
+        <&> \y -> x { _cdbpgmTags = y }
 {-# INLINE cdbpgmTags #-}
 
 instance ToQuery CreateDBParameterGroup where
@@ -153,15 +134,10 @@ data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
 -- CreateDBParameterGroup action. This data type is used as a request
 -- parameter in the DeleteDBParameterGroup action, and as a response element
 -- in the DescribeDBParameterGroups action.
-dbpgwDBParameterGroup
-    :: Functor f
-    => (Maybe DBParameterGroup
-    -> f (Maybe DBParameterGroup))
-    -> CreateDBParameterGroupResponse
-    -> f CreateDBParameterGroupResponse
+dbpgwDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
 dbpgwDBParameterGroup f x =
-    (\y -> x { _dbpgwDBParameterGroup = y })
-       <$> f (_dbpgwDBParameterGroup x)
+    f (_dbpgwDBParameterGroup x)
+        <&> \y -> x { _dbpgwDBParameterGroup = y }
 {-# INLINE dbpgwDBParameterGroup #-}
 
 instance FromXML CreateDBParameterGroupResponse where

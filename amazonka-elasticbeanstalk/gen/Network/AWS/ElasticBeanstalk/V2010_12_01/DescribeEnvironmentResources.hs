@@ -51,6 +51,7 @@ describeEnvironmentResources = DescribeEnvironmentResources
     { _dermEnvironmentId = Nothing
     , _dermEnvironmentName = Nothing
     }
+{-# INLINE describeEnvironmentResources #-}
 
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _dermEnvironmentId :: Maybe Text
@@ -69,30 +70,20 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources
 -- You must specify either this or an EnvironmentName, or both. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-dermEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEnvironmentResources
-    -> f DescribeEnvironmentResources
+dermEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 dermEnvironmentId f x =
-    (\y -> x { _dermEnvironmentId = y })
-       <$> f (_dermEnvironmentId x)
+    f (_dermEnvironmentId x)
+        <&> \y -> x { _dermEnvironmentId = y }
 {-# INLINE dermEnvironmentId #-}
 
 -- | The name of the environment to retrieve AWS resource usage data. Condition:
 -- You must specify either this or an EnvironmentId, or both. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-dermEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEnvironmentResources
-    -> f DescribeEnvironmentResources
+dermEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 dermEnvironmentName f x =
-    (\y -> x { _dermEnvironmentName = y })
-       <$> f (_dermEnvironmentName x)
+    f (_dermEnvironmentName x)
+        <&> \y -> x { _dermEnvironmentName = y }
 {-# INLINE dermEnvironmentName #-}
 
 instance ToQuery DescribeEnvironmentResources where
@@ -104,15 +95,10 @@ data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     } deriving (Show, Generic)
 
 -- | A list of EnvironmentResourceDescription.
-erdmEnvironmentResources
-    :: Functor f
-    => (Maybe EnvironmentResourceDescription
-    -> f (Maybe EnvironmentResourceDescription))
-    -> DescribeEnvironmentResourcesResponse
-    -> f DescribeEnvironmentResourcesResponse
+erdmEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 erdmEnvironmentResources f x =
-    (\y -> x { _erdmEnvironmentResources = y })
-       <$> f (_erdmEnvironmentResources x)
+    f (_erdmEnvironmentResources x)
+        <&> \y -> x { _erdmEnvironmentResources = y }
 {-# INLINE erdmEnvironmentResources #-}
 
 instance FromXML DescribeEnvironmentResourcesResponse where

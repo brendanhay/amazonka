@@ -87,6 +87,7 @@ modifyDBInstance p1 = ModifyDBInstance
     , _mdbimNewDBInstanceIdentifier = Nothing
     , _mdbimVpcSecurityGroupIds = mempty
     }
+{-# INLINE modifyDBInstance #-}
 
 data ModifyDBInstance = ModifyDBInstance
     { _mdbimDBInstanceIdentifier :: Text
@@ -300,15 +301,10 @@ data ModifyDBInstance = ModifyDBInstance
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-mdbimDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimDBInstanceIdentifier :: Lens' ModifyDBInstance (Text)
 mdbimDBInstanceIdentifier f x =
-    (\y -> x { _mdbimDBInstanceIdentifier = y })
-       <$> f (_mdbimDBInstanceIdentifier x)
+    f (_mdbimDBInstanceIdentifier x)
+        <&> \y -> x { _mdbimDBInstanceIdentifier = y }
 {-# INLINE mdbimDBInstanceIdentifier #-}
 
 -- | Specifies whether or not the modifications in this request and any pending
@@ -318,15 +314,10 @@ mdbimDBInstanceIdentifier f x =
 -- next call to RebootDBInstance, the next maintenance reboot, or the next
 -- failure reboot, whichever occurs first. See each parameter to determine
 -- when a change is applied. Default: false.
-mdbimApplyImmediately
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdbimApplyImmediately f x =
-    (\y -> x { _mdbimApplyImmediately = y })
-       <$> f (_mdbimApplyImmediately x)
+    f (_mdbimApplyImmediately x)
+        <&> \y -> x { _mdbimApplyImmediately = y }
 {-# INLINE mdbimApplyImmediately #-}
 
 -- | Indicates that major version upgrades are allowed. Changing this parameter
@@ -334,15 +325,10 @@ mdbimApplyImmediately f x =
 -- soon as possible. Constraints: This parameter must be set to true when
 -- specifying a value for the EngineVersion parameter that is a different
 -- major version than the DB instance's current version.
-mdbimAllowMajorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimAllowMajorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdbimAllowMajorVersionUpgrade f x =
-    (\y -> x { _mdbimAllowMajorVersionUpgrade = y })
-       <$> f (_mdbimAllowMajorVersionUpgrade x)
+    f (_mdbimAllowMajorVersionUpgrade x)
+        <&> \y -> x { _mdbimAllowMajorVersionUpgrade = y }
 {-# INLINE mdbimAllowMajorVersionUpgrade #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
@@ -350,15 +336,10 @@ mdbimAllowMajorVersionUpgrade f x =
 -- next maintenance window unless the ApplyImmediately parameter is set to
 -- true for this request. Constraints: Cannot be specified if the DB instance
 -- is a read replica.
-mdbimMultiAZ
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdbimMultiAZ f x =
-    (\y -> x { _mdbimMultiAZ = y })
-       <$> f (_mdbimMultiAZ x)
+    f (_mdbimMultiAZ x)
+        <&> \y -> x { _mdbimMultiAZ = y }
 {-# INLINE mdbimMultiAZ #-}
 
 -- | Indicates that minor version upgrades will be applied automatically to the
@@ -368,15 +349,10 @@ mdbimMultiAZ f x =
 -- parameter is set to true during the maintenance window, and a newer minor
 -- version is available, and RDS has enabled auto patching for that engine
 -- version.
-mdbimAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdbimAutoMinorVersionUpgrade f x =
-    (\y -> x { _mdbimAutoMinorVersionUpgrade = y })
-       <$> f (_mdbimAutoMinorVersionUpgrade x)
+    f (_mdbimAutoMinorVersionUpgrade x)
+        <&> \y -> x { _mdbimAutoMinorVersionUpgrade = y }
 {-# INLINE mdbimAutoMinorVersionUpgrade #-}
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
@@ -384,15 +360,10 @@ mdbimAutoMinorVersionUpgrade f x =
 -- asynchronously applied as soon as possible. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-mdbimDBSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimDBSecurityGroups :: Lens' ModifyDBInstance ([Text])
 mdbimDBSecurityGroups f x =
-    (\y -> x { _mdbimDBSecurityGroups = y })
-       <$> f (_mdbimDBSecurityGroups x)
+    f (_mdbimDBSecurityGroups x)
+        <&> \y -> x { _mdbimDBSecurityGroups = y }
 {-# INLINE mdbimDBSecurityGroups #-}
 
 -- | The new storage capacity of the RDS instance. Changing this parameter does
@@ -419,15 +390,10 @@ mdbimDBSecurityGroups f x =
 -- RDS operations can take place for the instance, including modifying the
 -- instance, rebooting the instance, deleting the instance, creating a read
 -- replica for the instance, and creating a DB snapshot of the instance.
-mdbimAllocatedStorage
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimAllocatedStorage :: Lens' ModifyDBInstance (Maybe Integer)
 mdbimAllocatedStorage f x =
-    (\y -> x { _mdbimAllocatedStorage = y })
-       <$> f (_mdbimAllocatedStorage x)
+    f (_mdbimAllocatedStorage x)
+        <&> \y -> x { _mdbimAllocatedStorage = y }
 {-# INLINE mdbimAllocatedStorage #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
@@ -441,15 +407,10 @@ mdbimAllocatedStorage f x =
 -- setting Constraints: Must be a value from 0 to 35 Can be specified for a
 -- read replica only if the source is running MySQL 5.6 Cannot be set to 0 if
 -- the DB instance is a source to read replicas.
-mdbimBackupRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Integer)
 mdbimBackupRetentionPeriod f x =
-    (\y -> x { _mdbimBackupRetentionPeriod = y })
-       <$> f (_mdbimBackupRetentionPeriod x)
+    f (_mdbimBackupRetentionPeriod x)
+        <&> \y -> x { _mdbimBackupRetentionPeriod = y }
 {-# INLINE mdbimBackupRetentionPeriod #-}
 
 -- | The new Provisioned IOPS (I/O operations per second) value for the RDS
@@ -472,15 +433,10 @@ mdbimBackupRetentionPeriod f x =
 -- RDS operations can take place for the instance, including modifying the
 -- instance, rebooting the instance, deleting the instance, creating a read
 -- replica for the instance, and creating a DB snapshot of the instance.
-mdbimIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimIops :: Lens' ModifyDBInstance (Maybe Integer)
 mdbimIops f x =
-    (\y -> x { _mdbimIops = y })
-       <$> f (_mdbimIops x)
+    f (_mdbimIops x)
+        <&> \y -> x { _mdbimIops = y }
 {-# INLINE mdbimIops #-}
 
 -- | The new compute and memory capacity of the DB instance. To determine the
@@ -491,15 +447,10 @@ mdbimIops f x =
 -- true for this request. Default: Uses existing setting Valid Values:
 -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
 -- db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-mdbimDBInstanceClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdbimDBInstanceClass f x =
-    (\y -> x { _mdbimDBInstanceClass = y })
-       <$> f (_mdbimDBInstanceClass x)
+    f (_mdbimDBInstanceClass x)
+        <&> \y -> x { _mdbimDBInstanceClass = y }
 {-# INLINE mdbimDBInstanceClass #-}
 
 -- | The new password for the DB instance master user. Can be any printable
@@ -513,15 +464,10 @@ mdbimDBInstanceClass f x =
 -- Server). Amazon RDS API actions never return the password, so this action
 -- provides a way to regain access to a master instance user if the password
 -- is lost.
-mdbimMasterUserPassword
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdbimMasterUserPassword f x =
-    (\y -> x { _mdbimMasterUserPassword = y })
-       <$> f (_mdbimMasterUserPassword x)
+    f (_mdbimMasterUserPassword x)
+        <&> \y -> x { _mdbimMasterUserPassword = y }
 {-# INLINE mdbimMasterUserPassword #-}
 
 -- | The name of the DB parameter group to apply to this DB instance. Changing
@@ -530,15 +476,10 @@ mdbimMasterUserPassword f x =
 -- set to true for this request. Default: Uses existing setting Constraints:
 -- The DB parameter group must be in the same DB parameter group family as
 -- this DB instance.
-mdbimDBParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdbimDBParameterGroupName f x =
-    (\y -> x { _mdbimDBParameterGroupName = y })
-       <$> f (_mdbimDBParameterGroupName x)
+    f (_mdbimDBParameterGroupName x)
+        <&> \y -> x { _mdbimDBParameterGroupName = y }
 {-# INLINE mdbimDBParameterGroupName #-}
 
 -- | The daily time range during which automated backups are created if
@@ -548,15 +489,10 @@ mdbimDBParameterGroupName f x =
 -- format hh24:mi-hh24:mi Times should be Universal Time Coordinated (UTC)
 -- Must not conflict with the preferred maintenance window Must be at least 30
 -- minutes.
-mdbimPreferredBackupWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdbimPreferredBackupWindow f x =
-    (\y -> x { _mdbimPreferredBackupWindow = y })
-       <$> f (_mdbimPreferredBackupWindow x)
+    f (_mdbimPreferredBackupWindow x)
+        <&> \y -> x { _mdbimPreferredBackupWindow = y }
 {-# INLINE mdbimPreferredBackupWindow #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
@@ -570,15 +506,10 @@ mdbimPreferredBackupWindow f x =
 -- changes are applied. Default: Uses existing setting Format:
 -- ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 -- Constraints: Must be at least 30 minutes.
-mdbimPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdbimPreferredMaintenanceWindow f x =
-    (\y -> x { _mdbimPreferredMaintenanceWindow = y })
-       <$> f (_mdbimPreferredMaintenanceWindow x)
+    f (_mdbimPreferredMaintenanceWindow x)
+        <&> \y -> x { _mdbimPreferredMaintenanceWindow = y }
 {-# INLINE mdbimPreferredMaintenanceWindow #-}
 
 -- | The version number of the database engine to upgrade to. Changing this
@@ -589,15 +520,10 @@ mdbimPreferredMaintenanceWindow f x =
 -- group family for the new engine version must be specified. The new DB
 -- parameter group can be the default for that DB parameter group family.
 -- Example: 5.1.42.
-mdbimEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdbimEngineVersion f x =
-    (\y -> x { _mdbimEngineVersion = y })
-       <$> f (_mdbimEngineVersion x)
+    f (_mdbimEngineVersion x)
+        <&> \y -> x { _mdbimEngineVersion = y }
 {-# INLINE mdbimEngineVersion #-}
 
 -- | Indicates that the DB instance should be associated with the specified
@@ -612,15 +538,10 @@ mdbimEngineVersion f x =
 -- Oracle Advanced Security TDE, cannot be removed from an option group, and
 -- that option group cannot be removed from a DB instance once it is
 -- associated with a DB instance.
-mdbimOptionGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdbimOptionGroupName f x =
-    (\y -> x { _mdbimOptionGroupName = y })
-       <$> f (_mdbimOptionGroupName x)
+    f (_mdbimOptionGroupName x)
+        <&> \y -> x { _mdbimOptionGroupName = y }
 {-# INLINE mdbimOptionGroupName #-}
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
@@ -628,30 +549,20 @@ mdbimOptionGroupName f x =
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-mdbimNewDBInstanceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdbimNewDBInstanceIdentifier f x =
-    (\y -> x { _mdbimNewDBInstanceIdentifier = y })
-       <$> f (_mdbimNewDBInstanceIdentifier x)
+    f (_mdbimNewDBInstanceIdentifier x)
+        <&> \y -> x { _mdbimNewDBInstanceIdentifier = y }
 {-# INLINE mdbimNewDBInstanceIdentifier #-}
 
 -- | A list of EC2 VPC security groups to authorize on this DB instance. This
 -- change is asynchronously applied as soon as possible. Constraints: Must be
 -- 1 to 255 alphanumeric characters First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-mdbimVpcSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyDBInstance
-    -> f ModifyDBInstance
+mdbimVpcSecurityGroupIds :: Lens' ModifyDBInstance ([Text])
 mdbimVpcSecurityGroupIds f x =
-    (\y -> x { _mdbimVpcSecurityGroupIds = y })
-       <$> f (_mdbimVpcSecurityGroupIds x)
+    f (_mdbimVpcSecurityGroupIds x)
+        <&> \y -> x { _mdbimVpcSecurityGroupIds = y }
 {-# INLINE mdbimVpcSecurityGroupIds #-}
 
 instance ToQuery ModifyDBInstance where
@@ -668,15 +579,10 @@ data ModifyDBInstanceResponse = ModifyDBInstanceResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbizDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> ModifyDBInstanceResponse
-    -> f ModifyDBInstanceResponse
+dbizDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 dbizDBInstance f x =
-    (\y -> x { _dbizDBInstance = y })
-       <$> f (_dbizDBInstance x)
+    f (_dbizDBInstance x)
+        <&> \y -> x { _dbizDBInstance = y }
 {-# INLINE dbizDBInstance #-}
 
 instance FromXML ModifyDBInstanceResponse where

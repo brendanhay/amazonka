@@ -46,6 +46,7 @@ rebootInstance :: Text -- ^ 'rirInstanceId'
 rebootInstance p1 = RebootInstance
     { _rirInstanceId = p1
     }
+{-# INLINE rebootInstance #-}
 
 data RebootInstance = RebootInstance
     { _rirInstanceId :: Text
@@ -53,15 +54,10 @@ data RebootInstance = RebootInstance
     } deriving (Show, Generic)
 
 -- | The instance ID.
-rirInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RebootInstance
-    -> f RebootInstance
+rirInstanceId :: Lens' RebootInstance (Text)
 rirInstanceId f x =
-    (\y -> x { _rirInstanceId = y })
-       <$> f (_rirInstanceId x)
+    f (_rirInstanceId x)
+        <&> \y -> x { _rirInstanceId = y }
 {-# INLINE rirInstanceId #-}
 
 instance ToPath RebootInstance

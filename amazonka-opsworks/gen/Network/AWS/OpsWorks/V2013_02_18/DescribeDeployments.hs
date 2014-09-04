@@ -51,6 +51,7 @@ describeDeployments = DescribeDeployments
     , _ddrAppId = Nothing
     , _ddrDeploymentIds = mempty
     }
+{-# INLINE describeDeployments #-}
 
 data DescribeDeployments = DescribeDeployments
     { _ddrStackId :: Maybe Text
@@ -70,42 +71,27 @@ data DescribeDeployments = DescribeDeployments
 
 -- | The stack ID. If you include this parameter, DescribeDeployments returns a
 -- description of the commands associated with the specified stack.
-ddrStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDeployments
-    -> f DescribeDeployments
+ddrStackId :: Lens' DescribeDeployments (Maybe Text)
 ddrStackId f x =
-    (\y -> x { _ddrStackId = y })
-       <$> f (_ddrStackId x)
+    f (_ddrStackId x)
+        <&> \y -> x { _ddrStackId = y }
 {-# INLINE ddrStackId #-}
 
 -- | The app ID. If you include this parameter, DescribeDeployments returns a
 -- description of the commands associated with the specified app.
-ddrAppId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDeployments
-    -> f DescribeDeployments
+ddrAppId :: Lens' DescribeDeployments (Maybe Text)
 ddrAppId f x =
-    (\y -> x { _ddrAppId = y })
-       <$> f (_ddrAppId x)
+    f (_ddrAppId x)
+        <&> \y -> x { _ddrAppId = y }
 {-# INLINE ddrAppId #-}
 
 -- | An array of deployment IDs to be described. If you include this parameter,
 -- DescribeDeployments returns a description of the specified deployments.
 -- Otherwise, it returns a description of every deployment.
-ddrDeploymentIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeDeployments
-    -> f DescribeDeployments
+ddrDeploymentIds :: Lens' DescribeDeployments ([Text])
 ddrDeploymentIds f x =
-    (\y -> x { _ddrDeploymentIds = y })
-       <$> f (_ddrDeploymentIds x)
+    f (_ddrDeploymentIds x)
+        <&> \y -> x { _ddrDeploymentIds = y }
 {-# INLINE ddrDeploymentIds #-}
 
 instance ToPath DescribeDeployments
@@ -122,15 +108,10 @@ data DescribeDeploymentsResponse = DescribeDeploymentsResponse
     } deriving (Show, Generic)
 
 -- | An array of Deployment objects that describe the deployments.
-ddsDeployments
-    :: Functor f
-    => ([Deployment]
-    -> f ([Deployment]))
-    -> DescribeDeploymentsResponse
-    -> f DescribeDeploymentsResponse
+ddsDeployments :: Lens' DescribeDeploymentsResponse ([Deployment])
 ddsDeployments f x =
-    (\y -> x { _ddsDeployments = y })
-       <$> f (_ddsDeployments x)
+    f (_ddsDeployments x)
+        <&> \y -> x { _ddsDeployments = y }
 {-# INLINE ddsDeployments #-}
 
 instance FromJSON DescribeDeploymentsResponse

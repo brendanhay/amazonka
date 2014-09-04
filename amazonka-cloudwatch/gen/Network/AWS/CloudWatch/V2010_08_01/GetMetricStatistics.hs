@@ -80,6 +80,7 @@ getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     , _gmsiDimensions = mempty
     , _gmsiUnit = Nothing
     }
+{-# INLINE getMetricStatistics #-}
 
 data GetMetricStatistics = GetMetricStatistics
     { _gmsiMetricName :: Text
@@ -111,52 +112,32 @@ data GetMetricStatistics = GetMetricStatistics
     } deriving (Show, Generic)
 
 -- | The name of the metric.
-gmsiMetricName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiMetricName :: Lens' GetMetricStatistics (Text)
 gmsiMetricName f x =
-    (\y -> x { _gmsiMetricName = y })
-       <$> f (_gmsiMetricName x)
+    f (_gmsiMetricName x)
+        <&> \y -> x { _gmsiMetricName = y }
 {-# INLINE gmsiMetricName #-}
 
 -- | The namespace of the metric.
-gmsiNamespace
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiNamespace :: Lens' GetMetricStatistics (Text)
 gmsiNamespace f x =
-    (\y -> x { _gmsiNamespace = y })
-       <$> f (_gmsiNamespace x)
+    f (_gmsiNamespace x)
+        <&> \y -> x { _gmsiNamespace = y }
 {-# INLINE gmsiNamespace #-}
 
 -- | The granularity, in seconds, of the returned datapoints. Period must be at
 -- least 60 seconds and must be a multiple of 60. The default value is 60.
-gmsiPeriod
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiPeriod :: Lens' GetMetricStatistics (Integer)
 gmsiPeriod f x =
-    (\y -> x { _gmsiPeriod = y })
-       <$> f (_gmsiPeriod x)
+    f (_gmsiPeriod x)
+        <&> \y -> x { _gmsiPeriod = y }
 {-# INLINE gmsiPeriod #-}
 
 -- | The metric statistics to return.
-gmsiStatistics
-    :: Functor f
-    => ([Statistic]
-    -> f ([Statistic]))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiStatistics :: Lens' GetMetricStatistics ([Statistic])
 gmsiStatistics f x =
-    (\y -> x { _gmsiStatistics = y })
-       <$> f (_gmsiStatistics x)
+    f (_gmsiStatistics x)
+        <&> \y -> x { _gmsiStatistics = y }
 {-# INLINE gmsiStatistics #-}
 
 -- | The time stamp to use for determining the first datapoint to return. The
@@ -165,53 +146,33 @@ gmsiStatistics f x =
 -- value. Datapoints are returned for start times up to two weeks in the past.
 -- Specified start times that are more than two weeks in the past will not
 -- return datapoints for metrics that are older than two weeks.
-gmsiStartTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiStartTime :: Lens' GetMetricStatistics (ISO8601)
 gmsiStartTime f x =
-    (\y -> x { _gmsiStartTime = y })
-       <$> f (_gmsiStartTime x)
+    f (_gmsiStartTime x)
+        <&> \y -> x { _gmsiStartTime = y }
 {-# INLINE gmsiStartTime #-}
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
 -- time stamp specified.
-gmsiEndTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiEndTime :: Lens' GetMetricStatistics (ISO8601)
 gmsiEndTime f x =
-    (\y -> x { _gmsiEndTime = y })
-       <$> f (_gmsiEndTime x)
+    f (_gmsiEndTime x)
+        <&> \y -> x { _gmsiEndTime = y }
 {-# INLINE gmsiEndTime #-}
 
 -- | A list of dimensions describing qualities of the metric.
-gmsiDimensions
-    :: Functor f
-    => ([Dimension]
-    -> f ([Dimension]))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiDimensions :: Lens' GetMetricStatistics ([Dimension])
 gmsiDimensions f x =
-    (\y -> x { _gmsiDimensions = y })
-       <$> f (_gmsiDimensions x)
+    f (_gmsiDimensions x)
+        <&> \y -> x { _gmsiDimensions = y }
 {-# INLINE gmsiDimensions #-}
 
 -- | The unit for the metric.
-gmsiUnit
-    :: Functor f
-    => (Maybe StandardUnit
-    -> f (Maybe StandardUnit))
-    -> GetMetricStatistics
-    -> f GetMetricStatistics
+gmsiUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
 gmsiUnit f x =
-    (\y -> x { _gmsiUnit = y })
-       <$> f (_gmsiUnit x)
+    f (_gmsiUnit x)
+        <&> \y -> x { _gmsiUnit = y }
 {-# INLINE gmsiUnit #-}
 
 instance ToQuery GetMetricStatistics where
@@ -225,27 +186,17 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     } deriving (Show, Generic)
 
 -- | The datapoints for the specified metric.
-gmsoDatapoints
-    :: Functor f
-    => ([Datapoint]
-    -> f ([Datapoint]))
-    -> GetMetricStatisticsResponse
-    -> f GetMetricStatisticsResponse
+gmsoDatapoints :: Lens' GetMetricStatisticsResponse ([Datapoint])
 gmsoDatapoints f x =
-    (\y -> x { _gmsoDatapoints = y })
-       <$> f (_gmsoDatapoints x)
+    f (_gmsoDatapoints x)
+        <&> \y -> x { _gmsoDatapoints = y }
 {-# INLINE gmsoDatapoints #-}
 
 -- | A label describing the specified metric.
-gmsoLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetMetricStatisticsResponse
-    -> f GetMetricStatisticsResponse
+gmsoLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsoLabel f x =
-    (\y -> x { _gmsoLabel = y })
-       <$> f (_gmsoLabel x)
+    f (_gmsoLabel x)
+        <&> \y -> x { _gmsoLabel = y }
 {-# INLINE gmsoLabel #-}
 
 instance FromXML GetMetricStatisticsResponse where

@@ -64,6 +64,7 @@ deleteDBInstance p1 = DeleteDBInstance
     , _ddbimSkipFinalSnapshot = Nothing
     , _ddbimFinalDBSnapshotIdentifier = Nothing
     }
+{-# INLINE deleteDBInstance #-}
 
 data DeleteDBInstance = DeleteDBInstance
     { _ddbimDBInstanceIdentifier :: Text
@@ -93,15 +94,10 @@ data DeleteDBInstance = DeleteDBInstance
 -- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-ddbimDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDBInstance
-    -> f DeleteDBInstance
+ddbimDBInstanceIdentifier :: Lens' DeleteDBInstance (Text)
 ddbimDBInstanceIdentifier f x =
-    (\y -> x { _ddbimDBInstanceIdentifier = y })
-       <$> f (_ddbimDBInstanceIdentifier x)
+    f (_ddbimDBInstanceIdentifier x)
+        <&> \y -> x { _ddbimDBInstanceIdentifier = y }
 {-# INLINE ddbimDBInstanceIdentifier #-}
 
 -- | Determines whether a final DB snapshot is created before the DB instance is
@@ -109,15 +105,10 @@ ddbimDBInstanceIdentifier f x =
 -- specified, a DB snapshot is created before the DB instance is deleted.
 -- Specify true when deleting a read replica. The FinalDBSnapshotIdentifier
 -- parameter must be specified if SkipFinalSnapshot is false. Default: false.
-ddbimSkipFinalSnapshot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteDBInstance
-    -> f DeleteDBInstance
+ddbimSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbimSkipFinalSnapshot f x =
-    (\y -> x { _ddbimSkipFinalSnapshot = y })
-       <$> f (_ddbimSkipFinalSnapshot x)
+    f (_ddbimSkipFinalSnapshot x)
+        <&> \y -> x { _ddbimSkipFinalSnapshot = y }
 {-# INLINE ddbimSkipFinalSnapshot #-}
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
@@ -126,15 +117,10 @@ ddbimSkipFinalSnapshot f x =
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens
 -- Cannot be specified when deleting a read replica.
-ddbimFinalDBSnapshotIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteDBInstance
-    -> f DeleteDBInstance
+ddbimFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddbimFinalDBSnapshotIdentifier f x =
-    (\y -> x { _ddbimFinalDBSnapshotIdentifier = y })
-       <$> f (_ddbimFinalDBSnapshotIdentifier x)
+    f (_ddbimFinalDBSnapshotIdentifier x)
+        <&> \y -> x { _ddbimFinalDBSnapshotIdentifier = y }
 {-# INLINE ddbimFinalDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBInstance where
@@ -151,15 +137,10 @@ data DeleteDBInstanceResponse = DeleteDBInstanceResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbiyDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> DeleteDBInstanceResponse
-    -> f DeleteDBInstanceResponse
+dbiyDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 dbiyDBInstance f x =
-    (\y -> x { _dbiyDBInstance = y })
-       <$> f (_dbiyDBInstance x)
+    f (_dbiyDBInstance x)
+        <&> \y -> x { _dbiyDBInstance = y }
 {-# INLINE dbiyDBInstance #-}
 
 instance FromXML DeleteDBInstanceResponse where

@@ -44,6 +44,7 @@ getCloudFrontOriginAccessIdentity :: Text -- ^ 'gcfoairId'
 getCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
     { _gcfoairId = p1
     }
+{-# INLINE getCloudFrontOriginAccessIdentity #-}
 
 data GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
     { _gcfoairId :: Text
@@ -51,15 +52,10 @@ data GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | The identity's id.
-gcfoairId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetCloudFrontOriginAccessIdentity
-    -> f GetCloudFrontOriginAccessIdentity
+gcfoairId :: Lens' GetCloudFrontOriginAccessIdentity (Text)
 gcfoairId f x =
-    (\y -> x { _gcfoairId = y })
-       <$> f (_gcfoairId x)
+    f (_gcfoairId x)
+        <&> \y -> x { _gcfoairId = y }
 {-# INLINE gcfoairId #-}
 
 instance ToPath GetCloudFrontOriginAccessIdentity where
@@ -85,28 +81,18 @@ data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdenti
     } deriving (Show, Generic)
 
 -- | The origin access identity's information.
-gcfoaisCloudFrontOriginAccessIdentity
-    :: Functor f
-    => (Maybe CloudFrontOriginAccessIdentity
-    -> f (Maybe CloudFrontOriginAccessIdentity))
-    -> GetCloudFrontOriginAccessIdentityResponse
-    -> f GetCloudFrontOriginAccessIdentityResponse
+gcfoaisCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 gcfoaisCloudFrontOriginAccessIdentity f x =
-    (\y -> x { _gcfoaisCloudFrontOriginAccessIdentity = y })
-       <$> f (_gcfoaisCloudFrontOriginAccessIdentity x)
+    f (_gcfoaisCloudFrontOriginAccessIdentity x)
+        <&> \y -> x { _gcfoaisCloudFrontOriginAccessIdentity = y }
 {-# INLINE gcfoaisCloudFrontOriginAccessIdentity #-}
 
 -- | The current version of the origin access identity's information. For
 -- example: E2QWRUHAPOMQZL.
-gcfoaisETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetCloudFrontOriginAccessIdentityResponse
-    -> f GetCloudFrontOriginAccessIdentityResponse
+gcfoaisETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
 gcfoaisETag f x =
-    (\y -> x { _gcfoaisETag = y })
-       <$> f (_gcfoaisETag x)
+    f (_gcfoaisETag x)
+        <&> \y -> x { _gcfoaisETag = y }
 {-# INLINE gcfoaisETag #-}
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity where

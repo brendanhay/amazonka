@@ -540,15 +540,10 @@ newtype AutoScalingGroup = AutoScalingGroup
     } deriving (Show, Generic)
 
 -- | The name of the AutoScalingGroup .
-asgName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName f x =
-    (\y -> x { _asgName = y })
-       <$> f (_asgName x)
+    f (_asgName x)
+        <&> \y -> x { _asgName = y }
 {-# INLINE asgName #-}
 
 instance FromXML AutoScalingGroup where
@@ -562,15 +557,10 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
     } deriving (Show, Generic)
 
 -- | Describes the LoadBalancer.
-erdLoadBalancer
-    :: Functor f
-    => (Maybe LoadBalancerDescription
-    -> f (Maybe LoadBalancerDescription))
-    -> EnvironmentResourcesDescription
-    -> f EnvironmentResourcesDescription
+erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
 erdLoadBalancer f x =
-    (\y -> x { _erdLoadBalancer = y })
-       <$> f (_erdLoadBalancer x)
+    f (_erdLoadBalancer x)
+        <&> \y -> x { _erdLoadBalancer = y }
 {-# INLINE erdLoadBalancer #-}
 
 instance FromXML EnvironmentResourcesDescription where
@@ -587,15 +577,10 @@ newtype Instance = Instance
     } deriving (Show, Generic)
 
 -- | The ID of the Amazon EC2 instance.
-rId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+rId :: Lens' Instance (Maybe Text)
 rId f x =
-    (\y -> x { _rId = y })
-       <$> f (_rId x)
+    f (_rId x)
+        <&> \y -> x { _rId = y }
 {-# INLINE rId #-}
 
 instance FromXML Instance where
@@ -609,15 +594,10 @@ newtype LaunchConfiguration = LaunchConfiguration
     } deriving (Show, Generic)
 
 -- | The name of the launch configuration.
-lcName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+lcName :: Lens' LaunchConfiguration (Maybe Text)
 lcName f x =
-    (\y -> x { _lcName = y })
-       <$> f (_lcName x)
+    f (_lcName x)
+        <&> \y -> x { _lcName = y }
 {-# INLINE lcName #-}
 
 instance FromXML LaunchConfiguration where
@@ -631,15 +611,10 @@ newtype LoadBalancer = LoadBalancer
     } deriving (Show, Generic)
 
 -- | The name of the LoadBalancer.
-lbName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancer
-    -> f LoadBalancer
+lbName :: Lens' LoadBalancer (Maybe Text)
 lbName f x =
-    (\y -> x { _lbName = y })
-       <$> f (_lbName x)
+    f (_lbName x)
+        <&> \y -> x { _lbName = y }
 {-# INLINE lbName #-}
 
 instance FromXML LoadBalancer where
@@ -653,15 +628,10 @@ newtype Trigger = Trigger
     } deriving (Show, Generic)
 
 -- | The name of the trigger.
-trName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Trigger
-    -> f Trigger
+trName :: Lens' Trigger (Maybe Text)
 trName f x =
-    (\y -> x { _trName = y })
-       <$> f (_trName x)
+    f (_trName x)
+        <&> \y -> x { _trName = y }
 {-# INLINE trName #-}
 
 instance FromXML Trigger where
@@ -686,75 +656,45 @@ data ApplicationDescription = ApplicationDescription
     } deriving (Show, Generic)
 
 -- | The name of the application.
-adApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ApplicationDescription
-    -> f ApplicationDescription
+adApplicationName :: Lens' ApplicationDescription (Maybe Text)
 adApplicationName f x =
-    (\y -> x { _adApplicationName = y })
-       <$> f (_adApplicationName x)
+    f (_adApplicationName x)
+        <&> \y -> x { _adApplicationName = y }
 {-# INLINE adApplicationName #-}
 
 -- | User-defined description of the application.
-adDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ApplicationDescription
-    -> f ApplicationDescription
+adDescription :: Lens' ApplicationDescription (Maybe Text)
 adDescription f x =
-    (\y -> x { _adDescription = y })
-       <$> f (_adDescription x)
+    f (_adDescription x)
+        <&> \y -> x { _adDescription = y }
 {-# INLINE adDescription #-}
 
 -- | The date when the application was created.
-adDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ApplicationDescription
-    -> f ApplicationDescription
+adDateCreated :: Lens' ApplicationDescription (Maybe ISO8601)
 adDateCreated f x =
-    (\y -> x { _adDateCreated = y })
-       <$> f (_adDateCreated x)
+    f (_adDateCreated x)
+        <&> \y -> x { _adDateCreated = y }
 {-# INLINE adDateCreated #-}
 
 -- | The date when the application was last modified.
-adDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ApplicationDescription
-    -> f ApplicationDescription
+adDateUpdated :: Lens' ApplicationDescription (Maybe ISO8601)
 adDateUpdated f x =
-    (\y -> x { _adDateUpdated = y })
-       <$> f (_adDateUpdated x)
+    f (_adDateUpdated x)
+        <&> \y -> x { _adDateUpdated = y }
 {-# INLINE adDateUpdated #-}
 
 -- | The names of the versions for this application.
-adVersions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ApplicationDescription
-    -> f ApplicationDescription
+adVersions :: Lens' ApplicationDescription ([Text])
 adVersions f x =
-    (\y -> x { _adVersions = y })
-       <$> f (_adVersions x)
+    f (_adVersions x)
+        <&> \y -> x { _adVersions = y }
 {-# INLINE adVersions #-}
 
 -- | The names of the configuration templates associated with this application.
-adConfigurationTemplates
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ApplicationDescription
-    -> f ApplicationDescription
+adConfigurationTemplates :: Lens' ApplicationDescription ([Text])
 adConfigurationTemplates f x =
-    (\y -> x { _adConfigurationTemplates = y })
-       <$> f (_adConfigurationTemplates x)
+    f (_adConfigurationTemplates x)
+        <&> \y -> x { _adConfigurationTemplates = y }
 {-# INLINE adConfigurationTemplates #-}
 
 instance FromXML ApplicationDescription where
@@ -779,75 +719,45 @@ data ApplicationVersionDescription = ApplicationVersionDescription
     } deriving (Show, Generic)
 
 -- | The name of the application associated with this release.
-avdApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ApplicationVersionDescription
-    -> f ApplicationVersionDescription
+avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
 avdApplicationName f x =
-    (\y -> x { _avdApplicationName = y })
-       <$> f (_avdApplicationName x)
+    f (_avdApplicationName x)
+        <&> \y -> x { _avdApplicationName = y }
 {-# INLINE avdApplicationName #-}
 
 -- | The description of this application version.
-avdDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ApplicationVersionDescription
-    -> f ApplicationVersionDescription
+avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
 avdDescription f x =
-    (\y -> x { _avdDescription = y })
-       <$> f (_avdDescription x)
+    f (_avdDescription x)
+        <&> \y -> x { _avdDescription = y }
 {-# INLINE avdDescription #-}
 
 -- | A label uniquely identifying the version for the associated application.
-avdVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ApplicationVersionDescription
-    -> f ApplicationVersionDescription
+avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
 avdVersionLabel f x =
-    (\y -> x { _avdVersionLabel = y })
-       <$> f (_avdVersionLabel x)
+    f (_avdVersionLabel x)
+        <&> \y -> x { _avdVersionLabel = y }
 {-# INLINE avdVersionLabel #-}
 
 -- | The location where the source bundle is located for this version.
-avdSourceBundle
-    :: Functor f
-    => (Maybe S3Location
-    -> f (Maybe S3Location))
-    -> ApplicationVersionDescription
-    -> f ApplicationVersionDescription
+avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
 avdSourceBundle f x =
-    (\y -> x { _avdSourceBundle = y })
-       <$> f (_avdSourceBundle x)
+    f (_avdSourceBundle x)
+        <&> \y -> x { _avdSourceBundle = y }
 {-# INLINE avdSourceBundle #-}
 
 -- | The creation date of the application version.
-avdDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ApplicationVersionDescription
-    -> f ApplicationVersionDescription
+avdDateCreated :: Lens' ApplicationVersionDescription (Maybe ISO8601)
 avdDateCreated f x =
-    (\y -> x { _avdDateCreated = y })
-       <$> f (_avdDateCreated x)
+    f (_avdDateCreated x)
+        <&> \y -> x { _avdDateCreated = y }
 {-# INLINE avdDateCreated #-}
 
 -- | The last modified date of the application version.
-avdDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ApplicationVersionDescription
-    -> f ApplicationVersionDescription
+avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe ISO8601)
 avdDateUpdated f x =
-    (\y -> x { _avdDateUpdated = y })
-       <$> f (_avdDateUpdated x)
+    f (_avdDateUpdated x)
+        <&> \y -> x { _avdDateUpdated = y }
 {-# INLINE avdDateUpdated #-}
 
 instance FromXML ApplicationVersionDescription where
@@ -923,39 +833,24 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     } deriving (Show, Generic)
 
 -- | A unique namespace identifying the option's associated AWS resource.
-coeNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
 coeNamespace f x =
-    (\y -> x { _coeNamespace = y })
-       <$> f (_coeNamespace x)
+    f (_coeNamespace x)
+        <&> \y -> x { _coeNamespace = y }
 {-# INLINE coeNamespace #-}
 
 -- | The name of the configuration option.
-coeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeName :: Lens' ConfigurationOptionDescription (Maybe Text)
 coeName f x =
-    (\y -> x { _coeName = y })
-       <$> f (_coeName x)
+    f (_coeName x)
+        <&> \y -> x { _coeName = y }
 {-# INLINE coeName #-}
 
 -- | The default value for this configuration option.
-coeDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
 coeDefaultValue f x =
-    (\y -> x { _coeDefaultValue = y })
-       <$> f (_coeDefaultValue x)
+    f (_coeDefaultValue x)
+        <&> \y -> x { _coeDefaultValue = y }
 {-# INLINE coeDefaultValue #-}
 
 -- | An indication of which action is required if the value for this
@@ -972,15 +867,10 @@ coeDefaultValue f x =
 -- during the process. RestartApplicationServer : The environment is available
 -- the entire time. However, a short application outage occurs when the
 -- application servers on the running Amazon EC2 instances are restarted.
-coeChangeSeverity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
 coeChangeSeverity f x =
-    (\y -> x { _coeChangeSeverity = y })
-       <$> f (_coeChangeSeverity x)
+    f (_coeChangeSeverity x)
+        <&> \y -> x { _coeChangeSeverity = y }
 {-# INLINE coeChangeSeverity #-}
 
 -- | An indication of whether the user defined this configuration option: true :
@@ -992,15 +882,10 @@ coeChangeSeverity f x =
 -- settings. false : This configuration was not defined by the user.
 -- Constraint: You can remove only UserDefined options from a configuration.
 -- Valid Values: true | false.
-coeUserDefined
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 coeUserDefined f x =
-    (\y -> x { _coeUserDefined = y })
-       <$> f (_coeUserDefined x)
+    f (_coeUserDefined x)
+        <&> \y -> x { _coeUserDefined = y }
 {-# INLINE coeUserDefined #-}
 
 -- | An indication of which type of values this option has and whether it is
@@ -1014,80 +899,50 @@ coeUserDefined f x =
 -- MIN/MAX/Regex constraints. List : Values for this option are multiple
 -- selections from the possible values. Boolean : Values for this option are
 -- either true or false .
-coeValueType
-    :: Functor f
-    => (Maybe ConfigurationOptionValueType
-    -> f (Maybe ConfigurationOptionValueType))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 coeValueType f x =
-    (\y -> x { _coeValueType = y })
-       <$> f (_coeValueType x)
+    f (_coeValueType x)
+        <&> \y -> x { _coeValueType = y }
 {-# INLINE coeValueType #-}
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
-coeValueOptions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeValueOptions :: Lens' ConfigurationOptionDescription ([Text])
 coeValueOptions f x =
-    (\y -> x { _coeValueOptions = y })
-       <$> f (_coeValueOptions x)
+    f (_coeValueOptions x)
+        <&> \y -> x { _coeValueOptions = y }
 {-# INLINE coeValueOptions #-}
 
 -- | If specified, the configuration option must be a numeric value greater than
 -- this value.
-coeMinValue
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeMinValue :: Lens' ConfigurationOptionDescription (Maybe Integer)
 coeMinValue f x =
-    (\y -> x { _coeMinValue = y })
-       <$> f (_coeMinValue x)
+    f (_coeMinValue x)
+        <&> \y -> x { _coeMinValue = y }
 {-# INLINE coeMinValue #-}
 
 -- | If specified, the configuration option must be a numeric value less than
 -- this value.
-coeMaxValue
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeMaxValue :: Lens' ConfigurationOptionDescription (Maybe Integer)
 coeMaxValue f x =
-    (\y -> x { _coeMaxValue = y })
-       <$> f (_coeMaxValue x)
+    f (_coeMaxValue x)
+        <&> \y -> x { _coeMaxValue = y }
 {-# INLINE coeMaxValue #-}
 
 -- | If specified, the configuration option must be a string value no longer
 -- than this value.
-coeMaxLength
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeMaxLength :: Lens' ConfigurationOptionDescription (Maybe Integer)
 coeMaxLength f x =
-    (\y -> x { _coeMaxLength = y })
-       <$> f (_coeMaxLength x)
+    f (_coeMaxLength x)
+        <&> \y -> x { _coeMaxLength = y }
 {-# INLINE coeMaxLength #-}
 
 -- | If specified, the configuration option must be a string value that
 -- satisfies this regular expression.
-coeRegex
-    :: Functor f
-    => (Maybe OptionRestrictionRegex
-    -> f (Maybe OptionRestrictionRegex))
-    -> ConfigurationOptionDescription
-    -> f ConfigurationOptionDescription
+coeRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
 coeRegex f x =
-    (\y -> x { _coeRegex = y })
-       <$> f (_coeRegex x)
+    f (_coeRegex x)
+        <&> \y -> x { _coeRegex = y }
 {-# INLINE coeRegex #-}
 
 instance FromXML ConfigurationOptionDescription where
@@ -1108,39 +963,24 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
     } deriving (Show, Generic)
 
 -- | A unique namespace identifying the option's associated AWS resource.
-cosNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionSetting
-    -> f ConfigurationOptionSetting
+cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosNamespace f x =
-    (\y -> x { _cosNamespace = y })
-       <$> f (_cosNamespace x)
+    f (_cosNamespace x)
+        <&> \y -> x { _cosNamespace = y }
 {-# INLINE cosNamespace #-}
 
 -- | The name of the configuration option.
-cosOptionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionSetting
-    -> f ConfigurationOptionSetting
+cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosOptionName f x =
-    (\y -> x { _cosOptionName = y })
-       <$> f (_cosOptionName x)
+    f (_cosOptionName x)
+        <&> \y -> x { _cosOptionName = y }
 {-# INLINE cosOptionName #-}
 
 -- | The current value for the configuration option.
-cosValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationOptionSetting
-    -> f ConfigurationOptionSetting
+cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosValue f x =
-    (\y -> x { _cosValue = y })
-       <$> f (_cosValue x)
+    f (_cosValue x)
+        <&> \y -> x { _cosValue = y }
 {-# INLINE cosValue #-}
 
 instance FromXML ConfigurationOptionSetting where
@@ -1192,64 +1032,39 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     } deriving (Show, Generic)
 
 -- | The name of the solution stack this configuration set uses.
-csfSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csfSolutionStackName f x =
-    (\y -> x { _csfSolutionStackName = y })
-       <$> f (_csfSolutionStackName x)
+    f (_csfSolutionStackName x)
+        <&> \y -> x { _csfSolutionStackName = y }
 {-# INLINE csfSolutionStackName #-}
 
 -- | The name of the application associated with this configuration set.
-csfApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csfApplicationName f x =
-    (\y -> x { _csfApplicationName = y })
-       <$> f (_csfApplicationName x)
+    f (_csfApplicationName x)
+        <&> \y -> x { _csfApplicationName = y }
 {-# INLINE csfApplicationName #-}
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
-csfTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csfTemplateName f x =
-    (\y -> x { _csfTemplateName = y })
-       <$> f (_csfTemplateName x)
+    f (_csfTemplateName x)
+        <&> \y -> x { _csfTemplateName = y }
 {-# INLINE csfTemplateName #-}
 
 -- | Describes this configuration set.
-csfDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csfDescription f x =
-    (\y -> x { _csfDescription = y })
-       <$> f (_csfDescription x)
+    f (_csfDescription x)
+        <&> \y -> x { _csfDescription = y }
 {-# INLINE csfDescription #-}
 
 -- | If not null, the name of the environment for this configuration set.
-csfEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csfEnvironmentName f x =
-    (\y -> x { _csfEnvironmentName = y })
-       <$> f (_csfEnvironmentName x)
+    f (_csfEnvironmentName x)
+        <&> \y -> x { _csfEnvironmentName = y }
 {-# INLINE csfEnvironmentName #-}
 
 -- | If this configuration set is associated with an environment, the
@@ -1265,52 +1080,32 @@ csfEnvironmentName f x =
 -- deploying. deployed: This is the configuration that is currently deployed
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
-csfDeploymentStatus
-    :: Functor f
-    => (Maybe ConfigurationDeploymentStatus
-    -> f (Maybe ConfigurationDeploymentStatus))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csfDeploymentStatus f x =
-    (\y -> x { _csfDeploymentStatus = y })
-       <$> f (_csfDeploymentStatus x)
+    f (_csfDeploymentStatus x)
+        <&> \y -> x { _csfDeploymentStatus = y }
 {-# INLINE csfDeploymentStatus #-}
 
 -- | The date (in UTC time) when this configuration set was created.
-csfDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfDateCreated :: Lens' ConfigurationSettingsDescription (Maybe ISO8601)
 csfDateCreated f x =
-    (\y -> x { _csfDateCreated = y })
-       <$> f (_csfDateCreated x)
+    f (_csfDateCreated x)
+        <&> \y -> x { _csfDateCreated = y }
 {-# INLINE csfDateCreated #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
-csfDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe ISO8601)
 csfDateUpdated f x =
-    (\y -> x { _csfDateUpdated = y })
-       <$> f (_csfDateUpdated x)
+    f (_csfDateUpdated x)
+        <&> \y -> x { _csfDateUpdated = y }
 {-# INLINE csfDateUpdated #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
-csfOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> ConfigurationSettingsDescription
-    -> f ConfigurationSettingsDescription
+csfOptionSettings :: Lens' ConfigurationSettingsDescription ([ConfigurationOptionSetting])
 csfOptionSettings f x =
-    (\y -> x { _csfOptionSettings = y })
-       <$> f (_csfOptionSettings x)
+    f (_csfOptionSettings x)
+        <&> \y -> x { _csfOptionSettings = y }
 {-# INLINE csfOptionSettings #-}
 
 instance FromXML ConfigurationSettingsDescription where
@@ -1374,137 +1169,82 @@ data EnvironmentDescription = EnvironmentDescription
     } deriving (Show, Generic)
 
 -- | The name of this environment.
-eeEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
 eeEnvironmentName f x =
-    (\y -> x { _eeEnvironmentName = y })
-       <$> f (_eeEnvironmentName x)
+    f (_eeEnvironmentName x)
+        <&> \y -> x { _eeEnvironmentName = y }
 {-# INLINE eeEnvironmentName #-}
 
 -- | The ID of this environment.
-eeEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 eeEnvironmentId f x =
-    (\y -> x { _eeEnvironmentId = y })
-       <$> f (_eeEnvironmentId x)
+    f (_eeEnvironmentId x)
+        <&> \y -> x { _eeEnvironmentId = y }
 {-# INLINE eeEnvironmentId #-}
 
 -- | The name of the application associated with this environment.
-eeApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeApplicationName :: Lens' EnvironmentDescription (Maybe Text)
 eeApplicationName f x =
-    (\y -> x { _eeApplicationName = y })
-       <$> f (_eeApplicationName x)
+    f (_eeApplicationName x)
+        <&> \y -> x { _eeApplicationName = y }
 {-# INLINE eeApplicationName #-}
 
 -- | The application version deployed in this environment.
-eeVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
 eeVersionLabel f x =
-    (\y -> x { _eeVersionLabel = y })
-       <$> f (_eeVersionLabel x)
+    f (_eeVersionLabel x)
+        <&> \y -> x { _eeVersionLabel = y }
 {-# INLINE eeVersionLabel #-}
 
 -- | The name of the SolutionStack deployed with this environment.
-eeSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
 eeSolutionStackName f x =
-    (\y -> x { _eeSolutionStackName = y })
-       <$> f (_eeSolutionStackName x)
+    f (_eeSolutionStackName x)
+        <&> \y -> x { _eeSolutionStackName = y }
 {-# INLINE eeSolutionStackName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-eeTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeTemplateName :: Lens' EnvironmentDescription (Maybe Text)
 eeTemplateName f x =
-    (\y -> x { _eeTemplateName = y })
-       <$> f (_eeTemplateName x)
+    f (_eeTemplateName x)
+        <&> \y -> x { _eeTemplateName = y }
 {-# INLINE eeTemplateName #-}
 
 -- | Describes this environment.
-eeDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeDescription :: Lens' EnvironmentDescription (Maybe Text)
 eeDescription f x =
-    (\y -> x { _eeDescription = y })
-       <$> f (_eeDescription x)
+    f (_eeDescription x)
+        <&> \y -> x { _eeDescription = y }
 {-# INLINE eeDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-eeEndpointURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
 eeEndpointURL f x =
-    (\y -> x { _eeEndpointURL = y })
-       <$> f (_eeEndpointURL x)
+    f (_eeEndpointURL x)
+        <&> \y -> x { _eeEndpointURL = y }
 {-# INLINE eeEndpointURL #-}
 
 -- | The URL to the CNAME for this environment.
-eeCNAME
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeCNAME :: Lens' EnvironmentDescription (Maybe Text)
 eeCNAME f x =
-    (\y -> x { _eeCNAME = y })
-       <$> f (_eeCNAME x)
+    f (_eeCNAME x)
+        <&> \y -> x { _eeCNAME = y }
 {-# INLINE eeCNAME #-}
 
 -- | The creation date for this environment.
-eeDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeDateCreated :: Lens' EnvironmentDescription (Maybe ISO8601)
 eeDateCreated f x =
-    (\y -> x { _eeDateCreated = y })
-       <$> f (_eeDateCreated x)
+    f (_eeDateCreated x)
+        <&> \y -> x { _eeDateCreated = y }
 {-# INLINE eeDateCreated #-}
 
 -- | The last modified date for this environment.
-eeDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeDateUpdated :: Lens' EnvironmentDescription (Maybe ISO8601)
 eeDateUpdated f x =
-    (\y -> x { _eeDateUpdated = y })
-       <$> f (_eeDateUpdated x)
+    f (_eeDateUpdated x)
+        <&> \y -> x { _eeDateUpdated = y }
 {-# INLINE eeDateUpdated #-}
 
 -- | The current operational status of the environment: Launching: Environment
@@ -1513,15 +1253,10 @@ eeDateUpdated f x =
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-eeStatus
-    :: Functor f
-    => (Maybe EnvironmentStatus
-    -> f (Maybe EnvironmentStatus))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 eeStatus f x =
-    (\y -> x { _eeStatus = y })
-       <$> f (_eeStatus x)
+    f (_eeStatus x)
+        <&> \y -> x { _eeStatus = y }
 {-# INLINE eeStatus #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
@@ -1537,39 +1272,24 @@ eeStatus f x =
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-eeHealth
-    :: Functor f
-    => (Maybe EnvironmentHealth
-    -> f (Maybe EnvironmentHealth))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 eeHealth f x =
-    (\y -> x { _eeHealth = y })
-       <$> f (_eeHealth x)
+    f (_eeHealth x)
+        <&> \y -> x { _eeHealth = y }
 {-# INLINE eeHealth #-}
 
 -- | The description of the AWS resources used by this environment.
-eeResources
-    :: Functor f
-    => (Maybe EnvironmentResourcesDescription
-    -> f (Maybe EnvironmentResourcesDescription))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
 eeResources f x =
-    (\y -> x { _eeResources = y })
-       <$> f (_eeResources x)
+    f (_eeResources x)
+        <&> \y -> x { _eeResources = y }
 {-# INLINE eeResources #-}
 
 -- | Describes the current tier of this environment.
-eeTier
-    :: Functor f
-    => (Maybe EnvironmentTier
-    -> f (Maybe EnvironmentTier))
-    -> EnvironmentDescription
-    -> f EnvironmentDescription
+eeTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
 eeTier f x =
-    (\y -> x { _eeTier = y })
-       <$> f (_eeTier x)
+    f (_eeTier x)
+        <&> \y -> x { _eeTier = y }
 {-# INLINE eeTier #-}
 
 instance FromXML EnvironmentDescription where
@@ -1589,51 +1309,31 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
     } deriving (Show, Generic)
 
 -- | The type of information retrieved.
-eidInfoType
-    :: Functor f
-    => (Maybe EnvironmentInfoType
-    -> f (Maybe EnvironmentInfoType))
-    -> EnvironmentInfoDescription
-    -> f EnvironmentInfoDescription
+eidInfoType :: Lens' EnvironmentInfoDescription (Maybe EnvironmentInfoType)
 eidInfoType f x =
-    (\y -> x { _eidInfoType = y })
-       <$> f (_eidInfoType x)
+    f (_eidInfoType x)
+        <&> \y -> x { _eidInfoType = y }
 {-# INLINE eidInfoType #-}
 
 -- | The Amazon EC2 Instance ID for this information.
-eidEc2InstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentInfoDescription
-    -> f EnvironmentInfoDescription
+eidEc2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
 eidEc2InstanceId f x =
-    (\y -> x { _eidEc2InstanceId = y })
-       <$> f (_eidEc2InstanceId x)
+    f (_eidEc2InstanceId x)
+        <&> \y -> x { _eidEc2InstanceId = y }
 {-# INLINE eidEc2InstanceId #-}
 
 -- | The time stamp when this information was retrieved.
-eidSampleTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> EnvironmentInfoDescription
-    -> f EnvironmentInfoDescription
+eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe ISO8601)
 eidSampleTimestamp f x =
-    (\y -> x { _eidSampleTimestamp = y })
-       <$> f (_eidSampleTimestamp x)
+    f (_eidSampleTimestamp x)
+        <&> \y -> x { _eidSampleTimestamp = y }
 {-# INLINE eidSampleTimestamp #-}
 
 -- | The retrieved information.
-eidMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentInfoDescription
-    -> f EnvironmentInfoDescription
+eidMessage :: Lens' EnvironmentInfoDescription (Maybe Text)
 eidMessage f x =
-    (\y -> x { _eidMessage = y })
-       <$> f (_eidMessage x)
+    f (_eidMessage x)
+        <&> \y -> x { _eidMessage = y }
 {-# INLINE eidMessage #-}
 
 instance FromXML EnvironmentInfoDescription where
@@ -1660,87 +1360,52 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
     } deriving (Show, Generic)
 
 -- | The name of the environment.
-ereEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
 ereEnvironmentName f x =
-    (\y -> x { _ereEnvironmentName = y })
-       <$> f (_ereEnvironmentName x)
+    f (_ereEnvironmentName x)
+        <&> \y -> x { _ereEnvironmentName = y }
 {-# INLINE ereEnvironmentName #-}
 
 -- | The AutoScalingGroups used by this environment.
-ereAutoScalingGroups
-    :: Functor f
-    => ([AutoScalingGroup]
-    -> f ([AutoScalingGroup]))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereAutoScalingGroups :: Lens' EnvironmentResourceDescription ([AutoScalingGroup])
 ereAutoScalingGroups f x =
-    (\y -> x { _ereAutoScalingGroups = y })
-       <$> f (_ereAutoScalingGroups x)
+    f (_ereAutoScalingGroups x)
+        <&> \y -> x { _ereAutoScalingGroups = y }
 {-# INLINE ereAutoScalingGroups #-}
 
 -- | The Amazon EC2 instances used by this environment.
-ereInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereInstances :: Lens' EnvironmentResourceDescription ([Instance])
 ereInstances f x =
-    (\y -> x { _ereInstances = y })
-       <$> f (_ereInstances x)
+    f (_ereInstances x)
+        <&> \y -> x { _ereInstances = y }
 {-# INLINE ereInstances #-}
 
 -- | The Auto Scaling launch configurations in use by this environment.
-ereLaunchConfigurations
-    :: Functor f
-    => ([LaunchConfiguration]
-    -> f ([LaunchConfiguration]))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereLaunchConfigurations :: Lens' EnvironmentResourceDescription ([LaunchConfiguration])
 ereLaunchConfigurations f x =
-    (\y -> x { _ereLaunchConfigurations = y })
-       <$> f (_ereLaunchConfigurations x)
+    f (_ereLaunchConfigurations x)
+        <&> \y -> x { _ereLaunchConfigurations = y }
 {-# INLINE ereLaunchConfigurations #-}
 
 -- | The LoadBalancers in use by this environment.
-ereLoadBalancers
-    :: Functor f
-    => ([LoadBalancer]
-    -> f ([LoadBalancer]))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereLoadBalancers :: Lens' EnvironmentResourceDescription ([LoadBalancer])
 ereLoadBalancers f x =
-    (\y -> x { _ereLoadBalancers = y })
-       <$> f (_ereLoadBalancers x)
+    f (_ereLoadBalancers x)
+        <&> \y -> x { _ereLoadBalancers = y }
 {-# INLINE ereLoadBalancers #-}
 
 -- | The AutoScaling triggers in use by this environment.
-ereTriggers
-    :: Functor f
-    => ([Trigger]
-    -> f ([Trigger]))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereTriggers :: Lens' EnvironmentResourceDescription ([Trigger])
 ereTriggers f x =
-    (\y -> x { _ereTriggers = y })
-       <$> f (_ereTriggers x)
+    f (_ereTriggers x)
+        <&> \y -> x { _ereTriggers = y }
 {-# INLINE ereTriggers #-}
 
 -- | The queues used by this environment.
-ereQueues
-    :: Functor f
-    => ([Queue]
-    -> f ([Queue]))
-    -> EnvironmentResourceDescription
-    -> f EnvironmentResourceDescription
+ereQueues :: Lens' EnvironmentResourceDescription ([Queue])
 ereQueues f x =
-    (\y -> x { _ereQueues = y })
-       <$> f (_ereQueues x)
+    f (_ereQueues x)
+        <&> \y -> x { _ereQueues = y }
 {-# INLINE ereQueues #-}
 
 instance FromXML EnvironmentResourceDescription where
@@ -1758,39 +1423,24 @@ data EnvironmentTier = EnvironmentTier
     } deriving (Show, Generic)
 
 -- | The name of this environment tier.
-etName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentTier
-    -> f EnvironmentTier
+etName :: Lens' EnvironmentTier (Maybe Text)
 etName f x =
-    (\y -> x { _etName = y })
-       <$> f (_etName x)
+    f (_etName x)
+        <&> \y -> x { _etName = y }
 {-# INLINE etName #-}
 
 -- | The type of this environment tier.
-etType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentTier
-    -> f EnvironmentTier
+etType :: Lens' EnvironmentTier (Maybe Text)
 etType f x =
-    (\y -> x { _etType = y })
-       <$> f (_etType x)
+    f (_etType x)
+        <&> \y -> x { _etType = y }
 {-# INLINE etType #-}
 
 -- | The version of this environment tier.
-etVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnvironmentTier
-    -> f EnvironmentTier
+etVersion :: Lens' EnvironmentTier (Maybe Text)
 etVersion f x =
-    (\y -> x { _etVersion = y })
-       <$> f (_etVersion x)
+    f (_etVersion x)
+        <&> \y -> x { _etVersion = y }
 {-# INLINE etVersion #-}
 
 instance FromXML EnvironmentTier where
@@ -1822,99 +1472,59 @@ data EventDescription = EventDescription
     } deriving (Show, Generic)
 
 -- | The date when the event occurred.
-efEventDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> EventDescription
-    -> f EventDescription
+efEventDate :: Lens' EventDescription (Maybe ISO8601)
 efEventDate f x =
-    (\y -> x { _efEventDate = y })
-       <$> f (_efEventDate x)
+    f (_efEventDate x)
+        <&> \y -> x { _efEventDate = y }
 {-# INLINE efEventDate #-}
 
 -- | The event message.
-efMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EventDescription
-    -> f EventDescription
+efMessage :: Lens' EventDescription (Maybe Text)
 efMessage f x =
-    (\y -> x { _efMessage = y })
-       <$> f (_efMessage x)
+    f (_efMessage x)
+        <&> \y -> x { _efMessage = y }
 {-# INLINE efMessage #-}
 
 -- | The application associated with the event.
-efApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EventDescription
-    -> f EventDescription
+efApplicationName :: Lens' EventDescription (Maybe Text)
 efApplicationName f x =
-    (\y -> x { _efApplicationName = y })
-       <$> f (_efApplicationName x)
+    f (_efApplicationName x)
+        <&> \y -> x { _efApplicationName = y }
 {-# INLINE efApplicationName #-}
 
 -- | The release label for the application version associated with this event.
-efVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EventDescription
-    -> f EventDescription
+efVersionLabel :: Lens' EventDescription (Maybe Text)
 efVersionLabel f x =
-    (\y -> x { _efVersionLabel = y })
-       <$> f (_efVersionLabel x)
+    f (_efVersionLabel x)
+        <&> \y -> x { _efVersionLabel = y }
 {-# INLINE efVersionLabel #-}
 
 -- | The name of the configuration associated with this event.
-efTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EventDescription
-    -> f EventDescription
+efTemplateName :: Lens' EventDescription (Maybe Text)
 efTemplateName f x =
-    (\y -> x { _efTemplateName = y })
-       <$> f (_efTemplateName x)
+    f (_efTemplateName x)
+        <&> \y -> x { _efTemplateName = y }
 {-# INLINE efTemplateName #-}
 
 -- | The name of the environment associated with this event.
-efEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EventDescription
-    -> f EventDescription
+efEnvironmentName :: Lens' EventDescription (Maybe Text)
 efEnvironmentName f x =
-    (\y -> x { _efEnvironmentName = y })
-       <$> f (_efEnvironmentName x)
+    f (_efEnvironmentName x)
+        <&> \y -> x { _efEnvironmentName = y }
 {-# INLINE efEnvironmentName #-}
 
 -- | The web service request ID for the activity of this event.
-efRequestId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EventDescription
-    -> f EventDescription
+efRequestId :: Lens' EventDescription (Maybe Text)
 efRequestId f x =
-    (\y -> x { _efRequestId = y })
-       <$> f (_efRequestId x)
+    f (_efRequestId x)
+        <&> \y -> x { _efRequestId = y }
 {-# INLINE efRequestId #-}
 
 -- | The severity level of this event.
-efSeverity
-    :: Functor f
-    => (Maybe EventSeverity
-    -> f (Maybe EventSeverity))
-    -> EventDescription
-    -> f EventDescription
+efSeverity :: Lens' EventDescription (Maybe EventSeverity)
 efSeverity f x =
-    (\y -> x { _efSeverity = y })
-       <$> f (_efSeverity x)
+    f (_efSeverity x)
+        <&> \y -> x { _efSeverity = y }
 {-# INLINE efSeverity #-}
 
 instance FromXML EventDescription where
@@ -1930,27 +1540,17 @@ data Listener = Listener
     } deriving (Show, Generic)
 
 -- | The protocol that is used by the Listener.
-lProtocol
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Listener
-    -> f Listener
+lProtocol :: Lens' Listener (Maybe Text)
 lProtocol f x =
-    (\y -> x { _lProtocol = y })
-       <$> f (_lProtocol x)
+    f (_lProtocol x)
+        <&> \y -> x { _lProtocol = y }
 {-# INLINE lProtocol #-}
 
 -- | The port that is used by the Listener.
-lPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Listener
-    -> f Listener
+lPort :: Lens' Listener (Maybe Integer)
 lPort f x =
-    (\y -> x { _lPort = y })
-       <$> f (_lPort x)
+    f (_lPort x)
+        <&> \y -> x { _lPort = y }
 {-# INLINE lPort #-}
 
 instance FromXML Listener where
@@ -1971,39 +1571,24 @@ data LoadBalancerDescription = LoadBalancerDescription
     } deriving (Show, Generic)
 
 -- | The name of the LoadBalancer.
-lbdLoadBalancerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdLoadBalancerName f x =
-    (\y -> x { _lbdLoadBalancerName = y })
-       <$> f (_lbdLoadBalancerName x)
+    f (_lbdLoadBalancerName x)
+        <&> \y -> x { _lbdLoadBalancerName = y }
 {-# INLINE lbdLoadBalancerName #-}
 
 -- | The domain name of the LoadBalancer.
-lbdDomain
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
 lbdDomain f x =
-    (\y -> x { _lbdDomain = y })
-       <$> f (_lbdDomain x)
+    f (_lbdDomain x)
+        <&> \y -> x { _lbdDomain = y }
 {-# INLINE lbdDomain #-}
 
 -- | A list of Listeners used by the LoadBalancer.
-lbdListeners
-    :: Functor f
-    => ([Listener]
-    -> f ([Listener]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbdListeners :: Lens' LoadBalancerDescription ([Listener])
 lbdListeners f x =
-    (\y -> x { _lbdListeners = y })
-       <$> f (_lbdListeners x)
+    f (_lbdListeners x)
+        <&> \y -> x { _lbdListeners = y }
 {-# INLINE lbdListeners #-}
 
 instance FromXML LoadBalancerDescription where
@@ -2025,27 +1610,17 @@ data OptionRestrictionRegex = OptionRestrictionRegex
 
 -- | The regular expression pattern that a string configuration option value
 -- with this restriction must match.
-orrPattern
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> OptionRestrictionRegex
-    -> f OptionRestrictionRegex
+orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
 orrPattern f x =
-    (\y -> x { _orrPattern = y })
-       <$> f (_orrPattern x)
+    f (_orrPattern x)
+        <&> \y -> x { _orrPattern = y }
 {-# INLINE orrPattern #-}
 
 -- | A unique name representing this regular expression.
-orrLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> OptionRestrictionRegex
-    -> f OptionRestrictionRegex
+orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
 orrLabel f x =
-    (\y -> x { _orrLabel = y })
-       <$> f (_orrLabel x)
+    f (_orrLabel x)
+        <&> \y -> x { _orrLabel = y }
 {-# INLINE orrLabel #-}
 
 instance FromXML OptionRestrictionRegex where
@@ -2065,27 +1640,17 @@ data OptionSpecification = OptionSpecification
     } deriving (Show, Generic)
 
 -- | A unique namespace identifying the option's associated AWS resource.
-osNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> OptionSpecification
-    -> f OptionSpecification
+osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace f x =
-    (\y -> x { _osNamespace = y })
-       <$> f (_osNamespace x)
+    f (_osNamespace x)
+        <&> \y -> x { _osNamespace = y }
 {-# INLINE osNamespace #-}
 
 -- | The name of the configuration option.
-osOptionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> OptionSpecification
-    -> f OptionSpecification
+osOptionName :: Lens' OptionSpecification (Maybe Text)
 osOptionName f x =
-    (\y -> x { _osOptionName = y })
-       <$> f (_osOptionName x)
+    f (_osOptionName x)
+        <&> \y -> x { _osOptionName = y }
 {-# INLINE osOptionName #-}
 
 instance ToQuery OptionSpecification where
@@ -2100,27 +1665,17 @@ data Queue = Queue
     } deriving (Show, Generic)
 
 -- | The name of the queue.
-qeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Queue
-    -> f Queue
+qeName :: Lens' Queue (Maybe Text)
 qeName f x =
-    (\y -> x { _qeName = y })
-       <$> f (_qeName x)
+    f (_qeName x)
+        <&> \y -> x { _qeName = y }
 {-# INLINE qeName #-}
 
 -- | The URL of the queue.
-qeURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Queue
-    -> f Queue
+qeURL :: Lens' Queue (Maybe Text)
 qeURL f x =
-    (\y -> x { _qeURL = y })
-       <$> f (_qeURL x)
+    f (_qeURL x)
+        <&> \y -> x { _qeURL = y }
 {-# INLINE qeURL #-}
 
 instance FromXML Queue where
@@ -2143,27 +1698,17 @@ data S3Location = S3Location
     } deriving (Show, Generic)
 
 -- | The Amazon S3 bucket where the data is located.
-slS3Bucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> S3Location
-    -> f S3Location
+slS3Bucket :: Lens' S3Location (Maybe Text)
 slS3Bucket f x =
-    (\y -> x { _slS3Bucket = y })
-       <$> f (_slS3Bucket x)
+    f (_slS3Bucket x)
+        <&> \y -> x { _slS3Bucket = y }
 {-# INLINE slS3Bucket #-}
 
 -- | The Amazon S3 key where the data is located.
-slS3Key
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> S3Location
-    -> f S3Location
+slS3Key :: Lens' S3Location (Maybe Text)
 slS3Key f x =
-    (\y -> x { _slS3Key = y })
-       <$> f (_slS3Key x)
+    f (_slS3Key x)
+        <&> \y -> x { _slS3Key = y }
 {-# INLINE slS3Key #-}
 
 instance FromXML S3Location where
@@ -2182,27 +1727,17 @@ data SolutionStackDescription = SolutionStackDescription
     } deriving (Show, Generic)
 
 -- | The name of the solution stack.
-ssdSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SolutionStackDescription
-    -> f SolutionStackDescription
+ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
 ssdSolutionStackName f x =
-    (\y -> x { _ssdSolutionStackName = y })
-       <$> f (_ssdSolutionStackName x)
+    f (_ssdSolutionStackName x)
+        <&> \y -> x { _ssdSolutionStackName = y }
 {-# INLINE ssdSolutionStackName #-}
 
 -- | The permitted file types allowed for a solution stack.
-ssdPermittedFileTypes
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SolutionStackDescription
-    -> f SolutionStackDescription
+ssdPermittedFileTypes :: Lens' SolutionStackDescription ([Text])
 ssdPermittedFileTypes f x =
-    (\y -> x { _ssdPermittedFileTypes = y })
-       <$> f (_ssdPermittedFileTypes x)
+    f (_ssdPermittedFileTypes x)
+        <&> \y -> x { _ssdPermittedFileTypes = y }
 {-# INLINE ssdPermittedFileTypes #-}
 
 instance FromXML SolutionStackDescription where
@@ -2226,27 +1761,17 @@ data SourceConfiguration = SourceConfiguration
     } deriving (Show, Generic)
 
 -- | The name of the application associated with the configuration.
-sdApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SourceConfiguration
-    -> f SourceConfiguration
+sdApplicationName :: Lens' SourceConfiguration (Maybe Text)
 sdApplicationName f x =
-    (\y -> x { _sdApplicationName = y })
-       <$> f (_sdApplicationName x)
+    f (_sdApplicationName x)
+        <&> \y -> x { _sdApplicationName = y }
 {-# INLINE sdApplicationName #-}
 
 -- | The name of the configuration template.
-sdTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SourceConfiguration
-    -> f SourceConfiguration
+sdTemplateName :: Lens' SourceConfiguration (Maybe Text)
 sdTemplateName f x =
-    (\y -> x { _sdTemplateName = y })
-       <$> f (_sdTemplateName x)
+    f (_sdTemplateName x)
+        <&> \y -> x { _sdTemplateName = y }
 {-# INLINE sdTemplateName #-}
 
 instance ToQuery SourceConfiguration where
@@ -2261,27 +1786,17 @@ data Tag = Tag
     } deriving (Show, Generic)
 
 -- | The key of the tag.
-wKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+wKey :: Lens' Tag (Maybe Text)
 wKey f x =
-    (\y -> x { _wKey = y })
-       <$> f (_wKey x)
+    f (_wKey x)
+        <&> \y -> x { _wKey = y }
 {-# INLINE wKey #-}
 
 -- | The value of the tag.
-wValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+wValue :: Lens' Tag (Maybe Text)
 wValue f x =
-    (\y -> x { _wValue = y })
-       <$> f (_wValue x)
+    f (_wValue x)
+        <&> \y -> x { _wValue = y }
 {-# INLINE wValue #-}
 
 instance ToQuery Tag where
@@ -2305,15 +1820,10 @@ data ValidationMessage = ValidationMessage
     } deriving (Show, Generic)
 
 -- | A message describing the error or warning.
-vveMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidationMessage
-    -> f ValidationMessage
+vveMessage :: Lens' ValidationMessage (Maybe Text)
 vveMessage f x =
-    (\y -> x { _vveMessage = y })
-       <$> f (_vveMessage x)
+    f (_vveMessage x)
+        <&> \y -> x { _vveMessage = y }
 {-# INLINE vveMessage #-}
 
 -- | An indication of the severity of this message: error: This message
@@ -2321,39 +1831,24 @@ vveMessage f x =
 -- message is providing information you should take into account. error: This
 -- message indicates that this is not a valid setting for an option. warning:
 -- This message is providing information you should take into account.
-vveSeverity
-    :: Functor f
-    => (Maybe ValidationSeverity
-    -> f (Maybe ValidationSeverity))
-    -> ValidationMessage
-    -> f ValidationMessage
+vveSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vveSeverity f x =
-    (\y -> x { _vveSeverity = y })
-       <$> f (_vveSeverity x)
+    f (_vveSeverity x)
+        <&> \y -> x { _vveSeverity = y }
 {-# INLINE vveSeverity #-}
 
 -- | 
-vveNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidationMessage
-    -> f ValidationMessage
+vveNamespace :: Lens' ValidationMessage (Maybe Text)
 vveNamespace f x =
-    (\y -> x { _vveNamespace = y })
-       <$> f (_vveNamespace x)
+    f (_vveNamespace x)
+        <&> \y -> x { _vveNamespace = y }
 {-# INLINE vveNamespace #-}
 
 -- | 
-vveOptionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidationMessage
-    -> f ValidationMessage
+vveOptionName :: Lens' ValidationMessage (Maybe Text)
 vveOptionName f x =
-    (\y -> x { _vveOptionName = y })
-       <$> f (_vveOptionName x)
+    f (_vveOptionName x)
+        <&> \y -> x { _vveOptionName = y }
 {-# INLINE vveOptionName #-}
 
 instance FromXML ValidationMessage where

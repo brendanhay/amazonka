@@ -46,6 +46,7 @@ updateRdsDbInstance p1 = UpdateRdsDbInstance
     , _urdirDbUser = Nothing
     , _urdirDbPassword = Nothing
     }
+{-# INLINE updateRdsDbInstance #-}
 
 data UpdateRdsDbInstance = UpdateRdsDbInstance
     { _urdirRdsDbInstanceArn :: Text
@@ -57,39 +58,24 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
     } deriving (Show, Generic)
 
 -- | The Amazon RDS instance's ARN.
-urdirRdsDbInstanceArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateRdsDbInstance
-    -> f UpdateRdsDbInstance
+urdirRdsDbInstanceArn :: Lens' UpdateRdsDbInstance (Text)
 urdirRdsDbInstanceArn f x =
-    (\y -> x { _urdirRdsDbInstanceArn = y })
-       <$> f (_urdirRdsDbInstanceArn x)
+    f (_urdirRdsDbInstanceArn x)
+        <&> \y -> x { _urdirRdsDbInstanceArn = y }
 {-# INLINE urdirRdsDbInstanceArn #-}
 
 -- | The master user name.
-urdirDbUser
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateRdsDbInstance
-    -> f UpdateRdsDbInstance
+urdirDbUser :: Lens' UpdateRdsDbInstance (Maybe Text)
 urdirDbUser f x =
-    (\y -> x { _urdirDbUser = y })
-       <$> f (_urdirDbUser x)
+    f (_urdirDbUser x)
+        <&> \y -> x { _urdirDbUser = y }
 {-# INLINE urdirDbUser #-}
 
 -- | The database password.
-urdirDbPassword
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateRdsDbInstance
-    -> f UpdateRdsDbInstance
+urdirDbPassword :: Lens' UpdateRdsDbInstance (Maybe Text)
 urdirDbPassword f x =
-    (\y -> x { _urdirDbPassword = y })
-       <$> f (_urdirDbPassword x)
+    f (_urdirDbPassword x)
+        <&> \y -> x { _urdirDbPassword = y }
 {-# INLINE urdirDbPassword #-}
 
 instance ToPath UpdateRdsDbInstance

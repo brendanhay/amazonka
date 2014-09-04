@@ -22,6 +22,8 @@ module Network.AWS.S3.V2006_03_01.CopyObject
     (
     -- * Request
       CopyObject
+    -- ** Request alias
+    , PutObjectCopy
     -- ** Request constructor
     , copyObject
     -- ** Request lenses

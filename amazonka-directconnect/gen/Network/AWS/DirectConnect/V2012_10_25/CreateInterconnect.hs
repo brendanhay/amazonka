@@ -67,6 +67,7 @@ createInterconnect p1 p2 p3 = CreateInterconnect
     , _cirInterconnectName = p2
     , _cirLocation = p3
     }
+{-# INLINE createInterconnect #-}
 
 data CreateInterconnect = CreateInterconnect
     { _cirBandwidth :: Text
@@ -81,40 +82,25 @@ data CreateInterconnect = CreateInterconnect
 
 -- | The port bandwidth Example: 1Gbps Default: None Available values:
 -- 1Gbps,10Gbps.
-cirBandwidth
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInterconnect
-    -> f CreateInterconnect
+cirBandwidth :: Lens' CreateInterconnect (Text)
 cirBandwidth f x =
-    (\y -> x { _cirBandwidth = y })
-       <$> f (_cirBandwidth x)
+    f (_cirBandwidth x)
+        <&> \y -> x { _cirBandwidth = y }
 {-# INLINE cirBandwidth #-}
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS" Default:
 -- None.
-cirInterconnectName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInterconnect
-    -> f CreateInterconnect
+cirInterconnectName :: Lens' CreateInterconnect (Text)
 cirInterconnectName f x =
-    (\y -> x { _cirInterconnectName = y })
-       <$> f (_cirInterconnectName x)
+    f (_cirInterconnectName x)
+        <&> \y -> x { _cirInterconnectName = y }
 {-# INLINE cirInterconnectName #-}
 
 -- | Where the interconnect is located Example: EqSV5 Default: None.
-cirLocation
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInterconnect
-    -> f CreateInterconnect
+cirLocation :: Lens' CreateInterconnect (Text)
 cirLocation f x =
-    (\y -> x { _cirLocation = y })
-       <$> f (_cirLocation x)
+    f (_cirLocation x)
+        <&> \y -> x { _cirLocation = y }
 {-# INLINE cirLocation #-}
 
 instance ToPath CreateInterconnect
@@ -148,39 +134,24 @@ data CreateInterconnectResponse = CreateInterconnectResponse
     } deriving (Show, Generic)
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-iBandwidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInterconnectResponse
-    -> f CreateInterconnectResponse
+iBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
 iBandwidth f x =
-    (\y -> x { _iBandwidth = y })
-       <$> f (_iBandwidth x)
+    f (_iBandwidth x)
+        <&> \y -> x { _iBandwidth = y }
 {-# INLINE iBandwidth #-}
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
-iInterconnectId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInterconnectResponse
-    -> f CreateInterconnectResponse
+iInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)
 iInterconnectId f x =
-    (\y -> x { _iInterconnectId = y })
-       <$> f (_iInterconnectId x)
+    f (_iInterconnectId x)
+        <&> \y -> x { _iInterconnectId = y }
 {-# INLINE iInterconnectId #-}
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS".
-iInterconnectName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInterconnectResponse
-    -> f CreateInterconnectResponse
+iInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
 iInterconnectName f x =
-    (\y -> x { _iInterconnectName = y })
-       <$> f (_iInterconnectName x)
+    f (_iInterconnectName x)
+        <&> \y -> x { _iInterconnectName = y }
 {-# INLINE iInterconnectName #-}
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
@@ -189,40 +160,25 @@ iInterconnectName f x =
 -- been approved, and is being initialized. Available: The network link is up,
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
-iInterconnectState
-    :: Functor f
-    => (Maybe InterconnectState
-    -> f (Maybe InterconnectState))
-    -> CreateInterconnectResponse
-    -> f CreateInterconnectResponse
+iInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
 iInterconnectState f x =
-    (\y -> x { _iInterconnectState = y })
-       <$> f (_iInterconnectState x)
+    f (_iInterconnectState x)
+        <&> \y -> x { _iInterconnectState = y }
 {-# INLINE iInterconnectState #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-iLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInterconnectResponse
-    -> f CreateInterconnectResponse
+iLocation :: Lens' CreateInterconnectResponse (Maybe Text)
 iLocation f x =
-    (\y -> x { _iLocation = y })
-       <$> f (_iLocation x)
+    f (_iLocation x)
+        <&> \y -> x { _iLocation = y }
 {-# INLINE iLocation #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-iRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInterconnectResponse
-    -> f CreateInterconnectResponse
+iRegion :: Lens' CreateInterconnectResponse (Maybe Text)
 iRegion f x =
-    (\y -> x { _iRegion = y })
-       <$> f (_iRegion x)
+    f (_iRegion x)
+        <&> \y -> x { _iRegion = y }
 {-# INLINE iRegion #-}
 
 instance FromJSON CreateInterconnectResponse

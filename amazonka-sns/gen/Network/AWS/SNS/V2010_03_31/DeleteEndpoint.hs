@@ -53,6 +53,7 @@ deleteEndpoint :: Text -- ^ 'deiEndpointArn'
 deleteEndpoint p1 = DeleteEndpoint
     { _deiEndpointArn = p1
     }
+{-# INLINE deleteEndpoint #-}
 
 data DeleteEndpoint = DeleteEndpoint
     { _deiEndpointArn :: Text
@@ -60,15 +61,10 @@ data DeleteEndpoint = DeleteEndpoint
     } deriving (Show, Generic)
 
 -- | EndpointArn of endpoint to delete.
-deiEndpointArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteEndpoint
-    -> f DeleteEndpoint
+deiEndpointArn :: Lens' DeleteEndpoint (Text)
 deiEndpointArn f x =
-    (\y -> x { _deiEndpointArn = y })
-       <$> f (_deiEndpointArn x)
+    f (_deiEndpointArn x)
+        <&> \y -> x { _deiEndpointArn = y }
 {-# INLINE deiEndpointArn #-}
 
 instance ToQuery DeleteEndpoint where

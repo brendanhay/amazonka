@@ -82,6 +82,7 @@ putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
     , _pmaiInsufficientDataActions = mempty
     , _pmaiUnit = Nothing
     }
+{-# INLINE putMetricAlarm #-}
 
 data PutMetricAlarm = PutMetricAlarm
     { _pmaiAlarmName :: Text
@@ -136,195 +137,120 @@ data PutMetricAlarm = PutMetricAlarm
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account.
-pmaiAlarmName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiAlarmName :: Lens' PutMetricAlarm (Text)
 pmaiAlarmName f x =
-    (\y -> x { _pmaiAlarmName = y })
-       <$> f (_pmaiAlarmName x)
+    f (_pmaiAlarmName x)
+        <&> \y -> x { _pmaiAlarmName = y }
 {-# INLINE pmaiAlarmName #-}
 
 -- | The arithmetic operation to use when comparing the specified Statistic and
 -- Threshold. The specified Statistic value is used as the first operand.
-pmaiComparisonOperator
-    :: Functor f
-    => (ComparisonOperator
-    -> f (ComparisonOperator))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiComparisonOperator :: Lens' PutMetricAlarm (ComparisonOperator)
 pmaiComparisonOperator f x =
-    (\y -> x { _pmaiComparisonOperator = y })
-       <$> f (_pmaiComparisonOperator x)
+    f (_pmaiComparisonOperator x)
+        <&> \y -> x { _pmaiComparisonOperator = y }
 {-# INLINE pmaiComparisonOperator #-}
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
-pmaiEvaluationPeriods
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiEvaluationPeriods :: Lens' PutMetricAlarm (Integer)
 pmaiEvaluationPeriods f x =
-    (\y -> x { _pmaiEvaluationPeriods = y })
-       <$> f (_pmaiEvaluationPeriods x)
+    f (_pmaiEvaluationPeriods x)
+        <&> \y -> x { _pmaiEvaluationPeriods = y }
 {-# INLINE pmaiEvaluationPeriods #-}
 
 -- | The name for the alarm's associated metric.
-pmaiMetricName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiMetricName :: Lens' PutMetricAlarm (Text)
 pmaiMetricName f x =
-    (\y -> x { _pmaiMetricName = y })
-       <$> f (_pmaiMetricName x)
+    f (_pmaiMetricName x)
+        <&> \y -> x { _pmaiMetricName = y }
 {-# INLINE pmaiMetricName #-}
 
 -- | The namespace for the alarm's associated metric.
-pmaiNamespace
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiNamespace :: Lens' PutMetricAlarm (Text)
 pmaiNamespace f x =
-    (\y -> x { _pmaiNamespace = y })
-       <$> f (_pmaiNamespace x)
+    f (_pmaiNamespace x)
+        <&> \y -> x { _pmaiNamespace = y }
 {-# INLINE pmaiNamespace #-}
 
 -- | The period in seconds over which the specified statistic is applied.
-pmaiPeriod
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiPeriod :: Lens' PutMetricAlarm (Integer)
 pmaiPeriod f x =
-    (\y -> x { _pmaiPeriod = y })
-       <$> f (_pmaiPeriod x)
+    f (_pmaiPeriod x)
+        <&> \y -> x { _pmaiPeriod = y }
 {-# INLINE pmaiPeriod #-}
 
 -- | The statistic to apply to the alarm's associated metric.
-pmaiStatistic
-    :: Functor f
-    => (Statistic
-    -> f (Statistic))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiStatistic :: Lens' PutMetricAlarm (Statistic)
 pmaiStatistic f x =
-    (\y -> x { _pmaiStatistic = y })
-       <$> f (_pmaiStatistic x)
+    f (_pmaiStatistic x)
+        <&> \y -> x { _pmaiStatistic = y }
 {-# INLINE pmaiStatistic #-}
 
 -- | The value against which the specified statistic is compared.
-pmaiThreshold
-    :: Functor f
-    => (Double
-    -> f (Double))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiThreshold :: Lens' PutMetricAlarm (Double)
 pmaiThreshold f x =
-    (\y -> x { _pmaiThreshold = y })
-       <$> f (_pmaiThreshold x)
+    f (_pmaiThreshold x)
+        <&> \y -> x { _pmaiThreshold = y }
 {-# INLINE pmaiThreshold #-}
 
 -- | Indicates whether or not actions should be executed during any changes to
 -- the alarm's state.
-pmaiActionsEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
 pmaiActionsEnabled f x =
-    (\y -> x { _pmaiActionsEnabled = y })
-       <$> f (_pmaiActionsEnabled x)
+    f (_pmaiActionsEnabled x)
+        <&> \y -> x { _pmaiActionsEnabled = y }
 {-# INLINE pmaiActionsEnabled #-}
 
 -- | The description for the alarm.
-pmaiAlarmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
 pmaiAlarmDescription f x =
-    (\y -> x { _pmaiAlarmDescription = y })
-       <$> f (_pmaiAlarmDescription x)
+    f (_pmaiAlarmDescription x)
+        <&> \y -> x { _pmaiAlarmDescription = y }
 {-# INLINE pmaiAlarmDescription #-}
 
 -- | The dimensions for the alarm's associated metric.
-pmaiDimensions
-    :: Functor f
-    => ([Dimension]
-    -> f ([Dimension]))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiDimensions :: Lens' PutMetricAlarm ([Dimension])
 pmaiDimensions f x =
-    (\y -> x { _pmaiDimensions = y })
-       <$> f (_pmaiDimensions x)
+    f (_pmaiDimensions x)
+        <&> \y -> x { _pmaiDimensions = y }
 {-# INLINE pmaiDimensions #-}
 
 -- | The list of actions to execute when this alarm transitions into an OK state
 -- from any other state. Each action is specified as an Amazon Resource Number
 -- (ARN). Currently the only action supported is publishing to an Amazon SNS
 -- topic or an Amazon Auto Scaling policy.
-pmaiOKActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiOKActions :: Lens' PutMetricAlarm ([Text])
 pmaiOKActions f x =
-    (\y -> x { _pmaiOKActions = y })
-       <$> f (_pmaiOKActions x)
+    f (_pmaiOKActions x)
+        <&> \y -> x { _pmaiOKActions = y }
 {-# INLINE pmaiOKActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an ALARM
 -- state from any other state. Each action is specified as an Amazon Resource
 -- Number (ARN). Currently the only action supported is publishing to an
 -- Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaiAlarmActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiAlarmActions :: Lens' PutMetricAlarm ([Text])
 pmaiAlarmActions f x =
-    (\y -> x { _pmaiAlarmActions = y })
-       <$> f (_pmaiAlarmActions x)
+    f (_pmaiAlarmActions x)
+        <&> \y -> x { _pmaiAlarmActions = y }
 {-# INLINE pmaiAlarmActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
 -- an Amazon Resource Number (ARN). Currently the only action supported is
 -- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaiInsufficientDataActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiInsufficientDataActions :: Lens' PutMetricAlarm ([Text])
 pmaiInsufficientDataActions f x =
-    (\y -> x { _pmaiInsufficientDataActions = y })
-       <$> f (_pmaiInsufficientDataActions x)
+    f (_pmaiInsufficientDataActions x)
+        <&> \y -> x { _pmaiInsufficientDataActions = y }
 {-# INLINE pmaiInsufficientDataActions #-}
 
 -- | The unit for the alarm's associated metric.
-pmaiUnit
-    :: Functor f
-    => (Maybe StandardUnit
-    -> f (Maybe StandardUnit))
-    -> PutMetricAlarm
-    -> f PutMetricAlarm
+pmaiUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
 pmaiUnit f x =
-    (\y -> x { _pmaiUnit = y })
-       <$> f (_pmaiUnit x)
+    f (_pmaiUnit x)
+        <&> \y -> x { _pmaiUnit = y }
 {-# INLINE pmaiUnit #-}
 
 instance ToQuery PutMetricAlarm where

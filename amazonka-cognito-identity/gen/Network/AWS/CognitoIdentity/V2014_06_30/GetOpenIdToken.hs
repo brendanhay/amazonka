@@ -55,6 +55,7 @@ getOpenIdToken p1 = GetOpenIdToken
     { _goitiIdentityId = p1
     , _goitiLogins = mempty
     }
+{-# INLINE getOpenIdToken #-}
 
 data GetOpenIdToken = GetOpenIdToken
     { _goitiIdentityId :: Text
@@ -65,28 +66,18 @@ data GetOpenIdToken = GetOpenIdToken
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
-goitiIdentityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetOpenIdToken
-    -> f GetOpenIdToken
+goitiIdentityId :: Lens' GetOpenIdToken (Text)
 goitiIdentityId f x =
-    (\y -> x { _goitiIdentityId = y })
-       <$> f (_goitiIdentityId x)
+    f (_goitiIdentityId x)
+        <&> \y -> x { _goitiIdentityId = y }
 {-# INLINE goitiIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-goitiLogins
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetOpenIdToken
-    -> f GetOpenIdToken
+goitiLogins :: Lens' GetOpenIdToken (Map Text Text)
 goitiLogins f x =
-    (\y -> x { _goitiLogins = y })
-       <$> f (_goitiLogins x)
+    f (_goitiLogins x)
+        <&> \y -> x { _goitiLogins = y }
 {-# INLINE goitiLogins #-}
 
 instance ToPath GetOpenIdToken
@@ -107,27 +98,17 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-goitrIdentityId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetOpenIdTokenResponse
-    -> f GetOpenIdTokenResponse
+goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrIdentityId f x =
-    (\y -> x { _goitrIdentityId = y })
-       <$> f (_goitrIdentityId x)
+    f (_goitrIdentityId x)
+        <&> \y -> x { _goitrIdentityId = y }
 {-# INLINE goitrIdentityId #-}
 
 -- | An OpenID token.
-goitrToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetOpenIdTokenResponse
-    -> f GetOpenIdTokenResponse
+goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrToken f x =
-    (\y -> x { _goitrToken = y })
-       <$> f (_goitrToken x)
+    f (_goitrToken x)
+        <&> \y -> x { _goitrToken = y }
 {-# INLINE goitrToken #-}
 
 instance FromJSON GetOpenIdTokenResponse

@@ -47,6 +47,7 @@ deleteStack :: Text -- ^ 'dsiStackName'
 deleteStack p1 = DeleteStack
     { _dsiStackName = p1
     }
+{-# INLINE deleteStack #-}
 
 data DeleteStack = DeleteStack
     { _dsiStackName :: Text
@@ -54,15 +55,10 @@ data DeleteStack = DeleteStack
     } deriving (Show, Generic)
 
 -- | The name or the unique identifier associated with the stack.
-dsiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteStack
-    -> f DeleteStack
+dsiStackName :: Lens' DeleteStack (Text)
 dsiStackName f x =
-    (\y -> x { _dsiStackName = y })
-       <$> f (_dsiStackName x)
+    f (_dsiStackName x)
+        <&> \y -> x { _dsiStackName = y }
 {-# INLINE dsiStackName #-}
 
 instance ToQuery DeleteStack where

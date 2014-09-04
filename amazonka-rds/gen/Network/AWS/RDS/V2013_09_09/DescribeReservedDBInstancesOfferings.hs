@@ -63,6 +63,7 @@ describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     , _drdbiomOfferingType = Nothing
     , _drdbiomMarker = Nothing
     }
+{-# INLINE describeReservedDBInstancesOfferings #-}
 
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     { _drdbiomMultiAZ :: Maybe Bool
@@ -105,112 +106,72 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 
 -- | The Multi-AZ filter value. Specify this parameter to show only the
 -- available offerings matching the specified Multi-AZ parameter.
-drdbiomMultiAZ
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomMultiAZ :: Lens' DescribeReservedDBInstancesOfferings (Maybe Bool)
 drdbiomMultiAZ f x =
-    (\y -> x { _drdbiomMultiAZ = y })
-       <$> f (_drdbiomMultiAZ x)
+    f (_drdbiomMultiAZ x)
+        <&> \y -> x { _drdbiomMultiAZ = y }
 {-# INLINE drdbiomMultiAZ #-}
 
 -- | The maximum number of records to include in the response. If more than the
 -- MaxRecords value is available, a pagination token called a marker is
 -- included in the response so that the following results can be retrieved.
 -- Default: 100 Constraints: minimum 20, maximum 100.
-drdbiomMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomMaxRecords :: Lens' DescribeReservedDBInstancesOfferings (Maybe Integer)
 drdbiomMaxRecords f x =
-    (\y -> x { _drdbiomMaxRecords = y })
-       <$> f (_drdbiomMaxRecords x)
+    f (_drdbiomMaxRecords x)
+        <&> \y -> x { _drdbiomMaxRecords = y }
 {-# INLINE drdbiomMaxRecords #-}
 
 -- | The offering identifier filter value. Specify this parameter to show only
 -- the available offering that matches the specified reservation identifier.
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-drdbiomReservedDBInstancesOfferingId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbiomReservedDBInstancesOfferingId f x =
-    (\y -> x { _drdbiomReservedDBInstancesOfferingId = y })
-       <$> f (_drdbiomReservedDBInstancesOfferingId x)
+    f (_drdbiomReservedDBInstancesOfferingId x)
+        <&> \y -> x { _drdbiomReservedDBInstancesOfferingId = y }
 {-# INLINE drdbiomReservedDBInstancesOfferingId #-}
 
 -- | The DB instance class filter value. Specify this parameter to show only the
 -- available offerings matching the specified DB instance class.
-drdbiomDBInstanceClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbiomDBInstanceClass f x =
-    (\y -> x { _drdbiomDBInstanceClass = y })
-       <$> f (_drdbiomDBInstanceClass x)
+    f (_drdbiomDBInstanceClass x)
+        <&> \y -> x { _drdbiomDBInstanceClass = y }
 {-# INLINE drdbiomDBInstanceClass #-}
 
 -- | Duration filter value, specified in years or seconds. Specify this
 -- parameter to show only reservations for this duration. Valid Values: 1 | 3
 -- | 31536000 | 94608000.
-drdbiomDuration
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbiomDuration f x =
-    (\y -> x { _drdbiomDuration = y })
-       <$> f (_drdbiomDuration x)
+    f (_drdbiomDuration x)
+        <&> \y -> x { _drdbiomDuration = y }
 {-# INLINE drdbiomDuration #-}
 
 -- | Product description filter value. Specify this parameter to show only the
 -- available offerings matching the specified product description.
-drdbiomProductDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbiomProductDescription f x =
-    (\y -> x { _drdbiomProductDescription = y })
-       <$> f (_drdbiomProductDescription x)
+    f (_drdbiomProductDescription x)
+        <&> \y -> x { _drdbiomProductDescription = y }
 {-# INLINE drdbiomProductDescription #-}
 
 -- | The offering type filter value. Specify this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
 -- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
-drdbiomOfferingType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbiomOfferingType f x =
-    (\y -> x { _drdbiomOfferingType = y })
-       <$> f (_drdbiomOfferingType x)
+    f (_drdbiomOfferingType x)
+        <&> \y -> x { _drdbiomOfferingType = y }
 {-# INLINE drdbiomOfferingType #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-drdbiomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferings
-    -> f DescribeReservedDBInstancesOfferings
+drdbiomMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbiomMarker f x =
-    (\y -> x { _drdbiomMarker = y })
-       <$> f (_drdbiomMarker x)
+    f (_drdbiomMarker x)
+        <&> \y -> x { _drdbiomMarker = y }
 {-# INLINE drdbiomMarker #-}
 
 instance ToQuery DescribeReservedDBInstancesOfferings where
@@ -226,29 +187,19 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
     } deriving (Show, Generic)
 
 -- | A list of reserved DB instance offerings.
-rdbiomReservedDBInstancesOfferings
-    :: Functor f
-    => ([ReservedDBInstancesOffering]
-    -> f ([ReservedDBInstancesOffering]))
-    -> DescribeReservedDBInstancesOfferingsResponse
-    -> f DescribeReservedDBInstancesOfferingsResponse
+rdbiomReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse ([ReservedDBInstancesOffering])
 rdbiomReservedDBInstancesOfferings f x =
-    (\y -> x { _rdbiomReservedDBInstancesOfferings = y })
-       <$> f (_rdbiomReservedDBInstancesOfferings x)
+    f (_rdbiomReservedDBInstancesOfferings x)
+        <&> \y -> x { _rdbiomReservedDBInstancesOfferings = y }
 {-# INLINE rdbiomReservedDBInstancesOfferings #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-rdbiomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedDBInstancesOfferingsResponse
-    -> f DescribeReservedDBInstancesOfferingsResponse
+rdbiomMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
 rdbiomMarker f x =
-    (\y -> x { _rdbiomMarker = y })
-       <$> f (_rdbiomMarker x)
+    f (_rdbiomMarker x)
+        <&> \y -> x { _rdbiomMarker = y }
 {-# INLINE rdbiomMarker #-}
 
 instance FromXML DescribeReservedDBInstancesOfferingsResponse where

@@ -54,6 +54,7 @@ retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
     , _reinEnvironmentId = Nothing
     , _reinEnvironmentName = Nothing
     }
+{-# INLINE retrieveEnvironmentInfo #-}
 
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _reinInfoType :: EnvironmentInfoType
@@ -73,45 +74,30 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     } deriving (Show, Generic)
 
 -- | The type of information to retrieve.
-reinInfoType
-    :: Functor f
-    => (EnvironmentInfoType
-    -> f (EnvironmentInfoType))
-    -> RetrieveEnvironmentInfo
-    -> f RetrieveEnvironmentInfo
+reinInfoType :: Lens' RetrieveEnvironmentInfo (EnvironmentInfoType)
 reinInfoType f x =
-    (\y -> x { _reinInfoType = y })
-       <$> f (_reinInfoType x)
+    f (_reinInfoType x)
+        <&> \y -> x { _reinInfoType = y }
 {-# INLINE reinInfoType #-}
 
 -- | The ID of the data's environment. If no such environment is found, returns
 -- an InvalidParameterValue error. Condition: You must specify either this or
 -- an EnvironmentName, or both. If you do not specify either, AWS Elastic
 -- Beanstalk returns MissingRequiredParameter error.
-reinEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RetrieveEnvironmentInfo
-    -> f RetrieveEnvironmentInfo
+reinEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 reinEnvironmentId f x =
-    (\y -> x { _reinEnvironmentId = y })
-       <$> f (_reinEnvironmentId x)
+    f (_reinEnvironmentId x)
+        <&> \y -> x { _reinEnvironmentId = y }
 {-# INLINE reinEnvironmentId #-}
 
 -- | The name of the data's environment. If no such environment is found,
 -- returns an InvalidParameterValue error. Condition: You must specify either
 -- this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-reinEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RetrieveEnvironmentInfo
-    -> f RetrieveEnvironmentInfo
+reinEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 reinEnvironmentName f x =
-    (\y -> x { _reinEnvironmentName = y })
-       <$> f (_reinEnvironmentName x)
+    f (_reinEnvironmentName x)
+        <&> \y -> x { _reinEnvironmentName = y }
 {-# INLINE reinEnvironmentName #-}
 
 instance ToQuery RetrieveEnvironmentInfo where
@@ -123,15 +109,10 @@ data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     } deriving (Show, Generic)
 
 -- | The EnvironmentInfoDescription of the environment.
-reirmEnvironmentInfo
-    :: Functor f
-    => ([EnvironmentInfoDescription]
-    -> f ([EnvironmentInfoDescription]))
-    -> RetrieveEnvironmentInfoResponse
-    -> f RetrieveEnvironmentInfoResponse
+reirmEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse ([EnvironmentInfoDescription])
 reirmEnvironmentInfo f x =
-    (\y -> x { _reirmEnvironmentInfo = y })
-       <$> f (_reirmEnvironmentInfo x)
+    f (_reirmEnvironmentInfo x)
+        <&> \y -> x { _reirmEnvironmentInfo = y }
 {-# INLINE reirmEnvironmentInfo #-}
 
 instance FromXML RetrieveEnvironmentInfoResponse where

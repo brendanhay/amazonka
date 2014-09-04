@@ -42,6 +42,7 @@ deleteTrail :: Text -- ^ 'dtrName'
 deleteTrail p1 = DeleteTrail
     { _dtrName = p1
     }
+{-# INLINE deleteTrail #-}
 
 data DeleteTrail = DeleteTrail
     { _dtrName :: Text
@@ -49,15 +50,10 @@ data DeleteTrail = DeleteTrail
     } deriving (Show, Generic)
 
 -- | The name of a trail to be deleted.
-dtrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteTrail
-    -> f DeleteTrail
+dtrName :: Lens' DeleteTrail (Text)
 dtrName f x =
-    (\y -> x { _dtrName = y })
-       <$> f (_dtrName x)
+    f (_dtrName x)
+        <&> \y -> x { _dtrName = y }
 {-# INLINE dtrName #-}
 
 instance ToPath DeleteTrail

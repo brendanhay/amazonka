@@ -65,6 +65,7 @@ listDomains = ListDomains
     { _ldrMarker = Nothing
     , _ldrMaxItems = Nothing
     }
+{-# INLINE listDomains #-}
 
 data ListDomains = ListDomains
     { _ldrMarker :: Maybe Text
@@ -90,28 +91,18 @@ data ListDomains = ListDomains
 -- NextPageMarker in the Marker element. Type: String Default: None
 -- Constraints: The marker must match the value specified in the previous
 -- request. Required: No.
-ldrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDomains
-    -> f ListDomains
+ldrMarker :: Lens' ListDomains (Maybe Text)
 ldrMarker f x =
-    (\y -> x { _ldrMarker = y })
-       <$> f (_ldrMarker x)
+    f (_ldrMarker x)
+        <&> \y -> x { _ldrMarker = y }
 {-# INLINE ldrMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- numeral between 1 and 100. Required: No.
-ldrMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListDomains
-    -> f ListDomains
+ldrMaxItems :: Lens' ListDomains (Maybe Integer)
 ldrMaxItems f x =
-    (\y -> x { _ldrMaxItems = y })
-       <$> f (_ldrMaxItems x)
+    f (_ldrMaxItems x)
+        <&> \y -> x { _ldrMaxItems = y }
 {-# INLINE ldrMaxItems #-}
 
 instance ToPath ListDomains
@@ -136,29 +127,19 @@ data ListDomainsResponse = ListDomainsResponse
 
 -- | A summary of domains. Type: Complex type containing a list of domain
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
-ldsDomains
-    :: Functor f
-    => ([DomainSummary]
-    -> f ([DomainSummary]))
-    -> ListDomainsResponse
-    -> f ListDomainsResponse
+ldsDomains :: Lens' ListDomainsResponse ([DomainSummary])
 ldsDomains f x =
-    (\y -> x { _ldsDomains = y })
-       <$> f (_ldsDomains x)
+    f (_ldsDomains x)
+        <&> \y -> x { _ldsDomains = y }
 {-# INLINE ldsDomains #-}
 
 -- | If there are more domains than you specified for MaxItems in the request,
 -- submit another request and include the value of NextPageMarker in the value
 -- of Marker. Type: String Parent: Operations.
-ldsNextPageMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDomainsResponse
-    -> f ListDomainsResponse
+ldsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldsNextPageMarker f x =
-    (\y -> x { _ldsNextPageMarker = y })
-       <$> f (_ldsNextPageMarker x)
+    f (_ldsNextPageMarker x)
+        <&> \y -> x { _ldsNextPageMarker = y }
 {-# INLINE ldsNextPageMarker #-}
 
 instance FromJSON ListDomainsResponse

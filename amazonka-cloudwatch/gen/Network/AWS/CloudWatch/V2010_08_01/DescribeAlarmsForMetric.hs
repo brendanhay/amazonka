@@ -55,6 +55,7 @@ describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     , _dafmiUnit = Nothing
     , _dafmiStatistic = Nothing
     }
+{-# INLINE describeAlarmsForMetric #-}
 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     { _dafmiMetricName :: Text
@@ -72,75 +73,45 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     } deriving (Show, Generic)
 
 -- | The name of the metric.
-dafmiMetricName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeAlarmsForMetric
-    -> f DescribeAlarmsForMetric
+dafmiMetricName :: Lens' DescribeAlarmsForMetric (Text)
 dafmiMetricName f x =
-    (\y -> x { _dafmiMetricName = y })
-       <$> f (_dafmiMetricName x)
+    f (_dafmiMetricName x)
+        <&> \y -> x { _dafmiMetricName = y }
 {-# INLINE dafmiMetricName #-}
 
 -- | The namespace of the metric.
-dafmiNamespace
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeAlarmsForMetric
-    -> f DescribeAlarmsForMetric
+dafmiNamespace :: Lens' DescribeAlarmsForMetric (Text)
 dafmiNamespace f x =
-    (\y -> x { _dafmiNamespace = y })
-       <$> f (_dafmiNamespace x)
+    f (_dafmiNamespace x)
+        <&> \y -> x { _dafmiNamespace = y }
 {-# INLINE dafmiNamespace #-}
 
 -- | The list of dimensions associated with the metric.
-dafmiDimensions
-    :: Functor f
-    => ([Dimension]
-    -> f ([Dimension]))
-    -> DescribeAlarmsForMetric
-    -> f DescribeAlarmsForMetric
+dafmiDimensions :: Lens' DescribeAlarmsForMetric ([Dimension])
 dafmiDimensions f x =
-    (\y -> x { _dafmiDimensions = y })
-       <$> f (_dafmiDimensions x)
+    f (_dafmiDimensions x)
+        <&> \y -> x { _dafmiDimensions = y }
 {-# INLINE dafmiDimensions #-}
 
 -- | The period in seconds over which the statistic is applied.
-dafmiPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAlarmsForMetric
-    -> f DescribeAlarmsForMetric
+dafmiPeriod :: Lens' DescribeAlarmsForMetric (Maybe Integer)
 dafmiPeriod f x =
-    (\y -> x { _dafmiPeriod = y })
-       <$> f (_dafmiPeriod x)
+    f (_dafmiPeriod x)
+        <&> \y -> x { _dafmiPeriod = y }
 {-# INLINE dafmiPeriod #-}
 
 -- | The unit for the metric.
-dafmiUnit
-    :: Functor f
-    => (Maybe StandardUnit
-    -> f (Maybe StandardUnit))
-    -> DescribeAlarmsForMetric
-    -> f DescribeAlarmsForMetric
+dafmiUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmiUnit f x =
-    (\y -> x { _dafmiUnit = y })
-       <$> f (_dafmiUnit x)
+    f (_dafmiUnit x)
+        <&> \y -> x { _dafmiUnit = y }
 {-# INLINE dafmiUnit #-}
 
 -- | The statistic for the metric.
-dafmiStatistic
-    :: Functor f
-    => (Maybe Statistic
-    -> f (Maybe Statistic))
-    -> DescribeAlarmsForMetric
-    -> f DescribeAlarmsForMetric
+dafmiStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
 dafmiStatistic f x =
-    (\y -> x { _dafmiStatistic = y })
-       <$> f (_dafmiStatistic x)
+    f (_dafmiStatistic x)
+        <&> \y -> x { _dafmiStatistic = y }
 {-# INLINE dafmiStatistic #-}
 
 instance ToQuery DescribeAlarmsForMetric where
@@ -152,15 +123,10 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     } deriving (Show, Generic)
 
 -- | A list of information for each alarm with the specified metric.
-dafmoMetricAlarms
-    :: Functor f
-    => ([MetricAlarm]
-    -> f ([MetricAlarm]))
-    -> DescribeAlarmsForMetricResponse
-    -> f DescribeAlarmsForMetricResponse
+dafmoMetricAlarms :: Lens' DescribeAlarmsForMetricResponse ([MetricAlarm])
 dafmoMetricAlarms f x =
-    (\y -> x { _dafmoMetricAlarms = y })
-       <$> f (_dafmoMetricAlarms x)
+    f (_dafmoMetricAlarms x)
+        <&> \y -> x { _dafmoMetricAlarms = y }
 {-# INLINE dafmoMetricAlarms #-}
 
 instance FromXML DescribeAlarmsForMetricResponse where

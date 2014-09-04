@@ -86,6 +86,7 @@ createCase p1 p2 = CreateCase
     , _ccrServiceCode = Nothing
     , _ccrSeverityCode = Nothing
     }
+{-# INLINE createCase #-}
 
 data CreateCase = CreateCase
     { _ccrCommunicationBody :: Text
@@ -123,119 +124,74 @@ data CreateCase = CreateCase
 
 -- | The communication body text when you create an AWS Support case by calling
 -- CreateCase.
-ccrCommunicationBody
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCase
-    -> f CreateCase
+ccrCommunicationBody :: Lens' CreateCase (Text)
 ccrCommunicationBody f x =
-    (\y -> x { _ccrCommunicationBody = y })
-       <$> f (_ccrCommunicationBody x)
+    f (_ccrCommunicationBody x)
+        <&> \y -> x { _ccrCommunicationBody = y }
 {-# INLINE ccrCommunicationBody #-}
 
 -- | The title of the AWS Support case.
-ccrSubject
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCase
-    -> f CreateCase
+ccrSubject :: Lens' CreateCase (Text)
 ccrSubject f x =
-    (\y -> x { _ccrSubject = y })
-       <$> f (_ccrSubject x)
+    f (_ccrSubject x)
+        <&> \y -> x { _ccrSubject = y }
 {-# INLINE ccrSubject #-}
 
 -- | The ID of a set of one or more attachments for the case. Create the set by
 -- using AddAttachmentsToSet.
-ccrAttachmentSetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCase
-    -> f CreateCase
+ccrAttachmentSetId :: Lens' CreateCase (Maybe Text)
 ccrAttachmentSetId f x =
-    (\y -> x { _ccrAttachmentSetId = y })
-       <$> f (_ccrAttachmentSetId x)
+    f (_ccrAttachmentSetId x)
+        <&> \y -> x { _ccrAttachmentSetId = y }
 {-# INLINE ccrAttachmentSetId #-}
 
 -- | The category of problem for the AWS Support case.
-ccrCategoryCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCase
-    -> f CreateCase
+ccrCategoryCode :: Lens' CreateCase (Maybe Text)
 ccrCategoryCode f x =
-    (\y -> x { _ccrCategoryCode = y })
-       <$> f (_ccrCategoryCode x)
+    f (_ccrCategoryCode x)
+        <&> \y -> x { _ccrCategoryCode = y }
 {-# INLINE ccrCategoryCode #-}
 
 -- | A list of email addresses that AWS Support copies on case correspondence.
-ccrCcEmailAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCase
-    -> f CreateCase
+ccrCcEmailAddresses :: Lens' CreateCase ([Text])
 ccrCcEmailAddresses f x =
-    (\y -> x { _ccrCcEmailAddresses = y })
-       <$> f (_ccrCcEmailAddresses x)
+    f (_ccrCcEmailAddresses x)
+        <&> \y -> x { _ccrCcEmailAddresses = y }
 {-# INLINE ccrCcEmailAddresses #-}
 
 -- | The type of issue for the case. You can specify either "customer-service"
 -- or "technical." If you do not indicate a value, the default is
 -- "technical.".
-ccrIssueType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCase
-    -> f CreateCase
+ccrIssueType :: Lens' CreateCase (Maybe Text)
 ccrIssueType f x =
-    (\y -> x { _ccrIssueType = y })
-       <$> f (_ccrIssueType x)
+    f (_ccrIssueType x)
+        <&> \y -> x { _ccrIssueType = y }
 {-# INLINE ccrIssueType #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-ccrLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCase
-    -> f CreateCase
+ccrLanguage :: Lens' CreateCase (Maybe Text)
 ccrLanguage f x =
-    (\y -> x { _ccrLanguage = y })
-       <$> f (_ccrLanguage x)
+    f (_ccrLanguage x)
+        <&> \y -> x { _ccrLanguage = y }
 {-# INLINE ccrLanguage #-}
 
 -- | The code for the AWS service returned by the call to DescribeServices.
-ccrServiceCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCase
-    -> f CreateCase
+ccrServiceCode :: Lens' CreateCase (Maybe Text)
 ccrServiceCode f x =
-    (\y -> x { _ccrServiceCode = y })
-       <$> f (_ccrServiceCode x)
+    f (_ccrServiceCode x)
+        <&> \y -> x { _ccrServiceCode = y }
 {-# INLINE ccrServiceCode #-}
 
 -- | The code for the severity level returned by the call to
 -- DescribeSeverityLevels. The availability of severity levels depends on each
 -- customer's support subscription. In other words, your subscription may not
 -- necessarily require the urgent level of response time.
-ccrSeverityCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCase
-    -> f CreateCase
+ccrSeverityCode :: Lens' CreateCase (Maybe Text)
 ccrSeverityCode f x =
-    (\y -> x { _ccrSeverityCode = y })
-       <$> f (_ccrSeverityCode x)
+    f (_ccrSeverityCode x)
+        <&> \y -> x { _ccrSeverityCode = y }
 {-# INLINE ccrSeverityCode #-}
 
 instance ToPath CreateCase
@@ -256,15 +212,10 @@ data CreateCaseResponse = CreateCaseResponse
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
-ccsCaseId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateCaseResponse
-    -> f CreateCaseResponse
+ccsCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccsCaseId f x =
-    (\y -> x { _ccsCaseId = y })
-       <$> f (_ccsCaseId x)
+    f (_ccsCaseId x)
+        <&> \y -> x { _ccsCaseId = y }
 {-# INLINE ccsCaseId #-}
 
 instance FromJSON CreateCaseResponse

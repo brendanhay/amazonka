@@ -61,6 +61,7 @@ getStatus :: Text -- ^ 'gsiJobId'
 getStatus p1 = GetStatus
     { _gsiJobId = p1
     }
+{-# INLINE getStatus #-}
 
 data GetStatus = GetStatus
     { _gsiJobId :: Text
@@ -68,15 +69,10 @@ data GetStatus = GetStatus
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
-gsiJobId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetStatus
-    -> f GetStatus
+gsiJobId :: Lens' GetStatus (Text)
 gsiJobId f x =
-    (\y -> x { _gsiJobId = y })
-       <$> f (_gsiJobId x)
+    f (_gsiJobId x)
+        <&> \y -> x { _gsiJobId = y }
 {-# INLINE gsiJobId #-}
 
 instance ToQuery GetStatus where
@@ -132,206 +128,126 @@ data GetStatusResponse = GetStatusResponse
     } deriving (Show, Generic)
 
 -- | Address you ship your storage device to.
-gsoAwsShippingAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoAwsShippingAddress :: Lens' GetStatusResponse (Maybe Text)
 gsoAwsShippingAddress f x =
-    (\y -> x { _gsoAwsShippingAddress = y })
-       <$> f (_gsoAwsShippingAddress x)
+    f (_gsoAwsShippingAddress x)
+        <&> \y -> x { _gsoAwsShippingAddress = y }
 {-# INLINE gsoAwsShippingAddress #-}
 
 -- | Name of the shipping company. This value is included when the LocationCode
 -- is "Returned".
-gsoCarrier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoCarrier :: Lens' GetStatusResponse (Maybe Text)
 gsoCarrier f x =
-    (\y -> x { _gsoCarrier = y })
-       <$> f (_gsoCarrier x)
+    f (_gsoCarrier x)
+        <&> \y -> x { _gsoCarrier = y }
 {-# INLINE gsoCarrier #-}
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
-gsoCreationDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoCreationDate :: Lens' GetStatusResponse (Maybe ISO8601)
 gsoCreationDate f x =
-    (\y -> x { _gsoCreationDate = y })
-       <$> f (_gsoCreationDate x)
+    f (_gsoCreationDate x)
+        <&> \y -> x { _gsoCreationDate = y }
 {-# INLINE gsoCreationDate #-}
 
 -- | The last manifest submitted, which will be used to process the job.
-gsoCurrentManifest
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
 gsoCurrentManifest f x =
-    (\y -> x { _gsoCurrentManifest = y })
-       <$> f (_gsoCurrentManifest x)
+    f (_gsoCurrentManifest x)
+        <&> \y -> x { _gsoCurrentManifest = y }
 {-# INLINE gsoCurrentManifest #-}
 
 -- | Number of errors. We return this value when the ProgressCode is Success or
 -- SuccessWithErrors.
-gsoErrorCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoErrorCount :: Lens' GetStatusResponse (Maybe Integer)
 gsoErrorCount f x =
-    (\y -> x { _gsoErrorCount = y })
-       <$> f (_gsoErrorCount x)
+    f (_gsoErrorCount x)
+        <&> \y -> x { _gsoErrorCount = y }
 {-# INLINE gsoErrorCount #-}
 
 -- | A unique identifier which refers to a particular job.
-gsoJobId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoJobId :: Lens' GetStatusResponse (Maybe Text)
 gsoJobId f x =
-    (\y -> x { _gsoJobId = y })
-       <$> f (_gsoJobId x)
+    f (_gsoJobId x)
+        <&> \y -> x { _gsoJobId = y }
 {-# INLINE gsoJobId #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
-gsoJobType
-    :: Functor f
-    => (Maybe JobType
-    -> f (Maybe JobType))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoJobType :: Lens' GetStatusResponse (Maybe JobType)
 gsoJobType f x =
-    (\y -> x { _gsoJobType = y })
-       <$> f (_gsoJobType x)
+    f (_gsoJobType x)
+        <&> \y -> x { _gsoJobType = y }
 {-# INLINE gsoJobType #-}
 
 -- | A token representing the location of the storage device, such as "AtAWS".
-gsoLocationCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoLocationCode :: Lens' GetStatusResponse (Maybe Text)
 gsoLocationCode f x =
-    (\y -> x { _gsoLocationCode = y })
-       <$> f (_gsoLocationCode x)
+    f (_gsoLocationCode x)
+        <&> \y -> x { _gsoLocationCode = y }
 {-# INLINE gsoLocationCode #-}
 
 -- | A more human readable form of the physical location of the storage device.
-gsoLocationMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoLocationMessage :: Lens' GetStatusResponse (Maybe Text)
 gsoLocationMessage f x =
-    (\y -> x { _gsoLocationMessage = y })
-       <$> f (_gsoLocationMessage x)
+    f (_gsoLocationMessage x)
+        <&> \y -> x { _gsoLocationMessage = y }
 {-# INLINE gsoLocationMessage #-}
 
 -- | Amazon S3 bucket for user logs.
-gsoLogBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoLogBucket :: Lens' GetStatusResponse (Maybe Text)
 gsoLogBucket f x =
-    (\y -> x { _gsoLogBucket = y })
-       <$> f (_gsoLogBucket x)
+    f (_gsoLogBucket x)
+        <&> \y -> x { _gsoLogBucket = y }
 {-# INLINE gsoLogBucket #-}
 
 -- | The key where the user logs were stored.
-gsoLogKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoLogKey :: Lens' GetStatusResponse (Maybe Text)
 gsoLogKey f x =
-    (\y -> x { _gsoLogKey = y })
-       <$> f (_gsoLogKey x)
+    f (_gsoLogKey x)
+        <&> \y -> x { _gsoLogKey = y }
 {-# INLINE gsoLogKey #-}
 
 -- | A token representing the state of the job, such as "Started".
-gsoProgressCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoProgressCode :: Lens' GetStatusResponse (Maybe Text)
 gsoProgressCode f x =
-    (\y -> x { _gsoProgressCode = y })
-       <$> f (_gsoProgressCode x)
+    f (_gsoProgressCode x)
+        <&> \y -> x { _gsoProgressCode = y }
 {-# INLINE gsoProgressCode #-}
 
 -- | A more human readable form of the job status.
-gsoProgressMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoProgressMessage :: Lens' GetStatusResponse (Maybe Text)
 gsoProgressMessage f x =
-    (\y -> x { _gsoProgressMessage = y })
-       <$> f (_gsoProgressMessage x)
+    f (_gsoProgressMessage x)
+        <&> \y -> x { _gsoProgressMessage = y }
 {-# INLINE gsoProgressMessage #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
-gsoSignature
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoSignature :: Lens' GetStatusResponse (Maybe Text)
 gsoSignature f x =
-    (\y -> x { _gsoSignature = y })
-       <$> f (_gsoSignature x)
+    f (_gsoSignature x)
+        <&> \y -> x { _gsoSignature = y }
 {-# INLINE gsoSignature #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
-gsoSignatureFileContents
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
 gsoSignatureFileContents f x =
-    (\y -> x { _gsoSignatureFileContents = y })
-       <$> f (_gsoSignatureFileContents x)
+    f (_gsoSignatureFileContents x)
+        <&> \y -> x { _gsoSignatureFileContents = y }
 {-# INLINE gsoSignatureFileContents #-}
 
 -- | The shipping tracking number assigned by AWS Import/Export to the storage
 -- device when it's returned to you. We return this value when the
 -- LocationCode is "Returned".
-gsoTrackingNumber
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStatusResponse
-    -> f GetStatusResponse
+gsoTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
 gsoTrackingNumber f x =
-    (\y -> x { _gsoTrackingNumber = y })
-       <$> f (_gsoTrackingNumber x)
+    f (_gsoTrackingNumber x)
+        <&> \y -> x { _gsoTrackingNumber = y }
 {-# INLINE gsoTrackingNumber #-}
 
 instance FromXML GetStatusResponse where

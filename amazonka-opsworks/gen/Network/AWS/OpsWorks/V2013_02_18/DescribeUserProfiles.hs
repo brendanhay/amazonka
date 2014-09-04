@@ -45,6 +45,7 @@ describeUserProfiles :: DescribeUserProfiles
 describeUserProfiles = DescribeUserProfiles
     { _dupsIamUserArns = mempty
     }
+{-# INLINE describeUserProfiles #-}
 
 data DescribeUserProfiles = DescribeUserProfiles
     { _dupsIamUserArns :: [Text]
@@ -53,15 +54,10 @@ data DescribeUserProfiles = DescribeUserProfiles
     } deriving (Show, Generic)
 
 -- | An array of IAM user ARNs that identify the users to be described.
-dupsIamUserArns
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeUserProfiles
-    -> f DescribeUserProfiles
+dupsIamUserArns :: Lens' DescribeUserProfiles ([Text])
 dupsIamUserArns f x =
-    (\y -> x { _dupsIamUserArns = y })
-       <$> f (_dupsIamUserArns x)
+    f (_dupsIamUserArns x)
+        <&> \y -> x { _dupsIamUserArns = y }
 {-# INLINE dupsIamUserArns #-}
 
 instance ToPath DescribeUserProfiles
@@ -78,15 +74,10 @@ data DescribeUserProfilesResponse = DescribeUserProfilesResponse
     } deriving (Show, Generic)
 
 -- | A Users object that describes the specified users.
-duptUserProfiles
-    :: Functor f
-    => ([UserProfile]
-    -> f ([UserProfile]))
-    -> DescribeUserProfilesResponse
-    -> f DescribeUserProfilesResponse
+duptUserProfiles :: Lens' DescribeUserProfilesResponse ([UserProfile])
 duptUserProfiles f x =
-    (\y -> x { _duptUserProfiles = y })
-       <$> f (_duptUserProfiles x)
+    f (_duptUserProfiles x)
+        <&> \y -> x { _duptUserProfiles = y }
 {-# INLINE duptUserProfiles #-}
 
 instance FromJSON DescribeUserProfilesResponse

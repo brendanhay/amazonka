@@ -109,6 +109,7 @@ createPreset p1 p2 = CreatePreset
     , _cptThumbnails = Nothing
     , _cptVideo = Nothing
     }
+{-# INLINE createPreset #-}
 
 data CreatePreset = CreatePreset
     { _cptName :: Text
@@ -132,77 +133,47 @@ data CreatePreset = CreatePreset
 
 -- | The name of the preset. We recommend that the name be unique within the AWS
 -- account, but uniqueness is not enforced.
-cptName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePreset
-    -> f CreatePreset
+cptName :: Lens' CreatePreset (Text)
 cptName f x =
-    (\y -> x { _cptName = y })
-       <$> f (_cptName x)
+    f (_cptName x)
+        <&> \y -> x { _cptName = y }
 {-# INLINE cptName #-}
 
 -- | The container type for the output file. Valid values include mp3, mp4, ogg,
 -- ts, and webm.
-cptContainer
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePreset
-    -> f CreatePreset
+cptContainer :: Lens' CreatePreset (Text)
 cptContainer f x =
-    (\y -> x { _cptContainer = y })
-       <$> f (_cptContainer x)
+    f (_cptContainer x)
+        <&> \y -> x { _cptContainer = y }
 {-# INLINE cptContainer #-}
 
 -- | A section of the request body that specifies the audio parameters.
-cptAudio
-    :: Functor f
-    => (Maybe AudioParameters
-    -> f (Maybe AudioParameters))
-    -> CreatePreset
-    -> f CreatePreset
+cptAudio :: Lens' CreatePreset (Maybe AudioParameters)
 cptAudio f x =
-    (\y -> x { _cptAudio = y })
-       <$> f (_cptAudio x)
+    f (_cptAudio x)
+        <&> \y -> x { _cptAudio = y }
 {-# INLINE cptAudio #-}
 
 -- | A description of the preset.
-cptDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePreset
-    -> f CreatePreset
+cptDescription :: Lens' CreatePreset (Maybe Text)
 cptDescription f x =
-    (\y -> x { _cptDescription = y })
-       <$> f (_cptDescription x)
+    f (_cptDescription x)
+        <&> \y -> x { _cptDescription = y }
 {-# INLINE cptDescription #-}
 
 -- | A section of the request body that specifies the thumbnail parameters, if
 -- any.
-cptThumbnails
-    :: Functor f
-    => (Maybe Thumbnails
-    -> f (Maybe Thumbnails))
-    -> CreatePreset
-    -> f CreatePreset
+cptThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cptThumbnails f x =
-    (\y -> x { _cptThumbnails = y })
-       <$> f (_cptThumbnails x)
+    f (_cptThumbnails x)
+        <&> \y -> x { _cptThumbnails = y }
 {-# INLINE cptThumbnails #-}
 
 -- | A section of the request body that specifies the video parameters.
-cptVideo
-    :: Functor f
-    => (Maybe VideoParameters
-    -> f (Maybe VideoParameters))
-    -> CreatePreset
-    -> f CreatePreset
+cptVideo :: Lens' CreatePreset (Maybe VideoParameters)
 cptVideo f x =
-    (\y -> x { _cptVideo = y })
-       <$> f (_cptVideo x)
+    f (_cptVideo x)
+        <&> \y -> x { _cptVideo = y }
 {-# INLINE cptVideo #-}
 
 instance ToPath CreatePreset where
@@ -228,30 +199,20 @@ data CreatePresetResponse = CreatePresetResponse
 
 -- | A section of the response body that provides information about the preset
 -- that is created.
-cpuPreset
-    :: Functor f
-    => (Maybe Preset
-    -> f (Maybe Preset))
-    -> CreatePresetResponse
-    -> f CreatePresetResponse
+cpuPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cpuPreset f x =
-    (\y -> x { _cpuPreset = y })
-       <$> f (_cpuPreset x)
+    f (_cpuPreset x)
+        <&> \y -> x { _cpuPreset = y }
 {-# INLINE cpuPreset #-}
 
 -- | If the preset settings don't comply with the standards for the video codec
 -- but Elastic Transcoder created the preset, this message explains the reason
 -- the preset settings don't meet the standard. Elastic Transcoder created the
 -- preset because the settings might produce acceptable output.
-cpuWarning
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePresetResponse
-    -> f CreatePresetResponse
+cpuWarning :: Lens' CreatePresetResponse (Maybe Text)
 cpuWarning f x =
-    (\y -> x { _cpuWarning = y })
-       <$> f (_cpuWarning x)
+    f (_cpuWarning x)
+        <&> \y -> x { _cpuWarning = y }
 {-# INLINE cpuWarning #-}
 
 instance FromJSON CreatePresetResponse

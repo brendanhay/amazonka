@@ -83,6 +83,7 @@ updateDomainContact p1 = UpdateDomainContact
     , _udcrRegistrantContact = Nothing
     , _udcrTechContact = Nothing
     }
+{-# INLINE updateDomainContact #-}
 
 data UpdateDomainContact = UpdateDomainContact
     { _udcrDomainName :: Text
@@ -111,60 +112,40 @@ data UpdateDomainContact = UpdateDomainContact
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-udcrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDomainContact
-    -> f UpdateDomainContact
+udcrDomainName :: Lens' UpdateDomainContact (Text)
 udcrDomainName f x =
-    (\y -> x { _udcrDomainName = y })
-       <$> f (_udcrDomainName x)
+    f (_udcrDomainName x)
+        <&> \y -> x { _udcrDomainName = y }
 {-# INLINE udcrDomainName #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-udcrAdminContact
-    :: Functor f
-    => (Maybe ContactDetail
-    -> f (Maybe ContactDetail))
-    -> UpdateDomainContact
-    -> f UpdateDomainContact
+udcrAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcrAdminContact f x =
-    (\y -> x { _udcrAdminContact = y })
-       <$> f (_udcrAdminContact x)
+    f (_udcrAdminContact x)
+        <&> \y -> x { _udcrAdminContact = y }
 {-# INLINE udcrAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-udcrRegistrantContact
-    :: Functor f
-    => (Maybe ContactDetail
-    -> f (Maybe ContactDetail))
-    -> UpdateDomainContact
-    -> f UpdateDomainContact
+udcrRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcrRegistrantContact f x =
-    (\y -> x { _udcrRegistrantContact = y })
-       <$> f (_udcrRegistrantContact x)
+    f (_udcrRegistrantContact x)
+        <&> \y -> x { _udcrRegistrantContact = y }
 {-# INLINE udcrRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-udcrTechContact
-    :: Functor f
-    => (Maybe ContactDetail
-    -> f (Maybe ContactDetail))
-    -> UpdateDomainContact
-    -> f UpdateDomainContact
+udcrTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcrTechContact f x =
-    (\y -> x { _udcrTechContact = y })
-       <$> f (_udcrTechContact x)
+    f (_udcrTechContact x)
+        <&> \y -> x { _udcrTechContact = y }
 {-# INLINE udcrTechContact #-}
 
 instance ToPath UpdateDomainContact
@@ -185,15 +166,10 @@ data UpdateDomainContactResponse = UpdateDomainContactResponse
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udcsOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDomainContactResponse
-    -> f UpdateDomainContactResponse
+udcsOperationId :: Lens' UpdateDomainContactResponse (Text)
 udcsOperationId f x =
-    (\y -> x { _udcsOperationId = y })
-       <$> f (_udcsOperationId x)
+    f (_udcsOperationId x)
+        <&> \y -> x { _udcsOperationId = y }
 {-# INLINE udcsOperationId #-}
 
 instance FromJSON UpdateDomainContactResponse

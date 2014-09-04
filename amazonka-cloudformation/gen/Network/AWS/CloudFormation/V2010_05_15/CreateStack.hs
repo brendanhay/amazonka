@@ -76,6 +76,7 @@ createStack p1 = CreateStack
     , _csiTemplateURL = Nothing
     , _csiTimeoutInMinutes = Nothing
     }
+{-# INLINE createStack #-}
 
 data CreateStack = CreateStack
     { _csiStackName :: Text
@@ -146,15 +147,10 @@ data CreateStack = CreateStack
 -- account. Must contain only alphanumeric characters (case sensitive) and
 -- start with an alpha character. Maximum length of the name is 255
 -- characters.
-csiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateStack
-    -> f CreateStack
+csiStackName :: Lens' CreateStack (Text)
 csiStackName f x =
-    (\y -> x { _csiStackName = y })
-       <$> f (_csiStackName x)
+    f (_csiStackName x)
+        <&> \y -> x { _csiStackName = y }
 {-# INLINE csiStackName #-}
 
 -- | The list of capabilities that you want to allow in the stack. If your
@@ -165,129 +161,84 @@ csiStackName f x =
 -- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
 -- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
 -- AWS::IAM::UserToGroupAddition.
-csiCapabilities
-    :: Functor f
-    => ([Capability]
-    -> f ([Capability]))
-    -> CreateStack
-    -> f CreateStack
+csiCapabilities :: Lens' CreateStack ([Capability])
 csiCapabilities f x =
-    (\y -> x { _csiCapabilities = y })
-       <$> f (_csiCapabilities x)
+    f (_csiCapabilities x)
+        <&> \y -> x { _csiCapabilities = y }
 {-# INLINE csiCapabilities #-}
 
 -- | Set to true to disable rollback of the stack if stack creation failed. You
 -- can specify either DisableRollback or OnFailure, but not both. Default:
 -- false.
-csiDisableRollback
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateStack
-    -> f CreateStack
+csiDisableRollback :: Lens' CreateStack (Maybe Bool)
 csiDisableRollback f x =
-    (\y -> x { _csiDisableRollback = y })
-       <$> f (_csiDisableRollback x)
+    f (_csiDisableRollback x)
+        <&> \y -> x { _csiDisableRollback = y }
 {-# INLINE csiDisableRollback #-}
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
 -- events. You can find your SNS topic ARNs using the SNS console or your
 -- Command Line Interface (CLI).
-csiNotificationARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateStack
-    -> f CreateStack
+csiNotificationARNs :: Lens' CreateStack ([Text])
 csiNotificationARNs f x =
-    (\y -> x { _csiNotificationARNs = y })
-       <$> f (_csiNotificationARNs x)
+    f (_csiNotificationARNs x)
+        <&> \y -> x { _csiNotificationARNs = y }
 {-# INLINE csiNotificationARNs #-}
 
 -- | Determines what action will be taken if stack creation fails. This must be
 -- one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either OnFailure
 -- or DisableRollback, but not both. Default: ROLLBACK.
-csiOnFailure
-    :: Functor f
-    => (Maybe OnFailure
-    -> f (Maybe OnFailure))
-    -> CreateStack
-    -> f CreateStack
+csiOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csiOnFailure f x =
-    (\y -> x { _csiOnFailure = y })
-       <$> f (_csiOnFailure x)
+    f (_csiOnFailure x)
+        <&> \y -> x { _csiOnFailure = y }
 {-# INLINE csiOnFailure #-}
 
 -- | A list of Parameter structures that specify input parameters for the stack.
-csiParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> CreateStack
-    -> f CreateStack
+csiParameters :: Lens' CreateStack ([Parameter])
 csiParameters f x =
-    (\y -> x { _csiParameters = y })
-       <$> f (_csiParameters x)
+    f (_csiParameters x)
+        <&> \y -> x { _csiParameters = y }
 {-# INLINE csiParameters #-}
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
 -- but not both.
-csiStackPolicyBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+csiStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csiStackPolicyBody f x =
-    (\y -> x { _csiStackPolicyBody = y })
-       <$> f (_csiStackPolicyBody x)
+    f (_csiStackPolicyBody x)
+        <&> \y -> x { _csiStackPolicyBody = y }
 {-# INLINE csiStackPolicyBody #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-csiStackPolicyURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+csiStackPolicyURL :: Lens' CreateStack (Maybe Text)
 csiStackPolicyURL f x =
-    (\y -> x { _csiStackPolicyURL = y })
-       <$> f (_csiStackPolicyURL x)
+    f (_csiStackPolicyURL x)
+        <&> \y -> x { _csiStackPolicyURL = y }
 {-# INLINE csiStackPolicyURL #-}
 
 -- | A set of user-defined Tags to associate with this stack, represented by
 -- key/value pairs. Tags defined for the stack are propagated to EC2 resources
 -- that are created as part of the stack. A maximum number of 10 tags can be
 -- specified.
-csiTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateStack
-    -> f CreateStack
+csiTags :: Lens' CreateStack ([Tag])
 csiTags f x =
-    (\y -> x { _csiTags = y })
-       <$> f (_csiTags x)
+    f (_csiTags x)
+        <&> \y -> x { _csiTags = y }
 {-# INLINE csiTags #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide. Conditional: You must specify
 -- either the TemplateBody or the TemplateURL parameter, but not both.
-csiTemplateBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+csiTemplateBody :: Lens' CreateStack (Maybe Text)
 csiTemplateBody f x =
-    (\y -> x { _csiTemplateBody = y })
-       <$> f (_csiTemplateBody x)
+    f (_csiTemplateBody x)
+        <&> \y -> x { _csiTemplateBody = y }
 {-# INLINE csiTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
@@ -295,29 +246,19 @@ csiTemplateBody f x =
 -- region as the stack. For more information, go to the Template Anatomy in
 -- the AWS CloudFormation User Guide. Conditional: You must specify either the
 -- TemplateBody or the TemplateURL parameter, but not both.
-csiTemplateURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+csiTemplateURL :: Lens' CreateStack (Maybe Text)
 csiTemplateURL f x =
-    (\y -> x { _csiTemplateURL = y })
-       <$> f (_csiTemplateURL x)
+    f (_csiTemplateURL x)
+        <&> \y -> x { _csiTemplateURL = y }
 {-# INLINE csiTemplateURL #-}
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if DisableRollback is not set or is set to false, the stack
 -- will be rolled back.
-csiTimeoutInMinutes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateStack
-    -> f CreateStack
+csiTimeoutInMinutes :: Lens' CreateStack (Maybe Integer)
 csiTimeoutInMinutes f x =
-    (\y -> x { _csiTimeoutInMinutes = y })
-       <$> f (_csiTimeoutInMinutes x)
+    f (_csiTimeoutInMinutes x)
+        <&> \y -> x { _csiTimeoutInMinutes = y }
 {-# INLINE csiTimeoutInMinutes #-}
 
 instance ToQuery CreateStack where
@@ -329,15 +270,10 @@ data CreateStackResponse = CreateStackResponse
     } deriving (Show, Generic)
 
 -- | Unique identifier of the stack.
-csoStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStackResponse
-    -> f CreateStackResponse
+csoStackId :: Lens' CreateStackResponse (Maybe Text)
 csoStackId f x =
-    (\y -> x { _csoStackId = y })
-       <$> f (_csoStackId x)
+    f (_csoStackId x)
+        <&> \y -> x { _csoStackId = y }
 {-# INLINE csoStackId #-}
 
 instance FromXML CreateStackResponse where

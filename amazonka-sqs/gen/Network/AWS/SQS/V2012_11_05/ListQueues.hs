@@ -52,6 +52,7 @@ listQueues :: ListQueues
 listQueues = ListQueues
     { _lqrQueueNamePrefix = Nothing
     }
+{-# INLINE listQueues #-}
 
 data ListQueues = ListQueues
     { _lqrQueueNamePrefix :: Maybe Text
@@ -61,15 +62,10 @@ data ListQueues = ListQueues
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
-lqrQueueNamePrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListQueues
-    -> f ListQueues
+lqrQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqrQueueNamePrefix f x =
-    (\y -> x { _lqrQueueNamePrefix = y })
-       <$> f (_lqrQueueNamePrefix x)
+    f (_lqrQueueNamePrefix x)
+        <&> \y -> x { _lqrQueueNamePrefix = y }
 {-# INLINE lqrQueueNamePrefix #-}
 
 instance ToQuery ListQueues where
@@ -81,15 +77,10 @@ data ListQueuesResponse = ListQueuesResponse
     } deriving (Show, Generic)
 
 -- | A list of queue URLs, up to 1000 entries.
-lqsQueueUrls
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListQueuesResponse
-    -> f ListQueuesResponse
+lqsQueueUrls :: Lens' ListQueuesResponse ([Text])
 lqsQueueUrls f x =
-    (\y -> x { _lqsQueueUrls = y })
-       <$> f (_lqsQueueUrls x)
+    f (_lqsQueueUrls x)
+        <&> \y -> x { _lqsQueueUrls = y }
 {-# INLINE lqsQueueUrls #-}
 
 instance FromXML ListQueuesResponse where

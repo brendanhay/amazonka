@@ -50,6 +50,7 @@ describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     { _dsaprDomainName = p1
     , _dsaprDeployed = Nothing
     }
+{-# INLINE describeServiceAccessPolicies #-}
 
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsaprDomainName :: Text
@@ -60,28 +61,18 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
-dsaprDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeServiceAccessPolicies
-    -> f DescribeServiceAccessPolicies
+dsaprDomainName :: Lens' DescribeServiceAccessPolicies (Text)
 dsaprDomainName f x =
-    (\y -> x { _dsaprDomainName = y })
-       <$> f (_dsaprDomainName x)
+    f (_dsaprDomainName x)
+        <&> \y -> x { _dsaprDomainName = y }
 {-# INLINE dsaprDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-dsaprDeployed
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeServiceAccessPolicies
-    -> f DescribeServiceAccessPolicies
+dsaprDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
 dsaprDeployed f x =
-    (\y -> x { _dsaprDeployed = y })
-       <$> f (_dsaprDeployed x)
+    f (_dsaprDeployed x)
+        <&> \y -> x { _dsaprDeployed = y }
 {-# INLINE dsaprDeployed #-}
 
 instance ToQuery DescribeServiceAccessPolicies where
@@ -94,15 +85,10 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain specified in the request.
-dsapsAccessPolicies
-    :: Functor f
-    => (AccessPoliciesStatus
-    -> f (AccessPoliciesStatus))
-    -> DescribeServiceAccessPoliciesResponse
-    -> f DescribeServiceAccessPoliciesResponse
+dsapsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse (AccessPoliciesStatus)
 dsapsAccessPolicies f x =
-    (\y -> x { _dsapsAccessPolicies = y })
-       <$> f (_dsapsAccessPolicies x)
+    f (_dsapsAccessPolicies x)
+        <&> \y -> x { _dsapsAccessPolicies = y }
 {-# INLINE dsapsAccessPolicies #-}
 
 instance FromXML DescribeServiceAccessPoliciesResponse where

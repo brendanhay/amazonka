@@ -42,6 +42,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListAvailableSolutionStacks' request.
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks
+{-# INLINE listAvailableSolutionStacks #-}
 
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks
     deriving (Eq, Show, Generic)
@@ -58,27 +59,17 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     } deriving (Show, Generic)
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-lassrmSolutionStackDetails
-    :: Functor f
-    => ([SolutionStackDescription]
-    -> f ([SolutionStackDescription]))
-    -> ListAvailableSolutionStacksResponse
-    -> f ListAvailableSolutionStacksResponse
+lassrmSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse ([SolutionStackDescription])
 lassrmSolutionStackDetails f x =
-    (\y -> x { _lassrmSolutionStackDetails = y })
-       <$> f (_lassrmSolutionStackDetails x)
+    f (_lassrmSolutionStackDetails x)
+        <&> \y -> x { _lassrmSolutionStackDetails = y }
 {-# INLINE lassrmSolutionStackDetails #-}
 
 -- | A list of available solution stacks.
-lassrmSolutionStacks
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListAvailableSolutionStacksResponse
-    -> f ListAvailableSolutionStacksResponse
+lassrmSolutionStacks :: Lens' ListAvailableSolutionStacksResponse ([Text])
 lassrmSolutionStacks f x =
-    (\y -> x { _lassrmSolutionStacks = y })
-       <$> f (_lassrmSolutionStacks x)
+    f (_lassrmSolutionStacks x)
+        <&> \y -> x { _lassrmSolutionStacks = y }
 {-# INLINE lassrmSolutionStacks #-}
 
 instance FromXML ListAvailableSolutionStacksResponse where

@@ -88,6 +88,7 @@ updateEnvironment = UpdateEnvironment
     , _uemOptionsToRemove = mempty
     , _uemVersionLabel = Nothing
     }
+{-# INLINE updateEnvironment #-}
 
 data UpdateEnvironment = UpdateEnvironment
     { _uemOptionSettings :: [ConfigurationOptionSetting]
@@ -132,43 +133,28 @@ data UpdateEnvironment = UpdateEnvironment
 -- | If specified, AWS Elastic Beanstalk updates the configuration set
 -- associated with the running environment and sets the specified
 -- configuration options to the requested value.
-uemOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemOptionSettings :: Lens' UpdateEnvironment ([ConfigurationOptionSetting])
 uemOptionSettings f x =
-    (\y -> x { _uemOptionSettings = y })
-       <$> f (_uemOptionSettings x)
+    f (_uemOptionSettings x)
+        <&> \y -> x { _uemOptionSettings = y }
 {-# INLINE uemOptionSettings #-}
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration
 -- template is found, AWS Elastic Beanstalk returns an InvalidParameterValue
 -- error.
-uemTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemTemplateName :: Lens' UpdateEnvironment (Maybe Text)
 uemTemplateName f x =
-    (\y -> x { _uemTemplateName = y })
-       <$> f (_uemTemplateName x)
+    f (_uemTemplateName x)
+        <&> \y -> x { _uemTemplateName = y }
 {-# INLINE uemTemplateName #-}
 
 -- | If this parameter is specified, AWS Elastic Beanstalk updates the
 -- description of this environment.
-uemDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemDescription :: Lens' UpdateEnvironment (Maybe Text)
 uemDescription f x =
-    (\y -> x { _uemDescription = y })
-       <$> f (_uemDescription x)
+    f (_uemDescription x)
+        <&> \y -> x { _uemDescription = y }
 {-# INLINE uemDescription #-}
 
 -- | The ID of the environment to update. If no environment with this ID exists,
@@ -176,15 +162,10 @@ uemDescription f x =
 -- You must specify either this or an EnvironmentName, or both. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-uemEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 uemEnvironmentId f x =
-    (\y -> x { _uemEnvironmentId = y })
-       <$> f (_uemEnvironmentId x)
+    f (_uemEnvironmentId x)
+        <&> \y -> x { _uemEnvironmentId = y }
 {-# INLINE uemEnvironmentId #-}
 
 -- | The name of the environment to update. If no environment with this name
@@ -192,56 +173,36 @@ uemEnvironmentId f x =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-uemEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
 uemEnvironmentName f x =
-    (\y -> x { _uemEnvironmentName = y })
-       <$> f (_uemEnvironmentName x)
+    f (_uemEnvironmentName x)
+        <&> \y -> x { _uemEnvironmentName = y }
 {-# INLINE uemEnvironmentName #-}
 
 -- | This specifies the tier to use to update the environment. Condition: You
 -- can only update the tier version for an environment. If you change the name
 -- of the type, AWS Elastic Beanstalk returns InvalidParameterValue error.
-uemTier
-    :: Functor f
-    => (Maybe EnvironmentTier
-    -> f (Maybe EnvironmentTier))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
 uemTier f x =
-    (\y -> x { _uemTier = y })
-       <$> f (_uemTier x)
+    f (_uemTier x)
+        <&> \y -> x { _uemTier = y }
 {-# INLINE uemTier #-}
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
-uemOptionsToRemove
-    :: Functor f
-    => ([OptionSpecification]
-    -> f ([OptionSpecification]))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemOptionsToRemove :: Lens' UpdateEnvironment ([OptionSpecification])
 uemOptionsToRemove f x =
-    (\y -> x { _uemOptionsToRemove = y })
-       <$> f (_uemOptionsToRemove x)
+    f (_uemOptionsToRemove x)
+        <&> \y -> x { _uemOptionsToRemove = y }
 {-# INLINE uemOptionsToRemove #-}
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version is
 -- found, returns an InvalidParameterValue error.
-uemVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironment
-    -> f UpdateEnvironment
+uemVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 uemVersionLabel f x =
-    (\y -> x { _uemVersionLabel = y })
-       <$> f (_uemVersionLabel x)
+    f (_uemVersionLabel x)
+        <&> \y -> x { _uemVersionLabel = y }
 {-# INLINE uemVersionLabel #-}
 
 instance ToQuery UpdateEnvironment where
@@ -303,77 +264,47 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     } deriving (Show, Generic)
 
 -- | The name of the application associated with this environment.
-eeeoApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoApplicationName :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoApplicationName f x =
-    (\y -> x { _eeeoApplicationName = y })
-       <$> f (_eeeoApplicationName x)
+    f (_eeeoApplicationName x)
+        <&> \y -> x { _eeeoApplicationName = y }
 {-# INLINE eeeoApplicationName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-eeeoTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoTemplateName :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoTemplateName f x =
-    (\y -> x { _eeeoTemplateName = y })
-       <$> f (_eeeoTemplateName x)
+    f (_eeeoTemplateName x)
+        <&> \y -> x { _eeeoTemplateName = y }
 {-# INLINE eeeoTemplateName #-}
 
 -- | The creation date for this environment.
-eeeoDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoDateCreated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
 eeeoDateCreated f x =
-    (\y -> x { _eeeoDateCreated = y })
-       <$> f (_eeeoDateCreated x)
+    f (_eeeoDateCreated x)
+        <&> \y -> x { _eeeoDateCreated = y }
 {-# INLINE eeeoDateCreated #-}
 
 -- | The URL to the CNAME for this environment.
-eeeoCNAME
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoCNAME :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoCNAME f x =
-    (\y -> x { _eeeoCNAME = y })
-       <$> f (_eeeoCNAME x)
+    f (_eeeoCNAME x)
+        <&> \y -> x { _eeeoCNAME = y }
 {-# INLINE eeeoCNAME #-}
 
 -- | Describes this environment.
-eeeoDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoDescription :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoDescription f x =
-    (\y -> x { _eeeoDescription = y })
-       <$> f (_eeeoDescription x)
+    f (_eeeoDescription x)
+        <&> \y -> x { _eeeoDescription = y }
 {-# INLINE eeeoDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-eeeoEndpointURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoEndpointURL :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoEndpointURL f x =
-    (\y -> x { _eeeoEndpointURL = y })
-       <$> f (_eeeoEndpointURL x)
+    f (_eeeoEndpointURL x)
+        <&> \y -> x { _eeeoEndpointURL = y }
 {-# INLINE eeeoEndpointURL #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
@@ -389,51 +320,31 @@ eeeoEndpointURL f x =
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-eeeoHealth
-    :: Functor f
-    => (Maybe EnvironmentHealth
-    -> f (Maybe EnvironmentHealth))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoHealth :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentHealth)
 eeeoHealth f x =
-    (\y -> x { _eeeoHealth = y })
-       <$> f (_eeeoHealth x)
+    f (_eeeoHealth x)
+        <&> \y -> x { _eeeoHealth = y }
 {-# INLINE eeeoHealth #-}
 
 -- | The ID of this environment.
-eeeoEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoEnvironmentId :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoEnvironmentId f x =
-    (\y -> x { _eeeoEnvironmentId = y })
-       <$> f (_eeeoEnvironmentId x)
+    f (_eeeoEnvironmentId x)
+        <&> \y -> x { _eeeoEnvironmentId = y }
 {-# INLINE eeeoEnvironmentId #-}
 
 -- | The name of this environment.
-eeeoEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoEnvironmentName :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoEnvironmentName f x =
-    (\y -> x { _eeeoEnvironmentName = y })
-       <$> f (_eeeoEnvironmentName x)
+    f (_eeeoEnvironmentName x)
+        <&> \y -> x { _eeeoEnvironmentName = y }
 {-# INLINE eeeoEnvironmentName #-}
 
 -- | The description of the AWS resources used by this environment.
-eeeoResources
-    :: Functor f
-    => (Maybe EnvironmentResourcesDescription
-    -> f (Maybe EnvironmentResourcesDescription))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoResources :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 eeeoResources f x =
-    (\y -> x { _eeeoResources = y })
-       <$> f (_eeeoResources x)
+    f (_eeeoResources x)
+        <&> \y -> x { _eeeoResources = y }
 {-# INLINE eeeoResources #-}
 
 -- | The current operational status of the environment: Launching: Environment
@@ -442,63 +353,38 @@ eeeoResources f x =
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-eeeoStatus
-    :: Functor f
-    => (Maybe EnvironmentStatus
-    -> f (Maybe EnvironmentStatus))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoStatus :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentStatus)
 eeeoStatus f x =
-    (\y -> x { _eeeoStatus = y })
-       <$> f (_eeeoStatus x)
+    f (_eeeoStatus x)
+        <&> \y -> x { _eeeoStatus = y }
 {-# INLINE eeeoStatus #-}
 
 -- | Describes the current tier of this environment.
-eeeoTier
-    :: Functor f
-    => (Maybe EnvironmentTier
-    -> f (Maybe EnvironmentTier))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoTier :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentTier)
 eeeoTier f x =
-    (\y -> x { _eeeoTier = y })
-       <$> f (_eeeoTier x)
+    f (_eeeoTier x)
+        <&> \y -> x { _eeeoTier = y }
 {-# INLINE eeeoTier #-}
 
 -- | The name of the SolutionStack deployed with this environment.
-eeeoSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoSolutionStackName :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoSolutionStackName f x =
-    (\y -> x { _eeeoSolutionStackName = y })
-       <$> f (_eeeoSolutionStackName x)
+    f (_eeeoSolutionStackName x)
+        <&> \y -> x { _eeeoSolutionStackName = y }
 {-# INLINE eeeoSolutionStackName #-}
 
 -- | The last modified date for this environment.
-eeeoDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoDateUpdated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
 eeeoDateUpdated f x =
-    (\y -> x { _eeeoDateUpdated = y })
-       <$> f (_eeeoDateUpdated x)
+    f (_eeeoDateUpdated x)
+        <&> \y -> x { _eeeoDateUpdated = y }
 {-# INLINE eeeoDateUpdated #-}
 
 -- | The application version deployed in this environment.
-eeeoVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateEnvironmentResponse
-    -> f UpdateEnvironmentResponse
+eeeoVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
 eeeoVersionLabel f x =
-    (\y -> x { _eeeoVersionLabel = y })
-       <$> f (_eeeoVersionLabel x)
+    f (_eeeoVersionLabel x)
+        <&> \y -> x { _eeeoVersionLabel = y }
 {-# INLINE eeeoVersionLabel #-}
 
 instance FromXML UpdateEnvironmentResponse where

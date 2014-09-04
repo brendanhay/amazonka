@@ -113,6 +113,7 @@ createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
     , _cctmSolutionStackName = Nothing
     , _cctmSourceConfiguration = Nothing
     }
+{-# INLINE createConfigurationTemplate #-}
 
 data CreateConfigurationTemplate = CreateConfigurationTemplate
     { _cctmApplicationName :: Text
@@ -162,68 +163,43 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
 -- | The name of the application to associate with this configuration template.
 -- If no application is found with this name, AWS Elastic Beanstalk returns an
 -- InvalidParameterValue error.
-cctmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmApplicationName :: Lens' CreateConfigurationTemplate (Text)
 cctmApplicationName f x =
-    (\y -> x { _cctmApplicationName = y })
-       <$> f (_cctmApplicationName x)
+    f (_cctmApplicationName x)
+        <&> \y -> x { _cctmApplicationName = y }
 {-# INLINE cctmApplicationName #-}
 
 -- | The name of the configuration template. Constraint: This name must be
 -- unique per application. Default: If a configuration template already exists
 -- with this name, AWS Elastic Beanstalk returns an InvalidParameterValue
 -- error.
-cctmTemplateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmTemplateName :: Lens' CreateConfigurationTemplate (Text)
 cctmTemplateName f x =
-    (\y -> x { _cctmTemplateName = y })
-       <$> f (_cctmTemplateName x)
+    f (_cctmTemplateName x)
+        <&> \y -> x { _cctmTemplateName = y }
 {-# INLINE cctmTemplateName #-}
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration option
 -- to the requested value. The new value overrides the value obtained from the
 -- solution stack or the source configuration template.
-cctmOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmOptionSettings :: Lens' CreateConfigurationTemplate ([ConfigurationOptionSetting])
 cctmOptionSettings f x =
-    (\y -> x { _cctmOptionSettings = y })
-       <$> f (_cctmOptionSettings x)
+    f (_cctmOptionSettings x)
+        <&> \y -> x { _cctmOptionSettings = y }
 {-# INLINE cctmOptionSettings #-}
 
 -- | Describes this configuration.
-cctmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctmDescription f x =
-    (\y -> x { _cctmDescription = y })
-       <$> f (_cctmDescription x)
+    f (_cctmDescription x)
+        <&> \y -> x { _cctmDescription = y }
 {-# INLINE cctmDescription #-}
 
 -- | The ID of the environment used with this configuration template.
-cctmEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctmEnvironmentId f x =
-    (\y -> x { _cctmEnvironmentId = y })
-       <$> f (_cctmEnvironmentId x)
+    f (_cctmEnvironmentId x)
+        <&> \y -> x { _cctmEnvironmentId = y }
 {-# INLINE cctmEnvironmentId #-}
 
 -- | The name of the solution stack used by this configuration. The solution
@@ -236,15 +212,10 @@ cctmEnvironmentId f x =
 -- error. If a solution stack name is not specified and the source
 -- configuration parameter is specified, AWS Elastic Beanstalk uses the same
 -- solution stack as the source configuration template.
-cctmSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctmSolutionStackName f x =
-    (\y -> x { _cctmSolutionStackName = y })
-       <$> f (_cctmSolutionStackName x)
+    f (_cctmSolutionStackName x)
+        <&> \y -> x { _cctmSolutionStackName = y }
 {-# INLINE cctmSolutionStackName #-}
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from the
@@ -256,15 +227,10 @@ cctmSolutionStackName f x =
 -- specified, the solution stack of the source configuration template must
 -- match the specified solution stack name or else AWS Elastic Beanstalk
 -- returns an InvalidParameterCombination error.
-cctmSourceConfiguration
-    :: Functor f
-    => (Maybe SourceConfiguration
-    -> f (Maybe SourceConfiguration))
-    -> CreateConfigurationTemplate
-    -> f CreateConfigurationTemplate
+cctmSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctmSourceConfiguration f x =
-    (\y -> x { _cctmSourceConfiguration = y })
-       <$> f (_cctmSourceConfiguration x)
+    f (_cctmSourceConfiguration x)
+        <&> \y -> x { _cctmSourceConfiguration = y }
 {-# INLINE cctmSourceConfiguration #-}
 
 instance ToQuery CreateConfigurationTemplate where
@@ -311,15 +277,10 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     } deriving (Show, Generic)
 
 -- | The name of the application associated with this configuration set.
-csdApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 csdApplicationName f x =
-    (\y -> x { _csdApplicationName = y })
-       <$> f (_csdApplicationName x)
+    f (_csdApplicationName x)
+        <&> \y -> x { _csdApplicationName = y }
 {-# INLINE csdApplicationName #-}
 
 -- | If this configuration set is associated with an environment, the
@@ -335,101 +296,61 @@ csdApplicationName f x =
 -- deploying. deployed: This is the configuration that is currently deployed
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
-csdDeploymentStatus
-    :: Functor f
-    => (Maybe ConfigurationDeploymentStatus
-    -> f (Maybe ConfigurationDeploymentStatus))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus f x =
-    (\y -> x { _csdDeploymentStatus = y })
-       <$> f (_csdDeploymentStatus x)
+    f (_csdDeploymentStatus x)
+        <&> \y -> x { _csdDeploymentStatus = y }
 {-# INLINE csdDeploymentStatus #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
-csdOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdOptionSettings :: Lens' CreateConfigurationTemplateResponse ([ConfigurationOptionSetting])
 csdOptionSettings f x =
-    (\y -> x { _csdOptionSettings = y })
-       <$> f (_csdOptionSettings x)
+    f (_csdOptionSettings x)
+        <&> \y -> x { _csdOptionSettings = y }
 {-# INLINE csdOptionSettings #-}
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
-csdTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 csdTemplateName f x =
-    (\y -> x { _csdTemplateName = y })
-       <$> f (_csdTemplateName x)
+    f (_csdTemplateName x)
+        <&> \y -> x { _csdTemplateName = y }
 {-# INLINE csdTemplateName #-}
 
 -- | The date (in UTC time) when this configuration set was created.
-csdDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
 csdDateCreated f x =
-    (\y -> x { _csdDateCreated = y })
-       <$> f (_csdDateCreated x)
+    f (_csdDateCreated x)
+        <&> \y -> x { _csdDateCreated = y }
 {-# INLINE csdDateCreated #-}
 
 -- | Describes this configuration set.
-csdDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 csdDescription f x =
-    (\y -> x { _csdDescription = y })
-       <$> f (_csdDescription x)
+    f (_csdDescription x)
+        <&> \y -> x { _csdDescription = y }
 {-# INLINE csdDescription #-}
 
 -- | If not null, the name of the environment for this configuration set.
-csdEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 csdEnvironmentName f x =
-    (\y -> x { _csdEnvironmentName = y })
-       <$> f (_csdEnvironmentName x)
+    f (_csdEnvironmentName x)
+        <&> \y -> x { _csdEnvironmentName = y }
 {-# INLINE csdEnvironmentName #-}
 
 -- | The name of the solution stack this configuration set uses.
-csdSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 csdSolutionStackName f x =
-    (\y -> x { _csdSolutionStackName = y })
-       <$> f (_csdSolutionStackName x)
+    f (_csdSolutionStackName x)
+        <&> \y -> x { _csdSolutionStackName = y }
 {-# INLINE csdSolutionStackName #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
-csdDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> CreateConfigurationTemplateResponse
-    -> f CreateConfigurationTemplateResponse
+csdDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
 csdDateUpdated f x =
-    (\y -> x { _csdDateUpdated = y })
-       <$> f (_csdDateUpdated x)
+    f (_csdDateUpdated x)
+        <&> \y -> x { _csdDateUpdated = y }
 {-# INLINE csdDateUpdated #-}
 
 instance FromXML CreateConfigurationTemplateResponse where

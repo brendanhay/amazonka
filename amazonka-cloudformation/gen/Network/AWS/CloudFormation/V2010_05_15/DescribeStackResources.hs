@@ -68,6 +68,7 @@ describeStackResources = DescribeStackResources
     , _dsrjPhysicalResourceId = Nothing
     , _dsrjStackName = Nothing
     }
+{-# INLINE describeStackResources #-}
 
 data DescribeStackResources = DescribeStackResources
     { _dsrjLogicalResourceId :: Maybe Text
@@ -94,15 +95,10 @@ data DescribeStackResources = DescribeStackResources
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
-dsrjLogicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStackResources
-    -> f DescribeStackResources
+dsrjLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsrjLogicalResourceId f x =
-    (\y -> x { _dsrjLogicalResourceId = y })
-       <$> f (_dsrjLogicalResourceId x)
+    f (_dsrjLogicalResourceId x)
+        <&> \y -> x { _dsrjLogicalResourceId = y }
 {-# INLINE dsrjLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
@@ -113,15 +109,10 @@ dsrjLogicalResourceId f x =
 -- of the stack. Required: Conditional. If you do not specify
 -- PhysicalResourceId, you must specify StackName. Default: There is no
 -- default value.
-dsrjPhysicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStackResources
-    -> f DescribeStackResources
+dsrjPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsrjPhysicalResourceId f x =
-    (\y -> x { _dsrjPhysicalResourceId = y })
-       <$> f (_dsrjPhysicalResourceId x)
+    f (_dsrjPhysicalResourceId x)
+        <&> \y -> x { _dsrjPhysicalResourceId = y }
 {-# INLINE dsrjPhysicalResourceId #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
@@ -129,15 +120,10 @@ dsrjPhysicalResourceId f x =
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value. Required: Conditional. If you
 -- do not specify StackName, you must specify PhysicalResourceId.
-dsrjStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStackResources
-    -> f DescribeStackResources
+dsrjStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrjStackName f x =
-    (\y -> x { _dsrjStackName = y })
-       <$> f (_dsrjStackName x)
+    f (_dsrjStackName x)
+        <&> \y -> x { _dsrjStackName = y }
 {-# INLINE dsrjStackName #-}
 
 instance ToQuery DescribeStackResources where
@@ -149,15 +135,10 @@ data DescribeStackResourcesResponse = DescribeStackResourcesResponse
     } deriving (Show, Generic)
 
 -- | A list of StackResource structures.
-dsrpStackResources
-    :: Functor f
-    => ([StackResource]
-    -> f ([StackResource]))
-    -> DescribeStackResourcesResponse
-    -> f DescribeStackResourcesResponse
+dsrpStackResources :: Lens' DescribeStackResourcesResponse ([StackResource])
 dsrpStackResources f x =
-    (\y -> x { _dsrpStackResources = y })
-       <$> f (_dsrpStackResources x)
+    f (_dsrpStackResources x)
+        <&> \y -> x { _dsrpStackResources = y }
 {-# INLINE dsrpStackResources #-}
 
 instance FromXML DescribeStackResourcesResponse where

@@ -65,6 +65,7 @@ describeOrderableClusterOptions = DescribeOrderableClusterOptions
     , _docomNodeType = Nothing
     , _docomMarker = Nothing
     }
+{-# INLINE describeOrderableClusterOptions #-}
 
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     { _docomMaxRecords :: Maybe Integer
@@ -97,43 +98,28 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-docomMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeOrderableClusterOptions
-    -> f DescribeOrderableClusterOptions
+docomMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Integer)
 docomMaxRecords f x =
-    (\y -> x { _docomMaxRecords = y })
-       <$> f (_docomMaxRecords x)
+    f (_docomMaxRecords x)
+        <&> \y -> x { _docomMaxRecords = y }
 {-# INLINE docomMaxRecords #-}
 
 -- | The version filter value. Specify this parameter to show only the available
 -- offerings matching the specified version. Default: All versions.
 -- Constraints: Must be one of the version returned from
 -- DescribeClusterVersions.
-docomClusterVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOrderableClusterOptions
-    -> f DescribeOrderableClusterOptions
+docomClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docomClusterVersion f x =
-    (\y -> x { _docomClusterVersion = y })
-       <$> f (_docomClusterVersion x)
+    f (_docomClusterVersion x)
+        <&> \y -> x { _docomClusterVersion = y }
 {-# INLINE docomClusterVersion #-}
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
-docomNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOrderableClusterOptions
-    -> f DescribeOrderableClusterOptions
+docomNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docomNodeType f x =
-    (\y -> x { _docomNodeType = y })
-       <$> f (_docomNodeType x)
+    f (_docomNodeType x)
+        <&> \y -> x { _docomNodeType = y }
 {-# INLINE docomNodeType #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -142,15 +128,10 @@ docomNodeType f x =
 -- the Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
-docomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOrderableClusterOptions
-    -> f DescribeOrderableClusterOptions
+docomMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docomMarker f x =
-    (\y -> x { _docomMarker = y })
-       <$> f (_docomMarker x)
+    f (_docomMarker x)
+        <&> \y -> x { _docomMarker = y }
 {-# INLINE docomMarker #-}
 
 instance ToQuery DescribeOrderableClusterOptions where
@@ -171,15 +152,10 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 
 -- | An OrderableClusterOption structure containing information about orderable
 -- options for the Cluster.
-ocomOrderableClusterOptions
-    :: Functor f
-    => ([OrderableClusterOption]
-    -> f ([OrderableClusterOption]))
-    -> DescribeOrderableClusterOptionsResponse
-    -> f DescribeOrderableClusterOptionsResponse
+ocomOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse ([OrderableClusterOption])
 ocomOrderableClusterOptions f x =
-    (\y -> x { _ocomOrderableClusterOptions = y })
-       <$> f (_ocomOrderableClusterOptions x)
+    f (_ocomOrderableClusterOptions x)
+        <&> \y -> x { _ocomOrderableClusterOptions = y }
 {-# INLINE ocomOrderableClusterOptions #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -187,15 +163,10 @@ ocomOrderableClusterOptions f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-ocomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOrderableClusterOptionsResponse
-    -> f DescribeOrderableClusterOptionsResponse
+ocomMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
 ocomMarker f x =
-    (\y -> x { _ocomMarker = y })
-       <$> f (_ocomMarker x)
+    f (_ocomMarker x)
+        <&> \y -> x { _ocomMarker = y }
 {-# INLINE ocomMarker #-}
 
 instance FromXML DescribeOrderableClusterOptionsResponse where

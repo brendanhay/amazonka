@@ -86,6 +86,7 @@ listPipelines = ListPipelines
     { _lprAscending = Nothing
     , _lprPageToken = Nothing
     }
+{-# INLINE listPipelines #-}
 
 data ListPipelines = ListPipelines
     { _lprAscending :: Maybe Text
@@ -101,29 +102,19 @@ data ListPipelines = ListPipelines
 -- | To list pipelines in chronological order by the date and time that they
 -- were created, enter true. To list pipelines in reverse chronological order,
 -- enter false.
-lprAscending
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPipelines
-    -> f ListPipelines
+lprAscending :: Lens' ListPipelines (Maybe Text)
 lprAscending f x =
-    (\y -> x { _lprAscending = y })
-       <$> f (_lprAscending x)
+    f (_lprAscending x)
+        <&> \y -> x { _lprAscending = y }
 {-# INLINE lprAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-lprPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPipelines
-    -> f ListPipelines
+lprPageToken :: Lens' ListPipelines (Maybe Text)
 lprPageToken f x =
-    (\y -> x { _lprPageToken = y })
-       <$> f (_lprPageToken x)
+    f (_lprPageToken x)
+        <&> \y -> x { _lprPageToken = y }
 {-# INLINE lprPageToken #-}
 
 instance ToPath ListPipelines where
@@ -152,27 +143,17 @@ data ListPipelinesResponse = ListPipelinesResponse
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the pipelines fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
-lpsNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPipelinesResponse
-    -> f ListPipelinesResponse
+lpsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lpsNextPageToken f x =
-    (\y -> x { _lpsNextPageToken = y })
-       <$> f (_lpsNextPageToken x)
+    f (_lpsNextPageToken x)
+        <&> \y -> x { _lpsNextPageToken = y }
 {-# INLINE lpsNextPageToken #-}
 
 -- | An array of Pipeline objects.
-lpsPipelines
-    :: Functor f
-    => ([Pipeline]
-    -> f ([Pipeline]))
-    -> ListPipelinesResponse
-    -> f ListPipelinesResponse
+lpsPipelines :: Lens' ListPipelinesResponse ([Pipeline])
 lpsPipelines f x =
-    (\y -> x { _lpsPipelines = y })
-       <$> f (_lpsPipelines x)
+    f (_lpsPipelines x)
+        <&> \y -> x { _lpsPipelines = y }
 {-# INLINE lpsPipelines #-}
 
 instance FromJSON ListPipelinesResponse

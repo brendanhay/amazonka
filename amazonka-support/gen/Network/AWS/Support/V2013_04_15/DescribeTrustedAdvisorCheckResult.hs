@@ -54,6 +54,7 @@ describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
     { _dtacrrCheckId = p1
     , _dtacrrLanguage = Nothing
     }
+{-# INLINE describeTrustedAdvisorCheckResult #-}
 
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
     { _dtacrrCheckId :: Text
@@ -66,29 +67,19 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
     } deriving (Show, Generic)
 
 -- | The unique identifier for the Trusted Advisor check.
-dtacrrCheckId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeTrustedAdvisorCheckResult
-    -> f DescribeTrustedAdvisorCheckResult
+dtacrrCheckId :: Lens' DescribeTrustedAdvisorCheckResult (Text)
 dtacrrCheckId f x =
-    (\y -> x { _dtacrrCheckId = y })
-       <$> f (_dtacrrCheckId x)
+    f (_dtacrrCheckId x)
+        <&> \y -> x { _dtacrrCheckId = y }
 {-# INLINE dtacrrCheckId #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dtacrrLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTrustedAdvisorCheckResult
-    -> f DescribeTrustedAdvisorCheckResult
+dtacrrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
 dtacrrLanguage f x =
-    (\y -> x { _dtacrrLanguage = y })
-       <$> f (_dtacrrLanguage x)
+    f (_dtacrrLanguage x)
+        <&> \y -> x { _dtacrrLanguage = y }
 {-# INLINE dtacrrLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorCheckResult
@@ -105,15 +96,10 @@ data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResu
     } deriving (Show, Generic)
 
 -- | The detailed results of the Trusted Advisor check.
-dtacrsResult
-    :: Functor f
-    => (Maybe TrustedAdvisorCheckResult
-    -> f (Maybe TrustedAdvisorCheckResult))
-    -> DescribeTrustedAdvisorCheckResultResponse
-    -> f DescribeTrustedAdvisorCheckResultResponse
+dtacrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrsResult f x =
-    (\y -> x { _dtacrsResult = y })
-       <$> f (_dtacrsResult x)
+    f (_dtacrsResult x)
+        <&> \y -> x { _dtacrsResult = y }
 {-# INLINE dtacrsResult #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckResultResponse

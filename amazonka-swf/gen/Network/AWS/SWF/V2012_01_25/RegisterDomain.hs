@@ -72,6 +72,7 @@ registerDomain p1 p2 = RegisterDomain
     , _rdiWorkflowExecutionRetentionPeriodInDays = p2
     , _rdiDescription = Nothing
     }
+{-# INLINE registerDomain #-}
 
 data RegisterDomain = RegisterDomain
     { _rdiName :: Text
@@ -96,15 +97,10 @@ data RegisterDomain = RegisterDomain
 -- (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-rdiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdiName :: Lens' RegisterDomain (Text)
 rdiName f x =
-    (\y -> x { _rdiName = y })
-       <$> f (_rdiName x)
+    f (_rdiName x)
+        <&> \y -> x { _rdiName = y }
 {-# INLINE rdiName #-}
 
 -- | A duration (in days) for which the record (including the history) of
@@ -113,27 +109,17 @@ rdiName f x =
 -- results of visibility calls. If you pass the value NONE then there is no
 -- expiration for workflow execution history (effectively an infinite
 -- retention period).
-rdiWorkflowExecutionRetentionPeriodInDays
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdiWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain (Text)
 rdiWorkflowExecutionRetentionPeriodInDays f x =
-    (\y -> x { _rdiWorkflowExecutionRetentionPeriodInDays = y })
-       <$> f (_rdiWorkflowExecutionRetentionPeriodInDays x)
+    f (_rdiWorkflowExecutionRetentionPeriodInDays x)
+        <&> \y -> x { _rdiWorkflowExecutionRetentionPeriodInDays = y }
 {-# INLINE rdiWorkflowExecutionRetentionPeriodInDays #-}
 
 -- | Textual description of the domain.
-rdiDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterDomain
-    -> f RegisterDomain
+rdiDescription :: Lens' RegisterDomain (Maybe Text)
 rdiDescription f x =
-    (\y -> x { _rdiDescription = y })
-       <$> f (_rdiDescription x)
+    f (_rdiDescription x)
+        <&> \y -> x { _rdiDescription = y }
 {-# INLINE rdiDescription #-}
 
 instance ToPath RegisterDomain

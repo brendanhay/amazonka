@@ -70,6 +70,7 @@ updateItem p1 p2 = UpdateItem
     , _uiiReturnItemCollectionMetrics = Nothing
     , _uiiReturnValues = Nothing
     }
+{-# INLINE updateItem #-}
 
 data UpdateItem = UpdateItem
     { _uiiKey :: Map Text AttributeValue
@@ -199,27 +200,17 @@ data UpdateItem = UpdateItem
 
 -- | The primary key that defines the item. Each element consists of an
 -- attribute name and a value for that attribute.
-uiiKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> UpdateItem
-    -> f UpdateItem
+uiiKey :: Lens' UpdateItem (Map Text AttributeValue)
 uiiKey f x =
-    (\y -> x { _uiiKey = y })
-       <$> f (_uiiKey x)
+    f (_uiiKey x)
+        <&> \y -> x { _uiiKey = y }
 {-# INLINE uiiKey #-}
 
 -- | The name of the table containing the item to update.
-uiiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateItem
-    -> f UpdateItem
+uiiTableName :: Lens' UpdateItem (Text)
 uiiTableName f x =
-    (\y -> x { _uiiTableName = y })
-       <$> f (_uiiTableName x)
+    f (_uiiTableName x)
+        <&> \y -> x { _uiiTableName = y }
 {-# INLINE uiiTableName #-}
 
 -- | The names of attributes to be modified, the action to perform on each, and
@@ -277,26 +268,16 @@ uiiTableName f x =
 -- be specified. If you specify any attributes that are part of an index key,
 -- then the data types for those attributes must match those of the schema in
 -- the table's attribute definition.
-uiiAttributeUpdates
-    :: Functor f
-    => (Map Text AttributeValueUpdate
-    -> f (Map Text AttributeValueUpdate))
-    -> UpdateItem
-    -> f UpdateItem
+uiiAttributeUpdates :: Lens' UpdateItem (Map Text AttributeValueUpdate)
 uiiAttributeUpdates f x =
-    (\y -> x { _uiiAttributeUpdates = y })
-       <$> f (_uiiAttributeUpdates x)
+    f (_uiiAttributeUpdates x)
+        <&> \y -> x { _uiiAttributeUpdates = y }
 {-# INLINE uiiAttributeUpdates #-}
 
-uiiConditionalOperator
-    :: Functor f
-    => (Maybe ConditionalOperator
-    -> f (Maybe ConditionalOperator))
-    -> UpdateItem
-    -> f UpdateItem
+uiiConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
 uiiConditionalOperator f x =
-    (\y -> x { _uiiConditionalOperator = y })
-       <$> f (_uiiConditionalOperator x)
+    f (_uiiConditionalOperator x)
+        <&> \y -> x { _uiiConditionalOperator = y }
 {-# INLINE uiiConditionalOperator #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
@@ -325,44 +306,29 @@ uiiConditionalOperator f x =
 -- exist.) If you specify more than one condition for Exists, then all of the
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
-uiiExpected
-    :: Functor f
-    => (Map Text ExpectedAttributeValue
-    -> f (Map Text ExpectedAttributeValue))
-    -> UpdateItem
-    -> f UpdateItem
+uiiExpected :: Lens' UpdateItem (Map Text ExpectedAttributeValue)
 uiiExpected f x =
-    (\y -> x { _uiiExpected = y })
-       <$> f (_uiiExpected x)
+    f (_uiiExpected x)
+        <&> \y -> x { _uiiExpected = y }
 {-# INLINE uiiExpected #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-uiiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> UpdateItem
-    -> f UpdateItem
+uiiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
 uiiReturnConsumedCapacity f x =
-    (\y -> x { _uiiReturnConsumedCapacity = y })
-       <$> f (_uiiReturnConsumedCapacity x)
+    f (_uiiReturnConsumedCapacity x)
+        <&> \y -> x { _uiiReturnConsumedCapacity = y }
 {-# INLINE uiiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
-uiiReturnItemCollectionMetrics
-    :: Functor f
-    => (Maybe ReturnItemCollectionMetrics
-    -> f (Maybe ReturnItemCollectionMetrics))
-    -> UpdateItem
-    -> f UpdateItem
+uiiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
 uiiReturnItemCollectionMetrics f x =
-    (\y -> x { _uiiReturnItemCollectionMetrics = y })
-       <$> f (_uiiReturnItemCollectionMetrics x)
+    f (_uiiReturnItemCollectionMetrics x)
+        <&> \y -> x { _uiiReturnItemCollectionMetrics = y }
 {-# INLINE uiiReturnItemCollectionMetrics #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
@@ -374,15 +340,10 @@ uiiReturnItemCollectionMetrics f x =
 -- attributes are returned. ALL_NEW - All of the attributes of the new version
 -- of the item are returned. UPDATED_NEW - The new versions of only the
 -- updated attributes are returned.
-uiiReturnValues
-    :: Functor f
-    => (Maybe ReturnValue
-    -> f (Maybe ReturnValue))
-    -> UpdateItem
-    -> f UpdateItem
+uiiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
 uiiReturnValues f x =
-    (\y -> x { _uiiReturnValues = y })
-       <$> f (_uiiReturnValues x)
+    f (_uiiReturnValues x)
+        <&> \y -> x { _uiiReturnValues = y }
 {-# INLINE uiiReturnValues #-}
 
 instance ToPath UpdateItem
@@ -417,15 +378,10 @@ data UpdateItemResponse = UpdateItemResponse
 -- | A map of attribute values as they appeared before the UpdateItem operation,
 -- but only if ReturnValues was specified as something other than NONE in the
 -- request. Each element represents one attribute.
-uioAttributes
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> UpdateItemResponse
-    -> f UpdateItemResponse
+uioAttributes :: Lens' UpdateItemResponse (Map Text AttributeValue)
 uioAttributes f x =
-    (\y -> x { _uioAttributes = y })
-       <$> f (_uioAttributes x)
+    f (_uioAttributes x)
+        <&> \y -> x { _uioAttributes = y }
 {-# INLINE uioAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -433,30 +389,20 @@ uioAttributes f x =
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-uioConsumedCapacity
-    :: Functor f
-    => (Maybe ConsumedCapacity
-    -> f (Maybe ConsumedCapacity))
-    -> UpdateItemResponse
-    -> f UpdateItemResponse
+uioConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
 uioConsumedCapacity f x =
-    (\y -> x { _uioConsumedCapacity = y })
-       <$> f (_uioConsumedCapacity x)
+    f (_uioConsumedCapacity x)
+        <&> \y -> x { _uioConsumedCapacity = y }
 {-# INLINE uioConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
 -- the request. If the table does not have any local secondary indexes, this
 -- information is not returned in the response.
-uioItemCollectionMetrics
-    :: Functor f
-    => (Maybe ItemCollectionMetrics
-    -> f (Maybe ItemCollectionMetrics))
-    -> UpdateItemResponse
-    -> f UpdateItemResponse
+uioItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetrics)
 uioItemCollectionMetrics f x =
-    (\y -> x { _uioItemCollectionMetrics = y })
-       <$> f (_uioItemCollectionMetrics x)
+    f (_uioItemCollectionMetrics x)
+        <&> \y -> x { _uioItemCollectionMetrics = y }
 {-# INLINE uioItemCollectionMetrics #-}
 
 instance FromJSON UpdateItemResponse

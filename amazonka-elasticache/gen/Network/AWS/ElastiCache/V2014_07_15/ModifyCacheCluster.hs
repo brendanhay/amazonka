@@ -82,6 +82,7 @@ modifyCacheCluster p1 = ModifyCacheCluster
     , _mccmSnapshotWindow = Nothing
     , _mccmAZMode = Nothing
     }
+{-# INLINE modifyCacheCluster #-}
 
 data ModifyCacheCluster = ModifyCacheCluster
     { _mccmCacheClusterId :: Text
@@ -234,15 +235,10 @@ data ModifyCacheCluster = ModifyCacheCluster
     } deriving (Show, Generic)
 
 -- | The cache cluster identifier. This value is stored as a lowercase string.
-mccmCacheClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmCacheClusterId :: Lens' ModifyCacheCluster (Text)
 mccmCacheClusterId f x =
-    (\y -> x { _mccmCacheClusterId = y })
-       <$> f (_mccmCacheClusterId x)
+    f (_mccmCacheClusterId x)
+        <&> \y -> x { _mccmCacheClusterId = y }
 {-# INLINE mccmCacheClusterId #-}
 
 -- | If true, this parameter causes the modifications in this request and any
@@ -253,29 +249,19 @@ mccmCacheClusterId f x =
 -- first. If you perform a ModifyCacheCluster before a pending modification is
 -- applied, the pending modification is replaced by the newer modification.
 -- Valid values: true | false Default: false.
-mccmApplyImmediately
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
 mccmApplyImmediately f x =
-    (\y -> x { _mccmApplyImmediately = y })
-       <$> f (_mccmApplyImmediately x)
+    f (_mccmApplyImmediately x)
+        <&> \y -> x { _mccmApplyImmediately = y }
 {-# INLINE mccmApplyImmediately #-}
 
 -- | If true, then minor engine upgrades will be applied automatically to the
 -- cache cluster during the maintenance window. Valid values: true | false
 -- Default: true.
-mccmAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
 mccmAutoMinorVersionUpgrade f x =
-    (\y -> x { _mccmAutoMinorVersionUpgrade = y })
-       <$> f (_mccmAutoMinorVersionUpgrade x)
+    f (_mccmAutoMinorVersionUpgrade x)
+        <&> \y -> x { _mccmAutoMinorVersionUpgrade = y }
 {-# INLINE mccmAutoMinorVersionUpgrade #-}
 
 -- | A list of cache node IDs to be removed. A node ID is a numeric identifier
@@ -287,15 +273,10 @@ mccmAutoMinorVersionUpgrade f x =
 -- have 3 active cache nodes, 7 pending cache nodes, and the number of cache
 -- nodes in this ModifyCacheCluser call is 5, you must list 2 (7 - 5) cache
 -- node IDs to remove.
-mccmCacheNodeIdsToRemove
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmCacheNodeIdsToRemove :: Lens' ModifyCacheCluster ([Text])
 mccmCacheNodeIdsToRemove f x =
-    (\y -> x { _mccmCacheNodeIdsToRemove = y })
-       <$> f (_mccmCacheNodeIdsToRemove x)
+    f (_mccmCacheNodeIdsToRemove x)
+        <&> \y -> x { _mccmCacheNodeIdsToRemove = y }
 {-# INLINE mccmCacheNodeIdsToRemove #-}
 
 -- | A list of cache security group names to authorize on this cache cluster.
@@ -303,15 +284,10 @@ mccmCacheNodeIdsToRemove f x =
 -- can be used only with clusters that are created outside of an Amazon
 -- Virtual Private Cloud (VPC). Constraints: Must contain no more than 255
 -- alphanumeric characters. Must not be "Default".
-mccmCacheSecurityGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmCacheSecurityGroupNames :: Lens' ModifyCacheCluster ([Text])
 mccmCacheSecurityGroupNames f x =
-    (\y -> x { _mccmCacheSecurityGroupNames = y })
-       <$> f (_mccmCacheSecurityGroupNames x)
+    f (_mccmCacheSecurityGroupNames x)
+        <&> \y -> x { _mccmCacheSecurityGroupNames = y }
 {-# INLINE mccmCacheSecurityGroupNames #-}
 
 -- | The number of cache nodes that the cache cluster should have. If the value
@@ -341,15 +317,10 @@ mccmCacheSecurityGroupNames f x =
 -- of cache nodes in a cluster, use the ModifyCacheCluster request and set
 -- NumCacheNodes equal to the number of cache nodes currently in the cache
 -- cluster.
-mccmNumCacheNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Integer)
 mccmNumCacheNodes f x =
-    (\y -> x { _mccmNumCacheNodes = y })
-       <$> f (_mccmNumCacheNodes x)
+    f (_mccmNumCacheNodes x)
+        <&> \y -> x { _mccmNumCacheNodes = y }
 {-# INLINE mccmNumCacheNodes #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
@@ -357,15 +328,10 @@ mccmNumCacheNodes f x =
 -- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
 -- retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
-mccmSnapshotRetentionLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Integer)
 mccmSnapshotRetentionLimit f x =
-    (\y -> x { _mccmSnapshotRetentionLimit = y })
-       <$> f (_mccmSnapshotRetentionLimit x)
+    f (_mccmSnapshotRetentionLimit x)
+        <&> \y -> x { _mccmSnapshotRetentionLimit = y }
 {-# INLINE mccmSnapshotRetentionLimit #-}
 
 -- | The list of Availability Zones where the new Memcached cache nodes will be
@@ -394,29 +360,19 @@ mccmSnapshotRetentionLimit f x =
 -- Considerations for Memcached. Example:
 -- NewAvailabilityZones.member.1=us-east-1a&amp;NewAvailabilityZones.member.2=us-east-1b&amp;NewAvailabilityZones.member.3=us-east-1d.
 -- 
-mccmNewAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmNewAvailabilityZones :: Lens' ModifyCacheCluster ([Text])
 mccmNewAvailabilityZones f x =
-    (\y -> x { _mccmNewAvailabilityZones = y })
-       <$> f (_mccmNewAvailabilityZones x)
+    f (_mccmNewAvailabilityZones x)
+        <&> \y -> x { _mccmNewAvailabilityZones = y }
 {-# INLINE mccmNewAvailabilityZones #-}
 
 -- | Specifies the VPC Security Groups associated with the cache cluster. This
 -- parameter can be used only with clusters that are created in an Amazon
 -- Virtual Private Cloud (VPC).
-mccmSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmSecurityGroupIds :: Lens' ModifyCacheCluster ([Text])
 mccmSecurityGroupIds f x =
-    (\y -> x { _mccmSecurityGroupIds = y })
-       <$> f (_mccmSecurityGroupIds x)
+    f (_mccmSecurityGroupIds x)
+        <&> \y -> x { _mccmSecurityGroupIds = y }
 {-# INLINE mccmSecurityGroupIds #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
@@ -424,81 +380,51 @@ mccmSecurityGroupIds f x =
 -- immediately. If you are moving this window to the current time, there must
 -- be at least 120 minutes between the current time and end of the window to
 -- ensure that pending changes are applied.
-mccmPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccmPreferredMaintenanceWindow f x =
-    (\y -> x { _mccmPreferredMaintenanceWindow = y })
-       <$> f (_mccmPreferredMaintenanceWindow x)
+    f (_mccmPreferredMaintenanceWindow x)
+        <&> \y -> x { _mccmPreferredMaintenanceWindow = y }
 {-# INLINE mccmPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent. The Amazon SNS topic owner must be same as the
 -- cache cluster owner.
-mccmNotificationTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmNotificationTopicArn :: Lens' ModifyCacheCluster (Maybe Text)
 mccmNotificationTopicArn f x =
-    (\y -> x { _mccmNotificationTopicArn = y })
-       <$> f (_mccmNotificationTopicArn x)
+    f (_mccmNotificationTopicArn x)
+        <&> \y -> x { _mccmNotificationTopicArn = y }
 {-# INLINE mccmNotificationTopicArn #-}
 
 -- | The name of the cache parameter group to apply to this cache cluster. This
 -- change is asynchronously applied as soon as possible for parameters when
 -- the ApplyImmediately parameter is specified as true for this request.
-mccmCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
 mccmCacheParameterGroupName f x =
-    (\y -> x { _mccmCacheParameterGroupName = y })
-       <$> f (_mccmCacheParameterGroupName x)
+    f (_mccmCacheParameterGroupName x)
+        <&> \y -> x { _mccmCacheParameterGroupName = y }
 {-# INLINE mccmCacheParameterGroupName #-}
 
 -- | The status of the Amazon SNS notification topic. Notifications are sent
 -- only if the status is active. Valid values: active | inactive.
-mccmNotificationTopicStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
 mccmNotificationTopicStatus f x =
-    (\y -> x { _mccmNotificationTopicStatus = y })
-       <$> f (_mccmNotificationTopicStatus x)
+    f (_mccmNotificationTopicStatus x)
+        <&> \y -> x { _mccmNotificationTopicStatus = y }
 {-# INLINE mccmNotificationTopicStatus #-}
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
-mccmEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
 mccmEngineVersion f x =
-    (\y -> x { _mccmEngineVersion = y })
-       <$> f (_mccmEngineVersion x)
+    f (_mccmEngineVersion x)
+        <&> \y -> x { _mccmEngineVersion = y }
 {-# INLINE mccmEngineVersion #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of your cache cluster.
-mccmSnapshotWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccmSnapshotWindow f x =
-    (\y -> x { _mccmSnapshotWindow = y })
-       <$> f (_mccmSnapshotWindow x)
+    f (_mccmSnapshotWindow x)
+        <&> \y -> x { _mccmSnapshotWindow = y }
 {-# INLINE mccmSnapshotWindow #-}
 
 -- | Specifies whether the new nodes in this Memcached cache cluster are all
@@ -511,15 +437,10 @@ mccmSnapshotWindow f x =
 -- different Availability Zones. For instructions on how to move existing
 -- Memcached nodes to different Availability Zones, see the Availability Zone
 -- Considerations section of Cache Node Considerations for Memcached.
-mccmAZMode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheCluster
-    -> f ModifyCacheCluster
+mccmAZMode :: Lens' ModifyCacheCluster (Maybe Text)
 mccmAZMode f x =
-    (\y -> x { _mccmAZMode = y })
-       <$> f (_mccmAZMode x)
+    f (_mccmAZMode x)
+        <&> \y -> x { _mccmAZMode = y }
 {-# INLINE mccmAZMode #-}
 
 instance ToQuery ModifyCacheCluster where
@@ -531,15 +452,10 @@ data ModifyCacheClusterResponse = ModifyCacheClusterResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-ccyCacheCluster
-    :: Functor f
-    => (Maybe CacheCluster
-    -> f (Maybe CacheCluster))
-    -> ModifyCacheClusterResponse
-    -> f ModifyCacheClusterResponse
+ccyCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 ccyCacheCluster f x =
-    (\y -> x { _ccyCacheCluster = y })
-       <$> f (_ccyCacheCluster x)
+    f (_ccyCacheCluster x)
+        <&> \y -> x { _ccyCacheCluster = y }
 {-# INLINE ccyCacheCluster #-}
 
 instance FromXML ModifyCacheClusterResponse where

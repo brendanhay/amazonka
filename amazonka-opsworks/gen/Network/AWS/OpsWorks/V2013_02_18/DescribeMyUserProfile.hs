@@ -41,6 +41,7 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeMyUserProfile' request.
 describeMyUserProfile :: DescribeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile
+{-# INLINE describeMyUserProfile #-}
 
 data DescribeMyUserProfile = DescribeMyUserProfile
     deriving (Eq, Show, Generic)
@@ -59,15 +60,10 @@ data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     } deriving (Show, Generic)
 
 -- | A UserProfile object that describes the user's SSH information.
-dmuprUserProfile
-    :: Functor f
-    => (Maybe SelfUserProfile
-    -> f (Maybe SelfUserProfile))
-    -> DescribeMyUserProfileResponse
-    -> f DescribeMyUserProfileResponse
+dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile f x =
-    (\y -> x { _dmuprUserProfile = y })
-       <$> f (_dmuprUserProfile x)
+    f (_dmuprUserProfile x)
+        <&> \y -> x { _dmuprUserProfile = y }
 {-# INLINE dmuprUserProfile #-}
 
 instance FromJSON DescribeMyUserProfileResponse

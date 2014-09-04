@@ -56,6 +56,7 @@ select p1 = Select
     , _sstConsistentRead = Nothing
     , _sstNextToken = Nothing
     }
+{-# INLINE select #-}
 
 data Select = Select
     { _sstSelectExpression :: Text
@@ -72,43 +73,28 @@ data Select = Select
     } deriving (Show, Generic)
 
 -- | The expression used to query the domain.
-sstSelectExpression
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Select
-    -> f Select
+sstSelectExpression :: Lens' Select (Text)
 sstSelectExpression f x =
-    (\y -> x { _sstSelectExpression = y })
-       <$> f (_sstSelectExpression x)
+    f (_sstSelectExpression x)
+        <&> \y -> x { _sstSelectExpression = y }
 {-# INLINE sstSelectExpression #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
 -- will be returned. Otherwise, results will be consistent eventually, and the
 -- client may not see data that was written immediately before your read.
-sstConsistentRead
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Select
-    -> f Select
+sstConsistentRead :: Lens' Select (Maybe Bool)
 sstConsistentRead f x =
-    (\y -> x { _sstConsistentRead = y })
-       <$> f (_sstConsistentRead x)
+    f (_sstConsistentRead x)
+        <&> \y -> x { _sstConsistentRead = y }
 {-# INLINE sstConsistentRead #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- ItemNames.
-sstNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Select
-    -> f Select
+sstNextToken :: Lens' Select (Maybe Text)
 sstNextToken f x =
-    (\y -> x { _sstNextToken = y })
-       <$> f (_sstNextToken x)
+    f (_sstNextToken x)
+        <&> \y -> x { _sstNextToken = y }
 {-# INLINE sstNextToken #-}
 
 instance ToQuery Select where
@@ -124,29 +110,19 @@ data SelectResponse = SelectResponse
     } deriving (Show, Generic)
 
 -- | A list of items that match the select expression.
-ssuItems
-    :: Functor f
-    => ([Item]
-    -> f ([Item]))
-    -> SelectResponse
-    -> f SelectResponse
+ssuItems :: Lens' SelectResponse ([Item])
 ssuItems f x =
-    (\y -> x { _ssuItems = y })
-       <$> f (_ssuItems x)
+    f (_ssuItems x)
+        <&> \y -> x { _ssuItems = y }
 {-# INLINE ssuItems #-}
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
-ssuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SelectResponse
-    -> f SelectResponse
+ssuNextToken :: Lens' SelectResponse (Maybe Text)
 ssuNextToken f x =
-    (\y -> x { _ssuNextToken = y })
-       <$> f (_ssuNextToken x)
+    f (_ssuNextToken x)
+        <&> \y -> x { _ssuNextToken = y }
 {-# INLINE ssuNextToken #-}
 
 instance FromXML SelectResponse where

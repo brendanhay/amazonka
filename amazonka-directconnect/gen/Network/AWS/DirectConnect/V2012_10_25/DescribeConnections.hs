@@ -44,6 +44,7 @@ describeConnections :: DescribeConnections
 describeConnections = DescribeConnections
     { _dcsConnectionId = Nothing
     }
+{-# INLINE describeConnections #-}
 
 data DescribeConnections = DescribeConnections
     { _dcsConnectionId :: Maybe Text
@@ -51,15 +52,10 @@ data DescribeConnections = DescribeConnections
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dcsConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConnections
-    -> f DescribeConnections
+dcsConnectionId :: Lens' DescribeConnections (Maybe Text)
 dcsConnectionId f x =
-    (\y -> x { _dcsConnectionId = y })
-       <$> f (_dcsConnectionId x)
+    f (_dcsConnectionId x)
+        <&> \y -> x { _dcsConnectionId = y }
 {-# INLINE dcsConnectionId #-}
 
 instance ToPath DescribeConnections
@@ -76,15 +72,10 @@ data DescribeConnectionsResponse = DescribeConnectionsResponse
     } deriving (Show, Generic)
 
 -- | A list of connections.
-mConnections
-    :: Functor f
-    => ([Connection]
-    -> f ([Connection]))
-    -> DescribeConnectionsResponse
-    -> f DescribeConnectionsResponse
+mConnections :: Lens' DescribeConnectionsResponse ([Connection])
 mConnections f x =
-    (\y -> x { _mConnections = y })
-       <$> f (_mConnections x)
+    f (_mConnections x)
+        <&> \y -> x { _mConnections = y }
 {-# INLINE mConnections #-}
 
 instance FromJSON DescribeConnectionsResponse

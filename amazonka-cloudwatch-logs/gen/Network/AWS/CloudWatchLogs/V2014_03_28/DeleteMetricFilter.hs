@@ -55,6 +55,7 @@ deleteMetricFilter p1 p2 = DeleteMetricFilter
     { _dmfrFilterName = p1
     , _dmfrLogGroupName = p2
     }
+{-# INLINE deleteMetricFilter #-}
 
 data DeleteMetricFilter = DeleteMetricFilter
     { _dmfrFilterName :: Text
@@ -63,26 +64,16 @@ data DeleteMetricFilter = DeleteMetricFilter
     } deriving (Show, Generic)
 
 -- | The name of the metric filter.
-dmfrFilterName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteMetricFilter
-    -> f DeleteMetricFilter
+dmfrFilterName :: Lens' DeleteMetricFilter (Text)
 dmfrFilterName f x =
-    (\y -> x { _dmfrFilterName = y })
-       <$> f (_dmfrFilterName x)
+    f (_dmfrFilterName x)
+        <&> \y -> x { _dmfrFilterName = y }
 {-# INLINE dmfrFilterName #-}
 
-dmfrLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteMetricFilter
-    -> f DeleteMetricFilter
+dmfrLogGroupName :: Lens' DeleteMetricFilter (Text)
 dmfrLogGroupName f x =
-    (\y -> x { _dmfrLogGroupName = y })
-       <$> f (_dmfrLogGroupName x)
+    f (_dmfrLogGroupName x)
+        <&> \y -> x { _dmfrLogGroupName = y }
 {-# INLINE dmfrLogGroupName #-}
 
 instance ToPath DeleteMetricFilter

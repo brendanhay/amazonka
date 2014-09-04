@@ -59,6 +59,7 @@ describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     , _dedpmMaxRecords = Nothing
     , _dedpmMarker = Nothing
     }
+{-# INLINE describeEngineDefaultParameters #-}
 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpmCacheParameterGroupFamily :: Text
@@ -78,45 +79,30 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
 
 -- | The name of the cache parameter group family. Valid values are:
 -- memcached1.4 | redis2.6 | redis2.8.
-dedpmCacheParameterGroupFamily
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeEngineDefaultParameters
-    -> f DescribeEngineDefaultParameters
+dedpmCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters (Text)
 dedpmCacheParameterGroupFamily f x =
-    (\y -> x { _dedpmCacheParameterGroupFamily = y })
-       <$> f (_dedpmCacheParameterGroupFamily x)
+    f (_dedpmCacheParameterGroupFamily x)
+        <&> \y -> x { _dedpmCacheParameterGroupFamily = y }
 {-# INLINE dedpmCacheParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dedpmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEngineDefaultParameters
-    -> f DescribeEngineDefaultParameters
+dedpmMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
 dedpmMaxRecords f x =
-    (\y -> x { _dedpmMaxRecords = y })
-       <$> f (_dedpmMaxRecords x)
+    f (_dedpmMaxRecords x)
+        <&> \y -> x { _dedpmMaxRecords = y }
 {-# INLINE dedpmMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dedpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEngineDefaultParameters
-    -> f DescribeEngineDefaultParameters
+dedpmMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpmMarker f x =
-    (\y -> x { _dedpmMarker = y })
-       <$> f (_dedpmMarker x)
+    f (_dedpmMarker x)
+        <&> \y -> x { _dedpmMarker = y }
 {-# INLINE dedpmMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
@@ -129,15 +115,10 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
     } deriving (Show, Generic)
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
-edwEngineDefaults
-    :: Functor f
-    => (EngineDefaults
-    -> f (EngineDefaults))
-    -> DescribeEngineDefaultParametersResponse
-    -> f DescribeEngineDefaultParametersResponse
+edwEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (EngineDefaults)
 edwEngineDefaults f x =
-    (\y -> x { _edwEngineDefaults = y })
-       <$> f (_edwEngineDefaults x)
+    f (_edwEngineDefaults x)
+        <&> \y -> x { _edwEngineDefaults = y }
 {-# INLINE edwEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where

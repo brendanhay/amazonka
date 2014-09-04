@@ -86,6 +86,7 @@ createEnvironment p1 p2 = CreateEnvironment
     , _cemTags = mempty
     , _cemVersionLabel = Nothing
     }
+{-# INLINE createEnvironment #-}
 
 data CreateEnvironment = CreateEnvironment
     { _cemApplicationName :: Text
@@ -149,15 +150,10 @@ data CreateEnvironment = CreateEnvironment
 -- | The name of the application that contains the version to be deployed. If no
 -- application is found with this name, CreateEnvironment returns an
 -- InvalidParameterValue error.
-cemApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemApplicationName :: Lens' CreateEnvironment (Text)
 cemApplicationName f x =
-    (\y -> x { _cemApplicationName = y })
-       <$> f (_cemApplicationName x)
+    f (_cemApplicationName x)
+        <&> \y -> x { _cemApplicationName = y }
 {-# INLINE cemApplicationName #-}
 
 -- | A unique name for the deployment environment. Used in the application URL.
@@ -168,30 +164,20 @@ cemApplicationName f x =
 -- Default: If the CNAME parameter is not specified, the environment name
 -- becomes part of the CNAME, and therefore part of the visible URL for your
 -- application.
-cemEnvironmentName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemEnvironmentName :: Lens' CreateEnvironment (Text)
 cemEnvironmentName f x =
-    (\y -> x { _cemEnvironmentName = y })
-       <$> f (_cemEnvironmentName x)
+    f (_cemEnvironmentName x)
+        <&> \y -> x { _cemEnvironmentName = y }
 {-# INLINE cemEnvironmentName #-}
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- options to the requested value in the configuration set for the new
 -- environment. These override the values obtained from the solution stack or
 -- the configuration template.
-cemOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemOptionSettings :: Lens' CreateEnvironment ([ConfigurationOptionSetting])
 cemOptionSettings f x =
-    (\y -> x { _cemOptionSettings = y })
-       <$> f (_cemOptionSettings x)
+    f (_cemOptionSettings x)
+        <&> \y -> x { _cemOptionSettings = y }
 {-# INLINE cemOptionSettings #-}
 
 -- | The name of the configuration template to use in deployment. If no
@@ -201,66 +187,41 @@ cemOptionSettings f x =
 -- AWS Elastic Beanstalk returns an InvalidParameterCombination error. If you
 -- do not specify either, AWS Elastic Beanstalk returns a
 -- MissingRequiredParameter error.
-cemTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemTemplateName :: Lens' CreateEnvironment (Maybe Text)
 cemTemplateName f x =
-    (\y -> x { _cemTemplateName = y })
-       <$> f (_cemTemplateName x)
+    f (_cemTemplateName x)
+        <&> \y -> x { _cemTemplateName = y }
 {-# INLINE cemTemplateName #-}
 
 -- | If specified, the environment attempts to use this value as the prefix for
 -- the CNAME. If not specified, the CNAME is generated automatically by
 -- appending a random alphanumeric string to the environment name.
-cemCNAMEPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemCNAMEPrefix :: Lens' CreateEnvironment (Maybe Text)
 cemCNAMEPrefix f x =
-    (\y -> x { _cemCNAMEPrefix = y })
-       <$> f (_cemCNAMEPrefix x)
+    f (_cemCNAMEPrefix x)
+        <&> \y -> x { _cemCNAMEPrefix = y }
 {-# INLINE cemCNAMEPrefix #-}
 
 -- | Describes this environment.
-cemDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemDescription :: Lens' CreateEnvironment (Maybe Text)
 cemDescription f x =
-    (\y -> x { _cemDescription = y })
-       <$> f (_cemDescription x)
+    f (_cemDescription x)
+        <&> \y -> x { _cemDescription = y }
 {-# INLINE cemDescription #-}
 
 -- | This specifies the tier to use for creating this environment.
-cemTier
-    :: Functor f
-    => (Maybe EnvironmentTier
-    -> f (Maybe EnvironmentTier))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
 cemTier f x =
-    (\y -> x { _cemTier = y })
-       <$> f (_cemTier x)
+    f (_cemTier x)
+        <&> \y -> x { _cemTier = y }
 {-# INLINE cemTier #-}
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
-cemOptionsToRemove
-    :: Functor f
-    => ([OptionSpecification]
-    -> f ([OptionSpecification]))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemOptionsToRemove :: Lens' CreateEnvironment ([OptionSpecification])
 cemOptionsToRemove f x =
-    (\y -> x { _cemOptionsToRemove = y })
-       <$> f (_cemOptionsToRemove x)
+    f (_cemOptionsToRemove x)
+        <&> \y -> x { _cemOptionsToRemove = y }
 {-# INLINE cemOptionsToRemove #-}
 
 -- | This is an alternative to specifying a configuration name. If specified,
@@ -270,27 +231,17 @@ cemOptionsToRemove f x =
 -- Elastic Beanstalk returns an InvalidParameterCombination error. If you do
 -- not specify either, AWS Elastic Beanstalk returns a
 -- MissingRequiredParameter error.
-cemSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
 cemSolutionStackName f x =
-    (\y -> x { _cemSolutionStackName = y })
-       <$> f (_cemSolutionStackName x)
+    f (_cemSolutionStackName x)
+        <&> \y -> x { _cemSolutionStackName = y }
 {-# INLINE cemSolutionStackName #-}
 
 -- | This specifies the tags applied to resources in the environment.
-cemTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemTags :: Lens' CreateEnvironment ([Tag])
 cemTags f x =
-    (\y -> x { _cemTags = y })
-       <$> f (_cemTags x)
+    f (_cemTags x)
+        <&> \y -> x { _cemTags = y }
 {-# INLINE cemTags #-}
 
 -- | The name of the application version to deploy. If the specified application
@@ -298,15 +249,10 @@ cemTags f x =
 -- UpdateEnvironment returns an InvalidParameterValue error. Default: If not
 -- specified, AWS Elastic Beanstalk attempts to launch the application
 -- version">sample application in the container.
-cemVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironment
-    -> f CreateEnvironment
+cemVersionLabel :: Lens' CreateEnvironment (Maybe Text)
 cemVersionLabel f x =
-    (\y -> x { _cemVersionLabel = y })
-       <$> f (_cemVersionLabel x)
+    f (_cemVersionLabel x)
+        <&> \y -> x { _cemVersionLabel = y }
 {-# INLINE cemVersionLabel #-}
 
 instance ToQuery CreateEnvironment where
@@ -368,77 +314,47 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
     } deriving (Show, Generic)
 
 -- | The name of the application associated with this environment.
-edApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edApplicationName :: Lens' CreateEnvironmentResponse (Maybe Text)
 edApplicationName f x =
-    (\y -> x { _edApplicationName = y })
-       <$> f (_edApplicationName x)
+    f (_edApplicationName x)
+        <&> \y -> x { _edApplicationName = y }
 {-# INLINE edApplicationName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-edTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edTemplateName :: Lens' CreateEnvironmentResponse (Maybe Text)
 edTemplateName f x =
-    (\y -> x { _edTemplateName = y })
-       <$> f (_edTemplateName x)
+    f (_edTemplateName x)
+        <&> \y -> x { _edTemplateName = y }
 {-# INLINE edTemplateName #-}
 
 -- | The creation date for this environment.
-edDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edDateCreated :: Lens' CreateEnvironmentResponse (Maybe ISO8601)
 edDateCreated f x =
-    (\y -> x { _edDateCreated = y })
-       <$> f (_edDateCreated x)
+    f (_edDateCreated x)
+        <&> \y -> x { _edDateCreated = y }
 {-# INLINE edDateCreated #-}
 
 -- | The URL to the CNAME for this environment.
-edCNAME
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edCNAME :: Lens' CreateEnvironmentResponse (Maybe Text)
 edCNAME f x =
-    (\y -> x { _edCNAME = y })
-       <$> f (_edCNAME x)
+    f (_edCNAME x)
+        <&> \y -> x { _edCNAME = y }
 {-# INLINE edCNAME #-}
 
 -- | Describes this environment.
-edDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edDescription :: Lens' CreateEnvironmentResponse (Maybe Text)
 edDescription f x =
-    (\y -> x { _edDescription = y })
-       <$> f (_edDescription x)
+    f (_edDescription x)
+        <&> \y -> x { _edDescription = y }
 {-# INLINE edDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-edEndpointURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edEndpointURL :: Lens' CreateEnvironmentResponse (Maybe Text)
 edEndpointURL f x =
-    (\y -> x { _edEndpointURL = y })
-       <$> f (_edEndpointURL x)
+    f (_edEndpointURL x)
+        <&> \y -> x { _edEndpointURL = y }
 {-# INLINE edEndpointURL #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
@@ -454,51 +370,31 @@ edEndpointURL f x =
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-edHealth
-    :: Functor f
-    => (Maybe EnvironmentHealth
-    -> f (Maybe EnvironmentHealth))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edHealth :: Lens' CreateEnvironmentResponse (Maybe EnvironmentHealth)
 edHealth f x =
-    (\y -> x { _edHealth = y })
-       <$> f (_edHealth x)
+    f (_edHealth x)
+        <&> \y -> x { _edHealth = y }
 {-# INLINE edHealth #-}
 
 -- | The ID of this environment.
-edEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edEnvironmentId :: Lens' CreateEnvironmentResponse (Maybe Text)
 edEnvironmentId f x =
-    (\y -> x { _edEnvironmentId = y })
-       <$> f (_edEnvironmentId x)
+    f (_edEnvironmentId x)
+        <&> \y -> x { _edEnvironmentId = y }
 {-# INLINE edEnvironmentId #-}
 
 -- | The name of this environment.
-edEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edEnvironmentName :: Lens' CreateEnvironmentResponse (Maybe Text)
 edEnvironmentName f x =
-    (\y -> x { _edEnvironmentName = y })
-       <$> f (_edEnvironmentName x)
+    f (_edEnvironmentName x)
+        <&> \y -> x { _edEnvironmentName = y }
 {-# INLINE edEnvironmentName #-}
 
 -- | The description of the AWS resources used by this environment.
-edResources
-    :: Functor f
-    => (Maybe EnvironmentResourcesDescription
-    -> f (Maybe EnvironmentResourcesDescription))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edResources :: Lens' CreateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 edResources f x =
-    (\y -> x { _edResources = y })
-       <$> f (_edResources x)
+    f (_edResources x)
+        <&> \y -> x { _edResources = y }
 {-# INLINE edResources #-}
 
 -- | The current operational status of the environment: Launching: Environment
@@ -507,63 +403,38 @@ edResources f x =
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-edStatus
-    :: Functor f
-    => (Maybe EnvironmentStatus
-    -> f (Maybe EnvironmentStatus))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edStatus :: Lens' CreateEnvironmentResponse (Maybe EnvironmentStatus)
 edStatus f x =
-    (\y -> x { _edStatus = y })
-       <$> f (_edStatus x)
+    f (_edStatus x)
+        <&> \y -> x { _edStatus = y }
 {-# INLINE edStatus #-}
 
 -- | Describes the current tier of this environment.
-edTier
-    :: Functor f
-    => (Maybe EnvironmentTier
-    -> f (Maybe EnvironmentTier))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edTier :: Lens' CreateEnvironmentResponse (Maybe EnvironmentTier)
 edTier f x =
-    (\y -> x { _edTier = y })
-       <$> f (_edTier x)
+    f (_edTier x)
+        <&> \y -> x { _edTier = y }
 {-# INLINE edTier #-}
 
 -- | The name of the SolutionStack deployed with this environment.
-edSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edSolutionStackName :: Lens' CreateEnvironmentResponse (Maybe Text)
 edSolutionStackName f x =
-    (\y -> x { _edSolutionStackName = y })
-       <$> f (_edSolutionStackName x)
+    f (_edSolutionStackName x)
+        <&> \y -> x { _edSolutionStackName = y }
 {-# INLINE edSolutionStackName #-}
 
 -- | The last modified date for this environment.
-edDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edDateUpdated :: Lens' CreateEnvironmentResponse (Maybe ISO8601)
 edDateUpdated f x =
-    (\y -> x { _edDateUpdated = y })
-       <$> f (_edDateUpdated x)
+    f (_edDateUpdated x)
+        <&> \y -> x { _edDateUpdated = y }
 {-# INLINE edDateUpdated #-}
 
 -- | The application version deployed in this environment.
-edVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEnvironmentResponse
-    -> f CreateEnvironmentResponse
+edVersionLabel :: Lens' CreateEnvironmentResponse (Maybe Text)
 edVersionLabel f x =
-    (\y -> x { _edVersionLabel = y })
-       <$> f (_edVersionLabel x)
+    f (_edVersionLabel x)
+        <&> \y -> x { _edVersionLabel = y }
 {-# INLINE edVersionLabel #-}
 
 instance FromXML CreateEnvironmentResponse where

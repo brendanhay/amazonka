@@ -48,6 +48,7 @@ deleteClusterSubnetGroup :: Text -- ^ 'dcsgnClusterSubnetGroupName'
 deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
     { _dcsgnClusterSubnetGroupName = p1
     }
+{-# INLINE deleteClusterSubnetGroup #-}
 
 data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     { _dcsgnClusterSubnetGroupName :: Text
@@ -55,15 +56,10 @@ data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     } deriving (Show, Generic)
 
 -- | The name of the cluster subnet group name to be deleted.
-dcsgnClusterSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteClusterSubnetGroup
-    -> f DeleteClusterSubnetGroup
+dcsgnClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup (Text)
 dcsgnClusterSubnetGroupName f x =
-    (\y -> x { _dcsgnClusterSubnetGroupName = y })
-       <$> f (_dcsgnClusterSubnetGroupName x)
+    f (_dcsgnClusterSubnetGroupName x)
+        <&> \y -> x { _dcsgnClusterSubnetGroupName = y }
 {-# INLINE dcsgnClusterSubnetGroupName #-}
 
 instance ToQuery DeleteClusterSubnetGroup where

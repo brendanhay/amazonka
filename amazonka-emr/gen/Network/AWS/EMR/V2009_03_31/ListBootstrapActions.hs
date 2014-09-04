@@ -47,6 +47,7 @@ listBootstrapActions p1 = ListBootstrapActions
     { _lbaiClusterId = p1
     , _lbaiMarker = Nothing
     }
+{-# INLINE listBootstrapActions #-}
 
 data ListBootstrapActions = ListBootstrapActions
     { _lbaiClusterId :: Text
@@ -57,27 +58,17 @@ data ListBootstrapActions = ListBootstrapActions
     } deriving (Show, Generic)
 
 -- | The cluster identifier for the bootstrap actions to list .
-lbaiClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListBootstrapActions
-    -> f ListBootstrapActions
+lbaiClusterId :: Lens' ListBootstrapActions (Text)
 lbaiClusterId f x =
-    (\y -> x { _lbaiClusterId = y })
-       <$> f (_lbaiClusterId x)
+    f (_lbaiClusterId x)
+        <&> \y -> x { _lbaiClusterId = y }
 {-# INLINE lbaiClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve .
-lbaiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListBootstrapActions
-    -> f ListBootstrapActions
+lbaiMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaiMarker f x =
-    (\y -> x { _lbaiMarker = y })
-       <$> f (_lbaiMarker x)
+    f (_lbaiMarker x)
+        <&> \y -> x { _lbaiMarker = y }
 {-# INLINE lbaiMarker #-}
 
 instance ToPath ListBootstrapActions
@@ -97,27 +88,17 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse
     } deriving (Show, Generic)
 
 -- | The bootstrap actions associated with the cluster .
-lbaoBootstrapActions
-    :: Functor f
-    => ([Command]
-    -> f ([Command]))
-    -> ListBootstrapActionsResponse
-    -> f ListBootstrapActionsResponse
+lbaoBootstrapActions :: Lens' ListBootstrapActionsResponse ([Command])
 lbaoBootstrapActions f x =
-    (\y -> x { _lbaoBootstrapActions = y })
-       <$> f (_lbaoBootstrapActions x)
+    f (_lbaoBootstrapActions x)
+        <&> \y -> x { _lbaoBootstrapActions = y }
 {-# INLINE lbaoBootstrapActions #-}
 
 -- | The pagination token that indicates the next set of results to retrieve .
-lbaoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListBootstrapActionsResponse
-    -> f ListBootstrapActionsResponse
+lbaoMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbaoMarker f x =
-    (\y -> x { _lbaoMarker = y })
-       <$> f (_lbaoMarker x)
+    f (_lbaoMarker x)
+        <&> \y -> x { _lbaoMarker = y }
 {-# INLINE lbaoMarker #-}
 
 instance FromJSON ListBootstrapActionsResponse

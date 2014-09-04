@@ -49,6 +49,7 @@ deleteHealthCheck :: Text -- ^ 'dhcrHealthCheckId'
 deleteHealthCheck p1 = DeleteHealthCheck
     { _dhcrHealthCheckId = p1
     }
+{-# INLINE deleteHealthCheck #-}
 
 data DeleteHealthCheck = DeleteHealthCheck
     { _dhcrHealthCheckId :: Text
@@ -56,15 +57,10 @@ data DeleteHealthCheck = DeleteHealthCheck
     } deriving (Show, Generic)
 
 -- | The ID of the health check to delete.
-dhcrHealthCheckId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteHealthCheck
-    -> f DeleteHealthCheck
+dhcrHealthCheckId :: Lens' DeleteHealthCheck (Text)
 dhcrHealthCheckId f x =
-    (\y -> x { _dhcrHealthCheckId = y })
-       <$> f (_dhcrHealthCheckId x)
+    f (_dhcrHealthCheckId x)
+        <&> \y -> x { _dhcrHealthCheckId = y }
 {-# INLINE dhcrHealthCheckId #-}
 
 instance ToPath DeleteHealthCheck where

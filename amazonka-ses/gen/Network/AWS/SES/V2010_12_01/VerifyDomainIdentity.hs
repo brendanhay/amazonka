@@ -53,6 +53,7 @@ verifyDomainIdentity :: Text -- ^ 'vdirDomain'
 verifyDomainIdentity p1 = VerifyDomainIdentity
     { _vdirDomain = p1
     }
+{-# INLINE verifyDomainIdentity #-}
 
 data VerifyDomainIdentity = VerifyDomainIdentity
     { _vdirDomain :: Text
@@ -60,15 +61,10 @@ data VerifyDomainIdentity = VerifyDomainIdentity
     } deriving (Show, Generic)
 
 -- | The domain to be verified.
-vdirDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> VerifyDomainIdentity
-    -> f VerifyDomainIdentity
+vdirDomain :: Lens' VerifyDomainIdentity (Text)
 vdirDomain f x =
-    (\y -> x { _vdirDomain = y })
-       <$> f (_vdirDomain x)
+    f (_vdirDomain x)
+        <&> \y -> x { _vdirDomain = y }
 {-# INLINE vdirDomain #-}
 
 instance ToQuery VerifyDomainIdentity where
@@ -82,15 +78,10 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
-vdisVerificationToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> VerifyDomainIdentityResponse
-    -> f VerifyDomainIdentityResponse
+vdisVerificationToken :: Lens' VerifyDomainIdentityResponse (Text)
 vdisVerificationToken f x =
-    (\y -> x { _vdisVerificationToken = y })
-       <$> f (_vdisVerificationToken x)
+    f (_vdisVerificationToken x)
+        <&> \y -> x { _vdisVerificationToken = y }
 {-# INLINE vdisVerificationToken #-}
 
 instance FromXML VerifyDomainIdentityResponse where

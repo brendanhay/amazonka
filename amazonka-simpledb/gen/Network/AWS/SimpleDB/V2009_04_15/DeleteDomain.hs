@@ -45,6 +45,7 @@ deleteDomain :: Text -- ^ 'ddrDomainName'
 deleteDomain p1 = DeleteDomain
     { _ddrDomainName = p1
     }
+{-# INLINE deleteDomain #-}
 
 data DeleteDomain = DeleteDomain
     { _ddrDomainName :: Text
@@ -52,15 +53,10 @@ data DeleteDomain = DeleteDomain
     } deriving (Show, Generic)
 
 -- | The name of the domain to delete.
-ddrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDomain
-    -> f DeleteDomain
+ddrDomainName :: Lens' DeleteDomain (Text)
 ddrDomainName f x =
-    (\y -> x { _ddrDomainName = y })
-       <$> f (_ddrDomainName x)
+    f (_ddrDomainName x)
+        <&> \y -> x { _ddrDomainName = y }
 {-# INLINE ddrDomainName #-}
 
 instance ToQuery DeleteDomain where

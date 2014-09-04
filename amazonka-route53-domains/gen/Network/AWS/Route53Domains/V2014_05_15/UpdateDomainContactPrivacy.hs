@@ -72,6 +72,7 @@ updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     , _udcprRegistrantPrivacy = Nothing
     , _udcprTechPrivacy = Nothing
     }
+{-# INLINE updateDomainContactPrivacy #-}
 
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     { _udcprDomainName :: Text
@@ -103,60 +104,40 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-udcprDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDomainContactPrivacy
-    -> f UpdateDomainContactPrivacy
+udcprDomainName :: Lens' UpdateDomainContactPrivacy (Text)
 udcprDomainName f x =
-    (\y -> x { _udcprDomainName = y })
-       <$> f (_udcprDomainName x)
+    f (_udcprDomainName x)
+        <&> \y -> x { _udcprDomainName = y }
 {-# INLINE udcprDomainName #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
-udcprAdminPrivacy
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateDomainContactPrivacy
-    -> f UpdateDomainContactPrivacy
+udcprAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcprAdminPrivacy f x =
-    (\y -> x { _udcprAdminPrivacy = y })
-       <$> f (_udcprAdminPrivacy x)
+    f (_udcprAdminPrivacy x)
+        <&> \y -> x { _udcprAdminPrivacy = y }
 {-# INLINE udcprAdminPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
-udcprRegistrantPrivacy
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateDomainContactPrivacy
-    -> f UpdateDomainContactPrivacy
+udcprRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcprRegistrantPrivacy f x =
-    (\y -> x { _udcprRegistrantPrivacy = y })
-       <$> f (_udcprRegistrantPrivacy x)
+    f (_udcprRegistrantPrivacy x)
+        <&> \y -> x { _udcprRegistrantPrivacy = y }
 {-# INLINE udcprRegistrantPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
-udcprTechPrivacy
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateDomainContactPrivacy
-    -> f UpdateDomainContactPrivacy
+udcprTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcprTechPrivacy f x =
-    (\y -> x { _udcprTechPrivacy = y })
-       <$> f (_udcprTechPrivacy x)
+    f (_udcprTechPrivacy x)
+        <&> \y -> x { _udcprTechPrivacy = y }
 {-# INLINE udcprTechPrivacy #-}
 
 instance ToPath UpdateDomainContactPrivacy
@@ -177,15 +158,10 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udcpsOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDomainContactPrivacyResponse
-    -> f UpdateDomainContactPrivacyResponse
+udcpsOperationId :: Lens' UpdateDomainContactPrivacyResponse (Text)
 udcpsOperationId f x =
-    (\y -> x { _udcpsOperationId = y })
-       <$> f (_udcpsOperationId x)
+    f (_udcpsOperationId x)
+        <&> \y -> x { _udcpsOperationId = y }
 {-# INLINE udcpsOperationId #-}
 
 instance FromJSON UpdateDomainContactPrivacyResponse

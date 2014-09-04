@@ -77,6 +77,7 @@ updateStack p1 = UpdateStack
     , _usrCustomJson = Nothing
     , _usrDefaultSshKeyName = Nothing
     }
+{-# INLINE updateStack #-}
 
 data UpdateStack = UpdateStack
     { _usrStackId :: Text
@@ -176,27 +177,17 @@ data UpdateStack = UpdateStack
     } deriving (Show, Generic)
 
 -- | The stack ID.
-usrStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrStackId :: Lens' UpdateStack (Text)
 usrStackId f x =
-    (\y -> x { _usrStackId = y })
-       <$> f (_usrStackId x)
+    f (_usrStackId x)
+        <&> \y -> x { _usrStackId = y }
 {-# INLINE usrStackId #-}
 
 -- | Whether the stack uses custom cookbooks.
-usrUseCustomCookbooks
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateStack
-    -> f UpdateStack
+usrUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)
 usrUseCustomCookbooks f x =
-    (\y -> x { _usrUseCustomCookbooks = y })
-       <$> f (_usrUseCustomCookbooks x)
+    f (_usrUseCustomCookbooks x)
+        <&> \y -> x { _usrUseCustomCookbooks = y }
 {-# INLINE usrUseCustomCookbooks #-}
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
@@ -214,96 +205,61 @@ usrUseCustomCookbooks f x =
 -- layer on creation; custom security groups are required only for those
 -- layers that need custom settings. For more information, see Create a New
 -- Stack.
-usrUseOpsworksSecurityGroups
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateStack
-    -> f UpdateStack
+usrUseOpsworksSecurityGroups :: Lens' UpdateStack (Maybe Bool)
 usrUseOpsworksSecurityGroups f x =
-    (\y -> x { _usrUseOpsworksSecurityGroups = y })
-       <$> f (_usrUseOpsworksSecurityGroups x)
+    f (_usrUseOpsworksSecurityGroups x)
+        <&> \y -> x { _usrUseOpsworksSecurityGroups = y }
 {-# INLINE usrUseOpsworksSecurityGroups #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
 -- Create a New Stack.
-usrChefConfiguration
-    :: Functor f
-    => (Maybe ChefConfiguration
-    -> f (Maybe ChefConfiguration))
-    -> UpdateStack
-    -> f UpdateStack
+usrChefConfiguration :: Lens' UpdateStack (Maybe ChefConfiguration)
 usrChefConfiguration f x =
-    (\y -> x { _usrChefConfiguration = y })
-       <$> f (_usrChefConfiguration x)
+    f (_usrChefConfiguration x)
+        <&> \y -> x { _usrChefConfiguration = y }
 {-# INLINE usrChefConfiguration #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see Storage for the Root Device.
-usrDefaultRootDeviceType
-    :: Functor f
-    => (Maybe RootDeviceType
-    -> f (Maybe RootDeviceType))
-    -> UpdateStack
-    -> f UpdateStack
+usrDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
 usrDefaultRootDeviceType f x =
-    (\y -> x { _usrDefaultRootDeviceType = y })
-       <$> f (_usrDefaultRootDeviceType x)
+    f (_usrDefaultRootDeviceType x)
+        <&> \y -> x { _usrDefaultRootDeviceType = y }
 {-# INLINE usrDefaultRootDeviceType #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-usrCustomCookbooksSource
-    :: Functor f
-    => (Maybe Source
-    -> f (Maybe Source))
-    -> UpdateStack
-    -> f UpdateStack
+usrCustomCookbooksSource :: Lens' UpdateStack (Maybe Source)
 usrCustomCookbooksSource f x =
-    (\y -> x { _usrCustomCookbooksSource = y })
-       <$> f (_usrCustomCookbooksSource x)
+    f (_usrCustomCookbooksSource x)
+        <&> \y -> x { _usrCustomCookbooksSource = y }
 {-# INLINE usrCustomCookbooksSource #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-usrAttributes
-    :: Functor f
-    => (Map StackAttributesKeys Text
-    -> f (Map StackAttributesKeys Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrAttributes :: Lens' UpdateStack (Map StackAttributesKeys Text)
 usrAttributes f x =
-    (\y -> x { _usrAttributes = y })
-       <$> f (_usrAttributes x)
+    f (_usrAttributes x)
+        <&> \y -> x { _usrAttributes = y }
 {-# INLINE usrAttributes #-}
 
 -- | The configuration manager. When you clone a stack we recommend that you use
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
 -- The default value is currently 11.4.
-usrConfigurationManager
-    :: Functor f
-    => (Maybe StackConfigurationManager
-    -> f (Maybe StackConfigurationManager))
-    -> UpdateStack
-    -> f UpdateStack
+usrConfigurationManager :: Lens' UpdateStack (Maybe StackConfigurationManager)
 usrConfigurationManager f x =
-    (\y -> x { _usrConfigurationManager = y })
-       <$> f (_usrConfigurationManager x)
+    f (_usrConfigurationManager x)
+        <&> \y -> x { _usrConfigurationManager = y }
 {-# INLINE usrConfigurationManager #-}
 
 -- | The stack's new name.
-usrName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrName :: Lens' UpdateStack (Maybe Text)
 usrName f x =
-    (\y -> x { _usrName = y })
-       <$> f (_usrName x)
+    f (_usrName x)
+        <&> \y -> x { _usrName = y }
 {-# INLINE usrName #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
@@ -313,42 +269,27 @@ usrName f x =
 -- parameter to a valid service role ARN or the action will fail; there is no
 -- default value. You can specify the stack's current service role ARN, if you
 -- prefer, but you must do so explicitly.
-usrServiceRoleArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrServiceRoleArn :: Lens' UpdateStack (Maybe Text)
 usrServiceRoleArn f x =
-    (\y -> x { _usrServiceRoleArn = y })
-       <$> f (_usrServiceRoleArn x)
+    f (_usrServiceRoleArn x)
+        <&> \y -> x { _usrServiceRoleArn = y }
 {-# INLINE usrServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
 -- Identifiers.
-usrDefaultInstanceProfileArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrDefaultInstanceProfileArn :: Lens' UpdateStack (Maybe Text)
 usrDefaultInstanceProfileArn f x =
-    (\y -> x { _usrDefaultInstanceProfileArn = y })
-       <$> f (_usrDefaultInstanceProfileArn x)
+    f (_usrDefaultInstanceProfileArn x)
+        <&> \y -> x { _usrDefaultInstanceProfileArn = y }
 {-# INLINE usrDefaultInstanceProfileArn #-}
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
-usrDefaultOs
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrDefaultOs :: Lens' UpdateStack (Maybe Text)
 usrDefaultOs f x =
-    (\y -> x { _usrDefaultOs = y })
-       <$> f (_usrDefaultOs x)
+    f (_usrDefaultOs x)
+        <&> \y -> x { _usrDefaultOs = y }
 {-# INLINE usrDefaultOs #-}
 
 -- | The stack's new host name theme, with spaces are replaced by underscores.
@@ -360,45 +301,30 @@ usrDefaultOs f x =
 -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host name, call
 -- GetHostNameSuggestion, which returns a host name based on the current
 -- theme.
-usrHostnameTheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrHostnameTheme :: Lens' UpdateStack (Maybe Text)
 usrHostnameTheme f x =
-    (\y -> x { _usrHostnameTheme = y })
-       <$> f (_usrHostnameTheme x)
+    f (_usrHostnameTheme x)
+        <&> \y -> x { _usrHostnameTheme = y }
 {-# INLINE usrHostnameTheme #-}
 
 -- | The stack's default Availability Zone, which must be in the specified
 -- region. For more information, see Regions and Endpoints. If you also
 -- specify a value for DefaultSubnetId, the subnet must be in the same zone.
 -- For more information, see CreateStack.
-usrDefaultAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usrDefaultAvailabilityZone f x =
-    (\y -> x { _usrDefaultAvailabilityZone = y })
-       <$> f (_usrDefaultAvailabilityZone x)
+    f (_usrDefaultAvailabilityZone x)
+        <&> \y -> x { _usrDefaultAvailabilityZone = y }
 {-# INLINE usrDefaultAvailabilityZone #-}
 
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
 -- also specify a value for DefaultAvailabilityZone, the subnet must be in
 -- that zone. For more information, see CreateStack.
-usrDefaultSubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usrDefaultSubnetId f x =
-    (\y -> x { _usrDefaultSubnetId = y })
-       <$> f (_usrDefaultSubnetId x)
+    f (_usrDefaultSubnetId x)
+        <&> \y -> x { _usrDefaultSubnetId = y }
 {-# INLINE usrDefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -406,28 +332,18 @@ usrDefaultSubnetId f x =
 -- should be in the following format and must escape characters such as '"'.:
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
-usrCustomJson
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrCustomJson :: Lens' UpdateStack (Maybe Text)
 usrCustomJson f x =
-    (\y -> x { _usrCustomJson = y })
-       <$> f (_usrCustomJson x)
+    f (_usrCustomJson x)
+        <&> \y -> x { _usrCustomJson = y }
 {-# INLINE usrCustomJson #-}
 
 -- | A default SSH key for the stack instances. You can override this value when
 -- you create or update an instance.
-usrDefaultSshKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStack
-    -> f UpdateStack
+usrDefaultSshKeyName :: Lens' UpdateStack (Maybe Text)
 usrDefaultSshKeyName f x =
-    (\y -> x { _usrDefaultSshKeyName = y })
-       <$> f (_usrDefaultSshKeyName x)
+    f (_usrDefaultSshKeyName x)
+        <&> \y -> x { _usrDefaultSshKeyName = y }
 {-# INLINE usrDefaultSshKeyName #-}
 
 instance ToPath UpdateStack

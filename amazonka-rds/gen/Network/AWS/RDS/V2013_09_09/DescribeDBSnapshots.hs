@@ -63,6 +63,7 @@ describeDBSnapshots = DescribeDBSnapshots
     , _ddbsnSnapshotType = Nothing
     , _ddbsnMarker = Nothing
     }
+{-# INLINE describeDBSnapshots #-}
 
 data DescribeDBSnapshots = DescribeDBSnapshots
     { _ddbsnMaxRecords :: Maybe Integer
@@ -101,15 +102,10 @@ data DescribeDBSnapshots = DescribeDBSnapshots
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbsnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBSnapshots
-    -> f DescribeDBSnapshots
+ddbsnMaxRecords :: Lens' DescribeDBSnapshots (Maybe Integer)
 ddbsnMaxRecords f x =
-    (\y -> x { _ddbsnMaxRecords = y })
-       <$> f (_ddbsnMaxRecords x)
+    f (_ddbsnMaxRecords x)
+        <&> \y -> x { _ddbsnMaxRecords = y }
 {-# INLINE ddbsnMaxRecords #-}
 
 -- | A DB instance identifier to retrieve the list of DB snapshots for. Cannot
@@ -117,15 +113,10 @@ ddbsnMaxRecords f x =
 -- case sensitive. Constraints: Must contain from 1 to 63 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ddbsnDBInstanceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSnapshots
-    -> f DescribeDBSnapshots
+ddbsnDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsnDBInstanceIdentifier f x =
-    (\y -> x { _ddbsnDBInstanceIdentifier = y })
-       <$> f (_ddbsnDBInstanceIdentifier x)
+    f (_ddbsnDBInstanceIdentifier x)
+        <&> \y -> x { _ddbsnDBInstanceIdentifier = y }
 {-# INLINE ddbsnDBInstanceIdentifier #-}
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
@@ -134,43 +125,28 @@ ddbsnDBInstanceIdentifier f x =
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens If this is the identifier of an automated snapshot, the
 -- SnapshotType parameter must also be specified.
-ddbsnDBSnapshotIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSnapshots
-    -> f DescribeDBSnapshots
+ddbsnDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsnDBSnapshotIdentifier f x =
-    (\y -> x { _ddbsnDBSnapshotIdentifier = y })
-       <$> f (_ddbsnDBSnapshotIdentifier x)
+    f (_ddbsnDBSnapshotIdentifier x)
+        <&> \y -> x { _ddbsnDBSnapshotIdentifier = y }
 {-# INLINE ddbsnDBSnapshotIdentifier #-}
 
 -- | The type of snapshots that will be returned. Values can be "automated" or
 -- "manual." If not specified, the returned results will include all snapshots
 -- types.
-ddbsnSnapshotType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSnapshots
-    -> f DescribeDBSnapshots
+ddbsnSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsnSnapshotType f x =
-    (\y -> x { _ddbsnSnapshotType = y })
-       <$> f (_ddbsnSnapshotType x)
+    f (_ddbsnSnapshotType x)
+        <&> \y -> x { _ddbsnSnapshotType = y }
 {-# INLINE ddbsnSnapshotType #-}
 
 -- | An optional pagination token provided by a previous DescribeDBSnapshots
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
-ddbsnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSnapshots
-    -> f DescribeDBSnapshots
+ddbsnMarker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsnMarker f x =
-    (\y -> x { _ddbsnMarker = y })
-       <$> f (_ddbsnMarker x)
+    f (_ddbsnMarker x)
+        <&> \y -> x { _ddbsnMarker = y }
 {-# INLINE ddbsnMarker #-}
 
 instance ToQuery DescribeDBSnapshots where
@@ -186,29 +162,19 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     } deriving (Show, Generic)
 
 -- | A list of DBSnapshot instances.
-dbspDBSnapshots
-    :: Functor f
-    => ([DBSnapshot]
-    -> f ([DBSnapshot]))
-    -> DescribeDBSnapshotsResponse
-    -> f DescribeDBSnapshotsResponse
+dbspDBSnapshots :: Lens' DescribeDBSnapshotsResponse ([DBSnapshot])
 dbspDBSnapshots f x =
-    (\y -> x { _dbspDBSnapshots = y })
-       <$> f (_dbspDBSnapshots x)
+    f (_dbspDBSnapshots x)
+        <&> \y -> x { _dbspDBSnapshots = y }
 {-# INLINE dbspDBSnapshots #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbspMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSnapshotsResponse
-    -> f DescribeDBSnapshotsResponse
+dbspMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 dbspMarker f x =
-    (\y -> x { _dbspMarker = y })
-       <$> f (_dbspMarker x)
+    f (_dbspMarker x)
+        <&> \y -> x { _dbspMarker = y }
 {-# INLINE dbspMarker #-}
 
 instance FromXML DescribeDBSnapshotsResponse where

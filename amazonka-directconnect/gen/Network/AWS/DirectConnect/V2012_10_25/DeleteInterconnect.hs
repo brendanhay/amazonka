@@ -44,6 +44,7 @@ deleteInterconnect :: Text -- ^ 'dirInterconnectId'
 deleteInterconnect p1 = DeleteInterconnect
     { _dirInterconnectId = p1
     }
+{-# INLINE deleteInterconnect #-}
 
 data DeleteInterconnect = DeleteInterconnect
     { _dirInterconnectId :: Text
@@ -51,15 +52,10 @@ data DeleteInterconnect = DeleteInterconnect
     } deriving (Show, Generic)
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
-dirInterconnectId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteInterconnect
-    -> f DeleteInterconnect
+dirInterconnectId :: Lens' DeleteInterconnect (Text)
 dirInterconnectId f x =
-    (\y -> x { _dirInterconnectId = y })
-       <$> f (_dirInterconnectId x)
+    f (_dirInterconnectId x)
+        <&> \y -> x { _dirInterconnectId = y }
 {-# INLINE dirInterconnectId #-}
 
 instance ToPath DeleteInterconnect
@@ -87,15 +83,10 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse
 -- been approved, and is being initialized. Available: The network link is up,
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
-disInterconnectState
-    :: Functor f
-    => (Maybe InterconnectState
-    -> f (Maybe InterconnectState))
-    -> DeleteInterconnectResponse
-    -> f DeleteInterconnectResponse
+disInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
 disInterconnectState f x =
-    (\y -> x { _disInterconnectState = y })
-       <$> f (_disInterconnectState x)
+    f (_disInterconnectState x)
+        <&> \y -> x { _disInterconnectState = y }
 {-# INLINE disInterconnectState #-}
 
 instance FromJSON DeleteInterconnectResponse

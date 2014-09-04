@@ -67,6 +67,7 @@ updateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
     , _umstiHourOfDay = p3
     , _umstiMinuteOfHour = p4
     }
+{-# INLINE updateMaintenanceStartTime #-}
 
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     { _umstiDayOfWeek :: Integer
@@ -86,56 +87,36 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     } deriving (Show, Generic)
 
 -- | The maintenance start time day of the week.
-umstiDayOfWeek
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> UpdateMaintenanceStartTime
-    -> f UpdateMaintenanceStartTime
+umstiDayOfWeek :: Lens' UpdateMaintenanceStartTime (Integer)
 umstiDayOfWeek f x =
-    (\y -> x { _umstiDayOfWeek = y })
-       <$> f (_umstiDayOfWeek x)
+    f (_umstiDayOfWeek x)
+        <&> \y -> x { _umstiDayOfWeek = y }
 {-# INLINE umstiDayOfWeek #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-umstiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateMaintenanceStartTime
-    -> f UpdateMaintenanceStartTime
+umstiGatewayARN :: Lens' UpdateMaintenanceStartTime (Text)
 umstiGatewayARN f x =
-    (\y -> x { _umstiGatewayARN = y })
-       <$> f (_umstiGatewayARN x)
+    f (_umstiGatewayARN x)
+        <&> \y -> x { _umstiGatewayARN = y }
 {-# INLINE umstiGatewayARN #-}
 
 -- | The hour component of the maintenance start time represented as hh, where
 -- hh is the hour (00 to 23). The hour of the day is in the time zone of the
 -- gateway.
-umstiHourOfDay
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> UpdateMaintenanceStartTime
-    -> f UpdateMaintenanceStartTime
+umstiHourOfDay :: Lens' UpdateMaintenanceStartTime (Integer)
 umstiHourOfDay f x =
-    (\y -> x { _umstiHourOfDay = y })
-       <$> f (_umstiHourOfDay x)
+    f (_umstiHourOfDay x)
+        <&> \y -> x { _umstiHourOfDay = y }
 {-# INLINE umstiHourOfDay #-}
 
 -- | The minute component of the maintenance start time represented as mm, where
 -- mm is the minute (00 to 59). The minute of the hour is in the time zone of
 -- the gateway.
-umstiMinuteOfHour
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> UpdateMaintenanceStartTime
-    -> f UpdateMaintenanceStartTime
+umstiMinuteOfHour :: Lens' UpdateMaintenanceStartTime (Integer)
 umstiMinuteOfHour f x =
-    (\y -> x { _umstiMinuteOfHour = y })
-       <$> f (_umstiMinuteOfHour x)
+    f (_umstiMinuteOfHour x)
+        <&> \y -> x { _umstiMinuteOfHour = y }
 {-# INLINE umstiMinuteOfHour #-}
 
 instance ToPath UpdateMaintenanceStartTime
@@ -155,15 +136,10 @@ data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-umstoGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateMaintenanceStartTimeResponse
-    -> f UpdateMaintenanceStartTimeResponse
+umstoGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Text)
 umstoGatewayARN f x =
-    (\y -> x { _umstoGatewayARN = y })
-       <$> f (_umstoGatewayARN x)
+    f (_umstoGatewayARN x)
+        <&> \y -> x { _umstoGatewayARN = y }
 {-# INLINE umstoGatewayARN #-}
 
 instance FromJSON UpdateMaintenanceStartTimeResponse

@@ -65,6 +65,7 @@ setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
     , _ssaiSubscriptionArn = p2
     , _ssaiAttributeValue = Nothing
     }
+{-# INLINE setSubscriptionAttributes #-}
 
 data SetSubscriptionAttributes = SetSubscriptionAttributes
     { _ssaiAttributeName :: Text
@@ -80,39 +81,24 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
 -- | The name of the attribute you want to set. Only a subset of the
 -- subscriptions attributes are mutable. Valid values: DeliveryPolicy |
 -- RawMessageDelivery.
-ssaiAttributeName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetSubscriptionAttributes
-    -> f SetSubscriptionAttributes
+ssaiAttributeName :: Lens' SetSubscriptionAttributes (Text)
 ssaiAttributeName f x =
-    (\y -> x { _ssaiAttributeName = y })
-       <$> f (_ssaiAttributeName x)
+    f (_ssaiAttributeName x)
+        <&> \y -> x { _ssaiAttributeName = y }
 {-# INLINE ssaiAttributeName #-}
 
 -- | The ARN of the subscription to modify.
-ssaiSubscriptionArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetSubscriptionAttributes
-    -> f SetSubscriptionAttributes
+ssaiSubscriptionArn :: Lens' SetSubscriptionAttributes (Text)
 ssaiSubscriptionArn f x =
-    (\y -> x { _ssaiSubscriptionArn = y })
-       <$> f (_ssaiSubscriptionArn x)
+    f (_ssaiSubscriptionArn x)
+        <&> \y -> x { _ssaiSubscriptionArn = y }
 {-# INLINE ssaiSubscriptionArn #-}
 
 -- | The new value for the attribute in JSON format.
-ssaiAttributeValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetSubscriptionAttributes
-    -> f SetSubscriptionAttributes
+ssaiAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
 ssaiAttributeValue f x =
-    (\y -> x { _ssaiAttributeValue = y })
-       <$> f (_ssaiAttributeValue x)
+    f (_ssaiAttributeValue x)
+        <&> \y -> x { _ssaiAttributeValue = y }
 {-# INLINE ssaiAttributeValue #-}
 
 instance ToQuery SetSubscriptionAttributes where

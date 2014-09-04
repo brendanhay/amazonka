@@ -69,6 +69,7 @@ listVolumeRecoveryPoints :: Text -- ^ 'lvrpiGatewayARN'
 listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
     { _lvrpiGatewayARN = p1
     }
+{-# INLINE listVolumeRecoveryPoints #-}
 
 data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpiGatewayARN :: Text
@@ -79,15 +80,10 @@ data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvrpiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListVolumeRecoveryPoints
-    -> f ListVolumeRecoveryPoints
+lvrpiGatewayARN :: Lens' ListVolumeRecoveryPoints (Text)
 lvrpiGatewayARN f x =
-    (\y -> x { _lvrpiGatewayARN = y })
-       <$> f (_lvrpiGatewayARN x)
+    f (_lvrpiGatewayARN x)
+        <&> \y -> x { _lvrpiGatewayARN = y }
 {-# INLINE lvrpiGatewayARN #-}
 
 instance ToPath ListVolumeRecoveryPoints
@@ -108,26 +104,16 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvrpoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListVolumeRecoveryPointsResponse
-    -> f ListVolumeRecoveryPointsResponse
+lvrpoGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrpoGatewayARN f x =
-    (\y -> x { _lvrpoGatewayARN = y })
-       <$> f (_lvrpoGatewayARN x)
+    f (_lvrpoGatewayARN x)
+        <&> \y -> x { _lvrpoGatewayARN = y }
 {-# INLINE lvrpoGatewayARN #-}
 
-lvrpoVolumeRecoveryPointInfos
-    :: Functor f
-    => ([VolumeRecoveryPointInfo]
-    -> f ([VolumeRecoveryPointInfo]))
-    -> ListVolumeRecoveryPointsResponse
-    -> f ListVolumeRecoveryPointsResponse
+lvrpoVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse ([VolumeRecoveryPointInfo])
 lvrpoVolumeRecoveryPointInfos f x =
-    (\y -> x { _lvrpoVolumeRecoveryPointInfos = y })
-       <$> f (_lvrpoVolumeRecoveryPointInfos x)
+    f (_lvrpoVolumeRecoveryPointInfos x)
+        <&> \y -> x { _lvrpoVolumeRecoveryPointInfos = y }
 {-# INLINE lvrpoVolumeRecoveryPointInfos #-}
 
 instance FromJSON ListVolumeRecoveryPointsResponse

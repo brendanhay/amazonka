@@ -67,6 +67,7 @@ putMetricFilter p1 p2 p3 p4 = PutMetricFilter
     , _pmfrLogGroupName = p3
     , _pmfrMetricTransformations = p4
     }
+{-# INLINE putMetricFilter #-}
 
 data PutMetricFilter = PutMetricFilter
     { _pmfrFilterName :: Text
@@ -77,48 +78,28 @@ data PutMetricFilter = PutMetricFilter
     } deriving (Show, Generic)
 
 -- | The name of the metric filter.
-pmfrFilterName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricFilter
-    -> f PutMetricFilter
+pmfrFilterName :: Lens' PutMetricFilter (Text)
 pmfrFilterName f x =
-    (\y -> x { _pmfrFilterName = y })
-       <$> f (_pmfrFilterName x)
+    f (_pmfrFilterName x)
+        <&> \y -> x { _pmfrFilterName = y }
 {-# INLINE pmfrFilterName #-}
 
-pmfrFilterPattern
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricFilter
-    -> f PutMetricFilter
+pmfrFilterPattern :: Lens' PutMetricFilter (Text)
 pmfrFilterPattern f x =
-    (\y -> x { _pmfrFilterPattern = y })
-       <$> f (_pmfrFilterPattern x)
+    f (_pmfrFilterPattern x)
+        <&> \y -> x { _pmfrFilterPattern = y }
 {-# INLINE pmfrFilterPattern #-}
 
-pmfrLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutMetricFilter
-    -> f PutMetricFilter
+pmfrLogGroupName :: Lens' PutMetricFilter (Text)
 pmfrLogGroupName f x =
-    (\y -> x { _pmfrLogGroupName = y })
-       <$> f (_pmfrLogGroupName x)
+    f (_pmfrLogGroupName x)
+        <&> \y -> x { _pmfrLogGroupName = y }
 {-# INLINE pmfrLogGroupName #-}
 
-pmfrMetricTransformations
-    :: Functor f
-    => ([MetricTransformation]
-    -> f ([MetricTransformation]))
-    -> PutMetricFilter
-    -> f PutMetricFilter
+pmfrMetricTransformations :: Lens' PutMetricFilter ([MetricTransformation])
 pmfrMetricTransformations f x =
-    (\y -> x { _pmfrMetricTransformations = y })
-       <$> f (_pmfrMetricTransformations x)
+    f (_pmfrMetricTransformations x)
+        <&> \y -> x { _pmfrMetricTransformations = y }
 {-# INLINE pmfrMetricTransformations #-}
 
 instance ToPath PutMetricFilter

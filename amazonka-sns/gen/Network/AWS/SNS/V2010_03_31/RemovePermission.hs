@@ -55,6 +55,7 @@ removePermission p1 p2 = RemovePermission
     { _rpiLabel = p1
     , _rpiTopicArn = p2
     }
+{-# INLINE removePermission #-}
 
 data RemovePermission = RemovePermission
     { _rpiLabel :: Text
@@ -65,27 +66,17 @@ data RemovePermission = RemovePermission
     } deriving (Show, Generic)
 
 -- | The unique label of the statement you want to remove.
-rpiLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemovePermission
-    -> f RemovePermission
+rpiLabel :: Lens' RemovePermission (Text)
 rpiLabel f x =
-    (\y -> x { _rpiLabel = y })
-       <$> f (_rpiLabel x)
+    f (_rpiLabel x)
+        <&> \y -> x { _rpiLabel = y }
 {-# INLINE rpiLabel #-}
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-rpiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemovePermission
-    -> f RemovePermission
+rpiTopicArn :: Lens' RemovePermission (Text)
 rpiTopicArn f x =
-    (\y -> x { _rpiTopicArn = y })
-       <$> f (_rpiTopicArn x)
+    f (_rpiTopicArn x)
+        <&> \y -> x { _rpiTopicArn = y }
 {-# INLINE rpiTopicArn #-}
 
 instance ToQuery RemovePermission where

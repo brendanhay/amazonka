@@ -55,6 +55,7 @@ listMetrics = ListMetrics
     , _lmiNamespace = Nothing
     , _lmiNextToken = Nothing
     }
+{-# INLINE listMetrics #-}
 
 data ListMetrics = ListMetrics
     { _lmiDimensions :: [DimensionFilter]
@@ -69,52 +70,32 @@ data ListMetrics = ListMetrics
     } deriving (Show, Generic)
 
 -- | A list of dimensions to filter against.
-lmiDimensions
-    :: Functor f
-    => ([DimensionFilter]
-    -> f ([DimensionFilter]))
-    -> ListMetrics
-    -> f ListMetrics
+lmiDimensions :: Lens' ListMetrics ([DimensionFilter])
 lmiDimensions f x =
-    (\y -> x { _lmiDimensions = y })
-       <$> f (_lmiDimensions x)
+    f (_lmiDimensions x)
+        <&> \y -> x { _lmiDimensions = y }
 {-# INLINE lmiDimensions #-}
 
 -- | The name of the metric to filter against.
-lmiMetricName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListMetrics
-    -> f ListMetrics
+lmiMetricName :: Lens' ListMetrics (Maybe Text)
 lmiMetricName f x =
-    (\y -> x { _lmiMetricName = y })
-       <$> f (_lmiMetricName x)
+    f (_lmiMetricName x)
+        <&> \y -> x { _lmiMetricName = y }
 {-# INLINE lmiMetricName #-}
 
 -- | The namespace to filter against.
-lmiNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListMetrics
-    -> f ListMetrics
+lmiNamespace :: Lens' ListMetrics (Maybe Text)
 lmiNamespace f x =
-    (\y -> x { _lmiNamespace = y })
-       <$> f (_lmiNamespace x)
+    f (_lmiNamespace x)
+        <&> \y -> x { _lmiNamespace = y }
 {-# INLINE lmiNamespace #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-lmiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListMetrics
-    -> f ListMetrics
+lmiNextToken :: Lens' ListMetrics (Maybe Text)
 lmiNextToken f x =
-    (\y -> x { _lmiNextToken = y })
-       <$> f (_lmiNextToken x)
+    f (_lmiNextToken x)
+        <&> \y -> x { _lmiNextToken = y }
 {-# INLINE lmiNextToken #-}
 
 instance ToQuery ListMetrics where
@@ -129,27 +110,17 @@ data ListMetricsResponse = ListMetricsResponse
     } deriving (Show, Generic)
 
 -- | A list of metrics used to generate statistics for an AWS account.
-lmoMetrics
-    :: Functor f
-    => ([Metric]
-    -> f ([Metric]))
-    -> ListMetricsResponse
-    -> f ListMetricsResponse
+lmoMetrics :: Lens' ListMetricsResponse ([Metric])
 lmoMetrics f x =
-    (\y -> x { _lmoMetrics = y })
-       <$> f (_lmoMetrics x)
+    f (_lmoMetrics x)
+        <&> \y -> x { _lmoMetrics = y }
 {-# INLINE lmoMetrics #-}
 
 -- | A string that marks the start of the next batch of returned results.
-lmoNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListMetricsResponse
-    -> f ListMetricsResponse
+lmoNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmoNextToken f x =
-    (\y -> x { _lmoNextToken = y })
-       <$> f (_lmoNextToken x)
+    f (_lmoNextToken x)
+        <&> \y -> x { _lmoNextToken = y }
 {-# INLINE lmoNextToken #-}
 
 instance FromXML ListMetricsResponse where

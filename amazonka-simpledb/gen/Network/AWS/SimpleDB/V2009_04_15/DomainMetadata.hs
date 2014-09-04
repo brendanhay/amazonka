@@ -51,6 +51,7 @@ domainMetadata :: Text -- ^ 'dmrDomainName'
 domainMetadata p1 = DomainMetadata
     { _dmrDomainName = p1
     }
+{-# INLINE domainMetadata #-}
 
 data DomainMetadata = DomainMetadata
     { _dmrDomainName :: Text
@@ -58,15 +59,10 @@ data DomainMetadata = DomainMetadata
     } deriving (Show, Generic)
 
 -- | The name of the domain for which to display the metadata of.
-dmrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DomainMetadata
-    -> f DomainMetadata
+dmrDomainName :: Lens' DomainMetadata (Text)
 dmrDomainName f x =
-    (\y -> x { _dmrDomainName = y })
-       <$> f (_dmrDomainName x)
+    f (_dmrDomainName x)
+        <&> \y -> x { _dmrDomainName = y }
 {-# INLINE dmrDomainName #-}
 
 instance ToQuery DomainMetadata where
@@ -92,87 +88,52 @@ data DomainMetadataResponse = DomainMetadataResponse
     } deriving (Show, Generic)
 
 -- | The number of all items in the domain.
-dmsItemCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsItemCount :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsItemCount f x =
-    (\y -> x { _dmsItemCount = y })
-       <$> f (_dmsItemCount x)
+    f (_dmsItemCount x)
+        <&> \y -> x { _dmsItemCount = y }
 {-# INLINE dmsItemCount #-}
 
 -- | The number of unique attribute names in the domain.
-dmsAttributeNameCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsAttributeNameCount f x =
-    (\y -> x { _dmsAttributeNameCount = y })
-       <$> f (_dmsAttributeNameCount x)
+    f (_dmsAttributeNameCount x)
+        <&> \y -> x { _dmsAttributeNameCount = y }
 {-# INLINE dmsAttributeNameCount #-}
 
 -- | The number of all attribute name/value pairs in the domain.
-dmsAttributeValueCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsAttributeValueCount f x =
-    (\y -> x { _dmsAttributeValueCount = y })
-       <$> f (_dmsAttributeValueCount x)
+    f (_dmsAttributeValueCount x)
+        <&> \y -> x { _dmsAttributeValueCount = y }
 {-# INLINE dmsAttributeValueCount #-}
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-dmsTimestamp
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsTimestamp :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsTimestamp f x =
-    (\y -> x { _dmsTimestamp = y })
-       <$> f (_dmsTimestamp x)
+    f (_dmsTimestamp x)
+        <&> \y -> x { _dmsTimestamp = y }
 {-# INLINE dmsTimestamp #-}
 
 -- | The total size of all item names in the domain, in bytes.
-dmsItemNamesSizeBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsItemNamesSizeBytes f x =
-    (\y -> x { _dmsItemNamesSizeBytes = y })
-       <$> f (_dmsItemNamesSizeBytes x)
+    f (_dmsItemNamesSizeBytes x)
+        <&> \y -> x { _dmsItemNamesSizeBytes = y }
 {-# INLINE dmsItemNamesSizeBytes #-}
 
 -- | The total size of all unique attribute names in the domain, in bytes.
-dmsAttributeNamesSizeBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsAttributeNamesSizeBytes f x =
-    (\y -> x { _dmsAttributeNamesSizeBytes = y })
-       <$> f (_dmsAttributeNamesSizeBytes x)
+    f (_dmsAttributeNamesSizeBytes x)
+        <&> \y -> x { _dmsAttributeNamesSizeBytes = y }
 {-# INLINE dmsAttributeNamesSizeBytes #-}
 
 -- | The total size of all attribute values in the domain, in bytes.
-dmsAttributeValuesSizeBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DomainMetadataResponse
-    -> f DomainMetadataResponse
+dmsAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmsAttributeValuesSizeBytes f x =
-    (\y -> x { _dmsAttributeValuesSizeBytes = y })
-       <$> f (_dmsAttributeValuesSizeBytes x)
+    f (_dmsAttributeValuesSizeBytes x)
+        <&> \y -> x { _dmsAttributeValuesSizeBytes = y }
 {-# INLINE dmsAttributeValuesSizeBytes #-}
 
 instance FromXML DomainMetadataResponse where

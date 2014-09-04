@@ -46,6 +46,7 @@ deleteStack :: Text -- ^ 'dsrStackId'
 deleteStack p1 = DeleteStack
     { _dsrStackId = p1
     }
+{-# INLINE deleteStack #-}
 
 data DeleteStack = DeleteStack
     { _dsrStackId :: Text
@@ -53,15 +54,10 @@ data DeleteStack = DeleteStack
     } deriving (Show, Generic)
 
 -- | The stack ID.
-dsrStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteStack
-    -> f DeleteStack
+dsrStackId :: Lens' DeleteStack (Text)
 dsrStackId f x =
-    (\y -> x { _dsrStackId = y })
-       <$> f (_dsrStackId x)
+    f (_dsrStackId x)
+        <&> \y -> x { _dsrStackId = y }
 {-# INLINE dsrStackId #-}
 
 instance ToPath DeleteStack

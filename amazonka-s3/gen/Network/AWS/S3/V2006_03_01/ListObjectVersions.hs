@@ -22,6 +22,8 @@ module Network.AWS.S3.V2006_03_01.ListObjectVersions
     (
     -- * Request
       ListObjectVersions
+    -- ** Request alias
+    , GetBucketObjectVersions
     -- ** Request constructor
     , listObjectVersions
     -- ** Request lenses

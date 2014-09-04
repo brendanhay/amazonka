@@ -52,6 +52,7 @@ deleteHostedZone :: Text -- ^ 'dhzrId'
 deleteHostedZone p1 = DeleteHostedZone
     { _dhzrId = p1
     }
+{-# INLINE deleteHostedZone #-}
 
 data DeleteHostedZone = DeleteHostedZone
     { _dhzrId :: Text
@@ -61,15 +62,10 @@ data DeleteHostedZone = DeleteHostedZone
 
 -- | The ID of the request. Include this ID in a call to GetChange to track when
 -- the change has propagated to all Route 53 DNS servers.
-dhzrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteHostedZone
-    -> f DeleteHostedZone
+dhzrId :: Lens' DeleteHostedZone (Text)
 dhzrId f x =
-    (\y -> x { _dhzrId = y })
-       <$> f (_dhzrId x)
+    f (_dhzrId x)
+        <&> \y -> x { _dhzrId = y }
 {-# INLINE dhzrId #-}
 
 instance ToPath DeleteHostedZone where
@@ -94,15 +90,10 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your delete request.
-dhzsChangeInfo
-    :: Functor f
-    => (ChangeInfo
-    -> f (ChangeInfo))
-    -> DeleteHostedZoneResponse
-    -> f DeleteHostedZoneResponse
+dhzsChangeInfo :: Lens' DeleteHostedZoneResponse (ChangeInfo)
 dhzsChangeInfo f x =
-    (\y -> x { _dhzsChangeInfo = y })
-       <$> f (_dhzsChangeInfo x)
+    f (_dhzsChangeInfo x)
+        <&> \y -> x { _dhzsChangeInfo = y }
 {-# INLINE dhzsChangeInfo #-}
 
 instance FromXML DeleteHostedZoneResponse where

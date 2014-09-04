@@ -25,7 +25,6 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.Types
       CloudWatchLogs
     -- ** Errors
     , Er (..)
-
     -- * InputLogEvent
     , InputLogEvent (..)
     , ilfTimestamp
@@ -137,26 +136,16 @@ data InputLogEvent = InputLogEvent
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-ilfTimestamp
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> InputLogEvent
-    -> f InputLogEvent
+ilfTimestamp :: Lens' InputLogEvent (Integer)
 ilfTimestamp f x =
-    (\y -> x { _ilfTimestamp = y })
-       <$> f (_ilfTimestamp x)
+    f (_ilfTimestamp x)
+        <&> \y -> x { _ilfTimestamp = y }
 {-# INLINE ilfTimestamp #-}
 
-ilfMessage
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InputLogEvent
-    -> f InputLogEvent
+ilfMessage :: Lens' InputLogEvent (Text)
 ilfMessage f x =
-    (\y -> x { _ilfMessage = y })
-       <$> f (_ilfMessage x)
+    f (_ilfMessage x)
+        <&> \y -> x { _ilfMessage = y }
 {-# INLINE ilfMessage #-}
 
 instance ToJSON InputLogEvent
@@ -176,76 +165,46 @@ data LogGroup = LogGroup
     , _lhStoredBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-lhLogGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LogGroup
-    -> f LogGroup
+lhLogGroupName :: Lens' LogGroup (Maybe Text)
 lhLogGroupName f x =
-    (\y -> x { _lhLogGroupName = y })
-       <$> f (_lhLogGroupName x)
+    f (_lhLogGroupName x)
+        <&> \y -> x { _lhLogGroupName = y }
 {-# INLINE lhLogGroupName #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-lhCreationTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogGroup
-    -> f LogGroup
+lhCreationTime :: Lens' LogGroup (Maybe Integer)
 lhCreationTime f x =
-    (\y -> x { _lhCreationTime = y })
-       <$> f (_lhCreationTime x)
+    f (_lhCreationTime x)
+        <&> \y -> x { _lhCreationTime = y }
 {-# INLINE lhCreationTime #-}
 
 -- | Specifies the number of days you want to retain log events in the specified
 -- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
 -- 365, 400, 547, 730.
-lhRetentionInDays
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogGroup
-    -> f LogGroup
+lhRetentionInDays :: Lens' LogGroup (Maybe Integer)
 lhRetentionInDays f x =
-    (\y -> x { _lhRetentionInDays = y })
-       <$> f (_lhRetentionInDays x)
+    f (_lhRetentionInDays x)
+        <&> \y -> x { _lhRetentionInDays = y }
 {-# INLINE lhRetentionInDays #-}
 
 -- | The number of metric filters associated with the log group.
-lhMetricFilterCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogGroup
-    -> f LogGroup
+lhMetricFilterCount :: Lens' LogGroup (Maybe Integer)
 lhMetricFilterCount f x =
-    (\y -> x { _lhMetricFilterCount = y })
-       <$> f (_lhMetricFilterCount x)
+    f (_lhMetricFilterCount x)
+        <&> \y -> x { _lhMetricFilterCount = y }
 {-# INLINE lhMetricFilterCount #-}
 
-lhArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LogGroup
-    -> f LogGroup
+lhArn :: Lens' LogGroup (Maybe Text)
 lhArn f x =
-    (\y -> x { _lhArn = y })
-       <$> f (_lhArn x)
+    f (_lhArn x)
+        <&> \y -> x { _lhArn = y }
 {-# INLINE lhArn #-}
 
-lhStoredBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogGroup
-    -> f LogGroup
+lhStoredBytes :: Lens' LogGroup (Maybe Integer)
 lhStoredBytes f x =
-    (\y -> x { _lhStoredBytes = y })
-       <$> f (_lhStoredBytes x)
+    f (_lhStoredBytes x)
+        <&> \y -> x { _lhStoredBytes = y }
 {-# INLINE lhStoredBytes #-}
 
 instance FromJSON LogGroup
@@ -274,103 +233,63 @@ data LogStream = LogStream
     , _ltStoredBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-ltLogStreamName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LogStream
-    -> f LogStream
+ltLogStreamName :: Lens' LogStream (Maybe Text)
 ltLogStreamName f x =
-    (\y -> x { _ltLogStreamName = y })
-       <$> f (_ltLogStreamName x)
+    f (_ltLogStreamName x)
+        <&> \y -> x { _ltLogStreamName = y }
 {-# INLINE ltLogStreamName #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-ltCreationTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogStream
-    -> f LogStream
+ltCreationTime :: Lens' LogStream (Maybe Integer)
 ltCreationTime f x =
-    (\y -> x { _ltCreationTime = y })
-       <$> f (_ltCreationTime x)
+    f (_ltCreationTime x)
+        <&> \y -> x { _ltCreationTime = y }
 {-# INLINE ltCreationTime #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-ltFirstEventTimestamp
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogStream
-    -> f LogStream
+ltFirstEventTimestamp :: Lens' LogStream (Maybe Integer)
 ltFirstEventTimestamp f x =
-    (\y -> x { _ltFirstEventTimestamp = y })
-       <$> f (_ltFirstEventTimestamp x)
+    f (_ltFirstEventTimestamp x)
+        <&> \y -> x { _ltFirstEventTimestamp = y }
 {-# INLINE ltFirstEventTimestamp #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-ltLastEventTimestamp
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogStream
-    -> f LogStream
+ltLastEventTimestamp :: Lens' LogStream (Maybe Integer)
 ltLastEventTimestamp f x =
-    (\y -> x { _ltLastEventTimestamp = y })
-       <$> f (_ltLastEventTimestamp x)
+    f (_ltLastEventTimestamp x)
+        <&> \y -> x { _ltLastEventTimestamp = y }
 {-# INLINE ltLastEventTimestamp #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-ltLastIngestionTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogStream
-    -> f LogStream
+ltLastIngestionTime :: Lens' LogStream (Maybe Integer)
 ltLastIngestionTime f x =
-    (\y -> x { _ltLastIngestionTime = y })
-       <$> f (_ltLastIngestionTime x)
+    f (_ltLastIngestionTime x)
+        <&> \y -> x { _ltLastIngestionTime = y }
 {-# INLINE ltLastIngestionTime #-}
 
 -- | A string token used for making PutLogEvents requests. A sequenceToken can
 -- only be used once, and PutLogEvents requests must include the sequenceToken
 -- obtained from the response of the previous request.
-ltUploadSequenceToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LogStream
-    -> f LogStream
+ltUploadSequenceToken :: Lens' LogStream (Maybe Text)
 ltUploadSequenceToken f x =
-    (\y -> x { _ltUploadSequenceToken = y })
-       <$> f (_ltUploadSequenceToken x)
+    f (_ltUploadSequenceToken x)
+        <&> \y -> x { _ltUploadSequenceToken = y }
 {-# INLINE ltUploadSequenceToken #-}
 
-ltArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LogStream
-    -> f LogStream
+ltArn :: Lens' LogStream (Maybe Text)
 ltArn f x =
-    (\y -> x { _ltArn = y })
-       <$> f (_ltArn x)
+    f (_ltArn x)
+        <&> \y -> x { _ltArn = y }
 {-# INLINE ltArn #-}
 
-ltStoredBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LogStream
-    -> f LogStream
+ltStoredBytes :: Lens' LogStream (Maybe Integer)
 ltStoredBytes f x =
-    (\y -> x { _ltStoredBytes = y })
-       <$> f (_ltStoredBytes x)
+    f (_ltStoredBytes x)
+        <&> \y -> x { _ltStoredBytes = y }
 {-# INLINE ltStoredBytes #-}
 
 instance FromJSON LogStream
@@ -389,50 +308,30 @@ data MetricFilter = MetricFilter
     } deriving (Show, Generic)
 
 -- | The name of the metric filter.
-mgFilterName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricFilter
-    -> f MetricFilter
+mgFilterName :: Lens' MetricFilter (Maybe Text)
 mgFilterName f x =
-    (\y -> x { _mgFilterName = y })
-       <$> f (_mgFilterName x)
+    f (_mgFilterName x)
+        <&> \y -> x { _mgFilterName = y }
 {-# INLINE mgFilterName #-}
 
-mgFilterPattern
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricFilter
-    -> f MetricFilter
+mgFilterPattern :: Lens' MetricFilter (Maybe Text)
 mgFilterPattern f x =
-    (\y -> x { _mgFilterPattern = y })
-       <$> f (_mgFilterPattern x)
+    f (_mgFilterPattern x)
+        <&> \y -> x { _mgFilterPattern = y }
 {-# INLINE mgFilterPattern #-}
 
-mgMetricTransformations
-    :: Functor f
-    => (Maybe [MetricTransformation]
-    -> f (Maybe [MetricTransformation]))
-    -> MetricFilter
-    -> f MetricFilter
+mgMetricTransformations :: Lens' MetricFilter (Maybe [MetricTransformation])
 mgMetricTransformations f x =
-    (\y -> x { _mgMetricTransformations = y })
-       <$> f (_mgMetricTransformations x)
+    f (_mgMetricTransformations x)
+        <&> \y -> x { _mgMetricTransformations = y }
 {-# INLINE mgMetricTransformations #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-mgCreationTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> MetricFilter
-    -> f MetricFilter
+mgCreationTime :: Lens' MetricFilter (Maybe Integer)
 mgCreationTime f x =
-    (\y -> x { _mgCreationTime = y })
-       <$> f (_mgCreationTime x)
+    f (_mgCreationTime x)
+        <&> \y -> x { _mgCreationTime = y }
 {-# INLINE mgCreationTime #-}
 
 instance FromJSON MetricFilter
@@ -443,37 +342,22 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
     , _mfmrExtractedValues :: Map Text Text
     } deriving (Show, Generic)
 
-mfmrEventNumber
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> MetricFilterMatchRecord
-    -> f MetricFilterMatchRecord
+mfmrEventNumber :: Lens' MetricFilterMatchRecord (Maybe Integer)
 mfmrEventNumber f x =
-    (\y -> x { _mfmrEventNumber = y })
-       <$> f (_mfmrEventNumber x)
+    f (_mfmrEventNumber x)
+        <&> \y -> x { _mfmrEventNumber = y }
 {-# INLINE mfmrEventNumber #-}
 
-mfmrEventMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricFilterMatchRecord
-    -> f MetricFilterMatchRecord
+mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
 mfmrEventMessage f x =
-    (\y -> x { _mfmrEventMessage = y })
-       <$> f (_mfmrEventMessage x)
+    f (_mfmrEventMessage x)
+        <&> \y -> x { _mfmrEventMessage = y }
 {-# INLINE mfmrEventMessage #-}
 
-mfmrExtractedValues
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> MetricFilterMatchRecord
-    -> f MetricFilterMatchRecord
+mfmrExtractedValues :: Lens' MetricFilterMatchRecord (Map Text Text)
 mfmrExtractedValues f x =
-    (\y -> x { _mfmrExtractedValues = y })
-       <$> f (_mfmrExtractedValues x)
+    f (_mfmrExtractedValues x)
+        <&> \y -> x { _mfmrExtractedValues = y }
 {-# INLINE mfmrExtractedValues #-}
 
 instance FromJSON MetricFilterMatchRecord
@@ -484,37 +368,22 @@ data MetricTransformation = MetricTransformation
     , _muMetricValue :: Text
     } deriving (Show, Generic)
 
-muMetricName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MetricTransformation
-    -> f MetricTransformation
+muMetricName :: Lens' MetricTransformation (Text)
 muMetricName f x =
-    (\y -> x { _muMetricName = y })
-       <$> f (_muMetricName x)
+    f (_muMetricName x)
+        <&> \y -> x { _muMetricName = y }
 {-# INLINE muMetricName #-}
 
-muMetricNamespace
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MetricTransformation
-    -> f MetricTransformation
+muMetricNamespace :: Lens' MetricTransformation (Text)
 muMetricNamespace f x =
-    (\y -> x { _muMetricNamespace = y })
-       <$> f (_muMetricNamespace x)
+    f (_muMetricNamespace x)
+        <&> \y -> x { _muMetricNamespace = y }
 {-# INLINE muMetricNamespace #-}
 
-muMetricValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MetricTransformation
-    -> f MetricTransformation
+muMetricValue :: Lens' MetricTransformation (Text)
 muMetricValue f x =
-    (\y -> x { _muMetricValue = y })
-       <$> f (_muMetricValue x)
+    f (_muMetricValue x)
+        <&> \y -> x { _muMetricValue = y }
 {-# INLINE muMetricValue #-}
 
 instance FromJSON MetricTransformation
@@ -533,39 +402,24 @@ data OutputLogEvent = OutputLogEvent
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-olfTimestamp
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> OutputLogEvent
-    -> f OutputLogEvent
+olfTimestamp :: Lens' OutputLogEvent (Maybe Integer)
 olfTimestamp f x =
-    (\y -> x { _olfTimestamp = y })
-       <$> f (_olfTimestamp x)
+    f (_olfTimestamp x)
+        <&> \y -> x { _olfTimestamp = y }
 {-# INLINE olfTimestamp #-}
 
-olfMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> OutputLogEvent
-    -> f OutputLogEvent
+olfMessage :: Lens' OutputLogEvent (Maybe Text)
 olfMessage f x =
-    (\y -> x { _olfMessage = y })
-       <$> f (_olfMessage x)
+    f (_olfMessage x)
+        <&> \y -> x { _olfMessage = y }
 {-# INLINE olfMessage #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
-olfIngestionTime
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> OutputLogEvent
-    -> f OutputLogEvent
+olfIngestionTime :: Lens' OutputLogEvent (Maybe Integer)
 olfIngestionTime f x =
-    (\y -> x { _olfIngestionTime = y })
-       <$> f (_olfIngestionTime x)
+    f (_olfIngestionTime x)
+        <&> \y -> x { _olfIngestionTime = y }
 {-# INLINE olfIngestionTime #-}
 
 instance FromJSON OutputLogEvent

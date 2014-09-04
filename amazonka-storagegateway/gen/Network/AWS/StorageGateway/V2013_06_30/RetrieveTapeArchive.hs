@@ -46,6 +46,7 @@ retrieveTapeArchive p1 p2 = RetrieveTapeArchive
     { _rtaiGatewayARN = p1
     , _rtaiTapeARN = p2
     }
+{-# INLINE retrieveTapeArchive #-}
 
 data RetrieveTapeArchive = RetrieveTapeArchive
     { _rtaiGatewayARN :: Text
@@ -57,26 +58,16 @@ data RetrieveTapeArchive = RetrieveTapeArchive
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-rtaiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RetrieveTapeArchive
-    -> f RetrieveTapeArchive
+rtaiGatewayARN :: Lens' RetrieveTapeArchive (Text)
 rtaiGatewayARN f x =
-    (\y -> x { _rtaiGatewayARN = y })
-       <$> f (_rtaiGatewayARN x)
+    f (_rtaiGatewayARN x)
+        <&> \y -> x { _rtaiGatewayARN = y }
 {-# INLINE rtaiGatewayARN #-}
 
-rtaiTapeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RetrieveTapeArchive
-    -> f RetrieveTapeArchive
+rtaiTapeARN :: Lens' RetrieveTapeArchive (Text)
 rtaiTapeARN f x =
-    (\y -> x { _rtaiTapeARN = y })
-       <$> f (_rtaiTapeARN x)
+    f (_rtaiTapeARN x)
+        <&> \y -> x { _rtaiTapeARN = y }
 {-# INLINE rtaiTapeARN #-}
 
 instance ToPath RetrieveTapeArchive
@@ -91,15 +82,10 @@ data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtaoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-rtaoTapeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RetrieveTapeArchiveResponse
-    -> f RetrieveTapeArchiveResponse
+rtaoTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtaoTapeARN f x =
-    (\y -> x { _rtaoTapeARN = y })
-       <$> f (_rtaoTapeARN x)
+    f (_rtaoTapeARN x)
+        <&> \y -> x { _rtaoTapeARN = y }
 {-# INLINE rtaoTapeARN #-}
 
 instance FromJSON RetrieveTapeArchiveResponse

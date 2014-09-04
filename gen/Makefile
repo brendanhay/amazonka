@@ -54,7 +54,7 @@ JSON := \
  logs \
  cognito-identity
 
-MODELS ?= s3 autoscaling ec2 elb iam #$(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
+MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 

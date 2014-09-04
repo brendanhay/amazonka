@@ -58,6 +58,7 @@ createTopic :: Text -- ^ 'ctiName'
 createTopic p1 = CreateTopic
     { _ctiName = p1
     }
+{-# INLINE createTopic #-}
 
 data CreateTopic = CreateTopic
     { _ctiName :: Text
@@ -70,15 +71,10 @@ data CreateTopic = CreateTopic
 -- | The name of the topic you want to create. Constraints: Topic names must be
 -- made up of only uppercase and lowercase ASCII letters, numbers,
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
-ctiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateTopic
-    -> f CreateTopic
+ctiName :: Lens' CreateTopic (Text)
 ctiName f x =
-    (\y -> x { _ctiName = y })
-       <$> f (_ctiName x)
+    f (_ctiName x)
+        <&> \y -> x { _ctiName = y }
 {-# INLINE ctiName #-}
 
 instance ToQuery CreateTopic where
@@ -90,15 +86,10 @@ data CreateTopicResponse = CreateTopicResponse
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
-ctrTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateTopicResponse
-    -> f CreateTopicResponse
+ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn f x =
-    (\y -> x { _ctrTopicArn = y })
-       <$> f (_ctrTopicArn x)
+    f (_ctrTopicArn x)
+        <&> \y -> x { _ctrTopicArn = y }
 {-# INLINE ctrTopicArn #-}
 
 instance FromXML CreateTopicResponse where

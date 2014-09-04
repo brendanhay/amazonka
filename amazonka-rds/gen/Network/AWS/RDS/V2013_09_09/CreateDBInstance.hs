@@ -107,6 +107,7 @@ createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstance
     , _cdbimTags = mempty
     , _cdbimVpcSecurityGroupIds = mempty
     }
+{-# INLINE createDBInstance #-}
 
 data CreateDBInstance = CreateDBInstance
     { _cdbimAllocatedStorage :: Integer
@@ -264,58 +265,38 @@ data CreateDBInstance = CreateDBInstance
 -- Server Constraints: Must be an integer from 200 to 1024 (Standard Edition
 -- and Enterprise Edition) or from 30 to 1024 (Express Edition and Web
 -- Edition).
-cdbimAllocatedStorage
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimAllocatedStorage :: Lens' CreateDBInstance (Integer)
 cdbimAllocatedStorage f x =
-    (\y -> x { _cdbimAllocatedStorage = y })
-       <$> f (_cdbimAllocatedStorage x)
+    f (_cdbimAllocatedStorage x)
+        <&> \y -> x { _cdbimAllocatedStorage = y }
 {-# INLINE cdbimAllocatedStorage #-}
 
 -- | The DB instance identifier. This parameter is stored as a lowercase string.
 -- Constraints: Must contain from 1 to 63 alphanumeric characters or hyphens
 -- (1 to 15 for SQL Server). First character must be a letter. Cannot end with
 -- a hyphen or contain two consecutive hyphens. Example: mydbinstance.
-cdbimDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimDBInstanceIdentifier :: Lens' CreateDBInstance (Text)
 cdbimDBInstanceIdentifier f x =
-    (\y -> x { _cdbimDBInstanceIdentifier = y })
-       <$> f (_cdbimDBInstanceIdentifier x)
+    f (_cdbimDBInstanceIdentifier x)
+        <&> \y -> x { _cdbimDBInstanceIdentifier = y }
 {-# INLINE cdbimDBInstanceIdentifier #-}
 
 -- | The compute and memory capacity of the DB instance. Valid Values:
 -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
 -- db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge.
-cdbimDBInstanceClass
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimDBInstanceClass :: Lens' CreateDBInstance (Text)
 cdbimDBInstanceClass f x =
-    (\y -> x { _cdbimDBInstanceClass = y })
-       <$> f (_cdbimDBInstanceClass x)
+    f (_cdbimDBInstanceClass x)
+        <&> \y -> x { _cdbimDBInstanceClass = y }
 {-# INLINE cdbimDBInstanceClass #-}
 
 -- | The name of the database engine to be used for this instance. Valid Values:
 -- MySQL | oracle-se1 | oracle-se | oracle-ee | sqlserver-ee | sqlserver-se |
 -- sqlserver-ex | sqlserver-web.
-cdbimEngine
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimEngine :: Lens' CreateDBInstance (Text)
 cdbimEngine f x =
-    (\y -> x { _cdbimEngine = y })
-       <$> f (_cdbimEngine x)
+    f (_cdbimEngine x)
+        <&> \y -> x { _cdbimEngine = y }
 {-# INLINE cdbimEngine #-}
 
 -- | The name of master user for the client DB instance. MySQL Constraints: Must
@@ -326,15 +307,10 @@ cdbimEngine f x =
 -- database engine. SQL Server Constraints: Must be 1 to 128 alphanumeric
 -- characters. First character must be a letter. Cannot be a reserved word for
 -- the chosen database engine.
-cdbimMasterUsername
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimMasterUsername :: Lens' CreateDBInstance (Text)
 cdbimMasterUsername f x =
-    (\y -> x { _cdbimMasterUsername = y })
-       <$> f (_cdbimMasterUsername x)
+    f (_cdbimMasterUsername x)
+        <&> \y -> x { _cdbimMasterUsername = y }
 {-# INLINE cdbimMasterUsername #-}
 
 -- | The password for the master database user. Can be any printable ASCII
@@ -342,41 +318,26 @@ cdbimMasterUsername f x =
 -- contain from 8 to 41 characters. Oracle Constraints: Must contain from 8 to
 -- 30 characters. SQL Server Constraints: Must contain from 8 to 128
 -- characters.
-cdbimMasterUserPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimMasterUserPassword :: Lens' CreateDBInstance (Text)
 cdbimMasterUserPassword f x =
-    (\y -> x { _cdbimMasterUserPassword = y })
-       <$> f (_cdbimMasterUserPassword x)
+    f (_cdbimMasterUserPassword x)
+        <&> \y -> x { _cdbimMasterUserPassword = y }
 {-# INLINE cdbimMasterUserPassword #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set the
 -- AvailabilityZone parameter if the MultiAZ parameter is set to true.
-cdbimMultiAZ
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimMultiAZ :: Lens' CreateDBInstance (Maybe Bool)
 cdbimMultiAZ f x =
-    (\y -> x { _cdbimMultiAZ = y })
-       <$> f (_cdbimMultiAZ x)
+    f (_cdbimMultiAZ x)
+        <&> \y -> x { _cdbimMultiAZ = y }
 {-# INLINE cdbimMultiAZ #-}
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
 -- DB instance during the maintenance window. Default: true.
-cdbimAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
 cdbimAutoMinorVersionUpgrade f x =
-    (\y -> x { _cdbimAutoMinorVersionUpgrade = y })
-       <$> f (_cdbimAutoMinorVersionUpgrade x)
+    f (_cdbimAutoMinorVersionUpgrade x)
+        <&> \y -> x { _cdbimAutoMinorVersionUpgrade = y }
 {-# INLINE cdbimAutoMinorVersionUpgrade #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
@@ -390,72 +351,47 @@ cdbimAutoMinorVersionUpgrade f x =
 -- the DB instance will be publicly accessible. If a specific DB subnet group
 -- has been specified as part of the request and the PubliclyAccessible value
 -- has not been set, the DB instance will be private.
-cdbimPubliclyAccessible
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
 cdbimPubliclyAccessible f x =
-    (\y -> x { _cdbimPubliclyAccessible = y })
-       <$> f (_cdbimPubliclyAccessible x)
+    f (_cdbimPubliclyAccessible x)
+        <&> \y -> x { _cdbimPubliclyAccessible = y }
 {-# INLINE cdbimPubliclyAccessible #-}
 
 -- | A list of DB security groups to associate with this DB instance. Default:
 -- The default DB security group for the database engine.
-cdbimDBSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimDBSecurityGroups :: Lens' CreateDBInstance ([Text])
 cdbimDBSecurityGroups f x =
-    (\y -> x { _cdbimDBSecurityGroups = y })
-       <$> f (_cdbimDBSecurityGroups x)
+    f (_cdbimDBSecurityGroups x)
+        <&> \y -> x { _cdbimDBSecurityGroups = y }
 {-# INLINE cdbimDBSecurityGroups #-}
 
 -- | The number of days for which automated backups are retained. Setting this
 -- parameter to a positive number enables backups. Setting this parameter to 0
 -- disables automated backups. Default: 1 Constraints: Must be a value from 0
 -- to 35 Cannot be set to 0 if the DB instance is a source to read replicas.
-cdbimBackupRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimBackupRetentionPeriod :: Lens' CreateDBInstance (Maybe Integer)
 cdbimBackupRetentionPeriod f x =
-    (\y -> x { _cdbimBackupRetentionPeriod = y })
-       <$> f (_cdbimBackupRetentionPeriod x)
+    f (_cdbimBackupRetentionPeriod x)
+        <&> \y -> x { _cdbimBackupRetentionPeriod = y }
 {-# INLINE cdbimBackupRetentionPeriod #-}
 
 -- | The port number on which the database accepts connections. MySQL Default:
 -- 3306 Valid Values: 1150-65535 Type: Integer Oracle Default: 1521 Valid
 -- Values: 1150-65535 SQL Server Default: 1433 Valid Values: 1150-65535 except
 -- for 1434 and 3389.
-cdbimPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimPort :: Lens' CreateDBInstance (Maybe Integer)
 cdbimPort f x =
-    (\y -> x { _cdbimPort = y })
-       <$> f (_cdbimPort x)
+    f (_cdbimPort x)
+        <&> \y -> x { _cdbimPort = y }
 {-# INLINE cdbimPort #-}
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance. Constraints: Must be an integer
 -- greater than 1000.
-cdbimIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimIops :: Lens' CreateDBInstance (Maybe Integer)
 cdbimIops f x =
-    (\y -> x { _cdbimIops = y })
-       <$> f (_cdbimIops x)
+    f (_cdbimIops x)
+        <&> \y -> x { _cdbimIops = y }
 {-# INLINE cdbimIops #-}
 
 -- | The meaning of this parameter differs according to the database engine you
@@ -466,15 +402,10 @@ cdbimIops f x =
 -- Oracle The Oracle System ID (SID) of the created DB instance. Default: ORCL
 -- Constraints: Cannot be longer than 8 characters SQL Server Not applicable.
 -- Must be null.
-cdbimDBName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimDBName :: Lens' CreateDBInstance (Maybe Text)
 cdbimDBName f x =
-    (\y -> x { _cdbimDBName = y })
-       <$> f (_cdbimDBName x)
+    f (_cdbimDBName x)
+        <&> \y -> x { _cdbimDBName = y }
 {-# INLINE cdbimDBName #-}
 
 -- | The EC2 Availability Zone that the database instance will be created in.
@@ -482,28 +413,18 @@ cdbimDBName f x =
 -- region. Example: us-east-1d Constraint: The AvailabilityZone parameter
 -- cannot be specified if the MultiAZ parameter is set to true. The specified
 -- Availability Zone must be in the same region as the current endpoint.
-cdbimAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimAvailabilityZone :: Lens' CreateDBInstance (Maybe Text)
 cdbimAvailabilityZone f x =
-    (\y -> x { _cdbimAvailabilityZone = y })
-       <$> f (_cdbimAvailabilityZone x)
+    f (_cdbimAvailabilityZone x)
+        <&> \y -> x { _cdbimAvailabilityZone = y }
 {-# INLINE cdbimAvailabilityZone #-}
 
 -- | A DB subnet group to associate with this DB instance. If there is no DB
 -- subnet group, then it is a non-VPC DB instance.
-cdbimDBSubnetGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimDBSubnetGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdbimDBSubnetGroupName f x =
-    (\y -> x { _cdbimDBSubnetGroupName = y })
-       <$> f (_cdbimDBSubnetGroupName x)
+    f (_cdbimDBSubnetGroupName x)
+        <&> \y -> x { _cdbimDBSubnetGroupName = y }
 {-# INLINE cdbimDBSubnetGroupName #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
@@ -512,15 +433,10 @@ cdbimDBSubnetGroupName f x =
 -- of the week. To see the time blocks available, see Adjusting the Preferred
 -- Maintenance Window in the Amazon RDS User Guide. Valid Days: Mon, Tue, Wed,
 -- Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
-cdbimPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimPreferredMaintenanceWindow :: Lens' CreateDBInstance (Maybe Text)
 cdbimPreferredMaintenanceWindow f x =
-    (\y -> x { _cdbimPreferredMaintenanceWindow = y })
-       <$> f (_cdbimPreferredMaintenanceWindow x)
+    f (_cdbimPreferredMaintenanceWindow x)
+        <&> \y -> x { _cdbimPreferredMaintenanceWindow = y }
 {-# INLINE cdbimPreferredMaintenanceWindow #-}
 
 -- | The name of the DB parameter group to associate with this DB instance. If
@@ -528,15 +444,10 @@ cdbimPreferredMaintenanceWindow f x =
 -- engine will be used. Constraints: Must be 1 to 255 alphanumeric characters
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-cdbimDBParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimDBParameterGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdbimDBParameterGroupName f x =
-    (\y -> x { _cdbimDBParameterGroupName = y })
-       <$> f (_cdbimDBParameterGroupName x)
+    f (_cdbimDBParameterGroupName x)
+        <&> \y -> x { _cdbimDBParameterGroupName = y }
 {-# INLINE cdbimDBParameterGroupName #-}
 
 -- | The daily time range during which automated backups are created if
@@ -547,42 +458,27 @@ cdbimDBParameterGroupName f x =
 -- Must be in the format hh24:mi-hh24:mi. Times should be Universal Time
 -- Coordinated (UTC). Must not conflict with the preferred maintenance window.
 -- Must be at least 30 minutes.
-cdbimPreferredBackupWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimPreferredBackupWindow :: Lens' CreateDBInstance (Maybe Text)
 cdbimPreferredBackupWindow f x =
-    (\y -> x { _cdbimPreferredBackupWindow = y })
-       <$> f (_cdbimPreferredBackupWindow x)
+    f (_cdbimPreferredBackupWindow x)
+        <&> \y -> x { _cdbimPreferredBackupWindow = y }
 {-# INLINE cdbimPreferredBackupWindow #-}
 
 -- | The version number of the database engine to use. MySQL Example: 5.1.42
 -- Type: String Oracle Example: 11.2.0.2.v2 Type: String SQL Server Example:
 -- 10.50.2789.0.v1.
-cdbimEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdbimEngineVersion f x =
-    (\y -> x { _cdbimEngineVersion = y })
-       <$> f (_cdbimEngineVersion x)
+    f (_cdbimEngineVersion x)
+        <&> \y -> x { _cdbimEngineVersion = y }
 {-# INLINE cdbimEngineVersion #-}
 
 -- | License model information for this DB instance. Valid values:
 -- license-included | bring-your-own-license | general-public-license.
-cdbimLicenseModel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimLicenseModel :: Lens' CreateDBInstance (Maybe Text)
 cdbimLicenseModel f x =
-    (\y -> x { _cdbimLicenseModel = y })
-       <$> f (_cdbimLicenseModel x)
+    f (_cdbimLicenseModel x)
+        <&> \y -> x { _cdbimLicenseModel = y }
 {-# INLINE cdbimLicenseModel #-}
 
 -- | Indicates that the DB instance should be associated with the specified
@@ -591,53 +487,33 @@ cdbimLicenseModel f x =
 -- option for Oracle Advanced Security TDE, cannot be removed from an option
 -- group, and that option group cannot be removed from a DB instance once it
 -- is associated with a DB instance.
-cdbimOptionGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimOptionGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdbimOptionGroupName f x =
-    (\y -> x { _cdbimOptionGroupName = y })
-       <$> f (_cdbimOptionGroupName x)
+    f (_cdbimOptionGroupName x)
+        <&> \y -> x { _cdbimOptionGroupName = y }
 {-# INLINE cdbimOptionGroupName #-}
 
 -- | For supported engines, indicates that the DB instance should be associated
 -- with the specified CharacterSet.
-cdbimCharacterSetName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimCharacterSetName :: Lens' CreateDBInstance (Maybe Text)
 cdbimCharacterSetName f x =
-    (\y -> x { _cdbimCharacterSetName = y })
-       <$> f (_cdbimCharacterSetName x)
+    f (_cdbimCharacterSetName x)
+        <&> \y -> x { _cdbimCharacterSetName = y }
 {-# INLINE cdbimCharacterSetName #-}
 
 -- | A list of tags.
-cdbimTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimTags :: Lens' CreateDBInstance ([Tag])
 cdbimTags f x =
-    (\y -> x { _cdbimTags = y })
-       <$> f (_cdbimTags x)
+    f (_cdbimTags x)
+        <&> \y -> x { _cdbimTags = y }
 {-# INLINE cdbimTags #-}
 
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 -- Default: The default EC2 VPC security group for the DB subnet group's VPC.
-cdbimVpcSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateDBInstance
-    -> f CreateDBInstance
+cdbimVpcSecurityGroupIds :: Lens' CreateDBInstance ([Text])
 cdbimVpcSecurityGroupIds f x =
-    (\y -> x { _cdbimVpcSecurityGroupIds = y })
-       <$> f (_cdbimVpcSecurityGroupIds x)
+    f (_cdbimVpcSecurityGroupIds x)
+        <&> \y -> x { _cdbimVpcSecurityGroupIds = y }
 {-# INLINE cdbimVpcSecurityGroupIds #-}
 
 instance ToQuery CreateDBInstance where
@@ -654,15 +530,10 @@ data CreateDBInstanceResponse = CreateDBInstanceResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbiwDBInstance
-    :: Functor f
-    => (Maybe DBInstance
-    -> f (Maybe DBInstance))
-    -> CreateDBInstanceResponse
-    -> f CreateDBInstanceResponse
+dbiwDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 dbiwDBInstance f x =
-    (\y -> x { _dbiwDBInstance = y })
-       <$> f (_dbiwDBInstance x)
+    f (_dbiwDBInstance x)
+        <&> \y -> x { _dbiwDBInstance = y }
 {-# INLINE dbiwDBInstance #-}
 
 instance FromXML CreateDBInstanceResponse where

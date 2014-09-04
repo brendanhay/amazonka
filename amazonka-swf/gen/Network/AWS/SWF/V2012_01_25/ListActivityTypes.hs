@@ -76,6 +76,7 @@ listActivityTypes p1 p2 = ListActivityTypes
     , _latiNextPageToken = Nothing
     , _latiReverseOrder = Nothing
     }
+{-# INLINE listActivityTypes #-}
 
 data ListActivityTypes = ListActivityTypes
     { _latiDomain :: Text
@@ -104,39 +105,24 @@ data ListActivityTypes = ListActivityTypes
     } deriving (Show, Generic)
 
 -- | The name of the domain in which the activity types have been registered.
-latiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListActivityTypes
-    -> f ListActivityTypes
+latiDomain :: Lens' ListActivityTypes (Text)
 latiDomain f x =
-    (\y -> x { _latiDomain = y })
-       <$> f (_latiDomain x)
+    f (_latiDomain x)
+        <&> \y -> x { _latiDomain = y }
 {-# INLINE latiDomain #-}
 
 -- | Specifies the registration status of the activity types to list.
-latiRegistrationStatus
-    :: Functor f
-    => (RegistrationStatus
-    -> f (RegistrationStatus))
-    -> ListActivityTypes
-    -> f ListActivityTypes
+latiRegistrationStatus :: Lens' ListActivityTypes (RegistrationStatus)
 latiRegistrationStatus f x =
-    (\y -> x { _latiRegistrationStatus = y })
-       <$> f (_latiRegistrationStatus x)
+    f (_latiRegistrationStatus x)
+        <&> \y -> x { _latiRegistrationStatus = y }
 {-# INLINE latiRegistrationStatus #-}
 
 -- | If specified, only lists the activity types that have this name.
-latiName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListActivityTypes
-    -> f ListActivityTypes
+latiName :: Lens' ListActivityTypes (Maybe Text)
 latiName f x =
-    (\y -> x { _latiName = y })
-       <$> f (_latiName x)
+    f (_latiName x)
+        <&> \y -> x { _latiName = y }
 {-# INLINE latiName #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
@@ -144,43 +130,28 @@ latiName f x =
 -- default. You cannot specify a page size greater than 100. Note that the
 -- number of types may be less than the maxiumum page size, in which case, the
 -- returned page will have fewer results than the maximumPageSize specified.
-latiMaximumPageSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListActivityTypes
-    -> f ListActivityTypes
+latiMaximumPageSize :: Lens' ListActivityTypes (Maybe Integer)
 latiMaximumPageSize f x =
-    (\y -> x { _latiMaximumPageSize = y })
-       <$> f (_latiMaximumPageSize x)
+    f (_latiMaximumPageSize x)
+        <&> \y -> x { _latiMaximumPageSize = y }
 {-# INLINE latiMaximumPageSize #-}
 
 -- | If on a previous call to this method a NextResultToken was returned, the
 -- results have more than one page. To get the next page of results, repeat
 -- the call with the nextPageToken and keep all other arguments unchanged.
-latiNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListActivityTypes
-    -> f ListActivityTypes
+latiNextPageToken :: Lens' ListActivityTypes (Maybe Text)
 latiNextPageToken f x =
-    (\y -> x { _latiNextPageToken = y })
-       <$> f (_latiNextPageToken x)
+    f (_latiNextPageToken x)
+        <&> \y -> x { _latiNextPageToken = y }
 {-# INLINE latiNextPageToken #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- activity types.
-latiReverseOrder
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ListActivityTypes
-    -> f ListActivityTypes
+latiReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latiReverseOrder f x =
-    (\y -> x { _latiReverseOrder = y })
-       <$> f (_latiReverseOrder x)
+    f (_latiReverseOrder x)
+        <&> \y -> x { _latiReverseOrder = y }
 {-# INLINE latiReverseOrder #-}
 
 instance ToPath ListActivityTypes
@@ -201,29 +172,19 @@ data ListActivityTypesResponse = ListActivityTypesResponse
     } deriving (Show, Generic)
 
 -- | List of activity type information.
-atjTypeInfos
-    :: Functor f
-    => ([ActivityTypeInfo]
-    -> f ([ActivityTypeInfo]))
-    -> ListActivityTypesResponse
-    -> f ListActivityTypesResponse
+atjTypeInfos :: Lens' ListActivityTypesResponse ([ActivityTypeInfo])
 atjTypeInfos f x =
-    (\y -> x { _atjTypeInfos = y })
-       <$> f (_atjTypeInfos x)
+    f (_atjTypeInfos x)
+        <&> \y -> x { _atjTypeInfos = y }
 {-# INLINE atjTypeInfos #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-atjNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListActivityTypesResponse
-    -> f ListActivityTypesResponse
+atjNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 atjNextPageToken f x =
-    (\y -> x { _atjNextPageToken = y })
-       <$> f (_atjNextPageToken x)
+    f (_atjNextPageToken x)
+        <&> \y -> x { _atjNextPageToken = y }
 {-# INLINE atjNextPageToken #-}
 
 instance FromJSON ListActivityTypesResponse

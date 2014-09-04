@@ -84,6 +84,7 @@ listWorkflowTypes p1 p2 = ListWorkflowTypes
     , _lwtiNextPageToken = Nothing
     , _lwtiReverseOrder = Nothing
     }
+{-# INLINE listWorkflowTypes #-}
 
 data ListWorkflowTypes = ListWorkflowTypes
     { _lwtiDomain :: Text
@@ -112,39 +113,24 @@ data ListWorkflowTypes = ListWorkflowTypes
     } deriving (Show, Generic)
 
 -- | The name of the domain in which the workflow types have been registered.
-lwtiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListWorkflowTypes
-    -> f ListWorkflowTypes
+lwtiDomain :: Lens' ListWorkflowTypes (Text)
 lwtiDomain f x =
-    (\y -> x { _lwtiDomain = y })
-       <$> f (_lwtiDomain x)
+    f (_lwtiDomain x)
+        <&> \y -> x { _lwtiDomain = y }
 {-# INLINE lwtiDomain #-}
 
 -- | Specifies the registration status of the workflow types to list.
-lwtiRegistrationStatus
-    :: Functor f
-    => (RegistrationStatus
-    -> f (RegistrationStatus))
-    -> ListWorkflowTypes
-    -> f ListWorkflowTypes
+lwtiRegistrationStatus :: Lens' ListWorkflowTypes (RegistrationStatus)
 lwtiRegistrationStatus f x =
-    (\y -> x { _lwtiRegistrationStatus = y })
-       <$> f (_lwtiRegistrationStatus x)
+    f (_lwtiRegistrationStatus x)
+        <&> \y -> x { _lwtiRegistrationStatus = y }
 {-# INLINE lwtiRegistrationStatus #-}
 
 -- | If specified, lists the workflow type with this name.
-lwtiName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListWorkflowTypes
-    -> f ListWorkflowTypes
+lwtiName :: Lens' ListWorkflowTypes (Maybe Text)
 lwtiName f x =
-    (\y -> x { _lwtiName = y })
-       <$> f (_lwtiName x)
+    f (_lwtiName x)
+        <&> \y -> x { _lwtiName = y }
 {-# INLINE lwtiName #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
@@ -152,43 +138,28 @@ lwtiName f x =
 -- default. You cannot specify a page size greater than 100. Note that the
 -- number of types may be less than the maxiumum page size, in which case, the
 -- returned page will have fewer results than the maximumPageSize specified.
-lwtiMaximumPageSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListWorkflowTypes
-    -> f ListWorkflowTypes
+lwtiMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Integer)
 lwtiMaximumPageSize f x =
-    (\y -> x { _lwtiMaximumPageSize = y })
-       <$> f (_lwtiMaximumPageSize x)
+    f (_lwtiMaximumPageSize x)
+        <&> \y -> x { _lwtiMaximumPageSize = y }
 {-# INLINE lwtiMaximumPageSize #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
-lwtiNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListWorkflowTypes
-    -> f ListWorkflowTypes
+lwtiNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
 lwtiNextPageToken f x =
-    (\y -> x { _lwtiNextPageToken = y })
-       <$> f (_lwtiNextPageToken x)
+    f (_lwtiNextPageToken x)
+        <&> \y -> x { _lwtiNextPageToken = y }
 {-# INLINE lwtiNextPageToken #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- workflow types.
-lwtiReverseOrder
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ListWorkflowTypes
-    -> f ListWorkflowTypes
+lwtiReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtiReverseOrder f x =
-    (\y -> x { _lwtiReverseOrder = y })
-       <$> f (_lwtiReverseOrder x)
+    f (_lwtiReverseOrder x)
+        <&> \y -> x { _lwtiReverseOrder = y }
 {-# INLINE lwtiReverseOrder #-}
 
 instance ToPath ListWorkflowTypes
@@ -210,30 +181,20 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     } deriving (Show, Generic)
 
 -- | The list of workflow type information.
-wtkTypeInfos
-    :: Functor f
-    => ([WorkflowTypeInfo]
-    -> f ([WorkflowTypeInfo]))
-    -> ListWorkflowTypesResponse
-    -> f ListWorkflowTypesResponse
+wtkTypeInfos :: Lens' ListWorkflowTypesResponse ([WorkflowTypeInfo])
 wtkTypeInfos f x =
-    (\y -> x { _wtkTypeInfos = y })
-       <$> f (_wtkTypeInfos x)
+    f (_wtkTypeInfos x)
+        <&> \y -> x { _wtkTypeInfos = y }
 {-# INLINE wtkTypeInfos #-}
 
 -- | The token for the next page of type information. If set then the list
 -- consists of more than one page. You can retrieve the next page by repeating
 -- the request (that returned the structure) with the this token and all other
 -- arguments unchanged.
-wtkNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListWorkflowTypesResponse
-    -> f ListWorkflowTypesResponse
+wtkNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 wtkNextPageToken f x =
-    (\y -> x { _wtkNextPageToken = y })
-       <$> f (_wtkNextPageToken x)
+    f (_wtkNextPageToken x)
+        <&> \y -> x { _wtkNextPageToken = y }
 {-# INLINE wtkNextPageToken #-}
 
 instance FromJSON ListWorkflowTypesResponse

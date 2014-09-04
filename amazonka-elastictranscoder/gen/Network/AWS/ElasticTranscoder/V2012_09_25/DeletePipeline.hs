@@ -56,6 +56,7 @@ deletePipeline :: Text -- ^ 'dprId'
 deletePipeline p1 = DeletePipeline
     { _dprId = p1
     }
+{-# INLINE deletePipeline #-}
 
 data DeletePipeline = DeletePipeline
     { _dprId :: Text
@@ -63,15 +64,10 @@ data DeletePipeline = DeletePipeline
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline that you want to delete.
-dprId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeletePipeline
-    -> f DeletePipeline
+dprId :: Lens' DeletePipeline (Text)
 dprId f x =
-    (\y -> x { _dprId = y })
-       <$> f (_dprId x)
+    f (_dprId x)
+        <&> \y -> x { _dprId = y }
 {-# INLINE dprId #-}
 
 instance ToPath DeletePipeline where

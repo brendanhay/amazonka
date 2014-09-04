@@ -67,6 +67,7 @@ describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
     , _ddcpmMaxRecords = Nothing
     , _ddcpmMarker = Nothing
     }
+{-# INLINE describeDefaultClusterParameters #-}
 
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     { _ddcpmParameterGroupFamily :: Text
@@ -89,15 +90,10 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group family.
-ddcpmParameterGroupFamily
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeDefaultClusterParameters
-    -> f DescribeDefaultClusterParameters
+ddcpmParameterGroupFamily :: Lens' DescribeDefaultClusterParameters (Text)
 ddcpmParameterGroupFamily f x =
-    (\y -> x { _ddcpmParameterGroupFamily = y })
-       <$> f (_ddcpmParameterGroupFamily x)
+    f (_ddcpmParameterGroupFamily x)
+        <&> \y -> x { _ddcpmParameterGroupFamily = y }
 {-# INLINE ddcpmParameterGroupFamily #-}
 
 -- | The maximum number of response records to return in each call. If the
@@ -105,15 +101,10 @@ ddcpmParameterGroupFamily f x =
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-ddcpmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDefaultClusterParameters
-    -> f DescribeDefaultClusterParameters
+ddcpmMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Integer)
 ddcpmMaxRecords f x =
-    (\y -> x { _ddcpmMaxRecords = y })
-       <$> f (_ddcpmMaxRecords x)
+    f (_ddcpmMaxRecords x)
+        <&> \y -> x { _ddcpmMaxRecords = y }
 {-# INLINE ddcpmMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -122,15 +113,10 @@ ddcpmMaxRecords f x =
 -- the Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
-ddcpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDefaultClusterParameters
-    -> f DescribeDefaultClusterParameters
+ddcpmMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
 ddcpmMarker f x =
-    (\y -> x { _ddcpmMarker = y })
-       <$> f (_ddcpmMarker x)
+    f (_ddcpmMarker x)
+        <&> \y -> x { _ddcpmMarker = y }
 {-# INLINE ddcpmMarker #-}
 
 instance ToQuery DescribeDefaultClusterParameters where
@@ -143,15 +129,10 @@ data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParameters
     } deriving (Show, Generic)
 
 -- | Describes the default cluster parameters for a parameter group family.
-dcpwDefaultClusterParameters
-    :: Functor f
-    => (DefaultClusterParameters
-    -> f (DefaultClusterParameters))
-    -> DescribeDefaultClusterParametersResponse
-    -> f DescribeDefaultClusterParametersResponse
+dcpwDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse (DefaultClusterParameters)
 dcpwDefaultClusterParameters f x =
-    (\y -> x { _dcpwDefaultClusterParameters = y })
-       <$> f (_dcpwDefaultClusterParameters x)
+    f (_dcpwDefaultClusterParameters x)
+        <&> \y -> x { _dcpwDefaultClusterParameters = y }
 {-# INLINE dcpwDefaultClusterParameters #-}
 
 instance FromXML DescribeDefaultClusterParametersResponse where

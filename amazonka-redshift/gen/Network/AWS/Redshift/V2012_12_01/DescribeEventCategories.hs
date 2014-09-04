@@ -44,6 +44,7 @@ describeEventCategories :: DescribeEventCategories
 describeEventCategories = DescribeEventCategories
     { _decmSourceType = Nothing
     }
+{-# INLINE describeEventCategories #-}
 
 data DescribeEventCategories = DescribeEventCategories
     { _decmSourceType :: Maybe Text
@@ -55,15 +56,10 @@ data DescribeEventCategories = DescribeEventCategories
 -- | The source type, such as cluster or parameter group, to which the described
 -- event categories apply. Valid values: cluster, snapshot, parameter group,
 -- and security group.
-decmSourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventCategories
-    -> f DescribeEventCategories
+decmSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decmSourceType f x =
-    (\y -> x { _decmSourceType = y })
-       <$> f (_decmSourceType x)
+    f (_decmSourceType x)
+        <&> \y -> x { _decmSourceType = y }
 {-# INLINE decmSourceType #-}
 
 instance ToQuery DescribeEventCategories where
@@ -75,15 +71,10 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     } deriving (Show, Generic)
 
 -- | A list of event categories descriptions.
-ecnEventCategoriesMapList
-    :: Functor f
-    => ([EventCategoriesMap]
-    -> f ([EventCategoriesMap]))
-    -> DescribeEventCategoriesResponse
-    -> f DescribeEventCategoriesResponse
+ecnEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse ([EventCategoriesMap])
 ecnEventCategoriesMapList f x =
-    (\y -> x { _ecnEventCategoriesMapList = y })
-       <$> f (_ecnEventCategoriesMapList x)
+    f (_ecnEventCategoriesMapList x)
+        <&> \y -> x { _ecnEventCategoriesMapList = y }
 {-# INLINE ecnEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where

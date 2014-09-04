@@ -57,6 +57,7 @@ getQueueUrl p1 = GetQueueUrl
     { _gqurQueueName = p1
     , _gqurQueueOwnerAWSAccountId = Nothing
     }
+{-# INLINE getQueueUrl #-}
 
 data GetQueueUrl = GetQueueUrl
     { _gqurQueueName :: Text
@@ -69,27 +70,17 @@ data GetQueueUrl = GetQueueUrl
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
-gqurQueueName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetQueueUrl
-    -> f GetQueueUrl
+gqurQueueName :: Lens' GetQueueUrl (Text)
 gqurQueueName f x =
-    (\y -> x { _gqurQueueName = y })
-       <$> f (_gqurQueueName x)
+    f (_gqurQueueName x)
+        <&> \y -> x { _gqurQueueName = y }
 {-# INLINE gqurQueueName #-}
 
 -- | The AWS account ID of the account that created the queue.
-gqurQueueOwnerAWSAccountId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetQueueUrl
-    -> f GetQueueUrl
+gqurQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
 gqurQueueOwnerAWSAccountId f x =
-    (\y -> x { _gqurQueueOwnerAWSAccountId = y })
-       <$> f (_gqurQueueOwnerAWSAccountId x)
+    f (_gqurQueueOwnerAWSAccountId x)
+        <&> \y -> x { _gqurQueueOwnerAWSAccountId = y }
 {-# INLINE gqurQueueOwnerAWSAccountId #-}
 
 instance ToQuery GetQueueUrl where
@@ -101,15 +92,10 @@ data GetQueueUrlResponse = GetQueueUrlResponse
     } deriving (Show, Generic)
 
 -- | The URL for the queue.
-gqusQueueUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetQueueUrlResponse
-    -> f GetQueueUrlResponse
+gqusQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqusQueueUrl f x =
-    (\y -> x { _gqusQueueUrl = y })
-       <$> f (_gqusQueueUrl x)
+    f (_gqusQueueUrl x)
+        <&> \y -> x { _gqusQueueUrl = y }
 {-# INLINE gqusQueueUrl #-}
 
 instance FromXML GetQueueUrlResponse where

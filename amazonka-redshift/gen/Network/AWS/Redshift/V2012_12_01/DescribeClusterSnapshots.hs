@@ -71,6 +71,7 @@ describeClusterSnapshots = DescribeClusterSnapshots
     , _dcsnStartTime = Nothing
     , _dcsnEndTime = Nothing
     }
+{-# INLINE describeClusterSnapshots #-}
 
 data DescribeClusterSnapshots = DescribeClusterSnapshots
     { _dcsnMaxRecords :: Maybe Integer
@@ -120,53 +121,33 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnMaxRecords :: Lens' DescribeClusterSnapshots (Maybe Integer)
 dcsnMaxRecords f x =
-    (\y -> x { _dcsnMaxRecords = y })
-       <$> f (_dcsnMaxRecords x)
+    f (_dcsnMaxRecords x)
+        <&> \y -> x { _dcsnMaxRecords = y }
 {-# INLINE dcsnMaxRecords #-}
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
-dcsnClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcsnClusterIdentifier f x =
-    (\y -> x { _dcsnClusterIdentifier = y })
-       <$> f (_dcsnClusterIdentifier x)
+    f (_dcsnClusterIdentifier x)
+        <&> \y -> x { _dcsnClusterIdentifier = y }
 {-# INLINE dcsnClusterIdentifier #-}
 
 -- | The snapshot identifier of the snapshot about which to return information.
-dcsnSnapshotIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnSnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcsnSnapshotIdentifier f x =
-    (\y -> x { _dcsnSnapshotIdentifier = y })
-       <$> f (_dcsnSnapshotIdentifier x)
+    f (_dcsnSnapshotIdentifier x)
+        <&> \y -> x { _dcsnSnapshotIdentifier = y }
 {-# INLINE dcsnSnapshotIdentifier #-}
 
 -- | The type of snapshots for which you are requesting information. By default,
 -- snapshots of all types are returned. Valid Values: automated | manual.
-dcsnSnapshotType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcsnSnapshotType f x =
-    (\y -> x { _dcsnSnapshotType = y })
-       <$> f (_dcsnSnapshotType x)
+    f (_dcsnSnapshotType x)
+        <&> \y -> x { _dcsnSnapshotType = y }
 {-# INLINE dcsnSnapshotType #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -175,60 +156,40 @@ dcsnSnapshotType f x =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dcsnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnMarker :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcsnMarker f x =
-    (\y -> x { _dcsnMarker = y })
-       <$> f (_dcsnMarker x)
+    f (_dcsnMarker x)
+        <&> \y -> x { _dcsnMarker = y }
 {-# INLINE dcsnMarker #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Use this
 -- field to filter the results to snapshots owned by a particular account. To
 -- describe snapshots you own, either specify your AWS customer account, or do
 -- not specify the parameter.
-dcsnOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnOwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcsnOwnerAccount f x =
-    (\y -> x { _dcsnOwnerAccount = y })
-       <$> f (_dcsnOwnerAccount x)
+    f (_dcsnOwnerAccount x)
+        <&> \y -> x { _dcsnOwnerAccount = y }
 {-# INLINE dcsnOwnerAccount #-}
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more information
 -- about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
-dcsnStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnStartTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
 dcsnStartTime f x =
-    (\y -> x { _dcsnStartTime = y })
-       <$> f (_dcsnStartTime x)
+    f (_dcsnStartTime x)
+        <&> \y -> x { _dcsnStartTime = y }
 {-# INLINE dcsnStartTime #-}
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
 -- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
-dcsnEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeClusterSnapshots
-    -> f DescribeClusterSnapshots
+dcsnEndTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
 dcsnEndTime f x =
-    (\y -> x { _dcsnEndTime = y })
-       <$> f (_dcsnEndTime x)
+    f (_dcsnEndTime x)
+        <&> \y -> x { _dcsnEndTime = y }
 {-# INLINE dcsnEndTime #-}
 
 instance ToQuery DescribeClusterSnapshots where
@@ -247,15 +208,10 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     } deriving (Show, Generic)
 
 -- | A list of Snapshot instances.
-sseSnapshots
-    :: Functor f
-    => ([Snapshot]
-    -> f ([Snapshot]))
-    -> DescribeClusterSnapshotsResponse
-    -> f DescribeClusterSnapshotsResponse
+sseSnapshots :: Lens' DescribeClusterSnapshotsResponse ([Snapshot])
 sseSnapshots f x =
-    (\y -> x { _sseSnapshots = y })
-       <$> f (_sseSnapshots x)
+    f (_sseSnapshots x)
+        <&> \y -> x { _sseSnapshots = y }
 {-# INLINE sseSnapshots #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -263,15 +219,10 @@ sseSnapshots f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-sseMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSnapshotsResponse
-    -> f DescribeClusterSnapshotsResponse
+sseMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 sseMarker f x =
-    (\y -> x { _sseMarker = y })
-       <$> f (_sseMarker x)
+    f (_sseMarker x)
+        <&> \y -> x { _sseMarker = y }
 {-# INLINE sseMarker #-}
 
 instance FromXML DescribeClusterSnapshotsResponse where

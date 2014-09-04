@@ -180,51 +180,31 @@ data Attribute = Attribute
     } deriving (Show, Generic)
 
 -- | The name of the attribute.
-aName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Attribute
-    -> f Attribute
+aName :: Lens' Attribute (Text)
 aName f x =
-    (\y -> x { _aName = y })
-       <$> f (_aName x)
+    f (_aName x)
+        <&> \y -> x { _aName = y }
 {-# INLINE aName #-}
 
 -- | 
-aAlternateNameEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Attribute
-    -> f Attribute
+aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
 aAlternateNameEncoding f x =
-    (\y -> x { _aAlternateNameEncoding = y })
-       <$> f (_aAlternateNameEncoding x)
+    f (_aAlternateNameEncoding x)
+        <&> \y -> x { _aAlternateNameEncoding = y }
 {-# INLINE aAlternateNameEncoding #-}
 
 -- | The value of the attribute.
-aValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Attribute
-    -> f Attribute
+aValue :: Lens' Attribute (Text)
 aValue f x =
-    (\y -> x { _aValue = y })
-       <$> f (_aValue x)
+    f (_aValue x)
+        <&> \y -> x { _aValue = y }
 {-# INLINE aValue #-}
 
 -- | 
-aAlternateValueEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Attribute
-    -> f Attribute
+aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
 aAlternateValueEncoding f x =
-    (\y -> x { _aAlternateValueEncoding = y })
-       <$> f (_aAlternateValueEncoding x)
+    f (_aAlternateValueEncoding x)
+        <&> \y -> x { _aAlternateValueEncoding = y }
 {-# INLINE aAlternateValueEncoding #-}
 
 instance FromXML Attribute where
@@ -239,26 +219,16 @@ data DeletableItem = DeletableItem
     , _diAttributes :: [Attribute]
     } deriving (Show, Generic)
 
-diName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeletableItem
-    -> f DeletableItem
+diName :: Lens' DeletableItem (Text)
 diName f x =
-    (\y -> x { _diName = y })
-       <$> f (_diName x)
+    f (_diName x)
+        <&> \y -> x { _diName = y }
 {-# INLINE diName #-}
 
-diAttributes
-    :: Functor f
-    => ([Attribute]
-    -> f ([Attribute]))
-    -> DeletableItem
-    -> f DeletableItem
+diAttributes :: Lens' DeletableItem ([Attribute])
 diAttributes f x =
-    (\y -> x { _diAttributes = y })
-       <$> f (_diAttributes x)
+    f (_diAttributes x)
+        <&> \y -> x { _diAttributes = y }
 {-# INLINE diAttributes #-}
 
 instance ToQuery DeletableItem where
@@ -275,39 +245,24 @@ data Item = Item
     } deriving (Show, Generic)
 
 -- | The name of the item.
-imName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Item
-    -> f Item
+imName :: Lens' Item (Text)
 imName f x =
-    (\y -> x { _imName = y })
-       <$> f (_imName x)
+    f (_imName x)
+        <&> \y -> x { _imName = y }
 {-# INLINE imName #-}
 
 -- | 
-imAlternateNameEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Item
-    -> f Item
+imAlternateNameEncoding :: Lens' Item (Maybe Text)
 imAlternateNameEncoding f x =
-    (\y -> x { _imAlternateNameEncoding = y })
-       <$> f (_imAlternateNameEncoding x)
+    f (_imAlternateNameEncoding x)
+        <&> \y -> x { _imAlternateNameEncoding = y }
 {-# INLINE imAlternateNameEncoding #-}
 
 -- | A list of attributes.
-imAttributes
-    :: Functor f
-    => ([Attribute]
-    -> f ([Attribute]))
-    -> Item
-    -> f Item
+imAttributes :: Lens' Item ([Attribute])
 imAttributes f x =
-    (\y -> x { _imAttributes = y })
-       <$> f (_imAttributes x)
+    f (_imAttributes x)
+        <&> \y -> x { _imAttributes = y }
 {-# INLINE imAttributes #-}
 
 instance FromXML Item where
@@ -327,40 +282,25 @@ data ReplaceableAttribute = ReplaceableAttribute
     } deriving (Show, Generic)
 
 -- | The name of the replaceable attribute.
-raName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceableAttribute
-    -> f ReplaceableAttribute
+raName :: Lens' ReplaceableAttribute (Text)
 raName f x =
-    (\y -> x { _raName = y })
-       <$> f (_raName x)
+    f (_raName x)
+        <&> \y -> x { _raName = y }
 {-# INLINE raName #-}
 
 -- | The value of the replaceable attribute.
-raValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceableAttribute
-    -> f ReplaceableAttribute
+raValue :: Lens' ReplaceableAttribute (Text)
 raValue f x =
-    (\y -> x { _raValue = y })
-       <$> f (_raValue x)
+    f (_raValue x)
+        <&> \y -> x { _raValue = y }
 {-# INLINE raValue #-}
 
 -- | A flag specifying whether or not to replace the attribute/value pair or to
 -- add a new attribute/value pair. The default setting is false.
-raReplace
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ReplaceableAttribute
-    -> f ReplaceableAttribute
+raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
 raReplace f x =
-    (\y -> x { _raReplace = y })
-       <$> f (_raReplace x)
+    f (_raReplace x)
+        <&> \y -> x { _raReplace = y }
 {-# INLINE raReplace #-}
 
 instance FromXML ReplaceableAttribute where
@@ -379,27 +319,17 @@ data ReplaceableItem = ReplaceableItem
     } deriving (Show, Generic)
 
 -- | The name of the replaceable item.
-riName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceableItem
-    -> f ReplaceableItem
+riName :: Lens' ReplaceableItem (Text)
 riName f x =
-    (\y -> x { _riName = y })
-       <$> f (_riName x)
+    f (_riName x)
+        <&> \y -> x { _riName = y }
 {-# INLINE riName #-}
 
 -- | The list of attributes for a replaceable item.
-riAttributes
-    :: Functor f
-    => ([ReplaceableAttribute]
-    -> f ([ReplaceableAttribute]))
-    -> ReplaceableItem
-    -> f ReplaceableItem
+riAttributes :: Lens' ReplaceableItem ([ReplaceableAttribute])
 riAttributes f x =
-    (\y -> x { _riAttributes = y })
-       <$> f (_riAttributes x)
+    f (_riAttributes x)
+        <&> \y -> x { _riAttributes = y }
 {-# INLINE riAttributes #-}
 
 instance ToQuery ReplaceableItem where
@@ -424,28 +354,18 @@ data UpdateCondition = UpdateCondition
     } deriving (Show, Generic)
 
 -- | The name of the attribute involved in the condition.
-ucName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateCondition
-    -> f UpdateCondition
+ucName :: Lens' UpdateCondition (Maybe Text)
 ucName f x =
-    (\y -> x { _ucName = y })
-       <$> f (_ucName x)
+    f (_ucName x)
+        <&> \y -> x { _ucName = y }
 {-# INLINE ucName #-}
 
 -- | The value of an attribute. This value can only be specified when the Exists
 -- parameter is equal to true.
-ucValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateCondition
-    -> f UpdateCondition
+ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue f x =
-    (\y -> x { _ucValue = y })
-       <$> f (_ucValue x)
+    f (_ucValue x)
+        <&> \y -> x { _ucValue = y }
 {-# INLINE ucValue #-}
 
 -- | A value specifying whether or not the specified attribute must exist with
@@ -453,15 +373,10 @@ ucValue f x =
 -- Specify true if the attribute must exist for the update condition to be
 -- satisfied. Specify false if the attribute should not exist in order for the
 -- update condition to be satisfied.
-ucExists
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateCondition
-    -> f UpdateCondition
+ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists f x =
-    (\y -> x { _ucExists = y })
-       <$> f (_ucExists x)
+    f (_ucExists x)
+        <&> \y -> x { _ucExists = y }
 {-# INLINE ucExists #-}
 
 instance ToQuery UpdateCondition where

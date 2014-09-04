@@ -59,6 +59,7 @@ createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
     , _cdbsgnSubnetIds = p3
     , _cdbsgnTags = mempty
     }
+{-# INLINE createDBSubnetGroup #-}
 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
     { _cdbsgnDBSubnetGroupName :: Text
@@ -77,51 +78,31 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Must not be "Default". Example: mySubnetgroup.
-cdbsgnDBSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBSubnetGroup
-    -> f CreateDBSubnetGroup
+cdbsgnDBSubnetGroupName :: Lens' CreateDBSubnetGroup (Text)
 cdbsgnDBSubnetGroupName f x =
-    (\y -> x { _cdbsgnDBSubnetGroupName = y })
-       <$> f (_cdbsgnDBSubnetGroupName x)
+    f (_cdbsgnDBSubnetGroupName x)
+        <&> \y -> x { _cdbsgnDBSubnetGroupName = y }
 {-# INLINE cdbsgnDBSubnetGroupName #-}
 
 -- | The description for the DB subnet group.
-cdbsgnDBSubnetGroupDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateDBSubnetGroup
-    -> f CreateDBSubnetGroup
+cdbsgnDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup (Text)
 cdbsgnDBSubnetGroupDescription f x =
-    (\y -> x { _cdbsgnDBSubnetGroupDescription = y })
-       <$> f (_cdbsgnDBSubnetGroupDescription x)
+    f (_cdbsgnDBSubnetGroupDescription x)
+        <&> \y -> x { _cdbsgnDBSubnetGroupDescription = y }
 {-# INLINE cdbsgnDBSubnetGroupDescription #-}
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-cdbsgnSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateDBSubnetGroup
-    -> f CreateDBSubnetGroup
+cdbsgnSubnetIds :: Lens' CreateDBSubnetGroup ([Text])
 cdbsgnSubnetIds f x =
-    (\y -> x { _cdbsgnSubnetIds = y })
-       <$> f (_cdbsgnSubnetIds x)
+    f (_cdbsgnSubnetIds x)
+        <&> \y -> x { _cdbsgnSubnetIds = y }
 {-# INLINE cdbsgnSubnetIds #-}
 
 -- | A list of tags.
-cdbsgnTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateDBSubnetGroup
-    -> f CreateDBSubnetGroup
+cdbsgnTags :: Lens' CreateDBSubnetGroup ([Tag])
 cdbsgnTags f x =
-    (\y -> x { _cdbsgnTags = y })
-       <$> f (_cdbsgnTags x)
+    f (_cdbsgnTags x)
+        <&> \y -> x { _cdbsgnTags = y }
 {-# INLINE cdbsgnTags #-}
 
 instance ToQuery CreateDBSubnetGroup where
@@ -139,15 +120,10 @@ data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
 -- DeleteDBSubnetGroup This data type is used as a response element in the
 -- DescribeDBSubnetGroups action.
-dbsgyDBSubnetGroup
-    :: Functor f
-    => (Maybe DBSubnetGroup
-    -> f (Maybe DBSubnetGroup))
-    -> CreateDBSubnetGroupResponse
-    -> f CreateDBSubnetGroupResponse
+dbsgyDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 dbsgyDBSubnetGroup f x =
-    (\y -> x { _dbsgyDBSubnetGroup = y })
-       <$> f (_dbsgyDBSubnetGroup x)
+    f (_dbsgyDBSubnetGroup x)
+        <&> \y -> x { _dbsgyDBSubnetGroup = y }
 {-# INLINE dbsgyDBSubnetGroup #-}
 
 instance FromXML CreateDBSubnetGroupResponse where

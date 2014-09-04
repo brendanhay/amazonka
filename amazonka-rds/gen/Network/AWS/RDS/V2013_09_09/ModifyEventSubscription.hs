@@ -64,6 +64,7 @@ modifyEventSubscription p1 = ModifyEventSubscription
     , _mesmSnsTopicArn = Nothing
     , _mesmSourceType = Nothing
     }
+{-# INLINE modifyEventSubscription #-}
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesmSubscriptionName :: Text
@@ -89,56 +90,36 @@ data ModifyEventSubscription = ModifyEventSubscription
     } deriving (Show, Generic)
 
 -- | The name of the RDS event notification subscription.
-mesmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSubscriptionName :: Lens' ModifyEventSubscription (Text)
 mesmSubscriptionName f x =
-    (\y -> x { _mesmSubscriptionName = y })
-       <$> f (_mesmSubscriptionName x)
+    f (_mesmSubscriptionName x)
+        <&> \y -> x { _mesmSubscriptionName = y }
 {-# INLINE mesmSubscriptionName #-}
 
 -- | A Boolean value; set to true to activate the subscription.
-mesmEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
 mesmEnabled f x =
-    (\y -> x { _mesmEnabled = y })
-       <$> f (_mesmEnabled x)
+    f (_mesmEnabled x)
+        <&> \y -> x { _mesmEnabled = y }
 {-# INLINE mesmEnabled #-}
 
 -- | A list of event categories for a SourceType that you want to subscribe to.
 -- You can see a list of the categories for a given SourceType in the Events
 -- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
 -- action.
-mesmEventCategories
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmEventCategories :: Lens' ModifyEventSubscription ([Text])
 mesmEventCategories f x =
-    (\y -> x { _mesmEventCategories = y })
-       <$> f (_mesmEventCategories x)
+    f (_mesmEventCategories x)
+        <&> \y -> x { _mesmEventCategories = y }
 {-# INLINE mesmEventCategories #-}
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic and
 -- subscribe to it.
-mesmSnsTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSnsTopicArn :: Lens' ModifyEventSubscription (Maybe Text)
 mesmSnsTopicArn f x =
-    (\y -> x { _mesmSnsTopicArn = y })
-       <$> f (_mesmSnsTopicArn x)
+    f (_mesmSnsTopicArn x)
+        <&> \y -> x { _mesmSnsTopicArn = y }
 {-# INLINE mesmSnsTopicArn #-}
 
 -- | The type of source that will be generating the events. For example, if you
@@ -146,15 +127,10 @@ mesmSnsTopicArn f x =
 -- this parameter to db-instance. if this value is not specified, all events
 -- are returned. Valid values: db-instance | db-parameter-group |
 -- db-security-group | db-snapshot.
-mesmSourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyEventSubscription
-    -> f ModifyEventSubscription
+mesmSourceType :: Lens' ModifyEventSubscription (Maybe Text)
 mesmSourceType f x =
-    (\y -> x { _mesmSourceType = y })
-       <$> f (_mesmSourceType x)
+    f (_mesmSourceType x)
+        <&> \y -> x { _mesmSourceType = y }
 {-# INLINE mesmSourceType #-}
 
 instance ToQuery ModifyEventSubscription where
@@ -168,15 +144,10 @@ data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-eszEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> ModifyEventSubscriptionResponse
-    -> f ModifyEventSubscriptionResponse
+eszEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 eszEventSubscription f x =
-    (\y -> x { _eszEventSubscription = y })
-       <$> f (_eszEventSubscription x)
+    f (_eszEventSubscription x)
+        <&> \y -> x { _eszEventSubscription = y }
 {-# INLINE eszEventSubscription #-}
 
 instance FromXML ModifyEventSubscriptionResponse where

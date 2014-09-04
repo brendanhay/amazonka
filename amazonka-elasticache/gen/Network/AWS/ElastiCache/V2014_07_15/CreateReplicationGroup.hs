@@ -63,6 +63,7 @@ createReplicationGroup p1 p2 p3 = CreateReplicationGroup
     , _crgmPrimaryClusterId = p2
     , _crgmReplicationGroupDescription = p3
     }
+{-# INLINE createReplicationGroup #-}
 
 data CreateReplicationGroup = CreateReplicationGroup
     { _crgmReplicationGroupId :: Text
@@ -83,41 +84,26 @@ data CreateReplicationGroup = CreateReplicationGroup
 -- string. Constraints: Must contain from 1 to 20 alphanumeric characters or
 -- hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-crgmReplicationGroupId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateReplicationGroup
-    -> f CreateReplicationGroup
+crgmReplicationGroupId :: Lens' CreateReplicationGroup (Text)
 crgmReplicationGroupId f x =
-    (\y -> x { _crgmReplicationGroupId = y })
-       <$> f (_crgmReplicationGroupId x)
+    f (_crgmReplicationGroupId x)
+        <&> \y -> x { _crgmReplicationGroupId = y }
 {-# INLINE crgmReplicationGroupId #-}
 
 -- | The identifier of the cache cluster that will serve as the primary for this
 -- replication group. This cache cluster must already exist and have a status
 -- of available.
-crgmPrimaryClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateReplicationGroup
-    -> f CreateReplicationGroup
+crgmPrimaryClusterId :: Lens' CreateReplicationGroup (Text)
 crgmPrimaryClusterId f x =
-    (\y -> x { _crgmPrimaryClusterId = y })
-       <$> f (_crgmPrimaryClusterId x)
+    f (_crgmPrimaryClusterId x)
+        <&> \y -> x { _crgmPrimaryClusterId = y }
 {-# INLINE crgmPrimaryClusterId #-}
 
 -- | A user-specified description for the replication group.
-crgmReplicationGroupDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateReplicationGroup
-    -> f CreateReplicationGroup
+crgmReplicationGroupDescription :: Lens' CreateReplicationGroup (Text)
 crgmReplicationGroupDescription f x =
-    (\y -> x { _crgmReplicationGroupDescription = y })
-       <$> f (_crgmReplicationGroupDescription x)
+    f (_crgmReplicationGroupDescription x)
+        <&> \y -> x { _crgmReplicationGroupDescription = y }
 {-# INLINE crgmReplicationGroupDescription #-}
 
 instance ToQuery CreateReplicationGroup where
@@ -129,15 +115,10 @@ data CreateReplicationGroupResponse = CreateReplicationGroupResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-rgwReplicationGroup
-    :: Functor f
-    => (Maybe ReplicationGroup
-    -> f (Maybe ReplicationGroup))
-    -> CreateReplicationGroupResponse
-    -> f CreateReplicationGroupResponse
+rgwReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 rgwReplicationGroup f x =
-    (\y -> x { _rgwReplicationGroup = y })
-       <$> f (_rgwReplicationGroup x)
+    f (_rgwReplicationGroup x)
+        <&> \y -> x { _rgwReplicationGroup = y }
 {-# INLINE rgwReplicationGroup #-}
 
 instance FromXML CreateReplicationGroupResponse where

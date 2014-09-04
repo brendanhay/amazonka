@@ -53,6 +53,7 @@ listIdentityPools p1 = ListIdentityPools
     { _lipiMaxResults = p1
     , _lipiNextToken = Nothing
     }
+{-# INLINE listIdentityPools #-}
 
 data ListIdentityPools = ListIdentityPools
     { _lipiMaxResults :: Integer
@@ -62,27 +63,17 @@ data ListIdentityPools = ListIdentityPools
     } deriving (Show, Generic)
 
 -- | The maximum number of identities to return.
-lipiMaxResults
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ListIdentityPools
-    -> f ListIdentityPools
+lipiMaxResults :: Lens' ListIdentityPools (Integer)
 lipiMaxResults f x =
-    (\y -> x { _lipiMaxResults = y })
-       <$> f (_lipiMaxResults x)
+    f (_lipiMaxResults x)
+        <&> \y -> x { _lipiMaxResults = y }
 {-# INLINE lipiMaxResults #-}
 
 -- | A pagination token.
-lipiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentityPools
-    -> f ListIdentityPools
+lipiNextToken :: Lens' ListIdentityPools (Maybe Text)
 lipiNextToken f x =
-    (\y -> x { _lipiNextToken = y })
-       <$> f (_lipiNextToken x)
+    f (_lipiNextToken x)
+        <&> \y -> x { _lipiNextToken = y }
 {-# INLINE lipiNextToken #-}
 
 instance ToPath ListIdentityPools
@@ -101,27 +92,17 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
     } deriving (Show, Generic)
 
 -- | The identity pools returned by the ListIdentityPools action.
-liprIdentityPools
-    :: Functor f
-    => ([IdentityPoolShortDescription]
-    -> f ([IdentityPoolShortDescription]))
-    -> ListIdentityPoolsResponse
-    -> f ListIdentityPoolsResponse
+liprIdentityPools :: Lens' ListIdentityPoolsResponse ([IdentityPoolShortDescription])
 liprIdentityPools f x =
-    (\y -> x { _liprIdentityPools = y })
-       <$> f (_liprIdentityPools x)
+    f (_liprIdentityPools x)
+        <&> \y -> x { _liprIdentityPools = y }
 {-# INLINE liprIdentityPools #-}
 
 -- | A pagination token.
-liprNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentityPoolsResponse
-    -> f ListIdentityPoolsResponse
+liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprNextToken f x =
-    (\y -> x { _liprNextToken = y })
-       <$> f (_liprNextToken x)
+    f (_liprNextToken x)
+        <&> \y -> x { _liprNextToken = y }
 {-# INLINE liprNextToken #-}
 
 instance FromJSON ListIdentityPoolsResponse

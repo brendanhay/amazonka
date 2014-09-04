@@ -28,6 +28,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
       ElasticTranscoder
     -- ** Errors
     , Er (..)
+    -- ** XML
+    , xmlOptions
 
     -- * AudioCodecOptions
     , AudioCodecOptions (..)
@@ -312,15 +314,10 @@ newtype AudioCodecOptions = AudioCodecOptions
 -- created any presets before AAC profiles were added, Elastic Transcoder
 -- automatically updated your presets to use AAC-LC. You can change the value
 -- as required.
-acoProfile
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AudioCodecOptions
-    -> f AudioCodecOptions
+acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile f x =
-    (\y -> x { _acoProfile = y })
-       <$> f (_acoProfile x)
+    f (_acoProfile x)
+        <&> \y -> x { _acoProfile = y }
 {-# INLINE acoProfile #-}
 
 instance FromJSON AudioCodecOptions
@@ -335,15 +332,10 @@ newtype Clip = Clip
     } deriving (Show, Generic)
 
 -- | Settings that determine when a clip begins and how long it lasts.
-dTimeSpan
-    :: Functor f
-    => (Maybe TimeSpan
-    -> f (Maybe TimeSpan))
-    -> Clip
-    -> f Clip
+dTimeSpan :: Lens' Clip (Maybe TimeSpan)
 dTimeSpan f x =
-    (\y -> x { _dTimeSpan = y })
-       <$> f (_dTimeSpan x)
+    f (_dTimeSpan x)
+        <&> \y -> x { _dTimeSpan = y }
 {-# INLINE dTimeSpan #-}
 
 instance FromJSON Clip
@@ -415,43 +407,28 @@ data Artwork = Artwork
 -- the bucket. If the file name includes a prefix, for example,
 -- cooking/pie.jpg, include the prefix in the key. If the file isn't in the
 -- specified bucket, Elastic Transcoder returns an error.
-bInputKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Artwork
-    -> f Artwork
+bInputKey :: Lens' Artwork (Maybe Text)
 bInputKey f x =
-    (\y -> x { _bInputKey = y })
-       <$> f (_bInputKey x)
+    f (_bInputKey x)
+        <&> \y -> x { _bInputKey = y }
 {-# INLINE bInputKey #-}
 
 -- | The maximum width of the output album art in pixels. If you specify auto,
 -- Elastic Transcoder uses 600 as the default value. If you specify a numeric
 -- value, enter an even integer between 32 and 4096, inclusive.
-bMaxWidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Artwork
-    -> f Artwork
+bMaxWidth :: Lens' Artwork (Maybe Text)
 bMaxWidth f x =
-    (\y -> x { _bMaxWidth = y })
-       <$> f (_bMaxWidth x)
+    f (_bMaxWidth x)
+        <&> \y -> x { _bMaxWidth = y }
 {-# INLINE bMaxWidth #-}
 
 -- | The maximum height of the output album art in pixels. If you specify auto,
 -- Elastic Transcoder uses 600 as the default value. If you specify a numeric
 -- value, enter an even integer between 32 and 3072, inclusive.
-bMaxHeight
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Artwork
-    -> f Artwork
+bMaxHeight :: Lens' Artwork (Maybe Text)
 bMaxHeight f x =
-    (\y -> x { _bMaxHeight = y })
-       <$> f (_bMaxHeight x)
+    f (_bMaxHeight x)
+        <&> \y -> x { _bMaxHeight = y }
 {-# INLINE bMaxHeight #-}
 
 -- | Specify one of the following values to control scaling of the output album
@@ -475,42 +452,27 @@ bMaxHeight f x =
 -- values that you specified for at least one of MaxWidth and MaxHeight
 -- without dropping below either value. If you specify this option, Elastic
 -- Transcoder does not scale the art up.
-bSizingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Artwork
-    -> f Artwork
+bSizingPolicy :: Lens' Artwork (Maybe Text)
 bSizingPolicy f x =
-    (\y -> x { _bSizingPolicy = y })
-       <$> f (_bSizingPolicy x)
+    f (_bSizingPolicy x)
+        <&> \y -> x { _bSizingPolicy = y }
 {-# INLINE bSizingPolicy #-}
 
 -- | When you set PaddingPolicy to Pad, Elastic Transcoder may add white bars to
 -- the top and bottom and/or left and right sides of the output album art to
 -- make the total size of the output art match the values that you specified
 -- for MaxWidth and MaxHeight.
-bPaddingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Artwork
-    -> f Artwork
+bPaddingPolicy :: Lens' Artwork (Maybe Text)
 bPaddingPolicy f x =
-    (\y -> x { _bPaddingPolicy = y })
-       <$> f (_bPaddingPolicy x)
+    f (_bPaddingPolicy x)
+        <&> \y -> x { _bPaddingPolicy = y }
 {-# INLINE bPaddingPolicy #-}
 
 -- | The format of album art, if any. Valid formats are .jpg and .png.
-bAlbumArtFormat
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Artwork
-    -> f Artwork
+bAlbumArtFormat :: Lens' Artwork (Maybe Text)
 bAlbumArtFormat f x =
-    (\y -> x { _bAlbumArtFormat = y })
-       <$> f (_bAlbumArtFormat x)
+    f (_bAlbumArtFormat x)
+        <&> \y -> x { _bAlbumArtFormat = y }
 {-# INLINE bAlbumArtFormat #-}
 
 instance FromJSON Artwork
@@ -543,71 +505,46 @@ data AudioParameters = AudioParameters
 
 -- | The audio codec for the output file. Valid values include aac, mp3, and
 -- vorbis.
-apCodec
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AudioParameters
-    -> f AudioParameters
+apCodec :: Lens' AudioParameters (Maybe Text)
 apCodec f x =
-    (\y -> x { _apCodec = y })
-       <$> f (_apCodec x)
+    f (_apCodec x)
+        <&> \y -> x { _apCodec = y }
 {-# INLINE apCodec #-}
 
 -- | The sample rate of the audio stream in the output file, in Hertz. Valid
 -- values include: auto, 22050, 32000, 44100, 48000, 96000 If you specify
 -- auto, Elastic Transcoder automatically detects the sample rate.
-apSampleRate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AudioParameters
-    -> f AudioParameters
+apSampleRate :: Lens' AudioParameters (Maybe Text)
 apSampleRate f x =
-    (\y -> x { _apSampleRate = y })
-       <$> f (_apSampleRate x)
+    f (_apSampleRate x)
+        <&> \y -> x { _apSampleRate = y }
 {-# INLINE apSampleRate #-}
 
 -- | The bit rate of the audio stream in the output file, in kilobits/second.
 -- Enter an integer between 64 and 320, inclusive.
-apBitRate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AudioParameters
-    -> f AudioParameters
+apBitRate :: Lens' AudioParameters (Maybe Text)
 apBitRate f x =
-    (\y -> x { _apBitRate = y })
-       <$> f (_apBitRate x)
+    f (_apBitRate x)
+        <&> \y -> x { _apBitRate = y }
 {-# INLINE apBitRate #-}
 
 -- | The number of audio channels in the output file. Valid values include:
 -- auto, 0, 1, 2 If you specify auto, Elastic Transcoder automatically detects
 -- the number of channels in the input file.
-apChannels
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AudioParameters
-    -> f AudioParameters
+apChannels :: Lens' AudioParameters (Maybe Text)
 apChannels f x =
-    (\y -> x { _apChannels = y })
-       <$> f (_apChannels x)
+    f (_apChannels x)
+        <&> \y -> x { _apChannels = y }
 {-# INLINE apChannels #-}
 
 -- | If you specified AAC for Audio:Codec, this is the AAC compression profile
 -- to use. Valid values include: auto, AAC-LC, HE-AAC, HE-AACv2 If you specify
 -- auto, Elastic Transcoder chooses a profile based on the bit rate of the
 -- output file.
-apCodecOptions
-    :: Functor f
-    => (Maybe AudioCodecOptions
-    -> f (Maybe AudioCodecOptions))
-    -> AudioParameters
-    -> f AudioParameters
+apCodecOptions :: Lens' AudioParameters (Maybe AudioCodecOptions)
 apCodecOptions f x =
-    (\y -> x { _apCodecOptions = y })
-       <$> f (_apCodecOptions x)
+    f (_apCodecOptions x)
+        <&> \y -> x { _apCodecOptions = y }
 {-# INLINE apCodecOptions #-}
 
 instance FromJSON AudioParameters
@@ -649,15 +586,10 @@ data CaptionFormat = CaptionFormat
 -- dfxp (first div element only), scc, srt, and webvtt. There are no container
 -- restrictions on sidecar captions. If you want ttml or smpte-tt compatible
 -- captions, specify dfxp as your output format.
-cgFormat
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CaptionFormat
-    -> f CaptionFormat
+cgFormat :: Lens' CaptionFormat (Maybe Text)
 cgFormat f x =
-    (\y -> x { _cgFormat = y })
-       <$> f (_cgFormat x)
+    f (_cgFormat x)
+        <&> \y -> x { _cgFormat = y }
 {-# INLINE cgFormat #-}
 
 -- | The prefix for caption filenames, in the form description-{language},
@@ -671,15 +603,10 @@ cgFormat f x =
 -- transcoding into srt format. When you enter "Sydney-{language}-sunrise",
 -- and the language of the captions is English (en), the name of the first
 -- caption file will be Sydney-en-sunrise00000.srt.
-cgPattern
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CaptionFormat
-    -> f CaptionFormat
+cgPattern :: Lens' CaptionFormat (Maybe Text)
 cgPattern f x =
-    (\y -> x { _cgPattern = y })
-       <$> f (_cgPattern x)
+    f (_cgPattern x)
+        <&> \y -> x { _cgPattern = y }
 {-# INLINE cgPattern #-}
 
 instance FromJSON CaptionFormat
@@ -711,59 +638,39 @@ data CaptionSource = CaptionSource
 
 -- | The name of the sidecar caption file that you want Elastic Transcoder to
 -- include in the output file.
-ctKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CaptionSource
-    -> f CaptionSource
+ctKey :: Lens' CaptionSource (Maybe Text)
 ctKey f x =
-    (\y -> x { _ctKey = y })
-       <$> f (_ctKey x)
+    f (_ctKey x)
+        <&> \y -> x { _ctKey = y }
 {-# INLINE ctKey #-}
 
 -- | A string that specifies the language of the caption. Specify this as one
 -- of: 2-character ISO 639-1 code 3-character ISO 639-2 code For more
 -- information on ISO language codes and language names, see the List of ISO
 -- 639-1 codes.
-ctLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CaptionSource
-    -> f CaptionSource
+ctLanguage :: Lens' CaptionSource (Maybe Text)
 ctLanguage f x =
-    (\y -> x { _ctLanguage = y })
-       <$> f (_ctLanguage x)
+    f (_ctLanguage x)
+        <&> \y -> x { _ctLanguage = y }
 {-# INLINE ctLanguage #-}
 
 -- | For clip generation or captions that do not start at the same time as the
 -- associated video file, the TimeOffset tells Elastic Transcoder how much of
 -- the video to encode before including captions. Specify the TimeOffset in
 -- the form [+-]SS.sss or [+-]HH:mm:SS.ss.
-ctTimeOffset
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CaptionSource
-    -> f CaptionSource
+ctTimeOffset :: Lens' CaptionSource (Maybe Text)
 ctTimeOffset f x =
-    (\y -> x { _ctTimeOffset = y })
-       <$> f (_ctTimeOffset x)
+    f (_ctTimeOffset x)
+        <&> \y -> x { _ctTimeOffset = y }
 {-# INLINE ctTimeOffset #-}
 
 -- | The label of the caption shown in the player when choosing a language. We
 -- recommend that you put the caption language name here, in the language of
 -- the captions.
-ctLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CaptionSource
-    -> f CaptionSource
+ctLabel :: Lens' CaptionSource (Maybe Text)
 ctLabel f x =
-    (\y -> x { _ctLabel = y })
-       <$> f (_ctLabel x)
+    f (_ctLabel x)
+        <&> \y -> x { _ctLabel = y }
 {-# INLINE ctLabel #-}
 
 instance FromJSON CaptionSource
@@ -836,41 +743,26 @@ data Captions = Captions
 -- from the output files. Override: Elastic Transcoder transcodes only the
 -- sidecar captions that you specify in CaptionSources. MergePolicy cannot be
 -- null.
-eMergePolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Captions
-    -> f Captions
+eMergePolicy :: Lens' Captions (Maybe Text)
 eMergePolicy f x =
-    (\y -> x { _eMergePolicy = y })
-       <$> f (_eMergePolicy x)
+    f (_eMergePolicy x)
+        <&> \y -> x { _eMergePolicy = y }
 {-# INLINE eMergePolicy #-}
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave CaptionSources blank.
-eCaptionSources
-    :: Functor f
-    => ([CaptionSource]
-    -> f ([CaptionSource]))
-    -> Captions
-    -> f Captions
+eCaptionSources :: Lens' Captions ([CaptionSource])
 eCaptionSources f x =
-    (\y -> x { _eCaptionSources = y })
-       <$> f (_eCaptionSources x)
+    f (_eCaptionSources x)
+        <&> \y -> x { _eCaptionSources = y }
 {-# INLINE eCaptionSources #-}
 
 -- | The array of file formats for the output captions. If you leave this value
 -- blank, Elastic Transcoder returns an error.
-eCaptionFormats
-    :: Functor f
-    => ([CaptionFormat]
-    -> f ([CaptionFormat]))
-    -> Captions
-    -> f Captions
+eCaptionFormats :: Lens' Captions ([CaptionFormat])
 eCaptionFormats f x =
-    (\y -> x { _eCaptionFormats = y })
-       <$> f (_eCaptionFormats x)
+    f (_eCaptionFormats x)
+        <&> \y -> x { _eCaptionFormats = y }
 {-# INLINE eCaptionFormats #-}
 
 instance FromJSON Captions
@@ -981,15 +873,10 @@ data CreateJobOutput = CreateJobOutput
 -- file in the Amazon S3 bucket specified by the OutputBucket object in the
 -- pipeline that is specified by the pipeline ID. If a file with the specified
 -- name already exists in the output bucket, the job fails.
-cjoKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoKey :: Lens' CreateJobOutput (Maybe Text)
 cjoKey f x =
-    (\y -> x { _cjoKey = y })
-       <$> f (_cjoKey x)
+    f (_cjoKey x)
+        <&> \y -> x { _cjoKey = y }
 {-# INLINE cjoKey #-}
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos
@@ -1013,87 +900,57 @@ cjoKey f x =
 -- the files in the format (.jpg or .png) that appears in the preset that you
 -- specified in the PresetID value of CreateJobOutput. Elastic Transcoder also
 -- appends the applicable file name extension.
-cjoThumbnailPattern
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoThumbnailPattern :: Lens' CreateJobOutput (Maybe Text)
 cjoThumbnailPattern f x =
-    (\y -> x { _cjoThumbnailPattern = y })
-       <$> f (_cjoThumbnailPattern x)
+    f (_cjoThumbnailPattern x)
+        <&> \y -> x { _cjoThumbnailPattern = y }
 {-# INLINE cjoThumbnailPattern #-}
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
 -- rotate the output relative to the input. Enter one of the following values:
 -- auto, 0, 90, 180, 270. The value auto generally works only if the file that
 -- you're transcoding contains rotation metadata.
-cjoRotate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoRotate :: Lens' CreateJobOutput (Maybe Text)
 cjoRotate f x =
-    (\y -> x { _cjoRotate = y })
-       <$> f (_cjoRotate x)
+    f (_cjoRotate x)
+        <&> \y -> x { _cjoRotate = y }
 {-# INLINE cjoRotate #-}
 
 -- | The Id of the preset to use for this job. The preset determines the audio,
 -- video, and thumbnail settings that Elastic Transcoder uses for transcoding.
-cjoPresetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoPresetId :: Lens' CreateJobOutput (Maybe Text)
 cjoPresetId f x =
-    (\y -> x { _cjoPresetId = y })
-       <$> f (_cjoPresetId x)
+    f (_cjoPresetId x)
+        <&> \y -> x { _cjoPresetId = y }
 {-# INLINE cjoPresetId #-}
 
 -- | If you specify a preset in PresetId for which the value of Container is ts
 -- (MPEG-TS), SegmentDuration is the duration of each .ts file in seconds. The
 -- range of valid values is 1 to 60 seconds.
-cjoSegmentDuration
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoSegmentDuration :: Lens' CreateJobOutput (Maybe Text)
 cjoSegmentDuration f x =
-    (\y -> x { _cjoSegmentDuration = y })
-       <$> f (_cjoSegmentDuration x)
+    f (_cjoSegmentDuration x)
+        <&> \y -> x { _cjoSegmentDuration = y }
 {-# INLINE cjoSegmentDuration #-}
 
 -- | Information about the watermarks that you want Elastic Transcoder to add to
 -- the video during transcoding. You can specify up to four watermarks for
 -- each output. Settings for each watermark must be defined in the preset for
 -- the current output.
-cjoWatermarks
-    :: Functor f
-    => ([JobWatermark]
-    -> f ([JobWatermark]))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoWatermarks :: Lens' CreateJobOutput ([JobWatermark])
 cjoWatermarks f x =
-    (\y -> x { _cjoWatermarks = y })
-       <$> f (_cjoWatermarks x)
+    f (_cjoWatermarks x)
+        <&> \y -> x { _cjoWatermarks = y }
 {-# INLINE cjoWatermarks #-}
 
 -- | Information about the album art that you want Elastic Transcoder to add to
 -- the file during transcoding. You can specify up to twenty album artworks
 -- for each output. Settings for each artwork must be defined in the job for
 -- the current output.
-cjoAlbumArt
-    :: Functor f
-    => (Maybe JobAlbumArt
-    -> f (Maybe JobAlbumArt))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoAlbumArt :: Lens' CreateJobOutput (Maybe JobAlbumArt)
 cjoAlbumArt f x =
-    (\y -> x { _cjoAlbumArt = y })
-       <$> f (_cjoAlbumArt x)
+    f (_cjoAlbumArt x)
+        <&> \y -> x { _cjoAlbumArt = y }
 {-# INLINE cjoAlbumArt #-}
 
 -- | You can create an output file that contains an excerpt from the input file.
@@ -1101,15 +958,10 @@ cjoAlbumArt f x =
 -- the file. The Composition object contains settings for the clips that make
 -- up an output file. For the current release, you can only specify settings
 -- for a single clip per output file. The Composition object cannot be null.
-cjoComposition
-    :: Functor f
-    => ([Clip]
-    -> f ([Clip]))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoComposition :: Lens' CreateJobOutput ([Clip])
 cjoComposition f x =
-    (\y -> x { _cjoComposition = y })
-       <$> f (_cjoComposition x)
+    f (_cjoComposition x)
+        <&> \y -> x { _cjoComposition = y }
 {-# INLINE cjoComposition #-}
 
 -- | You can configure Elastic Transcoder to transcode captions, or subtitles,
@@ -1139,15 +991,10 @@ cjoComposition f x =
 -- more information on embedded files, see the Subtitles Wikipedia page. For
 -- more information on sidecar files, see the Extensible Metadata Platform and
 -- Sidecar file Wikipedia pages.
-cjoCaptions
-    :: Functor f
-    => (Maybe Captions
-    -> f (Maybe Captions))
-    -> CreateJobOutput
-    -> f CreateJobOutput
+cjoCaptions :: Lens' CreateJobOutput (Maybe Captions)
 cjoCaptions f x =
-    (\y -> x { _cjoCaptions = y })
-       <$> f (_cjoCaptions x)
+    f (_cjoCaptions x)
+        <&> \y -> x { _cjoCaptions = y }
 {-# INLINE cjoCaptions #-}
 
 instance ToJSON CreateJobOutput
@@ -1177,42 +1024,27 @@ data CreateJobPlaylist = CreateJobPlaylist
 -- all Name objects must be unique. Elastic Transcoder automatically appends
 -- .m3u8 to the file name. If you include .m3u8 in Name, it will appear twice
 -- in the file name.
-cjvName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobPlaylist
-    -> f CreateJobPlaylist
+cjvName :: Lens' CreateJobPlaylist (Maybe Text)
 cjvName f x =
-    (\y -> x { _cjvName = y })
-       <$> f (_cjvName x)
+    f (_cjvName x)
+        <&> \y -> x { _cjvName = y }
 {-# INLINE cjvName #-}
 
 -- | This value must currently be HLSv3.
-cjvFormat
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobPlaylist
-    -> f CreateJobPlaylist
+cjvFormat :: Lens' CreateJobPlaylist (Maybe Text)
 cjvFormat f x =
-    (\y -> x { _cjvFormat = y })
-       <$> f (_cjvFormat x)
+    f (_cjvFormat x)
+        <&> \y -> x { _cjvFormat = y }
 {-# INLINE cjvFormat #-}
 
 -- | For each output in this job that you want to include in a master playlist,
 -- the value of the Outputs:Key object. If you include more than one output in
 -- a playlist, the value of SegmentDuration for all of the outputs must be the
 -- same.
-cjvOutputKeys
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateJobPlaylist
-    -> f CreateJobPlaylist
+cjvOutputKeys :: Lens' CreateJobPlaylist ([Text])
 cjvOutputKeys f x =
-    (\y -> x { _cjvOutputKeys = y })
-       <$> f (_cjvOutputKeys x)
+    f (_cjvOutputKeys x)
+        <&> \y -> x { _cjvOutputKeys = y }
 {-# INLINE cjvOutputKeys #-}
 
 instance ToJSON CreateJobPlaylist
@@ -1269,55 +1101,35 @@ data Job = Job
 
 -- | The identifier that Elastic Transcoder assigned to the job. You use this
 -- value to get settings for the job or to delete the job.
-jbId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Job
-    -> f Job
+jbId :: Lens' Job (Maybe Text)
 jbId f x =
-    (\y -> x { _jbId = y })
-       <$> f (_jbId x)
+    f (_jbId x)
+        <&> \y -> x { _jbId = y }
 {-# INLINE jbId #-}
 
 -- | The Amazon Resource Name (ARN) for the job.
-jbArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Job
-    -> f Job
+jbArn :: Lens' Job (Maybe Text)
 jbArn f x =
-    (\y -> x { _jbArn = y })
-       <$> f (_jbArn x)
+    f (_jbArn x)
+        <&> \y -> x { _jbArn = y }
 {-# INLINE jbArn #-}
 
 -- | The Id of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the Amazon
 -- S3 bucket from which Elastic Transcoder gets the files to transcode and the
 -- bucket into which Elastic Transcoder puts the transcoded files.
-jbPipelineId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Job
-    -> f Job
+jbPipelineId :: Lens' Job (Maybe Text)
 jbPipelineId f x =
-    (\y -> x { _jbPipelineId = y })
-       <$> f (_jbPipelineId x)
+    f (_jbPipelineId x)
+        <&> \y -> x { _jbPipelineId = y }
 {-# INLINE jbPipelineId #-}
 
 -- | A section of the request or response body that provides information about
 -- the file that is being transcoded.
-jbInput
-    :: Functor f
-    => (Maybe JobInput
-    -> f (Maybe JobInput))
-    -> Job
-    -> f Job
+jbInput :: Lens' Job (Maybe JobInput)
 jbInput f x =
-    (\y -> x { _jbInput = y })
-       <$> f (_jbInput x)
+    f (_jbInput x)
+        <&> \y -> x { _jbInput = y }
 {-# INLINE jbInput #-}
 
 -- | If you specified one output for a job, information about that output. If
@@ -1326,15 +1138,10 @@ jbInput f x =
 -- listed for the first output in the Outputs object. Outputs recommended
 -- instead. A section of the request or response body that provides
 -- information about the transcoded (target) file.
-jbOutput
-    :: Functor f
-    => (Maybe JobOutput
-    -> f (Maybe JobOutput))
-    -> Job
-    -> f Job
+jbOutput :: Lens' Job (Maybe JobOutput)
 jbOutput f x =
-    (\y -> x { _jbOutput = y })
-       <$> f (_jbOutput x)
+    f (_jbOutput x)
+        <&> \y -> x { _jbOutput = y }
 {-# INLINE jbOutput #-}
 
 -- | Information about the output files. We recommend that you use the Outputs
@@ -1343,30 +1150,20 @@ jbOutput f x =
 -- in the same request. You can create a maximum of 30 outputs per job. If you
 -- specify more than one output for a job, Elastic Transcoder creates the
 -- files for each output in the order in which you specify them in the job.
-jbOutputs
-    :: Functor f
-    => ([JobOutput]
-    -> f ([JobOutput]))
-    -> Job
-    -> f Job
+jbOutputs :: Lens' Job ([JobOutput])
 jbOutputs f x =
-    (\y -> x { _jbOutputs = y })
-       <$> f (_jbOutputs x)
+    f (_jbOutputs x)
+        <&> \y -> x { _jbOutputs = y }
 {-# INLINE jbOutputs #-}
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the names
 -- of all files that this job creates, including output files, thumbnails, and
 -- playlists. We recommend that you add a / or some other delimiter to the end
 -- of the OutputKeyPrefix.
-jbOutputKeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Job
-    -> f Job
+jbOutputKeyPrefix :: Lens' Job (Maybe Text)
 jbOutputKeyPrefix f x =
-    (\y -> x { _jbOutputKeyPrefix = y })
-       <$> f (_jbOutputKeyPrefix x)
+    f (_jbOutputKeyPrefix x)
+        <&> \y -> x { _jbOutputKeyPrefix = y }
 {-# INLINE jbOutputKeyPrefix #-}
 
 -- | Outputs in MPEG-TS format only.If you specify a preset in PresetId for
@@ -1374,28 +1171,18 @@ jbOutputKeyPrefix f x =
 -- information about the master playlists that you want Elastic Transcoder to
 -- create. We recommend that you create only one master playlist. The maximum
 -- number of master playlists in a job is 30.
-jbPlaylists
-    :: Functor f
-    => ([Playlist]
-    -> f ([Playlist]))
-    -> Job
-    -> f Job
+jbPlaylists :: Lens' Job ([Playlist])
 jbPlaylists f x =
-    (\y -> x { _jbPlaylists = y })
-       <$> f (_jbPlaylists x)
+    f (_jbPlaylists x)
+        <&> \y -> x { _jbPlaylists = y }
 {-# INLINE jbPlaylists #-}
 
 -- | The status of the job: Submitted, Progressing, Complete, Canceled, or
 -- Error.
-jbStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Job
-    -> f Job
+jbStatus :: Lens' Job (Maybe Text)
 jbStatus f x =
-    (\y -> x { _jbStatus = y })
-       <$> f (_jbStatus x)
+    f (_jbStatus x)
+        <&> \y -> x { _jbStatus = y }
 {-# INLINE jbStatus #-}
 
 instance FromJSON Job
@@ -1429,28 +1216,18 @@ data JobAlbumArt = JobAlbumArt
 -- input file contains artwork, Elastic Transcoder will use that artwork for
 -- the output. If the original input does not contain artwork, Elastic
 -- Transcoder will use the specified album art file.
-jaaMergePolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobAlbumArt
-    -> f JobAlbumArt
+jaaMergePolicy :: Lens' JobAlbumArt (Maybe Text)
 jaaMergePolicy f x =
-    (\y -> x { _jaaMergePolicy = y })
-       <$> f (_jaaMergePolicy x)
+    f (_jaaMergePolicy x)
+        <&> \y -> x { _jaaMergePolicy = y }
 {-# INLINE jaaMergePolicy #-}
 
 -- | The file to be used as album art. There can be multiple artworks associated
 -- with an audio file, to a maximum of 20. Valid formats are .jpg and .png.
-jaaArtwork
-    :: Functor f
-    => ([Artwork]
-    -> f ([Artwork]))
-    -> JobAlbumArt
-    -> f JobAlbumArt
+jaaArtwork :: Lens' JobAlbumArt ([Artwork])
 jaaArtwork f x =
-    (\y -> x { _jaaArtwork = y })
-       <$> f (_jaaArtwork x)
+    f (_jaaArtwork x)
+        <&> \y -> x { _jaaArtwork = y }
 {-# INLINE jaaArtwork #-}
 
 instance FromJSON JobAlbumArt
@@ -1507,15 +1284,10 @@ data JobInput = JobInput
 -- S3 bucket to get the file from. If the file name includes a prefix, such as
 -- cooking/lasagna.mpg, include the prefix in the key. If the file isn't in
 -- the specified bucket, Elastic Transcoder returns an error.
-jiKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobInput
-    -> f JobInput
+jiKey :: Lens' JobInput (Maybe Text)
 jiKey f x =
-    (\y -> x { _jiKey = y })
-       <$> f (_jiKey x)
+    f (_jiKey x)
+        <&> \y -> x { _jiKey = y }
 {-# INLINE jiKey #-}
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
@@ -1524,28 +1296,18 @@ jiKey f x =
 -- following values: 10, 15, 23.97, 24, 25, 29.97, 30, 60 If you specify a
 -- value other than auto, Elastic Transcoder disables automatic detection of
 -- the frame rate.
-jiFrameRate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobInput
-    -> f JobInput
+jiFrameRate :: Lens' JobInput (Maybe Text)
 jiFrameRate f x =
-    (\y -> x { _jiFrameRate = y })
-       <$> f (_jiFrameRate x)
+    f (_jiFrameRate x)
+        <&> \y -> x { _jiFrameRate = y }
 {-# INLINE jiFrameRate #-}
 
 -- | This value must be auto, which causes Elastic Transcoder to automatically
 -- detect the resolution of the input file.
-jiResolution
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobInput
-    -> f JobInput
+jiResolution :: Lens' JobInput (Maybe Text)
 jiResolution f x =
-    (\y -> x { _jiResolution = y })
-       <$> f (_jiResolution x)
+    f (_jiResolution x)
+        <&> \y -> x { _jiResolution = y }
 {-# INLINE jiResolution #-}
 
 -- | The aspect ratio of the input file. If you want Elastic Transcoder to
@@ -1553,15 +1315,10 @@ jiResolution f x =
 -- you want to specify the aspect ratio for the output file, enter one of the
 -- following values: 1:1, 4:3, 3:2, 16:9 If you specify a value other than
 -- auto, Elastic Transcoder disables automatic detection of the aspect ratio.
-jiAspectRatio
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobInput
-    -> f JobInput
+jiAspectRatio :: Lens' JobInput (Maybe Text)
 jiAspectRatio f x =
-    (\y -> x { _jiAspectRatio = y })
-       <$> f (_jiAspectRatio x)
+    f (_jiAspectRatio x)
+        <&> \y -> x { _jiAspectRatio = y }
 {-# INLINE jiAspectRatio #-}
 
 -- | Whether the input file is interlaced. If you want Elastic Transcoder to
@@ -1569,15 +1326,10 @@ jiAspectRatio f x =
 -- you want to specify whether the input file is interlaced, enter one of the
 -- following values: true, false If you specify a value other than auto,
 -- Elastic Transcoder disables automatic detection of interlacing.
-jiInterlaced
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobInput
-    -> f JobInput
+jiInterlaced :: Lens' JobInput (Maybe Text)
 jiInterlaced f x =
-    (\y -> x { _jiInterlaced = y })
-       <$> f (_jiInterlaced x)
+    f (_jiInterlaced x)
+        <&> \y -> x { _jiInterlaced = y }
 {-# INLINE jiInterlaced #-}
 
 -- | The container type for the input file. If you want Elastic Transcoder to
@@ -1585,15 +1337,10 @@ jiInterlaced f x =
 -- you want to specify the container type for the input file, enter one of the
 -- following values: 3gp, aac, asf, avi, divx, flv, m4a, mkv, mov, mp3, mp4,
 -- mpeg, mpeg-ps, mpeg-ts, mxf, ogg, vob, wav, webm.
-jiContainer
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobInput
-    -> f JobInput
+jiContainer :: Lens' JobInput (Maybe Text)
 jiContainer f x =
-    (\y -> x { _jiContainer = y })
-       <$> f (_jiContainer x)
+    f (_jiContainer x)
+        <&> \y -> x { _jiContainer = y }
 {-# INLINE jiContainer #-}
 
 instance FromJSON JobInput
@@ -1751,29 +1498,19 @@ data JobOutput = JobOutput
 
 -- | A sequential counter, starting with 1, that identifies an output among the
 -- outputs from the current job. In the Output syntax, this value is always 1.
-joId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joId :: Lens' JobOutput (Maybe Text)
 joId f x =
-    (\y -> x { _joId = y })
-       <$> f (_joId x)
+    f (_joId x)
+        <&> \y -> x { _joId = y }
 {-# INLINE joId #-}
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the OutputBucket object in the
 -- pipeline that is specified by the pipeline ID.
-joKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joKey :: Lens' JobOutput (Maybe Text)
 joKey f x =
-    (\y -> x { _joKey = y })
-       <$> f (_joKey x)
+    f (_joKey x)
+        <&> \y -> x { _joKey = y }
 {-# INLINE joKey #-}
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos
@@ -1797,30 +1534,20 @@ joKey f x =
 -- the files in the format (.jpg or .png) that appears in the preset that you
 -- specified in the PresetID value of CreateJobOutput. Elastic Transcoder also
 -- appends the applicable file name extension.
-joThumbnailPattern
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joThumbnailPattern :: Lens' JobOutput (Maybe Text)
 joThumbnailPattern f x =
-    (\y -> x { _joThumbnailPattern = y })
-       <$> f (_joThumbnailPattern x)
+    f (_joThumbnailPattern x)
+        <&> \y -> x { _joThumbnailPattern = y }
 {-# INLINE joThumbnailPattern #-}
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
 -- rotate the output relative to the input. Enter one of the following values:
 -- auto, 0, 90, 180, 270 The value auto generally works only if the file that
 -- you're transcoding contains rotation metadata.
-joRotate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joRotate :: Lens' JobOutput (Maybe Text)
 joRotate f x =
-    (\y -> x { _joRotate = y })
-       <$> f (_joRotate x)
+    f (_joRotate x)
+        <&> \y -> x { _joRotate = y }
 {-# INLINE joRotate #-}
 
 -- | The value of the Id object for the preset that you want to use for this
@@ -1829,15 +1556,10 @@ joRotate f x =
 -- specify the preset ID that Elastic Transcoder returned in the response when
 -- you created the preset. You can also use the Elastic Transcoder system
 -- presets, which you can get with ListPresets.
-joPresetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joPresetId :: Lens' JobOutput (Maybe Text)
 joPresetId f x =
-    (\y -> x { _joPresetId = y })
-       <$> f (_joPresetId x)
+    f (_joPresetId x)
+        <&> \y -> x { _joPresetId = y }
 {-# INLINE joPresetId #-}
 
 -- | (Outputs in MPEG-TS format only.If you specify a preset in PresetId for
@@ -1848,15 +1570,10 @@ joPresetId f x =
 -- length/SegmentDuration. Elastic Transcoder creates an output-specific
 -- playlist for each output that you specify in OutputKeys. To add an output
 -- to the master playlist for this job, include it in OutputKeys.
-joSegmentDuration
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joSegmentDuration :: Lens' JobOutput (Maybe Text)
 joSegmentDuration f x =
-    (\y -> x { _joSegmentDuration = y })
-       <$> f (_joSegmentDuration x)
+    f (_joSegmentDuration x)
+        <&> \y -> x { _joSegmentDuration = y }
 {-# INLINE joSegmentDuration #-}
 
 -- | The status of one output in a job. If you specified only one output for the
@@ -1873,63 +1590,38 @@ joSegmentDuration f x =
 -- one or more outputs is Error, the terminal status for Job:Status is also
 -- Error. The value of Status is one of the following: Submitted, Progressing,
 -- Complete, Canceled, or Error.
-joStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joStatus :: Lens' JobOutput (Maybe Text)
 joStatus f x =
-    (\y -> x { _joStatus = y })
-       <$> f (_joStatus x)
+    f (_joStatus x)
+        <&> \y -> x { _joStatus = y }
 {-# INLINE joStatus #-}
 
 -- | Information that further explains Status.
-joStatusDetail
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobOutput
-    -> f JobOutput
+joStatusDetail :: Lens' JobOutput (Maybe Text)
 joStatusDetail f x =
-    (\y -> x { _joStatusDetail = y })
-       <$> f (_joStatusDetail x)
+    f (_joStatusDetail x)
+        <&> \y -> x { _joStatusDetail = y }
 {-# INLINE joStatusDetail #-}
 
 -- | Duration of the output file, in seconds.
-joDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> JobOutput
-    -> f JobOutput
+joDuration :: Lens' JobOutput (Maybe Integer)
 joDuration f x =
-    (\y -> x { _joDuration = y })
-       <$> f (_joDuration x)
+    f (_joDuration x)
+        <&> \y -> x { _joDuration = y }
 {-# INLINE joDuration #-}
 
 -- | Specifies the width of the output file in pixels.
-joWidth
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> JobOutput
-    -> f JobOutput
+joWidth :: Lens' JobOutput (Maybe Integer)
 joWidth f x =
-    (\y -> x { _joWidth = y })
-       <$> f (_joWidth x)
+    f (_joWidth x)
+        <&> \y -> x { _joWidth = y }
 {-# INLINE joWidth #-}
 
 -- | Height of the output file, in pixels.
-joHeight
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> JobOutput
-    -> f JobOutput
+joHeight :: Lens' JobOutput (Maybe Integer)
 joHeight f x =
-    (\y -> x { _joHeight = y })
-       <$> f (_joHeight x)
+    f (_joHeight x)
+        <&> \y -> x { _joHeight = y }
 {-# INLINE joHeight #-}
 
 -- | Information about the watermarks that you want Elastic Transcoder to add to
@@ -1943,27 +1635,17 @@ joHeight f x =
 -- watermarks in the same location, the second watermark that you add will
 -- cover the first one, the third one will cover the second, and the fourth
 -- one will cover the third.
-joWatermarks
-    :: Functor f
-    => ([JobWatermark]
-    -> f ([JobWatermark]))
-    -> JobOutput
-    -> f JobOutput
+joWatermarks :: Lens' JobOutput ([JobWatermark])
 joWatermarks f x =
-    (\y -> x { _joWatermarks = y })
-       <$> f (_joWatermarks x)
+    f (_joWatermarks x)
+        <&> \y -> x { _joWatermarks = y }
 {-# INLINE joWatermarks #-}
 
 -- | The album art to be associated with the output file, if any.
-joAlbumArt
-    :: Functor f
-    => (Maybe JobAlbumArt
-    -> f (Maybe JobAlbumArt))
-    -> JobOutput
-    -> f JobOutput
+joAlbumArt :: Lens' JobOutput (Maybe JobAlbumArt)
 joAlbumArt f x =
-    (\y -> x { _joAlbumArt = y })
-       <$> f (_joAlbumArt x)
+    f (_joAlbumArt x)
+        <&> \y -> x { _joAlbumArt = y }
 {-# INLINE joAlbumArt #-}
 
 -- | You can create an output file that contains an excerpt from the input file.
@@ -1971,15 +1653,10 @@ joAlbumArt f x =
 -- the file. The Composition object contains settings for the clips that make
 -- up an output file. For the current release, you can only specify settings
 -- for a single clip per output file. The Composition object cannot be null.
-joComposition
-    :: Functor f
-    => ([Clip]
-    -> f ([Clip]))
-    -> JobOutput
-    -> f JobOutput
+joComposition :: Lens' JobOutput ([Clip])
 joComposition f x =
-    (\y -> x { _joComposition = y })
-       <$> f (_joComposition x)
+    f (_joComposition x)
+        <&> \y -> x { _joComposition = y }
 {-# INLINE joComposition #-}
 
 -- | You can configure Elastic Transcoder to transcode captions, or subtitles,
@@ -2009,15 +1686,10 @@ joComposition f x =
 -- more information on embedded files, see the Subtitles Wikipedia page. For
 -- more information on sidecar files, see the Extensible Metadata Platform and
 -- Sidecar file Wikipedia pages.
-joCaptions
-    :: Functor f
-    => (Maybe Captions
-    -> f (Maybe Captions))
-    -> JobOutput
-    -> f JobOutput
+joCaptions :: Lens' JobOutput (Maybe Captions)
 joCaptions f x =
-    (\y -> x { _joCaptions = y })
-       <$> f (_joCaptions x)
+    f (_joCaptions x)
+        <&> \y -> x { _joCaptions = y }
 {-# INLINE joCaptions #-}
 
 instance FromJSON JobOutput
@@ -2049,15 +1721,10 @@ data JobWatermark = JobWatermark
 -- watermarks to the video during transcoding. The settings are in the preset
 -- specified by Preset for the current output. In that preset, the value of
 -- Watermarks Id tells Elastic Transcoder which settings to use.
-jxPresetWatermarkId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobWatermark
-    -> f JobWatermark
+jxPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
 jxPresetWatermarkId f x =
-    (\y -> x { _jxPresetWatermarkId = y })
-       <$> f (_jxPresetWatermarkId x)
+    f (_jxPresetWatermarkId x)
+        <&> \y -> x { _jxPresetWatermarkId = y }
 {-# INLINE jxPresetWatermarkId #-}
 
 -- | The name of the .png or .jpg file that you want to use for the watermark.
@@ -2067,15 +1734,10 @@ jxPresetWatermarkId f x =
 -- prefix, for example, logos/128x64.png, include the prefix in the key. If
 -- the file isn't in the specified bucket, Elastic Transcoder returns an
 -- error.
-jxInputKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobWatermark
-    -> f JobWatermark
+jxInputKey :: Lens' JobWatermark (Maybe Text)
 jxInputKey f x =
-    (\y -> x { _jxInputKey = y })
-       <$> f (_jxInputKey x)
+    f (_jxInputKey x)
+        <&> \y -> x { _jxInputKey = y }
 {-# INLINE jxInputKey #-}
 
 instance FromJSON JobWatermark
@@ -2117,54 +1779,34 @@ data Notifications = Notifications
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
 -- notify when Elastic Transcoder has started to process the job.
-nsProgressing
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Notifications
-    -> f Notifications
+nsProgressing :: Lens' Notifications (Maybe Text)
 nsProgressing f x =
-    (\y -> x { _nsProgressing = y })
-       <$> f (_nsProgressing x)
+    f (_nsProgressing x)
+        <&> \y -> x { _nsProgressing = y }
 {-# INLINE nsProgressing #-}
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder has
 -- finished processing the job.
-nsCompleted
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Notifications
-    -> f Notifications
+nsCompleted :: Lens' Notifications (Maybe Text)
 nsCompleted f x =
-    (\y -> x { _nsCompleted = y })
-       <$> f (_nsCompleted x)
+    f (_nsCompleted x)
+        <&> \y -> x { _nsCompleted = y }
 {-# INLINE nsCompleted #-}
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters a warning condition.
-nsWarning
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Notifications
-    -> f Notifications
+nsWarning :: Lens' Notifications (Maybe Text)
 nsWarning f x =
-    (\y -> x { _nsWarning = y })
-       <$> f (_nsWarning x)
+    f (_nsWarning x)
+        <&> \y -> x { _nsWarning = y }
 {-# INLINE nsWarning #-}
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition.
-nsError
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Notifications
-    -> f Notifications
+nsError :: Lens' Notifications (Maybe Text)
 nsError f x =
-    (\y -> x { _nsError = y })
-       <$> f (_nsError x)
+    f (_nsError x)
+        <&> \y -> x { _nsError = y }
 {-# INLINE nsError #-}
 
 instance FromJSON Notifications
@@ -2206,15 +1848,10 @@ data Permission = Permission
 -- AWS account number. Email: The registered email address of an AWS account.
 -- Group: One of the following predefined Amazon S3 groups: AllUsers,
 -- AuthenticatedUsers, or LogDelivery.
-pnGranteeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Permission
-    -> f Permission
+pnGranteeType :: Lens' Permission (Maybe Text)
 pnGranteeType f x =
-    (\y -> x { _pnGranteeType = y })
-       <$> f (_pnGranteeType x)
+    f (_pnGranteeType x)
+        <&> \y -> x { _pnGranteeType = y }
 {-# INLINE pnGranteeType #-}
 
 -- | The AWS user or group that you want to have access to transcoded files and
@@ -2222,15 +1859,10 @@ pnGranteeType f x =
 -- user ID for an AWS account, an origin access identity for a CloudFront
 -- distribution, the registered email address of an AWS account, or a
 -- predefined Amazon S3 group.
-pnGrantee
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Permission
-    -> f Permission
+pnGrantee :: Lens' Permission (Maybe Text)
 pnGrantee f x =
-    (\y -> x { _pnGrantee = y })
-       <$> f (_pnGrantee x)
+    f (_pnGrantee x)
+        <&> \y -> x { _pnGrantee = y }
 {-# INLINE pnGrantee #-}
 
 -- | The permission that you want to give to the AWS user that is listed in
@@ -2242,15 +1874,10 @@ pnGrantee f x =
 -- S3 bucket. FULL_CONTROL: The grantee has READ, READ_ACP, and WRITE_ACP
 -- permissions for the thumbnails that Elastic Transcoder adds to the Amazon
 -- S3 bucket.
-pnAccess
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Permission
-    -> f Permission
+pnAccess :: Lens' Permission ([Text])
 pnAccess f x =
-    (\y -> x { _pnAccess = y })
-       <$> f (_pnAccess x)
+    f (_pnAccess x)
+        <&> \y -> x { _pnAccess = y }
 {-# INLINE pnAccess #-}
 
 instance FromJSON Permission
@@ -2362,95 +1989,60 @@ data Pipeline = Pipeline
 -- | The identifier for the pipeline. You use this value to identify the
 -- pipeline in which you want to perform a variety of operations, such as
 -- creating a job or a preset.
-peId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peId :: Lens' Pipeline (Maybe Text)
 peId f x =
-    (\y -> x { _peId = y })
-       <$> f (_peId x)
+    f (_peId x)
+        <&> \y -> x { _peId = y }
 {-# INLINE peId #-}
 
 -- | The Amazon Resource Name (ARN) for the pipeline.
-peArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peArn :: Lens' Pipeline (Maybe Text)
 peArn f x =
-    (\y -> x { _peArn = y })
-       <$> f (_peArn x)
+    f (_peArn x)
+        <&> \y -> x { _peArn = y }
 {-# INLINE peArn #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
-peName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peName :: Lens' Pipeline (Maybe Text)
 peName f x =
-    (\y -> x { _peName = y })
-       <$> f (_peName x)
+    f (_peName x)
+        <&> \y -> x { _peName = y }
 {-# INLINE peName #-}
 
 -- | The current status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
-peStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peStatus :: Lens' Pipeline (Maybe Text)
 peStatus f x =
-    (\y -> x { _peStatus = y })
-       <$> f (_peStatus x)
+    f (_peStatus x)
+        <&> \y -> x { _peStatus = y }
 {-# INLINE peStatus #-}
 
 -- | The Amazon S3 bucket from which Elastic Transcoder gets media files for
 -- transcoding and the graphics files, if any, that you want to use for
 -- watermarks.
-peInputBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peInputBucket :: Lens' Pipeline (Maybe Text)
 peInputBucket f x =
-    (\y -> x { _peInputBucket = y })
-       <$> f (_peInputBucket x)
+    f (_peInputBucket x)
+        <&> \y -> x { _peInputBucket = y }
 {-# INLINE peInputBucket #-}
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save
 -- transcoded files, thumbnails, and playlists. Either you specify this value,
 -- or you specify both ContentConfig and ThumbnailConfig.
-peOutputBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peOutputBucket :: Lens' Pipeline (Maybe Text)
 peOutputBucket f x =
-    (\y -> x { _peOutputBucket = y })
-       <$> f (_peOutputBucket x)
+    f (_peOutputBucket x)
+        <&> \y -> x { _peOutputBucket = y }
 {-# INLINE peOutputBucket #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder
 -- uses to transcode jobs for this pipeline.
-peRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Pipeline
-    -> f Pipeline
+peRole :: Lens' Pipeline (Maybe Text)
 peRole f x =
-    (\y -> x { _peRole = y })
-       <$> f (_peRole x)
+    f (_peRole x)
+        <&> \y -> x { _peRole = y }
 {-# INLINE peRole #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
@@ -2463,15 +2055,10 @@ peRole f x =
 -- Amazon SNS topic that you want to notify when Elastic Transcoder encounters
 -- a warning condition. Error (optional): The Amazon SNS topic that you want
 -- to notify when Elastic Transcoder encounters an error condition.
-peNotifications
-    :: Functor f
-    => (Maybe Notifications
-    -> f (Maybe Notifications))
-    -> Pipeline
-    -> f Pipeline
+peNotifications :: Lens' Pipeline (Maybe Notifications)
 peNotifications f x =
-    (\y -> x { _peNotifications = y })
-       <$> f (_peNotifications x)
+    f (_peNotifications x)
+        <&> \y -> x { _peNotifications = y }
 {-# INLINE peNotifications #-}
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
@@ -2498,15 +2085,10 @@ peNotifications f x =
 -- StorageClass: The Amazon S3 storage class, Standard or ReducedRedundancy,
 -- that you want Elastic Transcoder to assign to the video files and playlists
 -- that it stores in your Amazon S3 bucket.
-peContentConfig
-    :: Functor f
-    => (Maybe PipelineOutputConfig
-    -> f (Maybe PipelineOutputConfig))
-    -> Pipeline
-    -> f Pipeline
+peContentConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 peContentConfig f x =
-    (\y -> x { _peContentConfig = y })
-       <$> f (_peContentConfig x)
+    f (_peContentConfig x)
+        <&> \y -> x { _peContentConfig = y }
 {-# INLINE peContentConfig #-}
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
@@ -2533,15 +2115,10 @@ peContentConfig f x =
 -- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
-peThumbnailConfig
-    :: Functor f
-    => (Maybe PipelineOutputConfig
-    -> f (Maybe PipelineOutputConfig))
-    -> Pipeline
-    -> f Pipeline
+peThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 peThumbnailConfig f x =
-    (\y -> x { _peThumbnailConfig = y })
-       <$> f (_peThumbnailConfig x)
+    f (_peThumbnailConfig x)
+        <&> \y -> x { _peThumbnailConfig = y }
 {-# INLINE peThumbnailConfig #-}
 
 instance FromJSON Pipeline
@@ -2635,29 +2212,19 @@ data PipelineOutputConfig = PipelineOutputConfig
 -- users can access the transcoded files or the permissions the users have, or
 -- change the Amazon S3 storage class, omit OutputBucket and specify values
 -- for ContentConfig and ThumbnailConfig instead.
-pocBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PipelineOutputConfig
-    -> f PipelineOutputConfig
+pocBucket :: Lens' PipelineOutputConfig (Maybe Text)
 pocBucket f x =
-    (\y -> x { _pocBucket = y })
-       <$> f (_pocBucket x)
+    f (_pocBucket x)
+        <&> \y -> x { _pocBucket = y }
 {-# INLINE pocBucket #-}
 
 -- | The Amazon S3 storage class, Standard or ReducedRedundancy, that you want
 -- Elastic Transcoder to assign to the video files and playlists that it
 -- stores in your Amazon S3 bucket.
-pocStorageClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PipelineOutputConfig
-    -> f PipelineOutputConfig
+pocStorageClass :: Lens' PipelineOutputConfig (Maybe Text)
 pocStorageClass f x =
-    (\y -> x { _pocStorageClass = y })
-       <$> f (_pocStorageClass x)
+    f (_pocStorageClass x)
+        <&> \y -> x { _pocStorageClass = y }
 {-# INLINE pocStorageClass #-}
 
 -- | Optional. The Permissions object specifies which users and/or predefined
@@ -2671,15 +2238,10 @@ pocStorageClass f x =
 -- Transcoder grants full control over the transcoded files and playlists to
 -- the owner of the role specified by Role, and grants no other permissions to
 -- any other user or group.
-pocPermissions
-    :: Functor f
-    => ([Permission]
-    -> f ([Permission]))
-    -> PipelineOutputConfig
-    -> f PipelineOutputConfig
+pocPermissions :: Lens' PipelineOutputConfig ([Permission])
 pocPermissions f x =
-    (\y -> x { _pocPermissions = y })
-       <$> f (_pocPermissions x)
+    f (_pocPermissions x)
+        <&> \y -> x { _pocPermissions = y }
 {-# INLINE pocPermissions #-}
 
 instance FromJSON PipelineOutputConfig
@@ -2719,66 +2281,41 @@ data Playlist = Playlist
 -- all Name objects must be unique. Note: Elastic Transcoder automatically
 -- appends .m3u8 to the file name. If you include .m3u8 in Name, it will
 -- appear twice in the file name.
-puName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Playlist
-    -> f Playlist
+puName :: Lens' Playlist (Maybe Text)
 puName f x =
-    (\y -> x { _puName = y })
-       <$> f (_puName x)
+    f (_puName x)
+        <&> \y -> x { _puName = y }
 {-# INLINE puName #-}
 
 -- | This value must currently be HLSv3.
-puFormat
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Playlist
-    -> f Playlist
+puFormat :: Lens' Playlist (Maybe Text)
 puFormat f x =
-    (\y -> x { _puFormat = y })
-       <$> f (_puFormat x)
+    f (_puFormat x)
+        <&> \y -> x { _puFormat = y }
 {-# INLINE puFormat #-}
 
 -- | For each output in this job that you want to include in a master playlist,
 -- the value of the Outputs:Key object. If you include more than one output in
 -- a playlist, the value of SegmentDuration for all of the outputs must be the
 -- same.
-puOutputKeys
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Playlist
-    -> f Playlist
+puOutputKeys :: Lens' Playlist ([Text])
 puOutputKeys f x =
-    (\y -> x { _puOutputKeys = y })
-       <$> f (_puOutputKeys x)
+    f (_puOutputKeys x)
+        <&> \y -> x { _puOutputKeys = y }
 {-# INLINE puOutputKeys #-}
 
 -- | The status of the job with which the playlist is associated.
-puStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Playlist
-    -> f Playlist
+puStatus :: Lens' Playlist (Maybe Text)
 puStatus f x =
-    (\y -> x { _puStatus = y })
-       <$> f (_puStatus x)
+    f (_puStatus x)
+        <&> \y -> x { _puStatus = y }
 {-# INLINE puStatus #-}
 
 -- | Information that further explains the status.
-puStatusDetail
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Playlist
-    -> f Playlist
+puStatusDetail :: Lens' Playlist (Maybe Text)
 puStatusDetail f x =
-    (\y -> x { _puStatusDetail = y })
-       <$> f (_puStatusDetail x)
+    f (_puStatusDetail x)
+        <&> \y -> x { _puStatusDetail = y }
 {-# INLINE puStatusDetail #-}
 
 instance FromJSON Playlist
@@ -2816,116 +2353,71 @@ data Preset = Preset
 
 -- | Identifier for the new preset. You use this value to get settings for the
 -- preset or to delete it.
-ppuId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Preset
-    -> f Preset
+ppuId :: Lens' Preset (Maybe Text)
 ppuId f x =
-    (\y -> x { _ppuId = y })
-       <$> f (_ppuId x)
+    f (_ppuId x)
+        <&> \y -> x { _ppuId = y }
 {-# INLINE ppuId #-}
 
 -- | The Amazon Resource Name (ARN) for the preset.
-ppuArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Preset
-    -> f Preset
+ppuArn :: Lens' Preset (Maybe Text)
 ppuArn f x =
-    (\y -> x { _ppuArn = y })
-       <$> f (_ppuArn x)
+    f (_ppuArn x)
+        <&> \y -> x { _ppuArn = y }
 {-# INLINE ppuArn #-}
 
 -- | The name of the preset.
-ppuName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Preset
-    -> f Preset
+ppuName :: Lens' Preset (Maybe Text)
 ppuName f x =
-    (\y -> x { _ppuName = y })
-       <$> f (_ppuName x)
+    f (_ppuName x)
+        <&> \y -> x { _ppuName = y }
 {-# INLINE ppuName #-}
 
 -- | A description of the preset.
-ppuDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Preset
-    -> f Preset
+ppuDescription :: Lens' Preset (Maybe Text)
 ppuDescription f x =
-    (\y -> x { _ppuDescription = y })
-       <$> f (_ppuDescription x)
+    f (_ppuDescription x)
+        <&> \y -> x { _ppuDescription = y }
 {-# INLINE ppuDescription #-}
 
 -- | The container type for the output file. Valid values include mp3, mp4, ogg,
 -- ts, and webm.
-ppuContainer
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Preset
-    -> f Preset
+ppuContainer :: Lens' Preset (Maybe Text)
 ppuContainer f x =
-    (\y -> x { _ppuContainer = y })
-       <$> f (_ppuContainer x)
+    f (_ppuContainer x)
+        <&> \y -> x { _ppuContainer = y }
 {-# INLINE ppuContainer #-}
 
 -- | A section of the response body that provides information about the audio
 -- preset values.
-ppuAudio
-    :: Functor f
-    => (Maybe AudioParameters
-    -> f (Maybe AudioParameters))
-    -> Preset
-    -> f Preset
+ppuAudio :: Lens' Preset (Maybe AudioParameters)
 ppuAudio f x =
-    (\y -> x { _ppuAudio = y })
-       <$> f (_ppuAudio x)
+    f (_ppuAudio x)
+        <&> \y -> x { _ppuAudio = y }
 {-# INLINE ppuAudio #-}
 
 -- | A section of the response body that provides information about the video
 -- preset values.
-ppuVideo
-    :: Functor f
-    => (Maybe VideoParameters
-    -> f (Maybe VideoParameters))
-    -> Preset
-    -> f Preset
+ppuVideo :: Lens' Preset (Maybe VideoParameters)
 ppuVideo f x =
-    (\y -> x { _ppuVideo = y })
-       <$> f (_ppuVideo x)
+    f (_ppuVideo x)
+        <&> \y -> x { _ppuVideo = y }
 {-# INLINE ppuVideo #-}
 
 -- | A section of the response body that provides information about the
 -- thumbnail preset values, if any.
-ppuThumbnails
-    :: Functor f
-    => (Maybe Thumbnails
-    -> f (Maybe Thumbnails))
-    -> Preset
-    -> f Preset
+ppuThumbnails :: Lens' Preset (Maybe Thumbnails)
 ppuThumbnails f x =
-    (\y -> x { _ppuThumbnails = y })
-       <$> f (_ppuThumbnails x)
+    f (_ppuThumbnails x)
+        <&> \y -> x { _ppuThumbnails = y }
 {-# INLINE ppuThumbnails #-}
 
 -- | Whether the preset is a default preset provided by Elastic Transcoder
 -- (System) or a preset that you have defined (Custom).
-ppuType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Preset
-    -> f Preset
+ppuType :: Lens' Preset (Maybe Text)
 ppuType f x =
-    (\y -> x { _ppuType = y })
-       <$> f (_ppuType x)
+    f (_ppuType x)
+        <&> \y -> x { _ppuType = y }
 {-# INLINE ppuType #-}
 
 instance FromJSON Preset
@@ -3056,15 +2548,10 @@ data PresetWatermark = PresetWatermark
 
 -- | A unique identifier for the settings for one watermark. The value of Id can
 -- be up to 40 characters long.
-ppkId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkId :: Lens' PresetWatermark (Maybe Text)
 ppkId f x =
-    (\y -> x { _ppkId = y })
-       <$> f (_ppkId x)
+    f (_ppkId x)
+        <&> \y -> x { _ppkId = y }
 {-# INLINE ppkId #-}
 
 -- | The maximum width of the watermark in one of the following formats: number
@@ -3074,15 +2561,10 @@ ppkId f x =
 -- Transcoder to include the black bars that are added by Elastic Transcoder,
 -- if any, in the calculation. If you specify the value in pixels, it must be
 -- less than or equal to the value of MaxWidth.
-ppkMaxWidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkMaxWidth :: Lens' PresetWatermark (Maybe Text)
 ppkMaxWidth f x =
-    (\y -> x { _ppkMaxWidth = y })
-       <$> f (_ppkMaxWidth x)
+    f (_ppkMaxWidth x)
+        <&> \y -> x { _ppkMaxWidth = y }
 {-# INLINE ppkMaxWidth #-}
 
 -- | The maximum height of the watermark in one of the following formats: number
@@ -3092,15 +2574,10 @@ ppkMaxWidth f x =
 -- Transcoder to include the black bars that are added by Elastic Transcoder,
 -- if any, in the calculation. If you specify the value in pixels, it must be
 -- less than or equal to the value of MaxHeight.
-ppkMaxHeight
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkMaxHeight :: Lens' PresetWatermark (Maybe Text)
 ppkMaxHeight f x =
-    (\y -> x { _ppkMaxHeight = y })
-       <$> f (_ppkMaxHeight x)
+    f (_ppkMaxHeight x)
+        <&> \y -> x { _ppkMaxHeight = y }
 {-# INLINE ppkMaxHeight #-}
 
 -- | A value that controls scaling of the watermark: Fit: Elastic Transcoder
@@ -3113,15 +2590,10 @@ ppkMaxHeight f x =
 -- that its dimensions match the values that you specified for at least one of
 -- MaxWidth and MaxHeight without exceeding either value. If you specify this
 -- option, Elastic Transcoder does not scale the watermark up.
-ppkSizingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkSizingPolicy :: Lens' PresetWatermark (Maybe Text)
 ppkSizingPolicy f x =
-    (\y -> x { _ppkSizingPolicy = y })
-       <$> f (_ppkSizingPolicy x)
+    f (_ppkSizingPolicy x)
+        <&> \y -> x { _ppkSizingPolicy = y }
 {-# INLINE ppkSizingPolicy #-}
 
 -- | The horizontal position of the watermark unless you specify a non-zero
@@ -3129,15 +2601,10 @@ ppkSizingPolicy f x =
 -- with the left border of the video. Right: The right edge of the watermark
 -- is aligned with the right border of the video. Center: The watermark is
 -- centered between the left and right borders.
-ppkHorizontalAlign
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkHorizontalAlign :: Lens' PresetWatermark (Maybe Text)
 ppkHorizontalAlign f x =
-    (\y -> x { _ppkHorizontalAlign = y })
-       <$> f (_ppkHorizontalAlign x)
+    f (_ppkHorizontalAlign x)
+        <&> \y -> x { _ppkHorizontalAlign = y }
 {-# INLINE ppkHorizontalAlign #-}
 
 -- | The amount by which you want the horizontal position of the watermark to be
@@ -3154,15 +2621,10 @@ ppkHorizontalAlign f x =
 -- If the watermark extends beyond the black bars, it is cropped. Use the
 -- value of Target to specify whether you want to include the black bars that
 -- are added by Elastic Transcoder, if any, in the offset calculation.
-ppkHorizontalOffset
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkHorizontalOffset :: Lens' PresetWatermark (Maybe Text)
 ppkHorizontalOffset f x =
-    (\y -> x { _ppkHorizontalOffset = y })
-       <$> f (_ppkHorizontalOffset x)
+    f (_ppkHorizontalOffset x)
+        <&> \y -> x { _ppkHorizontalOffset = y }
 {-# INLINE ppkHorizontalOffset #-}
 
 -- | The vertical position of the watermark unless you specify a non-zero value
@@ -3170,15 +2632,10 @@ ppkHorizontalOffset f x =
 -- top border of the video. Bottom: The bottom edge of the watermark is
 -- aligned with the bottom border of the video. Center: The watermark is
 -- centered between the top and bottom borders.
-ppkVerticalAlign
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkVerticalAlign :: Lens' PresetWatermark (Maybe Text)
 ppkVerticalAlign f x =
-    (\y -> x { _ppkVerticalAlign = y })
-       <$> f (_ppkVerticalAlign x)
+    f (_ppkVerticalAlign x)
+        <&> \y -> x { _ppkVerticalAlign = y }
 {-# INLINE ppkVerticalAlign #-}
 
 -- | VerticalOffset The amount by which you want the vertical position of the
@@ -3196,15 +2653,10 @@ ppkVerticalAlign f x =
 -- Target to specify whether you want Elastic Transcoder to include the black
 -- bars that are added by Elastic Transcoder, if any, in the offset
 -- calculation.
-ppkVerticalOffset
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkVerticalOffset :: Lens' PresetWatermark (Maybe Text)
 ppkVerticalOffset f x =
-    (\y -> x { _ppkVerticalOffset = y })
-       <$> f (_ppkVerticalOffset x)
+    f (_ppkVerticalOffset x)
+        <&> \y -> x { _ppkVerticalOffset = y }
 {-# INLINE ppkVerticalOffset #-}
 
 -- | A percentage that indicates how much you want a watermark to obscure the
@@ -3214,15 +2666,10 @@ ppkVerticalOffset f x =
 -- supports transparent .png graphics. If you use a transparent .png, the
 -- transparent portion of the video appears as if you had specified a value of
 -- 0 for Opacity. The .jpg file format doesn't support transparency.
-ppkOpacity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkOpacity :: Lens' PresetWatermark (Maybe Text)
 ppkOpacity f x =
-    (\y -> x { _ppkOpacity = y })
-       <$> f (_ppkOpacity x)
+    f (_ppkOpacity x)
+        <&> \y -> x { _ppkOpacity = y }
 {-# INLINE ppkOpacity #-}
 
 -- | A value that determines how Elastic Transcoder interprets values that you
@@ -3237,15 +2684,10 @@ ppkOpacity f x =
 -- MaxHeight, if specified as a percentage, are calculated based on the
 -- borders of the video including black bars added by Elastic Transcoder, if
 -- any.
-ppkTarget
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PresetWatermark
-    -> f PresetWatermark
+ppkTarget :: Lens' PresetWatermark (Maybe Text)
 ppkTarget f x =
-    (\y -> x { _ppkTarget = y })
-       <$> f (_ppkTarget x)
+    f (_ppkTarget x)
+        <&> \y -> x { _ppkTarget = y }
 {-# INLINE ppkTarget #-}
 
 instance FromJSON PresetWatermark
@@ -3327,27 +2769,17 @@ data Thumbnails = Thumbnails
 -- | The format of thumbnails, if any. Valid values are jpg and png. You specify
 -- whether you want Elastic Transcoder to create thumbnails when you create a
 -- job.
-ttsFormat
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsFormat :: Lens' Thumbnails (Maybe Text)
 ttsFormat f x =
-    (\y -> x { _ttsFormat = y })
-       <$> f (_ttsFormat x)
+    f (_ttsFormat x)
+        <&> \y -> x { _ttsFormat = y }
 {-# INLINE ttsFormat #-}
 
 -- | The number of seconds between thumbnails. Specify an integer value.
-ttsInterval
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsInterval :: Lens' Thumbnails (Maybe Text)
 ttsInterval f x =
-    (\y -> x { _ttsInterval = y })
-       <$> f (_ttsInterval x)
+    f (_ttsInterval x)
+        <&> \y -> x { _ttsInterval = y }
 {-# INLINE ttsInterval #-}
 
 -- | To better control resolution and aspect ratio of thumbnails, we recommend
@@ -3357,15 +2789,10 @@ ttsInterval f x =
 -- height of thumbnail files in pixels. Specify a value in the format width x
 -- height where both values are even integers. The values cannot exceed the
 -- width and height that you specified in the Video:Resolution object.
-ttsResolution
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsResolution :: Lens' Thumbnails (Maybe Text)
 ttsResolution f x =
-    (\y -> x { _ttsResolution = y })
-       <$> f (_ttsResolution x)
+    f (_ttsResolution x)
+        <&> \y -> x { _ttsResolution = y }
 {-# INLINE ttsResolution #-}
 
 -- | To better control resolution and aspect ratio of thumbnails, we recommend
@@ -3375,43 +2802,28 @@ ttsResolution f x =
 -- of thumbnails. Valid values include: auto, 1:1, 4:3, 3:2, 16:9 If you
 -- specify auto, Elastic Transcoder tries to preserve the aspect ratio of the
 -- video in the output file.
-ttsAspectRatio
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsAspectRatio :: Lens' Thumbnails (Maybe Text)
 ttsAspectRatio f x =
-    (\y -> x { _ttsAspectRatio = y })
-       <$> f (_ttsAspectRatio x)
+    f (_ttsAspectRatio x)
+        <&> \y -> x { _ttsAspectRatio = y }
 {-# INLINE ttsAspectRatio #-}
 
 -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 4096.
-ttsMaxWidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsMaxWidth :: Lens' Thumbnails (Maybe Text)
 ttsMaxWidth f x =
-    (\y -> x { _ttsMaxWidth = y })
-       <$> f (_ttsMaxWidth x)
+    f (_ttsMaxWidth x)
+        <&> \y -> x { _ttsMaxWidth = y }
 {-# INLINE ttsMaxWidth #-}
 
 -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 3072.
-ttsMaxHeight
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsMaxHeight :: Lens' Thumbnails (Maybe Text)
 ttsMaxHeight f x =
-    (\y -> x { _ttsMaxHeight = y })
-       <$> f (_ttsMaxHeight x)
+    f (_ttsMaxHeight x)
+        <&> \y -> x { _ttsMaxHeight = y }
 {-# INLINE ttsMaxHeight #-}
 
 -- | Specify one of the following values to control scaling of thumbnails: Fit:
@@ -3435,30 +2847,20 @@ ttsMaxHeight f x =
 -- down so that their dimensions match the values that you specified for at
 -- least one of MaxWidth and MaxHeight without dropping below either value. If
 -- you specify this option, Elastic Transcoder does not scale thumbnails up.
-ttsSizingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsSizingPolicy :: Lens' Thumbnails (Maybe Text)
 ttsSizingPolicy f x =
-    (\y -> x { _ttsSizingPolicy = y })
-       <$> f (_ttsSizingPolicy x)
+    f (_ttsSizingPolicy x)
+        <&> \y -> x { _ttsSizingPolicy = y }
 {-# INLINE ttsSizingPolicy #-}
 
 -- | When you set PaddingPolicy to Pad, Elastic Transcoder may add black bars to
 -- the top and bottom and/or left and right sides of thumbnails to make the
 -- total size of the thumbnails match the values that you specified for
 -- thumbnail MaxWidth and MaxHeight settings.
-ttsPaddingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Thumbnails
-    -> f Thumbnails
+ttsPaddingPolicy :: Lens' Thumbnails (Maybe Text)
 ttsPaddingPolicy f x =
-    (\y -> x { _ttsPaddingPolicy = y })
-       <$> f (_ttsPaddingPolicy x)
+    f (_ttsPaddingPolicy x)
+        <&> \y -> x { _ttsPaddingPolicy = y }
 {-# INLINE ttsPaddingPolicy #-}
 
 instance FromJSON Thumbnails
@@ -3487,15 +2889,10 @@ data TimeSpan = TimeSpan
 -- be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of
 -- a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a
 -- value, Elastic Transcoder starts at the beginning of the input file.
-tsStartTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TimeSpan
-    -> f TimeSpan
+tsStartTime :: Lens' TimeSpan (Maybe Text)
 tsStartTime f x =
-    (\y -> x { _tsStartTime = y })
-       <$> f (_tsStartTime x)
+    f (_tsStartTime x)
+        <&> \y -> x { _tsStartTime = y }
 {-# INLINE tsStartTime #-}
 
 -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum
@@ -3504,15 +2901,10 @@ tsStartTime f x =
 -- an output file from StartTime to the end of the file. If you specify a
 -- value longer than the duration of the input file, Elastic Transcoder
 -- transcodes the file and returns a warning message.
-tsDuration
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TimeSpan
-    -> f TimeSpan
+tsDuration :: Lens' TimeSpan (Maybe Text)
 tsDuration f x =
-    (\y -> x { _tsDuration = y })
-       <$> f (_tsDuration x)
+    f (_tsDuration x)
+        <&> \y -> x { _tsDuration = y }
 {-# INLINE tsDuration #-}
 
 instance FromJSON TimeSpan
@@ -3710,15 +3102,10 @@ data VideoParameters = VideoParameters
 
 -- | The video codec for the output file. Valid values include H.264 and vp8.
 -- You can only specify vp8 when the container type is webm.
-vpCodec
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpCodec :: Lens' VideoParameters (Maybe Text)
 vpCodec f x =
-    (\y -> x { _vpCodec = y })
-       <$> f (_vpCodec x)
+    f (_vpCodec x)
+        <&> \y -> x { _vpCodec = y }
 {-# INLINE vpCodec #-}
 
 -- | Profile The H.264 profile that you want to use for the output file. Elastic
@@ -3749,15 +3136,10 @@ vpCodec f x =
 -- container type of the output video. Specify an integer greater than 0. If
 -- you specify MaxBitRate and omit BufferSize, Elastic Transcoder sets
 -- BufferSize to 10 times the value of MaxBitRate.
-vpCodecOptions
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpCodecOptions :: Lens' VideoParameters (Map Text Text)
 vpCodecOptions f x =
-    (\y -> x { _vpCodecOptions = y })
-       <$> f (_vpCodecOptions x)
+    f (_vpCodecOptions x)
+        <&> \y -> x { _vpCodecOptions = y }
 {-# INLINE vpCodecOptions #-}
 
 -- | The maximum number of frames between key frames. Key frames are fully
@@ -3766,30 +3148,20 @@ vpCodecOptions f x =
 -- string; valid values are between 1 (every frame is a key frame) and 100000,
 -- inclusive. A higher value results in higher compression but may also
 -- discernibly decrease video quality.
-vpKeyframesMaxDist
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpKeyframesMaxDist :: Lens' VideoParameters (Maybe Text)
 vpKeyframesMaxDist f x =
-    (\y -> x { _vpKeyframesMaxDist = y })
-       <$> f (_vpKeyframesMaxDist x)
+    f (_vpKeyframesMaxDist x)
+        <&> \y -> x { _vpKeyframesMaxDist = y }
 {-# INLINE vpKeyframesMaxDist #-}
 
 -- | Whether to use a fixed value for FixedGOP. Valid values are true and false:
 -- true: Elastic Transcoder uses the value of KeyframesMaxDist for the
 -- distance between key frames (the number of frames in a group of pictures,
 -- or GOP). false: The distance between key frames can vary.
-vpFixedGOP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpFixedGOP :: Lens' VideoParameters (Maybe Text)
 vpFixedGOP f x =
-    (\y -> x { _vpFixedGOP = y })
-       <$> f (_vpFixedGOP x)
+    f (_vpFixedGOP x)
+        <&> \y -> x { _vpFixedGOP = y }
 {-# INLINE vpFixedGOP #-}
 
 -- | The bit rate of the video stream in the output file, in kilobits/second.
@@ -3802,15 +3174,10 @@ vpFixedGOP f x =
 -- (high Profile) 1 - 64 : 80 1b - 128 : 160 1.1 - 192 : 240 1.2 - 384 : 480
 -- 1.3 - 768 : 960 2 - 2000 : 2500 3 - 10000 : 12500 3.1 - 14000 : 17500 3.2 -
 -- 20000 : 25000 4 - 20000 : 25000 4.1 - 50000 : 62500.
-vpBitRate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpBitRate :: Lens' VideoParameters (Maybe Text)
 vpBitRate f x =
-    (\y -> x { _vpBitRate = y })
-       <$> f (_vpBitRate x)
+    f (_vpBitRate x)
+        <&> \y -> x { _vpBitRate = y }
 {-# INLINE vpBitRate #-}
 
 -- | The frames per second for the video stream in the output file. Valid values
@@ -3827,15 +3194,10 @@ vpBitRate f x =
 -- (Level - Decoding speed): 1 - 380160 1b - 380160 1.1 - 76800 1.2 - 1536000
 -- 1.3 - 3041280 2 - 3041280 2.1 - 5068800 2.2 - 5184000 3 - 10368000 3.1 -
 -- 27648000 3.2 - 55296000 4 - 62914560 4.1 - 62914560.
-vpFrameRate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpFrameRate :: Lens' VideoParameters (Maybe Text)
 vpFrameRate f x =
-    (\y -> x { _vpFrameRate = y })
-       <$> f (_vpFrameRate x)
+    f (_vpFrameRate x)
+        <&> \y -> x { _vpFrameRate = y }
 {-# INLINE vpFrameRate #-}
 
 -- | If you specify auto for FrameRate, Elastic Transcoder uses the frame rate
@@ -3844,15 +3206,10 @@ vpFrameRate f x =
 -- rate of the input video is greater than the desired maximum frame rate of
 -- the output video. Valid values include: 10, 15, 23.97, 24, 25, 29.97, 30,
 -- 60.
-vpMaxFrameRate
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpMaxFrameRate :: Lens' VideoParameters (Maybe Text)
 vpMaxFrameRate f x =
-    (\y -> x { _vpMaxFrameRate = y })
-       <$> f (_vpMaxFrameRate x)
+    f (_vpMaxFrameRate x)
+        <&> \y -> x { _vpMaxFrameRate = y }
 {-# INLINE vpMaxFrameRate #-}
 
 -- | To better control resolution and aspect ratio of output videos, we
@@ -3875,15 +3232,10 @@ vpMaxFrameRate f x =
 -- width x height value): 1 - 25344 1b - 25344 1.1 - 101376 1.2 - 101376 1.3 -
 -- 101376 2 - 101376 2.1 - 202752 2.2 - 404720 3 - 404720 3.1 - 921600 3.2 -
 -- 1310720 4 - 2097152 4.1 - 2097152.
-vpResolution
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpResolution :: Lens' VideoParameters (Maybe Text)
 vpResolution f x =
-    (\y -> x { _vpResolution = y })
-       <$> f (_vpResolution x)
+    f (_vpResolution x)
+        <&> \y -> x { _vpResolution = y }
 {-# INLINE vpResolution #-}
 
 -- | To better control resolution and aspect ratio of output videos, we
@@ -3897,55 +3249,35 @@ vpResolution f x =
 -- ratio of the input file, Elastic Transcoder adds pillarboxing (black bars
 -- on the sides) or letterboxing (black bars on the top and bottom) to
 -- maintain the aspect ratio of the active region of the video.
-vpAspectRatio
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpAspectRatio :: Lens' VideoParameters (Maybe Text)
 vpAspectRatio f x =
-    (\y -> x { _vpAspectRatio = y })
-       <$> f (_vpAspectRatio x)
+    f (_vpAspectRatio x)
+        <&> \y -> x { _vpAspectRatio = y }
 {-# INLINE vpAspectRatio #-}
 
 -- | The maximum width of the output video in pixels. If you specify auto,
 -- Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify
 -- a numeric value, enter an even integer between 128 and 4096.
-vpMaxWidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpMaxWidth :: Lens' VideoParameters (Maybe Text)
 vpMaxWidth f x =
-    (\y -> x { _vpMaxWidth = y })
-       <$> f (_vpMaxWidth x)
+    f (_vpMaxWidth x)
+        <&> \y -> x { _vpMaxWidth = y }
 {-# INLINE vpMaxWidth #-}
 
 -- | The maximum height of the output video in pixels. If you specify auto,
 -- Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify
 -- a numeric value, enter an even integer between 96 and 3072.
-vpMaxHeight
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpMaxHeight :: Lens' VideoParameters (Maybe Text)
 vpMaxHeight f x =
-    (\y -> x { _vpMaxHeight = y })
-       <$> f (_vpMaxHeight x)
+    f (_vpMaxHeight x)
+        <&> \y -> x { _vpMaxHeight = y }
 {-# INLINE vpMaxHeight #-}
 
 -- | The value that Elastic Transcoder adds to the metadata in the output file.
-vpDisplayAspectRatio
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpDisplayAspectRatio :: Lens' VideoParameters (Maybe Text)
 vpDisplayAspectRatio f x =
-    (\y -> x { _vpDisplayAspectRatio = y })
-       <$> f (_vpDisplayAspectRatio x)
+    f (_vpDisplayAspectRatio x)
+        <&> \y -> x { _vpDisplayAspectRatio = y }
 {-# INLINE vpDisplayAspectRatio #-}
 
 -- | Specify one of the following values to control scaling of the output video:
@@ -3969,30 +3301,20 @@ vpDisplayAspectRatio f x =
 -- match the values that you specified for at least one of MaxWidth and
 -- MaxHeight without dropping below either value. If you specify this option,
 -- Elastic Transcoder does not scale the video up.
-vpSizingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpSizingPolicy :: Lens' VideoParameters (Maybe Text)
 vpSizingPolicy f x =
-    (\y -> x { _vpSizingPolicy = y })
-       <$> f (_vpSizingPolicy x)
+    f (_vpSizingPolicy x)
+        <&> \y -> x { _vpSizingPolicy = y }
 {-# INLINE vpSizingPolicy #-}
 
 -- | When you set PaddingPolicy to Pad, Elastic Transcoder may add black bars to
 -- the top and bottom and/or left and right sides of the output video to make
 -- the total size of the output video match the values that you specified for
 -- MaxWidth and MaxHeight.
-vpPaddingPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> VideoParameters
-    -> f VideoParameters
+vpPaddingPolicy :: Lens' VideoParameters (Maybe Text)
 vpPaddingPolicy f x =
-    (\y -> x { _vpPaddingPolicy = y })
-       <$> f (_vpPaddingPolicy x)
+    f (_vpPaddingPolicy x)
+        <&> \y -> x { _vpPaddingPolicy = y }
 {-# INLINE vpPaddingPolicy #-}
 
 -- | Settings for the size, location, and opacity of graphics that you want
@@ -4007,15 +3329,10 @@ vpPaddingPolicy f x =
 -- graphics in the job than you specify watermark settings in the preset,
 -- which allows you to use the same preset for up to four watermarks that have
 -- different dimensions.
-vpWatermarks
-    :: Functor f
-    => ([PresetWatermark]
-    -> f ([PresetWatermark]))
-    -> VideoParameters
-    -> f VideoParameters
+vpWatermarks :: Lens' VideoParameters ([PresetWatermark])
 vpWatermarks f x =
-    (\y -> x { _vpWatermarks = y })
-       <$> f (_vpWatermarks x)
+    f (_vpWatermarks x)
+        <&> \y -> x { _vpWatermarks = y }
 {-# INLINE vpWatermarks #-}
 
 instance FromJSON VideoParameters

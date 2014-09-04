@@ -125,6 +125,7 @@ describeConfigurationOptions = DescribeConfigurationOptions
     , _dcomOptions = mempty
     , _dcomSolutionStackName = Nothing
     }
+{-# INLINE describeConfigurationOptions #-}
 
 data DescribeConfigurationOptions = DescribeConfigurationOptions
     { _dcomApplicationName :: Maybe Text
@@ -149,66 +150,41 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
 -- | The name of the application associated with the configuration template or
 -- environment. Only needed if you want to describe the configuration options
 -- associated with either the configuration template or environment.
-dcomApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationOptions
-    -> f DescribeConfigurationOptions
+dcomApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcomApplicationName f x =
-    (\y -> x { _dcomApplicationName = y })
-       <$> f (_dcomApplicationName x)
+    f (_dcomApplicationName x)
+        <&> \y -> x { _dcomApplicationName = y }
 {-# INLINE dcomApplicationName #-}
 
 -- | The name of the configuration template whose configuration options you want
 -- to describe.
-dcomTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationOptions
-    -> f DescribeConfigurationOptions
+dcomTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcomTemplateName f x =
-    (\y -> x { _dcomTemplateName = y })
-       <$> f (_dcomTemplateName x)
+    f (_dcomTemplateName x)
+        <&> \y -> x { _dcomTemplateName = y }
 {-# INLINE dcomTemplateName #-}
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
-dcomEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationOptions
-    -> f DescribeConfigurationOptions
+dcomEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcomEnvironmentName f x =
-    (\y -> x { _dcomEnvironmentName = y })
-       <$> f (_dcomEnvironmentName x)
+    f (_dcomEnvironmentName x)
+        <&> \y -> x { _dcomEnvironmentName = y }
 {-# INLINE dcomEnvironmentName #-}
 
 -- | If specified, restricts the descriptions to only the specified options.
-dcomOptions
-    :: Functor f
-    => ([OptionSpecification]
-    -> f ([OptionSpecification]))
-    -> DescribeConfigurationOptions
-    -> f DescribeConfigurationOptions
+dcomOptions :: Lens' DescribeConfigurationOptions ([OptionSpecification])
 dcomOptions f x =
-    (\y -> x { _dcomOptions = y })
-       <$> f (_dcomOptions x)
+    f (_dcomOptions x)
+        <&> \y -> x { _dcomOptions = y }
 {-# INLINE dcomOptions #-}
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
-dcomSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationOptions
-    -> f DescribeConfigurationOptions
+dcomSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcomSolutionStackName f x =
-    (\y -> x { _dcomSolutionStackName = y })
-       <$> f (_dcomSolutionStackName x)
+    f (_dcomSolutionStackName x)
+        <&> \y -> x { _dcomSolutionStackName = y }
 {-# INLINE dcomSolutionStackName #-}
 
 instance ToQuery DescribeConfigurationOptions where
@@ -223,27 +199,17 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     } deriving (Show, Generic)
 
 -- | A list of ConfigurationOptionDescription.
-codOptions
-    :: Functor f
-    => ([ConfigurationOptionDescription]
-    -> f ([ConfigurationOptionDescription]))
-    -> DescribeConfigurationOptionsResponse
-    -> f DescribeConfigurationOptionsResponse
+codOptions :: Lens' DescribeConfigurationOptionsResponse ([ConfigurationOptionDescription])
 codOptions f x =
-    (\y -> x { _codOptions = y })
-       <$> f (_codOptions x)
+    f (_codOptions x)
+        <&> \y -> x { _codOptions = y }
 {-# INLINE codOptions #-}
 
 -- | The name of the solution stack these configuration options belong to.
-codSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationOptionsResponse
-    -> f DescribeConfigurationOptionsResponse
+codSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 codSolutionStackName f x =
-    (\y -> x { _codSolutionStackName = y })
-       <$> f (_codSolutionStackName x)
+    f (_codSolutionStackName x)
+        <&> \y -> x { _codSolutionStackName = y }
 {-# INLINE codSolutionStackName #-}
 
 instance FromXML DescribeConfigurationOptionsResponse where

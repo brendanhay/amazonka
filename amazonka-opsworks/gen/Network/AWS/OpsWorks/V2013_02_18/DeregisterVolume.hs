@@ -47,6 +47,7 @@ deregisterVolume :: Text -- ^ 'dvrVolumeId'
 deregisterVolume p1 = DeregisterVolume
     { _dvrVolumeId = p1
     }
+{-# INLINE deregisterVolume #-}
 
 data DeregisterVolume = DeregisterVolume
     { _dvrVolumeId :: Text
@@ -54,15 +55,10 @@ data DeregisterVolume = DeregisterVolume
     } deriving (Show, Generic)
 
 -- | The volume ID.
-dvrVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeregisterVolume
-    -> f DeregisterVolume
+dvrVolumeId :: Lens' DeregisterVolume (Text)
 dvrVolumeId f x =
-    (\y -> x { _dvrVolumeId = y })
-       <$> f (_dvrVolumeId x)
+    f (_dvrVolumeId x)
+        <&> \y -> x { _dvrVolumeId = y }
 {-# INLINE dvrVolumeId #-}
 
 instance ToPath DeregisterVolume

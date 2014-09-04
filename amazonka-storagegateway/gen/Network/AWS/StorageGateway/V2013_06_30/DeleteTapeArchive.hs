@@ -43,20 +43,16 @@ deleteTapeArchive :: Text -- ^ 'dtaiTapeARN'
 deleteTapeArchive p1 = DeleteTapeArchive
     { _dtaiTapeARN = p1
     }
+{-# INLINE deleteTapeArchive #-}
 
 data DeleteTapeArchive = DeleteTapeArchive
     { _dtaiTapeARN :: Text
     } deriving (Show, Generic)
 
-dtaiTapeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteTapeArchive
-    -> f DeleteTapeArchive
+dtaiTapeARN :: Lens' DeleteTapeArchive (Text)
 dtaiTapeARN f x =
-    (\y -> x { _dtaiTapeARN = y })
-       <$> f (_dtaiTapeARN x)
+    f (_dtaiTapeARN x)
+        <&> \y -> x { _dtaiTapeARN = y }
 {-# INLINE dtaiTapeARN #-}
 
 instance ToPath DeleteTapeArchive
@@ -71,15 +67,10 @@ data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtaoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dtaoTapeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteTapeArchiveResponse
-    -> f DeleteTapeArchiveResponse
+dtaoTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtaoTapeARN f x =
-    (\y -> x { _dtaoTapeARN = y })
-       <$> f (_dtaoTapeARN x)
+    f (_dtaoTapeARN x)
+        <&> \y -> x { _dtaoTapeARN = y }
 {-# INLINE dtaoTapeARN #-}
 
 instance FromJSON DeleteTapeArchiveResponse

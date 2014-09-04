@@ -60,6 +60,7 @@ describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     , _dedpmMaxRecords = Nothing
     , _dedpmMarker = Nothing
     }
+{-# INLINE describeEngineDefaultParameters #-}
 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpmDBParameterGroupFamily :: Text
@@ -78,45 +79,30 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group family.
-dedpmDBParameterGroupFamily
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeEngineDefaultParameters
-    -> f DescribeEngineDefaultParameters
+dedpmDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters (Text)
 dedpmDBParameterGroupFamily f x =
-    (\y -> x { _dedpmDBParameterGroupFamily = y })
-       <$> f (_dedpmDBParameterGroupFamily x)
+    f (_dedpmDBParameterGroupFamily x)
+        <&> \y -> x { _dedpmDBParameterGroupFamily = y }
 {-# INLINE dedpmDBParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dedpmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEngineDefaultParameters
-    -> f DescribeEngineDefaultParameters
+dedpmMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
 dedpmMaxRecords f x =
-    (\y -> x { _dedpmMaxRecords = y })
-       <$> f (_dedpmMaxRecords x)
+    f (_dedpmMaxRecords x)
+        <&> \y -> x { _dedpmMaxRecords = y }
 {-# INLINE dedpmMaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeEngineDefaultParameters request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dedpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEngineDefaultParameters
-    -> f DescribeEngineDefaultParameters
+dedpmMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpmMarker f x =
-    (\y -> x { _dedpmMarker = y })
-       <$> f (_dedpmMarker x)
+    f (_dedpmMarker x)
+        <&> \y -> x { _dedpmMarker = y }
 {-# INLINE dedpmMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
@@ -130,15 +116,10 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 
 -- | Contains the result of a successful invocation of the
 -- DescribeEngineDefaultParameters action.
-edwEngineDefaults
-    :: Functor f
-    => (EngineDefaults
-    -> f (EngineDefaults))
-    -> DescribeEngineDefaultParametersResponse
-    -> f DescribeEngineDefaultParametersResponse
+edwEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (EngineDefaults)
 edwEngineDefaults f x =
-    (\y -> x { _edwEngineDefaults = y })
-       <$> f (_edwEngineDefaults x)
+    f (_edwEngineDefaults x)
+        <&> \y -> x { _edwEngineDefaults = y }
 {-# INLINE edwEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where

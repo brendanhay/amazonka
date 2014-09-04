@@ -78,6 +78,7 @@ createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
     , _cpeiAttributes = mempty
     , _cpeiCustomUserData = Nothing
     }
+{-# INLINE createPlatformEndpoint #-}
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
     { _cpeiPlatformApplicationArn :: Text
@@ -100,15 +101,10 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to
 -- create a an endpoint.
-cpeiPlatformApplicationArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePlatformEndpoint
-    -> f CreatePlatformEndpoint
+cpeiPlatformApplicationArn :: Lens' CreatePlatformEndpoint (Text)
 cpeiPlatformApplicationArn f x =
-    (\y -> x { _cpeiPlatformApplicationArn = y })
-       <$> f (_cpeiPlatformApplicationArn x)
+    f (_cpeiPlatformApplicationArn x)
+        <&> \y -> x { _cpeiPlatformApplicationArn = y }
 {-# INLINE cpeiPlatformApplicationArn #-}
 
 -- | Unique identifier created by the notification service for an app on a
@@ -116,40 +112,25 @@ cpeiPlatformApplicationArn f x =
 -- notification service is being used. For example, when using APNS as the
 -- notification service, you need the device token. Alternatively, when using
 -- GCM or ADM, the device token equivalent is called the registration ID.
-cpeiToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePlatformEndpoint
-    -> f CreatePlatformEndpoint
+cpeiToken :: Lens' CreatePlatformEndpoint (Text)
 cpeiToken f x =
-    (\y -> x { _cpeiToken = y })
-       <$> f (_cpeiToken x)
+    f (_cpeiToken x)
+        <&> \y -> x { _cpeiToken = y }
 {-# INLINE cpeiToken #-}
 
 -- | For a list of attributes, see SetEndpointAttributes.
-cpeiAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> CreatePlatformEndpoint
-    -> f CreatePlatformEndpoint
+cpeiAttributes :: Lens' CreatePlatformEndpoint (Map Text Text)
 cpeiAttributes f x =
-    (\y -> x { _cpeiAttributes = y })
-       <$> f (_cpeiAttributes x)
+    f (_cpeiAttributes x)
+        <&> \y -> x { _cpeiAttributes = y }
 {-# INLINE cpeiAttributes #-}
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use
 -- this data. The data must be in UTF-8 format and less than 2KB.
-cpeiCustomUserData
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePlatformEndpoint
-    -> f CreatePlatformEndpoint
+cpeiCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
 cpeiCustomUserData f x =
-    (\y -> x { _cpeiCustomUserData = y })
-       <$> f (_cpeiCustomUserData x)
+    f (_cpeiCustomUserData x)
+        <&> \y -> x { _cpeiCustomUserData = y }
 {-# INLINE cpeiCustomUserData #-}
 
 instance ToQuery CreatePlatformEndpoint where
@@ -161,15 +142,10 @@ data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     } deriving (Show, Generic)
 
 -- | EndpointArn returned from CreateEndpoint action.
-cerEndpointArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePlatformEndpointResponse
-    -> f CreatePlatformEndpointResponse
+cerEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cerEndpointArn f x =
-    (\y -> x { _cerEndpointArn = y })
-       <$> f (_cerEndpointArn x)
+    f (_cerEndpointArn x)
+        <&> \y -> x { _cerEndpointArn = y }
 {-# INLINE cerEndpointArn #-}
 
 instance FromXML CreatePlatformEndpointResponse where

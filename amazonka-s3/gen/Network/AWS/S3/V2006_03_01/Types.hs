@@ -30,18 +30,20 @@ module Network.AWS.S3.V2006_03_01.Types
       S3
     -- ** Errors
     , Er (..)
+    -- ** XML
+    , xmlOptions
 
     -- * BucketVersioningStatus
-    , BucketVersioningStatus (..)
+    , BucketVersioningStatus
 
     -- * ExpirationStatus
-    , ExpirationStatus (..)
+    , ExpirationStatus
 
     -- * MFADelete
-    , MFADelete (..)
+    , MFADelete
 
     -- * MFADeleteStatus
-    , MFADeleteStatus (..)
+    , MFADeleteStatus
 
     -- * BucketCannedACL
     , BucketCannedACL (..)

@@ -66,6 +66,7 @@ addInstanceGroups p1 p2 = AddInstanceGroups
     { _aigiInstanceGroups = p1
     , _aigiJobFlowId = p2
     }
+{-# INLINE addInstanceGroups #-}
 
 data AddInstanceGroups = AddInstanceGroups
     { _aigiInstanceGroups :: [InstanceGroupConfig]
@@ -75,27 +76,17 @@ data AddInstanceGroups = AddInstanceGroups
     } deriving (Show, Generic)
 
 -- | Instance Groups to add.
-aigiInstanceGroups
-    :: Functor f
-    => ([InstanceGroupConfig]
-    -> f ([InstanceGroupConfig]))
-    -> AddInstanceGroups
-    -> f AddInstanceGroups
+aigiInstanceGroups :: Lens' AddInstanceGroups ([InstanceGroupConfig])
 aigiInstanceGroups f x =
-    (\y -> x { _aigiInstanceGroups = y })
-       <$> f (_aigiInstanceGroups x)
+    f (_aigiInstanceGroups x)
+        <&> \y -> x { _aigiInstanceGroups = y }
 {-# INLINE aigiInstanceGroups #-}
 
 -- | Job flow in which to add the instance groups.
-aigiJobFlowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddInstanceGroups
-    -> f AddInstanceGroups
+aigiJobFlowId :: Lens' AddInstanceGroups (Text)
 aigiJobFlowId f x =
-    (\y -> x { _aigiJobFlowId = y })
-       <$> f (_aigiJobFlowId x)
+    f (_aigiJobFlowId x)
+        <&> \y -> x { _aigiJobFlowId = y }
 {-# INLINE aigiJobFlowId #-}
 
 instance ToPath AddInstanceGroups
@@ -114,27 +105,17 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse
     } deriving (Show, Generic)
 
 -- | Instance group IDs of the newly created instance groups.
-aigoInstanceGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddInstanceGroupsResponse
-    -> f AddInstanceGroupsResponse
+aigoInstanceGroupIds :: Lens' AddInstanceGroupsResponse ([Text])
 aigoInstanceGroupIds f x =
-    (\y -> x { _aigoInstanceGroupIds = y })
-       <$> f (_aigoInstanceGroupIds x)
+    f (_aigoInstanceGroupIds x)
+        <&> \y -> x { _aigoInstanceGroupIds = y }
 {-# INLINE aigoInstanceGroupIds #-}
 
 -- | The job flow ID in which the instance groups are added.
-aigoJobFlowId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddInstanceGroupsResponse
-    -> f AddInstanceGroupsResponse
+aigoJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigoJobFlowId f x =
-    (\y -> x { _aigoJobFlowId = y })
-       <$> f (_aigoJobFlowId x)
+    f (_aigoJobFlowId x)
+        <&> \y -> x { _aigoJobFlowId = y }
 {-# INLINE aigoJobFlowId #-}
 
 instance FromJSON AddInstanceGroupsResponse

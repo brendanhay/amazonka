@@ -47,6 +47,7 @@ describeTapeArchives = DescribeTapeArchives
     , _dtajLimit = Nothing
     , _dtajTapeARNs = mempty
     }
+{-# INLINE describeTapeArchives #-}
 
 data DescribeTapeArchives = DescribeTapeArchives
     { _dtajMarker :: Maybe Text
@@ -54,37 +55,22 @@ data DescribeTapeArchives = DescribeTapeArchives
     , _dtajTapeARNs :: [Text]
     } deriving (Show, Generic)
 
-dtajMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapeArchives
-    -> f DescribeTapeArchives
+dtajMarker :: Lens' DescribeTapeArchives (Maybe Text)
 dtajMarker f x =
-    (\y -> x { _dtajMarker = y })
-       <$> f (_dtajMarker x)
+    f (_dtajMarker x)
+        <&> \y -> x { _dtajMarker = y }
 {-# INLINE dtajMarker #-}
 
-dtajLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeTapeArchives
-    -> f DescribeTapeArchives
+dtajLimit :: Lens' DescribeTapeArchives (Maybe Integer)
 dtajLimit f x =
-    (\y -> x { _dtajLimit = y })
-       <$> f (_dtajLimit x)
+    f (_dtajLimit x)
+        <&> \y -> x { _dtajLimit = y }
 {-# INLINE dtajLimit #-}
 
-dtajTapeARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTapeArchives
-    -> f DescribeTapeArchives
+dtajTapeARNs :: Lens' DescribeTapeArchives ([Text])
 dtajTapeARNs f x =
-    (\y -> x { _dtajTapeARNs = y })
-       <$> f (_dtajTapeARNs x)
+    f (_dtajTapeARNs x)
+        <&> \y -> x { _dtajTapeARNs = y }
 {-# INLINE dtajTapeARNs #-}
 
 instance ToPath DescribeTapeArchives
@@ -100,26 +86,16 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     , _dtapTapeArchives :: [TapeArchive]
     } deriving (Show, Generic)
 
-dtapMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapeArchivesResponse
-    -> f DescribeTapeArchivesResponse
+dtapMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtapMarker f x =
-    (\y -> x { _dtapMarker = y })
-       <$> f (_dtapMarker x)
+    f (_dtapMarker x)
+        <&> \y -> x { _dtapMarker = y }
 {-# INLINE dtapMarker #-}
 
-dtapTapeArchives
-    :: Functor f
-    => ([TapeArchive]
-    -> f ([TapeArchive]))
-    -> DescribeTapeArchivesResponse
-    -> f DescribeTapeArchivesResponse
+dtapTapeArchives :: Lens' DescribeTapeArchivesResponse ([TapeArchive])
 dtapTapeArchives f x =
-    (\y -> x { _dtapTapeArchives = y })
-       <$> f (_dtapTapeArchives x)
+    f (_dtapTapeArchives x)
+        <&> \y -> x { _dtapTapeArchives = y }
 {-# INLINE dtapTapeArchives #-}
 
 instance FromJSON DescribeTapeArchivesResponse

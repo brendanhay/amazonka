@@ -51,6 +51,7 @@ deleteClusterSecurityGroup :: Text -- ^ 'dcsgmClusterSecurityGroupName'
 deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
     { _dcsgmClusterSecurityGroupName = p1
     }
+{-# INLINE deleteClusterSecurityGroup #-}
 
 data DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     { _dcsgmClusterSecurityGroupName :: Text
@@ -58,15 +59,10 @@ data DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | The name of the cluster security group to be deleted.
-dcsgmClusterSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteClusterSecurityGroup
-    -> f DeleteClusterSecurityGroup
+dcsgmClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup (Text)
 dcsgmClusterSecurityGroupName f x =
-    (\y -> x { _dcsgmClusterSecurityGroupName = y })
-       <$> f (_dcsgmClusterSecurityGroupName x)
+    f (_dcsgmClusterSecurityGroupName x)
+        <&> \y -> x { _dcsgmClusterSecurityGroupName = y }
 {-# INLINE dcsgmClusterSecurityGroupName #-}
 
 instance ToQuery DeleteClusterSecurityGroup where

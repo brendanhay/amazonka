@@ -62,6 +62,7 @@ deleteStream :: Text -- ^ 'dsiStreamName'
 deleteStream p1 = DeleteStream
     { _dsiStreamName = p1
     }
+{-# INLINE deleteStream #-}
 
 data DeleteStream = DeleteStream
     { _dsiStreamName :: Text
@@ -69,15 +70,10 @@ data DeleteStream = DeleteStream
     } deriving (Show, Generic)
 
 -- | The name of the stream to delete.
-dsiStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteStream
-    -> f DeleteStream
+dsiStreamName :: Lens' DeleteStream (Text)
 dsiStreamName f x =
-    (\y -> x { _dsiStreamName = y })
-       <$> f (_dsiStreamName x)
+    f (_dsiStreamName x)
+        <&> \y -> x { _dsiStreamName = y }
 {-# INLINE dsiStreamName #-}
 
 instance ToPath DeleteStream

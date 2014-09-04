@@ -22,6 +22,8 @@ module Network.AWS.S3.V2006_03_01.CreateBucket
     (
     -- * Request
       CreateBucket
+    -- ** Request alias
+    , PutBucket
     -- ** Request constructor
     , createBucket
     -- ** Request lenses

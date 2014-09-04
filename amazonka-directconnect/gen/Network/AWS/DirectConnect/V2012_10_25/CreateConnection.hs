@@ -66,6 +66,7 @@ createConnection p1 p2 p3 = CreateConnection
     , _cctConnectionName = p2
     , _cctLocation = p3
     }
+{-# INLINE createConnection #-}
 
 data CreateConnection = CreateConnection
     { _cctBandwidth :: Text
@@ -78,39 +79,24 @@ data CreateConnection = CreateConnection
     } deriving (Show, Generic)
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-cctBandwidth
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateConnection
-    -> f CreateConnection
+cctBandwidth :: Lens' CreateConnection (Text)
 cctBandwidth f x =
-    (\y -> x { _cctBandwidth = y })
-       <$> f (_cctBandwidth x)
+    f (_cctBandwidth x)
+        <&> \y -> x { _cctBandwidth = y }
 {-# INLINE cctBandwidth #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-cctConnectionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateConnection
-    -> f CreateConnection
+cctConnectionName :: Lens' CreateConnection (Text)
 cctConnectionName f x =
-    (\y -> x { _cctConnectionName = y })
-       <$> f (_cctConnectionName x)
+    f (_cctConnectionName x)
+        <&> \y -> x { _cctConnectionName = y }
 {-# INLINE cctConnectionName #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-cctLocation
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateConnection
-    -> f CreateConnection
+cctLocation :: Lens' CreateConnection (Text)
 cctLocation f x =
-    (\y -> x { _cctLocation = y })
-       <$> f (_cctLocation x)
+    f (_cctLocation x)
+        <&> \y -> x { _cctLocation = y }
 {-# INLINE cctLocation #-}
 
 instance ToPath CreateConnection
@@ -154,39 +140,24 @@ data CreateConnectionResponse = CreateConnectionResponse
     } deriving (Show, Generic)
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-fBandwidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
 fBandwidth f x =
-    (\y -> x { _fBandwidth = y })
-       <$> f (_fBandwidth x)
+    f (_fBandwidth x)
+        <&> \y -> x { _fBandwidth = y }
 {-# INLINE fBandwidth #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-fConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fConnectionId :: Lens' CreateConnectionResponse (Maybe Text)
 fConnectionId f x =
-    (\y -> x { _fConnectionId = y })
-       <$> f (_fConnectionId x)
+    f (_fConnectionId x)
+        <&> \y -> x { _fConnectionId = y }
 {-# INLINE fConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-fConnectionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fConnectionName :: Lens' CreateConnectionResponse (Maybe Text)
 fConnectionName f x =
-    (\y -> x { _fConnectionName = y })
-       <$> f (_fConnectionName x)
+    f (_fConnectionName x)
+        <&> \y -> x { _fConnectionName = y }
 {-# INLINE fConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -200,74 +171,44 @@ fConnectionName f x =
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-fConnectionState
-    :: Functor f
-    => (Maybe ConnectionState
-    -> f (Maybe ConnectionState))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fConnectionState :: Lens' CreateConnectionResponse (Maybe ConnectionState)
 fConnectionState f x =
-    (\y -> x { _fConnectionState = y })
-       <$> f (_fConnectionState x)
+    f (_fConnectionState x)
+        <&> \y -> x { _fConnectionState = y }
 {-# INLINE fConnectionState #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-fLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fLocation :: Lens' CreateConnectionResponse (Maybe Text)
 fLocation f x =
-    (\y -> x { _fLocation = y })
-       <$> f (_fLocation x)
+    f (_fLocation x)
+        <&> \y -> x { _fLocation = y }
 {-# INLINE fLocation #-}
 
-fOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fOwnerAccount :: Lens' CreateConnectionResponse (Maybe Text)
 fOwnerAccount f x =
-    (\y -> x { _fOwnerAccount = y })
-       <$> f (_fOwnerAccount x)
+    f (_fOwnerAccount x)
+        <&> \y -> x { _fOwnerAccount = y }
 {-# INLINE fOwnerAccount #-}
 
-fPartnerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fPartnerName :: Lens' CreateConnectionResponse (Maybe Text)
 fPartnerName f x =
-    (\y -> x { _fPartnerName = y })
-       <$> f (_fPartnerName x)
+    f (_fPartnerName x)
+        <&> \y -> x { _fPartnerName = y }
 {-# INLINE fPartnerName #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-fRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fRegion :: Lens' CreateConnectionResponse (Maybe Text)
 fRegion f x =
-    (\y -> x { _fRegion = y })
-       <$> f (_fRegion x)
+    f (_fRegion x)
+        <&> \y -> x { _fRegion = y }
 {-# INLINE fRegion #-}
 
 -- | The VLAN ID. Example: 101.
-fVlan
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateConnectionResponse
-    -> f CreateConnectionResponse
+fVlan :: Lens' CreateConnectionResponse (Maybe Integer)
 fVlan f x =
-    (\y -> x { _fVlan = y })
-       <$> f (_fVlan x)
+    f (_fVlan x)
+        <&> \y -> x { _fVlan = y }
 {-# INLINE fVlan #-}
 
 instance FromJSON CreateConnectionResponse

@@ -77,6 +77,7 @@ listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
     { _lebpaiPlatformApplicationArn = p1
     , _lebpaiNextToken = Nothing
     }
+{-# INLINE listEndpointsByPlatformApplication #-}
 
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
     { _lebpaiPlatformApplicationArn :: Text
@@ -89,29 +90,19 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
-lebpaiPlatformApplicationArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListEndpointsByPlatformApplication
-    -> f ListEndpointsByPlatformApplication
+lebpaiPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplication (Text)
 lebpaiPlatformApplicationArn f x =
-    (\y -> x { _lebpaiPlatformApplicationArn = y })
-       <$> f (_lebpaiPlatformApplicationArn x)
+    f (_lebpaiPlatformApplicationArn x)
+        <&> \y -> x { _lebpaiPlatformApplicationArn = y }
 {-# INLINE lebpaiPlatformApplicationArn #-}
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
 -- action to retrieve additional records that are available after the first
 -- page results.
-lebpaiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListEndpointsByPlatformApplication
-    -> f ListEndpointsByPlatformApplication
+lebpaiNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
 lebpaiNextToken f x =
-    (\y -> x { _lebpaiNextToken = y })
-       <$> f (_lebpaiNextToken x)
+    f (_lebpaiNextToken x)
+        <&> \y -> x { _lebpaiNextToken = y }
 {-# INLINE lebpaiNextToken #-}
 
 instance ToQuery ListEndpointsByPlatformApplication where
@@ -127,29 +118,19 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
     } deriving (Show, Generic)
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparEndpoints
-    :: Functor f
-    => ([Endpoint]
-    -> f ([Endpoint]))
-    -> ListEndpointsByPlatformApplicationResponse
-    -> f ListEndpointsByPlatformApplicationResponse
+lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse ([Endpoint])
 lebparEndpoints f x =
-    (\y -> x { _lebparEndpoints = y })
-       <$> f (_lebparEndpoints x)
+    f (_lebparEndpoints x)
+        <&> \y -> x { _lebparEndpoints = y }
 {-# INLINE lebparEndpoints #-}
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
 -- available after the first page results.
-lebparNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListEndpointsByPlatformApplicationResponse
-    -> f ListEndpointsByPlatformApplicationResponse
+lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken f x =
-    (\y -> x { _lebparNextToken = y })
-       <$> f (_lebparNextToken x)
+    f (_lebparNextToken x)
+        <&> \y -> x { _lebparNextToken = y }
 {-# INLINE lebparNextToken #-}
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where

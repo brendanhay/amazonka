@@ -54,6 +54,7 @@ listClusters = ListClusters
     , _lciCreatedBefore = Nothing
     , _lciMarker = Nothing
     }
+{-# INLINE listClusters #-}
 
 data ListClusters = ListClusters
     { _lciClusterStates :: [ClusterState]
@@ -70,51 +71,31 @@ data ListClusters = ListClusters
     } deriving (Show, Generic)
 
 -- | The cluster state filters to apply when listing clusters.
-lciClusterStates
-    :: Functor f
-    => ([ClusterState]
-    -> f ([ClusterState]))
-    -> ListClusters
-    -> f ListClusters
+lciClusterStates :: Lens' ListClusters ([ClusterState])
 lciClusterStates f x =
-    (\y -> x { _lciClusterStates = y })
-       <$> f (_lciClusterStates x)
+    f (_lciClusterStates x)
+        <&> \y -> x { _lciClusterStates = y }
 {-# INLINE lciClusterStates #-}
 
 -- | The creation date and time beginning value filter for listing clusters .
-lciCreatedAfter
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ListClusters
-    -> f ListClusters
+lciCreatedAfter :: Lens' ListClusters (Maybe POSIX)
 lciCreatedAfter f x =
-    (\y -> x { _lciCreatedAfter = y })
-       <$> f (_lciCreatedAfter x)
+    f (_lciCreatedAfter x)
+        <&> \y -> x { _lciCreatedAfter = y }
 {-# INLINE lciCreatedAfter #-}
 
 -- | The creation date and time end value filter for listing clusters .
-lciCreatedBefore
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ListClusters
-    -> f ListClusters
+lciCreatedBefore :: Lens' ListClusters (Maybe POSIX)
 lciCreatedBefore f x =
-    (\y -> x { _lciCreatedBefore = y })
-       <$> f (_lciCreatedBefore x)
+    f (_lciCreatedBefore x)
+        <&> \y -> x { _lciCreatedBefore = y }
 {-# INLINE lciCreatedBefore #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lciMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListClusters
-    -> f ListClusters
+lciMarker :: Lens' ListClusters (Maybe Text)
 lciMarker f x =
-    (\y -> x { _lciMarker = y })
-       <$> f (_lciMarker x)
+    f (_lciMarker x)
+        <&> \y -> x { _lciMarker = y }
 {-# INLINE lciMarker #-}
 
 instance ToPath ListClusters
@@ -134,27 +115,17 @@ data ListClustersResponse = ListClustersResponse
     } deriving (Show, Generic)
 
 -- | The list of clusters for the account based on the given filters.
-lcoClusters
-    :: Functor f
-    => ([ClusterSummary]
-    -> f ([ClusterSummary]))
-    -> ListClustersResponse
-    -> f ListClustersResponse
+lcoClusters :: Lens' ListClustersResponse ([ClusterSummary])
 lcoClusters f x =
-    (\y -> x { _lcoClusters = y })
-       <$> f (_lcoClusters x)
+    f (_lcoClusters x)
+        <&> \y -> x { _lcoClusters = y }
 {-# INLINE lcoClusters #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lcoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListClustersResponse
-    -> f ListClustersResponse
+lcoMarker :: Lens' ListClustersResponse (Maybe Text)
 lcoMarker f x =
-    (\y -> x { _lcoMarker = y })
-       <$> f (_lcoMarker x)
+    f (_lcoMarker x)
+        <&> \y -> x { _lcoMarker = y }
 {-# INLINE lcoMarker #-}
 
 instance FromJSON ListClustersResponse

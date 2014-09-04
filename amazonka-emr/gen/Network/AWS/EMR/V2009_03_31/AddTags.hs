@@ -54,6 +54,7 @@ addTags p1 p2 = AddTags
     { _atiResourceId = p1
     , _atiTags = p2
     }
+{-# INLINE addTags #-}
 
 data AddTags = AddTags
     { _atiResourceId :: Text
@@ -69,30 +70,20 @@ data AddTags = AddTags
 
 -- | The Amazon EMR resource identifier to which tags will be added. This value
 -- must be a cluster identifier.
-atiResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddTags
-    -> f AddTags
+atiResourceId :: Lens' AddTags (Text)
 atiResourceId f x =
-    (\y -> x { _atiResourceId = y })
-       <$> f (_atiResourceId x)
+    f (_atiResourceId x)
+        <&> \y -> x { _atiResourceId = y }
 {-# INLINE atiResourceId #-}
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances. Tags are user-defined key/value pairs that consist of a required
 -- key string with a maximum of 128 characters, and an optional value string
 -- with a maximum of 256 characters.
-atiTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> AddTags
-    -> f AddTags
+atiTags :: Lens' AddTags ([Tag])
 atiTags f x =
-    (\y -> x { _atiTags = y })
-       <$> f (_atiTags x)
+    f (_atiTags x)
+        <&> \y -> x { _atiTags = y }
 {-# INLINE atiTags #-}
 
 instance ToPath AddTags

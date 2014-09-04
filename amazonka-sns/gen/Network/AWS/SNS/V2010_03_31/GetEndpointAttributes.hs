@@ -64,6 +64,7 @@ getEndpointAttributes :: Text -- ^ 'geaiEndpointArn'
 getEndpointAttributes p1 = GetEndpointAttributes
     { _geaiEndpointArn = p1
     }
+{-# INLINE getEndpointAttributes #-}
 
 data GetEndpointAttributes = GetEndpointAttributes
     { _geaiEndpointArn :: Text
@@ -71,15 +72,10 @@ data GetEndpointAttributes = GetEndpointAttributes
     } deriving (Show, Generic)
 
 -- | EndpointArn for GetEndpointAttributes input.
-geaiEndpointArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetEndpointAttributes
-    -> f GetEndpointAttributes
+geaiEndpointArn :: Lens' GetEndpointAttributes (Text)
 geaiEndpointArn f x =
-    (\y -> x { _geaiEndpointArn = y })
-       <$> f (_geaiEndpointArn x)
+    f (_geaiEndpointArn x)
+        <&> \y -> x { _geaiEndpointArn = y }
 {-# INLINE geaiEndpointArn #-}
 
 instance ToQuery GetEndpointAttributes where
@@ -109,15 +105,10 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse
 -- Token -- device token, also referred to as a registration id, for an app
 -- and mobile device. This is returned from the notification service when an
 -- app and mobile device are registered with the notification service.
-gearAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetEndpointAttributesResponse
-    -> f GetEndpointAttributesResponse
+gearAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
 gearAttributes f x =
-    (\y -> x { _gearAttributes = y })
-       <$> f (_gearAttributes x)
+    f (_gearAttributes x)
+        <&> \y -> x { _gearAttributes = y }
 {-# INLINE gearAttributes #-}
 
 instance FromXML GetEndpointAttributesResponse where

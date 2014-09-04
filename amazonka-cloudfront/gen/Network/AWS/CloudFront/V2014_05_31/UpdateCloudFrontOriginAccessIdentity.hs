@@ -49,6 +49,7 @@ updateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentit
     , _ucfoairId = p2
     , _ucfoairIfMatch = Nothing
     }
+{-# INLINE updateCloudFrontOriginAccessIdentity #-}
 
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     { _ucfoairCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
@@ -61,40 +62,25 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | The identity's configuration information.
-ucfoairCloudFrontOriginAccessIdentityConfig
-    :: Functor f
-    => (CloudFrontOriginAccessIdentityConfig
-    -> f (CloudFrontOriginAccessIdentityConfig))
-    -> UpdateCloudFrontOriginAccessIdentity
-    -> f UpdateCloudFrontOriginAccessIdentity
+ucfoairCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity (CloudFrontOriginAccessIdentityConfig)
 ucfoairCloudFrontOriginAccessIdentityConfig f x =
-    (\y -> x { _ucfoairCloudFrontOriginAccessIdentityConfig = y })
-       <$> f (_ucfoairCloudFrontOriginAccessIdentityConfig x)
+    f (_ucfoairCloudFrontOriginAccessIdentityConfig x)
+        <&> \y -> x { _ucfoairCloudFrontOriginAccessIdentityConfig = y }
 {-# INLINE ucfoairCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The identity's id.
-ucfoairId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateCloudFrontOriginAccessIdentity
-    -> f UpdateCloudFrontOriginAccessIdentity
+ucfoairId :: Lens' UpdateCloudFrontOriginAccessIdentity (Text)
 ucfoairId f x =
-    (\y -> x { _ucfoairId = y })
-       <$> f (_ucfoairId x)
+    f (_ucfoairId x)
+        <&> \y -> x { _ucfoairId = y }
 {-# INLINE ucfoairId #-}
 
 -- | The value of the ETag header you received when retrieving the identity's
 -- configuration. For example: E2QWRUHAPOMQZL.
-ucfoairIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateCloudFrontOriginAccessIdentity
-    -> f UpdateCloudFrontOriginAccessIdentity
+ucfoairIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
 ucfoairIfMatch f x =
-    (\y -> x { _ucfoairIfMatch = y })
-       <$> f (_ucfoairIfMatch x)
+    f (_ucfoairIfMatch x)
+        <&> \y -> x { _ucfoairIfMatch = y }
 {-# INLINE ucfoairIfMatch #-}
 
 instance ToPath UpdateCloudFrontOriginAccessIdentity where
@@ -124,27 +110,17 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
     } deriving (Show, Generic)
 
 -- | The origin access identity's information.
-ucfoaisCloudFrontOriginAccessIdentity
-    :: Functor f
-    => (Maybe CloudFrontOriginAccessIdentity
-    -> f (Maybe CloudFrontOriginAccessIdentity))
-    -> UpdateCloudFrontOriginAccessIdentityResponse
-    -> f UpdateCloudFrontOriginAccessIdentityResponse
+ucfoaisCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ucfoaisCloudFrontOriginAccessIdentity f x =
-    (\y -> x { _ucfoaisCloudFrontOriginAccessIdentity = y })
-       <$> f (_ucfoaisCloudFrontOriginAccessIdentity x)
+    f (_ucfoaisCloudFrontOriginAccessIdentity x)
+        <&> \y -> x { _ucfoaisCloudFrontOriginAccessIdentity = y }
 {-# INLINE ucfoaisCloudFrontOriginAccessIdentity #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-ucfoaisETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateCloudFrontOriginAccessIdentityResponse
-    -> f UpdateCloudFrontOriginAccessIdentityResponse
+ucfoaisETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ucfoaisETag f x =
-    (\y -> x { _ucfoaisETag = y })
-       <$> f (_ucfoaisETag x)
+    f (_ucfoaisETag x)
+        <&> \y -> x { _ucfoaisETag = y }
 {-# INLINE ucfoaisETag #-}
 
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where

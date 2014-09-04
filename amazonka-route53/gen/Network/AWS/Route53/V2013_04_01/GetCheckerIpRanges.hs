@@ -41,6 +41,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetCheckerIpRanges' request.
 getCheckerIpRanges :: GetCheckerIpRanges
 getCheckerIpRanges = GetCheckerIpRanges
+{-# INLINE getCheckerIpRanges #-}
 
 data GetCheckerIpRanges = GetCheckerIpRanges
     deriving (Eq, Show, Generic)
@@ -64,15 +65,10 @@ data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
-gcirsCheckerIpRanges
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GetCheckerIpRangesResponse
-    -> f GetCheckerIpRangesResponse
+gcirsCheckerIpRanges :: Lens' GetCheckerIpRangesResponse ([Text])
 gcirsCheckerIpRanges f x =
-    (\y -> x { _gcirsCheckerIpRanges = y })
-       <$> f (_gcirsCheckerIpRanges x)
+    f (_gcirsCheckerIpRanges x)
+        <&> \y -> x { _gcirsCheckerIpRanges = y }
 {-# INLINE gcirsCheckerIpRanges #-}
 
 instance FromXML GetCheckerIpRangesResponse where

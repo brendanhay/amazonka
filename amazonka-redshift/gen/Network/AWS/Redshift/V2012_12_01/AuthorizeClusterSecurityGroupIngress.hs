@@ -69,6 +69,7 @@ authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     , _acsgimEC2SecurityGroupName = Nothing
     , _acsgimEC2SecurityGroupOwnerId = Nothing
     }
+{-# INLINE authorizeClusterSecurityGroupIngress #-}
 
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     { _acsgimClusterSecurityGroupName :: Text
@@ -86,53 +87,33 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     } deriving (Show, Generic)
 
 -- | The name of the security group to which the ingress rule is added.
-acsgimClusterSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeClusterSecurityGroupIngress
-    -> f AuthorizeClusterSecurityGroupIngress
+acsgimClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Text)
 acsgimClusterSecurityGroupName f x =
-    (\y -> x { _acsgimClusterSecurityGroupName = y })
-       <$> f (_acsgimClusterSecurityGroupName x)
+    f (_acsgimClusterSecurityGroupName x)
+        <&> \y -> x { _acsgimClusterSecurityGroupName = y }
 {-# INLINE acsgimClusterSecurityGroupName #-}
 
 -- | The IP range to be added the Amazon Redshift security group.
-acsgimCIDRIP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeClusterSecurityGroupIngress
-    -> f AuthorizeClusterSecurityGroupIngress
+acsgimCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgimCIDRIP f x =
-    (\y -> x { _acsgimCIDRIP = y })
-       <$> f (_acsgimCIDRIP x)
+    f (_acsgimCIDRIP x)
+        <&> \y -> x { _acsgimCIDRIP = y }
 {-# INLINE acsgimCIDRIP #-}
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
-acsgimEC2SecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeClusterSecurityGroupIngress
-    -> f AuthorizeClusterSecurityGroupIngress
+acsgimEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgimEC2SecurityGroupName f x =
-    (\y -> x { _acsgimEC2SecurityGroupName = y })
-       <$> f (_acsgimEC2SecurityGroupName x)
+    f (_acsgimEC2SecurityGroupName x)
+        <&> \y -> x { _acsgimEC2SecurityGroupName = y }
 {-# INLINE acsgimEC2SecurityGroupName #-}
 
 -- | The AWS account number of the owner of the security group specified by the
 -- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
 -- value. Example: 111122223333.
-acsgimEC2SecurityGroupOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeClusterSecurityGroupIngress
-    -> f AuthorizeClusterSecurityGroupIngress
+acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgimEC2SecurityGroupOwnerId f x =
-    (\y -> x { _acsgimEC2SecurityGroupOwnerId = y })
-       <$> f (_acsgimEC2SecurityGroupOwnerId x)
+    f (_acsgimEC2SecurityGroupOwnerId x)
+        <&> \y -> x { _acsgimEC2SecurityGroupOwnerId = y }
 {-# INLINE acsgimEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeClusterSecurityGroupIngress where
@@ -144,15 +125,10 @@ data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGrou
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-csgwClusterSecurityGroup
-    :: Functor f
-    => (Maybe ClusterSecurityGroup
-    -> f (Maybe ClusterSecurityGroup))
-    -> AuthorizeClusterSecurityGroupIngressResponse
-    -> f AuthorizeClusterSecurityGroupIngressResponse
+csgwClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 csgwClusterSecurityGroup f x =
-    (\y -> x { _csgwClusterSecurityGroup = y })
-       <$> f (_csgwClusterSecurityGroup x)
+    f (_csgwClusterSecurityGroup x)
+        <&> \y -> x { _csgwClusterSecurityGroup = y }
 {-# INLINE csgwClusterSecurityGroup #-}
 
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where

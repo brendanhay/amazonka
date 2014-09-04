@@ -55,6 +55,7 @@ setPermission p1 p2 = SetPermission
     , _sprAllowSudo = Nothing
     , _sprLevel = Nothing
     }
+{-# INLINE setPermission #-}
 
 data SetPermission = SetPermission
     { _sprStackId :: Text
@@ -74,66 +75,41 @@ data SetPermission = SetPermission
     } deriving (Show, Generic)
 
 -- | The stack ID.
-sprStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetPermission
-    -> f SetPermission
+sprStackId :: Lens' SetPermission (Text)
 sprStackId f x =
-    (\y -> x { _sprStackId = y })
-       <$> f (_sprStackId x)
+    f (_sprStackId x)
+        <&> \y -> x { _sprStackId = y }
 {-# INLINE sprStackId #-}
 
 -- | The user's IAM ARN.
-sprIamUserArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetPermission
-    -> f SetPermission
+sprIamUserArn :: Lens' SetPermission (Text)
 sprIamUserArn f x =
-    (\y -> x { _sprIamUserArn = y })
-       <$> f (_sprIamUserArn x)
+    f (_sprIamUserArn x)
+        <&> \y -> x { _sprIamUserArn = y }
 {-# INLINE sprIamUserArn #-}
 
 -- | The user is allowed to use SSH to communicate with the instance.
-sprAllowSsh
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> SetPermission
-    -> f SetPermission
+sprAllowSsh :: Lens' SetPermission (Maybe Bool)
 sprAllowSsh f x =
-    (\y -> x { _sprAllowSsh = y })
-       <$> f (_sprAllowSsh x)
+    f (_sprAllowSsh x)
+        <&> \y -> x { _sprAllowSsh = y }
 {-# INLINE sprAllowSsh #-}
 
 -- | The user is allowed to use sudo to elevate privileges.
-sprAllowSudo
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> SetPermission
-    -> f SetPermission
+sprAllowSudo :: Lens' SetPermission (Maybe Bool)
 sprAllowSudo f x =
-    (\y -> x { _sprAllowSudo = y })
-       <$> f (_sprAllowSudo x)
+    f (_sprAllowSudo x)
+        <&> \y -> x { _sprAllowSudo = y }
 {-# INLINE sprAllowSudo #-}
 
 -- | The user's permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level. deny show deploy manage
 -- iam_only For more information on the permissions associated with these
 -- levels, see Managing User Permissions.
-sprLevel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetPermission
-    -> f SetPermission
+sprLevel :: Lens' SetPermission (Maybe Text)
 sprLevel f x =
-    (\y -> x { _sprLevel = y })
-       <$> f (_sprLevel x)
+    f (_sprLevel x)
+        <&> \y -> x { _sprLevel = y }
 {-# INLINE sprLevel #-}
 
 instance ToPath SetPermission

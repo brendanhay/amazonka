@@ -65,6 +65,7 @@ createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     , _ccpgmParameterGroupFamily = p2
     , _ccpgmDescription = p3
     }
+{-# INLINE createClusterParameterGroup #-}
 
 data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgmParameterGroupName :: Text
@@ -92,15 +93,10 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
 -- alphanumeric characters or hyphens First character must be a letter. Cannot
 -- end with a hyphen or contain two consecutive hyphens. Must be unique
 -- withing your AWS account. This value is stored as a lower-case string.
-ccpgmParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterParameterGroup
-    -> f CreateClusterParameterGroup
+ccpgmParameterGroupName :: Lens' CreateClusterParameterGroup (Text)
 ccpgmParameterGroupName f x =
-    (\y -> x { _ccpgmParameterGroupName = y })
-       <$> f (_ccpgmParameterGroupName x)
+    f (_ccpgmParameterGroupName x)
+        <&> \y -> x { _ccpgmParameterGroupName = y }
 {-# INLINE ccpgmParameterGroupName #-}
 
 -- | The Amazon Redshift engine version to which the cluster parameter group
@@ -112,27 +108,17 @@ ccpgmParameterGroupName f x =
 -- parameter group family names associated with the default parameter groups
 -- provide you the valid values. For example, a valid family name is
 -- "redshift-1.0".
-ccpgmParameterGroupFamily
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterParameterGroup
-    -> f CreateClusterParameterGroup
+ccpgmParameterGroupFamily :: Lens' CreateClusterParameterGroup (Text)
 ccpgmParameterGroupFamily f x =
-    (\y -> x { _ccpgmParameterGroupFamily = y })
-       <$> f (_ccpgmParameterGroupFamily x)
+    f (_ccpgmParameterGroupFamily x)
+        <&> \y -> x { _ccpgmParameterGroupFamily = y }
 {-# INLINE ccpgmParameterGroupFamily #-}
 
 -- | A description of the parameter group.
-ccpgmDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterParameterGroup
-    -> f CreateClusterParameterGroup
+ccpgmDescription :: Lens' CreateClusterParameterGroup (Text)
 ccpgmDescription f x =
-    (\y -> x { _ccpgmDescription = y })
-       <$> f (_ccpgmDescription x)
+    f (_ccpgmDescription x)
+        <&> \y -> x { _ccpgmDescription = y }
 {-# INLINE ccpgmDescription #-}
 
 instance ToQuery CreateClusterParameterGroup where
@@ -144,15 +130,10 @@ data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | Describes a parameter group.
-cpgwClusterParameterGroup
-    :: Functor f
-    => (Maybe ClusterParameterGroup
-    -> f (Maybe ClusterParameterGroup))
-    -> CreateClusterParameterGroupResponse
-    -> f CreateClusterParameterGroupResponse
+cpgwClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
 cpgwClusterParameterGroup f x =
-    (\y -> x { _cpgwClusterParameterGroup = y })
-       <$> f (_cpgwClusterParameterGroup x)
+    f (_cpgwClusterParameterGroup x)
+        <&> \y -> x { _cpgwClusterParameterGroup = y }
 {-# INLINE cpgwClusterParameterGroup #-}
 
 instance FromXML CreateClusterParameterGroupResponse where

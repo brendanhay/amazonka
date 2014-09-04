@@ -45,6 +45,7 @@ getGeoLocation = GetGeoLocation
     , _gglrCountryCode = Nothing
     , _gglrSubdivisionCode = Nothing
     }
+{-# INLINE getGeoLocation #-}
 
 data GetGeoLocation = GetGeoLocation
     { _gglrContinentCode :: Maybe Text
@@ -69,45 +70,30 @@ data GetGeoLocation = GetGeoLocation
 -- a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
 -- Constraint: Specifying ContinentCode with either CountryCode or
 -- SubdivisionCode returns an InvalidInput error.
-gglrContinentCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetGeoLocation
-    -> f GetGeoLocation
+gglrContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglrContinentCode f x =
-    (\y -> x { _gglrContinentCode = y })
-       <$> f (_gglrContinentCode x)
+    f (_gglrContinentCode x)
+        <&> \y -> x { _gglrContinentCode = y }
 {-# INLINE gglrContinentCode #-}
 
 -- | The code for a country geo location. The default location uses '*' for the
 -- country code and will match all locations that are not matched by a geo
 -- location. The default geo location uses a * for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-gglrCountryCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetGeoLocation
-    -> f GetGeoLocation
+gglrCountryCode :: Lens' GetGeoLocation (Maybe Text)
 gglrCountryCode f x =
-    (\y -> x { _gglrCountryCode = y })
-       <$> f (_gglrCountryCode x)
+    f (_gglrCountryCode x)
+        <&> \y -> x { _gglrCountryCode = y }
 {-# INLINE gglrCountryCode #-}
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 -- Constraint: Specifying SubdivisionCode without CountryCode returns an
 -- InvalidInput error.
-gglrSubdivisionCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetGeoLocation
-    -> f GetGeoLocation
+gglrSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglrSubdivisionCode f x =
-    (\y -> x { _gglrSubdivisionCode = y })
-       <$> f (_gglrSubdivisionCode x)
+    f (_gglrSubdivisionCode x)
+        <&> \y -> x { _gglrSubdivisionCode = y }
 {-# INLINE gglrSubdivisionCode #-}
 
 instance ToPath GetGeoLocation where
@@ -134,15 +120,10 @@ data GetGeoLocationResponse = GetGeoLocationResponse
 
 -- | A complex type that contains the information about the specified geo
 -- location.
-gglsGeoLocationDetails
-    :: Functor f
-    => (GeoLocationDetails
-    -> f (GeoLocationDetails))
-    -> GetGeoLocationResponse
-    -> f GetGeoLocationResponse
+gglsGeoLocationDetails :: Lens' GetGeoLocationResponse (GeoLocationDetails)
 gglsGeoLocationDetails f x =
-    (\y -> x { _gglsGeoLocationDetails = y })
-       <$> f (_gglsGeoLocationDetails x)
+    f (_gglsGeoLocationDetails x)
+        <&> \y -> x { _gglsGeoLocationDetails = y }
 {-# INLINE gglsGeoLocationDetails #-}
 
 instance FromXML GetGeoLocationResponse where

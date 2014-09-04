@@ -61,6 +61,7 @@ setPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
     { _spaaiAttributes = p1
     , _spaaiPlatformApplicationArn = p2
     }
+{-# INLINE setPlatformApplicationAttributes #-}
 
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
     { _spaaiAttributes :: Map Text Text
@@ -100,27 +101,17 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
 -- Topic ARN to which DeliveryFailure event notifications should be sent upon
 -- Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
-spaaiAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> SetPlatformApplicationAttributes
-    -> f SetPlatformApplicationAttributes
+spaaiAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
 spaaiAttributes f x =
-    (\y -> x { _spaaiAttributes = y })
-       <$> f (_spaaiAttributes x)
+    f (_spaaiAttributes x)
+        <&> \y -> x { _spaaiAttributes = y }
 {-# INLINE spaaiAttributes #-}
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaaiPlatformApplicationArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetPlatformApplicationAttributes
-    -> f SetPlatformApplicationAttributes
+spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes (Text)
 spaaiPlatformApplicationArn f x =
-    (\y -> x { _spaaiPlatformApplicationArn = y })
-       <$> f (_spaaiPlatformApplicationArn x)
+    f (_spaaiPlatformApplicationArn x)
+        <&> \y -> x { _spaaiPlatformApplicationArn = y }
 {-# INLINE spaaiPlatformApplicationArn #-}
 
 instance ToQuery SetPlatformApplicationAttributes where

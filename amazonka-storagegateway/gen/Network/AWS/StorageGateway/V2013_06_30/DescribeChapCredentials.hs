@@ -60,6 +60,7 @@ describeChapCredentials :: Text -- ^ 'dccjTargetARN'
 describeChapCredentials p1 = DescribeChapCredentials
     { _dccjTargetARN = p1
     }
+{-# INLINE describeChapCredentials #-}
 
 data DescribeChapCredentials = DescribeChapCredentials
     { _dccjTargetARN :: Text
@@ -71,15 +72,10 @@ data DescribeChapCredentials = DescribeChapCredentials
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dccjTargetARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeChapCredentials
-    -> f DescribeChapCredentials
+dccjTargetARN :: Lens' DescribeChapCredentials (Text)
 dccjTargetARN f x =
-    (\y -> x { _dccjTargetARN = y })
-       <$> f (_dccjTargetARN x)
+    f (_dccjTargetARN x)
+        <&> \y -> x { _dccjTargetARN = y }
 {-# INLINE dccjTargetARN #-}
 
 instance ToPath DescribeChapCredentials
@@ -116,15 +112,10 @@ data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
 -- SecretToAuthenticateTarget: The secret key that the target must provide to
 -- participate in mutual CHAP with the initiator (e.g. Windows client).
 -- TargetARN: The Amazon Resource Name (ARN) of the storage volume.
-dccpChapCredentials
-    :: Functor f
-    => ([ChapInfo]
-    -> f ([ChapInfo]))
-    -> DescribeChapCredentialsResponse
-    -> f DescribeChapCredentialsResponse
+dccpChapCredentials :: Lens' DescribeChapCredentialsResponse ([ChapInfo])
 dccpChapCredentials f x =
-    (\y -> x { _dccpChapCredentials = y })
-       <$> f (_dccpChapCredentials x)
+    f (_dccpChapCredentials x)
+        <&> \y -> x { _dccpChapCredentials = y }
 {-# INLINE dccpChapCredentials #-}
 
 instance FromJSON DescribeChapCredentialsResponse

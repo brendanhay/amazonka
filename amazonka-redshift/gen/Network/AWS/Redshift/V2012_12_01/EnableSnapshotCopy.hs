@@ -49,6 +49,7 @@ enableSnapshotCopy p1 p2 = EnableSnapshotCopy
     , _escmDestinationRegion = p2
     , _escmRetentionPeriod = Nothing
     }
+{-# INLINE enableSnapshotCopy #-}
 
 data EnableSnapshotCopy = EnableSnapshotCopy
     { _escmClusterIdentifier :: Text
@@ -69,43 +70,28 @@ data EnableSnapshotCopy = EnableSnapshotCopy
 -- | The unique identifier of the source cluster to copy snapshots from.
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
-escmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableSnapshotCopy
-    -> f EnableSnapshotCopy
+escmClusterIdentifier :: Lens' EnableSnapshotCopy (Text)
 escmClusterIdentifier f x =
-    (\y -> x { _escmClusterIdentifier = y })
-       <$> f (_escmClusterIdentifier x)
+    f (_escmClusterIdentifier x)
+        <&> \y -> x { _escmClusterIdentifier = y }
 {-# INLINE escmClusterIdentifier #-}
 
 -- | The destination region that you want to copy snapshots to. Constraints:
 -- Must be the name of a valid region. For more information, see Regions and
 -- Endpoints in the Amazon Web Services General Reference.
-escmDestinationRegion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableSnapshotCopy
-    -> f EnableSnapshotCopy
+escmDestinationRegion :: Lens' EnableSnapshotCopy (Text)
 escmDestinationRegion f x =
-    (\y -> x { _escmDestinationRegion = y })
-       <$> f (_escmDestinationRegion x)
+    f (_escmDestinationRegion x)
+        <&> \y -> x { _escmDestinationRegion = y }
 {-# INLINE escmDestinationRegion #-}
 
 -- | The number of days to retain automated snapshots in the destination region
 -- after they are copied from the source region. Default: 7. Constraints: Must
 -- be at least 1 and no more than 35.
-escmRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> EnableSnapshotCopy
-    -> f EnableSnapshotCopy
+escmRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Integer)
 escmRetentionPeriod f x =
-    (\y -> x { _escmRetentionPeriod = y })
-       <$> f (_escmRetentionPeriod x)
+    f (_escmRetentionPeriod x)
+        <&> \y -> x { _escmRetentionPeriod = y }
 {-# INLINE escmRetentionPeriod #-}
 
 instance ToQuery EnableSnapshotCopy where
@@ -117,15 +103,10 @@ data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-czCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> EnableSnapshotCopyResponse
-    -> f EnableSnapshotCopyResponse
+czCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 czCluster f x =
-    (\y -> x { _czCluster = y })
-       <$> f (_czCluster x)
+    f (_czCluster x)
+        <&> \y -> x { _czCluster = y }
 {-# INLINE czCluster #-}
 
 instance FromXML EnableSnapshotCopyResponse where

@@ -61,6 +61,7 @@ purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
     { _prnomReservedNodeOfferingId = p1
     , _prnomNodeCount = Nothing
     }
+{-# INLINE purchaseReservedNodeOffering #-}
 
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     { _prnomReservedNodeOfferingId :: Text
@@ -71,27 +72,17 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     } deriving (Show, Generic)
 
 -- | The unique identifier of the reserved node offering you want to purchase.
-prnomReservedNodeOfferingId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PurchaseReservedNodeOffering
-    -> f PurchaseReservedNodeOffering
+prnomReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering (Text)
 prnomReservedNodeOfferingId f x =
-    (\y -> x { _prnomReservedNodeOfferingId = y })
-       <$> f (_prnomReservedNodeOfferingId x)
+    f (_prnomReservedNodeOfferingId x)
+        <&> \y -> x { _prnomReservedNodeOfferingId = y }
 {-# INLINE prnomReservedNodeOfferingId #-}
 
 -- | The number of reserved nodes you want to purchase. Default: 1.
-prnomNodeCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PurchaseReservedNodeOffering
-    -> f PurchaseReservedNodeOffering
+prnomNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Integer)
 prnomNodeCount f x =
-    (\y -> x { _prnomNodeCount = y })
-       <$> f (_prnomNodeCount x)
+    f (_prnomNodeCount x)
+        <&> \y -> x { _prnomNodeCount = y }
 {-# INLINE prnomNodeCount #-}
 
 instance ToQuery PurchaseReservedNodeOffering where
@@ -103,15 +94,10 @@ data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     } deriving (Show, Generic)
 
 -- | Describes a reserved node.
-rnwReservedNode
-    :: Functor f
-    => (Maybe ReservedNode
-    -> f (Maybe ReservedNode))
-    -> PurchaseReservedNodeOfferingResponse
-    -> f PurchaseReservedNodeOfferingResponse
+rnwReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 rnwReservedNode f x =
-    (\y -> x { _rnwReservedNode = y })
-       <$> f (_rnwReservedNode x)
+    f (_rnwReservedNode x)
+        <&> \y -> x { _rnwReservedNode = y }
 {-# INLINE rnwReservedNode #-}
 
 instance FromXML PurchaseReservedNodeOfferingResponse where

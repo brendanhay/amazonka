@@ -40,6 +40,7 @@ import qualified Network.AWS.Types.Map    as Map
 -- | Minimum specification for a 'DescribeLocations' request.
 describeLocations :: DescribeLocations
 describeLocations = DescribeLocations
+{-# INLINE describeLocations #-}
 
 data DescribeLocations = DescribeLocations
     deriving (Eq, Show, Generic)
@@ -56,15 +57,10 @@ data DescribeLocationsResponse = DescribeLocationsResponse
     { _lsLocations :: [Location]
     } deriving (Show, Generic)
 
-lsLocations
-    :: Functor f
-    => ([Location]
-    -> f ([Location]))
-    -> DescribeLocationsResponse
-    -> f DescribeLocationsResponse
+lsLocations :: Lens' DescribeLocationsResponse ([Location])
 lsLocations f x =
-    (\y -> x { _lsLocations = y })
-       <$> f (_lsLocations x)
+    f (_lsLocations x)
+        <&> \y -> x { _lsLocations = y }
 {-# INLINE lsLocations #-}
 
 instance FromJSON DescribeLocationsResponse

@@ -48,6 +48,7 @@ deleteCacheParameterGroup :: Text -- ^ 'dcpgmCacheParameterGroupName'
 deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     { _dcpgmCacheParameterGroupName = p1
     }
+{-# INLINE deleteCacheParameterGroup #-}
 
 data DeleteCacheParameterGroup = DeleteCacheParameterGroup
     { _dcpgmCacheParameterGroupName :: Text
@@ -58,15 +59,10 @@ data DeleteCacheParameterGroup = DeleteCacheParameterGroup
 
 -- | The name of the cache parameter group to delete. The specified cache
 -- security group must not be associated with any cache clusters.
-dcpgmCacheParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCacheParameterGroup
-    -> f DeleteCacheParameterGroup
+dcpgmCacheParameterGroupName :: Lens' DeleteCacheParameterGroup (Text)
 dcpgmCacheParameterGroupName f x =
-    (\y -> x { _dcpgmCacheParameterGroupName = y })
-       <$> f (_dcpgmCacheParameterGroupName x)
+    f (_dcpgmCacheParameterGroupName x)
+        <&> \y -> x { _dcpgmCacheParameterGroupName = y }
 {-# INLINE dcpgmCacheParameterGroupName #-}
 
 instance ToQuery DeleteCacheParameterGroup where

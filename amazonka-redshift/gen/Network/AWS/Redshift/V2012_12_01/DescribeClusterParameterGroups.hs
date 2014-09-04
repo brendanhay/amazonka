@@ -61,6 +61,7 @@ describeClusterParameterGroups = DescribeClusterParameterGroups
     , _dcpgnParameterGroupName = Nothing
     , _dcpgnMarker = Nothing
     }
+{-# INLINE describeClusterParameterGroups #-}
 
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgnMaxRecords :: Maybe Integer
@@ -89,29 +90,19 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcpgnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeClusterParameterGroups
-    -> f DescribeClusterParameterGroups
+dcpgnMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Integer)
 dcpgnMaxRecords f x =
-    (\y -> x { _dcpgnMaxRecords = y })
-       <$> f (_dcpgnMaxRecords x)
+    f (_dcpgnMaxRecords x)
+        <&> \y -> x { _dcpgnMaxRecords = y }
 {-# INLINE dcpgnMaxRecords #-}
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter group
 -- are returned.
-dcpgnParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterParameterGroups
-    -> f DescribeClusterParameterGroups
+dcpgnParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgnParameterGroupName f x =
-    (\y -> x { _dcpgnParameterGroupName = y })
-       <$> f (_dcpgnParameterGroupName x)
+    f (_dcpgnParameterGroupName x)
+        <&> \y -> x { _dcpgnParameterGroupName = y }
 {-# INLINE dcpgnParameterGroupName #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -120,15 +111,10 @@ dcpgnParameterGroupName f x =
 -- the Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
-dcpgnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterParameterGroups
-    -> f DescribeClusterParameterGroups
+dcpgnMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgnMarker f x =
-    (\y -> x { _dcpgnMarker = y })
-       <$> f (_dcpgnMarker x)
+    f (_dcpgnMarker x)
+        <&> \y -> x { _dcpgnMarker = y }
 {-# INLINE dcpgnMarker #-}
 
 instance ToQuery DescribeClusterParameterGroups where
@@ -149,15 +135,10 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-cpgmParameterGroups
-    :: Functor f
-    => ([ClusterParameterGroup]
-    -> f ([ClusterParameterGroup]))
-    -> DescribeClusterParameterGroupsResponse
-    -> f DescribeClusterParameterGroupsResponse
+cpgmParameterGroups :: Lens' DescribeClusterParameterGroupsResponse ([ClusterParameterGroup])
 cpgmParameterGroups f x =
-    (\y -> x { _cpgmParameterGroups = y })
-       <$> f (_cpgmParameterGroups x)
+    f (_cpgmParameterGroups x)
+        <&> \y -> x { _cpgmParameterGroups = y }
 {-# INLINE cpgmParameterGroups #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -165,15 +146,10 @@ cpgmParameterGroups f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-cpgmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterParameterGroupsResponse
-    -> f DescribeClusterParameterGroupsResponse
+cpgmMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 cpgmMarker f x =
-    (\y -> x { _cpgmMarker = y })
-       <$> f (_cpgmMarker x)
+    f (_cpgmMarker x)
+        <&> \y -> x { _cpgmMarker = y }
 {-# INLINE cpgmMarker #-}
 
 instance FromXML DescribeClusterParameterGroupsResponse where

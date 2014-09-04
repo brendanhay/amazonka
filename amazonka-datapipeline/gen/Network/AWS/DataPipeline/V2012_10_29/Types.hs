@@ -27,7 +27,6 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
       DataPipeline
     -- ** Errors
     , Er (..)
-
     -- * OperatorType
     , OperatorType (..)
 
@@ -246,15 +245,10 @@ newtype Query = Query
 
 -- | List of selectors that define the query. An object must satisfy all of the
 -- selectors to match the query.
-qySelectors
-    :: Functor f
-    => ([Selector]
-    -> f ([Selector]))
-    -> Query
-    -> f Query
+qySelectors :: Lens' Query ([Selector])
 qySelectors f x =
-    (\y -> x { _qySelectors = y })
-       <$> f (_qySelectors x)
+    f (_qySelectors x)
+        <&> \y -> x { _qySelectors = y }
 {-# INLINE qySelectors #-}
 
 instance ToJSON Query
@@ -272,39 +266,24 @@ data Field = Field
     } deriving (Show, Generic)
 
 -- | The field identifier.
-fKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Field
-    -> f Field
+fKey :: Lens' Field (Text)
 fKey f x =
-    (\y -> x { _fKey = y })
-       <$> f (_fKey x)
+    f (_fKey x)
+        <&> \y -> x { _fKey = y }
 {-# INLINE fKey #-}
 
 -- | The field value, expressed as a String.
-fStringValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Field
-    -> f Field
+fStringValue :: Lens' Field (Maybe Text)
 fStringValue f x =
-    (\y -> x { _fStringValue = y })
-       <$> f (_fStringValue x)
+    f (_fStringValue x)
+        <&> \y -> x { _fStringValue = y }
 {-# INLINE fStringValue #-}
 
 -- | The field value, expressed as the identifier of another object.
-fRefValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Field
-    -> f Field
+fRefValue :: Lens' Field (Maybe Text)
 fRefValue f x =
-    (\y -> x { _fRefValue = y })
-       <$> f (_fRefValue x)
+    f (_fRefValue x)
+        <&> \y -> x { _fRefValue = y }
 {-# INLINE fRefValue #-}
 
 instance FromJSON Field
@@ -333,28 +312,18 @@ data InstanceIdentity = InstanceIdentity
 -- | A description of an Amazon EC2 instance that is generated when the instance
 -- is launched and exposed to the instance via the instance metadata service
 -- in the form of a JSON representation of an object.
-ijDocument
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceIdentity
-    -> f InstanceIdentity
+ijDocument :: Lens' InstanceIdentity (Maybe Text)
 ijDocument f x =
-    (\y -> x { _ijDocument = y })
-       <$> f (_ijDocument x)
+    f (_ijDocument x)
+        <&> \y -> x { _ijDocument = y }
 {-# INLINE ijDocument #-}
 
 -- | A signature which can be used to verify the accuracy and authenticity of
 -- the information provided in the instance identity document.
-ijSignature
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceIdentity
-    -> f InstanceIdentity
+ijSignature :: Lens' InstanceIdentity (Maybe Text)
 ijSignature f x =
-    (\y -> x { _ijSignature = y })
-       <$> f (_ijSignature x)
+    f (_ijSignature x)
+        <&> \y -> x { _ijSignature = y }
 {-# INLINE ijSignature #-}
 
 instance ToJSON InstanceIdentity
@@ -399,27 +368,17 @@ data Operator = Operator
 -- alpha-numeric values, as symbols may be reserved by AWS Data Pipeline.
 -- User-defined fields that you add to a pipeline should prefix their name
 -- with the string "my".
-orType
-    :: Functor f
-    => (Maybe OperatorType
-    -> f (Maybe OperatorType))
-    -> Operator
-    -> f Operator
+orType :: Lens' Operator (Maybe OperatorType)
 orType f x =
-    (\y -> x { _orType = y })
-       <$> f (_orType x)
+    f (_orType x)
+        <&> \y -> x { _orType = y }
 {-# INLINE orType #-}
 
 -- | The value that the actual field value will be compared with.
-orValues
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Operator
-    -> f Operator
+orValues :: Lens' Operator ([Text])
 orValues f x =
-    (\y -> x { _orValues = y })
-       <$> f (_orValues x)
+    f (_orValues x)
+        <&> \y -> x { _orValues = y }
 {-# INLINE orValues #-}
 
 instance FromJSON Operator
@@ -442,52 +401,32 @@ data PipelineDescription = PipelineDescription
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
 -- string of the form df-297EG78HU43EEXAMPLE.
-pdPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PipelineDescription
-    -> f PipelineDescription
+pdPipelineId :: Lens' PipelineDescription (Text)
 pdPipelineId f x =
-    (\y -> x { _pdPipelineId = y })
-       <$> f (_pdPipelineId x)
+    f (_pdPipelineId x)
+        <&> \y -> x { _pdPipelineId = y }
 {-# INLINE pdPipelineId #-}
 
 -- | Name of the pipeline.
-pdName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PipelineDescription
-    -> f PipelineDescription
+pdName :: Lens' PipelineDescription (Text)
 pdName f x =
-    (\y -> x { _pdName = y })
-       <$> f (_pdName x)
+    f (_pdName x)
+        <&> \y -> x { _pdName = y }
 {-# INLINE pdName #-}
 
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- @userId, @accountId, and @pipelineState.
-pdFields
-    :: Functor f
-    => ([Field]
-    -> f ([Field]))
-    -> PipelineDescription
-    -> f PipelineDescription
+pdFields :: Lens' PipelineDescription ([Field])
 pdFields f x =
-    (\y -> x { _pdFields = y })
-       <$> f (_pdFields x)
+    f (_pdFields x)
+        <&> \y -> x { _pdFields = y }
 {-# INLINE pdFields #-}
 
 -- | Description of the pipeline.
-pdDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PipelineDescription
-    -> f PipelineDescription
+pdDescription :: Lens' PipelineDescription (Maybe Text)
 pdDescription f x =
-    (\y -> x { _pdDescription = y })
-       <$> f (_pdDescription x)
+    f (_pdDescription x)
+        <&> \y -> x { _pdDescription = y }
 {-# INLINE pdDescription #-}
 
 instance FromJSON PipelineDescription
@@ -503,27 +442,17 @@ data PipelineIdName = PipelineIdName
 
 -- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is
 -- a string of the form df-297EG78HU43EEXAMPLE.
-pinId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PipelineIdName
-    -> f PipelineIdName
+pinId :: Lens' PipelineIdName (Maybe Text)
 pinId f x =
-    (\y -> x { _pinId = y })
-       <$> f (_pinId x)
+    f (_pinId x)
+        <&> \y -> x { _pinId = y }
 {-# INLINE pinId #-}
 
 -- | Name of the pipeline.
-pinName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PipelineIdName
-    -> f PipelineIdName
+pinName :: Lens' PipelineIdName (Maybe Text)
 pinName f x =
-    (\y -> x { _pinName = y })
-       <$> f (_pinName x)
+    f (_pinName x)
+        <&> \y -> x { _pinName = y }
 {-# INLINE pinName #-}
 
 instance FromJSON PipelineIdName
@@ -541,39 +470,24 @@ data PipelineObject = PipelineObject
     } deriving (Show, Generic)
 
 -- | Identifier of the object.
-poId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PipelineObject
-    -> f PipelineObject
+poId :: Lens' PipelineObject (Text)
 poId f x =
-    (\y -> x { _poId = y })
-       <$> f (_poId x)
+    f (_poId x)
+        <&> \y -> x { _poId = y }
 {-# INLINE poId #-}
 
 -- | Name of the object.
-poName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PipelineObject
-    -> f PipelineObject
+poName :: Lens' PipelineObject (Text)
 poName f x =
-    (\y -> x { _poName = y })
-       <$> f (_poName x)
+    f (_poName x)
+        <&> \y -> x { _poName = y }
 {-# INLINE poName #-}
 
 -- | Key-value pairs that define the properties of the object.
-poFields
-    :: Functor f
-    => ([Field]
-    -> f ([Field]))
-    -> PipelineObject
-    -> f PipelineObject
+poFields :: Lens' PipelineObject ([Field])
 poFields f x =
-    (\y -> x { _poFields = y })
-       <$> f (_poFields x)
+    f (_poFields x)
+        <&> \y -> x { _poFields = y }
 {-# INLINE poFields #-}
 
 instance FromJSON PipelineObject
@@ -597,28 +511,18 @@ data Selector = Selector
 -- is the "key" portion of the field definition in the pipeline definition
 -- syntax that is used by the AWS Data Pipeline API. If the field is not set
 -- on the object, the condition fails.
-srFieldName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Selector
-    -> f Selector
+srFieldName :: Lens' Selector (Maybe Text)
 srFieldName f x =
-    (\y -> x { _srFieldName = y })
-       <$> f (_srFieldName x)
+    f (_srFieldName x)
+        <&> \y -> x { _srFieldName = y }
 {-# INLINE srFieldName #-}
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
-srOperator
-    :: Functor f
-    => (Maybe Operator
-    -> f (Maybe Operator))
-    -> Selector
-    -> f Selector
+srOperator :: Lens' Selector (Maybe Operator)
 srOperator f x =
-    (\y -> x { _srOperator = y })
-       <$> f (_srOperator x)
+    f (_srOperator x)
+        <&> \y -> x { _srOperator = y }
 {-# INLINE srOperator #-}
 
 instance ToJSON Selector
@@ -645,53 +549,33 @@ data TaskObject = TaskObject
 
 -- | An internal identifier for the task. This ID is passed to the SetTaskStatus
 -- and ReportTaskProgress actions.
-toTaskId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TaskObject
-    -> f TaskObject
+toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId f x =
-    (\y -> x { _toTaskId = y })
-       <$> f (_toTaskId x)
+    f (_toTaskId x)
+        <&> \y -> x { _toTaskId = y }
 {-# INLINE toTaskId #-}
 
 -- | Identifier of the pipeline that provided the task.
-toPipelineId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TaskObject
-    -> f TaskObject
+toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId f x =
-    (\y -> x { _toPipelineId = y })
-       <$> f (_toPipelineId x)
+    f (_toPipelineId x)
+        <&> \y -> x { _toPipelineId = y }
 {-# INLINE toPipelineId #-}
 
 -- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
-toAttemptId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TaskObject
-    -> f TaskObject
+toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId f x =
-    (\y -> x { _toAttemptId = y })
-       <$> f (_toAttemptId x)
+    f (_toAttemptId x)
+        <&> \y -> x { _toAttemptId = y }
 {-# INLINE toAttemptId #-}
 
 -- | Connection information for the location where the task runner will publish
 -- the output of the task.
-toObjects
-    :: Functor f
-    => (Map Text PipelineObject
-    -> f (Map Text PipelineObject))
-    -> TaskObject
-    -> f TaskObject
+toObjects :: Lens' TaskObject (Map Text PipelineObject)
 toObjects f x =
-    (\y -> x { _toObjects = y })
-       <$> f (_toObjects x)
+    f (_toObjects x)
+        <&> \y -> x { _toObjects = y }
 {-# INLINE toObjects #-}
 
 instance FromJSON TaskObject
@@ -708,27 +592,17 @@ data ValidationError = ValidationError
     } deriving (Show, Generic)
 
 -- | The identifier of the object that contains the validation error.
-vfId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidationError
-    -> f ValidationError
+vfId :: Lens' ValidationError (Maybe Text)
 vfId f x =
-    (\y -> x { _vfId = y })
-       <$> f (_vfId x)
+    f (_vfId x)
+        <&> \y -> x { _vfId = y }
 {-# INLINE vfId #-}
 
 -- | A description of the validation error.
-vfErrors
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ValidationError
-    -> f ValidationError
+vfErrors :: Lens' ValidationError ([Text])
 vfErrors f x =
-    (\y -> x { _vfErrors = y })
-       <$> f (_vfErrors x)
+    f (_vfErrors x)
+        <&> \y -> x { _vfErrors = y }
 {-# INLINE vfErrors #-}
 
 instance FromJSON ValidationError
@@ -746,27 +620,17 @@ data ValidationWarning = ValidationWarning
     } deriving (Show, Generic)
 
 -- | The identifier of the object that contains the validation warning.
-vxId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidationWarning
-    -> f ValidationWarning
+vxId :: Lens' ValidationWarning (Maybe Text)
 vxId f x =
-    (\y -> x { _vxId = y })
-       <$> f (_vxId x)
+    f (_vxId x)
+        <&> \y -> x { _vxId = y }
 {-# INLINE vxId #-}
 
 -- | A description of the validation warning.
-vxWarnings
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ValidationWarning
-    -> f ValidationWarning
+vxWarnings :: Lens' ValidationWarning ([Text])
 vxWarnings f x =
-    (\y -> x { _vxWarnings = y })
-       <$> f (_vxWarnings x)
+    f (_vxWarnings x)
+        <&> \y -> x { _vxWarnings = y }
 {-# INLINE vxWarnings #-}
 
 instance FromJSON ValidationWarning

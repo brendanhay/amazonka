@@ -55,6 +55,7 @@ addAttachmentsToSet p1 = AddAttachmentsToSet
     { _aatsrAttachments = p1
     , _aatsrAttachmentSetId = Nothing
     }
+{-# INLINE addAttachmentsToSet #-}
 
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsrAttachments :: [Attachment]
@@ -69,30 +70,20 @@ data AddAttachmentsToSet = AddAttachmentsToSet
 
 -- | One or more attachments to add to the set. The limit is 3 attachments per
 -- set, and the size limit is 5 MB per attachment.
-aatsrAttachments
-    :: Functor f
-    => ([Attachment]
-    -> f ([Attachment]))
-    -> AddAttachmentsToSet
-    -> f AddAttachmentsToSet
+aatsrAttachments :: Lens' AddAttachmentsToSet ([Attachment])
 aatsrAttachments f x =
-    (\y -> x { _aatsrAttachments = y })
-       <$> f (_aatsrAttachments x)
+    f (_aatsrAttachments x)
+        <&> \y -> x { _aatsrAttachments = y }
 {-# INLINE aatsrAttachments #-}
 
 -- | The ID of the attachment set. If an AttachmentSetId is not specified, a new
 -- attachment set is created, and the ID of the set is returned in the
 -- response. If an AttachmentSetId is specified, the attachments are added to
 -- the specified set, if it exists.
-aatsrAttachmentSetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddAttachmentsToSet
-    -> f AddAttachmentsToSet
+aatsrAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
 aatsrAttachmentSetId f x =
-    (\y -> x { _aatsrAttachmentSetId = y })
-       <$> f (_aatsrAttachmentSetId x)
+    f (_aatsrAttachmentSetId x)
+        <&> \y -> x { _aatsrAttachmentSetId = y }
 {-# INLINE aatsrAttachmentSetId #-}
 
 instance ToPath AddAttachmentsToSet
@@ -117,27 +108,17 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
 -- new attachment set is created, and the ID of the set is returned in the
 -- response. If an AttachmentSetId was specified, the attachments are added to
 -- the specified set, if it exists.
-aatssAttachmentSetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddAttachmentsToSetResponse
-    -> f AddAttachmentsToSetResponse
+aatssAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatssAttachmentSetId f x =
-    (\y -> x { _aatssAttachmentSetId = y })
-       <$> f (_aatssAttachmentSetId x)
+    f (_aatssAttachmentSetId x)
+        <&> \y -> x { _aatssAttachmentSetId = y }
 {-# INLINE aatssAttachmentSetId #-}
 
 -- | The time and date when the attachment set expires.
-aatssExpiryTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddAttachmentsToSetResponse
-    -> f AddAttachmentsToSetResponse
+aatssExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatssExpiryTime f x =
-    (\y -> x { _aatssExpiryTime = y })
-       <$> f (_aatssExpiryTime x)
+    f (_aatssExpiryTime x)
+        <&> \y -> x { _aatssExpiryTime = y }
 {-# INLINE aatssExpiryTime #-}
 
 instance FromJSON AddAttachmentsToSetResponse

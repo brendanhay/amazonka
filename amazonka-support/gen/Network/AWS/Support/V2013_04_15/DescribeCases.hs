@@ -67,6 +67,7 @@ describeCases = DescribeCases
     , _dcrMaxResults = Nothing
     , _dcrNextToken = Nothing
     }
+{-# INLINE describeCases #-}
 
 data DescribeCases = DescribeCases
     { _dcrAfterTime :: Maybe Text
@@ -102,117 +103,72 @@ data DescribeCases = DescribeCases
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dcrAfterTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCases
-    -> f DescribeCases
+dcrAfterTime :: Lens' DescribeCases (Maybe Text)
 dcrAfterTime f x =
-    (\y -> x { _dcrAfterTime = y })
-       <$> f (_dcrAfterTime x)
+    f (_dcrAfterTime x)
+        <&> \y -> x { _dcrAfterTime = y }
 {-# INLINE dcrAfterTime #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dcrBeforeTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCases
-    -> f DescribeCases
+dcrBeforeTime :: Lens' DescribeCases (Maybe Text)
 dcrBeforeTime f x =
-    (\y -> x { _dcrBeforeTime = y })
-       <$> f (_dcrBeforeTime x)
+    f (_dcrBeforeTime x)
+        <&> \y -> x { _dcrBeforeTime = y }
 {-# INLINE dcrBeforeTime #-}
 
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
-dcrCaseIdList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeCases
-    -> f DescribeCases
+dcrCaseIdList :: Lens' DescribeCases ([Text])
 dcrCaseIdList f x =
-    (\y -> x { _dcrCaseIdList = y })
-       <$> f (_dcrCaseIdList x)
+    f (_dcrCaseIdList x)
+        <&> \y -> x { _dcrCaseIdList = y }
 {-# INLINE dcrCaseIdList #-}
 
 -- | The ID displayed for a case in the AWS Support Center user interface.
-dcrDisplayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCases
-    -> f DescribeCases
+dcrDisplayId :: Lens' DescribeCases (Maybe Text)
 dcrDisplayId f x =
-    (\y -> x { _dcrDisplayId = y })
-       <$> f (_dcrDisplayId x)
+    f (_dcrDisplayId x)
+        <&> \y -> x { _dcrDisplayId = y }
 {-# INLINE dcrDisplayId #-}
 
 -- | Specifies whether communications should be included in the DescribeCases
 -- results. The default is true.
-dcrIncludeCommunications
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeCases
-    -> f DescribeCases
+dcrIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
 dcrIncludeCommunications f x =
-    (\y -> x { _dcrIncludeCommunications = y })
-       <$> f (_dcrIncludeCommunications x)
+    f (_dcrIncludeCommunications x)
+        <&> \y -> x { _dcrIncludeCommunications = y }
 {-# INLINE dcrIncludeCommunications #-}
 
 -- | Specifies whether resolved support cases should be included in the
 -- DescribeCases results. The default is false.
-dcrIncludeResolvedCases
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeCases
-    -> f DescribeCases
+dcrIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
 dcrIncludeResolvedCases f x =
-    (\y -> x { _dcrIncludeResolvedCases = y })
-       <$> f (_dcrIncludeResolvedCases x)
+    f (_dcrIncludeResolvedCases x)
+        <&> \y -> x { _dcrIncludeResolvedCases = y }
 {-# INLINE dcrIncludeResolvedCases #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dcrLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCases
-    -> f DescribeCases
+dcrLanguage :: Lens' DescribeCases (Maybe Text)
 dcrLanguage f x =
-    (\y -> x { _dcrLanguage = y })
-       <$> f (_dcrLanguage x)
+    f (_dcrLanguage x)
+        <&> \y -> x { _dcrLanguage = y }
 {-# INLINE dcrLanguage #-}
 
 -- | The maximum number of results to return before paginating.
-dcrMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCases
-    -> f DescribeCases
+dcrMaxResults :: Lens' DescribeCases (Maybe Integer)
 dcrMaxResults f x =
-    (\y -> x { _dcrMaxResults = y })
-       <$> f (_dcrMaxResults x)
+    f (_dcrMaxResults x)
+        <&> \y -> x { _dcrMaxResults = y }
 {-# INLINE dcrMaxResults #-}
 
 -- | A resumption point for pagination.
-dcrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCases
-    -> f DescribeCases
+dcrNextToken :: Lens' DescribeCases (Maybe Text)
 dcrNextToken f x =
-    (\y -> x { _dcrNextToken = y })
-       <$> f (_dcrNextToken x)
+    f (_dcrNextToken x)
+        <&> \y -> x { _dcrNextToken = y }
 {-# INLINE dcrNextToken #-}
 
 instance ToPath DescribeCases
@@ -231,27 +187,17 @@ data DescribeCasesResponse = DescribeCasesResponse
     } deriving (Show, Generic)
 
 -- | The details for the cases that match the request.
-dcsCases
-    :: Functor f
-    => ([CaseDetails]
-    -> f ([CaseDetails]))
-    -> DescribeCasesResponse
-    -> f DescribeCasesResponse
+dcsCases :: Lens' DescribeCasesResponse ([CaseDetails])
 dcsCases f x =
-    (\y -> x { _dcsCases = y })
-       <$> f (_dcsCases x)
+    f (_dcsCases x)
+        <&> \y -> x { _dcsCases = y }
 {-# INLINE dcsCases #-}
 
 -- | A resumption point for pagination.
-dcsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCasesResponse
-    -> f DescribeCasesResponse
+dcsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 dcsNextToken f x =
-    (\y -> x { _dcsNextToken = y })
-       <$> f (_dcsNextToken x)
+    f (_dcsNextToken x)
+        <&> \y -> x { _dcsNextToken = y }
 {-# INLINE dcsNextToken #-}
 
 instance FromJSON DescribeCasesResponse

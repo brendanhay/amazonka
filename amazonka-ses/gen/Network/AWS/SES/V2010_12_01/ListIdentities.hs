@@ -57,6 +57,7 @@ listIdentities = ListIdentities
     , _lirMaxItems = Nothing
     , _lirNextToken = Nothing
     }
+{-# INLINE listIdentities #-}
 
 data ListIdentities = ListIdentities
     { _lirIdentityType :: Maybe IdentityType
@@ -72,40 +73,25 @@ data ListIdentities = ListIdentities
 
 -- | The type of the identities to list. Possible values are "EmailAddress" and
 -- "Domain". If this parameter is omitted, then all identities will be listed.
-lirIdentityType
-    :: Functor f
-    => (Maybe IdentityType
-    -> f (Maybe IdentityType))
-    -> ListIdentities
-    -> f ListIdentities
+lirIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 lirIdentityType f x =
-    (\y -> x { _lirIdentityType = y })
-       <$> f (_lirIdentityType x)
+    f (_lirIdentityType x)
+        <&> \y -> x { _lirIdentityType = y }
 {-# INLINE lirIdentityType #-}
 
 -- | The maximum number of identities per page. Possible values are 1-100
 -- inclusive.
-lirMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListIdentities
-    -> f ListIdentities
+lirMaxItems :: Lens' ListIdentities (Maybe Integer)
 lirMaxItems f x =
-    (\y -> x { _lirMaxItems = y })
-       <$> f (_lirMaxItems x)
+    f (_lirMaxItems x)
+        <&> \y -> x { _lirMaxItems = y }
 {-# INLINE lirMaxItems #-}
 
 -- | The token to use for pagination.
-lirNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentities
-    -> f ListIdentities
+lirNextToken :: Lens' ListIdentities (Maybe Text)
 lirNextToken f x =
-    (\y -> x { _lirNextToken = y })
-       <$> f (_lirNextToken x)
+    f (_lirNextToken x)
+        <&> \y -> x { _lirNextToken = y }
 {-# INLINE lirNextToken #-}
 
 instance ToQuery ListIdentities where
@@ -119,27 +105,17 @@ data ListIdentitiesResponse = ListIdentitiesResponse
     } deriving (Show, Generic)
 
 -- | A list of identities.
-lisIdentities
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListIdentitiesResponse
-    -> f ListIdentitiesResponse
+lisIdentities :: Lens' ListIdentitiesResponse ([Text])
 lisIdentities f x =
-    (\y -> x { _lisIdentities = y })
-       <$> f (_lisIdentities x)
+    f (_lisIdentities x)
+        <&> \y -> x { _lisIdentities = y }
 {-# INLINE lisIdentities #-}
 
 -- | The token used for pagination.
-lisNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentitiesResponse
-    -> f ListIdentitiesResponse
+lisNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lisNextToken f x =
-    (\y -> x { _lisNextToken = y })
-       <$> f (_lisNextToken x)
+    f (_lisNextToken x)
+        <&> \y -> x { _lisNextToken = y }
 {-# INLINE lisNextToken #-}
 
 instance FromXML ListIdentitiesResponse where

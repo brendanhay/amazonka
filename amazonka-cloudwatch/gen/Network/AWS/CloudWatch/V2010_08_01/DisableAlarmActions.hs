@@ -43,6 +43,7 @@ disableAlarmActions :: [Text] -- ^ 'daaiAlarmNames'
 disableAlarmActions p1 = DisableAlarmActions
     { _daaiAlarmNames = p1
     }
+{-# INLINE disableAlarmActions #-}
 
 data DisableAlarmActions = DisableAlarmActions
     { _daaiAlarmNames :: [Text]
@@ -50,15 +51,10 @@ data DisableAlarmActions = DisableAlarmActions
     } deriving (Show, Generic)
 
 -- | The names of the alarms to disable actions for.
-daaiAlarmNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DisableAlarmActions
-    -> f DisableAlarmActions
+daaiAlarmNames :: Lens' DisableAlarmActions ([Text])
 daaiAlarmNames f x =
-    (\y -> x { _daaiAlarmNames = y })
-       <$> f (_daaiAlarmNames x)
+    f (_daaiAlarmNames x)
+        <&> \y -> x { _daaiAlarmNames = y }
 {-# INLINE daaiAlarmNames #-}
 
 instance ToQuery DisableAlarmActions where

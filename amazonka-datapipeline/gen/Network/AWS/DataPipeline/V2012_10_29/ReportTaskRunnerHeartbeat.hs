@@ -60,6 +60,7 @@ reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
     , _rtrhiHostname = Nothing
     , _rtrhiWorkerGroup = Nothing
     }
+{-# INLINE reportTaskRunnerHeartbeat #-}
 
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
     { _rtrhiTaskrunnerId :: Text
@@ -86,27 +87,17 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
 -- resource managed by AWS Data Pipeline, the web service provides a unique
 -- identifier when it launches the application. If you have written a custom
 -- task runner, you should assign a unique identifier for the task runner.
-rtrhiTaskrunnerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReportTaskRunnerHeartbeat
-    -> f ReportTaskRunnerHeartbeat
+rtrhiTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat (Text)
 rtrhiTaskrunnerId f x =
-    (\y -> x { _rtrhiTaskrunnerId = y })
-       <$> f (_rtrhiTaskrunnerId x)
+    f (_rtrhiTaskrunnerId x)
+        <&> \y -> x { _rtrhiTaskrunnerId = y }
 {-# INLINE rtrhiTaskrunnerId #-}
 
 -- | The public DNS name of the calling task runner.
-rtrhiHostname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReportTaskRunnerHeartbeat
-    -> f ReportTaskRunnerHeartbeat
+rtrhiHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhiHostname f x =
-    (\y -> x { _rtrhiHostname = y })
-       <$> f (_rtrhiHostname x)
+    f (_rtrhiHostname x)
+        <&> \y -> x { _rtrhiHostname = y }
 {-# INLINE rtrhiHostname #-}
 
 -- | Indicates the type of task the task runner is configured to accept and
@@ -115,15 +106,10 @@ rtrhiHostname f x =
 -- the call to ReportTaskRunnerHeartbeat. There are no wildcard values
 -- permitted in workerGroup, the string must be an exact, case-sensitive,
 -- match.
-rtrhiWorkerGroup
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReportTaskRunnerHeartbeat
-    -> f ReportTaskRunnerHeartbeat
+rtrhiWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhiWorkerGroup f x =
-    (\y -> x { _rtrhiWorkerGroup = y })
-       <$> f (_rtrhiWorkerGroup x)
+    f (_rtrhiWorkerGroup x)
+        <&> \y -> x { _rtrhiWorkerGroup = y }
 {-# INLINE rtrhiWorkerGroup #-}
 
 instance ToPath ReportTaskRunnerHeartbeat
@@ -143,15 +129,10 @@ data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
 
 -- | Indicates whether the calling task runner should terminate. If True, the
 -- task runner that called ReportTaskRunnerHeartbeat should terminate.
-rtrhoTerminate
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ReportTaskRunnerHeartbeatResponse
-    -> f ReportTaskRunnerHeartbeatResponse
+rtrhoTerminate :: Lens' ReportTaskRunnerHeartbeatResponse (Bool)
 rtrhoTerminate f x =
-    (\y -> x { _rtrhoTerminate = y })
-       <$> f (_rtrhoTerminate x)
+    f (_rtrhoTerminate x)
+        <&> \y -> x { _rtrhoTerminate = y }
 {-# INLINE rtrhoTerminate #-}
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse

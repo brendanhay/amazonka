@@ -52,6 +52,7 @@ updateScalingParameters p1 p2 = UpdateScalingParameters
     { _usprDomainName = p1
     , _usprScalingParameters = p2
     }
+{-# INLINE updateScalingParameters #-}
 
 data UpdateScalingParameters = UpdateScalingParameters
     { _usprDomainName :: Text
@@ -69,28 +70,18 @@ data UpdateScalingParameters = UpdateScalingParameters
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-usprDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateScalingParameters
-    -> f UpdateScalingParameters
+usprDomainName :: Lens' UpdateScalingParameters (Text)
 usprDomainName f x =
-    (\y -> x { _usprDomainName = y })
-       <$> f (_usprDomainName x)
+    f (_usprDomainName x)
+        <&> \y -> x { _usprDomainName = y }
 {-# INLINE usprDomainName #-}
 
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
-usprScalingParameters
-    :: Functor f
-    => (ScalingParameters
-    -> f (ScalingParameters))
-    -> UpdateScalingParameters
-    -> f UpdateScalingParameters
+usprScalingParameters :: Lens' UpdateScalingParameters (ScalingParameters)
 usprScalingParameters f x =
-    (\y -> x { _usprScalingParameters = y })
-       <$> f (_usprScalingParameters x)
+    f (_usprScalingParameters x)
+        <&> \y -> x { _usprScalingParameters = y }
 {-# INLINE usprScalingParameters #-}
 
 instance ToQuery UpdateScalingParameters where
@@ -103,15 +94,10 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse
     } deriving (Show, Generic)
 
 -- | The status and configuration of a search domain's scaling parameters.
-uspsScalingParameters
-    :: Functor f
-    => (ScalingParametersStatus
-    -> f (ScalingParametersStatus))
-    -> UpdateScalingParametersResponse
-    -> f UpdateScalingParametersResponse
+uspsScalingParameters :: Lens' UpdateScalingParametersResponse (ScalingParametersStatus)
 uspsScalingParameters f x =
-    (\y -> x { _uspsScalingParameters = y })
-       <$> f (_uspsScalingParameters x)
+    f (_uspsScalingParameters x)
+        <&> \y -> x { _uspsScalingParameters = y }
 {-# INLINE uspsScalingParameters #-}
 
 instance FromXML UpdateScalingParametersResponse where

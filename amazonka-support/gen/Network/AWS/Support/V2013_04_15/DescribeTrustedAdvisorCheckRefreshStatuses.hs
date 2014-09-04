@@ -46,6 +46,7 @@ describeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsrCheckIds'
 describeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsrCheckIds = p1
     }
+{-# INLINE describeTrustedAdvisorCheckRefreshStatuses #-}
 
 data DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsrCheckIds :: [Text]
@@ -53,15 +54,10 @@ data DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRef
     } deriving (Show, Generic)
 
 -- | The IDs of the Trusted Advisor checks.
-dtacrsrCheckIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTrustedAdvisorCheckRefreshStatuses
-    -> f DescribeTrustedAdvisorCheckRefreshStatuses
+dtacrsrCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses ([Text])
 dtacrsrCheckIds f x =
-    (\y -> x { _dtacrsrCheckIds = y })
-       <$> f (_dtacrsrCheckIds x)
+    f (_dtacrsrCheckIds x)
+        <&> \y -> x { _dtacrsrCheckIds = y }
 {-# INLINE dtacrsrCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses
@@ -78,15 +74,10 @@ data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisor
     } deriving (Show, Generic)
 
 -- | The refresh status of the specified Trusted Advisor checks.
-dtacrssStatuses
-    :: Functor f
-    => ([TrustedAdvisorCheckRefreshStatus]
-    -> f ([TrustedAdvisorCheckRefreshStatus]))
-    -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    -> f DescribeTrustedAdvisorCheckRefreshStatusesResponse
+dtacrssStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse ([TrustedAdvisorCheckRefreshStatus])
 dtacrssStatuses f x =
-    (\y -> x { _dtacrssStatuses = y })
-       <$> f (_dtacrssStatuses x)
+    f (_dtacrssStatuses x)
+        <&> \y -> x { _dtacrssStatuses = y }
 {-# INLINE dtacrssStatuses #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse

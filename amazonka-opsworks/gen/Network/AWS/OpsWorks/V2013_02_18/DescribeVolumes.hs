@@ -53,6 +53,7 @@ describeVolumes = DescribeVolumes
     , _dvsRaidArrayId = Nothing
     , _dvsVolumeIds = mempty
     }
+{-# INLINE describeVolumes #-}
 
 data DescribeVolumes = DescribeVolumes
     { _dvsInstanceId :: Maybe Text
@@ -74,54 +75,34 @@ data DescribeVolumes = DescribeVolumes
 
 -- | The instance ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified instance.
-dvsInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVolumes
-    -> f DescribeVolumes
+dvsInstanceId :: Lens' DescribeVolumes (Maybe Text)
 dvsInstanceId f x =
-    (\y -> x { _dvsInstanceId = y })
-       <$> f (_dvsInstanceId x)
+    f (_dvsInstanceId x)
+        <&> \y -> x { _dvsInstanceId = y }
 {-# INLINE dvsInstanceId #-}
 
 -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
-dvsStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVolumes
-    -> f DescribeVolumes
+dvsStackId :: Lens' DescribeVolumes (Maybe Text)
 dvsStackId f x =
-    (\y -> x { _dvsStackId = y })
-       <$> f (_dvsStackId x)
+    f (_dvsStackId x)
+        <&> \y -> x { _dvsStackId = y }
 {-# INLINE dvsStackId #-}
 
 -- | The RAID array ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified RAID array.
-dvsRaidArrayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVolumes
-    -> f DescribeVolumes
+dvsRaidArrayId :: Lens' DescribeVolumes (Maybe Text)
 dvsRaidArrayId f x =
-    (\y -> x { _dvsRaidArrayId = y })
-       <$> f (_dvsRaidArrayId x)
+    f (_dvsRaidArrayId x)
+        <&> \y -> x { _dvsRaidArrayId = y }
 {-# INLINE dvsRaidArrayId #-}
 
 -- | Am array of volume IDs. If you use this parameter, DescribeVolumes returns
 -- descriptions of the specified volumes. Otherwise, it returns a description
 -- of every volume.
-dvsVolumeIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVolumes
-    -> f DescribeVolumes
+dvsVolumeIds :: Lens' DescribeVolumes ([Text])
 dvsVolumeIds f x =
-    (\y -> x { _dvsVolumeIds = y })
-       <$> f (_dvsVolumeIds x)
+    f (_dvsVolumeIds x)
+        <&> \y -> x { _dvsVolumeIds = y }
 {-# INLINE dvsVolumeIds #-}
 
 instance ToPath DescribeVolumes
@@ -138,15 +119,10 @@ data DescribeVolumesResponse = DescribeVolumesResponse
     } deriving (Show, Generic)
 
 -- | An array of volume IDs.
-dvtVolumes
-    :: Functor f
-    => ([Volume]
-    -> f ([Volume]))
-    -> DescribeVolumesResponse
-    -> f DescribeVolumesResponse
+dvtVolumes :: Lens' DescribeVolumesResponse ([Volume])
 dvtVolumes f x =
-    (\y -> x { _dvtVolumes = y })
-       <$> f (_dvtVolumes x)
+    f (_dvtVolumes x)
+        <&> \y -> x { _dvtVolumes = y }
 {-# INLINE dvtVolumes #-}
 
 instance FromJSON DescribeVolumesResponse

@@ -63,6 +63,7 @@ listStackResources p1 = ListStackResources
     { _lsriStackName = p1
     , _lsriNextToken = Nothing
     }
+{-# INLINE listStackResources #-}
 
 data ListStackResources = ListStackResources
     { _lsriStackName :: Text
@@ -81,28 +82,18 @@ data ListStackResources = ListStackResources
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-lsriStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListStackResources
-    -> f ListStackResources
+lsriStackName :: Lens' ListStackResources (Text)
 lsriStackName f x =
-    (\y -> x { _lsriStackName = y })
-       <$> f (_lsriStackName x)
+    f (_lsriStackName x)
+        <&> \y -> x { _lsriStackName = y }
 {-# INLINE lsriStackName #-}
 
 -- | String that identifies the start of the next list of stack resource
 -- summaries, if there is one. Default: There is no default value.
-lsriNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStackResources
-    -> f ListStackResources
+lsriNextToken :: Lens' ListStackResources (Maybe Text)
 lsriNextToken f x =
-    (\y -> x { _lsriNextToken = y })
-       <$> f (_lsriNextToken x)
+    f (_lsriNextToken x)
+        <&> \y -> x { _lsriNextToken = y }
 {-# INLINE lsriNextToken #-}
 
 instance ToQuery ListStackResources where
@@ -118,27 +109,17 @@ data ListStackResourcesResponse = ListStackResourcesResponse
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
-lsroNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStackResourcesResponse
-    -> f ListStackResourcesResponse
+lsroNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsroNextToken f x =
-    (\y -> x { _lsroNextToken = y })
-       <$> f (_lsroNextToken x)
+    f (_lsroNextToken x)
+        <&> \y -> x { _lsroNextToken = y }
 {-# INLINE lsroNextToken #-}
 
 -- | A list of StackResourceSummary structures.
-lsroStackResourceSummaries
-    :: Functor f
-    => ([StackResourceSummary]
-    -> f ([StackResourceSummary]))
-    -> ListStackResourcesResponse
-    -> f ListStackResourcesResponse
+lsroStackResourceSummaries :: Lens' ListStackResourcesResponse ([StackResourceSummary])
 lsroStackResourceSummaries f x =
-    (\y -> x { _lsroStackResourceSummaries = y })
-       <$> f (_lsroStackResourceSummaries x)
+    f (_lsroStackResourceSummaries x)
+        <&> \y -> x { _lsroStackResourceSummaries = y }
 {-# INLINE lsroStackResourceSummaries #-}
 
 instance FromXML ListStackResourcesResponse where

@@ -69,20 +69,16 @@ describeCachediSCSIVolumes :: [Text] -- ^ 'dcscsiviVolumeARNs'
 describeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
     { _dcscsiviVolumeARNs = p1
     }
+{-# INLINE describeCachediSCSIVolumes #-}
 
 data DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
     { _dcscsiviVolumeARNs :: [Text]
     } deriving (Show, Generic)
 
-dcscsiviVolumeARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeCachediSCSIVolumes
-    -> f DescribeCachediSCSIVolumes
+dcscsiviVolumeARNs :: Lens' DescribeCachediSCSIVolumes ([Text])
 dcscsiviVolumeARNs f x =
-    (\y -> x { _dcscsiviVolumeARNs = y })
-       <$> f (_dcscsiviVolumeARNs x)
+    f (_dcscsiviVolumeARNs x)
+        <&> \y -> x { _dcscsiviVolumeARNs = y }
 {-# INLINE dcscsiviVolumeARNs #-}
 
 instance ToPath DescribeCachediSCSIVolumes
@@ -101,15 +97,10 @@ data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
-dcscsivoCachediSCSIVolumes
-    :: Functor f
-    => ([CachediSCSIVolumeInformation]
-    -> f ([CachediSCSIVolumeInformation]))
-    -> DescribeCachediSCSIVolumesResponse
-    -> f DescribeCachediSCSIVolumesResponse
+dcscsivoCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse ([CachediSCSIVolumeInformation])
 dcscsivoCachediSCSIVolumes f x =
-    (\y -> x { _dcscsivoCachediSCSIVolumes = y })
-       <$> f (_dcscsivoCachediSCSIVolumes x)
+    f (_dcscsivoCachediSCSIVolumes x)
+        <&> \y -> x { _dcscsivoCachediSCSIVolumes = y }
 {-# INLINE dcscsivoCachediSCSIVolumes #-}
 
 instance FromJSON DescribeCachediSCSIVolumesResponse

@@ -66,6 +66,7 @@ addWorkingStorage p1 p2 = AddWorkingStorage
     { _awsiDiskIds = p1
     , _awsiGatewayARN = p2
     }
+{-# INLINE addWorkingStorage #-}
 
 data AddWorkingStorage = AddWorkingStorage
     { _awsiDiskIds :: [Text]
@@ -82,28 +83,18 @@ data AddWorkingStorage = AddWorkingStorage
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string have a minimum length of 1 and maximum length
 -- of 300. You can get the disk IDs from the ListLocalDisks API.
-awsiDiskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddWorkingStorage
-    -> f AddWorkingStorage
+awsiDiskIds :: Lens' AddWorkingStorage ([Text])
 awsiDiskIds f x =
-    (\y -> x { _awsiDiskIds = y })
-       <$> f (_awsiDiskIds x)
+    f (_awsiDiskIds x)
+        <&> \y -> x { _awsiDiskIds = y }
 {-# INLINE awsiDiskIds #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-awsiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddWorkingStorage
-    -> f AddWorkingStorage
+awsiGatewayARN :: Lens' AddWorkingStorage (Text)
 awsiGatewayARN f x =
-    (\y -> x { _awsiGatewayARN = y })
-       <$> f (_awsiGatewayARN x)
+    f (_awsiGatewayARN x)
+        <&> \y -> x { _awsiGatewayARN = y }
 {-# INLINE awsiGatewayARN #-}
 
 instance ToPath AddWorkingStorage
@@ -123,15 +114,10 @@ data AddWorkingStorageResponse = AddWorkingStorageResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-awsoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddWorkingStorageResponse
-    -> f AddWorkingStorageResponse
+awsoGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsoGatewayARN f x =
-    (\y -> x { _awsoGatewayARN = y })
-       <$> f (_awsoGatewayARN x)
+    f (_awsoGatewayARN x)
+        <&> \y -> x { _awsoGatewayARN = y }
 {-# INLINE awsoGatewayARN #-}
 
 instance FromJSON AddWorkingStorageResponse

@@ -24,6 +24,8 @@ module Network.AWS.S3.V2006_03_01.ListObjects
     (
     -- * Request
       ListObjects
+    -- ** Request alias
+    , GetBucket
     -- ** Request constructor
     , listObjects
     -- ** Request lenses

@@ -70,6 +70,7 @@ describeMetricFilters p1 = DescribeMetricFilters
     , _dmfsFilterNamePrefix = Nothing
     , _dmfsNextToken = Nothing
     }
+{-# INLINE describeMetricFilters #-}
 
 data DescribeMetricFilters = DescribeMetricFilters
     { _dmfsLogGroupName :: Text
@@ -84,54 +85,34 @@ data DescribeMetricFilters = DescribeMetricFilters
       -- previous DescribeMetricFilters request.
     } deriving (Show, Generic)
 
-dmfsLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeMetricFilters
-    -> f DescribeMetricFilters
+dmfsLogGroupName :: Lens' DescribeMetricFilters (Text)
 dmfsLogGroupName f x =
-    (\y -> x { _dmfsLogGroupName = y })
-       <$> f (_dmfsLogGroupName x)
+    f (_dmfsLogGroupName x)
+        <&> \y -> x { _dmfsLogGroupName = y }
 {-# INLINE dmfsLogGroupName #-}
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
-dmfsLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeMetricFilters
-    -> f DescribeMetricFilters
+dmfsLimit :: Lens' DescribeMetricFilters (Maybe Integer)
 dmfsLimit f x =
-    (\y -> x { _dmfsLimit = y })
-       <$> f (_dmfsLimit x)
+    f (_dmfsLimit x)
+        <&> \y -> x { _dmfsLimit = y }
 {-# INLINE dmfsLimit #-}
 
 -- | The name of the metric filter.
-dmfsFilterNamePrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeMetricFilters
-    -> f DescribeMetricFilters
+dmfsFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
 dmfsFilterNamePrefix f x =
-    (\y -> x { _dmfsFilterNamePrefix = y })
-       <$> f (_dmfsFilterNamePrefix x)
+    f (_dmfsFilterNamePrefix x)
+        <&> \y -> x { _dmfsFilterNamePrefix = y }
 {-# INLINE dmfsFilterNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeMetricFilters request.
-dmfsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeMetricFilters
-    -> f DescribeMetricFilters
+dmfsNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfsNextToken f x =
-    (\y -> x { _dmfsNextToken = y })
-       <$> f (_dmfsNextToken x)
+    f (_dmfsNextToken x)
+        <&> \y -> x { _dmfsNextToken = y }
 {-# INLINE dmfsNextToken #-}
 
 instance ToPath DescribeMetricFilters
@@ -150,29 +131,19 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
       -- previous request. The token expires after 24 hours.
     } deriving (Show, Generic)
 
-dmftMetricFilters
-    :: Functor f
-    => ([MetricFilter]
-    -> f ([MetricFilter]))
-    -> DescribeMetricFiltersResponse
-    -> f DescribeMetricFiltersResponse
+dmftMetricFilters :: Lens' DescribeMetricFiltersResponse ([MetricFilter])
 dmftMetricFilters f x =
-    (\y -> x { _dmftMetricFilters = y })
-       <$> f (_dmftMetricFilters x)
+    f (_dmftMetricFilters x)
+        <&> \y -> x { _dmftMetricFilters = y }
 {-# INLINE dmftMetricFilters #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dmftNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeMetricFiltersResponse
-    -> f DescribeMetricFiltersResponse
+dmftNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmftNextToken f x =
-    (\y -> x { _dmftNextToken = y })
-       <$> f (_dmftNextToken x)
+    f (_dmftNextToken x)
+        <&> \y -> x { _dmftNextToken = y }
 {-# INLINE dmftNextToken #-}
 
 instance FromJSON DescribeMetricFiltersResponse

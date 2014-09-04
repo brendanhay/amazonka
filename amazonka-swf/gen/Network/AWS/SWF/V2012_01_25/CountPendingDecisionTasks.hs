@@ -76,6 +76,7 @@ countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
     { _cpdtiDomain = p1
     , _cpdtiTaskList = p2
     }
+{-# INLINE countPendingDecisionTasks #-}
 
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtiDomain :: Text
@@ -85,27 +86,17 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks
     } deriving (Show, Generic)
 
 -- | The name of the domain that contains the task list.
-cpdtiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CountPendingDecisionTasks
-    -> f CountPendingDecisionTasks
+cpdtiDomain :: Lens' CountPendingDecisionTasks (Text)
 cpdtiDomain f x =
-    (\y -> x { _cpdtiDomain = y })
-       <$> f (_cpdtiDomain x)
+    f (_cpdtiDomain x)
+        <&> \y -> x { _cpdtiDomain = y }
 {-# INLINE cpdtiDomain #-}
 
 -- | The name of the task list.
-cpdtiTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> CountPendingDecisionTasks
-    -> f CountPendingDecisionTasks
+cpdtiTaskList :: Lens' CountPendingDecisionTasks (TaskList)
 cpdtiTaskList f x =
-    (\y -> x { _cpdtiTaskList = y })
-       <$> f (_cpdtiTaskList x)
+    f (_cpdtiTaskList x)
+        <&> \y -> x { _cpdtiTaskList = y }
 {-# INLINE cpdtiTaskList #-}
 
 instance ToPath CountPendingDecisionTasks
@@ -126,28 +117,18 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     } deriving (Show, Generic)
 
 -- | The number of tasks in the task list.
-ptdCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CountPendingDecisionTasksResponse
-    -> f CountPendingDecisionTasksResponse
+ptdCount :: Lens' CountPendingDecisionTasksResponse (Integer)
 ptdCount f x =
-    (\y -> x { _ptdCount = y })
-       <$> f (_ptdCount x)
+    f (_ptdCount x)
+        <&> \y -> x { _ptdCount = y }
 {-# INLINE ptdCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-ptdTruncated
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CountPendingDecisionTasksResponse
-    -> f CountPendingDecisionTasksResponse
+ptdTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
 ptdTruncated f x =
-    (\y -> x { _ptdTruncated = y })
-       <$> f (_ptdTruncated x)
+    f (_ptdTruncated x)
+        <&> \y -> x { _ptdTruncated = y }
 {-# INLINE ptdTruncated #-}
 
 instance FromJSON CountPendingDecisionTasksResponse

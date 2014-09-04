@@ -60,6 +60,7 @@ removeTags p1 p2 = RemoveTags
     { _rtiResourceId = p1
     , _rtiTagKeys = p2
     }
+{-# INLINE removeTags #-}
 
 data RemoveTags = RemoveTags
     { _rtiResourceId :: Text
@@ -71,27 +72,17 @@ data RemoveTags = RemoveTags
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
-rtiResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveTags
-    -> f RemoveTags
+rtiResourceId :: Lens' RemoveTags (Text)
 rtiResourceId f x =
-    (\y -> x { _rtiResourceId = y })
-       <$> f (_rtiResourceId x)
+    f (_rtiResourceId x)
+        <&> \y -> x { _rtiResourceId = y }
 {-# INLINE rtiResourceId #-}
 
 -- | A list of tag keys to remove from a resource.
-rtiTagKeys
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RemoveTags
-    -> f RemoveTags
+rtiTagKeys :: Lens' RemoveTags ([Text])
 rtiTagKeys f x =
-    (\y -> x { _rtiTagKeys = y })
-       <$> f (_rtiTagKeys x)
+    f (_rtiTagKeys x)
+        <&> \y -> x { _rtiTagKeys = y }
 {-# INLINE rtiTagKeys #-}
 
 instance ToPath RemoveTags

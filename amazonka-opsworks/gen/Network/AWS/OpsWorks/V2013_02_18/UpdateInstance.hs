@@ -65,6 +65,7 @@ updateInstance p1 = UpdateInstance
     , _uirSshKeyName = Nothing
     , _uirLayerIds = mempty
     }
+{-# INLINE updateInstance #-}
 
 data UpdateInstance = UpdateInstance
     { _uirInstanceId :: Text
@@ -120,29 +121,19 @@ data UpdateInstance = UpdateInstance
     } deriving (Show, Generic)
 
 -- | The instance ID.
-uirInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirInstanceId :: Lens' UpdateInstance (Text)
 uirInstanceId f x =
-    (\y -> x { _uirInstanceId = y })
-       <$> f (_uirInstanceId x)
+    f (_uirInstanceId x)
+        <&> \y -> x { _uirInstanceId = y }
 {-# INLINE uirInstanceId #-}
 
 -- | The instance architecture. Instance types do not necessarily support both
 -- architectures. For a list of the architectures that are supported by the
 -- different instance types, see Instance Families and Types.
-uirArchitecture
-    :: Functor f
-    => (Maybe Architecture
-    -> f (Maybe Architecture))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirArchitecture :: Lens' UpdateInstance (Maybe Architecture)
 uirArchitecture f x =
-    (\y -> x { _uirArchitecture = y })
-       <$> f (_uirArchitecture x)
+    f (_uirArchitecture x)
+        <&> \y -> x { _uirArchitecture = y }
 {-# INLINE uirArchitecture #-}
 
 -- | The instance's auto scaling type, which has three possible values:
@@ -151,15 +142,10 @@ uirArchitecture f x =
 -- and stopped based on a specified schedule. LoadBasedAutoScaling: A
 -- load-based auto scaling instance, which is started and stopped based on
 -- load metrics.
-uirAutoScalingType
-    :: Functor f
-    => (Maybe AutoScalingType
-    -> f (Maybe AutoScalingType))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
 uirAutoScalingType f x =
-    (\y -> x { _uirAutoScalingType = y })
-       <$> f (_uirAutoScalingType x)
+    f (_uirAutoScalingType x)
+        <&> \y -> x { _uirAutoScalingType = y }
 {-# INLINE uirAutoScalingType #-}
 
 -- | Whether to install operating system and package updates when the instance
@@ -169,27 +155,17 @@ uirAutoScalingType f x =
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 -- We strongly recommend using the default value of true, to ensure that your
 -- instances have the latest security updates.
-uirInstallUpdatesOnBoot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
 uirInstallUpdatesOnBoot f x =
-    (\y -> x { _uirInstallUpdatesOnBoot = y })
-       <$> f (_uirInstallUpdatesOnBoot x)
+    f (_uirInstallUpdatesOnBoot x)
+        <&> \y -> x { _uirInstallUpdatesOnBoot = y }
 {-# INLINE uirInstallUpdatesOnBoot #-}
 
 -- | Whether this is an Amazon EBS-optimized instance.
-uirEbsOptimized
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirEbsOptimized :: Lens' UpdateInstance (Maybe Bool)
 uirEbsOptimized f x =
-    (\y -> x { _uirEbsOptimized = y })
-       <$> f (_uirEbsOptimized x)
+    f (_uirEbsOptimized x)
+        <&> \y -> x { _uirEbsOptimized = y }
 {-# INLINE uirEbsOptimized #-}
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
@@ -197,27 +173,17 @@ uirEbsOptimized f x =
 -- Instance Families and Types. The parameter values that you use to specify
 -- the various types are in the API Name column of the Available Instance
 -- Types table.
-uirInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirInstanceType :: Lens' UpdateInstance (Maybe Text)
 uirInstanceType f x =
-    (\y -> x { _uirInstanceType = y })
-       <$> f (_uirInstanceType x)
+    f (_uirInstanceType x)
+        <&> \y -> x { _uirInstanceType = y }
 {-# INLINE uirInstanceType #-}
 
 -- | The instance host name.
-uirHostname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirHostname :: Lens' UpdateInstance (Maybe Text)
 uirHostname f x =
-    (\y -> x { _uirHostname = y })
-       <$> f (_uirHostname x)
+    f (_uirHostname x)
+        <&> \y -> x { _uirHostname = y }
 {-# INLINE uirHostname #-}
 
 -- | The instance operating system, which must be set to one of the following.
@@ -227,53 +193,33 @@ uirHostname f x =
 -- the custom AMI that you want to use. For more information on the standard
 -- operating systems, see Operating SystemsFor more information on how to use
 -- custom AMIs with OpsWorks, see Using Custom AMIs.
-uirOs
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirOs :: Lens' UpdateInstance (Maybe Text)
 uirOs f x =
-    (\y -> x { _uirOs = y })
-       <$> f (_uirOs x)
+    f (_uirOs x)
+        <&> \y -> x { _uirOs = y }
 {-# INLINE uirOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
-uirAmiId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirAmiId :: Lens' UpdateInstance (Maybe Text)
 uirAmiId f x =
-    (\y -> x { _uirAmiId = y })
-       <$> f (_uirAmiId x)
+    f (_uirAmiId x)
+        <&> \y -> x { _uirAmiId = y }
 {-# INLINE uirAmiId #-}
 
 -- | The instance SSH key name.
-uirSshKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirSshKeyName :: Lens' UpdateInstance (Maybe Text)
 uirSshKeyName f x =
-    (\y -> x { _uirSshKeyName = y })
-       <$> f (_uirSshKeyName x)
+    f (_uirSshKeyName x)
+        <&> \y -> x { _uirSshKeyName = y }
 {-# INLINE uirSshKeyName #-}
 
 -- | The instance's layer IDs.
-uirLayerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UpdateInstance
-    -> f UpdateInstance
+uirLayerIds :: Lens' UpdateInstance ([Text])
 uirLayerIds f x =
-    (\y -> x { _uirLayerIds = y })
-       <$> f (_uirLayerIds x)
+    f (_uirLayerIds x)
+        <&> \y -> x { _uirLayerIds = y }
 {-# INLINE uirLayerIds #-}
 
 instance ToPath UpdateInstance

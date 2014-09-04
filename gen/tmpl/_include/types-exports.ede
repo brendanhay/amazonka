@@ -28,7 +28,14 @@ module {{ scope.types_namespace }}
 {% endcase %}
 {% for data in scope.types %}
     -- * {{ data.value.name }}
+  {% case data.value.ctor %}
+  {% when "witness" %}
+    , {{ data.value.name }}
+  {% when "switch" %}
+    , {{ data.value.name }}
+  {% else %}
     , {{ data.value.name }} (..)
+  {% endcase %}
   {% for field in data.value.fields %}
     , {{ field.value.prefixed | lens }}
   {% endfor %}

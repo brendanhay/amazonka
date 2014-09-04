@@ -72,6 +72,7 @@ updateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
     , _ussiVolumeARN = p3
     , _ussiDescription = Nothing
     }
+{-# INLINE updateSnapshotSchedule #-}
 
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule
     { _ussiStartAt :: Integer
@@ -92,53 +93,33 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- hh, where hh is the hour (0 to 23). The hour of the day is in the time zone
 -- of the gateway.
-ussiStartAt
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> UpdateSnapshotSchedule
-    -> f UpdateSnapshotSchedule
+ussiStartAt :: Lens' UpdateSnapshotSchedule (Integer)
 ussiStartAt f x =
-    (\y -> x { _ussiStartAt = y })
-       <$> f (_ussiStartAt x)
+    f (_ussiStartAt x)
+        <&> \y -> x { _ussiStartAt = y }
 {-# INLINE ussiStartAt #-}
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
-ussiRecurrenceInHours
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> UpdateSnapshotSchedule
-    -> f UpdateSnapshotSchedule
+ussiRecurrenceInHours :: Lens' UpdateSnapshotSchedule (Integer)
 ussiRecurrenceInHours f x =
-    (\y -> x { _ussiRecurrenceInHours = y })
-       <$> f (_ussiRecurrenceInHours x)
+    f (_ussiRecurrenceInHours x)
+        <&> \y -> x { _ussiRecurrenceInHours = y }
 {-# INLINE ussiRecurrenceInHours #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-ussiVolumeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateSnapshotSchedule
-    -> f UpdateSnapshotSchedule
+ussiVolumeARN :: Lens' UpdateSnapshotSchedule (Text)
 ussiVolumeARN f x =
-    (\y -> x { _ussiVolumeARN = y })
-       <$> f (_ussiVolumeARN x)
+    f (_ussiVolumeARN x)
+        <&> \y -> x { _ussiVolumeARN = y }
 {-# INLINE ussiVolumeARN #-}
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
-ussiDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateSnapshotSchedule
-    -> f UpdateSnapshotSchedule
+ussiDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussiDescription f x =
-    (\y -> x { _ussiDescription = y })
-       <$> f (_ussiDescription x)
+    f (_ussiDescription x)
+        <&> \y -> x { _ussiDescription = y }
 {-# INLINE ussiDescription #-}
 
 instance ToPath UpdateSnapshotSchedule
@@ -155,15 +136,10 @@ data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     } deriving (Show, Generic)
 
 -- | 
-ussoVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateSnapshotScheduleResponse
-    -> f UpdateSnapshotScheduleResponse
+ussoVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussoVolumeARN f x =
-    (\y -> x { _ussoVolumeARN = y })
-       <$> f (_ussoVolumeARN x)
+    f (_ussoVolumeARN x)
+        <&> \y -> x { _ussoVolumeARN = y }
 {-# INLINE ussoVolumeARN #-}
 
 instance FromJSON UpdateSnapshotScheduleResponse

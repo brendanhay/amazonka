@@ -55,6 +55,7 @@ addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
     { _asitsmSubscriptionName = p1
     , _asitsmSourceIdentifier = p2
     }
+{-# INLINE addSourceIdentifierToSubscription #-}
 
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
     { _asitsmSubscriptionName :: Text
@@ -74,15 +75,10 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
-asitsmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddSourceIdentifierToSubscription
-    -> f AddSourceIdentifierToSubscription
+asitsmSubscriptionName :: Lens' AddSourceIdentifierToSubscription (Text)
 asitsmSubscriptionName f x =
-    (\y -> x { _asitsmSubscriptionName = y })
-       <$> f (_asitsmSubscriptionName x)
+    f (_asitsmSubscriptionName x)
+        <&> \y -> x { _asitsmSubscriptionName = y }
 {-# INLINE asitsmSubscriptionName #-}
 
 -- | The identifier of the event source to be added. An identifier must begin
@@ -93,15 +89,10 @@ asitsmSubscriptionName f x =
 -- must be supplied. If the source type is a DB parameter group, a
 -- DBParameterGroupName must be supplied. If the source type is a DB snapshot,
 -- a DBSnapshotIdentifier must be supplied.
-asitsmSourceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddSourceIdentifierToSubscription
-    -> f AddSourceIdentifierToSubscription
+asitsmSourceIdentifier :: Lens' AddSourceIdentifierToSubscription (Text)
 asitsmSourceIdentifier f x =
-    (\y -> x { _asitsmSourceIdentifier = y })
-       <$> f (_asitsmSourceIdentifier x)
+    f (_asitsmSourceIdentifier x)
+        <&> \y -> x { _asitsmSourceIdentifier = y }
 {-# INLINE asitsmSourceIdentifier #-}
 
 instance ToQuery AddSourceIdentifierToSubscription where
@@ -115,15 +106,10 @@ data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscripti
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-eswEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> AddSourceIdentifierToSubscriptionResponse
-    -> f AddSourceIdentifierToSubscriptionResponse
+eswEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 eswEventSubscription f x =
-    (\y -> x { _eswEventSubscription = y })
-       <$> f (_eswEventSubscription x)
+    f (_eswEventSubscription x)
+        <&> \y -> x { _eswEventSubscription = y }
 {-# INLINE eswEventSubscription #-}
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where

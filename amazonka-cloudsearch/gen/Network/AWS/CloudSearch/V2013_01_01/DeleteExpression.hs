@@ -47,6 +47,7 @@ deleteExpression p1 p2 = DeleteExpression
     { _detDomainName = p1
     , _detExpressionName = p2
     }
+{-# INLINE deleteExpression #-}
 
 data DeleteExpression = DeleteExpression
     { _detDomainName :: Text
@@ -63,27 +64,17 @@ data DeleteExpression = DeleteExpression
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-detDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteExpression
-    -> f DeleteExpression
+detDomainName :: Lens' DeleteExpression (Text)
 detDomainName f x =
-    (\y -> x { _detDomainName = y })
-       <$> f (_detDomainName x)
+    f (_detDomainName x)
+        <&> \y -> x { _detDomainName = y }
 {-# INLINE detDomainName #-}
 
 -- | The name of the Expression to delete.
-detExpressionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteExpression
-    -> f DeleteExpression
+detExpressionName :: Lens' DeleteExpression (Text)
 detExpressionName f x =
-    (\y -> x { _detExpressionName = y })
-       <$> f (_detExpressionName x)
+    f (_detExpressionName x)
+        <&> \y -> x { _detExpressionName = y }
 {-# INLINE detExpressionName #-}
 
 instance ToQuery DeleteExpression where
@@ -95,15 +86,10 @@ data DeleteExpressionResponse = DeleteExpressionResponse
     } deriving (Show, Generic)
 
 -- | The status of the expression being deleted.
-deuExpression
-    :: Functor f
-    => (ExpressionStatus
-    -> f (ExpressionStatus))
-    -> DeleteExpressionResponse
-    -> f DeleteExpressionResponse
+deuExpression :: Lens' DeleteExpressionResponse (ExpressionStatus)
 deuExpression f x =
-    (\y -> x { _deuExpression = y })
-       <$> f (_deuExpression x)
+    f (_deuExpression x)
+        <&> \y -> x { _deuExpression = y }
 {-# INLINE deuExpression #-}
 
 instance FromXML DeleteExpressionResponse where

@@ -45,6 +45,7 @@ deleteApp :: Text -- ^ 'darAppId'
 deleteApp p1 = DeleteApp
     { _darAppId = p1
     }
+{-# INLINE deleteApp #-}
 
 data DeleteApp = DeleteApp
     { _darAppId :: Text
@@ -52,15 +53,10 @@ data DeleteApp = DeleteApp
     } deriving (Show, Generic)
 
 -- | The app ID.
-darAppId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteApp
-    -> f DeleteApp
+darAppId :: Lens' DeleteApp (Text)
 darAppId f x =
-    (\y -> x { _darAppId = y })
-       <$> f (_darAppId x)
+    f (_darAppId x)
+        <&> \y -> x { _darAppId = y }
 {-# INLINE darAppId #-}
 
 instance ToPath DeleteApp

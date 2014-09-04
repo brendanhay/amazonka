@@ -55,6 +55,7 @@ describeAlarms = DescribeAlarms
     , _dajNextToken = Nothing
     , _dajStateValue = Nothing
     }
+{-# INLINE describeAlarms #-}
 
 data DescribeAlarms = DescribeAlarms
     { _dajActionPrefix :: Maybe Text
@@ -74,77 +75,47 @@ data DescribeAlarms = DescribeAlarms
     } deriving (Show, Generic)
 
 -- | The action name prefix.
-dajActionPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarms
-    -> f DescribeAlarms
+dajActionPrefix :: Lens' DescribeAlarms (Maybe Text)
 dajActionPrefix f x =
-    (\y -> x { _dajActionPrefix = y })
-       <$> f (_dajActionPrefix x)
+    f (_dajActionPrefix x)
+        <&> \y -> x { _dajActionPrefix = y }
 {-# INLINE dajActionPrefix #-}
 
 -- | The alarm name prefix. AlarmNames cannot be specified if this parameter is
 -- specified.
-dajAlarmNamePrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarms
-    -> f DescribeAlarms
+dajAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 dajAlarmNamePrefix f x =
-    (\y -> x { _dajAlarmNamePrefix = y })
-       <$> f (_dajAlarmNamePrefix x)
+    f (_dajAlarmNamePrefix x)
+        <&> \y -> x { _dajAlarmNamePrefix = y }
 {-# INLINE dajAlarmNamePrefix #-}
 
 -- | A list of alarm names to retrieve information for.
-dajAlarmNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAlarms
-    -> f DescribeAlarms
+dajAlarmNames :: Lens' DescribeAlarms ([Text])
 dajAlarmNames f x =
-    (\y -> x { _dajAlarmNames = y })
-       <$> f (_dajAlarmNames x)
+    f (_dajAlarmNames x)
+        <&> \y -> x { _dajAlarmNames = y }
 {-# INLINE dajAlarmNames #-}
 
 -- | The maximum number of alarm descriptions to retrieve.
-dajMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAlarms
-    -> f DescribeAlarms
+dajMaxRecords :: Lens' DescribeAlarms (Maybe Integer)
 dajMaxRecords f x =
-    (\y -> x { _dajMaxRecords = y })
-       <$> f (_dajMaxRecords x)
+    f (_dajMaxRecords x)
+        <&> \y -> x { _dajMaxRecords = y }
 {-# INLINE dajMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dajNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarms
-    -> f DescribeAlarms
+dajNextToken :: Lens' DescribeAlarms (Maybe Text)
 dajNextToken f x =
-    (\y -> x { _dajNextToken = y })
-       <$> f (_dajNextToken x)
+    f (_dajNextToken x)
+        <&> \y -> x { _dajNextToken = y }
 {-# INLINE dajNextToken #-}
 
 -- | The state value to be used in matching alarms.
-dajStateValue
-    :: Functor f
-    => (Maybe StateValue
-    -> f (Maybe StateValue))
-    -> DescribeAlarms
-    -> f DescribeAlarms
+dajStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 dajStateValue f x =
-    (\y -> x { _dajStateValue = y })
-       <$> f (_dajStateValue x)
+    f (_dajStateValue x)
+        <&> \y -> x { _dajStateValue = y }
 {-# INLINE dajStateValue #-}
 
 instance ToQuery DescribeAlarms where
@@ -159,27 +130,17 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse
     } deriving (Show, Generic)
 
 -- | A list of information for the specified alarms.
-daoMetricAlarms
-    :: Functor f
-    => ([MetricAlarm]
-    -> f ([MetricAlarm]))
-    -> DescribeAlarmsResponse
-    -> f DescribeAlarmsResponse
+daoMetricAlarms :: Lens' DescribeAlarmsResponse ([MetricAlarm])
 daoMetricAlarms f x =
-    (\y -> x { _daoMetricAlarms = y })
-       <$> f (_daoMetricAlarms x)
+    f (_daoMetricAlarms x)
+        <&> \y -> x { _daoMetricAlarms = y }
 {-# INLINE daoMetricAlarms #-}
 
 -- | A string that marks the start of the next batch of returned results.
-daoNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAlarmsResponse
-    -> f DescribeAlarmsResponse
+daoNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 daoNextToken f x =
-    (\y -> x { _daoNextToken = y })
-       <$> f (_daoNextToken x)
+    f (_daoNextToken x)
+        <&> \y -> x { _daoNextToken = y }
 {-# INLINE daoNextToken #-}
 
 instance FromXML DescribeAlarmsResponse where

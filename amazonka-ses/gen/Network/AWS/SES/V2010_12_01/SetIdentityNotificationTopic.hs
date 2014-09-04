@@ -64,6 +64,7 @@ setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
     , _sintrNotificationType = p2
     , _sintrSnsTopic = Nothing
     }
+{-# INLINE setIdentityNotificationTopic #-}
 
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintrIdentity :: Text
@@ -80,42 +81,27 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
 
 -- | The identity for which the Amazon SNS topic will be set. Examples:
 -- user@example.com, example.com.
-sintrIdentity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetIdentityNotificationTopic
-    -> f SetIdentityNotificationTopic
+sintrIdentity :: Lens' SetIdentityNotificationTopic (Text)
 sintrIdentity f x =
-    (\y -> x { _sintrIdentity = y })
-       <$> f (_sintrIdentity x)
+    f (_sintrIdentity x)
+        <&> \y -> x { _sintrIdentity = y }
 {-# INLINE sintrIdentity #-}
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
-sintrNotificationType
-    :: Functor f
-    => (NotificationType
-    -> f (NotificationType))
-    -> SetIdentityNotificationTopic
-    -> f SetIdentityNotificationTopic
+sintrNotificationType :: Lens' SetIdentityNotificationTopic (NotificationType)
 sintrNotificationType f x =
-    (\y -> x { _sintrNotificationType = y })
-       <$> f (_sintrNotificationType x)
+    f (_sintrNotificationType x)
+        <&> \y -> x { _sintrNotificationType = y }
 {-# INLINE sintrNotificationType #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
 -- omitted from the request or a null value is passed, SnsTopic is cleared and
 -- publishing is disabled.
-sintrSnsTopic
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetIdentityNotificationTopic
-    -> f SetIdentityNotificationTopic
+sintrSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintrSnsTopic f x =
-    (\y -> x { _sintrSnsTopic = y })
-       <$> f (_sintrSnsTopic x)
+    f (_sintrSnsTopic x)
+        <&> \y -> x { _sintrSnsTopic = y }
 {-# INLINE sintrSnsTopic #-}
 
 instance ToQuery SetIdentityNotificationTopic where

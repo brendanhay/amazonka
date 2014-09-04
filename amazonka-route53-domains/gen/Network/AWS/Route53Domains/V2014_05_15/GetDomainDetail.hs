@@ -100,6 +100,7 @@ getDomainDetail :: Text -- ^ 'gddrDomainName'
 getDomainDetail p1 = GetDomainDetail
     { _gddrDomainName = p1
     }
+{-# INLINE getDomainDetail #-}
 
 data GetDomainDetail = GetDomainDetail
     { _gddrDomainName :: Text
@@ -113,15 +114,10 @@ data GetDomainDetail = GetDomainDetail
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-gddrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetDomainDetail
-    -> f GetDomainDetail
+gddrDomainName :: Lens' GetDomainDetail (Text)
 gddrDomainName f x =
-    (\y -> x { _gddrDomainName = y })
-       <$> f (_gddrDomainName x)
+    f (_gddrDomainName x)
+        <&> \y -> x { _gddrDomainName = y }
 {-# INLINE gddrDomainName #-}
 
 instance ToPath GetDomainDetail
@@ -225,151 +221,96 @@ data GetDomainDetailResponse = GetDomainDetailResponse
 -- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
-gddsAdminContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsAdminContact :: Lens' GetDomainDetailResponse (ContactDetail)
 gddsAdminContact f x =
-    (\y -> x { _gddsAdminContact = y })
-       <$> f (_gddsAdminContact x)
+    f (_gddsAdminContact x)
+        <&> \y -> x { _gddsAdminContact = y }
 {-# INLINE gddsAdminContact #-}
 
 -- | Provides details about the domain registrant. Type: Complex Children:
 -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
-gddsRegistrantContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsRegistrantContact :: Lens' GetDomainDetailResponse (ContactDetail)
 gddsRegistrantContact f x =
-    (\y -> x { _gddsRegistrantContact = y })
-       <$> f (_gddsRegistrantContact x)
+    f (_gddsRegistrantContact x)
+        <&> \y -> x { _gddsRegistrantContact = y }
 {-# INLINE gddsRegistrantContact #-}
 
 -- | Provides details about the domain technical contact. Type: Complex
 -- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
-gddsTechContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsTechContact :: Lens' GetDomainDetailResponse (ContactDetail)
 gddsTechContact f x =
-    (\y -> x { _gddsTechContact = y })
-       <$> f (_gddsTechContact x)
+    f (_gddsTechContact x)
+        <&> \y -> x { _gddsTechContact = y }
 {-# INLINE gddsTechContact #-}
 
 -- | The name of a domain. Type: String.
-gddsDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsDomainName :: Lens' GetDomainDetailResponse (Text)
 gddsDomainName f x =
-    (\y -> x { _gddsDomainName = y })
-       <$> f (_gddsDomainName x)
+    f (_gddsDomainName x)
+        <&> \y -> x { _gddsDomainName = y }
 {-# INLINE gddsDomainName #-}
 
 -- | The name of the domain. Type: String.
-gddsNameservers
-    :: Functor f
-    => ([Nameserver]
-    -> f ([Nameserver]))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsNameservers :: Lens' GetDomainDetailResponse ([Nameserver])
 gddsNameservers f x =
-    (\y -> x { _gddsNameservers = y })
-       <$> f (_gddsNameservers x)
+    f (_gddsNameservers x)
+        <&> \y -> x { _gddsNameservers = y }
 {-# INLINE gddsNameservers #-}
 
 -- | Specifies whether the domain registration is set to renew automatically.
 -- Type: Boolean.
-gddsAutoRenew
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsAutoRenew :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddsAutoRenew f x =
-    (\y -> x { _gddsAutoRenew = y })
-       <$> f (_gddsAutoRenew x)
+    f (_gddsAutoRenew x)
+        <&> \y -> x { _gddsAutoRenew = y }
 {-# INLINE gddsAutoRenew #-}
 
 -- | Specifies whether contact information for the admin contact is concealed
 -- from WHOIS queries. If the value is true, WHOIS ("who is") queries will
 -- return contact information for our registrar partner, Gandi, instead of the
 -- contact information that you enter. Type: Boolean.
-gddsAdminPrivacy
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsAdminPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddsAdminPrivacy f x =
-    (\y -> x { _gddsAdminPrivacy = y })
-       <$> f (_gddsAdminPrivacy x)
+    f (_gddsAdminPrivacy x)
+        <&> \y -> x { _gddsAdminPrivacy = y }
 {-# INLINE gddsAdminPrivacy #-}
 
 -- | Specifies whether contact information for the registrant contact is
 -- concealed from WHOIS queries. If the value is true, WHOIS ("who is")
 -- queries will return contact information for our registrar partner, Gandi,
 -- instead of the contact information that you enter. Type: Boolean.
-gddsRegistrantPrivacy
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsRegistrantPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddsRegistrantPrivacy f x =
-    (\y -> x { _gddsRegistrantPrivacy = y })
-       <$> f (_gddsRegistrantPrivacy x)
+    f (_gddsRegistrantPrivacy x)
+        <&> \y -> x { _gddsRegistrantPrivacy = y }
 {-# INLINE gddsRegistrantPrivacy #-}
 
 -- | Specifies whether contact information for the tech contact is concealed
 -- from WHOIS queries. If the value is true, WHOIS ("who is") queries will
 -- return contact information for our registrar partner, Gandi, instead of the
 -- contact information that you enter. Type: Boolean.
-gddsTechPrivacy
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsTechPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddsTechPrivacy f x =
-    (\y -> x { _gddsTechPrivacy = y })
-       <$> f (_gddsTechPrivacy x)
+    f (_gddsTechPrivacy x)
+        <&> \y -> x { _gddsTechPrivacy = y }
 {-# INLINE gddsTechPrivacy #-}
 
 -- | Phone number for reporting abuse. Type: String.
-gddsAbuseContactPhone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsAbuseContactPhone :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsAbuseContactPhone f x =
-    (\y -> x { _gddsAbuseContactPhone = y })
-       <$> f (_gddsAbuseContactPhone x)
+    f (_gddsAbuseContactPhone x)
+        <&> \y -> x { _gddsAbuseContactPhone = y }
 {-# INLINE gddsAbuseContactPhone #-}
 
 -- | Reserved for future use.
-gddsDnsSec
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsDnsSec :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsDnsSec f x =
-    (\y -> x { _gddsDnsSec = y })
-       <$> f (_gddsDnsSec x)
+    f (_gddsDnsSec x)
+        <&> \y -> x { _gddsDnsSec = y }
 {-# INLINE gddsDnsSec #-}
 
 -- | An array of domain name status codes, also known as Extensible Provisioning
@@ -383,133 +324,83 @@ gddsDnsSec f x =
 -- the ICANN website and search for epp status codes. (Search on the ICANN
 -- website; web searches sometimes return an old version of the document.)
 -- Type: Array of String.
-gddsStatusList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsStatusList :: Lens' GetDomainDetailResponse ([Text])
 gddsStatusList f x =
-    (\y -> x { _gddsStatusList = y })
-       <$> f (_gddsStatusList x)
+    f (_gddsStatusList x)
+        <&> \y -> x { _gddsStatusList = y }
 {-# INLINE gddsStatusList #-}
 
 -- | Email address to contact to report incorrect contact information for a
 -- domain, to report that the domain is being used to send spam, to report
 -- that someone is cybersquatting on a domain name, or report some other type
 -- of abuse. Type: String.
-gddsAbuseContactEmail
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsAbuseContactEmail :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsAbuseContactEmail f x =
-    (\y -> x { _gddsAbuseContactEmail = y })
-       <$> f (_gddsAbuseContactEmail x)
+    f (_gddsAbuseContactEmail x)
+        <&> \y -> x { _gddsAbuseContactEmail = y }
 {-# INLINE gddsAbuseContactEmail #-}
 
 -- | Name of the registrar of the domain as identified in the registry. Amazon
 -- Route 53 domains are registered by registrar Gandi. The value is "GANDI
 -- SAS". Type: String.
-gddsRegistrarName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsRegistrarName :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsRegistrarName f x =
-    (\y -> x { _gddsRegistrarName = y })
-       <$> f (_gddsRegistrarName x)
+    f (_gddsRegistrarName x)
+        <&> \y -> x { _gddsRegistrarName = y }
 {-# INLINE gddsRegistrarName #-}
 
 -- | Web address of the registrar. Type: String.
-gddsRegistrarUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsRegistrarUrl :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsRegistrarUrl f x =
-    (\y -> x { _gddsRegistrarUrl = y })
-       <$> f (_gddsRegistrarUrl x)
+    f (_gddsRegistrarUrl x)
+        <&> \y -> x { _gddsRegistrarUrl = y }
 {-# INLINE gddsRegistrarUrl #-}
 
 -- | The fully qualified name of the WHOIS server that can answer the WHOIS
 -- query for the domain. Type: String.
-gddsWhoIsServer
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsWhoIsServer :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsWhoIsServer f x =
-    (\y -> x { _gddsWhoIsServer = y })
-       <$> f (_gddsWhoIsServer x)
+    f (_gddsWhoIsServer x)
+        <&> \y -> x { _gddsWhoIsServer = y }
 {-# INLINE gddsWhoIsServer #-}
 
 -- | Reserved for future use.
-gddsRegistryDomainId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsRegistryDomainId :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsRegistryDomainId f x =
-    (\y -> x { _gddsRegistryDomainId = y })
-       <$> f (_gddsRegistryDomainId x)
+    f (_gddsRegistryDomainId x)
+        <&> \y -> x { _gddsRegistryDomainId = y }
 {-# INLINE gddsRegistryDomainId #-}
 
 -- | Reseller of the domain. Domains registered or transferred using Amazon
 -- Route 53 domains will have "Amazon" as the reseller. Type: String.
-gddsReseller
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsReseller :: Lens' GetDomainDetailResponse (Maybe Text)
 gddsReseller f x =
-    (\y -> x { _gddsReseller = y })
-       <$> f (_gddsReseller x)
+    f (_gddsReseller x)
+        <&> \y -> x { _gddsReseller = y }
 {-# INLINE gddsReseller #-}
 
 -- | The date when the domain was created as found in the response to a WHOIS
 -- query. The date format is Unix time.
-gddsCreationDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsCreationDate :: Lens' GetDomainDetailResponse (Maybe ISO8601)
 gddsCreationDate f x =
-    (\y -> x { _gddsCreationDate = y })
-       <$> f (_gddsCreationDate x)
+    f (_gddsCreationDate x)
+        <&> \y -> x { _gddsCreationDate = y }
 {-# INLINE gddsCreationDate #-}
 
 -- | The last updated date of the domain as found in the response to a WHOIS
 -- query. The date format is Unix time.
-gddsUpdatedDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsUpdatedDate :: Lens' GetDomainDetailResponse (Maybe ISO8601)
 gddsUpdatedDate f x =
-    (\y -> x { _gddsUpdatedDate = y })
-       <$> f (_gddsUpdatedDate x)
+    f (_gddsUpdatedDate x)
+        <&> \y -> x { _gddsUpdatedDate = y }
 {-# INLINE gddsUpdatedDate #-}
 
 -- | The date when the registration for the domain is set to expire. The date
 -- format is Unix time.
-gddsExpirationDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetDomainDetailResponse
-    -> f GetDomainDetailResponse
+gddsExpirationDate :: Lens' GetDomainDetailResponse (Maybe ISO8601)
 gddsExpirationDate f x =
-    (\y -> x { _gddsExpirationDate = y })
-       <$> f (_gddsExpirationDate x)
+    f (_gddsExpirationDate x)
+        <&> \y -> x { _gddsExpirationDate = y }
 {-# INLINE gddsExpirationDate #-}
 
 instance FromJSON GetDomainDetailResponse

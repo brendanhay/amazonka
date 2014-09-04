@@ -70,6 +70,7 @@ describeCache :: Text -- ^ 'dciGatewayARN'
 describeCache p1 = DescribeCache
     { _dciGatewayARN = p1
     }
+{-# INLINE describeCache #-}
 
 data DescribeCache = DescribeCache
     { _dciGatewayARN :: Text
@@ -80,15 +81,10 @@ data DescribeCache = DescribeCache
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dciGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeCache
-    -> f DescribeCache
+dciGatewayARN :: Lens' DescribeCache (Text)
 dciGatewayARN f x =
-    (\y -> x { _dciGatewayARN = y })
-       <$> f (_dciGatewayARN x)
+    f (_dciGatewayARN x)
+        <&> \y -> x { _dciGatewayARN = y }
 {-# INLINE dciGatewayARN #-}
 
 instance ToPath DescribeCache
@@ -112,83 +108,48 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcoCacheAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-dcoDiskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoDiskIds :: Lens' DescribeCacheResponse ([Text])
 dcoDiskIds f x =
-    (\y -> x { _dcoDiskIds = y })
-       <$> f (_dcoDiskIds x)
+    f (_dcoDiskIds x)
+        <&> \y -> x { _dcoDiskIds = y }
 {-# INLINE dcoDiskIds #-}
 
-dcoCacheUsedPercentage
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcoCacheUsedPercentage f x =
-    (\y -> x { _dcoCacheUsedPercentage = y })
-       <$> f (_dcoCacheUsedPercentage x)
+    f (_dcoCacheUsedPercentage x)
+        <&> \y -> x { _dcoCacheUsedPercentage = y }
 {-# INLINE dcoCacheUsedPercentage #-}
 
-dcoCacheDirtyPercentage
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcoCacheDirtyPercentage f x =
-    (\y -> x { _dcoCacheDirtyPercentage = y })
-       <$> f (_dcoCacheDirtyPercentage x)
+    f (_dcoCacheDirtyPercentage x)
+        <&> \y -> x { _dcoCacheDirtyPercentage = y }
 {-# INLINE dcoCacheDirtyPercentage #-}
 
-dcoCacheHitPercentage
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcoCacheHitPercentage f x =
-    (\y -> x { _dcoCacheHitPercentage = y })
-       <$> f (_dcoCacheHitPercentage x)
+    f (_dcoCacheHitPercentage x)
+        <&> \y -> x { _dcoCacheHitPercentage = y }
 {-# INLINE dcoCacheHitPercentage #-}
 
-dcoCacheMissPercentage
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcoCacheMissPercentage f x =
-    (\y -> x { _dcoCacheMissPercentage = y })
-       <$> f (_dcoCacheMissPercentage x)
+    f (_dcoCacheMissPercentage x)
+        <&> \y -> x { _dcoCacheMissPercentage = y }
 {-# INLINE dcoCacheMissPercentage #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dcoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcoGatewayARN f x =
-    (\y -> x { _dcoGatewayARN = y })
-       <$> f (_dcoGatewayARN x)
+    f (_dcoGatewayARN x)
+        <&> \y -> x { _dcoGatewayARN = y }
 {-# INLINE dcoGatewayARN #-}
 
-dcoCacheAllocatedInBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCacheResponse
-    -> f DescribeCacheResponse
+dcoCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
 dcoCacheAllocatedInBytes f x =
-    (\y -> x { _dcoCacheAllocatedInBytes = y })
-       <$> f (_dcoCacheAllocatedInBytes x)
+    f (_dcoCacheAllocatedInBytes x)
+        <&> \y -> x { _dcoCacheAllocatedInBytes = y }
 {-# INLINE dcoCacheAllocatedInBytes #-}
 
 instance FromJSON DescribeCacheResponse

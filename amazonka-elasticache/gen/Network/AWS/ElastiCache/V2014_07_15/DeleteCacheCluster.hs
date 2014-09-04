@@ -56,6 +56,7 @@ deleteCacheCluster p1 = DeleteCacheCluster
     { _dccmCacheClusterId = p1
     , _dccmFinalSnapshotIdentifier = Nothing
     }
+{-# INLINE deleteCacheCluster #-}
 
 data DeleteCacheCluster = DeleteCacheCluster
     { _dccmCacheClusterId :: Text
@@ -69,28 +70,18 @@ data DeleteCacheCluster = DeleteCacheCluster
 
 -- | The cache cluster identifier for the cluster to be deleted. This parameter
 -- is not case sensitive.
-dccmCacheClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCacheCluster
-    -> f DeleteCacheCluster
+dccmCacheClusterId :: Lens' DeleteCacheCluster (Text)
 dccmCacheClusterId f x =
-    (\y -> x { _dccmCacheClusterId = y })
-       <$> f (_dccmCacheClusterId x)
+    f (_dccmCacheClusterId x)
+        <&> \y -> x { _dccmCacheClusterId = y }
 {-# INLINE dccmCacheClusterId #-}
 
 -- | The name of a final cache cluster snapshot. ElastiCache creates the
 -- snapshot, and then deletes the cache cluster immediately afterward.
-dccmFinalSnapshotIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteCacheCluster
-    -> f DeleteCacheCluster
+dccmFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
 dccmFinalSnapshotIdentifier f x =
-    (\y -> x { _dccmFinalSnapshotIdentifier = y })
-       <$> f (_dccmFinalSnapshotIdentifier x)
+    f (_dccmFinalSnapshotIdentifier x)
+        <&> \y -> x { _dccmFinalSnapshotIdentifier = y }
 {-# INLINE dccmFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteCacheCluster where
@@ -102,15 +93,10 @@ data DeleteCacheClusterResponse = DeleteCacheClusterResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-ccxCacheCluster
-    :: Functor f
-    => (Maybe CacheCluster
-    -> f (Maybe CacheCluster))
-    -> DeleteCacheClusterResponse
-    -> f DeleteCacheClusterResponse
+ccxCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 ccxCacheCluster f x =
-    (\y -> x { _ccxCacheCluster = y })
-       <$> f (_ccxCacheCluster x)
+    f (_ccxCacheCluster x)
+        <&> \y -> x { _ccxCacheCluster = y }
 {-# INLINE ccxCacheCluster #-}
 
 instance FromXML DeleteCacheClusterResponse where

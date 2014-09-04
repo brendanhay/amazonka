@@ -57,6 +57,7 @@ deleteAttributes p1 p2 = DeleteAttributes
     , _darAttributes = mempty
     , _darExpected = Nothing
     }
+{-# INLINE deleteAttributes #-}
 
 data DeleteAttributes = DeleteAttributes
     { _darDomainName :: Text
@@ -77,55 +78,35 @@ data DeleteAttributes = DeleteAttributes
     } deriving (Show, Generic)
 
 -- | The name of the domain in which to perform the operation.
-darDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAttributes
-    -> f DeleteAttributes
+darDomainName :: Lens' DeleteAttributes (Text)
 darDomainName f x =
-    (\y -> x { _darDomainName = y })
-       <$> f (_darDomainName x)
+    f (_darDomainName x)
+        <&> \y -> x { _darDomainName = y }
 {-# INLINE darDomainName #-}
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
-darItemName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAttributes
-    -> f DeleteAttributes
+darItemName :: Lens' DeleteAttributes (Text)
 darItemName f x =
-    (\y -> x { _darItemName = y })
-       <$> f (_darItemName x)
+    f (_darItemName x)
+        <&> \y -> x { _darItemName = y }
 {-# INLINE darItemName #-}
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-darAttributes
-    :: Functor f
-    => ([Attribute]
-    -> f ([Attribute]))
-    -> DeleteAttributes
-    -> f DeleteAttributes
+darAttributes :: Lens' DeleteAttributes ([Attribute])
 darAttributes f x =
-    (\y -> x { _darAttributes = y })
-       <$> f (_darAttributes x)
+    f (_darAttributes x)
+        <&> \y -> x { _darAttributes = y }
 {-# INLINE darAttributes #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be deleted or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be deleted.
-darExpected
-    :: Functor f
-    => (Maybe UpdateCondition
-    -> f (Maybe UpdateCondition))
-    -> DeleteAttributes
-    -> f DeleteAttributes
+darExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
 darExpected f x =
-    (\y -> x { _darExpected = y })
-       <$> f (_darExpected x)
+    f (_darExpected x)
+        <&> \y -> x { _darExpected = y }
 {-# INLINE darExpected #-}
 
 instance ToQuery DeleteAttributes where

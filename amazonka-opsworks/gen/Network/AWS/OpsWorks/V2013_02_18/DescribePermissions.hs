@@ -48,6 +48,7 @@ describePermissions = DescribePermissions
     { _dprIamUserArn = Nothing
     , _dprStackId = Nothing
     }
+{-# INLINE describePermissions #-}
 
 data DescribePermissions = DescribePermissions
     { _dprIamUserArn :: Maybe Text
@@ -59,27 +60,17 @@ data DescribePermissions = DescribePermissions
 
 -- | The user's IAM ARN. For more information about IAM ARNs, see Using
 -- Identifiers.
-dprIamUserArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribePermissions
-    -> f DescribePermissions
+dprIamUserArn :: Lens' DescribePermissions (Maybe Text)
 dprIamUserArn f x =
-    (\y -> x { _dprIamUserArn = y })
-       <$> f (_dprIamUserArn x)
+    f (_dprIamUserArn x)
+        <&> \y -> x { _dprIamUserArn = y }
 {-# INLINE dprIamUserArn #-}
 
 -- | The stack ID.
-dprStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribePermissions
-    -> f DescribePermissions
+dprStackId :: Lens' DescribePermissions (Maybe Text)
 dprStackId f x =
-    (\y -> x { _dprStackId = y })
-       <$> f (_dprStackId x)
+    f (_dprStackId x)
+        <&> \y -> x { _dprStackId = y }
 {-# INLINE dprStackId #-}
 
 instance ToPath DescribePermissions
@@ -109,15 +100,10 @@ data DescribePermissionsResponse = DescribePermissionsResponse
 -- with permissions for each of the user's stack IDs. If the request contains
 -- a stack ID and an IAM ARN, the array contains a single Permission object
 -- with permissions for the specified stack and IAM ARN.
-dpsPermissions
-    :: Functor f
-    => ([Permission]
-    -> f ([Permission]))
-    -> DescribePermissionsResponse
-    -> f DescribePermissionsResponse
+dpsPermissions :: Lens' DescribePermissionsResponse ([Permission])
 dpsPermissions f x =
-    (\y -> x { _dpsPermissions = y })
-       <$> f (_dpsPermissions x)
+    f (_dpsPermissions x)
+        <&> \y -> x { _dpsPermissions = y }
 {-# INLINE dpsPermissions #-}
 
 instance FromJSON DescribePermissionsResponse

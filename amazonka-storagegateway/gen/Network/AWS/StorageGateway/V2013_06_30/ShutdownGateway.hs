@@ -70,6 +70,7 @@ shutdownGateway :: Text -- ^ 'sgiGatewayARN'
 shutdownGateway p1 = ShutdownGateway
     { _sgiGatewayARN = p1
     }
+{-# INLINE shutdownGateway #-}
 
 data ShutdownGateway = ShutdownGateway
     { _sgiGatewayARN :: Text
@@ -80,15 +81,10 @@ data ShutdownGateway = ShutdownGateway
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ShutdownGateway
-    -> f ShutdownGateway
+sgiGatewayARN :: Lens' ShutdownGateway (Text)
 sgiGatewayARN f x =
-    (\y -> x { _sgiGatewayARN = y })
-       <$> f (_sgiGatewayARN x)
+    f (_sgiGatewayARN x)
+        <&> \y -> x { _sgiGatewayARN = y }
 {-# INLINE sgiGatewayARN #-}
 
 instance ToPath ShutdownGateway
@@ -108,15 +104,10 @@ data ShutdownGatewayResponse = ShutdownGatewayResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ShutdownGatewayResponse
-    -> f ShutdownGatewayResponse
+sgoGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgoGatewayARN f x =
-    (\y -> x { _sgoGatewayARN = y })
-       <$> f (_sgoGatewayARN x)
+    f (_sgoGatewayARN x)
+        <&> \y -> x { _sgoGatewayARN = y }
 {-# INLINE sgoGatewayARN #-}
 
 instance FromJSON ShutdownGatewayResponse

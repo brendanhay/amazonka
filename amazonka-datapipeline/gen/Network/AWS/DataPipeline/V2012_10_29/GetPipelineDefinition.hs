@@ -64,6 +64,7 @@ getPipelineDefinition p1 = GetPipelineDefinition
     { _gpdiPipelineId = p1
     , _gpdiVersion = Nothing
     }
+{-# INLINE getPipelineDefinition #-}
 
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdiPipelineId :: Text
@@ -77,30 +78,20 @@ data GetPipelineDefinition = GetPipelineDefinition
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline.
-gpdiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetPipelineDefinition
-    -> f GetPipelineDefinition
+gpdiPipelineId :: Lens' GetPipelineDefinition (Text)
 gpdiPipelineId f x =
-    (\y -> x { _gpdiPipelineId = y })
-       <$> f (_gpdiPipelineId x)
+    f (_gpdiPipelineId x)
+        <&> \y -> x { _gpdiPipelineId = y }
 {-# INLINE gpdiPipelineId #-}
 
 -- | The version of the pipeline definition to retrieve. This parameter accepts
 -- the values latest (default) and active. Where latest indicates the last
 -- definition saved to the pipeline and active indicates the last definition
 -- of the pipeline that was activated.
-gpdiVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetPipelineDefinition
-    -> f GetPipelineDefinition
+gpdiVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdiVersion f x =
-    (\y -> x { _gpdiVersion = y })
-       <$> f (_gpdiVersion x)
+    f (_gpdiVersion x)
+        <&> \y -> x { _gpdiVersion = y }
 {-# INLINE gpdiVersion #-}
 
 instance ToPath GetPipelineDefinition
@@ -117,15 +108,10 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     } deriving (Show, Generic)
 
 -- | An array of objects defined in the pipeline.
-gpdoPipelineObjects
-    :: Functor f
-    => ([PipelineObject]
-    -> f ([PipelineObject]))
-    -> GetPipelineDefinitionResponse
-    -> f GetPipelineDefinitionResponse
+gpdoPipelineObjects :: Lens' GetPipelineDefinitionResponse ([PipelineObject])
 gpdoPipelineObjects f x =
-    (\y -> x { _gpdoPipelineObjects = y })
-       <$> f (_gpdoPipelineObjects x)
+    f (_gpdoPipelineObjects x)
+        <&> \y -> x { _gpdoPipelineObjects = y }
 {-# INLINE gpdoPipelineObjects #-}
 
 instance FromJSON GetPipelineDefinitionResponse

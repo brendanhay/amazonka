@@ -50,6 +50,7 @@ describeEventCategories :: DescribeEventCategories
 describeEventCategories = DescribeEventCategories
     { _decmSourceType = Nothing
     }
+{-# INLINE describeEventCategories #-}
 
 data DescribeEventCategories = DescribeEventCategories
     { _decmSourceType :: Maybe Text
@@ -60,15 +61,10 @@ data DescribeEventCategories = DescribeEventCategories
 
 -- | The type of source that will be generating the events. Valid values:
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
-decmSourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventCategories
-    -> f DescribeEventCategories
+decmSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decmSourceType f x =
-    (\y -> x { _decmSourceType = y })
-       <$> f (_decmSourceType x)
+    f (_decmSourceType x)
+        <&> \y -> x { _decmSourceType = y }
 {-# INLINE decmSourceType #-}
 
 instance ToQuery DescribeEventCategories where
@@ -80,15 +76,10 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     } deriving (Show, Generic)
 
 -- | A list of EventCategoriesMap data types.
-ecpEventCategoriesMapList
-    :: Functor f
-    => ([EventCategoriesMap]
-    -> f ([EventCategoriesMap]))
-    -> DescribeEventCategoriesResponse
-    -> f DescribeEventCategoriesResponse
+ecpEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse ([EventCategoriesMap])
 ecpEventCategoriesMapList f x =
-    (\y -> x { _ecpEventCategoriesMapList = y })
-       <$> f (_ecpEventCategoriesMapList x)
+    f (_ecpEventCategoriesMapList x)
+        <&> \y -> x { _ecpEventCategoriesMapList = y }
 {-# INLINE ecpEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where

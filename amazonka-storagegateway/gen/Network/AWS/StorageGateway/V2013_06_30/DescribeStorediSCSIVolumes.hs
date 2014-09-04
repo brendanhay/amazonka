@@ -66,6 +66,7 @@ describeStorediSCSIVolumes :: [Text] -- ^ 'dsscsiviVolumeARNs'
 describeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
     { _dsscsiviVolumeARNs = p1
     }
+{-# INLINE describeStorediSCSIVolumes #-}
 
 data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
     { _dsscsiviVolumeARNs :: [Text]
@@ -78,15 +79,10 @@ data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 -- | An array of strings where each string represents the Amazon Resource Name
 -- (ARN) of a stored volume. All of the specified stored volumes must from the
 -- same gateway. Use ListVolumes to get volume ARNs for a gateway.
-dsscsiviVolumeARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeStorediSCSIVolumes
-    -> f DescribeStorediSCSIVolumes
+dsscsiviVolumeARNs :: Lens' DescribeStorediSCSIVolumes ([Text])
 dsscsiviVolumeARNs f x =
-    (\y -> x { _dsscsiviVolumeARNs = y })
-       <$> f (_dsscsiviVolumeARNs x)
+    f (_dsscsiviVolumeARNs x)
+        <&> \y -> x { _dsscsiviVolumeARNs = y }
 {-# INLINE dsscsiviVolumeARNs #-}
 
 instance ToPath DescribeStorediSCSIVolumes
@@ -101,15 +97,10 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivoStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
-dsscsivoStorediSCSIVolumes
-    :: Functor f
-    => ([StorediSCSIVolumeInformation]
-    -> f ([StorediSCSIVolumeInformation]))
-    -> DescribeStorediSCSIVolumesResponse
-    -> f DescribeStorediSCSIVolumesResponse
+dsscsivoStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse ([StorediSCSIVolumeInformation])
 dsscsivoStorediSCSIVolumes f x =
-    (\y -> x { _dsscsivoStorediSCSIVolumes = y })
-       <$> f (_dsscsivoStorediSCSIVolumes x)
+    f (_dsscsivoStorediSCSIVolumes x)
+        <&> \y -> x { _dsscsivoStorediSCSIVolumes = y }
 {-# INLINE dsscsivoStorediSCSIVolumes #-}
 
 instance FromJSON DescribeStorediSCSIVolumesResponse

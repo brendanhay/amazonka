@@ -91,6 +91,7 @@ createEventSubscription p1 p2 = CreateEventSubscription
     , _cesmSourceType = Nothing
     , _cesmTags = mempty
     }
+{-# INLINE createEventSubscription #-}
 
 data CreateEventSubscription = CreateEventSubscription
     { _cesmSubscriptionName :: Text
@@ -134,57 +135,37 @@ data CreateEventSubscription = CreateEventSubscription
 
 -- | The name of the subscription. Constraints: The name must be less than 255
 -- characters.
-cesmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSubscriptionName :: Lens' CreateEventSubscription (Text)
 cesmSubscriptionName f x =
-    (\y -> x { _cesmSubscriptionName = y })
-       <$> f (_cesmSubscriptionName x)
+    f (_cesmSubscriptionName x)
+        <&> \y -> x { _cesmSubscriptionName = y }
 {-# INLINE cesmSubscriptionName #-}
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic and
 -- subscribe to it.
-cesmSnsTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSnsTopicArn :: Lens' CreateEventSubscription (Text)
 cesmSnsTopicArn f x =
-    (\y -> x { _cesmSnsTopicArn = y })
-       <$> f (_cesmSnsTopicArn x)
+    f (_cesmSnsTopicArn x)
+        <&> \y -> x { _cesmSnsTopicArn = y }
 {-# INLINE cesmSnsTopicArn #-}
 
 -- | A Boolean value; set to true to activate the subscription, set to false to
 -- create the subscription but not active it.
-cesmEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesmEnabled f x =
-    (\y -> x { _cesmEnabled = y })
-       <$> f (_cesmEnabled x)
+    f (_cesmEnabled x)
+        <&> \y -> x { _cesmEnabled = y }
 {-# INLINE cesmEnabled #-}
 
 -- | A list of event categories for a SourceType that you want to subscribe to.
 -- You can see a list of the categories for a given SourceType in the Events
 -- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
 -- action.
-cesmEventCategories
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmEventCategories :: Lens' CreateEventSubscription ([Text])
 cesmEventCategories f x =
-    (\y -> x { _cesmEventCategories = y })
-       <$> f (_cesmEventCategories x)
+    f (_cesmEventCategories x)
+        <&> \y -> x { _cesmEventCategories = y }
 {-# INLINE cesmEventCategories #-}
 
 -- | The list of identifiers of the event sources for which events will be
@@ -197,15 +178,10 @@ cesmEventCategories f x =
 -- DBSecurityGroupName must be supplied. If the source type is a DB parameter
 -- group, a DBParameterGroupName must be supplied. If the source type is a DB
 -- snapshot, a DBSnapshotIdentifier must be supplied.
-cesmSourceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSourceIds :: Lens' CreateEventSubscription ([Text])
 cesmSourceIds f x =
-    (\y -> x { _cesmSourceIds = y })
-       <$> f (_cesmSourceIds x)
+    f (_cesmSourceIds x)
+        <&> \y -> x { _cesmSourceIds = y }
 {-# INLINE cesmSourceIds #-}
 
 -- | The type of source that will be generating the events. For example, if you
@@ -213,27 +189,17 @@ cesmSourceIds f x =
 -- this parameter to db-instance. if this value is not specified, all events
 -- are returned. Valid values: db-instance | db-parameter-group |
 -- db-security-group | db-snapshot.
-cesmSourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmSourceType :: Lens' CreateEventSubscription (Maybe Text)
 cesmSourceType f x =
-    (\y -> x { _cesmSourceType = y })
-       <$> f (_cesmSourceType x)
+    f (_cesmSourceType x)
+        <&> \y -> x { _cesmSourceType = y }
 {-# INLINE cesmSourceType #-}
 
 -- | A list of tags.
-cesmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateEventSubscription
-    -> f CreateEventSubscription
+cesmTags :: Lens' CreateEventSubscription ([Tag])
 cesmTags f x =
-    (\y -> x { _cesmTags = y })
-       <$> f (_cesmTags x)
+    f (_cesmTags x)
+        <&> \y -> x { _cesmTags = y }
 {-# INLINE cesmTags #-}
 
 instance ToQuery CreateEventSubscription where
@@ -247,15 +213,10 @@ data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-esxEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> CreateEventSubscriptionResponse
-    -> f CreateEventSubscriptionResponse
+esxEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 esxEventSubscription f x =
-    (\y -> x { _esxEventSubscription = y })
-       <$> f (_esxEventSubscription x)
+    f (_esxEventSubscription x)
+        <&> \y -> x { _esxEventSubscription = y }
 {-# INLINE esxEventSubscription #-}
 
 instance FromXML CreateEventSubscriptionResponse where

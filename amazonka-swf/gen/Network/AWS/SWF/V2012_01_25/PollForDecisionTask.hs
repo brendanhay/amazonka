@@ -123,6 +123,7 @@ pollForDecisionTask p1 p2 = PollForDecisionTask
     , _pfdtiNextPageToken = Nothing
     , _pfdtiReverseOrder = Nothing
     }
+{-# INLINE pollForDecisionTask #-}
 
 data PollForDecisionTask = PollForDecisionTask
     { _pfdtiDomain :: Text
@@ -162,15 +163,10 @@ data PollForDecisionTask = PollForDecisionTask
     } deriving (Show, Generic)
 
 -- | The name of the domain containing the task lists to poll.
-pfdtiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PollForDecisionTask
-    -> f PollForDecisionTask
+pfdtiDomain :: Lens' PollForDecisionTask (Text)
 pfdtiDomain f x =
-    (\y -> x { _pfdtiDomain = y })
-       <$> f (_pfdtiDomain x)
+    f (_pfdtiDomain x)
+        <&> \y -> x { _pfdtiDomain = y }
 {-# INLINE pfdtiDomain #-}
 
 -- | Specifies the task list to poll for decision tasks. The specified string
@@ -178,29 +174,19 @@ pfdtiDomain f x =
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-pfdtiTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> PollForDecisionTask
-    -> f PollForDecisionTask
+pfdtiTaskList :: Lens' PollForDecisionTask (TaskList)
 pfdtiTaskList f x =
-    (\y -> x { _pfdtiTaskList = y })
-       <$> f (_pfdtiTaskList x)
+    f (_pfdtiTaskList x)
+        <&> \y -> x { _pfdtiTaskList = y }
 {-# INLINE pfdtiTaskList #-}
 
 -- | Identity of the decider making the request, which is recorded in the
 -- DecisionTaskStarted event in the workflow history. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
-pfdtiIdentity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PollForDecisionTask
-    -> f PollForDecisionTask
+pfdtiIdentity :: Lens' PollForDecisionTask (Maybe Text)
 pfdtiIdentity f x =
-    (\y -> x { _pfdtiIdentity = y })
-       <$> f (_pfdtiIdentity x)
+    f (_pfdtiIdentity x)
+        <&> \y -> x { _pfdtiIdentity = y }
 {-# INLINE pfdtiIdentity #-}
 
 -- | The maximum number of history events returned in each page. The default is
@@ -209,15 +195,10 @@ pfdtiIdentity f x =
 -- number of events may be less than the maxiumum page size, in which case,
 -- the returned page will have fewer results than the maximumPageSize
 -- specified.
-pfdtiMaximumPageSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PollForDecisionTask
-    -> f PollForDecisionTask
+pfdtiMaximumPageSize :: Lens' PollForDecisionTask (Maybe Integer)
 pfdtiMaximumPageSize f x =
-    (\y -> x { _pfdtiMaximumPageSize = y })
-       <$> f (_pfdtiMaximumPageSize x)
+    f (_pfdtiMaximumPageSize x)
+        <&> \y -> x { _pfdtiMaximumPageSize = y }
 {-# INLINE pfdtiMaximumPageSize #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
@@ -228,29 +209,19 @@ pfdtiMaximumPageSize f x =
 -- PollForDecisionTask again (with the nextPageToken) to retrieve the next
 -- page of history records. Calling PollForDecisionTask with a nextPageToken
 -- will not return a new decision task..
-pfdtiNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PollForDecisionTask
-    -> f PollForDecisionTask
+pfdtiNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
 pfdtiNextPageToken f x =
-    (\y -> x { _pfdtiNextPageToken = y })
-       <$> f (_pfdtiNextPageToken x)
+    f (_pfdtiNextPageToken x)
+        <&> \y -> x { _pfdtiNextPageToken = y }
 {-# INLINE pfdtiNextPageToken #-}
 
 -- | When set to true, returns the events in reverse order. By default the
 -- results are returned in ascending order of the eventTimestamp of the
 -- events.
-pfdtiReverseOrder
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PollForDecisionTask
-    -> f PollForDecisionTask
+pfdtiReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
 pfdtiReverseOrder f x =
-    (\y -> x { _pfdtiReverseOrder = y })
-       <$> f (_pfdtiReverseOrder x)
+    f (_pfdtiReverseOrder x)
+        <&> \y -> x { _pfdtiReverseOrder = y }
 {-# INLINE pfdtiReverseOrder #-}
 
 instance ToPath PollForDecisionTask
@@ -288,96 +259,61 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
     } deriving (Show, Generic)
 
 -- | The id of the DecisionTaskStarted event recorded in the history.
-dddkStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkStartedEventId :: Lens' PollForDecisionTaskResponse (Integer)
 dddkStartedEventId f x =
-    (\y -> x { _dddkStartedEventId = y })
-       <$> f (_dddkStartedEventId x)
+    f (_dddkStartedEventId x)
+        <&> \y -> x { _dddkStartedEventId = y }
 {-# INLINE dddkStartedEventId #-}
 
 -- | A paginated list of history events of the workflow execution. The decider
 -- uses this during the processing of the decision task.
-dddkEvents
-    :: Functor f
-    => ([HistoryEvent]
-    -> f ([HistoryEvent]))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkEvents :: Lens' PollForDecisionTaskResponse ([HistoryEvent])
 dddkEvents f x =
-    (\y -> x { _dddkEvents = y })
-       <$> f (_dddkEvents x)
+    f (_dddkEvents x)
+        <&> \y -> x { _dddkEvents = y }
 {-# INLINE dddkEvents #-}
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
-dddkTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkTaskToken :: Lens' PollForDecisionTaskResponse (Text)
 dddkTaskToken f x =
-    (\y -> x { _dddkTaskToken = y })
-       <$> f (_dddkTaskToken x)
+    f (_dddkTaskToken x)
+        <&> \y -> x { _dddkTaskToken = y }
 {-# INLINE dddkTaskToken #-}
 
 -- | The workflow execution for which this decision task was created.
-dddkWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkWorkflowExecution :: Lens' PollForDecisionTaskResponse (WorkflowExecution)
 dddkWorkflowExecution f x =
-    (\y -> x { _dddkWorkflowExecution = y })
-       <$> f (_dddkWorkflowExecution x)
+    f (_dddkWorkflowExecution x)
+        <&> \y -> x { _dddkWorkflowExecution = y }
 {-# INLINE dddkWorkflowExecution #-}
 
 -- | The type of the workflow execution for which this decision task was
 -- created.
-dddkWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkWorkflowType :: Lens' PollForDecisionTaskResponse (WorkflowType)
 dddkWorkflowType f x =
-    (\y -> x { _dddkWorkflowType = y })
-       <$> f (_dddkWorkflowType x)
+    f (_dddkWorkflowType x)
+        <&> \y -> x { _dddkWorkflowType = y }
 {-# INLINE dddkWorkflowType #-}
 
 -- | The id of the DecisionTaskStarted event of the previous decision task of
 -- this workflow execution that was processed by the decider. This can be used
 -- to determine the events in the history new since the last decision task
 -- received by the decider.
-dddkPreviousStartedEventId
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 dddkPreviousStartedEventId f x =
-    (\y -> x { _dddkPreviousStartedEventId = y })
-       <$> f (_dddkPreviousStartedEventId x)
+    f (_dddkPreviousStartedEventId x)
+        <&> \y -> x { _dddkPreviousStartedEventId = y }
 {-# INLINE dddkPreviousStartedEventId #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-dddkNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PollForDecisionTaskResponse
-    -> f PollForDecisionTaskResponse
+dddkNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 dddkNextPageToken f x =
-    (\y -> x { _dddkNextPageToken = y })
-       <$> f (_dddkNextPageToken x)
+    f (_dddkNextPageToken x)
+        <&> \y -> x { _dddkNextPageToken = y }
 {-# INLINE dddkNextPageToken #-}
 
 instance FromJSON PollForDecisionTaskResponse

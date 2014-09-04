@@ -141,15 +141,10 @@ newtype Topic = Topic
     } deriving (Show, Generic)
 
 -- | The topic's ARN.
-tcTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Topic
-    -> f Topic
+tcTopicArn :: Lens' Topic (Maybe Text)
 tcTopicArn f x =
-    (\y -> x { _tcTopicArn = y })
-       <$> f (_tcTopicArn x)
+    f (_tcTopicArn x)
+        <&> \y -> x { _tcTopicArn = y }
 {-# INLINE tcTopicArn #-}
 
 instance FromXML Topic where
@@ -165,27 +160,17 @@ data Endpoint = Endpoint
     } deriving (Show, Generic)
 
 -- | EndpointArn for mobile app and device.
-fEndpointArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Endpoint
-    -> f Endpoint
+fEndpointArn :: Lens' Endpoint (Maybe Text)
 fEndpointArn f x =
-    (\y -> x { _fEndpointArn = y })
-       <$> f (_fEndpointArn x)
+    f (_fEndpointArn x)
+        <&> \y -> x { _fEndpointArn = y }
 {-# INLINE fEndpointArn #-}
 
 -- | Attributes for endpoint.
-fAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> Endpoint
-    -> f Endpoint
+fAttributes :: Lens' Endpoint (Map Text Text)
 fAttributes f x =
-    (\y -> x { _fAttributes = y })
-       <$> f (_fAttributes x)
+    f (_fAttributes x)
+        <&> \y -> x { _fAttributes = y }
 {-# INLINE fAttributes #-}
 
 instance FromXML Endpoint where
@@ -216,41 +201,26 @@ data MessageAttributeValue = MessageAttributeValue
 
 -- | Amazon SNS supports the following logical data types: String, Number, and
 -- Binary. For more information, see Message Attribute Data Types.
-mavDataType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MessageAttributeValue
-    -> f MessageAttributeValue
+mavDataType :: Lens' MessageAttributeValue (Text)
 mavDataType f x =
-    (\y -> x { _mavDataType = y })
-       <$> f (_mavDataType x)
+    f (_mavDataType x)
+        <&> \y -> x { _mavDataType = y }
 {-# INLINE mavDataType #-}
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
 -- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
-mavStringValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MessageAttributeValue
-    -> f MessageAttributeValue
+mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue f x =
-    (\y -> x { _mavStringValue = y })
-       <$> f (_mavStringValue x)
+    f (_mavStringValue x)
+        <&> \y -> x { _mavStringValue = y }
 {-# INLINE mavStringValue #-}
 
 -- | Binary type attributes can store any binary data, for example, compressed
 -- data, encrypted data, or images.
-mavBinaryValue
-    :: Functor f
-    => (Maybe ByteString
-    -> f (Maybe ByteString))
-    -> MessageAttributeValue
-    -> f MessageAttributeValue
+mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue f x =
-    (\y -> x { _mavBinaryValue = y })
-       <$> f (_mavBinaryValue x)
+    f (_mavBinaryValue x)
+        <&> \y -> x { _mavBinaryValue = y }
 {-# INLINE mavBinaryValue #-}
 
 instance ToQuery MessageAttributeValue where
@@ -265,27 +235,17 @@ data PlatformApplication = PlatformApplication
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn for platform application object.
-paPlatformApplicationArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PlatformApplication
-    -> f PlatformApplication
+paPlatformApplicationArn :: Lens' PlatformApplication (Maybe Text)
 paPlatformApplicationArn f x =
-    (\y -> x { _paPlatformApplicationArn = y })
-       <$> f (_paPlatformApplicationArn x)
+    f (_paPlatformApplicationArn x)
+        <&> \y -> x { _paPlatformApplicationArn = y }
 {-# INLINE paPlatformApplicationArn #-}
 
 -- | Attributes for platform application object.
-paAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> PlatformApplication
-    -> f PlatformApplication
+paAttributes :: Lens' PlatformApplication (Map Text Text)
 paAttributes f x =
-    (\y -> x { _paAttributes = y })
-       <$> f (_paAttributes x)
+    f (_paAttributes x)
+        <&> \y -> x { _paAttributes = y }
 {-# INLINE paAttributes #-}
 
 instance FromXML PlatformApplication where
@@ -307,63 +267,38 @@ data Subscription = Subscription
     } deriving (Show, Generic)
 
 -- | The subscription's ARN.
-ssnSubscriptionArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subscription
-    -> f Subscription
+ssnSubscriptionArn :: Lens' Subscription (Maybe Text)
 ssnSubscriptionArn f x =
-    (\y -> x { _ssnSubscriptionArn = y })
-       <$> f (_ssnSubscriptionArn x)
+    f (_ssnSubscriptionArn x)
+        <&> \y -> x { _ssnSubscriptionArn = y }
 {-# INLINE ssnSubscriptionArn #-}
 
 -- | The subscription's owner.
-ssnOwner
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subscription
-    -> f Subscription
+ssnOwner :: Lens' Subscription (Maybe Text)
 ssnOwner f x =
-    (\y -> x { _ssnOwner = y })
-       <$> f (_ssnOwner x)
+    f (_ssnOwner x)
+        <&> \y -> x { _ssnOwner = y }
 {-# INLINE ssnOwner #-}
 
 -- | The subscription's protocol.
-ssnProtocol
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subscription
-    -> f Subscription
+ssnProtocol :: Lens' Subscription (Maybe Text)
 ssnProtocol f x =
-    (\y -> x { _ssnProtocol = y })
-       <$> f (_ssnProtocol x)
+    f (_ssnProtocol x)
+        <&> \y -> x { _ssnProtocol = y }
 {-# INLINE ssnProtocol #-}
 
 -- | The subscription's endpoint (format depends on the protocol).
-ssnEndpoint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subscription
-    -> f Subscription
+ssnEndpoint :: Lens' Subscription (Maybe Text)
 ssnEndpoint f x =
-    (\y -> x { _ssnEndpoint = y })
-       <$> f (_ssnEndpoint x)
+    f (_ssnEndpoint x)
+        <&> \y -> x { _ssnEndpoint = y }
 {-# INLINE ssnEndpoint #-}
 
 -- | The ARN of the subscription's topic.
-ssnTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subscription
-    -> f Subscription
+ssnTopicArn :: Lens' Subscription (Maybe Text)
 ssnTopicArn f x =
-    (\y -> x { _ssnTopicArn = y })
-       <$> f (_ssnTopicArn x)
+    f (_ssnTopicArn x)
+        <&> \y -> x { _ssnTopicArn = y }
 {-# INLINE ssnTopicArn #-}
 
 instance FromXML Subscription where

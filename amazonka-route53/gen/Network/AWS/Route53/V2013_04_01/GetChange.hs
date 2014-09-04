@@ -47,6 +47,7 @@ getChange :: Text -- ^ 'gcrId'
 getChange p1 = GetChange
     { _gcrId = p1
     }
+{-# INLINE getChange #-}
 
 data GetChange = GetChange
     { _gcrId :: Text
@@ -58,15 +59,10 @@ data GetChange = GetChange
 -- | The ID of the change batch request. The value that you specify here is the
 -- value that ChangeResourceRecordSets returned in the Id element when you
 -- submitted the request.
-gcrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetChange
-    -> f GetChange
+gcrId :: Lens' GetChange (Text)
 gcrId f x =
-    (\y -> x { _gcrId = y })
-       <$> f (_gcrId x)
+    f (_gcrId x)
+        <&> \y -> x { _gcrId = y }
 {-# INLINE gcrId #-}
 
 instance ToPath GetChange where
@@ -93,15 +89,10 @@ data GetChangeResponse = GetChangeResponse
 -- | A complex type that contains information about the specified change batch,
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
-gcsChangeInfo
-    :: Functor f
-    => (ChangeInfo
-    -> f (ChangeInfo))
-    -> GetChangeResponse
-    -> f GetChangeResponse
+gcsChangeInfo :: Lens' GetChangeResponse (ChangeInfo)
 gcsChangeInfo f x =
-    (\y -> x { _gcsChangeInfo = y })
-       <$> f (_gcsChangeInfo x)
+    f (_gcsChangeInfo x)
+        <&> \y -> x { _gcsChangeInfo = y }
 {-# INLINE gcsChangeInfo #-}
 
 instance FromXML GetChangeResponse where

@@ -49,6 +49,7 @@ describeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasrInstanceIds'
 describeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
     { _dtbasrInstanceIds = p1
     }
+{-# INLINE describeTimeBasedAutoScaling #-}
 
 data DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
     { _dtbasrInstanceIds :: [Text]
@@ -56,15 +57,10 @@ data DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
     } deriving (Show, Generic)
 
 -- | An array of instance IDs.
-dtbasrInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTimeBasedAutoScaling
-    -> f DescribeTimeBasedAutoScaling
+dtbasrInstanceIds :: Lens' DescribeTimeBasedAutoScaling ([Text])
 dtbasrInstanceIds f x =
-    (\y -> x { _dtbasrInstanceIds = y })
-       <$> f (_dtbasrInstanceIds x)
+    f (_dtbasrInstanceIds x)
+        <&> \y -> x { _dtbasrInstanceIds = y }
 {-# INLINE dtbasrInstanceIds #-}
 
 instance ToPath DescribeTimeBasedAutoScaling
@@ -83,15 +79,10 @@ data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
 
 -- | An array of TimeBasedAutoScalingConfiguration objects that describe the
 -- configuration for the specified instances.
-dtbassTimeBasedAutoScalingConfigurations
-    :: Functor f
-    => ([TimeBasedAutoScalingConfiguration]
-    -> f ([TimeBasedAutoScalingConfiguration]))
-    -> DescribeTimeBasedAutoScalingResponse
-    -> f DescribeTimeBasedAutoScalingResponse
+dtbassTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse ([TimeBasedAutoScalingConfiguration])
 dtbassTimeBasedAutoScalingConfigurations f x =
-    (\y -> x { _dtbassTimeBasedAutoScalingConfigurations = y })
-       <$> f (_dtbassTimeBasedAutoScalingConfigurations x)
+    f (_dtbassTimeBasedAutoScalingConfigurations x)
+        <&> \y -> x { _dtbassTimeBasedAutoScalingConfigurations = y }
 {-# INLINE dtbassTimeBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse

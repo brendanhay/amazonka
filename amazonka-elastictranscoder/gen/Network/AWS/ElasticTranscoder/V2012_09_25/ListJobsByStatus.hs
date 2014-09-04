@@ -93,6 +93,7 @@ listJobsByStatus p1 = ListJobsByStatus
     , _ljbsrAscending = Nothing
     , _ljbsrPageToken = Nothing
     }
+{-# INLINE listJobsByStatus #-}
 
 data ListJobsByStatus = ListJobsByStatus
     { _ljbsrStatus :: Text
@@ -113,43 +114,28 @@ data ListJobsByStatus = ListJobsByStatus
 -- | To get information about all of the jobs associated with the current AWS
 -- account that have a given status, specify the following status: Submitted,
 -- Progressing, Complete, Canceled, or Error.
-ljbsrStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListJobsByStatus
-    -> f ListJobsByStatus
+ljbsrStatus :: Lens' ListJobsByStatus (Text)
 ljbsrStatus f x =
-    (\y -> x { _ljbsrStatus = y })
-       <$> f (_ljbsrStatus x)
+    f (_ljbsrStatus x)
+        <&> \y -> x { _ljbsrStatus = y }
 {-# INLINE ljbsrStatus #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
-ljbsrAscending
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobsByStatus
-    -> f ListJobsByStatus
+ljbsrAscending :: Lens' ListJobsByStatus (Maybe Text)
 ljbsrAscending f x =
-    (\y -> x { _ljbsrAscending = y })
-       <$> f (_ljbsrAscending x)
+    f (_ljbsrAscending x)
+        <&> \y -> x { _ljbsrAscending = y }
 {-# INLINE ljbsrAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-ljbsrPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobsByStatus
-    -> f ListJobsByStatus
+ljbsrPageToken :: Lens' ListJobsByStatus (Maybe Text)
 ljbsrPageToken f x =
-    (\y -> x { _ljbsrPageToken = y })
-       <$> f (_ljbsrPageToken x)
+    f (_ljbsrPageToken x)
+        <&> \y -> x { _ljbsrPageToken = y }
 {-# INLINE ljbsrPageToken #-}
 
 instance ToPath ListJobsByStatus where
@@ -182,27 +168,17 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of NextPageToken is
 -- null.
-ljbssNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobsByStatusResponse
-    -> f ListJobsByStatusResponse
+ljbssNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbssNextPageToken f x =
-    (\y -> x { _ljbssNextPageToken = y })
-       <$> f (_ljbssNextPageToken x)
+    f (_ljbssNextPageToken x)
+        <&> \y -> x { _ljbssNextPageToken = y }
 {-# INLINE ljbssNextPageToken #-}
 
 -- | An array of Job objects that have the specified status.
-ljbssJobs
-    :: Functor f
-    => ([Job]
-    -> f ([Job]))
-    -> ListJobsByStatusResponse
-    -> f ListJobsByStatusResponse
+ljbssJobs :: Lens' ListJobsByStatusResponse ([Job])
 ljbssJobs f x =
-    (\y -> x { _ljbssJobs = y })
-       <$> f (_ljbssJobs x)
+    f (_ljbssJobs x)
+        <&> \y -> x { _ljbssJobs = y }
 {-# INLINE ljbssJobs #-}
 
 instance FromJSON ListJobsByStatusResponse

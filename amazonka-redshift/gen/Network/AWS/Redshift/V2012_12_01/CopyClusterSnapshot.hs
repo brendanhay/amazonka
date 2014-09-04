@@ -66,6 +66,7 @@ copyClusterSnapshot p1 p2 = CopyClusterSnapshot
     , _ccsmTargetSnapshotIdentifier = p2
     , _ccsmSourceSnapshotClusterIdentifier = Nothing
     }
+{-# INLINE copyClusterSnapshot #-}
 
 data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsmSourceSnapshotIdentifier :: Text
@@ -89,15 +90,10 @@ data CopyClusterSnapshot = CopyClusterSnapshot
 
 -- | The identifier for the source snapshot. Constraints: Must be the identifier
 -- for a valid automated snapshot whose state is available.
-ccsmSourceSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyClusterSnapshot
-    -> f CopyClusterSnapshot
+ccsmSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot (Text)
 ccsmSourceSnapshotIdentifier f x =
-    (\y -> x { _ccsmSourceSnapshotIdentifier = y })
-       <$> f (_ccsmSourceSnapshotIdentifier x)
+    f (_ccsmSourceSnapshotIdentifier x)
+        <&> \y -> x { _ccsmSourceSnapshotIdentifier = y }
 {-# INLINE ccsmSourceSnapshotIdentifier #-}
 
 -- | The identifier given to the new manual snapshot. Constraints: Cannot be
@@ -105,30 +101,20 @@ ccsmSourceSnapshotIdentifier f x =
 -- or hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens. Must be unique for the AWS account that is
 -- making the request.
-ccsmTargetSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyClusterSnapshot
-    -> f CopyClusterSnapshot
+ccsmTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot (Text)
 ccsmTargetSnapshotIdentifier f x =
-    (\y -> x { _ccsmTargetSnapshotIdentifier = y })
-       <$> f (_ccsmTargetSnapshotIdentifier x)
+    f (_ccsmTargetSnapshotIdentifier x)
+        <&> \y -> x { _ccsmTargetSnapshotIdentifier = y }
 {-# INLINE ccsmTargetSnapshotIdentifier #-}
 
 -- | The identifier of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster name.
 -- Constraints: Must be the identifier for a valid cluster.
-ccsmSourceSnapshotClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyClusterSnapshot
-    -> f CopyClusterSnapshot
+ccsmSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
 ccsmSourceSnapshotClusterIdentifier f x =
-    (\y -> x { _ccsmSourceSnapshotClusterIdentifier = y })
-       <$> f (_ccsmSourceSnapshotClusterIdentifier x)
+    f (_ccsmSourceSnapshotClusterIdentifier x)
+        <&> \y -> x { _ccsmSourceSnapshotClusterIdentifier = y }
 {-# INLINE ccsmSourceSnapshotClusterIdentifier #-}
 
 instance ToQuery CopyClusterSnapshot where
@@ -140,15 +126,10 @@ data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-ssrSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> CopyClusterSnapshotResponse
-    -> f CopyClusterSnapshotResponse
+ssrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ssrSnapshot f x =
-    (\y -> x { _ssrSnapshot = y })
-       <$> f (_ssrSnapshot x)
+    f (_ssrSnapshot x)
+        <&> \y -> x { _ssrSnapshot = y }
 {-# INLINE ssrSnapshot #-}
 
 instance FromXML CopyClusterSnapshotResponse where

@@ -68,6 +68,7 @@ describeUploadBuffer :: Text -- ^ 'dubiGatewayARN'
 describeUploadBuffer p1 = DescribeUploadBuffer
     { _dubiGatewayARN = p1
     }
+{-# INLINE describeUploadBuffer #-}
 
 data DescribeUploadBuffer = DescribeUploadBuffer
     { _dubiGatewayARN :: Text
@@ -78,15 +79,10 @@ data DescribeUploadBuffer = DescribeUploadBuffer
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dubiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeUploadBuffer
-    -> f DescribeUploadBuffer
+dubiGatewayARN :: Lens' DescribeUploadBuffer (Text)
 dubiGatewayARN f x =
-    (\y -> x { _dubiGatewayARN = y })
-       <$> f (_dubiGatewayARN x)
+    f (_dubiGatewayARN x)
+        <&> \y -> x { _dubiGatewayARN = y }
 {-# INLINE dubiGatewayARN #-}
 
 instance ToPath DescribeUploadBuffer
@@ -107,50 +103,30 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     , _duboUploadBufferAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-duboDiskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeUploadBufferResponse
-    -> f DescribeUploadBufferResponse
+duboDiskIds :: Lens' DescribeUploadBufferResponse ([Text])
 duboDiskIds f x =
-    (\y -> x { _duboDiskIds = y })
-       <$> f (_duboDiskIds x)
+    f (_duboDiskIds x)
+        <&> \y -> x { _duboDiskIds = y }
 {-# INLINE duboDiskIds #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-duboGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeUploadBufferResponse
-    -> f DescribeUploadBufferResponse
+duboGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
 duboGatewayARN f x =
-    (\y -> x { _duboGatewayARN = y })
-       <$> f (_duboGatewayARN x)
+    f (_duboGatewayARN x)
+        <&> \y -> x { _duboGatewayARN = y }
 {-# INLINE duboGatewayARN #-}
 
-duboUploadBufferUsedInBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeUploadBufferResponse
-    -> f DescribeUploadBufferResponse
+duboUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 duboUploadBufferUsedInBytes f x =
-    (\y -> x { _duboUploadBufferUsedInBytes = y })
-       <$> f (_duboUploadBufferUsedInBytes x)
+    f (_duboUploadBufferUsedInBytes x)
+        <&> \y -> x { _duboUploadBufferUsedInBytes = y }
 {-# INLINE duboUploadBufferUsedInBytes #-}
 
-duboUploadBufferAllocatedInBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeUploadBufferResponse
-    -> f DescribeUploadBufferResponse
+duboUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 duboUploadBufferAllocatedInBytes f x =
-    (\y -> x { _duboUploadBufferAllocatedInBytes = y })
-       <$> f (_duboUploadBufferAllocatedInBytes x)
+    f (_duboUploadBufferAllocatedInBytes x)
+        <&> \y -> x { _duboUploadBufferAllocatedInBytes = y }
 {-# INLINE duboUploadBufferAllocatedInBytes #-}
 
 instance FromJSON DescribeUploadBufferResponse

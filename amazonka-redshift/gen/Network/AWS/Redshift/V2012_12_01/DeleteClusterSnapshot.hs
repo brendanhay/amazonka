@@ -60,6 +60,7 @@ deleteClusterSnapshot p1 = DeleteClusterSnapshot
     { _dcsmSnapshotIdentifier = p1
     , _dcsmSnapshotClusterIdentifier = Nothing
     }
+{-# INLINE deleteClusterSnapshot #-}
 
 data DeleteClusterSnapshot = DeleteClusterSnapshot
     { _dcsmSnapshotIdentifier :: Text
@@ -76,30 +77,20 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot
 
 -- | The unique identifier of the manual snapshot to be deleted. Constraints:
 -- Must be the name of an existing snapshot that is in the available state.
-dcsmSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteClusterSnapshot
-    -> f DeleteClusterSnapshot
+dcsmSnapshotIdentifier :: Lens' DeleteClusterSnapshot (Text)
 dcsmSnapshotIdentifier f x =
-    (\y -> x { _dcsmSnapshotIdentifier = y })
-       <$> f (_dcsmSnapshotIdentifier x)
+    f (_dcsmSnapshotIdentifier x)
+        <&> \y -> x { _dcsmSnapshotIdentifier = y }
 {-# INLINE dcsmSnapshotIdentifier #-}
 
 -- | The unique identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster name.
 -- Constraints: Must be the name of valid cluster.
-dcsmSnapshotClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteClusterSnapshot
-    -> f DeleteClusterSnapshot
+dcsmSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
 dcsmSnapshotClusterIdentifier f x =
-    (\y -> x { _dcsmSnapshotClusterIdentifier = y })
-       <$> f (_dcsmSnapshotClusterIdentifier x)
+    f (_dcsmSnapshotClusterIdentifier x)
+        <&> \y -> x { _dcsmSnapshotClusterIdentifier = y }
 {-# INLINE dcsmSnapshotClusterIdentifier #-}
 
 instance ToQuery DeleteClusterSnapshot where
@@ -111,15 +102,10 @@ data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-sssssssssssrSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> DeleteClusterSnapshotResponse
-    -> f DeleteClusterSnapshotResponse
+sssssssssssrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 sssssssssssrSnapshot f x =
-    (\y -> x { _sssssssssssrSnapshot = y })
-       <$> f (_sssssssssssrSnapshot x)
+    f (_sssssssssssrSnapshot x)
+        <&> \y -> x { _sssssssssssrSnapshot = y }
 {-# INLINE sssssssssssrSnapshot #-}
 
 instance FromXML DeleteClusterSnapshotResponse where

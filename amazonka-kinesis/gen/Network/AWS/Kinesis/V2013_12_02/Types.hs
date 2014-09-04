@@ -27,7 +27,6 @@ module Network.AWS.Kinesis.V2013_12_02.Types
       Kinesis
     -- ** Errors
     , Er (..)
-
     -- * ShardIteratorType
     , ShardIteratorType (..)
 
@@ -219,27 +218,17 @@ data HashKeyRange = HashKeyRange
     } deriving (Show, Generic)
 
 -- | The starting hash key of the hash key range.
-hkrStartingHashKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> HashKeyRange
-    -> f HashKeyRange
+hkrStartingHashKey :: Lens' HashKeyRange (Text)
 hkrStartingHashKey f x =
-    (\y -> x { _hkrStartingHashKey = y })
-       <$> f (_hkrStartingHashKey x)
+    f (_hkrStartingHashKey x)
+        <&> \y -> x { _hkrStartingHashKey = y }
 {-# INLINE hkrStartingHashKey #-}
 
 -- | The ending hash key of the hash key range.
-hkrEndingHashKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> HashKeyRange
-    -> f HashKeyRange
+hkrEndingHashKey :: Lens' HashKeyRange (Text)
 hkrEndingHashKey f x =
-    (\y -> x { _hkrEndingHashKey = y })
-       <$> f (_hkrEndingHashKey x)
+    f (_hkrEndingHashKey x)
+        <&> \y -> x { _hkrEndingHashKey = y }
 {-# INLINE hkrEndingHashKey #-}
 
 instance FromJSON HashKeyRange
@@ -264,42 +253,27 @@ data Record = Record
     } deriving (Show, Generic)
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
-rSequenceNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Record
-    -> f Record
+rSequenceNumber :: Lens' Record (Text)
 rSequenceNumber f x =
-    (\y -> x { _rSequenceNumber = y })
-       <$> f (_rSequenceNumber x)
+    f (_rSequenceNumber x)
+        <&> \y -> x { _rSequenceNumber = y }
 {-# INLINE rSequenceNumber #-}
 
 -- | The data blob. The data in the blob is both opaque and immutable to the
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
 -- data in the blob in any way. The maximum size of the data blob (the payload
 -- after Base64-decoding) is 50 kilobytes (KB).
-rData
-    :: Functor f
-    => (Base64
-    -> f (Base64))
-    -> Record
-    -> f Record
+rData :: Lens' Record (Base64)
 rData f x =
-    (\y -> x { _rData = y })
-       <$> f (_rData x)
+    f (_rData x)
+        <&> \y -> x { _rData = y }
 {-# INLINE rData #-}
 
 -- | Identifies which shard in the stream the data record is assigned to.
-rPartitionKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Record
-    -> f Record
+rPartitionKey :: Lens' Record (Text)
 rPartitionKey f x =
-    (\y -> x { _rPartitionKey = y })
-       <$> f (_rPartitionKey x)
+    f (_rPartitionKey x)
+        <&> \y -> x { _rPartitionKey = y }
 {-# INLINE rPartitionKey #-}
 
 instance FromJSON Record
@@ -314,28 +288,18 @@ data SequenceNumberRange = SequenceNumberRange
     } deriving (Show, Generic)
 
 -- | The starting sequence number for the range.
-snrStartingSequenceNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SequenceNumberRange
-    -> f SequenceNumberRange
+snrStartingSequenceNumber :: Lens' SequenceNumberRange (Text)
 snrStartingSequenceNumber f x =
-    (\y -> x { _snrStartingSequenceNumber = y })
-       <$> f (_snrStartingSequenceNumber x)
+    f (_snrStartingSequenceNumber x)
+        <&> \y -> x { _snrStartingSequenceNumber = y }
 {-# INLINE snrStartingSequenceNumber #-}
 
 -- | The ending sequence number for the range. Shards that are in the OPEN state
 -- have an ending sequence number of null.
-snrEndingSequenceNumber
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SequenceNumberRange
-    -> f SequenceNumberRange
+snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 snrEndingSequenceNumber f x =
-    (\y -> x { _snrEndingSequenceNumber = y })
-       <$> f (_snrEndingSequenceNumber x)
+    f (_snrEndingSequenceNumber x)
+        <&> \y -> x { _snrEndingSequenceNumber = y }
 {-# INLINE snrEndingSequenceNumber #-}
 
 instance FromJSON SequenceNumberRange
@@ -359,64 +323,39 @@ data Shard = Shard
     } deriving (Show, Generic)
 
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
-sShardId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Shard
-    -> f Shard
+sShardId :: Lens' Shard (Text)
 sShardId f x =
-    (\y -> x { _sShardId = y })
-       <$> f (_sShardId x)
+    f (_sShardId x)
+        <&> \y -> x { _sShardId = y }
 {-# INLINE sShardId #-}
 
 -- | The shard Id of the shard's parent.
-sParentShardId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Shard
-    -> f Shard
+sParentShardId :: Lens' Shard (Maybe Text)
 sParentShardId f x =
-    (\y -> x { _sParentShardId = y })
-       <$> f (_sParentShardId x)
+    f (_sParentShardId x)
+        <&> \y -> x { _sParentShardId = y }
 {-# INLINE sParentShardId #-}
 
 -- | The shard Id of the shard adjacent to the shard's parent.
-sAdjacentParentShardId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Shard
-    -> f Shard
+sAdjacentParentShardId :: Lens' Shard (Maybe Text)
 sAdjacentParentShardId f x =
-    (\y -> x { _sAdjacentParentShardId = y })
-       <$> f (_sAdjacentParentShardId x)
+    f (_sAdjacentParentShardId x)
+        <&> \y -> x { _sAdjacentParentShardId = y }
 {-# INLINE sAdjacentParentShardId #-}
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
-sHashKeyRange
-    :: Functor f
-    => (HashKeyRange
-    -> f (HashKeyRange))
-    -> Shard
-    -> f Shard
+sHashKeyRange :: Lens' Shard (HashKeyRange)
 sHashKeyRange f x =
-    (\y -> x { _sHashKeyRange = y })
-       <$> f (_sHashKeyRange x)
+    f (_sHashKeyRange x)
+        <&> \y -> x { _sHashKeyRange = y }
 {-# INLINE sHashKeyRange #-}
 
 -- | The range of possible sequence numbers for the shard.
-sSequenceNumberRange
-    :: Functor f
-    => (SequenceNumberRange
-    -> f (SequenceNumberRange))
-    -> Shard
-    -> f Shard
+sSequenceNumberRange :: Lens' Shard (SequenceNumberRange)
 sSequenceNumberRange f x =
-    (\y -> x { _sSequenceNumberRange = y })
-       <$> f (_sSequenceNumberRange x)
+    f (_sSequenceNumberRange x)
+        <&> \y -> x { _sSequenceNumberRange = y }
 {-# INLINE sSequenceNumberRange #-}
 
 instance FromJSON Shard
@@ -450,27 +389,17 @@ data StreamDescription = StreamDescription
     } deriving (Show, Generic)
 
 -- | The name of the stream being described.
-sdStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamDescription
-    -> f StreamDescription
+sdStreamName :: Lens' StreamDescription (Text)
 sdStreamName f x =
-    (\y -> x { _sdStreamName = y })
-       <$> f (_sdStreamName x)
+    f (_sdStreamName x)
+        <&> \y -> x { _sdStreamName = y }
 {-# INLINE sdStreamName #-}
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
-sdStreamARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamDescription
-    -> f StreamDescription
+sdStreamARN :: Lens' StreamDescription (Text)
 sdStreamARN f x =
-    (\y -> x { _sdStreamARN = y })
-       <$> f (_sdStreamARN x)
+    f (_sdStreamARN x)
+        <&> \y -> x { _sdStreamARN = y }
 {-# INLINE sdStreamARN #-}
 
 -- | The current status of the stream being described. The stream status is one
@@ -483,39 +412,24 @@ sdStreamARN f x =
 -- and write operations only on an ACTIVE stream. UPDATING - Shards in the
 -- stream are being merged or split. Read and write operations continue to
 -- work while the stream is in the UPDATING state.
-sdStreamStatus
-    :: Functor f
-    => (StreamStatus
-    -> f (StreamStatus))
-    -> StreamDescription
-    -> f StreamDescription
+sdStreamStatus :: Lens' StreamDescription (StreamStatus)
 sdStreamStatus f x =
-    (\y -> x { _sdStreamStatus = y })
-       <$> f (_sdStreamStatus x)
+    f (_sdStreamStatus x)
+        <&> \y -> x { _sdStreamStatus = y }
 {-# INLINE sdStreamStatus #-}
 
 -- | The shards that comprise the stream.
-sdShards
-    :: Functor f
-    => ([Shard]
-    -> f ([Shard]))
-    -> StreamDescription
-    -> f StreamDescription
+sdShards :: Lens' StreamDescription ([Shard])
 sdShards f x =
-    (\y -> x { _sdShards = y })
-       <$> f (_sdShards x)
+    f (_sdShards x)
+        <&> \y -> x { _sdShards = y }
 {-# INLINE sdShards #-}
 
 -- | If set to true there are more shards in the stream available to describe.
-sdHasMoreShards
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> StreamDescription
-    -> f StreamDescription
+sdHasMoreShards :: Lens' StreamDescription (Bool)
 sdHasMoreShards f x =
-    (\y -> x { _sdHasMoreShards = y })
-       <$> f (_sdHasMoreShards x)
+    f (_sdHasMoreShards x)
+        <&> \y -> x { _sdHasMoreShards = y }
 {-# INLINE sdHasMoreShards #-}
 
 instance FromJSON StreamDescription

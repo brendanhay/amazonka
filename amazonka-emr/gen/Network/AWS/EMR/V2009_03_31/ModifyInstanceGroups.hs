@@ -60,6 +60,7 @@ modifyInstanceGroups :: ModifyInstanceGroups
 modifyInstanceGroups = ModifyInstanceGroups
     { _migiInstanceGroups = mempty
     }
+{-# INLINE modifyInstanceGroups #-}
 
 data ModifyInstanceGroups = ModifyInstanceGroups
     { _migiInstanceGroups :: [InstanceGroupModifyConfig]
@@ -67,15 +68,10 @@ data ModifyInstanceGroups = ModifyInstanceGroups
     } deriving (Show, Generic)
 
 -- | Instance groups to change.
-migiInstanceGroups
-    :: Functor f
-    => ([InstanceGroupModifyConfig]
-    -> f ([InstanceGroupModifyConfig]))
-    -> ModifyInstanceGroups
-    -> f ModifyInstanceGroups
+migiInstanceGroups :: Lens' ModifyInstanceGroups ([InstanceGroupModifyConfig])
 migiInstanceGroups f x =
-    (\y -> x { _migiInstanceGroups = y })
-       <$> f (_migiInstanceGroups x)
+    f (_migiInstanceGroups x)
+        <&> \y -> x { _migiInstanceGroups = y }
 {-# INLINE migiInstanceGroups #-}
 
 instance ToPath ModifyInstanceGroups

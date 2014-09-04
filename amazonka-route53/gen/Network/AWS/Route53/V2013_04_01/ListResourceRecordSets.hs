@@ -87,6 +87,7 @@ listResourceRecordSets p1 = ListResourceRecordSets
     , _lrrsrStartRecordType = Nothing
     , _lrrsrStartRecordIdentifier = Nothing
     }
+{-# INLINE listResourceRecordSets #-}
 
 data ListResourceRecordSets = ListResourceRecordSets
     { _lrrsrHostedZoneId :: Text
@@ -115,40 +116,25 @@ data ListResourceRecordSets = ListResourceRecordSets
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to get.
-lrrsrHostedZoneId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListResourceRecordSets
-    -> f ListResourceRecordSets
+lrrsrHostedZoneId :: Lens' ListResourceRecordSets (Text)
 lrrsrHostedZoneId f x =
-    (\y -> x { _lrrsrHostedZoneId = y })
-       <$> f (_lrrsrHostedZoneId x)
+    f (_lrrsrHostedZoneId x)
+        <&> \y -> x { _lrrsrHostedZoneId = y }
 {-# INLINE lrrsrHostedZoneId #-}
 
 -- | The first name in the lexicographic ordering of domain names that you want
 -- the ListResourceRecordSets request to list.
-lrrsrStartRecordName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListResourceRecordSets
-    -> f ListResourceRecordSets
+lrrsrStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsrStartRecordName f x =
-    (\y -> x { _lrrsrStartRecordName = y })
-       <$> f (_lrrsrStartRecordName x)
+    f (_lrrsrStartRecordName x)
+        <&> \y -> x { _lrrsrStartRecordName = y }
 {-# INLINE lrrsrStartRecordName #-}
 
 -- | The maximum number of records you want in the response body.
-lrrsrMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListResourceRecordSets
-    -> f ListResourceRecordSets
+lrrsrMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsrMaxItems f x =
-    (\y -> x { _lrrsrMaxItems = y })
-       <$> f (_lrrsrMaxItems x)
+    f (_lrrsrMaxItems x)
+        <&> \y -> x { _lrrsrMaxItems = y }
 {-# INLINE lrrsrMaxItems #-}
 
 -- | The DNS type at which to begin the listing of resource record sets. Valid
@@ -157,15 +143,10 @@ lrrsrMaxItems f x =
 -- Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias Resource
 -- Record Sets: A | AAAA Constraint: Specifying type without specifying name
 -- returns an InvalidInput error.
-lrrsrStartRecordType
-    :: Functor f
-    => (Maybe RecordType
-    -> f (Maybe RecordType))
-    -> ListResourceRecordSets
-    -> f ListResourceRecordSets
+lrrsrStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsrStartRecordType f x =
-    (\y -> x { _lrrsrStartRecordType = y })
-       <$> f (_lrrsrStartRecordType x)
+    f (_lrrsrStartRecordType x)
+        <&> \y -> x { _lrrsrStartRecordType = y }
 {-# INLINE lrrsrStartRecordType #-}
 
 -- | Weighted resource record sets only: If results were truncated for a given
@@ -173,15 +154,10 @@ lrrsrStartRecordType f x =
 -- ListResourceRecordSetsResponse$NextRecordIdentifier from the previous
 -- response to get the next resource record set that has the current DNS name
 -- and type.
-lrrsrStartRecordIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListResourceRecordSets
-    -> f ListResourceRecordSets
+lrrsrStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsrStartRecordIdentifier f x =
-    (\y -> x { _lrrsrStartRecordIdentifier = y })
-       <$> f (_lrrsrStartRecordIdentifier x)
+    f (_lrrsrStartRecordIdentifier x)
+        <&> \y -> x { _lrrsrStartRecordIdentifier = y }
 {-# INLINE lrrsrStartRecordIdentifier #-}
 
 instance ToPath ListResourceRecordSets where
@@ -234,15 +210,10 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 
 -- | The maximum number of records you requested. The maximum value of MaxItems
 -- is 100.
-lrrssMaxItems
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListResourceRecordSetsResponse
-    -> f ListResourceRecordSetsResponse
+lrrssMaxItems :: Lens' ListResourceRecordSetsResponse (Text)
 lrrssMaxItems f x =
-    (\y -> x { _lrrssMaxItems = y })
-       <$> f (_lrrssMaxItems x)
+    f (_lrrssMaxItems x)
+        <&> \y -> x { _lrrssMaxItems = y }
 {-# INLINE lrrssMaxItems #-}
 
 -- | A flag that indicates whether there are more resource record sets to be
@@ -250,70 +221,45 @@ lrrssMaxItems f x =
 -- for the next page of results by using the
 -- ListResourceRecordSetsResponse$NextRecordName element. Valid Values: true |
 -- false.
-lrrssIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListResourceRecordSetsResponse
-    -> f ListResourceRecordSetsResponse
+lrrssIsTruncated :: Lens' ListResourceRecordSetsResponse (Bool)
 lrrssIsTruncated f x =
-    (\y -> x { _lrrssIsTruncated = y })
-       <$> f (_lrrssIsTruncated x)
+    f (_lrrssIsTruncated x)
+        <&> \y -> x { _lrrssIsTruncated = y }
 {-# INLINE lrrssIsTruncated #-}
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
-lrrssResourceRecordSets
-    :: Functor f
-    => ([ResourceRecordSet]
-    -> f ([ResourceRecordSet]))
-    -> ListResourceRecordSetsResponse
-    -> f ListResourceRecordSetsResponse
+lrrssResourceRecordSets :: Lens' ListResourceRecordSetsResponse ([ResourceRecordSet])
 lrrssResourceRecordSets f x =
-    (\y -> x { _lrrssResourceRecordSets = y })
-       <$> f (_lrrssResourceRecordSets x)
+    f (_lrrssResourceRecordSets x)
+        <&> \y -> x { _lrrssResourceRecordSets = y }
 {-# INLINE lrrssResourceRecordSets #-}
 
 -- | If the results were truncated, the name of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrssNextRecordName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListResourceRecordSetsResponse
-    -> f ListResourceRecordSetsResponse
+lrrssNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrssNextRecordName f x =
-    (\y -> x { _lrrssNextRecordName = y })
-       <$> f (_lrrssNextRecordName x)
+    f (_lrrssNextRecordName x)
+        <&> \y -> x { _lrrssNextRecordName = y }
 {-# INLINE lrrssNextRecordName #-}
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrssNextRecordType
-    :: Functor f
-    => (Maybe RecordType
-    -> f (Maybe RecordType))
-    -> ListResourceRecordSetsResponse
-    -> f ListResourceRecordSetsResponse
+lrrssNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrssNextRecordType f x =
-    (\y -> x { _lrrssNextRecordType = y })
-       <$> f (_lrrssNextRecordType x)
+    f (_lrrssNextRecordType x)
+        <&> \y -> x { _lrrssNextRecordType = y }
 {-# INLINE lrrssNextRecordType #-}
 
 -- | Weighted resource record sets only: If results were truncated for a given
 -- DNS name and type, the value of SetIdentifier for the next resource record
 -- set that has the current DNS name and type.
-lrrssNextRecordIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListResourceRecordSetsResponse
-    -> f ListResourceRecordSetsResponse
+lrrssNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrssNextRecordIdentifier f x =
-    (\y -> x { _lrrssNextRecordIdentifier = y })
-       <$> f (_lrrssNextRecordIdentifier x)
+    f (_lrrssNextRecordIdentifier x)
+        <&> \y -> x { _lrrssNextRecordIdentifier = y }
 {-# INLINE lrrssNextRecordIdentifier #-}
 
 instance FromXML ListResourceRecordSetsResponse where

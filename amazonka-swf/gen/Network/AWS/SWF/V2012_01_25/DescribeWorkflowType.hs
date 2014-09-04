@@ -82,6 +82,7 @@ describeWorkflowType p1 p2 = DescribeWorkflowType
     { _dwtjDomain = p1
     , _dwtjWorkflowType = p2
     }
+{-# INLINE describeWorkflowType #-}
 
 data DescribeWorkflowType = DescribeWorkflowType
     { _dwtjDomain :: Text
@@ -91,27 +92,17 @@ data DescribeWorkflowType = DescribeWorkflowType
     } deriving (Show, Generic)
 
 -- | The name of the domain in which this workflow type is registered.
-dwtjDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeWorkflowType
-    -> f DescribeWorkflowType
+dwtjDomain :: Lens' DescribeWorkflowType (Text)
 dwtjDomain f x =
-    (\y -> x { _dwtjDomain = y })
-       <$> f (_dwtjDomain x)
+    f (_dwtjDomain x)
+        <&> \y -> x { _dwtjDomain = y }
 {-# INLINE dwtjDomain #-}
 
 -- | The workflow type to describe.
-dwtjWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> DescribeWorkflowType
-    -> f DescribeWorkflowType
+dwtjWorkflowType :: Lens' DescribeWorkflowType (WorkflowType)
 dwtjWorkflowType f x =
-    (\y -> x { _dwtjWorkflowType = y })
-       <$> f (_dwtjWorkflowType x)
+    f (_dwtjWorkflowType x)
+        <&> \y -> x { _dwtjWorkflowType = y }
 {-# INLINE dwtjWorkflowType #-}
 
 instance ToPath DescribeWorkflowType
@@ -138,15 +129,10 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 
 -- | Configuration settings of the workflow type registered through
 -- RegisterWorkflowType.
-wtdConfiguration
-    :: Functor f
-    => (WorkflowTypeConfiguration
-    -> f (WorkflowTypeConfiguration))
-    -> DescribeWorkflowTypeResponse
-    -> f DescribeWorkflowTypeResponse
+wtdConfiguration :: Lens' DescribeWorkflowTypeResponse (WorkflowTypeConfiguration)
 wtdConfiguration f x =
-    (\y -> x { _wtdConfiguration = y })
-       <$> f (_wtdConfiguration x)
+    f (_wtdConfiguration x)
+        <&> \y -> x { _wtdConfiguration = y }
 {-# INLINE wtdConfiguration #-}
 
 -- | General information about the workflow type. The status of the workflow
@@ -156,15 +142,10 @@ wtdConfiguration f x =
 -- using DeprecateWorkflowType, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new workflow executions of
 -- this type.
-wtdTypeInfo
-    :: Functor f
-    => (WorkflowTypeInfo
-    -> f (WorkflowTypeInfo))
-    -> DescribeWorkflowTypeResponse
-    -> f DescribeWorkflowTypeResponse
+wtdTypeInfo :: Lens' DescribeWorkflowTypeResponse (WorkflowTypeInfo)
 wtdTypeInfo f x =
-    (\y -> x { _wtdTypeInfo = y })
-       <$> f (_wtdTypeInfo x)
+    f (_wtdTypeInfo x)
+        <&> \y -> x { _wtdTypeInfo = y }
 {-# INLINE wtdTypeInfo #-}
 
 instance FromJSON DescribeWorkflowTypeResponse

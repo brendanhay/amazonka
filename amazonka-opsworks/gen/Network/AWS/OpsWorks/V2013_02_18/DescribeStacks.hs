@@ -47,6 +47,7 @@ describeStacks :: DescribeStacks
 describeStacks = DescribeStacks
     { _dssStackIds = mempty
     }
+{-# INLINE describeStacks #-}
 
 data DescribeStacks = DescribeStacks
     { _dssStackIds :: [Text]
@@ -57,15 +58,10 @@ data DescribeStacks = DescribeStacks
 
 -- | An array of stack IDs that specify the stacks to be described. If you omit
 -- this parameter, DescribeStacks returns a description of every stack.
-dssStackIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeStacks
-    -> f DescribeStacks
+dssStackIds :: Lens' DescribeStacks ([Text])
 dssStackIds f x =
-    (\y -> x { _dssStackIds = y })
-       <$> f (_dssStackIds x)
+    f (_dssStackIds x)
+        <&> \y -> x { _dssStackIds = y }
 {-# INLINE dssStackIds #-}
 
 instance ToPath DescribeStacks
@@ -82,15 +78,10 @@ data DescribeStacksResponse = DescribeStacksResponse
     } deriving (Show, Generic)
 
 -- | An array of Stack objects that describe the stacks.
-dstStacks
-    :: Functor f
-    => ([Stack]
-    -> f ([Stack]))
-    -> DescribeStacksResponse
-    -> f DescribeStacksResponse
+dstStacks :: Lens' DescribeStacksResponse ([Stack])
 dstStacks f x =
-    (\y -> x { _dstStacks = y })
-       <$> f (_dstStacks x)
+    f (_dstStacks x)
+        <&> \y -> x { _dstStacks = y }
 {-# INLINE dstStacks #-}
 
 instance FromJSON DescribeStacksResponse

@@ -63,6 +63,7 @@ modifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
     { _mdbpgmParameters = p1
     , _mdbpgmDBParameterGroupName = p2
     }
+{-# INLINE modifyDBParameterGroup #-}
 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgmParameters :: [Parameter]
@@ -89,30 +90,20 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup
 -- immediate | pending-reboot You can use the immediate value with dynamic
 -- parameters only. You can use the pending-reboot value for both dynamic and
 -- static parameters, and changes are applied when DB instance reboots.
-mdbpgmParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> ModifyDBParameterGroup
-    -> f ModifyDBParameterGroup
+mdbpgmParameters :: Lens' ModifyDBParameterGroup ([Parameter])
 mdbpgmParameters f x =
-    (\y -> x { _mdbpgmParameters = y })
-       <$> f (_mdbpgmParameters x)
+    f (_mdbpgmParameters x)
+        <&> \y -> x { _mdbpgmParameters = y }
 {-# INLINE mdbpgmParameters #-}
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group Must be 1 to 255 alphanumeric characters First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-mdbpgmDBParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyDBParameterGroup
-    -> f ModifyDBParameterGroup
+mdbpgmDBParameterGroupName :: Lens' ModifyDBParameterGroup (Text)
 mdbpgmDBParameterGroupName f x =
-    (\y -> x { _mdbpgmDBParameterGroupName = y })
-       <$> f (_mdbpgmDBParameterGroupName x)
+    f (_mdbpgmDBParameterGroupName x)
+        <&> \y -> x { _mdbpgmDBParameterGroupName = y }
 {-# INLINE mdbpgmDBParameterGroupName #-}
 
 instance ToQuery ModifyDBParameterGroup where
@@ -124,15 +115,10 @@ data ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group.
-dbpgnmDBParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBParameterGroupResponse
-    -> f ModifyDBParameterGroupResponse
+dbpgnmDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
 dbpgnmDBParameterGroupName f x =
-    (\y -> x { _dbpgnmDBParameterGroupName = y })
-       <$> f (_dbpgnmDBParameterGroupName x)
+    f (_dbpgnmDBParameterGroupName x)
+        <&> \y -> x { _dbpgnmDBParameterGroupName = y }
 {-# INLINE dbpgnmDBParameterGroupName #-}
 
 instance FromXML ModifyDBParameterGroupResponse where

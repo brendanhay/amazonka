@@ -74,6 +74,7 @@ putAttributes p1 p2 p3 = PutAttributes
     , _parItemName = p3
     , _parExpected = Nothing
     }
+{-# INLINE putAttributes #-}
 
 data PutAttributes = PutAttributes
     { _parAttributes :: [ReplaceableAttribute]
@@ -90,53 +91,33 @@ data PutAttributes = PutAttributes
     } deriving (Show, Generic)
 
 -- | The list of attributes.
-parAttributes
-    :: Functor f
-    => ([ReplaceableAttribute]
-    -> f ([ReplaceableAttribute]))
-    -> PutAttributes
-    -> f PutAttributes
+parAttributes :: Lens' PutAttributes ([ReplaceableAttribute])
 parAttributes f x =
-    (\y -> x { _parAttributes = y })
-       <$> f (_parAttributes x)
+    f (_parAttributes x)
+        <&> \y -> x { _parAttributes = y }
 {-# INLINE parAttributes #-}
 
 -- | The name of the domain in which to perform the operation.
-parDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutAttributes
-    -> f PutAttributes
+parDomainName :: Lens' PutAttributes (Text)
 parDomainName f x =
-    (\y -> x { _parDomainName = y })
-       <$> f (_parDomainName x)
+    f (_parDomainName x)
+        <&> \y -> x { _parDomainName = y }
 {-# INLINE parDomainName #-}
 
 -- | The name of the item.
-parItemName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutAttributes
-    -> f PutAttributes
+parItemName :: Lens' PutAttributes (Text)
 parItemName f x =
-    (\y -> x { _parItemName = y })
-       <$> f (_parItemName x)
+    f (_parItemName x)
+        <&> \y -> x { _parItemName = y }
 {-# INLINE parItemName #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be updated or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be updated.
-parExpected
-    :: Functor f
-    => (Maybe UpdateCondition
-    -> f (Maybe UpdateCondition))
-    -> PutAttributes
-    -> f PutAttributes
+parExpected :: Lens' PutAttributes (Maybe UpdateCondition)
 parExpected f x =
-    (\y -> x { _parExpected = y })
-       <$> f (_parExpected x)
+    f (_parExpected x)
+        <&> \y -> x { _parExpected = y }
 {-# INLINE parExpected #-}
 
 instance ToQuery PutAttributes where

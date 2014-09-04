@@ -60,6 +60,7 @@ createJob p1 p2 p3 = CreateJob
     , _cjjValidateOnly = p3
     , _cjjManifestAddendum = Nothing
     }
+{-# INLINE createJob #-}
 
 data CreateJob = CreateJob
     { _cjjJobType :: JobType
@@ -74,52 +75,32 @@ data CreateJob = CreateJob
     } deriving (Show, Generic)
 
 -- | Specifies whether the job to initiate is an import or export job.
-cjjJobType
-    :: Functor f
-    => (JobType
-    -> f (JobType))
-    -> CreateJob
-    -> f CreateJob
+cjjJobType :: Lens' CreateJob (JobType)
 cjjJobType f x =
-    (\y -> x { _cjjJobType = y })
-       <$> f (_cjjJobType x)
+    f (_cjjJobType x)
+        <&> \y -> x { _cjjJobType = y }
 {-# INLINE cjjJobType #-}
 
 -- | The UTF-8 encoded text of the manifest file.
-cjjManifest
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateJob
-    -> f CreateJob
+cjjManifest :: Lens' CreateJob (Text)
 cjjManifest f x =
-    (\y -> x { _cjjManifest = y })
-       <$> f (_cjjManifest x)
+    f (_cjjManifest x)
+        <&> \y -> x { _cjjManifest = y }
 {-# INLINE cjjManifest #-}
 
 -- | Validate the manifest and parameter values in the request but do not
 -- actually create a job.
-cjjValidateOnly
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> CreateJob
-    -> f CreateJob
+cjjValidateOnly :: Lens' CreateJob (Bool)
 cjjValidateOnly f x =
-    (\y -> x { _cjjValidateOnly = y })
-       <$> f (_cjjValidateOnly x)
+    f (_cjjValidateOnly x)
+        <&> \y -> x { _cjjValidateOnly = y }
 {-# INLINE cjjValidateOnly #-}
 
 -- | For internal use only.
-cjjManifestAddendum
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJob
-    -> f CreateJob
+cjjManifestAddendum :: Lens' CreateJob (Maybe Text)
 cjjManifestAddendum f x =
-    (\y -> x { _cjjManifestAddendum = y })
-       <$> f (_cjjManifestAddendum x)
+    f (_cjjManifestAddendum x)
+        <&> \y -> x { _cjjManifestAddendum = y }
 {-# INLINE cjjManifestAddendum #-}
 
 instance ToQuery CreateJob where
@@ -145,79 +126,49 @@ data CreateJobResponse = CreateJobResponse
     } deriving (Show, Generic)
 
 -- | Address you ship your storage device to.
-cjpAwsShippingAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjpAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
 cjpAwsShippingAddress f x =
-    (\y -> x { _cjpAwsShippingAddress = y })
-       <$> f (_cjpAwsShippingAddress x)
+    f (_cjpAwsShippingAddress x)
+        <&> \y -> x { _cjpAwsShippingAddress = y }
 {-# INLINE cjpAwsShippingAddress #-}
 
 -- | A unique identifier which refers to a particular job.
-cjpJobId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjpJobId :: Lens' CreateJobResponse (Maybe Text)
 cjpJobId f x =
-    (\y -> x { _cjpJobId = y })
-       <$> f (_cjpJobId x)
+    f (_cjpJobId x)
+        <&> \y -> x { _cjpJobId = y }
 {-# INLINE cjpJobId #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
-cjpJobType
-    :: Functor f
-    => (Maybe JobType
-    -> f (Maybe JobType))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjpJobType :: Lens' CreateJobResponse (Maybe JobType)
 cjpJobType f x =
-    (\y -> x { _cjpJobType = y })
-       <$> f (_cjpJobType x)
+    f (_cjpJobType x)
+        <&> \y -> x { _cjpJobType = y }
 {-# INLINE cjpJobType #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
-cjpSignature
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjpSignature :: Lens' CreateJobResponse (Maybe Text)
 cjpSignature f x =
-    (\y -> x { _cjpSignature = y })
-       <$> f (_cjpSignature x)
+    f (_cjpSignature x)
+        <&> \y -> x { _cjpSignature = y }
 {-# INLINE cjpSignature #-}
 
 -- | The actual text of the SIGNATURE file to be written to disk.
-cjpSignatureFileContents
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjpSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
 cjpSignatureFileContents f x =
-    (\y -> x { _cjpSignatureFileContents = y })
-       <$> f (_cjpSignatureFileContents x)
+    f (_cjpSignatureFileContents x)
+        <&> \y -> x { _cjpSignatureFileContents = y }
 {-# INLINE cjpSignatureFileContents #-}
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
-cjpWarningMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateJobResponse
-    -> f CreateJobResponse
+cjpWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjpWarningMessage f x =
-    (\y -> x { _cjpWarningMessage = y })
-       <$> f (_cjpWarningMessage x)
+    f (_cjpWarningMessage x)
+        <&> \y -> x { _cjpWarningMessage = y }
 {-# INLINE cjpWarningMessage #-}
 
 instance FromXML CreateJobResponse where

@@ -47,6 +47,7 @@ deleteIndexField p1 p2 = DeleteIndexField
     { _diftDomainName = p1
     , _diftIndexFieldName = p2
     }
+{-# INLINE deleteIndexField #-}
 
 data DeleteIndexField = DeleteIndexField
     { _diftDomainName :: Text
@@ -64,28 +65,18 @@ data DeleteIndexField = DeleteIndexField
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-diftDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteIndexField
-    -> f DeleteIndexField
+diftDomainName :: Lens' DeleteIndexField (Text)
 diftDomainName f x =
-    (\y -> x { _diftDomainName = y })
-       <$> f (_diftDomainName x)
+    f (_diftDomainName x)
+        <&> \y -> x { _diftDomainName = y }
 {-# INLINE diftDomainName #-}
 
 -- | The name of the index field your want to remove from the domain's indexing
 -- options.
-diftIndexFieldName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteIndexField
-    -> f DeleteIndexField
+diftIndexFieldName :: Lens' DeleteIndexField (Text)
 diftIndexFieldName f x =
-    (\y -> x { _diftIndexFieldName = y })
-       <$> f (_diftIndexFieldName x)
+    f (_diftIndexFieldName x)
+        <&> \y -> x { _diftIndexFieldName = y }
 {-# INLINE diftIndexFieldName #-}
 
 instance ToQuery DeleteIndexField where
@@ -97,15 +88,10 @@ data DeleteIndexFieldResponse = DeleteIndexFieldResponse
     } deriving (Show, Generic)
 
 -- | The status of the index field being deleted.
-difuIndexField
-    :: Functor f
-    => (IndexFieldStatus
-    -> f (IndexFieldStatus))
-    -> DeleteIndexFieldResponse
-    -> f DeleteIndexFieldResponse
+difuIndexField :: Lens' DeleteIndexFieldResponse (IndexFieldStatus)
 difuIndexField f x =
-    (\y -> x { _difuIndexField = y })
-       <$> f (_difuIndexField x)
+    f (_difuIndexField x)
+        <&> \y -> x { _difuIndexField = y }
 {-# INLINE difuIndexField #-}
 
 instance FromXML DeleteIndexFieldResponse where

@@ -83,6 +83,7 @@ changeMessageVisibility p1 p2 p3 = ChangeMessageVisibility
     , _cmvrQueueUrl = p2
     , _cmvrReceiptHandle = p3
     }
+{-# INLINE changeMessageVisibility #-}
 
 data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvrVisibilityTimeout :: Integer
@@ -98,40 +99,25 @@ data ChangeMessageVisibility = ChangeMessageVisibility
 
 -- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the
 -- message's visibility timeout.
-cmvrVisibilityTimeout
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ChangeMessageVisibility
-    -> f ChangeMessageVisibility
+cmvrVisibilityTimeout :: Lens' ChangeMessageVisibility (Integer)
 cmvrVisibilityTimeout f x =
-    (\y -> x { _cmvrVisibilityTimeout = y })
-       <$> f (_cmvrVisibilityTimeout x)
+    f (_cmvrVisibilityTimeout x)
+        <&> \y -> x { _cmvrVisibilityTimeout = y }
 {-# INLINE cmvrVisibilityTimeout #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
-cmvrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangeMessageVisibility
-    -> f ChangeMessageVisibility
+cmvrQueueUrl :: Lens' ChangeMessageVisibility (Text)
 cmvrQueueUrl f x =
-    (\y -> x { _cmvrQueueUrl = y })
-       <$> f (_cmvrQueueUrl x)
+    f (_cmvrQueueUrl x)
+        <&> \y -> x { _cmvrQueueUrl = y }
 {-# INLINE cmvrQueueUrl #-}
 
 -- | The receipt handle associated with the message whose visibility timeout
 -- should be changed. This parameter is returned by the ReceiveMessage action.
-cmvrReceiptHandle
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangeMessageVisibility
-    -> f ChangeMessageVisibility
+cmvrReceiptHandle :: Lens' ChangeMessageVisibility (Text)
 cmvrReceiptHandle f x =
-    (\y -> x { _cmvrReceiptHandle = y })
-       <$> f (_cmvrReceiptHandle x)
+    f (_cmvrReceiptHandle x)
+        <&> \y -> x { _cmvrReceiptHandle = y }
 {-# INLINE cmvrReceiptHandle #-}
 
 instance ToQuery ChangeMessageVisibility where

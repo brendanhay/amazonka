@@ -47,6 +47,7 @@ getHostedZone :: Text -- ^ 'ghzrId'
 getHostedZone p1 = GetHostedZone
     { _ghzrId = p1
     }
+{-# INLINE getHostedZone #-}
 
 data GetHostedZone = GetHostedZone
     { _ghzrId :: Text
@@ -56,15 +57,10 @@ data GetHostedZone = GetHostedZone
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
-ghzrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetHostedZone
-    -> f GetHostedZone
+ghzrId :: Lens' GetHostedZone (Text)
 ghzrId f x =
-    (\y -> x { _ghzrId = y })
-       <$> f (_ghzrId x)
+    f (_ghzrId x)
+        <&> \y -> x { _ghzrId = y }
 {-# INLINE ghzrId #-}
 
 instance ToPath GetHostedZone where
@@ -92,28 +88,18 @@ data GetHostedZoneResponse = GetHostedZoneResponse
 
 -- | A complex type that contains information about the name servers for the
 -- specified hosted zone.
-ghzsDelegationSet
-    :: Functor f
-    => (DelegationSet
-    -> f (DelegationSet))
-    -> GetHostedZoneResponse
-    -> f GetHostedZoneResponse
+ghzsDelegationSet :: Lens' GetHostedZoneResponse (DelegationSet)
 ghzsDelegationSet f x =
-    (\y -> x { _ghzsDelegationSet = y })
-       <$> f (_ghzsDelegationSet x)
+    f (_ghzsDelegationSet x)
+        <&> \y -> x { _ghzsDelegationSet = y }
 {-# INLINE ghzsDelegationSet #-}
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.
-ghzsHostedZone
-    :: Functor f
-    => (HostedZone
-    -> f (HostedZone))
-    -> GetHostedZoneResponse
-    -> f GetHostedZoneResponse
+ghzsHostedZone :: Lens' GetHostedZoneResponse (HostedZone)
 ghzsHostedZone f x =
-    (\y -> x { _ghzsHostedZone = y })
-       <$> f (_ghzsHostedZone x)
+    f (_ghzsHostedZone x)
+        <&> \y -> x { _ghzsHostedZone = y }
 {-# INLINE ghzsHostedZone #-}
 
 instance FromXML GetHostedZoneResponse where

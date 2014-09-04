@@ -43,6 +43,7 @@ buildSuggesters :: Text -- ^ 'bsrDomainName'
 buildSuggesters p1 = BuildSuggesters
     { _bsrDomainName = p1
     }
+{-# INLINE buildSuggesters #-}
 
 data BuildSuggesters = BuildSuggesters
     { _bsrDomainName :: Text
@@ -57,15 +58,10 @@ data BuildSuggesters = BuildSuggesters
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-bsrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> BuildSuggesters
-    -> f BuildSuggesters
+bsrDomainName :: Lens' BuildSuggesters (Text)
 bsrDomainName f x =
-    (\y -> x { _bsrDomainName = y })
-       <$> f (_bsrDomainName x)
+    f (_bsrDomainName x)
+        <&> \y -> x { _bsrDomainName = y }
 {-# INLINE bsrDomainName #-}
 
 instance ToQuery BuildSuggesters where
@@ -77,15 +73,10 @@ data BuildSuggestersResponse = BuildSuggestersResponse
     } deriving (Show, Generic)
 
 -- | A list of field names.
-bssFieldNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> BuildSuggestersResponse
-    -> f BuildSuggestersResponse
+bssFieldNames :: Lens' BuildSuggestersResponse ([Text])
 bssFieldNames f x =
-    (\y -> x { _bssFieldNames = y })
-       <$> f (_bssFieldNames x)
+    f (_bssFieldNames x)
+        <&> \y -> x { _bssFieldNames = y }
 {-# INLINE bssFieldNames #-}
 
 instance FromXML BuildSuggestersResponse where

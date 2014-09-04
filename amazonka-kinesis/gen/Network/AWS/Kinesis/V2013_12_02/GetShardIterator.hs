@@ -95,6 +95,7 @@ getShardIterator p1 p2 p3 = GetShardIterator
     , _gsiiStreamName = p3
     , _gsiiStartingSequenceNumber = Nothing
     }
+{-# INLINE getShardIterator #-}
 
 data GetShardIterator = GetShardIterator
     { _gsiiShardId :: Text
@@ -118,15 +119,10 @@ data GetShardIterator = GetShardIterator
     } deriving (Show, Generic)
 
 -- | The shard ID of the shard to get the iterator for.
-gsiiShardId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetShardIterator
-    -> f GetShardIterator
+gsiiShardId :: Lens' GetShardIterator (Text)
 gsiiShardId f x =
-    (\y -> x { _gsiiShardId = y })
-       <$> f (_gsiiShardId x)
+    f (_gsiiShardId x)
+        <&> \y -> x { _gsiiShardId = y }
 {-# INLINE gsiiShardId #-}
 
 -- | Determines how the shard iterator is used to start reading data records
@@ -138,40 +134,25 @@ gsiiShardId f x =
 -- the oldest data record in the shard. LATEST - Start reading just after the
 -- most recent record in the shard, so that you always read the most recent
 -- data in the shard.
-gsiiShardIteratorType
-    :: Functor f
-    => (ShardIteratorType
-    -> f (ShardIteratorType))
-    -> GetShardIterator
-    -> f GetShardIterator
+gsiiShardIteratorType :: Lens' GetShardIterator (ShardIteratorType)
 gsiiShardIteratorType f x =
-    (\y -> x { _gsiiShardIteratorType = y })
-       <$> f (_gsiiShardIteratorType x)
+    f (_gsiiShardIteratorType x)
+        <&> \y -> x { _gsiiShardIteratorType = y }
 {-# INLINE gsiiShardIteratorType #-}
 
 -- | The name of the stream.
-gsiiStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetShardIterator
-    -> f GetShardIterator
+gsiiStreamName :: Lens' GetShardIterator (Text)
 gsiiStreamName f x =
-    (\y -> x { _gsiiStreamName = y })
-       <$> f (_gsiiStreamName x)
+    f (_gsiiStreamName x)
+        <&> \y -> x { _gsiiStreamName = y }
 {-# INLINE gsiiStreamName #-}
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
-gsiiStartingSequenceNumber
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetShardIterator
-    -> f GetShardIterator
+gsiiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
 gsiiStartingSequenceNumber f x =
-    (\y -> x { _gsiiStartingSequenceNumber = y })
-       <$> f (_gsiiStartingSequenceNumber x)
+    f (_gsiiStartingSequenceNumber x)
+        <&> \y -> x { _gsiiStartingSequenceNumber = y }
 {-# INLINE gsiiStartingSequenceNumber #-}
 
 instance ToPath GetShardIterator
@@ -192,15 +173,10 @@ data GetShardIteratorResponse = GetShardIteratorResponse
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the sequence
 -- number of a data record in a shard.
-gsioShardIterator
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetShardIteratorResponse
-    -> f GetShardIteratorResponse
+gsioShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsioShardIterator f x =
-    (\y -> x { _gsioShardIterator = y })
-       <$> f (_gsioShardIterator x)
+    f (_gsioShardIterator x)
+        <&> \y -> x { _gsioShardIterator = y }
 {-# INLINE gsioShardIterator #-}
 
 instance FromJSON GetShardIteratorResponse

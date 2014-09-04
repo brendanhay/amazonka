@@ -44,6 +44,7 @@ getStreamingDistributionConfig :: Text -- ^ 'gsdcrId'
 getStreamingDistributionConfig p1 = GetStreamingDistributionConfig
     { _gsdcrId = p1
     }
+{-# INLINE getStreamingDistributionConfig #-}
 
 data GetStreamingDistributionConfig = GetStreamingDistributionConfig
     { _gsdcrId :: Text
@@ -51,15 +52,10 @@ data GetStreamingDistributionConfig = GetStreamingDistributionConfig
     } deriving (Show, Generic)
 
 -- | The streaming distribution's id.
-gsdcrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetStreamingDistributionConfig
-    -> f GetStreamingDistributionConfig
+gsdcrId :: Lens' GetStreamingDistributionConfig (Text)
 gsdcrId f x =
-    (\y -> x { _gsdcrId = y })
-       <$> f (_gsdcrId x)
+    f (_gsdcrId x)
+        <&> \y -> x { _gsdcrId = y }
 {-# INLINE gsdcrId #-}
 
 instance ToPath GetStreamingDistributionConfig where
@@ -86,27 +82,17 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
     } deriving (Show, Generic)
 
 -- | The streaming distribution's configuration information.
-gsdcsStreamingDistributionConfig
-    :: Functor f
-    => (Maybe StreamingDistributionConfig
-    -> f (Maybe StreamingDistributionConfig))
-    -> GetStreamingDistributionConfigResponse
-    -> f GetStreamingDistributionConfigResponse
+gsdcsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
 gsdcsStreamingDistributionConfig f x =
-    (\y -> x { _gsdcsStreamingDistributionConfig = y })
-       <$> f (_gsdcsStreamingDistributionConfig x)
+    f (_gsdcsStreamingDistributionConfig x)
+        <&> \y -> x { _gsdcsStreamingDistributionConfig = y }
 {-# INLINE gsdcsStreamingDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gsdcsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStreamingDistributionConfigResponse
-    -> f GetStreamingDistributionConfigResponse
+gsdcsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcsETag f x =
-    (\y -> x { _gsdcsETag = y })
-       <$> f (_gsdcsETag x)
+    f (_gsdcsETag x)
+        <&> \y -> x { _gsdcsETag = y }
 {-# INLINE gsdcsETag #-}
 
 instance AWSRequest GetStreamingDistributionConfig where

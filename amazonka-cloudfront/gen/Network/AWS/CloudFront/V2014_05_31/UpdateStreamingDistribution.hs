@@ -49,6 +49,7 @@ updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
     , _usdrId = p2
     , _usdrIfMatch = Nothing
     }
+{-# INLINE updateStreamingDistribution #-}
 
 data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdrStreamingDistributionConfig :: StreamingDistributionConfig
@@ -62,40 +63,25 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
     } deriving (Show, Generic)
 
 -- | The streaming distribution's configuration information.
-usdrStreamingDistributionConfig
-    :: Functor f
-    => (StreamingDistributionConfig
-    -> f (StreamingDistributionConfig))
-    -> UpdateStreamingDistribution
-    -> f UpdateStreamingDistribution
+usdrStreamingDistributionConfig :: Lens' UpdateStreamingDistribution (StreamingDistributionConfig)
 usdrStreamingDistributionConfig f x =
-    (\y -> x { _usdrStreamingDistributionConfig = y })
-       <$> f (_usdrStreamingDistributionConfig x)
+    f (_usdrStreamingDistributionConfig x)
+        <&> \y -> x { _usdrStreamingDistributionConfig = y }
 {-# INLINE usdrStreamingDistributionConfig #-}
 
 -- | The streaming distribution's id.
-usdrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateStreamingDistribution
-    -> f UpdateStreamingDistribution
+usdrId :: Lens' UpdateStreamingDistribution (Text)
 usdrId f x =
-    (\y -> x { _usdrId = y })
-       <$> f (_usdrId x)
+    f (_usdrId x)
+        <&> \y -> x { _usdrId = y }
 {-# INLINE usdrId #-}
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-usdrIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStreamingDistribution
-    -> f UpdateStreamingDistribution
+usdrIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
 usdrIfMatch f x =
-    (\y -> x { _usdrIfMatch = y })
-       <$> f (_usdrIfMatch x)
+    f (_usdrIfMatch x)
+        <&> \y -> x { _usdrIfMatch = y }
 {-# INLINE usdrIfMatch #-}
 
 instance ToPath UpdateStreamingDistribution where
@@ -125,27 +111,17 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-usdsStreamingDistribution
-    :: Functor f
-    => (Maybe StreamingDistribution
-    -> f (Maybe StreamingDistribution))
-    -> UpdateStreamingDistributionResponse
-    -> f UpdateStreamingDistributionResponse
+usdsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
 usdsStreamingDistribution f x =
-    (\y -> x { _usdsStreamingDistribution = y })
-       <$> f (_usdsStreamingDistribution x)
+    f (_usdsStreamingDistribution x)
+        <&> \y -> x { _usdsStreamingDistribution = y }
 {-# INLINE usdsStreamingDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-usdsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateStreamingDistributionResponse
-    -> f UpdateStreamingDistributionResponse
+usdsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
 usdsETag f x =
-    (\y -> x { _usdsETag = y })
-       <$> f (_usdsETag x)
+    f (_usdsETag x)
+        <&> \y -> x { _usdsETag = y }
 {-# INLINE usdsETag #-}
 
 instance AWSRequest UpdateStreamingDistribution where

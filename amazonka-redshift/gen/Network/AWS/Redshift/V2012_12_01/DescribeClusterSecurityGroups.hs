@@ -58,6 +58,7 @@ describeClusterSecurityGroups = DescribeClusterSecurityGroups
     , _dcsgoClusterSecurityGroupName = Nothing
     , _dcsgoMarker = Nothing
     }
+{-# INLINE describeClusterSecurityGroups #-}
 
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgoMaxRecords :: Maybe Integer
@@ -89,29 +90,19 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsgoMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeClusterSecurityGroups
-    -> f DescribeClusterSecurityGroups
+dcsgoMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Integer)
 dcsgoMaxRecords f x =
-    (\y -> x { _dcsgoMaxRecords = y })
-       <$> f (_dcsgoMaxRecords x)
+    f (_dcsgoMaxRecords x)
+        <&> \y -> x { _dcsgoMaxRecords = y }
 {-# INLINE dcsgoMaxRecords #-}
 
 -- | The name of a cluster security group for which you are requesting details.
 -- You can specify either the Marker parameter or a ClusterSecurityGroupName
 -- parameter, but not both. Example: securitygroup1.
-dcsgoClusterSecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSecurityGroups
-    -> f DescribeClusterSecurityGroups
+dcsgoClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgoClusterSecurityGroupName f x =
-    (\y -> x { _dcsgoClusterSecurityGroupName = y })
-       <$> f (_dcsgoClusterSecurityGroupName x)
+    f (_dcsgoClusterSecurityGroupName x)
+        <&> \y -> x { _dcsgoClusterSecurityGroupName = y }
 {-# INLINE dcsgoClusterSecurityGroupName #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -121,15 +112,10 @@ dcsgoClusterSecurityGroupName f x =
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request. Constraints: You can specify either the
 -- ClusterSecurityGroupName parameter or the Marker parameter, but not both.
-dcsgoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSecurityGroups
-    -> f DescribeClusterSecurityGroups
+dcsgoMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgoMarker f x =
-    (\y -> x { _dcsgoMarker = y })
-       <$> f (_dcsgoMarker x)
+    f (_dcsgoMarker x)
+        <&> \y -> x { _dcsgoMarker = y }
 {-# INLINE dcsgoMarker #-}
 
 instance ToQuery DescribeClusterSecurityGroups where
@@ -148,15 +134,10 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
     } deriving (Show, Generic)
 
 -- | A list of ClusterSecurityGroup instances.
-csgoClusterSecurityGroups
-    :: Functor f
-    => ([ClusterSecurityGroup]
-    -> f ([ClusterSecurityGroup]))
-    -> DescribeClusterSecurityGroupsResponse
-    -> f DescribeClusterSecurityGroupsResponse
+csgoClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse ([ClusterSecurityGroup])
 csgoClusterSecurityGroups f x =
-    (\y -> x { _csgoClusterSecurityGroups = y })
-       <$> f (_csgoClusterSecurityGroups x)
+    f (_csgoClusterSecurityGroups x)
+        <&> \y -> x { _csgoClusterSecurityGroups = y }
 {-# INLINE csgoClusterSecurityGroups #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -164,15 +145,10 @@ csgoClusterSecurityGroups f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-csgoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterSecurityGroupsResponse
-    -> f DescribeClusterSecurityGroupsResponse
+csgoMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 csgoMarker f x =
-    (\y -> x { _csgoMarker = y })
-       <$> f (_csgoMarker x)
+    f (_csgoMarker x)
+        <&> \y -> x { _csgoMarker = y }
 {-# INLINE csgoMarker #-}
 
 instance FromXML DescribeClusterSecurityGroupsResponse where

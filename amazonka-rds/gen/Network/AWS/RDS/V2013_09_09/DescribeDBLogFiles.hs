@@ -66,6 +66,7 @@ describeDBLogFiles p1 = DescribeDBLogFiles
     , _ddblfmFilenameContains = Nothing
     , _ddblfmMarker = Nothing
     }
+{-# INLINE describeDBLogFiles #-}
 
 data DescribeDBLogFiles = DescribeDBLogFiles
     { _ddblfmDBInstanceIdentifier :: Text
@@ -98,82 +99,52 @@ data DescribeDBLogFiles = DescribeDBLogFiles
 -- you want to list. Constraints: Must contain from 1 to 63 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ddblfmDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeDBLogFiles
-    -> f DescribeDBLogFiles
+ddblfmDBInstanceIdentifier :: Lens' DescribeDBLogFiles (Text)
 ddblfmDBInstanceIdentifier f x =
-    (\y -> x { _ddblfmDBInstanceIdentifier = y })
-       <$> f (_ddblfmDBInstanceIdentifier x)
+    f (_ddblfmDBInstanceIdentifier x)
+        <&> \y -> x { _ddblfmDBInstanceIdentifier = y }
 {-# INLINE ddblfmDBInstanceIdentifier #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved.
-ddblfmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBLogFiles
-    -> f DescribeDBLogFiles
+ddblfmMaxRecords :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfmMaxRecords f x =
-    (\y -> x { _ddblfmMaxRecords = y })
-       <$> f (_ddblfmMaxRecords x)
+    f (_ddblfmMaxRecords x)
+        <&> \y -> x { _ddblfmMaxRecords = y }
 {-# INLINE ddblfmMaxRecords #-}
 
 -- | Filters the available log files for files written since the specified date,
 -- in POSIX timestamp format.
-ddblfmFileLastWritten
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBLogFiles
-    -> f DescribeDBLogFiles
+ddblfmFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfmFileLastWritten f x =
-    (\y -> x { _ddblfmFileLastWritten = y })
-       <$> f (_ddblfmFileLastWritten x)
+    f (_ddblfmFileLastWritten x)
+        <&> \y -> x { _ddblfmFileLastWritten = y }
 {-# INLINE ddblfmFileLastWritten #-}
 
 -- | Filters the available log files for files larger than the specified size.
-ddblfmFileSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBLogFiles
-    -> f DescribeDBLogFiles
+ddblfmFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfmFileSize f x =
-    (\y -> x { _ddblfmFileSize = y })
-       <$> f (_ddblfmFileSize x)
+    f (_ddblfmFileSize x)
+        <&> \y -> x { _ddblfmFileSize = y }
 {-# INLINE ddblfmFileSize #-}
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
-ddblfmFilenameContains
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBLogFiles
-    -> f DescribeDBLogFiles
+ddblfmFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
 ddblfmFilenameContains f x =
-    (\y -> x { _ddblfmFilenameContains = y })
-       <$> f (_ddblfmFilenameContains x)
+    f (_ddblfmFilenameContains x)
+        <&> \y -> x { _ddblfmFilenameContains = y }
 {-# INLINE ddblfmFilenameContains #-}
 
 -- | The pagination token provided in the previous request. If this parameter is
 -- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
-ddblfmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBLogFiles
-    -> f DescribeDBLogFiles
+ddblfmMarker :: Lens' DescribeDBLogFiles (Maybe Text)
 ddblfmMarker f x =
-    (\y -> x { _ddblfmMarker = y })
-       <$> f (_ddblfmMarker x)
+    f (_ddblfmMarker x)
+        <&> \y -> x { _ddblfmMarker = y }
 {-# INLINE ddblfmMarker #-}
 
 instance ToQuery DescribeDBLogFiles where
@@ -187,27 +158,17 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     } deriving (Show, Generic)
 
 -- | The DB log files returned.
-ddblfrDescribeDBLogFiles
-    :: Functor f
-    => ([DescribeDBLogFilesDetails]
-    -> f ([DescribeDBLogFilesDetails]))
-    -> DescribeDBLogFilesResponse
-    -> f DescribeDBLogFilesResponse
+ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse ([DescribeDBLogFilesDetails])
 ddblfrDescribeDBLogFiles f x =
-    (\y -> x { _ddblfrDescribeDBLogFiles = y })
-       <$> f (_ddblfrDescribeDBLogFiles x)
+    f (_ddblfrDescribeDBLogFiles x)
+        <&> \y -> x { _ddblfrDescribeDBLogFiles = y }
 {-# INLINE ddblfrDescribeDBLogFiles #-}
 
 -- | An optional paging token.
-ddblfrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBLogFilesResponse
-    -> f DescribeDBLogFilesResponse
+ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrMarker f x =
-    (\y -> x { _ddblfrMarker = y })
-       <$> f (_ddblfrMarker x)
+    f (_ddblfrMarker x)
+        <&> \y -> x { _ddblfrMarker = y }
 {-# INLINE ddblfrMarker #-}
 
 instance FromXML DescribeDBLogFilesResponse where

@@ -52,20 +52,16 @@ deleteRetentionPolicy :: Text -- ^ 'drprLogGroupName'
 deleteRetentionPolicy p1 = DeleteRetentionPolicy
     { _drprLogGroupName = p1
     }
+{-# INLINE deleteRetentionPolicy #-}
 
 data DeleteRetentionPolicy = DeleteRetentionPolicy
     { _drprLogGroupName :: Text
     } deriving (Show, Generic)
 
-drprLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteRetentionPolicy
-    -> f DeleteRetentionPolicy
+drprLogGroupName :: Lens' DeleteRetentionPolicy (Text)
 drprLogGroupName f x =
-    (\y -> x { _drprLogGroupName = y })
-       <$> f (_drprLogGroupName x)
+    f (_drprLogGroupName x)
+        <&> \y -> x { _drprLogGroupName = y }
 {-# INLINE drprLogGroupName #-}
 
 instance ToPath DeleteRetentionPolicy

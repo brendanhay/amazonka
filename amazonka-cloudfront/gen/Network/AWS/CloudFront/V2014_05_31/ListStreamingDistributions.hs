@@ -44,6 +44,7 @@ listStreamingDistributions = ListStreamingDistributions
     { _lsdrMarker = Nothing
     , _lsdrMaxItems = Nothing
     }
+{-# INLINE listStreamingDistributions #-}
 
 data ListStreamingDistributions = ListStreamingDistributions
     { _lsdrMarker :: Maybe Text
@@ -63,28 +64,18 @@ data ListStreamingDistributions = ListStreamingDistributions
 -- occur after the marker. To get the next page of results, set the Marker to
 -- the value of the NextMarker from the current page's response (which is also
 -- the ID of the last distribution on that page).
-lsdrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStreamingDistributions
-    -> f ListStreamingDistributions
+lsdrMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdrMarker f x =
-    (\y -> x { _lsdrMarker = y })
-       <$> f (_lsdrMarker x)
+    f (_lsdrMarker x)
+        <&> \y -> x { _lsdrMarker = y }
 {-# INLINE lsdrMarker #-}
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
-lsdrMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStreamingDistributions
-    -> f ListStreamingDistributions
+lsdrMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdrMaxItems f x =
-    (\y -> x { _lsdrMaxItems = y })
-       <$> f (_lsdrMaxItems x)
+    f (_lsdrMaxItems x)
+        <&> \y -> x { _lsdrMaxItems = y }
 {-# INLINE lsdrMaxItems #-}
 
 instance ToPath ListStreamingDistributions where
@@ -108,15 +99,10 @@ data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
     } deriving (Show, Generic)
 
 -- | The StreamingDistributionList type.
-lsdsStreamingDistributionList
-    :: Functor f
-    => (StreamingDistributionList
-    -> f (StreamingDistributionList))
-    -> ListStreamingDistributionsResponse
-    -> f ListStreamingDistributionsResponse
+lsdsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (StreamingDistributionList)
 lsdsStreamingDistributionList f x =
-    (\y -> x { _lsdsStreamingDistributionList = y })
-       <$> f (_lsdsStreamingDistributionList x)
+    f (_lsdsStreamingDistributionList x)
+        <&> \y -> x { _lsdsStreamingDistributionList = y }
 {-# INLINE lsdsStreamingDistributionList #-}
 
 instance FromXML ListStreamingDistributionsResponse where

@@ -57,6 +57,7 @@ purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     , _prdbiomReservedDBInstanceId = Nothing
     , _prdbiomTags = mempty
     }
+{-# INLINE purchaseReservedDBInstancesOffering #-}
 
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     { _prdbiomReservedDBInstancesOfferingId :: Text
@@ -73,52 +74,32 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
 
 -- | The ID of the Reserved DB instance offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-prdbiomReservedDBInstancesOfferingId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PurchaseReservedDBInstancesOffering
-    -> f PurchaseReservedDBInstancesOffering
+prdbiomReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering (Text)
 prdbiomReservedDBInstancesOfferingId f x =
-    (\y -> x { _prdbiomReservedDBInstancesOfferingId = y })
-       <$> f (_prdbiomReservedDBInstancesOfferingId x)
+    f (_prdbiomReservedDBInstancesOfferingId x)
+        <&> \y -> x { _prdbiomReservedDBInstancesOfferingId = y }
 {-# INLINE prdbiomReservedDBInstancesOfferingId #-}
 
 -- | The number of instances to reserve. Default: 1.
-prdbiomDBInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PurchaseReservedDBInstancesOffering
-    -> f PurchaseReservedDBInstancesOffering
+prdbiomDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Integer)
 prdbiomDBInstanceCount f x =
-    (\y -> x { _prdbiomDBInstanceCount = y })
-       <$> f (_prdbiomDBInstanceCount x)
+    f (_prdbiomDBInstanceCount x)
+        <&> \y -> x { _prdbiomDBInstanceCount = y }
 {-# INLINE prdbiomDBInstanceCount #-}
 
 -- | Customer-specified identifier to track this reservation. Example:
 -- myreservationID.
-prdbiomReservedDBInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PurchaseReservedDBInstancesOffering
-    -> f PurchaseReservedDBInstancesOffering
+prdbiomReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
 prdbiomReservedDBInstanceId f x =
-    (\y -> x { _prdbiomReservedDBInstanceId = y })
-       <$> f (_prdbiomReservedDBInstanceId x)
+    f (_prdbiomReservedDBInstanceId x)
+        <&> \y -> x { _prdbiomReservedDBInstanceId = y }
 {-# INLINE prdbiomReservedDBInstanceId #-}
 
 -- | A list of tags.
-prdbiomTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> PurchaseReservedDBInstancesOffering
-    -> f PurchaseReservedDBInstancesOffering
+prdbiomTags :: Lens' PurchaseReservedDBInstancesOffering ([Tag])
 prdbiomTags f x =
-    (\y -> x { _prdbiomTags = y })
-       <$> f (_prdbiomTags x)
+    f (_prdbiomTags x)
+        <&> \y -> x { _prdbiomTags = y }
 {-# INLINE prdbiomTags #-}
 
 instance ToQuery PurchaseReservedDBInstancesOffering where
@@ -134,15 +115,10 @@ data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOf
 -- | This data type is used as a response element in the
 -- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
 -- actions.
-rdbiwReservedDBInstance
-    :: Functor f
-    => (Maybe ReservedDBInstance
-    -> f (Maybe ReservedDBInstance))
-    -> PurchaseReservedDBInstancesOfferingResponse
-    -> f PurchaseReservedDBInstancesOfferingResponse
+rdbiwReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 rdbiwReservedDBInstance f x =
-    (\y -> x { _rdbiwReservedDBInstance = y })
-       <$> f (_rdbiwReservedDBInstance x)
+    f (_rdbiwReservedDBInstance x)
+        <&> \y -> x { _rdbiwReservedDBInstance = y }
 {-# INLINE rdbiwReservedDBInstance #-}
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where

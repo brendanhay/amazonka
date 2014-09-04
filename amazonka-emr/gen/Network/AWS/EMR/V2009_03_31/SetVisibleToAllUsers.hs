@@ -65,6 +65,7 @@ setVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
     { _svtauiVisibleToAllUsers = p1
     , _svtauiJobFlowIds = p2
     }
+{-# INLINE setVisibleToAllUsers #-}
 
 data SetVisibleToAllUsers = SetVisibleToAllUsers
     { _svtauiVisibleToAllUsers :: Bool
@@ -84,27 +85,17 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers
 -- users of that AWS account can view and, if they have the proper IAM policy
 -- permissions set, manage the job flows. If it is set to False, only the IAM
 -- user that created a job flow can view and manage it.
-svtauiVisibleToAllUsers
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> SetVisibleToAllUsers
-    -> f SetVisibleToAllUsers
+svtauiVisibleToAllUsers :: Lens' SetVisibleToAllUsers (Bool)
 svtauiVisibleToAllUsers f x =
-    (\y -> x { _svtauiVisibleToAllUsers = y })
-       <$> f (_svtauiVisibleToAllUsers x)
+    f (_svtauiVisibleToAllUsers x)
+        <&> \y -> x { _svtauiVisibleToAllUsers = y }
 {-# INLINE svtauiVisibleToAllUsers #-}
 
 -- | Identifiers of the job flows to receive the new visibility setting.
-svtauiJobFlowIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SetVisibleToAllUsers
-    -> f SetVisibleToAllUsers
+svtauiJobFlowIds :: Lens' SetVisibleToAllUsers ([Text])
 svtauiJobFlowIds f x =
-    (\y -> x { _svtauiJobFlowIds = y })
-       <$> f (_svtauiJobFlowIds x)
+    f (_svtauiJobFlowIds x)
+        <&> \y -> x { _svtauiJobFlowIds = y }
 {-# INLINE svtauiJobFlowIds #-}
 
 instance ToPath SetVisibleToAllUsers

@@ -90,6 +90,7 @@ receiveMessage p1 = ReceiveMessage
     , _rmrWaitTimeSeconds = Nothing
     , _rmrMessageAttributeNames = mempty
     }
+{-# INLINE receiveMessage #-}
 
 data ReceiveMessage = ReceiveMessage
     { _rmrQueueUrl :: Text
@@ -131,15 +132,10 @@ data ReceiveMessage = ReceiveMessage
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
-rmrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReceiveMessage
-    -> f ReceiveMessage
+rmrQueueUrl :: Lens' ReceiveMessage (Text)
 rmrQueueUrl f x =
-    (\y -> x { _rmrQueueUrl = y })
-       <$> f (_rmrQueueUrl x)
+    f (_rmrQueueUrl x)
+        <&> \y -> x { _rmrQueueUrl = y }
 {-# INLINE rmrQueueUrl #-}
 
 -- | A list of attributes that need to be returned along with each message. The
@@ -151,57 +147,37 @@ rmrQueueUrl f x =
 -- account number (or the IP address, if anonymous access is allowed) of the
 -- sender. SentTimestamp - returns the time when the message was sent (epoch
 -- time in milliseconds).
-rmrAttributeNames
-    :: Functor f
-    => ([QueueAttributeName]
-    -> f ([QueueAttributeName]))
-    -> ReceiveMessage
-    -> f ReceiveMessage
+rmrAttributeNames :: Lens' ReceiveMessage ([QueueAttributeName])
 rmrAttributeNames f x =
-    (\y -> x { _rmrAttributeNames = y })
-       <$> f (_rmrAttributeNames x)
+    f (_rmrAttributeNames x)
+        <&> \y -> x { _rmrAttributeNames = y }
 {-# INLINE rmrAttributeNames #-}
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to 10.
 -- Default is 1. All of the messages are not necessarily returned.
-rmrMaxNumberOfMessages
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ReceiveMessage
-    -> f ReceiveMessage
+rmrMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Integer)
 rmrMaxNumberOfMessages f x =
-    (\y -> x { _rmrMaxNumberOfMessages = y })
-       <$> f (_rmrMaxNumberOfMessages x)
+    f (_rmrMaxNumberOfMessages x)
+        <&> \y -> x { _rmrMaxNumberOfMessages = y }
 {-# INLINE rmrMaxNumberOfMessages #-}
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a ReceiveMessage
 -- request.
-rmrVisibilityTimeout
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ReceiveMessage
-    -> f ReceiveMessage
+rmrVisibilityTimeout :: Lens' ReceiveMessage (Maybe Integer)
 rmrVisibilityTimeout f x =
-    (\y -> x { _rmrVisibilityTimeout = y })
-       <$> f (_rmrVisibilityTimeout x)
+    f (_rmrVisibilityTimeout x)
+        <&> \y -> x { _rmrVisibilityTimeout = y }
 {-# INLINE rmrVisibilityTimeout #-}
 
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the call
 -- will return sooner than WaitTimeSeconds.
-rmrWaitTimeSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ReceiveMessage
-    -> f ReceiveMessage
+rmrWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Integer)
 rmrWaitTimeSeconds f x =
-    (\y -> x { _rmrWaitTimeSeconds = y })
-       <$> f (_rmrWaitTimeSeconds x)
+    f (_rmrWaitTimeSeconds x)
+        <&> \y -> x { _rmrWaitTimeSeconds = y }
 {-# INLINE rmrWaitTimeSeconds #-}
 
 -- | The message attribute Name can contain the following characters: A-Z, a-z,
@@ -212,15 +188,10 @@ rmrWaitTimeSeconds f x =
 -- be up to 256 characters long. Attribute names cannot start with "AWS." or
 -- "Amazon." because these prefixes are reserved for use by Amazon Web
 -- Services.
-rmrMessageAttributeNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ReceiveMessage
-    -> f ReceiveMessage
+rmrMessageAttributeNames :: Lens' ReceiveMessage ([Text])
 rmrMessageAttributeNames f x =
-    (\y -> x { _rmrMessageAttributeNames = y })
-       <$> f (_rmrMessageAttributeNames x)
+    f (_rmrMessageAttributeNames x)
+        <&> \y -> x { _rmrMessageAttributeNames = y }
 {-# INLINE rmrMessageAttributeNames #-}
 
 instance ToQuery ReceiveMessage where
@@ -232,15 +203,10 @@ data ReceiveMessageResponse = ReceiveMessageResponse
     } deriving (Show, Generic)
 
 -- | A list of messages.
-rmsMessages
-    :: Functor f
-    => ([Message]
-    -> f ([Message]))
-    -> ReceiveMessageResponse
-    -> f ReceiveMessageResponse
+rmsMessages :: Lens' ReceiveMessageResponse ([Message])
 rmsMessages f x =
-    (\y -> x { _rmsMessages = y })
-       <$> f (_rmsMessages x)
+    f (_rmsMessages x)
+        <&> \y -> x { _rmsMessages = y }
 {-# INLINE rmsMessages #-}
 
 instance FromXML ReceiveMessageResponse where

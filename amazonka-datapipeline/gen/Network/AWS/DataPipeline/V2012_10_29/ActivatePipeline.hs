@@ -53,6 +53,7 @@ activatePipeline :: Text -- ^ 'apiPipelineId'
 activatePipeline p1 = ActivatePipeline
     { _apiPipelineId = p1
     }
+{-# INLINE activatePipeline #-}
 
 data ActivatePipeline = ActivatePipeline
     { _apiPipelineId :: Text
@@ -60,15 +61,10 @@ data ActivatePipeline = ActivatePipeline
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline to activate.
-apiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ActivatePipeline
-    -> f ActivatePipeline
+apiPipelineId :: Lens' ActivatePipeline (Text)
 apiPipelineId f x =
-    (\y -> x { _apiPipelineId = y })
-       <$> f (_apiPipelineId x)
+    f (_apiPipelineId x)
+        <&> \y -> x { _apiPipelineId = y }
 {-# INLINE apiPipelineId #-}
 
 instance ToPath ActivatePipeline

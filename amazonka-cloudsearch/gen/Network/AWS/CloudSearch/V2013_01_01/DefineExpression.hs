@@ -49,6 +49,7 @@ defineExpression p1 p2 = DefineExpression
     { _derDomainName = p1
     , _derExpression = p2
     }
+{-# INLINE defineExpression #-}
 
 data DefineExpression = DefineExpression
     { _derDomainName :: Text
@@ -67,28 +68,18 @@ data DefineExpression = DefineExpression
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-derDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DefineExpression
-    -> f DefineExpression
+derDomainName :: Lens' DefineExpression (Text)
 derDomainName f x =
-    (\y -> x { _derDomainName = y })
-       <$> f (_derDomainName x)
+    f (_derDomainName x)
+        <&> \y -> x { _derDomainName = y }
 {-# INLINE derDomainName #-}
 
 -- | A named expression that can be evaluated at search time. Can be used for
 -- sorting and filtering search results and constructing other expressions.
-derExpression
-    :: Functor f
-    => (Expression
-    -> f (Expression))
-    -> DefineExpression
-    -> f DefineExpression
+derExpression :: Lens' DefineExpression (Expression)
 derExpression f x =
-    (\y -> x { _derExpression = y })
-       <$> f (_derExpression x)
+    f (_derExpression x)
+        <&> \y -> x { _derExpression = y }
 {-# INLINE derExpression #-}
 
 instance ToQuery DefineExpression where
@@ -100,15 +91,10 @@ data DefineExpressionResponse = DefineExpressionResponse
     } deriving (Show, Generic)
 
 -- | The value of an Expression and its current status.
-desExpression
-    :: Functor f
-    => (ExpressionStatus
-    -> f (ExpressionStatus))
-    -> DefineExpressionResponse
-    -> f DefineExpressionResponse
+desExpression :: Lens' DefineExpressionResponse (ExpressionStatus)
 desExpression f x =
-    (\y -> x { _desExpression = y })
-       <$> f (_desExpression x)
+    f (_desExpression x)
+        <&> \y -> x { _desExpression = y }
 {-# INLINE desExpression #-}
 
 instance FromXML DefineExpressionResponse where

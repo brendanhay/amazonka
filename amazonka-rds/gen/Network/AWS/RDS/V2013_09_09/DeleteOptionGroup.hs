@@ -42,6 +42,7 @@ deleteOptionGroup :: Text -- ^ 'dogmOptionGroupName'
 deleteOptionGroup p1 = DeleteOptionGroup
     { _dogmOptionGroupName = p1
     }
+{-# INLINE deleteOptionGroup #-}
 
 data DeleteOptionGroup = DeleteOptionGroup
     { _dogmOptionGroupName :: Text
@@ -51,15 +52,10 @@ data DeleteOptionGroup = DeleteOptionGroup
 
 -- | The name of the option group to be deleted. You cannot delete default
 -- option groups.
-dogmOptionGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteOptionGroup
-    -> f DeleteOptionGroup
+dogmOptionGroupName :: Lens' DeleteOptionGroup (Text)
 dogmOptionGroupName f x =
-    (\y -> x { _dogmOptionGroupName = y })
-       <$> f (_dogmOptionGroupName x)
+    f (_dogmOptionGroupName x)
+        <&> \y -> x { _dogmOptionGroupName = y }
 {-# INLINE dogmOptionGroupName #-}
 
 instance ToQuery DeleteOptionGroup where

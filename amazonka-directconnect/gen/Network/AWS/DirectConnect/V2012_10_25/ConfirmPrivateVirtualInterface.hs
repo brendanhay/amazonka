@@ -50,6 +50,7 @@ confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
     { _cpvirVirtualGatewayId = p1
     , _cpvirVirtualInterfaceId = p2
     }
+{-# INLINE confirmPrivateVirtualInterface #-}
 
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpvirVirtualGatewayId :: Text
@@ -66,27 +67,17 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
 -- interface. A virtual private gateway can be managed via the Amazon Virtual
 -- Private Cloud (VPC) console or the EC2 CreateVpnGateway action. Default:
 -- None.
-cpvirVirtualGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmPrivateVirtualInterface
-    -> f ConfirmPrivateVirtualInterface
+cpvirVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface (Text)
 cpvirVirtualGatewayId f x =
-    (\y -> x { _cpvirVirtualGatewayId = y })
-       <$> f (_cpvirVirtualGatewayId x)
+    f (_cpvirVirtualGatewayId x)
+        <&> \y -> x { _cpvirVirtualGatewayId = y }
 {-# INLINE cpvirVirtualGatewayId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-cpvirVirtualInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmPrivateVirtualInterface
-    -> f ConfirmPrivateVirtualInterface
+cpvirVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface (Text)
 cpvirVirtualInterfaceId f x =
-    (\y -> x { _cpvirVirtualInterfaceId = y })
-       <$> f (_cpvirVirtualInterfaceId x)
+    f (_cpvirVirtualInterfaceId x)
+        <&> \y -> x { _cpvirVirtualInterfaceId = y }
 {-# INLINE cpvirVirtualInterfaceId #-}
 
 instance ToPath ConfirmPrivateVirtualInterface
@@ -136,15 +127,10 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-cpvisVirtualInterfaceState
-    :: Functor f
-    => (Maybe VirtualInterfaceState
-    -> f (Maybe VirtualInterfaceState))
-    -> ConfirmPrivateVirtualInterfaceResponse
-    -> f ConfirmPrivateVirtualInterfaceResponse
+cpvisVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvisVirtualInterfaceState f x =
-    (\y -> x { _cpvisVirtualInterfaceState = y })
-       <$> f (_cpvisVirtualInterfaceState x)
+    f (_cpvisVirtualInterfaceState x)
+        <&> \y -> x { _cpvisVirtualInterfaceState = y }
 {-# INLINE cpvisVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse

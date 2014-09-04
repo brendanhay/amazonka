@@ -44,6 +44,7 @@ getCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'gcfoaicrId'
 getCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityConfig
     { _gcfoaicrId = p1
     }
+{-# INLINE getCloudFrontOriginAccessIdentityConfig #-}
 
 data GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig
     { _gcfoaicrId :: Text
@@ -51,15 +52,10 @@ data GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | The identity's id.
-gcfoaicrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetCloudFrontOriginAccessIdentityConfig
-    -> f GetCloudFrontOriginAccessIdentityConfig
+gcfoaicrId :: Lens' GetCloudFrontOriginAccessIdentityConfig (Text)
 gcfoaicrId f x =
-    (\y -> x { _gcfoaicrId = y })
-       <$> f (_gcfoaicrId x)
+    f (_gcfoaicrId x)
+        <&> \y -> x { _gcfoaicrId = y }
 {-# INLINE gcfoaicrId #-}
 
 instance ToPath GetCloudFrontOriginAccessIdentityConfig where
@@ -86,27 +82,17 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
     } deriving (Show, Generic)
 
 -- | The origin access identity's configuration information.
-gcfoaicsCloudFrontOriginAccessIdentityConfig
-    :: Functor f
-    => (Maybe CloudFrontOriginAccessIdentityConfig
-    -> f (Maybe CloudFrontOriginAccessIdentityConfig))
-    -> GetCloudFrontOriginAccessIdentityConfigResponse
-    -> f GetCloudFrontOriginAccessIdentityConfigResponse
+gcfoaicsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
 gcfoaicsCloudFrontOriginAccessIdentityConfig f x =
-    (\y -> x { _gcfoaicsCloudFrontOriginAccessIdentityConfig = y })
-       <$> f (_gcfoaicsCloudFrontOriginAccessIdentityConfig x)
+    f (_gcfoaicsCloudFrontOriginAccessIdentityConfig x)
+        <&> \y -> x { _gcfoaicsCloudFrontOriginAccessIdentityConfig = y }
 {-# INLINE gcfoaicsCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gcfoaicsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetCloudFrontOriginAccessIdentityConfigResponse
-    -> f GetCloudFrontOriginAccessIdentityConfigResponse
+gcfoaicsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicsETag f x =
-    (\y -> x { _gcfoaicsETag = y })
-       <$> f (_gcfoaicsETag x)
+    f (_gcfoaicsETag x)
+        <&> \y -> x { _gcfoaicsETag = y }
 {-# INLINE gcfoaicsETag #-}
 
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where

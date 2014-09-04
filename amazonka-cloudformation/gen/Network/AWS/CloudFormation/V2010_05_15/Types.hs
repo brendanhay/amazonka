@@ -363,39 +363,24 @@ data Output = Output
     } deriving (Show, Generic)
 
 -- | The key associated with the output.
-otOutputKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Output
-    -> f Output
+otOutputKey :: Lens' Output (Maybe Text)
 otOutputKey f x =
-    (\y -> x { _otOutputKey = y })
-       <$> f (_otOutputKey x)
+    f (_otOutputKey x)
+        <&> \y -> x { _otOutputKey = y }
 {-# INLINE otOutputKey #-}
 
 -- | The value associated with the output.
-otOutputValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Output
-    -> f Output
+otOutputValue :: Lens' Output (Maybe Text)
 otOutputValue f x =
-    (\y -> x { _otOutputValue = y })
-       <$> f (_otOutputValue x)
+    f (_otOutputValue x)
+        <&> \y -> x { _otOutputValue = y }
 {-# INLINE otOutputValue #-}
 
 -- | User defined description associated with the output.
-otDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Output
-    -> f Output
+otDescription :: Lens' Output (Maybe Text)
 otDescription f x =
-    (\y -> x { _otDescription = y })
-       <$> f (_otDescription x)
+    f (_otDescription x)
+        <&> \y -> x { _otDescription = y }
 {-# INLINE otDescription #-}
 
 instance FromXML Output where
@@ -417,40 +402,25 @@ data Parameter = Parameter
     } deriving (Show, Generic)
 
 -- | The key associated with the parameter.
-qParameterKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+qParameterKey :: Lens' Parameter (Maybe Text)
 qParameterKey f x =
-    (\y -> x { _qParameterKey = y })
-       <$> f (_qParameterKey x)
+    f (_qParameterKey x)
+        <&> \y -> x { _qParameterKey = y }
 {-# INLINE qParameterKey #-}
 
 -- | The value associated with the parameter.
-qParameterValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Parameter
-    -> f Parameter
+qParameterValue :: Lens' Parameter (Maybe Text)
 qParameterValue f x =
-    (\y -> x { _qParameterValue = y })
-       <$> f (_qParameterValue x)
+    f (_qParameterValue x)
+        <&> \y -> x { _qParameterValue = y }
 {-# INLINE qParameterValue #-}
 
 -- | During a stack update, use the existing parameter value that is being used
 -- for the stack.
-qUsePreviousValue
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Parameter
-    -> f Parameter
+qUsePreviousValue :: Lens' Parameter (Maybe Bool)
 qUsePreviousValue f x =
-    (\y -> x { _qUsePreviousValue = y })
-       <$> f (_qUsePreviousValue x)
+    f (_qUsePreviousValue x)
+        <&> \y -> x { _qUsePreviousValue = y }
 {-# INLINE qUsePreviousValue #-}
 
 instance FromXML Parameter where
@@ -496,173 +466,103 @@ data Stack = Stack
     } deriving (Show, Generic)
 
 -- | Unique identifier of the stack.
-yStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+yStackId :: Lens' Stack (Maybe Text)
 yStackId f x =
-    (\y -> x { _yStackId = y })
-       <$> f (_yStackId x)
+    f (_yStackId x)
+        <&> \y -> x { _yStackId = y }
 {-# INLINE yStackId #-}
 
 -- | The name associated with the stack.
-yStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Stack
-    -> f Stack
+yStackName :: Lens' Stack (Text)
 yStackName f x =
-    (\y -> x { _yStackName = y })
-       <$> f (_yStackName x)
+    f (_yStackName x)
+        <&> \y -> x { _yStackName = y }
 {-# INLINE yStackName #-}
 
 -- | User defined description associated with the stack.
-yDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+yDescription :: Lens' Stack (Maybe Text)
 yDescription f x =
-    (\y -> x { _yDescription = y })
-       <$> f (_yDescription x)
+    f (_yDescription x)
+        <&> \y -> x { _yDescription = y }
 {-# INLINE yDescription #-}
 
 -- | A list of Parameter structures.
-yParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> Stack
-    -> f Stack
+yParameters :: Lens' Stack ([Parameter])
 yParameters f x =
-    (\y -> x { _yParameters = y })
-       <$> f (_yParameters x)
+    f (_yParameters x)
+        <&> \y -> x { _yParameters = y }
 {-# INLINE yParameters #-}
 
 -- | Time at which the stack was created.
-yCreationTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Stack
-    -> f Stack
+yCreationTime :: Lens' Stack (ISO8601)
 yCreationTime f x =
-    (\y -> x { _yCreationTime = y })
-       <$> f (_yCreationTime x)
+    f (_yCreationTime x)
+        <&> \y -> x { _yCreationTime = y }
 {-# INLINE yCreationTime #-}
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
-yLastUpdatedTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> Stack
-    -> f Stack
+yLastUpdatedTime :: Lens' Stack (Maybe ISO8601)
 yLastUpdatedTime f x =
-    (\y -> x { _yLastUpdatedTime = y })
-       <$> f (_yLastUpdatedTime x)
+    f (_yLastUpdatedTime x)
+        <&> \y -> x { _yLastUpdatedTime = y }
 {-# INLINE yLastUpdatedTime #-}
 
 -- | Current status of the stack.
-yStackStatus
-    :: Functor f
-    => (StackStatus
-    -> f (StackStatus))
-    -> Stack
-    -> f Stack
+yStackStatus :: Lens' Stack (StackStatus)
 yStackStatus f x =
-    (\y -> x { _yStackStatus = y })
-       <$> f (_yStackStatus x)
+    f (_yStackStatus x)
+        <&> \y -> x { _yStackStatus = y }
 {-# INLINE yStackStatus #-}
 
 -- | Success/failure message associated with the stack status.
-yStackStatusReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Stack
-    -> f Stack
+yStackStatusReason :: Lens' Stack (Maybe Text)
 yStackStatusReason f x =
-    (\y -> x { _yStackStatusReason = y })
-       <$> f (_yStackStatusReason x)
+    f (_yStackStatusReason x)
+        <&> \y -> x { _yStackStatusReason = y }
 {-# INLINE yStackStatusReason #-}
 
 -- | Boolean to enable or disable rollback on stack creation failures: true:
 -- disable rollback false: enable rollback.
-yDisableRollback
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Stack
-    -> f Stack
+yDisableRollback :: Lens' Stack (Maybe Bool)
 yDisableRollback f x =
-    (\y -> x { _yDisableRollback = y })
-       <$> f (_yDisableRollback x)
+    f (_yDisableRollback x)
+        <&> \y -> x { _yDisableRollback = y }
 {-# INLINE yDisableRollback #-}
 
 -- | SNS topic ARNs to which stack related events are published.
-yNotificationARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Stack
-    -> f Stack
+yNotificationARNs :: Lens' Stack ([Text])
 yNotificationARNs f x =
-    (\y -> x { _yNotificationARNs = y })
-       <$> f (_yNotificationARNs x)
+    f (_yNotificationARNs x)
+        <&> \y -> x { _yNotificationARNs = y }
 {-# INLINE yNotificationARNs #-}
 
 -- | The amount of time within which stack creation should complete.
-yTimeoutInMinutes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Stack
-    -> f Stack
+yTimeoutInMinutes :: Lens' Stack (Maybe Integer)
 yTimeoutInMinutes f x =
-    (\y -> x { _yTimeoutInMinutes = y })
-       <$> f (_yTimeoutInMinutes x)
+    f (_yTimeoutInMinutes x)
+        <&> \y -> x { _yTimeoutInMinutes = y }
 {-# INLINE yTimeoutInMinutes #-}
 
 -- | The capabilities allowed in the stack.
-yCapabilities
-    :: Functor f
-    => ([Capability]
-    -> f ([Capability]))
-    -> Stack
-    -> f Stack
+yCapabilities :: Lens' Stack ([Capability])
 yCapabilities f x =
-    (\y -> x { _yCapabilities = y })
-       <$> f (_yCapabilities x)
+    f (_yCapabilities x)
+        <&> \y -> x { _yCapabilities = y }
 {-# INLINE yCapabilities #-}
 
 -- | A list of output structures.
-yOutputs
-    :: Functor f
-    => ([Output]
-    -> f ([Output]))
-    -> Stack
-    -> f Stack
+yOutputs :: Lens' Stack ([Output])
 yOutputs f x =
-    (\y -> x { _yOutputs = y })
-       <$> f (_yOutputs x)
+    f (_yOutputs x)
+        <&> \y -> x { _yOutputs = y }
 {-# INLINE yOutputs #-}
 
 -- | A list of Tags that specify cost allocation information for the stack.
-yTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> Stack
-    -> f Stack
+yTags :: Lens' Stack ([Tag])
 yTags f x =
-    (\y -> x { _yTags = y })
-       <$> f (_yTags x)
+    f (_yTags x)
+        <&> \y -> x { _yTags = y }
 {-# INLINE yTags #-}
 
 instance FromXML Stack where
@@ -696,125 +596,75 @@ data StackEvent = StackEvent
     } deriving (Show, Generic)
 
 -- | The unique ID name of the instance of the stack.
-sfStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackEvent
-    -> f StackEvent
+sfStackId :: Lens' StackEvent (Text)
 sfStackId f x =
-    (\y -> x { _sfStackId = y })
-       <$> f (_sfStackId x)
+    f (_sfStackId x)
+        <&> \y -> x { _sfStackId = y }
 {-# INLINE sfStackId #-}
 
 -- | The unique ID of this event.
-sfEventId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackEvent
-    -> f StackEvent
+sfEventId :: Lens' StackEvent (Text)
 sfEventId f x =
-    (\y -> x { _sfEventId = y })
-       <$> f (_sfEventId x)
+    f (_sfEventId x)
+        <&> \y -> x { _sfEventId = y }
 {-# INLINE sfEventId #-}
 
 -- | The name associated with a stack.
-sfStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackEvent
-    -> f StackEvent
+sfStackName :: Lens' StackEvent (Text)
 sfStackName f x =
-    (\y -> x { _sfStackName = y })
-       <$> f (_sfStackName x)
+    f (_sfStackName x)
+        <&> \y -> x { _sfStackName = y }
 {-# INLINE sfStackName #-}
 
 -- | The logical name of the resource specified in the template.
-sfLogicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackEvent
-    -> f StackEvent
+sfLogicalResourceId :: Lens' StackEvent (Maybe Text)
 sfLogicalResourceId f x =
-    (\y -> x { _sfLogicalResourceId = y })
-       <$> f (_sfLogicalResourceId x)
+    f (_sfLogicalResourceId x)
+        <&> \y -> x { _sfLogicalResourceId = y }
 {-# INLINE sfLogicalResourceId #-}
 
 -- | The name or unique identifier associated with the physical instance of the
 -- resource.
-sfPhysicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackEvent
-    -> f StackEvent
+sfPhysicalResourceId :: Lens' StackEvent (Maybe Text)
 sfPhysicalResourceId f x =
-    (\y -> x { _sfPhysicalResourceId = y })
-       <$> f (_sfPhysicalResourceId x)
+    f (_sfPhysicalResourceId x)
+        <&> \y -> x { _sfPhysicalResourceId = y }
 {-# INLINE sfPhysicalResourceId #-}
 
 -- | Type of resource. (For more information, go to AWS Resource Types Reference
 -- in the AWS CloudFormation User Guide.).
-sfResourceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackEvent
-    -> f StackEvent
+sfResourceType :: Lens' StackEvent (Maybe Text)
 sfResourceType f x =
-    (\y -> x { _sfResourceType = y })
-       <$> f (_sfResourceType x)
+    f (_sfResourceType x)
+        <&> \y -> x { _sfResourceType = y }
 {-# INLINE sfResourceType #-}
 
 -- | Time the status was updated.
-sfTimestamp
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> StackEvent
-    -> f StackEvent
+sfTimestamp :: Lens' StackEvent (ISO8601)
 sfTimestamp f x =
-    (\y -> x { _sfTimestamp = y })
-       <$> f (_sfTimestamp x)
+    f (_sfTimestamp x)
+        <&> \y -> x { _sfTimestamp = y }
 {-# INLINE sfTimestamp #-}
 
 -- | Current status of the resource.
-sfResourceStatus
-    :: Functor f
-    => (Maybe ResourceStatus
-    -> f (Maybe ResourceStatus))
-    -> StackEvent
-    -> f StackEvent
+sfResourceStatus :: Lens' StackEvent (Maybe ResourceStatus)
 sfResourceStatus f x =
-    (\y -> x { _sfResourceStatus = y })
-       <$> f (_sfResourceStatus x)
+    f (_sfResourceStatus x)
+        <&> \y -> x { _sfResourceStatus = y }
 {-# INLINE sfResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
-sfResourceStatusReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackEvent
-    -> f StackEvent
+sfResourceStatusReason :: Lens' StackEvent (Maybe Text)
 sfResourceStatusReason f x =
-    (\y -> x { _sfResourceStatusReason = y })
-       <$> f (_sfResourceStatusReason x)
+    f (_sfResourceStatusReason x)
+        <&> \y -> x { _sfResourceStatusReason = y }
 {-# INLINE sfResourceStatusReason #-}
 
 -- | BLOB of the properties used to create the resource.
-sfResourceProperties
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackEvent
-    -> f StackEvent
+sfResourceProperties :: Lens' StackEvent (Maybe Text)
 sfResourceProperties f x =
-    (\y -> x { _sfResourceProperties = y })
-       <$> f (_sfResourceProperties x)
+    f (_sfResourceProperties x)
+        <&> \y -> x { _sfResourceProperties = y }
 {-# INLINE sfResourceProperties #-}
 
 instance FromXML StackEvent where
@@ -846,113 +696,68 @@ data StackResource = StackResource
     } deriving (Show, Generic)
 
 -- | The name associated with the stack.
-swStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResource
-    -> f StackResource
+swStackName :: Lens' StackResource (Maybe Text)
 swStackName f x =
-    (\y -> x { _swStackName = y })
-       <$> f (_swStackName x)
+    f (_swStackName x)
+        <&> \y -> x { _swStackName = y }
 {-# INLINE swStackName #-}
 
 -- | Unique identifier of the stack.
-swStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResource
-    -> f StackResource
+swStackId :: Lens' StackResource (Maybe Text)
 swStackId f x =
-    (\y -> x { _swStackId = y })
-       <$> f (_swStackId x)
+    f (_swStackId x)
+        <&> \y -> x { _swStackId = y }
 {-# INLINE swStackId #-}
 
 -- | The logical name of the resource specified in the template.
-swLogicalResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackResource
-    -> f StackResource
+swLogicalResourceId :: Lens' StackResource (Text)
 swLogicalResourceId f x =
-    (\y -> x { _swLogicalResourceId = y })
-       <$> f (_swLogicalResourceId x)
+    f (_swLogicalResourceId x)
+        <&> \y -> x { _swLogicalResourceId = y }
 {-# INLINE swLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- a resource supported by AWS CloudFormation.
-swPhysicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResource
-    -> f StackResource
+swPhysicalResourceId :: Lens' StackResource (Maybe Text)
 swPhysicalResourceId f x =
-    (\y -> x { _swPhysicalResourceId = y })
-       <$> f (_swPhysicalResourceId x)
+    f (_swPhysicalResourceId x)
+        <&> \y -> x { _swPhysicalResourceId = y }
 {-# INLINE swPhysicalResourceId #-}
 
 -- | Type of resource. (For more information, go to AWS Resource Types Reference
 -- in the AWS CloudFormation User Guide.).
-swResourceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackResource
-    -> f StackResource
+swResourceType :: Lens' StackResource (Text)
 swResourceType f x =
-    (\y -> x { _swResourceType = y })
-       <$> f (_swResourceType x)
+    f (_swResourceType x)
+        <&> \y -> x { _swResourceType = y }
 {-# INLINE swResourceType #-}
 
 -- | Time the status was updated.
-swTimestamp
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> StackResource
-    -> f StackResource
+swTimestamp :: Lens' StackResource (ISO8601)
 swTimestamp f x =
-    (\y -> x { _swTimestamp = y })
-       <$> f (_swTimestamp x)
+    f (_swTimestamp x)
+        <&> \y -> x { _swTimestamp = y }
 {-# INLINE swTimestamp #-}
 
 -- | Current status of the resource.
-swResourceStatus
-    :: Functor f
-    => (ResourceStatus
-    -> f (ResourceStatus))
-    -> StackResource
-    -> f StackResource
+swResourceStatus :: Lens' StackResource (ResourceStatus)
 swResourceStatus f x =
-    (\y -> x { _swResourceStatus = y })
-       <$> f (_swResourceStatus x)
+    f (_swResourceStatus x)
+        <&> \y -> x { _swResourceStatus = y }
 {-# INLINE swResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
-swResourceStatusReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResource
-    -> f StackResource
+swResourceStatusReason :: Lens' StackResource (Maybe Text)
 swResourceStatusReason f x =
-    (\y -> x { _swResourceStatusReason = y })
-       <$> f (_swResourceStatusReason x)
+    f (_swResourceStatusReason x)
+        <&> \y -> x { _swResourceStatusReason = y }
 {-# INLINE swResourceStatusReason #-}
 
 -- | User defined description associated with the resource.
-swDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResource
-    -> f StackResource
+swDescription :: Lens' StackResource (Maybe Text)
 swDescription f x =
-    (\y -> x { _swDescription = y })
-       <$> f (_swDescription x)
+    f (_swDescription x)
+        <&> \y -> x { _swDescription = y }
 {-# INLINE swDescription #-}
 
 instance FromXML StackResource where
@@ -989,127 +794,77 @@ data StackResourceDetail = StackResourceDetail
     } deriving (Show, Generic)
 
 -- | The name associated with the stack.
-srdStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdStackName :: Lens' StackResourceDetail (Maybe Text)
 srdStackName f x =
-    (\y -> x { _srdStackName = y })
-       <$> f (_srdStackName x)
+    f (_srdStackName x)
+        <&> \y -> x { _srdStackName = y }
 {-# INLINE srdStackName #-}
 
 -- | Unique identifier of the stack.
-srdStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdStackId :: Lens' StackResourceDetail (Maybe Text)
 srdStackId f x =
-    (\y -> x { _srdStackId = y })
-       <$> f (_srdStackId x)
+    f (_srdStackId x)
+        <&> \y -> x { _srdStackId = y }
 {-# INLINE srdStackId #-}
 
 -- | The logical name of the resource specified in the template.
-srdLogicalResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdLogicalResourceId :: Lens' StackResourceDetail (Text)
 srdLogicalResourceId f x =
-    (\y -> x { _srdLogicalResourceId = y })
-       <$> f (_srdLogicalResourceId x)
+    f (_srdLogicalResourceId x)
+        <&> \y -> x { _srdLogicalResourceId = y }
 {-# INLINE srdLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- a resource supported by AWS CloudFormation.
-srdPhysicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdPhysicalResourceId :: Lens' StackResourceDetail (Maybe Text)
 srdPhysicalResourceId f x =
-    (\y -> x { _srdPhysicalResourceId = y })
-       <$> f (_srdPhysicalResourceId x)
+    f (_srdPhysicalResourceId x)
+        <&> \y -> x { _srdPhysicalResourceId = y }
 {-# INLINE srdPhysicalResourceId #-}
 
 -- | Type of resource. ((For more information, go to AWS Resource Types
 -- Reference in the AWS CloudFormation User Guide.).
-srdResourceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdResourceType :: Lens' StackResourceDetail (Text)
 srdResourceType f x =
-    (\y -> x { _srdResourceType = y })
-       <$> f (_srdResourceType x)
+    f (_srdResourceType x)
+        <&> \y -> x { _srdResourceType = y }
 {-# INLINE srdResourceType #-}
 
 -- | Time the status was updated.
-srdLastUpdatedTimestamp
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdLastUpdatedTimestamp :: Lens' StackResourceDetail (ISO8601)
 srdLastUpdatedTimestamp f x =
-    (\y -> x { _srdLastUpdatedTimestamp = y })
-       <$> f (_srdLastUpdatedTimestamp x)
+    f (_srdLastUpdatedTimestamp x)
+        <&> \y -> x { _srdLastUpdatedTimestamp = y }
 {-# INLINE srdLastUpdatedTimestamp #-}
 
 -- | Current status of the resource.
-srdResourceStatus
-    :: Functor f
-    => (ResourceStatus
-    -> f (ResourceStatus))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdResourceStatus :: Lens' StackResourceDetail (ResourceStatus)
 srdResourceStatus f x =
-    (\y -> x { _srdResourceStatus = y })
-       <$> f (_srdResourceStatus x)
+    f (_srdResourceStatus x)
+        <&> \y -> x { _srdResourceStatus = y }
 {-# INLINE srdResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
-srdResourceStatusReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
 srdResourceStatusReason f x =
-    (\y -> x { _srdResourceStatusReason = y })
-       <$> f (_srdResourceStatusReason x)
+    f (_srdResourceStatusReason x)
+        <&> \y -> x { _srdResourceStatusReason = y }
 {-# INLINE srdResourceStatusReason #-}
 
 -- | User defined description associated with the resource.
-srdDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdDescription :: Lens' StackResourceDetail (Maybe Text)
 srdDescription f x =
-    (\y -> x { _srdDescription = y })
-       <$> f (_srdDescription x)
+    f (_srdDescription x)
+        <&> \y -> x { _srdDescription = y }
 {-# INLINE srdDescription #-}
 
 -- | The JSON format content of the Metadata attribute declared for the
 -- resource. For more information, see Metadata Attribute in the AWS
 -- CloudFormation User Guide.
-srdMetadata
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceDetail
-    -> f StackResourceDetail
+srdMetadata :: Lens' StackResourceDetail (Maybe Text)
 srdMetadata f x =
-    (\y -> x { _srdMetadata = y })
-       <$> f (_srdMetadata x)
+    f (_srdMetadata x)
+        <&> \y -> x { _srdMetadata = y }
 {-# INLINE srdMetadata #-}
 
 instance FromXML StackResourceDetail where
@@ -1135,77 +890,47 @@ data StackResourceSummary = StackResourceSummary
     } deriving (Show, Generic)
 
 -- | The logical name of the resource specified in the template.
-srtLogicalResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackResourceSummary
-    -> f StackResourceSummary
+srtLogicalResourceId :: Lens' StackResourceSummary (Text)
 srtLogicalResourceId f x =
-    (\y -> x { _srtLogicalResourceId = y })
-       <$> f (_srtLogicalResourceId x)
+    f (_srtLogicalResourceId x)
+        <&> \y -> x { _srtLogicalResourceId = y }
 {-# INLINE srtLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- the resource.
-srtPhysicalResourceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceSummary
-    -> f StackResourceSummary
+srtPhysicalResourceId :: Lens' StackResourceSummary (Maybe Text)
 srtPhysicalResourceId f x =
-    (\y -> x { _srtPhysicalResourceId = y })
-       <$> f (_srtPhysicalResourceId x)
+    f (_srtPhysicalResourceId x)
+        <&> \y -> x { _srtPhysicalResourceId = y }
 {-# INLINE srtPhysicalResourceId #-}
 
 -- | Type of resource. (For more information, go to AWS Resource Types Reference
 -- in the AWS CloudFormation User Guide.).
-srtResourceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackResourceSummary
-    -> f StackResourceSummary
+srtResourceType :: Lens' StackResourceSummary (Text)
 srtResourceType f x =
-    (\y -> x { _srtResourceType = y })
-       <$> f (_srtResourceType x)
+    f (_srtResourceType x)
+        <&> \y -> x { _srtResourceType = y }
 {-# INLINE srtResourceType #-}
 
 -- | Time the status was updated.
-srtLastUpdatedTimestamp
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> StackResourceSummary
-    -> f StackResourceSummary
+srtLastUpdatedTimestamp :: Lens' StackResourceSummary (ISO8601)
 srtLastUpdatedTimestamp f x =
-    (\y -> x { _srtLastUpdatedTimestamp = y })
-       <$> f (_srtLastUpdatedTimestamp x)
+    f (_srtLastUpdatedTimestamp x)
+        <&> \y -> x { _srtLastUpdatedTimestamp = y }
 {-# INLINE srtLastUpdatedTimestamp #-}
 
 -- | Current status of the resource.
-srtResourceStatus
-    :: Functor f
-    => (ResourceStatus
-    -> f (ResourceStatus))
-    -> StackResourceSummary
-    -> f StackResourceSummary
+srtResourceStatus :: Lens' StackResourceSummary (ResourceStatus)
 srtResourceStatus f x =
-    (\y -> x { _srtResourceStatus = y })
-       <$> f (_srtResourceStatus x)
+    f (_srtResourceStatus x)
+        <&> \y -> x { _srtResourceStatus = y }
 {-# INLINE srtResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
-srtResourceStatusReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackResourceSummary
-    -> f StackResourceSummary
+srtResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
 srtResourceStatusReason f x =
-    (\y -> x { _srtResourceStatusReason = y })
-       <$> f (_srtResourceStatusReason x)
+    f (_srtResourceStatusReason x)
+        <&> \y -> x { _srtResourceStatusReason = y }
 {-# INLINE srtResourceStatusReason #-}
 
 instance FromXML StackResourceSummary where
@@ -1235,100 +960,60 @@ data StackSummary = StackSummary
     } deriving (Show, Generic)
 
 -- | Unique stack identifier.
-ssyStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackSummary
-    -> f StackSummary
+ssyStackId :: Lens' StackSummary (Maybe Text)
 ssyStackId f x =
-    (\y -> x { _ssyStackId = y })
-       <$> f (_ssyStackId x)
+    f (_ssyStackId x)
+        <&> \y -> x { _ssyStackId = y }
 {-# INLINE ssyStackId #-}
 
 -- | The name associated with the stack.
-ssyStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StackSummary
-    -> f StackSummary
+ssyStackName :: Lens' StackSummary (Text)
 ssyStackName f x =
-    (\y -> x { _ssyStackName = y })
-       <$> f (_ssyStackName x)
+    f (_ssyStackName x)
+        <&> \y -> x { _ssyStackName = y }
 {-# INLINE ssyStackName #-}
 
 -- | The template description of the template used to create the stack.
-ssyTemplateDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackSummary
-    -> f StackSummary
+ssyTemplateDescription :: Lens' StackSummary (Maybe Text)
 ssyTemplateDescription f x =
-    (\y -> x { _ssyTemplateDescription = y })
-       <$> f (_ssyTemplateDescription x)
+    f (_ssyTemplateDescription x)
+        <&> \y -> x { _ssyTemplateDescription = y }
 {-# INLINE ssyTemplateDescription #-}
 
 -- | The time the stack was created.
-ssyCreationTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> StackSummary
-    -> f StackSummary
+ssyCreationTime :: Lens' StackSummary (ISO8601)
 ssyCreationTime f x =
-    (\y -> x { _ssyCreationTime = y })
-       <$> f (_ssyCreationTime x)
+    f (_ssyCreationTime x)
+        <&> \y -> x { _ssyCreationTime = y }
 {-# INLINE ssyCreationTime #-}
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
-ssyLastUpdatedTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> StackSummary
-    -> f StackSummary
+ssyLastUpdatedTime :: Lens' StackSummary (Maybe ISO8601)
 ssyLastUpdatedTime f x =
-    (\y -> x { _ssyLastUpdatedTime = y })
-       <$> f (_ssyLastUpdatedTime x)
+    f (_ssyLastUpdatedTime x)
+        <&> \y -> x { _ssyLastUpdatedTime = y }
 {-# INLINE ssyLastUpdatedTime #-}
 
 -- | The time the stack was deleted.
-ssyDeletionTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> StackSummary
-    -> f StackSummary
+ssyDeletionTime :: Lens' StackSummary (Maybe ISO8601)
 ssyDeletionTime f x =
-    (\y -> x { _ssyDeletionTime = y })
-       <$> f (_ssyDeletionTime x)
+    f (_ssyDeletionTime x)
+        <&> \y -> x { _ssyDeletionTime = y }
 {-# INLINE ssyDeletionTime #-}
 
 -- | The current status of the stack.
-ssyStackStatus
-    :: Functor f
-    => (StackStatus
-    -> f (StackStatus))
-    -> StackSummary
-    -> f StackSummary
+ssyStackStatus :: Lens' StackSummary (StackStatus)
 ssyStackStatus f x =
-    (\y -> x { _ssyStackStatus = y })
-       <$> f (_ssyStackStatus x)
+    f (_ssyStackStatus x)
+        <&> \y -> x { _ssyStackStatus = y }
 {-# INLINE ssyStackStatus #-}
 
 -- | Success/Failure message associated with the stack status.
-ssyStackStatusReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StackSummary
-    -> f StackSummary
+ssyStackStatusReason :: Lens' StackSummary (Maybe Text)
 ssyStackStatusReason f x =
-    (\y -> x { _ssyStackStatusReason = y })
-       <$> f (_ssyStackStatusReason x)
+    f (_ssyStackStatusReason x)
+        <&> \y -> x { _ssyStackStatusReason = y }
 {-# INLINE ssyStackStatusReason #-}
 
 instance FromXML StackSummary where
@@ -1351,28 +1036,18 @@ data Tag = Tag
 -- | Required. A string used to identify this tag. You can specify a maximum of
 -- 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have
 -- the reserved prefix: aws:.
-uKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+uKey :: Lens' Tag (Maybe Text)
 uKey f x =
-    (\y -> x { _uKey = y })
-       <$> f (_uKey x)
+    f (_uKey x)
+        <&> \y -> x { _uKey = y }
 {-# INLINE uKey #-}
 
 -- | Required. A string containing the value for this tag. You can specify a
 -- maximum of 256 characters for a tag value.
-uValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+uValue :: Lens' Tag (Maybe Text)
 uValue f x =
-    (\y -> x { _uValue = y })
-       <$> f (_uValue x)
+    f (_uValue x)
+        <&> \y -> x { _uValue = y }
 {-# INLINE uValue #-}
 
 instance FromXML Tag where
@@ -1396,52 +1071,32 @@ data TemplateParameter = TemplateParameter
     } deriving (Show, Generic)
 
 -- | The name associated with the parameter.
-trParameterKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TemplateParameter
-    -> f TemplateParameter
+trParameterKey :: Lens' TemplateParameter (Maybe Text)
 trParameterKey f x =
-    (\y -> x { _trParameterKey = y })
-       <$> f (_trParameterKey x)
+    f (_trParameterKey x)
+        <&> \y -> x { _trParameterKey = y }
 {-# INLINE trParameterKey #-}
 
 -- | The default value associated with the parameter.
-trDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TemplateParameter
-    -> f TemplateParameter
+trDefaultValue :: Lens' TemplateParameter (Maybe Text)
 trDefaultValue f x =
-    (\y -> x { _trDefaultValue = y })
-       <$> f (_trDefaultValue x)
+    f (_trDefaultValue x)
+        <&> \y -> x { _trDefaultValue = y }
 {-# INLINE trDefaultValue #-}
 
 -- | Flag indicating whether the parameter should be displayed as plain text in
 -- logs and UIs.
-trNoEcho
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TemplateParameter
-    -> f TemplateParameter
+trNoEcho :: Lens' TemplateParameter (Maybe Bool)
 trNoEcho f x =
-    (\y -> x { _trNoEcho = y })
-       <$> f (_trNoEcho x)
+    f (_trNoEcho x)
+        <&> \y -> x { _trNoEcho = y }
 {-# INLINE trNoEcho #-}
 
 -- | User defined description associated with the parameter.
-trDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TemplateParameter
-    -> f TemplateParameter
+trDescription :: Lens' TemplateParameter (Maybe Text)
 trDescription f x =
-    (\y -> x { _trDescription = y })
-       <$> f (_trDescription x)
+    f (_trDescription x)
+        <&> \y -> x { _trDescription = y }
 {-# INLINE trDescription #-}
 
 instance FromXML TemplateParameter where

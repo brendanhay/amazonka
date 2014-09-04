@@ -61,6 +61,7 @@ getSubscriptionAttributes :: Text -- ^ 'gsaiSubscriptionArn'
 getSubscriptionAttributes p1 = GetSubscriptionAttributes
     { _gsaiSubscriptionArn = p1
     }
+{-# INLINE getSubscriptionAttributes #-}
 
 data GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaiSubscriptionArn :: Text
@@ -68,15 +69,10 @@ data GetSubscriptionAttributes = GetSubscriptionAttributes
     } deriving (Show, Generic)
 
 -- | The ARN of the subscription whose properties you want to get.
-gsaiSubscriptionArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetSubscriptionAttributes
-    -> f GetSubscriptionAttributes
+gsaiSubscriptionArn :: Lens' GetSubscriptionAttributes (Text)
 gsaiSubscriptionArn f x =
-    (\y -> x { _gsaiSubscriptionArn = y })
-       <$> f (_gsaiSubscriptionArn x)
+    f (_gsaiSubscriptionArn x)
+        <&> \y -> x { _gsaiSubscriptionArn = y }
 {-# INLINE gsaiSubscriptionArn #-}
 
 instance ToQuery GetSubscriptionAttributes where
@@ -105,15 +101,10 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
 -- policy that takes into account the topic delivery policy and account system
 -- defaults.
-gsarAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetSubscriptionAttributesResponse
-    -> f GetSubscriptionAttributesResponse
+gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
 gsarAttributes f x =
-    (\y -> x { _gsarAttributes = y })
-       <$> f (_gsarAttributes x)
+    f (_gsarAttributes x)
+        <&> \y -> x { _gsarAttributes = y }
 {-# INLINE gsarAttributes #-}
 
 instance FromXML GetSubscriptionAttributesResponse where

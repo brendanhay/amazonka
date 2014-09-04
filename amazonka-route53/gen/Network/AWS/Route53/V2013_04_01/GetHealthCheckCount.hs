@@ -38,6 +38,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetHealthCheckCount' request.
 getHealthCheckCount :: GetHealthCheckCount
 getHealthCheckCount = GetHealthCheckCount
+{-# INLINE getHealthCheckCount #-}
 
 data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Show, Generic)
@@ -60,15 +61,10 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse
     } deriving (Show, Generic)
 
 -- | The number of health checks associated with the current AWS account.
-ghccsHealthCheckCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> GetHealthCheckCountResponse
-    -> f GetHealthCheckCountResponse
+ghccsHealthCheckCount :: Lens' GetHealthCheckCountResponse (Integer)
 ghccsHealthCheckCount f x =
-    (\y -> x { _ghccsHealthCheckCount = y })
-       <$> f (_ghccsHealthCheckCount x)
+    f (_ghccsHealthCheckCount x)
+        <&> \y -> x { _ghccsHealthCheckCount = y }
 {-# INLINE ghccsHealthCheckCount #-}
 
 instance FromXML GetHealthCheckCountResponse where

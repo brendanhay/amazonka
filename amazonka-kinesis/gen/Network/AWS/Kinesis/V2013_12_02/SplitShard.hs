@@ -92,6 +92,7 @@ splitShard p1 p2 p3 = SplitShard
     , _sskShardToSplit = p2
     , _sskStreamName = p3
     }
+{-# INLINE splitShard #-}
 
 data SplitShard = SplitShard
     { _sskNewStartingHashKey :: Text
@@ -116,39 +117,24 @@ data SplitShard = SplitShard
 -- shard. The NewStartingHashKey hash key value and all higher hash key values
 -- in hash key range are distributed to one of the child shards. All the lower
 -- hash key values in the range are distributed to the other child shard.
-sskNewStartingHashKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SplitShard
-    -> f SplitShard
+sskNewStartingHashKey :: Lens' SplitShard (Text)
 sskNewStartingHashKey f x =
-    (\y -> x { _sskNewStartingHashKey = y })
-       <$> f (_sskNewStartingHashKey x)
+    f (_sskNewStartingHashKey x)
+        <&> \y -> x { _sskNewStartingHashKey = y }
 {-# INLINE sskNewStartingHashKey #-}
 
 -- | The shard ID of the shard to split.
-sskShardToSplit
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SplitShard
-    -> f SplitShard
+sskShardToSplit :: Lens' SplitShard (Text)
 sskShardToSplit f x =
-    (\y -> x { _sskShardToSplit = y })
-       <$> f (_sskShardToSplit x)
+    f (_sskShardToSplit x)
+        <&> \y -> x { _sskShardToSplit = y }
 {-# INLINE sskShardToSplit #-}
 
 -- | The name of the stream for the shard split.
-sskStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SplitShard
-    -> f SplitShard
+sskStreamName :: Lens' SplitShard (Text)
 sskStreamName f x =
-    (\y -> x { _sskStreamName = y })
-       <$> f (_sskStreamName x)
+    f (_sskStreamName x)
+        <&> \y -> x { _sskStreamName = y }
 {-# INLINE sskStreamName #-}
 
 instance ToPath SplitShard

@@ -44,6 +44,7 @@ listDistributions = ListDistributions
     { _ldrMarker = Nothing
     , _ldrMaxItems = Nothing
     }
+{-# INLINE listDistributions #-}
 
 data ListDistributions = ListDistributions
     { _ldrMarker :: Maybe Text
@@ -63,27 +64,17 @@ data ListDistributions = ListDistributions
 -- after the marker. To get the next page of results, set the Marker to the
 -- value of the NextMarker from the current page's response (which is also the
 -- ID of the last distribution on that page).
-ldrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDistributions
-    -> f ListDistributions
+ldrMarker :: Lens' ListDistributions (Maybe Text)
 ldrMarker f x =
-    (\y -> x { _ldrMarker = y })
-       <$> f (_ldrMarker x)
+    f (_ldrMarker x)
+        <&> \y -> x { _ldrMarker = y }
 {-# INLINE ldrMarker #-}
 
 -- | The maximum number of distributions you want in the response body.
-ldrMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDistributions
-    -> f ListDistributions
+ldrMaxItems :: Lens' ListDistributions (Maybe Text)
 ldrMaxItems f x =
-    (\y -> x { _ldrMaxItems = y })
-       <$> f (_ldrMaxItems x)
+    f (_ldrMaxItems x)
+        <&> \y -> x { _ldrMaxItems = y }
 {-# INLINE ldrMaxItems #-}
 
 instance ToPath ListDistributions where
@@ -107,15 +98,10 @@ data ListDistributionsResponse = ListDistributionsResponse
     } deriving (Show, Generic)
 
 -- | The DistributionList type.
-ldsDistributionList
-    :: Functor f
-    => (DistributionList
-    -> f (DistributionList))
-    -> ListDistributionsResponse
-    -> f ListDistributionsResponse
+ldsDistributionList :: Lens' ListDistributionsResponse (DistributionList)
 ldsDistributionList f x =
-    (\y -> x { _ldsDistributionList = y })
-       <$> f (_ldsDistributionList x)
+    f (_ldsDistributionList x)
+        <&> \y -> x { _ldsDistributionList = y }
 {-# INLINE ldsDistributionList #-}
 
 instance FromXML ListDistributionsResponse where

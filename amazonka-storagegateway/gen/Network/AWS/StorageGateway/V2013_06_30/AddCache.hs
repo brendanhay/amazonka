@@ -66,6 +66,7 @@ addCache p1 p2 = AddCache
     { _aciDiskIds = p1
     , _aciGatewayARN = p2
     }
+{-# INLINE addCache #-}
 
 data AddCache = AddCache
     { _aciDiskIds :: [Text]
@@ -75,28 +76,18 @@ data AddCache = AddCache
       -- account and region.
     } deriving (Show, Generic)
 
-aciDiskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddCache
-    -> f AddCache
+aciDiskIds :: Lens' AddCache ([Text])
 aciDiskIds f x =
-    (\y -> x { _aciDiskIds = y })
-       <$> f (_aciDiskIds x)
+    f (_aciDiskIds x)
+        <&> \y -> x { _aciDiskIds = y }
 {-# INLINE aciDiskIds #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-aciGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddCache
-    -> f AddCache
+aciGatewayARN :: Lens' AddCache (Text)
 aciGatewayARN f x =
-    (\y -> x { _aciGatewayARN = y })
-       <$> f (_aciGatewayARN x)
+    f (_aciGatewayARN x)
+        <&> \y -> x { _aciGatewayARN = y }
 {-# INLINE aciGatewayARN #-}
 
 instance ToPath AddCache
@@ -116,15 +107,10 @@ data AddCacheResponse = AddCacheResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-acoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddCacheResponse
-    -> f AddCacheResponse
+acoGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acoGatewayARN f x =
-    (\y -> x { _acoGatewayARN = y })
-       <$> f (_acoGatewayARN x)
+    f (_acoGatewayARN x)
+        <&> \y -> x { _acoGatewayARN = y }
 {-# INLINE acoGatewayARN #-}
 
 instance FromJSON AddCacheResponse

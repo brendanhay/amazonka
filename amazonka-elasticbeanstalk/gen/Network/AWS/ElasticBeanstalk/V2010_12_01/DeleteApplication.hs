@@ -49,6 +49,7 @@ deleteApplication p1 = DeleteApplication
     { _damApplicationName = p1
     , _damTerminateEnvByForce = Nothing
     }
+{-# INLINE deleteApplication #-}
 
 data DeleteApplication = DeleteApplication
     { _damApplicationName :: Text
@@ -59,28 +60,18 @@ data DeleteApplication = DeleteApplication
     } deriving (Show, Generic)
 
 -- | The name of the application to delete.
-damApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteApplication
-    -> f DeleteApplication
+damApplicationName :: Lens' DeleteApplication (Text)
 damApplicationName f x =
-    (\y -> x { _damApplicationName = y })
-       <$> f (_damApplicationName x)
+    f (_damApplicationName x)
+        <&> \y -> x { _damApplicationName = y }
 {-# INLINE damApplicationName #-}
 
 -- | When set to true, running environments will be terminated before deleting
 -- the application.
-damTerminateEnvByForce
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteApplication
-    -> f DeleteApplication
+damTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
 damTerminateEnvByForce f x =
-    (\y -> x { _damTerminateEnvByForce = y })
-       <$> f (_damTerminateEnvByForce x)
+    f (_damTerminateEnvByForce x)
+        <&> \y -> x { _damTerminateEnvByForce = y }
 {-# INLINE damTerminateEnvByForce #-}
 
 instance ToQuery DeleteApplication where

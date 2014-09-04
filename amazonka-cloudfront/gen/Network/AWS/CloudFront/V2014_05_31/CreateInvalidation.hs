@@ -47,6 +47,7 @@ createInvalidation p1 p2 = CreateInvalidation
     { _cirInvalidationBatch = p1
     , _cirDistributionId = p2
     }
+{-# INLINE createInvalidation #-}
 
 data CreateInvalidation = CreateInvalidation
     { _cirInvalidationBatch :: InvalidationBatch
@@ -56,27 +57,17 @@ data CreateInvalidation = CreateInvalidation
     } deriving (Show, Generic)
 
 -- | The batch information for the invalidation.
-cirInvalidationBatch
-    :: Functor f
-    => (InvalidationBatch
-    -> f (InvalidationBatch))
-    -> CreateInvalidation
-    -> f CreateInvalidation
+cirInvalidationBatch :: Lens' CreateInvalidation (InvalidationBatch)
 cirInvalidationBatch f x =
-    (\y -> x { _cirInvalidationBatch = y })
-       <$> f (_cirInvalidationBatch x)
+    f (_cirInvalidationBatch x)
+        <&> \y -> x { _cirInvalidationBatch = y }
 {-# INLINE cirInvalidationBatch #-}
 
 -- | The distribution's id.
-cirDistributionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInvalidation
-    -> f CreateInvalidation
+cirDistributionId :: Lens' CreateInvalidation (Text)
 cirDistributionId f x =
-    (\y -> x { _cirDistributionId = y })
-       <$> f (_cirDistributionId x)
+    f (_cirDistributionId x)
+        <&> \y -> x { _cirDistributionId = y }
 {-# INLINE cirDistributionId #-}
 
 instance ToPath CreateInvalidation where
@@ -103,28 +94,18 @@ data CreateInvalidationResponse = CreateInvalidationResponse
     } deriving (Show, Generic)
 
 -- | The invalidation's information.
-cisInvalidation
-    :: Functor f
-    => (Maybe Invalidation
-    -> f (Maybe Invalidation))
-    -> CreateInvalidationResponse
-    -> f CreateInvalidationResponse
+cisInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cisInvalidation f x =
-    (\y -> x { _cisInvalidation = y })
-       <$> f (_cisInvalidation x)
+    f (_cisInvalidation x)
+        <&> \y -> x { _cisInvalidation = y }
 {-# INLINE cisInvalidation #-}
 
 -- | The fully qualified URI of the distribution and invalidation batch request,
 -- including the Invalidation ID.
-cisLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInvalidationResponse
-    -> f CreateInvalidationResponse
+cisLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cisLocation f x =
-    (\y -> x { _cisLocation = y })
-       <$> f (_cisLocation x)
+    f (_cisLocation x)
+        <&> \y -> x { _cisLocation = y }
 {-# INLINE cisLocation #-}
 
 instance AWSRequest CreateInvalidation where

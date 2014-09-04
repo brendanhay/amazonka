@@ -59,6 +59,7 @@ describeEnvironments = DescribeEnvironments
     , _demIncludedDeletedBackTo = Nothing
     , _demVersionLabel = Nothing
     }
+{-# INLINE describeEnvironments #-}
 
 data DescribeEnvironments = DescribeEnvironments
     { _demApplicationName :: Maybe Text
@@ -86,81 +87,51 @@ data DescribeEnvironments = DescribeEnvironments
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that are associated with this application.
-demApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEnvironments
-    -> f DescribeEnvironments
+demApplicationName :: Lens' DescribeEnvironments (Maybe Text)
 demApplicationName f x =
-    (\y -> x { _demApplicationName = y })
-       <$> f (_demApplicationName x)
+    f (_demApplicationName x)
+        <&> \y -> x { _demApplicationName = y }
 {-# INLINE demApplicationName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that have the specified IDs.
-demEnvironmentIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeEnvironments
-    -> f DescribeEnvironments
+demEnvironmentIds :: Lens' DescribeEnvironments ([Text])
 demEnvironmentIds f x =
-    (\y -> x { _demEnvironmentIds = y })
-       <$> f (_demEnvironmentIds x)
+    f (_demEnvironmentIds x)
+        <&> \y -> x { _demEnvironmentIds = y }
 {-# INLINE demEnvironmentIds #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that have the specified names.
-demEnvironmentNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeEnvironments
-    -> f DescribeEnvironments
+demEnvironmentNames :: Lens' DescribeEnvironments ([Text])
 demEnvironmentNames f x =
-    (\y -> x { _demEnvironmentNames = y })
-       <$> f (_demEnvironmentNames x)
+    f (_demEnvironmentNames x)
+        <&> \y -> x { _demEnvironmentNames = y }
 {-# INLINE demEnvironmentNames #-}
 
 -- | Indicates whether to include deleted environments: true: Environments that
 -- have been deleted after IncludedDeletedBackTo are displayed. false: Do not
 -- include deleted environments.
-demIncludeDeleted
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeEnvironments
-    -> f DescribeEnvironments
+demIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 demIncludeDeleted f x =
-    (\y -> x { _demIncludeDeleted = y })
-       <$> f (_demIncludeDeleted x)
+    f (_demIncludeDeleted x)
+        <&> \y -> x { _demIncludeDeleted = y }
 {-# INLINE demIncludeDeleted #-}
 
 -- | If specified when IncludeDeleted is set to true, then environments deleted
 -- after this date are displayed.
-demIncludedDeletedBackTo
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEnvironments
-    -> f DescribeEnvironments
+demIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe ISO8601)
 demIncludedDeletedBackTo f x =
-    (\y -> x { _demIncludedDeletedBackTo = y })
-       <$> f (_demIncludedDeletedBackTo x)
+    f (_demIncludedDeletedBackTo x)
+        <&> \y -> x { _demIncludedDeletedBackTo = y }
 {-# INLINE demIncludedDeletedBackTo #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that are associated with this application version.
-demVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEnvironments
-    -> f DescribeEnvironments
+demVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 demVersionLabel f x =
-    (\y -> x { _demVersionLabel = y })
-       <$> f (_demVersionLabel x)
+    f (_demVersionLabel x)
+        <&> \y -> x { _demVersionLabel = y }
 {-# INLINE demVersionLabel #-}
 
 instance ToQuery DescribeEnvironments where
@@ -172,15 +143,10 @@ data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     } deriving (Show, Generic)
 
 -- | Returns an EnvironmentDescription list.
-edmEnvironments
-    :: Functor f
-    => ([EnvironmentDescription]
-    -> f ([EnvironmentDescription]))
-    -> DescribeEnvironmentsResponse
-    -> f DescribeEnvironmentsResponse
+edmEnvironments :: Lens' DescribeEnvironmentsResponse ([EnvironmentDescription])
 edmEnvironments f x =
-    (\y -> x { _edmEnvironments = y })
-       <$> f (_edmEnvironments x)
+    f (_edmEnvironments x)
+        <&> \y -> x { _edmEnvironments = y }
 {-# INLINE edmEnvironments #-}
 
 instance FromXML DescribeEnvironmentsResponse where

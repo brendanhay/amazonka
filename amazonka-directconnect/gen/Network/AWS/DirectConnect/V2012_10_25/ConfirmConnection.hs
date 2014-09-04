@@ -47,6 +47,7 @@ confirmConnection :: Text -- ^ 'ccrConnectionId'
 confirmConnection p1 = ConfirmConnection
     { _ccrConnectionId = p1
     }
+{-# INLINE confirmConnection #-}
 
 data ConfirmConnection = ConfirmConnection
     { _ccrConnectionId :: Text
@@ -54,15 +55,10 @@ data ConfirmConnection = ConfirmConnection
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-ccrConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmConnection
-    -> f ConfirmConnection
+ccrConnectionId :: Lens' ConfirmConnection (Text)
 ccrConnectionId f x =
-    (\y -> x { _ccrConnectionId = y })
-       <$> f (_ccrConnectionId x)
+    f (_ccrConnectionId x)
+        <&> \y -> x { _ccrConnectionId = y }
 {-# INLINE ccrConnectionId #-}
 
 instance ToPath ConfirmConnection
@@ -100,15 +96,10 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-ccsConnectionState
-    :: Functor f
-    => (Maybe ConnectionState
-    -> f (Maybe ConnectionState))
-    -> ConfirmConnectionResponse
-    -> f ConfirmConnectionResponse
+ccsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccsConnectionState f x =
-    (\y -> x { _ccsConnectionState = y })
-       <$> f (_ccsConnectionState x)
+    f (_ccsConnectionState x)
+        <&> \y -> x { _ccsConnectionState = y }
 {-# INLINE ccsConnectionState #-}
 
 instance FromJSON ConfirmConnectionResponse

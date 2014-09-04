@@ -70,6 +70,7 @@ createApp p1 p2 p3 = CreateApp
     , _carDescription = Nothing
     , _carDomains = mempty
     }
+{-# INLINE createApp #-}
 
 data CreateApp = CreateApp
     { _carType :: AppType
@@ -105,137 +106,82 @@ data CreateApp = CreateApp
 -- For example, PHP applications are associated with a PHP layer. AWS OpsWorks
 -- deploys an application to those instances that are members of the
 -- corresponding layer.
-carType
-    :: Functor f
-    => (AppType
-    -> f (AppType))
-    -> CreateApp
-    -> f CreateApp
+carType :: Lens' CreateApp (AppType)
 carType f x =
-    (\y -> x { _carType = y })
-       <$> f (_carType x)
+    f (_carType x)
+        <&> \y -> x { _carType = y }
 {-# INLINE carType #-}
 
 -- | The stack ID.
-carStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateApp
-    -> f CreateApp
+carStackId :: Lens' CreateApp (Text)
 carStackId f x =
-    (\y -> x { _carStackId = y })
-       <$> f (_carStackId x)
+    f (_carStackId x)
+        <&> \y -> x { _carStackId = y }
 {-# INLINE carStackId #-}
 
 -- | The app name.
-carName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateApp
-    -> f CreateApp
+carName :: Lens' CreateApp (Text)
 carName f x =
-    (\y -> x { _carName = y })
-       <$> f (_carName x)
+    f (_carName x)
+        <&> \y -> x { _carName = y }
 {-# INLINE carName #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-carAttributes
-    :: Functor f
-    => (Map AppAttributesKeys Text
-    -> f (Map AppAttributesKeys Text))
-    -> CreateApp
-    -> f CreateApp
+carAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
 carAttributes f x =
-    (\y -> x { _carAttributes = y })
-       <$> f (_carAttributes x)
+    f (_carAttributes x)
+        <&> \y -> x { _carAttributes = y }
 {-# INLINE carAttributes #-}
 
 -- | Whether to enable SSL for the app.
-carEnableSsl
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateApp
-    -> f CreateApp
+carEnableSsl :: Lens' CreateApp (Maybe Bool)
 carEnableSsl f x =
-    (\y -> x { _carEnableSsl = y })
-       <$> f (_carEnableSsl x)
+    f (_carEnableSsl x)
+        <&> \y -> x { _carEnableSsl = y }
 {-# INLINE carEnableSsl #-}
 
 -- | The app's data source.
-carDataSources
-    :: Functor f
-    => ([DataSource]
-    -> f ([DataSource]))
-    -> CreateApp
-    -> f CreateApp
+carDataSources :: Lens' CreateApp ([DataSource])
 carDataSources f x =
-    (\y -> x { _carDataSources = y })
-       <$> f (_carDataSources x)
+    f (_carDataSources x)
+        <&> \y -> x { _carDataSources = y }
 {-# INLINE carDataSources #-}
 
 -- | A Source object that specifies the app repository.
-carAppSource
-    :: Functor f
-    => (Maybe Source
-    -> f (Maybe Source))
-    -> CreateApp
-    -> f CreateApp
+carAppSource :: Lens' CreateApp (Maybe Source)
 carAppSource f x =
-    (\y -> x { _carAppSource = y })
-       <$> f (_carAppSource x)
+    f (_carAppSource x)
+        <&> \y -> x { _carAppSource = y }
 {-# INLINE carAppSource #-}
 
 -- | An SslConfiguration object with the SSL configuration.
-carSslConfiguration
-    :: Functor f
-    => (Maybe SslConfiguration
-    -> f (Maybe SslConfiguration))
-    -> CreateApp
-    -> f CreateApp
+carSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
 carSslConfiguration f x =
-    (\y -> x { _carSslConfiguration = y })
-       <$> f (_carSslConfiguration x)
+    f (_carSslConfiguration x)
+        <&> \y -> x { _carSslConfiguration = y }
 {-# INLINE carSslConfiguration #-}
 
 -- | The app's short name.
-carShortname
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateApp
-    -> f CreateApp
+carShortname :: Lens' CreateApp (Maybe Text)
 carShortname f x =
-    (\y -> x { _carShortname = y })
-       <$> f (_carShortname x)
+    f (_carShortname x)
+        <&> \y -> x { _carShortname = y }
 {-# INLINE carShortname #-}
 
 -- | A description of the app.
-carDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateApp
-    -> f CreateApp
+carDescription :: Lens' CreateApp (Maybe Text)
 carDescription f x =
-    (\y -> x { _carDescription = y })
-       <$> f (_carDescription x)
+    f (_carDescription x)
+        <&> \y -> x { _carDescription = y }
 {-# INLINE carDescription #-}
 
 -- | The app virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
-carDomains
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateApp
-    -> f CreateApp
+carDomains :: Lens' CreateApp ([Text])
 carDomains f x =
-    (\y -> x { _carDomains = y })
-       <$> f (_carDomains x)
+    f (_carDomains x)
+        <&> \y -> x { _carDomains = y }
 {-# INLINE carDomains #-}
 
 instance ToPath CreateApp
@@ -252,15 +198,10 @@ data CreateAppResponse = CreateAppResponse
     } deriving (Show, Generic)
 
 -- | The app ID.
-casAppId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateAppResponse
-    -> f CreateAppResponse
+casAppId :: Lens' CreateAppResponse (Maybe Text)
 casAppId f x =
-    (\y -> x { _casAppId = y })
-       <$> f (_casAppId x)
+    f (_casAppId x)
+        <&> \y -> x { _casAppId = y }
 {-# INLINE casAppId #-}
 
 instance FromJSON CreateAppResponse

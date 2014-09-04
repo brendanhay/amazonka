@@ -63,6 +63,7 @@ disableDomainTransferLock :: Text -- ^ 'ddtlrDomainName'
 disableDomainTransferLock p1 = DisableDomainTransferLock
     { _ddtlrDomainName = p1
     }
+{-# INLINE disableDomainTransferLock #-}
 
 data DisableDomainTransferLock = DisableDomainTransferLock
     { _ddtlrDomainName :: Text
@@ -76,15 +77,10 @@ data DisableDomainTransferLock = DisableDomainTransferLock
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-ddtlrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableDomainTransferLock
-    -> f DisableDomainTransferLock
+ddtlrDomainName :: Lens' DisableDomainTransferLock (Text)
 ddtlrDomainName f x =
-    (\y -> x { _ddtlrDomainName = y })
-       <$> f (_ddtlrDomainName x)
+    f (_ddtlrDomainName x)
+        <&> \y -> x { _ddtlrDomainName = y }
 {-# INLINE ddtlrDomainName #-}
 
 instance ToPath DisableDomainTransferLock
@@ -105,15 +101,10 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-ddtlsOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableDomainTransferLockResponse
-    -> f DisableDomainTransferLockResponse
+ddtlsOperationId :: Lens' DisableDomainTransferLockResponse (Text)
 ddtlsOperationId f x =
-    (\y -> x { _ddtlsOperationId = y })
-       <$> f (_ddtlsOperationId x)
+    f (_ddtlsOperationId x)
+        <&> \y -> x { _ddtlsOperationId = y }
 {-# INLINE ddtlsOperationId #-}
 
 instance FromJSON DisableDomainTransferLockResponse

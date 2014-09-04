@@ -49,6 +49,7 @@ defineAnalysisScheme p1 p2 = DefineAnalysisScheme
     { _dasrAnalysisScheme = p1
     , _dasrDomainName = p2
     }
+{-# INLINE defineAnalysisScheme #-}
 
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _dasrAnalysisScheme :: AnalysisScheme
@@ -69,30 +70,20 @@ data DefineAnalysisScheme = DefineAnalysisScheme
 -- a unique name and specifies the language of the text to be processed. The
 -- following options can be configured for an analysis scheme: Synonyms,
 -- Stopwords, StemmingDictionary, and AlgorithmicStemming.
-dasrAnalysisScheme
-    :: Functor f
-    => (AnalysisScheme
-    -> f (AnalysisScheme))
-    -> DefineAnalysisScheme
-    -> f DefineAnalysisScheme
+dasrAnalysisScheme :: Lens' DefineAnalysisScheme (AnalysisScheme)
 dasrAnalysisScheme f x =
-    (\y -> x { _dasrAnalysisScheme = y })
-       <$> f (_dasrAnalysisScheme x)
+    f (_dasrAnalysisScheme x)
+        <&> \y -> x { _dasrAnalysisScheme = y }
 {-# INLINE dasrAnalysisScheme #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dasrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DefineAnalysisScheme
-    -> f DefineAnalysisScheme
+dasrDomainName :: Lens' DefineAnalysisScheme (Text)
 dasrDomainName f x =
-    (\y -> x { _dasrDomainName = y })
-       <$> f (_dasrDomainName x)
+    f (_dasrDomainName x)
+        <&> \y -> x { _dasrDomainName = y }
 {-# INLINE dasrDomainName #-}
 
 instance ToQuery DefineAnalysisScheme where
@@ -104,15 +95,10 @@ data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     } deriving (Show, Generic)
 
 -- | The status and configuration of an AnalysisScheme.
-dassAnalysisScheme
-    :: Functor f
-    => (AnalysisSchemeStatus
-    -> f (AnalysisSchemeStatus))
-    -> DefineAnalysisSchemeResponse
-    -> f DefineAnalysisSchemeResponse
+dassAnalysisScheme :: Lens' DefineAnalysisSchemeResponse (AnalysisSchemeStatus)
 dassAnalysisScheme f x =
-    (\y -> x { _dassAnalysisScheme = y })
-       <$> f (_dassAnalysisScheme x)
+    f (_dassAnalysisScheme x)
+        <&> \y -> x { _dassAnalysisScheme = y }
 {-# INLINE dassAnalysisScheme #-}
 
 instance FromXML DefineAnalysisSchemeResponse where

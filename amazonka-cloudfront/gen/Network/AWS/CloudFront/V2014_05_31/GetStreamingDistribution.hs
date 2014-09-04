@@ -44,6 +44,7 @@ getStreamingDistribution :: Text -- ^ 'gsdrId'
 getStreamingDistribution p1 = GetStreamingDistribution
     { _gsdrId = p1
     }
+{-# INLINE getStreamingDistribution #-}
 
 data GetStreamingDistribution = GetStreamingDistribution
     { _gsdrId :: Text
@@ -51,15 +52,10 @@ data GetStreamingDistribution = GetStreamingDistribution
     } deriving (Show, Generic)
 
 -- | The streaming distribution's id.
-gsdrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetStreamingDistribution
-    -> f GetStreamingDistribution
+gsdrId :: Lens' GetStreamingDistribution (Text)
 gsdrId f x =
-    (\y -> x { _gsdrId = y })
-       <$> f (_gsdrId x)
+    f (_gsdrId x)
+        <&> \y -> x { _gsdrId = y }
 {-# INLINE gsdrId #-}
 
 instance ToPath GetStreamingDistribution where
@@ -85,28 +81,18 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-gsdsStreamingDistribution
-    :: Functor f
-    => (Maybe StreamingDistribution
-    -> f (Maybe StreamingDistribution))
-    -> GetStreamingDistributionResponse
-    -> f GetStreamingDistributionResponse
+gsdsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
 gsdsStreamingDistribution f x =
-    (\y -> x { _gsdsStreamingDistribution = y })
-       <$> f (_gsdsStreamingDistribution x)
+    f (_gsdsStreamingDistribution x)
+        <&> \y -> x { _gsdsStreamingDistribution = y }
 {-# INLINE gsdsStreamingDistribution #-}
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
-gsdsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetStreamingDistributionResponse
-    -> f GetStreamingDistributionResponse
+gsdsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdsETag f x =
-    (\y -> x { _gsdsETag = y })
-       <$> f (_gsdsETag x)
+    f (_gsdsETag x)
+        <&> \y -> x { _gsdsETag = y }
 {-# INLINE gsdsETag #-}
 
 instance AWSRequest GetStreamingDistribution where

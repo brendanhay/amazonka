@@ -51,6 +51,7 @@ updateApplication p1 = UpdateApplication
     { _uamApplicationName = p1
     , _uamDescription = Nothing
     }
+{-# INLINE updateApplication #-}
 
 data UpdateApplication = UpdateApplication
     { _uamApplicationName :: Text
@@ -63,28 +64,18 @@ data UpdateApplication = UpdateApplication
 
 -- | The name of the application to update. If no such application is found,
 -- UpdateApplication returns an InvalidParameterValue error.
-uamApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateApplication
-    -> f UpdateApplication
+uamApplicationName :: Lens' UpdateApplication (Text)
 uamApplicationName f x =
-    (\y -> x { _uamApplicationName = y })
-       <$> f (_uamApplicationName x)
+    f (_uamApplicationName x)
+        <&> \y -> x { _uamApplicationName = y }
 {-# INLINE uamApplicationName #-}
 
 -- | A new description for the application. Default: If not specified, AWS
 -- Elastic Beanstalk does not update the description.
-uamDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateApplication
-    -> f UpdateApplication
+uamDescription :: Lens' UpdateApplication (Maybe Text)
 uamDescription f x =
-    (\y -> x { _uamDescription = y })
-       <$> f (_uamDescription x)
+    f (_uamDescription x)
+        <&> \y -> x { _uamDescription = y }
 {-# INLINE uamDescription #-}
 
 instance ToQuery UpdateApplication where
@@ -96,15 +87,10 @@ data UpdateApplicationResponse = UpdateApplicationResponse
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
-adoApplication
-    :: Functor f
-    => (Maybe ApplicationDescription
-    -> f (Maybe ApplicationDescription))
-    -> UpdateApplicationResponse
-    -> f UpdateApplicationResponse
+adoApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
 adoApplication f x =
-    (\y -> x { _adoApplication = y })
-       <$> f (_adoApplication x)
+    f (_adoApplication x)
+        <&> \y -> x { _adoApplication = y }
 {-# INLINE adoApplication #-}
 
 instance FromXML UpdateApplicationResponse where

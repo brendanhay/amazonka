@@ -44,6 +44,7 @@ deleteUserProfile :: Text -- ^ 'duprIamUserArn'
 deleteUserProfile p1 = DeleteUserProfile
     { _duprIamUserArn = p1
     }
+{-# INLINE deleteUserProfile #-}
 
 data DeleteUserProfile = DeleteUserProfile
     { _duprIamUserArn :: Text
@@ -51,15 +52,10 @@ data DeleteUserProfile = DeleteUserProfile
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
-duprIamUserArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteUserProfile
-    -> f DeleteUserProfile
+duprIamUserArn :: Lens' DeleteUserProfile (Text)
 duprIamUserArn f x =
-    (\y -> x { _duprIamUserArn = y })
-       <$> f (_duprIamUserArn x)
+    f (_duprIamUserArn x)
+        <&> \y -> x { _duprIamUserArn = y }
 {-# INLINE duprIamUserArn #-}
 
 instance ToPath DeleteUserProfile

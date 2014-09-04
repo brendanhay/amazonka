@@ -54,6 +54,7 @@ removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscri
     { _rsifsmSubscriptionName = p1
     , _rsifsmSourceIdentifier = p2
     }
+{-# INLINE removeSourceIdentifierFromSubscription #-}
 
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
     { _rsifsmSubscriptionName :: Text
@@ -67,28 +68,18 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
-rsifsmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveSourceIdentifierFromSubscription
-    -> f RemoveSourceIdentifierFromSubscription
+rsifsmSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription (Text)
 rsifsmSubscriptionName f x =
-    (\y -> x { _rsifsmSubscriptionName = y })
-       <$> f (_rsifsmSubscriptionName x)
+    f (_rsifsmSubscriptionName x)
+        <&> \y -> x { _rsifsmSubscriptionName = y }
 {-# INLINE rsifsmSubscriptionName #-}
 
 -- | The source identifier to be removed from the subscription, such as the DB
 -- instance identifier for a DB instance or the name of a security group.
-rsifsmSourceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveSourceIdentifierFromSubscription
-    -> f RemoveSourceIdentifierFromSubscription
+rsifsmSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription (Text)
 rsifsmSourceIdentifier f x =
-    (\y -> x { _rsifsmSourceIdentifier = y })
-       <$> f (_rsifsmSourceIdentifier x)
+    f (_rsifsmSourceIdentifier x)
+        <&> \y -> x { _rsifsmSourceIdentifier = y }
 {-# INLINE rsifsmSourceIdentifier #-}
 
 instance ToQuery RemoveSourceIdentifierFromSubscription where
@@ -102,15 +93,10 @@ data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFrom
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-eserEventSubscription
-    :: Functor f
-    => (Maybe EventSubscription
-    -> f (Maybe EventSubscription))
-    -> RemoveSourceIdentifierFromSubscriptionResponse
-    -> f RemoveSourceIdentifierFromSubscriptionResponse
+eserEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 eserEventSubscription f x =
-    (\y -> x { _eserEventSubscription = y })
-       <$> f (_eserEventSubscription x)
+    f (_eserEventSubscription x)
+        <&> \y -> x { _eserEventSubscription = y }
 {-# INLINE eserEventSubscription #-}
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where

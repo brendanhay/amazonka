@@ -42,6 +42,7 @@ deleteAlarms :: [Text] -- ^ 'daiAlarmNames'
 deleteAlarms p1 = DeleteAlarms
     { _daiAlarmNames = p1
     }
+{-# INLINE deleteAlarms #-}
 
 data DeleteAlarms = DeleteAlarms
     { _daiAlarmNames :: [Text]
@@ -49,15 +50,10 @@ data DeleteAlarms = DeleteAlarms
     } deriving (Show, Generic)
 
 -- | A list of alarms to be deleted.
-daiAlarmNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DeleteAlarms
-    -> f DeleteAlarms
+daiAlarmNames :: Lens' DeleteAlarms ([Text])
 daiAlarmNames f x =
-    (\y -> x { _daiAlarmNames = y })
-       <$> f (_daiAlarmNames x)
+    f (_daiAlarmNames x)
+        <&> \y -> x { _daiAlarmNames = y }
 {-# INLINE daiAlarmNames #-}
 
 instance ToQuery DeleteAlarms where

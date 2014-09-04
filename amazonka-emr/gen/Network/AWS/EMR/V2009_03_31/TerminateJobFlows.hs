@@ -63,6 +63,7 @@ terminateJobFlows :: [Text] -- ^ 'tjfiJobFlowIds'
 terminateJobFlows p1 = TerminateJobFlows
     { _tjfiJobFlowIds = p1
     }
+{-# INLINE terminateJobFlows #-}
 
 data TerminateJobFlows = TerminateJobFlows
     { _tjfiJobFlowIds :: [Text]
@@ -70,15 +71,10 @@ data TerminateJobFlows = TerminateJobFlows
     } deriving (Show, Generic)
 
 -- | A list of job flows to be shutdown.
-tjfiJobFlowIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> TerminateJobFlows
-    -> f TerminateJobFlows
+tjfiJobFlowIds :: Lens' TerminateJobFlows ([Text])
 tjfiJobFlowIds f x =
-    (\y -> x { _tjfiJobFlowIds = y })
-       <$> f (_tjfiJobFlowIds x)
+    f (_tjfiJobFlowIds x)
+        <&> \y -> x { _tjfiJobFlowIds = y }
 {-# INLINE tjfiJobFlowIds #-}
 
 instance ToPath TerminateJobFlows

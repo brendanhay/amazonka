@@ -46,6 +46,7 @@ deleteDBSubnetGroup :: Text -- ^ 'ddbsgnDBSubnetGroupName'
 deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
     { _ddbsgnDBSubnetGroupName = p1
     }
+{-# INLINE deleteDBSubnetGroup #-}
 
 data DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsgnDBSubnetGroupName :: Text
@@ -59,15 +60,10 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup
 -- default subnet group. Constraints: Must be 1 to 255 alphanumeric characters
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-ddbsgnDBSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDBSubnetGroup
-    -> f DeleteDBSubnetGroup
+ddbsgnDBSubnetGroupName :: Lens' DeleteDBSubnetGroup (Text)
 ddbsgnDBSubnetGroupName f x =
-    (\y -> x { _ddbsgnDBSubnetGroupName = y })
-       <$> f (_ddbsgnDBSubnetGroupName x)
+    f (_ddbsgnDBSubnetGroupName x)
+        <&> \y -> x { _ddbsgnDBSubnetGroupName = y }
 {-# INLINE ddbsgnDBSubnetGroupName #-}
 
 instance ToQuery DeleteDBSubnetGroup where

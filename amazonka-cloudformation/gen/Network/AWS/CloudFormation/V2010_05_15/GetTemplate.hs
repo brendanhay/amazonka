@@ -52,6 +52,7 @@ getTemplate :: Text -- ^ 'gtiStackName'
 getTemplate p1 = GetTemplate
     { _gtiStackName = p1
     }
+{-# INLINE getTemplate #-}
 
 data GetTemplate = GetTemplate
     { _gtiStackName :: Text
@@ -66,15 +67,10 @@ data GetTemplate = GetTemplate
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-gtiStackName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetTemplate
-    -> f GetTemplate
+gtiStackName :: Lens' GetTemplate (Text)
 gtiStackName f x =
-    (\y -> x { _gtiStackName = y })
-       <$> f (_gtiStackName x)
+    f (_gtiStackName x)
+        <&> \y -> x { _gtiStackName = y }
 {-# INLINE gtiStackName #-}
 
 instance ToQuery GetTemplate where
@@ -88,15 +84,10 @@ data GetTemplateResponse = GetTemplateResponse
 
 -- | Structure containing the template body. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.).
-gtoTemplateBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetTemplateResponse
-    -> f GetTemplateResponse
+gtoTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtoTemplateBody f x =
-    (\y -> x { _gtoTemplateBody = y })
-       <$> f (_gtoTemplateBody x)
+    f (_gtoTemplateBody x)
+        <&> \y -> x { _gtoTemplateBody = y }
 {-# INLINE gtoTemplateBody #-}
 
 instance FromXML GetTemplateResponse where

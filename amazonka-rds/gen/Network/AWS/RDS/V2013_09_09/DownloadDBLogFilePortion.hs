@@ -63,6 +63,7 @@ downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
     , _ddblfpmNumberOfLines = Nothing
     , _ddblfpmMarker = Nothing
     }
+{-# INLINE downloadDBLogFilePortion #-}
 
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion
     { _ddblfpmDBInstanceIdentifier :: Text
@@ -85,53 +86,33 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
 -- you want to list. Constraints: Must contain from 1 to 63 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ddblfpmDBInstanceIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DownloadDBLogFilePortion
-    -> f DownloadDBLogFilePortion
+ddblfpmDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion (Text)
 ddblfpmDBInstanceIdentifier f x =
-    (\y -> x { _ddblfpmDBInstanceIdentifier = y })
-       <$> f (_ddblfpmDBInstanceIdentifier x)
+    f (_ddblfpmDBInstanceIdentifier x)
+        <&> \y -> x { _ddblfpmDBInstanceIdentifier = y }
 {-# INLINE ddblfpmDBInstanceIdentifier #-}
 
 -- | The name of the log file to be downloaded.
-ddblfpmLogFileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DownloadDBLogFilePortion
-    -> f DownloadDBLogFilePortion
+ddblfpmLogFileName :: Lens' DownloadDBLogFilePortion (Text)
 ddblfpmLogFileName f x =
-    (\y -> x { _ddblfpmLogFileName = y })
-       <$> f (_ddblfpmLogFileName x)
+    f (_ddblfpmLogFileName x)
+        <&> \y -> x { _ddblfpmLogFileName = y }
 {-# INLINE ddblfpmLogFileName #-}
 
 -- | The number of lines remaining to be downloaded.
-ddblfpmNumberOfLines
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DownloadDBLogFilePortion
-    -> f DownloadDBLogFilePortion
+ddblfpmNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Integer)
 ddblfpmNumberOfLines f x =
-    (\y -> x { _ddblfpmNumberOfLines = y })
-       <$> f (_ddblfpmNumberOfLines x)
+    f (_ddblfpmNumberOfLines x)
+        <&> \y -> x { _ddblfpmNumberOfLines = y }
 {-# INLINE ddblfpmNumberOfLines #-}
 
 -- | The pagination token provided in the previous request. If this parameter is
 -- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
-ddblfpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DownloadDBLogFilePortion
-    -> f DownloadDBLogFilePortion
+ddblfpmMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
 ddblfpmMarker f x =
-    (\y -> x { _ddblfpmMarker = y })
-       <$> f (_ddblfpmMarker x)
+    f (_ddblfpmMarker x)
+        <&> \y -> x { _ddblfpmMarker = y }
 {-# INLINE ddblfpmMarker #-}
 
 instance ToQuery DownloadDBLogFilePortion where
@@ -149,40 +130,25 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     } deriving (Show, Generic)
 
 -- | Boolean value that if true, indicates there is more data to be downloaded.
-ddblfpdAdditionalDataPending
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DownloadDBLogFilePortionResponse
-    -> f DownloadDBLogFilePortionResponse
+ddblfpdAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse (Bool)
 ddblfpdAdditionalDataPending f x =
-    (\y -> x { _ddblfpdAdditionalDataPending = y })
-       <$> f (_ddblfpdAdditionalDataPending x)
+    f (_ddblfpdAdditionalDataPending x)
+        <&> \y -> x { _ddblfpdAdditionalDataPending = y }
 {-# INLINE ddblfpdAdditionalDataPending #-}
 
 -- | Entries from the specified log file.
-ddblfpdLogFileData
-    :: Functor f
-    => (ByteString
-    -> f (ByteString))
-    -> DownloadDBLogFilePortionResponse
-    -> f DownloadDBLogFilePortionResponse
+ddblfpdLogFileData :: Lens' DownloadDBLogFilePortionResponse (ByteString)
 ddblfpdLogFileData f x =
-    (\y -> x { _ddblfpdLogFileData = y })
-       <$> f (_ddblfpdLogFileData x)
+    f (_ddblfpdLogFileData x)
+        <&> \y -> x { _ddblfpdLogFileData = y }
 {-# INLINE ddblfpdLogFileData #-}
 
 -- | An optional pagination token provided by a previous
 -- DownloadDBLogFilePortion request.
-ddblfpdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DownloadDBLogFilePortionResponse
-    -> f DownloadDBLogFilePortionResponse
+ddblfpdMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddblfpdMarker f x =
-    (\y -> x { _ddblfpdMarker = y })
-       <$> f (_ddblfpdMarker x)
+    f (_ddblfpdMarker x)
+        <&> \y -> x { _ddblfpdMarker = y }
 {-# INLINE ddblfpdMarker #-}
 
 instance FromXML DownloadDBLogFilePortionResponse where

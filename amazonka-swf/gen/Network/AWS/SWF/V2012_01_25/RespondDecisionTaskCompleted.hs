@@ -80,6 +80,7 @@ respondDecisionTaskCompleted p1 = RespondDecisionTaskCompleted
     , _rdtciExecutionContext = Nothing
     , _rdtciDecisions = mempty
     }
+{-# INLINE respondDecisionTaskCompleted #-}
 
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
     { _rdtciTaskToken :: Text
@@ -100,40 +101,25 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
 -- service and should be treated as an opaque value. If the task is passed to
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
-rdtciTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RespondDecisionTaskCompleted
-    -> f RespondDecisionTaskCompleted
+rdtciTaskToken :: Lens' RespondDecisionTaskCompleted (Text)
 rdtciTaskToken f x =
-    (\y -> x { _rdtciTaskToken = y })
-       <$> f (_rdtciTaskToken x)
+    f (_rdtciTaskToken x)
+        <&> \y -> x { _rdtciTaskToken = y }
 {-# INLINE rdtciTaskToken #-}
 
 -- | User defined context to add to workflow execution.
-rdtciExecutionContext
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RespondDecisionTaskCompleted
-    -> f RespondDecisionTaskCompleted
+rdtciExecutionContext :: Lens' RespondDecisionTaskCompleted (Maybe Text)
 rdtciExecutionContext f x =
-    (\y -> x { _rdtciExecutionContext = y })
-       <$> f (_rdtciExecutionContext x)
+    f (_rdtciExecutionContext x)
+        <&> \y -> x { _rdtciExecutionContext = y }
 {-# INLINE rdtciExecutionContext #-}
 
 -- | The list of decisions (possibly empty) made by the decider while processing
 -- this decision task. See the docs for the Decision structure for details.
-rdtciDecisions
-    :: Functor f
-    => ([Decision]
-    -> f ([Decision]))
-    -> RespondDecisionTaskCompleted
-    -> f RespondDecisionTaskCompleted
+rdtciDecisions :: Lens' RespondDecisionTaskCompleted ([Decision])
 rdtciDecisions f x =
-    (\y -> x { _rdtciDecisions = y })
-       <$> f (_rdtciDecisions x)
+    f (_rdtciDecisions x)
+        <&> \y -> x { _rdtciDecisions = y }
 {-# INLINE rdtciDecisions #-}
 
 instance ToPath RespondDecisionTaskCompleted

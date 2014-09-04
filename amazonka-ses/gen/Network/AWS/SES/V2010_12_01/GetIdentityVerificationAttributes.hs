@@ -57,6 +57,7 @@ getIdentityVerificationAttributes :: [Text] -- ^ 'givarIdentities'
 getIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
     { _givarIdentities = p1
     }
+{-# INLINE getIdentityVerificationAttributes #-}
 
 data GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givarIdentities :: [Text]
@@ -64,15 +65,10 @@ data GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     } deriving (Show, Generic)
 
 -- | A list of identities.
-givarIdentities
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GetIdentityVerificationAttributes
-    -> f GetIdentityVerificationAttributes
+givarIdentities :: Lens' GetIdentityVerificationAttributes ([Text])
 givarIdentities f x =
-    (\y -> x { _givarIdentities = y })
-       <$> f (_givarIdentities x)
+    f (_givarIdentities x)
+        <&> \y -> x { _givarIdentities = y }
 {-# INLINE givarIdentities #-}
 
 instance ToQuery GetIdentityVerificationAttributes where
@@ -84,15 +80,10 @@ data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttribut
     } deriving (Show, Generic)
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
-givasVerificationAttributes
-    :: Functor f
-    => (Map Text IdentityVerificationAttributes
-    -> f (Map Text IdentityVerificationAttributes))
-    -> GetIdentityVerificationAttributesResponse
-    -> f GetIdentityVerificationAttributesResponse
+givasVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)
 givasVerificationAttributes f x =
-    (\y -> x { _givasVerificationAttributes = y })
-       <$> f (_givasVerificationAttributes x)
+    f (_givasVerificationAttributes x)
+        <&> \y -> x { _givasVerificationAttributes = y }
 {-# INLINE givasVerificationAttributes #-}
 
 instance FromXML GetIdentityVerificationAttributesResponse where

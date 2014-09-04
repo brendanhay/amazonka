@@ -49,6 +49,7 @@ describeRaidArrays = DescribeRaidArrays
     { _drarInstanceId = Nothing
     , _drarRaidArrayIds = mempty
     }
+{-# INLINE describeRaidArrays #-}
 
 data DescribeRaidArrays = DescribeRaidArrays
     { _drarInstanceId :: Maybe Text
@@ -63,29 +64,19 @@ data DescribeRaidArrays = DescribeRaidArrays
 
 -- | The instance ID. If you use this parameter, DescribeRaidArrays returns
 -- descriptions of the RAID arrays associated with the specified instance.
-drarInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeRaidArrays
-    -> f DescribeRaidArrays
+drarInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
 drarInstanceId f x =
-    (\y -> x { _drarInstanceId = y })
-       <$> f (_drarInstanceId x)
+    f (_drarInstanceId x)
+        <&> \y -> x { _drarInstanceId = y }
 {-# INLINE drarInstanceId #-}
 
 -- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
 -- returns descriptions of the specified arrays. Otherwise, it returns a
 -- description of every array.
-drarRaidArrayIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeRaidArrays
-    -> f DescribeRaidArrays
+drarRaidArrayIds :: Lens' DescribeRaidArrays ([Text])
 drarRaidArrayIds f x =
-    (\y -> x { _drarRaidArrayIds = y })
-       <$> f (_drarRaidArrayIds x)
+    f (_drarRaidArrayIds x)
+        <&> \y -> x { _drarRaidArrayIds = y }
 {-# INLINE drarRaidArrayIds #-}
 
 instance ToPath DescribeRaidArrays
@@ -102,15 +93,10 @@ data DescribeRaidArraysResponse = DescribeRaidArraysResponse
     } deriving (Show, Generic)
 
 -- | A RaidArrays object that describes the specified RAID arrays.
-drasRaidArrays
-    :: Functor f
-    => ([RaidArray]
-    -> f ([RaidArray]))
-    -> DescribeRaidArraysResponse
-    -> f DescribeRaidArraysResponse
+drasRaidArrays :: Lens' DescribeRaidArraysResponse ([RaidArray])
 drasRaidArrays f x =
-    (\y -> x { _drasRaidArrays = y })
-       <$> f (_drasRaidArrays x)
+    f (_drasRaidArrays x)
+        <&> \y -> x { _drasRaidArrays = y }
 {-# INLINE drasRaidArrays #-}
 
 instance FromJSON DescribeRaidArraysResponse

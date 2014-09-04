@@ -84,6 +84,7 @@ modifyReplicationGroup p1 = ModifyReplicationGroup
     , _mrgmSnapshotWindow = Nothing
     , _mrgmSnapshottingClusterId = Nothing
     }
+{-# INLINE modifyReplicationGroup #-}
 
 data ModifyReplicationGroup = ModifyReplicationGroup
     { _mrgmReplicationGroupId :: Text
@@ -164,15 +165,10 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     } deriving (Show, Generic)
 
 -- | The identifier of the replication group to modify.
-mrgmReplicationGroupId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmReplicationGroupId :: Lens' ModifyReplicationGroup (Text)
 mrgmReplicationGroupId f x =
-    (\y -> x { _mrgmReplicationGroupId = y })
-       <$> f (_mrgmReplicationGroupId x)
+    f (_mrgmReplicationGroupId x)
+        <&> \y -> x { _mrgmReplicationGroupId = y }
 {-# INLINE mrgmReplicationGroupId #-}
 
 -- | If true, this parameter causes the modifications in this request and any
@@ -181,30 +177,20 @@ mrgmReplicationGroupId f x =
 -- replication group. If false, then changes to the nodes in the replication
 -- group are applied on the next maintenance reboot, or the next failure
 -- reboot, whichever occurs first. Valid values: true | false Default: false.
-mrgmApplyImmediately
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgmApplyImmediately f x =
-    (\y -> x { _mrgmApplyImmediately = y })
-       <$> f (_mrgmApplyImmediately x)
+    f (_mrgmApplyImmediately x)
+        <&> \y -> x { _mrgmApplyImmediately = y }
 {-# INLINE mrgmApplyImmediately #-}
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- all of the cache nodes in the replication group during the maintenance
 -- window. A value of true allows these upgrades to occur; false disables
 -- automatic upgrades.
-mrgmAutoMinorVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgmAutoMinorVersionUpgrade f x =
-    (\y -> x { _mrgmAutoMinorVersionUpgrade = y })
-       <$> f (_mrgmAutoMinorVersionUpgrade x)
+    f (_mrgmAutoMinorVersionUpgrade x)
+        <&> \y -> x { _mrgmAutoMinorVersionUpgrade = y }
 {-# INLINE mrgmAutoMinorVersionUpgrade #-}
 
 -- | A list of cache security group names to authorize for the clusters in this
@@ -213,15 +199,10 @@ mrgmAutoMinorVersionUpgrade f x =
 -- containing cache clusters running outside of an Amazon Virtual Private
 -- Cloud (VPC). Constraints: Must contain no more than 255 alphanumeric
 -- characters. Must not be "Default".
-mrgmCacheSecurityGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmCacheSecurityGroupNames :: Lens' ModifyReplicationGroup ([Text])
 mrgmCacheSecurityGroupNames f x =
-    (\y -> x { _mrgmCacheSecurityGroupNames = y })
-       <$> f (_mrgmCacheSecurityGroupNames x)
+    f (_mrgmCacheSecurityGroupNames x)
+        <&> \y -> x { _mrgmCacheSecurityGroupNames = y }
 {-# INLINE mrgmCacheSecurityGroupNames #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
@@ -229,41 +210,26 @@ mrgmCacheSecurityGroupNames f x =
 -- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
 -- retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
-mrgmSnapshotRetentionLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Integer)
 mrgmSnapshotRetentionLimit f x =
-    (\y -> x { _mrgmSnapshotRetentionLimit = y })
-       <$> f (_mrgmSnapshotRetentionLimit x)
+    f (_mrgmSnapshotRetentionLimit x)
+        <&> \y -> x { _mrgmSnapshotRetentionLimit = y }
 {-# INLINE mrgmSnapshotRetentionLimit #-}
 
 -- | Specifies the VPC Security Groups associated with the cache clusters in the
 -- replication group. This parameter can be used only with replication groups
 -- containing cache clusters running in an Amazon Virtual Private Cloud (VPC).
-mrgmSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmSecurityGroupIds :: Lens' ModifyReplicationGroup ([Text])
 mrgmSecurityGroupIds f x =
-    (\y -> x { _mrgmSecurityGroupIds = y })
-       <$> f (_mrgmSecurityGroupIds x)
+    f (_mrgmSecurityGroupIds x)
+        <&> \y -> x { _mrgmSecurityGroupIds = y }
 {-# INLINE mrgmSecurityGroupIds #-}
 
 -- | A description for the replication group. Maximum length is 255 characters.
-mrgmReplicationGroupDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmReplicationGroupDescription f x =
-    (\y -> x { _mrgmReplicationGroupDescription = y })
-       <$> f (_mrgmReplicationGroupDescription x)
+    f (_mrgmReplicationGroupDescription x)
+        <&> \y -> x { _mrgmReplicationGroupDescription = y }
 {-# INLINE mrgmReplicationGroupDescription #-}
 
 -- | The weekly time range (in UTC) during which replication group system
@@ -271,113 +237,73 @@ mrgmReplicationGroupDescription f x =
 -- outage. This change is made immediately. If you are moving this window to
 -- the current time, there must be at least 120 minutes between the current
 -- time and end of the window to ensure that pending changes are applied.
-mrgmPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmPreferredMaintenanceWindow f x =
-    (\y -> x { _mrgmPreferredMaintenanceWindow = y })
-       <$> f (_mrgmPreferredMaintenanceWindow x)
+    f (_mrgmPreferredMaintenanceWindow x)
+        <&> \y -> x { _mrgmPreferredMaintenanceWindow = y }
 {-# INLINE mrgmPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent. The Amazon SNS topic owner must be same as the
 -- replication group owner.
-mrgmNotificationTopicArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmNotificationTopicArn :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmNotificationTopicArn f x =
-    (\y -> x { _mrgmNotificationTopicArn = y })
-       <$> f (_mrgmNotificationTopicArn x)
+    f (_mrgmNotificationTopicArn x)
+        <&> \y -> x { _mrgmNotificationTopicArn = y }
 {-# INLINE mrgmNotificationTopicArn #-}
 
 -- | The name of the cache parameter group to apply to all of the cache nodes in
 -- this replication group. This change is asynchronously applied as soon as
 -- possible for parameters when the ApplyImmediately parameter is specified as
 -- true for this request.
-mrgmCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmCacheParameterGroupName f x =
-    (\y -> x { _mrgmCacheParameterGroupName = y })
-       <$> f (_mrgmCacheParameterGroupName x)
+    f (_mrgmCacheParameterGroupName x)
+        <&> \y -> x { _mrgmCacheParameterGroupName = y }
 {-# INLINE mrgmCacheParameterGroupName #-}
 
 -- | The status of the Amazon SNS notification topic for the replication group.
 -- Notifications are sent only if the status is active. Valid values: active |
 -- inactive.
-mrgmNotificationTopicStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmNotificationTopicStatus f x =
-    (\y -> x { _mrgmNotificationTopicStatus = y })
-       <$> f (_mrgmNotificationTopicStatus x)
+    f (_mrgmNotificationTopicStatus x)
+        <&> \y -> x { _mrgmNotificationTopicStatus = y }
 {-# INLINE mrgmNotificationTopicStatus #-}
 
 -- | The upgraded version of the cache engine to be run on the nodes in the
 -- replication group..
-mrgmEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmEngineVersion f x =
-    (\y -> x { _mrgmEngineVersion = y })
-       <$> f (_mrgmEngineVersion x)
+    f (_mrgmEngineVersion x)
+        <&> \y -> x { _mrgmEngineVersion = y }
 {-# INLINE mrgmEngineVersion #-}
 
 -- | If this parameter is specified, ElastiCache will promote each of the nodes
 -- in the specified cache cluster to the primary role. The nodes of all other
 -- clusters in the replication group will be read replicas.
-mrgmPrimaryClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmPrimaryClusterId f x =
-    (\y -> x { _mrgmPrimaryClusterId = y })
-       <$> f (_mrgmPrimaryClusterId x)
+    f (_mrgmPrimaryClusterId x)
+        <&> \y -> x { _mrgmPrimaryClusterId = y }
 {-# INLINE mrgmPrimaryClusterId #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of the cache cluster specified by SnapshottingClusterId.
 -- Example: 05:00-09:00 If you do not specify this parameter, then ElastiCache
 -- will automatically choose an appropriate time range.
-mrgmSnapshotWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmSnapshotWindow f x =
-    (\y -> x { _mrgmSnapshotWindow = y })
-       <$> f (_mrgmSnapshotWindow x)
+    f (_mrgmSnapshotWindow x)
+        <&> \y -> x { _mrgmSnapshotWindow = y }
 {-# INLINE mrgmSnapshotWindow #-}
 
 -- | The cache cluster ID that will be used as the daily snapshot source for the
 -- replication group.
-mrgmSnapshottingClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReplicationGroup
-    -> f ModifyReplicationGroup
+mrgmSnapshottingClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgmSnapshottingClusterId f x =
-    (\y -> x { _mrgmSnapshottingClusterId = y })
-       <$> f (_mrgmSnapshottingClusterId x)
+    f (_mrgmSnapshottingClusterId x)
+        <&> \y -> x { _mrgmSnapshottingClusterId = y }
 {-# INLINE mrgmSnapshottingClusterId #-}
 
 instance ToQuery ModifyReplicationGroup where
@@ -389,15 +315,10 @@ data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-rgyReplicationGroup
-    :: Functor f
-    => (Maybe ReplicationGroup
-    -> f (Maybe ReplicationGroup))
-    -> ModifyReplicationGroupResponse
-    -> f ModifyReplicationGroupResponse
+rgyReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 rgyReplicationGroup f x =
-    (\y -> x { _rgyReplicationGroup = y })
-       <$> f (_rgyReplicationGroup x)
+    f (_rgyReplicationGroup x)
+        <&> \y -> x { _rgyReplicationGroup = y }
 {-# INLINE rgyReplicationGroup #-}
 
 instance FromXML ModifyReplicationGroupResponse where

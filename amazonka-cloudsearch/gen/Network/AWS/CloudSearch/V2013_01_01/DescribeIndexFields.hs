@@ -52,6 +52,7 @@ describeIndexFields p1 = DescribeIndexFields
     , _difvDeployed = Nothing
     , _difvFieldNames = mempty
     }
+{-# INLINE describeIndexFields #-}
 
 data DescribeIndexFields = DescribeIndexFields
     { _difvDomainName :: Text
@@ -66,41 +67,26 @@ data DescribeIndexFields = DescribeIndexFields
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
-difvDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeIndexFields
-    -> f DescribeIndexFields
+difvDomainName :: Lens' DescribeIndexFields (Text)
 difvDomainName f x =
-    (\y -> x { _difvDomainName = y })
-       <$> f (_difvDomainName x)
+    f (_difvDomainName x)
+        <&> \y -> x { _difvDomainName = y }
 {-# INLINE difvDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-difvDeployed
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeIndexFields
-    -> f DescribeIndexFields
+difvDeployed :: Lens' DescribeIndexFields (Maybe Bool)
 difvDeployed f x =
-    (\y -> x { _difvDeployed = y })
-       <$> f (_difvDeployed x)
+    f (_difvDeployed x)
+        <&> \y -> x { _difvDeployed = y }
 {-# INLINE difvDeployed #-}
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-difvFieldNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeIndexFields
-    -> f DescribeIndexFields
+difvFieldNames :: Lens' DescribeIndexFields ([Text])
 difvFieldNames f x =
-    (\y -> x { _difvFieldNames = y })
-       <$> f (_difvFieldNames x)
+    f (_difvFieldNames x)
+        <&> \y -> x { _difvFieldNames = y }
 {-# INLINE difvFieldNames #-}
 
 instance ToQuery DescribeIndexFields where
@@ -112,15 +98,10 @@ data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     } deriving (Show, Generic)
 
 -- | The index fields configured for the domain.
-difwIndexFields
-    :: Functor f
-    => ([IndexFieldStatus]
-    -> f ([IndexFieldStatus]))
-    -> DescribeIndexFieldsResponse
-    -> f DescribeIndexFieldsResponse
+difwIndexFields :: Lens' DescribeIndexFieldsResponse ([IndexFieldStatus])
 difwIndexFields f x =
-    (\y -> x { _difwIndexFields = y })
-       <$> f (_difwIndexFields x)
+    f (_difwIndexFields x)
+        <&> \y -> x { _difwIndexFields = y }
 {-# INLINE difwIndexFields #-}
 
 instance FromXML DescribeIndexFieldsResponse where

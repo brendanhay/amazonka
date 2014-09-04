@@ -43,6 +43,7 @@ rotateEncryptionKey :: Text -- ^ 'rekmClusterIdentifier'
 rotateEncryptionKey p1 = RotateEncryptionKey
     { _rekmClusterIdentifier = p1
     }
+{-# INLINE rotateEncryptionKey #-}
 
 data RotateEncryptionKey = RotateEncryptionKey
     { _rekmClusterIdentifier :: Text
@@ -54,15 +55,10 @@ data RotateEncryptionKey = RotateEncryptionKey
 -- | The unique identifier of the cluster that you want to rotate the encryption
 -- keys for. Constraints: Must be the name of valid cluster that has
 -- encryption enabled.
-rekmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RotateEncryptionKey
-    -> f RotateEncryptionKey
+rekmClusterIdentifier :: Lens' RotateEncryptionKey (Text)
 rekmClusterIdentifier f x =
-    (\y -> x { _rekmClusterIdentifier = y })
-       <$> f (_rekmClusterIdentifier x)
+    f (_rekmClusterIdentifier x)
+        <&> \y -> x { _rekmClusterIdentifier = y }
 {-# INLINE rekmClusterIdentifier #-}
 
 instance ToQuery RotateEncryptionKey where
@@ -74,15 +70,10 @@ data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cccrCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> RotateEncryptionKeyResponse
-    -> f RotateEncryptionKeyResponse
+cccrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 cccrCluster f x =
-    (\y -> x { _cccrCluster = y })
-       <$> f (_cccrCluster x)
+    f (_cccrCluster x)
+        <&> \y -> x { _cccrCluster = y }
 {-# INLINE cccrCluster #-}
 
 instance FromXML RotateEncryptionKeyResponse where

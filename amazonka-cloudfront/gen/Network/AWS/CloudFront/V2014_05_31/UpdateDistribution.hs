@@ -49,6 +49,7 @@ updateDistribution p1 p2 = UpdateDistribution
     , _udrId = p2
     , _udrIfMatch = Nothing
     }
+{-# INLINE updateDistribution #-}
 
 data UpdateDistribution = UpdateDistribution
     { _udrDistributionConfig :: DistributionConfig
@@ -61,40 +62,25 @@ data UpdateDistribution = UpdateDistribution
     } deriving (Show, Generic)
 
 -- | The distribution's configuration information.
-udrDistributionConfig
-    :: Functor f
-    => (DistributionConfig
-    -> f (DistributionConfig))
-    -> UpdateDistribution
-    -> f UpdateDistribution
+udrDistributionConfig :: Lens' UpdateDistribution (DistributionConfig)
 udrDistributionConfig f x =
-    (\y -> x { _udrDistributionConfig = y })
-       <$> f (_udrDistributionConfig x)
+    f (_udrDistributionConfig x)
+        <&> \y -> x { _udrDistributionConfig = y }
 {-# INLINE udrDistributionConfig #-}
 
 -- | The distribution's id.
-udrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateDistribution
-    -> f UpdateDistribution
+udrId :: Lens' UpdateDistribution (Text)
 udrId f x =
-    (\y -> x { _udrId = y })
-       <$> f (_udrId x)
+    f (_udrId x)
+        <&> \y -> x { _udrId = y }
 {-# INLINE udrId #-}
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-udrIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateDistribution
-    -> f UpdateDistribution
+udrIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udrIfMatch f x =
-    (\y -> x { _udrIfMatch = y })
-       <$> f (_udrIfMatch x)
+    f (_udrIfMatch x)
+        <&> \y -> x { _udrIfMatch = y }
 {-# INLINE udrIfMatch #-}
 
 instance ToPath UpdateDistribution where
@@ -124,27 +110,17 @@ data UpdateDistributionResponse = UpdateDistributionResponse
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-udsDistribution
-    :: Functor f
-    => (Maybe Distribution
-    -> f (Maybe Distribution))
-    -> UpdateDistributionResponse
-    -> f UpdateDistributionResponse
+udsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udsDistribution f x =
-    (\y -> x { _udsDistribution = y })
-       <$> f (_udsDistribution x)
+    f (_udsDistribution x)
+        <&> \y -> x { _udsDistribution = y }
 {-# INLINE udsDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-udsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateDistributionResponse
-    -> f UpdateDistributionResponse
+udsETag :: Lens' UpdateDistributionResponse (Maybe Text)
 udsETag f x =
-    (\y -> x { _udsETag = y })
-       <$> f (_udsETag x)
+    f (_udsETag x)
+        <&> \y -> x { _udsETag = y }
 {-# INLINE udsETag #-}
 
 instance AWSRequest UpdateDistribution where

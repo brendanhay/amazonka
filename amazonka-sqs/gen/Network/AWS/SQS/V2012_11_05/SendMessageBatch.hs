@@ -84,6 +84,7 @@ sendMessageBatch p1 p2 = SendMessageBatch
     { _smbrEntries = p1
     , _smbrQueueUrl = p2
     }
+{-# INLINE sendMessageBatch #-}
 
 data SendMessageBatch = SendMessageBatch
     { _smbrEntries :: [SendMessageBatchRequestEntry]
@@ -93,27 +94,17 @@ data SendMessageBatch = SendMessageBatch
     } deriving (Show, Generic)
 
 -- | A list of SendMessageBatchRequestEntry items.
-smbrEntries
-    :: Functor f
-    => ([SendMessageBatchRequestEntry]
-    -> f ([SendMessageBatchRequestEntry]))
-    -> SendMessageBatch
-    -> f SendMessageBatch
+smbrEntries :: Lens' SendMessageBatch ([SendMessageBatchRequestEntry])
 smbrEntries f x =
-    (\y -> x { _smbrEntries = y })
-       <$> f (_smbrEntries x)
+    f (_smbrEntries x)
+        <&> \y -> x { _smbrEntries = y }
 {-# INLINE smbrEntries #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
-smbrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SendMessageBatch
-    -> f SendMessageBatch
+smbrQueueUrl :: Lens' SendMessageBatch (Text)
 smbrQueueUrl f x =
-    (\y -> x { _smbrQueueUrl = y })
-       <$> f (_smbrQueueUrl x)
+    f (_smbrQueueUrl x)
+        <&> \y -> x { _smbrQueueUrl = y }
 {-# INLINE smbrQueueUrl #-}
 
 instance ToQuery SendMessageBatch where
@@ -129,27 +120,17 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
-smbsFailed
-    :: Functor f
-    => ([BatchResultErrorEntry]
-    -> f ([BatchResultErrorEntry]))
-    -> SendMessageBatchResponse
-    -> f SendMessageBatchResponse
+smbsFailed :: Lens' SendMessageBatchResponse ([BatchResultErrorEntry])
 smbsFailed f x =
-    (\y -> x { _smbsFailed = y })
-       <$> f (_smbsFailed x)
+    f (_smbsFailed x)
+        <&> \y -> x { _smbsFailed = y }
 {-# INLINE smbsFailed #-}
 
 -- | A list of SendMessageBatchResultEntry items.
-smbsSuccessful
-    :: Functor f
-    => ([SendMessageBatchResultEntry]
-    -> f ([SendMessageBatchResultEntry]))
-    -> SendMessageBatchResponse
-    -> f SendMessageBatchResponse
+smbsSuccessful :: Lens' SendMessageBatchResponse ([SendMessageBatchResultEntry])
 smbsSuccessful f x =
-    (\y -> x { _smbsSuccessful = y })
-       <$> f (_smbsSuccessful x)
+    f (_smbsSuccessful x)
+        <&> \y -> x { _smbsSuccessful = y }
 {-# INLINE smbsSuccessful #-}
 
 instance FromXML SendMessageBatchResponse where

@@ -61,6 +61,7 @@ getPlatformApplicationAttributes :: Text -- ^ 'gpaaiPlatformApplicationArn'
 getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
     { _gpaaiPlatformApplicationArn = p1
     }
+{-# INLINE getPlatformApplicationAttributes #-}
 
 data GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaiPlatformApplicationArn :: Text
@@ -68,15 +69,10 @@ data GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
-gpaaiPlatformApplicationArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetPlatformApplicationAttributes
-    -> f GetPlatformApplicationAttributes
+gpaaiPlatformApplicationArn :: Lens' GetPlatformApplicationAttributes (Text)
 gpaaiPlatformApplicationArn f x =
-    (\y -> x { _gpaaiPlatformApplicationArn = y })
-       <$> f (_gpaaiPlatformApplicationArn x)
+    f (_gpaaiPlatformApplicationArn x)
+        <&> \y -> x { _gpaaiPlatformApplicationArn = y }
 {-# INLINE gpaaiPlatformApplicationArn #-}
 
 instance ToQuery GetPlatformApplicationAttributes where
@@ -102,15 +98,10 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 -- Topic ARN to which DeliveryFailure event notifications should be sent upon
 -- Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
-gpaarAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetPlatformApplicationAttributesResponse
-    -> f GetPlatformApplicationAttributesResponse
+gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
 gpaarAttributes f x =
-    (\y -> x { _gpaarAttributes = y })
-       <$> f (_gpaarAttributes x)
+    f (_gpaarAttributes x)
+        <&> \y -> x { _gpaarAttributes = y }
 {-# INLINE gpaarAttributes #-}
 
 instance FromXML GetPlatformApplicationAttributesResponse where

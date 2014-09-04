@@ -34,6 +34,8 @@ module Network.AWS.CloudFront.V2014_05_31.Types
       CloudFront
     -- ** Errors
     , Er (..)
+    -- ** XML
+    , xmlOptions
 
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
@@ -806,15 +808,10 @@ newtype Restrictions = Restrictions
 -- determines the location of your users using MaxMind GeoIP databases. For
 -- information about the accuracy of these databases, see How accurate are
 -- your GeoIP databases? on the MaxMind website.
-rsGeoRestriction
-    :: Functor f
-    => (GeoRestriction
-    -> f (GeoRestriction))
-    -> Restrictions
-    -> f Restrictions
+rsGeoRestriction :: Lens' Restrictions (GeoRestriction)
 rsGeoRestriction f x =
-    (\y -> x { _rsGeoRestriction = y })
-       <$> f (_rsGeoRestriction x)
+    f (_rsGeoRestriction x)
+        <&> \y -> x { _rsGeoRestriction = y }
 {-# INLINE rsGeoRestriction #-}
 
 instance FromXML Restrictions where
@@ -856,15 +853,10 @@ newtype S3OriginConfig = S3OriginConfig
 -- configuration and specify the new origin access identity. Use the format
 -- origin-access-identity/cloudfront/Id where Id is the value that CloudFront
 -- returned in the Id element when you created the origin access identity.
-socOriginAccessIdentity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> S3OriginConfig
-    -> f S3OriginConfig
+socOriginAccessIdentity :: Lens' S3OriginConfig (Text)
 socOriginAccessIdentity f x =
-    (\y -> x { _socOriginAccessIdentity = y })
-       <$> f (_socOriginAccessIdentity x)
+    f (_socOriginAccessIdentity x)
+        <&> \y -> x { _socOriginAccessIdentity = y }
 {-# INLINE socOriginAccessIdentity #-}
 
 instance FromXML S3OriginConfig where
@@ -899,44 +891,29 @@ data ActiveTrustedSigners = ActiveTrustedSigners
     } deriving (Show, Generic)
 
 -- | Each active trusted signer.
-atsEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ActiveTrustedSigners
-    -> f ActiveTrustedSigners
+atsEnabled :: Lens' ActiveTrustedSigners (Bool)
 atsEnabled f x =
-    (\y -> x { _atsEnabled = y })
-       <$> f (_atsEnabled x)
+    f (_atsEnabled x)
+        <&> \y -> x { _atsEnabled = y }
 {-# INLINE atsEnabled #-}
 
 -- | The number of unique trusted signers included in all cache behaviors. For
 -- example, if three cache behaviors all list the same three AWS accounts, the
 -- value of Quantity for ActiveTrustedSigners will be 3.
-atsQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ActiveTrustedSigners
-    -> f ActiveTrustedSigners
+atsQuantity :: Lens' ActiveTrustedSigners (Integer)
 atsQuantity f x =
-    (\y -> x { _atsQuantity = y })
-       <$> f (_atsQuantity x)
+    f (_atsQuantity x)
+        <&> \y -> x { _atsQuantity = y }
 {-# INLINE atsQuantity #-}
 
 -- | A complex type that contains one Signer complex type for each unique
 -- trusted signer that is specified in the TrustedSigners complex type,
 -- including trusted signers in the default cache behavior and in all of the
 -- other cache behaviors.
-atsItems
-    :: Functor f
-    => ([Signer]
-    -> f ([Signer]))
-    -> ActiveTrustedSigners
-    -> f ActiveTrustedSigners
+atsItems :: Lens' ActiveTrustedSigners ([Signer])
 atsItems f x =
-    (\y -> x { _atsItems = y })
-       <$> f (_atsItems x)
+    f (_atsItems x)
+        <&> \y -> x { _atsItems = y }
 {-# INLINE atsItems #-}
 
 instance FromXML ActiveTrustedSigners where
@@ -954,28 +931,18 @@ data Aliases = Aliases
     } deriving (Show, Generic)
 
 -- | The number of CNAMEs, if any, for this distribution.
-aQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Aliases
-    -> f Aliases
+aQuantity :: Lens' Aliases (Integer)
 aQuantity f x =
-    (\y -> x { _aQuantity = y })
-       <$> f (_aQuantity x)
+    f (_aQuantity x)
+        <&> \y -> x { _aQuantity = y }
 {-# INLINE aQuantity #-}
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
-aItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Aliases
-    -> f Aliases
+aItems :: Lens' Aliases ([Text])
 aItems f x =
-    (\y -> x { _aItems = y })
-       <$> f (_aItems x)
+    f (_aItems x)
+        <&> \y -> x { _aItems = y }
 {-# INLINE aItems #-}
 
 instance FromXML Aliases where
@@ -1007,28 +974,18 @@ data AllowedMethods = AllowedMethods
 -- | The number of HTTP methods that you want CloudFront to forward to your
 -- origin. Valid values are 2 (for GET and HEAD requests) and 7 (for DELETE,
 -- GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).
-amQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AllowedMethods
-    -> f AllowedMethods
+amQuantity :: Lens' AllowedMethods (Integer)
 amQuantity f x =
-    (\y -> x { _amQuantity = y })
-       <$> f (_amQuantity x)
+    f (_amQuantity x)
+        <&> \y -> x { _amQuantity = y }
 {-# INLINE amQuantity #-}
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to
 -- process and forward to your origin.
-amItems
-    :: Functor f
-    => ([Method]
-    -> f ([Method]))
-    -> AllowedMethods
-    -> f AllowedMethods
+amItems :: Lens' AllowedMethods ([Method])
 amItems f x =
-    (\y -> x { _amItems = y })
-       <$> f (_amItems x)
+    f (_amItems x)
+        <&> \y -> x { _amItems = y }
 {-# INLINE amItems #-}
 
 instance FromXML AllowedMethods where
@@ -1124,42 +1081,27 @@ data CacheBehavior = CacheBehavior
 -- the default cache behavior is * and cannot be changed. If the request for
 -- an object does not match the path pattern for any cache behaviors,
 -- CloudFront applies the behavior in the default cache behavior.
-ccPathPattern
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccPathPattern :: Lens' CacheBehavior (Text)
 ccPathPattern f x =
-    (\y -> x { _ccPathPattern = y })
-       <$> f (_ccPathPattern x)
+    f (_ccPathPattern x)
+        <&> \y -> x { _ccPathPattern = y }
 {-# INLINE ccPathPattern #-}
 
 -- | The value of ID for the origin that you want CloudFront to route requests
 -- to when a request matches the path pattern either for a cache behavior or
 -- for the default cache behavior.
-ccTargetOriginId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccTargetOriginId :: Lens' CacheBehavior (Text)
 ccTargetOriginId f x =
-    (\y -> x { _ccTargetOriginId = y })
-       <$> f (_ccTargetOriginId x)
+    f (_ccTargetOriginId x)
+        <&> \y -> x { _ccTargetOriginId = y }
 {-# INLINE ccTargetOriginId #-}
 
 -- | A complex type that specifies how CloudFront handles query strings, cookies
 -- and headers.
-ccForwardedValues
-    :: Functor f
-    => (ForwardedValues
-    -> f (ForwardedValues))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccForwardedValues :: Lens' CacheBehavior (ForwardedValues)
 ccForwardedValues f x =
-    (\y -> x { _ccForwardedValues = y })
-       <$> f (_ccForwardedValues x)
+    f (_ccForwardedValues x)
+        <&> \y -> x { _ccForwardedValues = y }
 {-# INLINE ccForwardedValues #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
@@ -1174,15 +1116,10 @@ ccForwardedValues f x =
 -- signers, change Enabled to true (if it's currently false), change Quantity
 -- as applicable, and specify all of the trusted signers that you want to
 -- include in the updated distribution.
-ccTrustedSigners
-    :: Functor f
-    => (TrustedSigners
-    -> f (TrustedSigners))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccTrustedSigners :: Lens' CacheBehavior (TrustedSigners)
 ccTrustedSigners f x =
-    (\y -> x { _ccTrustedSigners = y })
-       <$> f (_ccTrustedSigners x)
+    f (_ccTrustedSigners x)
+        <&> \y -> x { _ccTrustedSigners = y }
 {-# INLINE ccTrustedSigners #-}
 
 -- | Use this element to specify the protocol that users can use to access the
@@ -1193,30 +1130,20 @@ ccTrustedSigners f x =
 -- request with an HTTP status code of 301 (Moved Permanently) and the HTTPS
 -- URL, specify redirect-to-https. The viewer then resubmits the request using
 -- the HTTPS URL.
-ccViewerProtocolPolicy
-    :: Functor f
-    => (ViewerProtocolPolicy
-    -> f (ViewerProtocolPolicy))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccViewerProtocolPolicy :: Lens' CacheBehavior (ViewerProtocolPolicy)
 ccViewerProtocolPolicy f x =
-    (\y -> x { _ccViewerProtocolPolicy = y })
-       <$> f (_ccViewerProtocolPolicy x)
+    f (_ccViewerProtocolPolicy x)
+        <&> \y -> x { _ccViewerProtocolPolicy = y }
 {-# INLINE ccViewerProtocolPolicy #-}
 
 -- | The minimum amount of time that you want objects to stay in CloudFront
 -- caches before CloudFront queries your origin to see whether the object has
 -- been updated.You can specify a value from 0 to 3,153,600,000 seconds (100
 -- years).
-ccMinTTL
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccMinTTL :: Lens' CacheBehavior (Integer)
 ccMinTTL f x =
-    (\y -> x { _ccMinTTL = y })
-       <$> f (_ccMinTTL x)
+    f (_ccMinTTL x)
+        <&> \y -> x { _ccMinTTL = y }
 {-# INLINE ccMinTTL #-}
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
@@ -1227,29 +1154,19 @@ ccMinTTL f x =
 -- bucket or to your custom origin so users can't perform operations that you
 -- don't want them to. For example, you may not want users to have permission
 -- to delete objects from your origin.
-ccAllowedMethods
-    :: Functor f
-    => (Maybe AllowedMethods
-    -> f (Maybe AllowedMethods))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccAllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
 ccAllowedMethods f x =
-    (\y -> x { _ccAllowedMethods = y })
-       <$> f (_ccAllowedMethods x)
+    f (_ccAllowedMethods x)
+        <&> \y -> x { _ccAllowedMethods = y }
 {-# INLINE ccAllowedMethods #-}
 
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
 -- behavior. If so, specify true; if not, specify false.
-ccSmoothStreaming
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CacheBehavior
-    -> f CacheBehavior
+ccSmoothStreaming :: Lens' CacheBehavior (Maybe Bool)
 ccSmoothStreaming f x =
-    (\y -> x { _ccSmoothStreaming = y })
-       <$> f (_ccSmoothStreaming x)
+    f (_ccSmoothStreaming x)
+        <&> \y -> x { _ccSmoothStreaming = y }
 {-# INLINE ccSmoothStreaming #-}
 
 instance FromXML CacheBehavior where
@@ -1270,28 +1187,18 @@ data CacheBehaviors = CacheBehaviors
     } deriving (Show, Generic)
 
 -- | The number of cache behaviors for this distribution.
-cbQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CacheBehaviors
-    -> f CacheBehaviors
+cbQuantity :: Lens' CacheBehaviors (Integer)
 cbQuantity f x =
-    (\y -> x { _cbQuantity = y })
-       <$> f (_cbQuantity x)
+    f (_cbQuantity x)
+        <&> \y -> x { _cbQuantity = y }
 {-# INLINE cbQuantity #-}
 
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If Quantity is 0, you can omit Items.
-cbItems
-    :: Functor f
-    => ([CacheBehavior]
-    -> f ([CacheBehavior]))
-    -> CacheBehaviors
-    -> f CacheBehaviors
+cbItems :: Lens' CacheBehaviors ([CacheBehavior])
 cbItems f x =
-    (\y -> x { _cbItems = y })
-       <$> f (_cbItems x)
+    f (_cbItems x)
+        <&> \y -> x { _cbItems = y }
 {-# INLINE cbItems #-}
 
 instance FromXML CacheBehaviors where
@@ -1316,41 +1223,26 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | The ID for the origin access identity. For example: E74FTE3AJFJ256A.
-cfoaiId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentity
-    -> f CloudFrontOriginAccessIdentity
+cfoaiId :: Lens' CloudFrontOriginAccessIdentity (Text)
 cfoaiId f x =
-    (\y -> x { _cfoaiId = y })
-       <$> f (_cfoaiId x)
+    f (_cfoaiId x)
+        <&> \y -> x { _cfoaiId = y }
 {-# INLINE cfoaiId #-}
 
 -- | The Amazon S3 canonical user ID for the origin access identity, which you
 -- use when giving the origin access identity read permission to an object in
 -- Amazon S3.
-cfoaiS3CanonicalUserId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentity
-    -> f CloudFrontOriginAccessIdentity
+cfoaiS3CanonicalUserId :: Lens' CloudFrontOriginAccessIdentity (Text)
 cfoaiS3CanonicalUserId f x =
-    (\y -> x { _cfoaiS3CanonicalUserId = y })
-       <$> f (_cfoaiS3CanonicalUserId x)
+    f (_cfoaiS3CanonicalUserId x)
+        <&> \y -> x { _cfoaiS3CanonicalUserId = y }
 {-# INLINE cfoaiS3CanonicalUserId #-}
 
 -- | The current configuration information for the identity.
-cfoaiCloudFrontOriginAccessIdentityConfig
-    :: Functor f
-    => (Maybe CloudFrontOriginAccessIdentityConfig
-    -> f (Maybe CloudFrontOriginAccessIdentityConfig))
-    -> CloudFrontOriginAccessIdentity
-    -> f CloudFrontOriginAccessIdentity
+cfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CloudFrontOriginAccessIdentity (Maybe CloudFrontOriginAccessIdentityConfig)
 cfoaiCloudFrontOriginAccessIdentityConfig f x =
-    (\y -> x { _cfoaiCloudFrontOriginAccessIdentityConfig = y })
-       <$> f (_cfoaiCloudFrontOriginAccessIdentityConfig x)
+    f (_cfoaiCloudFrontOriginAccessIdentityConfig x)
+        <&> \y -> x { _cfoaiCloudFrontOriginAccessIdentityConfig = y }
 {-# INLINE cfoaiCloudFrontOriginAccessIdentityConfig #-}
 
 instance FromXML CloudFrontOriginAccessIdentity where
@@ -1390,27 +1282,17 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 -- CloudFrontOriginAccessIdentityConfig is different from the original
 -- request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists
 -- error.
-cfoaicCallerReference
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentityConfig
-    -> f CloudFrontOriginAccessIdentityConfig
+cfoaicCallerReference :: Lens' CloudFrontOriginAccessIdentityConfig (Text)
 cfoaicCallerReference f x =
-    (\y -> x { _cfoaicCallerReference = y })
-       <$> f (_cfoaicCallerReference x)
+    f (_cfoaicCallerReference x)
+        <&> \y -> x { _cfoaicCallerReference = y }
 {-# INLINE cfoaicCallerReference #-}
 
 -- | Any comments you want to include about the origin access identity.
-cfoaicComment
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentityConfig
-    -> f CloudFrontOriginAccessIdentityConfig
+cfoaicComment :: Lens' CloudFrontOriginAccessIdentityConfig (Text)
 cfoaicComment f x =
-    (\y -> x { _cfoaicComment = y })
-       <$> f (_cfoaicComment x)
+    f (_cfoaicComment x)
+        <&> \y -> x { _cfoaicComment = y }
 {-# INLINE cfoaicComment #-}
 
 instance FromXML CloudFrontOriginAccessIdentityConfig where
@@ -1446,83 +1328,53 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     } deriving (Show, Generic)
 
 -- | The value you provided for the Marker request parameter.
-cfoailMarker
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentityList
-    -> f CloudFrontOriginAccessIdentityList
+cfoailMarker :: Lens' CloudFrontOriginAccessIdentityList (Text)
 cfoailMarker f x =
-    (\y -> x { _cfoailMarker = y })
-       <$> f (_cfoailMarker x)
+    f (_cfoailMarker x)
+        <&> \y -> x { _cfoailMarker = y }
 {-# INLINE cfoailMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your origin
 -- access identities where they left off.
-cfoailNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CloudFrontOriginAccessIdentityList
-    -> f CloudFrontOriginAccessIdentityList
+cfoailNextMarker :: Lens' CloudFrontOriginAccessIdentityList (Maybe Text)
 cfoailNextMarker f x =
-    (\y -> x { _cfoailNextMarker = y })
-       <$> f (_cfoailNextMarker x)
+    f (_cfoailNextMarker x)
+        <&> \y -> x { _cfoailNextMarker = y }
 {-# INLINE cfoailNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
-cfoailMaxItems
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CloudFrontOriginAccessIdentityList
-    -> f CloudFrontOriginAccessIdentityList
+cfoailMaxItems :: Lens' CloudFrontOriginAccessIdentityList (Integer)
 cfoailMaxItems f x =
-    (\y -> x { _cfoailMaxItems = y })
-       <$> f (_cfoailMaxItems x)
+    f (_cfoailMaxItems x)
+        <&> \y -> x { _cfoailMaxItems = y }
 {-# INLINE cfoailMaxItems #-}
 
 -- | A flag that indicates whether more origin access identities remain to be
 -- listed. If your results were truncated, you can make a follow-up pagination
 -- request using the Marker request parameter to retrieve more items in the
 -- list.
-cfoailIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> CloudFrontOriginAccessIdentityList
-    -> f CloudFrontOriginAccessIdentityList
+cfoailIsTruncated :: Lens' CloudFrontOriginAccessIdentityList (Bool)
 cfoailIsTruncated f x =
-    (\y -> x { _cfoailIsTruncated = y })
-       <$> f (_cfoailIsTruncated x)
+    f (_cfoailIsTruncated x)
+        <&> \y -> x { _cfoailIsTruncated = y }
 {-# INLINE cfoailIsTruncated #-}
 
 -- | The number of CloudFront origin access identities that were created by the
 -- current AWS account.
-cfoailQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CloudFrontOriginAccessIdentityList
-    -> f CloudFrontOriginAccessIdentityList
+cfoailQuantity :: Lens' CloudFrontOriginAccessIdentityList (Integer)
 cfoailQuantity f x =
-    (\y -> x { _cfoailQuantity = y })
-       <$> f (_cfoailQuantity x)
+    f (_cfoailQuantity x)
+        <&> \y -> x { _cfoailQuantity = y }
 {-# INLINE cfoailQuantity #-}
 
 -- | A complex type that contains one CloudFrontOriginAccessIdentitySummary
 -- element for each origin access identity that was created by the current AWS
 -- account.
-cfoailItems
-    :: Functor f
-    => ([CloudFrontOriginAccessIdentitySummary]
-    -> f ([CloudFrontOriginAccessIdentitySummary]))
-    -> CloudFrontOriginAccessIdentityList
-    -> f CloudFrontOriginAccessIdentityList
+cfoailItems :: Lens' CloudFrontOriginAccessIdentityList ([CloudFrontOriginAccessIdentitySummary])
 cfoailItems f x =
-    (\y -> x { _cfoailItems = y })
-       <$> f (_cfoailItems x)
+    f (_cfoailItems x)
+        <&> \y -> x { _cfoailItems = y }
 {-# INLINE cfoailItems #-}
 
 instance FromXML CloudFrontOriginAccessIdentityList where
@@ -1544,42 +1396,27 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
     } deriving (Show, Generic)
 
 -- | The ID for the origin access identity. For example: E74FTE3AJFJ256A.
-cfoaisId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentitySummary
-    -> f CloudFrontOriginAccessIdentitySummary
+cfoaisId :: Lens' CloudFrontOriginAccessIdentitySummary (Text)
 cfoaisId f x =
-    (\y -> x { _cfoaisId = y })
-       <$> f (_cfoaisId x)
+    f (_cfoaisId x)
+        <&> \y -> x { _cfoaisId = y }
 {-# INLINE cfoaisId #-}
 
 -- | The Amazon S3 canonical user ID for the origin access identity, which you
 -- use when giving the origin access identity read permission to an object in
 -- Amazon S3.
-cfoaisS3CanonicalUserId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentitySummary
-    -> f CloudFrontOriginAccessIdentitySummary
+cfoaisS3CanonicalUserId :: Lens' CloudFrontOriginAccessIdentitySummary (Text)
 cfoaisS3CanonicalUserId f x =
-    (\y -> x { _cfoaisS3CanonicalUserId = y })
-       <$> f (_cfoaisS3CanonicalUserId x)
+    f (_cfoaisS3CanonicalUserId x)
+        <&> \y -> x { _cfoaisS3CanonicalUserId = y }
 {-# INLINE cfoaisS3CanonicalUserId #-}
 
 -- | The comment for this origin access identity, as originally specified when
 -- created.
-cfoaisComment
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CloudFrontOriginAccessIdentitySummary
-    -> f CloudFrontOriginAccessIdentitySummary
+cfoaisComment :: Lens' CloudFrontOriginAccessIdentitySummary (Text)
 cfoaisComment f x =
-    (\y -> x { _cfoaisComment = y })
-       <$> f (_cfoaisComment x)
+    f (_cfoaisComment x)
+        <&> \y -> x { _cfoaisComment = y }
 {-# INLINE cfoaisComment #-}
 
 instance FromXML CloudFrontOriginAccessIdentitySummary where
@@ -1598,28 +1435,18 @@ data CookieNames = CookieNames
     } deriving (Show, Generic)
 
 -- | The number of whitelisted cookies for this cache behavior.
-cnQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CookieNames
-    -> f CookieNames
+cnQuantity :: Lens' CookieNames (Integer)
 cnQuantity f x =
-    (\y -> x { _cnQuantity = y })
-       <$> f (_cnQuantity x)
+    f (_cnQuantity x)
+        <&> \y -> x { _cnQuantity = y }
 {-# INLINE cnQuantity #-}
 
 -- | Optional: A complex type that contains whitelisted cookies for this cache
 -- behavior. If Quantity is 0, you can omit Items.
-cnItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CookieNames
-    -> f CookieNames
+cnItems :: Lens' CookieNames ([Text])
 cnItems f x =
-    (\y -> x { _cnItems = y })
-       <$> f (_cnItems x)
+    f (_cnItems x)
+        <&> \y -> x { _cnItems = y }
 {-# INLINE cnItems #-}
 
 instance FromXML CookieNames where
@@ -1648,29 +1475,19 @@ data CookiePreference = CookiePreference
 -- to the origin that is associated with this cache behavior. You can specify
 -- all, none or whitelist. If you choose All, CloudFront forwards all cookies
 -- regardless of how many your application uses.
-cpForward
-    :: Functor f
-    => (ItemSelection
-    -> f (ItemSelection))
-    -> CookiePreference
-    -> f CookiePreference
+cpForward :: Lens' CookiePreference (ItemSelection)
 cpForward f x =
-    (\y -> x { _cpForward = y })
-       <$> f (_cpForward x)
+    f (_cpForward x)
+        <&> \y -> x { _cpForward = y }
 {-# INLINE cpForward #-}
 
 -- | A complex type that specifies the whitelisted cookies, if any, that you
 -- want CloudFront to forward to your origin that is associated with this
 -- cache behavior.
-cpWhitelistedNames
-    :: Functor f
-    => (Maybe CookieNames
-    -> f (Maybe CookieNames))
-    -> CookiePreference
-    -> f CookiePreference
+cpWhitelistedNames :: Lens' CookiePreference (Maybe CookieNames)
 cpWhitelistedNames f x =
-    (\y -> x { _cpWhitelistedNames = y })
-       <$> f (_cpWhitelistedNames x)
+    f (_cpWhitelistedNames x)
+        <&> \y -> x { _cpWhitelistedNames = y }
 {-# INLINE cpWhitelistedNames #-}
 
 instance FromXML CookiePreference where
@@ -1719,15 +1536,10 @@ data CustomErrorResponse = CustomErrorResponse
 
 -- | The 4xx or 5xx HTTP status code that you want to customize. For a list of
 -- HTTP status codes that you can customize, see CloudFront documentation.
-cesErrorCode
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CustomErrorResponse
-    -> f CustomErrorResponse
+cesErrorCode :: Lens' CustomErrorResponse (Integer)
 cesErrorCode f x =
-    (\y -> x { _cesErrorCode = y })
-       <$> f (_cesErrorCode x)
+    f (_cesErrorCode x)
+        <&> \y -> x { _cesErrorCode = y }
 {-# INLINE cesErrorCode #-}
 
 -- | The path of the custom error page (for example, /custom_404.html). The path
@@ -1736,43 +1548,28 @@ cesErrorCode f x =
 -- RFC 1783 (http://www.ietf.org/rfc/rfc1738.txt), URL encode those
 -- characters. Do not URL encode any other characters in the path, or
 -- CloudFront will not return the custom error page to the viewer.
-cesResponsePagePath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CustomErrorResponse
-    -> f CustomErrorResponse
+cesResponsePagePath :: Lens' CustomErrorResponse (Maybe Text)
 cesResponsePagePath f x =
-    (\y -> x { _cesResponsePagePath = y })
-       <$> f (_cesResponsePagePath x)
+    f (_cesResponsePagePath x)
+        <&> \y -> x { _cesResponsePagePath = y }
 {-# INLINE cesResponsePagePath #-}
 
 -- | The HTTP status code that you want CloudFront to return with the custom
 -- error page to the viewer. For a list of HTTP status codes that you can
 -- replace, see CloudFront Documentation.
-cesResponseCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CustomErrorResponse
-    -> f CustomErrorResponse
+cesResponseCode :: Lens' CustomErrorResponse (Maybe Text)
 cesResponseCode f x =
-    (\y -> x { _cesResponseCode = y })
-       <$> f (_cesResponseCode x)
+    f (_cesResponseCode x)
+        <&> \y -> x { _cesResponseCode = y }
 {-# INLINE cesResponseCode #-}
 
 -- | The minimum amount of time you want HTTP error codes to stay in CloudFront
 -- caches before CloudFront queries your origin to see whether the object has
 -- been updated. You can specify a value from 0 to 31,536,000.
-cesErrorCachingMinTTL
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CustomErrorResponse
-    -> f CustomErrorResponse
+cesErrorCachingMinTTL :: Lens' CustomErrorResponse (Maybe Integer)
 cesErrorCachingMinTTL f x =
-    (\y -> x { _cesErrorCachingMinTTL = y })
-       <$> f (_cesErrorCachingMinTTL x)
+    f (_cesErrorCachingMinTTL x)
+        <&> \y -> x { _cesErrorCachingMinTTL = y }
 {-# INLINE cesErrorCachingMinTTL #-}
 
 instance FromXML CustomErrorResponse where
@@ -1793,28 +1590,18 @@ data CustomErrorResponses = CustomErrorResponses
     } deriving (Show, Generic)
 
 -- | The number of custom error responses for this distribution.
-cerQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CustomErrorResponses
-    -> f CustomErrorResponses
+cerQuantity :: Lens' CustomErrorResponses (Integer)
 cerQuantity f x =
-    (\y -> x { _cerQuantity = y })
-       <$> f (_cerQuantity x)
+    f (_cerQuantity x)
+        <&> \y -> x { _cerQuantity = y }
 {-# INLINE cerQuantity #-}
 
 -- | Optional: A complex type that contains custom error responses for this
 -- distribution. If Quantity is 0, you can omit Items.
-cerItems
-    :: Functor f
-    => ([CustomErrorResponse]
-    -> f ([CustomErrorResponse]))
-    -> CustomErrorResponses
-    -> f CustomErrorResponses
+cerItems :: Lens' CustomErrorResponses ([CustomErrorResponse])
 cerItems f x =
-    (\y -> x { _cerItems = y })
-       <$> f (_cerItems x)
+    f (_cerItems x)
+        <&> \y -> x { _cerItems = y }
 {-# INLINE cerItems #-}
 
 instance FromXML CustomErrorResponses where
@@ -1837,39 +1624,24 @@ data CustomOriginConfig = CustomOriginConfig
     } deriving (Show, Generic)
 
 -- | The HTTP port the custom origin listens on.
-cocHTTPPort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CustomOriginConfig
-    -> f CustomOriginConfig
+cocHTTPPort :: Lens' CustomOriginConfig (Integer)
 cocHTTPPort f x =
-    (\y -> x { _cocHTTPPort = y })
-       <$> f (_cocHTTPPort x)
+    f (_cocHTTPPort x)
+        <&> \y -> x { _cocHTTPPort = y }
 {-# INLINE cocHTTPPort #-}
 
 -- | The HTTPS port the custom origin listens on.
-cocHTTPSPort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CustomOriginConfig
-    -> f CustomOriginConfig
+cocHTTPSPort :: Lens' CustomOriginConfig (Integer)
 cocHTTPSPort f x =
-    (\y -> x { _cocHTTPSPort = y })
-       <$> f (_cocHTTPSPort x)
+    f (_cocHTTPSPort x)
+        <&> \y -> x { _cocHTTPSPort = y }
 {-# INLINE cocHTTPSPort #-}
 
 -- | The origin protocol policy to apply to your origin.
-cocOriginProtocolPolicy
-    :: Functor f
-    => (OriginProtocolPolicy
-    -> f (OriginProtocolPolicy))
-    -> CustomOriginConfig
-    -> f CustomOriginConfig
+cocOriginProtocolPolicy :: Lens' CustomOriginConfig (OriginProtocolPolicy)
 cocOriginProtocolPolicy f x =
-    (\y -> x { _cocOriginProtocolPolicy = y })
-       <$> f (_cocOriginProtocolPolicy x)
+    f (_cocOriginProtocolPolicy x)
+        <&> \y -> x { _cocOriginProtocolPolicy = y }
 {-# INLINE cocOriginProtocolPolicy #-}
 
 instance FromXML CustomOriginConfig where
@@ -1941,28 +1713,18 @@ data DefaultCacheBehavior = DefaultCacheBehavior
 -- | The value of ID for the origin that you want CloudFront to route requests
 -- to when a request matches the path pattern either for a cache behavior or
 -- for the default cache behavior.
-dcbTargetOriginId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbTargetOriginId :: Lens' DefaultCacheBehavior (Text)
 dcbTargetOriginId f x =
-    (\y -> x { _dcbTargetOriginId = y })
-       <$> f (_dcbTargetOriginId x)
+    f (_dcbTargetOriginId x)
+        <&> \y -> x { _dcbTargetOriginId = y }
 {-# INLINE dcbTargetOriginId #-}
 
 -- | A complex type that specifies how CloudFront handles query strings, cookies
 -- and headers.
-dcbForwardedValues
-    :: Functor f
-    => (ForwardedValues
-    -> f (ForwardedValues))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbForwardedValues :: Lens' DefaultCacheBehavior (ForwardedValues)
 dcbForwardedValues f x =
-    (\y -> x { _dcbForwardedValues = y })
-       <$> f (_dcbForwardedValues x)
+    f (_dcbForwardedValues x)
+        <&> \y -> x { _dcbForwardedValues = y }
 {-# INLINE dcbForwardedValues #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
@@ -1977,15 +1739,10 @@ dcbForwardedValues f x =
 -- signers, change Enabled to true (if it's currently false), change Quantity
 -- as applicable, and specify all of the trusted signers that you want to
 -- include in the updated distribution.
-dcbTrustedSigners
-    :: Functor f
-    => (TrustedSigners
-    -> f (TrustedSigners))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbTrustedSigners :: Lens' DefaultCacheBehavior (TrustedSigners)
 dcbTrustedSigners f x =
-    (\y -> x { _dcbTrustedSigners = y })
-       <$> f (_dcbTrustedSigners x)
+    f (_dcbTrustedSigners x)
+        <&> \y -> x { _dcbTrustedSigners = y }
 {-# INLINE dcbTrustedSigners #-}
 
 -- | Use this element to specify the protocol that users can use to access the
@@ -1996,30 +1753,20 @@ dcbTrustedSigners f x =
 -- request with an HTTP status code of 301 (Moved Permanently) and the HTTPS
 -- URL, specify redirect-to-https. The viewer then resubmits the request using
 -- the HTTPS URL.
-dcbViewerProtocolPolicy
-    :: Functor f
-    => (ViewerProtocolPolicy
-    -> f (ViewerProtocolPolicy))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbViewerProtocolPolicy :: Lens' DefaultCacheBehavior (ViewerProtocolPolicy)
 dcbViewerProtocolPolicy f x =
-    (\y -> x { _dcbViewerProtocolPolicy = y })
-       <$> f (_dcbViewerProtocolPolicy x)
+    f (_dcbViewerProtocolPolicy x)
+        <&> \y -> x { _dcbViewerProtocolPolicy = y }
 {-# INLINE dcbViewerProtocolPolicy #-}
 
 -- | The minimum amount of time that you want objects to stay in CloudFront
 -- caches before CloudFront queries your origin to see whether the object has
 -- been updated.You can specify a value from 0 to 3,153,600,000 seconds (100
 -- years).
-dcbMinTTL
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbMinTTL :: Lens' DefaultCacheBehavior (Integer)
 dcbMinTTL f x =
-    (\y -> x { _dcbMinTTL = y })
-       <$> f (_dcbMinTTL x)
+    f (_dcbMinTTL x)
+        <&> \y -> x { _dcbMinTTL = y }
 {-# INLINE dcbMinTTL #-}
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
@@ -2030,29 +1777,19 @@ dcbMinTTL f x =
 -- bucket or to your custom origin so users can't perform operations that you
 -- don't want them to. For example, you may not want users to have permission
 -- to delete objects from your origin.
-dcbAllowedMethods
-    :: Functor f
-    => (Maybe AllowedMethods
-    -> f (Maybe AllowedMethods))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
 dcbAllowedMethods f x =
-    (\y -> x { _dcbAllowedMethods = y })
-       <$> f (_dcbAllowedMethods x)
+    f (_dcbAllowedMethods x)
+        <&> \y -> x { _dcbAllowedMethods = y }
 {-# INLINE dcbAllowedMethods #-}
 
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
 -- behavior. If so, specify true; if not, specify false.
-dcbSmoothStreaming
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DefaultCacheBehavior
-    -> f DefaultCacheBehavior
+dcbSmoothStreaming :: Lens' DefaultCacheBehavior (Maybe Bool)
 dcbSmoothStreaming f x =
-    (\y -> x { _dcbSmoothStreaming = y })
-       <$> f (_dcbSmoothStreaming x)
+    f (_dcbSmoothStreaming x)
+        <&> \y -> x { _dcbSmoothStreaming = y }
 {-# INLINE dcbSmoothStreaming #-}
 
 instance FromXML DefaultCacheBehavior where
@@ -2095,66 +1832,41 @@ data Distribution = Distribution
     } deriving (Show, Generic)
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
-dnId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Distribution
-    -> f Distribution
+dnId :: Lens' Distribution (Text)
 dnId f x =
-    (\y -> x { _dnId = y })
-       <$> f (_dnId x)
+    f (_dnId x)
+        <&> \y -> x { _dnId = y }
 {-# INLINE dnId #-}
 
 -- | This response element indicates the current status of the distribution.
 -- When the status is Deployed, the distribution's information is fully
 -- propagated throughout the Amazon CloudFront system.
-dnStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Distribution
-    -> f Distribution
+dnStatus :: Lens' Distribution (Text)
 dnStatus f x =
-    (\y -> x { _dnStatus = y })
-       <$> f (_dnStatus x)
+    f (_dnStatus x)
+        <&> \y -> x { _dnStatus = y }
 {-# INLINE dnStatus #-}
 
 -- | The date and time the distribution was last modified.
-dnLastModifiedTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Distribution
-    -> f Distribution
+dnLastModifiedTime :: Lens' Distribution (ISO8601)
 dnLastModifiedTime f x =
-    (\y -> x { _dnLastModifiedTime = y })
-       <$> f (_dnLastModifiedTime x)
+    f (_dnLastModifiedTime x)
+        <&> \y -> x { _dnLastModifiedTime = y }
 {-# INLINE dnLastModifiedTime #-}
 
 -- | The number of invalidation batches currently in progress.
-dnInProgressInvalidationBatches
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Distribution
-    -> f Distribution
+dnInProgressInvalidationBatches :: Lens' Distribution (Integer)
 dnInProgressInvalidationBatches f x =
-    (\y -> x { _dnInProgressInvalidationBatches = y })
-       <$> f (_dnInProgressInvalidationBatches x)
+    f (_dnInProgressInvalidationBatches x)
+        <&> \y -> x { _dnInProgressInvalidationBatches = y }
 {-# INLINE dnInProgressInvalidationBatches #-}
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
-dnDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Distribution
-    -> f Distribution
+dnDomainName :: Lens' Distribution (Text)
 dnDomainName f x =
-    (\y -> x { _dnDomainName = y })
-       <$> f (_dnDomainName x)
+    f (_dnDomainName x)
+        <&> \y -> x { _dnDomainName = y }
 {-# INLINE dnDomainName #-}
 
 -- | CloudFront automatically adds this element to the response only if you've
@@ -2165,27 +1877,17 @@ dnDomainName f x =
 -- element also includes the IDs of any active key pairs associated with the
 -- trusted signer's AWS account. If no KeyPairId element appears for a Signer,
 -- that signer can't create working signed URLs.
-dnActiveTrustedSigners
-    :: Functor f
-    => (ActiveTrustedSigners
-    -> f (ActiveTrustedSigners))
-    -> Distribution
-    -> f Distribution
+dnActiveTrustedSigners :: Lens' Distribution (ActiveTrustedSigners)
 dnActiveTrustedSigners f x =
-    (\y -> x { _dnActiveTrustedSigners = y })
-       <$> f (_dnActiveTrustedSigners x)
+    f (_dnActiveTrustedSigners x)
+        <&> \y -> x { _dnActiveTrustedSigners = y }
 {-# INLINE dnActiveTrustedSigners #-}
 
 -- | The current configuration information for the distribution.
-dnDistributionConfig
-    :: Functor f
-    => (DistributionConfig
-    -> f (DistributionConfig))
-    -> Distribution
-    -> f Distribution
+dnDistributionConfig :: Lens' Distribution (DistributionConfig)
 dnDistributionConfig f x =
-    (\y -> x { _dnDistributionConfig = y })
-       <$> f (_dnDistributionConfig x)
+    f (_dnDistributionConfig x)
+        <&> \y -> x { _dnDistributionConfig = y }
 {-# INLINE dnDistributionConfig #-}
 
 instance FromXML Distribution where
@@ -2265,28 +1967,18 @@ data DistributionConfig = DistributionConfig
 -- in a previous request to create a distribution but the content of the
 -- DistributionConfig is different from the original request, CloudFront
 -- returns a DistributionAlreadyExists error.
-dcCallerReference
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcCallerReference :: Lens' DistributionConfig (Text)
 dcCallerReference f x =
-    (\y -> x { _dcCallerReference = y })
-       <$> f (_dcCallerReference x)
+    f (_dcCallerReference x)
+        <&> \y -> x { _dcCallerReference = y }
 {-# INLINE dcCallerReference #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
-dcAliases
-    :: Functor f
-    => (Aliases
-    -> f (Aliases))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcAliases :: Lens' DistributionConfig (Aliases)
 dcAliases f x =
-    (\y -> x { _dcAliases = y })
-       <$> f (_dcAliases x)
+    f (_dcAliases x)
+        <&> \y -> x { _dcAliases = y }
 {-# INLINE dcAliases #-}
 
 -- | The object that you want CloudFront to return (for example, index.html)
@@ -2299,144 +1991,89 @@ dcAliases f x =
 -- existing distribution, update the distribution configuration and include an
 -- empty DefaultRootObject element. To replace the default root object, update
 -- the distribution configuration and specify the new object.
-dcDefaultRootObject
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcDefaultRootObject :: Lens' DistributionConfig (Text)
 dcDefaultRootObject f x =
-    (\y -> x { _dcDefaultRootObject = y })
-       <$> f (_dcDefaultRootObject x)
+    f (_dcDefaultRootObject x)
+        <&> \y -> x { _dcDefaultRootObject = y }
 {-# INLINE dcDefaultRootObject #-}
 
 -- | A complex type that contains information about origins for this
 -- distribution.
-dcOrigins
-    :: Functor f
-    => (Origins
-    -> f (Origins))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcOrigins :: Lens' DistributionConfig (Origins)
 dcOrigins f x =
-    (\y -> x { _dcOrigins = y })
-       <$> f (_dcOrigins x)
+    f (_dcOrigins x)
+        <&> \y -> x { _dcOrigins = y }
 {-# INLINE dcOrigins #-}
 
 -- | A complex type that describes the default cache behavior if you do not
 -- specify a CacheBehavior element or if files don't match any of the values
 -- of PathPattern in CacheBehavior elements.You must create exactly one
 -- default cache behavior.
-dcDefaultCacheBehavior
-    :: Functor f
-    => (DefaultCacheBehavior
-    -> f (DefaultCacheBehavior))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcDefaultCacheBehavior :: Lens' DistributionConfig (DefaultCacheBehavior)
 dcDefaultCacheBehavior f x =
-    (\y -> x { _dcDefaultCacheBehavior = y })
-       <$> f (_dcDefaultCacheBehavior x)
+    f (_dcDefaultCacheBehavior x)
+        <&> \y -> x { _dcDefaultCacheBehavior = y }
 {-# INLINE dcDefaultCacheBehavior #-}
 
 -- | A complex type that contains zero or more CacheBehavior elements.
-dcCacheBehaviors
-    :: Functor f
-    => (CacheBehaviors
-    -> f (CacheBehaviors))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcCacheBehaviors :: Lens' DistributionConfig (CacheBehaviors)
 dcCacheBehaviors f x =
-    (\y -> x { _dcCacheBehaviors = y })
-       <$> f (_dcCacheBehaviors x)
+    f (_dcCacheBehaviors x)
+        <&> \y -> x { _dcCacheBehaviors = y }
 {-# INLINE dcCacheBehaviors #-}
 
 -- | A complex type that contains zero or more CustomErrorResponse elements.
-dcCustomErrorResponses
-    :: Functor f
-    => (Maybe CustomErrorResponses
-    -> f (Maybe CustomErrorResponses))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcCustomErrorResponses :: Lens' DistributionConfig (Maybe CustomErrorResponses)
 dcCustomErrorResponses f x =
-    (\y -> x { _dcCustomErrorResponses = y })
-       <$> f (_dcCustomErrorResponses x)
+    f (_dcCustomErrorResponses x)
+        <&> \y -> x { _dcCustomErrorResponses = y }
 {-# INLINE dcCustomErrorResponses #-}
 
 -- | Any comments you want to include about the distribution.
-dcComment
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcComment :: Lens' DistributionConfig (Text)
 dcComment f x =
-    (\y -> x { _dcComment = y })
-       <$> f (_dcComment x)
+    f (_dcComment x)
+        <&> \y -> x { _dcComment = y }
 {-# INLINE dcComment #-}
 
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
-dcLogging
-    :: Functor f
-    => (LoggingConfig
-    -> f (LoggingConfig))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcLogging :: Lens' DistributionConfig (LoggingConfig)
 dcLogging f x =
-    (\y -> x { _dcLogging = y })
-       <$> f (_dcLogging x)
+    f (_dcLogging x)
+        <&> \y -> x { _dcLogging = y }
 {-# INLINE dcLogging #-}
 
 -- | A complex type that contains information about price class for this
 -- distribution.
-dcPriceClass
-    :: Functor f
-    => (PriceClass
-    -> f (PriceClass))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcPriceClass :: Lens' DistributionConfig (PriceClass)
 dcPriceClass f x =
-    (\y -> x { _dcPriceClass = y })
-       <$> f (_dcPriceClass x)
+    f (_dcPriceClass x)
+        <&> \y -> x { _dcPriceClass = y }
 {-# INLINE dcPriceClass #-}
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
-dcEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcEnabled :: Lens' DistributionConfig (Bool)
 dcEnabled f x =
-    (\y -> x { _dcEnabled = y })
-       <$> f (_dcEnabled x)
+    f (_dcEnabled x)
+        <&> \y -> x { _dcEnabled = y }
 {-# INLINE dcEnabled #-}
 
 -- | A complex type that contains information about viewer certificates for this
 -- distribution.
-dcViewerCertificate
-    :: Functor f
-    => (Maybe ViewerCertificate
-    -> f (Maybe ViewerCertificate))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcViewerCertificate :: Lens' DistributionConfig (Maybe ViewerCertificate)
 dcViewerCertificate f x =
-    (\y -> x { _dcViewerCertificate = y })
-       <$> f (_dcViewerCertificate x)
+    f (_dcViewerCertificate x)
+        <&> \y -> x { _dcViewerCertificate = y }
 {-# INLINE dcViewerCertificate #-}
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
-dcRestrictions
-    :: Functor f
-    => (Maybe Restrictions
-    -> f (Maybe Restrictions))
-    -> DistributionConfig
-    -> f DistributionConfig
+dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
 dcRestrictions f x =
-    (\y -> x { _dcRestrictions = y })
-       <$> f (_dcRestrictions x)
+    f (_dcRestrictions x)
+        <&> \y -> x { _dcRestrictions = y }
 {-# INLINE dcRestrictions #-}
 
 instance FromXML DistributionConfig where
@@ -2471,81 +2108,51 @@ data DistributionList = DistributionList
     } deriving (Show, Generic)
 
 -- | The value you provided for the Marker request parameter.
-dlMarker
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionList
-    -> f DistributionList
+dlMarker :: Lens' DistributionList (Text)
 dlMarker f x =
-    (\y -> x { _dlMarker = y })
-       <$> f (_dlMarker x)
+    f (_dlMarker x)
+        <&> \y -> x { _dlMarker = y }
 {-# INLINE dlMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your
 -- distributions where they left off.
-dlNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DistributionList
-    -> f DistributionList
+dlNextMarker :: Lens' DistributionList (Maybe Text)
 dlNextMarker f x =
-    (\y -> x { _dlNextMarker = y })
-       <$> f (_dlNextMarker x)
+    f (_dlNextMarker x)
+        <&> \y -> x { _dlNextMarker = y }
 {-# INLINE dlNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
-dlMaxItems
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DistributionList
-    -> f DistributionList
+dlMaxItems :: Lens' DistributionList (Integer)
 dlMaxItems f x =
-    (\y -> x { _dlMaxItems = y })
-       <$> f (_dlMaxItems x)
+    f (_dlMaxItems x)
+        <&> \y -> x { _dlMaxItems = y }
 {-# INLINE dlMaxItems #-}
 
 -- | A flag that indicates whether more distributions remain to be listed. If
 -- your results were truncated, you can make a follow-up pagination request
 -- using the Marker request parameter to retrieve more distributions in the
 -- list.
-dlIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DistributionList
-    -> f DistributionList
+dlIsTruncated :: Lens' DistributionList (Bool)
 dlIsTruncated f x =
-    (\y -> x { _dlIsTruncated = y })
-       <$> f (_dlIsTruncated x)
+    f (_dlIsTruncated x)
+        <&> \y -> x { _dlIsTruncated = y }
 {-# INLINE dlIsTruncated #-}
 
 -- | The number of distributions that were created by the current AWS account.
-dlQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> DistributionList
-    -> f DistributionList
+dlQuantity :: Lens' DistributionList (Integer)
 dlQuantity f x =
-    (\y -> x { _dlQuantity = y })
-       <$> f (_dlQuantity x)
+    f (_dlQuantity x)
+        <&> \y -> x { _dlQuantity = y }
 {-# INLINE dlQuantity #-}
 
 -- | A complex type that contains one DistributionSummary element for each
 -- distribution that was created by the current AWS account.
-dlItems
-    :: Functor f
-    => ([DistributionSummary]
-    -> f ([DistributionSummary]))
-    -> DistributionList
-    -> f DistributionList
+dlItems :: Lens' DistributionList ([DistributionSummary])
 dlItems f x =
-    (\y -> x { _dlItems = y })
-       <$> f (_dlItems x)
+    f (_dlItems x)
+        <&> \y -> x { _dlItems = y }
 {-# INLINE dlItems #-}
 
 instance FromXML DistributionList where
@@ -2599,181 +2206,111 @@ data DistributionSummary = DistributionSummary
     } deriving (Show, Generic)
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
-dsId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsId :: Lens' DistributionSummary (Text)
 dsId f x =
-    (\y -> x { _dsId = y })
-       <$> f (_dsId x)
+    f (_dsId x)
+        <&> \y -> x { _dsId = y }
 {-# INLINE dsId #-}
 
 -- | This response element indicates the current status of the distribution.
 -- When the status is Deployed, the distribution's information is fully
 -- propagated throughout the Amazon CloudFront system.
-dsStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsStatus :: Lens' DistributionSummary (Text)
 dsStatus f x =
-    (\y -> x { _dsStatus = y })
-       <$> f (_dsStatus x)
+    f (_dsStatus x)
+        <&> \y -> x { _dsStatus = y }
 {-# INLINE dsStatus #-}
 
 -- | The date and time the distribution was last modified.
-dsLastModifiedTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsLastModifiedTime :: Lens' DistributionSummary (ISO8601)
 dsLastModifiedTime f x =
-    (\y -> x { _dsLastModifiedTime = y })
-       <$> f (_dsLastModifiedTime x)
+    f (_dsLastModifiedTime x)
+        <&> \y -> x { _dsLastModifiedTime = y }
 {-# INLINE dsLastModifiedTime #-}
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
-dsDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsDomainName :: Lens' DistributionSummary (Text)
 dsDomainName f x =
-    (\y -> x { _dsDomainName = y })
-       <$> f (_dsDomainName x)
+    f (_dsDomainName x)
+        <&> \y -> x { _dsDomainName = y }
 {-# INLINE dsDomainName #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
-dsAliases
-    :: Functor f
-    => (Aliases
-    -> f (Aliases))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsAliases :: Lens' DistributionSummary (Aliases)
 dsAliases f x =
-    (\y -> x { _dsAliases = y })
-       <$> f (_dsAliases x)
+    f (_dsAliases x)
+        <&> \y -> x { _dsAliases = y }
 {-# INLINE dsAliases #-}
 
 -- | A complex type that contains information about origins for this
 -- distribution.
-dsOrigins
-    :: Functor f
-    => (Origins
-    -> f (Origins))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsOrigins :: Lens' DistributionSummary (Origins)
 dsOrigins f x =
-    (\y -> x { _dsOrigins = y })
-       <$> f (_dsOrigins x)
+    f (_dsOrigins x)
+        <&> \y -> x { _dsOrigins = y }
 {-# INLINE dsOrigins #-}
 
 -- | A complex type that describes the default cache behavior if you do not
 -- specify a CacheBehavior element or if files don't match any of the values
 -- of PathPattern in CacheBehavior elements.You must create exactly one
 -- default cache behavior.
-dsDefaultCacheBehavior
-    :: Functor f
-    => (DefaultCacheBehavior
-    -> f (DefaultCacheBehavior))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsDefaultCacheBehavior :: Lens' DistributionSummary (DefaultCacheBehavior)
 dsDefaultCacheBehavior f x =
-    (\y -> x { _dsDefaultCacheBehavior = y })
-       <$> f (_dsDefaultCacheBehavior x)
+    f (_dsDefaultCacheBehavior x)
+        <&> \y -> x { _dsDefaultCacheBehavior = y }
 {-# INLINE dsDefaultCacheBehavior #-}
 
 -- | A complex type that contains zero or more CacheBehavior elements.
-dsCacheBehaviors
-    :: Functor f
-    => (CacheBehaviors
-    -> f (CacheBehaviors))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsCacheBehaviors :: Lens' DistributionSummary (CacheBehaviors)
 dsCacheBehaviors f x =
-    (\y -> x { _dsCacheBehaviors = y })
-       <$> f (_dsCacheBehaviors x)
+    f (_dsCacheBehaviors x)
+        <&> \y -> x { _dsCacheBehaviors = y }
 {-# INLINE dsCacheBehaviors #-}
 
 -- | A complex type that contains zero or more CustomErrorResponses elements.
-dsCustomErrorResponses
-    :: Functor f
-    => (CustomErrorResponses
-    -> f (CustomErrorResponses))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsCustomErrorResponses :: Lens' DistributionSummary (CustomErrorResponses)
 dsCustomErrorResponses f x =
-    (\y -> x { _dsCustomErrorResponses = y })
-       <$> f (_dsCustomErrorResponses x)
+    f (_dsCustomErrorResponses x)
+        <&> \y -> x { _dsCustomErrorResponses = y }
 {-# INLINE dsCustomErrorResponses #-}
 
 -- | The comment originally specified when this distribution was created.
-dsComment
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsComment :: Lens' DistributionSummary (Text)
 dsComment f x =
-    (\y -> x { _dsComment = y })
-       <$> f (_dsComment x)
+    f (_dsComment x)
+        <&> \y -> x { _dsComment = y }
 {-# INLINE dsComment #-}
 
-dsPriceClass
-    :: Functor f
-    => (PriceClass
-    -> f (PriceClass))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsPriceClass :: Lens' DistributionSummary (PriceClass)
 dsPriceClass f x =
-    (\y -> x { _dsPriceClass = y })
-       <$> f (_dsPriceClass x)
+    f (_dsPriceClass x)
+        <&> \y -> x { _dsPriceClass = y }
 {-# INLINE dsPriceClass #-}
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
-dsEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsEnabled :: Lens' DistributionSummary (Bool)
 dsEnabled f x =
-    (\y -> x { _dsEnabled = y })
-       <$> f (_dsEnabled x)
+    f (_dsEnabled x)
+        <&> \y -> x { _dsEnabled = y }
 {-# INLINE dsEnabled #-}
 
 -- | A complex type that contains information about viewer certificates for this
 -- distribution.
-dsViewerCertificate
-    :: Functor f
-    => (ViewerCertificate
-    -> f (ViewerCertificate))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsViewerCertificate :: Lens' DistributionSummary (ViewerCertificate)
 dsViewerCertificate f x =
-    (\y -> x { _dsViewerCertificate = y })
-       <$> f (_dsViewerCertificate x)
+    f (_dsViewerCertificate x)
+        <&> \y -> x { _dsViewerCertificate = y }
 {-# INLINE dsViewerCertificate #-}
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
-dsRestrictions
-    :: Functor f
-    => (Restrictions
-    -> f (Restrictions))
-    -> DistributionSummary
-    -> f DistributionSummary
+dsRestrictions :: Lens' DistributionSummary (Restrictions)
 dsRestrictions f x =
-    (\y -> x { _dsRestrictions = y })
-       <$> f (_dsRestrictions x)
+    f (_dsRestrictions x)
+        <&> \y -> x { _dsRestrictions = y }
 {-# INLINE dsRestrictions #-}
 
 instance FromXML DistributionSummary where
@@ -2797,40 +2334,25 @@ data ForwardedValues = ForwardedValues
 -- | Indicates whether you want CloudFront to forward query strings to the
 -- origin that is associated with this cache behavior. If so, specify true; if
 -- not, specify false.
-fvQueryString
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ForwardedValues
-    -> f ForwardedValues
+fvQueryString :: Lens' ForwardedValues (Bool)
 fvQueryString f x =
-    (\y -> x { _fvQueryString = y })
-       <$> f (_fvQueryString x)
+    f (_fvQueryString x)
+        <&> \y -> x { _fvQueryString = y }
 {-# INLINE fvQueryString #-}
 
 -- | A complex type that specifies how CloudFront handles cookies.
-fvCookies
-    :: Functor f
-    => (CookiePreference
-    -> f (CookiePreference))
-    -> ForwardedValues
-    -> f ForwardedValues
+fvCookies :: Lens' ForwardedValues (CookiePreference)
 fvCookies f x =
-    (\y -> x { _fvCookies = y })
-       <$> f (_fvCookies x)
+    f (_fvCookies x)
+        <&> \y -> x { _fvCookies = y }
 {-# INLINE fvCookies #-}
 
 -- | A complex type that specifies the Headers, if any, that you want CloudFront
 -- to vary upon for this cache behavior.
-fvHeaders
-    :: Functor f
-    => (Maybe Headers
-    -> f (Maybe Headers))
-    -> ForwardedValues
-    -> f ForwardedValues
+fvHeaders :: Lens' ForwardedValues (Maybe Headers)
 fvHeaders f x =
-    (\y -> x { _fvHeaders = y })
-       <$> f (_fvHeaders x)
+    f (_fvHeaders x)
+        <&> \y -> x { _fvHeaders = y }
 {-# INLINE fvHeaders #-}
 
 instance FromXML ForwardedValues where
@@ -2880,29 +2402,19 @@ data GeoRestriction = GeoRestriction
 -- elements specify the countries in which you do not want CloudFront to
 -- distribute your content. - whitelist: The Location elements specify the
 -- countries in which you want CloudFront to distribute your content.
-grRestrictionType
-    :: Functor f
-    => (GeoRestrictionType
-    -> f (GeoRestrictionType))
-    -> GeoRestriction
-    -> f GeoRestriction
+grRestrictionType :: Lens' GeoRestriction (GeoRestrictionType)
 grRestrictionType f x =
-    (\y -> x { _grRestrictionType = y })
-       <$> f (_grRestrictionType x)
+    f (_grRestrictionType x)
+        <&> \y -> x { _grRestrictionType = y }
 {-# INLINE grRestrictionType #-}
 
 -- | When geo restriction is enabled, this is the number of countries in your
 -- whitelist or blacklist. Otherwise, when it is not enabled, Quantity is 0,
 -- and you can omit Items.
-grQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> GeoRestriction
-    -> f GeoRestriction
+grQuantity :: Lens' GeoRestriction (Integer)
 grQuantity f x =
-    (\y -> x { _grQuantity = y })
-       <$> f (_grQuantity x)
+    f (_grQuantity x)
+        <&> \y -> x { _grQuantity = y }
 {-# INLINE grQuantity #-}
 
 -- | A complex type that contains a Location element for each country in which
@@ -2915,15 +2427,10 @@ grQuantity f x =
 -- on the International Organization for Standardization website. You can also
 -- refer to the country list in the CloudFront console, which includes both
 -- country names and codes.
-grItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GeoRestriction
-    -> f GeoRestriction
+grItems :: Lens' GeoRestriction ([Text])
 grItems f x =
-    (\y -> x { _grItems = y })
-       <$> f (_grItems x)
+    f (_grItems x)
+        <&> \y -> x { _grItems = y }
 {-# INLINE grItems #-}
 
 instance FromXML GeoRestriction where
@@ -2959,29 +2466,19 @@ data Headers = Headers
 -- Quantity and * for Name. If you don't want CloudFront to forward any
 -- additional headers to the origin or to vary on any headers, specify 0 for
 -- Quantity and omit Items.
-hQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Headers
-    -> f Headers
+hQuantity :: Lens' Headers (Integer)
 hQuantity f x =
-    (\y -> x { _hQuantity = y })
-       <$> f (_hQuantity x)
+    f (_hQuantity x)
+        <&> \y -> x { _hQuantity = y }
 {-# INLINE hQuantity #-}
 
 -- | Optional: A complex type that contains a Name element for each header that
 -- you want CloudFront to forward to the origin and to vary on for this cache
 -- behavior. If Quantity is 0, omit Items.
-hItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Headers
-    -> f Headers
+hItems :: Lens' Headers ([Text])
 hItems f x =
-    (\y -> x { _hItems = y })
-       <$> f (_hItems x)
+    f (_hItems x)
+        <&> \y -> x { _hItems = y }
 {-# INLINE hItems #-}
 
 instance FromXML Headers where
@@ -3007,52 +2504,32 @@ data Invalidation = Invalidation
     } deriving (Show, Generic)
 
 -- | The identifier for the invalidation request. For example: IDFDVBD632BHDS5.
-inId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Invalidation
-    -> f Invalidation
+inId :: Lens' Invalidation (Text)
 inId f x =
-    (\y -> x { _inId = y })
-       <$> f (_inId x)
+    f (_inId x)
+        <&> \y -> x { _inId = y }
 {-# INLINE inId #-}
 
 -- | The status of the invalidation request. When the invalidation batch is
 -- finished, the status is Completed.
-inStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Invalidation
-    -> f Invalidation
+inStatus :: Lens' Invalidation (Text)
 inStatus f x =
-    (\y -> x { _inStatus = y })
-       <$> f (_inStatus x)
+    f (_inStatus x)
+        <&> \y -> x { _inStatus = y }
 {-# INLINE inStatus #-}
 
 -- | The date and time the invalidation request was first made.
-inCreateTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Invalidation
-    -> f Invalidation
+inCreateTime :: Lens' Invalidation (ISO8601)
 inCreateTime f x =
-    (\y -> x { _inCreateTime = y })
-       <$> f (_inCreateTime x)
+    f (_inCreateTime x)
+        <&> \y -> x { _inCreateTime = y }
 {-# INLINE inCreateTime #-}
 
 -- | The current invalidation information for the batch request.
-inInvalidationBatch
-    :: Functor f
-    => (InvalidationBatch
-    -> f (InvalidationBatch))
-    -> Invalidation
-    -> f Invalidation
+inInvalidationBatch :: Lens' Invalidation (InvalidationBatch)
 inInvalidationBatch f x =
-    (\y -> x { _inInvalidationBatch = y })
-       <$> f (_inInvalidationBatch x)
+    f (_inInvalidationBatch x)
+        <&> \y -> x { _inInvalidationBatch = y }
 {-# INLINE inInvalidationBatch #-}
 
 instance FromXML Invalidation where
@@ -3091,15 +2568,10 @@ data InvalidationBatch = InvalidationBatch
 -- (http://www.ietf.org/rfc/rfc1738.txt), URL encode those characters. Do not
 -- URL encode any other characters in the path, or CloudFront will not
 -- invalidate the old version of the updated object.
-ibPaths
-    :: Functor f
-    => (Paths
-    -> f (Paths))
-    -> InvalidationBatch
-    -> f InvalidationBatch
+ibPaths :: Lens' InvalidationBatch (Paths)
 ibPaths f x =
-    (\y -> x { _ibPaths = y })
-       <$> f (_ibPaths x)
+    f (_ibPaths x)
+        <&> \y -> x { _ibPaths = y }
 {-# INLINE ibPaths #-}
 
 -- | A unique name that ensures the request can't be replayed. If the
@@ -3111,15 +2583,10 @@ ibPaths f x =
 -- CallerReference is a value you already sent in a previous request to create
 -- a distribution but the content of any Path is different from the original
 -- request, CloudFront returns an InvalidationBatchAlreadyExists error.
-ibCallerReference
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InvalidationBatch
-    -> f InvalidationBatch
+ibCallerReference :: Lens' InvalidationBatch (Text)
 ibCallerReference f x =
-    (\y -> x { _ibCallerReference = y })
-       <$> f (_ibCallerReference x)
+    f (_ibCallerReference x)
+        <&> \y -> x { _ibCallerReference = y }
 {-# INLINE ibCallerReference #-}
 
 instance FromXML InvalidationBatch where
@@ -3155,82 +2622,52 @@ data InvalidationList = InvalidationList
     } deriving (Show, Generic)
 
 -- | The value you provided for the Marker request parameter.
-ilMarker
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InvalidationList
-    -> f InvalidationList
+ilMarker :: Lens' InvalidationList (Text)
 ilMarker f x =
-    (\y -> x { _ilMarker = y })
-       <$> f (_ilMarker x)
+    f (_ilMarker x)
+        <&> \y -> x { _ilMarker = y }
 {-# INLINE ilMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your
 -- invalidation batches where they left off.
-ilNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InvalidationList
-    -> f InvalidationList
+ilNextMarker :: Lens' InvalidationList (Maybe Text)
 ilNextMarker f x =
-    (\y -> x { _ilNextMarker = y })
-       <$> f (_ilNextMarker x)
+    f (_ilNextMarker x)
+        <&> \y -> x { _ilNextMarker = y }
 {-# INLINE ilNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
-ilMaxItems
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> InvalidationList
-    -> f InvalidationList
+ilMaxItems :: Lens' InvalidationList (Integer)
 ilMaxItems f x =
-    (\y -> x { _ilMaxItems = y })
-       <$> f (_ilMaxItems x)
+    f (_ilMaxItems x)
+        <&> \y -> x { _ilMaxItems = y }
 {-# INLINE ilMaxItems #-}
 
 -- | A flag that indicates whether more invalidation batch requests remain to be
 -- listed. If your results were truncated, you can make a follow-up pagination
 -- request using the Marker request parameter to retrieve more invalidation
 -- batches in the list.
-ilIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> InvalidationList
-    -> f InvalidationList
+ilIsTruncated :: Lens' InvalidationList (Bool)
 ilIsTruncated f x =
-    (\y -> x { _ilIsTruncated = y })
-       <$> f (_ilIsTruncated x)
+    f (_ilIsTruncated x)
+        <&> \y -> x { _ilIsTruncated = y }
 {-# INLINE ilIsTruncated #-}
 
 -- | The number of invalidation batches that were created by the current AWS
 -- account.
-ilQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> InvalidationList
-    -> f InvalidationList
+ilQuantity :: Lens' InvalidationList (Integer)
 ilQuantity f x =
-    (\y -> x { _ilQuantity = y })
-       <$> f (_ilQuantity x)
+    f (_ilQuantity x)
+        <&> \y -> x { _ilQuantity = y }
 {-# INLINE ilQuantity #-}
 
 -- | A complex type that contains one InvalidationSummary element for each
 -- invalidation batch that was created by the current AWS account.
-ilItems
-    :: Functor f
-    => ([InvalidationSummary]
-    -> f ([InvalidationSummary]))
-    -> InvalidationList
-    -> f InvalidationList
+ilItems :: Lens' InvalidationList ([InvalidationSummary])
 ilItems f x =
-    (\y -> x { _ilItems = y })
-       <$> f (_ilItems x)
+    f (_ilItems x)
+        <&> \y -> x { _ilItems = y }
 {-# INLINE ilItems #-}
 
 instance FromXML InvalidationList where
@@ -3247,38 +2684,23 @@ data InvalidationSummary = InvalidationSummary
     } deriving (Show, Generic)
 
 -- | The unique ID for an invalidation request.
-iiiiiiiiiiiiyId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InvalidationSummary
-    -> f InvalidationSummary
+iiiiiiiiiiiiyId :: Lens' InvalidationSummary (Text)
 iiiiiiiiiiiiyId f x =
-    (\y -> x { _iiiiiiiiiiiiyId = y })
-       <$> f (_iiiiiiiiiiiiyId x)
+    f (_iiiiiiiiiiiiyId x)
+        <&> \y -> x { _iiiiiiiiiiiiyId = y }
 {-# INLINE iiiiiiiiiiiiyId #-}
 
-iiiiiiiiiiiiyCreateTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> InvalidationSummary
-    -> f InvalidationSummary
+iiiiiiiiiiiiyCreateTime :: Lens' InvalidationSummary (ISO8601)
 iiiiiiiiiiiiyCreateTime f x =
-    (\y -> x { _iiiiiiiiiiiiyCreateTime = y })
-       <$> f (_iiiiiiiiiiiiyCreateTime x)
+    f (_iiiiiiiiiiiiyCreateTime x)
+        <&> \y -> x { _iiiiiiiiiiiiyCreateTime = y }
 {-# INLINE iiiiiiiiiiiiyCreateTime #-}
 
 -- | The status of an invalidation request.
-iiiiiiiiiiiiyStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InvalidationSummary
-    -> f InvalidationSummary
+iiiiiiiiiiiiyStatus :: Lens' InvalidationSummary (Text)
 iiiiiiiiiiiiyStatus f x =
-    (\y -> x { _iiiiiiiiiiiiyStatus = y })
-       <$> f (_iiiiiiiiiiiiyStatus x)
+    f (_iiiiiiiiiiiiyStatus x)
+        <&> \y -> x { _iiiiiiiiiiiiyStatus = y }
 {-# INLINE iiiiiiiiiiiiyStatus #-}
 
 instance FromXML InvalidationSummary where
@@ -3296,28 +2718,18 @@ data KeyPairIds = KeyPairIds
     } deriving (Show, Generic)
 
 -- | The number of active CloudFront key pairs for AwsAccountNumber.
-kpiQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> KeyPairIds
-    -> f KeyPairIds
+kpiQuantity :: Lens' KeyPairIds (Integer)
 kpiQuantity f x =
-    (\y -> x { _kpiQuantity = y })
-       <$> f (_kpiQuantity x)
+    f (_kpiQuantity x)
+        <&> \y -> x { _kpiQuantity = y }
 {-# INLINE kpiQuantity #-}
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
-kpiItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> KeyPairIds
-    -> f KeyPairIds
+kpiItems :: Lens' KeyPairIds ([Text])
 kpiItems f x =
-    (\y -> x { _kpiItems = y })
-       <$> f (_kpiItems x)
+    f (_kpiItems x)
+        <&> \y -> x { _kpiItems = y }
 {-# INLINE kpiItems #-}
 
 instance FromXML KeyPairIds where
@@ -3364,15 +2776,10 @@ data LoggingConfig = LoggingConfig
 -- false for Enabled, and specify empty Bucket and Prefix elements. If you
 -- specify false for Enabled but you specify values for Bucket, prefix and
 -- IncludeCookies, the values are automatically deleted.
-lcEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> LoggingConfig
-    -> f LoggingConfig
+lcEnabled :: Lens' LoggingConfig (Bool)
 lcEnabled f x =
-    (\y -> x { _lcEnabled = y })
-       <$> f (_lcEnabled x)
+    f (_lcEnabled x)
+        <&> \y -> x { _lcEnabled = y }
 {-# INLINE lcEnabled #-}
 
 -- | Specifies whether you want CloudFront to include cookies in access logs,
@@ -3381,43 +2788,28 @@ lcEnabled f x =
 -- behaviors for this distribution. If you do not want to include cookies when
 -- you create a distribution or if you want to disable include cookies for an
 -- existing distribution, specify false for IncludeCookies.
-lcIncludeCookies
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> LoggingConfig
-    -> f LoggingConfig
+lcIncludeCookies :: Lens' LoggingConfig (Bool)
 lcIncludeCookies f x =
-    (\y -> x { _lcIncludeCookies = y })
-       <$> f (_lcIncludeCookies x)
+    f (_lcIncludeCookies x)
+        <&> \y -> x { _lcIncludeCookies = y }
 {-# INLINE lcIncludeCookies #-}
 
 -- | The Amazon S3 bucket to store the access logs in, for example,
 -- myawslogbucket.s3.amazonaws.com.
-lcBucket
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> LoggingConfig
-    -> f LoggingConfig
+lcBucket :: Lens' LoggingConfig (Text)
 lcBucket f x =
-    (\y -> x { _lcBucket = y })
-       <$> f (_lcBucket x)
+    f (_lcBucket x)
+        <&> \y -> x { _lcBucket = y }
 {-# INLINE lcBucket #-}
 
 -- | An optional string that you want CloudFront to prefix to the access log
 -- filenames for this distribution, for example, myprefix/. If you want to
 -- enable logging, but you do not want to specify a prefix, you still must
 -- include an empty Prefix element in the Logging element.
-lcPrefix
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> LoggingConfig
-    -> f LoggingConfig
+lcPrefix :: Lens' LoggingConfig (Text)
 lcPrefix f x =
-    (\y -> x { _lcPrefix = y })
-       <$> f (_lcPrefix x)
+    f (_lcPrefix x)
+        <&> \y -> x { _lcPrefix = y }
 {-# INLINE lcPrefix #-}
 
 instance FromXML LoggingConfig where
@@ -3458,15 +2850,10 @@ data Origin = Origin
 -- the distribution. You use the value of Id when you create a cache behavior.
 -- The Id identifies the origin that CloudFront routes a request to when the
 -- request matches the path pattern for that cache behavior.
-pId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Origin
-    -> f Origin
+pId :: Lens' Origin (Text)
 pId f x =
-    (\y -> x { _pId = y })
-       <$> f (_pId x)
+    f (_pId x)
+        <&> \y -> x { _pId = y }
 {-# INLINE pId #-}
 
 -- | Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want
@@ -3474,41 +2861,26 @@ pId f x =
 -- myawsbucket.s3.amazonaws.com. Custom origins: The DNS domain name for the
 -- HTTP server from which you want CloudFront to get objects for this origin,
 -- for example, www.example.com.
-pDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Origin
-    -> f Origin
+pDomainName :: Lens' Origin (Text)
 pDomainName f x =
-    (\y -> x { _pDomainName = y })
-       <$> f (_pDomainName x)
+    f (_pDomainName x)
+        <&> \y -> x { _pDomainName = y }
 {-# INLINE pDomainName #-}
 
 -- | A complex type that contains information about the Amazon S3 origin. If the
 -- origin is a custom origin, use the CustomOriginConfig element instead.
-pS3OriginConfig
-    :: Functor f
-    => (Maybe S3OriginConfig
-    -> f (Maybe S3OriginConfig))
-    -> Origin
-    -> f Origin
+pS3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
 pS3OriginConfig f x =
-    (\y -> x { _pS3OriginConfig = y })
-       <$> f (_pS3OriginConfig x)
+    f (_pS3OriginConfig x)
+        <&> \y -> x { _pS3OriginConfig = y }
 {-# INLINE pS3OriginConfig #-}
 
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
-pCustomOriginConfig
-    :: Functor f
-    => (Maybe CustomOriginConfig
-    -> f (Maybe CustomOriginConfig))
-    -> Origin
-    -> f Origin
+pCustomOriginConfig :: Lens' Origin (Maybe CustomOriginConfig)
 pCustomOriginConfig f x =
-    (\y -> x { _pCustomOriginConfig = y })
-       <$> f (_pCustomOriginConfig x)
+    f (_pCustomOriginConfig x)
+        <&> \y -> x { _pCustomOriginConfig = y }
 {-# INLINE pCustomOriginConfig #-}
 
 instance FromXML Origin where
@@ -3529,27 +2901,17 @@ data Origins = Origins
     } deriving (Show, Generic)
 
 -- | The number of origins for this distribution.
-oQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Origins
-    -> f Origins
+oQuantity :: Lens' Origins (Integer)
 oQuantity f x =
-    (\y -> x { _oQuantity = y })
-       <$> f (_oQuantity x)
+    f (_oQuantity x)
+        <&> \y -> x { _oQuantity = y }
 {-# INLINE oQuantity #-}
 
 -- | A complex type that contains origins for this distribution.
-oItems
-    :: Functor f
-    => (Maybe [Origin]
-    -> f (Maybe [Origin]))
-    -> Origins
-    -> f Origins
+oItems :: Lens' Origins (Maybe [Origin])
 oItems f x =
-    (\y -> x { _oItems = y })
-       <$> f (_oItems x)
+    f (_oItems x)
+        <&> \y -> x { _oItems = y }
 {-# INLINE oItems #-}
 
 instance FromXML Origins where
@@ -3576,28 +2938,18 @@ data Paths = Paths
     } deriving (Show, Generic)
 
 -- | The number of objects that you want to invalidate.
-psQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Paths
-    -> f Paths
+psQuantity :: Lens' Paths (Integer)
 psQuantity f x =
-    (\y -> x { _psQuantity = y })
-       <$> f (_psQuantity x)
+    f (_psQuantity x)
+        <&> \y -> x { _psQuantity = y }
 {-# INLINE psQuantity #-}
 
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
-psItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Paths
-    -> f Paths
+psItems :: Lens' Paths ([Text])
 psItems f x =
-    (\y -> x { _psItems = y })
-       <$> f (_psItems x)
+    f (_psItems x)
+        <&> \y -> x { _psItems = y }
 {-# INLINE psItems #-}
 
 instance FromXML Paths where
@@ -3618,27 +2970,17 @@ data S3Origin = S3Origin
     } deriving (Show, Generic)
 
 -- | The DNS name of the S3 origin.
-ssssnDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> S3Origin
-    -> f S3Origin
+ssssnDomainName :: Lens' S3Origin (Text)
 ssssnDomainName f x =
-    (\y -> x { _ssssnDomainName = y })
-       <$> f (_ssssnDomainName x)
+    f (_ssssnDomainName x)
+        <&> \y -> x { _ssssnDomainName = y }
 {-# INLINE ssssnDomainName #-}
 
 -- | Your S3 origin's origin access identity.
-ssssnOriginAccessIdentity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> S3Origin
-    -> f S3Origin
+ssssnOriginAccessIdentity :: Lens' S3Origin (Text)
 ssssnOriginAccessIdentity f x =
-    (\y -> x { _ssssnOriginAccessIdentity = y })
-       <$> f (_ssssnOriginAccessIdentity x)
+    f (_ssssnOriginAccessIdentity x)
+        <&> \y -> x { _ssssnOriginAccessIdentity = y }
 {-# INLINE ssssnOriginAccessIdentity #-}
 
 instance FromXML S3Origin where
@@ -3667,28 +3009,18 @@ data Signer = Signer
 -- indicates that the AWS account that was used to create the distribution can
 -- created signed URLs, or an AWS account number. Omit the dashes in the
 -- account number.
-ssrAwsAccountNumber
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Signer
-    -> f Signer
+ssrAwsAccountNumber :: Lens' Signer (Maybe Text)
 ssrAwsAccountNumber f x =
-    (\y -> x { _ssrAwsAccountNumber = y })
-       <$> f (_ssrAwsAccountNumber x)
+    f (_ssrAwsAccountNumber x)
+        <&> \y -> x { _ssrAwsAccountNumber = y }
 {-# INLINE ssrAwsAccountNumber #-}
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
-ssrKeyPairIds
-    :: Functor f
-    => (Maybe KeyPairIds
-    -> f (Maybe KeyPairIds))
-    -> Signer
-    -> f Signer
+ssrKeyPairIds :: Lens' Signer (Maybe KeyPairIds)
 ssrKeyPairIds f x =
-    (\y -> x { _ssrKeyPairIds = y })
-       <$> f (_ssrKeyPairIds x)
+    f (_ssrKeyPairIds x)
+        <&> \y -> x { _ssrKeyPairIds = y }
 {-# INLINE ssrKeyPairIds #-}
 
 instance FromXML Signer where
@@ -3726,54 +3058,34 @@ data StreamingDistribution = StreamingDistribution
 
 -- | The identifier for the streaming distribution. For example:
 -- EGTXBD79H29TRA8.
-sdId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistribution
-    -> f StreamingDistribution
+sdId :: Lens' StreamingDistribution (Text)
 sdId f x =
-    (\y -> x { _sdId = y })
-       <$> f (_sdId x)
+    f (_sdId x)
+        <&> \y -> x { _sdId = y }
 {-# INLINE sdId #-}
 
 -- | The current status of the streaming distribution. When the status is
 -- Deployed, the distribution's information is fully propagated throughout the
 -- Amazon CloudFront system.
-sdStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistribution
-    -> f StreamingDistribution
+sdStatus :: Lens' StreamingDistribution (Text)
 sdStatus f x =
-    (\y -> x { _sdStatus = y })
-       <$> f (_sdStatus x)
+    f (_sdStatus x)
+        <&> \y -> x { _sdStatus = y }
 {-# INLINE sdStatus #-}
 
 -- | The date and time the distribution was last modified.
-sdLastModifiedTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> StreamingDistribution
-    -> f StreamingDistribution
+sdLastModifiedTime :: Lens' StreamingDistribution (Maybe ISO8601)
 sdLastModifiedTime f x =
-    (\y -> x { _sdLastModifiedTime = y })
-       <$> f (_sdLastModifiedTime x)
+    f (_sdLastModifiedTime x)
+        <&> \y -> x { _sdLastModifiedTime = y }
 {-# INLINE sdLastModifiedTime #-}
 
 -- | The domain name corresponding to the streaming distribution. For example:
 -- s5c39gqb8ow64r.cloudfront.net.
-sdDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistribution
-    -> f StreamingDistribution
+sdDomainName :: Lens' StreamingDistribution (Text)
 sdDomainName f x =
-    (\y -> x { _sdDomainName = y })
-       <$> f (_sdDomainName x)
+    f (_sdDomainName x)
+        <&> \y -> x { _sdDomainName = y }
 {-# INLINE sdDomainName #-}
 
 -- | CloudFront automatically adds this element to the response only if you've
@@ -3784,27 +3096,17 @@ sdDomainName f x =
 -- element also includes the IDs of any active key pairs associated with the
 -- trusted signer's AWS account. If no KeyPairId element appears for a Signer,
 -- that signer can't create working signed URLs.
-sdActiveTrustedSigners
-    :: Functor f
-    => (ActiveTrustedSigners
-    -> f (ActiveTrustedSigners))
-    -> StreamingDistribution
-    -> f StreamingDistribution
+sdActiveTrustedSigners :: Lens' StreamingDistribution (ActiveTrustedSigners)
 sdActiveTrustedSigners f x =
-    (\y -> x { _sdActiveTrustedSigners = y })
-       <$> f (_sdActiveTrustedSigners x)
+    f (_sdActiveTrustedSigners x)
+        <&> \y -> x { _sdActiveTrustedSigners = y }
 {-# INLINE sdActiveTrustedSigners #-}
 
 -- | The current configuration information for the streaming distribution.
-sdStreamingDistributionConfig
-    :: Functor f
-    => (StreamingDistributionConfig
-    -> f (StreamingDistributionConfig))
-    -> StreamingDistribution
-    -> f StreamingDistribution
+sdStreamingDistributionConfig :: Lens' StreamingDistribution (StreamingDistributionConfig)
 sdStreamingDistributionConfig f x =
-    (\y -> x { _sdStreamingDistributionConfig = y })
-       <$> f (_sdStreamingDistributionConfig x)
+    f (_sdStreamingDistributionConfig x)
+        <&> \y -> x { _sdStreamingDistributionConfig = y }
 {-# INLINE sdStreamingDistributionConfig #-}
 
 instance FromXML StreamingDistribution where
@@ -3873,66 +3175,41 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 -- previous request to create a streaming distribution but the content of the
 -- StreamingDistributionConfig is different from the original request,
 -- CloudFront returns a DistributionAlreadyExists error.
-sdcCallerReference
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcCallerReference :: Lens' StreamingDistributionConfig (Text)
 sdcCallerReference f x =
-    (\y -> x { _sdcCallerReference = y })
-       <$> f (_sdcCallerReference x)
+    f (_sdcCallerReference x)
+        <&> \y -> x { _sdcCallerReference = y }
 {-# INLINE sdcCallerReference #-}
 
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
-sdcS3Origin
-    :: Functor f
-    => (S3Origin
-    -> f (S3Origin))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcS3Origin :: Lens' StreamingDistributionConfig (S3Origin)
 sdcS3Origin f x =
-    (\y -> x { _sdcS3Origin = y })
-       <$> f (_sdcS3Origin x)
+    f (_sdcS3Origin x)
+        <&> \y -> x { _sdcS3Origin = y }
 {-# INLINE sdcS3Origin #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
-sdcAliases
-    :: Functor f
-    => (Aliases
-    -> f (Aliases))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcAliases :: Lens' StreamingDistributionConfig (Aliases)
 sdcAliases f x =
-    (\y -> x { _sdcAliases = y })
-       <$> f (_sdcAliases x)
+    f (_sdcAliases x)
+        <&> \y -> x { _sdcAliases = y }
 {-# INLINE sdcAliases #-}
 
 -- | Any comments you want to include about the streaming distribution.
-sdcComment
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcComment :: Lens' StreamingDistributionConfig (Text)
 sdcComment f x =
-    (\y -> x { _sdcComment = y })
-       <$> f (_sdcComment x)
+    f (_sdcComment x)
+        <&> \y -> x { _sdcComment = y }
 {-# INLINE sdcComment #-}
 
 -- | A complex type that controls whether access logs are written for the
 -- streaming distribution.
-sdcLogging
-    :: Functor f
-    => (StreamingLoggingConfig
-    -> f (StreamingLoggingConfig))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcLogging :: Lens' StreamingDistributionConfig (StreamingLoggingConfig)
 sdcLogging f x =
-    (\y -> x { _sdcLogging = y })
-       <$> f (_sdcLogging x)
+    f (_sdcLogging x)
+        <&> \y -> x { _sdcLogging = y }
 {-# INLINE sdcLogging #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
@@ -3947,41 +3224,26 @@ sdcLogging f x =
 -- signers, change Enabled to true (if it's currently false), change Quantity
 -- as applicable, and specify all of the trusted signers that you want to
 -- include in the updated distribution.
-sdcTrustedSigners
-    :: Functor f
-    => (TrustedSigners
-    -> f (TrustedSigners))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcTrustedSigners :: Lens' StreamingDistributionConfig (TrustedSigners)
 sdcTrustedSigners f x =
-    (\y -> x { _sdcTrustedSigners = y })
-       <$> f (_sdcTrustedSigners x)
+    f (_sdcTrustedSigners x)
+        <&> \y -> x { _sdcTrustedSigners = y }
 {-# INLINE sdcTrustedSigners #-}
 
 -- | A complex type that contains information about price class for this
 -- streaming distribution.
-sdcPriceClass
-    :: Functor f
-    => (PriceClass
-    -> f (PriceClass))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcPriceClass :: Lens' StreamingDistributionConfig (PriceClass)
 sdcPriceClass f x =
-    (\y -> x { _sdcPriceClass = y })
-       <$> f (_sdcPriceClass x)
+    f (_sdcPriceClass x)
+        <&> \y -> x { _sdcPriceClass = y }
 {-# INLINE sdcPriceClass #-}
 
 -- | Whether the streaming distribution is enabled to accept end user requests
 -- for content.
-sdcEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> StreamingDistributionConfig
-    -> f StreamingDistributionConfig
+sdcEnabled :: Lens' StreamingDistributionConfig (Bool)
 sdcEnabled f x =
-    (\y -> x { _sdcEnabled = y })
-       <$> f (_sdcEnabled x)
+    f (_sdcEnabled x)
+        <&> \y -> x { _sdcEnabled = y }
 {-# INLINE sdcEnabled #-}
 
 instance FromXML StreamingDistributionConfig where
@@ -4017,82 +3279,52 @@ data StreamingDistributionList = StreamingDistributionList
     } deriving (Show, Generic)
 
 -- | The value you provided for the Marker request parameter.
-sdlMarker
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionList
-    -> f StreamingDistributionList
+sdlMarker :: Lens' StreamingDistributionList (Text)
 sdlMarker f x =
-    (\y -> x { _sdlMarker = y })
-       <$> f (_sdlMarker x)
+    f (_sdlMarker x)
+        <&> \y -> x { _sdlMarker = y }
 {-# INLINE sdlMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your streaming
 -- distributions where they left off.
-sdlNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StreamingDistributionList
-    -> f StreamingDistributionList
+sdlNextMarker :: Lens' StreamingDistributionList (Maybe Text)
 sdlNextMarker f x =
-    (\y -> x { _sdlNextMarker = y })
-       <$> f (_sdlNextMarker x)
+    f (_sdlNextMarker x)
+        <&> \y -> x { _sdlNextMarker = y }
 {-# INLINE sdlNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
-sdlMaxItems
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> StreamingDistributionList
-    -> f StreamingDistributionList
+sdlMaxItems :: Lens' StreamingDistributionList (Integer)
 sdlMaxItems f x =
-    (\y -> x { _sdlMaxItems = y })
-       <$> f (_sdlMaxItems x)
+    f (_sdlMaxItems x)
+        <&> \y -> x { _sdlMaxItems = y }
 {-# INLINE sdlMaxItems #-}
 
 -- | A flag that indicates whether more streaming distributions remain to be
 -- listed. If your results were truncated, you can make a follow-up pagination
 -- request using the Marker request parameter to retrieve more distributions
 -- in the list.
-sdlIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> StreamingDistributionList
-    -> f StreamingDistributionList
+sdlIsTruncated :: Lens' StreamingDistributionList (Bool)
 sdlIsTruncated f x =
-    (\y -> x { _sdlIsTruncated = y })
-       <$> f (_sdlIsTruncated x)
+    f (_sdlIsTruncated x)
+        <&> \y -> x { _sdlIsTruncated = y }
 {-# INLINE sdlIsTruncated #-}
 
 -- | The number of streaming distributions that were created by the current AWS
 -- account.
-sdlQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> StreamingDistributionList
-    -> f StreamingDistributionList
+sdlQuantity :: Lens' StreamingDistributionList (Integer)
 sdlQuantity f x =
-    (\y -> x { _sdlQuantity = y })
-       <$> f (_sdlQuantity x)
+    f (_sdlQuantity x)
+        <&> \y -> x { _sdlQuantity = y }
 {-# INLINE sdlQuantity #-}
 
 -- | A complex type that contains one StreamingDistributionSummary element for
 -- each distribution that was created by the current AWS account.
-sdlItems
-    :: Functor f
-    => ([StreamingDistributionSummary]
-    -> f ([StreamingDistributionSummary]))
-    -> StreamingDistributionList
-    -> f StreamingDistributionList
+sdlItems :: Lens' StreamingDistributionList ([StreamingDistributionSummary])
 sdlItems f x =
-    (\y -> x { _sdlItems = y })
-       <$> f (_sdlItems x)
+    f (_sdlItems x)
+        <&> \y -> x { _sdlItems = y }
 {-# INLINE sdlItems #-}
 
 instance FromXML StreamingDistributionList where
@@ -4146,80 +3378,50 @@ data StreamingDistributionSummary = StreamingDistributionSummary
     } deriving (Show, Generic)
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
-sdsId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsId :: Lens' StreamingDistributionSummary (Text)
 sdsId f x =
-    (\y -> x { _sdsId = y })
-       <$> f (_sdsId x)
+    f (_sdsId x)
+        <&> \y -> x { _sdsId = y }
 {-# INLINE sdsId #-}
 
 -- | Indicates the current status of the distribution. When the status is
 -- Deployed, the distribution's information is fully propagated throughout the
 -- Amazon CloudFront system.
-sdsStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsStatus :: Lens' StreamingDistributionSummary (Text)
 sdsStatus f x =
-    (\y -> x { _sdsStatus = y })
-       <$> f (_sdsStatus x)
+    f (_sdsStatus x)
+        <&> \y -> x { _sdsStatus = y }
 {-# INLINE sdsStatus #-}
 
 -- | The date and time the distribution was last modified.
-sdsLastModifiedTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsLastModifiedTime :: Lens' StreamingDistributionSummary (ISO8601)
 sdsLastModifiedTime f x =
-    (\y -> x { _sdsLastModifiedTime = y })
-       <$> f (_sdsLastModifiedTime x)
+    f (_sdsLastModifiedTime x)
+        <&> \y -> x { _sdsLastModifiedTime = y }
 {-# INLINE sdsLastModifiedTime #-}
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
-sdsDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsDomainName :: Lens' StreamingDistributionSummary (Text)
 sdsDomainName f x =
-    (\y -> x { _sdsDomainName = y })
-       <$> f (_sdsDomainName x)
+    f (_sdsDomainName x)
+        <&> \y -> x { _sdsDomainName = y }
 {-# INLINE sdsDomainName #-}
 
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
-sdsS3Origin
-    :: Functor f
-    => (S3Origin
-    -> f (S3Origin))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsS3Origin :: Lens' StreamingDistributionSummary (S3Origin)
 sdsS3Origin f x =
-    (\y -> x { _sdsS3Origin = y })
-       <$> f (_sdsS3Origin x)
+    f (_sdsS3Origin x)
+        <&> \y -> x { _sdsS3Origin = y }
 {-# INLINE sdsS3Origin #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
-sdsAliases
-    :: Functor f
-    => (Aliases
-    -> f (Aliases))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsAliases :: Lens' StreamingDistributionSummary (Aliases)
 sdsAliases f x =
-    (\y -> x { _sdsAliases = y })
-       <$> f (_sdsAliases x)
+    f (_sdsAliases x)
+        <&> \y -> x { _sdsAliases = y }
 {-# INLINE sdsAliases #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
@@ -4234,51 +3436,31 @@ sdsAliases f x =
 -- signers, change Enabled to true (if it's currently false), change Quantity
 -- as applicable, and specify all of the trusted signers that you want to
 -- include in the updated distribution.
-sdsTrustedSigners
-    :: Functor f
-    => (TrustedSigners
-    -> f (TrustedSigners))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsTrustedSigners :: Lens' StreamingDistributionSummary (TrustedSigners)
 sdsTrustedSigners f x =
-    (\y -> x { _sdsTrustedSigners = y })
-       <$> f (_sdsTrustedSigners x)
+    f (_sdsTrustedSigners x)
+        <&> \y -> x { _sdsTrustedSigners = y }
 {-# INLINE sdsTrustedSigners #-}
 
 -- | The comment originally specified when this distribution was created.
-sdsComment
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsComment :: Lens' StreamingDistributionSummary (Text)
 sdsComment f x =
-    (\y -> x { _sdsComment = y })
-       <$> f (_sdsComment x)
+    f (_sdsComment x)
+        <&> \y -> x { _sdsComment = y }
 {-# INLINE sdsComment #-}
 
-sdsPriceClass
-    :: Functor f
-    => (PriceClass
-    -> f (PriceClass))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsPriceClass :: Lens' StreamingDistributionSummary (PriceClass)
 sdsPriceClass f x =
-    (\y -> x { _sdsPriceClass = y })
-       <$> f (_sdsPriceClass x)
+    f (_sdsPriceClass x)
+        <&> \y -> x { _sdsPriceClass = y }
 {-# INLINE sdsPriceClass #-}
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
-sdsEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> StreamingDistributionSummary
-    -> f StreamingDistributionSummary
+sdsEnabled :: Lens' StreamingDistributionSummary (Bool)
 sdsEnabled f x =
-    (\y -> x { _sdsEnabled = y })
-       <$> f (_sdsEnabled x)
+    f (_sdsEnabled x)
+        <&> \y -> x { _sdsEnabled = y }
 {-# INLINE sdsEnabled #-}
 
 instance FromXML StreamingDistributionSummary where
@@ -4313,43 +3495,28 @@ data StreamingLoggingConfig = StreamingLoggingConfig
 -- distribution, specify false for Enabled, and specify empty Bucket and
 -- Prefix elements. If you specify false for Enabled but you specify values
 -- for Bucket and Prefix, the values are automatically deleted.
-slcEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> StreamingLoggingConfig
-    -> f StreamingLoggingConfig
+slcEnabled :: Lens' StreamingLoggingConfig (Bool)
 slcEnabled f x =
-    (\y -> x { _slcEnabled = y })
-       <$> f (_slcEnabled x)
+    f (_slcEnabled x)
+        <&> \y -> x { _slcEnabled = y }
 {-# INLINE slcEnabled #-}
 
 -- | The Amazon S3 bucket to store the access logs in, for example,
 -- myawslogbucket.s3.amazonaws.com.
-slcBucket
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingLoggingConfig
-    -> f StreamingLoggingConfig
+slcBucket :: Lens' StreamingLoggingConfig (Text)
 slcBucket f x =
-    (\y -> x { _slcBucket = y })
-       <$> f (_slcBucket x)
+    f (_slcBucket x)
+        <&> \y -> x { _slcBucket = y }
 {-# INLINE slcBucket #-}
 
 -- | An optional string that you want CloudFront to prefix to the access log
 -- filenames for this streaming distribution, for example, myprefix/. If you
 -- want to enable logging, but you do not want to specify a prefix, you still
 -- must include an empty Prefix element in the Logging element.
-slcPrefix
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StreamingLoggingConfig
-    -> f StreamingLoggingConfig
+slcPrefix :: Lens' StreamingLoggingConfig (Text)
 slcPrefix f x =
-    (\y -> x { _slcPrefix = y })
-       <$> f (_slcPrefix x)
+    f (_slcPrefix x)
+        <&> \y -> x { _slcPrefix = y }
 {-# INLINE slcPrefix #-}
 
 instance FromXML StreamingLoggingConfig where
@@ -4386,40 +3553,25 @@ data TrustedSigners = TrustedSigners
 
 -- | Specifies whether you want to require end users to use signed URLs to
 -- access the files specified by PathPattern and TargetOriginId.
-tsEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> TrustedSigners
-    -> f TrustedSigners
+tsEnabled :: Lens' TrustedSigners (Bool)
 tsEnabled f x =
-    (\y -> x { _tsEnabled = y })
-       <$> f (_tsEnabled x)
+    f (_tsEnabled x)
+        <&> \y -> x { _tsEnabled = y }
 {-# INLINE tsEnabled #-}
 
 -- | The number of trusted signers for this cache behavior.
-tsQuantity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> TrustedSigners
-    -> f TrustedSigners
+tsQuantity :: Lens' TrustedSigners (Integer)
 tsQuantity f x =
-    (\y -> x { _tsQuantity = y })
-       <$> f (_tsQuantity x)
+    f (_tsQuantity x)
+        <&> \y -> x { _tsQuantity = y }
 {-# INLINE tsQuantity #-}
 
 -- | Optional: A complex type that contains trusted signers for this cache
 -- behavior. If Quantity is 0, you can omit Items.
-tsItems
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> TrustedSigners
-    -> f TrustedSigners
+tsItems :: Lens' TrustedSigners ([Text])
 tsItems f x =
-    (\y -> x { _tsItems = y })
-       <$> f (_tsItems x)
+    f (_tsItems x)
+        <&> \y -> x { _tsItems = y }
 {-# INLINE tsItems #-}
 
 instance FromXML TrustedSigners where
@@ -4465,30 +3617,20 @@ data ViewerCertificate = ViewerCertificate
 -- https://example.com/logo.jpg), specify the IAM certificate identifier of
 -- the custom viewer certificate for this distribution. Specify either this
 -- value or CloudFrontDefaultCertificate.
-vcIAMCertificateId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ViewerCertificate
-    -> f ViewerCertificate
+vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId f x =
-    (\y -> x { _vcIAMCertificateId = y })
-       <$> f (_vcIAMCertificateId x)
+    f (_vcIAMCertificateId x)
+        <&> \y -> x { _vcIAMCertificateId = y }
 {-# INLINE vcIAMCertificateId #-}
 
 -- | If you want viewers to use HTTPS to request your objects and you're using
 -- the CloudFront domain name of your distribution in your object URLs (for
 -- example, https://d111111abcdef8.cloudfront.net/logo.jpg), set to true. Omit
 -- this value if you are setting an IAMCertificateId.
-vcCloudFrontDefaultCertificate
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ViewerCertificate
-    -> f ViewerCertificate
+vcCloudFrontDefaultCertificate :: Lens' ViewerCertificate (Maybe Bool)
 vcCloudFrontDefaultCertificate f x =
-    (\y -> x { _vcCloudFrontDefaultCertificate = y })
-       <$> f (_vcCloudFrontDefaultCertificate x)
+    f (_vcCloudFrontDefaultCertificate x)
+        <&> \y -> x { _vcCloudFrontDefaultCertificate = y }
 {-# INLINE vcCloudFrontDefaultCertificate #-}
 
 -- | If you specify a value for IAMCertificateId, you must also specify how you
@@ -4501,15 +3643,10 @@ vcCloudFrontDefaultCertificate f x =
 -- browsers support SNI, but some browsers still in use don't support SNI. Do
 -- not specify a value for SSLSupportMethod if you specified true for
 -- CloudFrontDefaultCertificate.
-vcSSLSupportMethod
-    :: Functor f
-    => (Maybe SSLSupportMethod
-    -> f (Maybe SSLSupportMethod))
-    -> ViewerCertificate
-    -> f ViewerCertificate
+vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod f x =
-    (\y -> x { _vcSSLSupportMethod = y })
-       <$> f (_vcSSLSupportMethod x)
+    f (_vcSSLSupportMethod x)
+        <&> \y -> x { _vcSSLSupportMethod = y }
 {-# INLINE vcSSLSupportMethod #-}
 
 instance FromXML ViewerCertificate where

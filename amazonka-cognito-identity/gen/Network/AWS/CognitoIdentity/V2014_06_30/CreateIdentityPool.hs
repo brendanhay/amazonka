@@ -63,6 +63,7 @@ createIdentityPool p1 p2 = CreateIdentityPool
     , _cipiAllowUnauthenticatedIdentities = p2
     , _cipiSupportedLoginProviders = mempty
     }
+{-# INLINE createIdentityPool #-}
 
 data CreateIdentityPool = CreateIdentityPool
     { _cipiIdentityPoolName :: Text
@@ -75,39 +76,24 @@ data CreateIdentityPool = CreateIdentityPool
     } deriving (Show, Generic)
 
 -- | A string that you provide.
-cipiIdentityPoolName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateIdentityPool
-    -> f CreateIdentityPool
+cipiIdentityPoolName :: Lens' CreateIdentityPool (Text)
 cipiIdentityPoolName f x =
-    (\y -> x { _cipiIdentityPoolName = y })
-       <$> f (_cipiIdentityPoolName x)
+    f (_cipiIdentityPoolName x)
+        <&> \y -> x { _cipiIdentityPoolName = y }
 {-# INLINE cipiIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-cipiAllowUnauthenticatedIdentities
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> CreateIdentityPool
-    -> f CreateIdentityPool
+cipiAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool (Bool)
 cipiAllowUnauthenticatedIdentities f x =
-    (\y -> x { _cipiAllowUnauthenticatedIdentities = y })
-       <$> f (_cipiAllowUnauthenticatedIdentities x)
+    f (_cipiAllowUnauthenticatedIdentities x)
+        <&> \y -> x { _cipiAllowUnauthenticatedIdentities = y }
 {-# INLINE cipiAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-cipiSupportedLoginProviders
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> CreateIdentityPool
-    -> f CreateIdentityPool
+cipiSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
 cipiSupportedLoginProviders f x =
-    (\y -> x { _cipiSupportedLoginProviders = y })
-       <$> f (_cipiSupportedLoginProviders x)
+    f (_cipiSupportedLoginProviders x)
+        <&> \y -> x { _cipiSupportedLoginProviders = y }
 {-# INLINE cipiSupportedLoginProviders #-}
 
 instance ToPath CreateIdentityPool
@@ -131,51 +117,31 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-iqIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateIdentityPoolResponse
-    -> f CreateIdentityPoolResponse
+iqIdentityPoolId :: Lens' CreateIdentityPoolResponse (Text)
 iqIdentityPoolId f x =
-    (\y -> x { _iqIdentityPoolId = y })
-       <$> f (_iqIdentityPoolId x)
+    f (_iqIdentityPoolId x)
+        <&> \y -> x { _iqIdentityPoolId = y }
 {-# INLINE iqIdentityPoolId #-}
 
 -- | A string that you provide.
-iqIdentityPoolName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateIdentityPoolResponse
-    -> f CreateIdentityPoolResponse
+iqIdentityPoolName :: Lens' CreateIdentityPoolResponse (Text)
 iqIdentityPoolName f x =
-    (\y -> x { _iqIdentityPoolName = y })
-       <$> f (_iqIdentityPoolName x)
+    f (_iqIdentityPoolName x)
+        <&> \y -> x { _iqIdentityPoolName = y }
 {-# INLINE iqIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-iqAllowUnauthenticatedIdentities
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> CreateIdentityPoolResponse
-    -> f CreateIdentityPoolResponse
+iqAllowUnauthenticatedIdentities :: Lens' CreateIdentityPoolResponse (Bool)
 iqAllowUnauthenticatedIdentities f x =
-    (\y -> x { _iqAllowUnauthenticatedIdentities = y })
-       <$> f (_iqAllowUnauthenticatedIdentities x)
+    f (_iqAllowUnauthenticatedIdentities x)
+        <&> \y -> x { _iqAllowUnauthenticatedIdentities = y }
 {-# INLINE iqAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-iqSupportedLoginProviders
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> CreateIdentityPoolResponse
-    -> f CreateIdentityPoolResponse
+iqSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (Map Text Text)
 iqSupportedLoginProviders f x =
-    (\y -> x { _iqSupportedLoginProviders = y })
-       <$> f (_iqSupportedLoginProviders x)
+    f (_iqSupportedLoginProviders x)
+        <&> \y -> x { _iqSupportedLoginProviders = y }
 {-# INLINE iqSupportedLoginProviders #-}
 
 instance FromJSON CreateIdentityPoolResponse

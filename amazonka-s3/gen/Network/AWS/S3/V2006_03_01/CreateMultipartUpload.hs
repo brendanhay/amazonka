@@ -27,6 +27,8 @@ module Network.AWS.S3.V2006_03_01.CreateMultipartUpload
     (
     -- * Request
       CreateMultipartUpload
+    -- ** Request alias
+    , InitiateMultipartUpload
     -- ** Request constructor
     , createMultipartUpload
     -- ** Request lenses

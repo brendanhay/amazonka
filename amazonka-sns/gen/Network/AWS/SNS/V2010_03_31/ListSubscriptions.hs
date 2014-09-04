@@ -62,6 +62,7 @@ listSubscriptions :: ListSubscriptions
 listSubscriptions = ListSubscriptions
     { _lsiNextToken = Nothing
     }
+{-# INLINE listSubscriptions #-}
 
 data ListSubscriptions = ListSubscriptions
     { _lsiNextToken :: Maybe Text
@@ -69,15 +70,10 @@ data ListSubscriptions = ListSubscriptions
     } deriving (Show, Generic)
 
 -- | Token returned by the previous ListSubscriptions request.
-lsiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSubscriptions
-    -> f ListSubscriptions
+lsiNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsiNextToken f x =
-    (\y -> x { _lsiNextToken = y })
-       <$> f (_lsiNextToken x)
+    f (_lsiNextToken x)
+        <&> \y -> x { _lsiNextToken = y }
 {-# INLINE lsiNextToken #-}
 
 instance ToQuery ListSubscriptions where
@@ -93,27 +89,17 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse
 
 -- | Token to pass along to the next ListSubscriptions request. This element is
 -- returned if there are more subscriptions to retrieve.
-lsrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSubscriptionsResponse
-    -> f ListSubscriptionsResponse
+lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrNextToken f x =
-    (\y -> x { _lsrNextToken = y })
-       <$> f (_lsrNextToken x)
+    f (_lsrNextToken x)
+        <&> \y -> x { _lsrNextToken = y }
 {-# INLINE lsrNextToken #-}
 
 -- | A list of subscriptions.
-lsrSubscriptions
-    :: Functor f
-    => ([Subscription]
-    -> f ([Subscription]))
-    -> ListSubscriptionsResponse
-    -> f ListSubscriptionsResponse
+lsrSubscriptions :: Lens' ListSubscriptionsResponse ([Subscription])
 lsrSubscriptions f x =
-    (\y -> x { _lsrSubscriptions = y })
-       <$> f (_lsrSubscriptions x)
+    f (_lsrSubscriptions x)
+        <&> \y -> x { _lsrSubscriptions = y }
 {-# INLINE lsrSubscriptions #-}
 
 instance FromXML ListSubscriptionsResponse where

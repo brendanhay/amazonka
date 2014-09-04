@@ -67,6 +67,7 @@ describePipelines :: [Text] -- ^ 'dpjPipelineIds'
 describePipelines p1 = DescribePipelines
     { _dpjPipelineIds = p1
     }
+{-# INLINE describePipelines #-}
 
 data DescribePipelines = DescribePipelines
     { _dpjPipelineIds :: [Text]
@@ -78,15 +79,10 @@ data DescribePipelines = DescribePipelines
 -- | Identifiers of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call to DescribePipelines. You can obtain pipeline
 -- identifiers by calling ListPipelines.
-dpjPipelineIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribePipelines
-    -> f DescribePipelines
+dpjPipelineIds :: Lens' DescribePipelines ([Text])
 dpjPipelineIds f x =
-    (\y -> x { _dpjPipelineIds = y })
-       <$> f (_dpjPipelineIds x)
+    f (_dpjPipelineIds x)
+        <&> \y -> x { _dpjPipelineIds = y }
 {-# INLINE dpjPipelineIds #-}
 
 instance ToPath DescribePipelines
@@ -103,15 +99,10 @@ data DescribePipelinesResponse = DescribePipelinesResponse
     } deriving (Show, Generic)
 
 -- | An array of descriptions returned for the specified pipelines.
-dpoPipelineDescriptionList
-    :: Functor f
-    => ([PipelineDescription]
-    -> f ([PipelineDescription]))
-    -> DescribePipelinesResponse
-    -> f DescribePipelinesResponse
+dpoPipelineDescriptionList :: Lens' DescribePipelinesResponse ([PipelineDescription])
 dpoPipelineDescriptionList f x =
-    (\y -> x { _dpoPipelineDescriptionList = y })
-       <$> f (_dpoPipelineDescriptionList x)
+    f (_dpoPipelineDescriptionList x)
+        <&> \y -> x { _dpoPipelineDescriptionList = y }
 {-# INLINE dpoPipelineDescriptionList #-}
 
 instance FromJSON DescribePipelinesResponse

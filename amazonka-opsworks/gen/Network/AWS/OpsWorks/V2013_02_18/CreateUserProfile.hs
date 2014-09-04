@@ -52,6 +52,7 @@ createUserProfile p1 = CreateUserProfile
     , _cuprSshUsername = Nothing
     , _cuprSshPublicKey = Nothing
     }
+{-# INLINE createUserProfile #-}
 
 data CreateUserProfile = CreateUserProfile
     { _cuprIamUserArn :: Text
@@ -71,28 +72,18 @@ data CreateUserProfile = CreateUserProfile
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
-cuprIamUserArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateUserProfile
-    -> f CreateUserProfile
+cuprIamUserArn :: Lens' CreateUserProfile (Text)
 cuprIamUserArn f x =
-    (\y -> x { _cuprIamUserArn = y })
-       <$> f (_cuprIamUserArn x)
+    f (_cuprIamUserArn x)
+        <&> \y -> x { _cuprIamUserArn = y }
 {-# INLINE cuprIamUserArn #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see Setting an IAM User's Public SSH Key.
-cuprAllowSelfManagement
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateUserProfile
-    -> f CreateUserProfile
+cuprAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
 cuprAllowSelfManagement f x =
-    (\y -> x { _cuprAllowSelfManagement = y })
-       <$> f (_cuprAllowSelfManagement x)
+    f (_cuprAllowSelfManagement x)
+        <&> \y -> x { _cuprAllowSelfManagement = y }
 {-# INLINE cuprAllowSelfManagement #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
@@ -100,27 +91,17 @@ cuprAllowSelfManagement f x =
 -- OpsWorks removes them. For example, my.name will be changed to myname. If
 -- you do not specify an SSH user name, AWS OpsWorks generates one from the
 -- IAM user name.
-cuprSshUsername
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateUserProfile
-    -> f CreateUserProfile
+cuprSshUsername :: Lens' CreateUserProfile (Maybe Text)
 cuprSshUsername f x =
-    (\y -> x { _cuprSshUsername = y })
-       <$> f (_cuprSshUsername x)
+    f (_cuprSshUsername x)
+        <&> \y -> x { _cuprSshUsername = y }
 {-# INLINE cuprSshUsername #-}
 
 -- | The user's public SSH key.
-cuprSshPublicKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateUserProfile
-    -> f CreateUserProfile
+cuprSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
 cuprSshPublicKey f x =
-    (\y -> x { _cuprSshPublicKey = y })
-       <$> f (_cuprSshPublicKey x)
+    f (_cuprSshPublicKey x)
+        <&> \y -> x { _cuprSshPublicKey = y }
 {-# INLINE cuprSshPublicKey #-}
 
 instance ToPath CreateUserProfile
@@ -137,15 +118,10 @@ data CreateUserProfileResponse = CreateUserProfileResponse
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
-cupsIamUserArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateUserProfileResponse
-    -> f CreateUserProfileResponse
+cupsIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
 cupsIamUserArn f x =
-    (\y -> x { _cupsIamUserArn = y })
-       <$> f (_cupsIamUserArn x)
+    f (_cupsIamUserArn x)
+        <&> \y -> x { _cupsIamUserArn = y }
 {-# INLINE cupsIamUserArn #-}
 
 instance FromJSON CreateUserProfileResponse

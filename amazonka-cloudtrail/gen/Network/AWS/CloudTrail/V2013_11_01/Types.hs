@@ -28,7 +28,6 @@ module Network.AWS.CloudTrail.V2013_11_01.Types
       CloudTrail
     -- ** Errors
     , Er (..)
-
     -- * Trail
     , Trail (..)
     , tmName
@@ -102,66 +101,41 @@ data Trail = Trail
     } deriving (Show, Generic)
 
 -- | Name of the trail set by calling CreateTrail.
-tmName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Trail
-    -> f Trail
+tmName :: Lens' Trail (Maybe Text)
 tmName f x =
-    (\y -> x { _tmName = y })
-       <$> f (_tmName x)
+    f (_tmName x)
+        <&> \y -> x { _tmName = y }
 {-# INLINE tmName #-}
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
 -- files.
-tmS3BucketName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Trail
-    -> f Trail
+tmS3BucketName :: Lens' Trail (Maybe Text)
 tmS3BucketName f x =
-    (\y -> x { _tmS3BucketName = y })
-       <$> f (_tmS3BucketName x)
+    f (_tmS3BucketName x)
+        <&> \y -> x { _tmS3BucketName = y }
 {-# INLINE tmS3BucketName #-}
 
 -- | Value of the Amazon S3 prefix.
-tmS3KeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Trail
-    -> f Trail
+tmS3KeyPrefix :: Lens' Trail (Maybe Text)
 tmS3KeyPrefix f x =
-    (\y -> x { _tmS3KeyPrefix = y })
-       <$> f (_tmS3KeyPrefix x)
+    f (_tmS3KeyPrefix x)
+        <&> \y -> x { _tmS3KeyPrefix = y }
 {-# INLINE tmS3KeyPrefix #-}
 
 -- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
 -- account owner when new CloudTrail log files have been delivered.
-tmSnsTopicName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Trail
-    -> f Trail
+tmSnsTopicName :: Lens' Trail (Maybe Text)
 tmSnsTopicName f x =
-    (\y -> x { _tmSnsTopicName = y })
-       <$> f (_tmSnsTopicName x)
+    f (_tmSnsTopicName x)
+        <&> \y -> x { _tmSnsTopicName = y }
 {-# INLINE tmSnsTopicName #-}
 
 -- | Set to True to include AWS API calls from AWS global services such as IAM.
 -- Otherwise, False.
-tmIncludeGlobalServiceEvents
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Trail
-    -> f Trail
+tmIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
 tmIncludeGlobalServiceEvents f x =
-    (\y -> x { _tmIncludeGlobalServiceEvents = y })
-       <$> f (_tmIncludeGlobalServiceEvents x)
+    f (_tmIncludeGlobalServiceEvents x)
+        <&> \y -> x { _tmIncludeGlobalServiceEvents = y }
 {-# INLINE tmIncludeGlobalServiceEvents #-}
 
 instance FromJSON Trail

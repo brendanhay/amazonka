@@ -84,6 +84,7 @@ getRecords p1 = GetRecords
     { _griShardIterator = p1
     , _griLimit = Nothing
     }
+{-# INLINE getRecords #-}
 
 data GetRecords = GetRecords
     { _griShardIterator :: Text
@@ -96,28 +97,18 @@ data GetRecords = GetRecords
 
 -- | The position in the shard from which you want to start sequentially reading
 -- data records.
-griShardIterator
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRecords
-    -> f GetRecords
+griShardIterator :: Lens' GetRecords (Text)
 griShardIterator f x =
-    (\y -> x { _griShardIterator = y })
-       <$> f (_griShardIterator x)
+    f (_griShardIterator x)
+        <&> \y -> x { _griShardIterator = y }
 {-# INLINE griShardIterator #-}
 
 -- | The maximum number of records to return, which can be set to a value of up
 -- to 10,000.
-griLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetRecords
-    -> f GetRecords
+griLimit :: Lens' GetRecords (Maybe Integer)
 griLimit f x =
-    (\y -> x { _griLimit = y })
-       <$> f (_griLimit x)
+    f (_griLimit x)
+        <&> \y -> x { _griLimit = y }
 {-# INLINE griLimit #-}
 
 instance ToPath GetRecords
@@ -138,29 +129,19 @@ data GetRecordsResponse = GetRecordsResponse
     } deriving (Show, Generic)
 
 -- | The data records retrieved from the shard.
-groRecords
-    :: Functor f
-    => ([Record]
-    -> f ([Record]))
-    -> GetRecordsResponse
-    -> f GetRecordsResponse
+groRecords :: Lens' GetRecordsResponse ([Record])
 groRecords f x =
-    (\y -> x { _groRecords = y })
-       <$> f (_groRecords x)
+    f (_groRecords x)
+        <&> \y -> x { _groRecords = y }
 {-# INLINE groRecords #-}
 
 -- | The next position in the shard from which to start sequentially reading
 -- data records. If set to null, the shard has been closed and the requested
 -- iterator will not return any more data.
-groNextShardIterator
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetRecordsResponse
-    -> f GetRecordsResponse
+groNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 groNextShardIterator f x =
-    (\y -> x { _groNextShardIterator = y })
-       <$> f (_groNextShardIterator x)
+    f (_groNextShardIterator x)
+        <&> \y -> x { _groNextShardIterator = y }
 {-# INLINE groNextShardIterator #-}
 
 instance FromJSON GetRecordsResponse

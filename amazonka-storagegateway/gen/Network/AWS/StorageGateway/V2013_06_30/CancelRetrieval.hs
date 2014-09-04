@@ -46,6 +46,7 @@ cancelRetrieval p1 p2 = CancelRetrieval
     { _criGatewayARN = p1
     , _criTapeARN = p2
     }
+{-# INLINE cancelRetrieval #-}
 
 data CancelRetrieval = CancelRetrieval
     { _criGatewayARN :: Text
@@ -57,26 +58,16 @@ data CancelRetrieval = CancelRetrieval
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-criGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelRetrieval
-    -> f CancelRetrieval
+criGatewayARN :: Lens' CancelRetrieval (Text)
 criGatewayARN f x =
-    (\y -> x { _criGatewayARN = y })
-       <$> f (_criGatewayARN x)
+    f (_criGatewayARN x)
+        <&> \y -> x { _criGatewayARN = y }
 {-# INLINE criGatewayARN #-}
 
-criTapeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelRetrieval
-    -> f CancelRetrieval
+criTapeARN :: Lens' CancelRetrieval (Text)
 criTapeARN f x =
-    (\y -> x { _criTapeARN = y })
-       <$> f (_criTapeARN x)
+    f (_criTapeARN x)
+        <&> \y -> x { _criTapeARN = y }
 {-# INLINE criTapeARN #-}
 
 instance ToPath CancelRetrieval
@@ -91,15 +82,10 @@ data CancelRetrievalResponse = CancelRetrievalResponse
     { _croTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-croTapeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CancelRetrievalResponse
-    -> f CancelRetrievalResponse
+croTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 croTapeARN f x =
-    (\y -> x { _croTapeARN = y })
-       <$> f (_croTapeARN x)
+    f (_croTapeARN x)
+        <&> \y -> x { _croTapeARN = y }
 {-# INLINE croTapeARN #-}
 
 instance FromJSON CancelRetrievalResponse

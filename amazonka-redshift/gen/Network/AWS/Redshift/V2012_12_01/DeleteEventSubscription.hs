@@ -41,6 +41,7 @@ deleteEventSubscription :: Text -- ^ 'desmSubscriptionName'
 deleteEventSubscription p1 = DeleteEventSubscription
     { _desmSubscriptionName = p1
     }
+{-# INLINE deleteEventSubscription #-}
 
 data DeleteEventSubscription = DeleteEventSubscription
     { _desmSubscriptionName :: Text
@@ -50,15 +51,10 @@ data DeleteEventSubscription = DeleteEventSubscription
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
-desmSubscriptionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteEventSubscription
-    -> f DeleteEventSubscription
+desmSubscriptionName :: Lens' DeleteEventSubscription (Text)
 desmSubscriptionName f x =
-    (\y -> x { _desmSubscriptionName = y })
-       <$> f (_desmSubscriptionName x)
+    f (_desmSubscriptionName x)
+        <&> \y -> x { _desmSubscriptionName = y }
 {-# INLINE desmSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where

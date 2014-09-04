@@ -119,6 +119,7 @@ transferDomain p1 p2 p3 p4 p5 p6 = TransferDomain
     , _tdrAuthCode = Nothing
     , _tdrIdnLangCode = Nothing
     }
+{-# INLINE transferDomain #-}
 
 data TransferDomain = TransferDomain
     { _tdrAdminContact :: ContactDetail
@@ -183,172 +184,112 @@ data TransferDomain = TransferDomain
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-tdrAdminContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> TransferDomain
-    -> f TransferDomain
+tdrAdminContact :: Lens' TransferDomain (ContactDetail)
 tdrAdminContact f x =
-    (\y -> x { _tdrAdminContact = y })
-       <$> f (_tdrAdminContact x)
+    f (_tdrAdminContact x)
+        <&> \y -> x { _tdrAdminContact = y }
 {-# INLINE tdrAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-tdrRegistrantContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> TransferDomain
-    -> f TransferDomain
+tdrRegistrantContact :: Lens' TransferDomain (ContactDetail)
 tdrRegistrantContact f x =
-    (\y -> x { _tdrRegistrantContact = y })
-       <$> f (_tdrRegistrantContact x)
+    f (_tdrRegistrantContact x)
+        <&> \y -> x { _tdrRegistrantContact = y }
 {-# INLINE tdrRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-tdrTechContact
-    :: Functor f
-    => (ContactDetail
-    -> f (ContactDetail))
-    -> TransferDomain
-    -> f TransferDomain
+tdrTechContact :: Lens' TransferDomain (ContactDetail)
 tdrTechContact f x =
-    (\y -> x { _tdrTechContact = y })
-       <$> f (_tdrTechContact x)
+    f (_tdrTechContact x)
+        <&> \y -> x { _tdrTechContact = y }
 {-# INLINE tdrTechContact #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-tdrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TransferDomain
-    -> f TransferDomain
+tdrDomainName :: Lens' TransferDomain (Text)
 tdrDomainName f x =
-    (\y -> x { _tdrDomainName = y })
-       <$> f (_tdrDomainName x)
+    f (_tdrDomainName x)
+        <&> \y -> x { _tdrDomainName = y }
 {-# INLINE tdrDomainName #-}
 
 -- | The number of years the domain will be registered. Domains are registered
 -- for a minimum of one year. The maximum period depends on the top-level
 -- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
 -- Required: Yes.
-tdrDurationInYears
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> TransferDomain
-    -> f TransferDomain
+tdrDurationInYears :: Lens' TransferDomain (Integer)
 tdrDurationInYears f x =
-    (\y -> x { _tdrDurationInYears = y })
-       <$> f (_tdrDurationInYears x)
+    f (_tdrDurationInYears x)
+        <&> \y -> x { _tdrDurationInYears = y }
 {-# INLINE tdrDurationInYears #-}
 
 -- | Contains details for the host and glue IP addresses. Type: Complex
 -- Children: GlueIps, Name.
-tdrNameservers
-    :: Functor f
-    => ([Nameserver]
-    -> f ([Nameserver]))
-    -> TransferDomain
-    -> f TransferDomain
+tdrNameservers :: Lens' TransferDomain ([Nameserver])
 tdrNameservers f x =
-    (\y -> x { _tdrNameservers = y })
-       <$> f (_tdrNameservers x)
+    f (_tdrNameservers x)
+        <&> \y -> x { _tdrNameservers = y }
 {-# INLINE tdrNameservers #-}
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged. Type:
 -- Boolean Valid values: true | false Default: true Required: No.
-tdrAutoRenew
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TransferDomain
-    -> f TransferDomain
+tdrAutoRenew :: Lens' TransferDomain (Maybe Bool)
 tdrAutoRenew f x =
-    (\y -> x { _tdrAutoRenew = y })
-       <$> f (_tdrAutoRenew x)
+    f (_tdrAutoRenew x)
+        <&> \y -> x { _tdrAutoRenew = y }
 {-# INLINE tdrAutoRenew #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-tdrPrivacyProtectAdminContact
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TransferDomain
-    -> f TransferDomain
+tdrPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
 tdrPrivacyProtectAdminContact f x =
-    (\y -> x { _tdrPrivacyProtectAdminContact = y })
-       <$> f (_tdrPrivacyProtectAdminContact x)
+    f (_tdrPrivacyProtectAdminContact x)
+        <&> \y -> x { _tdrPrivacyProtectAdminContact = y }
 {-# INLINE tdrPrivacyProtectAdminContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-tdrPrivacyProtectRegistrantContact
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TransferDomain
-    -> f TransferDomain
+tdrPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
 tdrPrivacyProtectRegistrantContact f x =
-    (\y -> x { _tdrPrivacyProtectRegistrantContact = y })
-       <$> f (_tdrPrivacyProtectRegistrantContact x)
+    f (_tdrPrivacyProtectRegistrantContact x)
+        <&> \y -> x { _tdrPrivacyProtectRegistrantContact = y }
 {-# INLINE tdrPrivacyProtectRegistrantContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-tdrPrivacyProtectTechContact
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TransferDomain
-    -> f TransferDomain
+tdrPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
 tdrPrivacyProtectTechContact f x =
-    (\y -> x { _tdrPrivacyProtectTechContact = y })
-       <$> f (_tdrPrivacyProtectTechContact x)
+    f (_tdrPrivacyProtectTechContact x)
+        <&> \y -> x { _tdrPrivacyProtectTechContact = y }
 {-# INLINE tdrPrivacyProtectTechContact #-}
 
 -- | The authorization code for the domain. You get this value from the current
 -- registrar. Type: String Required: Yes.
-tdrAuthCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TransferDomain
-    -> f TransferDomain
+tdrAuthCode :: Lens' TransferDomain (Maybe Text)
 tdrAuthCode f x =
-    (\y -> x { _tdrAuthCode = y })
-       <$> f (_tdrAuthCode x)
+    f (_tdrAuthCode x)
+        <&> \y -> x { _tdrAuthCode = y }
 {-# INLINE tdrAuthCode #-}
 
 -- | Reserved for future use.
-tdrIdnLangCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TransferDomain
-    -> f TransferDomain
+tdrIdnLangCode :: Lens' TransferDomain (Maybe Text)
 tdrIdnLangCode f x =
-    (\y -> x { _tdrIdnLangCode = y })
-       <$> f (_tdrIdnLangCode x)
+    f (_tdrIdnLangCode x)
+        <&> \y -> x { _tdrIdnLangCode = y }
 {-# INLINE tdrIdnLangCode #-}
 
 instance ToPath TransferDomain
@@ -369,15 +310,10 @@ data TransferDomainResponse = TransferDomainResponse
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-tdsOperationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TransferDomainResponse
-    -> f TransferDomainResponse
+tdsOperationId :: Lens' TransferDomainResponse (Text)
 tdsOperationId f x =
-    (\y -> x { _tdsOperationId = y })
-       <$> f (_tdsOperationId x)
+    f (_tdsOperationId x)
+        <&> \y -> x { _tdsOperationId = y }
 {-# INLINE tdsOperationId #-}
 
 instance FromJSON TransferDomainResponse

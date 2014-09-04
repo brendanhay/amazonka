@@ -51,6 +51,7 @@ describeVTLDevices p1 = DescribeVTLDevices
     , _dvtldiLimit = Nothing
     , _dvtldiVTLDeviceARNs = mempty
     }
+{-# INLINE describeVTLDevices #-}
 
 data DescribeVTLDevices = DescribeVTLDevices
     { _dvtldiGatewayARN :: Text
@@ -64,48 +65,28 @@ data DescribeVTLDevices = DescribeVTLDevices
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dvtldiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeVTLDevices
-    -> f DescribeVTLDevices
+dvtldiGatewayARN :: Lens' DescribeVTLDevices (Text)
 dvtldiGatewayARN f x =
-    (\y -> x { _dvtldiGatewayARN = y })
-       <$> f (_dvtldiGatewayARN x)
+    f (_dvtldiGatewayARN x)
+        <&> \y -> x { _dvtldiGatewayARN = y }
 {-# INLINE dvtldiGatewayARN #-}
 
-dvtldiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVTLDevices
-    -> f DescribeVTLDevices
+dvtldiMarker :: Lens' DescribeVTLDevices (Maybe Text)
 dvtldiMarker f x =
-    (\y -> x { _dvtldiMarker = y })
-       <$> f (_dvtldiMarker x)
+    f (_dvtldiMarker x)
+        <&> \y -> x { _dvtldiMarker = y }
 {-# INLINE dvtldiMarker #-}
 
-dvtldiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeVTLDevices
-    -> f DescribeVTLDevices
+dvtldiLimit :: Lens' DescribeVTLDevices (Maybe Integer)
 dvtldiLimit f x =
-    (\y -> x { _dvtldiLimit = y })
-       <$> f (_dvtldiLimit x)
+    f (_dvtldiLimit x)
+        <&> \y -> x { _dvtldiLimit = y }
 {-# INLINE dvtldiLimit #-}
 
-dvtldiVTLDeviceARNs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVTLDevices
-    -> f DescribeVTLDevices
+dvtldiVTLDeviceARNs :: Lens' DescribeVTLDevices ([Text])
 dvtldiVTLDeviceARNs f x =
-    (\y -> x { _dvtldiVTLDeviceARNs = y })
-       <$> f (_dvtldiVTLDeviceARNs x)
+    f (_dvtldiVTLDeviceARNs x)
+        <&> \y -> x { _dvtldiVTLDeviceARNs = y }
 {-# INLINE dvtldiVTLDeviceARNs #-}
 
 instance ToPath DescribeVTLDevices
@@ -127,37 +108,22 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dvtldoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVTLDevicesResponse
-    -> f DescribeVTLDevicesResponse
+dvtldoGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldoGatewayARN f x =
-    (\y -> x { _dvtldoGatewayARN = y })
-       <$> f (_dvtldoGatewayARN x)
+    f (_dvtldoGatewayARN x)
+        <&> \y -> x { _dvtldoGatewayARN = y }
 {-# INLINE dvtldoGatewayARN #-}
 
-dvtldoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVTLDevicesResponse
-    -> f DescribeVTLDevicesResponse
+dvtldoMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldoMarker f x =
-    (\y -> x { _dvtldoMarker = y })
-       <$> f (_dvtldoMarker x)
+    f (_dvtldoMarker x)
+        <&> \y -> x { _dvtldoMarker = y }
 {-# INLINE dvtldoMarker #-}
 
-dvtldoVTLDevices
-    :: Functor f
-    => ([VTLDevice]
-    -> f ([VTLDevice]))
-    -> DescribeVTLDevicesResponse
-    -> f DescribeVTLDevicesResponse
+dvtldoVTLDevices :: Lens' DescribeVTLDevicesResponse ([VTLDevice])
 dvtldoVTLDevices f x =
-    (\y -> x { _dvtldoVTLDevices = y })
-       <$> f (_dvtldoVTLDevices x)
+    f (_dvtldoVTLDevices x)
+        <&> \y -> x { _dvtldoVTLDevices = y }
 {-# INLINE dvtldoVTLDevices #-}
 
 instance FromJSON DescribeVTLDevicesResponse

@@ -75,6 +75,7 @@ createSnapshot p1 p2 = CreateSnapshot
     { _csiSnapshotDescription = p1
     , _csiVolumeARN = p2
     }
+{-# INLINE createSnapshot #-}
 
 data CreateSnapshot = CreateSnapshot
     { _csiSnapshotDescription :: Text
@@ -90,28 +91,18 @@ data CreateSnapshot = CreateSnapshot
 -- | Textual description of the snapshot that appears in the Amazon EC2 console,
 -- Elastic Block Store snapshots panel in the Description field, and in the
 -- AWS Storage Gateway snapshot Details pane, Description field.
-csiSnapshotDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSnapshot
-    -> f CreateSnapshot
+csiSnapshotDescription :: Lens' CreateSnapshot (Text)
 csiSnapshotDescription f x =
-    (\y -> x { _csiSnapshotDescription = y })
-       <$> f (_csiSnapshotDescription x)
+    f (_csiSnapshotDescription x)
+        <&> \y -> x { _csiSnapshotDescription = y }
 {-# INLINE csiSnapshotDescription #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-csiVolumeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSnapshot
-    -> f CreateSnapshot
+csiVolumeARN :: Lens' CreateSnapshot (Text)
 csiVolumeARN f x =
-    (\y -> x { _csiVolumeARN = y })
-       <$> f (_csiVolumeARN x)
+    f (_csiVolumeARN x)
+        <&> \y -> x { _csiVolumeARN = y }
 {-# INLINE csiVolumeARN #-}
 
 instance ToPath CreateSnapshot
@@ -137,28 +128,18 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 -- such as describing snapshots (Amazon Elastic Compute Cloud API
 -- DescribeSnapshots) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
-csoSnapshotId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSnapshotResponse
-    -> f CreateSnapshotResponse
+csoSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csoSnapshotId f x =
-    (\y -> x { _csoSnapshotId = y })
-       <$> f (_csoSnapshotId x)
+    f (_csoSnapshotId x)
+        <&> \y -> x { _csoSnapshotId = y }
 {-# INLINE csoSnapshotId #-}
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
-csoVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSnapshotResponse
-    -> f CreateSnapshotResponse
+csoVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
 csoVolumeARN f x =
-    (\y -> x { _csoVolumeARN = y })
-       <$> f (_csoVolumeARN x)
+    f (_csoVolumeARN x)
+        <&> \y -> x { _csoVolumeARN = y }
 {-# INLINE csoVolumeARN #-}
 
 instance FromJSON CreateSnapshotResponse

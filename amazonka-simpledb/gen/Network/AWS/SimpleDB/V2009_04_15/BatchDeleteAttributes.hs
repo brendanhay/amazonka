@@ -59,6 +59,7 @@ batchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdarItems = p1
     , _bdarDomainName = p2
     }
+{-# INLINE batchDeleteAttributes #-}
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdarItems :: [DeletableItem]
@@ -68,27 +69,17 @@ data BatchDeleteAttributes = BatchDeleteAttributes
     } deriving (Show, Generic)
 
 -- | A list of items on which to perform the operation.
-bdarItems
-    :: Functor f
-    => ([DeletableItem]
-    -> f ([DeletableItem]))
-    -> BatchDeleteAttributes
-    -> f BatchDeleteAttributes
+bdarItems :: Lens' BatchDeleteAttributes ([DeletableItem])
 bdarItems f x =
-    (\y -> x { _bdarItems = y })
-       <$> f (_bdarItems x)
+    f (_bdarItems x)
+        <&> \y -> x { _bdarItems = y }
 {-# INLINE bdarItems #-}
 
 -- | The name of the domain in which the attributes are being deleted.
-bdarDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> BatchDeleteAttributes
-    -> f BatchDeleteAttributes
+bdarDomainName :: Lens' BatchDeleteAttributes (Text)
 bdarDomainName f x =
-    (\y -> x { _bdarDomainName = y })
-       <$> f (_bdarDomainName x)
+    f (_bdarDomainName x)
+        <&> \y -> x { _bdarDomainName = y }
 {-# INLINE bdarDomainName #-}
 
 instance ToQuery BatchDeleteAttributes where

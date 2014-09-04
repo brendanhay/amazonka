@@ -68,6 +68,7 @@ updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
     , _ubrliAverageDownloadRateLimitInBitsPerSec = Nothing
     , _ubrliAverageUploadRateLimitInBitsPerSec = Nothing
     }
+{-# INLINE updateBandwidthRateLimit #-}
 
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
     { _ubrliGatewayARN :: Text
@@ -82,39 +83,24 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ubrliGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateBandwidthRateLimit
-    -> f UpdateBandwidthRateLimit
+ubrliGatewayARN :: Lens' UpdateBandwidthRateLimit (Text)
 ubrliGatewayARN f x =
-    (\y -> x { _ubrliGatewayARN = y })
-       <$> f (_ubrliGatewayARN x)
+    f (_ubrliGatewayARN x)
+        <&> \y -> x { _ubrliGatewayARN = y }
 {-# INLINE ubrliGatewayARN #-}
 
 -- | The average download bandwidth rate limit in bits per second.
-ubrliAverageDownloadRateLimitInBitsPerSec
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateBandwidthRateLimit
-    -> f UpdateBandwidthRateLimit
+ubrliAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Integer)
 ubrliAverageDownloadRateLimitInBitsPerSec f x =
-    (\y -> x { _ubrliAverageDownloadRateLimitInBitsPerSec = y })
-       <$> f (_ubrliAverageDownloadRateLimitInBitsPerSec x)
+    f (_ubrliAverageDownloadRateLimitInBitsPerSec x)
+        <&> \y -> x { _ubrliAverageDownloadRateLimitInBitsPerSec = y }
 {-# INLINE ubrliAverageDownloadRateLimitInBitsPerSec #-}
 
 -- | The average upload bandwidth rate limit in bits per second.
-ubrliAverageUploadRateLimitInBitsPerSec
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateBandwidthRateLimit
-    -> f UpdateBandwidthRateLimit
+ubrliAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Integer)
 ubrliAverageUploadRateLimitInBitsPerSec f x =
-    (\y -> x { _ubrliAverageUploadRateLimitInBitsPerSec = y })
-       <$> f (_ubrliAverageUploadRateLimitInBitsPerSec x)
+    f (_ubrliAverageUploadRateLimitInBitsPerSec x)
+        <&> \y -> x { _ubrliAverageUploadRateLimitInBitsPerSec = y }
 {-# INLINE ubrliAverageUploadRateLimitInBitsPerSec #-}
 
 instance ToPath UpdateBandwidthRateLimit
@@ -134,15 +120,10 @@ data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ubrloGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateBandwidthRateLimitResponse
-    -> f UpdateBandwidthRateLimitResponse
+ubrloGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrloGatewayARN f x =
-    (\y -> x { _ubrloGatewayARN = y })
-       <$> f (_ubrloGatewayARN x)
+    f (_ubrloGatewayARN x)
+        <&> \y -> x { _ubrloGatewayARN = y }
 {-# INLINE ubrloGatewayARN #-}
 
 instance FromJSON UpdateBandwidthRateLimitResponse

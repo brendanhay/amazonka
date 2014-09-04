@@ -77,6 +77,7 @@ describeLogStreams p1 = DescribeLogStreams
     , _dlssLogStreamNamePrefix = Nothing
     , _dlssNextToken = Nothing
     }
+{-# INLINE describeLogStreams #-}
 
 data DescribeLogStreams = DescribeLogStreams
     { _dlssLogGroupName :: Text
@@ -90,53 +91,33 @@ data DescribeLogStreams = DescribeLogStreams
       -- previous DescribeLogStreams request.
     } deriving (Show, Generic)
 
-dlssLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeLogStreams
-    -> f DescribeLogStreams
+dlssLogGroupName :: Lens' DescribeLogStreams (Text)
 dlssLogGroupName f x =
-    (\y -> x { _dlssLogGroupName = y })
-       <$> f (_dlssLogGroupName x)
+    f (_dlssLogGroupName x)
+        <&> \y -> x { _dlssLogGroupName = y }
 {-# INLINE dlssLogGroupName #-}
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
-dlssLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeLogStreams
-    -> f DescribeLogStreams
+dlssLimit :: Lens' DescribeLogStreams (Maybe Integer)
 dlssLimit f x =
-    (\y -> x { _dlssLimit = y })
-       <$> f (_dlssLimit x)
+    f (_dlssLimit x)
+        <&> \y -> x { _dlssLimit = y }
 {-# INLINE dlssLimit #-}
 
-dlssLogStreamNamePrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLogStreams
-    -> f DescribeLogStreams
+dlssLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dlssLogStreamNamePrefix f x =
-    (\y -> x { _dlssLogStreamNamePrefix = y })
-       <$> f (_dlssLogStreamNamePrefix x)
+    f (_dlssLogStreamNamePrefix x)
+        <&> \y -> x { _dlssLogStreamNamePrefix = y }
 {-# INLINE dlssLogStreamNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeLogStreams request.
-dlssNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLogStreams
-    -> f DescribeLogStreams
+dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
 dlssNextToken f x =
-    (\y -> x { _dlssNextToken = y })
-       <$> f (_dlssNextToken x)
+    f (_dlssNextToken x)
+        <&> \y -> x { _dlssNextToken = y }
 {-# INLINE dlssNextToken #-}
 
 instance ToPath DescribeLogStreams
@@ -157,29 +138,19 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     } deriving (Show, Generic)
 
 -- | A list of log streams.
-dlstLogStreams
-    :: Functor f
-    => ([LogStream]
-    -> f ([LogStream]))
-    -> DescribeLogStreamsResponse
-    -> f DescribeLogStreamsResponse
+dlstLogStreams :: Lens' DescribeLogStreamsResponse ([LogStream])
 dlstLogStreams f x =
-    (\y -> x { _dlstLogStreams = y })
-       <$> f (_dlstLogStreams x)
+    f (_dlstLogStreams x)
+        <&> \y -> x { _dlstLogStreams = y }
 {-# INLINE dlstLogStreams #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dlstNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLogStreamsResponse
-    -> f DescribeLogStreamsResponse
+dlstNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlstNextToken f x =
-    (\y -> x { _dlstNextToken = y })
-       <$> f (_dlstNextToken x)
+    f (_dlstNextToken x)
+        <&> \y -> x { _dlstNextToken = y }
 {-# INLINE dlstNextToken #-}
 
 instance FromJSON DescribeLogStreamsResponse

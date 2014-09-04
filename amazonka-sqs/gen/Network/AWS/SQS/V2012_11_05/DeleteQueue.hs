@@ -57,6 +57,7 @@ deleteQueue :: Text -- ^ 'dqrQueueUrl'
 deleteQueue p1 = DeleteQueue
     { _dqrQueueUrl = p1
     }
+{-# INLINE deleteQueue #-}
 
 data DeleteQueue = DeleteQueue
     { _dqrQueueUrl :: Text
@@ -64,15 +65,10 @@ data DeleteQueue = DeleteQueue
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
-dqrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteQueue
-    -> f DeleteQueue
+dqrQueueUrl :: Lens' DeleteQueue (Text)
 dqrQueueUrl f x =
-    (\y -> x { _dqrQueueUrl = y })
-       <$> f (_dqrQueueUrl x)
+    f (_dqrQueueUrl x)
+        <&> \y -> x { _dqrQueueUrl = y }
 {-# INLINE dqrQueueUrl #-}
 
 instance ToQuery DeleteQueue where

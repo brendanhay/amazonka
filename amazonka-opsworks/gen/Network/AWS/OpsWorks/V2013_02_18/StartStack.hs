@@ -45,6 +45,7 @@ startStack :: Text -- ^ 'ssssssssssssssssssssxStackId'
 startStack p1 = StartStack
     { _ssssssssssssssssssssxStackId = p1
     }
+{-# INLINE startStack #-}
 
 data StartStack = StartStack
     { _ssssssssssssssssssssxStackId :: Text
@@ -52,15 +53,10 @@ data StartStack = StartStack
     } deriving (Show, Generic)
 
 -- | The stack ID.
-ssssssssssssssssssssxStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartStack
-    -> f StartStack
+ssssssssssssssssssssxStackId :: Lens' StartStack (Text)
 ssssssssssssssssssssxStackId f x =
-    (\y -> x { _ssssssssssssssssssssxStackId = y })
-       <$> f (_ssssssssssssssssssssxStackId x)
+    f (_ssssssssssssssssssssxStackId x)
+        <&> \y -> x { _ssssssssssssssssssssxStackId = y }
 {-# INLINE ssssssssssssssssssssxStackId #-}
 
 instance ToPath StartStack

@@ -64,6 +64,7 @@ verifyDomainDkim :: Text -- ^ 'vddrDomain'
 verifyDomainDkim p1 = VerifyDomainDkim
     { _vddrDomain = p1
     }
+{-# INLINE verifyDomainDkim #-}
 
 data VerifyDomainDkim = VerifyDomainDkim
     { _vddrDomain :: Text
@@ -71,15 +72,10 @@ data VerifyDomainDkim = VerifyDomainDkim
     } deriving (Show, Generic)
 
 -- | The name of the domain to be verified for Easy DKIM signing.
-vddrDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> VerifyDomainDkim
-    -> f VerifyDomainDkim
+vddrDomain :: Lens' VerifyDomainDkim (Text)
 vddrDomain f x =
-    (\y -> x { _vddrDomain = y })
-       <$> f (_vddrDomain x)
+    f (_vddrDomain x)
+        <&> \y -> x { _vddrDomain = y }
 {-# INLINE vddrDomain #-}
 
 instance ToQuery VerifyDomainDkim where
@@ -108,15 +104,10 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse
 -- be able to DKIM-sign emails originating from that domain. For more
 -- information about creating DNS records using DKIM tokens, go to the Amazon
 -- SES Developer Guide.
-vddsDkimTokens
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> VerifyDomainDkimResponse
-    -> f VerifyDomainDkimResponse
+vddsDkimTokens :: Lens' VerifyDomainDkimResponse ([Text])
 vddsDkimTokens f x =
-    (\y -> x { _vddsDkimTokens = y })
-       <$> f (_vddsDkimTokens x)
+    f (_vddsDkimTokens x)
+        <&> \y -> x { _vddsDkimTokens = y }
 {-# INLINE vddsDkimTokens #-}
 
 instance FromXML VerifyDomainDkimResponse where

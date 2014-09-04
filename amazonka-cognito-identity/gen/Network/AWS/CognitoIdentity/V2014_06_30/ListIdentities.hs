@@ -58,6 +58,7 @@ listIdentities p1 p2 = ListIdentities
     , _liiMaxResults = p2
     , _liiNextToken = Nothing
     }
+{-# INLINE listIdentities #-}
 
 data ListIdentities = ListIdentities
     { _liiIdentityPoolId :: Text
@@ -69,39 +70,24 @@ data ListIdentities = ListIdentities
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-liiIdentityPoolId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListIdentities
-    -> f ListIdentities
+liiIdentityPoolId :: Lens' ListIdentities (Text)
 liiIdentityPoolId f x =
-    (\y -> x { _liiIdentityPoolId = y })
-       <$> f (_liiIdentityPoolId x)
+    f (_liiIdentityPoolId x)
+        <&> \y -> x { _liiIdentityPoolId = y }
 {-# INLINE liiIdentityPoolId #-}
 
 -- | The maximum number of identities to return.
-liiMaxResults
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ListIdentities
-    -> f ListIdentities
+liiMaxResults :: Lens' ListIdentities (Integer)
 liiMaxResults f x =
-    (\y -> x { _liiMaxResults = y })
-       <$> f (_liiMaxResults x)
+    f (_liiMaxResults x)
+        <&> \y -> x { _liiMaxResults = y }
 {-# INLINE liiMaxResults #-}
 
 -- | A pagination token.
-liiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentities
-    -> f ListIdentities
+liiNextToken :: Lens' ListIdentities (Maybe Text)
 liiNextToken f x =
-    (\y -> x { _liiNextToken = y })
-       <$> f (_liiNextToken x)
+    f (_liiNextToken x)
+        <&> \y -> x { _liiNextToken = y }
 {-# INLINE liiNextToken #-}
 
 instance ToPath ListIdentities
@@ -122,39 +108,24 @@ data ListIdentitiesResponse = ListIdentitiesResponse
     } deriving (Show, Generic)
 
 -- | An object containing a set of identities and associated mappings.
-lirIdentities
-    :: Functor f
-    => ([IdentityDescription]
-    -> f ([IdentityDescription]))
-    -> ListIdentitiesResponse
-    -> f ListIdentitiesResponse
+lirIdentities :: Lens' ListIdentitiesResponse ([IdentityDescription])
 lirIdentities f x =
-    (\y -> x { _lirIdentities = y })
-       <$> f (_lirIdentities x)
+    f (_lirIdentities x)
+        <&> \y -> x { _lirIdentities = y }
 {-# INLINE lirIdentities #-}
 
 -- | An identity pool ID in the format REGION:GUID.
-lirIdentityPoolId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentitiesResponse
-    -> f ListIdentitiesResponse
+lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
 lirIdentityPoolId f x =
-    (\y -> x { _lirIdentityPoolId = y })
-       <$> f (_lirIdentityPoolId x)
+    f (_lirIdentityPoolId x)
+        <&> \y -> x { _lirIdentityPoolId = y }
 {-# INLINE lirIdentityPoolId #-}
 
 -- | A pagination token.
-lirNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListIdentitiesResponse
-    -> f ListIdentitiesResponse
+lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken f x =
-    (\y -> x { _lirNextToken = y })
-       <$> f (_lirNextToken x)
+    f (_lirNextToken x)
+        <&> \y -> x { _lirNextToken = y }
 {-# INLINE lirNextToken #-}
 
 instance FromJSON ListIdentitiesResponse

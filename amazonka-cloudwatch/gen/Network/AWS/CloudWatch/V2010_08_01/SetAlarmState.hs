@@ -52,6 +52,7 @@ setAlarmState p1 p2 p3 = SetAlarmState
     , _sasiStateValue = p3
     , _sasiStateReasonData = Nothing
     }
+{-# INLINE setAlarmState #-}
 
 data SetAlarmState = SetAlarmState
     { _sasiAlarmName :: Text
@@ -70,53 +71,33 @@ data SetAlarmState = SetAlarmState
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account. The maximum length is 255 characters.
-sasiAlarmName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetAlarmState
-    -> f SetAlarmState
+sasiAlarmName :: Lens' SetAlarmState (Text)
 sasiAlarmName f x =
-    (\y -> x { _sasiAlarmName = y })
-       <$> f (_sasiAlarmName x)
+    f (_sasiAlarmName x)
+        <&> \y -> x { _sasiAlarmName = y }
 {-# INLINE sasiAlarmName #-}
 
 -- | The reason that this alarm is set to this specific state (in human-readable
 -- text format).
-sasiStateReason
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetAlarmState
-    -> f SetAlarmState
+sasiStateReason :: Lens' SetAlarmState (Text)
 sasiStateReason f x =
-    (\y -> x { _sasiStateReason = y })
-       <$> f (_sasiStateReason x)
+    f (_sasiStateReason x)
+        <&> \y -> x { _sasiStateReason = y }
 {-# INLINE sasiStateReason #-}
 
 -- | The value of the state.
-sasiStateValue
-    :: Functor f
-    => (StateValue
-    -> f (StateValue))
-    -> SetAlarmState
-    -> f SetAlarmState
+sasiStateValue :: Lens' SetAlarmState (StateValue)
 sasiStateValue f x =
-    (\y -> x { _sasiStateValue = y })
-       <$> f (_sasiStateValue x)
+    f (_sasiStateValue x)
+        <&> \y -> x { _sasiStateValue = y }
 {-# INLINE sasiStateValue #-}
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format).
-sasiStateReasonData
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetAlarmState
-    -> f SetAlarmState
+sasiStateReasonData :: Lens' SetAlarmState (Maybe Text)
 sasiStateReasonData f x =
-    (\y -> x { _sasiStateReasonData = y })
-       <$> f (_sasiStateReasonData x)
+    f (_sasiStateReasonData x)
+        <&> \y -> x { _sasiStateReasonData = y }
 {-# INLINE sasiStateReasonData #-}
 
 instance ToQuery SetAlarmState where

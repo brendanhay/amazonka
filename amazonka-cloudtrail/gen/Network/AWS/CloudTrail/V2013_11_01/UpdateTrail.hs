@@ -60,6 +60,7 @@ updateTrail p1 = UpdateTrail
     , _utrS3KeyPrefix = Nothing
     , _utrSnsTopicName = Nothing
     }
+{-# INLINE updateTrail #-}
 
 data UpdateTrail = UpdateTrail
     { _utrName :: Text
@@ -79,67 +80,42 @@ data UpdateTrail = UpdateTrail
     } deriving (Show, Generic)
 
 -- | Specifies the name of the trail.
-utrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateTrail
-    -> f UpdateTrail
+utrName :: Lens' UpdateTrail (Text)
 utrName f x =
-    (\y -> x { _utrName = y })
-       <$> f (_utrName x)
+    f (_utrName x)
+        <&> \y -> x { _utrName = y }
 {-# INLINE utrName #-}
 
 -- | Specifies whether the trail is publishing events from global services such
 -- as IAM to the log files.
-utrIncludeGlobalServiceEvents
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateTrail
-    -> f UpdateTrail
+utrIncludeGlobalServiceEvents :: Lens' UpdateTrail (Maybe Bool)
 utrIncludeGlobalServiceEvents f x =
-    (\y -> x { _utrIncludeGlobalServiceEvents = y })
-       <$> f (_utrIncludeGlobalServiceEvents x)
+    f (_utrIncludeGlobalServiceEvents x)
+        <&> \y -> x { _utrIncludeGlobalServiceEvents = y }
 {-# INLINE utrIncludeGlobalServiceEvents #-}
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-utrS3BucketName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrail
-    -> f UpdateTrail
+utrS3BucketName :: Lens' UpdateTrail (Maybe Text)
 utrS3BucketName f x =
-    (\y -> x { _utrS3BucketName = y })
-       <$> f (_utrS3BucketName x)
+    f (_utrS3BucketName x)
+        <&> \y -> x { _utrS3BucketName = y }
 {-# INLINE utrS3BucketName #-}
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
-utrS3KeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrail
-    -> f UpdateTrail
+utrS3KeyPrefix :: Lens' UpdateTrail (Maybe Text)
 utrS3KeyPrefix f x =
-    (\y -> x { _utrS3KeyPrefix = y })
-       <$> f (_utrS3KeyPrefix x)
+    f (_utrS3KeyPrefix x)
+        <&> \y -> x { _utrS3KeyPrefix = y }
 {-# INLINE utrS3KeyPrefix #-}
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
-utrSnsTopicName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrail
-    -> f UpdateTrail
+utrSnsTopicName :: Lens' UpdateTrail (Maybe Text)
 utrSnsTopicName f x =
-    (\y -> x { _utrSnsTopicName = y })
-       <$> f (_utrSnsTopicName x)
+    f (_utrSnsTopicName x)
+        <&> \y -> x { _utrSnsTopicName = y }
 {-# INLINE utrSnsTopicName #-}
 
 instance ToPath UpdateTrail
@@ -169,66 +145,41 @@ data UpdateTrailResponse = UpdateTrailResponse
 
 -- | Specifies whether the trail is publishing events from global services such
 -- as IAM to the log files.
-utsIncludeGlobalServiceEvents
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateTrailResponse
-    -> f UpdateTrailResponse
+utsIncludeGlobalServiceEvents :: Lens' UpdateTrailResponse (Maybe Bool)
 utsIncludeGlobalServiceEvents f x =
-    (\y -> x { _utsIncludeGlobalServiceEvents = y })
-       <$> f (_utsIncludeGlobalServiceEvents x)
+    f (_utsIncludeGlobalServiceEvents x)
+        <&> \y -> x { _utsIncludeGlobalServiceEvents = y }
 {-# INLINE utsIncludeGlobalServiceEvents #-}
 
 -- | Specifies the name of the trail.
-utsName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrailResponse
-    -> f UpdateTrailResponse
+utsName :: Lens' UpdateTrailResponse (Maybe Text)
 utsName f x =
-    (\y -> x { _utsName = y })
-       <$> f (_utsName x)
+    f (_utsName x)
+        <&> \y -> x { _utsName = y }
 {-# INLINE utsName #-}
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-utsS3BucketName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrailResponse
-    -> f UpdateTrailResponse
+utsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utsS3BucketName f x =
-    (\y -> x { _utsS3BucketName = y })
-       <$> f (_utsS3BucketName x)
+    f (_utsS3BucketName x)
+        <&> \y -> x { _utsS3BucketName = y }
 {-# INLINE utsS3BucketName #-}
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
-utsS3KeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrailResponse
-    -> f UpdateTrailResponse
+utsS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
 utsS3KeyPrefix f x =
-    (\y -> x { _utsS3KeyPrefix = y })
-       <$> f (_utsS3KeyPrefix x)
+    f (_utsS3KeyPrefix x)
+        <&> \y -> x { _utsS3KeyPrefix = y }
 {-# INLINE utsS3KeyPrefix #-}
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
-utsSnsTopicName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateTrailResponse
-    -> f UpdateTrailResponse
+utsSnsTopicName :: Lens' UpdateTrailResponse (Maybe Text)
 utsSnsTopicName f x =
-    (\y -> x { _utsSnsTopicName = y })
-       <$> f (_utsSnsTopicName x)
+    f (_utsSnsTopicName x)
+        <&> \y -> x { _utsSnsTopicName = y }
 {-# INLINE utsSnsTopicName #-}
 
 instance FromJSON UpdateTrailResponse

@@ -55,6 +55,7 @@ listPipelines :: ListPipelines
 listPipelines = ListPipelines
     { _lpiMarker = Nothing
     }
+{-# INLINE listPipelines #-}
 
 data ListPipelines = ListPipelines
     { _lpiMarker :: Maybe Text
@@ -69,15 +70,10 @@ data ListPipelines = ListPipelines
 -- ListPipelines, this value should be empty. As long as the action returns
 -- HasMoreResults as True, you can call ListPipelines again and pass the
 -- marker value from the response to retrieve the next set of results.
-lpiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPipelines
-    -> f ListPipelines
+lpiMarker :: Lens' ListPipelines (Maybe Text)
 lpiMarker f x =
-    (\y -> x { _lpiMarker = y })
-       <$> f (_lpiMarker x)
+    f (_lpiMarker x)
+        <&> \y -> x { _lpiMarker = y }
 {-# INLINE lpiMarker #-}
 
 instance ToPath ListPipelines
@@ -106,42 +102,27 @@ data ListPipelinesResponse = ListPipelinesResponse
 -- | A list of all the pipeline identifiers that your account has permission to
 -- access. If you require additional information about the pipelines, you can
 -- use these identifiers to call DescribePipelines and GetPipelineDefinition.
-lpoPipelineIdList
-    :: Functor f
-    => ([PipelineIdName]
-    -> f ([PipelineIdName]))
-    -> ListPipelinesResponse
-    -> f ListPipelinesResponse
+lpoPipelineIdList :: Lens' ListPipelinesResponse ([PipelineIdName])
 lpoPipelineIdList f x =
-    (\y -> x { _lpoPipelineIdList = y })
-       <$> f (_lpoPipelineIdList x)
+    f (_lpoPipelineIdList x)
+        <&> \y -> x { _lpoPipelineIdList = y }
 {-# INLINE lpoPipelineIdList #-}
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to ListPipelines.
-lpoHasMoreResults
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListPipelinesResponse
-    -> f ListPipelinesResponse
+lpoHasMoreResults :: Lens' ListPipelinesResponse (Bool)
 lpoHasMoreResults f x =
-    (\y -> x { _lpoHasMoreResults = y })
-       <$> f (_lpoHasMoreResults x)
+    f (_lpoHasMoreResults x)
+        <&> \y -> x { _lpoHasMoreResults = y }
 {-# INLINE lpoHasMoreResults #-}
 
 -- | If not null, indicates the starting point for the set of pipeline
 -- identifiers that the next call to ListPipelines will retrieve. If null,
 -- there are no more pipeline identifiers.
-lpoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPipelinesResponse
-    -> f ListPipelinesResponse
+lpoMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lpoMarker f x =
-    (\y -> x { _lpoMarker = y })
-       <$> f (_lpoMarker x)
+    f (_lpoMarker x)
+        <&> \y -> x { _lpoMarker = y }
 {-# INLINE lpoMarker #-}
 
 instance FromJSON ListPipelinesResponse

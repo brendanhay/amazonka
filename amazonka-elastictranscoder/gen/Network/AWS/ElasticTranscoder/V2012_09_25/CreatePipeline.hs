@@ -92,6 +92,7 @@ createPipeline p1 p2 p3 = CreatePipeline
     , _cprContentConfig = Nothing
     , _cprThumbnailConfig = Nothing
     }
+{-# INLINE createPipeline #-}
 
 data CreatePipeline = CreatePipeline
     { _cprInputBucket :: Text
@@ -240,42 +241,27 @@ data CreatePipeline = CreatePipeline
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode.
-cprInputBucket
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprInputBucket :: Lens' CreatePipeline (Text)
 cprInputBucket f x =
-    (\y -> x { _cprInputBucket = y })
-       <$> f (_cprInputBucket x)
+    f (_cprInputBucket x)
+        <&> \y -> x { _cprInputBucket = y }
 {-# INLINE cprInputBucket #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
-cprName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprName :: Lens' CreatePipeline (Text)
 cprName f x =
-    (\y -> x { _cprName = y })
-       <$> f (_cprName x)
+    f (_cprName x)
+        <&> \y -> x { _cprName = y }
 {-# INLINE cprName #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to create the pipeline.
-cprRole
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprRole :: Lens' CreatePipeline (Text)
 cprRole f x =
-    (\y -> x { _cprRole = y })
-       <$> f (_cprRole x)
+    f (_cprRole x)
+        <&> \y -> x { _cprRole = y }
 {-# INLINE cprRole #-}
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
@@ -294,15 +280,10 @@ cprRole f x =
 -- permissions the users have, or change the Amazon S3 storage class, omit
 -- OutputBucket and specify values for ContentConfig and ThumbnailConfig
 -- instead.
-cprOutputBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprOutputBucket :: Lens' CreatePipeline (Maybe Text)
 cprOutputBucket f x =
-    (\y -> x { _cprOutputBucket = y })
-       <$> f (_cprOutputBucket x)
+    f (_cprOutputBucket x)
+        <&> \y -> x { _cprOutputBucket = y }
 {-# INLINE cprOutputBucket #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
@@ -322,15 +303,10 @@ cprOutputBucket f x =
 -- for the Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition while processing a job in this pipeline. This
 -- is the ARN that Amazon SNS returned when you created the topic.
-cprNotifications
-    :: Functor f
-    => (Maybe Notifications
-    -> f (Maybe Notifications))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprNotifications :: Lens' CreatePipeline (Maybe Notifications)
 cprNotifications f x =
-    (\y -> x { _cprNotifications = y })
-       <$> f (_cprNotifications x)
+    f (_cprNotifications x)
+        <&> \y -> x { _cprNotifications = y }
 {-# INLINE cprNotifications #-}
 
 -- | The optional ContentConfig object specifies information about the Amazon S3
@@ -374,15 +350,10 @@ cprNotifications f x =
 -- Amazon S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the video
 -- files and playlists that it stores in your Amazon S3 bucket.
-cprContentConfig
-    :: Functor f
-    => (Maybe PipelineOutputConfig
-    -> f (Maybe PipelineOutputConfig))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprContentConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cprContentConfig f x =
-    (\y -> x { _cprContentConfig = y })
-       <$> f (_cprContentConfig x)
+    f (_cprContentConfig x)
+        <&> \y -> x { _cprContentConfig = y }
 {-# INLINE cprContentConfig #-}
 
 -- | The ThumbnailConfig object specifies several values, including the Amazon
@@ -421,15 +392,10 @@ cprContentConfig f x =
 -- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
-cprThumbnailConfig
-    :: Functor f
-    => (Maybe PipelineOutputConfig
-    -> f (Maybe PipelineOutputConfig))
-    -> CreatePipeline
-    -> f CreatePipeline
+cprThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cprThumbnailConfig f x =
-    (\y -> x { _cprThumbnailConfig = y })
-       <$> f (_cprThumbnailConfig x)
+    f (_cprThumbnailConfig x)
+        <&> \y -> x { _cprThumbnailConfig = y }
 {-# INLINE cprThumbnailConfig #-}
 
 instance ToPath CreatePipeline where
@@ -449,15 +415,10 @@ data CreatePipelineResponse = CreatePipelineResponse
 
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
-cpsPipeline
-    :: Functor f
-    => (Maybe Pipeline
-    -> f (Maybe Pipeline))
-    -> CreatePipelineResponse
-    -> f CreatePipelineResponse
+cpsPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 cpsPipeline f x =
-    (\y -> x { _cpsPipeline = y })
-       <$> f (_cpsPipeline x)
+    f (_cpsPipeline x)
+        <&> \y -> x { _cpsPipeline = y }
 {-# INLINE cpsPipeline #-}
 
 instance FromJSON CreatePipelineResponse

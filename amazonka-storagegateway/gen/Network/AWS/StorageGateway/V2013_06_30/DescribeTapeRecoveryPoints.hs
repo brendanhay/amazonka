@@ -49,6 +49,7 @@ describeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
     , _dtrpiMarker = Nothing
     , _dtrpiLimit = Nothing
     }
+{-# INLINE describeTapeRecoveryPoints #-}
 
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpiGatewayARN :: Text
@@ -61,37 +62,22 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtrpiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeTapeRecoveryPoints
-    -> f DescribeTapeRecoveryPoints
+dtrpiGatewayARN :: Lens' DescribeTapeRecoveryPoints (Text)
 dtrpiGatewayARN f x =
-    (\y -> x { _dtrpiGatewayARN = y })
-       <$> f (_dtrpiGatewayARN x)
+    f (_dtrpiGatewayARN x)
+        <&> \y -> x { _dtrpiGatewayARN = y }
 {-# INLINE dtrpiGatewayARN #-}
 
-dtrpiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapeRecoveryPoints
-    -> f DescribeTapeRecoveryPoints
+dtrpiMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
 dtrpiMarker f x =
-    (\y -> x { _dtrpiMarker = y })
-       <$> f (_dtrpiMarker x)
+    f (_dtrpiMarker x)
+        <&> \y -> x { _dtrpiMarker = y }
 {-# INLINE dtrpiMarker #-}
 
-dtrpiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeTapeRecoveryPoints
-    -> f DescribeTapeRecoveryPoints
+dtrpiLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Integer)
 dtrpiLimit f x =
-    (\y -> x { _dtrpiLimit = y })
-       <$> f (_dtrpiLimit x)
+    f (_dtrpiLimit x)
+        <&> \y -> x { _dtrpiLimit = y }
 {-# INLINE dtrpiLimit #-}
 
 instance ToPath DescribeTapeRecoveryPoints
@@ -113,37 +99,22 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtrpoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapeRecoveryPointsResponse
-    -> f DescribeTapeRecoveryPointsResponse
+dtrpoGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrpoGatewayARN f x =
-    (\y -> x { _dtrpoGatewayARN = y })
-       <$> f (_dtrpoGatewayARN x)
+    f (_dtrpoGatewayARN x)
+        <&> \y -> x { _dtrpoGatewayARN = y }
 {-# INLINE dtrpoGatewayARN #-}
 
-dtrpoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTapeRecoveryPointsResponse
-    -> f DescribeTapeRecoveryPointsResponse
+dtrpoMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrpoMarker f x =
-    (\y -> x { _dtrpoMarker = y })
-       <$> f (_dtrpoMarker x)
+    f (_dtrpoMarker x)
+        <&> \y -> x { _dtrpoMarker = y }
 {-# INLINE dtrpoMarker #-}
 
-dtrpoTapeRecoveryPointInfos
-    :: Functor f
-    => ([TapeRecoveryPointInfo]
-    -> f ([TapeRecoveryPointInfo]))
-    -> DescribeTapeRecoveryPointsResponse
-    -> f DescribeTapeRecoveryPointsResponse
+dtrpoTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse ([TapeRecoveryPointInfo])
 dtrpoTapeRecoveryPointInfos f x =
-    (\y -> x { _dtrpoTapeRecoveryPointInfos = y })
-       <$> f (_dtrpoTapeRecoveryPointInfos x)
+    f (_dtrpoTapeRecoveryPointInfos x)
+        <&> \y -> x { _dtrpoTapeRecoveryPointInfos = y }
 {-# INLINE dtrpoTapeRecoveryPointInfos #-}
 
 instance FromJSON DescribeTapeRecoveryPointsResponse

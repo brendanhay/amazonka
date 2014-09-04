@@ -67,6 +67,7 @@ listPresets = ListPresets
     { _lptAscending = Nothing
     , _lptPageToken = Nothing
     }
+{-# INLINE listPresets #-}
 
 data ListPresets = ListPresets
     { _lptAscending :: Maybe Text
@@ -82,29 +83,19 @@ data ListPresets = ListPresets
 -- | To list presets in chronological order by the date and time that they were
 -- created, enter true. To list presets in reverse chronological order, enter
 -- false.
-lptAscending
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPresets
-    -> f ListPresets
+lptAscending :: Lens' ListPresets (Maybe Text)
 lptAscending f x =
-    (\y -> x { _lptAscending = y })
-       <$> f (_lptAscending x)
+    f (_lptAscending x)
+        <&> \y -> x { _lptAscending = y }
 {-# INLINE lptAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-lptPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPresets
-    -> f ListPresets
+lptPageToken :: Lens' ListPresets (Maybe Text)
 lptPageToken f x =
-    (\y -> x { _lptPageToken = y })
-       <$> f (_lptPageToken x)
+    f (_lptPageToken x)
+        <&> \y -> x { _lptPageToken = y }
 {-# INLINE lptPageToken #-}
 
 instance ToPath ListPresets where
@@ -133,27 +124,17 @@ data ListPresetsResponse = ListPresetsResponse
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the presets fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
-lpuNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPresetsResponse
-    -> f ListPresetsResponse
+lpuNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
 lpuNextPageToken f x =
-    (\y -> x { _lpuNextPageToken = y })
-       <$> f (_lpuNextPageToken x)
+    f (_lpuNextPageToken x)
+        <&> \y -> x { _lpuNextPageToken = y }
 {-# INLINE lpuNextPageToken #-}
 
 -- | An array of Preset objects.
-lpuPresets
-    :: Functor f
-    => ([Preset]
-    -> f ([Preset]))
-    -> ListPresetsResponse
-    -> f ListPresetsResponse
+lpuPresets :: Lens' ListPresetsResponse ([Preset])
 lpuPresets f x =
-    (\y -> x { _lpuPresets = y })
-       <$> f (_lpuPresets x)
+    f (_lpuPresets x)
+        <&> \y -> x { _lpuPresets = y }
 {-# INLINE lpuPresets #-}
 
 instance FromJSON ListPresetsResponse

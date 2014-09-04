@@ -240,15 +240,10 @@ newtype RawMessage = RawMessage
 -- types, MIME encoding, and base64 encoding (if necessary). The To:, CC:, and
 -- BCC: headers in the raw message can contain a group list. For more
 -- information, go to the Amazon SES Developer Guide.
-rmData
-    :: Functor f
-    => (ByteString
-    -> f (ByteString))
-    -> RawMessage
-    -> f RawMessage
+rmData :: Lens' RawMessage (ByteString)
 rmData f x =
-    (\y -> x { _rmData = y })
-       <$> f (_rmData x)
+    f (_rmData x)
+        <&> \y -> x { _rmData = y }
 {-# INLINE rmData #-}
 
 instance ToQuery RawMessage where
@@ -268,29 +263,19 @@ data Body = Body
 
 -- | The content of the message, in text format. Use this for text-based email
 -- clients, or clients on high-latency networks (such as mobile devices).
-byText
-    :: Functor f
-    => (Maybe Content
-    -> f (Maybe Content))
-    -> Body
-    -> f Body
+byText :: Lens' Body (Maybe Content)
 byText f x =
-    (\y -> x { _byText = y })
-       <$> f (_byText x)
+    f (_byText x)
+        <&> \y -> x { _byText = y }
 {-# INLINE byText #-}
 
 -- | The content of the message, in HTML format. Use this for email clients that
 -- can process HTML. You can include clickable links, formatted text, and much
 -- more in an HTML message.
-byHtml
-    :: Functor f
-    => (Maybe Content
-    -> f (Maybe Content))
-    -> Body
-    -> f Body
+byHtml :: Lens' Body (Maybe Content)
 byHtml f x =
-    (\y -> x { _byHtml = y })
-       <$> f (_byHtml x)
+    f (_byHtml x)
+        <&> \y -> x { _byHtml = y }
 {-# INLINE byHtml #-}
 
 instance ToQuery Body where
@@ -306,27 +291,17 @@ data Content = Content
     } deriving (Show, Generic)
 
 -- | The textual data of the content.
-ctData
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Content
-    -> f Content
+ctData :: Lens' Content (Text)
 ctData f x =
-    (\y -> x { _ctData = y })
-       <$> f (_ctData x)
+    f (_ctData x)
+        <&> \y -> x { _ctData = y }
 {-# INLINE ctData #-}
 
 -- | The character set of the content.
-ctCharset
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Content
-    -> f Content
+ctCharset :: Lens' Content (Maybe Text)
 ctCharset f x =
-    (\y -> x { _ctCharset = y })
-       <$> f (_ctCharset x)
+    f (_ctCharset x)
+        <&> \y -> x { _ctCharset = y }
 {-# INLINE ctCharset #-}
 
 instance ToQuery Content where
@@ -343,39 +318,24 @@ data Destination = Destination
     } deriving (Show, Generic)
 
 -- | The To: field(s) of the message.
-vToAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Destination
-    -> f Destination
+vToAddresses :: Lens' Destination ([Text])
 vToAddresses f x =
-    (\y -> x { _vToAddresses = y })
-       <$> f (_vToAddresses x)
+    f (_vToAddresses x)
+        <&> \y -> x { _vToAddresses = y }
 {-# INLINE vToAddresses #-}
 
 -- | The CC: field(s) of the message.
-vCcAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Destination
-    -> f Destination
+vCcAddresses :: Lens' Destination ([Text])
 vCcAddresses f x =
-    (\y -> x { _vCcAddresses = y })
-       <$> f (_vCcAddresses x)
+    f (_vCcAddresses x)
+        <&> \y -> x { _vCcAddresses = y }
 {-# INLINE vCcAddresses #-}
 
 -- | The BCC: field(s) of the message.
-vBccAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Destination
-    -> f Destination
+vBccAddresses :: Lens' Destination ([Text])
 vBccAddresses f x =
-    (\y -> x { _vBccAddresses = y })
-       <$> f (_vBccAddresses x)
+    f (_vBccAddresses x)
+        <&> \y -> x { _vBccAddresses = y }
 {-# INLINE vBccAddresses #-}
 
 instance ToQuery Destination where
@@ -406,29 +366,19 @@ data IdentityDkimAttributes = IdentityDkimAttributes
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
 -- otherwise.
-idaDkimEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> IdentityDkimAttributes
-    -> f IdentityDkimAttributes
+idaDkimEnabled :: Lens' IdentityDkimAttributes (Bool)
 idaDkimEnabled f x =
-    (\y -> x { _idaDkimEnabled = y })
-       <$> f (_idaDkimEnabled x)
+    f (_idaDkimEnabled x)
+        <&> \y -> x { _idaDkimEnabled = y }
 {-# INLINE idaDkimEnabled #-}
 
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS records
 -- (tokens) published in the domain name's DNS. (This only applies to domain
 -- identities, not email address identities.).
-idaDkimVerificationStatus
-    :: Functor f
-    => (VerificationStatus
-    -> f (VerificationStatus))
-    -> IdentityDkimAttributes
-    -> f IdentityDkimAttributes
+idaDkimVerificationStatus :: Lens' IdentityDkimAttributes (VerificationStatus)
 idaDkimVerificationStatus f x =
-    (\y -> x { _idaDkimVerificationStatus = y })
-       <$> f (_idaDkimVerificationStatus x)
+    f (_idaDkimVerificationStatus x)
+        <&> \y -> x { _idaDkimVerificationStatus = y }
 {-# INLINE idaDkimVerificationStatus #-}
 
 -- | A set of character strings that represent the domain's identity. Using
@@ -440,15 +390,10 @@ idaDkimVerificationStatus f x =
 -- identities, not email address identities.) For more information about
 -- creating DNS records using DKIM tokens, go to the Amazon SES Developer
 -- Guide.
-idaDkimTokens
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> IdentityDkimAttributes
-    -> f IdentityDkimAttributes
+idaDkimTokens :: Lens' IdentityDkimAttributes ([Text])
 idaDkimTokens f x =
-    (\y -> x { _idaDkimTokens = y })
-       <$> f (_idaDkimTokens x)
+    f (_idaDkimTokens x)
+        <&> \y -> x { _idaDkimTokens = y }
 {-# INLINE idaDkimTokens #-}
 
 instance FromXML IdentityDkimAttributes where
@@ -480,41 +425,26 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
-inaBounceTopic
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> IdentityNotificationAttributes
-    -> f IdentityNotificationAttributes
+inaBounceTopic :: Lens' IdentityNotificationAttributes (Text)
 inaBounceTopic f x =
-    (\y -> x { _inaBounceTopic = y })
-       <$> f (_inaBounceTopic x)
+    f (_inaBounceTopic x)
+        <&> \y -> x { _inaBounceTopic = y }
 {-# INLINE inaBounceTopic #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish complaint notifications.
-inaComplaintTopic
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> IdentityNotificationAttributes
-    -> f IdentityNotificationAttributes
+inaComplaintTopic :: Lens' IdentityNotificationAttributes (Text)
 inaComplaintTopic f x =
-    (\y -> x { _inaComplaintTopic = y })
-       <$> f (_inaComplaintTopic x)
+    f (_inaComplaintTopic x)
+        <&> \y -> x { _inaComplaintTopic = y }
 {-# INLINE inaComplaintTopic #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish delivery notifications.
-inaDeliveryTopic
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> IdentityNotificationAttributes
-    -> f IdentityNotificationAttributes
+inaDeliveryTopic :: Lens' IdentityNotificationAttributes (Text)
 inaDeliveryTopic f x =
-    (\y -> x { _inaDeliveryTopic = y })
-       <$> f (_inaDeliveryTopic x)
+    f (_inaDeliveryTopic x)
+        <&> \y -> x { _inaDeliveryTopic = y }
 {-# INLINE inaDeliveryTopic #-}
 
 -- | Describes whether Amazon SES will forward bounce and complaint
@@ -522,15 +452,10 @@ inaDeliveryTopic f x =
 -- and complaint notifications as email, while false indicates that bounce and
 -- complaint notifications will be published only to the specified bounce and
 -- complaint Amazon SNS topics.
-inaForwardingEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> IdentityNotificationAttributes
-    -> f IdentityNotificationAttributes
+inaForwardingEnabled :: Lens' IdentityNotificationAttributes (Bool)
 inaForwardingEnabled f x =
-    (\y -> x { _inaForwardingEnabled = y })
-       <$> f (_inaForwardingEnabled x)
+    f (_inaForwardingEnabled x)
+        <&> \y -> x { _inaForwardingEnabled = y }
 {-# INLINE inaForwardingEnabled #-}
 
 instance FromXML IdentityNotificationAttributes where
@@ -549,28 +474,18 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes
 
 -- | The verification status of the identity: "Pending", "Success", "Failed", or
 -- "TemporaryFailure".
-ivaVerificationStatus
-    :: Functor f
-    => (VerificationStatus
-    -> f (VerificationStatus))
-    -> IdentityVerificationAttributes
-    -> f IdentityVerificationAttributes
+ivaVerificationStatus :: Lens' IdentityVerificationAttributes (VerificationStatus)
 ivaVerificationStatus f x =
-    (\y -> x { _ivaVerificationStatus = y })
-       <$> f (_ivaVerificationStatus x)
+    f (_ivaVerificationStatus x)
+        <&> \y -> x { _ivaVerificationStatus = y }
 {-# INLINE ivaVerificationStatus #-}
 
 -- | The verification token for a domain identity. Null for email address
 -- identities.
-ivaVerificationToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> IdentityVerificationAttributes
-    -> f IdentityVerificationAttributes
+ivaVerificationToken :: Lens' IdentityVerificationAttributes (Maybe Text)
 ivaVerificationToken f x =
-    (\y -> x { _ivaVerificationToken = y })
-       <$> f (_ivaVerificationToken x)
+    f (_ivaVerificationToken x)
+        <&> \y -> x { _ivaVerificationToken = y }
 {-# INLINE ivaVerificationToken #-}
 
 instance FromXML IdentityVerificationAttributes where
@@ -588,27 +503,17 @@ data Message = Message
 
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient's inbox.
-zSubject
-    :: Functor f
-    => (Content
-    -> f (Content))
-    -> Message
-    -> f Message
+zSubject :: Lens' Message (Content)
 zSubject f x =
-    (\y -> x { _zSubject = y })
-       <$> f (_zSubject x)
+    f (_zSubject x)
+        <&> \y -> x { _zSubject = y }
 {-# INLINE zSubject #-}
 
 -- | The message body.
-zBody
-    :: Functor f
-    => (Body
-    -> f (Body))
-    -> Message
-    -> f Message
+zBody :: Lens' Message (Body)
 zBody f x =
-    (\y -> x { _zBody = y })
-       <$> f (_zBody x)
+    f (_zBody x)
+        <&> \y -> x { _zBody = y }
 {-# INLINE zBody #-}
 
 instance ToQuery Message where
@@ -630,63 +535,38 @@ data SendDataPoint = SendDataPoint
     } deriving (Show, Generic)
 
 -- | Time of the data point.
-sdpTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> SendDataPoint
-    -> f SendDataPoint
+sdpTimestamp :: Lens' SendDataPoint (Maybe ISO8601)
 sdpTimestamp f x =
-    (\y -> x { _sdpTimestamp = y })
-       <$> f (_sdpTimestamp x)
+    f (_sdpTimestamp x)
+        <&> \y -> x { _sdpTimestamp = y }
 {-# INLINE sdpTimestamp #-}
 
 -- | Number of emails that have been enqueued for sending.
-sdpDeliveryAttempts
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> SendDataPoint
-    -> f SendDataPoint
+sdpDeliveryAttempts :: Lens' SendDataPoint (Maybe Integer)
 sdpDeliveryAttempts f x =
-    (\y -> x { _sdpDeliveryAttempts = y })
-       <$> f (_sdpDeliveryAttempts x)
+    f (_sdpDeliveryAttempts x)
+        <&> \y -> x { _sdpDeliveryAttempts = y }
 {-# INLINE sdpDeliveryAttempts #-}
 
 -- | Number of emails that have bounced.
-sdpBounces
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> SendDataPoint
-    -> f SendDataPoint
+sdpBounces :: Lens' SendDataPoint (Maybe Integer)
 sdpBounces f x =
-    (\y -> x { _sdpBounces = y })
-       <$> f (_sdpBounces x)
+    f (_sdpBounces x)
+        <&> \y -> x { _sdpBounces = y }
 {-# INLINE sdpBounces #-}
 
 -- | Number of unwanted emails that were rejected by recipients.
-sdpComplaints
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> SendDataPoint
-    -> f SendDataPoint
+sdpComplaints :: Lens' SendDataPoint (Maybe Integer)
 sdpComplaints f x =
-    (\y -> x { _sdpComplaints = y })
-       <$> f (_sdpComplaints x)
+    f (_sdpComplaints x)
+        <&> \y -> x { _sdpComplaints = y }
 {-# INLINE sdpComplaints #-}
 
 -- | Number of emails rejected by Amazon SES.
-sdpRejects
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> SendDataPoint
-    -> f SendDataPoint
+sdpRejects :: Lens' SendDataPoint (Maybe Integer)
 sdpRejects f x =
-    (\y -> x { _sdpRejects = y })
-       <$> f (_sdpRejects x)
+    f (_sdpRejects x)
+        <&> \y -> x { _sdpRejects = y }
 {-# INLINE sdpRejects #-}
 
 instance FromXML SendDataPoint where

@@ -81,32 +81,23 @@ createSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPo
     { _csfvrpiSnapshotDescription = p1
     , _csfvrpiVolumeARN = p2
     }
+{-# INLINE createSnapshotFromVolumeRecoveryPoint #-}
 
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpiSnapshotDescription :: Text
     , _csfvrpiVolumeARN :: Text
     } deriving (Show, Generic)
 
-csfvrpiSnapshotDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSnapshotFromVolumeRecoveryPoint
-    -> f CreateSnapshotFromVolumeRecoveryPoint
+csfvrpiSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint (Text)
 csfvrpiSnapshotDescription f x =
-    (\y -> x { _csfvrpiSnapshotDescription = y })
-       <$> f (_csfvrpiSnapshotDescription x)
+    f (_csfvrpiSnapshotDescription x)
+        <&> \y -> x { _csfvrpiSnapshotDescription = y }
 {-# INLINE csfvrpiSnapshotDescription #-}
 
-csfvrpiVolumeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSnapshotFromVolumeRecoveryPoint
-    -> f CreateSnapshotFromVolumeRecoveryPoint
+csfvrpiVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint (Text)
 csfvrpiVolumeARN f x =
-    (\y -> x { _csfvrpiVolumeARN = y })
-       <$> f (_csfvrpiVolumeARN x)
+    f (_csfvrpiVolumeARN x)
+        <&> \y -> x { _csfvrpiVolumeARN = y }
 {-# INLINE csfvrpiVolumeARN #-}
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
@@ -123,37 +114,22 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     , _csfvrpoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-csfvrpoSnapshotId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSnapshotFromVolumeRecoveryPointResponse
-    -> f CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrpoSnapshotId f x =
-    (\y -> x { _csfvrpoSnapshotId = y })
-       <$> f (_csfvrpoSnapshotId x)
+    f (_csfvrpoSnapshotId x)
+        <&> \y -> x { _csfvrpoSnapshotId = y }
 {-# INLINE csfvrpoSnapshotId #-}
 
-csfvrpoVolumeRecoveryPointTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSnapshotFromVolumeRecoveryPointResponse
-    -> f CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrpoVolumeRecoveryPointTime f x =
-    (\y -> x { _csfvrpoVolumeRecoveryPointTime = y })
-       <$> f (_csfvrpoVolumeRecoveryPointTime x)
+    f (_csfvrpoVolumeRecoveryPointTime x)
+        <&> \y -> x { _csfvrpoVolumeRecoveryPointTime = y }
 {-# INLINE csfvrpoVolumeRecoveryPointTime #-}
 
-csfvrpoVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSnapshotFromVolumeRecoveryPointResponse
-    -> f CreateSnapshotFromVolumeRecoveryPointResponse
+csfvrpoVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrpoVolumeARN f x =
-    (\y -> x { _csfvrpoVolumeARN = y })
-       <$> f (_csfvrpoVolumeARN x)
+    f (_csfvrpoVolumeARN x)
+        <&> \y -> x { _csfvrpoVolumeARN = y }
 {-# INLINE csfvrpoVolumeARN #-}
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse

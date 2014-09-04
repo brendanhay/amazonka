@@ -43,6 +43,7 @@ deleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdrId = p1
     , _dsdrIfMatch = Nothing
     }
+{-# INLINE deleteStreamingDistribution #-}
 
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdrId :: Text
@@ -53,28 +54,18 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
     } deriving (Show, Generic)
 
 -- | The distribution id.
-dsdrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteStreamingDistribution
-    -> f DeleteStreamingDistribution
+dsdrId :: Lens' DeleteStreamingDistribution (Text)
 dsdrId f x =
-    (\y -> x { _dsdrId = y })
-       <$> f (_dsdrId x)
+    f (_dsdrId x)
+        <&> \y -> x { _dsdrId = y }
 {-# INLINE dsdrId #-}
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
-dsdrIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteStreamingDistribution
-    -> f DeleteStreamingDistribution
+dsdrIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdrIfMatch f x =
-    (\y -> x { _dsdrIfMatch = y })
-       <$> f (_dsdrIfMatch x)
+    f (_dsdrIfMatch x)
+        <&> \y -> x { _dsdrIfMatch = y }
 {-# INLINE dsdrIfMatch #-}
 
 instance ToPath DeleteStreamingDistribution where

@@ -51,6 +51,7 @@ deleteIdentity :: Text -- ^ 'dirIdentity'
 deleteIdentity p1 = DeleteIdentity
     { _dirIdentity = p1
     }
+{-# INLINE deleteIdentity #-}
 
 data DeleteIdentity = DeleteIdentity
     { _dirIdentity :: Text
@@ -59,15 +60,10 @@ data DeleteIdentity = DeleteIdentity
     } deriving (Show, Generic)
 
 -- | The identity to be removed from the list of identities for the AWS Account.
-dirIdentity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteIdentity
-    -> f DeleteIdentity
+dirIdentity :: Lens' DeleteIdentity (Text)
 dirIdentity f x =
-    (\y -> x { _dirIdentity = y })
-       <$> f (_dirIdentity x)
+    f (_dirIdentity x)
+        <&> \y -> x { _dirIdentity = y }
 {-# INLINE dirIdentity #-}
 
 instance ToQuery DeleteIdentity where

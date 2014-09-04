@@ -45,6 +45,7 @@ listTagsForResources p1 p2 = ListTagsForResources
     { _ltfrtResourceIds = p1
     , _ltfrtResourceType = p2
     }
+{-# INLINE listTagsForResources #-}
 
 data ListTagsForResources = ListTagsForResources
     { _ltfrtResourceIds :: [Text]
@@ -57,28 +58,18 @@ data ListTagsForResources = ListTagsForResources
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
-ltfrtResourceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListTagsForResources
-    -> f ListTagsForResources
+ltfrtResourceIds :: Lens' ListTagsForResources ([Text])
 ltfrtResourceIds f x =
-    (\y -> x { _ltfrtResourceIds = y })
-       <$> f (_ltfrtResourceIds x)
+    f (_ltfrtResourceIds x)
+        <&> \y -> x { _ltfrtResourceIds = y }
 {-# INLINE ltfrtResourceIds #-}
 
 -- | The type of the resources. The resource type for health checks is
 -- healthcheck.
-ltfrtResourceType
-    :: Functor f
-    => (TagResourceType
-    -> f (TagResourceType))
-    -> ListTagsForResources
-    -> f ListTagsForResources
+ltfrtResourceType :: Lens' ListTagsForResources (TagResourceType)
 ltfrtResourceType f x =
-    (\y -> x { _ltfrtResourceType = y })
-       <$> f (_ltfrtResourceType x)
+    f (_ltfrtResourceType x)
+        <&> \y -> x { _ltfrtResourceType = y }
 {-# INLINE ltfrtResourceType #-}
 
 instance ToPath ListTagsForResources where
@@ -103,15 +94,10 @@ data ListTagsForResourcesResponse = ListTagsForResourcesResponse
 
 -- | A list of ResourceTagSets containing tags associated with the specified
 -- resources.
-ltfruResourceTagSets
-    :: Functor f
-    => ([ResourceTagSet]
-    -> f ([ResourceTagSet]))
-    -> ListTagsForResourcesResponse
-    -> f ListTagsForResourcesResponse
+ltfruResourceTagSets :: Lens' ListTagsForResourcesResponse ([ResourceTagSet])
 ltfruResourceTagSets f x =
-    (\y -> x { _ltfruResourceTagSets = y })
-       <$> f (_ltfruResourceTagSets x)
+    f (_ltfruResourceTagSets x)
+        <&> \y -> x { _ltfruResourceTagSets = y }
 {-# INLINE ltfruResourceTagSets #-}
 
 instance FromXML ListTagsForResourcesResponse where

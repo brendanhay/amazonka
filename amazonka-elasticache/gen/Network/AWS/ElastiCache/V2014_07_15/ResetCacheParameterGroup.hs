@@ -58,6 +58,7 @@ resetCacheParameterGroup p1 p2 = ResetCacheParameterGroup
     , _rcpgmCacheParameterGroupName = p2
     , _rcpgmResetAllParameters = Nothing
     }
+{-# INLINE resetCacheParameterGroup #-}
 
 data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgmParameterNameValues :: [ParameterNameValue]
@@ -74,41 +75,26 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
 
 -- | An array of parameter names to be reset. If you are not resetting the
 -- entire cache parameter group, you must specify at least one parameter name.
-rcpgmParameterNameValues
-    :: Functor f
-    => ([ParameterNameValue]
-    -> f ([ParameterNameValue]))
-    -> ResetCacheParameterGroup
-    -> f ResetCacheParameterGroup
+rcpgmParameterNameValues :: Lens' ResetCacheParameterGroup ([ParameterNameValue])
 rcpgmParameterNameValues f x =
-    (\y -> x { _rcpgmParameterNameValues = y })
-       <$> f (_rcpgmParameterNameValues x)
+    f (_rcpgmParameterNameValues x)
+        <&> \y -> x { _rcpgmParameterNameValues = y }
 {-# INLINE rcpgmParameterNameValues #-}
 
 -- | The name of the cache parameter group to reset.
-rcpgmCacheParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResetCacheParameterGroup
-    -> f ResetCacheParameterGroup
+rcpgmCacheParameterGroupName :: Lens' ResetCacheParameterGroup (Text)
 rcpgmCacheParameterGroupName f x =
-    (\y -> x { _rcpgmCacheParameterGroupName = y })
-       <$> f (_rcpgmCacheParameterGroupName x)
+    f (_rcpgmCacheParameterGroupName x)
+        <&> \y -> x { _rcpgmCacheParameterGroupName = y }
 {-# INLINE rcpgmCacheParameterGroupName #-}
 
 -- | If true, all parameters in the cache parameter group will be reset to
 -- default values. If false, no such action occurs. Valid values: true |
 -- false.
-rcpgmResetAllParameters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ResetCacheParameterGroup
-    -> f ResetCacheParameterGroup
+rcpgmResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgmResetAllParameters f x =
-    (\y -> x { _rcpgmResetAllParameters = y })
-       <$> f (_rcpgmResetAllParameters x)
+    f (_rcpgmResetAllParameters x)
+        <&> \y -> x { _rcpgmResetAllParameters = y }
 {-# INLINE rcpgmResetAllParameters #-}
 
 instance ToQuery ResetCacheParameterGroup where
@@ -120,15 +106,10 @@ data ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
-cpgnnCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResetCacheParameterGroupResponse
-    -> f ResetCacheParameterGroupResponse
+cpgnnCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
 cpgnnCacheParameterGroupName f x =
-    (\y -> x { _cpgnnCacheParameterGroupName = y })
-       <$> f (_cpgnnCacheParameterGroupName x)
+    f (_cpgnnCacheParameterGroupName x)
+        <&> \y -> x { _cpgnnCacheParameterGroupName = y }
 {-# INLINE cpgnnCacheParameterGroupName #-}
 
 instance FromXML ResetCacheParameterGroupResponse where

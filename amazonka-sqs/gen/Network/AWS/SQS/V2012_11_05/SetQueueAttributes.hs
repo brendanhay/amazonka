@@ -78,6 +78,7 @@ setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqarAttributes = p1
     , _sqarQueueUrl = p2
     }
+{-# INLINE setQueueAttributes #-}
 
 data SetQueueAttributes = SetQueueAttributes
     { _sqarAttributes :: Map QueueAttributeName Text
@@ -137,27 +138,17 @@ data SetQueueAttributes = SetQueueAttributes
 -- parameters for dead letter queue functionality of the source queue. For
 -- more information about RedrivePolicy and dead letter queues, see Using
 -- Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
-sqarAttributes
-    :: Functor f
-    => (Map QueueAttributeName Text
-    -> f (Map QueueAttributeName Text))
-    -> SetQueueAttributes
-    -> f SetQueueAttributes
+sqarAttributes :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
 sqarAttributes f x =
-    (\y -> x { _sqarAttributes = y })
-       <$> f (_sqarAttributes x)
+    f (_sqarAttributes x)
+        <&> \y -> x { _sqarAttributes = y }
 {-# INLINE sqarAttributes #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
-sqarQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetQueueAttributes
-    -> f SetQueueAttributes
+sqarQueueUrl :: Lens' SetQueueAttributes (Text)
 sqarQueueUrl f x =
-    (\y -> x { _sqarQueueUrl = y })
-       <$> f (_sqarQueueUrl x)
+    f (_sqarQueueUrl x)
+        <&> \y -> x { _sqarQueueUrl = y }
 {-# INLINE sqarQueueUrl #-}
 
 instance ToQuery SetQueueAttributes where

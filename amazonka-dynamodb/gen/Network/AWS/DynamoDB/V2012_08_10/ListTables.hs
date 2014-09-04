@@ -50,6 +50,7 @@ listTables = ListTables
     { _ltiLimit = Nothing
     , _ltiExclusiveStartTableName = Nothing
     }
+{-# INLINE listTables #-}
 
 data ListTables = ListTables
     { _ltiLimit :: Maybe Integer
@@ -61,29 +62,19 @@ data ListTables = ListTables
     } deriving (Show, Generic)
 
 -- | A maximum number of table names to return.
-ltiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListTables
-    -> f ListTables
+ltiLimit :: Lens' ListTables (Maybe Integer)
 ltiLimit f x =
-    (\y -> x { _ltiLimit = y })
-       <$> f (_ltiLimit x)
+    f (_ltiLimit x)
+        <&> \y -> x { _ltiLimit = y }
 {-# INLINE ltiLimit #-}
 
 -- | The name of the table that starts the list. If you already ran a ListTables
 -- operation and received a LastEvaluatedTableName value in the response, use
 -- that value here to continue the list.
-ltiExclusiveStartTableName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListTables
-    -> f ListTables
+ltiExclusiveStartTableName :: Lens' ListTables (Maybe Text)
 ltiExclusiveStartTableName f x =
-    (\y -> x { _ltiExclusiveStartTableName = y })
-       <$> f (_ltiExclusiveStartTableName x)
+    f (_ltiExclusiveStartTableName x)
+        <&> \y -> x { _ltiExclusiveStartTableName = y }
 {-# INLINE ltiExclusiveStartTableName #-}
 
 instance ToPath ListTables
@@ -112,28 +103,18 @@ data ListTablesResponse = ListTablesResponse
 -- response if all table names are already returned. Use this value as the
 -- ExclusiveStartTableName in a new request to continue the list until all the
 -- table names are returned.
-ltoLastEvaluatedTableName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListTablesResponse
-    -> f ListTablesResponse
+ltoLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
 ltoLastEvaluatedTableName f x =
-    (\y -> x { _ltoLastEvaluatedTableName = y })
-       <$> f (_ltoLastEvaluatedTableName x)
+    f (_ltoLastEvaluatedTableName x)
+        <&> \y -> x { _ltoLastEvaluatedTableName = y }
 {-# INLINE ltoLastEvaluatedTableName #-}
 
 -- | The names of the tables associated with the current account at the current
 -- endpoint.
-ltoTableNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListTablesResponse
-    -> f ListTablesResponse
+ltoTableNames :: Lens' ListTablesResponse ([Text])
 ltoTableNames f x =
-    (\y -> x { _ltoTableNames = y })
-       <$> f (_ltoTableNames x)
+    f (_ltoTableNames x)
+        <&> \y -> x { _ltoTableNames = y }
 {-# INLINE ltoTableNames #-}
 
 instance FromJSON ListTablesResponse

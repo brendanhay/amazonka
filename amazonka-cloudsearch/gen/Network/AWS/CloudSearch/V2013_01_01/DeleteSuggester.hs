@@ -47,6 +47,7 @@ deleteSuggester p1 p2 = DeleteSuggester
     { _dstDomainName = p1
     , _dstSuggesterName = p2
     }
+{-# INLINE deleteSuggester #-}
 
 data DeleteSuggester = DeleteSuggester
     { _dstDomainName :: Text
@@ -63,27 +64,17 @@ data DeleteSuggester = DeleteSuggester
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dstDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSuggester
-    -> f DeleteSuggester
+dstDomainName :: Lens' DeleteSuggester (Text)
 dstDomainName f x =
-    (\y -> x { _dstDomainName = y })
-       <$> f (_dstDomainName x)
+    f (_dstDomainName x)
+        <&> \y -> x { _dstDomainName = y }
 {-# INLINE dstDomainName #-}
 
 -- | Specifies the name of the suggester you want to delete.
-dstSuggesterName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSuggester
-    -> f DeleteSuggester
+dstSuggesterName :: Lens' DeleteSuggester (Text)
 dstSuggesterName f x =
-    (\y -> x { _dstSuggesterName = y })
-       <$> f (_dstSuggesterName x)
+    f (_dstSuggesterName x)
+        <&> \y -> x { _dstSuggesterName = y }
 {-# INLINE dstSuggesterName #-}
 
 instance ToQuery DeleteSuggester where
@@ -95,15 +86,10 @@ data DeleteSuggesterResponse = DeleteSuggesterResponse
     } deriving (Show, Generic)
 
 -- | The status of the suggester being deleted.
-dsuSuggester
-    :: Functor f
-    => (SuggesterStatus
-    -> f (SuggesterStatus))
-    -> DeleteSuggesterResponse
-    -> f DeleteSuggesterResponse
+dsuSuggester :: Lens' DeleteSuggesterResponse (SuggesterStatus)
 dsuSuggester f x =
-    (\y -> x { _dsuSuggester = y })
-       <$> f (_dsuSuggester x)
+    f (_dsuSuggester x)
+        <&> \y -> x { _dsuSuggester = y }
 {-# INLINE dsuSuggester #-}
 
 instance FromXML DeleteSuggesterResponse where

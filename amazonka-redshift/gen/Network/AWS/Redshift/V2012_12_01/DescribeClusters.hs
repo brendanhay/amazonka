@@ -60,6 +60,7 @@ describeClusters = DescribeClusters
     , _dcnClusterIdentifier = Nothing
     , _dcnMarker = Nothing
     }
+{-# INLINE describeClusters #-}
 
 data DescribeClusters = DescribeClusters
     { _dcnMaxRecords :: Maybe Integer
@@ -89,29 +90,19 @@ data DescribeClusters = DescribeClusters
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeClusters
-    -> f DescribeClusters
+dcnMaxRecords :: Lens' DescribeClusters (Maybe Integer)
 dcnMaxRecords f x =
-    (\y -> x { _dcnMaxRecords = y })
-       <$> f (_dcnMaxRecords x)
+    f (_dcnMaxRecords x)
+        <&> \y -> x { _dcnMaxRecords = y }
 {-# INLINE dcnMaxRecords #-}
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive. The default is that all clusters defined
 -- for an account are returned.
-dcnClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusters
-    -> f DescribeClusters
+dcnClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dcnClusterIdentifier f x =
-    (\y -> x { _dcnClusterIdentifier = y })
-       <$> f (_dcnClusterIdentifier x)
+    f (_dcnClusterIdentifier x)
+        <&> \y -> x { _dcnClusterIdentifier = y }
 {-# INLINE dcnClusterIdentifier #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -121,15 +112,10 @@ dcnClusterIdentifier f x =
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request. Constraints: You can specify either the ClusterIdentifier
 -- parameter or the Marker parameter, but not both.
-dcnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusters
-    -> f DescribeClusters
+dcnMarker :: Lens' DescribeClusters (Maybe Text)
 dcnMarker f x =
-    (\y -> x { _dcnMarker = y })
-       <$> f (_dcnMarker x)
+    f (_dcnMarker x)
+        <&> \y -> x { _dcnMarker = y }
 {-# INLINE dcnMarker #-}
 
 instance ToQuery DescribeClusters where
@@ -149,15 +135,10 @@ data DescribeClustersResponse = DescribeClustersResponse
     } deriving (Show, Generic)
 
 -- | A list of Cluster objects, where each object describes one cluster.
-cmClusters
-    :: Functor f
-    => ([Cluster]
-    -> f ([Cluster]))
-    -> DescribeClustersResponse
-    -> f DescribeClustersResponse
+cmClusters :: Lens' DescribeClustersResponse ([Cluster])
 cmClusters f x =
-    (\y -> x { _cmClusters = y })
-       <$> f (_cmClusters x)
+    f (_cmClusters x)
+        <&> \y -> x { _cmClusters = y }
 {-# INLINE cmClusters #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -165,15 +146,10 @@ cmClusters f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-cmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClustersResponse
-    -> f DescribeClustersResponse
+cmMarker :: Lens' DescribeClustersResponse (Maybe Text)
 cmMarker f x =
-    (\y -> x { _cmMarker = y })
-       <$> f (_cmMarker x)
+    f (_cmMarker x)
+        <&> \y -> x { _cmMarker = y }
 {-# INLINE cmMarker #-}
 
 instance FromXML DescribeClustersResponse where

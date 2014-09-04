@@ -90,6 +90,7 @@ describeStream p1 = DescribeStream
     , _dsjLimit = Nothing
     , _dsjExclusiveStartShardId = Nothing
     }
+{-# INLINE describeStream #-}
 
 data DescribeStream = DescribeStream
     { _dsjStreamName :: Text
@@ -102,39 +103,24 @@ data DescribeStream = DescribeStream
     } deriving (Show, Generic)
 
 -- | The name of the stream to describe.
-dsjStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeStream
-    -> f DescribeStream
+dsjStreamName :: Lens' DescribeStream (Text)
 dsjStreamName f x =
-    (\y -> x { _dsjStreamName = y })
-       <$> f (_dsjStreamName x)
+    f (_dsjStreamName x)
+        <&> \y -> x { _dsjStreamName = y }
 {-# INLINE dsjStreamName #-}
 
 -- | The maximum number of shards to return.
-dsjLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeStream
-    -> f DescribeStream
+dsjLimit :: Lens' DescribeStream (Maybe Integer)
 dsjLimit f x =
-    (\y -> x { _dsjLimit = y })
-       <$> f (_dsjLimit x)
+    f (_dsjLimit x)
+        <&> \y -> x { _dsjLimit = y }
 {-# INLINE dsjLimit #-}
 
 -- | The shard ID of the shard to start with for the stream description.
-dsjExclusiveStartShardId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeStream
-    -> f DescribeStream
+dsjExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 dsjExclusiveStartShardId f x =
-    (\y -> x { _dsjExclusiveStartShardId = y })
-       <$> f (_dsjExclusiveStartShardId x)
+    f (_dsjExclusiveStartShardId x)
+        <&> \y -> x { _dsjExclusiveStartShardId = y }
 {-# INLINE dsjExclusiveStartShardId #-}
 
 instance ToPath DescribeStream
@@ -155,15 +141,10 @@ data DescribeStreamResponse = DescribeStreamResponse
 -- | Contains the current status of the stream, the stream ARN, an array of
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
-dsoStreamDescription
-    :: Functor f
-    => (StreamDescription
-    -> f (StreamDescription))
-    -> DescribeStreamResponse
-    -> f DescribeStreamResponse
+dsoStreamDescription :: Lens' DescribeStreamResponse (StreamDescription)
 dsoStreamDescription f x =
-    (\y -> x { _dsoStreamDescription = y })
-       <$> f (_dsoStreamDescription x)
+    f (_dsoStreamDescription x)
+        <&> \y -> x { _dsoStreamDescription = y }
 {-# INLINE dsoStreamDescription #-}
 
 instance FromJSON DescribeStreamResponse

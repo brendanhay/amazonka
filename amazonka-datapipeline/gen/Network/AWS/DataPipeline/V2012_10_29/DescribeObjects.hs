@@ -69,6 +69,7 @@ describeObjects p1 p2 = DescribeObjects
     , _doiEvaluateExpressions = Nothing
     , _doiMarker = Nothing
     }
+{-# INLINE describeObjects #-}
 
 data DescribeObjects = DescribeObjects
     { _doiPipelineId :: Text
@@ -89,57 +90,37 @@ data DescribeObjects = DescribeObjects
     } deriving (Show, Generic)
 
 -- | Identifier of the pipeline that contains the object definitions.
-doiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeObjects
-    -> f DescribeObjects
+doiPipelineId :: Lens' DescribeObjects (Text)
 doiPipelineId f x =
-    (\y -> x { _doiPipelineId = y })
-       <$> f (_doiPipelineId x)
+    f (_doiPipelineId x)
+        <&> \y -> x { _doiPipelineId = y }
 {-# INLINE doiPipelineId #-}
 
 -- | Identifiers of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
 -- DescribeObjects.
-doiObjectIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeObjects
-    -> f DescribeObjects
+doiObjectIds :: Lens' DescribeObjects ([Text])
 doiObjectIds f x =
-    (\y -> x { _doiObjectIds = y })
-       <$> f (_doiObjectIds x)
+    f (_doiObjectIds x)
+        <&> \y -> x { _doiObjectIds = y }
 {-# INLINE doiObjectIds #-}
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
-doiEvaluateExpressions
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeObjects
-    -> f DescribeObjects
+doiEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
 doiEvaluateExpressions f x =
-    (\y -> x { _doiEvaluateExpressions = y })
-       <$> f (_doiEvaluateExpressions x)
+    f (_doiEvaluateExpressions x)
+        <&> \y -> x { _doiEvaluateExpressions = y }
 {-# INLINE doiEvaluateExpressions #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- DescribeObjects, this value should be empty. As long as the action returns
 -- HasMoreResults as True, you can call DescribeObjects again and pass the
 -- marker value from the response to retrieve the next set of results.
-doiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeObjects
-    -> f DescribeObjects
+doiMarker :: Lens' DescribeObjects (Maybe Text)
 doiMarker f x =
-    (\y -> x { _doiMarker = y })
-       <$> f (_doiMarker x)
+    f (_doiMarker x)
+        <&> \y -> x { _doiMarker = y }
 {-# INLINE doiMarker #-}
 
 instance ToPath DescribeObjects
@@ -164,40 +145,25 @@ data DescribeObjectsResponse = DescribeObjectsResponse
 
 -- | An array of object definitions that are returned by the call to
 -- DescribeObjects.
-dooPipelineObjects
-    :: Functor f
-    => ([PipelineObject]
-    -> f ([PipelineObject]))
-    -> DescribeObjectsResponse
-    -> f DescribeObjectsResponse
+dooPipelineObjects :: Lens' DescribeObjectsResponse ([PipelineObject])
 dooPipelineObjects f x =
-    (\y -> x { _dooPipelineObjects = y })
-       <$> f (_dooPipelineObjects x)
+    f (_dooPipelineObjects x)
+        <&> \y -> x { _dooPipelineObjects = y }
 {-# INLINE dooPipelineObjects #-}
 
 -- | If True, there are more pages of results to return.
-dooHasMoreResults
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> DescribeObjectsResponse
-    -> f DescribeObjectsResponse
+dooHasMoreResults :: Lens' DescribeObjectsResponse (Bool)
 dooHasMoreResults f x =
-    (\y -> x { _dooHasMoreResults = y })
-       <$> f (_dooHasMoreResults x)
+    f (_dooHasMoreResults x)
+        <&> \y -> x { _dooHasMoreResults = y }
 {-# INLINE dooHasMoreResults #-}
 
 -- | The starting point for the next page of results. To view the next page of
 -- results, call DescribeObjects again with this marker value.
-dooMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeObjectsResponse
-    -> f DescribeObjectsResponse
+dooMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dooMarker f x =
-    (\y -> x { _dooMarker = y })
-       <$> f (_dooMarker x)
+    f (_dooMarker x)
+        <&> \y -> x { _dooMarker = y }
 {-# INLINE dooMarker #-}
 
 instance FromJSON DescribeObjectsResponse

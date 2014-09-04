@@ -83,6 +83,7 @@ describeActivityType p1 p2 = DescribeActivityType
     { _datjActivityType = p1
     , _datjDomain = p2
     }
+{-# INLINE describeActivityType #-}
 
 data DescribeActivityType = DescribeActivityType
     { _datjActivityType :: ActivityType
@@ -92,27 +93,17 @@ data DescribeActivityType = DescribeActivityType
     } deriving (Show, Generic)
 
 -- | The activity type to describe.
-datjActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> DescribeActivityType
-    -> f DescribeActivityType
+datjActivityType :: Lens' DescribeActivityType (ActivityType)
 datjActivityType f x =
-    (\y -> x { _datjActivityType = y })
-       <$> f (_datjActivityType x)
+    f (_datjActivityType x)
+        <&> \y -> x { _datjActivityType = y }
 {-# INLINE datjActivityType #-}
 
 -- | The name of the domain in which the activity type is registered.
-datjDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeActivityType
-    -> f DescribeActivityType
+datjDomain :: Lens' DescribeActivityType (Text)
 datjDomain f x =
-    (\y -> x { _datjDomain = y })
-       <$> f (_datjDomain x)
+    f (_datjDomain x)
+        <&> \y -> x { _datjDomain = y }
 {-# INLINE datjDomain #-}
 
 instance ToPath DescribeActivityType
@@ -137,15 +128,10 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
     } deriving (Show, Generic)
 
 -- | The configuration settings registered with the activity type.
-atdConfiguration
-    :: Functor f
-    => (ActivityTypeConfiguration
-    -> f (ActivityTypeConfiguration))
-    -> DescribeActivityTypeResponse
-    -> f DescribeActivityTypeResponse
+atdConfiguration :: Lens' DescribeActivityTypeResponse (ActivityTypeConfiguration)
 atdConfiguration f x =
-    (\y -> x { _atdConfiguration = y })
-       <$> f (_atdConfiguration x)
+    f (_atdConfiguration x)
+        <&> \y -> x { _atdConfiguration = y }
 {-# INLINE atdConfiguration #-}
 
 -- | General information about the activity type. The status of activity type
@@ -154,15 +140,10 @@ atdConfiguration f x =
 -- type should be running. DEPRECATED: The type was deprecated using
 -- DeprecateActivityType, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new tasks of this type.
-atdTypeInfo
-    :: Functor f
-    => (ActivityTypeInfo
-    -> f (ActivityTypeInfo))
-    -> DescribeActivityTypeResponse
-    -> f DescribeActivityTypeResponse
+atdTypeInfo :: Lens' DescribeActivityTypeResponse (ActivityTypeInfo)
 atdTypeInfo f x =
-    (\y -> x { _atdTypeInfo = y })
-       <$> f (_atdTypeInfo x)
+    f (_atdTypeInfo x)
+        <&> \y -> x { _atdTypeInfo = y }
 {-# INLINE atdTypeInfo #-}
 
 instance FromJSON DescribeActivityTypeResponse

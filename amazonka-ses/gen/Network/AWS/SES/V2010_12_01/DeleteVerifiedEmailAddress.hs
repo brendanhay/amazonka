@@ -52,6 +52,7 @@ deleteVerifiedEmailAddress :: Text -- ^ 'dvearEmailAddress'
 deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
     { _dvearEmailAddress = p1
     }
+{-# INLINE deleteVerifiedEmailAddress #-}
 
 data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dvearEmailAddress :: Text
@@ -60,15 +61,10 @@ data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     } deriving (Show, Generic)
 
 -- | An email address to be removed from the list of verified addresses.
-dvearEmailAddress
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVerifiedEmailAddress
-    -> f DeleteVerifiedEmailAddress
+dvearEmailAddress :: Lens' DeleteVerifiedEmailAddress (Text)
 dvearEmailAddress f x =
-    (\y -> x { _dvearEmailAddress = y })
-       <$> f (_dvearEmailAddress x)
+    f (_dvearEmailAddress x)
+        <&> \y -> x { _dvearEmailAddress = y }
 {-# INLINE dvearEmailAddress #-}
 
 instance ToQuery DeleteVerifiedEmailAddress where

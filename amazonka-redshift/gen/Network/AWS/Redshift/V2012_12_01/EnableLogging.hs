@@ -54,6 +54,7 @@ enableLogging p1 p2 = EnableLogging
     , _elmBucketName = p2
     , _elmS3KeyPrefix = Nothing
     }
+{-# INLINE enableLogging #-}
 
 data EnableLogging = EnableLogging
     { _elmClusterIdentifier :: Text
@@ -73,44 +74,29 @@ data EnableLogging = EnableLogging
 
 -- | The identifier of the cluster on which logging is to be started. Example:
 -- examplecluster.
-elmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableLogging
-    -> f EnableLogging
+elmClusterIdentifier :: Lens' EnableLogging (Text)
 elmClusterIdentifier f x =
-    (\y -> x { _elmClusterIdentifier = y })
-       <$> f (_elmClusterIdentifier x)
+    f (_elmClusterIdentifier x)
+        <&> \y -> x { _elmClusterIdentifier = y }
 {-# INLINE elmClusterIdentifier #-}
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
 -- Constraints: Must be in the same region as the cluster The cluster must
 -- have read bucket and put object permissions.
-elmBucketName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableLogging
-    -> f EnableLogging
+elmBucketName :: Lens' EnableLogging (Text)
 elmBucketName f x =
-    (\y -> x { _elmBucketName = y })
-       <$> f (_elmBucketName x)
+    f (_elmBucketName x)
+        <&> \y -> x { _elmBucketName = y }
 {-# INLINE elmBucketName #-}
 
 -- | The prefix applied to the log file names. Constraints: Cannot exceed 512
 -- characters Cannot contain spaces( ), double quotes ("), single quotes ('),
 -- a backslash (\), or control characters. The hexadecimal codes for invalid
 -- characters are: x00 to x20 x22 x27 x5c x7f or larger.
-elmS3KeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnableLogging
-    -> f EnableLogging
+elmS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
 elmS3KeyPrefix f x =
-    (\y -> x { _elmS3KeyPrefix = y })
-       <$> f (_elmS3KeyPrefix x)
+    f (_elmS3KeyPrefix x)
+        <&> \y -> x { _elmS3KeyPrefix = y }
 {-# INLINE elmS3KeyPrefix #-}
 
 instance ToQuery EnableLogging where
@@ -132,75 +118,45 @@ data EnableLoggingResponse = EnableLoggingResponse
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
-lluLoggingEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> EnableLoggingResponse
-    -> f EnableLoggingResponse
+lluLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
 lluLoggingEnabled f x =
-    (\y -> x { _lluLoggingEnabled = y })
-       <$> f (_lluLoggingEnabled x)
+    f (_lluLoggingEnabled x)
+        <&> \y -> x { _lluLoggingEnabled = y }
 {-# INLINE lluLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
-lluBucketName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnableLoggingResponse
-    -> f EnableLoggingResponse
+lluBucketName :: Lens' EnableLoggingResponse (Maybe Text)
 lluBucketName f x =
-    (\y -> x { _lluBucketName = y })
-       <$> f (_lluBucketName x)
+    f (_lluBucketName x)
+        <&> \y -> x { _lluBucketName = y }
 {-# INLINE lluBucketName #-}
 
 -- | The prefix applied to the log file names.
-lluS3KeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnableLoggingResponse
-    -> f EnableLoggingResponse
+lluS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
 lluS3KeyPrefix f x =
-    (\y -> x { _lluS3KeyPrefix = y })
-       <$> f (_lluS3KeyPrefix x)
+    f (_lluS3KeyPrefix x)
+        <&> \y -> x { _lluS3KeyPrefix = y }
 {-# INLINE lluS3KeyPrefix #-}
 
 -- | The message indicating that logs failed to be delivered.
-lluLastFailureMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnableLoggingResponse
-    -> f EnableLoggingResponse
+lluLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
 lluLastFailureMessage f x =
-    (\y -> x { _lluLastFailureMessage = y })
-       <$> f (_lluLastFailureMessage x)
+    f (_lluLastFailureMessage x)
+        <&> \y -> x { _lluLastFailureMessage = y }
 {-# INLINE lluLastFailureMessage #-}
 
 -- | The last time when logs were delivered.
-lluLastSuccessfulDeliveryTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> EnableLoggingResponse
-    -> f EnableLoggingResponse
+lluLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
 lluLastSuccessfulDeliveryTime f x =
-    (\y -> x { _lluLastSuccessfulDeliveryTime = y })
-       <$> f (_lluLastSuccessfulDeliveryTime x)
+    f (_lluLastSuccessfulDeliveryTime x)
+        <&> \y -> x { _lluLastSuccessfulDeliveryTime = y }
 {-# INLINE lluLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
-lluLastFailureTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> EnableLoggingResponse
-    -> f EnableLoggingResponse
+lluLastFailureTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
 lluLastFailureTime f x =
-    (\y -> x { _lluLastFailureTime = y })
-       <$> f (_lluLastFailureTime x)
+    f (_lluLastFailureTime x)
+        <&> \y -> x { _lluLastFailureTime = y }
 {-# INLINE lluLastFailureTime #-}
 
 instance FromXML EnableLoggingResponse where

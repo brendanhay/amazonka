@@ -57,6 +57,7 @@ createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
     { _ccsgmCacheSecurityGroupName = p1
     , _ccsgmDescription = p2
     }
+{-# INLINE createCacheSecurityGroup #-}
 
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
     { _ccsgmCacheSecurityGroupName :: Text
@@ -71,27 +72,17 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters.
 -- Must not be the word "Default". Example: mysecuritygroup.
-ccsgmCacheSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheSecurityGroup
-    -> f CreateCacheSecurityGroup
+ccsgmCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup (Text)
 ccsgmCacheSecurityGroupName f x =
-    (\y -> x { _ccsgmCacheSecurityGroupName = y })
-       <$> f (_ccsgmCacheSecurityGroupName x)
+    f (_ccsgmCacheSecurityGroupName x)
+        <&> \y -> x { _ccsgmCacheSecurityGroupName = y }
 {-# INLINE ccsgmCacheSecurityGroupName #-}
 
 -- | A description for the cache security group.
-ccsgmDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheSecurityGroup
-    -> f CreateCacheSecurityGroup
+ccsgmDescription :: Lens' CreateCacheSecurityGroup (Text)
 ccsgmDescription f x =
-    (\y -> x { _ccsgmDescription = y })
-       <$> f (_ccsgmDescription x)
+    f (_ccsgmDescription x)
+        <&> \y -> x { _ccsgmDescription = y }
 {-# INLINE ccsgmDescription #-}
 
 instance ToQuery CreateCacheSecurityGroup where
@@ -107,15 +98,10 @@ data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
-csgxCacheSecurityGroup
-    :: Functor f
-    => (Maybe CacheSecurityGroup
-    -> f (Maybe CacheSecurityGroup))
-    -> CreateCacheSecurityGroupResponse
-    -> f CreateCacheSecurityGroupResponse
+csgxCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 csgxCacheSecurityGroup f x =
-    (\y -> x { _csgxCacheSecurityGroup = y })
-       <$> f (_csgxCacheSecurityGroup x)
+    f (_csgxCacheSecurityGroup x)
+        <&> \y -> x { _csgxCacheSecurityGroup = y }
 {-# INLINE csgxCacheSecurityGroup #-}
 
 instance FromXML CreateCacheSecurityGroupResponse where

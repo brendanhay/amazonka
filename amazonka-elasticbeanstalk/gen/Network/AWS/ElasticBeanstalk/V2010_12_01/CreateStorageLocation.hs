@@ -41,6 +41,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'CreateStorageLocation' request.
 createStorageLocation :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation
+{-# INLINE createStorageLocation #-}
 
 data CreateStorageLocation = CreateStorageLocation
     deriving (Eq, Show, Generic)
@@ -54,15 +55,10 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse
     } deriving (Show, Generic)
 
 -- | The name of the Amazon S3 bucket created.
-cslrmS3Bucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStorageLocationResponse
-    -> f CreateStorageLocationResponse
+cslrmS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrmS3Bucket f x =
-    (\y -> x { _cslrmS3Bucket = y })
-       <$> f (_cslrmS3Bucket x)
+    f (_cslrmS3Bucket x)
+        <&> \y -> x { _cslrmS3Bucket = y }
 {-# INLINE cslrmS3Bucket #-}
 
 instance FromXML CreateStorageLocationResponse where

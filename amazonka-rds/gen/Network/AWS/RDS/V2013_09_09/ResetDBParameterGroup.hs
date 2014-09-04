@@ -61,6 +61,7 @@ resetDBParameterGroup p1 = ResetDBParameterGroup
     , _rdbpgmResetAllParameters = Nothing
     , _rdbpgmParameters = mempty
     }
+{-# INLINE resetDBParameterGroup #-}
 
 data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgmDBParameterGroupName :: Text
@@ -85,28 +86,18 @@ data ResetDBParameterGroup = ResetDBParameterGroup
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-rdbpgmDBParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResetDBParameterGroup
-    -> f ResetDBParameterGroup
+rdbpgmDBParameterGroupName :: Lens' ResetDBParameterGroup (Text)
 rdbpgmDBParameterGroupName f x =
-    (\y -> x { _rdbpgmDBParameterGroupName = y })
-       <$> f (_rdbpgmDBParameterGroupName x)
+    f (_rdbpgmDBParameterGroupName x)
+        <&> \y -> x { _rdbpgmDBParameterGroupName = y }
 {-# INLINE rdbpgmDBParameterGroupName #-}
 
 -- | Specifies whether (true) or not (false) to reset all parameters in the DB
 -- parameter group to default values. Default: true.
-rdbpgmResetAllParameters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ResetDBParameterGroup
-    -> f ResetDBParameterGroup
+rdbpgmResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdbpgmResetAllParameters f x =
-    (\y -> x { _rdbpgmResetAllParameters = y })
-       <$> f (_rdbpgmResetAllParameters x)
+    f (_rdbpgmResetAllParameters x)
+        <&> \y -> x { _rdbpgmResetAllParameters = y }
 {-# INLINE rdbpgmResetAllParameters #-}
 
 -- | An array of parameter names, values, and the apply method for the parameter
@@ -117,15 +108,10 @@ rdbpgmResetAllParameters f x =
 -- parameters only. You can use the pending-reboot value for both dynamic and
 -- static parameters, and changes are applied when DB instance reboots. Oracle
 -- Valid Values (for Apply method): pending-reboot.
-rdbpgmParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> ResetDBParameterGroup
-    -> f ResetDBParameterGroup
+rdbpgmParameters :: Lens' ResetDBParameterGroup ([Parameter])
 rdbpgmParameters f x =
-    (\y -> x { _rdbpgmParameters = y })
-       <$> f (_rdbpgmParameters x)
+    f (_rdbpgmParameters x)
+        <&> \y -> x { _rdbpgmParameters = y }
 {-# INLINE rdbpgmParameters #-}
 
 instance ToQuery ResetDBParameterGroup where
@@ -137,15 +123,10 @@ data ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group.
-dbpgnnDBParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResetDBParameterGroupResponse
-    -> f ResetDBParameterGroupResponse
+dbpgnnDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
 dbpgnnDBParameterGroupName f x =
-    (\y -> x { _dbpgnnDBParameterGroupName = y })
-       <$> f (_dbpgnnDBParameterGroupName x)
+    f (_dbpgnnDBParameterGroupName x)
+        <&> \y -> x { _dbpgnnDBParameterGroupName = y }
 {-# INLINE dbpgnnDBParameterGroupName #-}
 
 instance FromXML ResetDBParameterGroupResponse where

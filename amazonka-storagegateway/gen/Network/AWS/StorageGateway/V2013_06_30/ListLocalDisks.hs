@@ -65,6 +65,7 @@ listLocalDisks :: Text -- ^ 'lldiGatewayARN'
 listLocalDisks p1 = ListLocalDisks
     { _lldiGatewayARN = p1
     }
+{-# INLINE listLocalDisks #-}
 
 data ListLocalDisks = ListLocalDisks
     { _lldiGatewayARN :: Text
@@ -75,15 +76,10 @@ data ListLocalDisks = ListLocalDisks
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lldiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListLocalDisks
-    -> f ListLocalDisks
+lldiGatewayARN :: Lens' ListLocalDisks (Text)
 lldiGatewayARN f x =
-    (\y -> x { _lldiGatewayARN = y })
-       <$> f (_lldiGatewayARN x)
+    f (_lldiGatewayARN x)
+        <&> \y -> x { _lldiGatewayARN = y }
 {-# INLINE lldiGatewayARN #-}
 
 instance ToPath ListLocalDisks
@@ -102,28 +98,18 @@ data ListLocalDisksResponse = ListLocalDisksResponse
       -- account and region.
     } deriving (Show, Generic)
 
-lldoDisks
-    :: Functor f
-    => ([DiskInformation]
-    -> f ([DiskInformation]))
-    -> ListLocalDisksResponse
-    -> f ListLocalDisksResponse
+lldoDisks :: Lens' ListLocalDisksResponse ([DiskInformation])
 lldoDisks f x =
-    (\y -> x { _lldoDisks = y })
-       <$> f (_lldoDisks x)
+    f (_lldoDisks x)
+        <&> \y -> x { _lldoDisks = y }
 {-# INLINE lldoDisks #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lldoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListLocalDisksResponse
-    -> f ListLocalDisksResponse
+lldoGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldoGatewayARN f x =
-    (\y -> x { _lldoGatewayARN = y })
-       <$> f (_lldoGatewayARN x)
+    f (_lldoGatewayARN x)
+        <&> \y -> x { _lldoGatewayARN = y }
 {-# INLINE lldoGatewayARN #-}
 
 instance FromJSON ListLocalDisksResponse

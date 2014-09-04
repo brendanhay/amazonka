@@ -51,6 +51,7 @@ describeCommands = DescribeCommands
     , _dcrInstanceId = Nothing
     , _dcrCommandIds = mempty
     }
+{-# INLINE describeCommands #-}
 
 data DescribeCommands = DescribeCommands
     { _dcrDeploymentId :: Maybe Text
@@ -69,42 +70,27 @@ data DescribeCommands = DescribeCommands
 
 -- | The deployment ID. If you include this parameter, DescribeCommands returns
 -- a description of the commands associated with the specified deployment.
-dcrDeploymentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCommands
-    -> f DescribeCommands
+dcrDeploymentId :: Lens' DescribeCommands (Maybe Text)
 dcrDeploymentId f x =
-    (\y -> x { _dcrDeploymentId = y })
-       <$> f (_dcrDeploymentId x)
+    f (_dcrDeploymentId x)
+        <&> \y -> x { _dcrDeploymentId = y }
 {-# INLINE dcrDeploymentId #-}
 
 -- | The instance ID. If you include this parameter, DescribeCommands returns a
 -- description of the commands associated with the specified instance.
-dcrInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCommands
-    -> f DescribeCommands
+dcrInstanceId :: Lens' DescribeCommands (Maybe Text)
 dcrInstanceId f x =
-    (\y -> x { _dcrInstanceId = y })
-       <$> f (_dcrInstanceId x)
+    f (_dcrInstanceId x)
+        <&> \y -> x { _dcrInstanceId = y }
 {-# INLINE dcrInstanceId #-}
 
 -- | An array of command IDs. If you include this parameter, DescribeCommands
 -- returns a description of the specified commands. Otherwise, it returns a
 -- description of every command.
-dcrCommandIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeCommands
-    -> f DescribeCommands
+dcrCommandIds :: Lens' DescribeCommands ([Text])
 dcrCommandIds f x =
-    (\y -> x { _dcrCommandIds = y })
-       <$> f (_dcrCommandIds x)
+    f (_dcrCommandIds x)
+        <&> \y -> x { _dcrCommandIds = y }
 {-# INLINE dcrCommandIds #-}
 
 instance ToPath DescribeCommands
@@ -122,15 +108,10 @@ data DescribeCommandsResponse = DescribeCommandsResponse
     } deriving (Show, Generic)
 
 -- | An array of Command objects that describe each of the specified commands.
-dcsCommands
-    :: Functor f
-    => ([Command]
-    -> f ([Command]))
-    -> DescribeCommandsResponse
-    -> f DescribeCommandsResponse
+dcsCommands :: Lens' DescribeCommandsResponse ([Command])
 dcsCommands f x =
-    (\y -> x { _dcsCommands = y })
-       <$> f (_dcsCommands x)
+    f (_dcsCommands x)
+        <&> \y -> x { _dcsCommands = y }
 {-# INLINE dcsCommands #-}
 
 instance FromJSON DescribeCommandsResponse

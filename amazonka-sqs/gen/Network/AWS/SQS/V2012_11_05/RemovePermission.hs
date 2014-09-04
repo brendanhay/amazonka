@@ -53,6 +53,7 @@ removePermission p1 p2 = RemovePermission
     { _rprQueueUrl = p1
     , _rprLabel = p2
     }
+{-# INLINE removePermission #-}
 
 data RemovePermission = RemovePermission
     { _rprQueueUrl :: Text
@@ -63,28 +64,18 @@ data RemovePermission = RemovePermission
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
-rprQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemovePermission
-    -> f RemovePermission
+rprQueueUrl :: Lens' RemovePermission (Text)
 rprQueueUrl f x =
-    (\y -> x { _rprQueueUrl = y })
-       <$> f (_rprQueueUrl x)
+    f (_rprQueueUrl x)
+        <&> \y -> x { _rprQueueUrl = y }
 {-# INLINE rprQueueUrl #-}
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
-rprLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemovePermission
-    -> f RemovePermission
+rprLabel :: Lens' RemovePermission (Text)
 rprLabel f x =
-    (\y -> x { _rprLabel = y })
-       <$> f (_rprLabel x)
+    f (_rprLabel x)
+        <&> \y -> x { _rprLabel = y }
 {-# INLINE rprLabel #-}
 
 instance ToQuery RemovePermission where

@@ -63,6 +63,7 @@ createPrivateVirtualInterface p1 p2 = CreatePrivateVirtualInterface
     { _cpvivConnectionId = p1
     , _cpvivNewPrivateVirtualInterface = p2
     }
+{-# INLINE createPrivateVirtualInterface #-}
 
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
     { _cpvivConnectionId :: Text
@@ -73,28 +74,18 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-cpvivConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePrivateVirtualInterface
-    -> f CreatePrivateVirtualInterface
+cpvivConnectionId :: Lens' CreatePrivateVirtualInterface (Text)
 cpvivConnectionId f x =
-    (\y -> x { _cpvivConnectionId = y })
-       <$> f (_cpvivConnectionId x)
+    f (_cpvivConnectionId x)
+        <&> \y -> x { _cpvivConnectionId = y }
 {-# INLINE cpvivConnectionId #-}
 
 -- | Detailed information for the private virtual interface to be created.
 -- Default: None.
-cpvivNewPrivateVirtualInterface
-    :: Functor f
-    => (NewPrivateVirtualInterface
-    -> f (NewPrivateVirtualInterface))
-    -> CreatePrivateVirtualInterface
-    -> f CreatePrivateVirtualInterface
+cpvivNewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface (NewPrivateVirtualInterface)
 cpvivNewPrivateVirtualInterface f x =
-    (\y -> x { _cpvivNewPrivateVirtualInterface = y })
-       <$> f (_cpvivNewPrivateVirtualInterface x)
+    f (_cpvivNewPrivateVirtualInterface x)
+        <&> \y -> x { _cpvivNewPrivateVirtualInterface = y }
 {-# INLINE cpvivNewPrivateVirtualInterface #-}
 
 instance ToPath CreatePrivateVirtualInterface
@@ -166,161 +157,96 @@ data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceRespon
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
-vkAsn
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkAsn :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Integer)
 vkAsn f x =
-    (\y -> x { _vkAsn = y })
-       <$> f (_vkAsn x)
+    f (_vkAsn x)
+        <&> \y -> x { _vkAsn = y }
 {-# INLINE vkAsn #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
-vkAmazonAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkAmazonAddress :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkAmazonAddress f x =
-    (\y -> x { _vkAmazonAddress = y })
-       <$> f (_vkAmazonAddress x)
+    f (_vkAmazonAddress x)
+        <&> \y -> x { _vkAmazonAddress = y }
 {-# INLINE vkAmazonAddress #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
-vkAuthKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkAuthKey :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkAuthKey f x =
-    (\y -> x { _vkAuthKey = y })
-       <$> f (_vkAuthKey x)
+    f (_vkAuthKey x)
+        <&> \y -> x { _vkAuthKey = y }
 {-# INLINE vkAuthKey #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-vkConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkConnectionId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkConnectionId f x =
-    (\y -> x { _vkConnectionId = y })
-       <$> f (_vkConnectionId x)
+    f (_vkConnectionId x)
+        <&> \y -> x { _vkConnectionId = y }
 {-# INLINE vkConnectionId #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
-vkCustomerAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkCustomerAddress :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkCustomerAddress f x =
-    (\y -> x { _vkCustomerAddress = y })
-       <$> f (_vkCustomerAddress x)
+    f (_vkCustomerAddress x)
+        <&> \y -> x { _vkCustomerAddress = y }
 {-# INLINE vkCustomerAddress #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-vkLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkLocation :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkLocation f x =
-    (\y -> x { _vkLocation = y })
-       <$> f (_vkLocation x)
+    f (_vkLocation x)
+        <&> \y -> x { _vkLocation = y }
 {-# INLINE vkLocation #-}
 
-vkOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkOwnerAccount :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkOwnerAccount f x =
-    (\y -> x { _vkOwnerAccount = y })
-       <$> f (_vkOwnerAccount x)
+    f (_vkOwnerAccount x)
+        <&> \y -> x { _vkOwnerAccount = y }
 {-# INLINE vkOwnerAccount #-}
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
-vkRouteFilterPrefixes
-    :: Functor f
-    => ([RouteFilterPrefix]
-    -> f ([RouteFilterPrefix]))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkRouteFilterPrefixes :: Lens' CreatePrivateVirtualInterfaceResponse ([RouteFilterPrefix])
 vkRouteFilterPrefixes f x =
-    (\y -> x { _vkRouteFilterPrefixes = y })
-       <$> f (_vkRouteFilterPrefixes x)
+    f (_vkRouteFilterPrefixes x)
+        <&> \y -> x { _vkRouteFilterPrefixes = y }
 {-# INLINE vkRouteFilterPrefixes #-}
 
 -- | Information for generating the customer router configuration.
-vkCustomerRouterConfig
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkCustomerRouterConfig :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkCustomerRouterConfig f x =
-    (\y -> x { _vkCustomerRouterConfig = y })
-       <$> f (_vkCustomerRouterConfig x)
+    f (_vkCustomerRouterConfig x)
+        <&> \y -> x { _vkCustomerRouterConfig = y }
 {-# INLINE vkCustomerRouterConfig #-}
 
 -- | The VLAN ID. Example: 101.
-vkVlan
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkVlan :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Integer)
 vkVlan f x =
-    (\y -> x { _vkVlan = y })
-       <$> f (_vkVlan x)
+    f (_vkVlan x)
+        <&> \y -> x { _vkVlan = y }
 {-# INLINE vkVlan #-}
 
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
-vkVirtualGatewayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkVirtualGatewayId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkVirtualGatewayId f x =
-    (\y -> x { _vkVirtualGatewayId = y })
-       <$> f (_vkVirtualGatewayId x)
+    f (_vkVirtualGatewayId x)
+        <&> \y -> x { _vkVirtualGatewayId = y }
 {-# INLINE vkVirtualGatewayId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-vkVirtualInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkVirtualInterfaceId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkVirtualInterfaceId f x =
-    (\y -> x { _vkVirtualInterfaceId = y })
-       <$> f (_vkVirtualInterfaceId x)
+    f (_vkVirtualInterfaceId x)
+        <&> \y -> x { _vkVirtualInterfaceId = y }
 {-# INLINE vkVirtualInterfaceId #-}
 
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
-vkVirtualInterfaceName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkVirtualInterfaceName :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkVirtualInterfaceName f x =
-    (\y -> x { _vkVirtualInterfaceName = y })
-       <$> f (_vkVirtualInterfaceName x)
+    f (_vkVirtualInterfaceName x)
+        <&> \y -> x { _vkVirtualInterfaceName = y }
 {-# INLINE vkVirtualInterfaceName #-}
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
@@ -339,28 +265,18 @@ vkVirtualInterfaceName f x =
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-vkVirtualInterfaceState
-    :: Functor f
-    => (Maybe VirtualInterfaceState
-    -> f (Maybe VirtualInterfaceState))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkVirtualInterfaceState :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 vkVirtualInterfaceState f x =
-    (\y -> x { _vkVirtualInterfaceState = y })
-       <$> f (_vkVirtualInterfaceState x)
+    f (_vkVirtualInterfaceState x)
+        <&> \y -> x { _vkVirtualInterfaceState = y }
 {-# INLINE vkVirtualInterfaceState #-}
 
 -- | The type of virtual interface. Example: private (Amazon VPC) or public
 -- (Amazon S3, Amazon DynamoDB, and so on.).
-vkVirtualInterfaceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePrivateVirtualInterfaceResponse
-    -> f CreatePrivateVirtualInterfaceResponse
+vkVirtualInterfaceType :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 vkVirtualInterfaceType f x =
-    (\y -> x { _vkVirtualInterfaceType = y })
-       <$> f (_vkVirtualInterfaceType x)
+    f (_vkVirtualInterfaceType x)
+        <&> \y -> x { _vkVirtualInterfaceType = y }
 {-# INLINE vkVirtualInterfaceType #-}
 
 instance FromJSON CreatePrivateVirtualInterfaceResponse

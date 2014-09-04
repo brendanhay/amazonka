@@ -63,6 +63,7 @@ deleteBandwidthRateLimit p1 p2 = DeleteBandwidthRateLimit
     { _dbrliBandwidthType = p1
     , _dbrliGatewayARN = p2
     }
+{-# INLINE deleteBandwidthRateLimit #-}
 
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
     { _dbrliBandwidthType :: Text
@@ -72,28 +73,18 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
       -- account and region.
     } deriving (Show, Generic)
 
-dbrliBandwidthType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteBandwidthRateLimit
-    -> f DeleteBandwidthRateLimit
+dbrliBandwidthType :: Lens' DeleteBandwidthRateLimit (Text)
 dbrliBandwidthType f x =
-    (\y -> x { _dbrliBandwidthType = y })
-       <$> f (_dbrliBandwidthType x)
+    f (_dbrliBandwidthType x)
+        <&> \y -> x { _dbrliBandwidthType = y }
 {-# INLINE dbrliBandwidthType #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrliGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteBandwidthRateLimit
-    -> f DeleteBandwidthRateLimit
+dbrliGatewayARN :: Lens' DeleteBandwidthRateLimit (Text)
 dbrliGatewayARN f x =
-    (\y -> x { _dbrliGatewayARN = y })
-       <$> f (_dbrliGatewayARN x)
+    f (_dbrliGatewayARN x)
+        <&> \y -> x { _dbrliGatewayARN = y }
 {-# INLINE dbrliGatewayARN #-}
 
 instance ToPath DeleteBandwidthRateLimit
@@ -113,15 +104,10 @@ data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrloGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteBandwidthRateLimitResponse
-    -> f DeleteBandwidthRateLimitResponse
+dbrloGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 dbrloGatewayARN f x =
-    (\y -> x { _dbrloGatewayARN = y })
-       <$> f (_dbrloGatewayARN x)
+    f (_dbrloGatewayARN x)
+        <&> \y -> x { _dbrloGatewayARN = y }
 {-# INLINE dbrloGatewayARN #-}
 
 instance FromJSON DeleteBandwidthRateLimitResponse

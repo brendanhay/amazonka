@@ -71,6 +71,7 @@ describeDomain :: Text -- ^ 'ddjName'
 describeDomain p1 = DescribeDomain
     { _ddjName = p1
     }
+{-# INLINE describeDomain #-}
 
 data DescribeDomain = DescribeDomain
     { _ddjName :: Text
@@ -78,15 +79,10 @@ data DescribeDomain = DescribeDomain
     } deriving (Show, Generic)
 
 -- | The name of the domain to describe.
-ddjName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeDomain
-    -> f DescribeDomain
+ddjName :: Lens' DescribeDomain (Text)
 ddjName f x =
-    (\y -> x { _ddjName = y })
-       <$> f (_ddjName x)
+    f (_ddjName x)
+        <&> \y -> x { _ddjName = y }
 {-# INLINE ddjName #-}
 
 instance ToPath DescribeDomain
@@ -105,27 +101,17 @@ data DescribeDomainResponse = DescribeDomainResponse
     } deriving (Show, Generic)
 
 -- | Contains the configuration settings of a domain.
-ddConfiguration
-    :: Functor f
-    => (DomainConfiguration
-    -> f (DomainConfiguration))
-    -> DescribeDomainResponse
-    -> f DescribeDomainResponse
+ddConfiguration :: Lens' DescribeDomainResponse (DomainConfiguration)
 ddConfiguration f x =
-    (\y -> x { _ddConfiguration = y })
-       <$> f (_ddConfiguration x)
+    f (_ddConfiguration x)
+        <&> \y -> x { _ddConfiguration = y }
 {-# INLINE ddConfiguration #-}
 
 -- | Contains general information about a domain.
-ddDomainInfo
-    :: Functor f
-    => (DomainInfo
-    -> f (DomainInfo))
-    -> DescribeDomainResponse
-    -> f DescribeDomainResponse
+ddDomainInfo :: Lens' DescribeDomainResponse (DomainInfo)
 ddDomainInfo f x =
-    (\y -> x { _ddDomainInfo = y })
-       <$> f (_ddDomainInfo x)
+    f (_ddDomainInfo x)
+        <&> \y -> x { _ddDomainInfo = y }
 {-# INLINE ddDomainInfo #-}
 
 instance FromJSON DescribeDomainResponse

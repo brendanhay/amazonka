@@ -44,6 +44,7 @@ deleteVirtualInterface :: Text -- ^ 'dvirVirtualInterfaceId'
 deleteVirtualInterface p1 = DeleteVirtualInterface
     { _dvirVirtualInterfaceId = p1
     }
+{-# INLINE deleteVirtualInterface #-}
 
 data DeleteVirtualInterface = DeleteVirtualInterface
     { _dvirVirtualInterfaceId :: Text
@@ -52,15 +53,10 @@ data DeleteVirtualInterface = DeleteVirtualInterface
     } deriving (Show, Generic)
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-dvirVirtualInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVirtualInterface
-    -> f DeleteVirtualInterface
+dvirVirtualInterfaceId :: Lens' DeleteVirtualInterface (Text)
 dvirVirtualInterfaceId f x =
-    (\y -> x { _dvirVirtualInterfaceId = y })
-       <$> f (_dvirVirtualInterfaceId x)
+    f (_dvirVirtualInterfaceId x)
+        <&> \y -> x { _dvirVirtualInterfaceId = y }
 {-# INLINE dvirVirtualInterfaceId #-}
 
 instance ToPath DeleteVirtualInterface
@@ -110,15 +106,10 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-dvisVirtualInterfaceState
-    :: Functor f
-    => (Maybe VirtualInterfaceState
-    -> f (Maybe VirtualInterfaceState))
-    -> DeleteVirtualInterfaceResponse
-    -> f DeleteVirtualInterfaceResponse
+dvisVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvisVirtualInterfaceState f x =
-    (\y -> x { _dvisVirtualInterfaceState = y })
-       <$> f (_dvisVirtualInterfaceState x)
+    f (_dvisVirtualInterfaceState x)
+        <&> \y -> x { _dvisVirtualInterfaceState = y }
 {-# INLINE dvisVirtualInterfaceState #-}
 
 instance FromJSON DeleteVirtualInterfaceResponse

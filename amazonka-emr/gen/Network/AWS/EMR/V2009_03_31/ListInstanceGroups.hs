@@ -47,6 +47,7 @@ listInstanceGroups p1 = ListInstanceGroups
     { _ligiClusterId = p1
     , _ligiMarker = Nothing
     }
+{-# INLINE listInstanceGroups #-}
 
 data ListInstanceGroups = ListInstanceGroups
     { _ligiClusterId :: Text
@@ -58,27 +59,17 @@ data ListInstanceGroups = ListInstanceGroups
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster for which to list the instance groups.
-ligiClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListInstanceGroups
-    -> f ListInstanceGroups
+ligiClusterId :: Lens' ListInstanceGroups (Text)
 ligiClusterId f x =
-    (\y -> x { _ligiClusterId = y })
-       <$> f (_ligiClusterId x)
+    f (_ligiClusterId x)
+        <&> \y -> x { _ligiClusterId = y }
 {-# INLINE ligiClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceGroups
-    -> f ListInstanceGroups
+ligiMarker :: Lens' ListInstanceGroups (Maybe Text)
 ligiMarker f x =
-    (\y -> x { _ligiMarker = y })
-       <$> f (_ligiMarker x)
+    f (_ligiMarker x)
+        <&> \y -> x { _ligiMarker = y }
 {-# INLINE ligiMarker #-}
 
 instance ToPath ListInstanceGroups
@@ -98,27 +89,17 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse
     } deriving (Show, Generic)
 
 -- | The list of instance groups for the cluster and given filters.
-ligoInstanceGroups
-    :: Functor f
-    => ([InstanceGroup]
-    -> f ([InstanceGroup]))
-    -> ListInstanceGroupsResponse
-    -> f ListInstanceGroupsResponse
+ligoInstanceGroups :: Lens' ListInstanceGroupsResponse ([InstanceGroup])
 ligoInstanceGroups f x =
-    (\y -> x { _ligoInstanceGroups = y })
-       <$> f (_ligoInstanceGroups x)
+    f (_ligoInstanceGroups x)
+        <&> \y -> x { _ligoInstanceGroups = y }
 {-# INLINE ligoInstanceGroups #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceGroupsResponse
-    -> f ListInstanceGroupsResponse
+ligoMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligoMarker f x =
-    (\y -> x { _ligoMarker = y })
-       <$> f (_ligoMarker x)
+    f (_ligoMarker x)
+        <&> \y -> x { _ligoMarker = y }
 {-# INLINE ligoMarker #-}
 
 instance FromJSON ListInstanceGroupsResponse

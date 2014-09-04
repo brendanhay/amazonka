@@ -112,6 +112,7 @@ runJobFlow p1 p2 = RunJobFlow
     , _rjfiServiceRole = Nothing
     , _rjfiAmiVersion = Nothing
     }
+{-# INLINE runJobFlow #-}
 
 data RunJobFlow = RunJobFlow
     { _rjfiInstances :: JobFlowInstancesConfig
@@ -180,27 +181,17 @@ data RunJobFlow = RunJobFlow
 
 -- | A specification of the number and type of Amazon EC2 instances on which to
 -- run the job flow.
-rjfiInstances
-    :: Functor f
-    => (JobFlowInstancesConfig
-    -> f (JobFlowInstancesConfig))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiInstances :: Lens' RunJobFlow (JobFlowInstancesConfig)
 rjfiInstances f x =
-    (\y -> x { _rjfiInstances = y })
-       <$> f (_rjfiInstances x)
+    f (_rjfiInstances x)
+        <&> \y -> x { _rjfiInstances = y }
 {-# INLINE rjfiInstances #-}
 
 -- | The name of the job flow.
-rjfiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiName :: Lens' RunJobFlow (Text)
 rjfiName f x =
-    (\y -> x { _rjfiName = y })
-       <$> f (_rjfiName x)
+    f (_rjfiName x)
+        <&> \y -> x { _rjfiName = y }
 {-# INLINE rjfiName #-}
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
@@ -208,28 +199,18 @@ rjfiName f x =
 -- of that AWS account can view and (if they have the proper policy
 -- permissions set) manage the job flow. If it is set to false, only the IAM
 -- user that created the job flow can view and manage it.
-rjfiVisibleToAllUsers
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfiVisibleToAllUsers f x =
-    (\y -> x { _rjfiVisibleToAllUsers = y })
-       <$> f (_rjfiVisibleToAllUsers x)
+    f (_rjfiVisibleToAllUsers x)
+        <&> \y -> x { _rjfiVisibleToAllUsers = y }
 {-# INLINE rjfiVisibleToAllUsers #-}
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on
 -- the cluster nodes.
-rjfiBootstrapActions
-    :: Functor f
-    => ([BootstrapActionConfig]
-    -> f ([BootstrapActionConfig]))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiBootstrapActions :: Lens' RunJobFlow ([BootstrapActionConfig])
 rjfiBootstrapActions f x =
-    (\y -> x { _rjfiBootstrapActions = y })
-       <$> f (_rjfiBootstrapActions x)
+    f (_rjfiBootstrapActions x)
+        <&> \y -> x { _rjfiBootstrapActions = y }
 {-# INLINE rjfiBootstrapActions #-}
 
 -- | A list of strings that indicates third-party software to use with the job
@@ -241,107 +222,67 @@ rjfiBootstrapActions f x =
 -- MapR M5 Edition. "mapr" with the user arguments specifying "--edition,m3"
 -- or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition
 -- respectively.
-rjfiNewSupportedProducts
-    :: Functor f
-    => ([SupportedProductConfig]
-    -> f ([SupportedProductConfig]))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiNewSupportedProducts :: Lens' RunJobFlow ([SupportedProductConfig])
 rjfiNewSupportedProducts f x =
-    (\y -> x { _rjfiNewSupportedProducts = y })
-       <$> f (_rjfiNewSupportedProducts x)
+    f (_rjfiNewSupportedProducts x)
+        <&> \y -> x { _rjfiNewSupportedProducts = y }
 {-# INLINE rjfiNewSupportedProducts #-}
 
 -- | A list of steps to be executed by the job flow.
-rjfiSteps
-    :: Functor f
-    => ([StepConfig]
-    -> f ([StepConfig]))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiSteps :: Lens' RunJobFlow ([StepConfig])
 rjfiSteps f x =
-    (\y -> x { _rjfiSteps = y })
-       <$> f (_rjfiSteps x)
+    f (_rjfiSteps x)
+        <&> \y -> x { _rjfiSteps = y }
 {-# INLINE rjfiSteps #-}
 
 -- | A list of strings that indicates third-party software to use with the job
 -- flow. For more information, go to Use Third Party Applications with Amazon
 -- EMR. Currently supported values are: "mapr-m3" - launch the job flow using
 -- MapR M3 Edition. "mapr-m5" - launch the job flow using MapR M5 Edition.
-rjfiSupportedProducts
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiSupportedProducts :: Lens' RunJobFlow ([Text])
 rjfiSupportedProducts f x =
-    (\y -> x { _rjfiSupportedProducts = y })
-       <$> f (_rjfiSupportedProducts x)
+    f (_rjfiSupportedProducts x)
+        <&> \y -> x { _rjfiSupportedProducts = y }
 {-# INLINE rjfiSupportedProducts #-}
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
-rjfiTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiTags :: Lens' RunJobFlow ([Tag])
 rjfiTags f x =
-    (\y -> x { _rjfiTags = y })
-       <$> f (_rjfiTags x)
+    f (_rjfiTags x)
+        <&> \y -> x { _rjfiTags = y }
 {-# INLINE rjfiTags #-}
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
-rjfiLogUri
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiLogUri :: Lens' RunJobFlow (Maybe Text)
 rjfiLogUri f x =
-    (\y -> x { _rjfiLogUri = y })
-       <$> f (_rjfiLogUri x)
+    f (_rjfiLogUri x)
+        <&> \y -> x { _rjfiLogUri = y }
 {-# INLINE rjfiLogUri #-}
 
 -- | A JSON string for selecting additional features.
-rjfiAdditionalInfo
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
 rjfiAdditionalInfo f x =
-    (\y -> x { _rjfiAdditionalInfo = y })
-       <$> f (_rjfiAdditionalInfo x)
+    f (_rjfiAdditionalInfo x)
+        <&> \y -> x { _rjfiAdditionalInfo = y }
 {-# INLINE rjfiAdditionalInfo #-}
 
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume this
 -- role. The default role is EMRJobflowDefault. In order to use the default
 -- role, you must have already created it using the CLI.
-rjfiJobFlowRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfiJobFlowRole f x =
-    (\y -> x { _rjfiJobFlowRole = y })
-       <$> f (_rjfiJobFlowRole x)
+    f (_rjfiJobFlowRole x)
+        <&> \y -> x { _rjfiJobFlowRole = y }
 {-# INLINE rjfiJobFlowRole #-}
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
-rjfiServiceRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiServiceRole :: Lens' RunJobFlow (Maybe Text)
 rjfiServiceRole f x =
-    (\y -> x { _rjfiServiceRole = y })
-       <$> f (_rjfiServiceRole x)
+    f (_rjfiServiceRole x)
+        <&> \y -> x { _rjfiServiceRole = y }
 {-# INLINE rjfiServiceRole #-}
 
 -- | The version of the Amazon Machine Image (AMI) to use when launching Amazon
@@ -353,15 +294,10 @@ rjfiServiceRole f x =
 -- shown above. For details about the AMI versions currently supported by
 -- Amazon Elastic MapReduce, go to AMI Versions Supported in Elastic MapReduce
 -- in the Amazon Elastic MapReduce Developer's Guide.
-rjfiAmiVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RunJobFlow
-    -> f RunJobFlow
+rjfiAmiVersion :: Lens' RunJobFlow (Maybe Text)
 rjfiAmiVersion f x =
-    (\y -> x { _rjfiAmiVersion = y })
-       <$> f (_rjfiAmiVersion x)
+    f (_rjfiAmiVersion x)
+        <&> \y -> x { _rjfiAmiVersion = y }
 {-# INLINE rjfiAmiVersion #-}
 
 instance ToPath RunJobFlow
@@ -378,15 +314,10 @@ data RunJobFlowResponse = RunJobFlowResponse
     } deriving (Show, Generic)
 
 -- | An unique identifier for the job flow.
-rjfoJobFlowId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RunJobFlowResponse
-    -> f RunJobFlowResponse
+rjfoJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfoJobFlowId f x =
-    (\y -> x { _rjfoJobFlowId = y })
-       <$> f (_rjfoJobFlowId x)
+    f (_rjfoJobFlowId x)
+        <&> \y -> x { _rjfoJobFlowId = y }
 {-# INLINE rjfoJobFlowId #-}
 
 instance FromJSON RunJobFlowResponse

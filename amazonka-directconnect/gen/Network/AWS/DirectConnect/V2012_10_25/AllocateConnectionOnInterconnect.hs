@@ -66,6 +66,7 @@ allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconne
     , _acoirOwnerAccount = p4
     , _acoirVlan = p5
     }
+{-# INLINE allocateConnectionOnInterconnect #-}
 
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
     { _acoirBandwidth :: Text
@@ -85,67 +86,42 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
     } deriving (Show, Generic)
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-acoirBandwidth
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AllocateConnectionOnInterconnect
-    -> f AllocateConnectionOnInterconnect
+acoirBandwidth :: Lens' AllocateConnectionOnInterconnect (Text)
 acoirBandwidth f x =
-    (\y -> x { _acoirBandwidth = y })
-       <$> f (_acoirBandwidth x)
+    f (_acoirBandwidth x)
+        <&> \y -> x { _acoirBandwidth = y }
 {-# INLINE acoirBandwidth #-}
 
 -- | Name of the provisioned connection. Example: "500M Connection to AWS"
 -- Default: None.
-acoirConnectionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AllocateConnectionOnInterconnect
-    -> f AllocateConnectionOnInterconnect
+acoirConnectionName :: Lens' AllocateConnectionOnInterconnect (Text)
 acoirConnectionName f x =
-    (\y -> x { _acoirConnectionName = y })
-       <$> f (_acoirConnectionName x)
+    f (_acoirConnectionName x)
+        <&> \y -> x { _acoirConnectionName = y }
 {-# INLINE acoirConnectionName #-}
 
 -- | ID of the interconnect on which the connection will be provisioned.
 -- Example: dxcon-456abc78 Default: None.
-acoirInterconnectId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AllocateConnectionOnInterconnect
-    -> f AllocateConnectionOnInterconnect
+acoirInterconnectId :: Lens' AllocateConnectionOnInterconnect (Text)
 acoirInterconnectId f x =
-    (\y -> x { _acoirInterconnectId = y })
-       <$> f (_acoirInterconnectId x)
+    f (_acoirInterconnectId x)
+        <&> \y -> x { _acoirInterconnectId = y }
 {-# INLINE acoirInterconnectId #-}
 
 -- | Numeric account Id of the customer for whom the connection will be
 -- provisioned. Example: 123443215678 Default: None.
-acoirOwnerAccount
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AllocateConnectionOnInterconnect
-    -> f AllocateConnectionOnInterconnect
+acoirOwnerAccount :: Lens' AllocateConnectionOnInterconnect (Text)
 acoirOwnerAccount f x =
-    (\y -> x { _acoirOwnerAccount = y })
-       <$> f (_acoirOwnerAccount x)
+    f (_acoirOwnerAccount x)
+        <&> \y -> x { _acoirOwnerAccount = y }
 {-# INLINE acoirOwnerAccount #-}
 
 -- | The dedicated VLAN provisioned to the connection. Example: 101 Default:
 -- None.
-acoirVlan
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AllocateConnectionOnInterconnect
-    -> f AllocateConnectionOnInterconnect
+acoirVlan :: Lens' AllocateConnectionOnInterconnect (Integer)
 acoirVlan f x =
-    (\y -> x { _acoirVlan = y })
-       <$> f (_acoirVlan x)
+    f (_acoirVlan x)
+        <&> \y -> x { _acoirVlan = y }
 {-# INLINE acoirVlan #-}
 
 instance ToPath AllocateConnectionOnInterconnect
@@ -189,39 +165,24 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
     } deriving (Show, Generic)
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-cBandwidth
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cBandwidth f x =
-    (\y -> x { _cBandwidth = y })
-       <$> f (_cBandwidth x)
+    f (_cBandwidth x)
+        <&> \y -> x { _cBandwidth = y }
 {-# INLINE cBandwidth #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-cConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cConnectionId f x =
-    (\y -> x { _cConnectionId = y })
-       <$> f (_cConnectionId x)
+    f (_cConnectionId x)
+        <&> \y -> x { _cConnectionId = y }
 {-# INLINE cConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-cConnectionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cConnectionName f x =
-    (\y -> x { _cConnectionName = y })
-       <$> f (_cConnectionName x)
+    f (_cConnectionName x)
+        <&> \y -> x { _cConnectionName = y }
 {-# INLINE cConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -235,74 +196,44 @@ cConnectionName f x =
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-cConnectionState
-    :: Functor f
-    => (Maybe ConnectionState
-    -> f (Maybe ConnectionState))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
 cConnectionState f x =
-    (\y -> x { _cConnectionState = y })
-       <$> f (_cConnectionState x)
+    f (_cConnectionState x)
+        <&> \y -> x { _cConnectionState = y }
 {-# INLINE cConnectionState #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-cLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cLocation f x =
-    (\y -> x { _cLocation = y })
-       <$> f (_cLocation x)
+    f (_cLocation x)
+        <&> \y -> x { _cLocation = y }
 {-# INLINE cLocation #-}
 
-cOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cOwnerAccount f x =
-    (\y -> x { _cOwnerAccount = y })
-       <$> f (_cOwnerAccount x)
+    f (_cOwnerAccount x)
+        <&> \y -> x { _cOwnerAccount = y }
 {-# INLINE cOwnerAccount #-}
 
-cPartnerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cPartnerName f x =
-    (\y -> x { _cPartnerName = y })
-       <$> f (_cPartnerName x)
+    f (_cPartnerName x)
+        <&> \y -> x { _cPartnerName = y }
 {-# INLINE cPartnerName #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-cRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 cRegion f x =
-    (\y -> x { _cRegion = y })
-       <$> f (_cRegion x)
+    f (_cRegion x)
+        <&> \y -> x { _cRegion = y }
 {-# INLINE cRegion #-}
 
 -- | The VLAN ID. Example: 101.
-cVlan
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AllocateConnectionOnInterconnectResponse
-    -> f AllocateConnectionOnInterconnectResponse
+cVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Integer)
 cVlan f x =
-    (\y -> x { _cVlan = y })
-       <$> f (_cVlan x)
+    f (_cVlan x)
+        <&> \y -> x { _cVlan = y }
 {-# INLINE cVlan #-}
 
 instance FromJSON AllocateConnectionOnInterconnectResponse

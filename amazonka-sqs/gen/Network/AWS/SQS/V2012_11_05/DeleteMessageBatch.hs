@@ -67,6 +67,7 @@ deleteMessageBatch p1 p2 = DeleteMessageBatch
     { _dmbrEntries = p1
     , _dmbrQueueUrl = p2
     }
+{-# INLINE deleteMessageBatch #-}
 
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbrEntries :: [DeleteMessageBatchRequestEntry]
@@ -76,27 +77,17 @@ data DeleteMessageBatch = DeleteMessageBatch
     } deriving (Show, Generic)
 
 -- | A list of receipt handles for the messages to be deleted.
-dmbrEntries
-    :: Functor f
-    => ([DeleteMessageBatchRequestEntry]
-    -> f ([DeleteMessageBatchRequestEntry]))
-    -> DeleteMessageBatch
-    -> f DeleteMessageBatch
+dmbrEntries :: Lens' DeleteMessageBatch ([DeleteMessageBatchRequestEntry])
 dmbrEntries f x =
-    (\y -> x { _dmbrEntries = y })
-       <$> f (_dmbrEntries x)
+    f (_dmbrEntries x)
+        <&> \y -> x { _dmbrEntries = y }
 {-# INLINE dmbrEntries #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
-dmbrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteMessageBatch
-    -> f DeleteMessageBatch
+dmbrQueueUrl :: Lens' DeleteMessageBatch (Text)
 dmbrQueueUrl f x =
-    (\y -> x { _dmbrQueueUrl = y })
-       <$> f (_dmbrQueueUrl x)
+    f (_dmbrQueueUrl x)
+        <&> \y -> x { _dmbrQueueUrl = y }
 {-# INLINE dmbrQueueUrl #-}
 
 instance ToQuery DeleteMessageBatch where
@@ -110,27 +101,17 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
     } deriving (Show, Generic)
 
 -- | A list of BatchResultErrorEntry items.
-dmbsFailed
-    :: Functor f
-    => ([BatchResultErrorEntry]
-    -> f ([BatchResultErrorEntry]))
-    -> DeleteMessageBatchResponse
-    -> f DeleteMessageBatchResponse
+dmbsFailed :: Lens' DeleteMessageBatchResponse ([BatchResultErrorEntry])
 dmbsFailed f x =
-    (\y -> x { _dmbsFailed = y })
-       <$> f (_dmbsFailed x)
+    f (_dmbsFailed x)
+        <&> \y -> x { _dmbsFailed = y }
 {-# INLINE dmbsFailed #-}
 
 -- | A list of DeleteMessageBatchResultEntry items.
-dmbsSuccessful
-    :: Functor f
-    => ([DeleteMessageBatchResultEntry]
-    -> f ([DeleteMessageBatchResultEntry]))
-    -> DeleteMessageBatchResponse
-    -> f DeleteMessageBatchResponse
+dmbsSuccessful :: Lens' DeleteMessageBatchResponse ([DeleteMessageBatchResultEntry])
 dmbsSuccessful f x =
-    (\y -> x { _dmbsSuccessful = y })
-       <$> f (_dmbsSuccessful x)
+    f (_dmbsSuccessful x)
+        <&> \y -> x { _dmbsSuccessful = y }
 {-# INLINE dmbsSuccessful #-}
 
 instance FromXML DeleteMessageBatchResponse where

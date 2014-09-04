@@ -71,6 +71,7 @@ deleteMessage p1 p2 = DeleteMessage
     { _dmrQueueUrl = p1
     , _dmrReceiptHandle = p2
     }
+{-# INLINE deleteMessage #-}
 
 data DeleteMessage = DeleteMessage
     { _dmrQueueUrl :: Text
@@ -80,27 +81,17 @@ data DeleteMessage = DeleteMessage
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
-dmrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteMessage
-    -> f DeleteMessage
+dmrQueueUrl :: Lens' DeleteMessage (Text)
 dmrQueueUrl f x =
-    (\y -> x { _dmrQueueUrl = y })
-       <$> f (_dmrQueueUrl x)
+    f (_dmrQueueUrl x)
+        <&> \y -> x { _dmrQueueUrl = y }
 {-# INLINE dmrQueueUrl #-}
 
 -- | The receipt handle associated with the message to delete.
-dmrReceiptHandle
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteMessage
-    -> f DeleteMessage
+dmrReceiptHandle :: Lens' DeleteMessage (Text)
 dmrReceiptHandle f x =
-    (\y -> x { _dmrReceiptHandle = y })
-       <$> f (_dmrReceiptHandle x)
+    f (_dmrReceiptHandle x)
+        <&> \y -> x { _dmrReceiptHandle = y }
 {-# INLINE dmrReceiptHandle #-}
 
 instance ToQuery DeleteMessage where

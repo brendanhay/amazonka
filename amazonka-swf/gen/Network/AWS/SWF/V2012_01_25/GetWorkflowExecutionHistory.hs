@@ -120,6 +120,7 @@ getWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
     , _gwehiNextPageToken = Nothing
     , _gwehiReverseOrder = Nothing
     }
+{-# INLINE getWorkflowExecutionHistory #-}
 
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     { _gwehiDomain :: Text
@@ -146,27 +147,17 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     } deriving (Show, Generic)
 
 -- | The name of the domain containing the workflow execution.
-gwehiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetWorkflowExecutionHistory
-    -> f GetWorkflowExecutionHistory
+gwehiDomain :: Lens' GetWorkflowExecutionHistory (Text)
 gwehiDomain f x =
-    (\y -> x { _gwehiDomain = y })
-       <$> f (_gwehiDomain x)
+    f (_gwehiDomain x)
+        <&> \y -> x { _gwehiDomain = y }
 {-# INLINE gwehiDomain #-}
 
 -- | Specifies the workflow execution for which to return the history.
-gwehiExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> GetWorkflowExecutionHistory
-    -> f GetWorkflowExecutionHistory
+gwehiExecution :: Lens' GetWorkflowExecutionHistory (WorkflowExecution)
 gwehiExecution f x =
-    (\y -> x { _gwehiExecution = y })
-       <$> f (_gwehiExecution x)
+    f (_gwehiExecution x)
+        <&> \y -> x { _gwehiExecution = y }
 {-# INLINE gwehiExecution #-}
 
 -- | Specifies the maximum number of history events returned in one page. The
@@ -176,43 +167,28 @@ gwehiExecution f x =
 -- specify a page size larger than 100. Note that the number of events may be
 -- less than the maxiumum page size, in which case, the returned page will
 -- have fewer results than the maximumPageSize specified.
-gwehiMaximumPageSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetWorkflowExecutionHistory
-    -> f GetWorkflowExecutionHistory
+gwehiMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Integer)
 gwehiMaximumPageSize f x =
-    (\y -> x { _gwehiMaximumPageSize = y })
-       <$> f (_gwehiMaximumPageSize x)
+    f (_gwehiMaximumPageSize x)
+        <&> \y -> x { _gwehiMaximumPageSize = y }
 {-# INLINE gwehiMaximumPageSize #-}
 
 -- | If a NextPageToken is returned, the result has more than one pages. To get
 -- the next page, repeat the call and specify the nextPageToken with all other
 -- arguments unchanged.
-gwehiNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetWorkflowExecutionHistory
-    -> f GetWorkflowExecutionHistory
+gwehiNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
 gwehiNextPageToken f x =
-    (\y -> x { _gwehiNextPageToken = y })
-       <$> f (_gwehiNextPageToken x)
+    f (_gwehiNextPageToken x)
+        <&> \y -> x { _gwehiNextPageToken = y }
 {-# INLINE gwehiNextPageToken #-}
 
 -- | When set to true, returns the events in reverse order. By default the
 -- results are returned in ascending order of the eventTimeStamp of the
 -- events.
-gwehiReverseOrder
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetWorkflowExecutionHistory
-    -> f GetWorkflowExecutionHistory
+gwehiReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
 gwehiReverseOrder f x =
-    (\y -> x { _gwehiReverseOrder = y })
-       <$> f (_gwehiReverseOrder x)
+    f (_gwehiReverseOrder x)
+        <&> \y -> x { _gwehiReverseOrder = y }
 {-# INLINE gwehiReverseOrder #-}
 
 instance ToPath GetWorkflowExecutionHistory
@@ -233,29 +209,19 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
     } deriving (Show, Generic)
 
 -- | The list of history events.
-hyEvents
-    :: Functor f
-    => ([HistoryEvent]
-    -> f ([HistoryEvent]))
-    -> GetWorkflowExecutionHistoryResponse
-    -> f GetWorkflowExecutionHistoryResponse
+hyEvents :: Lens' GetWorkflowExecutionHistoryResponse ([HistoryEvent])
 hyEvents f x =
-    (\y -> x { _hyEvents = y })
-       <$> f (_hyEvents x)
+    f (_hyEvents x)
+        <&> \y -> x { _hyEvents = y }
 {-# INLINE hyEvents #-}
 
 -- | The token for the next page. If set, the history consists of more than one
 -- page and the next page can be retrieved by repeating the request with this
 -- token and all other arguments unchanged.
-hyNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetWorkflowExecutionHistoryResponse
-    -> f GetWorkflowExecutionHistoryResponse
+hyNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 hyNextPageToken f x =
-    (\y -> x { _hyNextPageToken = y })
-       <$> f (_hyNextPageToken x)
+    f (_hyNextPageToken x)
+        <&> \y -> x { _hyNextPageToken = y }
 {-# INLINE hyNextPageToken #-}
 
 instance FromJSON GetWorkflowExecutionHistoryResponse

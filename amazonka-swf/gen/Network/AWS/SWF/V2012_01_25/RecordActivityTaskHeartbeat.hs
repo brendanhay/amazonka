@@ -91,6 +91,7 @@ recordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
     { _rathiTaskToken = p1
     , _rathiDetails = Nothing
     }
+{-# INLINE recordActivityTaskHeartbeat #-}
 
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
     { _rathiTaskToken :: Text
@@ -106,27 +107,17 @@ data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
 -- service and should be treated as an opaque value. If the task is passed to
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
-rathiTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RecordActivityTaskHeartbeat
-    -> f RecordActivityTaskHeartbeat
+rathiTaskToken :: Lens' RecordActivityTaskHeartbeat (Text)
 rathiTaskToken f x =
-    (\y -> x { _rathiTaskToken = y })
-       <$> f (_rathiTaskToken x)
+    f (_rathiTaskToken x)
+        <&> \y -> x { _rathiTaskToken = y }
 {-# INLINE rathiTaskToken #-}
 
 -- | If specified, contains details about the progress of the task.
-rathiDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RecordActivityTaskHeartbeat
-    -> f RecordActivityTaskHeartbeat
+rathiDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
 rathiDetails f x =
-    (\y -> x { _rathiDetails = y })
-       <$> f (_rathiDetails x)
+    f (_rathiDetails x)
+        <&> \y -> x { _rathiDetails = y }
 {-# INLINE rathiDetails #-}
 
 instance ToPath RecordActivityTaskHeartbeat
@@ -143,15 +134,10 @@ data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     } deriving (Show, Generic)
 
 -- | Set to true if cancellation of the task is requested.
-atsCancelRequested
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> RecordActivityTaskHeartbeatResponse
-    -> f RecordActivityTaskHeartbeatResponse
+atsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse (Bool)
 atsCancelRequested f x =
-    (\y -> x { _atsCancelRequested = y })
-       <$> f (_atsCancelRequested x)
+    f (_atsCancelRequested x)
+        <&> \y -> x { _atsCancelRequested = y }
 {-# INLINE atsCancelRequested #-}
 
 instance FromJSON RecordActivityTaskHeartbeatResponse

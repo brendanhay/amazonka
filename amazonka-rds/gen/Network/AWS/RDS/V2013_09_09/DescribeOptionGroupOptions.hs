@@ -53,6 +53,7 @@ describeOptionGroupOptions p1 = DescribeOptionGroupOptions
     , _dogomMajorEngineVersion = Nothing
     , _dogomMarker = Nothing
     }
+{-# INLINE describeOptionGroupOptions #-}
 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     { _dogomEngineName :: Text
@@ -75,57 +76,37 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
 
 -- | A required parameter. Options available for the given Engine name will be
 -- described.
-dogomEngineName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeOptionGroupOptions
-    -> f DescribeOptionGroupOptions
+dogomEngineName :: Lens' DescribeOptionGroupOptions (Text)
 dogomEngineName f x =
-    (\y -> x { _dogomEngineName = y })
-       <$> f (_dogomEngineName x)
+    f (_dogomEngineName x)
+        <&> \y -> x { _dogomEngineName = y }
 {-# INLINE dogomEngineName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dogomMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeOptionGroupOptions
-    -> f DescribeOptionGroupOptions
+dogomMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Integer)
 dogomMaxRecords f x =
-    (\y -> x { _dogomMaxRecords = y })
-       <$> f (_dogomMaxRecords x)
+    f (_dogomMaxRecords x)
+        <&> \y -> x { _dogomMaxRecords = y }
 {-# INLINE dogomMaxRecords #-}
 
 -- | If specified, filters the results to include only options for the specified
 -- major engine version.
-dogomMajorEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOptionGroupOptions
-    -> f DescribeOptionGroupOptions
+dogomMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogomMajorEngineVersion f x =
-    (\y -> x { _dogomMajorEngineVersion = y })
-       <$> f (_dogomMajorEngineVersion x)
+    f (_dogomMajorEngineVersion x)
+        <&> \y -> x { _dogomMajorEngineVersion = y }
 {-# INLINE dogomMajorEngineVersion #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dogomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOptionGroupOptions
-    -> f DescribeOptionGroupOptions
+dogomMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogomMarker f x =
-    (\y -> x { _dogomMarker = y })
-       <$> f (_dogomMarker x)
+    f (_dogomMarker x)
+        <&> \y -> x { _dogomMarker = y }
 {-# INLINE dogomMarker #-}
 
 instance ToQuery DescribeOptionGroupOptions where
@@ -141,29 +122,19 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     } deriving (Show, Generic)
 
 -- | List of available option group options.
-ogomOptionGroupOptions
-    :: Functor f
-    => ([OptionGroupOption]
-    -> f ([OptionGroupOption]))
-    -> DescribeOptionGroupOptionsResponse
-    -> f DescribeOptionGroupOptionsResponse
+ogomOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse ([OptionGroupOption])
 ogomOptionGroupOptions f x =
-    (\y -> x { _ogomOptionGroupOptions = y })
-       <$> f (_ogomOptionGroupOptions x)
+    f (_ogomOptionGroupOptions x)
+        <&> \y -> x { _ogomOptionGroupOptions = y }
 {-# INLINE ogomOptionGroupOptions #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ogomMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeOptionGroupOptionsResponse
-    -> f DescribeOptionGroupOptionsResponse
+ogomMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 ogomMarker f x =
-    (\y -> x { _ogomMarker = y })
-       <$> f (_ogomMarker x)
+    f (_ogomMarker x)
+        <&> \y -> x { _ogomMarker = y }
 {-# INLINE ogomMarker #-}
 
 instance FromXML DescribeOptionGroupOptionsResponse where

@@ -45,6 +45,7 @@ listTagsForResource p1 p2 = ListTagsForResource
     { _ltfrrResourceId = p1
     , _ltfrrResourceType = p2
     }
+{-# INLINE listTagsForResource #-}
 
 data ListTagsForResource = ListTagsForResource
     { _ltfrrResourceId :: Text
@@ -55,28 +56,18 @@ data ListTagsForResource = ListTagsForResource
     } deriving (Show, Generic)
 
 -- | The ID of the resource for which you want to retrieve tags.
-ltfrrResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListTagsForResource
-    -> f ListTagsForResource
+ltfrrResourceId :: Lens' ListTagsForResource (Text)
 ltfrrResourceId f x =
-    (\y -> x { _ltfrrResourceId = y })
-       <$> f (_ltfrrResourceId x)
+    f (_ltfrrResourceId x)
+        <&> \y -> x { _ltfrrResourceId = y }
 {-# INLINE ltfrrResourceId #-}
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
-ltfrrResourceType
-    :: Functor f
-    => (TagResourceType
-    -> f (TagResourceType))
-    -> ListTagsForResource
-    -> f ListTagsForResource
+ltfrrResourceType :: Lens' ListTagsForResource (TagResourceType)
 ltfrrResourceType f x =
-    (\y -> x { _ltfrrResourceType = y })
-       <$> f (_ltfrrResourceType x)
+    f (_ltfrrResourceType x)
+        <&> \y -> x { _ltfrrResourceType = y }
 {-# INLINE ltfrrResourceType #-}
 
 instance ToPath ListTagsForResource where
@@ -102,15 +93,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse
     } deriving (Show, Generic)
 
 -- | A ResourceTagSet containing tags associated with the specified resource.
-ltfrsResourceTagSet
-    :: Functor f
-    => (ResourceTagSet
-    -> f (ResourceTagSet))
-    -> ListTagsForResourceResponse
-    -> f ListTagsForResourceResponse
+ltfrsResourceTagSet :: Lens' ListTagsForResourceResponse (ResourceTagSet)
 ltfrsResourceTagSet f x =
-    (\y -> x { _ltfrsResourceTagSet = y })
-       <$> f (_ltfrsResourceTagSet x)
+    f (_ltfrsResourceTagSet x)
+        <&> \y -> x { _ltfrsResourceTagSet = y }
 {-# INLINE ltfrsResourceTagSet #-}
 
 instance FromXML ListTagsForResourceResponse where

@@ -88,6 +88,7 @@ terminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
     , _tweiRunId = Nothing
     , _tweiReason = Nothing
     }
+{-# INLINE terminateWorkflowExecution #-}
 
 data TerminateWorkflowExecution = TerminateWorkflowExecution
     { _tweiDomain :: Text
@@ -120,27 +121,17 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
     } deriving (Show, Generic)
 
 -- | The domain of the workflow execution to terminate.
-tweiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TerminateWorkflowExecution
-    -> f TerminateWorkflowExecution
+tweiDomain :: Lens' TerminateWorkflowExecution (Text)
 tweiDomain f x =
-    (\y -> x { _tweiDomain = y })
-       <$> f (_tweiDomain x)
+    f (_tweiDomain x)
+        <&> \y -> x { _tweiDomain = y }
 {-# INLINE tweiDomain #-}
 
 -- | The workflowId of the workflow execution to terminate.
-tweiWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TerminateWorkflowExecution
-    -> f TerminateWorkflowExecution
+tweiWorkflowId :: Lens' TerminateWorkflowExecution (Text)
 tweiWorkflowId f x =
-    (\y -> x { _tweiWorkflowId = y })
-       <$> f (_tweiWorkflowId x)
+    f (_tweiWorkflowId x)
+        <&> \y -> x { _tweiWorkflowId = y }
 {-# INLINE tweiWorkflowId #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
@@ -156,51 +147,31 @@ tweiWorkflowId f x =
 -- specified either as a default for the workflow type or through this
 -- parameter. If neither this parameter is set nor a default child policy was
 -- specified at registration time, a fault will be returned.
-tweiChildPolicy
-    :: Functor f
-    => (Maybe ChildPolicy
-    -> f (Maybe ChildPolicy))
-    -> TerminateWorkflowExecution
-    -> f TerminateWorkflowExecution
+tweiChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
 tweiChildPolicy f x =
-    (\y -> x { _tweiChildPolicy = y })
-       <$> f (_tweiChildPolicy x)
+    f (_tweiChildPolicy x)
+        <&> \y -> x { _tweiChildPolicy = y }
 {-# INLINE tweiChildPolicy #-}
 
 -- | Optional details for terminating the workflow execution.
-tweiDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateWorkflowExecution
-    -> f TerminateWorkflowExecution
+tweiDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweiDetails f x =
-    (\y -> x { _tweiDetails = y })
-       <$> f (_tweiDetails x)
+    f (_tweiDetails x)
+        <&> \y -> x { _tweiDetails = y }
 {-# INLINE tweiDetails #-}
 
 -- | The runId of the workflow execution to terminate.
-tweiRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateWorkflowExecution
-    -> f TerminateWorkflowExecution
+tweiRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweiRunId f x =
-    (\y -> x { _tweiRunId = y })
-       <$> f (_tweiRunId x)
+    f (_tweiRunId x)
+        <&> \y -> x { _tweiRunId = y }
 {-# INLINE tweiRunId #-}
 
 -- | An optional descriptive reason for terminating the workflow execution.
-tweiReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateWorkflowExecution
-    -> f TerminateWorkflowExecution
+tweiReason :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweiReason f x =
-    (\y -> x { _tweiReason = y })
-       <$> f (_tweiReason x)
+    f (_tweiReason x)
+        <&> \y -> x { _tweiReason = y }
 {-# INLINE tweiReason #-}
 
 instance ToPath TerminateWorkflowExecution

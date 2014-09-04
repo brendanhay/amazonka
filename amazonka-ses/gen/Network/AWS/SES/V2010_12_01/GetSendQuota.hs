@@ -48,6 +48,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetSendQuota' request.
 getSendQuota :: GetSendQuota
 getSendQuota = GetSendQuota
+{-# INLINE getSendQuota #-}
 
 data GetSendQuota = GetSendQuota
     deriving (Eq, Show, Generic)
@@ -68,39 +69,24 @@ data GetSendQuotaResponse = GetSendQuotaResponse
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval.
-gsqrMax24HourSend
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> GetSendQuotaResponse
-    -> f GetSendQuotaResponse
+gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMax24HourSend f x =
-    (\y -> x { _gsqrMax24HourSend = y })
-       <$> f (_gsqrMax24HourSend x)
+    f (_gsqrMax24HourSend x)
+        <&> \y -> x { _gsqrMax24HourSend = y }
 {-# INLINE gsqrMax24HourSend #-}
 
 -- | The maximum number of emails the user is allowed to send per second.
-gsqrMaxSendRate
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> GetSendQuotaResponse
-    -> f GetSendQuotaResponse
+gsqrMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMaxSendRate f x =
-    (\y -> x { _gsqrMaxSendRate = y })
-       <$> f (_gsqrMaxSendRate x)
+    f (_gsqrMaxSendRate x)
+        <&> \y -> x { _gsqrMaxSendRate = y }
 {-# INLINE gsqrMaxSendRate #-}
 
 -- | The number of emails sent during the previous 24 hours.
-gsqrSentLast24Hours
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> GetSendQuotaResponse
-    -> f GetSendQuotaResponse
+gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrSentLast24Hours f x =
-    (\y -> x { _gsqrSentLast24Hours = y })
-       <$> f (_gsqrSentLast24Hours x)
+    f (_gsqrSentLast24Hours x)
+        <&> \y -> x { _gsqrSentLast24Hours = y }
 {-# INLINE gsqrSentLast24Hours #-}
 
 instance FromXML GetSendQuotaResponse where

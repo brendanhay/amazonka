@@ -60,6 +60,7 @@ setEndpointAttributes p1 p2 = SetEndpointAttributes
     { _seaiAttributes = p1
     , _seaiEndpointArn = p2
     }
+{-# INLINE setEndpointAttributes #-}
 
 data SetEndpointAttributes = SetEndpointAttributes
     { _seaiAttributes :: Map Text Text
@@ -88,27 +89,17 @@ data SetEndpointAttributes = SetEndpointAttributes
 -- referred to as a registration id, for an app and mobile device. This is
 -- returned from the notification service when an app and mobile device are
 -- registered with the notification service.
-seaiAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> SetEndpointAttributes
-    -> f SetEndpointAttributes
+seaiAttributes :: Lens' SetEndpointAttributes (Map Text Text)
 seaiAttributes f x =
-    (\y -> x { _seaiAttributes = y })
-       <$> f (_seaiAttributes x)
+    f (_seaiAttributes x)
+        <&> \y -> x { _seaiAttributes = y }
 {-# INLINE seaiAttributes #-}
 
 -- | EndpointArn used for SetEndpointAttributes action.
-seaiEndpointArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetEndpointAttributes
-    -> f SetEndpointAttributes
+seaiEndpointArn :: Lens' SetEndpointAttributes (Text)
 seaiEndpointArn f x =
-    (\y -> x { _seaiEndpointArn = y })
-       <$> f (_seaiEndpointArn x)
+    f (_seaiEndpointArn x)
+        <&> \y -> x { _seaiEndpointArn = y }
 {-# INLINE seaiEndpointArn #-}
 
 instance ToQuery SetEndpointAttributes where

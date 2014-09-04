@@ -54,6 +54,7 @@ describeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvitConnectionId = Nothing
     , _dvitVirtualInterfaceId = Nothing
     }
+{-# INLINE describeVirtualInterfaces #-}
 
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvitConnectionId :: Maybe Text
@@ -64,27 +65,17 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dvitConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVirtualInterfaces
-    -> f DescribeVirtualInterfaces
+dvitConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dvitConnectionId f x =
-    (\y -> x { _dvitConnectionId = y })
-       <$> f (_dvitConnectionId x)
+    f (_dvitConnectionId x)
+        <&> \y -> x { _dvitConnectionId = y }
 {-# INLINE dvitConnectionId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-dvitVirtualInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVirtualInterfaces
-    -> f DescribeVirtualInterfaces
+dvitVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dvitVirtualInterfaceId f x =
-    (\y -> x { _dvitVirtualInterfaceId = y })
-       <$> f (_dvitVirtualInterfaceId x)
+    f (_dvitVirtualInterfaceId x)
+        <&> \y -> x { _dvitVirtualInterfaceId = y }
 {-# INLINE dvitVirtualInterfaceId #-}
 
 instance ToPath DescribeVirtualInterfaces
@@ -101,15 +92,10 @@ data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     } deriving (Show, Generic)
 
 -- | A list of virtual interfaces.
-vmVirtualInterfaces
-    :: Functor f
-    => ([VirtualInterface]
-    -> f ([VirtualInterface]))
-    -> DescribeVirtualInterfacesResponse
-    -> f DescribeVirtualInterfacesResponse
+vmVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse ([VirtualInterface])
 vmVirtualInterfaces f x =
-    (\y -> x { _vmVirtualInterfaces = y })
-       <$> f (_vmVirtualInterfaces x)
+    f (_vmVirtualInterfaces x)
+        <&> \y -> x { _vmVirtualInterfaces = y }
 {-# INLINE vmVirtualInterfaces #-}
 
 instance FromJSON DescribeVirtualInterfacesResponse

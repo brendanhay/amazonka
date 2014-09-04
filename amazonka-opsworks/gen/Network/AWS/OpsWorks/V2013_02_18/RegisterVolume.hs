@@ -52,6 +52,7 @@ registerVolume p1 = RegisterVolume
     { _rvrStackId = p1
     , _rvrEc2VolumeId = Nothing
     }
+{-# INLINE registerVolume #-}
 
 data RegisterVolume = RegisterVolume
     { _rvrStackId :: Text
@@ -61,27 +62,17 @@ data RegisterVolume = RegisterVolume
     } deriving (Show, Generic)
 
 -- | The stack ID.
-rvrStackId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterVolume
-    -> f RegisterVolume
+rvrStackId :: Lens' RegisterVolume (Text)
 rvrStackId f x =
-    (\y -> x { _rvrStackId = y })
-       <$> f (_rvrStackId x)
+    f (_rvrStackId x)
+        <&> \y -> x { _rvrStackId = y }
 {-# INLINE rvrStackId #-}
 
 -- | The Amazon EBS volume ID.
-rvrEc2VolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterVolume
-    -> f RegisterVolume
+rvrEc2VolumeId :: Lens' RegisterVolume (Maybe Text)
 rvrEc2VolumeId f x =
-    (\y -> x { _rvrEc2VolumeId = y })
-       <$> f (_rvrEc2VolumeId x)
+    f (_rvrEc2VolumeId x)
+        <&> \y -> x { _rvrEc2VolumeId = y }
 {-# INLINE rvrEc2VolumeId #-}
 
 instance ToPath RegisterVolume
@@ -98,15 +89,10 @@ data RegisterVolumeResponse = RegisterVolumeResponse
     } deriving (Show, Generic)
 
 -- | The volume ID.
-rvsVolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterVolumeResponse
-    -> f RegisterVolumeResponse
+rvsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvsVolumeId f x =
-    (\y -> x { _rvsVolumeId = y })
-       <$> f (_rvsVolumeId x)
+    f (_rvsVolumeId x)
+        <&> \y -> x { _rvsVolumeId = y }
 {-# INLINE rvsVolumeId #-}
 
 instance FromJSON RegisterVolumeResponse

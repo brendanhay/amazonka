@@ -55,6 +55,7 @@ modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     , _mcsgmCacheSubnetGroupDescription = Nothing
     , _mcsgmSubnetIds = mempty
     }
+{-# INLINE modifyCacheSubnetGroup #-}
 
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgmCacheSubnetGroupName :: Text
@@ -70,39 +71,24 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
 -- | The name for the cache subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Example: mysubnetgroup.
-mcsgmCacheSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyCacheSubnetGroup
-    -> f ModifyCacheSubnetGroup
+mcsgmCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup (Text)
 mcsgmCacheSubnetGroupName f x =
-    (\y -> x { _mcsgmCacheSubnetGroupName = y })
-       <$> f (_mcsgmCacheSubnetGroupName x)
+    f (_mcsgmCacheSubnetGroupName x)
+        <&> \y -> x { _mcsgmCacheSubnetGroupName = y }
 {-# INLINE mcsgmCacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
-mcsgmCacheSubnetGroupDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheSubnetGroup
-    -> f ModifyCacheSubnetGroup
+mcsgmCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
 mcsgmCacheSubnetGroupDescription f x =
-    (\y -> x { _mcsgmCacheSubnetGroupDescription = y })
-       <$> f (_mcsgmCacheSubnetGroupDescription x)
+    f (_mcsgmCacheSubnetGroupDescription x)
+        <&> \y -> x { _mcsgmCacheSubnetGroupDescription = y }
 {-# INLINE mcsgmCacheSubnetGroupDescription #-}
 
 -- | The EC2 subnet IDs for the cache subnet group.
-mcsgmSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCacheSubnetGroup
-    -> f ModifyCacheSubnetGroup
+mcsgmSubnetIds :: Lens' ModifyCacheSubnetGroup ([Text])
 mcsgmSubnetIds f x =
-    (\y -> x { _mcsgmSubnetIds = y })
-       <$> f (_mcsgmSubnetIds x)
+    f (_mcsgmSubnetIds x)
+        <&> \y -> x { _mcsgmSubnetIds = y }
 {-# INLINE mcsgmSubnetIds #-}
 
 instance ToQuery ModifyCacheSubnetGroup where
@@ -116,15 +102,10 @@ data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
 
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
-csgzCacheSubnetGroup
-    :: Functor f
-    => (Maybe CacheSubnetGroup
-    -> f (Maybe CacheSubnetGroup))
-    -> ModifyCacheSubnetGroupResponse
-    -> f ModifyCacheSubnetGroupResponse
+csgzCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 csgzCacheSubnetGroup f x =
-    (\y -> x { _csgzCacheSubnetGroup = y })
-       <$> f (_csgzCacheSubnetGroup x)
+    f (_csgzCacheSubnetGroup x)
+        <&> \y -> x { _csgzCacheSubnetGroup = y }
 {-# INLINE csgzCacheSubnetGroup #-}
 
 instance FromXML ModifyCacheSubnetGroupResponse where

@@ -76,6 +76,7 @@ countPendingActivityTasks p1 p2 = CountPendingActivityTasks
     { _cpatiDomain = p1
     , _cpatiTaskList = p2
     }
+{-# INLINE countPendingActivityTasks #-}
 
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatiDomain :: Text
@@ -85,27 +86,17 @@ data CountPendingActivityTasks = CountPendingActivityTasks
     } deriving (Show, Generic)
 
 -- | The name of the domain that contains the task list.
-cpatiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CountPendingActivityTasks
-    -> f CountPendingActivityTasks
+cpatiDomain :: Lens' CountPendingActivityTasks (Text)
 cpatiDomain f x =
-    (\y -> x { _cpatiDomain = y })
-       <$> f (_cpatiDomain x)
+    f (_cpatiDomain x)
+        <&> \y -> x { _cpatiDomain = y }
 {-# INLINE cpatiDomain #-}
 
 -- | The name of the task list.
-cpatiTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> CountPendingActivityTasks
-    -> f CountPendingActivityTasks
+cpatiTaskList :: Lens' CountPendingActivityTasks (TaskList)
 cpatiTaskList f x =
-    (\y -> x { _cpatiTaskList = y })
-       <$> f (_cpatiTaskList x)
+    f (_cpatiTaskList x)
+        <&> \y -> x { _cpatiTaskList = y }
 {-# INLINE cpatiTaskList #-}
 
 instance ToPath CountPendingActivityTasks
@@ -126,28 +117,18 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
     } deriving (Show, Generic)
 
 -- | The number of tasks in the task list.
-ptcCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CountPendingActivityTasksResponse
-    -> f CountPendingActivityTasksResponse
+ptcCount :: Lens' CountPendingActivityTasksResponse (Integer)
 ptcCount f x =
-    (\y -> x { _ptcCount = y })
-       <$> f (_ptcCount x)
+    f (_ptcCount x)
+        <&> \y -> x { _ptcCount = y }
 {-# INLINE ptcCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-ptcTruncated
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CountPendingActivityTasksResponse
-    -> f CountPendingActivityTasksResponse
+ptcTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
 ptcTruncated f x =
-    (\y -> x { _ptcTruncated = y })
-       <$> f (_ptcTruncated x)
+    f (_ptcTruncated x)
+        <&> \y -> x { _ptcTruncated = y }
 {-# INLINE ptcTruncated #-}
 
 instance FromJSON CountPendingActivityTasksResponse

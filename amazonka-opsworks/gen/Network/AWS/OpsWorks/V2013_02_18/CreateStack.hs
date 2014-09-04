@@ -84,6 +84,7 @@ createStack p1 p2 p3 p4 = CreateStack
     , _cstCustomJson = Nothing
     , _cstDefaultSshKeyName = Nothing
     }
+{-# INLINE createStack #-}
 
 data CreateStack = CreateStack
     { _cstName :: Text
@@ -201,69 +202,44 @@ data CreateStack = CreateStack
     } deriving (Show, Generic)
 
 -- | The stack name.
-cstName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateStack
-    -> f CreateStack
+cstName :: Lens' CreateStack (Text)
 cstName f x =
-    (\y -> x { _cstName = y })
-       <$> f (_cstName x)
+    f (_cstName x)
+        <&> \y -> x { _cstName = y }
 {-# INLINE cstName #-}
 
 -- | The stack AWS region, such as "us-east-1". For more information about
 -- Amazon regions, see Regions and Endpoints.
-cstRegion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateStack
-    -> f CreateStack
+cstRegion :: Lens' CreateStack (Text)
 cstRegion f x =
-    (\y -> x { _cstRegion = y })
-       <$> f (_cstRegion x)
+    f (_cstRegion x)
+        <&> \y -> x { _cstRegion = y }
 {-# INLINE cstRegion #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
 -- OpsWorks to work with AWS resources on your behalf. You must set this
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. For
 -- more information about IAM ARNs, see Using Identifiers.
-cstServiceRoleArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateStack
-    -> f CreateStack
+cstServiceRoleArn :: Lens' CreateStack (Text)
 cstServiceRoleArn f x =
-    (\y -> x { _cstServiceRoleArn = y })
-       <$> f (_cstServiceRoleArn x)
+    f (_cstServiceRoleArn x)
+        <&> \y -> x { _cstServiceRoleArn = y }
 {-# INLINE cstServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
 -- Identifiers.
-cstDefaultInstanceProfileArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateStack
-    -> f CreateStack
+cstDefaultInstanceProfileArn :: Lens' CreateStack (Text)
 cstDefaultInstanceProfileArn f x =
-    (\y -> x { _cstDefaultInstanceProfileArn = y })
-       <$> f (_cstDefaultInstanceProfileArn x)
+    f (_cstDefaultInstanceProfileArn x)
+        <&> \y -> x { _cstDefaultInstanceProfileArn = y }
 {-# INLINE cstDefaultInstanceProfileArn #-}
 
 -- | Whether the stack uses custom cookbooks.
-cstUseCustomCookbooks
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateStack
-    -> f CreateStack
+cstUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
 cstUseCustomCookbooks f x =
-    (\y -> x { _cstUseCustomCookbooks = y })
-       <$> f (_cstUseCustomCookbooks x)
+    f (_cstUseCustomCookbooks x)
+        <&> \y -> x { _cstUseCustomCookbooks = y }
 {-# INLINE cstUseCustomCookbooks #-}
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
@@ -281,85 +257,55 @@ cstUseCustomCookbooks f x =
 -- layer on creation; custom security groups are required only for those
 -- layers that need custom settings. For more information, see Create a New
 -- Stack.
-cstUseOpsworksSecurityGroups
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateStack
-    -> f CreateStack
+cstUseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
 cstUseOpsworksSecurityGroups f x =
-    (\y -> x { _cstUseOpsworksSecurityGroups = y })
-       <$> f (_cstUseOpsworksSecurityGroups x)
+    f (_cstUseOpsworksSecurityGroups x)
+        <&> \y -> x { _cstUseOpsworksSecurityGroups = y }
 {-# INLINE cstUseOpsworksSecurityGroups #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
 -- Create a New Stack.
-cstChefConfiguration
-    :: Functor f
-    => (Maybe ChefConfiguration
-    -> f (Maybe ChefConfiguration))
-    -> CreateStack
-    -> f CreateStack
+cstChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
 cstChefConfiguration f x =
-    (\y -> x { _cstChefConfiguration = y })
-       <$> f (_cstChefConfiguration x)
+    f (_cstChefConfiguration x)
+        <&> \y -> x { _cstChefConfiguration = y }
 {-# INLINE cstChefConfiguration #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. The default option is instance-store. For more information, see
 -- Storage for the Root Device.
-cstDefaultRootDeviceType
-    :: Functor f
-    => (Maybe RootDeviceType
-    -> f (Maybe RootDeviceType))
-    -> CreateStack
-    -> f CreateStack
+cstDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
 cstDefaultRootDeviceType f x =
-    (\y -> x { _cstDefaultRootDeviceType = y })
-       <$> f (_cstDefaultRootDeviceType x)
+    f (_cstDefaultRootDeviceType x)
+        <&> \y -> x { _cstDefaultRootDeviceType = y }
 {-# INLINE cstDefaultRootDeviceType #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-cstCustomCookbooksSource
-    :: Functor f
-    => (Maybe Source
-    -> f (Maybe Source))
-    -> CreateStack
-    -> f CreateStack
+cstCustomCookbooksSource :: Lens' CreateStack (Maybe Source)
 cstCustomCookbooksSource f x =
-    (\y -> x { _cstCustomCookbooksSource = y })
-       <$> f (_cstCustomCookbooksSource x)
+    f (_cstCustomCookbooksSource x)
+        <&> \y -> x { _cstCustomCookbooksSource = y }
 {-# INLINE cstCustomCookbooksSource #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-cstAttributes
-    :: Functor f
-    => (Map StackAttributesKeys Text
-    -> f (Map StackAttributesKeys Text))
-    -> CreateStack
-    -> f CreateStack
+cstAttributes :: Lens' CreateStack (Map StackAttributesKeys Text)
 cstAttributes f x =
-    (\y -> x { _cstAttributes = y })
-       <$> f (_cstAttributes x)
+    f (_cstAttributes x)
+        <&> \y -> x { _cstAttributes = y }
 {-# INLINE cstAttributes #-}
 
 -- | The configuration manager. When you clone a stack we recommend that you use
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
 -- The default value is currently 11.4.
-cstConfigurationManager
-    :: Functor f
-    => (Maybe StackConfigurationManager
-    -> f (Maybe StackConfigurationManager))
-    -> CreateStack
-    -> f CreateStack
+cstConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
 cstConfigurationManager f x =
-    (\y -> x { _cstConfigurationManager = y })
-       <$> f (_cstConfigurationManager x)
+    f (_cstConfigurationManager x)
+        <&> \y -> x { _cstConfigurationManager = y }
 {-# INLINE cstConfigurationManager #-}
 
 -- | The ID of the VPC that the stack is to be launched into. It must be in the
@@ -377,28 +323,18 @@ cstConfigurationManager f x =
 -- must specify a value for DefaultSubnetId. For more information on how to
 -- use AWS OpsWorks with a VPC, see Running a Stack in a VPC. For more
 -- information on default VPC and EC2 Classic, see Supported Platforms.
-cstVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstVpcId :: Lens' CreateStack (Maybe Text)
 cstVpcId f x =
-    (\y -> x { _cstVpcId = y })
-       <$> f (_cstVpcId x)
+    f (_cstVpcId x)
+        <&> \y -> x { _cstVpcId = y }
 {-# INLINE cstVpcId #-}
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
-cstDefaultOs
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstDefaultOs :: Lens' CreateStack (Maybe Text)
 cstDefaultOs f x =
-    (\y -> x { _cstDefaultOs = y })
-       <$> f (_cstDefaultOs x)
+    f (_cstDefaultOs x)
+        <&> \y -> x { _cstDefaultOs = y }
 {-# INLINE cstDefaultOs #-}
 
 -- | The stack's host name theme, with spaces are replaced by underscores. The
@@ -410,30 +346,20 @@ cstDefaultOs f x =
 -- Scottish_Islands US_Cities Wild_Cats To obtain a generated host name, call
 -- GetHostNameSuggestion, which returns a host name based on the current
 -- theme.
-cstHostnameTheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstHostnameTheme :: Lens' CreateStack (Maybe Text)
 cstHostnameTheme f x =
-    (\y -> x { _cstHostnameTheme = y })
-       <$> f (_cstHostnameTheme x)
+    f (_cstHostnameTheme x)
+        <&> \y -> x { _cstHostnameTheme = y }
 {-# INLINE cstHostnameTheme #-}
 
 -- | The stack's default Availability Zone, which must be in the specified
 -- region. For more information, see Regions and Endpoints. If you also
 -- specify a value for DefaultSubnetId, the subnet must be in the same zone.
 -- For more information, see the VpcId parameter description.
-cstDefaultAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 cstDefaultAvailabilityZone f x =
-    (\y -> x { _cstDefaultAvailabilityZone = y })
-       <$> f (_cstDefaultAvailabilityZone x)
+    f (_cstDefaultAvailabilityZone x)
+        <&> \y -> x { _cstDefaultAvailabilityZone = y }
 {-# INLINE cstDefaultAvailabilityZone #-}
 
 -- | The stack's default subnet ID. All instances will be launched into this
@@ -441,15 +367,10 @@ cstDefaultAvailabilityZone f x =
 -- also specify a value for DefaultAvailabilityZone, the subnet must be in
 -- that zone. For information on default values and when this parameter is
 -- required, see the VpcId parameter description.
-cstDefaultSubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 cstDefaultSubnetId f x =
-    (\y -> x { _cstDefaultSubnetId = y })
-       <$> f (_cstDefaultSubnetId x)
+    f (_cstDefaultSubnetId x)
+        <&> \y -> x { _cstDefaultSubnetId = y }
 {-# INLINE cstDefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -457,28 +378,18 @@ cstDefaultSubnetId f x =
 -- should be in the following format and must escape characters such as '"'.:
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
-cstCustomJson
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstCustomJson :: Lens' CreateStack (Maybe Text)
 cstCustomJson f x =
-    (\y -> x { _cstCustomJson = y })
-       <$> f (_cstCustomJson x)
+    f (_cstCustomJson x)
+        <&> \y -> x { _cstCustomJson = y }
 {-# INLINE cstCustomJson #-}
 
 -- | A default SSH key for the stack instances. You can override this value when
 -- you create or update an instance.
-cstDefaultSshKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStack
-    -> f CreateStack
+cstDefaultSshKeyName :: Lens' CreateStack (Maybe Text)
 cstDefaultSshKeyName f x =
-    (\y -> x { _cstDefaultSshKeyName = y })
-       <$> f (_cstDefaultSshKeyName x)
+    f (_cstDefaultSshKeyName x)
+        <&> \y -> x { _cstDefaultSshKeyName = y }
 {-# INLINE cstDefaultSshKeyName #-}
 
 instance ToPath CreateStack
@@ -497,15 +408,10 @@ data CreateStackResponse = CreateStackResponse
 
 -- | The stack ID, which is an opaque string that you use to identify the stack
 -- when performing actions such as DescribeStacks.
-csuStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStackResponse
-    -> f CreateStackResponse
+csuStackId :: Lens' CreateStackResponse (Maybe Text)
 csuStackId f x =
-    (\y -> x { _csuStackId = y })
-       <$> f (_csuStackId x)
+    f (_csuStackId x)
+        <&> \y -> x { _csuStackId = y }
 {-# INLINE csuStackId #-}
 
 instance FromJSON CreateStackResponse

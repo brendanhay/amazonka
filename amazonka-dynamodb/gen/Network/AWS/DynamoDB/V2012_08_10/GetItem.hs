@@ -69,6 +69,7 @@ getItem p1 p2 = GetItem
     , _giiConsistentRead = Nothing
     , _giiReturnConsumedCapacity = Nothing
     }
+{-# INLINE getItem #-}
 
 data GetItem = GetItem
     { _giiKey :: Map Text AttributeValue
@@ -93,69 +94,44 @@ data GetItem = GetItem
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to retrieve.
-giiKey
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> GetItem
-    -> f GetItem
+giiKey :: Lens' GetItem (Map Text AttributeValue)
 giiKey f x =
-    (\y -> x { _giiKey = y })
-       <$> f (_giiKey x)
+    f (_giiKey x)
+        <&> \y -> x { _giiKey = y }
 {-# INLINE giiKey #-}
 
 -- | The name of the table containing the requested item.
-giiTableName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetItem
-    -> f GetItem
+giiTableName :: Lens' GetItem (Text)
 giiTableName f x =
-    (\y -> x { _giiTableName = y })
-       <$> f (_giiTableName x)
+    f (_giiTableName x)
+        <&> \y -> x { _giiTableName = y }
 {-# INLINE giiTableName #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
-giiAttributesToGet
-    :: Functor f
-    => (Maybe [Text]
-    -> f (Maybe [Text]))
-    -> GetItem
-    -> f GetItem
+giiAttributesToGet :: Lens' GetItem (Maybe [Text])
 giiAttributesToGet f x =
-    (\y -> x { _giiAttributesToGet = y })
-       <$> f (_giiAttributesToGet x)
+    f (_giiAttributesToGet x)
+        <&> \y -> x { _giiAttributesToGet = y }
 {-# INLINE giiAttributesToGet #-}
 
 -- | If set to true, then the operation uses strongly consistent reads;
 -- otherwise, eventually consistent reads are used.
-giiConsistentRead
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetItem
-    -> f GetItem
+giiConsistentRead :: Lens' GetItem (Maybe Bool)
 giiConsistentRead f x =
-    (\y -> x { _giiConsistentRead = y })
-       <$> f (_giiConsistentRead x)
+    f (_giiConsistentRead x)
+        <&> \y -> x { _giiConsistentRead = y }
 {-# INLINE giiConsistentRead #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-giiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> GetItem
-    -> f GetItem
+giiReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
 giiReturnConsumedCapacity f x =
-    (\y -> x { _giiReturnConsumedCapacity = y })
-       <$> f (_giiReturnConsumedCapacity x)
+    f (_giiReturnConsumedCapacity x)
+        <&> \y -> x { _giiReturnConsumedCapacity = y }
 {-# INLINE giiReturnConsumedCapacity #-}
 
 instance ToPath GetItem
@@ -181,15 +157,10 @@ data GetItemResponse = GetItemResponse
 
 -- | A map of attribute names to AttributeValue objects, as specified by
 -- AttributesToGet.
-gioItem
-    :: Functor f
-    => (Map Text AttributeValue
-    -> f (Map Text AttributeValue))
-    -> GetItemResponse
-    -> f GetItemResponse
+gioItem :: Lens' GetItemResponse (Map Text AttributeValue)
 gioItem f x =
-    (\y -> x { _gioItem = y })
-       <$> f (_gioItem x)
+    f (_gioItem x)
+        <&> \y -> x { _gioItem = y }
 {-# INLINE gioItem #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -197,15 +168,10 @@ gioItem f x =
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-gioConsumedCapacity
-    :: Functor f
-    => (Maybe ConsumedCapacity
-    -> f (Maybe ConsumedCapacity))
-    -> GetItemResponse
-    -> f GetItemResponse
+gioConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
 gioConsumedCapacity f x =
-    (\y -> x { _gioConsumedCapacity = y })
-       <$> f (_gioConsumedCapacity x)
+    f (_gioConsumedCapacity x)
+        <&> \y -> x { _gioConsumedCapacity = y }
 {-# INLINE gioConsumedCapacity #-}
 
 instance FromJSON GetItemResponse

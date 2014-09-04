@@ -46,6 +46,7 @@ describeCluster :: Text -- ^ 'dciClusterId'
 describeCluster p1 = DescribeCluster
     { _dciClusterId = p1
     }
+{-# INLINE describeCluster #-}
 
 data DescribeCluster = DescribeCluster
     { _dciClusterId :: Text
@@ -53,15 +54,10 @@ data DescribeCluster = DescribeCluster
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster to describe.
-dciClusterId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeCluster
-    -> f DescribeCluster
+dciClusterId :: Lens' DescribeCluster (Text)
 dciClusterId f x =
-    (\y -> x { _dciClusterId = y })
-       <$> f (_dciClusterId x)
+    f (_dciClusterId x)
+        <&> \y -> x { _dciClusterId = y }
 {-# INLINE dciClusterId #-}
 
 instance ToPath DescribeCluster
@@ -78,15 +74,10 @@ data DescribeClusterResponse = DescribeClusterResponse
     } deriving (Show, Generic)
 
 -- | This output contains the details for the requested cluster.
-dcoCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> DescribeClusterResponse
-    -> f DescribeClusterResponse
+dcoCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
 dcoCluster f x =
-    (\y -> x { _dcoCluster = y })
-       <$> f (_dcoCluster x)
+    f (_dcoCluster x)
+        <&> \y -> x { _dcoCluster = y }
 {-# INLINE dcoCluster #-}
 
 instance FromJSON DescribeClusterResponse

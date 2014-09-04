@@ -64,6 +64,7 @@ describeSnapshotSchedule :: Text -- ^ 'dssjVolumeARN'
 describeSnapshotSchedule p1 = DescribeSnapshotSchedule
     { _dssjVolumeARN = p1
     }
+{-# INLINE describeSnapshotSchedule #-}
 
 data DescribeSnapshotSchedule = DescribeSnapshotSchedule
     { _dssjVolumeARN :: Text
@@ -73,15 +74,10 @@ data DescribeSnapshotSchedule = DescribeSnapshotSchedule
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-dssjVolumeARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeSnapshotSchedule
-    -> f DescribeSnapshotSchedule
+dssjVolumeARN :: Lens' DescribeSnapshotSchedule (Text)
 dssjVolumeARN f x =
-    (\y -> x { _dssjVolumeARN = y })
-       <$> f (_dssjVolumeARN x)
+    f (_dssjVolumeARN x)
+        <&> \y -> x { _dssjVolumeARN = y }
 {-# INLINE dssjVolumeARN #-}
 
 instance ToPath DescribeSnapshotSchedule
@@ -100,59 +96,34 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     , _dsspVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dsspDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshotScheduleResponse
-    -> f DescribeSnapshotScheduleResponse
+dsspDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dsspDescription f x =
-    (\y -> x { _dsspDescription = y })
-       <$> f (_dsspDescription x)
+    f (_dsspDescription x)
+        <&> \y -> x { _dsspDescription = y }
 {-# INLINE dsspDescription #-}
 
-dsspTimezone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshotScheduleResponse
-    -> f DescribeSnapshotScheduleResponse
+dsspTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dsspTimezone f x =
-    (\y -> x { _dsspTimezone = y })
-       <$> f (_dsspTimezone x)
+    f (_dsspTimezone x)
+        <&> \y -> x { _dsspTimezone = y }
 {-# INLINE dsspTimezone #-}
 
-dsspStartAt
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeSnapshotScheduleResponse
-    -> f DescribeSnapshotScheduleResponse
+dsspStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
 dsspStartAt f x =
-    (\y -> x { _dsspStartAt = y })
-       <$> f (_dsspStartAt x)
+    f (_dsspStartAt x)
+        <&> \y -> x { _dsspStartAt = y }
 {-# INLINE dsspStartAt #-}
 
-dsspRecurrenceInHours
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeSnapshotScheduleResponse
-    -> f DescribeSnapshotScheduleResponse
+dsspRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
 dsspRecurrenceInHours f x =
-    (\y -> x { _dsspRecurrenceInHours = y })
-       <$> f (_dsspRecurrenceInHours x)
+    f (_dsspRecurrenceInHours x)
+        <&> \y -> x { _dsspRecurrenceInHours = y }
 {-# INLINE dsspRecurrenceInHours #-}
 
-dsspVolumeARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshotScheduleResponse
-    -> f DescribeSnapshotScheduleResponse
+dsspVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dsspVolumeARN f x =
-    (\y -> x { _dsspVolumeARN = y })
-       <$> f (_dsspVolumeARN x)
+    f (_dsspVolumeARN x)
+        <&> \y -> x { _dsspVolumeARN = y }
 {-# INLINE dsspVolumeARN #-}
 
 instance FromJSON DescribeSnapshotScheduleResponse

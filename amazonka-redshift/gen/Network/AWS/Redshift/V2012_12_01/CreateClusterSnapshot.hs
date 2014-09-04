@@ -57,6 +57,7 @@ createClusterSnapshot p1 p2 = CreateClusterSnapshot
     { _ccsnSnapshotIdentifier = p1
     , _ccsnClusterIdentifier = p2
     }
+{-# INLINE createClusterSnapshot #-}
 
 data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccsnSnapshotIdentifier :: Text
@@ -76,27 +77,17 @@ data CreateClusterSnapshot = CreateClusterSnapshot
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens Example:
 -- my-snapshot-id.
-ccsnSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterSnapshot
-    -> f CreateClusterSnapshot
+ccsnSnapshotIdentifier :: Lens' CreateClusterSnapshot (Text)
 ccsnSnapshotIdentifier f x =
-    (\y -> x { _ccsnSnapshotIdentifier = y })
-       <$> f (_ccsnSnapshotIdentifier x)
+    f (_ccsnSnapshotIdentifier x)
+        <&> \y -> x { _ccsnSnapshotIdentifier = y }
 {-# INLINE ccsnSnapshotIdentifier #-}
 
 -- | The cluster identifier for which you want a snapshot.
-ccsnClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterSnapshot
-    -> f CreateClusterSnapshot
+ccsnClusterIdentifier :: Lens' CreateClusterSnapshot (Text)
 ccsnClusterIdentifier f x =
-    (\y -> x { _ccsnClusterIdentifier = y })
-       <$> f (_ccsnClusterIdentifier x)
+    f (_ccsnClusterIdentifier x)
+        <&> \y -> x { _ccsnClusterIdentifier = y }
 {-# INLINE ccsnClusterIdentifier #-}
 
 instance ToQuery CreateClusterSnapshot where
@@ -108,15 +99,10 @@ data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-ssssssrSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> CreateClusterSnapshotResponse
-    -> f CreateClusterSnapshotResponse
+ssssssrSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 ssssssrSnapshot f x =
-    (\y -> x { _ssssssrSnapshot = y })
-       <$> f (_ssssssrSnapshot x)
+    f (_ssssssrSnapshot x)
+        <&> \y -> x { _ssssssrSnapshot = y }
 {-# INLINE ssssssrSnapshot #-}
 
 instance FromXML CreateClusterSnapshotResponse where

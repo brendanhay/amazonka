@@ -44,6 +44,7 @@ getDistributionConfig :: Text -- ^ 'gdcrId'
 getDistributionConfig p1 = GetDistributionConfig
     { _gdcrId = p1
     }
+{-# INLINE getDistributionConfig #-}
 
 data GetDistributionConfig = GetDistributionConfig
     { _gdcrId :: Text
@@ -51,15 +52,10 @@ data GetDistributionConfig = GetDistributionConfig
     } deriving (Show, Generic)
 
 -- | The distribution's id.
-gdcrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetDistributionConfig
-    -> f GetDistributionConfig
+gdcrId :: Lens' GetDistributionConfig (Text)
 gdcrId f x =
-    (\y -> x { _gdcrId = y })
-       <$> f (_gdcrId x)
+    f (_gdcrId x)
+        <&> \y -> x { _gdcrId = y }
 {-# INLINE gdcrId #-}
 
 instance ToPath GetDistributionConfig where
@@ -86,27 +82,17 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse
     } deriving (Show, Generic)
 
 -- | The distribution's configuration information.
-gdcsDistributionConfig
-    :: Functor f
-    => (Maybe DistributionConfig
-    -> f (Maybe DistributionConfig))
-    -> GetDistributionConfigResponse
-    -> f GetDistributionConfigResponse
+gdcsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
 gdcsDistributionConfig f x =
-    (\y -> x { _gdcsDistributionConfig = y })
-       <$> f (_gdcsDistributionConfig x)
+    f (_gdcsDistributionConfig x)
+        <&> \y -> x { _gdcsDistributionConfig = y }
 {-# INLINE gdcsDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetDistributionConfigResponse
-    -> f GetDistributionConfigResponse
+gdcsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
 gdcsETag f x =
-    (\y -> x { _gdcsETag = y })
-       <$> f (_gdcsETag x)
+    f (_gdcsETag x)
+        <&> \y -> x { _gdcsETag = y }
 {-# INLINE gdcsETag #-}
 
 instance AWSRequest GetDistributionConfig where

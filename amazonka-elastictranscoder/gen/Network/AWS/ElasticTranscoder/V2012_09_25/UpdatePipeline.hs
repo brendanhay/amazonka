@@ -60,6 +60,7 @@ updatePipeline p1 = UpdatePipeline
     , _uprThumbnailConfig = Nothing
     , _uprRole = Nothing
     }
+{-# INLINE updatePipeline #-}
 
 data UpdatePipeline = UpdatePipeline
     { _uprId :: Text
@@ -175,56 +176,36 @@ data UpdatePipeline = UpdatePipeline
     } deriving (Show, Generic)
 
 -- | The ID of the pipeline that you want to update.
-uprId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprId :: Lens' UpdatePipeline (Text)
 uprId f x =
-    (\y -> x { _uprId = y })
-       <$> f (_uprId x)
+    f (_uprId x)
+        <&> \y -> x { _uprId = y }
 {-# INLINE uprId #-}
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode and the graphics that you want to use as watermarks.
-uprInputBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprInputBucket :: Lens' UpdatePipeline (Maybe Text)
 uprInputBucket f x =
-    (\y -> x { _uprInputBucket = y })
-       <$> f (_uprInputBucket x)
+    f (_uprInputBucket x)
+        <&> \y -> x { _uprInputBucket = y }
 {-# INLINE uprInputBucket #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
-uprName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprName :: Lens' UpdatePipeline (Maybe Text)
 uprName f x =
-    (\y -> x { _uprName = y })
-       <$> f (_uprName x)
+    f (_uprName x)
+        <&> \y -> x { _uprName = y }
 {-# INLINE uprName #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
 -- notify in order to report job status. To receive notifications, you must
 -- also subscribe to the new topic in the Amazon SNS console.
-uprNotifications
-    :: Functor f
-    => (Maybe Notifications
-    -> f (Maybe Notifications))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprNotifications :: Lens' UpdatePipeline (Maybe Notifications)
 uprNotifications f x =
-    (\y -> x { _uprNotifications = y })
-       <$> f (_uprNotifications x)
+    f (_uprNotifications x)
+        <&> \y -> x { _uprNotifications = y }
 {-# INLINE uprNotifications #-}
 
 -- | The optional ContentConfig object specifies information about the Amazon S3
@@ -268,15 +249,10 @@ uprNotifications f x =
 -- Amazon S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the video
 -- files and playlists that it stores in your Amazon S3 bucket.
-uprContentConfig
-    :: Functor f
-    => (Maybe PipelineOutputConfig
-    -> f (Maybe PipelineOutputConfig))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 uprContentConfig f x =
-    (\y -> x { _uprContentConfig = y })
-       <$> f (_uprContentConfig x)
+    f (_uprContentConfig x)
+        <&> \y -> x { _uprContentConfig = y }
 {-# INLINE uprContentConfig #-}
 
 -- | The ThumbnailConfig object specifies several values, including the Amazon
@@ -315,28 +291,18 @@ uprContentConfig f x =
 -- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
-uprThumbnailConfig
-    :: Functor f
-    => (Maybe PipelineOutputConfig
-    -> f (Maybe PipelineOutputConfig))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 uprThumbnailConfig f x =
-    (\y -> x { _uprThumbnailConfig = y })
-       <$> f (_uprThumbnailConfig x)
+    f (_uprThumbnailConfig x)
+        <&> \y -> x { _uprThumbnailConfig = y }
 {-# INLINE uprThumbnailConfig #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to transcode jobs for this pipeline.
-uprRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdatePipeline
-    -> f UpdatePipeline
+uprRole :: Lens' UpdatePipeline (Maybe Text)
 uprRole f x =
-    (\y -> x { _uprRole = y })
-       <$> f (_uprRole x)
+    f (_uprRole x)
+        <&> \y -> x { _uprRole = y }
 {-# INLINE uprRole #-}
 
 instance ToPath UpdatePipeline where
@@ -357,15 +323,10 @@ data UpdatePipelineResponse = UpdatePipelineResponse
     } deriving (Show, Generic)
 
 -- | The pipeline (queue) that is used to manage jobs.
-upsPipeline
-    :: Functor f
-    => (Pipeline
-    -> f (Pipeline))
-    -> UpdatePipelineResponse
-    -> f UpdatePipelineResponse
+upsPipeline :: Lens' UpdatePipelineResponse (Pipeline)
 upsPipeline f x =
-    (\y -> x { _upsPipeline = y })
-       <$> f (_upsPipeline x)
+    f (_upsPipeline x)
+        <&> \y -> x { _upsPipeline = y }
 {-# INLINE upsPipeline #-}
 
 instance FromJSON UpdatePipelineResponse

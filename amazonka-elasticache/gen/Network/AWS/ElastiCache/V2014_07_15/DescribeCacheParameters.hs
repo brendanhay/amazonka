@@ -62,6 +62,7 @@ describeCacheParameters p1 = DescribeCacheParameters
     , _dcpmSource = Nothing
     , _dcpmMarker = Nothing
     }
+{-# INLINE describeCacheParameters #-}
 
 data DescribeCacheParameters = DescribeCacheParameters
     { _dcpmCacheParameterGroupName :: Text
@@ -83,58 +84,38 @@ data DescribeCacheParameters = DescribeCacheParameters
     } deriving (Show, Generic)
 
 -- | The name of a specific cache parameter group to return details for.
-dcpmCacheParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeCacheParameters
-    -> f DescribeCacheParameters
+dcpmCacheParameterGroupName :: Lens' DescribeCacheParameters (Text)
 dcpmCacheParameterGroupName f x =
-    (\y -> x { _dcpmCacheParameterGroupName = y })
-       <$> f (_dcpmCacheParameterGroupName x)
+    f (_dcpmCacheParameterGroupName x)
+        <&> \y -> x { _dcpmCacheParameterGroupName = y }
 {-# INLINE dcpmCacheParameterGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcpmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCacheParameters
-    -> f DescribeCacheParameters
+dcpmMaxRecords :: Lens' DescribeCacheParameters (Maybe Integer)
 dcpmMaxRecords f x =
-    (\y -> x { _dcpmMaxRecords = y })
-       <$> f (_dcpmMaxRecords x)
+    f (_dcpmMaxRecords x)
+        <&> \y -> x { _dcpmMaxRecords = y }
 {-# INLINE dcpmMaxRecords #-}
 
 -- | The parameter types to return. Valid values: user | system |
 -- engine-default.
-dcpmSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheParameters
-    -> f DescribeCacheParameters
+dcpmSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpmSource f x =
-    (\y -> x { _dcpmSource = y })
-       <$> f (_dcpmSource x)
+    f (_dcpmSource x)
+        <&> \y -> x { _dcpmSource = y }
 {-# INLINE dcpmSource #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dcpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheParameters
-    -> f DescribeCacheParameters
+dcpmMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpmMarker f x =
-    (\y -> x { _dcpmMarker = y })
-       <$> f (_dcpmMarker x)
+    f (_dcpmMarker x)
+        <&> \y -> x { _dcpmMarker = y }
 {-# INLINE dcpmMarker #-}
 
 instance ToQuery DescribeCacheParameters where
@@ -153,39 +134,24 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
 
 -- | A list of parameters specific to a particular cache node type. Each element
 -- in the list contains detailed information about one parameter.
-cpgdCacheNodeTypeSpecificParameters
-    :: Functor f
-    => ([CacheNodeTypeSpecificParameter]
-    -> f ([CacheNodeTypeSpecificParameter]))
-    -> DescribeCacheParametersResponse
-    -> f DescribeCacheParametersResponse
+cpgdCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse ([CacheNodeTypeSpecificParameter])
 cpgdCacheNodeTypeSpecificParameters f x =
-    (\y -> x { _cpgdCacheNodeTypeSpecificParameters = y })
-       <$> f (_cpgdCacheNodeTypeSpecificParameters x)
+    f (_cpgdCacheNodeTypeSpecificParameters x)
+        <&> \y -> x { _cpgdCacheNodeTypeSpecificParameters = y }
 {-# INLINE cpgdCacheNodeTypeSpecificParameters #-}
 
 -- | A list of Parameter instances.
-cpgdParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> DescribeCacheParametersResponse
-    -> f DescribeCacheParametersResponse
+cpgdParameters :: Lens' DescribeCacheParametersResponse ([Parameter])
 cpgdParameters f x =
-    (\y -> x { _cpgdParameters = y })
-       <$> f (_cpgdParameters x)
+    f (_cpgdParameters x)
+        <&> \y -> x { _cpgdParameters = y }
 {-# INLINE cpgdParameters #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-cpgdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheParametersResponse
-    -> f DescribeCacheParametersResponse
+cpgdMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 cpgdMarker f x =
-    (\y -> x { _cpgdMarker = y })
-       <$> f (_cpgdMarker x)
+    f (_cpgdMarker x)
+        <&> \y -> x { _cpgdMarker = y }
 {-# INLINE cpgdMarker #-}
 
 instance FromXML DescribeCacheParametersResponse where

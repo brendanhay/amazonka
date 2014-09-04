@@ -51,6 +51,7 @@ refreshTrustedAdvisorCheck :: Text -- ^ 'rtacrCheckId'
 refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
     { _rtacrCheckId = p1
     }
+{-# INLINE refreshTrustedAdvisorCheck #-}
 
 data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacrCheckId :: Text
@@ -58,15 +59,10 @@ data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     } deriving (Show, Generic)
 
 -- | The unique identifier for the Trusted Advisor check.
-rtacrCheckId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RefreshTrustedAdvisorCheck
-    -> f RefreshTrustedAdvisorCheck
+rtacrCheckId :: Lens' RefreshTrustedAdvisorCheck (Text)
 rtacrCheckId f x =
-    (\y -> x { _rtacrCheckId = y })
-       <$> f (_rtacrCheckId x)
+    f (_rtacrCheckId x)
+        <&> \y -> x { _rtacrCheckId = y }
 {-# INLINE rtacrCheckId #-}
 
 instance ToPath RefreshTrustedAdvisorCheck
@@ -85,15 +81,10 @@ data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
 
 -- | The current refresh status for a check, including the amount of time until
 -- the check is eligible for refresh.
-rtacsStatus
-    :: Functor f
-    => (TrustedAdvisorCheckRefreshStatus
-    -> f (TrustedAdvisorCheckRefreshStatus))
-    -> RefreshTrustedAdvisorCheckResponse
-    -> f RefreshTrustedAdvisorCheckResponse
+rtacsStatus :: Lens' RefreshTrustedAdvisorCheckResponse (TrustedAdvisorCheckRefreshStatus)
 rtacsStatus f x =
-    (\y -> x { _rtacsStatus = y })
-       <$> f (_rtacsStatus x)
+    f (_rtacsStatus x)
+        <&> \y -> x { _rtacsStatus = y }
 {-# INLINE rtacsStatus #-}
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse

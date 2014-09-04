@@ -76,6 +76,7 @@ describeClusterParameters p1 = DescribeClusterParameters
     , _dcpmSource = Nothing
     , _dcpmMarker = Nothing
     }
+{-# INLINE describeClusterParameters #-}
 
 data DescribeClusterParameters = DescribeClusterParameters
     { _dcpmParameterGroupName :: Text
@@ -105,15 +106,10 @@ data DescribeClusterParameters = DescribeClusterParameters
     } deriving (Show, Generic)
 
 -- | The name of a cluster parameter group for which to return details.
-dcpmParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeClusterParameters
-    -> f DescribeClusterParameters
+dcpmParameterGroupName :: Lens' DescribeClusterParameters (Text)
 dcpmParameterGroupName f x =
-    (\y -> x { _dcpmParameterGroupName = y })
-       <$> f (_dcpmParameterGroupName x)
+    f (_dcpmParameterGroupName x)
+        <&> \y -> x { _dcpmParameterGroupName = y }
 {-# INLINE dcpmParameterGroupName #-}
 
 -- | The maximum number of response records to return in each call. If the
@@ -121,30 +117,20 @@ dcpmParameterGroupName f x =
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcpmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeClusterParameters
-    -> f DescribeClusterParameters
+dcpmMaxRecords :: Lens' DescribeClusterParameters (Maybe Integer)
 dcpmMaxRecords f x =
-    (\y -> x { _dcpmMaxRecords = y })
-       <$> f (_dcpmMaxRecords x)
+    f (_dcpmMaxRecords x)
+        <&> \y -> x { _dcpmMaxRecords = y }
 {-# INLINE dcpmMaxRecords #-}
 
 -- | The parameter types to return. Specify user to show parameters that are
 -- different form the default. Similarly, specify engine-default to show
 -- parameters that are the same as the default parameter group. Default: All
 -- parameter types returned. Valid Values: user | engine-default.
-dcpmSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterParameters
-    -> f DescribeClusterParameters
+dcpmSource :: Lens' DescribeClusterParameters (Maybe Text)
 dcpmSource f x =
-    (\y -> x { _dcpmSource = y })
-       <$> f (_dcpmSource x)
+    f (_dcpmSource x)
+        <&> \y -> x { _dcpmSource = y }
 {-# INLINE dcpmSource #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -153,15 +139,10 @@ dcpmSource f x =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dcpmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterParameters
-    -> f DescribeClusterParameters
+dcpmMarker :: Lens' DescribeClusterParameters (Maybe Text)
 dcpmMarker f x =
-    (\y -> x { _dcpmMarker = y })
-       <$> f (_dcpmMarker x)
+    f (_dcpmMarker x)
+        <&> \y -> x { _dcpmMarker = y }
 {-# INLINE dcpmMarker #-}
 
 instance ToQuery DescribeClusterParameters where
@@ -182,15 +163,10 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
-cpgdParameters
-    :: Functor f
-    => ([Parameter]
-    -> f ([Parameter]))
-    -> DescribeClusterParametersResponse
-    -> f DescribeClusterParametersResponse
+cpgdParameters :: Lens' DescribeClusterParametersResponse ([Parameter])
 cpgdParameters f x =
-    (\y -> x { _cpgdParameters = y })
-       <$> f (_cpgdParameters x)
+    f (_cpgdParameters x)
+        <&> \y -> x { _cpgdParameters = y }
 {-# INLINE cpgdParameters #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -198,15 +174,10 @@ cpgdParameters f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-cpgdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeClusterParametersResponse
-    -> f DescribeClusterParametersResponse
+cpgdMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 cpgdMarker f x =
-    (\y -> x { _cpgdMarker = y })
-       <$> f (_cpgdMarker x)
+    f (_cpgdMarker x)
+        <&> \y -> x { _cpgdMarker = y }
 {-# INLINE cpgdMarker #-}
 
 instance FromXML DescribeClusterParametersResponse where

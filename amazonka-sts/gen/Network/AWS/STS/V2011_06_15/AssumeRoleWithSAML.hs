@@ -96,6 +96,7 @@ assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
     , _arwsamlrDurationSeconds = Nothing
     , _arwsamlrPolicy = Nothing
     }
+{-# INLINE assumeRoleWithSAML #-}
 
 data AssumeRoleWithSAML = AssumeRoleWithSAML
     { _arwsamlrRoleArn :: Text
@@ -133,42 +134,27 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arwsamlrRoleArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRoleWithSAML
-    -> f AssumeRoleWithSAML
+arwsamlrRoleArn :: Lens' AssumeRoleWithSAML (Text)
 arwsamlrRoleArn f x =
-    (\y -> x { _arwsamlrRoleArn = y })
-       <$> f (_arwsamlrRoleArn x)
+    f (_arwsamlrRoleArn x)
+        <&> \y -> x { _arwsamlrRoleArn = y }
 {-# INLINE arwsamlrRoleArn #-}
 
 -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that describes
 -- the IdP.
-arwsamlrPrincipalArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRoleWithSAML
-    -> f AssumeRoleWithSAML
+arwsamlrPrincipalArn :: Lens' AssumeRoleWithSAML (Text)
 arwsamlrPrincipalArn f x =
-    (\y -> x { _arwsamlrPrincipalArn = y })
-       <$> f (_arwsamlrPrincipalArn x)
+    f (_arwsamlrPrincipalArn x)
+        <&> \y -> x { _arwsamlrPrincipalArn = y }
 {-# INLINE arwsamlrPrincipalArn #-}
 
 -- | The base-64 encoded SAML authentication response provided by the IdP. For
 -- more information, see Configuring a Relying Party and Adding Claims in the
 -- Using IAM guide.
-arwsamlrSAMLAssertion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRoleWithSAML
-    -> f AssumeRoleWithSAML
+arwsamlrSAMLAssertion :: Lens' AssumeRoleWithSAML (Text)
 arwsamlrSAMLAssertion f x =
-    (\y -> x { _arwsamlrSAMLAssertion = y })
-       <$> f (_arwsamlrSAMLAssertion x)
+    f (_arwsamlrSAMLAssertion x)
+        <&> \y -> x { _arwsamlrSAMLAssertion = y }
 {-# INLINE arwsamlrSAMLAssertion #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900
@@ -178,15 +164,10 @@ arwsamlrSAMLAssertion f x =
 -- whichever value is shorter. The maximum duration for a session is 1 hour,
 -- and the minimum duration is 15 minutes, even if values outside this range
 -- are specified.
-arwsamlrDurationSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssumeRoleWithSAML
-    -> f AssumeRoleWithSAML
+arwsamlrDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Integer)
 arwsamlrDurationSeconds f x =
-    (\y -> x { _arwsamlrDurationSeconds = y })
-       <$> f (_arwsamlrDurationSeconds x)
+    f (_arwsamlrDurationSeconds x)
+        <&> \y -> x { _arwsamlrDurationSeconds = y }
 {-# INLINE arwsamlrDurationSeconds #-}
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you pass
@@ -199,15 +180,10 @@ arwsamlrDurationSeconds f x =
 -- is being assumed. For more information, see Permissions for
 -- AssumeRoleWithSAML in Using Temporary Security Credentials. The policy must
 -- be 2048 bytes or shorter, and its packed size must be less than 450 bytes.
-arwsamlrPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithSAML
-    -> f AssumeRoleWithSAML
+arwsamlrPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
 arwsamlrPolicy f x =
-    (\y -> x { _arwsamlrPolicy = y })
-       <$> f (_arwsamlrPolicy x)
+    f (_arwsamlrPolicy x)
+        <&> \y -> x { _arwsamlrPolicy = y }
 {-# INLINE arwsamlrPolicy #-}
 
 instance ToQuery AssumeRoleWithSAML where
@@ -233,96 +209,56 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
 
 -- | The identifiers for the temporary security credentials that the operation
 -- returns.
-arwsamlsAssumedRoleUser
-    :: Functor f
-    => (Maybe AssumedRoleUser
-    -> f (Maybe AssumedRoleUser))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
 arwsamlsAssumedRoleUser f x =
-    (\y -> x { _arwsamlsAssumedRoleUser = y })
-       <$> f (_arwsamlsAssumedRoleUser x)
+    f (_arwsamlsAssumedRoleUser x)
+        <&> \y -> x { _arwsamlsAssumedRoleUser = y }
 {-# INLINE arwsamlsAssumedRoleUser #-}
 
-arwsamlsAudience
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlsAudience f x =
-    (\y -> x { _arwsamlsAudience = y })
-       <$> f (_arwsamlsAudience x)
+    f (_arwsamlsAudience x)
+        <&> \y -> x { _arwsamlsAudience = y }
 {-# INLINE arwsamlsAudience #-}
 
 -- | AWS credentials for API authentication.
-arwsamlsCredentials
-    :: Functor f
-    => (Maybe Credentials
-    -> f (Maybe Credentials))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
 arwsamlsCredentials f x =
-    (\y -> x { _arwsamlsCredentials = y })
-       <$> f (_arwsamlsCredentials x)
+    f (_arwsamlsCredentials x)
+        <&> \y -> x { _arwsamlsCredentials = y }
 {-# INLINE arwsamlsCredentials #-}
 
-arwsamlsIssuer
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlsIssuer f x =
-    (\y -> x { _arwsamlsIssuer = y })
-       <$> f (_arwsamlsIssuer x)
+    f (_arwsamlsIssuer x)
+        <&> \y -> x { _arwsamlsIssuer = y }
 {-# INLINE arwsamlsIssuer #-}
 
-arwsamlsNameQualifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlsNameQualifier f x =
-    (\y -> x { _arwsamlsNameQualifier = y })
-       <$> f (_arwsamlsNameQualifier x)
+    f (_arwsamlsNameQualifier x)
+        <&> \y -> x { _arwsamlsNameQualifier = y }
 {-# INLINE arwsamlsNameQualifier #-}
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arwsamlsPackedPolicySize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Integer)
 arwsamlsPackedPolicySize f x =
-    (\y -> x { _arwsamlsPackedPolicySize = y })
-       <$> f (_arwsamlsPackedPolicySize x)
+    f (_arwsamlsPackedPolicySize x)
+        <&> \y -> x { _arwsamlsPackedPolicySize = y }
 {-# INLINE arwsamlsPackedPolicySize #-}
 
-arwsamlsSubject
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlsSubject f x =
-    (\y -> x { _arwsamlsSubject = y })
-       <$> f (_arwsamlsSubject x)
+    f (_arwsamlsSubject x)
+        <&> \y -> x { _arwsamlsSubject = y }
 {-# INLINE arwsamlsSubject #-}
 
-arwsamlsSubjectType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithSAMLResponse
-    -> f AssumeRoleWithSAMLResponse
+arwsamlsSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlsSubjectType f x =
-    (\y -> x { _arwsamlsSubjectType = y })
-       <$> f (_arwsamlsSubjectType x)
+    f (_arwsamlsSubjectType x)
+        <&> \y -> x { _arwsamlsSubjectType = y }
 {-# INLINE arwsamlsSubjectType #-}
 
 instance FromXML AssumeRoleWithSAMLResponse where

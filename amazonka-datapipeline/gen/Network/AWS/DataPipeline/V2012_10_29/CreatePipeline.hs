@@ -58,6 +58,7 @@ createPipeline p1 p2 = CreatePipeline
     , _cpiUniqueId = p2
     , _cpiDescription = Nothing
     }
+{-# INLINE createPipeline #-}
 
 data CreatePipeline = CreatePipeline
     { _cpiName :: Text
@@ -87,15 +88,10 @@ data CreatePipeline = CreatePipeline
 -- | The name of the new pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline
 -- assigns each new pipeline a unique pipeline identifier.
-cpiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cpiName :: Lens' CreatePipeline (Text)
 cpiName f x =
-    (\y -> x { _cpiName = y })
-       <$> f (_cpiName x)
+    f (_cpiName x)
+        <&> \y -> x { _cpiName = y }
 {-# INLINE cpiName #-}
 
 -- | A unique identifier that you specify. This identifier is not the same as
@@ -110,27 +106,17 @@ cpiName f x =
 -- receive the pipeline identifier from the previous attempt. The uniqueness
 -- of the name and unique identifier combination is scoped to the AWS account
 -- or IAM user credentials.
-cpiUniqueId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cpiUniqueId :: Lens' CreatePipeline (Text)
 cpiUniqueId f x =
-    (\y -> x { _cpiUniqueId = y })
-       <$> f (_cpiUniqueId x)
+    f (_cpiUniqueId x)
+        <&> \y -> x { _cpiUniqueId = y }
 {-# INLINE cpiUniqueId #-}
 
 -- | The description of the new pipeline.
-cpiDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreatePipeline
-    -> f CreatePipeline
+cpiDescription :: Lens' CreatePipeline (Maybe Text)
 cpiDescription f x =
-    (\y -> x { _cpiDescription = y })
-       <$> f (_cpiDescription x)
+    f (_cpiDescription x)
+        <&> \y -> x { _cpiDescription = y }
 {-# INLINE cpiDescription #-}
 
 instance ToPath CreatePipeline
@@ -149,15 +135,10 @@ data CreatePipelineResponse = CreatePipelineResponse
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is
 -- a string of the form: df-06372391ZG65EXAMPLE.
-cpoPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreatePipelineResponse
-    -> f CreatePipelineResponse
+cpoPipelineId :: Lens' CreatePipelineResponse (Text)
 cpoPipelineId f x =
-    (\y -> x { _cpoPipelineId = y })
-       <$> f (_cpoPipelineId x)
+    f (_cpoPipelineId x)
+        <&> \y -> x { _cpoPipelineId = y }
 {-# INLINE cpoPipelineId #-}
 
 instance FromJSON CreatePipelineResponse

@@ -88,6 +88,7 @@ sendRawEmail p1 = SendRawEmail
     , _srerSource = Nothing
     , _srerDestinations = mempty
     }
+{-# INLINE sendRawEmail #-}
 
 data SendRawEmail = SendRawEmail
     { _srerRawMessage :: RawMessage
@@ -119,15 +120,10 @@ data SendRawEmail = SendRawEmail
 -- MIME message must be formatted properly. MIME content types must be among
 -- those supported by Amazon SES. For more information, go to the Amazon SES
 -- Developer Guide. Content must be base64-encoded, if MIME requires it.
-srerRawMessage
-    :: Functor f
-    => (RawMessage
-    -> f (RawMessage))
-    -> SendRawEmail
-    -> f SendRawEmail
+srerRawMessage :: Lens' SendRawEmail (RawMessage)
 srerRawMessage f x =
-    (\y -> x { _srerRawMessage = y })
-       <$> f (_srerRawMessage x)
+    f (_srerRawMessage x)
+        <&> \y -> x { _srerRawMessage = y }
 {-# INLINE srerRawMessage #-}
 
 -- | The identity's email address. By default, the string must be 7-bit ASCII.
@@ -139,28 +135,18 @@ srerRawMessage f x =
 -- bounces and complaints will be sent to this email address. This takes
 -- precedence over any Return-Path header that you might include in the raw
 -- text of the message.
-srerSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SendRawEmail
-    -> f SendRawEmail
+srerSource :: Lens' SendRawEmail (Maybe Text)
 srerSource f x =
-    (\y -> x { _srerSource = y })
-       <$> f (_srerSource x)
+    f (_srerSource x)
+        <&> \y -> x { _srerSource = y }
 {-# INLINE srerSource #-}
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
-srerDestinations
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SendRawEmail
-    -> f SendRawEmail
+srerDestinations :: Lens' SendRawEmail ([Text])
 srerDestinations f x =
-    (\y -> x { _srerDestinations = y })
-       <$> f (_srerDestinations x)
+    f (_srerDestinations x)
+        <&> \y -> x { _srerDestinations = y }
 {-# INLINE srerDestinations #-}
 
 instance ToQuery SendRawEmail where
@@ -173,15 +159,10 @@ data SendRawEmailResponse = SendRawEmailResponse
     } deriving (Show, Generic)
 
 -- | The unique message identifier returned from the SendRawEmail action.
-sresMessageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SendRawEmailResponse
-    -> f SendRawEmailResponse
+sresMessageId :: Lens' SendRawEmailResponse (Text)
 sresMessageId f x =
-    (\y -> x { _sresMessageId = y })
-       <$> f (_sresMessageId x)
+    f (_sresMessageId x)
+        <&> \y -> x { _sresMessageId = y }
 {-# INLINE sresMessageId #-}
 
 instance FromXML SendRawEmailResponse where

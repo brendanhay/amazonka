@@ -103,6 +103,7 @@ describeJobFlows = DescribeJobFlows
     , _djfiJobFlowStates = mempty
     , _djfiJobFlowIds = mempty
     }
+{-# INLINE describeJobFlows #-}
 
 data DescribeJobFlows = DescribeJobFlows
     { _djfiCreatedAfter :: Maybe POSIX
@@ -117,51 +118,31 @@ data DescribeJobFlows = DescribeJobFlows
     } deriving (Show, Generic)
 
 -- | Return only job flows created after this date and time.
-djfiCreatedAfter
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> DescribeJobFlows
-    -> f DescribeJobFlows
+djfiCreatedAfter :: Lens' DescribeJobFlows (Maybe POSIX)
 djfiCreatedAfter f x =
-    (\y -> x { _djfiCreatedAfter = y })
-       <$> f (_djfiCreatedAfter x)
+    f (_djfiCreatedAfter x)
+        <&> \y -> x { _djfiCreatedAfter = y }
 {-# INLINE djfiCreatedAfter #-}
 
 -- | Return only job flows created before this date and time.
-djfiCreatedBefore
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> DescribeJobFlows
-    -> f DescribeJobFlows
+djfiCreatedBefore :: Lens' DescribeJobFlows (Maybe POSIX)
 djfiCreatedBefore f x =
-    (\y -> x { _djfiCreatedBefore = y })
-       <$> f (_djfiCreatedBefore x)
+    f (_djfiCreatedBefore x)
+        <&> \y -> x { _djfiCreatedBefore = y }
 {-# INLINE djfiCreatedBefore #-}
 
 -- | Return only job flows whose state is contained in this list.
-djfiJobFlowStates
-    :: Functor f
-    => ([JobFlowExecutionState]
-    -> f ([JobFlowExecutionState]))
-    -> DescribeJobFlows
-    -> f DescribeJobFlows
+djfiJobFlowStates :: Lens' DescribeJobFlows ([JobFlowExecutionState])
 djfiJobFlowStates f x =
-    (\y -> x { _djfiJobFlowStates = y })
-       <$> f (_djfiJobFlowStates x)
+    f (_djfiJobFlowStates x)
+        <&> \y -> x { _djfiJobFlowStates = y }
 {-# INLINE djfiJobFlowStates #-}
 
 -- | Return only job flows whose job flow ID is contained in this list.
-djfiJobFlowIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeJobFlows
-    -> f DescribeJobFlows
+djfiJobFlowIds :: Lens' DescribeJobFlows ([Text])
 djfiJobFlowIds f x =
-    (\y -> x { _djfiJobFlowIds = y })
-       <$> f (_djfiJobFlowIds x)
+    f (_djfiJobFlowIds x)
+        <&> \y -> x { _djfiJobFlowIds = y }
 {-# INLINE djfiJobFlowIds #-}
 
 instance ToPath DescribeJobFlows
@@ -178,15 +159,10 @@ data DescribeJobFlowsResponse = DescribeJobFlowsResponse
     } deriving (Show, Generic)
 
 -- | A list of job flows matching the parameters supplied.
-djfoJobFlows
-    :: Functor f
-    => ([JobFlowDetail]
-    -> f ([JobFlowDetail]))
-    -> DescribeJobFlowsResponse
-    -> f DescribeJobFlowsResponse
+djfoJobFlows :: Lens' DescribeJobFlowsResponse ([JobFlowDetail])
 djfoJobFlows f x =
-    (\y -> x { _djfoJobFlows = y })
-       <$> f (_djfoJobFlows x)
+    f (_djfoJobFlows x)
+        <&> \y -> x { _djfoJobFlows = y }
 {-# INLINE djfoJobFlows #-}
 
 instance FromJSON DescribeJobFlowsResponse

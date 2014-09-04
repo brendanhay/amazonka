@@ -79,6 +79,7 @@ respondActivityTaskCanceled p1 = RespondActivityTaskCanceled
     { _ratciTaskToken = p1
     , _ratciDetails = Nothing
     }
+{-# INLINE respondActivityTaskCanceled #-}
 
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
     { _ratciTaskToken :: Text
@@ -94,27 +95,17 @@ data RespondActivityTaskCanceled = RespondActivityTaskCanceled
 -- service and should be treated as an opaque value. If the task is passed to
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
-ratciTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RespondActivityTaskCanceled
-    -> f RespondActivityTaskCanceled
+ratciTaskToken :: Lens' RespondActivityTaskCanceled (Text)
 ratciTaskToken f x =
-    (\y -> x { _ratciTaskToken = y })
-       <$> f (_ratciTaskToken x)
+    f (_ratciTaskToken x)
+        <&> \y -> x { _ratciTaskToken = y }
 {-# INLINE ratciTaskToken #-}
 
 -- | Optional information about the cancellation.
-ratciDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RespondActivityTaskCanceled
-    -> f RespondActivityTaskCanceled
+ratciDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
 ratciDetails f x =
-    (\y -> x { _ratciDetails = y })
-       <$> f (_ratciDetails x)
+    f (_ratciDetails x)
+        <&> \y -> x { _ratciDetails = y }
 {-# INLINE ratciDetails #-}
 
 instance ToPath RespondActivityTaskCanceled

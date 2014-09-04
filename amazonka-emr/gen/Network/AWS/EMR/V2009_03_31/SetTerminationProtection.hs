@@ -73,6 +73,7 @@ setTerminationProtection p1 p2 = SetTerminationProtection
     { _stpiTerminationProtected = p1
     , _stpiJobFlowIds = p2
     }
+{-# INLINE setTerminationProtection #-}
 
 data SetTerminationProtection = SetTerminationProtection
     { _stpiTerminationProtected :: Bool
@@ -88,29 +89,19 @@ data SetTerminationProtection = SetTerminationProtection
 -- | A Boolean that indicates whether to protect the job flow and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,
 -- user intervention, or job-flow error.
-stpiTerminationProtected
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> SetTerminationProtection
-    -> f SetTerminationProtection
+stpiTerminationProtected :: Lens' SetTerminationProtection (Bool)
 stpiTerminationProtected f x =
-    (\y -> x { _stpiTerminationProtected = y })
-       <$> f (_stpiTerminationProtected x)
+    f (_stpiTerminationProtected x)
+        <&> \y -> x { _stpiTerminationProtected = y }
 {-# INLINE stpiTerminationProtected #-}
 
 -- | A list of strings that uniquely identify the job flows to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
-stpiJobFlowIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SetTerminationProtection
-    -> f SetTerminationProtection
+stpiJobFlowIds :: Lens' SetTerminationProtection ([Text])
 stpiJobFlowIds f x =
-    (\y -> x { _stpiJobFlowIds = y })
-       <$> f (_stpiJobFlowIds x)
+    f (_stpiJobFlowIds x)
+        <&> \y -> x { _stpiJobFlowIds = y }
 {-# INLINE stpiJobFlowIds #-}
 
 instance ToPath SetTerminationProtection

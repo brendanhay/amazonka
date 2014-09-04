@@ -121,6 +121,7 @@ assumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
     , _arwwirPolicy = Nothing
     , _arwwirProviderId = Nothing
     }
+{-# INLINE assumeRoleWithWebIdentity #-}
 
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     { _arwwirRoleArn :: Text
@@ -165,30 +166,20 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arwwirRoleArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRoleWithWebIdentity
-    -> f AssumeRoleWithWebIdentity
+arwwirRoleArn :: Lens' AssumeRoleWithWebIdentity (Text)
 arwwirRoleArn f x =
-    (\y -> x { _arwwirRoleArn = y })
-       <$> f (_arwwirRoleArn x)
+    f (_arwwirRoleArn x)
+        <&> \y -> x { _arwwirRoleArn = y }
 {-# INLINE arwwirRoleArn #-}
 
 -- | The OAuth 2.0 access token or OpenID Connect ID token that is provided by
 -- the identity provider. Your application must get this token by
 -- authenticating the user who is using your application with a web identity
 -- provider before the application makes an AssumeRoleWithWebIdentity call.
-arwwirWebIdentityToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRoleWithWebIdentity
-    -> f AssumeRoleWithWebIdentity
+arwwirWebIdentityToken :: Lens' AssumeRoleWithWebIdentity (Text)
 arwwirWebIdentityToken f x =
-    (\y -> x { _arwwirWebIdentityToken = y })
-       <$> f (_arwwirWebIdentityToken x)
+    f (_arwwirWebIdentityToken x)
+        <&> \y -> x { _arwwirWebIdentityToken = y }
 {-# INLINE arwwirWebIdentityToken #-}
 
 -- | An identifier for the assumed role session. Typically, you pass the name or
@@ -196,29 +187,19 @@ arwwirWebIdentityToken f x =
 -- That way, the temporary security credentials that your application will use
 -- are associated with that user. This session name is included as part of the
 -- ARN and assumed role ID in the AssumedRoleUser response element.
-arwwirRoleSessionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssumeRoleWithWebIdentity
-    -> f AssumeRoleWithWebIdentity
+arwwirRoleSessionName :: Lens' AssumeRoleWithWebIdentity (Text)
 arwwirRoleSessionName f x =
-    (\y -> x { _arwwirRoleSessionName = y })
-       <$> f (_arwwirRoleSessionName x)
+    f (_arwwirRoleSessionName x)
+        <&> \y -> x { _arwwirRoleSessionName = y }
 {-# INLINE arwwirRoleSessionName #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
 -- to 3600 seconds.
-arwwirDurationSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssumeRoleWithWebIdentity
-    -> f AssumeRoleWithWebIdentity
+arwwirDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Integer)
 arwwirDurationSeconds f x =
-    (\y -> x { _arwwirDurationSeconds = y })
-       <$> f (_arwwirDurationSeconds x)
+    f (_arwwirDurationSeconds x)
+        <&> \y -> x { _arwwirDurationSeconds = y }
 {-# INLINE arwwirDurationSeconds #-}
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you pass
@@ -230,15 +211,10 @@ arwwirDurationSeconds f x =
 -- that are in excess of those allowed by the access policy of the role that
 -- is being assumed. For more information, see Permissions for
 -- AssumeRoleWithWebIdentity in Using Temporary Security Credentials.
-arwwirPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithWebIdentity
-    -> f AssumeRoleWithWebIdentity
+arwwirPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwirPolicy f x =
-    (\y -> x { _arwwirPolicy = y })
-       <$> f (_arwwirPolicy x)
+    f (_arwwirPolicy x)
+        <&> \y -> x { _arwwirPolicy = y }
 {-# INLINE arwwirPolicy #-}
 
 -- | The fully-qualified host component of the domain name of the identity
@@ -246,15 +222,10 @@ arwwirPolicy f x =
 -- this value for OpenID Connect ID tokens, such as accounts.google.com. Do
 -- not include URL schemes and port numbers. Currently, www.amazon.com and
 -- graph.facebook.com are supported.
-arwwirProviderId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithWebIdentity
-    -> f AssumeRoleWithWebIdentity
+arwwirProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwirProviderId f x =
-    (\y -> x { _arwwirProviderId = y })
-       <$> f (_arwwirProviderId x)
+    f (_arwwirProviderId x)
+        <&> \y -> x { _arwwirProviderId = y }
 {-# INLINE arwwirProviderId #-}
 
 instance ToQuery AssumeRoleWithWebIdentity where
@@ -303,71 +274,46 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
 -- principal in a resource-based policy by using the ARN or assumed role ID.
 -- The ARN and ID include the RoleSessionName that you specified when you
 -- called AssumeRole.
-arwwisAssumedRoleUser
-    :: Functor f
-    => (Maybe AssumedRoleUser
-    -> f (Maybe AssumedRoleUser))
-    -> AssumeRoleWithWebIdentityResponse
-    -> f AssumeRoleWithWebIdentityResponse
+arwwisAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
 arwwisAssumedRoleUser f x =
-    (\y -> x { _arwwisAssumedRoleUser = y })
-       <$> f (_arwwisAssumedRoleUser x)
+    f (_arwwisAssumedRoleUser x)
+        <&> \y -> x { _arwwisAssumedRoleUser = y }
 {-# INLINE arwwisAssumedRoleUser #-}
 
 -- | The intended audience of the web identity token. This is traditionally the
 -- client identifier issued to the application that requested the web identity
 -- token.
-arwwisAudience
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithWebIdentityResponse
-    -> f AssumeRoleWithWebIdentityResponse
+arwwisAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwisAudience f x =
-    (\y -> x { _arwwisAudience = y })
-       <$> f (_arwwisAudience x)
+    f (_arwwisAudience x)
+        <&> \y -> x { _arwwisAudience = y }
 {-# INLINE arwwisAudience #-}
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security token.
-arwwisCredentials
-    :: Functor f
-    => (Maybe Credentials
-    -> f (Maybe Credentials))
-    -> AssumeRoleWithWebIdentityResponse
-    -> f AssumeRoleWithWebIdentityResponse
+arwwisCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
 arwwisCredentials f x =
-    (\y -> x { _arwwisCredentials = y })
-       <$> f (_arwwisCredentials x)
+    f (_arwwisCredentials x)
+        <&> \y -> x { _arwwisCredentials = y }
 {-# INLINE arwwisCredentials #-}
 
 -- | The issuing authority of the web identity token presented. For OpenID
 -- Connect ID Tokens this contains the value of the iss field. For OAuth 2.0
 -- Access Tokens, this contains the value of the ProviderId parameter that was
 -- passed in the AssumeRoleWithWebIdentity request.
-arwwisProvider
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithWebIdentityResponse
-    -> f AssumeRoleWithWebIdentityResponse
+arwwisProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwisProvider f x =
-    (\y -> x { _arwwisProvider = y })
-       <$> f (_arwwisProvider x)
+    f (_arwwisProvider x)
+        <&> \y -> x { _arwwisProvider = y }
 {-# INLINE arwwisProvider #-}
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arwwisPackedPolicySize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssumeRoleWithWebIdentityResponse
-    -> f AssumeRoleWithWebIdentityResponse
+arwwisPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Integer)
 arwwisPackedPolicySize f x =
-    (\y -> x { _arwwisPackedPolicySize = y })
-       <$> f (_arwwisPackedPolicySize x)
+    f (_arwwisPackedPolicySize x)
+        <&> \y -> x { _arwwisPackedPolicySize = y }
 {-# INLINE arwwisPackedPolicySize #-}
 
 -- | The unique user identifier that is returned by the identity provider. This
@@ -377,15 +323,10 @@ arwwisPackedPolicySize f x =
 -- identifier). If an OpenID Connect ID token was submitted in the
 -- WebIdentityToken, this value is returned by the identity provider as the
 -- token's sub (Subject) claim.
-arwwisSubjectFromWebIdentityToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssumeRoleWithWebIdentityResponse
-    -> f AssumeRoleWithWebIdentityResponse
+arwwisSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwisSubjectFromWebIdentityToken f x =
-    (\y -> x { _arwwisSubjectFromWebIdentityToken = y })
-       <$> f (_arwwisSubjectFromWebIdentityToken x)
+    f (_arwwisSubjectFromWebIdentityToken x)
+        <&> \y -> x { _arwwisSubjectFromWebIdentityToken = y }
 {-# INLINE arwwisSubjectFromWebIdentityToken #-}
 
 instance FromXML AssumeRoleWithWebIdentityResponse where

@@ -67,6 +67,7 @@ describeEvents = DescribeEvents
     , _demStartTime = Nothing
     , _demEndTime = Nothing
     }
+{-# INLINE describeEvents #-}
 
 data DescribeEvents = DescribeEvents
     { _demDuration :: Maybe Integer
@@ -124,15 +125,10 @@ data DescribeEvents = DescribeEvents
 -- retrieve events. For example, if the request is sent at 18:00 and you
 -- specify a duration of 60, then only events which have occurred after 17:00
 -- will be returned. Default: 60.
-demDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEvents
-    -> f DescribeEvents
+demDuration :: Lens' DescribeEvents (Maybe Integer)
 demDuration f x =
-    (\y -> x { _demDuration = y })
-       <$> f (_demDuration x)
+    f (_demDuration x)
+        <&> \y -> x { _demDuration = y }
 {-# INLINE demDuration #-}
 
 -- | The maximum number of response records to return in each call. If the
@@ -140,15 +136,10 @@ demDuration f x =
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-demMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEvents
-    -> f DescribeEvents
+demMaxRecords :: Lens' DescribeEvents (Maybe Integer)
 demMaxRecords f x =
-    (\y -> x { _demMaxRecords = y })
-       <$> f (_demMaxRecords x)
+    f (_demMaxRecords x)
+        <&> \y -> x { _demMaxRecords = y }
 {-# INLINE demMaxRecords #-}
 
 -- | The event source to retrieve events for. If no value is specified, all
@@ -159,15 +150,10 @@ demMaxRecords f x =
 -- cluster-parameter-group when SourceIdentifier is a cluster parameter group
 -- name. Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
 -- identifier.
-demSourceType
-    :: Functor f
-    => (Maybe SourceType
-    -> f (Maybe SourceType))
-    -> DescribeEvents
-    -> f DescribeEvents
+demSourceType :: Lens' DescribeEvents (Maybe SourceType)
 demSourceType f x =
-    (\y -> x { _demSourceType = y })
-       <$> f (_demSourceType x)
+    f (_demSourceType x)
+        <&> \y -> x { _demSourceType = y }
 {-# INLINE demSourceType #-}
 
 -- | The identifier of the event source for which events will be returned. If
@@ -178,15 +164,10 @@ demSourceType f x =
 -- cluster-security-group. Specify a cluster parameter group name when
 -- SourceType is cluster-parameter-group. Specify a cluster snapshot
 -- identifier when SourceType is cluster-snapshot.
-demSourceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+demSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 demSourceIdentifier f x =
-    (\y -> x { _demSourceIdentifier = y })
-       <$> f (_demSourceIdentifier x)
+    f (_demSourceIdentifier x)
+        <&> \y -> x { _demSourceIdentifier = y }
 {-# INLINE demSourceIdentifier #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -195,43 +176,28 @@ demSourceIdentifier f x =
 -- the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-demMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+demMarker :: Lens' DescribeEvents (Maybe Text)
 demMarker f x =
-    (\y -> x { _demMarker = y })
-       <$> f (_demMarker x)
+    f (_demMarker x)
+        <&> \y -> x { _demMarker = y }
 {-# INLINE demMarker #-}
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEvents
-    -> f DescribeEvents
+demStartTime :: Lens' DescribeEvents (Maybe ISO8601)
 demStartTime f x =
-    (\y -> x { _demStartTime = y })
-       <$> f (_demStartTime x)
+    f (_demStartTime x)
+        <&> \y -> x { _demStartTime = y }
 {-# INLINE demStartTime #-}
 
 -- | The end of the time interval for which to retrieve events, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEvents
-    -> f DescribeEvents
+demEndTime :: Lens' DescribeEvents (Maybe ISO8601)
 demEndTime f x =
-    (\y -> x { _demEndTime = y })
-       <$> f (_demEndTime x)
+    f (_demEndTime x)
+        <&> \y -> x { _demEndTime = y }
 {-# INLINE demEndTime #-}
 
 instance ToQuery DescribeEvents where
@@ -250,15 +216,10 @@ data DescribeEventsResponse = DescribeEventsResponse
     } deriving (Show, Generic)
 
 -- | A list of Event instances.
-emEvents
-    :: Functor f
-    => ([Event]
-    -> f ([Event]))
-    -> DescribeEventsResponse
-    -> f DescribeEventsResponse
+emEvents :: Lens' DescribeEventsResponse ([Event])
 emEvents f x =
-    (\y -> x { _emEvents = y })
-       <$> f (_emEvents x)
+    f (_emEvents x)
+        <&> \y -> x { _emEvents = y }
 {-# INLINE emEvents #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -266,15 +227,10 @@ emEvents f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-emMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventsResponse
-    -> f DescribeEventsResponse
+emMarker :: Lens' DescribeEventsResponse (Maybe Text)
 emMarker f x =
-    (\y -> x { _emMarker = y })
-       <$> f (_emMarker x)
+    f (_emMarker x)
+        <&> \y -> x { _emMarker = y }
 {-# INLINE emMarker #-}
 
 instance FromXML DescribeEventsResponse where

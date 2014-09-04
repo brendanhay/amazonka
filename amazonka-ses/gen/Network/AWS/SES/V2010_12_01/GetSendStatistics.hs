@@ -48,6 +48,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetSendStatistics' request.
 getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
+{-# INLINE getSendStatistics #-}
 
 data GetSendStatistics = GetSendStatistics
     deriving (Eq, Show, Generic)
@@ -62,15 +63,10 @@ data GetSendStatisticsResponse = GetSendStatisticsResponse
     } deriving (Show, Generic)
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrSendDataPoints
-    :: Functor f
-    => ([SendDataPoint]
-    -> f ([SendDataPoint]))
-    -> GetSendStatisticsResponse
-    -> f GetSendStatisticsResponse
+gssrSendDataPoints :: Lens' GetSendStatisticsResponse ([SendDataPoint])
 gssrSendDataPoints f x =
-    (\y -> x { _gssrSendDataPoints = y })
-       <$> f (_gssrSendDataPoints x)
+    f (_gssrSendDataPoints x)
+        <&> \y -> x { _gssrSendDataPoints = y }
 {-# INLINE gssrSendDataPoints #-}
 
 instance FromXML GetSendStatisticsResponse where

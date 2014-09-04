@@ -64,6 +64,7 @@ deleteCluster p1 = DeleteCluster
     , _dcmSkipFinalClusterSnapshot = Nothing
     , _dcmFinalClusterSnapshotIdentifier = Nothing
     }
+{-# INLINE deleteCluster #-}
 
 data DeleteCluster = DeleteCluster
     { _dcmClusterIdentifier :: Text
@@ -92,15 +93,10 @@ data DeleteCluster = DeleteCluster
 -- lowercase characters. Must contain from 1 to 63 alphanumeric characters or
 -- hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-dcmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCluster
-    -> f DeleteCluster
+dcmClusterIdentifier :: Lens' DeleteCluster (Text)
 dcmClusterIdentifier f x =
-    (\y -> x { _dcmClusterIdentifier = y })
-       <$> f (_dcmClusterIdentifier x)
+    f (_dcmClusterIdentifier x)
+        <&> \y -> x { _dcmClusterIdentifier = y }
 {-# INLINE dcmClusterIdentifier #-}
 
 -- | Determines whether a final snapshot of the cluster is created before Amazon
@@ -108,15 +104,10 @@ dcmClusterIdentifier f x =
 -- created. If false, a final cluster snapshot is created before the cluster
 -- is deleted. The FinalClusterSnapshotIdentifier parameter must be specified
 -- if SkipFinalClusterSnapshot is false. Default: false.
-dcmSkipFinalClusterSnapshot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteCluster
-    -> f DeleteCluster
+dcmSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dcmSkipFinalClusterSnapshot f x =
-    (\y -> x { _dcmSkipFinalClusterSnapshot = y })
-       <$> f (_dcmSkipFinalClusterSnapshot x)
+    f (_dcmSkipFinalClusterSnapshot x)
+        <&> \y -> x { _dcmSkipFinalClusterSnapshot = y }
 {-# INLINE dcmSkipFinalClusterSnapshot #-}
 
 -- | The identifier of the final snapshot that is to be created immediately
@@ -124,15 +115,10 @@ dcmSkipFinalClusterSnapshot f x =
 -- SkipFinalClusterSnapshot must be false. Constraints: Must be 1 to 255
 -- alphanumeric characters. First character must be a letter. Cannot end with
 -- a hyphen or contain two consecutive hyphens.
-dcmFinalClusterSnapshotIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteCluster
-    -> f DeleteCluster
+dcmFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
 dcmFinalClusterSnapshotIdentifier f x =
-    (\y -> x { _dcmFinalClusterSnapshotIdentifier = y })
-       <$> f (_dcmFinalClusterSnapshotIdentifier x)
+    f (_dcmFinalClusterSnapshotIdentifier x)
+        <&> \y -> x { _dcmFinalClusterSnapshotIdentifier = y }
 {-# INLINE dcmFinalClusterSnapshotIdentifier #-}
 
 instance ToQuery DeleteCluster where
@@ -144,15 +130,10 @@ data DeleteClusterResponse = DeleteClusterResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cxCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> DeleteClusterResponse
-    -> f DeleteClusterResponse
+cxCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 cxCluster f x =
-    (\y -> x { _cxCluster = y })
-       <$> f (_cxCluster x)
+    f (_cxCluster x)
+        <&> \y -> x { _cxCluster = y }
 {-# INLINE cxCluster #-}
 
 instance FromXML DeleteClusterResponse where

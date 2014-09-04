@@ -43,6 +43,7 @@ deleteDistribution p1 = DeleteDistribution
     { _ddrId = p1
     , _ddrIfMatch = Nothing
     }
+{-# INLINE deleteDistribution #-}
 
 data DeleteDistribution = DeleteDistribution
     { _ddrId :: Text
@@ -53,28 +54,18 @@ data DeleteDistribution = DeleteDistribution
     } deriving (Show, Generic)
 
 -- | The distribution id.
-ddrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDistribution
-    -> f DeleteDistribution
+ddrId :: Lens' DeleteDistribution (Text)
 ddrId f x =
-    (\y -> x { _ddrId = y })
-       <$> f (_ddrId x)
+    f (_ddrId x)
+        <&> \y -> x { _ddrId = y }
 {-# INLINE ddrId #-}
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
-ddrIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteDistribution
-    -> f DeleteDistribution
+ddrIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddrIfMatch f x =
-    (\y -> x { _ddrIfMatch = y })
-       <$> f (_ddrIfMatch x)
+    f (_ddrIfMatch x)
+        <&> \y -> x { _ddrIfMatch = y }
 {-# INLINE ddrIfMatch #-}
 
 instance ToPath DeleteDistribution where

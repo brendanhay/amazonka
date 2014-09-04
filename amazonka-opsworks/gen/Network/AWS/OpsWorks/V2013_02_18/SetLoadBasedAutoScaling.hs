@@ -57,6 +57,7 @@ setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     , _slbasrDownScaling = Nothing
     , _slbasrEnable = Nothing
     }
+{-# INLINE setLoadBasedAutoScaling #-}
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     { _slbasrLayerId :: Text
@@ -76,55 +77,35 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     } deriving (Show, Generic)
 
 -- | The layer ID.
-slbasrLayerId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetLoadBasedAutoScaling
-    -> f SetLoadBasedAutoScaling
+slbasrLayerId :: Lens' SetLoadBasedAutoScaling (Text)
 slbasrLayerId f x =
-    (\y -> x { _slbasrLayerId = y })
-       <$> f (_slbasrLayerId x)
+    f (_slbasrLayerId x)
+        <&> \y -> x { _slbasrLayerId = y }
 {-# INLINE slbasrLayerId #-}
 
 -- | An AutoScalingThresholds object with the upscaling threshold configuration.
 -- If the load exceeds these thresholds for a specified amount of time, AWS
 -- OpsWorks starts a specified number of instances.
-slbasrUpScaling
-    :: Functor f
-    => (Maybe AutoScalingThresholds
-    -> f (Maybe AutoScalingThresholds))
-    -> SetLoadBasedAutoScaling
-    -> f SetLoadBasedAutoScaling
+slbasrUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasrUpScaling f x =
-    (\y -> x { _slbasrUpScaling = y })
-       <$> f (_slbasrUpScaling x)
+    f (_slbasrUpScaling x)
+        <&> \y -> x { _slbasrUpScaling = y }
 {-# INLINE slbasrUpScaling #-}
 
 -- | An AutoScalingThresholds object with the downscaling threshold
 -- configuration. If the load falls below these thresholds for a specified
 -- amount of time, AWS OpsWorks stops a specified number of instances.
-slbasrDownScaling
-    :: Functor f
-    => (Maybe AutoScalingThresholds
-    -> f (Maybe AutoScalingThresholds))
-    -> SetLoadBasedAutoScaling
-    -> f SetLoadBasedAutoScaling
+slbasrDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasrDownScaling f x =
-    (\y -> x { _slbasrDownScaling = y })
-       <$> f (_slbasrDownScaling x)
+    f (_slbasrDownScaling x)
+        <&> \y -> x { _slbasrDownScaling = y }
 {-# INLINE slbasrDownScaling #-}
 
 -- | Enables load-based auto scaling for the layer.
-slbasrEnable
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> SetLoadBasedAutoScaling
-    -> f SetLoadBasedAutoScaling
+slbasrEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
 slbasrEnable f x =
-    (\y -> x { _slbasrEnable = y })
-       <$> f (_slbasrEnable x)
+    f (_slbasrEnable x)
+        <&> \y -> x { _slbasrEnable = y }
 {-# INLINE slbasrEnable #-}
 
 instance ToPath SetLoadBasedAutoScaling

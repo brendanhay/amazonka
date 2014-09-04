@@ -59,6 +59,7 @@ deleteReplicationGroup p1 = DeleteReplicationGroup
     , _drgmRetainPrimaryCluster = Nothing
     , _drgmFinalSnapshotIdentifier = Nothing
     }
+{-# INLINE deleteReplicationGroup #-}
 
 data DeleteReplicationGroup = DeleteReplicationGroup
     { _drgmReplicationGroupId :: Text
@@ -77,28 +78,18 @@ data DeleteReplicationGroup = DeleteReplicationGroup
 
 -- | The identifier for the replication group to be deleted. This parameter is
 -- not case sensitive.
-drgmReplicationGroupId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteReplicationGroup
-    -> f DeleteReplicationGroup
+drgmReplicationGroupId :: Lens' DeleteReplicationGroup (Text)
 drgmReplicationGroupId f x =
-    (\y -> x { _drgmReplicationGroupId = y })
-       <$> f (_drgmReplicationGroupId x)
+    f (_drgmReplicationGroupId x)
+        <&> \y -> x { _drgmReplicationGroupId = y }
 {-# INLINE drgmReplicationGroupId #-}
 
 -- | If set to true, all of the read replicas will be deleted, but the primary
 -- cache cluster will be retained.
-drgmRetainPrimaryCluster
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteReplicationGroup
-    -> f DeleteReplicationGroup
+drgmRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgmRetainPrimaryCluster f x =
-    (\y -> x { _drgmRetainPrimaryCluster = y })
-       <$> f (_drgmRetainPrimaryCluster x)
+    f (_drgmRetainPrimaryCluster x)
+        <&> \y -> x { _drgmRetainPrimaryCluster = y }
 {-# INLINE drgmRetainPrimaryCluster #-}
 
 -- | The name of a final cache cluster snapshot. ElastiCache creates the
@@ -106,15 +97,10 @@ drgmRetainPrimaryCluster f x =
 -- of the replicas; this is to ensure that it captures the freshest data.
 -- After the final snapshot is taken, the replication group is deleted
 -- immediately afterward.
-drgmFinalSnapshotIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteReplicationGroup
-    -> f DeleteReplicationGroup
+drgmFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgmFinalSnapshotIdentifier f x =
-    (\y -> x { _drgmFinalSnapshotIdentifier = y })
-       <$> f (_drgmFinalSnapshotIdentifier x)
+    f (_drgmFinalSnapshotIdentifier x)
+        <&> \y -> x { _drgmFinalSnapshotIdentifier = y }
 {-# INLINE drgmFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteReplicationGroup where
@@ -126,15 +112,10 @@ data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-rgxReplicationGroup
-    :: Functor f
-    => (Maybe ReplicationGroup
-    -> f (Maybe ReplicationGroup))
-    -> DeleteReplicationGroupResponse
-    -> f DeleteReplicationGroupResponse
+rgxReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 rgxReplicationGroup f x =
-    (\y -> x { _rgxReplicationGroup = y })
-       <$> f (_rgxReplicationGroup x)
+    f (_rgxReplicationGroup x)
+        <&> \y -> x { _rgxReplicationGroup = y }
 {-# INLINE rgxReplicationGroup #-}
 
 instance FromXML DeleteReplicationGroupResponse where

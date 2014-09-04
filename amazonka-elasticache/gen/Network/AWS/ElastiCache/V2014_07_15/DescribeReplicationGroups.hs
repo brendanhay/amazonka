@@ -58,6 +58,7 @@ describeReplicationGroups = DescribeReplicationGroups
     , _drgnReplicationGroupId = Nothing
     , _drgnMarker = Nothing
     }
+{-# INLINE describeReplicationGroups #-}
 
 data DescribeReplicationGroups = DescribeReplicationGroups
     { _drgnMaxRecords :: Maybe Integer
@@ -80,44 +81,29 @@ data DescribeReplicationGroups = DescribeReplicationGroups
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-drgnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReplicationGroups
-    -> f DescribeReplicationGroups
+drgnMaxRecords :: Lens' DescribeReplicationGroups (Maybe Integer)
 drgnMaxRecords f x =
-    (\y -> x { _drgnMaxRecords = y })
-       <$> f (_drgnMaxRecords x)
+    f (_drgnMaxRecords x)
+        <&> \y -> x { _drgnMaxRecords = y }
 {-# INLINE drgnMaxRecords #-}
 
 -- | The identifier for the replication group to be described. This parameter is
 -- not case sensitive. If you do not specify this parameter, information about
 -- all replication groups is returned.
-drgnReplicationGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReplicationGroups
-    -> f DescribeReplicationGroups
+drgnReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
 drgnReplicationGroupId f x =
-    (\y -> x { _drgnReplicationGroupId = y })
-       <$> f (_drgnReplicationGroupId x)
+    f (_drgnReplicationGroupId x)
+        <&> \y -> x { _drgnReplicationGroupId = y }
 {-# INLINE drgnReplicationGroupId #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-drgnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReplicationGroups
-    -> f DescribeReplicationGroups
+drgnMarker :: Lens' DescribeReplicationGroups (Maybe Text)
 drgnMarker f x =
-    (\y -> x { _drgnMarker = y })
-       <$> f (_drgnMarker x)
+    f (_drgnMarker x)
+        <&> \y -> x { _drgnMarker = y }
 {-# INLINE drgnMarker #-}
 
 instance ToQuery DescribeReplicationGroups where
@@ -133,27 +119,17 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-rgmReplicationGroups
-    :: Functor f
-    => ([ReplicationGroup]
-    -> f ([ReplicationGroup]))
-    -> DescribeReplicationGroupsResponse
-    -> f DescribeReplicationGroupsResponse
+rgmReplicationGroups :: Lens' DescribeReplicationGroupsResponse ([ReplicationGroup])
 rgmReplicationGroups f x =
-    (\y -> x { _rgmReplicationGroups = y })
-       <$> f (_rgmReplicationGroups x)
+    f (_rgmReplicationGroups x)
+        <&> \y -> x { _rgmReplicationGroups = y }
 {-# INLINE rgmReplicationGroups #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-rgmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReplicationGroupsResponse
-    -> f DescribeReplicationGroupsResponse
+rgmMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
 rgmMarker f x =
-    (\y -> x { _rgmMarker = y })
-       <$> f (_rgmMarker x)
+    f (_rgmMarker x)
+        <&> \y -> x { _rgmMarker = y }
 {-# INLINE rgmMarker #-}
 
 instance FromXML DescribeReplicationGroupsResponse where

@@ -67,6 +67,7 @@ getIdentityDkimAttributes :: [Text] -- ^ 'gidarIdentities'
 getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
     { _gidarIdentities = p1
     }
+{-# INLINE getIdentityDkimAttributes #-}
 
 data GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidarIdentities :: [Text]
@@ -76,15 +77,10 @@ data GetIdentityDkimAttributes = GetIdentityDkimAttributes
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
-gidarIdentities
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GetIdentityDkimAttributes
-    -> f GetIdentityDkimAttributes
+gidarIdentities :: Lens' GetIdentityDkimAttributes ([Text])
 gidarIdentities f x =
-    (\y -> x { _gidarIdentities = y })
-       <$> f (_gidarIdentities x)
+    f (_gidarIdentities x)
+        <&> \y -> x { _gidarIdentities = y }
 {-# INLINE gidarIdentities #-}
 
 instance ToQuery GetIdentityDkimAttributes where
@@ -96,15 +92,10 @@ data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     } deriving (Show, Generic)
 
 -- | The DKIM attributes for an email address or a domain.
-gidasDkimAttributes
-    :: Functor f
-    => (Map Text IdentityDkimAttributes
-    -> f (Map Text IdentityDkimAttributes))
-    -> GetIdentityDkimAttributesResponse
-    -> f GetIdentityDkimAttributesResponse
+gidasDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
 gidasDkimAttributes f x =
-    (\y -> x { _gidasDkimAttributes = y })
-       <$> f (_gidasDkimAttributes x)
+    f (_gidasDkimAttributes x)
+        <&> \y -> x { _gidasDkimAttributes = y }
 {-# INLINE gidasDkimAttributes #-}
 
 instance FromXML GetIdentityDkimAttributesResponse where

@@ -61,6 +61,7 @@ readPipeline :: Text -- ^ 'rprId'
 readPipeline p1 = ReadPipeline
     { _rprId = p1
     }
+{-# INLINE readPipeline #-}
 
 data ReadPipeline = ReadPipeline
     { _rprId :: Text
@@ -68,15 +69,10 @@ data ReadPipeline = ReadPipeline
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline to read.
-rprId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReadPipeline
-    -> f ReadPipeline
+rprId :: Lens' ReadPipeline (Text)
 rprId f x =
-    (\y -> x { _rprId = y })
-       <$> f (_rprId x)
+    f (_rprId x)
+        <&> \y -> x { _rprId = y }
 {-# INLINE rprId #-}
 
 instance ToPath ReadPipeline where
@@ -99,15 +95,10 @@ data ReadPipelineResponse = ReadPipelineResponse
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-rpsPipeline
-    :: Functor f
-    => (Maybe Pipeline
-    -> f (Maybe Pipeline))
-    -> ReadPipelineResponse
-    -> f ReadPipelineResponse
+rpsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rpsPipeline f x =
-    (\y -> x { _rpsPipeline = y })
-       <$> f (_rpsPipeline x)
+    f (_rpsPipeline x)
+        <&> \y -> x { _rpsPipeline = y }
 {-# INLINE rpsPipeline #-}
 
 instance FromJSON ReadPipelineResponse

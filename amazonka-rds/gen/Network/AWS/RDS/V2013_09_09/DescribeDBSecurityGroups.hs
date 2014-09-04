@@ -56,6 +56,7 @@ describeDBSecurityGroups = DescribeDBSecurityGroups
     , _ddbsgoDBSecurityGroupName = Nothing
     , _ddbsgoMarker = Nothing
     }
+{-# INLINE describeDBSecurityGroups #-}
 
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsgoMaxRecords :: Maybe Integer
@@ -77,42 +78,27 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbsgoMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBSecurityGroups
-    -> f DescribeDBSecurityGroups
+ddbsgoMaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Integer)
 ddbsgoMaxRecords f x =
-    (\y -> x { _ddbsgoMaxRecords = y })
-       <$> f (_ddbsgoMaxRecords x)
+    f (_ddbsgoMaxRecords x)
+        <&> \y -> x { _ddbsgoMaxRecords = y }
 {-# INLINE ddbsgoMaxRecords #-}
 
 -- | The name of the DB security group to return details for.
-ddbsgoDBSecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSecurityGroups
-    -> f DescribeDBSecurityGroups
+ddbsgoDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsgoDBSecurityGroupName f x =
-    (\y -> x { _ddbsgoDBSecurityGroupName = y })
-       <$> f (_ddbsgoDBSecurityGroupName x)
+    f (_ddbsgoDBSecurityGroupName x)
+        <&> \y -> x { _ddbsgoDBSecurityGroupName = y }
 {-# INLINE ddbsgoDBSecurityGroupName #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSecurityGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value specified
 -- by MaxRecords.
-ddbsgoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSecurityGroups
-    -> f DescribeDBSecurityGroups
+ddbsgoMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsgoMarker f x =
-    (\y -> x { _ddbsgoMarker = y })
-       <$> f (_ddbsgoMarker x)
+    f (_ddbsgoMarker x)
+        <&> \y -> x { _ddbsgoMarker = y }
 {-# INLINE ddbsgoMarker #-}
 
 instance ToQuery DescribeDBSecurityGroups where
@@ -128,29 +114,19 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     } deriving (Show, Generic)
 
 -- | A list of DBSecurityGroup instances.
-dbsgrDBSecurityGroups
-    :: Functor f
-    => ([DBSecurityGroup]
-    -> f ([DBSecurityGroup]))
-    -> DescribeDBSecurityGroupsResponse
-    -> f DescribeDBSecurityGroupsResponse
+dbsgrDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse ([DBSecurityGroup])
 dbsgrDBSecurityGroups f x =
-    (\y -> x { _dbsgrDBSecurityGroups = y })
-       <$> f (_dbsgrDBSecurityGroups x)
+    f (_dbsgrDBSecurityGroups x)
+        <&> \y -> x { _dbsgrDBSecurityGroups = y }
 {-# INLINE dbsgrDBSecurityGroups #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbsgrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBSecurityGroupsResponse
-    -> f DescribeDBSecurityGroupsResponse
+dbsgrMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 dbsgrMarker f x =
-    (\y -> x { _dbsgrMarker = y })
-       <$> f (_dbsgrMarker x)
+    f (_dbsgrMarker x)
+        <&> \y -> x { _dbsgrMarker = y }
 {-# INLINE dbsgrMarker #-}
 
 instance FromXML DescribeDBSecurityGroupsResponse where

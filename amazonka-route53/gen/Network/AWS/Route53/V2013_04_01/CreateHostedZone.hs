@@ -63,6 +63,7 @@ createHostedZone p1 p2 = CreateHostedZone
     , _chzrCallerReference = p2
     , _chzrHostedZoneConfig = Nothing
     }
+{-# INLINE createHostedZone #-}
 
 data CreateHostedZone = CreateHostedZone
     { _chzrName :: Text
@@ -98,15 +99,10 @@ data CreateHostedZone = CreateHostedZone
 -- DNS registrar. You should ask your registrar to change the authoritative
 -- name servers for your domain to the set of NameServers elements returned in
 -- DelegationSet.
-chzrName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHostedZone
-    -> f CreateHostedZone
+chzrName :: Lens' CreateHostedZone (Text)
 chzrName f x =
-    (\y -> x { _chzrName = y })
-       <$> f (_chzrName x)
+    f (_chzrName x)
+        <&> \y -> x { _chzrName = y }
 {-# INLINE chzrName #-}
 
 -- | A unique string that identifies the request and that allows failed
@@ -117,27 +113,17 @@ chzrName f x =
 -- DNSMigration_01. Valid characters are any Unicode code points that are
 -- legal in an XML 1.0 document. The UTF-8 encoding of the value must be less
 -- than 128 bytes.
-chzrCallerReference
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHostedZone
-    -> f CreateHostedZone
+chzrCallerReference :: Lens' CreateHostedZone (Text)
 chzrCallerReference f x =
-    (\y -> x { _chzrCallerReference = y })
-       <$> f (_chzrCallerReference x)
+    f (_chzrCallerReference x)
+        <&> \y -> x { _chzrCallerReference = y }
 {-# INLINE chzrCallerReference #-}
 
 -- | A complex type that contains an optional comment about your hosted zone.
-chzrHostedZoneConfig
-    :: Functor f
-    => (Maybe HostedZoneConfig
-    -> f (Maybe HostedZoneConfig))
-    -> CreateHostedZone
-    -> f CreateHostedZone
+chzrHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
 chzrHostedZoneConfig f x =
-    (\y -> x { _chzrHostedZoneConfig = y })
-       <$> f (_chzrHostedZoneConfig x)
+    f (_chzrHostedZoneConfig x)
+        <&> \y -> x { _chzrHostedZoneConfig = y }
 {-# INLINE chzrHostedZoneConfig #-}
 
 instance ToPath CreateHostedZone where
@@ -169,51 +155,31 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the GetChange
 -- action to get the current status of the change request.
-chzsChangeInfo
-    :: Functor f
-    => (ChangeInfo
-    -> f (ChangeInfo))
-    -> CreateHostedZoneResponse
-    -> f CreateHostedZoneResponse
+chzsChangeInfo :: Lens' CreateHostedZoneResponse (ChangeInfo)
 chzsChangeInfo f x =
-    (\y -> x { _chzsChangeInfo = y })
-       <$> f (_chzsChangeInfo x)
+    f (_chzsChangeInfo x)
+        <&> \y -> x { _chzsChangeInfo = y }
 {-# INLINE chzsChangeInfo #-}
 
 -- | A complex type that contains name server information.
-chzsDelegationSet
-    :: Functor f
-    => (DelegationSet
-    -> f (DelegationSet))
-    -> CreateHostedZoneResponse
-    -> f CreateHostedZoneResponse
+chzsDelegationSet :: Lens' CreateHostedZoneResponse (DelegationSet)
 chzsDelegationSet f x =
-    (\y -> x { _chzsDelegationSet = y })
-       <$> f (_chzsDelegationSet x)
+    f (_chzsDelegationSet x)
+        <&> \y -> x { _chzsDelegationSet = y }
 {-# INLINE chzsDelegationSet #-}
 
 -- | A complex type that contains identifying information about the hosted zone.
-chzsHostedZone
-    :: Functor f
-    => (HostedZone
-    -> f (HostedZone))
-    -> CreateHostedZoneResponse
-    -> f CreateHostedZoneResponse
+chzsHostedZone :: Lens' CreateHostedZoneResponse (HostedZone)
 chzsHostedZone f x =
-    (\y -> x { _chzsHostedZone = y })
-       <$> f (_chzsHostedZone x)
+    f (_chzsHostedZone x)
+        <&> \y -> x { _chzsHostedZone = y }
 {-# INLINE chzsHostedZone #-}
 
 -- | The unique URL representing the new hosted zone.
-chzsLocation
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHostedZoneResponse
-    -> f CreateHostedZoneResponse
+chzsLocation :: Lens' CreateHostedZoneResponse (Text)
 chzsLocation f x =
-    (\y -> x { _chzsLocation = y })
-       <$> f (_chzsLocation x)
+    f (_chzsLocation x)
+        <&> \y -> x { _chzsLocation = y }
 {-# INLINE chzsLocation #-}
 
 instance AWSRequest CreateHostedZone where

@@ -71,6 +71,7 @@ deprecateDomain :: Text -- ^ 'ddiName'
 deprecateDomain p1 = DeprecateDomain
     { _ddiName = p1
     }
+{-# INLINE deprecateDomain #-}
 
 data DeprecateDomain = DeprecateDomain
     { _ddiName :: Text
@@ -78,15 +79,10 @@ data DeprecateDomain = DeprecateDomain
     } deriving (Show, Generic)
 
 -- | The name of the domain to deprecate.
-ddiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeprecateDomain
-    -> f DeprecateDomain
+ddiName :: Lens' DeprecateDomain (Text)
 ddiName f x =
-    (\y -> x { _ddiName = y })
-       <$> f (_ddiName x)
+    f (_ddiName x)
+        <&> \y -> x { _ddiName = y }
 {-# INLINE ddiName #-}
 
 instance ToPath DeprecateDomain

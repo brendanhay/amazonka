@@ -50,6 +50,7 @@ unlinkIdentity p1 p2 p3 = UnlinkIdentity
     , _uiiLoginsToRemove = p2
     , _uiiLogins = p3
     }
+{-# INLINE unlinkIdentity #-}
 
 data UnlinkIdentity = UnlinkIdentity
     { _uiiIdentityId :: Text
@@ -62,40 +63,25 @@ data UnlinkIdentity = UnlinkIdentity
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
-uiiIdentityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UnlinkIdentity
-    -> f UnlinkIdentity
+uiiIdentityId :: Lens' UnlinkIdentity (Text)
 uiiIdentityId f x =
-    (\y -> x { _uiiIdentityId = y })
-       <$> f (_uiiIdentityId x)
+    f (_uiiIdentityId x)
+        <&> \y -> x { _uiiIdentityId = y }
 {-# INLINE uiiIdentityId #-}
 
 -- | Provider names to unlink from this identity.
-uiiLoginsToRemove
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UnlinkIdentity
-    -> f UnlinkIdentity
+uiiLoginsToRemove :: Lens' UnlinkIdentity ([Text])
 uiiLoginsToRemove f x =
-    (\y -> x { _uiiLoginsToRemove = y })
-       <$> f (_uiiLoginsToRemove x)
+    f (_uiiLoginsToRemove x)
+        <&> \y -> x { _uiiLoginsToRemove = y }
 {-# INLINE uiiLoginsToRemove #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-uiiLogins
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> UnlinkIdentity
-    -> f UnlinkIdentity
+uiiLogins :: Lens' UnlinkIdentity (Map Text Text)
 uiiLogins f x =
-    (\y -> x { _uiiLogins = y })
-       <$> f (_uiiLogins x)
+    f (_uiiLogins x)
+        <&> \y -> x { _uiiLogins = y }
 {-# INLINE uiiLogins #-}
 
 instance ToPath UnlinkIdentity

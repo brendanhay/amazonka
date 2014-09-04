@@ -49,6 +49,7 @@ stopInstance :: Text -- ^ 'sisInstanceId'
 stopInstance p1 = StopInstance
     { _sisInstanceId = p1
     }
+{-# INLINE stopInstance #-}
 
 data StopInstance = StopInstance
     { _sisInstanceId :: Text
@@ -56,15 +57,10 @@ data StopInstance = StopInstance
     } deriving (Show, Generic)
 
 -- | The instance ID.
-sisInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StopInstance
-    -> f StopInstance
+sisInstanceId :: Lens' StopInstance (Text)
 sisInstanceId f x =
-    (\y -> x { _sisInstanceId = y })
-       <$> f (_sisInstanceId x)
+    f (_sisInstanceId x)
+        <&> \y -> x { _sisInstanceId = y }
 {-# INLINE sisInstanceId #-}
 
 instance ToPath StopInstance

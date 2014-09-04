@@ -50,6 +50,7 @@ createHsmClientCertificate :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
 createHsmClientCertificate p1 = CreateHsmClientCertificate
     { _chccmHsmClientCertificateIdentifier = p1
     }
+{-# INLINE createHsmClientCertificate #-}
 
 data CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccmHsmClientCertificateIdentifier :: Text
@@ -60,15 +61,10 @@ data CreateHsmClientCertificate = CreateHsmClientCertificate
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption keys.
-chccmHsmClientCertificateIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmClientCertificate
-    -> f CreateHsmClientCertificate
+chccmHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate (Text)
 chccmHsmClientCertificateIdentifier f x =
-    (\y -> x { _chccmHsmClientCertificateIdentifier = y })
-       <$> f (_chccmHsmClientCertificateIdentifier x)
+    f (_chccmHsmClientCertificateIdentifier x)
+        <&> \y -> x { _chccmHsmClientCertificateIdentifier = y }
 {-# INLINE chccmHsmClientCertificateIdentifier #-}
 
 instance ToQuery CreateHsmClientCertificate where
@@ -84,15 +80,10 @@ data CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
-hccwHsmClientCertificate
-    :: Functor f
-    => (Maybe HsmClientCertificate
-    -> f (Maybe HsmClientCertificate))
-    -> CreateHsmClientCertificateResponse
-    -> f CreateHsmClientCertificateResponse
+hccwHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
 hccwHsmClientCertificate f x =
-    (\y -> x { _hccwHsmClientCertificate = y })
-       <$> f (_hccwHsmClientCertificate x)
+    f (_hccwHsmClientCertificate x)
+        <&> \y -> x { _hccwHsmClientCertificate = y }
 {-# INLINE hccwHsmClientCertificate #-}
 
 instance FromXML CreateHsmClientCertificateResponse where

@@ -61,6 +61,7 @@ describeSnapshots = DescribeSnapshots
     , _dsnSnapshotSource = Nothing
     , _dsnMarker = Nothing
     }
+{-# INLINE describeSnapshots #-}
 
 data DescribeSnapshots = DescribeSnapshots
     { _dsnMaxRecords :: Maybe Integer
@@ -91,71 +92,46 @@ data DescribeSnapshots = DescribeSnapshots
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 50
 -- Constraints: minimum 20; maximum 50.
-dsnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsnMaxRecords :: Lens' DescribeSnapshots (Maybe Integer)
 dsnMaxRecords f x =
-    (\y -> x { _dsnMaxRecords = y })
-       <$> f (_dsnMaxRecords x)
+    f (_dsnMaxRecords x)
+        <&> \y -> x { _dsnMaxRecords = y }
 {-# INLINE dsnMaxRecords #-}
 
 -- | A user-supplied cluster identifier. If this parameter is specified, only
 -- snapshots associated with that specific cache cluster will be described.
-dsnCacheClusterId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsnCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
 dsnCacheClusterId f x =
-    (\y -> x { _dsnCacheClusterId = y })
-       <$> f (_dsnCacheClusterId x)
+    f (_dsnCacheClusterId x)
+        <&> \y -> x { _dsnCacheClusterId = y }
 {-# INLINE dsnCacheClusterId #-}
 
 -- | A user-supplied name of the snapshot. If this parameter is specified, only
 -- this snapshot will be described.
-dsnSnapshotName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsnSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
 dsnSnapshotName f x =
-    (\y -> x { _dsnSnapshotName = y })
-       <$> f (_dsnSnapshotName x)
+    f (_dsnSnapshotName x)
+        <&> \y -> x { _dsnSnapshotName = y }
 {-# INLINE dsnSnapshotName #-}
 
 -- | If set to system, the output shows snapshots that were automatically
 -- created by ElastiCache. If set to user the output shows snapshots that were
 -- manually created. If omitted, the output shows both automatically and
 -- manually created snapshots.
-dsnSnapshotSource
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsnSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
 dsnSnapshotSource f x =
-    (\y -> x { _dsnSnapshotSource = y })
-       <$> f (_dsnSnapshotSource x)
+    f (_dsnSnapshotSource x)
+        <&> \y -> x { _dsnSnapshotSource = y }
 {-# INLINE dsnSnapshotSource #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dsnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsnMarker :: Lens' DescribeSnapshots (Maybe Text)
 dsnMarker f x =
-    (\y -> x { _dsnMarker = y })
-       <$> f (_dsnMarker x)
+    f (_dsnMarker x)
+        <&> \y -> x { _dsnMarker = y }
 {-# INLINE dsnMarker #-}
 
 instance ToQuery DescribeSnapshots where
@@ -174,30 +150,20 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dslmSnapshots
-    :: Functor f
-    => ([Snapshot]
-    -> f ([Snapshot]))
-    -> DescribeSnapshotsResponse
-    -> f DescribeSnapshotsResponse
+dslmSnapshots :: Lens' DescribeSnapshotsResponse ([Snapshot])
 dslmSnapshots f x =
-    (\y -> x { _dslmSnapshots = y })
-       <$> f (_dslmSnapshots x)
+    f (_dslmSnapshots x)
+        <&> \y -> x { _dslmSnapshots = y }
 {-# INLINE dslmSnapshots #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dslmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshotsResponse
-    -> f DescribeSnapshotsResponse
+dslmMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dslmMarker f x =
-    (\y -> x { _dslmMarker = y })
-       <$> f (_dslmMarker x)
+    f (_dslmMarker x)
+        <&> \y -> x { _dslmMarker = y }
 {-# INLINE dslmMarker #-}
 
 instance FromXML DescribeSnapshotsResponse where

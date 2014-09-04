@@ -52,6 +52,7 @@ describeExpressions p1 = DescribeExpressions
     , _devDeployed = Nothing
     , _devExpressionNames = mempty
     }
+{-# INLINE describeExpressions #-}
 
 data DescribeExpressions = DescribeExpressions
     { _devDomainName :: Text
@@ -65,41 +66,26 @@ data DescribeExpressions = DescribeExpressions
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
-devDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeExpressions
-    -> f DescribeExpressions
+devDomainName :: Lens' DescribeExpressions (Text)
 devDomainName f x =
-    (\y -> x { _devDomainName = y })
-       <$> f (_devDomainName x)
+    f (_devDomainName x)
+        <&> \y -> x { _devDomainName = y }
 {-# INLINE devDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-devDeployed
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeExpressions
-    -> f DescribeExpressions
+devDeployed :: Lens' DescribeExpressions (Maybe Bool)
 devDeployed f x =
-    (\y -> x { _devDeployed = y })
-       <$> f (_devDeployed x)
+    f (_devDeployed x)
+        <&> \y -> x { _devDeployed = y }
 {-# INLINE devDeployed #-}
 
 -- | Limits the DescribeExpressions response to the specified expressions. If
 -- not specified, all expressions are shown.
-devExpressionNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeExpressions
-    -> f DescribeExpressions
+devExpressionNames :: Lens' DescribeExpressions ([Text])
 devExpressionNames f x =
-    (\y -> x { _devExpressionNames = y })
-       <$> f (_devExpressionNames x)
+    f (_devExpressionNames x)
+        <&> \y -> x { _devExpressionNames = y }
 {-# INLINE devExpressionNames #-}
 
 instance ToQuery DescribeExpressions where
@@ -111,15 +97,10 @@ data DescribeExpressionsResponse = DescribeExpressionsResponse
     } deriving (Show, Generic)
 
 -- | The expressions configured for the domain.
-dewExpressions
-    :: Functor f
-    => ([ExpressionStatus]
-    -> f ([ExpressionStatus]))
-    -> DescribeExpressionsResponse
-    -> f DescribeExpressionsResponse
+dewExpressions :: Lens' DescribeExpressionsResponse ([ExpressionStatus])
 dewExpressions f x =
-    (\y -> x { _dewExpressions = y })
-       <$> f (_dewExpressions x)
+    f (_dewExpressions x)
+        <&> \y -> x { _dewExpressions = y }
 {-# INLINE dewExpressions #-}
 
 instance FromXML DescribeExpressionsResponse where

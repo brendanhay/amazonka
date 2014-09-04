@@ -67,6 +67,7 @@ listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
     { _lsbtiTopicArn = p1
     , _lsbtiNextToken = Nothing
     }
+{-# INLINE listSubscriptionsByTopic #-}
 
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     { _lsbtiTopicArn :: Text
@@ -76,27 +77,17 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     } deriving (Show, Generic)
 
 -- | The ARN of the topic for which you wish to find subscriptions.
-lsbtiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListSubscriptionsByTopic
-    -> f ListSubscriptionsByTopic
+lsbtiTopicArn :: Lens' ListSubscriptionsByTopic (Text)
 lsbtiTopicArn f x =
-    (\y -> x { _lsbtiTopicArn = y })
-       <$> f (_lsbtiTopicArn x)
+    f (_lsbtiTopicArn x)
+        <&> \y -> x { _lsbtiTopicArn = y }
 {-# INLINE lsbtiTopicArn #-}
 
 -- | Token returned by the previous ListSubscriptionsByTopic request.
-lsbtiNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSubscriptionsByTopic
-    -> f ListSubscriptionsByTopic
+lsbtiNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
 lsbtiNextToken f x =
-    (\y -> x { _lsbtiNextToken = y })
-       <$> f (_lsbtiNextToken x)
+    f (_lsbtiNextToken x)
+        <&> \y -> x { _lsbtiNextToken = y }
 {-# INLINE lsbtiNextToken #-}
 
 instance ToQuery ListSubscriptionsByTopic where
@@ -113,27 +104,17 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
 
 -- | Token to pass along to the next ListSubscriptionsByTopic request. This
 -- element is returned if there are more subscriptions to retrieve.
-lsbtrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSubscriptionsByTopicResponse
-    -> f ListSubscriptionsByTopicResponse
+lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrNextToken f x =
-    (\y -> x { _lsbtrNextToken = y })
-       <$> f (_lsbtrNextToken x)
+    f (_lsbtrNextToken x)
+        <&> \y -> x { _lsbtrNextToken = y }
 {-# INLINE lsbtrNextToken #-}
 
 -- | A list of subscriptions.
-lsbtrSubscriptions
-    :: Functor f
-    => ([Subscription]
-    -> f ([Subscription]))
-    -> ListSubscriptionsByTopicResponse
-    -> f ListSubscriptionsByTopicResponse
+lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse ([Subscription])
 lsbtrSubscriptions f x =
-    (\y -> x { _lsbtrSubscriptions = y })
-       <$> f (_lsbtrSubscriptions x)
+    f (_lsbtrSubscriptions x)
+        <&> \y -> x { _lsbtrSubscriptions = y }
 {-# INLINE lsbtrSubscriptions #-}
 
 instance FromXML ListSubscriptionsByTopicResponse where

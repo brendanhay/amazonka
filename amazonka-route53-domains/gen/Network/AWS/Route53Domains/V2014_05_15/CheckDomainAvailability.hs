@@ -62,6 +62,7 @@ checkDomainAvailability p1 = CheckDomainAvailability
     { _cdarDomainName = p1
     , _cdarIdnLangCode = Nothing
     }
+{-# INLINE checkDomainAvailability #-}
 
 data CheckDomainAvailability = CheckDomainAvailability
     { _cdarDomainName :: Text
@@ -77,27 +78,17 @@ data CheckDomainAvailability = CheckDomainAvailability
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-cdarDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CheckDomainAvailability
-    -> f CheckDomainAvailability
+cdarDomainName :: Lens' CheckDomainAvailability (Text)
 cdarDomainName f x =
-    (\y -> x { _cdarDomainName = y })
-       <$> f (_cdarDomainName x)
+    f (_cdarDomainName x)
+        <&> \y -> x { _cdarDomainName = y }
 {-# INLINE cdarDomainName #-}
 
 -- | Reserved for future use.
-cdarIdnLangCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CheckDomainAvailability
-    -> f CheckDomainAvailability
+cdarIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdarIdnLangCode f x =
-    (\y -> x { _cdarIdnLangCode = y })
-       <$> f (_cdarIdnLangCode x)
+    f (_cdarIdnLangCode x)
+        <&> \y -> x { _cdarIdnLangCode = y }
 {-# INLINE cdarIdnLangCode #-}
 
 instance ToPath CheckDomainAvailability
@@ -130,15 +121,10 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 -- available. UNAVAILABLE_PREMIUM – The domain name is not available.
 -- UNAVAILABLE_RESTRICTED – The domain name is forbidden. RESERVED – The
 -- domain name has been reserved for another person or organization.
-cdasAvailability
-    :: Functor f
-    => (DomainAvailability
-    -> f (DomainAvailability))
-    -> CheckDomainAvailabilityResponse
-    -> f CheckDomainAvailabilityResponse
+cdasAvailability :: Lens' CheckDomainAvailabilityResponse (DomainAvailability)
 cdasAvailability f x =
-    (\y -> x { _cdasAvailability = y })
-       <$> f (_cdasAvailability x)
+    f (_cdasAvailability x)
+        <&> \y -> x { _cdasAvailability = y }
 {-# INLINE cdasAvailability #-}
 
 instance FromJSON CheckDomainAvailabilityResponse

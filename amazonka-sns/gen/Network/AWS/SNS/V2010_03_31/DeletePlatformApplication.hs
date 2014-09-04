@@ -55,6 +55,7 @@ deletePlatformApplication :: Text -- ^ 'dpaiPlatformApplicationArn'
 deletePlatformApplication p1 = DeletePlatformApplication
     { _dpaiPlatformApplicationArn = p1
     }
+{-# INLINE deletePlatformApplication #-}
 
 data DeletePlatformApplication = DeletePlatformApplication
     { _dpaiPlatformApplicationArn :: Text
@@ -62,15 +63,10 @@ data DeletePlatformApplication = DeletePlatformApplication
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn of platform application object to delete.
-dpaiPlatformApplicationArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeletePlatformApplication
-    -> f DeletePlatformApplication
+dpaiPlatformApplicationArn :: Lens' DeletePlatformApplication (Text)
 dpaiPlatformApplicationArn f x =
-    (\y -> x { _dpaiPlatformApplicationArn = y })
-       <$> f (_dpaiPlatformApplicationArn x)
+    f (_dpaiPlatformApplicationArn x)
+        <&> \y -> x { _dpaiPlatformApplicationArn = y }
 {-# INLINE dpaiPlatformApplicationArn #-}
 
 instance ToQuery DeletePlatformApplication where

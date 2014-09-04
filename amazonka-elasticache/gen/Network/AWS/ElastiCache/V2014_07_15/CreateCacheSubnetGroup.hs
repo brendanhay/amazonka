@@ -58,6 +58,7 @@ createCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
     , _ccsgnCacheSubnetGroupDescription = p2
     , _ccsgnSubnetIds = p3
     }
+{-# INLINE createCacheSubnetGroup #-}
 
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsgnCacheSubnetGroupName :: Text
@@ -73,39 +74,24 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Example: mysubnetgroup.
-ccsgnCacheSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheSubnetGroup
-    -> f CreateCacheSubnetGroup
+ccsgnCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup (Text)
 ccsgnCacheSubnetGroupName f x =
-    (\y -> x { _ccsgnCacheSubnetGroupName = y })
-       <$> f (_ccsgnCacheSubnetGroupName x)
+    f (_ccsgnCacheSubnetGroupName x)
+        <&> \y -> x { _ccsgnCacheSubnetGroupName = y }
 {-# INLINE ccsgnCacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
-ccsgnCacheSubnetGroupDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCacheSubnetGroup
-    -> f CreateCacheSubnetGroup
+ccsgnCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup (Text)
 ccsgnCacheSubnetGroupDescription f x =
-    (\y -> x { _ccsgnCacheSubnetGroupDescription = y })
-       <$> f (_ccsgnCacheSubnetGroupDescription x)
+    f (_ccsgnCacheSubnetGroupDescription x)
+        <&> \y -> x { _ccsgnCacheSubnetGroupDescription = y }
 {-# INLINE ccsgnCacheSubnetGroupDescription #-}
 
 -- | A list of VPC subnet IDs for the cache subnet group.
-ccsgnSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateCacheSubnetGroup
-    -> f CreateCacheSubnetGroup
+ccsgnSubnetIds :: Lens' CreateCacheSubnetGroup ([Text])
 ccsgnSubnetIds f x =
-    (\y -> x { _ccsgnSubnetIds = y })
-       <$> f (_ccsgnSubnetIds x)
+    f (_ccsgnSubnetIds x)
+        <&> \y -> x { _ccsgnSubnetIds = y }
 {-# INLINE ccsgnSubnetIds #-}
 
 instance ToQuery CreateCacheSubnetGroup where
@@ -119,15 +105,10 @@ data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
 
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
-csgyCacheSubnetGroup
-    :: Functor f
-    => (Maybe CacheSubnetGroup
-    -> f (Maybe CacheSubnetGroup))
-    -> CreateCacheSubnetGroupResponse
-    -> f CreateCacheSubnetGroupResponse
+csgyCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 csgyCacheSubnetGroup f x =
-    (\y -> x { _csgyCacheSubnetGroup = y })
-       <$> f (_csgyCacheSubnetGroup x)
+    f (_csgyCacheSubnetGroup x)
+        <&> \y -> x { _csgyCacheSubnetGroup = y }
 {-# INLINE csgyCacheSubnetGroup #-}
 
 instance FromXML CreateCacheSubnetGroupResponse where

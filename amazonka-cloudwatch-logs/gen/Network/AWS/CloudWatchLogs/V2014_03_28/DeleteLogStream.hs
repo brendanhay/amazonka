@@ -55,32 +55,23 @@ deleteLogStream p1 p2 = DeleteLogStream
     { _dlsrLogGroupName = p1
     , _dlsrLogStreamName = p2
     }
+{-# INLINE deleteLogStream #-}
 
 data DeleteLogStream = DeleteLogStream
     { _dlsrLogGroupName :: Text
     , _dlsrLogStreamName :: Text
     } deriving (Show, Generic)
 
-dlsrLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLogStream
-    -> f DeleteLogStream
+dlsrLogGroupName :: Lens' DeleteLogStream (Text)
 dlsrLogGroupName f x =
-    (\y -> x { _dlsrLogGroupName = y })
-       <$> f (_dlsrLogGroupName x)
+    f (_dlsrLogGroupName x)
+        <&> \y -> x { _dlsrLogGroupName = y }
 {-# INLINE dlsrLogGroupName #-}
 
-dlsrLogStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLogStream
-    -> f DeleteLogStream
+dlsrLogStreamName :: Lens' DeleteLogStream (Text)
 dlsrLogStreamName f x =
-    (\y -> x { _dlsrLogStreamName = y })
-       <$> f (_dlsrLogStreamName x)
+    f (_dlsrLogStreamName x)
+        <&> \y -> x { _dlsrLogStreamName = y }
 {-# INLINE dlsrLogStreamName #-}
 
 instance ToPath DeleteLogStream

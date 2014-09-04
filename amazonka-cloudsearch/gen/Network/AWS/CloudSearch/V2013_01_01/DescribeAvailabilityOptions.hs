@@ -49,6 +49,7 @@ describeAvailabilityOptions p1 = DescribeAvailabilityOptions
     { _daorDomainName = p1
     , _daorDeployed = Nothing
     }
+{-# INLINE describeAvailabilityOptions #-}
 
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daorDomainName :: Text
@@ -59,28 +60,18 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
-daorDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeAvailabilityOptions
-    -> f DescribeAvailabilityOptions
+daorDomainName :: Lens' DescribeAvailabilityOptions (Text)
 daorDomainName f x =
-    (\y -> x { _daorDomainName = y })
-       <$> f (_daorDomainName x)
+    f (_daorDomainName x)
+        <&> \y -> x { _daorDomainName = y }
 {-# INLINE daorDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-daorDeployed
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeAvailabilityOptions
-    -> f DescribeAvailabilityOptions
+daorDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
 daorDeployed f x =
-    (\y -> x { _daorDeployed = y })
-       <$> f (_daorDeployed x)
+    f (_daorDeployed x)
+        <&> \y -> x { _daorDeployed = y }
 {-# INLINE daorDeployed #-}
 
 instance ToQuery DescribeAvailabilityOptions where
@@ -94,15 +85,10 @@ data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
-daosAvailabilityOptions
-    :: Functor f
-    => (Maybe AvailabilityOptionsStatus
-    -> f (Maybe AvailabilityOptionsStatus))
-    -> DescribeAvailabilityOptionsResponse
-    -> f DescribeAvailabilityOptionsResponse
+daosAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daosAvailabilityOptions f x =
-    (\y -> x { _daosAvailabilityOptions = y })
-       <$> f (_daosAvailabilityOptions x)
+    f (_daosAvailabilityOptions x)
+        <&> \y -> x { _daosAvailabilityOptions = y }
 {-# INLINE daosAvailabilityOptions #-}
 
 instance FromXML DescribeAvailabilityOptionsResponse where

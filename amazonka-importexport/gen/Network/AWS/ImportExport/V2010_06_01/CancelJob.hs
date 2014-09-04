@@ -44,6 +44,7 @@ cancelJob :: Text -- ^ 'cjiJobId'
 cancelJob p1 = CancelJob
     { _cjiJobId = p1
     }
+{-# INLINE cancelJob #-}
 
 data CancelJob = CancelJob
     { _cjiJobId :: Text
@@ -51,15 +52,10 @@ data CancelJob = CancelJob
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
-cjiJobId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelJob
-    -> f CancelJob
+cjiJobId :: Lens' CancelJob (Text)
 cjiJobId f x =
-    (\y -> x { _cjiJobId = y })
-       <$> f (_cjiJobId x)
+    f (_cjiJobId x)
+        <&> \y -> x { _cjiJobId = y }
 {-# INLINE cjiJobId #-}
 
 instance ToQuery CancelJob where
@@ -72,15 +68,10 @@ data CancelJobResponse = CancelJobResponse
     } deriving (Show, Generic)
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
-cjoSuccess
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CancelJobResponse
-    -> f CancelJobResponse
+cjoSuccess :: Lens' CancelJobResponse (Maybe Bool)
 cjoSuccess f x =
-    (\y -> x { _cjoSuccess = y })
-       <$> f (_cjoSuccess x)
+    f (_cjoSuccess x)
+        <&> \y -> x { _cjoSuccess = y }
 {-# INLINE cjoSuccess #-}
 
 instance FromXML CancelJobResponse where

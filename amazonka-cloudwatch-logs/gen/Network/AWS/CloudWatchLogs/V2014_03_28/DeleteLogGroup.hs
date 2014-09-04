@@ -52,20 +52,16 @@ deleteLogGroup :: Text -- ^ 'dlgrLogGroupName'
 deleteLogGroup p1 = DeleteLogGroup
     { _dlgrLogGroupName = p1
     }
+{-# INLINE deleteLogGroup #-}
 
 data DeleteLogGroup = DeleteLogGroup
     { _dlgrLogGroupName :: Text
     } deriving (Show, Generic)
 
-dlgrLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLogGroup
-    -> f DeleteLogGroup
+dlgrLogGroupName :: Lens' DeleteLogGroup (Text)
 dlgrLogGroupName f x =
-    (\y -> x { _dlgrLogGroupName = y })
-       <$> f (_dlgrLogGroupName x)
+    f (_dlgrLogGroupName x)
+        <&> \y -> x { _dlgrLogGroupName = y }
 {-# INLINE dlgrLogGroupName #-}
 
 instance ToPath DeleteLogGroup

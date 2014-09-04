@@ -45,6 +45,7 @@ describeSeverityLevels :: DescribeSeverityLevels
 describeSeverityLevels = DescribeSeverityLevels
     { _dslrLanguage = Nothing
     }
+{-# INLINE describeSeverityLevels #-}
 
 data DescribeSeverityLevels = DescribeSeverityLevels
     { _dslrLanguage :: Maybe Text
@@ -57,15 +58,10 @@ data DescribeSeverityLevels = DescribeSeverityLevels
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dslrLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSeverityLevels
-    -> f DescribeSeverityLevels
+dslrLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslrLanguage f x =
-    (\y -> x { _dslrLanguage = y })
-       <$> f (_dslrLanguage x)
+    f (_dslrLanguage x)
+        <&> \y -> x { _dslrLanguage = y }
 {-# INLINE dslrLanguage #-}
 
 instance ToPath DescribeSeverityLevels
@@ -85,15 +81,10 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
-dslsSeverityLevels
-    :: Functor f
-    => ([SeverityLevel]
-    -> f ([SeverityLevel]))
-    -> DescribeSeverityLevelsResponse
-    -> f DescribeSeverityLevelsResponse
+dslsSeverityLevels :: Lens' DescribeSeverityLevelsResponse ([SeverityLevel])
 dslsSeverityLevels f x =
-    (\y -> x { _dslsSeverityLevels = y })
-       <$> f (_dslsSeverityLevels x)
+    f (_dslsSeverityLevels x)
+        <&> \y -> x { _dslsSeverityLevels = y }
 {-# INLINE dslsSeverityLevels #-}
 
 instance FromJSON DescribeSeverityLevelsResponse

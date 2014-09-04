@@ -56,6 +56,7 @@ createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
     { _ccsgmClusterSecurityGroupName = p1
     , _ccsgmDescription = p2
     }
+{-# INLINE createClusterSecurityGroup #-}
 
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsgmClusterSecurityGroupName :: Text
@@ -73,27 +74,17 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup
 -- characters or hyphens. Must not be "Default". Must be unique for all
 -- security groups that are created by your AWS account. Example:
 -- examplesecuritygroup.
-ccsgmClusterSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterSecurityGroup
-    -> f CreateClusterSecurityGroup
+ccsgmClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup (Text)
 ccsgmClusterSecurityGroupName f x =
-    (\y -> x { _ccsgmClusterSecurityGroupName = y })
-       <$> f (_ccsgmClusterSecurityGroupName x)
+    f (_ccsgmClusterSecurityGroupName x)
+        <&> \y -> x { _ccsgmClusterSecurityGroupName = y }
 {-# INLINE ccsgmClusterSecurityGroupName #-}
 
 -- | A description for the security group.
-ccsgmDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateClusterSecurityGroup
-    -> f CreateClusterSecurityGroup
+ccsgmDescription :: Lens' CreateClusterSecurityGroup (Text)
 ccsgmDescription f x =
-    (\y -> x { _ccsgmDescription = y })
-       <$> f (_ccsgmDescription x)
+    f (_ccsgmDescription x)
+        <&> \y -> x { _ccsgmDescription = y }
 {-# INLINE ccsgmDescription #-}
 
 instance ToQuery CreateClusterSecurityGroup where
@@ -105,15 +96,10 @@ data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-csgxClusterSecurityGroup
-    :: Functor f
-    => (Maybe ClusterSecurityGroup
-    -> f (Maybe ClusterSecurityGroup))
-    -> CreateClusterSecurityGroupResponse
-    -> f CreateClusterSecurityGroupResponse
+csgxClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
 csgxClusterSecurityGroup f x =
-    (\y -> x { _csgxClusterSecurityGroup = y })
-       <$> f (_csgxClusterSecurityGroup x)
+    f (_csgxClusterSecurityGroup x)
+        <&> \y -> x { _csgxClusterSecurityGroup = y }
 {-# INLINE csgxClusterSecurityGroup #-}
 
 instance FromXML CreateClusterSecurityGroupResponse where

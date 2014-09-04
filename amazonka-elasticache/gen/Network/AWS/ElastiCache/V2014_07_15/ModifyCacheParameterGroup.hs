@@ -56,6 +56,7 @@ modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
     { _mcpgmParameterNameValues = p1
     , _mcpgmCacheParameterGroupName = p2
     }
+{-# INLINE modifyCacheParameterGroup #-}
 
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgmParameterNameValues :: [ParameterNameValue]
@@ -70,27 +71,17 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup
 -- | An array of parameter names and values for the parameter update. You must
 -- supply at least one parameter name and value; subsequent arguments are
 -- optional. A maximum of 20 parameters may be modified per request.
-mcpgmParameterNameValues
-    :: Functor f
-    => ([ParameterNameValue]
-    -> f ([ParameterNameValue]))
-    -> ModifyCacheParameterGroup
-    -> f ModifyCacheParameterGroup
+mcpgmParameterNameValues :: Lens' ModifyCacheParameterGroup ([ParameterNameValue])
 mcpgmParameterNameValues f x =
-    (\y -> x { _mcpgmParameterNameValues = y })
-       <$> f (_mcpgmParameterNameValues x)
+    f (_mcpgmParameterNameValues x)
+        <&> \y -> x { _mcpgmParameterNameValues = y }
 {-# INLINE mcpgmParameterNameValues #-}
 
 -- | The name of the cache parameter group to modify.
-mcpgmCacheParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyCacheParameterGroup
-    -> f ModifyCacheParameterGroup
+mcpgmCacheParameterGroupName :: Lens' ModifyCacheParameterGroup (Text)
 mcpgmCacheParameterGroupName f x =
-    (\y -> x { _mcpgmCacheParameterGroupName = y })
-       <$> f (_mcpgmCacheParameterGroupName x)
+    f (_mcpgmCacheParameterGroupName x)
+        <&> \y -> x { _mcpgmCacheParameterGroupName = y }
 {-# INLINE mcpgmCacheParameterGroupName #-}
 
 instance ToQuery ModifyCacheParameterGroup where
@@ -102,15 +93,10 @@ data ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
-cpgnmCacheParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCacheParameterGroupResponse
-    -> f ModifyCacheParameterGroupResponse
+cpgnmCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)
 cpgnmCacheParameterGroupName f x =
-    (\y -> x { _cpgnmCacheParameterGroupName = y })
-       <$> f (_cpgnmCacheParameterGroupName x)
+    f (_cpgnmCacheParameterGroupName x)
+        <&> \y -> x { _cpgnmCacheParameterGroupName = y }
 {-# INLINE cpgnmCacheParameterGroupName #-}
 
 instance FromXML ModifyCacheParameterGroupResponse where

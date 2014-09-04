@@ -430,63 +430,38 @@ data AlarmHistoryItem = AlarmHistoryItem
     } deriving (Show, Generic)
 
 -- | The descriptive name for the alarm.
-ahjAlarmName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AlarmHistoryItem
-    -> f AlarmHistoryItem
+ahjAlarmName :: Lens' AlarmHistoryItem (Maybe Text)
 ahjAlarmName f x =
-    (\y -> x { _ahjAlarmName = y })
-       <$> f (_ahjAlarmName x)
+    f (_ahjAlarmName x)
+        <&> \y -> x { _ahjAlarmName = y }
 {-# INLINE ahjAlarmName #-}
 
 -- | The time stamp for the alarm history item.
-ahjTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> AlarmHistoryItem
-    -> f AlarmHistoryItem
+ahjTimestamp :: Lens' AlarmHistoryItem (Maybe ISO8601)
 ahjTimestamp f x =
-    (\y -> x { _ahjTimestamp = y })
-       <$> f (_ahjTimestamp x)
+    f (_ahjTimestamp x)
+        <&> \y -> x { _ahjTimestamp = y }
 {-# INLINE ahjTimestamp #-}
 
 -- | The type of alarm history item.
-ahjHistoryItemType
-    :: Functor f
-    => (Maybe HistoryItemType
-    -> f (Maybe HistoryItemType))
-    -> AlarmHistoryItem
-    -> f AlarmHistoryItem
+ahjHistoryItemType :: Lens' AlarmHistoryItem (Maybe HistoryItemType)
 ahjHistoryItemType f x =
-    (\y -> x { _ahjHistoryItemType = y })
-       <$> f (_ahjHistoryItemType x)
+    f (_ahjHistoryItemType x)
+        <&> \y -> x { _ahjHistoryItemType = y }
 {-# INLINE ahjHistoryItemType #-}
 
 -- | A human-readable summary of the alarm history.
-ahjHistorySummary
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AlarmHistoryItem
-    -> f AlarmHistoryItem
+ahjHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
 ahjHistorySummary f x =
-    (\y -> x { _ahjHistorySummary = y })
-       <$> f (_ahjHistorySummary x)
+    f (_ahjHistorySummary x)
+        <&> \y -> x { _ahjHistorySummary = y }
 {-# INLINE ahjHistorySummary #-}
 
 -- | Machine-readable data about the alarm in JSON format.
-ahjHistoryData
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AlarmHistoryItem
-    -> f AlarmHistoryItem
+ahjHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
 ahjHistoryData f x =
-    (\y -> x { _ahjHistoryData = y })
-       <$> f (_ahjHistoryData x)
+    f (_ahjHistoryData x)
+        <&> \y -> x { _ahjHistoryData = y }
 {-# INLINE ahjHistoryData #-}
 
 instance FromXML AlarmHistoryItem where
@@ -514,88 +489,53 @@ data Datapoint = Datapoint
     } deriving (Show, Generic)
 
 -- | The time stamp used for the datapoint.
-mTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> Datapoint
-    -> f Datapoint
+mTimestamp :: Lens' Datapoint (Maybe ISO8601)
 mTimestamp f x =
-    (\y -> x { _mTimestamp = y })
-       <$> f (_mTimestamp x)
+    f (_mTimestamp x)
+        <&> \y -> x { _mTimestamp = y }
 {-# INLINE mTimestamp #-}
 
 -- | The number of metric values that contributed to the aggregate value of this
 -- datapoint.
-mSampleCount
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> Datapoint
-    -> f Datapoint
+mSampleCount :: Lens' Datapoint (Maybe Double)
 mSampleCount f x =
-    (\y -> x { _mSampleCount = y })
-       <$> f (_mSampleCount x)
+    f (_mSampleCount x)
+        <&> \y -> x { _mSampleCount = y }
 {-# INLINE mSampleCount #-}
 
 -- | The average of metric values that correspond to the datapoint.
-mAverage
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> Datapoint
-    -> f Datapoint
+mAverage :: Lens' Datapoint (Maybe Double)
 mAverage f x =
-    (\y -> x { _mAverage = y })
-       <$> f (_mAverage x)
+    f (_mAverage x)
+        <&> \y -> x { _mAverage = y }
 {-# INLINE mAverage #-}
 
 -- | The sum of metric values used for the datapoint.
-mSum
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> Datapoint
-    -> f Datapoint
+mSum :: Lens' Datapoint (Maybe Double)
 mSum f x =
-    (\y -> x { _mSum = y })
-       <$> f (_mSum x)
+    f (_mSum x)
+        <&> \y -> x { _mSum = y }
 {-# INLINE mSum #-}
 
 -- | The minimum metric value used for the datapoint.
-mMinimum
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> Datapoint
-    -> f Datapoint
+mMinimum :: Lens' Datapoint (Maybe Double)
 mMinimum f x =
-    (\y -> x { _mMinimum = y })
-       <$> f (_mMinimum x)
+    f (_mMinimum x)
+        <&> \y -> x { _mMinimum = y }
 {-# INLINE mMinimum #-}
 
 -- | The maximum of the metric value used for the datapoint.
-mMaximum
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> Datapoint
-    -> f Datapoint
+mMaximum :: Lens' Datapoint (Maybe Double)
 mMaximum f x =
-    (\y -> x { _mMaximum = y })
-       <$> f (_mMaximum x)
+    f (_mMaximum x)
+        <&> \y -> x { _mMaximum = y }
 {-# INLINE mMaximum #-}
 
 -- | The standard unit used for the datapoint.
-mUnit
-    :: Functor f
-    => (Maybe StandardUnit
-    -> f (Maybe StandardUnit))
-    -> Datapoint
-    -> f Datapoint
+mUnit :: Lens' Datapoint (Maybe StandardUnit)
 mUnit f x =
-    (\y -> x { _mUnit = y })
-       <$> f (_mUnit x)
+    f (_mUnit x)
+        <&> \y -> x { _mUnit = y }
 {-# INLINE mUnit #-}
 
 instance FromXML Datapoint where
@@ -612,27 +552,17 @@ data Dimension = Dimension
     } deriving (Show, Generic)
 
 -- | The name of the dimension.
-eName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Dimension
-    -> f Dimension
+eName :: Lens' Dimension (Text)
 eName f x =
-    (\y -> x { _eName = y })
-       <$> f (_eName x)
+    f (_eName x)
+        <&> \y -> x { _eName = y }
 {-# INLINE eName #-}
 
 -- | The value representing the dimension measurement.
-eValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Dimension
-    -> f Dimension
+eValue :: Lens' Dimension (Text)
 eValue f x =
-    (\y -> x { _eValue = y })
-       <$> f (_eValue x)
+    f (_eValue x)
+        <&> \y -> x { _eValue = y }
 {-# INLINE eValue #-}
 
 instance FromXML Dimension where
@@ -653,28 +583,18 @@ data DimensionFilter = DimensionFilter
     } deriving (Show, Generic)
 
 -- | The dimension name to be matched.
-dgName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DimensionFilter
-    -> f DimensionFilter
+dgName :: Lens' DimensionFilter (Text)
 dgName f x =
-    (\y -> x { _dgName = y })
-       <$> f (_dgName x)
+    f (_dgName x)
+        <&> \y -> x { _dgName = y }
 {-# INLINE dgName #-}
 
 -- | The value of the dimension to be matched. Specifying a Name without
 -- specifying a Value returns all values associated with that Name.
-dgValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DimensionFilter
-    -> f DimensionFilter
+dgValue :: Lens' DimensionFilter (Maybe Text)
 dgValue f x =
-    (\y -> x { _dgValue = y })
-       <$> f (_dgValue x)
+    f (_dgValue x)
+        <&> \y -> x { _dgValue = y }
 {-# INLINE dgValue #-}
 
 instance ToQuery DimensionFilter where
@@ -693,39 +613,24 @@ data Metric = Metric
     } deriving (Show, Generic)
 
 -- | The namespace of the metric.
-meNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Metric
-    -> f Metric
+meNamespace :: Lens' Metric (Maybe Text)
 meNamespace f x =
-    (\y -> x { _meNamespace = y })
-       <$> f (_meNamespace x)
+    f (_meNamespace x)
+        <&> \y -> x { _meNamespace = y }
 {-# INLINE meNamespace #-}
 
 -- | The name of the metric.
-meMetricName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Metric
-    -> f Metric
+meMetricName :: Lens' Metric (Maybe Text)
 meMetricName f x =
-    (\y -> x { _meMetricName = y })
-       <$> f (_meMetricName x)
+    f (_meMetricName x)
+        <&> \y -> x { _meMetricName = y }
 {-# INLINE meMetricName #-}
 
 -- | A list of dimensions associated with the metric.
-meDimensions
-    :: Functor f
-    => ([Dimension]
-    -> f ([Dimension]))
-    -> Metric
-    -> f Metric
+meDimensions :: Lens' Metric ([Dimension])
 meDimensions f x =
-    (\y -> x { _meDimensions = y })
-       <$> f (_meDimensions x)
+    f (_meDimensions x)
+        <&> \y -> x { _meDimensions = y }
 {-# INLINE meDimensions #-}
 
 instance FromXML Metric where
@@ -798,267 +703,162 @@ data MetricAlarm = MetricAlarm
     } deriving (Show, Generic)
 
 -- | The name of the alarm.
-mbAlarmName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbAlarmName :: Lens' MetricAlarm (Maybe Text)
 mbAlarmName f x =
-    (\y -> x { _mbAlarmName = y })
-       <$> f (_mbAlarmName x)
+    f (_mbAlarmName x)
+        <&> \y -> x { _mbAlarmName = y }
 {-# INLINE mbAlarmName #-}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-mbAlarmArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbAlarmArn :: Lens' MetricAlarm (Maybe Text)
 mbAlarmArn f x =
-    (\y -> x { _mbAlarmArn = y })
-       <$> f (_mbAlarmArn x)
+    f (_mbAlarmArn x)
+        <&> \y -> x { _mbAlarmArn = y }
 {-# INLINE mbAlarmArn #-}
 
 -- | The description for the alarm.
-mbAlarmDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbAlarmDescription :: Lens' MetricAlarm (Maybe Text)
 mbAlarmDescription f x =
-    (\y -> x { _mbAlarmDescription = y })
-       <$> f (_mbAlarmDescription x)
+    f (_mbAlarmDescription x)
+        <&> \y -> x { _mbAlarmDescription = y }
 {-# INLINE mbAlarmDescription #-}
 
 -- | The time stamp of the last update to the alarm configuration.
-mbAlarmConfigurationUpdatedTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe ISO8601)
 mbAlarmConfigurationUpdatedTimestamp f x =
-    (\y -> x { _mbAlarmConfigurationUpdatedTimestamp = y })
-       <$> f (_mbAlarmConfigurationUpdatedTimestamp x)
+    f (_mbAlarmConfigurationUpdatedTimestamp x)
+        <&> \y -> x { _mbAlarmConfigurationUpdatedTimestamp = y }
 {-# INLINE mbAlarmConfigurationUpdatedTimestamp #-}
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm's state.
-mbActionsEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
 mbActionsEnabled f x =
-    (\y -> x { _mbActionsEnabled = y })
-       <$> f (_mbActionsEnabled x)
+    f (_mbActionsEnabled x)
+        <&> \y -> x { _mbActionsEnabled = y }
 {-# INLINE mbActionsEnabled #-}
 
 -- | The list of actions to execute when this alarm transitions into an OK state
 -- from any other state. Each action is specified as an Amazon Resource Number
 -- (ARN). Currently the only actions supported are publishing to an Amazon SNS
 -- topic and triggering an Auto Scaling policy.
-mbOKActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbOKActions :: Lens' MetricAlarm ([Text])
 mbOKActions f x =
-    (\y -> x { _mbOKActions = y })
-       <$> f (_mbOKActions x)
+    f (_mbOKActions x)
+        <&> \y -> x { _mbOKActions = y }
 {-# INLINE mbOKActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an ALARM
 -- state from any other state. Each action is specified as an Amazon Resource
 -- Number (ARN). Currently the only actions supported are publishing to an
 -- Amazon SNS topic and triggering an Auto Scaling policy.
-mbAlarmActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbAlarmActions :: Lens' MetricAlarm ([Text])
 mbAlarmActions f x =
-    (\y -> x { _mbAlarmActions = y })
-       <$> f (_mbAlarmActions x)
+    f (_mbAlarmActions x)
+        <&> \y -> x { _mbAlarmActions = y }
 {-# INLINE mbAlarmActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
 -- an Amazon Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic or triggering an Auto Scaling policy.
-mbInsufficientDataActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbInsufficientDataActions :: Lens' MetricAlarm ([Text])
 mbInsufficientDataActions f x =
-    (\y -> x { _mbInsufficientDataActions = y })
-       <$> f (_mbInsufficientDataActions x)
+    f (_mbInsufficientDataActions x)
+        <&> \y -> x { _mbInsufficientDataActions = y }
 {-# INLINE mbInsufficientDataActions #-}
 
 -- | The state value for the alarm.
-mbStateValue
-    :: Functor f
-    => (Maybe StateValue
-    -> f (Maybe StateValue))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbStateValue :: Lens' MetricAlarm (Maybe StateValue)
 mbStateValue f x =
-    (\y -> x { _mbStateValue = y })
-       <$> f (_mbStateValue x)
+    f (_mbStateValue x)
+        <&> \y -> x { _mbStateValue = y }
 {-# INLINE mbStateValue #-}
 
 -- | A human-readable explanation for the alarm's state.
-mbStateReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbStateReason :: Lens' MetricAlarm (Maybe Text)
 mbStateReason f x =
-    (\y -> x { _mbStateReason = y })
-       <$> f (_mbStateReason x)
+    f (_mbStateReason x)
+        <&> \y -> x { _mbStateReason = y }
 {-# INLINE mbStateReason #-}
 
 -- | An explanation for the alarm's state in machine-readable JSON format.
-mbStateReasonData
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbStateReasonData :: Lens' MetricAlarm (Maybe Text)
 mbStateReasonData f x =
-    (\y -> x { _mbStateReasonData = y })
-       <$> f (_mbStateReasonData x)
+    f (_mbStateReasonData x)
+        <&> \y -> x { _mbStateReasonData = y }
 {-# INLINE mbStateReasonData #-}
 
 -- | The time stamp of the last update to the alarm's state.
-mbStateUpdatedTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe ISO8601)
 mbStateUpdatedTimestamp f x =
-    (\y -> x { _mbStateUpdatedTimestamp = y })
-       <$> f (_mbStateUpdatedTimestamp x)
+    f (_mbStateUpdatedTimestamp x)
+        <&> \y -> x { _mbStateUpdatedTimestamp = y }
 {-# INLINE mbStateUpdatedTimestamp #-}
 
 -- | The name of the alarm's metric.
-mbMetricName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbMetricName :: Lens' MetricAlarm (Maybe Text)
 mbMetricName f x =
-    (\y -> x { _mbMetricName = y })
-       <$> f (_mbMetricName x)
+    f (_mbMetricName x)
+        <&> \y -> x { _mbMetricName = y }
 {-# INLINE mbMetricName #-}
 
 -- | The namespace of alarm's associated metric.
-mbNamespace
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbNamespace :: Lens' MetricAlarm (Maybe Text)
 mbNamespace f x =
-    (\y -> x { _mbNamespace = y })
-       <$> f (_mbNamespace x)
+    f (_mbNamespace x)
+        <&> \y -> x { _mbNamespace = y }
 {-# INLINE mbNamespace #-}
 
 -- | The statistic to apply to the alarm's associated metric.
-mbStatistic
-    :: Functor f
-    => (Maybe Statistic
-    -> f (Maybe Statistic))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbStatistic :: Lens' MetricAlarm (Maybe Statistic)
 mbStatistic f x =
-    (\y -> x { _mbStatistic = y })
-       <$> f (_mbStatistic x)
+    f (_mbStatistic x)
+        <&> \y -> x { _mbStatistic = y }
 {-# INLINE mbStatistic #-}
 
 -- | The list of dimensions associated with the alarm's associated metric.
-mbDimensions
-    :: Functor f
-    => ([Dimension]
-    -> f ([Dimension]))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbDimensions :: Lens' MetricAlarm ([Dimension])
 mbDimensions f x =
-    (\y -> x { _mbDimensions = y })
-       <$> f (_mbDimensions x)
+    f (_mbDimensions x)
+        <&> \y -> x { _mbDimensions = y }
 {-# INLINE mbDimensions #-}
 
 -- | The period in seconds over which the statistic is applied.
-mbPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbPeriod :: Lens' MetricAlarm (Maybe Integer)
 mbPeriod f x =
-    (\y -> x { _mbPeriod = y })
-       <$> f (_mbPeriod x)
+    f (_mbPeriod x)
+        <&> \y -> x { _mbPeriod = y }
 {-# INLINE mbPeriod #-}
 
 -- | The unit of the alarm's associated metric.
-mbUnit
-    :: Functor f
-    => (Maybe StandardUnit
-    -> f (Maybe StandardUnit))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 mbUnit f x =
-    (\y -> x { _mbUnit = y })
-       <$> f (_mbUnit x)
+    f (_mbUnit x)
+        <&> \y -> x { _mbUnit = y }
 {-# INLINE mbUnit #-}
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
-mbEvaluationPeriods
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbEvaluationPeriods :: Lens' MetricAlarm (Maybe Integer)
 mbEvaluationPeriods f x =
-    (\y -> x { _mbEvaluationPeriods = y })
-       <$> f (_mbEvaluationPeriods x)
+    f (_mbEvaluationPeriods x)
+        <&> \y -> x { _mbEvaluationPeriods = y }
 {-# INLINE mbEvaluationPeriods #-}
 
 -- | The value against which the specified statistic is compared.
-mbThreshold
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbThreshold :: Lens' MetricAlarm (Maybe Double)
 mbThreshold f x =
-    (\y -> x { _mbThreshold = y })
-       <$> f (_mbThreshold x)
+    f (_mbThreshold x)
+        <&> \y -> x { _mbThreshold = y }
 {-# INLINE mbThreshold #-}
 
 -- | The arithmetic operation to use when comparing the specified Statistic and
 -- Threshold. The specified Statistic value is used as the first operand.
-mbComparisonOperator
-    :: Functor f
-    => (Maybe ComparisonOperator
-    -> f (Maybe ComparisonOperator))
-    -> MetricAlarm
-    -> f MetricAlarm
+mbComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 mbComparisonOperator f x =
-    (\y -> x { _mbComparisonOperator = y })
-       <$> f (_mbComparisonOperator x)
+    f (_mbComparisonOperator x)
+        <&> \y -> x { _mbComparisonOperator = y }
 {-# INLINE mbComparisonOperator #-}
 
 instance FromXML MetricAlarm where
@@ -1089,40 +889,25 @@ data MetricDatum = MetricDatum
     } deriving (Show, Generic)
 
 -- | The name of the metric.
-mgMetricName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MetricDatum
-    -> f MetricDatum
+mgMetricName :: Lens' MetricDatum (Text)
 mgMetricName f x =
-    (\y -> x { _mgMetricName = y })
-       <$> f (_mgMetricName x)
+    f (_mgMetricName x)
+        <&> \y -> x { _mgMetricName = y }
 {-# INLINE mgMetricName #-}
 
 -- | A list of dimensions associated with the metric.
-mgDimensions
-    :: Functor f
-    => ([Dimension]
-    -> f ([Dimension]))
-    -> MetricDatum
-    -> f MetricDatum
+mgDimensions :: Lens' MetricDatum ([Dimension])
 mgDimensions f x =
-    (\y -> x { _mgDimensions = y })
-       <$> f (_mgDimensions x)
+    f (_mgDimensions x)
+        <&> \y -> x { _mgDimensions = y }
 {-# INLINE mgDimensions #-}
 
 -- | The time stamp used for the metric. If not specified, the default value is
 -- set to the time the metric data was received.
-mgTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> MetricDatum
-    -> f MetricDatum
+mgTimestamp :: Lens' MetricDatum (Maybe ISO8601)
 mgTimestamp f x =
-    (\y -> x { _mgTimestamp = y })
-       <$> f (_mgTimestamp x)
+    f (_mgTimestamp x)
+        <&> \y -> x { _mgTimestamp = y }
 {-# INLINE mgTimestamp #-}
 
 -- | The value for the metric. Although the Value parameter accepts numbers of
@@ -1130,39 +915,24 @@ mgTimestamp f x =
 -- Values with base-10 exponents greater than 126 (1 x 10^126) are truncated.
 -- Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are
 -- also truncated.
-mgValue
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> MetricDatum
-    -> f MetricDatum
+mgValue :: Lens' MetricDatum (Maybe Double)
 mgValue f x =
-    (\y -> x { _mgValue = y })
-       <$> f (_mgValue x)
+    f (_mgValue x)
+        <&> \y -> x { _mgValue = y }
 {-# INLINE mgValue #-}
 
 -- | A set of statistical values describing the metric.
-mgStatisticValues
-    :: Functor f
-    => (Maybe StatisticSet
-    -> f (Maybe StatisticSet))
-    -> MetricDatum
-    -> f MetricDatum
+mgStatisticValues :: Lens' MetricDatum (Maybe StatisticSet)
 mgStatisticValues f x =
-    (\y -> x { _mgStatisticValues = y })
-       <$> f (_mgStatisticValues x)
+    f (_mgStatisticValues x)
+        <&> \y -> x { _mgStatisticValues = y }
 {-# INLINE mgStatisticValues #-}
 
 -- | The unit of the metric.
-mgUnit
-    :: Functor f
-    => (Maybe StandardUnit
-    -> f (Maybe StandardUnit))
-    -> MetricDatum
-    -> f MetricDatum
+mgUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mgUnit f x =
-    (\y -> x { _mgUnit = y })
-       <$> f (_mgUnit x)
+    f (_mgUnit x)
+        <&> \y -> x { _mgUnit = y }
 {-# INLINE mgUnit #-}
 
 instance ToQuery MetricDatum where
@@ -1181,51 +951,31 @@ data StatisticSet = StatisticSet
     } deriving (Show, Generic)
 
 -- | The number of samples used for the statistic set.
-sswSampleCount
-    :: Functor f
-    => (Double
-    -> f (Double))
-    -> StatisticSet
-    -> f StatisticSet
+sswSampleCount :: Lens' StatisticSet (Double)
 sswSampleCount f x =
-    (\y -> x { _sswSampleCount = y })
-       <$> f (_sswSampleCount x)
+    f (_sswSampleCount x)
+        <&> \y -> x { _sswSampleCount = y }
 {-# INLINE sswSampleCount #-}
 
 -- | The sum of values for the sample set.
-sswSum
-    :: Functor f
-    => (Double
-    -> f (Double))
-    -> StatisticSet
-    -> f StatisticSet
+sswSum :: Lens' StatisticSet (Double)
 sswSum f x =
-    (\y -> x { _sswSum = y })
-       <$> f (_sswSum x)
+    f (_sswSum x)
+        <&> \y -> x { _sswSum = y }
 {-# INLINE sswSum #-}
 
 -- | The minimum value of the sample set.
-sswMinimum
-    :: Functor f
-    => (Double
-    -> f (Double))
-    -> StatisticSet
-    -> f StatisticSet
+sswMinimum :: Lens' StatisticSet (Double)
 sswMinimum f x =
-    (\y -> x { _sswMinimum = y })
-       <$> f (_sswMinimum x)
+    f (_sswMinimum x)
+        <&> \y -> x { _sswMinimum = y }
 {-# INLINE sswMinimum #-}
 
 -- | The maximum value of the sample set.
-sswMaximum
-    :: Functor f
-    => (Double
-    -> f (Double))
-    -> StatisticSet
-    -> f StatisticSet
+sswMaximum :: Lens' StatisticSet (Double)
 sswMaximum f x =
-    (\y -> x { _sswMaximum = y })
-       <$> f (_sswMaximum x)
+    f (_sswMaximum x)
+        <&> \y -> x { _sswMaximum = y }
 {-# INLINE sswMaximum #-}
 
 instance FromXML StatisticSet where

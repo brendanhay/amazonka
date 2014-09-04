@@ -46,6 +46,7 @@ restartAppServer = RestartAppServer
     { _rasmEnvironmentId = Nothing
     , _rasmEnvironmentName = Nothing
     }
+{-# INLINE restartAppServer #-}
 
 data RestartAppServer = RestartAppServer
     { _rasmEnvironmentId :: Maybe Text
@@ -63,29 +64,19 @@ data RestartAppServer = RestartAppServer
 -- | The ID of the environment to restart the server for. Condition: You must
 -- specify either this or an EnvironmentName, or both. If you do not specify
 -- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
-rasmEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestartAppServer
-    -> f RestartAppServer
+rasmEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasmEnvironmentId f x =
-    (\y -> x { _rasmEnvironmentId = y })
-       <$> f (_rasmEnvironmentId x)
+    f (_rasmEnvironmentId x)
+        <&> \y -> x { _rasmEnvironmentId = y }
 {-# INLINE rasmEnvironmentId #-}
 
 -- | The name of the environment to restart the server for. Condition: You must
 -- specify either this or an EnvironmentId, or both. If you do not specify
 -- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
-rasmEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RestartAppServer
-    -> f RestartAppServer
+rasmEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasmEnvironmentName f x =
-    (\y -> x { _rasmEnvironmentName = y })
-       <$> f (_rasmEnvironmentName x)
+    f (_rasmEnvironmentName x)
+        <&> \y -> x { _rasmEnvironmentName = y }
 {-# INLINE rasmEnvironmentName #-}
 
 instance ToQuery RestartAppServer where

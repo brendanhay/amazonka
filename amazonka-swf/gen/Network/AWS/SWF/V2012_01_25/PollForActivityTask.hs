@@ -95,6 +95,7 @@ pollForActivityTask p1 p2 = PollForActivityTask
     , _pfatiTaskList = p2
     , _pfatiIdentity = Nothing
     }
+{-# INLINE pollForActivityTask #-}
 
 data PollForActivityTask = PollForActivityTask
     { _pfatiDomain :: Text
@@ -113,15 +114,10 @@ data PollForActivityTask = PollForActivityTask
     } deriving (Show, Generic)
 
 -- | The name of the domain that contains the task lists being polled.
-pfatiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PollForActivityTask
-    -> f PollForActivityTask
+pfatiDomain :: Lens' PollForActivityTask (Text)
 pfatiDomain f x =
-    (\y -> x { _pfatiDomain = y })
-       <$> f (_pfatiDomain x)
+    f (_pfatiDomain x)
+        <&> \y -> x { _pfatiDomain = y }
 {-# INLINE pfatiDomain #-}
 
 -- | Specifies the task list to poll for activity tasks. The specified string
@@ -129,29 +125,19 @@ pfatiDomain f x =
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-pfatiTaskList
-    :: Functor f
-    => (TaskList
-    -> f (TaskList))
-    -> PollForActivityTask
-    -> f PollForActivityTask
+pfatiTaskList :: Lens' PollForActivityTask (TaskList)
 pfatiTaskList f x =
-    (\y -> x { _pfatiTaskList = y })
-       <$> f (_pfatiTaskList x)
+    f (_pfatiTaskList x)
+        <&> \y -> x { _pfatiTaskList = y }
 {-# INLINE pfatiTaskList #-}
 
 -- | Identity of the worker making the request, which is recorded in the
 -- ActivityTaskStarted event in the workflow history. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
-pfatiIdentity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PollForActivityTask
-    -> f PollForActivityTask
+pfatiIdentity :: Lens' PollForActivityTask (Maybe Text)
 pfatiIdentity f x =
-    (\y -> x { _pfatiIdentity = y })
-       <$> f (_pfatiIdentity x)
+    f (_pfatiIdentity x)
+        <&> \y -> x { _pfatiIdentity = y }
 {-# INLINE pfatiIdentity #-}
 
 instance ToPath PollForActivityTask
@@ -182,79 +168,49 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
     } deriving (Show, Generic)
 
 -- | The unique ID of the task.
-azActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PollForActivityTaskResponse
-    -> f PollForActivityTaskResponse
+azActivityId :: Lens' PollForActivityTaskResponse (Text)
 azActivityId f x =
-    (\y -> x { _azActivityId = y })
-       <$> f (_azActivityId x)
+    f (_azActivityId x)
+        <&> \y -> x { _azActivityId = y }
 {-# INLINE azActivityId #-}
 
 -- | The type of this activity task.
-azActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> PollForActivityTaskResponse
-    -> f PollForActivityTaskResponse
+azActivityType :: Lens' PollForActivityTaskResponse (ActivityType)
 azActivityType f x =
-    (\y -> x { _azActivityType = y })
-       <$> f (_azActivityType x)
+    f (_azActivityType x)
+        <&> \y -> x { _azActivityType = y }
 {-# INLINE azActivityType #-}
 
 -- | The id of the ActivityTaskStarted event recorded in the history.
-azStartedEventId
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PollForActivityTaskResponse
-    -> f PollForActivityTaskResponse
+azStartedEventId :: Lens' PollForActivityTaskResponse (Integer)
 azStartedEventId f x =
-    (\y -> x { _azStartedEventId = y })
-       <$> f (_azStartedEventId x)
+    f (_azStartedEventId x)
+        <&> \y -> x { _azStartedEventId = y }
 {-# INLINE azStartedEventId #-}
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
-azTaskToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PollForActivityTaskResponse
-    -> f PollForActivityTaskResponse
+azTaskToken :: Lens' PollForActivityTaskResponse (Text)
 azTaskToken f x =
-    (\y -> x { _azTaskToken = y })
-       <$> f (_azTaskToken x)
+    f (_azTaskToken x)
+        <&> \y -> x { _azTaskToken = y }
 {-# INLINE azTaskToken #-}
 
 -- | The workflow execution that started this activity task.
-azWorkflowExecution
-    :: Functor f
-    => (WorkflowExecution
-    -> f (WorkflowExecution))
-    -> PollForActivityTaskResponse
-    -> f PollForActivityTaskResponse
+azWorkflowExecution :: Lens' PollForActivityTaskResponse (WorkflowExecution)
 azWorkflowExecution f x =
-    (\y -> x { _azWorkflowExecution = y })
-       <$> f (_azWorkflowExecution x)
+    f (_azWorkflowExecution x)
+        <&> \y -> x { _azWorkflowExecution = y }
 {-# INLINE azWorkflowExecution #-}
 
 -- | The inputs provided when the activity task was scheduled. The form of the
 -- input is user defined and should be meaningful to the activity
 -- implementation.
-azInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PollForActivityTaskResponse
-    -> f PollForActivityTaskResponse
+azInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 azInput f x =
-    (\y -> x { _azInput = y })
-       <$> f (_azInput x)
+    f (_azInput x)
+        <&> \y -> x { _azInput = y }
 {-# INLINE azInput #-}
 
 instance FromJSON PollForActivityTaskResponse

@@ -67,6 +67,7 @@ terminateEnvironment = TerminateEnvironment
     , _temEnvironmentName = Nothing
     , _temTerminateResources = Nothing
     }
+{-# INLINE terminateEnvironment #-}
 
 data TerminateEnvironment = TerminateEnvironment
     { _temEnvironmentId :: Maybe Text
@@ -97,29 +98,19 @@ data TerminateEnvironment = TerminateEnvironment
 -- | The ID of the environment to terminate. Condition: You must specify either
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-temEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironment
-    -> f TerminateEnvironment
+temEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 temEnvironmentId f x =
-    (\y -> x { _temEnvironmentId = y })
-       <$> f (_temEnvironmentId x)
+    f (_temEnvironmentId x)
+        <&> \y -> x { _temEnvironmentId = y }
 {-# INLINE temEnvironmentId #-}
 
 -- | The name of the environment to terminate. Condition: You must specify
 -- either this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-temEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironment
-    -> f TerminateEnvironment
+temEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
 temEnvironmentName f x =
-    (\y -> x { _temEnvironmentName = y })
-       <$> f (_temEnvironmentName x)
+    f (_temEnvironmentName x)
+        <&> \y -> x { _temEnvironmentName = y }
 {-# INLINE temEnvironmentName #-}
 
 -- | Indicates whether the associated AWS resources should shut down when the
@@ -132,15 +123,10 @@ temEnvironmentName f x =
 -- Beanstalk resource management is removed from the environment, but the AWS
 -- resources continue to operate. For more information, see the AWS Elastic
 -- Beanstalk User Guide. Default: true Valid Values: true | false.
-temTerminateResources
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> TerminateEnvironment
-    -> f TerminateEnvironment
+temTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 temTerminateResources f x =
-    (\y -> x { _temTerminateResources = y })
-       <$> f (_temTerminateResources x)
+    f (_temTerminateResources x)
+        <&> \y -> x { _temTerminateResources = y }
 {-# INLINE temTerminateResources #-}
 
 instance ToQuery TerminateEnvironment where
@@ -202,77 +188,47 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     } deriving (Show, Generic)
 
 -- | The name of the application associated with this environment.
-eeenApplicationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenApplicationName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenApplicationName f x =
-    (\y -> x { _eeenApplicationName = y })
-       <$> f (_eeenApplicationName x)
+    f (_eeenApplicationName x)
+        <&> \y -> x { _eeenApplicationName = y }
 {-# INLINE eeenApplicationName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-eeenTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenTemplateName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenTemplateName f x =
-    (\y -> x { _eeenTemplateName = y })
-       <$> f (_eeenTemplateName x)
+    f (_eeenTemplateName x)
+        <&> \y -> x { _eeenTemplateName = y }
 {-# INLINE eeenTemplateName #-}
 
 -- | The creation date for this environment.
-eeenDateCreated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenDateCreated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
 eeenDateCreated f x =
-    (\y -> x { _eeenDateCreated = y })
-       <$> f (_eeenDateCreated x)
+    f (_eeenDateCreated x)
+        <&> \y -> x { _eeenDateCreated = y }
 {-# INLINE eeenDateCreated #-}
 
 -- | The URL to the CNAME for this environment.
-eeenCNAME
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenCNAME :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenCNAME f x =
-    (\y -> x { _eeenCNAME = y })
-       <$> f (_eeenCNAME x)
+    f (_eeenCNAME x)
+        <&> \y -> x { _eeenCNAME = y }
 {-# INLINE eeenCNAME #-}
 
 -- | Describes this environment.
-eeenDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenDescription :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenDescription f x =
-    (\y -> x { _eeenDescription = y })
-       <$> f (_eeenDescription x)
+    f (_eeenDescription x)
+        <&> \y -> x { _eeenDescription = y }
 {-# INLINE eeenDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-eeenEndpointURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenEndpointURL :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenEndpointURL f x =
-    (\y -> x { _eeenEndpointURL = y })
-       <$> f (_eeenEndpointURL x)
+    f (_eeenEndpointURL x)
+        <&> \y -> x { _eeenEndpointURL = y }
 {-# INLINE eeenEndpointURL #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
@@ -288,51 +244,31 @@ eeenEndpointURL f x =
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-eeenHealth
-    :: Functor f
-    => (Maybe EnvironmentHealth
-    -> f (Maybe EnvironmentHealth))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
 eeenHealth f x =
-    (\y -> x { _eeenHealth = y })
-       <$> f (_eeenHealth x)
+    f (_eeenHealth x)
+        <&> \y -> x { _eeenHealth = y }
 {-# INLINE eeenHealth #-}
 
 -- | The ID of this environment.
-eeenEnvironmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenEnvironmentId :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenEnvironmentId f x =
-    (\y -> x { _eeenEnvironmentId = y })
-       <$> f (_eeenEnvironmentId x)
+    f (_eeenEnvironmentId x)
+        <&> \y -> x { _eeenEnvironmentId = y }
 {-# INLINE eeenEnvironmentId #-}
 
 -- | The name of this environment.
-eeenEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenEnvironmentName f x =
-    (\y -> x { _eeenEnvironmentName = y })
-       <$> f (_eeenEnvironmentName x)
+    f (_eeenEnvironmentName x)
+        <&> \y -> x { _eeenEnvironmentName = y }
 {-# INLINE eeenEnvironmentName #-}
 
 -- | The description of the AWS resources used by this environment.
-eeenResources
-    :: Functor f
-    => (Maybe EnvironmentResourcesDescription
-    -> f (Maybe EnvironmentResourcesDescription))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenResources :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 eeenResources f x =
-    (\y -> x { _eeenResources = y })
-       <$> f (_eeenResources x)
+    f (_eeenResources x)
+        <&> \y -> x { _eeenResources = y }
 {-# INLINE eeenResources #-}
 
 -- | The current operational status of the environment: Launching: Environment
@@ -341,63 +277,38 @@ eeenResources f x =
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-eeenStatus
-    :: Functor f
-    => (Maybe EnvironmentStatus
-    -> f (Maybe EnvironmentStatus))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
 eeenStatus f x =
-    (\y -> x { _eeenStatus = y })
-       <$> f (_eeenStatus x)
+    f (_eeenStatus x)
+        <&> \y -> x { _eeenStatus = y }
 {-# INLINE eeenStatus #-}
 
 -- | Describes the current tier of this environment.
-eeenTier
-    :: Functor f
-    => (Maybe EnvironmentTier
-    -> f (Maybe EnvironmentTier))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenTier :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentTier)
 eeenTier f x =
-    (\y -> x { _eeenTier = y })
-       <$> f (_eeenTier x)
+    f (_eeenTier x)
+        <&> \y -> x { _eeenTier = y }
 {-# INLINE eeenTier #-}
 
 -- | The name of the SolutionStack deployed with this environment.
-eeenSolutionStackName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenSolutionStackName f x =
-    (\y -> x { _eeenSolutionStackName = y })
-       <$> f (_eeenSolutionStackName x)
+    f (_eeenSolutionStackName x)
+        <&> \y -> x { _eeenSolutionStackName = y }
 {-# INLINE eeenSolutionStackName #-}
 
 -- | The last modified date for this environment.
-eeenDateUpdated
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
 eeenDateUpdated f x =
-    (\y -> x { _eeenDateUpdated = y })
-       <$> f (_eeenDateUpdated x)
+    f (_eeenDateUpdated x)
+        <&> \y -> x { _eeenDateUpdated = y }
 {-# INLINE eeenDateUpdated #-}
 
 -- | The application version deployed in this environment.
-eeenVersionLabel
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TerminateEnvironmentResponse
-    -> f TerminateEnvironmentResponse
+eeenVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
 eeenVersionLabel f x =
-    (\y -> x { _eeenVersionLabel = y })
-       <$> f (_eeenVersionLabel x)
+    f (_eeenVersionLabel x)
+        <&> \y -> x { _eeenVersionLabel = y }
 {-# INLINE eeenVersionLabel #-}
 
 instance FromXML TerminateEnvironmentResponse where

@@ -72,6 +72,7 @@ setTopicAttributes p1 p2 = SetTopicAttributes
     , _staiTopicArn = p2
     , _staiAttributeValue = Nothing
     }
+{-# INLINE setTopicAttributes #-}
 
 data SetTopicAttributes = SetTopicAttributes
     { _staiAttributeName :: Text
@@ -87,39 +88,24 @@ data SetTopicAttributes = SetTopicAttributes
 -- | The name of the attribute you want to set. Only a subset of the topic's
 -- attributes are mutable. Valid values: Policy | DisplayName |
 -- DeliveryPolicy.
-staiAttributeName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetTopicAttributes
-    -> f SetTopicAttributes
+staiAttributeName :: Lens' SetTopicAttributes (Text)
 staiAttributeName f x =
-    (\y -> x { _staiAttributeName = y })
-       <$> f (_staiAttributeName x)
+    f (_staiAttributeName x)
+        <&> \y -> x { _staiAttributeName = y }
 {-# INLINE staiAttributeName #-}
 
 -- | The ARN of the topic to modify.
-staiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetTopicAttributes
-    -> f SetTopicAttributes
+staiTopicArn :: Lens' SetTopicAttributes (Text)
 staiTopicArn f x =
-    (\y -> x { _staiTopicArn = y })
-       <$> f (_staiTopicArn x)
+    f (_staiTopicArn x)
+        <&> \y -> x { _staiTopicArn = y }
 {-# INLINE staiTopicArn #-}
 
 -- | The new value for the attribute.
-staiAttributeValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SetTopicAttributes
-    -> f SetTopicAttributes
+staiAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
 staiAttributeValue f x =
-    (\y -> x { _staiAttributeValue = y })
-       <$> f (_staiAttributeValue x)
+    f (_staiAttributeValue x)
+        <&> \y -> x { _staiAttributeValue = y }
 {-# INLINE staiAttributeValue #-}
 
 instance ToQuery SetTopicAttributes where

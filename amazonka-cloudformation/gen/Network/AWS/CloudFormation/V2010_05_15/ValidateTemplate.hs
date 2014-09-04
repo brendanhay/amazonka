@@ -55,6 +55,7 @@ validateTemplate = ValidateTemplate
     { _vtiTemplateBody = Nothing
     , _vtiTemplateURL = Nothing
     }
+{-# INLINE validateTemplate #-}
 
 data ValidateTemplate = ValidateTemplate
     { _vtiTemplateBody :: Maybe Text
@@ -76,15 +77,10 @@ data ValidateTemplate = ValidateTemplate
 -- a maximum length of 51,200 bytes. For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass
 -- TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
-vtiTemplateBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidateTemplate
-    -> f ValidateTemplate
+vtiTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtiTemplateBody f x =
-    (\y -> x { _vtiTemplateBody = y })
-       <$> f (_vtiTemplateBody x)
+    f (_vtiTemplateBody x)
+        <&> \y -> x { _vtiTemplateBody = y }
 {-# INLINE vtiTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
@@ -92,15 +88,10 @@ vtiTemplateBody f x =
 -- region as the stack. For more information, go to Template Anatomy in the
 -- AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or
 -- TemplateBody. If both are passed, only TemplateBody is used.
-vtiTemplateURL
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidateTemplate
-    -> f ValidateTemplate
+vtiTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtiTemplateURL f x =
-    (\y -> x { _vtiTemplateURL = y })
-       <$> f (_vtiTemplateURL x)
+    f (_vtiTemplateURL x)
+        <&> \y -> x { _vtiTemplateURL = y }
 {-# INLINE vtiTemplateURL #-}
 
 instance ToQuery ValidateTemplate where
@@ -127,51 +118,31 @@ data ValidateTemplateResponse = ValidateTemplateResponse
 -- must specify the CAPABILITY_IAM value for this parameter when you use the
 -- CreateStack or UpdateStack actions with your template; otherwise, those
 -- actions return an InsufficientCapabilities error.
-vtoCapabilities
-    :: Functor f
-    => ([Capability]
-    -> f ([Capability]))
-    -> ValidateTemplateResponse
-    -> f ValidateTemplateResponse
+vtoCapabilities :: Lens' ValidateTemplateResponse ([Capability])
 vtoCapabilities f x =
-    (\y -> x { _vtoCapabilities = y })
-       <$> f (_vtoCapabilities x)
+    f (_vtoCapabilities x)
+        <&> \y -> x { _vtoCapabilities = y }
 {-# INLINE vtoCapabilities #-}
 
 -- | The capabilities reason found within the template.
-vtoCapabilitiesReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidateTemplateResponse
-    -> f ValidateTemplateResponse
+vtoCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
 vtoCapabilitiesReason f x =
-    (\y -> x { _vtoCapabilitiesReason = y })
-       <$> f (_vtoCapabilitiesReason x)
+    f (_vtoCapabilitiesReason x)
+        <&> \y -> x { _vtoCapabilitiesReason = y }
 {-# INLINE vtoCapabilitiesReason #-}
 
 -- | The description found within the template.
-vtoDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidateTemplateResponse
-    -> f ValidateTemplateResponse
+vtoDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtoDescription f x =
-    (\y -> x { _vtoDescription = y })
-       <$> f (_vtoDescription x)
+    f (_vtoDescription x)
+        <&> \y -> x { _vtoDescription = y }
 {-# INLINE vtoDescription #-}
 
 -- | A list of TemplateParameter structures.
-vtoParameters
-    :: Functor f
-    => ([TemplateParameter]
-    -> f ([TemplateParameter]))
-    -> ValidateTemplateResponse
-    -> f ValidateTemplateResponse
+vtoParameters :: Lens' ValidateTemplateResponse ([TemplateParameter])
 vtoParameters f x =
-    (\y -> x { _vtoParameters = y })
-       <$> f (_vtoParameters x)
+    f (_vtoParameters x)
+        <&> \y -> x { _vtoParameters = y }
 {-# INLINE vtoParameters #-}
 
 instance FromXML ValidateTemplateResponse where

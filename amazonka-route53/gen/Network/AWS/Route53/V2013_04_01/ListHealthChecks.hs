@@ -56,6 +56,7 @@ listHealthChecks = ListHealthChecks
     { _lhcrMarker = Nothing
     , _lhcrMaxItems = Nothing
     }
+{-# INLINE listHealthChecks #-}
 
 data ListHealthChecks = ListHealthChecks
     { _lhcrMarker :: Maybe Text
@@ -70,27 +71,17 @@ data ListHealthChecks = ListHealthChecks
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
-lhcrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListHealthChecks
-    -> f ListHealthChecks
+lhcrMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcrMarker f x =
-    (\y -> x { _lhcrMarker = y })
-       <$> f (_lhcrMarker x)
+    f (_lhcrMarker x)
+        <&> \y -> x { _lhcrMarker = y }
 {-# INLINE lhcrMarker #-}
 
 -- | Specify the maximum number of health checks to return per page of results.
-lhcrMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListHealthChecks
-    -> f ListHealthChecks
+lhcrMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcrMaxItems f x =
-    (\y -> x { _lhcrMaxItems = y })
-       <$> f (_lhcrMaxItems x)
+    f (_lhcrMaxItems x)
+        <&> \y -> x { _lhcrMaxItems = y }
 {-# INLINE lhcrMaxItems #-}
 
 instance ToPath ListHealthChecks where
@@ -140,29 +131,19 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 
 -- | A complex type that contains information about the health checks associated
 -- with the current AWS account.
-lhcsHealthChecks
-    :: Functor f
-    => ([HealthCheck]
-    -> f ([HealthCheck]))
-    -> ListHealthChecksResponse
-    -> f ListHealthChecksResponse
+lhcsHealthChecks :: Lens' ListHealthChecksResponse ([HealthCheck])
 lhcsHealthChecks f x =
-    (\y -> x { _lhcsHealthChecks = y })
-       <$> f (_lhcsHealthChecks x)
+    f (_lhcsHealthChecks x)
+        <&> \y -> x { _lhcsHealthChecks = y }
 {-# INLINE lhcsHealthChecks #-}
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
-lhcsMarker
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListHealthChecksResponse
-    -> f ListHealthChecksResponse
+lhcsMarker :: Lens' ListHealthChecksResponse (Text)
 lhcsMarker f x =
-    (\y -> x { _lhcsMarker = y })
-       <$> f (_lhcsMarker x)
+    f (_lhcsMarker x)
+        <&> \y -> x { _lhcsMarker = y }
 {-# INLINE lhcsMarker #-}
 
 -- | The maximum number of health checks to be included in the response body. If
@@ -171,44 +152,29 @@ lhcsMarker f x =
 -- is true. Call ListHealthChecks again and specify the value of
 -- ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker
 -- element to get the next page of results.
-lhcsMaxItems
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListHealthChecksResponse
-    -> f ListHealthChecksResponse
+lhcsMaxItems :: Lens' ListHealthChecksResponse (Text)
 lhcsMaxItems f x =
-    (\y -> x { _lhcsMaxItems = y })
-       <$> f (_lhcsMaxItems x)
+    f (_lhcsMaxItems x)
+        <&> \y -> x { _lhcsMaxItems = y }
 {-# INLINE lhcsMaxItems #-}
 
 -- | A flag indicating whether there are more health checks to be listed. If
 -- your results were truncated, you can make a follow-up request for the next
 -- page of results by using the Marker element. Valid Values: true | false.
-lhcsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListHealthChecksResponse
-    -> f ListHealthChecksResponse
+lhcsIsTruncated :: Lens' ListHealthChecksResponse (Bool)
 lhcsIsTruncated f x =
-    (\y -> x { _lhcsIsTruncated = y })
-       <$> f (_lhcsIsTruncated x)
+    f (_lhcsIsTruncated x)
+        <&> \y -> x { _lhcsIsTruncated = y }
 {-# INLINE lhcsIsTruncated #-}
 
 -- | Indicates where to continue listing health checks. If
 -- ListHealthChecksResponse$IsTruncated is true, make another request to
 -- ListHealthChecks and include the value of the NextMarker element in the
 -- Marker element to get the next page of results.
-lhcsNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListHealthChecksResponse
-    -> f ListHealthChecksResponse
+lhcsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcsNextMarker f x =
-    (\y -> x { _lhcsNextMarker = y })
-       <$> f (_lhcsNextMarker x)
+    f (_lhcsNextMarker x)
+        <&> \y -> x { _lhcsNextMarker = y }
 {-# INLINE lhcsNextMarker #-}
 
 instance FromXML ListHealthChecksResponse where

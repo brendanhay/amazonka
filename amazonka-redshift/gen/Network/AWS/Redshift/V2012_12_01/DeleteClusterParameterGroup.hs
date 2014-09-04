@@ -49,6 +49,7 @@ deleteClusterParameterGroup :: Text -- ^ 'dcpgmParameterGroupName'
 deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
     { _dcpgmParameterGroupName = p1
     }
+{-# INLINE deleteClusterParameterGroup #-}
 
 data DeleteClusterParameterGroup = DeleteClusterParameterGroup
     { _dcpgmParameterGroupName :: Text
@@ -60,15 +61,10 @@ data DeleteClusterParameterGroup = DeleteClusterParameterGroup
 -- | The name of the parameter group to be deleted. Constraints: Must be the
 -- name of an existing cluster parameter group. Cannot delete a default
 -- cluster parameter group.
-dcpgmParameterGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteClusterParameterGroup
-    -> f DeleteClusterParameterGroup
+dcpgmParameterGroupName :: Lens' DeleteClusterParameterGroup (Text)
 dcpgmParameterGroupName f x =
-    (\y -> x { _dcpgmParameterGroupName = y })
-       <$> f (_dcpgmParameterGroupName x)
+    f (_dcpgmParameterGroupName x)
+        <&> \y -> x { _dcpgmParameterGroupName = y }
 {-# INLINE dcpgmParameterGroupName #-}
 
 instance ToQuery DeleteClusterParameterGroup where

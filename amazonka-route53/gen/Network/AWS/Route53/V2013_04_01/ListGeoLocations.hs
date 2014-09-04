@@ -52,6 +52,7 @@ listGeoLocations = ListGeoLocations
     , _lglrStartSubdivisionCode = Nothing
     , _lglrMaxItems = Nothing
     }
+{-# INLINE listGeoLocations #-}
 
 data ListGeoLocations = ListGeoLocations
     { _lglrStartContinentCode :: Maybe Text
@@ -81,56 +82,36 @@ data ListGeoLocations = ListGeoLocations
 -- locations, this should be null. Valid values: AF | AN | AS | EU | OC | NA |
 -- SA Constraint: Specifying ContinentCode with either CountryCode or
 -- SubdivisionCode returns an InvalidInput error.
-lglrStartContinentCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocations
-    -> f ListGeoLocations
+lglrStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglrStartContinentCode f x =
-    (\y -> x { _lglrStartContinentCode = y })
-       <$> f (_lglrStartContinentCode x)
+    f (_lglrStartContinentCode x)
+        <&> \y -> x { _lglrStartContinentCode = y }
 {-# INLINE lglrStartContinentCode #-}
 
 -- | The first country code in the lexicographic ordering of geo locations that
 -- you want the ListGeoLocations request to list. The default geo location
 -- uses a * for the country code. All other country codes follow the ISO 3166
 -- two-character code.
-lglrStartCountryCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocations
-    -> f ListGeoLocations
+lglrStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
 lglrStartCountryCode f x =
-    (\y -> x { _lglrStartCountryCode = y })
-       <$> f (_lglrStartCountryCode x)
+    f (_lglrStartCountryCode x)
+        <&> \y -> x { _lglrStartCountryCode = y }
 {-# INLINE lglrStartCountryCode #-}
 
 -- | The first subdivision code in the lexicographic ordering of geo locations
 -- that you want the ListGeoLocations request to list. Constraint: Specifying
 -- SubdivisionCode without CountryCode returns an InvalidInput error.
-lglrStartSubdivisionCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocations
-    -> f ListGeoLocations
+lglrStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglrStartSubdivisionCode f x =
-    (\y -> x { _lglrStartSubdivisionCode = y })
-       <$> f (_lglrStartSubdivisionCode x)
+    f (_lglrStartSubdivisionCode x)
+        <&> \y -> x { _lglrStartSubdivisionCode = y }
 {-# INLINE lglrStartSubdivisionCode #-}
 
 -- | The maximum number of geo locations you want in the response body.
-lglrMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocations
-    -> f ListGeoLocations
+lglrMaxItems :: Lens' ListGeoLocations (Maybe Text)
 lglrMaxItems f x =
-    (\y -> x { _lglrMaxItems = y })
-       <$> f (_lglrMaxItems x)
+    f (_lglrMaxItems x)
+        <&> \y -> x { _lglrMaxItems = y }
 {-# INLINE lglrMaxItems #-}
 
 instance ToPath ListGeoLocations where
@@ -184,28 +165,18 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
 
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request.
-lglsGeoLocationDetailsList
-    :: Functor f
-    => ([GeoLocationDetails]
-    -> f ([GeoLocationDetails]))
-    -> ListGeoLocationsResponse
-    -> f ListGeoLocationsResponse
+lglsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse ([GeoLocationDetails])
 lglsGeoLocationDetailsList f x =
-    (\y -> x { _lglsGeoLocationDetailsList = y })
-       <$> f (_lglsGeoLocationDetailsList x)
+    f (_lglsGeoLocationDetailsList x)
+        <&> \y -> x { _lglsGeoLocationDetailsList = y }
 {-# INLINE lglsGeoLocationDetailsList #-}
 
 -- | The maximum number of records you requested. The maximum value of MaxItems
 -- is 100.
-lglsMaxItems
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListGeoLocationsResponse
-    -> f ListGeoLocationsResponse
+lglsMaxItems :: Lens' ListGeoLocationsResponse (Text)
 lglsMaxItems f x =
-    (\y -> x { _lglsMaxItems = y })
-       <$> f (_lglsMaxItems x)
+    f (_lglsMaxItems x)
+        <&> \y -> x { _lglsMaxItems = y }
 {-# INLINE lglsMaxItems #-}
 
 -- | A flag that indicates whether there are more geo locations to be listed. If
@@ -215,60 +186,40 @@ lglsMaxItems f x =
 -- ListGeoLocationsResponse$NextCountryCode and
 -- ListGeoLocationsResponse$NextSubdivisionCode elements. Valid Values: true |
 -- false.
-lglsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListGeoLocationsResponse
-    -> f ListGeoLocationsResponse
+lglsIsTruncated :: Lens' ListGeoLocationsResponse (Bool)
 lglsIsTruncated f x =
-    (\y -> x { _lglsIsTruncated = y })
-       <$> f (_lglsIsTruncated x)
+    f (_lglsIsTruncated x)
+        <&> \y -> x { _lglsIsTruncated = y }
 {-# INLINE lglsIsTruncated #-}
 
 -- | If the results were truncated, the continent code of the next geo location
 -- in the list. This element is present only if
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
 -- list is a continent location.
-lglsNextContinentCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocationsResponse
-    -> f ListGeoLocationsResponse
+lglsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglsNextContinentCode f x =
-    (\y -> x { _lglsNextContinentCode = y })
-       <$> f (_lglsNextContinentCode x)
+    f (_lglsNextContinentCode x)
+        <&> \y -> x { _lglsNextContinentCode = y }
 {-# INLINE lglsNextContinentCode #-}
 
 -- | If the results were truncated, the country code of the next geo location in
 -- the list. This element is present only if
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
 -- list is not a continent location.
-lglsNextCountryCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocationsResponse
-    -> f ListGeoLocationsResponse
+lglsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglsNextCountryCode f x =
-    (\y -> x { _lglsNextCountryCode = y })
-       <$> f (_lglsNextCountryCode x)
+    f (_lglsNextCountryCode x)
+        <&> \y -> x { _lglsNextCountryCode = y }
 {-# INLINE lglsNextCountryCode #-}
 
 -- | If the results were truncated, the subdivision code of the next geo
 -- location in the list. This element is present only if
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location has
 -- a subdivision.
-lglsNextSubdivisionCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGeoLocationsResponse
-    -> f ListGeoLocationsResponse
+lglsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglsNextSubdivisionCode f x =
-    (\y -> x { _lglsNextSubdivisionCode = y })
-       <$> f (_lglsNextSubdivisionCode x)
+    f (_lglsNextSubdivisionCode x)
+        <&> \y -> x { _lglsNextSubdivisionCode = y }
 {-# INLINE lglsNextSubdivisionCode #-}
 
 instance FromXML ListGeoLocationsResponse where

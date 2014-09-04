@@ -57,6 +57,7 @@ getAttributes p1 p2 = GetAttributes
     , _garAttributeNames = mempty
     , _garConsistentRead = Nothing
     }
+{-# INLINE getAttributes #-}
 
 data GetAttributes = GetAttributes
     { _garDomainName :: Text
@@ -74,54 +75,34 @@ data GetAttributes = GetAttributes
     } deriving (Show, Generic)
 
 -- | The name of the domain in which to perform the operation.
-garDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetAttributes
-    -> f GetAttributes
+garDomainName :: Lens' GetAttributes (Text)
 garDomainName f x =
-    (\y -> x { _garDomainName = y })
-       <$> f (_garDomainName x)
+    f (_garDomainName x)
+        <&> \y -> x { _garDomainName = y }
 {-# INLINE garDomainName #-}
 
 -- | The name of the item.
-garItemName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetAttributes
-    -> f GetAttributes
+garItemName :: Lens' GetAttributes (Text)
 garItemName f x =
-    (\y -> x { _garItemName = y })
-       <$> f (_garItemName x)
+    f (_garItemName x)
+        <&> \y -> x { _garItemName = y }
 {-# INLINE garItemName #-}
 
 -- | The names of the attributes.
-garAttributeNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GetAttributes
-    -> f GetAttributes
+garAttributeNames :: Lens' GetAttributes ([Text])
 garAttributeNames f x =
-    (\y -> x { _garAttributeNames = y })
-       <$> f (_garAttributeNames x)
+    f (_garAttributeNames x)
+        <&> \y -> x { _garAttributeNames = y }
 {-# INLINE garAttributeNames #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
 -- will be returned. Otherwise, results will be consistent eventually, and the
 -- client may not see data that was written immediately before your read.
-garConsistentRead
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetAttributes
-    -> f GetAttributes
+garConsistentRead :: Lens' GetAttributes (Maybe Bool)
 garConsistentRead f x =
-    (\y -> x { _garConsistentRead = y })
-       <$> f (_garConsistentRead x)
+    f (_garConsistentRead x)
+        <&> \y -> x { _garConsistentRead = y }
 {-# INLINE garConsistentRead #-}
 
 instance ToQuery GetAttributes where
@@ -133,15 +114,10 @@ data GetAttributesResponse = GetAttributesResponse
     } deriving (Show, Generic)
 
 -- | The list of attributes returned by the operation.
-gasAttributes
-    :: Functor f
-    => ([Attribute]
-    -> f ([Attribute]))
-    -> GetAttributesResponse
-    -> f GetAttributesResponse
+gasAttributes :: Lens' GetAttributesResponse ([Attribute])
 gasAttributes f x =
-    (\y -> x { _gasAttributes = y })
-       <$> f (_gasAttributes x)
+    f (_gasAttributes x)
+        <&> \y -> x { _gasAttributes = y }
 {-# INLINE gasAttributes #-}
 
 instance FromXML GetAttributesResponse where

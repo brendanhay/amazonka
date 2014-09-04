@@ -91,6 +91,7 @@ listJobsByPipeline p1 = ListJobsByPipeline
     , _ljbprAscending = Nothing
     , _ljbprPageToken = Nothing
     }
+{-# INLINE listJobsByPipeline #-}
 
 data ListJobsByPipeline = ListJobsByPipeline
     { _ljbprPipelineId :: Text
@@ -106,43 +107,28 @@ data ListJobsByPipeline = ListJobsByPipeline
     } deriving (Show, Generic)
 
 -- | The ID of the pipeline for which you want to get job information.
-ljbprPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListJobsByPipeline
-    -> f ListJobsByPipeline
+ljbprPipelineId :: Lens' ListJobsByPipeline (Text)
 ljbprPipelineId f x =
-    (\y -> x { _ljbprPipelineId = y })
-       <$> f (_ljbprPipelineId x)
+    f (_ljbprPipelineId x)
+        <&> \y -> x { _ljbprPipelineId = y }
 {-# INLINE ljbprPipelineId #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
-ljbprAscending
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobsByPipeline
-    -> f ListJobsByPipeline
+ljbprAscending :: Lens' ListJobsByPipeline (Maybe Text)
 ljbprAscending f x =
-    (\y -> x { _ljbprAscending = y })
-       <$> f (_ljbprAscending x)
+    f (_ljbprAscending x)
+        <&> \y -> x { _ljbprAscending = y }
 {-# INLINE ljbprAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-ljbprPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobsByPipeline
-    -> f ListJobsByPipeline
+ljbprPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbprPageToken f x =
-    (\y -> x { _ljbprPageToken = y })
-       <$> f (_ljbprPageToken x)
+    f (_ljbprPageToken x)
+        <&> \y -> x { _ljbprPageToken = y }
 {-# INLINE ljbprPageToken #-}
 
 instance ToPath ListJobsByPipeline where
@@ -175,27 +161,17 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of NextPageToken is
 -- null.
-ljbpsNextPageToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListJobsByPipelineResponse
-    -> f ListJobsByPipelineResponse
+ljbpsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbpsNextPageToken f x =
-    (\y -> x { _ljbpsNextPageToken = y })
-       <$> f (_ljbpsNextPageToken x)
+    f (_ljbpsNextPageToken x)
+        <&> \y -> x { _ljbpsNextPageToken = y }
 {-# INLINE ljbpsNextPageToken #-}
 
 -- | An array of Job objects that are in the specified pipeline.
-ljbpsJobs
-    :: Functor f
-    => ([Job]
-    -> f ([Job]))
-    -> ListJobsByPipelineResponse
-    -> f ListJobsByPipelineResponse
+ljbpsJobs :: Lens' ListJobsByPipelineResponse ([Job])
 ljbpsJobs f x =
-    (\y -> x { _ljbpsJobs = y })
-       <$> f (_ljbpsJobs x)
+    f (_ljbpsJobs x)
+        <&> \y -> x { _ljbpsJobs = y }
 {-# INLINE ljbpsJobs #-}
 
 instance FromJSON ListJobsByPipelineResponse

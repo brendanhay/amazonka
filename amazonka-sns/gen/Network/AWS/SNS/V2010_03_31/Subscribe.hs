@@ -63,6 +63,7 @@ subscribe p1 p2 = Subscribe
     , _ssyTopicArn = p2
     , _ssyEndpoint = Nothing
     }
+{-# INLINE subscribe #-}
 
 data Subscribe = Subscribe
     { _ssyProtocol :: Text
@@ -96,27 +97,17 @@ data Subscribe = Subscribe
 -- SMS sqs -- delivery of JSON-encoded message to an Amazon SQS queue
 -- application -- delivery of JSON-encoded message to an EndpointArn for a
 -- mobile app and device.
-ssyProtocol
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Subscribe
-    -> f Subscribe
+ssyProtocol :: Lens' Subscribe (Text)
 ssyProtocol f x =
-    (\y -> x { _ssyProtocol = y })
-       <$> f (_ssyProtocol x)
+    f (_ssyProtocol x)
+        <&> \y -> x { _ssyProtocol = y }
 {-# INLINE ssyProtocol #-}
 
 -- | The ARN of the topic you want to subscribe to.
-ssyTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Subscribe
-    -> f Subscribe
+ssyTopicArn :: Lens' Subscribe (Text)
 ssyTopicArn f x =
-    (\y -> x { _ssyTopicArn = y })
-       <$> f (_ssyTopicArn x)
+    f (_ssyTopicArn x)
+        <&> \y -> x { _ssyTopicArn = y }
 {-# INLINE ssyTopicArn #-}
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
@@ -128,15 +119,10 @@ ssyTopicArn f x =
 -- protocol, the endpoint is the ARN of an Amazon SQS queue For the
 -- application protocol, the endpoint is the EndpointArn of a mobile app and
 -- device.
-ssyEndpoint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Subscribe
-    -> f Subscribe
+ssyEndpoint :: Lens' Subscribe (Maybe Text)
 ssyEndpoint f x =
-    (\y -> x { _ssyEndpoint = y })
-       <$> f (_ssyEndpoint x)
+    f (_ssyEndpoint x)
+        <&> \y -> x { _ssyEndpoint = y }
 {-# INLINE ssyEndpoint #-}
 
 instance ToQuery Subscribe where
@@ -151,15 +137,10 @@ data SubscribeResponse = SubscribeResponse
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner confirmation).
-sseSubscriptionArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SubscribeResponse
-    -> f SubscribeResponse
+sseSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 sseSubscriptionArn f x =
-    (\y -> x { _sseSubscriptionArn = y })
-       <$> f (_sseSubscriptionArn x)
+    f (_sseSubscriptionArn x)
+        <&> \y -> x { _sseSubscriptionArn = y }
 {-# INLINE sseSubscriptionArn #-}
 
 instance FromXML SubscribeResponse where

@@ -50,6 +50,7 @@ listDomains = ListDomains
     { _ldrMaxNumberOfDomains = Nothing
     , _ldrNextToken = Nothing
     }
+{-# INLINE listDomains #-}
 
 data ListDomains = ListDomains
     { _ldrMaxNumberOfDomains :: Maybe Integer
@@ -62,28 +63,18 @@ data ListDomains = ListDomains
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
-ldrMaxNumberOfDomains
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListDomains
-    -> f ListDomains
+ldrMaxNumberOfDomains :: Lens' ListDomains (Maybe Integer)
 ldrMaxNumberOfDomains f x =
-    (\y -> x { _ldrMaxNumberOfDomains = y })
-       <$> f (_ldrMaxNumberOfDomains x)
+    f (_ldrMaxNumberOfDomains x)
+        <&> \y -> x { _ldrMaxNumberOfDomains = y }
 {-# INLINE ldrMaxNumberOfDomains #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of domain
 -- names.
-ldrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDomains
-    -> f ListDomains
+ldrNextToken :: Lens' ListDomains (Maybe Text)
 ldrNextToken f x =
-    (\y -> x { _ldrNextToken = y })
-       <$> f (_ldrNextToken x)
+    f (_ldrNextToken x)
+        <&> \y -> x { _ldrNextToken = y }
 {-# INLINE ldrNextToken #-}
 
 instance ToQuery ListDomains where
@@ -98,28 +89,18 @@ data ListDomainsResponse = ListDomainsResponse
     } deriving (Show, Generic)
 
 -- | A list of domain names that match the expression.
-ldsDomainNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListDomainsResponse
-    -> f ListDomainsResponse
+ldsDomainNames :: Lens' ListDomainsResponse ([Text])
 ldsDomainNames f x =
-    (\y -> x { _ldsDomainNames = y })
-       <$> f (_ldsDomainNames x)
+    f (_ldsDomainNames x)
+        <&> \y -> x { _ldsDomainNames = y }
 {-# INLINE ldsDomainNames #-}
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
-ldsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListDomainsResponse
-    -> f ListDomainsResponse
+ldsNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldsNextToken f x =
-    (\y -> x { _ldsNextToken = y })
-       <$> f (_ldsNextToken x)
+    f (_ldsNextToken x)
+        <&> \y -> x { _ldsNextToken = y }
 {-# INLINE ldsNextToken #-}
 
 instance FromXML ListDomainsResponse where

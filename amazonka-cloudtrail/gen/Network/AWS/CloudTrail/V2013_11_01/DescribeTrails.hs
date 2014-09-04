@@ -44,6 +44,7 @@ describeTrails :: DescribeTrails
 describeTrails = DescribeTrails
     { _dttTrailNameList = mempty
     }
+{-# INLINE describeTrails #-}
 
 data DescribeTrails = DescribeTrails
     { _dttTrailNameList :: [Text]
@@ -51,15 +52,10 @@ data DescribeTrails = DescribeTrails
     } deriving (Show, Generic)
 
 -- | The trail returned.
-dttTrailNameList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTrails
-    -> f DescribeTrails
+dttTrailNameList :: Lens' DescribeTrails ([Text])
 dttTrailNameList f x =
-    (\y -> x { _dttTrailNameList = y })
-       <$> f (_dttTrailNameList x)
+    f (_dttTrailNameList x)
+        <&> \y -> x { _dttTrailNameList = y }
 {-# INLINE dttTrailNameList #-}
 
 instance ToPath DescribeTrails
@@ -76,15 +72,10 @@ data DescribeTrailsResponse = DescribeTrailsResponse
     } deriving (Show, Generic)
 
 -- | The list of trails.
-dtuTrailList
-    :: Functor f
-    => ([Trail]
-    -> f ([Trail]))
-    -> DescribeTrailsResponse
-    -> f DescribeTrailsResponse
+dtuTrailList :: Lens' DescribeTrailsResponse ([Trail])
 dtuTrailList f x =
-    (\y -> x { _dtuTrailList = y })
-       <$> f (_dtuTrailList x)
+    f (_dtuTrailList x)
+        <&> \y -> x { _dtuTrailList = y }
 {-# INLINE dtuTrailList #-}
 
 instance FromJSON DescribeTrailsResponse

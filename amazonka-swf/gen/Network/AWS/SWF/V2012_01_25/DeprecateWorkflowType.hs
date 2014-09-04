@@ -76,6 +76,7 @@ deprecateWorkflowType p1 p2 = DeprecateWorkflowType
     { _dwtiDomain = p1
     , _dwtiWorkflowType = p2
     }
+{-# INLINE deprecateWorkflowType #-}
 
 data DeprecateWorkflowType = DeprecateWorkflowType
     { _dwtiDomain :: Text
@@ -85,27 +86,17 @@ data DeprecateWorkflowType = DeprecateWorkflowType
     } deriving (Show, Generic)
 
 -- | The name of the domain in which the workflow type is registered.
-dwtiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeprecateWorkflowType
-    -> f DeprecateWorkflowType
+dwtiDomain :: Lens' DeprecateWorkflowType (Text)
 dwtiDomain f x =
-    (\y -> x { _dwtiDomain = y })
-       <$> f (_dwtiDomain x)
+    f (_dwtiDomain x)
+        <&> \y -> x { _dwtiDomain = y }
 {-# INLINE dwtiDomain #-}
 
 -- | The workflow type to deprecate.
-dwtiWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> DeprecateWorkflowType
-    -> f DeprecateWorkflowType
+dwtiWorkflowType :: Lens' DeprecateWorkflowType (WorkflowType)
 dwtiWorkflowType f x =
-    (\y -> x { _dwtiWorkflowType = y })
-       <$> f (_dwtiWorkflowType x)
+    f (_dwtiWorkflowType x)
+        <&> \y -> x { _dwtiWorkflowType = y }
 {-# INLINE dwtiWorkflowType #-}
 
 instance ToPath DeprecateWorkflowType

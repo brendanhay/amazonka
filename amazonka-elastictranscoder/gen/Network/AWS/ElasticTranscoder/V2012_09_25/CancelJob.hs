@@ -56,6 +56,7 @@ cancelJob :: Text -- ^ 'cjrId'
 cancelJob p1 = CancelJob
     { _cjrId = p1
     }
+{-# INLINE cancelJob #-}
 
 data CancelJob = CancelJob
     { _cjrId :: Text
@@ -67,15 +68,10 @@ data CancelJob = CancelJob
 -- | The identifier of the job that you want to cancel. To get a list of the
 -- jobs (including their jobId) that have a status of Submitted, use the
 -- ListJobsByStatus API action.
-cjrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelJob
-    -> f CancelJob
+cjrId :: Lens' CancelJob (Text)
 cjrId f x =
-    (\y -> x { _cjrId = y })
-       <$> f (_cjrId x)
+    f (_cjrId x)
+        <&> \y -> x { _cjrId = y }
 {-# INLINE cjrId #-}
 
 instance ToPath CancelJob where

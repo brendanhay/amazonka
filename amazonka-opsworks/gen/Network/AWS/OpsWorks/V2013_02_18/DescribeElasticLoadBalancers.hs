@@ -49,6 +49,7 @@ describeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbrStackId = Nothing
     , _delbrLayerIds = mempty
     }
+{-# INLINE describeElasticLoadBalancers #-}
 
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbrStackId :: Maybe Text
@@ -61,28 +62,18 @@ data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
 
 -- | A stack ID. The action describes the stack's Elastic Load Balancing
 -- instances.
-delbrStackId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeElasticLoadBalancers
-    -> f DescribeElasticLoadBalancers
+delbrStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
 delbrStackId f x =
-    (\y -> x { _delbrStackId = y })
-       <$> f (_delbrStackId x)
+    f (_delbrStackId x)
+        <&> \y -> x { _delbrStackId = y }
 {-# INLINE delbrStackId #-}
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
-delbrLayerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeElasticLoadBalancers
-    -> f DescribeElasticLoadBalancers
+delbrLayerIds :: Lens' DescribeElasticLoadBalancers ([Text])
 delbrLayerIds f x =
-    (\y -> x { _delbrLayerIds = y })
-       <$> f (_delbrLayerIds x)
+    f (_delbrLayerIds x)
+        <&> \y -> x { _delbrLayerIds = y }
 {-# INLINE delbrLayerIds #-}
 
 instance ToPath DescribeElasticLoadBalancers
@@ -101,15 +92,10 @@ data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
 
 -- | A list of ElasticLoadBalancer objects that describe the specified Elastic
 -- Load Balancing instances.
-delbsElasticLoadBalancers
-    :: Functor f
-    => ([ElasticLoadBalancer]
-    -> f ([ElasticLoadBalancer]))
-    -> DescribeElasticLoadBalancersResponse
-    -> f DescribeElasticLoadBalancersResponse
+delbsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse ([ElasticLoadBalancer])
 delbsElasticLoadBalancers f x =
-    (\y -> x { _delbsElasticLoadBalancers = y })
-       <$> f (_delbsElasticLoadBalancers x)
+    f (_delbsElasticLoadBalancers x)
+        <&> \y -> x { _delbsElasticLoadBalancers = y }
 {-# INLINE delbsElasticLoadBalancers #-}
 
 instance FromJSON DescribeElasticLoadBalancersResponse

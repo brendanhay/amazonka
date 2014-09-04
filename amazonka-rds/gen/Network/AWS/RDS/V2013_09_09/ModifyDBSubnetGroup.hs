@@ -57,6 +57,7 @@ modifyDBSubnetGroup p1 p2 = ModifyDBSubnetGroup
     , _mdbsgmSubnetIds = p2
     , _mdbsgmDBSubnetGroupDescription = Nothing
     }
+{-# INLINE modifyDBSubnetGroup #-}
 
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgmDBSubnetGroupName :: Text
@@ -73,39 +74,24 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Must not be "Default". Example: mySubnetgroup.
-mdbsgmDBSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyDBSubnetGroup
-    -> f ModifyDBSubnetGroup
+mdbsgmDBSubnetGroupName :: Lens' ModifyDBSubnetGroup (Text)
 mdbsgmDBSubnetGroupName f x =
-    (\y -> x { _mdbsgmDBSubnetGroupName = y })
-       <$> f (_mdbsgmDBSubnetGroupName x)
+    f (_mdbsgmDBSubnetGroupName x)
+        <&> \y -> x { _mdbsgmDBSubnetGroupName = y }
 {-# INLINE mdbsgmDBSubnetGroupName #-}
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdbsgmSubnetIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyDBSubnetGroup
-    -> f ModifyDBSubnetGroup
+mdbsgmSubnetIds :: Lens' ModifyDBSubnetGroup ([Text])
 mdbsgmSubnetIds f x =
-    (\y -> x { _mdbsgmSubnetIds = y })
-       <$> f (_mdbsgmSubnetIds x)
+    f (_mdbsgmSubnetIds x)
+        <&> \y -> x { _mdbsgmSubnetIds = y }
 {-# INLINE mdbsgmSubnetIds #-}
 
 -- | The description for the DB subnet group.
-mdbsgmDBSubnetGroupDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyDBSubnetGroup
-    -> f ModifyDBSubnetGroup
+mdbsgmDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdbsgmDBSubnetGroupDescription f x =
-    (\y -> x { _mdbsgmDBSubnetGroupDescription = y })
-       <$> f (_mdbsgmDBSubnetGroupDescription x)
+    f (_mdbsgmDBSubnetGroupDescription x)
+        <&> \y -> x { _mdbsgmDBSubnetGroupDescription = y }
 {-# INLINE mdbsgmDBSubnetGroupDescription #-}
 
 instance ToQuery ModifyDBSubnetGroup where
@@ -123,15 +109,10 @@ data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
 -- DeleteDBSubnetGroup This data type is used as a response element in the
 -- DescribeDBSubnetGroups action.
-dbsgzDBSubnetGroup
-    :: Functor f
-    => (Maybe DBSubnetGroup
-    -> f (Maybe DBSubnetGroup))
-    -> ModifyDBSubnetGroupResponse
-    -> f ModifyDBSubnetGroupResponse
+dbsgzDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 dbsgzDBSubnetGroup f x =
-    (\y -> x { _dbsgzDBSubnetGroup = y })
-       <$> f (_dbsgzDBSubnetGroup x)
+    f (_dbsgzDBSubnetGroup x)
+        <&> \y -> x { _dbsgzDBSubnetGroup = y }
 {-# INLINE dbsgzDBSubnetGroup #-}
 
 instance FromXML ModifyDBSubnetGroupResponse where

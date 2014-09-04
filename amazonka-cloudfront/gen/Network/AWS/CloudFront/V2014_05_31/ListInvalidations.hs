@@ -47,6 +47,7 @@ listInvalidations p1 = ListInvalidations
     , _lirMarker = Nothing
     , _lirMaxItems = Nothing
     }
+{-# INLINE listInvalidations #-}
 
 data ListInvalidations = ListInvalidations
     { _lirDistributionId :: Text
@@ -66,15 +67,10 @@ data ListInvalidations = ListInvalidations
     } deriving (Show, Generic)
 
 -- | The distribution's id.
-lirDistributionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListInvalidations
-    -> f ListInvalidations
+lirDistributionId :: Lens' ListInvalidations (Text)
 lirDistributionId f x =
-    (\y -> x { _lirDistributionId = y })
-       <$> f (_lirDistributionId x)
+    f (_lirDistributionId x)
+        <&> \y -> x { _lirDistributionId = y }
 {-# INLINE lirDistributionId #-}
 
 -- | Use this parameter when paginating results to indicate where to begin in
@@ -84,27 +80,17 @@ lirDistributionId f x =
 -- get the next page of results, set the Marker to the value of the NextMarker
 -- from the current page's response. This value is the same as the ID of the
 -- last invalidation batch on that page.
-lirMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInvalidations
-    -> f ListInvalidations
+lirMarker :: Lens' ListInvalidations (Maybe Text)
 lirMarker f x =
-    (\y -> x { _lirMarker = y })
-       <$> f (_lirMarker x)
+    f (_lirMarker x)
+        <&> \y -> x { _lirMarker = y }
 {-# INLINE lirMarker #-}
 
 -- | The maximum number of invalidation batches you want in the response body.
-lirMaxItems
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInvalidations
-    -> f ListInvalidations
+lirMaxItems :: Lens' ListInvalidations (Maybe Text)
 lirMaxItems f x =
-    (\y -> x { _lirMaxItems = y })
-       <$> f (_lirMaxItems x)
+    f (_lirMaxItems x)
+        <&> \y -> x { _lirMaxItems = y }
 {-# INLINE lirMaxItems #-}
 
 instance ToPath ListInvalidations where
@@ -132,15 +118,10 @@ data ListInvalidationsResponse = ListInvalidationsResponse
     } deriving (Show, Generic)
 
 -- | Information about invalidation batches.
-lisInvalidationList
-    :: Functor f
-    => (InvalidationList
-    -> f (InvalidationList))
-    -> ListInvalidationsResponse
-    -> f ListInvalidationsResponse
+lisInvalidationList :: Lens' ListInvalidationsResponse (InvalidationList)
 lisInvalidationList f x =
-    (\y -> x { _lisInvalidationList = y })
-       <$> f (_lisInvalidationList x)
+    f (_lisInvalidationList x)
+        <&> \y -> x { _lisInvalidationList = y }
 {-# INLINE lisInvalidationList #-}
 
 instance FromXML ListInvalidationsResponse where

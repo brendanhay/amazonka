@@ -67,6 +67,7 @@ describeResize :: Text -- ^ 'drmClusterIdentifier'
 describeResize p1 = DescribeResize
     { _drmClusterIdentifier = p1
     }
+{-# INLINE describeResize #-}
 
 data DescribeResize = DescribeResize
     { _drmClusterIdentifier :: Text
@@ -79,15 +80,10 @@ data DescribeResize = DescribeResize
 -- | The unique identifier of a cluster whose resize progress you are
 -- requesting. This parameter isn't case-sensitive. By default, resize
 -- operations for all clusters defined for an AWS account are returned.
-drmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeResize
-    -> f DescribeResize
+drmClusterIdentifier :: Lens' DescribeResize (Text)
 drmClusterIdentifier f x =
-    (\y -> x { _drmClusterIdentifier = y })
-       <$> f (_drmClusterIdentifier x)
+    f (_drmClusterIdentifier x)
+        <&> \y -> x { _drmClusterIdentifier = y }
 {-# INLINE drmClusterIdentifier #-}
 
 instance ToQuery DescribeResize where
@@ -146,80 +142,50 @@ data DescribeResizeResponse = DescribeResizeResponse
 -- | The average rate of the resize operation over the last few minutes,
 -- measured in megabytes per second. After the resize operation completes,
 -- this value shows the average rate of the entire resize operation.
-rpmAvgResizeRateInMegaBytesPerSecond
-    :: Functor f
-    => (Maybe Double
-    -> f (Maybe Double))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmAvgResizeRateInMegaBytesPerSecond :: Lens' DescribeResizeResponse (Maybe Double)
 rpmAvgResizeRateInMegaBytesPerSecond f x =
-    (\y -> x { _rpmAvgResizeRateInMegaBytesPerSecond = y })
-       <$> f (_rpmAvgResizeRateInMegaBytesPerSecond x)
+    f (_rpmAvgResizeRateInMegaBytesPerSecond x)
+        <&> \y -> x { _rpmAvgResizeRateInMegaBytesPerSecond = y }
 {-# INLINE rpmAvgResizeRateInMegaBytesPerSecond #-}
 
 -- | The names of tables that have been completely imported . Valid Values: List
 -- of table names.
-rpmImportTablesCompleted
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmImportTablesCompleted :: Lens' DescribeResizeResponse ([Text])
 rpmImportTablesCompleted f x =
-    (\y -> x { _rpmImportTablesCompleted = y })
-       <$> f (_rpmImportTablesCompleted x)
+    f (_rpmImportTablesCompleted x)
+        <&> \y -> x { _rpmImportTablesCompleted = y }
 {-# INLINE rpmImportTablesCompleted #-}
 
 -- | The names of tables that are being currently imported. Valid Values: List
 -- of table names.
-rpmImportTablesInProgress
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmImportTablesInProgress :: Lens' DescribeResizeResponse ([Text])
 rpmImportTablesInProgress f x =
-    (\y -> x { _rpmImportTablesInProgress = y })
-       <$> f (_rpmImportTablesInProgress x)
+    f (_rpmImportTablesInProgress x)
+        <&> \y -> x { _rpmImportTablesInProgress = y }
 {-# INLINE rpmImportTablesInProgress #-}
 
 -- | The names of tables that have not been yet imported. Valid Values: List of
 -- table names.
-rpmImportTablesNotStarted
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmImportTablesNotStarted :: Lens' DescribeResizeResponse ([Text])
 rpmImportTablesNotStarted f x =
-    (\y -> x { _rpmImportTablesNotStarted = y })
-       <$> f (_rpmImportTablesNotStarted x)
+    f (_rpmImportTablesNotStarted x)
+        <&> \y -> x { _rpmImportTablesNotStarted = y }
 {-# INLINE rpmImportTablesNotStarted #-}
 
 -- | The number of nodes that the cluster will have after the resize operation
 -- is complete.
-rpmTargetNumberOfNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmTargetNumberOfNodes :: Lens' DescribeResizeResponse (Maybe Integer)
 rpmTargetNumberOfNodes f x =
-    (\y -> x { _rpmTargetNumberOfNodes = y })
-       <$> f (_rpmTargetNumberOfNodes x)
+    f (_rpmTargetNumberOfNodes x)
+        <&> \y -> x { _rpmTargetNumberOfNodes = y }
 {-# INLINE rpmTargetNumberOfNodes #-}
 
 -- | The estimated total amount of data, in megabytes, on the cluster before the
 -- resize operation began.
-rpmTotalResizeDataInMegaBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmTotalResizeDataInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 rpmTotalResizeDataInMegaBytes f x =
-    (\y -> x { _rpmTotalResizeDataInMegaBytes = y })
-       <$> f (_rpmTotalResizeDataInMegaBytes x)
+    f (_rpmTotalResizeDataInMegaBytes x)
+        <&> \y -> x { _rpmTotalResizeDataInMegaBytes = y }
 {-# INLINE rpmTotalResizeDataInMegaBytes #-}
 
 -- | While the resize operation is in progress, this value shows the current
@@ -228,83 +194,53 @@ rpmTotalResizeDataInMegaBytes f x =
 -- megabytes, on the cluster, which may be more or less than
 -- TotalResizeDataInMegaBytes (the estimated total amount of data before
 -- resize).
-rpmProgressInMegaBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmProgressInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 rpmProgressInMegaBytes f x =
-    (\y -> x { _rpmProgressInMegaBytes = y })
-       <$> f (_rpmProgressInMegaBytes x)
+    f (_rpmProgressInMegaBytes x)
+        <&> \y -> x { _rpmProgressInMegaBytes = y }
 {-# INLINE rpmProgressInMegaBytes #-}
 
 -- | The amount of seconds that have elapsed since the resize operation began.
 -- After the resize operation completes, this value shows the total actual
 -- time, in seconds, for the resize operation.
-rpmElapsedTimeInSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 rpmElapsedTimeInSeconds f x =
-    (\y -> x { _rpmElapsedTimeInSeconds = y })
-       <$> f (_rpmElapsedTimeInSeconds x)
+    f (_rpmElapsedTimeInSeconds x)
+        <&> \y -> x { _rpmElapsedTimeInSeconds = y }
 {-# INLINE rpmElapsedTimeInSeconds #-}
 
 -- | The estimated time remaining, in seconds, until the resize operation is
 -- complete. This value is calculated based on the average resize rate and the
 -- estimated amount of data remaining to be processed. Once the resize
 -- operation is complete, this value will be 0.
-rpmEstimatedTimeToCompletionInSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmEstimatedTimeToCompletionInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 rpmEstimatedTimeToCompletionInSeconds f x =
-    (\y -> x { _rpmEstimatedTimeToCompletionInSeconds = y })
-       <$> f (_rpmEstimatedTimeToCompletionInSeconds x)
+    f (_rpmEstimatedTimeToCompletionInSeconds x)
+        <&> \y -> x { _rpmEstimatedTimeToCompletionInSeconds = y }
 {-# INLINE rpmEstimatedTimeToCompletionInSeconds #-}
 
 -- | The node type that the cluster will have after the resize operation is
 -- complete.
-rpmTargetNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmTargetNodeType :: Lens' DescribeResizeResponse (Maybe Text)
 rpmTargetNodeType f x =
-    (\y -> x { _rpmTargetNodeType = y })
-       <$> f (_rpmTargetNodeType x)
+    f (_rpmTargetNodeType x)
+        <&> \y -> x { _rpmTargetNodeType = y }
 {-# INLINE rpmTargetNodeType #-}
 
 -- | The cluster type after the resize operation is complete. Valid Values:
 -- multi-node | single-node.
-rpmTargetClusterType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 rpmTargetClusterType f x =
-    (\y -> x { _rpmTargetClusterType = y })
-       <$> f (_rpmTargetClusterType x)
+    f (_rpmTargetClusterType x)
+        <&> \y -> x { _rpmTargetClusterType = y }
 {-# INLINE rpmTargetClusterType #-}
 
 -- | The status of the resize operation. Valid Values: NONE | IN_PROGRESS |
 -- FAILED | SUCCEEDED.
-rpmStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeResizeResponse
-    -> f DescribeResizeResponse
+rpmStatus :: Lens' DescribeResizeResponse (Maybe Text)
 rpmStatus f x =
-    (\y -> x { _rpmStatus = y })
-       <$> f (_rpmStatus x)
+    f (_rpmStatus x)
+        <&> \y -> x { _rpmStatus = y }
 {-# INLINE rpmStatus #-}
 
 instance FromXML DescribeResizeResponse where

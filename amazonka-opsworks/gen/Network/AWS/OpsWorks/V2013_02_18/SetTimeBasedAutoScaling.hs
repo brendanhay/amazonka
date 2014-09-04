@@ -49,6 +49,7 @@ setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     { _stbasrInstanceId = p1
     , _stbasrAutoScalingSchedule = Nothing
     }
+{-# INLINE setTimeBasedAutoScaling #-}
 
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     { _stbasrInstanceId :: Text
@@ -58,27 +59,17 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     } deriving (Show, Generic)
 
 -- | The instance ID.
-stbasrInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetTimeBasedAutoScaling
-    -> f SetTimeBasedAutoScaling
+stbasrInstanceId :: Lens' SetTimeBasedAutoScaling (Text)
 stbasrInstanceId f x =
-    (\y -> x { _stbasrInstanceId = y })
-       <$> f (_stbasrInstanceId x)
+    f (_stbasrInstanceId x)
+        <&> \y -> x { _stbasrInstanceId = y }
 {-# INLINE stbasrInstanceId #-}
 
 -- | An AutoScalingSchedule with the instance schedule.
-stbasrAutoScalingSchedule
-    :: Functor f
-    => (Maybe WeeklyAutoScalingSchedule
-    -> f (Maybe WeeklyAutoScalingSchedule))
-    -> SetTimeBasedAutoScaling
-    -> f SetTimeBasedAutoScaling
+stbasrAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasrAutoScalingSchedule f x =
-    (\y -> x { _stbasrAutoScalingSchedule = y })
-       <$> f (_stbasrAutoScalingSchedule x)
+    f (_stbasrAutoScalingSchedule x)
+        <&> \y -> x { _stbasrAutoScalingSchedule = y }
 {-# INLINE stbasrAutoScalingSchedule #-}
 
 instance ToPath SetTimeBasedAutoScaling

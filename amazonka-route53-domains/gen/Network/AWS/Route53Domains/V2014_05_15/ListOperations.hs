@@ -64,6 +64,7 @@ listOperations = ListOperations
     { _lorMarker = Nothing
     , _lorMaxItems = Nothing
     }
+{-# INLINE listOperations #-}
 
 data ListOperations = ListOperations
     { _lorMarker :: Maybe Text
@@ -85,28 +86,18 @@ data ListOperations = ListOperations
 -- operations. Get the value of NextPageMarker from the previous response, and
 -- submit another request that includes the value of NextPageMarker in the
 -- Marker element. Type: String Default: None Required: No.
-lorMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListOperations
-    -> f ListOperations
+lorMarker :: Lens' ListOperations (Maybe Text)
 lorMarker f x =
-    (\y -> x { _lorMarker = y })
-       <$> f (_lorMarker x)
+    f (_lorMarker x)
+        <&> \y -> x { _lorMarker = y }
 {-# INLINE lorMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- value between 1 and 100. Required: No.
-lorMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListOperations
-    -> f ListOperations
+lorMaxItems :: Lens' ListOperations (Maybe Integer)
 lorMaxItems f x =
-    (\y -> x { _lorMaxItems = y })
-       <$> f (_lorMaxItems x)
+    f (_lorMaxItems x)
+        <&> \y -> x { _lorMaxItems = y }
 {-# INLINE lorMaxItems #-}
 
 instance ToPath ListOperations
@@ -131,29 +122,19 @@ data ListOperationsResponse = ListOperationsResponse
 
 -- | Lists summaries of the operations. Type: Complex type containing a list of
 -- operation summaries Children: OperationId, Status, SubmittedDate, Type.
-losOperations
-    :: Functor f
-    => ([OperationSummary]
-    -> f ([OperationSummary]))
-    -> ListOperationsResponse
-    -> f ListOperationsResponse
+losOperations :: Lens' ListOperationsResponse ([OperationSummary])
 losOperations f x =
-    (\y -> x { _losOperations = y })
-       <$> f (_losOperations x)
+    f (_losOperations x)
+        <&> \y -> x { _losOperations = y }
 {-# INLINE losOperations #-}
 
 -- | If there are more operations than you specified for MaxItems in the
 -- request, submit another request and include the value of NextPageMarker in
 -- the value of Marker. Type: String Parent: Operations.
-losNextPageMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListOperationsResponse
-    -> f ListOperationsResponse
+losNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 losNextPageMarker f x =
-    (\y -> x { _losNextPageMarker = y })
-       <$> f (_losNextPageMarker x)
+    f (_losNextPageMarker x)
+        <&> \y -> x { _losNextPageMarker = y }
 {-# INLINE losNextPageMarker #-}
 
 instance FromJSON ListOperationsResponse

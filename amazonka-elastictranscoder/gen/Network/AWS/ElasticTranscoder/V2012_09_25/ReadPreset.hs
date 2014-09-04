@@ -70,6 +70,7 @@ readPreset :: Text -- ^ 'rptId'
 readPreset p1 = ReadPreset
     { _rptId = p1
     }
+{-# INLINE readPreset #-}
 
 data ReadPreset = ReadPreset
     { _rptId :: Text
@@ -79,15 +80,10 @@ data ReadPreset = ReadPreset
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-rptId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReadPreset
-    -> f ReadPreset
+rptId :: Lens' ReadPreset (Text)
 rptId f x =
-    (\y -> x { _rptId = y })
-       <$> f (_rptId x)
+    f (_rptId x)
+        <&> \y -> x { _rptId = y }
 {-# INLINE rptId #-}
 
 instance ToPath ReadPreset where
@@ -109,15 +105,10 @@ data ReadPresetResponse = ReadPresetResponse
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the preset.
-rpuPreset
-    :: Functor f
-    => (Maybe Preset
-    -> f (Maybe Preset))
-    -> ReadPresetResponse
-    -> f ReadPresetResponse
+rpuPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rpuPreset f x =
-    (\y -> x { _rpuPreset = y })
-       <$> f (_rpuPreset x)
+    f (_rpuPreset x)
+        <&> \y -> x { _rpuPreset = y }
 {-# INLINE rpuPreset #-}
 
 instance FromJSON ReadPresetResponse

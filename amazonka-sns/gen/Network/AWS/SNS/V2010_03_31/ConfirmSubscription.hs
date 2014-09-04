@@ -66,6 +66,7 @@ confirmSubscription p1 p2 = ConfirmSubscription
     , _csiTopicArn = p2
     , _csiAuthenticateOnUnsubscribe = Nothing
     }
+{-# INLINE confirmSubscription #-}
 
 data ConfirmSubscription = ConfirmSubscription
     { _csiToken :: Text
@@ -83,42 +84,27 @@ data ConfirmSubscription = ConfirmSubscription
     } deriving (Show, Generic)
 
 -- | Short-lived token sent to an endpoint during the Subscribe action.
-csiToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmSubscription
-    -> f ConfirmSubscription
+csiToken :: Lens' ConfirmSubscription (Text)
 csiToken f x =
-    (\y -> x { _csiToken = y })
-       <$> f (_csiToken x)
+    f (_csiToken x)
+        <&> \y -> x { _csiToken = y }
 {-# INLINE csiToken #-}
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmSubscription
-    -> f ConfirmSubscription
+csiTopicArn :: Lens' ConfirmSubscription (Text)
 csiTopicArn f x =
-    (\y -> x { _csiTopicArn = y })
-       <$> f (_csiTopicArn x)
+    f (_csiTopicArn x)
+        <&> \y -> x { _csiTopicArn = y }
 {-# INLINE csiTopicArn #-}
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of
 -- this parameter is true and the request has an AWS signature, then only the
 -- topic owner and the subscription owner can unsubscribe the endpoint. The
 -- unsubscribe action requires AWS authentication.
-csiAuthenticateOnUnsubscribe
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfirmSubscription
-    -> f ConfirmSubscription
+csiAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
 csiAuthenticateOnUnsubscribe f x =
-    (\y -> x { _csiAuthenticateOnUnsubscribe = y })
-       <$> f (_csiAuthenticateOnUnsubscribe x)
+    f (_csiAuthenticateOnUnsubscribe x)
+        <&> \y -> x { _csiAuthenticateOnUnsubscribe = y }
 {-# INLINE csiAuthenticateOnUnsubscribe #-}
 
 instance ToQuery ConfirmSubscription where
@@ -130,15 +116,10 @@ data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     } deriving (Show, Generic)
 
 -- | The ARN of the created subscription.
-csrSubscriptionArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfirmSubscriptionResponse
-    -> f ConfirmSubscriptionResponse
+csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionArn f x =
-    (\y -> x { _csrSubscriptionArn = y })
-       <$> f (_csrSubscriptionArn x)
+    f (_csrSubscriptionArn x)
+        <&> \y -> x { _csrSubscriptionArn = y }
 {-# INLINE csrSubscriptionArn #-}
 
 instance FromXML ConfirmSubscriptionResponse where

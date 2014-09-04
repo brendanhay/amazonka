@@ -49,6 +49,7 @@ describeEventSubscriptions = DescribeEventSubscriptions
     , _desnSubscriptionName = Nothing
     , _desnMarker = Nothing
     }
+{-# INLINE describeEventSubscriptions #-}
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
     { _desnMaxRecords :: Maybe Integer
@@ -76,28 +77,18 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-desnMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEventSubscriptions
-    -> f DescribeEventSubscriptions
+desnMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Integer)
 desnMaxRecords f x =
-    (\y -> x { _desnMaxRecords = y })
-       <$> f (_desnMaxRecords x)
+    f (_desnMaxRecords x)
+        <&> \y -> x { _desnMaxRecords = y }
 {-# INLINE desnMaxRecords #-}
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
-desnSubscriptionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventSubscriptions
-    -> f DescribeEventSubscriptions
+desnSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 desnSubscriptionName f x =
-    (\y -> x { _desnSubscriptionName = y })
-       <$> f (_desnSubscriptionName x)
+    f (_desnSubscriptionName x)
+        <&> \y -> x { _desnSubscriptionName = y }
 {-# INLINE desnSubscriptionName #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -106,15 +97,10 @@ desnSubscriptionName f x =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-desnMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventSubscriptions
-    -> f DescribeEventSubscriptions
+desnMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 desnMarker f x =
-    (\y -> x { _desnMarker = y })
-       <$> f (_desnMarker x)
+    f (_desnMarker x)
+        <&> \y -> x { _desnMarker = y }
 {-# INLINE desnMarker #-}
 
 instance ToQuery DescribeEventSubscriptions where
@@ -133,15 +119,10 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     } deriving (Show, Generic)
 
 -- | A list of event subscriptions.
-esmEventSubscriptionsList
-    :: Functor f
-    => ([EventSubscription]
-    -> f ([EventSubscription]))
-    -> DescribeEventSubscriptionsResponse
-    -> f DescribeEventSubscriptionsResponse
+esmEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse ([EventSubscription])
 esmEventSubscriptionsList f x =
-    (\y -> x { _esmEventSubscriptionsList = y })
-       <$> f (_esmEventSubscriptionsList x)
+    f (_esmEventSubscriptionsList x)
+        <&> \y -> x { _esmEventSubscriptionsList = y }
 {-# INLINE esmEventSubscriptionsList #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -149,15 +130,10 @@ esmEventSubscriptionsList f x =
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-esmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventSubscriptionsResponse
-    -> f DescribeEventSubscriptionsResponse
+esmMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 esmMarker f x =
-    (\y -> x { _esmMarker = y })
-       <$> f (_esmMarker x)
+    f (_esmMarker x)
+        <&> \y -> x { _esmMarker = y }
 {-# INLINE esmMarker #-}
 
 instance FromXML DescribeEventSubscriptionsResponse where

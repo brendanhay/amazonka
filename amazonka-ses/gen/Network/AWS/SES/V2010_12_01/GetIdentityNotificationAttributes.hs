@@ -60,6 +60,7 @@ getIdentityNotificationAttributes :: [Text] -- ^ 'ginarIdentities'
 getIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
     { _ginarIdentities = p1
     }
+{-# INLINE getIdentityNotificationAttributes #-}
 
 data GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginarIdentities :: [Text]
@@ -67,15 +68,10 @@ data GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     } deriving (Show, Generic)
 
 -- | A list of one or more identities.
-ginarIdentities
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> GetIdentityNotificationAttributes
-    -> f GetIdentityNotificationAttributes
+ginarIdentities :: Lens' GetIdentityNotificationAttributes ([Text])
 ginarIdentities f x =
-    (\y -> x { _ginarIdentities = y })
-       <$> f (_ginarIdentities x)
+    f (_ginarIdentities x)
+        <&> \y -> x { _ginarIdentities = y }
 {-# INLINE ginarIdentities #-}
 
 instance ToQuery GetIdentityNotificationAttributes where
@@ -87,15 +83,10 @@ data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttribut
     } deriving (Show, Generic)
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginasNotificationAttributes
-    :: Functor f
-    => (Map Text IdentityNotificationAttributes
-    -> f (Map Text IdentityNotificationAttributes))
-    -> GetIdentityNotificationAttributesResponse
-    -> f GetIdentityNotificationAttributesResponse
+ginasNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
 ginasNotificationAttributes f x =
-    (\y -> x { _ginasNotificationAttributes = y })
-       <$> f (_ginasNotificationAttributes x)
+    f (_ginasNotificationAttributes x)
+        <&> \y -> x { _ginasNotificationAttributes = y }
 {-# INLINE ginasNotificationAttributes #-}
 
 instance FromXML GetIdentityNotificationAttributesResponse where

@@ -56,6 +56,7 @@ copyDBSnapshot p1 p2 = CopyDBSnapshot
     , _cdbsmTargetDBSnapshotIdentifier = p2
     , _cdbsmTags = mempty
     }
+{-# INLINE copyDBSnapshot #-}
 
 data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsmSourceDBSnapshotIdentifier :: Text
@@ -86,42 +87,27 @@ data CopyDBSnapshot = CopyDBSnapshot
 -- Example: rds:mydb-2012-04-02-00-01 Example:
 -- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
 -- 
-cdbsmSourceDBSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyDBSnapshot
-    -> f CopyDBSnapshot
+cdbsmSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot (Text)
 cdbsmSourceDBSnapshotIdentifier f x =
-    (\y -> x { _cdbsmSourceDBSnapshotIdentifier = y })
-       <$> f (_cdbsmSourceDBSnapshotIdentifier x)
+    f (_cdbsmSourceDBSnapshotIdentifier x)
+        <&> \y -> x { _cdbsmSourceDBSnapshotIdentifier = y }
 {-# INLINE cdbsmSourceDBSnapshotIdentifier #-}
 
 -- | The identifier for the copied snapshot. Constraints: Cannot be null, empty,
 -- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: my-db-snapshot.
-cdbsmTargetDBSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyDBSnapshot
-    -> f CopyDBSnapshot
+cdbsmTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot (Text)
 cdbsmTargetDBSnapshotIdentifier f x =
-    (\y -> x { _cdbsmTargetDBSnapshotIdentifier = y })
-       <$> f (_cdbsmTargetDBSnapshotIdentifier x)
+    f (_cdbsmTargetDBSnapshotIdentifier x)
+        <&> \y -> x { _cdbsmTargetDBSnapshotIdentifier = y }
 {-# INLINE cdbsmTargetDBSnapshotIdentifier #-}
 
 -- | A list of tags.
-cdbsmTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CopyDBSnapshot
-    -> f CopyDBSnapshot
+cdbsmTags :: Lens' CopyDBSnapshot ([Tag])
 cdbsmTags f x =
-    (\y -> x { _cdbsmTags = y })
-       <$> f (_cdbsmTags x)
+    f (_cdbsmTags x)
+        <&> \y -> x { _cdbsmTags = y }
 {-# INLINE cdbsmTags #-}
 
 instance ToQuery CopyDBSnapshot where
@@ -137,15 +123,10 @@ data CopyDBSnapshotResponse = CopyDBSnapshotResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
-dbswDBSnapshot
-    :: Functor f
-    => (Maybe DBSnapshot
-    -> f (Maybe DBSnapshot))
-    -> CopyDBSnapshotResponse
-    -> f CopyDBSnapshotResponse
+dbswDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 dbswDBSnapshot f x =
-    (\y -> x { _dbswDBSnapshot = y })
-       <$> f (_dbswDBSnapshot x)
+    f (_dbswDBSnapshot x)
+        <&> \y -> x { _dbswDBSnapshot = y }
 {-# INLINE dbswDBSnapshot #-}
 
 instance FromXML CopyDBSnapshotResponse where

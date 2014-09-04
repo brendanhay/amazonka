@@ -44,6 +44,7 @@ updateMyUserProfile :: UpdateMyUserProfile
 updateMyUserProfile = UpdateMyUserProfile
     { _umuprSshPublicKey = Nothing
     }
+{-# INLINE updateMyUserProfile #-}
 
 data UpdateMyUserProfile = UpdateMyUserProfile
     { _umuprSshPublicKey :: Maybe Text
@@ -51,15 +52,10 @@ data UpdateMyUserProfile = UpdateMyUserProfile
     } deriving (Show, Generic)
 
 -- | The user's SSH public key.
-umuprSshPublicKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateMyUserProfile
-    -> f UpdateMyUserProfile
+umuprSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umuprSshPublicKey f x =
-    (\y -> x { _umuprSshPublicKey = y })
-       <$> f (_umuprSshPublicKey x)
+    f (_umuprSshPublicKey x)
+        <&> \y -> x { _umuprSshPublicKey = y }
 {-# INLINE umuprSshPublicKey #-}
 
 instance ToPath UpdateMyUserProfile

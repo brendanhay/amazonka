@@ -58,6 +58,7 @@ rebootCluster :: Text -- ^ 'rcoClusterIdentifier'
 rebootCluster p1 = RebootCluster
     { _rcoClusterIdentifier = p1
     }
+{-# INLINE rebootCluster #-}
 
 data RebootCluster = RebootCluster
     { _rcoClusterIdentifier :: Text
@@ -65,15 +66,10 @@ data RebootCluster = RebootCluster
     } deriving (Show, Generic)
 
 -- | The cluster identifier.
-rcoClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RebootCluster
-    -> f RebootCluster
+rcoClusterIdentifier :: Lens' RebootCluster (Text)
 rcoClusterIdentifier f x =
-    (\y -> x { _rcoClusterIdentifier = y })
-       <$> f (_rcoClusterIdentifier x)
+    f (_rcoClusterIdentifier x)
+        <&> \y -> x { _rcoClusterIdentifier = y }
 {-# INLINE rcoClusterIdentifier #-}
 
 instance ToQuery RebootCluster where
@@ -85,15 +81,10 @@ data RebootClusterResponse = RebootClusterResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccwCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> RebootClusterResponse
-    -> f RebootClusterResponse
+ccwCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 ccwCluster f x =
-    (\y -> x { _ccwCluster = y })
-       <$> f (_ccwCluster x)
+    f (_ccwCluster x)
+        <&> \y -> x { _ccwCluster = y }
 {-# INLINE ccwCluster #-}
 
 instance FromXML RebootClusterResponse where

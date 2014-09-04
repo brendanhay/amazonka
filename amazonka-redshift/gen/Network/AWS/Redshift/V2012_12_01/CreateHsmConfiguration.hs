@@ -65,6 +65,7 @@ createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     , _chcmHsmPartitionPassword = p5
     , _chcmHsmServerPublicCertificate = p6
     }
+{-# INLINE createHsmConfiguration #-}
 
 data CreateHsmConfiguration = CreateHsmConfiguration
     { _chcmHsmConfigurationIdentifier :: Text
@@ -86,77 +87,47 @@ data CreateHsmConfiguration = CreateHsmConfiguration
     } deriving (Show, Generic)
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
-chcmHsmConfigurationIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmConfiguration
-    -> f CreateHsmConfiguration
+chcmHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration (Text)
 chcmHsmConfigurationIdentifier f x =
-    (\y -> x { _chcmHsmConfigurationIdentifier = y })
-       <$> f (_chcmHsmConfigurationIdentifier x)
+    f (_chcmHsmConfigurationIdentifier x)
+        <&> \y -> x { _chcmHsmConfigurationIdentifier = y }
 {-# INLINE chcmHsmConfigurationIdentifier #-}
 
 -- | A text description of the HSM configuration to be created.
-chcmDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmConfiguration
-    -> f CreateHsmConfiguration
+chcmDescription :: Lens' CreateHsmConfiguration (Text)
 chcmDescription f x =
-    (\y -> x { _chcmDescription = y })
-       <$> f (_chcmDescription x)
+    f (_chcmDescription x)
+        <&> \y -> x { _chcmDescription = y }
 {-# INLINE chcmDescription #-}
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
-chcmHsmIpAddress
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmConfiguration
-    -> f CreateHsmConfiguration
+chcmHsmIpAddress :: Lens' CreateHsmConfiguration (Text)
 chcmHsmIpAddress f x =
-    (\y -> x { _chcmHsmIpAddress = y })
-       <$> f (_chcmHsmIpAddress x)
+    f (_chcmHsmIpAddress x)
+        <&> \y -> x { _chcmHsmIpAddress = y }
 {-# INLINE chcmHsmIpAddress #-}
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
-chcmHsmPartitionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmConfiguration
-    -> f CreateHsmConfiguration
+chcmHsmPartitionName :: Lens' CreateHsmConfiguration (Text)
 chcmHsmPartitionName f x =
-    (\y -> x { _chcmHsmPartitionName = y })
-       <$> f (_chcmHsmPartitionName x)
+    f (_chcmHsmPartitionName x)
+        <&> \y -> x { _chcmHsmPartitionName = y }
 {-# INLINE chcmHsmPartitionName #-}
 
 -- | The password required to access the HSM partition.
-chcmHsmPartitionPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmConfiguration
-    -> f CreateHsmConfiguration
+chcmHsmPartitionPassword :: Lens' CreateHsmConfiguration (Text)
 chcmHsmPartitionPassword f x =
-    (\y -> x { _chcmHsmPartitionPassword = y })
-       <$> f (_chcmHsmPartitionPassword x)
+    f (_chcmHsmPartitionPassword x)
+        <&> \y -> x { _chcmHsmPartitionPassword = y }
 {-# INLINE chcmHsmPartitionPassword #-}
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
-chcmHsmServerPublicCertificate
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateHsmConfiguration
-    -> f CreateHsmConfiguration
+chcmHsmServerPublicCertificate :: Lens' CreateHsmConfiguration (Text)
 chcmHsmServerPublicCertificate f x =
-    (\y -> x { _chcmHsmServerPublicCertificate = y })
-       <$> f (_chcmHsmServerPublicCertificate x)
+    f (_chcmHsmServerPublicCertificate x)
+        <&> \y -> x { _chcmHsmServerPublicCertificate = y }
 {-# INLINE chcmHsmServerPublicCertificate #-}
 
 instance ToQuery CreateHsmConfiguration where
@@ -173,15 +144,10 @@ data CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to
 -- connect to an HSM where they can store database encryption keys.
-hcwHsmConfiguration
-    :: Functor f
-    => (Maybe HsmConfiguration
-    -> f (Maybe HsmConfiguration))
-    -> CreateHsmConfigurationResponse
-    -> f CreateHsmConfigurationResponse
+hcwHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
 hcwHsmConfiguration f x =
-    (\y -> x { _hcwHsmConfiguration = y })
-       <$> f (_hcwHsmConfiguration x)
+    f (_hcwHsmConfiguration x)
+        <&> \y -> x { _hcwHsmConfiguration = y }
 {-# INLINE hcwHsmConfiguration #-}
 
 instance FromXML CreateHsmConfigurationResponse where

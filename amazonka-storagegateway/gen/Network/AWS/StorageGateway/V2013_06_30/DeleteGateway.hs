@@ -68,6 +68,7 @@ deleteGateway :: Text -- ^ 'dgiGatewayARN'
 deleteGateway p1 = DeleteGateway
     { _dgiGatewayARN = p1
     }
+{-# INLINE deleteGateway #-}
 
 data DeleteGateway = DeleteGateway
     { _dgiGatewayARN :: Text
@@ -78,15 +79,10 @@ data DeleteGateway = DeleteGateway
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteGateway
-    -> f DeleteGateway
+dgiGatewayARN :: Lens' DeleteGateway (Text)
 dgiGatewayARN f x =
-    (\y -> x { _dgiGatewayARN = y })
-       <$> f (_dgiGatewayARN x)
+    f (_dgiGatewayARN x)
+        <&> \y -> x { _dgiGatewayARN = y }
 {-# INLINE dgiGatewayARN #-}
 
 instance ToPath DeleteGateway
@@ -106,15 +102,10 @@ data DeleteGatewayResponse = DeleteGatewayResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteGatewayResponse
-    -> f DeleteGatewayResponse
+dgoGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgoGatewayARN f x =
-    (\y -> x { _dgoGatewayARN = y })
-       <$> f (_dgoGatewayARN x)
+    f (_dgoGatewayARN x)
+        <&> \y -> x { _dgoGatewayARN = y }
 {-# INLINE dgoGatewayARN #-}
 
 instance FromJSON DeleteGatewayResponse

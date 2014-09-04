@@ -69,6 +69,7 @@ listStreams = ListStreams
     { _lsiLimit = Nothing
     , _lsiExclusiveStartStreamName = Nothing
     }
+{-# INLINE listStreams #-}
 
 data ListStreams = ListStreams
     { _lsiLimit :: Maybe Integer
@@ -78,27 +79,17 @@ data ListStreams = ListStreams
     } deriving (Show, Generic)
 
 -- | The maximum number of streams to list.
-lsiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListStreams
-    -> f ListStreams
+lsiLimit :: Lens' ListStreams (Maybe Integer)
 lsiLimit f x =
-    (\y -> x { _lsiLimit = y })
-       <$> f (_lsiLimit x)
+    f (_lsiLimit x)
+        <&> \y -> x { _lsiLimit = y }
 {-# INLINE lsiLimit #-}
 
 -- | The name of the stream to start the list with.
-lsiExclusiveStartStreamName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListStreams
-    -> f ListStreams
+lsiExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
 lsiExclusiveStartStreamName f x =
-    (\y -> x { _lsiExclusiveStartStreamName = y })
-       <$> f (_lsiExclusiveStartStreamName x)
+    f (_lsiExclusiveStartStreamName x)
+        <&> \y -> x { _lsiExclusiveStartStreamName = y }
 {-# INLINE lsiExclusiveStartStreamName #-}
 
 instance ToPath ListStreams
@@ -118,28 +109,18 @@ data ListStreamsResponse = ListStreamsResponse
     } deriving (Show, Generic)
 
 -- | If set to true, there are more streams available to list.
-lsoHasMoreStreams
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListStreamsResponse
-    -> f ListStreamsResponse
+lsoHasMoreStreams :: Lens' ListStreamsResponse (Bool)
 lsoHasMoreStreams f x =
-    (\y -> x { _lsoHasMoreStreams = y })
-       <$> f (_lsoHasMoreStreams x)
+    f (_lsoHasMoreStreams x)
+        <&> \y -> x { _lsoHasMoreStreams = y }
 {-# INLINE lsoHasMoreStreams #-}
 
 -- | The names of the streams that are associated with the AWS account making
 -- the ListStreams request.
-lsoStreamNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListStreamsResponse
-    -> f ListStreamsResponse
+lsoStreamNames :: Lens' ListStreamsResponse ([Text])
 lsoStreamNames f x =
-    (\y -> x { _lsoStreamNames = y })
-       <$> f (_lsoStreamNames x)
+    f (_lsoStreamNames x)
+        <&> \y -> x { _lsoStreamNames = y }
 {-# INLINE lsoStreamNames #-}
 
 instance FromJSON ListStreamsResponse

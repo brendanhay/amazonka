@@ -68,6 +68,7 @@ getTopicAttributes :: Text -- ^ 'gtaiTopicArn'
 getTopicAttributes p1 = GetTopicAttributes
     { _gtaiTopicArn = p1
     }
+{-# INLINE getTopicAttributes #-}
 
 data GetTopicAttributes = GetTopicAttributes
     { _gtaiTopicArn :: Text
@@ -75,15 +76,10 @@ data GetTopicAttributes = GetTopicAttributes
     } deriving (Show, Generic)
 
 -- | The ARN of the topic whose properties you want to get.
-gtaiTopicArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetTopicAttributes
-    -> f GetTopicAttributes
+gtaiTopicArn :: Lens' GetTopicAttributes (Text)
 gtaiTopicArn f x =
-    (\y -> x { _gtaiTopicArn = y })
-       <$> f (_gtaiTopicArn x)
+    f (_gtaiTopicArn x)
+        <&> \y -> x { _gtaiTopicArn = y }
 {-# INLINE gtaiTopicArn #-}
 
 instance ToQuery GetTopicAttributes where
@@ -118,15 +114,10 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse
 -- on this topic DeliveryPolicy -- the JSON serialization of the topic's
 -- delivery policy EffectiveDeliveryPolicy -- the JSON serialization of the
 -- effective delivery policy that takes into account system defaults.
-gtarAttributes
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetTopicAttributesResponse
-    -> f GetTopicAttributesResponse
+gtarAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
 gtarAttributes f x =
-    (\y -> x { _gtarAttributes = y })
-       <$> f (_gtarAttributes x)
+    f (_gtarAttributes x)
+        <&> \y -> x { _gtarAttributes = y }
 {-# INLINE gtarAttributes #-}
 
 instance FromXML GetTopicAttributesResponse where

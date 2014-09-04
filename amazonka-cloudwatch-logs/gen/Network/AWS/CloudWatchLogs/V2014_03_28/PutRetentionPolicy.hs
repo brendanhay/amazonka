@@ -57,6 +57,7 @@ putRetentionPolicy p1 p2 = PutRetentionPolicy
     { _prprRetentionInDays = p1
     , _prprLogGroupName = p2
     }
+{-# INLINE putRetentionPolicy #-}
 
 data PutRetentionPolicy = PutRetentionPolicy
     { _prprRetentionInDays :: Integer
@@ -69,26 +70,16 @@ data PutRetentionPolicy = PutRetentionPolicy
 -- | Specifies the number of days you want to retain log events in the specified
 -- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
 -- 365, 400, 547, 730.
-prprRetentionInDays
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PutRetentionPolicy
-    -> f PutRetentionPolicy
+prprRetentionInDays :: Lens' PutRetentionPolicy (Integer)
 prprRetentionInDays f x =
-    (\y -> x { _prprRetentionInDays = y })
-       <$> f (_prprRetentionInDays x)
+    f (_prprRetentionInDays x)
+        <&> \y -> x { _prprRetentionInDays = y }
 {-# INLINE prprRetentionInDays #-}
 
-prprLogGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRetentionPolicy
-    -> f PutRetentionPolicy
+prprLogGroupName :: Lens' PutRetentionPolicy (Text)
 prprLogGroupName f x =
-    (\y -> x { _prprLogGroupName = y })
-       <$> f (_prprLogGroupName x)
+    f (_prprLogGroupName x)
+        <&> \y -> x { _prprLogGroupName = y }
 {-# INLINE prprLogGroupName #-}
 
 instance ToPath PutRetentionPolicy

@@ -94,6 +94,7 @@ modifyCluster p1 = ModifyCluster
     , _mcmNewClusterIdentifier = Nothing
     , _mcmVpcSecurityGroupIds = mempty
     }
+{-# INLINE modifyCluster #-}
 
 data ModifyCluster = ModifyCluster
     { _mcmClusterIdentifier :: Text
@@ -214,28 +215,18 @@ data ModifyCluster = ModifyCluster
 
 -- | The unique identifier of the cluster to be modified. Example:
 -- examplecluster.
-mcmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmClusterIdentifier :: Lens' ModifyCluster (Text)
 mcmClusterIdentifier f x =
-    (\y -> x { _mcmClusterIdentifier = y })
-       <$> f (_mcmClusterIdentifier x)
+    f (_mcmClusterIdentifier x)
+        <&> \y -> x { _mcmClusterIdentifier = y }
 {-# INLINE mcmClusterIdentifier #-}
 
 -- | If true, upgrades will be applied automatically to the cluster during the
 -- maintenance window. Default: false.
-mcmAllowVersionUpgrade
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
 mcmAllowVersionUpgrade f x =
-    (\y -> x { _mcmAllowVersionUpgrade = y })
-       <$> f (_mcmAllowVersionUpgrade x)
+    f (_mcmAllowVersionUpgrade x)
+        <&> \y -> x { _mcmAllowVersionUpgrade = y }
 {-# INLINE mcmAllowVersionUpgrade #-}
 
 -- | A list of cluster security groups to be authorized on this cluster. This
@@ -244,15 +235,10 @@ mcmAllowVersionUpgrade f x =
 -- apply, will be revoked from the cluster. Constraints: Must be 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-mcmClusterSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmClusterSecurityGroups :: Lens' ModifyCluster ([Text])
 mcmClusterSecurityGroups f x =
-    (\y -> x { _mcmClusterSecurityGroups = y })
-       <$> f (_mcmClusterSecurityGroups x)
+    f (_mcmClusterSecurityGroups x)
+        <&> \y -> x { _mcmClusterSecurityGroups = y }
 {-# INLINE mcmClusterSecurityGroups #-}
 
 -- | The new number of nodes of the cluster. If you specify a new number of
@@ -265,15 +251,10 @@ mcmClusterSecurityGroups f x =
 -- permissions for the cluster are restored. You can use DescribeResize to
 -- track the progress of the resize request. Valid Values: Integer greater
 -- than 0.
-mcmNumberOfNodes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmNumberOfNodes :: Lens' ModifyCluster (Maybe Integer)
 mcmNumberOfNodes f x =
-    (\y -> x { _mcmNumberOfNodes = y })
-       <$> f (_mcmNumberOfNodes x)
+    f (_mcmNumberOfNodes x)
+        <&> \y -> x { _mcmNumberOfNodes = y }
 {-# INLINE mcmNumberOfNodes #-}
 
 -- | The number of days that automated snapshots are retained. If the value is
@@ -283,15 +264,10 @@ mcmNumberOfNodes f x =
 -- period from its current value, existing automated snapshots that fall
 -- outside of the new retention period will be immediately deleted. Default:
 -- Uses existing setting. Constraints: Must be a value from 0 to 35.
-mcmAutomatedSnapshotRetentionPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Integer)
 mcmAutomatedSnapshotRetentionPeriod f x =
-    (\y -> x { _mcmAutomatedSnapshotRetentionPeriod = y })
-       <$> f (_mcmAutomatedSnapshotRetentionPeriod x)
+    f (_mcmAutomatedSnapshotRetentionPeriod x)
+        <&> \y -> x { _mcmAutomatedSnapshotRetentionPeriod = y }
 {-# INLINE mcmAutomatedSnapshotRetentionPeriod #-}
 
 -- | The new cluster type. When you submit your cluster resize request, your
@@ -300,15 +276,10 @@ mcmAutomatedSnapshotRetentionPeriod f x =
 -- outage for a period while the old cluster is deleted and your connection is
 -- switched to the new cluster. You can use DescribeResize to track the
 -- progress of the resize request. Valid Values: multi-node | single-node.
-mcmClusterType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmClusterType :: Lens' ModifyCluster (Maybe Text)
 mcmClusterType f x =
-    (\y -> x { _mcmClusterType = y })
-       <$> f (_mcmClusterType x)
+    f (_mcmClusterType x)
+        <&> \y -> x { _mcmClusterType = y }
 {-# INLINE mcmClusterType #-}
 
 -- | The new node type of the cluster. If you specify a new node type, you must
@@ -321,15 +292,10 @@ mcmClusterType f x =
 -- permissions for the cluster are restored. You can use the DescribeResize to
 -- track the progress of the resize request. Valid Values: dw1.xlarge |
 -- dw1.8xlarge | dw2.large | dw2.8xlarge.
-mcmNodeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmNodeType :: Lens' ModifyCluster (Maybe Text)
 mcmNodeType f x =
-    (\y -> x { _mcmNodeType = y })
-       <$> f (_mcmNodeType x)
+    f (_mcmNodeType x)
+        <&> \y -> x { _mcmNodeType = y }
 {-# INLINE mcmNodeType #-}
 
 -- | The new password for the cluster master user. This change is asynchronously
@@ -343,15 +309,10 @@ mcmNodeType f x =
 -- one lowercase letter. Must contain one number. Can be any printable ASCII
 -- character (ASCII code 33 to 126) except ' (single quote), " (double quote),
 -- \, /, @, or space.
-mcmMasterUserPassword
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
 mcmMasterUserPassword f x =
-    (\y -> x { _mcmMasterUserPassword = y })
-       <$> f (_mcmMasterUserPassword x)
+    f (_mcmMasterUserPassword x)
+        <&> \y -> x { _mcmMasterUserPassword = y }
 {-# INLINE mcmMasterUserPassword #-}
 
 -- | The name of the cluster parameter group to apply to this cluster. This
@@ -359,15 +320,10 @@ mcmMasterUserPassword f x =
 -- use RebootCluster. Default: Uses existing setting. Constraints: The cluster
 -- parameter group must be in the same parameter group family that matches the
 -- cluster version.
-mcmClusterParameterGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
 mcmClusterParameterGroupName f x =
-    (\y -> x { _mcmClusterParameterGroupName = y })
-       <$> f (_mcmClusterParameterGroupName x)
+    f (_mcmClusterParameterGroupName x)
+        <&> \y -> x { _mcmClusterParameterGroupName = y }
 {-# INLINE mcmClusterParameterGroupName #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
@@ -379,15 +335,10 @@ mcmClusterParameterGroupName f x =
 -- Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00. Valid
 -- Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least
 -- 30 minutes.
-mcmPreferredMaintenanceWindow
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
 mcmPreferredMaintenanceWindow f x =
-    (\y -> x { _mcmPreferredMaintenanceWindow = y })
-       <$> f (_mcmPreferredMaintenanceWindow x)
+    f (_mcmPreferredMaintenanceWindow x)
+        <&> \y -> x { _mcmPreferredMaintenanceWindow = y }
 {-# INLINE mcmPreferredMaintenanceWindow #-}
 
 -- | The new version number of the Amazon Redshift engine to upgrade to. For
@@ -397,41 +348,26 @@ mcmPreferredMaintenanceWindow f x =
 -- parameter group can be the default for that cluster parameter group family.
 -- For more information about managing parameter groups, go to Amazon Redshift
 -- Parameter Groups in the Amazon Redshift Management Guide. Example: 1.0.
-mcmClusterVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmClusterVersion :: Lens' ModifyCluster (Maybe Text)
 mcmClusterVersion f x =
-    (\y -> x { _mcmClusterVersion = y })
-       <$> f (_mcmClusterVersion x)
+    f (_mcmClusterVersion x)
+        <&> \y -> x { _mcmClusterVersion = y }
 {-# INLINE mcmClusterVersion #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-mcmHsmClientCertificateIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmHsmClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcmHsmClientCertificateIdentifier f x =
-    (\y -> x { _mcmHsmClientCertificateIdentifier = y })
-       <$> f (_mcmHsmClientCertificateIdentifier x)
+    f (_mcmHsmClientCertificateIdentifier x)
+        <&> \y -> x { _mcmHsmClientCertificateIdentifier = y }
 {-# INLINE mcmHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-mcmHsmConfigurationIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmHsmConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcmHsmConfigurationIdentifier f x =
-    (\y -> x { _mcmHsmConfigurationIdentifier = y })
-       <$> f (_mcmHsmConfigurationIdentifier x)
+    f (_mcmHsmConfigurationIdentifier x)
+        <&> \y -> x { _mcmHsmConfigurationIdentifier = y }
 {-# INLINE mcmHsmConfigurationIdentifier #-}
 
 -- | The new identifier for the cluster. Constraints: Must contain from 1 to 63
@@ -439,28 +375,18 @@ mcmHsmConfigurationIdentifier f x =
 -- lowercase. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens. Must be unique for all clusters within an
 -- AWS account. Example: examplecluster.
-mcmNewClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcmNewClusterIdentifier f x =
-    (\y -> x { _mcmNewClusterIdentifier = y })
-       <$> f (_mcmNewClusterIdentifier x)
+    f (_mcmNewClusterIdentifier x)
+        <&> \y -> x { _mcmNewClusterIdentifier = y }
 {-# INLINE mcmNewClusterIdentifier #-}
 
 -- | A list of virtual private cloud (VPC) security groups to be associated with
 -- the cluster.
-mcmVpcSecurityGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyCluster
-    -> f ModifyCluster
+mcmVpcSecurityGroupIds :: Lens' ModifyCluster ([Text])
 mcmVpcSecurityGroupIds f x =
-    (\y -> x { _mcmVpcSecurityGroupIds = y })
-       <$> f (_mcmVpcSecurityGroupIds x)
+    f (_mcmVpcSecurityGroupIds x)
+        <&> \y -> x { _mcmVpcSecurityGroupIds = y }
 {-# INLINE mcmVpcSecurityGroupIds #-}
 
 instance ToQuery ModifyCluster where
@@ -472,15 +398,10 @@ data ModifyClusterResponse = ModifyClusterResponse
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccsCluster
-    :: Functor f
-    => (Maybe Cluster
-    -> f (Maybe Cluster))
-    -> ModifyClusterResponse
-    -> f ModifyClusterResponse
+ccsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 ccsCluster f x =
-    (\y -> x { _ccsCluster = y })
-       <$> f (_ccsCluster x)
+    f (_ccsCluster x)
+        <&> \y -> x { _ccsCluster = y }
 {-# INLINE ccsCluster #-}
 
 instance FromXML ModifyClusterResponse where

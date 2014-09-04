@@ -54,6 +54,7 @@ describeCacheSecurityGroups = DescribeCacheSecurityGroups
     , _dcsgoCacheSecurityGroupName = Nothing
     , _dcsgoMarker = Nothing
     }
+{-# INLINE describeCacheSecurityGroups #-}
 
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsgoMaxRecords :: Maybe Integer
@@ -74,42 +75,27 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcsgoMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCacheSecurityGroups
-    -> f DescribeCacheSecurityGroups
+dcsgoMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Integer)
 dcsgoMaxRecords f x =
-    (\y -> x { _dcsgoMaxRecords = y })
-       <$> f (_dcsgoMaxRecords x)
+    f (_dcsgoMaxRecords x)
+        <&> \y -> x { _dcsgoMaxRecords = y }
 {-# INLINE dcsgoMaxRecords #-}
 
 -- | The name of the cache security group to return details for.
-dcsgoCacheSecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheSecurityGroups
-    -> f DescribeCacheSecurityGroups
+dcsgoCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgoCacheSecurityGroupName f x =
-    (\y -> x { _dcsgoCacheSecurityGroupName = y })
-       <$> f (_dcsgoCacheSecurityGroupName x)
+    f (_dcsgoCacheSecurityGroupName x)
+        <&> \y -> x { _dcsgoCacheSecurityGroupName = y }
 {-# INLINE dcsgoCacheSecurityGroupName #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dcsgoMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheSecurityGroups
-    -> f DescribeCacheSecurityGroups
+dcsgoMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgoMarker f x =
-    (\y -> x { _dcsgoMarker = y })
-       <$> f (_dcsgoMarker x)
+    f (_dcsgoMarker x)
+        <&> \y -> x { _dcsgoMarker = y }
 {-# INLINE dcsgoMarker #-}
 
 instance ToQuery DescribeCacheSecurityGroups where
@@ -125,27 +111,17 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
 
 -- | A list of cache security groups. Each element in the list contains detailed
 -- information about one group.
-csgpCacheSecurityGroups
-    :: Functor f
-    => ([CacheSecurityGroup]
-    -> f ([CacheSecurityGroup]))
-    -> DescribeCacheSecurityGroupsResponse
-    -> f DescribeCacheSecurityGroupsResponse
+csgpCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse ([CacheSecurityGroup])
 csgpCacheSecurityGroups f x =
-    (\y -> x { _csgpCacheSecurityGroups = y })
-       <$> f (_csgpCacheSecurityGroups x)
+    f (_csgpCacheSecurityGroups x)
+        <&> \y -> x { _csgpCacheSecurityGroups = y }
 {-# INLINE csgpCacheSecurityGroups #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-csgpMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCacheSecurityGroupsResponse
-    -> f DescribeCacheSecurityGroupsResponse
+csgpMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 csgpMarker f x =
-    (\y -> x { _csgpMarker = y })
-       <$> f (_csgpMarker x)
+    f (_csgpMarker x)
+        <&> \y -> x { _csgpMarker = y }
 {-# INLINE csgpMarker #-}
 
 instance FromXML DescribeCacheSecurityGroupsResponse where

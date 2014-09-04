@@ -51,6 +51,7 @@ verifyEmailIdentity :: Text -- ^ 'veirEmailAddress'
 verifyEmailIdentity p1 = VerifyEmailIdentity
     { _veirEmailAddress = p1
     }
+{-# INLINE verifyEmailIdentity #-}
 
 data VerifyEmailIdentity = VerifyEmailIdentity
     { _veirEmailAddress :: Text
@@ -58,15 +59,10 @@ data VerifyEmailIdentity = VerifyEmailIdentity
     } deriving (Show, Generic)
 
 -- | The email address to be verified.
-veirEmailAddress
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> VerifyEmailIdentity
-    -> f VerifyEmailIdentity
+veirEmailAddress :: Lens' VerifyEmailIdentity (Text)
 veirEmailAddress f x =
-    (\y -> x { _veirEmailAddress = y })
-       <$> f (_veirEmailAddress x)
+    f (_veirEmailAddress x)
+        <&> \y -> x { _veirEmailAddress = y }
 {-# INLINE veirEmailAddress #-}
 
 instance ToQuery VerifyEmailIdentity where

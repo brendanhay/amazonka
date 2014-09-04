@@ -54,6 +54,7 @@ describeServices = DescribeServices
     { _dsrLanguage = Nothing
     , _dsrServiceCodeList = mempty
     }
+{-# INLINE describeServices #-}
 
 data DescribeServices = DescribeServices
     { _dsrLanguage :: Maybe Text
@@ -69,27 +70,17 @@ data DescribeServices = DescribeServices
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dsrLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeServices
-    -> f DescribeServices
+dsrLanguage :: Lens' DescribeServices (Maybe Text)
 dsrLanguage f x =
-    (\y -> x { _dsrLanguage = y })
-       <$> f (_dsrLanguage x)
+    f (_dsrLanguage x)
+        <&> \y -> x { _dsrLanguage = y }
 {-# INLINE dsrLanguage #-}
 
 -- | A JSON-formatted list of service codes available for AWS services.
-dsrServiceCodeList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeServices
-    -> f DescribeServices
+dsrServiceCodeList :: Lens' DescribeServices ([Text])
 dsrServiceCodeList f x =
-    (\y -> x { _dsrServiceCodeList = y })
-       <$> f (_dsrServiceCodeList x)
+    f (_dsrServiceCodeList x)
+        <&> \y -> x { _dsrServiceCodeList = y }
 {-# INLINE dsrServiceCodeList #-}
 
 instance ToPath DescribeServices
@@ -106,15 +97,10 @@ data DescribeServicesResponse = DescribeServicesResponse
     } deriving (Show, Generic)
 
 -- | A JSON-formatted list of AWS services.
-dssServices
-    :: Functor f
-    => ([Service]
-    -> f ([Service]))
-    -> DescribeServicesResponse
-    -> f DescribeServicesResponse
+dssServices :: Lens' DescribeServicesResponse ([Service])
 dssServices f x =
-    (\y -> x { _dssServices = y })
-       <$> f (_dssServices x)
+    f (_dssServices x)
+        <&> \y -> x { _dssServices = y }
 {-# INLINE dssServices #-}
 
 instance FromJSON DescribeServicesResponse

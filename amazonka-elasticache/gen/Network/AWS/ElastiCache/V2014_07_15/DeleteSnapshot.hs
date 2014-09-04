@@ -52,6 +52,7 @@ deleteSnapshot :: Text -- ^ 'dsmSnapshotName'
 deleteSnapshot p1 = DeleteSnapshot
     { _dsmSnapshotName = p1
     }
+{-# INLINE deleteSnapshot #-}
 
 data DeleteSnapshot = DeleteSnapshot
     { _dsmSnapshotName :: Text
@@ -59,15 +60,10 @@ data DeleteSnapshot = DeleteSnapshot
     } deriving (Show, Generic)
 
 -- | The name of the snapshot to be deleted.
-dsmSnapshotName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSnapshot
-    -> f DeleteSnapshot
+dsmSnapshotName :: Lens' DeleteSnapshot (Text)
 dsmSnapshotName f x =
-    (\y -> x { _dsmSnapshotName = y })
-       <$> f (_dsmSnapshotName x)
+    f (_dsmSnapshotName x)
+        <&> \y -> x { _dsmSnapshotName = y }
 {-# INLINE dsmSnapshotName #-}
 
 instance ToQuery DeleteSnapshot where
@@ -81,15 +77,10 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-ssssssssszSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> DeleteSnapshotResponse
-    -> f DeleteSnapshotResponse
+ssssssssszSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 ssssssssszSnapshot f x =
-    (\y -> x { _ssssssssszSnapshot = y })
-       <$> f (_ssssssssszSnapshot x)
+    f (_ssssssssszSnapshot x)
+        <&> \y -> x { _ssssssssszSnapshot = y }
 {-# INLINE ssssssssszSnapshot #-}
 
 instance FromXML DeleteSnapshotResponse where

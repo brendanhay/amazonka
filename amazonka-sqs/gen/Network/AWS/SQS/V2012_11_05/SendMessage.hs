@@ -78,6 +78,7 @@ sendMessage p1 p2 = SendMessage
     , _smrDelaySeconds = Nothing
     , _smrMessageAttributes = mempty
     }
+{-# INLINE sendMessage #-}
 
 data SendMessage = SendMessage
     { _smrQueueUrl :: Text
@@ -96,56 +97,36 @@ data SendMessage = SendMessage
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
-smrQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SendMessage
-    -> f SendMessage
+smrQueueUrl :: Lens' SendMessage (Text)
 smrQueueUrl f x =
-    (\y -> x { _smrQueueUrl = y })
-       <$> f (_smrQueueUrl x)
+    f (_smrQueueUrl x)
+        <&> \y -> x { _smrQueueUrl = y }
 {-# INLINE smrQueueUrl #-}
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.
-smrMessageBody
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SendMessage
-    -> f SendMessage
+smrMessageBody :: Lens' SendMessage (Text)
 smrMessageBody f x =
-    (\y -> x { _smrMessageBody = y })
-       <$> f (_smrMessageBody x)
+    f (_smrMessageBody x)
+        <&> \y -> x { _smrMessageBody = y }
 {-# INLINE smrMessageBody #-}
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.
 -- Messages with a positive DelaySeconds value become available for processing
 -- after the delay time is finished. If you don't specify a value, the default
 -- value for the queue applies.
-smrDelaySeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> SendMessage
-    -> f SendMessage
+smrDelaySeconds :: Lens' SendMessage (Maybe Integer)
 smrDelaySeconds f x =
-    (\y -> x { _smrDelaySeconds = y })
-       <$> f (_smrDelaySeconds x)
+    f (_smrDelaySeconds x)
+        <&> \y -> x { _smrDelaySeconds = y }
 {-# INLINE smrDelaySeconds #-}
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smrMessageAttributes
-    :: Functor f
-    => (Map Text MessageAttributeValue
-    -> f (Map Text MessageAttributeValue))
-    -> SendMessage
-    -> f SendMessage
+smrMessageAttributes :: Lens' SendMessage (Map Text MessageAttributeValue)
 smrMessageAttributes f x =
-    (\y -> x { _smrMessageAttributes = y })
-       <$> f (_smrMessageAttributes x)
+    f (_smrMessageAttributes x)
+        <&> \y -> x { _smrMessageAttributes = y }
 {-# INLINE smrMessageAttributes #-}
 
 instance ToQuery SendMessage where
@@ -174,44 +155,29 @@ data SendMessageResponse = SendMessageResponse
 -- to verify that Amazon SQS received the message correctly. Amazon SQS first
 -- URL decodes the message before creating the MD5 digest. For information
 -- about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
-smsMD5OfMessageBody
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SendMessageResponse
-    -> f SendMessageResponse
+smsMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
 smsMD5OfMessageBody f x =
-    (\y -> x { _smsMD5OfMessageBody = y })
-       <$> f (_smsMD5OfMessageBody x)
+    f (_smsMD5OfMessageBody x)
+        <&> \y -> x { _smsMD5OfMessageBody = y }
 {-# INLINE smsMD5OfMessageBody #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
 -- first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
-smsMD5OfMessageAttributes
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SendMessageResponse
-    -> f SendMessageResponse
+smsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smsMD5OfMessageAttributes f x =
-    (\y -> x { _smsMD5OfMessageAttributes = y })
-       <$> f (_smsMD5OfMessageAttributes x)
+    f (_smsMD5OfMessageAttributes x)
+        <&> \y -> x { _smsMD5OfMessageAttributes = y }
 {-# INLINE smsMD5OfMessageAttributes #-}
 
 -- | An element containing the message ID of the message sent to the queue. For
 -- more information, see Queue and Message Identifiers in the Amazon SQS
 -- Developer Guide.
-smsMessageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SendMessageResponse
-    -> f SendMessageResponse
+smsMessageId :: Lens' SendMessageResponse (Maybe Text)
 smsMessageId f x =
-    (\y -> x { _smsMessageId = y })
-       <$> f (_smsMessageId x)
+    f (_smsMessageId x)
+        <&> \y -> x { _smsMessageId = y }
 {-# INLINE smsMessageId #-}
 
 instance FromXML SendMessageResponse where

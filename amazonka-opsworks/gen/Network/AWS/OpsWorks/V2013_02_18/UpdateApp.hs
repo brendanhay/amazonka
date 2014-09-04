@@ -63,6 +63,7 @@ updateApp p1 = UpdateApp
     , _uarDescription = Nothing
     , _uarDomains = mempty
     }
+{-# INLINE updateApp #-}
 
 data UpdateApp = UpdateApp
     { _uarAppId :: Text
@@ -90,125 +91,75 @@ data UpdateApp = UpdateApp
     } deriving (Show, Generic)
 
 -- | The app ID.
-uarAppId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateApp
-    -> f UpdateApp
+uarAppId :: Lens' UpdateApp (Text)
 uarAppId f x =
-    (\y -> x { _uarAppId = y })
-       <$> f (_uarAppId x)
+    f (_uarAppId x)
+        <&> \y -> x { _uarAppId = y }
 {-# INLINE uarAppId #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-uarAttributes
-    :: Functor f
-    => (Map AppAttributesKeys Text
-    -> f (Map AppAttributesKeys Text))
-    -> UpdateApp
-    -> f UpdateApp
+uarAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
 uarAttributes f x =
-    (\y -> x { _uarAttributes = y })
-       <$> f (_uarAttributes x)
+    f (_uarAttributes x)
+        <&> \y -> x { _uarAttributes = y }
 {-# INLINE uarAttributes #-}
 
 -- | The app type.
-uarType
-    :: Functor f
-    => (Maybe AppType
-    -> f (Maybe AppType))
-    -> UpdateApp
-    -> f UpdateApp
+uarType :: Lens' UpdateApp (Maybe AppType)
 uarType f x =
-    (\y -> x { _uarType = y })
-       <$> f (_uarType x)
+    f (_uarType x)
+        <&> \y -> x { _uarType = y }
 {-# INLINE uarType #-}
 
 -- | Whether SSL is enabled for the app.
-uarEnableSsl
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateApp
-    -> f UpdateApp
+uarEnableSsl :: Lens' UpdateApp (Maybe Bool)
 uarEnableSsl f x =
-    (\y -> x { _uarEnableSsl = y })
-       <$> f (_uarEnableSsl x)
+    f (_uarEnableSsl x)
+        <&> \y -> x { _uarEnableSsl = y }
 {-# INLINE uarEnableSsl #-}
 
 -- | The app's data sources.
-uarDataSources
-    :: Functor f
-    => ([DataSource]
-    -> f ([DataSource]))
-    -> UpdateApp
-    -> f UpdateApp
+uarDataSources :: Lens' UpdateApp ([DataSource])
 uarDataSources f x =
-    (\y -> x { _uarDataSources = y })
-       <$> f (_uarDataSources x)
+    f (_uarDataSources x)
+        <&> \y -> x { _uarDataSources = y }
 {-# INLINE uarDataSources #-}
 
 -- | A Source object that specifies the app repository.
-uarAppSource
-    :: Functor f
-    => (Maybe Source
-    -> f (Maybe Source))
-    -> UpdateApp
-    -> f UpdateApp
+uarAppSource :: Lens' UpdateApp (Maybe Source)
 uarAppSource f x =
-    (\y -> x { _uarAppSource = y })
-       <$> f (_uarAppSource x)
+    f (_uarAppSource x)
+        <&> \y -> x { _uarAppSource = y }
 {-# INLINE uarAppSource #-}
 
 -- | An SslConfiguration object with the SSL configuration.
-uarSslConfiguration
-    :: Functor f
-    => (Maybe SslConfiguration
-    -> f (Maybe SslConfiguration))
-    -> UpdateApp
-    -> f UpdateApp
+uarSslConfiguration :: Lens' UpdateApp (Maybe SslConfiguration)
 uarSslConfiguration f x =
-    (\y -> x { _uarSslConfiguration = y })
-       <$> f (_uarSslConfiguration x)
+    f (_uarSslConfiguration x)
+        <&> \y -> x { _uarSslConfiguration = y }
 {-# INLINE uarSslConfiguration #-}
 
 -- | The app name.
-uarName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateApp
-    -> f UpdateApp
+uarName :: Lens' UpdateApp (Maybe Text)
 uarName f x =
-    (\y -> x { _uarName = y })
-       <$> f (_uarName x)
+    f (_uarName x)
+        <&> \y -> x { _uarName = y }
 {-# INLINE uarName #-}
 
 -- | A description of the app.
-uarDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateApp
-    -> f UpdateApp
+uarDescription :: Lens' UpdateApp (Maybe Text)
 uarDescription f x =
-    (\y -> x { _uarDescription = y })
-       <$> f (_uarDescription x)
+    f (_uarDescription x)
+        <&> \y -> x { _uarDescription = y }
 {-# INLINE uarDescription #-}
 
 -- | The app's virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
-uarDomains
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UpdateApp
-    -> f UpdateApp
+uarDomains :: Lens' UpdateApp ([Text])
 uarDomains f x =
-    (\y -> x { _uarDomains = y })
-       <$> f (_uarDomains x)
+    f (_uarDomains x)
+        <&> \y -> x { _uarDomains = y }
 {-# INLINE uarDomains #-}
 
 instance ToPath UpdateApp

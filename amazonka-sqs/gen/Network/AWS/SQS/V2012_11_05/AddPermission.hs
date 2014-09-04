@@ -71,6 +71,7 @@ addPermission p1 p2 p3 p4 = AddPermission
     , _aprQueueUrl = p3
     , _aprLabel = p4
     }
+{-# INLINE addPermission #-}
 
 data AddPermission = AddPermission
     { _aprAWSAccountIds :: [Text]
@@ -102,15 +103,10 @@ data AddPermission = AddPermission
 -- principal must have an AWS account, but does not need to be signed up for
 -- Amazon SQS. For information about locating the AWS account identification,
 -- see Your AWS Identifiers in the Amazon SQS Developer Guide.
-aprAWSAccountIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddPermission
-    -> f AddPermission
+aprAWSAccountIds :: Lens' AddPermission ([Text])
 aprAWSAccountIds f x =
-    (\y -> x { _aprAWSAccountIds = y })
-       <$> f (_aprAWSAccountIds x)
+    f (_aprAWSAccountIds x)
+        <&> \y -> x { _aprAWSAccountIds = y }
 {-# INLINE aprAWSAccountIds #-}
 
 -- | The action the client wants to allow for the specified principal. The
@@ -121,41 +117,26 @@ aprAWSAccountIds f x =
 -- ChangeMessageVisibility for the ActionName.n also grants permissions for
 -- the corresponding batch versions of those actions: SendMessageBatch,
 -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
-aprActions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddPermission
-    -> f AddPermission
+aprActions :: Lens' AddPermission ([Text])
 aprActions f x =
-    (\y -> x { _aprActions = y })
-       <$> f (_aprActions x)
+    f (_aprActions x)
+        <&> \y -> x { _aprActions = y }
 {-# INLINE aprActions #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
-aprQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddPermission
-    -> f AddPermission
+aprQueueUrl :: Lens' AddPermission (Text)
 aprQueueUrl f x =
-    (\y -> x { _aprQueueUrl = y })
-       <$> f (_aprQueueUrl x)
+    f (_aprQueueUrl x)
+        <&> \y -> x { _aprQueueUrl = y }
 {-# INLINE aprQueueUrl #-}
 
 -- | The unique identification of the permission you're setting (e.g.,
 -- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric
 -- characters, hyphens (-), and underscores (_) are allowed.
-aprLabel
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddPermission
-    -> f AddPermission
+aprLabel :: Lens' AddPermission (Text)
 aprLabel f x =
-    (\y -> x { _aprLabel = y })
-       <$> f (_aprLabel x)
+    f (_aprLabel x)
+        <&> \y -> x { _aprLabel = y }
 {-# INLINE aprLabel #-}
 
 instance ToQuery AddPermission where

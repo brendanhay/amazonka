@@ -45,6 +45,7 @@ resolveCase :: ResolveCase
 resolveCase = ResolveCase
     { _rcrCaseId = Nothing
     }
+{-# INLINE resolveCase #-}
 
 data ResolveCase = ResolveCase
     { _rcrCaseId :: Maybe Text
@@ -56,15 +57,10 @@ data ResolveCase = ResolveCase
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
-rcrCaseId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResolveCase
-    -> f ResolveCase
+rcrCaseId :: Lens' ResolveCase (Maybe Text)
 rcrCaseId f x =
-    (\y -> x { _rcrCaseId = y })
-       <$> f (_rcrCaseId x)
+    f (_rcrCaseId x)
+        <&> \y -> x { _rcrCaseId = y }
 {-# INLINE rcrCaseId #-}
 
 instance ToPath ResolveCase
@@ -84,27 +80,17 @@ data ResolveCaseResponse = ResolveCaseResponse
     } deriving (Show, Generic)
 
 -- | The status of the case when the ResolveCase request was sent.
-rcsInitialCaseStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResolveCaseResponse
-    -> f ResolveCaseResponse
+rcsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcsInitialCaseStatus f x =
-    (\y -> x { _rcsInitialCaseStatus = y })
-       <$> f (_rcsInitialCaseStatus x)
+    f (_rcsInitialCaseStatus x)
+        <&> \y -> x { _rcsInitialCaseStatus = y }
 {-# INLINE rcsInitialCaseStatus #-}
 
 -- | The status of the case after the ResolveCase request was processed.
-rcsFinalCaseStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResolveCaseResponse
-    -> f ResolveCaseResponse
+rcsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcsFinalCaseStatus f x =
-    (\y -> x { _rcsFinalCaseStatus = y })
-       <$> f (_rcsFinalCaseStatus x)
+    f (_rcsFinalCaseStatus x)
+        <&> \y -> x { _rcsFinalCaseStatus = y }
 {-# INLINE rcsFinalCaseStatus #-}
 
 instance FromJSON ResolveCaseResponse

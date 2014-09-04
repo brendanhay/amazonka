@@ -46,6 +46,7 @@ getInvalidation p1 p2 = GetInvalidation
     { _girDistributionId = p1
     , _girId = p2
     }
+{-# INLINE getInvalidation #-}
 
 data GetInvalidation = GetInvalidation
     { _girDistributionId :: Text
@@ -55,27 +56,17 @@ data GetInvalidation = GetInvalidation
     } deriving (Show, Generic)
 
 -- | The distribution's id.
-girDistributionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetInvalidation
-    -> f GetInvalidation
+girDistributionId :: Lens' GetInvalidation (Text)
 girDistributionId f x =
-    (\y -> x { _girDistributionId = y })
-       <$> f (_girDistributionId x)
+    f (_girDistributionId x)
+        <&> \y -> x { _girDistributionId = y }
 {-# INLINE girDistributionId #-}
 
 -- | The invalidation's id.
-girId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetInvalidation
-    -> f GetInvalidation
+girId :: Lens' GetInvalidation (Text)
 girId f x =
-    (\y -> x { _girId = y })
-       <$> f (_girId x)
+    f (_girId x)
+        <&> \y -> x { _girId = y }
 {-# INLINE girId #-}
 
 instance ToPath GetInvalidation where
@@ -100,15 +91,10 @@ data GetInvalidationResponse = GetInvalidationResponse
     } deriving (Show, Generic)
 
 -- | The invalidation's information.
-gisInvalidation
-    :: Functor f
-    => (Maybe Invalidation
-    -> f (Maybe Invalidation))
-    -> GetInvalidationResponse
-    -> f GetInvalidationResponse
+gisInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 gisInvalidation f x =
-    (\y -> x { _gisInvalidation = y })
-       <$> f (_gisInvalidation x)
+    f (_gisInvalidation x)
+        <&> \y -> x { _gisInvalidation = y }
 {-# INLINE gisInvalidation #-}
 
 instance FromXML GetInvalidationResponse where

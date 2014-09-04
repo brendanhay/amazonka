@@ -67,6 +67,7 @@ describeWorkingStorage :: Text -- ^ 'dwsiGatewayARN'
 describeWorkingStorage p1 = DescribeWorkingStorage
     { _dwsiGatewayARN = p1
     }
+{-# INLINE describeWorkingStorage #-}
 
 data DescribeWorkingStorage = DescribeWorkingStorage
     { _dwsiGatewayARN :: Text
@@ -77,15 +78,10 @@ data DescribeWorkingStorage = DescribeWorkingStorage
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dwsiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeWorkingStorage
-    -> f DescribeWorkingStorage
+dwsiGatewayARN :: Lens' DescribeWorkingStorage (Text)
 dwsiGatewayARN f x =
-    (\y -> x { _dwsiGatewayARN = y })
-       <$> f (_dwsiGatewayARN x)
+    f (_dwsiGatewayARN x)
+        <&> \y -> x { _dwsiGatewayARN = y }
 {-# INLINE dwsiGatewayARN #-}
 
 instance ToPath DescribeWorkingStorage
@@ -121,54 +117,34 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
 -- storage. Each local disk ID is specified as a string (minimum length of 1
 -- and maximum length of 300). If no local disks are configured as working
 -- storage, then the DiskIds array is empty.
-dwsoDiskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeWorkingStorageResponse
-    -> f DescribeWorkingStorageResponse
+dwsoDiskIds :: Lens' DescribeWorkingStorageResponse ([Text])
 dwsoDiskIds f x =
-    (\y -> x { _dwsoDiskIds = y })
-       <$> f (_dwsoDiskIds x)
+    f (_dwsoDiskIds x)
+        <&> \y -> x { _dwsoDiskIds = y }
 {-# INLINE dwsoDiskIds #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dwsoGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeWorkingStorageResponse
-    -> f DescribeWorkingStorageResponse
+dwsoGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsoGatewayARN f x =
-    (\y -> x { _dwsoGatewayARN = y })
-       <$> f (_dwsoGatewayARN x)
+    f (_dwsoGatewayARN x)
+        <&> \y -> x { _dwsoGatewayARN = y }
 {-# INLINE dwsoGatewayARN #-}
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsoWorkingStorageUsedInBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeWorkingStorageResponse
-    -> f DescribeWorkingStorageResponse
+dwsoWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsoWorkingStorageUsedInBytes f x =
-    (\y -> x { _dwsoWorkingStorageUsedInBytes = y })
-       <$> f (_dwsoWorkingStorageUsedInBytes x)
+    f (_dwsoWorkingStorageUsedInBytes x)
+        <&> \y -> x { _dwsoWorkingStorageUsedInBytes = y }
 {-# INLINE dwsoWorkingStorageUsedInBytes #-}
 
 -- | The total working storage in bytes allocated for the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsoWorkingStorageAllocatedInBytes
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeWorkingStorageResponse
-    -> f DescribeWorkingStorageResponse
+dwsoWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsoWorkingStorageAllocatedInBytes f x =
-    (\y -> x { _dwsoWorkingStorageAllocatedInBytes = y })
-       <$> f (_dwsoWorkingStorageAllocatedInBytes x)
+    f (_dwsoWorkingStorageAllocatedInBytes x)
+        <&> \y -> x { _dwsoWorkingStorageAllocatedInBytes = y }
 {-# INLINE dwsoWorkingStorageAllocatedInBytes #-}
 
 instance FromJSON DescribeWorkingStorageResponse

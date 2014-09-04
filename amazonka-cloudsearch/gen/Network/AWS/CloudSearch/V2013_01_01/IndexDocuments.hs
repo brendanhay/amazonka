@@ -45,6 +45,7 @@ indexDocuments :: Text -- ^ 'idrDomainName'
 indexDocuments p1 = IndexDocuments
     { _idrDomainName = p1
     }
+{-# INLINE indexDocuments #-}
 
 data IndexDocuments = IndexDocuments
     { _idrDomainName :: Text
@@ -59,15 +60,10 @@ data IndexDocuments = IndexDocuments
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-idrDomainName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> IndexDocuments
-    -> f IndexDocuments
+idrDomainName :: Lens' IndexDocuments (Text)
 idrDomainName f x =
-    (\y -> x { _idrDomainName = y })
-       <$> f (_idrDomainName x)
+    f (_idrDomainName x)
+        <&> \y -> x { _idrDomainName = y }
 {-# INLINE idrDomainName #-}
 
 instance ToQuery IndexDocuments where
@@ -79,15 +75,10 @@ data IndexDocumentsResponse = IndexDocumentsResponse
     } deriving (Show, Generic)
 
 -- | The names of the fields that are currently being indexed.
-idsFieldNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> IndexDocumentsResponse
-    -> f IndexDocumentsResponse
+idsFieldNames :: Lens' IndexDocumentsResponse ([Text])
 idsFieldNames f x =
-    (\y -> x { _idsFieldNames = y })
-       <$> f (_idsFieldNames x)
+    f (_idsFieldNames x)
+        <&> \y -> x { _idsFieldNames = y }
 {-# INLINE idsFieldNames #-}
 
 instance FromXML IndexDocumentsResponse where

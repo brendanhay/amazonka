@@ -64,6 +64,7 @@ deleteChapCredentials p1 p2 = DeleteChapCredentials
     { _dcciInitiatorName = p1
     , _dcciTargetARN = p2
     }
+{-# INLINE deleteChapCredentials #-}
 
 data DeleteChapCredentials = DeleteChapCredentials
     { _dcciInitiatorName :: Text
@@ -75,29 +76,19 @@ data DeleteChapCredentials = DeleteChapCredentials
     } deriving (Show, Generic)
 
 -- | The iSCSI initiator that connects to the target.
-dcciInitiatorName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteChapCredentials
-    -> f DeleteChapCredentials
+dcciInitiatorName :: Lens' DeleteChapCredentials (Text)
 dcciInitiatorName f x =
-    (\y -> x { _dcciInitiatorName = y })
-       <$> f (_dcciInitiatorName x)
+    f (_dcciInitiatorName x)
+        <&> \y -> x { _dcciInitiatorName = y }
 {-# INLINE dcciInitiatorName #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dcciTargetARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteChapCredentials
-    -> f DeleteChapCredentials
+dcciTargetARN :: Lens' DeleteChapCredentials (Text)
 dcciTargetARN f x =
-    (\y -> x { _dcciTargetARN = y })
-       <$> f (_dcciTargetARN x)
+    f (_dcciTargetARN x)
+        <&> \y -> x { _dcciTargetARN = y }
 {-# INLINE dcciTargetARN #-}
 
 instance ToPath DeleteChapCredentials
@@ -116,27 +107,17 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
     } deriving (Show, Generic)
 
 -- | The iSCSI initiator that connects to the target.
-dccoInitiatorName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteChapCredentialsResponse
-    -> f DeleteChapCredentialsResponse
+dccoInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccoInitiatorName f x =
-    (\y -> x { _dccoInitiatorName = y })
-       <$> f (_dccoInitiatorName x)
+    f (_dccoInitiatorName x)
+        <&> \y -> x { _dccoInitiatorName = y }
 {-# INLINE dccoInitiatorName #-}
 
 -- | The Amazon Resource Name (ARN) of the target.
-dccoTargetARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteChapCredentialsResponse
-    -> f DeleteChapCredentialsResponse
+dccoTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccoTargetARN f x =
-    (\y -> x { _dccoTargetARN = y })
-       <$> f (_dccoTargetARN x)
+    f (_dccoTargetARN x)
+        <&> \y -> x { _dccoTargetARN = y }
 {-# INLINE dccoTargetARN #-}
 
 instance FromJSON DeleteChapCredentialsResponse

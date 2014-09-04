@@ -60,6 +60,7 @@ describeCommunications p1 = DescribeCommunications
     , _dctMaxResults = Nothing
     , _dctNextToken = Nothing
     }
+{-# INLINE describeCommunications #-}
 
 data DescribeCommunications = DescribeCommunications
     { _dctCaseId :: Text
@@ -83,65 +84,40 @@ data DescribeCommunications = DescribeCommunications
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
-dctCaseId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeCommunications
-    -> f DescribeCommunications
+dctCaseId :: Lens' DescribeCommunications (Text)
 dctCaseId f x =
-    (\y -> x { _dctCaseId = y })
-       <$> f (_dctCaseId x)
+    f (_dctCaseId x)
+        <&> \y -> x { _dctCaseId = y }
 {-# INLINE dctCaseId #-}
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dctAfterTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCommunications
-    -> f DescribeCommunications
+dctAfterTime :: Lens' DescribeCommunications (Maybe Text)
 dctAfterTime f x =
-    (\y -> x { _dctAfterTime = y })
-       <$> f (_dctAfterTime x)
+    f (_dctAfterTime x)
+        <&> \y -> x { _dctAfterTime = y }
 {-# INLINE dctAfterTime #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dctBeforeTime
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCommunications
-    -> f DescribeCommunications
+dctBeforeTime :: Lens' DescribeCommunications (Maybe Text)
 dctBeforeTime f x =
-    (\y -> x { _dctBeforeTime = y })
-       <$> f (_dctBeforeTime x)
+    f (_dctBeforeTime x)
+        <&> \y -> x { _dctBeforeTime = y }
 {-# INLINE dctBeforeTime #-}
 
 -- | The maximum number of results to return before paginating.
-dctMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeCommunications
-    -> f DescribeCommunications
+dctMaxResults :: Lens' DescribeCommunications (Maybe Integer)
 dctMaxResults f x =
-    (\y -> x { _dctMaxResults = y })
-       <$> f (_dctMaxResults x)
+    f (_dctMaxResults x)
+        <&> \y -> x { _dctMaxResults = y }
 {-# INLINE dctMaxResults #-}
 
 -- | A resumption point for pagination.
-dctNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCommunications
-    -> f DescribeCommunications
+dctNextToken :: Lens' DescribeCommunications (Maybe Text)
 dctNextToken f x =
-    (\y -> x { _dctNextToken = y })
-       <$> f (_dctNextToken x)
+    f (_dctNextToken x)
+        <&> \y -> x { _dctNextToken = y }
 {-# INLINE dctNextToken #-}
 
 instance ToPath DescribeCommunications
@@ -160,27 +136,17 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse
     } deriving (Show, Generic)
 
 -- | The communications for the case.
-dcuCommunications
-    :: Functor f
-    => ([Communication]
-    -> f ([Communication]))
-    -> DescribeCommunicationsResponse
-    -> f DescribeCommunicationsResponse
+dcuCommunications :: Lens' DescribeCommunicationsResponse ([Communication])
 dcuCommunications f x =
-    (\y -> x { _dcuCommunications = y })
-       <$> f (_dcuCommunications x)
+    f (_dcuCommunications x)
+        <&> \y -> x { _dcuCommunications = y }
 {-# INLINE dcuCommunications #-}
 
 -- | A resumption point for pagination.
-dcuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeCommunicationsResponse
-    -> f DescribeCommunicationsResponse
+dcuNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcuNextToken f x =
-    (\y -> x { _dcuNextToken = y })
-       <$> f (_dcuNextToken x)
+    f (_dcuNextToken x)
+        <&> \y -> x { _dcuNextToken = y }
 {-# INLINE dcuNextToken #-}
 
 instance FromJSON DescribeCommunicationsResponse

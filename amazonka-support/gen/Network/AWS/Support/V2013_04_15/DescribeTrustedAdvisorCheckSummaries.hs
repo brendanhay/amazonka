@@ -47,6 +47,7 @@ describeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsrCheckIds'
 describeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
     { _dtacsrCheckIds = p1
     }
+{-# INLINE describeTrustedAdvisorCheckSummaries #-}
 
 data DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     { _dtacsrCheckIds :: [Text]
@@ -54,15 +55,10 @@ data DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     } deriving (Show, Generic)
 
 -- | The IDs of the Trusted Advisor checks.
-dtacsrCheckIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTrustedAdvisorCheckSummaries
-    -> f DescribeTrustedAdvisorCheckSummaries
+dtacsrCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries ([Text])
 dtacsrCheckIds f x =
-    (\y -> x { _dtacsrCheckIds = y })
-       <$> f (_dtacsrCheckIds x)
+    f (_dtacsrCheckIds x)
+        <&> \y -> x { _dtacsrCheckIds = y }
 {-# INLINE dtacsrCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries
@@ -79,15 +75,10 @@ data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckS
     } deriving (Show, Generic)
 
 -- | The summary information for the requested Trusted Advisor checks.
-dtacssSummaries
-    :: Functor f
-    => ([TrustedAdvisorCheckSummary]
-    -> f ([TrustedAdvisorCheckSummary]))
-    -> DescribeTrustedAdvisorCheckSummariesResponse
-    -> f DescribeTrustedAdvisorCheckSummariesResponse
+dtacssSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse ([TrustedAdvisorCheckSummary])
 dtacssSummaries f x =
-    (\y -> x { _dtacssSummaries = y })
-       <$> f (_dtacssSummaries x)
+    f (_dtacssSummaries x)
+        <&> \y -> x { _dtacssSummaries = y }
 {-# INLINE dtacssSummaries #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse

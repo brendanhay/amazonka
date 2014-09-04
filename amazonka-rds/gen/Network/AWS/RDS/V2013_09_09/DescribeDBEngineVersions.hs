@@ -83,6 +83,7 @@ describeDBEngineVersions = DescribeDBEngineVersions
     , _ddbevmDBParameterGroupFamily = Nothing
     , _ddbevmMarker = Nothing
     }
+{-# INLINE describeDBEngineVersions #-}
 
 data DescribeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevmDefaultOnly :: Maybe Bool
@@ -116,96 +117,61 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
 
 -- | Indicates that only the default version of the specified engine or engine
 -- and major version combination is returned.
-ddbevmDefaultOnly
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddbevmDefaultOnly f x =
-    (\y -> x { _ddbevmDefaultOnly = y })
-       <$> f (_ddbevmDefaultOnly x)
+    f (_ddbevmDefaultOnly x)
+        <&> \y -> x { _ddbevmDefaultOnly = y }
 {-# INLINE ddbevmDefaultOnly #-}
 
 -- | If this parameter is specified, and if the requested engine supports the
 -- CharacterSetName parameter for CreateDBInstance, the response includes a
 -- list of supported character sets for each engine version.
-ddbevmListSupportedCharacterSets
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddbevmListSupportedCharacterSets f x =
-    (\y -> x { _ddbevmListSupportedCharacterSets = y })
-       <$> f (_ddbevmListSupportedCharacterSets x)
+    f (_ddbevmListSupportedCharacterSets x)
+        <&> \y -> x { _ddbevmListSupportedCharacterSets = y }
 {-# INLINE ddbevmListSupportedCharacterSets #-}
 
 -- | The maximum number of records to include in the response. If more than the
 -- MaxRecords value is available, a pagination token called a marker is
 -- included in the response so that the following results can be retrieved.
 -- Default: 100 Constraints: minimum 20, maximum 100.
-ddbevmMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Integer)
 ddbevmMaxRecords f x =
-    (\y -> x { _ddbevmMaxRecords = y })
-       <$> f (_ddbevmMaxRecords x)
+    f (_ddbevmMaxRecords x)
+        <&> \y -> x { _ddbevmMaxRecords = y }
 {-# INLINE ddbevmMaxRecords #-}
 
 -- | The database engine to return.
-ddbevmEngine
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevmEngine f x =
-    (\y -> x { _ddbevmEngine = y })
-       <$> f (_ddbevmEngine x)
+    f (_ddbevmEngine x)
+        <&> \y -> x { _ddbevmEngine = y }
 {-# INLINE ddbevmEngine #-}
 
 -- | The database engine version to return. Example: 5.1.49.
-ddbevmEngineVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevmEngineVersion f x =
-    (\y -> x { _ddbevmEngineVersion = y })
-       <$> f (_ddbevmEngineVersion x)
+    f (_ddbevmEngineVersion x)
+        <&> \y -> x { _ddbevmEngineVersion = y }
 {-# INLINE ddbevmEngineVersion #-}
 
 -- | The name of a specific DB parameter group family to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
-ddbevmDBParameterGroupFamily
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevmDBParameterGroupFamily f x =
-    (\y -> x { _ddbevmDBParameterGroupFamily = y })
-       <$> f (_ddbevmDBParameterGroupFamily x)
+    f (_ddbevmDBParameterGroupFamily x)
+        <&> \y -> x { _ddbevmDBParameterGroupFamily = y }
 {-# INLINE ddbevmDBParameterGroupFamily #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbevmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBEngineVersions
-    -> f DescribeDBEngineVersions
+ddbevmMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevmMarker f x =
-    (\y -> x { _ddbevmMarker = y })
-       <$> f (_ddbevmMarker x)
+    f (_ddbevmMarker x)
+        <&> \y -> x { _ddbevmMarker = y }
 {-# INLINE ddbevmMarker #-}
 
 instance ToQuery DescribeDBEngineVersions where
@@ -221,29 +187,19 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     } deriving (Show, Generic)
 
 -- | A list of DBEngineVersion elements.
-dbevmDBEngineVersions
-    :: Functor f
-    => ([DBEngineVersion]
-    -> f ([DBEngineVersion]))
-    -> DescribeDBEngineVersionsResponse
-    -> f DescribeDBEngineVersionsResponse
+dbevmDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse ([DBEngineVersion])
 dbevmDBEngineVersions f x =
-    (\y -> x { _dbevmDBEngineVersions = y })
-       <$> f (_dbevmDBEngineVersions x)
+    f (_dbevmDBEngineVersions x)
+        <&> \y -> x { _dbevmDBEngineVersions = y }
 {-# INLINE dbevmDBEngineVersions #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbevmMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeDBEngineVersionsResponse
-    -> f DescribeDBEngineVersionsResponse
+dbevmMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 dbevmMarker f x =
-    (\y -> x { _dbevmMarker = y })
-       <$> f (_dbevmMarker x)
+    f (_dbevmMarker x)
+        <&> \y -> x { _dbevmMarker = y }
 {-# INLINE dbevmMarker #-}
 
 instance FromXML DescribeDBEngineVersionsResponse where

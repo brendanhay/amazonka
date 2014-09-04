@@ -82,6 +82,7 @@ createStream p1 p2 = CreateStream
     { _csiShardCount = p1
     , _csiStreamName = p2
     }
+{-# INLINE createStream #-}
 
 data CreateStream = CreateStream
     { _csiShardCount :: Integer
@@ -105,15 +106,10 @@ data CreateStream = CreateStream
 -- provisioned throughput. Note: The default limit for an AWS account is 10
 -- shards per stream. If you need to create a stream with more than 10 shards,
 -- contact AWS Support to increase the limit on your account.
-csiShardCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateStream
-    -> f CreateStream
+csiShardCount :: Lens' CreateStream (Integer)
 csiShardCount f x =
-    (\y -> x { _csiShardCount = y })
-       <$> f (_csiShardCount x)
+    f (_csiShardCount x)
+        <&> \y -> x { _csiShardCount = y }
 {-# INLINE csiShardCount #-}
 
 -- | A name to identify the stream. The stream name is scoped to the AWS account
@@ -121,15 +117,10 @@ csiShardCount f x =
 -- region. That is, two streams in two different AWS accounts can have the
 -- same name, and two streams in the same AWS account, but in two different
 -- regions, can have the same name.
-csiStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateStream
-    -> f CreateStream
+csiStreamName :: Lens' CreateStream (Text)
 csiStreamName f x =
-    (\y -> x { _csiStreamName = y })
-       <$> f (_csiStreamName x)
+    f (_csiStreamName x)
+        <&> \y -> x { _csiStreamName = y }
 {-# INLINE csiStreamName #-}
 
 instance ToPath CreateStream

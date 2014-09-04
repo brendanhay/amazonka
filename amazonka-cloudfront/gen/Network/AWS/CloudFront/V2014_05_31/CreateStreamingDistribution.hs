@@ -45,6 +45,7 @@ createStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdrStreamingDi
 createStreamingDistribution p1 = CreateStreamingDistribution
     { _csdrStreamingDistributionConfig = p1
     }
+{-# INLINE createStreamingDistribution #-}
 
 data CreateStreamingDistribution = CreateStreamingDistribution
     { _csdrStreamingDistributionConfig :: StreamingDistributionConfig
@@ -52,15 +53,10 @@ data CreateStreamingDistribution = CreateStreamingDistribution
     } deriving (Show, Generic)
 
 -- | The streaming distribution's configuration information.
-csdrStreamingDistributionConfig
-    :: Functor f
-    => (StreamingDistributionConfig
-    -> f (StreamingDistributionConfig))
-    -> CreateStreamingDistribution
-    -> f CreateStreamingDistribution
+csdrStreamingDistributionConfig :: Lens' CreateStreamingDistribution (StreamingDistributionConfig)
 csdrStreamingDistributionConfig f x =
-    (\y -> x { _csdrStreamingDistributionConfig = y })
-       <$> f (_csdrStreamingDistributionConfig x)
+    f (_csdrStreamingDistributionConfig x)
+        <&> \y -> x { _csdrStreamingDistributionConfig = y }
 {-# INLINE csdrStreamingDistributionConfig #-}
 
 instance ToPath CreateStreamingDistribution where
@@ -87,42 +83,27 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-csdsStreamingDistribution
-    :: Functor f
-    => (Maybe StreamingDistribution
-    -> f (Maybe StreamingDistribution))
-    -> CreateStreamingDistributionResponse
-    -> f CreateStreamingDistributionResponse
+csdsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
 csdsStreamingDistribution f x =
-    (\y -> x { _csdsStreamingDistribution = y })
-       <$> f (_csdsStreamingDistribution x)
+    f (_csdsStreamingDistribution x)
+        <&> \y -> x { _csdsStreamingDistribution = y }
 {-# INLINE csdsStreamingDistribution #-}
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
 -- 
-csdsLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStreamingDistributionResponse
-    -> f CreateStreamingDistributionResponse
+csdsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdsLocation f x =
-    (\y -> x { _csdsLocation = y })
-       <$> f (_csdsLocation x)
+    f (_csdsLocation x)
+        <&> \y -> x { _csdsLocation = y }
 {-# INLINE csdsLocation #-}
 
 -- | The current version of the streaming distribution created.
-csdsETag
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateStreamingDistributionResponse
-    -> f CreateStreamingDistributionResponse
+csdsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdsETag f x =
-    (\y -> x { _csdsETag = y })
-       <$> f (_csdsETag x)
+    f (_csdsETag x)
+        <&> \y -> x { _csdsETag = y }
 {-# INLINE csdsETag #-}
 
 instance AWSRequest CreateStreamingDistribution where

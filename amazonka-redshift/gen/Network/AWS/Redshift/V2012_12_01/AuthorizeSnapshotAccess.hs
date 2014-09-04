@@ -50,6 +50,7 @@ authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
     , _asamAccountWithRestoreAccess = p2
     , _asamSnapshotClusterIdentifier = Nothing
     }
+{-# INLINE authorizeSnapshotAccess #-}
 
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asamSnapshotIdentifier :: Text
@@ -66,42 +67,27 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     } deriving (Show, Generic)
 
 -- | The identifier of the snapshot the account is authorized to restore.
-asamSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeSnapshotAccess
-    -> f AuthorizeSnapshotAccess
+asamSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess (Text)
 asamSnapshotIdentifier f x =
-    (\y -> x { _asamSnapshotIdentifier = y })
-       <$> f (_asamSnapshotIdentifier x)
+    f (_asamSnapshotIdentifier x)
+        <&> \y -> x { _asamSnapshotIdentifier = y }
 {-# INLINE asamSnapshotIdentifier #-}
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
-asamAccountWithRestoreAccess
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AuthorizeSnapshotAccess
-    -> f AuthorizeSnapshotAccess
+asamAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess (Text)
 asamAccountWithRestoreAccess f x =
-    (\y -> x { _asamAccountWithRestoreAccess = y })
-       <$> f (_asamAccountWithRestoreAccess x)
+    f (_asamAccountWithRestoreAccess x)
+        <&> \y -> x { _asamAccountWithRestoreAccess = y }
 {-# INLINE asamAccountWithRestoreAccess #-}
 
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
 -- element that specifies anything other than * for the cluster name.
-asamSnapshotClusterIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSnapshotAccess
-    -> f AuthorizeSnapshotAccess
+asamSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
 asamSnapshotClusterIdentifier f x =
-    (\y -> x { _asamSnapshotClusterIdentifier = y })
-       <$> f (_asamSnapshotClusterIdentifier x)
+    f (_asamSnapshotClusterIdentifier x)
+        <&> \y -> x { _asamSnapshotClusterIdentifier = y }
 {-# INLINE asamSnapshotClusterIdentifier #-}
 
 instance ToQuery AuthorizeSnapshotAccess where
@@ -113,15 +99,10 @@ data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-swSnapshot
-    :: Functor f
-    => (Maybe Snapshot
-    -> f (Maybe Snapshot))
-    -> AuthorizeSnapshotAccessResponse
-    -> f AuthorizeSnapshotAccessResponse
+swSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 swSnapshot f x =
-    (\y -> x { _swSnapshot = y })
-       <$> f (_swSnapshot x)
+    f (_swSnapshot x)
+        <&> \y -> x { _swSnapshot = y }
 {-# INLINE swSnapshot #-}
 
 instance FromXML AuthorizeSnapshotAccessResponse where

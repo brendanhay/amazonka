@@ -214,32 +214,23 @@ testMetricFilter p1 p2 = TestMetricFilter
     { _tmfrFilterPattern = p1
     , _tmfrLogEventMessages = p2
     }
+{-# INLINE testMetricFilter #-}
 
 data TestMetricFilter = TestMetricFilter
     { _tmfrFilterPattern :: Text
     , _tmfrLogEventMessages :: [Text]
     } deriving (Show, Generic)
 
-tmfrFilterPattern
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TestMetricFilter
-    -> f TestMetricFilter
+tmfrFilterPattern :: Lens' TestMetricFilter (Text)
 tmfrFilterPattern f x =
-    (\y -> x { _tmfrFilterPattern = y })
-       <$> f (_tmfrFilterPattern x)
+    f (_tmfrFilterPattern x)
+        <&> \y -> x { _tmfrFilterPattern = y }
 {-# INLINE tmfrFilterPattern #-}
 
-tmfrLogEventMessages
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> TestMetricFilter
-    -> f TestMetricFilter
+tmfrLogEventMessages :: Lens' TestMetricFilter ([Text])
 tmfrLogEventMessages f x =
-    (\y -> x { _tmfrLogEventMessages = y })
-       <$> f (_tmfrLogEventMessages x)
+    f (_tmfrLogEventMessages x)
+        <&> \y -> x { _tmfrLogEventMessages = y }
 {-# INLINE tmfrLogEventMessages #-}
 
 instance ToPath TestMetricFilter
@@ -254,15 +245,10 @@ data TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfsMatches :: [MetricFilterMatchRecord]
     } deriving (Show, Generic)
 
-tmfsMatches
-    :: Functor f
-    => ([MetricFilterMatchRecord]
-    -> f ([MetricFilterMatchRecord]))
-    -> TestMetricFilterResponse
-    -> f TestMetricFilterResponse
+tmfsMatches :: Lens' TestMetricFilterResponse ([MetricFilterMatchRecord])
 tmfsMatches f x =
-    (\y -> x { _tmfsMatches = y })
-       <$> f (_tmfsMatches x)
+    f (_tmfsMatches x)
+        <&> \y -> x { _tmfsMatches = y }
 {-# INLINE tmfsMatches #-}
 
 instance FromJSON TestMetricFilterResponse

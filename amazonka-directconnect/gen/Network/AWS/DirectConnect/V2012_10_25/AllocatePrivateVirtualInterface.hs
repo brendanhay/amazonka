@@ -70,6 +70,7 @@ allocatePrivateVirtualInterface p1 p2 p3 = AllocatePrivateVirtualInterface
     , _apvirNewPrivateVirtualInterfaceAllocation = p2
     , _apvirOwnerAccount = p3
     }
+{-# INLINE allocatePrivateVirtualInterface #-}
 
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
     { _apvirConnectionId :: Text
@@ -85,41 +86,26 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
 
 -- | The connection ID on which the private virtual interface is provisioned.
 -- Default: None.
-apvirConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AllocatePrivateVirtualInterface
-    -> f AllocatePrivateVirtualInterface
+apvirConnectionId :: Lens' AllocatePrivateVirtualInterface (Text)
 apvirConnectionId f x =
-    (\y -> x { _apvirConnectionId = y })
-       <$> f (_apvirConnectionId x)
+    f (_apvirConnectionId x)
+        <&> \y -> x { _apvirConnectionId = y }
 {-# INLINE apvirConnectionId #-}
 
 -- | Detailed information for the private virtual interface to be provisioned.
 -- Default: None.
-apvirNewPrivateVirtualInterfaceAllocation
-    :: Functor f
-    => (NewPrivateVirtualInterfaceAllocation
-    -> f (NewPrivateVirtualInterfaceAllocation))
-    -> AllocatePrivateVirtualInterface
-    -> f AllocatePrivateVirtualInterface
+apvirNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface (NewPrivateVirtualInterfaceAllocation)
 apvirNewPrivateVirtualInterfaceAllocation f x =
-    (\y -> x { _apvirNewPrivateVirtualInterfaceAllocation = y })
-       <$> f (_apvirNewPrivateVirtualInterfaceAllocation x)
+    f (_apvirNewPrivateVirtualInterfaceAllocation x)
+        <&> \y -> x { _apvirNewPrivateVirtualInterfaceAllocation = y }
 {-# INLINE apvirNewPrivateVirtualInterfaceAllocation #-}
 
 -- | The AWS account that will own the new private virtual interface. Default:
 -- None.
-apvirOwnerAccount
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AllocatePrivateVirtualInterface
-    -> f AllocatePrivateVirtualInterface
+apvirOwnerAccount :: Lens' AllocatePrivateVirtualInterface (Text)
 apvirOwnerAccount f x =
-    (\y -> x { _apvirOwnerAccount = y })
-       <$> f (_apvirOwnerAccount x)
+    f (_apvirOwnerAccount x)
+        <&> \y -> x { _apvirOwnerAccount = y }
 {-# INLINE apvirOwnerAccount #-}
 
 instance ToPath AllocatePrivateVirtualInterface
@@ -191,161 +177,96 @@ data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceRe
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
-viAsn
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viAsn :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Integer)
 viAsn f x =
-    (\y -> x { _viAsn = y })
-       <$> f (_viAsn x)
+    f (_viAsn x)
+        <&> \y -> x { _viAsn = y }
 {-# INLINE viAsn #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
-viAmazonAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viAmazonAddress :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viAmazonAddress f x =
-    (\y -> x { _viAmazonAddress = y })
-       <$> f (_viAmazonAddress x)
+    f (_viAmazonAddress x)
+        <&> \y -> x { _viAmazonAddress = y }
 {-# INLINE viAmazonAddress #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
-viAuthKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viAuthKey :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viAuthKey f x =
-    (\y -> x { _viAuthKey = y })
-       <$> f (_viAuthKey x)
+    f (_viAuthKey x)
+        <&> \y -> x { _viAuthKey = y }
 {-# INLINE viAuthKey #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-viConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viConnectionId :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viConnectionId f x =
-    (\y -> x { _viConnectionId = y })
-       <$> f (_viConnectionId x)
+    f (_viConnectionId x)
+        <&> \y -> x { _viConnectionId = y }
 {-# INLINE viConnectionId #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
-viCustomerAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viCustomerAddress :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viCustomerAddress f x =
-    (\y -> x { _viCustomerAddress = y })
-       <$> f (_viCustomerAddress x)
+    f (_viCustomerAddress x)
+        <&> \y -> x { _viCustomerAddress = y }
 {-# INLINE viCustomerAddress #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-viLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viLocation :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viLocation f x =
-    (\y -> x { _viLocation = y })
-       <$> f (_viLocation x)
+    f (_viLocation x)
+        <&> \y -> x { _viLocation = y }
 {-# INLINE viLocation #-}
 
-viOwnerAccount
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viOwnerAccount :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viOwnerAccount f x =
-    (\y -> x { _viOwnerAccount = y })
-       <$> f (_viOwnerAccount x)
+    f (_viOwnerAccount x)
+        <&> \y -> x { _viOwnerAccount = y }
 {-# INLINE viOwnerAccount #-}
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
-viRouteFilterPrefixes
-    :: Functor f
-    => ([RouteFilterPrefix]
-    -> f ([RouteFilterPrefix]))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viRouteFilterPrefixes :: Lens' AllocatePrivateVirtualInterfaceResponse ([RouteFilterPrefix])
 viRouteFilterPrefixes f x =
-    (\y -> x { _viRouteFilterPrefixes = y })
-       <$> f (_viRouteFilterPrefixes x)
+    f (_viRouteFilterPrefixes x)
+        <&> \y -> x { _viRouteFilterPrefixes = y }
 {-# INLINE viRouteFilterPrefixes #-}
 
 -- | Information for generating the customer router configuration.
-viCustomerRouterConfig
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viCustomerRouterConfig :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viCustomerRouterConfig f x =
-    (\y -> x { _viCustomerRouterConfig = y })
-       <$> f (_viCustomerRouterConfig x)
+    f (_viCustomerRouterConfig x)
+        <&> \y -> x { _viCustomerRouterConfig = y }
 {-# INLINE viCustomerRouterConfig #-}
 
 -- | The VLAN ID. Example: 101.
-viVlan
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viVlan :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Integer)
 viVlan f x =
-    (\y -> x { _viVlan = y })
-       <$> f (_viVlan x)
+    f (_viVlan x)
+        <&> \y -> x { _viVlan = y }
 {-# INLINE viVlan #-}
 
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
-viVirtualGatewayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viVirtualGatewayId :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viVirtualGatewayId f x =
-    (\y -> x { _viVirtualGatewayId = y })
-       <$> f (_viVirtualGatewayId x)
+    f (_viVirtualGatewayId x)
+        <&> \y -> x { _viVirtualGatewayId = y }
 {-# INLINE viVirtualGatewayId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-viVirtualInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viVirtualInterfaceId :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viVirtualInterfaceId f x =
-    (\y -> x { _viVirtualInterfaceId = y })
-       <$> f (_viVirtualInterfaceId x)
+    f (_viVirtualInterfaceId x)
+        <&> \y -> x { _viVirtualInterfaceId = y }
 {-# INLINE viVirtualInterfaceId #-}
 
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
-viVirtualInterfaceName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viVirtualInterfaceName :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viVirtualInterfaceName f x =
-    (\y -> x { _viVirtualInterfaceName = y })
-       <$> f (_viVirtualInterfaceName x)
+    f (_viVirtualInterfaceName x)
+        <&> \y -> x { _viVirtualInterfaceName = y }
 {-# INLINE viVirtualInterfaceName #-}
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
@@ -364,28 +285,18 @@ viVirtualInterfaceName f x =
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-viVirtualInterfaceState
-    :: Functor f
-    => (Maybe VirtualInterfaceState
-    -> f (Maybe VirtualInterfaceState))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viVirtualInterfaceState :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 viVirtualInterfaceState f x =
-    (\y -> x { _viVirtualInterfaceState = y })
-       <$> f (_viVirtualInterfaceState x)
+    f (_viVirtualInterfaceState x)
+        <&> \y -> x { _viVirtualInterfaceState = y }
 {-# INLINE viVirtualInterfaceState #-}
 
 -- | The type of virtual interface. Example: private (Amazon VPC) or public
 -- (Amazon S3, Amazon DynamoDB, and so on.).
-viVirtualInterfaceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocatePrivateVirtualInterfaceResponse
-    -> f AllocatePrivateVirtualInterfaceResponse
+viVirtualInterfaceType :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 viVirtualInterfaceType f x =
-    (\y -> x { _viVirtualInterfaceType = y })
-       <$> f (_viVirtualInterfaceType x)
+    f (_viVirtualInterfaceType x)
+        <&> \y -> x { _viVirtualInterfaceType = y }
 {-# INLINE viVirtualInterfaceType #-}
 
 instance FromJSON AllocatePrivateVirtualInterfaceResponse

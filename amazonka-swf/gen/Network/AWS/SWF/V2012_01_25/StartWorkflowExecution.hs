@@ -101,6 +101,7 @@ startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
     , _swejTagList = mempty
     , _swejTaskList = Nothing
     }
+{-# INLINE startWorkflowExecution #-}
 
 data StartWorkflowExecution = StartWorkflowExecution
     { _swejDomain :: Text
@@ -187,15 +188,10 @@ data StartWorkflowExecution = StartWorkflowExecution
     } deriving (Show, Generic)
 
 -- | The name of the domain in which the workflow execution is created.
-swejDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejDomain :: Lens' StartWorkflowExecution (Text)
 swejDomain f x =
-    (\y -> x { _swejDomain = y })
-       <$> f (_swejDomain x)
+    f (_swejDomain x)
+        <&> \y -> x { _swejDomain = y }
 {-# INLINE swejDomain #-}
 
 -- | The user defined identifier associated with the workflow execution. You can
@@ -207,27 +203,17 @@ swejDomain f x =
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-swejWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejWorkflowId :: Lens' StartWorkflowExecution (Text)
 swejWorkflowId f x =
-    (\y -> x { _swejWorkflowId = y })
-       <$> f (_swejWorkflowId x)
+    f (_swejWorkflowId x)
+        <&> \y -> x { _swejWorkflowId = y }
 {-# INLINE swejWorkflowId #-}
 
 -- | The type of the workflow to start.
-swejWorkflowType
-    :: Functor f
-    => (WorkflowType
-    -> f (WorkflowType))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejWorkflowType :: Lens' StartWorkflowExecution (WorkflowType)
 swejWorkflowType f x =
-    (\y -> x { _swejWorkflowType = y })
-       <$> f (_swejWorkflowType x)
+    f (_swejWorkflowType x)
+        <&> \y -> x { _swejWorkflowType = y }
 {-# INLINE swejWorkflowType #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
@@ -244,30 +230,20 @@ swejWorkflowType f x =
 -- specified either as a default for the workflow type or through this
 -- parameter. If neither this parameter is set nor a default child policy was
 -- specified at registration time then a fault will be returned.
-swejChildPolicy
-    :: Functor f
-    => (Maybe ChildPolicy
-    -> f (Maybe ChildPolicy))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
 swejChildPolicy f x =
-    (\y -> x { _swejChildPolicy = y })
-       <$> f (_swejChildPolicy x)
+    f (_swejChildPolicy x)
+        <&> \y -> x { _swejChildPolicy = y }
 {-# INLINE swejChildPolicy #-}
 
 -- | The input for the workflow execution. This is a free form string which
 -- should be meaningful to the workflow you are starting. This input is made
 -- available to the new workflow execution in the WorkflowExecutionStarted
 -- history event.
-swejInput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejInput :: Lens' StartWorkflowExecution (Maybe Text)
 swejInput f x =
-    (\y -> x { _swejInput = y })
-       <$> f (_swejInput x)
+    f (_swejInput x)
+        <&> \y -> x { _swejInput = y }
 {-# INLINE swejInput #-}
 
 -- | The total duration for this workflow execution. This overrides the
@@ -281,15 +257,10 @@ swejInput f x =
 -- parameter or as a default when the workflow type is registered. If neither
 -- this parameter nor a default execution start-to-close timeout is specified,
 -- a fault is returned.
-swejExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 swejExecutionStartToCloseTimeout f x =
-    (\y -> x { _swejExecutionStartToCloseTimeout = y })
-       <$> f (_swejExecutionStartToCloseTimeout x)
+    f (_swejExecutionStartToCloseTimeout x)
+        <&> \y -> x { _swejExecutionStartToCloseTimeout = y }
 {-# INLINE swejExecutionStartToCloseTimeout #-}
 
 -- | Specifies the maximum duration of decision tasks for this workflow
@@ -302,30 +273,20 @@ swejExecutionStartToCloseTimeout f x =
 -- through this parameter. If neither this parameter is set nor a default task
 -- start-to-close timeout was specified at registration time then a fault will
 -- be returned.
-swejTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejTaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 swejTaskStartToCloseTimeout f x =
-    (\y -> x { _swejTaskStartToCloseTimeout = y })
-       <$> f (_swejTaskStartToCloseTimeout x)
+    f (_swejTaskStartToCloseTimeout x)
+        <&> \y -> x { _swejTaskStartToCloseTimeout = y }
 {-# INLINE swejTaskStartToCloseTimeout #-}
 
 -- | The list of tags to associate with the workflow execution. You can specify
 -- a maximum of 5 tags. You can list workflow executions with a specific tag
 -- by calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
 -- specifying a TagFilter.
-swejTagList
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejTagList :: Lens' StartWorkflowExecution ([Text])
 swejTagList f x =
-    (\y -> x { _swejTagList = y })
-       <$> f (_swejTagList x)
+    f (_swejTagList x)
+        <&> \y -> x { _swejTagList = y }
 {-# INLINE swejTagList #-}
 
 -- | The task list to use for the decision tasks generated for this workflow
@@ -338,15 +299,10 @@ swejTagList f x =
 -- (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-swejTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> StartWorkflowExecution
-    -> f StartWorkflowExecution
+swejTaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
 swejTaskList f x =
-    (\y -> x { _swejTaskList = y })
-       <$> f (_swejTaskList x)
+    f (_swejTaskList x)
+        <&> \y -> x { _swejTaskList = y }
 {-# INLINE swejTaskList #-}
 
 instance ToPath StartWorkflowExecution
@@ -366,15 +322,10 @@ data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
 
 -- | The runId of a workflow execution. This Id is generated by the service and
 -- can be used to uniquely identify the workflow execution within a domain.
-rrrnRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StartWorkflowExecutionResponse
-    -> f StartWorkflowExecutionResponse
+rrrnRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
 rrrnRunId f x =
-    (\y -> x { _rrrnRunId = y })
-       <$> f (_rrrnRunId x)
+    f (_rrrnRunId x)
+        <&> \y -> x { _rrrnRunId = y }
 {-# INLINE rrrnRunId #-}
 
 instance FromJSON StartWorkflowExecutionResponse

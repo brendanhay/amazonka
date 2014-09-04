@@ -50,6 +50,7 @@ updateVolume p1 = UpdateVolume
     , _uvsName = Nothing
     , _uvsMountPoint = Nothing
     }
+{-# INLINE updateVolume #-}
 
 data UpdateVolume = UpdateVolume
     { _uvsVolumeId :: Text
@@ -61,39 +62,24 @@ data UpdateVolume = UpdateVolume
     } deriving (Show, Generic)
 
 -- | The volume ID.
-uvsVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateVolume
-    -> f UpdateVolume
+uvsVolumeId :: Lens' UpdateVolume (Text)
 uvsVolumeId f x =
-    (\y -> x { _uvsVolumeId = y })
-       <$> f (_uvsVolumeId x)
+    f (_uvsVolumeId x)
+        <&> \y -> x { _uvsVolumeId = y }
 {-# INLINE uvsVolumeId #-}
 
 -- | The new name.
-uvsName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateVolume
-    -> f UpdateVolume
+uvsName :: Lens' UpdateVolume (Maybe Text)
 uvsName f x =
-    (\y -> x { _uvsName = y })
-       <$> f (_uvsName x)
+    f (_uvsName x)
+        <&> \y -> x { _uvsName = y }
 {-# INLINE uvsName #-}
 
 -- | The new mount point.
-uvsMountPoint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateVolume
-    -> f UpdateVolume
+uvsMountPoint :: Lens' UpdateVolume (Maybe Text)
 uvsMountPoint f x =
-    (\y -> x { _uvsMountPoint = y })
-       <$> f (_uvsMountPoint x)
+    f (_uvsMountPoint x)
+        <&> \y -> x { _uvsMountPoint = y }
 {-# INLINE uvsMountPoint #-}
 
 instance ToPath UpdateVolume

@@ -71,6 +71,7 @@ describeEvents = DescribeEvents
     , _demStartTime = Nothing
     , _demEndTime = Nothing
     }
+{-# INLINE describeEvents #-}
 
 data DescribeEvents = DescribeEvents
     { _demEventCategories :: [Text]
@@ -117,55 +118,35 @@ data DescribeEvents = DescribeEvents
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
-demEventCategories
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeEvents
-    -> f DescribeEvents
+demEventCategories :: Lens' DescribeEvents ([Text])
 demEventCategories f x =
-    (\y -> x { _demEventCategories = y })
-       <$> f (_demEventCategories x)
+    f (_demEventCategories x)
+        <&> \y -> x { _demEventCategories = y }
 {-# INLINE demEventCategories #-}
 
 -- | The number of minutes to retrieve events for. Default: 60.
-demDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEvents
-    -> f DescribeEvents
+demDuration :: Lens' DescribeEvents (Maybe Integer)
 demDuration f x =
-    (\y -> x { _demDuration = y })
-       <$> f (_demDuration x)
+    f (_demDuration x)
+        <&> \y -> x { _demDuration = y }
 {-# INLINE demDuration #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-demMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeEvents
-    -> f DescribeEvents
+demMaxRecords :: Lens' DescribeEvents (Maybe Integer)
 demMaxRecords f x =
-    (\y -> x { _demMaxRecords = y })
-       <$> f (_demMaxRecords x)
+    f (_demMaxRecords x)
+        <&> \y -> x { _demMaxRecords = y }
 {-# INLINE demMaxRecords #-}
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
-demSourceType
-    :: Functor f
-    => (Maybe SourceType
-    -> f (Maybe SourceType))
-    -> DescribeEvents
-    -> f DescribeEvents
+demSourceType :: Lens' DescribeEvents (Maybe SourceType)
 demSourceType f x =
-    (\y -> x { _demSourceType = y })
-       <$> f (_demSourceType x)
+    f (_demSourceType x)
+        <&> \y -> x { _demSourceType = y }
 {-# INLINE demSourceType #-}
 
 -- | The identifier of the event source for which events will be returned. If
@@ -176,57 +157,37 @@ demSourceType f x =
 -- If the source type is DBParameterGroup, a DBParameterGroupName must be
 -- supplied. If the source type is DBSnapshot, a DBSnapshotIdentifier must be
 -- supplied. Cannot end with a hyphen or contain two consecutive hyphens.
-demSourceIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+demSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 demSourceIdentifier f x =
-    (\y -> x { _demSourceIdentifier = y })
-       <$> f (_demSourceIdentifier x)
+    f (_demSourceIdentifier x)
+        <&> \y -> x { _demSourceIdentifier = y }
 {-# INLINE demSourceIdentifier #-}
 
 -- | An optional pagination token provided by a previous DescribeEvents request.
 -- If this parameter is specified, the response includes only records beyond
 -- the marker, up to the value specified by MaxRecords.
-demMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEvents
-    -> f DescribeEvents
+demMarker :: Lens' DescribeEvents (Maybe Text)
 demMarker f x =
-    (\y -> x { _demMarker = y })
-       <$> f (_demMarker x)
+    f (_demMarker x)
+        <&> \y -> x { _demMarker = y }
 {-# INLINE demMarker #-}
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEvents
-    -> f DescribeEvents
+demStartTime :: Lens' DescribeEvents (Maybe ISO8601)
 demStartTime f x =
-    (\y -> x { _demStartTime = y })
-       <$> f (_demStartTime x)
+    f (_demStartTime x)
+        <&> \y -> x { _demStartTime = y }
 {-# INLINE demStartTime #-}
 
 -- | The end of the time interval for which to retrieve events, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeEvents
-    -> f DescribeEvents
+demEndTime :: Lens' DescribeEvents (Maybe ISO8601)
 demEndTime f x =
-    (\y -> x { _demEndTime = y })
-       <$> f (_demEndTime x)
+    f (_demEndTime x)
+        <&> \y -> x { _demEndTime = y }
 {-# INLINE demEndTime #-}
 
 instance ToQuery DescribeEvents where
@@ -243,29 +204,19 @@ data DescribeEventsResponse = DescribeEventsResponse
     } deriving (Show, Generic)
 
 -- | A list of Event instances.
-emEvents
-    :: Functor f
-    => ([Event]
-    -> f ([Event]))
-    -> DescribeEventsResponse
-    -> f DescribeEventsResponse
+emEvents :: Lens' DescribeEventsResponse ([Event])
 emEvents f x =
-    (\y -> x { _emEvents = y })
-       <$> f (_emEvents x)
+    f (_emEvents x)
+        <&> \y -> x { _emEvents = y }
 {-# INLINE emEvents #-}
 
 -- | An optional pagination token provided by a previous Events request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords .
-emMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeEventsResponse
-    -> f DescribeEventsResponse
+emMarker :: Lens' DescribeEventsResponse (Maybe Text)
 emMarker f x =
-    (\y -> x { _emMarker = y })
-       <$> f (_emMarker x)
+    f (_emMarker x)
+        <&> \y -> x { _emMarker = y }
 {-# INLINE emMarker #-}
 
 instance FromXML DescribeEventsResponse where

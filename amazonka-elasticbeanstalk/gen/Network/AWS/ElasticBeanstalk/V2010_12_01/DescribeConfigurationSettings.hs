@@ -97,6 +97,7 @@ describeConfigurationSettings p1 = DescribeConfigurationSettings
     , _dcsmTemplateName = Nothing
     , _dcsmEnvironmentName = Nothing
     }
+{-# INLINE describeConfigurationSettings #-}
 
 data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsmApplicationName :: Text
@@ -116,15 +117,10 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
     } deriving (Show, Generic)
 
 -- | The application for the environment or configuration template.
-dcsmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeConfigurationSettings
-    -> f DescribeConfigurationSettings
+dcsmApplicationName :: Lens' DescribeConfigurationSettings (Text)
 dcsmApplicationName f x =
-    (\y -> x { _dcsmApplicationName = y })
-       <$> f (_dcsmApplicationName x)
+    f (_dcsmApplicationName x)
+        <&> \y -> x { _dcsmApplicationName = y }
 {-# INLINE dcsmApplicationName #-}
 
 -- | The name of the configuration template to describe. Conditional: You must
@@ -132,15 +128,10 @@ dcsmApplicationName f x =
 -- specify both, AWS Elastic Beanstalk returns an InvalidParameterCombination
 -- error. If you do not specify either, AWS Elastic Beanstalk returns a
 -- MissingRequiredParameter error.
-dcsmTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationSettings
-    -> f DescribeConfigurationSettings
+dcsmTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsmTemplateName f x =
-    (\y -> x { _dcsmTemplateName = y })
-       <$> f (_dcsmTemplateName x)
+    f (_dcsmTemplateName x)
+        <&> \y -> x { _dcsmTemplateName = y }
 {-# INLINE dcsmTemplateName #-}
 
 -- | The name of the environment to describe. Condition: You must specify either
@@ -148,15 +139,10 @@ dcsmTemplateName f x =
 -- Beanstalk returns an InvalidParameterCombination error. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-dcsmEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeConfigurationSettings
-    -> f DescribeConfigurationSettings
+dcsmEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsmEnvironmentName f x =
-    (\y -> x { _dcsmEnvironmentName = y })
-       <$> f (_dcsmEnvironmentName x)
+    f (_dcsmEnvironmentName x)
+        <&> \y -> x { _dcsmEnvironmentName = y }
 {-# INLINE dcsmEnvironmentName #-}
 
 instance ToQuery DescribeConfigurationSettings where
@@ -168,15 +154,10 @@ data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRespon
     } deriving (Show, Generic)
 
 -- | A list of ConfigurationSettingsDescription.
-cseConfigurationSettings
-    :: Functor f
-    => ([ConfigurationSettingsDescription]
-    -> f ([ConfigurationSettingsDescription]))
-    -> DescribeConfigurationSettingsResponse
-    -> f DescribeConfigurationSettingsResponse
+cseConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse ([ConfigurationSettingsDescription])
 cseConfigurationSettings f x =
-    (\y -> x { _cseConfigurationSettings = y })
-       <$> f (_cseConfigurationSettings x)
+    f (_cseConfigurationSettings x)
+        <&> \y -> x { _cseConfigurationSettings = y }
 {-# INLINE cseConfigurationSettings #-}
 
 instance FromXML DescribeConfigurationSettingsResponse where

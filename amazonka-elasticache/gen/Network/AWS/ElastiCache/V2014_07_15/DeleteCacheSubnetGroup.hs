@@ -46,6 +46,7 @@ deleteCacheSubnetGroup :: Text -- ^ 'dcsgnCacheSubnetGroupName'
 deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
     { _dcsgnCacheSubnetGroupName = p1
     }
+{-# INLINE deleteCacheSubnetGroup #-}
 
 data DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
     { _dcsgnCacheSubnetGroupName :: Text
@@ -55,15 +56,10 @@ data DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
 
 -- | The name of the cache subnet group to delete. Constraints: Must contain no
 -- more than 255 alphanumeric characters or hyphens.
-dcsgnCacheSubnetGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCacheSubnetGroup
-    -> f DeleteCacheSubnetGroup
+dcsgnCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup (Text)
 dcsgnCacheSubnetGroupName f x =
-    (\y -> x { _dcsgnCacheSubnetGroupName = y })
-       <$> f (_dcsgnCacheSubnetGroupName x)
+    f (_dcsgnCacheSubnetGroupName x)
+        <&> \y -> x { _dcsgnCacheSubnetGroupName = y }
 {-# INLINE dcsgnCacheSubnetGroupName #-}
 
 instance ToQuery DeleteCacheSubnetGroup where

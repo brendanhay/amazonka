@@ -51,6 +51,7 @@ deleteInstance p1 = DeleteInstance
     , _dirDeleteElasticIp = Nothing
     , _dirDeleteVolumes = Nothing
     }
+{-# INLINE deleteInstance #-}
 
 data DeleteInstance = DeleteInstance
     { _dirInstanceId :: Text
@@ -62,39 +63,24 @@ data DeleteInstance = DeleteInstance
     } deriving (Show, Generic)
 
 -- | The instance ID.
-dirInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteInstance
-    -> f DeleteInstance
+dirInstanceId :: Lens' DeleteInstance (Text)
 dirInstanceId f x =
-    (\y -> x { _dirInstanceId = y })
-       <$> f (_dirInstanceId x)
+    f (_dirInstanceId x)
+        <&> \y -> x { _dirInstanceId = y }
 {-# INLINE dirInstanceId #-}
 
 -- | Whether to delete the instance Elastic IP address.
-dirDeleteElasticIp
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteInstance
-    -> f DeleteInstance
+dirDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
 dirDeleteElasticIp f x =
-    (\y -> x { _dirDeleteElasticIp = y })
-       <$> f (_dirDeleteElasticIp x)
+    f (_dirDeleteElasticIp x)
+        <&> \y -> x { _dirDeleteElasticIp = y }
 {-# INLINE dirDeleteElasticIp #-}
 
 -- | Whether to delete the instance's Amazon EBS volumes.
-dirDeleteVolumes
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteInstance
-    -> f DeleteInstance
+dirDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
 dirDeleteVolumes f x =
-    (\y -> x { _dirDeleteVolumes = y })
-       <$> f (_dirDeleteVolumes x)
+    f (_dirDeleteVolumes x)
+        <&> \y -> x { _dirDeleteVolumes = y }
 {-# INLINE dirDeleteVolumes #-}
 
 instance ToPath DeleteInstance

@@ -85,6 +85,7 @@ mergeShards p1 p2 p3 = MergeShards
     , _msiAdjacentShardToMerge = p2
     , _msiStreamName = p3
     }
+{-# INLINE mergeShards #-}
 
 data MergeShards = MergeShards
     { _msiShardToMerge :: Text
@@ -97,39 +98,24 @@ data MergeShards = MergeShards
     } deriving (Show, Generic)
 
 -- | The shard ID of the shard to combine with the adjacent shard for the merge.
-msiShardToMerge
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MergeShards
-    -> f MergeShards
+msiShardToMerge :: Lens' MergeShards (Text)
 msiShardToMerge f x =
-    (\y -> x { _msiShardToMerge = y })
-       <$> f (_msiShardToMerge x)
+    f (_msiShardToMerge x)
+        <&> \y -> x { _msiShardToMerge = y }
 {-# INLINE msiShardToMerge #-}
 
 -- | The shard ID of the adjacent shard for the merge.
-msiAdjacentShardToMerge
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MergeShards
-    -> f MergeShards
+msiAdjacentShardToMerge :: Lens' MergeShards (Text)
 msiAdjacentShardToMerge f x =
-    (\y -> x { _msiAdjacentShardToMerge = y })
-       <$> f (_msiAdjacentShardToMerge x)
+    f (_msiAdjacentShardToMerge x)
+        <&> \y -> x { _msiAdjacentShardToMerge = y }
 {-# INLINE msiAdjacentShardToMerge #-}
 
 -- | The name of the stream for the merge.
-msiStreamName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MergeShards
-    -> f MergeShards
+msiStreamName :: Lens' MergeShards (Text)
 msiStreamName f x =
-    (\y -> x { _msiStreamName = y })
-       <$> f (_msiStreamName x)
+    f (_msiStreamName x)
+        <&> \y -> x { _msiStreamName = y }
 {-# INLINE msiStreamName #-}
 
 instance ToPath MergeShards

@@ -49,6 +49,7 @@ disableLogging :: Text -- ^ 'dlmClusterIdentifier'
 disableLogging p1 = DisableLogging
     { _dlmClusterIdentifier = p1
     }
+{-# INLINE disableLogging #-}
 
 data DisableLogging = DisableLogging
     { _dlmClusterIdentifier :: Text
@@ -58,15 +59,10 @@ data DisableLogging = DisableLogging
 
 -- | The identifier of the cluster on which logging is to be stopped. Example:
 -- examplecluster.
-dlmClusterIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableLogging
-    -> f DisableLogging
+dlmClusterIdentifier :: Lens' DisableLogging (Text)
 dlmClusterIdentifier f x =
-    (\y -> x { _dlmClusterIdentifier = y })
-       <$> f (_dlmClusterIdentifier x)
+    f (_dlmClusterIdentifier x)
+        <&> \y -> x { _dlmClusterIdentifier = y }
 {-# INLINE dlmClusterIdentifier #-}
 
 instance ToQuery DisableLogging where
@@ -88,75 +84,45 @@ data DisableLoggingResponse = DisableLoggingResponse
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
-lltLoggingEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DisableLoggingResponse
-    -> f DisableLoggingResponse
+lltLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
 lltLoggingEnabled f x =
-    (\y -> x { _lltLoggingEnabled = y })
-       <$> f (_lltLoggingEnabled x)
+    f (_lltLoggingEnabled x)
+        <&> \y -> x { _lltLoggingEnabled = y }
 {-# INLINE lltLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
-lltBucketName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DisableLoggingResponse
-    -> f DisableLoggingResponse
+lltBucketName :: Lens' DisableLoggingResponse (Maybe Text)
 lltBucketName f x =
-    (\y -> x { _lltBucketName = y })
-       <$> f (_lltBucketName x)
+    f (_lltBucketName x)
+        <&> \y -> x { _lltBucketName = y }
 {-# INLINE lltBucketName #-}
 
 -- | The prefix applied to the log file names.
-lltS3KeyPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DisableLoggingResponse
-    -> f DisableLoggingResponse
+lltS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
 lltS3KeyPrefix f x =
-    (\y -> x { _lltS3KeyPrefix = y })
-       <$> f (_lltS3KeyPrefix x)
+    f (_lltS3KeyPrefix x)
+        <&> \y -> x { _lltS3KeyPrefix = y }
 {-# INLINE lltS3KeyPrefix #-}
 
 -- | The message indicating that logs failed to be delivered.
-lltLastFailureMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DisableLoggingResponse
-    -> f DisableLoggingResponse
+lltLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
 lltLastFailureMessage f x =
-    (\y -> x { _lltLastFailureMessage = y })
-       <$> f (_lltLastFailureMessage x)
+    f (_lltLastFailureMessage x)
+        <&> \y -> x { _lltLastFailureMessage = y }
 {-# INLINE lltLastFailureMessage #-}
 
 -- | The last time when logs were delivered.
-lltLastSuccessfulDeliveryTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DisableLoggingResponse
-    -> f DisableLoggingResponse
+lltLastSuccessfulDeliveryTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
 lltLastSuccessfulDeliveryTime f x =
-    (\y -> x { _lltLastSuccessfulDeliveryTime = y })
-       <$> f (_lltLastSuccessfulDeliveryTime x)
+    f (_lltLastSuccessfulDeliveryTime x)
+        <&> \y -> x { _lltLastSuccessfulDeliveryTime = y }
 {-# INLINE lltLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
-lltLastFailureTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DisableLoggingResponse
-    -> f DisableLoggingResponse
+lltLastFailureTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
 lltLastFailureTime f x =
-    (\y -> x { _lltLastFailureTime = y })
-       <$> f (_lltLastFailureTime x)
+    f (_lltLastFailureTime x)
+        <&> \y -> x { _lltLastFailureTime = y }
 {-# INLINE lltLastFailureTime #-}
 
 instance FromXML DisableLoggingResponse where

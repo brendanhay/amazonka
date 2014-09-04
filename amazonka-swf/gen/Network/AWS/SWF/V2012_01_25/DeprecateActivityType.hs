@@ -75,6 +75,7 @@ deprecateActivityType p1 p2 = DeprecateActivityType
     { _datiActivityType = p1
     , _datiDomain = p2
     }
+{-# INLINE deprecateActivityType #-}
 
 data DeprecateActivityType = DeprecateActivityType
     { _datiActivityType :: ActivityType
@@ -84,27 +85,17 @@ data DeprecateActivityType = DeprecateActivityType
     } deriving (Show, Generic)
 
 -- | The activity type to deprecate.
-datiActivityType
-    :: Functor f
-    => (ActivityType
-    -> f (ActivityType))
-    -> DeprecateActivityType
-    -> f DeprecateActivityType
+datiActivityType :: Lens' DeprecateActivityType (ActivityType)
 datiActivityType f x =
-    (\y -> x { _datiActivityType = y })
-       <$> f (_datiActivityType x)
+    f (_datiActivityType x)
+        <&> \y -> x { _datiActivityType = y }
 {-# INLINE datiActivityType #-}
 
 -- | The name of the domain in which the activity type is registered.
-datiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeprecateActivityType
-    -> f DeprecateActivityType
+datiDomain :: Lens' DeprecateActivityType (Text)
 datiDomain f x =
-    (\y -> x { _datiDomain = y })
-       <$> f (_datiDomain x)
+    f (_datiDomain x)
+        <&> \y -> x { _datiDomain = y }
 {-# INLINE datiDomain #-}
 
 instance ToPath DeprecateActivityType

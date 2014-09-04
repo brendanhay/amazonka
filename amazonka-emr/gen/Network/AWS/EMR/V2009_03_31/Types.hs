@@ -28,7 +28,6 @@ module Network.AWS.EMR.V2009_03_31.Types
       EMR
     -- ** Errors
     , Er (..)
-
     -- * ActionOnFailure
     , ActionOnFailure (..)
 
@@ -1016,15 +1015,10 @@ newtype BootstrapActionDetail = BootstrapActionDetail
     } deriving (Show, Generic)
 
 -- | A description of the bootstrap action.
-badBootstrapActionConfig
-    :: Functor f
-    => (Maybe BootstrapActionConfig
-    -> f (Maybe BootstrapActionConfig))
-    -> BootstrapActionDetail
-    -> f BootstrapActionDetail
+badBootstrapActionConfig :: Lens' BootstrapActionDetail (Maybe BootstrapActionConfig)
 badBootstrapActionConfig f x =
-    (\y -> x { _badBootstrapActionConfig = y })
-       <$> f (_badBootstrapActionConfig x)
+    f (_badBootstrapActionConfig x)
+        <&> \y -> x { _badBootstrapActionConfig = y }
 {-# INLINE badBootstrapActionConfig #-}
 
 instance FromJSON BootstrapActionDetail
@@ -1038,15 +1032,10 @@ newtype PlacementType = PlacementType
     } deriving (Show, Generic)
 
 -- | The Amazon EC2 Availability Zone for the job flow.
-ptAvailabilityZone
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PlacementType
-    -> f PlacementType
+ptAvailabilityZone :: Lens' PlacementType (Text)
 ptAvailabilityZone f x =
-    (\y -> x { _ptAvailabilityZone = y })
-       <$> f (_ptAvailabilityZone x)
+    f (_ptAvailabilityZone x)
+        <&> \y -> x { _ptAvailabilityZone = y }
 {-# INLINE ptAvailabilityZone #-}
 
 instance FromJSON PlacementType
@@ -1077,52 +1066,32 @@ data Application = Application
     } deriving (Show, Generic)
 
 -- | The name of the application.
-aName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Application
-    -> f Application
+aName :: Lens' Application (Maybe Text)
 aName f x =
-    (\y -> x { _aName = y })
-       <$> f (_aName x)
+    f (_aName x)
+        <&> \y -> x { _aName = y }
 {-# INLINE aName #-}
 
 -- | The version of the application.
-aVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Application
-    -> f Application
+aVersion :: Lens' Application (Maybe Text)
 aVersion f x =
-    (\y -> x { _aVersion = y })
-       <$> f (_aVersion x)
+    f (_aVersion x)
+        <&> \y -> x { _aVersion = y }
 {-# INLINE aVersion #-}
 
 -- | Arguments for Amazon EMR to pass to the application.
-aArgs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Application
-    -> f Application
+aArgs :: Lens' Application ([Text])
 aArgs f x =
-    (\y -> x { _aArgs = y })
-       <$> f (_aArgs x)
+    f (_aArgs x)
+        <&> \y -> x { _aArgs = y }
 {-# INLINE aArgs #-}
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing purposes.
-aAdditionalInfo
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> Application
-    -> f Application
+aAdditionalInfo :: Lens' Application (Map Text Text)
 aAdditionalInfo f x =
-    (\y -> x { _aAdditionalInfo = y })
-       <$> f (_aAdditionalInfo x)
+    f (_aAdditionalInfo x)
+        <&> \y -> x { _aAdditionalInfo = y }
 {-# INLINE aAdditionalInfo #-}
 
 instance FromJSON Application
@@ -1136,27 +1105,17 @@ data BootstrapActionConfig = BootstrapActionConfig
     } deriving (Show, Generic)
 
 -- | The name of the bootstrap action.
-bacName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> BootstrapActionConfig
-    -> f BootstrapActionConfig
+bacName :: Lens' BootstrapActionConfig (Text)
 bacName f x =
-    (\y -> x { _bacName = y })
-       <$> f (_bacName x)
+    f (_bacName x)
+        <&> \y -> x { _bacName = y }
 {-# INLINE bacName #-}
 
 -- | The script run by the bootstrap action.
-bacScriptBootstrapAction
-    :: Functor f
-    => (ScriptBootstrapActionConfig
-    -> f (ScriptBootstrapActionConfig))
-    -> BootstrapActionConfig
-    -> f BootstrapActionConfig
+bacScriptBootstrapAction :: Lens' BootstrapActionConfig (ScriptBootstrapActionConfig)
 bacScriptBootstrapAction f x =
-    (\y -> x { _bacScriptBootstrapAction = y })
-       <$> f (_bacScriptBootstrapAction x)
+    f (_bacScriptBootstrapAction x)
+        <&> \y -> x { _bacScriptBootstrapAction = y }
 {-# INLINE bacScriptBootstrapAction #-}
 
 instance FromJSON BootstrapActionConfig
@@ -1210,117 +1169,72 @@ data Cluster = Cluster
     } deriving (Show, Generic)
 
 -- | The unique identifier for the cluster.
-cId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Cluster
-    -> f Cluster
+cId :: Lens' Cluster (Maybe Text)
 cId f x =
-    (\y -> x { _cId = y })
-       <$> f (_cId x)
+    f (_cId x)
+        <&> \y -> x { _cId = y }
 {-# INLINE cId #-}
 
 -- | The name of the cluster.
-cName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Cluster
-    -> f Cluster
+cName :: Lens' Cluster (Maybe Text)
 cName f x =
-    (\y -> x { _cName = y })
-       <$> f (_cName x)
+    f (_cName x)
+        <&> \y -> x { _cName = y }
 {-# INLINE cName #-}
 
 -- | The current status details about the cluster.
-cStatus
-    :: Functor f
-    => (Maybe ClusterStatus
-    -> f (Maybe ClusterStatus))
-    -> Cluster
-    -> f Cluster
+cStatus :: Lens' Cluster (Maybe ClusterStatus)
 cStatus f x =
-    (\y -> x { _cStatus = y })
-       <$> f (_cStatus x)
+    f (_cStatus x)
+        <&> \y -> x { _cStatus = y }
 {-# INLINE cStatus #-}
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
 -- on.
-cEc2InstanceAttributes
-    :: Functor f
-    => (Maybe Ec2InstanceAttributes
-    -> f (Maybe Ec2InstanceAttributes))
-    -> Cluster
-    -> f Cluster
+cEc2InstanceAttributes :: Lens' Cluster (Maybe Ec2InstanceAttributes)
 cEc2InstanceAttributes f x =
-    (\y -> x { _cEc2InstanceAttributes = y })
-       <$> f (_cEc2InstanceAttributes x)
+    f (_cEc2InstanceAttributes x)
+        <&> \y -> x { _cEc2InstanceAttributes = y }
 {-# INLINE cEc2InstanceAttributes #-}
 
 -- | The path to the Amazon S3 location where logs for this cluster are stored.
-cLogUri
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Cluster
-    -> f Cluster
+cLogUri :: Lens' Cluster (Maybe Text)
 cLogUri f x =
-    (\y -> x { _cLogUri = y })
-       <$> f (_cLogUri x)
+    f (_cLogUri x)
+        <&> \y -> x { _cLogUri = y }
 {-# INLINE cLogUri #-}
 
 -- | The AMI version requested for this cluster.JobFlowDetail$AmiVersion.-->.
-cRequestedAmiVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Cluster
-    -> f Cluster
+cRequestedAmiVersion :: Lens' Cluster (Maybe Text)
 cRequestedAmiVersion f x =
-    (\y -> x { _cRequestedAmiVersion = y })
-       <$> f (_cRequestedAmiVersion x)
+    f (_cRequestedAmiVersion x)
+        <&> \y -> x { _cRequestedAmiVersion = y }
 {-# INLINE cRequestedAmiVersion #-}
 
 -- | The AMI version running on this cluster. This differs from the requested
 -- version only if the requested version is a meta version, such as "latest".
 -- JobFlowDetail$AmiVersion.-->.
-cRunningAmiVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Cluster
-    -> f Cluster
+cRunningAmiVersion :: Lens' Cluster (Maybe Text)
 cRunningAmiVersion f x =
-    (\y -> x { _cRunningAmiVersion = y })
-       <$> f (_cRunningAmiVersion x)
+    f (_cRunningAmiVersion x)
+        <&> \y -> x { _cRunningAmiVersion = y }
 {-# INLINE cRunningAmiVersion #-}
 
 -- | Specifies whether the cluster should terminate after completing all steps.
-cAutoTerminate
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Cluster
-    -> f Cluster
+cAutoTerminate :: Lens' Cluster (Maybe Bool)
 cAutoTerminate f x =
-    (\y -> x { _cAutoTerminate = y })
-       <$> f (_cAutoTerminate x)
+    f (_cAutoTerminate x)
+        <&> \y -> x { _cAutoTerminate = y }
 {-# INLINE cAutoTerminate #-}
 
 -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
 -- instances from being terminated by an API call or user intervention, or in
 -- the event of a cluster error.
-cTerminationProtected
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Cluster
-    -> f Cluster
+cTerminationProtected :: Lens' Cluster (Maybe Bool)
 cTerminationProtected f x =
-    (\y -> x { _cTerminationProtected = y })
-       <$> f (_cTerminationProtected x)
+    f (_cTerminationProtected x)
+        <&> \y -> x { _cTerminationProtected = y }
 {-# INLINE cTerminationProtected #-}
 
 -- | Indicates whether the job flow is visible to all IAM users of the AWS
@@ -1329,52 +1243,32 @@ cTerminationProtected f x =
 -- proper policy permissions set. If this value is false, only the IAM user
 -- that created the cluster can view and manage it. This value can be changed
 -- using the SetVisibleToAllUsers action.
-cVisibleToAllUsers
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Cluster
-    -> f Cluster
+cVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cVisibleToAllUsers f x =
-    (\y -> x { _cVisibleToAllUsers = y })
-       <$> f (_cVisibleToAllUsers x)
+    f (_cVisibleToAllUsers x)
+        <&> \y -> x { _cVisibleToAllUsers = y }
 {-# INLINE cVisibleToAllUsers #-}
 
 -- | The applications installed on this cluster.
-cApplications
-    :: Functor f
-    => ([Application]
-    -> f ([Application]))
-    -> Cluster
-    -> f Cluster
+cApplications :: Lens' Cluster ([Application])
 cApplications f x =
-    (\y -> x { _cApplications = y })
-       <$> f (_cApplications x)
+    f (_cApplications x)
+        <&> \y -> x { _cApplications = y }
 {-# INLINE cApplications #-}
 
 -- | A list of tags associated with a cluster.
-cTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> Cluster
-    -> f Cluster
+cTags :: Lens' Cluster ([Tag])
 cTags f x =
-    (\y -> x { _cTags = y })
-       <$> f (_cTags x)
+    f (_cTags x)
+        <&> \y -> x { _cTags = y }
 {-# INLINE cTags #-}
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
-cServiceRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Cluster
-    -> f Cluster
+cServiceRole :: Lens' Cluster (Maybe Text)
 cServiceRole f x =
-    (\y -> x { _cServiceRole = y })
-       <$> f (_cServiceRole x)
+    f (_cServiceRole x)
+        <&> \y -> x { _cServiceRole = y }
 {-# INLINE cServiceRole #-}
 
 instance FromJSON Cluster
@@ -1388,27 +1282,17 @@ data ClusterStateChangeReason = ClusterStateChangeReason
     } deriving (Show, Generic)
 
 -- | The programmatic code for the state change reason.
-cscrCode
-    :: Functor f
-    => (Maybe ClusterStateChangeReasonCode
-    -> f (Maybe ClusterStateChangeReasonCode))
-    -> ClusterStateChangeReason
-    -> f ClusterStateChangeReason
+cscrCode :: Lens' ClusterStateChangeReason (Maybe ClusterStateChangeReasonCode)
 cscrCode f x =
-    (\y -> x { _cscrCode = y })
-       <$> f (_cscrCode x)
+    f (_cscrCode x)
+        <&> \y -> x { _cscrCode = y }
 {-# INLINE cscrCode #-}
 
 -- | The descriptive message for the state change reason.
-cscrMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ClusterStateChangeReason
-    -> f ClusterStateChangeReason
+cscrMessage :: Lens' ClusterStateChangeReason (Maybe Text)
 cscrMessage f x =
-    (\y -> x { _cscrMessage = y })
-       <$> f (_cscrMessage x)
+    f (_cscrMessage x)
+        <&> \y -> x { _cscrMessage = y }
 {-# INLINE cscrMessage #-}
 
 instance FromJSON ClusterStateChangeReason
@@ -1427,40 +1311,25 @@ data ClusterStatus = ClusterStatus
     } deriving (Show, Generic)
 
 -- | The current state of the cluster.
-csState
-    :: Functor f
-    => (Maybe ClusterState
-    -> f (Maybe ClusterState))
-    -> ClusterStatus
-    -> f ClusterStatus
+csState :: Lens' ClusterStatus (Maybe ClusterState)
 csState f x =
-    (\y -> x { _csState = y })
-       <$> f (_csState x)
+    f (_csState x)
+        <&> \y -> x { _csState = y }
 {-# INLINE csState #-}
 
 -- | The reason for the cluster status change.
-csStateChangeReason
-    :: Functor f
-    => (Maybe ClusterStateChangeReason
-    -> f (Maybe ClusterStateChangeReason))
-    -> ClusterStatus
-    -> f ClusterStatus
+csStateChangeReason :: Lens' ClusterStatus (Maybe ClusterStateChangeReason)
 csStateChangeReason f x =
-    (\y -> x { _csStateChangeReason = y })
-       <$> f (_csStateChangeReason x)
+    f (_csStateChangeReason x)
+        <&> \y -> x { _csStateChangeReason = y }
 {-# INLINE csStateChangeReason #-}
 
 -- | A timeline that represents the status of a cluster over the lifetime of the
 -- cluster.
-csTimeline
-    :: Functor f
-    => (Maybe ClusterTimeline
-    -> f (Maybe ClusterTimeline))
-    -> ClusterStatus
-    -> f ClusterStatus
+csTimeline :: Lens' ClusterStatus (Maybe ClusterTimeline)
 csTimeline f x =
-    (\y -> x { _csTimeline = y })
-       <$> f (_csTimeline x)
+    f (_csTimeline x)
+        <&> \y -> x { _csTimeline = y }
 {-# INLINE csTimeline #-}
 
 instance FromJSON ClusterStatus
@@ -1478,39 +1347,24 @@ data ClusterSummary = ClusterSummary
     } deriving (Show, Generic)
 
 -- | The unique identifier for the cluster.
-cwId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ClusterSummary
-    -> f ClusterSummary
+cwId :: Lens' ClusterSummary (Maybe Text)
 cwId f x =
-    (\y -> x { _cwId = y })
-       <$> f (_cwId x)
+    f (_cwId x)
+        <&> \y -> x { _cwId = y }
 {-# INLINE cwId #-}
 
 -- | The name of the cluster.
-cwName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ClusterSummary
-    -> f ClusterSummary
+cwName :: Lens' ClusterSummary (Maybe Text)
 cwName f x =
-    (\y -> x { _cwName = y })
-       <$> f (_cwName x)
+    f (_cwName x)
+        <&> \y -> x { _cwName = y }
 {-# INLINE cwName #-}
 
 -- | The details about the current status of the cluster.
-cwStatus
-    :: Functor f
-    => (Maybe ClusterStatus
-    -> f (Maybe ClusterStatus))
-    -> ClusterSummary
-    -> f ClusterSummary
+cwStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 cwStatus f x =
-    (\y -> x { _cwStatus = y })
-       <$> f (_cwStatus x)
+    f (_cwStatus x)
+        <&> \y -> x { _cwStatus = y }
 {-# INLINE cwStatus #-}
 
 instance FromJSON ClusterSummary
@@ -1527,39 +1381,24 @@ data ClusterTimeline = ClusterTimeline
     } deriving (Show, Generic)
 
 -- | The creation date and time of the cluster.
-cuCreationDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ClusterTimeline
-    -> f ClusterTimeline
+cuCreationDateTime :: Lens' ClusterTimeline (Maybe POSIX)
 cuCreationDateTime f x =
-    (\y -> x { _cuCreationDateTime = y })
-       <$> f (_cuCreationDateTime x)
+    f (_cuCreationDateTime x)
+        <&> \y -> x { _cuCreationDateTime = y }
 {-# INLINE cuCreationDateTime #-}
 
 -- | The date and time when the cluster was ready to execute steps.
-cuReadyDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ClusterTimeline
-    -> f ClusterTimeline
+cuReadyDateTime :: Lens' ClusterTimeline (Maybe POSIX)
 cuReadyDateTime f x =
-    (\y -> x { _cuReadyDateTime = y })
-       <$> f (_cuReadyDateTime x)
+    f (_cuReadyDateTime x)
+        <&> \y -> x { _cuReadyDateTime = y }
 {-# INLINE cuReadyDateTime #-}
 
 -- | The date and time when the cluster was terminated.
-cuEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> ClusterTimeline
-    -> f ClusterTimeline
+cuEndDateTime :: Lens' ClusterTimeline (Maybe POSIX)
 cuEndDateTime f x =
-    (\y -> x { _cuEndDateTime = y })
-       <$> f (_cuEndDateTime x)
+    f (_cuEndDateTime x)
+        <&> \y -> x { _cuEndDateTime = y }
 {-# INLINE cuEndDateTime #-}
 
 instance FromJSON ClusterTimeline
@@ -1577,39 +1416,24 @@ data Command = Command
     } deriving (Show, Generic)
 
 -- | The name of the command.
-cdName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+cdName :: Lens' Command (Maybe Text)
 cdName f x =
-    (\y -> x { _cdName = y })
-       <$> f (_cdName x)
+    f (_cdName x)
+        <&> \y -> x { _cdName = y }
 {-# INLINE cdName #-}
 
 -- | The Amazon S3 location of the command script.
-cdScriptPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Command
-    -> f Command
+cdScriptPath :: Lens' Command (Maybe Text)
 cdScriptPath f x =
-    (\y -> x { _cdScriptPath = y })
-       <$> f (_cdScriptPath x)
+    f (_cdScriptPath x)
+        <&> \y -> x { _cdScriptPath = y }
 {-# INLINE cdScriptPath #-}
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-cdArgs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Command
-    -> f Command
+cdArgs :: Lens' Command ([Text])
 cdArgs f x =
-    (\y -> x { _cdArgs = y })
-       <$> f (_cdArgs x)
+    f (_cdArgs x)
+        <&> \y -> x { _cdArgs = y }
 {-# INLINE cdArgs #-}
 
 instance FromJSON Command
@@ -1638,15 +1462,10 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
 
 -- | The name of the Amazon EC2 key pair to use when connecting with SSH into
 -- the master node as a user named "hadoop".
-eiaEc2KeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Ec2InstanceAttributes
-    -> f Ec2InstanceAttributes
+eiaEc2KeyName :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2KeyName f x =
-    (\y -> x { _eiaEc2KeyName = y })
-       <$> f (_eiaEc2KeyName x)
+    f (_eiaEc2KeyName x)
+        <&> \y -> x { _eiaEc2KeyName = y }
 {-# INLINE eiaEc2KeyName #-}
 
 -- | To launch the job flow in Amazon VPC, set this parameter to the identifier
@@ -1655,40 +1474,25 @@ eiaEc2KeyName f x =
 -- outside of a VPC. Amazon VPC currently does not support cluster compute
 -- quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the
 -- cc1.4xlarge instance type for nodes of a job flow launched in a VPC.
-eiaEc2SubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Ec2InstanceAttributes
-    -> f Ec2InstanceAttributes
+eiaEc2SubnetId :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2SubnetId f x =
-    (\y -> x { _eiaEc2SubnetId = y })
-       <$> f (_eiaEc2SubnetId x)
+    f (_eiaEc2SubnetId x)
+        <&> \y -> x { _eiaEc2SubnetId = y }
 {-# INLINE eiaEc2SubnetId #-}
 
 -- | The Availability Zone in which the cluster will run.
-eiaEc2AvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Ec2InstanceAttributes
-    -> f Ec2InstanceAttributes
+eiaEc2AvailabilityZone :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2AvailabilityZone f x =
-    (\y -> x { _eiaEc2AvailabilityZone = y })
-       <$> f (_eiaEc2AvailabilityZone x)
+    f (_eiaEc2AvailabilityZone x)
+        <&> \y -> x { _eiaEc2AvailabilityZone = y }
 {-# INLINE eiaEc2AvailabilityZone #-}
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
-eiaIamInstanceProfile
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Ec2InstanceAttributes
-    -> f Ec2InstanceAttributes
+eiaIamInstanceProfile :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaIamInstanceProfile f x =
-    (\y -> x { _eiaIamInstanceProfile = y })
-       <$> f (_eiaIamInstanceProfile x)
+    f (_eiaIamInstanceProfile x)
+        <&> \y -> x { _eiaIamInstanceProfile = y }
 {-# INLINE eiaIamInstanceProfile #-}
 
 instance FromJSON Ec2InstanceAttributes
@@ -1712,53 +1516,33 @@ data HadoopJarStepConfig = HadoopJarStepConfig
 
 -- | A list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hjscProperties
-    :: Functor f
-    => ([KeyValue]
-    -> f ([KeyValue]))
-    -> HadoopJarStepConfig
-    -> f HadoopJarStepConfig
+hjscProperties :: Lens' HadoopJarStepConfig ([KeyValue])
 hjscProperties f x =
-    (\y -> x { _hjscProperties = y })
-       <$> f (_hjscProperties x)
+    f (_hjscProperties x)
+        <&> \y -> x { _hjscProperties = y }
 {-# INLINE hjscProperties #-}
 
 -- | A path to a JAR file run during the step.
-hjscJar
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> HadoopJarStepConfig
-    -> f HadoopJarStepConfig
+hjscJar :: Lens' HadoopJarStepConfig (Text)
 hjscJar f x =
-    (\y -> x { _hjscJar = y })
-       <$> f (_hjscJar x)
+    f (_hjscJar x)
+        <&> \y -> x { _hjscJar = y }
 {-# INLINE hjscJar #-}
 
 -- | The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a Main-Class in its manifest file.
-hjscMainClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HadoopJarStepConfig
-    -> f HadoopJarStepConfig
+hjscMainClass :: Lens' HadoopJarStepConfig (Maybe Text)
 hjscMainClass f x =
-    (\y -> x { _hjscMainClass = y })
-       <$> f (_hjscMainClass x)
+    f (_hjscMainClass x)
+        <&> \y -> x { _hjscMainClass = y }
 {-# INLINE hjscMainClass #-}
 
 -- | A list of command line arguments passed to the JAR file's main function
 -- when executed.
-hjscArgs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> HadoopJarStepConfig
-    -> f HadoopJarStepConfig
+hjscArgs :: Lens' HadoopJarStepConfig ([Text])
 hjscArgs f x =
-    (\y -> x { _hjscArgs = y })
-       <$> f (_hjscArgs x)
+    f (_hjscArgs x)
+        <&> \y -> x { _hjscArgs = y }
 {-# INLINE hjscArgs #-}
 
 instance FromJSON HadoopJarStepConfig
@@ -1783,54 +1567,34 @@ data HadoopStepConfig = HadoopStepConfig
     } deriving (Show, Generic)
 
 -- | The path to the JAR file that runs during the step.
-hscJar
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HadoopStepConfig
-    -> f HadoopStepConfig
+hscJar :: Lens' HadoopStepConfig (Maybe Text)
 hscJar f x =
-    (\y -> x { _hscJar = y })
-       <$> f (_hscJar x)
+    f (_hscJar x)
+        <&> \y -> x { _hscJar = y }
 {-# INLINE hscJar #-}
 
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hscProperties
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> HadoopStepConfig
-    -> f HadoopStepConfig
+hscProperties :: Lens' HadoopStepConfig (Map Text Text)
 hscProperties f x =
-    (\y -> x { _hscProperties = y })
-       <$> f (_hscProperties x)
+    f (_hscProperties x)
+        <&> \y -> x { _hscProperties = y }
 {-# INLINE hscProperties #-}
 
 -- | The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a main class in its manifest file.
-hscMainClass
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HadoopStepConfig
-    -> f HadoopStepConfig
+hscMainClass :: Lens' HadoopStepConfig (Maybe Text)
 hscMainClass f x =
-    (\y -> x { _hscMainClass = y })
-       <$> f (_hscMainClass x)
+    f (_hscMainClass x)
+        <&> \y -> x { _hscMainClass = y }
 {-# INLINE hscMainClass #-}
 
 -- | The list of command line arguments to pass to the JAR file's main function
 -- for execution.
-hscArgs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> HadoopStepConfig
-    -> f HadoopStepConfig
+hscArgs :: Lens' HadoopStepConfig ([Text])
 hscArgs f x =
-    (\y -> x { _hscArgs = y })
-       <$> f (_hscArgs x)
+    f (_hscArgs x)
+        <&> \y -> x { _hscArgs = y }
 {-# INLINE hscArgs #-}
 
 instance FromJSON HadoopStepConfig
@@ -1854,87 +1618,52 @@ data Instance = Instance
     } deriving (Show, Generic)
 
 -- | The unique identifier for the instance in Amazon EMR.
-ieId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieId :: Lens' Instance (Maybe Text)
 ieId f x =
-    (\y -> x { _ieId = y })
-       <$> f (_ieId x)
+    f (_ieId x)
+        <&> \y -> x { _ieId = y }
 {-# INLINE ieId #-}
 
 -- | The unique identifier of the instance in Amazon EC2.
-ieEc2InstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+ieEc2InstanceId :: Lens' Instance (Maybe Text)
 ieEc2InstanceId f x =
-    (\y -> x { _ieEc2InstanceId = y })
-       <$> f (_ieEc2InstanceId x)
+    f (_ieEc2InstanceId x)
+        <&> \y -> x { _ieEc2InstanceId = y }
 {-# INLINE ieEc2InstanceId #-}
 
 -- | The public DNS name of the instance.
-iePublicDnsName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePublicDnsName :: Lens' Instance (Maybe Text)
 iePublicDnsName f x =
-    (\y -> x { _iePublicDnsName = y })
-       <$> f (_iePublicDnsName x)
+    f (_iePublicDnsName x)
+        <&> \y -> x { _iePublicDnsName = y }
 {-# INLINE iePublicDnsName #-}
 
 -- | The public IP address of the instance.
-iePublicIpAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePublicIpAddress :: Lens' Instance (Maybe Text)
 iePublicIpAddress f x =
-    (\y -> x { _iePublicIpAddress = y })
-       <$> f (_iePublicIpAddress x)
+    f (_iePublicIpAddress x)
+        <&> \y -> x { _iePublicIpAddress = y }
 {-# INLINE iePublicIpAddress #-}
 
 -- | The private DNS name of the instance.
-iePrivateDnsName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePrivateDnsName :: Lens' Instance (Maybe Text)
 iePrivateDnsName f x =
-    (\y -> x { _iePrivateDnsName = y })
-       <$> f (_iePrivateDnsName x)
+    f (_iePrivateDnsName x)
+        <&> \y -> x { _iePrivateDnsName = y }
 {-# INLINE iePrivateDnsName #-}
 
 -- | The private IP address of the instance.
-iePrivateIpAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+iePrivateIpAddress :: Lens' Instance (Maybe Text)
 iePrivateIpAddress f x =
-    (\y -> x { _iePrivateIpAddress = y })
-       <$> f (_iePrivateIpAddress x)
+    f (_iePrivateIpAddress x)
+        <&> \y -> x { _iePrivateIpAddress = y }
 {-# INLINE iePrivateIpAddress #-}
 
 -- | The current status of the instance.
-ieStatus
-    :: Functor f
-    => (Maybe InstanceStatus
-    -> f (Maybe InstanceStatus))
-    -> Instance
-    -> f Instance
+ieStatus :: Lens' Instance (Maybe InstanceStatus)
 ieStatus f x =
-    (\y -> x { _ieStatus = y })
-       <$> f (_ieStatus x)
+    f (_ieStatus x)
+        <&> \y -> x { _ieStatus = y }
 {-# INLINE ieStatus #-}
 
 instance FromJSON Instance
@@ -1967,113 +1696,68 @@ data InstanceGroup = InstanceGroup
     } deriving (Show, Generic)
 
 -- | The identifier of the instance group.
-igId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroup
-    -> f InstanceGroup
+igId :: Lens' InstanceGroup (Maybe Text)
 igId f x =
-    (\y -> x { _igId = y })
-       <$> f (_igId x)
+    f (_igId x)
+        <&> \y -> x { _igId = y }
 {-# INLINE igId #-}
 
 -- | The name of the instance group.
-igName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroup
-    -> f InstanceGroup
+igName :: Lens' InstanceGroup (Maybe Text)
 igName f x =
-    (\y -> x { _igName = y })
-       <$> f (_igName x)
+    f (_igName x)
+        <&> \y -> x { _igName = y }
 {-# INLINE igName #-}
 
 -- | The marketplace to provision instances for this group. Valid values are
 -- ON_DEMAND or SPOT.
-igMarket
-    :: Functor f
-    => (Maybe MarketType
-    -> f (Maybe MarketType))
-    -> InstanceGroup
-    -> f InstanceGroup
+igMarket :: Lens' InstanceGroup (Maybe MarketType)
 igMarket f x =
-    (\y -> x { _igMarket = y })
-       <$> f (_igMarket x)
+    f (_igMarket x)
+        <&> \y -> x { _igMarket = y }
 {-# INLINE igMarket #-}
 
 -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
-igInstanceGroupType
-    :: Functor f
-    => (Maybe InstanceGroupType
-    -> f (Maybe InstanceGroupType))
-    -> InstanceGroup
-    -> f InstanceGroup
+igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
 igInstanceGroupType f x =
-    (\y -> x { _igInstanceGroupType = y })
-       <$> f (_igInstanceGroupType x)
+    f (_igInstanceGroupType x)
+        <&> \y -> x { _igInstanceGroupType = y }
 {-# INLINE igInstanceGroupType #-}
 
 -- | The bid price for each EC2 instance in the instance group when launching
 -- nodes as Spot Instances, expressed in USD.
-igBidPrice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroup
-    -> f InstanceGroup
+igBidPrice :: Lens' InstanceGroup (Maybe Text)
 igBidPrice f x =
-    (\y -> x { _igBidPrice = y })
-       <$> f (_igBidPrice x)
+    f (_igBidPrice x)
+        <&> \y -> x { _igBidPrice = y }
 {-# INLINE igBidPrice #-}
 
 -- | The EC2 instance type for all instances in the instance group.
-igInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroup
-    -> f InstanceGroup
+igInstanceType :: Lens' InstanceGroup (Maybe Text)
 igInstanceType f x =
-    (\y -> x { _igInstanceType = y })
-       <$> f (_igInstanceType x)
+    f (_igInstanceType x)
+        <&> \y -> x { _igInstanceType = y }
 {-# INLINE igInstanceType #-}
 
 -- | The target number of instances for the instance group.
-igRequestedInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstanceGroup
-    -> f InstanceGroup
+igRequestedInstanceCount :: Lens' InstanceGroup (Maybe Integer)
 igRequestedInstanceCount f x =
-    (\y -> x { _igRequestedInstanceCount = y })
-       <$> f (_igRequestedInstanceCount x)
+    f (_igRequestedInstanceCount x)
+        <&> \y -> x { _igRequestedInstanceCount = y }
 {-# INLINE igRequestedInstanceCount #-}
 
 -- | The number of instances currently running in this instance group.
-igRunningInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstanceGroup
-    -> f InstanceGroup
+igRunningInstanceCount :: Lens' InstanceGroup (Maybe Integer)
 igRunningInstanceCount f x =
-    (\y -> x { _igRunningInstanceCount = y })
-       <$> f (_igRunningInstanceCount x)
+    f (_igRunningInstanceCount x)
+        <&> \y -> x { _igRunningInstanceCount = y }
 {-# INLINE igRunningInstanceCount #-}
 
 -- | The current status of the instance group.
-igStatus
-    :: Functor f
-    => (Maybe InstanceGroupStatus
-    -> f (Maybe InstanceGroupStatus))
-    -> InstanceGroup
-    -> f InstanceGroup
+igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
 igStatus f x =
-    (\y -> x { _igStatus = y })
-       <$> f (_igStatus x)
+    f (_igStatus x)
+        <&> \y -> x { _igStatus = y }
 {-# INLINE igStatus #-}
 
 instance FromJSON InstanceGroup
@@ -2098,76 +1782,46 @@ data InstanceGroupConfig = InstanceGroupConfig
     } deriving (Show, Generic)
 
 -- | Friendly name given to the instance group.
-igcName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupConfig
-    -> f InstanceGroupConfig
+igcName :: Lens' InstanceGroupConfig (Maybe Text)
 igcName f x =
-    (\y -> x { _igcName = y })
-       <$> f (_igcName x)
+    f (_igcName x)
+        <&> \y -> x { _igcName = y }
 {-# INLINE igcName #-}
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
-igcMarket
-    :: Functor f
-    => (Maybe MarketType
-    -> f (Maybe MarketType))
-    -> InstanceGroupConfig
-    -> f InstanceGroupConfig
+igcMarket :: Lens' InstanceGroupConfig (Maybe MarketType)
 igcMarket f x =
-    (\y -> x { _igcMarket = y })
-       <$> f (_igcMarket x)
+    f (_igcMarket x)
+        <&> \y -> x { _igcMarket = y }
 {-# INLINE igcMarket #-}
 
 -- | The role of the instance group in the cluster.
-igcInstanceRole
-    :: Functor f
-    => (InstanceRoleType
-    -> f (InstanceRoleType))
-    -> InstanceGroupConfig
-    -> f InstanceGroupConfig
+igcInstanceRole :: Lens' InstanceGroupConfig (InstanceRoleType)
 igcInstanceRole f x =
-    (\y -> x { _igcInstanceRole = y })
-       <$> f (_igcInstanceRole x)
+    f (_igcInstanceRole x)
+        <&> \y -> x { _igcInstanceRole = y }
 {-# INLINE igcInstanceRole #-}
 
 -- | Bid price for each Amazon EC2 instance in the instance group when launching
 -- nodes as Spot Instances, expressed in USD.
-igcBidPrice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupConfig
-    -> f InstanceGroupConfig
+igcBidPrice :: Lens' InstanceGroupConfig (Maybe Text)
 igcBidPrice f x =
-    (\y -> x { _igcBidPrice = y })
-       <$> f (_igcBidPrice x)
+    f (_igcBidPrice x)
+        <&> \y -> x { _igcBidPrice = y }
 {-# INLINE igcBidPrice #-}
 
 -- | The Amazon EC2 instance type for all instances in the instance group.
-igcInstanceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceGroupConfig
-    -> f InstanceGroupConfig
+igcInstanceType :: Lens' InstanceGroupConfig (Text)
 igcInstanceType f x =
-    (\y -> x { _igcInstanceType = y })
-       <$> f (_igcInstanceType x)
+    f (_igcInstanceType x)
+        <&> \y -> x { _igcInstanceType = y }
 {-# INLINE igcInstanceType #-}
 
 -- | Target number of instances for the instance group.
-igcInstanceCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> InstanceGroupConfig
-    -> f InstanceGroupConfig
+igcInstanceCount :: Lens' InstanceGroupConfig (Integer)
 igcInstanceCount f x =
-    (\y -> x { _igcInstanceCount = y })
-       <$> f (_igcInstanceCount x)
+    f (_igcInstanceCount x)
+        <&> \y -> x { _igcInstanceCount = y }
 {-# INLINE igcInstanceCount #-}
 
 instance ToJSON InstanceGroupConfig
@@ -2208,173 +1862,103 @@ data InstanceGroupDetail = InstanceGroupDetail
     } deriving (Show, Generic)
 
 -- | Unique identifier for the instance group.
-igdInstanceGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdInstanceGroupId :: Lens' InstanceGroupDetail (Maybe Text)
 igdInstanceGroupId f x =
-    (\y -> x { _igdInstanceGroupId = y })
-       <$> f (_igdInstanceGroupId x)
+    f (_igdInstanceGroupId x)
+        <&> \y -> x { _igdInstanceGroupId = y }
 {-# INLINE igdInstanceGroupId #-}
 
 -- | Friendly name for the instance group.
-igdName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdName :: Lens' InstanceGroupDetail (Maybe Text)
 igdName f x =
-    (\y -> x { _igdName = y })
-       <$> f (_igdName x)
+    f (_igdName x)
+        <&> \y -> x { _igdName = y }
 {-# INLINE igdName #-}
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
-igdMarket
-    :: Functor f
-    => (MarketType
-    -> f (MarketType))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdMarket :: Lens' InstanceGroupDetail (MarketType)
 igdMarket f x =
-    (\y -> x { _igdMarket = y })
-       <$> f (_igdMarket x)
+    f (_igdMarket x)
+        <&> \y -> x { _igdMarket = y }
 {-# INLINE igdMarket #-}
 
 -- | Instance group role in the cluster.
-igdInstanceRole
-    :: Functor f
-    => (InstanceRoleType
-    -> f (InstanceRoleType))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdInstanceRole :: Lens' InstanceGroupDetail (InstanceRoleType)
 igdInstanceRole f x =
-    (\y -> x { _igdInstanceRole = y })
-       <$> f (_igdInstanceRole x)
+    f (_igdInstanceRole x)
+        <&> \y -> x { _igdInstanceRole = y }
 {-# INLINE igdInstanceRole #-}
 
 -- | Bid price for EC2 Instances when launching nodes as Spot Instances,
 -- expressed in USD.
-igdBidPrice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdBidPrice :: Lens' InstanceGroupDetail (Maybe Text)
 igdBidPrice f x =
-    (\y -> x { _igdBidPrice = y })
-       <$> f (_igdBidPrice x)
+    f (_igdBidPrice x)
+        <&> \y -> x { _igdBidPrice = y }
 {-# INLINE igdBidPrice #-}
 
 -- | Amazon EC2 Instance type.
-igdInstanceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdInstanceType :: Lens' InstanceGroupDetail (Text)
 igdInstanceType f x =
-    (\y -> x { _igdInstanceType = y })
-       <$> f (_igdInstanceType x)
+    f (_igdInstanceType x)
+        <&> \y -> x { _igdInstanceType = y }
 {-# INLINE igdInstanceType #-}
 
 -- | Target number of instances to run in the instance group.
-igdInstanceRequestCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdInstanceRequestCount :: Lens' InstanceGroupDetail (Integer)
 igdInstanceRequestCount f x =
-    (\y -> x { _igdInstanceRequestCount = y })
-       <$> f (_igdInstanceRequestCount x)
+    f (_igdInstanceRequestCount x)
+        <&> \y -> x { _igdInstanceRequestCount = y }
 {-# INLINE igdInstanceRequestCount #-}
 
 -- | Actual count of running instances.
-igdInstanceRunningCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdInstanceRunningCount :: Lens' InstanceGroupDetail (Integer)
 igdInstanceRunningCount f x =
-    (\y -> x { _igdInstanceRunningCount = y })
-       <$> f (_igdInstanceRunningCount x)
+    f (_igdInstanceRunningCount x)
+        <&> \y -> x { _igdInstanceRunningCount = y }
 {-# INLINE igdInstanceRunningCount #-}
 
 -- | State of instance group. The following values are deprecated: STARTING,
 -- TERMINATED, and FAILED.
-igdState
-    :: Functor f
-    => (InstanceGroupState
-    -> f (InstanceGroupState))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdState :: Lens' InstanceGroupDetail (InstanceGroupState)
 igdState f x =
-    (\y -> x { _igdState = y })
-       <$> f (_igdState x)
+    f (_igdState x)
+        <&> \y -> x { _igdState = y }
 {-# INLINE igdState #-}
 
 -- | Details regarding the state of the instance group.
-igdLastStateChangeReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdLastStateChangeReason :: Lens' InstanceGroupDetail (Maybe Text)
 igdLastStateChangeReason f x =
-    (\y -> x { _igdLastStateChangeReason = y })
-       <$> f (_igdLastStateChangeReason x)
+    f (_igdLastStateChangeReason x)
+        <&> \y -> x { _igdLastStateChangeReason = y }
 {-# INLINE igdLastStateChangeReason #-}
 
 -- | The date/time the instance group was created.
-igdCreationDateTime
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdCreationDateTime :: Lens' InstanceGroupDetail (POSIX)
 igdCreationDateTime f x =
-    (\y -> x { _igdCreationDateTime = y })
-       <$> f (_igdCreationDateTime x)
+    f (_igdCreationDateTime x)
+        <&> \y -> x { _igdCreationDateTime = y }
 {-# INLINE igdCreationDateTime #-}
 
 -- | The date/time the instance group was started.
-igdStartDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdStartDateTime :: Lens' InstanceGroupDetail (Maybe POSIX)
 igdStartDateTime f x =
-    (\y -> x { _igdStartDateTime = y })
-       <$> f (_igdStartDateTime x)
+    f (_igdStartDateTime x)
+        <&> \y -> x { _igdStartDateTime = y }
 {-# INLINE igdStartDateTime #-}
 
 -- | The date/time the instance group was available to the cluster.
-igdReadyDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdReadyDateTime :: Lens' InstanceGroupDetail (Maybe POSIX)
 igdReadyDateTime f x =
-    (\y -> x { _igdReadyDateTime = y })
-       <$> f (_igdReadyDateTime x)
+    f (_igdReadyDateTime x)
+        <&> \y -> x { _igdReadyDateTime = y }
 {-# INLINE igdReadyDateTime #-}
 
 -- | The date/time the instance group was terminated.
-igdEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceGroupDetail
-    -> f InstanceGroupDetail
+igdEndDateTime :: Lens' InstanceGroupDetail (Maybe POSIX)
 igdEndDateTime f x =
-    (\y -> x { _igdEndDateTime = y })
-       <$> f (_igdEndDateTime x)
+    f (_igdEndDateTime x)
+        <&> \y -> x { _igdEndDateTime = y }
 {-# INLINE igdEndDateTime #-}
 
 instance FromJSON InstanceGroupDetail
@@ -2394,41 +1978,26 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig
     } deriving (Show, Generic)
 
 -- | Unique ID of the instance group to expand or shrink.
-igmcInstanceGroupId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceGroupModifyConfig
-    -> f InstanceGroupModifyConfig
+igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig (Text)
 igmcInstanceGroupId f x =
-    (\y -> x { _igmcInstanceGroupId = y })
-       <$> f (_igmcInstanceGroupId x)
+    f (_igmcInstanceGroupId x)
+        <&> \y -> x { _igmcInstanceGroupId = y }
 {-# INLINE igmcInstanceGroupId #-}
 
 -- | Target size for the instance group.
-igmcInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> InstanceGroupModifyConfig
-    -> f InstanceGroupModifyConfig
+igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Integer)
 igmcInstanceCount f x =
-    (\y -> x { _igmcInstanceCount = y })
-       <$> f (_igmcInstanceCount x)
+    f (_igmcInstanceCount x)
+        <&> \y -> x { _igmcInstanceCount = y }
 {-# INLINE igmcInstanceCount #-}
 
 -- | The EC2 InstanceIds to terminate. For advanced users only. Once you
 -- terminate the instances, the instance group will not return to its original
 -- requested size.
-igmcEC2InstanceIdsToTerminate
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> InstanceGroupModifyConfig
-    -> f InstanceGroupModifyConfig
+igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig ([Text])
 igmcEC2InstanceIdsToTerminate f x =
-    (\y -> x { _igmcEC2InstanceIdsToTerminate = y })
-       <$> f (_igmcEC2InstanceIdsToTerminate x)
+    f (_igmcEC2InstanceIdsToTerminate x)
+        <&> \y -> x { _igmcEC2InstanceIdsToTerminate = y }
 {-# INLINE igmcEC2InstanceIdsToTerminate #-}
 
 instance ToJSON InstanceGroupModifyConfig
@@ -2442,27 +2011,17 @@ data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     } deriving (Show, Generic)
 
 -- | The programmable code for the state change reason.
-igscrCode
-    :: Functor f
-    => (Maybe InstanceGroupStateChangeReasonCode
-    -> f (Maybe InstanceGroupStateChangeReasonCode))
-    -> InstanceGroupStateChangeReason
-    -> f InstanceGroupStateChangeReason
+igscrCode :: Lens' InstanceGroupStateChangeReason (Maybe InstanceGroupStateChangeReasonCode)
 igscrCode f x =
-    (\y -> x { _igscrCode = y })
-       <$> f (_igscrCode x)
+    f (_igscrCode x)
+        <&> \y -> x { _igscrCode = y }
 {-# INLINE igscrCode #-}
 
 -- | The status change reason description.
-igscrMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceGroupStateChangeReason
-    -> f InstanceGroupStateChangeReason
+igscrMessage :: Lens' InstanceGroupStateChangeReason (Maybe Text)
 igscrMessage f x =
-    (\y -> x { _igscrMessage = y })
-       <$> f (_igscrMessage x)
+    f (_igscrMessage x)
+        <&> \y -> x { _igscrMessage = y }
 {-# INLINE igscrMessage #-}
 
 instance FromJSON InstanceGroupStateChangeReason
@@ -2480,39 +2039,24 @@ data InstanceGroupStatus = InstanceGroupStatus
     } deriving (Show, Generic)
 
 -- | The current state of the instance group.
-iguState
-    :: Functor f
-    => (Maybe InstanceGroupState
-    -> f (Maybe InstanceGroupState))
-    -> InstanceGroupStatus
-    -> f InstanceGroupStatus
+iguState :: Lens' InstanceGroupStatus (Maybe InstanceGroupState)
 iguState f x =
-    (\y -> x { _iguState = y })
-       <$> f (_iguState x)
+    f (_iguState x)
+        <&> \y -> x { _iguState = y }
 {-# INLINE iguState #-}
 
 -- | The status change reason details for the instance group.
-iguStateChangeReason
-    :: Functor f
-    => (Maybe InstanceGroupStateChangeReason
-    -> f (Maybe InstanceGroupStateChangeReason))
-    -> InstanceGroupStatus
-    -> f InstanceGroupStatus
+iguStateChangeReason :: Lens' InstanceGroupStatus (Maybe InstanceGroupStateChangeReason)
 iguStateChangeReason f x =
-    (\y -> x { _iguStateChangeReason = y })
-       <$> f (_iguStateChangeReason x)
+    f (_iguStateChangeReason x)
+        <&> \y -> x { _iguStateChangeReason = y }
 {-# INLINE iguStateChangeReason #-}
 
 -- | The timeline of the instance group status over time.
-iguTimeline
-    :: Functor f
-    => (Maybe InstanceGroupTimeline
-    -> f (Maybe InstanceGroupTimeline))
-    -> InstanceGroupStatus
-    -> f InstanceGroupStatus
+iguTimeline :: Lens' InstanceGroupStatus (Maybe InstanceGroupTimeline)
 iguTimeline f x =
-    (\y -> x { _iguTimeline = y })
-       <$> f (_iguTimeline x)
+    f (_iguTimeline x)
+        <&> \y -> x { _iguTimeline = y }
 {-# INLINE iguTimeline #-}
 
 instance FromJSON InstanceGroupStatus
@@ -2531,39 +2075,24 @@ data InstanceGroupTimeline = InstanceGroupTimeline
     } deriving (Show, Generic)
 
 -- | The creation date and time of the instance group.
-igwCreationDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceGroupTimeline
-    -> f InstanceGroupTimeline
+igwCreationDateTime :: Lens' InstanceGroupTimeline (Maybe POSIX)
 igwCreationDateTime f x =
-    (\y -> x { _igwCreationDateTime = y })
-       <$> f (_igwCreationDateTime x)
+    f (_igwCreationDateTime x)
+        <&> \y -> x { _igwCreationDateTime = y }
 {-# INLINE igwCreationDateTime #-}
 
 -- | The date and time when the instance group became ready to perform tasks.
-igwReadyDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceGroupTimeline
-    -> f InstanceGroupTimeline
+igwReadyDateTime :: Lens' InstanceGroupTimeline (Maybe POSIX)
 igwReadyDateTime f x =
-    (\y -> x { _igwReadyDateTime = y })
-       <$> f (_igwReadyDateTime x)
+    f (_igwReadyDateTime x)
+        <&> \y -> x { _igwReadyDateTime = y }
 {-# INLINE igwReadyDateTime #-}
 
 -- | The date and time when the instance group terminated.
-igwEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceGroupTimeline
-    -> f InstanceGroupTimeline
+igwEndDateTime :: Lens' InstanceGroupTimeline (Maybe POSIX)
 igwEndDateTime f x =
-    (\y -> x { _igwEndDateTime = y })
-       <$> f (_igwEndDateTime x)
+    f (_igwEndDateTime x)
+        <&> \y -> x { _igwEndDateTime = y }
 {-# INLINE igwEndDateTime #-}
 
 instance FromJSON InstanceGroupTimeline
@@ -2579,27 +2108,17 @@ data InstanceStateChangeReason = InstanceStateChangeReason
     } deriving (Show, Generic)
 
 -- | The programmable code for the state change reason.
-iscrCode
-    :: Functor f
-    => (Maybe InstanceStateChangeReasonCode
-    -> f (Maybe InstanceStateChangeReasonCode))
-    -> InstanceStateChangeReason
-    -> f InstanceStateChangeReason
+iscrCode :: Lens' InstanceStateChangeReason (Maybe InstanceStateChangeReasonCode)
 iscrCode f x =
-    (\y -> x { _iscrCode = y })
-       <$> f (_iscrCode x)
+    f (_iscrCode x)
+        <&> \y -> x { _iscrCode = y }
 {-# INLINE iscrCode #-}
 
 -- | The status change reason description.
-iscrMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceStateChangeReason
-    -> f InstanceStateChangeReason
+iscrMessage :: Lens' InstanceStateChangeReason (Maybe Text)
 iscrMessage f x =
-    (\y -> x { _iscrMessage = y })
-       <$> f (_iscrMessage x)
+    f (_iscrMessage x)
+        <&> \y -> x { _iscrMessage = y }
 {-# INLINE iscrMessage #-}
 
 instance FromJSON InstanceStateChangeReason
@@ -2617,39 +2136,24 @@ data InstanceStatus = InstanceStatus
     } deriving (Show, Generic)
 
 -- | The current state of the instance.
-izState
-    :: Functor f
-    => (Maybe InstanceState
-    -> f (Maybe InstanceState))
-    -> InstanceStatus
-    -> f InstanceStatus
+izState :: Lens' InstanceStatus (Maybe InstanceState)
 izState f x =
-    (\y -> x { _izState = y })
-       <$> f (_izState x)
+    f (_izState x)
+        <&> \y -> x { _izState = y }
 {-# INLINE izState #-}
 
 -- | The details of the status change reason for the instance.
-izStateChangeReason
-    :: Functor f
-    => (Maybe InstanceStateChangeReason
-    -> f (Maybe InstanceStateChangeReason))
-    -> InstanceStatus
-    -> f InstanceStatus
+izStateChangeReason :: Lens' InstanceStatus (Maybe InstanceStateChangeReason)
 izStateChangeReason f x =
-    (\y -> x { _izStateChangeReason = y })
-       <$> f (_izStateChangeReason x)
+    f (_izStateChangeReason x)
+        <&> \y -> x { _izStateChangeReason = y }
 {-# INLINE izStateChangeReason #-}
 
 -- | The timeline of the instance status over time.
-izTimeline
-    :: Functor f
-    => (Maybe InstanceTimeline
-    -> f (Maybe InstanceTimeline))
-    -> InstanceStatus
-    -> f InstanceStatus
+izTimeline :: Lens' InstanceStatus (Maybe InstanceTimeline)
 izTimeline f x =
-    (\y -> x { _izTimeline = y })
-       <$> f (_izTimeline x)
+    f (_izTimeline x)
+        <&> \y -> x { _izTimeline = y }
 {-# INLINE izTimeline #-}
 
 instance FromJSON InstanceStatus
@@ -2667,39 +2171,24 @@ data InstanceTimeline = InstanceTimeline
     } deriving (Show, Generic)
 
 -- | The creation date and time of the instance.
-iifCreationDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceTimeline
-    -> f InstanceTimeline
+iifCreationDateTime :: Lens' InstanceTimeline (Maybe POSIX)
 iifCreationDateTime f x =
-    (\y -> x { _iifCreationDateTime = y })
-       <$> f (_iifCreationDateTime x)
+    f (_iifCreationDateTime x)
+        <&> \y -> x { _iifCreationDateTime = y }
 {-# INLINE iifCreationDateTime #-}
 
 -- | The date and time when the instance was ready to perform tasks.
-iifReadyDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceTimeline
-    -> f InstanceTimeline
+iifReadyDateTime :: Lens' InstanceTimeline (Maybe POSIX)
 iifReadyDateTime f x =
-    (\y -> x { _iifReadyDateTime = y })
-       <$> f (_iifReadyDateTime x)
+    f (_iifReadyDateTime x)
+        <&> \y -> x { _iifReadyDateTime = y }
 {-# INLINE iifReadyDateTime #-}
 
 -- | The date and time when the instance was terminated.
-iifEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> InstanceTimeline
-    -> f InstanceTimeline
+iifEndDateTime :: Lens' InstanceTimeline (Maybe POSIX)
 iifEndDateTime f x =
-    (\y -> x { _iifEndDateTime = y })
-       <$> f (_iifEndDateTime x)
+    f (_iifEndDateTime x)
+        <&> \y -> x { _iifEndDateTime = y }
 {-# INLINE iifEndDateTime #-}
 
 instance FromJSON InstanceTimeline
@@ -2748,116 +2237,71 @@ data JobFlowDetail = JobFlowDetail
     } deriving (Show, Generic)
 
 -- | The job flow identifier.
-jfdJobFlowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdJobFlowId :: Lens' JobFlowDetail (Text)
 jfdJobFlowId f x =
-    (\y -> x { _jfdJobFlowId = y })
-       <$> f (_jfdJobFlowId x)
+    f (_jfdJobFlowId x)
+        <&> \y -> x { _jfdJobFlowId = y }
 {-# INLINE jfdJobFlowId #-}
 
 -- | The name of the job flow.
-jfdName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdName :: Lens' JobFlowDetail (Text)
 jfdName f x =
-    (\y -> x { _jfdName = y })
-       <$> f (_jfdName x)
+    f (_jfdName x)
+        <&> \y -> x { _jfdName = y }
 {-# INLINE jfdName #-}
 
 -- | The location in Amazon S3 where log files for the job are stored.
-jfdLogUri
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdLogUri :: Lens' JobFlowDetail (Maybe Text)
 jfdLogUri f x =
-    (\y -> x { _jfdLogUri = y })
-       <$> f (_jfdLogUri x)
+    f (_jfdLogUri x)
+        <&> \y -> x { _jfdLogUri = y }
 {-# INLINE jfdLogUri #-}
 
 -- | The version of the AMI used to initialize Amazon EC2 instances in the job
 -- flow. For a list of AMI versions currently supported by Amazon
 -- ElasticMapReduce, go to AMI Versions Supported in Elastic MapReduce in the
 -- Amazon Elastic MapReduce Developer's Guide.
-jfdAmiVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdAmiVersion :: Lens' JobFlowDetail (Maybe Text)
 jfdAmiVersion f x =
-    (\y -> x { _jfdAmiVersion = y })
-       <$> f (_jfdAmiVersion x)
+    f (_jfdAmiVersion x)
+        <&> \y -> x { _jfdAmiVersion = y }
 {-# INLINE jfdAmiVersion #-}
 
 -- | Describes the execution status of the job flow.
-jfdExecutionStatusDetail
-    :: Functor f
-    => (JobFlowExecutionStatusDetail
-    -> f (JobFlowExecutionStatusDetail))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdExecutionStatusDetail :: Lens' JobFlowDetail (JobFlowExecutionStatusDetail)
 jfdExecutionStatusDetail f x =
-    (\y -> x { _jfdExecutionStatusDetail = y })
-       <$> f (_jfdExecutionStatusDetail x)
+    f (_jfdExecutionStatusDetail x)
+        <&> \y -> x { _jfdExecutionStatusDetail = y }
 {-# INLINE jfdExecutionStatusDetail #-}
 
 -- | Describes the Amazon EC2 instances of the job flow.
-jfdInstances
-    :: Functor f
-    => (JobFlowInstancesDetail
-    -> f (JobFlowInstancesDetail))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdInstances :: Lens' JobFlowDetail (JobFlowInstancesDetail)
 jfdInstances f x =
-    (\y -> x { _jfdInstances = y })
-       <$> f (_jfdInstances x)
+    f (_jfdInstances x)
+        <&> \y -> x { _jfdInstances = y }
 {-# INLINE jfdInstances #-}
 
 -- | A list of steps run by the job flow.
-jfdSteps
-    :: Functor f
-    => ([StepDetail]
-    -> f ([StepDetail]))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdSteps :: Lens' JobFlowDetail ([StepDetail])
 jfdSteps f x =
-    (\y -> x { _jfdSteps = y })
-       <$> f (_jfdSteps x)
+    f (_jfdSteps x)
+        <&> \y -> x { _jfdSteps = y }
 {-# INLINE jfdSteps #-}
 
 -- | A list of the bootstrap actions run by the job flow.
-jfdBootstrapActions
-    :: Functor f
-    => ([BootstrapActionDetail]
-    -> f ([BootstrapActionDetail]))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdBootstrapActions :: Lens' JobFlowDetail ([BootstrapActionDetail])
 jfdBootstrapActions f x =
-    (\y -> x { _jfdBootstrapActions = y })
-       <$> f (_jfdBootstrapActions x)
+    f (_jfdBootstrapActions x)
+        <&> \y -> x { _jfdBootstrapActions = y }
 {-# INLINE jfdBootstrapActions #-}
 
 -- | A list of strings set by third party software when the job flow is
 -- launched. If you are not using third party software to manage the job flow
 -- this value is empty.
-jfdSupportedProducts
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdSupportedProducts :: Lens' JobFlowDetail ([Text])
 jfdSupportedProducts f x =
-    (\y -> x { _jfdSupportedProducts = y })
-       <$> f (_jfdSupportedProducts x)
+    f (_jfdSupportedProducts x)
+        <&> \y -> x { _jfdSupportedProducts = y }
 {-# INLINE jfdSupportedProducts #-}
 
 -- | Specifies whether the job flow is visible to all IAM users of the AWS
@@ -2866,41 +2310,26 @@ jfdSupportedProducts f x =
 -- permissions set) manage the job flow. If it is set to false, only the IAM
 -- user that created the job flow can view and manage it. This value can be
 -- changed using the SetVisibleToAllUsers action.
-jfdVisibleToAllUsers
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdVisibleToAllUsers :: Lens' JobFlowDetail (Maybe Bool)
 jfdVisibleToAllUsers f x =
-    (\y -> x { _jfdVisibleToAllUsers = y })
-       <$> f (_jfdVisibleToAllUsers x)
+    f (_jfdVisibleToAllUsers x)
+        <&> \y -> x { _jfdVisibleToAllUsers = y }
 {-# INLINE jfdVisibleToAllUsers #-}
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
-jfdJobFlowRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdJobFlowRole :: Lens' JobFlowDetail (Maybe Text)
 jfdJobFlowRole f x =
-    (\y -> x { _jfdJobFlowRole = y })
-       <$> f (_jfdJobFlowRole x)
+    f (_jfdJobFlowRole x)
+        <&> \y -> x { _jfdJobFlowRole = y }
 {-# INLINE jfdJobFlowRole #-}
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
-jfdServiceRole
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowDetail
-    -> f JobFlowDetail
+jfdServiceRole :: Lens' JobFlowDetail (Maybe Text)
 jfdServiceRole f x =
-    (\y -> x { _jfdServiceRole = y })
-       <$> f (_jfdServiceRole x)
+    f (_jfdServiceRole x)
+        <&> \y -> x { _jfdServiceRole = y }
 {-# INLINE jfdServiceRole #-}
 
 instance FromJSON JobFlowDetail
@@ -2923,76 +2352,46 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     } deriving (Show, Generic)
 
 -- | The state of the job flow.
-jfesdState
-    :: Functor f
-    => (JobFlowExecutionState
-    -> f (JobFlowExecutionState))
-    -> JobFlowExecutionStatusDetail
-    -> f JobFlowExecutionStatusDetail
+jfesdState :: Lens' JobFlowExecutionStatusDetail (JobFlowExecutionState)
 jfesdState f x =
-    (\y -> x { _jfesdState = y })
-       <$> f (_jfesdState x)
+    f (_jfesdState x)
+        <&> \y -> x { _jfesdState = y }
 {-# INLINE jfesdState #-}
 
 -- | The creation date and time of the job flow.
-jfesdCreationDateTime
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> JobFlowExecutionStatusDetail
-    -> f JobFlowExecutionStatusDetail
+jfesdCreationDateTime :: Lens' JobFlowExecutionStatusDetail (POSIX)
 jfesdCreationDateTime f x =
-    (\y -> x { _jfesdCreationDateTime = y })
-       <$> f (_jfesdCreationDateTime x)
+    f (_jfesdCreationDateTime x)
+        <&> \y -> x { _jfesdCreationDateTime = y }
 {-# INLINE jfesdCreationDateTime #-}
 
 -- | The start date and time of the job flow.
-jfesdStartDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> JobFlowExecutionStatusDetail
-    -> f JobFlowExecutionStatusDetail
+jfesdStartDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe POSIX)
 jfesdStartDateTime f x =
-    (\y -> x { _jfesdStartDateTime = y })
-       <$> f (_jfesdStartDateTime x)
+    f (_jfesdStartDateTime x)
+        <&> \y -> x { _jfesdStartDateTime = y }
 {-# INLINE jfesdStartDateTime #-}
 
 -- | The date and time when the job flow was ready to start running bootstrap
 -- actions.
-jfesdReadyDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> JobFlowExecutionStatusDetail
-    -> f JobFlowExecutionStatusDetail
+jfesdReadyDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe POSIX)
 jfesdReadyDateTime f x =
-    (\y -> x { _jfesdReadyDateTime = y })
-       <$> f (_jfesdReadyDateTime x)
+    f (_jfesdReadyDateTime x)
+        <&> \y -> x { _jfesdReadyDateTime = y }
 {-# INLINE jfesdReadyDateTime #-}
 
 -- | The completion date and time of the job flow.
-jfesdEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> JobFlowExecutionStatusDetail
-    -> f JobFlowExecutionStatusDetail
+jfesdEndDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe POSIX)
 jfesdEndDateTime f x =
-    (\y -> x { _jfesdEndDateTime = y })
-       <$> f (_jfesdEndDateTime x)
+    f (_jfesdEndDateTime x)
+        <&> \y -> x { _jfesdEndDateTime = y }
 {-# INLINE jfesdEndDateTime #-}
 
 -- | Description of the job flow last changed state.
-jfesdLastStateChangeReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowExecutionStatusDetail
-    -> f JobFlowExecutionStatusDetail
+jfesdLastStateChangeReason :: Lens' JobFlowExecutionStatusDetail (Maybe Text)
 jfesdLastStateChangeReason f x =
-    (\y -> x { _jfesdLastStateChangeReason = y })
-       <$> f (_jfesdLastStateChangeReason x)
+    f (_jfesdLastStateChangeReason x)
+        <&> \y -> x { _jfesdLastStateChangeReason = y }
 {-# INLINE jfesdLastStateChangeReason #-}
 
 instance FromJSON JobFlowExecutionStatusDetail
@@ -3040,117 +2439,72 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
     } deriving (Show, Generic)
 
 -- | The EC2 instance type of the master node.
-jficMasterInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficMasterInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficMasterInstanceType f x =
-    (\y -> x { _jficMasterInstanceType = y })
-       <$> f (_jficMasterInstanceType x)
+    f (_jficMasterInstanceType x)
+        <&> \y -> x { _jficMasterInstanceType = y }
 {-# INLINE jficMasterInstanceType #-}
 
 -- | The EC2 instance type of the slave nodes.
-jficSlaveInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficSlaveInstanceType f x =
-    (\y -> x { _jficSlaveInstanceType = y })
-       <$> f (_jficSlaveInstanceType x)
+    f (_jficSlaveInstanceType x)
+        <&> \y -> x { _jficSlaveInstanceType = y }
 {-# INLINE jficSlaveInstanceType #-}
 
 -- | The number of Amazon EC2 instances used to execute the job flow.
-jficInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficInstanceCount :: Lens' JobFlowInstancesConfig (Maybe Integer)
 jficInstanceCount f x =
-    (\y -> x { _jficInstanceCount = y })
-       <$> f (_jficInstanceCount x)
+    f (_jficInstanceCount x)
+        <&> \y -> x { _jficInstanceCount = y }
 {-# INLINE jficInstanceCount #-}
 
 -- | Configuration for the job flow's instance groups.
-jficInstanceGroups
-    :: Functor f
-    => ([InstanceGroupConfig]
-    -> f ([InstanceGroupConfig]))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficInstanceGroups :: Lens' JobFlowInstancesConfig ([InstanceGroupConfig])
 jficInstanceGroups f x =
-    (\y -> x { _jficInstanceGroups = y })
-       <$> f (_jficInstanceGroups x)
+    f (_jficInstanceGroups x)
+        <&> \y -> x { _jficInstanceGroups = y }
 {-# INLINE jficInstanceGroups #-}
 
 -- | The name of the Amazon EC2 key pair that can be used to ssh to the master
 -- node as the user called "hadoop.".
-jficEc2KeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficEc2KeyName :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEc2KeyName f x =
-    (\y -> x { _jficEc2KeyName = y })
-       <$> f (_jficEc2KeyName x)
+    f (_jficEc2KeyName x)
+        <&> \y -> x { _jficEc2KeyName = y }
 {-# INLINE jficEc2KeyName #-}
 
 -- | The Availability Zone the job flow will run in.
-jficPlacement
-    :: Functor f
-    => (Maybe PlacementType
-    -> f (Maybe PlacementType))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement f x =
-    (\y -> x { _jficPlacement = y })
-       <$> f (_jficPlacement x)
+    f (_jficPlacement x)
+        <&> \y -> x { _jficPlacement = y }
 {-# INLINE jficPlacement #-}
 
 -- | Specifies whether the job flow should terminate after completing all steps.
-jficKeepJobFlowAliveWhenNoSteps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficKeepJobFlowAliveWhenNoSteps f x =
-    (\y -> x { _jficKeepJobFlowAliveWhenNoSteps = y })
-       <$> f (_jficKeepJobFlowAliveWhenNoSteps x)
+    f (_jficKeepJobFlowAliveWhenNoSteps x)
+        <&> \y -> x { _jficKeepJobFlowAliveWhenNoSteps = y }
 {-# INLINE jficKeepJobFlowAliveWhenNoSteps #-}
 
 -- | Specifies whether to lock the job flow to prevent the Amazon EC2 instances
 -- from being terminated by API call, user intervention, or in the event of a
 -- job flow error.
-jficTerminationProtected
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficTerminationProtected :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficTerminationProtected f x =
-    (\y -> x { _jficTerminationProtected = y })
-       <$> f (_jficTerminationProtected x)
+    f (_jficTerminationProtected x)
+        <&> \y -> x { _jficTerminationProtected = y }
 {-# INLINE jficTerminationProtected #-}
 
 -- | The Hadoop version for the job flow. Valid inputs are "0.18", "0.20", or
 -- "0.20.205". If you do not set this value, the default of 0.18 is used,
 -- unless the AmiVersion parameter is set in the RunJobFlow call, in which
 -- case the default version of Hadoop for that AMI version is used.
-jficHadoopVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion f x =
-    (\y -> x { _jficHadoopVersion = y })
-       <$> f (_jficHadoopVersion x)
+    f (_jficHadoopVersion x)
+        <&> \y -> x { _jficHadoopVersion = y }
 {-# INLINE jficHadoopVersion #-}
 
 -- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set
@@ -3160,15 +2514,10 @@ jficHadoopVersion f x =
 -- Amazon VPC currently does not support cluster compute quadruple extra large
 -- (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance
 -- type for nodes of a job flow launched in a Amazon VPC.
-jficEc2SubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesConfig
-    -> f JobFlowInstancesConfig
+jficEc2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEc2SubnetId f x =
-    (\y -> x { _jficEc2SubnetId = y })
-       <$> f (_jficEc2SubnetId x)
+    f (_jficEc2SubnetId x)
+        <&> \y -> x { _jficEc2SubnetId = y }
 {-# INLINE jficEc2SubnetId #-}
 
 instance ToJSON JobFlowInstancesConfig
@@ -3219,78 +2568,48 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
     } deriving (Show, Generic)
 
 -- | The Amazon EC2 master node instance type.
-jfidMasterInstanceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidMasterInstanceType :: Lens' JobFlowInstancesDetail (Text)
 jfidMasterInstanceType f x =
-    (\y -> x { _jfidMasterInstanceType = y })
-       <$> f (_jfidMasterInstanceType x)
+    f (_jfidMasterInstanceType x)
+        <&> \y -> x { _jfidMasterInstanceType = y }
 {-# INLINE jfidMasterInstanceType #-}
 
 -- | The DNS name of the master node.
-jfidMasterPublicDnsName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidMasterPublicDnsName :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidMasterPublicDnsName f x =
-    (\y -> x { _jfidMasterPublicDnsName = y })
-       <$> f (_jfidMasterPublicDnsName x)
+    f (_jfidMasterPublicDnsName x)
+        <&> \y -> x { _jfidMasterPublicDnsName = y }
 {-# INLINE jfidMasterPublicDnsName #-}
 
 -- | The Amazon EC2 instance identifier of the master node.
-jfidMasterInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidMasterInstanceId :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidMasterInstanceId f x =
-    (\y -> x { _jfidMasterInstanceId = y })
-       <$> f (_jfidMasterInstanceId x)
+    f (_jfidMasterInstanceId x)
+        <&> \y -> x { _jfidMasterInstanceId = y }
 {-# INLINE jfidMasterInstanceId #-}
 
 -- | The Amazon EC2 slave node instance type.
-jfidSlaveInstanceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidSlaveInstanceType :: Lens' JobFlowInstancesDetail (Text)
 jfidSlaveInstanceType f x =
-    (\y -> x { _jfidSlaveInstanceType = y })
-       <$> f (_jfidSlaveInstanceType x)
+    f (_jfidSlaveInstanceType x)
+        <&> \y -> x { _jfidSlaveInstanceType = y }
 {-# INLINE jfidSlaveInstanceType #-}
 
 -- | The number of Amazon EC2 instances in the cluster. If the value is 1, the
 -- same instance serves as both the master and slave node. If the value is
 -- greater than 1, one instance is the master node and all others are slave
 -- nodes.
-jfidInstanceCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidInstanceCount :: Lens' JobFlowInstancesDetail (Integer)
 jfidInstanceCount f x =
-    (\y -> x { _jfidInstanceCount = y })
-       <$> f (_jfidInstanceCount x)
+    f (_jfidInstanceCount x)
+        <&> \y -> x { _jfidInstanceCount = y }
 {-# INLINE jfidInstanceCount #-}
 
 -- | Details about the job flow's instance groups.
-jfidInstanceGroups
-    :: Functor f
-    => ([InstanceGroupDetail]
-    -> f ([InstanceGroupDetail]))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidInstanceGroups :: Lens' JobFlowInstancesDetail ([InstanceGroupDetail])
 jfidInstanceGroups f x =
-    (\y -> x { _jfidInstanceGroups = y })
-       <$> f (_jfidInstanceGroups x)
+    f (_jfidInstanceGroups x)
+        <&> \y -> x { _jfidInstanceGroups = y }
 {-# INLINE jfidInstanceGroups #-}
 
 -- | An approximation of the cost of the job flow, represented in
@@ -3299,91 +2618,56 @@ jfidInstanceGroups f x =
 -- roughly four times more expensive would result in the normalized instance
 -- hours being incremented by four. This result is only an approximation and
 -- does not reflect the actual billing rate.
-jfidNormalizedInstanceHours
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidNormalizedInstanceHours :: Lens' JobFlowInstancesDetail (Maybe Integer)
 jfidNormalizedInstanceHours f x =
-    (\y -> x { _jfidNormalizedInstanceHours = y })
-       <$> f (_jfidNormalizedInstanceHours x)
+    f (_jfidNormalizedInstanceHours x)
+        <&> \y -> x { _jfidNormalizedInstanceHours = y }
 {-# INLINE jfidNormalizedInstanceHours #-}
 
 -- | The name of an Amazon EC2 key pair that can be used to ssh to the master
 -- node of job flow.
-jfidEc2KeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidEc2KeyName :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidEc2KeyName f x =
-    (\y -> x { _jfidEc2KeyName = y })
-       <$> f (_jfidEc2KeyName x)
+    f (_jfidEc2KeyName x)
+        <&> \y -> x { _jfidEc2KeyName = y }
 {-# INLINE jfidEc2KeyName #-}
 
 -- | For job flows launched within Amazon Virtual Private Cloud, this value
 -- specifies the identifier of the subnet where the job flow was launched.
-jfidEc2SubnetId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidEc2SubnetId :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidEc2SubnetId f x =
-    (\y -> x { _jfidEc2SubnetId = y })
-       <$> f (_jfidEc2SubnetId x)
+    f (_jfidEc2SubnetId x)
+        <&> \y -> x { _jfidEc2SubnetId = y }
 {-# INLINE jfidEc2SubnetId #-}
 
 -- | The Amazon EC2 Availability Zone for the job flow.
-jfidPlacement
-    :: Functor f
-    => (Maybe PlacementType
-    -> f (Maybe PlacementType))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidPlacement :: Lens' JobFlowInstancesDetail (Maybe PlacementType)
 jfidPlacement f x =
-    (\y -> x { _jfidPlacement = y })
-       <$> f (_jfidPlacement x)
+    f (_jfidPlacement x)
+        <&> \y -> x { _jfidPlacement = y }
 {-# INLINE jfidPlacement #-}
 
 -- | Specifies whether the job flow should terminate after completing all steps.
-jfidKeepJobFlowAliveWhenNoSteps
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesDetail (Maybe Bool)
 jfidKeepJobFlowAliveWhenNoSteps f x =
-    (\y -> x { _jfidKeepJobFlowAliveWhenNoSteps = y })
-       <$> f (_jfidKeepJobFlowAliveWhenNoSteps x)
+    f (_jfidKeepJobFlowAliveWhenNoSteps x)
+        <&> \y -> x { _jfidKeepJobFlowAliveWhenNoSteps = y }
 {-# INLINE jfidKeepJobFlowAliveWhenNoSteps #-}
 
 -- | Specifies whether the Amazon EC2 instances in the cluster are protected
 -- from termination by API calls, user intervention, or in the event of a job
 -- flow error.
-jfidTerminationProtected
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidTerminationProtected :: Lens' JobFlowInstancesDetail (Maybe Bool)
 jfidTerminationProtected f x =
-    (\y -> x { _jfidTerminationProtected = y })
-       <$> f (_jfidTerminationProtected x)
+    f (_jfidTerminationProtected x)
+        <&> \y -> x { _jfidTerminationProtected = y }
 {-# INLINE jfidTerminationProtected #-}
 
 -- | The Hadoop version for the job flow.
-jfidHadoopVersion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> JobFlowInstancesDetail
-    -> f JobFlowInstancesDetail
+jfidHadoopVersion :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidHadoopVersion f x =
-    (\y -> x { _jfidHadoopVersion = y })
-       <$> f (_jfidHadoopVersion x)
+    f (_jfidHadoopVersion x)
+        <&> \y -> x { _jfidHadoopVersion = y }
 {-# INLINE jfidHadoopVersion #-}
 
 instance FromJSON JobFlowInstancesDetail
@@ -3399,27 +2683,17 @@ data KeyValue = KeyValue
     } deriving (Show, Generic)
 
 -- | The unique identifier of a key value pair.
-kvKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> KeyValue
-    -> f KeyValue
+kvKey :: Lens' KeyValue (Maybe Text)
 kvKey f x =
-    (\y -> x { _kvKey = y })
-       <$> f (_kvKey x)
+    f (_kvKey x)
+        <&> \y -> x { _kvKey = y }
 {-# INLINE kvKey #-}
 
 -- | The value part of the identified key.
-kvValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> KeyValue
-    -> f KeyValue
+kvValue :: Lens' KeyValue (Maybe Text)
 kvValue f x =
-    (\y -> x { _kvValue = y })
-       <$> f (_kvValue x)
+    f (_kvValue x)
+        <&> \y -> x { _kvValue = y }
 {-# INLINE kvValue #-}
 
 instance FromJSON KeyValue
@@ -3438,27 +2712,17 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
 
 -- | Location of the script to run during a bootstrap action. Can be either a
 -- location in Amazon S3 or on a local file system.
-sbacPath
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ScriptBootstrapActionConfig
-    -> f ScriptBootstrapActionConfig
+sbacPath :: Lens' ScriptBootstrapActionConfig (Text)
 sbacPath f x =
-    (\y -> x { _sbacPath = y })
-       <$> f (_sbacPath x)
+    f (_sbacPath x)
+        <&> \y -> x { _sbacPath = y }
 {-# INLINE sbacPath #-}
 
 -- | A list of command line arguments to pass to the bootstrap action script.
-sbacArgs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ScriptBootstrapActionConfig
-    -> f ScriptBootstrapActionConfig
+sbacArgs :: Lens' ScriptBootstrapActionConfig ([Text])
 sbacArgs f x =
-    (\y -> x { _sbacArgs = y })
-       <$> f (_sbacArgs x)
+    f (_sbacArgs x)
+        <&> \y -> x { _sbacArgs = y }
 {-# INLINE sbacArgs #-}
 
 instance FromJSON ScriptBootstrapActionConfig
@@ -3482,64 +2746,39 @@ data Step = Step
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster step.
-svId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Step
-    -> f Step
+svId :: Lens' Step (Maybe Text)
 svId f x =
-    (\y -> x { _svId = y })
-       <$> f (_svId x)
+    f (_svId x)
+        <&> \y -> x { _svId = y }
 {-# INLINE svId #-}
 
 -- | The name of the cluster step.
-svName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Step
-    -> f Step
+svName :: Lens' Step (Maybe Text)
 svName f x =
-    (\y -> x { _svName = y })
-       <$> f (_svName x)
+    f (_svName x)
+        <&> \y -> x { _svName = y }
 {-# INLINE svName #-}
 
 -- | The Hadoop job configuration of the cluster step.
-svConfig
-    :: Functor f
-    => (Maybe HadoopStepConfig
-    -> f (Maybe HadoopStepConfig))
-    -> Step
-    -> f Step
+svConfig :: Lens' Step (Maybe HadoopStepConfig)
 svConfig f x =
-    (\y -> x { _svConfig = y })
-       <$> f (_svConfig x)
+    f (_svConfig x)
+        <&> \y -> x { _svConfig = y }
 {-# INLINE svConfig #-}
 
 -- | This specifies what action to take when the cluster step fails. Possible
 -- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
-svActionOnFailure
-    :: Functor f
-    => (Maybe ActionOnFailure
-    -> f (Maybe ActionOnFailure))
-    -> Step
-    -> f Step
+svActionOnFailure :: Lens' Step (Maybe ActionOnFailure)
 svActionOnFailure f x =
-    (\y -> x { _svActionOnFailure = y })
-       <$> f (_svActionOnFailure x)
+    f (_svActionOnFailure x)
+        <&> \y -> x { _svActionOnFailure = y }
 {-# INLINE svActionOnFailure #-}
 
 -- | The current execution status details of the cluster step.
-svStatus
-    :: Functor f
-    => (Maybe StepStatus
-    -> f (Maybe StepStatus))
-    -> Step
-    -> f Step
+svStatus :: Lens' Step (Maybe StepStatus)
 svStatus f x =
-    (\y -> x { _svStatus = y })
-       <$> f (_svStatus x)
+    f (_svStatus x)
+        <&> \y -> x { _svStatus = y }
 {-# INLINE svStatus #-}
 
 instance FromJSON Step
@@ -3555,39 +2794,24 @@ data StepConfig = StepConfig
     } deriving (Show, Generic)
 
 -- | The name of the job flow step.
-scName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> StepConfig
-    -> f StepConfig
+scName :: Lens' StepConfig (Text)
 scName f x =
-    (\y -> x { _scName = y })
-       <$> f (_scName x)
+    f (_scName x)
+        <&> \y -> x { _scName = y }
 {-# INLINE scName #-}
 
 -- | The action to take if the job flow step fails.
-scActionOnFailure
-    :: Functor f
-    => (Maybe ActionOnFailure
-    -> f (Maybe ActionOnFailure))
-    -> StepConfig
-    -> f StepConfig
+scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
 scActionOnFailure f x =
-    (\y -> x { _scActionOnFailure = y })
-       <$> f (_scActionOnFailure x)
+    f (_scActionOnFailure x)
+        <&> \y -> x { _scActionOnFailure = y }
 {-# INLINE scActionOnFailure #-}
 
 -- | The JAR file used for the job flow step.
-scHadoopJarStep
-    :: Functor f
-    => (HadoopJarStepConfig
-    -> f (HadoopJarStepConfig))
-    -> StepConfig
-    -> f StepConfig
+scHadoopJarStep :: Lens' StepConfig (HadoopJarStepConfig)
 scHadoopJarStep f x =
-    (\y -> x { _scHadoopJarStep = y })
-       <$> f (_scHadoopJarStep x)
+    f (_scHadoopJarStep x)
+        <&> \y -> x { _scHadoopJarStep = y }
 {-# INLINE scHadoopJarStep #-}
 
 instance FromJSON StepConfig
@@ -3603,27 +2827,17 @@ data StepDetail = StepDetail
     } deriving (Show, Generic)
 
 -- | The step configuration.
-sdStepConfig
-    :: Functor f
-    => (StepConfig
-    -> f (StepConfig))
-    -> StepDetail
-    -> f StepDetail
+sdStepConfig :: Lens' StepDetail (StepConfig)
 sdStepConfig f x =
-    (\y -> x { _sdStepConfig = y })
-       <$> f (_sdStepConfig x)
+    f (_sdStepConfig x)
+        <&> \y -> x { _sdStepConfig = y }
 {-# INLINE sdStepConfig #-}
 
 -- | The description of the step status.
-sdExecutionStatusDetail
-    :: Functor f
-    => (StepExecutionStatusDetail
-    -> f (StepExecutionStatusDetail))
-    -> StepDetail
-    -> f StepDetail
+sdExecutionStatusDetail :: Lens' StepDetail (StepExecutionStatusDetail)
 sdExecutionStatusDetail f x =
-    (\y -> x { _sdExecutionStatusDetail = y })
-       <$> f (_sdExecutionStatusDetail x)
+    f (_sdExecutionStatusDetail x)
+        <&> \y -> x { _sdExecutionStatusDetail = y }
 {-# INLINE sdExecutionStatusDetail #-}
 
 instance FromJSON StepDetail
@@ -3645,63 +2859,38 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
     } deriving (Show, Generic)
 
 -- | The state of the job flow step.
-sesdState
-    :: Functor f
-    => (StepExecutionState
-    -> f (StepExecutionState))
-    -> StepExecutionStatusDetail
-    -> f StepExecutionStatusDetail
+sesdState :: Lens' StepExecutionStatusDetail (StepExecutionState)
 sesdState f x =
-    (\y -> x { _sesdState = y })
-       <$> f (_sesdState x)
+    f (_sesdState x)
+        <&> \y -> x { _sesdState = y }
 {-# INLINE sesdState #-}
 
 -- | The creation date and time of the step.
-sesdCreationDateTime
-    :: Functor f
-    => (POSIX
-    -> f (POSIX))
-    -> StepExecutionStatusDetail
-    -> f StepExecutionStatusDetail
+sesdCreationDateTime :: Lens' StepExecutionStatusDetail (POSIX)
 sesdCreationDateTime f x =
-    (\y -> x { _sesdCreationDateTime = y })
-       <$> f (_sesdCreationDateTime x)
+    f (_sesdCreationDateTime x)
+        <&> \y -> x { _sesdCreationDateTime = y }
 {-# INLINE sesdCreationDateTime #-}
 
 -- | The start date and time of the step.
-sesdStartDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> StepExecutionStatusDetail
-    -> f StepExecutionStatusDetail
+sesdStartDateTime :: Lens' StepExecutionStatusDetail (Maybe POSIX)
 sesdStartDateTime f x =
-    (\y -> x { _sesdStartDateTime = y })
-       <$> f (_sesdStartDateTime x)
+    f (_sesdStartDateTime x)
+        <&> \y -> x { _sesdStartDateTime = y }
 {-# INLINE sesdStartDateTime #-}
 
 -- | The completion date and time of the step.
-sesdEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> StepExecutionStatusDetail
-    -> f StepExecutionStatusDetail
+sesdEndDateTime :: Lens' StepExecutionStatusDetail (Maybe POSIX)
 sesdEndDateTime f x =
-    (\y -> x { _sesdEndDateTime = y })
-       <$> f (_sesdEndDateTime x)
+    f (_sesdEndDateTime x)
+        <&> \y -> x { _sesdEndDateTime = y }
 {-# INLINE sesdEndDateTime #-}
 
 -- | A description of the step's current state.
-sesdLastStateChangeReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StepExecutionStatusDetail
-    -> f StepExecutionStatusDetail
+sesdLastStateChangeReason :: Lens' StepExecutionStatusDetail (Maybe Text)
 sesdLastStateChangeReason f x =
-    (\y -> x { _sesdLastStateChangeReason = y })
-       <$> f (_sesdLastStateChangeReason x)
+    f (_sesdLastStateChangeReason x)
+        <&> \y -> x { _sesdLastStateChangeReason = y }
 {-# INLINE sesdLastStateChangeReason #-}
 
 instance FromJSON StepExecutionStatusDetail
@@ -3717,27 +2906,17 @@ data StepStateChangeReason = StepStateChangeReason
     } deriving (Show, Generic)
 
 -- | The programmable code for the state change reason.
-sscrCode
-    :: Functor f
-    => (Maybe StepStateChangeReasonCode
-    -> f (Maybe StepStateChangeReasonCode))
-    -> StepStateChangeReason
-    -> f StepStateChangeReason
+sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
 sscrCode f x =
-    (\y -> x { _sscrCode = y })
-       <$> f (_sscrCode x)
+    f (_sscrCode x)
+        <&> \y -> x { _sscrCode = y }
 {-# INLINE sscrCode #-}
 
 -- | The descriptive message for the state change reason.
-sscrMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StepStateChangeReason
-    -> f StepStateChangeReason
+sscrMessage :: Lens' StepStateChangeReason (Maybe Text)
 sscrMessage f x =
-    (\y -> x { _sscrMessage = y })
-       <$> f (_sscrMessage x)
+    f (_sscrMessage x)
+        <&> \y -> x { _sscrMessage = y }
 {-# INLINE sscrMessage #-}
 
 instance FromJSON StepStateChangeReason
@@ -3755,39 +2934,24 @@ data StepStatus = StepStatus
     } deriving (Show, Generic)
 
 -- | The execution state of the cluster step.
-sssState
-    :: Functor f
-    => (Maybe StepState
-    -> f (Maybe StepState))
-    -> StepStatus
-    -> f StepStatus
+sssState :: Lens' StepStatus (Maybe StepState)
 sssState f x =
-    (\y -> x { _sssState = y })
-       <$> f (_sssState x)
+    f (_sssState x)
+        <&> \y -> x { _sssState = y }
 {-# INLINE sssState #-}
 
 -- | The reason for the step execution status change.
-sssStateChangeReason
-    :: Functor f
-    => (Maybe StepStateChangeReason
-    -> f (Maybe StepStateChangeReason))
-    -> StepStatus
-    -> f StepStatus
+sssStateChangeReason :: Lens' StepStatus (Maybe StepStateChangeReason)
 sssStateChangeReason f x =
-    (\y -> x { _sssStateChangeReason = y })
-       <$> f (_sssStateChangeReason x)
+    f (_sssStateChangeReason x)
+        <&> \y -> x { _sssStateChangeReason = y }
 {-# INLINE sssStateChangeReason #-}
 
 -- | The timeline of the cluster step status over time.
-sssTimeline
-    :: Functor f
-    => (Maybe StepTimeline
-    -> f (Maybe StepTimeline))
-    -> StepStatus
-    -> f StepStatus
+sssTimeline :: Lens' StepStatus (Maybe StepTimeline)
 sssTimeline f x =
-    (\y -> x { _sssTimeline = y })
-       <$> f (_sssTimeline x)
+    f (_sssTimeline x)
+        <&> \y -> x { _sssTimeline = y }
 {-# INLINE sssTimeline #-}
 
 instance FromJSON StepStatus
@@ -3805,39 +2969,24 @@ data StepSummary = StepSummary
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster step.
-sssyId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StepSummary
-    -> f StepSummary
+sssyId :: Lens' StepSummary (Maybe Text)
 sssyId f x =
-    (\y -> x { _sssyId = y })
-       <$> f (_sssyId x)
+    f (_sssyId x)
+        <&> \y -> x { _sssyId = y }
 {-# INLINE sssyId #-}
 
 -- | The name of the cluster step.
-sssyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> StepSummary
-    -> f StepSummary
+sssyName :: Lens' StepSummary (Maybe Text)
 sssyName f x =
-    (\y -> x { _sssyName = y })
-       <$> f (_sssyName x)
+    f (_sssyName x)
+        <&> \y -> x { _sssyName = y }
 {-# INLINE sssyName #-}
 
 -- | The current execution status details of the cluster step.
-sssyStatus
-    :: Functor f
-    => (Maybe StepStatus
-    -> f (Maybe StepStatus))
-    -> StepSummary
-    -> f StepSummary
+sssyStatus :: Lens' StepSummary (Maybe StepStatus)
 sssyStatus f x =
-    (\y -> x { _sssyStatus = y })
-       <$> f (_sssyStatus x)
+    f (_sssyStatus x)
+        <&> \y -> x { _sssyStatus = y }
 {-# INLINE sssyStatus #-}
 
 instance FromJSON StepSummary
@@ -3854,39 +3003,24 @@ data StepTimeline = StepTimeline
     } deriving (Show, Generic)
 
 -- | The date and time when the cluster step was created.
-ssfCreationDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> StepTimeline
-    -> f StepTimeline
+ssfCreationDateTime :: Lens' StepTimeline (Maybe POSIX)
 ssfCreationDateTime f x =
-    (\y -> x { _ssfCreationDateTime = y })
-       <$> f (_ssfCreationDateTime x)
+    f (_ssfCreationDateTime x)
+        <&> \y -> x { _ssfCreationDateTime = y }
 {-# INLINE ssfCreationDateTime #-}
 
 -- | The date and time when the cluster step execution started.
-ssfStartDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> StepTimeline
-    -> f StepTimeline
+ssfStartDateTime :: Lens' StepTimeline (Maybe POSIX)
 ssfStartDateTime f x =
-    (\y -> x { _ssfStartDateTime = y })
-       <$> f (_ssfStartDateTime x)
+    f (_ssfStartDateTime x)
+        <&> \y -> x { _ssfStartDateTime = y }
 {-# INLINE ssfStartDateTime #-}
 
 -- | The date and time when the cluster step execution completed or failed.
-ssfEndDateTime
-    :: Functor f
-    => (Maybe POSIX
-    -> f (Maybe POSIX))
-    -> StepTimeline
-    -> f StepTimeline
+ssfEndDateTime :: Lens' StepTimeline (Maybe POSIX)
 ssfEndDateTime f x =
-    (\y -> x { _ssfEndDateTime = y })
-       <$> f (_ssfEndDateTime x)
+    f (_ssfEndDateTime x)
+        <&> \y -> x { _ssfEndDateTime = y }
 {-# INLINE ssfEndDateTime #-}
 
 instance FromJSON StepTimeline
@@ -3904,27 +3038,17 @@ data SupportedProductConfig = SupportedProductConfig
     } deriving (Show, Generic)
 
 -- | The name of the product configuration.
-spcName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SupportedProductConfig
-    -> f SupportedProductConfig
+spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName f x =
-    (\y -> x { _spcName = y })
-       <$> f (_spcName x)
+    f (_spcName x)
+        <&> \y -> x { _spcName = y }
 {-# INLINE spcName #-}
 
 -- | The list of user-supplied arguments.
-spcArgs
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SupportedProductConfig
-    -> f SupportedProductConfig
+spcArgs :: Lens' SupportedProductConfig ([Text])
 spcArgs f x =
-    (\y -> x { _spcArgs = y })
-       <$> f (_spcArgs x)
+    f (_spcArgs x)
+        <&> \y -> x { _spcArgs = y }
 {-# INLINE spcArgs #-}
 
 instance ToJSON SupportedProductConfig
@@ -3945,28 +3069,18 @@ data Tag = Tag
 
 -- | A user-defined key, which is the minimum required information for a valid
 -- tag. For more information, see Tagging Amazon EMR Resources.
-tKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+tKey :: Lens' Tag (Maybe Text)
 tKey f x =
-    (\y -> x { _tKey = y })
-       <$> f (_tKey x)
+    f (_tKey x)
+        <&> \y -> x { _tKey = y }
 {-# INLINE tKey #-}
 
 -- | A user-defined value, which is optional in a tag. For more information, see
 -- Tagging Amazon EMR Resources.
-tValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+tValue :: Lens' Tag (Maybe Text)
 tValue f x =
-    (\y -> x { _tValue = y })
-       <$> f (_tValue x)
+    f (_tValue x)
+        <&> \y -> x { _tValue = y }
 {-# INLINE tValue #-}
 
 instance FromJSON Tag

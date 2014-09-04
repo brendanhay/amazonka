@@ -80,6 +80,7 @@ requestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
     , _rcweiWorkflowId = p2
     , _rcweiRunId = Nothing
     }
+{-# INLINE requestCancelWorkflowExecution #-}
 
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
     { _rcweiDomain :: Text
@@ -92,39 +93,24 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
     } deriving (Show, Generic)
 
 -- | The name of the domain containing the workflow execution to cancel.
-rcweiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelWorkflowExecution
-    -> f RequestCancelWorkflowExecution
+rcweiDomain :: Lens' RequestCancelWorkflowExecution (Text)
 rcweiDomain f x =
-    (\y -> x { _rcweiDomain = y })
-       <$> f (_rcweiDomain x)
+    f (_rcweiDomain x)
+        <&> \y -> x { _rcweiDomain = y }
 {-# INLINE rcweiDomain #-}
 
 -- | The workflowId of the workflow execution to cancel.
-rcweiWorkflowId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RequestCancelWorkflowExecution
-    -> f RequestCancelWorkflowExecution
+rcweiWorkflowId :: Lens' RequestCancelWorkflowExecution (Text)
 rcweiWorkflowId f x =
-    (\y -> x { _rcweiWorkflowId = y })
-       <$> f (_rcweiWorkflowId x)
+    f (_rcweiWorkflowId x)
+        <&> \y -> x { _rcweiWorkflowId = y }
 {-# INLINE rcweiWorkflowId #-}
 
 -- | The runId of the workflow execution to cancel.
-rcweiRunId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RequestCancelWorkflowExecution
-    -> f RequestCancelWorkflowExecution
+rcweiRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
 rcweiRunId f x =
-    (\y -> x { _rcweiRunId = y })
-       <$> f (_rcweiRunId x)
+    f (_rcweiRunId x)
+        <&> \y -> x { _rcweiRunId = y }
 {-# INLINE rcweiRunId #-}
 
 instance ToPath RequestCancelWorkflowExecution

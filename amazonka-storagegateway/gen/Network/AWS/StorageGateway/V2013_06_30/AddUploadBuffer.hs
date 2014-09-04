@@ -52,6 +52,7 @@ addUploadBuffer p1 p2 = AddUploadBuffer
     { _aubiDiskIds = p1
     , _aubiGatewayARN = p2
     }
+{-# INLINE addUploadBuffer #-}
 
 data AddUploadBuffer = AddUploadBuffer
     { _aubiDiskIds :: [Text]
@@ -61,28 +62,18 @@ data AddUploadBuffer = AddUploadBuffer
       -- account and region.
     } deriving (Show, Generic)
 
-aubiDiskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddUploadBuffer
-    -> f AddUploadBuffer
+aubiDiskIds :: Lens' AddUploadBuffer ([Text])
 aubiDiskIds f x =
-    (\y -> x { _aubiDiskIds = y })
-       <$> f (_aubiDiskIds x)
+    f (_aubiDiskIds x)
+        <&> \y -> x { _aubiDiskIds = y }
 {-# INLINE aubiDiskIds #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-aubiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddUploadBuffer
-    -> f AddUploadBuffer
+aubiGatewayARN :: Lens' AddUploadBuffer (Text)
 aubiGatewayARN f x =
-    (\y -> x { _aubiGatewayARN = y })
-       <$> f (_aubiGatewayARN x)
+    f (_aubiGatewayARN x)
+        <&> \y -> x { _aubiGatewayARN = y }
 {-# INLINE aubiGatewayARN #-}
 
 instance ToPath AddUploadBuffer
@@ -102,15 +93,10 @@ data AddUploadBufferResponse = AddUploadBufferResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-auboGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AddUploadBufferResponse
-    -> f AddUploadBufferResponse
+auboGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 auboGatewayARN f x =
-    (\y -> x { _auboGatewayARN = y })
-       <$> f (_auboGatewayARN x)
+    f (_auboGatewayARN x)
+        <&> \y -> x { _auboGatewayARN = y }
 {-# INLINE auboGatewayARN #-}
 
 instance FromJSON AddUploadBufferResponse

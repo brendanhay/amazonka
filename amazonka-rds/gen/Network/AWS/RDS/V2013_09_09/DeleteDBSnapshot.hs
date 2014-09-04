@@ -50,6 +50,7 @@ deleteDBSnapshot :: Text -- ^ 'ddbsmDBSnapshotIdentifier'
 deleteDBSnapshot p1 = DeleteDBSnapshot
     { _ddbsmDBSnapshotIdentifier = p1
     }
+{-# INLINE deleteDBSnapshot #-}
 
 data DeleteDBSnapshot = DeleteDBSnapshot
     { _ddbsmDBSnapshotIdentifier :: Text
@@ -59,15 +60,10 @@ data DeleteDBSnapshot = DeleteDBSnapshot
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB
 -- snapshot in the available state.
-ddbsmDBSnapshotIdentifier
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDBSnapshot
-    -> f DeleteDBSnapshot
+ddbsmDBSnapshotIdentifier :: Lens' DeleteDBSnapshot (Text)
 ddbsmDBSnapshotIdentifier f x =
-    (\y -> x { _ddbsmDBSnapshotIdentifier = y })
-       <$> f (_ddbsmDBSnapshotIdentifier x)
+    f (_ddbsmDBSnapshotIdentifier x)
+        <&> \y -> x { _ddbsmDBSnapshotIdentifier = y }
 {-# INLINE ddbsmDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBSnapshot where
@@ -83,15 +79,10 @@ data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
-dbsyDBSnapshot
-    :: Functor f
-    => (Maybe DBSnapshot
-    -> f (Maybe DBSnapshot))
-    -> DeleteDBSnapshotResponse
-    -> f DeleteDBSnapshotResponse
+dbsyDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 dbsyDBSnapshot f x =
-    (\y -> x { _dbsyDBSnapshot = y })
-       <$> f (_dbsyDBSnapshot x)
+    f (_dbsyDBSnapshot x)
+        <&> \y -> x { _dbsyDBSnapshot = y }
 {-# INLINE dbsyDBSnapshot #-}
 
 instance FromXML DeleteDBSnapshotResponse where

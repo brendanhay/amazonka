@@ -63,6 +63,7 @@ setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
     { _siderDkimEnabled = p1
     , _siderIdentity = p2
     }
+{-# INLINE setIdentityDkimEnabled #-}
 
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _siderDkimEnabled :: Bool
@@ -75,27 +76,17 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to true to enable
 -- DKIM signing for this identity; false to disable it.
-siderDkimEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> SetIdentityDkimEnabled
-    -> f SetIdentityDkimEnabled
+siderDkimEnabled :: Lens' SetIdentityDkimEnabled (Bool)
 siderDkimEnabled f x =
-    (\y -> x { _siderDkimEnabled = y })
-       <$> f (_siderDkimEnabled x)
+    f (_siderDkimEnabled x)
+        <&> \y -> x { _siderDkimEnabled = y }
 {-# INLINE siderDkimEnabled #-}
 
 -- | The identity for which DKIM signing should be enabled or disabled.
-siderIdentity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetIdentityDkimEnabled
-    -> f SetIdentityDkimEnabled
+siderIdentity :: Lens' SetIdentityDkimEnabled (Text)
 siderIdentity f x =
-    (\y -> x { _siderIdentity = y })
-       <$> f (_siderIdentity x)
+    f (_siderIdentity x)
+        <&> \y -> x { _siderIdentity = y }
 {-# INLINE siderIdentity #-}
 
 instance ToQuery SetIdentityDkimEnabled where

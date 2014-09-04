@@ -47,6 +47,7 @@ deleteCacheSecurityGroup :: Text -- ^ 'dcsgmCacheSecurityGroupName'
 deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     { _dcsgmCacheSecurityGroupName = p1
     }
+{-# INLINE deleteCacheSecurityGroup #-}
 
 data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgmCacheSecurityGroupName :: Text
@@ -56,15 +57,10 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
 
 -- | The name of the cache security group to delete. You cannot delete the
 -- default security group.
-dcsgmCacheSecurityGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCacheSecurityGroup
-    -> f DeleteCacheSecurityGroup
+dcsgmCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup (Text)
 dcsgmCacheSecurityGroupName f x =
-    (\y -> x { _dcsgmCacheSecurityGroupName = y })
-       <$> f (_dcsgmCacheSecurityGroupName x)
+    f (_dcsgmCacheSecurityGroupName x)
+        <&> \y -> x { _dcsgmCacheSecurityGroupName = y }
 {-# INLINE dcsgmCacheSecurityGroupName #-}
 
 instance ToQuery DeleteCacheSecurityGroup where

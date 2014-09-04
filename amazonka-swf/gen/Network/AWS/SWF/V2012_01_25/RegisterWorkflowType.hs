@@ -92,6 +92,7 @@ registerWorkflowType p1 p2 p3 = RegisterWorkflowType
     , _rwtiDefaultExecutionStartToCloseTimeout = Nothing
     , _rwtiDefaultTaskList = Nothing
     }
+{-# INLINE registerWorkflowType #-}
 
 data RegisterWorkflowType = RegisterWorkflowType
     { _rwtiDomain :: Text
@@ -155,30 +156,20 @@ data RegisterWorkflowType = RegisterWorkflowType
     } deriving (Show, Generic)
 
 -- | The name of the domain in which to register the workflow type.
-rwtiDomain
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiDomain :: Lens' RegisterWorkflowType (Text)
 rwtiDomain f x =
-    (\y -> x { _rwtiDomain = y })
-       <$> f (_rwtiDomain x)
+    f (_rwtiDomain x)
+        <&> \y -> x { _rwtiDomain = y }
 {-# INLINE rwtiDomain #-}
 
 -- | The name of the workflow type. The specified string must not start or end
 -- with whitespace. It must not contain a : (colon), / (slash), | (vertical
 -- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
 -- must not contain the literal string &quot;arn&quot;.
-rwtiName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiName :: Lens' RegisterWorkflowType (Text)
 rwtiName f x =
-    (\y -> x { _rwtiName = y })
-       <$> f (_rwtiName x)
+    f (_rwtiName x)
+        <&> \y -> x { _rwtiName = y }
 {-# INLINE rwtiName #-}
 
 -- | The version of the workflow type. The workflow type consists of the name
@@ -188,15 +179,10 @@ rwtiName f x =
 -- whitespace. It must not contain a : (colon), / (slash), | (vertical bar),
 -- or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must
 -- not contain the literal string &quot;arn&quot;.
-rwtiVersion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiVersion :: Lens' RegisterWorkflowType (Text)
 rwtiVersion f x =
-    (\y -> x { _rwtiVersion = y })
-       <$> f (_rwtiVersion x)
+    f (_rwtiVersion x)
+        <&> \y -> x { _rwtiVersion = y }
 {-# INLINE rwtiVersion #-}
 
 -- | If set, specifies the default policy to use for the child workflow
@@ -210,27 +196,17 @@ rwtiVersion f x =
 -- event in its history. It is up to the decider to take appropriate actions
 -- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
-rwtiDefaultChildPolicy
-    :: Functor f
-    => (Maybe ChildPolicy
-    -> f (Maybe ChildPolicy))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
 rwtiDefaultChildPolicy f x =
-    (\y -> x { _rwtiDefaultChildPolicy = y })
-       <$> f (_rwtiDefaultChildPolicy x)
+    f (_rwtiDefaultChildPolicy x)
+        <&> \y -> x { _rwtiDefaultChildPolicy = y }
 {-# INLINE rwtiDefaultChildPolicy #-}
 
 -- | Textual description of the workflow type.
-rwtiDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiDescription :: Lens' RegisterWorkflowType (Maybe Text)
 rwtiDescription f x =
-    (\y -> x { _rwtiDescription = y })
-       <$> f (_rwtiDescription x)
+    f (_rwtiDescription x)
+        <&> \y -> x { _rwtiDescription = y }
 {-# INLINE rwtiDescription #-}
 
 -- | If set, specifies the default maximum duration of decision tasks for this
@@ -239,15 +215,10 @@ rwtiDescription f x =
 -- StartChildWorkflowExecution Decision. The valid values are integers greater
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
-rwtiDefaultTaskStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
 rwtiDefaultTaskStartToCloseTimeout f x =
-    (\y -> x { _rwtiDefaultTaskStartToCloseTimeout = y })
-       <$> f (_rwtiDefaultTaskStartToCloseTimeout x)
+    f (_rwtiDefaultTaskStartToCloseTimeout x)
+        <&> \y -> x { _rwtiDefaultTaskStartToCloseTimeout = y }
 {-# INLINE rwtiDefaultTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the default maximum duration for executions of this
@@ -259,30 +230,20 @@ rwtiDefaultTaskStartToCloseTimeout f x =
 -- defaultExecutionStartToCloseTimeout; there is a one-year max limit on the
 -- time that a workflow execution can run. Exceeding this limit will always
 -- cause the workflow execution to time out.
-rwtiDefaultExecutionStartToCloseTimeout
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
 rwtiDefaultExecutionStartToCloseTimeout f x =
-    (\y -> x { _rwtiDefaultExecutionStartToCloseTimeout = y })
-       <$> f (_rwtiDefaultExecutionStartToCloseTimeout x)
+    f (_rwtiDefaultExecutionStartToCloseTimeout x)
+        <&> \y -> x { _rwtiDefaultExecutionStartToCloseTimeout = y }
 {-# INLINE rwtiDefaultExecutionStartToCloseTimeout #-}
 
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if a
 -- task list is not provided when starting the execution through the
 -- StartWorkflowExecution Action or StartChildWorkflowExecution Decision.
-rwtiDefaultTaskList
-    :: Functor f
-    => (Maybe TaskList
-    -> f (Maybe TaskList))
-    -> RegisterWorkflowType
-    -> f RegisterWorkflowType
+rwtiDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
 rwtiDefaultTaskList f x =
-    (\y -> x { _rwtiDefaultTaskList = y })
-       <$> f (_rwtiDefaultTaskList x)
+    f (_rwtiDefaultTaskList x)
+        <&> \y -> x { _rwtiDefaultTaskList = y }
 {-# INLINE rwtiDefaultTaskList #-}
 
 instance ToPath RegisterWorkflowType

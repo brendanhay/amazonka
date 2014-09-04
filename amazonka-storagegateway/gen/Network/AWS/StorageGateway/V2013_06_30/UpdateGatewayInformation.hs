@@ -62,6 +62,7 @@ updateGatewayInformation p1 = UpdateGatewayInformation
     , _ugiiGatewayName = Nothing
     , _ugiiGatewayTimezone = Nothing
     }
+{-# INLINE updateGatewayInformation #-}
 
 data UpdateGatewayInformation = UpdateGatewayInformation
     { _ugiiGatewayARN :: Text
@@ -77,40 +78,25 @@ data UpdateGatewayInformation = UpdateGatewayInformation
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugiiGatewayARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateGatewayInformation
-    -> f UpdateGatewayInformation
+ugiiGatewayARN :: Lens' UpdateGatewayInformation (Text)
 ugiiGatewayARN f x =
-    (\y -> x { _ugiiGatewayARN = y })
-       <$> f (_ugiiGatewayARN x)
+    f (_ugiiGatewayARN x)
+        <&> \y -> x { _ugiiGatewayARN = y }
 {-# INLINE ugiiGatewayARN #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
-ugiiGatewayName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateGatewayInformation
-    -> f UpdateGatewayInformation
+ugiiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiiGatewayName f x =
-    (\y -> x { _ugiiGatewayName = y })
-       <$> f (_ugiiGatewayName x)
+    f (_ugiiGatewayName x)
+        <&> \y -> x { _ugiiGatewayName = y }
 {-# INLINE ugiiGatewayName #-}
 
-ugiiGatewayTimezone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateGatewayInformation
-    -> f UpdateGatewayInformation
+ugiiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiiGatewayTimezone f x =
-    (\y -> x { _ugiiGatewayTimezone = y })
-       <$> f (_ugiiGatewayTimezone x)
+    f (_ugiiGatewayTimezone x)
+        <&> \y -> x { _ugiiGatewayTimezone = y }
 {-# INLINE ugiiGatewayTimezone #-}
 
 instance ToPath UpdateGatewayInformation
@@ -130,15 +116,10 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugioGatewayARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateGatewayInformationResponse
-    -> f UpdateGatewayInformationResponse
+ugioGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugioGatewayARN f x =
-    (\y -> x { _ugioGatewayARN = y })
-       <$> f (_ugioGatewayARN x)
+    f (_ugioGatewayARN x)
+        <&> \y -> x { _ugioGatewayARN = y }
 {-# INLINE ugioGatewayARN #-}
 
 instance FromJSON UpdateGatewayInformationResponse

@@ -69,6 +69,7 @@ queryObjects p1 p2 = QueryObjects
     , _qoiQuery = Nothing
     , _qoiMarker = Nothing
     }
+{-# INLINE queryObjects #-}
 
 data QueryObjects = QueryObjects
     { _qoiPipelineId :: Text
@@ -93,71 +94,46 @@ data QueryObjects = QueryObjects
     } deriving (Show, Generic)
 
 -- | Identifier of the pipeline to be queried for object names.
-qoiPipelineId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> QueryObjects
-    -> f QueryObjects
+qoiPipelineId :: Lens' QueryObjects (Text)
 qoiPipelineId f x =
-    (\y -> x { _qoiPipelineId = y })
-       <$> f (_qoiPipelineId x)
+    f (_qoiPipelineId x)
+        <&> \y -> x { _qoiPipelineId = y }
 {-# INLINE qoiPipelineId #-}
 
 -- | Specifies whether the query applies to components or instances. Allowable
 -- values: COMPONENT, INSTANCE, ATTEMPT.
-qoiSphere
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> QueryObjects
-    -> f QueryObjects
+qoiSphere :: Lens' QueryObjects (Text)
 qoiSphere f x =
-    (\y -> x { _qoiSphere = y })
-       <$> f (_qoiSphere x)
+    f (_qoiSphere x)
+        <&> \y -> x { _qoiSphere = y }
 {-# INLINE qoiSphere #-}
 
 -- | Specifies the maximum number of object names that QueryObjects will return
 -- in a single call. The default value is 100.
-qoiLimit
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> QueryObjects
-    -> f QueryObjects
+qoiLimit :: Lens' QueryObjects (Maybe Integer)
 qoiLimit f x =
-    (\y -> x { _qoiLimit = y })
-       <$> f (_qoiLimit x)
+    f (_qoiLimit x)
+        <&> \y -> x { _qoiLimit = y }
 {-# INLINE qoiLimit #-}
 
 -- | Query that defines the objects to be returned. The Query object can contain
 -- a maximum of ten selectors. The conditions in the query are limited to
 -- top-level String fields in the object. These filters can be applied to
 -- components, instances, and attempts.
-qoiQuery
-    :: Functor f
-    => (Maybe Query
-    -> f (Maybe Query))
-    -> QueryObjects
-    -> f QueryObjects
+qoiQuery :: Lens' QueryObjects (Maybe Query)
 qoiQuery f x =
-    (\y -> x { _qoiQuery = y })
-       <$> f (_qoiQuery x)
+    f (_qoiQuery x)
+        <&> \y -> x { _qoiQuery = y }
 {-# INLINE qoiQuery #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- QueryObjects, this value should be empty. As long as the action returns
 -- HasMoreResults as True, you can call QueryObjects again and pass the marker
 -- value from the response to retrieve the next set of results.
-qoiMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> QueryObjects
-    -> f QueryObjects
+qoiMarker :: Lens' QueryObjects (Maybe Text)
 qoiMarker f x =
-    (\y -> x { _qoiMarker = y })
-       <$> f (_qoiMarker x)
+    f (_qoiMarker x)
+        <&> \y -> x { _qoiMarker = y }
 {-# INLINE qoiMarker #-}
 
 instance ToPath QueryObjects
@@ -183,41 +159,26 @@ data QueryObjectsResponse = QueryObjectsResponse
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to QueryObjects.
-qooHasMoreResults
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> QueryObjectsResponse
-    -> f QueryObjectsResponse
+qooHasMoreResults :: Lens' QueryObjectsResponse (Bool)
 qooHasMoreResults f x =
-    (\y -> x { _qooHasMoreResults = y })
-       <$> f (_qooHasMoreResults x)
+    f (_qooHasMoreResults x)
+        <&> \y -> x { _qooHasMoreResults = y }
 {-# INLINE qooHasMoreResults #-}
 
 -- | A list of identifiers that match the query selectors.
-qooIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> QueryObjectsResponse
-    -> f QueryObjectsResponse
+qooIds :: Lens' QueryObjectsResponse ([Text])
 qooIds f x =
-    (\y -> x { _qooIds = y })
-       <$> f (_qooIds x)
+    f (_qooIds x)
+        <&> \y -> x { _qooIds = y }
 {-# INLINE qooIds #-}
 
 -- | The starting point for the results to be returned. As long as the action
 -- returns HasMoreResults as True, you can call QueryObjects again and pass
 -- the marker value from the response to retrieve the next set of results.
-qooMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> QueryObjectsResponse
-    -> f QueryObjectsResponse
+qooMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qooMarker f x =
-    (\y -> x { _qooMarker = y })
-       <$> f (_qooMarker x)
+    f (_qooMarker x)
+        <&> \y -> x { _qooMarker = y }
 {-# INLINE qooMarker #-}
 
 instance FromJSON QueryObjectsResponse

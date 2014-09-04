@@ -83,6 +83,7 @@ batchGetItem p1 = BatchGetItem
     { _bgiiRequestItems = p1
     , _bgiiReturnConsumedCapacity = Nothing
     }
+{-# INLINE batchGetItem #-}
 
 data BatchGetItem = BatchGetItem
     { _bgiiRequestItems :: Map Text KeysAndAttributes
@@ -112,30 +113,20 @@ data BatchGetItem = BatchGetItem
 -- found, it does not appear in the result. ConsistentRead - If true, a
 -- strongly consistent read is used; if false (the default), an eventually
 -- consistent read is used.
-bgiiRequestItems
-    :: Functor f
-    => (Map Text KeysAndAttributes
-    -> f (Map Text KeysAndAttributes))
-    -> BatchGetItem
-    -> f BatchGetItem
+bgiiRequestItems :: Lens' BatchGetItem (Map Text KeysAndAttributes)
 bgiiRequestItems f x =
-    (\y -> x { _bgiiRequestItems = y })
-       <$> f (_bgiiRequestItems x)
+    f (_bgiiRequestItems x)
+        <&> \y -> x { _bgiiRequestItems = y }
 {-# INLINE bgiiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-bgiiReturnConsumedCapacity
-    :: Functor f
-    => (Maybe ReturnConsumedCapacity
-    -> f (Maybe ReturnConsumedCapacity))
-    -> BatchGetItem
-    -> f BatchGetItem
+bgiiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
 bgiiReturnConsumedCapacity f x =
-    (\y -> x { _bgiiReturnConsumedCapacity = y })
-       <$> f (_bgiiReturnConsumedCapacity x)
+    f (_bgiiReturnConsumedCapacity x)
+        <&> \y -> x { _bgiiReturnConsumedCapacity = y }
 {-# INLINE bgiiReturnConsumedCapacity #-}
 
 instance ToPath BatchGetItem
@@ -183,43 +174,28 @@ data BatchGetItemResponse = BatchGetItemResponse
 -- not found, it does not appear in the result. ConsistentRead - The
 -- consistency of a read operation. If set to true, then a strongly consistent
 -- read is used; otherwise, an eventually consistent read is used.
-bgioUnprocessedKeys
-    :: Functor f
-    => (Map Text KeysAndAttributes
-    -> f (Map Text KeysAndAttributes))
-    -> BatchGetItemResponse
-    -> f BatchGetItemResponse
+bgioUnprocessedKeys :: Lens' BatchGetItemResponse (Map Text KeysAndAttributes)
 bgioUnprocessedKeys f x =
-    (\y -> x { _bgioUnprocessedKeys = y })
-       <$> f (_bgioUnprocessedKeys x)
+    f (_bgioUnprocessedKeys x)
+        <&> \y -> x { _bgioUnprocessedKeys = y }
 {-# INLINE bgioUnprocessedKeys #-}
 
 -- | A map of table name to a list of items. Each object in Responses consists
 -- of a table name, along with a map of attribute data consisting of the data
 -- type and attribute value.
-bgioResponses
-    :: Functor f
-    => (Map Text [Map Text AttributeValue]
-    -> f (Map Text [Map Text AttributeValue]))
-    -> BatchGetItemResponse
-    -> f BatchGetItemResponse
+bgioResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
 bgioResponses f x =
-    (\y -> x { _bgioResponses = y })
-       <$> f (_bgioResponses x)
+    f (_bgioResponses x)
+        <&> \y -> x { _bgioResponses = y }
 {-# INLINE bgioResponses #-}
 
 -- | The write capacity units consumed by the operation. Each element consists
 -- of: TableName - The table that consumed the provisioned throughput.
 -- CapacityUnits - The total number of capacity units consumed.
-bgioConsumedCapacity
-    :: Functor f
-    => ([ConsumedCapacity]
-    -> f ([ConsumedCapacity]))
-    -> BatchGetItemResponse
-    -> f BatchGetItemResponse
+bgioConsumedCapacity :: Lens' BatchGetItemResponse ([ConsumedCapacity])
 bgioConsumedCapacity f x =
-    (\y -> x { _bgioConsumedCapacity = y })
-       <$> f (_bgioConsumedCapacity x)
+    f (_bgioConsumedCapacity x)
+        <&> \y -> x { _bgioConsumedCapacity = y }
 {-# INLINE bgioConsumedCapacity #-}
 
 instance FromJSON BatchGetItemResponse

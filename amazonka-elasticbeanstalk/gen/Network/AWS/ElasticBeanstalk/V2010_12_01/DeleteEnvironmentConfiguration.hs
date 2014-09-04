@@ -53,6 +53,7 @@ deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
     { _decmApplicationName = p1
     , _decmEnvironmentName = p2
     }
+{-# INLINE deleteEnvironmentConfiguration #-}
 
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decmApplicationName :: Text
@@ -63,27 +64,17 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     } deriving (Show, Generic)
 
 -- | The name of the application the environment is associated with.
-decmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteEnvironmentConfiguration
-    -> f DeleteEnvironmentConfiguration
+decmApplicationName :: Lens' DeleteEnvironmentConfiguration (Text)
 decmApplicationName f x =
-    (\y -> x { _decmApplicationName = y })
-       <$> f (_decmApplicationName x)
+    f (_decmApplicationName x)
+        <&> \y -> x { _decmApplicationName = y }
 {-# INLINE decmApplicationName #-}
 
 -- | The name of the environment to delete the draft configuration from.
-decmEnvironmentName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteEnvironmentConfiguration
-    -> f DeleteEnvironmentConfiguration
+decmEnvironmentName :: Lens' DeleteEnvironmentConfiguration (Text)
 decmEnvironmentName f x =
-    (\y -> x { _decmEnvironmentName = y })
-       <$> f (_decmEnvironmentName x)
+    f (_decmEnvironmentName x)
+        <&> \y -> x { _decmEnvironmentName = y }
 {-# INLINE decmEnvironmentName #-}
 
 instance ToQuery DeleteEnvironmentConfiguration where

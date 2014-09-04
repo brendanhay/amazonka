@@ -60,6 +60,7 @@ readJob :: Text -- ^ 'rjrId'
 readJob p1 = ReadJob
     { _rjrId = p1
     }
+{-# INLINE readJob #-}
 
 data ReadJob = ReadJob
     { _rjrId :: Text
@@ -68,15 +69,10 @@ data ReadJob = ReadJob
     } deriving (Show, Generic)
 
 -- | The identifier of the job for which you want to get detailed information.
-rjrId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReadJob
-    -> f ReadJob
+rjrId :: Lens' ReadJob (Text)
 rjrId f x =
-    (\y -> x { _rjrId = y })
-       <$> f (_rjrId x)
+    f (_rjrId x)
+        <&> \y -> x { _rjrId = y }
 {-# INLINE rjrId #-}
 
 instance ToPath ReadJob where
@@ -98,15 +94,10 @@ data ReadJobResponse = ReadJobResponse
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the job.
-rjsJob
-    :: Functor f
-    => (Maybe Job
-    -> f (Maybe Job))
-    -> ReadJobResponse
-    -> f ReadJobResponse
+rjsJob :: Lens' ReadJobResponse (Maybe Job)
 rjsJob f x =
-    (\y -> x { _rjsJob = y })
-       <$> f (_rjsJob x)
+    f (_rjsJob x)
+        <&> \y -> x { _rjsJob = y }
 {-# INLINE rjsJob #-}
 
 instance FromJSON ReadJobResponse

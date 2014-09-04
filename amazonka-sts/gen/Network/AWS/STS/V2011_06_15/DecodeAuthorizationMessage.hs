@@ -74,6 +74,7 @@ decodeAuthorizationMessage :: Text -- ^ 'damrEncodedMessage'
 decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
     { _damrEncodedMessage = p1
     }
+{-# INLINE decodeAuthorizationMessage #-}
 
 data DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damrEncodedMessage :: Text
@@ -81,15 +82,10 @@ data DecodeAuthorizationMessage = DecodeAuthorizationMessage
     } deriving (Show, Generic)
 
 -- | The encoded message that was returned with the response.
-damrEncodedMessage
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DecodeAuthorizationMessage
-    -> f DecodeAuthorizationMessage
+damrEncodedMessage :: Lens' DecodeAuthorizationMessage (Text)
 damrEncodedMessage f x =
-    (\y -> x { _damrEncodedMessage = y })
-       <$> f (_damrEncodedMessage x)
+    f (_damrEncodedMessage x)
+        <&> \y -> x { _damrEncodedMessage = y }
 {-# INLINE damrEncodedMessage #-}
 
 instance ToQuery DecodeAuthorizationMessage where
@@ -103,15 +99,10 @@ data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 
 -- | An XML document that contains the decoded message. For more information,
 -- see DecodeAuthorizationMessage.
-damsDecodedMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DecodeAuthorizationMessageResponse
-    -> f DecodeAuthorizationMessageResponse
+damsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damsDecodedMessage f x =
-    (\y -> x { _damsDecodedMessage = y })
-       <$> f (_damsDecodedMessage x)
+    f (_damsDecodedMessage x)
+        <&> \y -> x { _damsDecodedMessage = y }
 {-# INLINE damsDecodedMessage #-}
 
 instance FromXML DecodeAuthorizationMessageResponse where

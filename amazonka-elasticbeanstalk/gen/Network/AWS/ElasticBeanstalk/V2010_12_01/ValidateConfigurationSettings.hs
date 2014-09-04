@@ -60,6 +60,7 @@ validateConfigurationSettings p1 p2 = ValidateConfigurationSettings
     , _vcsmTemplateName = Nothing
     , _vcsmEnvironmentName = Nothing
     }
+{-# INLINE validateConfigurationSettings #-}
 
 data ValidateConfigurationSettings = ValidateConfigurationSettings
     { _vcsmApplicationName :: Text
@@ -79,53 +80,33 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
 
 -- | The name of the application that the configuration template or environment
 -- belongs to.
-vcsmApplicationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ValidateConfigurationSettings
-    -> f ValidateConfigurationSettings
+vcsmApplicationName :: Lens' ValidateConfigurationSettings (Text)
 vcsmApplicationName f x =
-    (\y -> x { _vcsmApplicationName = y })
-       <$> f (_vcsmApplicationName x)
+    f (_vcsmApplicationName x)
+        <&> \y -> x { _vcsmApplicationName = y }
 {-# INLINE vcsmApplicationName #-}
 
 -- | A list of the options and desired values to evaluate.
-vcsmOptionSettings
-    :: Functor f
-    => ([ConfigurationOptionSetting]
-    -> f ([ConfigurationOptionSetting]))
-    -> ValidateConfigurationSettings
-    -> f ValidateConfigurationSettings
+vcsmOptionSettings :: Lens' ValidateConfigurationSettings ([ConfigurationOptionSetting])
 vcsmOptionSettings f x =
-    (\y -> x { _vcsmOptionSettings = y })
-       <$> f (_vcsmOptionSettings x)
+    f (_vcsmOptionSettings x)
+        <&> \y -> x { _vcsmOptionSettings = y }
 {-# INLINE vcsmOptionSettings #-}
 
 -- | The name of the configuration template to validate the settings against.
 -- Condition: You cannot specify both this and an environment name.
-vcsmTemplateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidateConfigurationSettings
-    -> f ValidateConfigurationSettings
+vcsmTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsmTemplateName f x =
-    (\y -> x { _vcsmTemplateName = y })
-       <$> f (_vcsmTemplateName x)
+    f (_vcsmTemplateName x)
+        <&> \y -> x { _vcsmTemplateName = y }
 {-# INLINE vcsmTemplateName #-}
 
 -- | The name of the environment to validate the settings against. Condition:
 -- You cannot specify both this and a configuration template name.
-vcsmEnvironmentName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ValidateConfigurationSettings
-    -> f ValidateConfigurationSettings
+vcsmEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsmEnvironmentName f x =
-    (\y -> x { _vcsmEnvironmentName = y })
-       <$> f (_vcsmEnvironmentName x)
+    f (_vcsmEnvironmentName x)
+        <&> \y -> x { _vcsmEnvironmentName = y }
 {-# INLINE vcsmEnvironmentName #-}
 
 instance ToQuery ValidateConfigurationSettings where
@@ -137,15 +118,10 @@ data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRespon
     } deriving (Show, Generic)
 
 -- | A list of ValidationMessage.
-csvmMessages
-    :: Functor f
-    => ([ValidationMessage]
-    -> f ([ValidationMessage]))
-    -> ValidateConfigurationSettingsResponse
-    -> f ValidateConfigurationSettingsResponse
+csvmMessages :: Lens' ValidateConfigurationSettingsResponse ([ValidationMessage])
 csvmMessages f x =
-    (\y -> x { _csvmMessages = y })
-       <$> f (_csvmMessages x)
+    f (_csvmMessages x)
+        <&> \y -> x { _csvmMessages = y }
 {-# INLINE csvmMessages #-}
 
 instance FromXML ValidateConfigurationSettingsResponse where

@@ -93,6 +93,7 @@ getQueueAttributes p1 = GetQueueAttributes
     { _gqarQueueUrl = p1
     , _gqarAttributeNames = mempty
     }
+{-# INLINE getQueueAttributes #-}
 
 data GetQueueAttributes = GetQueueAttributes
     { _gqarQueueUrl :: Text
@@ -102,27 +103,17 @@ data GetQueueAttributes = GetQueueAttributes
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
-gqarQueueUrl
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetQueueAttributes
-    -> f GetQueueAttributes
+gqarQueueUrl :: Lens' GetQueueAttributes (Text)
 gqarQueueUrl f x =
-    (\y -> x { _gqarQueueUrl = y })
-       <$> f (_gqarQueueUrl x)
+    f (_gqarQueueUrl x)
+        <&> \y -> x { _gqarQueueUrl = y }
 {-# INLINE gqarQueueUrl #-}
 
 -- | A list of attributes to retrieve information for.
-gqarAttributeNames
-    :: Functor f
-    => ([QueueAttributeName]
-    -> f ([QueueAttributeName]))
-    -> GetQueueAttributes
-    -> f GetQueueAttributes
+gqarAttributeNames :: Lens' GetQueueAttributes ([QueueAttributeName])
 gqarAttributeNames f x =
-    (\y -> x { _gqarAttributeNames = y })
-       <$> f (_gqarAttributeNames x)
+    f (_gqarAttributeNames x)
+        <&> \y -> x { _gqarAttributeNames = y }
 {-# INLINE gqarAttributeNames #-}
 
 instance ToQuery GetQueueAttributes where
@@ -134,15 +125,10 @@ data GetQueueAttributesResponse = GetQueueAttributesResponse
     } deriving (Show, Generic)
 
 -- | A map of attributes to the respective values.
-gqasAttributes
-    :: Functor f
-    => (Map QueueAttributeName Text
-    -> f (Map QueueAttributeName Text))
-    -> GetQueueAttributesResponse
-    -> f GetQueueAttributesResponse
+gqasAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
 gqasAttributes f x =
-    (\y -> x { _gqasAttributes = y })
-       <$> f (_gqasAttributes x)
+    f (_gqasAttributes x)
+        <&> \y -> x { _gqasAttributes = y }
 {-# INLINE gqasAttributes #-}
 
 instance FromXML GetQueueAttributesResponse where

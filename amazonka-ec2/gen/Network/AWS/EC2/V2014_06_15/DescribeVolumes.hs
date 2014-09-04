@@ -65,6 +65,7 @@ describeVolumes = DescribeVolumes
     { _dvtFilters = mempty
     , _dvtVolumeIds = mempty
     }
+{-# INLINE describeVolumes #-}
 
 data DescribeVolumes = DescribeVolumes
     { _dvtFilters :: [Filter]
@@ -121,27 +122,15 @@ data DescribeVolumes = DescribeVolumes
 -- volume ID. volume-type - The Amazon EBS volume type. This can be gp2 for
 -- General Purpose (SSD) volumes, io1 for Provisioned IOPS (SSD) volumes, or
 -- standard for Magnetic volumes.
-dvtFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeVolumes
-    -> f DescribeVolumes
+dvtFilters :: Lens' DescribeVolumes [Filter]
 dvtFilters f x =
-    (\y -> x { _dvtFilters = y })
-       <$> f (_dvtFilters x)
+    f (_dvtFilters x) <&> \y -> x { _dvtFilters = y }
 {-# INLINE dvtFilters #-}
 
 -- | One or more volume IDs.
-dvtVolumeIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVolumes
-    -> f DescribeVolumes
+dvtVolumeIds :: Lens' DescribeVolumes [Text]
 dvtVolumeIds f x =
-    (\y -> x { _dvtVolumeIds = y })
-       <$> f (_dvtVolumeIds x)
+    f (_dvtVolumeIds x) <&> \y -> x { _dvtVolumeIds = y }
 {-# INLINE dvtVolumeIds #-}
 
 instance ToQuery DescribeVolumes where
@@ -153,15 +142,9 @@ data DescribeVolumesResponse = DescribeVolumesResponse
     } deriving (Show, Generic)
 
 -- | 
-dvuVolumes
-    :: Functor f
-    => ([Volume]
-    -> f ([Volume]))
-    -> DescribeVolumesResponse
-    -> f DescribeVolumesResponse
+dvuVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvuVolumes f x =
-    (\y -> x { _dvuVolumes = y })
-       <$> f (_dvuVolumes x)
+    f (_dvuVolumes x) <&> \y -> x { _dvuVolumes = y }
 {-# INLINE dvuVolumes #-}
 
 instance FromXML DescribeVolumesResponse where

@@ -55,6 +55,7 @@ describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     { _dsarAttribute = p1
     , _dsarSnapshotId = p2
     }
+{-# INLINE describeSnapshotAttribute #-}
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsarAttribute :: SnapshotAttributeName
@@ -64,27 +65,15 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     } deriving (Show, Generic)
 
 -- | The snapshot attribute you would like to view.
-dsarAttribute
-    :: Functor f
-    => (SnapshotAttributeName
-    -> f (SnapshotAttributeName))
-    -> DescribeSnapshotAttribute
-    -> f DescribeSnapshotAttribute
+dsarAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsarAttribute f x =
-    (\y -> x { _dsarAttribute = y })
-       <$> f (_dsarAttribute x)
+    f (_dsarAttribute x) <&> \y -> x { _dsarAttribute = y }
 {-# INLINE dsarAttribute #-}
 
 -- | The ID of the Amazon EBS snapshot.
-dsarSnapshotId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeSnapshotAttribute
-    -> f DescribeSnapshotAttribute
+dsarSnapshotId :: Lens' DescribeSnapshotAttribute Text
 dsarSnapshotId f x =
-    (\y -> x { _dsarSnapshotId = y })
-       <$> f (_dsarSnapshotId x)
+    f (_dsarSnapshotId x) <&> \y -> x { _dsarSnapshotId = y }
 {-# INLINE dsarSnapshotId #-}
 
 instance ToQuery DescribeSnapshotAttribute where
@@ -100,39 +89,21 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     } deriving (Show, Generic)
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsasCreateVolumePermissions
-    :: Functor f
-    => ([CreateVolumePermission]
-    -> f ([CreateVolumePermission]))
-    -> DescribeSnapshotAttributeResponse
-    -> f DescribeSnapshotAttributeResponse
+dsasCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
 dsasCreateVolumePermissions f x =
-    (\y -> x { _dsasCreateVolumePermissions = y })
-       <$> f (_dsasCreateVolumePermissions x)
+    f (_dsasCreateVolumePermissions x) <&> \y -> x { _dsasCreateVolumePermissions = y }
 {-# INLINE dsasCreateVolumePermissions #-}
 
 -- | A list of product codes.
-dsasProductCodes
-    :: Functor f
-    => ([ProductCode]
-    -> f ([ProductCode]))
-    -> DescribeSnapshotAttributeResponse
-    -> f DescribeSnapshotAttributeResponse
+dsasProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
 dsasProductCodes f x =
-    (\y -> x { _dsasProductCodes = y })
-       <$> f (_dsasProductCodes x)
+    f (_dsasProductCodes x) <&> \y -> x { _dsasProductCodes = y }
 {-# INLINE dsasProductCodes #-}
 
 -- | The ID of the Amazon EBS snapshot.
-dsasSnapshotId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSnapshotAttributeResponse
-    -> f DescribeSnapshotAttributeResponse
+dsasSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsasSnapshotId f x =
-    (\y -> x { _dsasSnapshotId = y })
-       <$> f (_dsasSnapshotId x)
+    f (_dsasSnapshotId x) <&> \y -> x { _dsasSnapshotId = y }
 {-# INLINE dsasSnapshotId #-}
 
 instance FromXML DescribeSnapshotAttributeResponse where

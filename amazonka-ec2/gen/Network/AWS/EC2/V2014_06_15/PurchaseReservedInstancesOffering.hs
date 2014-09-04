@@ -69,6 +69,7 @@ purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     , _priorReservedInstancesOfferingId = p2
     , _priorLimitPrice = Nothing
     }
+{-# INLINE purchaseReservedInstancesOffering #-}
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     { _priorInstanceCount :: Integer
@@ -82,41 +83,23 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     } deriving (Show, Generic)
 
 -- | The number of Reserved Instances to purchase.
-priorInstanceCount
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PurchaseReservedInstancesOffering
-    -> f PurchaseReservedInstancesOffering
+priorInstanceCount :: Lens' PurchaseReservedInstancesOffering Integer
 priorInstanceCount f x =
-    (\y -> x { _priorInstanceCount = y })
-       <$> f (_priorInstanceCount x)
+    f (_priorInstanceCount x) <&> \y -> x { _priorInstanceCount = y }
 {-# INLINE priorInstanceCount #-}
 
 -- | The ID of the Reserved Instance offering to purchase.
-priorReservedInstancesOfferingId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PurchaseReservedInstancesOffering
-    -> f PurchaseReservedInstancesOffering
+priorReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
 priorReservedInstancesOfferingId f x =
-    (\y -> x { _priorReservedInstancesOfferingId = y })
-       <$> f (_priorReservedInstancesOfferingId x)
+    f (_priorReservedInstancesOfferingId x) <&> \y -> x { _priorReservedInstancesOfferingId = y }
 {-# INLINE priorReservedInstancesOfferingId #-}
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
-priorLimitPrice
-    :: Functor f
-    => (Maybe ReservedInstanceLimitPrice
-    -> f (Maybe ReservedInstanceLimitPrice))
-    -> PurchaseReservedInstancesOffering
-    -> f PurchaseReservedInstancesOffering
+priorLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 priorLimitPrice f x =
-    (\y -> x { _priorLimitPrice = y })
-       <$> f (_priorLimitPrice x)
+    f (_priorLimitPrice x) <&> \y -> x { _priorLimitPrice = y }
 {-# INLINE priorLimitPrice #-}
 
 instance ToQuery PurchaseReservedInstancesOffering where
@@ -128,15 +111,9 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
     } deriving (Show, Generic)
 
 -- | The IDs of the purchased Reserved Instances.
-priosReservedInstancesId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PurchaseReservedInstancesOfferingResponse
-    -> f PurchaseReservedInstancesOfferingResponse
+priosReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priosReservedInstancesId f x =
-    (\y -> x { _priosReservedInstancesId = y })
-       <$> f (_priosReservedInstancesId x)
+    f (_priosReservedInstancesId x) <&> \y -> x { _priosReservedInstancesId = y }
 {-# INLINE priosReservedInstancesId #-}
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where

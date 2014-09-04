@@ -53,6 +53,7 @@ describeKeyPairs = DescribeKeyPairs
     { _dkpsFilters = mempty
     , _dkpsKeyNames = mempty
     }
+{-# INLINE describeKeyPairs #-}
 
 data DescribeKeyPairs = DescribeKeyPairs
     { _dkpsFilters :: [Filter]
@@ -65,27 +66,15 @@ data DescribeKeyPairs = DescribeKeyPairs
 
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
-dkpsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeKeyPairs
-    -> f DescribeKeyPairs
+dkpsFilters :: Lens' DescribeKeyPairs [Filter]
 dkpsFilters f x =
-    (\y -> x { _dkpsFilters = y })
-       <$> f (_dkpsFilters x)
+    f (_dkpsFilters x) <&> \y -> x { _dkpsFilters = y }
 {-# INLINE dkpsFilters #-}
 
 -- | One or more key pair names. Default: Describes all your key pairs.
-dkpsKeyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeKeyPairs
-    -> f DescribeKeyPairs
+dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
 dkpsKeyNames f x =
-    (\y -> x { _dkpsKeyNames = y })
-       <$> f (_dkpsKeyNames x)
+    f (_dkpsKeyNames x) <&> \y -> x { _dkpsKeyNames = y }
 {-# INLINE dkpsKeyNames #-}
 
 instance ToQuery DescribeKeyPairs where
@@ -97,15 +86,9 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more key pairs.
-dkptKeyPairs
-    :: Functor f
-    => ([KeyPairInfo]
-    -> f ([KeyPairInfo]))
-    -> DescribeKeyPairsResponse
-    -> f DescribeKeyPairsResponse
+dkptKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkptKeyPairs f x =
-    (\y -> x { _dkptKeyPairs = y })
-       <$> f (_dkptKeyPairs x)
+    f (_dkptKeyPairs x) <&> \y -> x { _dkptKeyPairs = y }
 {-# INLINE dkptKeyPairs #-}
 
 instance FromXML DescribeKeyPairsResponse where

@@ -77,6 +77,7 @@ createInstanceExportTask p1 = CreateInstanceExportTask
     , _cietrExportToS3Task = Nothing
     , _cietrDescription = Nothing
     }
+{-# INLINE createInstanceExportTask #-}
 
 data CreateInstanceExportTask = CreateInstanceExportTask
     { _cietrInstanceId :: Text
@@ -91,52 +92,28 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-cietrInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInstanceExportTask
-    -> f CreateInstanceExportTask
+cietrInstanceId :: Lens' CreateInstanceExportTask Text
 cietrInstanceId f x =
-    (\y -> x { _cietrInstanceId = y })
-       <$> f (_cietrInstanceId x)
+    f (_cietrInstanceId x) <&> \y -> x { _cietrInstanceId = y }
 {-# INLINE cietrInstanceId #-}
 
 -- | The target virtualization environment.
-cietrTargetEnvironment
-    :: Functor f
-    => (Maybe ExportEnvironment
-    -> f (Maybe ExportEnvironment))
-    -> CreateInstanceExportTask
-    -> f CreateInstanceExportTask
+cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
 cietrTargetEnvironment f x =
-    (\y -> x { _cietrTargetEnvironment = y })
-       <$> f (_cietrTargetEnvironment x)
+    f (_cietrTargetEnvironment x) <&> \y -> x { _cietrTargetEnvironment = y }
 {-# INLINE cietrTargetEnvironment #-}
 
 -- | 
-cietrExportToS3Task
-    :: Functor f
-    => (Maybe ExportToS3TaskSpecification
-    -> f (Maybe ExportToS3TaskSpecification))
-    -> CreateInstanceExportTask
-    -> f CreateInstanceExportTask
+cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
 cietrExportToS3Task f x =
-    (\y -> x { _cietrExportToS3Task = y })
-       <$> f (_cietrExportToS3Task x)
+    f (_cietrExportToS3Task x) <&> \y -> x { _cietrExportToS3Task = y }
 {-# INLINE cietrExportToS3Task #-}
 
 -- | A description for the conversion task or the resource being exported. The
 -- maximum length is 255 bytes.
-cietrDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstanceExportTask
-    -> f CreateInstanceExportTask
+cietrDescription :: Lens' CreateInstanceExportTask (Maybe Text)
 cietrDescription f x =
-    (\y -> x { _cietrDescription = y })
-       <$> f (_cietrDescription x)
+    f (_cietrDescription x) <&> \y -> x { _cietrDescription = y }
 {-# INLINE cietrDescription #-}
 
 instance ToQuery CreateInstanceExportTask where
@@ -148,15 +125,9 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     } deriving (Show, Generic)
 
 -- | 
-cietsExportTask
-    :: Functor f
-    => (Maybe ExportTask
-    -> f (Maybe ExportTask))
-    -> CreateInstanceExportTaskResponse
-    -> f CreateInstanceExportTaskResponse
+cietsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietsExportTask f x =
-    (\y -> x { _cietsExportTask = y })
-       <$> f (_cietsExportTask x)
+    f (_cietsExportTask x) <&> \y -> x { _cietsExportTask = y }
 {-# INLINE cietsExportTask #-}
 
 instance FromXML CreateInstanceExportTaskResponse where

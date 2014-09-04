@@ -89,6 +89,7 @@ describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes
     { _daarAttributeNames = mempty
     }
+{-# INLINE describeAccountAttributes #-}
 
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daarAttributeNames :: [AccountAttributeName]
@@ -96,15 +97,9 @@ data DescribeAccountAttributes = DescribeAccountAttributes
     } deriving (Show, Generic)
 
 -- | One or more account attribute names.
-daarAttributeNames
-    :: Functor f
-    => ([AccountAttributeName]
-    -> f ([AccountAttributeName]))
-    -> DescribeAccountAttributes
-    -> f DescribeAccountAttributes
+daarAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
 daarAttributeNames f x =
-    (\y -> x { _daarAttributeNames = y })
-       <$> f (_daarAttributeNames x)
+    f (_daarAttributeNames x) <&> \y -> x { _daarAttributeNames = y }
 {-# INLINE daarAttributeNames #-}
 
 instance ToQuery DescribeAccountAttributes where
@@ -116,15 +111,9 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more account attributes.
-daasAccountAttributes
-    :: Functor f
-    => ([AccountAttribute]
-    -> f ([AccountAttribute]))
-    -> DescribeAccountAttributesResponse
-    -> f DescribeAccountAttributesResponse
+daasAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daasAccountAttributes f x =
-    (\y -> x { _daasAccountAttributes = y })
-       <$> f (_daasAccountAttributes x)
+    f (_daasAccountAttributes x) <&> \y -> x { _daasAccountAttributes = y }
 {-# INLINE daasAccountAttributes #-}
 
 instance FromXML DescribeAccountAttributesResponse where

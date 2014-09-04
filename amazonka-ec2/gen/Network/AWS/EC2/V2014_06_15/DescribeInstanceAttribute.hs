@@ -88,6 +88,7 @@ describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     { _diasAttribute = p1
     , _diasInstanceId = p2
     }
+{-# INLINE describeInstanceAttribute #-}
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _diasAttribute :: InstanceAttributeName
@@ -97,27 +98,15 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
     } deriving (Show, Generic)
 
 -- | The instance attribute.
-diasAttribute
-    :: Functor f
-    => (InstanceAttributeName
-    -> f (InstanceAttributeName))
-    -> DescribeInstanceAttribute
-    -> f DescribeInstanceAttribute
+diasAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 diasAttribute f x =
-    (\y -> x { _diasAttribute = y })
-       <$> f (_diasAttribute x)
+    f (_diasAttribute x) <&> \y -> x { _diasAttribute = y }
 {-# INLINE diasAttribute #-}
 
 -- | The ID of the instance.
-diasInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeInstanceAttribute
-    -> f DescribeInstanceAttribute
+diasInstanceId :: Lens' DescribeInstanceAttribute Text
 diasInstanceId f x =
-    (\y -> x { _diasInstanceId = y })
-       <$> f (_diasInstanceId x)
+    f (_diasInstanceId x) <&> \y -> x { _diasInstanceId = y }
 {-# INLINE diasInstanceId #-}
 
 instance ToQuery DescribeInstanceAttribute where
@@ -160,163 +149,85 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
-ibDisableApiTermination
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 ibDisableApiTermination f x =
-    (\y -> x { _ibDisableApiTermination = y })
-       <$> f (_ibDisableApiTermination x)
+    f (_ibDisableApiTermination x) <&> \y -> x { _ibDisableApiTermination = y }
 {-# INLINE ibDisableApiTermination #-}
 
 -- | Indicates whether the instance is optimized for EBS I/O.
-ibEbsOptimized
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 ibEbsOptimized f x =
-    (\y -> x { _ibEbsOptimized = y })
-       <$> f (_ibEbsOptimized x)
+    f (_ibEbsOptimized x) <&> \y -> x { _ibEbsOptimized = y }
 {-# INLINE ibEbsOptimized #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT.
-ibSourceDestCheck
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 ibSourceDestCheck f x =
-    (\y -> x { _ibSourceDestCheck = y })
-       <$> f (_ibSourceDestCheck x)
+    f (_ibSourceDestCheck x) <&> \y -> x { _ibSourceDestCheck = y }
 {-# INLINE ibSourceDestCheck #-}
 
 -- | The instance type.
-ibInstanceType
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibInstanceType f x =
-    (\y -> x { _ibInstanceType = y })
-       <$> f (_ibInstanceType x)
+    f (_ibInstanceType x) <&> \y -> x { _ibInstanceType = y }
 {-# INLINE ibInstanceType #-}
 
 -- | The kernel ID.
-ibKernelId
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibKernelId f x =
-    (\y -> x { _ibKernelId = y })
-       <$> f (_ibKernelId x)
+    f (_ibKernelId x) <&> \y -> x { _ibKernelId = y }
 {-# INLINE ibKernelId #-}
 
 -- | The RAM disk ID.
-ibRamdiskId
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibRamdiskId f x =
-    (\y -> x { _ibRamdiskId = y })
-       <$> f (_ibRamdiskId x)
+    f (_ibRamdiskId x) <&> \y -> x { _ibRamdiskId = y }
 {-# INLINE ibRamdiskId #-}
 
 -- | The Base64-encoded MIME user data.
-ibUserData
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibUserData f x =
-    (\y -> x { _ibUserData = y })
-       <$> f (_ibUserData x)
+    f (_ibUserData x) <&> \y -> x { _ibUserData = y }
 {-# INLINE ibUserData #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
-ibInstanceInitiatedShutdownBehavior
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibInstanceInitiatedShutdownBehavior f x =
-    (\y -> x { _ibInstanceInitiatedShutdownBehavior = y })
-       <$> f (_ibInstanceInitiatedShutdownBehavior x)
+    f (_ibInstanceInitiatedShutdownBehavior x) <&> \y -> x { _ibInstanceInitiatedShutdownBehavior = y }
 {-# INLINE ibInstanceInitiatedShutdownBehavior #-}
 
 -- | The name of the root device (for example, /dev/sda1).
-ibRootDeviceName
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibRootDeviceName f x =
-    (\y -> x { _ibRootDeviceName = y })
-       <$> f (_ibRootDeviceName x)
+    f (_ibRootDeviceName x) <&> \y -> x { _ibRootDeviceName = y }
 {-# INLINE ibRootDeviceName #-}
 
 -- | 
-ibSriovNetSupport
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 ibSriovNetSupport f x =
-    (\y -> x { _ibSriovNetSupport = y })
-       <$> f (_ibSriovNetSupport x)
+    f (_ibSriovNetSupport x) <&> \y -> x { _ibSriovNetSupport = y }
 {-# INLINE ibSriovNetSupport #-}
 
 -- | The block device mapping of the instance.
-ibBlockDeviceMappings
-    :: Functor f
-    => ([InstanceBlockDeviceMapping]
-    -> f ([InstanceBlockDeviceMapping]))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 ibBlockDeviceMappings f x =
-    (\y -> x { _ibBlockDeviceMappings = y })
-       <$> f (_ibBlockDeviceMappings x)
+    f (_ibBlockDeviceMappings x) <&> \y -> x { _ibBlockDeviceMappings = y }
 {-# INLINE ibBlockDeviceMappings #-}
 
 -- | A list of product codes.
-ibProductCodes
-    :: Functor f
-    => ([ProductCode]
-    -> f ([ProductCode]))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
 ibProductCodes f x =
-    (\y -> x { _ibProductCodes = y })
-       <$> f (_ibProductCodes x)
+    f (_ibProductCodes x) <&> \y -> x { _ibProductCodes = y }
 {-# INLINE ibProductCodes #-}
 
 -- | The ID of the instance.
-ibInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstanceAttributeResponse
-    -> f DescribeInstanceAttributeResponse
+ibInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
 ibInstanceId f x =
-    (\y -> x { _ibInstanceId = y })
-       <$> f (_ibInstanceId x)
+    f (_ibInstanceId x) <&> \y -> x { _ibInstanceId = y }
 {-# INLINE ibInstanceId #-}
 
 instance FromXML DescribeInstanceAttributeResponse where

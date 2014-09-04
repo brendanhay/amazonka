@@ -54,6 +54,7 @@ describeRouteTables = DescribeRouteTables
     { _drtsFilters = mempty
     , _drtsRouteTableIds = mempty
     }
+{-# INLINE describeRouteTables #-}
 
 data DescribeRouteTables = DescribeRouteTables
     { _drtsFilters :: [Filter]
@@ -117,27 +118,15 @@ data DescribeRouteTables = DescribeRouteTables
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the route table.
-drtsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeRouteTables
-    -> f DescribeRouteTables
+drtsFilters :: Lens' DescribeRouteTables [Filter]
 drtsFilters f x =
-    (\y -> x { _drtsFilters = y })
-       <$> f (_drtsFilters x)
+    f (_drtsFilters x) <&> \y -> x { _drtsFilters = y }
 {-# INLINE drtsFilters #-}
 
 -- | One or more route table IDs. Default: Describes all your route tables.
-drtsRouteTableIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeRouteTables
-    -> f DescribeRouteTables
+drtsRouteTableIds :: Lens' DescribeRouteTables [Text]
 drtsRouteTableIds f x =
-    (\y -> x { _drtsRouteTableIds = y })
-       <$> f (_drtsRouteTableIds x)
+    f (_drtsRouteTableIds x) <&> \y -> x { _drtsRouteTableIds = y }
 {-# INLINE drtsRouteTableIds #-}
 
 instance ToQuery DescribeRouteTables where
@@ -149,15 +138,9 @@ data DescribeRouteTablesResponse = DescribeRouteTablesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more route tables.
-drttRouteTables
-    :: Functor f
-    => ([RouteTable]
-    -> f ([RouteTable]))
-    -> DescribeRouteTablesResponse
-    -> f DescribeRouteTablesResponse
+drttRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drttRouteTables f x =
-    (\y -> x { _drttRouteTables = y })
-       <$> f (_drttRouteTables x)
+    f (_drttRouteTables x) <&> \y -> x { _drttRouteTables = y }
 {-# INLINE drttRouteTables #-}
 
 instance FromXML DescribeRouteTablesResponse where

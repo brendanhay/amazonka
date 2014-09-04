@@ -73,6 +73,7 @@ detachVolume p1 = DetachVolume
     , _dvxInstanceId = Nothing
     , _dvxDevice = Nothing
     }
+{-# INLINE detachVolume #-}
 
 data DetachVolume = DetachVolume
     { _dvxVolumeId :: Text
@@ -93,15 +94,9 @@ data DetachVolume = DetachVolume
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvxVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachVolume
-    -> f DetachVolume
+dvxVolumeId :: Lens' DetachVolume Text
 dvxVolumeId f x =
-    (\y -> x { _dvxVolumeId = y })
-       <$> f (_dvxVolumeId x)
+    f (_dvxVolumeId x) <&> \y -> x { _dvxVolumeId = y }
 {-# INLINE dvxVolumeId #-}
 
 -- | Forces detachment if the previous detachment attempt did not occur cleanly
@@ -111,39 +106,21 @@ dvxVolumeId f x =
 -- failed instance. The instance won't have an opportunity to flush file
 -- system caches or file system metadata. If you use this option, you must
 -- perform file system check and repair procedures.
-dvxForce
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DetachVolume
-    -> f DetachVolume
+dvxForce :: Lens' DetachVolume (Maybe Bool)
 dvxForce f x =
-    (\y -> x { _dvxForce = y })
-       <$> f (_dvxForce x)
+    f (_dvxForce x) <&> \y -> x { _dvxForce = y }
 {-# INLINE dvxForce #-}
 
 -- | The ID of the instance.
-dvxInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DetachVolume
-    -> f DetachVolume
+dvxInstanceId :: Lens' DetachVolume (Maybe Text)
 dvxInstanceId f x =
-    (\y -> x { _dvxInstanceId = y })
-       <$> f (_dvxInstanceId x)
+    f (_dvxInstanceId x) <&> \y -> x { _dvxInstanceId = y }
 {-# INLINE dvxInstanceId #-}
 
 -- | The device name.
-dvxDevice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DetachVolume
-    -> f DetachVolume
+dvxDevice :: Lens' DetachVolume (Maybe Text)
 dvxDevice f x =
-    (\y -> x { _dvxDevice = y })
-       <$> f (_dvxDevice x)
+    f (_dvxDevice x) <&> \y -> x { _dvxDevice = y }
 {-# INLINE dvxDevice #-}
 
 instance ToQuery DetachVolume where
@@ -166,75 +143,39 @@ data DetachVolumeResponse = DetachVolumeResponse
     } deriving (Show, Generic)
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DetachVolumeResponse
-    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination f x =
-    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination = y })
-       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination x)
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination #-}
 
 -- | The time stamp when the attachment initiated.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DetachVolumeResponse
-    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime f x =
-    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime = y })
-       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime x)
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime #-}
 
 -- | The ID of the volume.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DetachVolumeResponse
-    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId f x =
-    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId = y })
-       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId x)
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId #-}
 
 -- | The ID of the instance.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DetachVolumeResponse
-    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId f x =
-    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId = y })
-       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId x)
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId #-}
 
 -- | The device name.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DetachVolumeResponse
-    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice :: Lens' DetachVolumeResponse (Maybe Text)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice f x =
-    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice = y })
-       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice x)
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice #-}
 
 -- | The attachment state of the volume.
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState
-    :: Functor f
-    => (Maybe VolumeAttachmentState
-    -> f (Maybe VolumeAttachmentState))
-    -> DetachVolumeResponse
-    -> f DetachVolumeResponse
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState f x =
-    (\y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState = y })
-       <$> f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState x)
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState #-}
 
 instance FromXML DetachVolumeResponse where

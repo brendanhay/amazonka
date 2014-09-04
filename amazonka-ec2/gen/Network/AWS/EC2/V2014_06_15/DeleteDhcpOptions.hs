@@ -50,6 +50,7 @@ deleteDhcpOptions :: Text -- ^ 'ddorDhcpOptionsId'
 deleteDhcpOptions p1 = DeleteDhcpOptions
     { _ddorDhcpOptionsId = p1
     }
+{-# INLINE deleteDhcpOptions #-}
 
 data DeleteDhcpOptions = DeleteDhcpOptions
     { _ddorDhcpOptionsId :: Text
@@ -57,15 +58,9 @@ data DeleteDhcpOptions = DeleteDhcpOptions
     } deriving (Show, Generic)
 
 -- | The ID of the DHCP options set.
-ddorDhcpOptionsId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteDhcpOptions
-    -> f DeleteDhcpOptions
+ddorDhcpOptionsId :: Lens' DeleteDhcpOptions Text
 ddorDhcpOptionsId f x =
-    (\y -> x { _ddorDhcpOptionsId = y })
-       <$> f (_ddorDhcpOptionsId x)
+    f (_ddorDhcpOptionsId x) <&> \y -> x { _ddorDhcpOptionsId = y }
 {-# INLINE ddorDhcpOptionsId #-}
 
 instance ToQuery DeleteDhcpOptions where

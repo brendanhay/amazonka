@@ -52,6 +52,7 @@ resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId = p1
     , _rniarSourceDestCheck = Nothing
     }
+{-# INLINE resetNetworkInterfaceAttribute #-}
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId :: Text
@@ -64,29 +65,17 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-rniarNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResetNetworkInterfaceAttribute
-    -> f ResetNetworkInterfaceAttribute
+rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
 rniarNetworkInterfaceId f x =
-    (\y -> x { _rniarNetworkInterfaceId = y })
-       <$> f (_rniarNetworkInterfaceId x)
+    f (_rniarNetworkInterfaceId x) <&> \y -> x { _rniarNetworkInterfaceId = y }
 {-# INLINE rniarNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT.
-rniarSourceDestCheck
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ResetNetworkInterfaceAttribute
-    -> f ResetNetworkInterfaceAttribute
+rniarSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniarSourceDestCheck f x =
-    (\y -> x { _rniarSourceDestCheck = y })
-       <$> f (_rniarSourceDestCheck x)
+    f (_rniarSourceDestCheck x) <&> \y -> x { _rniarSourceDestCheck = y }
 {-# INLINE rniarSourceDestCheck #-}
 
 instance ToQuery ResetNetworkInterfaceAttribute where

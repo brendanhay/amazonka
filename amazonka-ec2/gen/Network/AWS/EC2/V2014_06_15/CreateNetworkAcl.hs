@@ -55,6 +55,7 @@ createNetworkAcl :: Text -- ^ 'cnarVpcId'
 createNetworkAcl p1 = CreateNetworkAcl
     { _cnarVpcId = p1
     }
+{-# INLINE createNetworkAcl #-}
 
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnarVpcId :: Text
@@ -62,15 +63,9 @@ data CreateNetworkAcl = CreateNetworkAcl
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-cnarVpcId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateNetworkAcl
-    -> f CreateNetworkAcl
+cnarVpcId :: Lens' CreateNetworkAcl Text
 cnarVpcId f x =
-    (\y -> x { _cnarVpcId = y })
-       <$> f (_cnarVpcId x)
+    f (_cnarVpcId x) <&> \y -> x { _cnarVpcId = y }
 {-# INLINE cnarVpcId #-}
 
 instance ToQuery CreateNetworkAcl where
@@ -82,15 +77,9 @@ data CreateNetworkAclResponse = CreateNetworkAclResponse
     } deriving (Show, Generic)
 
 -- | Information about the network ACL.
-cnasNetworkAcl
-    :: Functor f
-    => (Maybe NetworkAcl
-    -> f (Maybe NetworkAcl))
-    -> CreateNetworkAclResponse
-    -> f CreateNetworkAclResponse
+cnasNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnasNetworkAcl f x =
-    (\y -> x { _cnasNetworkAcl = y })
-       <$> f (_cnasNetworkAcl x)
+    f (_cnasNetworkAcl x) <&> \y -> x { _cnasNetworkAcl = y }
 {-# INLINE cnasNetworkAcl #-}
 
 instance FromXML CreateNetworkAclResponse where

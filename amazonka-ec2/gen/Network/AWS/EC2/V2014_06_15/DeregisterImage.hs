@@ -48,6 +48,7 @@ deregisterImage :: Text -- ^ 'dirImageId'
 deregisterImage p1 = DeregisterImage
     { _dirImageId = p1
     }
+{-# INLINE deregisterImage #-}
 
 data DeregisterImage = DeregisterImage
     { _dirImageId :: Text
@@ -55,15 +56,9 @@ data DeregisterImage = DeregisterImage
     } deriving (Show, Generic)
 
 -- | The ID of the AMI.
-dirImageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeregisterImage
-    -> f DeregisterImage
+dirImageId :: Lens' DeregisterImage Text
 dirImageId f x =
-    (\y -> x { _dirImageId = y })
-       <$> f (_dirImageId x)
+    f (_dirImageId x) <&> \y -> x { _dirImageId = y }
 {-# INLINE dirImageId #-}
 
 instance ToQuery DeregisterImage where

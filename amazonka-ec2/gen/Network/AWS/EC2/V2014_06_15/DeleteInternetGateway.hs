@@ -49,6 +49,7 @@ deleteInternetGateway :: Text -- ^ 'digrInternetGatewayId'
 deleteInternetGateway p1 = DeleteInternetGateway
     { _digrInternetGatewayId = p1
     }
+{-# INLINE deleteInternetGateway #-}
 
 data DeleteInternetGateway = DeleteInternetGateway
     { _digrInternetGatewayId :: Text
@@ -56,15 +57,9 @@ data DeleteInternetGateway = DeleteInternetGateway
     } deriving (Show, Generic)
 
 -- | The ID of the Internet gateway.
-digrInternetGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteInternetGateway
-    -> f DeleteInternetGateway
+digrInternetGatewayId :: Lens' DeleteInternetGateway Text
 digrInternetGatewayId f x =
-    (\y -> x { _digrInternetGatewayId = y })
-       <$> f (_digrInternetGatewayId x)
+    f (_digrInternetGatewayId x) <&> \y -> x { _digrInternetGatewayId = y }
 {-# INLINE digrInternetGatewayId #-}
 
 instance ToQuery DeleteInternetGateway where

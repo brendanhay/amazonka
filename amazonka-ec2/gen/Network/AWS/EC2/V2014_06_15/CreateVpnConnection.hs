@@ -102,6 +102,7 @@ createVpnConnection p1 p2 p3 = CreateVpnConnection
     , _cvcrVpnGatewayId = p3
     , _cvcrOptions = Nothing
     }
+{-# INLINE createVpnConnection #-}
 
 data CreateVpnConnection = CreateVpnConnection
     { _cvcrType :: Text
@@ -117,53 +118,29 @@ data CreateVpnConnection = CreateVpnConnection
     } deriving (Show, Generic)
 
 -- | The type of VPN connection.
-cvcrType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateVpnConnection
-    -> f CreateVpnConnection
+cvcrType :: Lens' CreateVpnConnection Text
 cvcrType f x =
-    (\y -> x { _cvcrType = y })
-       <$> f (_cvcrType x)
+    f (_cvcrType x) <&> \y -> x { _cvcrType = y }
 {-# INLINE cvcrType #-}
 
 -- | The ID of the customer gateway.
-cvcrCustomerGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateVpnConnection
-    -> f CreateVpnConnection
+cvcrCustomerGatewayId :: Lens' CreateVpnConnection Text
 cvcrCustomerGatewayId f x =
-    (\y -> x { _cvcrCustomerGatewayId = y })
-       <$> f (_cvcrCustomerGatewayId x)
+    f (_cvcrCustomerGatewayId x) <&> \y -> x { _cvcrCustomerGatewayId = y }
 {-# INLINE cvcrCustomerGatewayId #-}
 
 -- | The ID of the virtual private gateway.
-cvcrVpnGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateVpnConnection
-    -> f CreateVpnConnection
+cvcrVpnGatewayId :: Lens' CreateVpnConnection Text
 cvcrVpnGatewayId f x =
-    (\y -> x { _cvcrVpnGatewayId = y })
-       <$> f (_cvcrVpnGatewayId x)
+    f (_cvcrVpnGatewayId x) <&> \y -> x { _cvcrVpnGatewayId = y }
 {-# INLINE cvcrVpnGatewayId #-}
 
 -- | Indicates whether the VPN connection requires static routes. If you are
 -- creating a VPN connection for a device that does not support BGP, you must
 -- specify true. Default: false.
-cvcrOptions
-    :: Functor f
-    => (Maybe VpnConnectionOptionsSpecification
-    -> f (Maybe VpnConnectionOptionsSpecification))
-    -> CreateVpnConnection
-    -> f CreateVpnConnection
+cvcrOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
 cvcrOptions f x =
-    (\y -> x { _cvcrOptions = y })
-       <$> f (_cvcrOptions x)
+    f (_cvcrOptions x) <&> \y -> x { _cvcrOptions = y }
 {-# INLINE cvcrOptions #-}
 
 instance ToQuery CreateVpnConnection where
@@ -175,15 +152,9 @@ data CreateVpnConnectionResponse = CreateVpnConnectionResponse
     } deriving (Show, Generic)
 
 -- | Information about the VPN connection.
-cvcsVpnConnection
-    :: Functor f
-    => (Maybe VpnConnection
-    -> f (Maybe VpnConnection))
-    -> CreateVpnConnectionResponse
-    -> f CreateVpnConnectionResponse
+cvcsVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
 cvcsVpnConnection f x =
-    (\y -> x { _cvcsVpnConnection = y })
-       <$> f (_cvcsVpnConnection x)
+    f (_cvcsVpnConnection x) <&> \y -> x { _cvcsVpnConnection = y }
 {-# INLINE cvcsVpnConnection #-}
 
 instance FromXML CreateVpnConnectionResponse where

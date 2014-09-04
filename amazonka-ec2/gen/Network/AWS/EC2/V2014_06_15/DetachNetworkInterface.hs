@@ -50,6 +50,7 @@ detachNetworkInterface p1 = DetachNetworkInterface
     { _dniuAttachmentId = p1
     , _dniuForce = Nothing
     }
+{-# INLINE detachNetworkInterface #-}
 
 data DetachNetworkInterface = DetachNetworkInterface
     { _dniuAttachmentId :: Text
@@ -59,27 +60,15 @@ data DetachNetworkInterface = DetachNetworkInterface
     } deriving (Show, Generic)
 
 -- | The ID of the attachment.
-dniuAttachmentId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachNetworkInterface
-    -> f DetachNetworkInterface
+dniuAttachmentId :: Lens' DetachNetworkInterface Text
 dniuAttachmentId f x =
-    (\y -> x { _dniuAttachmentId = y })
-       <$> f (_dniuAttachmentId x)
+    f (_dniuAttachmentId x) <&> \y -> x { _dniuAttachmentId = y }
 {-# INLINE dniuAttachmentId #-}
 
 -- | Specifies whether to force a detachment.
-dniuForce
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DetachNetworkInterface
-    -> f DetachNetworkInterface
+dniuForce :: Lens' DetachNetworkInterface (Maybe Bool)
 dniuForce f x =
-    (\y -> x { _dniuForce = y })
-       <$> f (_dniuForce x)
+    f (_dniuForce x) <&> \y -> x { _dniuForce = y }
 {-# INLINE dniuForce #-}
 
 instance ToQuery DetachNetworkInterface where

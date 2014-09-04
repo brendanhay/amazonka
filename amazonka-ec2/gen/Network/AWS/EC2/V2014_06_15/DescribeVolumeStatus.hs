@@ -92,6 +92,7 @@ describeVolumeStatus = DescribeVolumeStatus
     , _dvsrNextToken = Nothing
     , _dvsrVolumeIds = mempty
     }
+{-# INLINE describeVolumeStatus #-}
 
 data DescribeVolumeStatus = DescribeVolumeStatus
     { _dvsrFilters :: [Filter]
@@ -136,52 +137,28 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 -- io-performance: normal | degraded | severely-degraded | stalled).
 -- volume-status.status - The status of the volume (ok | impaired | warning |
 -- insufficient-data).
-dvsrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeVolumeStatus
-    -> f DescribeVolumeStatus
+dvsrFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsrFilters f x =
-    (\y -> x { _dvsrFilters = y })
-       <$> f (_dvsrFilters x)
+    f (_dvsrFilters x) <&> \y -> x { _dvsrFilters = y }
 {-# INLINE dvsrFilters #-}
 
 -- | The maximum number of paginated volume items per response.
-dvsrMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeVolumeStatus
-    -> f DescribeVolumeStatus
+dvsrMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
 dvsrMaxResults f x =
-    (\y -> x { _dvsrMaxResults = y })
-       <$> f (_dvsrMaxResults x)
+    f (_dvsrMaxResults x) <&> \y -> x { _dvsrMaxResults = y }
 {-# INLINE dvsrMaxResults #-}
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
-dvsrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVolumeStatus
-    -> f DescribeVolumeStatus
+dvsrNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
 dvsrNextToken f x =
-    (\y -> x { _dvsrNextToken = y })
-       <$> f (_dvsrNextToken x)
+    f (_dvsrNextToken x) <&> \y -> x { _dvsrNextToken = y }
 {-# INLINE dvsrNextToken #-}
 
 -- | One or more volume IDs. Default: Describes all your volumes.
-dvsrVolumeIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVolumeStatus
-    -> f DescribeVolumeStatus
+dvsrVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsrVolumeIds f x =
-    (\y -> x { _dvsrVolumeIds = y })
-       <$> f (_dvsrVolumeIds x)
+    f (_dvsrVolumeIds x) <&> \y -> x { _dvsrVolumeIds = y }
 {-# INLINE dvsrVolumeIds #-}
 
 instance ToQuery DescribeVolumeStatus where
@@ -195,27 +172,15 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     } deriving (Show, Generic)
 
 -- | The next paginated set of results to return.
-dvssNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVolumeStatusResponse
-    -> f DescribeVolumeStatusResponse
+dvssNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvssNextToken f x =
-    (\y -> x { _dvssNextToken = y })
-       <$> f (_dvssNextToken x)
+    f (_dvssNextToken x) <&> \y -> x { _dvssNextToken = y }
 {-# INLINE dvssNextToken #-}
 
 -- | A list of volumes.
-dvssVolumeStatuses
-    :: Functor f
-    => ([VolumeStatusItem]
-    -> f ([VolumeStatusItem]))
-    -> DescribeVolumeStatusResponse
-    -> f DescribeVolumeStatusResponse
+dvssVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvssVolumeStatuses f x =
-    (\y -> x { _dvssVolumeStatuses = y })
-       <$> f (_dvssVolumeStatuses x)
+    f (_dvssVolumeStatuses x) <&> \y -> x { _dvssVolumeStatuses = y }
 {-# INLINE dvssVolumeStatuses #-}
 
 instance FromXML DescribeVolumeStatusResponse where

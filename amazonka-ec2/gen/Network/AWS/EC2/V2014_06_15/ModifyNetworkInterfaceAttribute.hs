@@ -58,6 +58,7 @@ modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     , _mniarAttachment = Nothing
     , _mniarGroups = mempty
     }
+{-# INLINE modifyNetworkInterfaceAttribute #-}
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniarNetworkInterfaceId :: Text
@@ -81,69 +82,39 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-mniarNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyNetworkInterfaceAttribute
-    -> f ModifyNetworkInterfaceAttribute
+mniarNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
 mniarNetworkInterfaceId f x =
-    (\y -> x { _mniarNetworkInterfaceId = y })
-       <$> f (_mniarNetworkInterfaceId x)
+    f (_mniarNetworkInterfaceId x) <&> \y -> x { _mniarNetworkInterfaceId = y }
 {-# INLINE mniarNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT. For more information, see
 -- NAT Instances in the Amazon Virtual Private Cloud User Guide.
-mniarSourceDestCheck
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> ModifyNetworkInterfaceAttribute
-    -> f ModifyNetworkInterfaceAttribute
+mniarSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniarSourceDestCheck f x =
-    (\y -> x { _mniarSourceDestCheck = y })
-       <$> f (_mniarSourceDestCheck x)
+    f (_mniarSourceDestCheck x) <&> \y -> x { _mniarSourceDestCheck = y }
 {-# INLINE mniarSourceDestCheck #-}
 
 -- | A description for the network interface.
-mniarDescription
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyNetworkInterfaceAttribute
-    -> f ModifyNetworkInterfaceAttribute
+mniarDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
 mniarDescription f x =
-    (\y -> x { _mniarDescription = y })
-       <$> f (_mniarDescription x)
+    f (_mniarDescription x) <&> \y -> x { _mniarDescription = y }
 {-# INLINE mniarDescription #-}
 
 -- | The ID of the interface attachment.
-mniarAttachment
-    :: Functor f
-    => (Maybe NetworkInterfaceAttachmentChanges
-    -> f (Maybe NetworkInterfaceAttachmentChanges))
-    -> ModifyNetworkInterfaceAttribute
-    -> f ModifyNetworkInterfaceAttribute
+mniarAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
 mniarAttachment f x =
-    (\y -> x { _mniarAttachment = y })
-       <$> f (_mniarAttachment x)
+    f (_mniarAttachment x) <&> \y -> x { _mniarAttachment = y }
 {-# INLINE mniarAttachment #-}
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least one
 -- group, even if it's just the default security group in the VPC. You must
 -- specify the ID of the security group, not the name.
-mniarGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyNetworkInterfaceAttribute
-    -> f ModifyNetworkInterfaceAttribute
+mniarGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
 mniarGroups f x =
-    (\y -> x { _mniarGroups = y })
-       <$> f (_mniarGroups x)
+    f (_mniarGroups x) <&> \y -> x { _mniarGroups = y }
 {-# INLINE mniarGroups #-}
 
 instance ToQuery ModifyNetworkInterfaceAttribute where

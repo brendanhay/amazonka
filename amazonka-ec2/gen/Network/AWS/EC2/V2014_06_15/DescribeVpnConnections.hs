@@ -70,6 +70,7 @@ describeVpnConnections = DescribeVpnConnections
     { _dvcsFilters = mempty
     , _dvcsVpnConnectionIds = mempty
     }
+{-# INLINE describeVpnConnections #-}
 
 data DescribeVpnConnections = DescribeVpnConnections
     { _dvcsFilters :: [Filter]
@@ -123,27 +124,15 @@ data DescribeVpnConnections = DescribeVpnConnections
 -- Currently the only supported type is ipsec.1. vpn-connection-id - The ID of
 -- the VPN connection. vpn-gateway-id - The ID of a virtual private gateway
 -- associated with the VPN connection.
-dvcsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeVpnConnections
-    -> f DescribeVpnConnections
+dvcsFilters :: Lens' DescribeVpnConnections [Filter]
 dvcsFilters f x =
-    (\y -> x { _dvcsFilters = y })
-       <$> f (_dvcsFilters x)
+    f (_dvcsFilters x) <&> \y -> x { _dvcsFilters = y }
 {-# INLINE dvcsFilters #-}
 
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
-dvcsVpnConnectionIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVpnConnections
-    -> f DescribeVpnConnections
+dvcsVpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvcsVpnConnectionIds f x =
-    (\y -> x { _dvcsVpnConnectionIds = y })
-       <$> f (_dvcsVpnConnectionIds x)
+    f (_dvcsVpnConnectionIds x) <&> \y -> x { _dvcsVpnConnectionIds = y }
 {-# INLINE dvcsVpnConnectionIds #-}
 
 instance ToQuery DescribeVpnConnections where
@@ -155,15 +144,9 @@ data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more VPN connections.
-dvctVpnConnections
-    :: Functor f
-    => ([VpnConnection]
-    -> f ([VpnConnection]))
-    -> DescribeVpnConnectionsResponse
-    -> f DescribeVpnConnectionsResponse
+dvctVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvctVpnConnections f x =
-    (\y -> x { _dvctVpnConnections = y })
-       <$> f (_dvctVpnConnections x)
+    f (_dvctVpnConnections x) <&> \y -> x { _dvctVpnConnections = y }
 {-# INLINE dvctVpnConnections #-}
 
 instance FromXML DescribeVpnConnectionsResponse where

@@ -52,6 +52,7 @@ enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     { _evrprRouteTableId = p1
     , _evrprGatewayId = p2
     }
+{-# INLINE enableVgwRoutePropagation #-}
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrprRouteTableId :: Text
@@ -61,27 +62,15 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     } deriving (Show, Generic)
 
 -- | The ID of the routing table.
-evrprRouteTableId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableVgwRoutePropagation
-    -> f EnableVgwRoutePropagation
+evrprRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrprRouteTableId f x =
-    (\y -> x { _evrprRouteTableId = y })
-       <$> f (_evrprRouteTableId x)
+    f (_evrprRouteTableId x) <&> \y -> x { _evrprRouteTableId = y }
 {-# INLINE evrprRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
-evrprGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableVgwRoutePropagation
-    -> f EnableVgwRoutePropagation
+evrprGatewayId :: Lens' EnableVgwRoutePropagation Text
 evrprGatewayId f x =
-    (\y -> x { _evrprGatewayId = y })
-       <$> f (_evrprGatewayId x)
+    f (_evrprGatewayId x) <&> \y -> x { _evrprGatewayId = y }
 {-# INLINE evrprGatewayId #-}
 
 instance ToQuery EnableVgwRoutePropagation where

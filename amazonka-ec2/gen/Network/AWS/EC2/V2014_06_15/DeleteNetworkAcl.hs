@@ -48,6 +48,7 @@ deleteNetworkAcl :: Text -- ^ 'dnarNetworkAclId'
 deleteNetworkAcl p1 = DeleteNetworkAcl
     { _dnarNetworkAclId = p1
     }
+{-# INLINE deleteNetworkAcl #-}
 
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnarNetworkAclId :: Text
@@ -55,15 +56,9 @@ data DeleteNetworkAcl = DeleteNetworkAcl
     } deriving (Show, Generic)
 
 -- | The ID of the network ACL.
-dnarNetworkAclId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteNetworkAcl
-    -> f DeleteNetworkAcl
+dnarNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnarNetworkAclId f x =
-    (\y -> x { _dnarNetworkAclId = y })
-       <$> f (_dnarNetworkAclId x)
+    f (_dnarNetworkAclId x) <&> \y -> x { _dnarNetworkAclId = y }
 {-# INLINE dnarNetworkAclId #-}
 
 instance ToQuery DeleteNetworkAcl where

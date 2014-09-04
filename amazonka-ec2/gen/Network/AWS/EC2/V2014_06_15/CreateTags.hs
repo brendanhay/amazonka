@@ -56,6 +56,7 @@ createTags p1 p2 = CreateTags
     { _ctrResources = p1
     , _ctrTags = p2
     }
+{-# INLINE createTags #-}
 
 data CreateTags = CreateTags
     { _ctrResources :: [Text]
@@ -68,29 +69,17 @@ data CreateTags = CreateTags
     } deriving (Show, Generic)
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ctrResources
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateTags
-    -> f CreateTags
+ctrResources :: Lens' CreateTags [Text]
 ctrResources f x =
-    (\y -> x { _ctrResources = y })
-       <$> f (_ctrResources x)
+    f (_ctrResources x) <&> \y -> x { _ctrResources = y }
 {-# INLINE ctrResources #-}
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
-ctrTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateTags
-    -> f CreateTags
+ctrTags :: Lens' CreateTags [Tag]
 ctrTags f x =
-    (\y -> x { _ctrTags = y })
-       <$> f (_ctrTags x)
+    f (_ctrTags x) <&> \y -> x { _ctrTags = y }
 {-# INLINE ctrTags #-}
 
 instance ToQuery CreateTags where

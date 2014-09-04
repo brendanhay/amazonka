@@ -54,6 +54,7 @@ cancelReservedInstancesListing :: Text -- ^ 'crilrReservedInstancesListingId'
 cancelReservedInstancesListing p1 = CancelReservedInstancesListing
     { _crilrReservedInstancesListingId = p1
     }
+{-# INLINE cancelReservedInstancesListing #-}
 
 data CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilrReservedInstancesListingId :: Text
@@ -61,15 +62,9 @@ data CancelReservedInstancesListing = CancelReservedInstancesListing
     } deriving (Show, Generic)
 
 -- | The ID of the Reserved Instance listing.
-crilrReservedInstancesListingId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelReservedInstancesListing
-    -> f CancelReservedInstancesListing
+crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilrReservedInstancesListingId f x =
-    (\y -> x { _crilrReservedInstancesListingId = y })
-       <$> f (_crilrReservedInstancesListingId x)
+    f (_crilrReservedInstancesListingId x) <&> \y -> x { _crilrReservedInstancesListingId = y }
 {-# INLINE crilrReservedInstancesListingId #-}
 
 instance ToQuery CancelReservedInstancesListing where
@@ -81,15 +76,9 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
     } deriving (Show, Generic)
 
 -- | The Reserved Instance listing.
-crilsReservedInstancesListings
-    :: Functor f
-    => ([ReservedInstancesListing]
-    -> f ([ReservedInstancesListing]))
-    -> CancelReservedInstancesListingResponse
-    -> f CancelReservedInstancesListingResponse
+crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilsReservedInstancesListings f x =
-    (\y -> x { _crilsReservedInstancesListings = y })
-       <$> f (_crilsReservedInstancesListings x)
+    f (_crilsReservedInstancesListings x) <&> \y -> x { _crilsReservedInstancesListings = y }
 {-# INLINE crilsReservedInstancesListings #-}
 
 instance FromXML CancelReservedInstancesListingResponse where

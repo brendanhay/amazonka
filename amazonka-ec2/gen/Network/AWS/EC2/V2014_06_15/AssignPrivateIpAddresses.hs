@@ -73,6 +73,7 @@ assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
     , _apiarSecondaryPrivateIpAddressCount = Nothing
     , _apiarPrivateIpAddresses = mempty
     }
+{-# INLINE assignPrivateIpAddresses #-}
 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { _apiarNetworkInterfaceId :: Text
@@ -92,55 +93,31 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-apiarNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssignPrivateIpAddresses
-    -> f AssignPrivateIpAddresses
+apiarNetworkInterfaceId :: Lens' AssignPrivateIpAddresses Text
 apiarNetworkInterfaceId f x =
-    (\y -> x { _apiarNetworkInterfaceId = y })
-       <$> f (_apiarNetworkInterfaceId x)
+    f (_apiarNetworkInterfaceId x) <&> \y -> x { _apiarNetworkInterfaceId = y }
 {-# INLINE apiarNetworkInterfaceId #-}
 
 -- | Indicates whether to allow an IP address that is already assigned to
 -- another network interface or instance to be reassigned to the specified
 -- network interface.
-apiarAllowReassignment
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> AssignPrivateIpAddresses
-    -> f AssignPrivateIpAddresses
+apiarAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
 apiarAllowReassignment f x =
-    (\y -> x { _apiarAllowReassignment = y })
-       <$> f (_apiarAllowReassignment x)
+    f (_apiarAllowReassignment x) <&> \y -> x { _apiarAllowReassignment = y }
 {-# INLINE apiarAllowReassignment #-}
 
 -- | The number of secondary IP addresses to assign to the network interface.
-apiarSecondaryPrivateIpAddressCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AssignPrivateIpAddresses
-    -> f AssignPrivateIpAddresses
+apiarSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)
 apiarSecondaryPrivateIpAddressCount f x =
-    (\y -> x { _apiarSecondaryPrivateIpAddressCount = y })
-       <$> f (_apiarSecondaryPrivateIpAddressCount x)
+    f (_apiarSecondaryPrivateIpAddressCount x) <&> \y -> x { _apiarSecondaryPrivateIpAddressCount = y }
 {-# INLINE apiarSecondaryPrivateIpAddressCount #-}
 
 -- | One or more IP addresses to be assigned as a secondary private IP address
 -- to the network interface. If you don't specify an IP address, Amazon EC2
 -- automatically selects an IP address within the subnet range.
-apiarPrivateIpAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AssignPrivateIpAddresses
-    -> f AssignPrivateIpAddresses
+apiarPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
 apiarPrivateIpAddresses f x =
-    (\y -> x { _apiarPrivateIpAddresses = y })
-       <$> f (_apiarPrivateIpAddresses x)
+    f (_apiarPrivateIpAddresses x) <&> \y -> x { _apiarPrivateIpAddresses = y }
 {-# INLINE apiarPrivateIpAddresses #-}
 
 instance ToQuery AssignPrivateIpAddresses where

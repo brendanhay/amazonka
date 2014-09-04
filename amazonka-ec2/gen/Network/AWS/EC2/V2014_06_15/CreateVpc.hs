@@ -74,6 +74,7 @@ createVpc p1 = CreateVpc
     { _cvsCidrBlock = p1
     , _cvsInstanceTenancy = Nothing
     }
+{-# INLINE createVpc #-}
 
 data CreateVpc = CreateVpc
     { _cvsCidrBlock :: Text
@@ -90,15 +91,9 @@ data CreateVpc = CreateVpc
     } deriving (Show, Generic)
 
 -- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
-cvsCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateVpc
-    -> f CreateVpc
+cvsCidrBlock :: Lens' CreateVpc Text
 cvsCidrBlock f x =
-    (\y -> x { _cvsCidrBlock = y })
-       <$> f (_cvsCidrBlock x)
+    f (_cvsCidrBlock x) <&> \y -> x { _cvsCidrBlock = y }
 {-# INLINE cvsCidrBlock #-}
 
 -- | The supported tenancy options for instances launched into the VPC. A value
@@ -107,15 +102,9 @@ cvsCidrBlock f x =
 -- dedicated tenancy instances regardless of the tenancy assigned to the
 -- instance at launch. Dedicated tenancy instances runs on single-tenant
 -- hardware. Default: default.
-cvsInstanceTenancy
-    :: Functor f
-    => (Maybe Tenancy
-    -> f (Maybe Tenancy))
-    -> CreateVpc
-    -> f CreateVpc
+cvsInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cvsInstanceTenancy f x =
-    (\y -> x { _cvsInstanceTenancy = y })
-       <$> f (_cvsInstanceTenancy x)
+    f (_cvsInstanceTenancy x) <&> \y -> x { _cvsInstanceTenancy = y }
 {-# INLINE cvsInstanceTenancy #-}
 
 instance ToQuery CreateVpc where
@@ -127,15 +116,9 @@ data CreateVpcResponse = CreateVpcResponse
     } deriving (Show, Generic)
 
 -- | Information about the VPC.
-cvtVpc
-    :: Functor f
-    => (Maybe Vpc
-    -> f (Maybe Vpc))
-    -> CreateVpcResponse
-    -> f CreateVpcResponse
+cvtVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvtVpc f x =
-    (\y -> x { _cvtVpc = y })
-       <$> f (_cvtVpc x)
+    f (_cvtVpc x) <&> \y -> x { _cvtVpc = y }
 {-# INLINE cvtVpc #-}
 
 instance FromXML CreateVpcResponse where

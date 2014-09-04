@@ -48,6 +48,7 @@ cancelExportTask :: Text -- ^ 'cetrExportTaskId'
 cancelExportTask p1 = CancelExportTask
     { _cetrExportTaskId = p1
     }
+{-# INLINE cancelExportTask #-}
 
 data CancelExportTask = CancelExportTask
     { _cetrExportTaskId :: Text
@@ -57,15 +58,9 @@ data CancelExportTask = CancelExportTask
 
 -- | The ID of the export task. This is the ID returned by
 -- CreateInstanceExportTask.
-cetrExportTaskId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelExportTask
-    -> f CancelExportTask
+cetrExportTaskId :: Lens' CancelExportTask Text
 cetrExportTaskId f x =
-    (\y -> x { _cetrExportTaskId = y })
-       <$> f (_cetrExportTaskId x)
+    f (_cetrExportTaskId x) <&> \y -> x { _cetrExportTaskId = y }
 {-# INLINE cetrExportTaskId #-}
 
 instance ToQuery CancelExportTask where

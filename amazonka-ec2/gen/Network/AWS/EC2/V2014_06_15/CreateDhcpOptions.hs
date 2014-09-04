@@ -83,6 +83,7 @@ createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdorDhcpConfigurations'
 createDhcpOptions p1 = CreateDhcpOptions
     { _cdorDhcpConfigurations = p1
     }
+{-# INLINE createDhcpOptions #-}
 
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdorDhcpConfigurations :: [DhcpConfiguration]
@@ -90,15 +91,9 @@ data CreateDhcpOptions = CreateDhcpOptions
     } deriving (Show, Generic)
 
 -- | A DHCP configuration option.
-cdorDhcpConfigurations
-    :: Functor f
-    => ([DhcpConfiguration]
-    -> f ([DhcpConfiguration]))
-    -> CreateDhcpOptions
-    -> f CreateDhcpOptions
+cdorDhcpConfigurations :: Lens' CreateDhcpOptions [DhcpConfiguration]
 cdorDhcpConfigurations f x =
-    (\y -> x { _cdorDhcpConfigurations = y })
-       <$> f (_cdorDhcpConfigurations x)
+    f (_cdorDhcpConfigurations x) <&> \y -> x { _cdorDhcpConfigurations = y }
 {-# INLINE cdorDhcpConfigurations #-}
 
 instance ToQuery CreateDhcpOptions where
@@ -110,15 +105,9 @@ data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     } deriving (Show, Generic)
 
 -- | A set of DHCP options.
-cdosDhcpOptions
-    :: Functor f
-    => (Maybe DhcpOptions
-    -> f (Maybe DhcpOptions))
-    -> CreateDhcpOptionsResponse
-    -> f CreateDhcpOptionsResponse
+cdosDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdosDhcpOptions f x =
-    (\y -> x { _cdosDhcpOptions = y })
-       <$> f (_cdosDhcpOptions x)
+    f (_cdosDhcpOptions x) <&> \y -> x { _cdosDhcpOptions = y }
 {-# INLINE cdosDhcpOptions #-}
 
 instance FromXML CreateDhcpOptionsResponse where

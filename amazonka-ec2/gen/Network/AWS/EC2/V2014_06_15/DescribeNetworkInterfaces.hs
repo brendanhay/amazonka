@@ -106,6 +106,7 @@ describeNetworkInterfaces = DescribeNetworkInterfaces
     { _dnisFilters = mempty
     , _dnisNetworkInterfaceIds = mempty
     }
+{-# INLINE describeNetworkInterfaces #-}
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dnisFilters :: [Filter]
@@ -228,28 +229,16 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the network interface.
-dnisFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeNetworkInterfaces
-    -> f DescribeNetworkInterfaces
+dnisFilters :: Lens' DescribeNetworkInterfaces [Filter]
 dnisFilters f x =
-    (\y -> x { _dnisFilters = y })
-       <$> f (_dnisFilters x)
+    f (_dnisFilters x) <&> \y -> x { _dnisFilters = y }
 {-# INLINE dnisFilters #-}
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
-dnisNetworkInterfaceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeNetworkInterfaces
-    -> f DescribeNetworkInterfaces
+dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
 dnisNetworkInterfaceIds f x =
-    (\y -> x { _dnisNetworkInterfaceIds = y })
-       <$> f (_dnisNetworkInterfaceIds x)
+    f (_dnisNetworkInterfaceIds x) <&> \y -> x { _dnisNetworkInterfaceIds = y }
 {-# INLINE dnisNetworkInterfaceIds #-}
 
 instance ToQuery DescribeNetworkInterfaces where
@@ -261,15 +250,9 @@ data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more network interfaces.
-dnitNetworkInterfaces
-    :: Functor f
-    => ([NetworkInterface]
-    -> f ([NetworkInterface]))
-    -> DescribeNetworkInterfacesResponse
-    -> f DescribeNetworkInterfacesResponse
+dnitNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnitNetworkInterfaces f x =
-    (\y -> x { _dnitNetworkInterfaces = y })
-       <$> f (_dnitNetworkInterfaces x)
+    f (_dnitNetworkInterfaces x) <&> \y -> x { _dnitNetworkInterfaces = y }
 {-# INLINE dnitNetworkInterfaces #-}
 
 instance FromXML DescribeNetworkInterfacesResponse where

@@ -105,6 +105,7 @@ registerImage p1 = RegisterImage
     , _rivVirtualizationType = Nothing
     , _rivSriovNetSupport = Nothing
     }
+{-# INLINE registerImage #-}
 
 data RegisterImage = RegisterImage
     { _rivName :: Text
@@ -139,113 +140,59 @@ data RegisterImage = RegisterImage
 
 -- | A name for your AMI. Constraints: 3-128 alphanumeric characters,
 -- parenthesis (()), commas (,), slashes (/), dashes (-), or underscores (_).
-rivName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivName :: Lens' RegisterImage Text
 rivName f x =
-    (\y -> x { _rivName = y })
-       <$> f (_rivName x)
+    f (_rivName x) <&> \y -> x { _rivName = y }
 {-# INLINE rivName #-}
 
 -- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386. For
 -- instance store-backed AMIs, the architecture specified in the manifest
 -- file.
-rivArchitecture
-    :: Functor f
-    => (Maybe ArchitectureValues
-    -> f (Maybe ArchitectureValues))
-    -> RegisterImage
-    -> f RegisterImage
+rivArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 rivArchitecture f x =
-    (\y -> x { _rivArchitecture = y })
-       <$> f (_rivArchitecture x)
+    f (_rivArchitecture x) <&> \y -> x { _rivArchitecture = y }
 {-# INLINE rivArchitecture #-}
 
 -- | One or more block device mapping entries.
-rivBlockDeviceMappings
-    :: Functor f
-    => ([BlockDeviceMapping]
-    -> f ([BlockDeviceMapping]))
-    -> RegisterImage
-    -> f RegisterImage
+rivBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 rivBlockDeviceMappings f x =
-    (\y -> x { _rivBlockDeviceMappings = y })
-       <$> f (_rivBlockDeviceMappings x)
+    f (_rivBlockDeviceMappings x) <&> \y -> x { _rivBlockDeviceMappings = y }
 {-# INLINE rivBlockDeviceMappings #-}
 
 -- | The full path to your AMI manifest in Amazon S3 storage.
-rivImageLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivImageLocation :: Lens' RegisterImage (Maybe Text)
 rivImageLocation f x =
-    (\y -> x { _rivImageLocation = y })
-       <$> f (_rivImageLocation x)
+    f (_rivImageLocation x) <&> \y -> x { _rivImageLocation = y }
 {-# INLINE rivImageLocation #-}
 
 -- | A description for your AMI.
-rivDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivDescription :: Lens' RegisterImage (Maybe Text)
 rivDescription f x =
-    (\y -> x { _rivDescription = y })
-       <$> f (_rivDescription x)
+    f (_rivDescription x) <&> \y -> x { _rivDescription = y }
 {-# INLINE rivDescription #-}
 
 -- | The ID of the kernel.
-rivKernelId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivKernelId :: Lens' RegisterImage (Maybe Text)
 rivKernelId f x =
-    (\y -> x { _rivKernelId = y })
-       <$> f (_rivKernelId x)
+    f (_rivKernelId x) <&> \y -> x { _rivKernelId = y }
 {-# INLINE rivKernelId #-}
 
 -- | The ID of the RAM disk.
-rivRamdiskId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivRamdiskId :: Lens' RegisterImage (Maybe Text)
 rivRamdiskId f x =
-    (\y -> x { _rivRamdiskId = y })
-       <$> f (_rivRamdiskId x)
+    f (_rivRamdiskId x) <&> \y -> x { _rivRamdiskId = y }
 {-# INLINE rivRamdiskId #-}
 
 -- | The name of the root device (for example, /dev/sda1, or xvda).
-rivRootDeviceName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivRootDeviceName :: Lens' RegisterImage (Maybe Text)
 rivRootDeviceName f x =
-    (\y -> x { _rivRootDeviceName = y })
-       <$> f (_rivRootDeviceName x)
+    f (_rivRootDeviceName x) <&> \y -> x { _rivRootDeviceName = y }
 {-# INLINE rivRootDeviceName #-}
 
 -- | The type of virtualization.
-rivVirtualizationType
-    :: Functor f
-    => (Maybe VirtualizationType
-    -> f (Maybe VirtualizationType))
-    -> RegisterImage
-    -> f RegisterImage
+rivVirtualizationType :: Lens' RegisterImage (Maybe VirtualizationType)
 rivVirtualizationType f x =
-    (\y -> x { _rivVirtualizationType = y })
-       <$> f (_rivVirtualizationType x)
+    f (_rivVirtualizationType x) <&> \y -> x { _rivVirtualizationType = y }
 {-# INLINE rivVirtualizationType #-}
 
 -- | Set to simple to enable enhanced networking for the AMI and any instances
@@ -253,15 +200,9 @@ rivVirtualizationType f x =
 -- networking at this time. This option is supported only for HVM AMIs.
 -- Specifying this option with a PV AMI can make instances launched from the
 -- AMI unreachable.
-rivSriovNetSupport
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImage
-    -> f RegisterImage
+rivSriovNetSupport :: Lens' RegisterImage (Maybe Text)
 rivSriovNetSupport f x =
-    (\y -> x { _rivSriovNetSupport = y })
-       <$> f (_rivSriovNetSupport x)
+    f (_rivSriovNetSupport x) <&> \y -> x { _rivSriovNetSupport = y }
 {-# INLINE rivSriovNetSupport #-}
 
 instance ToQuery RegisterImage where
@@ -273,15 +214,9 @@ data RegisterImageResponse = RegisterImageResponse
     } deriving (Show, Generic)
 
 -- | The ID of the newly registered AMI.
-riwImageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> RegisterImageResponse
-    -> f RegisterImageResponse
+riwImageId :: Lens' RegisterImageResponse (Maybe Text)
 riwImageId f x =
-    (\y -> x { _riwImageId = y })
-       <$> f (_riwImageId x)
+    f (_riwImageId x) <&> \y -> x { _riwImageId = y }
 {-# INLINE riwImageId #-}
 
 instance FromXML RegisterImageResponse where

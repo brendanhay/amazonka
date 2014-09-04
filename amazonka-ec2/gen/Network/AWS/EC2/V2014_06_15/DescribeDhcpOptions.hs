@@ -68,6 +68,7 @@ describeDhcpOptions = DescribeDhcpOptions
     { _ddosDhcpOptionsIds = mempty
     , _ddosFilters = mempty
     }
+{-# INLINE describeDhcpOptions #-}
 
 data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddosDhcpOptionsIds :: [Text]
@@ -91,15 +92,9 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 
 -- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
 -- options sets.
-ddosDhcpOptionsIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeDhcpOptions
-    -> f DescribeDhcpOptions
+ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
 ddosDhcpOptionsIds f x =
-    (\y -> x { _ddosDhcpOptionsIds = y })
-       <$> f (_ddosDhcpOptionsIds x)
+    f (_ddosDhcpOptionsIds x) <&> \y -> x { _ddosDhcpOptionsIds = y }
 {-# INLINE ddosDhcpOptionsIds #-}
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
@@ -113,15 +108,9 @@ ddosDhcpOptionsIds f x =
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-ddosFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeDhcpOptions
-    -> f DescribeDhcpOptions
+ddosFilters :: Lens' DescribeDhcpOptions [Filter]
 ddosFilters f x =
-    (\y -> x { _ddosFilters = y })
-       <$> f (_ddosFilters x)
+    f (_ddosFilters x) <&> \y -> x { _ddosFilters = y }
 {-# INLINE ddosFilters #-}
 
 instance ToQuery DescribeDhcpOptions where
@@ -133,15 +122,9 @@ data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more DHCP options sets.
-ddotDhcpOptions
-    :: Functor f
-    => ([DhcpOptions]
-    -> f ([DhcpOptions]))
-    -> DescribeDhcpOptionsResponse
-    -> f DescribeDhcpOptionsResponse
+ddotDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddotDhcpOptions f x =
-    (\y -> x { _ddotDhcpOptions = y })
-       <$> f (_ddotDhcpOptions x)
+    f (_ddotDhcpOptions x) <&> \y -> x { _ddotDhcpOptions = y }
 {-# INLINE ddotDhcpOptions #-}
 
 instance FromXML DescribeDhcpOptionsResponse where

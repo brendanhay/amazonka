@@ -76,6 +76,7 @@ describeImages = DescribeImages
     , _disImageIds = mempty
     , _disOwners = mempty
     }
+{-# INLINE describeImages #-}
 
 data DescribeImages = DescribeImages
     { _disExecutableUsers :: [Text]
@@ -133,15 +134,9 @@ data DescribeImages = DescribeImages
 
 -- | Scopes the images by users with explicit launch permissions. Specify an AWS
 -- account ID, self (the sender of the request), or all (public AMIs).
-disExecutableUsers
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeImages
-    -> f DescribeImages
+disExecutableUsers :: Lens' DescribeImages [Text]
 disExecutableUsers f x =
-    (\y -> x { _disExecutableUsers = y })
-       <$> f (_disExecutableUsers x)
+    f (_disExecutableUsers x) <&> \y -> x { _disExecutableUsers = y }
 {-# INLINE disExecutableUsers #-}
 
 -- | One or more filters. architecture - The image architecture (i386 | x86_64).
@@ -177,41 +172,23 @@ disExecutableUsers f x =
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. virtualization-type - The
 -- virtualization type (paravirtual | hvm).
-disFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeImages
-    -> f DescribeImages
+disFilters :: Lens' DescribeImages [Filter]
 disFilters f x =
-    (\y -> x { _disFilters = y })
-       <$> f (_disFilters x)
+    f (_disFilters x) <&> \y -> x { _disFilters = y }
 {-# INLINE disFilters #-}
 
 -- | One or more image IDs. Default: Describes all images available to you.
-disImageIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeImages
-    -> f DescribeImages
+disImageIds :: Lens' DescribeImages [Text]
 disImageIds f x =
-    (\y -> x { _disImageIds = y })
-       <$> f (_disImageIds x)
+    f (_disImageIds x) <&> \y -> x { _disImageIds = y }
 {-# INLINE disImageIds #-}
 
 -- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
 -- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the
 -- sender of the request), or all (all owners).
-disOwners
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeImages
-    -> f DescribeImages
+disOwners :: Lens' DescribeImages [Text]
 disOwners f x =
-    (\y -> x { _disOwners = y })
-       <$> f (_disOwners x)
+    f (_disOwners x) <&> \y -> x { _disOwners = y }
 {-# INLINE disOwners #-}
 
 instance ToQuery DescribeImages where
@@ -223,15 +200,9 @@ data DescribeImagesResponse = DescribeImagesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more images.
-ditImages
-    :: Functor f
-    => ([Image]
-    -> f ([Image]))
-    -> DescribeImagesResponse
-    -> f DescribeImagesResponse
+ditImages :: Lens' DescribeImagesResponse [Image]
 ditImages f x =
-    (\y -> x { _ditImages = y })
-       <$> f (_ditImages x)
+    f (_ditImages x) <&> \y -> x { _ditImages = y }
 {-# INLINE ditImages #-}
 
 instance FromXML DescribeImagesResponse where

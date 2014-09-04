@@ -86,6 +86,7 @@ attachVolume p1 p2 p3 = AttachVolume
     , _avrInstanceId = p2
     , _avrDevice = p3
     }
+{-# INLINE attachVolume #-}
 
 data AttachVolume = AttachVolume
     { _avrVolumeId :: Text
@@ -100,39 +101,21 @@ data AttachVolume = AttachVolume
 
 -- | The ID of the Amazon EBS volume. The volume and instance must be within the
 -- same Availability Zone.
-avrVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachVolume
-    -> f AttachVolume
+avrVolumeId :: Lens' AttachVolume Text
 avrVolumeId f x =
-    (\y -> x { _avrVolumeId = y })
-       <$> f (_avrVolumeId x)
+    f (_avrVolumeId x) <&> \y -> x { _avrVolumeId = y }
 {-# INLINE avrVolumeId #-}
 
 -- | The ID of the instance.
-avrInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachVolume
-    -> f AttachVolume
+avrInstanceId :: Lens' AttachVolume Text
 avrInstanceId f x =
-    (\y -> x { _avrInstanceId = y })
-       <$> f (_avrInstanceId x)
+    f (_avrInstanceId x) <&> \y -> x { _avrInstanceId = y }
 {-# INLINE avrInstanceId #-}
 
 -- | The device name to expose to the instance (for example, /dev/sdh or xvdh).
-avrDevice
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachVolume
-    -> f AttachVolume
+avrDevice :: Lens' AttachVolume Text
 avrDevice f x =
-    (\y -> x { _avrDevice = y })
-       <$> f (_avrDevice x)
+    f (_avrDevice x) <&> \y -> x { _avrDevice = y }
 {-# INLINE avrDevice #-}
 
 instance ToQuery AttachVolume where
@@ -155,75 +138,39 @@ data AttachVolumeResponse = AttachVolumeResponse
     } deriving (Show, Generic)
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-vaDeleteOnTermination
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> AttachVolumeResponse
-    -> f AttachVolumeResponse
+vaDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
 vaDeleteOnTermination f x =
-    (\y -> x { _vaDeleteOnTermination = y })
-       <$> f (_vaDeleteOnTermination x)
+    f (_vaDeleteOnTermination x) <&> \y -> x { _vaDeleteOnTermination = y }
 {-# INLINE vaDeleteOnTermination #-}
 
 -- | The time stamp when the attachment initiated.
-vaAttachTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> AttachVolumeResponse
-    -> f AttachVolumeResponse
+vaAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
 vaAttachTime f x =
-    (\y -> x { _vaAttachTime = y })
-       <$> f (_vaAttachTime x)
+    f (_vaAttachTime x) <&> \y -> x { _vaAttachTime = y }
 {-# INLINE vaAttachTime #-}
 
 -- | The ID of the volume.
-vaVolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AttachVolumeResponse
-    -> f AttachVolumeResponse
+vaVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 vaVolumeId f x =
-    (\y -> x { _vaVolumeId = y })
-       <$> f (_vaVolumeId x)
+    f (_vaVolumeId x) <&> \y -> x { _vaVolumeId = y }
 {-# INLINE vaVolumeId #-}
 
 -- | The ID of the instance.
-vaInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AttachVolumeResponse
-    -> f AttachVolumeResponse
+vaInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
 vaInstanceId f x =
-    (\y -> x { _vaInstanceId = y })
-       <$> f (_vaInstanceId x)
+    f (_vaInstanceId x) <&> \y -> x { _vaInstanceId = y }
 {-# INLINE vaInstanceId #-}
 
 -- | The device name.
-vaDevice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AttachVolumeResponse
-    -> f AttachVolumeResponse
+vaDevice :: Lens' AttachVolumeResponse (Maybe Text)
 vaDevice f x =
-    (\y -> x { _vaDevice = y })
-       <$> f (_vaDevice x)
+    f (_vaDevice x) <&> \y -> x { _vaDevice = y }
 {-# INLINE vaDevice #-}
 
 -- | The attachment state of the volume.
-vaState
-    :: Functor f
-    => (Maybe VolumeAttachmentState
-    -> f (Maybe VolumeAttachmentState))
-    -> AttachVolumeResponse
-    -> f AttachVolumeResponse
+vaState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
 vaState f x =
-    (\y -> x { _vaState = y })
-       <$> f (_vaState x)
+    f (_vaState x) <&> \y -> x { _vaState = y }
 {-# INLINE vaState #-}
 
 instance FromXML AttachVolumeResponse where

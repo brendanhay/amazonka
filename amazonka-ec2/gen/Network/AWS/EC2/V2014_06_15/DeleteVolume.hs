@@ -50,6 +50,7 @@ deleteVolume :: Text -- ^ 'dvrVolumeId'
 deleteVolume p1 = DeleteVolume
     { _dvrVolumeId = p1
     }
+{-# INLINE deleteVolume #-}
 
 data DeleteVolume = DeleteVolume
     { _dvrVolumeId :: Text
@@ -57,15 +58,9 @@ data DeleteVolume = DeleteVolume
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvrVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVolume
-    -> f DeleteVolume
+dvrVolumeId :: Lens' DeleteVolume Text
 dvrVolumeId f x =
-    (\y -> x { _dvrVolumeId = y })
-       <$> f (_dvrVolumeId x)
+    f (_dvrVolumeId x) <&> \y -> x { _dvrVolumeId = y }
 {-# INLINE dvrVolumeId #-}
 
 instance ToQuery DeleteVolume where

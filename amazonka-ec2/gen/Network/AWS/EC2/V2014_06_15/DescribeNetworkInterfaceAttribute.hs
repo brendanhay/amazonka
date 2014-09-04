@@ -60,6 +60,7 @@ describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId = p1
     , _dniarAttribute = Nothing
     }
+{-# INLINE describeNetworkInterfaceAttribute #-}
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId :: Text
@@ -69,27 +70,15 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-dniarNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeNetworkInterfaceAttribute
-    -> f DescribeNetworkInterfaceAttribute
+dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniarNetworkInterfaceId f x =
-    (\y -> x { _dniarNetworkInterfaceId = y })
-       <$> f (_dniarNetworkInterfaceId x)
+    f (_dniarNetworkInterfaceId x) <&> \y -> x { _dniarNetworkInterfaceId = y }
 {-# INLINE dniarNetworkInterfaceId #-}
 
 -- | The attribute of the network interface.
-dniarAttribute
-    :: Functor f
-    => (Maybe NetworkInterfaceAttribute
-    -> f (Maybe NetworkInterfaceAttribute))
-    -> DescribeNetworkInterfaceAttribute
-    -> f DescribeNetworkInterfaceAttribute
+dniarAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniarAttribute f x =
-    (\y -> x { _dniarAttribute = y })
-       <$> f (_dniarAttribute x)
+    f (_dniarAttribute x) <&> \y -> x { _dniarAttribute = y }
 {-# INLINE dniarAttribute #-}
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
@@ -109,63 +98,33 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     } deriving (Show, Generic)
 
 -- | Indicates whether source/destination checking is enabled.
-dniasSourceDestCheck
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeNetworkInterfaceAttributeResponse
-    -> f DescribeNetworkInterfaceAttributeResponse
+dniasSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniasSourceDestCheck f x =
-    (\y -> x { _dniasSourceDestCheck = y })
-       <$> f (_dniasSourceDestCheck x)
+    f (_dniasSourceDestCheck x) <&> \y -> x { _dniasSourceDestCheck = y }
 {-# INLINE dniasSourceDestCheck #-}
 
 -- | The description of the network interface.
-dniasDescription
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeNetworkInterfaceAttributeResponse
-    -> f DescribeNetworkInterfaceAttributeResponse
+dniasDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniasDescription f x =
-    (\y -> x { _dniasDescription = y })
-       <$> f (_dniasDescription x)
+    f (_dniasDescription x) <&> \y -> x { _dniasDescription = y }
 {-# INLINE dniasDescription #-}
 
 -- | The security groups associated with the network interface.
-dniasGroups
-    :: Functor f
-    => ([GroupIdentifier]
-    -> f ([GroupIdentifier]))
-    -> DescribeNetworkInterfaceAttributeResponse
-    -> f DescribeNetworkInterfaceAttributeResponse
+dniasGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
 dniasGroups f x =
-    (\y -> x { _dniasGroups = y })
-       <$> f (_dniasGroups x)
+    f (_dniasGroups x) <&> \y -> x { _dniasGroups = y }
 {-# INLINE dniasGroups #-}
 
 -- | The attachment (if any) of the network interface.
-dniasAttachment
-    :: Functor f
-    => (Maybe NetworkInterfaceAttachment
-    -> f (Maybe NetworkInterfaceAttachment))
-    -> DescribeNetworkInterfaceAttributeResponse
-    -> f DescribeNetworkInterfaceAttributeResponse
+dniasAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
 dniasAttachment f x =
-    (\y -> x { _dniasAttachment = y })
-       <$> f (_dniasAttachment x)
+    f (_dniasAttachment x) <&> \y -> x { _dniasAttachment = y }
 {-# INLINE dniasAttachment #-}
 
 -- | The ID of the network interface.
-dniasNetworkInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeNetworkInterfaceAttributeResponse
-    -> f DescribeNetworkInterfaceAttributeResponse
+dniasNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
 dniasNetworkInterfaceId f x =
-    (\y -> x { _dniasNetworkInterfaceId = y })
-       <$> f (_dniasNetworkInterfaceId x)
+    f (_dniasNetworkInterfaceId x) <&> \y -> x { _dniasNetworkInterfaceId = y }
 {-# INLINE dniasNetworkInterfaceId #-}
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where

@@ -78,6 +78,7 @@ createVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcrPeerVpcId = Nothing
     , _cvpcrPeerOwnerId = Nothing
     }
+{-# INLINE createVpcPeeringConnection #-}
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcrVpcId :: Maybe Text
@@ -91,40 +92,22 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | The ID of the requester VPC.
-cvpcrVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateVpcPeeringConnection
-    -> f CreateVpcPeeringConnection
+cvpcrVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcrVpcId f x =
-    (\y -> x { _cvpcrVpcId = y })
-       <$> f (_cvpcrVpcId x)
+    f (_cvpcrVpcId x) <&> \y -> x { _cvpcrVpcId = y }
 {-# INLINE cvpcrVpcId #-}
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
-cvpcrPeerVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateVpcPeeringConnection
-    -> f CreateVpcPeeringConnection
+cvpcrPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcrPeerVpcId f x =
-    (\y -> x { _cvpcrPeerVpcId = y })
-       <$> f (_cvpcrPeerVpcId x)
+    f (_cvpcrPeerVpcId x) <&> \y -> x { _cvpcrPeerVpcId = y }
 {-# INLINE cvpcrPeerVpcId #-}
 
 -- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
 -- ID.
-cvpcrPeerOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateVpcPeeringConnection
-    -> f CreateVpcPeeringConnection
+cvpcrPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcrPeerOwnerId f x =
-    (\y -> x { _cvpcrPeerOwnerId = y })
-       <$> f (_cvpcrPeerOwnerId x)
+    f (_cvpcrPeerOwnerId x) <&> \y -> x { _cvpcrPeerOwnerId = y }
 {-# INLINE cvpcrPeerOwnerId #-}
 
 instance ToQuery CreateVpcPeeringConnection where
@@ -136,15 +119,9 @@ data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
-cvpcsVpcPeeringConnection
-    :: Functor f
-    => (Maybe VpcPeeringConnection
-    -> f (Maybe VpcPeeringConnection))
-    -> CreateVpcPeeringConnectionResponse
-    -> f CreateVpcPeeringConnectionResponse
+cvpcsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 cvpcsVpcPeeringConnection f x =
-    (\y -> x { _cvpcsVpcPeeringConnection = y })
-       <$> f (_cvpcsVpcPeeringConnection x)
+    f (_cvpcsVpcPeeringConnection x) <&> \y -> x { _cvpcsVpcPeeringConnection = y }
 {-# INLINE cvpcsVpcPeeringConnection #-}
 
 instance FromXML CreateVpcPeeringConnectionResponse where

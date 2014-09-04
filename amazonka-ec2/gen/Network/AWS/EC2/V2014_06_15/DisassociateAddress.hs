@@ -52,6 +52,7 @@ disassociateAddress = DisassociateAddress
     { _datPublicIp = Nothing
     , _datAssociationId = Nothing
     }
+{-# INLINE disassociateAddress #-}
 
 data DisassociateAddress = DisassociateAddress
     { _datPublicIp :: Maybe Text
@@ -61,27 +62,15 @@ data DisassociateAddress = DisassociateAddress
     } deriving (Show, Generic)
 
 -- | [EC2-Classic] The Elastic IP address.
-datPublicIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DisassociateAddress
-    -> f DisassociateAddress
+datPublicIp :: Lens' DisassociateAddress (Maybe Text)
 datPublicIp f x =
-    (\y -> x { _datPublicIp = y })
-       <$> f (_datPublicIp x)
+    f (_datPublicIp x) <&> \y -> x { _datPublicIp = y }
 {-# INLINE datPublicIp #-}
 
 -- | [EC2-VPC] The association ID.
-datAssociationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DisassociateAddress
-    -> f DisassociateAddress
+datAssociationId :: Lens' DisassociateAddress (Maybe Text)
 datAssociationId f x =
-    (\y -> x { _datAssociationId = y })
-       <$> f (_datAssociationId x)
+    f (_datAssociationId x) <&> \y -> x { _datAssociationId = y }
 {-# INLINE datAssociationId #-}
 
 instance ToQuery DisassociateAddress where

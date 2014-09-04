@@ -78,6 +78,7 @@ modifySnapshotAttribute p1 = ModifySnapshotAttribute
     , _msarUserIds = mempty
     , _msarOperationType = Nothing
     }
+{-# INLINE modifySnapshotAttribute #-}
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msarSnapshotId :: Text
@@ -95,75 +96,39 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the snapshot.
-msarSnapshotId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifySnapshotAttribute
-    -> f ModifySnapshotAttribute
+msarSnapshotId :: Lens' ModifySnapshotAttribute Text
 msarSnapshotId f x =
-    (\y -> x { _msarSnapshotId = y })
-       <$> f (_msarSnapshotId x)
+    f (_msarSnapshotId x) <&> \y -> x { _msarSnapshotId = y }
 {-# INLINE msarSnapshotId #-}
 
 -- | A JSON representation of the snapshot attribute modification.
-msarCreateVolumePermission
-    :: Functor f
-    => (Maybe CreateVolumePermissionModifications
-    -> f (Maybe CreateVolumePermissionModifications))
-    -> ModifySnapshotAttribute
-    -> f ModifySnapshotAttribute
+msarCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
 msarCreateVolumePermission f x =
-    (\y -> x { _msarCreateVolumePermission = y })
-       <$> f (_msarCreateVolumePermission x)
+    f (_msarCreateVolumePermission x) <&> \y -> x { _msarCreateVolumePermission = y }
 {-# INLINE msarCreateVolumePermission #-}
 
 -- | The group to modify for the snapshot.
-msarGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifySnapshotAttribute
-    -> f ModifySnapshotAttribute
+msarGroupNames :: Lens' ModifySnapshotAttribute [Text]
 msarGroupNames f x =
-    (\y -> x { _msarGroupNames = y })
-       <$> f (_msarGroupNames x)
+    f (_msarGroupNames x) <&> \y -> x { _msarGroupNames = y }
 {-# INLINE msarGroupNames #-}
 
 -- | The snapshot attribute to modify.
-msarAttribute
-    :: Functor f
-    => (Maybe SnapshotAttributeName
-    -> f (Maybe SnapshotAttributeName))
-    -> ModifySnapshotAttribute
-    -> f ModifySnapshotAttribute
+msarAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msarAttribute f x =
-    (\y -> x { _msarAttribute = y })
-       <$> f (_msarAttribute x)
+    f (_msarAttribute x) <&> \y -> x { _msarAttribute = y }
 {-# INLINE msarAttribute #-}
 
 -- | The account ID to modify for the snapshot.
-msarUserIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifySnapshotAttribute
-    -> f ModifySnapshotAttribute
+msarUserIds :: Lens' ModifySnapshotAttribute [Text]
 msarUserIds f x =
-    (\y -> x { _msarUserIds = y })
-       <$> f (_msarUserIds x)
+    f (_msarUserIds x) <&> \y -> x { _msarUserIds = y }
 {-# INLINE msarUserIds #-}
 
 -- | The type of operation to perform to the attribute.
-msarOperationType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifySnapshotAttribute
-    -> f ModifySnapshotAttribute
+msarOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
 msarOperationType f x =
-    (\y -> x { _msarOperationType = y })
-       <$> f (_msarOperationType x)
+    f (_msarOperationType x) <&> \y -> x { _msarOperationType = y }
 {-# INLINE msarOperationType #-}
 
 instance ToQuery ModifySnapshotAttribute where

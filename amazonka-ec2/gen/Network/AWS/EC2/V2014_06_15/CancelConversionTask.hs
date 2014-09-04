@@ -53,6 +53,7 @@ cancelConversionTask p1 = CancelConversionTask
     { _ccrConversionTaskId = p1
     , _ccrReasonMessage = Nothing
     }
+{-# INLINE cancelConversionTask #-}
 
 data CancelConversionTask = CancelConversionTask
     { _ccrConversionTaskId :: Text
@@ -62,27 +63,15 @@ data CancelConversionTask = CancelConversionTask
     } deriving (Show, Generic)
 
 -- | The ID of the conversion task.
-ccrConversionTaskId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CancelConversionTask
-    -> f CancelConversionTask
+ccrConversionTaskId :: Lens' CancelConversionTask Text
 ccrConversionTaskId f x =
-    (\y -> x { _ccrConversionTaskId = y })
-       <$> f (_ccrConversionTaskId x)
+    f (_ccrConversionTaskId x) <&> \y -> x { _ccrConversionTaskId = y }
 {-# INLINE ccrConversionTaskId #-}
 
 -- | 
-ccrReasonMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CancelConversionTask
-    -> f CancelConversionTask
+ccrReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 ccrReasonMessage f x =
-    (\y -> x { _ccrReasonMessage = y })
-       <$> f (_ccrReasonMessage x)
+    f (_ccrReasonMessage x) <&> \y -> x { _ccrReasonMessage = y }
 {-# INLINE ccrReasonMessage #-}
 
 instance ToQuery CancelConversionTask where

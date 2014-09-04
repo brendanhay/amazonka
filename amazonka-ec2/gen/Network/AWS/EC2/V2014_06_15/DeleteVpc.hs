@@ -51,6 +51,7 @@ deleteVpc :: Text -- ^ 'dvsVpcId'
 deleteVpc p1 = DeleteVpc
     { _dvsVpcId = p1
     }
+{-# INLINE deleteVpc #-}
 
 data DeleteVpc = DeleteVpc
     { _dvsVpcId :: Text
@@ -58,15 +59,9 @@ data DeleteVpc = DeleteVpc
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-dvsVpcId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVpc
-    -> f DeleteVpc
+dvsVpcId :: Lens' DeleteVpc Text
 dvsVpcId f x =
-    (\y -> x { _dvsVpcId = y })
-       <$> f (_dvsVpcId x)
+    f (_dvsVpcId x) <&> \y -> x { _dvsVpcId = y }
 {-# INLINE dvsVpcId #-}
 
 instance ToQuery DeleteVpc where

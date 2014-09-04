@@ -63,6 +63,7 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
     { _diarAttribute = p1
     , _diarImageId = p2
     }
+{-# INLINE describeImageAttribute #-}
 
 data DescribeImageAttribute = DescribeImageAttribute
     { _diarAttribute :: ImageAttributeName
@@ -72,27 +73,15 @@ data DescribeImageAttribute = DescribeImageAttribute
     } deriving (Show, Generic)
 
 -- | The AMI attribute.
-diarAttribute
-    :: Functor f
-    => (ImageAttributeName
-    -> f (ImageAttributeName))
-    -> DescribeImageAttribute
-    -> f DescribeImageAttribute
+diarAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diarAttribute f x =
-    (\y -> x { _diarAttribute = y })
-       <$> f (_diarAttribute x)
+    f (_diarAttribute x) <&> \y -> x { _diarAttribute = y }
 {-# INLINE diarAttribute #-}
 
 -- | The ID of the AMI.
-diarImageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeImageAttribute
-    -> f DescribeImageAttribute
+diarImageId :: Lens' DescribeImageAttribute Text
 diarImageId f x =
-    (\y -> x { _diarImageId = y })
-       <$> f (_diarImageId x)
+    f (_diarImageId x) <&> \y -> x { _diarImageId = y }
 {-# INLINE diarImageId #-}
 
 instance ToQuery DescribeImageAttribute where
@@ -118,99 +107,51 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     } deriving (Show, Generic)
 
 -- | The kernel ID.
-iaKernelId
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaKernelId f x =
-    (\y -> x { _iaKernelId = y })
-       <$> f (_iaKernelId x)
+    f (_iaKernelId x) <&> \y -> x { _iaKernelId = y }
 {-# INLINE iaKernelId #-}
 
 -- | The RAM disk ID.
-iaRamdiskId
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaRamdiskId f x =
-    (\y -> x { _iaRamdiskId = y })
-       <$> f (_iaRamdiskId x)
+    f (_iaRamdiskId x) <&> \y -> x { _iaRamdiskId = y }
 {-# INLINE iaRamdiskId #-}
 
 -- | A description for the AMI.
-iaDescription
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaDescription f x =
-    (\y -> x { _iaDescription = y })
-       <$> f (_iaDescription x)
+    f (_iaDescription x) <&> \y -> x { _iaDescription = y }
 {-# INLINE iaDescription #-}
 
 -- | 
-iaSriovNetSupport
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaSriovNetSupport f x =
-    (\y -> x { _iaSriovNetSupport = y })
-       <$> f (_iaSriovNetSupport x)
+    f (_iaSriovNetSupport x) <&> \y -> x { _iaSriovNetSupport = y }
 {-# INLINE iaSriovNetSupport #-}
 
 -- | One or more block device mapping entries.
-iaBlockDeviceMappings
-    :: Functor f
-    => ([BlockDeviceMapping]
-    -> f ([BlockDeviceMapping]))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
 iaBlockDeviceMappings f x =
-    (\y -> x { _iaBlockDeviceMappings = y })
-       <$> f (_iaBlockDeviceMappings x)
+    f (_iaBlockDeviceMappings x) <&> \y -> x { _iaBlockDeviceMappings = y }
 {-# INLINE iaBlockDeviceMappings #-}
 
 -- | One or more launch permissions.
-iaLaunchPermissions
-    :: Functor f
-    => ([LaunchPermission]
-    -> f ([LaunchPermission]))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
 iaLaunchPermissions f x =
-    (\y -> x { _iaLaunchPermissions = y })
-       <$> f (_iaLaunchPermissions x)
+    f (_iaLaunchPermissions x) <&> \y -> x { _iaLaunchPermissions = y }
 {-# INLINE iaLaunchPermissions #-}
 
 -- | One or more product codes.
-iaProductCodes
-    :: Functor f
-    => ([ProductCode]
-    -> f ([ProductCode]))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
 iaProductCodes f x =
-    (\y -> x { _iaProductCodes = y })
-       <$> f (_iaProductCodes x)
+    f (_iaProductCodes x) <&> \y -> x { _iaProductCodes = y }
 {-# INLINE iaProductCodes #-}
 
 -- | The ID of the AMI.
-iaImageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeImageAttributeResponse
-    -> f DescribeImageAttributeResponse
+iaImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 iaImageId f x =
-    (\y -> x { _iaImageId = y })
-       <$> f (_iaImageId x)
+    f (_iaImageId x) <&> \y -> x { _iaImageId = y }
 {-# INLINE iaImageId #-}
 
 instance FromXML DescribeImageAttributeResponse where

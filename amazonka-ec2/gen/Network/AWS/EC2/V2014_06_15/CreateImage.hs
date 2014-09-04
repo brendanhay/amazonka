@@ -65,6 +65,7 @@ createImage p1 p2 = CreateImage
     , _citNoReboot = Nothing
     , _citDescription = Nothing
     }
+{-# INLINE createImage #-}
 
 data CreateImage = CreateImage
     { _citInstanceId :: Text
@@ -87,40 +88,22 @@ data CreateImage = CreateImage
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-citInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateImage
-    -> f CreateImage
+citInstanceId :: Lens' CreateImage Text
 citInstanceId f x =
-    (\y -> x { _citInstanceId = y })
-       <$> f (_citInstanceId x)
+    f (_citInstanceId x) <&> \y -> x { _citInstanceId = y }
 {-# INLINE citInstanceId #-}
 
 -- | A name for the new image. Constraints: 3-128 alphanumeric characters,
 -- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
-citName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateImage
-    -> f CreateImage
+citName :: Lens' CreateImage Text
 citName f x =
-    (\y -> x { _citName = y })
-       <$> f (_citName x)
+    f (_citName x) <&> \y -> x { _citName = y }
 {-# INLINE citName #-}
 
 -- | Information about one or more block device mappings.
-citBlockDeviceMappings
-    :: Functor f
-    => ([BlockDeviceMapping]
-    -> f ([BlockDeviceMapping]))
-    -> CreateImage
-    -> f CreateImage
+citBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
 citBlockDeviceMappings f x =
-    (\y -> x { _citBlockDeviceMappings = y })
-       <$> f (_citBlockDeviceMappings x)
+    f (_citBlockDeviceMappings x) <&> \y -> x { _citBlockDeviceMappings = y }
 {-# INLINE citBlockDeviceMappings #-}
 
 -- | By default, this parameter is set to false, which means Amazon EC2 attempts
@@ -128,27 +111,15 @@ citBlockDeviceMappings f x =
 -- the instance. When the parameter is set to true, Amazon EC2 doesn't shut
 -- down the instance before creating the image. When this option is used, file
 -- system integrity on the created image can't be guaranteed.
-citNoReboot
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateImage
-    -> f CreateImage
+citNoReboot :: Lens' CreateImage (Maybe Bool)
 citNoReboot f x =
-    (\y -> x { _citNoReboot = y })
-       <$> f (_citNoReboot x)
+    f (_citNoReboot x) <&> \y -> x { _citNoReboot = y }
 {-# INLINE citNoReboot #-}
 
 -- | A description for the new image.
-citDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateImage
-    -> f CreateImage
+citDescription :: Lens' CreateImage (Maybe Text)
 citDescription f x =
-    (\y -> x { _citDescription = y })
-       <$> f (_citDescription x)
+    f (_citDescription x) <&> \y -> x { _citDescription = y }
 {-# INLINE citDescription #-}
 
 instance ToQuery CreateImage where
@@ -160,15 +131,9 @@ data CreateImageResponse = CreateImageResponse
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
-ciuImageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateImageResponse
-    -> f CreateImageResponse
+ciuImageId :: Lens' CreateImageResponse (Maybe Text)
 ciuImageId f x =
-    (\y -> x { _ciuImageId = y })
-       <$> f (_ciuImageId x)
+    f (_ciuImageId x) <&> \y -> x { _ciuImageId = y }
 {-# INLINE ciuImageId #-}
 
 instance FromXML CreateImageResponse where

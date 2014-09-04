@@ -76,6 +76,7 @@ describeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpctFilters = mempty
     , _dvpctVpcPeeringConnectionIds = mempty
     }
+{-# INLINE describeVpcPeeringConnections #-}
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpctFilters :: [Filter]
@@ -128,28 +129,16 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-peering-connection-id - The ID of the VPC peering connection.
-dvpctFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeVpcPeeringConnections
-    -> f DescribeVpcPeeringConnections
+dvpctFilters :: Lens' DescribeVpcPeeringConnections [Filter]
 dvpctFilters f x =
-    (\y -> x { _dvpctFilters = y })
-       <$> f (_dvpctFilters x)
+    f (_dvpctFilters x) <&> \y -> x { _dvpctFilters = y }
 {-# INLINE dvpctFilters #-}
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
-dvpctVpcPeeringConnectionIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVpcPeeringConnections
-    -> f DescribeVpcPeeringConnections
+dvpctVpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
 dvpctVpcPeeringConnectionIds f x =
-    (\y -> x { _dvpctVpcPeeringConnectionIds = y })
-       <$> f (_dvpctVpcPeeringConnectionIds x)
+    f (_dvpctVpcPeeringConnectionIds x) <&> \y -> x { _dvpctVpcPeeringConnectionIds = y }
 {-# INLINE dvpctVpcPeeringConnectionIds #-}
 
 instance ToQuery DescribeVpcPeeringConnections where
@@ -161,15 +150,9 @@ data DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRespon
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connections.
-dvpcuVpcPeeringConnections
-    :: Functor f
-    => ([VpcPeeringConnection]
-    -> f ([VpcPeeringConnection]))
-    -> DescribeVpcPeeringConnectionsResponse
-    -> f DescribeVpcPeeringConnectionsResponse
+dvpcuVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
 dvpcuVpcPeeringConnections f x =
-    (\y -> x { _dvpcuVpcPeeringConnections = y })
-       <$> f (_dvpcuVpcPeeringConnections x)
+    f (_dvpcuVpcPeeringConnections x) <&> \y -> x { _dvpcuVpcPeeringConnections = y }
 {-# INLINE dvpcuVpcPeeringConnections #-}
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where

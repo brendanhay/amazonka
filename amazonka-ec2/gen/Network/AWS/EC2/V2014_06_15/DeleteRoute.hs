@@ -51,6 +51,7 @@ deleteRoute p1 p2 = DeleteRoute
     { _drrRouteTableId = p1
     , _drrDestinationCidrBlock = p2
     }
+{-# INLINE deleteRoute #-}
 
 data DeleteRoute = DeleteRoute
     { _drrRouteTableId :: Text
@@ -61,28 +62,16 @@ data DeleteRoute = DeleteRoute
     } deriving (Show, Generic)
 
 -- | The ID of the route table.
-drrRouteTableId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteRoute
-    -> f DeleteRoute
+drrRouteTableId :: Lens' DeleteRoute Text
 drrRouteTableId f x =
-    (\y -> x { _drrRouteTableId = y })
-       <$> f (_drrRouteTableId x)
+    f (_drrRouteTableId x) <&> \y -> x { _drrRouteTableId = y }
 {-# INLINE drrRouteTableId #-}
 
 -- | The CIDR range for the route. The value you specify must match the CIDR for
 -- the route exactly.
-drrDestinationCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteRoute
-    -> f DeleteRoute
+drrDestinationCidrBlock :: Lens' DeleteRoute Text
 drrDestinationCidrBlock f x =
-    (\y -> x { _drrDestinationCidrBlock = y })
-       <$> f (_drrDestinationCidrBlock x)
+    f (_drrDestinationCidrBlock x) <&> \y -> x { _drrDestinationCidrBlock = y }
 {-# INLINE drrDestinationCidrBlock #-}
 
 instance ToQuery DeleteRoute where

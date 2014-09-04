@@ -113,6 +113,7 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _driorAvailabilityZone = Nothing
     , _driorNextToken = Nothing
     }
+{-# INLINE describeReservedInstancesOfferings #-}
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _driorIncludeMarketplace :: Maybe Bool
@@ -166,15 +167,9 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     } deriving (Show, Generic)
 
 -- | Include Marketplace offerings in the response.
-driorIncludeMarketplace
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
 driorIncludeMarketplace f x =
-    (\y -> x { _driorIncludeMarketplace = y })
-       <$> f (_driorIncludeMarketplace x)
+    f (_driorIncludeMarketplace x) <&> \y -> x { _driorIncludeMarketplace = y }
 {-# INLINE driorIncludeMarketplace #-}
 
 -- | One or more filters. availability-zone - The Availability Zone where the
@@ -190,152 +185,80 @@ driorIncludeMarketplace f x =
 -- reserved-instances-offering-id - The Reserved Instances offering ID.
 -- usage-price - The usage price of the Reserved Instance, per hour (for
 -- example, 0.84).
-driorFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 driorFilters f x =
-    (\y -> x { _driorFilters = y })
-       <$> f (_driorFilters x)
+    f (_driorFilters x) <&> \y -> x { _driorFilters = y }
 {-# INLINE driorFilters #-}
 
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see Instance Types in the Amazon Elastic Compute Cloud User
 -- Guide.
-driorInstanceType
-    :: Functor f
-    => (Maybe InstanceType
-    -> f (Maybe InstanceType))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 driorInstanceType f x =
-    (\y -> x { _driorInstanceType = y })
-       <$> f (_driorInstanceType x)
+    f (_driorInstanceType x) <&> \y -> x { _driorInstanceType = y }
 {-# INLINE driorInstanceType #-}
 
 -- | The maximum number of offerings to return.
-driorMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMaxResults f x =
-    (\y -> x { _driorMaxResults = y })
-       <$> f (_driorMaxResults x)
+    f (_driorMaxResults x) <&> \y -> x { _driorMaxResults = y }
 {-# INLINE driorMaxResults #-}
 
 -- | The maximum number of instances to filter when searching for offerings.
-driorMaxInstanceCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMaxInstanceCount f x =
-    (\y -> x { _driorMaxInstanceCount = y })
-       <$> f (_driorMaxInstanceCount x)
+    f (_driorMaxInstanceCount x) <&> \y -> x { _driorMaxInstanceCount = y }
 {-# INLINE driorMaxInstanceCount #-}
 
 -- | The minimum duration (in seconds) to filter when searching for offerings.
-driorMinDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMinDuration f x =
-    (\y -> x { _driorMinDuration = y })
-       <$> f (_driorMinDuration x)
+    f (_driorMinDuration x) <&> \y -> x { _driorMinDuration = y }
 {-# INLINE driorMinDuration #-}
 
 -- | The maximum duration (in seconds) to filter when searching for offerings.
-driorMaxDuration
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMaxDuration f x =
-    (\y -> x { _driorMaxDuration = y })
-       <$> f (_driorMaxDuration x)
+    f (_driorMaxDuration x) <&> \y -> x { _driorMaxDuration = y }
 {-# INLINE driorMaxDuration #-}
 
 -- | The Reserved Instance offering type.
-driorOfferingType
-    :: Functor f
-    => (Maybe OfferingTypeValues
-    -> f (Maybe OfferingTypeValues))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 driorOfferingType f x =
-    (\y -> x { _driorOfferingType = y })
-       <$> f (_driorOfferingType x)
+    f (_driorOfferingType x) <&> \y -> x { _driorOfferingType = y }
 {-# INLINE driorOfferingType #-}
 
 -- | The Reserved Instance description. Instances that include (Amazon VPC) in
 -- the description are for use with Amazon VPC.
-driorProductDescription
-    :: Functor f
-    => (Maybe RIProductDescription
-    -> f (Maybe RIProductDescription))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 driorProductDescription f x =
-    (\y -> x { _driorProductDescription = y })
-       <$> f (_driorProductDescription x)
+    f (_driorProductDescription x) <&> \y -> x { _driorProductDescription = y }
 {-# INLINE driorProductDescription #-}
 
 -- | One or more Reserved Instances offering IDs.
-driorReservedInstancesOfferingIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
 driorReservedInstancesOfferingIds f x =
-    (\y -> x { _driorReservedInstancesOfferingIds = y })
-       <$> f (_driorReservedInstancesOfferingIds x)
+    f (_driorReservedInstancesOfferingIds x) <&> \y -> x { _driorReservedInstancesOfferingIds = y }
 {-# INLINE driorReservedInstancesOfferingIds #-}
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- dedicated tenancy runs on single-tenant hardware and can only be launched
 -- within a VPC. Default: default.
-driorInstanceTenancy
-    :: Functor f
-    => (Maybe Tenancy
-    -> f (Maybe Tenancy))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 driorInstanceTenancy f x =
-    (\y -> x { _driorInstanceTenancy = y })
-       <$> f (_driorInstanceTenancy x)
+    f (_driorInstanceTenancy x) <&> \y -> x { _driorInstanceTenancy = y }
 {-# INLINE driorInstanceTenancy #-}
 
 -- | The Availability Zone in which the Reserved Instance can be used.
-driorAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 driorAvailabilityZone f x =
-    (\y -> x { _driorAvailabilityZone = y })
-       <$> f (_driorAvailabilityZone x)
+    f (_driorAvailabilityZone x) <&> \y -> x { _driorAvailabilityZone = y }
 {-# INLINE driorAvailabilityZone #-}
 
 -- | The token to use when requesting the next paginated set of offerings.
-driorNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesOfferings
-    -> f DescribeReservedInstancesOfferings
+driorNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 driorNextToken f x =
-    (\y -> x { _driorNextToken = y })
-       <$> f (_driorNextToken x)
+    f (_driorNextToken x) <&> \y -> x { _driorNextToken = y }
 {-# INLINE driorNextToken #-}
 
 instance ToQuery DescribeReservedInstancesOfferings where
@@ -349,27 +272,15 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
     } deriving (Show, Generic)
 
 -- | A list of Reserved Instances offerings.
-driosReservedInstancesOfferings
-    :: Functor f
-    => ([ReservedInstancesOffering]
-    -> f ([ReservedInstancesOffering]))
-    -> DescribeReservedInstancesOfferingsResponse
-    -> f DescribeReservedInstancesOfferingsResponse
+driosReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
 driosReservedInstancesOfferings f x =
-    (\y -> x { _driosReservedInstancesOfferings = y })
-       <$> f (_driosReservedInstancesOfferings x)
+    f (_driosReservedInstancesOfferings x) <&> \y -> x { _driosReservedInstancesOfferings = y }
 {-# INLINE driosReservedInstancesOfferings #-}
 
 -- | The next paginated set of results to return.
-driosNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesOfferingsResponse
-    -> f DescribeReservedInstancesOfferingsResponse
+driosNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driosNextToken f x =
-    (\y -> x { _driosNextToken = y })
-       <$> f (_driosNextToken x)
+    f (_driosNextToken x) <&> \y -> x { _driosNextToken = y }
 {-# INLINE driosNextToken #-}
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where

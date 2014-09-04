@@ -65,6 +65,7 @@ importVolume p1 p2 p3 = ImportVolume
     , _ivrVolume = p3
     , _ivrDescription = Nothing
     }
+{-# INLINE importVolume #-}
 
 data ImportVolume = ImportVolume
     { _ivrImage :: DiskImageDetail
@@ -78,51 +79,27 @@ data ImportVolume = ImportVolume
     } deriving (Show, Generic)
 
 -- | 
-ivrImage
-    :: Functor f
-    => (DiskImageDetail
-    -> f (DiskImageDetail))
-    -> ImportVolume
-    -> f ImportVolume
+ivrImage :: Lens' ImportVolume DiskImageDetail
 ivrImage f x =
-    (\y -> x { _ivrImage = y })
-       <$> f (_ivrImage x)
+    f (_ivrImage x) <&> \y -> x { _ivrImage = y }
 {-# INLINE ivrImage #-}
 
 -- | The Availability Zone for the resulting Amazon EBS volume.
-ivrAvailabilityZone
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ImportVolume
-    -> f ImportVolume
+ivrAvailabilityZone :: Lens' ImportVolume Text
 ivrAvailabilityZone f x =
-    (\y -> x { _ivrAvailabilityZone = y })
-       <$> f (_ivrAvailabilityZone x)
+    f (_ivrAvailabilityZone x) <&> \y -> x { _ivrAvailabilityZone = y }
 {-# INLINE ivrAvailabilityZone #-}
 
 -- | 
-ivrVolume
-    :: Functor f
-    => (VolumeDetail
-    -> f (VolumeDetail))
-    -> ImportVolume
-    -> f ImportVolume
+ivrVolume :: Lens' ImportVolume VolumeDetail
 ivrVolume f x =
-    (\y -> x { _ivrVolume = y })
-       <$> f (_ivrVolume x)
+    f (_ivrVolume x) <&> \y -> x { _ivrVolume = y }
 {-# INLINE ivrVolume #-}
 
 -- | An optional description for the volume being imported.
-ivrDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ImportVolume
-    -> f ImportVolume
+ivrDescription :: Lens' ImportVolume (Maybe Text)
 ivrDescription f x =
-    (\y -> x { _ivrDescription = y })
-       <$> f (_ivrDescription x)
+    f (_ivrDescription x) <&> \y -> x { _ivrDescription = y }
 {-# INLINE ivrDescription #-}
 
 instance ToQuery ImportVolume where
@@ -134,15 +111,9 @@ data ImportVolumeResponse = ImportVolumeResponse
     } deriving (Show, Generic)
 
 -- | 
-ivsConversionTask
-    :: Functor f
-    => (Maybe ConversionTask
-    -> f (Maybe ConversionTask))
-    -> ImportVolumeResponse
-    -> f ImportVolumeResponse
+ivsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivsConversionTask f x =
-    (\y -> x { _ivsConversionTask = y })
-       <$> f (_ivsConversionTask x)
+    f (_ivsConversionTask x) <&> \y -> x { _ivsConversionTask = y }
 {-# INLINE ivsConversionTask #-}
 
 instance FromXML ImportVolumeResponse where

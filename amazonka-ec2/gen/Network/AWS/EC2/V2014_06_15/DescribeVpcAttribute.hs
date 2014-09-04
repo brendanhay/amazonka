@@ -68,6 +68,7 @@ describeVpcAttribute p1 = DescribeVpcAttribute
     { _dvatVpcId = p1
     , _dvatAttribute = Nothing
     }
+{-# INLINE describeVpcAttribute #-}
 
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dvatVpcId :: Text
@@ -77,27 +78,15 @@ data DescribeVpcAttribute = DescribeVpcAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-dvatVpcId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeVpcAttribute
-    -> f DescribeVpcAttribute
+dvatVpcId :: Lens' DescribeVpcAttribute Text
 dvatVpcId f x =
-    (\y -> x { _dvatVpcId = y })
-       <$> f (_dvatVpcId x)
+    f (_dvatVpcId x) <&> \y -> x { _dvatVpcId = y }
 {-# INLINE dvatVpcId #-}
 
 -- | The VPC attribute.
-dvatAttribute
-    :: Functor f
-    => (Maybe VpcAttributeName
-    -> f (Maybe VpcAttributeName))
-    -> DescribeVpcAttribute
-    -> f DescribeVpcAttribute
+dvatAttribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
 dvatAttribute f x =
-    (\y -> x { _dvatAttribute = y })
-       <$> f (_dvatAttribute x)
+    f (_dvatAttribute x) <&> \y -> x { _dvatAttribute = y }
 {-# INLINE dvatAttribute #-}
 
 instance ToQuery DescribeVpcAttribute where
@@ -120,41 +109,23 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 -- | Indicates whether DNS resolution is enabled for the VPC. If this attribute
 -- is true, the Amazon DNS server resolves DNS hostnames for your instances to
 -- their corresponding IP addresses; otherwise, it does not.
-dvauEnableDnsSupport
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeVpcAttributeResponse
-    -> f DescribeVpcAttributeResponse
+dvauEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvauEnableDnsSupport f x =
-    (\y -> x { _dvauEnableDnsSupport = y })
-       <$> f (_dvauEnableDnsSupport x)
+    f (_dvauEnableDnsSupport x) <&> \y -> x { _dvauEnableDnsSupport = y }
 {-# INLINE dvauEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
 -- they do not.
-dvauEnableDnsHostnames
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeVpcAttributeResponse
-    -> f DescribeVpcAttributeResponse
+dvauEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvauEnableDnsHostnames f x =
-    (\y -> x { _dvauEnableDnsHostnames = y })
-       <$> f (_dvauEnableDnsHostnames x)
+    f (_dvauEnableDnsHostnames x) <&> \y -> x { _dvauEnableDnsHostnames = y }
 {-# INLINE dvauEnableDnsHostnames #-}
 
 -- | The ID of the VPC.
-dvauVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVpcAttributeResponse
-    -> f DescribeVpcAttributeResponse
+dvauVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvauVpcId f x =
-    (\y -> x { _dvauVpcId = y })
-       <$> f (_dvauVpcId x)
+    f (_dvauVpcId x) <&> \y -> x { _dvauVpcId = y }
 {-# INLINE dvauVpcId #-}
 
 instance FromXML DescribeVpcAttributeResponse where

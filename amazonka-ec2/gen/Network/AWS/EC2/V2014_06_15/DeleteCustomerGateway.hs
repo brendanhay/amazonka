@@ -49,6 +49,7 @@ deleteCustomerGateway :: Text -- ^ 'dcgrCustomerGatewayId'
 deleteCustomerGateway p1 = DeleteCustomerGateway
     { _dcgrCustomerGatewayId = p1
     }
+{-# INLINE deleteCustomerGateway #-}
 
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcgrCustomerGatewayId :: Text
@@ -56,15 +57,9 @@ data DeleteCustomerGateway = DeleteCustomerGateway
     } deriving (Show, Generic)
 
 -- | The ID of the customer gateway.
-dcgrCustomerGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteCustomerGateway
-    -> f DeleteCustomerGateway
+dcgrCustomerGatewayId :: Lens' DeleteCustomerGateway Text
 dcgrCustomerGatewayId f x =
-    (\y -> x { _dcgrCustomerGatewayId = y })
-       <$> f (_dcgrCustomerGatewayId x)
+    f (_dcgrCustomerGatewayId x) <&> \y -> x { _dcgrCustomerGatewayId = y }
 {-# INLINE dcgrCustomerGatewayId #-}
 
 instance ToQuery DeleteCustomerGateway where

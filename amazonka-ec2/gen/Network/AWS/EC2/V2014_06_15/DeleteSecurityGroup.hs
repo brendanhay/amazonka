@@ -57,6 +57,7 @@ deleteSecurityGroup = DeleteSecurityGroup
     { _dsgrGroupName = Nothing
     , _dsgrGroupId = Nothing
     }
+{-# INLINE deleteSecurityGroup #-}
 
 data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgrGroupName :: Maybe Text
@@ -66,27 +67,15 @@ data DeleteSecurityGroup = DeleteSecurityGroup
     } deriving (Show, Generic)
 
 -- | [EC2-Classic, default VPC] The name of the security group.
-dsgrGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteSecurityGroup
-    -> f DeleteSecurityGroup
+dsgrGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgrGroupName f x =
-    (\y -> x { _dsgrGroupName = y })
-       <$> f (_dsgrGroupName x)
+    f (_dsgrGroupName x) <&> \y -> x { _dsgrGroupName = y }
 {-# INLINE dsgrGroupName #-}
 
 -- | The ID of the security group.
-dsgrGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteSecurityGroup
-    -> f DeleteSecurityGroup
+dsgrGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgrGroupId f x =
-    (\y -> x { _dsgrGroupId = y })
-       <$> f (_dsgrGroupId x)
+    f (_dsgrGroupId x) <&> \y -> x { _dsgrGroupId = y }
 {-# INLINE dsgrGroupId #-}
 
 instance ToQuery DeleteSecurityGroup where

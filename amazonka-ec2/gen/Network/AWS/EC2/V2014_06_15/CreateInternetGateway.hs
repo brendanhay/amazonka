@@ -42,6 +42,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'CreateInternetGateway' request.
 createInternetGateway :: CreateInternetGateway
 createInternetGateway = CreateInternetGateway
+{-# INLINE createInternetGateway #-}
 
 data CreateInternetGateway = CreateInternetGateway
     deriving (Eq, Show, Generic)
@@ -55,15 +56,9 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse
     } deriving (Show, Generic)
 
 -- | Information about the Internet gateway.
-cigsInternetGateway
-    :: Functor f
-    => (Maybe InternetGateway
-    -> f (Maybe InternetGateway))
-    -> CreateInternetGatewayResponse
-    -> f CreateInternetGatewayResponse
+cigsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigsInternetGateway f x =
-    (\y -> x { _cigsInternetGateway = y })
-       <$> f (_cigsInternetGateway x)
+    f (_cigsInternetGateway x) <&> \y -> x { _cigsInternetGateway = y }
 {-# INLINE cigsInternetGateway #-}
 
 instance FromXML CreateInternetGatewayResponse where

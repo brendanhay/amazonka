@@ -60,6 +60,7 @@ replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     { _rnaarAssociationId = p1
     , _rnaarNetworkAclId = p2
     }
+{-# INLINE replaceNetworkAclAssociation #-}
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaarAssociationId :: Text
@@ -71,27 +72,15 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 
 -- | The ID of the current association between the original network ACL and the
 -- subnet.
-rnaarAssociationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceNetworkAclAssociation
-    -> f ReplaceNetworkAclAssociation
+rnaarAssociationId :: Lens' ReplaceNetworkAclAssociation Text
 rnaarAssociationId f x =
-    (\y -> x { _rnaarAssociationId = y })
-       <$> f (_rnaarAssociationId x)
+    f (_rnaarAssociationId x) <&> \y -> x { _rnaarAssociationId = y }
 {-# INLINE rnaarAssociationId #-}
 
 -- | The ID of the new ACL to associate with the subnet.
-rnaarNetworkAclId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceNetworkAclAssociation
-    -> f ReplaceNetworkAclAssociation
+rnaarNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
 rnaarNetworkAclId f x =
-    (\y -> x { _rnaarNetworkAclId = y })
-       <$> f (_rnaarNetworkAclId x)
+    f (_rnaarNetworkAclId x) <&> \y -> x { _rnaarNetworkAclId = y }
 {-# INLINE rnaarNetworkAclId #-}
 
 instance ToQuery ReplaceNetworkAclAssociation where
@@ -103,15 +92,9 @@ data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     } deriving (Show, Generic)
 
 -- | The ID of the new association.
-rnaasNewAssociationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplaceNetworkAclAssociationResponse
-    -> f ReplaceNetworkAclAssociationResponse
+rnaasNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaasNewAssociationId f x =
-    (\y -> x { _rnaasNewAssociationId = y })
-       <$> f (_rnaasNewAssociationId x)
+    f (_rnaasNewAssociationId x) <&> \y -> x { _rnaasNewAssociationId = y }
 {-# INLINE rnaasNewAssociationId #-}
 
 instance FromXML ReplaceNetworkAclAssociationResponse where

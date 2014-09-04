@@ -65,6 +65,7 @@ describeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirrFilters = mempty
     , _dsirrSpotInstanceRequestIds = mempty
     }
+{-# INLINE describeSpotInstanceRequests #-}
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirrFilters :: [Filter]
@@ -183,27 +184,15 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 -- launched-availability-zone - The Availability Zone in which the bid is
 -- launched. valid-from - The start date of the request. valid-until - The end
 -- date of the request.
-dsirrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeSpotInstanceRequests
-    -> f DescribeSpotInstanceRequests
+dsirrFilters :: Lens' DescribeSpotInstanceRequests [Filter]
 dsirrFilters f x =
-    (\y -> x { _dsirrFilters = y })
-       <$> f (_dsirrFilters x)
+    f (_dsirrFilters x) <&> \y -> x { _dsirrFilters = y }
 {-# INLINE dsirrFilters #-}
 
 -- | One or more Spot Instance request IDs.
-dsirrSpotInstanceRequestIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSpotInstanceRequests
-    -> f DescribeSpotInstanceRequests
+dsirrSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirrSpotInstanceRequestIds f x =
-    (\y -> x { _dsirrSpotInstanceRequestIds = y })
-       <$> f (_dsirrSpotInstanceRequestIds x)
+    f (_dsirrSpotInstanceRequestIds x) <&> \y -> x { _dsirrSpotInstanceRequestIds = y }
 {-# INLINE dsirrSpotInstanceRequestIds #-}
 
 instance ToQuery DescribeSpotInstanceRequests where
@@ -215,15 +204,9 @@ data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-dsirsSpotInstanceRequests
-    :: Functor f
-    => ([SpotInstanceRequest]
-    -> f ([SpotInstanceRequest]))
-    -> DescribeSpotInstanceRequestsResponse
-    -> f DescribeSpotInstanceRequestsResponse
+dsirsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirsSpotInstanceRequests f x =
-    (\y -> x { _dsirsSpotInstanceRequests = y })
-       <$> f (_dsirsSpotInstanceRequests x)
+    f (_dsirsSpotInstanceRequests x) <&> \y -> x { _dsirsSpotInstanceRequests = y }
 {-# INLINE dsirsSpotInstanceRequests #-}
 
 instance FromXML DescribeSpotInstanceRequestsResponse where

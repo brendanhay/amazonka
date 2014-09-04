@@ -43,6 +43,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DeleteSpotDatafeedSubscription' request.
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
+{-# INLINE deleteSpotDatafeedSubscription #-}
 
 data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     deriving (Eq, Show, Generic)

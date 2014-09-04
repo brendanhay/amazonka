@@ -57,6 +57,7 @@ attachVpnGateway p1 p2 = AttachVpnGateway
     { _avgrVpnGatewayId = p1
     , _avgrVpcId = p2
     }
+{-# INLINE attachVpnGateway #-}
 
 data AttachVpnGateway = AttachVpnGateway
     { _avgrVpnGatewayId :: Text
@@ -66,27 +67,15 @@ data AttachVpnGateway = AttachVpnGateway
     } deriving (Show, Generic)
 
 -- | The ID of the virtual private gateway.
-avgrVpnGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachVpnGateway
-    -> f AttachVpnGateway
+avgrVpnGatewayId :: Lens' AttachVpnGateway Text
 avgrVpnGatewayId f x =
-    (\y -> x { _avgrVpnGatewayId = y })
-       <$> f (_avgrVpnGatewayId x)
+    f (_avgrVpnGatewayId x) <&> \y -> x { _avgrVpnGatewayId = y }
 {-# INLINE avgrVpnGatewayId #-}
 
 -- | The ID of the VPC.
-avgrVpcId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachVpnGateway
-    -> f AttachVpnGateway
+avgrVpcId :: Lens' AttachVpnGateway Text
 avgrVpcId f x =
-    (\y -> x { _avgrVpcId = y })
-       <$> f (_avgrVpcId x)
+    f (_avgrVpcId x) <&> \y -> x { _avgrVpcId = y }
 {-# INLINE avgrVpcId #-}
 
 instance ToQuery AttachVpnGateway where
@@ -98,15 +87,9 @@ data AttachVpnGatewayResponse = AttachVpnGatewayResponse
     } deriving (Show, Generic)
 
 -- | Information about the attachment.
-avgsVpcAttachment
-    :: Functor f
-    => (Maybe VpcAttachment
-    -> f (Maybe VpcAttachment))
-    -> AttachVpnGatewayResponse
-    -> f AttachVpnGatewayResponse
+avgsVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgsVpcAttachment f x =
-    (\y -> x { _avgsVpcAttachment = y })
-       <$> f (_avgsVpcAttachment x)
+    f (_avgsVpcAttachment x) <&> \y -> x { _avgsVpcAttachment = y }
 {-# INLINE avgsVpcAttachment #-}
 
 instance FromXML AttachVpnGatewayResponse where

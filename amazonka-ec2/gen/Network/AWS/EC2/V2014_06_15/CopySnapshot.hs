@@ -67,6 +67,7 @@ copySnapshot p1 p2 = CopySnapshot
     , _csrDestinationRegion = Nothing
     , _csrPresignedUrl = Nothing
     }
+{-# INLINE copySnapshot #-}
 
 data CopySnapshot = CopySnapshot
     { _csrSourceRegion :: Text
@@ -96,52 +97,28 @@ data CopySnapshot = CopySnapshot
     } deriving (Show, Generic)
 
 -- | The ID of the region that contains the snapshot to be copied.
-csrSourceRegion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csrSourceRegion :: Lens' CopySnapshot Text
 csrSourceRegion f x =
-    (\y -> x { _csrSourceRegion = y })
-       <$> f (_csrSourceRegion x)
+    f (_csrSourceRegion x) <&> \y -> x { _csrSourceRegion = y }
 {-# INLINE csrSourceRegion #-}
 
 -- | The ID of the Amazon EBS snapshot to copy.
-csrSourceSnapshotId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csrSourceSnapshotId :: Lens' CopySnapshot Text
 csrSourceSnapshotId f x =
-    (\y -> x { _csrSourceSnapshotId = y })
-       <$> f (_csrSourceSnapshotId x)
+    f (_csrSourceSnapshotId x) <&> \y -> x { _csrSourceSnapshotId = y }
 {-# INLINE csrSourceSnapshotId #-}
 
 -- | A description for the new Amazon EBS snapshot.
-csrDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csrDescription :: Lens' CopySnapshot (Maybe Text)
 csrDescription f x =
-    (\y -> x { _csrDescription = y })
-       <$> f (_csrDescription x)
+    f (_csrDescription x) <&> \y -> x { _csrDescription = y }
 {-# INLINE csrDescription #-}
 
 -- | The destination region of the snapshot copy operation. This parameter is
 -- required in the PresignedUrl.
-csrDestinationRegion
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csrDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csrDestinationRegion f x =
-    (\y -> x { _csrDestinationRegion = y })
-       <$> f (_csrDestinationRegion x)
+    f (_csrDestinationRegion x) <&> \y -> x { _csrDestinationRegion = y }
 {-# INLINE csrDestinationRegion #-}
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
@@ -156,15 +133,9 @@ csrDestinationRegion f x =
 -- Signature Version 4) in the Amazon Simple Storage Service API Reference. An
 -- invalid or improperly signed PresignedUrl will cause the copy operation to
 -- fail asynchronously, and the snapshot will move to an error state.
-csrPresignedUrl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopySnapshot
-    -> f CopySnapshot
+csrPresignedUrl :: Lens' CopySnapshot (Maybe Text)
 csrPresignedUrl f x =
-    (\y -> x { _csrPresignedUrl = y })
-       <$> f (_csrPresignedUrl x)
+    f (_csrPresignedUrl x) <&> \y -> x { _csrPresignedUrl = y }
 {-# INLINE csrPresignedUrl #-}
 
 instance ToQuery CopySnapshot where
@@ -176,15 +147,9 @@ data CopySnapshotResponse = CopySnapshotResponse
     } deriving (Show, Generic)
 
 -- | The ID of the new snapshot.
-cssSnapshotId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopySnapshotResponse
-    -> f CopySnapshotResponse
+cssSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 cssSnapshotId f x =
-    (\y -> x { _cssSnapshotId = y })
-       <$> f (_cssSnapshotId x)
+    f (_cssSnapshotId x) <&> \y -> x { _cssSnapshotId = y }
 {-# INLINE cssSnapshotId #-}
 
 instance FromXML CopySnapshotResponse where

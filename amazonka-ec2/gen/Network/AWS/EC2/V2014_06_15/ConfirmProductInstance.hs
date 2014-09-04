@@ -58,6 +58,7 @@ confirmProductInstance p1 p2 = ConfirmProductInstance
     { _cpirProductCode = p1
     , _cpirInstanceId = p2
     }
+{-# INLINE confirmProductInstance #-}
 
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpirProductCode :: Text
@@ -68,27 +69,15 @@ data ConfirmProductInstance = ConfirmProductInstance
     } deriving (Show, Generic)
 
 -- | The product code. This must be an Amazon DevPay product code that you own.
-cpirProductCode
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmProductInstance
-    -> f ConfirmProductInstance
+cpirProductCode :: Lens' ConfirmProductInstance Text
 cpirProductCode f x =
-    (\y -> x { _cpirProductCode = y })
-       <$> f (_cpirProductCode x)
+    f (_cpirProductCode x) <&> \y -> x { _cpirProductCode = y }
 {-# INLINE cpirProductCode #-}
 
 -- | The ID of the instance.
-cpirInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfirmProductInstance
-    -> f ConfirmProductInstance
+cpirInstanceId :: Lens' ConfirmProductInstance Text
 cpirInstanceId f x =
-    (\y -> x { _cpirInstanceId = y })
-       <$> f (_cpirInstanceId x)
+    f (_cpirInstanceId x) <&> \y -> x { _cpirInstanceId = y }
 {-# INLINE cpirInstanceId #-}
 
 instance ToQuery ConfirmProductInstance where
@@ -102,15 +91,9 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
-cpisOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ConfirmProductInstanceResponse
-    -> f ConfirmProductInstanceResponse
+cpisOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpisOwnerId f x =
-    (\y -> x { _cpisOwnerId = y })
-       <$> f (_cpisOwnerId x)
+    f (_cpisOwnerId x) <&> \y -> x { _cpisOwnerId = y }
 {-# INLINE cpisOwnerId #-}
 
 instance FromXML ConfirmProductInstanceResponse where

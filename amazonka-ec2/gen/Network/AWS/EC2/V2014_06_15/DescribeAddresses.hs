@@ -85,6 +85,7 @@ describeAddresses = DescribeAddresses
     , _darFilters = mempty
     , _darPublicIps = mempty
     }
+{-# INLINE describeAddresses #-}
 
 data DescribeAddresses = DescribeAddresses
     { _darAllocationIds :: [Text]
@@ -108,15 +109,9 @@ data DescribeAddresses = DescribeAddresses
 
 -- | [EC2-VPC] One or more allocation IDs. Default: Describes all your Elastic
 -- IP addresses.
-darAllocationIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAddresses
-    -> f DescribeAddresses
+darAllocationIds :: Lens' DescribeAddresses [Text]
 darAllocationIds f x =
-    (\y -> x { _darAllocationIds = y })
-       <$> f (_darAllocationIds x)
+    f (_darAllocationIds x) <&> \y -> x { _darAllocationIds = y }
 {-# INLINE darAllocationIds #-}
 
 -- | One or more filters. allocation-id - [EC2-VPC] The allocation ID for the
@@ -128,28 +123,16 @@ darAllocationIds f x =
 -- network-interface-owner-id - The AWS account ID of the owner.
 -- private-ip-address - [EC2-VPC] The private IP address associated with the
 -- Elastic IP address. public-ip - The Elastic IP address.
-darFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeAddresses
-    -> f DescribeAddresses
+darFilters :: Lens' DescribeAddresses [Filter]
 darFilters f x =
-    (\y -> x { _darFilters = y })
-       <$> f (_darFilters x)
+    f (_darFilters x) <&> \y -> x { _darFilters = y }
 {-# INLINE darFilters #-}
 
 -- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all your
 -- Elastic IP addresses.
-darPublicIps
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAddresses
-    -> f DescribeAddresses
+darPublicIps :: Lens' DescribeAddresses [Text]
 darPublicIps f x =
-    (\y -> x { _darPublicIps = y })
-       <$> f (_darPublicIps x)
+    f (_darPublicIps x) <&> \y -> x { _darPublicIps = y }
 {-# INLINE darPublicIps #-}
 
 instance ToQuery DescribeAddresses where
@@ -161,15 +144,9 @@ data DescribeAddressesResponse = DescribeAddressesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more Elastic IP addresses.
-dasAddresses
-    :: Functor f
-    => ([Address]
-    -> f ([Address]))
-    -> DescribeAddressesResponse
-    -> f DescribeAddressesResponse
+dasAddresses :: Lens' DescribeAddressesResponse [Address]
 dasAddresses f x =
-    (\y -> x { _dasAddresses = y })
-       <$> f (_dasAddresses x)
+    f (_dasAddresses x) <&> \y -> x { _dasAddresses = y }
 {-# INLINE dasAddresses #-}
 
 instance FromXML DescribeAddressesResponse where

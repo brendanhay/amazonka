@@ -59,6 +59,7 @@ modifyImageAttribute p1 = ModifyImageAttribute
     , _miarOperationType = Nothing
     , _miarValue = Nothing
     }
+{-# INLINE modifyImageAttribute #-}
 
 data ModifyImageAttribute = ModifyImageAttribute
     { _miarImageId :: Text
@@ -87,115 +88,61 @@ data ModifyImageAttribute = ModifyImageAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the AMI.
-miarImageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarImageId :: Lens' ModifyImageAttribute Text
 miarImageId f x =
-    (\y -> x { _miarImageId = y })
-       <$> f (_miarImageId x)
+    f (_miarImageId x) <&> \y -> x { _miarImageId = y }
 {-# INLINE miarImageId #-}
 
 -- | A description for the AMI.
-miarDescription
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
 miarDescription f x =
-    (\y -> x { _miarDescription = y })
-       <$> f (_miarDescription x)
+    f (_miarDescription x) <&> \y -> x { _miarDescription = y }
 {-# INLINE miarDescription #-}
 
 -- | 
-miarLaunchPermission
-    :: Functor f
-    => (Maybe LaunchPermissionModifications
-    -> f (Maybe LaunchPermissionModifications))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
 miarLaunchPermission f x =
-    (\y -> x { _miarLaunchPermission = y })
-       <$> f (_miarLaunchPermission x)
+    f (_miarLaunchPermission x) <&> \y -> x { _miarLaunchPermission = y }
 {-# INLINE miarLaunchPermission #-}
 
 -- | One or more product codes. After you add a product code to an AMI, it can't
 -- be removed. This is only valid when modifying the productCodes attribute.
-miarProductCodes
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarProductCodes :: Lens' ModifyImageAttribute [Text]
 miarProductCodes f x =
-    (\y -> x { _miarProductCodes = y })
-       <$> f (_miarProductCodes x)
+    f (_miarProductCodes x) <&> \y -> x { _miarProductCodes = y }
 {-# INLINE miarProductCodes #-}
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
-miarUserGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarUserGroups :: Lens' ModifyImageAttribute [Text]
 miarUserGroups f x =
-    (\y -> x { _miarUserGroups = y })
-       <$> f (_miarUserGroups x)
+    f (_miarUserGroups x) <&> \y -> x { _miarUserGroups = y }
 {-# INLINE miarUserGroups #-}
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
-miarUserIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarUserIds :: Lens' ModifyImageAttribute [Text]
 miarUserIds f x =
-    (\y -> x { _miarUserIds = y })
-       <$> f (_miarUserIds x)
+    f (_miarUserIds x) <&> \y -> x { _miarUserIds = y }
 {-# INLINE miarUserIds #-}
 
 -- | The name of the attribute to modify.
-miarAttribute
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miarAttribute f x =
-    (\y -> x { _miarAttribute = y })
-       <$> f (_miarAttribute x)
+    f (_miarAttribute x) <&> \y -> x { _miarAttribute = y }
 {-# INLINE miarAttribute #-}
 
 -- | The operation type.
-miarOperationType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarOperationType :: Lens' ModifyImageAttribute (Maybe Text)
 miarOperationType f x =
-    (\y -> x { _miarOperationType = y })
-       <$> f (_miarOperationType x)
+    f (_miarOperationType x) <&> \y -> x { _miarOperationType = y }
 {-# INLINE miarOperationType #-}
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.
-miarValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyImageAttribute
-    -> f ModifyImageAttribute
+miarValue :: Lens' ModifyImageAttribute (Maybe Text)
 miarValue f x =
-    (\y -> x { _miarValue = y })
-       <$> f (_miarValue x)
+    f (_miarValue x) <&> \y -> x { _miarValue = y }
 {-# INLINE miarValue #-}
 
 instance ToQuery ModifyImageAttribute where

@@ -60,6 +60,7 @@ cancelSpotInstanceRequests :: [Text] -- ^ 'csirrSpotInstanceRequestIds'
 cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
     { _csirrSpotInstanceRequestIds = p1
     }
+{-# INLINE cancelSpotInstanceRequests #-}
 
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirrSpotInstanceRequestIds :: [Text]
@@ -67,15 +68,9 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance request IDs.
-csirrSpotInstanceRequestIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CancelSpotInstanceRequests
-    -> f CancelSpotInstanceRequests
+csirrSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirrSpotInstanceRequestIds f x =
-    (\y -> x { _csirrSpotInstanceRequestIds = y })
-       <$> f (_csirrSpotInstanceRequestIds x)
+    f (_csirrSpotInstanceRequestIds x) <&> \y -> x { _csirrSpotInstanceRequestIds = y }
 {-# INLINE csirrSpotInstanceRequestIds #-}
 
 instance ToQuery CancelSpotInstanceRequests where
@@ -87,15 +82,9 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-csirsCancelledSpotInstanceRequests
-    :: Functor f
-    => ([CancelledSpotInstanceRequest]
-    -> f ([CancelledSpotInstanceRequest]))
-    -> CancelSpotInstanceRequestsResponse
-    -> f CancelSpotInstanceRequestsResponse
+csirsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirsCancelledSpotInstanceRequests f x =
-    (\y -> x { _csirsCancelledSpotInstanceRequests = y })
-       <$> f (_csirsCancelledSpotInstanceRequests x)
+    f (_csirsCancelledSpotInstanceRequests x) <&> \y -> x { _csirsCancelledSpotInstanceRequests = y }
 {-# INLINE csirsCancelledSpotInstanceRequests #-}
 
 instance FromXML CancelSpotInstanceRequestsResponse where

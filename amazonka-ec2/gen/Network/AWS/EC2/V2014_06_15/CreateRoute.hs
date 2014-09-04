@@ -79,6 +79,7 @@ createRoute p1 p2 = CreateRoute
     , _crrNetworkInterfaceId = Nothing
     , _crrVpcPeeringConnectionId = Nothing
     }
+{-# INLINE createRoute #-}
 
 data CreateRoute = CreateRoute
     { _crrRouteTableId :: Text
@@ -99,77 +100,41 @@ data CreateRoute = CreateRoute
     } deriving (Show, Generic)
 
 -- | The ID of the route table for the route.
-crrRouteTableId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateRoute
-    -> f CreateRoute
+crrRouteTableId :: Lens' CreateRoute Text
 crrRouteTableId f x =
-    (\y -> x { _crrRouteTableId = y })
-       <$> f (_crrRouteTableId x)
+    f (_crrRouteTableId x) <&> \y -> x { _crrRouteTableId = y }
 {-# INLINE crrRouteTableId #-}
 
 -- | The CIDR address block used for the destination match. Routing decisions
 -- are based on the most specific match.
-crrDestinationCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateRoute
-    -> f CreateRoute
+crrDestinationCidrBlock :: Lens' CreateRoute Text
 crrDestinationCidrBlock f x =
-    (\y -> x { _crrDestinationCidrBlock = y })
-       <$> f (_crrDestinationCidrBlock x)
+    f (_crrDestinationCidrBlock x) <&> \y -> x { _crrDestinationCidrBlock = y }
 {-# INLINE crrDestinationCidrBlock #-}
 
 -- | The ID of an Internet gateway attached to your VPC.
-crrGatewayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateRoute
-    -> f CreateRoute
+crrGatewayId :: Lens' CreateRoute (Maybe Text)
 crrGatewayId f x =
-    (\y -> x { _crrGatewayId = y })
-       <$> f (_crrGatewayId x)
+    f (_crrGatewayId x) <&> \y -> x { _crrGatewayId = y }
 {-# INLINE crrGatewayId #-}
 
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify an
 -- instance ID unless exactly one network interface is attached.
-crrInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateRoute
-    -> f CreateRoute
+crrInstanceId :: Lens' CreateRoute (Maybe Text)
 crrInstanceId f x =
-    (\y -> x { _crrInstanceId = y })
-       <$> f (_crrInstanceId x)
+    f (_crrInstanceId x) <&> \y -> x { _crrInstanceId = y }
 {-# INLINE crrInstanceId #-}
 
 -- | The ID of a network interface.
-crrNetworkInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateRoute
-    -> f CreateRoute
+crrNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
 crrNetworkInterfaceId f x =
-    (\y -> x { _crrNetworkInterfaceId = y })
-       <$> f (_crrNetworkInterfaceId x)
+    f (_crrNetworkInterfaceId x) <&> \y -> x { _crrNetworkInterfaceId = y }
 {-# INLINE crrNetworkInterfaceId #-}
 
 -- | The ID of a VPC peering connection.
-crrVpcPeeringConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateRoute
-    -> f CreateRoute
+crrVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
 crrVpcPeeringConnectionId f x =
-    (\y -> x { _crrVpcPeeringConnectionId = y })
-       <$> f (_crrVpcPeeringConnectionId x)
+    f (_crrVpcPeeringConnectionId x) <&> \y -> x { _crrVpcPeeringConnectionId = y }
 {-# INLINE crrVpcPeeringConnectionId #-}
 
 instance ToQuery CreateRoute where

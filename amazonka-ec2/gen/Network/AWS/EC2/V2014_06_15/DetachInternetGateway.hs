@@ -53,6 +53,7 @@ detachInternetGateway p1 p2 = DetachInternetGateway
     { _diguInternetGatewayId = p1
     , _diguVpcId = p2
     }
+{-# INLINE detachInternetGateway #-}
 
 data DetachInternetGateway = DetachInternetGateway
     { _diguInternetGatewayId :: Text
@@ -62,27 +63,15 @@ data DetachInternetGateway = DetachInternetGateway
     } deriving (Show, Generic)
 
 -- | The ID of the Internet gateway.
-diguInternetGatewayId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachInternetGateway
-    -> f DetachInternetGateway
+diguInternetGatewayId :: Lens' DetachInternetGateway Text
 diguInternetGatewayId f x =
-    (\y -> x { _diguInternetGatewayId = y })
-       <$> f (_diguInternetGatewayId x)
+    f (_diguInternetGatewayId x) <&> \y -> x { _diguInternetGatewayId = y }
 {-# INLINE diguInternetGatewayId #-}
 
 -- | The ID of the VPC.
-diguVpcId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachInternetGateway
-    -> f DetachInternetGateway
+diguVpcId :: Lens' DetachInternetGateway Text
 diguVpcId f x =
-    (\y -> x { _diguVpcId = y })
-       <$> f (_diguVpcId x)
+    f (_diguVpcId x) <&> \y -> x { _diguVpcId = y }
 {-# INLINE diguVpcId #-}
 
 instance ToQuery DetachInternetGateway where

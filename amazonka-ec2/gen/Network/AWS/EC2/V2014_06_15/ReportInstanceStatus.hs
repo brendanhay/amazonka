@@ -66,6 +66,7 @@ reportInstanceStatus p1 p2 p3 = ReportInstanceStatus
     , _risrEndTime = Nothing
     , _risrDescription = Nothing
     }
+{-# INLINE reportInstanceStatus #-}
 
 data ReportInstanceStatus = ReportInstanceStatus
     { _risrInstances :: [Text]
@@ -96,15 +97,9 @@ data ReportInstanceStatus = ReportInstanceStatus
     } deriving (Show, Generic)
 
 -- | One or more instances.
-risrInstances
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ReportInstanceStatus
-    -> f ReportInstanceStatus
+risrInstances :: Lens' ReportInstanceStatus [Text]
 risrInstances f x =
-    (\y -> x { _risrInstances = y })
-       <$> f (_risrInstances x)
+    f (_risrInstances x) <&> \y -> x { _risrInstances = y }
 {-# INLINE risrInstances #-}
 
 -- | One or more reason codes that describes the health state of your instance.
@@ -119,63 +114,33 @@ risrInstances f x =
 -- which I believe are related to an EBS volume. performance-other: My
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
-risrReasonCodes
-    :: Functor f
-    => ([ReportInstanceReasonCodes]
-    -> f ([ReportInstanceReasonCodes]))
-    -> ReportInstanceStatus
-    -> f ReportInstanceStatus
+risrReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risrReasonCodes f x =
-    (\y -> x { _risrReasonCodes = y })
-       <$> f (_risrReasonCodes x)
+    f (_risrReasonCodes x) <&> \y -> x { _risrReasonCodes = y }
 {-# INLINE risrReasonCodes #-}
 
 -- | The status of all instances listed.
-risrStatus
-    :: Functor f
-    => (ReportStatusType
-    -> f (ReportStatusType))
-    -> ReportInstanceStatus
-    -> f ReportInstanceStatus
+risrStatus :: Lens' ReportInstanceStatus ReportStatusType
 risrStatus f x =
-    (\y -> x { _risrStatus = y })
-       <$> f (_risrStatus x)
+    f (_risrStatus x) <&> \y -> x { _risrStatus = y }
 {-# INLINE risrStatus #-}
 
 -- | The time at which the reported instance health state began.
-risrStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ReportInstanceStatus
-    -> f ReportInstanceStatus
+risrStartTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
 risrStartTime f x =
-    (\y -> x { _risrStartTime = y })
-       <$> f (_risrStartTime x)
+    f (_risrStartTime x) <&> \y -> x { _risrStartTime = y }
 {-# INLINE risrStartTime #-}
 
 -- | The time at which the reported instance health state ended.
-risrEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ReportInstanceStatus
-    -> f ReportInstanceStatus
+risrEndTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
 risrEndTime f x =
-    (\y -> x { _risrEndTime = y })
-       <$> f (_risrEndTime x)
+    f (_risrEndTime x) <&> \y -> x { _risrEndTime = y }
 {-# INLINE risrEndTime #-}
 
 -- | Descriptive text about the health state of your instance.
-risrDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReportInstanceStatus
-    -> f ReportInstanceStatus
+risrDescription :: Lens' ReportInstanceStatus (Maybe Text)
 risrDescription f x =
-    (\y -> x { _risrDescription = y })
-       <$> f (_risrDescription x)
+    f (_risrDescription x) <&> \y -> x { _risrDescription = y }
 {-# INLINE risrDescription #-}
 
 instance ToQuery ReportInstanceStatus where

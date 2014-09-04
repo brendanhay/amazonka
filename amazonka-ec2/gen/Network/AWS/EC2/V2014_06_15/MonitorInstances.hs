@@ -57,6 +57,7 @@ monitorInstances :: [Text] -- ^ 'mirInstanceIds'
 monitorInstances p1 = MonitorInstances
     { _mirInstanceIds = p1
     }
+{-# INLINE monitorInstances #-}
 
 data MonitorInstances = MonitorInstances
     { _mirInstanceIds :: [Text]
@@ -64,15 +65,9 @@ data MonitorInstances = MonitorInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-mirInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> MonitorInstances
-    -> f MonitorInstances
+mirInstanceIds :: Lens' MonitorInstances [Text]
 mirInstanceIds f x =
-    (\y -> x { _mirInstanceIds = y })
-       <$> f (_mirInstanceIds x)
+    f (_mirInstanceIds x) <&> \y -> x { _mirInstanceIds = y }
 {-# INLINE mirInstanceIds #-}
 
 instance ToQuery MonitorInstances where
@@ -84,15 +79,9 @@ data MonitorInstancesResponse = MonitorInstancesResponse
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-misInstanceMonitorings
-    :: Functor f
-    => ([InstanceMonitoring]
-    -> f ([InstanceMonitoring]))
-    -> MonitorInstancesResponse
-    -> f MonitorInstancesResponse
+misInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 misInstanceMonitorings f x =
-    (\y -> x { _misInstanceMonitorings = y })
-       <$> f (_misInstanceMonitorings x)
+    f (_misInstanceMonitorings x) <&> \y -> x { _misInstanceMonitorings = y }
 {-# INLINE misInstanceMonitorings #-}
 
 instance FromXML MonitorInstancesResponse where

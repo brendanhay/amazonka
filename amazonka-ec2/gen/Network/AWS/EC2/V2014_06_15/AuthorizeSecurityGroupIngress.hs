@@ -107,6 +107,7 @@ authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     , _asgirIpProtocol = Nothing
     , _asgirCidrIp = Nothing
     }
+{-# INLINE authorizeSecurityGroupIngress #-}
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     { _asgirFromPort :: Maybe Integer
@@ -140,117 +141,63 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
-asgirFromPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
 asgirFromPort f x =
-    (\y -> x { _asgirFromPort = y })
-       <$> f (_asgirFromPort x)
+    f (_asgirFromPort x) <&> \y -> x { _asgirFromPort = y }
 {-# INLINE asgirFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use -1 to specify all ICMP codes for the
 -- ICMP type.
-asgirToPort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
 asgirToPort f x =
-    (\y -> x { _asgirToPort = y })
-       <$> f (_asgirToPort x)
+    f (_asgirToPort x) <&> \y -> x { _asgirToPort = y }
 {-# INLINE asgirToPort #-}
 
 -- | 
-asgirIpPermissions
-    :: Functor f
-    => ([IpPermission]
-    -> f ([IpPermission]))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
 asgirIpPermissions f x =
-    (\y -> x { _asgirIpPermissions = y })
-       <$> f (_asgirIpPermissions x)
+    f (_asgirIpPermissions x) <&> \y -> x { _asgirIpPermissions = y }
 {-# INLINE asgirIpPermissions #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group.
-asgirGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirGroupName f x =
-    (\y -> x { _asgirGroupName = y })
-       <$> f (_asgirGroupName x)
+    f (_asgirGroupName x) <&> \y -> x { _asgirGroupName = y }
 {-# INLINE asgirGroupName #-}
 
 -- | The ID of the security group.
-asgirGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirGroupId f x =
-    (\y -> x { _asgirGroupId = y })
-       <$> f (_asgirGroupId x)
+    f (_asgirGroupId x) <&> \y -> x { _asgirGroupId = y }
 {-# INLINE asgirGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
-asgirSourceSecurityGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirSourceSecurityGroupName f x =
-    (\y -> x { _asgirSourceSecurityGroupName = y })
-       <$> f (_asgirSourceSecurityGroupName x)
+    f (_asgirSourceSecurityGroupName x) <&> \y -> x { _asgirSourceSecurityGroupName = y }
 {-# INLINE asgirSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
-asgirSourceSecurityGroupOwnerId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirSourceSecurityGroupOwnerId f x =
-    (\y -> x { _asgirSourceSecurityGroupOwnerId = y })
-       <$> f (_asgirSourceSecurityGroupOwnerId x)
+    f (_asgirSourceSecurityGroupOwnerId x) <&> \y -> x { _asgirSourceSecurityGroupOwnerId = y }
 {-# INLINE asgirSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
-asgirIpProtocol
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirIpProtocol f x =
-    (\y -> x { _asgirIpProtocol = y })
-       <$> f (_asgirIpProtocol x)
+    f (_asgirIpProtocol x) <&> \y -> x { _asgirIpProtocol = y }
 {-# INLINE asgirIpProtocol #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
-asgirCidrIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AuthorizeSecurityGroupIngress
-    -> f AuthorizeSecurityGroupIngress
+asgirCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirCidrIp f x =
-    (\y -> x { _asgirCidrIp = y })
-       <$> f (_asgirCidrIp x)
+    f (_asgirCidrIp x) <&> \y -> x { _asgirCidrIp = y }
 {-# INLINE asgirCidrIp #-}
 
 instance ToQuery AuthorizeSecurityGroupIngress where

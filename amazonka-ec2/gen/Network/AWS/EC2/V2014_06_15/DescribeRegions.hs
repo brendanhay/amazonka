@@ -52,6 +52,7 @@ describeRegions = DescribeRegions
     { _drsFilters = mempty
     , _drsRegionNames = mempty
     }
+{-# INLINE describeRegions #-}
 
 data DescribeRegions = DescribeRegions
     { _drsFilters :: [Filter]
@@ -65,27 +66,15 @@ data DescribeRegions = DescribeRegions
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
-drsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeRegions
-    -> f DescribeRegions
+drsFilters :: Lens' DescribeRegions [Filter]
 drsFilters f x =
-    (\y -> x { _drsFilters = y })
-       <$> f (_drsFilters x)
+    f (_drsFilters x) <&> \y -> x { _drsFilters = y }
 {-# INLINE drsFilters #-}
 
 -- | The names of one or more regions.
-drsRegionNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeRegions
-    -> f DescribeRegions
+drsRegionNames :: Lens' DescribeRegions [Text]
 drsRegionNames f x =
-    (\y -> x { _drsRegionNames = y })
-       <$> f (_drsRegionNames x)
+    f (_drsRegionNames x) <&> \y -> x { _drsRegionNames = y }
 {-# INLINE drsRegionNames #-}
 
 instance ToQuery DescribeRegions where
@@ -97,15 +86,9 @@ data DescribeRegionsResponse = DescribeRegionsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more regions.
-drtRegions
-    :: Functor f
-    => ([Region]
-    -> f ([Region]))
-    -> DescribeRegionsResponse
-    -> f DescribeRegionsResponse
+drtRegions :: Lens' DescribeRegionsResponse [Region]
 drtRegions f x =
-    (\y -> x { _drtRegions = y })
-       <$> f (_drtRegions x)
+    f (_drtRegions x) <&> \y -> x { _drtRegions = y }
 {-# INLINE drtRegions #-}
 
 instance FromXML DescribeRegionsResponse where

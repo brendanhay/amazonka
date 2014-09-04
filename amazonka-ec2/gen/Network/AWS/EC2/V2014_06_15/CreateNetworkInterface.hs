@@ -151,6 +151,7 @@ createNetworkInterface p1 = CreateNetworkInterface
     , _cnirDescription = Nothing
     , _cnirPrivateIpAddress = Nothing
     }
+{-# INLINE createNetworkInterface #-}
 
 data CreateNetworkInterface = CreateNetworkInterface
     { _cnirSubnetId :: Text
@@ -176,15 +177,9 @@ data CreateNetworkInterface = CreateNetworkInterface
     } deriving (Show, Generic)
 
 -- | The ID of the subnet to associate with the network interface.
-cnirSubnetId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateNetworkInterface
-    -> f CreateNetworkInterface
+cnirSubnetId :: Lens' CreateNetworkInterface Text
 cnirSubnetId f x =
-    (\y -> x { _cnirSubnetId = y })
-       <$> f (_cnirSubnetId x)
+    f (_cnirSubnetId x) <&> \y -> x { _cnirSubnetId = y }
 {-# INLINE cnirSubnetId #-}
 
 -- | The number of secondary private IP addresses to assign to a network
@@ -193,65 +188,35 @@ cnirSubnetId f x =
 -- addresses you can assign to a network interface varies by instance type.
 -- For more information, see Private IP Addresses Per ENI Per Instance Type in
 -- the Amazon Elastic Compute Cloud User Guide.
-cnirSecondaryPrivateIpAddressCount
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateNetworkInterface
-    -> f CreateNetworkInterface
+cnirSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Integer)
 cnirSecondaryPrivateIpAddressCount f x =
-    (\y -> x { _cnirSecondaryPrivateIpAddressCount = y })
-       <$> f (_cnirSecondaryPrivateIpAddressCount x)
+    f (_cnirSecondaryPrivateIpAddressCount x) <&> \y -> x { _cnirSecondaryPrivateIpAddressCount = y }
 {-# INLINE cnirSecondaryPrivateIpAddressCount #-}
 
 -- | One or more private IP addresses.
-cnirPrivateIpAddresses
-    :: Functor f
-    => ([PrivateIpAddressSpecification]
-    -> f ([PrivateIpAddressSpecification]))
-    -> CreateNetworkInterface
-    -> f CreateNetworkInterface
+cnirPrivateIpAddresses :: Lens' CreateNetworkInterface [PrivateIpAddressSpecification]
 cnirPrivateIpAddresses f x =
-    (\y -> x { _cnirPrivateIpAddresses = y })
-       <$> f (_cnirPrivateIpAddresses x)
+    f (_cnirPrivateIpAddresses x) <&> \y -> x { _cnirPrivateIpAddresses = y }
 {-# INLINE cnirPrivateIpAddresses #-}
 
 -- | The IDs of one or more security groups.
-cnirGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateNetworkInterface
-    -> f CreateNetworkInterface
+cnirGroups :: Lens' CreateNetworkInterface [Text]
 cnirGroups f x =
-    (\y -> x { _cnirGroups = y })
-       <$> f (_cnirGroups x)
+    f (_cnirGroups x) <&> \y -> x { _cnirGroups = y }
 {-# INLINE cnirGroups #-}
 
 -- | A description for the network interface.
-cnirDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateNetworkInterface
-    -> f CreateNetworkInterface
+cnirDescription :: Lens' CreateNetworkInterface (Maybe Text)
 cnirDescription f x =
-    (\y -> x { _cnirDescription = y })
-       <$> f (_cnirDescription x)
+    f (_cnirDescription x) <&> \y -> x { _cnirDescription = y }
 {-# INLINE cnirDescription #-}
 
 -- | The primary private IP address of the network interface. If you don't
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
 -- range.
-cnirPrivateIpAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateNetworkInterface
-    -> f CreateNetworkInterface
+cnirPrivateIpAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cnirPrivateIpAddress f x =
-    (\y -> x { _cnirPrivateIpAddress = y })
-       <$> f (_cnirPrivateIpAddress x)
+    f (_cnirPrivateIpAddress x) <&> \y -> x { _cnirPrivateIpAddress = y }
 {-# INLINE cnirPrivateIpAddress #-}
 
 instance ToQuery CreateNetworkInterface where
@@ -263,15 +228,9 @@ data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     } deriving (Show, Generic)
 
 -- | Information about the network interface.
-cnisNetworkInterface
-    :: Functor f
-    => (Maybe NetworkInterface
-    -> f (Maybe NetworkInterface))
-    -> CreateNetworkInterfaceResponse
-    -> f CreateNetworkInterfaceResponse
+cnisNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnisNetworkInterface f x =
-    (\y -> x { _cnisNetworkInterface = y })
-       <$> f (_cnisNetworkInterface x)
+    f (_cnisNetworkInterface x) <&> \y -> x { _cnisNetworkInterface = y }
 {-# INLINE cnisNetworkInterface #-}
 
 instance FromXML CreateNetworkInterfaceResponse where

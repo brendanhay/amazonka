@@ -72,6 +72,7 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     , _rnaerIcmpTypeCode = Nothing
     , _rnaerPortRange = Nothing
     }
+{-# INLINE replaceNetworkAclEntry #-}
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     { _rnaerEgress :: Bool
@@ -96,99 +97,51 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 
 -- | Indicates whether to replace the egress rule. Default: If no value is
 -- specified, we replace the ingress rule.
-rnaerEgress
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerEgress :: Lens' ReplaceNetworkAclEntry Bool
 rnaerEgress f x =
-    (\y -> x { _rnaerEgress = y })
-       <$> f (_rnaerEgress x)
+    f (_rnaerEgress x) <&> \y -> x { _rnaerEgress = y }
 {-# INLINE rnaerEgress #-}
 
 -- | The rule number of the entry to replace.
-rnaerRuleNumber
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerRuleNumber :: Lens' ReplaceNetworkAclEntry Integer
 rnaerRuleNumber f x =
-    (\y -> x { _rnaerRuleNumber = y })
-       <$> f (_rnaerRuleNumber x)
+    f (_rnaerRuleNumber x) <&> \y -> x { _rnaerRuleNumber = y }
 {-# INLINE rnaerRuleNumber #-}
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaerRuleAction
-    :: Functor f
-    => (RuleAction
-    -> f (RuleAction))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerRuleAction :: Lens' ReplaceNetworkAclEntry RuleAction
 rnaerRuleAction f x =
-    (\y -> x { _rnaerRuleAction = y })
-       <$> f (_rnaerRuleAction x)
+    f (_rnaerRuleAction x) <&> \y -> x { _rnaerRuleAction = y }
 {-# INLINE rnaerRuleAction #-}
 
 -- | The ID of the ACL.
-rnaerNetworkAclId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerNetworkAclId :: Lens' ReplaceNetworkAclEntry Text
 rnaerNetworkAclId f x =
-    (\y -> x { _rnaerNetworkAclId = y })
-       <$> f (_rnaerNetworkAclId x)
+    f (_rnaerNetworkAclId x) <&> \y -> x { _rnaerNetworkAclId = y }
 {-# INLINE rnaerNetworkAclId #-}
 
 -- | The IP protocol. You can specify all or -1 to mean all protocols.
-rnaerProtocol
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerProtocol :: Lens' ReplaceNetworkAclEntry Text
 rnaerProtocol f x =
-    (\y -> x { _rnaerProtocol = y })
-       <$> f (_rnaerProtocol x)
+    f (_rnaerProtocol x) <&> \y -> x { _rnaerProtocol = y }
 {-# INLINE rnaerProtocol #-}
 
 -- | The network range to allow or deny, in CIDR notation.
-rnaerCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerCidrBlock :: Lens' ReplaceNetworkAclEntry Text
 rnaerCidrBlock f x =
-    (\y -> x { _rnaerCidrBlock = y })
-       <$> f (_rnaerCidrBlock x)
+    f (_rnaerCidrBlock x) <&> \y -> x { _rnaerCidrBlock = y }
 {-# INLINE rnaerCidrBlock #-}
 
 -- | ICMP protocol: The ICMP type and code.
-rnaerIcmpTypeCode
-    :: Functor f
-    => (Maybe IcmpTypeCode
-    -> f (Maybe IcmpTypeCode))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
 rnaerIcmpTypeCode f x =
-    (\y -> x { _rnaerIcmpTypeCode = y })
-       <$> f (_rnaerIcmpTypeCode x)
+    f (_rnaerIcmpTypeCode x) <&> \y -> x { _rnaerIcmpTypeCode = y }
 {-# INLINE rnaerIcmpTypeCode #-}
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
-rnaerPortRange
-    :: Functor f
-    => (Maybe PortRange
-    -> f (Maybe PortRange))
-    -> ReplaceNetworkAclEntry
-    -> f ReplaceNetworkAclEntry
+rnaerPortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)
 rnaerPortRange f x =
-    (\y -> x { _rnaerPortRange = y })
-       <$> f (_rnaerPortRange x)
+    f (_rnaerPortRange x) <&> \y -> x { _rnaerPortRange = y }
 {-# INLINE rnaerPortRange #-}
 
 instance ToQuery ReplaceNetworkAclEntry where

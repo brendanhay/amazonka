@@ -49,6 +49,7 @@ modifyVpcAttribute p1 = ModifyVpcAttribute
     , _mvasEnableDnsSupport = Nothing
     , _mvasEnableDnsHostnames = Nothing
     }
+{-# INLINE modifyVpcAttribute #-}
 
 data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvasVpcId :: Text
@@ -70,15 +71,9 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-mvasVpcId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyVpcAttribute
-    -> f ModifyVpcAttribute
+mvasVpcId :: Lens' ModifyVpcAttribute Text
 mvasVpcId f x =
-    (\y -> x { _mvasVpcId = y })
-       <$> f (_mvasVpcId x)
+    f (_mvasVpcId x) <&> \y -> x { _mvasVpcId = y }
 {-# INLINE mvasVpcId #-}
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If this
@@ -87,30 +82,18 @@ mvasVpcId f x =
 -- attribute is true, queries to the Amazon provided DNS server at the
 -- 169.254.169.253 IP address, or the reserved IP address at the base of the
 -- VPC network range "plus two" will succeed.
-mvasEnableDnsSupport
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> ModifyVpcAttribute
-    -> f ModifyVpcAttribute
+mvasEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mvasEnableDnsSupport f x =
-    (\y -> x { _mvasEnableDnsSupport = y })
-       <$> f (_mvasEnableDnsSupport x)
+    f (_mvasEnableDnsSupport x) <&> \y -> x { _mvasEnableDnsSupport = y }
 {-# INLINE mvasEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
 -- they do not. You can only set enableDnsHostnames to true if you also set
 -- the EnableDnsSupport attribute to true.
-mvasEnableDnsHostnames
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> ModifyVpcAttribute
-    -> f ModifyVpcAttribute
+mvasEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mvasEnableDnsHostnames f x =
-    (\y -> x { _mvasEnableDnsHostnames = y })
-       <$> f (_mvasEnableDnsHostnames x)
+    f (_mvasEnableDnsHostnames x) <&> \y -> x { _mvasEnableDnsHostnames = y }
 {-# INLINE mvasEnableDnsHostnames #-}
 
 instance ToQuery ModifyVpcAttribute where

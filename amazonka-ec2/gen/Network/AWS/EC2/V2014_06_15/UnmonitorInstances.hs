@@ -57,6 +57,7 @@ unmonitorInstances :: [Text] -- ^ 'uirInstanceIds'
 unmonitorInstances p1 = UnmonitorInstances
     { _uirInstanceIds = p1
     }
+{-# INLINE unmonitorInstances #-}
 
 data UnmonitorInstances = UnmonitorInstances
     { _uirInstanceIds :: [Text]
@@ -64,15 +65,9 @@ data UnmonitorInstances = UnmonitorInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-uirInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UnmonitorInstances
-    -> f UnmonitorInstances
+uirInstanceIds :: Lens' UnmonitorInstances [Text]
 uirInstanceIds f x =
-    (\y -> x { _uirInstanceIds = y })
-       <$> f (_uirInstanceIds x)
+    f (_uirInstanceIds x) <&> \y -> x { _uirInstanceIds = y }
 {-# INLINE uirInstanceIds #-}
 
 instance ToQuery UnmonitorInstances where
@@ -84,15 +79,9 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-uisInstanceMonitorings
-    :: Functor f
-    => ([InstanceMonitoring]
-    -> f ([InstanceMonitoring]))
-    -> UnmonitorInstancesResponse
-    -> f UnmonitorInstancesResponse
+uisInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uisInstanceMonitorings f x =
-    (\y -> x { _uisInstanceMonitorings = y })
-       <$> f (_uisInstanceMonitorings x)
+    f (_uisInstanceMonitorings x) <&> \y -> x { _uisInstanceMonitorings = y }
 {-# INLINE uisInstanceMonitorings #-}
 
 instance FromXML UnmonitorInstancesResponse where

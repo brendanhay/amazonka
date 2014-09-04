@@ -72,6 +72,7 @@ bundleInstance p1 p2 = BundleInstance
     { _birStorage = p1
     , _birInstanceId = p2
     }
+{-# INLINE bundleInstance #-}
 
 data BundleInstance = BundleInstance
     { _birStorage :: Storage
@@ -86,27 +87,15 @@ data BundleInstance = BundleInstance
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If you
 -- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
-birStorage
-    :: Functor f
-    => (Storage
-    -> f (Storage))
-    -> BundleInstance
-    -> f BundleInstance
+birStorage :: Lens' BundleInstance Storage
 birStorage f x =
-    (\y -> x { _birStorage = y })
-       <$> f (_birStorage x)
+    f (_birStorage x) <&> \y -> x { _birStorage = y }
 {-# INLINE birStorage #-}
 
 -- | The ID of the instance to bundle.
-birInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> BundleInstance
-    -> f BundleInstance
+birInstanceId :: Lens' BundleInstance Text
 birInstanceId f x =
-    (\y -> x { _birInstanceId = y })
-       <$> f (_birInstanceId x)
+    f (_birInstanceId x) <&> \y -> x { _birInstanceId = y }
 {-# INLINE birInstanceId #-}
 
 instance ToQuery BundleInstance where
@@ -118,15 +107,9 @@ data BundleInstanceResponse = BundleInstanceResponse
     } deriving (Show, Generic)
 
 -- | Information about the bundle task.
-bisBundleTask
-    :: Functor f
-    => (Maybe BundleTask
-    -> f (Maybe BundleTask))
-    -> BundleInstanceResponse
-    -> f BundleInstanceResponse
+bisBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 bisBundleTask f x =
-    (\y -> x { _bisBundleTask = y })
-       <$> f (_bisBundleTask x)
+    f (_bisBundleTask x) <&> \y -> x { _bisBundleTask = y }
 {-# INLINE bisBundleTask #-}
 
 instance FromXML BundleInstanceResponse where

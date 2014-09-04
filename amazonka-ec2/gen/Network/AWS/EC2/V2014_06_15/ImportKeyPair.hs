@@ -75,6 +75,7 @@ importKeyPair p1 p2 = ImportKeyPair
     { _ikprKeyName = p1
     , _ikprPublicKeyMaterial = p2
     }
+{-# INLINE importKeyPair #-}
 
 data ImportKeyPair = ImportKeyPair
     { _ikprKeyName :: Text
@@ -85,28 +86,16 @@ data ImportKeyPair = ImportKeyPair
     } deriving (Show, Generic)
 
 -- | A unique name for the key pair.
-ikprKeyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ImportKeyPair
-    -> f ImportKeyPair
+ikprKeyName :: Lens' ImportKeyPair Text
 ikprKeyName f x =
-    (\y -> x { _ikprKeyName = y })
-       <$> f (_ikprKeyName x)
+    f (_ikprKeyName x) <&> \y -> x { _ikprKeyName = y }
 {-# INLINE ikprKeyName #-}
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikprPublicKeyMaterial
-    :: Functor f
-    => (ByteString
-    -> f (ByteString))
-    -> ImportKeyPair
-    -> f ImportKeyPair
+ikprPublicKeyMaterial :: Lens' ImportKeyPair ByteString
 ikprPublicKeyMaterial f x =
-    (\y -> x { _ikprPublicKeyMaterial = y })
-       <$> f (_ikprPublicKeyMaterial x)
+    f (_ikprPublicKeyMaterial x) <&> \y -> x { _ikprPublicKeyMaterial = y }
 {-# INLINE ikprPublicKeyMaterial #-}
 
 instance ToQuery ImportKeyPair where
@@ -121,27 +110,15 @@ data ImportKeyPairResponse = ImportKeyPairResponse
     } deriving (Show, Generic)
 
 -- | The key pair name you provided.
-ikpsKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ImportKeyPairResponse
-    -> f ImportKeyPairResponse
+ikpsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikpsKeyName f x =
-    (\y -> x { _ikpsKeyName = y })
-       <$> f (_ikpsKeyName x)
+    f (_ikpsKeyName x) <&> \y -> x { _ikpsKeyName = y }
 {-# INLINE ikpsKeyName #-}
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-ikpsKeyFingerprint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ImportKeyPairResponse
-    -> f ImportKeyPairResponse
+ikpsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
 ikpsKeyFingerprint f x =
-    (\y -> x { _ikpsKeyFingerprint = y })
-       <$> f (_ikpsKeyFingerprint x)
+    f (_ikpsKeyFingerprint x) <&> \y -> x { _ikpsKeyFingerprint = y }
 {-# INLINE ikpsKeyFingerprint #-}
 
 instance FromXML ImportKeyPairResponse where

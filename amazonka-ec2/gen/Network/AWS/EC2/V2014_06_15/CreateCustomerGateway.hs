@@ -75,6 +75,7 @@ createCustomerGateway p1 p2 p3 = CreateCustomerGateway
     , _ccgrBgpAsn = p2
     , _ccgrPublicIp = p3
     }
+{-# INLINE createCustomerGateway #-}
 
 data CreateCustomerGateway = CreateCustomerGateway
     { _ccgrType :: GatewayType
@@ -88,41 +89,23 @@ data CreateCustomerGateway = CreateCustomerGateway
     } deriving (Show, Generic)
 
 -- | The type of VPN connection that this customer gateway supports.
-ccgrType
-    :: Functor f
-    => (GatewayType
-    -> f (GatewayType))
-    -> CreateCustomerGateway
-    -> f CreateCustomerGateway
+ccgrType :: Lens' CreateCustomerGateway GatewayType
 ccgrType f x =
-    (\y -> x { _ccgrType = y })
-       <$> f (_ccgrType x)
+    f (_ccgrType x) <&> \y -> x { _ccgrType = y }
 {-# INLINE ccgrType #-}
 
 -- | For devices that support BGP, the customer gateway's BGP ASN. Default:
 -- 65000.
-ccgrBgpAsn
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateCustomerGateway
-    -> f CreateCustomerGateway
+ccgrBgpAsn :: Lens' CreateCustomerGateway Integer
 ccgrBgpAsn f x =
-    (\y -> x { _ccgrBgpAsn = y })
-       <$> f (_ccgrBgpAsn x)
+    f (_ccgrBgpAsn x) <&> \y -> x { _ccgrBgpAsn = y }
 {-# INLINE ccgrBgpAsn #-}
 
 -- | The Internet-routable IP address for the customer gateway's outside
 -- interface. The address must be static.
-ccgrPublicIp
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateCustomerGateway
-    -> f CreateCustomerGateway
+ccgrPublicIp :: Lens' CreateCustomerGateway Text
 ccgrPublicIp f x =
-    (\y -> x { _ccgrPublicIp = y })
-       <$> f (_ccgrPublicIp x)
+    f (_ccgrPublicIp x) <&> \y -> x { _ccgrPublicIp = y }
 {-# INLINE ccgrPublicIp #-}
 
 instance ToQuery CreateCustomerGateway where
@@ -134,15 +117,9 @@ data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     } deriving (Show, Generic)
 
 -- | Information about the customer gateway.
-ccgsCustomerGateway
-    :: Functor f
-    => (Maybe CustomerGateway
-    -> f (Maybe CustomerGateway))
-    -> CreateCustomerGatewayResponse
-    -> f CreateCustomerGatewayResponse
+ccgsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgsCustomerGateway f x =
-    (\y -> x { _ccgsCustomerGateway = y })
-       <$> f (_ccgsCustomerGateway x)
+    f (_ccgsCustomerGateway x) <&> \y -> x { _ccgsCustomerGateway = y }
 {-# INLINE ccgsCustomerGateway #-}
 
 instance FromXML CreateCustomerGatewayResponse where

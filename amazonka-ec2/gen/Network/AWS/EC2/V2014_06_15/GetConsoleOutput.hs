@@ -79,6 +79,7 @@ getConsoleOutput :: Text -- ^ 'gcorInstanceId'
 getConsoleOutput p1 = GetConsoleOutput
     { _gcorInstanceId = p1
     }
+{-# INLINE getConsoleOutput #-}
 
 data GetConsoleOutput = GetConsoleOutput
     { _gcorInstanceId :: Text
@@ -86,15 +87,9 @@ data GetConsoleOutput = GetConsoleOutput
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-gcorInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetConsoleOutput
-    -> f GetConsoleOutput
+gcorInstanceId :: Lens' GetConsoleOutput Text
 gcorInstanceId f x =
-    (\y -> x { _gcorInstanceId = y })
-       <$> f (_gcorInstanceId x)
+    f (_gcorInstanceId x) <&> \y -> x { _gcorInstanceId = y }
 {-# INLINE gcorInstanceId #-}
 
 instance ToQuery GetConsoleOutput where
@@ -110,39 +105,21 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
     } deriving (Show, Generic)
 
 -- | The time the output was last updated.
-gcosTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetConsoleOutputResponse
-    -> f GetConsoleOutputResponse
+gcosTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
 gcosTimestamp f x =
-    (\y -> x { _gcosTimestamp = y })
-       <$> f (_gcosTimestamp x)
+    f (_gcosTimestamp x) <&> \y -> x { _gcosTimestamp = y }
 {-# INLINE gcosTimestamp #-}
 
 -- | The ID of the instance.
-gcosInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetConsoleOutputResponse
-    -> f GetConsoleOutputResponse
+gcosInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcosInstanceId f x =
-    (\y -> x { _gcosInstanceId = y })
-       <$> f (_gcosInstanceId x)
+    f (_gcosInstanceId x) <&> \y -> x { _gcosInstanceId = y }
 {-# INLINE gcosInstanceId #-}
 
 -- | The console output, Base64 encoded.
-gcosOutput
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetConsoleOutputResponse
-    -> f GetConsoleOutputResponse
+gcosOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcosOutput f x =
-    (\y -> x { _gcosOutput = y })
-       <$> f (_gcosOutput x)
+    f (_gcosOutput x) <&> \y -> x { _gcosOutput = y }
 {-# INLINE gcosOutput #-}
 
 instance FromXML GetConsoleOutputResponse where

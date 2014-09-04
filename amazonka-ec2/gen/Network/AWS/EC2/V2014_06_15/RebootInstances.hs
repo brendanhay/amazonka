@@ -54,6 +54,7 @@ rebootInstances :: [Text] -- ^ 'riuInstanceIds'
 rebootInstances p1 = RebootInstances
     { _riuInstanceIds = p1
     }
+{-# INLINE rebootInstances #-}
 
 data RebootInstances = RebootInstances
     { _riuInstanceIds :: [Text]
@@ -61,15 +62,9 @@ data RebootInstances = RebootInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-riuInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RebootInstances
-    -> f RebootInstances
+riuInstanceIds :: Lens' RebootInstances [Text]
 riuInstanceIds f x =
-    (\y -> x { _riuInstanceIds = y })
-       <$> f (_riuInstanceIds x)
+    f (_riuInstanceIds x) <&> \y -> x { _riuInstanceIds = y }
 {-# INLINE riuInstanceIds #-}
 
 instance ToQuery RebootInstances where

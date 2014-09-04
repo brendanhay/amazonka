@@ -60,6 +60,7 @@ associateRouteTable p1 p2 = AssociateRouteTable
     { _artrSubnetId = p1
     , _artrRouteTableId = p2
     }
+{-# INLINE associateRouteTable #-}
 
 data AssociateRouteTable = AssociateRouteTable
     { _artrSubnetId :: Text
@@ -69,27 +70,15 @@ data AssociateRouteTable = AssociateRouteTable
     } deriving (Show, Generic)
 
 -- | The ID of the subnet.
-artrSubnetId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssociateRouteTable
-    -> f AssociateRouteTable
+artrSubnetId :: Lens' AssociateRouteTable Text
 artrSubnetId f x =
-    (\y -> x { _artrSubnetId = y })
-       <$> f (_artrSubnetId x)
+    f (_artrSubnetId x) <&> \y -> x { _artrSubnetId = y }
 {-# INLINE artrSubnetId #-}
 
 -- | The ID of the route table.
-artrRouteTableId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AssociateRouteTable
-    -> f AssociateRouteTable
+artrRouteTableId :: Lens' AssociateRouteTable Text
 artrRouteTableId f x =
-    (\y -> x { _artrRouteTableId = y })
-       <$> f (_artrRouteTableId x)
+    f (_artrRouteTableId x) <&> \y -> x { _artrRouteTableId = y }
 {-# INLINE artrRouteTableId #-}
 
 instance ToQuery AssociateRouteTable where
@@ -102,15 +91,9 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse
     } deriving (Show, Generic)
 
 -- | The route table association ID (needed to disassociate the route table).
-artsAssociationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateRouteTableResponse
-    -> f AssociateRouteTableResponse
+artsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artsAssociationId f x =
-    (\y -> x { _artsAssociationId = y })
-       <$> f (_artsAssociationId x)
+    f (_artsAssociationId x) <&> \y -> x { _artsAssociationId = y }
 {-# INLINE artsAssociationId #-}
 
 instance FromXML AssociateRouteTableResponse where

@@ -77,6 +77,7 @@ stopInstances p1 = StopInstances
     { _sisvInstanceIds = p1
     , _sisvForce = Nothing
     }
+{-# INLINE stopInstances #-}
 
 data StopInstances = StopInstances
     { _sisvInstanceIds :: [Text]
@@ -90,30 +91,18 @@ data StopInstances = StopInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-sisvInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> StopInstances
-    -> f StopInstances
+sisvInstanceIds :: Lens' StopInstances [Text]
 sisvInstanceIds f x =
-    (\y -> x { _sisvInstanceIds = y })
-       <$> f (_sisvInstanceIds x)
+    f (_sisvInstanceIds x) <&> \y -> x { _sisvInstanceIds = y }
 {-# INLINE sisvInstanceIds #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
 -- flush file system caches or file system metadata. If you use this option,
 -- you must perform file system check and repair procedures. This option is
 -- not recommended for Windows instances. Default: false.
-sisvForce
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> StopInstances
-    -> f StopInstances
+sisvForce :: Lens' StopInstances (Maybe Bool)
 sisvForce f x =
-    (\y -> x { _sisvForce = y })
-       <$> f (_sisvForce x)
+    f (_sisvForce x) <&> \y -> x { _sisvForce = y }
 {-# INLINE sisvForce #-}
 
 instance ToQuery StopInstances where
@@ -125,15 +114,9 @@ data StopInstancesResponse = StopInstancesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more stopped instances.
-siswStoppingInstances
-    :: Functor f
-    => ([InstanceStateChange]
-    -> f ([InstanceStateChange]))
-    -> StopInstancesResponse
-    -> f StopInstancesResponse
+siswStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 siswStoppingInstances f x =
-    (\y -> x { _siswStoppingInstances = y })
-       <$> f (_siswStoppingInstances x)
+    f (_siswStoppingInstances x) <&> \y -> x { _siswStoppingInstances = y }
 {-# INLINE siswStoppingInstances #-}
 
 instance FromXML StopInstancesResponse where

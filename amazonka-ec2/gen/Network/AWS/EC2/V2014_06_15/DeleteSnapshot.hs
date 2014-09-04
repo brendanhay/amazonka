@@ -56,6 +56,7 @@ deleteSnapshot :: Text -- ^ 'dsrSnapshotId'
 deleteSnapshot p1 = DeleteSnapshot
     { _dsrSnapshotId = p1
     }
+{-# INLINE deleteSnapshot #-}
 
 data DeleteSnapshot = DeleteSnapshot
     { _dsrSnapshotId :: Text
@@ -63,15 +64,9 @@ data DeleteSnapshot = DeleteSnapshot
     } deriving (Show, Generic)
 
 -- | The ID of the Amazon EBS snapshot.
-dsrSnapshotId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSnapshot
-    -> f DeleteSnapshot
+dsrSnapshotId :: Lens' DeleteSnapshot Text
 dsrSnapshotId f x =
-    (\y -> x { _dsrSnapshotId = y })
-       <$> f (_dsrSnapshotId x)
+    f (_dsrSnapshotId x) <&> \y -> x { _dsrSnapshotId = y }
 {-# INLINE dsrSnapshotId #-}
 
 instance ToQuery DeleteSnapshot where

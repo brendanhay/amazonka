@@ -82,6 +82,7 @@ describeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphrAvailabilityZone = Nothing
     , _dsphrNextToken = Nothing
     }
+{-# INLINE describeSpotPriceHistory #-}
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphrStartTime :: Maybe ISO8601
@@ -113,27 +114,15 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     } deriving (Show, Generic)
 
 -- | The start date and time of the Spot Price history data.
-dsphrStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrStartTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphrStartTime f x =
-    (\y -> x { _dsphrStartTime = y })
-       <$> f (_dsphrStartTime x)
+    f (_dsphrStartTime x) <&> \y -> x { _dsphrStartTime = y }
 {-# INLINE dsphrStartTime #-}
 
 -- | The end date and time of the Spot Price history data.
-dsphrEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrEndTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphrEndTime f x =
-    (\y -> x { _dsphrEndTime = y })
-       <$> f (_dsphrEndTime x)
+    f (_dsphrEndTime x) <&> \y -> x { _dsphrEndTime = y }
 {-# INLINE dsphrEndTime #-}
 
 -- | One or more filters. availability-zone - The Availability Zone for which
@@ -145,75 +134,39 @@ dsphrEndTime f x =
 -- than comparison is not supported). timestamp - The timestamp of the Spot
 -- Price history (for example, 2010-08-16T05:06:11.000Z). You can use
 -- wildcards (* and ?). Greater than or less than comparison is not supported.
-dsphrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrFilters :: Lens' DescribeSpotPriceHistory [Filter]
 dsphrFilters f x =
-    (\y -> x { _dsphrFilters = y })
-       <$> f (_dsphrFilters x)
+    f (_dsphrFilters x) <&> \y -> x { _dsphrFilters = y }
 {-# INLINE dsphrFilters #-}
 
 -- | One or more instance types.
-dsphrInstanceTypes
-    :: Functor f
-    => ([InstanceType]
-    -> f ([InstanceType]))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
 dsphrInstanceTypes f x =
-    (\y -> x { _dsphrInstanceTypes = y })
-       <$> f (_dsphrInstanceTypes x)
+    f (_dsphrInstanceTypes x) <&> \y -> x { _dsphrInstanceTypes = y }
 {-# INLINE dsphrInstanceTypes #-}
 
 -- | The number of rows to return.
-dsphrMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Integer)
 dsphrMaxResults f x =
-    (\y -> x { _dsphrMaxResults = y })
-       <$> f (_dsphrMaxResults x)
+    f (_dsphrMaxResults x) <&> \y -> x { _dsphrMaxResults = y }
 {-# INLINE dsphrMaxResults #-}
 
 -- | One or more basic product descriptions.
-dsphrProductDescriptions
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
 dsphrProductDescriptions f x =
-    (\y -> x { _dsphrProductDescriptions = y })
-       <$> f (_dsphrProductDescriptions x)
+    f (_dsphrProductDescriptions x) <&> \y -> x { _dsphrProductDescriptions = y }
 {-# INLINE dsphrProductDescriptions #-}
 
 -- | The Availability Zone.
-dsphrAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphrAvailabilityZone f x =
-    (\y -> x { _dsphrAvailabilityZone = y })
-       <$> f (_dsphrAvailabilityZone x)
+    f (_dsphrAvailabilityZone x) <&> \y -> x { _dsphrAvailabilityZone = y }
 {-# INLINE dsphrAvailabilityZone #-}
 
 -- | The next set of rows to return.
-dsphrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSpotPriceHistory
-    -> f DescribeSpotPriceHistory
+dsphrNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphrNextToken f x =
-    (\y -> x { _dsphrNextToken = y })
-       <$> f (_dsphrNextToken x)
+    f (_dsphrNextToken x) <&> \y -> x { _dsphrNextToken = y }
 {-# INLINE dsphrNextToken #-}
 
 instance ToQuery DescribeSpotPriceHistory where
@@ -228,28 +181,16 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     } deriving (Show, Generic)
 
 -- | The historical Spot Prices.
-dsphsSpotPriceHistory
-    :: Functor f
-    => ([SpotPrice]
-    -> f ([SpotPrice]))
-    -> DescribeSpotPriceHistoryResponse
-    -> f DescribeSpotPriceHistoryResponse
+dsphsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphsSpotPriceHistory f x =
-    (\y -> x { _dsphsSpotPriceHistory = y })
-       <$> f (_dsphsSpotPriceHistory x)
+    f (_dsphsSpotPriceHistory x) <&> \y -> x { _dsphsSpotPriceHistory = y }
 {-# INLINE dsphsSpotPriceHistory #-}
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
-dsphsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeSpotPriceHistoryResponse
-    -> f DescribeSpotPriceHistoryResponse
+dsphsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphsNextToken f x =
-    (\y -> x { _dsphsNextToken = y })
-       <$> f (_dsphsNextToken x)
+    f (_dsphsNextToken x) <&> \y -> x { _dsphsNextToken = y }
 {-# INLINE dsphsNextToken #-}
 
 instance FromXML DescribeSpotPriceHistoryResponse where

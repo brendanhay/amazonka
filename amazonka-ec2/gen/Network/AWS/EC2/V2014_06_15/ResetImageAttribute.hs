@@ -51,6 +51,7 @@ resetImageAttribute p1 p2 = ResetImageAttribute
     { _riarAttribute = p1
     , _riarImageId = p2
     }
+{-# INLINE resetImageAttribute #-}
 
 data ResetImageAttribute = ResetImageAttribute
     { _riarAttribute :: ResetImageAttributeName
@@ -62,27 +63,15 @@ data ResetImageAttribute = ResetImageAttribute
 
 -- | The attribute to reset (currently you can only reset the launch permission
 -- attribute).
-riarAttribute
-    :: Functor f
-    => (ResetImageAttributeName
-    -> f (ResetImageAttributeName))
-    -> ResetImageAttribute
-    -> f ResetImageAttribute
+riarAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
 riarAttribute f x =
-    (\y -> x { _riarAttribute = y })
-       <$> f (_riarAttribute x)
+    f (_riarAttribute x) <&> \y -> x { _riarAttribute = y }
 {-# INLINE riarAttribute #-}
 
 -- | The ID of the AMI.
-riarImageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResetImageAttribute
-    -> f ResetImageAttribute
+riarImageId :: Lens' ResetImageAttribute Text
 riarImageId f x =
-    (\y -> x { _riarImageId = y })
-       <$> f (_riarImageId x)
+    f (_riarImageId x) <&> \y -> x { _riarImageId = y }
 {-# INLINE riarImageId #-}
 
 instance ToQuery ResetImageAttribute where

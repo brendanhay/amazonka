@@ -70,6 +70,7 @@ describeVolumeAttribute p1 = DescribeVolumeAttribute
     { _dvarVolumeId = p1
     , _dvarAttribute = Nothing
     }
+{-# INLINE describeVolumeAttribute #-}
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvarVolumeId :: Text
@@ -79,27 +80,15 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvarVolumeId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeVolumeAttribute
-    -> f DescribeVolumeAttribute
+dvarVolumeId :: Lens' DescribeVolumeAttribute Text
 dvarVolumeId f x =
-    (\y -> x { _dvarVolumeId = y })
-       <$> f (_dvarVolumeId x)
+    f (_dvarVolumeId x) <&> \y -> x { _dvarVolumeId = y }
 {-# INLINE dvarVolumeId #-}
 
 -- | The instance attribute.
-dvarAttribute
-    :: Functor f
-    => (Maybe VolumeAttributeName
-    -> f (Maybe VolumeAttributeName))
-    -> DescribeVolumeAttribute
-    -> f DescribeVolumeAttribute
+dvarAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvarAttribute f x =
-    (\y -> x { _dvarAttribute = y })
-       <$> f (_dvarAttribute x)
+    f (_dvarAttribute x) <&> \y -> x { _dvarAttribute = y }
 {-# INLINE dvarAttribute #-}
 
 instance ToQuery DescribeVolumeAttribute where
@@ -115,39 +104,21 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     } deriving (Show, Generic)
 
 -- | The state of autoEnableIO attribute.
-dvasAutoEnableIO
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> DescribeVolumeAttributeResponse
-    -> f DescribeVolumeAttributeResponse
+dvasAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvasAutoEnableIO f x =
-    (\y -> x { _dvasAutoEnableIO = y })
-       <$> f (_dvasAutoEnableIO x)
+    f (_dvasAutoEnableIO x) <&> \y -> x { _dvasAutoEnableIO = y }
 {-# INLINE dvasAutoEnableIO #-}
 
 -- | A list of product codes.
-dvasProductCodes
-    :: Functor f
-    => ([ProductCode]
-    -> f ([ProductCode]))
-    -> DescribeVolumeAttributeResponse
-    -> f DescribeVolumeAttributeResponse
+dvasProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvasProductCodes f x =
-    (\y -> x { _dvasProductCodes = y })
-       <$> f (_dvasProductCodes x)
+    f (_dvasProductCodes x) <&> \y -> x { _dvasProductCodes = y }
 {-# INLINE dvasProductCodes #-}
 
 -- | The ID of the volume.
-dvasVolumeId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeVolumeAttributeResponse
-    -> f DescribeVolumeAttributeResponse
+dvasVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvasVolumeId f x =
-    (\y -> x { _dvasVolumeId = y })
-       <$> f (_dvasVolumeId x)
+    f (_dvasVolumeId x) <&> \y -> x { _dvasVolumeId = y }
 {-# INLINE dvasVolumeId #-}
 
 instance FromXML DescribeVolumeAttributeResponse where

@@ -83,6 +83,7 @@ createSecurityGroup p1 p2 = CreateSecurityGroup
     , _csgrDescription = p2
     , _csgrVpcId = Nothing
     }
+{-# INLINE createSecurityGroup #-}
 
 data CreateSecurityGroup = CreateSecurityGroup
     { _csgrGroupName :: Text
@@ -99,39 +100,21 @@ data CreateSecurityGroup = CreateSecurityGroup
 -- | The name of the security group. Constraints: Up to 255 characters in length
 -- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
 -- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
-csgrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSecurityGroup
-    -> f CreateSecurityGroup
+csgrGroupName :: Lens' CreateSecurityGroup Text
 csgrGroupName f x =
-    (\y -> x { _csgrGroupName = y })
-       <$> f (_csgrGroupName x)
+    f (_csgrGroupName x) <&> \y -> x { _csgrGroupName = y }
 {-# INLINE csgrGroupName #-}
 
 -- | A description for the security group. This is informational only.
-csgrDescription
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSecurityGroup
-    -> f CreateSecurityGroup
+csgrDescription :: Lens' CreateSecurityGroup Text
 csgrDescription f x =
-    (\y -> x { _csgrDescription = y })
-       <$> f (_csgrDescription x)
+    f (_csgrDescription x) <&> \y -> x { _csgrDescription = y }
 {-# INLINE csgrDescription #-}
 
 -- | [EC2-VPC] The ID of the VPC.
-csgrVpcId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSecurityGroup
-    -> f CreateSecurityGroup
+csgrVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgrVpcId f x =
-    (\y -> x { _csgrVpcId = y })
-       <$> f (_csgrVpcId x)
+    f (_csgrVpcId x) <&> \y -> x { _csgrVpcId = y }
 {-# INLINE csgrVpcId #-}
 
 instance ToQuery CreateSecurityGroup where
@@ -143,15 +126,9 @@ data CreateSecurityGroupResponse = CreateSecurityGroupResponse
     } deriving (Show, Generic)
 
 -- | The ID of the security group.
-csgsGroupId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSecurityGroupResponse
-    -> f CreateSecurityGroupResponse
+csgsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgsGroupId f x =
-    (\y -> x { _csgsGroupId = y })
-       <$> f (_csgsGroupId x)
+    f (_csgsGroupId x) <&> \y -> x { _csgsGroupId = y }
 {-# INLINE csgsGroupId #-}
 
 instance FromXML CreateSecurityGroupResponse where

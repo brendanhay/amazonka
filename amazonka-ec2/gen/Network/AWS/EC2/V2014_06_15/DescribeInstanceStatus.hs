@@ -116,6 +116,7 @@ describeInstanceStatus = DescribeInstanceStatus
     , _disrMaxResults = Nothing
     , _disrNextToken = Nothing
     }
+{-# INLINE describeInstanceStatus #-}
 
 data DescribeInstanceStatus = DescribeInstanceStatus
     { _disrIncludeAllInstances :: Maybe Bool
@@ -158,15 +159,9 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 
 -- | When true, includes the health status for all instances. When false,
 -- includes the health status for running instances only. Default: false.
-disrIncludeAllInstances
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DescribeInstanceStatus
-    -> f DescribeInstanceStatus
+disrIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
 disrIncludeAllInstances f x =
-    (\y -> x { _disrIncludeAllInstances = y })
-       <$> f (_disrIncludeAllInstances x)
+    f (_disrIncludeAllInstances x) <&> \y -> x { _disrIncludeAllInstances = y }
 {-# INLINE disrIncludeAllInstances #-}
 
 -- | One or more filters. availability-zone - The Availability Zone of the
@@ -189,52 +184,28 @@ disrIncludeAllInstances f x =
 -- reachability (passed | failed | initializing | insufficient-data).
 -- system-status.status - The system status of the instance (ok | impaired |
 -- initializing | insufficient-data | not-applicable).
-disrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeInstanceStatus
-    -> f DescribeInstanceStatus
+disrFilters :: Lens' DescribeInstanceStatus [Filter]
 disrFilters f x =
-    (\y -> x { _disrFilters = y })
-       <$> f (_disrFilters x)
+    f (_disrFilters x) <&> \y -> x { _disrFilters = y }
 {-# INLINE disrFilters #-}
 
 -- | One or more instance IDs. Default: Describes all your instances.
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-disrInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeInstanceStatus
-    -> f DescribeInstanceStatus
+disrInstanceIds :: Lens' DescribeInstanceStatus [Text]
 disrInstanceIds f x =
-    (\y -> x { _disrInstanceIds = y })
-       <$> f (_disrInstanceIds x)
+    f (_disrInstanceIds x) <&> \y -> x { _disrInstanceIds = y }
 {-# INLINE disrInstanceIds #-}
 
 -- | The maximum number of paginated instance items per response. Default: 1000.
-disrMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeInstanceStatus
-    -> f DescribeInstanceStatus
+disrMaxResults :: Lens' DescribeInstanceStatus (Maybe Integer)
 disrMaxResults f x =
-    (\y -> x { _disrMaxResults = y })
-       <$> f (_disrMaxResults x)
+    f (_disrMaxResults x) <&> \y -> x { _disrMaxResults = y }
 {-# INLINE disrMaxResults #-}
 
 -- | The next paginated set of results to return.
-disrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstanceStatus
-    -> f DescribeInstanceStatus
+disrNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disrNextToken f x =
-    (\y -> x { _disrNextToken = y })
-       <$> f (_disrNextToken x)
+    f (_disrNextToken x) <&> \y -> x { _disrNextToken = y }
 {-# INLINE disrNextToken #-}
 
 instance ToQuery DescribeInstanceStatus where
@@ -248,27 +219,15 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     } deriving (Show, Generic)
 
 -- | One or more instance status descriptions.
-dissInstanceStatuses
-    :: Functor f
-    => ([InstanceStatus]
-    -> f ([InstanceStatus]))
-    -> DescribeInstanceStatusResponse
-    -> f DescribeInstanceStatusResponse
+dissInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
 dissInstanceStatuses f x =
-    (\y -> x { _dissInstanceStatuses = y })
-       <$> f (_dissInstanceStatuses x)
+    f (_dissInstanceStatuses x) <&> \y -> x { _dissInstanceStatuses = y }
 {-# INLINE dissInstanceStatuses #-}
 
 -- | The next paginated set of results to return.
-dissNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstanceStatusResponse
-    -> f DescribeInstanceStatusResponse
+dissNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 dissNextToken f x =
-    (\y -> x { _dissNextToken = y })
-       <$> f (_dissNextToken x)
+    f (_dissNextToken x) <&> \y -> x { _dissNextToken = y }
 {-# INLINE dissNextToken #-}
 
 instance FromXML DescribeInstanceStatusResponse where

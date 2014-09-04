@@ -66,6 +66,7 @@ describeSecurityGroups = DescribeSecurityGroups
     , _dsgsGroupIds = mempty
     , _dsgsGroupNames = mempty
     }
+{-# INLINE describeSecurityGroups #-}
 
 data DescribeSecurityGroups = DescribeSecurityGroups
     { _dsgsFilters :: [Filter]
@@ -109,41 +110,23 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 -- group. tag-key - The key of a tag assigned to the security group. tag-value
 -- - The value of a tag assigned to the security group. vpc-id - The ID of the
 -- VPC specified when the security group was created.
-dsgsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeSecurityGroups
-    -> f DescribeSecurityGroups
+dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
 dsgsFilters f x =
-    (\y -> x { _dsgsFilters = y })
-       <$> f (_dsgsFilters x)
+    f (_dsgsFilters x) <&> \y -> x { _dsgsFilters = y }
 {-# INLINE dsgsFilters #-}
 
 -- | One or more security group IDs. Default: Describes all your security
 -- groups.
-dsgsGroupIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSecurityGroups
-    -> f DescribeSecurityGroups
+dsgsGroupIds :: Lens' DescribeSecurityGroups [Text]
 dsgsGroupIds f x =
-    (\y -> x { _dsgsGroupIds = y })
-       <$> f (_dsgsGroupIds x)
+    f (_dsgsGroupIds x) <&> \y -> x { _dsgsGroupIds = y }
 {-# INLINE dsgsGroupIds #-}
 
 -- | [EC2-Classic, default VPC] One or more security group names. Default:
 -- Describes all your security groups.
-dsgsGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSecurityGroups
-    -> f DescribeSecurityGroups
+dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
 dsgsGroupNames f x =
-    (\y -> x { _dsgsGroupNames = y })
-       <$> f (_dsgsGroupNames x)
+    f (_dsgsGroupNames x) <&> \y -> x { _dsgsGroupNames = y }
 {-# INLINE dsgsGroupNames #-}
 
 instance ToQuery DescribeSecurityGroups where
@@ -155,15 +138,9 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more security groups.
-dsgtSecurityGroups
-    :: Functor f
-    => ([SecurityGroup]
-    -> f ([SecurityGroup]))
-    -> DescribeSecurityGroupsResponse
-    -> f DescribeSecurityGroupsResponse
+dsgtSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgtSecurityGroups f x =
-    (\y -> x { _dsgtSecurityGroups = y })
-       <$> f (_dsgtSecurityGroups x)
+    f (_dsgtSecurityGroups x) <&> \y -> x { _dsgtSecurityGroups = y }
 {-# INLINE dsgtSecurityGroups #-}
 
 instance FromXML DescribeSecurityGroupsResponse where

@@ -84,6 +84,7 @@ describeTags = DescribeTags
     , _dtsMaxResults = Nothing
     , _dtsNextToken = Nothing
     }
+{-# INLINE describeTags #-}
 
 data DescribeTags = DescribeTags
     { _dtsFilters :: [Filter]
@@ -110,42 +111,24 @@ data DescribeTags = DescribeTags
 -- reserved-instances | route-table | security-group | snapshot |
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
-dtsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeTags
-    -> f DescribeTags
+dtsFilters :: Lens' DescribeTags [Filter]
 dtsFilters f x =
-    (\y -> x { _dtsFilters = y })
-       <$> f (_dtsFilters x)
+    f (_dtsFilters x) <&> \y -> x { _dtsFilters = y }
 {-# INLINE dtsFilters #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
-dtsMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeTags
-    -> f DescribeTags
+dtsMaxResults :: Lens' DescribeTags (Maybe Integer)
 dtsMaxResults f x =
-    (\y -> x { _dtsMaxResults = y })
-       <$> f (_dtsMaxResults x)
+    f (_dtsMaxResults x) <&> \y -> x { _dtsMaxResults = y }
 {-# INLINE dtsMaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
-dtsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTags
-    -> f DescribeTags
+dtsNextToken :: Lens' DescribeTags (Maybe Text)
 dtsNextToken f x =
-    (\y -> x { _dtsNextToken = y })
-       <$> f (_dtsNextToken x)
+    f (_dtsNextToken x) <&> \y -> x { _dtsNextToken = y }
 {-# INLINE dtsNextToken #-}
 
 instance ToQuery DescribeTags where
@@ -160,28 +143,16 @@ data DescribeTagsResponse = DescribeTagsResponse
     } deriving (Show, Generic)
 
 -- | A list of tags.
-dttTags
-    :: Functor f
-    => ([TagDescription]
-    -> f ([TagDescription]))
-    -> DescribeTagsResponse
-    -> f DescribeTagsResponse
+dttTags :: Lens' DescribeTagsResponse [TagDescription]
 dttTags f x =
-    (\y -> x { _dttTags = y })
-       <$> f (_dttTags x)
+    f (_dttTags x) <&> \y -> x { _dttTags = y }
 {-# INLINE dttTags #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dttNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTagsResponse
-    -> f DescribeTagsResponse
+dttNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dttNextToken f x =
-    (\y -> x { _dttNextToken = y })
-       <$> f (_dttNextToken x)
+    f (_dttNextToken x) <&> \y -> x { _dttNextToken = y }
 {-# INLINE dttNextToken #-}
 
 instance FromXML DescribeTagsResponse where

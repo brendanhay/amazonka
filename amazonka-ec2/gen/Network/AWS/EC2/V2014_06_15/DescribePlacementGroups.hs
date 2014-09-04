@@ -55,6 +55,7 @@ describePlacementGroups = DescribePlacementGroups
     { _dpgsFilters = mempty
     , _dpgsGroupNames = mempty
     }
+{-# INLINE describePlacementGroups #-}
 
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpgsFilters :: [Filter]
@@ -70,28 +71,16 @@ data DescribePlacementGroups = DescribePlacementGroups
 -- | One or more filters. group-name - The name of the placement group. state -
 -- The state of the placement group (pending | available | deleting |
 -- deleted). strategy - The strategy of the placement group (cluster).
-dpgsFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribePlacementGroups
-    -> f DescribePlacementGroups
+dpgsFilters :: Lens' DescribePlacementGroups [Filter]
 dpgsFilters f x =
-    (\y -> x { _dpgsFilters = y })
-       <$> f (_dpgsFilters x)
+    f (_dpgsFilters x) <&> \y -> x { _dpgsFilters = y }
 {-# INLINE dpgsFilters #-}
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
-dpgsGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribePlacementGroups
-    -> f DescribePlacementGroups
+dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
 dpgsGroupNames f x =
-    (\y -> x { _dpgsGroupNames = y })
-       <$> f (_dpgsGroupNames x)
+    f (_dpgsGroupNames x) <&> \y -> x { _dpgsGroupNames = y }
 {-# INLINE dpgsGroupNames #-}
 
 instance ToQuery DescribePlacementGroups where
@@ -103,15 +92,9 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     } deriving (Show, Generic)
 
 -- | One or more placement groups.
-dpgtPlacementGroups
-    :: Functor f
-    => ([PlacementGroup]
-    -> f ([PlacementGroup]))
-    -> DescribePlacementGroupsResponse
-    -> f DescribePlacementGroupsResponse
+dpgtPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgtPlacementGroups f x =
-    (\y -> x { _dpgtPlacementGroups = y })
-       <$> f (_dpgtPlacementGroups x)
+    f (_dpgtPlacementGroups x) <&> \y -> x { _dpgtPlacementGroups = y }
 {-# INLINE dpgtPlacementGroups #-}
 
 instance FromXML DescribePlacementGroupsResponse where

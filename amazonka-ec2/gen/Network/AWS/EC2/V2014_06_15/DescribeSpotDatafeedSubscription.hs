@@ -42,6 +42,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeSpotDatafeedSubscription' request.
 describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
+{-# INLINE describeSpotDatafeedSubscription #-}
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     deriving (Eq, Show, Generic)
@@ -55,15 +56,9 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
     } deriving (Show, Generic)
 
 -- | The Spot Instance datafeed subscription.
-dsdstSpotDatafeedSubscription
-    :: Functor f
-    => (Maybe SpotDatafeedSubscription
-    -> f (Maybe SpotDatafeedSubscription))
-    -> DescribeSpotDatafeedSubscriptionResponse
-    -> f DescribeSpotDatafeedSubscriptionResponse
+dsdstSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdstSpotDatafeedSubscription f x =
-    (\y -> x { _dsdstSpotDatafeedSubscription = y })
-       <$> f (_dsdstSpotDatafeedSubscription x)
+    f (_dsdstSpotDatafeedSubscription x) <&> \y -> x { _dsdstSpotDatafeedSubscription = y }
 {-# INLINE dsdstSpotDatafeedSubscription #-}
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where

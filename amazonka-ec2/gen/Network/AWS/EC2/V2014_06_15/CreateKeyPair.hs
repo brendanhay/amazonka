@@ -77,6 +77,7 @@ createKeyPair :: Text -- ^ 'ckprKeyName'
 createKeyPair p1 = CreateKeyPair
     { _ckprKeyName = p1
     }
+{-# INLINE createKeyPair #-}
 
 data CreateKeyPair = CreateKeyPair
     { _ckprKeyName :: Text
@@ -84,15 +85,9 @@ data CreateKeyPair = CreateKeyPair
     } deriving (Show, Generic)
 
 -- | A unique name for the key pair.
-ckprKeyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateKeyPair
-    -> f CreateKeyPair
+ckprKeyName :: Lens' CreateKeyPair Text
 ckprKeyName f x =
-    (\y -> x { _ckprKeyName = y })
-       <$> f (_ckprKeyName x)
+    f (_ckprKeyName x) <&> \y -> x { _ckprKeyName = y }
 {-# INLINE ckprKeyName #-}
 
 instance ToQuery CreateKeyPair where
@@ -108,39 +103,21 @@ data CreateKeyPairResponse = CreateKeyPairResponse
     } deriving (Show, Generic)
 
 -- | The name of the key pair.
-ckpsKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateKeyPairResponse
-    -> f CreateKeyPairResponse
+ckpsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
 ckpsKeyName f x =
-    (\y -> x { _ckpsKeyName = y })
-       <$> f (_ckpsKeyName x)
+    f (_ckpsKeyName x) <&> \y -> x { _ckpsKeyName = y }
 {-# INLINE ckpsKeyName #-}
 
 -- | The SHA-1 digest of the DER encoded private key.
-ckpsKeyFingerprint
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateKeyPairResponse
-    -> f CreateKeyPairResponse
+ckpsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
 ckpsKeyFingerprint f x =
-    (\y -> x { _ckpsKeyFingerprint = y })
-       <$> f (_ckpsKeyFingerprint x)
+    f (_ckpsKeyFingerprint x) <&> \y -> x { _ckpsKeyFingerprint = y }
 {-# INLINE ckpsKeyFingerprint #-}
 
 -- | An unencrypted PEM encoded RSA private key.
-ckpsKeyMaterial
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateKeyPairResponse
-    -> f CreateKeyPairResponse
+ckpsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
 ckpsKeyMaterial f x =
-    (\y -> x { _ckpsKeyMaterial = y })
-       <$> f (_ckpsKeyMaterial x)
+    f (_ckpsKeyMaterial x) <&> \y -> x { _ckpsKeyMaterial = y }
 {-# INLINE ckpsKeyMaterial #-}
 
 instance FromXML CreateKeyPairResponse where

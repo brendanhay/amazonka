@@ -56,6 +56,7 @@ deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     { _dvcrrVpnConnectionId = p1
     , _dvcrrDestinationCidrBlock = p2
     }
+{-# INLINE deleteVpnConnectionRoute #-}
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrrVpnConnectionId :: Text
@@ -66,27 +67,15 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     } deriving (Show, Generic)
 
 -- | The ID of the VPN connection.
-dvcrrVpnConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVpnConnectionRoute
-    -> f DeleteVpnConnectionRoute
+dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
 dvcrrVpnConnectionId f x =
-    (\y -> x { _dvcrrVpnConnectionId = y })
-       <$> f (_dvcrrVpnConnectionId x)
+    f (_dvcrrVpnConnectionId x) <&> \y -> x { _dvcrrVpnConnectionId = y }
 {-# INLINE dvcrrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
-dvcrrDestinationCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVpnConnectionRoute
-    -> f DeleteVpnConnectionRoute
+dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
 dvcrrDestinationCidrBlock f x =
-    (\y -> x { _dvcrrDestinationCidrBlock = y })
-       <$> f (_dvcrrDestinationCidrBlock x)
+    f (_dvcrrDestinationCidrBlock x) <&> \y -> x { _dvcrrDestinationCidrBlock = y }
 {-# INLINE dvcrrDestinationCidrBlock #-}
 
 instance ToQuery DeleteVpnConnectionRoute where

@@ -62,6 +62,7 @@ acceptVpcPeeringConnection :: AcceptVpcPeeringConnection
 acceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcrVpcPeeringConnectionId = Nothing
     }
+{-# INLINE acceptVpcPeeringConnection #-}
 
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcrVpcPeeringConnectionId :: Maybe Text
@@ -69,15 +70,9 @@ data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
-avpcrVpcPeeringConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AcceptVpcPeeringConnection
-    -> f AcceptVpcPeeringConnection
+avpcrVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcrVpcPeeringConnectionId f x =
-    (\y -> x { _avpcrVpcPeeringConnectionId = y })
-       <$> f (_avpcrVpcPeeringConnectionId x)
+    f (_avpcrVpcPeeringConnectionId x) <&> \y -> x { _avpcrVpcPeeringConnectionId = y }
 {-# INLINE avpcrVpcPeeringConnectionId #-}
 
 instance ToQuery AcceptVpcPeeringConnection where
@@ -89,15 +84,9 @@ data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
-avpcsVpcPeeringConnection
-    :: Functor f
-    => (Maybe VpcPeeringConnection
-    -> f (Maybe VpcPeeringConnection))
-    -> AcceptVpcPeeringConnectionResponse
-    -> f AcceptVpcPeeringConnectionResponse
+avpcsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 avpcsVpcPeeringConnection f x =
-    (\y -> x { _avpcsVpcPeeringConnection = y })
-       <$> f (_avpcsVpcPeeringConnection x)
+    f (_avpcsVpcPeeringConnection x) <&> \y -> x { _avpcsVpcPeeringConnection = y }
 {-# INLINE avpcsVpcPeeringConnection #-}
 
 instance FromXML AcceptVpcPeeringConnectionResponse where

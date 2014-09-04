@@ -155,6 +155,7 @@ describeInstances = DescribeInstances
     , _diuMaxResults = Nothing
     , _diuNextToken = Nothing
     }
+{-# INLINE describeInstances #-}
 
 data DescribeInstances = DescribeInstances
     { _diuFilters :: [Filter]
@@ -435,54 +436,30 @@ data DescribeInstances = DescribeInstances
 -- The allocation ID returned when you allocated the Elastic IP address for
 -- your network interface. association.association-id - The association ID
 -- returned when the network interface was associated with an IP address.
-diuFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeInstances
-    -> f DescribeInstances
+diuFilters :: Lens' DescribeInstances [Filter]
 diuFilters f x =
-    (\y -> x { _diuFilters = y })
-       <$> f (_diuFilters x)
+    f (_diuFilters x) <&> \y -> x { _diuFilters = y }
 {-# INLINE diuFilters #-}
 
 -- | One or more instance IDs. Default: Describes all your instances.
-diuInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeInstances
-    -> f DescribeInstances
+diuInstanceIds :: Lens' DescribeInstances [Text]
 diuInstanceIds f x =
-    (\y -> x { _diuInstanceIds = y })
-       <$> f (_diuInstanceIds x)
+    f (_diuInstanceIds x) <&> \y -> x { _diuInstanceIds = y }
 {-# INLINE diuInstanceIds #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
-diuMaxResults
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeInstances
-    -> f DescribeInstances
+diuMaxResults :: Lens' DescribeInstances (Maybe Integer)
 diuMaxResults f x =
-    (\y -> x { _diuMaxResults = y })
-       <$> f (_diuMaxResults x)
+    f (_diuMaxResults x) <&> \y -> x { _diuMaxResults = y }
 {-# INLINE diuMaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
-diuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstances
-    -> f DescribeInstances
+diuNextToken :: Lens' DescribeInstances (Maybe Text)
 diuNextToken f x =
-    (\y -> x { _diuNextToken = y })
-       <$> f (_diuNextToken x)
+    f (_diuNextToken x) <&> \y -> x { _diuNextToken = y }
 {-# INLINE diuNextToken #-}
 
 instance ToQuery DescribeInstances where
@@ -497,28 +474,16 @@ data DescribeInstancesResponse = DescribeInstancesResponse
     } deriving (Show, Generic)
 
 -- | One or more reservations.
-divReservations
-    :: Functor f
-    => ([Reservation]
-    -> f ([Reservation]))
-    -> DescribeInstancesResponse
-    -> f DescribeInstancesResponse
+divReservations :: Lens' DescribeInstancesResponse [Reservation]
 divReservations f x =
-    (\y -> x { _divReservations = y })
-       <$> f (_divReservations x)
+    f (_divReservations x) <&> \y -> x { _divReservations = y }
 {-# INLINE divReservations #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-divNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeInstancesResponse
-    -> f DescribeInstancesResponse
+divNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 divNextToken f x =
-    (\y -> x { _divNextToken = y })
-       <$> f (_divNextToken x)
+    f (_divNextToken x) <&> \y -> x { _divNextToken = y }
 {-# INLINE divNextToken #-}
 
 instance FromXML DescribeInstancesResponse where

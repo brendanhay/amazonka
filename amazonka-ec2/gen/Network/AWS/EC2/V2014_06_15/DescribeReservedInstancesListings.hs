@@ -56,6 +56,7 @@ describeReservedInstancesListings = DescribeReservedInstancesListings
     , _drilrReservedInstancesId = Nothing
     , _drilrReservedInstancesListingId = Nothing
     }
+{-# INLINE describeReservedInstancesListings #-}
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilrFilters :: [Filter]
@@ -74,39 +75,21 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
 -- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
 -- listing. status - The status of the Reserved Instance listing (pending |
 -- active | cancelled | closed). status-message - The reason for the status.
-drilrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeReservedInstancesListings
-    -> f DescribeReservedInstancesListings
+drilrFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilrFilters f x =
-    (\y -> x { _drilrFilters = y })
-       <$> f (_drilrFilters x)
+    f (_drilrFilters x) <&> \y -> x { _drilrFilters = y }
 {-# INLINE drilrFilters #-}
 
 -- | One or more Reserved Instance IDs.
-drilrReservedInstancesId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesListings
-    -> f DescribeReservedInstancesListings
+drilrReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilrReservedInstancesId f x =
-    (\y -> x { _drilrReservedInstancesId = y })
-       <$> f (_drilrReservedInstancesId x)
+    f (_drilrReservedInstancesId x) <&> \y -> x { _drilrReservedInstancesId = y }
 {-# INLINE drilrReservedInstancesId #-}
 
 -- | One or more Reserved Instance Listing IDs.
-drilrReservedInstancesListingId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesListings
-    -> f DescribeReservedInstancesListings
+drilrReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilrReservedInstancesListingId f x =
-    (\y -> x { _drilrReservedInstancesListingId = y })
-       <$> f (_drilrReservedInstancesListingId x)
+    f (_drilrReservedInstancesListingId x) <&> \y -> x { _drilrReservedInstancesListingId = y }
 {-# INLINE drilrReservedInstancesListingId #-}
 
 instance ToQuery DescribeReservedInstancesListings where
@@ -118,15 +101,9 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
     } deriving (Show, Generic)
 
 -- | Information about the Reserved Instance listing.
-drilsReservedInstancesListings
-    :: Functor f
-    => ([ReservedInstancesListing]
-    -> f ([ReservedInstancesListing]))
-    -> DescribeReservedInstancesListingsResponse
-    -> f DescribeReservedInstancesListingsResponse
+drilsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilsReservedInstancesListings f x =
-    (\y -> x { _drilsReservedInstancesListings = y })
-       <$> f (_drilsReservedInstancesListings x)
+    f (_drilsReservedInstancesListings x) <&> \y -> x { _drilsReservedInstancesListings = y }
 {-# INLINE drilsReservedInstancesListings #-}
 
 instance FromXML DescribeReservedInstancesListingsResponse where

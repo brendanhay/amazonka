@@ -52,6 +52,7 @@ disassociateRouteTable :: Text -- ^ 'drtuAssociationId'
 disassociateRouteTable p1 = DisassociateRouteTable
     { _drtuAssociationId = p1
     }
+{-# INLINE disassociateRouteTable #-}
 
 data DisassociateRouteTable = DisassociateRouteTable
     { _drtuAssociationId :: Text
@@ -61,15 +62,9 @@ data DisassociateRouteTable = DisassociateRouteTable
 
 -- | The association ID representing the current association between the route
 -- table and subnet.
-drtuAssociationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisassociateRouteTable
-    -> f DisassociateRouteTable
+drtuAssociationId :: Lens' DisassociateRouteTable Text
 drtuAssociationId f x =
-    (\y -> x { _drtuAssociationId = y })
-       <$> f (_drtuAssociationId x)
+    f (_drtuAssociationId x) <&> \y -> x { _drtuAssociationId = y }
 {-# INLINE drtuAssociationId #-}
 
 instance ToQuery DisassociateRouteTable where

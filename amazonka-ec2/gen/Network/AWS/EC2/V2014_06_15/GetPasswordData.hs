@@ -61,6 +61,7 @@ getPasswordData :: Text -- ^ 'gpdrInstanceId'
 getPasswordData p1 = GetPasswordData
     { _gpdrInstanceId = p1
     }
+{-# INLINE getPasswordData #-}
 
 data GetPasswordData = GetPasswordData
     { _gpdrInstanceId :: Text
@@ -68,15 +69,9 @@ data GetPasswordData = GetPasswordData
     } deriving (Show, Generic)
 
 -- | The ID of the Windows instance.
-gpdrInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetPasswordData
-    -> f GetPasswordData
+gpdrInstanceId :: Lens' GetPasswordData Text
 gpdrInstanceId f x =
-    (\y -> x { _gpdrInstanceId = y })
-       <$> f (_gpdrInstanceId x)
+    f (_gpdrInstanceId x) <&> \y -> x { _gpdrInstanceId = y }
 {-# INLINE gpdrInstanceId #-}
 
 instance ToQuery GetPasswordData where
@@ -92,39 +87,21 @@ data GetPasswordDataResponse = GetPasswordDataResponse
     } deriving (Show, Generic)
 
 -- | The time the data was last updated.
-gpdsTimestamp
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetPasswordDataResponse
-    -> f GetPasswordDataResponse
+gpdsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
 gpdsTimestamp f x =
-    (\y -> x { _gpdsTimestamp = y })
-       <$> f (_gpdsTimestamp x)
+    f (_gpdsTimestamp x) <&> \y -> x { _gpdsTimestamp = y }
 {-# INLINE gpdsTimestamp #-}
 
 -- | The ID of the Windows instance.
-gpdsInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetPasswordDataResponse
-    -> f GetPasswordDataResponse
+gpdsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdsInstanceId f x =
-    (\y -> x { _gpdsInstanceId = y })
-       <$> f (_gpdsInstanceId x)
+    f (_gpdsInstanceId x) <&> \y -> x { _gpdsInstanceId = y }
 {-# INLINE gpdsInstanceId #-}
 
 -- | The password of the instance.
-gpdsPasswordData
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetPasswordDataResponse
-    -> f GetPasswordDataResponse
+gpdsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdsPasswordData f x =
-    (\y -> x { _gpdsPasswordData = y })
-       <$> f (_gpdsPasswordData x)
+    f (_gpdsPasswordData x) <&> \y -> x { _gpdsPasswordData = y }
 {-# INLINE gpdsPasswordData #-}
 
 instance FromXML GetPasswordDataResponse where

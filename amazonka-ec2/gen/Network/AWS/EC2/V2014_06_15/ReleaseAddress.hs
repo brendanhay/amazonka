@@ -59,6 +59,7 @@ releaseAddress = ReleaseAddress
     { _rarPublicIp = Nothing
     , _rarAllocationId = Nothing
     }
+{-# INLINE releaseAddress #-}
 
 data ReleaseAddress = ReleaseAddress
     { _rarPublicIp :: Maybe Text
@@ -68,27 +69,15 @@ data ReleaseAddress = ReleaseAddress
     } deriving (Show, Generic)
 
 -- | [EC2-Classic] The Elastic IP address.
-rarPublicIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReleaseAddress
-    -> f ReleaseAddress
+rarPublicIp :: Lens' ReleaseAddress (Maybe Text)
 rarPublicIp f x =
-    (\y -> x { _rarPublicIp = y })
-       <$> f (_rarPublicIp x)
+    f (_rarPublicIp x) <&> \y -> x { _rarPublicIp = y }
 {-# INLINE rarPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID.
-rarAllocationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReleaseAddress
-    -> f ReleaseAddress
+rarAllocationId :: Lens' ReleaseAddress (Maybe Text)
 rarAllocationId f x =
-    (\y -> x { _rarAllocationId = y })
-       <$> f (_rarAllocationId x)
+    f (_rarAllocationId x) <&> \y -> x { _rarAllocationId = y }
 {-# INLINE rarAllocationId #-}
 
 instance ToQuery ReleaseAddress where

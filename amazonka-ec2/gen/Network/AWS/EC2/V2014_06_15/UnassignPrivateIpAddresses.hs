@@ -53,6 +53,7 @@ unassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
     { _upiarPrivateIpAddresses = p1
     , _upiarNetworkInterfaceId = p2
     }
+{-# INLINE unassignPrivateIpAddresses #-}
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiarPrivateIpAddresses :: [Text]
@@ -66,27 +67,15 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 -- | The secondary private IP addresses to unassign from the network interface.
 -- You can specify this option multiple times to unassign more than one IP
 -- address.
-upiarPrivateIpAddresses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UnassignPrivateIpAddresses
-    -> f UnassignPrivateIpAddresses
+upiarPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiarPrivateIpAddresses f x =
-    (\y -> x { _upiarPrivateIpAddresses = y })
-       <$> f (_upiarPrivateIpAddresses x)
+    f (_upiarPrivateIpAddresses x) <&> \y -> x { _upiarPrivateIpAddresses = y }
 {-# INLINE upiarPrivateIpAddresses #-}
 
 -- | The ID of the network interface.
-upiarNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UnassignPrivateIpAddresses
-    -> f UnassignPrivateIpAddresses
+upiarNetworkInterfaceId :: Lens' UnassignPrivateIpAddresses Text
 upiarNetworkInterfaceId f x =
-    (\y -> x { _upiarNetworkInterfaceId = y })
-       <$> f (_upiarNetworkInterfaceId x)
+    f (_upiarNetworkInterfaceId x) <&> \y -> x { _upiarNetworkInterfaceId = y }
 {-# INLINE upiarNetworkInterfaceId #-}
 
 instance ToQuery UnassignPrivateIpAddresses where

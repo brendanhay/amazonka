@@ -61,6 +61,7 @@ describeReservedInstances = DescribeReservedInstances
     , _drirOfferingType = Nothing
     , _drirReservedInstancesIds = mempty
     }
+{-# INLINE describeReservedInstances #-}
 
 data DescribeReservedInstances = DescribeReservedInstances
     { _drirFilters :: [Filter]
@@ -117,40 +118,22 @@ data DescribeReservedInstances = DescribeReservedInstances
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. usage-price - The usage price
 -- of the Reserved Instance, per hour (for example, 0.84).
-drirFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeReservedInstances
-    -> f DescribeReservedInstances
+drirFilters :: Lens' DescribeReservedInstances [Filter]
 drirFilters f x =
-    (\y -> x { _drirFilters = y })
-       <$> f (_drirFilters x)
+    f (_drirFilters x) <&> \y -> x { _drirFilters = y }
 {-# INLINE drirFilters #-}
 
 -- | The Reserved Instance offering type.
-drirOfferingType
-    :: Functor f
-    => (Maybe OfferingTypeValues
-    -> f (Maybe OfferingTypeValues))
-    -> DescribeReservedInstances
-    -> f DescribeReservedInstances
+drirOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 drirOfferingType f x =
-    (\y -> x { _drirOfferingType = y })
-       <$> f (_drirOfferingType x)
+    f (_drirOfferingType x) <&> \y -> x { _drirOfferingType = y }
 {-# INLINE drirOfferingType #-}
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved
 -- Instances, or only those otherwise specified.
-drirReservedInstancesIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeReservedInstances
-    -> f DescribeReservedInstances
+drirReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 drirReservedInstancesIds f x =
-    (\y -> x { _drirReservedInstancesIds = y })
-       <$> f (_drirReservedInstancesIds x)
+    f (_drirReservedInstancesIds x) <&> \y -> x { _drirReservedInstancesIds = y }
 {-# INLINE drirReservedInstancesIds #-}
 
 instance ToQuery DescribeReservedInstances where
@@ -162,15 +145,9 @@ data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     } deriving (Show, Generic)
 
 -- | A list of Reserved Instances.
-drisReservedInstances
-    :: Functor f
-    => ([ReservedInstances]
-    -> f ([ReservedInstances]))
-    -> DescribeReservedInstancesResponse
-    -> f DescribeReservedInstancesResponse
+drisReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drisReservedInstances f x =
-    (\y -> x { _drisReservedInstances = y })
-       <$> f (_drisReservedInstances x)
+    f (_drisReservedInstances x) <&> \y -> x { _drisReservedInstances = y }
 {-# INLINE drisReservedInstances #-}
 
 instance FromXML DescribeReservedInstancesResponse where

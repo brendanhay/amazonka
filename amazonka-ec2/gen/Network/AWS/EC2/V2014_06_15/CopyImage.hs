@@ -65,6 +65,7 @@ copyImage p1 p2 = CopyImage
     , _cirDescription = Nothing
     , _cirClientToken = Nothing
     }
+{-# INLINE copyImage #-}
 
 data CopyImage = CopyImage
     { _cirSourceRegion :: Text
@@ -83,65 +84,35 @@ data CopyImage = CopyImage
     } deriving (Show, Generic)
 
 -- | The name of the region that contains the AMI to copy.
-cirSourceRegion
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyImage
-    -> f CopyImage
+cirSourceRegion :: Lens' CopyImage Text
 cirSourceRegion f x =
-    (\y -> x { _cirSourceRegion = y })
-       <$> f (_cirSourceRegion x)
+    f (_cirSourceRegion x) <&> \y -> x { _cirSourceRegion = y }
 {-# INLINE cirSourceRegion #-}
 
 -- | The ID of the AMI to copy.
-cirSourceImageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyImage
-    -> f CopyImage
+cirSourceImageId :: Lens' CopyImage Text
 cirSourceImageId f x =
-    (\y -> x { _cirSourceImageId = y })
-       <$> f (_cirSourceImageId x)
+    f (_cirSourceImageId x) <&> \y -> x { _cirSourceImageId = y }
 {-# INLINE cirSourceImageId #-}
 
 -- | The name of the new AMI in the destination region.
-cirName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyImage
-    -> f CopyImage
+cirName :: Lens' CopyImage (Maybe Text)
 cirName f x =
-    (\y -> x { _cirName = y })
-       <$> f (_cirName x)
+    f (_cirName x) <&> \y -> x { _cirName = y }
 {-# INLINE cirName #-}
 
 -- | A description for the new AMI in the destination region.
-cirDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyImage
-    -> f CopyImage
+cirDescription :: Lens' CopyImage (Maybe Text)
 cirDescription f x =
-    (\y -> x { _cirDescription = y })
-       <$> f (_cirDescription x)
+    f (_cirDescription x) <&> \y -> x { _cirDescription = y }
 {-# INLINE cirDescription #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the
 -- request. For more information, see How to Ensure Idempotency in the Amazon
 -- Elastic Compute Cloud User Guide.
-cirClientToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyImage
-    -> f CopyImage
+cirClientToken :: Lens' CopyImage (Maybe Text)
 cirClientToken f x =
-    (\y -> x { _cirClientToken = y })
-       <$> f (_cirClientToken x)
+    f (_cirClientToken x) <&> \y -> x { _cirClientToken = y }
 {-# INLINE cirClientToken #-}
 
 instance ToQuery CopyImage where
@@ -153,15 +124,9 @@ data CopyImageResponse = CopyImageResponse
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
-cisImageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyImageResponse
-    -> f CopyImageResponse
+cisImageId :: Lens' CopyImageResponse (Maybe Text)
 cisImageId f x =
-    (\y -> x { _cisImageId = y })
-       <$> f (_cisImageId x)
+    f (_cisImageId x) <&> \y -> x { _cisImageId = y }
 {-# INLINE cisImageId #-}
 
 instance FromXML CopyImageResponse where

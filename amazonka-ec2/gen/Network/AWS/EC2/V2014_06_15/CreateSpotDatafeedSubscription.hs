@@ -59,6 +59,7 @@ createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsrBucket = p1
     , _csdsrPrefix = Nothing
     }
+{-# INLINE createSpotDatafeedSubscription #-}
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsrBucket :: Text
@@ -71,27 +72,15 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 
 -- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
 -- Constraints: Must be a valid bucket associated with your AWS account.
-csdsrBucket
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSpotDatafeedSubscription
-    -> f CreateSpotDatafeedSubscription
+csdsrBucket :: Lens' CreateSpotDatafeedSubscription Text
 csdsrBucket f x =
-    (\y -> x { _csdsrBucket = y })
-       <$> f (_csdsrBucket x)
+    f (_csdsrBucket x) <&> \y -> x { _csdsrBucket = y }
 {-# INLINE csdsrBucket #-}
 
 -- | A prefix for the datafeed file names.
-csdsrPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSpotDatafeedSubscription
-    -> f CreateSpotDatafeedSubscription
+csdsrPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsrPrefix f x =
-    (\y -> x { _csdsrPrefix = y })
-       <$> f (_csdsrPrefix x)
+    f (_csdsrPrefix x) <&> \y -> x { _csdsrPrefix = y }
 {-# INLINE csdsrPrefix #-}
 
 instance ToQuery CreateSpotDatafeedSubscription where
@@ -103,15 +92,9 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
     } deriving (Show, Generic)
 
 -- | The Spot Instance datafeed subscription.
-csdssSpotDatafeedSubscription
-    :: Functor f
-    => (Maybe SpotDatafeedSubscription
-    -> f (Maybe SpotDatafeedSubscription))
-    -> CreateSpotDatafeedSubscriptionResponse
-    -> f CreateSpotDatafeedSubscriptionResponse
+csdssSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdssSpotDatafeedSubscription f x =
-    (\y -> x { _csdssSpotDatafeedSubscription = y })
-       <$> f (_csdssSpotDatafeedSubscription x)
+    f (_csdssSpotDatafeedSubscription x) <&> \y -> x { _csdssSpotDatafeedSubscription = y }
 {-# INLINE csdssSpotDatafeedSubscription #-}
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where

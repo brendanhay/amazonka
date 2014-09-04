@@ -60,6 +60,7 @@ modifyReservedInstances p1 p2 = ModifyReservedInstances
     , _mrirReservedInstancesIds = p2
     , _mrirClientToken = Nothing
     }
+{-# INLINE modifyReservedInstances #-}
 
 data ModifyReservedInstances = ModifyReservedInstances
     { _mrirTargetConfigurations :: [ReservedInstancesConfiguration]
@@ -72,40 +73,22 @@ data ModifyReservedInstances = ModifyReservedInstances
     } deriving (Show, Generic)
 
 -- | The configuration settings for the Reserved Instances to modify.
-mrirTargetConfigurations
-    :: Functor f
-    => ([ReservedInstancesConfiguration]
-    -> f ([ReservedInstancesConfiguration]))
-    -> ModifyReservedInstances
-    -> f ModifyReservedInstances
+mrirTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mrirTargetConfigurations f x =
-    (\y -> x { _mrirTargetConfigurations = y })
-       <$> f (_mrirTargetConfigurations x)
+    f (_mrirTargetConfigurations x) <&> \y -> x { _mrirTargetConfigurations = y }
 {-# INLINE mrirTargetConfigurations #-}
 
 -- | The IDs of the Reserved Instances to modify.
-mrirReservedInstancesIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyReservedInstances
-    -> f ModifyReservedInstances
+mrirReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mrirReservedInstancesIds f x =
-    (\y -> x { _mrirReservedInstancesIds = y })
-       <$> f (_mrirReservedInstancesIds x)
+    f (_mrirReservedInstancesIds x) <&> \y -> x { _mrirReservedInstancesIds = y }
 {-# INLINE mrirReservedInstancesIds #-}
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request.
-mrirClientToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReservedInstances
-    -> f ModifyReservedInstances
+mrirClientToken :: Lens' ModifyReservedInstances (Maybe Text)
 mrirClientToken f x =
-    (\y -> x { _mrirClientToken = y })
-       <$> f (_mrirClientToken x)
+    f (_mrirClientToken x) <&> \y -> x { _mrirClientToken = y }
 {-# INLINE mrirClientToken #-}
 
 instance ToQuery ModifyReservedInstances where
@@ -117,15 +100,9 @@ data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     } deriving (Show, Generic)
 
 -- | The ID for the modification.
-mrisReservedInstancesModificationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyReservedInstancesResponse
-    -> f ModifyReservedInstancesResponse
+mrisReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrisReservedInstancesModificationId f x =
-    (\y -> x { _mrisReservedInstancesModificationId = y })
-       <$> f (_mrisReservedInstancesModificationId x)
+    f (_mrisReservedInstancesModificationId x) <&> \y -> x { _mrisReservedInstancesModificationId = y }
 {-# INLINE mrisReservedInstancesModificationId #-}
 
 instance FromXML ModifyReservedInstancesResponse where

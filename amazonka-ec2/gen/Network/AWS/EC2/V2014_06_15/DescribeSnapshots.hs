@@ -86,6 +86,7 @@ describeSnapshots = DescribeSnapshots
     , _dsuRestorableByUserIds = mempty
     , _dsuSnapshotIds = mempty
     }
+{-# INLINE describeSnapshots #-}
 
 data DescribeSnapshots = DescribeSnapshots
     { _dsuFilters :: [Filter]
@@ -136,53 +137,29 @@ data DescribeSnapshots = DescribeSnapshots
 -- resource. This filter is independent of the tag-key filter. volume-id - The
 -- ID of the volume the snapshot is for. volume-size - The size of the volume,
 -- in GiB.
-dsuFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsuFilters :: Lens' DescribeSnapshots [Filter]
 dsuFilters f x =
-    (\y -> x { _dsuFilters = y })
-       <$> f (_dsuFilters x)
+    f (_dsuFilters x) <&> \y -> x { _dsuFilters = y }
 {-# INLINE dsuFilters #-}
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
-dsuOwnerIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsuOwnerIds :: Lens' DescribeSnapshots [Text]
 dsuOwnerIds f x =
-    (\y -> x { _dsuOwnerIds = y })
-       <$> f (_dsuOwnerIds x)
+    f (_dsuOwnerIds x) <&> \y -> x { _dsuOwnerIds = y }
 {-# INLINE dsuOwnerIds #-}
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-dsuRestorableByUserIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsuRestorableByUserIds :: Lens' DescribeSnapshots [Text]
 dsuRestorableByUserIds f x =
-    (\y -> x { _dsuRestorableByUserIds = y })
-       <$> f (_dsuRestorableByUserIds x)
+    f (_dsuRestorableByUserIds x) <&> \y -> x { _dsuRestorableByUserIds = y }
 {-# INLINE dsuRestorableByUserIds #-}
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
-dsuSnapshotIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeSnapshots
-    -> f DescribeSnapshots
+dsuSnapshotIds :: Lens' DescribeSnapshots [Text]
 dsuSnapshotIds f x =
-    (\y -> x { _dsuSnapshotIds = y })
-       <$> f (_dsuSnapshotIds x)
+    f (_dsuSnapshotIds x) <&> \y -> x { _dsuSnapshotIds = y }
 {-# INLINE dsuSnapshotIds #-}
 
 instance ToQuery DescribeSnapshots where
@@ -194,15 +171,9 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     } deriving (Show, Generic)
 
 -- | 
-dsvSnapshots
-    :: Functor f
-    => ([Snapshot]
-    -> f ([Snapshot]))
-    -> DescribeSnapshotsResponse
-    -> f DescribeSnapshotsResponse
+dsvSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsvSnapshots f x =
-    (\y -> x { _dsvSnapshots = y })
-       <$> f (_dsvSnapshots x)
+    f (_dsvSnapshots x) <&> \y -> x { _dsvSnapshots = y }
 {-# INLINE dsvSnapshots #-}
 
 instance FromXML DescribeSnapshotsResponse where

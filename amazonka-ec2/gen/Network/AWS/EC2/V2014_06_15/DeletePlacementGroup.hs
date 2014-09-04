@@ -50,6 +50,7 @@ deletePlacementGroup :: Text -- ^ 'dpgrGroupName'
 deletePlacementGroup p1 = DeletePlacementGroup
     { _dpgrGroupName = p1
     }
+{-# INLINE deletePlacementGroup #-}
 
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgrGroupName :: Text
@@ -57,15 +58,9 @@ data DeletePlacementGroup = DeletePlacementGroup
     } deriving (Show, Generic)
 
 -- | The name of the placement group.
-dpgrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeletePlacementGroup
-    -> f DeletePlacementGroup
+dpgrGroupName :: Lens' DeletePlacementGroup Text
 dpgrGroupName f x =
-    (\y -> x { _dpgrGroupName = y })
-       <$> f (_dpgrGroupName x)
+    f (_dpgrGroupName x) <&> \y -> x { _dpgrGroupName = y }
 {-# INLINE dpgrGroupName #-}
 
 instance ToQuery DeletePlacementGroup where

@@ -57,6 +57,7 @@ attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
     , _anirNetworkInterfaceId = p2
     , _anirInstanceId = p3
     }
+{-# INLINE attachNetworkInterface #-}
 
 data AttachNetworkInterface = AttachNetworkInterface
     { _anirDeviceIndex :: Integer
@@ -68,39 +69,21 @@ data AttachNetworkInterface = AttachNetworkInterface
     } deriving (Show, Generic)
 
 -- | The index of the device for the network interface attachment.
-anirDeviceIndex
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AttachNetworkInterface
-    -> f AttachNetworkInterface
+anirDeviceIndex :: Lens' AttachNetworkInterface Integer
 anirDeviceIndex f x =
-    (\y -> x { _anirDeviceIndex = y })
-       <$> f (_anirDeviceIndex x)
+    f (_anirDeviceIndex x) <&> \y -> x { _anirDeviceIndex = y }
 {-# INLINE anirDeviceIndex #-}
 
 -- | The ID of the network interface.
-anirNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachNetworkInterface
-    -> f AttachNetworkInterface
+anirNetworkInterfaceId :: Lens' AttachNetworkInterface Text
 anirNetworkInterfaceId f x =
-    (\y -> x { _anirNetworkInterfaceId = y })
-       <$> f (_anirNetworkInterfaceId x)
+    f (_anirNetworkInterfaceId x) <&> \y -> x { _anirNetworkInterfaceId = y }
 {-# INLINE anirNetworkInterfaceId #-}
 
 -- | The ID of the instance.
-anirInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachNetworkInterface
-    -> f AttachNetworkInterface
+anirInstanceId :: Lens' AttachNetworkInterface Text
 anirInstanceId f x =
-    (\y -> x { _anirInstanceId = y })
-       <$> f (_anirInstanceId x)
+    f (_anirInstanceId x) <&> \y -> x { _anirInstanceId = y }
 {-# INLINE anirInstanceId #-}
 
 instance ToQuery AttachNetworkInterface where
@@ -112,15 +95,9 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     } deriving (Show, Generic)
 
 -- | The ID of the network interface attachment.
-anisAttachmentId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AttachNetworkInterfaceResponse
-    -> f AttachNetworkInterfaceResponse
+anisAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anisAttachmentId f x =
-    (\y -> x { _anisAttachmentId = y })
-       <$> f (_anisAttachmentId x)
+    f (_anisAttachmentId x) <&> \y -> x { _anisAttachmentId = y }
 {-# INLINE anisAttachmentId #-}
 
 instance FromXML AttachNetworkInterfaceResponse where

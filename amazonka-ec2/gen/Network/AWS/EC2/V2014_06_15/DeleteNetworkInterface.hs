@@ -49,6 +49,7 @@ deleteNetworkInterface :: Text -- ^ 'dnirNetworkInterfaceId'
 deleteNetworkInterface p1 = DeleteNetworkInterface
     { _dnirNetworkInterfaceId = p1
     }
+{-# INLINE deleteNetworkInterface #-}
 
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dnirNetworkInterfaceId :: Text
@@ -56,15 +57,9 @@ data DeleteNetworkInterface = DeleteNetworkInterface
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-dnirNetworkInterfaceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteNetworkInterface
-    -> f DeleteNetworkInterface
+dnirNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dnirNetworkInterfaceId f x =
-    (\y -> x { _dnirNetworkInterfaceId = y })
-       <$> f (_dnirNetworkInterfaceId x)
+    f (_dnirNetworkInterfaceId x) <&> \y -> x { _dnirNetworkInterfaceId = y }
 {-# INLINE dnirNetworkInterfaceId #-}
 
 instance ToQuery DeleteNetworkInterface where

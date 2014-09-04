@@ -54,6 +54,7 @@ deleteVpcPeeringConnection :: Text -- ^ 'dvpcrVpcPeeringConnectionId'
 deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     { _dvpcrVpcPeeringConnectionId = p1
     }
+{-# INLINE deleteVpcPeeringConnection #-}
 
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpcrVpcPeeringConnectionId :: Text
@@ -61,15 +62,9 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
-dvpcrVpcPeeringConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVpcPeeringConnection
-    -> f DeleteVpcPeeringConnection
+dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
 dvpcrVpcPeeringConnectionId f x =
-    (\y -> x { _dvpcrVpcPeeringConnectionId = y })
-       <$> f (_dvpcrVpcPeeringConnectionId x)
+    f (_dvpcrVpcPeeringConnectionId x) <&> \y -> x { _dvpcrVpcPeeringConnectionId = y }
 {-# INLINE dvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery DeleteVpcPeeringConnection where
@@ -82,15 +77,9 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     } deriving (Show, Generic)
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-dvpcsReturn
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteVpcPeeringConnectionResponse
-    -> f DeleteVpcPeeringConnectionResponse
+dvpcsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcsReturn f x =
-    (\y -> x { _dvpcsReturn = y })
-       <$> f (_dvpcsReturn x)
+    f (_dvpcsReturn x) <&> \y -> x { _dvpcsReturn = y }
 {-# INLINE dvpcsReturn #-}
 
 instance FromXML DeleteVpcPeeringConnectionResponse where

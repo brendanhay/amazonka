@@ -64,6 +64,7 @@ replaceRoute p1 p2 = ReplaceRoute
     , _rrrNetworkInterfaceId = Nothing
     , _rrrVpcPeeringConnectionId = Nothing
     }
+{-# INLINE replaceRoute #-}
 
 data ReplaceRoute = ReplaceRoute
     { _rrrRouteTableId :: Text
@@ -83,76 +84,40 @@ data ReplaceRoute = ReplaceRoute
     } deriving (Show, Generic)
 
 -- | The ID of the route table.
-rrrRouteTableId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceRoute
-    -> f ReplaceRoute
+rrrRouteTableId :: Lens' ReplaceRoute Text
 rrrRouteTableId f x =
-    (\y -> x { _rrrRouteTableId = y })
-       <$> f (_rrrRouteTableId x)
+    f (_rrrRouteTableId x) <&> \y -> x { _rrrRouteTableId = y }
 {-# INLINE rrrRouteTableId #-}
 
 -- | The CIDR address block used for the destination match. The value you
 -- provide must match the CIDR of an existing route in the table.
-rrrDestinationCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceRoute
-    -> f ReplaceRoute
+rrrDestinationCidrBlock :: Lens' ReplaceRoute Text
 rrrDestinationCidrBlock f x =
-    (\y -> x { _rrrDestinationCidrBlock = y })
-       <$> f (_rrrDestinationCidrBlock x)
+    f (_rrrDestinationCidrBlock x) <&> \y -> x { _rrrDestinationCidrBlock = y }
 {-# INLINE rrrDestinationCidrBlock #-}
 
 -- | The ID of an Internet gateway attached to your VPC.
-rrrGatewayId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplaceRoute
-    -> f ReplaceRoute
+rrrGatewayId :: Lens' ReplaceRoute (Maybe Text)
 rrrGatewayId f x =
-    (\y -> x { _rrrGatewayId = y })
-       <$> f (_rrrGatewayId x)
+    f (_rrrGatewayId x) <&> \y -> x { _rrrGatewayId = y }
 {-# INLINE rrrGatewayId #-}
 
 -- | The ID of a NAT instance in your VPC.
-rrrInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplaceRoute
-    -> f ReplaceRoute
+rrrInstanceId :: Lens' ReplaceRoute (Maybe Text)
 rrrInstanceId f x =
-    (\y -> x { _rrrInstanceId = y })
-       <$> f (_rrrInstanceId x)
+    f (_rrrInstanceId x) <&> \y -> x { _rrrInstanceId = y }
 {-# INLINE rrrInstanceId #-}
 
 -- | The ID of a network interface.
-rrrNetworkInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplaceRoute
-    -> f ReplaceRoute
+rrrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
 rrrNetworkInterfaceId f x =
-    (\y -> x { _rrrNetworkInterfaceId = y })
-       <$> f (_rrrNetworkInterfaceId x)
+    f (_rrrNetworkInterfaceId x) <&> \y -> x { _rrrNetworkInterfaceId = y }
 {-# INLINE rrrNetworkInterfaceId #-}
 
 -- | The ID of a VPC peering connection.
-rrrVpcPeeringConnectionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplaceRoute
-    -> f ReplaceRoute
+rrrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
 rrrVpcPeeringConnectionId f x =
-    (\y -> x { _rrrVpcPeeringConnectionId = y })
-       <$> f (_rrrVpcPeeringConnectionId x)
+    f (_rrrVpcPeeringConnectionId x) <&> \y -> x { _rrrVpcPeeringConnectionId = y }
 {-# INLINE rrrVpcPeeringConnectionId #-}
 
 instance ToQuery ReplaceRoute where

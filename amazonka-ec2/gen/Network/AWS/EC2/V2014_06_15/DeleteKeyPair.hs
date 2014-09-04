@@ -47,6 +47,7 @@ deleteKeyPair :: Text -- ^ 'dkprKeyName'
 deleteKeyPair p1 = DeleteKeyPair
     { _dkprKeyName = p1
     }
+{-# INLINE deleteKeyPair #-}
 
 data DeleteKeyPair = DeleteKeyPair
     { _dkprKeyName :: Text
@@ -54,15 +55,9 @@ data DeleteKeyPair = DeleteKeyPair
     } deriving (Show, Generic)
 
 -- | The name of the key pair.
-dkprKeyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteKeyPair
-    -> f DeleteKeyPair
+dkprKeyName :: Lens' DeleteKeyPair Text
 dkprKeyName f x =
-    (\y -> x { _dkprKeyName = y })
-       <$> f (_dkprKeyName x)
+    f (_dkprKeyName x) <&> \y -> x { _dkprKeyName = y }
 {-# INLINE dkprKeyName #-}
 
 instance ToQuery DeleteKeyPair where

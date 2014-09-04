@@ -61,6 +61,7 @@ describeVpcs = DescribeVpcs
     { _dvvFilters = mempty
     , _dvvVpcIds = mempty
     }
+{-# INLINE describeVpcs #-}
 
 data DescribeVpcs = DescribeVpcs
     { _dvvFilters :: [Filter]
@@ -98,27 +99,15 @@ data DescribeVpcs = DescribeVpcs
 -- X, see the tag:key=value filter. tag-value - The value of a tag assigned to
 -- the resource. This filter is independent of the tag-key filter. vpc-id -
 -- The ID of the VPC.
-dvvFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeVpcs
-    -> f DescribeVpcs
+dvvFilters :: Lens' DescribeVpcs [Filter]
 dvvFilters f x =
-    (\y -> x { _dvvFilters = y })
-       <$> f (_dvvFilters x)
+    f (_dvvFilters x) <&> \y -> x { _dvvFilters = y }
 {-# INLINE dvvFilters #-}
 
 -- | One or more VPC IDs. Default: Describes all your VPCs.
-dvvVpcIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeVpcs
-    -> f DescribeVpcs
+dvvVpcIds :: Lens' DescribeVpcs [Text]
 dvvVpcIds f x =
-    (\y -> x { _dvvVpcIds = y })
-       <$> f (_dvvVpcIds x)
+    f (_dvvVpcIds x) <&> \y -> x { _dvvVpcIds = y }
 {-# INLINE dvvVpcIds #-}
 
 instance ToQuery DescribeVpcs where
@@ -130,15 +119,9 @@ data DescribeVpcsResponse = DescribeVpcsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more VPCs.
-dvwVpcs
-    :: Functor f
-    => ([Vpc]
-    -> f ([Vpc]))
-    -> DescribeVpcsResponse
-    -> f DescribeVpcsResponse
+dvwVpcs :: Lens' DescribeVpcsResponse [Vpc]
 dvwVpcs f x =
-    (\y -> x { _dvwVpcs = y })
-       <$> f (_dvwVpcs x)
+    f (_dvwVpcs x) <&> \y -> x { _dvwVpcs = y }
 {-# INLINE dvwVpcs #-}
 
 instance FromXML DescribeVpcsResponse where

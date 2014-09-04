@@ -53,6 +53,7 @@ rejectVpcPeeringConnection :: Text -- ^ 'rvpcrVpcPeeringConnectionId'
 rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     { _rvpcrVpcPeeringConnectionId = p1
     }
+{-# INLINE rejectVpcPeeringConnection #-}
 
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcrVpcPeeringConnectionId :: Text
@@ -60,15 +61,9 @@ data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
-rvpcrVpcPeeringConnectionId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RejectVpcPeeringConnection
-    -> f RejectVpcPeeringConnection
+rvpcrVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcrVpcPeeringConnectionId f x =
-    (\y -> x { _rvpcrVpcPeeringConnectionId = y })
-       <$> f (_rvpcrVpcPeeringConnectionId x)
+    f (_rvpcrVpcPeeringConnectionId x) <&> \y -> x { _rvpcrVpcPeeringConnectionId = y }
 {-# INLINE rvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery RejectVpcPeeringConnection where
@@ -81,15 +76,9 @@ data RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     } deriving (Show, Generic)
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-rvpcsReturn
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> RejectVpcPeeringConnectionResponse
-    -> f RejectVpcPeeringConnectionResponse
+rvpcsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcsReturn f x =
-    (\y -> x { _rvpcsReturn = y })
-       <$> f (_rvpcsReturn x)
+    f (_rvpcsReturn x) <&> \y -> x { _rvpcsReturn = y }
 {-# INLINE rvpcsReturn #-}
 
 instance FromXML RejectVpcPeeringConnectionResponse where

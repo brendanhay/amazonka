@@ -59,6 +59,7 @@ replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     { _rrtarAssociationId = p1
     , _rrtarRouteTableId = p2
     }
+{-# INLINE replaceRouteTableAssociation #-}
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtarAssociationId :: Text
@@ -68,27 +69,15 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     } deriving (Show, Generic)
 
 -- | The association ID.
-rrtarAssociationId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceRouteTableAssociation
-    -> f ReplaceRouteTableAssociation
+rrtarAssociationId :: Lens' ReplaceRouteTableAssociation Text
 rrtarAssociationId f x =
-    (\y -> x { _rrtarAssociationId = y })
-       <$> f (_rrtarAssociationId x)
+    f (_rrtarAssociationId x) <&> \y -> x { _rrtarAssociationId = y }
 {-# INLINE rrtarAssociationId #-}
 
 -- | The ID of the new route table to associate with the subnet.
-rrtarRouteTableId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ReplaceRouteTableAssociation
-    -> f ReplaceRouteTableAssociation
+rrtarRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtarRouteTableId f x =
-    (\y -> x { _rrtarRouteTableId = y })
-       <$> f (_rrtarRouteTableId x)
+    f (_rrtarRouteTableId x) <&> \y -> x { _rrtarRouteTableId = y }
 {-# INLINE rrtarRouteTableId #-}
 
 instance ToQuery ReplaceRouteTableAssociation where
@@ -100,15 +89,9 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     } deriving (Show, Generic)
 
 -- | The ID of the new association.
-rrtasNewAssociationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ReplaceRouteTableAssociationResponse
-    -> f ReplaceRouteTableAssociationResponse
+rrtasNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtasNewAssociationId f x =
-    (\y -> x { _rrtasNewAssociationId = y })
-       <$> f (_rrtasNewAssociationId x)
+    f (_rrtasNewAssociationId x) <&> \y -> x { _rrtasNewAssociationId = y }
 {-# INLINE rrtasNewAssociationId #-}
 
 instance FromXML ReplaceRouteTableAssociationResponse where

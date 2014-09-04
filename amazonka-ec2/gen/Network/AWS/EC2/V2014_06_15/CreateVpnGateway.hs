@@ -59,6 +59,7 @@ createVpnGateway p1 = CreateVpnGateway
     { _cvgrType = p1
     , _cvgrAvailabilityZone = Nothing
     }
+{-# INLINE createVpnGateway #-}
 
 data CreateVpnGateway = CreateVpnGateway
     { _cvgrType :: GatewayType
@@ -68,27 +69,15 @@ data CreateVpnGateway = CreateVpnGateway
     } deriving (Show, Generic)
 
 -- | The type of VPN connection this virtual private gateway supports.
-cvgrType
-    :: Functor f
-    => (GatewayType
-    -> f (GatewayType))
-    -> CreateVpnGateway
-    -> f CreateVpnGateway
+cvgrType :: Lens' CreateVpnGateway GatewayType
 cvgrType f x =
-    (\y -> x { _cvgrType = y })
-       <$> f (_cvgrType x)
+    f (_cvgrType x) <&> \y -> x { _cvgrType = y }
 {-# INLINE cvgrType #-}
 
 -- | The Availability Zone for the virtual private gateway.
-cvgrAvailabilityZone
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateVpnGateway
-    -> f CreateVpnGateway
+cvgrAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
 cvgrAvailabilityZone f x =
-    (\y -> x { _cvgrAvailabilityZone = y })
-       <$> f (_cvgrAvailabilityZone x)
+    f (_cvgrAvailabilityZone x) <&> \y -> x { _cvgrAvailabilityZone = y }
 {-# INLINE cvgrAvailabilityZone #-}
 
 instance ToQuery CreateVpnGateway where
@@ -100,15 +89,9 @@ data CreateVpnGatewayResponse = CreateVpnGatewayResponse
     } deriving (Show, Generic)
 
 -- | Information about the virtual private gateway.
-cvgsVpnGateway
-    :: Functor f
-    => (Maybe VpnGateway
-    -> f (Maybe VpnGateway))
-    -> CreateVpnGatewayResponse
-    -> f CreateVpnGatewayResponse
+cvgsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgsVpnGateway f x =
-    (\y -> x { _cvgsVpnGateway = y })
-       <$> f (_cvgsVpnGateway x)
+    f (_cvgsVpnGateway x) <&> \y -> x { _cvgsVpnGateway = y }
 {-# INLINE cvgsVpnGateway #-}
 
 instance FromXML CreateVpnGatewayResponse where

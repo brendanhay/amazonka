@@ -82,6 +82,7 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     , _cnaerIcmpTypeCode = Nothing
     , _cnaerPortRange = Nothing
     }
+{-# INLINE createNetworkAclEntry #-}
 
 data CreateNetworkAclEntry = CreateNetworkAclEntry
     { _cnaerEgress :: Bool
@@ -108,101 +109,53 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
-cnaerEgress
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerEgress :: Lens' CreateNetworkAclEntry Bool
 cnaerEgress f x =
-    (\y -> x { _cnaerEgress = y })
-       <$> f (_cnaerEgress x)
+    f (_cnaerEgress x) <&> \y -> x { _cnaerEgress = y }
 {-# INLINE cnaerEgress #-}
 
 -- | The rule number for the entry (for example, 100). ACL entries are processed
 -- in ascending order by rule number. Constraints: Positive integer from 1 to
 -- 32766.
-cnaerRuleNumber
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerRuleNumber :: Lens' CreateNetworkAclEntry Integer
 cnaerRuleNumber f x =
-    (\y -> x { _cnaerRuleNumber = y })
-       <$> f (_cnaerRuleNumber x)
+    f (_cnaerRuleNumber x) <&> \y -> x { _cnaerRuleNumber = y }
 {-# INLINE cnaerRuleNumber #-}
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-cnaerRuleAction
-    :: Functor f
-    => (RuleAction
-    -> f (RuleAction))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerRuleAction :: Lens' CreateNetworkAclEntry RuleAction
 cnaerRuleAction f x =
-    (\y -> x { _cnaerRuleAction = y })
-       <$> f (_cnaerRuleAction x)
+    f (_cnaerRuleAction x) <&> \y -> x { _cnaerRuleAction = y }
 {-# INLINE cnaerRuleAction #-}
 
 -- | The ID of the ACL.
-cnaerNetworkAclId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerNetworkAclId :: Lens' CreateNetworkAclEntry Text
 cnaerNetworkAclId f x =
-    (\y -> x { _cnaerNetworkAclId = y })
-       <$> f (_cnaerNetworkAclId x)
+    f (_cnaerNetworkAclId x) <&> \y -> x { _cnaerNetworkAclId = y }
 {-# INLINE cnaerNetworkAclId #-}
 
 -- | The protocol. A value of -1 means all protocols.
-cnaerProtocol
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerProtocol :: Lens' CreateNetworkAclEntry Text
 cnaerProtocol f x =
-    (\y -> x { _cnaerProtocol = y })
-       <$> f (_cnaerProtocol x)
+    f (_cnaerProtocol x) <&> \y -> x { _cnaerProtocol = y }
 {-# INLINE cnaerProtocol #-}
 
 -- | The network range to allow or deny, in CIDR notation.
-cnaerCidrBlock
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerCidrBlock :: Lens' CreateNetworkAclEntry Text
 cnaerCidrBlock f x =
-    (\y -> x { _cnaerCidrBlock = y })
-       <$> f (_cnaerCidrBlock x)
+    f (_cnaerCidrBlock x) <&> \y -> x { _cnaerCidrBlock = y }
 {-# INLINE cnaerCidrBlock #-}
 
 -- | ICMP protocol: The ICMP type and code.
-cnaerIcmpTypeCode
-    :: Functor f
-    => (Maybe IcmpTypeCode
-    -> f (Maybe IcmpTypeCode))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerIcmpTypeCode :: Lens' CreateNetworkAclEntry (Maybe IcmpTypeCode)
 cnaerIcmpTypeCode f x =
-    (\y -> x { _cnaerIcmpTypeCode = y })
-       <$> f (_cnaerIcmpTypeCode x)
+    f (_cnaerIcmpTypeCode x) <&> \y -> x { _cnaerIcmpTypeCode = y }
 {-# INLINE cnaerIcmpTypeCode #-}
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
-cnaerPortRange
-    :: Functor f
-    => (Maybe PortRange
-    -> f (Maybe PortRange))
-    -> CreateNetworkAclEntry
-    -> f CreateNetworkAclEntry
+cnaerPortRange :: Lens' CreateNetworkAclEntry (Maybe PortRange)
 cnaerPortRange f x =
-    (\y -> x { _cnaerPortRange = y })
-       <$> f (_cnaerPortRange x)
+    f (_cnaerPortRange x) <&> \y -> x { _cnaerPortRange = y }
 {-# INLINE cnaerPortRange #-}
 
 instance ToQuery CreateNetworkAclEntry where

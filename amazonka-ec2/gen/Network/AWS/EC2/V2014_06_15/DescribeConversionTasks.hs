@@ -51,6 +51,7 @@ describeConversionTasks = DescribeConversionTasks
     { _dctrConversionTaskIds = mempty
     , _dctrFilters = mempty
     }
+{-# INLINE describeConversionTasks #-}
 
 data DescribeConversionTasks = DescribeConversionTasks
     { _dctrConversionTaskIds :: [Text]
@@ -60,27 +61,15 @@ data DescribeConversionTasks = DescribeConversionTasks
     } deriving (Show, Generic)
 
 -- | One or more conversion task IDs.
-dctrConversionTaskIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeConversionTasks
-    -> f DescribeConversionTasks
+dctrConversionTaskIds :: Lens' DescribeConversionTasks [Text]
 dctrConversionTaskIds f x =
-    (\y -> x { _dctrConversionTaskIds = y })
-       <$> f (_dctrConversionTaskIds x)
+    f (_dctrConversionTaskIds x) <&> \y -> x { _dctrConversionTaskIds = y }
 {-# INLINE dctrConversionTaskIds #-}
 
 -- | 
-dctrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeConversionTasks
-    -> f DescribeConversionTasks
+dctrFilters :: Lens' DescribeConversionTasks [Filter]
 dctrFilters f x =
-    (\y -> x { _dctrFilters = y })
-       <$> f (_dctrFilters x)
+    f (_dctrFilters x) <&> \y -> x { _dctrFilters = y }
 {-# INLINE dctrFilters #-}
 
 instance ToQuery DescribeConversionTasks where
@@ -92,15 +81,9 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse
     } deriving (Show, Generic)
 
 -- | 
-dctsConversionTasks
-    :: Functor f
-    => ([ConversionTask]
-    -> f ([ConversionTask]))
-    -> DescribeConversionTasksResponse
-    -> f DescribeConversionTasksResponse
+dctsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctsConversionTasks f x =
-    (\y -> x { _dctsConversionTasks = y })
-       <$> f (_dctsConversionTasks x)
+    f (_dctsConversionTasks x) <&> \y -> x { _dctsConversionTasks = y }
 {-# INLINE dctsConversionTasks #-}
 
 instance FromXML DescribeConversionTasksResponse where

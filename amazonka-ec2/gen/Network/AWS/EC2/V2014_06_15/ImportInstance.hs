@@ -64,6 +64,7 @@ importInstance p1 = ImportInstance
     , _iiiiiiiiiuLaunchSpecification = Nothing
     , _iiiiiiiiiuDescription = Nothing
     }
+{-# INLINE importInstance #-}
 
 data ImportInstance = ImportInstance
     { _iiiiiiiiiuPlatform :: PlatformValues
@@ -77,51 +78,27 @@ data ImportInstance = ImportInstance
     } deriving (Show, Generic)
 
 -- | The instance operating system.
-iiiiiiiiiuPlatform
-    :: Functor f
-    => (PlatformValues
-    -> f (PlatformValues))
-    -> ImportInstance
-    -> f ImportInstance
+iiiiiiiiiuPlatform :: Lens' ImportInstance PlatformValues
 iiiiiiiiiuPlatform f x =
-    (\y -> x { _iiiiiiiiiuPlatform = y })
-       <$> f (_iiiiiiiiiuPlatform x)
+    f (_iiiiiiiiiuPlatform x) <&> \y -> x { _iiiiiiiiiuPlatform = y }
 {-# INLINE iiiiiiiiiuPlatform #-}
 
 -- | 
-iiiiiiiiiuDiskImages
-    :: Functor f
-    => ([DiskImage]
-    -> f ([DiskImage]))
-    -> ImportInstance
-    -> f ImportInstance
+iiiiiiiiiuDiskImages :: Lens' ImportInstance [DiskImage]
 iiiiiiiiiuDiskImages f x =
-    (\y -> x { _iiiiiiiiiuDiskImages = y })
-       <$> f (_iiiiiiiiiuDiskImages x)
+    f (_iiiiiiiiiuDiskImages x) <&> \y -> x { _iiiiiiiiiuDiskImages = y }
 {-# INLINE iiiiiiiiiuDiskImages #-}
 
 -- | 
-iiiiiiiiiuLaunchSpecification
-    :: Functor f
-    => (Maybe ImportInstanceLaunchSpecification
-    -> f (Maybe ImportInstanceLaunchSpecification))
-    -> ImportInstance
-    -> f ImportInstance
+iiiiiiiiiuLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiiiiiiiiuLaunchSpecification f x =
-    (\y -> x { _iiiiiiiiiuLaunchSpecification = y })
-       <$> f (_iiiiiiiiiuLaunchSpecification x)
+    f (_iiiiiiiiiuLaunchSpecification x) <&> \y -> x { _iiiiiiiiiuLaunchSpecification = y }
 {-# INLINE iiiiiiiiiuLaunchSpecification #-}
 
 -- | A description for the instance being imported.
-iiiiiiiiiuDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ImportInstance
-    -> f ImportInstance
+iiiiiiiiiuDescription :: Lens' ImportInstance (Maybe Text)
 iiiiiiiiiuDescription f x =
-    (\y -> x { _iiiiiiiiiuDescription = y })
-       <$> f (_iiiiiiiiiuDescription x)
+    f (_iiiiiiiiiuDescription x) <&> \y -> x { _iiiiiiiiiuDescription = y }
 {-# INLINE iiiiiiiiiuDescription #-}
 
 instance ToQuery ImportInstance where
@@ -133,15 +110,9 @@ data ImportInstanceResponse = ImportInstanceResponse
     } deriving (Show, Generic)
 
 -- | 
-iiiiiiiiivConversionTask
-    :: Functor f
-    => (Maybe ConversionTask
-    -> f (Maybe ConversionTask))
-    -> ImportInstanceResponse
-    -> f ImportInstanceResponse
+iiiiiiiiivConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iiiiiiiiivConversionTask f x =
-    (\y -> x { _iiiiiiiiivConversionTask = y })
-       <$> f (_iiiiiiiiivConversionTask x)
+    f (_iiiiiiiiivConversionTask x) <&> \y -> x { _iiiiiiiiivConversionTask = y }
 {-# INLINE iiiiiiiiivConversionTask #-}
 
 instance FromXML ImportInstanceResponse where

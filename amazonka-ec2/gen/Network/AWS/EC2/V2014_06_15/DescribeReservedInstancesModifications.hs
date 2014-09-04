@@ -55,6 +55,7 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications
     , _drimrReservedInstancesModificationIds = mempty
     , _drimrNextToken = Nothing
     }
+{-# INLINE describeReservedInstancesModifications #-}
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimrFilters :: [Filter]
@@ -105,39 +106,21 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 -- (processing | fulfilled | failed). status-message - The reason for the
 -- status. update-date - The time when the modification request was last
 -- updated.
-drimrFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeReservedInstancesModifications
-    -> f DescribeReservedInstancesModifications
+drimrFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimrFilters f x =
-    (\y -> x { _drimrFilters = y })
-       <$> f (_drimrFilters x)
+    f (_drimrFilters x) <&> \y -> x { _drimrFilters = y }
 {-# INLINE drimrFilters #-}
 
 -- | IDs for the submitted modification request.
-drimrReservedInstancesModificationIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeReservedInstancesModifications
-    -> f DescribeReservedInstancesModifications
+drimrReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
 drimrReservedInstancesModificationIds f x =
-    (\y -> x { _drimrReservedInstancesModificationIds = y })
-       <$> f (_drimrReservedInstancesModificationIds x)
+    f (_drimrReservedInstancesModificationIds x) <&> \y -> x { _drimrReservedInstancesModificationIds = y }
 {-# INLINE drimrReservedInstancesModificationIds #-}
 
 -- | The token for the next page of data.
-drimrNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesModifications
-    -> f DescribeReservedInstancesModifications
+drimrNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimrNextToken f x =
-    (\y -> x { _drimrNextToken = y })
-       <$> f (_drimrNextToken x)
+    f (_drimrNextToken x) <&> \y -> x { _drimrNextToken = y }
 {-# INLINE drimrNextToken #-}
 
 instance ToQuery DescribeReservedInstancesModifications where
@@ -151,27 +134,15 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
     } deriving (Show, Generic)
 
 -- | The Reserved Instance modification information.
-drimsReservedInstancesModifications
-    :: Functor f
-    => ([ReservedInstancesModification]
-    -> f ([ReservedInstancesModification]))
-    -> DescribeReservedInstancesModificationsResponse
-    -> f DescribeReservedInstancesModificationsResponse
+drimsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimsReservedInstancesModifications f x =
-    (\y -> x { _drimsReservedInstancesModifications = y })
-       <$> f (_drimsReservedInstancesModifications x)
+    f (_drimsReservedInstancesModifications x) <&> \y -> x { _drimsReservedInstancesModifications = y }
 {-# INLINE drimsReservedInstancesModifications #-}
 
 -- | The token for the next page of data.
-drimsNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeReservedInstancesModificationsResponse
-    -> f DescribeReservedInstancesModificationsResponse
+drimsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimsNextToken f x =
-    (\y -> x { _drimsNextToken = y })
-       <$> f (_drimsNextToken x)
+    f (_drimsNextToken x) <&> \y -> x { _drimsNextToken = y }
 {-# INLINE drimsNextToken #-}
 
 instance FromXML DescribeReservedInstancesModificationsResponse where

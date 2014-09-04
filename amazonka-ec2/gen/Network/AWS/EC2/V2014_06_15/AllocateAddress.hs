@@ -64,6 +64,7 @@ allocateAddress :: AllocateAddress
 allocateAddress = AllocateAddress
     { _aarDomain = Nothing
     }
+{-# INLINE allocateAddress #-}
 
 data AllocateAddress = AllocateAddress
     { _aarDomain :: Maybe DomainType
@@ -74,15 +75,9 @@ data AllocateAddress = AllocateAddress
 
 -- | Set to vpc to allocate the address for use with instances in a VPC.
 -- Default: The address is for use with instances in EC2-Classic.
-aarDomain
-    :: Functor f
-    => (Maybe DomainType
-    -> f (Maybe DomainType))
-    -> AllocateAddress
-    -> f AllocateAddress
+aarDomain :: Lens' AllocateAddress (Maybe DomainType)
 aarDomain f x =
-    (\y -> x { _aarDomain = y })
-       <$> f (_aarDomain x)
+    f (_aarDomain x) <&> \y -> x { _aarDomain = y }
 {-# INLINE aarDomain #-}
 
 instance ToQuery AllocateAddress where
@@ -101,40 +96,22 @@ data AllocateAddressResponse = AllocateAddressResponse
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
-aasDomain
-    :: Functor f
-    => (Maybe DomainType
-    -> f (Maybe DomainType))
-    -> AllocateAddressResponse
-    -> f AllocateAddressResponse
+aasDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aasDomain f x =
-    (\y -> x { _aasDomain = y })
-       <$> f (_aasDomain x)
+    f (_aasDomain x) <&> \y -> x { _aasDomain = y }
 {-# INLINE aasDomain #-}
 
 -- | The Elastic IP address.
-aasPublicIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateAddressResponse
-    -> f AllocateAddressResponse
+aasPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aasPublicIp f x =
-    (\y -> x { _aasPublicIp = y })
-       <$> f (_aasPublicIp x)
+    f (_aasPublicIp x) <&> \y -> x { _aasPublicIp = y }
 {-# INLINE aasPublicIp #-}
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
-aasAllocationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AllocateAddressResponse
-    -> f AllocateAddressResponse
+aasAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aasAllocationId f x =
-    (\y -> x { _aasAllocationId = y })
-       <$> f (_aasAllocationId x)
+    f (_aasAllocationId x) <&> \y -> x { _aasAllocationId = y }
 {-# INLINE aasAllocationId #-}
 
 instance FromXML AllocateAddressResponse where

@@ -82,6 +82,7 @@ associateAddress = AssociateAddress
     , _aatNetworkInterfaceId = Nothing
     , _aatPrivateIpAddress = Nothing
     }
+{-# INLINE associateAddress #-}
 
 data AssociateAddress = AssociateAddress
     { _aatAllowReassociation :: Maybe Bool
@@ -111,79 +112,43 @@ data AssociateAddress = AssociateAddress
 -- instance or network interface to be re-associated with the specified
 -- instance or network interface. Otherwise, the operation fails. Default:
 -- false.
-aatAllowReassociation
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> AssociateAddress
-    -> f AssociateAddress
+aatAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aatAllowReassociation f x =
-    (\y -> x { _aatAllowReassociation = y })
-       <$> f (_aatAllowReassociation x)
+    f (_aatAllowReassociation x) <&> \y -> x { _aatAllowReassociation = y }
 {-# INLINE aatAllowReassociation #-}
 
 -- | The ID of the instance. The operation fails if you specify an instance ID
 -- unless exactly one network interface is attached.
-aatInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateAddress
-    -> f AssociateAddress
+aatInstanceId :: Lens' AssociateAddress (Maybe Text)
 aatInstanceId f x =
-    (\y -> x { _aatInstanceId = y })
-       <$> f (_aatInstanceId x)
+    f (_aatInstanceId x) <&> \y -> x { _aatInstanceId = y }
 {-# INLINE aatInstanceId #-}
 
 -- | The Elastic IP address.
-aatPublicIp
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateAddress
-    -> f AssociateAddress
+aatPublicIp :: Lens' AssociateAddress (Maybe Text)
 aatPublicIp f x =
-    (\y -> x { _aatPublicIp = y })
-       <$> f (_aatPublicIp x)
+    f (_aatPublicIp x) <&> \y -> x { _aatPublicIp = y }
 {-# INLINE aatPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-aatAllocationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateAddress
-    -> f AssociateAddress
+aatAllocationId :: Lens' AssociateAddress (Maybe Text)
 aatAllocationId f x =
-    (\y -> x { _aatAllocationId = y })
-       <$> f (_aatAllocationId x)
+    f (_aatAllocationId x) <&> \y -> x { _aatAllocationId = y }
 {-# INLINE aatAllocationId #-}
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than
 -- one network interface, you must specify a network interface ID.
-aatNetworkInterfaceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateAddress
-    -> f AssociateAddress
+aatNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
 aatNetworkInterfaceId f x =
-    (\y -> x { _aatNetworkInterfaceId = y })
-       <$> f (_aatNetworkInterfaceId x)
+    f (_aatNetworkInterfaceId x) <&> \y -> x { _aatNetworkInterfaceId = y }
 {-# INLINE aatNetworkInterfaceId #-}
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with the
 -- Elastic IP address. If no private IP address is specified, the Elastic IP
 -- address is associated with the primary private IP address.
-aatPrivateIpAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateAddress
-    -> f AssociateAddress
+aatPrivateIpAddress :: Lens' AssociateAddress (Maybe Text)
 aatPrivateIpAddress f x =
-    (\y -> x { _aatPrivateIpAddress = y })
-       <$> f (_aatPrivateIpAddress x)
+    f (_aatPrivateIpAddress x) <&> \y -> x { _aatPrivateIpAddress = y }
 {-# INLINE aatPrivateIpAddress #-}
 
 instance ToQuery AssociateAddress where
@@ -197,15 +162,9 @@ data AssociateAddressResponse = AssociateAddressResponse
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address
 -- with an instance.
-aauAssociationId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AssociateAddressResponse
-    -> f AssociateAddressResponse
+aauAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 aauAssociationId f x =
-    (\y -> x { _aauAssociationId = y })
-       <$> f (_aauAssociationId x)
+    f (_aauAssociationId x) <&> \y -> x { _aauAssociationId = y }
 {-# INLINE aauAssociationId #-}
 
 instance FromXML AssociateAddressResponse where

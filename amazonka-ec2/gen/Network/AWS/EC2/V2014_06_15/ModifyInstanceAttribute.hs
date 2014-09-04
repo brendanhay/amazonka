@@ -95,6 +95,7 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
     , _miasBlockDeviceMappings = mempty
     , _miasValue = Nothing
     }
+{-# INLINE modifyInstanceAttribute #-}
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _miasInstanceId :: Text
@@ -158,42 +159,24 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-miasInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasInstanceId :: Lens' ModifyInstanceAttribute Text
 miasInstanceId f x =
-    (\y -> x { _miasInstanceId = y })
-       <$> f (_miasInstanceId x)
+    f (_miasInstanceId x) <&> \y -> x { _miasInstanceId = y }
 {-# INLINE miasInstanceId #-}
 
 -- | Specifies whether source/destination checking is enabled. A value of true
 -- means that checking is enabled, and false means checking is disabled. This
 -- value must be false for a NAT instance to perform NAT.
-miasSourceDestCheck
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 miasSourceDestCheck f x =
-    (\y -> x { _miasSourceDestCheck = y })
-       <$> f (_miasSourceDestCheck x)
+    f (_miasSourceDestCheck x) <&> \y -> x { _miasSourceDestCheck = y }
 {-# INLINE miasSourceDestCheck #-}
 
 -- | Specifies whether to disable the ability to terminate the instance using
 -- the Amazon EC2 console, CLI, and API.
-miasDisableApiTermination
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasDisableApiTermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 miasDisableApiTermination f x =
-    (\y -> x { _miasDisableApiTermination = y })
-       <$> f (_miasDisableApiTermination x)
+    f (_miasDisableApiTermination x) <&> \y -> x { _miasDisableApiTermination = y }
 {-# INLINE miasDisableApiTermination #-}
 
 -- | Specifies whether the instance is optimized for EBS I/O. This optimization
@@ -201,94 +184,52 @@ miasDisableApiTermination f x =
 -- stack to provide optimal EBS I/O performance. This optimization isn't
 -- available with all instance types. Additional usage charges apply when
 -- using an EBS Optimized instance.
-miasEbsOptimized
-    :: Functor f
-    => (Maybe AttributeBooleanValue
-    -> f (Maybe AttributeBooleanValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasEbsOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 miasEbsOptimized f x =
-    (\y -> x { _miasEbsOptimized = y })
-       <$> f (_miasEbsOptimized x)
+    f (_miasEbsOptimized x) <&> \y -> x { _miasEbsOptimized = y }
 {-# INLINE miasEbsOptimized #-}
 
 -- | Changes the instance type to the specified value. For more information, see
 -- Instance Types. If the instance type is not valid, the error returned is
 -- InvalidInstanceAttributeValue.
-miasInstanceType
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 miasInstanceType f x =
-    (\y -> x { _miasInstanceType = y })
-       <$> f (_miasInstanceType x)
+    f (_miasInstanceType x) <&> \y -> x { _miasInstanceType = y }
 {-# INLINE miasInstanceType #-}
 
 -- | Changes the instance's kernel to the specified value.
-miasKernel
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 miasKernel f x =
-    (\y -> x { _miasKernel = y })
-       <$> f (_miasKernel x)
+    f (_miasKernel x) <&> \y -> x { _miasKernel = y }
 {-# INLINE miasKernel #-}
 
 -- | Changes the instance's RAM disk to the specified value.
-miasRamdisk
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasRamdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 miasRamdisk f x =
-    (\y -> x { _miasRamdisk = y })
-       <$> f (_miasRamdisk x)
+    f (_miasRamdisk x) <&> \y -> x { _miasRamdisk = y }
 {-# INLINE miasRamdisk #-}
 
 -- | Changes the instance's user data to the specified value.
-miasUserData
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasUserData :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 miasUserData f x =
-    (\y -> x { _miasUserData = y })
-       <$> f (_miasUserData x)
+    f (_miasUserData x) <&> \y -> x { _miasUserData = y }
 {-# INLINE miasUserData #-}
 
 -- | Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
-miasInstanceInitiatedShutdownBehavior
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 miasInstanceInitiatedShutdownBehavior f x =
-    (\y -> x { _miasInstanceInitiatedShutdownBehavior = y })
-       <$> f (_miasInstanceInitiatedShutdownBehavior x)
+    f (_miasInstanceInitiatedShutdownBehavior x) <&> \y -> x { _miasInstanceInitiatedShutdownBehavior = y }
 {-# INLINE miasInstanceInitiatedShutdownBehavior #-}
 
 -- | Set to simple to enable enhanced networking for the instance. There is no
 -- way to disable enhanced networking at this time. This option is supported
 -- only for HVM instances. Specifying this option with a PV instance can make
 -- it unreachable.
-miasSriovNetSupport
-    :: Functor f
-    => (Maybe AttributeValue
-    -> f (Maybe AttributeValue))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasSriovNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 miasSriovNetSupport f x =
-    (\y -> x { _miasSriovNetSupport = y })
-       <$> f (_miasSriovNetSupport x)
+    f (_miasSriovNetSupport x) <&> \y -> x { _miasSriovNetSupport = y }
 {-# INLINE miasSriovNetSupport #-}
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify at
@@ -296,27 +237,15 @@ miasSriovNetSupport f x =
 -- the VPC. You must specify the security group ID, not the security group
 -- name. For example, if you want the instance to be in sg-1a1a1a1a and
 -- sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
-miasGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasGroups :: Lens' ModifyInstanceAttribute [Text]
 miasGroups f x =
-    (\y -> x { _miasGroups = y })
-       <$> f (_miasGroups x)
+    f (_miasGroups x) <&> \y -> x { _miasGroups = y }
 {-# INLINE miasGroups #-}
 
 -- | The name of the attribute.
-miasAttribute
-    :: Functor f
-    => (Maybe InstanceAttributeName
-    -> f (Maybe InstanceAttributeName))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
 miasAttribute f x =
-    (\y -> x { _miasAttribute = y })
-       <$> f (_miasAttribute x)
+    f (_miasAttribute x) <&> \y -> x { _miasAttribute = y }
 {-# INLINE miasAttribute #-}
 
 -- | Modifies the DeleteOnTermination attribute for volumes that are currently
@@ -326,28 +255,16 @@ miasAttribute f x =
 -- EBS-backed instance, you must add them when you launch the instance. For
 -- more information, see Updating the Block Device Mapping when Launching an
 -- Instance in the Amazon Elastic Compute Cloud User Guide.
-miasBlockDeviceMappings
-    :: Functor f
-    => ([InstanceBlockDeviceMappingSpecification]
-    -> f ([InstanceBlockDeviceMappingSpecification]))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasBlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
 miasBlockDeviceMappings f x =
-    (\y -> x { _miasBlockDeviceMappings = y })
-       <$> f (_miasBlockDeviceMappings x)
+    f (_miasBlockDeviceMappings x) <&> \y -> x { _miasBlockDeviceMappings = y }
 {-# INLINE miasBlockDeviceMappings #-}
 
 -- | A new value for the attribute. Use only with the kernel, ramdisk, userData,
 -- disableApiTermination, or intanceInitiateShutdownBehavior attribute.
-miasValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyInstanceAttribute
-    -> f ModifyInstanceAttribute
+miasValue :: Lens' ModifyInstanceAttribute (Maybe Text)
 miasValue f x =
-    (\y -> x { _miasValue = y })
-       <$> f (_miasValue x)
+    f (_miasValue x) <&> \y -> x { _miasValue = y }
 {-# INLINE miasValue #-}
 
 instance ToQuery ModifyInstanceAttribute where

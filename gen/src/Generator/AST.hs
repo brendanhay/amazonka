@@ -392,29 +392,6 @@ data Response = Response
     , _rsStyle :: Style
     } deriving (Eq, Show, Generic)
 
-style :: ServiceType -> Response -> Style
-style t rs@Response{..} =
-    case t of
-        _ | fs == 0     -> SNullary
-
-        Json            -> SJson
-        RestJson        -> SJson
-
-        _ | str, hs > 0 -> SBodyHeaders
-          | str         -> SBody
-
-          | hs == fs    -> SHeaders
-
-        _ | hs > 0      -> SXmlHeaders
-        _ | bdy         -> SXml
-        _               -> SXmlCursor
-  where
-    str = maybe False (view cmnStreaming) (rs ^. typPayload)
-
-    bdy = isJust (rs ^. typPayload)
-    fs  = length (rs ^. typFields)
-    hs  = length (rs ^. typHeaders)
-
 instance HasType' Response where
     type' f x = (\y -> x { _rsType = y }) <$> f (_rsType x)
 

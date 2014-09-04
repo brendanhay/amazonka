@@ -185,6 +185,29 @@ response svc@Service{..} o rs = rs' & rsStyle .~ style _svcType rs'
         & rsType .~ shapeType False svc (rs ^. typShape)
         & rsName .~ (o ^. opName <> "Response")
 
+style :: ServiceType -> Response -> Style
+style t rs@Response{..} =
+    case t of
+        _ | fs == 0     -> SNullary
+
+        Json            -> SJson
+        RestJson        -> SJson
+
+        _ | str, hs > 0 -> SBodyHeaders
+          | str         -> SBody
+
+          | hs == fs    -> SHeaders
+
+        _ | hs > 0      -> SXmlHeaders
+        _ | bdy         -> SXml
+        _               -> SXmlCursor
+  where
+    str = maybe False (view cmnStreaming) (rs ^. typPayload)
+
+    bdy = isJust (rs ^. typPayload)
+    fs  = length (rs ^. typFields)
+    hs  = length (rs ^. typHeaders)
+
 pagination :: Service -> Operation -> Pagination -> Pagination
 pagination svc o p = case p of
     More m t -> More (labeled (rs ^. cmnName) m) (map token t)

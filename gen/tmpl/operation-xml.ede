@@ -8,9 +8,7 @@ import Network.AWS.Prelude
 type {{ alias }} = {{ request.name }}
 {% endif %}
 
--- | Smart constructor requiring the minimum required parameters for
--- a valid '{{ request.name }}' request.
-{% include "_include/constructor.ede" with request %}
+{% include "_include/constructor-operation.ede" with request %}
 
 {% include "_include/record.ede" with request %}
 
@@ -28,7 +26,7 @@ type {{ alias }} = {{ request.name }}
 {% endcase %}
 
 {% include "_include/record.ede" with response %}
-{% if response.type == "xml" %}
+{% if response.style == "xml" %}
 
 instance FromXML {{ response.name }} where
     fromXMLOptions = xmlOptions

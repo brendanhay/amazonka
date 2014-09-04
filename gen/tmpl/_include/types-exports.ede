@@ -34,23 +34,27 @@ module {{ scope.types_namespace }}
     , {{ data.value.name }} (..)
   {% when "newtype" %}
     , {{ data.value.name }}
+    {% if data.value.direction.request %}
     , {{ data.value.smart_ctor }}
+    {% endif %}
     {% for field in data.value.fields %}
-    , {{ data.value.name | iso }}
+    , {{ field.value.prefixed | lens }}
     {% endfor %}
   {% when "data" %}
     , {{ data.value.name }}
+    {% if data.value.direction.request %}
     , {{ data.value.smart_ctor }}
+    {% endif %}
     {% for field in data.value.fields %}
     , {{ field.value.prefixed | lens }}
     {% endfor %}
   {% else %}
     , {{ data.value.name }}
   {% endcase %}
-
 {% endfor %}
 {% for module in scope.static %}
   {% if module.first %}
+
     -- * Common
     , module {{ module.value }}
   {% else %}

@@ -9,9 +9,7 @@ import qualified Network.AWS.Types.Map    as Map
 type {{ alias }} = {{ request.name }}
 {% endif %}
 
--- | Smart constructor requiring the minimum required parameters for
--- a valid '{{ request.name }}' request.
-{% include "_include/constructor.ede" with request %}
+{% include "_include/constructor-operation.ede" with request %}
 
 {% include "_include/record.ede" with request %}
 
@@ -23,7 +21,7 @@ type {{ alias }} = {{ request.name }}
 {% include "_include/json-to.ede" with request %}
 
 {% include "_include/record.ede" with response %}
-{% if response.type == "json" %}
+{% if response.style == "json" %}
 
 instance FromJSON {{ response.name }}
 {% endif %}

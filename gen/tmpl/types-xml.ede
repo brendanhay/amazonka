@@ -120,7 +120,7 @@ instance ToQuery {{ data.value.name }} where
       toQuery = toQuery . toBS
     {% else %}
       {% include "_include/record.ede" with data.value %}
-      {% include "_include/constructor.ede" with data.value %}
+      {% include "_include/constructor-type.ede" with data.value %}
       {% include "_include/xml-from.ede" with data.value %}
       {% include "_include/xml-to.ede" with data.value %}
     {% endcase %}

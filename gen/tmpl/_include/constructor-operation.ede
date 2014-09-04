@@ -1,0 +1,3 @@
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid '{{ scope.name }}' request.
+{% include "constructor.ede" with scope %}

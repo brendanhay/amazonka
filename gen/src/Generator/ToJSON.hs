@@ -149,8 +149,8 @@ instance ToJSON Type' where
       where
         Object x = object
             [ "type"            .= _typType
-            , "padding"         .= Text.replicate (Text.length name) " "
-            , "smart_ctor"      .= lowerFirst name
+            , "padding"         .= Text.replicate (Text.length name + 2) " "
+            , "smart_ctor"      .= mappend "mk" name
             , "ctor"            .= _typCtor
             , "fields"          .= _typFields
             , "payload_field"   .= _typPayload

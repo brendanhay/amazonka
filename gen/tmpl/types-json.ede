@@ -82,6 +82,7 @@ instance ToQuery {{ data.value.name }} where
     {% include "_include/json-to.ede" with data.value %}
   {% else %}
     {% include "_include/record.ede" with data.value %}
+    {% include "_include/constructor-type.ede" with data.value %}
     {% include "_include/json-from.ede" with data.value %}
     {% include "_include/json-to.ede" with data.value %}
   {% endcase %}

@@ -54,6 +54,7 @@ instance ToByteString {{ data.value.name }}
       {% include "_include/query-to.ede" with data.value %}
     {% else %}
       {% include "_include/record.ede" with data.value %}
+      {% include "_include/constructor-type.ede" with data.value %}
       {% include "_include/xml-from.ede" with data.value %}
       {% include "_include/query-to.ede" with data.value %}
     {% endcase %}

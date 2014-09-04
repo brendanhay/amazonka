@@ -287,7 +287,7 @@ shapeType rq svc@Service{..} s = Type
 
     rs = filter (view cmnRequired) fs
     hs = filter ((== LHeader) . view cmnLocation) fs
-    fs = map (requireField overrides . upd) . sort $ fields rq svc shape
+    fs = map (requireField overrides . upd) (fields rq svc shape)
 
     overrides = fromMaybe [] (Map.lookup name _svcRequired)
 

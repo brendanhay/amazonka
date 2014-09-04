@@ -51,6 +51,9 @@ module {{ scope.types_namespace }}
   {% else %}
     , {{ data.value.name }}
   {% endcase %}
+  {% if !data.last %}
+
+  {% endif %}
 {% endfor %}
 {% for module in scope.static %}
   {% if module.first %}

@@ -6,17 +6,16 @@
 {{ field.value.documentation | above76 }}
   {% endif %}
   {% if field.value.required %}
-{{ field.value.prefixed | lens }} :: Functor f => LensLike' f {{ scope.name }} {{ field.value.type }}
+{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} {{ field.value.type }}
   {% else %}
     {% if field.value.monoid %}
-{{ field.value.prefixed | lens }} :: Functor f => LensLike' f {{ scope.name }} {{ field.value.type }}
+{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} {{ field.value.type }}
     {% else %}
-{{ field.value.prefixed | lens }} :: Functor f => LensLike' f {{ scope.name }} ({{ field.value.type }})
+{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} ({{ field.value.type }})
     {% endif %}
   {% endif %}
 {{ field.value.prefixed | lens }} f x =
-    (\y -> x { {{ field.value.prefixed }} = y })
-       <$> f ({{ field.value.prefixed }} x)
+    f ({{ field.value.prefixed }} x) <&> \y -> x { {{ field.value.prefixed }} = y }
 {-# INLINE {{ field.value.prefixed | lens }} #-}
   {% if !field.last %}
 

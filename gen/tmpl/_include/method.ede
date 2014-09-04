@@ -39,3 +39,4 @@
     }
     {% endif %}
   {% endfor %}
+{-# INLINE {{ scope.default }} #-}

@@ -150,7 +150,7 @@ env x =
 filters :: HashMap Text Fun
 filters = EDE.defaultFilters
     <> Map.fromList fs
-    <> Map.singleton "lens" (Fun TText TText lens)
+    <> Map.fromList gs
   where
     fs = funN "pad"     pad         [4, 8]
       ++ funN "indent"  indent      [4, 6, 8, 10]
@@ -158,6 +158,10 @@ filters = EDE.defaultFilters
       ++ funN "above"   (wrap "| ") [66, 76]
       ++ funN "below"   (wrap "^ ") [66, 76]
       ++ funN "haddock" haddock     [74]
+
+    gs = [ ("lens", Fun TText TText lens)
+         , ("iso",  Fun TText TText (mappend "_"))
+         ]
 
     lens t = fromMaybe t (Text.stripPrefix "_" t)
 

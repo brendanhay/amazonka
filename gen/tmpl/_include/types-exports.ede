@@ -29,28 +29,29 @@ module {{ scope.types_namespace }}
 {% for data in scope.types %}
     -- * {{ data.value.name }}
   {% case data.value.ctor %}
-  {% when "witness" %}
-    , {{ data.value.name }}
-  {% when "switch" %}
-    , {{ data.value.name }}
-  {% else %}
+  {% when "sum" %}
     , {{ data.value.name }} (..)
-  {% endcase %}
-  {% for field in data.value.fields %}
+  {% when "newtype" %}
+    , {{ data.value.name }}
+    {% for field in data.value.fields %}
+    , {{ data.value.name | iso }}
+    {% endfor %}
+  {% when "data" %}
+    , {{ data.value.name }}
+    {% for field in data.value.fields %}
     , {{ field.value.prefixed | lens }}
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+    , {{ data.value.name }}
+  {% endcase %}
 
 {% endfor %}
 {% for module in scope.static %}
   {% if module.first %}
-
     -- * Common
     , module {{ module.value }}
   {% else %}
     , module {{ module.value }}
-  {% endif %}
-  {% if module.last %}
-
   {% endif %}
 {% endfor %}
     ) where

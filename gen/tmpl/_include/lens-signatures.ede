@@ -5,11 +5,17 @@
   {% if field.value.documentation %}
 {{ field.value.documentation | above76 }}
   {% endif %}
+  {% if scope.ctor == "newtype" %}
+{{ scope.name | iso }} :: Iso' {{ scope.name }} ({{ field.value.type }})
+{{ scope.name | iso }} =
+    iso {{ field.value.prefixed }} {{ scope.name }}
+{-# INLINE _{{ scope.name }} #-}
+  {% else %}
 {{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} ({{ field.value.type }})
-{{ field.value.prefixed | lens }} f x =
-    f ({{ field.value.prefixed }} x)
-        <&> \y -> x { {{ field.value.prefixed }} = y }
+{{ field.value.prefixed | lens }} =
+    lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
 {-# INLINE {{ field.value.prefixed | lens }} #-}
+  {% endif %}
   {% if !field.last %}
 
   {% endif %}

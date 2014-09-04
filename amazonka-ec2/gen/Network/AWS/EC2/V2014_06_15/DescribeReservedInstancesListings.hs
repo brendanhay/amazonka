@@ -75,21 +75,24 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
 -- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
 -- listing. status - The status of the Reserved Instance listing (pending |
 -- active | cancelled | closed). status-message - The reason for the status.
-drilrFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilrFilters :: Lens' DescribeReservedInstancesListings ([Filter])
 drilrFilters f x =
-    f (_drilrFilters x) <&> \y -> x { _drilrFilters = y }
+    f (_drilrFilters x)
+        <&> \y -> x { _drilrFilters = y }
 {-# INLINE drilrFilters #-}
 
 -- | One or more Reserved Instance IDs.
 drilrReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilrReservedInstancesId f x =
-    f (_drilrReservedInstancesId x) <&> \y -> x { _drilrReservedInstancesId = y }
+    f (_drilrReservedInstancesId x)
+        <&> \y -> x { _drilrReservedInstancesId = y }
 {-# INLINE drilrReservedInstancesId #-}
 
 -- | One or more Reserved Instance Listing IDs.
 drilrReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilrReservedInstancesListingId f x =
-    f (_drilrReservedInstancesListingId x) <&> \y -> x { _drilrReservedInstancesListingId = y }
+    f (_drilrReservedInstancesListingId x)
+        <&> \y -> x { _drilrReservedInstancesListingId = y }
 {-# INLINE drilrReservedInstancesListingId #-}
 
 instance ToQuery DescribeReservedInstancesListings where
@@ -101,9 +104,10 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
     } deriving (Show, Generic)
 
 -- | Information about the Reserved Instance listing.
-drilsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse ([ReservedInstancesListing])
 drilsReservedInstancesListings f x =
-    f (_drilsReservedInstancesListings x) <&> \y -> x { _drilsReservedInstancesListings = y }
+    f (_drilsReservedInstancesListings x)
+        <&> \y -> x { _drilsReservedInstancesListings = y }
 {-# INLINE drilsReservedInstancesListings #-}
 
 instance FromXML DescribeReservedInstancesListingsResponse where

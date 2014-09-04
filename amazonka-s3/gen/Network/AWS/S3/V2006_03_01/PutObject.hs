@@ -94,6 +94,7 @@ putObject p1 p2 p3 = PutObject
     , _porStorageClass = Nothing
     , _porWebsiteRedirectLocation = Nothing
     }
+{-# INLINE putObject #-}
 
 data PutObject = PutObject
     { _porBucket :: BucketName
@@ -158,220 +159,130 @@ data PutObject = PutObject
       -- object metadata.
     } deriving (Show, Generic)
 
-porBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutObject
-    -> f PutObject
+porBucket :: Lens' PutObject (BucketName)
 porBucket f x =
-    (\y -> x { _porBucket = y })
-       <$> f (_porBucket x)
+    f (_porBucket x)
+        <&> \y -> x { _porBucket = y }
 {-# INLINE porBucket #-}
 
-porKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> PutObject
-    -> f PutObject
+porKey :: Lens' PutObject (ObjectKey)
 porKey f x =
-    (\y -> x { _porKey = y })
-       <$> f (_porKey x)
+    f (_porKey x)
+        <&> \y -> x { _porKey = y }
 {-# INLINE porKey #-}
 
-porBody
-    :: Functor f
-    => (RqBody
-    -> f (RqBody))
-    -> PutObject
-    -> f PutObject
+porBody :: Lens' PutObject (RqBody)
 porBody f x =
-    (\y -> x { _porBody = y })
-       <$> f (_porBody x)
+    f (_porBody x)
+        <&> \y -> x { _porBody = y }
 {-# INLINE porBody #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-porCacheControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porCacheControl :: Lens' PutObject (Maybe Text)
 porCacheControl f x =
-    (\y -> x { _porCacheControl = y })
-       <$> f (_porCacheControl x)
+    f (_porCacheControl x)
+        <&> \y -> x { _porCacheControl = y }
 {-# INLINE porCacheControl #-}
 
 -- | Specifies presentational information for the object.
-porContentDisposition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porContentDisposition :: Lens' PutObject (Maybe Text)
 porContentDisposition f x =
-    (\y -> x { _porContentDisposition = y })
-       <$> f (_porContentDisposition x)
+    f (_porContentDisposition x)
+        <&> \y -> x { _porContentDisposition = y }
 {-# INLINE porContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-porContentEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porContentEncoding :: Lens' PutObject (Maybe Text)
 porContentEncoding f x =
-    (\y -> x { _porContentEncoding = y })
-       <$> f (_porContentEncoding x)
+    f (_porContentEncoding x)
+        <&> \y -> x { _porContentEncoding = y }
 {-# INLINE porContentEncoding #-}
 
 -- | The language the content is in.
-porContentLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porContentLanguage :: Lens' PutObject (Maybe Text)
 porContentLanguage f x =
-    (\y -> x { _porContentLanguage = y })
-       <$> f (_porContentLanguage x)
+    f (_porContentLanguage x)
+        <&> \y -> x { _porContentLanguage = y }
 {-# INLINE porContentLanguage #-}
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
-porContentLength
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutObject
-    -> f PutObject
+porContentLength :: Lens' PutObject (Maybe Integer)
 porContentLength f x =
-    (\y -> x { _porContentLength = y })
-       <$> f (_porContentLength x)
+    f (_porContentLength x)
+        <&> \y -> x { _porContentLength = y }
 {-# INLINE porContentLength #-}
 
-porContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porContentMD5 :: Lens' PutObject (Maybe Text)
 porContentMD5 f x =
-    (\y -> x { _porContentMD5 = y })
-       <$> f (_porContentMD5 x)
+    f (_porContentMD5 x)
+        <&> \y -> x { _porContentMD5 = y }
 {-# INLINE porContentMD5 #-}
 
 -- | A standard MIME type describing the format of the object data.
-porContentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porContentType :: Lens' PutObject (Maybe Text)
 porContentType f x =
-    (\y -> x { _porContentType = y })
-       <$> f (_porContentType x)
+    f (_porContentType x)
+        <&> \y -> x { _porContentType = y }
 {-# INLINE porContentType #-}
 
 -- | The date and time at which the object is no longer cacheable.
-porExpires
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> PutObject
-    -> f PutObject
+porExpires :: Lens' PutObject (Maybe RFC822)
 porExpires f x =
-    (\y -> x { _porExpires = y })
-       <$> f (_porExpires x)
+    f (_porExpires x)
+        <&> \y -> x { _porExpires = y }
 {-# INLINE porExpires #-}
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
-porGrantFullControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porGrantFullControl :: Lens' PutObject (Maybe Text)
 porGrantFullControl f x =
-    (\y -> x { _porGrantFullControl = y })
-       <$> f (_porGrantFullControl x)
+    f (_porGrantFullControl x)
+        <&> \y -> x { _porGrantFullControl = y }
 {-# INLINE porGrantFullControl #-}
 
 -- | Allows grantee to read the object data and its metadata.
-porGrantRead
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porGrantRead :: Lens' PutObject (Maybe Text)
 porGrantRead f x =
-    (\y -> x { _porGrantRead = y })
-       <$> f (_porGrantRead x)
+    f (_porGrantRead x)
+        <&> \y -> x { _porGrantRead = y }
 {-# INLINE porGrantRead #-}
 
 -- | Allows grantee to read the object ACL.
-porGrantReadACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porGrantReadACP :: Lens' PutObject (Maybe Text)
 porGrantReadACP f x =
-    (\y -> x { _porGrantReadACP = y })
-       <$> f (_porGrantReadACP x)
+    f (_porGrantReadACP x)
+        <&> \y -> x { _porGrantReadACP = y }
 {-# INLINE porGrantReadACP #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
-porGrantWriteACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porGrantWriteACP :: Lens' PutObject (Maybe Text)
 porGrantWriteACP f x =
-    (\y -> x { _porGrantWriteACP = y })
-       <$> f (_porGrantWriteACP x)
+    f (_porGrantWriteACP x)
+        <&> \y -> x { _porGrantWriteACP = y }
 {-# INLINE porGrantWriteACP #-}
 
 -- | A map of metadata to store with the object in S3.
-porMetadata
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> PutObject
-    -> f PutObject
+porMetadata :: Lens' PutObject (Map Text Text)
 porMetadata f x =
-    (\y -> x { _porMetadata = y })
-       <$> f (_porMetadata x)
+    f (_porMetadata x)
+        <&> \y -> x { _porMetadata = y }
 {-# INLINE porMetadata #-}
 
 -- | The canned ACL to apply to the object.
-porACL
-    :: Functor f
-    => (Maybe ObjectCannedACL
-    -> f (Maybe ObjectCannedACL))
-    -> PutObject
-    -> f PutObject
+porACL :: Lens' PutObject (Maybe ObjectCannedACL)
 porACL f x =
-    (\y -> x { _porACL = y })
-       <$> f (_porACL x)
+    f (_porACL x)
+        <&> \y -> x { _porACL = y }
 {-# INLINE porACL #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-porSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
 porSSECustomerAlgorithm f x =
-    (\y -> x { _porSSECustomerAlgorithm = y })
-       <$> f (_porSSECustomerAlgorithm x)
+    f (_porSSECustomerAlgorithm x)
+        <&> \y -> x { _porSSECustomerAlgorithm = y }
 {-# INLINE porSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -379,67 +290,42 @@ porSSECustomerAlgorithm f x =
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-porSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porSSECustomerKey :: Lens' PutObject (Maybe Text)
 porSSECustomerKey f x =
-    (\y -> x { _porSSECustomerKey = y })
-       <$> f (_porSSECustomerKey x)
+    f (_porSSECustomerKey x)
+        <&> \y -> x { _porSSECustomerKey = y }
 {-# INLINE porSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-porSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 porSSECustomerKeyMD5 f x =
-    (\y -> x { _porSSECustomerKeyMD5 = y })
-       <$> f (_porSSECustomerKeyMD5 x)
+    f (_porSSECustomerKeyMD5 x)
+        <&> \y -> x { _porSSECustomerKeyMD5 = y }
 {-# INLINE porSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-porServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> PutObject
-    -> f PutObject
+porServerSideEncryption :: Lens' PutObject (Maybe ServerSideEncryption)
 porServerSideEncryption f x =
-    (\y -> x { _porServerSideEncryption = y })
-       <$> f (_porServerSideEncryption x)
+    f (_porServerSideEncryption x)
+        <&> \y -> x { _porServerSideEncryption = y }
 {-# INLINE porServerSideEncryption #-}
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-porStorageClass
-    :: Functor f
-    => (Maybe StorageClass
-    -> f (Maybe StorageClass))
-    -> PutObject
-    -> f PutObject
+porStorageClass :: Lens' PutObject (Maybe StorageClass)
 porStorageClass f x =
-    (\y -> x { _porStorageClass = y })
-       <$> f (_porStorageClass x)
+    f (_porStorageClass x)
+        <&> \y -> x { _porStorageClass = y }
 {-# INLINE porStorageClass #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-porWebsiteRedirectLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObject
-    -> f PutObject
+porWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
 porWebsiteRedirectLocation f x =
-    (\y -> x { _porWebsiteRedirectLocation = y })
-       <$> f (_porWebsiteRedirectLocation x)
+    f (_porWebsiteRedirectLocation x)
+        <&> \y -> x { _porWebsiteRedirectLocation = y }
 {-# INLINE porWebsiteRedirectLocation #-}
 
 instance ToPath PutObject where
@@ -503,81 +389,51 @@ data PutObjectResponse = PutObjectResponse
     } deriving (Show, Generic)
 
 -- | Entity tag for the uploaded object.
-pooETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> PutObjectResponse
-    -> f PutObjectResponse
+pooETag :: Lens' PutObjectResponse (Maybe ETag)
 pooETag f x =
-    (\y -> x { _pooETag = y })
-       <$> f (_pooETag x)
+    f (_pooETag x)
+        <&> \y -> x { _pooETag = y }
 {-# INLINE pooETag #-}
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-pooExpiration
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> PutObjectResponse
-    -> f PutObjectResponse
+pooExpiration :: Lens' PutObjectResponse (Maybe RFC822)
 pooExpiration f x =
-    (\y -> x { _pooExpiration = y })
-       <$> f (_pooExpiration x)
+    f (_pooExpiration x)
+        <&> \y -> x { _pooExpiration = y }
 {-# INLINE pooExpiration #-}
 
 -- | Version of the object.
-pooVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> PutObjectResponse
-    -> f PutObjectResponse
+pooVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
 pooVersionId f x =
-    (\y -> x { _pooVersionId = y })
-       <$> f (_pooVersionId x)
+    f (_pooVersionId x)
+        <&> \y -> x { _pooVersionId = y }
 {-# INLINE pooVersionId #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-pooSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectResponse
-    -> f PutObjectResponse
+pooSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
 pooSSECustomerAlgorithm f x =
-    (\y -> x { _pooSSECustomerAlgorithm = y })
-       <$> f (_pooSSECustomerAlgorithm x)
+    f (_pooSSECustomerAlgorithm x)
+        <&> \y -> x { _pooSSECustomerAlgorithm = y }
 {-# INLINE pooSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-pooSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectResponse
-    -> f PutObjectResponse
+pooSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
 pooSSECustomerKeyMD5 f x =
-    (\y -> x { _pooSSECustomerKeyMD5 = y })
-       <$> f (_pooSSECustomerKeyMD5 x)
+    f (_pooSSECustomerKeyMD5 x)
+        <&> \y -> x { _pooSSECustomerKeyMD5 = y }
 {-# INLINE pooSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-pooServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> PutObjectResponse
-    -> f PutObjectResponse
+pooServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 pooServerSideEncryption f x =
-    (\y -> x { _pooServerSideEncryption = y })
-       <$> f (_pooServerSideEncryption x)
+    f (_pooServerSideEncryption x)
+        <&> \y -> x { _pooServerSideEncryption = y }
 {-# INLINE pooServerSideEncryption #-}
 
 instance AWSRequest PutObject where

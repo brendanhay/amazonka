@@ -37,6 +37,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DeleteAccountPasswordPolicy' request.
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
+{-# INLINE deleteAccountPasswordPolicy #-}
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
     deriving (Eq, Show, Generic)

@@ -60,6 +60,7 @@ completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
     , _clatLifecycleActionToken = p3
     , _clatAutoScalingGroupName = p4
     }
+{-# INLINE completeLifecycleAction #-}
 
 data CompleteLifecycleAction = CompleteLifecycleAction
     { _clatLifecycleHookName :: Text
@@ -78,54 +79,34 @@ data CompleteLifecycleAction = CompleteLifecycleAction
     } deriving (Show, Generic)
 
 -- | The name of the lifecycle hook.
-clatLifecycleHookName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CompleteLifecycleAction
-    -> f CompleteLifecycleAction
+clatLifecycleHookName :: Lens' CompleteLifecycleAction (Text)
 clatLifecycleHookName f x =
-    (\y -> x { _clatLifecycleHookName = y })
-       <$> f (_clatLifecycleHookName x)
+    f (_clatLifecycleHookName x)
+        <&> \y -> x { _clatLifecycleHookName = y }
 {-# INLINE clatLifecycleHookName #-}
 
 -- | The action the Auto Scaling group should take. The value for this parameter
 -- can be either CONTINUE or ABANDON.
-clatLifecycleActionResult
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CompleteLifecycleAction
-    -> f CompleteLifecycleAction
+clatLifecycleActionResult :: Lens' CompleteLifecycleAction (Text)
 clatLifecycleActionResult f x =
-    (\y -> x { _clatLifecycleActionResult = y })
-       <$> f (_clatLifecycleActionResult x)
+    f (_clatLifecycleActionResult x)
+        <&> \y -> x { _clatLifecycleActionResult = y }
 {-# INLINE clatLifecycleActionResult #-}
 
 -- | A universally unique identifier (UUID) that identifies a specific lifecycle
 -- action associated with an instance. Auto Scaling sends this token to the
 -- notification target you specified when you created the lifecycle hook.
-clatLifecycleActionToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CompleteLifecycleAction
-    -> f CompleteLifecycleAction
+clatLifecycleActionToken :: Lens' CompleteLifecycleAction (Text)
 clatLifecycleActionToken f x =
-    (\y -> x { _clatLifecycleActionToken = y })
-       <$> f (_clatLifecycleActionToken x)
+    f (_clatLifecycleActionToken x)
+        <&> \y -> x { _clatLifecycleActionToken = y }
 {-# INLINE clatLifecycleActionToken #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
-clatAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CompleteLifecycleAction
-    -> f CompleteLifecycleAction
+clatAutoScalingGroupName :: Lens' CompleteLifecycleAction (Text)
 clatAutoScalingGroupName f x =
-    (\y -> x { _clatAutoScalingGroupName = y })
-       <$> f (_clatAutoScalingGroupName x)
+    f (_clatAutoScalingGroupName x)
+        <&> \y -> x { _clatAutoScalingGroupName = y }
 {-# INLINE clatAutoScalingGroupName #-}
 
 instance ToQuery CompleteLifecycleAction where

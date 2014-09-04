@@ -41,20 +41,16 @@ deleteBucketPolicy :: BucketName -- ^ 'dbprBucket'
 deleteBucketPolicy p1 = DeleteBucketPolicy
     { _dbprBucket = p1
     }
+{-# INLINE deleteBucketPolicy #-}
 
 data DeleteBucketPolicy = DeleteBucketPolicy
     { _dbprBucket :: BucketName
     } deriving (Show, Generic)
 
-dbprBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteBucketPolicy
-    -> f DeleteBucketPolicy
+dbprBucket :: Lens' DeleteBucketPolicy (BucketName)
 dbprBucket f x =
-    (\y -> x { _dbprBucket = y })
-       <$> f (_dbprBucket x)
+    f (_dbprBucket x)
+        <&> \y -> x { _dbprBucket = y }
 {-# INLINE dbprBucket #-}
 
 instance ToPath DeleteBucketPolicy where

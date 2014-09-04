@@ -64,15 +64,17 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     } deriving (Show, Generic)
 
 -- | The ID of the routing table.
-dvrprRouteTableId :: Lens' DisableVgwRoutePropagation Text
+dvrprRouteTableId :: Lens' DisableVgwRoutePropagation (Text)
 dvrprRouteTableId f x =
-    f (_dvrprRouteTableId x) <&> \y -> x { _dvrprRouteTableId = y }
+    f (_dvrprRouteTableId x)
+        <&> \y -> x { _dvrprRouteTableId = y }
 {-# INLINE dvrprRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
-dvrprGatewayId :: Lens' DisableVgwRoutePropagation Text
+dvrprGatewayId :: Lens' DisableVgwRoutePropagation (Text)
 dvrprGatewayId f x =
-    f (_dvrprGatewayId x) <&> \y -> x { _dvrprGatewayId = y }
+    f (_dvrprGatewayId x)
+        <&> \y -> x { _dvrprGatewayId = y }
 {-# INLINE dvrprGatewayId #-}
 
 instance ToQuery DisableVgwRoutePropagation where

@@ -400,15 +400,10 @@ newtype AdjustmentType = AdjustmentType
 
 -- | A policy adjustment type. Valid values are ChangeInCapacity, ExactCapacity,
 -- and PercentChangeInCapacity.
-auAdjustmentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AdjustmentType
-    -> f AdjustmentType
+auAdjustmentType :: Lens' AdjustmentType (Maybe Text)
 auAdjustmentType f x =
-    (\y -> x { _auAdjustmentType = y })
-       <$> f (_auAdjustmentType x)
+    f (_auAdjustmentType x)
+        <&> \y -> x { _auAdjustmentType = y }
 {-# INLINE auAdjustmentType #-}
 
 instance FromXML AdjustmentType where
@@ -428,15 +423,10 @@ newtype InstanceMonitoring = InstanceMonitoring
     } deriving (Show, Generic)
 
 -- | If True, instance monitoring is enabled.
-imEnabled
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> InstanceMonitoring
-    -> f InstanceMonitoring
+imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
 imEnabled f x =
-    (\y -> x { _imEnabled = y })
-       <$> f (_imEnabled x)
+    f (_imEnabled x)
+        <&> \y -> x { _imEnabled = y }
 {-# INLINE imEnabled #-}
 
 instance FromXML InstanceMonitoring where
@@ -453,15 +443,10 @@ newtype MetricCollectionType = MetricCollectionType
     } deriving (Show, Generic)
 
 -- | 
-mcuMetric
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricCollectionType
-    -> f MetricCollectionType
+mcuMetric :: Lens' MetricCollectionType (Maybe Text)
 mcuMetric f x =
-    (\y -> x { _mcuMetric = y })
-       <$> f (_mcuMetric x)
+    f (_mcuMetric x)
+        <&> \y -> x { _mcuMetric = y }
 {-# INLINE mcuMetric #-}
 
 instance FromXML MetricCollectionType where
@@ -475,15 +460,10 @@ newtype MetricGranularityType = MetricGranularityType
     } deriving (Show, Generic)
 
 -- | The granularity of a Metric.
-mguGranularity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MetricGranularityType
-    -> f MetricGranularityType
+mguGranularity :: Lens' MetricGranularityType (Maybe Text)
 mguGranularity f x =
-    (\y -> x { _mguGranularity = y })
-       <$> f (_mguGranularity x)
+    f (_mguGranularity x)
+        <&> \y -> x { _mguGranularity = y }
 {-# INLINE mguGranularity #-}
 
 instance FromXML MetricGranularityType where
@@ -555,15 +535,10 @@ newtype ProcessType = ProcessType
     } deriving (Show, Generic)
 
 -- | The name of a process.
-pwProcessName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ProcessType
-    -> f ProcessType
+pwProcessName :: Lens' ProcessType (Text)
 pwProcessName f x =
-    (\y -> x { _pwProcessName = y })
-       <$> f (_pwProcessName x)
+    f (_pwProcessName x)
+        <&> \y -> x { _pwProcessName = y }
 {-# INLINE pwProcessName #-}
 
 instance FromXML ProcessType where
@@ -601,124 +576,74 @@ data Activity = Activity
     } deriving (Show, Generic)
 
 -- | Specifies the ID of the activity.
-ayActivityId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Activity
-    -> f Activity
+ayActivityId :: Lens' Activity (Text)
 ayActivityId f x =
-    (\y -> x { _ayActivityId = y })
-       <$> f (_ayActivityId x)
+    f (_ayActivityId x)
+        <&> \y -> x { _ayActivityId = y }
 {-# INLINE ayActivityId #-}
 
 -- | The name of the Auto Scaling group.
-ayAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Activity
-    -> f Activity
+ayAutoScalingGroupName :: Lens' Activity (Text)
 ayAutoScalingGroupName f x =
-    (\y -> x { _ayAutoScalingGroupName = y })
-       <$> f (_ayAutoScalingGroupName x)
+    f (_ayAutoScalingGroupName x)
+        <&> \y -> x { _ayAutoScalingGroupName = y }
 {-# INLINE ayAutoScalingGroupName #-}
 
 -- | Contains a friendly, more verbose description of the scaling activity.
-ayDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Activity
-    -> f Activity
+ayDescription :: Lens' Activity (Maybe Text)
 ayDescription f x =
-    (\y -> x { _ayDescription = y })
-       <$> f (_ayDescription x)
+    f (_ayDescription x)
+        <&> \y -> x { _ayDescription = y }
 {-# INLINE ayDescription #-}
 
 -- | Contains the reason the activity was begun.
-ayCause
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Activity
-    -> f Activity
+ayCause :: Lens' Activity (Text)
 ayCause f x =
-    (\y -> x { _ayCause = y })
-       <$> f (_ayCause x)
+    f (_ayCause x)
+        <&> \y -> x { _ayCause = y }
 {-# INLINE ayCause #-}
 
 -- | Provides the start time of this activity.
-ayStartTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Activity
-    -> f Activity
+ayStartTime :: Lens' Activity (ISO8601)
 ayStartTime f x =
-    (\y -> x { _ayStartTime = y })
-       <$> f (_ayStartTime x)
+    f (_ayStartTime x)
+        <&> \y -> x { _ayStartTime = y }
 {-# INLINE ayStartTime #-}
 
 -- | Provides the end time of this activity.
-ayEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> Activity
-    -> f Activity
+ayEndTime :: Lens' Activity (Maybe ISO8601)
 ayEndTime f x =
-    (\y -> x { _ayEndTime = y })
-       <$> f (_ayEndTime x)
+    f (_ayEndTime x)
+        <&> \y -> x { _ayEndTime = y }
 {-# INLINE ayEndTime #-}
 
 -- | Contains the current status of the activity.
-ayStatusCode
-    :: Functor f
-    => (ScalingActivityStatusCode
-    -> f (ScalingActivityStatusCode))
-    -> Activity
-    -> f Activity
+ayStatusCode :: Lens' Activity (ScalingActivityStatusCode)
 ayStatusCode f x =
-    (\y -> x { _ayStatusCode = y })
-       <$> f (_ayStatusCode x)
+    f (_ayStatusCode x)
+        <&> \y -> x { _ayStatusCode = y }
 {-# INLINE ayStatusCode #-}
 
 -- | Contains a friendly, more verbose description of the activity status.
-ayStatusMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Activity
-    -> f Activity
+ayStatusMessage :: Lens' Activity (Maybe Text)
 ayStatusMessage f x =
-    (\y -> x { _ayStatusMessage = y })
-       <$> f (_ayStatusMessage x)
+    f (_ayStatusMessage x)
+        <&> \y -> x { _ayStatusMessage = y }
 {-# INLINE ayStatusMessage #-}
 
 -- | Specifies a value between 0 and 100 that indicates the progress of the
 -- activity.
-ayProgress
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Activity
-    -> f Activity
+ayProgress :: Lens' Activity (Maybe Integer)
 ayProgress f x =
-    (\y -> x { _ayProgress = y })
-       <$> f (_ayProgress x)
+    f (_ayProgress x)
+        <&> \y -> x { _ayProgress = y }
 {-# INLINE ayProgress #-}
 
 -- | Contains details of the scaling activity.
-ayDetails
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Activity
-    -> f Activity
+ayDetails :: Lens' Activity (Maybe Text)
 ayDetails f x =
-    (\y -> x { _ayDetails = y })
-       <$> f (_ayDetails x)
+    f (_ayDetails x)
+        <&> \y -> x { _ayDetails = y }
 {-# INLINE ayDetails #-}
 
 instance FromXML Activity where
@@ -734,27 +659,17 @@ data Alarm = Alarm
     } deriving (Show, Generic)
 
 -- | The name of the alarm.
-amAlarmName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Alarm
-    -> f Alarm
+amAlarmName :: Lens' Alarm (Maybe Text)
 amAlarmName f x =
-    (\y -> x { _amAlarmName = y })
-       <$> f (_amAlarmName x)
+    f (_amAlarmName x)
+        <&> \y -> x { _amAlarmName = y }
 {-# INLINE amAlarmName #-}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-amAlarmARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Alarm
-    -> f Alarm
+amAlarmARN :: Lens' Alarm (Maybe Text)
 amAlarmARN f x =
-    (\y -> x { _amAlarmARN = y })
-       <$> f (_amAlarmARN x)
+    f (_amAlarmARN x)
+        <&> \y -> x { _amAlarmARN = y }
 {-# INLINE amAlarmARN #-}
 
 instance FromXML Alarm where
@@ -821,252 +736,152 @@ data AutoScalingGroup = AutoScalingGroup
     } deriving (Show, Generic)
 
 -- | Specifies the name of the group.
-ashAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashAutoScalingGroupName :: Lens' AutoScalingGroup (Text)
 ashAutoScalingGroupName f x =
-    (\y -> x { _ashAutoScalingGroupName = y })
-       <$> f (_ashAutoScalingGroupName x)
+    f (_ashAutoScalingGroupName x)
+        <&> \y -> x { _ashAutoScalingGroupName = y }
 {-# INLINE ashAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
-ashAutoScalingGroupARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
 ashAutoScalingGroupARN f x =
-    (\y -> x { _ashAutoScalingGroupARN = y })
-       <$> f (_ashAutoScalingGroupARN x)
+    f (_ashAutoScalingGroupARN x)
+        <&> \y -> x { _ashAutoScalingGroupARN = y }
 {-# INLINE ashAutoScalingGroupARN #-}
 
 -- | Specifies the name of the associated LaunchConfiguration.
-ashLaunchConfigurationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashLaunchConfigurationName :: Lens' AutoScalingGroup (Text)
 ashLaunchConfigurationName f x =
-    (\y -> x { _ashLaunchConfigurationName = y })
-       <$> f (_ashLaunchConfigurationName x)
+    f (_ashLaunchConfigurationName x)
+        <&> \y -> x { _ashLaunchConfigurationName = y }
 {-# INLINE ashLaunchConfigurationName #-}
 
 -- | Contains the minimum size of the Auto Scaling group.
-ashMinSize
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashMinSize :: Lens' AutoScalingGroup (Integer)
 ashMinSize f x =
-    (\y -> x { _ashMinSize = y })
-       <$> f (_ashMinSize x)
+    f (_ashMinSize x)
+        <&> \y -> x { _ashMinSize = y }
 {-# INLINE ashMinSize #-}
 
 -- | Contains the maximum size of the Auto Scaling group.
-ashMaxSize
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashMaxSize :: Lens' AutoScalingGroup (Integer)
 ashMaxSize f x =
-    (\y -> x { _ashMaxSize = y })
-       <$> f (_ashMaxSize x)
+    f (_ashMaxSize x)
+        <&> \y -> x { _ashMaxSize = y }
 {-# INLINE ashMaxSize #-}
 
 -- | Specifies the desired capacity for the Auto Scaling group.
-ashDesiredCapacity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashDesiredCapacity :: Lens' AutoScalingGroup (Integer)
 ashDesiredCapacity f x =
-    (\y -> x { _ashDesiredCapacity = y })
-       <$> f (_ashDesiredCapacity x)
+    f (_ashDesiredCapacity x)
+        <&> \y -> x { _ashDesiredCapacity = y }
 {-# INLINE ashDesiredCapacity #-}
 
 -- | The number of seconds after a scaling activity completes before any further
 -- scaling activities can start.
-ashDefaultCooldown
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashDefaultCooldown :: Lens' AutoScalingGroup (Integer)
 ashDefaultCooldown f x =
-    (\y -> x { _ashDefaultCooldown = y })
-       <$> f (_ashDefaultCooldown x)
+    f (_ashDefaultCooldown x)
+        <&> \y -> x { _ashDefaultCooldown = y }
 {-# INLINE ashDefaultCooldown #-}
 
 -- | Contains a list of Availability Zones for the group.
-ashAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashAvailabilityZones :: Lens' AutoScalingGroup ([Text])
 ashAvailabilityZones f x =
-    (\y -> x { _ashAvailabilityZones = y })
-       <$> f (_ashAvailabilityZones x)
+    f (_ashAvailabilityZones x)
+        <&> \y -> x { _ashAvailabilityZones = y }
 {-# INLINE ashAvailabilityZones #-}
 
 -- | A list of load balancers associated with this Auto Scaling group.
-ashLoadBalancerNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashLoadBalancerNames :: Lens' AutoScalingGroup ([Text])
 ashLoadBalancerNames f x =
-    (\y -> x { _ashLoadBalancerNames = y })
-       <$> f (_ashLoadBalancerNames x)
+    f (_ashLoadBalancerNames x)
+        <&> \y -> x { _ashLoadBalancerNames = y }
 {-# INLINE ashLoadBalancerNames #-}
 
 -- | The service of interest for the health status check, either "EC2" for
 -- Amazon EC2 or "ELB" for Elastic Load Balancing.
-ashHealthCheckType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashHealthCheckType :: Lens' AutoScalingGroup (Text)
 ashHealthCheckType f x =
-    (\y -> x { _ashHealthCheckType = y })
-       <$> f (_ashHealthCheckType x)
+    f (_ashHealthCheckType x)
+        <&> \y -> x { _ashHealthCheckType = y }
 {-# INLINE ashHealthCheckType #-}
 
 -- | The length of time that Auto Scaling waits before checking an instance's
 -- health status. The grace period begins when an instance comes into service.
-ashHealthCheckGracePeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashHealthCheckGracePeriod :: Lens' AutoScalingGroup (Maybe Integer)
 ashHealthCheckGracePeriod f x =
-    (\y -> x { _ashHealthCheckGracePeriod = y })
-       <$> f (_ashHealthCheckGracePeriod x)
+    f (_ashHealthCheckGracePeriod x)
+        <&> \y -> x { _ashHealthCheckGracePeriod = y }
 {-# INLINE ashHealthCheckGracePeriod #-}
 
 -- | Provides a summary list of Amazon EC2 instances.
-ashInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashInstances :: Lens' AutoScalingGroup ([Instance])
 ashInstances f x =
-    (\y -> x { _ashInstances = y })
-       <$> f (_ashInstances x)
+    f (_ashInstances x)
+        <&> \y -> x { _ashInstances = y }
 {-# INLINE ashInstances #-}
 
 -- | Specifies the date and time the Auto Scaling group was created.
-ashCreatedTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashCreatedTime :: Lens' AutoScalingGroup (ISO8601)
 ashCreatedTime f x =
-    (\y -> x { _ashCreatedTime = y })
-       <$> f (_ashCreatedTime x)
+    f (_ashCreatedTime x)
+        <&> \y -> x { _ashCreatedTime = y }
 {-# INLINE ashCreatedTime #-}
 
 -- | Suspended processes associated with this Auto Scaling group.
-ashSuspendedProcesses
-    :: Functor f
-    => ([SuspendedProcess]
-    -> f ([SuspendedProcess]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashSuspendedProcesses :: Lens' AutoScalingGroup ([SuspendedProcess])
 ashSuspendedProcesses f x =
-    (\y -> x { _ashSuspendedProcesses = y })
-       <$> f (_ashSuspendedProcesses x)
+    f (_ashSuspendedProcesses x)
+        <&> \y -> x { _ashSuspendedProcesses = y }
 {-# INLINE ashSuspendedProcesses #-}
 
 -- | The name of the cluster placement group, if applicable. For more
 -- information, go to Using Cluster Instances in the Amazon EC2 User Guide.
-ashPlacementGroup
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
 ashPlacementGroup f x =
-    (\y -> x { _ashPlacementGroup = y })
-       <$> f (_ashPlacementGroup x)
+    f (_ashPlacementGroup x)
+        <&> \y -> x { _ashPlacementGroup = y }
 {-# INLINE ashPlacementGroup #-}
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You can
 -- specify several subnets in a comma-separated list. When you specify
 -- VPCZoneIdentifier with AvailabilityZones, ensure that the subnets'
 -- Availability Zones match the values you specify for AvailabilityZones.
-ashVPCZoneIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
 ashVPCZoneIdentifier f x =
-    (\y -> x { _ashVPCZoneIdentifier = y })
-       <$> f (_ashVPCZoneIdentifier x)
+    f (_ashVPCZoneIdentifier x)
+        <&> \y -> x { _ashVPCZoneIdentifier = y }
 {-# INLINE ashVPCZoneIdentifier #-}
 
 -- | A list of metrics enabled for this Auto Scaling group.
-ashEnabledMetrics
-    :: Functor f
-    => ([EnabledMetric]
-    -> f ([EnabledMetric]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashEnabledMetrics :: Lens' AutoScalingGroup ([EnabledMetric])
 ashEnabledMetrics f x =
-    (\y -> x { _ashEnabledMetrics = y })
-       <$> f (_ashEnabledMetrics x)
+    f (_ashEnabledMetrics x)
+        <&> \y -> x { _ashEnabledMetrics = y }
 {-# INLINE ashEnabledMetrics #-}
 
 -- | The current state of the Auto Scaling group when a DeleteAutoScalingGroup
 -- action is in progress.
-ashStatus
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashStatus :: Lens' AutoScalingGroup (Maybe Text)
 ashStatus f x =
-    (\y -> x { _ashStatus = y })
-       <$> f (_ashStatus x)
+    f (_ashStatus x)
+        <&> \y -> x { _ashStatus = y }
 {-# INLINE ashStatus #-}
 
 -- | A list of tags for the Auto Scaling group.
-ashTags
-    :: Functor f
-    => ([TagDescription]
-    -> f ([TagDescription]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashTags :: Lens' AutoScalingGroup ([TagDescription])
 ashTags f x =
-    (\y -> x { _ashTags = y })
-       <$> f (_ashTags x)
+    f (_ashTags x)
+        <&> \y -> x { _ashTags = y }
 {-# INLINE ashTags #-}
 
 -- | A standalone termination policy or a list of termination policies for this
 -- Auto Scaling group.
-ashTerminationPolicies
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AutoScalingGroup
-    -> f AutoScalingGroup
+ashTerminationPolicies :: Lens' AutoScalingGroup ([Text])
 ashTerminationPolicies f x =
-    (\y -> x { _ashTerminationPolicies = y })
-       <$> f (_ashTerminationPolicies x)
+    f (_ashTerminationPolicies x)
+        <&> \y -> x { _ashTerminationPolicies = y }
 {-# INLINE ashTerminationPolicies #-}
 
 instance FromXML AutoScalingGroup where
@@ -1094,78 +909,48 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     } deriving (Show, Generic)
 
 -- | The instance ID of the Amazon EC2 instance.
-asidInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingInstanceDetails
-    -> f AutoScalingInstanceDetails
+asidInstanceId :: Lens' AutoScalingInstanceDetails (Text)
 asidInstanceId f x =
-    (\y -> x { _asidInstanceId = y })
-       <$> f (_asidInstanceId x)
+    f (_asidInstanceId x)
+        <&> \y -> x { _asidInstanceId = y }
 {-# INLINE asidInstanceId #-}
 
 -- | The name of the Auto Scaling group associated with this instance.
-asidAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingInstanceDetails
-    -> f AutoScalingInstanceDetails
+asidAutoScalingGroupName :: Lens' AutoScalingInstanceDetails (Text)
 asidAutoScalingGroupName f x =
-    (\y -> x { _asidAutoScalingGroupName = y })
-       <$> f (_asidAutoScalingGroupName x)
+    f (_asidAutoScalingGroupName x)
+        <&> \y -> x { _asidAutoScalingGroupName = y }
 {-# INLINE asidAutoScalingGroupName #-}
 
 -- | The Availability Zone in which this instance resides.
-asidAvailabilityZone
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingInstanceDetails
-    -> f AutoScalingInstanceDetails
+asidAvailabilityZone :: Lens' AutoScalingInstanceDetails (Text)
 asidAvailabilityZone f x =
-    (\y -> x { _asidAvailabilityZone = y })
-       <$> f (_asidAvailabilityZone x)
+    f (_asidAvailabilityZone x)
+        <&> \y -> x { _asidAvailabilityZone = y }
 {-# INLINE asidAvailabilityZone #-}
 
 -- | The life cycle state of this instance. for more information, see Instance
 -- Lifecycle State in the Auto Scaling Developer Guide.
-asidLifecycleState
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingInstanceDetails
-    -> f AutoScalingInstanceDetails
+asidLifecycleState :: Lens' AutoScalingInstanceDetails (Text)
 asidLifecycleState f x =
-    (\y -> x { _asidLifecycleState = y })
-       <$> f (_asidLifecycleState x)
+    f (_asidLifecycleState x)
+        <&> \y -> x { _asidLifecycleState = y }
 {-# INLINE asidLifecycleState #-}
 
 -- | The health status of this instance. "Healthy" means that the instance is
 -- healthy and should remain in service. "Unhealthy" means that the instance
 -- is unhealthy. Auto Scaling should terminate and replace it.
-asidHealthStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingInstanceDetails
-    -> f AutoScalingInstanceDetails
+asidHealthStatus :: Lens' AutoScalingInstanceDetails (Text)
 asidHealthStatus f x =
-    (\y -> x { _asidHealthStatus = y })
-       <$> f (_asidHealthStatus x)
+    f (_asidHealthStatus x)
+        <&> \y -> x { _asidHealthStatus = y }
 {-# INLINE asidHealthStatus #-}
 
 -- | The launch configuration associated with this instance.
-asidLaunchConfigurationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AutoScalingInstanceDetails
-    -> f AutoScalingInstanceDetails
+asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Text)
 asidLaunchConfigurationName f x =
-    (\y -> x { _asidLaunchConfigurationName = y })
-       <$> f (_asidLaunchConfigurationName x)
+    f (_asidLaunchConfigurationName x)
+        <&> \y -> x { _asidLaunchConfigurationName = y }
 {-# INLINE asidLaunchConfigurationName #-}
 
 instance FromXML AutoScalingInstanceDetails where
@@ -1189,53 +974,33 @@ data BlockDeviceMapping = BlockDeviceMapping
     } deriving (Show, Generic)
 
 -- | The virtual name associated with the device.
-bdnVirtualName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> BlockDeviceMapping
-    -> f BlockDeviceMapping
+bdnVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdnVirtualName f x =
-    (\y -> x { _bdnVirtualName = y })
-       <$> f (_bdnVirtualName x)
+    f (_bdnVirtualName x)
+        <&> \y -> x { _bdnVirtualName = y }
 {-# INLINE bdnVirtualName #-}
 
 -- | The name of the device within Amazon EC2 (for example, /dev/sdh or xvdh).
-bdnDeviceName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> BlockDeviceMapping
-    -> f BlockDeviceMapping
+bdnDeviceName :: Lens' BlockDeviceMapping (Text)
 bdnDeviceName f x =
-    (\y -> x { _bdnDeviceName = y })
-       <$> f (_bdnDeviceName x)
+    f (_bdnDeviceName x)
+        <&> \y -> x { _bdnDeviceName = y }
 {-# INLINE bdnDeviceName #-}
 
 -- | The Elastic Block Storage volume information.
-bdnEbs
-    :: Functor f
-    => (Maybe Ebs
-    -> f (Maybe Ebs))
-    -> BlockDeviceMapping
-    -> f BlockDeviceMapping
+bdnEbs :: Lens' BlockDeviceMapping (Maybe Ebs)
 bdnEbs f x =
-    (\y -> x { _bdnEbs = y })
-       <$> f (_bdnEbs x)
+    f (_bdnEbs x)
+        <&> \y -> x { _bdnEbs = y }
 {-# INLINE bdnEbs #-}
 
 -- | Suppresses the device mapping. If NoDevice is set to true for the root
 -- device, the instance might fail the EC2 health check. Auto Scaling launches
 -- a replacement instance if the instance fails the health check.
-bdnNoDevice
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> BlockDeviceMapping
-    -> f BlockDeviceMapping
+bdnNoDevice :: Lens' BlockDeviceMapping (Maybe Bool)
 bdnNoDevice f x =
-    (\y -> x { _bdnNoDevice = y })
-       <$> f (_bdnNoDevice x)
+    f (_bdnNoDevice x)
+        <&> \y -> x { _bdnNoDevice = y }
 {-# INLINE bdnNoDevice #-}
 
 instance FromXML BlockDeviceMapping where
@@ -1267,69 +1032,44 @@ data Ebs = Ebs
     } deriving (Show, Generic)
 
 -- | The snapshot ID.
-eSnapshotId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Ebs
-    -> f Ebs
+eSnapshotId :: Lens' Ebs (Maybe Text)
 eSnapshotId f x =
-    (\y -> x { _eSnapshotId = y })
-       <$> f (_eSnapshotId x)
+    f (_eSnapshotId x)
+        <&> \y -> x { _eSnapshotId = y }
 {-# INLINE eSnapshotId #-}
 
 -- | The volume size, in gigabytes. Valid values: If the volume type is io1, the
 -- minimum size of the volume is 10. Default: If you're creating the volume
 -- from a snapshot, and you don't specify a volume size, the default is the
 -- snapshot size. Required: Required when the volume type is io1.
-eVolumeSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Ebs
-    -> f Ebs
+eVolumeSize :: Lens' Ebs (Maybe Integer)
 eVolumeSize f x =
-    (\y -> x { _eVolumeSize = y })
-       <$> f (_eVolumeSize x)
+    f (_eVolumeSize x)
+        <&> \y -> x { _eVolumeSize = y }
 {-# INLINE eVolumeSize #-}
 
 -- | The volume type. Valid values: standard | io1 Default: standard.
-eVolumeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Ebs
-    -> f Ebs
+eVolumeType :: Lens' Ebs (Maybe Text)
 eVolumeType f x =
-    (\y -> x { _eVolumeType = y })
-       <$> f (_eVolumeType x)
+    f (_eVolumeType x)
+        <&> \y -> x { _eVolumeType = y }
 {-# INLINE eVolumeType #-}
 
 -- | Indicates whether to delete the volume on instance termination. Default:
 -- true.
-eDeleteOnTermination
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Ebs
-    -> f Ebs
+eDeleteOnTermination :: Lens' Ebs (Maybe Bool)
 eDeleteOnTermination f x =
-    (\y -> x { _eDeleteOnTermination = y })
-       <$> f (_eDeleteOnTermination x)
+    f (_eDeleteOnTermination x)
+        <&> \y -> x { _eDeleteOnTermination = y }
 {-# INLINE eDeleteOnTermination #-}
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 -- The maximum ratio of IOPS to volume size is 30.0 Valid Values: Range is 100
 -- to 4000. Default: None.
-eIops
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Ebs
-    -> f Ebs
+eIops :: Lens' Ebs (Maybe Integer)
 eIops f x =
-    (\y -> x { _eIops = y })
-       <$> f (_eIops x)
+    f (_eIops x)
+        <&> \y -> x { _eIops = y }
 {-# INLINE eIops #-}
 
 instance FromXML Ebs where
@@ -1348,27 +1088,17 @@ data EnabledMetric = EnabledMetric
     } deriving (Show, Generic)
 
 -- | The name of the enabled metric.
-enMetric
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnabledMetric
-    -> f EnabledMetric
+enMetric :: Lens' EnabledMetric (Maybe Text)
 enMetric f x =
-    (\y -> x { _enMetric = y })
-       <$> f (_enMetric x)
+    f (_enMetric x)
+        <&> \y -> x { _enMetric = y }
 {-# INLINE enMetric #-}
 
 -- | The granularity of the enabled metric.
-enGranularity
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> EnabledMetric
-    -> f EnabledMetric
+enGranularity :: Lens' EnabledMetric (Maybe Text)
 enGranularity f x =
-    (\y -> x { _enGranularity = y })
-       <$> f (_enGranularity x)
+    f (_enGranularity x)
+        <&> \y -> x { _enGranularity = y }
 {-# INLINE enGranularity #-}
 
 instance FromXML EnabledMetric where
@@ -1389,27 +1119,17 @@ data Filter = Filter
 
 -- | The name of the filter. Valid Name values are: "auto-scaling-group", "key",
 -- "value", and "propagate-at-launch".
-frName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Filter
-    -> f Filter
+frName :: Lens' Filter (Text)
 frName f x =
-    (\y -> x { _frName = y })
-       <$> f (_frName x)
+    f (_frName x)
+        <&> \y -> x { _frName = y }
 {-# INLINE frName #-}
 
 -- | The value of the filter.
-frValues
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Filter
-    -> f Filter
+frValues :: Lens' Filter ([Text])
 frValues f x =
-    (\y -> x { _frValues = y })
-       <$> f (_frValues x)
+    f (_frValues x)
+        <&> \y -> x { _frValues = y }
 {-# INLINE frValues #-}
 
 instance ToQuery Filter where
@@ -1431,64 +1151,39 @@ data Instance = Instance
     } deriving (Show, Generic)
 
 -- | Specifies the ID of the Amazon EC2 instance.
-pInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Instance
-    -> f Instance
+pInstanceId :: Lens' Instance (Text)
 pInstanceId f x =
-    (\y -> x { _pInstanceId = y })
-       <$> f (_pInstanceId x)
+    f (_pInstanceId x)
+        <&> \y -> x { _pInstanceId = y }
 {-# INLINE pInstanceId #-}
 
 -- | Availability Zones associated with this instance.
-pAvailabilityZone
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Instance
-    -> f Instance
+pAvailabilityZone :: Lens' Instance (Text)
 pAvailabilityZone f x =
-    (\y -> x { _pAvailabilityZone = y })
-       <$> f (_pAvailabilityZone x)
+    f (_pAvailabilityZone x)
+        <&> \y -> x { _pAvailabilityZone = y }
 {-# INLINE pAvailabilityZone #-}
 
 -- | Contains a description of the current lifecycle state. The Quarantined
 -- lifecycle state is currently not used.
-pLifecycleState
-    :: Functor f
-    => (LifecycleState
-    -> f (LifecycleState))
-    -> Instance
-    -> f Instance
+pLifecycleState :: Lens' Instance (LifecycleState)
 pLifecycleState f x =
-    (\y -> x { _pLifecycleState = y })
-       <$> f (_pLifecycleState x)
+    f (_pLifecycleState x)
+        <&> \y -> x { _pLifecycleState = y }
 {-# INLINE pLifecycleState #-}
 
 -- | The instance's health status.
-pHealthStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Instance
-    -> f Instance
+pHealthStatus :: Lens' Instance (Text)
 pHealthStatus f x =
-    (\y -> x { _pHealthStatus = y })
-       <$> f (_pHealthStatus x)
+    f (_pHealthStatus x)
+        <&> \y -> x { _pHealthStatus = y }
 {-# INLINE pHealthStatus #-}
 
 -- | The launch configuration associated with this instance.
-pLaunchConfigurationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Instance
-    -> f Instance
+pLaunchConfigurationName :: Lens' Instance (Text)
 pLaunchConfigurationName f x =
-    (\y -> x { _pLaunchConfigurationName = y })
-       <$> f (_pLaunchConfigurationName x)
+    f (_pLaunchConfigurationName x)
+        <&> \y -> x { _pLaunchConfigurationName = y }
 {-# INLINE pLaunchConfigurationName #-}
 
 instance FromXML Instance where
@@ -1549,217 +1244,132 @@ data LaunchConfiguration = LaunchConfiguration
     } deriving (Show, Generic)
 
 -- | Specifies the name of the launch configuration.
-ldLaunchConfigurationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldLaunchConfigurationName :: Lens' LaunchConfiguration (Text)
 ldLaunchConfigurationName f x =
-    (\y -> x { _ldLaunchConfigurationName = y })
-       <$> f (_ldLaunchConfigurationName x)
+    f (_ldLaunchConfigurationName x)
+        <&> \y -> x { _ldLaunchConfigurationName = y }
 {-# INLINE ldLaunchConfigurationName #-}
 
 -- | The launch configuration's Amazon Resource Name (ARN).
-ldLaunchConfigurationARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldLaunchConfigurationARN :: Lens' LaunchConfiguration (Maybe Text)
 ldLaunchConfigurationARN f x =
-    (\y -> x { _ldLaunchConfigurationARN = y })
-       <$> f (_ldLaunchConfigurationARN x)
+    f (_ldLaunchConfigurationARN x)
+        <&> \y -> x { _ldLaunchConfigurationARN = y }
 {-# INLINE ldLaunchConfigurationARN #-}
 
 -- | Provides the unique ID of the Amazon Machine Image (AMI) that was assigned
 -- during registration.
-ldImageId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldImageId :: Lens' LaunchConfiguration (Text)
 ldImageId f x =
-    (\y -> x { _ldImageId = y })
-       <$> f (_ldImageId x)
+    f (_ldImageId x)
+        <&> \y -> x { _ldImageId = y }
 {-# INLINE ldImageId #-}
 
 -- | Provides the name of the Amazon EC2 key pair.
-ldKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldKeyName :: Lens' LaunchConfiguration (Maybe Text)
 ldKeyName f x =
-    (\y -> x { _ldKeyName = y })
-       <$> f (_ldKeyName x)
+    f (_ldKeyName x)
+        <&> \y -> x { _ldKeyName = y }
 {-# INLINE ldKeyName #-}
 
 -- | A description of the security groups to associate with the Amazon EC2
 -- instances.
-ldSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldSecurityGroups :: Lens' LaunchConfiguration ([Text])
 ldSecurityGroups f x =
-    (\y -> x { _ldSecurityGroups = y })
-       <$> f (_ldSecurityGroups x)
+    f (_ldSecurityGroups x)
+        <&> \y -> x { _ldSecurityGroups = y }
 {-# INLINE ldSecurityGroups #-}
 
 -- | The user data available to the launched Amazon EC2 instances.
-ldUserData
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldUserData :: Lens' LaunchConfiguration (Maybe Text)
 ldUserData f x =
-    (\y -> x { _ldUserData = y })
-       <$> f (_ldUserData x)
+    f (_ldUserData x)
+        <&> \y -> x { _ldUserData = y }
 {-# INLINE ldUserData #-}
 
 -- | Specifies the instance type of the Amazon EC2 instance.
-ldInstanceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldInstanceType :: Lens' LaunchConfiguration (Text)
 ldInstanceType f x =
-    (\y -> x { _ldInstanceType = y })
-       <$> f (_ldInstanceType x)
+    f (_ldInstanceType x)
+        <&> \y -> x { _ldInstanceType = y }
 {-# INLINE ldInstanceType #-}
 
 -- | Provides the ID of the kernel associated with the Amazon EC2 AMI.
-ldKernelId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldKernelId :: Lens' LaunchConfiguration (Maybe Text)
 ldKernelId f x =
-    (\y -> x { _ldKernelId = y })
-       <$> f (_ldKernelId x)
+    f (_ldKernelId x)
+        <&> \y -> x { _ldKernelId = y }
 {-# INLINE ldKernelId #-}
 
 -- | Provides ID of the RAM disk associated with the Amazon EC2 AMI.
-ldRamdiskId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldRamdiskId :: Lens' LaunchConfiguration (Maybe Text)
 ldRamdiskId f x =
-    (\y -> x { _ldRamdiskId = y })
-       <$> f (_ldRamdiskId x)
+    f (_ldRamdiskId x)
+        <&> \y -> x { _ldRamdiskId = y }
 {-# INLINE ldRamdiskId #-}
 
 -- | Specifies how block devices are exposed to the instance. Each mapping is
 -- made up of a virtualName and a deviceName.
-ldBlockDeviceMappings
-    :: Functor f
-    => ([BlockDeviceMapping]
-    -> f ([BlockDeviceMapping]))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldBlockDeviceMappings :: Lens' LaunchConfiguration ([BlockDeviceMapping])
 ldBlockDeviceMappings f x =
-    (\y -> x { _ldBlockDeviceMappings = y })
-       <$> f (_ldBlockDeviceMappings x)
+    f (_ldBlockDeviceMappings x)
+        <&> \y -> x { _ldBlockDeviceMappings = y }
 {-# INLINE ldBlockDeviceMappings #-}
 
 -- | Controls whether instances in this group are launched with detailed
 -- monitoring or not.
-ldInstanceMonitoring
-    :: Functor f
-    => (Maybe InstanceMonitoring
-    -> f (Maybe InstanceMonitoring))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
 ldInstanceMonitoring f x =
-    (\y -> x { _ldInstanceMonitoring = y })
-       <$> f (_ldInstanceMonitoring x)
+    f (_ldInstanceMonitoring x)
+        <&> \y -> x { _ldInstanceMonitoring = y }
 {-# INLINE ldInstanceMonitoring #-}
 
 -- | Specifies the price to bid when launching Spot Instances.
-ldSpotPrice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
 ldSpotPrice f x =
-    (\y -> x { _ldSpotPrice = y })
-       <$> f (_ldSpotPrice x)
+    f (_ldSpotPrice x)
+        <&> \y -> x { _ldSpotPrice = y }
 {-# INLINE ldSpotPrice #-}
 
 -- | Provides the name or the Amazon Resource Name (ARN) of the instance profile
 -- associated with the IAM role for the instance. The instance profile
 -- contains the IAM role.
-ldIamInstanceProfile
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldIamInstanceProfile :: Lens' LaunchConfiguration (Maybe Text)
 ldIamInstanceProfile f x =
-    (\y -> x { _ldIamInstanceProfile = y })
-       <$> f (_ldIamInstanceProfile x)
+    f (_ldIamInstanceProfile x)
+        <&> \y -> x { _ldIamInstanceProfile = y }
 {-# INLINE ldIamInstanceProfile #-}
 
 -- | Provides the creation date and time for this launch configuration.
-ldCreatedTime
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldCreatedTime :: Lens' LaunchConfiguration (ISO8601)
 ldCreatedTime f x =
-    (\y -> x { _ldCreatedTime = y })
-       <$> f (_ldCreatedTime x)
+    f (_ldCreatedTime x)
+        <&> \y -> x { _ldCreatedTime = y }
 {-# INLINE ldCreatedTime #-}
 
 -- | Specifies whether the instance is optimized for EBS I/O (true) or not
 -- (false).
-ldEbsOptimized
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldEbsOptimized :: Lens' LaunchConfiguration (Maybe Bool)
 ldEbsOptimized f x =
-    (\y -> x { _ldEbsOptimized = y })
-       <$> f (_ldEbsOptimized x)
+    f (_ldEbsOptimized x)
+        <&> \y -> x { _ldEbsOptimized = y }
 {-# INLINE ldEbsOptimized #-}
 
 -- | Specifies whether the instance is associated with a public IP address
 -- (true) or not (false).
-ldAssociatePublicIpAddress
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldAssociatePublicIpAddress :: Lens' LaunchConfiguration (Maybe Bool)
 ldAssociatePublicIpAddress f x =
-    (\y -> x { _ldAssociatePublicIpAddress = y })
-       <$> f (_ldAssociatePublicIpAddress x)
+    f (_ldAssociatePublicIpAddress x)
+        <&> \y -> x { _ldAssociatePublicIpAddress = y }
 {-# INLINE ldAssociatePublicIpAddress #-}
 
 -- | Specifies the tenancy of the instance. It can be either default or
 -- dedicated. An instance with dedicated tenancy runs in an isolated,
 -- single-tenant hardware and it can only be launched in a VPC.
-ldPlacementTenancy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LaunchConfiguration
-    -> f LaunchConfiguration
+ldPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
 ldPlacementTenancy f x =
-    (\y -> x { _ldPlacementTenancy = y })
-       <$> f (_ldPlacementTenancy x)
+    f (_ldPlacementTenancy x)
+        <&> \y -> x { _ldPlacementTenancy = y }
 {-# INLINE ldPlacementTenancy #-}
 
 instance FromXML LaunchConfiguration where
@@ -1814,41 +1424,26 @@ data LifecycleHook = LifecycleHook
     } deriving (Show, Generic)
 
 -- | The name of the lifecycle action hook.
-liLifecycleHookName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liLifecycleHookName :: Lens' LifecycleHook (Maybe Text)
 liLifecycleHookName f x =
-    (\y -> x { _liLifecycleHookName = y })
-       <$> f (_liLifecycleHookName x)
+    f (_liLifecycleHookName x)
+        <&> \y -> x { _liLifecycleHookName = y }
 {-# INLINE liLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle action belongs.
-liAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liAutoScalingGroupName :: Lens' LifecycleHook (Maybe Text)
 liAutoScalingGroupName f x =
-    (\y -> x { _liAutoScalingGroupName = y })
-       <$> f (_liAutoScalingGroupName x)
+    f (_liAutoScalingGroupName x)
+        <&> \y -> x { _liAutoScalingGroupName = y }
 {-# INLINE liAutoScalingGroupName #-}
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHooks for a list of available lifecycle hook
 -- types.
-liLifecycleTransition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
 liLifecycleTransition f x =
-    (\y -> x { _liLifecycleTransition = y })
-       <$> f (_liLifecycleTransition x)
+    f (_liLifecycleTransition x)
+        <&> \y -> x { _liLifecycleTransition = y }
 {-# INLINE liLifecycleTransition #-}
 
 -- | The ARN of the notification target that Auto Scaling will use to notify you
@@ -1857,84 +1452,54 @@ liLifecycleTransition f x =
 -- message sent to the target will include: Lifecycle action token User
 -- account ID Name of the Auto Scaling group Lifecycle hook name EC2 instance
 -- ID Lifecycle transition Notification metadata.
-liNotificationTargetARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
 liNotificationTargetARN f x =
-    (\y -> x { _liNotificationTargetARN = y })
-       <$> f (_liNotificationTargetARN x)
+    f (_liNotificationTargetARN x)
+        <&> \y -> x { _liNotificationTargetARN = y }
 {-# INLINE liNotificationTargetARN #-}
 
 -- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
 -- publish to the specified notification target.
-liRoleARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liRoleARN :: Lens' LifecycleHook (Maybe Text)
 liRoleARN f x =
-    (\y -> x { _liRoleARN = y })
-       <$> f (_liRoleARN x)
+    f (_liRoleARN x)
+        <&> \y -> x { _liRoleARN = y }
 {-# INLINE liRoleARN #-}
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
-liNotificationMetadata
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
 liNotificationMetadata f x =
-    (\y -> x { _liNotificationMetadata = y })
-       <$> f (_liNotificationMetadata x)
+    f (_liNotificationMetadata x)
+        <&> \y -> x { _liNotificationMetadata = y }
 {-# INLINE liNotificationMetadata #-}
 
 -- | Defines the amount of time that can elapse before the lifecycle hook times
 -- out. When the lifecycle hook times out, Auto Scaling performs the action
 -- defined in the DefaultResult parameter. You can prevent the lifecycle hook
 -- from timing out by calling RecordLifecycleActionHeartbeat.
-liHeartbeatTimeout
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LifecycleHook
-    -> f LifecycleHook
+liHeartbeatTimeout :: Lens' LifecycleHook (Maybe Integer)
 liHeartbeatTimeout f x =
-    (\y -> x { _liHeartbeatTimeout = y })
-       <$> f (_liHeartbeatTimeout x)
+    f (_liHeartbeatTimeout x)
+        <&> \y -> x { _liHeartbeatTimeout = y }
 {-# INLINE liHeartbeatTimeout #-}
 
 -- | The maximum length of time an instance can remain in a Pending:Wait or
 -- Terminating:Wait state. Currently, this value is set at 48 hours.
-liGlobalTimeout
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LifecycleHook
-    -> f LifecycleHook
+liGlobalTimeout :: Lens' LifecycleHook (Maybe Integer)
 liGlobalTimeout f x =
-    (\y -> x { _liGlobalTimeout = y })
-       <$> f (_liGlobalTimeout x)
+    f (_liGlobalTimeout x)
+        <&> \y -> x { _liGlobalTimeout = y }
 {-# INLINE liGlobalTimeout #-}
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for this
 -- parameter can be either CONTINUE or ABANDON. The default value for this
 -- parameter is CONTINUE.
-liDefaultResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LifecycleHook
-    -> f LifecycleHook
+liDefaultResult :: Lens' LifecycleHook (Maybe Text)
 liDefaultResult f x =
-    (\y -> x { _liDefaultResult = y })
-       <$> f (_liDefaultResult x)
+    f (_liDefaultResult x)
+        <&> \y -> x { _liDefaultResult = y }
 {-# INLINE liDefaultResult #-}
 
 instance FromXML LifecycleHook where
@@ -1953,40 +1518,25 @@ data NotificationConfiguration = NotificationConfiguration
     } deriving (Show, Generic)
 
 -- | Specifies the Auto Scaling group name.
-nfAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NotificationConfiguration
-    -> f NotificationConfiguration
+nfAutoScalingGroupName :: Lens' NotificationConfiguration (Maybe Text)
 nfAutoScalingGroupName f x =
-    (\y -> x { _nfAutoScalingGroupName = y })
-       <$> f (_nfAutoScalingGroupName x)
+    f (_nfAutoScalingGroupName x)
+        <&> \y -> x { _nfAutoScalingGroupName = y }
 {-# INLINE nfAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-nfTopicARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NotificationConfiguration
-    -> f NotificationConfiguration
+nfTopicARN :: Lens' NotificationConfiguration (Maybe Text)
 nfTopicARN f x =
-    (\y -> x { _nfTopicARN = y })
-       <$> f (_nfTopicARN x)
+    f (_nfTopicARN x)
+        <&> \y -> x { _nfTopicARN = y }
 {-# INLINE nfTopicARN #-}
 
 -- | The types of events for an action to start.
-nfNotificationType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> NotificationConfiguration
-    -> f NotificationConfiguration
+nfNotificationType :: Lens' NotificationConfiguration (Maybe Text)
 nfNotificationType f x =
-    (\y -> x { _nfNotificationType = y })
-       <$> f (_nfNotificationType x)
+    f (_nfNotificationType x)
+        <&> \y -> x { _nfNotificationType = y }
 {-# INLINE nfNotificationType #-}
 
 instance FromXML NotificationConfiguration where
@@ -2022,105 +1572,65 @@ data ScalingPolicy = ScalingPolicy
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group associated with this scaling policy.
-suAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
 suAutoScalingGroupName f x =
-    (\y -> x { _suAutoScalingGroupName = y })
-       <$> f (_suAutoScalingGroupName x)
+    f (_suAutoScalingGroupName x)
+        <&> \y -> x { _suAutoScalingGroupName = y }
 {-# INLINE suAutoScalingGroupName #-}
 
 -- | The name of the scaling policy.
-suPolicyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suPolicyName :: Lens' ScalingPolicy (Maybe Text)
 suPolicyName f x =
-    (\y -> x { _suPolicyName = y })
-       <$> f (_suPolicyName x)
+    f (_suPolicyName x)
+        <&> \y -> x { _suPolicyName = y }
 {-# INLINE suPolicyName #-}
 
 -- | The number associated with the specified adjustment type. A positive value
 -- adds to the current capacity and a negative value removes from the current
 -- capacity.
-suScalingAdjustment
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suScalingAdjustment :: Lens' ScalingPolicy (Maybe Integer)
 suScalingAdjustment f x =
-    (\y -> x { _suScalingAdjustment = y })
-       <$> f (_suScalingAdjustment x)
+    f (_suScalingAdjustment x)
+        <&> \y -> x { _suScalingAdjustment = y }
 {-# INLINE suScalingAdjustment #-}
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity.
-suAdjustmentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
 suAdjustmentType f x =
-    (\y -> x { _suAdjustmentType = y })
-       <$> f (_suAdjustmentType x)
+    f (_suAdjustmentType x)
+        <&> \y -> x { _suAdjustmentType = y }
 {-# INLINE suAdjustmentType #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further trigger-related scaling activities can start.
-suCooldown
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suCooldown :: Lens' ScalingPolicy (Maybe Integer)
 suCooldown f x =
-    (\y -> x { _suCooldown = y })
-       <$> f (_suCooldown x)
+    f (_suCooldown x)
+        <&> \y -> x { _suCooldown = y }
 {-# INLINE suCooldown #-}
 
 -- | The Amazon Resource Name (ARN) of the policy.
-suPolicyARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suPolicyARN :: Lens' ScalingPolicy (Maybe Text)
 suPolicyARN f x =
-    (\y -> x { _suPolicyARN = y })
-       <$> f (_suPolicyARN x)
+    f (_suPolicyARN x)
+        <&> \y -> x { _suPolicyARN = y }
 {-# INLINE suPolicyARN #-}
 
 -- | A list of CloudWatch Alarms related to the policy.
-suAlarms
-    :: Functor f
-    => ([Alarm]
-    -> f ([Alarm]))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suAlarms :: Lens' ScalingPolicy ([Alarm])
 suAlarms f x =
-    (\y -> x { _suAlarms = y })
-       <$> f (_suAlarms x)
+    f (_suAlarms x)
+        <&> \y -> x { _suAlarms = y }
 {-# INLINE suAlarms #-}
 
 -- | Changes the DesiredCapacity of the Auto Scaling group by at least the
 -- specified number of instances.
-suMinAdjustmentStep
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScalingPolicy
-    -> f ScalingPolicy
+suMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Integer)
 suMinAdjustmentStep f x =
-    (\y -> x { _suMinAdjustmentStep = y })
-       <$> f (_suMinAdjustmentStep x)
+    f (_suMinAdjustmentStep x)
+        <&> \y -> x { _suMinAdjustmentStep = y }
 {-# INLINE suMinAdjustmentStep #-}
 
 instance FromXML ScalingPolicy where
@@ -2159,128 +1669,78 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group to be updated.
-sugbAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugbAutoScalingGroupName f x =
-    (\y -> x { _sugbAutoScalingGroupName = y })
-       <$> f (_sugbAutoScalingGroupName x)
+    f (_sugbAutoScalingGroupName x)
+        <&> \y -> x { _sugbAutoScalingGroupName = y }
 {-# INLINE sugbAutoScalingGroupName #-}
 
 -- | The name of this scheduled action.
-sugbScheduledActionName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbScheduledActionName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugbScheduledActionName f x =
-    (\y -> x { _sugbScheduledActionName = y })
-       <$> f (_sugbScheduledActionName x)
+    f (_sugbScheduledActionName x)
+        <&> \y -> x { _sugbScheduledActionName = y }
 {-# INLINE sugbScheduledActionName #-}
 
 -- | The Amazon Resource Name (ARN) of this scheduled action.
-sugbScheduledActionARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugbScheduledActionARN f x =
-    (\y -> x { _sugbScheduledActionARN = y })
-       <$> f (_sugbScheduledActionARN x)
+    f (_sugbScheduledActionARN x)
+        <&> \y -> x { _sugbScheduledActionARN = y }
 {-# INLINE sugbScheduledActionARN #-}
 
 -- | Time is deprecated. The time that the action is scheduled to begin. Time is
 -- an alias for StartTime.
-sugbTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
 sugbTime f x =
-    (\y -> x { _sugbTime = y })
-       <$> f (_sugbTime x)
+    f (_sugbTime x)
+        <&> \y -> x { _sugbTime = y }
 {-# INLINE sugbTime #-}
 
 -- | The time that the action is scheduled to begin. This value can be up to one
 -- month in the future. When StartTime and EndTime are specified with
 -- Recurrence, they form the boundaries of when the recurring action will
 -- start and stop.
-sugbStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbStartTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
 sugbStartTime f x =
-    (\y -> x { _sugbStartTime = y })
-       <$> f (_sugbStartTime x)
+    f (_sugbStartTime x)
+        <&> \y -> x { _sugbStartTime = y }
 {-# INLINE sugbStartTime #-}
 
 -- | The time that the action is scheduled to end. This value can be up to one
 -- month in the future.
-sugbEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbEndTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
 sugbEndTime f x =
-    (\y -> x { _sugbEndTime = y })
-       <$> f (_sugbEndTime x)
+    f (_sugbEndTime x)
+        <&> \y -> x { _sugbEndTime = y }
 {-# INLINE sugbEndTime #-}
 
 -- | The regular schedule that an action occurs.
-sugbRecurrence
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbRecurrence :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugbRecurrence f x =
-    (\y -> x { _sugbRecurrence = y })
-       <$> f (_sugbRecurrence x)
+    f (_sugbRecurrence x)
+        <&> \y -> x { _sugbRecurrence = y }
 {-# INLINE sugbRecurrence #-}
 
 -- | The minimum size of the Auto Scaling group.
-sugbMinSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbMinSize :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
 sugbMinSize f x =
-    (\y -> x { _sugbMinSize = y })
-       <$> f (_sugbMinSize x)
+    f (_sugbMinSize x)
+        <&> \y -> x { _sugbMinSize = y }
 {-# INLINE sugbMinSize #-}
 
 -- | The maximum size of the Auto Scaling group.
-sugbMaxSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbMaxSize :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
 sugbMaxSize f x =
-    (\y -> x { _sugbMaxSize = y })
-       <$> f (_sugbMaxSize x)
+    f (_sugbMaxSize x)
+        <&> \y -> x { _sugbMaxSize = y }
 {-# INLINE sugbMaxSize #-}
 
 -- | The number of instances you prefer to maintain in your Auto Scaling group.
-sugbDesiredCapacity
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ScheduledUpdateGroupAction
-    -> f ScheduledUpdateGroupAction
+sugbDesiredCapacity :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
 sugbDesiredCapacity f x =
-    (\y -> x { _sugbDesiredCapacity = y })
-       <$> f (_sugbDesiredCapacity x)
+    f (_sugbDesiredCapacity x)
+        <&> \y -> x { _sugbDesiredCapacity = y }
 {-# INLINE sugbDesiredCapacity #-}
 
 instance FromXML ScheduledUpdateGroupAction where
@@ -2297,27 +1757,17 @@ data SuspendedProcess = SuspendedProcess
     } deriving (Show, Generic)
 
 -- | The name of the suspended process.
-srProcessName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SuspendedProcess
-    -> f SuspendedProcess
+srProcessName :: Lens' SuspendedProcess (Maybe Text)
 srProcessName f x =
-    (\y -> x { _srProcessName = y })
-       <$> f (_srProcessName x)
+    f (_srProcessName x)
+        <&> \y -> x { _srProcessName = y }
 {-# INLINE srProcessName #-}
 
 -- | The reason that the process was suspended.
-srSuspensionReason
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SuspendedProcess
-    -> f SuspendedProcess
+srSuspensionReason :: Lens' SuspendedProcess (Maybe Text)
 srSuspensionReason f x =
-    (\y -> x { _srSuspensionReason = y })
-       <$> f (_srSuspensionReason x)
+    f (_srSuspensionReason x)
+        <&> \y -> x { _srSuspensionReason = y }
 {-# INLINE srSuspensionReason #-}
 
 instance FromXML SuspendedProcess where
@@ -2346,67 +1796,42 @@ data Tag = Tag
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group.
-uResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Tag
-    -> f Tag
+uResourceId :: Lens' Tag (Text)
 uResourceId f x =
-    (\y -> x { _uResourceId = y })
-       <$> f (_uResourceId x)
+    f (_uResourceId x)
+        <&> \y -> x { _uResourceId = y }
 {-# INLINE uResourceId #-}
 
 -- | The kind of resource to which the tag is applied. Currently, Auto Scaling
 -- supports the auto-scaling-group resource type.
-uResourceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Tag
-    -> f Tag
+uResourceType :: Lens' Tag (Text)
 uResourceType f x =
-    (\y -> x { _uResourceType = y })
-       <$> f (_uResourceType x)
+    f (_uResourceType x)
+        <&> \y -> x { _uResourceType = y }
 {-# INLINE uResourceType #-}
 
 -- | The key of the tag.
-uKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Tag
-    -> f Tag
+uKey :: Lens' Tag (Text)
 uKey f x =
-    (\y -> x { _uKey = y })
-       <$> f (_uKey x)
+    f (_uKey x)
+        <&> \y -> x { _uKey = y }
 {-# INLINE uKey #-}
 
 -- | The value of the tag.
-uValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Tag
-    -> f Tag
+uValue :: Lens' Tag (Text)
 uValue f x =
-    (\y -> x { _uValue = y })
-       <$> f (_uValue x)
+    f (_uValue x)
+        <&> \y -> x { _uValue = y }
 {-# INLINE uValue #-}
 
 -- | Specifies whether the new tag will be applied to instances launched after
 -- the tag is created. The same behavior applies to updates: If you change a
 -- tag, the changed tag will be applied to all instances launched after you
 -- made the change.
-uPropagateAtLaunch
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> Tag
-    -> f Tag
+uPropagateAtLaunch :: Lens' Tag (Bool)
 uPropagateAtLaunch f x =
-    (\y -> x { _uPropagateAtLaunch = y })
-       <$> f (_uPropagateAtLaunch x)
+    f (_uPropagateAtLaunch x)
+        <&> \y -> x { _uPropagateAtLaunch = y }
 {-# INLINE uPropagateAtLaunch #-}
 
 instance ToQuery Tag where
@@ -2431,67 +1856,42 @@ data TagDescription = TagDescription
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group.
-tdResourceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TagDescription
-    -> f TagDescription
+tdResourceId :: Lens' TagDescription (Text)
 tdResourceId f x =
-    (\y -> x { _tdResourceId = y })
-       <$> f (_tdResourceId x)
+    f (_tdResourceId x)
+        <&> \y -> x { _tdResourceId = y }
 {-# INLINE tdResourceId #-}
 
 -- | The kind of resource to which the tag is applied. Currently, Auto Scaling
 -- supports the auto-scaling-group resource type.
-tdResourceType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TagDescription
-    -> f TagDescription
+tdResourceType :: Lens' TagDescription (Text)
 tdResourceType f x =
-    (\y -> x { _tdResourceType = y })
-       <$> f (_tdResourceType x)
+    f (_tdResourceType x)
+        <&> \y -> x { _tdResourceType = y }
 {-# INLINE tdResourceType #-}
 
 -- | The key of the tag.
-tdKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TagDescription
-    -> f TagDescription
+tdKey :: Lens' TagDescription (Text)
 tdKey f x =
-    (\y -> x { _tdKey = y })
-       <$> f (_tdKey x)
+    f (_tdKey x)
+        <&> \y -> x { _tdKey = y }
 {-# INLINE tdKey #-}
 
 -- | The value of the tag.
-tdValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TagDescription
-    -> f TagDescription
+tdValue :: Lens' TagDescription (Text)
 tdValue f x =
-    (\y -> x { _tdValue = y })
-       <$> f (_tdValue x)
+    f (_tdValue x)
+        <&> \y -> x { _tdValue = y }
 {-# INLINE tdValue #-}
 
 -- | Specifies whether the new tag will be applied to instances launched after
 -- the tag is created. The same behavior applies to updates: If you change a
 -- tag, the changed tag will be applied to all instances launched after you
 -- made the change.
-tdPropagateAtLaunch
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> TagDescription
-    -> f TagDescription
+tdPropagateAtLaunch :: Lens' TagDescription (Bool)
 tdPropagateAtLaunch f x =
-    (\y -> x { _tdPropagateAtLaunch = y })
-       <$> f (_tdPropagateAtLaunch x)
+    f (_tdPropagateAtLaunch x)
+        <&> \y -> x { _tdPropagateAtLaunch = y }
 {-# INLINE tdPropagateAtLaunch #-}
 
 instance FromXML TagDescription where

@@ -57,6 +57,7 @@ describeAutoScalingInstances = DescribeAutoScalingInstances
     , _dasitMaxRecords = Nothing
     , _dasitNextToken = Nothing
     }
+{-# INLINE describeAutoScalingInstances #-}
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasitInstanceIds :: [Text]
@@ -76,41 +77,26 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
 -- all auto scaling instances are described. The list of requested instances
 -- cannot contain more than 50 items. If unknown instances are requested, they
 -- are ignored with no error.
-dasitInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAutoScalingInstances
-    -> f DescribeAutoScalingInstances
+dasitInstanceIds :: Lens' DescribeAutoScalingInstances ([Text])
 dasitInstanceIds f x =
-    (\y -> x { _dasitInstanceIds = y })
-       <$> f (_dasitInstanceIds x)
+    f (_dasitInstanceIds x)
+        <&> \y -> x { _dasitInstanceIds = y }
 {-# INLINE dasitInstanceIds #-}
 
 -- | The maximum number of Auto Scaling instances to be described with each
 -- call.
-dasitMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAutoScalingInstances
-    -> f DescribeAutoScalingInstances
+dasitMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Integer)
 dasitMaxRecords f x =
-    (\y -> x { _dasitMaxRecords = y })
-       <$> f (_dasitMaxRecords x)
+    f (_dasitMaxRecords x)
+        <&> \y -> x { _dasitMaxRecords = y }
 {-# INLINE dasitMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dasitNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAutoScalingInstances
-    -> f DescribeAutoScalingInstances
+dasitNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasitNextToken f x =
-    (\y -> x { _dasitNextToken = y })
-       <$> f (_dasitNextToken x)
+    f (_dasitNextToken x)
+        <&> \y -> x { _dasitNextToken = y }
 {-# INLINE dasitNextToken #-}
 
 instance ToQuery DescribeAutoScalingInstances where
@@ -125,27 +111,17 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling instances.
-asitAutoScalingInstances
-    :: Functor f
-    => ([AutoScalingInstanceDetails]
-    -> f ([AutoScalingInstanceDetails]))
-    -> DescribeAutoScalingInstancesResponse
-    -> f DescribeAutoScalingInstancesResponse
+asitAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse ([AutoScalingInstanceDetails])
 asitAutoScalingInstances f x =
-    (\y -> x { _asitAutoScalingInstances = y })
-       <$> f (_asitAutoScalingInstances x)
+    f (_asitAutoScalingInstances x)
+        <&> \y -> x { _asitAutoScalingInstances = y }
 {-# INLINE asitAutoScalingInstances #-}
 
 -- | A string that marks the start of the next batch of returned results.
-asitNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAutoScalingInstancesResponse
-    -> f DescribeAutoScalingInstancesResponse
+asitNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 asitNextToken f x =
-    (\y -> x { _asitNextToken = y })
-       <$> f (_asitNextToken x)
+    f (_asitNextToken x)
+        <&> \y -> x { _asitNextToken = y }
 {-# INLINE asitNextToken #-}
 
 instance FromXML DescribeAutoScalingInstancesResponse where

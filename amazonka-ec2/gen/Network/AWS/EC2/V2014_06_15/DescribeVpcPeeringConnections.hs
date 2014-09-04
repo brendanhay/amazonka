@@ -129,16 +129,18 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-peering-connection-id - The ID of the VPC peering connection.
-dvpctFilters :: Lens' DescribeVpcPeeringConnections [Filter]
+dvpctFilters :: Lens' DescribeVpcPeeringConnections ([Filter])
 dvpctFilters f x =
-    f (_dvpctFilters x) <&> \y -> x { _dvpctFilters = y }
+    f (_dvpctFilters x)
+        <&> \y -> x { _dvpctFilters = y }
 {-# INLINE dvpctFilters #-}
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
-dvpctVpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
+dvpctVpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections ([Text])
 dvpctVpcPeeringConnectionIds f x =
-    f (_dvpctVpcPeeringConnectionIds x) <&> \y -> x { _dvpctVpcPeeringConnectionIds = y }
+    f (_dvpctVpcPeeringConnectionIds x)
+        <&> \y -> x { _dvpctVpcPeeringConnectionIds = y }
 {-# INLINE dvpctVpcPeeringConnectionIds #-}
 
 instance ToQuery DescribeVpcPeeringConnections where
@@ -150,9 +152,10 @@ data DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRespon
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connections.
-dvpcuVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
+dvpcuVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse ([VpcPeeringConnection])
 dvpcuVpcPeeringConnections f x =
-    f (_dvpcuVpcPeeringConnections x) <&> \y -> x { _dvpcuVpcPeeringConnections = y }
+    f (_dvpcuVpcPeeringConnections x)
+        <&> \y -> x { _dvpcuVpcPeeringConnections = y }
 {-# INLINE dvpcuVpcPeeringConnections #-}
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where

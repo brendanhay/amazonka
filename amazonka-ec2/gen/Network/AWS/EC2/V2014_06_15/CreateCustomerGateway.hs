@@ -89,23 +89,26 @@ data CreateCustomerGateway = CreateCustomerGateway
     } deriving (Show, Generic)
 
 -- | The type of VPN connection that this customer gateway supports.
-ccgrType :: Lens' CreateCustomerGateway GatewayType
+ccgrType :: Lens' CreateCustomerGateway (GatewayType)
 ccgrType f x =
-    f (_ccgrType x) <&> \y -> x { _ccgrType = y }
+    f (_ccgrType x)
+        <&> \y -> x { _ccgrType = y }
 {-# INLINE ccgrType #-}
 
 -- | For devices that support BGP, the customer gateway's BGP ASN. Default:
 -- 65000.
-ccgrBgpAsn :: Lens' CreateCustomerGateway Integer
+ccgrBgpAsn :: Lens' CreateCustomerGateway (Integer)
 ccgrBgpAsn f x =
-    f (_ccgrBgpAsn x) <&> \y -> x { _ccgrBgpAsn = y }
+    f (_ccgrBgpAsn x)
+        <&> \y -> x { _ccgrBgpAsn = y }
 {-# INLINE ccgrBgpAsn #-}
 
 -- | The Internet-routable IP address for the customer gateway's outside
 -- interface. The address must be static.
-ccgrPublicIp :: Lens' CreateCustomerGateway Text
+ccgrPublicIp :: Lens' CreateCustomerGateway (Text)
 ccgrPublicIp f x =
-    f (_ccgrPublicIp x) <&> \y -> x { _ccgrPublicIp = y }
+    f (_ccgrPublicIp x)
+        <&> \y -> x { _ccgrPublicIp = y }
 {-# INLINE ccgrPublicIp #-}
 
 instance ToQuery CreateCustomerGateway where
@@ -119,7 +122,8 @@ data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
 -- | Information about the customer gateway.
 ccgsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgsCustomerGateway f x =
-    f (_ccgsCustomerGateway x) <&> \y -> x { _ccgsCustomerGateway = y }
+    f (_ccgsCustomerGateway x)
+        <&> \y -> x { _ccgsCustomerGateway = y }
 {-# INLINE ccgsCustomerGateway #-}
 
 instance FromXML CreateCustomerGatewayResponse where

@@ -94,20 +94,23 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
 -- | The ID of the requester VPC.
 cvpcrVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcrVpcId f x =
-    f (_cvpcrVpcId x) <&> \y -> x { _cvpcrVpcId = y }
+    f (_cvpcrVpcId x)
+        <&> \y -> x { _cvpcrVpcId = y }
 {-# INLINE cvpcrVpcId #-}
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
 cvpcrPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcrPeerVpcId f x =
-    f (_cvpcrPeerVpcId x) <&> \y -> x { _cvpcrPeerVpcId = y }
+    f (_cvpcrPeerVpcId x)
+        <&> \y -> x { _cvpcrPeerVpcId = y }
 {-# INLINE cvpcrPeerVpcId #-}
 
 -- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
 -- ID.
 cvpcrPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcrPeerOwnerId f x =
-    f (_cvpcrPeerOwnerId x) <&> \y -> x { _cvpcrPeerOwnerId = y }
+    f (_cvpcrPeerOwnerId x)
+        <&> \y -> x { _cvpcrPeerOwnerId = y }
 {-# INLINE cvpcrPeerOwnerId #-}
 
 instance ToQuery CreateVpcPeeringConnection where
@@ -121,7 +124,8 @@ data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
 -- | Information about the VPC peering connection.
 cvpcsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 cvpcsVpcPeeringConnection f x =
-    f (_cvpcsVpcPeeringConnection x) <&> \y -> x { _cvpcsVpcPeeringConnection = y }
+    f (_cvpcsVpcPeeringConnection x)
+        <&> \y -> x { _cvpcsVpcPeeringConnection = y }
 {-# INLINE cvpcsVpcPeeringConnection #-}
 
 instance FromXML CreateVpcPeeringConnectionResponse where

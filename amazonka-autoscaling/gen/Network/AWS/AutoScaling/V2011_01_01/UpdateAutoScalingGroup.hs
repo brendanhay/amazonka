@@ -92,6 +92,7 @@ updateAutoScalingGroup p1 = UpdateAutoScalingGroup
     , _uasgtVPCZoneIdentifier = Nothing
     , _uasgtHealthCheckType = Nothing
     }
+{-# INLINE updateAutoScalingGroup #-}
 
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     { _uasgtAutoScalingGroupName :: Text
@@ -142,104 +143,64 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group.
-uasgtAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtAutoScalingGroupName :: Lens' UpdateAutoScalingGroup (Text)
 uasgtAutoScalingGroupName f x =
-    (\y -> x { _uasgtAutoScalingGroupName = y })
-       <$> f (_uasgtAutoScalingGroupName x)
+    f (_uasgtAutoScalingGroupName x)
+        <&> \y -> x { _uasgtAutoScalingGroupName = y }
 {-# INLINE uasgtAutoScalingGroupName #-}
 
 -- | The desired capacity for the Auto Scaling group.
-uasgtDesiredCapacity
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgtDesiredCapacity f x =
-    (\y -> x { _uasgtDesiredCapacity = y })
-       <$> f (_uasgtDesiredCapacity x)
+    f (_uasgtDesiredCapacity x)
+        <&> \y -> x { _uasgtDesiredCapacity = y }
 {-# INLINE uasgtDesiredCapacity #-}
 
 -- | The maximum size of the Auto Scaling group.
-uasgtMaxSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgtMaxSize f x =
-    (\y -> x { _uasgtMaxSize = y })
-       <$> f (_uasgtMaxSize x)
+    f (_uasgtMaxSize x)
+        <&> \y -> x { _uasgtMaxSize = y }
 {-# INLINE uasgtMaxSize #-}
 
 -- | The minimum size of the Auto Scaling group.
-uasgtMinSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtMinSize :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgtMinSize f x =
-    (\y -> x { _uasgtMinSize = y })
-       <$> f (_uasgtMinSize x)
+    f (_uasgtMinSize x)
+        <&> \y -> x { _uasgtMinSize = y }
 {-# INLINE uasgtMinSize #-}
 
 -- | Availability Zones for the group.
-uasgtAvailabilityZones
-    :: Functor f
-    => (Maybe [Text]
-    -> f (Maybe [Text]))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe [Text])
 uasgtAvailabilityZones f x =
-    (\y -> x { _uasgtAvailabilityZones = y })
-       <$> f (_uasgtAvailabilityZones x)
+    f (_uasgtAvailabilityZones x)
+        <&> \y -> x { _uasgtAvailabilityZones = y }
 {-# INLINE uasgtAvailabilityZones #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further scaling activities can start. For more information, see
 -- Cooldown Period.
-uasgtDefaultCooldown
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgtDefaultCooldown f x =
-    (\y -> x { _uasgtDefaultCooldown = y })
-       <$> f (_uasgtDefaultCooldown x)
+    f (_uasgtDefaultCooldown x)
+        <&> \y -> x { _uasgtDefaultCooldown = y }
 {-# INLINE uasgtDefaultCooldown #-}
 
 -- | The length of time that Auto Scaling waits before checking an instance's
 -- health status. The grace period begins when the instance passes System
 -- Status and the Instance Status checks from Amazon EC2. For more
 -- information, see DescribeInstanceStatus.
-uasgtHealthCheckGracePeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgtHealthCheckGracePeriod f x =
-    (\y -> x { _uasgtHealthCheckGracePeriod = y })
-       <$> f (_uasgtHealthCheckGracePeriod x)
+    f (_uasgtHealthCheckGracePeriod x)
+        <&> \y -> x { _uasgtHealthCheckGracePeriod = y }
 {-# INLINE uasgtHealthCheckGracePeriod #-}
 
 -- | The name of the launch configuration.
-uasgtLaunchConfigurationName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgtLaunchConfigurationName f x =
-    (\y -> x { _uasgtLaunchConfigurationName = y })
-       <$> f (_uasgtLaunchConfigurationName x)
+    f (_uasgtLaunchConfigurationName x)
+        <&> \y -> x { _uasgtLaunchConfigurationName = y }
 {-# INLINE uasgtLaunchConfigurationName #-}
 
 -- | A standalone termination policy or a list of termination policies used to
@@ -247,28 +208,18 @@ uasgtLaunchConfigurationName f x =
 -- that they are listed. For more information on creating a termination policy
 -- for your Auto Scaling group, go to Instance Termination Policy for Your
 -- Auto Scaling Group in the the Auto Scaling Developer Guide.
-uasgtTerminationPolicies
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtTerminationPolicies :: Lens' UpdateAutoScalingGroup ([Text])
 uasgtTerminationPolicies f x =
-    (\y -> x { _uasgtTerminationPolicies = y })
-       <$> f (_uasgtTerminationPolicies x)
+    f (_uasgtTerminationPolicies x)
+        <&> \y -> x { _uasgtTerminationPolicies = y }
 {-# INLINE uasgtTerminationPolicies #-}
 
 -- | The name of the cluster placement group, if applicable. For more
 -- information, go to Using Cluster Instances in the Amazon EC2 User Guide.
-uasgtPlacementGroup
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgtPlacementGroup f x =
-    (\y -> x { _uasgtPlacementGroup = y })
-       <$> f (_uasgtPlacementGroup x)
+    f (_uasgtPlacementGroup x)
+        <&> \y -> x { _uasgtPlacementGroup = y }
 {-# INLINE uasgtPlacementGroup #-}
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You can
@@ -278,29 +229,19 @@ uasgtPlacementGroup f x =
 -- more information on creating your Auto Scaling group in Amazon VPC by
 -- specifying subnets, see Launch Auto Scaling Instances into Amazon VPC in
 -- the the Auto Scaling Developer Guide.
-uasgtVPCZoneIdentifier
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgtVPCZoneIdentifier f x =
-    (\y -> x { _uasgtVPCZoneIdentifier = y })
-       <$> f (_uasgtVPCZoneIdentifier x)
+    f (_uasgtVPCZoneIdentifier x)
+        <&> \y -> x { _uasgtVPCZoneIdentifier = y }
 {-# INLINE uasgtVPCZoneIdentifier #-}
 
 -- | The type of health check for the instances in the Auto Scaling group. The
 -- health check type can either be EC2 for Amazon EC2 or ELB for Elastic Load
 -- Balancing.
-uasgtHealthCheckType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateAutoScalingGroup
-    -> f UpdateAutoScalingGroup
+uasgtHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgtHealthCheckType f x =
-    (\y -> x { _uasgtHealthCheckType = y })
-       <$> f (_uasgtHealthCheckType x)
+    f (_uasgtHealthCheckType x)
+        <&> \y -> x { _uasgtHealthCheckType = y }
 {-# INLINE uasgtHealthCheckType #-}
 
 instance ToQuery UpdateAutoScalingGroup where

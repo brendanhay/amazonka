@@ -59,6 +59,7 @@ describeAutoScalingGroups = DescribeAutoScalingGroups
     , _asgntMaxRecords = Nothing
     , _asgntNextToken = Nothing
     }
+{-# INLINE describeAutoScalingGroups #-}
 
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _asgntAutoScalingGroupNames :: [Text]
@@ -71,39 +72,24 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling group names.
-asgntAutoScalingGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAutoScalingGroups
-    -> f DescribeAutoScalingGroups
+asgntAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups ([Text])
 asgntAutoScalingGroupNames f x =
-    (\y -> x { _asgntAutoScalingGroupNames = y })
-       <$> f (_asgntAutoScalingGroupNames x)
+    f (_asgntAutoScalingGroupNames x)
+        <&> \y -> x { _asgntAutoScalingGroupNames = y }
 {-# INLINE asgntAutoScalingGroupNames #-}
 
 -- | The maximum number of records to return.
-asgntMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAutoScalingGroups
-    -> f DescribeAutoScalingGroups
+asgntMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Integer)
 asgntMaxRecords f x =
-    (\y -> x { _asgntMaxRecords = y })
-       <$> f (_asgntMaxRecords x)
+    f (_asgntMaxRecords x)
+        <&> \y -> x { _asgntMaxRecords = y }
 {-# INLINE asgntMaxRecords #-}
 
 -- | A string that marks the start of the next batch of returned results.
-asgntNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAutoScalingGroups
-    -> f DescribeAutoScalingGroups
+asgntNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 asgntNextToken f x =
-    (\y -> x { _asgntNextToken = y })
-       <$> f (_asgntNextToken x)
+    f (_asgntNextToken x)
+        <&> \y -> x { _asgntNextToken = y }
 {-# INLINE asgntNextToken #-}
 
 instance ToQuery DescribeAutoScalingGroups where
@@ -118,27 +104,17 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling groups.
-asgtAutoScalingGroups
-    :: Functor f
-    => ([AutoScalingGroup]
-    -> f ([AutoScalingGroup]))
-    -> DescribeAutoScalingGroupsResponse
-    -> f DescribeAutoScalingGroupsResponse
+asgtAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse ([AutoScalingGroup])
 asgtAutoScalingGroups f x =
-    (\y -> x { _asgtAutoScalingGroups = y })
-       <$> f (_asgtAutoScalingGroups x)
+    f (_asgtAutoScalingGroups x)
+        <&> \y -> x { _asgtAutoScalingGroups = y }
 {-# INLINE asgtAutoScalingGroups #-}
 
 -- | A string that marks the start of the next batch of returned results.
-asgtNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeAutoScalingGroupsResponse
-    -> f DescribeAutoScalingGroupsResponse
+asgtNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 asgtNextToken f x =
-    (\y -> x { _asgtNextToken = y })
-       <$> f (_asgtNextToken x)
+    f (_asgtNextToken x)
+        <&> \y -> x { _asgtNextToken = y }
 {-# INLINE asgtNextToken #-}
 
 instance FromXML DescribeAutoScalingGroupsResponse where

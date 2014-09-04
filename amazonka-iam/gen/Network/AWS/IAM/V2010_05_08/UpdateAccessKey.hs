@@ -56,6 +56,7 @@ updateAccessKey p1 p2 = UpdateAccessKey
     , _uakrStatus = p2
     , _uakrUserName = Nothing
     }
+{-# INLINE updateAccessKey #-}
 
 data UpdateAccessKey = UpdateAccessKey
     { _uakrAccessKeyId :: Text
@@ -69,41 +70,26 @@ data UpdateAccessKey = UpdateAccessKey
     } deriving (Show, Generic)
 
 -- | The access key ID of the secret access key you want to update.
-uakrAccessKeyId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateAccessKey
-    -> f UpdateAccessKey
+uakrAccessKeyId :: Lens' UpdateAccessKey (Text)
 uakrAccessKeyId f x =
-    (\y -> x { _uakrAccessKeyId = y })
-       <$> f (_uakrAccessKeyId x)
+    f (_uakrAccessKeyId x)
+        <&> \y -> x { _uakrAccessKeyId = y }
 {-# INLINE uakrAccessKeyId #-}
 
 -- | The status you want to assign to the secret access key. Active means the
 -- key can be used for API calls to AWS, while Inactive means the key cannot
 -- be used.
-uakrStatus
-    :: Functor f
-    => (StatusType
-    -> f (StatusType))
-    -> UpdateAccessKey
-    -> f UpdateAccessKey
+uakrStatus :: Lens' UpdateAccessKey (StatusType)
 uakrStatus f x =
-    (\y -> x { _uakrStatus = y })
-       <$> f (_uakrStatus x)
+    f (_uakrStatus x)
+        <&> \y -> x { _uakrStatus = y }
 {-# INLINE uakrStatus #-}
 
 -- | Name of the user whose key you want to update.
-uakrUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateAccessKey
-    -> f UpdateAccessKey
+uakrUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakrUserName f x =
-    (\y -> x { _uakrUserName = y })
-       <$> f (_uakrUserName x)
+    f (_uakrUserName x)
+        <&> \y -> x { _uakrUserName = y }
 {-# INLINE uakrUserName #-}
 
 instance ToQuery UpdateAccessKey where

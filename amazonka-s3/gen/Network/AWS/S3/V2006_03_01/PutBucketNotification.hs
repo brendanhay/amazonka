@@ -46,6 +46,7 @@ putBucketNotification p1 p2 = PutBucketNotification
     , _pbnrBucket = p2
     , _pbnrContentMD5 = Nothing
     }
+{-# INLINE putBucketNotification #-}
 
 data PutBucketNotification = PutBucketNotification
     { _pbnrNotificationConfiguration :: NotificationConfiguration
@@ -53,37 +54,22 @@ data PutBucketNotification = PutBucketNotification
     , _pbnrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pbnrNotificationConfiguration
-    :: Functor f
-    => (NotificationConfiguration
-    -> f (NotificationConfiguration))
-    -> PutBucketNotification
-    -> f PutBucketNotification
+pbnrNotificationConfiguration :: Lens' PutBucketNotification (NotificationConfiguration)
 pbnrNotificationConfiguration f x =
-    (\y -> x { _pbnrNotificationConfiguration = y })
-       <$> f (_pbnrNotificationConfiguration x)
+    f (_pbnrNotificationConfiguration x)
+        <&> \y -> x { _pbnrNotificationConfiguration = y }
 {-# INLINE pbnrNotificationConfiguration #-}
 
-pbnrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketNotification
-    -> f PutBucketNotification
+pbnrBucket :: Lens' PutBucketNotification (BucketName)
 pbnrBucket f x =
-    (\y -> x { _pbnrBucket = y })
-       <$> f (_pbnrBucket x)
+    f (_pbnrBucket x)
+        <&> \y -> x { _pbnrBucket = y }
 {-# INLINE pbnrBucket #-}
 
-pbnrContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketNotification
-    -> f PutBucketNotification
+pbnrContentMD5 :: Lens' PutBucketNotification (Maybe Text)
 pbnrContentMD5 f x =
-    (\y -> x { _pbnrContentMD5 = y })
-       <$> f (_pbnrContentMD5 x)
+    f (_pbnrContentMD5 x)
+        <&> \y -> x { _pbnrContentMD5 = y }
 {-# INLINE pbnrContentMD5 #-}
 
 instance ToPath PutBucketNotification where

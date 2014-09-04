@@ -45,6 +45,7 @@ deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
     { _dlbpiLoadBalancerName = p1
     , _dlbpiPolicyName = p2
     }
+{-# INLINE deleteLoadBalancerPolicy #-}
 
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
     { _dlbpiLoadBalancerName :: Text
@@ -54,27 +55,17 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
     } deriving (Show, Generic)
 
 -- | The mnemonic name associated with the load balancer.
-dlbpiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLoadBalancerPolicy
-    -> f DeleteLoadBalancerPolicy
+dlbpiLoadBalancerName :: Lens' DeleteLoadBalancerPolicy (Text)
 dlbpiLoadBalancerName f x =
-    (\y -> x { _dlbpiLoadBalancerName = y })
-       <$> f (_dlbpiLoadBalancerName x)
+    f (_dlbpiLoadBalancerName x)
+        <&> \y -> x { _dlbpiLoadBalancerName = y }
 {-# INLINE dlbpiLoadBalancerName #-}
 
 -- | The mnemonic name for the policy being deleted.
-dlbpiPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLoadBalancerPolicy
-    -> f DeleteLoadBalancerPolicy
+dlbpiPolicyName :: Lens' DeleteLoadBalancerPolicy (Text)
 dlbpiPolicyName f x =
-    (\y -> x { _dlbpiPolicyName = y })
-       <$> f (_dlbpiPolicyName x)
+    f (_dlbpiPolicyName x)
+        <&> \y -> x { _dlbpiPolicyName = y }
 {-# INLINE dlbpiPolicyName #-}
 
 instance ToQuery DeleteLoadBalancerPolicy where

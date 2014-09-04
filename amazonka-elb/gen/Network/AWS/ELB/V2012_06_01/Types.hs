@@ -255,15 +255,10 @@ newtype ConnectionSettings = ConnectionSettings
 -- | Specifies the time (in seconds) the connection is allowed to be idle (no
 -- data has been sent over the connection) before it is closed by the load
 -- balancer.
-csIdleTimeout
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> ConnectionSettings
-    -> f ConnectionSettings
+csIdleTimeout :: Lens' ConnectionSettings (Integer)
 csIdleTimeout f x =
-    (\y -> x { _csIdleTimeout = y })
-       <$> f (_csIdleTimeout x)
+    f (_csIdleTimeout x)
+        <&> \y -> x { _csIdleTimeout = y }
 {-# INLINE csIdleTimeout #-}
 
 instance FromXML ConnectionSettings where
@@ -285,15 +280,10 @@ newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
 
 -- | Specifies whether cross-zone load balancing is enabled for the load
 -- balancer.
-czlbEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> CrossZoneLoadBalancing
-    -> f CrossZoneLoadBalancing
+czlbEnabled :: Lens' CrossZoneLoadBalancing (Bool)
 czlbEnabled f x =
-    (\y -> x { _czlbEnabled = y })
-       <$> f (_czlbEnabled x)
+    f (_czlbEnabled x)
+        <&> \y -> x { _czlbEnabled = y }
 {-# INLINE czlbEnabled #-}
 
 instance FromXML CrossZoneLoadBalancing where
@@ -310,15 +300,10 @@ newtype Instance = Instance
     } deriving (Show, Generic)
 
 -- | Provides an EC2 instance ID.
-jInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Instance
-    -> f Instance
+jInstanceId :: Lens' Instance (Maybe Text)
 jInstanceId f x =
-    (\y -> x { _jInstanceId = y })
-       <$> f (_jInstanceId x)
+    f (_jInstanceId x)
+        <&> \y -> x { _jInstanceId = y }
 {-# INLINE jInstanceId #-}
 
 instance FromXML Instance where
@@ -335,15 +320,10 @@ newtype TagKeyOnly = TagKeyOnly
     } deriving (Show, Generic)
 
 -- | The name of the key.
-tkoKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TagKeyOnly
-    -> f TagKeyOnly
+tkoKey :: Lens' TagKeyOnly (Maybe Text)
 tkoKey f x =
-    (\y -> x { _tkoKey = y })
-       <$> f (_tkoKey x)
+    f (_tkoKey x)
+        <&> \y -> x { _tkoKey = y }
 {-# INLINE tkoKey #-}
 
 instance ToQuery TagKeyOnly where
@@ -369,54 +349,34 @@ data AccessLog = AccessLog
     } deriving (Show, Generic)
 
 -- | Specifies whether access log is enabled for the load balancer.
-alEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> AccessLog
-    -> f AccessLog
+alEnabled :: Lens' AccessLog (Bool)
 alEnabled f x =
-    (\y -> x { _alEnabled = y })
-       <$> f (_alEnabled x)
+    f (_alEnabled x)
+        <&> \y -> x { _alEnabled = y }
 {-# INLINE alEnabled #-}
 
 -- | The name of the Amazon S3 bucket where the access logs are stored.
-alS3BucketName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AccessLog
-    -> f AccessLog
+alS3BucketName :: Lens' AccessLog (Maybe Text)
 alS3BucketName f x =
-    (\y -> x { _alS3BucketName = y })
-       <$> f (_alS3BucketName x)
+    f (_alS3BucketName x)
+        <&> \y -> x { _alS3BucketName = y }
 {-# INLINE alS3BucketName #-}
 
 -- | The interval for publishing the access logs. You can specify an interval of
 -- either 5 minutes or 60 minutes. Default: 60 minutes.
-alEmitInterval
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> AccessLog
-    -> f AccessLog
+alEmitInterval :: Lens' AccessLog (Maybe Integer)
 alEmitInterval f x =
-    (\y -> x { _alEmitInterval = y })
-       <$> f (_alEmitInterval x)
+    f (_alEmitInterval x)
+        <&> \y -> x { _alEmitInterval = y }
 {-# INLINE alEmitInterval #-}
 
 -- | The logical hierarchy you created for your Amazon S3 bucket, for example
 -- my-bucket-prefix/prod. If the prefix is not provided, the log is placed at
 -- the root level of the bucket.
-alS3BucketPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AccessLog
-    -> f AccessLog
+alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
 alS3BucketPrefix f x =
-    (\y -> x { _alS3BucketPrefix = y })
-       <$> f (_alS3BucketPrefix x)
+    f (_alS3BucketPrefix x)
+        <&> \y -> x { _alS3BucketPrefix = y }
 {-# INLINE alS3BucketPrefix #-}
 
 instance FromXML AccessLog where
@@ -437,27 +397,17 @@ data AppCookieStickinessPolicy = AppCookieStickinessPolicy
 
 -- | The mnemonic name for the policy being created. The name must be unique
 -- within a set of policies for this load balancer.
-acsqPolicyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AppCookieStickinessPolicy
-    -> f AppCookieStickinessPolicy
+acsqPolicyName :: Lens' AppCookieStickinessPolicy (Maybe Text)
 acsqPolicyName f x =
-    (\y -> x { _acsqPolicyName = y })
-       <$> f (_acsqPolicyName x)
+    f (_acsqPolicyName x)
+        <&> \y -> x { _acsqPolicyName = y }
 {-# INLINE acsqPolicyName #-}
 
 -- | The name of the application cookie used for stickiness.
-acsqCookieName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AppCookieStickinessPolicy
-    -> f AppCookieStickinessPolicy
+acsqCookieName :: Lens' AppCookieStickinessPolicy (Maybe Text)
 acsqCookieName f x =
-    (\y -> x { _acsqCookieName = y })
-       <$> f (_acsqCookieName x)
+    f (_acsqCookieName x)
+        <&> \y -> x { _acsqCookieName = y }
 {-# INLINE acsqCookieName #-}
 
 instance FromXML AppCookieStickinessPolicy where
@@ -477,27 +427,17 @@ data BackendServerDescription = BackendServerDescription
     } deriving (Show, Generic)
 
 -- | Provides the port on which the back-end server is listening.
-bseInstancePort
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> BackendServerDescription
-    -> f BackendServerDescription
+bseInstancePort :: Lens' BackendServerDescription (Maybe Integer)
 bseInstancePort f x =
-    (\y -> x { _bseInstancePort = y })
-       <$> f (_bseInstancePort x)
+    f (_bseInstancePort x)
+        <&> \y -> x { _bseInstancePort = y }
 {-# INLINE bseInstancePort #-}
 
 -- | Provides a list of policy names enabled for the back-end server.
-bsePolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> BackendServerDescription
-    -> f BackendServerDescription
+bsePolicyNames :: Lens' BackendServerDescription ([Text])
 bsePolicyNames f x =
-    (\y -> x { _bsePolicyNames = y })
-       <$> f (_bsePolicyNames x)
+    f (_bsePolicyNames x)
+        <&> \y -> x { _bsePolicyNames = y }
 {-# INLINE bsePolicyNames #-}
 
 instance FromXML BackendServerDescription where
@@ -521,28 +461,18 @@ data ConnectionDraining = ConnectionDraining
     } deriving (Show, Generic)
 
 -- | Specifies whether connection draining is enabled for the load balancer.
-cdEnabled
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ConnectionDraining
-    -> f ConnectionDraining
+cdEnabled :: Lens' ConnectionDraining (Bool)
 cdEnabled f x =
-    (\y -> x { _cdEnabled = y })
-       <$> f (_cdEnabled x)
+    f (_cdEnabled x)
+        <&> \y -> x { _cdEnabled = y }
 {-# INLINE cdEnabled #-}
 
 -- | Specifies the maximum time (in seconds) to keep the existing connections
 -- open before deregistering the instances.
-cdTimeout
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ConnectionDraining
-    -> f ConnectionDraining
+cdTimeout :: Lens' ConnectionDraining (Maybe Integer)
 cdTimeout f x =
-    (\y -> x { _cdTimeout = y })
-       <$> f (_cdTimeout x)
+    f (_cdTimeout x)
+        <&> \y -> x { _cdTimeout = y }
 {-# INLINE cdTimeout #-}
 
 instance FromXML ConnectionDraining where
@@ -599,67 +529,42 @@ data HealthCheck = HealthCheck
 -- to the instance on the given port and path. Any answer other than "200 OK"
 -- within the timeout period is considered unhealthy. The total length of the
 -- HTTP ping target needs to be 1024 16-bit Unicode characters or less.
-hcTarget
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> HealthCheck
-    -> f HealthCheck
+hcTarget :: Lens' HealthCheck (Text)
 hcTarget f x =
-    (\y -> x { _hcTarget = y })
-       <$> f (_hcTarget x)
+    f (_hcTarget x)
+        <&> \y -> x { _hcTarget = y }
 {-# INLINE hcTarget #-}
 
 -- | Specifies the approximate interval, in seconds, between health checks of an
 -- individual instance.
-hcInterval
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> HealthCheck
-    -> f HealthCheck
+hcInterval :: Lens' HealthCheck (Integer)
 hcInterval f x =
-    (\y -> x { _hcInterval = y })
-       <$> f (_hcInterval x)
+    f (_hcInterval x)
+        <&> \y -> x { _hcInterval = y }
 {-# INLINE hcInterval #-}
 
 -- | Specifies the amount of time, in seconds, during which no response means a
 -- failed health probe. This value must be less than the Interval value.
-hcTimeout
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> HealthCheck
-    -> f HealthCheck
+hcTimeout :: Lens' HealthCheck (Integer)
 hcTimeout f x =
-    (\y -> x { _hcTimeout = y })
-       <$> f (_hcTimeout x)
+    f (_hcTimeout x)
+        <&> \y -> x { _hcTimeout = y }
 {-# INLINE hcTimeout #-}
 
 -- | Specifies the number of consecutive health probe failures required before
 -- moving the instance to the Unhealthy state.
-hcUnhealthyThreshold
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> HealthCheck
-    -> f HealthCheck
+hcUnhealthyThreshold :: Lens' HealthCheck (Integer)
 hcUnhealthyThreshold f x =
-    (\y -> x { _hcUnhealthyThreshold = y })
-       <$> f (_hcUnhealthyThreshold x)
+    f (_hcUnhealthyThreshold x)
+        <&> \y -> x { _hcUnhealthyThreshold = y }
 {-# INLINE hcUnhealthyThreshold #-}
 
 -- | Specifies the number of consecutive health probe successes required before
 -- moving the instance to the Healthy state.
-hcHealthyThreshold
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> HealthCheck
-    -> f HealthCheck
+hcHealthyThreshold :: Lens' HealthCheck (Integer)
 hcHealthyThreshold f x =
-    (\y -> x { _hcHealthyThreshold = y })
-       <$> f (_hcHealthyThreshold x)
+    f (_hcHealthyThreshold x)
+        <&> \y -> x { _hcHealthyThreshold = y }
 {-# INLINE hcHealthyThreshold #-}
 
 instance FromXML HealthCheck where
@@ -686,54 +591,34 @@ data InstanceState = InstanceState
     } deriving (Show, Generic)
 
 -- | Provides an EC2 instance ID.
-iuInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceState
-    -> f InstanceState
+iuInstanceId :: Lens' InstanceState (Maybe Text)
 iuInstanceId f x =
-    (\y -> x { _iuInstanceId = y })
-       <$> f (_iuInstanceId x)
+    f (_iuInstanceId x)
+        <&> \y -> x { _iuInstanceId = y }
 {-# INLINE iuInstanceId #-}
 
 -- | Specifies the current state of the instance. Valid value:
 -- InService|OutOfService|Unknown.
-iuState
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceState
-    -> f InstanceState
+iuState :: Lens' InstanceState (Maybe Text)
 iuState f x =
-    (\y -> x { _iuState = y })
-       <$> f (_iuState x)
+    f (_iuState x)
+        <&> \y -> x { _iuState = y }
 {-# INLINE iuState #-}
 
 -- | Provides information about the cause of OutOfService instances.
 -- Specifically, it indicates whether the cause is Elastic Load Balancing or
 -- the instance behind the load balancer. Valid value: ELB|Instance|N/A.
-iuReasonCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceState
-    -> f InstanceState
+iuReasonCode :: Lens' InstanceState (Maybe Text)
 iuReasonCode f x =
-    (\y -> x { _iuReasonCode = y })
-       <$> f (_iuReasonCode x)
+    f (_iuReasonCode x)
+        <&> \y -> x { _iuReasonCode = y }
 {-# INLINE iuReasonCode #-}
 
 -- | Provides a description of the instance state.
-iuDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> InstanceState
-    -> f InstanceState
+iuDescription :: Lens' InstanceState (Maybe Text)
 iuDescription f x =
-    (\y -> x { _iuDescription = y })
-       <$> f (_iuDescription x)
+    f (_iuDescription x)
+        <&> \y -> x { _iuDescription = y }
 {-# INLINE iuDescription #-}
 
 instance FromXML InstanceState where
@@ -754,29 +639,19 @@ data LBCookieStickinessPolicy = LBCookieStickinessPolicy
 
 -- | The name for the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
-lbcsqPolicyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LBCookieStickinessPolicy
-    -> f LBCookieStickinessPolicy
+lbcsqPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
 lbcsqPolicyName f x =
-    (\y -> x { _lbcsqPolicyName = y })
-       <$> f (_lbcsqPolicyName x)
+    f (_lbcsqPolicyName x)
+        <&> \y -> x { _lbcsqPolicyName = y }
 {-# INLINE lbcsqPolicyName #-}
 
 -- | The time period in seconds after which the cookie should be considered
 -- stale. Not specifying this parameter indicates that the stickiness session
 -- will last for the duration of the browser session.
-lbcsqCookieExpirationPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LBCookieStickinessPolicy
-    -> f LBCookieStickinessPolicy
+lbcsqCookieExpirationPeriod :: Lens' LBCookieStickinessPolicy (Maybe Integer)
 lbcsqCookieExpirationPeriod f x =
-    (\y -> x { _lbcsqCookieExpirationPeriod = y })
-       <$> f (_lbcsqCookieExpirationPeriod x)
+    f (_lbcsqCookieExpirationPeriod x)
+        <&> \y -> x { _lbcsqCookieExpirationPeriod = y }
 {-# INLINE lbcsqCookieExpirationPeriod #-}
 
 instance FromXML LBCookieStickinessPolicy where
@@ -821,28 +696,18 @@ data Listener = Listener
 -- | Specifies the load balancer transport protocol to use for routing - HTTP,
 -- HTTPS, TCP or SSL. This property cannot be modified for the life of the
 -- load balancer.
-mProtocol
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Listener
-    -> f Listener
+mProtocol :: Lens' Listener (Text)
 mProtocol f x =
-    (\y -> x { _mProtocol = y })
-       <$> f (_mProtocol x)
+    f (_mProtocol x)
+        <&> \y -> x { _mProtocol = y }
 {-# INLINE mProtocol #-}
 
 -- | Specifies the external load balancer port number. This property cannot be
 -- modified for the life of the load balancer.
-mLoadBalancerPort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Listener
-    -> f Listener
+mLoadBalancerPort :: Lens' Listener (Integer)
 mLoadBalancerPort f x =
-    (\y -> x { _mLoadBalancerPort = y })
-       <$> f (_mLoadBalancerPort x)
+    f (_mLoadBalancerPort x)
+        <&> \y -> x { _mLoadBalancerPort = y }
 {-# INLINE mLoadBalancerPort #-}
 
 -- | Specifies the protocol to use for routing traffic to back-end instances -
@@ -855,42 +720,27 @@ mLoadBalancerPort f x =
 -- InstanceProtocol has to be secure, i.e., HTTPS or SSL. If there is another
 -- listener with the same InstancePort whose InstanceProtocol is HTTP or TCP,
 -- the listener's InstanceProtocol must be either HTTP or TCP.
-mInstanceProtocol
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Listener
-    -> f Listener
+mInstanceProtocol :: Lens' Listener (Maybe Text)
 mInstanceProtocol f x =
-    (\y -> x { _mInstanceProtocol = y })
-       <$> f (_mInstanceProtocol x)
+    f (_mInstanceProtocol x)
+        <&> \y -> x { _mInstanceProtocol = y }
 {-# INLINE mInstanceProtocol #-}
 
 -- | Specifies the TCP port on which the instance server is listening. This
 -- property cannot be modified for the life of the load balancer.
-mInstancePort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Listener
-    -> f Listener
+mInstancePort :: Lens' Listener (Integer)
 mInstancePort f x =
-    (\y -> x { _mInstancePort = y })
-       <$> f (_mInstancePort x)
+    f (_mInstancePort x)
+        <&> \y -> x { _mInstancePort = y }
 {-# INLINE mInstancePort #-}
 
 -- | The ARN string of the server certificate. To get the ARN of the server
 -- certificate, call the AWS Identity and Access Management
 -- UploadServerCertificate API.
-mSSLCertificateId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Listener
-    -> f Listener
+mSSLCertificateId :: Lens' Listener (Maybe Text)
 mSSLCertificateId f x =
-    (\y -> x { _mSSLCertificateId = y })
-       <$> f (_mSSLCertificateId x)
+    f (_mSSLCertificateId x)
+        <&> \y -> x { _mSSLCertificateId = y }
 {-# INLINE mSSLCertificateId #-}
 
 instance FromXML Listener where
@@ -910,28 +760,18 @@ data ListenerDescription = ListenerDescription
     } deriving (Show, Generic)
 
 -- | The Listener data type.
-leListener
-    :: Functor f
-    => (Maybe Listener
-    -> f (Maybe Listener))
-    -> ListenerDescription
-    -> f ListenerDescription
+leListener :: Lens' ListenerDescription (Maybe Listener)
 leListener f x =
-    (\y -> x { _leListener = y })
-       <$> f (_leListener x)
+    f (_leListener x)
+        <&> \y -> x { _leListener = y }
 {-# INLINE leListener #-}
 
 -- | A list of policies enabled for this listener. An empty list indicates that
 -- no policies are enabled.
-lePolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListenerDescription
-    -> f ListenerDescription
+lePolicyNames :: Lens' ListenerDescription ([Text])
 lePolicyNames f x =
-    (\y -> x { _lePolicyNames = y })
-       <$> f (_lePolicyNames x)
+    f (_lePolicyNames x)
+        <&> \y -> x { _lePolicyNames = y }
 {-# INLINE lePolicyNames #-}
 
 instance FromXML ListenerDescription where
@@ -973,45 +813,30 @@ data LoadBalancerAttributes = LoadBalancerAttributes
 -- routes the request traffic evenly across all back-end instances regardless
 -- of the Availability Zones. For more information, see Enable Cross-Zone Load
 -- Balancing.
-lbaCrossZoneLoadBalancing
-    :: Functor f
-    => (Maybe CrossZoneLoadBalancing
-    -> f (Maybe CrossZoneLoadBalancing))
-    -> LoadBalancerAttributes
-    -> f LoadBalancerAttributes
+lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
 lbaCrossZoneLoadBalancing f x =
-    (\y -> x { _lbaCrossZoneLoadBalancing = y })
-       <$> f (_lbaCrossZoneLoadBalancing x)
+    f (_lbaCrossZoneLoadBalancing x)
+        <&> \y -> x { _lbaCrossZoneLoadBalancing = y }
 {-# INLINE lbaCrossZoneLoadBalancing #-}
 
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- captures detailed information of all the requests and delivers the
 -- information to the Amazon S3 bucket that you specify. For more information,
 -- see Enable Access Logs.
-lbaAccessLog
-    :: Functor f
-    => (Maybe AccessLog
-    -> f (Maybe AccessLog))
-    -> LoadBalancerAttributes
-    -> f LoadBalancerAttributes
+lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog f x =
-    (\y -> x { _lbaAccessLog = y })
-       <$> f (_lbaAccessLog x)
+    f (_lbaAccessLog x)
+        <&> \y -> x { _lbaAccessLog = y }
 {-# INLINE lbaAccessLog #-}
 
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- allows existing requests to complete before the load balancer shifts
 -- traffic away from a deregistered or unhealthy back-end instance. For more
 -- information, see Enable Connection Draining.
-lbaConnectionDraining
-    :: Functor f
-    => (Maybe ConnectionDraining
-    -> f (Maybe ConnectionDraining))
-    -> LoadBalancerAttributes
-    -> f LoadBalancerAttributes
+lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
 lbaConnectionDraining f x =
-    (\y -> x { _lbaConnectionDraining = y })
-       <$> f (_lbaConnectionDraining x)
+    f (_lbaConnectionDraining x)
+        <&> \y -> x { _lbaConnectionDraining = y }
 {-# INLINE lbaConnectionDraining #-}
 
 -- | The name of the load balancer attribute. By default, Elastic Load Balancing
@@ -1020,15 +845,10 @@ lbaConnectionDraining f x =
 -- attribute is set, Elastic Load Balancing will allow the connections to
 -- remain idle (no data is sent over the connection) for the specified
 -- duration. For more information, see Configure Idle Connection Timeout.
-lbaConnectionSettings
-    :: Functor f
-    => (Maybe ConnectionSettings
-    -> f (Maybe ConnectionSettings))
-    -> LoadBalancerAttributes
-    -> f LoadBalancerAttributes
+lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
 lbaConnectionSettings f x =
-    (\y -> x { _lbaConnectionSettings = y })
-       <$> f (_lbaConnectionSettings x)
+    f (_lbaConnectionSettings x)
+        <&> \y -> x { _lbaConnectionSettings = y }
 {-# INLINE lbaConnectionSettings #-}
 
 instance FromXML LoadBalancerAttributes where
@@ -1096,194 +916,119 @@ data LoadBalancerDescription = LoadBalancerDescription
     } deriving (Show, Generic)
 
 -- | Specifies the name associated with the load balancer.
-lbeLoadBalancerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
 lbeLoadBalancerName f x =
-    (\y -> x { _lbeLoadBalancerName = y })
-       <$> f (_lbeLoadBalancerName x)
+    f (_lbeLoadBalancerName x)
+        <&> \y -> x { _lbeLoadBalancerName = y }
 {-# INLINE lbeLoadBalancerName #-}
 
 -- | Specifies the external DNS name associated with the load balancer.
-lbeDNSName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeDNSName :: Lens' LoadBalancerDescription (Maybe Text)
 lbeDNSName f x =
-    (\y -> x { _lbeDNSName = y })
-       <$> f (_lbeDNSName x)
+    f (_lbeDNSName x)
+        <&> \y -> x { _lbeDNSName = y }
 {-# INLINE lbeDNSName #-}
 
 -- | Provides the name of the Amazon Route 53 hosted zone that is associated
 -- with the load balancer. For information on how to associate your load
 -- balancer with a hosted zone, go to Using Domain Names With Elastic Load
 -- Balancing in the Elastic Load Balancing Developer Guide.
-lbeCanonicalHostedZoneName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
 lbeCanonicalHostedZoneName f x =
-    (\y -> x { _lbeCanonicalHostedZoneName = y })
-       <$> f (_lbeCanonicalHostedZoneName x)
+    f (_lbeCanonicalHostedZoneName x)
+        <&> \y -> x { _lbeCanonicalHostedZoneName = y }
 {-# INLINE lbeCanonicalHostedZoneName #-}
 
 -- | Provides the ID of the Amazon Route 53 hosted zone name that is associated
 -- with the load balancer. For information on how to associate or disassociate
 -- your load balancer with a hosted zone, go to Using Domain Names With
 -- Elastic Load Balancing in the Elastic Load Balancing Developer Guide.
-lbeCanonicalHostedZoneNameID
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
 lbeCanonicalHostedZoneNameID f x =
-    (\y -> x { _lbeCanonicalHostedZoneNameID = y })
-       <$> f (_lbeCanonicalHostedZoneNameID x)
+    f (_lbeCanonicalHostedZoneNameID x)
+        <&> \y -> x { _lbeCanonicalHostedZoneNameID = y }
 {-# INLINE lbeCanonicalHostedZoneNameID #-}
 
 -- | LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and PolicyNames
 -- are returned in a list of tuples in the ListenerDescriptions element.
-lbeListenerDescriptions
-    :: Functor f
-    => ([ListenerDescription]
-    -> f ([ListenerDescription]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeListenerDescriptions :: Lens' LoadBalancerDescription ([ListenerDescription])
 lbeListenerDescriptions f x =
-    (\y -> x { _lbeListenerDescriptions = y })
-       <$> f (_lbeListenerDescriptions x)
+    f (_lbeListenerDescriptions x)
+        <&> \y -> x { _lbeListenerDescriptions = y }
 {-# INLINE lbeListenerDescriptions #-}
 
 -- | Provides a list of policies defined for the load balancer.
-lbePolicies
-    :: Functor f
-    => (Maybe Policies
-    -> f (Maybe Policies))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbePolicies :: Lens' LoadBalancerDescription (Maybe Policies)
 lbePolicies f x =
-    (\y -> x { _lbePolicies = y })
-       <$> f (_lbePolicies x)
+    f (_lbePolicies x)
+        <&> \y -> x { _lbePolicies = y }
 {-# INLINE lbePolicies #-}
 
 -- | Contains a list of back-end server descriptions.
-lbeBackendServerDescriptions
-    :: Functor f
-    => ([BackendServerDescription]
-    -> f ([BackendServerDescription]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeBackendServerDescriptions :: Lens' LoadBalancerDescription ([BackendServerDescription])
 lbeBackendServerDescriptions f x =
-    (\y -> x { _lbeBackendServerDescriptions = y })
-       <$> f (_lbeBackendServerDescriptions x)
+    f (_lbeBackendServerDescriptions x)
+        <&> \y -> x { _lbeBackendServerDescriptions = y }
 {-# INLINE lbeBackendServerDescriptions #-}
 
 -- | Specifies a list of Availability Zones.
-lbeAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeAvailabilityZones :: Lens' LoadBalancerDescription ([Text])
 lbeAvailabilityZones f x =
-    (\y -> x { _lbeAvailabilityZones = y })
-       <$> f (_lbeAvailabilityZones x)
+    f (_lbeAvailabilityZones x)
+        <&> \y -> x { _lbeAvailabilityZones = y }
 {-# INLINE lbeAvailabilityZones #-}
 
 -- | Provides a list of VPC subnet IDs for the load balancer.
-lbeSubnets
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeSubnets :: Lens' LoadBalancerDescription ([Text])
 lbeSubnets f x =
-    (\y -> x { _lbeSubnets = y })
-       <$> f (_lbeSubnets x)
+    f (_lbeSubnets x)
+        <&> \y -> x { _lbeSubnets = y }
 {-# INLINE lbeSubnets #-}
 
 -- | Provides the ID of the VPC attached to the load balancer.
-lbeVPCId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeVPCId :: Lens' LoadBalancerDescription (Maybe Text)
 lbeVPCId f x =
-    (\y -> x { _lbeVPCId = y })
-       <$> f (_lbeVPCId x)
+    f (_lbeVPCId x)
+        <&> \y -> x { _lbeVPCId = y }
 {-# INLINE lbeVPCId #-}
 
 -- | Provides a list of EC2 instance IDs for the load balancer.
-lbeInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeInstances :: Lens' LoadBalancerDescription ([Instance])
 lbeInstances f x =
-    (\y -> x { _lbeInstances = y })
-       <$> f (_lbeInstances x)
+    f (_lbeInstances x)
+        <&> \y -> x { _lbeInstances = y }
 {-# INLINE lbeInstances #-}
 
 -- | Specifies information regarding the various health probes conducted on the
 -- load balancer.
-lbeHealthCheck
-    :: Functor f
-    => (Maybe HealthCheck
-    -> f (Maybe HealthCheck))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeHealthCheck :: Lens' LoadBalancerDescription (Maybe HealthCheck)
 lbeHealthCheck f x =
-    (\y -> x { _lbeHealthCheck = y })
-       <$> f (_lbeHealthCheck x)
+    f (_lbeHealthCheck x)
+        <&> \y -> x { _lbeHealthCheck = y }
 {-# INLINE lbeHealthCheck #-}
 
 -- | The security group that you can use as part of your inbound rules for your
 -- load balancer's back-end Amazon EC2 application instances. To only allow
 -- traffic from load balancers, add a security group rule to your back end
 -- instance that specifies this source security group as the inbound source.
-lbeSourceSecurityGroup
-    :: Functor f
-    => (Maybe SourceSecurityGroup
-    -> f (Maybe SourceSecurityGroup))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
 lbeSourceSecurityGroup f x =
-    (\y -> x { _lbeSourceSecurityGroup = y })
-       <$> f (_lbeSourceSecurityGroup x)
+    f (_lbeSourceSecurityGroup x)
+        <&> \y -> x { _lbeSourceSecurityGroup = y }
 {-# INLINE lbeSourceSecurityGroup #-}
 
 -- | The security groups the load balancer is a member of (VPC only).
-lbeSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeSecurityGroups :: Lens' LoadBalancerDescription ([Text])
 lbeSecurityGroups f x =
-    (\y -> x { _lbeSecurityGroups = y })
-       <$> f (_lbeSecurityGroups x)
+    f (_lbeSecurityGroups x)
+        <&> \y -> x { _lbeSecurityGroups = y }
 {-# INLINE lbeSecurityGroups #-}
 
 -- | Provides the date and time the load balancer was created.
-lbeCreatedTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeCreatedTime :: Lens' LoadBalancerDescription (Maybe ISO8601)
 lbeCreatedTime f x =
-    (\y -> x { _lbeCreatedTime = y })
-       <$> f (_lbeCreatedTime x)
+    f (_lbeCreatedTime x)
+        <&> \y -> x { _lbeCreatedTime = y }
 {-# INLINE lbeCreatedTime #-}
 
 -- | Specifies the type of load balancer. If the Scheme is internet-facing, the
@@ -1291,15 +1036,10 @@ lbeCreatedTime f x =
 -- addresses. If the Scheme is internal, the load balancer has a publicly
 -- resolvable DNS name that resolves to private IP addresses. This option is
 -- only available for load balancers attached to an Amazon VPC.
-lbeScheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoadBalancerDescription
-    -> f LoadBalancerDescription
+lbeScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbeScheme f x =
-    (\y -> x { _lbeScheme = y })
-       <$> f (_lbeScheme x)
+    f (_lbeScheme x)
+        <&> \y -> x { _lbeScheme = y }
 {-# INLINE lbeScheme #-}
 
 instance FromXML LoadBalancerDescription where
@@ -1320,40 +1060,25 @@ data Policies = Policies
 
 -- | A list of the AppCookieStickinessPolicy objects created with
 -- CreateAppCookieStickinessPolicy.
-pxAppCookieStickinessPolicies
-    :: Functor f
-    => ([AppCookieStickinessPolicy]
-    -> f ([AppCookieStickinessPolicy]))
-    -> Policies
-    -> f Policies
+pxAppCookieStickinessPolicies :: Lens' Policies ([AppCookieStickinessPolicy])
 pxAppCookieStickinessPolicies f x =
-    (\y -> x { _pxAppCookieStickinessPolicies = y })
-       <$> f (_pxAppCookieStickinessPolicies x)
+    f (_pxAppCookieStickinessPolicies x)
+        <&> \y -> x { _pxAppCookieStickinessPolicies = y }
 {-# INLINE pxAppCookieStickinessPolicies #-}
 
 -- | A list of LBCookieStickinessPolicy objects created with
 -- CreateAppCookieStickinessPolicy.
-pxLBCookieStickinessPolicies
-    :: Functor f
-    => ([LBCookieStickinessPolicy]
-    -> f ([LBCookieStickinessPolicy]))
-    -> Policies
-    -> f Policies
+pxLBCookieStickinessPolicies :: Lens' Policies ([LBCookieStickinessPolicy])
 pxLBCookieStickinessPolicies f x =
-    (\y -> x { _pxLBCookieStickinessPolicies = y })
-       <$> f (_pxLBCookieStickinessPolicies x)
+    f (_pxLBCookieStickinessPolicies x)
+        <&> \y -> x { _pxLBCookieStickinessPolicies = y }
 {-# INLINE pxLBCookieStickinessPolicies #-}
 
 -- | A list of policy names other than the stickiness policies.
-pxOtherPolicies
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> Policies
-    -> f Policies
+pxOtherPolicies :: Lens' Policies ([Text])
 pxOtherPolicies f x =
-    (\y -> x { _pxOtherPolicies = y })
-       <$> f (_pxOtherPolicies x)
+    f (_pxOtherPolicies x)
+        <&> \y -> x { _pxOtherPolicies = y }
 {-# INLINE pxOtherPolicies #-}
 
 instance FromXML Policies where
@@ -1373,27 +1098,17 @@ data PolicyAttribute = PolicyAttribute
     } deriving (Show, Generic)
 
 -- | The name of the attribute associated with the policy.
-pbAttributeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttribute
-    -> f PolicyAttribute
+pbAttributeName :: Lens' PolicyAttribute (Maybe Text)
 pbAttributeName f x =
-    (\y -> x { _pbAttributeName = y })
-       <$> f (_pbAttributeName x)
+    f (_pbAttributeName x)
+        <&> \y -> x { _pbAttributeName = y }
 {-# INLINE pbAttributeName #-}
 
 -- | The value of the attribute associated with the policy.
-pbAttributeValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttribute
-    -> f PolicyAttribute
+pbAttributeValue :: Lens' PolicyAttribute (Maybe Text)
 pbAttributeValue f x =
-    (\y -> x { _pbAttributeValue = y })
-       <$> f (_pbAttributeValue x)
+    f (_pbAttributeValue x)
+        <&> \y -> x { _pbAttributeValue = y }
 {-# INLINE pbAttributeValue #-}
 
 instance ToQuery PolicyAttribute where
@@ -1409,27 +1124,17 @@ data PolicyAttributeDescription = PolicyAttributeDescription
     } deriving (Show, Generic)
 
 -- | The name of the attribute associated with the policy.
-paeAttributeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeDescription
-    -> f PolicyAttributeDescription
+paeAttributeName :: Lens' PolicyAttributeDescription (Maybe Text)
 paeAttributeName f x =
-    (\y -> x { _paeAttributeName = y })
-       <$> f (_paeAttributeName x)
+    f (_paeAttributeName x)
+        <&> \y -> x { _paeAttributeName = y }
 {-# INLINE paeAttributeName #-}
 
 -- | The value of the attribute associated with the policy.
-paeAttributeValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeDescription
-    -> f PolicyAttributeDescription
+paeAttributeValue :: Lens' PolicyAttributeDescription (Maybe Text)
 paeAttributeValue f x =
-    (\y -> x { _paeAttributeValue = y })
-       <$> f (_paeAttributeValue x)
+    f (_paeAttributeValue x)
+        <&> \y -> x { _paeAttributeValue = y }
 {-# INLINE paeAttributeValue #-}
 
 instance FromXML PolicyAttributeDescription where
@@ -1459,66 +1164,41 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
     } deriving (Show, Generic)
 
 -- | The name of the attribute associated with the policy type.
-pateAttributeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeTypeDescription
-    -> f PolicyAttributeTypeDescription
+pateAttributeName :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 pateAttributeName f x =
-    (\y -> x { _pateAttributeName = y })
-       <$> f (_pateAttributeName x)
+    f (_pateAttributeName x)
+        <&> \y -> x { _pateAttributeName = y }
 {-# INLINE pateAttributeName #-}
 
 -- | The type of attribute. For example, Boolean, Integer, etc.
-pateAttributeType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeTypeDescription
-    -> f PolicyAttributeTypeDescription
+pateAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 pateAttributeType f x =
-    (\y -> x { _pateAttributeType = y })
-       <$> f (_pateAttributeType x)
+    f (_pateAttributeType x)
+        <&> \y -> x { _pateAttributeType = y }
 {-# INLINE pateAttributeType #-}
 
 -- | A human-readable description of the attribute.
-pateDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeTypeDescription
-    -> f PolicyAttributeTypeDescription
+pateDescription :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 pateDescription f x =
-    (\y -> x { _pateDescription = y })
-       <$> f (_pateDescription x)
+    f (_pateDescription x)
+        <&> \y -> x { _pateDescription = y }
 {-# INLINE pateDescription #-}
 
 -- | The default value of the attribute, if applicable.
-pateDefaultValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeTypeDescription
-    -> f PolicyAttributeTypeDescription
+pateDefaultValue :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 pateDefaultValue f x =
-    (\y -> x { _pateDefaultValue = y })
-       <$> f (_pateDefaultValue x)
+    f (_pateDefaultValue x)
+        <&> \y -> x { _pateDefaultValue = y }
 {-# INLINE pateDefaultValue #-}
 
 -- | The cardinality of the attribute. Valid Values: ONE(1) : Single value
 -- required ZERO_OR_ONE(0..1) : Up to one value can be supplied
 -- ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
 -- ONE_OR_MORE(1..*0) : Required. Multiple values are allowed.
-pateCardinality
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyAttributeTypeDescription
-    -> f PolicyAttributeTypeDescription
+pateCardinality :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 pateCardinality f x =
-    (\y -> x { _pateCardinality = y })
-       <$> f (_pateCardinality x)
+    f (_pateCardinality x)
+        <&> \y -> x { _pateCardinality = y }
 {-# INLINE pateCardinality #-}
 
 instance FromXML PolicyAttributeTypeDescription where
@@ -1539,39 +1219,24 @@ data PolicyDescription = PolicyDescription
     } deriving (Show, Generic)
 
 -- | The name of the policy associated with the load balancer.
-pePolicyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyDescription
-    -> f PolicyDescription
+pePolicyName :: Lens' PolicyDescription (Maybe Text)
 pePolicyName f x =
-    (\y -> x { _pePolicyName = y })
-       <$> f (_pePolicyName x)
+    f (_pePolicyName x)
+        <&> \y -> x { _pePolicyName = y }
 {-# INLINE pePolicyName #-}
 
 -- | The name of the policy type associated with the load balancer.
-pePolicyTypeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyDescription
-    -> f PolicyDescription
+pePolicyTypeName :: Lens' PolicyDescription (Maybe Text)
 pePolicyTypeName f x =
-    (\y -> x { _pePolicyTypeName = y })
-       <$> f (_pePolicyTypeName x)
+    f (_pePolicyTypeName x)
+        <&> \y -> x { _pePolicyTypeName = y }
 {-# INLINE pePolicyTypeName #-}
 
 -- | A list of policy attribute description structures.
-pePolicyAttributeDescriptions
-    :: Functor f
-    => ([PolicyAttributeDescription]
-    -> f ([PolicyAttributeDescription]))
-    -> PolicyDescription
-    -> f PolicyDescription
+pePolicyAttributeDescriptions :: Lens' PolicyDescription ([PolicyAttributeDescription])
 pePolicyAttributeDescriptions f x =
-    (\y -> x { _pePolicyAttributeDescriptions = y })
-       <$> f (_pePolicyAttributeDescriptions x)
+    f (_pePolicyAttributeDescriptions x)
+        <&> \y -> x { _pePolicyAttributeDescriptions = y }
 {-# INLINE pePolicyAttributeDescriptions #-}
 
 instance FromXML PolicyDescription where
@@ -1590,40 +1255,25 @@ data PolicyTypeDescription = PolicyTypeDescription
     } deriving (Show, Generic)
 
 -- | The name of the policy type.
-ptePolicyTypeName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyTypeDescription
-    -> f PolicyTypeDescription
+ptePolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
 ptePolicyTypeName f x =
-    (\y -> x { _ptePolicyTypeName = y })
-       <$> f (_ptePolicyTypeName x)
+    f (_ptePolicyTypeName x)
+        <&> \y -> x { _ptePolicyTypeName = y }
 {-# INLINE ptePolicyTypeName #-}
 
 -- | A human-readable description of the policy type.
-pteDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PolicyTypeDescription
-    -> f PolicyTypeDescription
+pteDescription :: Lens' PolicyTypeDescription (Maybe Text)
 pteDescription f x =
-    (\y -> x { _pteDescription = y })
-       <$> f (_pteDescription x)
+    f (_pteDescription x)
+        <&> \y -> x { _pteDescription = y }
 {-# INLINE pteDescription #-}
 
 -- | The description of the policy attributes associated with the load balancer
 -- policies defined by the Elastic Load Balancing service.
-ptePolicyAttributeTypeDescriptions
-    :: Functor f
-    => ([PolicyAttributeTypeDescription]
-    -> f ([PolicyAttributeTypeDescription]))
-    -> PolicyTypeDescription
-    -> f PolicyTypeDescription
+ptePolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription ([PolicyAttributeTypeDescription])
 ptePolicyAttributeTypeDescriptions f x =
-    (\y -> x { _ptePolicyAttributeTypeDescriptions = y })
-       <$> f (_ptePolicyAttributeTypeDescriptions x)
+    f (_ptePolicyAttributeTypeDescriptions x)
+        <&> \y -> x { _ptePolicyAttributeTypeDescriptions = y }
 {-# INLINE ptePolicyAttributeTypeDescriptions #-}
 
 instance FromXML PolicyTypeDescription where
@@ -1648,28 +1298,18 @@ data SourceSecurityGroup = SourceSecurityGroup
 -- | Owner of the source security group. Use this value for the
 -- --source-group-user parameter of the ec2-authorize command in the Amazon
 -- EC2 command line tool.
-ssgOwnerAlias
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SourceSecurityGroup
-    -> f SourceSecurityGroup
+ssgOwnerAlias :: Lens' SourceSecurityGroup (Maybe Text)
 ssgOwnerAlias f x =
-    (\y -> x { _ssgOwnerAlias = y })
-       <$> f (_ssgOwnerAlias x)
+    f (_ssgOwnerAlias x)
+        <&> \y -> x { _ssgOwnerAlias = y }
 {-# INLINE ssgOwnerAlias #-}
 
 -- | Name of the source security group. Use this value for the --source-group
 -- parameter of the ec2-authorize command in the Amazon EC2 command line tool.
-ssgGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SourceSecurityGroup
-    -> f SourceSecurityGroup
+ssgGroupName :: Lens' SourceSecurityGroup (Maybe Text)
 ssgGroupName f x =
-    (\y -> x { _ssgGroupName = y })
-       <$> f (_ssgGroupName x)
+    f (_ssgGroupName x)
+        <&> \y -> x { _ssgGroupName = y }
 {-# INLINE ssgGroupName #-}
 
 instance FromXML SourceSecurityGroup where
@@ -1689,27 +1329,17 @@ data Tag = Tag
     } deriving (Show, Generic)
 
 -- | The key of the tag.
-tKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Tag
-    -> f Tag
+tKey :: Lens' Tag (Text)
 tKey f x =
-    (\y -> x { _tKey = y })
-       <$> f (_tKey x)
+    f (_tKey x)
+        <&> \y -> x { _tKey = y }
 {-# INLINE tKey #-}
 
 -- | The value of the tag.
-tValue
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Tag
-    -> f Tag
+tValue :: Lens' Tag (Maybe Text)
 tValue f x =
-    (\y -> x { _tValue = y })
-       <$> f (_tValue x)
+    f (_tValue x)
+        <&> \y -> x { _tValue = y }
 {-# INLINE tValue #-}
 
 instance FromXML Tag where
@@ -1728,27 +1358,17 @@ data TagDescription = TagDescription
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-teLoadBalancerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TagDescription
-    -> f TagDescription
+teLoadBalancerName :: Lens' TagDescription (Maybe Text)
 teLoadBalancerName f x =
-    (\y -> x { _teLoadBalancerName = y })
-       <$> f (_teLoadBalancerName x)
+    f (_teLoadBalancerName x)
+        <&> \y -> x { _teLoadBalancerName = y }
 {-# INLINE teLoadBalancerName #-}
 
 -- | List of tags associated with the load balancer.
-teTags
-    :: Functor f
-    => (Maybe [Tag]
-    -> f (Maybe [Tag]))
-    -> TagDescription
-    -> f TagDescription
+teTags :: Lens' TagDescription (Maybe [Tag])
 teTags f x =
-    (\y -> x { _teTags = y })
-       <$> f (_teTags x)
+    f (_teTags x)
+        <&> \y -> x { _teTags = y }
 {-# INLINE teTags #-}
 
 instance FromXML TagDescription where

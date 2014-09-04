@@ -46,6 +46,7 @@ deleteLaunchConfiguration :: Text -- ^ 'lcntLaunchConfigurationName'
 deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
     { _lcntLaunchConfigurationName = p1
     }
+{-# INLINE deleteLaunchConfiguration #-}
 
 data DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _lcntLaunchConfigurationName :: Text
@@ -53,15 +54,10 @@ data DeleteLaunchConfiguration = DeleteLaunchConfiguration
     } deriving (Show, Generic)
 
 -- | The name of the launch configuration.
-lcntLaunchConfigurationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLaunchConfiguration
-    -> f DeleteLaunchConfiguration
+lcntLaunchConfigurationName :: Lens' DeleteLaunchConfiguration (Text)
 lcntLaunchConfigurationName f x =
-    (\y -> x { _lcntLaunchConfigurationName = y })
-       <$> f (_lcntLaunchConfigurationName x)
+    f (_lcntLaunchConfigurationName x)
+        <&> \y -> x { _lcntLaunchConfigurationName = y }
 {-# INLINE lcntLaunchConfigurationName #-}
 
 instance ToQuery DeleteLaunchConfiguration where

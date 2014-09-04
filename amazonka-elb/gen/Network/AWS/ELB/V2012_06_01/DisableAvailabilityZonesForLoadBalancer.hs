@@ -60,6 +60,7 @@ disableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadB
     { _raziLoadBalancerName = p1
     , _raziAvailabilityZones = p2
     }
+{-# INLINE disableAvailabilityZonesForLoadBalancer #-}
 
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
     { _raziLoadBalancerName :: Text
@@ -72,29 +73,19 @@ data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBa
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer.
-raziLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableAvailabilityZonesForLoadBalancer
-    -> f DisableAvailabilityZonesForLoadBalancer
+raziLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer (Text)
 raziLoadBalancerName f x =
-    (\y -> x { _raziLoadBalancerName = y })
-       <$> f (_raziLoadBalancerName x)
+    f (_raziLoadBalancerName x)
+        <&> \y -> x { _raziLoadBalancerName = y }
 {-# INLINE raziLoadBalancerName #-}
 
 -- | A list of Availability Zones to be removed from the load balancer. There
 -- must be at least one Availability Zone registered with a load balancer at
 -- all times. Specified Availability Zones must be in the same region.
-raziAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DisableAvailabilityZonesForLoadBalancer
-    -> f DisableAvailabilityZonesForLoadBalancer
+raziAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer ([Text])
 raziAvailabilityZones f x =
-    (\y -> x { _raziAvailabilityZones = y })
-       <$> f (_raziAvailabilityZones x)
+    f (_raziAvailabilityZones x)
+        <&> \y -> x { _raziAvailabilityZones = y }
 {-# INLINE raziAvailabilityZones #-}
 
 instance ToQuery DisableAvailabilityZonesForLoadBalancer where
@@ -106,15 +97,10 @@ data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesF
     } deriving (Show, Generic)
 
 -- | A list of updated Availability Zones for the load balancer.
-razoAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DisableAvailabilityZonesForLoadBalancerResponse
-    -> f DisableAvailabilityZonesForLoadBalancerResponse
+razoAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse ([Text])
 razoAvailabilityZones f x =
-    (\y -> x { _razoAvailabilityZones = y })
-       <$> f (_razoAvailabilityZones x)
+    f (_razoAvailabilityZones x)
+        <&> \y -> x { _razoAvailabilityZones = y }
 {-# INLINE razoAvailabilityZones #-}
 
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where

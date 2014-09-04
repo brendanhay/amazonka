@@ -69,13 +69,15 @@ data DeleteSecurityGroup = DeleteSecurityGroup
 -- | [EC2-Classic, default VPC] The name of the security group.
 dsgrGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgrGroupName f x =
-    f (_dsgrGroupName x) <&> \y -> x { _dsgrGroupName = y }
+    f (_dsgrGroupName x)
+        <&> \y -> x { _dsgrGroupName = y }
 {-# INLINE dsgrGroupName #-}
 
 -- | The ID of the security group.
 dsgrGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgrGroupId f x =
-    f (_dsgrGroupId x) <&> \y -> x { _dsgrGroupId = y }
+    f (_dsgrGroupId x)
+        <&> \y -> x { _dsgrGroupId = y }
 {-# INLINE dsgrGroupId #-}
 
 instance ToQuery DeleteSecurityGroup where

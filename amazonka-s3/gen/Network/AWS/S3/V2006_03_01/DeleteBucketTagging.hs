@@ -41,20 +41,16 @@ deleteBucketTagging :: BucketName -- ^ 'dbtrBucket'
 deleteBucketTagging p1 = DeleteBucketTagging
     { _dbtrBucket = p1
     }
+{-# INLINE deleteBucketTagging #-}
 
 data DeleteBucketTagging = DeleteBucketTagging
     { _dbtrBucket :: BucketName
     } deriving (Show, Generic)
 
-dbtrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteBucketTagging
-    -> f DeleteBucketTagging
+dbtrBucket :: Lens' DeleteBucketTagging (BucketName)
 dbtrBucket f x =
-    (\y -> x { _dbtrBucket = y })
-       <$> f (_dbtrBucket x)
+    f (_dbtrBucket x)
+        <&> \y -> x { _dbtrBucket = y }
 {-# INLINE dbtrBucket #-}
 
 instance ToPath DeleteBucketTagging where

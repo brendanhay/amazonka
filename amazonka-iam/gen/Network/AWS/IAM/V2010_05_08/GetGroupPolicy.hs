@@ -54,6 +54,7 @@ getGroupPolicy p1 p2 = GetGroupPolicy
     { _ggprGroupName = p1
     , _ggprPolicyName = p2
     }
+{-# INLINE getGroupPolicy #-}
 
 data GetGroupPolicy = GetGroupPolicy
     { _ggprGroupName :: Text
@@ -63,27 +64,17 @@ data GetGroupPolicy = GetGroupPolicy
     } deriving (Show, Generic)
 
 -- | Name of the group the policy is associated with.
-ggprGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetGroupPolicy
-    -> f GetGroupPolicy
+ggprGroupName :: Lens' GetGroupPolicy (Text)
 ggprGroupName f x =
-    (\y -> x { _ggprGroupName = y })
-       <$> f (_ggprGroupName x)
+    f (_ggprGroupName x)
+        <&> \y -> x { _ggprGroupName = y }
 {-# INLINE ggprGroupName #-}
 
 -- | Name of the policy document to get.
-ggprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetGroupPolicy
-    -> f GetGroupPolicy
+ggprPolicyName :: Lens' GetGroupPolicy (Text)
 ggprPolicyName f x =
-    (\y -> x { _ggprPolicyName = y })
-       <$> f (_ggprPolicyName x)
+    f (_ggprPolicyName x)
+        <&> \y -> x { _ggprPolicyName = y }
 {-# INLINE ggprPolicyName #-}
 
 instance ToQuery GetGroupPolicy where
@@ -99,39 +90,24 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
     } deriving (Show, Generic)
 
 -- | The group the policy is associated with.
-ggpsGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetGroupPolicyResponse
-    -> f GetGroupPolicyResponse
+ggpsGroupName :: Lens' GetGroupPolicyResponse (Text)
 ggpsGroupName f x =
-    (\y -> x { _ggpsGroupName = y })
-       <$> f (_ggpsGroupName x)
+    f (_ggpsGroupName x)
+        <&> \y -> x { _ggpsGroupName = y }
 {-# INLINE ggpsGroupName #-}
 
 -- | The policy document.
-ggpsPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetGroupPolicyResponse
-    -> f GetGroupPolicyResponse
+ggpsPolicyDocument :: Lens' GetGroupPolicyResponse (Text)
 ggpsPolicyDocument f x =
-    (\y -> x { _ggpsPolicyDocument = y })
-       <$> f (_ggpsPolicyDocument x)
+    f (_ggpsPolicyDocument x)
+        <&> \y -> x { _ggpsPolicyDocument = y }
 {-# INLINE ggpsPolicyDocument #-}
 
 -- | The name of the policy.
-ggpsPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetGroupPolicyResponse
-    -> f GetGroupPolicyResponse
+ggpsPolicyName :: Lens' GetGroupPolicyResponse (Text)
 ggpsPolicyName f x =
-    (\y -> x { _ggpsPolicyName = y })
-       <$> f (_ggpsPolicyName x)
+    f (_ggpsPolicyName x)
+        <&> \y -> x { _ggpsPolicyName = y }
 {-# INLINE ggpsPolicyName #-}
 
 instance FromXML GetGroupPolicyResponse where

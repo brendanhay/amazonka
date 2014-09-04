@@ -58,9 +58,10 @@ data DeleteVpnGateway = DeleteVpnGateway
     } deriving (Show, Generic)
 
 -- | The ID of the virtual private gateway.
-dvgrVpnGatewayId :: Lens' DeleteVpnGateway Text
+dvgrVpnGatewayId :: Lens' DeleteVpnGateway (Text)
 dvgrVpnGatewayId f x =
-    f (_dvgrVpnGatewayId x) <&> \y -> x { _dvgrVpnGatewayId = y }
+    f (_dvgrVpnGatewayId x)
+        <&> \y -> x { _dvgrVpnGatewayId = y }
 {-# INLINE dvgrVpnGatewayId #-}
 
 instance ToQuery DeleteVpnGateway where

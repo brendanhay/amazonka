@@ -93,9 +93,10 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-apiarNetworkInterfaceId :: Lens' AssignPrivateIpAddresses Text
+apiarNetworkInterfaceId :: Lens' AssignPrivateIpAddresses (Text)
 apiarNetworkInterfaceId f x =
-    f (_apiarNetworkInterfaceId x) <&> \y -> x { _apiarNetworkInterfaceId = y }
+    f (_apiarNetworkInterfaceId x)
+        <&> \y -> x { _apiarNetworkInterfaceId = y }
 {-# INLINE apiarNetworkInterfaceId #-}
 
 -- | Indicates whether to allow an IP address that is already assigned to
@@ -103,21 +104,24 @@ apiarNetworkInterfaceId f x =
 -- network interface.
 apiarAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
 apiarAllowReassignment f x =
-    f (_apiarAllowReassignment x) <&> \y -> x { _apiarAllowReassignment = y }
+    f (_apiarAllowReassignment x)
+        <&> \y -> x { _apiarAllowReassignment = y }
 {-# INLINE apiarAllowReassignment #-}
 
 -- | The number of secondary IP addresses to assign to the network interface.
 apiarSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)
 apiarSecondaryPrivateIpAddressCount f x =
-    f (_apiarSecondaryPrivateIpAddressCount x) <&> \y -> x { _apiarSecondaryPrivateIpAddressCount = y }
+    f (_apiarSecondaryPrivateIpAddressCount x)
+        <&> \y -> x { _apiarSecondaryPrivateIpAddressCount = y }
 {-# INLINE apiarSecondaryPrivateIpAddressCount #-}
 
 -- | One or more IP addresses to be assigned as a secondary private IP address
 -- to the network interface. If you don't specify an IP address, Amazon EC2
 -- automatically selects an IP address within the subnet range.
-apiarPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
+apiarPrivateIpAddresses :: Lens' AssignPrivateIpAddresses ([Text])
 apiarPrivateIpAddresses f x =
-    f (_apiarPrivateIpAddresses x) <&> \y -> x { _apiarPrivateIpAddresses = y }
+    f (_apiarPrivateIpAddresses x)
+        <&> \y -> x { _apiarPrivateIpAddresses = y }
 {-# INLINE apiarPrivateIpAddresses #-}
 
 instance ToQuery AssignPrivateIpAddresses where

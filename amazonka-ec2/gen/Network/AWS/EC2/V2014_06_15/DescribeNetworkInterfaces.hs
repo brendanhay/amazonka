@@ -229,16 +229,18 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the network interface.
-dnisFilters :: Lens' DescribeNetworkInterfaces [Filter]
+dnisFilters :: Lens' DescribeNetworkInterfaces ([Filter])
 dnisFilters f x =
-    f (_dnisFilters x) <&> \y -> x { _dnisFilters = y }
+    f (_dnisFilters x)
+        <&> \y -> x { _dnisFilters = y }
 {-# INLINE dnisFilters #-}
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
-dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
+dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces ([Text])
 dnisNetworkInterfaceIds f x =
-    f (_dnisNetworkInterfaceIds x) <&> \y -> x { _dnisNetworkInterfaceIds = y }
+    f (_dnisNetworkInterfaceIds x)
+        <&> \y -> x { _dnisNetworkInterfaceIds = y }
 {-# INLINE dnisNetworkInterfaceIds #-}
 
 instance ToQuery DescribeNetworkInterfaces where
@@ -250,9 +252,10 @@ data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more network interfaces.
-dnitNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
+dnitNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse ([NetworkInterface])
 dnitNetworkInterfaces f x =
-    f (_dnitNetworkInterfaces x) <&> \y -> x { _dnitNetworkInterfaces = y }
+    f (_dnitNetworkInterfaces x)
+        <&> \y -> x { _dnitNetworkInterfaces = y }
 {-# INLINE dnitNetworkInterfaces #-}
 
 instance FromXML DescribeNetworkInterfacesResponse where

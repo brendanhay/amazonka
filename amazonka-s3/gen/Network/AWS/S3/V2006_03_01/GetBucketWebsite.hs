@@ -46,20 +46,16 @@ getBucketWebsite :: BucketName -- ^ 'gbwrBucket'
 getBucketWebsite p1 = GetBucketWebsite
     { _gbwrBucket = p1
     }
+{-# INLINE getBucketWebsite #-}
 
 data GetBucketWebsite = GetBucketWebsite
     { _gbwrBucket :: BucketName
     } deriving (Show, Generic)
 
-gbwrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketWebsite
-    -> f GetBucketWebsite
+gbwrBucket :: Lens' GetBucketWebsite (BucketName)
 gbwrBucket f x =
-    (\y -> x { _gbwrBucket = y })
-       <$> f (_gbwrBucket x)
+    f (_gbwrBucket x)
+        <&> \y -> x { _gbwrBucket = y }
 {-# INLINE gbwrBucket #-}
 
 instance ToPath GetBucketWebsite where
@@ -84,48 +80,28 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     , _gbwoRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
-gbwoErrorDocument
-    :: Functor f
-    => (Maybe ErrorDocument
-    -> f (Maybe ErrorDocument))
-    -> GetBucketWebsiteResponse
-    -> f GetBucketWebsiteResponse
+gbwoErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwoErrorDocument f x =
-    (\y -> x { _gbwoErrorDocument = y })
-       <$> f (_gbwoErrorDocument x)
+    f (_gbwoErrorDocument x)
+        <&> \y -> x { _gbwoErrorDocument = y }
 {-# INLINE gbwoErrorDocument #-}
 
-gbwoIndexDocument
-    :: Functor f
-    => (Maybe IndexDocument
-    -> f (Maybe IndexDocument))
-    -> GetBucketWebsiteResponse
-    -> f GetBucketWebsiteResponse
+gbwoIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwoIndexDocument f x =
-    (\y -> x { _gbwoIndexDocument = y })
-       <$> f (_gbwoIndexDocument x)
+    f (_gbwoIndexDocument x)
+        <&> \y -> x { _gbwoIndexDocument = y }
 {-# INLINE gbwoIndexDocument #-}
 
-gbwoRedirectAllRequestsTo
-    :: Functor f
-    => (Maybe RedirectAllRequestsTo
-    -> f (Maybe RedirectAllRequestsTo))
-    -> GetBucketWebsiteResponse
-    -> f GetBucketWebsiteResponse
+gbwoRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
 gbwoRedirectAllRequestsTo f x =
-    (\y -> x { _gbwoRedirectAllRequestsTo = y })
-       <$> f (_gbwoRedirectAllRequestsTo x)
+    f (_gbwoRedirectAllRequestsTo x)
+        <&> \y -> x { _gbwoRedirectAllRequestsTo = y }
 {-# INLINE gbwoRedirectAllRequestsTo #-}
 
-gbwoRoutingRules
-    :: Functor f
-    => ([RoutingRule]
-    -> f ([RoutingRule]))
-    -> GetBucketWebsiteResponse
-    -> f GetBucketWebsiteResponse
+gbwoRoutingRules :: Lens' GetBucketWebsiteResponse ([RoutingRule])
 gbwoRoutingRules f x =
-    (\y -> x { _gbwoRoutingRules = y })
-       <$> f (_gbwoRoutingRules x)
+    f (_gbwoRoutingRules x)
+        <&> \y -> x { _gbwoRoutingRules = y }
 {-# INLINE gbwoRoutingRules #-}
 
 instance FromXML GetBucketWebsiteResponse where

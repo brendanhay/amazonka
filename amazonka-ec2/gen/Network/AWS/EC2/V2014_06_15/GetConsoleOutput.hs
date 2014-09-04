@@ -87,9 +87,10 @@ data GetConsoleOutput = GetConsoleOutput
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-gcorInstanceId :: Lens' GetConsoleOutput Text
+gcorInstanceId :: Lens' GetConsoleOutput (Text)
 gcorInstanceId f x =
-    f (_gcorInstanceId x) <&> \y -> x { _gcorInstanceId = y }
+    f (_gcorInstanceId x)
+        <&> \y -> x { _gcorInstanceId = y }
 {-# INLINE gcorInstanceId #-}
 
 instance ToQuery GetConsoleOutput where
@@ -107,19 +108,22 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
 -- | The time the output was last updated.
 gcosTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
 gcosTimestamp f x =
-    f (_gcosTimestamp x) <&> \y -> x { _gcosTimestamp = y }
+    f (_gcosTimestamp x)
+        <&> \y -> x { _gcosTimestamp = y }
 {-# INLINE gcosTimestamp #-}
 
 -- | The ID of the instance.
 gcosInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcosInstanceId f x =
-    f (_gcosInstanceId x) <&> \y -> x { _gcosInstanceId = y }
+    f (_gcosInstanceId x)
+        <&> \y -> x { _gcosInstanceId = y }
 {-# INLINE gcosInstanceId #-}
 
 -- | The console output, Base64 encoded.
 gcosOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcosOutput f x =
-    f (_gcosOutput x) <&> \y -> x { _gcosOutput = y }
+    f (_gcosOutput x)
+        <&> \y -> x { _gcosOutput = y }
 {-# INLINE gcosOutput #-}
 
 instance FromXML GetConsoleOutputResponse where

@@ -44,20 +44,16 @@ getBucketAcl :: BucketName -- ^ 'gbarBucket'
 getBucketAcl p1 = GetBucketAcl
     { _gbarBucket = p1
     }
+{-# INLINE getBucketAcl #-}
 
 data GetBucketAcl = GetBucketAcl
     { _gbarBucket :: BucketName
     } deriving (Show, Generic)
 
-gbarBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketAcl
-    -> f GetBucketAcl
+gbarBucket :: Lens' GetBucketAcl (BucketName)
 gbarBucket f x =
-    (\y -> x { _gbarBucket = y })
-       <$> f (_gbarBucket x)
+    f (_gbarBucket x)
+        <&> \y -> x { _gbarBucket = y }
 {-# INLINE gbarBucket #-}
 
 instance ToPath GetBucketAcl where
@@ -82,26 +78,16 @@ data GetBucketAclResponse = GetBucketAclResponse
     } deriving (Show, Generic)
 
 -- | A list of grants.
-gbaoGrants
-    :: Functor f
-    => ([Grant]
-    -> f ([Grant]))
-    -> GetBucketAclResponse
-    -> f GetBucketAclResponse
+gbaoGrants :: Lens' GetBucketAclResponse ([Grant])
 gbaoGrants f x =
-    (\y -> x { _gbaoGrants = y })
-       <$> f (_gbaoGrants x)
+    f (_gbaoGrants x)
+        <&> \y -> x { _gbaoGrants = y }
 {-# INLINE gbaoGrants #-}
 
-gbaoOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> GetBucketAclResponse
-    -> f GetBucketAclResponse
+gbaoOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbaoOwner f x =
-    (\y -> x { _gbaoOwner = y })
-       <$> f (_gbaoOwner x)
+    f (_gbaoOwner x)
+        <&> \y -> x { _gbaoOwner = y }
 {-# INLINE gbaoOwner #-}
 
 instance FromXML GetBucketAclResponse where

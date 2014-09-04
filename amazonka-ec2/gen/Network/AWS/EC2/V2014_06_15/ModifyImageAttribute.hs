@@ -88,61 +88,70 @@ data ModifyImageAttribute = ModifyImageAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the AMI.
-miarImageId :: Lens' ModifyImageAttribute Text
+miarImageId :: Lens' ModifyImageAttribute (Text)
 miarImageId f x =
-    f (_miarImageId x) <&> \y -> x { _miarImageId = y }
+    f (_miarImageId x)
+        <&> \y -> x { _miarImageId = y }
 {-# INLINE miarImageId #-}
 
 -- | A description for the AMI.
 miarDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
 miarDescription f x =
-    f (_miarDescription x) <&> \y -> x { _miarDescription = y }
+    f (_miarDescription x)
+        <&> \y -> x { _miarDescription = y }
 {-# INLINE miarDescription #-}
 
 -- | 
 miarLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
 miarLaunchPermission f x =
-    f (_miarLaunchPermission x) <&> \y -> x { _miarLaunchPermission = y }
+    f (_miarLaunchPermission x)
+        <&> \y -> x { _miarLaunchPermission = y }
 {-# INLINE miarLaunchPermission #-}
 
 -- | One or more product codes. After you add a product code to an AMI, it can't
 -- be removed. This is only valid when modifying the productCodes attribute.
-miarProductCodes :: Lens' ModifyImageAttribute [Text]
+miarProductCodes :: Lens' ModifyImageAttribute ([Text])
 miarProductCodes f x =
-    f (_miarProductCodes x) <&> \y -> x { _miarProductCodes = y }
+    f (_miarProductCodes x)
+        <&> \y -> x { _miarProductCodes = y }
 {-# INLINE miarProductCodes #-}
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
-miarUserGroups :: Lens' ModifyImageAttribute [Text]
+miarUserGroups :: Lens' ModifyImageAttribute ([Text])
 miarUserGroups f x =
-    f (_miarUserGroups x) <&> \y -> x { _miarUserGroups = y }
+    f (_miarUserGroups x)
+        <&> \y -> x { _miarUserGroups = y }
 {-# INLINE miarUserGroups #-}
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
-miarUserIds :: Lens' ModifyImageAttribute [Text]
+miarUserIds :: Lens' ModifyImageAttribute ([Text])
 miarUserIds f x =
-    f (_miarUserIds x) <&> \y -> x { _miarUserIds = y }
+    f (_miarUserIds x)
+        <&> \y -> x { _miarUserIds = y }
 {-# INLINE miarUserIds #-}
 
 -- | The name of the attribute to modify.
 miarAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miarAttribute f x =
-    f (_miarAttribute x) <&> \y -> x { _miarAttribute = y }
+    f (_miarAttribute x)
+        <&> \y -> x { _miarAttribute = y }
 {-# INLINE miarAttribute #-}
 
 -- | The operation type.
 miarOperationType :: Lens' ModifyImageAttribute (Maybe Text)
 miarOperationType f x =
-    f (_miarOperationType x) <&> \y -> x { _miarOperationType = y }
+    f (_miarOperationType x)
+        <&> \y -> x { _miarOperationType = y }
 {-# INLINE miarOperationType #-}
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.
 miarValue :: Lens' ModifyImageAttribute (Maybe Text)
 miarValue f x =
-    f (_miarValue x) <&> \y -> x { _miarValue = y }
+    f (_miarValue x)
+        <&> \y -> x { _miarValue = y }
 {-# INLINE miarValue #-}
 
 instance ToQuery ModifyImageAttribute where

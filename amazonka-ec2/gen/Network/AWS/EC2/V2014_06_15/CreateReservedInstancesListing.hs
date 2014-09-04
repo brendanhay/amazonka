@@ -97,30 +97,34 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
 -- be listed in the Reserved Instance Marketplace. This number should be less
 -- than or equal to the instance count associated with the Reserved Instance
 -- ID specified in this call.
-criltInstanceCount :: Lens' CreateReservedInstancesListing Integer
+criltInstanceCount :: Lens' CreateReservedInstancesListing (Integer)
 criltInstanceCount f x =
-    f (_criltInstanceCount x) <&> \y -> x { _criltInstanceCount = y }
+    f (_criltInstanceCount x)
+        <&> \y -> x { _criltInstanceCount = y }
 {-# INLINE criltInstanceCount #-}
 
 -- | A list specifying the price of the Reserved Instance for each month
 -- remaining in the Reserved Instance term.
-criltPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
+criltPriceSchedules :: Lens' CreateReservedInstancesListing ([PriceScheduleSpecification])
 criltPriceSchedules f x =
-    f (_criltPriceSchedules x) <&> \y -> x { _criltPriceSchedules = y }
+    f (_criltPriceSchedules x)
+        <&> \y -> x { _criltPriceSchedules = y }
 {-# INLINE criltPriceSchedules #-}
 
 -- | The ID of the active Reserved Instance.
-criltReservedInstancesId :: Lens' CreateReservedInstancesListing Text
+criltReservedInstancesId :: Lens' CreateReservedInstancesListing (Text)
 criltReservedInstancesId f x =
-    f (_criltReservedInstancesId x) <&> \y -> x { _criltReservedInstancesId = y }
+    f (_criltReservedInstancesId x)
+        <&> \y -> x { _criltReservedInstancesId = y }
 {-# INLINE criltReservedInstancesId #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of your
 -- listings. This helps avoid duplicate listings. For more information, see
 -- Ensuring Idempotency in the Amazon Elastic Compute Cloud User Guide.
-criltClientToken :: Lens' CreateReservedInstancesListing Text
+criltClientToken :: Lens' CreateReservedInstancesListing (Text)
 criltClientToken f x =
-    f (_criltClientToken x) <&> \y -> x { _criltClientToken = y }
+    f (_criltClientToken x)
+        <&> \y -> x { _criltClientToken = y }
 {-# INLINE criltClientToken #-}
 
 instance ToQuery CreateReservedInstancesListing where
@@ -132,9 +136,10 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
     } deriving (Show, Generic)
 
 -- | Information about the Reserved Instances listing.
-criluReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+criluReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse ([ReservedInstancesListing])
 criluReservedInstancesListings f x =
-    f (_criluReservedInstancesListings x) <&> \y -> x { _criluReservedInstancesListings = y }
+    f (_criluReservedInstancesListings x)
+        <&> \y -> x { _criluReservedInstancesListings = y }
 {-# INLINE criluReservedInstancesListings #-}
 
 instance FromXML CreateReservedInstancesListingResponse where

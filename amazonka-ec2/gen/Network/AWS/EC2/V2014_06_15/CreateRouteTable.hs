@@ -60,9 +60,10 @@ data CreateRouteTable = CreateRouteTable
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-crtrVpcId :: Lens' CreateRouteTable Text
+crtrVpcId :: Lens' CreateRouteTable (Text)
 crtrVpcId f x =
-    f (_crtrVpcId x) <&> \y -> x { _crtrVpcId = y }
+    f (_crtrVpcId x)
+        <&> \y -> x { _crtrVpcId = y }
 {-# INLINE crtrVpcId #-}
 
 instance ToQuery CreateRouteTable where
@@ -76,7 +77,8 @@ data CreateRouteTableResponse = CreateRouteTableResponse
 -- | Information about the route table.
 crtsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtsRouteTable f x =
-    f (_crtsRouteTable x) <&> \y -> x { _crtsRouteTable = y }
+    f (_crtsRouteTable x)
+        <&> \y -> x { _crtsRouteTable = y }
 {-# INLINE crtsRouteTable #-}
 
 instance FromXML CreateRouteTableResponse where

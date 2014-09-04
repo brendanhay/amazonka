@@ -44,6 +44,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'ListSAMLProviders' request.
 listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
+{-# INLINE listSAMLProviders #-}
 
 data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Show, Generic)
@@ -57,15 +58,10 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse
     } deriving (Show, Generic)
 
 -- | The list of SAML providers for this account.
-lsamlpsSAMLProviderList
-    :: Functor f
-    => ([SAMLProviderListEntry]
-    -> f ([SAMLProviderListEntry]))
-    -> ListSAMLProvidersResponse
-    -> f ListSAMLProvidersResponse
+lsamlpsSAMLProviderList :: Lens' ListSAMLProvidersResponse ([SAMLProviderListEntry])
 lsamlpsSAMLProviderList f x =
-    (\y -> x { _lsamlpsSAMLProviderList = y })
-       <$> f (_lsamlpsSAMLProviderList x)
+    f (_lsamlpsSAMLProviderList x)
+        <&> \y -> x { _lsamlpsSAMLProviderList = y }
 {-# INLINE lsamlpsSAMLProviderList #-}
 
 instance FromXML ListSAMLProvidersResponse where

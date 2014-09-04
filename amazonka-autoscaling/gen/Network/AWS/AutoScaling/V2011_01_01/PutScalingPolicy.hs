@@ -66,6 +66,7 @@ putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
     , _psptCooldown = Nothing
     , _psptMinAdjustmentStep = Nothing
     }
+{-# INLINE putScalingPolicy #-}
 
 data PutScalingPolicy = PutScalingPolicy
     { _psptScalingAdjustment :: Integer
@@ -102,68 +103,43 @@ data PutScalingPolicy = PutScalingPolicy
 -- percentage of the existing Auto Scaling group size). A positive increment
 -- adds to the current capacity and a negative value removes from the current
 -- capacity.
-psptScalingAdjustment
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> PutScalingPolicy
-    -> f PutScalingPolicy
+psptScalingAdjustment :: Lens' PutScalingPolicy (Integer)
 psptScalingAdjustment f x =
-    (\y -> x { _psptScalingAdjustment = y })
-       <$> f (_psptScalingAdjustment x)
+    f (_psptScalingAdjustment x)
+        <&> \y -> x { _psptScalingAdjustment = y }
 {-# INLINE psptScalingAdjustment #-}
 
 -- | The name or ARN of the Auto Scaling group.
-psptAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutScalingPolicy
-    -> f PutScalingPolicy
+psptAutoScalingGroupName :: Lens' PutScalingPolicy (Text)
 psptAutoScalingGroupName f x =
-    (\y -> x { _psptAutoScalingGroupName = y })
-       <$> f (_psptAutoScalingGroupName x)
+    f (_psptAutoScalingGroupName x)
+        <&> \y -> x { _psptAutoScalingGroupName = y }
 {-# INLINE psptAutoScalingGroupName #-}
 
 -- | The name of the policy you want to create or update.
-psptPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutScalingPolicy
-    -> f PutScalingPolicy
+psptPolicyName :: Lens' PutScalingPolicy (Text)
 psptPolicyName f x =
-    (\y -> x { _psptPolicyName = y })
-       <$> f (_psptPolicyName x)
+    f (_psptPolicyName x)
+        <&> \y -> x { _psptPolicyName = y }
 {-# INLINE psptPolicyName #-}
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity. For more information about the
 -- adjustment types supported by Auto Scaling, see Scale Based on Demand.
-psptAdjustmentType
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutScalingPolicy
-    -> f PutScalingPolicy
+psptAdjustmentType :: Lens' PutScalingPolicy (Text)
 psptAdjustmentType f x =
-    (\y -> x { _psptAdjustmentType = y })
-       <$> f (_psptAdjustmentType x)
+    f (_psptAdjustmentType x)
+        <&> \y -> x { _psptAdjustmentType = y }
 {-# INLINE psptAdjustmentType #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes and
 -- before the next scaling activity can start. For more information, see
 -- Cooldown Period.
-psptCooldown
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutScalingPolicy
-    -> f PutScalingPolicy
+psptCooldown :: Lens' PutScalingPolicy (Maybe Integer)
 psptCooldown f x =
-    (\y -> x { _psptCooldown = y })
-       <$> f (_psptCooldown x)
+    f (_psptCooldown x)
+        <&> \y -> x { _psptCooldown = y }
 {-# INLINE psptCooldown #-}
 
 -- | Used with AdjustmentType with the value PercentChangeInCapacity, the
@@ -171,15 +147,10 @@ psptCooldown f x =
 -- least the number of instances specified in the value. You will get a
 -- ValidationError if you use MinAdjustmentStep on a policy with an
 -- AdjustmentType other than PercentChangeInCapacity.
-psptMinAdjustmentStep
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutScalingPolicy
-    -> f PutScalingPolicy
+psptMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Integer)
 psptMinAdjustmentStep f x =
-    (\y -> x { _psptMinAdjustmentStep = y })
-       <$> f (_psptMinAdjustmentStep x)
+    f (_psptMinAdjustmentStep x)
+        <&> \y -> x { _psptMinAdjustmentStep = y }
 {-# INLINE psptMinAdjustmentStep #-}
 
 instance ToQuery PutScalingPolicy where
@@ -191,15 +162,10 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse
     } deriving (Show, Generic)
 
 -- | A policy's Amazon Resource Name (ARN).
-parntPolicyARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutScalingPolicyResponse
-    -> f PutScalingPolicyResponse
+parntPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 parntPolicyARN f x =
-    (\y -> x { _parntPolicyARN = y })
-       <$> f (_parntPolicyARN x)
+    f (_parntPolicyARN x)
+        <&> \y -> x { _parntPolicyARN = y }
 {-# INLINE parntPolicyARN #-}
 
 instance FromXML PutScalingPolicyResponse where

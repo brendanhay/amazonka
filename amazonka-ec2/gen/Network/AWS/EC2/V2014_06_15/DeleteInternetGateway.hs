@@ -57,9 +57,10 @@ data DeleteInternetGateway = DeleteInternetGateway
     } deriving (Show, Generic)
 
 -- | The ID of the Internet gateway.
-digrInternetGatewayId :: Lens' DeleteInternetGateway Text
+digrInternetGatewayId :: Lens' DeleteInternetGateway (Text)
 digrInternetGatewayId f x =
-    f (_digrInternetGatewayId x) <&> \y -> x { _digrInternetGatewayId = y }
+    f (_digrInternetGatewayId x)
+        <&> \y -> x { _digrInternetGatewayId = y }
 {-# INLINE digrInternetGatewayId #-}
 
 instance ToQuery DeleteInternetGateway where

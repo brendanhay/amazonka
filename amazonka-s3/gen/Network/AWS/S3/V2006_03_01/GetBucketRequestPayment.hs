@@ -43,20 +43,16 @@ getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
 getBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrprBucket = p1
     }
+{-# INLINE getBucketRequestPayment #-}
 
 data GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrprBucket :: BucketName
     } deriving (Show, Generic)
 
-gbrprBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketRequestPayment
-    -> f GetBucketRequestPayment
+gbrprBucket :: Lens' GetBucketRequestPayment (BucketName)
 gbrprBucket f x =
-    (\y -> x { _gbrprBucket = y })
-       <$> f (_gbrprBucket x)
+    f (_gbrprBucket x)
+        <&> \y -> x { _gbrprBucket = y }
 {-# INLINE gbrprBucket #-}
 
 instance ToPath GetBucketRequestPayment where
@@ -80,15 +76,10 @@ data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     } deriving (Show, Generic)
 
 -- | Specifies who pays for the download and request fees.
-gbrpoPayer
-    :: Functor f
-    => (Maybe Payer
-    -> f (Maybe Payer))
-    -> GetBucketRequestPaymentResponse
-    -> f GetBucketRequestPaymentResponse
+gbrpoPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrpoPayer f x =
-    (\y -> x { _gbrpoPayer = y })
-       <$> f (_gbrpoPayer x)
+    f (_gbrpoPayer x)
+        <&> \y -> x { _gbrpoPayer = y }
 {-# INLINE gbrpoPayer #-}
 
 instance FromXML GetBucketRequestPaymentResponse where

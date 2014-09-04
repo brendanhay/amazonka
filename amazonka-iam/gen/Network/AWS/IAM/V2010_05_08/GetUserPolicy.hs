@@ -54,6 +54,7 @@ getUserPolicy p1 p2 = GetUserPolicy
     { _guprUserName = p1
     , _guprPolicyName = p2
     }
+{-# INLINE getUserPolicy #-}
 
 data GetUserPolicy = GetUserPolicy
     { _guprUserName :: Text
@@ -63,27 +64,17 @@ data GetUserPolicy = GetUserPolicy
     } deriving (Show, Generic)
 
 -- | Name of the user who the policy is associated with.
-guprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetUserPolicy
-    -> f GetUserPolicy
+guprUserName :: Lens' GetUserPolicy (Text)
 guprUserName f x =
-    (\y -> x { _guprUserName = y })
-       <$> f (_guprUserName x)
+    f (_guprUserName x)
+        <&> \y -> x { _guprUserName = y }
 {-# INLINE guprUserName #-}
 
 -- | Name of the policy document to get.
-guprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetUserPolicy
-    -> f GetUserPolicy
+guprPolicyName :: Lens' GetUserPolicy (Text)
 guprPolicyName f x =
-    (\y -> x { _guprPolicyName = y })
-       <$> f (_guprPolicyName x)
+    f (_guprPolicyName x)
+        <&> \y -> x { _guprPolicyName = y }
 {-# INLINE guprPolicyName #-}
 
 instance ToQuery GetUserPolicy where
@@ -99,39 +90,24 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     } deriving (Show, Generic)
 
 -- | The user the policy is associated with.
-gupsUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetUserPolicyResponse
-    -> f GetUserPolicyResponse
+gupsUserName :: Lens' GetUserPolicyResponse (Text)
 gupsUserName f x =
-    (\y -> x { _gupsUserName = y })
-       <$> f (_gupsUserName x)
+    f (_gupsUserName x)
+        <&> \y -> x { _gupsUserName = y }
 {-# INLINE gupsUserName #-}
 
 -- | The policy document.
-gupsPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetUserPolicyResponse
-    -> f GetUserPolicyResponse
+gupsPolicyDocument :: Lens' GetUserPolicyResponse (Text)
 gupsPolicyDocument f x =
-    (\y -> x { _gupsPolicyDocument = y })
-       <$> f (_gupsPolicyDocument x)
+    f (_gupsPolicyDocument x)
+        <&> \y -> x { _gupsPolicyDocument = y }
 {-# INLINE gupsPolicyDocument #-}
 
 -- | The name of the policy.
-gupsPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetUserPolicyResponse
-    -> f GetUserPolicyResponse
+gupsPolicyName :: Lens' GetUserPolicyResponse (Text)
 gupsPolicyName f x =
-    (\y -> x { _gupsPolicyName = y })
-       <$> f (_gupsPolicyName x)
+    f (_gupsPolicyName x)
+        <&> \y -> x { _gupsPolicyName = y }
 {-# INLINE gupsPolicyName #-}
 
 instance FromXML GetUserPolicyResponse where

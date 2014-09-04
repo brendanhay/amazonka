@@ -78,15 +78,17 @@ data StartInstances = StartInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-sistInstanceIds :: Lens' StartInstances [Text]
+sistInstanceIds :: Lens' StartInstances ([Text])
 sistInstanceIds f x =
-    f (_sistInstanceIds x) <&> \y -> x { _sistInstanceIds = y }
+    f (_sistInstanceIds x)
+        <&> \y -> x { _sistInstanceIds = y }
 {-# INLINE sistInstanceIds #-}
 
 -- | Reserved.
 sistAdditionalInfo :: Lens' StartInstances (Maybe Text)
 sistAdditionalInfo f x =
-    f (_sistAdditionalInfo x) <&> \y -> x { _sistAdditionalInfo = y }
+    f (_sistAdditionalInfo x)
+        <&> \y -> x { _sistAdditionalInfo = y }
 {-# INLINE sistAdditionalInfo #-}
 
 instance ToQuery StartInstances where
@@ -98,9 +100,10 @@ data StartInstancesResponse = StartInstancesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more started instances.
-sisuStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+sisuStartingInstances :: Lens' StartInstancesResponse ([InstanceStateChange])
 sisuStartingInstances f x =
-    f (_sisuStartingInstances x) <&> \y -> x { _sisuStartingInstances = y }
+    f (_sisuStartingInstances x)
+        <&> \y -> x { _sisuStartingInstances = y }
 {-# INLINE sisuStartingInstances #-}
 
 instance FromXML StartInstancesResponse where

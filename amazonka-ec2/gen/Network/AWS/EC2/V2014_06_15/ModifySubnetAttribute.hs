@@ -58,15 +58,17 @@ data ModifySubnetAttribute = ModifySubnetAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the subnet.
-msasSubnetId :: Lens' ModifySubnetAttribute Text
+msasSubnetId :: Lens' ModifySubnetAttribute (Text)
 msasSubnetId f x =
-    f (_msasSubnetId x) <&> \y -> x { _msasSubnetId = y }
+    f (_msasSubnetId x)
+        <&> \y -> x { _msasSubnetId = y }
 {-# INLINE msasSubnetId #-}
 
 -- | 
 msasMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
 msasMapPublicIpOnLaunch f x =
-    f (_msasMapPublicIpOnLaunch x) <&> \y -> x { _msasMapPublicIpOnLaunch = y }
+    f (_msasMapPublicIpOnLaunch x)
+        <&> \y -> x { _msasMapPublicIpOnLaunch = y }
 {-# INLINE msasMapPublicIpOnLaunch #-}
 
 instance ToQuery ModifySubnetAttribute where

@@ -109,53 +109,61 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
-cnaerEgress :: Lens' CreateNetworkAclEntry Bool
+cnaerEgress :: Lens' CreateNetworkAclEntry (Bool)
 cnaerEgress f x =
-    f (_cnaerEgress x) <&> \y -> x { _cnaerEgress = y }
+    f (_cnaerEgress x)
+        <&> \y -> x { _cnaerEgress = y }
 {-# INLINE cnaerEgress #-}
 
 -- | The rule number for the entry (for example, 100). ACL entries are processed
 -- in ascending order by rule number. Constraints: Positive integer from 1 to
 -- 32766.
-cnaerRuleNumber :: Lens' CreateNetworkAclEntry Integer
+cnaerRuleNumber :: Lens' CreateNetworkAclEntry (Integer)
 cnaerRuleNumber f x =
-    f (_cnaerRuleNumber x) <&> \y -> x { _cnaerRuleNumber = y }
+    f (_cnaerRuleNumber x)
+        <&> \y -> x { _cnaerRuleNumber = y }
 {-# INLINE cnaerRuleNumber #-}
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-cnaerRuleAction :: Lens' CreateNetworkAclEntry RuleAction
+cnaerRuleAction :: Lens' CreateNetworkAclEntry (RuleAction)
 cnaerRuleAction f x =
-    f (_cnaerRuleAction x) <&> \y -> x { _cnaerRuleAction = y }
+    f (_cnaerRuleAction x)
+        <&> \y -> x { _cnaerRuleAction = y }
 {-# INLINE cnaerRuleAction #-}
 
 -- | The ID of the ACL.
-cnaerNetworkAclId :: Lens' CreateNetworkAclEntry Text
+cnaerNetworkAclId :: Lens' CreateNetworkAclEntry (Text)
 cnaerNetworkAclId f x =
-    f (_cnaerNetworkAclId x) <&> \y -> x { _cnaerNetworkAclId = y }
+    f (_cnaerNetworkAclId x)
+        <&> \y -> x { _cnaerNetworkAclId = y }
 {-# INLINE cnaerNetworkAclId #-}
 
 -- | The protocol. A value of -1 means all protocols.
-cnaerProtocol :: Lens' CreateNetworkAclEntry Text
+cnaerProtocol :: Lens' CreateNetworkAclEntry (Text)
 cnaerProtocol f x =
-    f (_cnaerProtocol x) <&> \y -> x { _cnaerProtocol = y }
+    f (_cnaerProtocol x)
+        <&> \y -> x { _cnaerProtocol = y }
 {-# INLINE cnaerProtocol #-}
 
 -- | The network range to allow or deny, in CIDR notation.
-cnaerCidrBlock :: Lens' CreateNetworkAclEntry Text
+cnaerCidrBlock :: Lens' CreateNetworkAclEntry (Text)
 cnaerCidrBlock f x =
-    f (_cnaerCidrBlock x) <&> \y -> x { _cnaerCidrBlock = y }
+    f (_cnaerCidrBlock x)
+        <&> \y -> x { _cnaerCidrBlock = y }
 {-# INLINE cnaerCidrBlock #-}
 
 -- | ICMP protocol: The ICMP type and code.
 cnaerIcmpTypeCode :: Lens' CreateNetworkAclEntry (Maybe IcmpTypeCode)
 cnaerIcmpTypeCode f x =
-    f (_cnaerIcmpTypeCode x) <&> \y -> x { _cnaerIcmpTypeCode = y }
+    f (_cnaerIcmpTypeCode x)
+        <&> \y -> x { _cnaerIcmpTypeCode = y }
 {-# INLINE cnaerIcmpTypeCode #-}
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 cnaerPortRange :: Lens' CreateNetworkAclEntry (Maybe PortRange)
 cnaerPortRange f x =
-    f (_cnaerPortRange x) <&> \y -> x { _cnaerPortRange = y }
+    f (_cnaerPortRange x)
+        <&> \y -> x { _cnaerPortRange = y }
 {-# INLINE cnaerPortRange #-}
 
 instance ToQuery CreateNetworkAclEntry where

@@ -72,15 +72,17 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 
 -- | The ID of the current association between the original network ACL and the
 -- subnet.
-rnaarAssociationId :: Lens' ReplaceNetworkAclAssociation Text
+rnaarAssociationId :: Lens' ReplaceNetworkAclAssociation (Text)
 rnaarAssociationId f x =
-    f (_rnaarAssociationId x) <&> \y -> x { _rnaarAssociationId = y }
+    f (_rnaarAssociationId x)
+        <&> \y -> x { _rnaarAssociationId = y }
 {-# INLINE rnaarAssociationId #-}
 
 -- | The ID of the new ACL to associate with the subnet.
-rnaarNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
+rnaarNetworkAclId :: Lens' ReplaceNetworkAclAssociation (Text)
 rnaarNetworkAclId f x =
-    f (_rnaarNetworkAclId x) <&> \y -> x { _rnaarNetworkAclId = y }
+    f (_rnaarNetworkAclId x)
+        <&> \y -> x { _rnaarNetworkAclId = y }
 {-# INLINE rnaarNetworkAclId #-}
 
 instance ToQuery ReplaceNetworkAclAssociation where
@@ -94,7 +96,8 @@ data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
 -- | The ID of the new association.
 rnaasNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaasNewAssociationId f x =
-    f (_rnaasNewAssociationId x) <&> \y -> x { _rnaasNewAssociationId = y }
+    f (_rnaasNewAssociationId x)
+        <&> \y -> x { _rnaasNewAssociationId = y }
 {-# INLINE rnaasNewAssociationId #-}
 
 instance FromXML ReplaceNetworkAclAssociationResponse where

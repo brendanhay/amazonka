@@ -65,9 +65,10 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
+rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute (Text)
 rniarNetworkInterfaceId f x =
-    f (_rniarNetworkInterfaceId x) <&> \y -> x { _rniarNetworkInterfaceId = y }
+    f (_rniarNetworkInterfaceId x)
+        <&> \y -> x { _rniarNetworkInterfaceId = y }
 {-# INLINE rniarNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
@@ -75,7 +76,8 @@ rniarNetworkInterfaceId f x =
 -- must be false for a NAT instance to perform NAT.
 rniarSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniarSourceDestCheck f x =
-    f (_rniarSourceDestCheck x) <&> \y -> x { _rniarSourceDestCheck = y }
+    f (_rniarSourceDestCheck x)
+        <&> \y -> x { _rniarSourceDestCheck = y }
 {-# INLINE rniarSourceDestCheck #-}
 
 instance ToQuery ResetNetworkInterfaceAttribute where

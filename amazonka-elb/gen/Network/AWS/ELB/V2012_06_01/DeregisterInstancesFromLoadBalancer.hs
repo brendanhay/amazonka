@@ -57,6 +57,7 @@ deregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
     { _depiLoadBalancerName = p1
     , _depiInstances = p2
     }
+{-# INLINE deregisterInstancesFromLoadBalancer #-}
 
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { _depiLoadBalancerName :: Text
@@ -67,27 +68,17 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer.
-depiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeregisterInstancesFromLoadBalancer
-    -> f DeregisterInstancesFromLoadBalancer
+depiLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer (Text)
 depiLoadBalancerName f x =
-    (\y -> x { _depiLoadBalancerName = y })
-       <$> f (_depiLoadBalancerName x)
+    f (_depiLoadBalancerName x)
+        <&> \y -> x { _depiLoadBalancerName = y }
 {-# INLINE depiLoadBalancerName #-}
 
 -- | A list of EC2 instance IDs consisting of all instances to be deregistered.
-depiInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> DeregisterInstancesFromLoadBalancer
-    -> f DeregisterInstancesFromLoadBalancer
+depiInstances :: Lens' DeregisterInstancesFromLoadBalancer ([Instance])
 depiInstances f x =
-    (\y -> x { _depiInstances = y })
-       <$> f (_depiInstances x)
+    f (_depiInstances x)
+        <&> \y -> x { _depiInstances = y }
 {-# INLINE depiInstances #-}
 
 instance ToQuery DeregisterInstancesFromLoadBalancer where
@@ -100,15 +91,10 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
     } deriving (Show, Generic)
 
 -- | An updated list of remaining instances registered with the load balancer.
-depoInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> DeregisterInstancesFromLoadBalancerResponse
-    -> f DeregisterInstancesFromLoadBalancerResponse
+depoInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse ([Instance])
 depoInstances f x =
-    (\y -> x { _depoInstances = y })
-       <$> f (_depoInstances x)
+    f (_depoInstances x)
+        <&> \y -> x { _depoInstances = y }
 {-# INLINE depoInstances #-}
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where

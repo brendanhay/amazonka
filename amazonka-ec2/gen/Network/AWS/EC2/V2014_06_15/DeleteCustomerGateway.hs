@@ -57,9 +57,10 @@ data DeleteCustomerGateway = DeleteCustomerGateway
     } deriving (Show, Generic)
 
 -- | The ID of the customer gateway.
-dcgrCustomerGatewayId :: Lens' DeleteCustomerGateway Text
+dcgrCustomerGatewayId :: Lens' DeleteCustomerGateway (Text)
 dcgrCustomerGatewayId f x =
-    f (_dcgrCustomerGatewayId x) <&> \y -> x { _dcgrCustomerGatewayId = y }
+    f (_dcgrCustomerGatewayId x)
+        <&> \y -> x { _dcgrCustomerGatewayId = y }
 {-# INLINE dcgrCustomerGatewayId #-}
 
 instance ToQuery DeleteCustomerGateway where

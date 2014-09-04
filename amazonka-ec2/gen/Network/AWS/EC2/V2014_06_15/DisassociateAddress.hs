@@ -64,13 +64,15 @@ data DisassociateAddress = DisassociateAddress
 -- | [EC2-Classic] The Elastic IP address.
 datPublicIp :: Lens' DisassociateAddress (Maybe Text)
 datPublicIp f x =
-    f (_datPublicIp x) <&> \y -> x { _datPublicIp = y }
+    f (_datPublicIp x)
+        <&> \y -> x { _datPublicIp = y }
 {-# INLINE datPublicIp #-}
 
 -- | [EC2-VPC] The association ID.
 datAssociationId :: Lens' DisassociateAddress (Maybe Text)
 datAssociationId f x =
-    f (_datAssociationId x) <&> \y -> x { _datAssociationId = y }
+    f (_datAssociationId x)
+        <&> \y -> x { _datAssociationId = y }
 {-# INLINE datAssociationId #-}
 
 instance ToQuery DisassociateAddress where

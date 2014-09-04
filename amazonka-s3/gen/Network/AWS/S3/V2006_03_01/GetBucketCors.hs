@@ -43,20 +43,16 @@ getBucketCors :: BucketName -- ^ 'gbcrBucket'
 getBucketCors p1 = GetBucketCors
     { _gbcrBucket = p1
     }
+{-# INLINE getBucketCors #-}
 
 data GetBucketCors = GetBucketCors
     { _gbcrBucket :: BucketName
     } deriving (Show, Generic)
 
-gbcrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketCors
-    -> f GetBucketCors
+gbcrBucket :: Lens' GetBucketCors (BucketName)
 gbcrBucket f x =
-    (\y -> x { _gbcrBucket = y })
-       <$> f (_gbcrBucket x)
+    f (_gbcrBucket x)
+        <&> \y -> x { _gbcrBucket = y }
 {-# INLINE gbcrBucket #-}
 
 instance ToPath GetBucketCors where
@@ -78,15 +74,10 @@ data GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-gbcoCORSRules
-    :: Functor f
-    => ([CORSRule]
-    -> f ([CORSRule]))
-    -> GetBucketCorsResponse
-    -> f GetBucketCorsResponse
+gbcoCORSRules :: Lens' GetBucketCorsResponse ([CORSRule])
 gbcoCORSRules f x =
-    (\y -> x { _gbcoCORSRules = y })
-       <$> f (_gbcoCORSRules x)
+    f (_gbcoCORSRules x)
+        <&> \y -> x { _gbcoCORSRules = y }
 {-# INLINE gbcoCORSRules #-}
 
 instance FromXML GetBucketCorsResponse where

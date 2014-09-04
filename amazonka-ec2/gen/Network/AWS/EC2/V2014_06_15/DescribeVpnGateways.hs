@@ -109,16 +109,18 @@ data DescribeVpnGateways = DescribeVpnGateways
 -- filter is independent of the tag-key filter. type - The type of virtual
 -- private gateway. Currently the only supported type is ipsec.1.
 -- vpn-gateway-id - The ID of the virtual private gateway.
-dvgsFilters :: Lens' DescribeVpnGateways [Filter]
+dvgsFilters :: Lens' DescribeVpnGateways ([Filter])
 dvgsFilters f x =
-    f (_dvgsFilters x) <&> \y -> x { _dvgsFilters = y }
+    f (_dvgsFilters x)
+        <&> \y -> x { _dvgsFilters = y }
 {-# INLINE dvgsFilters #-}
 
 -- | One or more virtual private gateway IDs. Default: Describes all your
 -- virtual private gateways.
-dvgsVpnGatewayIds :: Lens' DescribeVpnGateways [Text]
+dvgsVpnGatewayIds :: Lens' DescribeVpnGateways ([Text])
 dvgsVpnGatewayIds f x =
-    f (_dvgsVpnGatewayIds x) <&> \y -> x { _dvgsVpnGatewayIds = y }
+    f (_dvgsVpnGatewayIds x)
+        <&> \y -> x { _dvgsVpnGatewayIds = y }
 {-# INLINE dvgsVpnGatewayIds #-}
 
 instance ToQuery DescribeVpnGateways where
@@ -130,9 +132,10 @@ data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more virtual private gateways.
-dvgtVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
+dvgtVpnGateways :: Lens' DescribeVpnGatewaysResponse ([VpnGateway])
 dvgtVpnGateways f x =
-    f (_dvgtVpnGateways x) <&> \y -> x { _dvgtVpnGateways = y }
+    f (_dvgtVpnGateways x)
+        <&> \y -> x { _dvgtVpnGateways = y }
 {-# INLINE dvgtVpnGateways #-}
 
 instance FromXML DescribeVpnGatewaysResponse where

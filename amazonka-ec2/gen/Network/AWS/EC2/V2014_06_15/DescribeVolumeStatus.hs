@@ -137,28 +137,32 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 -- io-performance: normal | degraded | severely-degraded | stalled).
 -- volume-status.status - The status of the volume (ok | impaired | warning |
 -- insufficient-data).
-dvsrFilters :: Lens' DescribeVolumeStatus [Filter]
+dvsrFilters :: Lens' DescribeVolumeStatus ([Filter])
 dvsrFilters f x =
-    f (_dvsrFilters x) <&> \y -> x { _dvsrFilters = y }
+    f (_dvsrFilters x)
+        <&> \y -> x { _dvsrFilters = y }
 {-# INLINE dvsrFilters #-}
 
 -- | The maximum number of paginated volume items per response.
 dvsrMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
 dvsrMaxResults f x =
-    f (_dvsrMaxResults x) <&> \y -> x { _dvsrMaxResults = y }
+    f (_dvsrMaxResults x)
+        <&> \y -> x { _dvsrMaxResults = y }
 {-# INLINE dvsrMaxResults #-}
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
 dvsrNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
 dvsrNextToken f x =
-    f (_dvsrNextToken x) <&> \y -> x { _dvsrNextToken = y }
+    f (_dvsrNextToken x)
+        <&> \y -> x { _dvsrNextToken = y }
 {-# INLINE dvsrNextToken #-}
 
 -- | One or more volume IDs. Default: Describes all your volumes.
-dvsrVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvsrVolumeIds :: Lens' DescribeVolumeStatus ([Text])
 dvsrVolumeIds f x =
-    f (_dvsrVolumeIds x) <&> \y -> x { _dvsrVolumeIds = y }
+    f (_dvsrVolumeIds x)
+        <&> \y -> x { _dvsrVolumeIds = y }
 {-# INLINE dvsrVolumeIds #-}
 
 instance ToQuery DescribeVolumeStatus where
@@ -174,13 +178,15 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 -- | The next paginated set of results to return.
 dvssNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvssNextToken f x =
-    f (_dvssNextToken x) <&> \y -> x { _dvssNextToken = y }
+    f (_dvssNextToken x)
+        <&> \y -> x { _dvssNextToken = y }
 {-# INLINE dvssNextToken #-}
 
 -- | A list of volumes.
-dvssVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvssVolumeStatuses :: Lens' DescribeVolumeStatusResponse ([VolumeStatusItem])
 dvssVolumeStatuses f x =
-    f (_dvssVolumeStatuses x) <&> \y -> x { _dvssVolumeStatuses = y }
+    f (_dvssVolumeStatuses x)
+        <&> \y -> x { _dvssVolumeStatuses = y }
 {-# INLINE dvssVolumeStatuses #-}
 
 instance FromXML DescribeVolumeStatusResponse where

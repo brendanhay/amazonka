@@ -67,15 +67,17 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-mvarVolumeId :: Lens' ModifyVolumeAttribute Text
+mvarVolumeId :: Lens' ModifyVolumeAttribute (Text)
 mvarVolumeId f x =
-    f (_mvarVolumeId x) <&> \y -> x { _mvarVolumeId = y }
+    f (_mvarVolumeId x)
+        <&> \y -> x { _mvarVolumeId = y }
 {-# INLINE mvarVolumeId #-}
 
 -- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvarAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
 mvarAutoEnableIO f x =
-    f (_mvarAutoEnableIO x) <&> \y -> x { _mvarAutoEnableIO = y }
+    f (_mvarAutoEnableIO x)
+        <&> \y -> x { _mvarAutoEnableIO = y }
 {-# INLINE mvarAutoEnableIO #-}
 
 instance ToQuery ModifyVolumeAttribute where

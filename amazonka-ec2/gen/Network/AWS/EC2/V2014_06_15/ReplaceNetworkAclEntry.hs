@@ -97,51 +97,59 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 
 -- | Indicates whether to replace the egress rule. Default: If no value is
 -- specified, we replace the ingress rule.
-rnaerEgress :: Lens' ReplaceNetworkAclEntry Bool
+rnaerEgress :: Lens' ReplaceNetworkAclEntry (Bool)
 rnaerEgress f x =
-    f (_rnaerEgress x) <&> \y -> x { _rnaerEgress = y }
+    f (_rnaerEgress x)
+        <&> \y -> x { _rnaerEgress = y }
 {-# INLINE rnaerEgress #-}
 
 -- | The rule number of the entry to replace.
-rnaerRuleNumber :: Lens' ReplaceNetworkAclEntry Integer
+rnaerRuleNumber :: Lens' ReplaceNetworkAclEntry (Integer)
 rnaerRuleNumber f x =
-    f (_rnaerRuleNumber x) <&> \y -> x { _rnaerRuleNumber = y }
+    f (_rnaerRuleNumber x)
+        <&> \y -> x { _rnaerRuleNumber = y }
 {-# INLINE rnaerRuleNumber #-}
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaerRuleAction :: Lens' ReplaceNetworkAclEntry RuleAction
+rnaerRuleAction :: Lens' ReplaceNetworkAclEntry (RuleAction)
 rnaerRuleAction f x =
-    f (_rnaerRuleAction x) <&> \y -> x { _rnaerRuleAction = y }
+    f (_rnaerRuleAction x)
+        <&> \y -> x { _rnaerRuleAction = y }
 {-# INLINE rnaerRuleAction #-}
 
 -- | The ID of the ACL.
-rnaerNetworkAclId :: Lens' ReplaceNetworkAclEntry Text
+rnaerNetworkAclId :: Lens' ReplaceNetworkAclEntry (Text)
 rnaerNetworkAclId f x =
-    f (_rnaerNetworkAclId x) <&> \y -> x { _rnaerNetworkAclId = y }
+    f (_rnaerNetworkAclId x)
+        <&> \y -> x { _rnaerNetworkAclId = y }
 {-# INLINE rnaerNetworkAclId #-}
 
 -- | The IP protocol. You can specify all or -1 to mean all protocols.
-rnaerProtocol :: Lens' ReplaceNetworkAclEntry Text
+rnaerProtocol :: Lens' ReplaceNetworkAclEntry (Text)
 rnaerProtocol f x =
-    f (_rnaerProtocol x) <&> \y -> x { _rnaerProtocol = y }
+    f (_rnaerProtocol x)
+        <&> \y -> x { _rnaerProtocol = y }
 {-# INLINE rnaerProtocol #-}
 
 -- | The network range to allow or deny, in CIDR notation.
-rnaerCidrBlock :: Lens' ReplaceNetworkAclEntry Text
+rnaerCidrBlock :: Lens' ReplaceNetworkAclEntry (Text)
 rnaerCidrBlock f x =
-    f (_rnaerCidrBlock x) <&> \y -> x { _rnaerCidrBlock = y }
+    f (_rnaerCidrBlock x)
+        <&> \y -> x { _rnaerCidrBlock = y }
 {-# INLINE rnaerCidrBlock #-}
 
 -- | ICMP protocol: The ICMP type and code.
 rnaerIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
 rnaerIcmpTypeCode f x =
-    f (_rnaerIcmpTypeCode x) <&> \y -> x { _rnaerIcmpTypeCode = y }
+    f (_rnaerIcmpTypeCode x)
+        <&> \y -> x { _rnaerIcmpTypeCode = y }
 {-# INLINE rnaerIcmpTypeCode #-}
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 rnaerPortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)
 rnaerPortRange f x =
-    f (_rnaerPortRange x) <&> \y -> x { _rnaerPortRange = y }
+    f (_rnaerPortRange x)
+        <&> \y -> x { _rnaerPortRange = y }
 {-# INLINE rnaerPortRange #-}
 
 instance ToQuery ReplaceNetworkAclEntry where

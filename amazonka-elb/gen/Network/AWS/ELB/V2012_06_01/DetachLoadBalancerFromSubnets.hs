@@ -55,6 +55,7 @@ detachLoadBalancerFromSubnets p1 p2 = DetachLoadBalancerFromSubnets
     { _dlbfsiLoadBalancerName = p1
     , _dlbfsiSubnets = p2
     }
+{-# INLINE detachLoadBalancerFromSubnets #-}
 
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
     { _dlbfsiLoadBalancerName :: Text
@@ -65,28 +66,18 @@ data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer to be detached.
-dlbfsiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DetachLoadBalancerFromSubnets
-    -> f DetachLoadBalancerFromSubnets
+dlbfsiLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets (Text)
 dlbfsiLoadBalancerName f x =
-    (\y -> x { _dlbfsiLoadBalancerName = y })
-       <$> f (_dlbfsiLoadBalancerName x)
+    f (_dlbfsiLoadBalancerName x)
+        <&> \y -> x { _dlbfsiLoadBalancerName = y }
 {-# INLINE dlbfsiLoadBalancerName #-}
 
 -- | A list of subnet IDs to remove from the set of configured subnets for the
 -- load balancer.
-dlbfsiSubnets
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DetachLoadBalancerFromSubnets
-    -> f DetachLoadBalancerFromSubnets
+dlbfsiSubnets :: Lens' DetachLoadBalancerFromSubnets ([Text])
 dlbfsiSubnets f x =
-    (\y -> x { _dlbfsiSubnets = y })
-       <$> f (_dlbfsiSubnets x)
+    f (_dlbfsiSubnets x)
+        <&> \y -> x { _dlbfsiSubnets = y }
 {-# INLINE dlbfsiSubnets #-}
 
 instance ToQuery DetachLoadBalancerFromSubnets where
@@ -98,15 +89,10 @@ data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRespon
     } deriving (Show, Generic)
 
 -- | A list of subnet IDs the load balancer is now attached to.
-dlbfsoSubnets
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DetachLoadBalancerFromSubnetsResponse
-    -> f DetachLoadBalancerFromSubnetsResponse
+dlbfsoSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse ([Text])
 dlbfsoSubnets f x =
-    (\y -> x { _dlbfsoSubnets = y })
-       <$> f (_dlbfsoSubnets x)
+    f (_dlbfsoSubnets x)
+        <&> \y -> x { _dlbfsoSubnets = y }
 {-# INLINE dlbfsoSubnets #-}
 
 instance FromXML DetachLoadBalancerFromSubnetsResponse where

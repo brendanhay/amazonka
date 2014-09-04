@@ -76,9 +76,10 @@ data TerminateInstances = TerminateInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-tirInstanceIds :: Lens' TerminateInstances [Text]
+tirInstanceIds :: Lens' TerminateInstances ([Text])
 tirInstanceIds f x =
-    f (_tirInstanceIds x) <&> \y -> x { _tirInstanceIds = y }
+    f (_tirInstanceIds x)
+        <&> \y -> x { _tirInstanceIds = y }
 {-# INLINE tirInstanceIds #-}
 
 instance ToQuery TerminateInstances where
@@ -90,9 +91,10 @@ data TerminateInstancesResponse = TerminateInstancesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more terminated instances.
-tisTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tisTerminatingInstances :: Lens' TerminateInstancesResponse ([InstanceStateChange])
 tisTerminatingInstances f x =
-    f (_tisTerminatingInstances x) <&> \y -> x { _tisTerminatingInstances = y }
+    f (_tisTerminatingInstances x)
+        <&> \y -> x { _tisTerminatingInstances = y }
 {-# INLINE tisTerminatingInstances #-}
 
 instance FromXML TerminateInstancesResponse where

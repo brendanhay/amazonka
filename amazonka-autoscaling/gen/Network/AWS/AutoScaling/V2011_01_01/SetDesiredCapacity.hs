@@ -50,6 +50,7 @@ setDesiredCapacity p1 p2 = SetDesiredCapacity
     , _sdctAutoScalingGroupName = p2
     , _sdctHonorCooldown = Nothing
     }
+{-# INLINE setDesiredCapacity #-}
 
 data SetDesiredCapacity = SetDesiredCapacity
     { _sdctDesiredCapacity :: Integer
@@ -66,27 +67,17 @@ data SetDesiredCapacity = SetDesiredCapacity
     } deriving (Show, Generic)
 
 -- | The new capacity setting for the Auto Scaling group.
-sdctDesiredCapacity
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SetDesiredCapacity
-    -> f SetDesiredCapacity
+sdctDesiredCapacity :: Lens' SetDesiredCapacity (Integer)
 sdctDesiredCapacity f x =
-    (\y -> x { _sdctDesiredCapacity = y })
-       <$> f (_sdctDesiredCapacity x)
+    f (_sdctDesiredCapacity x)
+        <&> \y -> x { _sdctDesiredCapacity = y }
 {-# INLINE sdctDesiredCapacity #-}
 
 -- | The name of the Auto Scaling group.
-sdctAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetDesiredCapacity
-    -> f SetDesiredCapacity
+sdctAutoScalingGroupName :: Lens' SetDesiredCapacity (Text)
 sdctAutoScalingGroupName f x =
-    (\y -> x { _sdctAutoScalingGroupName = y })
-       <$> f (_sdctAutoScalingGroupName x)
+    f (_sdctAutoScalingGroupName x)
+        <&> \y -> x { _sdctAutoScalingGroupName = y }
 {-# INLINE sdctAutoScalingGroupName #-}
 
 -- | By default, SetDesiredCapacity overrides any cooldown period associated
@@ -94,15 +85,10 @@ sdctAutoScalingGroupName f x =
 -- for the cooldown period associated with the Auto Scaling group to complete
 -- before initiating a scaling activity to set your Auto Scaling group to the
 -- new capacity setting.
-sdctHonorCooldown
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> SetDesiredCapacity
-    -> f SetDesiredCapacity
+sdctHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdctHonorCooldown f x =
-    (\y -> x { _sdctHonorCooldown = y })
-       <$> f (_sdctHonorCooldown x)
+    f (_sdctHonorCooldown x)
+        <&> \y -> x { _sdctHonorCooldown = y }
 {-# INLINE sdctHonorCooldown #-}
 
 instance ToQuery SetDesiredCapacity where

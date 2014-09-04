@@ -114,33 +114,38 @@ data AssociateAddress = AssociateAddress
 -- false.
 aatAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aatAllowReassociation f x =
-    f (_aatAllowReassociation x) <&> \y -> x { _aatAllowReassociation = y }
+    f (_aatAllowReassociation x)
+        <&> \y -> x { _aatAllowReassociation = y }
 {-# INLINE aatAllowReassociation #-}
 
 -- | The ID of the instance. The operation fails if you specify an instance ID
 -- unless exactly one network interface is attached.
 aatInstanceId :: Lens' AssociateAddress (Maybe Text)
 aatInstanceId f x =
-    f (_aatInstanceId x) <&> \y -> x { _aatInstanceId = y }
+    f (_aatInstanceId x)
+        <&> \y -> x { _aatInstanceId = y }
 {-# INLINE aatInstanceId #-}
 
 -- | The Elastic IP address.
 aatPublicIp :: Lens' AssociateAddress (Maybe Text)
 aatPublicIp f x =
-    f (_aatPublicIp x) <&> \y -> x { _aatPublicIp = y }
+    f (_aatPublicIp x)
+        <&> \y -> x { _aatPublicIp = y }
 {-# INLINE aatPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
 aatAllocationId :: Lens' AssociateAddress (Maybe Text)
 aatAllocationId f x =
-    f (_aatAllocationId x) <&> \y -> x { _aatAllocationId = y }
+    f (_aatAllocationId x)
+        <&> \y -> x { _aatAllocationId = y }
 {-# INLINE aatAllocationId #-}
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than
 -- one network interface, you must specify a network interface ID.
 aatNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
 aatNetworkInterfaceId f x =
-    f (_aatNetworkInterfaceId x) <&> \y -> x { _aatNetworkInterfaceId = y }
+    f (_aatNetworkInterfaceId x)
+        <&> \y -> x { _aatNetworkInterfaceId = y }
 {-# INLINE aatNetworkInterfaceId #-}
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with the
@@ -148,7 +153,8 @@ aatNetworkInterfaceId f x =
 -- address is associated with the primary private IP address.
 aatPrivateIpAddress :: Lens' AssociateAddress (Maybe Text)
 aatPrivateIpAddress f x =
-    f (_aatPrivateIpAddress x) <&> \y -> x { _aatPrivateIpAddress = y }
+    f (_aatPrivateIpAddress x)
+        <&> \y -> x { _aatPrivateIpAddress = y }
 {-# INLINE aatPrivateIpAddress #-}
 
 instance ToQuery AssociateAddress where
@@ -164,7 +170,8 @@ data AssociateAddressResponse = AssociateAddressResponse
 -- with an instance.
 aauAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 aauAssociationId f x =
-    f (_aauAssociationId x) <&> \y -> x { _aauAssociationId = y }
+    f (_aauAssociationId x)
+        <&> \y -> x { _aauAssociationId = y }
 {-# INLINE aauAssociationId #-}
 
 instance FromXML AssociateAddressResponse where

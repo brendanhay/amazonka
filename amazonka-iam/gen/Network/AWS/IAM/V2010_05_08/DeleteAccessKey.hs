@@ -49,6 +49,7 @@ deleteAccessKey p1 = DeleteAccessKey
     { _dakrAccessKeyId = p1
     , _dakrUserName = Nothing
     }
+{-# INLINE deleteAccessKey #-}
 
 data DeleteAccessKey = DeleteAccessKey
     { _dakrAccessKeyId :: Text
@@ -60,27 +61,17 @@ data DeleteAccessKey = DeleteAccessKey
 
 -- | The access key ID for the access key ID and secret access key you want to
 -- delete.
-dakrAccessKeyId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAccessKey
-    -> f DeleteAccessKey
+dakrAccessKeyId :: Lens' DeleteAccessKey (Text)
 dakrAccessKeyId f x =
-    (\y -> x { _dakrAccessKeyId = y })
-       <$> f (_dakrAccessKeyId x)
+    f (_dakrAccessKeyId x)
+        <&> \y -> x { _dakrAccessKeyId = y }
 {-# INLINE dakrAccessKeyId #-}
 
 -- | Name of the user whose key you want to delete.
-dakrUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteAccessKey
-    -> f DeleteAccessKey
+dakrUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakrUserName f x =
-    (\y -> x { _dakrUserName = y })
-       <$> f (_dakrUserName x)
+    f (_dakrUserName x)
+        <&> \y -> x { _dakrUserName = y }
 {-# INLINE dakrUserName #-}
 
 instance ToQuery DeleteAccessKey where

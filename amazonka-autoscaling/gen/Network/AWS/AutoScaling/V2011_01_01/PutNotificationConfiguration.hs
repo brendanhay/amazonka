@@ -52,6 +52,7 @@ putNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
     , _pnctAutoScalingGroupName = p2
     , _pnctTopicARN = p3
     }
+{-# INLINE putNotificationConfiguration #-}
 
 data PutNotificationConfiguration = PutNotificationConfiguration
     { _pnctNotificationTypes :: [Text]
@@ -68,40 +69,25 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 -- | The type of event that will cause the notification to be sent. For details
 -- about notification types supported by Auto Scaling, see
 -- DescribeAutoScalingNotificationTypes.
-pnctNotificationTypes
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> PutNotificationConfiguration
-    -> f PutNotificationConfiguration
+pnctNotificationTypes :: Lens' PutNotificationConfiguration ([Text])
 pnctNotificationTypes f x =
-    (\y -> x { _pnctNotificationTypes = y })
-       <$> f (_pnctNotificationTypes x)
+    f (_pnctNotificationTypes x)
+        <&> \y -> x { _pnctNotificationTypes = y }
 {-# INLINE pnctNotificationTypes #-}
 
 -- | The name of the Auto Scaling group.
-pnctAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutNotificationConfiguration
-    -> f PutNotificationConfiguration
+pnctAutoScalingGroupName :: Lens' PutNotificationConfiguration (Text)
 pnctAutoScalingGroupName f x =
-    (\y -> x { _pnctAutoScalingGroupName = y })
-       <$> f (_pnctAutoScalingGroupName x)
+    f (_pnctAutoScalingGroupName x)
+        <&> \y -> x { _pnctAutoScalingGroupName = y }
 {-# INLINE pnctAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-pnctTopicARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutNotificationConfiguration
-    -> f PutNotificationConfiguration
+pnctTopicARN :: Lens' PutNotificationConfiguration (Text)
 pnctTopicARN f x =
-    (\y -> x { _pnctTopicARN = y })
-       <$> f (_pnctTopicARN x)
+    f (_pnctTopicARN x)
+        <&> \y -> x { _pnctTopicARN = y }
 {-# INLINE pnctTopicARN #-}
 
 instance ToQuery PutNotificationConfiguration where

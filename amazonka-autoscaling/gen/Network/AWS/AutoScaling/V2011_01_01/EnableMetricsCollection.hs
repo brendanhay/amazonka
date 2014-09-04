@@ -50,6 +50,7 @@ enableMetricsCollection p1 p2 = EnableMetricsCollection
     , _emcqGranularity = p2
     , _emcqMetrics = mempty
     }
+{-# INLINE enableMetricsCollection #-}
 
 data EnableMetricsCollection = EnableMetricsCollection
     { _emcqAutoScalingGroupName :: Text
@@ -69,28 +70,18 @@ data EnableMetricsCollection = EnableMetricsCollection
     } deriving (Show, Generic)
 
 -- | The name or ARN of the Auto Scaling group.
-emcqAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableMetricsCollection
-    -> f EnableMetricsCollection
+emcqAutoScalingGroupName :: Lens' EnableMetricsCollection (Text)
 emcqAutoScalingGroupName f x =
-    (\y -> x { _emcqAutoScalingGroupName = y })
-       <$> f (_emcqAutoScalingGroupName x)
+    f (_emcqAutoScalingGroupName x)
+        <&> \y -> x { _emcqAutoScalingGroupName = y }
 {-# INLINE emcqAutoScalingGroupName #-}
 
 -- | The granularity to associate with the metrics to collect. Currently, the
 -- only legal granularity is "1Minute".
-emcqGranularity
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableMetricsCollection
-    -> f EnableMetricsCollection
+emcqGranularity :: Lens' EnableMetricsCollection (Text)
 emcqGranularity f x =
-    (\y -> x { _emcqGranularity = y })
-       <$> f (_emcqGranularity x)
+    f (_emcqGranularity x)
+        <&> \y -> x { _emcqGranularity = y }
 {-# INLINE emcqGranularity #-}
 
 -- | The list of metrics to collect. If no metrics are specified, all metrics
@@ -99,15 +90,10 @@ emcqGranularity f x =
 -- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances The
 -- GroupStandbyInstances metric is not returned by default. You must
 -- explicitly request it when calling EnableMetricsCollection.
-emcqMetrics
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> EnableMetricsCollection
-    -> f EnableMetricsCollection
+emcqMetrics :: Lens' EnableMetricsCollection ([Text])
 emcqMetrics f x =
-    (\y -> x { _emcqMetrics = y })
-       <$> f (_emcqMetrics x)
+    f (_emcqMetrics x)
+        <&> \y -> x { _emcqMetrics = y }
 {-# INLINE emcqMetrics #-}
 
 instance ToQuery EnableMetricsCollection where

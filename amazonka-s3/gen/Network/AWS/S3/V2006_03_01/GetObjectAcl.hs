@@ -49,6 +49,7 @@ getObjectAcl p1 p2 = GetObjectAcl
     , _goarKey = p2
     , _goarVersionId = Nothing
     }
+{-# INLINE getObjectAcl #-}
 
 data GetObjectAcl = GetObjectAcl
     { _goarBucket :: BucketName
@@ -57,38 +58,23 @@ data GetObjectAcl = GetObjectAcl
       -- ^ VersionId used to reference a specific version of the object.
     } deriving (Show, Generic)
 
-goarBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetObjectAcl
-    -> f GetObjectAcl
+goarBucket :: Lens' GetObjectAcl (BucketName)
 goarBucket f x =
-    (\y -> x { _goarBucket = y })
-       <$> f (_goarBucket x)
+    f (_goarBucket x)
+        <&> \y -> x { _goarBucket = y }
 {-# INLINE goarBucket #-}
 
-goarKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> GetObjectAcl
-    -> f GetObjectAcl
+goarKey :: Lens' GetObjectAcl (ObjectKey)
 goarKey f x =
-    (\y -> x { _goarKey = y })
-       <$> f (_goarKey x)
+    f (_goarKey x)
+        <&> \y -> x { _goarKey = y }
 {-# INLINE goarKey #-}
 
 -- | VersionId used to reference a specific version of the object.
-goarVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> GetObjectAcl
-    -> f GetObjectAcl
+goarVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
 goarVersionId f x =
-    (\y -> x { _goarVersionId = y })
-       <$> f (_goarVersionId x)
+    f (_goarVersionId x)
+        <&> \y -> x { _goarVersionId = y }
 {-# INLINE goarVersionId #-}
 
 instance ToPath GetObjectAcl where
@@ -115,26 +101,16 @@ data GetObjectAclResponse = GetObjectAclResponse
     } deriving (Show, Generic)
 
 -- | A list of grants.
-goaoGrants
-    :: Functor f
-    => ([Grant]
-    -> f ([Grant]))
-    -> GetObjectAclResponse
-    -> f GetObjectAclResponse
+goaoGrants :: Lens' GetObjectAclResponse ([Grant])
 goaoGrants f x =
-    (\y -> x { _goaoGrants = y })
-       <$> f (_goaoGrants x)
+    f (_goaoGrants x)
+        <&> \y -> x { _goaoGrants = y }
 {-# INLINE goaoGrants #-}
 
-goaoOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> GetObjectAclResponse
-    -> f GetObjectAclResponse
+goaoOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goaoOwner f x =
-    (\y -> x { _goaoOwner = y })
-       <$> f (_goaoOwner x)
+    f (_goaoOwner x)
+        <&> \y -> x { _goaoOwner = y }
 {-# INLINE goaoOwner #-}
 
 instance FromXML GetObjectAclResponse where

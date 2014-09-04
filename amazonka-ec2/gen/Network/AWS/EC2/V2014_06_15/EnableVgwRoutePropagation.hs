@@ -62,15 +62,17 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     } deriving (Show, Generic)
 
 -- | The ID of the routing table.
-evrprRouteTableId :: Lens' EnableVgwRoutePropagation Text
+evrprRouteTableId :: Lens' EnableVgwRoutePropagation (Text)
 evrprRouteTableId f x =
-    f (_evrprRouteTableId x) <&> \y -> x { _evrprRouteTableId = y }
+    f (_evrprRouteTableId x)
+        <&> \y -> x { _evrprRouteTableId = y }
 {-# INLINE evrprRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
-evrprGatewayId :: Lens' EnableVgwRoutePropagation Text
+evrprGatewayId :: Lens' EnableVgwRoutePropagation (Text)
 evrprGatewayId f x =
-    f (_evrprGatewayId x) <&> \y -> x { _evrprGatewayId = y }
+    f (_evrprGatewayId x)
+        <&> \y -> x { _evrprGatewayId = y }
 {-# INLINE evrprGatewayId #-}
 
 instance ToQuery EnableVgwRoutePropagation where

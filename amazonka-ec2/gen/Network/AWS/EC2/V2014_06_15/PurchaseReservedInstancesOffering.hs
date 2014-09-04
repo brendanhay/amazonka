@@ -83,15 +83,17 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     } deriving (Show, Generic)
 
 -- | The number of Reserved Instances to purchase.
-priorInstanceCount :: Lens' PurchaseReservedInstancesOffering Integer
+priorInstanceCount :: Lens' PurchaseReservedInstancesOffering (Integer)
 priorInstanceCount f x =
-    f (_priorInstanceCount x) <&> \y -> x { _priorInstanceCount = y }
+    f (_priorInstanceCount x)
+        <&> \y -> x { _priorInstanceCount = y }
 {-# INLINE priorInstanceCount #-}
 
 -- | The ID of the Reserved Instance offering to purchase.
-priorReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+priorReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering (Text)
 priorReservedInstancesOfferingId f x =
-    f (_priorReservedInstancesOfferingId x) <&> \y -> x { _priorReservedInstancesOfferingId = y }
+    f (_priorReservedInstancesOfferingId x)
+        <&> \y -> x { _priorReservedInstancesOfferingId = y }
 {-# INLINE priorReservedInstancesOfferingId #-}
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
@@ -99,7 +101,8 @@ priorReservedInstancesOfferingId f x =
 -- unexpected prices.
 priorLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 priorLimitPrice f x =
-    f (_priorLimitPrice x) <&> \y -> x { _priorLimitPrice = y }
+    f (_priorLimitPrice x)
+        <&> \y -> x { _priorLimitPrice = y }
 {-# INLINE priorLimitPrice #-}
 
 instance ToQuery PurchaseReservedInstancesOffering where
@@ -113,7 +116,8 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
 -- | The IDs of the purchased Reserved Instances.
 priosReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priosReservedInstancesId f x =
-    f (_priosReservedInstancesId x) <&> \y -> x { _priosReservedInstancesId = y }
+    f (_priosReservedInstancesId x)
+        <&> \y -> x { _priosReservedInstancesId = y }
 {-# INLINE priosReservedInstancesId #-}
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where

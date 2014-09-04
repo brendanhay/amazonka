@@ -48,6 +48,7 @@ describeLoadBalancerAttributes :: Text -- ^ 'dlbaiLoadBalancerName'
 describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
     { _dlbaiLoadBalancerName = p1
     }
+{-# INLINE describeLoadBalancerAttributes #-}
 
 data DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaiLoadBalancerName :: Text
@@ -55,15 +56,10 @@ data DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-dlbaiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeLoadBalancerAttributes
-    -> f DescribeLoadBalancerAttributes
+dlbaiLoadBalancerName :: Lens' DescribeLoadBalancerAttributes (Text)
 dlbaiLoadBalancerName f x =
-    (\y -> x { _dlbaiLoadBalancerName = y })
-       <$> f (_dlbaiLoadBalancerName x)
+    f (_dlbaiLoadBalancerName x)
+        <&> \y -> x { _dlbaiLoadBalancerName = y }
 {-# INLINE dlbaiLoadBalancerName #-}
 
 instance ToQuery DescribeLoadBalancerAttributes where
@@ -75,15 +71,10 @@ data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResp
     } deriving (Show, Generic)
 
 -- | The load balancer attributes structure.
-dlbaoLoadBalancerAttributes
-    :: Functor f
-    => (Maybe LoadBalancerAttributes
-    -> f (Maybe LoadBalancerAttributes))
-    -> DescribeLoadBalancerAttributesResponse
-    -> f DescribeLoadBalancerAttributesResponse
+dlbaoLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbaoLoadBalancerAttributes f x =
-    (\y -> x { _dlbaoLoadBalancerAttributes = y })
-       <$> f (_dlbaoLoadBalancerAttributes x)
+    f (_dlbaoLoadBalancerAttributes x)
+        <&> \y -> x { _dlbaoLoadBalancerAttributes = y }
 {-# INLINE dlbaoLoadBalancerAttributes #-}
 
 instance FromXML DescribeLoadBalancerAttributesResponse where

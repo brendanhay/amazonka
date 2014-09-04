@@ -66,15 +66,17 @@ data DescribeKeyPairs = DescribeKeyPairs
 
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
-dkpsFilters :: Lens' DescribeKeyPairs [Filter]
+dkpsFilters :: Lens' DescribeKeyPairs ([Filter])
 dkpsFilters f x =
-    f (_dkpsFilters x) <&> \y -> x { _dkpsFilters = y }
+    f (_dkpsFilters x)
+        <&> \y -> x { _dkpsFilters = y }
 {-# INLINE dkpsFilters #-}
 
 -- | One or more key pair names. Default: Describes all your key pairs.
-dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
+dkpsKeyNames :: Lens' DescribeKeyPairs ([Text])
 dkpsKeyNames f x =
-    f (_dkpsKeyNames x) <&> \y -> x { _dkpsKeyNames = y }
+    f (_dkpsKeyNames x)
+        <&> \y -> x { _dkpsKeyNames = y }
 {-# INLINE dkpsKeyNames #-}
 
 instance ToQuery DescribeKeyPairs where
@@ -86,9 +88,10 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more key pairs.
-dkptKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkptKeyPairs :: Lens' DescribeKeyPairsResponse ([KeyPairInfo])
 dkptKeyPairs f x =
-    f (_dkptKeyPairs x) <&> \y -> x { _dkptKeyPairs = y }
+    f (_dkptKeyPairs x)
+        <&> \y -> x { _dkptKeyPairs = y }
 {-# INLINE dkptKeyPairs #-}
 
 instance FromXML DescribeKeyPairsResponse where

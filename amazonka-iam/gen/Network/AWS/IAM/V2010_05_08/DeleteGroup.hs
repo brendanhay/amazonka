@@ -44,6 +44,7 @@ deleteGroup :: Text -- ^ 'dgrGroupName'
 deleteGroup p1 = DeleteGroup
     { _dgrGroupName = p1
     }
+{-# INLINE deleteGroup #-}
 
 data DeleteGroup = DeleteGroup
     { _dgrGroupName :: Text
@@ -51,15 +52,10 @@ data DeleteGroup = DeleteGroup
     } deriving (Show, Generic)
 
 -- | Name of the group to delete.
-dgrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteGroup
-    -> f DeleteGroup
+dgrGroupName :: Lens' DeleteGroup (Text)
 dgrGroupName f x =
-    (\y -> x { _dgrGroupName = y })
-       <$> f (_dgrGroupName x)
+    f (_dgrGroupName x)
+        <&> \y -> x { _dgrGroupName = y }
 {-# INLINE dgrGroupName #-}
 
 instance ToQuery DeleteGroup where

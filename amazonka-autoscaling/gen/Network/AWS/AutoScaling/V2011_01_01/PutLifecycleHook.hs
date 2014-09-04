@@ -74,6 +74,7 @@ putLifecycleHook p1 p2 = PutLifecycleHook
     , _plhtNotificationTargetARN = Nothing
     , _plhtNotificationMetadata = Nothing
     }
+{-# INLINE putLifecycleHook #-}
 
 data PutLifecycleHook = PutLifecycleHook
     { _plhtLifecycleHookName :: Text
@@ -127,28 +128,18 @@ data PutLifecycleHook = PutLifecycleHook
     } deriving (Show, Generic)
 
 -- | The name of the lifecycle hook.
-plhtLifecycleHookName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtLifecycleHookName :: Lens' PutLifecycleHook (Text)
 plhtLifecycleHookName f x =
-    (\y -> x { _plhtLifecycleHookName = y })
-       <$> f (_plhtLifecycleHookName x)
+    f (_plhtLifecycleHookName x)
+        <&> \y -> x { _plhtLifecycleHookName = y }
 {-# INLINE plhtLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which you want to assign the
 -- lifecycle hook.
-plhtAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtAutoScalingGroupName :: Lens' PutLifecycleHook (Text)
 plhtAutoScalingGroupName f x =
-    (\y -> x { _plhtAutoScalingGroupName = y })
-       <$> f (_plhtAutoScalingGroupName x)
+    f (_plhtAutoScalingGroupName x)
+        <&> \y -> x { _plhtAutoScalingGroupName = y }
 {-# INLINE plhtAutoScalingGroupName #-}
 
 -- | Defines the amount of time, in seconds, that can elapse before the
@@ -157,59 +148,39 @@ plhtAutoScalingGroupName f x =
 -- the lifecycle hook from timing out by calling
 -- RecordLifecycleActionHeartbeat. The default value for this parameter is
 -- 3600 seconds (1 hour).
-plhtHeartbeatTimeout
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Integer)
 plhtHeartbeatTimeout f x =
-    (\y -> x { _plhtHeartbeatTimeout = y })
-       <$> f (_plhtHeartbeatTimeout x)
+    f (_plhtHeartbeatTimeout x)
+        <&> \y -> x { _plhtHeartbeatTimeout = y }
 {-# INLINE plhtHeartbeatTimeout #-}
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for this
 -- parameter can be either CONTINUE or ABANDON. The default value for this
 -- parameter is ABANDON.
-plhtDefaultResult
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhtDefaultResult f x =
-    (\y -> x { _plhtDefaultResult = y })
-       <$> f (_plhtDefaultResult x)
+    f (_plhtDefaultResult x)
+        <&> \y -> x { _plhtDefaultResult = y }
 {-# INLINE plhtDefaultResult #-}
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHookTypes for a list of available lifecycle hook
 -- types. This parameter is required for new lifecycle hooks, but optional
 -- when updating existing hooks.
-plhtLifecycleTransition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtLifecycleTransition :: Lens' PutLifecycleHook (Maybe Text)
 plhtLifecycleTransition f x =
-    (\y -> x { _plhtLifecycleTransition = y })
-       <$> f (_plhtLifecycleTransition x)
+    f (_plhtLifecycleTransition x)
+        <&> \y -> x { _plhtLifecycleTransition = y }
 {-# INLINE plhtLifecycleTransition #-}
 
 -- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
 -- publish to the specified notification target. This parameter is required
 -- for new lifecycle hooks, but optional when updating existing hooks.
-plhtRoleARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtRoleARN :: Lens' PutLifecycleHook (Maybe Text)
 plhtRoleARN f x =
-    (\y -> x { _plhtRoleARN = y })
-       <$> f (_plhtRoleARN x)
+    f (_plhtRoleARN x)
+        <&> \y -> x { _plhtRoleARN = y }
 {-# INLINE plhtRoleARN #-}
 
 -- | The ARN of the notification target that Auto Scaling will use to notify you
@@ -227,28 +198,18 @@ plhtRoleARN f x =
 -- operation, a test message is sent to the notification target. This test
 -- message contains an additional key/value pair:
 -- Event:autoscaling:TEST_NOTIFICATION.
-plhtNotificationTargetARN
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
 plhtNotificationTargetARN f x =
-    (\y -> x { _plhtNotificationTargetARN = y })
-       <$> f (_plhtNotificationTargetARN x)
+    f (_plhtNotificationTargetARN x)
+        <&> \y -> x { _plhtNotificationTargetARN = y }
 {-# INLINE plhtNotificationTargetARN #-}
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
-plhtNotificationMetadata
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutLifecycleHook
-    -> f PutLifecycleHook
+plhtNotificationMetadata :: Lens' PutLifecycleHook (Maybe Text)
 plhtNotificationMetadata f x =
-    (\y -> x { _plhtNotificationMetadata = y })
-       <$> f (_plhtNotificationMetadata x)
+    f (_plhtNotificationMetadata x)
+        <&> \y -> x { _plhtNotificationMetadata = y }
 {-# INLINE plhtNotificationMetadata #-}
 
 instance ToQuery PutLifecycleHook where

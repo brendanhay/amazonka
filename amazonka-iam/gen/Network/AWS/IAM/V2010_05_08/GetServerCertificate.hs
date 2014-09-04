@@ -64,6 +64,7 @@ getServerCertificate :: Text -- ^ 'gscrServerCertificateName'
 getServerCertificate p1 = GetServerCertificate
     { _gscrServerCertificateName = p1
     }
+{-# INLINE getServerCertificate #-}
 
 data GetServerCertificate = GetServerCertificate
     { _gscrServerCertificateName :: Text
@@ -72,15 +73,10 @@ data GetServerCertificate = GetServerCertificate
     } deriving (Show, Generic)
 
 -- | The name of the server certificate you want to retrieve information about.
-gscrServerCertificateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetServerCertificate
-    -> f GetServerCertificate
+gscrServerCertificateName :: Lens' GetServerCertificate (Text)
 gscrServerCertificateName f x =
-    (\y -> x { _gscrServerCertificateName = y })
-       <$> f (_gscrServerCertificateName x)
+    f (_gscrServerCertificateName x)
+        <&> \y -> x { _gscrServerCertificateName = y }
 {-# INLINE gscrServerCertificateName #-}
 
 instance ToQuery GetServerCertificate where
@@ -92,15 +88,10 @@ data GetServerCertificateResponse = GetServerCertificateResponse
     } deriving (Show, Generic)
 
 -- | Information about the server certificate.
-gscsServerCertificate
-    :: Functor f
-    => (ServerCertificate
-    -> f (ServerCertificate))
-    -> GetServerCertificateResponse
-    -> f GetServerCertificateResponse
+gscsServerCertificate :: Lens' GetServerCertificateResponse (ServerCertificate)
 gscsServerCertificate f x =
-    (\y -> x { _gscsServerCertificate = y })
-       <$> f (_gscsServerCertificate x)
+    f (_gscsServerCertificate x)
+        <&> \y -> x { _gscsServerCertificate = y }
 {-# INLINE gscsServerCertificate #-}
 
 instance FromXML GetServerCertificateResponse where

@@ -41,6 +41,7 @@ type GetService = ListBuckets
 -- | Minimum specification for a 'ListBuckets' request.
 listBuckets :: ListBuckets
 listBuckets = ListBuckets
+{-# INLINE listBuckets #-}
 
 data ListBuckets = ListBuckets
     deriving (Eq, Show, Generic)
@@ -59,26 +60,16 @@ data ListBucketsResponse = ListBucketsResponse
     , _lboOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-lboBuckets
-    :: Functor f
-    => ([Bucket]
-    -> f ([Bucket]))
-    -> ListBucketsResponse
-    -> f ListBucketsResponse
+lboBuckets :: Lens' ListBucketsResponse ([Bucket])
 lboBuckets f x =
-    (\y -> x { _lboBuckets = y })
-       <$> f (_lboBuckets x)
+    f (_lboBuckets x)
+        <&> \y -> x { _lboBuckets = y }
 {-# INLINE lboBuckets #-}
 
-lboOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> ListBucketsResponse
-    -> f ListBucketsResponse
+lboOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lboOwner f x =
-    (\y -> x { _lboOwner = y })
-       <$> f (_lboOwner x)
+    f (_lboOwner x)
+        <&> \y -> x { _lboOwner = y }
 {-# INLINE lboOwner #-}
 
 instance FromXML ListBucketsResponse where

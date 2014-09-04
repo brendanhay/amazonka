@@ -65,9 +65,10 @@ data UnmonitorInstances = UnmonitorInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-uirInstanceIds :: Lens' UnmonitorInstances [Text]
+uirInstanceIds :: Lens' UnmonitorInstances ([Text])
 uirInstanceIds f x =
-    f (_uirInstanceIds x) <&> \y -> x { _uirInstanceIds = y }
+    f (_uirInstanceIds x)
+        <&> \y -> x { _uirInstanceIds = y }
 {-# INLINE uirInstanceIds #-}
 
 instance ToQuery UnmonitorInstances where
@@ -79,9 +80,10 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-uisInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
+uisInstanceMonitorings :: Lens' UnmonitorInstancesResponse ([InstanceMonitoring])
 uisInstanceMonitorings f x =
-    f (_uisInstanceMonitorings x) <&> \y -> x { _uisInstanceMonitorings = y }
+    f (_uisInstanceMonitorings x)
+        <&> \y -> x { _uisInstanceMonitorings = y }
 {-# INLINE uisInstanceMonitorings #-}
 
 instance FromXML UnmonitorInstancesResponse where

@@ -115,15 +115,17 @@ data DescribeNetworkAcls = DescribeNetworkAcls
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the network ACL.
-dnasFilters :: Lens' DescribeNetworkAcls [Filter]
+dnasFilters :: Lens' DescribeNetworkAcls ([Filter])
 dnasFilters f x =
-    f (_dnasFilters x) <&> \y -> x { _dnasFilters = y }
+    f (_dnasFilters x)
+        <&> \y -> x { _dnasFilters = y }
 {-# INLINE dnasFilters #-}
 
 -- | One or more network ACL IDs. Default: Describes all your network ACLs.
-dnasNetworkAclIds :: Lens' DescribeNetworkAcls [Text]
+dnasNetworkAclIds :: Lens' DescribeNetworkAcls ([Text])
 dnasNetworkAclIds f x =
-    f (_dnasNetworkAclIds x) <&> \y -> x { _dnasNetworkAclIds = y }
+    f (_dnasNetworkAclIds x)
+        <&> \y -> x { _dnasNetworkAclIds = y }
 {-# INLINE dnasNetworkAclIds #-}
 
 instance ToQuery DescribeNetworkAcls where
@@ -135,9 +137,10 @@ data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more network ACLs.
-dnatNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
+dnatNetworkAcls :: Lens' DescribeNetworkAclsResponse ([NetworkAcl])
 dnatNetworkAcls f x =
-    f (_dnatNetworkAcls x) <&> \y -> x { _dnatNetworkAcls = y }
+    f (_dnatNetworkAcls x)
+        <&> \y -> x { _dnatNetworkAcls = y }
 {-# INLINE dnatNetworkAcls #-}
 
 instance FromXML DescribeNetworkAclsResponse where

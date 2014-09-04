@@ -57,6 +57,7 @@ createAccessKey :: CreateAccessKey
 createAccessKey = CreateAccessKey
     { _cakrUserName = Nothing
     }
+{-# INLINE createAccessKey #-}
 
 data CreateAccessKey = CreateAccessKey
     { _cakrUserName :: Maybe Text
@@ -64,15 +65,10 @@ data CreateAccessKey = CreateAccessKey
     } deriving (Show, Generic)
 
 -- | The user name that the new key will belong to.
-cakrUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateAccessKey
-    -> f CreateAccessKey
+cakrUserName :: Lens' CreateAccessKey (Maybe Text)
 cakrUserName f x =
-    (\y -> x { _cakrUserName = y })
-       <$> f (_cakrUserName x)
+    f (_cakrUserName x)
+        <&> \y -> x { _cakrUserName = y }
 {-# INLINE cakrUserName #-}
 
 instance ToQuery CreateAccessKey where
@@ -84,15 +80,10 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse
     } deriving (Show, Generic)
 
 -- | Information about the access key.
-caksAccessKey
-    :: Functor f
-    => (AccessKey
-    -> f (AccessKey))
-    -> CreateAccessKeyResponse
-    -> f CreateAccessKeyResponse
+caksAccessKey :: Lens' CreateAccessKeyResponse (AccessKey)
 caksAccessKey f x =
-    (\y -> x { _caksAccessKey = y })
-       <$> f (_caksAccessKey x)
+    f (_caksAccessKey x)
+        <&> \y -> x { _caksAccessKey = y }
 {-# INLINE caksAccessKey #-}
 
 instance FromXML CreateAccessKeyResponse where

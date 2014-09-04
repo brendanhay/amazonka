@@ -50,6 +50,7 @@ deleteSigningCertificate p1 = DeleteSigningCertificate
     { _dscsCertificateId = p1
     , _dscsUserName = Nothing
     }
+{-# INLINE deleteSigningCertificate #-}
 
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dscsCertificateId :: Text
@@ -59,27 +60,17 @@ data DeleteSigningCertificate = DeleteSigningCertificate
     } deriving (Show, Generic)
 
 -- | ID of the signing certificate to delete.
-dscsCertificateId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSigningCertificate
-    -> f DeleteSigningCertificate
+dscsCertificateId :: Lens' DeleteSigningCertificate (Text)
 dscsCertificateId f x =
-    (\y -> x { _dscsCertificateId = y })
-       <$> f (_dscsCertificateId x)
+    f (_dscsCertificateId x)
+        <&> \y -> x { _dscsCertificateId = y }
 {-# INLINE dscsCertificateId #-}
 
 -- | Name of the user the signing certificate belongs to.
-dscsUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteSigningCertificate
-    -> f DeleteSigningCertificate
+dscsUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscsUserName f x =
-    (\y -> x { _dscsUserName = y })
-       <$> f (_dscsUserName x)
+    f (_dscsUserName x)
+        <&> \y -> x { _dscsUserName = y }
 {-# INLINE dscsUserName #-}
 
 instance ToQuery DeleteSigningCertificate where

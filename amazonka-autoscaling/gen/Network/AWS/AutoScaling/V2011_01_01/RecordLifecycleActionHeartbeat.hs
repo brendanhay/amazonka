@@ -58,6 +58,7 @@ recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
     , _rlahtLifecycleActionToken = p2
     , _rlahtAutoScalingGroupName = p3
     }
+{-# INLINE recordLifecycleActionHeartbeat #-}
 
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     { _rlahtLifecycleHookName :: Text
@@ -72,41 +73,26 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     } deriving (Show, Generic)
 
 -- | The name of the lifecycle hook.
-rlahtLifecycleHookName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RecordLifecycleActionHeartbeat
-    -> f RecordLifecycleActionHeartbeat
+rlahtLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat (Text)
 rlahtLifecycleHookName f x =
-    (\y -> x { _rlahtLifecycleHookName = y })
-       <$> f (_rlahtLifecycleHookName x)
+    f (_rlahtLifecycleHookName x)
+        <&> \y -> x { _rlahtLifecycleHookName = y }
 {-# INLINE rlahtLifecycleHookName #-}
 
 -- | A token that uniquely identifies a specific lifecycle action associated
 -- with an instance. Auto Scaling sends this token to the notification target
 -- you specified when you created the lifecycle hook.
-rlahtLifecycleActionToken
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RecordLifecycleActionHeartbeat
-    -> f RecordLifecycleActionHeartbeat
+rlahtLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat (Text)
 rlahtLifecycleActionToken f x =
-    (\y -> x { _rlahtLifecycleActionToken = y })
-       <$> f (_rlahtLifecycleActionToken x)
+    f (_rlahtLifecycleActionToken x)
+        <&> \y -> x { _rlahtLifecycleActionToken = y }
 {-# INLINE rlahtLifecycleActionToken #-}
 
 -- | The name of the Auto Scaling group to which the hook belongs.
-rlahtAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RecordLifecycleActionHeartbeat
-    -> f RecordLifecycleActionHeartbeat
+rlahtAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat (Text)
 rlahtAutoScalingGroupName f x =
-    (\y -> x { _rlahtAutoScalingGroupName = y })
-       <$> f (_rlahtAutoScalingGroupName x)
+    f (_rlahtAutoScalingGroupName x)
+        <&> \y -> x { _rlahtAutoScalingGroupName = y }
 {-# INLINE rlahtAutoScalingGroupName #-}
 
 instance ToQuery RecordLifecycleActionHeartbeat where

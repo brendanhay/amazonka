@@ -67,15 +67,17 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 -- | The secondary private IP addresses to unassign from the network interface.
 -- You can specify this option multiple times to unassign more than one IP
 -- address.
-upiarPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
+upiarPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses ([Text])
 upiarPrivateIpAddresses f x =
-    f (_upiarPrivateIpAddresses x) <&> \y -> x { _upiarPrivateIpAddresses = y }
+    f (_upiarPrivateIpAddresses x)
+        <&> \y -> x { _upiarPrivateIpAddresses = y }
 {-# INLINE upiarPrivateIpAddresses #-}
 
 -- | The ID of the network interface.
-upiarNetworkInterfaceId :: Lens' UnassignPrivateIpAddresses Text
+upiarNetworkInterfaceId :: Lens' UnassignPrivateIpAddresses (Text)
 upiarNetworkInterfaceId f x =
-    f (_upiarNetworkInterfaceId x) <&> \y -> x { _upiarNetworkInterfaceId = y }
+    f (_upiarNetworkInterfaceId x)
+        <&> \y -> x { _upiarNetworkInterfaceId = y }
 {-# INLINE upiarNetworkInterfaceId #-}
 
 instance ToQuery UnassignPrivateIpAddresses where

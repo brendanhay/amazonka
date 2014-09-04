@@ -71,16 +71,18 @@ data DescribePlacementGroups = DescribePlacementGroups
 -- | One or more filters. group-name - The name of the placement group. state -
 -- The state of the placement group (pending | available | deleting |
 -- deleted). strategy - The strategy of the placement group (cluster).
-dpgsFilters :: Lens' DescribePlacementGroups [Filter]
+dpgsFilters :: Lens' DescribePlacementGroups ([Filter])
 dpgsFilters f x =
-    f (_dpgsFilters x) <&> \y -> x { _dpgsFilters = y }
+    f (_dpgsFilters x)
+        <&> \y -> x { _dpgsFilters = y }
 {-# INLINE dpgsFilters #-}
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
-dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
+dpgsGroupNames :: Lens' DescribePlacementGroups ([Text])
 dpgsGroupNames f x =
-    f (_dpgsGroupNames x) <&> \y -> x { _dpgsGroupNames = y }
+    f (_dpgsGroupNames x)
+        <&> \y -> x { _dpgsGroupNames = y }
 {-# INLINE dpgsGroupNames #-}
 
 instance ToQuery DescribePlacementGroups where
@@ -92,9 +94,10 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     } deriving (Show, Generic)
 
 -- | One or more placement groups.
-dpgtPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgtPlacementGroups :: Lens' DescribePlacementGroupsResponse ([PlacementGroup])
 dpgtPlacementGroups f x =
-    f (_dpgtPlacementGroups x) <&> \y -> x { _dpgtPlacementGroups = y }
+    f (_dpgtPlacementGroups x)
+        <&> \y -> x { _dpgtPlacementGroups = y }
 {-# INLINE dpgtPlacementGroups #-}
 
 instance FromXML DescribePlacementGroupsResponse where

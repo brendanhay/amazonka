@@ -54,6 +54,7 @@ attachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
     { _albtsiLoadBalancerName = p1
     , _albtsiSubnets = p2
     }
+{-# INLINE attachLoadBalancerToSubnets #-}
 
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsiLoadBalancerName :: Text
@@ -67,28 +68,18 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
 
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
-albtsiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachLoadBalancerToSubnets
-    -> f AttachLoadBalancerToSubnets
+albtsiLoadBalancerName :: Lens' AttachLoadBalancerToSubnets (Text)
 albtsiLoadBalancerName f x =
-    (\y -> x { _albtsiLoadBalancerName = y })
-       <$> f (_albtsiLoadBalancerName x)
+    f (_albtsiLoadBalancerName x)
+        <&> \y -> x { _albtsiLoadBalancerName = y }
 {-# INLINE albtsiLoadBalancerName #-}
 
 -- | A list of subnet IDs to add for the load balancer. You can add only one
 -- subnet per Availability Zone.
-albtsiSubnets
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AttachLoadBalancerToSubnets
-    -> f AttachLoadBalancerToSubnets
+albtsiSubnets :: Lens' AttachLoadBalancerToSubnets ([Text])
 albtsiSubnets f x =
-    (\y -> x { _albtsiSubnets = y })
-       <$> f (_albtsiSubnets x)
+    f (_albtsiSubnets x)
+        <&> \y -> x { _albtsiSubnets = y }
 {-# INLINE albtsiSubnets #-}
 
 instance ToQuery AttachLoadBalancerToSubnets where
@@ -100,15 +91,10 @@ data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     } deriving (Show, Generic)
 
 -- | A list of subnet IDs attached to the load balancer.
-albtsoSubnets
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AttachLoadBalancerToSubnetsResponse
-    -> f AttachLoadBalancerToSubnetsResponse
+albtsoSubnets :: Lens' AttachLoadBalancerToSubnetsResponse ([Text])
 albtsoSubnets f x =
-    (\y -> x { _albtsoSubnets = y })
-       <$> f (_albtsoSubnets x)
+    f (_albtsoSubnets x)
+        <&> \y -> x { _albtsoSubnets = y }
 {-# INLINE albtsoSubnets #-}
 
 instance FromXML AttachLoadBalancerToSubnetsResponse where

@@ -61,15 +61,17 @@ data DescribeConversionTasks = DescribeConversionTasks
     } deriving (Show, Generic)
 
 -- | One or more conversion task IDs.
-dctrConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctrConversionTaskIds :: Lens' DescribeConversionTasks ([Text])
 dctrConversionTaskIds f x =
-    f (_dctrConversionTaskIds x) <&> \y -> x { _dctrConversionTaskIds = y }
+    f (_dctrConversionTaskIds x)
+        <&> \y -> x { _dctrConversionTaskIds = y }
 {-# INLINE dctrConversionTaskIds #-}
 
 -- | 
-dctrFilters :: Lens' DescribeConversionTasks [Filter]
+dctrFilters :: Lens' DescribeConversionTasks ([Filter])
 dctrFilters f x =
-    f (_dctrFilters x) <&> \y -> x { _dctrFilters = y }
+    f (_dctrFilters x)
+        <&> \y -> x { _dctrFilters = y }
 {-# INLINE dctrFilters #-}
 
 instance ToQuery DescribeConversionTasks where
@@ -81,9 +83,10 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse
     } deriving (Show, Generic)
 
 -- | 
-dctsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctsConversionTasks :: Lens' DescribeConversionTasksResponse ([ConversionTask])
 dctsConversionTasks f x =
-    f (_dctsConversionTasks x) <&> \y -> x { _dctsConversionTasks = y }
+    f (_dctsConversionTasks x)
+        <&> \y -> x { _dctsConversionTasks = y }
 {-# INLINE dctsConversionTasks #-}
 
 instance FromXML DescribeConversionTasksResponse where

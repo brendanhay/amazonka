@@ -46,6 +46,7 @@ removeUserFromGroup p1 p2 = RemoveUserFromGroup
     { _rufgrUserName = p1
     , _rufgrGroupName = p2
     }
+{-# INLINE removeUserFromGroup #-}
 
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgrUserName :: Text
@@ -55,27 +56,17 @@ data RemoveUserFromGroup = RemoveUserFromGroup
     } deriving (Show, Generic)
 
 -- | Name of the user to remove.
-rufgrUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveUserFromGroup
-    -> f RemoveUserFromGroup
+rufgrUserName :: Lens' RemoveUserFromGroup (Text)
 rufgrUserName f x =
-    (\y -> x { _rufgrUserName = y })
-       <$> f (_rufgrUserName x)
+    f (_rufgrUserName x)
+        <&> \y -> x { _rufgrUserName = y }
 {-# INLINE rufgrUserName #-}
 
 -- | Name of the group to update.
-rufgrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveUserFromGroup
-    -> f RemoveUserFromGroup
+rufgrGroupName :: Lens' RemoveUserFromGroup (Text)
 rufgrGroupName f x =
-    (\y -> x { _rufgrGroupName = y })
-       <$> f (_rufgrGroupName x)
+    f (_rufgrGroupName x)
+        <&> \y -> x { _rufgrGroupName = y }
 {-# INLINE rufgrGroupName #-}
 
 instance ToQuery RemoveUserFromGroup where

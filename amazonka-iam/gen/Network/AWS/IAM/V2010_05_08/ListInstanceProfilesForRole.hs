@@ -62,6 +62,7 @@ listInstanceProfilesForRole p1 = ListInstanceProfilesForRole
     , _lipfrrMarker = Nothing
     , _lipfrrMaxItems = Nothing
     }
+{-# INLINE listInstanceProfilesForRole #-}
 
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrrRoleName :: Text
@@ -80,30 +81,20 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     } deriving (Show, Generic)
 
 -- | The name of the role to list instance profiles for.
-lipfrrRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListInstanceProfilesForRole
-    -> f ListInstanceProfilesForRole
+lipfrrRoleName :: Lens' ListInstanceProfilesForRole (Text)
 lipfrrRoleName f x =
-    (\y -> x { _lipfrrRoleName = y })
-       <$> f (_lipfrrRoleName x)
+    f (_lipfrrRoleName x)
+        <&> \y -> x { _lipfrrRoleName = y }
 {-# INLINE lipfrrRoleName #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-lipfrrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceProfilesForRole
-    -> f ListInstanceProfilesForRole
+lipfrrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
 lipfrrMarker f x =
-    (\y -> x { _lipfrrMarker = y })
-       <$> f (_lipfrrMarker x)
+    f (_lipfrrMarker x)
+        <&> \y -> x { _lipfrrMarker = y }
 {-# INLINE lipfrrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -111,15 +102,10 @@ lipfrrMarker f x =
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lipfrrMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListInstanceProfilesForRole
-    -> f ListInstanceProfilesForRole
+lipfrrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Integer)
 lipfrrMaxItems f x =
-    (\y -> x { _lipfrrMaxItems = y })
-       <$> f (_lipfrrMaxItems x)
+    f (_lipfrrMaxItems x)
+        <&> \y -> x { _lipfrrMaxItems = y }
 {-# INLINE lipfrrMaxItems #-}
 
 instance ToQuery ListInstanceProfilesForRole where
@@ -143,40 +129,25 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more instance profiles in
 -- the list.
-lipfrsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListInstanceProfilesForRoleResponse
-    -> f ListInstanceProfilesForRoleResponse
+lipfrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Bool)
 lipfrsIsTruncated f x =
-    (\y -> x { _lipfrsIsTruncated = y })
-       <$> f (_lipfrsIsTruncated x)
+    f (_lipfrsIsTruncated x)
+        <&> \y -> x { _lipfrsIsTruncated = y }
 {-# INLINE lipfrsIsTruncated #-}
 
 -- | A list of instance profiles.
-lipfrsInstanceProfiles
-    :: Functor f
-    => ([InstanceProfile]
-    -> f ([InstanceProfile]))
-    -> ListInstanceProfilesForRoleResponse
-    -> f ListInstanceProfilesForRoleResponse
+lipfrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse ([InstanceProfile])
 lipfrsInstanceProfiles f x =
-    (\y -> x { _lipfrsInstanceProfiles = y })
-       <$> f (_lipfrsInstanceProfiles x)
+    f (_lipfrsInstanceProfiles x)
+        <&> \y -> x { _lipfrsInstanceProfiles = y }
 {-# INLINE lipfrsInstanceProfiles #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lipfrsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceProfilesForRoleResponse
-    -> f ListInstanceProfilesForRoleResponse
+lipfrsMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrsMarker f x =
-    (\y -> x { _lipfrsMarker = y })
-       <$> f (_lipfrsMarker x)
+    f (_lipfrsMarker x)
+        <&> \y -> x { _lipfrsMarker = y }
 {-# INLINE lipfrsMarker #-}
 
 instance FromXML ListInstanceProfilesForRoleResponse where

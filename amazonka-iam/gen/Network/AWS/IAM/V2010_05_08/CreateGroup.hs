@@ -49,6 +49,7 @@ createGroup p1 = CreateGroup
     { _cgrGroupName = p1
     , _cgrPath = Nothing
     }
+{-# INLINE createGroup #-}
 
 data CreateGroup = CreateGroup
     { _cgrGroupName :: Text
@@ -62,29 +63,19 @@ data CreateGroup = CreateGroup
     } deriving (Show, Generic)
 
 -- | Name of the group to create. Do not include the path in this value.
-cgrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateGroup
-    -> f CreateGroup
+cgrGroupName :: Lens' CreateGroup (Text)
 cgrGroupName f x =
-    (\y -> x { _cgrGroupName = y })
-       <$> f (_cgrGroupName x)
+    f (_cgrGroupName x)
+        <&> \y -> x { _cgrGroupName = y }
 {-# INLINE cgrGroupName #-}
 
 -- | The path to the group. For more information about paths, see Identifiers
 -- for IAM Entities in the Using IAM guide. This parameter is optional. If it
 -- is not included, it defaults to a slash (/).
-cgrPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateGroup
-    -> f CreateGroup
+cgrPath :: Lens' CreateGroup (Maybe Text)
 cgrPath f x =
-    (\y -> x { _cgrPath = y })
-       <$> f (_cgrPath x)
+    f (_cgrPath x)
+        <&> \y -> x { _cgrPath = y }
 {-# INLINE cgrPath #-}
 
 instance ToQuery CreateGroup where
@@ -96,15 +87,10 @@ data CreateGroupResponse = CreateGroupResponse
     } deriving (Show, Generic)
 
 -- | Information about the group.
-cgsGroup
-    :: Functor f
-    => (Group
-    -> f (Group))
-    -> CreateGroupResponse
-    -> f CreateGroupResponse
+cgsGroup :: Lens' CreateGroupResponse (Group)
 cgsGroup f x =
-    (\y -> x { _cgsGroup = y })
-       <$> f (_cgsGroup x)
+    f (_cgsGroup x)
+        <&> \y -> x { _cgsGroup = y }
 {-# INLINE cgsGroup #-}
 
 instance FromXML CreateGroupResponse where

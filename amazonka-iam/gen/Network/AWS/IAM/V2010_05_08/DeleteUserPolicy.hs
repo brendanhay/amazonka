@@ -47,6 +47,7 @@ deleteUserPolicy p1 p2 = DeleteUserPolicy
     { _duprUserName = p1
     , _duprPolicyName = p2
     }
+{-# INLINE deleteUserPolicy #-}
 
 data DeleteUserPolicy = DeleteUserPolicy
     { _duprUserName :: Text
@@ -56,27 +57,17 @@ data DeleteUserPolicy = DeleteUserPolicy
     } deriving (Show, Generic)
 
 -- | Name of the user the policy is associated with.
-duprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteUserPolicy
-    -> f DeleteUserPolicy
+duprUserName :: Lens' DeleteUserPolicy (Text)
 duprUserName f x =
-    (\y -> x { _duprUserName = y })
-       <$> f (_duprUserName x)
+    f (_duprUserName x)
+        <&> \y -> x { _duprUserName = y }
 {-# INLINE duprUserName #-}
 
 -- | Name of the policy document to delete.
-duprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteUserPolicy
-    -> f DeleteUserPolicy
+duprPolicyName :: Lens' DeleteUserPolicy (Text)
 duprPolicyName f x =
-    (\y -> x { _duprPolicyName = y })
-       <$> f (_duprPolicyName x)
+    f (_duprPolicyName x)
+        <&> \y -> x { _duprPolicyName = y }
 {-# INLINE duprPolicyName #-}
 
 instance ToQuery DeleteUserPolicy where

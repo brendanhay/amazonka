@@ -65,9 +65,10 @@ data CancelBundleTask = CancelBundleTask
     } deriving (Show, Generic)
 
 -- | The ID of the bundle task.
-cbtrBundleId :: Lens' CancelBundleTask Text
+cbtrBundleId :: Lens' CancelBundleTask (Text)
 cbtrBundleId f x =
-    f (_cbtrBundleId x) <&> \y -> x { _cbtrBundleId = y }
+    f (_cbtrBundleId x)
+        <&> \y -> x { _cbtrBundleId = y }
 {-# INLINE cbtrBundleId #-}
 
 instance ToQuery CancelBundleTask where
@@ -81,7 +82,8 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse
 -- | The bundle task.
 cbtsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtsBundleTask f x =
-    f (_cbtsBundleTask x) <&> \y -> x { _cbtsBundleTask = y }
+    f (_cbtsBundleTask x)
+        <&> \y -> x { _cbtsBundleTask = y }
 {-# INLINE cbtsBundleTask #-}
 
 instance FromXML CancelBundleTaskResponse where

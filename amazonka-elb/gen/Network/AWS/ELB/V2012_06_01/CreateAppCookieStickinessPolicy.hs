@@ -64,6 +64,7 @@ createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
     , _cacspiCookieName = p2
     , _cacspiPolicyName = p3
     }
+{-# INLINE createAppCookieStickinessPolicy #-}
 
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     { _cacspiLoadBalancerName :: Text
@@ -76,40 +77,25 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-cacspiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateAppCookieStickinessPolicy
-    -> f CreateAppCookieStickinessPolicy
+cacspiLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy (Text)
 cacspiLoadBalancerName f x =
-    (\y -> x { _cacspiLoadBalancerName = y })
-       <$> f (_cacspiLoadBalancerName x)
+    f (_cacspiLoadBalancerName x)
+        <&> \y -> x { _cacspiLoadBalancerName = y }
 {-# INLINE cacspiLoadBalancerName #-}
 
 -- | Name of the application cookie used for stickiness.
-cacspiCookieName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateAppCookieStickinessPolicy
-    -> f CreateAppCookieStickinessPolicy
+cacspiCookieName :: Lens' CreateAppCookieStickinessPolicy (Text)
 cacspiCookieName f x =
-    (\y -> x { _cacspiCookieName = y })
-       <$> f (_cacspiCookieName x)
+    f (_cacspiCookieName x)
+        <&> \y -> x { _cacspiCookieName = y }
 {-# INLINE cacspiCookieName #-}
 
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
-cacspiPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateAppCookieStickinessPolicy
-    -> f CreateAppCookieStickinessPolicy
+cacspiPolicyName :: Lens' CreateAppCookieStickinessPolicy (Text)
 cacspiPolicyName f x =
-    (\y -> x { _cacspiPolicyName = y })
-       <$> f (_cacspiPolicyName x)
+    f (_cacspiPolicyName x)
+        <&> \y -> x { _cacspiPolicyName = y }
 {-# INLINE cacspiPolicyName #-}
 
 instance ToQuery CreateAppCookieStickinessPolicy where

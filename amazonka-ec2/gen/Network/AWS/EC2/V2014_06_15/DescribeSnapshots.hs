@@ -137,29 +137,33 @@ data DescribeSnapshots = DescribeSnapshots
 -- resource. This filter is independent of the tag-key filter. volume-id - The
 -- ID of the volume the snapshot is for. volume-size - The size of the volume,
 -- in GiB.
-dsuFilters :: Lens' DescribeSnapshots [Filter]
+dsuFilters :: Lens' DescribeSnapshots ([Filter])
 dsuFilters f x =
-    f (_dsuFilters x) <&> \y -> x { _dsuFilters = y }
+    f (_dsuFilters x)
+        <&> \y -> x { _dsuFilters = y }
 {-# INLINE dsuFilters #-}
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
-dsuOwnerIds :: Lens' DescribeSnapshots [Text]
+dsuOwnerIds :: Lens' DescribeSnapshots ([Text])
 dsuOwnerIds f x =
-    f (_dsuOwnerIds x) <&> \y -> x { _dsuOwnerIds = y }
+    f (_dsuOwnerIds x)
+        <&> \y -> x { _dsuOwnerIds = y }
 {-# INLINE dsuOwnerIds #-}
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-dsuRestorableByUserIds :: Lens' DescribeSnapshots [Text]
+dsuRestorableByUserIds :: Lens' DescribeSnapshots ([Text])
 dsuRestorableByUserIds f x =
-    f (_dsuRestorableByUserIds x) <&> \y -> x { _dsuRestorableByUserIds = y }
+    f (_dsuRestorableByUserIds x)
+        <&> \y -> x { _dsuRestorableByUserIds = y }
 {-# INLINE dsuRestorableByUserIds #-}
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
-dsuSnapshotIds :: Lens' DescribeSnapshots [Text]
+dsuSnapshotIds :: Lens' DescribeSnapshots ([Text])
 dsuSnapshotIds f x =
-    f (_dsuSnapshotIds x) <&> \y -> x { _dsuSnapshotIds = y }
+    f (_dsuSnapshotIds x)
+        <&> \y -> x { _dsuSnapshotIds = y }
 {-# INLINE dsuSnapshotIds #-}
 
 instance ToQuery DescribeSnapshots where
@@ -171,9 +175,10 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     } deriving (Show, Generic)
 
 -- | 
-dsvSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsvSnapshots :: Lens' DescribeSnapshotsResponse ([Snapshot])
 dsvSnapshots f x =
-    f (_dsvSnapshots x) <&> \y -> x { _dsvSnapshots = y }
+    f (_dsvSnapshots x)
+        <&> \y -> x { _dsvSnapshots = y }
 {-# INLINE dsvSnapshots #-}
 
 instance FromXML DescribeSnapshotsResponse where

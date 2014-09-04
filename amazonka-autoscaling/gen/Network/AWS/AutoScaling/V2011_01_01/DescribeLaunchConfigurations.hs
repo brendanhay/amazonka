@@ -55,6 +55,7 @@ describeLaunchConfigurations = DescribeLaunchConfigurations
     , _lcnuMaxRecords = Nothing
     , _lcnuNextToken = Nothing
     }
+{-# INLINE describeLaunchConfigurations #-}
 
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
     { _lcnuLaunchConfigurationNames :: [Text]
@@ -67,39 +68,24 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
     } deriving (Show, Generic)
 
 -- | A list of launch configuration names.
-lcnuLaunchConfigurationNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLaunchConfigurations
-    -> f DescribeLaunchConfigurations
+lcnuLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations ([Text])
 lcnuLaunchConfigurationNames f x =
-    (\y -> x { _lcnuLaunchConfigurationNames = y })
-       <$> f (_lcnuLaunchConfigurationNames x)
+    f (_lcnuLaunchConfigurationNames x)
+        <&> \y -> x { _lcnuLaunchConfigurationNames = y }
 {-# INLINE lcnuLaunchConfigurationNames #-}
 
 -- | The maximum number of launch configurations. The default is 100.
-lcnuMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeLaunchConfigurations
-    -> f DescribeLaunchConfigurations
+lcnuMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Integer)
 lcnuMaxRecords f x =
-    (\y -> x { _lcnuMaxRecords = y })
-       <$> f (_lcnuMaxRecords x)
+    f (_lcnuMaxRecords x)
+        <&> \y -> x { _lcnuMaxRecords = y }
 {-# INLINE lcnuMaxRecords #-}
 
 -- | A string that marks the start of the next batch of returned results.
-lcnuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLaunchConfigurations
-    -> f DescribeLaunchConfigurations
+lcnuNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 lcnuNextToken f x =
-    (\y -> x { _lcnuNextToken = y })
-       <$> f (_lcnuNextToken x)
+    f (_lcnuNextToken x)
+        <&> \y -> x { _lcnuNextToken = y }
 {-# INLINE lcnuNextToken #-}
 
 instance ToQuery DescribeLaunchConfigurations where
@@ -114,27 +100,17 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     } deriving (Show, Generic)
 
 -- | A list of launch configurations.
-lctLaunchConfigurations
-    :: Functor f
-    => ([LaunchConfiguration]
-    -> f ([LaunchConfiguration]))
-    -> DescribeLaunchConfigurationsResponse
-    -> f DescribeLaunchConfigurationsResponse
+lctLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse ([LaunchConfiguration])
 lctLaunchConfigurations f x =
-    (\y -> x { _lctLaunchConfigurations = y })
-       <$> f (_lctLaunchConfigurations x)
+    f (_lctLaunchConfigurations x)
+        <&> \y -> x { _lctLaunchConfigurations = y }
 {-# INLINE lctLaunchConfigurations #-}
 
 -- | A string that marks the start of the next batch of returned results.
-lctNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLaunchConfigurationsResponse
-    -> f DescribeLaunchConfigurationsResponse
+lctNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 lctNextToken f x =
-    (\y -> x { _lctNextToken = y })
-       <$> f (_lctNextToken x)
+    f (_lctNextToken x)
+        <&> \y -> x { _lctNextToken = y }
 {-# INLINE lctNextToken #-}
 
 instance FromXML DescribeLaunchConfigurationsResponse where

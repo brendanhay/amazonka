@@ -44,6 +44,7 @@ deleteUser :: Text -- ^ 'durUserName'
 deleteUser p1 = DeleteUser
     { _durUserName = p1
     }
+{-# INLINE deleteUser #-}
 
 data DeleteUser = DeleteUser
     { _durUserName :: Text
@@ -51,15 +52,10 @@ data DeleteUser = DeleteUser
     } deriving (Show, Generic)
 
 -- | Name of the user to delete.
-durUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteUser
-    -> f DeleteUser
+durUserName :: Lens' DeleteUser (Text)
 durUserName f x =
-    (\y -> x { _durUserName = y })
-       <$> f (_durUserName x)
+    f (_durUserName x)
+        <&> \y -> x { _durUserName = y }
 {-# INLINE durUserName #-}
 
 instance ToQuery DeleteUser where

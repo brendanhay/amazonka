@@ -56,6 +56,7 @@ getInstanceProfile :: Text -- ^ 'giprInstanceProfileName'
 getInstanceProfile p1 = GetInstanceProfile
     { _giprInstanceProfileName = p1
     }
+{-# INLINE getInstanceProfile #-}
 
 data GetInstanceProfile = GetInstanceProfile
     { _giprInstanceProfileName :: Text
@@ -63,15 +64,10 @@ data GetInstanceProfile = GetInstanceProfile
     } deriving (Show, Generic)
 
 -- | Name of the instance profile to get information about.
-giprInstanceProfileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetInstanceProfile
-    -> f GetInstanceProfile
+giprInstanceProfileName :: Lens' GetInstanceProfile (Text)
 giprInstanceProfileName f x =
-    (\y -> x { _giprInstanceProfileName = y })
-       <$> f (_giprInstanceProfileName x)
+    f (_giprInstanceProfileName x)
+        <&> \y -> x { _giprInstanceProfileName = y }
 {-# INLINE giprInstanceProfileName #-}
 
 instance ToQuery GetInstanceProfile where
@@ -83,15 +79,10 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
-gipsInstanceProfile
-    :: Functor f
-    => (InstanceProfile
-    -> f (InstanceProfile))
-    -> GetInstanceProfileResponse
-    -> f GetInstanceProfileResponse
+gipsInstanceProfile :: Lens' GetInstanceProfileResponse (InstanceProfile)
 gipsInstanceProfile f x =
-    (\y -> x { _gipsInstanceProfile = y })
-       <$> f (_gipsInstanceProfile x)
+    f (_gipsInstanceProfile x)
+        <&> \y -> x { _gipsInstanceProfile = y }
 {-# INLINE gipsInstanceProfile #-}
 
 instance FromXML GetInstanceProfileResponse where

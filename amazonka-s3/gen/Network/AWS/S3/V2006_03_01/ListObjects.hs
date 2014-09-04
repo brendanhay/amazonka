@@ -65,6 +65,7 @@ listObjects p1 = ListObjects
     , _lorMaxKeys = Nothing
     , _lorPrefix = Nothing
     }
+{-# INLINE listObjects #-}
 
 data ListObjects = ListObjects
     { _lorBucket :: BucketName
@@ -87,27 +88,17 @@ data ListObjects = ListObjects
       -- ^ Limits the response to keys that begin with the specified prefix.
     } deriving (Show, Generic)
 
-lorBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> ListObjects
-    -> f ListObjects
+lorBucket :: Lens' ListObjects (BucketName)
 lorBucket f x =
-    (\y -> x { _lorBucket = y })
-       <$> f (_lorBucket x)
+    f (_lorBucket x)
+        <&> \y -> x { _lorBucket = y }
 {-# INLINE lorBucket #-}
 
 -- | A delimiter is a character you use to group keys.
-lorDelimiter
-    :: Functor f
-    => (Maybe Char
-    -> f (Maybe Char))
-    -> ListObjects
-    -> f ListObjects
+lorDelimiter :: Lens' ListObjects (Maybe Char)
 lorDelimiter f x =
-    (\y -> x { _lorDelimiter = y })
-       <$> f (_lorDelimiter x)
+    f (_lorDelimiter x)
+        <&> \y -> x { _lorDelimiter = y }
 {-# INLINE lorDelimiter #-}
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
@@ -116,52 +107,32 @@ lorDelimiter f x =
 -- characters with an ASCII value from 0 to 10. For characters that are not
 -- supported in XML 1.0, you can add this parameter to request that Amazon S3
 -- encode the keys in the response.
-lorEncodingType
-    :: Functor f
-    => (Maybe EncodingType
-    -> f (Maybe EncodingType))
-    -> ListObjects
-    -> f ListObjects
+lorEncodingType :: Lens' ListObjects (Maybe EncodingType)
 lorEncodingType f x =
-    (\y -> x { _lorEncodingType = y })
-       <$> f (_lorEncodingType x)
+    f (_lorEncodingType x)
+        <&> \y -> x { _lorEncodingType = y }
 {-# INLINE lorEncodingType #-}
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lorMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjects
-    -> f ListObjects
+lorMarker :: Lens' ListObjects (Maybe Text)
 lorMarker f x =
-    (\y -> x { _lorMarker = y })
-       <$> f (_lorMarker x)
+    f (_lorMarker x)
+        <&> \y -> x { _lorMarker = y }
 {-# INLINE lorMarker #-}
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lorMaxKeys
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListObjects
-    -> f ListObjects
+lorMaxKeys :: Lens' ListObjects (Maybe Integer)
 lorMaxKeys f x =
-    (\y -> x { _lorMaxKeys = y })
-       <$> f (_lorMaxKeys x)
+    f (_lorMaxKeys x)
+        <&> \y -> x { _lorMaxKeys = y }
 {-# INLINE lorMaxKeys #-}
 
 -- | Limits the response to keys that begin with the specified prefix.
-lorPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjects
-    -> f ListObjects
+lorPrefix :: Lens' ListObjects (Maybe Text)
 lorPrefix f x =
-    (\y -> x { _lorPrefix = y })
-       <$> f (_lorPrefix x)
+    f (_lorPrefix x)
+        <&> \y -> x { _lorPrefix = y }
 {-# INLINE lorPrefix #-}
 
 instance ToPath ListObjects where
@@ -210,71 +181,41 @@ data ListObjectsResponse = ListObjectsResponse
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the results
 -- that satisfied the search criteria.
-looIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looIsTruncated :: Lens' ListObjectsResponse (Bool)
 looIsTruncated f x =
-    (\y -> x { _looIsTruncated = y })
-       <$> f (_looIsTruncated x)
+    f (_looIsTruncated x)
+        <&> \y -> x { _looIsTruncated = y }
 {-# INLINE looIsTruncated #-}
 
-looName
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looName :: Lens' ListObjectsResponse (BucketName)
 looName f x =
-    (\y -> x { _looName = y })
-       <$> f (_looName x)
+    f (_looName x)
+        <&> \y -> x { _looName = y }
 {-# INLINE looName #-}
 
-looCommonPrefixes
-    :: Functor f
-    => ([CommonPrefix]
-    -> f ([CommonPrefix]))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looCommonPrefixes :: Lens' ListObjectsResponse ([CommonPrefix])
 looCommonPrefixes f x =
-    (\y -> x { _looCommonPrefixes = y })
-       <$> f (_looCommonPrefixes x)
+    f (_looCommonPrefixes x)
+        <&> \y -> x { _looCommonPrefixes = y }
 {-# INLINE looCommonPrefixes #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-looEncodingType
-    :: Functor f
-    => (Maybe EncodingType
-    -> f (Maybe EncodingType))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 looEncodingType f x =
-    (\y -> x { _looEncodingType = y })
-       <$> f (_looEncodingType x)
+    f (_looEncodingType x)
+        <&> \y -> x { _looEncodingType = y }
 {-# INLINE looEncodingType #-}
 
-looMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looMarker :: Lens' ListObjectsResponse (Maybe Text)
 looMarker f x =
-    (\y -> x { _looMarker = y })
-       <$> f (_looMarker x)
+    f (_looMarker x)
+        <&> \y -> x { _looMarker = y }
 {-# INLINE looMarker #-}
 
-looMaxKeys
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looMaxKeys :: Lens' ListObjectsResponse (Maybe Integer)
 looMaxKeys f x =
-    (\y -> x { _looMaxKeys = y })
-       <$> f (_looMaxKeys x)
+    f (_looMaxKeys x)
+        <&> \y -> x { _looMaxKeys = y }
 {-# INLINE looMaxKeys #-}
 
 -- | When response is truncated (the IsTruncated element value in the response
@@ -285,37 +226,22 @@ looMaxKeys f x =
 -- NextMaker and it is truncated, you can use the value of the last Key in the
 -- response as the marker in the subsequent request to get the next set of
 -- object keys.
-looNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looNextMarker :: Lens' ListObjectsResponse (Maybe Text)
 looNextMarker f x =
-    (\y -> x { _looNextMarker = y })
-       <$> f (_looNextMarker x)
+    f (_looNextMarker x)
+        <&> \y -> x { _looNextMarker = y }
 {-# INLINE looNextMarker #-}
 
-looContents
-    :: Functor f
-    => ([Object]
-    -> f ([Object]))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looContents :: Lens' ListObjectsResponse ([Object])
 looContents f x =
-    (\y -> x { _looContents = y })
-       <$> f (_looContents x)
+    f (_looContents x)
+        <&> \y -> x { _looContents = y }
 {-# INLINE looContents #-}
 
-looPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectsResponse
-    -> f ListObjectsResponse
+looPrefix :: Lens' ListObjectsResponse (Maybe Text)
 looPrefix f x =
-    (\y -> x { _looPrefix = y })
-       <$> f (_looPrefix x)
+    f (_looPrefix x)
+        <&> \y -> x { _looPrefix = y }
 {-# INLINE looPrefix #-}
 
 instance FromXML ListObjectsResponse where

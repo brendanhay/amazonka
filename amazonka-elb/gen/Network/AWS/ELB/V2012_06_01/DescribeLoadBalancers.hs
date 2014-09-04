@@ -60,6 +60,7 @@ describeLoadBalancers = DescribeLoadBalancers
     , _dapjMarker = Nothing
     , _dapjPageSize = Nothing
     }
+{-# INLINE describeLoadBalancers #-}
 
 data DescribeLoadBalancers = DescribeLoadBalancers
     { _dapjLoadBalancerNames :: [Text]
@@ -74,41 +75,26 @@ data DescribeLoadBalancers = DescribeLoadBalancers
     } deriving (Show, Generic)
 
 -- | A list of load balancer names associated with the account.
-dapjLoadBalancerNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLoadBalancers
-    -> f DescribeLoadBalancers
+dapjLoadBalancerNames :: Lens' DescribeLoadBalancers ([Text])
 dapjLoadBalancerNames f x =
-    (\y -> x { _dapjLoadBalancerNames = y })
-       <$> f (_dapjLoadBalancerNames x)
+    f (_dapjLoadBalancerNames x)
+        <&> \y -> x { _dapjLoadBalancerNames = y }
 {-# INLINE dapjLoadBalancerNames #-}
 
 -- | An optional parameter used for pagination of results from this call. If
 -- specified, the response includes only records beyond the marker.
-dapjMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLoadBalancers
-    -> f DescribeLoadBalancers
+dapjMarker :: Lens' DescribeLoadBalancers (Maybe Text)
 dapjMarker f x =
-    (\y -> x { _dapjMarker = y })
-       <$> f (_dapjMarker x)
+    f (_dapjMarker x)
+        <&> \y -> x { _dapjMarker = y }
 {-# INLINE dapjMarker #-}
 
 -- | The number of results returned in each page. The default is 400. You cannot
 -- specify a page size greater than 400 or less than 1.
-dapjPageSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeLoadBalancers
-    -> f DescribeLoadBalancers
+dapjPageSize :: Lens' DescribeLoadBalancers (Maybe Integer)
 dapjPageSize f x =
-    (\y -> x { _dapjPageSize = y })
-       <$> f (_dapjPageSize x)
+    f (_dapjPageSize x)
+        <&> \y -> x { _dapjPageSize = y }
 {-# INLINE dapjPageSize #-}
 
 instance ToQuery DescribeLoadBalancers where
@@ -123,28 +109,18 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     } deriving (Show, Generic)
 
 -- | A list of load balancer description structures.
-dappLoadBalancerDescriptions
-    :: Functor f
-    => ([LoadBalancerDescription]
-    -> f ([LoadBalancerDescription]))
-    -> DescribeLoadBalancersResponse
-    -> f DescribeLoadBalancersResponse
+dappLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse ([LoadBalancerDescription])
 dappLoadBalancerDescriptions f x =
-    (\y -> x { _dappLoadBalancerDescriptions = y })
-       <$> f (_dappLoadBalancerDescriptions x)
+    f (_dappLoadBalancerDescriptions x)
+        <&> \y -> x { _dappLoadBalancerDescriptions = y }
 {-# INLINE dappLoadBalancerDescriptions #-}
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
-dappNextMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLoadBalancersResponse
-    -> f DescribeLoadBalancersResponse
+dappNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dappNextMarker f x =
-    (\y -> x { _dappNextMarker = y })
-       <$> f (_dappNextMarker x)
+    f (_dappNextMarker x)
+        <&> \y -> x { _dappNextMarker = y }
 {-# INLINE dappNextMarker #-}
 
 instance FromXML DescribeLoadBalancersResponse where

@@ -63,15 +63,17 @@ data CancelConversionTask = CancelConversionTask
     } deriving (Show, Generic)
 
 -- | The ID of the conversion task.
-ccrConversionTaskId :: Lens' CancelConversionTask Text
+ccrConversionTaskId :: Lens' CancelConversionTask (Text)
 ccrConversionTaskId f x =
-    f (_ccrConversionTaskId x) <&> \y -> x { _ccrConversionTaskId = y }
+    f (_ccrConversionTaskId x)
+        <&> \y -> x { _ccrConversionTaskId = y }
 {-# INLINE ccrConversionTaskId #-}
 
 -- | 
 ccrReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 ccrReasonMessage f x =
-    f (_ccrReasonMessage x) <&> \y -> x { _ccrReasonMessage = y }
+    f (_ccrReasonMessage x)
+        <&> \y -> x { _ccrReasonMessage = y }
 {-# INLINE ccrReasonMessage #-}
 
 instance ToQuery CancelConversionTask where

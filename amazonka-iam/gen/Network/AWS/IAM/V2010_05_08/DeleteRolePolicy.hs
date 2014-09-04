@@ -47,6 +47,7 @@ deleteRolePolicy p1 p2 = DeleteRolePolicy
     { _drprPolicyName = p1
     , _drprRoleName = p2
     }
+{-# INLINE deleteRolePolicy #-}
 
 data DeleteRolePolicy = DeleteRolePolicy
     { _drprPolicyName :: Text
@@ -56,27 +57,17 @@ data DeleteRolePolicy = DeleteRolePolicy
     } deriving (Show, Generic)
 
 -- | Name of the policy document to delete.
-drprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteRolePolicy
-    -> f DeleteRolePolicy
+drprPolicyName :: Lens' DeleteRolePolicy (Text)
 drprPolicyName f x =
-    (\y -> x { _drprPolicyName = y })
-       <$> f (_drprPolicyName x)
+    f (_drprPolicyName x)
+        <&> \y -> x { _drprPolicyName = y }
 {-# INLINE drprPolicyName #-}
 
 -- | Name of the role the associated with the policy.
-drprRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteRolePolicy
-    -> f DeleteRolePolicy
+drprRoleName :: Lens' DeleteRolePolicy (Text)
 drprRoleName f x =
-    (\y -> x { _drprRoleName = y })
-       <$> f (_drprRoleName x)
+    f (_drprRoleName x)
+        <&> \y -> x { _drprRoleName = y }
 {-# INLINE drprRoleName #-}
 
 instance ToQuery DeleteRolePolicy where

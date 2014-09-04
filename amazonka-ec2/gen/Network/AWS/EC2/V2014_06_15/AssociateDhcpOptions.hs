@@ -79,15 +79,17 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 
 -- | The ID of the DHCP options set, or default to associate no DHCP options
 -- with the VPC.
-adorDhcpOptionsId :: Lens' AssociateDhcpOptions Text
+adorDhcpOptionsId :: Lens' AssociateDhcpOptions (Text)
 adorDhcpOptionsId f x =
-    f (_adorDhcpOptionsId x) <&> \y -> x { _adorDhcpOptionsId = y }
+    f (_adorDhcpOptionsId x)
+        <&> \y -> x { _adorDhcpOptionsId = y }
 {-# INLINE adorDhcpOptionsId #-}
 
 -- | The ID of the VPC.
-adorVpcId :: Lens' AssociateDhcpOptions Text
+adorVpcId :: Lens' AssociateDhcpOptions (Text)
 adorVpcId f x =
-    f (_adorVpcId x) <&> \y -> x { _adorVpcId = y }
+    f (_adorVpcId x)
+        <&> \y -> x { _adorVpcId = y }
 {-# INLINE adorVpcId #-}
 
 instance ToQuery AssociateDhcpOptions where

@@ -48,6 +48,7 @@ setInstanceHealth p1 p2 = SetInstanceHealth
     , _sihqHealthStatus = p2
     , _sihqShouldRespectGracePeriod = Nothing
     }
+{-# INLINE setInstanceHealth #-}
 
 data SetInstanceHealth = SetInstanceHealth
     { _sihqInstanceId :: Text
@@ -67,29 +68,19 @@ data SetInstanceHealth = SetInstanceHealth
     } deriving (Show, Generic)
 
 -- | The identifier of the Amazon EC2 instance.
-sihqInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetInstanceHealth
-    -> f SetInstanceHealth
+sihqInstanceId :: Lens' SetInstanceHealth (Text)
 sihqInstanceId f x =
-    (\y -> x { _sihqInstanceId = y })
-       <$> f (_sihqInstanceId x)
+    f (_sihqInstanceId x)
+        <&> \y -> x { _sihqInstanceId = y }
 {-# INLINE sihqInstanceId #-}
 
 -- | The health status of the instance. Set to Healthy if you want the instance
 -- to remain in service. Set to Unhealthy if you want the instance to be out
 -- of service. Auto Scaling will terminate and replace the unhealthy instance.
-sihqHealthStatus
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetInstanceHealth
-    -> f SetInstanceHealth
+sihqHealthStatus :: Lens' SetInstanceHealth (Text)
 sihqHealthStatus f x =
-    (\y -> x { _sihqHealthStatus = y })
-       <$> f (_sihqHealthStatus x)
+    f (_sihqHealthStatus x)
+        <&> \y -> x { _sihqHealthStatus = y }
 {-# INLINE sihqHealthStatus #-}
 
 -- | If the Auto Scaling group of the specified instance has a
@@ -98,15 +89,10 @@ sihqHealthStatus f x =
 -- respect the grace period associated with the group. For more information,
 -- see the HealthCheckGracePeriod parameter description in the
 -- CreateAutoScalingGroup action.
-sihqShouldRespectGracePeriod
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> SetInstanceHealth
-    -> f SetInstanceHealth
+sihqShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihqShouldRespectGracePeriod f x =
-    (\y -> x { _sihqShouldRespectGracePeriod = y })
-       <$> f (_sihqShouldRespectGracePeriod x)
+    f (_sihqShouldRespectGracePeriod x)
+        <&> \y -> x { _sihqShouldRespectGracePeriod = y }
 {-# INLINE sihqShouldRespectGracePeriod #-}
 
 instance ToQuery SetInstanceHealth where

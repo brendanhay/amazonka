@@ -49,6 +49,7 @@ putBucketVersioning p1 p2 = PutBucketVersioning
     , _pbvrContentMD5 = Nothing
     , _pbvrMFA = Nothing
     }
+{-# INLINE putBucketVersioning #-}
 
 data PutBucketVersioning = PutBucketVersioning
     { _pbvrVersioningConfiguration :: VersioningConfiguration
@@ -60,50 +61,30 @@ data PutBucketVersioning = PutBucketVersioning
       -- device.
     } deriving (Show, Generic)
 
-pbvrVersioningConfiguration
-    :: Functor f
-    => (VersioningConfiguration
-    -> f (VersioningConfiguration))
-    -> PutBucketVersioning
-    -> f PutBucketVersioning
+pbvrVersioningConfiguration :: Lens' PutBucketVersioning (VersioningConfiguration)
 pbvrVersioningConfiguration f x =
-    (\y -> x { _pbvrVersioningConfiguration = y })
-       <$> f (_pbvrVersioningConfiguration x)
+    f (_pbvrVersioningConfiguration x)
+        <&> \y -> x { _pbvrVersioningConfiguration = y }
 {-# INLINE pbvrVersioningConfiguration #-}
 
-pbvrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketVersioning
-    -> f PutBucketVersioning
+pbvrBucket :: Lens' PutBucketVersioning (BucketName)
 pbvrBucket f x =
-    (\y -> x { _pbvrBucket = y })
-       <$> f (_pbvrBucket x)
+    f (_pbvrBucket x)
+        <&> \y -> x { _pbvrBucket = y }
 {-# INLINE pbvrBucket #-}
 
-pbvrContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketVersioning
-    -> f PutBucketVersioning
+pbvrContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
 pbvrContentMD5 f x =
-    (\y -> x { _pbvrContentMD5 = y })
-       <$> f (_pbvrContentMD5 x)
+    f (_pbvrContentMD5 x)
+        <&> \y -> x { _pbvrContentMD5 = y }
 {-# INLINE pbvrContentMD5 #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-pbvrMFA
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketVersioning
-    -> f PutBucketVersioning
+pbvrMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvrMFA f x =
-    (\y -> x { _pbvrMFA = y })
-       <$> f (_pbvrMFA x)
+    f (_pbvrMFA x)
+        <&> \y -> x { _pbvrMFA = y }
 {-# INLINE pbvrMFA #-}
 
 instance ToPath PutBucketVersioning where

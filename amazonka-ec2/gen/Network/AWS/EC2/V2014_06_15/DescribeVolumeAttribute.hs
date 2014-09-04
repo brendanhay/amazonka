@@ -80,15 +80,17 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvarVolumeId :: Lens' DescribeVolumeAttribute Text
+dvarVolumeId :: Lens' DescribeVolumeAttribute (Text)
 dvarVolumeId f x =
-    f (_dvarVolumeId x) <&> \y -> x { _dvarVolumeId = y }
+    f (_dvarVolumeId x)
+        <&> \y -> x { _dvarVolumeId = y }
 {-# INLINE dvarVolumeId #-}
 
 -- | The instance attribute.
 dvarAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvarAttribute f x =
-    f (_dvarAttribute x) <&> \y -> x { _dvarAttribute = y }
+    f (_dvarAttribute x)
+        <&> \y -> x { _dvarAttribute = y }
 {-# INLINE dvarAttribute #-}
 
 instance ToQuery DescribeVolumeAttribute where
@@ -106,19 +108,22 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 -- | The state of autoEnableIO attribute.
 dvasAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvasAutoEnableIO f x =
-    f (_dvasAutoEnableIO x) <&> \y -> x { _dvasAutoEnableIO = y }
+    f (_dvasAutoEnableIO x)
+        <&> \y -> x { _dvasAutoEnableIO = y }
 {-# INLINE dvasAutoEnableIO #-}
 
 -- | A list of product codes.
-dvasProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvasProductCodes :: Lens' DescribeVolumeAttributeResponse ([ProductCode])
 dvasProductCodes f x =
-    f (_dvasProductCodes x) <&> \y -> x { _dvasProductCodes = y }
+    f (_dvasProductCodes x)
+        <&> \y -> x { _dvasProductCodes = y }
 {-# INLINE dvasProductCodes #-}
 
 -- | The ID of the volume.
 dvasVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvasVolumeId f x =
-    f (_dvasVolumeId x) <&> \y -> x { _dvasVolumeId = y }
+    f (_dvasVolumeId x)
+        <&> \y -> x { _dvasVolumeId = y }
 {-# INLINE dvasVolumeId #-}
 
 instance FromXML DescribeVolumeAttributeResponse where

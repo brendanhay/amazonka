@@ -122,15 +122,17 @@ data DescribeVolumes = DescribeVolumes
 -- volume ID. volume-type - The Amazon EBS volume type. This can be gp2 for
 -- General Purpose (SSD) volumes, io1 for Provisioned IOPS (SSD) volumes, or
 -- standard for Magnetic volumes.
-dvtFilters :: Lens' DescribeVolumes [Filter]
+dvtFilters :: Lens' DescribeVolumes ([Filter])
 dvtFilters f x =
-    f (_dvtFilters x) <&> \y -> x { _dvtFilters = y }
+    f (_dvtFilters x)
+        <&> \y -> x { _dvtFilters = y }
 {-# INLINE dvtFilters #-}
 
 -- | One or more volume IDs.
-dvtVolumeIds :: Lens' DescribeVolumes [Text]
+dvtVolumeIds :: Lens' DescribeVolumes ([Text])
 dvtVolumeIds f x =
-    f (_dvtVolumeIds x) <&> \y -> x { _dvtVolumeIds = y }
+    f (_dvtVolumeIds x)
+        <&> \y -> x { _dvtVolumeIds = y }
 {-# INLINE dvtVolumeIds #-}
 
 instance ToQuery DescribeVolumes where
@@ -142,9 +144,10 @@ data DescribeVolumesResponse = DescribeVolumesResponse
     } deriving (Show, Generic)
 
 -- | 
-dvuVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvuVolumes :: Lens' DescribeVolumesResponse ([Volume])
 dvuVolumes f x =
-    f (_dvuVolumes x) <&> \y -> x { _dvuVolumes = y }
+    f (_dvuVolumes x)
+        <&> \y -> x { _dvuVolumes = y }
 {-# INLINE dvuVolumes #-}
 
 instance FromXML DescribeVolumesResponse where

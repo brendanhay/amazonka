@@ -62,9 +62,10 @@ data CancelReservedInstancesListing = CancelReservedInstancesListing
     } deriving (Show, Generic)
 
 -- | The ID of the Reserved Instance listing.
-crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
+crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing (Text)
 crilrReservedInstancesListingId f x =
-    f (_crilrReservedInstancesListingId x) <&> \y -> x { _crilrReservedInstancesListingId = y }
+    f (_crilrReservedInstancesListingId x)
+        <&> \y -> x { _crilrReservedInstancesListingId = y }
 {-# INLINE crilrReservedInstancesListingId #-}
 
 instance ToQuery CancelReservedInstancesListing where
@@ -76,9 +77,10 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
     } deriving (Show, Generic)
 
 -- | The Reserved Instance listing.
-crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse ([ReservedInstancesListing])
 crilsReservedInstancesListings f x =
-    f (_crilsReservedInstancesListings x) <&> \y -> x { _crilsReservedInstancesListings = y }
+    f (_crilsReservedInstancesListings x)
+        <&> \y -> x { _crilsReservedInstancesListings = y }
 {-# INLINE crilsReservedInstancesListings #-}
 
 instance FromXML CancelReservedInstancesListingResponse where

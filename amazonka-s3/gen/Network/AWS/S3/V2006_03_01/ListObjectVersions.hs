@@ -68,6 +68,7 @@ listObjectVersions p1 = ListObjectVersions
     , _lovrPrefix = Nothing
     , _lovrVersionIdMarker = Nothing
     }
+{-# INLINE listObjectVersions #-}
 
 data ListObjectVersions = ListObjectVersions
     { _lovrBucket :: BucketName
@@ -92,27 +93,17 @@ data ListObjectVersions = ListObjectVersions
       -- ^ Specifies the object version you want to start listing from.
     } deriving (Show, Generic)
 
-lovrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrBucket :: Lens' ListObjectVersions (BucketName)
 lovrBucket f x =
-    (\y -> x { _lovrBucket = y })
-       <$> f (_lovrBucket x)
+    f (_lovrBucket x)
+        <&> \y -> x { _lovrBucket = y }
 {-# INLINE lovrBucket #-}
 
 -- | A delimiter is a character you use to group keys.
-lovrDelimiter
-    :: Functor f
-    => (Maybe Char
-    -> f (Maybe Char))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrDelimiter :: Lens' ListObjectVersions (Maybe Char)
 lovrDelimiter f x =
-    (\y -> x { _lovrDelimiter = y })
-       <$> f (_lovrDelimiter x)
+    f (_lovrDelimiter x)
+        <&> \y -> x { _lovrDelimiter = y }
 {-# INLINE lovrDelimiter #-}
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
@@ -121,64 +112,39 @@ lovrDelimiter f x =
 -- characters with an ASCII value from 0 to 10. For characters that are not
 -- supported in XML 1.0, you can add this parameter to request that Amazon S3
 -- encode the keys in the response.
-lovrEncodingType
-    :: Functor f
-    => (Maybe EncodingType
-    -> f (Maybe EncodingType))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
 lovrEncodingType f x =
-    (\y -> x { _lovrEncodingType = y })
-       <$> f (_lovrEncodingType x)
+    f (_lovrEncodingType x)
+        <&> \y -> x { _lovrEncodingType = y }
 {-# INLINE lovrEncodingType #-}
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lovrKeyMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrKeyMarker :: Lens' ListObjectVersions (Maybe Text)
 lovrKeyMarker f x =
-    (\y -> x { _lovrKeyMarker = y })
-       <$> f (_lovrKeyMarker x)
+    f (_lovrKeyMarker x)
+        <&> \y -> x { _lovrKeyMarker = y }
 {-# INLINE lovrKeyMarker #-}
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lovrMaxKeys
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrMaxKeys :: Lens' ListObjectVersions (Maybe Integer)
 lovrMaxKeys f x =
-    (\y -> x { _lovrMaxKeys = y })
-       <$> f (_lovrMaxKeys x)
+    f (_lovrMaxKeys x)
+        <&> \y -> x { _lovrMaxKeys = y }
 {-# INLINE lovrMaxKeys #-}
 
 -- | Limits the response to keys that begin with the specified prefix.
-lovrPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrPrefix :: Lens' ListObjectVersions (Maybe Text)
 lovrPrefix f x =
-    (\y -> x { _lovrPrefix = y })
-       <$> f (_lovrPrefix x)
+    f (_lovrPrefix x)
+        <&> \y -> x { _lovrPrefix = y }
 {-# INLINE lovrPrefix #-}
 
 -- | Specifies the object version you want to start listing from.
-lovrVersionIdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersions
-    -> f ListObjectVersions
+lovrVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
 lovrVersionIdMarker f x =
-    (\y -> x { _lovrVersionIdMarker = y })
-       <$> f (_lovrVersionIdMarker x)
+    f (_lovrVersionIdMarker x)
+        <&> \y -> x { _lovrVersionIdMarker = y }
 {-# INLINE lovrVersionIdMarker #-}
 
 instance ToPath ListObjectVersions where
@@ -234,142 +200,82 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 -- make a follow-up paginated request using the NextKeyMarker and
 -- NextVersionIdMarker response parameters as a starting place in another
 -- request to return the rest of the results.
-lovoIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoIsTruncated :: Lens' ListObjectVersionsResponse (Bool)
 lovoIsTruncated f x =
-    (\y -> x { _lovoIsTruncated = y })
-       <$> f (_lovoIsTruncated x)
+    f (_lovoIsTruncated x)
+        <&> \y -> x { _lovoIsTruncated = y }
 {-# INLINE lovoIsTruncated #-}
 
-lovoName
-    :: Functor f
-    => (Maybe BucketName
-    -> f (Maybe BucketName))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
 lovoName f x =
-    (\y -> x { _lovoName = y })
-       <$> f (_lovoName x)
+    f (_lovoName x)
+        <&> \y -> x { _lovoName = y }
 {-# INLINE lovoName #-}
 
-lovoCommonPrefixes
-    :: Functor f
-    => ([CommonPrefix]
-    -> f ([CommonPrefix]))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoCommonPrefixes :: Lens' ListObjectVersionsResponse ([CommonPrefix])
 lovoCommonPrefixes f x =
-    (\y -> x { _lovoCommonPrefixes = y })
-       <$> f (_lovoCommonPrefixes x)
+    f (_lovoCommonPrefixes x)
+        <&> \y -> x { _lovoCommonPrefixes = y }
 {-# INLINE lovoCommonPrefixes #-}
 
-lovoDeleteMarkers
-    :: Functor f
-    => ([DeleteMarkerEntry]
-    -> f ([DeleteMarkerEntry]))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoDeleteMarkers :: Lens' ListObjectVersionsResponse ([DeleteMarkerEntry])
 lovoDeleteMarkers f x =
-    (\y -> x { _lovoDeleteMarkers = y })
-       <$> f (_lovoDeleteMarkers x)
+    f (_lovoDeleteMarkers x)
+        <&> \y -> x { _lovoDeleteMarkers = y }
 {-# INLINE lovoDeleteMarkers #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lovoEncodingType
-    :: Functor f
-    => (Maybe EncodingType
-    -> f (Maybe EncodingType))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovoEncodingType f x =
-    (\y -> x { _lovoEncodingType = y })
-       <$> f (_lovoEncodingType x)
+    f (_lovoEncodingType x)
+        <&> \y -> x { _lovoEncodingType = y }
 {-# INLINE lovoEncodingType #-}
 
 -- | Marks the last Key returned in a truncated response.
-lovoKeyMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovoKeyMarker f x =
-    (\y -> x { _lovoKeyMarker = y })
-       <$> f (_lovoKeyMarker x)
+    f (_lovoKeyMarker x)
+        <&> \y -> x { _lovoKeyMarker = y }
 {-# INLINE lovoKeyMarker #-}
 
-lovoMaxKeys
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Integer)
 lovoMaxKeys f x =
-    (\y -> x { _lovoMaxKeys = y })
-       <$> f (_lovoMaxKeys x)
+    f (_lovoMaxKeys x)
+        <&> \y -> x { _lovoMaxKeys = y }
 {-# INLINE lovoMaxKeys #-}
 
 -- | Use this value for the key marker request parameter in a subsequent
 -- request.
-lovoNextKeyMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovoNextKeyMarker f x =
-    (\y -> x { _lovoNextKeyMarker = y })
-       <$> f (_lovoNextKeyMarker x)
+    f (_lovoNextKeyMarker x)
+        <&> \y -> x { _lovoNextKeyMarker = y }
 {-# INLINE lovoNextKeyMarker #-}
 
 -- | Use this value for the next version id marker parameter in a subsequent
 -- request.
-lovoNextVersionIdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovoNextVersionIdMarker f x =
-    (\y -> x { _lovoNextVersionIdMarker = y })
-       <$> f (_lovoNextVersionIdMarker x)
+    f (_lovoNextVersionIdMarker x)
+        <&> \y -> x { _lovoNextVersionIdMarker = y }
 {-# INLINE lovoNextVersionIdMarker #-}
 
-lovoVersions
-    :: Functor f
-    => ([ObjectVersion]
-    -> f ([ObjectVersion]))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoVersions :: Lens' ListObjectVersionsResponse ([ObjectVersion])
 lovoVersions f x =
-    (\y -> x { _lovoVersions = y })
-       <$> f (_lovoVersions x)
+    f (_lovoVersions x)
+        <&> \y -> x { _lovoVersions = y }
 {-# INLINE lovoVersions #-}
 
-lovoPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovoPrefix f x =
-    (\y -> x { _lovoPrefix = y })
-       <$> f (_lovoPrefix x)
+    f (_lovoPrefix x)
+        <&> \y -> x { _lovoPrefix = y }
 {-# INLINE lovoPrefix #-}
 
-lovoVersionIdMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListObjectVersionsResponse
-    -> f ListObjectVersionsResponse
+lovoVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovoVersionIdMarker f x =
-    (\y -> x { _lovoVersionIdMarker = y })
-       <$> f (_lovoVersionIdMarker x)
+    f (_lovoVersionIdMarker x)
+        <&> \y -> x { _lovoVersionIdMarker = y }
 {-# INLINE lovoVersionIdMarker #-}
 
 instance FromXML ListObjectVersionsResponse where

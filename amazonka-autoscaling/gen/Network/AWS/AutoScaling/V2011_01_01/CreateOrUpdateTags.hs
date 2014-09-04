@@ -51,6 +51,7 @@ createOrUpdateTags :: [Tag] -- ^ 'couttTags'
 createOrUpdateTags p1 = CreateOrUpdateTags
     { _couttTags = p1
     }
+{-# INLINE createOrUpdateTags #-}
 
 data CreateOrUpdateTags = CreateOrUpdateTags
     { _couttTags :: [Tag]
@@ -86,15 +87,10 @@ data CreateOrUpdateTags = CreateOrUpdateTags
 -- continue to have the older tag. When you create a tag and a tag of the same
 -- name already exists, the operation overwrites the previous tag definition,
 -- but you will not get an error message.
-couttTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> CreateOrUpdateTags
-    -> f CreateOrUpdateTags
+couttTags :: Lens' CreateOrUpdateTags ([Tag])
 couttTags f x =
-    (\y -> x { _couttTags = y })
-       <$> f (_couttTags x)
+    f (_couttTags x)
+        <&> \y -> x { _couttTags = y }
 {-# INLINE couttTags #-}
 
 instance ToQuery CreateOrUpdateTags where

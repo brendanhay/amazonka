@@ -53,6 +53,7 @@ resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
     , _rmfadrUserName = p3
     , _rmfadrSerialNumber = p4
     }
+{-# INLINE resyncMFADevice #-}
 
 data ResyncMFADevice = ResyncMFADevice
     { _rmfadrAuthenticationCode1 :: Text
@@ -66,51 +67,31 @@ data ResyncMFADevice = ResyncMFADevice
     } deriving (Show, Generic)
 
 -- | An authentication code emitted by the device.
-rmfadrAuthenticationCode1
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResyncMFADevice
-    -> f ResyncMFADevice
+rmfadrAuthenticationCode1 :: Lens' ResyncMFADevice (Text)
 rmfadrAuthenticationCode1 f x =
-    (\y -> x { _rmfadrAuthenticationCode1 = y })
-       <$> f (_rmfadrAuthenticationCode1 x)
+    f (_rmfadrAuthenticationCode1 x)
+        <&> \y -> x { _rmfadrAuthenticationCode1 = y }
 {-# INLINE rmfadrAuthenticationCode1 #-}
 
 -- | A subsequent authentication code emitted by the device.
-rmfadrAuthenticationCode2
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResyncMFADevice
-    -> f ResyncMFADevice
+rmfadrAuthenticationCode2 :: Lens' ResyncMFADevice (Text)
 rmfadrAuthenticationCode2 f x =
-    (\y -> x { _rmfadrAuthenticationCode2 = y })
-       <$> f (_rmfadrAuthenticationCode2 x)
+    f (_rmfadrAuthenticationCode2 x)
+        <&> \y -> x { _rmfadrAuthenticationCode2 = y }
 {-# INLINE rmfadrAuthenticationCode2 #-}
 
 -- | Name of the user whose MFA device you want to resynchronize.
-rmfadrUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResyncMFADevice
-    -> f ResyncMFADevice
+rmfadrUserName :: Lens' ResyncMFADevice (Text)
 rmfadrUserName f x =
-    (\y -> x { _rmfadrUserName = y })
-       <$> f (_rmfadrUserName x)
+    f (_rmfadrUserName x)
+        <&> \y -> x { _rmfadrUserName = y }
 {-# INLINE rmfadrUserName #-}
 
 -- | Serial number that uniquely identifies the MFA device.
-rmfadrSerialNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResyncMFADevice
-    -> f ResyncMFADevice
+rmfadrSerialNumber :: Lens' ResyncMFADevice (Text)
 rmfadrSerialNumber f x =
-    (\y -> x { _rmfadrSerialNumber = y })
-       <$> f (_rmfadrSerialNumber x)
+    f (_rmfadrSerialNumber x)
+        <&> \y -> x { _rmfadrSerialNumber = y }
 {-# INLINE rmfadrSerialNumber #-}
 
 instance ToQuery ResyncMFADevice where

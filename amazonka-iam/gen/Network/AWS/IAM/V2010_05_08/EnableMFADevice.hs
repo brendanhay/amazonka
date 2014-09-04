@@ -55,6 +55,7 @@ enableMFADevice p1 p2 p3 p4 = EnableMFADevice
     , _emfadrUserName = p3
     , _emfadrSerialNumber = p4
     }
+{-# INLINE enableMFADevice #-}
 
 data EnableMFADevice = EnableMFADevice
     { _emfadrAuthenticationCode1 :: Text
@@ -69,52 +70,32 @@ data EnableMFADevice = EnableMFADevice
     } deriving (Show, Generic)
 
 -- | An authentication code emitted by the device.
-emfadrAuthenticationCode1
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableMFADevice
-    -> f EnableMFADevice
+emfadrAuthenticationCode1 :: Lens' EnableMFADevice (Text)
 emfadrAuthenticationCode1 f x =
-    (\y -> x { _emfadrAuthenticationCode1 = y })
-       <$> f (_emfadrAuthenticationCode1 x)
+    f (_emfadrAuthenticationCode1 x)
+        <&> \y -> x { _emfadrAuthenticationCode1 = y }
 {-# INLINE emfadrAuthenticationCode1 #-}
 
 -- | A subsequent authentication code emitted by the device.
-emfadrAuthenticationCode2
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableMFADevice
-    -> f EnableMFADevice
+emfadrAuthenticationCode2 :: Lens' EnableMFADevice (Text)
 emfadrAuthenticationCode2 f x =
-    (\y -> x { _emfadrAuthenticationCode2 = y })
-       <$> f (_emfadrAuthenticationCode2 x)
+    f (_emfadrAuthenticationCode2 x)
+        <&> \y -> x { _emfadrAuthenticationCode2 = y }
 {-# INLINE emfadrAuthenticationCode2 #-}
 
 -- | Name of the user for whom you want to enable the MFA device.
-emfadrUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableMFADevice
-    -> f EnableMFADevice
+emfadrUserName :: Lens' EnableMFADevice (Text)
 emfadrUserName f x =
-    (\y -> x { _emfadrUserName = y })
-       <$> f (_emfadrUserName x)
+    f (_emfadrUserName x)
+        <&> \y -> x { _emfadrUserName = y }
 {-# INLINE emfadrUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
-emfadrSerialNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableMFADevice
-    -> f EnableMFADevice
+emfadrSerialNumber :: Lens' EnableMFADevice (Text)
 emfadrSerialNumber f x =
-    (\y -> x { _emfadrSerialNumber = y })
-       <$> f (_emfadrSerialNumber x)
+    f (_emfadrSerialNumber x)
+        <&> \y -> x { _emfadrSerialNumber = y }
 {-# INLINE emfadrSerialNumber #-}
 
 instance ToQuery EnableMFADevice where

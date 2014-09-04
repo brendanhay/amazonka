@@ -49,6 +49,7 @@ putBucketRequestPayment p1 p2 = PutBucketRequestPayment
     , _pbrprBucket = p2
     , _pbrprContentMD5 = Nothing
     }
+{-# INLINE putBucketRequestPayment #-}
 
 data PutBucketRequestPayment = PutBucketRequestPayment
     { _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
@@ -56,37 +57,22 @@ data PutBucketRequestPayment = PutBucketRequestPayment
     , _pbrprContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pbrprRequestPaymentConfiguration
-    :: Functor f
-    => (RequestPaymentConfiguration
-    -> f (RequestPaymentConfiguration))
-    -> PutBucketRequestPayment
-    -> f PutBucketRequestPayment
+pbrprRequestPaymentConfiguration :: Lens' PutBucketRequestPayment (RequestPaymentConfiguration)
 pbrprRequestPaymentConfiguration f x =
-    (\y -> x { _pbrprRequestPaymentConfiguration = y })
-       <$> f (_pbrprRequestPaymentConfiguration x)
+    f (_pbrprRequestPaymentConfiguration x)
+        <&> \y -> x { _pbrprRequestPaymentConfiguration = y }
 {-# INLINE pbrprRequestPaymentConfiguration #-}
 
-pbrprBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketRequestPayment
-    -> f PutBucketRequestPayment
+pbrprBucket :: Lens' PutBucketRequestPayment (BucketName)
 pbrprBucket f x =
-    (\y -> x { _pbrprBucket = y })
-       <$> f (_pbrprBucket x)
+    f (_pbrprBucket x)
+        <&> \y -> x { _pbrprBucket = y }
 {-# INLINE pbrprBucket #-}
 
-pbrprContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketRequestPayment
-    -> f PutBucketRequestPayment
+pbrprContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
 pbrprContentMD5 f x =
-    (\y -> x { _pbrprContentMD5 = y })
-       <$> f (_pbrprContentMD5 x)
+    f (_pbrprContentMD5 x)
+        <&> \y -> x { _pbrprContentMD5 = y }
 {-# INLINE pbrprContentMD5 #-}
 
 instance ToPath PutBucketRequestPayment where

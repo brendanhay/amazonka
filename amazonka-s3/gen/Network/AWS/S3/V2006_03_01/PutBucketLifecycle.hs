@@ -46,6 +46,7 @@ putBucketLifecycle p1 = PutBucketLifecycle
     , _pblrLifecycleConfiguration = Nothing
     , _pblrContentMD5 = Nothing
     }
+{-# INLINE putBucketLifecycle #-}
 
 data PutBucketLifecycle = PutBucketLifecycle
     { _pblrBucket :: BucketName
@@ -53,37 +54,22 @@ data PutBucketLifecycle = PutBucketLifecycle
     , _pblrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pblrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketLifecycle
-    -> f PutBucketLifecycle
+pblrBucket :: Lens' PutBucketLifecycle (BucketName)
 pblrBucket f x =
-    (\y -> x { _pblrBucket = y })
-       <$> f (_pblrBucket x)
+    f (_pblrBucket x)
+        <&> \y -> x { _pblrBucket = y }
 {-# INLINE pblrBucket #-}
 
-pblrLifecycleConfiguration
-    :: Functor f
-    => (Maybe LifecycleConfiguration
-    -> f (Maybe LifecycleConfiguration))
-    -> PutBucketLifecycle
-    -> f PutBucketLifecycle
+pblrLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
 pblrLifecycleConfiguration f x =
-    (\y -> x { _pblrLifecycleConfiguration = y })
-       <$> f (_pblrLifecycleConfiguration x)
+    f (_pblrLifecycleConfiguration x)
+        <&> \y -> x { _pblrLifecycleConfiguration = y }
 {-# INLINE pblrLifecycleConfiguration #-}
 
-pblrContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketLifecycle
-    -> f PutBucketLifecycle
+pblrContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
 pblrContentMD5 f x =
-    (\y -> x { _pblrContentMD5 = y })
-       <$> f (_pblrContentMD5 x)
+    f (_pblrContentMD5 x)
+        <&> \y -> x { _pblrContentMD5 = y }
 {-# INLINE pblrContentMD5 #-}
 
 instance ToPath PutBucketLifecycle where

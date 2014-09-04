@@ -59,6 +59,7 @@ putGroupPolicy p1 p2 p3 = PutGroupPolicy
     , _pgprPolicyDocument = p2
     , _pgprPolicyName = p3
     }
+{-# INLINE putGroupPolicy #-}
 
 data PutGroupPolicy = PutGroupPolicy
     { _pgprGroupName :: Text
@@ -70,39 +71,24 @@ data PutGroupPolicy = PutGroupPolicy
     } deriving (Show, Generic)
 
 -- | Name of the group to associate the policy with.
-pgprGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutGroupPolicy
-    -> f PutGroupPolicy
+pgprGroupName :: Lens' PutGroupPolicy (Text)
 pgprGroupName f x =
-    (\y -> x { _pgprGroupName = y })
-       <$> f (_pgprGroupName x)
+    f (_pgprGroupName x)
+        <&> \y -> x { _pgprGroupName = y }
 {-# INLINE pgprGroupName #-}
 
 -- | The policy document.
-pgprPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutGroupPolicy
-    -> f PutGroupPolicy
+pgprPolicyDocument :: Lens' PutGroupPolicy (Text)
 pgprPolicyDocument f x =
-    (\y -> x { _pgprPolicyDocument = y })
-       <$> f (_pgprPolicyDocument x)
+    f (_pgprPolicyDocument x)
+        <&> \y -> x { _pgprPolicyDocument = y }
 {-# INLINE pgprPolicyDocument #-}
 
 -- | Name of the policy document.
-pgprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutGroupPolicy
-    -> f PutGroupPolicy
+pgprPolicyName :: Lens' PutGroupPolicy (Text)
 pgprPolicyName f x =
-    (\y -> x { _pgprPolicyName = y })
-       <$> f (_pgprPolicyName x)
+    f (_pgprPolicyName x)
+        <&> \y -> x { _pgprPolicyName = y }
 {-# INLINE pgprPolicyName #-}
 
 instance ToQuery PutGroupPolicy where

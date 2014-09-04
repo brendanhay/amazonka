@@ -63,6 +63,7 @@ createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
     , _clbcspiPolicyName = p2
     , _clbcspiCookieExpirationPeriod = Nothing
     }
+{-# INLINE createLBCookieStickinessPolicy #-}
 
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     { _clbcspiLoadBalancerName :: Text
@@ -78,42 +79,27 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer.
-clbcspiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLBCookieStickinessPolicy
-    -> f CreateLBCookieStickinessPolicy
+clbcspiLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy (Text)
 clbcspiLoadBalancerName f x =
-    (\y -> x { _clbcspiLoadBalancerName = y })
-       <$> f (_clbcspiLoadBalancerName x)
+    f (_clbcspiLoadBalancerName x)
+        <&> \y -> x { _clbcspiLoadBalancerName = y }
 {-# INLINE clbcspiLoadBalancerName #-}
 
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
-clbcspiPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLBCookieStickinessPolicy
-    -> f CreateLBCookieStickinessPolicy
+clbcspiPolicyName :: Lens' CreateLBCookieStickinessPolicy (Text)
 clbcspiPolicyName f x =
-    (\y -> x { _clbcspiPolicyName = y })
-       <$> f (_clbcspiPolicyName x)
+    f (_clbcspiPolicyName x)
+        <&> \y -> x { _clbcspiPolicyName = y }
 {-# INLINE clbcspiPolicyName #-}
 
 -- | The time period in seconds after which the cookie should be considered
 -- stale. Not specifying this parameter indicates that the sticky session will
 -- last for the duration of the browser session.
-clbcspiCookieExpirationPeriod
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CreateLBCookieStickinessPolicy
-    -> f CreateLBCookieStickinessPolicy
+clbcspiCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
 clbcspiCookieExpirationPeriod f x =
-    (\y -> x { _clbcspiCookieExpirationPeriod = y })
-       <$> f (_clbcspiCookieExpirationPeriod x)
+    f (_clbcspiCookieExpirationPeriod x)
+        <&> \y -> x { _clbcspiCookieExpirationPeriod = y }
 {-# INLINE clbcspiCookieExpirationPeriod #-}
 
 instance ToQuery CreateLBCookieStickinessPolicy where

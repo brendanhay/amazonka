@@ -93,9 +93,10 @@ data DescribeCustomerGateways = DescribeCustomerGateways
 
 -- | One or more customer gateway IDs. Default: Describes all your customer
 -- gateways.
-dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
+dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways ([Text])
 dcgsCustomerGatewayIds f x =
-    f (_dcgsCustomerGatewayIds x) <&> \y -> x { _dcgsCustomerGatewayIds = y }
+    f (_dcgsCustomerGatewayIds x)
+        <&> \y -> x { _dcgsCustomerGatewayIds = y }
 {-# INLINE dcgsCustomerGatewayIds #-}
 
 -- | One or more filters. bgp-asn - The customer gateway's Border Gateway
@@ -113,9 +114,10 @@ dcgsCustomerGatewayIds f x =
 -- you want to list only resources where Purpose is X, see the tag:key=value
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
-dcgsFilters :: Lens' DescribeCustomerGateways [Filter]
+dcgsFilters :: Lens' DescribeCustomerGateways ([Filter])
 dcgsFilters f x =
-    f (_dcgsFilters x) <&> \y -> x { _dcgsFilters = y }
+    f (_dcgsFilters x)
+        <&> \y -> x { _dcgsFilters = y }
 {-# INLINE dcgsFilters #-}
 
 instance ToQuery DescribeCustomerGateways where
@@ -127,9 +129,10 @@ data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more customer gateways.
-dcgtCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgtCustomerGateways :: Lens' DescribeCustomerGatewaysResponse ([CustomerGateway])
 dcgtCustomerGateways f x =
-    f (_dcgtCustomerGateways x) <&> \y -> x { _dcgtCustomerGateways = y }
+    f (_dcgtCustomerGateways x)
+        <&> \y -> x { _dcgtCustomerGateways = y }
 {-# INLINE dcgtCustomerGateways #-}
 
 instance FromXML DescribeCustomerGatewaysResponse where

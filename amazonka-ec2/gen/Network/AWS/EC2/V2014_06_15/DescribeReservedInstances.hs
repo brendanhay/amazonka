@@ -118,22 +118,25 @@ data DescribeReservedInstances = DescribeReservedInstances
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. usage-price - The usage price
 -- of the Reserved Instance, per hour (for example, 0.84).
-drirFilters :: Lens' DescribeReservedInstances [Filter]
+drirFilters :: Lens' DescribeReservedInstances ([Filter])
 drirFilters f x =
-    f (_drirFilters x) <&> \y -> x { _drirFilters = y }
+    f (_drirFilters x)
+        <&> \y -> x { _drirFilters = y }
 {-# INLINE drirFilters #-}
 
 -- | The Reserved Instance offering type.
 drirOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 drirOfferingType f x =
-    f (_drirOfferingType x) <&> \y -> x { _drirOfferingType = y }
+    f (_drirOfferingType x)
+        <&> \y -> x { _drirOfferingType = y }
 {-# INLINE drirOfferingType #-}
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved
 -- Instances, or only those otherwise specified.
-drirReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
+drirReservedInstancesIds :: Lens' DescribeReservedInstances ([Text])
 drirReservedInstancesIds f x =
-    f (_drirReservedInstancesIds x) <&> \y -> x { _drirReservedInstancesIds = y }
+    f (_drirReservedInstancesIds x)
+        <&> \y -> x { _drirReservedInstancesIds = y }
 {-# INLINE drirReservedInstancesIds #-}
 
 instance ToQuery DescribeReservedInstances where
@@ -145,9 +148,10 @@ data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     } deriving (Show, Generic)
 
 -- | A list of Reserved Instances.
-drisReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
+drisReservedInstances :: Lens' DescribeReservedInstancesResponse ([ReservedInstances])
 drisReservedInstances f x =
-    f (_drisReservedInstances x) <&> \y -> x { _drisReservedInstances = y }
+    f (_drisReservedInstances x)
+        <&> \y -> x { _drisReservedInstances = y }
 {-# INLINE drisReservedInstances #-}
 
 instance FromXML DescribeReservedInstancesResponse where

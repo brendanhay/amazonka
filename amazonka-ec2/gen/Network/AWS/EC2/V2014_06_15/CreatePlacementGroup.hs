@@ -65,15 +65,17 @@ data CreatePlacementGroup = CreatePlacementGroup
     } deriving (Show, Generic)
 
 -- | The placement strategy.
-cpgrStrategy :: Lens' CreatePlacementGroup PlacementStrategy
+cpgrStrategy :: Lens' CreatePlacementGroup (PlacementStrategy)
 cpgrStrategy f x =
-    f (_cpgrStrategy x) <&> \y -> x { _cpgrStrategy = y }
+    f (_cpgrStrategy x)
+        <&> \y -> x { _cpgrStrategy = y }
 {-# INLINE cpgrStrategy #-}
 
 -- | A name for the placement group. Constraints: Up to 255 ASCII characters.
-cpgrGroupName :: Lens' CreatePlacementGroup Text
+cpgrGroupName :: Lens' CreatePlacementGroup (Text)
 cpgrGroupName f x =
-    f (_cpgrGroupName x) <&> \y -> x { _cpgrGroupName = y }
+    f (_cpgrGroupName x)
+        <&> \y -> x { _cpgrGroupName = y }
 {-# INLINE cpgrGroupName #-}
 
 instance ToQuery CreatePlacementGroup where

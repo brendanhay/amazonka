@@ -110,23 +110,26 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 -- group. tag-key - The key of a tag assigned to the security group. tag-value
 -- - The value of a tag assigned to the security group. vpc-id - The ID of the
 -- VPC specified when the security group was created.
-dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
+dsgsFilters :: Lens' DescribeSecurityGroups ([Filter])
 dsgsFilters f x =
-    f (_dsgsFilters x) <&> \y -> x { _dsgsFilters = y }
+    f (_dsgsFilters x)
+        <&> \y -> x { _dsgsFilters = y }
 {-# INLINE dsgsFilters #-}
 
 -- | One or more security group IDs. Default: Describes all your security
 -- groups.
-dsgsGroupIds :: Lens' DescribeSecurityGroups [Text]
+dsgsGroupIds :: Lens' DescribeSecurityGroups ([Text])
 dsgsGroupIds f x =
-    f (_dsgsGroupIds x) <&> \y -> x { _dsgsGroupIds = y }
+    f (_dsgsGroupIds x)
+        <&> \y -> x { _dsgsGroupIds = y }
 {-# INLINE dsgsGroupIds #-}
 
 -- | [EC2-Classic, default VPC] One or more security group names. Default:
 -- Describes all your security groups.
-dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
+dsgsGroupNames :: Lens' DescribeSecurityGroups ([Text])
 dsgsGroupNames f x =
-    f (_dsgsGroupNames x) <&> \y -> x { _dsgsGroupNames = y }
+    f (_dsgsGroupNames x)
+        <&> \y -> x { _dsgsGroupNames = y }
 {-# INLINE dsgsGroupNames #-}
 
 instance ToQuery DescribeSecurityGroups where
@@ -138,9 +141,10 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more security groups.
-dsgtSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgtSecurityGroups :: Lens' DescribeSecurityGroupsResponse ([SecurityGroup])
 dsgtSecurityGroups f x =
-    f (_dsgtSecurityGroups x) <&> \y -> x { _dsgtSecurityGroups = y }
+    f (_dsgtSecurityGroups x)
+        <&> \y -> x { _dsgtSecurityGroups = y }
 {-# INLINE dsgtSecurityGroups #-}
 
 instance FromXML DescribeSecurityGroupsResponse where

@@ -49,6 +49,7 @@ abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
     , _amurUploadId = p2
     , _amurKey = p3
     }
+{-# INLINE abortMultipartUpload #-}
 
 data AbortMultipartUpload = AbortMultipartUpload
     { _amurBucket :: BucketName
@@ -56,37 +57,22 @@ data AbortMultipartUpload = AbortMultipartUpload
     , _amurKey :: ObjectKey
     } deriving (Show, Generic)
 
-amurBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> AbortMultipartUpload
-    -> f AbortMultipartUpload
+amurBucket :: Lens' AbortMultipartUpload (BucketName)
 amurBucket f x =
-    (\y -> x { _amurBucket = y })
-       <$> f (_amurBucket x)
+    f (_amurBucket x)
+        <&> \y -> x { _amurBucket = y }
 {-# INLINE amurBucket #-}
 
-amurUploadId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AbortMultipartUpload
-    -> f AbortMultipartUpload
+amurUploadId :: Lens' AbortMultipartUpload (Text)
 amurUploadId f x =
-    (\y -> x { _amurUploadId = y })
-       <$> f (_amurUploadId x)
+    f (_amurUploadId x)
+        <&> \y -> x { _amurUploadId = y }
 {-# INLINE amurUploadId #-}
 
-amurKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> AbortMultipartUpload
-    -> f AbortMultipartUpload
+amurKey :: Lens' AbortMultipartUpload (ObjectKey)
 amurKey f x =
-    (\y -> x { _amurKey = y })
-       <$> f (_amurKey x)
+    f (_amurKey x)
+        <&> \y -> x { _amurKey = y }
 {-# INLINE amurKey #-}
 
 instance ToPath AbortMultipartUpload where

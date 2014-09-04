@@ -70,15 +70,17 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
+dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute (Text)
 dniarNetworkInterfaceId f x =
-    f (_dniarNetworkInterfaceId x) <&> \y -> x { _dniarNetworkInterfaceId = y }
+    f (_dniarNetworkInterfaceId x)
+        <&> \y -> x { _dniarNetworkInterfaceId = y }
 {-# INLINE dniarNetworkInterfaceId #-}
 
 -- | The attribute of the network interface.
 dniarAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniarAttribute f x =
-    f (_dniarAttribute x) <&> \y -> x { _dniarAttribute = y }
+    f (_dniarAttribute x)
+        <&> \y -> x { _dniarAttribute = y }
 {-# INLINE dniarAttribute #-}
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
@@ -100,31 +102,36 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 -- | Indicates whether source/destination checking is enabled.
 dniasSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniasSourceDestCheck f x =
-    f (_dniasSourceDestCheck x) <&> \y -> x { _dniasSourceDestCheck = y }
+    f (_dniasSourceDestCheck x)
+        <&> \y -> x { _dniasSourceDestCheck = y }
 {-# INLINE dniasSourceDestCheck #-}
 
 -- | The description of the network interface.
 dniasDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniasDescription f x =
-    f (_dniasDescription x) <&> \y -> x { _dniasDescription = y }
+    f (_dniasDescription x)
+        <&> \y -> x { _dniasDescription = y }
 {-# INLINE dniasDescription #-}
 
 -- | The security groups associated with the network interface.
-dniasGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniasGroups :: Lens' DescribeNetworkInterfaceAttributeResponse ([GroupIdentifier])
 dniasGroups f x =
-    f (_dniasGroups x) <&> \y -> x { _dniasGroups = y }
+    f (_dniasGroups x)
+        <&> \y -> x { _dniasGroups = y }
 {-# INLINE dniasGroups #-}
 
 -- | The attachment (if any) of the network interface.
 dniasAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
 dniasAttachment f x =
-    f (_dniasAttachment x) <&> \y -> x { _dniasAttachment = y }
+    f (_dniasAttachment x)
+        <&> \y -> x { _dniasAttachment = y }
 {-# INLINE dniasAttachment #-}
 
 -- | The ID of the network interface.
 dniasNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
 dniasNetworkInterfaceId f x =
-    f (_dniasNetworkInterfaceId x) <&> \y -> x { _dniasNetworkInterfaceId = y }
+    f (_dniasNetworkInterfaceId x)
+        <&> \y -> x { _dniasNetworkInterfaceId = y }
 {-# INLINE dniasNetworkInterfaceId #-}
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where

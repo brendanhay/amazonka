@@ -57,6 +57,7 @@ enableAvailabilityZonesForLoadBalancer p1 p2 = EnableAvailabilityZonesForLoadBal
     { _aaziLoadBalancerName = p1
     , _aaziAvailabilityZones = p2
     }
+{-# INLINE enableAvailabilityZonesForLoadBalancer #-}
 
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
     { _aaziLoadBalancerName :: Text
@@ -68,28 +69,18 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer.
-aaziLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnableAvailabilityZonesForLoadBalancer
-    -> f EnableAvailabilityZonesForLoadBalancer
+aaziLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer (Text)
 aaziLoadBalancerName f x =
-    (\y -> x { _aaziLoadBalancerName = y })
-       <$> f (_aaziLoadBalancerName x)
+    f (_aaziLoadBalancerName x)
+        <&> \y -> x { _aaziLoadBalancerName = y }
 {-# INLINE aaziLoadBalancerName #-}
 
 -- | A list of new Availability Zones for the load balancer. Each Availability
 -- Zone must be in the same region as the load balancer.
-aaziAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> EnableAvailabilityZonesForLoadBalancer
-    -> f EnableAvailabilityZonesForLoadBalancer
+aaziAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer ([Text])
 aaziAvailabilityZones f x =
-    (\y -> x { _aaziAvailabilityZones = y })
-       <$> f (_aaziAvailabilityZones x)
+    f (_aaziAvailabilityZones x)
+        <&> \y -> x { _aaziAvailabilityZones = y }
 {-# INLINE aaziAvailabilityZones #-}
 
 instance ToQuery EnableAvailabilityZonesForLoadBalancer where
@@ -101,15 +92,10 @@ data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesFor
     } deriving (Show, Generic)
 
 -- | An updated list of Availability Zones for the load balancer.
-aazoAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> EnableAvailabilityZonesForLoadBalancerResponse
-    -> f EnableAvailabilityZonesForLoadBalancerResponse
+aazoAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse ([Text])
 aazoAvailabilityZones f x =
-    (\y -> x { _aazoAvailabilityZones = y })
-       <$> f (_aazoAvailabilityZones x)
+    f (_aazoAvailabilityZones x)
+        <&> \y -> x { _aazoAvailabilityZones = y }
 {-# INLINE aazoAvailabilityZones #-}
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where

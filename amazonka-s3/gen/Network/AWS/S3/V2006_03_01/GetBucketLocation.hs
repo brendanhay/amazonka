@@ -43,20 +43,16 @@ getBucketLocation :: BucketName -- ^ 'gblsBucket'
 getBucketLocation p1 = GetBucketLocation
     { _gblsBucket = p1
     }
+{-# INLINE getBucketLocation #-}
 
 data GetBucketLocation = GetBucketLocation
     { _gblsBucket :: BucketName
     } deriving (Show, Generic)
 
-gblsBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketLocation
-    -> f GetBucketLocation
+gblsBucket :: Lens' GetBucketLocation (BucketName)
 gblsBucket f x =
-    (\y -> x { _gblsBucket = y })
-       <$> f (_gblsBucket x)
+    f (_gblsBucket x)
+        <&> \y -> x { _gblsBucket = y }
 {-# INLINE gblsBucket #-}
 
 instance ToPath GetBucketLocation where
@@ -78,15 +74,10 @@ data GetBucketLocationResponse = GetBucketLocationResponse
     { _gblpLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Show, Generic)
 
-gblpLocationConstraint
-    :: Functor f
-    => (Maybe BucketLocationConstraint
-    -> f (Maybe BucketLocationConstraint))
-    -> GetBucketLocationResponse
-    -> f GetBucketLocationResponse
+gblpLocationConstraint :: Lens' GetBucketLocationResponse (Maybe BucketLocationConstraint)
 gblpLocationConstraint f x =
-    (\y -> x { _gblpLocationConstraint = y })
-       <$> f (_gblpLocationConstraint x)
+    f (_gblpLocationConstraint x)
+        <&> \y -> x { _gblpLocationConstraint = y }
 {-# INLINE gblpLocationConstraint #-}
 
 instance FromXML GetBucketLocationResponse where

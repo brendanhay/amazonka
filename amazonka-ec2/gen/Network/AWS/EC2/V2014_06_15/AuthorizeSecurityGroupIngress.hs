@@ -143,7 +143,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
 asgirFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
 asgirFromPort f x =
-    f (_asgirFromPort x) <&> \y -> x { _asgirFromPort = y }
+    f (_asgirFromPort x)
+        <&> \y -> x { _asgirFromPort = y }
 {-# INLINE asgirFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
@@ -151,53 +152,61 @@ asgirFromPort f x =
 -- ICMP type.
 asgirToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Integer)
 asgirToPort f x =
-    f (_asgirToPort x) <&> \y -> x { _asgirToPort = y }
+    f (_asgirToPort x)
+        <&> \y -> x { _asgirToPort = y }
 {-# INLINE asgirToPort #-}
 
 -- | 
-asgirIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
+asgirIpPermissions :: Lens' AuthorizeSecurityGroupIngress ([IpPermission])
 asgirIpPermissions f x =
-    f (_asgirIpPermissions x) <&> \y -> x { _asgirIpPermissions = y }
+    f (_asgirIpPermissions x)
+        <&> \y -> x { _asgirIpPermissions = y }
 {-# INLINE asgirIpPermissions #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 asgirGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirGroupName f x =
-    f (_asgirGroupName x) <&> \y -> x { _asgirGroupName = y }
+    f (_asgirGroupName x)
+        <&> \y -> x { _asgirGroupName = y }
 {-# INLINE asgirGroupName #-}
 
 -- | The ID of the security group.
 asgirGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirGroupId f x =
-    f (_asgirGroupId x) <&> \y -> x { _asgirGroupId = y }
+    f (_asgirGroupId x)
+        <&> \y -> x { _asgirGroupId = y }
 {-# INLINE asgirGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
 asgirSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirSourceSecurityGroupName f x =
-    f (_asgirSourceSecurityGroupName x) <&> \y -> x { _asgirSourceSecurityGroupName = y }
+    f (_asgirSourceSecurityGroupName x)
+        <&> \y -> x { _asgirSourceSecurityGroupName = y }
 {-# INLINE asgirSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
 asgirSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirSourceSecurityGroupOwnerId f x =
-    f (_asgirSourceSecurityGroupOwnerId x) <&> \y -> x { _asgirSourceSecurityGroupOwnerId = y }
+    f (_asgirSourceSecurityGroupOwnerId x)
+        <&> \y -> x { _asgirSourceSecurityGroupOwnerId = y }
 {-# INLINE asgirSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
 asgirIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirIpProtocol f x =
-    f (_asgirIpProtocol x) <&> \y -> x { _asgirIpProtocol = y }
+    f (_asgirIpProtocol x)
+        <&> \y -> x { _asgirIpProtocol = y }
 {-# INLINE asgirIpProtocol #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
 asgirCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgirCidrIp f x =
-    f (_asgirCidrIp x) <&> \y -> x { _asgirCidrIp = y }
+    f (_asgirCidrIp x)
+        <&> \y -> x { _asgirCidrIp = y }
 {-# INLINE asgirCidrIp #-}
 
 instance ToQuery AuthorizeSecurityGroupIngress where

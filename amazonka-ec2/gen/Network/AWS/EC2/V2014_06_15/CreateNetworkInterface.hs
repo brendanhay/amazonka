@@ -177,9 +177,10 @@ data CreateNetworkInterface = CreateNetworkInterface
     } deriving (Show, Generic)
 
 -- | The ID of the subnet to associate with the network interface.
-cnirSubnetId :: Lens' CreateNetworkInterface Text
+cnirSubnetId :: Lens' CreateNetworkInterface (Text)
 cnirSubnetId f x =
-    f (_cnirSubnetId x) <&> \y -> x { _cnirSubnetId = y }
+    f (_cnirSubnetId x)
+        <&> \y -> x { _cnirSubnetId = y }
 {-# INLINE cnirSubnetId #-}
 
 -- | The number of secondary private IP addresses to assign to a network
@@ -190,25 +191,29 @@ cnirSubnetId f x =
 -- the Amazon Elastic Compute Cloud User Guide.
 cnirSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Integer)
 cnirSecondaryPrivateIpAddressCount f x =
-    f (_cnirSecondaryPrivateIpAddressCount x) <&> \y -> x { _cnirSecondaryPrivateIpAddressCount = y }
+    f (_cnirSecondaryPrivateIpAddressCount x)
+        <&> \y -> x { _cnirSecondaryPrivateIpAddressCount = y }
 {-# INLINE cnirSecondaryPrivateIpAddressCount #-}
 
 -- | One or more private IP addresses.
-cnirPrivateIpAddresses :: Lens' CreateNetworkInterface [PrivateIpAddressSpecification]
+cnirPrivateIpAddresses :: Lens' CreateNetworkInterface ([PrivateIpAddressSpecification])
 cnirPrivateIpAddresses f x =
-    f (_cnirPrivateIpAddresses x) <&> \y -> x { _cnirPrivateIpAddresses = y }
+    f (_cnirPrivateIpAddresses x)
+        <&> \y -> x { _cnirPrivateIpAddresses = y }
 {-# INLINE cnirPrivateIpAddresses #-}
 
 -- | The IDs of one or more security groups.
-cnirGroups :: Lens' CreateNetworkInterface [Text]
+cnirGroups :: Lens' CreateNetworkInterface ([Text])
 cnirGroups f x =
-    f (_cnirGroups x) <&> \y -> x { _cnirGroups = y }
+    f (_cnirGroups x)
+        <&> \y -> x { _cnirGroups = y }
 {-# INLINE cnirGroups #-}
 
 -- | A description for the network interface.
 cnirDescription :: Lens' CreateNetworkInterface (Maybe Text)
 cnirDescription f x =
-    f (_cnirDescription x) <&> \y -> x { _cnirDescription = y }
+    f (_cnirDescription x)
+        <&> \y -> x { _cnirDescription = y }
 {-# INLINE cnirDescription #-}
 
 -- | The primary private IP address of the network interface. If you don't
@@ -216,7 +221,8 @@ cnirDescription f x =
 -- range.
 cnirPrivateIpAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cnirPrivateIpAddress f x =
-    f (_cnirPrivateIpAddress x) <&> \y -> x { _cnirPrivateIpAddress = y }
+    f (_cnirPrivateIpAddress x)
+        <&> \y -> x { _cnirPrivateIpAddress = y }
 {-# INLINE cnirPrivateIpAddress #-}
 
 instance ToQuery CreateNetworkInterface where
@@ -230,7 +236,8 @@ data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 -- | Information about the network interface.
 cnisNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnisNetworkInterface f x =
-    f (_cnisNetworkInterface x) <&> \y -> x { _cnisNetworkInterface = y }
+    f (_cnisNetworkInterface x)
+        <&> \y -> x { _cnisNetworkInterface = y }
 {-# INLINE cnisNetworkInterface #-}
 
 instance FromXML CreateNetworkInterfaceResponse where

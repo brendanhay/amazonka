@@ -80,6 +80,7 @@ createLaunchConfiguration p1 = CreateLaunchConfiguration
     , _clctPlacementTenancy = Nothing
     , _clctUserData = Nothing
     }
+{-# INLINE createLaunchConfiguration #-}
 
 data CreateLaunchConfiguration = CreateLaunchConfiguration
     { _clctLaunchConfigurationName :: Text
@@ -198,15 +199,10 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     } deriving (Show, Generic)
 
 -- | The name of the launch configuration to create.
-clctLaunchConfigurationName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctLaunchConfigurationName :: Lens' CreateLaunchConfiguration (Text)
 clctLaunchConfigurationName f x =
-    (\y -> x { _clctLaunchConfigurationName = y })
-       <$> f (_clctLaunchConfigurationName x)
+    f (_clctLaunchConfigurationName x)
+        <&> \y -> x { _clctLaunchConfigurationName = y }
 {-# INLINE clctLaunchConfigurationName #-}
 
 -- | Used for Auto Scaling groups that launch instances into an Amazon Virtual
@@ -219,15 +215,10 @@ clctLaunchConfigurationName f x =
 -- VPC, the default is true. If the instance is launched into a nondefault
 -- subnet in a VPC, the default is false. For information about default VPC
 -- and VPC platforms, see Supported Platforms.
-clctAssociatePublicIpAddress
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctAssociatePublicIpAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clctAssociatePublicIpAddress f x =
-    (\y -> x { _clctAssociatePublicIpAddress = y })
-       <$> f (_clctAssociatePublicIpAddress x)
+    f (_clctAssociatePublicIpAddress x)
+        <&> \y -> x { _clctAssociatePublicIpAddress = y }
 {-# INLINE clctAssociatePublicIpAddress #-}
 
 -- | A list of mappings that specify how block devices are exposed to the
@@ -236,15 +227,10 @@ clctAssociatePublicIpAddress f x =
 -- Block Storage volume. For more information about Amazon EC2
 -- BlockDeviceMappings, go to Block Device Mapping in the Amazon EC2 product
 -- documentation.
-clctBlockDeviceMappings
-    :: Functor f
-    => ([BlockDeviceMapping]
-    -> f ([BlockDeviceMapping]))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctBlockDeviceMappings :: Lens' CreateLaunchConfiguration ([BlockDeviceMapping])
 clctBlockDeviceMappings f x =
-    (\y -> x { _clctBlockDeviceMappings = y })
-       <$> f (_clctBlockDeviceMappings x)
+    f (_clctBlockDeviceMappings x)
+        <&> \y -> x { _clctBlockDeviceMappings = y }
 {-# INLINE clctBlockDeviceMappings #-}
 
 -- | Whether the instance is optimized for EBS I/O. The optimization provides
@@ -254,15 +240,10 @@ clctBlockDeviceMappings f x =
 -- Optimized instance. By default the instance is not optimized for EBS I/O.
 -- For information about EBS-optimized instances, go to EBS-Optimized
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
-clctEbsOptimized
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctEbsOptimized :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clctEbsOptimized f x =
-    (\y -> x { _clctEbsOptimized = y })
-       <$> f (_clctEbsOptimized x)
+    f (_clctEbsOptimized x)
+        <&> \y -> x { _clctEbsOptimized = y }
 {-# INLINE clctEbsOptimized #-}
 
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is
@@ -272,15 +253,10 @@ clctEbsOptimized f x =
 -- generate metrics every 5 minutes. For more information, see Monitor Your
 -- Auto Scaling Instances. For information about Amazon CloudWatch, see the
 -- Amazon CloudWatch Developer Guide.
-clctInstanceMonitoring
-    :: Functor f
-    => (Maybe InstanceMonitoring
-    -> f (Maybe InstanceMonitoring))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clctInstanceMonitoring f x =
-    (\y -> x { _clctInstanceMonitoring = y })
-       <$> f (_clctInstanceMonitoring x)
+    f (_clctInstanceMonitoring x)
+        <&> \y -> x { _clctInstanceMonitoring = y }
 {-# INLINE clctInstanceMonitoring #-}
 
 -- | The security groups with which to associate Amazon EC2 or Amazon VPC
@@ -291,15 +267,10 @@ clctInstanceMonitoring f x =
 -- within VPC, specify Amazon VPC security group IDs. For more information
 -- about Amazon VPC security groups, see Security Groups in the Amazon Virtual
 -- Private Cloud User Guide.
-clctSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctSecurityGroups :: Lens' CreateLaunchConfiguration ([Text])
 clctSecurityGroups f x =
-    (\y -> x { _clctSecurityGroups = y })
-       <$> f (_clctSecurityGroups x)
+    f (_clctSecurityGroups x)
+        <&> \y -> x { _clctSecurityGroups = y }
 {-# INLINE clctSecurityGroups #-}
 
 -- | The maximum hourly price to be paid for any Spot Instance launched to
@@ -307,15 +278,10 @@ clctSecurityGroups f x =
 -- exceeds the current Spot market price. For more information on launching
 -- Spot Instances, see Using Auto Scaling to Launch Spot Instances in the Auto
 -- Scaling Developer Guide.
-clctSpotPrice
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctSpotPrice f x =
-    (\y -> x { _clctSpotPrice = y })
-       <$> f (_clctSpotPrice x)
+    f (_clctSpotPrice x)
+        <&> \y -> x { _clctSpotPrice = y }
 {-# INLINE clctSpotPrice #-}
 
 -- | The ID of the Amazon EC2 instance you want to use to create the launch
@@ -329,15 +295,10 @@ clctSpotPrice f x =
 -- For more information on using an InstanceID to create a launch
 -- configuration, see Create a Launch Configuration Using an Amazon EC2
 -- Instance in the Auto Scaling Developer Guide.
-clctInstanceId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctInstanceId f x =
-    (\y -> x { _clctInstanceId = y })
-       <$> f (_clctInstanceId x)
+    f (_clctInstanceId x)
+        <&> \y -> x { _clctInstanceId = y }
 {-# INLINE clctInstanceId #-}
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile
@@ -348,80 +309,50 @@ clctInstanceId f x =
 -- AWS resources. For information on launching EC2 instances with an IAM role,
 -- go to Launching Auto Scaling Instances With an IAM Role in the Auto Scaling
 -- Developer Guide.
-clctIamInstanceProfile
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctIamInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctIamInstanceProfile f x =
-    (\y -> x { _clctIamInstanceProfile = y })
-       <$> f (_clctIamInstanceProfile x)
+    f (_clctIamInstanceProfile x)
+        <&> \y -> x { _clctIamInstanceProfile = y }
 {-# INLINE clctIamInstanceProfile #-}
 
 -- | Unique ID of the Amazon Machine Image (AMI) you want to use to launch your
 -- EC2 instances. For information about finding Amazon EC2 AMIs, see Finding a
 -- Suitable AMI in the Amazon Elastic Compute Cloud User Guide.
-clctImageId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctImageId f x =
-    (\y -> x { _clctImageId = y })
-       <$> f (_clctImageId x)
+    f (_clctImageId x)
+        <&> \y -> x { _clctImageId = y }
 {-# INLINE clctImageId #-}
 
 -- | The name of the Amazon EC2 key pair. For more information, see Getting a
 -- Key Pair in the Amazon Elastic Compute Cloud User Guide.
-clctKeyName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctKeyName f x =
-    (\y -> x { _clctKeyName = y })
-       <$> f (_clctKeyName x)
+    f (_clctKeyName x)
+        <&> \y -> x { _clctKeyName = y }
 {-# INLINE clctKeyName #-}
 
 -- | The instance type of the Amazon EC2 instance. For information about
 -- available Amazon EC2 instance types, see Available Instance Types in the
 -- Amazon Elastic Cloud Compute User Guide.
-clctInstanceType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctInstanceType f x =
-    (\y -> x { _clctInstanceType = y })
-       <$> f (_clctInstanceType x)
+    f (_clctInstanceType x)
+        <&> \y -> x { _clctInstanceType = y }
 {-# INLINE clctInstanceType #-}
 
 -- | The ID of the kernel associated with the Amazon EC2 AMI.
-clctKernelId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctKernelId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctKernelId f x =
-    (\y -> x { _clctKernelId = y })
-       <$> f (_clctKernelId x)
+    f (_clctKernelId x)
+        <&> \y -> x { _clctKernelId = y }
 {-# INLINE clctKernelId #-}
 
 -- | The ID of the RAM disk associated with the Amazon EC2 AMI.
-clctRamdiskId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctRamdiskId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctRamdiskId f x =
-    (\y -> x { _clctRamdiskId = y })
-       <$> f (_clctRamdiskId x)
+    f (_clctRamdiskId x)
+        <&> \y -> x { _clctRamdiskId = y }
 {-# INLINE clctRamdiskId #-}
 
 -- | The tenancy of the instance. An instance with a tenancy of dedicated runs
@@ -433,30 +364,20 @@ clctRamdiskId f x =
 -- parameter when you create your Auto Scaling group. For more information,
 -- see Auto Scaling in Amazon Virtual Private Cloud in the Auto Scaling
 -- Developer Guide. Valid values: default | dedicated.
-clctPlacementTenancy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clctPlacementTenancy f x =
-    (\y -> x { _clctPlacementTenancy = y })
-       <$> f (_clctPlacementTenancy x)
+    f (_clctPlacementTenancy x)
+        <&> \y -> x { _clctPlacementTenancy = y }
 {-# INLINE clctPlacementTenancy #-}
 
 -- | The user data to make available to the launched Amazon EC2 instances. For
 -- more information about Amazon EC2 user data, see User Data Retrieval in the
 -- Amazon Elastic Compute Cloud User Guide. At this time, Auto Scaling launch
 -- configurations don't support compressed (e.g. zipped) user data files.
-clctUserData
-    :: Functor f
-    => (Maybe ByteString
-    -> f (Maybe ByteString))
-    -> CreateLaunchConfiguration
-    -> f CreateLaunchConfiguration
+clctUserData :: Lens' CreateLaunchConfiguration (Maybe ByteString)
 clctUserData f x =
-    (\y -> x { _clctUserData = y })
-       <$> f (_clctUserData x)
+    f (_clctUserData x)
+        <&> \y -> x { _clctUserData = y }
 {-# INLINE clctUserData #-}
 
 instance ToQuery CreateLaunchConfiguration where

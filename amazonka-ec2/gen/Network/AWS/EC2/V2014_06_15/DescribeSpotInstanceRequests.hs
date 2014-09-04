@@ -184,15 +184,17 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 -- launched-availability-zone - The Availability Zone in which the bid is
 -- launched. valid-from - The start date of the request. valid-until - The end
 -- date of the request.
-dsirrFilters :: Lens' DescribeSpotInstanceRequests [Filter]
+dsirrFilters :: Lens' DescribeSpotInstanceRequests ([Filter])
 dsirrFilters f x =
-    f (_dsirrFilters x) <&> \y -> x { _dsirrFilters = y }
+    f (_dsirrFilters x)
+        <&> \y -> x { _dsirrFilters = y }
 {-# INLINE dsirrFilters #-}
 
 -- | One or more Spot Instance request IDs.
-dsirrSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
+dsirrSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests ([Text])
 dsirrSpotInstanceRequestIds f x =
-    f (_dsirrSpotInstanceRequestIds x) <&> \y -> x { _dsirrSpotInstanceRequestIds = y }
+    f (_dsirrSpotInstanceRequestIds x)
+        <&> \y -> x { _dsirrSpotInstanceRequestIds = y }
 {-# INLINE dsirrSpotInstanceRequestIds #-}
 
 instance ToQuery DescribeSpotInstanceRequests where
@@ -204,9 +206,10 @@ data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-dsirsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
+dsirsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse ([SpotInstanceRequest])
 dsirsSpotInstanceRequests f x =
-    f (_dsirsSpotInstanceRequests x) <&> \y -> x { _dsirsSpotInstanceRequests = y }
+    f (_dsirsSpotInstanceRequests x)
+        <&> \y -> x { _dsirsSpotInstanceRequests = y }
 {-# INLINE dsirsSpotInstanceRequests #-}
 
 instance FromXML DescribeSpotInstanceRequestsResponse where

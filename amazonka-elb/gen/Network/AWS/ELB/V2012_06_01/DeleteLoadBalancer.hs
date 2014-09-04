@@ -49,6 +49,7 @@ deleteLoadBalancer :: Text -- ^ 'dapiLoadBalancerName'
 deleteLoadBalancer p1 = DeleteLoadBalancer
     { _dapiLoadBalancerName = p1
     }
+{-# INLINE deleteLoadBalancer #-}
 
 data DeleteLoadBalancer = DeleteLoadBalancer
     { _dapiLoadBalancerName :: Text
@@ -56,15 +57,10 @@ data DeleteLoadBalancer = DeleteLoadBalancer
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer.
-dapiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLoadBalancer
-    -> f DeleteLoadBalancer
+dapiLoadBalancerName :: Lens' DeleteLoadBalancer (Text)
 dapiLoadBalancerName f x =
-    (\y -> x { _dapiLoadBalancerName = y })
-       <$> f (_dapiLoadBalancerName x)
+    f (_dapiLoadBalancerName x)
+        <&> \y -> x { _dapiLoadBalancerName = y }
 {-# INLINE dapiLoadBalancerName #-}
 
 instance ToQuery DeleteLoadBalancer where

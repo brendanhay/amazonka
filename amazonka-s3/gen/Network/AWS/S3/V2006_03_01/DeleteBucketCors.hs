@@ -41,20 +41,16 @@ deleteBucketCors :: BucketName -- ^ 'dbcrBucket'
 deleteBucketCors p1 = DeleteBucketCors
     { _dbcrBucket = p1
     }
+{-# INLINE deleteBucketCors #-}
 
 data DeleteBucketCors = DeleteBucketCors
     { _dbcrBucket :: BucketName
     } deriving (Show, Generic)
 
-dbcrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteBucketCors
-    -> f DeleteBucketCors
+dbcrBucket :: Lens' DeleteBucketCors (BucketName)
 dbcrBucket f x =
-    (\y -> x { _dbcrBucket = y })
-       <$> f (_dbcrBucket x)
+    f (_dbcrBucket x)
+        <&> \y -> x { _dbcrBucket = y }
 {-# INLINE dbcrBucket #-}
 
 instance ToPath DeleteBucketCors where

@@ -58,6 +58,7 @@ createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
     , _clbpiPolicyTypeName = p3
     , _clbpiPolicyAttributes = mempty
     }
+{-# INLINE createLoadBalancerPolicy #-}
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpiLoadBalancerName :: Text
@@ -76,53 +77,33 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
 
 -- | The name associated with the LoadBalancer for which the policy is being
 -- created.
-clbpiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoadBalancerPolicy
-    -> f CreateLoadBalancerPolicy
+clbpiLoadBalancerName :: Lens' CreateLoadBalancerPolicy (Text)
 clbpiLoadBalancerName f x =
-    (\y -> x { _clbpiLoadBalancerName = y })
-       <$> f (_clbpiLoadBalancerName x)
+    f (_clbpiLoadBalancerName x)
+        <&> \y -> x { _clbpiLoadBalancerName = y }
 {-# INLINE clbpiLoadBalancerName #-}
 
 -- | The name of the load balancer policy being created. The name must be unique
 -- within the set of policies for this load balancer.
-clbpiPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoadBalancerPolicy
-    -> f CreateLoadBalancerPolicy
+clbpiPolicyName :: Lens' CreateLoadBalancerPolicy (Text)
 clbpiPolicyName f x =
-    (\y -> x { _clbpiPolicyName = y })
-       <$> f (_clbpiPolicyName x)
+    f (_clbpiPolicyName x)
+        <&> \y -> x { _clbpiPolicyName = y }
 {-# INLINE clbpiPolicyName #-}
 
 -- | The name of the base policy type being used to create this policy. To get
 -- the list of policy types, use the DescribeLoadBalancerPolicyTypes action.
-clbpiPolicyTypeName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoadBalancerPolicy
-    -> f CreateLoadBalancerPolicy
+clbpiPolicyTypeName :: Lens' CreateLoadBalancerPolicy (Text)
 clbpiPolicyTypeName f x =
-    (\y -> x { _clbpiPolicyTypeName = y })
-       <$> f (_clbpiPolicyTypeName x)
+    f (_clbpiPolicyTypeName x)
+        <&> \y -> x { _clbpiPolicyTypeName = y }
 {-# INLINE clbpiPolicyTypeName #-}
 
 -- | A list of attributes associated with the policy being created.
-clbpiPolicyAttributes
-    :: Functor f
-    => ([PolicyAttribute]
-    -> f ([PolicyAttribute]))
-    -> CreateLoadBalancerPolicy
-    -> f CreateLoadBalancerPolicy
+clbpiPolicyAttributes :: Lens' CreateLoadBalancerPolicy ([PolicyAttribute])
 clbpiPolicyAttributes f x =
-    (\y -> x { _clbpiPolicyAttributes = y })
-       <$> f (_clbpiPolicyAttributes x)
+    f (_clbpiPolicyAttributes x)
+        <&> \y -> x { _clbpiPolicyAttributes = y }
 {-# INLINE clbpiPolicyAttributes #-}
 
 instance ToQuery CreateLoadBalancerPolicy where

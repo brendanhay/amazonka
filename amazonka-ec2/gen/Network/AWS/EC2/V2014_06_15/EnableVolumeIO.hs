@@ -56,9 +56,10 @@ data EnableVolumeIO = EnableVolumeIO
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-eviorVolumeId :: Lens' EnableVolumeIO Text
+eviorVolumeId :: Lens' EnableVolumeIO (Text)
 eviorVolumeId f x =
-    f (_eviorVolumeId x) <&> \y -> x { _eviorVolumeId = y }
+    f (_eviorVolumeId x)
+        <&> \y -> x { _eviorVolumeId = y }
 {-# INLINE eviorVolumeId #-}
 
 instance ToQuery EnableVolumeIO where

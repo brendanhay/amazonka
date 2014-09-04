@@ -82,9 +82,10 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-mniarNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
+mniarNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute (Text)
 mniarNetworkInterfaceId f x =
-    f (_mniarNetworkInterfaceId x) <&> \y -> x { _mniarNetworkInterfaceId = y }
+    f (_mniarNetworkInterfaceId x)
+        <&> \y -> x { _mniarNetworkInterfaceId = y }
 {-# INLINE mniarNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
@@ -93,28 +94,32 @@ mniarNetworkInterfaceId f x =
 -- NAT Instances in the Amazon Virtual Private Cloud User Guide.
 mniarSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniarSourceDestCheck f x =
-    f (_mniarSourceDestCheck x) <&> \y -> x { _mniarSourceDestCheck = y }
+    f (_mniarSourceDestCheck x)
+        <&> \y -> x { _mniarSourceDestCheck = y }
 {-# INLINE mniarSourceDestCheck #-}
 
 -- | A description for the network interface.
 mniarDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
 mniarDescription f x =
-    f (_mniarDescription x) <&> \y -> x { _mniarDescription = y }
+    f (_mniarDescription x)
+        <&> \y -> x { _mniarDescription = y }
 {-# INLINE mniarDescription #-}
 
 -- | The ID of the interface attachment.
 mniarAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
 mniarAttachment f x =
-    f (_mniarAttachment x) <&> \y -> x { _mniarAttachment = y }
+    f (_mniarAttachment x)
+        <&> \y -> x { _mniarAttachment = y }
 {-# INLINE mniarAttachment #-}
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least one
 -- group, even if it's just the default security group in the VPC. You must
 -- specify the ID of the security group, not the name.
-mniarGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
+mniarGroups :: Lens' ModifyNetworkInterfaceAttribute ([Text])
 mniarGroups f x =
-    f (_mniarGroups x) <&> \y -> x { _mniarGroups = y }
+    f (_mniarGroups x)
+        <&> \y -> x { _mniarGroups = y }
 {-# INLINE mniarGroups #-}
 
 instance ToQuery ModifyNetworkInterfaceAttribute where

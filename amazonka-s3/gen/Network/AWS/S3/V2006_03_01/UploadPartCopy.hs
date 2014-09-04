@@ -81,6 +81,7 @@ uploadPartCopy p1 p2 p3 p4 p5 = UploadPartCopy
     , _upcrSSECustomerKey = Nothing
     , _upcrSSECustomerKeyMD5 = Nothing
     }
+{-# INLINE uploadPartCopy #-}
 
 data UploadPartCopy = UploadPartCopy
     { _upcrCopySource :: Text
@@ -144,110 +145,65 @@ data UploadPartCopy = UploadPartCopy
 
 -- | The name of the source bucket and key name of the source object, separated
 -- by a slash (/). Must be URL-encoded.
-upcrCopySource
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySource :: Lens' UploadPartCopy (Text)
 upcrCopySource f x =
-    (\y -> x { _upcrCopySource = y })
-       <$> f (_upcrCopySource x)
+    f (_upcrCopySource x)
+        <&> \y -> x { _upcrCopySource = y }
 {-# INLINE upcrCopySource #-}
 
-upcrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrBucket :: Lens' UploadPartCopy (BucketName)
 upcrBucket f x =
-    (\y -> x { _upcrBucket = y })
-       <$> f (_upcrBucket x)
+    f (_upcrBucket x)
+        <&> \y -> x { _upcrBucket = y }
 {-# INLINE upcrBucket #-}
 
 -- | Upload ID identifying the multipart upload whose part is being copied.
-upcrUploadId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrUploadId :: Lens' UploadPartCopy (Text)
 upcrUploadId f x =
-    (\y -> x { _upcrUploadId = y })
-       <$> f (_upcrUploadId x)
+    f (_upcrUploadId x)
+        <&> \y -> x { _upcrUploadId = y }
 {-# INLINE upcrUploadId #-}
 
-upcrKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrKey :: Lens' UploadPartCopy (ObjectKey)
 upcrKey f x =
-    (\y -> x { _upcrKey = y })
-       <$> f (_upcrKey x)
+    f (_upcrKey x)
+        <&> \y -> x { _upcrKey = y }
 {-# INLINE upcrKey #-}
 
 -- | Part number of part being copied.
-upcrPartNumber
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrPartNumber :: Lens' UploadPartCopy (Integer)
 upcrPartNumber f x =
-    (\y -> x { _upcrPartNumber = y })
-       <$> f (_upcrPartNumber x)
+    f (_upcrPartNumber x)
+        <&> \y -> x { _upcrPartNumber = y }
 {-# INLINE upcrPartNumber #-}
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
-upcrCopySourceIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceIfMatch :: Lens' UploadPartCopy (Maybe Text)
 upcrCopySourceIfMatch f x =
-    (\y -> x { _upcrCopySourceIfMatch = y })
-       <$> f (_upcrCopySourceIfMatch x)
+    f (_upcrCopySourceIfMatch x)
+        <&> \y -> x { _upcrCopySourceIfMatch = y }
 {-# INLINE upcrCopySourceIfMatch #-}
 
 -- | Copies the object if it has been modified since the specified time.
-upcrCopySourceIfModifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceIfModifiedSince :: Lens' UploadPartCopy (Maybe RFC822)
 upcrCopySourceIfModifiedSince f x =
-    (\y -> x { _upcrCopySourceIfModifiedSince = y })
-       <$> f (_upcrCopySourceIfModifiedSince x)
+    f (_upcrCopySourceIfModifiedSince x)
+        <&> \y -> x { _upcrCopySourceIfModifiedSince = y }
 {-# INLINE upcrCopySourceIfModifiedSince #-}
 
 -- | Copies the object if its entity tag (ETag) is different than the specified
 -- ETag.
-upcrCopySourceIfNoneMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceIfNoneMatch :: Lens' UploadPartCopy (Maybe Text)
 upcrCopySourceIfNoneMatch f x =
-    (\y -> x { _upcrCopySourceIfNoneMatch = y })
-       <$> f (_upcrCopySourceIfNoneMatch x)
+    f (_upcrCopySourceIfNoneMatch x)
+        <&> \y -> x { _upcrCopySourceIfNoneMatch = y }
 {-# INLINE upcrCopySourceIfNoneMatch #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
-upcrCopySourceIfUnmodifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceIfUnmodifiedSince :: Lens' UploadPartCopy (Maybe RFC822)
 upcrCopySourceIfUnmodifiedSince f x =
-    (\y -> x { _upcrCopySourceIfUnmodifiedSince = y })
-       <$> f (_upcrCopySourceIfUnmodifiedSince x)
+    f (_upcrCopySourceIfUnmodifiedSince x)
+        <&> \y -> x { _upcrCopySourceIfUnmodifiedSince = y }
 {-# INLINE upcrCopySourceIfUnmodifiedSince #-}
 
 -- | The range of bytes to copy from the source object. The range value must use
@@ -255,69 +211,44 @@ upcrCopySourceIfUnmodifiedSince f x =
 -- offsets to copy. For example, bytes=0-9 indicates that you want to copy the
 -- first ten bytes of the source. You can copy a range only if the source
 -- object is greater than 5 GB.
-upcrCopySourceRange
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceRange :: Lens' UploadPartCopy (Maybe Text)
 upcrCopySourceRange f x =
-    (\y -> x { _upcrCopySourceRange = y })
-       <$> f (_upcrCopySourceRange x)
+    f (_upcrCopySourceRange x)
+        <&> \y -> x { _upcrCopySourceRange = y }
 {-# INLINE upcrCopySourceRange #-}
 
 -- | Specifies the algorithm to use when decrypting the source object (e.g.,
 -- AES256).
-upcrCopySourceSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
 upcrCopySourceSSECustomerAlgorithm f x =
-    (\y -> x { _upcrCopySourceSSECustomerAlgorithm = y })
-       <$> f (_upcrCopySourceSSECustomerAlgorithm x)
+    f (_upcrCopySourceSSECustomerAlgorithm x)
+        <&> \y -> x { _upcrCopySourceSSECustomerAlgorithm = y }
 {-# INLINE upcrCopySourceSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header must
 -- be one that was used when the source object was created.
-upcrCopySourceSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
 upcrCopySourceSSECustomerKey f x =
-    (\y -> x { _upcrCopySourceSSECustomerKey = y })
-       <$> f (_upcrCopySourceSSECustomerKey x)
+    f (_upcrCopySourceSSECustomerKey x)
+        <&> \y -> x { _upcrCopySourceSSECustomerKey = y }
 {-# INLINE upcrCopySourceSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-upcrCopySourceSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrCopySourceSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
 upcrCopySourceSSECustomerKeyMD5 f x =
-    (\y -> x { _upcrCopySourceSSECustomerKeyMD5 = y })
-       <$> f (_upcrCopySourceSSECustomerKeyMD5 x)
+    f (_upcrCopySourceSSECustomerKeyMD5 x)
+        <&> \y -> x { _upcrCopySourceSSECustomerKeyMD5 = y }
 {-# INLINE upcrCopySourceSSECustomerKeyMD5 #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-upcrSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
 upcrSSECustomerAlgorithm f x =
-    (\y -> x { _upcrSSECustomerAlgorithm = y })
-       <$> f (_upcrSSECustomerAlgorithm x)
+    f (_upcrSSECustomerAlgorithm x)
+        <&> \y -> x { _upcrSSECustomerAlgorithm = y }
 {-# INLINE upcrSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -327,29 +258,19 @@ upcrSSECustomerAlgorithm f x =
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 -- This must be the same encryption key specified in the initiate multipart
 -- upload request.
-upcrSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
 upcrSSECustomerKey f x =
-    (\y -> x { _upcrSSECustomerKey = y })
-       <$> f (_upcrSSECustomerKey x)
+    f (_upcrSSECustomerKey x)
+        <&> \y -> x { _upcrSSECustomerKey = y }
 {-# INLINE upcrSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-upcrSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopy
-    -> f UploadPartCopy
+upcrSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
 upcrSSECustomerKeyMD5 f x =
-    (\y -> x { _upcrSSECustomerKeyMD5 = y })
-       <$> f (_upcrSSECustomerKeyMD5 x)
+    f (_upcrSSECustomerKeyMD5 x)
+        <&> \y -> x { _upcrSSECustomerKeyMD5 = y }
 {-# INLINE upcrSSECustomerKeyMD5 #-}
 
 instance ToPath UploadPartCopy where
@@ -403,68 +324,43 @@ data UploadPartCopyResponse = UploadPartCopyResponse
       -- object in S3.
     } deriving (Show, Generic)
 
-upcoCopyPartResult
-    :: Functor f
-    => (Maybe CopyPartResult
-    -> f (Maybe CopyPartResult))
-    -> UploadPartCopyResponse
-    -> f UploadPartCopyResponse
+upcoCopyPartResult :: Lens' UploadPartCopyResponse (Maybe CopyPartResult)
 upcoCopyPartResult f x =
-    (\y -> x { _upcoCopyPartResult = y })
-       <$> f (_upcoCopyPartResult x)
+    f (_upcoCopyPartResult x)
+        <&> \y -> x { _upcoCopyPartResult = y }
 {-# INLINE upcoCopyPartResult #-}
 
 -- | The version of the source object that was copied, if you have enabled
 -- versioning on the source bucket.
-upcoCopySourceVersionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopyResponse
-    -> f UploadPartCopyResponse
+upcoCopySourceVersionId :: Lens' UploadPartCopyResponse (Maybe Text)
 upcoCopySourceVersionId f x =
-    (\y -> x { _upcoCopySourceVersionId = y })
-       <$> f (_upcoCopySourceVersionId x)
+    f (_upcoCopySourceVersionId x)
+        <&> \y -> x { _upcoCopySourceVersionId = y }
 {-# INLINE upcoCopySourceVersionId #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-upcoSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopyResponse
-    -> f UploadPartCopyResponse
+upcoSSECustomerAlgorithm :: Lens' UploadPartCopyResponse (Maybe Text)
 upcoSSECustomerAlgorithm f x =
-    (\y -> x { _upcoSSECustomerAlgorithm = y })
-       <$> f (_upcoSSECustomerAlgorithm x)
+    f (_upcoSSECustomerAlgorithm x)
+        <&> \y -> x { _upcoSSECustomerAlgorithm = y }
 {-# INLINE upcoSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-upcoSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadPartCopyResponse
-    -> f UploadPartCopyResponse
+upcoSSECustomerKeyMD5 :: Lens' UploadPartCopyResponse (Maybe Text)
 upcoSSECustomerKeyMD5 f x =
-    (\y -> x { _upcoSSECustomerKeyMD5 = y })
-       <$> f (_upcoSSECustomerKeyMD5 x)
+    f (_upcoSSECustomerKeyMD5 x)
+        <&> \y -> x { _upcoSSECustomerKeyMD5 = y }
 {-# INLINE upcoSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-upcoServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> UploadPartCopyResponse
-    -> f UploadPartCopyResponse
+upcoServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryption)
 upcoServerSideEncryption f x =
-    (\y -> x { _upcoServerSideEncryption = y })
-       <$> f (_upcoServerSideEncryption x)
+    f (_upcoServerSideEncryption x)
+        <&> \y -> x { _upcoServerSideEncryption = y }
 {-# INLINE upcoServerSideEncryption #-}
 
 instance AWSRequest UploadPartCopy where

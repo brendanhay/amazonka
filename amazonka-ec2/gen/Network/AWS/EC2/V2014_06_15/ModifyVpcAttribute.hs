@@ -71,9 +71,10 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-mvasVpcId :: Lens' ModifyVpcAttribute Text
+mvasVpcId :: Lens' ModifyVpcAttribute (Text)
 mvasVpcId f x =
-    f (_mvasVpcId x) <&> \y -> x { _mvasVpcId = y }
+    f (_mvasVpcId x)
+        <&> \y -> x { _mvasVpcId = y }
 {-# INLINE mvasVpcId #-}
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If this
@@ -84,7 +85,8 @@ mvasVpcId f x =
 -- VPC network range "plus two" will succeed.
 mvasEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mvasEnableDnsSupport f x =
-    f (_mvasEnableDnsSupport x) <&> \y -> x { _mvasEnableDnsSupport = y }
+    f (_mvasEnableDnsSupport x)
+        <&> \y -> x { _mvasEnableDnsSupport = y }
 {-# INLINE mvasEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
@@ -93,7 +95,8 @@ mvasEnableDnsSupport f x =
 -- the EnableDnsSupport attribute to true.
 mvasEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mvasEnableDnsHostnames f x =
-    f (_mvasEnableDnsHostnames x) <&> \y -> x { _mvasEnableDnsHostnames = y }
+    f (_mvasEnableDnsHostnames x)
+        <&> \y -> x { _mvasEnableDnsHostnames = y }
 {-# INLINE mvasEnableDnsHostnames #-}
 
 instance ToQuery ModifyVpcAttribute where

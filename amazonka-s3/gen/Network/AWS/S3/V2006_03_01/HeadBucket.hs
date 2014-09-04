@@ -42,20 +42,16 @@ headBucket :: BucketName -- ^ 'hbrBucket'
 headBucket p1 = HeadBucket
     { _hbrBucket = p1
     }
+{-# INLINE headBucket #-}
 
 data HeadBucket = HeadBucket
     { _hbrBucket :: BucketName
     } deriving (Show, Generic)
 
-hbrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> HeadBucket
-    -> f HeadBucket
+hbrBucket :: Lens' HeadBucket (BucketName)
 hbrBucket f x =
-    (\y -> x { _hbrBucket = y })
-       <$> f (_hbrBucket x)
+    f (_hbrBucket x)
+        <&> \y -> x { _hbrBucket = y }
 {-# INLINE hbrBucket #-}
 
 instance ToPath HeadBucket where

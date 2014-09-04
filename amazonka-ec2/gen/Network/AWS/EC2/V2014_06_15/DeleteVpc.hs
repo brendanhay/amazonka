@@ -59,9 +59,10 @@ data DeleteVpc = DeleteVpc
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-dvsVpcId :: Lens' DeleteVpc Text
+dvsVpcId :: Lens' DeleteVpc (Text)
 dvsVpcId f x =
-    f (_dvsVpcId x) <&> \y -> x { _dvsVpcId = y }
+    f (_dvsVpcId x)
+        <&> \y -> x { _dvsVpcId = y }
 {-# INLINE dvsVpcId #-}
 
 instance ToQuery DeleteVpc where

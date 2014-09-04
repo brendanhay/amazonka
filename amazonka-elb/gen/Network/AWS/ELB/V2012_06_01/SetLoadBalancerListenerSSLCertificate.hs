@@ -56,6 +56,7 @@ setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCerti
     , _slblsslciLoadBalancerPort = p2
     , _slblsslciSSLCertificateId = p3
     }
+{-# INLINE setLoadBalancerListenerSSLCertificate #-}
 
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
     { _slblsslciLoadBalancerName :: Text
@@ -70,41 +71,26 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-slblsslciLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetLoadBalancerListenerSSLCertificate
-    -> f SetLoadBalancerListenerSSLCertificate
+slblsslciLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate (Text)
 slblsslciLoadBalancerName f x =
-    (\y -> x { _slblsslciLoadBalancerName = y })
-       <$> f (_slblsslciLoadBalancerName x)
+    f (_slblsslciLoadBalancerName x)
+        <&> \y -> x { _slblsslciLoadBalancerName = y }
 {-# INLINE slblsslciLoadBalancerName #-}
 
 -- | The port that uses the specified SSL certificate.
-slblsslciLoadBalancerPort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SetLoadBalancerListenerSSLCertificate
-    -> f SetLoadBalancerListenerSSLCertificate
+slblsslciLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate (Integer)
 slblsslciLoadBalancerPort f x =
-    (\y -> x { _slblsslciLoadBalancerPort = y })
-       <$> f (_slblsslciLoadBalancerPort x)
+    f (_slblsslciLoadBalancerPort x)
+        <&> \y -> x { _slblsslciLoadBalancerPort = y }
 {-# INLINE slblsslciLoadBalancerPort #-}
 
 -- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
 -- more information on SSL certificates, see Managing Server Certificates in
 -- the AWS Identity and Access Management User Guide.
-slblsslciSSLCertificateId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetLoadBalancerListenerSSLCertificate
-    -> f SetLoadBalancerListenerSSLCertificate
+slblsslciSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate (Text)
 slblsslciSSLCertificateId f x =
-    (\y -> x { _slblsslciSSLCertificateId = y })
-       <$> f (_slblsslciSSLCertificateId x)
+    f (_slblsslciSSLCertificateId x)
+        <&> \y -> x { _slblsslciSSLCertificateId = y }
 {-# INLINE slblsslciSSLCertificateId #-}
 
 instance ToQuery SetLoadBalancerListenerSSLCertificate where

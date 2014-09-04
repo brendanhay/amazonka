@@ -46,6 +46,7 @@ attachInstances p1 = AttachInstances
     { _aiqAutoScalingGroupName = p1
     , _aiqInstanceIds = mempty
     }
+{-# INLINE attachInstances #-}
 
 data AttachInstances = AttachInstances
     { _aiqAutoScalingGroupName :: Text
@@ -59,28 +60,18 @@ data AttachInstances = AttachInstances
 
 -- | The name of the Auto Scaling group to which to attach the specified
 -- instance(s).
-aiqAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AttachInstances
-    -> f AttachInstances
+aiqAutoScalingGroupName :: Lens' AttachInstances (Text)
 aiqAutoScalingGroupName f x =
-    (\y -> x { _aiqAutoScalingGroupName = y })
-       <$> f (_aiqAutoScalingGroupName x)
+    f (_aiqAutoScalingGroupName x)
+        <&> \y -> x { _aiqAutoScalingGroupName = y }
 {-# INLINE aiqAutoScalingGroupName #-}
 
 -- | One or more IDs of the Amazon EC2 instances to attach to the specified Auto
 -- Scaling group. You must specify at least one instance ID.
-aiqInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AttachInstances
-    -> f AttachInstances
+aiqInstanceIds :: Lens' AttachInstances ([Text])
 aiqInstanceIds f x =
-    (\y -> x { _aiqInstanceIds = y })
-       <$> f (_aiqInstanceIds x)
+    f (_aiqInstanceIds x)
+        <&> \y -> x { _aiqInstanceIds = y }
 {-# INLINE aiqInstanceIds #-}
 
 instance ToQuery AttachInstances where

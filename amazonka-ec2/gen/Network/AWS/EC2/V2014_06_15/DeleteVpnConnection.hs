@@ -58,9 +58,10 @@ data DeleteVpnConnection = DeleteVpnConnection
     } deriving (Show, Generic)
 
 -- | The ID of the VPN connection.
-dvcrVpnConnectionId :: Lens' DeleteVpnConnection Text
+dvcrVpnConnectionId :: Lens' DeleteVpnConnection (Text)
 dvcrVpnConnectionId f x =
-    f (_dvcrVpnConnectionId x) <&> \y -> x { _dvcrVpnConnectionId = y }
+    f (_dvcrVpnConnectionId x)
+        <&> \y -> x { _dvcrVpnConnectionId = y }
 {-# INLINE dvcrVpnConnectionId #-}
 
 instance ToQuery DeleteVpnConnection where

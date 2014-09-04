@@ -58,7 +58,8 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse
 -- | Information about the Internet gateway.
 cigsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigsInternetGateway f x =
-    f (_cigsInternetGateway x) <&> \y -> x { _cigsInternetGateway = y }
+    f (_cigsInternetGateway x)
+        <&> \y -> x { _cigsInternetGateway = y }
 {-# INLINE cigsInternetGateway #-}
 
 instance FromXML CreateInternetGatewayResponse where

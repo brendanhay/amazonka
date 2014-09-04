@@ -69,21 +69,24 @@ data AttachNetworkInterface = AttachNetworkInterface
     } deriving (Show, Generic)
 
 -- | The index of the device for the network interface attachment.
-anirDeviceIndex :: Lens' AttachNetworkInterface Integer
+anirDeviceIndex :: Lens' AttachNetworkInterface (Integer)
 anirDeviceIndex f x =
-    f (_anirDeviceIndex x) <&> \y -> x { _anirDeviceIndex = y }
+    f (_anirDeviceIndex x)
+        <&> \y -> x { _anirDeviceIndex = y }
 {-# INLINE anirDeviceIndex #-}
 
 -- | The ID of the network interface.
-anirNetworkInterfaceId :: Lens' AttachNetworkInterface Text
+anirNetworkInterfaceId :: Lens' AttachNetworkInterface (Text)
 anirNetworkInterfaceId f x =
-    f (_anirNetworkInterfaceId x) <&> \y -> x { _anirNetworkInterfaceId = y }
+    f (_anirNetworkInterfaceId x)
+        <&> \y -> x { _anirNetworkInterfaceId = y }
 {-# INLINE anirNetworkInterfaceId #-}
 
 -- | The ID of the instance.
-anirInstanceId :: Lens' AttachNetworkInterface Text
+anirInstanceId :: Lens' AttachNetworkInterface (Text)
 anirInstanceId f x =
-    f (_anirInstanceId x) <&> \y -> x { _anirInstanceId = y }
+    f (_anirInstanceId x)
+        <&> \y -> x { _anirInstanceId = y }
 {-# INLINE anirInstanceId #-}
 
 instance ToQuery AttachNetworkInterface where
@@ -97,7 +100,8 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
 -- | The ID of the network interface attachment.
 anisAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anisAttachmentId f x =
-    f (_anisAttachmentId x) <&> \y -> x { _anisAttachmentId = y }
+    f (_anisAttachmentId x)
+        <&> \y -> x { _anisAttachmentId = y }
 {-# INLINE anisAttachmentId #-}
 
 instance FromXML AttachNetworkInterfaceResponse where

@@ -44,6 +44,7 @@ deleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
     { _dlbliLoadBalancerName = p1
     , _dlbliLoadBalancerPorts = p2
     }
+{-# INLINE deleteLoadBalancerListeners #-}
 
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlbliLoadBalancerName :: Text
@@ -54,27 +55,17 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     } deriving (Show, Generic)
 
 -- | The mnemonic name associated with the load balancer.
-dlbliLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLoadBalancerListeners
-    -> f DeleteLoadBalancerListeners
+dlbliLoadBalancerName :: Lens' DeleteLoadBalancerListeners (Text)
 dlbliLoadBalancerName f x =
-    (\y -> x { _dlbliLoadBalancerName = y })
-       <$> f (_dlbliLoadBalancerName x)
+    f (_dlbliLoadBalancerName x)
+        <&> \y -> x { _dlbliLoadBalancerName = y }
 {-# INLINE dlbliLoadBalancerName #-}
 
 -- | The client port number(s) of the load balancer listener(s) to be removed.
-dlbliLoadBalancerPorts
-    :: Functor f
-    => ([Integer]
-    -> f ([Integer]))
-    -> DeleteLoadBalancerListeners
-    -> f DeleteLoadBalancerListeners
+dlbliLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners ([Integer])
 dlbliLoadBalancerPorts f x =
-    (\y -> x { _dlbliLoadBalancerPorts = y })
-       <$> f (_dlbliLoadBalancerPorts x)
+    f (_dlbliLoadBalancerPorts x)
+        <&> \y -> x { _dlbliLoadBalancerPorts = y }
 {-# INLINE dlbliLoadBalancerPorts #-}
 
 instance ToQuery DeleteLoadBalancerListeners where

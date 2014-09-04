@@ -45,6 +45,7 @@ disableMetricsCollection p1 = DisableMetricsCollection
     { _dmcqAutoScalingGroupName = p1
     , _dmcqMetrics = mempty
     }
+{-# INLINE disableMetricsCollection #-}
 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcqAutoScalingGroupName :: Text
@@ -59,15 +60,10 @@ data DisableMetricsCollection = DisableMetricsCollection
     } deriving (Show, Generic)
 
 -- | The name or ARN of the Auto Scaling Group.
-dmcqAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DisableMetricsCollection
-    -> f DisableMetricsCollection
+dmcqAutoScalingGroupName :: Lens' DisableMetricsCollection (Text)
 dmcqAutoScalingGroupName f x =
-    (\y -> x { _dmcqAutoScalingGroupName = y })
-       <$> f (_dmcqAutoScalingGroupName x)
+    f (_dmcqAutoScalingGroupName x)
+        <&> \y -> x { _dmcqAutoScalingGroupName = y }
 {-# INLINE dmcqAutoScalingGroupName #-}
 
 -- | The list of metrics to disable. If no metrics are specified, all metrics
@@ -75,15 +71,10 @@ dmcqAutoScalingGroupName f x =
 -- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
-dmcqMetrics
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DisableMetricsCollection
-    -> f DisableMetricsCollection
+dmcqMetrics :: Lens' DisableMetricsCollection ([Text])
 dmcqMetrics f x =
-    (\y -> x { _dmcqMetrics = y })
-       <$> f (_dmcqMetrics x)
+    f (_dmcqMetrics x)
+        <&> \y -> x { _dmcqMetrics = y }
 {-# INLINE dmcqMetrics #-}
 
 instance ToQuery DisableMetricsCollection where

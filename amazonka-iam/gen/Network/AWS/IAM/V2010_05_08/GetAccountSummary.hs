@@ -45,6 +45,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetAccountSummary' request.
 getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary
+{-# INLINE getAccountSummary #-}
 
 data GetAccountSummary = GetAccountSummary
     deriving (Eq, Show, Generic)
@@ -104,15 +105,10 @@ data GetAccountSummaryResponse = GetAccountSummaryResponse
 -- - Maximum allowed size for user policy documents (in kilobytes) Users -
 -- Number of users for the AWS account UsersQuota - Maximum users allowed for
 -- the AWS account.
-gasrSummaryMap
-    :: Functor f
-    => (Map SummaryKeyType Integer
-    -> f (Map SummaryKeyType Integer))
-    -> GetAccountSummaryResponse
-    -> f GetAccountSummaryResponse
+gasrSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
 gasrSummaryMap f x =
-    (\y -> x { _gasrSummaryMap = y })
-       <$> f (_gasrSummaryMap x)
+    f (_gasrSummaryMap x)
+        <&> \y -> x { _gasrSummaryMap = y }
 {-# INLINE gasrSummaryMap #-}
 
 instance FromXML GetAccountSummaryResponse where

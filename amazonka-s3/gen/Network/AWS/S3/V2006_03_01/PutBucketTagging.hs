@@ -46,6 +46,7 @@ putBucketTagging p1 p2 = PutBucketTagging
     , _pbtrBucket = p2
     , _pbtrContentMD5 = Nothing
     }
+{-# INLINE putBucketTagging #-}
 
 data PutBucketTagging = PutBucketTagging
     { _pbtrTagging :: Tagging
@@ -53,37 +54,22 @@ data PutBucketTagging = PutBucketTagging
     , _pbtrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pbtrTagging
-    :: Functor f
-    => (Tagging
-    -> f (Tagging))
-    -> PutBucketTagging
-    -> f PutBucketTagging
+pbtrTagging :: Lens' PutBucketTagging (Tagging)
 pbtrTagging f x =
-    (\y -> x { _pbtrTagging = y })
-       <$> f (_pbtrTagging x)
+    f (_pbtrTagging x)
+        <&> \y -> x { _pbtrTagging = y }
 {-# INLINE pbtrTagging #-}
 
-pbtrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketTagging
-    -> f PutBucketTagging
+pbtrBucket :: Lens' PutBucketTagging (BucketName)
 pbtrBucket f x =
-    (\y -> x { _pbtrBucket = y })
-       <$> f (_pbtrBucket x)
+    f (_pbtrBucket x)
+        <&> \y -> x { _pbtrBucket = y }
 {-# INLINE pbtrBucket #-}
 
-pbtrContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketTagging
-    -> f PutBucketTagging
+pbtrContentMD5 :: Lens' PutBucketTagging (Maybe Text)
 pbtrContentMD5 f x =
-    (\y -> x { _pbtrContentMD5 = y })
-       <$> f (_pbtrContentMD5 x)
+    f (_pbtrContentMD5 x)
+        <&> \y -> x { _pbtrContentMD5 = y }
 {-# INLINE pbtrContentMD5 #-}
 
 instance ToPath PutBucketTagging where

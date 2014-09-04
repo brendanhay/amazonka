@@ -96,6 +96,7 @@ getObject p1 p2 = GetObject
     , _gorResponseContentType = Nothing
     , _gorResponseExpires = Nothing
     }
+{-# INLINE getObject #-}
 
 data GetObject = GetObject
     { _gorBucket :: BucketName
@@ -147,105 +148,65 @@ data GetObject = GetObject
       -- ^ Sets the Expires header of the response.
     } deriving (Show, Generic)
 
-gorBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetObject
-    -> f GetObject
+gorBucket :: Lens' GetObject (BucketName)
 gorBucket f x =
-    (\y -> x { _gorBucket = y })
-       <$> f (_gorBucket x)
+    f (_gorBucket x)
+        <&> \y -> x { _gorBucket = y }
 {-# INLINE gorBucket #-}
 
-gorKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> GetObject
-    -> f GetObject
+gorKey :: Lens' GetObject (ObjectKey)
 gorKey f x =
-    (\y -> x { _gorKey = y })
-       <$> f (_gorKey x)
+    f (_gorKey x)
+        <&> \y -> x { _gorKey = y }
 {-# INLINE gorKey #-}
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-gorIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorIfMatch :: Lens' GetObject (Maybe Text)
 gorIfMatch f x =
-    (\y -> x { _gorIfMatch = y })
-       <$> f (_gorIfMatch x)
+    f (_gorIfMatch x)
+        <&> \y -> x { _gorIfMatch = y }
 {-# INLINE gorIfMatch #-}
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-gorIfModifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> GetObject
-    -> f GetObject
+gorIfModifiedSince :: Lens' GetObject (Maybe RFC822)
 gorIfModifiedSince f x =
-    (\y -> x { _gorIfModifiedSince = y })
-       <$> f (_gorIfModifiedSince x)
+    f (_gorIfModifiedSince x)
+        <&> \y -> x { _gorIfModifiedSince = y }
 {-# INLINE gorIfModifiedSince #-}
 
 -- | Return the object only if its entity tag (ETag) is different from the one
 -- specified, otherwise return a 304 (not modified).
-gorIfNoneMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorIfNoneMatch :: Lens' GetObject (Maybe Text)
 gorIfNoneMatch f x =
-    (\y -> x { _gorIfNoneMatch = y })
-       <$> f (_gorIfNoneMatch x)
+    f (_gorIfNoneMatch x)
+        <&> \y -> x { _gorIfNoneMatch = y }
 {-# INLINE gorIfNoneMatch #-}
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-gorIfUnmodifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> GetObject
-    -> f GetObject
+gorIfUnmodifiedSince :: Lens' GetObject (Maybe RFC822)
 gorIfUnmodifiedSince f x =
-    (\y -> x { _gorIfUnmodifiedSince = y })
-       <$> f (_gorIfUnmodifiedSince x)
+    f (_gorIfUnmodifiedSince x)
+        <&> \y -> x { _gorIfUnmodifiedSince = y }
 {-# INLINE gorIfUnmodifiedSince #-}
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, go to
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-gorRange
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorRange :: Lens' GetObject (Maybe Text)
 gorRange f x =
-    (\y -> x { _gorRange = y })
-       <$> f (_gorRange x)
+    f (_gorRange x)
+        <&> \y -> x { _gorRange = y }
 {-# INLINE gorRange #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-gorSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
 gorSSECustomerAlgorithm f x =
-    (\y -> x { _gorSSECustomerAlgorithm = y })
-       <$> f (_gorSSECustomerAlgorithm x)
+    f (_gorSSECustomerAlgorithm x)
+        <&> \y -> x { _gorSSECustomerAlgorithm = y }
 {-# INLINE gorSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -253,113 +214,68 @@ gorSSECustomerAlgorithm f x =
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-gorSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorSSECustomerKey :: Lens' GetObject (Maybe Text)
 gorSSECustomerKey f x =
-    (\y -> x { _gorSSECustomerKey = y })
-       <$> f (_gorSSECustomerKey x)
+    f (_gorSSECustomerKey x)
+        <&> \y -> x { _gorSSECustomerKey = y }
 {-# INLINE gorSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-gorSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
 gorSSECustomerKeyMD5 f x =
-    (\y -> x { _gorSSECustomerKeyMD5 = y })
-       <$> f (_gorSSECustomerKeyMD5 x)
+    f (_gorSSECustomerKeyMD5 x)
+        <&> \y -> x { _gorSSECustomerKeyMD5 = y }
 {-# INLINE gorSSECustomerKeyMD5 #-}
 
 -- | VersionId used to reference a specific version of the object.
-gorVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> GetObject
-    -> f GetObject
+gorVersionId :: Lens' GetObject (Maybe ObjectVersionId)
 gorVersionId f x =
-    (\y -> x { _gorVersionId = y })
-       <$> f (_gorVersionId x)
+    f (_gorVersionId x)
+        <&> \y -> x { _gorVersionId = y }
 {-# INLINE gorVersionId #-}
 
 -- | Sets the Cache-Control header of the response.
-gorResponseCacheControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorResponseCacheControl :: Lens' GetObject (Maybe Text)
 gorResponseCacheControl f x =
-    (\y -> x { _gorResponseCacheControl = y })
-       <$> f (_gorResponseCacheControl x)
+    f (_gorResponseCacheControl x)
+        <&> \y -> x { _gorResponseCacheControl = y }
 {-# INLINE gorResponseCacheControl #-}
 
 -- | Sets the Content-Disposition header of the response.
-gorResponseContentDisposition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorResponseContentDisposition :: Lens' GetObject (Maybe Text)
 gorResponseContentDisposition f x =
-    (\y -> x { _gorResponseContentDisposition = y })
-       <$> f (_gorResponseContentDisposition x)
+    f (_gorResponseContentDisposition x)
+        <&> \y -> x { _gorResponseContentDisposition = y }
 {-# INLINE gorResponseContentDisposition #-}
 
 -- | Sets the Content-Encoding header of the response.
-gorResponseContentEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorResponseContentEncoding :: Lens' GetObject (Maybe Text)
 gorResponseContentEncoding f x =
-    (\y -> x { _gorResponseContentEncoding = y })
-       <$> f (_gorResponseContentEncoding x)
+    f (_gorResponseContentEncoding x)
+        <&> \y -> x { _gorResponseContentEncoding = y }
 {-# INLINE gorResponseContentEncoding #-}
 
 -- | Sets the Content-Language header of the response.
-gorResponseContentLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorResponseContentLanguage :: Lens' GetObject (Maybe Text)
 gorResponseContentLanguage f x =
-    (\y -> x { _gorResponseContentLanguage = y })
-       <$> f (_gorResponseContentLanguage x)
+    f (_gorResponseContentLanguage x)
+        <&> \y -> x { _gorResponseContentLanguage = y }
 {-# INLINE gorResponseContentLanguage #-}
 
 -- | Sets the Content-Type header of the response.
-gorResponseContentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObject
-    -> f GetObject
+gorResponseContentType :: Lens' GetObject (Maybe Text)
 gorResponseContentType f x =
-    (\y -> x { _gorResponseContentType = y })
-       <$> f (_gorResponseContentType x)
+    f (_gorResponseContentType x)
+        <&> \y -> x { _gorResponseContentType = y }
 {-# INLINE gorResponseContentType #-}
 
 -- | Sets the Expires header of the response.
-gorResponseExpires
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> GetObject
-    -> f GetObject
+gorResponseExpires :: Lens' GetObject (Maybe RFC822)
 gorResponseExpires f x =
-    (\y -> x { _gorResponseExpires = y })
-       <$> f (_gorResponseExpires x)
+    f (_gorResponseExpires x)
+        <&> \y -> x { _gorResponseExpires = y }
 {-# INLINE gorResponseExpires #-}
 
 instance ToPath GetObject where
@@ -462,272 +378,167 @@ data GetObjectResponse = GetObjectResponse
     } deriving (Show, Generic)
 
 -- | Object data.
-gooBody
-    :: Functor f
-    => (RsBody
-    -> f (RsBody))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooBody :: Lens' GetObjectResponse (RsBody)
 gooBody f x =
-    (\y -> x { _gooBody = y })
-       <$> f (_gooBody x)
+    f (_gooBody x)
+        <&> \y -> x { _gooBody = y }
 {-# INLINE gooBody #-}
 
-gooAcceptRanges
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
 gooAcceptRanges f x =
-    (\y -> x { _gooAcceptRanges = y })
-       <$> f (_gooAcceptRanges x)
+    f (_gooAcceptRanges x)
+        <&> \y -> x { _gooAcceptRanges = y }
 {-# INLINE gooAcceptRanges #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-gooCacheControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooCacheControl :: Lens' GetObjectResponse (Maybe Text)
 gooCacheControl f x =
-    (\y -> x { _gooCacheControl = y })
-       <$> f (_gooCacheControl x)
+    f (_gooCacheControl x)
+        <&> \y -> x { _gooCacheControl = y }
 {-# INLINE gooCacheControl #-}
 
 -- | Specifies presentational information for the object.
-gooContentDisposition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooContentDisposition :: Lens' GetObjectResponse (Maybe Text)
 gooContentDisposition f x =
-    (\y -> x { _gooContentDisposition = y })
-       <$> f (_gooContentDisposition x)
+    f (_gooContentDisposition x)
+        <&> \y -> x { _gooContentDisposition = y }
 {-# INLINE gooContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-gooContentEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooContentEncoding :: Lens' GetObjectResponse (Maybe Text)
 gooContentEncoding f x =
-    (\y -> x { _gooContentEncoding = y })
-       <$> f (_gooContentEncoding x)
+    f (_gooContentEncoding x)
+        <&> \y -> x { _gooContentEncoding = y }
 {-# INLINE gooContentEncoding #-}
 
 -- | The language the content is in.
-gooContentLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooContentLanguage :: Lens' GetObjectResponse (Maybe Text)
 gooContentLanguage f x =
-    (\y -> x { _gooContentLanguage = y })
-       <$> f (_gooContentLanguage x)
+    f (_gooContentLanguage x)
+        <&> \y -> x { _gooContentLanguage = y }
 {-# INLINE gooContentLanguage #-}
 
 -- | Size of the body in bytes.
-gooContentLength
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooContentLength :: Lens' GetObjectResponse (Maybe Integer)
 gooContentLength f x =
-    (\y -> x { _gooContentLength = y })
-       <$> f (_gooContentLength x)
+    f (_gooContentLength x)
+        <&> \y -> x { _gooContentLength = y }
 {-# INLINE gooContentLength #-}
 
 -- | A standard MIME type describing the format of the object data.
-gooContentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooContentType :: Lens' GetObjectResponse (Maybe Text)
 gooContentType f x =
-    (\y -> x { _gooContentType = y })
-       <$> f (_gooContentType x)
+    f (_gooContentType x)
+        <&> \y -> x { _gooContentType = y }
 {-# INLINE gooContentType #-}
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-gooDeleteMarker
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
 gooDeleteMarker f x =
-    (\y -> x { _gooDeleteMarker = y })
-       <$> f (_gooDeleteMarker x)
+    f (_gooDeleteMarker x)
+        <&> \y -> x { _gooDeleteMarker = y }
 {-# INLINE gooDeleteMarker #-}
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-gooETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooETag :: Lens' GetObjectResponse (Maybe ETag)
 gooETag f x =
-    (\y -> x { _gooETag = y })
-       <$> f (_gooETag x)
+    f (_gooETag x)
+        <&> \y -> x { _gooETag = y }
 {-# INLINE gooETag #-}
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
-gooExpiration
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooExpiration :: Lens' GetObjectResponse (Maybe RFC822)
 gooExpiration f x =
-    (\y -> x { _gooExpiration = y })
-       <$> f (_gooExpiration x)
+    f (_gooExpiration x)
+        <&> \y -> x { _gooExpiration = y }
 {-# INLINE gooExpiration #-}
 
 -- | The date and time at which the object is no longer cacheable.
-gooExpires
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooExpires :: Lens' GetObjectResponse (Maybe RFC822)
 gooExpires f x =
-    (\y -> x { _gooExpires = y })
-       <$> f (_gooExpires x)
+    f (_gooExpires x)
+        <&> \y -> x { _gooExpires = y }
 {-# INLINE gooExpires #-}
 
 -- | Last modified date of the object.
-gooLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooLastModified :: Lens' GetObjectResponse (Maybe RFC822)
 gooLastModified f x =
-    (\y -> x { _gooLastModified = y })
-       <$> f (_gooLastModified x)
+    f (_gooLastModified x)
+        <&> \y -> x { _gooLastModified = y }
 {-# INLINE gooLastModified #-}
 
 -- | A map of metadata to store with the object in S3.
-gooMetadata
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooMetadata :: Lens' GetObjectResponse (Map Text Text)
 gooMetadata f x =
-    (\y -> x { _gooMetadata = y })
-       <$> f (_gooMetadata x)
+    f (_gooMetadata x)
+        <&> \y -> x { _gooMetadata = y }
 {-# INLINE gooMetadata #-}
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP that
 -- supports more flexible metadata than the REST API. For example, using SOAP,
 -- you can create metadata whose values are not legal HTTP headers.
-gooMissingMeta
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooMissingMeta :: Lens' GetObjectResponse (Maybe Integer)
 gooMissingMeta f x =
-    (\y -> x { _gooMissingMeta = y })
-       <$> f (_gooMissingMeta x)
+    f (_gooMissingMeta x)
+        <&> \y -> x { _gooMissingMeta = y }
 {-# INLINE gooMissingMeta #-}
 
 -- | Version of the object.
-gooVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
 gooVersionId f x =
-    (\y -> x { _gooVersionId = y })
-       <$> f (_gooVersionId x)
+    f (_gooVersionId x)
+        <&> \y -> x { _gooVersionId = y }
 {-# INLINE gooVersionId #-}
 
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
-gooRestore
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooRestore :: Lens' GetObjectResponse (Maybe Text)
 gooRestore f x =
-    (\y -> x { _gooRestore = y })
-       <$> f (_gooRestore x)
+    f (_gooRestore x)
+        <&> \y -> x { _gooRestore = y }
 {-# INLINE gooRestore #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-gooSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
 gooSSECustomerAlgorithm f x =
-    (\y -> x { _gooSSECustomerAlgorithm = y })
-       <$> f (_gooSSECustomerAlgorithm x)
+    f (_gooSSECustomerAlgorithm x)
+        <&> \y -> x { _gooSSECustomerAlgorithm = y }
 {-# INLINE gooSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-gooSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
 gooSSECustomerKeyMD5 f x =
-    (\y -> x { _gooSSECustomerKeyMD5 = y })
-       <$> f (_gooSSECustomerKeyMD5 x)
+    f (_gooSSECustomerKeyMD5 x)
+        <&> \y -> x { _gooSSECustomerKeyMD5 = y }
 {-# INLINE gooSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-gooServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
 gooServerSideEncryption f x =
-    (\y -> x { _gooServerSideEncryption = y })
-       <$> f (_gooServerSideEncryption x)
+    f (_gooServerSideEncryption x)
+        <&> \y -> x { _gooServerSideEncryption = y }
 {-# INLINE gooServerSideEncryption #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-gooWebsiteRedirectLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetObjectResponse
-    -> f GetObjectResponse
+gooWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
 gooWebsiteRedirectLocation f x =
-    (\y -> x { _gooWebsiteRedirectLocation = y })
-       <$> f (_gooWebsiteRedirectLocation x)
+    f (_gooWebsiteRedirectLocation x)
+        <&> \y -> x { _gooWebsiteRedirectLocation = y }
 {-# INLINE gooWebsiteRedirectLocation #-}
 
 instance AWSRequest GetObject where

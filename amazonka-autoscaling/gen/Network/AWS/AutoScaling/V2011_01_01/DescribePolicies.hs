@@ -62,6 +62,7 @@ describePolicies = DescribePolicies
     , _dpuAutoScalingGroupName = Nothing
     , _dpuNextToken = Nothing
     }
+{-# INLINE describePolicies #-}
 
 data DescribePolicies = DescribePolicies
     { _dpuMaxRecords :: Maybe Integer
@@ -82,15 +83,10 @@ data DescribePolicies = DescribePolicies
     } deriving (Show, Generic)
 
 -- | The maximum number of policies that will be described with each call.
-dpuMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribePolicies
-    -> f DescribePolicies
+dpuMaxRecords :: Lens' DescribePolicies (Maybe Integer)
 dpuMaxRecords f x =
-    (\y -> x { _dpuMaxRecords = y })
-       <$> f (_dpuMaxRecords x)
+    f (_dpuMaxRecords x)
+        <&> \y -> x { _dpuMaxRecords = y }
 {-# INLINE dpuMaxRecords #-}
 
 -- | A list of policy names or policy ARNs to be described. If this list is
@@ -98,40 +94,25 @@ dpuMaxRecords f x =
 -- provided, the results are limited to that group. The list of requested
 -- policy names cannot contain more than 50 items. If unknown policy names are
 -- requested, they are ignored with no error.
-dpuPolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribePolicies
-    -> f DescribePolicies
+dpuPolicyNames :: Lens' DescribePolicies ([Text])
 dpuPolicyNames f x =
-    (\y -> x { _dpuPolicyNames = y })
-       <$> f (_dpuPolicyNames x)
+    f (_dpuPolicyNames x)
+        <&> \y -> x { _dpuPolicyNames = y }
 {-# INLINE dpuPolicyNames #-}
 
 -- | The name of the Auto Scaling group.
-dpuAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribePolicies
-    -> f DescribePolicies
+dpuAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dpuAutoScalingGroupName f x =
-    (\y -> x { _dpuAutoScalingGroupName = y })
-       <$> f (_dpuAutoScalingGroupName x)
+    f (_dpuAutoScalingGroupName x)
+        <&> \y -> x { _dpuAutoScalingGroupName = y }
 {-# INLINE dpuAutoScalingGroupName #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dpuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribePolicies
-    -> f DescribePolicies
+dpuNextToken :: Lens' DescribePolicies (Maybe Text)
 dpuNextToken f x =
-    (\y -> x { _dpuNextToken = y })
-       <$> f (_dpuNextToken x)
+    f (_dpuNextToken x)
+        <&> \y -> x { _dpuNextToken = y }
 {-# INLINE dpuNextToken #-}
 
 instance ToQuery DescribePolicies where
@@ -146,27 +127,17 @@ data DescribePoliciesResponse = DescribePoliciesResponse
     } deriving (Show, Generic)
 
 -- | A list of scaling policies.
-ptScalingPolicies
-    :: Functor f
-    => ([ScalingPolicy]
-    -> f ([ScalingPolicy]))
-    -> DescribePoliciesResponse
-    -> f DescribePoliciesResponse
+ptScalingPolicies :: Lens' DescribePoliciesResponse ([ScalingPolicy])
 ptScalingPolicies f x =
-    (\y -> x { _ptScalingPolicies = y })
-       <$> f (_ptScalingPolicies x)
+    f (_ptScalingPolicies x)
+        <&> \y -> x { _ptScalingPolicies = y }
 {-# INLINE ptScalingPolicies #-}
 
 -- | A string that marks the start of the next batch of returned results.
-ptNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribePoliciesResponse
-    -> f DescribePoliciesResponse
+ptNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
 ptNextToken f x =
-    (\y -> x { _ptNextToken = y })
-       <$> f (_ptNextToken x)
+    f (_ptNextToken x)
+        <&> \y -> x { _ptNextToken = y }
 {-# INLINE ptNextToken #-}
 
 instance FromXML DescribePoliciesResponse where

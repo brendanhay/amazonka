@@ -49,6 +49,7 @@ deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
     { _dasgtAutoScalingGroupName = p1
     , _dasgtForceDelete = Nothing
     }
+{-# INLINE deleteAutoScalingGroup #-}
 
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     { _dasgtAutoScalingGroupName :: Text
@@ -62,30 +63,20 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group to delete.
-dasgtAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAutoScalingGroup
-    -> f DeleteAutoScalingGroup
+dasgtAutoScalingGroupName :: Lens' DeleteAutoScalingGroup (Text)
 dasgtAutoScalingGroupName f x =
-    (\y -> x { _dasgtAutoScalingGroupName = y })
-       <$> f (_dasgtAutoScalingGroupName x)
+    f (_dasgtAutoScalingGroupName x)
+        <&> \y -> x { _dasgtAutoScalingGroupName = y }
 {-# INLINE dasgtAutoScalingGroupName #-}
 
 -- | Starting with API version 2011-01-01, specifies that the Auto Scaling group
 -- will be deleted along with all instances associated with the group, without
 -- waiting for all instances to be terminated. This parameter also deletes any
 -- lifecycle actions associated with the group.
-dasgtForceDelete
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteAutoScalingGroup
-    -> f DeleteAutoScalingGroup
+dasgtForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
 dasgtForceDelete f x =
-    (\y -> x { _dasgtForceDelete = y })
-       <$> f (_dasgtForceDelete x)
+    f (_dasgtForceDelete x)
+        <&> \y -> x { _dasgtForceDelete = y }
 {-# INLINE dasgtForceDelete #-}
 
 instance ToQuery DeleteAutoScalingGroup where

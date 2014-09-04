@@ -63,6 +63,7 @@ listParts p1 p2 p3 = ListParts
     , _lprMaxParts = Nothing
     , _lprPartNumberMarker = Nothing
     }
+{-# INLINE listParts #-}
 
 data ListParts = ListParts
     { _lprBucket :: BucketName
@@ -77,63 +78,38 @@ data ListParts = ListParts
       -- with higher part numbers will be listed.
     } deriving (Show, Generic)
 
-lprBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> ListParts
-    -> f ListParts
+lprBucket :: Lens' ListParts (BucketName)
 lprBucket f x =
-    (\y -> x { _lprBucket = y })
-       <$> f (_lprBucket x)
+    f (_lprBucket x)
+        <&> \y -> x { _lprBucket = y }
 {-# INLINE lprBucket #-}
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
-lprUploadId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListParts
-    -> f ListParts
+lprUploadId :: Lens' ListParts (Text)
 lprUploadId f x =
-    (\y -> x { _lprUploadId = y })
-       <$> f (_lprUploadId x)
+    f (_lprUploadId x)
+        <&> \y -> x { _lprUploadId = y }
 {-# INLINE lprUploadId #-}
 
-lprKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> ListParts
-    -> f ListParts
+lprKey :: Lens' ListParts (ObjectKey)
 lprKey f x =
-    (\y -> x { _lprKey = y })
-       <$> f (_lprKey x)
+    f (_lprKey x)
+        <&> \y -> x { _lprKey = y }
 {-# INLINE lprKey #-}
 
 -- | Sets the maximum number of parts to return.
-lprMaxParts
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListParts
-    -> f ListParts
+lprMaxParts :: Lens' ListParts (Maybe Integer)
 lprMaxParts f x =
-    (\y -> x { _lprMaxParts = y })
-       <$> f (_lprMaxParts x)
+    f (_lprMaxParts x)
+        <&> \y -> x { _lprMaxParts = y }
 {-# INLINE lprMaxParts #-}
 
 -- | Specifies the part after which listing should begin. Only parts with higher
 -- part numbers will be listed.
-lprPartNumberMarker
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListParts
-    -> f ListParts
+lprPartNumberMarker :: Lens' ListParts (Maybe Integer)
 lprPartNumberMarker f x =
-    (\y -> x { _lprPartNumberMarker = y })
-       <$> f (_lprPartNumberMarker x)
+    f (_lprPartNumberMarker x)
+        <&> \y -> x { _lprPartNumberMarker = y }
 {-# INLINE lprPartNumberMarker #-}
 
 instance ToPath ListParts where
@@ -182,135 +158,80 @@ data ListPartsResponse = ListPartsResponse
     } deriving (Show, Generic)
 
 -- | Indicates whether the returned list of parts is truncated.
-lpoIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoIsTruncated :: Lens' ListPartsResponse (Bool)
 lpoIsTruncated f x =
-    (\y -> x { _lpoIsTruncated = y })
-       <$> f (_lpoIsTruncated x)
+    f (_lpoIsTruncated x)
+        <&> \y -> x { _lpoIsTruncated = y }
 {-# INLINE lpoIsTruncated #-}
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lpoBucket
-    :: Functor f
-    => (Maybe BucketName
-    -> f (Maybe BucketName))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoBucket :: Lens' ListPartsResponse (Maybe BucketName)
 lpoBucket f x =
-    (\y -> x { _lpoBucket = y })
-       <$> f (_lpoBucket x)
+    f (_lpoBucket x)
+        <&> \y -> x { _lpoBucket = y }
 {-# INLINE lpoBucket #-}
 
 -- | Identifies who initiated the multipart upload.
-lpoInitiator
-    :: Functor f
-    => (Maybe Initiator
-    -> f (Maybe Initiator))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoInitiator :: Lens' ListPartsResponse (Maybe Initiator)
 lpoInitiator f x =
-    (\y -> x { _lpoInitiator = y })
-       <$> f (_lpoInitiator x)
+    f (_lpoInitiator x)
+        <&> \y -> x { _lpoInitiator = y }
 {-# INLINE lpoInitiator #-}
 
 -- | Maximum number of parts that were allowed in the response.
-lpoMaxParts
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoMaxParts :: Lens' ListPartsResponse (Maybe Integer)
 lpoMaxParts f x =
-    (\y -> x { _lpoMaxParts = y })
-       <$> f (_lpoMaxParts x)
+    f (_lpoMaxParts x)
+        <&> \y -> x { _lpoMaxParts = y }
 {-# INLINE lpoMaxParts #-}
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
-lpoUploadId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoUploadId :: Lens' ListPartsResponse (Maybe Text)
 lpoUploadId f x =
-    (\y -> x { _lpoUploadId = y })
-       <$> f (_lpoUploadId x)
+    f (_lpoUploadId x)
+        <&> \y -> x { _lpoUploadId = y }
 {-# INLINE lpoUploadId #-}
 
 -- | When a list is truncated, this element specifies the last part in the list,
 -- as well as the value to use for the part-number-marker request parameter in
 -- a subsequent request.
-lpoNextPartNumberMarker
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
 lpoNextPartNumberMarker f x =
-    (\y -> x { _lpoNextPartNumberMarker = y })
-       <$> f (_lpoNextPartNumberMarker x)
+    f (_lpoNextPartNumberMarker x)
+        <&> \y -> x { _lpoNextPartNumberMarker = y }
 {-# INLINE lpoNextPartNumberMarker #-}
 
 -- | Object key for which the multipart upload was initiated.
-lpoKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoKey :: Lens' ListPartsResponse (Maybe ObjectKey)
 lpoKey f x =
-    (\y -> x { _lpoKey = y })
-       <$> f (_lpoKey x)
+    f (_lpoKey x)
+        <&> \y -> x { _lpoKey = y }
 {-# INLINE lpoKey #-}
 
-lpoOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoOwner :: Lens' ListPartsResponse (Maybe Owner)
 lpoOwner f x =
-    (\y -> x { _lpoOwner = y })
-       <$> f (_lpoOwner x)
+    f (_lpoOwner x)
+        <&> \y -> x { _lpoOwner = y }
 {-# INLINE lpoOwner #-}
 
 -- | Part number after which listing begins.
-lpoPartNumberMarker
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
 lpoPartNumberMarker f x =
-    (\y -> x { _lpoPartNumberMarker = y })
-       <$> f (_lpoPartNumberMarker x)
+    f (_lpoPartNumberMarker x)
+        <&> \y -> x { _lpoPartNumberMarker = y }
 {-# INLINE lpoPartNumberMarker #-}
 
-lpoParts
-    :: Functor f
-    => ([Part]
-    -> f ([Part]))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoParts :: Lens' ListPartsResponse ([Part])
 lpoParts f x =
-    (\y -> x { _lpoParts = y })
-       <$> f (_lpoParts x)
+    f (_lpoParts x)
+        <&> \y -> x { _lpoParts = y }
 {-# INLINE lpoParts #-}
 
 -- | The class of storage used to store the object.
-lpoStorageClass
-    :: Functor f
-    => (Maybe StorageClass
-    -> f (Maybe StorageClass))
-    -> ListPartsResponse
-    -> f ListPartsResponse
+lpoStorageClass :: Lens' ListPartsResponse (Maybe StorageClass)
 lpoStorageClass f x =
-    (\y -> x { _lpoStorageClass = y })
-       <$> f (_lpoStorageClass x)
+    f (_lpoStorageClass x)
+        <&> \y -> x { _lpoStorageClass = y }
 {-# INLINE lpoStorageClass #-}
 
 instance FromXML ListPartsResponse where

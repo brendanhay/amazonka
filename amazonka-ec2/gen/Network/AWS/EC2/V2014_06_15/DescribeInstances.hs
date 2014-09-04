@@ -436,15 +436,17 @@ data DescribeInstances = DescribeInstances
 -- The allocation ID returned when you allocated the Elastic IP address for
 -- your network interface. association.association-id - The association ID
 -- returned when the network interface was associated with an IP address.
-diuFilters :: Lens' DescribeInstances [Filter]
+diuFilters :: Lens' DescribeInstances ([Filter])
 diuFilters f x =
-    f (_diuFilters x) <&> \y -> x { _diuFilters = y }
+    f (_diuFilters x)
+        <&> \y -> x { _diuFilters = y }
 {-# INLINE diuFilters #-}
 
 -- | One or more instance IDs. Default: Describes all your instances.
-diuInstanceIds :: Lens' DescribeInstances [Text]
+diuInstanceIds :: Lens' DescribeInstances ([Text])
 diuInstanceIds f x =
-    f (_diuInstanceIds x) <&> \y -> x { _diuInstanceIds = y }
+    f (_diuInstanceIds x)
+        <&> \y -> x { _diuInstanceIds = y }
 {-# INLINE diuInstanceIds #-}
 
 -- | The maximum number of items to return for this call. The call also returns
@@ -452,14 +454,16 @@ diuInstanceIds f x =
 -- results. If the value is greater than 1000, we return only 1000 items.
 diuMaxResults :: Lens' DescribeInstances (Maybe Integer)
 diuMaxResults f x =
-    f (_diuMaxResults x) <&> \y -> x { _diuMaxResults = y }
+    f (_diuMaxResults x)
+        <&> \y -> x { _diuMaxResults = y }
 {-# INLINE diuMaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
 diuNextToken :: Lens' DescribeInstances (Maybe Text)
 diuNextToken f x =
-    f (_diuNextToken x) <&> \y -> x { _diuNextToken = y }
+    f (_diuNextToken x)
+        <&> \y -> x { _diuNextToken = y }
 {-# INLINE diuNextToken #-}
 
 instance ToQuery DescribeInstances where
@@ -474,16 +478,18 @@ data DescribeInstancesResponse = DescribeInstancesResponse
     } deriving (Show, Generic)
 
 -- | One or more reservations.
-divReservations :: Lens' DescribeInstancesResponse [Reservation]
+divReservations :: Lens' DescribeInstancesResponse ([Reservation])
 divReservations f x =
-    f (_divReservations x) <&> \y -> x { _divReservations = y }
+    f (_divReservations x)
+        <&> \y -> x { _divReservations = y }
 {-# INLINE divReservations #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 divNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 divNextToken f x =
-    f (_divNextToken x) <&> \y -> x { _divNextToken = y }
+    f (_divNextToken x)
+        <&> \y -> x { _divNextToken = y }
 {-# INLINE divNextToken #-}
 
 instance FromXML DescribeInstancesResponse where

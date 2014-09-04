@@ -46,6 +46,7 @@ putBucketWebsite p1 p2 = PutBucketWebsite
     , _pbwrBucket = p2
     , _pbwrContentMD5 = Nothing
     }
+{-# INLINE putBucketWebsite #-}
 
 data PutBucketWebsite = PutBucketWebsite
     { _pbwrWebsiteConfiguration :: WebsiteConfiguration
@@ -53,37 +54,22 @@ data PutBucketWebsite = PutBucketWebsite
     , _pbwrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pbwrWebsiteConfiguration
-    :: Functor f
-    => (WebsiteConfiguration
-    -> f (WebsiteConfiguration))
-    -> PutBucketWebsite
-    -> f PutBucketWebsite
+pbwrWebsiteConfiguration :: Lens' PutBucketWebsite (WebsiteConfiguration)
 pbwrWebsiteConfiguration f x =
-    (\y -> x { _pbwrWebsiteConfiguration = y })
-       <$> f (_pbwrWebsiteConfiguration x)
+    f (_pbwrWebsiteConfiguration x)
+        <&> \y -> x { _pbwrWebsiteConfiguration = y }
 {-# INLINE pbwrWebsiteConfiguration #-}
 
-pbwrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketWebsite
-    -> f PutBucketWebsite
+pbwrBucket :: Lens' PutBucketWebsite (BucketName)
 pbwrBucket f x =
-    (\y -> x { _pbwrBucket = y })
-       <$> f (_pbwrBucket x)
+    f (_pbwrBucket x)
+        <&> \y -> x { _pbwrBucket = y }
 {-# INLINE pbwrBucket #-}
 
-pbwrContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketWebsite
-    -> f PutBucketWebsite
+pbwrContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
 pbwrContentMD5 f x =
-    (\y -> x { _pbwrContentMD5 = y })
-       <$> f (_pbwrContentMD5 x)
+    f (_pbwrContentMD5 x)
+        <&> \y -> x { _pbwrContentMD5 = y }
 {-# INLINE pbwrContentMD5 #-}
 
 instance ToPath PutBucketWebsite where

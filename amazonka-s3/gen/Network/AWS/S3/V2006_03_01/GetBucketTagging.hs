@@ -43,20 +43,16 @@ getBucketTagging :: BucketName -- ^ 'gbtrBucket'
 getBucketTagging p1 = GetBucketTagging
     { _gbtrBucket = p1
     }
+{-# INLINE getBucketTagging #-}
 
 data GetBucketTagging = GetBucketTagging
     { _gbtrBucket :: BucketName
     } deriving (Show, Generic)
 
-gbtrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketTagging
-    -> f GetBucketTagging
+gbtrBucket :: Lens' GetBucketTagging (BucketName)
 gbtrBucket f x =
-    (\y -> x { _gbtrBucket = y })
-       <$> f (_gbtrBucket x)
+    f (_gbtrBucket x)
+        <&> \y -> x { _gbtrBucket = y }
 {-# INLINE gbtrBucket #-}
 
 instance ToPath GetBucketTagging where
@@ -78,15 +74,10 @@ data GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtoTagSet :: [Tag]
     } deriving (Show, Generic)
 
-gbtoTagSet
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> GetBucketTaggingResponse
-    -> f GetBucketTaggingResponse
+gbtoTagSet :: Lens' GetBucketTaggingResponse ([Tag])
 gbtoTagSet f x =
-    (\y -> x { _gbtoTagSet = y })
-       <$> f (_gbtoTagSet x)
+    f (_gbtoTagSet x)
+        <&> \y -> x { _gbtoTagSet = y }
 {-# INLINE gbtoTagSet #-}
 
 instance FromXML GetBucketTaggingResponse where

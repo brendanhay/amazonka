@@ -94,6 +94,7 @@ createMultipartUpload p1 p2 = CreateMultipartUpload
     , _cmusStorageClass = Nothing
     , _cmusWebsiteRedirectLocation = Nothing
     }
+{-# INLINE createMultipartUpload #-}
 
 data CreateMultipartUpload = CreateMultipartUpload
     { _cmusBucket :: BucketName
@@ -153,185 +154,110 @@ data CreateMultipartUpload = CreateMultipartUpload
       -- object metadata.
     } deriving (Show, Generic)
 
-cmusBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusBucket :: Lens' CreateMultipartUpload (BucketName)
 cmusBucket f x =
-    (\y -> x { _cmusBucket = y })
-       <$> f (_cmusBucket x)
+    f (_cmusBucket x)
+        <&> \y -> x { _cmusBucket = y }
 {-# INLINE cmusBucket #-}
 
-cmusKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusKey :: Lens' CreateMultipartUpload (ObjectKey)
 cmusKey f x =
-    (\y -> x { _cmusKey = y })
-       <$> f (_cmusKey x)
+    f (_cmusKey x)
+        <&> \y -> x { _cmusKey = y }
 {-# INLINE cmusKey #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-cmusCacheControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusCacheControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmusCacheControl f x =
-    (\y -> x { _cmusCacheControl = y })
-       <$> f (_cmusCacheControl x)
+    f (_cmusCacheControl x)
+        <&> \y -> x { _cmusCacheControl = y }
 {-# INLINE cmusCacheControl #-}
 
 -- | Specifies presentational information for the object.
-cmusContentDisposition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusContentDisposition :: Lens' CreateMultipartUpload (Maybe Text)
 cmusContentDisposition f x =
-    (\y -> x { _cmusContentDisposition = y })
-       <$> f (_cmusContentDisposition x)
+    f (_cmusContentDisposition x)
+        <&> \y -> x { _cmusContentDisposition = y }
 {-# INLINE cmusContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-cmusContentEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
 cmusContentEncoding f x =
-    (\y -> x { _cmusContentEncoding = y })
-       <$> f (_cmusContentEncoding x)
+    f (_cmusContentEncoding x)
+        <&> \y -> x { _cmusContentEncoding = y }
 {-# INLINE cmusContentEncoding #-}
 
 -- | The language the content is in.
-cmusContentLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusContentLanguage :: Lens' CreateMultipartUpload (Maybe Text)
 cmusContentLanguage f x =
-    (\y -> x { _cmusContentLanguage = y })
-       <$> f (_cmusContentLanguage x)
+    f (_cmusContentLanguage x)
+        <&> \y -> x { _cmusContentLanguage = y }
 {-# INLINE cmusContentLanguage #-}
 
 -- | A standard MIME type describing the format of the object data.
-cmusContentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusContentType :: Lens' CreateMultipartUpload (Maybe Text)
 cmusContentType f x =
-    (\y -> x { _cmusContentType = y })
-       <$> f (_cmusContentType x)
+    f (_cmusContentType x)
+        <&> \y -> x { _cmusContentType = y }
 {-# INLINE cmusContentType #-}
 
 -- | The date and time at which the object is no longer cacheable.
-cmusExpires
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusExpires :: Lens' CreateMultipartUpload (Maybe RFC822)
 cmusExpires f x =
-    (\y -> x { _cmusExpires = y })
-       <$> f (_cmusExpires x)
+    f (_cmusExpires x)
+        <&> \y -> x { _cmusExpires = y }
 {-# INLINE cmusExpires #-}
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
-cmusGrantFullControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusGrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmusGrantFullControl f x =
-    (\y -> x { _cmusGrantFullControl = y })
-       <$> f (_cmusGrantFullControl x)
+    f (_cmusGrantFullControl x)
+        <&> \y -> x { _cmusGrantFullControl = y }
 {-# INLINE cmusGrantFullControl #-}
 
 -- | Allows grantee to read the object data and its metadata.
-cmusGrantRead
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusGrantRead :: Lens' CreateMultipartUpload (Maybe Text)
 cmusGrantRead f x =
-    (\y -> x { _cmusGrantRead = y })
-       <$> f (_cmusGrantRead x)
+    f (_cmusGrantRead x)
+        <&> \y -> x { _cmusGrantRead = y }
 {-# INLINE cmusGrantRead #-}
 
 -- | Allows grantee to read the object ACL.
-cmusGrantReadACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusGrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmusGrantReadACP f x =
-    (\y -> x { _cmusGrantReadACP = y })
-       <$> f (_cmusGrantReadACP x)
+    f (_cmusGrantReadACP x)
+        <&> \y -> x { _cmusGrantReadACP = y }
 {-# INLINE cmusGrantReadACP #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
-cmusGrantWriteACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusGrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmusGrantWriteACP f x =
-    (\y -> x { _cmusGrantWriteACP = y })
-       <$> f (_cmusGrantWriteACP x)
+    f (_cmusGrantWriteACP x)
+        <&> \y -> x { _cmusGrantWriteACP = y }
 {-# INLINE cmusGrantWriteACP #-}
 
 -- | A map of metadata to store with the object in S3.
-cmusMetadata
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusMetadata :: Lens' CreateMultipartUpload (Map Text Text)
 cmusMetadata f x =
-    (\y -> x { _cmusMetadata = y })
-       <$> f (_cmusMetadata x)
+    f (_cmusMetadata x)
+        <&> \y -> x { _cmusMetadata = y }
 {-# INLINE cmusMetadata #-}
 
 -- | The canned ACL to apply to the object.
-cmusACL
-    :: Functor f
-    => (Maybe ObjectCannedACL
-    -> f (Maybe ObjectCannedACL))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
 cmusACL f x =
-    (\y -> x { _cmusACL = y })
-       <$> f (_cmusACL x)
+    f (_cmusACL x)
+        <&> \y -> x { _cmusACL = y }
 {-# INLINE cmusACL #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-cmusSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmusSSECustomerAlgorithm f x =
-    (\y -> x { _cmusSSECustomerAlgorithm = y })
-       <$> f (_cmusSSECustomerAlgorithm x)
+    f (_cmusSSECustomerAlgorithm x)
+        <&> \y -> x { _cmusSSECustomerAlgorithm = y }
 {-# INLINE cmusSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -339,67 +265,42 @@ cmusSSECustomerAlgorithm f x =
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-cmusSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusSSECustomerKey :: Lens' CreateMultipartUpload (Maybe Text)
 cmusSSECustomerKey f x =
-    (\y -> x { _cmusSSECustomerKey = y })
-       <$> f (_cmusSSECustomerKey x)
+    f (_cmusSSECustomerKey x)
+        <&> \y -> x { _cmusSSECustomerKey = y }
 {-# INLINE cmusSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-cmusSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmusSSECustomerKeyMD5 f x =
-    (\y -> x { _cmusSSECustomerKeyMD5 = y })
-       <$> f (_cmusSSECustomerKeyMD5 x)
+    f (_cmusSSECustomerKeyMD5 x)
+        <&> \y -> x { _cmusSSECustomerKeyMD5 = y }
 {-# INLINE cmusSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cmusServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusServerSideEncryption :: Lens' CreateMultipartUpload (Maybe ServerSideEncryption)
 cmusServerSideEncryption f x =
-    (\y -> x { _cmusServerSideEncryption = y })
-       <$> f (_cmusServerSideEncryption x)
+    f (_cmusServerSideEncryption x)
+        <&> \y -> x { _cmusServerSideEncryption = y }
 {-# INLINE cmusServerSideEncryption #-}
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-cmusStorageClass
-    :: Functor f
-    => (Maybe StorageClass
-    -> f (Maybe StorageClass))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
 cmusStorageClass f x =
-    (\y -> x { _cmusStorageClass = y })
-       <$> f (_cmusStorageClass x)
+    f (_cmusStorageClass x)
+        <&> \y -> x { _cmusStorageClass = y }
 {-# INLINE cmusStorageClass #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-cmusWebsiteRedirectLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUpload
-    -> f CreateMultipartUpload
+cmusWebsiteRedirectLocation :: Lens' CreateMultipartUpload (Maybe Text)
 cmusWebsiteRedirectLocation f x =
-    (\y -> x { _cmusWebsiteRedirectLocation = y })
-       <$> f (_cmusWebsiteRedirectLocation x)
+    f (_cmusWebsiteRedirectLocation x)
+        <&> \y -> x { _cmusWebsiteRedirectLocation = y }
 {-# INLINE cmusWebsiteRedirectLocation #-}
 
 instance ToPath CreateMultipartUpload where
@@ -461,79 +362,49 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     } deriving (Show, Generic)
 
 -- | Name of the bucket to which the multipart upload was initiated.
-cmupBucket
-    :: Functor f
-    => (Maybe BucketName
-    -> f (Maybe BucketName))
-    -> CreateMultipartUploadResponse
-    -> f CreateMultipartUploadResponse
+cmupBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
 cmupBucket f x =
-    (\y -> x { _cmupBucket = y })
-       <$> f (_cmupBucket x)
+    f (_cmupBucket x)
+        <&> \y -> x { _cmupBucket = y }
 {-# INLINE cmupBucket #-}
 
 -- | ID for the initiated multipart upload.
-cmupUploadId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUploadResponse
-    -> f CreateMultipartUploadResponse
+cmupUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmupUploadId f x =
-    (\y -> x { _cmupUploadId = y })
-       <$> f (_cmupUploadId x)
+    f (_cmupUploadId x)
+        <&> \y -> x { _cmupUploadId = y }
 {-# INLINE cmupUploadId #-}
 
 -- | Object key for which the multipart upload was initiated.
-cmupKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> CreateMultipartUploadResponse
-    -> f CreateMultipartUploadResponse
+cmupKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
 cmupKey f x =
-    (\y -> x { _cmupKey = y })
-       <$> f (_cmupKey x)
+    f (_cmupKey x)
+        <&> \y -> x { _cmupKey = y }
 {-# INLINE cmupKey #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-cmupSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUploadResponse
-    -> f CreateMultipartUploadResponse
+cmupSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmupSSECustomerAlgorithm f x =
-    (\y -> x { _cmupSSECustomerAlgorithm = y })
-       <$> f (_cmupSSECustomerAlgorithm x)
+    f (_cmupSSECustomerAlgorithm x)
+        <&> \y -> x { _cmupSSECustomerAlgorithm = y }
 {-# INLINE cmupSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-cmupSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateMultipartUploadResponse
-    -> f CreateMultipartUploadResponse
+cmupSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmupSSECustomerKeyMD5 f x =
-    (\y -> x { _cmupSSECustomerKeyMD5 = y })
-       <$> f (_cmupSSECustomerKeyMD5 x)
+    f (_cmupSSECustomerKeyMD5 x)
+        <&> \y -> x { _cmupSSECustomerKeyMD5 = y }
 {-# INLINE cmupSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cmupServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> CreateMultipartUploadResponse
-    -> f CreateMultipartUploadResponse
+cmupServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmupServerSideEncryption f x =
-    (\y -> x { _cmupServerSideEncryption = y })
-       <$> f (_cmupServerSideEncryption x)
+    f (_cmupServerSideEncryption x)
+        <&> \y -> x { _cmupServerSideEncryption = y }
 {-# INLINE cmupServerSideEncryption #-}
 
 instance AWSRequest CreateMultipartUpload where

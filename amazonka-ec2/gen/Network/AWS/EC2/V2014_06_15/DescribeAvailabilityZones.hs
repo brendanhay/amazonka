@@ -88,15 +88,17 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 -- example, us-east-1). state - The state of the Availability Zone (available
 -- | impaired | unavailable). zone-name - The name of the Availability Zone
 -- (for example, us-east-1a).
-dazrFilters :: Lens' DescribeAvailabilityZones [Filter]
+dazrFilters :: Lens' DescribeAvailabilityZones ([Filter])
 dazrFilters f x =
-    f (_dazrFilters x) <&> \y -> x { _dazrFilters = y }
+    f (_dazrFilters x)
+        <&> \y -> x { _dazrFilters = y }
 {-# INLINE dazrFilters #-}
 
 -- | The names of one or more Availability Zones.
-dazrZoneNames :: Lens' DescribeAvailabilityZones [Text]
+dazrZoneNames :: Lens' DescribeAvailabilityZones ([Text])
 dazrZoneNames f x =
-    f (_dazrZoneNames x) <&> \y -> x { _dazrZoneNames = y }
+    f (_dazrZoneNames x)
+        <&> \y -> x { _dazrZoneNames = y }
 {-# INLINE dazrZoneNames #-}
 
 instance ToQuery DescribeAvailabilityZones where
@@ -108,9 +110,10 @@ data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more Availability Zones.
-dazsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
+dazsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse ([AvailabilityZone])
 dazsAvailabilityZones f x =
-    f (_dazsAvailabilityZones x) <&> \y -> x { _dazsAvailabilityZones = y }
+    f (_dazsAvailabilityZones x)
+        <&> \y -> x { _dazsAvailabilityZones = y }
 {-# INLINE dazsAvailabilityZones #-}
 
 instance FromXML DescribeAvailabilityZonesResponse where

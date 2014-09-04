@@ -95,6 +95,7 @@ uploadServerCertificate p1 p2 p3 = UploadServerCertificate
     , _usctCertificateChain = Nothing
     , _usctPath = Nothing
     }
+{-# INLINE uploadServerCertificate #-}
 
 data UploadServerCertificate = UploadServerCertificate
     { _usctCertificateBody :: Text
@@ -120,52 +121,32 @@ data UploadServerCertificate = UploadServerCertificate
     } deriving (Show, Generic)
 
 -- | The contents of the public key certificate in PEM-encoded format.
-usctCertificateBody
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UploadServerCertificate
-    -> f UploadServerCertificate
+usctCertificateBody :: Lens' UploadServerCertificate (Text)
 usctCertificateBody f x =
-    (\y -> x { _usctCertificateBody = y })
-       <$> f (_usctCertificateBody x)
+    f (_usctCertificateBody x)
+        <&> \y -> x { _usctCertificateBody = y }
 {-# INLINE usctCertificateBody #-}
 
 -- | The contents of the private key in PEM-encoded format.
-usctPrivateKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UploadServerCertificate
-    -> f UploadServerCertificate
+usctPrivateKey :: Lens' UploadServerCertificate (Text)
 usctPrivateKey f x =
-    (\y -> x { _usctPrivateKey = y })
-       <$> f (_usctPrivateKey x)
+    f (_usctPrivateKey x)
+        <&> \y -> x { _usctPrivateKey = y }
 {-# INLINE usctPrivateKey #-}
 
 -- | The name for the server certificate. Do not include the path in this value.
-usctServerCertificateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UploadServerCertificate
-    -> f UploadServerCertificate
+usctServerCertificateName :: Lens' UploadServerCertificate (Text)
 usctServerCertificateName f x =
-    (\y -> x { _usctServerCertificateName = y })
-       <$> f (_usctServerCertificateName x)
+    f (_usctServerCertificateName x)
+        <&> \y -> x { _usctServerCertificateName = y }
 {-# INLINE usctServerCertificateName #-}
 
 -- | The contents of the certificate chain. This is typically a concatenation of
 -- the PEM-encoded public key certificates of the chain.
-usctCertificateChain
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadServerCertificate
-    -> f UploadServerCertificate
+usctCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 usctCertificateChain f x =
-    (\y -> x { _usctCertificateChain = y })
-       <$> f (_usctCertificateChain x)
+    f (_usctCertificateChain x)
+        <&> \y -> x { _usctCertificateChain = y }
 {-# INLINE usctCertificateChain #-}
 
 -- | The path for the server certificate. For more information about paths, see
@@ -175,15 +156,10 @@ usctCertificateChain f x =
 -- distributions, you must specify a path using the --path option. The path
 -- must begin with /cloudfront and must include a trailing slash (for example,
 -- /cloudfront/test/).
-usctPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadServerCertificate
-    -> f UploadServerCertificate
+usctPath :: Lens' UploadServerCertificate (Maybe Text)
 usctPath f x =
-    (\y -> x { _usctPath = y })
-       <$> f (_usctPath x)
+    f (_usctPath x)
+        <&> \y -> x { _usctPath = y }
 {-# INLINE usctPath #-}
 
 instance ToQuery UploadServerCertificate where
@@ -197,15 +173,10 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
-uscuServerCertificateMetadata
-    :: Functor f
-    => (Maybe ServerCertificateMetadata
-    -> f (Maybe ServerCertificateMetadata))
-    -> UploadServerCertificateResponse
-    -> f UploadServerCertificateResponse
+uscuServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
 uscuServerCertificateMetadata f x =
-    (\y -> x { _uscuServerCertificateMetadata = y })
-       <$> f (_uscuServerCertificateMetadata x)
+    f (_uscuServerCertificateMetadata x)
+        <&> \y -> x { _uscuServerCertificateMetadata = y }
 {-# INLINE uscuServerCertificateMetadata #-}
 
 instance FromXML UploadServerCertificateResponse where

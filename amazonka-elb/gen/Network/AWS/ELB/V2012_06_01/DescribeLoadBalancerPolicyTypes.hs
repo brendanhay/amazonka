@@ -59,6 +59,7 @@ describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptiPolicyTypeNames = mempty
     }
+{-# INLINE describeLoadBalancerPolicyTypes #-}
 
 data DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptiPolicyTypeNames :: [Text]
@@ -70,15 +71,10 @@ data DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
 -- | Specifies the name of the policy types. If no names are specified, returns
 -- the description of all the policy types defined by Elastic Load Balancing
 -- service.
-dlbptiPolicyTypeNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLoadBalancerPolicyTypes
-    -> f DescribeLoadBalancerPolicyTypes
+dlbptiPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes ([Text])
 dlbptiPolicyTypeNames f x =
-    (\y -> x { _dlbptiPolicyTypeNames = y })
-       <$> f (_dlbptiPolicyTypeNames x)
+    f (_dlbptiPolicyTypeNames x)
+        <&> \y -> x { _dlbptiPolicyTypeNames = y }
 {-# INLINE dlbptiPolicyTypeNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicyTypes where
@@ -95,15 +91,10 @@ data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRe
 -- | List of policy type description structures of the specified policy type. If
 -- no policy type names are specified, returns the description of all the
 -- policy types defined by Elastic Load Balancing service.
-dlbptoPolicyTypeDescriptions
-    :: Functor f
-    => ([PolicyTypeDescription]
-    -> f ([PolicyTypeDescription]))
-    -> DescribeLoadBalancerPolicyTypesResponse
-    -> f DescribeLoadBalancerPolicyTypesResponse
+dlbptoPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse ([PolicyTypeDescription])
 dlbptoPolicyTypeDescriptions f x =
-    (\y -> x { _dlbptoPolicyTypeDescriptions = y })
-       <$> f (_dlbptoPolicyTypeDescriptions x)
+    f (_dlbptoPolicyTypeDescriptions x)
+        <&> \y -> x { _dlbptoPolicyTypeDescriptions = y }
 {-# INLINE dlbptoPolicyTypeDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where

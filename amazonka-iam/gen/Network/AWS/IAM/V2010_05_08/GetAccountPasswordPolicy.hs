@@ -41,6 +41,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetAccountPasswordPolicy' request.
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy
+{-# INLINE getAccountPasswordPolicy #-}
 
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
     deriving (Eq, Show, Generic)
@@ -58,15 +59,10 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
 -- | The PasswordPolicy data type contains information about the account
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
-gapprPasswordPolicy
-    :: Functor f
-    => (PasswordPolicy
-    -> f (PasswordPolicy))
-    -> GetAccountPasswordPolicyResponse
-    -> f GetAccountPasswordPolicyResponse
+gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse (PasswordPolicy)
 gapprPasswordPolicy f x =
-    (\y -> x { _gapprPasswordPolicy = y })
-       <$> f (_gapprPasswordPolicy x)
+    f (_gapprPasswordPolicy x)
+        <&> \y -> x { _gapprPasswordPolicy = y }
 {-# INLINE gapprPasswordPolicy #-}
 
 instance FromXML GetAccountPasswordPolicyResponse where

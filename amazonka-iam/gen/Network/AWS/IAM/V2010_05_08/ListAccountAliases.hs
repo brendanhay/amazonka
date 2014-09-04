@@ -51,6 +51,7 @@ listAccountAliases = ListAccountAliases
     { _laarMarker = Nothing
     , _laarMaxItems = Nothing
     }
+{-# INLINE listAccountAliases #-}
 
 data ListAccountAliases = ListAccountAliases
     { _laarMarker :: Maybe Text
@@ -69,15 +70,10 @@ data ListAccountAliases = ListAccountAliases
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-laarMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListAccountAliases
-    -> f ListAccountAliases
+laarMarker :: Lens' ListAccountAliases (Maybe Text)
 laarMarker f x =
-    (\y -> x { _laarMarker = y })
-       <$> f (_laarMarker x)
+    f (_laarMarker x)
+        <&> \y -> x { _laarMarker = y }
 {-# INLINE laarMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -85,15 +81,10 @@ laarMarker f x =
 -- aliases beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
-laarMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListAccountAliases
-    -> f ListAccountAliases
+laarMaxItems :: Lens' ListAccountAliases (Maybe Integer)
 laarMaxItems f x =
-    (\y -> x { _laarMaxItems = y })
-       <$> f (_laarMaxItems x)
+    f (_laarMaxItems x)
+        <&> \y -> x { _laarMaxItems = y }
 {-# INLINE laarMaxItems #-}
 
 instance ToQuery ListAccountAliases where
@@ -115,44 +106,29 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
     } deriving (Show, Generic)
 
 -- | A list of aliases associated with the account.
-laasAccountAliases
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListAccountAliasesResponse
-    -> f ListAccountAliasesResponse
+laasAccountAliases :: Lens' ListAccountAliasesResponse ([Text])
 laasAccountAliases f x =
-    (\y -> x { _laasAccountAliases = y })
-       <$> f (_laasAccountAliases x)
+    f (_laasAccountAliases x)
+        <&> \y -> x { _laasAccountAliases = y }
 {-# INLINE laasAccountAliases #-}
 
 -- | A flag that indicates whether there are more account aliases to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more account aliases in the
 -- list.
-laasIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListAccountAliasesResponse
-    -> f ListAccountAliasesResponse
+laasIsTruncated :: Lens' ListAccountAliasesResponse (Bool)
 laasIsTruncated f x =
-    (\y -> x { _laasIsTruncated = y })
-       <$> f (_laasIsTruncated x)
+    f (_laasIsTruncated x)
+        <&> \y -> x { _laasIsTruncated = y }
 {-# INLINE laasIsTruncated #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-laasMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListAccountAliasesResponse
-    -> f ListAccountAliasesResponse
+laasMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laasMarker f x =
-    (\y -> x { _laasMarker = y })
-       <$> f (_laasMarker x)
+    f (_laasMarker x)
+        <&> \y -> x { _laasMarker = y }
 {-# INLINE laasMarker #-}
 
 instance FromXML ListAccountAliasesResponse where

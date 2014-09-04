@@ -62,6 +62,7 @@ listVirtualMFADevices = ListVirtualMFADevices
     , _lvmfadrMarker = Nothing
     , _lvmfadrMaxItems = Nothing
     }
+{-# INLINE listVirtualMFADevices #-}
 
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadrAssignmentStatus :: Maybe AssignmentStatusType
@@ -84,30 +85,20 @@ data ListVirtualMFADevices = ListVirtualMFADevices
 -- | The status (unassigned or assigned) of the devices to list. If you do not
 -- specify an AssignmentStatus, the action defaults to Any which lists both
 -- assigned and unassigned virtual MFA devices.
-lvmfadrAssignmentStatus
-    :: Functor f
-    => (Maybe AssignmentStatusType
-    -> f (Maybe AssignmentStatusType))
-    -> ListVirtualMFADevices
-    -> f ListVirtualMFADevices
+lvmfadrAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmfadrAssignmentStatus f x =
-    (\y -> x { _lvmfadrAssignmentStatus = y })
-       <$> f (_lvmfadrAssignmentStatus x)
+    f (_lvmfadrAssignmentStatus x)
+        <&> \y -> x { _lvmfadrAssignmentStatus = y }
 {-# INLINE lvmfadrAssignmentStatus #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-lvmfadrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListVirtualMFADevices
-    -> f ListVirtualMFADevices
+lvmfadrMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmfadrMarker f x =
-    (\y -> x { _lvmfadrMarker = y })
-       <$> f (_lvmfadrMarker x)
+    f (_lvmfadrMarker x)
+        <&> \y -> x { _lvmfadrMarker = y }
 {-# INLINE lvmfadrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -115,15 +106,10 @@ lvmfadrMarker f x =
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lvmfadrMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListVirtualMFADevices
-    -> f ListVirtualMFADevices
+lvmfadrMaxItems :: Lens' ListVirtualMFADevices (Maybe Integer)
 lvmfadrMaxItems f x =
-    (\y -> x { _lvmfadrMaxItems = y })
-       <$> f (_lvmfadrMaxItems x)
+    f (_lvmfadrMaxItems x)
+        <&> \y -> x { _lvmfadrMaxItems = y }
 {-# INLINE lvmfadrMaxItems #-}
 
 instance ToQuery ListVirtualMFADevices where
@@ -145,39 +131,24 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
 -- | A flag that indicates whether there are more items to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more items the list.
-lvmfadsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListVirtualMFADevicesResponse
-    -> f ListVirtualMFADevicesResponse
+lvmfadsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Bool)
 lvmfadsIsTruncated f x =
-    (\y -> x { _lvmfadsIsTruncated = y })
-       <$> f (_lvmfadsIsTruncated x)
+    f (_lvmfadsIsTruncated x)
+        <&> \y -> x { _lvmfadsIsTruncated = y }
 {-# INLINE lvmfadsIsTruncated #-}
 
-lvmfadsVirtualMFADevices
-    :: Functor f
-    => ([VirtualMFADevice]
-    -> f ([VirtualMFADevice]))
-    -> ListVirtualMFADevicesResponse
-    -> f ListVirtualMFADevicesResponse
+lvmfadsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse ([VirtualMFADevice])
 lvmfadsVirtualMFADevices f x =
-    (\y -> x { _lvmfadsVirtualMFADevices = y })
-       <$> f (_lvmfadsVirtualMFADevices x)
+    f (_lvmfadsVirtualMFADevices x)
+        <&> \y -> x { _lvmfadsVirtualMFADevices = y }
 {-# INLINE lvmfadsVirtualMFADevices #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lvmfadsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListVirtualMFADevicesResponse
-    -> f ListVirtualMFADevicesResponse
+lvmfadsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
 lvmfadsMarker f x =
-    (\y -> x { _lvmfadsMarker = y })
-       <$> f (_lvmfadsMarker x)
+    f (_lvmfadsMarker x)
+        <&> \y -> x { _lvmfadsMarker = y }
 {-# INLINE lvmfadsMarker #-}
 
 instance FromXML ListVirtualMFADevicesResponse where

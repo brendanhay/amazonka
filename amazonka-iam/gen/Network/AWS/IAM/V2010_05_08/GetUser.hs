@@ -49,6 +49,7 @@ getUser :: GetUser
 getUser = GetUser
     { _gurUserName = Nothing
     }
+{-# INLINE getUser #-}
 
 data GetUser = GetUser
     { _gurUserName :: Maybe Text
@@ -59,15 +60,10 @@ data GetUser = GetUser
 
 -- | Name of the user to get information about. This parameter is optional. If
 -- it is not included, it defaults to the user making the request.
-gurUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetUser
-    -> f GetUser
+gurUserName :: Lens' GetUser (Maybe Text)
 gurUserName f x =
-    (\y -> x { _gurUserName = y })
-       <$> f (_gurUserName x)
+    f (_gurUserName x)
+        <&> \y -> x { _gurUserName = y }
 {-# INLINE gurUserName #-}
 
 instance ToQuery GetUser where
@@ -79,15 +75,10 @@ data GetUserResponse = GetUserResponse
     } deriving (Show, Generic)
 
 -- | Information about the user.
-gusUser
-    :: Functor f
-    => (User
-    -> f (User))
-    -> GetUserResponse
-    -> f GetUserResponse
+gusUser :: Lens' GetUserResponse (User)
 gusUser f x =
-    (\y -> x { _gusUser = y })
-       <$> f (_gusUser x)
+    f (_gusUser x)
+        <&> \y -> x { _gusUser = y }
 {-# INLINE gusUser #-}
 
 instance FromXML GetUserResponse where

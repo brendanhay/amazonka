@@ -65,15 +65,17 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     } deriving (Show, Generic)
 
 -- | The snapshot attribute you would like to view.
-dsarAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
+dsarAttribute :: Lens' DescribeSnapshotAttribute (SnapshotAttributeName)
 dsarAttribute f x =
-    f (_dsarAttribute x) <&> \y -> x { _dsarAttribute = y }
+    f (_dsarAttribute x)
+        <&> \y -> x { _dsarAttribute = y }
 {-# INLINE dsarAttribute #-}
 
 -- | The ID of the Amazon EBS snapshot.
-dsarSnapshotId :: Lens' DescribeSnapshotAttribute Text
+dsarSnapshotId :: Lens' DescribeSnapshotAttribute (Text)
 dsarSnapshotId f x =
-    f (_dsarSnapshotId x) <&> \y -> x { _dsarSnapshotId = y }
+    f (_dsarSnapshotId x)
+        <&> \y -> x { _dsarSnapshotId = y }
 {-# INLINE dsarSnapshotId #-}
 
 instance ToQuery DescribeSnapshotAttribute where
@@ -89,21 +91,24 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     } deriving (Show, Generic)
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsasCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
+dsasCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse ([CreateVolumePermission])
 dsasCreateVolumePermissions f x =
-    f (_dsasCreateVolumePermissions x) <&> \y -> x { _dsasCreateVolumePermissions = y }
+    f (_dsasCreateVolumePermissions x)
+        <&> \y -> x { _dsasCreateVolumePermissions = y }
 {-# INLINE dsasCreateVolumePermissions #-}
 
 -- | A list of product codes.
-dsasProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
+dsasProductCodes :: Lens' DescribeSnapshotAttributeResponse ([ProductCode])
 dsasProductCodes f x =
-    f (_dsasProductCodes x) <&> \y -> x { _dsasProductCodes = y }
+    f (_dsasProductCodes x)
+        <&> \y -> x { _dsasProductCodes = y }
 {-# INLINE dsasProductCodes #-}
 
 -- | The ID of the Amazon EBS snapshot.
 dsasSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsasSnapshotId f x =
-    f (_dsasSnapshotId x) <&> \y -> x { _dsasSnapshotId = y }
+    f (_dsasSnapshotId x)
+        <&> \y -> x { _dsasSnapshotId = y }
 {-# INLINE dsasSnapshotId #-}
 
 instance FromXML DescribeSnapshotAttributeResponse where

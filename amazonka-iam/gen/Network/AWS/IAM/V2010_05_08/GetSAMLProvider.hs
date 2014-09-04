@@ -50,6 +50,7 @@ getSAMLProvider :: Text -- ^ 'gsamlprSAMLProviderArn'
 getSAMLProvider p1 = GetSAMLProvider
     { _gsamlprSAMLProviderArn = p1
     }
+{-# INLINE getSAMLProvider #-}
 
 data GetSAMLProvider = GetSAMLProvider
     { _gsamlprSAMLProviderArn :: Text
@@ -59,15 +60,10 @@ data GetSAMLProvider = GetSAMLProvider
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
 -- about.
-gsamlprSAMLProviderArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetSAMLProvider
-    -> f GetSAMLProvider
+gsamlprSAMLProviderArn :: Lens' GetSAMLProvider (Text)
 gsamlprSAMLProviderArn f x =
-    (\y -> x { _gsamlprSAMLProviderArn = y })
-       <$> f (_gsamlprSAMLProviderArn x)
+    f (_gsamlprSAMLProviderArn x)
+        <&> \y -> x { _gsamlprSAMLProviderArn = y }
 {-# INLINE gsamlprSAMLProviderArn #-}
 
 instance ToQuery GetSAMLProvider where
@@ -84,40 +80,25 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     } deriving (Show, Generic)
 
 -- | The date and time when the SAML provider was created.
-gsamlpsCreateDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetSAMLProviderResponse
-    -> f GetSAMLProviderResponse
+gsamlpsCreateDate :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
 gsamlpsCreateDate f x =
-    (\y -> x { _gsamlpsCreateDate = y })
-       <$> f (_gsamlpsCreateDate x)
+    f (_gsamlpsCreateDate x)
+        <&> \y -> x { _gsamlpsCreateDate = y }
 {-# INLINE gsamlpsCreateDate #-}
 
 -- | The expiration date and time for the SAML provider.
-gsamlpsValidUntil
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetSAMLProviderResponse
-    -> f GetSAMLProviderResponse
+gsamlpsValidUntil :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
 gsamlpsValidUntil f x =
-    (\y -> x { _gsamlpsValidUntil = y })
-       <$> f (_gsamlpsValidUntil x)
+    f (_gsamlpsValidUntil x)
+        <&> \y -> x { _gsamlpsValidUntil = y }
 {-# INLINE gsamlpsValidUntil #-}
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-gsamlpsSAMLMetadataDocument
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetSAMLProviderResponse
-    -> f GetSAMLProviderResponse
+gsamlpsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlpsSAMLMetadataDocument f x =
-    (\y -> x { _gsamlpsSAMLMetadataDocument = y })
-       <$> f (_gsamlpsSAMLMetadataDocument x)
+    f (_gsamlpsSAMLMetadataDocument x)
+        <&> \y -> x { _gsamlpsSAMLMetadataDocument = y }
 {-# INLINE gsamlpsSAMLMetadataDocument #-}
 
 instance FromXML GetSAMLProviderResponse where

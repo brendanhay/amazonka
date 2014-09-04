@@ -963,15 +963,10 @@ newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-blsLoggingEnabled
-    :: Functor f
-    => (Maybe LoggingEnabled
-    -> f (Maybe LoggingEnabled))
-    -> BucketLoggingStatus
-    -> f BucketLoggingStatus
+blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
 blsLoggingEnabled f x =
-    (\y -> x { _blsLoggingEnabled = y })
-       <$> f (_blsLoggingEnabled x)
+    f (_blsLoggingEnabled x)
+        <&> \y -> x { _blsLoggingEnabled = y }
 {-# INLINE blsLoggingEnabled #-}
 
 instance ToXML BucketLoggingStatus where
@@ -982,15 +977,10 @@ newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-corscCORSRules
-    :: Functor f
-    => ([CORSRule]
-    -> f ([CORSRule]))
-    -> CORSConfiguration
-    -> f CORSConfiguration
+corscCORSRules :: Lens' CORSConfiguration ([CORSRule])
 corscCORSRules f x =
-    (\y -> x { _corscCORSRules = y })
-       <$> f (_corscCORSRules x)
+    f (_corscCORSRules x)
+        <&> \y -> x { _corscCORSRules = y }
 {-# INLINE corscCORSRules #-}
 
 instance ToXML CORSConfiguration where
@@ -1001,15 +991,10 @@ newtype CommonPrefix = CommonPrefix
     { _ccxPrefix :: Maybe Text
     } deriving (Show, Generic)
 
-ccxPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CommonPrefix
-    -> f CommonPrefix
+ccxPrefix :: Lens' CommonPrefix (Maybe Text)
 ccxPrefix f x =
-    (\y -> x { _ccxPrefix = y })
-       <$> f (_ccxPrefix x)
+    f (_ccxPrefix x)
+        <&> \y -> x { _ccxPrefix = y }
 {-# INLINE ccxPrefix #-}
 
 instance FromXML CommonPrefix where
@@ -1020,15 +1005,10 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
     } deriving (Show, Generic)
 
-cmuParts
-    :: Functor f
-    => ([CompletedPart]
-    -> f ([CompletedPart]))
-    -> CompletedMultipartUpload
-    -> f CompletedMultipartUpload
+cmuParts :: Lens' CompletedMultipartUpload ([CompletedPart])
 cmuParts f x =
-    (\y -> x { _cmuParts = y })
-       <$> f (_cmuParts x)
+    f (_cmuParts x)
+        <&> \y -> x { _cmuParts = y }
 {-# INLINE cmuParts #-}
 
 instance ToXML CompletedMultipartUpload where
@@ -1041,15 +1021,10 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration
     } deriving (Show, Generic)
 
 -- | Specifies the region where the bucket will be created.
-cbcLocationConstraint
-    :: Functor f
-    => (Maybe BucketLocationConstraint
-    -> f (Maybe BucketLocationConstraint))
-    -> CreateBucketConfiguration
-    -> f CreateBucketConfiguration
+cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe BucketLocationConstraint)
 cbcLocationConstraint f x =
-    (\y -> x { _cbcLocationConstraint = y })
-       <$> f (_cbcLocationConstraint x)
+    f (_cbcLocationConstraint x)
+        <&> \y -> x { _cbcLocationConstraint = y }
 {-# INLINE cbcLocationConstraint #-}
 
 instance ToXML CreateBucketConfiguration where
@@ -1062,15 +1037,10 @@ newtype ErrorDocument = ErrorDocument
     } deriving (Show, Generic)
 
 -- | The object key name to use when a 4XX class error occurs.
-edKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> ErrorDocument
-    -> f ErrorDocument
+edKey :: Lens' ErrorDocument (ObjectKey)
 edKey f x =
-    (\y -> x { _edKey = y })
-       <$> f (_edKey x)
+    f (_edKey x)
+        <&> \y -> x { _edKey = y }
 {-# INLINE edKey #-}
 
 instance FromXML ErrorDocument where
@@ -1095,15 +1065,10 @@ newtype IndexDocument = IndexDocument
 -- to samplebucket/images/ the data that is returned will be for the object
 -- with the key name images/index.html) The suffix must not be empty and must
 -- not include a slash character.
-ihSuffix
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> IndexDocument
-    -> f IndexDocument
+ihSuffix :: Lens' IndexDocument (Text)
 ihSuffix f x =
-    (\y -> x { _ihSuffix = y })
-       <$> f (_ihSuffix x)
+    f (_ihSuffix x)
+        <&> \y -> x { _ihSuffix = y }
 {-# INLINE ihSuffix #-}
 
 instance FromXML IndexDocument where
@@ -1118,15 +1083,10 @@ newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
     } deriving (Show, Generic)
 
-lcRules
-    :: Functor f
-    => ([Rule]
-    -> f ([Rule]))
-    -> LifecycleConfiguration
-    -> f LifecycleConfiguration
+lcRules :: Lens' LifecycleConfiguration ([Rule])
 lcRules f x =
-    (\y -> x { _lcRules = y })
-       <$> f (_lcRules x)
+    f (_lcRules x)
+        <&> \y -> x { _lcRules = y }
 {-# INLINE lcRules #-}
 
 instance ToXML LifecycleConfiguration where
@@ -1151,15 +1111,10 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
 -- perform the associated action. For information about the noncurrent days
 -- calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
 -- in the Amazon Simple Storage Service Developer Guide.
-nveNoncurrentDays
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> NoncurrentVersionExpiration
-    -> f NoncurrentVersionExpiration
+nveNoncurrentDays :: Lens' NoncurrentVersionExpiration (Maybe Integer)
 nveNoncurrentDays f x =
-    (\y -> x { _nveNoncurrentDays = y })
-       <$> f (_nveNoncurrentDays x)
+    f (_nveNoncurrentDays x)
+        <&> \y -> x { _nveNoncurrentDays = y }
 {-# INLINE nveNoncurrentDays #-}
 
 instance FromXML NoncurrentVersionExpiration where
@@ -1174,15 +1129,10 @@ newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
     } deriving (Show, Generic)
 
-ncTopicConfiguration
-    :: Functor f
-    => (TopicConfiguration
-    -> f (TopicConfiguration))
-    -> NotificationConfiguration
-    -> f NotificationConfiguration
+ncTopicConfiguration :: Lens' NotificationConfiguration (TopicConfiguration)
 ncTopicConfiguration f x =
-    (\y -> x { _ncTopicConfiguration = y })
-       <$> f (_ncTopicConfiguration x)
+    f (_ncTopicConfiguration x)
+        <&> \y -> x { _ncTopicConfiguration = y }
 {-# INLINE ncTopicConfiguration #-}
 
 instance ToXML NotificationConfiguration where
@@ -1195,15 +1145,10 @@ newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     } deriving (Show, Generic)
 
 -- | Specifies who pays for the download and request fees.
-rpcPayer
-    :: Functor f
-    => (Payer
-    -> f (Payer))
-    -> RequestPaymentConfiguration
-    -> f RequestPaymentConfiguration
+rpcPayer :: Lens' RequestPaymentConfiguration (Payer)
 rpcPayer f x =
-    (\y -> x { _rpcPayer = y })
-       <$> f (_rpcPayer x)
+    f (_rpcPayer x)
+        <&> \y -> x { _rpcPayer = y }
 {-# INLINE rpcPayer #-}
 
 instance ToXML RequestPaymentConfiguration where
@@ -1216,15 +1161,10 @@ newtype RestoreRequest = RestoreRequest
     } deriving (Show, Generic)
 
 -- | Lifetime of the active copy in days.
-rzDays
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> RestoreRequest
-    -> f RestoreRequest
+rzDays :: Lens' RestoreRequest (Integer)
 rzDays f x =
-    (\y -> x { _rzDays = y })
-       <$> f (_rzDays x)
+    f (_rzDays x)
+        <&> \y -> x { _rzDays = y }
 {-# INLINE rzDays #-}
 
 instance ToXML RestoreRequest where
@@ -1235,15 +1175,10 @@ newtype Tagging = Tagging
     { _twTagSet :: [Tag]
     } deriving (Show, Generic)
 
-twTagSet
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> Tagging
-    -> f Tagging
+twTagSet :: Lens' Tagging ([Tag])
 twTagSet f x =
-    (\y -> x { _twTagSet = y })
-       <$> f (_twTagSet x)
+    f (_twTagSet x)
+        <&> \y -> x { _twTagSet = y }
 {-# INLINE twTagSet #-}
 
 instance ToXML Tagging where
@@ -1257,26 +1192,16 @@ data AccessControlPolicy = AccessControlPolicy
     } deriving (Show, Generic)
 
 -- | A list of grants.
-acpGrants
-    :: Functor f
-    => ([Grant]
-    -> f ([Grant]))
-    -> AccessControlPolicy
-    -> f AccessControlPolicy
+acpGrants :: Lens' AccessControlPolicy ([Grant])
 acpGrants f x =
-    (\y -> x { _acpGrants = y })
-       <$> f (_acpGrants x)
+    f (_acpGrants x)
+        <&> \y -> x { _acpGrants = y }
 {-# INLINE acpGrants #-}
 
-acpOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> AccessControlPolicy
-    -> f AccessControlPolicy
+acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner f x =
-    (\y -> x { _acpOwner = y })
-       <$> f (_acpOwner x)
+    f (_acpOwner x)
+        <&> \y -> x { _acpOwner = y }
 {-# INLINE acpOwner #-}
 
 instance ToXML AccessControlPolicy where
@@ -1291,27 +1216,17 @@ data Bucket = Bucket
     } deriving (Show, Generic)
 
 -- | The name of the bucket.
-bbxName
-    :: Functor f
-    => (Maybe BucketName
-    -> f (Maybe BucketName))
-    -> Bucket
-    -> f Bucket
+bbxName :: Lens' Bucket (Maybe BucketName)
 bbxName f x =
-    (\y -> x { _bbxName = y })
-       <$> f (_bbxName x)
+    f (_bbxName x)
+        <&> \y -> x { _bbxName = y }
 {-# INLINE bbxName #-}
 
 -- | Date the bucket was created.
-bbxCreationDate
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> Bucket
-    -> f Bucket
+bbxCreationDate :: Lens' Bucket (Maybe RFC822)
 bbxCreationDate f x =
-    (\y -> x { _bbxCreationDate = y })
-       <$> f (_bbxCreationDate x)
+    f (_bbxCreationDate x)
+        <&> \y -> x { _bbxCreationDate = y }
 {-# INLINE bbxCreationDate #-}
 
 instance FromXML Bucket where
@@ -1338,68 +1253,43 @@ data CORSRule = CORSRule
     } deriving (Show, Generic)
 
 -- | Specifies which headers are allowed in a pre-flight OPTIONS request.
-corssAllowedHeaders
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CORSRule
-    -> f CORSRule
+corssAllowedHeaders :: Lens' CORSRule ([Text])
 corssAllowedHeaders f x =
-    (\y -> x { _corssAllowedHeaders = y })
-       <$> f (_corssAllowedHeaders x)
+    f (_corssAllowedHeaders x)
+        <&> \y -> x { _corssAllowedHeaders = y }
 {-# INLINE corssAllowedHeaders #-}
 
 -- | Identifies HTTP methods that the domain/origin specified in the rule is
 -- allowed to execute.
-corssAllowedMethods
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CORSRule
-    -> f CORSRule
+corssAllowedMethods :: Lens' CORSRule ([Text])
 corssAllowedMethods f x =
-    (\y -> x { _corssAllowedMethods = y })
-       <$> f (_corssAllowedMethods x)
+    f (_corssAllowedMethods x)
+        <&> \y -> x { _corssAllowedMethods = y }
 {-# INLINE corssAllowedMethods #-}
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
-corssAllowedOrigins
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CORSRule
-    -> f CORSRule
+corssAllowedOrigins :: Lens' CORSRule ([Text])
 corssAllowedOrigins f x =
-    (\y -> x { _corssAllowedOrigins = y })
-       <$> f (_corssAllowedOrigins x)
+    f (_corssAllowedOrigins x)
+        <&> \y -> x { _corssAllowedOrigins = y }
 {-# INLINE corssAllowedOrigins #-}
 
 -- | One or more headers in the response that you want customers to be able to
 -- access from their applications (for example, from a JavaScript
 -- XMLHttpRequest object).
-corssExposeHeaders
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CORSRule
-    -> f CORSRule
+corssExposeHeaders :: Lens' CORSRule ([Text])
 corssExposeHeaders f x =
-    (\y -> x { _corssExposeHeaders = y })
-       <$> f (_corssExposeHeaders x)
+    f (_corssExposeHeaders x)
+        <&> \y -> x { _corssExposeHeaders = y }
 {-# INLINE corssExposeHeaders #-}
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
-corssMaxAgeSeconds
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CORSRule
-    -> f CORSRule
+corssMaxAgeSeconds :: Lens' CORSRule (Maybe Integer)
 corssMaxAgeSeconds f x =
-    (\y -> x { _corssMaxAgeSeconds = y })
-       <$> f (_corssMaxAgeSeconds x)
+    f (_corssMaxAgeSeconds x)
+        <&> \y -> x { _corssMaxAgeSeconds = y }
 {-# INLINE corssMaxAgeSeconds #-}
 
 instance FromXML CORSRule where
@@ -1418,27 +1308,17 @@ data CompletedPart = CompletedPart
     } deriving (Show, Generic)
 
 -- | Entity tag returned when the part was uploaded.
-cpETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> CompletedPart
-    -> f CompletedPart
+cpETag :: Lens' CompletedPart (Maybe ETag)
 cpETag f x =
-    (\y -> x { _cpETag = y })
-       <$> f (_cpETag x)
+    f (_cpETag x)
+        <&> \y -> x { _cpETag = y }
 {-# INLINE cpETag #-}
 
 -- | Part number that identifies the part.
-cpPartNumber
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> CompletedPart
-    -> f CompletedPart
+cpPartNumber :: Lens' CompletedPart (Maybe Integer)
 cpPartNumber f x =
-    (\y -> x { _cpPartNumber = y })
-       <$> f (_cpPartNumber x)
+    f (_cpPartNumber x)
+        <&> \y -> x { _cpPartNumber = y }
 {-# INLINE cpPartNumber #-}
 
 instance ToXML CompletedPart where
@@ -1474,15 +1354,10 @@ data Condition = Condition
 -- applied. Required when parent element Condition is specified and sibling
 -- KeyPrefixEquals is not specified. If both are specified, then both must be
 -- true for the redirect to be applied.
-cnHttpErrorCodeReturnedEquals
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Condition
-    -> f Condition
+cnHttpErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
 cnHttpErrorCodeReturnedEquals f x =
-    (\y -> x { _cnHttpErrorCodeReturnedEquals = y })
-       <$> f (_cnHttpErrorCodeReturnedEquals x)
+    f (_cnHttpErrorCodeReturnedEquals x)
+        <&> \y -> x { _cnHttpErrorCodeReturnedEquals = y }
 {-# INLINE cnHttpErrorCodeReturnedEquals #-}
 
 -- | The object key name prefix when the redirect is applied. For example, to
@@ -1492,15 +1367,10 @@ cnHttpErrorCodeReturnedEquals f x =
 -- folder. Required when the parent element Condition is specified and sibling
 -- HttpErrorCodeReturnedEquals is not specified. If both conditions are
 -- specified, both must be true for the redirect to be applied.
-cnKeyPrefixEquals
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Condition
-    -> f Condition
+cnKeyPrefixEquals :: Lens' Condition (Maybe Text)
 cnKeyPrefixEquals f x =
-    (\y -> x { _cnKeyPrefixEquals = y })
-       <$> f (_cnKeyPrefixEquals x)
+    f (_cnKeyPrefixEquals x)
+        <&> \y -> x { _cnKeyPrefixEquals = y }
 {-# INLINE cnKeyPrefixEquals #-}
 
 instance FromXML Condition where
@@ -1516,26 +1386,16 @@ data CopyObjectResult = CopyObjectResult
     , _cosLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
-cosETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> CopyObjectResult
-    -> f CopyObjectResult
+cosETag :: Lens' CopyObjectResult (Maybe ETag)
 cosETag f x =
-    (\y -> x { _cosETag = y })
-       <$> f (_cosETag x)
+    f (_cosETag x)
+        <&> \y -> x { _cosETag = y }
 {-# INLINE cosETag #-}
 
-cosLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CopyObjectResult
-    -> f CopyObjectResult
+cosLastModified :: Lens' CopyObjectResult (Maybe RFC822)
 cosLastModified f x =
-    (\y -> x { _cosLastModified = y })
-       <$> f (_cosLastModified x)
+    f (_cosLastModified x)
+        <&> \y -> x { _cosLastModified = y }
 {-# INLINE cosLastModified #-}
 
 instance FromXML CopyObjectResult where
@@ -1550,27 +1410,17 @@ data CopyPartResult = CopyPartResult
     } deriving (Show, Generic)
 
 -- | Entity tag of the object.
-cprETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> CopyPartResult
-    -> f CopyPartResult
+cprETag :: Lens' CopyPartResult (Maybe ETag)
 cprETag f x =
-    (\y -> x { _cprETag = y })
-       <$> f (_cprETag x)
+    f (_cprETag x)
+        <&> \y -> x { _cprETag = y }
 {-# INLINE cprETag #-}
 
 -- | Date and time at which the object was uploaded.
-cprLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CopyPartResult
-    -> f CopyPartResult
+cprLastModified :: Lens' CopyPartResult (Maybe RFC822)
 cprLastModified f x =
-    (\y -> x { _cprLastModified = y })
-       <$> f (_cprLastModified x)
+    f (_cprLastModified x)
+        <&> \y -> x { _cprLastModified = y }
 {-# INLINE cprLastModified #-}
 
 instance FromXML CopyPartResult where
@@ -1584,28 +1434,18 @@ data Delete = Delete
       -- element, you must set its value to true.
     } deriving (Show, Generic)
 
-kObjects
-    :: Functor f
-    => ([ObjectIdentifier]
-    -> f ([ObjectIdentifier]))
-    -> Delete
-    -> f Delete
+kObjects :: Lens' Delete ([ObjectIdentifier])
 kObjects f x =
-    (\y -> x { _kObjects = y })
-       <$> f (_kObjects x)
+    f (_kObjects x)
+        <&> \y -> x { _kObjects = y }
 {-# INLINE kObjects #-}
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
-kQuiet
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> Delete
-    -> f Delete
+kQuiet :: Lens' Delete (Maybe Bool)
 kQuiet f x =
-    (\y -> x { _kQuiet = y })
-       <$> f (_kQuiet x)
+    f (_kQuiet x)
+        <&> \y -> x { _kQuiet = y }
 {-# INLINE kQuiet #-}
 
 instance ToXML Delete where
@@ -1625,64 +1465,39 @@ data DeleteMarkerEntry = DeleteMarkerEntry
       -- ^ Date and time the object was last modified.
     } deriving (Show, Generic)
 
-dmeOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> DeleteMarkerEntry
-    -> f DeleteMarkerEntry
+dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner f x =
-    (\y -> x { _dmeOwner = y })
-       <$> f (_dmeOwner x)
+    f (_dmeOwner x)
+        <&> \y -> x { _dmeOwner = y }
 {-# INLINE dmeOwner #-}
 
 -- | The object key.
-dmeKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> DeleteMarkerEntry
-    -> f DeleteMarkerEntry
+dmeKey :: Lens' DeleteMarkerEntry (Maybe ObjectKey)
 dmeKey f x =
-    (\y -> x { _dmeKey = y })
-       <$> f (_dmeKey x)
+    f (_dmeKey x)
+        <&> \y -> x { _dmeKey = y }
 {-# INLINE dmeKey #-}
 
 -- | Version ID of an object.
-dmeVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> DeleteMarkerEntry
-    -> f DeleteMarkerEntry
+dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
 dmeVersionId f x =
-    (\y -> x { _dmeVersionId = y })
-       <$> f (_dmeVersionId x)
+    f (_dmeVersionId x)
+        <&> \y -> x { _dmeVersionId = y }
 {-# INLINE dmeVersionId #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
 -- of an object.
-dmeIsLatest
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteMarkerEntry
-    -> f DeleteMarkerEntry
+dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest f x =
-    (\y -> x { _dmeIsLatest = y })
-       <$> f (_dmeIsLatest x)
+    f (_dmeIsLatest x)
+        <&> \y -> x { _dmeIsLatest = y }
 {-# INLINE dmeIsLatest #-}
 
 -- | Date and time the object was last modified.
-dmeLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> DeleteMarkerEntry
-    -> f DeleteMarkerEntry
+dmeLastModified :: Lens' DeleteMarkerEntry (Maybe RFC822)
 dmeLastModified f x =
-    (\y -> x { _dmeLastModified = y })
-       <$> f (_dmeLastModified x)
+    f (_dmeLastModified x)
+        <&> \y -> x { _dmeLastModified = y }
 {-# INLINE dmeLastModified #-}
 
 instance FromXML DeleteMarkerEntry where
@@ -1696,48 +1511,28 @@ data DeletedObject = DeletedObject
     , _dpDeleteMarkerVersionId :: Maybe Text
     } deriving (Show, Generic)
 
-dpKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> DeletedObject
-    -> f DeletedObject
+dpKey :: Lens' DeletedObject (Maybe ObjectKey)
 dpKey f x =
-    (\y -> x { _dpKey = y })
-       <$> f (_dpKey x)
+    f (_dpKey x)
+        <&> \y -> x { _dpKey = y }
 {-# INLINE dpKey #-}
 
-dpVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> DeletedObject
-    -> f DeletedObject
+dpVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
 dpVersionId f x =
-    (\y -> x { _dpVersionId = y })
-       <$> f (_dpVersionId x)
+    f (_dpVersionId x)
+        <&> \y -> x { _dpVersionId = y }
 {-# INLINE dpVersionId #-}
 
-dpDeleteMarker
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeletedObject
-    -> f DeletedObject
+dpDeleteMarker :: Lens' DeletedObject (Maybe Bool)
 dpDeleteMarker f x =
-    (\y -> x { _dpDeleteMarker = y })
-       <$> f (_dpDeleteMarker x)
+    f (_dpDeleteMarker x)
+        <&> \y -> x { _dpDeleteMarker = y }
 {-# INLINE dpDeleteMarker #-}
 
-dpDeleteMarkerVersionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeletedObject
-    -> f DeletedObject
+dpDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
 dpDeleteMarkerVersionId f x =
-    (\y -> x { _dpDeleteMarkerVersionId = y })
-       <$> f (_dpDeleteMarkerVersionId x)
+    f (_dpDeleteMarkerVersionId x)
+        <&> \y -> x { _dpDeleteMarkerVersionId = y }
 {-# INLINE dpDeleteMarkerVersionId #-}
 
 instance FromXML DeletedObject where
@@ -1751,48 +1546,28 @@ data Error = Error
     , _oMessage :: Maybe Text
     } deriving (Show, Generic)
 
-oKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> Error
-    -> f Error
+oKey :: Lens' Error (Maybe ObjectKey)
 oKey f x =
-    (\y -> x { _oKey = y })
-       <$> f (_oKey x)
+    f (_oKey x)
+        <&> \y -> x { _oKey = y }
 {-# INLINE oKey #-}
 
-oVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> Error
-    -> f Error
+oVersionId :: Lens' Error (Maybe ObjectVersionId)
 oVersionId f x =
-    (\y -> x { _oVersionId = y })
-       <$> f (_oVersionId x)
+    f (_oVersionId x)
+        <&> \y -> x { _oVersionId = y }
 {-# INLINE oVersionId #-}
 
-oCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Error
-    -> f Error
+oCode :: Lens' Error (Maybe Text)
 oCode f x =
-    (\y -> x { _oCode = y })
-       <$> f (_oCode x)
+    f (_oCode x)
+        <&> \y -> x { _oCode = y }
 {-# INLINE oCode #-}
 
-oMessage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Error
-    -> f Error
+oMessage :: Lens' Error (Maybe Text)
 oMessage f x =
-    (\y -> x { _oMessage = y })
-       <$> f (_oMessage x)
+    f (_oMessage x)
+        <&> \y -> x { _oMessage = y }
 {-# INLINE oMessage #-}
 
 instance FromXML Error where
@@ -1805,27 +1580,17 @@ data Grant = Grant
       -- ^ Specifies the permission given to the grantee.
     } deriving (Show, Generic)
 
-guGrantee
-    :: Functor f
-    => (Maybe Grantee
-    -> f (Maybe Grantee))
-    -> Grant
-    -> f Grant
+guGrantee :: Lens' Grant (Maybe Grantee)
 guGrantee f x =
-    (\y -> x { _guGrantee = y })
-       <$> f (_guGrantee x)
+    f (_guGrantee x)
+        <&> \y -> x { _guGrantee = y }
 {-# INLINE guGrantee #-}
 
 -- | Specifies the permission given to the grantee.
-guPermission
-    :: Functor f
-    => (Maybe Permission
-    -> f (Maybe Permission))
-    -> Grant
-    -> f Grant
+guPermission :: Lens' Grant (Maybe Permission)
 guPermission f x =
-    (\y -> x { _guPermission = y })
-       <$> f (_guPermission x)
+    f (_guPermission x)
+        <&> \y -> x { _guPermission = y }
 {-# INLINE guPermission #-}
 
 instance FromXML Grant where
@@ -1850,63 +1615,38 @@ data Grantee = Grantee
     } deriving (Show, Generic)
 
 -- | Screen name of the grantee.
-geDisplayName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Grantee
-    -> f Grantee
+geDisplayName :: Lens' Grantee (Maybe Text)
 geDisplayName f x =
-    (\y -> x { _geDisplayName = y })
-       <$> f (_geDisplayName x)
+    f (_geDisplayName x)
+        <&> \y -> x { _geDisplayName = y }
 {-# INLINE geDisplayName #-}
 
 -- | Email address of the grantee.
-geEmailAddress
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Grantee
-    -> f Grantee
+geEmailAddress :: Lens' Grantee (Maybe Text)
 geEmailAddress f x =
-    (\y -> x { _geEmailAddress = y })
-       <$> f (_geEmailAddress x)
+    f (_geEmailAddress x)
+        <&> \y -> x { _geEmailAddress = y }
 {-# INLINE geEmailAddress #-}
 
 -- | The canonical user ID of the grantee.
-geID
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Grantee
-    -> f Grantee
+geID :: Lens' Grantee (Maybe Text)
 geID f x =
-    (\y -> x { _geID = y })
-       <$> f (_geID x)
+    f (_geID x)
+        <&> \y -> x { _geID = y }
 {-# INLINE geID #-}
 
 -- | Type of grantee.
-geType
-    :: Functor f
-    => (Type
-    -> f (Type))
-    -> Grantee
-    -> f Grantee
+geType :: Lens' Grantee (Type)
 geType f x =
-    (\y -> x { _geType = y })
-       <$> f (_geType x)
+    f (_geType x)
+        <&> \y -> x { _geType = y }
 {-# INLINE geType #-}
 
 -- | URI of the grantee group.
-geURI
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Grantee
-    -> f Grantee
+geURI :: Lens' Grantee (Maybe Text)
 geURI f x =
-    (\y -> x { _geURI = y })
-       <$> f (_geURI x)
+    f (_geURI x)
+        <&> \y -> x { _geURI = y }
 {-# INLINE geURI #-}
 
 instance FromXML Grantee where
@@ -1929,27 +1669,17 @@ data Initiator = Initiator
 
 -- | If the principal is an AWS account, it provides the Canonical User ID. If
 -- the principal is an IAM User, it provides a user ARN value.
-irID
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Initiator
-    -> f Initiator
+irID :: Lens' Initiator (Maybe Text)
 irID f x =
-    (\y -> x { _irID = y })
-       <$> f (_irID x)
+    f (_irID x)
+        <&> \y -> x { _irID = y }
 {-# INLINE irID #-}
 
 -- | Name of the Principal.
-irDisplayName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Initiator
-    -> f Initiator
+irDisplayName :: Lens' Initiator (Maybe Text)
 irDisplayName f x =
-    (\y -> x { _irDisplayName = y })
-       <$> f (_irDisplayName x)
+    f (_irDisplayName x)
+        <&> \y -> x { _irDisplayName = y }
 {-# INLINE irDisplayName #-}
 
 instance FromXML Initiator where
@@ -1971,28 +1701,18 @@ data LifecycleExpiration = LifecycleExpiration
 
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
-leDate
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> LifecycleExpiration
-    -> f LifecycleExpiration
+leDate :: Lens' LifecycleExpiration (Maybe RFC822)
 leDate f x =
-    (\y -> x { _leDate = y })
-       <$> f (_leDate x)
+    f (_leDate x)
+        <&> \y -> x { _leDate = y }
 {-# INLINE leDate #-}
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
-leDays
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> LifecycleExpiration
-    -> f LifecycleExpiration
+leDays :: Lens' LifecycleExpiration (Maybe Integer)
 leDays f x =
-    (\y -> x { _leDays = y })
-       <$> f (_leDays x)
+    f (_leDays x)
+        <&> \y -> x { _leDays = y }
 {-# INLINE leDays #-}
 
 instance FromXML LifecycleExpiration where
@@ -2024,39 +1744,24 @@ data LoggingEnabled = LoggingEnabled
 -- to deliver their logs to the same target bucket. In this case you should
 -- choose a different TargetPrefix for each source bucket so that the
 -- delivered log files can be distinguished by key.
-lfTargetBucket
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoggingEnabled
-    -> f LoggingEnabled
+lfTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 lfTargetBucket f x =
-    (\y -> x { _lfTargetBucket = y })
-       <$> f (_lfTargetBucket x)
+    f (_lfTargetBucket x)
+        <&> \y -> x { _lfTargetBucket = y }
 {-# INLINE lfTargetBucket #-}
 
-lfTargetGrants
-    :: Functor f
-    => ([TargetGrant]
-    -> f ([TargetGrant]))
-    -> LoggingEnabled
-    -> f LoggingEnabled
+lfTargetGrants :: Lens' LoggingEnabled ([TargetGrant])
 lfTargetGrants f x =
-    (\y -> x { _lfTargetGrants = y })
-       <$> f (_lfTargetGrants x)
+    f (_lfTargetGrants x)
+        <&> \y -> x { _lfTargetGrants = y }
 {-# INLINE lfTargetGrants #-}
 
 -- | This element lets you specify a prefix for the keys that the log files will
 -- be stored under.
-lfTargetPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> LoggingEnabled
-    -> f LoggingEnabled
+lfTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
 lfTargetPrefix f x =
-    (\y -> x { _lfTargetPrefix = y })
-       <$> f (_lfTargetPrefix x)
+    f (_lfTargetPrefix x)
+        <&> \y -> x { _lfTargetPrefix = y }
 {-# INLINE lfTargetPrefix #-}
 
 instance FromXML LoggingEnabled where
@@ -2082,74 +1787,44 @@ data MultipartUpload = MultipartUpload
     } deriving (Show, Generic)
 
 -- | Upload ID that identifies the multipart upload.
-mwUploadId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> MultipartUpload
-    -> f MultipartUpload
+mwUploadId :: Lens' MultipartUpload (Maybe Text)
 mwUploadId f x =
-    (\y -> x { _mwUploadId = y })
-       <$> f (_mwUploadId x)
+    f (_mwUploadId x)
+        <&> \y -> x { _mwUploadId = y }
 {-# INLINE mwUploadId #-}
 
 -- | Key of the object for which the multipart upload was initiated.
-mwKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> MultipartUpload
-    -> f MultipartUpload
+mwKey :: Lens' MultipartUpload (Maybe ObjectKey)
 mwKey f x =
-    (\y -> x { _mwKey = y })
-       <$> f (_mwKey x)
+    f (_mwKey x)
+        <&> \y -> x { _mwKey = y }
 {-# INLINE mwKey #-}
 
 -- | Date and time at which the multipart upload was initiated.
-mwInitiated
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> MultipartUpload
-    -> f MultipartUpload
+mwInitiated :: Lens' MultipartUpload (Maybe RFC822)
 mwInitiated f x =
-    (\y -> x { _mwInitiated = y })
-       <$> f (_mwInitiated x)
+    f (_mwInitiated x)
+        <&> \y -> x { _mwInitiated = y }
 {-# INLINE mwInitiated #-}
 
 -- | The class of storage used to store the object.
-mwStorageClass
-    :: Functor f
-    => (Maybe StorageClass
-    -> f (Maybe StorageClass))
-    -> MultipartUpload
-    -> f MultipartUpload
+mwStorageClass :: Lens' MultipartUpload (Maybe StorageClass)
 mwStorageClass f x =
-    (\y -> x { _mwStorageClass = y })
-       <$> f (_mwStorageClass x)
+    f (_mwStorageClass x)
+        <&> \y -> x { _mwStorageClass = y }
 {-# INLINE mwStorageClass #-}
 
-mwOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> MultipartUpload
-    -> f MultipartUpload
+mwOwner :: Lens' MultipartUpload (Maybe Owner)
 mwOwner f x =
-    (\y -> x { _mwOwner = y })
-       <$> f (_mwOwner x)
+    f (_mwOwner x)
+        <&> \y -> x { _mwOwner = y }
 {-# INLINE mwOwner #-}
 
 -- | Identifies who initiated the multipart upload.
-mwInitiator
-    :: Functor f
-    => (Maybe Initiator
-    -> f (Maybe Initiator))
-    -> MultipartUpload
-    -> f MultipartUpload
+mwInitiator :: Lens' MultipartUpload (Maybe Initiator)
 mwInitiator f x =
-    (\y -> x { _mwInitiator = y })
-       <$> f (_mwInitiator x)
+    f (_mwInitiator x)
+        <&> \y -> x { _mwInitiator = y }
 {-# INLINE mwInitiator #-}
 
 instance FromXML MultipartUpload where
@@ -2176,27 +1851,17 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition
 -- perform the associated action. For information about the noncurrent days
 -- calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
 -- in the Amazon Simple Storage Service Developer Guide.
-nvtNoncurrentDays
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> NoncurrentVersionTransition
-    -> f NoncurrentVersionTransition
+nvtNoncurrentDays :: Lens' NoncurrentVersionTransition (Maybe Integer)
 nvtNoncurrentDays f x =
-    (\y -> x { _nvtNoncurrentDays = y })
-       <$> f (_nvtNoncurrentDays x)
+    f (_nvtNoncurrentDays x)
+        <&> \y -> x { _nvtNoncurrentDays = y }
 {-# INLINE nvtNoncurrentDays #-}
 
 -- | The class of storage used to store the object.
-nvtStorageClass
-    :: Functor f
-    => (Maybe TransitionStorageClass
-    -> f (Maybe TransitionStorageClass))
-    -> NoncurrentVersionTransition
-    -> f NoncurrentVersionTransition
+nvtStorageClass :: Lens' NoncurrentVersionTransition (Maybe TransitionStorageClass)
 nvtStorageClass f x =
-    (\y -> x { _nvtStorageClass = y })
-       <$> f (_nvtStorageClass x)
+    f (_nvtStorageClass x)
+        <&> \y -> x { _nvtStorageClass = y }
 {-# INLINE nvtStorageClass #-}
 
 instance FromXML NoncurrentVersionTransition where
@@ -2217,71 +1882,41 @@ data Object = Object
     , _oowOwner :: Owner
     } deriving (Show, Generic)
 
-oowKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> Object
-    -> f Object
+oowKey :: Lens' Object (ObjectKey)
 oowKey f x =
-    (\y -> x { _oowKey = y })
-       <$> f (_oowKey x)
+    f (_oowKey x)
+        <&> \y -> x { _oowKey = y }
 {-# INLINE oowKey #-}
 
-oowLastModified
-    :: Functor f
-    => (RFC822
-    -> f (RFC822))
-    -> Object
-    -> f Object
+oowLastModified :: Lens' Object (RFC822)
 oowLastModified f x =
-    (\y -> x { _oowLastModified = y })
-       <$> f (_oowLastModified x)
+    f (_oowLastModified x)
+        <&> \y -> x { _oowLastModified = y }
 {-# INLINE oowLastModified #-}
 
-oowETag
-    :: Functor f
-    => (ETag
-    -> f (ETag))
-    -> Object
-    -> f Object
+oowETag :: Lens' Object (ETag)
 oowETag f x =
-    (\y -> x { _oowETag = y })
-       <$> f (_oowETag x)
+    f (_oowETag x)
+        <&> \y -> x { _oowETag = y }
 {-# INLINE oowETag #-}
 
-oowSize
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> Object
-    -> f Object
+oowSize :: Lens' Object (Integer)
 oowSize f x =
-    (\y -> x { _oowSize = y })
-       <$> f (_oowSize x)
+    f (_oowSize x)
+        <&> \y -> x { _oowSize = y }
 {-# INLINE oowSize #-}
 
 -- | The class of storage used to store the object.
-oowStorageClass
-    :: Functor f
-    => (ObjectStorageClass
-    -> f (ObjectStorageClass))
-    -> Object
-    -> f Object
+oowStorageClass :: Lens' Object (ObjectStorageClass)
 oowStorageClass f x =
-    (\y -> x { _oowStorageClass = y })
-       <$> f (_oowStorageClass x)
+    f (_oowStorageClass x)
+        <&> \y -> x { _oowStorageClass = y }
 {-# INLINE oowStorageClass #-}
 
-oowOwner
-    :: Functor f
-    => (Owner
-    -> f (Owner))
-    -> Object
-    -> f Object
+oowOwner :: Lens' Object (Owner)
 oowOwner f x =
-    (\y -> x { _oowOwner = y })
-       <$> f (_oowOwner x)
+    f (_oowOwner x)
+        <&> \y -> x { _oowOwner = y }
 {-# INLINE oowOwner #-}
 
 instance FromXML Object where
@@ -2296,27 +1931,17 @@ data ObjectIdentifier = ObjectIdentifier
     } deriving (Show, Generic)
 
 -- | Key name of the object to delete.
-oiKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> ObjectIdentifier
-    -> f ObjectIdentifier
+oiKey :: Lens' ObjectIdentifier (ObjectKey)
 oiKey f x =
-    (\y -> x { _oiKey = y })
-       <$> f (_oiKey x)
+    f (_oiKey x)
+        <&> \y -> x { _oiKey = y }
 {-# INLINE oiKey #-}
 
 -- | VersionId for the specific version of the object to delete.
-oiVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> ObjectIdentifier
-    -> f ObjectIdentifier
+oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
 oiVersionId f x =
-    (\y -> x { _oiVersionId = y })
-       <$> f (_oiVersionId x)
+    f (_oiVersionId x)
+        <&> \y -> x { _oiVersionId = y }
 {-# INLINE oiVersionId #-}
 
 instance ToXML ObjectIdentifier where
@@ -2341,99 +1966,59 @@ data ObjectVersion = ObjectVersion
     , _oonOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-oonETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonETag :: Lens' ObjectVersion (Maybe ETag)
 oonETag f x =
-    (\y -> x { _oonETag = y })
-       <$> f (_oonETag x)
+    f (_oonETag x)
+        <&> \y -> x { _oonETag = y }
 {-# INLINE oonETag #-}
 
 -- | Size in bytes of the object.
-oonSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonSize :: Lens' ObjectVersion (Maybe Integer)
 oonSize f x =
-    (\y -> x { _oonSize = y })
-       <$> f (_oonSize x)
+    f (_oonSize x)
+        <&> \y -> x { _oonSize = y }
 {-# INLINE oonSize #-}
 
 -- | The class of storage used to store the object.
-oonStorageClass
-    :: Functor f
-    => (Maybe ObjectVersionStorageClass
-    -> f (Maybe ObjectVersionStorageClass))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
 oonStorageClass f x =
-    (\y -> x { _oonStorageClass = y })
-       <$> f (_oonStorageClass x)
+    f (_oonStorageClass x)
+        <&> \y -> x { _oonStorageClass = y }
 {-# INLINE oonStorageClass #-}
 
 -- | The object key.
-oonKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonKey :: Lens' ObjectVersion (Maybe ObjectKey)
 oonKey f x =
-    (\y -> x { _oonKey = y })
-       <$> f (_oonKey x)
+    f (_oonKey x)
+        <&> \y -> x { _oonKey = y }
 {-# INLINE oonKey #-}
 
 -- | Version ID of an object.
-oonVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
 oonVersionId f x =
-    (\y -> x { _oonVersionId = y })
-       <$> f (_oonVersionId x)
+    f (_oonVersionId x)
+        <&> \y -> x { _oonVersionId = y }
 {-# INLINE oonVersionId #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
 -- of an object.
-oonIsLatest
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonIsLatest :: Lens' ObjectVersion (Maybe Bool)
 oonIsLatest f x =
-    (\y -> x { _oonIsLatest = y })
-       <$> f (_oonIsLatest x)
+    f (_oonIsLatest x)
+        <&> \y -> x { _oonIsLatest = y }
 {-# INLINE oonIsLatest #-}
 
 -- | Date and time the object was last modified.
-oonLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonLastModified :: Lens' ObjectVersion (Maybe RFC822)
 oonLastModified f x =
-    (\y -> x { _oonLastModified = y })
-       <$> f (_oonLastModified x)
+    f (_oonLastModified x)
+        <&> \y -> x { _oonLastModified = y }
 {-# INLINE oonLastModified #-}
 
-oonOwner
-    :: Functor f
-    => (Maybe Owner
-    -> f (Maybe Owner))
-    -> ObjectVersion
-    -> f ObjectVersion
+oonOwner :: Lens' ObjectVersion (Maybe Owner)
 oonOwner f x =
-    (\y -> x { _oonOwner = y })
-       <$> f (_oonOwner x)
+    f (_oonOwner x)
+        <&> \y -> x { _oonOwner = y }
 {-# INLINE oonOwner #-}
 
 instance FromXML ObjectVersion where
@@ -2445,26 +2030,16 @@ data Owner = Owner
     , _sID :: Maybe Text
     } deriving (Show, Generic)
 
-sDisplayName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Owner
-    -> f Owner
+sDisplayName :: Lens' Owner (Maybe Text)
 sDisplayName f x =
-    (\y -> x { _sDisplayName = y })
-       <$> f (_sDisplayName x)
+    f (_sDisplayName x)
+        <&> \y -> x { _sDisplayName = y }
 {-# INLINE sDisplayName #-}
 
-sID
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Owner
-    -> f Owner
+sID :: Lens' Owner (Maybe Text)
 sID f x =
-    (\y -> x { _sID = y })
-       <$> f (_sID x)
+    f (_sID x)
+        <&> \y -> x { _sID = y }
 {-# INLINE sID #-}
 
 instance FromXML Owner where
@@ -2487,51 +2062,31 @@ data Part = Part
     } deriving (Show, Generic)
 
 -- | Part number identifying the part.
-ptPartNumber
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Part
-    -> f Part
+ptPartNumber :: Lens' Part (Maybe Integer)
 ptPartNumber f x =
-    (\y -> x { _ptPartNumber = y })
-       <$> f (_ptPartNumber x)
+    f (_ptPartNumber x)
+        <&> \y -> x { _ptPartNumber = y }
 {-# INLINE ptPartNumber #-}
 
 -- | Date and time at which the part was uploaded.
-ptLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> Part
-    -> f Part
+ptLastModified :: Lens' Part (Maybe RFC822)
 ptLastModified f x =
-    (\y -> x { _ptLastModified = y })
-       <$> f (_ptLastModified x)
+    f (_ptLastModified x)
+        <&> \y -> x { _ptLastModified = y }
 {-# INLINE ptLastModified #-}
 
 -- | Entity tag returned when the part was uploaded.
-ptETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> Part
-    -> f Part
+ptETag :: Lens' Part (Maybe ETag)
 ptETag f x =
-    (\y -> x { _ptETag = y })
-       <$> f (_ptETag x)
+    f (_ptETag x)
+        <&> \y -> x { _ptETag = y }
 {-# INLINE ptETag #-}
 
 -- | Size of the uploaded part data.
-ptSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Part
-    -> f Part
+ptSize :: Lens' Part (Maybe Integer)
 ptSize f x =
-    (\y -> x { _ptSize = y })
-       <$> f (_ptSize x)
+    f (_ptSize x)
+        <&> \y -> x { _ptSize = y }
 {-# INLINE ptSize #-}
 
 instance FromXML Part where
@@ -2566,41 +2121,26 @@ data Redirect = Redirect
     } deriving (Show, Generic)
 
 -- | The host name to use in the redirect request.
-ruHostName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Redirect
-    -> f Redirect
+ruHostName :: Lens' Redirect (Maybe Text)
 ruHostName f x =
-    (\y -> x { _ruHostName = y })
-       <$> f (_ruHostName x)
+    f (_ruHostName x)
+        <&> \y -> x { _ruHostName = y }
 {-# INLINE ruHostName #-}
 
 -- | The HTTP redirect code to use on the response. Not required if one of the
 -- siblings is present.
-ruHttpRedirectCode
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Redirect
-    -> f Redirect
+ruHttpRedirectCode :: Lens' Redirect (Maybe Text)
 ruHttpRedirectCode f x =
-    (\y -> x { _ruHttpRedirectCode = y })
-       <$> f (_ruHttpRedirectCode x)
+    f (_ruHttpRedirectCode x)
+        <&> \y -> x { _ruHttpRedirectCode = y }
 {-# INLINE ruHttpRedirectCode #-}
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
-ruProtocol
-    :: Functor f
-    => (Maybe Protocol
-    -> f (Maybe Protocol))
-    -> Redirect
-    -> f Redirect
+ruProtocol :: Lens' Redirect (Maybe Protocol)
 ruProtocol f x =
-    (\y -> x { _ruProtocol = y })
-       <$> f (_ruProtocol x)
+    f (_ruProtocol x)
+        <&> \y -> x { _ruProtocol = y }
 {-# INLINE ruProtocol #-}
 
 -- | The object key prefix to use in the redirect request. For example, to
@@ -2609,29 +2149,19 @@ ruProtocol f x =
 -- set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents.
 -- Not required if one of the siblings is present. Can be present only if
 -- ReplaceKeyWith is not provided.
-ruReplaceKeyPrefixWith
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Redirect
-    -> f Redirect
+ruReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
 ruReplaceKeyPrefixWith f x =
-    (\y -> x { _ruReplaceKeyPrefixWith = y })
-       <$> f (_ruReplaceKeyPrefixWith x)
+    f (_ruReplaceKeyPrefixWith x)
+        <&> \y -> x { _ruReplaceKeyPrefixWith = y }
 {-# INLINE ruReplaceKeyPrefixWith #-}
 
 -- | The specific object key to use in the redirect request. For example,
 -- redirect request to error.html. Not required if one of the sibling is
 -- present. Can be present only if ReplaceKeyPrefixWith is not provided.
-ruReplaceKeyWith
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Redirect
-    -> f Redirect
+ruReplaceKeyWith :: Lens' Redirect (Maybe Text)
 ruReplaceKeyWith f x =
-    (\y -> x { _ruReplaceKeyWith = y })
-       <$> f (_ruReplaceKeyWith x)
+    f (_ruReplaceKeyWith x)
+        <&> \y -> x { _ruReplaceKeyWith = y }
 {-# INLINE ruReplaceKeyWith #-}
 
 instance FromXML Redirect where
@@ -2651,28 +2181,18 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
     } deriving (Show, Generic)
 
 -- | Name of the host where requests will be redirected.
-rartHostName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RedirectAllRequestsTo
-    -> f RedirectAllRequestsTo
+rartHostName :: Lens' RedirectAllRequestsTo (Text)
 rartHostName f x =
-    (\y -> x { _rartHostName = y })
-       <$> f (_rartHostName x)
+    f (_rartHostName x)
+        <&> \y -> x { _rartHostName = y }
 {-# INLINE rartHostName #-}
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
-rartProtocol
-    :: Functor f
-    => (Maybe Protocol
-    -> f (Maybe Protocol))
-    -> RedirectAllRequestsTo
-    -> f RedirectAllRequestsTo
+rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
 rartProtocol f x =
-    (\y -> x { _rartProtocol = y })
-       <$> f (_rartProtocol x)
+    f (_rartProtocol x)
+        <&> \y -> x { _rartProtocol = y }
 {-# INLINE rartProtocol #-}
 
 instance FromXML RedirectAllRequestsTo where
@@ -2702,29 +2222,19 @@ data RoutingRule = RoutingRule
 -- folder, redirect to the /documents folder. 2. If request results in HTTP
 -- error 4xx, redirect request to another host where you might process the
 -- error.
-rtCondition
-    :: Functor f
-    => (Maybe Condition
-    -> f (Maybe Condition))
-    -> RoutingRule
-    -> f RoutingRule
+rtCondition :: Lens' RoutingRule (Maybe Condition)
 rtCondition f x =
-    (\y -> x { _rtCondition = y })
-       <$> f (_rtCondition x)
+    f (_rtCondition x)
+        <&> \y -> x { _rtCondition = y }
 {-# INLINE rtCondition #-}
 
 -- | Container for redirect information. You can redirect requests to another
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
-rtRedirect
-    :: Functor f
-    => (Redirect
-    -> f (Redirect))
-    -> RoutingRule
-    -> f RoutingRule
+rtRedirect :: Lens' RoutingRule (Redirect)
 rtRedirect f x =
-    (\y -> x { _rtRedirect = y })
-       <$> f (_rtRedirect x)
+    f (_rtRedirect x)
+        <&> \y -> x { _rtRedirect = y }
 {-# INLINE rtRedirect #-}
 
 instance FromXML RoutingRule where
@@ -2762,64 +2272,39 @@ data Rule = Rule
       -- object's lifetime.
     } deriving (Show, Generic)
 
-reExpiration
-    :: Functor f
-    => (Maybe LifecycleExpiration
-    -> f (Maybe LifecycleExpiration))
-    -> Rule
-    -> f Rule
+reExpiration :: Lens' Rule (Maybe LifecycleExpiration)
 reExpiration f x =
-    (\y -> x { _reExpiration = y })
-       <$> f (_reExpiration x)
+    f (_reExpiration x)
+        <&> \y -> x { _reExpiration = y }
 {-# INLINE reExpiration #-}
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
-reID
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Rule
-    -> f Rule
+reID :: Lens' Rule (Maybe Text)
 reID f x =
-    (\y -> x { _reID = y })
-       <$> f (_reID x)
+    f (_reID x)
+        <&> \y -> x { _reID = y }
 {-# INLINE reID #-}
 
 -- | Prefix identifying one or more objects to which the rule applies.
-rePrefix
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Rule
-    -> f Rule
+rePrefix :: Lens' Rule (Text)
 rePrefix f x =
-    (\y -> x { _rePrefix = y })
-       <$> f (_rePrefix x)
+    f (_rePrefix x)
+        <&> \y -> x { _rePrefix = y }
 {-# INLINE rePrefix #-}
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
 -- is not currently being applied.
-reStatus
-    :: Functor f
-    => (Switch ExpirationStatus
-    -> f (Switch ExpirationStatus))
-    -> Rule
-    -> f Rule
+reStatus :: Lens' Rule (Switch ExpirationStatus)
 reStatus f x =
-    (\y -> x { _reStatus = y })
-       <$> f (_reStatus x)
+    f (_reStatus x)
+        <&> \y -> x { _reStatus = y }
 {-# INLINE reStatus #-}
 
-reTransition
-    :: Functor f
-    => (Maybe Transition
-    -> f (Maybe Transition))
-    -> Rule
-    -> f Rule
+reTransition :: Lens' Rule (Maybe Transition)
 reTransition f x =
-    (\y -> x { _reTransition = y })
-       <$> f (_reTransition x)
+    f (_reTransition x)
+        <&> \y -> x { _reTransition = y }
 {-# INLINE reTransition #-}
 
 -- | Container for the transition rule that describes when noncurrent objects
@@ -2827,15 +2312,10 @@ reTransition f x =
 -- versioning-enabled (or versioning is suspended), you can set this action to
 -- request that Amazon S3 transition noncurrent object versions to the GLACIER
 -- storage class at a specific period in the object's lifetime.
-reNoncurrentVersionTransition
-    :: Functor f
-    => (Maybe NoncurrentVersionTransition
-    -> f (Maybe NoncurrentVersionTransition))
-    -> Rule
-    -> f Rule
+reNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
 reNoncurrentVersionTransition f x =
-    (\y -> x { _reNoncurrentVersionTransition = y })
-       <$> f (_reNoncurrentVersionTransition x)
+    f (_reNoncurrentVersionTransition x)
+        <&> \y -> x { _reNoncurrentVersionTransition = y }
 {-# INLINE reNoncurrentVersionTransition #-}
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon
@@ -2843,15 +2323,10 @@ reNoncurrentVersionTransition f x =
 -- lifecycle configuration action on a bucket that has versioning enabled (or
 -- suspended) to request that Amazon S3 delete noncurrent object versions at a
 -- specific period in the object's lifetime.
-reNoncurrentVersionExpiration
-    :: Functor f
-    => (Maybe NoncurrentVersionExpiration
-    -> f (Maybe NoncurrentVersionExpiration))
-    -> Rule
-    -> f Rule
+reNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
 reNoncurrentVersionExpiration f x =
-    (\y -> x { _reNoncurrentVersionExpiration = y })
-       <$> f (_reNoncurrentVersionExpiration x)
+    f (_reNoncurrentVersionExpiration x)
+        <&> \y -> x { _reNoncurrentVersionExpiration = y }
 {-# INLINE reNoncurrentVersionExpiration #-}
 
 instance FromXML Rule where
@@ -2870,27 +2345,17 @@ data Tag = Tag
     } deriving (Show, Generic)
 
 -- | Name of the tag.
-tiKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> Tag
-    -> f Tag
+tiKey :: Lens' Tag (ObjectKey)
 tiKey f x =
-    (\y -> x { _tiKey = y })
-       <$> f (_tiKey x)
+    f (_tiKey x)
+        <&> \y -> x { _tiKey = y }
 {-# INLINE tiKey #-}
 
 -- | Value of the tag.
-tiValue
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Tag
-    -> f Tag
+tiValue :: Lens' Tag (Text)
 tiValue f x =
-    (\y -> x { _tiValue = y })
-       <$> f (_tiValue x)
+    f (_tiValue x)
+        <&> \y -> x { _tiValue = y }
 {-# INLINE tiValue #-}
 
 instance FromXML Tag where
@@ -2907,27 +2372,17 @@ data TargetGrant = TargetGrant
       -- ^ Logging permissions assigned to the Grantee for the bucket.
     } deriving (Show, Generic)
 
-thGrantee
-    :: Functor f
-    => (Maybe Grantee
-    -> f (Maybe Grantee))
-    -> TargetGrant
-    -> f TargetGrant
+thGrantee :: Lens' TargetGrant (Maybe Grantee)
 thGrantee f x =
-    (\y -> x { _thGrantee = y })
-       <$> f (_thGrantee x)
+    f (_thGrantee x)
+        <&> \y -> x { _thGrantee = y }
 {-# INLINE thGrantee #-}
 
 -- | Logging permissions assigned to the Grantee for the bucket.
-thPermission
-    :: Functor f
-    => (Maybe BucketLogsPermission
-    -> f (Maybe BucketLogsPermission))
-    -> TargetGrant
-    -> f TargetGrant
+thPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
 thPermission f x =
-    (\y -> x { _thPermission = y })
-       <$> f (_thPermission x)
+    f (_thPermission x)
+        <&> \y -> x { _thPermission = y }
 {-# INLINE thPermission #-}
 
 instance FromXML TargetGrant where
@@ -2947,28 +2402,18 @@ data TopicConfiguration = TopicConfiguration
     } deriving (Show, Generic)
 
 -- | Bucket event for which to send notifications.
-tcEvent
-    :: Functor f
-    => (Maybe Event
-    -> f (Maybe Event))
-    -> TopicConfiguration
-    -> f TopicConfiguration
+tcEvent :: Lens' TopicConfiguration (Maybe Event)
 tcEvent f x =
-    (\y -> x { _tcEvent = y })
-       <$> f (_tcEvent x)
+    f (_tcEvent x)
+        <&> \y -> x { _tcEvent = y }
 {-# INLINE tcEvent #-}
 
 -- | Amazon SNS topic to which Amazon S3 will publish a message to report the
 -- specified events for the bucket.
-tcTopic
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> TopicConfiguration
-    -> f TopicConfiguration
+tcTopic :: Lens' TopicConfiguration (Maybe Text)
 tcTopic f x =
-    (\y -> x { _tcTopic = y })
-       <$> f (_tcTopic x)
+    f (_tcTopic x)
+        <&> \y -> x { _tcTopic = y }
 {-# INLINE tcTopic #-}
 
 instance FromXML TopicConfiguration where
@@ -2992,40 +2437,25 @@ data Transition = Transition
 
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
-tnDate
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> Transition
-    -> f Transition
+tnDate :: Lens' Transition (Maybe RFC822)
 tnDate f x =
-    (\y -> x { _tnDate = y })
-       <$> f (_tnDate x)
+    f (_tnDate x)
+        <&> \y -> x { _tnDate = y }
 {-# INLINE tnDate #-}
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
-tnDays
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> Transition
-    -> f Transition
+tnDays :: Lens' Transition (Maybe Integer)
 tnDays f x =
-    (\y -> x { _tnDays = y })
-       <$> f (_tnDays x)
+    f (_tnDays x)
+        <&> \y -> x { _tnDays = y }
 {-# INLINE tnDays #-}
 
 -- | The class of storage used to store the object.
-tnStorageClass
-    :: Functor f
-    => (Maybe TransitionStorageClass
-    -> f (Maybe TransitionStorageClass))
-    -> Transition
-    -> f Transition
+tnStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
 tnStorageClass f x =
-    (\y -> x { _tnStorageClass = y })
-       <$> f (_tnStorageClass x)
+    f (_tnStorageClass x)
+        <&> \y -> x { _tnStorageClass = y }
 {-# INLINE tnStorageClass #-}
 
 instance FromXML Transition where
@@ -3047,30 +2477,20 @@ data VersioningConfiguration = VersioningConfiguration
     } deriving (Show, Generic)
 
 -- | The versioning state of the bucket.
-vcStatus
-    :: Functor f
-    => (Maybe (Switch BucketVersioningStatus)
-    -> f (Maybe (Switch BucketVersioningStatus)))
-    -> VersioningConfiguration
-    -> f VersioningConfiguration
+vcStatus :: Lens' VersioningConfiguration (Maybe (Switch BucketVersioningStatus))
 vcStatus f x =
-    (\y -> x { _vcStatus = y })
-       <$> f (_vcStatus x)
+    f (_vcStatus x)
+        <&> \y -> x { _vcStatus = y }
 {-# INLINE vcStatus #-}
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-vcMfaDelete
-    :: Functor f
-    => (Maybe (Switch MFADelete)
-    -> f (Maybe (Switch MFADelete)))
-    -> VersioningConfiguration
-    -> f VersioningConfiguration
+vcMfaDelete :: Lens' VersioningConfiguration (Maybe (Switch MFADelete))
 vcMfaDelete f x =
-    (\y -> x { _vcMfaDelete = y })
-       <$> f (_vcMfaDelete x)
+    f (_vcMfaDelete x)
+        <&> \y -> x { _vcMfaDelete = y }
 {-# INLINE vcMfaDelete #-}
 
 instance ToXML VersioningConfiguration where
@@ -3084,48 +2504,28 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
-wcErrorDocument
-    :: Functor f
-    => (Maybe ErrorDocument
-    -> f (Maybe ErrorDocument))
-    -> WebsiteConfiguration
-    -> f WebsiteConfiguration
+wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument f x =
-    (\y -> x { _wcErrorDocument = y })
-       <$> f (_wcErrorDocument x)
+    f (_wcErrorDocument x)
+        <&> \y -> x { _wcErrorDocument = y }
 {-# INLINE wcErrorDocument #-}
 
-wcIndexDocument
-    :: Functor f
-    => (Maybe IndexDocument
-    -> f (Maybe IndexDocument))
-    -> WebsiteConfiguration
-    -> f WebsiteConfiguration
+wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
 wcIndexDocument f x =
-    (\y -> x { _wcIndexDocument = y })
-       <$> f (_wcIndexDocument x)
+    f (_wcIndexDocument x)
+        <&> \y -> x { _wcIndexDocument = y }
 {-# INLINE wcIndexDocument #-}
 
-wcRedirectAllRequestsTo
-    :: Functor f
-    => (Maybe RedirectAllRequestsTo
-    -> f (Maybe RedirectAllRequestsTo))
-    -> WebsiteConfiguration
-    -> f WebsiteConfiguration
+wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
 wcRedirectAllRequestsTo f x =
-    (\y -> x { _wcRedirectAllRequestsTo = y })
-       <$> f (_wcRedirectAllRequestsTo x)
+    f (_wcRedirectAllRequestsTo x)
+        <&> \y -> x { _wcRedirectAllRequestsTo = y }
 {-# INLINE wcRedirectAllRequestsTo #-}
 
-wcRoutingRules
-    :: Functor f
-    => ([RoutingRule]
-    -> f ([RoutingRule]))
-    -> WebsiteConfiguration
-    -> f WebsiteConfiguration
+wcRoutingRules :: Lens' WebsiteConfiguration ([RoutingRule])
 wcRoutingRules f x =
-    (\y -> x { _wcRoutingRules = y })
-       <$> f (_wcRoutingRules x)
+    f (_wcRoutingRules x)
+        <&> \y -> x { _wcRoutingRules = y }
 {-# INLINE wcRoutingRules #-}
 
 instance ToXML WebsiteConfiguration where

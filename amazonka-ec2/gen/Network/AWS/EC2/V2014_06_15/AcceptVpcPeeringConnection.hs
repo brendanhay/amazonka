@@ -72,7 +72,8 @@ data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
 -- | The ID of the VPC peering connection.
 avpcrVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcrVpcPeeringConnectionId f x =
-    f (_avpcrVpcPeeringConnectionId x) <&> \y -> x { _avpcrVpcPeeringConnectionId = y }
+    f (_avpcrVpcPeeringConnectionId x)
+        <&> \y -> x { _avpcrVpcPeeringConnectionId = y }
 {-# INLINE avpcrVpcPeeringConnectionId #-}
 
 instance ToQuery AcceptVpcPeeringConnection where
@@ -86,7 +87,8 @@ data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
 -- | Information about the VPC peering connection.
 avpcsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 avpcsVpcPeeringConnection f x =
-    f (_avpcsVpcPeeringConnection x) <&> \y -> x { _avpcsVpcPeeringConnection = y }
+    f (_avpcsVpcPeeringConnection x)
+        <&> \y -> x { _avpcsVpcPeeringConnection = y }
 {-# INLINE avpcsVpcPeeringConnection #-}
 
 instance FromXML AcceptVpcPeeringConnectionResponse where

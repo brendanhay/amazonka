@@ -124,15 +124,17 @@ data DescribeSubnets = DescribeSubnets
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the subnet.
-dsxFilters :: Lens' DescribeSubnets [Filter]
+dsxFilters :: Lens' DescribeSubnets ([Filter])
 dsxFilters f x =
-    f (_dsxFilters x) <&> \y -> x { _dsxFilters = y }
+    f (_dsxFilters x)
+        <&> \y -> x { _dsxFilters = y }
 {-# INLINE dsxFilters #-}
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
-dsxSubnetIds :: Lens' DescribeSubnets [Text]
+dsxSubnetIds :: Lens' DescribeSubnets ([Text])
 dsxSubnetIds f x =
-    f (_dsxSubnetIds x) <&> \y -> x { _dsxSubnetIds = y }
+    f (_dsxSubnetIds x)
+        <&> \y -> x { _dsxSubnetIds = y }
 {-# INLINE dsxSubnetIds #-}
 
 instance ToQuery DescribeSubnets where
@@ -144,9 +146,10 @@ data DescribeSubnetsResponse = DescribeSubnetsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more subnets.
-dsySubnets :: Lens' DescribeSubnetsResponse [Subnet]
+dsySubnets :: Lens' DescribeSubnetsResponse ([Subnet])
 dsySubnets f x =
-    f (_dsySubnets x) <&> \y -> x { _dsySubnets = y }
+    f (_dsySubnets x)
+        <&> \y -> x { _dsySubnets = y }
 {-# INLINE dsySubnets #-}
 
 instance FromXML DescribeSubnetsResponse where

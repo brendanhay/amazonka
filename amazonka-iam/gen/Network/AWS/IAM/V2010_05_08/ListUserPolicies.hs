@@ -54,6 +54,7 @@ listUserPolicies p1 = ListUserPolicies
     , _luprMarker = Nothing
     , _luprMaxItems = Nothing
     }
+{-# INLINE listUserPolicies #-}
 
 data ListUserPolicies = ListUserPolicies
     { _luprUserName :: Text
@@ -72,44 +73,29 @@ data ListUserPolicies = ListUserPolicies
     } deriving (Show, Generic)
 
 -- | The name of the user to list policies for.
-luprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListUserPolicies
-    -> f ListUserPolicies
+luprUserName :: Lens' ListUserPolicies (Text)
 luprUserName f x =
-    (\y -> x { _luprUserName = y })
-       <$> f (_luprUserName x)
+    f (_luprUserName x)
+        <&> \y -> x { _luprUserName = y }
 {-# INLINE luprUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-luprMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListUserPolicies
-    -> f ListUserPolicies
+luprMarker :: Lens' ListUserPolicies (Maybe Text)
 luprMarker f x =
-    (\y -> x { _luprMarker = y })
-       <$> f (_luprMarker x)
+    f (_luprMarker x)
+        <&> \y -> x { _luprMarker = y }
 {-# INLINE luprMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- policy names you want in the response. If there are additional policy names
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-luprMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListUserPolicies
-    -> f ListUserPolicies
+luprMaxItems :: Lens' ListUserPolicies (Maybe Integer)
 luprMaxItems f x =
-    (\y -> x { _luprMaxItems = y })
-       <$> f (_luprMaxItems x)
+    f (_luprMaxItems x)
+        <&> \y -> x { _luprMaxItems = y }
 {-# INLINE luprMaxItems #-}
 
 instance ToQuery ListUserPolicies where
@@ -132,40 +118,25 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
 -- | A flag that indicates whether there are more policy names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more policy names in the list.
-lupsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListUserPoliciesResponse
-    -> f ListUserPoliciesResponse
+lupsIsTruncated :: Lens' ListUserPoliciesResponse (Bool)
 lupsIsTruncated f x =
-    (\y -> x { _lupsIsTruncated = y })
-       <$> f (_lupsIsTruncated x)
+    f (_lupsIsTruncated x)
+        <&> \y -> x { _lupsIsTruncated = y }
 {-# INLINE lupsIsTruncated #-}
 
 -- | A list of policy names.
-lupsPolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ListUserPoliciesResponse
-    -> f ListUserPoliciesResponse
+lupsPolicyNames :: Lens' ListUserPoliciesResponse ([Text])
 lupsPolicyNames f x =
-    (\y -> x { _lupsPolicyNames = y })
-       <$> f (_lupsPolicyNames x)
+    f (_lupsPolicyNames x)
+        <&> \y -> x { _lupsPolicyNames = y }
 {-# INLINE lupsPolicyNames #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lupsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListUserPoliciesResponse
-    -> f ListUserPoliciesResponse
+lupsMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
 lupsMarker f x =
-    (\y -> x { _lupsMarker = y })
-       <$> f (_lupsMarker x)
+    f (_lupsMarker x)
+        <&> \y -> x { _lupsMarker = y }
 {-# INLINE lupsMarker #-}
 
 instance FromXML ListUserPoliciesResponse where

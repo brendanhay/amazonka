@@ -55,6 +55,7 @@ describeScheduledActions = DescribeScheduledActions
     , _dsavEndTime = Nothing
     , _dsavNextToken = Nothing
     }
+{-# INLINE describeScheduledActions #-}
 
 data DescribeScheduledActions = DescribeScheduledActions
     { _dsavMaxRecords :: Maybe Integer
@@ -80,27 +81,17 @@ data DescribeScheduledActions = DescribeScheduledActions
     } deriving (Show, Generic)
 
 -- | The maximum number of scheduled actions to return.
-dsavMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeScheduledActions
-    -> f DescribeScheduledActions
+dsavMaxRecords :: Lens' DescribeScheduledActions (Maybe Integer)
 dsavMaxRecords f x =
-    (\y -> x { _dsavMaxRecords = y })
-       <$> f (_dsavMaxRecords x)
+    f (_dsavMaxRecords x)
+        <&> \y -> x { _dsavMaxRecords = y }
 {-# INLINE dsavMaxRecords #-}
 
 -- | The name of the Auto Scaling group.
-dsavAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeScheduledActions
-    -> f DescribeScheduledActions
+dsavAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
 dsavAutoScalingGroupName f x =
-    (\y -> x { _dsavAutoScalingGroupName = y })
-       <$> f (_dsavAutoScalingGroupName x)
+    f (_dsavAutoScalingGroupName x)
+        <&> \y -> x { _dsavAutoScalingGroupName = y }
 {-# INLINE dsavAutoScalingGroupName #-}
 
 -- | A list of scheduled actions to be described. If this list is omitted, all
@@ -108,53 +99,33 @@ dsavAutoScalingGroupName f x =
 -- cannot contain more than 50 items. If an auto scaling group name is
 -- provided, the results are limited to that group. If unknown scheduled
 -- actions are requested, they are ignored with no error.
-dsavScheduledActionNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeScheduledActions
-    -> f DescribeScheduledActions
+dsavScheduledActionNames :: Lens' DescribeScheduledActions ([Text])
 dsavScheduledActionNames f x =
-    (\y -> x { _dsavScheduledActionNames = y })
-       <$> f (_dsavScheduledActionNames x)
+    f (_dsavScheduledActionNames x)
+        <&> \y -> x { _dsavScheduledActionNames = y }
 {-# INLINE dsavScheduledActionNames #-}
 
 -- | The earliest scheduled start time to return. If scheduled action names are
 -- provided, this field will be ignored.
-dsavStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeScheduledActions
-    -> f DescribeScheduledActions
+dsavStartTime :: Lens' DescribeScheduledActions (Maybe ISO8601)
 dsavStartTime f x =
-    (\y -> x { _dsavStartTime = y })
-       <$> f (_dsavStartTime x)
+    f (_dsavStartTime x)
+        <&> \y -> x { _dsavStartTime = y }
 {-# INLINE dsavStartTime #-}
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this field is ignored.
-dsavEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> DescribeScheduledActions
-    -> f DescribeScheduledActions
+dsavEndTime :: Lens' DescribeScheduledActions (Maybe ISO8601)
 dsavEndTime f x =
-    (\y -> x { _dsavEndTime = y })
-       <$> f (_dsavEndTime x)
+    f (_dsavEndTime x)
+        <&> \y -> x { _dsavEndTime = y }
 {-# INLINE dsavEndTime #-}
 
 -- | A string that marks the start of the next batch of returned results.
-dsavNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeScheduledActions
-    -> f DescribeScheduledActions
+dsavNextToken :: Lens' DescribeScheduledActions (Maybe Text)
 dsavNextToken f x =
-    (\y -> x { _dsavNextToken = y })
-       <$> f (_dsavNextToken x)
+    f (_dsavNextToken x)
+        <&> \y -> x { _dsavNextToken = y }
 {-# INLINE dsavNextToken #-}
 
 instance ToQuery DescribeScheduledActions where
@@ -170,27 +141,17 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     } deriving (Show, Generic)
 
 -- | A list of scheduled actions designed to update an Auto Scaling group.
-satScheduledUpdateGroupActions
-    :: Functor f
-    => ([ScheduledUpdateGroupAction]
-    -> f ([ScheduledUpdateGroupAction]))
-    -> DescribeScheduledActionsResponse
-    -> f DescribeScheduledActionsResponse
+satScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse ([ScheduledUpdateGroupAction])
 satScheduledUpdateGroupActions f x =
-    (\y -> x { _satScheduledUpdateGroupActions = y })
-       <$> f (_satScheduledUpdateGroupActions x)
+    f (_satScheduledUpdateGroupActions x)
+        <&> \y -> x { _satScheduledUpdateGroupActions = y }
 {-# INLINE satScheduledUpdateGroupActions #-}
 
 -- | A string that marks the start of the next batch of returned results.
-satNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeScheduledActionsResponse
-    -> f DescribeScheduledActionsResponse
+satNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 satNextToken f x =
-    (\y -> x { _satNextToken = y })
-       <$> f (_satNextToken x)
+    f (_satNextToken x)
+        <&> \y -> x { _satNextToken = y }
 {-# INLINE satNextToken #-}
 
 instance FromXML DescribeScheduledActionsResponse where

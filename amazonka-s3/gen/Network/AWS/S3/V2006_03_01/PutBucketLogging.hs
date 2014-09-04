@@ -48,6 +48,7 @@ putBucketLogging p1 p2 = PutBucketLogging
     , _pblsBucket = p2
     , _pblsContentMD5 = Nothing
     }
+{-# INLINE putBucketLogging #-}
 
 data PutBucketLogging = PutBucketLogging
     { _pblsBucketLoggingStatus :: BucketLoggingStatus
@@ -55,37 +56,22 @@ data PutBucketLogging = PutBucketLogging
     , _pblsContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pblsBucketLoggingStatus
-    :: Functor f
-    => (BucketLoggingStatus
-    -> f (BucketLoggingStatus))
-    -> PutBucketLogging
-    -> f PutBucketLogging
+pblsBucketLoggingStatus :: Lens' PutBucketLogging (BucketLoggingStatus)
 pblsBucketLoggingStatus f x =
-    (\y -> x { _pblsBucketLoggingStatus = y })
-       <$> f (_pblsBucketLoggingStatus x)
+    f (_pblsBucketLoggingStatus x)
+        <&> \y -> x { _pblsBucketLoggingStatus = y }
 {-# INLINE pblsBucketLoggingStatus #-}
 
-pblsBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketLogging
-    -> f PutBucketLogging
+pblsBucket :: Lens' PutBucketLogging (BucketName)
 pblsBucket f x =
-    (\y -> x { _pblsBucket = y })
-       <$> f (_pblsBucket x)
+    f (_pblsBucket x)
+        <&> \y -> x { _pblsBucket = y }
 {-# INLINE pblsBucket #-}
 
-pblsContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketLogging
-    -> f PutBucketLogging
+pblsContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pblsContentMD5 f x =
-    (\y -> x { _pblsContentMD5 = y })
-       <$> f (_pblsContentMD5 x)
+    f (_pblsContentMD5 x)
+        <&> \y -> x { _pblsContentMD5 = y }
 {-# INLINE pblsContentMD5 #-}
 
 instance ToPath PutBucketLogging where

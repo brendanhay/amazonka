@@ -48,6 +48,7 @@ describeNotificationConfigurations = DescribeNotificationConfigurations
     , _dncuMaxRecords = Nothing
     , _dncuNextToken = Nothing
     }
+{-# INLINE describeNotificationConfigurations #-}
 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dncuAutoScalingGroupNames :: [Text]
@@ -60,40 +61,25 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group.
-dncuAutoScalingGroupNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeNotificationConfigurations
-    -> f DescribeNotificationConfigurations
+dncuAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations ([Text])
 dncuAutoScalingGroupNames f x =
-    (\y -> x { _dncuAutoScalingGroupNames = y })
-       <$> f (_dncuAutoScalingGroupNames x)
+    f (_dncuAutoScalingGroupNames x)
+        <&> \y -> x { _dncuAutoScalingGroupNames = y }
 {-# INLINE dncuAutoScalingGroupNames #-}
 
 -- | Maximum number of records to be returned.
-dncuMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeNotificationConfigurations
-    -> f DescribeNotificationConfigurations
+dncuMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Integer)
 dncuMaxRecords f x =
-    (\y -> x { _dncuMaxRecords = y })
-       <$> f (_dncuMaxRecords x)
+    f (_dncuMaxRecords x)
+        <&> \y -> x { _dncuMaxRecords = y }
 {-# INLINE dncuMaxRecords #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dncuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeNotificationConfigurations
-    -> f DescribeNotificationConfigurations
+dncuNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncuNextToken f x =
-    (\y -> x { _dncuNextToken = y })
-       <$> f (_dncuNextToken x)
+    f (_dncuNextToken x)
+        <&> \y -> x { _dncuNextToken = y }
 {-# INLINE dncuNextToken #-}
 
 instance ToQuery DescribeNotificationConfigurations where
@@ -108,28 +94,18 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
     } deriving (Show, Generic)
 
 -- | The list of notification configurations.
-dncaNotificationConfigurations
-    :: Functor f
-    => ([NotificationConfiguration]
-    -> f ([NotificationConfiguration]))
-    -> DescribeNotificationConfigurationsResponse
-    -> f DescribeNotificationConfigurationsResponse
+dncaNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse ([NotificationConfiguration])
 dncaNotificationConfigurations f x =
-    (\y -> x { _dncaNotificationConfigurations = y })
-       <$> f (_dncaNotificationConfigurations x)
+    f (_dncaNotificationConfigurations x)
+        <&> \y -> x { _dncaNotificationConfigurations = y }
 {-# INLINE dncaNotificationConfigurations #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dncaNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeNotificationConfigurationsResponse
-    -> f DescribeNotificationConfigurationsResponse
+dncaNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncaNextToken f x =
-    (\y -> x { _dncaNextToken = y })
-       <$> f (_dncaNextToken x)
+    f (_dncaNextToken x)
+        <&> \y -> x { _dncaNextToken = y }
 {-# INLINE dncaNextToken #-}
 
 instance FromXML DescribeNotificationConfigurationsResponse where

@@ -74,6 +74,7 @@ putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     , _psugatEndTime = Nothing
     , _psugatRecurrence = Nothing
     }
+{-# INLINE putScheduledUpdateGroupAction #-}
 
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     { _psugatAutoScalingGroupName :: Text
@@ -111,105 +112,65 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     } deriving (Show, Generic)
 
 -- | The name or ARN of the Auto Scaling group.
-psugatAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction (Text)
 psugatAutoScalingGroupName f x =
-    (\y -> x { _psugatAutoScalingGroupName = y })
-       <$> f (_psugatAutoScalingGroupName x)
+    f (_psugatAutoScalingGroupName x)
+        <&> \y -> x { _psugatAutoScalingGroupName = y }
 {-# INLINE psugatAutoScalingGroupName #-}
 
 -- | The name of this scaling action.
-psugatScheduledActionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatScheduledActionName :: Lens' PutScheduledUpdateGroupAction (Text)
 psugatScheduledActionName f x =
-    (\y -> x { _psugatScheduledActionName = y })
-       <$> f (_psugatScheduledActionName x)
+    f (_psugatScheduledActionName x)
+        <&> \y -> x { _psugatScheduledActionName = y }
 {-# INLINE psugatScheduledActionName #-}
 
 -- | The number of Amazon EC2 instances that should be running in the group.
-psugatDesiredCapacity
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
 psugatDesiredCapacity f x =
-    (\y -> x { _psugatDesiredCapacity = y })
-       <$> f (_psugatDesiredCapacity x)
+    f (_psugatDesiredCapacity x)
+        <&> \y -> x { _psugatDesiredCapacity = y }
 {-# INLINE psugatDesiredCapacity #-}
 
 -- | The maximum size for the Auto Scaling group.
-psugatMaxSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
 psugatMaxSize f x =
-    (\y -> x { _psugatMaxSize = y })
-       <$> f (_psugatMaxSize x)
+    f (_psugatMaxSize x)
+        <&> \y -> x { _psugatMaxSize = y }
 {-# INLINE psugatMaxSize #-}
 
 -- | The minimum size for the new Auto Scaling group.
-psugatMinSize
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
 psugatMinSize f x =
-    (\y -> x { _psugatMinSize = y })
-       <$> f (_psugatMinSize x)
+    f (_psugatMinSize x)
+        <&> \y -> x { _psugatMinSize = y }
 {-# INLINE psugatMinSize #-}
 
 -- | Time is deprecated. The time for this action to start. Time is an alias for
 -- StartTime and can be specified instead of StartTime, or vice versa. If both
 -- Time and StartTime are specified, their values should be identical.
 -- Otherwise, PutScheduledUpdateGroupAction will return an error.
-psugatTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
 psugatTime f x =
-    (\y -> x { _psugatTime = y })
-       <$> f (_psugatTime x)
+    f (_psugatTime x)
+        <&> \y -> x { _psugatTime = y }
 {-# INLINE psugatTime #-}
 
 -- | The time for this action to start, as in --start-time 2010-06-01T00:00:00Z.
 -- If you try to schedule your action in the past, Auto Scaling returns an
 -- error message. When StartTime and EndTime are specified with Recurrence,
 -- they form the boundaries of when the recurring action will start and stop.
-psugatStartTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
 psugatStartTime f x =
-    (\y -> x { _psugatStartTime = y })
-       <$> f (_psugatStartTime x)
+    f (_psugatStartTime x)
+        <&> \y -> x { _psugatStartTime = y }
 {-# INLINE psugatStartTime #-}
 
 -- | The time for this action to end.
-psugatEndTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
 psugatEndTime f x =
-    (\y -> x { _psugatEndTime = y })
-       <$> f (_psugatEndTime x)
+    f (_psugatEndTime x)
+        <&> \y -> x { _psugatEndTime = y }
 {-# INLINE psugatEndTime #-}
 
 -- | The time when recurring future actions will start. Start time is specified
@@ -217,15 +178,10 @@ psugatEndTime f x =
 -- cron syntax, go to Wikipedia, The Free Encyclopedia. When StartTime and
 -- EndTime are specified with Recurrence, they form the boundaries of when the
 -- recurring action will start and stop.
-psugatRecurrence
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutScheduledUpdateGroupAction
-    -> f PutScheduledUpdateGroupAction
+psugatRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugatRecurrence f x =
-    (\y -> x { _psugatRecurrence = y })
-       <$> f (_psugatRecurrence x)
+    f (_psugatRecurrence x)
+        <&> \y -> x { _psugatRecurrence = y }
 {-# INLINE psugatRecurrence #-}
 
 instance ToQuery PutScheduledUpdateGroupAction where

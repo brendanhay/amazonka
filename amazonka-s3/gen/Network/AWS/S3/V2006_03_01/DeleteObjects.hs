@@ -52,6 +52,7 @@ deleteObjects p1 p2 = DeleteObjects
     , _dosBucket = p2
     , _dosMFA = Nothing
     }
+{-# INLINE deleteObjects #-}
 
 data DeleteObjects = DeleteObjects
     { _dosDelete :: Delete
@@ -62,39 +63,24 @@ data DeleteObjects = DeleteObjects
       -- device.
     } deriving (Show, Generic)
 
-dosDelete
-    :: Functor f
-    => (Delete
-    -> f (Delete))
-    -> DeleteObjects
-    -> f DeleteObjects
+dosDelete :: Lens' DeleteObjects (Delete)
 dosDelete f x =
-    (\y -> x { _dosDelete = y })
-       <$> f (_dosDelete x)
+    f (_dosDelete x)
+        <&> \y -> x { _dosDelete = y }
 {-# INLINE dosDelete #-}
 
-dosBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteObjects
-    -> f DeleteObjects
+dosBucket :: Lens' DeleteObjects (BucketName)
 dosBucket f x =
-    (\y -> x { _dosBucket = y })
-       <$> f (_dosBucket x)
+    f (_dosBucket x)
+        <&> \y -> x { _dosBucket = y }
 {-# INLINE dosBucket #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-dosMFA
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteObjects
-    -> f DeleteObjects
+dosMFA :: Lens' DeleteObjects (Maybe Text)
 dosMFA f x =
-    (\y -> x { _dosMFA = y })
-       <$> f (_dosMFA x)
+    f (_dosMFA x)
+        <&> \y -> x { _dosMFA = y }
 {-# INLINE dosMFA #-}
 
 instance ToPath DeleteObjects where
@@ -121,26 +107,16 @@ data DeleteObjectsResponse = DeleteObjectsResponse
     , _dopErrors :: [Error]
     } deriving (Show, Generic)
 
-dopDeleted
-    :: Functor f
-    => ([DeletedObject]
-    -> f ([DeletedObject]))
-    -> DeleteObjectsResponse
-    -> f DeleteObjectsResponse
+dopDeleted :: Lens' DeleteObjectsResponse ([DeletedObject])
 dopDeleted f x =
-    (\y -> x { _dopDeleted = y })
-       <$> f (_dopDeleted x)
+    f (_dopDeleted x)
+        <&> \y -> x { _dopDeleted = y }
 {-# INLINE dopDeleted #-}
 
-dopErrors
-    :: Functor f
-    => ([Error]
-    -> f ([Error]))
-    -> DeleteObjectsResponse
-    -> f DeleteObjectsResponse
+dopErrors :: Lens' DeleteObjectsResponse ([Error])
 dopErrors f x =
-    (\y -> x { _dopErrors = y })
-       <$> f (_dopErrors x)
+    f (_dopErrors x)
+        <&> \y -> x { _dopErrors = y }
 {-# INLINE dopErrors #-}
 
 instance FromXML DeleteObjectsResponse where

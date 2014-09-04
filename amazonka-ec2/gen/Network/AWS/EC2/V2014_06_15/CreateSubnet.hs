@@ -85,23 +85,26 @@ data CreateSubnet = CreateSubnet
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-csuVpcId :: Lens' CreateSubnet Text
+csuVpcId :: Lens' CreateSubnet (Text)
 csuVpcId f x =
-    f (_csuVpcId x) <&> \y -> x { _csuVpcId = y }
+    f (_csuVpcId x)
+        <&> \y -> x { _csuVpcId = y }
 {-# INLINE csuVpcId #-}
 
 -- | The network range for the subnet, in CIDR notation. For example,
 -- 10.0.0.0/24.
-csuCidrBlock :: Lens' CreateSubnet Text
+csuCidrBlock :: Lens' CreateSubnet (Text)
 csuCidrBlock f x =
-    f (_csuCidrBlock x) <&> \y -> x { _csuCidrBlock = y }
+    f (_csuCidrBlock x)
+        <&> \y -> x { _csuCidrBlock = y }
 {-# INLINE csuCidrBlock #-}
 
 -- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
 -- you (recommended).
 csuAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
 csuAvailabilityZone f x =
-    f (_csuAvailabilityZone x) <&> \y -> x { _csuAvailabilityZone = y }
+    f (_csuAvailabilityZone x)
+        <&> \y -> x { _csuAvailabilityZone = y }
 {-# INLINE csuAvailabilityZone #-}
 
 instance ToQuery CreateSubnet where
@@ -115,7 +118,8 @@ data CreateSubnetResponse = CreateSubnetResponse
 -- | Information about the subnet.
 csvSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 csvSubnet f x =
-    f (_csvSubnet x) <&> \y -> x { _csvSubnet = y }
+    f (_csvSubnet x)
+        <&> \y -> x { _csvSubnet = y }
 {-# INLINE csvSubnet #-}
 
 instance FromXML CreateSubnetResponse where

@@ -94,9 +94,10 @@ data DetachVolume = DetachVolume
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvxVolumeId :: Lens' DetachVolume Text
+dvxVolumeId :: Lens' DetachVolume (Text)
 dvxVolumeId f x =
-    f (_dvxVolumeId x) <&> \y -> x { _dvxVolumeId = y }
+    f (_dvxVolumeId x)
+        <&> \y -> x { _dvxVolumeId = y }
 {-# INLINE dvxVolumeId #-}
 
 -- | Forces detachment if the previous detachment attempt did not occur cleanly
@@ -108,19 +109,22 @@ dvxVolumeId f x =
 -- perform file system check and repair procedures.
 dvxForce :: Lens' DetachVolume (Maybe Bool)
 dvxForce f x =
-    f (_dvxForce x) <&> \y -> x { _dvxForce = y }
+    f (_dvxForce x)
+        <&> \y -> x { _dvxForce = y }
 {-# INLINE dvxForce #-}
 
 -- | The ID of the instance.
 dvxInstanceId :: Lens' DetachVolume (Maybe Text)
 dvxInstanceId f x =
-    f (_dvxInstanceId x) <&> \y -> x { _dvxInstanceId = y }
+    f (_dvxInstanceId x)
+        <&> \y -> x { _dvxInstanceId = y }
 {-# INLINE dvxInstanceId #-}
 
 -- | The device name.
 dvxDevice :: Lens' DetachVolume (Maybe Text)
 dvxDevice f x =
-    f (_dvxDevice x) <&> \y -> x { _dvxDevice = y }
+    f (_dvxDevice x)
+        <&> \y -> x { _dvxDevice = y }
 {-# INLINE dvxDevice #-}
 
 instance ToQuery DetachVolume where
@@ -145,37 +149,43 @@ data DetachVolumeResponse = DetachVolumeResponse
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination f x =
-    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination = y }
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination x)
+        <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDeleteOnTermination #-}
 
 -- | The time stamp when the attachment initiated.
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime f x =
-    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime = y }
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime x)
+        <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuAttachTime #-}
 
 -- | The ID of the volume.
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId f x =
-    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId = y }
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId x)
+        <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuVolumeId #-}
 
 -- | The ID of the instance.
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId f x =
-    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId = y }
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId x)
+        <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuInstanceId #-}
 
 -- | The device name.
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice :: Lens' DetachVolumeResponse (Maybe Text)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice f x =
-    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice = y }
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice x)
+        <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuDevice #-}
 
 -- | The attachment state of the volume.
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState f x =
-    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState x) <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState = y }
+    f (_vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState x)
+        <&> \y -> x { _vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState = y }
 {-# INLINE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvuState #-}
 
 instance FromXML DetachVolumeResponse where

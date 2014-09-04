@@ -58,6 +58,7 @@ updateGroup p1 = UpdateGroup
     , _ugrNewGroupName = Nothing
     , _ugrNewPath = Nothing
     }
+{-# INLINE updateGroup #-}
 
 data UpdateGroup = UpdateGroup
     { _ugrGroupName :: Text
@@ -73,39 +74,24 @@ data UpdateGroup = UpdateGroup
 
 -- | Name of the group to update. If you're changing the name of the group, this
 -- is the original name.
-ugrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateGroup
-    -> f UpdateGroup
+ugrGroupName :: Lens' UpdateGroup (Text)
 ugrGroupName f x =
-    (\y -> x { _ugrGroupName = y })
-       <$> f (_ugrGroupName x)
+    f (_ugrGroupName x)
+        <&> \y -> x { _ugrGroupName = y }
 {-# INLINE ugrGroupName #-}
 
 -- | New name for the group. Only include this if changing the group's name.
-ugrNewGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateGroup
-    -> f UpdateGroup
+ugrNewGroupName :: Lens' UpdateGroup (Maybe Text)
 ugrNewGroupName f x =
-    (\y -> x { _ugrNewGroupName = y })
-       <$> f (_ugrNewGroupName x)
+    f (_ugrNewGroupName x)
+        <&> \y -> x { _ugrNewGroupName = y }
 {-# INLINE ugrNewGroupName #-}
 
 -- | New path for the group. Only include this if changing the group's path.
-ugrNewPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateGroup
-    -> f UpdateGroup
+ugrNewPath :: Lens' UpdateGroup (Maybe Text)
 ugrNewPath f x =
-    (\y -> x { _ugrNewPath = y })
-       <$> f (_ugrNewPath x)
+    f (_ugrNewPath x)
+        <&> \y -> x { _ugrNewPath = y }
 {-# INLINE ugrNewPath #-}
 
 instance ToQuery UpdateGroup where

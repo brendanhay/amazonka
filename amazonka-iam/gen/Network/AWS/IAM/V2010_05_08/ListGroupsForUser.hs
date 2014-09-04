@@ -54,6 +54,7 @@ listGroupsForUser p1 = ListGroupsForUser
     , _lgfurMarker = Nothing
     , _lgfurMaxItems = Nothing
     }
+{-# INLINE listGroupsForUser #-}
 
 data ListGroupsForUser = ListGroupsForUser
     { _lgfurUserName :: Text
@@ -72,44 +73,29 @@ data ListGroupsForUser = ListGroupsForUser
     } deriving (Show, Generic)
 
 -- | The name of the user to list groups for.
-lgfurUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ListGroupsForUser
-    -> f ListGroupsForUser
+lgfurUserName :: Lens' ListGroupsForUser (Text)
 lgfurUserName f x =
-    (\y -> x { _lgfurUserName = y })
-       <$> f (_lgfurUserName x)
+    f (_lgfurUserName x)
+        <&> \y -> x { _lgfurUserName = y }
 {-# INLINE lgfurUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-lgfurMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGroupsForUser
-    -> f ListGroupsForUser
+lgfurMarker :: Lens' ListGroupsForUser (Maybe Text)
 lgfurMarker f x =
-    (\y -> x { _lgfurMarker = y })
-       <$> f (_lgfurMarker x)
+    f (_lgfurMarker x)
+        <&> \y -> x { _lgfurMarker = y }
 {-# INLINE lgfurMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- groups you want in the response. If there are additional groups beyond the
 -- maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
-lgfurMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListGroupsForUser
-    -> f ListGroupsForUser
+lgfurMaxItems :: Lens' ListGroupsForUser (Maybe Integer)
 lgfurMaxItems f x =
-    (\y -> x { _lgfurMaxItems = y })
-       <$> f (_lgfurMaxItems x)
+    f (_lgfurMaxItems x)
+        <&> \y -> x { _lgfurMaxItems = y }
 {-# INLINE lgfurMaxItems #-}
 
 instance ToQuery ListGroupsForUser where
@@ -132,40 +118,25 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more groups in the list.
-lgfusIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListGroupsForUserResponse
-    -> f ListGroupsForUserResponse
+lgfusIsTruncated :: Lens' ListGroupsForUserResponse (Bool)
 lgfusIsTruncated f x =
-    (\y -> x { _lgfusIsTruncated = y })
-       <$> f (_lgfusIsTruncated x)
+    f (_lgfusIsTruncated x)
+        <&> \y -> x { _lgfusIsTruncated = y }
 {-# INLINE lgfusIsTruncated #-}
 
 -- | A list of groups.
-lgfusGroups
-    :: Functor f
-    => ([Group]
-    -> f ([Group]))
-    -> ListGroupsForUserResponse
-    -> f ListGroupsForUserResponse
+lgfusGroups :: Lens' ListGroupsForUserResponse ([Group])
 lgfusGroups f x =
-    (\y -> x { _lgfusGroups = y })
-       <$> f (_lgfusGroups x)
+    f (_lgfusGroups x)
+        <&> \y -> x { _lgfusGroups = y }
 {-# INLINE lgfusGroups #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lgfusMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListGroupsForUserResponse
-    -> f ListGroupsForUserResponse
+lgfusMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfusMarker f x =
-    (\y -> x { _lgfusMarker = y })
-       <$> f (_lgfusMarker x)
+    f (_lgfusMarker x)
+        <&> \y -> x { _lgfusMarker = y }
 {-# INLINE lgfusMarker #-}
 
 instance FromXML ListGroupsForUserResponse where

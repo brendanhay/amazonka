@@ -44,20 +44,16 @@ getBucketLogging :: BucketName -- ^ 'gbltBucket'
 getBucketLogging p1 = GetBucketLogging
     { _gbltBucket = p1
     }
+{-# INLINE getBucketLogging #-}
 
 data GetBucketLogging = GetBucketLogging
     { _gbltBucket :: BucketName
     } deriving (Show, Generic)
 
-gbltBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketLogging
-    -> f GetBucketLogging
+gbltBucket :: Lens' GetBucketLogging (BucketName)
 gbltBucket f x =
-    (\y -> x { _gbltBucket = y })
-       <$> f (_gbltBucket x)
+    f (_gbltBucket x)
+        <&> \y -> x { _gbltBucket = y }
 {-# INLINE gbltBucket #-}
 
 instance ToPath GetBucketLogging where
@@ -79,15 +75,10 @@ data GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblqLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-gblqLoggingEnabled
-    :: Functor f
-    => (Maybe LoggingEnabled
-    -> f (Maybe LoggingEnabled))
-    -> GetBucketLoggingResponse
-    -> f GetBucketLoggingResponse
+gblqLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblqLoggingEnabled f x =
-    (\y -> x { _gblqLoggingEnabled = y })
-       <$> f (_gblqLoggingEnabled x)
+    f (_gblqLoggingEnabled x)
+        <&> \y -> x { _gblqLoggingEnabled = y }
 {-# INLINE gblqLoggingEnabled #-}
 
 instance FromXML GetBucketLoggingResponse where

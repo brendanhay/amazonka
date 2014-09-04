@@ -55,6 +55,7 @@ getRolePolicy p1 p2 = GetRolePolicy
     { _grprPolicyName = p1
     , _grprRoleName = p2
     }
+{-# INLINE getRolePolicy #-}
 
 data GetRolePolicy = GetRolePolicy
     { _grprPolicyName :: Text
@@ -64,27 +65,17 @@ data GetRolePolicy = GetRolePolicy
     } deriving (Show, Generic)
 
 -- | Name of the policy document to get.
-grprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRolePolicy
-    -> f GetRolePolicy
+grprPolicyName :: Lens' GetRolePolicy (Text)
 grprPolicyName f x =
-    (\y -> x { _grprPolicyName = y })
-       <$> f (_grprPolicyName x)
+    f (_grprPolicyName x)
+        <&> \y -> x { _grprPolicyName = y }
 {-# INLINE grprPolicyName #-}
 
 -- | Name of the role associated with the policy.
-grprRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRolePolicy
-    -> f GetRolePolicy
+grprRoleName :: Lens' GetRolePolicy (Text)
 grprRoleName f x =
-    (\y -> x { _grprRoleName = y })
-       <$> f (_grprRoleName x)
+    f (_grprRoleName x)
+        <&> \y -> x { _grprRoleName = y }
 {-# INLINE grprRoleName #-}
 
 instance ToQuery GetRolePolicy where
@@ -100,39 +91,24 @@ data GetRolePolicyResponse = GetRolePolicyResponse
     } deriving (Show, Generic)
 
 -- | The policy document.
-grpsPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRolePolicyResponse
-    -> f GetRolePolicyResponse
+grpsPolicyDocument :: Lens' GetRolePolicyResponse (Text)
 grpsPolicyDocument f x =
-    (\y -> x { _grpsPolicyDocument = y })
-       <$> f (_grpsPolicyDocument x)
+    f (_grpsPolicyDocument x)
+        <&> \y -> x { _grpsPolicyDocument = y }
 {-# INLINE grpsPolicyDocument #-}
 
 -- | The name of the policy.
-grpsPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRolePolicyResponse
-    -> f GetRolePolicyResponse
+grpsPolicyName :: Lens' GetRolePolicyResponse (Text)
 grpsPolicyName f x =
-    (\y -> x { _grpsPolicyName = y })
-       <$> f (_grpsPolicyName x)
+    f (_grpsPolicyName x)
+        <&> \y -> x { _grpsPolicyName = y }
 {-# INLINE grpsPolicyName #-}
 
 -- | The role the policy is associated with.
-grpsRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRolePolicyResponse
-    -> f GetRolePolicyResponse
+grpsRoleName :: Lens' GetRolePolicyResponse (Text)
 grpsRoleName f x =
-    (\y -> x { _grpsRoleName = y })
-       <$> f (_grpsRoleName x)
+    f (_grpsRoleName x)
+        <&> \y -> x { _grpsRoleName = y }
 {-# INLINE grpsRoleName #-}
 
 instance FromXML GetRolePolicyResponse where

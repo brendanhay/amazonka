@@ -62,6 +62,7 @@ createRole p1 p2 = CreateRole
     , _crrRoleName = p2
     , _crrPath = Nothing
     }
+{-# INLINE createRole #-}
 
 data CreateRole = CreateRole
     { _crrAssumeRolePolicyDocument :: Text
@@ -76,41 +77,26 @@ data CreateRole = CreateRole
     } deriving (Show, Generic)
 
 -- | The policy that grants an entity permission to assume the role.
-crrAssumeRolePolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateRole
-    -> f CreateRole
+crrAssumeRolePolicyDocument :: Lens' CreateRole (Text)
 crrAssumeRolePolicyDocument f x =
-    (\y -> x { _crrAssumeRolePolicyDocument = y })
-       <$> f (_crrAssumeRolePolicyDocument x)
+    f (_crrAssumeRolePolicyDocument x)
+        <&> \y -> x { _crrAssumeRolePolicyDocument = y }
 {-# INLINE crrAssumeRolePolicyDocument #-}
 
 -- | Name of the role to create.
-crrRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateRole
-    -> f CreateRole
+crrRoleName :: Lens' CreateRole (Text)
 crrRoleName f x =
-    (\y -> x { _crrRoleName = y })
-       <$> f (_crrRoleName x)
+    f (_crrRoleName x)
+        <&> \y -> x { _crrRoleName = y }
 {-# INLINE crrRoleName #-}
 
 -- | The path to the role. For more information about paths, see Identifiers for
 -- IAM Entities in the Using IAM guide. This parameter is optional. If it is
 -- not included, it defaults to a slash (/).
-crrPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateRole
-    -> f CreateRole
+crrPath :: Lens' CreateRole (Maybe Text)
 crrPath f x =
-    (\y -> x { _crrPath = y })
-       <$> f (_crrPath x)
+    f (_crrPath x)
+        <&> \y -> x { _crrPath = y }
 {-# INLINE crrPath #-}
 
 instance ToQuery CreateRole where
@@ -122,15 +108,10 @@ data CreateRoleResponse = CreateRoleResponse
     } deriving (Show, Generic)
 
 -- | Information about the role.
-crsRole
-    :: Functor f
-    => (Role
-    -> f (Role))
-    -> CreateRoleResponse
-    -> f CreateRoleResponse
+crsRole :: Lens' CreateRoleResponse (Role)
 crsRole f x =
-    (\y -> x { _crsRole = y })
-       <$> f (_crsRole x)
+    f (_crsRole x)
+        <&> \y -> x { _crsRole = y }
 {-# INLINE crsRole #-}
 
 instance FromXML CreateRoleResponse where

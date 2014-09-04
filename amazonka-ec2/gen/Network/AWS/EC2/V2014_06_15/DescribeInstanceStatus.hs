@@ -161,7 +161,8 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 -- includes the health status for running instances only. Default: false.
 disrIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
 disrIncludeAllInstances f x =
-    f (_disrIncludeAllInstances x) <&> \y -> x { _disrIncludeAllInstances = y }
+    f (_disrIncludeAllInstances x)
+        <&> \y -> x { _disrIncludeAllInstances = y }
 {-# INLINE disrIncludeAllInstances #-}
 
 -- | One or more filters. availability-zone - The Availability Zone of the
@@ -184,28 +185,32 @@ disrIncludeAllInstances f x =
 -- reachability (passed | failed | initializing | insufficient-data).
 -- system-status.status - The system status of the instance (ok | impaired |
 -- initializing | insufficient-data | not-applicable).
-disrFilters :: Lens' DescribeInstanceStatus [Filter]
+disrFilters :: Lens' DescribeInstanceStatus ([Filter])
 disrFilters f x =
-    f (_disrFilters x) <&> \y -> x { _disrFilters = y }
+    f (_disrFilters x)
+        <&> \y -> x { _disrFilters = y }
 {-# INLINE disrFilters #-}
 
 -- | One or more instance IDs. Default: Describes all your instances.
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-disrInstanceIds :: Lens' DescribeInstanceStatus [Text]
+disrInstanceIds :: Lens' DescribeInstanceStatus ([Text])
 disrInstanceIds f x =
-    f (_disrInstanceIds x) <&> \y -> x { _disrInstanceIds = y }
+    f (_disrInstanceIds x)
+        <&> \y -> x { _disrInstanceIds = y }
 {-# INLINE disrInstanceIds #-}
 
 -- | The maximum number of paginated instance items per response. Default: 1000.
 disrMaxResults :: Lens' DescribeInstanceStatus (Maybe Integer)
 disrMaxResults f x =
-    f (_disrMaxResults x) <&> \y -> x { _disrMaxResults = y }
+    f (_disrMaxResults x)
+        <&> \y -> x { _disrMaxResults = y }
 {-# INLINE disrMaxResults #-}
 
 -- | The next paginated set of results to return.
 disrNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disrNextToken f x =
-    f (_disrNextToken x) <&> \y -> x { _disrNextToken = y }
+    f (_disrNextToken x)
+        <&> \y -> x { _disrNextToken = y }
 {-# INLINE disrNextToken #-}
 
 instance ToQuery DescribeInstanceStatus where
@@ -219,15 +224,17 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     } deriving (Show, Generic)
 
 -- | One or more instance status descriptions.
-dissInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
+dissInstanceStatuses :: Lens' DescribeInstanceStatusResponse ([InstanceStatus])
 dissInstanceStatuses f x =
-    f (_dissInstanceStatuses x) <&> \y -> x { _dissInstanceStatuses = y }
+    f (_dissInstanceStatuses x)
+        <&> \y -> x { _dissInstanceStatuses = y }
 {-# INLINE dissInstanceStatuses #-}
 
 -- | The next paginated set of results to return.
 dissNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 dissNextToken f x =
-    f (_dissNextToken x) <&> \y -> x { _dissNextToken = y }
+    f (_dissNextToken x)
+        <&> \y -> x { _dissNextToken = y }
 {-# INLINE dissNextToken #-}
 
 instance FromXML DescribeInstanceStatusResponse where

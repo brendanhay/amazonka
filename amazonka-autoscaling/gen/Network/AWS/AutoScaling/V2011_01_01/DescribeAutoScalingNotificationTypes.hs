@@ -38,6 +38,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeAutoScalingNotificationTypes' request.
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
+{-# INLINE describeAutoScalingNotificationTypes #-}
 
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
     deriving (Eq, Show, Generic)
@@ -71,15 +72,10 @@ data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificat
 -- autoscaling:EC2_INSTANCE_LAUNCH_ERROR autoscaling:EC2_INSTANCE_TERMINATE
 -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR autoscaling:TEST_NOTIFICATION
 -- 42fc6794-bf21-11e2-a1cf-ff3dEXAMPLE.
-dasntaAutoScalingNotificationTypes
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeAutoScalingNotificationTypesResponse
-    -> f DescribeAutoScalingNotificationTypesResponse
+dasntaAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse ([Text])
 dasntaAutoScalingNotificationTypes f x =
-    (\y -> x { _dasntaAutoScalingNotificationTypes = y })
-       <$> f (_dasntaAutoScalingNotificationTypes x)
+    f (_dasntaAutoScalingNotificationTypes x)
+        <&> \y -> x { _dasntaAutoScalingNotificationTypes = y }
 {-# INLINE dasntaAutoScalingNotificationTypes #-}
 
 instance FromXML DescribeAutoScalingNotificationTypesResponse where

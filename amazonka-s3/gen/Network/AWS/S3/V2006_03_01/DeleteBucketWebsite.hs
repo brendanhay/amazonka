@@ -41,20 +41,16 @@ deleteBucketWebsite :: BucketName -- ^ 'dbwrBucket'
 deleteBucketWebsite p1 = DeleteBucketWebsite
     { _dbwrBucket = p1
     }
+{-# INLINE deleteBucketWebsite #-}
 
 data DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwrBucket :: BucketName
     } deriving (Show, Generic)
 
-dbwrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteBucketWebsite
-    -> f DeleteBucketWebsite
+dbwrBucket :: Lens' DeleteBucketWebsite (BucketName)
 dbwrBucket f x =
-    (\y -> x { _dbwrBucket = y })
-       <$> f (_dbwrBucket x)
+    f (_dbwrBucket x)
+        <&> \y -> x { _dbwrBucket = y }
 {-# INLINE dbwrBucket #-}
 
 instance ToPath DeleteBucketWebsite where

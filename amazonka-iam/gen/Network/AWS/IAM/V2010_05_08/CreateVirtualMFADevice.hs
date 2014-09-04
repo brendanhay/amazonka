@@ -59,6 +59,7 @@ createVirtualMFADevice p1 = CreateVirtualMFADevice
     { _cvmfadrVirtualMFADeviceName = p1
     , _cvmfadrPath = Nothing
     }
+{-# INLINE createVirtualMFADevice #-}
 
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadrVirtualMFADeviceName :: Text
@@ -73,29 +74,19 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
-cvmfadrVirtualMFADeviceName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateVirtualMFADevice
-    -> f CreateVirtualMFADevice
+cvmfadrVirtualMFADeviceName :: Lens' CreateVirtualMFADevice (Text)
 cvmfadrVirtualMFADeviceName f x =
-    (\y -> x { _cvmfadrVirtualMFADeviceName = y })
-       <$> f (_cvmfadrVirtualMFADeviceName x)
+    f (_cvmfadrVirtualMFADeviceName x)
+        <&> \y -> x { _cvmfadrVirtualMFADeviceName = y }
 {-# INLINE cvmfadrVirtualMFADeviceName #-}
 
 -- | The path for the virtual MFA device. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
-cvmfadrPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateVirtualMFADevice
-    -> f CreateVirtualMFADevice
+cvmfadrPath :: Lens' CreateVirtualMFADevice (Maybe Text)
 cvmfadrPath f x =
-    (\y -> x { _cvmfadrPath = y })
-       <$> f (_cvmfadrPath x)
+    f (_cvmfadrPath x)
+        <&> \y -> x { _cvmfadrPath = y }
 {-# INLINE cvmfadrPath #-}
 
 instance ToQuery CreateVirtualMFADevice where
@@ -107,15 +98,10 @@ data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     } deriving (Show, Generic)
 
 -- | A newly created virtual MFA device.
-cvmfadsVirtualMFADevice
-    :: Functor f
-    => (VirtualMFADevice
-    -> f (VirtualMFADevice))
-    -> CreateVirtualMFADeviceResponse
-    -> f CreateVirtualMFADeviceResponse
+cvmfadsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse (VirtualMFADevice)
 cvmfadsVirtualMFADevice f x =
-    (\y -> x { _cvmfadsVirtualMFADevice = y })
-       <$> f (_cvmfadsVirtualMFADevice x)
+    f (_cvmfadsVirtualMFADevice x)
+        <&> \y -> x { _cvmfadsVirtualMFADevice = y }
 {-# INLINE cvmfadsVirtualMFADevice #-}
 
 instance FromXML CreateVirtualMFADeviceResponse where

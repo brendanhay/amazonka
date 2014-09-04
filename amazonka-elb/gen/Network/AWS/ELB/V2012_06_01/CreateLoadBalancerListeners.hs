@@ -57,6 +57,7 @@ createLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
     { _clbliLoadBalancerName = p1
     , _clbliListeners = p2
     }
+{-# INLINE createLoadBalancerListeners #-}
 
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { _clbliLoadBalancerName :: Text
@@ -67,28 +68,18 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-clbliLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoadBalancerListeners
-    -> f CreateLoadBalancerListeners
+clbliLoadBalancerName :: Lens' CreateLoadBalancerListeners (Text)
 clbliLoadBalancerName f x =
-    (\y -> x { _clbliLoadBalancerName = y })
-       <$> f (_clbliLoadBalancerName x)
+    f (_clbliLoadBalancerName x)
+        <&> \y -> x { _clbliLoadBalancerName = y }
 {-# INLINE clbliLoadBalancerName #-}
 
 -- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
 -- SSLCertificateId items.
-clbliListeners
-    :: Functor f
-    => ([Listener]
-    -> f ([Listener]))
-    -> CreateLoadBalancerListeners
-    -> f CreateLoadBalancerListeners
+clbliListeners :: Lens' CreateLoadBalancerListeners ([Listener])
 clbliListeners f x =
-    (\y -> x { _clbliListeners = y })
-       <$> f (_clbliListeners x)
+    f (_clbliListeners x)
+        <&> \y -> x { _clbliListeners = y }
 {-# INLINE clbliListeners #-}
 
 instance ToQuery CreateLoadBalancerListeners where

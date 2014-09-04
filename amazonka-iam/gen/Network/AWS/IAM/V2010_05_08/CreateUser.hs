@@ -51,6 +51,7 @@ createUser p1 = CreateUser
     { _curUserName = p1
     , _curPath = Nothing
     }
+{-# INLINE createUser #-}
 
 data CreateUser = CreateUser
     { _curUserName :: Text
@@ -63,29 +64,19 @@ data CreateUser = CreateUser
     } deriving (Show, Generic)
 
 -- | Name of the user to create.
-curUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateUser
-    -> f CreateUser
+curUserName :: Lens' CreateUser (Text)
 curUserName f x =
-    (\y -> x { _curUserName = y })
-       <$> f (_curUserName x)
+    f (_curUserName x)
+        <&> \y -> x { _curUserName = y }
 {-# INLINE curUserName #-}
 
 -- | The path for the user name. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
-curPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateUser
-    -> f CreateUser
+curPath :: Lens' CreateUser (Maybe Text)
 curPath f x =
-    (\y -> x { _curPath = y })
-       <$> f (_curPath x)
+    f (_curPath x)
+        <&> \y -> x { _curPath = y }
 {-# INLINE curPath #-}
 
 instance ToQuery CreateUser where
@@ -97,15 +88,10 @@ data CreateUserResponse = CreateUserResponse
     } deriving (Show, Generic)
 
 -- | Information about the user.
-cusUser
-    :: Functor f
-    => (Maybe User
-    -> f (Maybe User))
-    -> CreateUserResponse
-    -> f CreateUserResponse
+cusUser :: Lens' CreateUserResponse (Maybe User)
 cusUser f x =
-    (\y -> x { _cusUser = y })
-       <$> f (_cusUser x)
+    f (_cusUser x)
+        <&> \y -> x { _cusUser = y }
 {-# INLINE cusUser #-}
 
 instance FromXML CreateUserResponse where

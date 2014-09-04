@@ -53,6 +53,7 @@ createLoginProfile p1 p2 = CreateLoginProfile
     , _clprUserName = p2
     , _clprPasswordResetRequired = Nothing
     }
+{-# INLINE createLoginProfile #-}
 
 data CreateLoginProfile = CreateLoginProfile
     { _clprPassword :: Text
@@ -65,40 +66,25 @@ data CreateLoginProfile = CreateLoginProfile
     } deriving (Show, Generic)
 
 -- | The new password for the user.
-clprPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoginProfile
-    -> f CreateLoginProfile
+clprPassword :: Lens' CreateLoginProfile (Text)
 clprPassword f x =
-    (\y -> x { _clprPassword = y })
-       <$> f (_clprPassword x)
+    f (_clprPassword x)
+        <&> \y -> x { _clprPassword = y }
 {-# INLINE clprPassword #-}
 
 -- | Name of the user to create a password for.
-clprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoginProfile
-    -> f CreateLoginProfile
+clprUserName :: Lens' CreateLoginProfile (Text)
 clprUserName f x =
-    (\y -> x { _clprUserName = y })
-       <$> f (_clprUserName x)
+    f (_clprUserName x)
+        <&> \y -> x { _clprUserName = y }
 {-# INLINE clprUserName #-}
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-clprPasswordResetRequired
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> CreateLoginProfile
-    -> f CreateLoginProfile
+clprPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
 clprPasswordResetRequired f x =
-    (\y -> x { _clprPasswordResetRequired = y })
-       <$> f (_clprPasswordResetRequired x)
+    f (_clprPasswordResetRequired x)
+        <&> \y -> x { _clprPasswordResetRequired = y }
 {-# INLINE clprPasswordResetRequired #-}
 
 instance ToQuery CreateLoginProfile where
@@ -110,15 +96,10 @@ data CreateLoginProfileResponse = CreateLoginProfileResponse
     } deriving (Show, Generic)
 
 -- | The user name and password create date.
-clpsLoginProfile
-    :: Functor f
-    => (LoginProfile
-    -> f (LoginProfile))
-    -> CreateLoginProfileResponse
-    -> f CreateLoginProfileResponse
+clpsLoginProfile :: Lens' CreateLoginProfileResponse (LoginProfile)
 clpsLoginProfile f x =
-    (\y -> x { _clpsLoginProfile = y })
-       <$> f (_clpsLoginProfile x)
+    f (_clpsLoginProfile x)
+        <&> \y -> x { _clpsLoginProfile = y }
 {-# INLINE clpsLoginProfile #-}
 
 instance FromXML CreateLoginProfileResponse where

@@ -114,15 +114,17 @@ data CreateVolume = CreateVolume
 -- | The Availability Zone in which to create the volume. Use
 -- DescribeAvailabilityZones to list the Availability Zones that are currently
 -- available to you.
-cvrAvailabilityZone :: Lens' CreateVolume Text
+cvrAvailabilityZone :: Lens' CreateVolume (Text)
 cvrAvailabilityZone f x =
-    f (_cvrAvailabilityZone x) <&> \y -> x { _cvrAvailabilityZone = y }
+    f (_cvrAvailabilityZone x)
+        <&> \y -> x { _cvrAvailabilityZone = y }
 {-# INLINE cvrAvailabilityZone #-}
 
 -- | Specifies whether the volume should be encrypted.
 cvrEncrypted :: Lens' CreateVolume (Maybe Bool)
 cvrEncrypted f x =
-    f (_cvrEncrypted x) <&> \y -> x { _cvrEncrypted = y }
+    f (_cvrEncrypted x)
+        <&> \y -> x { _cvrEncrypted = y }
 {-# INLINE cvrEncrypted #-}
 
 -- | The size of the volume, in GiBs. Constraints: If the volume type is io1,
@@ -131,20 +133,23 @@ cvrEncrypted f x =
 -- snapshot size.
 cvrSize :: Lens' CreateVolume (Maybe Integer)
 cvrSize f x =
-    f (_cvrSize x) <&> \y -> x { _cvrSize = y }
+    f (_cvrSize x)
+        <&> \y -> x { _cvrSize = y }
 {-# INLINE cvrSize #-}
 
 -- | Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations
 -- per second (IOPS) to provision for the volume.
 cvrIops :: Lens' CreateVolume (Maybe Integer)
 cvrIops f x =
-    f (_cvrIops x) <&> \y -> x { _cvrIops = y }
+    f (_cvrIops x)
+        <&> \y -> x { _cvrIops = y }
 {-# INLINE cvrIops #-}
 
 -- | The snapshot from which to create the volume.
 cvrSnapshotId :: Lens' CreateVolume (Maybe Text)
 cvrSnapshotId f x =
-    f (_cvrSnapshotId x) <&> \y -> x { _cvrSnapshotId = y }
+    f (_cvrSnapshotId x)
+        <&> \y -> x { _cvrSnapshotId = y }
 {-# INLINE cvrSnapshotId #-}
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
@@ -152,7 +157,8 @@ cvrSnapshotId f x =
 -- standard.
 cvrVolumeType :: Lens' CreateVolume (Maybe VolumeType)
 cvrVolumeType f x =
-    f (_cvrVolumeType x) <&> \y -> x { _cvrVolumeType = y }
+    f (_cvrVolumeType x)
+        <&> \y -> x { _cvrVolumeType = y }
 {-# INLINE cvrVolumeType #-}
 
 instance ToQuery CreateVolume where
@@ -200,19 +206,22 @@ data CreateVolumeResponse = CreateVolumeResponse
 -- | Indicates whether the volume is encrypted.
 vvvvvvvvvvvvxEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
 vvvvvvvvvvvvxEncrypted f x =
-    f (_vvvvvvvvvvvvxEncrypted x) <&> \y -> x { _vvvvvvvvvvvvxEncrypted = y }
+    f (_vvvvvvvvvvvvxEncrypted x)
+        <&> \y -> x { _vvvvvvvvvvvvxEncrypted = y }
 {-# INLINE vvvvvvvvvvvvxEncrypted #-}
 
 -- | The time stamp when volume creation was initiated.
 vvvvvvvvvvvvxCreateTime :: Lens' CreateVolumeResponse (Maybe ISO8601)
 vvvvvvvvvvvvxCreateTime f x =
-    f (_vvvvvvvvvvvvxCreateTime x) <&> \y -> x { _vvvvvvvvvvvvxCreateTime = y }
+    f (_vvvvvvvvvvvvxCreateTime x)
+        <&> \y -> x { _vvvvvvvvvvvvxCreateTime = y }
 {-# INLINE vvvvvvvvvvvvxCreateTime #-}
 
 -- | The size of the volume, in GiBs.
 vvvvvvvvvvvvxSize :: Lens' CreateVolumeResponse (Maybe Integer)
 vvvvvvvvvvvvxSize f x =
-    f (_vvvvvvvvvvvvxSize x) <&> \y -> x { _vvvvvvvvvvvvxSize = y }
+    f (_vvvvvvvvvvvvxSize x)
+        <&> \y -> x { _vvvvvvvvvvvvxSize = y }
 {-# INLINE vvvvvvvvvvvvxSize #-}
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
@@ -228,50 +237,58 @@ vvvvvvvvvvvvxSize f x =
 -- create standard or gp2 volumes.
 vvvvvvvvvvvvxIops :: Lens' CreateVolumeResponse (Maybe Integer)
 vvvvvvvvvvvvxIops f x =
-    f (_vvvvvvvvvvvvxIops x) <&> \y -> x { _vvvvvvvvvvvvxIops = y }
+    f (_vvvvvvvvvvvvxIops x)
+        <&> \y -> x { _vvvvvvvvvvvvxIops = y }
 {-# INLINE vvvvvvvvvvvvxIops #-}
 
 -- | Any tags assigned to the volume.
-vvvvvvvvvvvvxTags :: Lens' CreateVolumeResponse [Tag]
+vvvvvvvvvvvvxTags :: Lens' CreateVolumeResponse ([Tag])
 vvvvvvvvvvvvxTags f x =
-    f (_vvvvvvvvvvvvxTags x) <&> \y -> x { _vvvvvvvvvvvvxTags = y }
+    f (_vvvvvvvvvvvvxTags x)
+        <&> \y -> x { _vvvvvvvvvvvvxTags = y }
 {-# INLINE vvvvvvvvvvvvxTags #-}
 
 -- | The ID of the volume.
 vvvvvvvvvvvvxVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
 vvvvvvvvvvvvxVolumeId f x =
-    f (_vvvvvvvvvvvvxVolumeId x) <&> \y -> x { _vvvvvvvvvvvvxVolumeId = y }
+    f (_vvvvvvvvvvvvxVolumeId x)
+        <&> \y -> x { _vvvvvvvvvvvvxVolumeId = y }
 {-# INLINE vvvvvvvvvvvvxVolumeId #-}
 
 -- | The snapshot from which the volume was created, if applicable.
 vvvvvvvvvvvvxSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
 vvvvvvvvvvvvxSnapshotId f x =
-    f (_vvvvvvvvvvvvxSnapshotId x) <&> \y -> x { _vvvvvvvvvvvvxSnapshotId = y }
+    f (_vvvvvvvvvvvvxSnapshotId x)
+        <&> \y -> x { _vvvvvvvvvvvvxSnapshotId = y }
 {-# INLINE vvvvvvvvvvvvxSnapshotId #-}
 
 -- | The Availability Zone for the volume.
 vvvvvvvvvvvvxAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
 vvvvvvvvvvvvxAvailabilityZone f x =
-    f (_vvvvvvvvvvvvxAvailabilityZone x) <&> \y -> x { _vvvvvvvvvvvvxAvailabilityZone = y }
+    f (_vvvvvvvvvvvvxAvailabilityZone x)
+        <&> \y -> x { _vvvvvvvvvvvvxAvailabilityZone = y }
 {-# INLINE vvvvvvvvvvvvxAvailabilityZone #-}
 
 -- | 
-vvvvvvvvvvvvxAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
+vvvvvvvvvvvvxAttachments :: Lens' CreateVolumeResponse ([VolumeAttachment])
 vvvvvvvvvvvvxAttachments f x =
-    f (_vvvvvvvvvvvvxAttachments x) <&> \y -> x { _vvvvvvvvvvvvxAttachments = y }
+    f (_vvvvvvvvvvvvxAttachments x)
+        <&> \y -> x { _vvvvvvvvvvvvxAttachments = y }
 {-# INLINE vvvvvvvvvvvvxAttachments #-}
 
 -- | The volume state.
 vvvvvvvvvvvvxState :: Lens' CreateVolumeResponse (Maybe VolumeState)
 vvvvvvvvvvvvxState f x =
-    f (_vvvvvvvvvvvvxState x) <&> \y -> x { _vvvvvvvvvvvvxState = y }
+    f (_vvvvvvvvvvvvxState x)
+        <&> \y -> x { _vvvvvvvvvvvvxState = y }
 {-# INLINE vvvvvvvvvvvvxState #-}
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
 vvvvvvvvvvvvxVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
 vvvvvvvvvvvvxVolumeType f x =
-    f (_vvvvvvvvvvvvxVolumeType x) <&> \y -> x { _vvvvvvvvvvvvxVolumeType = y }
+    f (_vvvvvvvvvvvvxVolumeType x)
+        <&> \y -> x { _vvvvvvvvvvvvxVolumeType = y }
 {-# INLINE vvvvvvvvvvvvxVolumeType #-}
 
 instance FromXML CreateVolumeResponse where

@@ -74,6 +74,7 @@ listSigningCertificates = ListSigningCertificates
     , _lsctMarker = Nothing
     , _lsctMaxItems = Nothing
     }
+{-# INLINE listSigningCertificates #-}
 
 data ListSigningCertificates = ListSigningCertificates
     { _lsctUserName :: Maybe Text
@@ -92,29 +93,19 @@ data ListSigningCertificates = ListSigningCertificates
     } deriving (Show, Generic)
 
 -- | The name of the user.
-lsctUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSigningCertificates
-    -> f ListSigningCertificates
+lsctUserName :: Lens' ListSigningCertificates (Maybe Text)
 lsctUserName f x =
-    (\y -> x { _lsctUserName = y })
-       <$> f (_lsctUserName x)
+    f (_lsctUserName x)
+        <&> \y -> x { _lsctUserName = y }
 {-# INLINE lsctUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-lsctMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSigningCertificates
-    -> f ListSigningCertificates
+lsctMarker :: Lens' ListSigningCertificates (Maybe Text)
 lsctMarker f x =
-    (\y -> x { _lsctMarker = y })
-       <$> f (_lsctMarker x)
+    f (_lsctMarker x)
+        <&> \y -> x { _lsctMarker = y }
 {-# INLINE lsctMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -122,15 +113,10 @@ lsctMarker f x =
 -- certificate IDs beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lsctMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListSigningCertificates
-    -> f ListSigningCertificates
+lsctMaxItems :: Lens' ListSigningCertificates (Maybe Integer)
 lsctMaxItems f x =
-    (\y -> x { _lsctMaxItems = y })
-       <$> f (_lsctMaxItems x)
+    f (_lsctMaxItems x)
+        <&> \y -> x { _lsctMaxItems = y }
 {-# INLINE lsctMaxItems #-}
 
 instance ToQuery ListSigningCertificates where
@@ -154,40 +140,25 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more certificates in the
 -- list.
-lscuIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListSigningCertificatesResponse
-    -> f ListSigningCertificatesResponse
+lscuIsTruncated :: Lens' ListSigningCertificatesResponse (Bool)
 lscuIsTruncated f x =
-    (\y -> x { _lscuIsTruncated = y })
-       <$> f (_lscuIsTruncated x)
+    f (_lscuIsTruncated x)
+        <&> \y -> x { _lscuIsTruncated = y }
 {-# INLINE lscuIsTruncated #-}
 
 -- | A list of the user's signing certificate information.
-lscuCertificates
-    :: Functor f
-    => ([SigningCertificate]
-    -> f ([SigningCertificate]))
-    -> ListSigningCertificatesResponse
-    -> f ListSigningCertificatesResponse
+lscuCertificates :: Lens' ListSigningCertificatesResponse ([SigningCertificate])
 lscuCertificates f x =
-    (\y -> x { _lscuCertificates = y })
-       <$> f (_lscuCertificates x)
+    f (_lscuCertificates x)
+        <&> \y -> x { _lscuCertificates = y }
 {-# INLINE lscuCertificates #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lscuMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListSigningCertificatesResponse
-    -> f ListSigningCertificatesResponse
+lscuMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscuMarker f x =
-    (\y -> x { _lscuMarker = y })
-       <$> f (_lscuMarker x)
+    f (_lscuMarker x)
+        <&> \y -> x { _lscuMarker = y }
 {-# INLINE lscuMarker #-}
 
 instance FromXML ListSigningCertificatesResponse where

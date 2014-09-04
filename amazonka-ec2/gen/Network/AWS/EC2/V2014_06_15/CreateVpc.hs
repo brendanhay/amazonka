@@ -91,9 +91,10 @@ data CreateVpc = CreateVpc
     } deriving (Show, Generic)
 
 -- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
-cvsCidrBlock :: Lens' CreateVpc Text
+cvsCidrBlock :: Lens' CreateVpc (Text)
 cvsCidrBlock f x =
-    f (_cvsCidrBlock x) <&> \y -> x { _cvsCidrBlock = y }
+    f (_cvsCidrBlock x)
+        <&> \y -> x { _cvsCidrBlock = y }
 {-# INLINE cvsCidrBlock #-}
 
 -- | The supported tenancy options for instances launched into the VPC. A value
@@ -104,7 +105,8 @@ cvsCidrBlock f x =
 -- hardware. Default: default.
 cvsInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cvsInstanceTenancy f x =
-    f (_cvsInstanceTenancy x) <&> \y -> x { _cvsInstanceTenancy = y }
+    f (_cvsInstanceTenancy x)
+        <&> \y -> x { _cvsInstanceTenancy = y }
 {-# INLINE cvsInstanceTenancy #-}
 
 instance ToQuery CreateVpc where
@@ -118,7 +120,8 @@ data CreateVpcResponse = CreateVpcResponse
 -- | Information about the VPC.
 cvtVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvtVpc f x =
-    f (_cvtVpc x) <&> \y -> x { _cvtVpc = y }
+    f (_cvtVpc x)
+        <&> \y -> x { _cvtVpc = y }
 {-# INLINE cvtVpc #-}
 
 instance FromXML CreateVpcResponse where

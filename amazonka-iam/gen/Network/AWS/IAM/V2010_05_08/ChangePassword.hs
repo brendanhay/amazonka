@@ -49,6 +49,7 @@ changePassword p1 p2 = ChangePassword
     { _cprOldPassword = p1
     , _cprNewPassword = p2
     }
+{-# INLINE changePassword #-}
 
 data ChangePassword = ChangePassword
     { _cprOldPassword :: Text
@@ -59,28 +60,18 @@ data ChangePassword = ChangePassword
     } deriving (Show, Generic)
 
 -- | The IAM users's current password.
-cprOldPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangePassword
-    -> f ChangePassword
+cprOldPassword :: Lens' ChangePassword (Text)
 cprOldPassword f x =
-    (\y -> x { _cprOldPassword = y })
-       <$> f (_cprOldPassword x)
+    f (_cprOldPassword x)
+        <&> \y -> x { _cprOldPassword = y }
 {-# INLINE cprOldPassword #-}
 
 -- | The new password. The new password must conform to the AWS account's
 -- password policy, if one exists.
-cprNewPassword
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ChangePassword
-    -> f ChangePassword
+cprNewPassword :: Lens' ChangePassword (Text)
 cprNewPassword f x =
-    (\y -> x { _cprNewPassword = y })
-       <$> f (_cprNewPassword x)
+    f (_cprNewPassword x)
+        <&> \y -> x { _cprNewPassword = y }
 {-# INLINE cprNewPassword #-}
 
 instance ToQuery ChangePassword where

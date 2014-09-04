@@ -55,9 +55,10 @@ data DeleteKeyPair = DeleteKeyPair
     } deriving (Show, Generic)
 
 -- | The name of the key pair.
-dkprKeyName :: Lens' DeleteKeyPair Text
+dkprKeyName :: Lens' DeleteKeyPair (Text)
 dkprKeyName f x =
-    f (_dkprKeyName x) <&> \y -> x { _dkprKeyName = y }
+    f (_dkprKeyName x)
+        <&> \y -> x { _dkprKeyName = y }
 {-# INLINE dkprKeyName #-}
 
 instance ToQuery DeleteKeyPair where

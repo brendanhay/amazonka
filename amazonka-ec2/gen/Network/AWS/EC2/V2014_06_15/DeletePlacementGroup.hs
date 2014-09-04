@@ -58,9 +58,10 @@ data DeletePlacementGroup = DeletePlacementGroup
     } deriving (Show, Generic)
 
 -- | The name of the placement group.
-dpgrGroupName :: Lens' DeletePlacementGroup Text
+dpgrGroupName :: Lens' DeletePlacementGroup (Text)
 dpgrGroupName f x =
-    f (_dpgrGroupName x) <&> \y -> x { _dpgrGroupName = y }
+    f (_dpgrGroupName x)
+        <&> \y -> x { _dpgrGroupName = y }
 {-# INLINE dpgrGroupName #-}
 
 instance ToQuery DeletePlacementGroup where

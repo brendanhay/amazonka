@@ -45,6 +45,7 @@ resumeProcesses p1 = ResumeProcesses
     { _spqAutoScalingGroupName = p1
     , _spqScalingProcesses = mempty
     }
+{-# INLINE resumeProcesses #-}
 
 data ResumeProcesses = ResumeProcesses
     { _spqAutoScalingGroupName :: Text
@@ -58,30 +59,20 @@ data ResumeProcesses = ResumeProcesses
     } deriving (Show, Generic)
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-spqAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ResumeProcesses
-    -> f ResumeProcesses
+spqAutoScalingGroupName :: Lens' ResumeProcesses (Text)
 spqAutoScalingGroupName f x =
-    (\y -> x { _spqAutoScalingGroupName = y })
-       <$> f (_spqAutoScalingGroupName x)
+    f (_spqAutoScalingGroupName x)
+        <&> \y -> x { _spqAutoScalingGroupName = y }
 {-# INLINE spqAutoScalingGroupName #-}
 
 -- | The processes that you want to suspend or resume, which can include one or
 -- more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
 -- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
 -- all process types, omit this parameter.
-spqScalingProcesses
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ResumeProcesses
-    -> f ResumeProcesses
+spqScalingProcesses :: Lens' ResumeProcesses ([Text])
 spqScalingProcesses f x =
-    (\y -> x { _spqScalingProcesses = y })
-       <$> f (_spqScalingProcesses x)
+    f (_spqScalingProcesses x)
+        <&> \y -> x { _spqScalingProcesses = y }
 {-# INLINE spqScalingProcesses #-}
 
 instance ToQuery ResumeProcesses where

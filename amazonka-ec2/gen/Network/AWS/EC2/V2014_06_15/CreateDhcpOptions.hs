@@ -91,9 +91,10 @@ data CreateDhcpOptions = CreateDhcpOptions
     } deriving (Show, Generic)
 
 -- | A DHCP configuration option.
-cdorDhcpConfigurations :: Lens' CreateDhcpOptions [DhcpConfiguration]
+cdorDhcpConfigurations :: Lens' CreateDhcpOptions ([DhcpConfiguration])
 cdorDhcpConfigurations f x =
-    f (_cdorDhcpConfigurations x) <&> \y -> x { _cdorDhcpConfigurations = y }
+    f (_cdorDhcpConfigurations x)
+        <&> \y -> x { _cdorDhcpConfigurations = y }
 {-# INLINE cdorDhcpConfigurations #-}
 
 instance ToQuery CreateDhcpOptions where
@@ -107,7 +108,8 @@ data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
 -- | A set of DHCP options.
 cdosDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdosDhcpOptions f x =
-    f (_cdosDhcpOptions x) <&> \y -> x { _cdosDhcpOptions = y }
+    f (_cdosDhcpOptions x)
+        <&> \y -> x { _cdosDhcpOptions = y }
 {-# INLINE cdosDhcpOptions #-}
 
 instance FromXML CreateDhcpOptionsResponse where

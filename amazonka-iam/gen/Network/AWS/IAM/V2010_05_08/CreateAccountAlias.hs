@@ -45,6 +45,7 @@ createAccountAlias :: Text -- ^ 'caarAccountAlias'
 createAccountAlias p1 = CreateAccountAlias
     { _caarAccountAlias = p1
     }
+{-# INLINE createAccountAlias #-}
 
 data CreateAccountAlias = CreateAccountAlias
     { _caarAccountAlias :: Text
@@ -52,15 +53,10 @@ data CreateAccountAlias = CreateAccountAlias
     } deriving (Show, Generic)
 
 -- | Name of the account alias to create.
-caarAccountAlias
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateAccountAlias
-    -> f CreateAccountAlias
+caarAccountAlias :: Lens' CreateAccountAlias (Text)
 caarAccountAlias f x =
-    (\y -> x { _caarAccountAlias = y })
-       <$> f (_caarAccountAlias x)
+    f (_caarAccountAlias x)
+        <&> \y -> x { _caarAccountAlias = y }
 {-# INLINE caarAccountAlias #-}
 
 instance ToQuery CreateAccountAlias where

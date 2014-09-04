@@ -86,16 +86,18 @@ data ImportKeyPair = ImportKeyPair
     } deriving (Show, Generic)
 
 -- | A unique name for the key pair.
-ikprKeyName :: Lens' ImportKeyPair Text
+ikprKeyName :: Lens' ImportKeyPair (Text)
 ikprKeyName f x =
-    f (_ikprKeyName x) <&> \y -> x { _ikprKeyName = y }
+    f (_ikprKeyName x)
+        <&> \y -> x { _ikprKeyName = y }
 {-# INLINE ikprKeyName #-}
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikprPublicKeyMaterial :: Lens' ImportKeyPair ByteString
+ikprPublicKeyMaterial :: Lens' ImportKeyPair (ByteString)
 ikprPublicKeyMaterial f x =
-    f (_ikprPublicKeyMaterial x) <&> \y -> x { _ikprPublicKeyMaterial = y }
+    f (_ikprPublicKeyMaterial x)
+        <&> \y -> x { _ikprPublicKeyMaterial = y }
 {-# INLINE ikprPublicKeyMaterial #-}
 
 instance ToQuery ImportKeyPair where
@@ -112,13 +114,15 @@ data ImportKeyPairResponse = ImportKeyPairResponse
 -- | The key pair name you provided.
 ikpsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikpsKeyName f x =
-    f (_ikpsKeyName x) <&> \y -> x { _ikpsKeyName = y }
+    f (_ikpsKeyName x)
+        <&> \y -> x { _ikpsKeyName = y }
 {-# INLINE ikpsKeyName #-}
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikpsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
 ikpsKeyFingerprint f x =
-    f (_ikpsKeyFingerprint x) <&> \y -> x { _ikpsKeyFingerprint = y }
+    f (_ikpsKeyFingerprint x)
+        <&> \y -> x { _ikpsKeyFingerprint = y }
 {-# INLINE ikpsKeyFingerprint #-}
 
 instance FromXML ImportKeyPairResponse where

@@ -56,6 +56,7 @@ describeTags = DescribeTags
     , _dtuMaxRecords = Nothing
     , _dtuNextToken = Nothing
     }
+{-# INLINE describeTags #-}
 
 data DescribeTags = DescribeTags
     { _dtuFilters :: [Filter]
@@ -75,39 +76,24 @@ data DescribeTags = DescribeTags
 -- example, you can filter so that tags are returned according to Auto Scaling
 -- group, the key and value, or whether the new tag will be applied to
 -- instances launched after the tag is created (PropagateAtLaunch).
-dtuFilters
-    :: Functor f
-    => ([Filter]
-    -> f ([Filter]))
-    -> DescribeTags
-    -> f DescribeTags
+dtuFilters :: Lens' DescribeTags ([Filter])
 dtuFilters f x =
-    (\y -> x { _dtuFilters = y })
-       <$> f (_dtuFilters x)
+    f (_dtuFilters x)
+        <&> \y -> x { _dtuFilters = y }
 {-# INLINE dtuFilters #-}
 
 -- | The maximum number of records to return.
-dtuMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeTags
-    -> f DescribeTags
+dtuMaxRecords :: Lens' DescribeTags (Maybe Integer)
 dtuMaxRecords f x =
-    (\y -> x { _dtuMaxRecords = y })
-       <$> f (_dtuMaxRecords x)
+    f (_dtuMaxRecords x)
+        <&> \y -> x { _dtuMaxRecords = y }
 {-# INLINE dtuMaxRecords #-}
 
 -- | A string that marks the start of the next batch of returned results.
-dtuNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTags
-    -> f DescribeTags
+dtuNextToken :: Lens' DescribeTags (Maybe Text)
 dtuNextToken f x =
-    (\y -> x { _dtuNextToken = y })
-       <$> f (_dtuNextToken x)
+    f (_dtuNextToken x)
+        <&> \y -> x { _dtuNextToken = y }
 {-# INLINE dtuNextToken #-}
 
 instance ToQuery DescribeTags where
@@ -122,27 +108,17 @@ data DescribeTagsResponse = DescribeTagsResponse
     } deriving (Show, Generic)
 
 -- | The list of tags.
-ttkTags
-    :: Functor f
-    => ([TagDescription]
-    -> f ([TagDescription]))
-    -> DescribeTagsResponse
-    -> f DescribeTagsResponse
+ttkTags :: Lens' DescribeTagsResponse ([TagDescription])
 ttkTags f x =
-    (\y -> x { _ttkTags = y })
-       <$> f (_ttkTags x)
+    f (_ttkTags x)
+        <&> \y -> x { _ttkTags = y }
 {-# INLINE ttkTags #-}
 
 -- | A string used to mark the start of the next batch of returned results.
-ttkNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeTagsResponse
-    -> f DescribeTagsResponse
+ttkNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 ttkNextToken f x =
-    (\y -> x { _ttkNextToken = y })
-       <$> f (_ttkNextToken x)
+    f (_ttkNextToken x)
+        <&> \y -> x { _ttkNextToken = y }
 {-# INLINE ttkNextToken #-}
 
 instance FromXML DescribeTagsResponse where

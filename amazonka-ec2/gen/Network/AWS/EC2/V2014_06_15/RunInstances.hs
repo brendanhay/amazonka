@@ -260,9 +260,10 @@ data RunInstances = RunInstances
 -- number you're allowed for the specified instance type. For more information
 -- about the default limits, and how to request an increase, see How many
 -- instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
-rixMinCount :: Lens' RunInstances Integer
+rixMinCount :: Lens' RunInstances (Integer)
 rixMinCount f x =
-    f (_rixMinCount x) <&> \y -> x { _rixMinCount = y }
+    f (_rixMinCount x)
+        <&> \y -> x { _rixMinCount = y }
 {-# INLINE rixMinCount #-}
 
 -- | The maximum number of instances to launch. If you specify more instances
@@ -272,21 +273,24 @@ rixMinCount f x =
 -- specified instance type. For more information about the default limits, and
 -- how to request an increase, see How many instances can I run in Amazon EC2
 -- in the Amazon EC2 General FAQ.
-rixMaxCount :: Lens' RunInstances Integer
+rixMaxCount :: Lens' RunInstances (Integer)
 rixMaxCount f x =
-    f (_rixMaxCount x) <&> \y -> x { _rixMaxCount = y }
+    f (_rixMaxCount x)
+        <&> \y -> x { _rixMaxCount = y }
 {-# INLINE rixMaxCount #-}
 
 -- | The ID of the AMI, which you can get by calling DescribeImages.
-rixImageId :: Lens' RunInstances Text
+rixImageId :: Lens' RunInstances (Text)
 rixImageId f x =
-    f (_rixImageId x) <&> \y -> x { _rixImageId = y }
+    f (_rixImageId x)
+        <&> \y -> x { _rixImageId = y }
 {-# INLINE rixImageId #-}
 
 -- | The block device mapping.
-rixBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+rixBlockDeviceMappings :: Lens' RunInstances ([BlockDeviceMapping])
 rixBlockDeviceMappings f x =
-    f (_rixBlockDeviceMappings x) <&> \y -> x { _rixBlockDeviceMappings = y }
+    f (_rixBlockDeviceMappings x)
+        <&> \y -> x { _rixBlockDeviceMappings = y }
 {-# INLINE rixBlockDeviceMappings #-}
 
 -- | If you set this parameter to true, you can't terminate the instance using
@@ -298,7 +302,8 @@ rixBlockDeviceMappings f x =
 -- instance by running the shutdown command from the instance. Default: false.
 rixDisableApiTermination :: Lens' RunInstances (Maybe Bool)
 rixDisableApiTermination f x =
-    f (_rixDisableApiTermination x) <&> \y -> x { _rixDisableApiTermination = y }
+    f (_rixDisableApiTermination x)
+        <&> \y -> x { _rixDisableApiTermination = y }
 {-# INLINE rixDisableApiTermination #-}
 
 -- | Indicates whether the instance is optimized for EBS I/O. This optimization
@@ -308,53 +313,61 @@ rixDisableApiTermination f x =
 -- when using an EBS-optimized instance. Default: false.
 rixEbsOptimized :: Lens' RunInstances (Maybe Bool)
 rixEbsOptimized f x =
-    f (_rixEbsOptimized x) <&> \y -> x { _rixEbsOptimized = y }
+    f (_rixEbsOptimized x)
+        <&> \y -> x { _rixEbsOptimized = y }
 {-# INLINE rixEbsOptimized #-}
 
 -- | The IAM instance profile.
 rixIamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecification)
 rixIamInstanceProfile f x =
-    f (_rixIamInstanceProfile x) <&> \y -> x { _rixIamInstanceProfile = y }
+    f (_rixIamInstanceProfile x)
+        <&> \y -> x { _rixIamInstanceProfile = y }
 {-# INLINE rixIamInstanceProfile #-}
 
 -- | One or more network interfaces.
-rixNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+rixNetworkInterfaces :: Lens' RunInstances ([InstanceNetworkInterfaceSpecification])
 rixNetworkInterfaces f x =
-    f (_rixNetworkInterfaces x) <&> \y -> x { _rixNetworkInterfaces = y }
+    f (_rixNetworkInterfaces x)
+        <&> \y -> x { _rixNetworkInterfaces = y }
 {-# INLINE rixNetworkInterfaces #-}
 
 -- | The instance type. For more information, see Instance Types in the Amazon
 -- Elastic Compute Cloud User Guide. Default: m1.small.
 rixInstanceType :: Lens' RunInstances (Maybe InstanceType)
 rixInstanceType f x =
-    f (_rixInstanceType x) <&> \y -> x { _rixInstanceType = y }
+    f (_rixInstanceType x)
+        <&> \y -> x { _rixInstanceType = y }
 {-# INLINE rixInstanceType #-}
 
 -- | The placement for the instance.
 rixPlacement :: Lens' RunInstances (Maybe Placement)
 rixPlacement f x =
-    f (_rixPlacement x) <&> \y -> x { _rixPlacement = y }
+    f (_rixPlacement x)
+        <&> \y -> x { _rixPlacement = y }
 {-# INLINE rixPlacement #-}
 
 -- | The monitoring for the instance.
 rixMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
 rixMonitoring f x =
-    f (_rixMonitoring x) <&> \y -> x { _rixMonitoring = y }
+    f (_rixMonitoring x)
+        <&> \y -> x { _rixMonitoring = y }
 {-# INLINE rixMonitoring #-}
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup. Default: Amazon EC2 uses the default security group.
-rixSecurityGroupIds :: Lens' RunInstances [Text]
+rixSecurityGroupIds :: Lens' RunInstances ([Text])
 rixSecurityGroupIds f x =
-    f (_rixSecurityGroupIds x) <&> \y -> x { _rixSecurityGroupIds = y }
+    f (_rixSecurityGroupIds x)
+        <&> \y -> x { _rixSecurityGroupIds = y }
 {-# INLINE rixSecurityGroupIds #-}
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead. Default: Amazon
 -- EC2 uses the default security group.
-rixSecurityGroups :: Lens' RunInstances [Text]
+rixSecurityGroups :: Lens' RunInstances ([Text])
 rixSecurityGroups f x =
-    f (_rixSecurityGroups x) <&> \y -> x { _rixSecurityGroups = y }
+    f (_rixSecurityGroups x)
+        <&> \y -> x { _rixSecurityGroups = y }
 {-# INLINE rixSecurityGroups #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate
@@ -362,7 +375,8 @@ rixSecurityGroups f x =
 -- shutdown). Default: stop.
 rixInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
 rixInstanceInitiatedShutdownBehavior f x =
-    f (_rixInstanceInitiatedShutdownBehavior x) <&> \y -> x { _rixInstanceInitiatedShutdownBehavior = y }
+    f (_rixInstanceInitiatedShutdownBehavior x)
+        <&> \y -> x { _rixInstanceInitiatedShutdownBehavior = y }
 {-# INLINE rixInstanceInitiatedShutdownBehavior #-}
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair or
@@ -370,14 +384,16 @@ rixInstanceInitiatedShutdownBehavior f x =
 -- can't connect to the instance.
 rixKeyName :: Lens' RunInstances (Maybe Text)
 rixKeyName f x =
-    f (_rixKeyName x) <&> \y -> x { _rixKeyName = y }
+    f (_rixKeyName x)
+        <&> \y -> x { _rixKeyName = y }
 {-# INLINE rixKeyName #-}
 
 -- | The user data for the instances. You can specify the user data as a string,
 -- or if the user data contents are in a file, you can use file://filename.
 rixUserData :: Lens' RunInstances (Maybe ByteString)
 rixUserData f x =
-    f (_rixUserData x) <&> \y -> x { _rixUserData = y }
+    f (_rixUserData x)
+        <&> \y -> x { _rixUserData = y }
 {-# INLINE rixUserData #-}
 
 -- | The ID of the kernel. We recommend that you use PV-GRUB instead of kernels
@@ -385,19 +401,22 @@ rixUserData f x =
 -- in the Amazon Elastic Compute Cloud User Guide.
 rixKernelId :: Lens' RunInstances (Maybe Text)
 rixKernelId f x =
-    f (_rixKernelId x) <&> \y -> x { _rixKernelId = y }
+    f (_rixKernelId x)
+        <&> \y -> x { _rixKernelId = y }
 {-# INLINE rixKernelId #-}
 
 -- | The ID of the RAM disk.
 rixRamdiskId :: Lens' RunInstances (Maybe Text)
 rixRamdiskId f x =
-    f (_rixRamdiskId x) <&> \y -> x { _rixRamdiskId = y }
+    f (_rixRamdiskId x)
+        <&> \y -> x { _rixRamdiskId = y }
 {-# INLINE rixRamdiskId #-}
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
 rixSubnetId :: Lens' RunInstances (Maybe Text)
 rixSubnetId f x =
-    f (_rixSubnetId x) <&> \y -> x { _rixSubnetId = y }
+    f (_rixSubnetId x)
+        <&> \y -> x { _rixSubnetId = y }
 {-# INLINE rixSubnetId #-}
 
 -- | [EC2-VPC] The primary IP address. You must specify a value from the IP
@@ -408,7 +427,8 @@ rixSubnetId f x =
 -- select an IP address from the IP address range of the subnet.
 rixPrivateIpAddress :: Lens' RunInstances (Maybe Text)
 rixPrivateIpAddress f x =
-    f (_rixPrivateIpAddress x) <&> \y -> x { _rixPrivateIpAddress = y }
+    f (_rixPrivateIpAddress x)
+        <&> \y -> x { _rixPrivateIpAddress = y }
 {-# INLINE rixPrivateIpAddress #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of
@@ -417,13 +437,15 @@ rixPrivateIpAddress f x =
 -- characters.
 rixClientToken :: Lens' RunInstances (Maybe Text)
 rixClientToken f x =
-    f (_rixClientToken x) <&> \y -> x { _rixClientToken = y }
+    f (_rixClientToken x)
+        <&> \y -> x { _rixClientToken = y }
 {-# INLINE rixClientToken #-}
 
 -- | Reserved.
 rixAdditionalInfo :: Lens' RunInstances (Maybe Text)
 rixAdditionalInfo f x =
-    f (_rixAdditionalInfo x) <&> \y -> x { _rixAdditionalInfo = y }
+    f (_rixAdditionalInfo x)
+        <&> \y -> x { _rixAdditionalInfo = y }
 {-# INLINE rixAdditionalInfo #-}
 
 instance ToQuery RunInstances where
@@ -444,34 +466,39 @@ data RunInstancesResponse = RunInstancesResponse
     } deriving (Show, Generic)
 
 -- | One or more security groups.
-ryGroups :: Lens' RunInstancesResponse [GroupIdentifier]
+ryGroups :: Lens' RunInstancesResponse ([GroupIdentifier])
 ryGroups f x =
-    f (_ryGroups x) <&> \y -> x { _ryGroups = y }
+    f (_ryGroups x)
+        <&> \y -> x { _ryGroups = y }
 {-# INLINE ryGroups #-}
 
 -- | One or more instances.
-ryInstances :: Lens' RunInstancesResponse [Instance]
+ryInstances :: Lens' RunInstancesResponse ([Instance])
 ryInstances f x =
-    f (_ryInstances x) <&> \y -> x { _ryInstances = y }
+    f (_ryInstances x)
+        <&> \y -> x { _ryInstances = y }
 {-# INLINE ryInstances #-}
 
 -- | The ID of the reservation.
 ryReservationId :: Lens' RunInstancesResponse (Maybe Text)
 ryReservationId f x =
-    f (_ryReservationId x) <&> \y -> x { _ryReservationId = y }
+    f (_ryReservationId x)
+        <&> \y -> x { _ryReservationId = y }
 {-# INLINE ryReservationId #-}
 
 -- | The ID of the AWS account that owns the reservation.
 ryOwnerId :: Lens' RunInstancesResponse (Maybe Text)
 ryOwnerId f x =
-    f (_ryOwnerId x) <&> \y -> x { _ryOwnerId = y }
+    f (_ryOwnerId x)
+        <&> \y -> x { _ryOwnerId = y }
 {-# INLINE ryOwnerId #-}
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
 ryRequesterId :: Lens' RunInstancesResponse (Maybe Text)
 ryRequesterId f x =
-    f (_ryRequesterId x) <&> \y -> x { _ryRequesterId = y }
+    f (_ryRequesterId x)
+        <&> \y -> x { _ryRequesterId = y }
 {-# INLINE ryRequesterId #-}
 
 instance FromXML RunInstancesResponse where

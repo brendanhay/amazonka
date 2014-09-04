@@ -46,6 +46,7 @@ deleteLifecycleHook p1 p2 = DeleteLifecycleHook
     { _dlhtLifecycleHookName = p1
     , _dlhtAutoScalingGroupName = p2
     }
+{-# INLINE deleteLifecycleHook #-}
 
 data DeleteLifecycleHook = DeleteLifecycleHook
     { _dlhtLifecycleHookName :: Text
@@ -56,27 +57,17 @@ data DeleteLifecycleHook = DeleteLifecycleHook
     } deriving (Show, Generic)
 
 -- | The name of the lifecycle hook.
-dlhtLifecycleHookName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLifecycleHook
-    -> f DeleteLifecycleHook
+dlhtLifecycleHookName :: Lens' DeleteLifecycleHook (Text)
 dlhtLifecycleHookName f x =
-    (\y -> x { _dlhtLifecycleHookName = y })
-       <$> f (_dlhtLifecycleHookName x)
+    f (_dlhtLifecycleHookName x)
+        <&> \y -> x { _dlhtLifecycleHookName = y }
 {-# INLINE dlhtLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
-dlhtAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLifecycleHook
-    -> f DeleteLifecycleHook
+dlhtAutoScalingGroupName :: Lens' DeleteLifecycleHook (Text)
 dlhtAutoScalingGroupName f x =
-    (\y -> x { _dlhtAutoScalingGroupName = y })
-       <$> f (_dlhtAutoScalingGroupName x)
+    f (_dlhtAutoScalingGroupName x)
+        <&> \y -> x { _dlhtAutoScalingGroupName = y }
 {-# INLINE dlhtAutoScalingGroupName #-}
 
 instance ToQuery DeleteLifecycleHook where

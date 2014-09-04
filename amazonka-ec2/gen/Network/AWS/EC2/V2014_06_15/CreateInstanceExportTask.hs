@@ -92,28 +92,32 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-cietrInstanceId :: Lens' CreateInstanceExportTask Text
+cietrInstanceId :: Lens' CreateInstanceExportTask (Text)
 cietrInstanceId f x =
-    f (_cietrInstanceId x) <&> \y -> x { _cietrInstanceId = y }
+    f (_cietrInstanceId x)
+        <&> \y -> x { _cietrInstanceId = y }
 {-# INLINE cietrInstanceId #-}
 
 -- | The target virtualization environment.
 cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
 cietrTargetEnvironment f x =
-    f (_cietrTargetEnvironment x) <&> \y -> x { _cietrTargetEnvironment = y }
+    f (_cietrTargetEnvironment x)
+        <&> \y -> x { _cietrTargetEnvironment = y }
 {-# INLINE cietrTargetEnvironment #-}
 
 -- | 
 cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
 cietrExportToS3Task f x =
-    f (_cietrExportToS3Task x) <&> \y -> x { _cietrExportToS3Task = y }
+    f (_cietrExportToS3Task x)
+        <&> \y -> x { _cietrExportToS3Task = y }
 {-# INLINE cietrExportToS3Task #-}
 
 -- | A description for the conversion task or the resource being exported. The
 -- maximum length is 255 bytes.
 cietrDescription :: Lens' CreateInstanceExportTask (Maybe Text)
 cietrDescription f x =
-    f (_cietrDescription x) <&> \y -> x { _cietrDescription = y }
+    f (_cietrDescription x)
+        <&> \y -> x { _cietrDescription = y }
 {-# INLINE cietrDescription #-}
 
 instance ToQuery CreateInstanceExportTask where
@@ -127,7 +131,8 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 -- | 
 cietsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietsExportTask f x =
-    f (_cietsExportTask x) <&> \y -> x { _cietsExportTask = y }
+    f (_cietsExportTask x)
+        <&> \y -> x { _cietsExportTask = y }
 {-# INLINE cietsExportTask #-}
 
 instance FromXML CreateInstanceExportTaskResponse where

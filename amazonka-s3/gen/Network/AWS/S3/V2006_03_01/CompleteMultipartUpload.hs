@@ -57,6 +57,7 @@ completeMultipartUpload p1 p2 p3 = CompleteMultipartUpload
     , _cmurKey = p3
     , _cmurMultipartUpload = Nothing
     }
+{-# INLINE completeMultipartUpload #-}
 
 data CompleteMultipartUpload = CompleteMultipartUpload
     { _cmurBucket :: BucketName
@@ -65,48 +66,28 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , _cmurMultipartUpload :: Maybe CompletedMultipartUpload
     } deriving (Show, Generic)
 
-cmurBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> CompleteMultipartUpload
-    -> f CompleteMultipartUpload
+cmurBucket :: Lens' CompleteMultipartUpload (BucketName)
 cmurBucket f x =
-    (\y -> x { _cmurBucket = y })
-       <$> f (_cmurBucket x)
+    f (_cmurBucket x)
+        <&> \y -> x { _cmurBucket = y }
 {-# INLINE cmurBucket #-}
 
-cmurUploadId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CompleteMultipartUpload
-    -> f CompleteMultipartUpload
+cmurUploadId :: Lens' CompleteMultipartUpload (Text)
 cmurUploadId f x =
-    (\y -> x { _cmurUploadId = y })
-       <$> f (_cmurUploadId x)
+    f (_cmurUploadId x)
+        <&> \y -> x { _cmurUploadId = y }
 {-# INLINE cmurUploadId #-}
 
-cmurKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> CompleteMultipartUpload
-    -> f CompleteMultipartUpload
+cmurKey :: Lens' CompleteMultipartUpload (ObjectKey)
 cmurKey f x =
-    (\y -> x { _cmurKey = y })
-       <$> f (_cmurKey x)
+    f (_cmurKey x)
+        <&> \y -> x { _cmurKey = y }
 {-# INLINE cmurKey #-}
 
-cmurMultipartUpload
-    :: Functor f
-    => (Maybe CompletedMultipartUpload
-    -> f (Maybe CompletedMultipartUpload))
-    -> CompleteMultipartUpload
-    -> f CompleteMultipartUpload
+cmurMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
 cmurMultipartUpload f x =
-    (\y -> x { _cmurMultipartUpload = y })
-       <$> f (_cmurMultipartUpload x)
+    f (_cmurMultipartUpload x)
+        <&> \y -> x { _cmurMultipartUpload = y }
 {-# INLINE cmurMultipartUpload #-}
 
 instance ToPath CompleteMultipartUpload where
@@ -144,87 +125,52 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
       -- object in S3.
     } deriving (Show, Generic)
 
-cmuoBucket
-    :: Functor f
-    => (Maybe BucketName
-    -> f (Maybe BucketName))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
 cmuoBucket f x =
-    (\y -> x { _cmuoBucket = y })
-       <$> f (_cmuoBucket x)
+    f (_cmuoBucket x)
+        <&> \y -> x { _cmuoBucket = y }
 {-# INLINE cmuoBucket #-}
 
 -- | Entity tag of the object.
-cmuoETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
 cmuoETag f x =
-    (\y -> x { _cmuoETag = y })
-       <$> f (_cmuoETag x)
+    f (_cmuoETag x)
+        <&> \y -> x { _cmuoETag = y }
 {-# INLINE cmuoETag #-}
 
-cmuoLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmuoLocation f x =
-    (\y -> x { _cmuoLocation = y })
-       <$> f (_cmuoLocation x)
+    f (_cmuoLocation x)
+        <&> \y -> x { _cmuoLocation = y }
 {-# INLINE cmuoLocation #-}
 
-cmuoKey
-    :: Functor f
-    => (Maybe ObjectKey
-    -> f (Maybe ObjectKey))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
 cmuoKey f x =
-    (\y -> x { _cmuoKey = y })
-       <$> f (_cmuoKey x)
+    f (_cmuoKey x)
+        <&> \y -> x { _cmuoKey = y }
 {-# INLINE cmuoKey #-}
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-cmuoExpiration
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoExpiration :: Lens' CompleteMultipartUploadResponse (Maybe RFC822)
 cmuoExpiration f x =
-    (\y -> x { _cmuoExpiration = y })
-       <$> f (_cmuoExpiration x)
+    f (_cmuoExpiration x)
+        <&> \y -> x { _cmuoExpiration = y }
 {-# INLINE cmuoExpiration #-}
 
 -- | Version of the object.
-cmuoVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
 cmuoVersionId f x =
-    (\y -> x { _cmuoVersionId = y })
-       <$> f (_cmuoVersionId x)
+    f (_cmuoVersionId x)
+        <&> \y -> x { _cmuoVersionId = y }
 {-# INLINE cmuoVersionId #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cmuoServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> CompleteMultipartUploadResponse
-    -> f CompleteMultipartUploadResponse
+cmuoServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 cmuoServerSideEncryption f x =
-    (\y -> x { _cmuoServerSideEncryption = y })
-       <$> f (_cmuoServerSideEncryption x)
+    f (_cmuoServerSideEncryption x)
+        <&> \y -> x { _cmuoServerSideEncryption = y }
 {-# INLINE cmuoServerSideEncryption #-}
 
 instance AWSRequest CompleteMultipartUpload where

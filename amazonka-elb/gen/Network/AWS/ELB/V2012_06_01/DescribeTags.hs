@@ -47,6 +47,7 @@ describeTags :: [Text] -- ^ 'dtiLoadBalancerNames'
 describeTags p1 = DescribeTags
     { _dtiLoadBalancerNames = p1
     }
+{-# INLINE describeTags #-}
 
 data DescribeTags = DescribeTags
     { _dtiLoadBalancerNames :: [Text]
@@ -54,15 +55,10 @@ data DescribeTags = DescribeTags
     } deriving (Show, Generic)
 
 -- | The names of the load balancers.
-dtiLoadBalancerNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTags
-    -> f DescribeTags
+dtiLoadBalancerNames :: Lens' DescribeTags ([Text])
 dtiLoadBalancerNames f x =
-    (\y -> x { _dtiLoadBalancerNames = y })
-       <$> f (_dtiLoadBalancerNames x)
+    f (_dtiLoadBalancerNames x)
+        <&> \y -> x { _dtiLoadBalancerNames = y }
 {-# INLINE dtiLoadBalancerNames #-}
 
 instance ToQuery DescribeTags where
@@ -74,15 +70,10 @@ data DescribeTagsResponse = DescribeTagsResponse
     } deriving (Show, Generic)
 
 -- | A list of tag description structures.
-dtoTagDescriptions
-    :: Functor f
-    => ([TagDescription]
-    -> f ([TagDescription]))
-    -> DescribeTagsResponse
-    -> f DescribeTagsResponse
+dtoTagDescriptions :: Lens' DescribeTagsResponse ([TagDescription])
 dtoTagDescriptions f x =
-    (\y -> x { _dtoTagDescriptions = y })
-       <$> f (_dtoTagDescriptions x)
+    f (_dtoTagDescriptions x)
+        <&> \y -> x { _dtoTagDescriptions = y }
 {-# INLINE dtoTagDescriptions #-}
 
 instance FromXML DescribeTagsResponse where

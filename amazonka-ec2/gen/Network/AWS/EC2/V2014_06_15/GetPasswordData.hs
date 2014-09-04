@@ -69,9 +69,10 @@ data GetPasswordData = GetPasswordData
     } deriving (Show, Generic)
 
 -- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordData Text
+gpdrInstanceId :: Lens' GetPasswordData (Text)
 gpdrInstanceId f x =
-    f (_gpdrInstanceId x) <&> \y -> x { _gpdrInstanceId = y }
+    f (_gpdrInstanceId x)
+        <&> \y -> x { _gpdrInstanceId = y }
 {-# INLINE gpdrInstanceId #-}
 
 instance ToQuery GetPasswordData where
@@ -89,19 +90,22 @@ data GetPasswordDataResponse = GetPasswordDataResponse
 -- | The time the data was last updated.
 gpdsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
 gpdsTimestamp f x =
-    f (_gpdsTimestamp x) <&> \y -> x { _gpdsTimestamp = y }
+    f (_gpdsTimestamp x)
+        <&> \y -> x { _gpdsTimestamp = y }
 {-# INLINE gpdsTimestamp #-}
 
 -- | The ID of the Windows instance.
 gpdsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdsInstanceId f x =
-    f (_gpdsInstanceId x) <&> \y -> x { _gpdsInstanceId = y }
+    f (_gpdsInstanceId x)
+        <&> \y -> x { _gpdsInstanceId = y }
 {-# INLINE gpdsInstanceId #-}
 
 -- | The password of the instance.
 gpdsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdsPasswordData f x =
-    f (_gpdsPasswordData x) <&> \y -> x { _gpdsPasswordData = y }
+    f (_gpdsPasswordData x)
+        <&> \y -> x { _gpdsPasswordData = y }
 {-# INLINE gpdsPasswordData #-}
 
 instance FromXML GetPasswordDataResponse where

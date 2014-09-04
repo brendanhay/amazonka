@@ -48,6 +48,7 @@ removeTags p1 p2 = RemoveTags
     { _rtiLoadBalancerNames = p1
     , _rtiTags = p2
     }
+{-# INLINE removeTags #-}
 
 data RemoveTags = RemoveTags
     { _rtiLoadBalancerNames :: [Text]
@@ -59,27 +60,17 @@ data RemoveTags = RemoveTags
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
-rtiLoadBalancerNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> RemoveTags
-    -> f RemoveTags
+rtiLoadBalancerNames :: Lens' RemoveTags ([Text])
 rtiLoadBalancerNames f x =
-    (\y -> x { _rtiLoadBalancerNames = y })
-       <$> f (_rtiLoadBalancerNames x)
+    f (_rtiLoadBalancerNames x)
+        <&> \y -> x { _rtiLoadBalancerNames = y }
 {-# INLINE rtiLoadBalancerNames #-}
 
 -- | A list of tag keys to remove.
-rtiTags
-    :: Functor f
-    => ([TagKeyOnly]
-    -> f ([TagKeyOnly]))
-    -> RemoveTags
-    -> f RemoveTags
+rtiTags :: Lens' RemoveTags ([TagKeyOnly])
 rtiTags f x =
-    (\y -> x { _rtiTags = y })
-       <$> f (_rtiTags x)
+    f (_rtiTags x)
+        <&> \y -> x { _rtiTags = y }
 {-# INLINE rtiTags #-}
 
 instance ToQuery RemoveTags where

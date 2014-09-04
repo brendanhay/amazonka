@@ -49,6 +49,7 @@ addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     { _artiprInstanceProfileName = p1
     , _artiprRoleName = p2
     }
+{-# INLINE addRoleToInstanceProfile #-}
 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artiprInstanceProfileName :: Text
@@ -58,27 +59,17 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     } deriving (Show, Generic)
 
 -- | Name of the instance profile to update.
-artiprInstanceProfileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddRoleToInstanceProfile
-    -> f AddRoleToInstanceProfile
+artiprInstanceProfileName :: Lens' AddRoleToInstanceProfile (Text)
 artiprInstanceProfileName f x =
-    (\y -> x { _artiprInstanceProfileName = y })
-       <$> f (_artiprInstanceProfileName x)
+    f (_artiprInstanceProfileName x)
+        <&> \y -> x { _artiprInstanceProfileName = y }
 {-# INLINE artiprInstanceProfileName #-}
 
 -- | Name of the role to add.
-artiprRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddRoleToInstanceProfile
-    -> f AddRoleToInstanceProfile
+artiprRoleName :: Lens' AddRoleToInstanceProfile (Text)
 artiprRoleName f x =
-    (\y -> x { _artiprRoleName = y })
-       <$> f (_artiprRoleName x)
+    f (_artiprRoleName x)
+        <&> \y -> x { _artiprRoleName = y }
 {-# INLINE artiprRoleName #-}
 
 instance ToQuery AddRoleToInstanceProfile where

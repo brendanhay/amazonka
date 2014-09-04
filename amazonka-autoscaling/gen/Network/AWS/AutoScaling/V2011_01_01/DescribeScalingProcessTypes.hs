@@ -42,6 +42,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeScalingProcessTypes' request.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
+{-# INLINE describeScalingProcessTypes #-}
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
     deriving (Eq, Show, Generic)
@@ -55,15 +56,10 @@ data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     } deriving (Show, Generic)
 
 -- | A list of ProcessType names.
-puProcesses
-    :: Functor f
-    => ([ProcessType]
-    -> f ([ProcessType]))
-    -> DescribeScalingProcessTypesResponse
-    -> f DescribeScalingProcessTypesResponse
+puProcesses :: Lens' DescribeScalingProcessTypesResponse ([ProcessType])
 puProcesses f x =
-    (\y -> x { _puProcesses = y })
-       <$> f (_puProcesses x)
+    f (_puProcesses x)
+        <&> \y -> x { _puProcesses = y }
 {-# INLINE puProcesses #-}
 
 instance FromXML DescribeScalingProcessTypesResponse where

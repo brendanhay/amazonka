@@ -64,15 +64,17 @@ data AttachInternetGateway = AttachInternetGateway
     } deriving (Show, Generic)
 
 -- | The ID of the Internet gateway.
-aigrInternetGatewayId :: Lens' AttachInternetGateway Text
+aigrInternetGatewayId :: Lens' AttachInternetGateway (Text)
 aigrInternetGatewayId f x =
-    f (_aigrInternetGatewayId x) <&> \y -> x { _aigrInternetGatewayId = y }
+    f (_aigrInternetGatewayId x)
+        <&> \y -> x { _aigrInternetGatewayId = y }
 {-# INLINE aigrInternetGatewayId #-}
 
 -- | The ID of the VPC.
-aigrVpcId :: Lens' AttachInternetGateway Text
+aigrVpcId :: Lens' AttachInternetGateway (Text)
 aigrVpcId f x =
-    f (_aigrVpcId x) <&> \y -> x { _aigrVpcId = y }
+    f (_aigrVpcId x)
+        <&> \y -> x { _aigrVpcId = y }
 {-# INLINE aigrVpcId #-}
 
 instance ToQuery AttachInternetGateway where

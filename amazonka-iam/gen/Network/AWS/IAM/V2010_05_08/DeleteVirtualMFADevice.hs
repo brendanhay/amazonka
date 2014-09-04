@@ -47,6 +47,7 @@ deleteVirtualMFADevice :: Text -- ^ 'dvmfadrSerialNumber'
 deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
     { _dvmfadrSerialNumber = p1
     }
+{-# INLINE deleteVirtualMFADevice #-}
 
 data DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadrSerialNumber :: Text
@@ -56,15 +57,10 @@ data DeleteVirtualMFADevice = DeleteVirtualMFADevice
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the same as the ARN.
-dvmfadrSerialNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteVirtualMFADevice
-    -> f DeleteVirtualMFADevice
+dvmfadrSerialNumber :: Lens' DeleteVirtualMFADevice (Text)
 dvmfadrSerialNumber f x =
-    (\y -> x { _dvmfadrSerialNumber = y })
-       <$> f (_dvmfadrSerialNumber x)
+    f (_dvmfadrSerialNumber x)
+        <&> \y -> x { _dvmfadrSerialNumber = y }
 {-# INLINE dvmfadrSerialNumber #-}
 
 instance ToQuery DeleteVirtualMFADevice where

@@ -43,20 +43,16 @@ getBucketLifecycle :: BucketName -- ^ 'gblrBucket'
 getBucketLifecycle p1 = GetBucketLifecycle
     { _gblrBucket = p1
     }
+{-# INLINE getBucketLifecycle #-}
 
 data GetBucketLifecycle = GetBucketLifecycle
     { _gblrBucket :: BucketName
     } deriving (Show, Generic)
 
-gblrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketLifecycle
-    -> f GetBucketLifecycle
+gblrBucket :: Lens' GetBucketLifecycle (BucketName)
 gblrBucket f x =
-    (\y -> x { _gblrBucket = y })
-       <$> f (_gblrBucket x)
+    f (_gblrBucket x)
+        <&> \y -> x { _gblrBucket = y }
 {-# INLINE gblrBucket #-}
 
 instance ToPath GetBucketLifecycle where
@@ -78,15 +74,10 @@ data GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gbloRules :: [Rule]
     } deriving (Show, Generic)
 
-gbloRules
-    :: Functor f
-    => ([Rule]
-    -> f ([Rule]))
-    -> GetBucketLifecycleResponse
-    -> f GetBucketLifecycleResponse
+gbloRules :: Lens' GetBucketLifecycleResponse ([Rule])
 gbloRules f x =
-    (\y -> x { _gbloRules = y })
-       <$> f (_gbloRules x)
+    f (_gbloRules x)
+        <&> \y -> x { _gbloRules = y }
 {-# INLINE gbloRules #-}
 
 instance FromXML GetBucketLifecycleResponse where

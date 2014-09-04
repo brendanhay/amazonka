@@ -37,6 +37,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeLifecycleHookTypes' request.
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
+{-# INLINE describeLifecycleHookTypes #-}
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
     deriving (Eq, Show, Generic)
@@ -54,15 +55,10 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCHING
 -- autoscaling:EC2_INSTANCE_TERMINATING.
-dlhtaLifecycleHookTypes
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLifecycleHookTypesResponse
-    -> f DescribeLifecycleHookTypesResponse
+dlhtaLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse ([Text])
 dlhtaLifecycleHookTypes f x =
-    (\y -> x { _dlhtaLifecycleHookTypes = y })
-       <$> f (_dlhtaLifecycleHookTypes x)
+    f (_dlhtaLifecycleHookTypes x)
+        <&> \y -> x { _dlhtaLifecycleHookTypes = y }
 {-# INLINE dlhtaLifecycleHookTypes #-}
 
 instance FromXML DescribeLifecycleHookTypesResponse where

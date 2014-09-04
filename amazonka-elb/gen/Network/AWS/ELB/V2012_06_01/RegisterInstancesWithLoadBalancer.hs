@@ -70,6 +70,7 @@ registerInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
     { _repiLoadBalancerName = p1
     , _repiInstances = p2
     }
+{-# INLINE registerInstancesWithLoadBalancer #-}
 
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { _repiLoadBalancerName :: Text
@@ -82,27 +83,17 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers.
-repiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RegisterInstancesWithLoadBalancer
-    -> f RegisterInstancesWithLoadBalancer
+repiLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer (Text)
 repiLoadBalancerName f x =
-    (\y -> x { _repiLoadBalancerName = y })
-       <$> f (_repiLoadBalancerName x)
+    f (_repiLoadBalancerName x)
+        <&> \y -> x { _repiLoadBalancerName = y }
 {-# INLINE repiLoadBalancerName #-}
 
 -- | A list of instance IDs that should be registered with the load balancer.
-repiInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> RegisterInstancesWithLoadBalancer
-    -> f RegisterInstancesWithLoadBalancer
+repiInstances :: Lens' RegisterInstancesWithLoadBalancer ([Instance])
 repiInstances f x =
-    (\y -> x { _repiInstances = y })
-       <$> f (_repiInstances x)
+    f (_repiInstances x)
+        <&> \y -> x { _repiInstances = y }
 {-# INLINE repiInstances #-}
 
 instance ToQuery RegisterInstancesWithLoadBalancer where
@@ -114,15 +105,10 @@ data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalanc
     } deriving (Show, Generic)
 
 -- | An updated list of instances for the load balancer.
-repoInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> RegisterInstancesWithLoadBalancerResponse
-    -> f RegisterInstancesWithLoadBalancerResponse
+repoInstances :: Lens' RegisterInstancesWithLoadBalancerResponse ([Instance])
 repoInstances f x =
-    (\y -> x { _repoInstances = y })
-       <$> f (_repoInstances x)
+    f (_repoInstances x)
+        <&> \y -> x { _repoInstances = y }
 {-# INLINE repoInstances #-}
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where

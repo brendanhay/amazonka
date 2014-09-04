@@ -70,15 +70,17 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     } deriving (Show, Generic)
 
 -- | The ID of the VPN connection.
-cvcrrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
+cvcrrVpnConnectionId :: Lens' CreateVpnConnectionRoute (Text)
 cvcrrVpnConnectionId f x =
-    f (_cvcrrVpnConnectionId x) <&> \y -> x { _cvcrrVpnConnectionId = y }
+    f (_cvcrrVpnConnectionId x)
+        <&> \y -> x { _cvcrrVpnConnectionId = y }
 {-# INLINE cvcrrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
-cvcrrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute Text
+cvcrrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute (Text)
 cvcrrDestinationCidrBlock f x =
-    f (_cvcrrDestinationCidrBlock x) <&> \y -> x { _cvcrrDestinationCidrBlock = y }
+    f (_cvcrrDestinationCidrBlock x)
+        <&> \y -> x { _cvcrrDestinationCidrBlock = y }
 {-# INLINE cvcrrDestinationCidrBlock #-}
 
 instance ToQuery CreateVpnConnectionRoute where

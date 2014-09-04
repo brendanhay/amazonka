@@ -47,6 +47,7 @@ deleteRole :: Text -- ^ 'drrRoleName'
 deleteRole p1 = DeleteRole
     { _drrRoleName = p1
     }
+{-# INLINE deleteRole #-}
 
 data DeleteRole = DeleteRole
     { _drrRoleName :: Text
@@ -54,15 +55,10 @@ data DeleteRole = DeleteRole
     } deriving (Show, Generic)
 
 -- | Name of the role to delete.
-drrRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteRole
-    -> f DeleteRole
+drrRoleName :: Lens' DeleteRole (Text)
 drrRoleName f x =
-    (\y -> x { _drrRoleName = y })
-       <$> f (_drrRoleName x)
+    f (_drrRoleName x)
+        <&> \y -> x { _drrRoleName = y }
 {-# INLINE drrRoleName #-}
 
 instance ToQuery DeleteRole where

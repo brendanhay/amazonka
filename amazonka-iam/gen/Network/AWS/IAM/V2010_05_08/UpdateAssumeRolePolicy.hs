@@ -49,6 +49,7 @@ updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
     { _uarprPolicyDocument = p1
     , _uarprRoleName = p2
     }
+{-# INLINE updateAssumeRolePolicy #-}
 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarprPolicyDocument :: Text
@@ -58,27 +59,17 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     } deriving (Show, Generic)
 
 -- | The policy that grants an entity permission to assume the role.
-uarprPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateAssumeRolePolicy
-    -> f UpdateAssumeRolePolicy
+uarprPolicyDocument :: Lens' UpdateAssumeRolePolicy (Text)
 uarprPolicyDocument f x =
-    (\y -> x { _uarprPolicyDocument = y })
-       <$> f (_uarprPolicyDocument x)
+    f (_uarprPolicyDocument x)
+        <&> \y -> x { _uarprPolicyDocument = y }
 {-# INLINE uarprPolicyDocument #-}
 
 -- | Name of the role to update.
-uarprRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateAssumeRolePolicy
-    -> f UpdateAssumeRolePolicy
+uarprRoleName :: Lens' UpdateAssumeRolePolicy (Text)
 uarprRoleName f x =
-    (\y -> x { _uarprRoleName = y })
-       <$> f (_uarprRoleName x)
+    f (_uarprRoleName x)
+        <&> \y -> x { _uarprRoleName = y }
 {-# INLINE uarprRoleName #-}
 
 instance ToQuery UpdateAssumeRolePolicy where

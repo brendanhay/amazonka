@@ -41,6 +41,7 @@ deleteTags :: [Tag] -- ^ 'dttTags'
 deleteTags p1 = DeleteTags
     { _dttTags = p1
     }
+{-# INLINE deleteTags #-}
 
 data DeleteTags = DeleteTags
     { _dttTags :: [Tag]
@@ -54,15 +55,10 @@ data DeleteTags = DeleteTags
 -- and a propagate flag. Valid values are: Resource type = auto-scaling-group,
 -- Resource ID = AutoScalingGroupName, key=value, value=value, propagate=true
 -- or false.
-dttTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> DeleteTags
-    -> f DeleteTags
+dttTags :: Lens' DeleteTags ([Tag])
 dttTags f x =
-    (\y -> x { _dttTags = y })
-       <$> f (_dttTags x)
+    f (_dttTags x)
+        <&> \y -> x { _dttTags = y }
 {-# INLINE dttTags #-}
 
 instance ToQuery DeleteTags where

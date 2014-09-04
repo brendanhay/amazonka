@@ -53,6 +53,7 @@ configureHealthCheck p1 p2 = ConfigureHealthCheck
     { _chciLoadBalancerName = p1
     , _chciHealthCheck = p2
     }
+{-# INLINE configureHealthCheck #-}
 
 data ConfigureHealthCheck = ConfigureHealthCheck
     { _chciLoadBalancerName :: Text
@@ -66,28 +67,18 @@ data ConfigureHealthCheck = ConfigureHealthCheck
 
 -- | The mnemonic name associated with the load balancer. The name must be
 -- unique within the set of load balancers associated with your AWS account.
-chciLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ConfigureHealthCheck
-    -> f ConfigureHealthCheck
+chciLoadBalancerName :: Lens' ConfigureHealthCheck (Text)
 chciLoadBalancerName f x =
-    (\y -> x { _chciLoadBalancerName = y })
-       <$> f (_chciLoadBalancerName x)
+    f (_chciLoadBalancerName x)
+        <&> \y -> x { _chciLoadBalancerName = y }
 {-# INLINE chciLoadBalancerName #-}
 
 -- | A structure containing the configuration information for the new
 -- healthcheck.
-chciHealthCheck
-    :: Functor f
-    => (HealthCheck
-    -> f (HealthCheck))
-    -> ConfigureHealthCheck
-    -> f ConfigureHealthCheck
+chciHealthCheck :: Lens' ConfigureHealthCheck (HealthCheck)
 chciHealthCheck f x =
-    (\y -> x { _chciHealthCheck = y })
-       <$> f (_chciHealthCheck x)
+    f (_chciHealthCheck x)
+        <&> \y -> x { _chciHealthCheck = y }
 {-# INLINE chciHealthCheck #-}
 
 instance ToQuery ConfigureHealthCheck where
@@ -99,15 +90,10 @@ data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     } deriving (Show, Generic)
 
 -- | The updated healthcheck for the instances.
-chcoHealthCheck
-    :: Functor f
-    => (Maybe HealthCheck
-    -> f (Maybe HealthCheck))
-    -> ConfigureHealthCheckResponse
-    -> f ConfigureHealthCheckResponse
+chcoHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcoHealthCheck f x =
-    (\y -> x { _chcoHealthCheck = y })
-       <$> f (_chcoHealthCheck x)
+    f (_chcoHealthCheck x)
+        <&> \y -> x { _chcoHealthCheck = y }
 {-# INLINE chcoHealthCheck #-}
 
 instance FromXML ConfigureHealthCheckResponse where

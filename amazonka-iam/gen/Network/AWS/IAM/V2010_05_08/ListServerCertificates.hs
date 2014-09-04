@@ -61,6 +61,7 @@ listServerCertificates = ListServerCertificates
     , _lscrMaxItems = Nothing
     , _lscrPathPrefix = Nothing
     }
+{-# INLINE listServerCertificates #-}
 
 data ListServerCertificates = ListServerCertificates
     { _lscrMarker :: Maybe Text
@@ -86,15 +87,10 @@ data ListServerCertificates = ListServerCertificates
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-lscrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListServerCertificates
-    -> f ListServerCertificates
+lscrMarker :: Lens' ListServerCertificates (Maybe Text)
 lscrMarker f x =
-    (\y -> x { _lscrMarker = y })
-       <$> f (_lscrMarker x)
+    f (_lscrMarker x)
+        <&> \y -> x { _lscrMarker = y }
 {-# INLINE lscrMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -102,30 +98,20 @@ lscrMarker f x =
 -- server certificates beyond the maximum you specify, the IsTruncated
 -- response element will be set to true. This parameter is optional. If you do
 -- not include it, it defaults to 100.
-lscrMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListServerCertificates
-    -> f ListServerCertificates
+lscrMaxItems :: Lens' ListServerCertificates (Maybe Integer)
 lscrMaxItems f x =
-    (\y -> x { _lscrMaxItems = y })
-       <$> f (_lscrMaxItems x)
+    f (_lscrMaxItems x)
+        <&> \y -> x { _lscrMaxItems = y }
 {-# INLINE lscrMaxItems #-}
 
 -- | The path prefix for filtering the results. For example:
 -- /company/servercerts would get all server certificates for which the path
 -- starts with /company/servercerts. This parameter is optional. If it is not
 -- included, it defaults to a slash (/), listing all server certificates.
-lscrPathPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListServerCertificates
-    -> f ListServerCertificates
+lscrPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscrPathPrefix f x =
-    (\y -> x { _lscrPathPrefix = y })
-       <$> f (_lscrPathPrefix x)
+    f (_lscrPathPrefix x)
+        <&> \y -> x { _lscrPathPrefix = y }
 {-# INLINE lscrPathPrefix #-}
 
 instance ToQuery ListServerCertificates where
@@ -149,40 +135,25 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
 -- If your results were truncated, you can make a subsequent pagination
 -- request using the Marker request parameter to retrieve more server
 -- certificates in the list.
-lscsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListServerCertificatesResponse
-    -> f ListServerCertificatesResponse
+lscsIsTruncated :: Lens' ListServerCertificatesResponse (Bool)
 lscsIsTruncated f x =
-    (\y -> x { _lscsIsTruncated = y })
-       <$> f (_lscsIsTruncated x)
+    f (_lscsIsTruncated x)
+        <&> \y -> x { _lscsIsTruncated = y }
 {-# INLINE lscsIsTruncated #-}
 
 -- | A list of server certificates.
-lscsServerCertificateMetadataList
-    :: Functor f
-    => ([ServerCertificateMetadata]
-    -> f ([ServerCertificateMetadata]))
-    -> ListServerCertificatesResponse
-    -> f ListServerCertificatesResponse
+lscsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse ([ServerCertificateMetadata])
 lscsServerCertificateMetadataList f x =
-    (\y -> x { _lscsServerCertificateMetadataList = y })
-       <$> f (_lscsServerCertificateMetadataList x)
+    f (_lscsServerCertificateMetadataList x)
+        <&> \y -> x { _lscsServerCertificateMetadataList = y }
 {-# INLINE lscsServerCertificateMetadataList #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lscsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListServerCertificatesResponse
-    -> f ListServerCertificatesResponse
+lscsMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
 lscsMarker f x =
-    (\y -> x { _lscsMarker = y })
-       <$> f (_lscsMarker x)
+    f (_lscsMarker x)
+        <&> \y -> x { _lscsMarker = y }
 {-# INLINE lscsMarker #-}
 
 instance FromXML ListServerCertificatesResponse where

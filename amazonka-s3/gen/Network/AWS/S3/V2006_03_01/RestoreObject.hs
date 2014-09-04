@@ -50,6 +50,7 @@ restoreObject p1 p2 = RestoreObject
     , _rorRestoreRequest = Nothing
     , _rorVersionId = Nothing
     }
+{-# INLINE restoreObject #-}
 
 data RestoreObject = RestoreObject
     { _rorBucket :: BucketName
@@ -58,48 +59,28 @@ data RestoreObject = RestoreObject
     , _rorVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
-rorBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> RestoreObject
-    -> f RestoreObject
+rorBucket :: Lens' RestoreObject (BucketName)
 rorBucket f x =
-    (\y -> x { _rorBucket = y })
-       <$> f (_rorBucket x)
+    f (_rorBucket x)
+        <&> \y -> x { _rorBucket = y }
 {-# INLINE rorBucket #-}
 
-rorKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> RestoreObject
-    -> f RestoreObject
+rorKey :: Lens' RestoreObject (ObjectKey)
 rorKey f x =
-    (\y -> x { _rorKey = y })
-       <$> f (_rorKey x)
+    f (_rorKey x)
+        <&> \y -> x { _rorKey = y }
 {-# INLINE rorKey #-}
 
-rorRestoreRequest
-    :: Functor f
-    => (Maybe RestoreRequest
-    -> f (Maybe RestoreRequest))
-    -> RestoreObject
-    -> f RestoreObject
+rorRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 rorRestoreRequest f x =
-    (\y -> x { _rorRestoreRequest = y })
-       <$> f (_rorRestoreRequest x)
+    f (_rorRestoreRequest x)
+        <&> \y -> x { _rorRestoreRequest = y }
 {-# INLINE rorRestoreRequest #-}
 
-rorVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> RestoreObject
-    -> f RestoreObject
+rorVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
 rorVersionId f x =
-    (\y -> x { _rorVersionId = y })
-       <$> f (_rorVersionId x)
+    f (_rorVersionId x)
+        <&> \y -> x { _rorVersionId = y }
 {-# INLINE rorVersionId #-}
 
 instance ToPath RestoreObject where

@@ -41,6 +41,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeTerminationPolicyTypes' request.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
+{-# INLINE describeTerminationPolicyTypes #-}
 
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
     deriving (Eq, Show, Generic)
@@ -58,15 +59,10 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 -- | Termination policies supported by Auto Scaling. They are: OldestInstance,
 -- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,
 -- Default.
-dtptaTerminationPolicyTypes
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeTerminationPolicyTypesResponse
-    -> f DescribeTerminationPolicyTypesResponse
+dtptaTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse ([Text])
 dtptaTerminationPolicyTypes f x =
-    (\y -> x { _dtptaTerminationPolicyTypes = y })
-       <$> f (_dtptaTerminationPolicyTypes x)
+    f (_dtptaTerminationPolicyTypes x)
+        <&> \y -> x { _dtptaTerminationPolicyTypes = y }
 {-# INLINE dtptaTerminationPolicyTypes #-}
 
 instance FromXML DescribeTerminationPolicyTypesResponse where

@@ -85,6 +85,7 @@ headObject p1 p2 = HeadObject
     , _horSSECustomerKeyMD5 = Nothing
     , _horVersionId = Nothing
     }
+{-# INLINE headObject #-}
 
 data HeadObject = HeadObject
     { _horBucket :: BucketName
@@ -124,105 +125,65 @@ data HeadObject = HeadObject
       -- ^ VersionId used to reference a specific version of the object.
     } deriving (Show, Generic)
 
-horBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> HeadObject
-    -> f HeadObject
+horBucket :: Lens' HeadObject (BucketName)
 horBucket f x =
-    (\y -> x { _horBucket = y })
-       <$> f (_horBucket x)
+    f (_horBucket x)
+        <&> \y -> x { _horBucket = y }
 {-# INLINE horBucket #-}
 
-horKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> HeadObject
-    -> f HeadObject
+horKey :: Lens' HeadObject (ObjectKey)
 horKey f x =
-    (\y -> x { _horKey = y })
-       <$> f (_horKey x)
+    f (_horKey x)
+        <&> \y -> x { _horKey = y }
 {-# INLINE horKey #-}
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-horIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObject
-    -> f HeadObject
+horIfMatch :: Lens' HeadObject (Maybe Text)
 horIfMatch f x =
-    (\y -> x { _horIfMatch = y })
-       <$> f (_horIfMatch x)
+    f (_horIfMatch x)
+        <&> \y -> x { _horIfMatch = y }
 {-# INLINE horIfMatch #-}
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-horIfModifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> HeadObject
-    -> f HeadObject
+horIfModifiedSince :: Lens' HeadObject (Maybe RFC822)
 horIfModifiedSince f x =
-    (\y -> x { _horIfModifiedSince = y })
-       <$> f (_horIfModifiedSince x)
+    f (_horIfModifiedSince x)
+        <&> \y -> x { _horIfModifiedSince = y }
 {-# INLINE horIfModifiedSince #-}
 
 -- | Return the object only if its entity tag (ETag) is different from the one
 -- specified, otherwise return a 304 (not modified).
-horIfNoneMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObject
-    -> f HeadObject
+horIfNoneMatch :: Lens' HeadObject (Maybe Text)
 horIfNoneMatch f x =
-    (\y -> x { _horIfNoneMatch = y })
-       <$> f (_horIfNoneMatch x)
+    f (_horIfNoneMatch x)
+        <&> \y -> x { _horIfNoneMatch = y }
 {-# INLINE horIfNoneMatch #-}
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-horIfUnmodifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> HeadObject
-    -> f HeadObject
+horIfUnmodifiedSince :: Lens' HeadObject (Maybe RFC822)
 horIfUnmodifiedSince f x =
-    (\y -> x { _horIfUnmodifiedSince = y })
-       <$> f (_horIfUnmodifiedSince x)
+    f (_horIfUnmodifiedSince x)
+        <&> \y -> x { _horIfUnmodifiedSince = y }
 {-# INLINE horIfUnmodifiedSince #-}
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, go to
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-horRange
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObject
-    -> f HeadObject
+horRange :: Lens' HeadObject (Maybe Text)
 horRange f x =
-    (\y -> x { _horRange = y })
-       <$> f (_horRange x)
+    f (_horRange x)
+        <&> \y -> x { _horRange = y }
 {-# INLINE horRange #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-horSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObject
-    -> f HeadObject
+horSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
 horSSECustomerAlgorithm f x =
-    (\y -> x { _horSSECustomerAlgorithm = y })
-       <$> f (_horSSECustomerAlgorithm x)
+    f (_horSSECustomerAlgorithm x)
+        <&> \y -> x { _horSSECustomerAlgorithm = y }
 {-# INLINE horSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -230,41 +191,26 @@ horSSECustomerAlgorithm f x =
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-horSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObject
-    -> f HeadObject
+horSSECustomerKey :: Lens' HeadObject (Maybe Text)
 horSSECustomerKey f x =
-    (\y -> x { _horSSECustomerKey = y })
-       <$> f (_horSSECustomerKey x)
+    f (_horSSECustomerKey x)
+        <&> \y -> x { _horSSECustomerKey = y }
 {-# INLINE horSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-horSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObject
-    -> f HeadObject
+horSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
 horSSECustomerKeyMD5 f x =
-    (\y -> x { _horSSECustomerKeyMD5 = y })
-       <$> f (_horSSECustomerKeyMD5 x)
+    f (_horSSECustomerKeyMD5 x)
+        <&> \y -> x { _horSSECustomerKeyMD5 = y }
 {-# INLINE horSSECustomerKeyMD5 #-}
 
 -- | VersionId used to reference a specific version of the object.
-horVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> HeadObject
-    -> f HeadObject
+horVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
 horVersionId f x =
-    (\y -> x { _horVersionId = y })
-       <$> f (_horVersionId x)
+    f (_horVersionId x)
+        <&> \y -> x { _horVersionId = y }
 {-# INLINE horVersionId #-}
 
 instance ToPath HeadObject where
@@ -358,261 +304,161 @@ data HeadObjectResponse = HeadObjectResponse
       -- object metadata.
     } deriving (Show, Generic)
 
-hooAcceptRanges
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
 hooAcceptRanges f x =
-    (\y -> x { _hooAcceptRanges = y })
-       <$> f (_hooAcceptRanges x)
+    f (_hooAcceptRanges x)
+        <&> \y -> x { _hooAcceptRanges = y }
 {-# INLINE hooAcceptRanges #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-hooCacheControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooCacheControl :: Lens' HeadObjectResponse (Maybe Text)
 hooCacheControl f x =
-    (\y -> x { _hooCacheControl = y })
-       <$> f (_hooCacheControl x)
+    f (_hooCacheControl x)
+        <&> \y -> x { _hooCacheControl = y }
 {-# INLINE hooCacheControl #-}
 
 -- | Specifies presentational information for the object.
-hooContentDisposition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooContentDisposition :: Lens' HeadObjectResponse (Maybe Text)
 hooContentDisposition f x =
-    (\y -> x { _hooContentDisposition = y })
-       <$> f (_hooContentDisposition x)
+    f (_hooContentDisposition x)
+        <&> \y -> x { _hooContentDisposition = y }
 {-# INLINE hooContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-hooContentEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
 hooContentEncoding f x =
-    (\y -> x { _hooContentEncoding = y })
-       <$> f (_hooContentEncoding x)
+    f (_hooContentEncoding x)
+        <&> \y -> x { _hooContentEncoding = y }
 {-# INLINE hooContentEncoding #-}
 
 -- | The language the content is in.
-hooContentLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooContentLanguage :: Lens' HeadObjectResponse (Maybe Text)
 hooContentLanguage f x =
-    (\y -> x { _hooContentLanguage = y })
-       <$> f (_hooContentLanguage x)
+    f (_hooContentLanguage x)
+        <&> \y -> x { _hooContentLanguage = y }
 {-# INLINE hooContentLanguage #-}
 
 -- | Size of the body in bytes.
-hooContentLength
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooContentLength :: Lens' HeadObjectResponse (Maybe Integer)
 hooContentLength f x =
-    (\y -> x { _hooContentLength = y })
-       <$> f (_hooContentLength x)
+    f (_hooContentLength x)
+        <&> \y -> x { _hooContentLength = y }
 {-# INLINE hooContentLength #-}
 
 -- | A standard MIME type describing the format of the object data.
-hooContentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooContentType :: Lens' HeadObjectResponse (Maybe Text)
 hooContentType f x =
-    (\y -> x { _hooContentType = y })
-       <$> f (_hooContentType x)
+    f (_hooContentType x)
+        <&> \y -> x { _hooContentType = y }
 {-# INLINE hooContentType #-}
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-hooDeleteMarker
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
 hooDeleteMarker f x =
-    (\y -> x { _hooDeleteMarker = y })
-       <$> f (_hooDeleteMarker x)
+    f (_hooDeleteMarker x)
+        <&> \y -> x { _hooDeleteMarker = y }
 {-# INLINE hooDeleteMarker #-}
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-hooETag
-    :: Functor f
-    => (Maybe ETag
-    -> f (Maybe ETag))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooETag :: Lens' HeadObjectResponse (Maybe ETag)
 hooETag f x =
-    (\y -> x { _hooETag = y })
-       <$> f (_hooETag x)
+    f (_hooETag x)
+        <&> \y -> x { _hooETag = y }
 {-# INLINE hooETag #-}
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
-hooExpiration
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooExpiration :: Lens' HeadObjectResponse (Maybe RFC822)
 hooExpiration f x =
-    (\y -> x { _hooExpiration = y })
-       <$> f (_hooExpiration x)
+    f (_hooExpiration x)
+        <&> \y -> x { _hooExpiration = y }
 {-# INLINE hooExpiration #-}
 
 -- | The date and time at which the object is no longer cacheable.
-hooExpires
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooExpires :: Lens' HeadObjectResponse (Maybe RFC822)
 hooExpires f x =
-    (\y -> x { _hooExpires = y })
-       <$> f (_hooExpires x)
+    f (_hooExpires x)
+        <&> \y -> x { _hooExpires = y }
 {-# INLINE hooExpires #-}
 
 -- | Last modified date of the object.
-hooLastModified
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooLastModified :: Lens' HeadObjectResponse (Maybe RFC822)
 hooLastModified f x =
-    (\y -> x { _hooLastModified = y })
-       <$> f (_hooLastModified x)
+    f (_hooLastModified x)
+        <&> \y -> x { _hooLastModified = y }
 {-# INLINE hooLastModified #-}
 
 -- | A map of metadata to store with the object in S3.
-hooMetadata
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooMetadata :: Lens' HeadObjectResponse (Map Text Text)
 hooMetadata f x =
-    (\y -> x { _hooMetadata = y })
-       <$> f (_hooMetadata x)
+    f (_hooMetadata x)
+        <&> \y -> x { _hooMetadata = y }
 {-# INLINE hooMetadata #-}
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP that
 -- supports more flexible metadata than the REST API. For example, using SOAP,
 -- you can create metadata whose values are not legal HTTP headers.
-hooMissingMeta
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooMissingMeta :: Lens' HeadObjectResponse (Maybe Integer)
 hooMissingMeta f x =
-    (\y -> x { _hooMissingMeta = y })
-       <$> f (_hooMissingMeta x)
+    f (_hooMissingMeta x)
+        <&> \y -> x { _hooMissingMeta = y }
 {-# INLINE hooMissingMeta #-}
 
 -- | Version of the object.
-hooVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
 hooVersionId f x =
-    (\y -> x { _hooVersionId = y })
-       <$> f (_hooVersionId x)
+    f (_hooVersionId x)
+        <&> \y -> x { _hooVersionId = y }
 {-# INLINE hooVersionId #-}
 
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
-hooRestore
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooRestore :: Lens' HeadObjectResponse (Maybe Text)
 hooRestore f x =
-    (\y -> x { _hooRestore = y })
-       <$> f (_hooRestore x)
+    f (_hooRestore x)
+        <&> \y -> x { _hooRestore = y }
 {-# INLINE hooRestore #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-hooSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooSSECustomerAlgorithm :: Lens' HeadObjectResponse (Maybe Text)
 hooSSECustomerAlgorithm f x =
-    (\y -> x { _hooSSECustomerAlgorithm = y })
-       <$> f (_hooSSECustomerAlgorithm x)
+    f (_hooSSECustomerAlgorithm x)
+        <&> \y -> x { _hooSSECustomerAlgorithm = y }
 {-# INLINE hooSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-hooSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
 hooSSECustomerKeyMD5 f x =
-    (\y -> x { _hooSSECustomerKeyMD5 = y })
-       <$> f (_hooSSECustomerKeyMD5 x)
+    f (_hooSSECustomerKeyMD5 x)
+        <&> \y -> x { _hooSSECustomerKeyMD5 = y }
 {-# INLINE hooSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-hooServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooServerSideEncryption :: Lens' HeadObjectResponse (Maybe ServerSideEncryption)
 hooServerSideEncryption f x =
-    (\y -> x { _hooServerSideEncryption = y })
-       <$> f (_hooServerSideEncryption x)
+    f (_hooServerSideEncryption x)
+        <&> \y -> x { _hooServerSideEncryption = y }
 {-# INLINE hooServerSideEncryption #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-hooWebsiteRedirectLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> HeadObjectResponse
-    -> f HeadObjectResponse
+hooWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
 hooWebsiteRedirectLocation f x =
-    (\y -> x { _hooWebsiteRedirectLocation = y })
-       <$> f (_hooWebsiteRedirectLocation x)
+    f (_hooWebsiteRedirectLocation x)
+        <&> \y -> x { _hooWebsiteRedirectLocation = y }
 {-# INLINE hooWebsiteRedirectLocation #-}
 
 instance AWSRequest HeadObject where

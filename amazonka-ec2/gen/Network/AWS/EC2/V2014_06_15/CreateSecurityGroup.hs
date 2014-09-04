@@ -100,21 +100,24 @@ data CreateSecurityGroup = CreateSecurityGroup
 -- | The name of the security group. Constraints: Up to 255 characters in length
 -- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
 -- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
-csgrGroupName :: Lens' CreateSecurityGroup Text
+csgrGroupName :: Lens' CreateSecurityGroup (Text)
 csgrGroupName f x =
-    f (_csgrGroupName x) <&> \y -> x { _csgrGroupName = y }
+    f (_csgrGroupName x)
+        <&> \y -> x { _csgrGroupName = y }
 {-# INLINE csgrGroupName #-}
 
 -- | A description for the security group. This is informational only.
-csgrDescription :: Lens' CreateSecurityGroup Text
+csgrDescription :: Lens' CreateSecurityGroup (Text)
 csgrDescription f x =
-    f (_csgrDescription x) <&> \y -> x { _csgrDescription = y }
+    f (_csgrDescription x)
+        <&> \y -> x { _csgrDescription = y }
 {-# INLINE csgrDescription #-}
 
 -- | [EC2-VPC] The ID of the VPC.
 csgrVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgrVpcId f x =
-    f (_csgrVpcId x) <&> \y -> x { _csgrVpcId = y }
+    f (_csgrVpcId x)
+        <&> \y -> x { _csgrVpcId = y }
 {-# INLINE csgrVpcId #-}
 
 instance ToQuery CreateSecurityGroup where
@@ -128,7 +131,8 @@ data CreateSecurityGroupResponse = CreateSecurityGroupResponse
 -- | The ID of the security group.
 csgsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgsGroupId f x =
-    f (_csgsGroupId x) <&> \y -> x { _csgsGroupId = y }
+    f (_csgsGroupId x)
+        <&> \y -> x { _csgsGroupId = y }
 {-# INLINE csgsGroupId #-}
 
 instance FromXML CreateSecurityGroupResponse where

@@ -41,20 +41,16 @@ deleteBucketLifecycle :: BucketName -- ^ 'dblrBucket'
 deleteBucketLifecycle p1 = DeleteBucketLifecycle
     { _dblrBucket = p1
     }
+{-# INLINE deleteBucketLifecycle #-}
 
 data DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblrBucket :: BucketName
     } deriving (Show, Generic)
 
-dblrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteBucketLifecycle
-    -> f DeleteBucketLifecycle
+dblrBucket :: Lens' DeleteBucketLifecycle (BucketName)
 dblrBucket f x =
-    (\y -> x { _dblrBucket = y })
-       <$> f (_dblrBucket x)
+    f (_dblrBucket x)
+        <&> \y -> x { _dblrBucket = y }
 {-# INLINE dblrBucket #-}
 
 instance ToPath DeleteBucketLifecycle where

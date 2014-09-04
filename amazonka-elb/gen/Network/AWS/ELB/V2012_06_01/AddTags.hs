@@ -53,6 +53,7 @@ addTags p1 p2 = AddTags
     { _atiLoadBalancerNames = p1
     , _atiTags = p2
     }
+{-# INLINE addTags #-}
 
 data AddTags = AddTags
     { _atiLoadBalancerNames :: [Text]
@@ -64,27 +65,17 @@ data AddTags = AddTags
 
 -- | The name of the load balancer to tag. You can specify a maximum of one load
 -- balancer name.
-atiLoadBalancerNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> AddTags
-    -> f AddTags
+atiLoadBalancerNames :: Lens' AddTags ([Text])
 atiLoadBalancerNames f x =
-    (\y -> x { _atiLoadBalancerNames = y })
-       <$> f (_atiLoadBalancerNames x)
+    f (_atiLoadBalancerNames x)
+        <&> \y -> x { _atiLoadBalancerNames = y }
 {-# INLINE atiLoadBalancerNames #-}
 
 -- | A list of tags for each load balancer.
-atiTags
-    :: Functor f
-    => ([Tag]
-    -> f ([Tag]))
-    -> AddTags
-    -> f AddTags
+atiTags :: Lens' AddTags ([Tag])
 atiTags f x =
-    (\y -> x { _atiTags = y })
-       <$> f (_atiTags x)
+    f (_atiTags x)
+        <&> \y -> x { _atiTags = y }
 {-# INLINE atiTags #-}
 
 instance ToQuery AddTags where

@@ -51,6 +51,7 @@ deleteServerCertificate :: Text -- ^ 'dscrServerCertificateName'
 deleteServerCertificate p1 = DeleteServerCertificate
     { _dscrServerCertificateName = p1
     }
+{-# INLINE deleteServerCertificate #-}
 
 data DeleteServerCertificate = DeleteServerCertificate
     { _dscrServerCertificateName :: Text
@@ -58,15 +59,10 @@ data DeleteServerCertificate = DeleteServerCertificate
     } deriving (Show, Generic)
 
 -- | The name of the server certificate you want to delete.
-dscrServerCertificateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteServerCertificate
-    -> f DeleteServerCertificate
+dscrServerCertificateName :: Lens' DeleteServerCertificate (Text)
 dscrServerCertificateName f x =
-    (\y -> x { _dscrServerCertificateName = y })
-       <$> f (_dscrServerCertificateName x)
+    f (_dscrServerCertificateName x)
+        <&> \y -> x { _dscrServerCertificateName = y }
 {-# INLINE dscrServerCertificateName #-}
 
 instance ToQuery DeleteServerCertificate where

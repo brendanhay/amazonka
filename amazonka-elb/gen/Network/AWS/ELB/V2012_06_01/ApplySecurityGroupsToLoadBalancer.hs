@@ -54,6 +54,7 @@ applySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
     { _asgtlbiLoadBalancerName = p1
     , _asgtlbiSecurityGroups = p2
     }
+{-# INLINE applySecurityGroupsToLoadBalancer #-}
 
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbiLoadBalancerName :: Text
@@ -68,29 +69,19 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
 
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
-asgtlbiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ApplySecurityGroupsToLoadBalancer
-    -> f ApplySecurityGroupsToLoadBalancer
+asgtlbiLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer (Text)
 asgtlbiLoadBalancerName f x =
-    (\y -> x { _asgtlbiLoadBalancerName = y })
-       <$> f (_asgtlbiLoadBalancerName x)
+    f (_asgtlbiLoadBalancerName x)
+        <&> \y -> x { _asgtlbiLoadBalancerName = y }
 {-# INLINE asgtlbiLoadBalancerName #-}
 
 -- | A list of security group IDs to associate with your load balancer in VPC.
 -- The security group IDs must be provided as the ID and not the security
 -- group name (For example, sg-1234).
-asgtlbiSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ApplySecurityGroupsToLoadBalancer
-    -> f ApplySecurityGroupsToLoadBalancer
+asgtlbiSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer ([Text])
 asgtlbiSecurityGroups f x =
-    (\y -> x { _asgtlbiSecurityGroups = y })
-       <$> f (_asgtlbiSecurityGroups x)
+    f (_asgtlbiSecurityGroups x)
+        <&> \y -> x { _asgtlbiSecurityGroups = y }
 {-# INLINE asgtlbiSecurityGroups #-}
 
 instance ToQuery ApplySecurityGroupsToLoadBalancer where
@@ -102,15 +93,10 @@ data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalanc
     } deriving (Show, Generic)
 
 -- | A list of security group IDs associated with your load balancer.
-asgtlboSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ApplySecurityGroupsToLoadBalancerResponse
-    -> f ApplySecurityGroupsToLoadBalancerResponse
+asgtlboSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse ([Text])
 asgtlboSecurityGroups f x =
-    (\y -> x { _asgtlboSecurityGroups = y })
-       <$> f (_asgtlboSecurityGroups x)
+    f (_asgtlboSecurityGroups x)
+        <&> \y -> x { _asgtlboSecurityGroups = y }
 {-# INLINE asgtlboSecurityGroups #-}
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where

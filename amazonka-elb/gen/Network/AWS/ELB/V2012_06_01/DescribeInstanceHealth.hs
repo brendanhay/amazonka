@@ -68,6 +68,7 @@ describeInstanceHealth p1 = DescribeInstanceHealth
     { _depsiLoadBalancerName = p1
     , _depsiInstances = mempty
     }
+{-# INLINE describeInstanceHealth #-}
 
 data DescribeInstanceHealth = DescribeInstanceHealth
     { _depsiLoadBalancerName :: Text
@@ -77,27 +78,17 @@ data DescribeInstanceHealth = DescribeInstanceHealth
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-depsiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeInstanceHealth
-    -> f DescribeInstanceHealth
+depsiLoadBalancerName :: Lens' DescribeInstanceHealth (Text)
 depsiLoadBalancerName f x =
-    (\y -> x { _depsiLoadBalancerName = y })
-       <$> f (_depsiLoadBalancerName x)
+    f (_depsiLoadBalancerName x)
+        <&> \y -> x { _depsiLoadBalancerName = y }
 {-# INLINE depsiLoadBalancerName #-}
 
 -- | A list of instance IDs whose states are being queried.
-depsiInstances
-    :: Functor f
-    => ([Instance]
-    -> f ([Instance]))
-    -> DescribeInstanceHealth
-    -> f DescribeInstanceHealth
+depsiInstances :: Lens' DescribeInstanceHealth ([Instance])
 depsiInstances f x =
-    (\y -> x { _depsiInstances = y })
-       <$> f (_depsiInstances x)
+    f (_depsiInstances x)
+        <&> \y -> x { _depsiInstances = y }
 {-# INLINE depsiInstances #-}
 
 instance ToQuery DescribeInstanceHealth where
@@ -109,15 +100,10 @@ data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     } deriving (Show, Generic)
 
 -- | A list containing health information for the specified instances.
-depsoInstanceStates
-    :: Functor f
-    => ([InstanceState]
-    -> f ([InstanceState]))
-    -> DescribeInstanceHealthResponse
-    -> f DescribeInstanceHealthResponse
+depsoInstanceStates :: Lens' DescribeInstanceHealthResponse ([InstanceState])
 depsoInstanceStates f x =
-    (\y -> x { _depsoInstanceStates = y })
-       <$> f (_depsoInstanceStates x)
+    f (_depsoInstanceStates x)
+        <&> \y -> x { _depsoInstanceStates = y }
 {-# INLINE depsoInstanceStates #-}
 
 instance FromXML DescribeInstanceHealthResponse where

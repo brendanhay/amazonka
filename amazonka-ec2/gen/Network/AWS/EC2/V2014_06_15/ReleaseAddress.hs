@@ -71,13 +71,15 @@ data ReleaseAddress = ReleaseAddress
 -- | [EC2-Classic] The Elastic IP address.
 rarPublicIp :: Lens' ReleaseAddress (Maybe Text)
 rarPublicIp f x =
-    f (_rarPublicIp x) <&> \y -> x { _rarPublicIp = y }
+    f (_rarPublicIp x)
+        <&> \y -> x { _rarPublicIp = y }
 {-# INLINE rarPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID.
 rarAllocationId :: Lens' ReleaseAddress (Maybe Text)
 rarAllocationId f x =
-    f (_rarAllocationId x) <&> \y -> x { _rarAllocationId = y }
+    f (_rarAllocationId x)
+        <&> \y -> x { _rarAllocationId = y }
 {-# INLINE rarAllocationId #-}
 
 instance ToQuery ReleaseAddress where

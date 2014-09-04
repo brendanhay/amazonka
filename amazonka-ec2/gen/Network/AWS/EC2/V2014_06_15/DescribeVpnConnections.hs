@@ -124,15 +124,17 @@ data DescribeVpnConnections = DescribeVpnConnections
 -- Currently the only supported type is ipsec.1. vpn-connection-id - The ID of
 -- the VPN connection. vpn-gateway-id - The ID of a virtual private gateway
 -- associated with the VPN connection.
-dvcsFilters :: Lens' DescribeVpnConnections [Filter]
+dvcsFilters :: Lens' DescribeVpnConnections ([Filter])
 dvcsFilters f x =
-    f (_dvcsFilters x) <&> \y -> x { _dvcsFilters = y }
+    f (_dvcsFilters x)
+        <&> \y -> x { _dvcsFilters = y }
 {-# INLINE dvcsFilters #-}
 
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
-dvcsVpnConnectionIds :: Lens' DescribeVpnConnections [Text]
+dvcsVpnConnectionIds :: Lens' DescribeVpnConnections ([Text])
 dvcsVpnConnectionIds f x =
-    f (_dvcsVpnConnectionIds x) <&> \y -> x { _dvcsVpnConnectionIds = y }
+    f (_dvcsVpnConnectionIds x)
+        <&> \y -> x { _dvcsVpnConnectionIds = y }
 {-# INLINE dvcsVpnConnectionIds #-}
 
 instance ToQuery DescribeVpnConnections where
@@ -144,9 +146,10 @@ data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more VPN connections.
-dvctVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
+dvctVpnConnections :: Lens' DescribeVpnConnectionsResponse ([VpnConnection])
 dvctVpnConnections f x =
-    f (_dvctVpnConnections x) <&> \y -> x { _dvctVpnConnections = y }
+    f (_dvctVpnConnections x)
+        <&> \y -> x { _dvctVpnConnections = y }
 {-# INLINE dvctVpnConnections #-}
 
 instance FromXML DescribeVpnConnectionsResponse where

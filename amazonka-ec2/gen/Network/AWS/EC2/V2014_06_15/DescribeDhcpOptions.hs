@@ -92,9 +92,10 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 
 -- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
 -- options sets.
-ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
+ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions ([Text])
 ddosDhcpOptionsIds f x =
-    f (_ddosDhcpOptionsIds x) <&> \y -> x { _ddosDhcpOptionsIds = y }
+    f (_ddosDhcpOptionsIds x)
+        <&> \y -> x { _ddosDhcpOptionsIds = y }
 {-# INLINE ddosDhcpOptionsIds #-}
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
@@ -108,9 +109,10 @@ ddosDhcpOptionsIds f x =
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-ddosFilters :: Lens' DescribeDhcpOptions [Filter]
+ddosFilters :: Lens' DescribeDhcpOptions ([Filter])
 ddosFilters f x =
-    f (_ddosFilters x) <&> \y -> x { _ddosFilters = y }
+    f (_ddosFilters x)
+        <&> \y -> x { _ddosFilters = y }
 {-# INLINE ddosFilters #-}
 
 instance ToQuery DescribeDhcpOptions where
@@ -122,9 +124,10 @@ data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more DHCP options sets.
-ddotDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
+ddotDhcpOptions :: Lens' DescribeDhcpOptionsResponse ([DhcpOptions])
 ddotDhcpOptions f x =
-    f (_ddotDhcpOptions x) <&> \y -> x { _ddotDhcpOptions = y }
+    f (_ddotDhcpOptions x)
+        <&> \y -> x { _ddotDhcpOptions = y }
 {-# INLINE ddotDhcpOptions #-}
 
 instance FromXML DescribeDhcpOptionsResponse where

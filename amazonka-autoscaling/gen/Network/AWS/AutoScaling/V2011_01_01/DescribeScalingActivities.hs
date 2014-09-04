@@ -66,6 +66,7 @@ describeScalingActivities = DescribeScalingActivities
     , _dsauAutoScalingGroupName = Nothing
     , _dsauNextToken = Nothing
     }
+{-# INLINE describeScalingActivities #-}
 
 data DescribeScalingActivities = DescribeScalingActivities
     { _dsauActivityIds :: [Text]
@@ -89,52 +90,32 @@ data DescribeScalingActivities = DescribeScalingActivities
 -- AutoScalingGroupName is provided, the results are limited to that group.
 -- The list of requested activities cannot contain more than 50 items. If
 -- unknown activities are requested, they are ignored with no error.
-dsauActivityIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeScalingActivities
-    -> f DescribeScalingActivities
+dsauActivityIds :: Lens' DescribeScalingActivities ([Text])
 dsauActivityIds f x =
-    (\y -> x { _dsauActivityIds = y })
-       <$> f (_dsauActivityIds x)
+    f (_dsauActivityIds x)
+        <&> \y -> x { _dsauActivityIds = y }
 {-# INLINE dsauActivityIds #-}
 
 -- | The maximum number of scaling activities to return.
-dsauMaxRecords
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeScalingActivities
-    -> f DescribeScalingActivities
+dsauMaxRecords :: Lens' DescribeScalingActivities (Maybe Integer)
 dsauMaxRecords f x =
-    (\y -> x { _dsauMaxRecords = y })
-       <$> f (_dsauMaxRecords x)
+    f (_dsauMaxRecords x)
+        <&> \y -> x { _dsauMaxRecords = y }
 {-# INLINE dsauMaxRecords #-}
 
 -- | The name of the AutoScalingGroup.
-dsauAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeScalingActivities
-    -> f DescribeScalingActivities
+dsauAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
 dsauAutoScalingGroupName f x =
-    (\y -> x { _dsauAutoScalingGroupName = y })
-       <$> f (_dsauAutoScalingGroupName x)
+    f (_dsauAutoScalingGroupName x)
+        <&> \y -> x { _dsauAutoScalingGroupName = y }
 {-# INLINE dsauAutoScalingGroupName #-}
 
 -- | A string that marks the start of the next batch of returned results for
 -- pagination.
-dsauNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeScalingActivities
-    -> f DescribeScalingActivities
+dsauNextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsauNextToken f x =
-    (\y -> x { _dsauNextToken = y })
-       <$> f (_dsauNextToken x)
+    f (_dsauNextToken x)
+        <&> \y -> x { _dsauNextToken = y }
 {-# INLINE dsauNextToken #-}
 
 instance ToQuery DescribeScalingActivities where
@@ -151,29 +132,19 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     } deriving (Show, Generic)
 
 -- | A list of the requested scaling activities.
-avActivities
-    :: Functor f
-    => ([Activity]
-    -> f ([Activity]))
-    -> DescribeScalingActivitiesResponse
-    -> f DescribeScalingActivitiesResponse
+avActivities :: Lens' DescribeScalingActivitiesResponse ([Activity])
 avActivities f x =
-    (\y -> x { _avActivities = y })
-       <$> f (_avActivities x)
+    f (_avActivities x)
+        <&> \y -> x { _avActivities = y }
 {-# INLINE avActivities #-}
 
 -- | Acts as a paging mechanism for large result sets. Set to a non-empty string
 -- if there are additional results waiting to be returned. Pass this in to
 -- subsequent calls to return additional results.
-avNextToken
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeScalingActivitiesResponse
-    -> f DescribeScalingActivitiesResponse
+avNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 avNextToken f x =
-    (\y -> x { _avNextToken = y })
-       <$> f (_avNextToken x)
+    f (_avNextToken x)
+        <&> \y -> x { _avNextToken = y }
 {-# INLINE avNextToken #-}
 
 instance FromXML DescribeScalingActivitiesResponse where

@@ -49,6 +49,7 @@ deleteInstanceProfile :: Text -- ^ 'diprInstanceProfileName'
 deleteInstanceProfile p1 = DeleteInstanceProfile
     { _diprInstanceProfileName = p1
     }
+{-# INLINE deleteInstanceProfile #-}
 
 data DeleteInstanceProfile = DeleteInstanceProfile
     { _diprInstanceProfileName :: Text
@@ -56,15 +57,10 @@ data DeleteInstanceProfile = DeleteInstanceProfile
     } deriving (Show, Generic)
 
 -- | Name of the instance profile to delete.
-diprInstanceProfileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteInstanceProfile
-    -> f DeleteInstanceProfile
+diprInstanceProfileName :: Lens' DeleteInstanceProfile (Text)
 diprInstanceProfileName f x =
-    (\y -> x { _diprInstanceProfileName = y })
-       <$> f (_diprInstanceProfileName x)
+    f (_diprInstanceProfileName x)
+        <&> \y -> x { _diprInstanceProfileName = y }
 {-# INLINE diprInstanceProfileName #-}
 
 instance ToQuery DeleteInstanceProfile where

@@ -64,6 +64,7 @@ createSAMLProvider p1 p2 = CreateSAMLProvider
     { _csamlprSAMLMetadataDocument = p1
     , _csamlprName = p2
     }
+{-# INLINE createSAMLProvider #-}
 
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlprSAMLMetadataDocument :: Text
@@ -88,27 +89,17 @@ data CreateSAMLProvider = CreateSAMLProvider
 -- organization's IdP. For more information, see Creating Temporary Security
 -- Credentials for SAML Federation in the Using Temporary Security Credentials
 -- guide.
-csamlprSAMLMetadataDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSAMLProvider
-    -> f CreateSAMLProvider
+csamlprSAMLMetadataDocument :: Lens' CreateSAMLProvider (Text)
 csamlprSAMLMetadataDocument f x =
-    (\y -> x { _csamlprSAMLMetadataDocument = y })
-       <$> f (_csamlprSAMLMetadataDocument x)
+    f (_csamlprSAMLMetadataDocument x)
+        <&> \y -> x { _csamlprSAMLMetadataDocument = y }
 {-# INLINE csamlprSAMLMetadataDocument #-}
 
 -- | The name of the provider to create.
-csamlprName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateSAMLProvider
-    -> f CreateSAMLProvider
+csamlprName :: Lens' CreateSAMLProvider (Text)
 csamlprName f x =
-    (\y -> x { _csamlprName = y })
-       <$> f (_csamlprName x)
+    f (_csamlprName x)
+        <&> \y -> x { _csamlprName = y }
 {-# INLINE csamlprName #-}
 
 instance ToQuery CreateSAMLProvider where
@@ -120,15 +111,10 @@ data CreateSAMLProviderResponse = CreateSAMLProviderResponse
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-csamlpsSAMLProviderArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateSAMLProviderResponse
-    -> f CreateSAMLProviderResponse
+csamlpsSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlpsSAMLProviderArn f x =
-    (\y -> x { _csamlpsSAMLProviderArn = y })
-       <$> f (_csamlpsSAMLProviderArn x)
+    f (_csamlpsSAMLProviderArn x)
+        <&> \y -> x { _csamlpsSAMLProviderArn = y }
 {-# INLINE csamlpsSAMLProviderArn #-}
 
 instance FromXML CreateSAMLProviderResponse where

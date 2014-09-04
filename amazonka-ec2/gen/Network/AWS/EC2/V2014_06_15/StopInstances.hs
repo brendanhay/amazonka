@@ -91,9 +91,10 @@ data StopInstances = StopInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-sisvInstanceIds :: Lens' StopInstances [Text]
+sisvInstanceIds :: Lens' StopInstances ([Text])
 sisvInstanceIds f x =
-    f (_sisvInstanceIds x) <&> \y -> x { _sisvInstanceIds = y }
+    f (_sisvInstanceIds x)
+        <&> \y -> x { _sisvInstanceIds = y }
 {-# INLINE sisvInstanceIds #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
@@ -102,7 +103,8 @@ sisvInstanceIds f x =
 -- not recommended for Windows instances. Default: false.
 sisvForce :: Lens' StopInstances (Maybe Bool)
 sisvForce f x =
-    f (_sisvForce x) <&> \y -> x { _sisvForce = y }
+    f (_sisvForce x)
+        <&> \y -> x { _sisvForce = y }
 {-# INLINE sisvForce #-}
 
 instance ToQuery StopInstances where
@@ -114,9 +116,10 @@ data StopInstancesResponse = StopInstancesResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more stopped instances.
-siswStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+siswStoppingInstances :: Lens' StopInstancesResponse ([InstanceStateChange])
 siswStoppingInstances f x =
-    f (_siswStoppingInstances x) <&> \y -> x { _siswStoppingInstances = y }
+    f (_siswStoppingInstances x)
+        <&> \y -> x { _siswStoppingInstances = y }
 {-# INLINE siswStoppingInstances #-}
 
 instance FromXML StopInstancesResponse where

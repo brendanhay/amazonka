@@ -63,6 +63,7 @@ updateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uapprMinimumPasswordLength = Nothing
     , _uapprPasswordReusePrevention = Nothing
     }
+{-# INLINE updateAccountPasswordPolicy #-}
 
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uapprHardExpiry :: Maybe Bool
@@ -97,119 +98,74 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
 
 -- | Prevents IAM users from setting a new password after their password has
 -- expired.
-uapprHardExpiry
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprHardExpiry :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uapprHardExpiry f x =
-    (\y -> x { _uapprHardExpiry = y })
-       <$> f (_uapprHardExpiry x)
+    f (_uapprHardExpiry x)
+        <&> \y -> x { _uapprHardExpiry = y }
 {-# INLINE uapprHardExpiry #-}
 
 -- | Specifies whether IAM user passwords must contain at least one of the
 -- following non-alphanumeric characters: ! @ # $ % ^ &amp; * ( ) _ + - = [ ]
 -- { } | '.
-uapprRequireSymbols
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uapprRequireSymbols f x =
-    (\y -> x { _uapprRequireSymbols = y })
-       <$> f (_uapprRequireSymbols x)
+    f (_uapprRequireSymbols x)
+        <&> \y -> x { _uapprRequireSymbols = y }
 {-# INLINE uapprRequireSymbols #-}
 
 -- | Specifies whether IAM user passwords must contain at least one numeric
 -- character (0 to 9).
-uapprRequireNumbers
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uapprRequireNumbers f x =
-    (\y -> x { _uapprRequireNumbers = y })
-       <$> f (_uapprRequireNumbers x)
+    f (_uapprRequireNumbers x)
+        <&> \y -> x { _uapprRequireNumbers = y }
 {-# INLINE uapprRequireNumbers #-}
 
 -- | Specifies whether IAM user passwords must contain at least one uppercase
 -- character from the ISO basic Latin alphabet (A to Z).
-uapprRequireUppercaseCharacters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uapprRequireUppercaseCharacters f x =
-    (\y -> x { _uapprRequireUppercaseCharacters = y })
-       <$> f (_uapprRequireUppercaseCharacters x)
+    f (_uapprRequireUppercaseCharacters x)
+        <&> \y -> x { _uapprRequireUppercaseCharacters = y }
 {-# INLINE uapprRequireUppercaseCharacters #-}
 
 -- | Specifies whether IAM user passwords must contain at least one lowercase
 -- character from the ISO basic Latin alphabet (a to z).
-uapprRequireLowercaseCharacters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprRequireLowercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uapprRequireLowercaseCharacters f x =
-    (\y -> x { _uapprRequireLowercaseCharacters = y })
-       <$> f (_uapprRequireLowercaseCharacters x)
+    f (_uapprRequireLowercaseCharacters x)
+        <&> \y -> x { _uapprRequireLowercaseCharacters = y }
 {-# INLINE uapprRequireLowercaseCharacters #-}
 
 -- | Allows all IAM users in your account to use the AWS Management Console to
 -- change their own passwords. For more information, see Letting IAM Users
 -- Change Their Own Passwords in the Using IAM guide.
-uapprAllowUsersToChangePassword
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uapprAllowUsersToChangePassword f x =
-    (\y -> x { _uapprAllowUsersToChangePassword = y })
-       <$> f (_uapprAllowUsersToChangePassword x)
+    f (_uapprAllowUsersToChangePassword x)
+        <&> \y -> x { _uapprAllowUsersToChangePassword = y }
 {-# INLINE uapprAllowUsersToChangePassword #-}
 
 -- | The number of days that an IAM user password is valid.
-uapprMaxPasswordAge
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uapprMaxPasswordAge f x =
-    (\y -> x { _uapprMaxPasswordAge = y })
-       <$> f (_uapprMaxPasswordAge x)
+    f (_uapprMaxPasswordAge x)
+        <&> \y -> x { _uapprMaxPasswordAge = y }
 {-# INLINE uapprMaxPasswordAge #-}
 
 -- | The minimum number of characters allowed in an IAM user password.
-uapprMinimumPasswordLength
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uapprMinimumPasswordLength f x =
-    (\y -> x { _uapprMinimumPasswordLength = y })
-       <$> f (_uapprMinimumPasswordLength x)
+    f (_uapprMinimumPasswordLength x)
+        <&> \y -> x { _uapprMinimumPasswordLength = y }
 {-# INLINE uapprMinimumPasswordLength #-}
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
-uapprPasswordReusePrevention
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> UpdateAccountPasswordPolicy
-    -> f UpdateAccountPasswordPolicy
+uapprPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uapprPasswordReusePrevention f x =
-    (\y -> x { _uapprPasswordReusePrevention = y })
-       <$> f (_uapprPasswordReusePrevention x)
+    f (_uapprPasswordReusePrevention x)
+        <&> \y -> x { _uapprPasswordReusePrevention = y }
 {-# INLINE uapprPasswordReusePrevention #-}
 
 instance ToQuery UpdateAccountPasswordPolicy where

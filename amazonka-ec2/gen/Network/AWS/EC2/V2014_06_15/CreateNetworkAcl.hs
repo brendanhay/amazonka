@@ -63,9 +63,10 @@ data CreateNetworkAcl = CreateNetworkAcl
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-cnarVpcId :: Lens' CreateNetworkAcl Text
+cnarVpcId :: Lens' CreateNetworkAcl (Text)
 cnarVpcId f x =
-    f (_cnarVpcId x) <&> \y -> x { _cnarVpcId = y }
+    f (_cnarVpcId x)
+        <&> \y -> x { _cnarVpcId = y }
 {-# INLINE cnarVpcId #-}
 
 instance ToQuery CreateNetworkAcl where
@@ -79,7 +80,8 @@ data CreateNetworkAclResponse = CreateNetworkAclResponse
 -- | Information about the network ACL.
 cnasNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnasNetworkAcl f x =
-    f (_cnasNetworkAcl x) <&> \y -> x { _cnasNetworkAcl = y }
+    f (_cnasNetworkAcl x)
+        <&> \y -> x { _cnasNetworkAcl = y }
 {-# INLINE cnasNetworkAcl #-}
 
 instance FromXML CreateNetworkAclResponse where

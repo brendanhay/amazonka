@@ -44,6 +44,7 @@ deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
     { _dnctAutoScalingGroupName = p1
     , _dnctTopicARN = p2
     }
+{-# INLINE deleteNotificationConfiguration #-}
 
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dnctAutoScalingGroupName :: Text
@@ -54,28 +55,18 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group.
-dnctAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteNotificationConfiguration
-    -> f DeleteNotificationConfiguration
+dnctAutoScalingGroupName :: Lens' DeleteNotificationConfiguration (Text)
 dnctAutoScalingGroupName f x =
-    (\y -> x { _dnctAutoScalingGroupName = y })
-       <$> f (_dnctAutoScalingGroupName x)
+    f (_dnctAutoScalingGroupName x)
+        <&> \y -> x { _dnctAutoScalingGroupName = y }
 {-# INLINE dnctAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-dnctTopicARN
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteNotificationConfiguration
-    -> f DeleteNotificationConfiguration
+dnctTopicARN :: Lens' DeleteNotificationConfiguration (Text)
 dnctTopicARN f x =
-    (\y -> x { _dnctTopicARN = y })
-       <$> f (_dnctTopicARN x)
+    f (_dnctTopicARN x)
+        <&> \y -> x { _dnctTopicARN = y }
 {-# INLINE dnctTopicARN #-}
 
 instance ToQuery DeleteNotificationConfiguration where

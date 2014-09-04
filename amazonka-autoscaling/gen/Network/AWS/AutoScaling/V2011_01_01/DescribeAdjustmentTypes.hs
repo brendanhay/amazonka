@@ -40,6 +40,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeAdjustmentTypes' request.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
+{-# INLINE describeAdjustmentTypes #-}
 
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
     deriving (Eq, Show, Generic)
@@ -53,15 +54,10 @@ data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     } deriving (Show, Generic)
 
 -- | A list of specific policy adjustment types.
-dataAdjustmentTypes
-    :: Functor f
-    => ([AdjustmentType]
-    -> f ([AdjustmentType]))
-    -> DescribeAdjustmentTypesResponse
-    -> f DescribeAdjustmentTypesResponse
+dataAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse ([AdjustmentType])
 dataAdjustmentTypes f x =
-    (\y -> x { _dataAdjustmentTypes = y })
-       <$> f (_dataAdjustmentTypes x)
+    f (_dataAdjustmentTypes x)
+        <&> \y -> x { _dataAdjustmentTypes = y }
 {-# INLINE dataAdjustmentTypes #-}
 
 instance FromXML DescribeAdjustmentTypesResponse where

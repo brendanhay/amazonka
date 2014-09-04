@@ -63,6 +63,7 @@ setLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForBac
     , _slbpfbsiInstancePort = p2
     , _slbpfbsiPolicyNames = p3
     }
+{-# INLINE setLoadBalancerPoliciesForBackendServer #-}
 
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsiLoadBalancerName :: Text
@@ -77,40 +78,25 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 
 -- | The mnemonic name associated with the load balancer. This name must be
 -- unique within the set of your load balancers.
-slbpfbsiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetLoadBalancerPoliciesForBackendServer
-    -> f SetLoadBalancerPoliciesForBackendServer
+slbpfbsiLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer (Text)
 slbpfbsiLoadBalancerName f x =
-    (\y -> x { _slbpfbsiLoadBalancerName = y })
-       <$> f (_slbpfbsiLoadBalancerName x)
+    f (_slbpfbsiLoadBalancerName x)
+        <&> \y -> x { _slbpfbsiLoadBalancerName = y }
 {-# INLINE slbpfbsiLoadBalancerName #-}
 
 -- | The port number associated with the back-end server.
-slbpfbsiInstancePort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SetLoadBalancerPoliciesForBackendServer
-    -> f SetLoadBalancerPoliciesForBackendServer
+slbpfbsiInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer (Integer)
 slbpfbsiInstancePort f x =
-    (\y -> x { _slbpfbsiInstancePort = y })
-       <$> f (_slbpfbsiInstancePort x)
+    f (_slbpfbsiInstancePort x)
+        <&> \y -> x { _slbpfbsiInstancePort = y }
 {-# INLINE slbpfbsiInstancePort #-}
 
 -- | List of policy names to be set. If the list is empty, then all current
 -- polices are removed from the back-end server.
-slbpfbsiPolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SetLoadBalancerPoliciesForBackendServer
-    -> f SetLoadBalancerPoliciesForBackendServer
+slbpfbsiPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer ([Text])
 slbpfbsiPolicyNames f x =
-    (\y -> x { _slbpfbsiPolicyNames = y })
-       <$> f (_slbpfbsiPolicyNames x)
+    f (_slbpfbsiPolicyNames x)
+        <&> \y -> x { _slbpfbsiPolicyNames = y }
 {-# INLINE slbpfbsiPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesForBackendServer where

@@ -46,6 +46,7 @@ addUserToGroup p1 p2 = AddUserToGroup
     { _autgrUserName = p1
     , _autgrGroupName = p2
     }
+{-# INLINE addUserToGroup #-}
 
 data AddUserToGroup = AddUserToGroup
     { _autgrUserName :: Text
@@ -55,27 +56,17 @@ data AddUserToGroup = AddUserToGroup
     } deriving (Show, Generic)
 
 -- | Name of the user to add.
-autgrUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddUserToGroup
-    -> f AddUserToGroup
+autgrUserName :: Lens' AddUserToGroup (Text)
 autgrUserName f x =
-    (\y -> x { _autgrUserName = y })
-       <$> f (_autgrUserName x)
+    f (_autgrUserName x)
+        <&> \y -> x { _autgrUserName = y }
 {-# INLINE autgrUserName #-}
 
 -- | Name of the group to update.
-autgrGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AddUserToGroup
-    -> f AddUserToGroup
+autgrGroupName :: Lens' AddUserToGroup (Text)
 autgrGroupName f x =
-    (\y -> x { _autgrGroupName = y })
-       <$> f (_autgrGroupName x)
+    f (_autgrGroupName x)
+        <&> \y -> x { _autgrGroupName = y }
 {-# INLINE autgrGroupName #-}
 
 instance ToQuery AddUserToGroup where

@@ -69,15 +69,17 @@ data CreateVpnGateway = CreateVpnGateway
     } deriving (Show, Generic)
 
 -- | The type of VPN connection this virtual private gateway supports.
-cvgrType :: Lens' CreateVpnGateway GatewayType
+cvgrType :: Lens' CreateVpnGateway (GatewayType)
 cvgrType f x =
-    f (_cvgrType x) <&> \y -> x { _cvgrType = y }
+    f (_cvgrType x)
+        <&> \y -> x { _cvgrType = y }
 {-# INLINE cvgrType #-}
 
 -- | The Availability Zone for the virtual private gateway.
 cvgrAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
 cvgrAvailabilityZone f x =
-    f (_cvgrAvailabilityZone x) <&> \y -> x { _cvgrAvailabilityZone = y }
+    f (_cvgrAvailabilityZone x)
+        <&> \y -> x { _cvgrAvailabilityZone = y }
 {-# INLINE cvgrAvailabilityZone #-}
 
 instance ToQuery CreateVpnGateway where
@@ -91,7 +93,8 @@ data CreateVpnGatewayResponse = CreateVpnGatewayResponse
 -- | Information about the virtual private gateway.
 cvgsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgsVpnGateway f x =
-    f (_cvgsVpnGateway x) <&> \y -> x { _cvgsVpnGateway = y }
+    f (_cvgsVpnGateway x)
+        <&> \y -> x { _cvgsVpnGateway = y }
 {-# INLINE cvgsVpnGateway #-}
 
 instance FromXML CreateVpnGatewayResponse where

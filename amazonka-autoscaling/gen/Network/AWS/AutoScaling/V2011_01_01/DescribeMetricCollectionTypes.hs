@@ -46,6 +46,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeMetricCollectionTypes' request.
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes
+{-# INLINE describeMetricCollectionTypes #-}
 
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
     deriving (Eq, Show, Generic)
@@ -72,27 +73,17 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- GroupTotalInstances The GroupStandbyInstances metric is not returned by
 -- default. You must explicitly request it when calling
 -- EnableMetricsCollection.
-dmctaMetrics
-    :: Functor f
-    => ([MetricCollectionType]
-    -> f ([MetricCollectionType]))
-    -> DescribeMetricCollectionTypesResponse
-    -> f DescribeMetricCollectionTypesResponse
+dmctaMetrics :: Lens' DescribeMetricCollectionTypesResponse ([MetricCollectionType])
 dmctaMetrics f x =
-    (\y -> x { _dmctaMetrics = y })
-       <$> f (_dmctaMetrics x)
+    f (_dmctaMetrics x)
+        <&> \y -> x { _dmctaMetrics = y }
 {-# INLINE dmctaMetrics #-}
 
 -- | A list of granularities for the listed Metrics.
-dmctaGranularities
-    :: Functor f
-    => ([MetricGranularityType]
-    -> f ([MetricGranularityType]))
-    -> DescribeMetricCollectionTypesResponse
-    -> f DescribeMetricCollectionTypesResponse
+dmctaGranularities :: Lens' DescribeMetricCollectionTypesResponse ([MetricGranularityType])
 dmctaGranularities f x =
-    (\y -> x { _dmctaGranularities = y })
-       <$> f (_dmctaGranularities x)
+    f (_dmctaGranularities x)
+        <&> \y -> x { _dmctaGranularities = y }
 {-# INLINE dmctaGranularities #-}
 
 instance FromXML DescribeMetricCollectionTypesResponse where

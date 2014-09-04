@@ -77,7 +77,8 @@ data AllocateAddress = AllocateAddress
 -- Default: The address is for use with instances in EC2-Classic.
 aarDomain :: Lens' AllocateAddress (Maybe DomainType)
 aarDomain f x =
-    f (_aarDomain x) <&> \y -> x { _aarDomain = y }
+    f (_aarDomain x)
+        <&> \y -> x { _aarDomain = y }
 {-# INLINE aarDomain #-}
 
 instance ToQuery AllocateAddress where
@@ -98,20 +99,23 @@ data AllocateAddressResponse = AllocateAddressResponse
 -- EC2-Classic (standard) or instances in a VPC (vpc).
 aasDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aasDomain f x =
-    f (_aasDomain x) <&> \y -> x { _aasDomain = y }
+    f (_aasDomain x)
+        <&> \y -> x { _aasDomain = y }
 {-# INLINE aasDomain #-}
 
 -- | The Elastic IP address.
 aasPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aasPublicIp f x =
-    f (_aasPublicIp x) <&> \y -> x { _aasPublicIp = y }
+    f (_aasPublicIp x)
+        <&> \y -> x { _aasPublicIp = y }
 {-# INLINE aasPublicIp #-}
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
 aasAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aasAllocationId f x =
-    f (_aasAllocationId x) <&> \y -> x { _aasAllocationId = y }
+    f (_aasAllocationId x)
+        <&> \y -> x { _aasAllocationId = y }
 {-# INLINE aasAllocationId #-}
 
 instance FromXML AllocateAddressResponse where

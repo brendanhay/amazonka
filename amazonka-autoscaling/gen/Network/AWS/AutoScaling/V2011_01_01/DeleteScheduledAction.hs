@@ -44,6 +44,7 @@ deleteScheduledAction p1 = DeleteScheduledAction
     { _dsatScheduledActionName = p1
     , _dsatAutoScalingGroupName = Nothing
     }
+{-# INLINE deleteScheduledAction #-}
 
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsatScheduledActionName :: Text
@@ -53,27 +54,17 @@ data DeleteScheduledAction = DeleteScheduledAction
     } deriving (Show, Generic)
 
 -- | The name of the action you want to delete.
-dsatScheduledActionName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteScheduledAction
-    -> f DeleteScheduledAction
+dsatScheduledActionName :: Lens' DeleteScheduledAction (Text)
 dsatScheduledActionName f x =
-    (\y -> x { _dsatScheduledActionName = y })
-       <$> f (_dsatScheduledActionName x)
+    f (_dsatScheduledActionName x)
+        <&> \y -> x { _dsatScheduledActionName = y }
 {-# INLINE dsatScheduledActionName #-}
 
 -- | The name of the Auto Scaling group.
-dsatAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteScheduledAction
-    -> f DeleteScheduledAction
+dsatAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
 dsatAutoScalingGroupName f x =
-    (\y -> x { _dsatAutoScalingGroupName = y })
-       <$> f (_dsatAutoScalingGroupName x)
+    f (_dsatAutoScalingGroupName x)
+        <&> \y -> x { _dsatAutoScalingGroupName = y }
 {-# INLINE dsatAutoScalingGroupName #-}
 
 instance ToQuery DeleteScheduledAction where

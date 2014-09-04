@@ -62,9 +62,10 @@ data RebootInstances = RebootInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-riuInstanceIds :: Lens' RebootInstances [Text]
+riuInstanceIds :: Lens' RebootInstances ([Text])
 riuInstanceIds f x =
-    f (_riuInstanceIds x) <&> \y -> x { _riuInstanceIds = y }
+    f (_riuInstanceIds x)
+        <&> \y -> x { _riuInstanceIds = y }
 {-# INLINE riuInstanceIds #-}
 
 instance ToQuery RebootInstances where

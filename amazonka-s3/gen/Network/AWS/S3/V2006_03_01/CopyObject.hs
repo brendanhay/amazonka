@@ -108,6 +108,7 @@ copyObject p1 p2 p3 = CopyObject
     , _corStorageClass = Nothing
     , _corWebsiteRedirectLocation = Nothing
     }
+{-# INLINE copyObject #-}
 
 data CopyObject = CopyObject
     { _corCopySource :: Text
@@ -199,299 +200,179 @@ data CopyObject = CopyObject
 
 -- | The name of the source bucket and key name of the source object, separated
 -- by a slash (/). Must be URL-encoded.
-corCopySource
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CopyObject
-    -> f CopyObject
+corCopySource :: Lens' CopyObject (Text)
 corCopySource f x =
-    (\y -> x { _corCopySource = y })
-       <$> f (_corCopySource x)
+    f (_corCopySource x)
+        <&> \y -> x { _corCopySource = y }
 {-# INLINE corCopySource #-}
 
-corBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> CopyObject
-    -> f CopyObject
+corBucket :: Lens' CopyObject (BucketName)
 corBucket f x =
-    (\y -> x { _corBucket = y })
-       <$> f (_corBucket x)
+    f (_corBucket x)
+        <&> \y -> x { _corBucket = y }
 {-# INLINE corBucket #-}
 
-corKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> CopyObject
-    -> f CopyObject
+corKey :: Lens' CopyObject (ObjectKey)
 corKey f x =
-    (\y -> x { _corKey = y })
-       <$> f (_corKey x)
+    f (_corKey x)
+        <&> \y -> x { _corKey = y }
 {-# INLINE corKey #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-corCacheControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corCacheControl :: Lens' CopyObject (Maybe Text)
 corCacheControl f x =
-    (\y -> x { _corCacheControl = y })
-       <$> f (_corCacheControl x)
+    f (_corCacheControl x)
+        <&> \y -> x { _corCacheControl = y }
 {-# INLINE corCacheControl #-}
 
 -- | Specifies presentational information for the object.
-corContentDisposition
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corContentDisposition :: Lens' CopyObject (Maybe Text)
 corContentDisposition f x =
-    (\y -> x { _corContentDisposition = y })
-       <$> f (_corContentDisposition x)
+    f (_corContentDisposition x)
+        <&> \y -> x { _corContentDisposition = y }
 {-# INLINE corContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-corContentEncoding
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corContentEncoding :: Lens' CopyObject (Maybe Text)
 corContentEncoding f x =
-    (\y -> x { _corContentEncoding = y })
-       <$> f (_corContentEncoding x)
+    f (_corContentEncoding x)
+        <&> \y -> x { _corContentEncoding = y }
 {-# INLINE corContentEncoding #-}
 
 -- | The language the content is in.
-corContentLanguage
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corContentLanguage :: Lens' CopyObject (Maybe Text)
 corContentLanguage f x =
-    (\y -> x { _corContentLanguage = y })
-       <$> f (_corContentLanguage x)
+    f (_corContentLanguage x)
+        <&> \y -> x { _corContentLanguage = y }
 {-# INLINE corContentLanguage #-}
 
 -- | A standard MIME type describing the format of the object data.
-corContentType
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corContentType :: Lens' CopyObject (Maybe Text)
 corContentType f x =
-    (\y -> x { _corContentType = y })
-       <$> f (_corContentType x)
+    f (_corContentType x)
+        <&> \y -> x { _corContentType = y }
 {-# INLINE corContentType #-}
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
-corCopySourceIfMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
 corCopySourceIfMatch f x =
-    (\y -> x { _corCopySourceIfMatch = y })
-       <$> f (_corCopySourceIfMatch x)
+    f (_corCopySourceIfMatch x)
+        <&> \y -> x { _corCopySourceIfMatch = y }
 {-# INLINE corCopySourceIfMatch #-}
 
 -- | Copies the object if it has been modified since the specified time.
-corCopySourceIfModifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceIfModifiedSince :: Lens' CopyObject (Maybe RFC822)
 corCopySourceIfModifiedSince f x =
-    (\y -> x { _corCopySourceIfModifiedSince = y })
-       <$> f (_corCopySourceIfModifiedSince x)
+    f (_corCopySourceIfModifiedSince x)
+        <&> \y -> x { _corCopySourceIfModifiedSince = y }
 {-# INLINE corCopySourceIfModifiedSince #-}
 
 -- | Copies the object if its entity tag (ETag) is different than the specified
 -- ETag.
-corCopySourceIfNoneMatch
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
 corCopySourceIfNoneMatch f x =
-    (\y -> x { _corCopySourceIfNoneMatch = y })
-       <$> f (_corCopySourceIfNoneMatch x)
+    f (_corCopySourceIfNoneMatch x)
+        <&> \y -> x { _corCopySourceIfNoneMatch = y }
 {-# INLINE corCopySourceIfNoneMatch #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
-corCopySourceIfUnmodifiedSince
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceIfUnmodifiedSince :: Lens' CopyObject (Maybe RFC822)
 corCopySourceIfUnmodifiedSince f x =
-    (\y -> x { _corCopySourceIfUnmodifiedSince = y })
-       <$> f (_corCopySourceIfUnmodifiedSince x)
+    f (_corCopySourceIfUnmodifiedSince x)
+        <&> \y -> x { _corCopySourceIfUnmodifiedSince = y }
 {-# INLINE corCopySourceIfUnmodifiedSince #-}
 
 -- | Specifies the algorithm to use when decrypting the source object (e.g.,
 -- AES256).
-corCopySourceSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 corCopySourceSSECustomerAlgorithm f x =
-    (\y -> x { _corCopySourceSSECustomerAlgorithm = y })
-       <$> f (_corCopySourceSSECustomerAlgorithm x)
+    f (_corCopySourceSSECustomerAlgorithm x)
+        <&> \y -> x { _corCopySourceSSECustomerAlgorithm = y }
 {-# INLINE corCopySourceSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header must
 -- be one that was used when the source object was created.
-corCopySourceSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
 corCopySourceSSECustomerKey f x =
-    (\y -> x { _corCopySourceSSECustomerKey = y })
-       <$> f (_corCopySourceSSECustomerKey x)
+    f (_corCopySourceSSECustomerKey x)
+        <&> \y -> x { _corCopySourceSSECustomerKey = y }
 {-# INLINE corCopySourceSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-corCopySourceSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 corCopySourceSSECustomerKeyMD5 f x =
-    (\y -> x { _corCopySourceSSECustomerKeyMD5 = y })
-       <$> f (_corCopySourceSSECustomerKeyMD5 x)
+    f (_corCopySourceSSECustomerKeyMD5 x)
+        <&> \y -> x { _corCopySourceSSECustomerKeyMD5 = y }
 {-# INLINE corCopySourceSSECustomerKeyMD5 #-}
 
 -- | The date and time at which the object is no longer cacheable.
-corExpires
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CopyObject
-    -> f CopyObject
+corExpires :: Lens' CopyObject (Maybe RFC822)
 corExpires f x =
-    (\y -> x { _corExpires = y })
-       <$> f (_corExpires x)
+    f (_corExpires x)
+        <&> \y -> x { _corExpires = y }
 {-# INLINE corExpires #-}
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
-corGrantFullControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corGrantFullControl :: Lens' CopyObject (Maybe Text)
 corGrantFullControl f x =
-    (\y -> x { _corGrantFullControl = y })
-       <$> f (_corGrantFullControl x)
+    f (_corGrantFullControl x)
+        <&> \y -> x { _corGrantFullControl = y }
 {-# INLINE corGrantFullControl #-}
 
 -- | Allows grantee to read the object data and its metadata.
-corGrantRead
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corGrantRead :: Lens' CopyObject (Maybe Text)
 corGrantRead f x =
-    (\y -> x { _corGrantRead = y })
-       <$> f (_corGrantRead x)
+    f (_corGrantRead x)
+        <&> \y -> x { _corGrantRead = y }
 {-# INLINE corGrantRead #-}
 
 -- | Allows grantee to read the object ACL.
-corGrantReadACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corGrantReadACP :: Lens' CopyObject (Maybe Text)
 corGrantReadACP f x =
-    (\y -> x { _corGrantReadACP = y })
-       <$> f (_corGrantReadACP x)
+    f (_corGrantReadACP x)
+        <&> \y -> x { _corGrantReadACP = y }
 {-# INLINE corGrantReadACP #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
-corGrantWriteACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corGrantWriteACP :: Lens' CopyObject (Maybe Text)
 corGrantWriteACP f x =
-    (\y -> x { _corGrantWriteACP = y })
-       <$> f (_corGrantWriteACP x)
+    f (_corGrantWriteACP x)
+        <&> \y -> x { _corGrantWriteACP = y }
 {-# INLINE corGrantWriteACP #-}
 
 -- | A map of metadata to store with the object in S3.
-corMetadata
-    :: Functor f
-    => (Map Text Text
-    -> f (Map Text Text))
-    -> CopyObject
-    -> f CopyObject
+corMetadata :: Lens' CopyObject (Map Text Text)
 corMetadata f x =
-    (\y -> x { _corMetadata = y })
-       <$> f (_corMetadata x)
+    f (_corMetadata x)
+        <&> \y -> x { _corMetadata = y }
 {-# INLINE corMetadata #-}
 
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
-corMetadataDirective
-    :: Functor f
-    => (Maybe MetadataDirective
-    -> f (Maybe MetadataDirective))
-    -> CopyObject
-    -> f CopyObject
+corMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
 corMetadataDirective f x =
-    (\y -> x { _corMetadataDirective = y })
-       <$> f (_corMetadataDirective x)
+    f (_corMetadataDirective x)
+        <&> \y -> x { _corMetadataDirective = y }
 {-# INLINE corMetadataDirective #-}
 
 -- | The canned ACL to apply to the object.
-corACL
-    :: Functor f
-    => (Maybe ObjectCannedACL
-    -> f (Maybe ObjectCannedACL))
-    -> CopyObject
-    -> f CopyObject
+corACL :: Lens' CopyObject (Maybe ObjectCannedACL)
 corACL f x =
-    (\y -> x { _corACL = y })
-       <$> f (_corACL x)
+    f (_corACL x)
+        <&> \y -> x { _corACL = y }
 {-# INLINE corACL #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-corSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 corSSECustomerAlgorithm f x =
-    (\y -> x { _corSSECustomerAlgorithm = y })
-       <$> f (_corSSECustomerAlgorithm x)
+    f (_corSSECustomerAlgorithm x)
+        <&> \y -> x { _corSSECustomerAlgorithm = y }
 {-# INLINE corSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -499,67 +380,42 @@ corSSECustomerAlgorithm f x =
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-corSSECustomerKey
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corSSECustomerKey :: Lens' CopyObject (Maybe Text)
 corSSECustomerKey f x =
-    (\y -> x { _corSSECustomerKey = y })
-       <$> f (_corSSECustomerKey x)
+    f (_corSSECustomerKey x)
+        <&> \y -> x { _corSSECustomerKey = y }
 {-# INLINE corSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-corSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 corSSECustomerKeyMD5 f x =
-    (\y -> x { _corSSECustomerKeyMD5 = y })
-       <$> f (_corSSECustomerKeyMD5 x)
+    f (_corSSECustomerKeyMD5 x)
+        <&> \y -> x { _corSSECustomerKeyMD5 = y }
 {-# INLINE corSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-corServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> CopyObject
-    -> f CopyObject
+corServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
 corServerSideEncryption f x =
-    (\y -> x { _corServerSideEncryption = y })
-       <$> f (_corServerSideEncryption x)
+    f (_corServerSideEncryption x)
+        <&> \y -> x { _corServerSideEncryption = y }
 {-# INLINE corServerSideEncryption #-}
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-corStorageClass
-    :: Functor f
-    => (Maybe StorageClass
-    -> f (Maybe StorageClass))
-    -> CopyObject
-    -> f CopyObject
+corStorageClass :: Lens' CopyObject (Maybe StorageClass)
 corStorageClass f x =
-    (\y -> x { _corStorageClass = y })
-       <$> f (_corStorageClass x)
+    f (_corStorageClass x)
+        <&> \y -> x { _corStorageClass = y }
 {-# INLINE corStorageClass #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-corWebsiteRedirectLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObject
-    -> f CopyObject
+corWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
 corWebsiteRedirectLocation f x =
-    (\y -> x { _corWebsiteRedirectLocation = y })
-       <$> f (_corWebsiteRedirectLocation x)
+    f (_corWebsiteRedirectLocation x)
+        <&> \y -> x { _corWebsiteRedirectLocation = y }
 {-# INLINE corWebsiteRedirectLocation #-}
 
 instance ToPath CopyObject where
@@ -625,78 +481,48 @@ data CopyObjectResponse = CopyObjectResponse
       -- object in S3.
     } deriving (Show, Generic)
 
-cooCopyObjectResult
-    :: Functor f
-    => (Maybe CopyObjectResult
-    -> f (Maybe CopyObjectResult))
-    -> CopyObjectResponse
-    -> f CopyObjectResponse
+cooCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 cooCopyObjectResult f x =
-    (\y -> x { _cooCopyObjectResult = y })
-       <$> f (_cooCopyObjectResult x)
+    f (_cooCopyObjectResult x)
+        <&> \y -> x { _cooCopyObjectResult = y }
 {-# INLINE cooCopyObjectResult #-}
 
-cooCopySourceVersionId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObjectResponse
-    -> f CopyObjectResponse
+cooCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
 cooCopySourceVersionId f x =
-    (\y -> x { _cooCopySourceVersionId = y })
-       <$> f (_cooCopySourceVersionId x)
+    f (_cooCopySourceVersionId x)
+        <&> \y -> x { _cooCopySourceVersionId = y }
 {-# INLINE cooCopySourceVersionId #-}
 
 -- | If the object expiration is configured, the response includes this header.
-cooExpiration
-    :: Functor f
-    => (Maybe RFC822
-    -> f (Maybe RFC822))
-    -> CopyObjectResponse
-    -> f CopyObjectResponse
+cooExpiration :: Lens' CopyObjectResponse (Maybe RFC822)
 cooExpiration f x =
-    (\y -> x { _cooExpiration = y })
-       <$> f (_cooExpiration x)
+    f (_cooExpiration x)
+        <&> \y -> x { _cooExpiration = y }
 {-# INLINE cooExpiration #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-cooSSECustomerAlgorithm
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObjectResponse
-    -> f CopyObjectResponse
+cooSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
 cooSSECustomerAlgorithm f x =
-    (\y -> x { _cooSSECustomerAlgorithm = y })
-       <$> f (_cooSSECustomerAlgorithm x)
+    f (_cooSSECustomerAlgorithm x)
+        <&> \y -> x { _cooSSECustomerAlgorithm = y }
 {-# INLINE cooSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-cooSSECustomerKeyMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CopyObjectResponse
-    -> f CopyObjectResponse
+cooSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
 cooSSECustomerKeyMD5 f x =
-    (\y -> x { _cooSSECustomerKeyMD5 = y })
-       <$> f (_cooSSECustomerKeyMD5 x)
+    f (_cooSSECustomerKeyMD5 x)
+        <&> \y -> x { _cooSSECustomerKeyMD5 = y }
 {-# INLINE cooSSECustomerKeyMD5 #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cooServerSideEncryption
-    :: Functor f
-    => (Maybe ServerSideEncryption
-    -> f (Maybe ServerSideEncryption))
-    -> CopyObjectResponse
-    -> f CopyObjectResponse
+cooServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
 cooServerSideEncryption f x =
-    (\y -> x { _cooServerSideEncryption = y })
-       <$> f (_cooServerSideEncryption x)
+    f (_cooServerSideEncryption x)
+        <&> \y -> x { _cooServerSideEncryption = y }
 {-# INLINE cooServerSideEncryption #-}
 
 instance AWSRequest CopyObject where

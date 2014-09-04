@@ -48,6 +48,7 @@ deleteLoginProfile :: Text -- ^ 'dlprUserName'
 deleteLoginProfile p1 = DeleteLoginProfile
     { _dlprUserName = p1
     }
+{-# INLINE deleteLoginProfile #-}
 
 data DeleteLoginProfile = DeleteLoginProfile
     { _dlprUserName :: Text
@@ -55,15 +56,10 @@ data DeleteLoginProfile = DeleteLoginProfile
     } deriving (Show, Generic)
 
 -- | Name of the user whose password you want to delete.
-dlprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteLoginProfile
-    -> f DeleteLoginProfile
+dlprUserName :: Lens' DeleteLoginProfile (Text)
 dlprUserName f x =
-    (\y -> x { _dlprUserName = y })
-       <$> f (_dlprUserName x)
+    f (_dlprUserName x)
+        <&> \y -> x { _dlprUserName = y }
 {-# INLINE dlprUserName #-}
 
 instance ToQuery DeleteLoginProfile where

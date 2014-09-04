@@ -67,15 +67,17 @@ data DetachVpnGateway = DetachVpnGateway
     } deriving (Show, Generic)
 
 -- | The ID of the virtual private gateway.
-dvguVpnGatewayId :: Lens' DetachVpnGateway Text
+dvguVpnGatewayId :: Lens' DetachVpnGateway (Text)
 dvguVpnGatewayId f x =
-    f (_dvguVpnGatewayId x) <&> \y -> x { _dvguVpnGatewayId = y }
+    f (_dvguVpnGatewayId x)
+        <&> \y -> x { _dvguVpnGatewayId = y }
 {-# INLINE dvguVpnGatewayId #-}
 
 -- | The ID of the VPC.
-dvguVpcId :: Lens' DetachVpnGateway Text
+dvguVpcId :: Lens' DetachVpnGateway (Text)
 dvguVpcId f x =
-    f (_dvguVpcId x) <&> \y -> x { _dvguVpcId = y }
+    f (_dvguVpcId x)
+        <&> \y -> x { _dvguVpcId = y }
 {-# INLINE dvguVpcId #-}
 
 instance ToQuery DetachVpnGateway where

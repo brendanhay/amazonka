@@ -43,20 +43,16 @@ getBucketNotification :: BucketName -- ^ 'gbnrBucket'
 getBucketNotification p1 = GetBucketNotification
     { _gbnrBucket = p1
     }
+{-# INLINE getBucketNotification #-}
 
 data GetBucketNotification = GetBucketNotification
     { _gbnrBucket :: BucketName
     } deriving (Show, Generic)
 
-gbnrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketNotification
-    -> f GetBucketNotification
+gbnrBucket :: Lens' GetBucketNotification (BucketName)
 gbnrBucket f x =
-    (\y -> x { _gbnrBucket = y })
-       <$> f (_gbnrBucket x)
+    f (_gbnrBucket x)
+        <&> \y -> x { _gbnrBucket = y }
 {-# INLINE gbnrBucket #-}
 
 instance ToPath GetBucketNotification where
@@ -78,15 +74,10 @@ data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
 
-gbnoTopicConfiguration
-    :: Functor f
-    => (Maybe TopicConfiguration
-    -> f (Maybe TopicConfiguration))
-    -> GetBucketNotificationResponse
-    -> f GetBucketNotificationResponse
+gbnoTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
 gbnoTopicConfiguration f x =
-    (\y -> x { _gbnoTopicConfiguration = y })
-       <$> f (_gbnoTopicConfiguration x)
+    f (_gbnoTopicConfiguration x)
+        <&> \y -> x { _gbnoTopicConfiguration = y }
 {-# INLINE gbnoTopicConfiguration #-}
 
 instance FromXML GetBucketNotificationResponse where

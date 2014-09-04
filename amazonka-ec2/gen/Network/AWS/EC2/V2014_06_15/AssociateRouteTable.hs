@@ -70,15 +70,17 @@ data AssociateRouteTable = AssociateRouteTable
     } deriving (Show, Generic)
 
 -- | The ID of the subnet.
-artrSubnetId :: Lens' AssociateRouteTable Text
+artrSubnetId :: Lens' AssociateRouteTable (Text)
 artrSubnetId f x =
-    f (_artrSubnetId x) <&> \y -> x { _artrSubnetId = y }
+    f (_artrSubnetId x)
+        <&> \y -> x { _artrSubnetId = y }
 {-# INLINE artrSubnetId #-}
 
 -- | The ID of the route table.
-artrRouteTableId :: Lens' AssociateRouteTable Text
+artrRouteTableId :: Lens' AssociateRouteTable (Text)
 artrRouteTableId f x =
-    f (_artrRouteTableId x) <&> \y -> x { _artrRouteTableId = y }
+    f (_artrRouteTableId x)
+        <&> \y -> x { _artrRouteTableId = y }
 {-# INLINE artrRouteTableId #-}
 
 instance ToQuery AssociateRouteTable where
@@ -93,7 +95,8 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse
 -- | The route table association ID (needed to disassociate the route table).
 artsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artsAssociationId f x =
-    f (_artsAssociationId x) <&> \y -> x { _artsAssociationId = y }
+    f (_artsAssociationId x)
+        <&> \y -> x { _artsAssociationId = y }
 {-# INLINE artsAssociationId #-}
 
 instance FromXML AssociateRouteTableResponse where

@@ -54,6 +54,7 @@ exitStandby p1 = ExitStandby
     { _esrAutoScalingGroupName = p1
     , _esrInstanceIds = mempty
     }
+{-# INLINE exitStandby #-}
 
 data ExitStandby = ExitStandby
     { _esrAutoScalingGroupName :: Text
@@ -66,28 +67,18 @@ data ExitStandby = ExitStandby
 
 -- | The name of the Auto Scaling group from which to move instances out of
 -- Standby mode.
-esrAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ExitStandby
-    -> f ExitStandby
+esrAutoScalingGroupName :: Lens' ExitStandby (Text)
 esrAutoScalingGroupName f x =
-    (\y -> x { _esrAutoScalingGroupName = y })
-       <$> f (_esrAutoScalingGroupName x)
+    f (_esrAutoScalingGroupName x)
+        <&> \y -> x { _esrAutoScalingGroupName = y }
 {-# INLINE esrAutoScalingGroupName #-}
 
 -- | A list of instances to move out of Standby mode. You must specify at least
 -- one instance ID.
-esrInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> ExitStandby
-    -> f ExitStandby
+esrInstanceIds :: Lens' ExitStandby ([Text])
 esrInstanceIds f x =
-    (\y -> x { _esrInstanceIds = y })
-       <$> f (_esrInstanceIds x)
+    f (_esrInstanceIds x)
+        <&> \y -> x { _esrInstanceIds = y }
 {-# INLINE esrInstanceIds #-}
 
 instance ToQuery ExitStandby where
@@ -101,15 +92,10 @@ data ExitStandbyResponse = ExitStandbyResponse
 
 -- | A list describing the activities related to moving instances out of Standby
 -- mode.
-esbActivities
-    :: Functor f
-    => ([Activity]
-    -> f ([Activity]))
-    -> ExitStandbyResponse
-    -> f ExitStandbyResponse
+esbActivities :: Lens' ExitStandbyResponse ([Activity])
 esbActivities f x =
-    (\y -> x { _esbActivities = y })
-       <$> f (_esbActivities x)
+    f (_esbActivities x)
+        <&> \y -> x { _esbActivities = y }
 {-# INLINE esbActivities #-}
 
 instance FromXML ExitStandbyResponse where

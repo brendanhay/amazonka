@@ -99,15 +99,17 @@ data DescribeVpcs = DescribeVpcs
 -- X, see the tag:key=value filter. tag-value - The value of a tag assigned to
 -- the resource. This filter is independent of the tag-key filter. vpc-id -
 -- The ID of the VPC.
-dvvFilters :: Lens' DescribeVpcs [Filter]
+dvvFilters :: Lens' DescribeVpcs ([Filter])
 dvvFilters f x =
-    f (_dvvFilters x) <&> \y -> x { _dvvFilters = y }
+    f (_dvvFilters x)
+        <&> \y -> x { _dvvFilters = y }
 {-# INLINE dvvFilters #-}
 
 -- | One or more VPC IDs. Default: Describes all your VPCs.
-dvvVpcIds :: Lens' DescribeVpcs [Text]
+dvvVpcIds :: Lens' DescribeVpcs ([Text])
 dvvVpcIds f x =
-    f (_dvvVpcIds x) <&> \y -> x { _dvvVpcIds = y }
+    f (_dvvVpcIds x)
+        <&> \y -> x { _dvvVpcIds = y }
 {-# INLINE dvvVpcIds #-}
 
 instance ToQuery DescribeVpcs where
@@ -119,9 +121,10 @@ data DescribeVpcsResponse = DescribeVpcsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more VPCs.
-dvwVpcs :: Lens' DescribeVpcsResponse [Vpc]
+dvwVpcs :: Lens' DescribeVpcsResponse ([Vpc])
 dvwVpcs f x =
-    f (_dvwVpcs x) <&> \y -> x { _dvwVpcs = y }
+    f (_dvwVpcs x)
+        <&> \y -> x { _dvwVpcs = y }
 {-# INLINE dvwVpcs #-}
 
 instance FromXML DescribeVpcsResponse where

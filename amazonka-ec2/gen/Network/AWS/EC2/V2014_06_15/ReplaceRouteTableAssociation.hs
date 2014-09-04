@@ -69,15 +69,17 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     } deriving (Show, Generic)
 
 -- | The association ID.
-rrtarAssociationId :: Lens' ReplaceRouteTableAssociation Text
+rrtarAssociationId :: Lens' ReplaceRouteTableAssociation (Text)
 rrtarAssociationId f x =
-    f (_rrtarAssociationId x) <&> \y -> x { _rrtarAssociationId = y }
+    f (_rrtarAssociationId x)
+        <&> \y -> x { _rrtarAssociationId = y }
 {-# INLINE rrtarAssociationId #-}
 
 -- | The ID of the new route table to associate with the subnet.
-rrtarRouteTableId :: Lens' ReplaceRouteTableAssociation Text
+rrtarRouteTableId :: Lens' ReplaceRouteTableAssociation (Text)
 rrtarRouteTableId f x =
-    f (_rrtarRouteTableId x) <&> \y -> x { _rrtarRouteTableId = y }
+    f (_rrtarRouteTableId x)
+        <&> \y -> x { _rrtarRouteTableId = y }
 {-# INLINE rrtarRouteTableId #-}
 
 instance ToQuery ReplaceRouteTableAssociation where
@@ -91,7 +93,8 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 -- | The ID of the new association.
 rrtasNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtasNewAssociationId f x =
-    f (_rrtasNewAssociationId x) <&> \y -> x { _rrtasNewAssociationId = y }
+    f (_rrtasNewAssociationId x)
+        <&> \y -> x { _rrtasNewAssociationId = y }
 {-# INLINE rrtasNewAssociationId #-}
 
 instance FromXML ReplaceRouteTableAssociationResponse where

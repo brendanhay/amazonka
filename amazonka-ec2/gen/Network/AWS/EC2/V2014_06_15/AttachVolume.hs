@@ -101,21 +101,24 @@ data AttachVolume = AttachVolume
 
 -- | The ID of the Amazon EBS volume. The volume and instance must be within the
 -- same Availability Zone.
-avrVolumeId :: Lens' AttachVolume Text
+avrVolumeId :: Lens' AttachVolume (Text)
 avrVolumeId f x =
-    f (_avrVolumeId x) <&> \y -> x { _avrVolumeId = y }
+    f (_avrVolumeId x)
+        <&> \y -> x { _avrVolumeId = y }
 {-# INLINE avrVolumeId #-}
 
 -- | The ID of the instance.
-avrInstanceId :: Lens' AttachVolume Text
+avrInstanceId :: Lens' AttachVolume (Text)
 avrInstanceId f x =
-    f (_avrInstanceId x) <&> \y -> x { _avrInstanceId = y }
+    f (_avrInstanceId x)
+        <&> \y -> x { _avrInstanceId = y }
 {-# INLINE avrInstanceId #-}
 
 -- | The device name to expose to the instance (for example, /dev/sdh or xvdh).
-avrDevice :: Lens' AttachVolume Text
+avrDevice :: Lens' AttachVolume (Text)
 avrDevice f x =
-    f (_avrDevice x) <&> \y -> x { _avrDevice = y }
+    f (_avrDevice x)
+        <&> \y -> x { _avrDevice = y }
 {-# INLINE avrDevice #-}
 
 instance ToQuery AttachVolume where
@@ -140,37 +143,43 @@ data AttachVolumeResponse = AttachVolumeResponse
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
 vaDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
 vaDeleteOnTermination f x =
-    f (_vaDeleteOnTermination x) <&> \y -> x { _vaDeleteOnTermination = y }
+    f (_vaDeleteOnTermination x)
+        <&> \y -> x { _vaDeleteOnTermination = y }
 {-# INLINE vaDeleteOnTermination #-}
 
 -- | The time stamp when the attachment initiated.
 vaAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
 vaAttachTime f x =
-    f (_vaAttachTime x) <&> \y -> x { _vaAttachTime = y }
+    f (_vaAttachTime x)
+        <&> \y -> x { _vaAttachTime = y }
 {-# INLINE vaAttachTime #-}
 
 -- | The ID of the volume.
 vaVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 vaVolumeId f x =
-    f (_vaVolumeId x) <&> \y -> x { _vaVolumeId = y }
+    f (_vaVolumeId x)
+        <&> \y -> x { _vaVolumeId = y }
 {-# INLINE vaVolumeId #-}
 
 -- | The ID of the instance.
 vaInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
 vaInstanceId f x =
-    f (_vaInstanceId x) <&> \y -> x { _vaInstanceId = y }
+    f (_vaInstanceId x)
+        <&> \y -> x { _vaInstanceId = y }
 {-# INLINE vaInstanceId #-}
 
 -- | The device name.
 vaDevice :: Lens' AttachVolumeResponse (Maybe Text)
 vaDevice f x =
-    f (_vaDevice x) <&> \y -> x { _vaDevice = y }
+    f (_vaDevice x)
+        <&> \y -> x { _vaDevice = y }
 {-# INLINE vaDevice #-}
 
 -- | The attachment state of the volume.
 vaState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
 vaState f x =
-    f (_vaState x) <&> \y -> x { _vaState = y }
+    f (_vaState x)
+        <&> \y -> x { _vaState = y }
 {-# INLINE vaState #-}
 
 instance FromXML AttachVolumeResponse where

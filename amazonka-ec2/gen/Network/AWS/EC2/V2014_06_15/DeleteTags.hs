@@ -80,18 +80,20 @@ data DeleteTags = DeleteTags
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
-dtrResources :: Lens' DeleteTags [Text]
+dtrResources :: Lens' DeleteTags ([Text])
 dtrResources f x =
-    f (_dtrResources x) <&> \y -> x { _dtrResources = y }
+    f (_dtrResources x)
+        <&> \y -> x { _dtrResources = y }
 {-# INLINE dtrResources #-}
 
 -- | One or more tags to delete. If you omit the value parameter, we delete the
 -- tag regardless of its value. If you specify this parameter with an empty
 -- string as the value, we delete the key only if its value is an empty
 -- string.
-dtrTags :: Lens' DeleteTags [Tag]
+dtrTags :: Lens' DeleteTags ([Tag])
 dtrTags f x =
-    f (_dtrTags x) <&> \y -> x { _dtrTags = y }
+    f (_dtrTags x)
+        <&> \y -> x { _dtrTags = y }
 {-# INLINE dtrTags #-}
 
 instance ToQuery DeleteTags where

@@ -69,15 +69,17 @@ data ConfirmProductInstance = ConfirmProductInstance
     } deriving (Show, Generic)
 
 -- | The product code. This must be an Amazon DevPay product code that you own.
-cpirProductCode :: Lens' ConfirmProductInstance Text
+cpirProductCode :: Lens' ConfirmProductInstance (Text)
 cpirProductCode f x =
-    f (_cpirProductCode x) <&> \y -> x { _cpirProductCode = y }
+    f (_cpirProductCode x)
+        <&> \y -> x { _cpirProductCode = y }
 {-# INLINE cpirProductCode #-}
 
 -- | The ID of the instance.
-cpirInstanceId :: Lens' ConfirmProductInstance Text
+cpirInstanceId :: Lens' ConfirmProductInstance (Text)
 cpirInstanceId f x =
-    f (_cpirInstanceId x) <&> \y -> x { _cpirInstanceId = y }
+    f (_cpirInstanceId x)
+        <&> \y -> x { _cpirInstanceId = y }
 {-# INLINE cpirInstanceId #-}
 
 instance ToQuery ConfirmProductInstance where
@@ -93,7 +95,8 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 -- product code is attached to the instance.
 cpisOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpisOwnerId f x =
-    f (_cpisOwnerId x) <&> \y -> x { _cpisOwnerId = y }
+    f (_cpisOwnerId x)
+        <&> \y -> x { _cpisOwnerId = y }
 {-# INLINE cpisOwnerId #-}
 
 instance FromXML ConfirmProductInstanceResponse where

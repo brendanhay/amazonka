@@ -69,9 +69,10 @@ data DescribeExportTasks = DescribeExportTasks
     } deriving (Show, Generic)
 
 -- | One or more export task IDs.
-detrExportTaskIds :: Lens' DescribeExportTasks [Text]
+detrExportTaskIds :: Lens' DescribeExportTasks ([Text])
 detrExportTaskIds f x =
-    f (_detrExportTaskIds x) <&> \y -> x { _detrExportTaskIds = y }
+    f (_detrExportTaskIds x)
+        <&> \y -> x { _detrExportTaskIds = y }
 {-# INLINE detrExportTaskIds #-}
 
 instance ToQuery DescribeExportTasks where
@@ -83,9 +84,10 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse
     } deriving (Show, Generic)
 
 -- | 
-detsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
+detsExportTasks :: Lens' DescribeExportTasksResponse ([ExportTask])
 detsExportTasks f x =
-    f (_detsExportTasks x) <&> \y -> x { _detsExportTasks = y }
+    f (_detsExportTasks x)
+        <&> \y -> x { _detsExportTasks = y }
 {-# INLINE detsExportTasks #-}
 
 instance FromXML DescribeExportTasksResponse where

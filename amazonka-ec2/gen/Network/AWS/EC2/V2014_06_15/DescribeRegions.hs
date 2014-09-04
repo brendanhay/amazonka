@@ -66,15 +66,17 @@ data DescribeRegions = DescribeRegions
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
-drsFilters :: Lens' DescribeRegions [Filter]
+drsFilters :: Lens' DescribeRegions ([Filter])
 drsFilters f x =
-    f (_drsFilters x) <&> \y -> x { _drsFilters = y }
+    f (_drsFilters x)
+        <&> \y -> x { _drsFilters = y }
 {-# INLINE drsFilters #-}
 
 -- | The names of one or more regions.
-drsRegionNames :: Lens' DescribeRegions [Text]
+drsRegionNames :: Lens' DescribeRegions ([Text])
 drsRegionNames f x =
-    f (_drsRegionNames x) <&> \y -> x { _drsRegionNames = y }
+    f (_drsRegionNames x)
+        <&> \y -> x { _drsRegionNames = y }
 {-# INLINE drsRegionNames #-}
 
 instance ToQuery DescribeRegions where
@@ -86,9 +88,10 @@ data DescribeRegionsResponse = DescribeRegionsResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more regions.
-drtRegions :: Lens' DescribeRegionsResponse [Region]
+drtRegions :: Lens' DescribeRegionsResponse ([Region])
 drtRegions f x =
-    f (_drtRegions x) <&> \y -> x { _drtRegions = y }
+    f (_drtRegions x)
+        <&> \y -> x { _drtRegions = y }
 {-# INLINE drtRegions #-}
 
 instance FromXML DescribeRegionsResponse where

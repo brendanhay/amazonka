@@ -56,9 +56,10 @@ data DeregisterImage = DeregisterImage
     } deriving (Show, Generic)
 
 -- | The ID of the AMI.
-dirImageId :: Lens' DeregisterImage Text
+dirImageId :: Lens' DeregisterImage (Text)
 dirImageId f x =
-    f (_dirImageId x) <&> \y -> x { _dirImageId = y }
+    f (_dirImageId x)
+        <&> \y -> x { _dirImageId = y }
 {-# INLINE dirImageId #-}
 
 instance ToQuery DeregisterImage where

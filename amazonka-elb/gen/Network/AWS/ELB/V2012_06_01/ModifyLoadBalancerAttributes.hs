@@ -75,6 +75,7 @@ modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
     { _mlbaiLoadBalancerName = p1
     , _mlbaiLoadBalancerAttributes = p2
     }
+{-# INLINE modifyLoadBalancerAttributes #-}
 
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     { _mlbaiLoadBalancerName :: Text
@@ -84,27 +85,17 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-mlbaiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ModifyLoadBalancerAttributes
-    -> f ModifyLoadBalancerAttributes
+mlbaiLoadBalancerName :: Lens' ModifyLoadBalancerAttributes (Text)
 mlbaiLoadBalancerName f x =
-    (\y -> x { _mlbaiLoadBalancerName = y })
-       <$> f (_mlbaiLoadBalancerName x)
+    f (_mlbaiLoadBalancerName x)
+        <&> \y -> x { _mlbaiLoadBalancerName = y }
 {-# INLINE mlbaiLoadBalancerName #-}
 
 -- | Attributes of the load balancer.
-mlbaiLoadBalancerAttributes
-    :: Functor f
-    => (LoadBalancerAttributes
-    -> f (LoadBalancerAttributes))
-    -> ModifyLoadBalancerAttributes
-    -> f ModifyLoadBalancerAttributes
+mlbaiLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes (LoadBalancerAttributes)
 mlbaiLoadBalancerAttributes f x =
-    (\y -> x { _mlbaiLoadBalancerAttributes = y })
-       <$> f (_mlbaiLoadBalancerAttributes x)
+    f (_mlbaiLoadBalancerAttributes x)
+        <&> \y -> x { _mlbaiLoadBalancerAttributes = y }
 {-# INLINE mlbaiLoadBalancerAttributes #-}
 
 instance ToQuery ModifyLoadBalancerAttributes where
@@ -118,27 +109,17 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-mlbaoLoadBalancerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ModifyLoadBalancerAttributesResponse
-    -> f ModifyLoadBalancerAttributesResponse
+mlbaoLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbaoLoadBalancerName f x =
-    (\y -> x { _mlbaoLoadBalancerName = y })
-       <$> f (_mlbaoLoadBalancerName x)
+    f (_mlbaoLoadBalancerName x)
+        <&> \y -> x { _mlbaoLoadBalancerName = y }
 {-# INLINE mlbaoLoadBalancerName #-}
 
 -- | The LoadBalancerAttributes data type.
-mlbaoLoadBalancerAttributes
-    :: Functor f
-    => (Maybe LoadBalancerAttributes
-    -> f (Maybe LoadBalancerAttributes))
-    -> ModifyLoadBalancerAttributesResponse
-    -> f ModifyLoadBalancerAttributesResponse
+mlbaoLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 mlbaoLoadBalancerAttributes f x =
-    (\y -> x { _mlbaoLoadBalancerAttributes = y })
-       <$> f (_mlbaoLoadBalancerAttributes x)
+    f (_mlbaoLoadBalancerAttributes x)
+        <&> \y -> x { _mlbaoLoadBalancerAttributes = y }
 {-# INLINE mlbaoLoadBalancerAttributes #-}
 
 instance FromXML ModifyLoadBalancerAttributesResponse where

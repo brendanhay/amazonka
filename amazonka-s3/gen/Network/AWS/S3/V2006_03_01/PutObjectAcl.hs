@@ -61,6 +61,7 @@ putObjectAcl p1 p2 = PutObjectAcl
     , _poarGrantWriteACP = Nothing
     , _poarACL = Nothing
     }
+{-# INLINE putObjectAcl #-}
 
 data PutObjectAcl = PutObjectAcl
     { _poarBucket :: BucketName
@@ -83,121 +84,71 @@ data PutObjectAcl = PutObjectAcl
       -- ^ The canned ACL to apply to the object.
     } deriving (Show, Generic)
 
-poarBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarBucket :: Lens' PutObjectAcl (BucketName)
 poarBucket f x =
-    (\y -> x { _poarBucket = y })
-       <$> f (_poarBucket x)
+    f (_poarBucket x)
+        <&> \y -> x { _poarBucket = y }
 {-# INLINE poarBucket #-}
 
-poarKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarKey :: Lens' PutObjectAcl (ObjectKey)
 poarKey f x =
-    (\y -> x { _poarKey = y })
-       <$> f (_poarKey x)
+    f (_poarKey x)
+        <&> \y -> x { _poarKey = y }
 {-# INLINE poarKey #-}
 
-poarAccessControlPolicy
-    :: Functor f
-    => (Maybe AccessControlPolicy
-    -> f (Maybe AccessControlPolicy))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)
 poarAccessControlPolicy f x =
-    (\y -> x { _poarAccessControlPolicy = y })
-       <$> f (_poarAccessControlPolicy x)
+    f (_poarAccessControlPolicy x)
+        <&> \y -> x { _poarAccessControlPolicy = y }
 {-# INLINE poarAccessControlPolicy #-}
 
-poarContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarContentMD5 :: Lens' PutObjectAcl (Maybe Text)
 poarContentMD5 f x =
-    (\y -> x { _poarContentMD5 = y })
-       <$> f (_poarContentMD5 x)
+    f (_poarContentMD5 x)
+        <&> \y -> x { _poarContentMD5 = y }
 {-# INLINE poarContentMD5 #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
-poarGrantFullControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarGrantFullControl :: Lens' PutObjectAcl (Maybe Text)
 poarGrantFullControl f x =
-    (\y -> x { _poarGrantFullControl = y })
-       <$> f (_poarGrantFullControl x)
+    f (_poarGrantFullControl x)
+        <&> \y -> x { _poarGrantFullControl = y }
 {-# INLINE poarGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
-poarGrantRead
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarGrantRead :: Lens' PutObjectAcl (Maybe Text)
 poarGrantRead f x =
-    (\y -> x { _poarGrantRead = y })
-       <$> f (_poarGrantRead x)
+    f (_poarGrantRead x)
+        <&> \y -> x { _poarGrantRead = y }
 {-# INLINE poarGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
-poarGrantReadACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarGrantReadACP :: Lens' PutObjectAcl (Maybe Text)
 poarGrantReadACP f x =
-    (\y -> x { _poarGrantReadACP = y })
-       <$> f (_poarGrantReadACP x)
+    f (_poarGrantReadACP x)
+        <&> \y -> x { _poarGrantReadACP = y }
 {-# INLINE poarGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
-poarGrantWrite
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarGrantWrite :: Lens' PutObjectAcl (Maybe Text)
 poarGrantWrite f x =
-    (\y -> x { _poarGrantWrite = y })
-       <$> f (_poarGrantWrite x)
+    f (_poarGrantWrite x)
+        <&> \y -> x { _poarGrantWrite = y }
 {-# INLINE poarGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-poarGrantWriteACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarGrantWriteACP :: Lens' PutObjectAcl (Maybe Text)
 poarGrantWriteACP f x =
-    (\y -> x { _poarGrantWriteACP = y })
-       <$> f (_poarGrantWriteACP x)
+    f (_poarGrantWriteACP x)
+        <&> \y -> x { _poarGrantWriteACP = y }
 {-# INLINE poarGrantWriteACP #-}
 
 -- | The canned ACL to apply to the object.
-poarACL
-    :: Functor f
-    => (Maybe ObjectCannedACL
-    -> f (Maybe ObjectCannedACL))
-    -> PutObjectAcl
-    -> f PutObjectAcl
+poarACL :: Lens' PutObjectAcl (Maybe ObjectCannedACL)
 poarACL f x =
-    (\y -> x { _poarACL = y })
-       <$> f (_poarACL x)
+    f (_poarACL x)
+        <&> \y -> x { _poarACL = y }
 {-# INLINE poarACL #-}
 
 instance ToPath PutObjectAcl where

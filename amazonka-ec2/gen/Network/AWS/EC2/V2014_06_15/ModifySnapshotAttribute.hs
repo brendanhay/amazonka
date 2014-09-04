@@ -96,39 +96,45 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the snapshot.
-msarSnapshotId :: Lens' ModifySnapshotAttribute Text
+msarSnapshotId :: Lens' ModifySnapshotAttribute (Text)
 msarSnapshotId f x =
-    f (_msarSnapshotId x) <&> \y -> x { _msarSnapshotId = y }
+    f (_msarSnapshotId x)
+        <&> \y -> x { _msarSnapshotId = y }
 {-# INLINE msarSnapshotId #-}
 
 -- | A JSON representation of the snapshot attribute modification.
 msarCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
 msarCreateVolumePermission f x =
-    f (_msarCreateVolumePermission x) <&> \y -> x { _msarCreateVolumePermission = y }
+    f (_msarCreateVolumePermission x)
+        <&> \y -> x { _msarCreateVolumePermission = y }
 {-# INLINE msarCreateVolumePermission #-}
 
 -- | The group to modify for the snapshot.
-msarGroupNames :: Lens' ModifySnapshotAttribute [Text]
+msarGroupNames :: Lens' ModifySnapshotAttribute ([Text])
 msarGroupNames f x =
-    f (_msarGroupNames x) <&> \y -> x { _msarGroupNames = y }
+    f (_msarGroupNames x)
+        <&> \y -> x { _msarGroupNames = y }
 {-# INLINE msarGroupNames #-}
 
 -- | The snapshot attribute to modify.
 msarAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msarAttribute f x =
-    f (_msarAttribute x) <&> \y -> x { _msarAttribute = y }
+    f (_msarAttribute x)
+        <&> \y -> x { _msarAttribute = y }
 {-# INLINE msarAttribute #-}
 
 -- | The account ID to modify for the snapshot.
-msarUserIds :: Lens' ModifySnapshotAttribute [Text]
+msarUserIds :: Lens' ModifySnapshotAttribute ([Text])
 msarUserIds f x =
-    f (_msarUserIds x) <&> \y -> x { _msarUserIds = y }
+    f (_msarUserIds x)
+        <&> \y -> x { _msarUserIds = y }
 {-# INLINE msarUserIds #-}
 
 -- | The type of operation to perform to the attribute.
 msarOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
 msarOperationType f x =
-    f (_msarOperationType x) <&> \y -> x { _msarOperationType = y }
+    f (_msarOperationType x)
+        <&> \y -> x { _msarOperationType = y }
 {-# INLINE msarOperationType #-}
 
 instance ToQuery ModifySnapshotAttribute where

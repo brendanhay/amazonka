@@ -46,6 +46,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'DescribeAccountLimits' request.
 describeAccountLimits :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits
+{-# INLINE describeAccountLimits #-}
 
 data DescribeAccountLimits = DescribeAccountLimits
     deriving (Eq, Show, Generic)
@@ -63,27 +64,17 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     } deriving (Show, Generic)
 
 -- | The maximum number of Auto Scaling groups allowed for your AWS account.
-dalaMaxNumberOfAutoScalingGroups
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAccountLimitsResponse
-    -> f DescribeAccountLimitsResponse
+dalaMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
 dalaMaxNumberOfAutoScalingGroups f x =
-    (\y -> x { _dalaMaxNumberOfAutoScalingGroups = y })
-       <$> f (_dalaMaxNumberOfAutoScalingGroups x)
+    f (_dalaMaxNumberOfAutoScalingGroups x)
+        <&> \y -> x { _dalaMaxNumberOfAutoScalingGroups = y }
 {-# INLINE dalaMaxNumberOfAutoScalingGroups #-}
 
 -- | The maximum number of launch configurations allowed for your AWS account.
-dalaMaxNumberOfLaunchConfigurations
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> DescribeAccountLimitsResponse
-    -> f DescribeAccountLimitsResponse
+dalaMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
 dalaMaxNumberOfLaunchConfigurations f x =
-    (\y -> x { _dalaMaxNumberOfLaunchConfigurations = y })
-       <$> f (_dalaMaxNumberOfLaunchConfigurations x)
+    f (_dalaMaxNumberOfLaunchConfigurations x)
+        <&> \y -> x { _dalaMaxNumberOfLaunchConfigurations = y }
 {-# INLINE dalaMaxNumberOfLaunchConfigurations #-}
 
 instance FromXML DescribeAccountLimitsResponse where

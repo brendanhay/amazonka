@@ -72,15 +72,17 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 
 -- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
 -- Constraints: Must be a valid bucket associated with your AWS account.
-csdsrBucket :: Lens' CreateSpotDatafeedSubscription Text
+csdsrBucket :: Lens' CreateSpotDatafeedSubscription (Text)
 csdsrBucket f x =
-    f (_csdsrBucket x) <&> \y -> x { _csdsrBucket = y }
+    f (_csdsrBucket x)
+        <&> \y -> x { _csdsrBucket = y }
 {-# INLINE csdsrBucket #-}
 
 -- | A prefix for the datafeed file names.
 csdsrPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsrPrefix f x =
-    f (_csdsrPrefix x) <&> \y -> x { _csdsrPrefix = y }
+    f (_csdsrPrefix x)
+        <&> \y -> x { _csdsrPrefix = y }
 {-# INLINE csdsrPrefix #-}
 
 instance ToQuery CreateSpotDatafeedSubscription where
@@ -94,7 +96,8 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
 -- | The Spot Instance datafeed subscription.
 csdssSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdssSpotDatafeedSubscription f x =
-    f (_csdssSpotDatafeedSubscription x) <&> \y -> x { _csdssSpotDatafeedSubscription = y }
+    f (_csdssSpotDatafeedSubscription x)
+        <&> \y -> x { _csdssSpotDatafeedSubscription = y }
 {-# INLINE csdssSpotDatafeedSubscription #-}
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where

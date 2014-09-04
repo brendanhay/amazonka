@@ -67,15 +67,17 @@ data ResetInstanceAttribute = ResetInstanceAttribute
     } deriving (Show, Generic)
 
 -- | The attribute to reset.
-riasAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
+riasAttribute :: Lens' ResetInstanceAttribute (InstanceAttributeName)
 riasAttribute f x =
-    f (_riasAttribute x) <&> \y -> x { _riasAttribute = y }
+    f (_riasAttribute x)
+        <&> \y -> x { _riasAttribute = y }
 {-# INLINE riasAttribute #-}
 
 -- | The ID of the instance.
-riasInstanceId :: Lens' ResetInstanceAttribute Text
+riasInstanceId :: Lens' ResetInstanceAttribute (Text)
 riasInstanceId f x =
-    f (_riasInstanceId x) <&> \y -> x { _riasInstanceId = y }
+    f (_riasInstanceId x)
+        <&> \y -> x { _riasInstanceId = y }
 {-# INLINE riasInstanceId #-}
 
 instance ToQuery ResetInstanceAttribute where

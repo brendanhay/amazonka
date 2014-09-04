@@ -43,6 +43,7 @@ deletePolicy p1 = DeletePolicy
     { _dptPolicyName = p1
     , _dptAutoScalingGroupName = Nothing
     }
+{-# INLINE deletePolicy #-}
 
 data DeletePolicy = DeletePolicy
     { _dptPolicyName :: Text
@@ -52,27 +53,17 @@ data DeletePolicy = DeletePolicy
     } deriving (Show, Generic)
 
 -- | The name or PolicyARN of the policy you want to delete.
-dptPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeletePolicy
-    -> f DeletePolicy
+dptPolicyName :: Lens' DeletePolicy (Text)
 dptPolicyName f x =
-    (\y -> x { _dptPolicyName = y })
-       <$> f (_dptPolicyName x)
+    f (_dptPolicyName x)
+        <&> \y -> x { _dptPolicyName = y }
 {-# INLINE dptPolicyName #-}
 
 -- | The name of the Auto Scaling group.
-dptAutoScalingGroupName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeletePolicy
-    -> f DeletePolicy
+dptAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
 dptAutoScalingGroupName f x =
-    (\y -> x { _dptAutoScalingGroupName = y })
-       <$> f (_dptAutoScalingGroupName x)
+    f (_dptAutoScalingGroupName x)
+        <&> \y -> x { _dptAutoScalingGroupName = y }
 {-# INLINE dptAutoScalingGroupName #-}
 
 instance ToQuery DeletePolicy where

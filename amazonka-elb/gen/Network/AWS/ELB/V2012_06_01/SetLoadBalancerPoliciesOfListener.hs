@@ -54,6 +54,7 @@ setLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
     , _slbpoliLoadBalancerPort = p2
     , _slbpoliPolicyNames = p3
     }
+{-# INLINE setLoadBalancerPoliciesOfListener #-}
 
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpoliLoadBalancerName :: Text
@@ -66,40 +67,25 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-slbpoliLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SetLoadBalancerPoliciesOfListener
-    -> f SetLoadBalancerPoliciesOfListener
+slbpoliLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener (Text)
 slbpoliLoadBalancerName f x =
-    (\y -> x { _slbpoliLoadBalancerName = y })
-       <$> f (_slbpoliLoadBalancerName x)
+    f (_slbpoliLoadBalancerName x)
+        <&> \y -> x { _slbpoliLoadBalancerName = y }
 {-# INLINE slbpoliLoadBalancerName #-}
 
 -- | The external port of the load balancer to associate the policy.
-slbpoliLoadBalancerPort
-    :: Functor f
-    => (Integer
-    -> f (Integer))
-    -> SetLoadBalancerPoliciesOfListener
-    -> f SetLoadBalancerPoliciesOfListener
+slbpoliLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener (Integer)
 slbpoliLoadBalancerPort f x =
-    (\y -> x { _slbpoliLoadBalancerPort = y })
-       <$> f (_slbpoliLoadBalancerPort x)
+    f (_slbpoliLoadBalancerPort x)
+        <&> \y -> x { _slbpoliLoadBalancerPort = y }
 {-# INLINE slbpoliLoadBalancerPort #-}
 
 -- | List of policies to be associated with the listener. If the list is empty,
 -- the current policy is removed from the listener.
-slbpoliPolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> SetLoadBalancerPoliciesOfListener
-    -> f SetLoadBalancerPoliciesOfListener
+slbpoliPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener ([Text])
 slbpoliPolicyNames f x =
-    (\y -> x { _slbpoliPolicyNames = y })
-       <$> f (_slbpoliPolicyNames x)
+    f (_slbpoliPolicyNames x)
+        <&> \y -> x { _slbpoliPolicyNames = y }
 {-# INLINE slbpoliPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesOfListener where

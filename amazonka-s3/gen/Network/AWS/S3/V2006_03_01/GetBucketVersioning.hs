@@ -44,20 +44,16 @@ getBucketVersioning :: BucketName -- ^ 'gbvrBucket'
 getBucketVersioning p1 = GetBucketVersioning
     { _gbvrBucket = p1
     }
+{-# INLINE getBucketVersioning #-}
 
 data GetBucketVersioning = GetBucketVersioning
     { _gbvrBucket :: BucketName
     } deriving (Show, Generic)
 
-gbvrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketVersioning
-    -> f GetBucketVersioning
+gbvrBucket :: Lens' GetBucketVersioning (BucketName)
 gbvrBucket f x =
-    (\y -> x { _gbvrBucket = y })
-       <$> f (_gbvrBucket x)
+    f (_gbvrBucket x)
+        <&> \y -> x { _gbvrBucket = y }
 {-# INLINE gbvrBucket #-}
 
 instance ToPath GetBucketVersioning where
@@ -86,30 +82,20 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse
     } deriving (Show, Generic)
 
 -- | The versioning state of the bucket.
-gbvoStatus
-    :: Functor f
-    => (Maybe (Switch BucketVersioningStatus)
-    -> f (Maybe (Switch BucketVersioningStatus)))
-    -> GetBucketVersioningResponse
-    -> f GetBucketVersioningResponse
+gbvoStatus :: Lens' GetBucketVersioningResponse (Maybe (Switch BucketVersioningStatus))
 gbvoStatus f x =
-    (\y -> x { _gbvoStatus = y })
-       <$> f (_gbvoStatus x)
+    f (_gbvoStatus x)
+        <&> \y -> x { _gbvoStatus = y }
 {-# INLINE gbvoStatus #-}
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-gbvoMfaDelete
-    :: Functor f
-    => (Maybe (Switch MFADeleteStatus)
-    -> f (Maybe (Switch MFADeleteStatus)))
-    -> GetBucketVersioningResponse
-    -> f GetBucketVersioningResponse
+gbvoMfaDelete :: Lens' GetBucketVersioningResponse (Maybe (Switch MFADeleteStatus))
 gbvoMfaDelete f x =
-    (\y -> x { _gbvoMfaDelete = y })
-       <$> f (_gbvoMfaDelete x)
+    f (_gbvoMfaDelete x)
+        <&> \y -> x { _gbvoMfaDelete = y }
 {-# INLINE gbvoMfaDelete #-}
 
 instance FromXML GetBucketVersioningResponse where

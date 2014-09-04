@@ -62,9 +62,10 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
-dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
+dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection (Text)
 dvpcrVpcPeeringConnectionId f x =
-    f (_dvpcrVpcPeeringConnectionId x) <&> \y -> x { _dvpcrVpcPeeringConnectionId = y }
+    f (_dvpcrVpcPeeringConnectionId x)
+        <&> \y -> x { _dvpcrVpcPeeringConnectionId = y }
 {-# INLINE dvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery DeleteVpcPeeringConnection where
@@ -79,7 +80,8 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 dvpcsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcsReturn f x =
-    f (_dvpcsReturn x) <&> \y -> x { _dvpcsReturn = y }
+    f (_dvpcsReturn x)
+        <&> \y -> x { _dvpcsReturn = y }
 {-# INLINE dvpcsReturn #-}
 
 instance FromXML DeleteVpcPeeringConnectionResponse where

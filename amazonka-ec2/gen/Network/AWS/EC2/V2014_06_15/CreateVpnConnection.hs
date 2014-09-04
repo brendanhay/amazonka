@@ -118,21 +118,24 @@ data CreateVpnConnection = CreateVpnConnection
     } deriving (Show, Generic)
 
 -- | The type of VPN connection.
-cvcrType :: Lens' CreateVpnConnection Text
+cvcrType :: Lens' CreateVpnConnection (Text)
 cvcrType f x =
-    f (_cvcrType x) <&> \y -> x { _cvcrType = y }
+    f (_cvcrType x)
+        <&> \y -> x { _cvcrType = y }
 {-# INLINE cvcrType #-}
 
 -- | The ID of the customer gateway.
-cvcrCustomerGatewayId :: Lens' CreateVpnConnection Text
+cvcrCustomerGatewayId :: Lens' CreateVpnConnection (Text)
 cvcrCustomerGatewayId f x =
-    f (_cvcrCustomerGatewayId x) <&> \y -> x { _cvcrCustomerGatewayId = y }
+    f (_cvcrCustomerGatewayId x)
+        <&> \y -> x { _cvcrCustomerGatewayId = y }
 {-# INLINE cvcrCustomerGatewayId #-}
 
 -- | The ID of the virtual private gateway.
-cvcrVpnGatewayId :: Lens' CreateVpnConnection Text
+cvcrVpnGatewayId :: Lens' CreateVpnConnection (Text)
 cvcrVpnGatewayId f x =
-    f (_cvcrVpnGatewayId x) <&> \y -> x { _cvcrVpnGatewayId = y }
+    f (_cvcrVpnGatewayId x)
+        <&> \y -> x { _cvcrVpnGatewayId = y }
 {-# INLINE cvcrVpnGatewayId #-}
 
 -- | Indicates whether the VPN connection requires static routes. If you are
@@ -140,7 +143,8 @@ cvcrVpnGatewayId f x =
 -- specify true. Default: false.
 cvcrOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
 cvcrOptions f x =
-    f (_cvcrOptions x) <&> \y -> x { _cvcrOptions = y }
+    f (_cvcrOptions x)
+        <&> \y -> x { _cvcrOptions = y }
 {-# INLINE cvcrOptions #-}
 
 instance ToQuery CreateVpnConnection where
@@ -154,7 +158,8 @@ data CreateVpnConnectionResponse = CreateVpnConnectionResponse
 -- | Information about the VPN connection.
 cvcsVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
 cvcsVpnConnection f x =
-    f (_cvcsVpnConnection x) <&> \y -> x { _cvcsVpnConnection = y }
+    f (_cvcsVpnConnection x)
+        <&> \y -> x { _cvcsVpnConnection = y }
 {-# INLINE cvcsVpnConnection #-}
 
 instance FromXML CreateVpnConnectionResponse where

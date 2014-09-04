@@ -47,6 +47,7 @@ putBucketPolicy p1 p2 = PutBucketPolicy
     , _pbprBucket = p2
     , _pbprContentMD5 = Nothing
     }
+{-# INLINE putBucketPolicy #-}
 
 data PutBucketPolicy = PutBucketPolicy
     { _pbprPolicy :: Text
@@ -56,37 +57,22 @@ data PutBucketPolicy = PutBucketPolicy
     } deriving (Show, Generic)
 
 -- | The bucket policy as a JSON document.
-pbprPolicy
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutBucketPolicy
-    -> f PutBucketPolicy
+pbprPolicy :: Lens' PutBucketPolicy (Text)
 pbprPolicy f x =
-    (\y -> x { _pbprPolicy = y })
-       <$> f (_pbprPolicy x)
+    f (_pbprPolicy x)
+        <&> \y -> x { _pbprPolicy = y }
 {-# INLINE pbprPolicy #-}
 
-pbprBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketPolicy
-    -> f PutBucketPolicy
+pbprBucket :: Lens' PutBucketPolicy (BucketName)
 pbprBucket f x =
-    (\y -> x { _pbprBucket = y })
-       <$> f (_pbprBucket x)
+    f (_pbprBucket x)
+        <&> \y -> x { _pbprBucket = y }
 {-# INLINE pbprBucket #-}
 
-pbprContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketPolicy
-    -> f PutBucketPolicy
+pbprContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
 pbprContentMD5 f x =
-    (\y -> x { _pbprContentMD5 = y })
-       <$> f (_pbprContentMD5 x)
+    f (_pbprContentMD5 x)
+        <&> \y -> x { _pbprContentMD5 = y }
 {-# INLINE pbprContentMD5 #-}
 
 instance ToPath PutBucketPolicy where

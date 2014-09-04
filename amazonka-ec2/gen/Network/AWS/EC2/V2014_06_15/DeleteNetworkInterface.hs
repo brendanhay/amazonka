@@ -57,9 +57,10 @@ data DeleteNetworkInterface = DeleteNetworkInterface
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-dnirNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
+dnirNetworkInterfaceId :: Lens' DeleteNetworkInterface (Text)
 dnirNetworkInterfaceId f x =
-    f (_dnirNetworkInterfaceId x) <&> \y -> x { _dnirNetworkInterfaceId = y }
+    f (_dnirNetworkInterfaceId x)
+        <&> \y -> x { _dnirNetworkInterfaceId = y }
 {-# INLINE dnirNetworkInterfaceId #-}
 
 instance ToQuery DeleteNetworkInterface where

@@ -47,6 +47,7 @@ deactivateMFADevice p1 p2 = DeactivateMFADevice
     { _dmfadrUserName = p1
     , _dmfadrSerialNumber = p2
     }
+{-# INLINE deactivateMFADevice #-}
 
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadrUserName :: Text
@@ -57,28 +58,18 @@ data DeactivateMFADevice = DeactivateMFADevice
     } deriving (Show, Generic)
 
 -- | Name of the user whose MFA device you want to deactivate.
-dmfadrUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeactivateMFADevice
-    -> f DeactivateMFADevice
+dmfadrUserName :: Lens' DeactivateMFADevice (Text)
 dmfadrUserName f x =
-    (\y -> x { _dmfadrUserName = y })
-       <$> f (_dmfadrUserName x)
+    f (_dmfadrUserName x)
+        <&> \y -> x { _dmfadrUserName = y }
 {-# INLINE dmfadrUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
-dmfadrSerialNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeactivateMFADevice
-    -> f DeactivateMFADevice
+dmfadrSerialNumber :: Lens' DeactivateMFADevice (Text)
 dmfadrSerialNumber f x =
-    (\y -> x { _dmfadrSerialNumber = y })
-       <$> f (_dmfadrSerialNumber x)
+    f (_dmfadrSerialNumber x)
+        <&> \y -> x { _dmfadrSerialNumber = y }
 {-# INLINE dmfadrSerialNumber #-}
 
 instance ToQuery DeactivateMFADevice where

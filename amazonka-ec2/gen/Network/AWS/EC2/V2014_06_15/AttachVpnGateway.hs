@@ -67,15 +67,17 @@ data AttachVpnGateway = AttachVpnGateway
     } deriving (Show, Generic)
 
 -- | The ID of the virtual private gateway.
-avgrVpnGatewayId :: Lens' AttachVpnGateway Text
+avgrVpnGatewayId :: Lens' AttachVpnGateway (Text)
 avgrVpnGatewayId f x =
-    f (_avgrVpnGatewayId x) <&> \y -> x { _avgrVpnGatewayId = y }
+    f (_avgrVpnGatewayId x)
+        <&> \y -> x { _avgrVpnGatewayId = y }
 {-# INLINE avgrVpnGatewayId #-}
 
 -- | The ID of the VPC.
-avgrVpcId :: Lens' AttachVpnGateway Text
+avgrVpcId :: Lens' AttachVpnGateway (Text)
 avgrVpcId f x =
-    f (_avgrVpcId x) <&> \y -> x { _avgrVpcId = y }
+    f (_avgrVpcId x)
+        <&> \y -> x { _avgrVpcId = y }
 {-# INLINE avgrVpcId #-}
 
 instance ToQuery AttachVpnGateway where
@@ -89,7 +91,8 @@ data AttachVpnGatewayResponse = AttachVpnGatewayResponse
 -- | Information about the attachment.
 avgsVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgsVpcAttachment f x =
-    f (_avgsVpcAttachment x) <&> \y -> x { _avgsVpcAttachment = y }
+    f (_avgsVpcAttachment x)
+        <&> \y -> x { _avgsVpcAttachment = y }
 {-# INLINE avgsVpcAttachment #-}
 
 instance FromXML AttachVpnGatewayResponse where

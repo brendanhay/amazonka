@@ -43,20 +43,16 @@ getBucketPolicy :: BucketName -- ^ 'gbprBucket'
 getBucketPolicy p1 = GetBucketPolicy
     { _gbprBucket = p1
     }
+{-# INLINE getBucketPolicy #-}
 
 data GetBucketPolicy = GetBucketPolicy
     { _gbprBucket :: BucketName
     } deriving (Show, Generic)
 
-gbprBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetBucketPolicy
-    -> f GetBucketPolicy
+gbprBucket :: Lens' GetBucketPolicy (BucketName)
 gbprBucket f x =
-    (\y -> x { _gbprBucket = y })
-       <$> f (_gbprBucket x)
+    f (_gbprBucket x)
+        <&> \y -> x { _gbprBucket = y }
 {-# INLINE gbprBucket #-}
 
 instance ToPath GetBucketPolicy where
@@ -80,15 +76,10 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse
     } deriving (Show, Generic)
 
 -- | The bucket policy as a JSON document.
-gbpoPolicy
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GetBucketPolicyResponse
-    -> f GetBucketPolicyResponse
+gbpoPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbpoPolicy f x =
-    (\y -> x { _gbpoPolicy = y })
-       <$> f (_gbpoPolicy x)
+    f (_gbpoPolicy x)
+        <&> \y -> x { _gbpoPolicy = y }
 {-# INLINE gbpoPolicy #-}
 
 instance FromXML GetBucketPolicyResponse where

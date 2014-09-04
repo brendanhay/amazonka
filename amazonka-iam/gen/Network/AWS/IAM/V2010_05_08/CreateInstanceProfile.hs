@@ -53,6 +53,7 @@ createInstanceProfile p1 = CreateInstanceProfile
     { _ciprInstanceProfileName = p1
     , _ciprPath = Nothing
     }
+{-# INLINE createInstanceProfile #-}
 
 data CreateInstanceProfile = CreateInstanceProfile
     { _ciprInstanceProfileName :: Text
@@ -65,29 +66,19 @@ data CreateInstanceProfile = CreateInstanceProfile
     } deriving (Show, Generic)
 
 -- | Name of the instance profile to create.
-ciprInstanceProfileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateInstanceProfile
-    -> f CreateInstanceProfile
+ciprInstanceProfileName :: Lens' CreateInstanceProfile (Text)
 ciprInstanceProfileName f x =
-    (\y -> x { _ciprInstanceProfileName = y })
-       <$> f (_ciprInstanceProfileName x)
+    f (_ciprInstanceProfileName x)
+        <&> \y -> x { _ciprInstanceProfileName = y }
 {-# INLINE ciprInstanceProfileName #-}
 
 -- | The path to the instance profile. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
-ciprPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateInstanceProfile
-    -> f CreateInstanceProfile
+ciprPath :: Lens' CreateInstanceProfile (Maybe Text)
 ciprPath f x =
-    (\y -> x { _ciprPath = y })
-       <$> f (_ciprPath x)
+    f (_ciprPath x)
+        <&> \y -> x { _ciprPath = y }
 {-# INLINE ciprPath #-}
 
 instance ToQuery CreateInstanceProfile where
@@ -99,15 +90,10 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
-cipsInstanceProfile
-    :: Functor f
-    => (InstanceProfile
-    -> f (InstanceProfile))
-    -> CreateInstanceProfileResponse
-    -> f CreateInstanceProfileResponse
+cipsInstanceProfile :: Lens' CreateInstanceProfileResponse (InstanceProfile)
 cipsInstanceProfile f x =
-    (\y -> x { _cipsInstanceProfile = y })
-       <$> f (_cipsInstanceProfile x)
+    f (_cipsInstanceProfile x)
+        <&> \y -> x { _cipsInstanceProfile = y }
 {-# INLINE cipsInstanceProfile #-}
 
 instance FromXML CreateInstanceProfileResponse where

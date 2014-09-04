@@ -58,7 +58,8 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
 -- | The Spot Instance datafeed subscription.
 dsdstSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdstSpotDatafeedSubscription f x =
-    f (_dsdstSpotDatafeedSubscription x) <&> \y -> x { _dsdstSpotDatafeedSubscription = y }
+    f (_dsdstSpotDatafeedSubscription x)
+        <&> \y -> x { _dsdstSpotDatafeedSubscription = y }
 {-# INLINE dsdstSpotDatafeedSubscription #-}
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where

@@ -46,6 +46,7 @@ deleteGroupPolicy p1 p2 = DeleteGroupPolicy
     { _dgprGroupName = p1
     , _dgprPolicyName = p2
     }
+{-# INLINE deleteGroupPolicy #-}
 
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgprGroupName :: Text
@@ -55,27 +56,17 @@ data DeleteGroupPolicy = DeleteGroupPolicy
     } deriving (Show, Generic)
 
 -- | Name of the group the policy is associated with.
-dgprGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteGroupPolicy
-    -> f DeleteGroupPolicy
+dgprGroupName :: Lens' DeleteGroupPolicy (Text)
 dgprGroupName f x =
-    (\y -> x { _dgprGroupName = y })
-       <$> f (_dgprGroupName x)
+    f (_dgprGroupName x)
+        <&> \y -> x { _dgprGroupName = y }
 {-# INLINE dgprGroupName #-}
 
 -- | Name of the policy document to delete.
-dgprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteGroupPolicy
-    -> f DeleteGroupPolicy
+dgprPolicyName :: Lens' DeleteGroupPolicy (Text)
 dgprPolicyName f x =
-    (\y -> x { _dgprPolicyName = y })
-       <$> f (_dgprPolicyName x)
+    f (_dgprPolicyName x)
+        <&> \y -> x { _dgprPolicyName = y }
 {-# INLINE dgprPolicyName #-}
 
 instance ToQuery DeleteGroupPolicy where

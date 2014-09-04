@@ -169,7 +169,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 -- | Include Marketplace offerings in the response.
 driorIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
 driorIncludeMarketplace f x =
-    f (_driorIncludeMarketplace x) <&> \y -> x { _driorIncludeMarketplace = y }
+    f (_driorIncludeMarketplace x)
+        <&> \y -> x { _driorIncludeMarketplace = y }
 {-# INLINE driorIncludeMarketplace #-}
 
 -- | One or more filters. availability-zone - The Availability Zone where the
@@ -185,9 +186,10 @@ driorIncludeMarketplace f x =
 -- reserved-instances-offering-id - The Reserved Instances offering ID.
 -- usage-price - The usage price of the Reserved Instance, per hour (for
 -- example, 0.84).
-driorFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
+driorFilters :: Lens' DescribeReservedInstancesOfferings ([Filter])
 driorFilters f x =
-    f (_driorFilters x) <&> \y -> x { _driorFilters = y }
+    f (_driorFilters x)
+        <&> \y -> x { _driorFilters = y }
 {-# INLINE driorFilters #-}
 
 -- | The instance type on which the Reserved Instance can be used. For more
@@ -195,50 +197,58 @@ driorFilters f x =
 -- Guide.
 driorInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 driorInstanceType f x =
-    f (_driorInstanceType x) <&> \y -> x { _driorInstanceType = y }
+    f (_driorInstanceType x)
+        <&> \y -> x { _driorInstanceType = y }
 {-# INLINE driorInstanceType #-}
 
 -- | The maximum number of offerings to return.
 driorMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMaxResults f x =
-    f (_driorMaxResults x) <&> \y -> x { _driorMaxResults = y }
+    f (_driorMaxResults x)
+        <&> \y -> x { _driorMaxResults = y }
 {-# INLINE driorMaxResults #-}
 
 -- | The maximum number of instances to filter when searching for offerings.
 driorMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMaxInstanceCount f x =
-    f (_driorMaxInstanceCount x) <&> \y -> x { _driorMaxInstanceCount = y }
+    f (_driorMaxInstanceCount x)
+        <&> \y -> x { _driorMaxInstanceCount = y }
 {-# INLINE driorMaxInstanceCount #-}
 
 -- | The minimum duration (in seconds) to filter when searching for offerings.
 driorMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMinDuration f x =
-    f (_driorMinDuration x) <&> \y -> x { _driorMinDuration = y }
+    f (_driorMinDuration x)
+        <&> \y -> x { _driorMinDuration = y }
 {-# INLINE driorMinDuration #-}
 
 -- | The maximum duration (in seconds) to filter when searching for offerings.
 driorMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 driorMaxDuration f x =
-    f (_driorMaxDuration x) <&> \y -> x { _driorMaxDuration = y }
+    f (_driorMaxDuration x)
+        <&> \y -> x { _driorMaxDuration = y }
 {-# INLINE driorMaxDuration #-}
 
 -- | The Reserved Instance offering type.
 driorOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 driorOfferingType f x =
-    f (_driorOfferingType x) <&> \y -> x { _driorOfferingType = y }
+    f (_driorOfferingType x)
+        <&> \y -> x { _driorOfferingType = y }
 {-# INLINE driorOfferingType #-}
 
 -- | The Reserved Instance description. Instances that include (Amazon VPC) in
 -- the description are for use with Amazon VPC.
 driorProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 driorProductDescription f x =
-    f (_driorProductDescription x) <&> \y -> x { _driorProductDescription = y }
+    f (_driorProductDescription x)
+        <&> \y -> x { _driorProductDescription = y }
 {-# INLINE driorProductDescription #-}
 
 -- | One or more Reserved Instances offering IDs.
-driorReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
+driorReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings ([Text])
 driorReservedInstancesOfferingIds f x =
-    f (_driorReservedInstancesOfferingIds x) <&> \y -> x { _driorReservedInstancesOfferingIds = y }
+    f (_driorReservedInstancesOfferingIds x)
+        <&> \y -> x { _driorReservedInstancesOfferingIds = y }
 {-# INLINE driorReservedInstancesOfferingIds #-}
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
@@ -246,19 +256,22 @@ driorReservedInstancesOfferingIds f x =
 -- within a VPC. Default: default.
 driorInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 driorInstanceTenancy f x =
-    f (_driorInstanceTenancy x) <&> \y -> x { _driorInstanceTenancy = y }
+    f (_driorInstanceTenancy x)
+        <&> \y -> x { _driorInstanceTenancy = y }
 {-# INLINE driorInstanceTenancy #-}
 
 -- | The Availability Zone in which the Reserved Instance can be used.
 driorAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 driorAvailabilityZone f x =
-    f (_driorAvailabilityZone x) <&> \y -> x { _driorAvailabilityZone = y }
+    f (_driorAvailabilityZone x)
+        <&> \y -> x { _driorAvailabilityZone = y }
 {-# INLINE driorAvailabilityZone #-}
 
 -- | The token to use when requesting the next paginated set of offerings.
 driorNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 driorNextToken f x =
-    f (_driorNextToken x) <&> \y -> x { _driorNextToken = y }
+    f (_driorNextToken x)
+        <&> \y -> x { _driorNextToken = y }
 {-# INLINE driorNextToken #-}
 
 instance ToQuery DescribeReservedInstancesOfferings where
@@ -272,15 +285,17 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
     } deriving (Show, Generic)
 
 -- | A list of Reserved Instances offerings.
-driosReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
+driosReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse ([ReservedInstancesOffering])
 driosReservedInstancesOfferings f x =
-    f (_driosReservedInstancesOfferings x) <&> \y -> x { _driosReservedInstancesOfferings = y }
+    f (_driosReservedInstancesOfferings x)
+        <&> \y -> x { _driosReservedInstancesOfferings = y }
 {-# INLINE driosReservedInstancesOfferings #-}
 
 -- | The next paginated set of results to return.
 driosNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driosNextToken f x =
-    f (_driosNextToken x) <&> \y -> x { _driosNextToken = y }
+    f (_driosNextToken x)
+        <&> \y -> x { _driosNextToken = y }
 {-# INLINE driosNextToken #-}
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where

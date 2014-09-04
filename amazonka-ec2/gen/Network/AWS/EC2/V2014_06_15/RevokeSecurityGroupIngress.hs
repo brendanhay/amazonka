@@ -110,7 +110,8 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
 rsgirFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
 rsgirFromPort f x =
-    f (_rsgirFromPort x) <&> \y -> x { _rsgirFromPort = y }
+    f (_rsgirFromPort x)
+        <&> \y -> x { _rsgirFromPort = y }
 {-# INLINE rsgirFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
@@ -118,53 +119,61 @@ rsgirFromPort f x =
 -- ICMP type.
 rsgirToPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
 rsgirToPort f x =
-    f (_rsgirToPort x) <&> \y -> x { _rsgirToPort = y }
+    f (_rsgirToPort x)
+        <&> \y -> x { _rsgirToPort = y }
 {-# INLINE rsgirToPort #-}
 
 -- | 
-rsgirIpPermissions :: Lens' RevokeSecurityGroupIngress [IpPermission]
+rsgirIpPermissions :: Lens' RevokeSecurityGroupIngress ([IpPermission])
 rsgirIpPermissions f x =
-    f (_rsgirIpPermissions x) <&> \y -> x { _rsgirIpPermissions = y }
+    f (_rsgirIpPermissions x)
+        <&> \y -> x { _rsgirIpPermissions = y }
 {-# INLINE rsgirIpPermissions #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 rsgirGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgirGroupName f x =
-    f (_rsgirGroupName x) <&> \y -> x { _rsgirGroupName = y }
+    f (_rsgirGroupName x)
+        <&> \y -> x { _rsgirGroupName = y }
 {-# INLINE rsgirGroupName #-}
 
 -- | The ID of the security group.
 rsgirGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgirGroupId f x =
-    f (_rsgirGroupId x) <&> \y -> x { _rsgirGroupId = y }
+    f (_rsgirGroupId x)
+        <&> \y -> x { _rsgirGroupId = y }
 {-# INLINE rsgirGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
 rsgirSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgirSourceSecurityGroupName f x =
-    f (_rsgirSourceSecurityGroupName x) <&> \y -> x { _rsgirSourceSecurityGroupName = y }
+    f (_rsgirSourceSecurityGroupName x)
+        <&> \y -> x { _rsgirSourceSecurityGroupName = y }
 {-# INLINE rsgirSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
 rsgirSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgirSourceSecurityGroupOwnerId f x =
-    f (_rsgirSourceSecurityGroupOwnerId x) <&> \y -> x { _rsgirSourceSecurityGroupOwnerId = y }
+    f (_rsgirSourceSecurityGroupOwnerId x)
+        <&> \y -> x { _rsgirSourceSecurityGroupOwnerId = y }
 {-# INLINE rsgirSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
 rsgirIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgirIpProtocol f x =
-    f (_rsgirIpProtocol x) <&> \y -> x { _rsgirIpProtocol = y }
+    f (_rsgirIpProtocol x)
+        <&> \y -> x { _rsgirIpProtocol = y }
 {-# INLINE rsgirIpProtocol #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
 rsgirCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgirCidrIp f x =
-    f (_rsgirCidrIp x) <&> \y -> x { _rsgirCidrIp = y }
+    f (_rsgirCidrIp x)
+        <&> \y -> x { _rsgirCidrIp = y }
 {-# INLINE rsgirCidrIp #-}
 
 instance ToQuery RevokeSecurityGroupIngress where

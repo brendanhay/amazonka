@@ -57,6 +57,7 @@ putBucketAcl p1 = PutBucketAcl
     , _pbarGrantWrite = Nothing
     , _pbarGrantWriteACP = Nothing
     }
+{-# INLINE putBucketAcl #-}
 
 data PutBucketAcl = PutBucketAcl
     { _pbarBucket :: BucketName
@@ -78,110 +79,65 @@ data PutBucketAcl = PutBucketAcl
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     } deriving (Show, Generic)
 
-pbarBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarBucket :: Lens' PutBucketAcl (BucketName)
 pbarBucket f x =
-    (\y -> x { _pbarBucket = y })
-       <$> f (_pbarBucket x)
+    f (_pbarBucket x)
+        <&> \y -> x { _pbarBucket = y }
 {-# INLINE pbarBucket #-}
 
-pbarAccessControlPolicy
-    :: Functor f
-    => (Maybe AccessControlPolicy
-    -> f (Maybe AccessControlPolicy))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarAccessControlPolicy :: Lens' PutBucketAcl (Maybe AccessControlPolicy)
 pbarAccessControlPolicy f x =
-    (\y -> x { _pbarAccessControlPolicy = y })
-       <$> f (_pbarAccessControlPolicy x)
+    f (_pbarAccessControlPolicy x)
+        <&> \y -> x { _pbarAccessControlPolicy = y }
 {-# INLINE pbarAccessControlPolicy #-}
 
 -- | The canned ACL to apply to the bucket.
-pbarACL
-    :: Functor f
-    => (Maybe BucketCannedACL
-    -> f (Maybe BucketCannedACL))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarACL :: Lens' PutBucketAcl (Maybe BucketCannedACL)
 pbarACL f x =
-    (\y -> x { _pbarACL = y })
-       <$> f (_pbarACL x)
+    f (_pbarACL x)
+        <&> \y -> x { _pbarACL = y }
 {-# INLINE pbarACL #-}
 
-pbarContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarContentMD5 :: Lens' PutBucketAcl (Maybe Text)
 pbarContentMD5 f x =
-    (\y -> x { _pbarContentMD5 = y })
-       <$> f (_pbarContentMD5 x)
+    f (_pbarContentMD5 x)
+        <&> \y -> x { _pbarContentMD5 = y }
 {-# INLINE pbarContentMD5 #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
-pbarGrantFullControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarGrantFullControl :: Lens' PutBucketAcl (Maybe Text)
 pbarGrantFullControl f x =
-    (\y -> x { _pbarGrantFullControl = y })
-       <$> f (_pbarGrantFullControl x)
+    f (_pbarGrantFullControl x)
+        <&> \y -> x { _pbarGrantFullControl = y }
 {-# INLINE pbarGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
-pbarGrantRead
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarGrantRead :: Lens' PutBucketAcl (Maybe Text)
 pbarGrantRead f x =
-    (\y -> x { _pbarGrantRead = y })
-       <$> f (_pbarGrantRead x)
+    f (_pbarGrantRead x)
+        <&> \y -> x { _pbarGrantRead = y }
 {-# INLINE pbarGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
-pbarGrantReadACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarGrantReadACP :: Lens' PutBucketAcl (Maybe Text)
 pbarGrantReadACP f x =
-    (\y -> x { _pbarGrantReadACP = y })
-       <$> f (_pbarGrantReadACP x)
+    f (_pbarGrantReadACP x)
+        <&> \y -> x { _pbarGrantReadACP = y }
 {-# INLINE pbarGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
-pbarGrantWrite
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarGrantWrite :: Lens' PutBucketAcl (Maybe Text)
 pbarGrantWrite f x =
-    (\y -> x { _pbarGrantWrite = y })
-       <$> f (_pbarGrantWrite x)
+    f (_pbarGrantWrite x)
+        <&> \y -> x { _pbarGrantWrite = y }
 {-# INLINE pbarGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-pbarGrantWriteACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketAcl
-    -> f PutBucketAcl
+pbarGrantWriteACP :: Lens' PutBucketAcl (Maybe Text)
 pbarGrantWriteACP f x =
-    (\y -> x { _pbarGrantWriteACP = y })
-       <$> f (_pbarGrantWriteACP x)
+    f (_pbarGrantWriteACP x)
+        <&> \y -> x { _pbarGrantWriteACP = y }
 {-# INLINE pbarGrantWriteACP #-}
 
 instance ToPath PutBucketAcl where

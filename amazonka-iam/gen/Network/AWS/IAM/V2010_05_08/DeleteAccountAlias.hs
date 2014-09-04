@@ -45,6 +45,7 @@ deleteAccountAlias :: Text -- ^ 'daarAccountAlias'
 deleteAccountAlias p1 = DeleteAccountAlias
     { _daarAccountAlias = p1
     }
+{-# INLINE deleteAccountAlias #-}
 
 data DeleteAccountAlias = DeleteAccountAlias
     { _daarAccountAlias :: Text
@@ -52,15 +53,10 @@ data DeleteAccountAlias = DeleteAccountAlias
     } deriving (Show, Generic)
 
 -- | Name of the account alias to delete.
-daarAccountAlias
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteAccountAlias
-    -> f DeleteAccountAlias
+daarAccountAlias :: Lens' DeleteAccountAlias (Text)
 daarAccountAlias f x =
-    (\y -> x { _daarAccountAlias = y })
-       <$> f (_daarAccountAlias x)
+    f (_daarAccountAlias x)
+        <&> \y -> x { _daarAccountAlias = y }
 {-# INLINE daarAccountAlias #-}
 
 instance ToQuery DeleteAccountAlias where

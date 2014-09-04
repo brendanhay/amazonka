@@ -56,9 +56,10 @@ data DeleteRouteTable = DeleteRouteTable
     } deriving (Show, Generic)
 
 -- | The ID of the route table.
-drtrRouteTableId :: Lens' DeleteRouteTable Text
+drtrRouteTableId :: Lens' DeleteRouteTable (Text)
 drtrRouteTableId f x =
-    f (_drtrRouteTableId x) <&> \y -> x { _drtrRouteTableId = y }
+    f (_drtrRouteTableId x)
+        <&> \y -> x { _drtrRouteTableId = y }
 {-# INLINE drtrRouteTableId #-}
 
 instance ToQuery DeleteRouteTable where

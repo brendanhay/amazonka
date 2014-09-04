@@ -40,6 +40,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GenerateCredentialReport' request.
 generateCredentialReport :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport
+{-# INLINE generateCredentialReport #-}
 
 data GenerateCredentialReport = GenerateCredentialReport
     deriving (Eq, Show, Generic)
@@ -55,27 +56,17 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     } deriving (Show, Generic)
 
 -- | Information about the credential report.
-gcrrDescription
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> GenerateCredentialReportResponse
-    -> f GenerateCredentialReportResponse
+gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrDescription f x =
-    (\y -> x { _gcrrDescription = y })
-       <$> f (_gcrrDescription x)
+    f (_gcrrDescription x)
+        <&> \y -> x { _gcrrDescription = y }
 {-# INLINE gcrrDescription #-}
 
 -- | Information about the state of a credential report.
-gcrrState
-    :: Functor f
-    => (Maybe ReportStateType
-    -> f (Maybe ReportStateType))
-    -> GenerateCredentialReportResponse
-    -> f GenerateCredentialReportResponse
+gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
 gcrrState f x =
-    (\y -> x { _gcrrState = y })
-       <$> f (_gcrrState x)
+    f (_gcrrState x)
+        <&> \y -> x { _gcrrState = y }
 {-# INLINE gcrrState #-}
 
 instance FromXML GenerateCredentialReportResponse where

@@ -59,6 +59,7 @@ putRolePolicy p1 p2 p3 = PutRolePolicy
     , _prprPolicyName = p2
     , _prprRoleName = p3
     }
+{-# INLINE putRolePolicy #-}
 
 data PutRolePolicy = PutRolePolicy
     { _prprPolicyDocument :: Text
@@ -70,39 +71,24 @@ data PutRolePolicy = PutRolePolicy
     } deriving (Show, Generic)
 
 -- | The policy document.
-prprPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRolePolicy
-    -> f PutRolePolicy
+prprPolicyDocument :: Lens' PutRolePolicy (Text)
 prprPolicyDocument f x =
-    (\y -> x { _prprPolicyDocument = y })
-       <$> f (_prprPolicyDocument x)
+    f (_prprPolicyDocument x)
+        <&> \y -> x { _prprPolicyDocument = y }
 {-# INLINE prprPolicyDocument #-}
 
 -- | Name of the policy document.
-prprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRolePolicy
-    -> f PutRolePolicy
+prprPolicyName :: Lens' PutRolePolicy (Text)
 prprPolicyName f x =
-    (\y -> x { _prprPolicyName = y })
-       <$> f (_prprPolicyName x)
+    f (_prprPolicyName x)
+        <&> \y -> x { _prprPolicyName = y }
 {-# INLINE prprPolicyName #-}
 
 -- | Name of the role to associate the policy with.
-prprRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutRolePolicy
-    -> f PutRolePolicy
+prprRoleName :: Lens' PutRolePolicy (Text)
 prprRoleName f x =
-    (\y -> x { _prprRoleName = y })
-       <$> f (_prprRoleName x)
+    f (_prprRoleName x)
+        <&> \y -> x { _prprRoleName = y }
 {-# INLINE prprRoleName #-}
 
 instance ToQuery PutRolePolicy where

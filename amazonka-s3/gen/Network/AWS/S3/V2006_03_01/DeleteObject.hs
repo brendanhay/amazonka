@@ -53,6 +53,7 @@ deleteObject p1 p2 = DeleteObject
     , _dorMFA = Nothing
     , _dorVersionId = Nothing
     }
+{-# INLINE deleteObject #-}
 
 data DeleteObject = DeleteObject
     { _dorBucket :: BucketName
@@ -65,51 +66,31 @@ data DeleteObject = DeleteObject
       -- ^ VersionId used to reference a specific version of the object.
     } deriving (Show, Generic)
 
-dorBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteObject
-    -> f DeleteObject
+dorBucket :: Lens' DeleteObject (BucketName)
 dorBucket f x =
-    (\y -> x { _dorBucket = y })
-       <$> f (_dorBucket x)
+    f (_dorBucket x)
+        <&> \y -> x { _dorBucket = y }
 {-# INLINE dorBucket #-}
 
-dorKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> DeleteObject
-    -> f DeleteObject
+dorKey :: Lens' DeleteObject (ObjectKey)
 dorKey f x =
-    (\y -> x { _dorKey = y })
-       <$> f (_dorKey x)
+    f (_dorKey x)
+        <&> \y -> x { _dorKey = y }
 {-# INLINE dorKey #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-dorMFA
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DeleteObject
-    -> f DeleteObject
+dorMFA :: Lens' DeleteObject (Maybe Text)
 dorMFA f x =
-    (\y -> x { _dorMFA = y })
-       <$> f (_dorMFA x)
+    f (_dorMFA x)
+        <&> \y -> x { _dorMFA = y }
 {-# INLINE dorMFA #-}
 
 -- | VersionId used to reference a specific version of the object.
-dorVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> DeleteObject
-    -> f DeleteObject
+dorVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
 dorVersionId f x =
-    (\y -> x { _dorVersionId = y })
-       <$> f (_dorVersionId x)
+    f (_dorVersionId x)
+        <&> \y -> x { _dorVersionId = y }
 {-# INLINE dorVersionId #-}
 
 instance ToPath DeleteObject where
@@ -143,28 +124,18 @@ data DeleteObjectResponse = DeleteObjectResponse
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
-dooDeleteMarker
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> DeleteObjectResponse
-    -> f DeleteObjectResponse
+dooDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dooDeleteMarker f x =
-    (\y -> x { _dooDeleteMarker = y })
-       <$> f (_dooDeleteMarker x)
+    f (_dooDeleteMarker x)
+        <&> \y -> x { _dooDeleteMarker = y }
 {-# INLINE dooDeleteMarker #-}
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
-dooVersionId
-    :: Functor f
-    => (Maybe ObjectVersionId
-    -> f (Maybe ObjectVersionId))
-    -> DeleteObjectResponse
-    -> f DeleteObjectResponse
+dooVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
 dooVersionId f x =
-    (\y -> x { _dooVersionId = y })
-       <$> f (_dooVersionId x)
+    f (_dooVersionId x)
+        <&> \y -> x { _dooVersionId = y }
 {-# INLINE dooVersionId #-}
 
 instance AWSRequest DeleteObject where

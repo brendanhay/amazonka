@@ -48,6 +48,7 @@ terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
     { _tiiasgtShouldDecrementDesiredCapacity = p1
     , _tiiasgtInstanceId = p2
     }
+{-# INLINE terminateInstanceInAutoScalingGroup #-}
 
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
     { _tiiasgtShouldDecrementDesiredCapacity :: Bool
@@ -59,27 +60,17 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
 
 -- | Specifies whether (true) or not (false) terminating this instance should
 -- also decrement the size of the AutoScalingGroup.
-tiiasgtShouldDecrementDesiredCapacity
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> TerminateInstanceInAutoScalingGroup
-    -> f TerminateInstanceInAutoScalingGroup
+tiiasgtShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup (Bool)
 tiiasgtShouldDecrementDesiredCapacity f x =
-    (\y -> x { _tiiasgtShouldDecrementDesiredCapacity = y })
-       <$> f (_tiiasgtShouldDecrementDesiredCapacity x)
+    f (_tiiasgtShouldDecrementDesiredCapacity x)
+        <&> \y -> x { _tiiasgtShouldDecrementDesiredCapacity = y }
 {-# INLINE tiiasgtShouldDecrementDesiredCapacity #-}
 
 -- | The ID of the Amazon EC2 instance to be terminated.
-tiiasgtInstanceId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> TerminateInstanceInAutoScalingGroup
-    -> f TerminateInstanceInAutoScalingGroup
+tiiasgtInstanceId :: Lens' TerminateInstanceInAutoScalingGroup (Text)
 tiiasgtInstanceId f x =
-    (\y -> x { _tiiasgtInstanceId = y })
-       <$> f (_tiiasgtInstanceId x)
+    f (_tiiasgtInstanceId x)
+        <&> \y -> x { _tiiasgtInstanceId = y }
 {-# INLINE tiiasgtInstanceId #-}
 
 instance ToQuery TerminateInstanceInAutoScalingGroup where
@@ -91,15 +82,10 @@ data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalin
     } deriving (Show, Generic)
 
 -- | A scaling Activity.
-aaeActivity
-    :: Functor f
-    => (Maybe Activity
-    -> f (Maybe Activity))
-    -> TerminateInstanceInAutoScalingGroupResponse
-    -> f TerminateInstanceInAutoScalingGroupResponse
+aaeActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 aaeActivity f x =
-    (\y -> x { _aaeActivity = y })
-       <$> f (_aaeActivity x)
+    f (_aaeActivity x)
+        <&> \y -> x { _aaeActivity = y }
 {-# INLINE aaeActivity #-}
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where

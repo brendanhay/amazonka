@@ -73,15 +73,17 @@ data DescribeImageAttribute = DescribeImageAttribute
     } deriving (Show, Generic)
 
 -- | The AMI attribute.
-diarAttribute :: Lens' DescribeImageAttribute ImageAttributeName
+diarAttribute :: Lens' DescribeImageAttribute (ImageAttributeName)
 diarAttribute f x =
-    f (_diarAttribute x) <&> \y -> x { _diarAttribute = y }
+    f (_diarAttribute x)
+        <&> \y -> x { _diarAttribute = y }
 {-# INLINE diarAttribute #-}
 
 -- | The ID of the AMI.
-diarImageId :: Lens' DescribeImageAttribute Text
+diarImageId :: Lens' DescribeImageAttribute (Text)
 diarImageId f x =
-    f (_diarImageId x) <&> \y -> x { _diarImageId = y }
+    f (_diarImageId x)
+        <&> \y -> x { _diarImageId = y }
 {-# INLINE diarImageId #-}
 
 instance ToQuery DescribeImageAttribute where
@@ -109,49 +111,57 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 -- | The kernel ID.
 iaKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaKernelId f x =
-    f (_iaKernelId x) <&> \y -> x { _iaKernelId = y }
+    f (_iaKernelId x)
+        <&> \y -> x { _iaKernelId = y }
 {-# INLINE iaKernelId #-}
 
 -- | The RAM disk ID.
 iaRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaRamdiskId f x =
-    f (_iaRamdiskId x) <&> \y -> x { _iaRamdiskId = y }
+    f (_iaRamdiskId x)
+        <&> \y -> x { _iaRamdiskId = y }
 {-# INLINE iaRamdiskId #-}
 
 -- | A description for the AMI.
 iaDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaDescription f x =
-    f (_iaDescription x) <&> \y -> x { _iaDescription = y }
+    f (_iaDescription x)
+        <&> \y -> x { _iaDescription = y }
 {-# INLINE iaDescription #-}
 
 -- | 
 iaSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 iaSriovNetSupport f x =
-    f (_iaSriovNetSupport x) <&> \y -> x { _iaSriovNetSupport = y }
+    f (_iaSriovNetSupport x)
+        <&> \y -> x { _iaSriovNetSupport = y }
 {-# INLINE iaSriovNetSupport #-}
 
 -- | One or more block device mapping entries.
-iaBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+iaBlockDeviceMappings :: Lens' DescribeImageAttributeResponse ([BlockDeviceMapping])
 iaBlockDeviceMappings f x =
-    f (_iaBlockDeviceMappings x) <&> \y -> x { _iaBlockDeviceMappings = y }
+    f (_iaBlockDeviceMappings x)
+        <&> \y -> x { _iaBlockDeviceMappings = y }
 {-# INLINE iaBlockDeviceMappings #-}
 
 -- | One or more launch permissions.
-iaLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+iaLaunchPermissions :: Lens' DescribeImageAttributeResponse ([LaunchPermission])
 iaLaunchPermissions f x =
-    f (_iaLaunchPermissions x) <&> \y -> x { _iaLaunchPermissions = y }
+    f (_iaLaunchPermissions x)
+        <&> \y -> x { _iaLaunchPermissions = y }
 {-# INLINE iaLaunchPermissions #-}
 
 -- | One or more product codes.
-iaProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+iaProductCodes :: Lens' DescribeImageAttributeResponse ([ProductCode])
 iaProductCodes f x =
-    f (_iaProductCodes x) <&> \y -> x { _iaProductCodes = y }
+    f (_iaProductCodes x)
+        <&> \y -> x { _iaProductCodes = y }
 {-# INLINE iaProductCodes #-}
 
 -- | The ID of the AMI.
 iaImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 iaImageId f x =
-    f (_iaImageId x) <&> \y -> x { _iaImageId = y }
+    f (_iaImageId x)
+        <&> \y -> x { _iaImageId = y }
 {-# INLINE iaImageId #-}
 
 instance FromXML DescribeImageAttributeResponse where

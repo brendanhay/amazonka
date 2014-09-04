@@ -47,6 +47,7 @@ deleteSAMLProvider :: Text -- ^ 'dsamlprSAMLProviderArn'
 deleteSAMLProvider p1 = DeleteSAMLProvider
     { _dsamlprSAMLProviderArn = p1
     }
+{-# INLINE deleteSAMLProvider #-}
 
 data DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlprSAMLProviderArn :: Text
@@ -54,15 +55,10 @@ data DeleteSAMLProvider = DeleteSAMLProvider
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-dsamlprSAMLProviderArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DeleteSAMLProvider
-    -> f DeleteSAMLProvider
+dsamlprSAMLProviderArn :: Lens' DeleteSAMLProvider (Text)
 dsamlprSAMLProviderArn f x =
-    (\y -> x { _dsamlprSAMLProviderArn = y })
-       <$> f (_dsamlprSAMLProviderArn x)
+    f (_dsamlprSAMLProviderArn x)
+        <&> \y -> x { _dsamlprSAMLProviderArn = y }
 {-# INLINE dsamlprSAMLProviderArn #-}
 
 instance ToQuery DeleteSAMLProvider where

@@ -59,6 +59,7 @@ putUserPolicy p1 p2 p3 = PutUserPolicy
     , _puprPolicyDocument = p2
     , _puprPolicyName = p3
     }
+{-# INLINE putUserPolicy #-}
 
 data PutUserPolicy = PutUserPolicy
     { _puprUserName :: Text
@@ -70,39 +71,24 @@ data PutUserPolicy = PutUserPolicy
     } deriving (Show, Generic)
 
 -- | Name of the user to associate the policy with.
-puprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutUserPolicy
-    -> f PutUserPolicy
+puprUserName :: Lens' PutUserPolicy (Text)
 puprUserName f x =
-    (\y -> x { _puprUserName = y })
-       <$> f (_puprUserName x)
+    f (_puprUserName x)
+        <&> \y -> x { _puprUserName = y }
 {-# INLINE puprUserName #-}
 
 -- | The policy document.
-puprPolicyDocument
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutUserPolicy
-    -> f PutUserPolicy
+puprPolicyDocument :: Lens' PutUserPolicy (Text)
 puprPolicyDocument f x =
-    (\y -> x { _puprPolicyDocument = y })
-       <$> f (_puprPolicyDocument x)
+    f (_puprPolicyDocument x)
+        <&> \y -> x { _puprPolicyDocument = y }
 {-# INLINE puprPolicyDocument #-}
 
 -- | Name of the policy document.
-puprPolicyName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> PutUserPolicy
-    -> f PutUserPolicy
+puprPolicyName :: Lens' PutUserPolicy (Text)
 puprPolicyName f x =
-    (\y -> x { _puprPolicyName = y })
-       <$> f (_puprPolicyName x)
+    f (_puprPolicyName x)
+        <&> \y -> x { _puprPolicyName = y }
 {-# INLINE puprPolicyName #-}
 
 instance ToQuery PutUserPolicy where

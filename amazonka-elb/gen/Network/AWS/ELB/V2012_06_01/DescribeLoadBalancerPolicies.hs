@@ -62,6 +62,7 @@ describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbpjLoadBalancerName = Nothing
     , _dlbpjPolicyNames = mempty
     }
+{-# INLINE describeLoadBalancerPolicies #-}
 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbpjLoadBalancerName :: Maybe Text
@@ -78,28 +79,18 @@ data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 -- specified, the operation returns the attributes of either all the sample
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
-dlbpjLoadBalancerName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> DescribeLoadBalancerPolicies
-    -> f DescribeLoadBalancerPolicies
+dlbpjLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
 dlbpjLoadBalancerName f x =
-    (\y -> x { _dlbpjLoadBalancerName = y })
-       <$> f (_dlbpjLoadBalancerName x)
+    f (_dlbpjLoadBalancerName x)
+        <&> \y -> x { _dlbpjLoadBalancerName = y }
 {-# INLINE dlbpjLoadBalancerName #-}
 
 -- | The names of load balancer policies you've created or Elastic Load
 -- Balancing sample policy names.
-dlbpjPolicyNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLoadBalancerPolicies
-    -> f DescribeLoadBalancerPolicies
+dlbpjPolicyNames :: Lens' DescribeLoadBalancerPolicies ([Text])
 dlbpjPolicyNames f x =
-    (\y -> x { _dlbpjPolicyNames = y })
-       <$> f (_dlbpjPolicyNames x)
+    f (_dlbpjPolicyNames x)
+        <&> \y -> x { _dlbpjPolicyNames = y }
 {-# INLINE dlbpjPolicyNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicies where
@@ -111,15 +102,10 @@ data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     } deriving (Show, Generic)
 
 -- | A list of policy description structures.
-dlbppPolicyDescriptions
-    :: Functor f
-    => ([PolicyDescription]
-    -> f ([PolicyDescription]))
-    -> DescribeLoadBalancerPoliciesResponse
-    -> f DescribeLoadBalancerPoliciesResponse
+dlbppPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse ([PolicyDescription])
 dlbppPolicyDescriptions f x =
-    (\y -> x { _dlbppPolicyDescriptions = y })
-       <$> f (_dlbppPolicyDescriptions x)
+    f (_dlbppPolicyDescriptions x)
+        <&> \y -> x { _dlbppPolicyDescriptions = y }
 {-# INLINE dlbppPolicyDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where

@@ -116,13 +116,15 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
 -- | The start date and time of the Spot Price history data.
 dsphrStartTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphrStartTime f x =
-    f (_dsphrStartTime x) <&> \y -> x { _dsphrStartTime = y }
+    f (_dsphrStartTime x)
+        <&> \y -> x { _dsphrStartTime = y }
 {-# INLINE dsphrStartTime #-}
 
 -- | The end date and time of the Spot Price history data.
 dsphrEndTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphrEndTime f x =
-    f (_dsphrEndTime x) <&> \y -> x { _dsphrEndTime = y }
+    f (_dsphrEndTime x)
+        <&> \y -> x { _dsphrEndTime = y }
 {-# INLINE dsphrEndTime #-}
 
 -- | One or more filters. availability-zone - The Availability Zone for which
@@ -134,39 +136,45 @@ dsphrEndTime f x =
 -- than comparison is not supported). timestamp - The timestamp of the Spot
 -- Price history (for example, 2010-08-16T05:06:11.000Z). You can use
 -- wildcards (* and ?). Greater than or less than comparison is not supported.
-dsphrFilters :: Lens' DescribeSpotPriceHistory [Filter]
+dsphrFilters :: Lens' DescribeSpotPriceHistory ([Filter])
 dsphrFilters f x =
-    f (_dsphrFilters x) <&> \y -> x { _dsphrFilters = y }
+    f (_dsphrFilters x)
+        <&> \y -> x { _dsphrFilters = y }
 {-# INLINE dsphrFilters #-}
 
 -- | One or more instance types.
-dsphrInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
+dsphrInstanceTypes :: Lens' DescribeSpotPriceHistory ([InstanceType])
 dsphrInstanceTypes f x =
-    f (_dsphrInstanceTypes x) <&> \y -> x { _dsphrInstanceTypes = y }
+    f (_dsphrInstanceTypes x)
+        <&> \y -> x { _dsphrInstanceTypes = y }
 {-# INLINE dsphrInstanceTypes #-}
 
 -- | The number of rows to return.
 dsphrMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Integer)
 dsphrMaxResults f x =
-    f (_dsphrMaxResults x) <&> \y -> x { _dsphrMaxResults = y }
+    f (_dsphrMaxResults x)
+        <&> \y -> x { _dsphrMaxResults = y }
 {-# INLINE dsphrMaxResults #-}
 
 -- | One or more basic product descriptions.
-dsphrProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
+dsphrProductDescriptions :: Lens' DescribeSpotPriceHistory ([Text])
 dsphrProductDescriptions f x =
-    f (_dsphrProductDescriptions x) <&> \y -> x { _dsphrProductDescriptions = y }
+    f (_dsphrProductDescriptions x)
+        <&> \y -> x { _dsphrProductDescriptions = y }
 {-# INLINE dsphrProductDescriptions #-}
 
 -- | The Availability Zone.
 dsphrAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphrAvailabilityZone f x =
-    f (_dsphrAvailabilityZone x) <&> \y -> x { _dsphrAvailabilityZone = y }
+    f (_dsphrAvailabilityZone x)
+        <&> \y -> x { _dsphrAvailabilityZone = y }
 {-# INLINE dsphrAvailabilityZone #-}
 
 -- | The next set of rows to return.
 dsphrNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphrNextToken f x =
-    f (_dsphrNextToken x) <&> \y -> x { _dsphrNextToken = y }
+    f (_dsphrNextToken x)
+        <&> \y -> x { _dsphrNextToken = y }
 {-# INLINE dsphrNextToken #-}
 
 instance ToQuery DescribeSpotPriceHistory where
@@ -181,16 +189,18 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     } deriving (Show, Generic)
 
 -- | The historical Spot Prices.
-dsphsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
+dsphsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse ([SpotPrice])
 dsphsSpotPriceHistory f x =
-    f (_dsphsSpotPriceHistory x) <&> \y -> x { _dsphsSpotPriceHistory = y }
+    f (_dsphsSpotPriceHistory x)
+        <&> \y -> x { _dsphsSpotPriceHistory = y }
 {-# INLINE dsphsSpotPriceHistory #-}
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
 dsphsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphsNextToken f x =
-    f (_dsphsNextToken x) <&> \y -> x { _dsphsNextToken = y }
+    f (_dsphsNextToken x)
+        <&> \y -> x { _dsphsNextToken = y }
 {-# INLINE dsphsNextToken #-}
 
 instance FromXML DescribeSpotPriceHistoryResponse where

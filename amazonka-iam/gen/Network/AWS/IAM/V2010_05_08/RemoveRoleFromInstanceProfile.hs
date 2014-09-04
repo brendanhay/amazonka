@@ -53,6 +53,7 @@ removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     { _rrfiprInstanceProfileName = p1
     , _rrfiprRoleName = p2
     }
+{-# INLINE removeRoleFromInstanceProfile #-}
 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfiprInstanceProfileName :: Text
@@ -62,27 +63,17 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     } deriving (Show, Generic)
 
 -- | Name of the instance profile to update.
-rrfiprInstanceProfileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveRoleFromInstanceProfile
-    -> f RemoveRoleFromInstanceProfile
+rrfiprInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile (Text)
 rrfiprInstanceProfileName f x =
-    (\y -> x { _rrfiprInstanceProfileName = y })
-       <$> f (_rrfiprInstanceProfileName x)
+    f (_rrfiprInstanceProfileName x)
+        <&> \y -> x { _rrfiprInstanceProfileName = y }
 {-# INLINE rrfiprInstanceProfileName #-}
 
 -- | Name of the role to remove.
-rrfiprRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> RemoveRoleFromInstanceProfile
-    -> f RemoveRoleFromInstanceProfile
+rrfiprRoleName :: Lens' RemoveRoleFromInstanceProfile (Text)
 rrfiprRoleName f x =
-    (\y -> x { _rrfiprRoleName = y })
-       <$> f (_rrfiprRoleName x)
+    f (_rrfiprRoleName x)
+        <&> \y -> x { _rrfiprRoleName = y }
 {-# INLINE rrfiprRoleName #-}
 
 instance ToQuery RemoveRoleFromInstanceProfile where

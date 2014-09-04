@@ -46,32 +46,23 @@ getObjectTorrent p1 p2 = GetObjectTorrent
     { _gotrBucket = p1
     , _gotrKey = p2
     }
+{-# INLINE getObjectTorrent #-}
 
 data GetObjectTorrent = GetObjectTorrent
     { _gotrBucket :: BucketName
     , _gotrKey :: ObjectKey
     } deriving (Show, Generic)
 
-gotrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> GetObjectTorrent
-    -> f GetObjectTorrent
+gotrBucket :: Lens' GetObjectTorrent (BucketName)
 gotrBucket f x =
-    (\y -> x { _gotrBucket = y })
-       <$> f (_gotrBucket x)
+    f (_gotrBucket x)
+        <&> \y -> x { _gotrBucket = y }
 {-# INLINE gotrBucket #-}
 
-gotrKey
-    :: Functor f
-    => (ObjectKey
-    -> f (ObjectKey))
-    -> GetObjectTorrent
-    -> f GetObjectTorrent
+gotrKey :: Lens' GetObjectTorrent (ObjectKey)
 gotrKey f x =
-    (\y -> x { _gotrKey = y })
-       <$> f (_gotrKey x)
+    f (_gotrKey x)
+        <&> \y -> x { _gotrKey = y }
 {-# INLINE gotrKey #-}
 
 instance ToPath GetObjectTorrent where
@@ -95,15 +86,10 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotoBody :: RsBody
     } deriving (Show, Generic)
 
-gotoBody
-    :: Functor f
-    => (RsBody
-    -> f (RsBody))
-    -> GetObjectTorrentResponse
-    -> f GetObjectTorrentResponse
+gotoBody :: Lens' GetObjectTorrentResponse (RsBody)
 gotoBody f x =
-    (\y -> x { _gotoBody = y })
-       <$> f (_gotoBody x)
+    f (_gotoBody x)
+        <&> \y -> x { _gotoBody = y }
 {-# INLINE gotoBody #-}
 
 instance AWSRequest GetObjectTorrent where

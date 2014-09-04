@@ -80,9 +80,10 @@ data DescribeBundleTasks = DescribeBundleTasks
     } deriving (Show, Generic)
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
-dbtrBundleIds :: Lens' DescribeBundleTasks [Text]
+dbtrBundleIds :: Lens' DescribeBundleTasks ([Text])
 dbtrBundleIds f x =
-    f (_dbtrBundleIds x) <&> \y -> x { _dbtrBundleIds = y }
+    f (_dbtrBundleIds x)
+        <&> \y -> x { _dbtrBundleIds = y }
 {-# INLINE dbtrBundleIds #-}
 
 -- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
@@ -94,9 +95,10 @@ dbtrBundleIds f x =
 -- example, 2013-09-15T17:15:20.000Z). state - The state of the task (pending
 -- | waiting-for-shutdown | bundling | storing | cancelling | complete |
 -- failed). update-time - The time of the most recent update for the task.
-dbtrFilters :: Lens' DescribeBundleTasks [Filter]
+dbtrFilters :: Lens' DescribeBundleTasks ([Filter])
 dbtrFilters f x =
-    f (_dbtrFilters x) <&> \y -> x { _dbtrFilters = y }
+    f (_dbtrFilters x)
+        <&> \y -> x { _dbtrFilters = y }
 {-# INLINE dbtrFilters #-}
 
 instance ToQuery DescribeBundleTasks where
@@ -108,9 +110,10 @@ data DescribeBundleTasksResponse = DescribeBundleTasksResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more bundle tasks.
-dbtsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
+dbtsBundleTasks :: Lens' DescribeBundleTasksResponse ([BundleTask])
 dbtsBundleTasks f x =
-    f (_dbtsBundleTasks x) <&> \y -> x { _dbtsBundleTasks = y }
+    f (_dbtsBundleTasks x)
+        <&> \y -> x { _dbtsBundleTasks = y }
 {-# INLINE dbtsBundleTasks #-}
 
 instance FromXML DescribeBundleTasksResponse where

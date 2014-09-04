@@ -58,6 +58,7 @@ enterStandby p1 p2 = EnterStandby
     , _esqShouldDecrementDesiredCapacity = p2
     , _esqInstanceIds = mempty
     }
+{-# INLINE enterStandby #-}
 
 data EnterStandby = EnterStandby
     { _esqAutoScalingGroupName :: Text
@@ -75,43 +76,28 @@ data EnterStandby = EnterStandby
 
 -- | The name of the Auto Scaling group from which to move instances into
 -- Standby mode.
-esqAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> EnterStandby
-    -> f EnterStandby
+esqAutoScalingGroupName :: Lens' EnterStandby (Text)
 esqAutoScalingGroupName f x =
-    (\y -> x { _esqAutoScalingGroupName = y })
-       <$> f (_esqAutoScalingGroupName x)
+    f (_esqAutoScalingGroupName x)
+        <&> \y -> x { _esqAutoScalingGroupName = y }
 {-# INLINE esqAutoScalingGroupName #-}
 
 -- | Specifies whether the instances moved to Standby mode count as part of the
 -- Auto Scaling group's desired capacity. If set, the desired capacity for the
 -- Auto Scaling group decrements by the number of instances moved to Standby
 -- mode.
-esqShouldDecrementDesiredCapacity
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> EnterStandby
-    -> f EnterStandby
+esqShouldDecrementDesiredCapacity :: Lens' EnterStandby (Bool)
 esqShouldDecrementDesiredCapacity f x =
-    (\y -> x { _esqShouldDecrementDesiredCapacity = y })
-       <$> f (_esqShouldDecrementDesiredCapacity x)
+    f (_esqShouldDecrementDesiredCapacity x)
+        <&> \y -> x { _esqShouldDecrementDesiredCapacity = y }
 {-# INLINE esqShouldDecrementDesiredCapacity #-}
 
 -- | The instances to move into Standby mode. You must specify at least one
 -- instance ID.
-esqInstanceIds
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> EnterStandby
-    -> f EnterStandby
+esqInstanceIds :: Lens' EnterStandby ([Text])
 esqInstanceIds f x =
-    (\y -> x { _esqInstanceIds = y })
-       <$> f (_esqInstanceIds x)
+    f (_esqInstanceIds x)
+        <&> \y -> x { _esqInstanceIds = y }
 {-# INLINE esqInstanceIds #-}
 
 instance ToQuery EnterStandby where
@@ -125,15 +111,10 @@ data EnterStandbyResponse = EnterStandbyResponse
 
 -- | A list describing the activities related to moving instances into Standby
 -- mode.
-esaActivities
-    :: Functor f
-    => ([Activity]
-    -> f ([Activity]))
-    -> EnterStandbyResponse
-    -> f EnterStandbyResponse
+esaActivities :: Lens' EnterStandbyResponse ([Activity])
 esaActivities f x =
-    (\y -> x { _esaActivities = y })
-       <$> f (_esaActivities x)
+    f (_esaActivities x)
+        <&> \y -> x { _esaActivities = y }
 {-# INLINE esaActivities #-}
 
 instance FromXML EnterStandbyResponse where

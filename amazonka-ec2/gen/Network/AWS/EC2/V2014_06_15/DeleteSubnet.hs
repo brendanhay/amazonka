@@ -55,9 +55,10 @@ data DeleteSubnet = DeleteSubnet
     } deriving (Show, Generic)
 
 -- | The ID of the subnet.
-dstSubnetId :: Lens' DeleteSubnet Text
+dstSubnetId :: Lens' DeleteSubnet (Text)
 dstSubnetId f x =
-    f (_dstSubnetId x) <&> \y -> x { _dstSubnetId = y }
+    f (_dstSubnetId x)
+        <&> \y -> x { _dstSubnetId = y }
 {-# INLINE dstSubnetId #-}
 
 instance ToQuery DeleteSubnet where

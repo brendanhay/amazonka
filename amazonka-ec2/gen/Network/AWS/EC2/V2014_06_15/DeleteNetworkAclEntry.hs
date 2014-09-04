@@ -67,21 +67,24 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     } deriving (Show, Generic)
 
 -- | Indicates whether the rule is an egress rule.
-dnaerEgress :: Lens' DeleteNetworkAclEntry Bool
+dnaerEgress :: Lens' DeleteNetworkAclEntry (Bool)
 dnaerEgress f x =
-    f (_dnaerEgress x) <&> \y -> x { _dnaerEgress = y }
+    f (_dnaerEgress x)
+        <&> \y -> x { _dnaerEgress = y }
 {-# INLINE dnaerEgress #-}
 
 -- | The rule number of the entry to delete.
-dnaerRuleNumber :: Lens' DeleteNetworkAclEntry Integer
+dnaerRuleNumber :: Lens' DeleteNetworkAclEntry (Integer)
 dnaerRuleNumber f x =
-    f (_dnaerRuleNumber x) <&> \y -> x { _dnaerRuleNumber = y }
+    f (_dnaerRuleNumber x)
+        <&> \y -> x { _dnaerRuleNumber = y }
 {-# INLINE dnaerRuleNumber #-}
 
 -- | The ID of the network ACL.
-dnaerNetworkAclId :: Lens' DeleteNetworkAclEntry Text
+dnaerNetworkAclId :: Lens' DeleteNetworkAclEntry (Text)
 dnaerNetworkAclId f x =
-    f (_dnaerNetworkAclId x) <&> \y -> x { _dnaerNetworkAclId = y }
+    f (_dnaerNetworkAclId x)
+        <&> \y -> x { _dnaerNetworkAclId = y }
 {-# INLINE dnaerNetworkAclId #-}
 
 instance ToQuery DeleteNetworkAclEntry where

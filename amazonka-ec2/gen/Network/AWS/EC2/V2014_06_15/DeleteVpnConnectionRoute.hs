@@ -67,15 +67,17 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     } deriving (Show, Generic)
 
 -- | The ID of the VPN connection.
-dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
+dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute (Text)
 dvcrrVpnConnectionId f x =
-    f (_dvcrrVpnConnectionId x) <&> \y -> x { _dvcrrVpnConnectionId = y }
+    f (_dvcrrVpnConnectionId x)
+        <&> \y -> x { _dvcrrVpnConnectionId = y }
 {-# INLINE dvcrrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
-dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
+dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute (Text)
 dvcrrDestinationCidrBlock f x =
-    f (_dvcrrDestinationCidrBlock x) <&> \y -> x { _dvcrrDestinationCidrBlock = y }
+    f (_dvcrrDestinationCidrBlock x)
+        <&> \y -> x { _dvcrrDestinationCidrBlock = y }
 {-# INLINE dvcrrDestinationCidrBlock #-}
 
 instance ToQuery DeleteVpnConnectionRoute where

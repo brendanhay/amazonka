@@ -97,9 +97,10 @@ data ReportInstanceStatus = ReportInstanceStatus
     } deriving (Show, Generic)
 
 -- | One or more instances.
-risrInstances :: Lens' ReportInstanceStatus [Text]
+risrInstances :: Lens' ReportInstanceStatus ([Text])
 risrInstances f x =
-    f (_risrInstances x) <&> \y -> x { _risrInstances = y }
+    f (_risrInstances x)
+        <&> \y -> x { _risrInstances = y }
 {-# INLINE risrInstances #-}
 
 -- | One or more reason codes that describes the health state of your instance.
@@ -114,33 +115,38 @@ risrInstances f x =
 -- which I believe are related to an EBS volume. performance-other: My
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
-risrReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
+risrReasonCodes :: Lens' ReportInstanceStatus ([ReportInstanceReasonCodes])
 risrReasonCodes f x =
-    f (_risrReasonCodes x) <&> \y -> x { _risrReasonCodes = y }
+    f (_risrReasonCodes x)
+        <&> \y -> x { _risrReasonCodes = y }
 {-# INLINE risrReasonCodes #-}
 
 -- | The status of all instances listed.
-risrStatus :: Lens' ReportInstanceStatus ReportStatusType
+risrStatus :: Lens' ReportInstanceStatus (ReportStatusType)
 risrStatus f x =
-    f (_risrStatus x) <&> \y -> x { _risrStatus = y }
+    f (_risrStatus x)
+        <&> \y -> x { _risrStatus = y }
 {-# INLINE risrStatus #-}
 
 -- | The time at which the reported instance health state began.
 risrStartTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
 risrStartTime f x =
-    f (_risrStartTime x) <&> \y -> x { _risrStartTime = y }
+    f (_risrStartTime x)
+        <&> \y -> x { _risrStartTime = y }
 {-# INLINE risrStartTime #-}
 
 -- | The time at which the reported instance health state ended.
 risrEndTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
 risrEndTime f x =
-    f (_risrEndTime x) <&> \y -> x { _risrEndTime = y }
+    f (_risrEndTime x)
+        <&> \y -> x { _risrEndTime = y }
 {-# INLINE risrEndTime #-}
 
 -- | Descriptive text about the health state of your instance.
 risrDescription :: Lens' ReportInstanceStatus (Maybe Text)
 risrDescription f x =
-    f (_risrDescription x) <&> \y -> x { _risrDescription = y }
+    f (_risrDescription x)
+        <&> \y -> x { _risrDescription = y }
 {-# INLINE risrDescription #-}
 
 instance ToQuery ReportInstanceStatus where

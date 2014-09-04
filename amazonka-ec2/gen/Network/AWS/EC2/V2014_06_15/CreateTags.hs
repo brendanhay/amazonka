@@ -69,17 +69,19 @@ data CreateTags = CreateTags
     } deriving (Show, Generic)
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ctrResources :: Lens' CreateTags [Text]
+ctrResources :: Lens' CreateTags ([Text])
 ctrResources f x =
-    f (_ctrResources x) <&> \y -> x { _ctrResources = y }
+    f (_ctrResources x)
+        <&> \y -> x { _ctrResources = y }
 {-# INLINE ctrResources #-}
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
-ctrTags :: Lens' CreateTags [Tag]
+ctrTags :: Lens' CreateTags ([Tag])
 ctrTags f x =
-    f (_ctrTags x) <&> \y -> x { _ctrTags = y }
+    f (_ctrTags x)
+        <&> \y -> x { _ctrTags = y }
 {-# INLINE ctrTags #-}
 
 instance ToQuery CreateTags where

@@ -59,6 +59,7 @@ listInstanceProfiles = ListInstanceProfiles
     , _liprMaxItems = Nothing
     , _liprPathPrefix = Nothing
     }
+{-# INLINE listInstanceProfiles #-}
 
 data ListInstanceProfiles = ListInstanceProfiles
     { _liprMarker :: Maybe Text
@@ -84,15 +85,10 @@ data ListInstanceProfiles = ListInstanceProfiles
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-liprMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceProfiles
-    -> f ListInstanceProfiles
+liprMarker :: Lens' ListInstanceProfiles (Maybe Text)
 liprMarker f x =
-    (\y -> x { _liprMarker = y })
-       <$> f (_liprMarker x)
+    f (_liprMarker x)
+        <&> \y -> x { _liprMarker = y }
 {-# INLINE liprMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -100,15 +96,10 @@ liprMarker f x =
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
-liprMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListInstanceProfiles
-    -> f ListInstanceProfiles
+liprMaxItems :: Lens' ListInstanceProfiles (Maybe Integer)
 liprMaxItems f x =
-    (\y -> x { _liprMaxItems = y })
-       <$> f (_liprMaxItems x)
+    f (_liprMaxItems x)
+        <&> \y -> x { _liprMaxItems = y }
 {-# INLINE liprMaxItems #-}
 
 -- | The path prefix for filtering the results. For example:
@@ -116,15 +107,10 @@ liprMaxItems f x =
 -- whose path starts with /application_abc/component_xyz/. This parameter is
 -- optional. If it is not included, it defaults to a slash (/), listing all
 -- instance profiles.
-liprPathPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceProfiles
-    -> f ListInstanceProfiles
+liprPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 liprPathPrefix f x =
-    (\y -> x { _liprPathPrefix = y })
-       <$> f (_liprPathPrefix x)
+    f (_liprPathPrefix x)
+        <&> \y -> x { _liprPathPrefix = y }
 {-# INLINE liprPathPrefix #-}
 
 instance ToQuery ListInstanceProfiles where
@@ -148,40 +134,25 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more instance profiles in
 -- the list.
-lipsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListInstanceProfilesResponse
-    -> f ListInstanceProfilesResponse
+lipsIsTruncated :: Lens' ListInstanceProfilesResponse (Bool)
 lipsIsTruncated f x =
-    (\y -> x { _lipsIsTruncated = y })
-       <$> f (_lipsIsTruncated x)
+    f (_lipsIsTruncated x)
+        <&> \y -> x { _lipsIsTruncated = y }
 {-# INLINE lipsIsTruncated #-}
 
 -- | A list of instance profiles.
-lipsInstanceProfiles
-    :: Functor f
-    => ([InstanceProfile]
-    -> f ([InstanceProfile]))
-    -> ListInstanceProfilesResponse
-    -> f ListInstanceProfilesResponse
+lipsInstanceProfiles :: Lens' ListInstanceProfilesResponse ([InstanceProfile])
 lipsInstanceProfiles f x =
-    (\y -> x { _lipsInstanceProfiles = y })
-       <$> f (_lipsInstanceProfiles x)
+    f (_lipsInstanceProfiles x)
+        <&> \y -> x { _lipsInstanceProfiles = y }
 {-# INLINE lipsInstanceProfiles #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lipsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListInstanceProfilesResponse
-    -> f ListInstanceProfilesResponse
+lipsMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
 lipsMarker f x =
-    (\y -> x { _lipsMarker = y })
-       <$> f (_lipsMarker x)
+    f (_lipsMarker x)
+        <&> \y -> x { _lipsMarker = y }
 {-# INLINE lipsMarker #-}
 
 instance FromXML ListInstanceProfilesResponse where

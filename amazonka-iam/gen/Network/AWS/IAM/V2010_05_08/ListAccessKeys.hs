@@ -60,6 +60,7 @@ listAccessKeys = ListAccessKeys
     , _lakrMarker = Nothing
     , _lakrMaxItems = Nothing
     }
+{-# INLINE listAccessKeys #-}
 
 data ListAccessKeys = ListAccessKeys
     { _lakrUserName :: Maybe Text
@@ -78,45 +79,30 @@ data ListAccessKeys = ListAccessKeys
     } deriving (Show, Generic)
 
 -- | Name of the user.
-lakrUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListAccessKeys
-    -> f ListAccessKeys
+lakrUserName :: Lens' ListAccessKeys (Maybe Text)
 lakrUserName f x =
-    (\y -> x { _lakrUserName = y })
-       <$> f (_lakrUserName x)
+    f (_lakrUserName x)
+        <&> \y -> x { _lakrUserName = y }
 {-# INLINE lakrUserName #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-lakrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListAccessKeys
-    -> f ListAccessKeys
+lakrMarker :: Lens' ListAccessKeys (Maybe Text)
 lakrMarker f x =
-    (\y -> x { _lakrMarker = y })
-       <$> f (_lakrMarker x)
+    f (_lakrMarker x)
+        <&> \y -> x { _lakrMarker = y }
 {-# INLINE lakrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of keys you want in the response. If there are additional keys
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lakrMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListAccessKeys
-    -> f ListAccessKeys
+lakrMaxItems :: Lens' ListAccessKeys (Maybe Integer)
 lakrMaxItems f x =
-    (\y -> x { _lakrMaxItems = y })
-       <$> f (_lakrMaxItems x)
+    f (_lakrMaxItems x)
+        <&> \y -> x { _lakrMaxItems = y }
 {-# INLINE lakrMaxItems #-}
 
 instance ToQuery ListAccessKeys where
@@ -137,42 +123,27 @@ data ListAccessKeysResponse = ListAccessKeysResponse
     } deriving (Show, Generic)
 
 -- | A list of access key metadata.
-laksAccessKeyMetadata
-    :: Functor f
-    => ([AccessKeyMetadata]
-    -> f ([AccessKeyMetadata]))
-    -> ListAccessKeysResponse
-    -> f ListAccessKeysResponse
+laksAccessKeyMetadata :: Lens' ListAccessKeysResponse ([AccessKeyMetadata])
 laksAccessKeyMetadata f x =
-    (\y -> x { _laksAccessKeyMetadata = y })
-       <$> f (_laksAccessKeyMetadata x)
+    f (_laksAccessKeyMetadata x)
+        <&> \y -> x { _laksAccessKeyMetadata = y }
 {-# INLINE laksAccessKeyMetadata #-}
 
 -- | A flag that indicates whether there are more keys to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more keys in the list.
-laksIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListAccessKeysResponse
-    -> f ListAccessKeysResponse
+laksIsTruncated :: Lens' ListAccessKeysResponse (Bool)
 laksIsTruncated f x =
-    (\y -> x { _laksIsTruncated = y })
-       <$> f (_laksIsTruncated x)
+    f (_laksIsTruncated x)
+        <&> \y -> x { _laksIsTruncated = y }
 {-# INLINE laksIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-laksMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListAccessKeysResponse
-    -> f ListAccessKeysResponse
+laksMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 laksMarker f x =
-    (\y -> x { _laksMarker = y })
-       <$> f (_laksMarker x)
+    f (_laksMarker x)
+        <&> \y -> x { _laksMarker = y }
 {-# INLINE laksMarker #-}
 
 instance FromXML ListAccessKeysResponse where

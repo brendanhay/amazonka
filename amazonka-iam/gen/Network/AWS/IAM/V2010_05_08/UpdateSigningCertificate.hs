@@ -57,6 +57,7 @@ updateSigningCertificate p1 p2 = UpdateSigningCertificate
     , _uscsStatus = p2
     , _uscsUserName = Nothing
     }
+{-# INLINE updateSigningCertificate #-}
 
 data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscsCertificateId :: Text
@@ -70,41 +71,26 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     } deriving (Show, Generic)
 
 -- | The ID of the signing certificate you want to update.
-uscsCertificateId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateSigningCertificate
-    -> f UpdateSigningCertificate
+uscsCertificateId :: Lens' UpdateSigningCertificate (Text)
 uscsCertificateId f x =
-    (\y -> x { _uscsCertificateId = y })
-       <$> f (_uscsCertificateId x)
+    f (_uscsCertificateId x)
+        <&> \y -> x { _uscsCertificateId = y }
 {-# INLINE uscsCertificateId #-}
 
 -- | The status you want to assign to the certificate. Active means the
 -- certificate can be used for API calls to AWS, while Inactive means the
 -- certificate cannot be used.
-uscsStatus
-    :: Functor f
-    => (StatusType
-    -> f (StatusType))
-    -> UpdateSigningCertificate
-    -> f UpdateSigningCertificate
+uscsStatus :: Lens' UpdateSigningCertificate (StatusType)
 uscsStatus f x =
-    (\y -> x { _uscsStatus = y })
-       <$> f (_uscsStatus x)
+    f (_uscsStatus x)
+        <&> \y -> x { _uscsStatus = y }
 {-# INLINE uscsStatus #-}
 
 -- | Name of the user the signing certificate belongs to.
-uscsUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateSigningCertificate
-    -> f UpdateSigningCertificate
+uscsUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscsUserName f x =
-    (\y -> x { _uscsUserName = y })
-       <$> f (_uscsUserName x)
+    f (_uscsUserName x)
+        <&> \y -> x { _uscsUserName = y }
 {-# INLINE uscsUserName #-}
 
 instance ToQuery UpdateSigningCertificate where

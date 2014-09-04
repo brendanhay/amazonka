@@ -121,6 +121,7 @@ createLoadBalancer p1 p2 = CreateLoadBalancer
     , _capiSubnets = mempty
     , _capiTags = Nothing
     }
+{-# INLINE createLoadBalancer #-}
 
 data CreateLoadBalancer = CreateLoadBalancer
     { _capiLoadBalancerName :: Text
@@ -163,28 +164,18 @@ data CreateLoadBalancer = CreateLoadBalancer
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers, must have a maximum of 32 characters, and must
 -- only contain alphanumeric characters or hyphens.
-capiLoadBalancerName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiLoadBalancerName :: Lens' CreateLoadBalancer (Text)
 capiLoadBalancerName f x =
-    (\y -> x { _capiLoadBalancerName = y })
-       <$> f (_capiLoadBalancerName x)
+    f (_capiLoadBalancerName x)
+        <&> \y -> x { _capiLoadBalancerName = y }
 {-# INLINE capiLoadBalancerName #-}
 
 -- | A list of the following tuples: Protocol, LoadBalancerPort,
 -- InstanceProtocol, InstancePort, and SSLCertificateId.
-capiListeners
-    :: Functor f
-    => ([Listener]
-    -> f ([Listener]))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiListeners :: Lens' CreateLoadBalancer ([Listener])
 capiListeners f x =
-    (\y -> x { _capiListeners = y })
-       <$> f (_capiListeners x)
+    f (_capiListeners x)
+        <&> \y -> x { _capiListeners = y }
 {-# INLINE capiListeners #-}
 
 -- | A list of Availability Zones. At least one Availability Zone must be
@@ -192,15 +183,10 @@ capiListeners f x =
 -- the load balancer. Traffic will be equally distributed across all zones.
 -- You can later add more Availability Zones after the creation of the load
 -- balancer by calling EnableAvailabilityZonesForLoadBalancer action.
-capiAvailabilityZones
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiAvailabilityZones :: Lens' CreateLoadBalancer ([Text])
 capiAvailabilityZones f x =
-    (\y -> x { _capiAvailabilityZones = y })
-       <$> f (_capiAvailabilityZones x)
+    f (_capiAvailabilityZones x)
+        <&> \y -> x { _capiAvailabilityZones = y }
 {-# INLINE capiAvailabilityZones #-}
 
 -- | The type of a load balancer. By default, Elastic Load Balancing creates an
@@ -210,53 +196,33 @@ capiAvailabilityZones f x =
 -- Balancers. Specify the value internal for this option to create an internal
 -- load balancer with a DNS name that resolves to private IP addresses. This
 -- option is only available for load balancers created within EC2-VPC.
-capiScheme
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiScheme :: Lens' CreateLoadBalancer (Maybe Text)
 capiScheme f x =
-    (\y -> x { _capiScheme = y })
-       <$> f (_capiScheme x)
+    f (_capiScheme x)
+        <&> \y -> x { _capiScheme = y }
 {-# INLINE capiScheme #-}
 
 -- | The security groups to assign to your load balancer within your VPC.
-capiSecurityGroups
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiSecurityGroups :: Lens' CreateLoadBalancer ([Text])
 capiSecurityGroups f x =
-    (\y -> x { _capiSecurityGroups = y })
-       <$> f (_capiSecurityGroups x)
+    f (_capiSecurityGroups x)
+        <&> \y -> x { _capiSecurityGroups = y }
 {-# INLINE capiSecurityGroups #-}
 
 -- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
 -- one subnet per Availability Zone.
-capiSubnets
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiSubnets :: Lens' CreateLoadBalancer ([Text])
 capiSubnets f x =
-    (\y -> x { _capiSubnets = y })
-       <$> f (_capiSubnets x)
+    f (_capiSubnets x)
+        <&> \y -> x { _capiSubnets = y }
 {-# INLINE capiSubnets #-}
 
 -- | A list of tags to assign to the load balancer. For more information about
 -- setting tags for your load balancer, see Tagging.
-capiTags
-    :: Functor f
-    => (Maybe [Tag]
-    -> f (Maybe [Tag]))
-    -> CreateLoadBalancer
-    -> f CreateLoadBalancer
+capiTags :: Lens' CreateLoadBalancer (Maybe [Tag])
 capiTags f x =
-    (\y -> x { _capiTags = y })
-       <$> f (_capiTags x)
+    f (_capiTags x)
+        <&> \y -> x { _capiTags = y }
 {-# INLINE capiTags #-}
 
 instance ToQuery CreateLoadBalancer where
@@ -268,15 +234,10 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse
     } deriving (Show, Generic)
 
 -- | The DNS name for the load balancer.
-capoDNSName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateLoadBalancerResponse
-    -> f CreateLoadBalancerResponse
+capoDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 capoDNSName f x =
-    (\y -> x { _capoDNSName = y })
-       <$> f (_capoDNSName x)
+    f (_capoDNSName x)
+        <&> \y -> x { _capoDNSName = y }
 {-# INLINE capoDNSName #-}
 
 instance FromXML CreateLoadBalancerResponse where

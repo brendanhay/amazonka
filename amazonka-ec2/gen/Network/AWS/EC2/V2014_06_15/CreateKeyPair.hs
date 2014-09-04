@@ -85,9 +85,10 @@ data CreateKeyPair = CreateKeyPair
     } deriving (Show, Generic)
 
 -- | A unique name for the key pair.
-ckprKeyName :: Lens' CreateKeyPair Text
+ckprKeyName :: Lens' CreateKeyPair (Text)
 ckprKeyName f x =
-    f (_ckprKeyName x) <&> \y -> x { _ckprKeyName = y }
+    f (_ckprKeyName x)
+        <&> \y -> x { _ckprKeyName = y }
 {-# INLINE ckprKeyName #-}
 
 instance ToQuery CreateKeyPair where
@@ -105,19 +106,22 @@ data CreateKeyPairResponse = CreateKeyPairResponse
 -- | The name of the key pair.
 ckpsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
 ckpsKeyName f x =
-    f (_ckpsKeyName x) <&> \y -> x { _ckpsKeyName = y }
+    f (_ckpsKeyName x)
+        <&> \y -> x { _ckpsKeyName = y }
 {-# INLINE ckpsKeyName #-}
 
 -- | The SHA-1 digest of the DER encoded private key.
 ckpsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
 ckpsKeyFingerprint f x =
-    f (_ckpsKeyFingerprint x) <&> \y -> x { _ckpsKeyFingerprint = y }
+    f (_ckpsKeyFingerprint x)
+        <&> \y -> x { _ckpsKeyFingerprint = y }
 {-# INLINE ckpsKeyFingerprint #-}
 
 -- | An unencrypted PEM encoded RSA private key.
 ckpsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
 ckpsKeyMaterial f x =
-    f (_ckpsKeyMaterial x) <&> \y -> x { _ckpsKeyMaterial = y }
+    f (_ckpsKeyMaterial x)
+        <&> \y -> x { _ckpsKeyMaterial = y }
 {-# INLINE ckpsKeyMaterial #-}
 
 instance FromXML CreateKeyPairResponse where

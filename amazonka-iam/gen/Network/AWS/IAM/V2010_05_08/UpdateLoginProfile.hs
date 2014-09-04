@@ -47,6 +47,7 @@ updateLoginProfile p1 = UpdateLoginProfile
     , _ulprPasswordResetRequired = Nothing
     , _ulprPassword = Nothing
     }
+{-# INLINE updateLoginProfile #-}
 
 data UpdateLoginProfile = UpdateLoginProfile
     { _ulprUserName :: Text
@@ -58,39 +59,24 @@ data UpdateLoginProfile = UpdateLoginProfile
     } deriving (Show, Generic)
 
 -- | Name of the user whose password you want to update.
-ulprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateLoginProfile
-    -> f UpdateLoginProfile
+ulprUserName :: Lens' UpdateLoginProfile (Text)
 ulprUserName f x =
-    (\y -> x { _ulprUserName = y })
-       <$> f (_ulprUserName x)
+    f (_ulprUserName x)
+        <&> \y -> x { _ulprUserName = y }
 {-# INLINE ulprUserName #-}
 
 -- | Require the specified user to set a new password on next sign-in.
-ulprPasswordResetRequired
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> UpdateLoginProfile
-    -> f UpdateLoginProfile
+ulprPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
 ulprPasswordResetRequired f x =
-    (\y -> x { _ulprPasswordResetRequired = y })
-       <$> f (_ulprPasswordResetRequired x)
+    f (_ulprPasswordResetRequired x)
+        <&> \y -> x { _ulprPasswordResetRequired = y }
 {-# INLINE ulprPasswordResetRequired #-}
 
 -- | The new password for the specified user.
-ulprPassword
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateLoginProfile
-    -> f UpdateLoginProfile
+ulprPassword :: Lens' UpdateLoginProfile (Maybe Text)
 ulprPassword f x =
-    (\y -> x { _ulprPassword = y })
-       <$> f (_ulprPassword x)
+    f (_ulprPassword x)
+        <&> \y -> x { _ulprPassword = y }
 {-# INLINE ulprPassword #-}
 
 instance ToQuery UpdateLoginProfile where

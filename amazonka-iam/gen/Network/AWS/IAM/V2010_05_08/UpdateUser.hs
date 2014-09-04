@@ -56,6 +56,7 @@ updateUser p1 = UpdateUser
     , _uuvNewPath = Nothing
     , _uuvNewUserName = Nothing
     }
+{-# INLINE updateUser #-}
 
 data UpdateUser = UpdateUser
     { _uuvUserName :: Text
@@ -71,41 +72,26 @@ data UpdateUser = UpdateUser
 
 -- | Name of the user to update. If you're changing the name of the user, this
 -- is the original user name.
-uuvUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateUser
-    -> f UpdateUser
+uuvUserName :: Lens' UpdateUser (Text)
 uuvUserName f x =
-    (\y -> x { _uuvUserName = y })
-       <$> f (_uuvUserName x)
+    f (_uuvUserName x)
+        <&> \y -> x { _uuvUserName = y }
 {-# INLINE uuvUserName #-}
 
 -- | New path for the user. Include this parameter only if you're changing the
 -- user's path.
-uuvNewPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateUser
-    -> f UpdateUser
+uuvNewPath :: Lens' UpdateUser (Maybe Text)
 uuvNewPath f x =
-    (\y -> x { _uuvNewPath = y })
-       <$> f (_uuvNewPath x)
+    f (_uuvNewPath x)
+        <&> \y -> x { _uuvNewPath = y }
 {-# INLINE uuvNewPath #-}
 
 -- | New name for the user. Include this parameter only if you're changing the
 -- user's name.
-uuvNewUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateUser
-    -> f UpdateUser
+uuvNewUserName :: Lens' UpdateUser (Maybe Text)
 uuvNewUserName f x =
-    (\y -> x { _uuvNewUserName = y })
-       <$> f (_uuvNewUserName x)
+    f (_uuvNewUserName x)
+        <&> \y -> x { _uuvNewUserName = y }
 {-# INLINE uuvNewUserName #-}
 
 instance ToQuery UpdateUser where

@@ -65,9 +65,10 @@ data MonitorInstances = MonitorInstances
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
-mirInstanceIds :: Lens' MonitorInstances [Text]
+mirInstanceIds :: Lens' MonitorInstances ([Text])
 mirInstanceIds f x =
-    f (_mirInstanceIds x) <&> \y -> x { _mirInstanceIds = y }
+    f (_mirInstanceIds x)
+        <&> \y -> x { _mirInstanceIds = y }
 {-# INLINE mirInstanceIds #-}
 
 instance ToQuery MonitorInstances where
@@ -79,9 +80,10 @@ data MonitorInstancesResponse = MonitorInstancesResponse
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-misInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+misInstanceMonitorings :: Lens' MonitorInstancesResponse ([InstanceMonitoring])
 misInstanceMonitorings f x =
-    f (_misInstanceMonitorings x) <&> \y -> x { _misInstanceMonitorings = y }
+    f (_misInstanceMonitorings x)
+        <&> \y -> x { _misInstanceMonitorings = y }
 {-# INLINE misInstanceMonitorings #-}
 
 instance FromXML MonitorInstancesResponse where

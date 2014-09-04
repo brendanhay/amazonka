@@ -61,9 +61,10 @@ data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
-rvpcrVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
+rvpcrVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection (Text)
 rvpcrVpcPeeringConnectionId f x =
-    f (_rvpcrVpcPeeringConnectionId x) <&> \y -> x { _rvpcrVpcPeeringConnectionId = y }
+    f (_rvpcrVpcPeeringConnectionId x)
+        <&> \y -> x { _rvpcrVpcPeeringConnectionId = y }
 {-# INLINE rvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery RejectVpcPeeringConnection where
@@ -78,7 +79,8 @@ data RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcsReturn f x =
-    f (_rvpcsReturn x) <&> \y -> x { _rvpcsReturn = y }
+    f (_rvpcsReturn x)
+        <&> \y -> x { _rvpcsReturn = y }
 {-# INLINE rvpcsReturn #-}
 
 instance FromXML RejectVpcPeeringConnectionResponse where

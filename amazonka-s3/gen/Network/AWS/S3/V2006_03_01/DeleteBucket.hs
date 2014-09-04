@@ -43,20 +43,16 @@ deleteBucket :: BucketName -- ^ 'dbrBucket'
 deleteBucket p1 = DeleteBucket
     { _dbrBucket = p1
     }
+{-# INLINE deleteBucket #-}
 
 data DeleteBucket = DeleteBucket
     { _dbrBucket :: BucketName
     } deriving (Show, Generic)
 
-dbrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> DeleteBucket
-    -> f DeleteBucket
+dbrBucket :: Lens' DeleteBucket (BucketName)
 dbrBucket f x =
-    (\y -> x { _dbrBucket = y })
-       <$> f (_dbrBucket x)
+    f (_dbrBucket x)
+        <&> \y -> x { _dbrBucket = y }
 {-# INLINE dbrBucket #-}
 
 instance ToPath DeleteBucket where

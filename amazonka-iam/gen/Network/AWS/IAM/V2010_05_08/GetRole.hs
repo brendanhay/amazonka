@@ -55,6 +55,7 @@ getRole :: Text -- ^ 'grrRoleName'
 getRole p1 = GetRole
     { _grrRoleName = p1
     }
+{-# INLINE getRole #-}
 
 data GetRole = GetRole
     { _grrRoleName :: Text
@@ -62,15 +63,10 @@ data GetRole = GetRole
     } deriving (Show, Generic)
 
 -- | Name of the role to get information about.
-grrRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetRole
-    -> f GetRole
+grrRoleName :: Lens' GetRole (Text)
 grrRoleName f x =
-    (\y -> x { _grrRoleName = y })
-       <$> f (_grrRoleName x)
+    f (_grrRoleName x)
+        <&> \y -> x { _grrRoleName = y }
 {-# INLINE grrRoleName #-}
 
 instance ToQuery GetRole where
@@ -82,15 +78,10 @@ data GetRoleResponse = GetRoleResponse
     } deriving (Show, Generic)
 
 -- | Information about the role.
-grsRole
-    :: Functor f
-    => (Role
-    -> f (Role))
-    -> GetRoleResponse
-    -> f GetRoleResponse
+grsRole :: Lens' GetRoleResponse (Role)
 grsRole f x =
-    (\y -> x { _grsRole = y })
-       <$> f (_grsRole x)
+    f (_grsRole x)
+        <&> \y -> x { _grsRole = y }
 {-# INLINE grsRole #-}
 
 instance FromXML GetRoleResponse where

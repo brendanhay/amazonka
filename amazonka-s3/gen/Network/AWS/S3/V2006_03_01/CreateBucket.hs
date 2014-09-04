@@ -59,6 +59,7 @@ createBucket p1 = CreateBucket
     , _cbrGrantWrite = Nothing
     , _cbrGrantWriteACP = Nothing
     }
+{-# INLINE createBucket #-}
 
 data CreateBucket = CreateBucket
     { _cbrBucket :: BucketName
@@ -79,99 +80,59 @@ data CreateBucket = CreateBucket
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     } deriving (Show, Generic)
 
-cbrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> CreateBucket
-    -> f CreateBucket
+cbrBucket :: Lens' CreateBucket (BucketName)
 cbrBucket f x =
-    (\y -> x { _cbrBucket = y })
-       <$> f (_cbrBucket x)
+    f (_cbrBucket x)
+        <&> \y -> x { _cbrBucket = y }
 {-# INLINE cbrBucket #-}
 
-cbrCreateBucketConfiguration
-    :: Functor f
-    => (Maybe CreateBucketConfiguration
-    -> f (Maybe CreateBucketConfiguration))
-    -> CreateBucket
-    -> f CreateBucket
+cbrCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
 cbrCreateBucketConfiguration f x =
-    (\y -> x { _cbrCreateBucketConfiguration = y })
-       <$> f (_cbrCreateBucketConfiguration x)
+    f (_cbrCreateBucketConfiguration x)
+        <&> \y -> x { _cbrCreateBucketConfiguration = y }
 {-# INLINE cbrCreateBucketConfiguration #-}
 
 -- | The canned ACL to apply to the bucket.
-cbrACL
-    :: Functor f
-    => (Maybe BucketCannedACL
-    -> f (Maybe BucketCannedACL))
-    -> CreateBucket
-    -> f CreateBucket
+cbrACL :: Lens' CreateBucket (Maybe BucketCannedACL)
 cbrACL f x =
-    (\y -> x { _cbrACL = y })
-       <$> f (_cbrACL x)
+    f (_cbrACL x)
+        <&> \y -> x { _cbrACL = y }
 {-# INLINE cbrACL #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
-cbrGrantFullControl
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateBucket
-    -> f CreateBucket
+cbrGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbrGrantFullControl f x =
-    (\y -> x { _cbrGrantFullControl = y })
-       <$> f (_cbrGrantFullControl x)
+    f (_cbrGrantFullControl x)
+        <&> \y -> x { _cbrGrantFullControl = y }
 {-# INLINE cbrGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
-cbrGrantRead
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateBucket
-    -> f CreateBucket
+cbrGrantRead :: Lens' CreateBucket (Maybe Text)
 cbrGrantRead f x =
-    (\y -> x { _cbrGrantRead = y })
-       <$> f (_cbrGrantRead x)
+    f (_cbrGrantRead x)
+        <&> \y -> x { _cbrGrantRead = y }
 {-# INLINE cbrGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
-cbrGrantReadACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateBucket
-    -> f CreateBucket
+cbrGrantReadACP :: Lens' CreateBucket (Maybe Text)
 cbrGrantReadACP f x =
-    (\y -> x { _cbrGrantReadACP = y })
-       <$> f (_cbrGrantReadACP x)
+    f (_cbrGrantReadACP x)
+        <&> \y -> x { _cbrGrantReadACP = y }
 {-# INLINE cbrGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
-cbrGrantWrite
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateBucket
-    -> f CreateBucket
+cbrGrantWrite :: Lens' CreateBucket (Maybe Text)
 cbrGrantWrite f x =
-    (\y -> x { _cbrGrantWrite = y })
-       <$> f (_cbrGrantWrite x)
+    f (_cbrGrantWrite x)
+        <&> \y -> x { _cbrGrantWrite = y }
 {-# INLINE cbrGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-cbrGrantWriteACP
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateBucket
-    -> f CreateBucket
+cbrGrantWriteACP :: Lens' CreateBucket (Maybe Text)
 cbrGrantWriteACP f x =
-    (\y -> x { _cbrGrantWriteACP = y })
-       <$> f (_cbrGrantWriteACP x)
+    f (_cbrGrantWriteACP x)
+        <&> \y -> x { _cbrGrantWriteACP = y }
 {-# INLINE cbrGrantWriteACP #-}
 
 instance ToPath CreateBucket where
@@ -199,15 +160,10 @@ data CreateBucketResponse = CreateBucketResponse
     { _cboLocation :: Maybe Text
     } deriving (Show, Generic)
 
-cboLocation
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> CreateBucketResponse
-    -> f CreateBucketResponse
+cboLocation :: Lens' CreateBucketResponse (Maybe Text)
 cboLocation f x =
-    (\y -> x { _cboLocation = y })
-       <$> f (_cboLocation x)
+    f (_cboLocation x)
+        <&> \y -> x { _cboLocation = y }
 {-# INLINE cboLocation #-}
 
 instance AWSRequest CreateBucket where

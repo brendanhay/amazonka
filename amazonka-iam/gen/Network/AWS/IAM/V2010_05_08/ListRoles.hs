@@ -64,6 +64,7 @@ listRoles = ListRoles
     , _lrrMaxItems = Nothing
     , _lrrPathPrefix = Nothing
     }
+{-# INLINE listRoles #-}
 
 data ListRoles = ListRoles
     { _lrrMarker :: Maybe Text
@@ -89,15 +90,10 @@ data ListRoles = ListRoles
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-lrrMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListRoles
-    -> f ListRoles
+lrrMarker :: Lens' ListRoles (Maybe Text)
 lrrMarker f x =
-    (\y -> x { _lrrMarker = y })
-       <$> f (_lrrMarker x)
+    f (_lrrMarker x)
+        <&> \y -> x { _lrrMarker = y }
 {-# INLINE lrrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -105,30 +101,20 @@ lrrMarker f x =
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrrMaxItems
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> ListRoles
-    -> f ListRoles
+lrrMaxItems :: Lens' ListRoles (Maybe Integer)
 lrrMaxItems f x =
-    (\y -> x { _lrrMaxItems = y })
-       <$> f (_lrrMaxItems x)
+    f (_lrrMaxItems x)
+        <&> \y -> x { _lrrMaxItems = y }
 {-# INLINE lrrMaxItems #-}
 
 -- | The path prefix for filtering the results. For example:
 -- /application_abc/component_xyz/, which would get all roles whose path
 -- starts with /application_abc/component_xyz/. This parameter is optional. If
 -- it is not included, it defaults to a slash (/), listing all roles.
-lrrPathPrefix
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListRoles
-    -> f ListRoles
+lrrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrrPathPrefix f x =
-    (\y -> x { _lrrPathPrefix = y })
-       <$> f (_lrrPathPrefix x)
+    f (_lrrPathPrefix x)
+        <&> \y -> x { _lrrPathPrefix = y }
 {-# INLINE lrrPathPrefix #-}
 
 instance ToQuery ListRoles where
@@ -151,40 +137,25 @@ data ListRolesResponse = ListRolesResponse
 -- | A flag that indicates whether there are more roles to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more roles in the list.
-lrsIsTruncated
-    :: Functor f
-    => (Bool
-    -> f (Bool))
-    -> ListRolesResponse
-    -> f ListRolesResponse
+lrsIsTruncated :: Lens' ListRolesResponse (Bool)
 lrsIsTruncated f x =
-    (\y -> x { _lrsIsTruncated = y })
-       <$> f (_lrsIsTruncated x)
+    f (_lrsIsTruncated x)
+        <&> \y -> x { _lrsIsTruncated = y }
 {-# INLINE lrsIsTruncated #-}
 
 -- | A list of roles.
-lrsRoles
-    :: Functor f
-    => ([Role]
-    -> f ([Role]))
-    -> ListRolesResponse
-    -> f ListRolesResponse
+lrsRoles :: Lens' ListRolesResponse ([Role])
 lrsRoles f x =
-    (\y -> x { _lrsRoles = y })
-       <$> f (_lrsRoles x)
+    f (_lrsRoles x)
+        <&> \y -> x { _lrsRoles = y }
 {-# INLINE lrsRoles #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lrsMarker
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ListRolesResponse
-    -> f ListRolesResponse
+lrsMarker :: Lens' ListRolesResponse (Maybe Text)
 lrsMarker f x =
-    (\y -> x { _lrsMarker = y })
-       <$> f (_lrsMarker x)
+    f (_lrsMarker x)
+        <&> \y -> x { _lrsMarker = y }
 {-# INLINE lrsMarker #-}
 
 instance FromXML ListRolesResponse where

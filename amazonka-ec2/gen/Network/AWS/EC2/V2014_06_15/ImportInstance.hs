@@ -78,27 +78,31 @@ data ImportInstance = ImportInstance
     } deriving (Show, Generic)
 
 -- | The instance operating system.
-iiiiiiiiiuPlatform :: Lens' ImportInstance PlatformValues
+iiiiiiiiiuPlatform :: Lens' ImportInstance (PlatformValues)
 iiiiiiiiiuPlatform f x =
-    f (_iiiiiiiiiuPlatform x) <&> \y -> x { _iiiiiiiiiuPlatform = y }
+    f (_iiiiiiiiiuPlatform x)
+        <&> \y -> x { _iiiiiiiiiuPlatform = y }
 {-# INLINE iiiiiiiiiuPlatform #-}
 
 -- | 
-iiiiiiiiiuDiskImages :: Lens' ImportInstance [DiskImage]
+iiiiiiiiiuDiskImages :: Lens' ImportInstance ([DiskImage])
 iiiiiiiiiuDiskImages f x =
-    f (_iiiiiiiiiuDiskImages x) <&> \y -> x { _iiiiiiiiiuDiskImages = y }
+    f (_iiiiiiiiiuDiskImages x)
+        <&> \y -> x { _iiiiiiiiiuDiskImages = y }
 {-# INLINE iiiiiiiiiuDiskImages #-}
 
 -- | 
 iiiiiiiiiuLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiiiiiiiiuLaunchSpecification f x =
-    f (_iiiiiiiiiuLaunchSpecification x) <&> \y -> x { _iiiiiiiiiuLaunchSpecification = y }
+    f (_iiiiiiiiiuLaunchSpecification x)
+        <&> \y -> x { _iiiiiiiiiuLaunchSpecification = y }
 {-# INLINE iiiiiiiiiuLaunchSpecification #-}
 
 -- | A description for the instance being imported.
 iiiiiiiiiuDescription :: Lens' ImportInstance (Maybe Text)
 iiiiiiiiiuDescription f x =
-    f (_iiiiiiiiiuDescription x) <&> \y -> x { _iiiiiiiiiuDescription = y }
+    f (_iiiiiiiiiuDescription x)
+        <&> \y -> x { _iiiiiiiiiuDescription = y }
 {-# INLINE iiiiiiiiiuDescription #-}
 
 instance ToQuery ImportInstance where
@@ -112,7 +116,8 @@ data ImportInstanceResponse = ImportInstanceResponse
 -- | 
 iiiiiiiiivConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iiiiiiiiivConversionTask f x =
-    f (_iiiiiiiiivConversionTask x) <&> \y -> x { _iiiiiiiiivConversionTask = y }
+    f (_iiiiiiiiivConversionTask x)
+        <&> \y -> x { _iiiiiiiiivConversionTask = y }
 {-# INLINE iiiiiiiiivConversionTask #-}
 
 instance FromXML ImportInstanceResponse where

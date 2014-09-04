@@ -47,6 +47,7 @@ getLoginProfile :: Text -- ^ 'glprUserName'
 getLoginProfile p1 = GetLoginProfile
     { _glprUserName = p1
     }
+{-# INLINE getLoginProfile #-}
 
 data GetLoginProfile = GetLoginProfile
     { _glprUserName :: Text
@@ -54,15 +55,10 @@ data GetLoginProfile = GetLoginProfile
     } deriving (Show, Generic)
 
 -- | Name of the user whose login profile you want to retrieve.
-glprUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> GetLoginProfile
-    -> f GetLoginProfile
+glprUserName :: Lens' GetLoginProfile (Text)
 glprUserName f x =
-    (\y -> x { _glprUserName = y })
-       <$> f (_glprUserName x)
+    f (_glprUserName x)
+        <&> \y -> x { _glprUserName = y }
 {-# INLINE glprUserName #-}
 
 instance ToQuery GetLoginProfile where
@@ -74,15 +70,10 @@ data GetLoginProfileResponse = GetLoginProfileResponse
     } deriving (Show, Generic)
 
 -- | User name and password create date for the user.
-glpsLoginProfile
-    :: Functor f
-    => (LoginProfile
-    -> f (LoginProfile))
-    -> GetLoginProfileResponse
-    -> f GetLoginProfileResponse
+glpsLoginProfile :: Lens' GetLoginProfileResponse (LoginProfile)
 glpsLoginProfile f x =
-    (\y -> x { _glpsLoginProfile = y })
-       <$> f (_glpsLoginProfile x)
+    f (_glpsLoginProfile x)
+        <&> \y -> x { _glpsLoginProfile = y }
 {-# INLINE glpsLoginProfile #-}
 
 instance FromXML GetLoginProfileResponse where

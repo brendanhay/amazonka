@@ -111,9 +111,10 @@ data DescribeTags = DescribeTags
 -- reserved-instances | route-table | security-group | snapshot |
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
-dtsFilters :: Lens' DescribeTags [Filter]
+dtsFilters :: Lens' DescribeTags ([Filter])
 dtsFilters f x =
-    f (_dtsFilters x) <&> \y -> x { _dtsFilters = y }
+    f (_dtsFilters x)
+        <&> \y -> x { _dtsFilters = y }
 {-# INLINE dtsFilters #-}
 
 -- | The maximum number of items to return for this call. The call also returns
@@ -121,14 +122,16 @@ dtsFilters f x =
 -- results. If the value is greater than 1000, we return only 1000 items.
 dtsMaxResults :: Lens' DescribeTags (Maybe Integer)
 dtsMaxResults f x =
-    f (_dtsMaxResults x) <&> \y -> x { _dtsMaxResults = y }
+    f (_dtsMaxResults x)
+        <&> \y -> x { _dtsMaxResults = y }
 {-# INLINE dtsMaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
 dtsNextToken :: Lens' DescribeTags (Maybe Text)
 dtsNextToken f x =
-    f (_dtsNextToken x) <&> \y -> x { _dtsNextToken = y }
+    f (_dtsNextToken x)
+        <&> \y -> x { _dtsNextToken = y }
 {-# INLINE dtsNextToken #-}
 
 instance ToQuery DescribeTags where
@@ -143,16 +146,18 @@ data DescribeTagsResponse = DescribeTagsResponse
     } deriving (Show, Generic)
 
 -- | A list of tags.
-dttTags :: Lens' DescribeTagsResponse [TagDescription]
+dttTags :: Lens' DescribeTagsResponse ([TagDescription])
 dttTags f x =
-    f (_dttTags x) <&> \y -> x { _dttTags = y }
+    f (_dttTags x)
+        <&> \y -> x { _dttTags = y }
 {-# INLINE dttTags #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 dttNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dttNextToken f x =
-    f (_dttNextToken x) <&> \y -> x { _dttNextToken = y }
+    f (_dttNextToken x)
+        <&> \y -> x { _dttNextToken = y }
 {-# INLINE dttNextToken #-}
 
 instance FromXML DescribeTagsResponse where

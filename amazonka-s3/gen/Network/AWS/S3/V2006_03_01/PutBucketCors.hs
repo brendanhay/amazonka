@@ -45,6 +45,7 @@ putBucketCors p1 = PutBucketCors
     , _pbcrCORSConfiguration = Nothing
     , _pbcrContentMD5 = Nothing
     }
+{-# INLINE putBucketCors #-}
 
 data PutBucketCors = PutBucketCors
     { _pbcrBucket :: BucketName
@@ -52,37 +53,22 @@ data PutBucketCors = PutBucketCors
     , _pbcrContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pbcrBucket
-    :: Functor f
-    => (BucketName
-    -> f (BucketName))
-    -> PutBucketCors
-    -> f PutBucketCors
+pbcrBucket :: Lens' PutBucketCors (BucketName)
 pbcrBucket f x =
-    (\y -> x { _pbcrBucket = y })
-       <$> f (_pbcrBucket x)
+    f (_pbcrBucket x)
+        <&> \y -> x { _pbcrBucket = y }
 {-# INLINE pbcrBucket #-}
 
-pbcrCORSConfiguration
-    :: Functor f
-    => (Maybe CORSConfiguration
-    -> f (Maybe CORSConfiguration))
-    -> PutBucketCors
-    -> f PutBucketCors
+pbcrCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
 pbcrCORSConfiguration f x =
-    (\y -> x { _pbcrCORSConfiguration = y })
-       <$> f (_pbcrCORSConfiguration x)
+    f (_pbcrCORSConfiguration x)
+        <&> \y -> x { _pbcrCORSConfiguration = y }
 {-# INLINE pbcrCORSConfiguration #-}
 
-pbcrContentMD5
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> PutBucketCors
-    -> f PutBucketCors
+pbcrContentMD5 :: Lens' PutBucketCors (Maybe Text)
 pbcrContentMD5 f x =
-    (\y -> x { _pbcrContentMD5 = y })
-       <$> f (_pbcrContentMD5 x)
+    f (_pbcrContentMD5 x)
+        <&> \y -> x { _pbcrContentMD5 = y }
 {-# INLINE pbcrContentMD5 #-}
 
 instance ToPath PutBucketCors where

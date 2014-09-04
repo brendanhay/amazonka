@@ -88,22 +88,25 @@ data CreateImage = CreateImage
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-citInstanceId :: Lens' CreateImage Text
+citInstanceId :: Lens' CreateImage (Text)
 citInstanceId f x =
-    f (_citInstanceId x) <&> \y -> x { _citInstanceId = y }
+    f (_citInstanceId x)
+        <&> \y -> x { _citInstanceId = y }
 {-# INLINE citInstanceId #-}
 
 -- | A name for the new image. Constraints: 3-128 alphanumeric characters,
 -- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
-citName :: Lens' CreateImage Text
+citName :: Lens' CreateImage (Text)
 citName f x =
-    f (_citName x) <&> \y -> x { _citName = y }
+    f (_citName x)
+        <&> \y -> x { _citName = y }
 {-# INLINE citName #-}
 
 -- | Information about one or more block device mappings.
-citBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+citBlockDeviceMappings :: Lens' CreateImage ([BlockDeviceMapping])
 citBlockDeviceMappings f x =
-    f (_citBlockDeviceMappings x) <&> \y -> x { _citBlockDeviceMappings = y }
+    f (_citBlockDeviceMappings x)
+        <&> \y -> x { _citBlockDeviceMappings = y }
 {-# INLINE citBlockDeviceMappings #-}
 
 -- | By default, this parameter is set to false, which means Amazon EC2 attempts
@@ -113,13 +116,15 @@ citBlockDeviceMappings f x =
 -- system integrity on the created image can't be guaranteed.
 citNoReboot :: Lens' CreateImage (Maybe Bool)
 citNoReboot f x =
-    f (_citNoReboot x) <&> \y -> x { _citNoReboot = y }
+    f (_citNoReboot x)
+        <&> \y -> x { _citNoReboot = y }
 {-# INLINE citNoReboot #-}
 
 -- | A description for the new image.
 citDescription :: Lens' CreateImage (Maybe Text)
 citDescription f x =
-    f (_citDescription x) <&> \y -> x { _citDescription = y }
+    f (_citDescription x)
+        <&> \y -> x { _citDescription = y }
 {-# INLINE citDescription #-}
 
 instance ToQuery CreateImage where
@@ -133,7 +138,8 @@ data CreateImageResponse = CreateImageResponse
 -- | The ID of the new AMI.
 ciuImageId :: Lens' CreateImageResponse (Maybe Text)
 ciuImageId f x =
-    f (_ciuImageId x) <&> \y -> x { _ciuImageId = y }
+    f (_ciuImageId x)
+        <&> \y -> x { _ciuImageId = y }
 {-# INLINE ciuImageId #-}
 
 instance FromXML CreateImageResponse where

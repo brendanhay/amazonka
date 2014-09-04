@@ -417,64 +417,39 @@ data AccessKey = AccessKey
     } deriving (Show, Generic)
 
 -- | Name of the user the key is associated with.
-akUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AccessKey
-    -> f AccessKey
+akUserName :: Lens' AccessKey (Text)
 akUserName f x =
-    (\y -> x { _akUserName = y })
-       <$> f (_akUserName x)
+    f (_akUserName x)
+        <&> \y -> x { _akUserName = y }
 {-# INLINE akUserName #-}
 
 -- | The ID for this access key.
-akAccessKeyId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AccessKey
-    -> f AccessKey
+akAccessKeyId :: Lens' AccessKey (Text)
 akAccessKeyId f x =
-    (\y -> x { _akAccessKeyId = y })
-       <$> f (_akAccessKeyId x)
+    f (_akAccessKeyId x)
+        <&> \y -> x { _akAccessKeyId = y }
 {-# INLINE akAccessKeyId #-}
 
 -- | The status of the access key. Active means the key is valid for API calls,
 -- while Inactive means it is not.
-akStatus
-    :: Functor f
-    => (StatusType
-    -> f (StatusType))
-    -> AccessKey
-    -> f AccessKey
+akStatus :: Lens' AccessKey (StatusType)
 akStatus f x =
-    (\y -> x { _akStatus = y })
-       <$> f (_akStatus x)
+    f (_akStatus x)
+        <&> \y -> x { _akStatus = y }
 {-# INLINE akStatus #-}
 
 -- | The secret key used to sign requests.
-akSecretAccessKey
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> AccessKey
-    -> f AccessKey
+akSecretAccessKey :: Lens' AccessKey (Text)
 akSecretAccessKey f x =
-    (\y -> x { _akSecretAccessKey = y })
-       <$> f (_akSecretAccessKey x)
+    f (_akSecretAccessKey x)
+        <&> \y -> x { _akSecretAccessKey = y }
 {-# INLINE akSecretAccessKey #-}
 
 -- | The date when the access key was created.
-akCreateDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> AccessKey
-    -> f AccessKey
+akCreateDate :: Lens' AccessKey (Maybe ISO8601)
 akCreateDate f x =
-    (\y -> x { _akCreateDate = y })
-       <$> f (_akCreateDate x)
+    f (_akCreateDate x)
+        <&> \y -> x { _akCreateDate = y }
 {-# INLINE akCreateDate #-}
 
 instance FromXML AccessKey where
@@ -497,52 +472,32 @@ data AccessKeyMetadata = AccessKeyMetadata
     } deriving (Show, Generic)
 
 -- | Name of the user the key is associated with.
-akmUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AccessKeyMetadata
-    -> f AccessKeyMetadata
+akmUserName :: Lens' AccessKeyMetadata (Maybe Text)
 akmUserName f x =
-    (\y -> x { _akmUserName = y })
-       <$> f (_akmUserName x)
+    f (_akmUserName x)
+        <&> \y -> x { _akmUserName = y }
 {-# INLINE akmUserName #-}
 
 -- | The ID for this access key.
-akmAccessKeyId
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> AccessKeyMetadata
-    -> f AccessKeyMetadata
+akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe Text)
 akmAccessKeyId f x =
-    (\y -> x { _akmAccessKeyId = y })
-       <$> f (_akmAccessKeyId x)
+    f (_akmAccessKeyId x)
+        <&> \y -> x { _akmAccessKeyId = y }
 {-# INLINE akmAccessKeyId #-}
 
 -- | The status of the access key. Active means the key is valid for API calls,
 -- while Inactive means it is not.
-akmStatus
-    :: Functor f
-    => (Maybe StatusType
-    -> f (Maybe StatusType))
-    -> AccessKeyMetadata
-    -> f AccessKeyMetadata
+akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus f x =
-    (\y -> x { _akmStatus = y })
-       <$> f (_akmStatus x)
+    f (_akmStatus x)
+        <&> \y -> x { _akmStatus = y }
 {-# INLINE akmStatus #-}
 
 -- | The date when the access key was created.
-akmCreateDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> AccessKeyMetadata
-    -> f AccessKeyMetadata
+akmCreateDate :: Lens' AccessKeyMetadata (Maybe ISO8601)
 akmCreateDate f x =
-    (\y -> x { _akmCreateDate = y })
-       <$> f (_akmCreateDate x)
+    f (_akmCreateDate x)
+        <&> \y -> x { _akmCreateDate = y }
 {-# INLINE akmCreateDate #-}
 
 instance FromXML AccessKeyMetadata where
@@ -570,66 +525,41 @@ data Group = Group
 
 -- | Path to the group. For more information about paths, see Identifiers for
 -- IAM Entities in the Using IAM guide.
-gPath
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Group
-    -> f Group
+gPath :: Lens' Group (Text)
 gPath f x =
-    (\y -> x { _gPath = y })
-       <$> f (_gPath x)
+    f (_gPath x)
+        <&> \y -> x { _gPath = y }
 {-# INLINE gPath #-}
 
 -- | The name that identifies the group.
-gGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Group
-    -> f Group
+gGroupName :: Lens' Group (Text)
 gGroupName f x =
-    (\y -> x { _gGroupName = y })
-       <$> f (_gGroupName x)
+    f (_gGroupName x)
+        <&> \y -> x { _gGroupName = y }
 {-# INLINE gGroupName #-}
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see Identifiers for IAM Entities in the Using IAM guide.
-gGroupId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Group
-    -> f Group
+gGroupId :: Lens' Group (Text)
 gGroupId f x =
-    (\y -> x { _gGroupId = y })
-       <$> f (_gGroupId x)
+    f (_gGroupId x)
+        <&> \y -> x { _gGroupId = y }
 {-# INLINE gGroupId #-}
 
 -- | The Amazon Resource Name (ARN) specifying the group. For more information
 -- about ARNs and how to use them in policies, see Identifiers for IAM
 -- Entities in the Using IAM guide.
-gArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Group
-    -> f Group
+gArn :: Lens' Group (Text)
 gArn f x =
-    (\y -> x { _gArn = y })
-       <$> f (_gArn x)
+    f (_gArn x)
+        <&> \y -> x { _gArn = y }
 {-# INLINE gArn #-}
 
 -- | The date when the group was created.
-gCreateDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Group
-    -> f Group
+gCreateDate :: Lens' Group (ISO8601)
 gCreateDate f x =
-    (\y -> x { _gCreateDate = y })
-       <$> f (_gCreateDate x)
+    f (_gCreateDate x)
+        <&> \y -> x { _gCreateDate = y }
 {-# INLINE gCreateDate #-}
 
 instance FromXML Group where
@@ -659,79 +589,49 @@ data InstanceProfile = InstanceProfile
 
 -- | Path to the instance profile. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide.
-ipPath
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceProfile
-    -> f InstanceProfile
+ipPath :: Lens' InstanceProfile (Text)
 ipPath f x =
-    (\y -> x { _ipPath = y })
-       <$> f (_ipPath x)
+    f (_ipPath x)
+        <&> \y -> x { _ipPath = y }
 {-# INLINE ipPath #-}
 
 -- | The name identifying the instance profile.
-ipInstanceProfileName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceProfile
-    -> f InstanceProfile
+ipInstanceProfileName :: Lens' InstanceProfile (Text)
 ipInstanceProfileName f x =
-    (\y -> x { _ipInstanceProfileName = y })
-       <$> f (_ipInstanceProfileName x)
+    f (_ipInstanceProfileName x)
+        <&> \y -> x { _ipInstanceProfileName = y }
 {-# INLINE ipInstanceProfileName #-}
 
 -- | The stable and unique string identifying the instance profile. For more
 -- information about IDs, see Identifiers for IAM Entities in the Using IAM
 -- guide.
-ipInstanceProfileId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceProfile
-    -> f InstanceProfile
+ipInstanceProfileId :: Lens' InstanceProfile (Text)
 ipInstanceProfileId f x =
-    (\y -> x { _ipInstanceProfileId = y })
-       <$> f (_ipInstanceProfileId x)
+    f (_ipInstanceProfileId x)
+        <&> \y -> x { _ipInstanceProfileId = y }
 {-# INLINE ipInstanceProfileId #-}
 
 -- | The Amazon Resource Name (ARN) specifying the instance profile. For more
 -- information about ARNs and how to use them in policies, see Identifiers for
 -- IAM Entities in the Using IAM guide.
-ipArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> InstanceProfile
-    -> f InstanceProfile
+ipArn :: Lens' InstanceProfile (Text)
 ipArn f x =
-    (\y -> x { _ipArn = y })
-       <$> f (_ipArn x)
+    f (_ipArn x)
+        <&> \y -> x { _ipArn = y }
 {-# INLINE ipArn #-}
 
 -- | The date when the instance profile was created.
-ipCreateDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> InstanceProfile
-    -> f InstanceProfile
+ipCreateDate :: Lens' InstanceProfile (ISO8601)
 ipCreateDate f x =
-    (\y -> x { _ipCreateDate = y })
-       <$> f (_ipCreateDate x)
+    f (_ipCreateDate x)
+        <&> \y -> x { _ipCreateDate = y }
 {-# INLINE ipCreateDate #-}
 
 -- | The role associated with the instance profile.
-ipRoles
-    :: Functor f
-    => ([Role]
-    -> f ([Role]))
-    -> InstanceProfile
-    -> f InstanceProfile
+ipRoles :: Lens' InstanceProfile ([Role])
 ipRoles f x =
-    (\y -> x { _ipRoles = y })
-       <$> f (_ipRoles x)
+    f (_ipRoles x)
+        <&> \y -> x { _ipRoles = y }
 {-# INLINE ipRoles #-}
 
 instance FromXML InstanceProfile where
@@ -752,40 +652,25 @@ data LoginProfile = LoginProfile
 
 -- | The name of the user, which can be used for signing in to the AWS
 -- Management Console.
-lpUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> LoginProfile
-    -> f LoginProfile
+lpUserName :: Lens' LoginProfile (Text)
 lpUserName f x =
-    (\y -> x { _lpUserName = y })
-       <$> f (_lpUserName x)
+    f (_lpUserName x)
+        <&> \y -> x { _lpUserName = y }
 {-# INLINE lpUserName #-}
 
 -- | The date when the password for the user was created.
-lpCreateDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> LoginProfile
-    -> f LoginProfile
+lpCreateDate :: Lens' LoginProfile (ISO8601)
 lpCreateDate f x =
-    (\y -> x { _lpCreateDate = y })
-       <$> f (_lpCreateDate x)
+    f (_lpCreateDate x)
+        <&> \y -> x { _lpCreateDate = y }
 {-# INLINE lpCreateDate #-}
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-lpPasswordResetRequired
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> LoginProfile
-    -> f LoginProfile
+lpPasswordResetRequired :: Lens' LoginProfile (Maybe Bool)
 lpPasswordResetRequired f x =
-    (\y -> x { _lpPasswordResetRequired = y })
-       <$> f (_lpPasswordResetRequired x)
+    f (_lpPasswordResetRequired x)
+        <&> \y -> x { _lpPasswordResetRequired = y }
 {-# INLINE lpPasswordResetRequired #-}
 
 instance FromXML LoginProfile where
@@ -805,40 +690,25 @@ data MFADevice = MFADevice
     } deriving (Show, Generic)
 
 -- | The user with whom the MFA device is associated.
-mfadUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MFADevice
-    -> f MFADevice
+mfadUserName :: Lens' MFADevice (Text)
 mfadUserName f x =
-    (\y -> x { _mfadUserName = y })
-       <$> f (_mfadUserName x)
+    f (_mfadUserName x)
+        <&> \y -> x { _mfadUserName = y }
 {-# INLINE mfadUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
-mfadSerialNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> MFADevice
-    -> f MFADevice
+mfadSerialNumber :: Lens' MFADevice (Text)
 mfadSerialNumber f x =
-    (\y -> x { _mfadSerialNumber = y })
-       <$> f (_mfadSerialNumber x)
+    f (_mfadSerialNumber x)
+        <&> \y -> x { _mfadSerialNumber = y }
 {-# INLINE mfadSerialNumber #-}
 
 -- | The date when the MFA device was enabled for the user.
-mfadEnableDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> MFADevice
-    -> f MFADevice
+mfadEnableDate :: Lens' MFADevice (ISO8601)
 mfadEnableDate f x =
-    (\y -> x { _mfadEnableDate = y })
-       <$> f (_mfadEnableDate x)
+    f (_mfadEnableDate x)
+        <&> \y -> x { _mfadEnableDate = y }
 {-# INLINE mfadEnableDate #-}
 
 instance FromXML MFADevice where
@@ -878,126 +748,76 @@ data PasswordPolicy = PasswordPolicy
     } deriving (Show, Generic)
 
 -- | Minimum length to require for IAM user passwords.
-ppMinimumPasswordLength
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Integer)
 ppMinimumPasswordLength f x =
-    (\y -> x { _ppMinimumPasswordLength = y })
-       <$> f (_ppMinimumPasswordLength x)
+    f (_ppMinimumPasswordLength x)
+        <&> \y -> x { _ppMinimumPasswordLength = y }
 {-# INLINE ppMinimumPasswordLength #-}
 
 -- | Specifies whether to require symbols for IAM user passwords.
-ppRequireSymbols
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppRequireSymbols :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireSymbols f x =
-    (\y -> x { _ppRequireSymbols = y })
-       <$> f (_ppRequireSymbols x)
+    f (_ppRequireSymbols x)
+        <&> \y -> x { _ppRequireSymbols = y }
 {-# INLINE ppRequireSymbols #-}
 
 -- | Specifies whether to require numbers for IAM user passwords.
-ppRequireNumbers
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppRequireNumbers :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireNumbers f x =
-    (\y -> x { _ppRequireNumbers = y })
-       <$> f (_ppRequireNumbers x)
+    f (_ppRequireNumbers x)
+        <&> \y -> x { _ppRequireNumbers = y }
 {-# INLINE ppRequireNumbers #-}
 
 -- | Specifies whether to require uppercase characters for IAM user passwords.
-ppRequireUppercaseCharacters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppRequireUppercaseCharacters :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireUppercaseCharacters f x =
-    (\y -> x { _ppRequireUppercaseCharacters = y })
-       <$> f (_ppRequireUppercaseCharacters x)
+    f (_ppRequireUppercaseCharacters x)
+        <&> \y -> x { _ppRequireUppercaseCharacters = y }
 {-# INLINE ppRequireUppercaseCharacters #-}
 
 -- | Specifies whether to require lowercase characters for IAM user passwords.
-ppRequireLowercaseCharacters
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppRequireLowercaseCharacters :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireLowercaseCharacters f x =
-    (\y -> x { _ppRequireLowercaseCharacters = y })
-       <$> f (_ppRequireLowercaseCharacters x)
+    f (_ppRequireLowercaseCharacters x)
+        <&> \y -> x { _ppRequireLowercaseCharacters = y }
 {-# INLINE ppRequireLowercaseCharacters #-}
 
 -- | Specifies whether IAM users are allowed to change their own password.
-ppAllowUsersToChangePassword
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppAllowUsersToChangePassword :: Lens' PasswordPolicy (Maybe Bool)
 ppAllowUsersToChangePassword f x =
-    (\y -> x { _ppAllowUsersToChangePassword = y })
-       <$> f (_ppAllowUsersToChangePassword x)
+    f (_ppAllowUsersToChangePassword x)
+        <&> \y -> x { _ppAllowUsersToChangePassword = y }
 {-# INLINE ppAllowUsersToChangePassword #-}
 
 -- | Specifies whether IAM users are required to change their password after a
 -- specified number of days.
-ppExpirePasswords
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppExpirePasswords :: Lens' PasswordPolicy (Maybe Bool)
 ppExpirePasswords f x =
-    (\y -> x { _ppExpirePasswords = y })
-       <$> f (_ppExpirePasswords x)
+    f (_ppExpirePasswords x)
+        <&> \y -> x { _ppExpirePasswords = y }
 {-# INLINE ppExpirePasswords #-}
 
 -- | The number of days that an IAM user password is valid.
-ppMaxPasswordAge
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Integer)
 ppMaxPasswordAge f x =
-    (\y -> x { _ppMaxPasswordAge = y })
-       <$> f (_ppMaxPasswordAge x)
+    f (_ppMaxPasswordAge x)
+        <&> \y -> x { _ppMaxPasswordAge = y }
 {-# INLINE ppMaxPasswordAge #-}
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
-ppPasswordReusePrevention
-    :: Functor f
-    => (Maybe Integer
-    -> f (Maybe Integer))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppPasswordReusePrevention :: Lens' PasswordPolicy (Maybe Integer)
 ppPasswordReusePrevention f x =
-    (\y -> x { _ppPasswordReusePrevention = y })
-       <$> f (_ppPasswordReusePrevention x)
+    f (_ppPasswordReusePrevention x)
+        <&> \y -> x { _ppPasswordReusePrevention = y }
 {-# INLINE ppPasswordReusePrevention #-}
 
 -- | Specifies whether IAM users are prevented from setting a new password after
 -- their password has expired.
-ppHardExpiry
-    :: Functor f
-    => (Maybe Bool
-    -> f (Maybe Bool))
-    -> PasswordPolicy
-    -> f PasswordPolicy
+ppHardExpiry :: Lens' PasswordPolicy (Maybe Bool)
 ppHardExpiry f x =
-    (\y -> x { _ppHardExpiry = y })
-       <$> f (_ppHardExpiry x)
+    f (_ppHardExpiry x)
+        <&> \y -> x { _ppHardExpiry = y }
 {-# INLINE ppHardExpiry #-}
 
 instance FromXML PasswordPolicy where
@@ -1032,80 +852,50 @@ data Role = Role
 
 -- | Path to the role. For more information about paths, see Identifiers for IAM
 -- Entities in the Using IAM guide.
-rPath
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Role
-    -> f Role
+rPath :: Lens' Role (Text)
 rPath f x =
-    (\y -> x { _rPath = y })
-       <$> f (_rPath x)
+    f (_rPath x)
+        <&> \y -> x { _rPath = y }
 {-# INLINE rPath #-}
 
 -- | The name identifying the role.
-rRoleName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Role
-    -> f Role
+rRoleName :: Lens' Role (Text)
 rRoleName f x =
-    (\y -> x { _rRoleName = y })
-       <$> f (_rRoleName x)
+    f (_rRoleName x)
+        <&> \y -> x { _rRoleName = y }
 {-# INLINE rRoleName #-}
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see Identifiers for IAM Entities in the Using IAM guide.
-rRoleId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Role
-    -> f Role
+rRoleId :: Lens' Role (Text)
 rRoleId f x =
-    (\y -> x { _rRoleId = y })
-       <$> f (_rRoleId x)
+    f (_rRoleId x)
+        <&> \y -> x { _rRoleId = y }
 {-# INLINE rRoleId #-}
 
 -- | The Amazon Resource Name (ARN) specifying the role. For more information
 -- about ARNs and how to use them in policies, see Identifiers for IAM
 -- Entities in the Using IAM guide.
-rArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> Role
-    -> f Role
+rArn :: Lens' Role (Text)
 rArn f x =
-    (\y -> x { _rArn = y })
-       <$> f (_rArn x)
+    f (_rArn x)
+        <&> \y -> x { _rArn = y }
 {-# INLINE rArn #-}
 
 -- | The date when the role was created.
-rCreateDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> Role
-    -> f Role
+rCreateDate :: Lens' Role (ISO8601)
 rCreateDate f x =
-    (\y -> x { _rCreateDate = y })
-       <$> f (_rCreateDate x)
+    f (_rCreateDate x)
+        <&> \y -> x { _rCreateDate = y }
 {-# INLINE rCreateDate #-}
 
 -- | The policy that grants an entity permission to assume the role. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
 -- about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
-rAssumeRolePolicyDocument
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> Role
-    -> f Role
+rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument f x =
-    (\y -> x { _rAssumeRolePolicyDocument = y })
-       <$> f (_rAssumeRolePolicyDocument x)
+    f (_rAssumeRolePolicyDocument x)
+        <&> \y -> x { _rAssumeRolePolicyDocument = y }
 {-# INLINE rAssumeRolePolicyDocument #-}
 
 instance FromXML Role where
@@ -1126,39 +916,24 @@ data SAMLProviderListEntry = SAMLProviderListEntry
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-samlpleArn
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> SAMLProviderListEntry
-    -> f SAMLProviderListEntry
+samlpleArn :: Lens' SAMLProviderListEntry (Maybe Text)
 samlpleArn f x =
-    (\y -> x { _samlpleArn = y })
-       <$> f (_samlpleArn x)
+    f (_samlpleArn x)
+        <&> \y -> x { _samlpleArn = y }
 {-# INLINE samlpleArn #-}
 
 -- | The expiration date and time for the SAML provider.
-samlpleValidUntil
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> SAMLProviderListEntry
-    -> f SAMLProviderListEntry
+samlpleValidUntil :: Lens' SAMLProviderListEntry (Maybe ISO8601)
 samlpleValidUntil f x =
-    (\y -> x { _samlpleValidUntil = y })
-       <$> f (_samlpleValidUntil x)
+    f (_samlpleValidUntil x)
+        <&> \y -> x { _samlpleValidUntil = y }
 {-# INLINE samlpleValidUntil #-}
 
 -- | The date and time when the SAML provider was created.
-samlpleCreateDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> SAMLProviderListEntry
-    -> f SAMLProviderListEntry
+samlpleCreateDate :: Lens' SAMLProviderListEntry (Maybe ISO8601)
 samlpleCreateDate f x =
-    (\y -> x { _samlpleCreateDate = y })
-       <$> f (_samlpleCreateDate x)
+    f (_samlpleCreateDate x)
+        <&> \y -> x { _samlpleCreateDate = y }
 {-# INLINE samlpleCreateDate #-}
 
 instance FromXML SAMLProviderListEntry where
@@ -1178,39 +953,24 @@ data ServerCertificate = ServerCertificate
 
 -- | The meta information of the server certificate, such as its name, path, ID,
 -- and ARN.
-scServerCertificateMetadata
-    :: Functor f
-    => (ServerCertificateMetadata
-    -> f (ServerCertificateMetadata))
-    -> ServerCertificate
-    -> f ServerCertificate
+scServerCertificateMetadata :: Lens' ServerCertificate (ServerCertificateMetadata)
 scServerCertificateMetadata f x =
-    (\y -> x { _scServerCertificateMetadata = y })
-       <$> f (_scServerCertificateMetadata x)
+    f (_scServerCertificateMetadata x)
+        <&> \y -> x { _scServerCertificateMetadata = y }
 {-# INLINE scServerCertificateMetadata #-}
 
 -- | The contents of the public key certificate.
-scCertificateBody
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ServerCertificate
-    -> f ServerCertificate
+scCertificateBody :: Lens' ServerCertificate (Text)
 scCertificateBody f x =
-    (\y -> x { _scCertificateBody = y })
-       <$> f (_scCertificateBody x)
+    f (_scCertificateBody x)
+        <&> \y -> x { _scCertificateBody = y }
 {-# INLINE scCertificateBody #-}
 
 -- | The contents of the public key certificate chain.
-scCertificateChain
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> ServerCertificate
-    -> f ServerCertificate
+scCertificateChain :: Lens' ServerCertificate (Maybe Text)
 scCertificateChain f x =
-    (\y -> x { _scCertificateChain = y })
-       <$> f (_scCertificateChain x)
+    f (_scCertificateChain x)
+        <&> \y -> x { _scCertificateChain = y }
 {-# INLINE scCertificateChain #-}
 
 instance FromXML ServerCertificate where
@@ -1241,79 +1001,49 @@ data ServerCertificateMetadata = ServerCertificateMetadata
 
 -- | Path to the server certificate. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide.
-scmPath
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ServerCertificateMetadata
-    -> f ServerCertificateMetadata
+scmPath :: Lens' ServerCertificateMetadata (Text)
 scmPath f x =
-    (\y -> x { _scmPath = y })
-       <$> f (_scmPath x)
+    f (_scmPath x)
+        <&> \y -> x { _scmPath = y }
 {-# INLINE scmPath #-}
 
 -- | The name that identifies the server certificate.
-scmServerCertificateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ServerCertificateMetadata
-    -> f ServerCertificateMetadata
+scmServerCertificateName :: Lens' ServerCertificateMetadata (Text)
 scmServerCertificateName f x =
-    (\y -> x { _scmServerCertificateName = y })
-       <$> f (_scmServerCertificateName x)
+    f (_scmServerCertificateName x)
+        <&> \y -> x { _scmServerCertificateName = y }
 {-# INLINE scmServerCertificateName #-}
 
 -- | The stable and unique string identifying the server certificate. For more
 -- information about IDs, see Identifiers for IAM Entities in the Using IAM
 -- guide.
-scmServerCertificateId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ServerCertificateMetadata
-    -> f ServerCertificateMetadata
+scmServerCertificateId :: Lens' ServerCertificateMetadata (Text)
 scmServerCertificateId f x =
-    (\y -> x { _scmServerCertificateId = y })
-       <$> f (_scmServerCertificateId x)
+    f (_scmServerCertificateId x)
+        <&> \y -> x { _scmServerCertificateId = y }
 {-# INLINE scmServerCertificateId #-}
 
 -- | The Amazon Resource Name (ARN) specifying the server certificate. For more
 -- information about ARNs and how to use them in policies, see Identifiers for
 -- IAM Entities in the Using IAM guide.
-scmArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> ServerCertificateMetadata
-    -> f ServerCertificateMetadata
+scmArn :: Lens' ServerCertificateMetadata (Text)
 scmArn f x =
-    (\y -> x { _scmArn = y })
-       <$> f (_scmArn x)
+    f (_scmArn x)
+        <&> \y -> x { _scmArn = y }
 {-# INLINE scmArn #-}
 
 -- | The date when the server certificate was uploaded.
-scmUploadDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ServerCertificateMetadata
-    -> f ServerCertificateMetadata
+scmUploadDate :: Lens' ServerCertificateMetadata (Maybe ISO8601)
 scmUploadDate f x =
-    (\y -> x { _scmUploadDate = y })
-       <$> f (_scmUploadDate x)
+    f (_scmUploadDate x)
+        <&> \y -> x { _scmUploadDate = y }
 {-# INLINE scmUploadDate #-}
 
 -- | The date on which the certificate is set to expire.
-scmExpiration
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> ServerCertificateMetadata
-    -> f ServerCertificateMetadata
+scmExpiration :: Lens' ServerCertificateMetadata (Maybe ISO8601)
 scmExpiration f x =
-    (\y -> x { _scmExpiration = y })
-       <$> f (_scmExpiration x)
+    f (_scmExpiration x)
+        <&> \y -> x { _scmExpiration = y }
 {-# INLINE scmExpiration #-}
 
 instance FromXML ServerCertificateMetadata where
@@ -1338,64 +1068,39 @@ data SigningCertificate = SigningCertificate
     } deriving (Show, Generic)
 
 -- | Name of the user the signing certificate is associated with.
-sdUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SigningCertificate
-    -> f SigningCertificate
+sdUserName :: Lens' SigningCertificate (Text)
 sdUserName f x =
-    (\y -> x { _sdUserName = y })
-       <$> f (_sdUserName x)
+    f (_sdUserName x)
+        <&> \y -> x { _sdUserName = y }
 {-# INLINE sdUserName #-}
 
 -- | The ID for the signing certificate.
-sdCertificateId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SigningCertificate
-    -> f SigningCertificate
+sdCertificateId :: Lens' SigningCertificate (Text)
 sdCertificateId f x =
-    (\y -> x { _sdCertificateId = y })
-       <$> f (_sdCertificateId x)
+    f (_sdCertificateId x)
+        <&> \y -> x { _sdCertificateId = y }
 {-# INLINE sdCertificateId #-}
 
 -- | The contents of the signing certificate.
-sdCertificateBody
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> SigningCertificate
-    -> f SigningCertificate
+sdCertificateBody :: Lens' SigningCertificate (Text)
 sdCertificateBody f x =
-    (\y -> x { _sdCertificateBody = y })
-       <$> f (_sdCertificateBody x)
+    f (_sdCertificateBody x)
+        <&> \y -> x { _sdCertificateBody = y }
 {-# INLINE sdCertificateBody #-}
 
 -- | The status of the signing certificate. Active means the key is valid for
 -- API calls, while Inactive means it is not.
-sdStatus
-    :: Functor f
-    => (StatusType
-    -> f (StatusType))
-    -> SigningCertificate
-    -> f SigningCertificate
+sdStatus :: Lens' SigningCertificate (StatusType)
 sdStatus f x =
-    (\y -> x { _sdStatus = y })
-       <$> f (_sdStatus x)
+    f (_sdStatus x)
+        <&> \y -> x { _sdStatus = y }
 {-# INLINE sdStatus #-}
 
 -- | The date when the signing certificate was uploaded.
-sdUploadDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> SigningCertificate
-    -> f SigningCertificate
+sdUploadDate :: Lens' SigningCertificate (Maybe ISO8601)
 sdUploadDate f x =
-    (\y -> x { _sdUploadDate = y })
-       <$> f (_sdUploadDate x)
+    f (_sdUploadDate x)
+        <&> \y -> x { _sdUploadDate = y }
 {-# INLINE sdUploadDate #-}
 
 instance FromXML SigningCertificate where
@@ -1423,66 +1128,41 @@ data User = User
 
 -- | Path to the user. For more information about paths, see Identifiers for IAM
 -- Entities in the Using IAM guide.
-uPath
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> User
-    -> f User
+uPath :: Lens' User (Text)
 uPath f x =
-    (\y -> x { _uPath = y })
-       <$> f (_uPath x)
+    f (_uPath x)
+        <&> \y -> x { _uPath = y }
 {-# INLINE uPath #-}
 
 -- | The name identifying the user.
-uUserName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> User
-    -> f User
+uUserName :: Lens' User (Text)
 uUserName f x =
-    (\y -> x { _uUserName = y })
-       <$> f (_uUserName x)
+    f (_uUserName x)
+        <&> \y -> x { _uUserName = y }
 {-# INLINE uUserName #-}
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see Identifiers for IAM Entities in the Using IAM guide.
-uUserId
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> User
-    -> f User
+uUserId :: Lens' User (Text)
 uUserId f x =
-    (\y -> x { _uUserId = y })
-       <$> f (_uUserId x)
+    f (_uUserId x)
+        <&> \y -> x { _uUserId = y }
 {-# INLINE uUserId #-}
 
 -- | The Amazon Resource Name (ARN) specifying the user. For more information
 -- about ARNs and how to use them in policies, see Identifiers for IAM
 -- Entities in the Using IAM guide.
-uArn
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> User
-    -> f User
+uArn :: Lens' User (Text)
 uArn f x =
-    (\y -> x { _uArn = y })
-       <$> f (_uArn x)
+    f (_uArn x)
+        <&> \y -> x { _uArn = y }
 {-# INLINE uArn #-}
 
 -- | The date when the user was created.
-uCreateDate
-    :: Functor f
-    => (ISO8601
-    -> f (ISO8601))
-    -> User
-    -> f User
+uCreateDate :: Lens' User (ISO8601)
 uCreateDate f x =
-    (\y -> x { _uCreateDate = y })
-       <$> f (_uCreateDate x)
+    f (_uCreateDate x)
+        <&> \y -> x { _uCreateDate = y }
 {-# INLINE uCreateDate #-}
 
 instance FromXML User where
@@ -1514,28 +1194,18 @@ data VirtualMFADevice = VirtualMFADevice
     } deriving (Show, Generic)
 
 -- | The serial number associated with VirtualMFADevice.
-vmfadSerialNumber
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> VirtualMFADevice
-    -> f VirtualMFADevice
+vmfadSerialNumber :: Lens' VirtualMFADevice (Text)
 vmfadSerialNumber f x =
-    (\y -> x { _vmfadSerialNumber = y })
-       <$> f (_vmfadSerialNumber x)
+    f (_vmfadSerialNumber x)
+        <&> \y -> x { _vmfadSerialNumber = y }
 {-# INLINE vmfadSerialNumber #-}
 
 -- | The Base32 seed defined as specified in RFC3548. The Base32StringSeed is
 -- Base64-encoded.
-vmfadBase32StringSeed
-    :: Functor f
-    => (Maybe ByteString
-    -> f (Maybe ByteString))
-    -> VirtualMFADevice
-    -> f VirtualMFADevice
+vmfadBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmfadBase32StringSeed f x =
-    (\y -> x { _vmfadBase32StringSeed = y })
-       <$> f (_vmfadBase32StringSeed x)
+    f (_vmfadBase32StringSeed x)
+        <&> \y -> x { _vmfadBase32StringSeed = y }
 {-# INLINE vmfadBase32StringSeed #-}
 
 -- | A QR code PNG image that encodes
@@ -1543,40 +1213,25 @@ vmfadBase32StringSeed f x =
 -- where $virtualMFADeviceName is one of the create call arguments,
 -- AccountName is the user name if set (accountId otherwise), and Base32String
 -- is the seed in Base32 format. The Base32String is Base64-encoded.
-vmfadQRCodePNG
-    :: Functor f
-    => (Maybe ByteString
-    -> f (Maybe ByteString))
-    -> VirtualMFADevice
-    -> f VirtualMFADevice
+vmfadQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
 vmfadQRCodePNG f x =
-    (\y -> x { _vmfadQRCodePNG = y })
-       <$> f (_vmfadQRCodePNG x)
+    f (_vmfadQRCodePNG x)
+        <&> \y -> x { _vmfadQRCodePNG = y }
 {-# INLINE vmfadQRCodePNG #-}
 
 -- | The User data type contains information about a user. This data type is
 -- used as a response element in the following actions: CreateUser GetUser
 -- ListUsers.
-vmfadUser
-    :: Functor f
-    => (Maybe User
-    -> f (Maybe User))
-    -> VirtualMFADevice
-    -> f VirtualMFADevice
+vmfadUser :: Lens' VirtualMFADevice (Maybe User)
 vmfadUser f x =
-    (\y -> x { _vmfadUser = y })
-       <$> f (_vmfadUser x)
+    f (_vmfadUser x)
+        <&> \y -> x { _vmfadUser = y }
 {-# INLINE vmfadUser #-}
 
-vmfadEnableDate
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> VirtualMFADevice
-    -> f VirtualMFADevice
+vmfadEnableDate :: Lens' VirtualMFADevice (Maybe ISO8601)
 vmfadEnableDate f x =
-    (\y -> x { _vmfadEnableDate = y })
-       <$> f (_vmfadEnableDate x)
+    f (_vmfadEnableDate x)
+        <&> \y -> x { _vmfadEnableDate = y }
 {-# INLINE vmfadEnableDate #-}
 
 instance FromXML VirtualMFADevice where

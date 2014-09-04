@@ -41,6 +41,7 @@ import Network.AWS.Prelude
 -- | Minimum specification for a 'GetCredentialReport' request.
 getCredentialReport :: GetCredentialReport
 getCredentialReport = GetCredentialReport
+{-# INLINE getCredentialReport #-}
 
 data GetCredentialReport = GetCredentialReport
     deriving (Eq, Show, Generic)
@@ -60,39 +61,24 @@ data GetCredentialReportResponse = GetCredentialReportResponse
 
 -- | The time and date when the credential report was created, in ISO 8601
 -- date-time format.
-gcrsGeneratedTime
-    :: Functor f
-    => (Maybe ISO8601
-    -> f (Maybe ISO8601))
-    -> GetCredentialReportResponse
-    -> f GetCredentialReportResponse
+gcrsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
 gcrsGeneratedTime f x =
-    (\y -> x { _gcrsGeneratedTime = y })
-       <$> f (_gcrsGeneratedTime x)
+    f (_gcrsGeneratedTime x)
+        <&> \y -> x { _gcrsGeneratedTime = y }
 {-# INLINE gcrsGeneratedTime #-}
 
 -- | Contains the credential report. The report is Base64-encoded.
-gcrsContent
-    :: Functor f
-    => (Maybe ByteString
-    -> f (Maybe ByteString))
-    -> GetCredentialReportResponse
-    -> f GetCredentialReportResponse
+gcrsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
 gcrsContent f x =
-    (\y -> x { _gcrsContent = y })
-       <$> f (_gcrsContent x)
+    f (_gcrsContent x)
+        <&> \y -> x { _gcrsContent = y }
 {-# INLINE gcrsContent #-}
 
 -- | The format (MIME type) of the credential report.
-gcrsReportFormat
-    :: Functor f
-    => (Maybe ReportFormatType
-    -> f (Maybe ReportFormatType))
-    -> GetCredentialReportResponse
-    -> f GetCredentialReportResponse
+gcrsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 gcrsReportFormat f x =
-    (\y -> x { _gcrsReportFormat = y })
-       <$> f (_gcrsReportFormat x)
+    f (_gcrsReportFormat x)
+        <&> \y -> x { _gcrsReportFormat = y }
 {-# INLINE gcrsReportFormat #-}
 
 instance FromXML GetCredentialReportResponse where

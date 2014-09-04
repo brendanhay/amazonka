@@ -46,6 +46,7 @@ describeLifecycleHooks p1 = DescribeLifecycleHooks
     { _dlhuAutoScalingGroupName = p1
     , _dlhuLifecycleHookNames = mempty
     }
+{-# INLINE describeLifecycleHooks #-}
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
     { _dlhuAutoScalingGroupName :: Text
@@ -55,27 +56,17 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks
     } deriving (Show, Generic)
 
 -- | The name of one or more Auto Scaling groups.
-dlhuAutoScalingGroupName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> DescribeLifecycleHooks
-    -> f DescribeLifecycleHooks
+dlhuAutoScalingGroupName :: Lens' DescribeLifecycleHooks (Text)
 dlhuAutoScalingGroupName f x =
-    (\y -> x { _dlhuAutoScalingGroupName = y })
-       <$> f (_dlhuAutoScalingGroupName x)
+    f (_dlhuAutoScalingGroupName x)
+        <&> \y -> x { _dlhuAutoScalingGroupName = y }
 {-# INLINE dlhuAutoScalingGroupName #-}
 
 -- | The name of one or more lifecycle hooks.
-dlhuLifecycleHookNames
-    :: Functor f
-    => ([Text]
-    -> f ([Text]))
-    -> DescribeLifecycleHooks
-    -> f DescribeLifecycleHooks
+dlhuLifecycleHookNames :: Lens' DescribeLifecycleHooks ([Text])
 dlhuLifecycleHookNames f x =
-    (\y -> x { _dlhuLifecycleHookNames = y })
-       <$> f (_dlhuLifecycleHookNames x)
+    f (_dlhuLifecycleHookNames x)
+        <&> \y -> x { _dlhuLifecycleHookNames = y }
 {-# INLINE dlhuLifecycleHookNames #-}
 
 instance ToQuery DescribeLifecycleHooks where
@@ -89,15 +80,10 @@ data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
 
 -- | A list describing the lifecycle hooks that belong to the specified Auto
 -- Scaling group.
-dlhbLifecycleHooks
-    :: Functor f
-    => ([LifecycleHook]
-    -> f ([LifecycleHook]))
-    -> DescribeLifecycleHooksResponse
-    -> f DescribeLifecycleHooksResponse
+dlhbLifecycleHooks :: Lens' DescribeLifecycleHooksResponse ([LifecycleHook])
 dlhbLifecycleHooks f x =
-    (\y -> x { _dlhbLifecycleHooks = y })
-       <$> f (_dlhbLifecycleHooks x)
+    f (_dlhbLifecycleHooks x)
+        <&> \y -> x { _dlhbLifecycleHooks = y }
 {-# INLINE dlhbLifecycleHooks #-}
 
 instance FromXML DescribeLifecycleHooksResponse where

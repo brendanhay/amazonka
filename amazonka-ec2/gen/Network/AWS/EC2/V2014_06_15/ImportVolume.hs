@@ -79,27 +79,31 @@ data ImportVolume = ImportVolume
     } deriving (Show, Generic)
 
 -- | 
-ivrImage :: Lens' ImportVolume DiskImageDetail
+ivrImage :: Lens' ImportVolume (DiskImageDetail)
 ivrImage f x =
-    f (_ivrImage x) <&> \y -> x { _ivrImage = y }
+    f (_ivrImage x)
+        <&> \y -> x { _ivrImage = y }
 {-# INLINE ivrImage #-}
 
 -- | The Availability Zone for the resulting Amazon EBS volume.
-ivrAvailabilityZone :: Lens' ImportVolume Text
+ivrAvailabilityZone :: Lens' ImportVolume (Text)
 ivrAvailabilityZone f x =
-    f (_ivrAvailabilityZone x) <&> \y -> x { _ivrAvailabilityZone = y }
+    f (_ivrAvailabilityZone x)
+        <&> \y -> x { _ivrAvailabilityZone = y }
 {-# INLINE ivrAvailabilityZone #-}
 
 -- | 
-ivrVolume :: Lens' ImportVolume VolumeDetail
+ivrVolume :: Lens' ImportVolume (VolumeDetail)
 ivrVolume f x =
-    f (_ivrVolume x) <&> \y -> x { _ivrVolume = y }
+    f (_ivrVolume x)
+        <&> \y -> x { _ivrVolume = y }
 {-# INLINE ivrVolume #-}
 
 -- | An optional description for the volume being imported.
 ivrDescription :: Lens' ImportVolume (Maybe Text)
 ivrDescription f x =
-    f (_ivrDescription x) <&> \y -> x { _ivrDescription = y }
+    f (_ivrDescription x)
+        <&> \y -> x { _ivrDescription = y }
 {-# INLINE ivrDescription #-}
 
 instance ToQuery ImportVolume where
@@ -113,7 +117,8 @@ data ImportVolumeResponse = ImportVolumeResponse
 -- | 
 ivsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivsConversionTask f x =
-    f (_ivsConversionTask x) <&> \y -> x { _ivsConversionTask = y }
+    f (_ivsConversionTask x)
+        <&> \y -> x { _ivsConversionTask = y }
 {-# INLINE ivsConversionTask #-}
 
 instance FromXML ImportVolumeResponse where

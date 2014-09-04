@@ -78,15 +78,17 @@ data DescribeVpcAttribute = DescribeVpcAttribute
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-dvatVpcId :: Lens' DescribeVpcAttribute Text
+dvatVpcId :: Lens' DescribeVpcAttribute (Text)
 dvatVpcId f x =
-    f (_dvatVpcId x) <&> \y -> x { _dvatVpcId = y }
+    f (_dvatVpcId x)
+        <&> \y -> x { _dvatVpcId = y }
 {-# INLINE dvatVpcId #-}
 
 -- | The VPC attribute.
 dvatAttribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
 dvatAttribute f x =
-    f (_dvatAttribute x) <&> \y -> x { _dvatAttribute = y }
+    f (_dvatAttribute x)
+        <&> \y -> x { _dvatAttribute = y }
 {-# INLINE dvatAttribute #-}
 
 instance ToQuery DescribeVpcAttribute where
@@ -111,7 +113,8 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 -- their corresponding IP addresses; otherwise, it does not.
 dvauEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvauEnableDnsSupport f x =
-    f (_dvauEnableDnsSupport x) <&> \y -> x { _dvauEnableDnsSupport = y }
+    f (_dvauEnableDnsSupport x)
+        <&> \y -> x { _dvauEnableDnsSupport = y }
 {-# INLINE dvauEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
@@ -119,13 +122,15 @@ dvauEnableDnsSupport f x =
 -- they do not.
 dvauEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvauEnableDnsHostnames f x =
-    f (_dvauEnableDnsHostnames x) <&> \y -> x { _dvauEnableDnsHostnames = y }
+    f (_dvauEnableDnsHostnames x)
+        <&> \y -> x { _dvauEnableDnsHostnames = y }
 {-# INLINE dvauEnableDnsHostnames #-}
 
 -- | The ID of the VPC.
 dvauVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvauVpcId f x =
-    f (_dvauVpcId x) <&> \y -> x { _dvauVpcId = y }
+    f (_dvauVpcId x)
+        <&> \y -> x { _dvauVpcId = y }
 {-# INLINE dvauVpcId #-}
 
 instance FromXML DescribeVpcAttributeResponse where

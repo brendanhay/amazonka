@@ -83,16 +83,18 @@ data DescribeInternetGateways = DescribeInternetGateways
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-digsFilters :: Lens' DescribeInternetGateways [Filter]
+digsFilters :: Lens' DescribeInternetGateways ([Filter])
 digsFilters f x =
-    f (_digsFilters x) <&> \y -> x { _digsFilters = y }
+    f (_digsFilters x)
+        <&> \y -> x { _digsFilters = y }
 {-# INLINE digsFilters #-}
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
-digsInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+digsInternetGatewayIds :: Lens' DescribeInternetGateways ([Text])
 digsInternetGatewayIds f x =
-    f (_digsInternetGatewayIds x) <&> \y -> x { _digsInternetGatewayIds = y }
+    f (_digsInternetGatewayIds x)
+        <&> \y -> x { _digsInternetGatewayIds = y }
 {-# INLINE digsInternetGatewayIds #-}
 
 instance ToQuery DescribeInternetGateways where
@@ -104,9 +106,10 @@ data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     } deriving (Show, Generic)
 
 -- | Information about one or more Internet gateways.
-digtInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digtInternetGateways :: Lens' DescribeInternetGatewaysResponse ([InternetGateway])
 digtInternetGateways f x =
-    f (_digtInternetGateways x) <&> \y -> x { _digtInternetGateways = y }
+    f (_digtInternetGateways x)
+        <&> \y -> x { _digtInternetGateways = y }
 {-# INLINE digtInternetGateways #-}
 
 instance FromXML DescribeInternetGatewaysResponse where

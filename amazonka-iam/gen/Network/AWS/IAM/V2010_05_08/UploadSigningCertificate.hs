@@ -90,6 +90,7 @@ uploadSigningCertificate p1 = UploadSigningCertificate
     { _uscvCertificateBody = p1
     , _uscvUserName = Nothing
     }
+{-# INLINE uploadSigningCertificate #-}
 
 data UploadSigningCertificate = UploadSigningCertificate
     { _uscvCertificateBody :: Text
@@ -99,27 +100,17 @@ data UploadSigningCertificate = UploadSigningCertificate
     } deriving (Show, Generic)
 
 -- | The contents of the signing certificate.
-uscvCertificateBody
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UploadSigningCertificate
-    -> f UploadSigningCertificate
+uscvCertificateBody :: Lens' UploadSigningCertificate (Text)
 uscvCertificateBody f x =
-    (\y -> x { _uscvCertificateBody = y })
-       <$> f (_uscvCertificateBody x)
+    f (_uscvCertificateBody x)
+        <&> \y -> x { _uscvCertificateBody = y }
 {-# INLINE uscvCertificateBody #-}
 
 -- | Name of the user the signing certificate is for.
-uscvUserName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UploadSigningCertificate
-    -> f UploadSigningCertificate
+uscvUserName :: Lens' UploadSigningCertificate (Maybe Text)
 uscvUserName f x =
-    (\y -> x { _uscvUserName = y })
-       <$> f (_uscvUserName x)
+    f (_uscvUserName x)
+        <&> \y -> x { _uscvUserName = y }
 {-# INLINE uscvUserName #-}
 
 instance ToQuery UploadSigningCertificate where
@@ -131,15 +122,10 @@ data UploadSigningCertificateResponse = UploadSigningCertificateResponse
     } deriving (Show, Generic)
 
 -- | Information about the certificate.
-uscwCertificate
-    :: Functor f
-    => (SigningCertificate
-    -> f (SigningCertificate))
-    -> UploadSigningCertificateResponse
-    -> f UploadSigningCertificateResponse
+uscwCertificate :: Lens' UploadSigningCertificateResponse (SigningCertificate)
 uscwCertificate f x =
-    (\y -> x { _uscwCertificate = y })
-       <$> f (_uscwCertificate x)
+    f (_uscwCertificate x)
+        <&> \y -> x { _uscwCertificate = y }
 {-# INLINE uscwCertificate #-}
 
 instance FromXML UploadSigningCertificateResponse where

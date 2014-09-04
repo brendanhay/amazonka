@@ -56,6 +56,7 @@ updateServerCertificate p1 = UpdateServerCertificate
     , _uscrNewPath = Nothing
     , _uscrNewServerCertificateName = Nothing
     }
+{-# INLINE updateServerCertificate #-}
 
 data UpdateServerCertificate = UpdateServerCertificate
     { _uscrServerCertificateName :: Text
@@ -69,41 +70,26 @@ data UpdateServerCertificate = UpdateServerCertificate
     } deriving (Show, Generic)
 
 -- | The name of the server certificate that you want to update.
-uscrServerCertificateName
-    :: Functor f
-    => (Text
-    -> f (Text))
-    -> UpdateServerCertificate
-    -> f UpdateServerCertificate
+uscrServerCertificateName :: Lens' UpdateServerCertificate (Text)
 uscrServerCertificateName f x =
-    (\y -> x { _uscrServerCertificateName = y })
-       <$> f (_uscrServerCertificateName x)
+    f (_uscrServerCertificateName x)
+        <&> \y -> x { _uscrServerCertificateName = y }
 {-# INLINE uscrServerCertificateName #-}
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate's path.
-uscrNewPath
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateServerCertificate
-    -> f UpdateServerCertificate
+uscrNewPath :: Lens' UpdateServerCertificate (Maybe Text)
 uscrNewPath f x =
-    (\y -> x { _uscrNewPath = y })
-       <$> f (_uscrNewPath x)
+    f (_uscrNewPath x)
+        <&> \y -> x { _uscrNewPath = y }
 {-# INLINE uscrNewPath #-}
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate's name.
-uscrNewServerCertificateName
-    :: Functor f
-    => (Maybe Text
-    -> f (Maybe Text))
-    -> UpdateServerCertificate
-    -> f UpdateServerCertificate
+uscrNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
 uscrNewServerCertificateName f x =
-    (\y -> x { _uscrNewServerCertificateName = y })
-       <$> f (_uscrNewServerCertificateName x)
+    f (_uscrNewServerCertificateName x)
+        <&> \y -> x { _uscrNewServerCertificateName = y }
 {-# INLINE uscrNewServerCertificateName #-}
 
 instance ToQuery UpdateServerCertificate where

@@ -8,8 +8,6 @@
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE TypeOperators       #-}
 
-{-# LANGUAGE RankNTypes #-} -- Required for 'deep'
-
 -- Module      : Network.AWS.Internal.Data.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -28,8 +26,6 @@ module Network.AWS.Internal.Data.Query
 
     -- * Lenses
     , queryField
-
-    -- * Traversals
     , keysOf
     , valuesOf
 
@@ -46,19 +42,20 @@ module Network.AWS.Internal.Data.Query
     ) where
 
 import           Control.Applicative
-import           Control.Lens                hiding (to, from)
-import           Data.ByteString             (ByteString)
-import qualified Data.ByteString.Char8       as BS
+import           Control.Lens                         hiding (to, from)
+import           Data.ByteString                      (ByteString)
+import qualified Data.ByteString.Char8                as BS
 import           Data.Char
 import           Data.Data
 import           Data.Data.Lens
 import           Data.Default
-import           Data.List                   (sort)
-import           Data.List.NonEmpty          (NonEmpty(..))
-import qualified Data.List.NonEmpty          as NonEmpty
+import           Data.List                            (sort)
+import           Data.List.NonEmpty                   (NonEmpty(..))
+import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Monoid
 import           Data.String
-import           Data.Text                   (Text)
+import           Data.Text                            (Text)
+import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Internal.Data.ByteString
 import           Network.AWS.Internal.Data.Text
@@ -127,7 +124,7 @@ newtype QueryOptions = QueryOptions
     { _queryField :: String -> ByteString
     }
 
-queryField :: Functor f => LensLike' f QueryOptions (String -> ByteString)
+queryField :: Lens' QueryOptions (String -> ByteString)
 queryField f (QueryOptions g) = QueryOptions <$> f g
 
 instance Default QueryOptions where
@@ -180,8 +177,6 @@ instance ToQuery a => ToQuery [a] where
     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
       where
         idx = [1..] :: [Integer]
-
--- instance (ToQuery k, ToQuery v) => ToQuery HashMap
 
 instance ToQuery a => ToQuery (NonEmpty a) where
     toQuery = toQuery . NonEmpty.toList

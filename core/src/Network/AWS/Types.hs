@@ -4,6 +4,7 @@
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE StandaloneDeriving         #-}
@@ -138,6 +139,12 @@ data Signed a v where
               , _sgRequest :: ClientRequest
               }
            -> Signed a v
+
+sgMeta :: Lens' (Signed a v) (Meta v)
+sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
+
+sgRequest :: Lens' (Signed a v) ClientRequest
+sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
 
 instance ToText (Signed a v) where
     toText (Signed m rq) = Text.unlines
@@ -351,14 +358,6 @@ instance FromJSON Base64 where
 instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
--- Sums
 makePrisms ''Error
-
--- Products
 makeLenses ''Request
-
-sgMeta :: Functor f => LensLike' f (Signed a v) (Meta v)
-sgMeta f (Signed m rq) = (\y -> Signed y rq) <$> f m
-
-sgRequest :: Functor f => LensLike' f (Signed a v) ClientRequest
-sgRequest f (Signed m rq) = (\y -> Signed m y) <$> f rq
+makeLenses ''Zone

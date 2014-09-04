@@ -1,5 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-
 -- Module      : Network.AWS.Prelude.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -46,13 +44,12 @@ module Network.AWS.Prelude
 
     -- * Lenses
     , Lens'
-    , makeLenses
-    , makeSiglessLens
+    , (<&>)
     ) where
 
 import Control.Applicative   as Export
 import Control.Exception     (Exception)
-import Control.Lens          hiding (Action)
+import Control.Lens          (Lens', (<&>))
 import Data.Aeson            (FromJSON(..), ToJSON(..))
 import Data.Bifunctor        as Export
 import Data.ByteString       (ByteString)
@@ -70,7 +67,3 @@ import Network.AWS.Types
 import Network.AWS.Types.Map (Map(..))
 import Network.HTTP.Client   (HttpException, RequestBody, Response)
 import Prelude               as Export hiding (head)
-
-makeSiglessLens k v = makeLensesWith
-    $ lensRulesFor [(k, v)]
-    & generateSignatures .~ False

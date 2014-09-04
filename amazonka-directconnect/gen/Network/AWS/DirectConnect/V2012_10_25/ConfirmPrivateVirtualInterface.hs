@@ -26,10 +26,10 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
     -- * Request
       ConfirmPrivateVirtualInterface
     -- ** Request constructor
-    , confirmPrivateVirtualInterface
+    , mkConfirmPrivateVirtualInterfaceRequest
     -- ** Request lenses
-    , cpvirVirtualGatewayId
     , cpvirVirtualInterfaceId
+    , cpvirVirtualGatewayId
 
     -- * Response
     , ConfirmPrivateVirtualInterfaceResponse
@@ -42,43 +42,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ConfirmPrivateVirtualInterface' request.
-confirmPrivateVirtualInterface :: Text -- ^ 'cpvirVirtualGatewayId'
-                               -> Text -- ^ 'cpvirVirtualInterfaceId'
-                               -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
-    { _cpvirVirtualGatewayId = p1
-    , _cpvirVirtualInterfaceId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmPrivateVirtualInterface' request.
+mkConfirmPrivateVirtualInterfaceRequest :: Text -- ^ 'cpvirVirtualInterfaceId'
+                                        -> Text -- ^ 'cpvirVirtualGatewayId'
+                                        -> ConfirmPrivateVirtualInterface
+mkConfirmPrivateVirtualInterfaceRequest p1 p2 = ConfirmPrivateVirtualInterface
+    { _cpvirVirtualInterfaceId = p1
+    , _cpvirVirtualGatewayId = p2
     }
-{-# INLINE confirmPrivateVirtualInterface #-}
+{-# INLINE mkConfirmPrivateVirtualInterfaceRequest #-}
 
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
-    { _cpvirVirtualGatewayId :: Text
+    { _cpvirVirtualInterfaceId :: Text
+      -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
+      -- None.
+    , _cpvirVirtualGatewayId :: Text
       -- ^ ID of the virtual private gateway that will be attached to the
       -- virtual interface. A virtual private gateway can be managed via
       -- the Amazon Virtual Private Cloud (VPC) console or the EC2
       -- CreateVpnGateway action. Default: None.
-    , _cpvirVirtualInterfaceId :: Text
-      -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
-      -- None.
     } deriving (Show, Generic)
+
+-- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
+cpvirVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface (Text)
+cpvirVirtualInterfaceId = lens _cpvirVirtualInterfaceId (\s a -> s { _cpvirVirtualInterfaceId = a })
+{-# INLINE cpvirVirtualInterfaceId #-}
 
 -- | ID of the virtual private gateway that will be attached to the virtual
 -- interface. A virtual private gateway can be managed via the Amazon Virtual
 -- Private Cloud (VPC) console or the EC2 CreateVpnGateway action. Default:
 -- None.
 cpvirVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface (Text)
-cpvirVirtualGatewayId f x =
-    f (_cpvirVirtualGatewayId x)
-        <&> \y -> x { _cpvirVirtualGatewayId = y }
+cpvirVirtualGatewayId = lens _cpvirVirtualGatewayId (\s a -> s { _cpvirVirtualGatewayId = a })
 {-# INLINE cpvirVirtualGatewayId #-}
-
--- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-cpvirVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface (Text)
-cpvirVirtualInterfaceId f x =
-    f (_cpvirVirtualInterfaceId x)
-        <&> \y -> x { _cpvirVirtualInterfaceId = y }
-{-# INLINE cpvirVirtualInterfaceId #-}
 
 instance ToPath ConfirmPrivateVirtualInterface
 
@@ -88,7 +85,7 @@ instance ToHeaders ConfirmPrivateVirtualInterface
 
 instance ToJSON ConfirmPrivateVirtualInterface
 
-data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
+newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvisVirtualInterfaceState :: Maybe VirtualInterfaceState
       -- ^ State of the virtual interface. Confirming: The creation of the
       -- virtual interface is pending confirmation from the virtual
@@ -128,9 +125,7 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
 cpvisVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvisVirtualInterfaceState f x =
-    f (_cpvisVirtualInterfaceState x)
-        <&> \y -> x { _cpvisVirtualInterfaceState = y }
+cpvisVirtualInterfaceState = lens _cpvisVirtualInterfaceState (\s a -> s { _cpvisVirtualInterfaceState = a })
 {-# INLINE cpvisVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse

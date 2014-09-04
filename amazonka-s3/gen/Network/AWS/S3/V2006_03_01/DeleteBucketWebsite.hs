@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
     -- * Request
       DeleteBucketWebsite
     -- ** Request constructor
-    , deleteBucketWebsite
+    , mkDeleteBucketWebsiteRequest
     -- ** Request lenses
     , dbwrBucket
 
@@ -35,22 +35,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteBucketWebsite' request.
-deleteBucketWebsite :: BucketName -- ^ 'dbwrBucket'
-                    -> DeleteBucketWebsite
-deleteBucketWebsite p1 = DeleteBucketWebsite
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketWebsite' request.
+mkDeleteBucketWebsiteRequest :: BucketName -- ^ 'dbwrBucket'
+                             -> DeleteBucketWebsite
+mkDeleteBucketWebsiteRequest p1 = DeleteBucketWebsite
     { _dbwrBucket = p1
     }
-{-# INLINE deleteBucketWebsite #-}
+{-# INLINE mkDeleteBucketWebsiteRequest #-}
 
-data DeleteBucketWebsite = DeleteBucketWebsite
+newtype DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwrBucket :: BucketName
     } deriving (Show, Generic)
 
 dbwrBucket :: Lens' DeleteBucketWebsite (BucketName)
-dbwrBucket f x =
-    f (_dbwrBucket x)
-        <&> \y -> x { _dbwrBucket = y }
+dbwrBucket = lens _dbwrBucket (\s a -> s { _dbwrBucket = a })
 {-# INLINE dbwrBucket #-}
 
 instance ToPath DeleteBucketWebsite where

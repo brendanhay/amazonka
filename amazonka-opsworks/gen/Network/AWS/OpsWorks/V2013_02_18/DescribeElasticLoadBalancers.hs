@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers
     -- * Request
       DescribeElasticLoadBalancers
     -- ** Request constructor
-    , describeElasticLoadBalancers
+    , mkDescribeElasticLoadBalancersRequest
     -- ** Request lenses
     , delbrStackId
     , delbrLayerIds
@@ -43,13 +43,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeElasticLoadBalancers' request.
-describeElasticLoadBalancers :: DescribeElasticLoadBalancers
-describeElasticLoadBalancers = DescribeElasticLoadBalancers
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeElasticLoadBalancers' request.
+mkDescribeElasticLoadBalancersRequest :: DescribeElasticLoadBalancers
+mkDescribeElasticLoadBalancersRequest = DescribeElasticLoadBalancers
     { _delbrStackId = Nothing
     , _delbrLayerIds = mempty
     }
-{-# INLINE describeElasticLoadBalancers #-}
+{-# INLINE mkDescribeElasticLoadBalancersRequest #-}
 
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbrStackId :: Maybe Text
@@ -63,17 +64,13 @@ data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
 -- | A stack ID. The action describes the stack's Elastic Load Balancing
 -- instances.
 delbrStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
-delbrStackId f x =
-    f (_delbrStackId x)
-        <&> \y -> x { _delbrStackId = y }
+delbrStackId = lens _delbrStackId (\s a -> s { _delbrStackId = a })
 {-# INLINE delbrStackId #-}
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 delbrLayerIds :: Lens' DescribeElasticLoadBalancers ([Text])
-delbrLayerIds f x =
-    f (_delbrLayerIds x)
-        <&> \y -> x { _delbrLayerIds = y }
+delbrLayerIds = lens _delbrLayerIds (\s a -> s { _delbrLayerIds = a })
 {-# INLINE delbrLayerIds #-}
 
 instance ToPath DescribeElasticLoadBalancers
@@ -84,7 +81,7 @@ instance ToHeaders DescribeElasticLoadBalancers
 
 instance ToJSON DescribeElasticLoadBalancers
 
-data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
+newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbsElasticLoadBalancers :: [ElasticLoadBalancer]
       -- ^ A list of ElasticLoadBalancer objects that describe the specified
       -- Elastic Load Balancing instances.
@@ -93,9 +90,7 @@ data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
 -- | A list of ElasticLoadBalancer objects that describe the specified Elastic
 -- Load Balancing instances.
 delbsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse ([ElasticLoadBalancer])
-delbsElasticLoadBalancers f x =
-    f (_delbsElasticLoadBalancers x)
-        <&> \y -> x { _delbsElasticLoadBalancers = y }
+delbsElasticLoadBalancers = lens _delbsElasticLoadBalancers (\s a -> s { _delbsElasticLoadBalancers = a })
 {-# INLINE delbsElasticLoadBalancers #-}
 
 instance FromJSON DescribeElasticLoadBalancersResponse

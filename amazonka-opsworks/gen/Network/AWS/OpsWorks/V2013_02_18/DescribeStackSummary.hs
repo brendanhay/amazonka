@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary
     -- * Request
       DescribeStackSummary
     -- ** Request constructor
-    , describeStackSummary
+    , mkDescribeStackSummaryRequest
     -- ** Request lenses
     , dssrStackId
 
@@ -43,24 +43,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeStackSummary' request.
-describeStackSummary :: Text -- ^ 'dssrStackId'
-                     -> DescribeStackSummary
-describeStackSummary p1 = DescribeStackSummary
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackSummary' request.
+mkDescribeStackSummaryRequest :: Text -- ^ 'dssrStackId'
+                              -> DescribeStackSummary
+mkDescribeStackSummaryRequest p1 = DescribeStackSummary
     { _dssrStackId = p1
     }
-{-# INLINE describeStackSummary #-}
+{-# INLINE mkDescribeStackSummaryRequest #-}
 
-data DescribeStackSummary = DescribeStackSummary
+newtype DescribeStackSummary = DescribeStackSummary
     { _dssrStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
 -- | The stack ID.
 dssrStackId :: Lens' DescribeStackSummary (Text)
-dssrStackId f x =
-    f (_dssrStackId x)
-        <&> \y -> x { _dssrStackId = y }
+dssrStackId = lens _dssrStackId (\s a -> s { _dssrStackId = a })
 {-# INLINE dssrStackId #-}
 
 instance ToPath DescribeStackSummary
@@ -71,16 +70,14 @@ instance ToHeaders DescribeStackSummary
 
 instance ToJSON DescribeStackSummary
 
-data DescribeStackSummaryResponse = DescribeStackSummaryResponse
+newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dsssStackSummary :: Maybe StackSummary
       -- ^ A StackSummary object that contains the results.
     } deriving (Show, Generic)
 
 -- | A StackSummary object that contains the results.
 dsssStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dsssStackSummary f x =
-    f (_dsssStackSummary x)
-        <&> \y -> x { _dsssStackSummary = y }
+dsssStackSummary = lens _dsssStackSummary (\s a -> s { _dsssStackSummary = a })
 {-# INLINE dsssStackSummary #-}
 
 instance FromJSON DescribeStackSummaryResponse

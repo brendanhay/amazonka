@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
     -- * Request
       ActivateGateway
     -- ** Request constructor
-    , activateGateway
+    , mkActivateGatewayInput
     -- ** Request lenses
     , agiActivationKey
     , agiGatewayName
@@ -61,20 +61,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ActivateGateway' request.
-activateGateway :: Text -- ^ 'agiActivationKey'
-                -> Text -- ^ 'agiGatewayName'
-                -> Text -- ^ 'agiGatewayTimezone'
-                -> Text -- ^ 'agiGatewayRegion'
-                -> ActivateGateway
-activateGateway p1 p2 p3 p4 = ActivateGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ActivateGateway' request.
+mkActivateGatewayInput :: Text -- ^ 'agiActivationKey'
+                       -> Text -- ^ 'agiGatewayName'
+                       -> Text -- ^ 'agiGatewayTimezone'
+                       -> Text -- ^ 'agiGatewayRegion'
+                       -> ActivateGateway
+mkActivateGatewayInput p1 p2 p3 p4 = ActivateGateway
     { _agiActivationKey = p1
     , _agiGatewayName = p2
     , _agiGatewayTimezone = p3
     , _agiGatewayRegion = p4
     , _agiGatewayType = Nothing
     }
-{-# INLINE activateGateway #-}
+{-# INLINE mkActivateGatewayInput #-}
 
 data ActivateGateway = ActivateGateway
     { _agiActivationKey :: Text
@@ -118,27 +119,21 @@ data ActivateGateway = ActivateGateway
 -- defaults -- the arguments you pass to the ActivateGateway API call
 -- determine the actual configuration of your gateway.
 agiActivationKey :: Lens' ActivateGateway (Text)
-agiActivationKey f x =
-    f (_agiActivationKey x)
-        <&> \y -> x { _agiActivationKey = y }
+agiActivationKey = lens _agiActivationKey (\s a -> s { _agiActivationKey = a })
 {-# INLINE agiActivationKey #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
 agiGatewayName :: Lens' ActivateGateway (Text)
-agiGatewayName f x =
-    f (_agiGatewayName x)
-        <&> \y -> x { _agiGatewayName = y }
+agiGatewayName = lens _agiGatewayName (\s a -> s { _agiGatewayName = a })
 {-# INLINE agiGatewayName #-}
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots and
 -- your gateway's maintenance schedule.
 agiGatewayTimezone :: Lens' ActivateGateway (Text)
-agiGatewayTimezone f x =
-    f (_agiGatewayTimezone x)
-        <&> \y -> x { _agiGatewayTimezone = y }
+agiGatewayTimezone = lens _agiGatewayTimezone (\s a -> s { _agiGatewayTimezone = a })
 {-# INLINE agiGatewayTimezone #-}
 
 -- | One of the values that indicates the region where you want to store the
@@ -149,18 +144,14 @@ agiGatewayTimezone f x =
 -- "us-west-1", "us-west-2", "eu-west-1", "ap-northeast-1", "ap-southest-1",
 -- "sa-east-1".
 agiGatewayRegion :: Lens' ActivateGateway (Text)
-agiGatewayRegion f x =
-    f (_agiGatewayRegion x)
-        <&> \y -> x { _agiGatewayRegion = y }
+agiGatewayRegion = lens _agiGatewayRegion (\s a -> s { _agiGatewayRegion = a })
 {-# INLINE agiGatewayRegion #-}
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot be
 -- changed after activation. The default value is STORED.
 agiGatewayType :: Lens' ActivateGateway (Maybe Text)
-agiGatewayType f x =
-    f (_agiGatewayType x)
-        <&> \y -> x { _agiGatewayType = y }
+agiGatewayType = lens _agiGatewayType (\s a -> s { _agiGatewayType = a })
 {-# INLINE agiGatewayType #-}
 
 instance ToPath ActivateGateway
@@ -171,7 +162,7 @@ instance ToHeaders ActivateGateway
 
 instance ToJSON ActivateGateway
 
-data ActivateGatewayResponse = ActivateGatewayResponse
+newtype ActivateGatewayResponse = ActivateGatewayResponse
     { _agoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -181,9 +172,7 @@ data ActivateGatewayResponse = ActivateGatewayResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 agoGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
-agoGatewayARN f x =
-    f (_agoGatewayARN x)
-        <&> \y -> x { _agoGatewayARN = y }
+agoGatewayARN = lens _agoGatewayARN (\s a -> s { _agoGatewayARN = a })
 {-# INLINE agoGatewayARN #-}
 
 instance FromJSON ActivateGatewayResponse

@@ -23,11 +23,11 @@ module Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy
     -- * Request
       ExecutePolicy
     -- ** Request constructor
-    , executePolicy
+    , mkExecutePolicyType
     -- ** Request lenses
+    , eptAutoScalingGroupName
     , eptPolicyName
     , eptHonorCooldown
-    , eptAutoScalingGroupName
 
     -- * Response
     , ExecutePolicyResponse
@@ -37,18 +37,22 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ExecutePolicy' request.
-executePolicy :: Text -- ^ 'eptPolicyName'
-              -> ExecutePolicy
-executePolicy p1 = ExecutePolicy
-    { _eptPolicyName = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ExecutePolicy' request.
+mkExecutePolicyType :: Text -- ^ 'eptPolicyName'
+                    -> ExecutePolicy
+mkExecutePolicyType p1 = ExecutePolicy
+    { _eptAutoScalingGroupName = Nothing
+    , _eptPolicyName = p2
     , _eptHonorCooldown = Nothing
-    , _eptAutoScalingGroupName = Nothing
     }
-{-# INLINE executePolicy #-}
+{-# INLINE mkExecutePolicyType #-}
 
 data ExecutePolicy = ExecutePolicy
-    { _eptPolicyName :: Text
+    { _eptAutoScalingGroupName :: Maybe Text
+      -- ^ The name or the Amazon Resource Name (ARN) of the Auto Scaling
+      -- group.
+    , _eptPolicyName :: Text
       -- ^ The name or ARN of the policy you want to run.
     , _eptHonorCooldown :: Maybe Bool
       -- ^ Set to True if you want Auto Scaling to wait for the cooldown
@@ -58,16 +62,16 @@ data ExecutePolicy = ExecutePolicy
       -- group and execute the policy before the cooldown period ends. For
       -- information about cooldown period, see Cooldown Period in the
       -- Auto Scaling Developer Guide.
-    , _eptAutoScalingGroupName :: Maybe Text
-      -- ^ The name or the Amazon Resource Name (ARN) of the Auto Scaling
-      -- group.
     } deriving (Show, Generic)
+
+-- | The name or the Amazon Resource Name (ARN) of the Auto Scaling group.
+eptAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
+eptAutoScalingGroupName = lens _eptAutoScalingGroupName (\s a -> s { _eptAutoScalingGroupName = a })
+{-# INLINE eptAutoScalingGroupName #-}
 
 -- | The name or ARN of the policy you want to run.
 eptPolicyName :: Lens' ExecutePolicy (Text)
-eptPolicyName f x =
-    f (_eptPolicyName x)
-        <&> \y -> x { _eptPolicyName = y }
+eptPolicyName = lens _eptPolicyName (\s a -> s { _eptPolicyName = a })
 {-# INLINE eptPolicyName #-}
 
 -- | Set to True if you want Auto Scaling to wait for the cooldown period
@@ -77,17 +81,8 @@ eptPolicyName f x =
 -- the cooldown period ends. For information about cooldown period, see
 -- Cooldown Period in the Auto Scaling Developer Guide.
 eptHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
-eptHonorCooldown f x =
-    f (_eptHonorCooldown x)
-        <&> \y -> x { _eptHonorCooldown = y }
+eptHonorCooldown = lens _eptHonorCooldown (\s a -> s { _eptHonorCooldown = a })
 {-# INLINE eptHonorCooldown #-}
-
--- | The name or the Amazon Resource Name (ARN) of the Auto Scaling group.
-eptAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
-eptAutoScalingGroupName f x =
-    f (_eptAutoScalingGroupName x)
-        <&> \y -> x { _eptAutoScalingGroupName = y }
-{-# INLINE eptAutoScalingGroupName #-}
 
 instance ToQuery ExecutePolicy where
     toQuery = genericQuery def

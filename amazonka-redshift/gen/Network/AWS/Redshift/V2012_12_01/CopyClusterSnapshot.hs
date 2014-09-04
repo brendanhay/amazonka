@@ -41,11 +41,11 @@ module Network.AWS.Redshift.V2012_12_01.CopyClusterSnapshot
     -- * Request
       CopyClusterSnapshot
     -- ** Request constructor
-    , copyClusterSnapshot
+    , mkCopyClusterSnapshotMessage
     -- ** Request lenses
     , ccsmSourceSnapshotIdentifier
-    , ccsmTargetSnapshotIdentifier
     , ccsmSourceSnapshotClusterIdentifier
+    , ccsmTargetSnapshotIdentifier
 
     -- * Response
     , CopyClusterSnapshotResponse
@@ -57,22 +57,29 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CopyClusterSnapshot' request.
-copyClusterSnapshot :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
-                    -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
-                    -> CopyClusterSnapshot
-copyClusterSnapshot p1 p2 = CopyClusterSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyClusterSnapshot' request.
+mkCopyClusterSnapshotMessage :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
+                             -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
+                             -> CopyClusterSnapshot
+mkCopyClusterSnapshotMessage p1 p2 = CopyClusterSnapshot
     { _ccsmSourceSnapshotIdentifier = p1
-    , _ccsmTargetSnapshotIdentifier = p2
     , _ccsmSourceSnapshotClusterIdentifier = Nothing
+    , _ccsmTargetSnapshotIdentifier = p3
     }
-{-# INLINE copyClusterSnapshot #-}
+{-# INLINE mkCopyClusterSnapshotMessage #-}
 
 data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsmSourceSnapshotIdentifier :: Text
       -- ^ The identifier for the source snapshot. Constraints: Must be the
       -- identifier for a valid automated snapshot whose state is
       -- available.
+    , _ccsmSourceSnapshotClusterIdentifier :: Maybe Text
+      -- ^ The identifier of the cluster the source snapshot was created
+      -- from. This parameter is required if your IAM user has a policy
+      -- containing a snapshot resource element that specifies anything
+      -- other than * for the cluster name. Constraints: Must be the
+      -- identifier for a valid cluster.
     , _ccsmTargetSnapshotIdentifier :: Text
       -- ^ The identifier given to the new manual snapshot. Constraints:
       -- Cannot be null, empty, or blank. Must contain from 1 to 255
@@ -80,21 +87,21 @@ data CopyClusterSnapshot = CopyClusterSnapshot
       -- letter. Cannot end with a hyphen or contain two consecutive
       -- hyphens. Must be unique for the AWS account that is making the
       -- request.
-    , _ccsmSourceSnapshotClusterIdentifier :: Maybe Text
-      -- ^ The identifier of the cluster the source snapshot was created
-      -- from. This parameter is required if your IAM user has a policy
-      -- containing a snapshot resource element that specifies anything
-      -- other than * for the cluster name. Constraints: Must be the
-      -- identifier for a valid cluster.
     } deriving (Show, Generic)
 
 -- | The identifier for the source snapshot. Constraints: Must be the identifier
 -- for a valid automated snapshot whose state is available.
 ccsmSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot (Text)
-ccsmSourceSnapshotIdentifier f x =
-    f (_ccsmSourceSnapshotIdentifier x)
-        <&> \y -> x { _ccsmSourceSnapshotIdentifier = y }
+ccsmSourceSnapshotIdentifier = lens _ccsmSourceSnapshotIdentifier (\s a -> s { _ccsmSourceSnapshotIdentifier = a })
 {-# INLINE ccsmSourceSnapshotIdentifier #-}
+
+-- | The identifier of the cluster the source snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a snapshot
+-- resource element that specifies anything other than * for the cluster name.
+-- Constraints: Must be the identifier for a valid cluster.
+ccsmSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
+ccsmSourceSnapshotClusterIdentifier = lens _ccsmSourceSnapshotClusterIdentifier (\s a -> s { _ccsmSourceSnapshotClusterIdentifier = a })
+{-# INLINE ccsmSourceSnapshotClusterIdentifier #-}
 
 -- | The identifier given to the new manual snapshot. Constraints: Cannot be
 -- null, empty, or blank. Must contain from 1 to 255 alphanumeric characters
@@ -102,34 +109,20 @@ ccsmSourceSnapshotIdentifier f x =
 -- contain two consecutive hyphens. Must be unique for the AWS account that is
 -- making the request.
 ccsmTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot (Text)
-ccsmTargetSnapshotIdentifier f x =
-    f (_ccsmTargetSnapshotIdentifier x)
-        <&> \y -> x { _ccsmTargetSnapshotIdentifier = y }
+ccsmTargetSnapshotIdentifier = lens _ccsmTargetSnapshotIdentifier (\s a -> s { _ccsmTargetSnapshotIdentifier = a })
 {-# INLINE ccsmTargetSnapshotIdentifier #-}
-
--- | The identifier of the cluster the source snapshot was created from. This
--- parameter is required if your IAM user has a policy containing a snapshot
--- resource element that specifies anything other than * for the cluster name.
--- Constraints: Must be the identifier for a valid cluster.
-ccsmSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
-ccsmSourceSnapshotClusterIdentifier f x =
-    f (_ccsmSourceSnapshotClusterIdentifier x)
-        <&> \y -> x { _ccsmSourceSnapshotClusterIdentifier = y }
-{-# INLINE ccsmSourceSnapshotClusterIdentifier #-}
 
 instance ToQuery CopyClusterSnapshot where
     toQuery = genericQuery def
 
-data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
+newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ssrSnapshot :: Maybe Snapshot
       -- ^ Describes a snapshot.
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
 ssrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
-ssrSnapshot f x =
-    f (_ssrSnapshot x)
-        <&> \y -> x { _ssrSnapshot = y }
+ssrSnapshot = lens _ssrSnapshot (\s a -> s { _ssrSnapshot = a })
 {-# INLINE ssrSnapshot #-}
 
 instance FromXML CopyClusterSnapshotResponse where

@@ -25,11 +25,11 @@ module Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup
     -- * Request
       ModifyClusterSubnetGroup
     -- ** Request constructor
-    , modifyClusterSubnetGroup
+    , mkModifyClusterSubnetGroupMessage
     -- ** Request lenses
     , mcsgmClusterSubnetGroupName
-    , mcsgmSubnetIds
     , mcsgmDescription
+    , mcsgmSubnetIds
 
     -- * Response
     , ModifyClusterSubnetGroupResponse
@@ -41,62 +41,55 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyClusterSubnetGroup' request.
-modifyClusterSubnetGroup :: Text -- ^ 'mcsgmClusterSubnetGroupName'
-                         -> [Text] -- ^ 'mcsgmSubnetIds'
-                         -> ModifyClusterSubnetGroup
-modifyClusterSubnetGroup p1 p2 = ModifyClusterSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyClusterSubnetGroup' request.
+mkModifyClusterSubnetGroupMessage :: Text -- ^ 'mcsgmClusterSubnetGroupName'
+                                  -> [Text] -- ^ 'mcsgmSubnetIds'
+                                  -> ModifyClusterSubnetGroup
+mkModifyClusterSubnetGroupMessage p1 p2 = ModifyClusterSubnetGroup
     { _mcsgmClusterSubnetGroupName = p1
-    , _mcsgmSubnetIds = p2
     , _mcsgmDescription = Nothing
+    , _mcsgmSubnetIds = p3
     }
-{-# INLINE modifyClusterSubnetGroup #-}
+{-# INLINE mkModifyClusterSubnetGroupMessage #-}
 
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgmClusterSubnetGroupName :: Text
       -- ^ The name of the subnet group to be modified.
+    , _mcsgmDescription :: Maybe Text
+      -- ^ A text description of the subnet group to be modified.
     , _mcsgmSubnetIds :: [Text]
       -- ^ An array of VPC subnet IDs. A maximum of 20 subnets can be
       -- modified in a single request.
-    , _mcsgmDescription :: Maybe Text
-      -- ^ A text description of the subnet group to be modified.
     } deriving (Show, Generic)
 
 -- | The name of the subnet group to be modified.
 mcsgmClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup (Text)
-mcsgmClusterSubnetGroupName f x =
-    f (_mcsgmClusterSubnetGroupName x)
-        <&> \y -> x { _mcsgmClusterSubnetGroupName = y }
+mcsgmClusterSubnetGroupName = lens _mcsgmClusterSubnetGroupName (\s a -> s { _mcsgmClusterSubnetGroupName = a })
 {-# INLINE mcsgmClusterSubnetGroupName #-}
+
+-- | A text description of the subnet group to be modified.
+mcsgmDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
+mcsgmDescription = lens _mcsgmDescription (\s a -> s { _mcsgmDescription = a })
+{-# INLINE mcsgmDescription #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 mcsgmSubnetIds :: Lens' ModifyClusterSubnetGroup ([Text])
-mcsgmSubnetIds f x =
-    f (_mcsgmSubnetIds x)
-        <&> \y -> x { _mcsgmSubnetIds = y }
+mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
 {-# INLINE mcsgmSubnetIds #-}
-
--- | A text description of the subnet group to be modified.
-mcsgmDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
-mcsgmDescription f x =
-    f (_mcsgmDescription x)
-        <&> \y -> x { _mcsgmDescription = y }
-{-# INLINE mcsgmDescription #-}
 
 instance ToQuery ModifyClusterSubnetGroup where
     toQuery = genericQuery def
 
-data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
+newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _csgzClusterSubnetGroup :: Maybe ClusterSubnetGroup
       -- ^ Describes a subnet group.
     } deriving (Show, Generic)
 
 -- | Describes a subnet group.
 csgzClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-csgzClusterSubnetGroup f x =
-    f (_csgzClusterSubnetGroup x)
-        <&> \y -> x { _csgzClusterSubnetGroup = y }
+csgzClusterSubnetGroup = lens _csgzClusterSubnetGroup (\s a -> s { _csgzClusterSubnetGroup = a })
 {-# INLINE csgzClusterSubnetGroup #-}
 
 instance FromXML ModifyClusterSubnetGroupResponse where

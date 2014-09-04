@@ -51,56 +51,43 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBEngineVersions
     -- * Request
       DescribeDBEngineVersions
     -- ** Request constructor
-    , describeDBEngineVersions
+    , mkDescribeDBEngineVersionsMessage
     -- ** Request lenses
-    , ddbevmDefaultOnly
-    , ddbevmListSupportedCharacterSets
-    , ddbevmMaxRecords
     , ddbevmEngine
     , ddbevmEngineVersion
     , ddbevmDBParameterGroupFamily
+    , ddbevmMaxRecords
     , ddbevmMarker
+    , ddbevmDefaultOnly
+    , ddbevmListSupportedCharacterSets
 
     -- * Response
     , DescribeDBEngineVersionsResponse
     -- ** Response lenses
-    , dbevmDBEngineVersions
     , dbevmMarker
+    , dbevmDBEngineVersions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDBEngineVersions' request.
-describeDBEngineVersions :: DescribeDBEngineVersions
-describeDBEngineVersions = DescribeDBEngineVersions
-    { _ddbevmDefaultOnly = Nothing
-    , _ddbevmListSupportedCharacterSets = Nothing
-    , _ddbevmMaxRecords = Nothing
-    , _ddbevmEngine = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBEngineVersions' request.
+mkDescribeDBEngineVersionsMessage :: DescribeDBEngineVersions
+mkDescribeDBEngineVersionsMessage = DescribeDBEngineVersions
+    { _ddbevmEngine = Nothing
     , _ddbevmEngineVersion = Nothing
     , _ddbevmDBParameterGroupFamily = Nothing
+    , _ddbevmMaxRecords = Nothing
     , _ddbevmMarker = Nothing
+    , _ddbevmDefaultOnly = Nothing
+    , _ddbevmListSupportedCharacterSets = Nothing
     }
-{-# INLINE describeDBEngineVersions #-}
+{-# INLINE mkDescribeDBEngineVersionsMessage #-}
 
 data DescribeDBEngineVersions = DescribeDBEngineVersions
-    { _ddbevmDefaultOnly :: Maybe Bool
-      -- ^ Indicates that only the default version of the specified engine
-      -- or engine and major version combination is returned.
-    , _ddbevmListSupportedCharacterSets :: Maybe Bool
-      -- ^ If this parameter is specified, and if the requested engine
-      -- supports the CharacterSetName parameter for CreateDBInstance, the
-      -- response includes a list of supported character sets for each
-      -- engine version.
-    , _ddbevmMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- than the MaxRecords value is available, a pagination token called
-      -- a marker is included in the response so that the following
-      -- results can be retrieved. Default: 100 Constraints: minimum 20,
-      -- maximum 100.
-    , _ddbevmEngine :: Maybe Text
+    { _ddbevmEngine :: Maybe Text
       -- ^ The database engine to return.
     , _ddbevmEngineVersion :: Maybe Text
       -- ^ The database engine version to return. Example: 5.1.49.
@@ -109,98 +96,94 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
       -- details for. Constraints: Must be 1 to 255 alphanumeric
       -- characters First character must be a letter Cannot end with a
       -- hyphen or contain two consecutive hyphens.
+    , _ddbevmMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- than the MaxRecords value is available, a pagination token called
+      -- a marker is included in the response so that the following
+      -- results can be retrieved. Default: 100 Constraints: minimum 20,
+      -- maximum 100.
     , _ddbevmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _ddbevmDefaultOnly :: Maybe Bool
+      -- ^ Indicates that only the default version of the specified engine
+      -- or engine and major version combination is returned.
+    , _ddbevmListSupportedCharacterSets :: Maybe Bool
+      -- ^ If this parameter is specified, and if the requested engine
+      -- supports the CharacterSetName parameter for CreateDBInstance, the
+      -- response includes a list of supported character sets for each
+      -- engine version.
     } deriving (Show, Generic)
-
--- | Indicates that only the default version of the specified engine or engine
--- and major version combination is returned.
-ddbevmDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddbevmDefaultOnly f x =
-    f (_ddbevmDefaultOnly x)
-        <&> \y -> x { _ddbevmDefaultOnly = y }
-{-# INLINE ddbevmDefaultOnly #-}
-
--- | If this parameter is specified, and if the requested engine supports the
--- CharacterSetName parameter for CreateDBInstance, the response includes a
--- list of supported character sets for each engine version.
-ddbevmListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddbevmListSupportedCharacterSets f x =
-    f (_ddbevmListSupportedCharacterSets x)
-        <&> \y -> x { _ddbevmListSupportedCharacterSets = y }
-{-# INLINE ddbevmListSupportedCharacterSets #-}
-
--- | The maximum number of records to include in the response. If more than the
--- MaxRecords value is available, a pagination token called a marker is
--- included in the response so that the following results can be retrieved.
--- Default: 100 Constraints: minimum 20, maximum 100.
-ddbevmMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Integer)
-ddbevmMaxRecords f x =
-    f (_ddbevmMaxRecords x)
-        <&> \y -> x { _ddbevmMaxRecords = y }
-{-# INLINE ddbevmMaxRecords #-}
 
 -- | The database engine to return.
 ddbevmEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddbevmEngine f x =
-    f (_ddbevmEngine x)
-        <&> \y -> x { _ddbevmEngine = y }
+ddbevmEngine = lens _ddbevmEngine (\s a -> s { _ddbevmEngine = a })
 {-# INLINE ddbevmEngine #-}
 
 -- | The database engine version to return. Example: 5.1.49.
 ddbevmEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddbevmEngineVersion f x =
-    f (_ddbevmEngineVersion x)
-        <&> \y -> x { _ddbevmEngineVersion = y }
+ddbevmEngineVersion = lens _ddbevmEngineVersion (\s a -> s { _ddbevmEngineVersion = a })
 {-# INLINE ddbevmEngineVersion #-}
 
 -- | The name of a specific DB parameter group family to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
 ddbevmDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddbevmDBParameterGroupFamily f x =
-    f (_ddbevmDBParameterGroupFamily x)
-        <&> \y -> x { _ddbevmDBParameterGroupFamily = y }
+ddbevmDBParameterGroupFamily = lens _ddbevmDBParameterGroupFamily (\s a -> s { _ddbevmDBParameterGroupFamily = a })
 {-# INLINE ddbevmDBParameterGroupFamily #-}
+
+-- | The maximum number of records to include in the response. If more than the
+-- MaxRecords value is available, a pagination token called a marker is
+-- included in the response so that the following results can be retrieved.
+-- Default: 100 Constraints: minimum 20, maximum 100.
+ddbevmMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Integer)
+ddbevmMaxRecords = lens _ddbevmMaxRecords (\s a -> s { _ddbevmMaxRecords = a })
+{-# INLINE ddbevmMaxRecords #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 ddbevmMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddbevmMarker f x =
-    f (_ddbevmMarker x)
-        <&> \y -> x { _ddbevmMarker = y }
+ddbevmMarker = lens _ddbevmMarker (\s a -> s { _ddbevmMarker = a })
 {-# INLINE ddbevmMarker #-}
+
+-- | Indicates that only the default version of the specified engine or engine
+-- and major version combination is returned.
+ddbevmDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddbevmDefaultOnly = lens _ddbevmDefaultOnly (\s a -> s { _ddbevmDefaultOnly = a })
+{-# INLINE ddbevmDefaultOnly #-}
+
+-- | If this parameter is specified, and if the requested engine supports the
+-- CharacterSetName parameter for CreateDBInstance, the response includes a
+-- list of supported character sets for each engine version.
+ddbevmListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddbevmListSupportedCharacterSets = lens _ddbevmListSupportedCharacterSets (\s a -> s { _ddbevmListSupportedCharacterSets = a })
+{-# INLINE ddbevmListSupportedCharacterSets #-}
 
 instance ToQuery DescribeDBEngineVersions where
     toQuery = genericQuery def
 
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
-    { _dbevmDBEngineVersions :: [DBEngineVersion]
-      -- ^ A list of DBEngineVersion elements.
-    , _dbevmMarker :: Maybe Text
+    { _dbevmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _dbevmDBEngineVersions :: [DBEngineVersion]
+      -- ^ A list of DBEngineVersion elements.
     } deriving (Show, Generic)
-
--- | A list of DBEngineVersion elements.
-dbevmDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse ([DBEngineVersion])
-dbevmDBEngineVersions f x =
-    f (_dbevmDBEngineVersions x)
-        <&> \y -> x { _dbevmDBEngineVersions = y }
-{-# INLINE dbevmDBEngineVersions #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dbevmMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
-dbevmMarker f x =
-    f (_dbevmMarker x)
-        <&> \y -> x { _dbevmMarker = y }
+dbevmMarker = lens _dbevmMarker (\s a -> s { _dbevmMarker = a })
 {-# INLINE dbevmMarker #-}
+
+-- | A list of DBEngineVersion elements.
+dbevmDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse ([DBEngineVersion])
+dbevmDBEngineVersions = lens _dbevmDBEngineVersions (\s a -> s { _dbevmDBEngineVersions = a })
+{-# INLINE dbevmDBEngineVersions #-}
 
 instance FromXML DescribeDBEngineVersionsResponse where
     fromXMLOptions = xmlOptions

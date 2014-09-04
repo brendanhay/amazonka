@@ -30,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.DetachNetworkInterface
     -- * Request
       DetachNetworkInterface
     -- ** Request constructor
-    , detachNetworkInterface
+    , mkDetachNetworkInterfaceRequest
     -- ** Request lenses
     , dniuAttachmentId
     , dniuForce
@@ -43,14 +43,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DetachNetworkInterface' request.
-detachNetworkInterface :: Text -- ^ 'dniuAttachmentId'
-                       -> DetachNetworkInterface
-detachNetworkInterface p1 = DetachNetworkInterface
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachNetworkInterface' request.
+mkDetachNetworkInterfaceRequest :: Text -- ^ 'dniuAttachmentId'
+                                -> DetachNetworkInterface
+mkDetachNetworkInterfaceRequest p1 = DetachNetworkInterface
     { _dniuAttachmentId = p1
     , _dniuForce = Nothing
     }
-{-# INLINE detachNetworkInterface #-}
+{-# INLINE mkDetachNetworkInterfaceRequest #-}
 
 data DetachNetworkInterface = DetachNetworkInterface
     { _dniuAttachmentId :: Text
@@ -61,16 +62,12 @@ data DetachNetworkInterface = DetachNetworkInterface
 
 -- | The ID of the attachment.
 dniuAttachmentId :: Lens' DetachNetworkInterface (Text)
-dniuAttachmentId f x =
-    f (_dniuAttachmentId x)
-        <&> \y -> x { _dniuAttachmentId = y }
+dniuAttachmentId = lens _dniuAttachmentId (\s a -> s { _dniuAttachmentId = a })
 {-# INLINE dniuAttachmentId #-}
 
 -- | Specifies whether to force a detachment.
 dniuForce :: Lens' DetachNetworkInterface (Maybe Bool)
-dniuForce f x =
-    f (_dniuForce x)
-        <&> \y -> x { _dniuForce = y }
+dniuForce = lens _dniuForce (\s a -> s { _dniuForce = a })
 {-# INLINE dniuForce #-}
 
 instance ToQuery DetachNetworkInterface where

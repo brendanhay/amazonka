@@ -31,7 +31,7 @@ module Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
     -- * Request
       GetStackPolicy
     -- ** Request constructor
-    , getStackPolicy
+    , mkGetStackPolicyInput
     -- ** Request lenses
     , gspiStackName
 
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetStackPolicy' request.
-getStackPolicy :: Text -- ^ 'gspiStackName'
-               -> GetStackPolicy
-getStackPolicy p1 = GetStackPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStackPolicy' request.
+mkGetStackPolicyInput :: Text -- ^ 'gspiStackName'
+                      -> GetStackPolicy
+mkGetStackPolicyInput p1 = GetStackPolicy
     { _gspiStackName = p1
     }
-{-# INLINE getStackPolicy #-}
+{-# INLINE mkGetStackPolicyInput #-}
 
-data GetStackPolicy = GetStackPolicy
+newtype GetStackPolicy = GetStackPolicy
     { _gspiStackName :: Text
       -- ^ The name or stack ID that is associated with the stack whose
       -- policy you want to get.
@@ -62,15 +63,13 @@ data GetStackPolicy = GetStackPolicy
 -- | The name or stack ID that is associated with the stack whose policy you
 -- want to get.
 gspiStackName :: Lens' GetStackPolicy (Text)
-gspiStackName f x =
-    f (_gspiStackName x)
-        <&> \y -> x { _gspiStackName = y }
+gspiStackName = lens _gspiStackName (\s a -> s { _gspiStackName = a })
 {-# INLINE gspiStackName #-}
 
 instance ToQuery GetStackPolicy where
     toQuery = genericQuery def
 
-data GetStackPolicyResponse = GetStackPolicyResponse
+newtype GetStackPolicyResponse = GetStackPolicyResponse
     { _gspoStackPolicyBody :: Maybe Text
       -- ^ Structure containing the stack policy body. (For more
       -- information, go to Prevent Updates to Stack Resources in the AWS
@@ -80,9 +79,7 @@ data GetStackPolicyResponse = GetStackPolicyResponse
 -- | Structure containing the stack policy body. (For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).
 gspoStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
-gspoStackPolicyBody f x =
-    f (_gspoStackPolicyBody x)
-        <&> \y -> x { _gspoStackPolicyBody = y }
+gspoStackPolicyBody = lens _gspoStackPolicyBody (\s a -> s { _gspoStackPolicyBody = a })
 {-# INLINE gspoStackPolicyBody #-}
 
 instance FromXML GetStackPolicyResponse where

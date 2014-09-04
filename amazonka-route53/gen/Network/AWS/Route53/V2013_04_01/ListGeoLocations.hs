@@ -22,7 +22,7 @@ module Network.AWS.Route53.V2013_04_01.ListGeoLocations
     -- * Request
       ListGeoLocations
     -- ** Request constructor
-    , listGeoLocations
+    , mkListGeoLocationsRequest
     -- ** Request lenses
     , lglrStartContinentCode
     , lglrStartCountryCode
@@ -33,26 +33,27 @@ module Network.AWS.Route53.V2013_04_01.ListGeoLocations
     , ListGeoLocationsResponse
     -- ** Response lenses
     , lglsGeoLocationDetailsList
-    , lglsMaxItems
     , lglsIsTruncated
     , lglsNextContinentCode
     , lglsNextCountryCode
     , lglsNextSubdivisionCode
+    , lglsMaxItems
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListGeoLocations' request.
-listGeoLocations :: ListGeoLocations
-listGeoLocations = ListGeoLocations
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGeoLocations' request.
+mkListGeoLocationsRequest :: ListGeoLocations
+mkListGeoLocationsRequest = ListGeoLocations
     { _lglrStartContinentCode = Nothing
     , _lglrStartCountryCode = Nothing
     , _lglrStartSubdivisionCode = Nothing
     , _lglrMaxItems = Nothing
     }
-{-# INLINE listGeoLocations #-}
+{-# INLINE mkListGeoLocationsRequest #-}
 
 data ListGeoLocations = ListGeoLocations
     { _lglrStartContinentCode :: Maybe Text
@@ -83,9 +84,7 @@ data ListGeoLocations = ListGeoLocations
 -- SA Constraint: Specifying ContinentCode with either CountryCode or
 -- SubdivisionCode returns an InvalidInput error.
 lglrStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
-lglrStartContinentCode f x =
-    f (_lglrStartContinentCode x)
-        <&> \y -> x { _lglrStartContinentCode = y }
+lglrStartContinentCode = lens _lglrStartContinentCode (\s a -> s { _lglrStartContinentCode = a })
 {-# INLINE lglrStartContinentCode #-}
 
 -- | The first country code in the lexicographic ordering of geo locations that
@@ -93,25 +92,19 @@ lglrStartContinentCode f x =
 -- uses a * for the country code. All other country codes follow the ISO 3166
 -- two-character code.
 lglrStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
-lglrStartCountryCode f x =
-    f (_lglrStartCountryCode x)
-        <&> \y -> x { _lglrStartCountryCode = y }
+lglrStartCountryCode = lens _lglrStartCountryCode (\s a -> s { _lglrStartCountryCode = a })
 {-# INLINE lglrStartCountryCode #-}
 
 -- | The first subdivision code in the lexicographic ordering of geo locations
 -- that you want the ListGeoLocations request to list. Constraint: Specifying
 -- SubdivisionCode without CountryCode returns an InvalidInput error.
 lglrStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
-lglrStartSubdivisionCode f x =
-    f (_lglrStartSubdivisionCode x)
-        <&> \y -> x { _lglrStartSubdivisionCode = y }
+lglrStartSubdivisionCode = lens _lglrStartSubdivisionCode (\s a -> s { _lglrStartSubdivisionCode = a })
 {-# INLINE lglrStartSubdivisionCode #-}
 
 -- | The maximum number of geo locations you want in the response body.
 lglrMaxItems :: Lens' ListGeoLocations (Maybe Text)
-lglrMaxItems f x =
-    f (_lglrMaxItems x)
-        <&> \y -> x { _lglrMaxItems = y }
+lglrMaxItems = lens _lglrMaxItems (\s a -> s { _lglrMaxItems = a })
 {-# INLINE lglrMaxItems #-}
 
 instance ToPath ListGeoLocations where
@@ -135,9 +128,6 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
     { _lglsGeoLocationDetailsList :: [GeoLocationDetails]
       -- ^ A complex type that contains information about the geo locations
       -- that are returned by the request.
-    , _lglsMaxItems :: Text
-      -- ^ The maximum number of records you requested. The maximum value of
-      -- MaxItems is 100.
     , _lglsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more geo locations to be
       -- listed. If your results were truncated, you can make a follow-up
@@ -161,23 +151,16 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
       -- geo location in the list. This element is present only if
       -- ListGeoLocationsResponse$IsTruncated is true and the next geo
       -- location has a subdivision.
+    , _lglsMaxItems :: Text
+      -- ^ The maximum number of records you requested. The maximum value of
+      -- MaxItems is 100.
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request.
 lglsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse ([GeoLocationDetails])
-lglsGeoLocationDetailsList f x =
-    f (_lglsGeoLocationDetailsList x)
-        <&> \y -> x { _lglsGeoLocationDetailsList = y }
+lglsGeoLocationDetailsList = lens _lglsGeoLocationDetailsList (\s a -> s { _lglsGeoLocationDetailsList = a })
 {-# INLINE lglsGeoLocationDetailsList #-}
-
--- | The maximum number of records you requested. The maximum value of MaxItems
--- is 100.
-lglsMaxItems :: Lens' ListGeoLocationsResponse (Text)
-lglsMaxItems f x =
-    f (_lglsMaxItems x)
-        <&> \y -> x { _lglsMaxItems = y }
-{-# INLINE lglsMaxItems #-}
 
 -- | A flag that indicates whether there are more geo locations to be listed. If
 -- your results were truncated, you can make a follow-up request for the next
@@ -187,9 +170,7 @@ lglsMaxItems f x =
 -- ListGeoLocationsResponse$NextSubdivisionCode elements. Valid Values: true |
 -- false.
 lglsIsTruncated :: Lens' ListGeoLocationsResponse (Bool)
-lglsIsTruncated f x =
-    f (_lglsIsTruncated x)
-        <&> \y -> x { _lglsIsTruncated = y }
+lglsIsTruncated = lens _lglsIsTruncated (\s a -> s { _lglsIsTruncated = a })
 {-# INLINE lglsIsTruncated #-}
 
 -- | If the results were truncated, the continent code of the next geo location
@@ -197,9 +178,7 @@ lglsIsTruncated f x =
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
 -- list is a continent location.
 lglsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglsNextContinentCode f x =
-    f (_lglsNextContinentCode x)
-        <&> \y -> x { _lglsNextContinentCode = y }
+lglsNextContinentCode = lens _lglsNextContinentCode (\s a -> s { _lglsNextContinentCode = a })
 {-# INLINE lglsNextContinentCode #-}
 
 -- | If the results were truncated, the country code of the next geo location in
@@ -207,9 +186,7 @@ lglsNextContinentCode f x =
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
 -- list is not a continent location.
 lglsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglsNextCountryCode f x =
-    f (_lglsNextCountryCode x)
-        <&> \y -> x { _lglsNextCountryCode = y }
+lglsNextCountryCode = lens _lglsNextCountryCode (\s a -> s { _lglsNextCountryCode = a })
 {-# INLINE lglsNextCountryCode #-}
 
 -- | If the results were truncated, the subdivision code of the next geo
@@ -217,10 +194,14 @@ lglsNextCountryCode f x =
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location has
 -- a subdivision.
 lglsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglsNextSubdivisionCode f x =
-    f (_lglsNextSubdivisionCode x)
-        <&> \y -> x { _lglsNextSubdivisionCode = y }
+lglsNextSubdivisionCode = lens _lglsNextSubdivisionCode (\s a -> s { _lglsNextSubdivisionCode = a })
 {-# INLINE lglsNextSubdivisionCode #-}
+
+-- | The maximum number of records you requested. The maximum value of MaxItems
+-- is 100.
+lglsMaxItems :: Lens' ListGeoLocationsResponse (Text)
+lglsMaxItems = lens _lglsMaxItems (\s a -> s { _lglsMaxItems = a })
+{-# INLINE lglsMaxItems #-}
 
 instance FromXML ListGeoLocationsResponse where
     fromXMLOptions = xmlOptions

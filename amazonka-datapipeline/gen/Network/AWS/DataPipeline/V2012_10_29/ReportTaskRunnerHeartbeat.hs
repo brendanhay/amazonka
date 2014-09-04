@@ -35,11 +35,11 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
     -- * Request
       ReportTaskRunnerHeartbeat
     -- ** Request constructor
-    , reportTaskRunnerHeartbeat
+    , mkReportTaskRunnerHeartbeatInput
     -- ** Request lenses
     , rtrhiTaskrunnerId
-    , rtrhiHostname
     , rtrhiWorkerGroup
+    , rtrhiHostname
 
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
@@ -52,15 +52,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ReportTaskRunnerHeartbeat' request.
-reportTaskRunnerHeartbeat :: Text -- ^ 'rtrhiTaskrunnerId'
-                          -> ReportTaskRunnerHeartbeat
-reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReportTaskRunnerHeartbeat' request.
+mkReportTaskRunnerHeartbeatInput :: Text -- ^ 'rtrhiTaskrunnerId'
+                                 -> ReportTaskRunnerHeartbeat
+mkReportTaskRunnerHeartbeatInput p1 = ReportTaskRunnerHeartbeat
     { _rtrhiTaskrunnerId = p1
-    , _rtrhiHostname = Nothing
     , _rtrhiWorkerGroup = Nothing
+    , _rtrhiHostname = Nothing
     }
-{-# INLINE reportTaskRunnerHeartbeat #-}
+{-# INLINE mkReportTaskRunnerHeartbeatInput #-}
 
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
     { _rtrhiTaskrunnerId :: Text
@@ -70,8 +71,6 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
       -- web service provides a unique identifier when it launches the
       -- application. If you have written a custom task runner, you should
       -- assign a unique identifier for the task runner.
-    , _rtrhiHostname :: Maybe Text
-      -- ^ The public DNS name of the calling task runner.
     , _rtrhiWorkerGroup :: Maybe Text
       -- ^ Indicates the type of task the task runner is configured to
       -- accept and process. The worker group is set as a field on objects
@@ -80,6 +79,8 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
       -- ReportTaskRunnerHeartbeat. There are no wildcard values permitted
       -- in workerGroup, the string must be an exact, case-sensitive,
       -- match.
+    , _rtrhiHostname :: Maybe Text
+      -- ^ The public DNS name of the calling task runner.
     } deriving (Show, Generic)
 
 -- | The identifier of the task runner. This value should be unique across your
@@ -88,17 +89,8 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
 -- identifier when it launches the application. If you have written a custom
 -- task runner, you should assign a unique identifier for the task runner.
 rtrhiTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat (Text)
-rtrhiTaskrunnerId f x =
-    f (_rtrhiTaskrunnerId x)
-        <&> \y -> x { _rtrhiTaskrunnerId = y }
+rtrhiTaskrunnerId = lens _rtrhiTaskrunnerId (\s a -> s { _rtrhiTaskrunnerId = a })
 {-# INLINE rtrhiTaskrunnerId #-}
-
--- | The public DNS name of the calling task runner.
-rtrhiHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhiHostname f x =
-    f (_rtrhiHostname x)
-        <&> \y -> x { _rtrhiHostname = y }
-{-# INLINE rtrhiHostname #-}
 
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline when
@@ -107,10 +99,13 @@ rtrhiHostname f x =
 -- permitted in workerGroup, the string must be an exact, case-sensitive,
 -- match.
 rtrhiWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhiWorkerGroup f x =
-    f (_rtrhiWorkerGroup x)
-        <&> \y -> x { _rtrhiWorkerGroup = y }
+rtrhiWorkerGroup = lens _rtrhiWorkerGroup (\s a -> s { _rtrhiWorkerGroup = a })
 {-# INLINE rtrhiWorkerGroup #-}
+
+-- | The public DNS name of the calling task runner.
+rtrhiHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhiHostname = lens _rtrhiHostname (\s a -> s { _rtrhiHostname = a })
+{-# INLINE rtrhiHostname #-}
 
 instance ToPath ReportTaskRunnerHeartbeat
 
@@ -120,7 +115,7 @@ instance ToHeaders ReportTaskRunnerHeartbeat
 
 instance ToJSON ReportTaskRunnerHeartbeat
 
-data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
+newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
     { _rtrhoTerminate :: Bool
       -- ^ Indicates whether the calling task runner should terminate. If
       -- True, the task runner that called ReportTaskRunnerHeartbeat
@@ -130,9 +125,7 @@ data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
 -- | Indicates whether the calling task runner should terminate. If True, the
 -- task runner that called ReportTaskRunnerHeartbeat should terminate.
 rtrhoTerminate :: Lens' ReportTaskRunnerHeartbeatResponse (Bool)
-rtrhoTerminate f x =
-    f (_rtrhoTerminate x)
-        <&> \y -> x { _rtrhoTerminate = y }
+rtrhoTerminate = lens _rtrhoTerminate (\s a -> s { _rtrhoTerminate = a })
 {-# INLINE rtrhoTerminate #-}
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse

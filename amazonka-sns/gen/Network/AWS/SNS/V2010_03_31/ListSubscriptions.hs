@@ -42,65 +42,60 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptions
     -- * Request
       ListSubscriptions
     -- ** Request constructor
-    , listSubscriptions
+    , mkListSubscriptionsInput
     -- ** Request lenses
     , lsiNextToken
 
     -- * Response
     , ListSubscriptionsResponse
     -- ** Response lenses
-    , lsrNextToken
     , lsrSubscriptions
+    , lsrNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListSubscriptions' request.
-listSubscriptions :: ListSubscriptions
-listSubscriptions = ListSubscriptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSubscriptions' request.
+mkListSubscriptionsInput :: ListSubscriptions
+mkListSubscriptionsInput = ListSubscriptions
     { _lsiNextToken = Nothing
     }
-{-# INLINE listSubscriptions #-}
+{-# INLINE mkListSubscriptionsInput #-}
 
-data ListSubscriptions = ListSubscriptions
+newtype ListSubscriptions = ListSubscriptions
     { _lsiNextToken :: Maybe Text
       -- ^ Token returned by the previous ListSubscriptions request.
     } deriving (Show, Generic)
 
 -- | Token returned by the previous ListSubscriptions request.
 lsiNextToken :: Lens' ListSubscriptions (Maybe Text)
-lsiNextToken f x =
-    f (_lsiNextToken x)
-        <&> \y -> x { _lsiNextToken = y }
+lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
 {-# INLINE lsiNextToken #-}
 
 instance ToQuery ListSubscriptions where
     toQuery = genericQuery def
 
 data ListSubscriptionsResponse = ListSubscriptionsResponse
-    { _lsrNextToken :: Maybe Text
+    { _lsrSubscriptions :: [Subscription]
+      -- ^ A list of subscriptions.
+    , _lsrNextToken :: Maybe Text
       -- ^ Token to pass along to the next ListSubscriptions request. This
       -- element is returned if there are more subscriptions to retrieve.
-    , _lsrSubscriptions :: [Subscription]
-      -- ^ A list of subscriptions.
     } deriving (Show, Generic)
+
+-- | A list of subscriptions.
+lsrSubscriptions :: Lens' ListSubscriptionsResponse ([Subscription])
+lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
+{-# INLINE lsrSubscriptions #-}
 
 -- | Token to pass along to the next ListSubscriptions request. This element is
 -- returned if there are more subscriptions to retrieve.
 lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
-lsrNextToken f x =
-    f (_lsrNextToken x)
-        <&> \y -> x { _lsrNextToken = y }
+lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 {-# INLINE lsrNextToken #-}
-
--- | A list of subscriptions.
-lsrSubscriptions :: Lens' ListSubscriptionsResponse ([Subscription])
-lsrSubscriptions f x =
-    f (_lsrSubscriptions x)
-        <&> \y -> x { _lsrSubscriptions = y }
-{-# INLINE lsrSubscriptions #-}
 
 instance FromXML ListSubscriptionsResponse where
     fromXMLOptions = xmlOptions

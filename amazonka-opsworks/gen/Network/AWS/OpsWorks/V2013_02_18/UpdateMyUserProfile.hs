@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile
     -- * Request
       UpdateMyUserProfile
     -- ** Request constructor
-    , updateMyUserProfile
+    , mkUpdateMyUserProfileRequest
     -- ** Request lenses
     , umuprSshPublicKey
 
@@ -39,23 +39,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateMyUserProfile' request.
-updateMyUserProfile :: UpdateMyUserProfile
-updateMyUserProfile = UpdateMyUserProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateMyUserProfile' request.
+mkUpdateMyUserProfileRequest :: UpdateMyUserProfile
+mkUpdateMyUserProfileRequest = UpdateMyUserProfile
     { _umuprSshPublicKey = Nothing
     }
-{-# INLINE updateMyUserProfile #-}
+{-# INLINE mkUpdateMyUserProfileRequest #-}
 
-data UpdateMyUserProfile = UpdateMyUserProfile
+newtype UpdateMyUserProfile = UpdateMyUserProfile
     { _umuprSshPublicKey :: Maybe Text
       -- ^ The user's SSH public key.
     } deriving (Show, Generic)
 
 -- | The user's SSH public key.
 umuprSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umuprSshPublicKey f x =
-    f (_umuprSshPublicKey x)
-        <&> \y -> x { _umuprSshPublicKey = y }
+umuprSshPublicKey = lens _umuprSshPublicKey (\s a -> s { _umuprSshPublicKey = a })
 {-# INLINE umuprSshPublicKey #-}
 
 instance ToPath UpdateMyUserProfile

@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketCors
     -- * Request
       GetBucketCors
     -- ** Request constructor
-    , getBucketCors
+    , mkGetBucketCorsRequest
     -- ** Request lenses
     , gbcrBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketCors' request.
-getBucketCors :: BucketName -- ^ 'gbcrBucket'
-              -> GetBucketCors
-getBucketCors p1 = GetBucketCors
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketCors' request.
+mkGetBucketCorsRequest :: BucketName -- ^ 'gbcrBucket'
+                       -> GetBucketCors
+mkGetBucketCorsRequest p1 = GetBucketCors
     { _gbcrBucket = p1
     }
-{-# INLINE getBucketCors #-}
+{-# INLINE mkGetBucketCorsRequest #-}
 
-data GetBucketCors = GetBucketCors
+newtype GetBucketCors = GetBucketCors
     { _gbcrBucket :: BucketName
     } deriving (Show, Generic)
 
 gbcrBucket :: Lens' GetBucketCors (BucketName)
-gbcrBucket f x =
-    f (_gbcrBucket x)
-        <&> \y -> x { _gbcrBucket = y }
+gbcrBucket = lens _gbcrBucket (\s a -> s { _gbcrBucket = a })
 {-# INLINE gbcrBucket #-}
 
 instance ToPath GetBucketCors where
@@ -70,14 +69,12 @@ instance ToHeaders GetBucketCors
 
 instance ToBody GetBucketCors
 
-data GetBucketCorsResponse = GetBucketCorsResponse
+newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
 gbcoCORSRules :: Lens' GetBucketCorsResponse ([CORSRule])
-gbcoCORSRules f x =
-    f (_gbcoCORSRules x)
-        <&> \y -> x { _gbcoCORSRules = y }
+gbcoCORSRules = lens _gbcoCORSRules (\s a -> s { _gbcoCORSRules = a })
 {-# INLINE gbcoCORSRules #-}
 
 instance FromXML GetBucketCorsResponse where

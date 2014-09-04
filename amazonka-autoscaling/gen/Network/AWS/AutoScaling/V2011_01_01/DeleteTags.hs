@@ -23,7 +23,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteTags
     -- * Request
       DeleteTags
     -- ** Request constructor
-    , deleteTags
+    , mkDeleteTagsType
     -- ** Request lenses
     , dttTags
 
@@ -35,15 +35,16 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteTags' request.
-deleteTags :: [Tag] -- ^ 'dttTags'
-           -> DeleteTags
-deleteTags p1 = DeleteTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTags' request.
+mkDeleteTagsType :: [Tag] -- ^ 'dttTags'
+                 -> DeleteTags
+mkDeleteTagsType p1 = DeleteTags
     { _dttTags = p1
     }
-{-# INLINE deleteTags #-}
+{-# INLINE mkDeleteTagsType #-}
 
-data DeleteTags = DeleteTags
+newtype DeleteTags = DeleteTags
     { _dttTags :: [Tag]
       -- ^ Each tag should be defined by its resource type, resource ID,
       -- key, value, and a propagate flag. Valid values are: Resource type
@@ -56,9 +57,7 @@ data DeleteTags = DeleteTags
 -- Resource ID = AutoScalingGroupName, key=value, value=value, propagate=true
 -- or false.
 dttTags :: Lens' DeleteTags ([Tag])
-dttTags f x =
-    f (_dttTags x)
-        <&> \y -> x { _dttTags = y }
+dttTags = lens _dttTags (\s a -> s { _dttTags = a })
 {-# INLINE dttTags #-}
 
 instance ToQuery DeleteTags where

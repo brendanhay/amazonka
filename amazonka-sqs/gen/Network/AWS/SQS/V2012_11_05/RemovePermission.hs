@@ -32,7 +32,7 @@ module Network.AWS.SQS.V2012_11_05.RemovePermission
     -- * Request
       RemovePermission
     -- ** Request constructor
-    , removePermission
+    , mkRemovePermissionRequest
     -- ** Request lenses
     , rprQueueUrl
     , rprLabel
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RemovePermission' request.
-removePermission :: Text -- ^ 'rprQueueUrl'
-                 -> Text -- ^ 'rprLabel'
-                 -> RemovePermission
-removePermission p1 p2 = RemovePermission
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemovePermission' request.
+mkRemovePermissionRequest :: Text -- ^ 'rprQueueUrl'
+                          -> Text -- ^ 'rprLabel'
+                          -> RemovePermission
+mkRemovePermissionRequest p1 p2 = RemovePermission
     { _rprQueueUrl = p1
     , _rprLabel = p2
     }
-{-# INLINE removePermission #-}
+{-# INLINE mkRemovePermissionRequest #-}
 
 data RemovePermission = RemovePermission
     { _rprQueueUrl :: Text
@@ -65,17 +66,13 @@ data RemovePermission = RemovePermission
 
 -- | The URL of the Amazon SQS queue to take action on.
 rprQueueUrl :: Lens' RemovePermission (Text)
-rprQueueUrl f x =
-    f (_rprQueueUrl x)
-        <&> \y -> x { _rprQueueUrl = y }
+rprQueueUrl = lens _rprQueueUrl (\s a -> s { _rprQueueUrl = a })
 {-# INLINE rprQueueUrl #-}
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
 rprLabel :: Lens' RemovePermission (Text)
-rprLabel f x =
-    f (_rprLabel x)
-        <&> \y -> x { _rprLabel = y }
+rprLabel = lens _rprLabel (\s a -> s { _rprLabel = a })
 {-# INLINE rprLabel #-}
 
 instance ToQuery RemovePermission where

@@ -97,35 +97,36 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions
     -- * Request
       DescribeConfigurationOptions
     -- ** Request constructor
-    , describeConfigurationOptions
+    , mkDescribeConfigurationOptionsMessage
     -- ** Request lenses
     , dcomApplicationName
     , dcomTemplateName
     , dcomEnvironmentName
-    , dcomOptions
     , dcomSolutionStackName
+    , dcomOptions
 
     -- * Response
     , DescribeConfigurationOptionsResponse
     -- ** Response lenses
-    , codOptions
     , codSolutionStackName
+    , codOptions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeConfigurationOptions' request.
-describeConfigurationOptions :: DescribeConfigurationOptions
-describeConfigurationOptions = DescribeConfigurationOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConfigurationOptions' request.
+mkDescribeConfigurationOptionsMessage :: DescribeConfigurationOptions
+mkDescribeConfigurationOptionsMessage = DescribeConfigurationOptions
     { _dcomApplicationName = Nothing
     , _dcomTemplateName = Nothing
     , _dcomEnvironmentName = Nothing
-    , _dcomOptions = mempty
     , _dcomSolutionStackName = Nothing
+    , _dcomOptions = mempty
     }
-{-# INLINE describeConfigurationOptions #-}
+{-# INLINE mkDescribeConfigurationOptionsMessage #-}
 
 data DescribeConfigurationOptions = DescribeConfigurationOptions
     { _dcomApplicationName :: Maybe Text
@@ -139,78 +140,64 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
     , _dcomEnvironmentName :: Maybe Text
       -- ^ The name of the environment whose configuration options you want
       -- to describe.
-    , _dcomOptions :: [OptionSpecification]
-      -- ^ If specified, restricts the descriptions to only the specified
-      -- options.
     , _dcomSolutionStackName :: Maybe Text
       -- ^ The name of the solution stack whose configuration options you
       -- want to describe.
+    , _dcomOptions :: [OptionSpecification]
+      -- ^ If specified, restricts the descriptions to only the specified
+      -- options.
     } deriving (Show, Generic)
 
 -- | The name of the application associated with the configuration template or
 -- environment. Only needed if you want to describe the configuration options
 -- associated with either the configuration template or environment.
 dcomApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcomApplicationName f x =
-    f (_dcomApplicationName x)
-        <&> \y -> x { _dcomApplicationName = y }
+dcomApplicationName = lens _dcomApplicationName (\s a -> s { _dcomApplicationName = a })
 {-# INLINE dcomApplicationName #-}
 
 -- | The name of the configuration template whose configuration options you want
 -- to describe.
 dcomTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcomTemplateName f x =
-    f (_dcomTemplateName x)
-        <&> \y -> x { _dcomTemplateName = y }
+dcomTemplateName = lens _dcomTemplateName (\s a -> s { _dcomTemplateName = a })
 {-# INLINE dcomTemplateName #-}
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
 dcomEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcomEnvironmentName f x =
-    f (_dcomEnvironmentName x)
-        <&> \y -> x { _dcomEnvironmentName = y }
+dcomEnvironmentName = lens _dcomEnvironmentName (\s a -> s { _dcomEnvironmentName = a })
 {-# INLINE dcomEnvironmentName #-}
-
--- | If specified, restricts the descriptions to only the specified options.
-dcomOptions :: Lens' DescribeConfigurationOptions ([OptionSpecification])
-dcomOptions f x =
-    f (_dcomOptions x)
-        <&> \y -> x { _dcomOptions = y }
-{-# INLINE dcomOptions #-}
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
 dcomSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcomSolutionStackName f x =
-    f (_dcomSolutionStackName x)
-        <&> \y -> x { _dcomSolutionStackName = y }
+dcomSolutionStackName = lens _dcomSolutionStackName (\s a -> s { _dcomSolutionStackName = a })
 {-# INLINE dcomSolutionStackName #-}
+
+-- | If specified, restricts the descriptions to only the specified options.
+dcomOptions :: Lens' DescribeConfigurationOptions ([OptionSpecification])
+dcomOptions = lens _dcomOptions (\s a -> s { _dcomOptions = a })
+{-# INLINE dcomOptions #-}
 
 instance ToQuery DescribeConfigurationOptions where
     toQuery = genericQuery def
 
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
-    { _codOptions :: [ConfigurationOptionDescription]
-      -- ^ A list of ConfigurationOptionDescription.
-    , _codSolutionStackName :: Maybe Text
+    { _codSolutionStackName :: Maybe Text
       -- ^ The name of the solution stack these configuration options belong
       -- to.
+    , _codOptions :: [ConfigurationOptionDescription]
+      -- ^ A list of ConfigurationOptionDescription.
     } deriving (Show, Generic)
-
--- | A list of ConfigurationOptionDescription.
-codOptions :: Lens' DescribeConfigurationOptionsResponse ([ConfigurationOptionDescription])
-codOptions f x =
-    f (_codOptions x)
-        <&> \y -> x { _codOptions = y }
-{-# INLINE codOptions #-}
 
 -- | The name of the solution stack these configuration options belong to.
 codSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
-codSolutionStackName f x =
-    f (_codSolutionStackName x)
-        <&> \y -> x { _codSolutionStackName = y }
+codSolutionStackName = lens _codSolutionStackName (\s a -> s { _codSolutionStackName = a })
 {-# INLINE codSolutionStackName #-}
+
+-- | A list of ConfigurationOptionDescription.
+codOptions :: Lens' DescribeConfigurationOptionsResponse ([ConfigurationOptionDescription])
+codOptions = lens _codOptions (\s a -> s { _codOptions = a })
+{-# INLINE codOptions #-}
 
 instance FromXML DescribeConfigurationOptionsResponse where
     fromXMLOptions = xmlOptions

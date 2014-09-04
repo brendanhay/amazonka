@@ -44,7 +44,7 @@ module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
     -- * Request
       GetEndpointAttributes
     -- ** Request constructor
-    , getEndpointAttributes
+    , mkGetEndpointAttributesInput
     -- ** Request lenses
     , geaiEndpointArn
 
@@ -58,30 +58,29 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetEndpointAttributes' request.
-getEndpointAttributes :: Text -- ^ 'geaiEndpointArn'
-                      -> GetEndpointAttributes
-getEndpointAttributes p1 = GetEndpointAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetEndpointAttributes' request.
+mkGetEndpointAttributesInput :: Text -- ^ 'geaiEndpointArn'
+                             -> GetEndpointAttributes
+mkGetEndpointAttributesInput p1 = GetEndpointAttributes
     { _geaiEndpointArn = p1
     }
-{-# INLINE getEndpointAttributes #-}
+{-# INLINE mkGetEndpointAttributesInput #-}
 
-data GetEndpointAttributes = GetEndpointAttributes
+newtype GetEndpointAttributes = GetEndpointAttributes
     { _geaiEndpointArn :: Text
       -- ^ EndpointArn for GetEndpointAttributes input.
     } deriving (Show, Generic)
 
 -- | EndpointArn for GetEndpointAttributes input.
 geaiEndpointArn :: Lens' GetEndpointAttributes (Text)
-geaiEndpointArn f x =
-    f (_geaiEndpointArn x)
-        <&> \y -> x { _geaiEndpointArn = y }
+geaiEndpointArn = lens _geaiEndpointArn (\s a -> s { _geaiEndpointArn = a })
 {-# INLINE geaiEndpointArn #-}
 
 instance ToQuery GetEndpointAttributes where
     toQuery = genericQuery def
 
-data GetEndpointAttributesResponse = GetEndpointAttributesResponse
+newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
       -- ^ Attributes include the following: CustomUserData -- arbitrary
       -- user data to associate with the endpoint. Amazon SNS does not use
@@ -106,9 +105,7 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse
 -- and mobile device. This is returned from the notification service when an
 -- app and mobile device are registered with the notification service.
 gearAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
-gearAttributes f x =
-    f (_gearAttributes x)
-        <&> \y -> x { _gearAttributes = y }
+gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
 {-# INLINE gearAttributes #-}
 
 instance FromXML GetEndpointAttributesResponse where

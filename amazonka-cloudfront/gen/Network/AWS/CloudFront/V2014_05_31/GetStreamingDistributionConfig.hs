@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
     -- * Request
       GetStreamingDistributionConfig
     -- ** Request constructor
-    , getStreamingDistributionConfig
+    , mkGetStreamingDistributionConfigRequest
     -- ** Request lenses
     , gsdcrId
 
@@ -38,24 +38,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetStreamingDistributionConfig' request.
-getStreamingDistributionConfig :: Text -- ^ 'gsdcrId'
-                               -> GetStreamingDistributionConfig
-getStreamingDistributionConfig p1 = GetStreamingDistributionConfig
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStreamingDistributionConfig' request.
+mkGetStreamingDistributionConfigRequest :: Text -- ^ 'gsdcrId'
+                                        -> GetStreamingDistributionConfig
+mkGetStreamingDistributionConfigRequest p1 = GetStreamingDistributionConfig
     { _gsdcrId = p1
     }
-{-# INLINE getStreamingDistributionConfig #-}
+{-# INLINE mkGetStreamingDistributionConfigRequest #-}
 
-data GetStreamingDistributionConfig = GetStreamingDistributionConfig
+newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
     { _gsdcrId :: Text
       -- ^ The streaming distribution's id.
     } deriving (Show, Generic)
 
 -- | The streaming distribution's id.
 gsdcrId :: Lens' GetStreamingDistributionConfig (Text)
-gsdcrId f x =
-    f (_gsdcrId x)
-        <&> \y -> x { _gsdcrId = y }
+gsdcrId = lens _gsdcrId (\s a -> s { _gsdcrId = a })
 {-# INLINE gsdcrId #-}
 
 instance ToPath GetStreamingDistributionConfig where
@@ -83,16 +82,12 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
 
 -- | The streaming distribution's configuration information.
 gsdcsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
-gsdcsStreamingDistributionConfig f x =
-    f (_gsdcsStreamingDistributionConfig x)
-        <&> \y -> x { _gsdcsStreamingDistributionConfig = y }
+gsdcsStreamingDistributionConfig = lens _gsdcsStreamingDistributionConfig (\s a -> s { _gsdcsStreamingDistributionConfig = a })
 {-# INLINE gsdcsStreamingDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gsdcsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
-gsdcsETag f x =
-    f (_gsdcsETag x)
-        <&> \y -> x { _gsdcsETag = y }
+gsdcsETag = lens _gsdcsETag (\s a -> s { _gsdcsETag = a })
 {-# INLINE gsdcsETag #-}
 
 instance AWSRequest GetStreamingDistributionConfig where

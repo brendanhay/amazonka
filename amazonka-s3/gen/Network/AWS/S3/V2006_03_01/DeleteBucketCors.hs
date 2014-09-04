@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketCors
     -- * Request
       DeleteBucketCors
     -- ** Request constructor
-    , deleteBucketCors
+    , mkDeleteBucketCorsRequest
     -- ** Request lenses
     , dbcrBucket
 
@@ -35,22 +35,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteBucketCors' request.
-deleteBucketCors :: BucketName -- ^ 'dbcrBucket'
-                 -> DeleteBucketCors
-deleteBucketCors p1 = DeleteBucketCors
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketCors' request.
+mkDeleteBucketCorsRequest :: BucketName -- ^ 'dbcrBucket'
+                          -> DeleteBucketCors
+mkDeleteBucketCorsRequest p1 = DeleteBucketCors
     { _dbcrBucket = p1
     }
-{-# INLINE deleteBucketCors #-}
+{-# INLINE mkDeleteBucketCorsRequest #-}
 
-data DeleteBucketCors = DeleteBucketCors
+newtype DeleteBucketCors = DeleteBucketCors
     { _dbcrBucket :: BucketName
     } deriving (Show, Generic)
 
 dbcrBucket :: Lens' DeleteBucketCors (BucketName)
-dbcrBucket f x =
-    f (_dbcrBucket x)
-        <&> \y -> x { _dbcrBucket = y }
+dbcrBucket = lens _dbcrBucket (\s a -> s { _dbcrBucket = a })
 {-# INLINE dbcrBucket #-}
 
 instance ToPath DeleteBucketCors where

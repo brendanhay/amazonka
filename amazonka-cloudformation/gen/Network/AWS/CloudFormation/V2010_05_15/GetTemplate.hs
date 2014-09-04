@@ -32,7 +32,7 @@ module Network.AWS.CloudFormation.V2010_05_15.GetTemplate
     -- * Request
       GetTemplate
     -- ** Request constructor
-    , getTemplate
+    , mkGetTemplateInput
     -- ** Request lenses
     , gtiStackName
 
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetTemplate' request.
-getTemplate :: Text -- ^ 'gtiStackName'
-            -> GetTemplate
-getTemplate p1 = GetTemplate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTemplate' request.
+mkGetTemplateInput :: Text -- ^ 'gtiStackName'
+                   -> GetTemplate
+mkGetTemplateInput p1 = GetTemplate
     { _gtiStackName = p1
     }
-{-# INLINE getTemplate #-}
+{-# INLINE mkGetTemplateInput #-}
 
-data GetTemplate = GetTemplate
+newtype GetTemplate = GetTemplate
     { _gtiStackName :: Text
       -- ^ The name or the unique identifier associated with the stack,
       -- which are not always interchangeable: Running stacks: You can
@@ -68,15 +69,13 @@ data GetTemplate = GetTemplate
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
 gtiStackName :: Lens' GetTemplate (Text)
-gtiStackName f x =
-    f (_gtiStackName x)
-        <&> \y -> x { _gtiStackName = y }
+gtiStackName = lens _gtiStackName (\s a -> s { _gtiStackName = a })
 {-# INLINE gtiStackName #-}
 
 instance ToQuery GetTemplate where
     toQuery = genericQuery def
 
-data GetTemplateResponse = GetTemplateResponse
+newtype GetTemplateResponse = GetTemplateResponse
     { _gtoTemplateBody :: Maybe Text
       -- ^ Structure containing the template body. (For more information, go
       -- to Template Anatomy in the AWS CloudFormation User Guide.).
@@ -85,9 +84,7 @@ data GetTemplateResponse = GetTemplateResponse
 -- | Structure containing the template body. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.).
 gtoTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
-gtoTemplateBody f x =
-    f (_gtoTemplateBody x)
-        <&> \y -> x { _gtoTemplateBody = y }
+gtoTemplateBody = lens _gtoTemplateBody (\s a -> s { _gtoTemplateBody = a })
 {-# INLINE gtoTemplateBody #-}
 
 instance FromXML GetTemplateResponse where

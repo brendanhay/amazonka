@@ -31,24 +31,24 @@ module Network.AWS.DirectConnect.V2012_10_25.CreateConnection
     -- * Request
       CreateConnection
     -- ** Request constructor
-    , createConnection
+    , mkCreateConnectionRequest
     -- ** Request lenses
+    , cctLocation
     , cctBandwidth
     , cctConnectionName
-    , cctLocation
 
     -- * Response
     , CreateConnectionResponse
     -- ** Response lenses
-    , fBandwidth
+    , fOwnerAccount
     , fConnectionId
     , fConnectionName
     , fConnectionState
-    , fLocation
-    , fOwnerAccount
-    , fPartnerName
     , fRegion
+    , fLocation
+    , fBandwidth
     , fVlan
+    , fPartnerName
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -56,48 +56,43 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateConnection' request.
-createConnection :: Text -- ^ 'cctBandwidth'
-                 -> Text -- ^ 'cctConnectionName'
-                 -> Text -- ^ 'cctLocation'
-                 -> CreateConnection
-createConnection p1 p2 p3 = CreateConnection
-    { _cctBandwidth = p1
-    , _cctConnectionName = p2
-    , _cctLocation = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateConnection' request.
+mkCreateConnectionRequest :: Text -- ^ 'cctLocation'
+                          -> Text -- ^ 'cctBandwidth'
+                          -> Text -- ^ 'cctConnectionName'
+                          -> CreateConnection
+mkCreateConnectionRequest p1 p2 p3 = CreateConnection
+    { _cctLocation = p1
+    , _cctBandwidth = p2
+    , _cctConnectionName = p3
     }
-{-# INLINE createConnection #-}
+{-# INLINE mkCreateConnectionRequest #-}
 
 data CreateConnection = CreateConnection
-    { _cctBandwidth :: Text
+    { _cctLocation :: Text
+      -- ^ Where the connection is located. Example: EqSV5 Default: None.
+    , _cctBandwidth :: Text
       -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
     , _cctConnectionName :: Text
       -- ^ The name of the connection. Example: "1G Connection to AWS"
       -- Default: None.
-    , _cctLocation :: Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
     } deriving (Show, Generic)
+
+-- | Where the connection is located. Example: EqSV5 Default: None.
+cctLocation :: Lens' CreateConnection (Text)
+cctLocation = lens _cctLocation (\s a -> s { _cctLocation = a })
+{-# INLINE cctLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 cctBandwidth :: Lens' CreateConnection (Text)
-cctBandwidth f x =
-    f (_cctBandwidth x)
-        <&> \y -> x { _cctBandwidth = y }
+cctBandwidth = lens _cctBandwidth (\s a -> s { _cctBandwidth = a })
 {-# INLINE cctBandwidth #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 cctConnectionName :: Lens' CreateConnection (Text)
-cctConnectionName f x =
-    f (_cctConnectionName x)
-        <&> \y -> x { _cctConnectionName = y }
+cctConnectionName = lens _cctConnectionName (\s a -> s { _cctConnectionName = a })
 {-# INLINE cctConnectionName #-}
-
--- | Where the connection is located. Example: EqSV5 Default: None.
-cctLocation :: Lens' CreateConnection (Text)
-cctLocation f x =
-    f (_cctLocation x)
-        <&> \y -> x { _cctLocation = y }
-{-# INLINE cctLocation #-}
 
 instance ToPath CreateConnection
 
@@ -108,8 +103,7 @@ instance ToHeaders CreateConnection
 instance ToJSON CreateConnection
 
 data CreateConnectionResponse = CreateConnectionResponse
-    { _fBandwidth :: Maybe Text
-      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
+    { _fOwnerAccount :: Maybe Text
     , _fConnectionId :: Maybe Text
       -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
     , _fConnectionName :: Maybe Text
@@ -128,36 +122,30 @@ data CreateConnectionResponse = CreateConnectionResponse
       -- Deleted: The connection has been deleted. Rejected: A hosted
       -- connection in the 'Ordering' state will enter the 'Rejected'
       -- state if it is deleted by the end customer.
-    , _fLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _fOwnerAccount :: Maybe Text
-    , _fPartnerName :: Maybe Text
     , _fRegion :: Maybe Text
       -- ^ The AWS region where the connection is located. Example:
       -- us-east-1 Default: None.
+    , _fLocation :: Maybe Text
+      -- ^ Where the connection is located. Example: EqSV5 Default: None.
+    , _fBandwidth :: Maybe Text
+      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
     , _fVlan :: Maybe Integer
       -- ^ The VLAN ID. Example: 101.
+    , _fPartnerName :: Maybe Text
     } deriving (Show, Generic)
 
--- | Bandwidth of the connection. Example: 1Gbps Default: None.
-fBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
-fBandwidth f x =
-    f (_fBandwidth x)
-        <&> \y -> x { _fBandwidth = y }
-{-# INLINE fBandwidth #-}
+fOwnerAccount :: Lens' CreateConnectionResponse (Maybe Text)
+fOwnerAccount = lens _fOwnerAccount (\s a -> s { _fOwnerAccount = a })
+{-# INLINE fOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 fConnectionId :: Lens' CreateConnectionResponse (Maybe Text)
-fConnectionId f x =
-    f (_fConnectionId x)
-        <&> \y -> x { _fConnectionId = y }
+fConnectionId = lens _fConnectionId (\s a -> s { _fConnectionId = a })
 {-# INLINE fConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 fConnectionName :: Lens' CreateConnectionResponse (Maybe Text)
-fConnectionName f x =
-    f (_fConnectionName x)
-        <&> \y -> x { _fConnectionName = y }
+fConnectionName = lens _fConnectionName (\s a -> s { _fConnectionName = a })
 {-# INLINE fConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -172,44 +160,33 @@ fConnectionName f x =
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
 fConnectionState :: Lens' CreateConnectionResponse (Maybe ConnectionState)
-fConnectionState f x =
-    f (_fConnectionState x)
-        <&> \y -> x { _fConnectionState = y }
+fConnectionState = lens _fConnectionState (\s a -> s { _fConnectionState = a })
 {-# INLINE fConnectionState #-}
-
--- | Where the connection is located. Example: EqSV5 Default: None.
-fLocation :: Lens' CreateConnectionResponse (Maybe Text)
-fLocation f x =
-    f (_fLocation x)
-        <&> \y -> x { _fLocation = y }
-{-# INLINE fLocation #-}
-
-fOwnerAccount :: Lens' CreateConnectionResponse (Maybe Text)
-fOwnerAccount f x =
-    f (_fOwnerAccount x)
-        <&> \y -> x { _fOwnerAccount = y }
-{-# INLINE fOwnerAccount #-}
-
-fPartnerName :: Lens' CreateConnectionResponse (Maybe Text)
-fPartnerName f x =
-    f (_fPartnerName x)
-        <&> \y -> x { _fPartnerName = y }
-{-# INLINE fPartnerName #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 fRegion :: Lens' CreateConnectionResponse (Maybe Text)
-fRegion f x =
-    f (_fRegion x)
-        <&> \y -> x { _fRegion = y }
+fRegion = lens _fRegion (\s a -> s { _fRegion = a })
 {-# INLINE fRegion #-}
+
+-- | Where the connection is located. Example: EqSV5 Default: None.
+fLocation :: Lens' CreateConnectionResponse (Maybe Text)
+fLocation = lens _fLocation (\s a -> s { _fLocation = a })
+{-# INLINE fLocation #-}
+
+-- | Bandwidth of the connection. Example: 1Gbps Default: None.
+fBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
+fBandwidth = lens _fBandwidth (\s a -> s { _fBandwidth = a })
+{-# INLINE fBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
 fVlan :: Lens' CreateConnectionResponse (Maybe Integer)
-fVlan f x =
-    f (_fVlan x)
-        <&> \y -> x { _fVlan = y }
+fVlan = lens _fVlan (\s a -> s { _fVlan = a })
 {-# INLINE fVlan #-}
+
+fPartnerName :: Lens' CreateConnectionResponse (Maybe Text)
+fPartnerName = lens _fPartnerName (\s a -> s { _fPartnerName = a })
+{-# INLINE fPartnerName #-}
 
 instance FromJSON CreateConnectionResponse
 

@@ -40,10 +40,10 @@ module Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
     -- * Request
       SetPlatformApplicationAttributes
     -- ** Request constructor
-    , setPlatformApplicationAttributes
+    , mkSetPlatformApplicationAttributesInput
     -- ** Request lenses
-    , spaaiAttributes
     , spaaiPlatformApplicationArn
+    , spaaiAttributes
 
     -- * Response
     , SetPlatformApplicationAttributesResponse
@@ -53,18 +53,22 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetPlatformApplicationAttributes' request.
-setPlatformApplicationAttributes :: Map Text Text -- ^ 'spaaiAttributes'
-                                 -> Text -- ^ 'spaaiPlatformApplicationArn'
-                                 -> SetPlatformApplicationAttributes
-setPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
-    { _spaaiAttributes = p1
-    , _spaaiPlatformApplicationArn = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetPlatformApplicationAttributes' request.
+mkSetPlatformApplicationAttributesInput :: Text -- ^ 'spaaiPlatformApplicationArn'
+                                        -> Map Text Text -- ^ 'spaaiAttributes'
+                                        -> SetPlatformApplicationAttributes
+mkSetPlatformApplicationAttributesInput p1 p2 = SetPlatformApplicationAttributes
+    { _spaaiPlatformApplicationArn = p1
+    , _spaaiAttributes = p2
     }
-{-# INLINE setPlatformApplicationAttributes #-}
+{-# INLINE mkSetPlatformApplicationAttributesInput #-}
 
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
-    { _spaaiAttributes :: Map Text Text
+    { _spaaiPlatformApplicationArn :: Text
+      -- ^ PlatformApplicationArn for SetPlatformApplicationAttributes
+      -- action.
+    , _spaaiAttributes :: Map Text Text
       -- ^ A map of the platform application attributes. Attributes in this
       -- map include the following: PlatformCredential -- The credential
       -- received from the notification service. For APNS/APNS_SANDBOX,
@@ -81,10 +85,12 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
       -- EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
       -- notifications should be sent upon Direct Publish delivery failure
       -- (permanent) to one of the application's endpoints.
-    , _spaaiPlatformApplicationArn :: Text
-      -- ^ PlatformApplicationArn for SetPlatformApplicationAttributes
-      -- action.
     } deriving (Show, Generic)
+
+-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
+spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes (Text)
+spaaiPlatformApplicationArn = lens _spaaiPlatformApplicationArn (\s a -> s { _spaaiPlatformApplicationArn = a })
+{-# INLINE spaaiPlatformApplicationArn #-}
 
 -- | A map of the platform application attributes. Attributes in this map
 -- include the following: PlatformCredential -- The credential received from
@@ -102,17 +108,8 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
 -- Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
 spaaiAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
-spaaiAttributes f x =
-    f (_spaaiAttributes x)
-        <&> \y -> x { _spaaiAttributes = y }
+spaaiAttributes = lens _spaaiAttributes (\s a -> s { _spaaiAttributes = a })
 {-# INLINE spaaiAttributes #-}
-
--- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes (Text)
-spaaiPlatformApplicationArn f x =
-    f (_spaaiPlatformApplicationArn x)
-        <&> \y -> x { _spaaiPlatformApplicationArn = y }
-{-# INLINE spaaiPlatformApplicationArn #-}
 
 instance ToQuery SetPlatformApplicationAttributes where
     toQuery = genericQuery def

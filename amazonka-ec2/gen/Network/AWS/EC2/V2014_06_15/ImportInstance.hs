@@ -38,12 +38,12 @@ module Network.AWS.EC2.V2014_06_15.ImportInstance
     -- * Request
       ImportInstance
     -- ** Request constructor
-    , importInstance
+    , mkImportInstanceRequest
     -- ** Request lenses
-    , iiiiiiiiiuPlatform
-    , iiiiiiiiiuDiskImages
-    , iiiiiiiiiuLaunchSpecification
     , iiiiiiiiiuDescription
+    , iiiiiiiiiuLaunchSpecification
+    , iiiiiiiiiuDiskImages
+    , iiiiiiiiiuPlatform
 
     -- * Response
     , ImportInstanceResponse
@@ -55,69 +55,60 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ImportInstance' request.
-importInstance :: PlatformValues -- ^ 'iiiiiiiiiuPlatform'
-               -> ImportInstance
-importInstance p1 = ImportInstance
-    { _iiiiiiiiiuPlatform = p1
-    , _iiiiiiiiiuDiskImages = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportInstance' request.
+mkImportInstanceRequest :: PlatformValues -- ^ 'iiiiiiiiiuPlatform'
+                        -> ImportInstance
+mkImportInstanceRequest p1 = ImportInstance
+    { _iiiiiiiiiuDescription = Nothing
     , _iiiiiiiiiuLaunchSpecification = Nothing
-    , _iiiiiiiiiuDescription = Nothing
+    , _iiiiiiiiiuDiskImages = mempty
+    , _iiiiiiiiiuPlatform = p4
     }
-{-# INLINE importInstance #-}
+{-# INLINE mkImportInstanceRequest #-}
 
 data ImportInstance = ImportInstance
-    { _iiiiiiiiiuPlatform :: PlatformValues
-      -- ^ The instance operating system.
-    , _iiiiiiiiiuDiskImages :: [DiskImage]
-      -- ^ 
+    { _iiiiiiiiiuDescription :: Maybe Text
+      -- ^ A description for the instance being imported.
     , _iiiiiiiiiuLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
       -- ^ 
-    , _iiiiiiiiiuDescription :: Maybe Text
-      -- ^ A description for the instance being imported.
+    , _iiiiiiiiiuDiskImages :: [DiskImage]
+      -- ^ 
+    , _iiiiiiiiiuPlatform :: PlatformValues
+      -- ^ The instance operating system.
     } deriving (Show, Generic)
-
--- | The instance operating system.
-iiiiiiiiiuPlatform :: Lens' ImportInstance (PlatformValues)
-iiiiiiiiiuPlatform f x =
-    f (_iiiiiiiiiuPlatform x)
-        <&> \y -> x { _iiiiiiiiiuPlatform = y }
-{-# INLINE iiiiiiiiiuPlatform #-}
-
--- | 
-iiiiiiiiiuDiskImages :: Lens' ImportInstance ([DiskImage])
-iiiiiiiiiuDiskImages f x =
-    f (_iiiiiiiiiuDiskImages x)
-        <&> \y -> x { _iiiiiiiiiuDiskImages = y }
-{-# INLINE iiiiiiiiiuDiskImages #-}
-
--- | 
-iiiiiiiiiuLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
-iiiiiiiiiuLaunchSpecification f x =
-    f (_iiiiiiiiiuLaunchSpecification x)
-        <&> \y -> x { _iiiiiiiiiuLaunchSpecification = y }
-{-# INLINE iiiiiiiiiuLaunchSpecification #-}
 
 -- | A description for the instance being imported.
 iiiiiiiiiuDescription :: Lens' ImportInstance (Maybe Text)
-iiiiiiiiiuDescription f x =
-    f (_iiiiiiiiiuDescription x)
-        <&> \y -> x { _iiiiiiiiiuDescription = y }
+iiiiiiiiiuDescription = lens _iiiiiiiiiuDescription (\s a -> s { _iiiiiiiiiuDescription = a })
 {-# INLINE iiiiiiiiiuDescription #-}
+
+-- | 
+iiiiiiiiiuLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
+iiiiiiiiiuLaunchSpecification = lens _iiiiiiiiiuLaunchSpecification (\s a -> s { _iiiiiiiiiuLaunchSpecification = a })
+{-# INLINE iiiiiiiiiuLaunchSpecification #-}
+
+-- | 
+iiiiiiiiiuDiskImages :: Lens' ImportInstance ([DiskImage])
+iiiiiiiiiuDiskImages = lens _iiiiiiiiiuDiskImages (\s a -> s { _iiiiiiiiiuDiskImages = a })
+{-# INLINE iiiiiiiiiuDiskImages #-}
+
+-- | The instance operating system.
+iiiiiiiiiuPlatform :: Lens' ImportInstance (PlatformValues)
+iiiiiiiiiuPlatform = lens _iiiiiiiiiuPlatform (\s a -> s { _iiiiiiiiiuPlatform = a })
+{-# INLINE iiiiiiiiiuPlatform #-}
 
 instance ToQuery ImportInstance where
     toQuery = genericQuery def
 
-data ImportInstanceResponse = ImportInstanceResponse
+newtype ImportInstanceResponse = ImportInstanceResponse
     { _iiiiiiiiivConversionTask :: Maybe ConversionTask
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 iiiiiiiiivConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
-iiiiiiiiivConversionTask f x =
-    f (_iiiiiiiiivConversionTask x)
-        <&> \y -> x { _iiiiiiiiivConversionTask = y }
+iiiiiiiiivConversionTask = lens _iiiiiiiiivConversionTask (\s a -> s { _iiiiiiiiivConversionTask = a })
 {-# INLINE iiiiiiiiivConversionTask #-}
 
 instance FromXML ImportInstanceResponse where

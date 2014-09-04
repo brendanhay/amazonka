@@ -43,10 +43,10 @@ module Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers
     -- * Request
       SetVisibleToAllUsers
     -- ** Request constructor
-    , setVisibleToAllUsers
+    , mkSetVisibleToAllUsersInput
     -- ** Request lenses
-    , svtauiVisibleToAllUsers
     , svtauiJobFlowIds
+    , svtauiVisibleToAllUsers
 
     -- * Response
     , SetVisibleToAllUsersResponse
@@ -57,28 +57,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetVisibleToAllUsers' request.
-setVisibleToAllUsers :: Bool -- ^ 'svtauiVisibleToAllUsers'
-                     -> [Text] -- ^ 'svtauiJobFlowIds'
-                     -> SetVisibleToAllUsers
-setVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
-    { _svtauiVisibleToAllUsers = p1
-    , _svtauiJobFlowIds = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetVisibleToAllUsers' request.
+mkSetVisibleToAllUsersInput :: [Text] -- ^ 'svtauiJobFlowIds'
+                            -> Bool -- ^ 'svtauiVisibleToAllUsers'
+                            -> SetVisibleToAllUsers
+mkSetVisibleToAllUsersInput p1 p2 = SetVisibleToAllUsers
+    { _svtauiJobFlowIds = p1
+    , _svtauiVisibleToAllUsers = p2
     }
-{-# INLINE setVisibleToAllUsers #-}
+{-# INLINE mkSetVisibleToAllUsersInput #-}
 
 data SetVisibleToAllUsers = SetVisibleToAllUsers
-    { _svtauiVisibleToAllUsers :: Bool
+    { _svtauiJobFlowIds :: [Text]
+      -- ^ Identifiers of the job flows to receive the new visibility
+      -- setting.
+    , _svtauiVisibleToAllUsers :: Bool
       -- ^ Whether the specified job flows are visible to all IAM users of
       -- the AWS account associated with the job flow. If this value is
       -- set to True, all IAM users of that AWS account can view and, if
       -- they have the proper IAM policy permissions set, manage the job
       -- flows. If it is set to False, only the IAM user that created a
       -- job flow can view and manage it.
-    , _svtauiJobFlowIds :: [Text]
-      -- ^ Identifiers of the job flows to receive the new visibility
-      -- setting.
     } deriving (Show, Generic)
+
+-- | Identifiers of the job flows to receive the new visibility setting.
+svtauiJobFlowIds :: Lens' SetVisibleToAllUsers ([Text])
+svtauiJobFlowIds = lens _svtauiJobFlowIds (\s a -> s { _svtauiJobFlowIds = a })
+{-# INLINE svtauiJobFlowIds #-}
 
 -- | Whether the specified job flows are visible to all IAM users of the AWS
 -- account associated with the job flow. If this value is set to True, all IAM
@@ -86,17 +92,8 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers
 -- permissions set, manage the job flows. If it is set to False, only the IAM
 -- user that created a job flow can view and manage it.
 svtauiVisibleToAllUsers :: Lens' SetVisibleToAllUsers (Bool)
-svtauiVisibleToAllUsers f x =
-    f (_svtauiVisibleToAllUsers x)
-        <&> \y -> x { _svtauiVisibleToAllUsers = y }
+svtauiVisibleToAllUsers = lens _svtauiVisibleToAllUsers (\s a -> s { _svtauiVisibleToAllUsers = a })
 {-# INLINE svtauiVisibleToAllUsers #-}
-
--- | Identifiers of the job flows to receive the new visibility setting.
-svtauiJobFlowIds :: Lens' SetVisibleToAllUsers ([Text])
-svtauiJobFlowIds f x =
-    f (_svtauiJobFlowIds x)
-        <&> \y -> x { _svtauiJobFlowIds = y }
-{-# INLINE svtauiJobFlowIds #-}
 
 instance ToPath SetVisibleToAllUsers
 

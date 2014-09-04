@@ -39,7 +39,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterParameterGroup
     -- * Request
       CreateClusterParameterGroup
     -- ** Request constructor
-    , createClusterParameterGroup
+    , mkCreateClusterParameterGroupMessage
     -- ** Request lenses
     , ccpgmParameterGroupName
     , ccpgmParameterGroupFamily
@@ -55,17 +55,18 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateClusterParameterGroup' request.
-createClusterParameterGroup :: Text -- ^ 'ccpgmParameterGroupName'
-                            -> Text -- ^ 'ccpgmParameterGroupFamily'
-                            -> Text -- ^ 'ccpgmDescription'
-                            -> CreateClusterParameterGroup
-createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterParameterGroup' request.
+mkCreateClusterParameterGroupMessage :: Text -- ^ 'ccpgmParameterGroupName'
+                                     -> Text -- ^ 'ccpgmParameterGroupFamily'
+                                     -> Text -- ^ 'ccpgmDescription'
+                                     -> CreateClusterParameterGroup
+mkCreateClusterParameterGroupMessage p1 p2 p3 = CreateClusterParameterGroup
     { _ccpgmParameterGroupName = p1
     , _ccpgmParameterGroupFamily = p2
     , _ccpgmDescription = p3
     }
-{-# INLINE createClusterParameterGroup #-}
+{-# INLINE mkCreateClusterParameterGroupMessage #-}
 
 data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgmParameterGroupName :: Text
@@ -94,9 +95,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
 -- end with a hyphen or contain two consecutive hyphens. Must be unique
 -- withing your AWS account. This value is stored as a lower-case string.
 ccpgmParameterGroupName :: Lens' CreateClusterParameterGroup (Text)
-ccpgmParameterGroupName f x =
-    f (_ccpgmParameterGroupName x)
-        <&> \y -> x { _ccpgmParameterGroupName = y }
+ccpgmParameterGroupName = lens _ccpgmParameterGroupName (\s a -> s { _ccpgmParameterGroupName = a })
 {-# INLINE ccpgmParameterGroupName #-}
 
 -- | The Amazon Redshift engine version to which the cluster parameter group
@@ -109,31 +108,25 @@ ccpgmParameterGroupName f x =
 -- provide you the valid values. For example, a valid family name is
 -- "redshift-1.0".
 ccpgmParameterGroupFamily :: Lens' CreateClusterParameterGroup (Text)
-ccpgmParameterGroupFamily f x =
-    f (_ccpgmParameterGroupFamily x)
-        <&> \y -> x { _ccpgmParameterGroupFamily = y }
+ccpgmParameterGroupFamily = lens _ccpgmParameterGroupFamily (\s a -> s { _ccpgmParameterGroupFamily = a })
 {-# INLINE ccpgmParameterGroupFamily #-}
 
 -- | A description of the parameter group.
 ccpgmDescription :: Lens' CreateClusterParameterGroup (Text)
-ccpgmDescription f x =
-    f (_ccpgmDescription x)
-        <&> \y -> x { _ccpgmDescription = y }
+ccpgmDescription = lens _ccpgmDescription (\s a -> s { _ccpgmDescription = a })
 {-# INLINE ccpgmDescription #-}
 
 instance ToQuery CreateClusterParameterGroup where
     toQuery = genericQuery def
 
-data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
+newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _cpgwClusterParameterGroup :: Maybe ClusterParameterGroup
       -- ^ Describes a parameter group.
     } deriving (Show, Generic)
 
 -- | Describes a parameter group.
 cpgwClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
-cpgwClusterParameterGroup f x =
-    f (_cpgwClusterParameterGroup x)
-        <&> \y -> x { _cpgwClusterParameterGroup = y }
+cpgwClusterParameterGroup = lens _cpgwClusterParameterGroup (\s a -> s { _cpgwClusterParameterGroup = a })
 {-# INLINE cpgwClusterParameterGroup #-}
 
 instance FromXML CreateClusterParameterGroupResponse where

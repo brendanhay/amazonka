@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
     -- * Request
       DisableMetricsCollection
     -- ** Request constructor
-    , disableMetricsCollection
+    , mkDisableMetricsCollectionQuery
     -- ** Request lenses
     , dmcqAutoScalingGroupName
     , dmcqMetrics
@@ -38,14 +38,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DisableMetricsCollection' request.
-disableMetricsCollection :: Text -- ^ 'dmcqAutoScalingGroupName'
-                         -> DisableMetricsCollection
-disableMetricsCollection p1 = DisableMetricsCollection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableMetricsCollection' request.
+mkDisableMetricsCollectionQuery :: Text -- ^ 'dmcqAutoScalingGroupName'
+                                -> DisableMetricsCollection
+mkDisableMetricsCollectionQuery p1 = DisableMetricsCollection
     { _dmcqAutoScalingGroupName = p1
     , _dmcqMetrics = mempty
     }
-{-# INLINE disableMetricsCollection #-}
+{-# INLINE mkDisableMetricsCollectionQuery #-}
 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcqAutoScalingGroupName :: Text
@@ -61,9 +62,7 @@ data DisableMetricsCollection = DisableMetricsCollection
 
 -- | The name or ARN of the Auto Scaling Group.
 dmcqAutoScalingGroupName :: Lens' DisableMetricsCollection (Text)
-dmcqAutoScalingGroupName f x =
-    f (_dmcqAutoScalingGroupName x)
-        <&> \y -> x { _dmcqAutoScalingGroupName = y }
+dmcqAutoScalingGroupName = lens _dmcqAutoScalingGroupName (\s a -> s { _dmcqAutoScalingGroupName = a })
 {-# INLINE dmcqAutoScalingGroupName #-}
 
 -- | The list of metrics to disable. If no metrics are specified, all metrics
@@ -72,9 +71,7 @@ dmcqAutoScalingGroupName f x =
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
 dmcqMetrics :: Lens' DisableMetricsCollection ([Text])
-dmcqMetrics f x =
-    f (_dmcqMetrics x)
-        <&> \y -> x { _dmcqMetrics = y }
+dmcqMetrics = lens _dmcqMetrics (\s a -> s { _dmcqMetrics = a })
 {-# INLINE dmcqMetrics #-}
 
 instance ToQuery DisableMetricsCollection where

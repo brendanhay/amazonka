@@ -26,11 +26,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketRequestPayment
     -- * Request
       PutBucketRequestPayment
     -- ** Request constructor
-    , putBucketRequestPayment
+    , mkPutBucketRequestPaymentRequest
     -- ** Request lenses
-    , pbrprRequestPaymentConfiguration
     , pbrprBucket
     , pbrprContentMD5
+    , pbrprRequestPaymentConfiguration
 
     -- * Response
     , PutBucketRequestPaymentResponse
@@ -40,40 +40,35 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutBucketRequestPayment' request.
-putBucketRequestPayment :: RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
-                        -> BucketName -- ^ 'pbrprBucket'
-                        -> PutBucketRequestPayment
-putBucketRequestPayment p1 p2 = PutBucketRequestPayment
-    { _pbrprRequestPaymentConfiguration = p1
-    , _pbrprBucket = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketRequestPayment' request.
+mkPutBucketRequestPaymentRequest :: BucketName -- ^ 'pbrprBucket'
+                                 -> RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
+                                 -> PutBucketRequestPayment
+mkPutBucketRequestPaymentRequest p1 p2 = PutBucketRequestPayment
+    { _pbrprBucket = p1
     , _pbrprContentMD5 = Nothing
+    , _pbrprRequestPaymentConfiguration = p3
     }
-{-# INLINE putBucketRequestPayment #-}
+{-# INLINE mkPutBucketRequestPaymentRequest #-}
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
-    , _pbrprBucket :: BucketName
+    { _pbrprBucket :: BucketName
     , _pbrprContentMD5 :: Maybe Text
+    , _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
     } deriving (Show, Generic)
 
-pbrprRequestPaymentConfiguration :: Lens' PutBucketRequestPayment (RequestPaymentConfiguration)
-pbrprRequestPaymentConfiguration f x =
-    f (_pbrprRequestPaymentConfiguration x)
-        <&> \y -> x { _pbrprRequestPaymentConfiguration = y }
-{-# INLINE pbrprRequestPaymentConfiguration #-}
-
 pbrprBucket :: Lens' PutBucketRequestPayment (BucketName)
-pbrprBucket f x =
-    f (_pbrprBucket x)
-        <&> \y -> x { _pbrprBucket = y }
+pbrprBucket = lens _pbrprBucket (\s a -> s { _pbrprBucket = a })
 {-# INLINE pbrprBucket #-}
 
 pbrprContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
-pbrprContentMD5 f x =
-    f (_pbrprContentMD5 x)
-        <&> \y -> x { _pbrprContentMD5 = y }
+pbrprContentMD5 = lens _pbrprContentMD5 (\s a -> s { _pbrprContentMD5 = a })
 {-# INLINE pbrprContentMD5 #-}
+
+pbrprRequestPaymentConfiguration :: Lens' PutBucketRequestPayment (RequestPaymentConfiguration)
+pbrprRequestPaymentConfiguration = lens _pbrprRequestPaymentConfiguration (\s a -> s { _pbrprRequestPaymentConfiguration = a })
+{-# INLINE pbrprRequestPaymentConfiguration #-}
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat
@@ -86,13 +81,9 @@ instance ToQuery PutBucketRequestPayment where
         [ "requestPayment"
         ]
 
-instance ToHeaders PutBucketRequestPayment where
-    toHeaders PutBucketRequestPayment{..} = concat
-        [ "Content-MD5" =: _pbrprContentMD5
-        ]
+instance ToHeaders PutBucketRequestPayment
 
-instance ToBody PutBucketRequestPayment where
-    toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
+instance ToBody PutBucketRequestPayment
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)

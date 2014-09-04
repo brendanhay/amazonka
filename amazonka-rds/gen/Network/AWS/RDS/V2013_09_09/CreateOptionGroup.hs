@@ -28,7 +28,7 @@ module Network.AWS.RDS.V2013_09_09.CreateOptionGroup
     -- * Request
       CreateOptionGroup
     -- ** Request constructor
-    , createOptionGroup
+    , mkCreateOptionGroupMessage
     -- ** Request lenses
     , cogmOptionGroupName
     , cogmEngineName
@@ -46,20 +46,21 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateOptionGroup' request.
-createOptionGroup :: Text -- ^ 'cogmOptionGroupName'
-                  -> Text -- ^ 'cogmEngineName'
-                  -> Text -- ^ 'cogmMajorEngineVersion'
-                  -> Text -- ^ 'cogmOptionGroupDescription'
-                  -> CreateOptionGroup
-createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateOptionGroup' request.
+mkCreateOptionGroupMessage :: Text -- ^ 'cogmOptionGroupName'
+                           -> Text -- ^ 'cogmEngineName'
+                           -> Text -- ^ 'cogmMajorEngineVersion'
+                           -> Text -- ^ 'cogmOptionGroupDescription'
+                           -> CreateOptionGroup
+mkCreateOptionGroupMessage p1 p2 p3 p4 = CreateOptionGroup
     { _cogmOptionGroupName = p1
     , _cogmEngineName = p2
     , _cogmMajorEngineVersion = p3
     , _cogmOptionGroupDescription = p4
     , _cogmTags = mempty
     }
-{-# INLINE createOptionGroup #-}
+{-# INLINE mkCreateOptionGroupMessage #-}
 
 data CreateOptionGroup = CreateOptionGroup
     { _cogmOptionGroupName :: Text
@@ -84,54 +85,42 @@ data CreateOptionGroup = CreateOptionGroup
 -- letter Cannot end with a hyphen or contain two consecutive hyphens Example:
 -- myoptiongroup.
 cogmOptionGroupName :: Lens' CreateOptionGroup (Text)
-cogmOptionGroupName f x =
-    f (_cogmOptionGroupName x)
-        <&> \y -> x { _cogmOptionGroupName = y }
+cogmOptionGroupName = lens _cogmOptionGroupName (\s a -> s { _cogmOptionGroupName = a })
 {-# INLINE cogmOptionGroupName #-}
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
 cogmEngineName :: Lens' CreateOptionGroup (Text)
-cogmEngineName f x =
-    f (_cogmEngineName x)
-        <&> \y -> x { _cogmEngineName = y }
+cogmEngineName = lens _cogmEngineName (\s a -> s { _cogmEngineName = a })
 {-# INLINE cogmEngineName #-}
 
 -- | Specifies the major version of the engine that this option group should be
 -- associated with.
 cogmMajorEngineVersion :: Lens' CreateOptionGroup (Text)
-cogmMajorEngineVersion f x =
-    f (_cogmMajorEngineVersion x)
-        <&> \y -> x { _cogmMajorEngineVersion = y }
+cogmMajorEngineVersion = lens _cogmMajorEngineVersion (\s a -> s { _cogmMajorEngineVersion = a })
 {-# INLINE cogmMajorEngineVersion #-}
 
 -- | The description of the option group.
 cogmOptionGroupDescription :: Lens' CreateOptionGroup (Text)
-cogmOptionGroupDescription f x =
-    f (_cogmOptionGroupDescription x)
-        <&> \y -> x { _cogmOptionGroupDescription = y }
+cogmOptionGroupDescription = lens _cogmOptionGroupDescription (\s a -> s { _cogmOptionGroupDescription = a })
 {-# INLINE cogmOptionGroupDescription #-}
 
 -- | A list of tags.
 cogmTags :: Lens' CreateOptionGroup ([Tag])
-cogmTags f x =
-    f (_cogmTags x)
-        <&> \y -> x { _cogmTags = y }
+cogmTags = lens _cogmTags (\s a -> s { _cogmTags = a })
 {-# INLINE cogmTags #-}
 
 instance ToQuery CreateOptionGroup where
     toQuery = genericQuery def
 
-data CreateOptionGroupResponse = CreateOptionGroupResponse
+newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _ogwOptionGroup :: Maybe OptionGroup
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 ogwOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
-ogwOptionGroup f x =
-    f (_ogwOptionGroup x)
-        <&> \y -> x { _ogwOptionGroup = y }
+ogwOptionGroup = lens _ogwOptionGroup (\s a -> s { _ogwOptionGroup = a })
 {-# INLINE ogwOptionGroup #-}
 
 instance FromXML CreateOptionGroupResponse where

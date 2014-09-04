@@ -49,10 +49,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones
     -- * Request
       DescribeAvailabilityZones
     -- ** Request constructor
-    , describeAvailabilityZones
+    , mkDescribeAvailabilityZonesRequest
     -- ** Request lenses
-    , dazrFilters
     , dazrZoneNames
+    , dazrFilters
 
     -- * Response
     , DescribeAvailabilityZonesResponse
@@ -64,24 +64,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAvailabilityZones' request.
-describeAvailabilityZones :: DescribeAvailabilityZones
-describeAvailabilityZones = DescribeAvailabilityZones
-    { _dazrFilters = mempty
-    , _dazrZoneNames = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAvailabilityZones' request.
+mkDescribeAvailabilityZonesRequest :: DescribeAvailabilityZones
+mkDescribeAvailabilityZonesRequest = DescribeAvailabilityZones
+    { _dazrZoneNames = mempty
+    , _dazrFilters = mempty
     }
-{-# INLINE describeAvailabilityZones #-}
+{-# INLINE mkDescribeAvailabilityZonesRequest #-}
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
-    { _dazrFilters :: [Filter]
+    { _dazrZoneNames :: [Text]
+      -- ^ The names of one or more Availability Zones.
+    , _dazrFilters :: [Filter]
       -- ^ One or more filters. message - Information about the Availability
       -- Zone. region-name - The name of the region for the Availability
       -- Zone (for example, us-east-1). state - The state of the
       -- Availability Zone (available | impaired | unavailable). zone-name
       -- - The name of the Availability Zone (for example, us-east-1a).
-    , _dazrZoneNames :: [Text]
-      -- ^ The names of one or more Availability Zones.
     } deriving (Show, Generic)
+
+-- | The names of one or more Availability Zones.
+dazrZoneNames :: Lens' DescribeAvailabilityZones ([Text])
+dazrZoneNames = lens _dazrZoneNames (\s a -> s { _dazrZoneNames = a })
+{-# INLINE dazrZoneNames #-}
 
 -- | One or more filters. message - Information about the Availability Zone.
 -- region-name - The name of the region for the Availability Zone (for
@@ -89,31 +95,20 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 -- | impaired | unavailable). zone-name - The name of the Availability Zone
 -- (for example, us-east-1a).
 dazrFilters :: Lens' DescribeAvailabilityZones ([Filter])
-dazrFilters f x =
-    f (_dazrFilters x)
-        <&> \y -> x { _dazrFilters = y }
+dazrFilters = lens _dazrFilters (\s a -> s { _dazrFilters = a })
 {-# INLINE dazrFilters #-}
-
--- | The names of one or more Availability Zones.
-dazrZoneNames :: Lens' DescribeAvailabilityZones ([Text])
-dazrZoneNames f x =
-    f (_dazrZoneNames x)
-        <&> \y -> x { _dazrZoneNames = y }
-{-# INLINE dazrZoneNames #-}
 
 instance ToQuery DescribeAvailabilityZones where
     toQuery = genericQuery def
 
-data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
+newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazsAvailabilityZones :: [AvailabilityZone]
       -- ^ Information about one or more Availability Zones.
     } deriving (Show, Generic)
 
 -- | Information about one or more Availability Zones.
 dazsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse ([AvailabilityZone])
-dazsAvailabilityZones f x =
-    f (_dazsAvailabilityZones x)
-        <&> \y -> x { _dazsAvailabilityZones = y }
+dazsAvailabilityZones = lens _dazsAvailabilityZones (\s a -> s { _dazsAvailabilityZones = a })
 {-# INLINE dazsAvailabilityZones #-}
 
 instance FromXML DescribeAvailabilityZonesResponse where

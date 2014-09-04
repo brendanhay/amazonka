@@ -32,11 +32,11 @@ module Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering
     -- * Request
       PurchaseReservedCacheNodesOffering
     -- ** Request constructor
-    , purchaseReservedCacheNodesOffering
+    , mkPurchaseReservedCacheNodesOfferingMessage
     -- ** Request lenses
     , prcnomReservedCacheNodesOfferingId
-    , prcnomCacheNodeCount
     , prcnomReservedCacheNodeId
+    , prcnomCacheNodeCount
 
     -- * Response
     , PurchaseReservedCacheNodesOfferingResponse
@@ -48,54 +48,49 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PurchaseReservedCacheNodesOffering' request.
-purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
-                                   -> PurchaseReservedCacheNodesOffering
-purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedCacheNodesOffering' request.
+mkPurchaseReservedCacheNodesOfferingMessage :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
+                                            -> PurchaseReservedCacheNodesOffering
+mkPurchaseReservedCacheNodesOfferingMessage p1 = PurchaseReservedCacheNodesOffering
     { _prcnomReservedCacheNodesOfferingId = p1
-    , _prcnomCacheNodeCount = Nothing
     , _prcnomReservedCacheNodeId = Nothing
+    , _prcnomCacheNodeCount = Nothing
     }
-{-# INLINE purchaseReservedCacheNodesOffering #-}
+{-# INLINE mkPurchaseReservedCacheNodesOfferingMessage #-}
 
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnomReservedCacheNodesOfferingId :: Text
       -- ^ The ID of the reserved cache node offering to purchase. Example:
       -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-    , _prcnomCacheNodeCount :: Maybe Integer
-      -- ^ The number of cache node instances to reserve. Default: 1.
     , _prcnomReservedCacheNodeId :: Maybe Text
       -- ^ A customer-specified identifier to track this reservation.
       -- Example: myreservationID.
+    , _prcnomCacheNodeCount :: Maybe Integer
+      -- ^ The number of cache node instances to reserve. Default: 1.
     } deriving (Show, Generic)
 
 -- | The ID of the reserved cache node offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
 prcnomReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering (Text)
-prcnomReservedCacheNodesOfferingId f x =
-    f (_prcnomReservedCacheNodesOfferingId x)
-        <&> \y -> x { _prcnomReservedCacheNodesOfferingId = y }
+prcnomReservedCacheNodesOfferingId = lens _prcnomReservedCacheNodesOfferingId (\s a -> s { _prcnomReservedCacheNodesOfferingId = a })
 {-# INLINE prcnomReservedCacheNodesOfferingId #-}
-
--- | The number of cache node instances to reserve. Default: 1.
-prcnomCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Integer)
-prcnomCacheNodeCount f x =
-    f (_prcnomCacheNodeCount x)
-        <&> \y -> x { _prcnomCacheNodeCount = y }
-{-# INLINE prcnomCacheNodeCount #-}
 
 -- | A customer-specified identifier to track this reservation. Example:
 -- myreservationID.
 prcnomReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
-prcnomReservedCacheNodeId f x =
-    f (_prcnomReservedCacheNodeId x)
-        <&> \y -> x { _prcnomReservedCacheNodeId = y }
+prcnomReservedCacheNodeId = lens _prcnomReservedCacheNodeId (\s a -> s { _prcnomReservedCacheNodeId = a })
 {-# INLINE prcnomReservedCacheNodeId #-}
+
+-- | The number of cache node instances to reserve. Default: 1.
+prcnomCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Integer)
+prcnomCacheNodeCount = lens _prcnomCacheNodeCount (\s a -> s { _prcnomCacheNodeCount = a })
+{-# INLINE prcnomCacheNodeCount #-}
 
 instance ToQuery PurchaseReservedCacheNodesOffering where
     toQuery = genericQuery def
 
-data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
+newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _rcnwReservedCacheNode :: Maybe ReservedCacheNode
       -- ^ Represents the output of a PurchaseReservedCacheNodesOffering
       -- operation.
@@ -103,9 +98,7 @@ data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOffe
 
 -- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
 rcnwReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
-rcnwReservedCacheNode f x =
-    f (_rcnwReservedCacheNode x)
-        <&> \y -> x { _rcnwReservedCacheNode = y }
+rcnwReservedCacheNode = lens _rcnwReservedCacheNode (\s a -> s { _rcnwReservedCacheNode = a })
 {-# INLINE rcnwReservedCacheNode #-}
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where

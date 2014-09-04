@@ -48,15 +48,15 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory
     -- * Request
       DescribeSpotPriceHistory
     -- ** Request constructor
-    , describeSpotPriceHistory
+    , mkDescribeSpotPriceHistoryRequest
     -- ** Request lenses
     , dsphrStartTime
     , dsphrEndTime
-    , dsphrFilters
     , dsphrInstanceTypes
-    , dsphrMaxResults
     , dsphrProductDescriptions
+    , dsphrFilters
     , dsphrAvailabilityZone
+    , dsphrMaxResults
     , dsphrNextToken
 
     -- * Response
@@ -70,25 +70,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeSpotPriceHistory' request.
-describeSpotPriceHistory :: DescribeSpotPriceHistory
-describeSpotPriceHistory = DescribeSpotPriceHistory
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSpotPriceHistory' request.
+mkDescribeSpotPriceHistoryRequest :: DescribeSpotPriceHistory
+mkDescribeSpotPriceHistoryRequest = DescribeSpotPriceHistory
     { _dsphrStartTime = Nothing
     , _dsphrEndTime = Nothing
-    , _dsphrFilters = mempty
     , _dsphrInstanceTypes = mempty
-    , _dsphrMaxResults = Nothing
     , _dsphrProductDescriptions = mempty
+    , _dsphrFilters = mempty
     , _dsphrAvailabilityZone = Nothing
+    , _dsphrMaxResults = Nothing
     , _dsphrNextToken = Nothing
     }
-{-# INLINE describeSpotPriceHistory #-}
+{-# INLINE mkDescribeSpotPriceHistoryRequest #-}
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphrStartTime :: Maybe ISO8601
       -- ^ The start date and time of the Spot Price history data.
     , _dsphrEndTime :: Maybe ISO8601
       -- ^ The end date and time of the Spot Price history data.
+    , _dsphrInstanceTypes :: [InstanceType]
+      -- ^ One or more instance types.
+    , _dsphrProductDescriptions :: [Text]
+      -- ^ One or more basic product descriptions.
     , _dsphrFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
       -- for which prices should be returned. instance-type - The type of
@@ -101,31 +106,33 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
       -- Spot Price history (for example, 2010-08-16T05:06:11.000Z). You
       -- can use wildcards (* and ?). Greater than or less than comparison
       -- is not supported.
-    , _dsphrInstanceTypes :: [InstanceType]
-      -- ^ One or more instance types.
-    , _dsphrMaxResults :: Maybe Integer
-      -- ^ The number of rows to return.
-    , _dsphrProductDescriptions :: [Text]
-      -- ^ One or more basic product descriptions.
     , _dsphrAvailabilityZone :: Maybe Text
       -- ^ The Availability Zone.
+    , _dsphrMaxResults :: Maybe Integer
+      -- ^ The number of rows to return.
     , _dsphrNextToken :: Maybe Text
       -- ^ The next set of rows to return.
     } deriving (Show, Generic)
 
 -- | The start date and time of the Spot Price history data.
 dsphrStartTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
-dsphrStartTime f x =
-    f (_dsphrStartTime x)
-        <&> \y -> x { _dsphrStartTime = y }
+dsphrStartTime = lens _dsphrStartTime (\s a -> s { _dsphrStartTime = a })
 {-# INLINE dsphrStartTime #-}
 
 -- | The end date and time of the Spot Price history data.
 dsphrEndTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
-dsphrEndTime f x =
-    f (_dsphrEndTime x)
-        <&> \y -> x { _dsphrEndTime = y }
+dsphrEndTime = lens _dsphrEndTime (\s a -> s { _dsphrEndTime = a })
 {-# INLINE dsphrEndTime #-}
+
+-- | One or more instance types.
+dsphrInstanceTypes :: Lens' DescribeSpotPriceHistory ([InstanceType])
+dsphrInstanceTypes = lens _dsphrInstanceTypes (\s a -> s { _dsphrInstanceTypes = a })
+{-# INLINE dsphrInstanceTypes #-}
+
+-- | One or more basic product descriptions.
+dsphrProductDescriptions :: Lens' DescribeSpotPriceHistory ([Text])
+dsphrProductDescriptions = lens _dsphrProductDescriptions (\s a -> s { _dsphrProductDescriptions = a })
+{-# INLINE dsphrProductDescriptions #-}
 
 -- | One or more filters. availability-zone - The Availability Zone for which
 -- prices should be returned. instance-type - The type of instance (for
@@ -137,44 +144,22 @@ dsphrEndTime f x =
 -- Price history (for example, 2010-08-16T05:06:11.000Z). You can use
 -- wildcards (* and ?). Greater than or less than comparison is not supported.
 dsphrFilters :: Lens' DescribeSpotPriceHistory ([Filter])
-dsphrFilters f x =
-    f (_dsphrFilters x)
-        <&> \y -> x { _dsphrFilters = y }
+dsphrFilters = lens _dsphrFilters (\s a -> s { _dsphrFilters = a })
 {-# INLINE dsphrFilters #-}
-
--- | One or more instance types.
-dsphrInstanceTypes :: Lens' DescribeSpotPriceHistory ([InstanceType])
-dsphrInstanceTypes f x =
-    f (_dsphrInstanceTypes x)
-        <&> \y -> x { _dsphrInstanceTypes = y }
-{-# INLINE dsphrInstanceTypes #-}
-
--- | The number of rows to return.
-dsphrMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Integer)
-dsphrMaxResults f x =
-    f (_dsphrMaxResults x)
-        <&> \y -> x { _dsphrMaxResults = y }
-{-# INLINE dsphrMaxResults #-}
-
--- | One or more basic product descriptions.
-dsphrProductDescriptions :: Lens' DescribeSpotPriceHistory ([Text])
-dsphrProductDescriptions f x =
-    f (_dsphrProductDescriptions x)
-        <&> \y -> x { _dsphrProductDescriptions = y }
-{-# INLINE dsphrProductDescriptions #-}
 
 -- | The Availability Zone.
 dsphrAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
-dsphrAvailabilityZone f x =
-    f (_dsphrAvailabilityZone x)
-        <&> \y -> x { _dsphrAvailabilityZone = y }
+dsphrAvailabilityZone = lens _dsphrAvailabilityZone (\s a -> s { _dsphrAvailabilityZone = a })
 {-# INLINE dsphrAvailabilityZone #-}
+
+-- | The number of rows to return.
+dsphrMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Integer)
+dsphrMaxResults = lens _dsphrMaxResults (\s a -> s { _dsphrMaxResults = a })
+{-# INLINE dsphrMaxResults #-}
 
 -- | The next set of rows to return.
 dsphrNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
-dsphrNextToken f x =
-    f (_dsphrNextToken x)
-        <&> \y -> x { _dsphrNextToken = y }
+dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 {-# INLINE dsphrNextToken #-}
 
 instance ToQuery DescribeSpotPriceHistory where
@@ -190,17 +175,13 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 
 -- | The historical Spot Prices.
 dsphsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse ([SpotPrice])
-dsphsSpotPriceHistory f x =
-    f (_dsphsSpotPriceHistory x)
-        <&> \y -> x { _dsphsSpotPriceHistory = y }
+dsphsSpotPriceHistory = lens _dsphsSpotPriceHistory (\s a -> s { _dsphsSpotPriceHistory = a })
 {-# INLINE dsphsSpotPriceHistory #-}
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
 dsphsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
-dsphsNextToken f x =
-    f (_dsphsNextToken x)
-        <&> \y -> x { _dsphsNextToken = y }
+dsphsNextToken = lens _dsphsNextToken (\s a -> s { _dsphsNextToken = a })
 {-# INLINE dsphsNextToken #-}
 
 instance FromXML DescribeSpotPriceHistoryResponse where

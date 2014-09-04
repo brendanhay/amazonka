@@ -25,7 +25,7 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies
     -- * Request
       UpdateServiceAccessPolicies
     -- ** Request constructor
-    , updateServiceAccessPolicies
+    , mkUpdateServiceAccessPoliciesRequest
     -- ** Request lenses
     , usaprDomainName
     , usaprAccessPolicies
@@ -40,15 +40,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateServiceAccessPolicies' request.
-updateServiceAccessPolicies :: Text -- ^ 'usaprDomainName'
-                            -> Text -- ^ 'usaprAccessPolicies'
-                            -> UpdateServiceAccessPolicies
-updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateServiceAccessPolicies' request.
+mkUpdateServiceAccessPoliciesRequest :: Text -- ^ 'usaprDomainName'
+                                     -> Text -- ^ 'usaprAccessPolicies'
+                                     -> UpdateServiceAccessPolicies
+mkUpdateServiceAccessPoliciesRequest p1 p2 = UpdateServiceAccessPolicies
     { _usaprDomainName = p1
     , _usaprAccessPolicies = p2
     }
-{-# INLINE updateServiceAccessPolicies #-}
+{-# INLINE mkUpdateServiceAccessPoliciesRequest #-}
 
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usaprDomainName :: Text
@@ -67,32 +68,26 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 usaprDomainName :: Lens' UpdateServiceAccessPolicies (Text)
-usaprDomainName f x =
-    f (_usaprDomainName x)
-        <&> \y -> x { _usaprDomainName = y }
+usaprDomainName = lens _usaprDomainName (\s a -> s { _usaprDomainName = a })
 {-# INLINE usaprDomainName #-}
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
 usaprAccessPolicies :: Lens' UpdateServiceAccessPolicies (Text)
-usaprAccessPolicies f x =
-    f (_usaprAccessPolicies x)
-        <&> \y -> x { _usaprAccessPolicies = y }
+usaprAccessPolicies = lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
 {-# INLINE usaprAccessPolicies #-}
 
 instance ToQuery UpdateServiceAccessPolicies where
     toQuery = genericQuery def
 
-data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
+newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usapsAccessPolicies :: AccessPoliciesStatus
       -- ^ The access rules configured for the domain.
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain.
 usapsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse (AccessPoliciesStatus)
-usapsAccessPolicies f x =
-    f (_usapsAccessPolicies x)
-        <&> \y -> x { _usapsAccessPolicies = y }
+usapsAccessPolicies = lens _usapsAccessPolicies (\s a -> s { _usapsAccessPolicies = a })
 {-# INLINE usapsAccessPolicies #-}
 
 instance FromXML UpdateServiceAccessPoliciesResponse where

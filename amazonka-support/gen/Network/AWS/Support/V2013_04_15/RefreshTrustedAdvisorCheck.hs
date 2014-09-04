@@ -30,7 +30,7 @@ module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
     -- * Request
       RefreshTrustedAdvisorCheck
     -- ** Request constructor
-    , refreshTrustedAdvisorCheck
+    , mkRefreshTrustedAdvisorCheckRequest
     -- ** Request lenses
     , rtacrCheckId
 
@@ -45,24 +45,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RefreshTrustedAdvisorCheck' request.
-refreshTrustedAdvisorCheck :: Text -- ^ 'rtacrCheckId'
-                           -> RefreshTrustedAdvisorCheck
-refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RefreshTrustedAdvisorCheck' request.
+mkRefreshTrustedAdvisorCheckRequest :: Text -- ^ 'rtacrCheckId'
+                                    -> RefreshTrustedAdvisorCheck
+mkRefreshTrustedAdvisorCheckRequest p1 = RefreshTrustedAdvisorCheck
     { _rtacrCheckId = p1
     }
-{-# INLINE refreshTrustedAdvisorCheck #-}
+{-# INLINE mkRefreshTrustedAdvisorCheckRequest #-}
 
-data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
+newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacrCheckId :: Text
       -- ^ The unique identifier for the Trusted Advisor check.
     } deriving (Show, Generic)
 
 -- | The unique identifier for the Trusted Advisor check.
 rtacrCheckId :: Lens' RefreshTrustedAdvisorCheck (Text)
-rtacrCheckId f x =
-    f (_rtacrCheckId x)
-        <&> \y -> x { _rtacrCheckId = y }
+rtacrCheckId = lens _rtacrCheckId (\s a -> s { _rtacrCheckId = a })
 {-# INLINE rtacrCheckId #-}
 
 instance ToPath RefreshTrustedAdvisorCheck
@@ -73,7 +72,7 @@ instance ToHeaders RefreshTrustedAdvisorCheck
 
 instance ToJSON RefreshTrustedAdvisorCheck
 
-data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
+newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacsStatus :: TrustedAdvisorCheckRefreshStatus
       -- ^ The current refresh status for a check, including the amount of
       -- time until the check is eligible for refresh.
@@ -82,9 +81,7 @@ data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
 -- | The current refresh status for a check, including the amount of time until
 -- the check is eligible for refresh.
 rtacsStatus :: Lens' RefreshTrustedAdvisorCheckResponse (TrustedAdvisorCheckRefreshStatus)
-rtacsStatus f x =
-    f (_rtacsStatus x)
-        <&> \y -> x { _rtacsStatus = y }
+rtacsStatus = lens _rtacsStatus (\s a -> s { _rtacsStatus = a })
 {-# INLINE rtacsStatus #-}
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse

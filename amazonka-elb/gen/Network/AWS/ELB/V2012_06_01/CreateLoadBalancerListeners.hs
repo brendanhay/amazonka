@@ -36,7 +36,7 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners
     -- * Request
       CreateLoadBalancerListeners
     -- ** Request constructor
-    , createLoadBalancerListeners
+    , mkCreateLoadBalancerListenerInput
     -- ** Request lenses
     , clbliLoadBalancerName
     , clbliListeners
@@ -49,15 +49,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateLoadBalancerListeners' request.
-createLoadBalancerListeners :: Text -- ^ 'clbliLoadBalancerName'
-                            -> [Listener] -- ^ 'clbliListeners'
-                            -> CreateLoadBalancerListeners
-createLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoadBalancerListeners' request.
+mkCreateLoadBalancerListenerInput :: Text -- ^ 'clbliLoadBalancerName'
+                                  -> [Listener] -- ^ 'clbliListeners'
+                                  -> CreateLoadBalancerListeners
+mkCreateLoadBalancerListenerInput p1 p2 = CreateLoadBalancerListeners
     { _clbliLoadBalancerName = p1
     , _clbliListeners = p2
     }
-{-# INLINE createLoadBalancerListeners #-}
+{-# INLINE mkCreateLoadBalancerListenerInput #-}
 
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { _clbliLoadBalancerName :: Text
@@ -69,23 +70,18 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
 
 -- | The name of the load balancer.
 clbliLoadBalancerName :: Lens' CreateLoadBalancerListeners (Text)
-clbliLoadBalancerName f x =
-    f (_clbliLoadBalancerName x)
-        <&> \y -> x { _clbliLoadBalancerName = y }
+clbliLoadBalancerName = lens _clbliLoadBalancerName (\s a -> s { _clbliLoadBalancerName = a })
 {-# INLINE clbliLoadBalancerName #-}
 
 -- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
 -- SSLCertificateId items.
 clbliListeners :: Lens' CreateLoadBalancerListeners ([Listener])
-clbliListeners f x =
-    f (_clbliListeners x)
-        <&> \y -> x { _clbliListeners = y }
+clbliListeners = lens _clbliListeners (\s a -> s { _clbliListeners = a })
 {-# INLINE clbliListeners #-}
 
 instance ToQuery CreateLoadBalancerListeners where
     toQuery = genericQuery def
 
-data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLoadBalancerListeners where

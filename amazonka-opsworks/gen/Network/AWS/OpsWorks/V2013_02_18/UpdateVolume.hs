@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateVolume
     -- * Request
       UpdateVolume
     -- ** Request constructor
-    , updateVolume
+    , mkUpdateVolumeRequest
     -- ** Request lenses
     , uvsVolumeId
     , uvsName
@@ -42,15 +42,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateVolume' request.
-updateVolume :: Text -- ^ 'uvsVolumeId'
-             -> UpdateVolume
-updateVolume p1 = UpdateVolume
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateVolume' request.
+mkUpdateVolumeRequest :: Text -- ^ 'uvsVolumeId'
+                      -> UpdateVolume
+mkUpdateVolumeRequest p1 = UpdateVolume
     { _uvsVolumeId = p1
     , _uvsName = Nothing
     , _uvsMountPoint = Nothing
     }
-{-# INLINE updateVolume #-}
+{-# INLINE mkUpdateVolumeRequest #-}
 
 data UpdateVolume = UpdateVolume
     { _uvsVolumeId :: Text
@@ -63,23 +64,17 @@ data UpdateVolume = UpdateVolume
 
 -- | The volume ID.
 uvsVolumeId :: Lens' UpdateVolume (Text)
-uvsVolumeId f x =
-    f (_uvsVolumeId x)
-        <&> \y -> x { _uvsVolumeId = y }
+uvsVolumeId = lens _uvsVolumeId (\s a -> s { _uvsVolumeId = a })
 {-# INLINE uvsVolumeId #-}
 
 -- | The new name.
 uvsName :: Lens' UpdateVolume (Maybe Text)
-uvsName f x =
-    f (_uvsName x)
-        <&> \y -> x { _uvsName = y }
+uvsName = lens _uvsName (\s a -> s { _uvsName = a })
 {-# INLINE uvsName #-}
 
 -- | The new mount point.
 uvsMountPoint :: Lens' UpdateVolume (Maybe Text)
-uvsMountPoint f x =
-    f (_uvsMountPoint x)
-        <&> \y -> x { _uvsMountPoint = y }
+uvsMountPoint = lens _uvsMountPoint (\s a -> s { _uvsMountPoint = a })
 {-# INLINE uvsMountPoint #-}
 
 instance ToPath UpdateVolume

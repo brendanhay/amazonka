@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnConnection
     -- * Request
       DeleteVpnConnection
     -- ** Request constructor
-    , deleteVpnConnection
+    , mkDeleteVpnConnectionRequest
     -- ** Request lenses
     , dvcrVpnConnectionId
 
@@ -44,24 +44,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteVpnConnection' request.
-deleteVpnConnection :: Text -- ^ 'dvcrVpnConnectionId'
-                    -> DeleteVpnConnection
-deleteVpnConnection p1 = DeleteVpnConnection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpnConnection' request.
+mkDeleteVpnConnectionRequest :: Text -- ^ 'dvcrVpnConnectionId'
+                             -> DeleteVpnConnection
+mkDeleteVpnConnectionRequest p1 = DeleteVpnConnection
     { _dvcrVpnConnectionId = p1
     }
-{-# INLINE deleteVpnConnection #-}
+{-# INLINE mkDeleteVpnConnectionRequest #-}
 
-data DeleteVpnConnection = DeleteVpnConnection
+newtype DeleteVpnConnection = DeleteVpnConnection
     { _dvcrVpnConnectionId :: Text
       -- ^ The ID of the VPN connection.
     } deriving (Show, Generic)
 
 -- | The ID of the VPN connection.
 dvcrVpnConnectionId :: Lens' DeleteVpnConnection (Text)
-dvcrVpnConnectionId f x =
-    f (_dvcrVpnConnectionId x)
-        <&> \y -> x { _dvcrVpnConnectionId = y }
+dvcrVpnConnectionId = lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
 {-# INLINE dvcrVpnConnectionId #-}
 
 instance ToQuery DeleteVpnConnection where

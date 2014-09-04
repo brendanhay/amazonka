@@ -66,36 +66,39 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus
     -- * Request
       DescribeVolumeStatus
     -- ** Request constructor
-    , describeVolumeStatus
+    , mkDescribeVolumeStatusRequest
     -- ** Request lenses
-    , dvsrFilters
-    , dvsrMaxResults
-    , dvsrNextToken
     , dvsrVolumeIds
+    , dvsrFilters
+    , dvsrNextToken
+    , dvsrMaxResults
 
     -- * Response
     , DescribeVolumeStatusResponse
     -- ** Response lenses
-    , dvssNextToken
     , dvssVolumeStatuses
+    , dvssNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeVolumeStatus' request.
-describeVolumeStatus :: DescribeVolumeStatus
-describeVolumeStatus = DescribeVolumeStatus
-    { _dvsrFilters = mempty
-    , _dvsrMaxResults = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumeStatus' request.
+mkDescribeVolumeStatusRequest :: DescribeVolumeStatus
+mkDescribeVolumeStatusRequest = DescribeVolumeStatus
+    { _dvsrVolumeIds = mempty
+    , _dvsrFilters = mempty
     , _dvsrNextToken = Nothing
-    , _dvsrVolumeIds = mempty
+    , _dvsrMaxResults = Nothing
     }
-{-# INLINE describeVolumeStatus #-}
+{-# INLINE mkDescribeVolumeStatusRequest #-}
 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsrFilters :: [Filter]
+    { _dvsrVolumeIds :: [Text]
+      -- ^ One or more volume IDs. Default: Describes all your volumes.
+    , _dvsrFilters :: [Filter]
       -- ^ One or more filters. action.code - The action code for the event
       -- (for example, enable-volume-io). action.description - A
       -- description of the action. action.event-id - The event ID
@@ -113,14 +116,17 @@ data DescribeVolumeStatus = DescribeVolumeStatus
       -- io-performance: normal | degraded | severely-degraded | stalled).
       -- volume-status.status - The status of the volume (ok | impaired |
       -- warning | insufficient-data).
-    , _dvsrMaxResults :: Maybe Integer
-      -- ^ The maximum number of paginated volume items per response.
     , _dvsrNextToken :: Maybe Text
       -- ^ The next paginated set of results to return using the pagination
       -- token returned by a previous call.
-    , _dvsrVolumeIds :: [Text]
-      -- ^ One or more volume IDs. Default: Describes all your volumes.
+    , _dvsrMaxResults :: Maybe Integer
+      -- ^ The maximum number of paginated volume items per response.
     } deriving (Show, Generic)
+
+-- | One or more volume IDs. Default: Describes all your volumes.
+dvsrVolumeIds :: Lens' DescribeVolumeStatus ([Text])
+dvsrVolumeIds = lens _dvsrVolumeIds (\s a -> s { _dvsrVolumeIds = a })
+{-# INLINE dvsrVolumeIds #-}
 
 -- | One or more filters. action.code - The action code for the event (for
 -- example, enable-volume-io). action.description - A description of the
@@ -138,56 +144,39 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 -- volume-status.status - The status of the volume (ok | impaired | warning |
 -- insufficient-data).
 dvsrFilters :: Lens' DescribeVolumeStatus ([Filter])
-dvsrFilters f x =
-    f (_dvsrFilters x)
-        <&> \y -> x { _dvsrFilters = y }
+dvsrFilters = lens _dvsrFilters (\s a -> s { _dvsrFilters = a })
 {-# INLINE dvsrFilters #-}
-
--- | The maximum number of paginated volume items per response.
-dvsrMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
-dvsrMaxResults f x =
-    f (_dvsrMaxResults x)
-        <&> \y -> x { _dvsrMaxResults = y }
-{-# INLINE dvsrMaxResults #-}
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
 dvsrNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
-dvsrNextToken f x =
-    f (_dvsrNextToken x)
-        <&> \y -> x { _dvsrNextToken = y }
+dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 {-# INLINE dvsrNextToken #-}
 
--- | One or more volume IDs. Default: Describes all your volumes.
-dvsrVolumeIds :: Lens' DescribeVolumeStatus ([Text])
-dvsrVolumeIds f x =
-    f (_dvsrVolumeIds x)
-        <&> \y -> x { _dvsrVolumeIds = y }
-{-# INLINE dvsrVolumeIds #-}
+-- | The maximum number of paginated volume items per response.
+dvsrMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
+dvsrMaxResults = lens _dvsrMaxResults (\s a -> s { _dvsrMaxResults = a })
+{-# INLINE dvsrMaxResults #-}
 
 instance ToQuery DescribeVolumeStatus where
     toQuery = genericQuery def
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { _dvssNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return.
-    , _dvssVolumeStatuses :: [VolumeStatusItem]
+    { _dvssVolumeStatuses :: [VolumeStatusItem]
       -- ^ A list of volumes.
+    , _dvssNextToken :: Maybe Text
+      -- ^ The next paginated set of results to return.
     } deriving (Show, Generic)
-
--- | The next paginated set of results to return.
-dvssNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
-dvssNextToken f x =
-    f (_dvssNextToken x)
-        <&> \y -> x { _dvssNextToken = y }
-{-# INLINE dvssNextToken #-}
 
 -- | A list of volumes.
 dvssVolumeStatuses :: Lens' DescribeVolumeStatusResponse ([VolumeStatusItem])
-dvssVolumeStatuses f x =
-    f (_dvssVolumeStatuses x)
-        <&> \y -> x { _dvssVolumeStatuses = y }
+dvssVolumeStatuses = lens _dvssVolumeStatuses (\s a -> s { _dvssVolumeStatuses = a })
 {-# INLINE dvssVolumeStatuses #-}
+
+-- | The next paginated set of results to return.
+dvssNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
+dvssNextToken = lens _dvssNextToken (\s a -> s { _dvssNextToken = a })
+{-# INLINE dvssNextToken #-}
 
 instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions

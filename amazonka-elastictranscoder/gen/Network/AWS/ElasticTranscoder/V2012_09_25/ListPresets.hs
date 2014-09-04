@@ -44,7 +44,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
     -- * Request
       ListPresets
     -- ** Request constructor
-    , listPresets
+    , mkListPresetsRequest
     -- ** Request lenses
     , lptAscending
     , lptPageToken
@@ -52,8 +52,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
     -- * Response
     , ListPresetsResponse
     -- ** Response lenses
-    , lpuNextPageToken
     , lpuPresets
+    , lpuNextPageToken
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -61,13 +61,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListPresets' request.
-listPresets :: ListPresets
-listPresets = ListPresets
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPresets' request.
+mkListPresetsRequest :: ListPresets
+mkListPresetsRequest = ListPresets
     { _lptAscending = Nothing
     , _lptPageToken = Nothing
     }
-{-# INLINE listPresets #-}
+{-# INLINE mkListPresetsRequest #-}
 
 data ListPresets = ListPresets
     { _lptAscending :: Maybe Text
@@ -84,18 +85,14 @@ data ListPresets = ListPresets
 -- created, enter true. To list presets in reverse chronological order, enter
 -- false.
 lptAscending :: Lens' ListPresets (Maybe Text)
-lptAscending f x =
-    f (_lptAscending x)
-        <&> \y -> x { _lptAscending = y }
+lptAscending = lens _lptAscending (\s a -> s { _lptAscending = a })
 {-# INLINE lptAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
 lptPageToken :: Lens' ListPresets (Maybe Text)
-lptPageToken f x =
-    f (_lptPageToken x)
-        <&> \y -> x { _lptPageToken = y }
+lptPageToken = lens _lptPageToken (\s a -> s { _lptPageToken = a })
 {-# INLINE lptPageToken #-}
 
 instance ToPath ListPresets where
@@ -112,30 +109,26 @@ instance ToHeaders ListPresets
 instance ToJSON ListPresets
 
 data ListPresetsResponse = ListPresetsResponse
-    { _lpuNextPageToken :: Maybe Text
+    { _lpuPresets :: [Preset]
+      -- ^ An array of Preset objects.
+    , _lpuNextPageToken :: Maybe Text
       -- ^ A value that you use to access the second and subsequent pages of
       -- results, if any. When the presets fit on one page or when you've
       -- reached the last page of results, the value of NextPageToken is
       -- null.
-    , _lpuPresets :: [Preset]
-      -- ^ An array of Preset objects.
     } deriving (Show, Generic)
+
+-- | An array of Preset objects.
+lpuPresets :: Lens' ListPresetsResponse ([Preset])
+lpuPresets = lens _lpuPresets (\s a -> s { _lpuPresets = a })
+{-# INLINE lpuPresets #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the presets fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
 lpuNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
-lpuNextPageToken f x =
-    f (_lpuNextPageToken x)
-        <&> \y -> x { _lpuNextPageToken = y }
+lpuNextPageToken = lens _lpuNextPageToken (\s a -> s { _lpuNextPageToken = a })
 {-# INLINE lpuNextPageToken #-}
-
--- | An array of Preset objects.
-lpuPresets :: Lens' ListPresetsResponse ([Preset])
-lpuPresets f x =
-    f (_lpuPresets x)
-        <&> \y -> x { _lpuPresets = y }
-{-# INLINE lpuPresets #-}
 
 instance FromJSON ListPresetsResponse
 

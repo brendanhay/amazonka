@@ -54,13 +54,13 @@ module Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
     -- * Request
       CountOpenWorkflowExecutions
     -- ** Request constructor
-    , countOpenWorkflowExecutions
+    , mkCountOpenWorkflowExecutionsInput
     -- ** Request lenses
     , coweiDomain
     , coweiStartTimeFilter
+    , coweiTypeFilter
     , coweiTagFilter
     , coweiExecutionFilter
-    , coweiTypeFilter
 
     -- * Response
     , CountOpenWorkflowExecutionsResponse
@@ -74,18 +74,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CountOpenWorkflowExecutions' request.
-countOpenWorkflowExecutions :: Text -- ^ 'coweiDomain'
-                            -> ExecutionTimeFilter -- ^ 'coweiStartTimeFilter'
-                            -> CountOpenWorkflowExecutions
-countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountOpenWorkflowExecutions' request.
+mkCountOpenWorkflowExecutionsInput :: Text -- ^ 'coweiDomain'
+                                   -> ExecutionTimeFilter -- ^ 'coweiStartTimeFilter'
+                                   -> CountOpenWorkflowExecutions
+mkCountOpenWorkflowExecutionsInput p1 p2 = CountOpenWorkflowExecutions
     { _coweiDomain = p1
     , _coweiStartTimeFilter = p2
+    , _coweiTypeFilter = Nothing
     , _coweiTagFilter = Nothing
     , _coweiExecutionFilter = Nothing
-    , _coweiTypeFilter = Nothing
     }
-{-# INLINE countOpenWorkflowExecutions #-}
+{-# INLINE mkCountOpenWorkflowExecutionsInput #-}
 
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
     { _coweiDomain :: Text
@@ -94,6 +95,10 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
     , _coweiStartTimeFilter :: ExecutionTimeFilter
       -- ^ Specifies the start time criteria that workflow executions must
       -- meet in order to be counted.
+    , _coweiTypeFilter :: Maybe WorkflowTypeFilter
+      -- ^ Specifies the type of the workflow executions to be counted.
+      -- executionFilter, typeFilter and tagFilter are mutually exclusive.
+      -- You can specify at most one of these in a request.
     , _coweiTagFilter :: Maybe TagFilter
       -- ^ If specified, only executions that have a tag that matches the
       -- filter are counted. executionFilter, typeFilter and tagFilter are
@@ -104,53 +109,39 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
       -- the filter are counted. executionFilter, typeFilter and tagFilter
       -- are mutually exclusive. You can specify at most one of these in a
       -- request.
-    , _coweiTypeFilter :: Maybe WorkflowTypeFilter
-      -- ^ Specifies the type of the workflow executions to be counted.
-      -- executionFilter, typeFilter and tagFilter are mutually exclusive.
-      -- You can specify at most one of these in a request.
     } deriving (Show, Generic)
 
 -- | The name of the domain containing the workflow executions to count.
 coweiDomain :: Lens' CountOpenWorkflowExecutions (Text)
-coweiDomain f x =
-    f (_coweiDomain x)
-        <&> \y -> x { _coweiDomain = y }
+coweiDomain = lens _coweiDomain (\s a -> s { _coweiDomain = a })
 {-# INLINE coweiDomain #-}
 
 -- | Specifies the start time criteria that workflow executions must meet in
 -- order to be counted.
 coweiStartTimeFilter :: Lens' CountOpenWorkflowExecutions (ExecutionTimeFilter)
-coweiStartTimeFilter f x =
-    f (_coweiStartTimeFilter x)
-        <&> \y -> x { _coweiStartTimeFilter = y }
+coweiStartTimeFilter = lens _coweiStartTimeFilter (\s a -> s { _coweiStartTimeFilter = a })
 {-# INLINE coweiStartTimeFilter #-}
+
+-- | Specifies the type of the workflow executions to be counted.
+-- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
+-- specify at most one of these in a request.
+coweiTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
+coweiTypeFilter = lens _coweiTypeFilter (\s a -> s { _coweiTypeFilter = a })
+{-# INLINE coweiTypeFilter #-}
 
 -- | If specified, only executions that have a tag that matches the filter are
 -- counted. executionFilter, typeFilter and tagFilter are mutually exclusive.
 -- You can specify at most one of these in a request.
 coweiTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
-coweiTagFilter f x =
-    f (_coweiTagFilter x)
-        <&> \y -> x { _coweiTagFilter = y }
+coweiTagFilter = lens _coweiTagFilter (\s a -> s { _coweiTagFilter = a })
 {-# INLINE coweiTagFilter #-}
 
 -- | If specified, only workflow executions matching the WorkflowId in the
 -- filter are counted. executionFilter, typeFilter and tagFilter are mutually
 -- exclusive. You can specify at most one of these in a request.
 coweiExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-coweiExecutionFilter f x =
-    f (_coweiExecutionFilter x)
-        <&> \y -> x { _coweiExecutionFilter = y }
+coweiExecutionFilter = lens _coweiExecutionFilter (\s a -> s { _coweiExecutionFilter = a })
 {-# INLINE coweiExecutionFilter #-}
-
--- | Specifies the type of the workflow executions to be counted.
--- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
--- specify at most one of these in a request.
-coweiTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-coweiTypeFilter f x =
-    f (_coweiTypeFilter x)
-        <&> \y -> x { _coweiTypeFilter = y }
-{-# INLINE coweiTypeFilter #-}
 
 instance ToPath CountOpenWorkflowExecutions
 
@@ -171,17 +162,13 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
 
 -- | The number of workflow executions.
 wedCount :: Lens' CountOpenWorkflowExecutionsResponse (Integer)
-wedCount f x =
-    f (_wedCount x)
-        <&> \y -> x { _wedCount = y }
+wedCount = lens _wedCount (\s a -> s { _wedCount = a })
 {-# INLINE wedCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
 wedTruncated :: Lens' CountOpenWorkflowExecutionsResponse (Maybe Bool)
-wedTruncated f x =
-    f (_wedTruncated x)
-        <&> \y -> x { _wedTruncated = y }
+wedTruncated = lens _wedTruncated (\s a -> s { _wedTruncated = a })
 {-# INLINE wedTruncated #-}
 
 instance FromJSON CountOpenWorkflowExecutionsResponse

@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
     -- * Request
       DeleteGateway
     -- ** Request constructor
-    , deleteGateway
+    , mkDeleteGatewayInput
     -- ** Request lenses
     , dgiGatewayARN
 
@@ -62,15 +62,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteGateway' request.
-deleteGateway :: Text -- ^ 'dgiGatewayARN'
-              -> DeleteGateway
-deleteGateway p1 = DeleteGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteGateway' request.
+mkDeleteGatewayInput :: Text -- ^ 'dgiGatewayARN'
+                     -> DeleteGateway
+mkDeleteGatewayInput p1 = DeleteGateway
     { _dgiGatewayARN = p1
     }
-{-# INLINE deleteGateway #-}
+{-# INLINE mkDeleteGatewayInput #-}
 
-data DeleteGateway = DeleteGateway
+newtype DeleteGateway = DeleteGateway
     { _dgiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -80,9 +81,7 @@ data DeleteGateway = DeleteGateway
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dgiGatewayARN :: Lens' DeleteGateway (Text)
-dgiGatewayARN f x =
-    f (_dgiGatewayARN x)
-        <&> \y -> x { _dgiGatewayARN = y }
+dgiGatewayARN = lens _dgiGatewayARN (\s a -> s { _dgiGatewayARN = a })
 {-# INLINE dgiGatewayARN #-}
 
 instance ToPath DeleteGateway
@@ -93,7 +92,7 @@ instance ToHeaders DeleteGateway
 
 instance ToJSON DeleteGateway
 
-data DeleteGatewayResponse = DeleteGatewayResponse
+newtype DeleteGatewayResponse = DeleteGatewayResponse
     { _dgoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -103,9 +102,7 @@ data DeleteGatewayResponse = DeleteGatewayResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dgoGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
-dgoGatewayARN f x =
-    f (_dgoGatewayARN x)
-        <&> \y -> x { _dgoGatewayARN = y }
+dgoGatewayARN = lens _dgoGatewayARN (\s a -> s { _dgoGatewayARN = a })
 {-# INLINE dgoGatewayARN #-}
 
 instance FromJSON DeleteGatewayResponse

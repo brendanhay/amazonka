@@ -49,10 +49,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnConnections
     -- * Request
       DescribeVpnConnections
     -- ** Request constructor
-    , describeVpnConnections
+    , mkDescribeVpnConnectionsRequest
     -- ** Request lenses
-    , dvcsFilters
     , dvcsVpnConnectionIds
+    , dvcsFilters
 
     -- * Response
     , DescribeVpnConnectionsResponse
@@ -64,16 +64,20 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeVpnConnections' request.
-describeVpnConnections :: DescribeVpnConnections
-describeVpnConnections = DescribeVpnConnections
-    { _dvcsFilters = mempty
-    , _dvcsVpnConnectionIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpnConnections' request.
+mkDescribeVpnConnectionsRequest :: DescribeVpnConnections
+mkDescribeVpnConnectionsRequest = DescribeVpnConnections
+    { _dvcsVpnConnectionIds = mempty
+    , _dvcsFilters = mempty
     }
-{-# INLINE describeVpnConnections #-}
+{-# INLINE mkDescribeVpnConnectionsRequest #-}
 
 data DescribeVpnConnections = DescribeVpnConnections
-    { _dvcsFilters :: [Filter]
+    { _dvcsVpnConnectionIds :: [Text]
+      -- ^ One or more VPN connection IDs. Default: Describes your VPN
+      -- connections.
+    , _dvcsFilters :: [Filter]
       -- ^ One or more filters. customer-gateway-configuration - The
       -- configuration information for the customer gateway.
       -- customer-gateway-id - The ID of a customer gateway associated
@@ -98,10 +102,12 @@ data DescribeVpnConnections = DescribeVpnConnections
       -- only supported type is ipsec.1. vpn-connection-id - The ID of the
       -- VPN connection. vpn-gateway-id - The ID of a virtual private
       -- gateway associated with the VPN connection.
-    , _dvcsVpnConnectionIds :: [Text]
-      -- ^ One or more VPN connection IDs. Default: Describes your VPN
-      -- connections.
     } deriving (Show, Generic)
+
+-- | One or more VPN connection IDs. Default: Describes your VPN connections.
+dvcsVpnConnectionIds :: Lens' DescribeVpnConnections ([Text])
+dvcsVpnConnectionIds = lens _dvcsVpnConnectionIds (\s a -> s { _dvcsVpnConnectionIds = a })
+{-# INLINE dvcsVpnConnectionIds #-}
 
 -- | One or more filters. customer-gateway-configuration - The configuration
 -- information for the customer gateway. customer-gateway-id - The ID of a
@@ -125,31 +131,20 @@ data DescribeVpnConnections = DescribeVpnConnections
 -- the VPN connection. vpn-gateway-id - The ID of a virtual private gateway
 -- associated with the VPN connection.
 dvcsFilters :: Lens' DescribeVpnConnections ([Filter])
-dvcsFilters f x =
-    f (_dvcsFilters x)
-        <&> \y -> x { _dvcsFilters = y }
+dvcsFilters = lens _dvcsFilters (\s a -> s { _dvcsFilters = a })
 {-# INLINE dvcsFilters #-}
-
--- | One or more VPN connection IDs. Default: Describes your VPN connections.
-dvcsVpnConnectionIds :: Lens' DescribeVpnConnections ([Text])
-dvcsVpnConnectionIds f x =
-    f (_dvcsVpnConnectionIds x)
-        <&> \y -> x { _dvcsVpnConnectionIds = y }
-{-# INLINE dvcsVpnConnectionIds #-}
 
 instance ToQuery DescribeVpnConnections where
     toQuery = genericQuery def
 
-data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
+newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvctVpnConnections :: [VpnConnection]
       -- ^ Information about one or more VPN connections.
     } deriving (Show, Generic)
 
 -- | Information about one or more VPN connections.
 dvctVpnConnections :: Lens' DescribeVpnConnectionsResponse ([VpnConnection])
-dvctVpnConnections f x =
-    f (_dvctVpnConnections x)
-        <&> \y -> x { _dvctVpnConnections = y }
+dvctVpnConnections = lens _dvctVpnConnections (\s a -> s { _dvctVpnConnections = a })
 {-# INLINE dvctVpnConnections #-}
 
 instance FromXML DescribeVpnConnectionsResponse where

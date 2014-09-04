@@ -49,7 +49,7 @@ module Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
     -- * Request
       ShutdownGateway
     -- ** Request constructor
-    , shutdownGateway
+    , mkShutdownGatewayInput
     -- ** Request lenses
     , sgiGatewayARN
 
@@ -64,15 +64,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ShutdownGateway' request.
-shutdownGateway :: Text -- ^ 'sgiGatewayARN'
-                -> ShutdownGateway
-shutdownGateway p1 = ShutdownGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ShutdownGateway' request.
+mkShutdownGatewayInput :: Text -- ^ 'sgiGatewayARN'
+                       -> ShutdownGateway
+mkShutdownGatewayInput p1 = ShutdownGateway
     { _sgiGatewayARN = p1
     }
-{-# INLINE shutdownGateway #-}
+{-# INLINE mkShutdownGatewayInput #-}
 
-data ShutdownGateway = ShutdownGateway
+newtype ShutdownGateway = ShutdownGateway
     { _sgiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -82,9 +83,7 @@ data ShutdownGateway = ShutdownGateway
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 sgiGatewayARN :: Lens' ShutdownGateway (Text)
-sgiGatewayARN f x =
-    f (_sgiGatewayARN x)
-        <&> \y -> x { _sgiGatewayARN = y }
+sgiGatewayARN = lens _sgiGatewayARN (\s a -> s { _sgiGatewayARN = a })
 {-# INLINE sgiGatewayARN #-}
 
 instance ToPath ShutdownGateway
@@ -95,7 +94,7 @@ instance ToHeaders ShutdownGateway
 
 instance ToJSON ShutdownGateway
 
-data ShutdownGatewayResponse = ShutdownGatewayResponse
+newtype ShutdownGatewayResponse = ShutdownGatewayResponse
     { _sgoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -105,9 +104,7 @@ data ShutdownGatewayResponse = ShutdownGatewayResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 sgoGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgoGatewayARN f x =
-    f (_sgoGatewayARN x)
-        <&> \y -> x { _sgoGatewayARN = y }
+sgoGatewayARN = lens _sgoGatewayARN (\s a -> s { _sgoGatewayARN = a })
 {-# INLINE sgoGatewayARN #-}
 
 instance FromJSON ShutdownGatewayResponse

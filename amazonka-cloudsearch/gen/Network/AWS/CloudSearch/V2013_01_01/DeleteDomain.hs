@@ -25,7 +25,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
     -- * Request
       DeleteDomain
     -- ** Request constructor
-    , deleteDomain
+    , mkDeleteDomainRequest
     -- ** Request lenses
     , ddrDomainName
 
@@ -39,39 +39,36 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDomain' request.
-deleteDomain :: Text -- ^ 'ddrDomainName'
-             -> DeleteDomain
-deleteDomain p1 = DeleteDomain
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDomain' request.
+mkDeleteDomainRequest :: Text -- ^ 'ddrDomainName'
+                      -> DeleteDomain
+mkDeleteDomainRequest p1 = DeleteDomain
     { _ddrDomainName = p1
     }
-{-# INLINE deleteDomain #-}
+{-# INLINE mkDeleteDomainRequest #-}
 
-data DeleteDomain = DeleteDomain
+newtype DeleteDomain = DeleteDomain
     { _ddrDomainName :: Text
       -- ^ The name of the domain you want to permanently delete.
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to permanently delete.
 ddrDomainName :: Lens' DeleteDomain (Text)
-ddrDomainName f x =
-    f (_ddrDomainName x)
-        <&> \y -> x { _ddrDomainName = y }
+ddrDomainName = lens _ddrDomainName (\s a -> s { _ddrDomainName = a })
 {-# INLINE ddrDomainName #-}
 
 instance ToQuery DeleteDomain where
     toQuery = genericQuery def
 
-data DeleteDomainResponse = DeleteDomainResponse
+newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddsDomainStatus :: Maybe DomainStatus
       -- ^ The current status of the search domain.
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
 ddsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddsDomainStatus f x =
-    f (_ddsDomainStatus x)
-        <&> \y -> x { _ddsDomainStatus = y }
+ddsDomainStatus = lens _ddsDomainStatus (\s a -> s { _ddsDomainStatus = a })
 {-# INLINE ddsDomainStatus #-}
 
 instance FromXML DeleteDomainResponse where

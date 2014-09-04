@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
     -- * Request
       SetInstanceHealth
     -- ** Request constructor
-    , setInstanceHealth
+    , mkSetInstanceHealthQuery
     -- ** Request lenses
     , sihqInstanceId
     , sihqHealthStatus
@@ -39,16 +39,17 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetInstanceHealth' request.
-setInstanceHealth :: Text -- ^ 'sihqInstanceId'
-                  -> Text -- ^ 'sihqHealthStatus'
-                  -> SetInstanceHealth
-setInstanceHealth p1 p2 = SetInstanceHealth
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetInstanceHealth' request.
+mkSetInstanceHealthQuery :: Text -- ^ 'sihqInstanceId'
+                         -> Text -- ^ 'sihqHealthStatus'
+                         -> SetInstanceHealth
+mkSetInstanceHealthQuery p1 p2 = SetInstanceHealth
     { _sihqInstanceId = p1
     , _sihqHealthStatus = p2
     , _sihqShouldRespectGracePeriod = Nothing
     }
-{-# INLINE setInstanceHealth #-}
+{-# INLINE mkSetInstanceHealthQuery #-}
 
 data SetInstanceHealth = SetInstanceHealth
     { _sihqInstanceId :: Text
@@ -69,18 +70,14 @@ data SetInstanceHealth = SetInstanceHealth
 
 -- | The identifier of the Amazon EC2 instance.
 sihqInstanceId :: Lens' SetInstanceHealth (Text)
-sihqInstanceId f x =
-    f (_sihqInstanceId x)
-        <&> \y -> x { _sihqInstanceId = y }
+sihqInstanceId = lens _sihqInstanceId (\s a -> s { _sihqInstanceId = a })
 {-# INLINE sihqInstanceId #-}
 
 -- | The health status of the instance. Set to Healthy if you want the instance
 -- to remain in service. Set to Unhealthy if you want the instance to be out
 -- of service. Auto Scaling will terminate and replace the unhealthy instance.
 sihqHealthStatus :: Lens' SetInstanceHealth (Text)
-sihqHealthStatus f x =
-    f (_sihqHealthStatus x)
-        <&> \y -> x { _sihqHealthStatus = y }
+sihqHealthStatus = lens _sihqHealthStatus (\s a -> s { _sihqHealthStatus = a })
 {-# INLINE sihqHealthStatus #-}
 
 -- | If the Auto Scaling group of the specified instance has a
@@ -90,9 +87,7 @@ sihqHealthStatus f x =
 -- see the HealthCheckGracePeriod parameter description in the
 -- CreateAutoScalingGroup action.
 sihqShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
-sihqShouldRespectGracePeriod f x =
-    f (_sihqShouldRespectGracePeriod x)
-        <&> \y -> x { _sihqShouldRespectGracePeriod = y }
+sihqShouldRespectGracePeriod = lens _sihqShouldRespectGracePeriod (\s a -> s { _sihqShouldRespectGracePeriod = a })
 {-# INLINE sihqShouldRespectGracePeriod #-}
 
 instance ToQuery SetInstanceHealth where

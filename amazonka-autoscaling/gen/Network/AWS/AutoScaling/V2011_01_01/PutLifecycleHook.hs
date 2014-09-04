@@ -41,16 +41,16 @@ module Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook
     -- * Request
       PutLifecycleHook
     -- ** Request constructor
-    , putLifecycleHook
+    , mkPutLifecycleHookType
     -- ** Request lenses
     , plhtLifecycleHookName
     , plhtAutoScalingGroupName
-    , plhtHeartbeatTimeout
-    , plhtDefaultResult
     , plhtLifecycleTransition
     , plhtRoleARN
     , plhtNotificationTargetARN
     , plhtNotificationMetadata
+    , plhtHeartbeatTimeout
+    , plhtDefaultResult
 
     -- * Response
     , PutLifecycleHookResponse
@@ -60,21 +60,22 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutLifecycleHook' request.
-putLifecycleHook :: Text -- ^ 'plhtLifecycleHookName'
-                 -> Text -- ^ 'plhtAutoScalingGroupName'
-                 -> PutLifecycleHook
-putLifecycleHook p1 p2 = PutLifecycleHook
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutLifecycleHook' request.
+mkPutLifecycleHookType :: Text -- ^ 'plhtLifecycleHookName'
+                       -> Text -- ^ 'plhtAutoScalingGroupName'
+                       -> PutLifecycleHook
+mkPutLifecycleHookType p1 p2 = PutLifecycleHook
     { _plhtLifecycleHookName = p1
     , _plhtAutoScalingGroupName = p2
-    , _plhtHeartbeatTimeout = Nothing
-    , _plhtDefaultResult = Nothing
     , _plhtLifecycleTransition = Nothing
     , _plhtRoleARN = Nothing
     , _plhtNotificationTargetARN = Nothing
     , _plhtNotificationMetadata = Nothing
+    , _plhtHeartbeatTimeout = Nothing
+    , _plhtDefaultResult = Nothing
     }
-{-# INLINE putLifecycleHook #-}
+{-# INLINE mkPutLifecycleHookType #-}
 
 data PutLifecycleHook = PutLifecycleHook
     { _plhtLifecycleHookName :: Text
@@ -82,18 +83,6 @@ data PutLifecycleHook = PutLifecycleHook
     , _plhtAutoScalingGroupName :: Text
       -- ^ The name of the Auto Scaling group to which you want to assign
       -- the lifecycle hook.
-    , _plhtHeartbeatTimeout :: Maybe Integer
-      -- ^ Defines the amount of time, in seconds, that can elapse before
-      -- the lifecycle hook times out. When the lifecycle hook times out,
-      -- Auto Scaling performs the action defined in the DefaultResult
-      -- parameter. You can prevent the lifecycle hook from timing out by
-      -- calling RecordLifecycleActionHeartbeat. The default value for
-      -- this parameter is 3600 seconds (1 hour).
-    , _plhtDefaultResult :: Maybe Text
-      -- ^ Defines the action the Auto Scaling group should take when the
-      -- lifecycle hook timeout elapses or if an unexpected failure
-      -- occurs. The value for this parameter can be either CONTINUE or
-      -- ABANDON. The default value for this parameter is ABANDON.
     , _plhtLifecycleTransition :: Maybe Text
       -- ^ The Amazon EC2 instance state to which you want to attach the
       -- lifecycle hook. See DescribeLifecycleHookTypes for a list of
@@ -125,62 +114,44 @@ data PutLifecycleHook = PutLifecycleHook
     , _plhtNotificationMetadata :: Maybe Text
       -- ^ Contains additional information that you want to include any time
       -- Auto Scaling sends a message to the notification target.
+    , _plhtHeartbeatTimeout :: Maybe Integer
+      -- ^ Defines the amount of time, in seconds, that can elapse before
+      -- the lifecycle hook times out. When the lifecycle hook times out,
+      -- Auto Scaling performs the action defined in the DefaultResult
+      -- parameter. You can prevent the lifecycle hook from timing out by
+      -- calling RecordLifecycleActionHeartbeat. The default value for
+      -- this parameter is 3600 seconds (1 hour).
+    , _plhtDefaultResult :: Maybe Text
+      -- ^ Defines the action the Auto Scaling group should take when the
+      -- lifecycle hook timeout elapses or if an unexpected failure
+      -- occurs. The value for this parameter can be either CONTINUE or
+      -- ABANDON. The default value for this parameter is ABANDON.
     } deriving (Show, Generic)
 
 -- | The name of the lifecycle hook.
 plhtLifecycleHookName :: Lens' PutLifecycleHook (Text)
-plhtLifecycleHookName f x =
-    f (_plhtLifecycleHookName x)
-        <&> \y -> x { _plhtLifecycleHookName = y }
+plhtLifecycleHookName = lens _plhtLifecycleHookName (\s a -> s { _plhtLifecycleHookName = a })
 {-# INLINE plhtLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which you want to assign the
 -- lifecycle hook.
 plhtAutoScalingGroupName :: Lens' PutLifecycleHook (Text)
-plhtAutoScalingGroupName f x =
-    f (_plhtAutoScalingGroupName x)
-        <&> \y -> x { _plhtAutoScalingGroupName = y }
+plhtAutoScalingGroupName = lens _plhtAutoScalingGroupName (\s a -> s { _plhtAutoScalingGroupName = a })
 {-# INLINE plhtAutoScalingGroupName #-}
-
--- | Defines the amount of time, in seconds, that can elapse before the
--- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
--- performs the action defined in the DefaultResult parameter. You can prevent
--- the lifecycle hook from timing out by calling
--- RecordLifecycleActionHeartbeat. The default value for this parameter is
--- 3600 seconds (1 hour).
-plhtHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Integer)
-plhtHeartbeatTimeout f x =
-    f (_plhtHeartbeatTimeout x)
-        <&> \y -> x { _plhtHeartbeatTimeout = y }
-{-# INLINE plhtHeartbeatTimeout #-}
-
--- | Defines the action the Auto Scaling group should take when the lifecycle
--- hook timeout elapses or if an unexpected failure occurs. The value for this
--- parameter can be either CONTINUE or ABANDON. The default value for this
--- parameter is ABANDON.
-plhtDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
-plhtDefaultResult f x =
-    f (_plhtDefaultResult x)
-        <&> \y -> x { _plhtDefaultResult = y }
-{-# INLINE plhtDefaultResult #-}
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHookTypes for a list of available lifecycle hook
 -- types. This parameter is required for new lifecycle hooks, but optional
 -- when updating existing hooks.
 plhtLifecycleTransition :: Lens' PutLifecycleHook (Maybe Text)
-plhtLifecycleTransition f x =
-    f (_plhtLifecycleTransition x)
-        <&> \y -> x { _plhtLifecycleTransition = y }
+plhtLifecycleTransition = lens _plhtLifecycleTransition (\s a -> s { _plhtLifecycleTransition = a })
 {-# INLINE plhtLifecycleTransition #-}
 
 -- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
 -- publish to the specified notification target. This parameter is required
 -- for new lifecycle hooks, but optional when updating existing hooks.
 plhtRoleARN :: Lens' PutLifecycleHook (Maybe Text)
-plhtRoleARN f x =
-    f (_plhtRoleARN x)
-        <&> \y -> x { _plhtRoleARN = y }
+plhtRoleARN = lens _plhtRoleARN (\s a -> s { _plhtRoleARN = a })
 {-# INLINE plhtRoleARN #-}
 
 -- | The ARN of the notification target that Auto Scaling will use to notify you
@@ -199,23 +170,36 @@ plhtRoleARN f x =
 -- message contains an additional key/value pair:
 -- Event:autoscaling:TEST_NOTIFICATION.
 plhtNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
-plhtNotificationTargetARN f x =
-    f (_plhtNotificationTargetARN x)
-        <&> \y -> x { _plhtNotificationTargetARN = y }
+plhtNotificationTargetARN = lens _plhtNotificationTargetARN (\s a -> s { _plhtNotificationTargetARN = a })
 {-# INLINE plhtNotificationTargetARN #-}
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
 plhtNotificationMetadata :: Lens' PutLifecycleHook (Maybe Text)
-plhtNotificationMetadata f x =
-    f (_plhtNotificationMetadata x)
-        <&> \y -> x { _plhtNotificationMetadata = y }
+plhtNotificationMetadata = lens _plhtNotificationMetadata (\s a -> s { _plhtNotificationMetadata = a })
 {-# INLINE plhtNotificationMetadata #-}
+
+-- | Defines the amount of time, in seconds, that can elapse before the
+-- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
+-- performs the action defined in the DefaultResult parameter. You can prevent
+-- the lifecycle hook from timing out by calling
+-- RecordLifecycleActionHeartbeat. The default value for this parameter is
+-- 3600 seconds (1 hour).
+plhtHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Integer)
+plhtHeartbeatTimeout = lens _plhtHeartbeatTimeout (\s a -> s { _plhtHeartbeatTimeout = a })
+{-# INLINE plhtHeartbeatTimeout #-}
+
+-- | Defines the action the Auto Scaling group should take when the lifecycle
+-- hook timeout elapses or if an unexpected failure occurs. The value for this
+-- parameter can be either CONTINUE or ABANDON. The default value for this
+-- parameter is ABANDON.
+plhtDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
+plhtDefaultResult = lens _plhtDefaultResult (\s a -> s { _plhtDefaultResult = a })
+{-# INLINE plhtDefaultResult #-}
 
 instance ToQuery PutLifecycleHook where
     toQuery = genericQuery def
 
-data PutLifecycleHookResponse = PutLifecycleHookResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest PutLifecycleHook where

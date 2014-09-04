@@ -35,14 +35,14 @@ module Network.AWS.RDS.V2013_09_09.DescribeOrderableDBInstanceOptions
     -- * Request
       DescribeOrderableDBInstanceOptions
     -- ** Request constructor
-    , describeOrderableDBInstanceOptions
+    , mkDescribeOrderableDBInstanceOptionsMessage
     -- ** Request lenses
     , dodbiomEngine
-    , dodbiomVpc
-    , dodbiomMaxRecords
     , dodbiomEngineVersion
     , dodbiomDBInstanceClass
     , dodbiomLicenseModel
+    , dodbiomVpc
+    , dodbiomMaxRecords
     , dodbiomMarker
 
     -- * Response
@@ -56,32 +56,24 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeOrderableDBInstanceOptions' request.
-describeOrderableDBInstanceOptions :: Text -- ^ 'dodbiomEngine'
-                                   -> DescribeOrderableDBInstanceOptions
-describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOrderableDBInstanceOptions' request.
+mkDescribeOrderableDBInstanceOptionsMessage :: Text -- ^ 'dodbiomEngine'
+                                            -> DescribeOrderableDBInstanceOptions
+mkDescribeOrderableDBInstanceOptionsMessage p1 = DescribeOrderableDBInstanceOptions
     { _dodbiomEngine = p1
-    , _dodbiomVpc = Nothing
-    , _dodbiomMaxRecords = Nothing
     , _dodbiomEngineVersion = Nothing
     , _dodbiomDBInstanceClass = Nothing
     , _dodbiomLicenseModel = Nothing
+    , _dodbiomVpc = Nothing
+    , _dodbiomMaxRecords = Nothing
     , _dodbiomMarker = Nothing
     }
-{-# INLINE describeOrderableDBInstanceOptions #-}
+{-# INLINE mkDescribeOrderableDBInstanceOptionsMessage #-}
 
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
     { _dodbiomEngine :: Text
       -- ^ The name of the engine to retrieve DB instance options for.
-    , _dodbiomVpc :: Maybe Bool
-      -- ^ The VPC filter value. Specify this parameter to show only the
-      -- available VPC or non-VPC offerings.
-    , _dodbiomMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results can be retrieved. Default: 100 Constraints:
-      -- minimum 20, maximum 100.
     , _dodbiomEngineVersion :: Maybe Text
       -- ^ The engine version filter value. Specify this parameter to show
       -- only the available offerings matching the specified engine
@@ -94,6 +86,15 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
       -- ^ The license model filter value. Specify this parameter to show
       -- only the available offerings matching the specified license
       -- model.
+    , _dodbiomVpc :: Maybe Bool
+      -- ^ The VPC filter value. Specify this parameter to show only the
+      -- available VPC or non-VPC offerings.
+    , _dodbiomMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- records exist than the specified MaxRecords value, a pagination
+      -- token called a marker is included in the response so that the
+      -- remaining results can be retrieved. Default: 100 Constraints:
+      -- minimum 20, maximum 100.
     , _dodbiomMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeOrderableDBInstanceOptions request. If this parameter is
@@ -103,17 +104,31 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
 
 -- | The name of the engine to retrieve DB instance options for.
 dodbiomEngine :: Lens' DescribeOrderableDBInstanceOptions (Text)
-dodbiomEngine f x =
-    f (_dodbiomEngine x)
-        <&> \y -> x { _dodbiomEngine = y }
+dodbiomEngine = lens _dodbiomEngine (\s a -> s { _dodbiomEngine = a })
 {-# INLINE dodbiomEngine #-}
+
+-- | The engine version filter value. Specify this parameter to show only the
+-- available offerings matching the specified engine version.
+dodbiomEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodbiomEngineVersion = lens _dodbiomEngineVersion (\s a -> s { _dodbiomEngineVersion = a })
+{-# INLINE dodbiomEngineVersion #-}
+
+-- | The DB instance class filter value. Specify this parameter to show only the
+-- available offerings matching the specified DB instance class.
+dodbiomDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodbiomDBInstanceClass = lens _dodbiomDBInstanceClass (\s a -> s { _dodbiomDBInstanceClass = a })
+{-# INLINE dodbiomDBInstanceClass #-}
+
+-- | The license model filter value. Specify this parameter to show only the
+-- available offerings matching the specified license model.
+dodbiomLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodbiomLicenseModel = lens _dodbiomLicenseModel (\s a -> s { _dodbiomLicenseModel = a })
+{-# INLINE dodbiomLicenseModel #-}
 
 -- | The VPC filter value. Specify this parameter to show only the available VPC
 -- or non-VPC offerings.
 dodbiomVpc :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
-dodbiomVpc f x =
-    f (_dodbiomVpc x)
-        <&> \y -> x { _dodbiomVpc = y }
+dodbiomVpc = lens _dodbiomVpc (\s a -> s { _dodbiomVpc = a })
 {-# INLINE dodbiomVpc #-}
 
 -- | The maximum number of records to include in the response. If more records
@@ -121,43 +136,15 @@ dodbiomVpc f x =
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dodbiomMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Integer)
-dodbiomMaxRecords f x =
-    f (_dodbiomMaxRecords x)
-        <&> \y -> x { _dodbiomMaxRecords = y }
+dodbiomMaxRecords = lens _dodbiomMaxRecords (\s a -> s { _dodbiomMaxRecords = a })
 {-# INLINE dodbiomMaxRecords #-}
-
--- | The engine version filter value. Specify this parameter to show only the
--- available offerings matching the specified engine version.
-dodbiomEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbiomEngineVersion f x =
-    f (_dodbiomEngineVersion x)
-        <&> \y -> x { _dodbiomEngineVersion = y }
-{-# INLINE dodbiomEngineVersion #-}
-
--- | The DB instance class filter value. Specify this parameter to show only the
--- available offerings matching the specified DB instance class.
-dodbiomDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbiomDBInstanceClass f x =
-    f (_dodbiomDBInstanceClass x)
-        <&> \y -> x { _dodbiomDBInstanceClass = y }
-{-# INLINE dodbiomDBInstanceClass #-}
-
--- | The license model filter value. Specify this parameter to show only the
--- available offerings matching the specified license model.
-dodbiomLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbiomLicenseModel f x =
-    f (_dodbiomLicenseModel x)
-        <&> \y -> x { _dodbiomLicenseModel = y }
-{-# INLINE dodbiomLicenseModel #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords .
 dodbiomMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbiomMarker f x =
-    f (_dodbiomMarker x)
-        <&> \y -> x { _dodbiomMarker = y }
+dodbiomMarker = lens _dodbiomMarker (\s a -> s { _dodbiomMarker = a })
 {-# INLINE dodbiomMarker #-}
 
 instance ToQuery DescribeOrderableDBInstanceOptions where
@@ -177,9 +164,7 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
 odbiomOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse ([OrderableDBInstanceOption])
-odbiomOrderableDBInstanceOptions f x =
-    f (_odbiomOrderableDBInstanceOptions x)
-        <&> \y -> x { _odbiomOrderableDBInstanceOptions = y }
+odbiomOrderableDBInstanceOptions = lens _odbiomOrderableDBInstanceOptions (\s a -> s { _odbiomOrderableDBInstanceOptions = a })
 {-# INLINE odbiomOrderableDBInstanceOptions #-}
 
 -- | An optional pagination token provided by a previous
@@ -187,9 +172,7 @@ odbiomOrderableDBInstanceOptions f x =
 -- response includes only records beyond the marker, up to the value specified
 -- by MaxRecords .
 odbiomMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
-odbiomMarker f x =
-    f (_odbiomMarker x)
-        <&> \y -> x { _odbiomMarker = y }
+odbiomMarker = lens _odbiomMarker (\s a -> s { _odbiomMarker = a })
 {-# INLINE odbiomMarker #-}
 
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where

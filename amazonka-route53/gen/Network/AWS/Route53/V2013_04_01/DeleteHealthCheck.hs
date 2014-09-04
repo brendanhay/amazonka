@@ -31,7 +31,7 @@ module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
     -- * Request
       DeleteHealthCheck
     -- ** Request constructor
-    , deleteHealthCheck
+    , mkDeleteHealthCheckRequest
     -- ** Request lenses
     , dhcrHealthCheckId
 
@@ -43,24 +43,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteHealthCheck' request.
-deleteHealthCheck :: Text -- ^ 'dhcrHealthCheckId'
-                  -> DeleteHealthCheck
-deleteHealthCheck p1 = DeleteHealthCheck
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHealthCheck' request.
+mkDeleteHealthCheckRequest :: Text -- ^ 'dhcrHealthCheckId'
+                           -> DeleteHealthCheck
+mkDeleteHealthCheckRequest p1 = DeleteHealthCheck
     { _dhcrHealthCheckId = p1
     }
-{-# INLINE deleteHealthCheck #-}
+{-# INLINE mkDeleteHealthCheckRequest #-}
 
-data DeleteHealthCheck = DeleteHealthCheck
+newtype DeleteHealthCheck = DeleteHealthCheck
     { _dhcrHealthCheckId :: Text
       -- ^ The ID of the health check to delete.
     } deriving (Show, Generic)
 
 -- | The ID of the health check to delete.
 dhcrHealthCheckId :: Lens' DeleteHealthCheck (Text)
-dhcrHealthCheckId f x =
-    f (_dhcrHealthCheckId x)
-        <&> \y -> x { _dhcrHealthCheckId = y }
+dhcrHealthCheckId = lens _dhcrHealthCheckId (\s a -> s { _dhcrHealthCheckId = a })
 {-# INLINE dhcrHealthCheckId #-}
 
 instance ToPath DeleteHealthCheck where
@@ -77,7 +76,6 @@ instance ToXML DeleteHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHealthCheckRequest"
 
-data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteHealthCheck where

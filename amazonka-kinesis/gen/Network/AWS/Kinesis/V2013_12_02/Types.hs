@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -34,23 +35,25 @@ module Network.AWS.Kinesis.V2013_12_02.Types
     , StreamStatus (..)
 
     -- * HashKeyRange
-    , HashKeyRange (..)
+    , HashKeyRange
+    , mkHashKeyRange
     , hkrStartingHashKey
     , hkrEndingHashKey
 
     -- * Record
-    , Record (..)
+    , Record
     , rSequenceNumber
     , rData
     , rPartitionKey
 
     -- * SequenceNumberRange
-    , SequenceNumberRange (..)
+    , SequenceNumberRange
+    , mkSequenceNumberRange
     , snrStartingSequenceNumber
     , snrEndingSequenceNumber
 
     -- * Shard
-    , Shard (..)
+    , Shard
     , sShardId
     , sParentShardId
     , sAdjacentParentShardId
@@ -58,13 +61,12 @@ module Network.AWS.Kinesis.V2013_12_02.Types
     , sSequenceNumberRange
 
     -- * StreamDescription
-    , StreamDescription (..)
+    , StreamDescription
     , sdStreamName
     , sdStreamARN
     , sdStreamStatus
     , sdShards
     , sdHasMoreShards
-
     ) where
 
 import Network.AWS.Prelude
@@ -219,17 +221,24 @@ data HashKeyRange = HashKeyRange
 
 -- | The starting hash key of the hash key range.
 hkrStartingHashKey :: Lens' HashKeyRange (Text)
-hkrStartingHashKey f x =
-    f (_hkrStartingHashKey x)
-        <&> \y -> x { _hkrStartingHashKey = y }
+hkrStartingHashKey = lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
 {-# INLINE hkrStartingHashKey #-}
 
 -- | The ending hash key of the hash key range.
 hkrEndingHashKey :: Lens' HashKeyRange (Text)
-hkrEndingHashKey f x =
-    f (_hkrEndingHashKey x)
-        <&> \y -> x { _hkrEndingHashKey = y }
+hkrEndingHashKey = lens _hkrEndingHashKey (\s a -> s { _hkrEndingHashKey = a })
 {-# INLINE hkrEndingHashKey #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'HashKeyRange' data type to populate a request.
+mkHashKeyRange :: Text -- ^ 'hkrStartingHashKey'
+               -> Text -- ^ 'hkrEndingHashKey'
+               -> HashKeyRange
+mkHashKeyRange p1 p2 = HashKeyRange
+    { _hkrStartingHashKey = p1
+    , _hkrEndingHashKey = p2
+    }
+{-# INLINE mkHashKeyRange #-}
 
 instance FromJSON HashKeyRange
 
@@ -254,9 +263,7 @@ data Record = Record
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
 rSequenceNumber :: Lens' Record (Text)
-rSequenceNumber f x =
-    f (_rSequenceNumber x)
-        <&> \y -> x { _rSequenceNumber = y }
+rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 {-# INLINE rSequenceNumber #-}
 
 -- | The data blob. The data in the blob is both opaque and immutable to the
@@ -264,16 +271,12 @@ rSequenceNumber f x =
 -- data in the blob in any way. The maximum size of the data blob (the payload
 -- after Base64-decoding) is 50 kilobytes (KB).
 rData :: Lens' Record (Base64)
-rData f x =
-    f (_rData x)
-        <&> \y -> x { _rData = y }
+rData = lens _rData (\s a -> s { _rData = a })
 {-# INLINE rData #-}
 
 -- | Identifies which shard in the stream the data record is assigned to.
 rPartitionKey :: Lens' Record (Text)
-rPartitionKey f x =
-    f (_rPartitionKey x)
-        <&> \y -> x { _rPartitionKey = y }
+rPartitionKey = lens _rPartitionKey (\s a -> s { _rPartitionKey = a })
 {-# INLINE rPartitionKey #-}
 
 instance FromJSON Record
@@ -289,18 +292,24 @@ data SequenceNumberRange = SequenceNumberRange
 
 -- | The starting sequence number for the range.
 snrStartingSequenceNumber :: Lens' SequenceNumberRange (Text)
-snrStartingSequenceNumber f x =
-    f (_snrStartingSequenceNumber x)
-        <&> \y -> x { _snrStartingSequenceNumber = y }
+snrStartingSequenceNumber = lens _snrStartingSequenceNumber (\s a -> s { _snrStartingSequenceNumber = a })
 {-# INLINE snrStartingSequenceNumber #-}
 
 -- | The ending sequence number for the range. Shards that are in the OPEN state
 -- have an ending sequence number of null.
 snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
-snrEndingSequenceNumber f x =
-    f (_snrEndingSequenceNumber x)
-        <&> \y -> x { _snrEndingSequenceNumber = y }
+snrEndingSequenceNumber = lens _snrEndingSequenceNumber (\s a -> s { _snrEndingSequenceNumber = a })
 {-# INLINE snrEndingSequenceNumber #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'SequenceNumberRange' data type to populate a request.
+mkSequenceNumberRange :: Text -- ^ 'snrStartingSequenceNumber'
+                      -> SequenceNumberRange
+mkSequenceNumberRange p1 = SequenceNumberRange
+    { _snrStartingSequenceNumber = p1
+    , _snrEndingSequenceNumber = Nothing
+    }
+{-# INLINE mkSequenceNumberRange #-}
 
 instance FromJSON SequenceNumberRange
 
@@ -324,38 +333,28 @@ data Shard = Shard
 
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
 sShardId :: Lens' Shard (Text)
-sShardId f x =
-    f (_sShardId x)
-        <&> \y -> x { _sShardId = y }
+sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 {-# INLINE sShardId #-}
 
 -- | The shard Id of the shard's parent.
 sParentShardId :: Lens' Shard (Maybe Text)
-sParentShardId f x =
-    f (_sParentShardId x)
-        <&> \y -> x { _sParentShardId = y }
+sParentShardId = lens _sParentShardId (\s a -> s { _sParentShardId = a })
 {-# INLINE sParentShardId #-}
 
 -- | The shard Id of the shard adjacent to the shard's parent.
 sAdjacentParentShardId :: Lens' Shard (Maybe Text)
-sAdjacentParentShardId f x =
-    f (_sAdjacentParentShardId x)
-        <&> \y -> x { _sAdjacentParentShardId = y }
+sAdjacentParentShardId = lens _sAdjacentParentShardId (\s a -> s { _sAdjacentParentShardId = a })
 {-# INLINE sAdjacentParentShardId #-}
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
 sHashKeyRange :: Lens' Shard (HashKeyRange)
-sHashKeyRange f x =
-    f (_sHashKeyRange x)
-        <&> \y -> x { _sHashKeyRange = y }
+sHashKeyRange = lens _sHashKeyRange (\s a -> s { _sHashKeyRange = a })
 {-# INLINE sHashKeyRange #-}
 
 -- | The range of possible sequence numbers for the shard.
 sSequenceNumberRange :: Lens' Shard (SequenceNumberRange)
-sSequenceNumberRange f x =
-    f (_sSequenceNumberRange x)
-        <&> \y -> x { _sSequenceNumberRange = y }
+sSequenceNumberRange = lens _sSequenceNumberRange (\s a -> s { _sSequenceNumberRange = a })
 {-# INLINE sSequenceNumberRange #-}
 
 instance FromJSON Shard
@@ -390,16 +389,12 @@ data StreamDescription = StreamDescription
 
 -- | The name of the stream being described.
 sdStreamName :: Lens' StreamDescription (Text)
-sdStreamName f x =
-    f (_sdStreamName x)
-        <&> \y -> x { _sdStreamName = y }
+sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 {-# INLINE sdStreamName #-}
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
 sdStreamARN :: Lens' StreamDescription (Text)
-sdStreamARN f x =
-    f (_sdStreamARN x)
-        <&> \y -> x { _sdStreamARN = y }
+sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
 {-# INLINE sdStreamARN #-}
 
 -- | The current status of the stream being described. The stream status is one
@@ -413,23 +408,17 @@ sdStreamARN f x =
 -- stream are being merged or split. Read and write operations continue to
 -- work while the stream is in the UPDATING state.
 sdStreamStatus :: Lens' StreamDescription (StreamStatus)
-sdStreamStatus f x =
-    f (_sdStreamStatus x)
-        <&> \y -> x { _sdStreamStatus = y }
+sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 {-# INLINE sdStreamStatus #-}
 
 -- | The shards that comprise the stream.
 sdShards :: Lens' StreamDescription ([Shard])
-sdShards f x =
-    f (_sdShards x)
-        <&> \y -> x { _sdShards = y }
+sdShards = lens _sdShards (\s a -> s { _sdShards = a })
 {-# INLINE sdShards #-}
 
 -- | If set to true there are more shards in the stream available to describe.
 sdHasMoreShards :: Lens' StreamDescription (Bool)
-sdHasMoreShards f x =
-    f (_sdHasMoreShards x)
-        <&> \y -> x { _sdHasMoreShards = y }
+sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
 {-# INLINE sdHasMoreShards #-}
 
 instance FromJSON StreamDescription

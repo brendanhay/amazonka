@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.V2013_02_18.StartStack
     -- * Request
       StartStack
     -- ** Request constructor
-    , startStack
+    , mkStartStackRequest
     -- ** Request lenses
     , ssssssssssssssssssssxStackId
 
@@ -39,24 +39,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'StartStack' request.
-startStack :: Text -- ^ 'ssssssssssssssssssssxStackId'
-           -> StartStack
-startStack p1 = StartStack
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartStack' request.
+mkStartStackRequest :: Text -- ^ 'ssssssssssssssssssssxStackId'
+                    -> StartStack
+mkStartStackRequest p1 = StartStack
     { _ssssssssssssssssssssxStackId = p1
     }
-{-# INLINE startStack #-}
+{-# INLINE mkStartStackRequest #-}
 
-data StartStack = StartStack
+newtype StartStack = StartStack
     { _ssssssssssssssssssssxStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
 -- | The stack ID.
 ssssssssssssssssssssxStackId :: Lens' StartStack (Text)
-ssssssssssssssssssssxStackId f x =
-    f (_ssssssssssssssssssssxStackId x)
-        <&> \y -> x { _ssssssssssssssssssssxStackId = y }
+ssssssssssssssssssssxStackId = lens _ssssssssssssssssssssxStackId (\s a -> s { _ssssssssssssssssssssxStackId = a })
 {-# INLINE ssssssssssssssssssssxStackId #-}
 
 instance ToPath StartStack

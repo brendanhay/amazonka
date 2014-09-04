@@ -30,10 +30,10 @@ module Network.AWS.EC2.V2014_06_15.ResetImageAttribute
     -- * Request
       ResetImageAttribute
     -- ** Request constructor
-    , resetImageAttribute
+    , mkResetImageAttributeRequest
     -- ** Request lenses
-    , riarAttribute
     , riarImageId
+    , riarAttribute
 
     -- * Response
     , ResetImageAttributeResponse
@@ -43,38 +43,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResetImageAttribute' request.
-resetImageAttribute :: ResetImageAttributeName -- ^ 'riarAttribute'
-                    -> Text -- ^ 'riarImageId'
-                    -> ResetImageAttribute
-resetImageAttribute p1 p2 = ResetImageAttribute
-    { _riarAttribute = p1
-    , _riarImageId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetImageAttribute' request.
+mkResetImageAttributeRequest :: Text -- ^ 'riarImageId'
+                             -> ResetImageAttributeName -- ^ 'riarAttribute'
+                             -> ResetImageAttribute
+mkResetImageAttributeRequest p1 p2 = ResetImageAttribute
+    { _riarImageId = p1
+    , _riarAttribute = p2
     }
-{-# INLINE resetImageAttribute #-}
+{-# INLINE mkResetImageAttributeRequest #-}
 
 data ResetImageAttribute = ResetImageAttribute
-    { _riarAttribute :: ResetImageAttributeName
+    { _riarImageId :: Text
+      -- ^ The ID of the AMI.
+    , _riarAttribute :: ResetImageAttributeName
       -- ^ The attribute to reset (currently you can only reset the launch
       -- permission attribute).
-    , _riarImageId :: Text
-      -- ^ The ID of the AMI.
     } deriving (Show, Generic)
+
+-- | The ID of the AMI.
+riarImageId :: Lens' ResetImageAttribute (Text)
+riarImageId = lens _riarImageId (\s a -> s { _riarImageId = a })
+{-# INLINE riarImageId #-}
 
 -- | The attribute to reset (currently you can only reset the launch permission
 -- attribute).
 riarAttribute :: Lens' ResetImageAttribute (ResetImageAttributeName)
-riarAttribute f x =
-    f (_riarAttribute x)
-        <&> \y -> x { _riarAttribute = y }
+riarAttribute = lens _riarAttribute (\s a -> s { _riarAttribute = a })
 {-# INLINE riarAttribute #-}
-
--- | The ID of the AMI.
-riarImageId :: Lens' ResetImageAttribute (Text)
-riarImageId f x =
-    f (_riarImageId x)
-        <&> \y -> x { _riarImageId = y }
-{-# INLINE riarImageId #-}
 
 instance ToQuery ResetImageAttribute where
     toQuery = genericQuery def

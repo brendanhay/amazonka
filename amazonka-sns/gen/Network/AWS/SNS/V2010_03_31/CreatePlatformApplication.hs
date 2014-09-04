@@ -53,11 +53,11 @@ module Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
     -- * Request
       CreatePlatformApplication
     -- ** Request constructor
-    , createPlatformApplication
+    , mkCreatePlatformApplicationInput
     -- ** Request lenses
-    , cpaiAttributes
     , cpaiName
     , cpaiPlatform
+    , cpaiAttributes
 
     -- * Response
     , CreatePlatformApplicationResponse
@@ -69,22 +69,21 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreatePlatformApplication' request.
-createPlatformApplication :: Map Text Text -- ^ 'cpaiAttributes'
-                          -> Text -- ^ 'cpaiName'
-                          -> Text -- ^ 'cpaiPlatform'
-                          -> CreatePlatformApplication
-createPlatformApplication p1 p2 p3 = CreatePlatformApplication
-    { _cpaiAttributes = p1
-    , _cpaiName = p2
-    , _cpaiPlatform = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePlatformApplication' request.
+mkCreatePlatformApplicationInput :: Text -- ^ 'cpaiName'
+                                 -> Text -- ^ 'cpaiPlatform'
+                                 -> Map Text Text -- ^ 'cpaiAttributes'
+                                 -> CreatePlatformApplication
+mkCreatePlatformApplicationInput p1 p2 p3 = CreatePlatformApplication
+    { _cpaiName = p1
+    , _cpaiPlatform = p2
+    , _cpaiAttributes = p3
     }
-{-# INLINE createPlatformApplication #-}
+{-# INLINE mkCreatePlatformApplicationInput #-}
 
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaiAttributes :: Map Text Text
-      -- ^ For a list of attributes, see SetPlatformApplicationAttributes.
-    , _cpaiName :: Text
+    { _cpaiName :: Text
       -- ^ Application names must be made up of only uppercase and lowercase
       -- ASCII letters, numbers, underscores, hyphens, and periods, and
       -- must be between 1 and 256 characters long.
@@ -92,46 +91,40 @@ data CreatePlatformApplication = CreatePlatformApplication
       -- ^ The following platforms are supported: ADM (Amazon Device
       -- Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX,
       -- and GCM (Google Cloud Messaging).
+    , _cpaiAttributes :: Map Text Text
+      -- ^ For a list of attributes, see SetPlatformApplicationAttributes.
     } deriving (Show, Generic)
-
--- | For a list of attributes, see SetPlatformApplicationAttributes.
-cpaiAttributes :: Lens' CreatePlatformApplication (Map Text Text)
-cpaiAttributes f x =
-    f (_cpaiAttributes x)
-        <&> \y -> x { _cpaiAttributes = y }
-{-# INLINE cpaiAttributes #-}
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between 1
 -- and 256 characters long.
 cpaiName :: Lens' CreatePlatformApplication (Text)
-cpaiName f x =
-    f (_cpaiName x)
-        <&> \y -> x { _cpaiName = y }
+cpaiName = lens _cpaiName (\s a -> s { _cpaiName = a })
 {-# INLINE cpaiName #-}
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS
 -- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
 -- Messaging).
 cpaiPlatform :: Lens' CreatePlatformApplication (Text)
-cpaiPlatform f x =
-    f (_cpaiPlatform x)
-        <&> \y -> x { _cpaiPlatform = y }
+cpaiPlatform = lens _cpaiPlatform (\s a -> s { _cpaiPlatform = a })
 {-# INLINE cpaiPlatform #-}
+
+-- | For a list of attributes, see SetPlatformApplicationAttributes.
+cpaiAttributes :: Lens' CreatePlatformApplication (Map Text Text)
+cpaiAttributes = lens _cpaiAttributes (\s a -> s { _cpaiAttributes = a })
+{-# INLINE cpaiAttributes #-}
 
 instance ToQuery CreatePlatformApplication where
     toQuery = genericQuery def
 
-data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
+newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
       -- ^ PlatformApplicationArn is returned.
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn is returned.
 cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)
-cparPlatformApplicationArn f x =
-    f (_cparPlatformApplicationArn x)
-        <&> \y -> x { _cparPlatformApplicationArn = y }
+cparPlatformApplicationArn = lens _cparPlatformApplicationArn (\s a -> s { _cparPlatformApplicationArn = a })
 {-# INLINE cparPlatformApplicationArn #-}
 
 instance FromXML CreatePlatformApplicationResponse where

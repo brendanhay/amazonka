@@ -72,48 +72,49 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateConfigurationTemplate
     -- * Request
       CreateConfigurationTemplate
     -- ** Request constructor
-    , createConfigurationTemplate
+    , mkCreateConfigurationTemplateMessage
     -- ** Request lenses
     , cctmApplicationName
     , cctmTemplateName
-    , cctmOptionSettings
-    , cctmDescription
-    , cctmEnvironmentId
     , cctmSolutionStackName
     , cctmSourceConfiguration
+    , cctmEnvironmentId
+    , cctmDescription
+    , cctmOptionSettings
 
     -- * Response
     , CreateConfigurationTemplateResponse
     -- ** Response lenses
+    , csdSolutionStackName
     , csdApplicationName
-    , csdDeploymentStatus
-    , csdOptionSettings
     , csdTemplateName
-    , csdDateCreated
     , csdDescription
     , csdEnvironmentName
-    , csdSolutionStackName
+    , csdDeploymentStatus
+    , csdDateCreated
     , csdDateUpdated
+    , csdOptionSettings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateConfigurationTemplate' request.
-createConfigurationTemplate :: Text -- ^ 'cctmApplicationName'
-                            -> Text -- ^ 'cctmTemplateName'
-                            -> CreateConfigurationTemplate
-createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateConfigurationTemplate' request.
+mkCreateConfigurationTemplateMessage :: Text -- ^ 'cctmApplicationName'
+                                     -> Text -- ^ 'cctmTemplateName'
+                                     -> CreateConfigurationTemplate
+mkCreateConfigurationTemplateMessage p1 p2 = CreateConfigurationTemplate
     { _cctmApplicationName = p1
     , _cctmTemplateName = p2
-    , _cctmOptionSettings = mempty
-    , _cctmDescription = Nothing
-    , _cctmEnvironmentId = Nothing
     , _cctmSolutionStackName = Nothing
     , _cctmSourceConfiguration = Nothing
+    , _cctmEnvironmentId = Nothing
+    , _cctmDescription = Nothing
+    , _cctmOptionSettings = mempty
     }
-{-# INLINE createConfigurationTemplate #-}
+{-# INLINE mkCreateConfigurationTemplateMessage #-}
 
 data CreateConfigurationTemplate = CreateConfigurationTemplate
     { _cctmApplicationName :: Text
@@ -125,15 +126,6 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
       -- must be unique per application. Default: If a configuration
       -- template already exists with this name, AWS Elastic Beanstalk
       -- returns an InvalidParameterValue error.
-    , _cctmOptionSettings :: [ConfigurationOptionSetting]
-      -- ^ If specified, AWS Elastic Beanstalk sets the specified
-      -- configuration option to the requested value. The new value
-      -- overrides the value obtained from the solution stack or the
-      -- source configuration template.
-    , _cctmDescription :: Maybe Text
-      -- ^ Describes this configuration.
-    , _cctmEnvironmentId :: Maybe Text
-      -- ^ The ID of the environment used with this configuration template.
     , _cctmSolutionStackName :: Maybe Text
       -- ^ The name of the solution stack used by this configuration. The
       -- solution stack specifies the operating system, architecture, and
@@ -158,15 +150,22 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
       -- configuration template must match the specified solution stack
       -- name or else AWS Elastic Beanstalk returns an
       -- InvalidParameterCombination error.
+    , _cctmEnvironmentId :: Maybe Text
+      -- ^ The ID of the environment used with this configuration template.
+    , _cctmDescription :: Maybe Text
+      -- ^ Describes this configuration.
+    , _cctmOptionSettings :: [ConfigurationOptionSetting]
+      -- ^ If specified, AWS Elastic Beanstalk sets the specified
+      -- configuration option to the requested value. The new value
+      -- overrides the value obtained from the solution stack or the
+      -- source configuration template.
     } deriving (Show, Generic)
 
 -- | The name of the application to associate with this configuration template.
 -- If no application is found with this name, AWS Elastic Beanstalk returns an
 -- InvalidParameterValue error.
 cctmApplicationName :: Lens' CreateConfigurationTemplate (Text)
-cctmApplicationName f x =
-    f (_cctmApplicationName x)
-        <&> \y -> x { _cctmApplicationName = y }
+cctmApplicationName = lens _cctmApplicationName (\s a -> s { _cctmApplicationName = a })
 {-# INLINE cctmApplicationName #-}
 
 -- | The name of the configuration template. Constraint: This name must be
@@ -174,33 +173,8 @@ cctmApplicationName f x =
 -- with this name, AWS Elastic Beanstalk returns an InvalidParameterValue
 -- error.
 cctmTemplateName :: Lens' CreateConfigurationTemplate (Text)
-cctmTemplateName f x =
-    f (_cctmTemplateName x)
-        <&> \y -> x { _cctmTemplateName = y }
+cctmTemplateName = lens _cctmTemplateName (\s a -> s { _cctmTemplateName = a })
 {-# INLINE cctmTemplateName #-}
-
--- | If specified, AWS Elastic Beanstalk sets the specified configuration option
--- to the requested value. The new value overrides the value obtained from the
--- solution stack or the source configuration template.
-cctmOptionSettings :: Lens' CreateConfigurationTemplate ([ConfigurationOptionSetting])
-cctmOptionSettings f x =
-    f (_cctmOptionSettings x)
-        <&> \y -> x { _cctmOptionSettings = y }
-{-# INLINE cctmOptionSettings #-}
-
--- | Describes this configuration.
-cctmDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctmDescription f x =
-    f (_cctmDescription x)
-        <&> \y -> x { _cctmDescription = y }
-{-# INLINE cctmDescription #-}
-
--- | The ID of the environment used with this configuration template.
-cctmEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctmEnvironmentId f x =
-    f (_cctmEnvironmentId x)
-        <&> \y -> x { _cctmEnvironmentId = y }
-{-# INLINE cctmEnvironmentId #-}
 
 -- | The name of the solution stack used by this configuration. The solution
 -- stack specifies the operating system, architecture, and application server
@@ -213,9 +187,7 @@ cctmEnvironmentId f x =
 -- configuration parameter is specified, AWS Elastic Beanstalk uses the same
 -- solution stack as the source configuration template.
 cctmSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctmSolutionStackName f x =
-    f (_cctmSolutionStackName x)
-        <&> \y -> x { _cctmSolutionStackName = y }
+cctmSolutionStackName = lens _cctmSolutionStackName (\s a -> s { _cctmSolutionStackName = a })
 {-# INLINE cctmSolutionStackName #-}
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from the
@@ -228,17 +200,42 @@ cctmSolutionStackName f x =
 -- match the specified solution stack name or else AWS Elastic Beanstalk
 -- returns an InvalidParameterCombination error.
 cctmSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
-cctmSourceConfiguration f x =
-    f (_cctmSourceConfiguration x)
-        <&> \y -> x { _cctmSourceConfiguration = y }
+cctmSourceConfiguration = lens _cctmSourceConfiguration (\s a -> s { _cctmSourceConfiguration = a })
 {-# INLINE cctmSourceConfiguration #-}
+
+-- | The ID of the environment used with this configuration template.
+cctmEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctmEnvironmentId = lens _cctmEnvironmentId (\s a -> s { _cctmEnvironmentId = a })
+{-# INLINE cctmEnvironmentId #-}
+
+-- | Describes this configuration.
+cctmDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctmDescription = lens _cctmDescription (\s a -> s { _cctmDescription = a })
+{-# INLINE cctmDescription #-}
+
+-- | If specified, AWS Elastic Beanstalk sets the specified configuration option
+-- to the requested value. The new value overrides the value obtained from the
+-- solution stack or the source configuration template.
+cctmOptionSettings :: Lens' CreateConfigurationTemplate ([ConfigurationOptionSetting])
+cctmOptionSettings = lens _cctmOptionSettings (\s a -> s { _cctmOptionSettings = a })
+{-# INLINE cctmOptionSettings #-}
 
 instance ToQuery CreateConfigurationTemplate where
     toQuery = genericQuery def
 
 data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
-    { _csdApplicationName :: Maybe Text
+    { _csdSolutionStackName :: Maybe Text
+      -- ^ The name of the solution stack this configuration set uses.
+    , _csdApplicationName :: Maybe Text
       -- ^ The name of the application associated with this configuration
+      -- set.
+    , _csdTemplateName :: Maybe Text
+      -- ^ If not null, the name of the configuration template for this
+      -- configuration set.
+    , _csdDescription :: Maybe Text
+      -- ^ Describes this configuration set.
+    , _csdEnvironmentName :: Maybe Text
+      -- ^ If not null, the name of the environment for this configuration
       -- set.
     , _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus
       -- ^ If this configuration set is associated with an environment, the
@@ -256,32 +253,41 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
       -- configuration that is currently deployed to the associated
       -- running environment. failed: This is a draft configuration that
       -- failed to successfully deploy.
-    , _csdOptionSettings :: [ConfigurationOptionSetting]
-      -- ^ A list of the configuration options and their values in this
-      -- configuration set.
-    , _csdTemplateName :: Maybe Text
-      -- ^ If not null, the name of the configuration template for this
-      -- configuration set.
     , _csdDateCreated :: Maybe ISO8601
       -- ^ The date (in UTC time) when this configuration set was created.
-    , _csdDescription :: Maybe Text
-      -- ^ Describes this configuration set.
-    , _csdEnvironmentName :: Maybe Text
-      -- ^ If not null, the name of the environment for this configuration
-      -- set.
-    , _csdSolutionStackName :: Maybe Text
-      -- ^ The name of the solution stack this configuration set uses.
     , _csdDateUpdated :: Maybe ISO8601
       -- ^ The date (in UTC time) when this configuration set was last
       -- modified.
+    , _csdOptionSettings :: [ConfigurationOptionSetting]
+      -- ^ A list of the configuration options and their values in this
+      -- configuration set.
     } deriving (Show, Generic)
+
+-- | The name of the solution stack this configuration set uses.
+csdSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+csdSolutionStackName = lens _csdSolutionStackName (\s a -> s { _csdSolutionStackName = a })
+{-# INLINE csdSolutionStackName #-}
 
 -- | The name of the application associated with this configuration set.
 csdApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-csdApplicationName f x =
-    f (_csdApplicationName x)
-        <&> \y -> x { _csdApplicationName = y }
+csdApplicationName = lens _csdApplicationName (\s a -> s { _csdApplicationName = a })
 {-# INLINE csdApplicationName #-}
+
+-- | If not null, the name of the configuration template for this configuration
+-- set.
+csdTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
+{-# INLINE csdTemplateName #-}
+
+-- | Describes this configuration set.
+csdDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+csdDescription = lens _csdDescription (\s a -> s { _csdDescription = a })
+{-# INLINE csdDescription #-}
+
+-- | If not null, the name of the environment for this configuration set.
+csdEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+csdEnvironmentName = lens _csdEnvironmentName (\s a -> s { _csdEnvironmentName = a })
+{-# INLINE csdEnvironmentName #-}
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -297,61 +303,24 @@ csdApplicationName f x =
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
 csdDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
-csdDeploymentStatus f x =
-    f (_csdDeploymentStatus x)
-        <&> \y -> x { _csdDeploymentStatus = y }
+csdDeploymentStatus = lens _csdDeploymentStatus (\s a -> s { _csdDeploymentStatus = a })
 {-# INLINE csdDeploymentStatus #-}
+
+-- | The date (in UTC time) when this configuration set was created.
+csdDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
+csdDateCreated = lens _csdDateCreated (\s a -> s { _csdDateCreated = a })
+{-# INLINE csdDateCreated #-}
+
+-- | The date (in UTC time) when this configuration set was last modified.
+csdDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
+csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a })
+{-# INLINE csdDateUpdated #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
 csdOptionSettings :: Lens' CreateConfigurationTemplateResponse ([ConfigurationOptionSetting])
-csdOptionSettings f x =
-    f (_csdOptionSettings x)
-        <&> \y -> x { _csdOptionSettings = y }
+csdOptionSettings = lens _csdOptionSettings (\s a -> s { _csdOptionSettings = a })
 {-# INLINE csdOptionSettings #-}
-
--- | If not null, the name of the configuration template for this configuration
--- set.
-csdTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-csdTemplateName f x =
-    f (_csdTemplateName x)
-        <&> \y -> x { _csdTemplateName = y }
-{-# INLINE csdTemplateName #-}
-
--- | The date (in UTC time) when this configuration set was created.
-csdDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
-csdDateCreated f x =
-    f (_csdDateCreated x)
-        <&> \y -> x { _csdDateCreated = y }
-{-# INLINE csdDateCreated #-}
-
--- | Describes this configuration set.
-csdDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-csdDescription f x =
-    f (_csdDescription x)
-        <&> \y -> x { _csdDescription = y }
-{-# INLINE csdDescription #-}
-
--- | If not null, the name of the environment for this configuration set.
-csdEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-csdEnvironmentName f x =
-    f (_csdEnvironmentName x)
-        <&> \y -> x { _csdEnvironmentName = y }
-{-# INLINE csdEnvironmentName #-}
-
--- | The name of the solution stack this configuration set uses.
-csdSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-csdSolutionStackName f x =
-    f (_csdSolutionStackName x)
-        <&> \y -> x { _csdSolutionStackName = y }
-{-# INLINE csdSolutionStackName #-}
-
--- | The date (in UTC time) when this configuration set was last modified.
-csdDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
-csdDateUpdated f x =
-    f (_csdDateUpdated x)
-        <&> \y -> x { _csdDateUpdated = y }
-{-# INLINE csdDateUpdated #-}
 
 instance FromXML CreateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions

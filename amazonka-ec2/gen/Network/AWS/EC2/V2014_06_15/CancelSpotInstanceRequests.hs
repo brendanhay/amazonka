@@ -40,7 +40,7 @@ module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
     -- * Request
       CancelSpotInstanceRequests
     -- ** Request constructor
-    , cancelSpotInstanceRequests
+    , mkCancelSpotInstanceRequestsRequest
     -- ** Request lenses
     , csirrSpotInstanceRequestIds
 
@@ -54,39 +54,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CancelSpotInstanceRequests' request.
-cancelSpotInstanceRequests :: [Text] -- ^ 'csirrSpotInstanceRequestIds'
-                           -> CancelSpotInstanceRequests
-cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelSpotInstanceRequests' request.
+mkCancelSpotInstanceRequestsRequest :: [Text] -- ^ 'csirrSpotInstanceRequestIds'
+                                    -> CancelSpotInstanceRequests
+mkCancelSpotInstanceRequestsRequest p1 = CancelSpotInstanceRequests
     { _csirrSpotInstanceRequestIds = p1
     }
-{-# INLINE cancelSpotInstanceRequests #-}
+{-# INLINE mkCancelSpotInstanceRequestsRequest #-}
 
-data CancelSpotInstanceRequests = CancelSpotInstanceRequests
+newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirrSpotInstanceRequestIds :: [Text]
       -- ^ One or more Spot Instance request IDs.
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance request IDs.
 csirrSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests ([Text])
-csirrSpotInstanceRequestIds f x =
-    f (_csirrSpotInstanceRequestIds x)
-        <&> \y -> x { _csirrSpotInstanceRequestIds = y }
+csirrSpotInstanceRequestIds = lens _csirrSpotInstanceRequestIds (\s a -> s { _csirrSpotInstanceRequestIds = a })
 {-# INLINE csirrSpotInstanceRequestIds #-}
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
 
-data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
+newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirsCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
       -- ^ One or more Spot Instance requests.
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
 csirsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse ([CancelledSpotInstanceRequest])
-csirsCancelledSpotInstanceRequests f x =
-    f (_csirsCancelledSpotInstanceRequests x)
-        <&> \y -> x { _csirsCancelledSpotInstanceRequests = y }
+csirsCancelledSpotInstanceRequests = lens _csirsCancelledSpotInstanceRequests (\s a -> s { _csirsCancelledSpotInstanceRequests = a })
 {-# INLINE csirsCancelledSpotInstanceRequests #-}
 
 instance FromXML CancelSpotInstanceRequestsResponse where

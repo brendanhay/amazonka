@@ -31,85 +31,78 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
     -- * Request
       DescribeStacks
     -- ** Request constructor
-    , describeStacks
+    , mkDescribeStacksInput
     -- ** Request lenses
-    , dsjNextToken
     , dsjStackName
+    , dsjNextToken
 
     -- * Response
     , DescribeStacksResponse
     -- ** Response lenses
-    , dsoNextToken
     , dsoStacks
+    , dsoNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeStacks' request.
-describeStacks :: DescribeStacks
-describeStacks = DescribeStacks
-    { _dsjNextToken = Nothing
-    , _dsjStackName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStacks' request.
+mkDescribeStacksInput :: DescribeStacks
+mkDescribeStacksInput = DescribeStacks
+    { _dsjStackName = Nothing
+    , _dsjNextToken = Nothing
     }
-{-# INLINE describeStacks #-}
+{-# INLINE mkDescribeStacksInput #-}
 
 data DescribeStacks = DescribeStacks
-    { _dsjNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of stacks, if
-      -- there is one.
-    , _dsjStackName :: Maybe Text
+    { _dsjStackName :: Maybe Text
       -- ^ The name or the unique identifier associated with the stack,
       -- which are not always interchangeable: Running stacks: You can
       -- specify either the stack's name or its unique stack ID. Deleted
       -- stacks: You must specify the unique stack ID. Default: There is
       -- no default value.
+    , _dsjNextToken :: Maybe Text
+      -- ^ String that identifies the start of the next list of stacks, if
+      -- there is one.
     } deriving (Show, Generic)
-
--- | String that identifies the start of the next list of stacks, if there is
--- one.
-dsjNextToken :: Lens' DescribeStacks (Maybe Text)
-dsjNextToken f x =
-    f (_dsjNextToken x)
-        <&> \y -> x { _dsjNextToken = y }
-{-# INLINE dsjNextToken #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
 dsjStackName :: Lens' DescribeStacks (Maybe Text)
-dsjStackName f x =
-    f (_dsjStackName x)
-        <&> \y -> x { _dsjStackName = y }
+dsjStackName = lens _dsjStackName (\s a -> s { _dsjStackName = a })
 {-# INLINE dsjStackName #-}
+
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+dsjNextToken :: Lens' DescribeStacks (Maybe Text)
+dsjNextToken = lens _dsjNextToken (\s a -> s { _dsjNextToken = a })
+{-# INLINE dsjNextToken #-}
 
 instance ToQuery DescribeStacks where
     toQuery = genericQuery def
 
 data DescribeStacksResponse = DescribeStacksResponse
-    { _dsoNextToken :: Maybe Text
+    { _dsoStacks :: [Stack]
+      -- ^ A list of stack structures.
+    , _dsoNextToken :: Maybe Text
       -- ^ String that identifies the start of the next list of stacks, if
       -- there is one.
-    , _dsoStacks :: [Stack]
-      -- ^ A list of stack structures.
     } deriving (Show, Generic)
+
+-- | A list of stack structures.
+dsoStacks :: Lens' DescribeStacksResponse ([Stack])
+dsoStacks = lens _dsoStacks (\s a -> s { _dsoStacks = a })
+{-# INLINE dsoStacks #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 dsoNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-dsoNextToken f x =
-    f (_dsoNextToken x)
-        <&> \y -> x { _dsoNextToken = y }
+dsoNextToken = lens _dsoNextToken (\s a -> s { _dsoNextToken = a })
 {-# INLINE dsoNextToken #-}
-
--- | A list of stack structures.
-dsoStacks :: Lens' DescribeStacksResponse ([Stack])
-dsoStacks f x =
-    f (_dsoStacks x)
-        <&> \y -> x { _dsoStacks = y }
-{-# INLINE dsoStacks #-}
 
 instance FromXML DescribeStacksResponse where
     fromXMLOptions = xmlOptions

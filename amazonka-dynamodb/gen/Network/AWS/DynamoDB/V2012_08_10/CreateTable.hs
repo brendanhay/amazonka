@@ -49,14 +49,14 @@ module Network.AWS.DynamoDB.V2012_08_10.CreateTable
     -- * Request
       CreateTable
     -- ** Request constructor
-    , createTable
+    , mkCreateTableInput
     -- ** Request lenses
     , ctiAttributeDefinitions
-    , ctiKeySchema
-    , ctiProvisionedThroughput
     , ctiTableName
-    , ctiGlobalSecondaryIndexes
+    , ctiKeySchema
     , ctiLocalSecondaryIndexes
+    , ctiGlobalSecondaryIndexes
+    , ctiProvisionedThroughput
 
     -- * Response
     , CreateTableResponse
@@ -69,26 +69,29 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateTable' request.
-createTable :: [AttributeDefinition] -- ^ 'ctiAttributeDefinitions'
-            -> [KeySchemaElement] -- ^ 'ctiKeySchema'
-            -> ProvisionedThroughput -- ^ 'ctiProvisionedThroughput'
-            -> Text -- ^ 'ctiTableName'
-            -> CreateTable
-createTable p1 p2 p3 p4 = CreateTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTable' request.
+mkCreateTableInput :: [AttributeDefinition] -- ^ 'ctiAttributeDefinitions'
+                   -> Text -- ^ 'ctiTableName'
+                   -> [KeySchemaElement] -- ^ 'ctiKeySchema'
+                   -> ProvisionedThroughput -- ^ 'ctiProvisionedThroughput'
+                   -> CreateTable
+mkCreateTableInput p1 p2 p3 p4 = CreateTable
     { _ctiAttributeDefinitions = p1
-    , _ctiKeySchema = p2
-    , _ctiProvisionedThroughput = p3
-    , _ctiTableName = p4
-    , _ctiGlobalSecondaryIndexes = mempty
+    , _ctiTableName = p2
+    , _ctiKeySchema = p3
     , _ctiLocalSecondaryIndexes = mempty
+    , _ctiGlobalSecondaryIndexes = mempty
+    , _ctiProvisionedThroughput = p6
     }
-{-# INLINE createTable #-}
+{-# INLINE mkCreateTableInput #-}
 
 data CreateTable = CreateTable
     { _ctiAttributeDefinitions :: [AttributeDefinition]
       -- ^ An array of attributes that describe the key schema for the table
       -- and indexes.
+    , _ctiTableName :: Text
+      -- ^ The name of the table to create.
     , _ctiKeySchema :: [KeySchemaElement]
       -- ^ Specifies the attributes that make up the primary key for a table
       -- or an index. The attributes in KeySchema must also be defined in
@@ -104,38 +107,6 @@ data CreateTable = CreateTable
       -- second element must have a KeyType of RANGE. For more
       -- information, see Specifying the Primary Key in the Amazon
       -- DynamoDB Developer Guide.
-    , _ctiProvisionedThroughput :: ProvisionedThroughput
-      -- ^ Represents the provisioned throughput settings for a specified
-      -- table or index. The settings can be modified using the
-      -- UpdateTable operation. For current minimum and maximum
-      -- provisioned throughput values, see Limits in the Amazon DynamoDB
-      -- Developer Guide.
-    , _ctiTableName :: Text
-      -- ^ The name of the table to create.
-    , _ctiGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
-      -- ^ One or more global secondary indexes (the maximum is five) to be
-      -- created on the table. Each global secondary index in the array
-      -- includes the following: IndexName - The name of the global
-      -- secondary index. Must be unique only for this table. KeySchema -
-      -- Specifies the key schema for the global secondary index.
-      -- Projection - Specifies attributes that are copied (projected)
-      -- from the table into the index. These are in addition to the
-      -- primary key attributes and index key attributes, which are
-      -- automatically projected. Each attribute specification is composed
-      -- of: ProjectionType - One of the following: KEYS_ONLY - Only the
-      -- index and primary keys are projected into the index. INCLUDE -
-      -- Only the specified table attributes are projected into the index.
-      -- The list of projected attributes are in NonKeyAttributes. ALL -
-      -- All of the table attributes are projected into the index.
-      -- NonKeyAttributes - A list of one or more non-key attribute names
-      -- that are projected into the secondary index. The total count of
-      -- attributes specified in NonKeyAttributes, summed across all of
-      -- the secondary indexes, must not exceed 20. If you project the
-      -- same attribute into two different indexes, this counts as two
-      -- distinct attributes when determining the total.
-      -- ProvisionedThroughput - The provisioned throughput settings for
-      -- the global secondary index, consisting of read and write capacity
-      -- units.
     , _ctiLocalSecondaryIndexes :: [LocalSecondaryIndex]
       -- ^ One or more local secondary indexes (the maximum is five) to be
       -- created on the table. Each index is scoped to a given hash key
@@ -161,15 +132,48 @@ data CreateTable = CreateTable
       -- must not exceed 20. If you project the same attribute into two
       -- different indexes, this counts as two distinct attributes when
       -- determining the total.
+    , _ctiGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
+      -- ^ One or more global secondary indexes (the maximum is five) to be
+      -- created on the table. Each global secondary index in the array
+      -- includes the following: IndexName - The name of the global
+      -- secondary index. Must be unique only for this table. KeySchema -
+      -- Specifies the key schema for the global secondary index.
+      -- Projection - Specifies attributes that are copied (projected)
+      -- from the table into the index. These are in addition to the
+      -- primary key attributes and index key attributes, which are
+      -- automatically projected. Each attribute specification is composed
+      -- of: ProjectionType - One of the following: KEYS_ONLY - Only the
+      -- index and primary keys are projected into the index. INCLUDE -
+      -- Only the specified table attributes are projected into the index.
+      -- The list of projected attributes are in NonKeyAttributes. ALL -
+      -- All of the table attributes are projected into the index.
+      -- NonKeyAttributes - A list of one or more non-key attribute names
+      -- that are projected into the secondary index. The total count of
+      -- attributes specified in NonKeyAttributes, summed across all of
+      -- the secondary indexes, must not exceed 20. If you project the
+      -- same attribute into two different indexes, this counts as two
+      -- distinct attributes when determining the total.
+      -- ProvisionedThroughput - The provisioned throughput settings for
+      -- the global secondary index, consisting of read and write capacity
+      -- units.
+    , _ctiProvisionedThroughput :: ProvisionedThroughput
+      -- ^ Represents the provisioned throughput settings for a specified
+      -- table or index. The settings can be modified using the
+      -- UpdateTable operation. For current minimum and maximum
+      -- provisioned throughput values, see Limits in the Amazon DynamoDB
+      -- Developer Guide.
     } deriving (Show, Generic)
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
 ctiAttributeDefinitions :: Lens' CreateTable ([AttributeDefinition])
-ctiAttributeDefinitions f x =
-    f (_ctiAttributeDefinitions x)
-        <&> \y -> x { _ctiAttributeDefinitions = y }
+ctiAttributeDefinitions = lens _ctiAttributeDefinitions (\s a -> s { _ctiAttributeDefinitions = a })
 {-# INLINE ctiAttributeDefinitions #-}
+
+-- | The name of the table to create.
+ctiTableName :: Lens' CreateTable (Text)
+ctiTableName = lens _ctiTableName (\s a -> s { _ctiTableName = a })
+{-# INLINE ctiTableName #-}
 
 -- | Specifies the attributes that make up the primary key for a table or an
 -- index. The attributes in KeySchema must also be defined in the
@@ -184,52 +188,8 @@ ctiAttributeDefinitions f x =
 -- KeyType of RANGE. For more information, see Specifying the Primary Key in
 -- the Amazon DynamoDB Developer Guide.
 ctiKeySchema :: Lens' CreateTable ([KeySchemaElement])
-ctiKeySchema f x =
-    f (_ctiKeySchema x)
-        <&> \y -> x { _ctiKeySchema = y }
+ctiKeySchema = lens _ctiKeySchema (\s a -> s { _ctiKeySchema = a })
 {-# INLINE ctiKeySchema #-}
-
--- | Represents the provisioned throughput settings for a specified table or
--- index. The settings can be modified using the UpdateTable operation. For
--- current minimum and maximum provisioned throughput values, see Limits in
--- the Amazon DynamoDB Developer Guide.
-ctiProvisionedThroughput :: Lens' CreateTable (ProvisionedThroughput)
-ctiProvisionedThroughput f x =
-    f (_ctiProvisionedThroughput x)
-        <&> \y -> x { _ctiProvisionedThroughput = y }
-{-# INLINE ctiProvisionedThroughput #-}
-
--- | The name of the table to create.
-ctiTableName :: Lens' CreateTable (Text)
-ctiTableName f x =
-    f (_ctiTableName x)
-        <&> \y -> x { _ctiTableName = y }
-{-# INLINE ctiTableName #-}
-
--- | One or more global secondary indexes (the maximum is five) to be created on
--- the table. Each global secondary index in the array includes the following:
--- IndexName - The name of the global secondary index. Must be unique only for
--- this table. KeySchema - Specifies the key schema for the global secondary
--- index. Projection - Specifies attributes that are copied (projected) from
--- the table into the index. These are in addition to the primary key
--- attributes and index key attributes, which are automatically projected.
--- Each attribute specification is composed of: ProjectionType - One of the
--- following: KEYS_ONLY - Only the index and primary keys are projected into
--- the index. INCLUDE - Only the specified table attributes are projected into
--- the index. The list of projected attributes are in NonKeyAttributes. ALL -
--- All of the table attributes are projected into the index. NonKeyAttributes
--- - A list of one or more non-key attribute names that are projected into the
--- secondary index. The total count of attributes specified in
--- NonKeyAttributes, summed across all of the secondary indexes, must not
--- exceed 20. If you project the same attribute into two different indexes,
--- this counts as two distinct attributes when determining the total.
--- ProvisionedThroughput - The provisioned throughput settings for the global
--- secondary index, consisting of read and write capacity units.
-ctiGlobalSecondaryIndexes :: Lens' CreateTable ([GlobalSecondaryIndex])
-ctiGlobalSecondaryIndexes f x =
-    f (_ctiGlobalSecondaryIndexes x)
-        <&> \y -> x { _ctiGlobalSecondaryIndexes = y }
-{-# INLINE ctiGlobalSecondaryIndexes #-}
 
 -- | One or more local secondary indexes (the maximum is five) to be created on
 -- the table. Each index is scoped to a given hash key value. There is a 10 GB
@@ -252,10 +212,39 @@ ctiGlobalSecondaryIndexes f x =
 -- must not exceed 20. If you project the same attribute into two different
 -- indexes, this counts as two distinct attributes when determining the total.
 ctiLocalSecondaryIndexes :: Lens' CreateTable ([LocalSecondaryIndex])
-ctiLocalSecondaryIndexes f x =
-    f (_ctiLocalSecondaryIndexes x)
-        <&> \y -> x { _ctiLocalSecondaryIndexes = y }
+ctiLocalSecondaryIndexes = lens _ctiLocalSecondaryIndexes (\s a -> s { _ctiLocalSecondaryIndexes = a })
 {-# INLINE ctiLocalSecondaryIndexes #-}
+
+-- | One or more global secondary indexes (the maximum is five) to be created on
+-- the table. Each global secondary index in the array includes the following:
+-- IndexName - The name of the global secondary index. Must be unique only for
+-- this table. KeySchema - Specifies the key schema for the global secondary
+-- index. Projection - Specifies attributes that are copied (projected) from
+-- the table into the index. These are in addition to the primary key
+-- attributes and index key attributes, which are automatically projected.
+-- Each attribute specification is composed of: ProjectionType - One of the
+-- following: KEYS_ONLY - Only the index and primary keys are projected into
+-- the index. INCLUDE - Only the specified table attributes are projected into
+-- the index. The list of projected attributes are in NonKeyAttributes. ALL -
+-- All of the table attributes are projected into the index. NonKeyAttributes
+-- - A list of one or more non-key attribute names that are projected into the
+-- secondary index. The total count of attributes specified in
+-- NonKeyAttributes, summed across all of the secondary indexes, must not
+-- exceed 20. If you project the same attribute into two different indexes,
+-- this counts as two distinct attributes when determining the total.
+-- ProvisionedThroughput - The provisioned throughput settings for the global
+-- secondary index, consisting of read and write capacity units.
+ctiGlobalSecondaryIndexes :: Lens' CreateTable ([GlobalSecondaryIndex])
+ctiGlobalSecondaryIndexes = lens _ctiGlobalSecondaryIndexes (\s a -> s { _ctiGlobalSecondaryIndexes = a })
+{-# INLINE ctiGlobalSecondaryIndexes #-}
+
+-- | Represents the provisioned throughput settings for a specified table or
+-- index. The settings can be modified using the UpdateTable operation. For
+-- current minimum and maximum provisioned throughput values, see Limits in
+-- the Amazon DynamoDB Developer Guide.
+ctiProvisionedThroughput :: Lens' CreateTable (ProvisionedThroughput)
+ctiProvisionedThroughput = lens _ctiProvisionedThroughput (\s a -> s { _ctiProvisionedThroughput = a })
+{-# INLINE ctiProvisionedThroughput #-}
 
 instance ToPath CreateTable
 
@@ -265,16 +254,14 @@ instance ToHeaders CreateTable
 
 instance ToJSON CreateTable
 
-data CreateTableResponse = CreateTableResponse
+newtype CreateTableResponse = CreateTableResponse
     { _ctoTableDescription :: Maybe TableDescription
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
 ctoTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
-ctoTableDescription f x =
-    f (_ctoTableDescription x)
-        <&> \y -> x { _ctoTableDescription = y }
+ctoTableDescription = lens _ctoTableDescription (\s a -> s { _ctoTableDescription = a })
 {-# INLINE ctoTableDescription #-}
 
 instance FromJSON CreateTableResponse

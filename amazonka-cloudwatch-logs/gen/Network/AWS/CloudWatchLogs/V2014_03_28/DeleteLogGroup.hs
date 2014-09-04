@@ -33,7 +33,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup
     -- * Request
       DeleteLogGroup
     -- ** Request constructor
-    , deleteLogGroup
+    , mkDeleteLogGroupRequest
     -- ** Request lenses
     , dlgrLogGroupName
 
@@ -46,22 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteLogGroup' request.
-deleteLogGroup :: Text -- ^ 'dlgrLogGroupName'
-               -> DeleteLogGroup
-deleteLogGroup p1 = DeleteLogGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLogGroup' request.
+mkDeleteLogGroupRequest :: Text -- ^ 'dlgrLogGroupName'
+                        -> DeleteLogGroup
+mkDeleteLogGroupRequest p1 = DeleteLogGroup
     { _dlgrLogGroupName = p1
     }
-{-# INLINE deleteLogGroup #-}
+{-# INLINE mkDeleteLogGroupRequest #-}
 
-data DeleteLogGroup = DeleteLogGroup
+newtype DeleteLogGroup = DeleteLogGroup
     { _dlgrLogGroupName :: Text
     } deriving (Show, Generic)
 
 dlgrLogGroupName :: Lens' DeleteLogGroup (Text)
-dlgrLogGroupName f x =
-    f (_dlgrLogGroupName x)
-        <&> \y -> x { _dlgrLogGroupName = y }
+dlgrLogGroupName = lens _dlgrLogGroupName (\s a -> s { _dlgrLogGroupName = a })
 {-# INLINE dlgrLogGroupName #-}
 
 instance ToPath DeleteLogGroup

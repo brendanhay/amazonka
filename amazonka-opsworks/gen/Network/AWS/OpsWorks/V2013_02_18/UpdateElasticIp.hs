@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
     -- * Request
       UpdateElasticIp
     -- ** Request constructor
-    , updateElasticIp
+    , mkUpdateElasticIpRequest
     -- ** Request lenses
     , ueirElasticIp
     , ueirName
@@ -41,14 +41,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateElasticIp' request.
-updateElasticIp :: Text -- ^ 'ueirElasticIp'
-                -> UpdateElasticIp
-updateElasticIp p1 = UpdateElasticIp
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateElasticIp' request.
+mkUpdateElasticIpRequest :: Text -- ^ 'ueirElasticIp'
+                         -> UpdateElasticIp
+mkUpdateElasticIpRequest p1 = UpdateElasticIp
     { _ueirElasticIp = p1
     , _ueirName = Nothing
     }
-{-# INLINE updateElasticIp #-}
+{-# INLINE mkUpdateElasticIpRequest #-}
 
 data UpdateElasticIp = UpdateElasticIp
     { _ueirElasticIp :: Text
@@ -59,16 +60,12 @@ data UpdateElasticIp = UpdateElasticIp
 
 -- | The address.
 ueirElasticIp :: Lens' UpdateElasticIp (Text)
-ueirElasticIp f x =
-    f (_ueirElasticIp x)
-        <&> \y -> x { _ueirElasticIp = y }
+ueirElasticIp = lens _ueirElasticIp (\s a -> s { _ueirElasticIp = a })
 {-# INLINE ueirElasticIp #-}
 
 -- | The new name.
 ueirName :: Lens' UpdateElasticIp (Maybe Text)
-ueirName f x =
-    f (_ueirName x)
-        <&> \y -> x { _ueirName = y }
+ueirName = lens _ueirName (\s a -> s { _ueirName = a })
 {-# INLINE ueirName #-}
 
 instance ToPath UpdateElasticIp

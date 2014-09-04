@@ -57,7 +57,7 @@ module Network.AWS.STS.V2011_06_15.GetSessionToken
     -- * Request
       GetSessionToken
     -- ** Request constructor
-    , getSessionToken
+    , mkGetSessionTokenRequest
     -- ** Request lenses
     , gstrDurationSeconds
     , gstrSerialNumber
@@ -73,14 +73,15 @@ import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetSessionToken' request.
-getSessionToken :: GetSessionToken
-getSessionToken = GetSessionToken
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSessionToken' request.
+mkGetSessionTokenRequest :: GetSessionToken
+mkGetSessionTokenRequest = GetSessionToken
     { _gstrDurationSeconds = Nothing
     , _gstrSerialNumber = Nothing
     , _gstrTokenCode = Nothing
     }
-{-# INLINE getSessionToken #-}
+{-# INLINE mkGetSessionTokenRequest #-}
 
 data GetSessionToken = GetSessionToken
     { _gstrDurationSeconds :: Maybe Integer
@@ -117,9 +118,7 @@ data GetSessionToken = GetSessionToken
 -- 3600 seconds (one hour). If the duration is longer than one hour, the
 -- session for AWS account owners defaults to one hour.
 gstrDurationSeconds :: Lens' GetSessionToken (Maybe Integer)
-gstrDurationSeconds f x =
-    f (_gstrDurationSeconds x)
-        <&> \y -> x { _gstrDurationSeconds = y }
+gstrDurationSeconds = lens _gstrDurationSeconds (\s a -> s { _gstrDurationSeconds = a })
 {-# INLINE gstrDurationSeconds #-}
 
 -- | The identification number of the MFA device that is associated with the IAM
@@ -131,9 +130,7 @@ gstrDurationSeconds f x =
 -- user by going to the AWS Management Console and viewing the user's security
 -- credentials.
 gstrSerialNumber :: Lens' GetSessionToken (Maybe Text)
-gstrSerialNumber f x =
-    f (_gstrSerialNumber x)
-        <&> \y -> x { _gstrSerialNumber = y }
+gstrSerialNumber = lens _gstrSerialNumber (\s a -> s { _gstrSerialNumber = a })
 {-# INLINE gstrSerialNumber #-}
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
@@ -143,24 +140,20 @@ gstrSerialNumber f x =
 -- an "access denied" response when requesting resources that require MFA
 -- authentication.
 gstrTokenCode :: Lens' GetSessionToken (Maybe Text)
-gstrTokenCode f x =
-    f (_gstrTokenCode x)
-        <&> \y -> x { _gstrTokenCode = y }
+gstrTokenCode = lens _gstrTokenCode (\s a -> s { _gstrTokenCode = a })
 {-# INLINE gstrTokenCode #-}
 
 instance ToQuery GetSessionToken where
     toQuery = genericQuery def
 
-data GetSessionTokenResponse = GetSessionTokenResponse
+newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstsCredentials :: Maybe Credentials
       -- ^ The session credentials for API authentication.
     } deriving (Show, Generic)
 
 -- | The session credentials for API authentication.
 gstsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
-gstsCredentials f x =
-    f (_gstsCredentials x)
-        <&> \y -> x { _gstsCredentials = y }
+gstsCredentials = lens _gstsCredentials (\s a -> s { _gstsCredentials = a })
 {-# INLINE gstsCredentials #-}
 
 instance FromXML GetSessionTokenResponse where

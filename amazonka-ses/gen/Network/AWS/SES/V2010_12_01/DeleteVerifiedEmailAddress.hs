@@ -34,7 +34,7 @@ module Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress
     -- * Request
       DeleteVerifiedEmailAddress
     -- ** Request constructor
-    , deleteVerifiedEmailAddress
+    , mkDeleteVerifiedEmailAddressRequest
     -- ** Request lenses
     , dvearEmailAddress
 
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteVerifiedEmailAddress' request.
-deleteVerifiedEmailAddress :: Text -- ^ 'dvearEmailAddress'
-                           -> DeleteVerifiedEmailAddress
-deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVerifiedEmailAddress' request.
+mkDeleteVerifiedEmailAddressRequest :: Text -- ^ 'dvearEmailAddress'
+                                    -> DeleteVerifiedEmailAddress
+mkDeleteVerifiedEmailAddressRequest p1 = DeleteVerifiedEmailAddress
     { _dvearEmailAddress = p1
     }
-{-# INLINE deleteVerifiedEmailAddress #-}
+{-# INLINE mkDeleteVerifiedEmailAddressRequest #-}
 
-data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
+newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dvearEmailAddress :: Text
       -- ^ An email address to be removed from the list of verified
       -- addresses.
@@ -62,9 +63,7 @@ data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
 
 -- | An email address to be removed from the list of verified addresses.
 dvearEmailAddress :: Lens' DeleteVerifiedEmailAddress (Text)
-dvearEmailAddress f x =
-    f (_dvearEmailAddress x)
-        <&> \y -> x { _dvearEmailAddress = y }
+dvearEmailAddress = lens _dvearEmailAddress (\s a -> s { _dvearEmailAddress = a })
 {-# INLINE dvearEmailAddress #-}
 
 instance ToQuery DeleteVerifiedEmailAddress where

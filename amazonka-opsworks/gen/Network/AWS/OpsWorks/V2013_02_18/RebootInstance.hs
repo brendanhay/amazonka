@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.RebootInstance
     -- * Request
       RebootInstance
     -- ** Request constructor
-    , rebootInstance
+    , mkRebootInstanceRequest
     -- ** Request lenses
     , rirInstanceId
 
@@ -40,24 +40,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RebootInstance' request.
-rebootInstance :: Text -- ^ 'rirInstanceId'
-               -> RebootInstance
-rebootInstance p1 = RebootInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootInstance' request.
+mkRebootInstanceRequest :: Text -- ^ 'rirInstanceId'
+                        -> RebootInstance
+mkRebootInstanceRequest p1 = RebootInstance
     { _rirInstanceId = p1
     }
-{-# INLINE rebootInstance #-}
+{-# INLINE mkRebootInstanceRequest #-}
 
-data RebootInstance = RebootInstance
+newtype RebootInstance = RebootInstance
     { _rirInstanceId :: Text
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
 -- | The instance ID.
 rirInstanceId :: Lens' RebootInstance (Text)
-rirInstanceId f x =
-    f (_rirInstanceId x)
-        <&> \y -> x { _rirInstanceId = y }
+rirInstanceId = lens _rirInstanceId (\s a -> s { _rirInstanceId = a })
 {-# INLINE rirInstanceId #-}
 
 instance ToPath RebootInstance

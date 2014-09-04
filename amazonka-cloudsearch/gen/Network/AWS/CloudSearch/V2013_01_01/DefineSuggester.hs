@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineSuggester
     -- * Request
       DefineSuggester
     -- ** Request constructor
-    , defineSuggester
+    , mkDefineSuggesterRequest
     -- ** Request lenses
     , dsrDomainName
     , dsrSuggester
@@ -43,15 +43,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DefineSuggester' request.
-defineSuggester :: Text -- ^ 'dsrDomainName'
-                -> Suggester -- ^ 'dsrSuggester'
-                -> DefineSuggester
-defineSuggester p1 p2 = DefineSuggester
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineSuggester' request.
+mkDefineSuggesterRequest :: Text -- ^ 'dsrDomainName'
+                         -> Suggester -- ^ 'dsrSuggester'
+                         -> DefineSuggester
+mkDefineSuggesterRequest p1 p2 = DefineSuggester
     { _dsrDomainName = p1
     , _dsrSuggester = p2
     }
-{-# INLINE defineSuggester #-}
+{-# INLINE mkDefineSuggesterRequest #-}
 
 data DefineSuggester = DefineSuggester
     { _dsrDomainName :: Text
@@ -72,9 +73,7 @@ data DefineSuggester = DefineSuggester
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 dsrDomainName :: Lens' DefineSuggester (Text)
-dsrDomainName f x =
-    f (_dsrDomainName x)
-        <&> \y -> x { _dsrDomainName = y }
+dsrDomainName = lens _dsrDomainName (\s a -> s { _dsrDomainName = a })
 {-# INLINE dsrDomainName #-}
 
 -- | Configuration information for a search suggester. Each suggester has a
@@ -82,24 +81,20 @@ dsrDomainName f x =
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
 dsrSuggester :: Lens' DefineSuggester (Suggester)
-dsrSuggester f x =
-    f (_dsrSuggester x)
-        <&> \y -> x { _dsrSuggester = y }
+dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
 {-# INLINE dsrSuggester #-}
 
 instance ToQuery DefineSuggester where
     toQuery = genericQuery def
 
-data DefineSuggesterResponse = DefineSuggesterResponse
+newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dssSuggester :: SuggesterStatus
       -- ^ The value of a Suggester and its current status.
     } deriving (Show, Generic)
 
 -- | The value of a Suggester and its current status.
 dssSuggester :: Lens' DefineSuggesterResponse (SuggesterStatus)
-dssSuggester f x =
-    f (_dssSuggester x)
-        <&> \y -> x { _dssSuggester = y }
+dssSuggester = lens _dssSuggester (\s a -> s { _dssSuggester = a })
 {-# INLINE dssSuggester #-}
 
 instance FromXML DefineSuggesterResponse where

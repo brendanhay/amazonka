@@ -37,7 +37,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream
     -- * Request
       CreateLogStream
     -- ** Request constructor
-    , createLogStream
+    , mkCreateLogStreamRequest
     -- ** Request lenses
     , clsrLogGroupName
     , clsrLogStreamName
@@ -51,15 +51,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateLogStream' request.
-createLogStream :: Text -- ^ 'clsrLogGroupName'
-                -> Text -- ^ 'clsrLogStreamName'
-                -> CreateLogStream
-createLogStream p1 p2 = CreateLogStream
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLogStream' request.
+mkCreateLogStreamRequest :: Text -- ^ 'clsrLogGroupName'
+                         -> Text -- ^ 'clsrLogStreamName'
+                         -> CreateLogStream
+mkCreateLogStreamRequest p1 p2 = CreateLogStream
     { _clsrLogGroupName = p1
     , _clsrLogStreamName = p2
     }
-{-# INLINE createLogStream #-}
+{-# INLINE mkCreateLogStreamRequest #-}
 
 data CreateLogStream = CreateLogStream
     { _clsrLogGroupName :: Text
@@ -67,15 +68,11 @@ data CreateLogStream = CreateLogStream
     } deriving (Show, Generic)
 
 clsrLogGroupName :: Lens' CreateLogStream (Text)
-clsrLogGroupName f x =
-    f (_clsrLogGroupName x)
-        <&> \y -> x { _clsrLogGroupName = y }
+clsrLogGroupName = lens _clsrLogGroupName (\s a -> s { _clsrLogGroupName = a })
 {-# INLINE clsrLogGroupName #-}
 
 clsrLogStreamName :: Lens' CreateLogStream (Text)
-clsrLogStreamName f x =
-    f (_clsrLogStreamName x)
-        <&> \y -> x { _clsrLogStreamName = y }
+clsrLogStreamName = lens _clsrLogStreamName (\s a -> s { _clsrLogStreamName = a })
 {-# INLINE clsrLogStreamName #-}
 
 instance ToPath CreateLogStream

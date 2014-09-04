@@ -42,7 +42,7 @@ module Network.AWS.Route53Domains.V2014_05_15.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , listDomains
+    , mkListDomainsRequest
     -- ** Request lenses
     , ldrMarker
     , ldrMaxItems
@@ -59,13 +59,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListDomains' request.
-listDomains :: ListDomains
-listDomains = ListDomains
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomains' request.
+mkListDomainsRequest :: ListDomains
+mkListDomainsRequest = ListDomains
     { _ldrMarker = Nothing
     , _ldrMaxItems = Nothing
     }
-{-# INLINE listDomains #-}
+{-# INLINE mkListDomainsRequest #-}
 
 data ListDomains = ListDomains
     { _ldrMarker :: Maybe Text
@@ -92,17 +93,13 @@ data ListDomains = ListDomains
 -- Constraints: The marker must match the value specified in the previous
 -- request. Required: No.
 ldrMarker :: Lens' ListDomains (Maybe Text)
-ldrMarker f x =
-    f (_ldrMarker x)
-        <&> \y -> x { _ldrMarker = y }
+ldrMarker = lens _ldrMarker (\s a -> s { _ldrMarker = a })
 {-# INLINE ldrMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- numeral between 1 and 100. Required: No.
 ldrMaxItems :: Lens' ListDomains (Maybe Integer)
-ldrMaxItems f x =
-    f (_ldrMaxItems x)
-        <&> \y -> x { _ldrMaxItems = y }
+ldrMaxItems = lens _ldrMaxItems (\s a -> s { _ldrMaxItems = a })
 {-# INLINE ldrMaxItems #-}
 
 instance ToPath ListDomains
@@ -128,18 +125,14 @@ data ListDomainsResponse = ListDomainsResponse
 -- | A summary of domains. Type: Complex type containing a list of domain
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
 ldsDomains :: Lens' ListDomainsResponse ([DomainSummary])
-ldsDomains f x =
-    f (_ldsDomains x)
-        <&> \y -> x { _ldsDomains = y }
+ldsDomains = lens _ldsDomains (\s a -> s { _ldsDomains = a })
 {-# INLINE ldsDomains #-}
 
 -- | If there are more domains than you specified for MaxItems in the request,
 -- submit another request and include the value of NextPageMarker in the value
 -- of Marker. Type: String Parent: Operations.
 ldsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
-ldsNextPageMarker f x =
-    f (_ldsNextPageMarker x)
-        <&> \y -> x { _ldsNextPageMarker = y }
+ldsNextPageMarker = lens _ldsNextPageMarker (\s a -> s { _ldsNextPageMarker = a })
 {-# INLINE ldsNextPageMarker #-}
 
 instance FromJSON ListDomainsResponse

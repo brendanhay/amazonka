@@ -36,7 +36,7 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation
     -- * Request
       ReplaceRouteTableAssociation
     -- ** Request constructor
-    , replaceRouteTableAssociation
+    , mkReplaceRouteTableAssociationRequest
     -- ** Request lenses
     , rrtarAssociationId
     , rrtarRouteTableId
@@ -51,15 +51,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReplaceRouteTableAssociation' request.
-replaceRouteTableAssociation :: Text -- ^ 'rrtarAssociationId'
-                             -> Text -- ^ 'rrtarRouteTableId'
-                             -> ReplaceRouteTableAssociation
-replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReplaceRouteTableAssociation' request.
+mkReplaceRouteTableAssociationRequest :: Text -- ^ 'rrtarAssociationId'
+                                      -> Text -- ^ 'rrtarRouteTableId'
+                                      -> ReplaceRouteTableAssociation
+mkReplaceRouteTableAssociationRequest p1 p2 = ReplaceRouteTableAssociation
     { _rrtarAssociationId = p1
     , _rrtarRouteTableId = p2
     }
-{-# INLINE replaceRouteTableAssociation #-}
+{-# INLINE mkReplaceRouteTableAssociationRequest #-}
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtarAssociationId :: Text
@@ -70,31 +71,25 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
 
 -- | The association ID.
 rrtarAssociationId :: Lens' ReplaceRouteTableAssociation (Text)
-rrtarAssociationId f x =
-    f (_rrtarAssociationId x)
-        <&> \y -> x { _rrtarAssociationId = y }
+rrtarAssociationId = lens _rrtarAssociationId (\s a -> s { _rrtarAssociationId = a })
 {-# INLINE rrtarAssociationId #-}
 
 -- | The ID of the new route table to associate with the subnet.
 rrtarRouteTableId :: Lens' ReplaceRouteTableAssociation (Text)
-rrtarRouteTableId f x =
-    f (_rrtarRouteTableId x)
-        <&> \y -> x { _rrtarRouteTableId = y }
+rrtarRouteTableId = lens _rrtarRouteTableId (\s a -> s { _rrtarRouteTableId = a })
 {-# INLINE rrtarRouteTableId #-}
 
 instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
 
-data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
+newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtasNewAssociationId :: Maybe Text
       -- ^ The ID of the new association.
     } deriving (Show, Generic)
 
 -- | The ID of the new association.
 rrtasNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
-rrtasNewAssociationId f x =
-    f (_rrtasNewAssociationId x)
-        <&> \y -> x { _rrtasNewAssociationId = y }
+rrtasNewAssociationId = lens _rrtasNewAssociationId (\s a -> s { _rrtasNewAssociationId = a })
 {-# INLINE rrtasNewAssociationId #-}
 
 instance FromXML ReplaceRouteTableAssociationResponse where

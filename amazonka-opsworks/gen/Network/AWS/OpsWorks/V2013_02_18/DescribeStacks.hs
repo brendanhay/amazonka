@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
     -- * Request
       DescribeStacks
     -- ** Request constructor
-    , describeStacks
+    , mkDescribeStacksRequest
     -- ** Request lenses
     , dssStackIds
 
@@ -42,14 +42,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeStacks' request.
-describeStacks :: DescribeStacks
-describeStacks = DescribeStacks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStacks' request.
+mkDescribeStacksRequest :: DescribeStacks
+mkDescribeStacksRequest = DescribeStacks
     { _dssStackIds = mempty
     }
-{-# INLINE describeStacks #-}
+{-# INLINE mkDescribeStacksRequest #-}
 
-data DescribeStacks = DescribeStacks
+newtype DescribeStacks = DescribeStacks
     { _dssStackIds :: [Text]
       -- ^ An array of stack IDs that specify the stacks to be described. If
       -- you omit this parameter, DescribeStacks returns a description of
@@ -59,9 +60,7 @@ data DescribeStacks = DescribeStacks
 -- | An array of stack IDs that specify the stacks to be described. If you omit
 -- this parameter, DescribeStacks returns a description of every stack.
 dssStackIds :: Lens' DescribeStacks ([Text])
-dssStackIds f x =
-    f (_dssStackIds x)
-        <&> \y -> x { _dssStackIds = y }
+dssStackIds = lens _dssStackIds (\s a -> s { _dssStackIds = a })
 {-# INLINE dssStackIds #-}
 
 instance ToPath DescribeStacks
@@ -72,16 +71,14 @@ instance ToHeaders DescribeStacks
 
 instance ToJSON DescribeStacks
 
-data DescribeStacksResponse = DescribeStacksResponse
+newtype DescribeStacksResponse = DescribeStacksResponse
     { _dstStacks :: [Stack]
       -- ^ An array of Stack objects that describe the stacks.
     } deriving (Show, Generic)
 
 -- | An array of Stack objects that describe the stacks.
 dstStacks :: Lens' DescribeStacksResponse ([Stack])
-dstStacks f x =
-    f (_dstStacks x)
-        <&> \y -> x { _dstStacks = y }
+dstStacks = lens _dstStacks (\s a -> s { _dstStacks = a })
 {-# INLINE dstStacks #-}
 
 instance FromJSON DescribeStacksResponse

@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -31,7 +32,7 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     , ErrorCode (..)
 
     -- * CachediSCSIVolumeInformation
-    , CachediSCSIVolumeInformation (..)
+    , CachediSCSIVolumeInformation
     , cscsiviVolumeARN
     , cscsiviVolumeId
     , cscsiviVolumeType
@@ -42,21 +43,22 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     , cscsiviVolumeiSCSIAttributes
 
     -- * ChapInfo
-    , ChapInfo (..)
+    , ChapInfo
     , ciTargetARN
     , ciSecretToAuthenticateInitiator
     , ciInitiatorName
     , ciSecretToAuthenticateTarget
 
     -- * DeviceiSCSIAttributes
-    , DeviceiSCSIAttributes (..)
+    , DeviceiSCSIAttributes
+    , mkDeviceiSCSIAttributes
     , dscsiaTargetARN
     , dscsiaNetworkInterfaceId
     , dscsiaNetworkInterfacePort
     , dscsiaChapEnabled
 
     -- * DiskInformation
-    , DiskInformation (..)
+    , DiskInformation
     , ddnDiskId
     , ddnDiskPath
     , ddnDiskNode
@@ -65,23 +67,24 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     , ddnDiskAllocationResource
 
     -- * GatewayInformation
-    , GatewayInformation (..)
+    , GatewayInformation
     , gjGatewayARN
     , gjGatewayType
 
     -- * NetworkInterface
-    , NetworkInterface (..)
+    , NetworkInterface
     , niIpv4Address
     , niMacAddress
     , niIpv6Address
 
     -- * StorageGatewayError
-    , StorageGatewayError (..)
+    , StorageGatewayError
+    , mkStorageGatewayError
     , sgeErrorCode
     , sgeErrorDetails
 
     -- * StorediSCSIVolumeInformation
-    , StorediSCSIVolumeInformation (..)
+    , StorediSCSIVolumeInformation
     , sscsiviVolumeARN
     , sscsiviVolumeId
     , sscsiviVolumeType
@@ -94,7 +97,7 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     , sscsiviVolumeiSCSIAttributes
 
     -- * Tape
-    , Tape (..)
+    , Tape
     , teTapeARN
     , teTapeBarcode
     , teTapeSizeInBytes
@@ -103,7 +106,7 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     , teProgress
 
     -- * TapeArchive
-    , TapeArchive (..)
+    , TapeArchive
     , tbTapeARN
     , tbTapeBarcode
     , tbTapeSizeInBytes
@@ -112,36 +115,36 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     , tbTapeStatus
 
     -- * TapeRecoveryPointInfo
-    , TapeRecoveryPointInfo (..)
+    , TapeRecoveryPointInfo
     , trpjTapeARN
     , trpjTapeRecoveryPointTime
     , trpjTapeSizeInBytes
 
     -- * VTLDevice
-    , VTLDevice (..)
+    , VTLDevice
     , vtleVTLDeviceARN
     , vtleDeviceiSCSIAttributes
 
     -- * VolumeInformation
-    , VolumeInformation (..)
+    , VolumeInformation
     , vlVolumeARN
     , vlVolumeType
 
     -- * VolumeRecoveryPointInfo
-    , VolumeRecoveryPointInfo (..)
+    , VolumeRecoveryPointInfo
     , vrpjVolumeARN
     , vrpjVolumeSizeInBytes
     , vrpjVolumeUsageInBytes
     , vrpjVolumeRecoveryPointTime
 
     -- * VolumeiSCSIAttributes
-    , VolumeiSCSIAttributes (..)
+    , VolumeiSCSIAttributes
+    , mkVolumeiSCSIAttributes
     , vscsiaTargetARN
     , vscsiaNetworkInterfaceId
     , vscsiaNetworkInterfacePort
     , vscsiaLunNumber
     , vscsiaChapEnabled
-
     ) where
 
 import Network.AWS.Prelude
@@ -465,52 +468,36 @@ data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
     } deriving (Show, Generic)
 
 cscsiviVolumeARN :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeARN f x =
-    f (_cscsiviVolumeARN x)
-        <&> \y -> x { _cscsiviVolumeARN = y }
+cscsiviVolumeARN = lens _cscsiviVolumeARN (\s a -> s { _cscsiviVolumeARN = a })
 {-# INLINE cscsiviVolumeARN #-}
 
 cscsiviVolumeId :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeId f x =
-    f (_cscsiviVolumeId x)
-        <&> \y -> x { _cscsiviVolumeId = y }
+cscsiviVolumeId = lens _cscsiviVolumeId (\s a -> s { _cscsiviVolumeId = a })
 {-# INLINE cscsiviVolumeId #-}
 
 cscsiviVolumeType :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeType f x =
-    f (_cscsiviVolumeType x)
-        <&> \y -> x { _cscsiviVolumeType = y }
+cscsiviVolumeType = lens _cscsiviVolumeType (\s a -> s { _cscsiviVolumeType = a })
 {-# INLINE cscsiviVolumeType #-}
 
 cscsiviVolumeStatus :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviVolumeStatus f x =
-    f (_cscsiviVolumeStatus x)
-        <&> \y -> x { _cscsiviVolumeStatus = y }
+cscsiviVolumeStatus = lens _cscsiviVolumeStatus (\s a -> s { _cscsiviVolumeStatus = a })
 {-# INLINE cscsiviVolumeStatus #-}
 
 cscsiviVolumeSizeInBytes :: Lens' CachediSCSIVolumeInformation (Maybe Integer)
-cscsiviVolumeSizeInBytes f x =
-    f (_cscsiviVolumeSizeInBytes x)
-        <&> \y -> x { _cscsiviVolumeSizeInBytes = y }
+cscsiviVolumeSizeInBytes = lens _cscsiviVolumeSizeInBytes (\s a -> s { _cscsiviVolumeSizeInBytes = a })
 {-# INLINE cscsiviVolumeSizeInBytes #-}
 
 cscsiviVolumeProgress :: Lens' CachediSCSIVolumeInformation (Maybe Double)
-cscsiviVolumeProgress f x =
-    f (_cscsiviVolumeProgress x)
-        <&> \y -> x { _cscsiviVolumeProgress = y }
+cscsiviVolumeProgress = lens _cscsiviVolumeProgress (\s a -> s { _cscsiviVolumeProgress = a })
 {-# INLINE cscsiviVolumeProgress #-}
 
 cscsiviSourceSnapshotId :: Lens' CachediSCSIVolumeInformation (Maybe Text)
-cscsiviSourceSnapshotId f x =
-    f (_cscsiviSourceSnapshotId x)
-        <&> \y -> x { _cscsiviSourceSnapshotId = y }
+cscsiviSourceSnapshotId = lens _cscsiviSourceSnapshotId (\s a -> s { _cscsiviSourceSnapshotId = a })
 {-# INLINE cscsiviSourceSnapshotId #-}
 
 -- | Lists iSCSI information about a volume.
 cscsiviVolumeiSCSIAttributes :: Lens' CachediSCSIVolumeInformation (Maybe VolumeiSCSIAttributes)
-cscsiviVolumeiSCSIAttributes f x =
-    f (_cscsiviVolumeiSCSIAttributes x)
-        <&> \y -> x { _cscsiviVolumeiSCSIAttributes = y }
+cscsiviVolumeiSCSIAttributes = lens _cscsiviVolumeiSCSIAttributes (\s a -> s { _cscsiviVolumeiSCSIAttributes = a })
 {-# INLINE cscsiviVolumeiSCSIAttributes #-}
 
 instance FromJSON CachediSCSIVolumeInformation
@@ -534,32 +521,24 @@ data ChapInfo = ChapInfo
 -- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500
 -- lowercase letters, numbers, periods (.), and hyphens (-).
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
-ciTargetARN f x =
-    f (_ciTargetARN x)
-        <&> \y -> x { _ciTargetARN = y }
+ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
 {-# INLINE ciTargetARN #-}
 
 -- | The secret key that the initiator (e.g. Windows client) must provide to
 -- participate in mutual CHAP with the target.
 ciSecretToAuthenticateInitiator :: Lens' ChapInfo (Maybe Text)
-ciSecretToAuthenticateInitiator f x =
-    f (_ciSecretToAuthenticateInitiator x)
-        <&> \y -> x { _ciSecretToAuthenticateInitiator = y }
+ciSecretToAuthenticateInitiator = lens _ciSecretToAuthenticateInitiator (\s a -> s { _ciSecretToAuthenticateInitiator = a })
 {-# INLINE ciSecretToAuthenticateInitiator #-}
 
 -- | The iSCSI initiator that connects to the target.
 ciInitiatorName :: Lens' ChapInfo (Maybe Text)
-ciInitiatorName f x =
-    f (_ciInitiatorName x)
-        <&> \y -> x { _ciInitiatorName = y }
+ciInitiatorName = lens _ciInitiatorName (\s a -> s { _ciInitiatorName = a })
 {-# INLINE ciInitiatorName #-}
 
 -- | The secret key that the target must provide to participate in mutual CHAP
 -- with the initiator (e.g. Windows client).
 ciSecretToAuthenticateTarget :: Lens' ChapInfo (Maybe Text)
-ciSecretToAuthenticateTarget f x =
-    f (_ciSecretToAuthenticateTarget x)
-        <&> \y -> x { _ciSecretToAuthenticateTarget = y }
+ciSecretToAuthenticateTarget = lens _ciSecretToAuthenticateTarget (\s a -> s { _ciSecretToAuthenticateTarget = a })
 {-# INLINE ciSecretToAuthenticateTarget #-}
 
 instance FromJSON ChapInfo
@@ -572,28 +551,31 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes
     } deriving (Show, Generic)
 
 dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
-dscsiaTargetARN f x =
-    f (_dscsiaTargetARN x)
-        <&> \y -> x { _dscsiaTargetARN = y }
+dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
 {-# INLINE dscsiaTargetARN #-}
 
 dscsiaNetworkInterfaceId :: Lens' DeviceiSCSIAttributes (Maybe Text)
-dscsiaNetworkInterfaceId f x =
-    f (_dscsiaNetworkInterfaceId x)
-        <&> \y -> x { _dscsiaNetworkInterfaceId = y }
+dscsiaNetworkInterfaceId = lens _dscsiaNetworkInterfaceId (\s a -> s { _dscsiaNetworkInterfaceId = a })
 {-# INLINE dscsiaNetworkInterfaceId #-}
 
 dscsiaNetworkInterfacePort :: Lens' DeviceiSCSIAttributes (Maybe Integer)
-dscsiaNetworkInterfacePort f x =
-    f (_dscsiaNetworkInterfacePort x)
-        <&> \y -> x { _dscsiaNetworkInterfacePort = y }
+dscsiaNetworkInterfacePort = lens _dscsiaNetworkInterfacePort (\s a -> s { _dscsiaNetworkInterfacePort = a })
 {-# INLINE dscsiaNetworkInterfacePort #-}
 
 dscsiaChapEnabled :: Lens' DeviceiSCSIAttributes (Maybe Bool)
-dscsiaChapEnabled f x =
-    f (_dscsiaChapEnabled x)
-        <&> \y -> x { _dscsiaChapEnabled = y }
+dscsiaChapEnabled = lens _dscsiaChapEnabled (\s a -> s { _dscsiaChapEnabled = a })
 {-# INLINE dscsiaChapEnabled #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DeviceiSCSIAttributes' data type to populate a request.
+mkDeviceiSCSIAttributes :: DeviceiSCSIAttributes
+mkDeviceiSCSIAttributes = DeviceiSCSIAttributes
+    { _dscsiaTargetARN = Nothing
+    , _dscsiaNetworkInterfaceId = Nothing
+    , _dscsiaNetworkInterfacePort = Nothing
+    , _dscsiaChapEnabled = Nothing
+    }
+{-# INLINE mkDeviceiSCSIAttributes #-}
 
 instance FromJSON DeviceiSCSIAttributes
 
@@ -609,39 +591,27 @@ data DiskInformation = DiskInformation
     } deriving (Show, Generic)
 
 ddnDiskId :: Lens' DiskInformation (Maybe Text)
-ddnDiskId f x =
-    f (_ddnDiskId x)
-        <&> \y -> x { _ddnDiskId = y }
+ddnDiskId = lens _ddnDiskId (\s a -> s { _ddnDiskId = a })
 {-# INLINE ddnDiskId #-}
 
 ddnDiskPath :: Lens' DiskInformation (Maybe Text)
-ddnDiskPath f x =
-    f (_ddnDiskPath x)
-        <&> \y -> x { _ddnDiskPath = y }
+ddnDiskPath = lens _ddnDiskPath (\s a -> s { _ddnDiskPath = a })
 {-# INLINE ddnDiskPath #-}
 
 ddnDiskNode :: Lens' DiskInformation (Maybe Text)
-ddnDiskNode f x =
-    f (_ddnDiskNode x)
-        <&> \y -> x { _ddnDiskNode = y }
+ddnDiskNode = lens _ddnDiskNode (\s a -> s { _ddnDiskNode = a })
 {-# INLINE ddnDiskNode #-}
 
 ddnDiskSizeInBytes :: Lens' DiskInformation (Maybe Integer)
-ddnDiskSizeInBytes f x =
-    f (_ddnDiskSizeInBytes x)
-        <&> \y -> x { _ddnDiskSizeInBytes = y }
+ddnDiskSizeInBytes = lens _ddnDiskSizeInBytes (\s a -> s { _ddnDiskSizeInBytes = a })
 {-# INLINE ddnDiskSizeInBytes #-}
 
 ddnDiskAllocationType :: Lens' DiskInformation (Maybe Text)
-ddnDiskAllocationType f x =
-    f (_ddnDiskAllocationType x)
-        <&> \y -> x { _ddnDiskAllocationType = y }
+ddnDiskAllocationType = lens _ddnDiskAllocationType (\s a -> s { _ddnDiskAllocationType = a })
 {-# INLINE ddnDiskAllocationType #-}
 
 ddnDiskAllocationResource :: Lens' DiskInformation (Maybe Text)
-ddnDiskAllocationResource f x =
-    f (_ddnDiskAllocationResource x)
-        <&> \y -> x { _ddnDiskAllocationResource = y }
+ddnDiskAllocationResource = lens _ddnDiskAllocationResource (\s a -> s { _ddnDiskAllocationResource = a })
 {-# INLINE ddnDiskAllocationResource #-}
 
 instance FromJSON DiskInformation
@@ -657,15 +627,11 @@ data GatewayInformation = GatewayInformation
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 gjGatewayARN :: Lens' GatewayInformation (Maybe Text)
-gjGatewayARN f x =
-    f (_gjGatewayARN x)
-        <&> \y -> x { _gjGatewayARN = y }
+gjGatewayARN = lens _gjGatewayARN (\s a -> s { _gjGatewayARN = a })
 {-# INLINE gjGatewayARN #-}
 
 gjGatewayType :: Lens' GatewayInformation (Maybe Text)
-gjGatewayType f x =
-    f (_gjGatewayType x)
-        <&> \y -> x { _gjGatewayType = y }
+gjGatewayType = lens _gjGatewayType (\s a -> s { _gjGatewayType = a })
 {-# INLINE gjGatewayType #-}
 
 instance FromJSON GatewayInformation
@@ -684,25 +650,19 @@ data NetworkInterface = NetworkInterface
 
 -- | The Internet Protocol version 4 (IPv4) address of the interface.
 niIpv4Address :: Lens' NetworkInterface (Maybe Text)
-niIpv4Address f x =
-    f (_niIpv4Address x)
-        <&> \y -> x { _niIpv4Address = y }
+niIpv4Address = lens _niIpv4Address (\s a -> s { _niIpv4Address = a })
 {-# INLINE niIpv4Address #-}
 
 -- | The Media Access Control (MAC) address of the interface. This is currently
 -- unsupported and will not be returned in output.
 niMacAddress :: Lens' NetworkInterface (Maybe Text)
-niMacAddress f x =
-    f (_niMacAddress x)
-        <&> \y -> x { _niMacAddress = y }
+niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
 {-# INLINE niMacAddress #-}
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface. Currently
 -- not supported.
 niIpv6Address :: Lens' NetworkInterface (Maybe Text)
-niIpv6Address f x =
-    f (_niIpv6Address x)
-        <&> \y -> x { _niIpv6Address = y }
+niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 {-# INLINE niIpv6Address #-}
 
 instance FromJSON NetworkInterface
@@ -719,17 +679,22 @@ data StorageGatewayError = StorageGatewayError
 
 -- | Additional information about the error.
 sgeErrorCode :: Lens' StorageGatewayError (Maybe ErrorCode)
-sgeErrorCode f x =
-    f (_sgeErrorCode x)
-        <&> \y -> x { _sgeErrorCode = y }
+sgeErrorCode = lens _sgeErrorCode (\s a -> s { _sgeErrorCode = a })
 {-# INLINE sgeErrorCode #-}
 
 -- | Human-readable text that provides detail about the error that occured.
 sgeErrorDetails :: Lens' StorageGatewayError (Map Text Text)
-sgeErrorDetails f x =
-    f (_sgeErrorDetails x)
-        <&> \y -> x { _sgeErrorDetails = y }
+sgeErrorDetails = lens _sgeErrorDetails (\s a -> s { _sgeErrorDetails = a })
 {-# INLINE sgeErrorDetails #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'StorageGatewayError' data type to populate a request.
+mkStorageGatewayError :: StorageGatewayError
+mkStorageGatewayError = StorageGatewayError
+    { _sgeErrorCode = Nothing
+    , _sgeErrorDetails = mempty
+    }
+{-# INLINE mkStorageGatewayError #-}
 
 instance FromJSON StorageGatewayError
 
@@ -750,64 +715,44 @@ data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
     } deriving (Show, Generic)
 
 sscsiviVolumeARN :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeARN f x =
-    f (_sscsiviVolumeARN x)
-        <&> \y -> x { _sscsiviVolumeARN = y }
+sscsiviVolumeARN = lens _sscsiviVolumeARN (\s a -> s { _sscsiviVolumeARN = a })
 {-# INLINE sscsiviVolumeARN #-}
 
 sscsiviVolumeId :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeId f x =
-    f (_sscsiviVolumeId x)
-        <&> \y -> x { _sscsiviVolumeId = y }
+sscsiviVolumeId = lens _sscsiviVolumeId (\s a -> s { _sscsiviVolumeId = a })
 {-# INLINE sscsiviVolumeId #-}
 
 sscsiviVolumeType :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeType f x =
-    f (_sscsiviVolumeType x)
-        <&> \y -> x { _sscsiviVolumeType = y }
+sscsiviVolumeType = lens _sscsiviVolumeType (\s a -> s { _sscsiviVolumeType = a })
 {-# INLINE sscsiviVolumeType #-}
 
 sscsiviVolumeStatus :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeStatus f x =
-    f (_sscsiviVolumeStatus x)
-        <&> \y -> x { _sscsiviVolumeStatus = y }
+sscsiviVolumeStatus = lens _sscsiviVolumeStatus (\s a -> s { _sscsiviVolumeStatus = a })
 {-# INLINE sscsiviVolumeStatus #-}
 
 sscsiviVolumeSizeInBytes :: Lens' StorediSCSIVolumeInformation (Maybe Integer)
-sscsiviVolumeSizeInBytes f x =
-    f (_sscsiviVolumeSizeInBytes x)
-        <&> \y -> x { _sscsiviVolumeSizeInBytes = y }
+sscsiviVolumeSizeInBytes = lens _sscsiviVolumeSizeInBytes (\s a -> s { _sscsiviVolumeSizeInBytes = a })
 {-# INLINE sscsiviVolumeSizeInBytes #-}
 
 sscsiviVolumeProgress :: Lens' StorediSCSIVolumeInformation (Maybe Double)
-sscsiviVolumeProgress f x =
-    f (_sscsiviVolumeProgress x)
-        <&> \y -> x { _sscsiviVolumeProgress = y }
+sscsiviVolumeProgress = lens _sscsiviVolumeProgress (\s a -> s { _sscsiviVolumeProgress = a })
 {-# INLINE sscsiviVolumeProgress #-}
 
 sscsiviVolumeDiskId :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviVolumeDiskId f x =
-    f (_sscsiviVolumeDiskId x)
-        <&> \y -> x { _sscsiviVolumeDiskId = y }
+sscsiviVolumeDiskId = lens _sscsiviVolumeDiskId (\s a -> s { _sscsiviVolumeDiskId = a })
 {-# INLINE sscsiviVolumeDiskId #-}
 
 sscsiviSourceSnapshotId :: Lens' StorediSCSIVolumeInformation (Maybe Text)
-sscsiviSourceSnapshotId f x =
-    f (_sscsiviSourceSnapshotId x)
-        <&> \y -> x { _sscsiviSourceSnapshotId = y }
+sscsiviSourceSnapshotId = lens _sscsiviSourceSnapshotId (\s a -> s { _sscsiviSourceSnapshotId = a })
 {-# INLINE sscsiviSourceSnapshotId #-}
 
 sscsiviPreservedExistingData :: Lens' StorediSCSIVolumeInformation (Maybe Bool)
-sscsiviPreservedExistingData f x =
-    f (_sscsiviPreservedExistingData x)
-        <&> \y -> x { _sscsiviPreservedExistingData = y }
+sscsiviPreservedExistingData = lens _sscsiviPreservedExistingData (\s a -> s { _sscsiviPreservedExistingData = a })
 {-# INLINE sscsiviPreservedExistingData #-}
 
 -- | Lists iSCSI information about a volume.
 sscsiviVolumeiSCSIAttributes :: Lens' StorediSCSIVolumeInformation (Maybe VolumeiSCSIAttributes)
-sscsiviVolumeiSCSIAttributes f x =
-    f (_sscsiviVolumeiSCSIAttributes x)
-        <&> \y -> x { _sscsiviVolumeiSCSIAttributes = y }
+sscsiviVolumeiSCSIAttributes = lens _sscsiviVolumeiSCSIAttributes (\s a -> s { _sscsiviVolumeiSCSIAttributes = a })
 {-# INLINE sscsiviVolumeiSCSIAttributes #-}
 
 instance FromJSON StorediSCSIVolumeInformation
@@ -822,39 +767,27 @@ data Tape = Tape
     } deriving (Show, Generic)
 
 teTapeARN :: Lens' Tape (Maybe Text)
-teTapeARN f x =
-    f (_teTapeARN x)
-        <&> \y -> x { _teTapeARN = y }
+teTapeARN = lens _teTapeARN (\s a -> s { _teTapeARN = a })
 {-# INLINE teTapeARN #-}
 
 teTapeBarcode :: Lens' Tape (Maybe Text)
-teTapeBarcode f x =
-    f (_teTapeBarcode x)
-        <&> \y -> x { _teTapeBarcode = y }
+teTapeBarcode = lens _teTapeBarcode (\s a -> s { _teTapeBarcode = a })
 {-# INLINE teTapeBarcode #-}
 
 teTapeSizeInBytes :: Lens' Tape (Maybe Integer)
-teTapeSizeInBytes f x =
-    f (_teTapeSizeInBytes x)
-        <&> \y -> x { _teTapeSizeInBytes = y }
+teTapeSizeInBytes = lens _teTapeSizeInBytes (\s a -> s { _teTapeSizeInBytes = a })
 {-# INLINE teTapeSizeInBytes #-}
 
 teTapeStatus :: Lens' Tape (Maybe Text)
-teTapeStatus f x =
-    f (_teTapeStatus x)
-        <&> \y -> x { _teTapeStatus = y }
+teTapeStatus = lens _teTapeStatus (\s a -> s { _teTapeStatus = a })
 {-# INLINE teTapeStatus #-}
 
 teVTLDevice :: Lens' Tape (Maybe Text)
-teVTLDevice f x =
-    f (_teVTLDevice x)
-        <&> \y -> x { _teVTLDevice = y }
+teVTLDevice = lens _teVTLDevice (\s a -> s { _teVTLDevice = a })
 {-# INLINE teVTLDevice #-}
 
 teProgress :: Lens' Tape (Maybe Double)
-teProgress f x =
-    f (_teProgress x)
-        <&> \y -> x { _teProgress = y }
+teProgress = lens _teProgress (\s a -> s { _teProgress = a })
 {-# INLINE teProgress #-}
 
 instance FromJSON Tape
@@ -872,41 +805,29 @@ data TapeArchive = TapeArchive
     } deriving (Show, Generic)
 
 tbTapeARN :: Lens' TapeArchive (Maybe Text)
-tbTapeARN f x =
-    f (_tbTapeARN x)
-        <&> \y -> x { _tbTapeARN = y }
+tbTapeARN = lens _tbTapeARN (\s a -> s { _tbTapeARN = a })
 {-# INLINE tbTapeARN #-}
 
 tbTapeBarcode :: Lens' TapeArchive (Maybe Text)
-tbTapeBarcode f x =
-    f (_tbTapeBarcode x)
-        <&> \y -> x { _tbTapeBarcode = y }
+tbTapeBarcode = lens _tbTapeBarcode (\s a -> s { _tbTapeBarcode = a })
 {-# INLINE tbTapeBarcode #-}
 
 tbTapeSizeInBytes :: Lens' TapeArchive (Maybe Integer)
-tbTapeSizeInBytes f x =
-    f (_tbTapeSizeInBytes x)
-        <&> \y -> x { _tbTapeSizeInBytes = y }
+tbTapeSizeInBytes = lens _tbTapeSizeInBytes (\s a -> s { _tbTapeSizeInBytes = a })
 {-# INLINE tbTapeSizeInBytes #-}
 
 tbCompletionTime :: Lens' TapeArchive (Maybe ISO8601)
-tbCompletionTime f x =
-    f (_tbCompletionTime x)
-        <&> \y -> x { _tbCompletionTime = y }
+tbCompletionTime = lens _tbCompletionTime (\s a -> s { _tbCompletionTime = a })
 {-# INLINE tbCompletionTime #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 tbRetrievedTo :: Lens' TapeArchive (Maybe Text)
-tbRetrievedTo f x =
-    f (_tbRetrievedTo x)
-        <&> \y -> x { _tbRetrievedTo = y }
+tbRetrievedTo = lens _tbRetrievedTo (\s a -> s { _tbRetrievedTo = a })
 {-# INLINE tbRetrievedTo #-}
 
 tbTapeStatus :: Lens' TapeArchive (Maybe Text)
-tbTapeStatus f x =
-    f (_tbTapeStatus x)
-        <&> \y -> x { _tbTapeStatus = y }
+tbTapeStatus = lens _tbTapeStatus (\s a -> s { _tbTapeStatus = a })
 {-# INLINE tbTapeStatus #-}
 
 instance FromJSON TapeArchive
@@ -918,21 +839,15 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     } deriving (Show, Generic)
 
 trpjTapeARN :: Lens' TapeRecoveryPointInfo (Maybe Text)
-trpjTapeARN f x =
-    f (_trpjTapeARN x)
-        <&> \y -> x { _trpjTapeARN = y }
+trpjTapeARN = lens _trpjTapeARN (\s a -> s { _trpjTapeARN = a })
 {-# INLINE trpjTapeARN #-}
 
 trpjTapeRecoveryPointTime :: Lens' TapeRecoveryPointInfo (Maybe ISO8601)
-trpjTapeRecoveryPointTime f x =
-    f (_trpjTapeRecoveryPointTime x)
-        <&> \y -> x { _trpjTapeRecoveryPointTime = y }
+trpjTapeRecoveryPointTime = lens _trpjTapeRecoveryPointTime (\s a -> s { _trpjTapeRecoveryPointTime = a })
 {-# INLINE trpjTapeRecoveryPointTime #-}
 
 trpjTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Integer)
-trpjTapeSizeInBytes f x =
-    f (_trpjTapeSizeInBytes x)
-        <&> \y -> x { _trpjTapeSizeInBytes = y }
+trpjTapeSizeInBytes = lens _trpjTapeSizeInBytes (\s a -> s { _trpjTapeSizeInBytes = a })
 {-# INLINE trpjTapeSizeInBytes #-}
 
 instance FromJSON TapeRecoveryPointInfo
@@ -943,15 +858,11 @@ data VTLDevice = VTLDevice
     } deriving (Show, Generic)
 
 vtleVTLDeviceARN :: Lens' VTLDevice (Maybe Text)
-vtleVTLDeviceARN f x =
-    f (_vtleVTLDeviceARN x)
-        <&> \y -> x { _vtleVTLDeviceARN = y }
+vtleVTLDeviceARN = lens _vtleVTLDeviceARN (\s a -> s { _vtleVTLDeviceARN = a })
 {-# INLINE vtleVTLDeviceARN #-}
 
 vtleDeviceiSCSIAttributes :: Lens' VTLDevice (Maybe DeviceiSCSIAttributes)
-vtleDeviceiSCSIAttributes f x =
-    f (_vtleDeviceiSCSIAttributes x)
-        <&> \y -> x { _vtleDeviceiSCSIAttributes = y }
+vtleDeviceiSCSIAttributes = lens _vtleDeviceiSCSIAttributes (\s a -> s { _vtleDeviceiSCSIAttributes = a })
 {-# INLINE vtleDeviceiSCSIAttributes #-}
 
 instance FromJSON VTLDevice
@@ -962,15 +873,11 @@ data VolumeInformation = VolumeInformation
     } deriving (Show, Generic)
 
 vlVolumeARN :: Lens' VolumeInformation (Maybe Text)
-vlVolumeARN f x =
-    f (_vlVolumeARN x)
-        <&> \y -> x { _vlVolumeARN = y }
+vlVolumeARN = lens _vlVolumeARN (\s a -> s { _vlVolumeARN = a })
 {-# INLINE vlVolumeARN #-}
 
 vlVolumeType :: Lens' VolumeInformation (Maybe Text)
-vlVolumeType f x =
-    f (_vlVolumeType x)
-        <&> \y -> x { _vlVolumeType = y }
+vlVolumeType = lens _vlVolumeType (\s a -> s { _vlVolumeType = a })
 {-# INLINE vlVolumeType #-}
 
 instance FromJSON VolumeInformation
@@ -983,27 +890,19 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     } deriving (Show, Generic)
 
 vrpjVolumeARN :: Lens' VolumeRecoveryPointInfo (Maybe Text)
-vrpjVolumeARN f x =
-    f (_vrpjVolumeARN x)
-        <&> \y -> x { _vrpjVolumeARN = y }
+vrpjVolumeARN = lens _vrpjVolumeARN (\s a -> s { _vrpjVolumeARN = a })
 {-# INLINE vrpjVolumeARN #-}
 
 vrpjVolumeSizeInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
-vrpjVolumeSizeInBytes f x =
-    f (_vrpjVolumeSizeInBytes x)
-        <&> \y -> x { _vrpjVolumeSizeInBytes = y }
+vrpjVolumeSizeInBytes = lens _vrpjVolumeSizeInBytes (\s a -> s { _vrpjVolumeSizeInBytes = a })
 {-# INLINE vrpjVolumeSizeInBytes #-}
 
 vrpjVolumeUsageInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
-vrpjVolumeUsageInBytes f x =
-    f (_vrpjVolumeUsageInBytes x)
-        <&> \y -> x { _vrpjVolumeUsageInBytes = y }
+vrpjVolumeUsageInBytes = lens _vrpjVolumeUsageInBytes (\s a -> s { _vrpjVolumeUsageInBytes = a })
 {-# INLINE vrpjVolumeUsageInBytes #-}
 
 vrpjVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
-vrpjVolumeRecoveryPointTime f x =
-    f (_vrpjVolumeRecoveryPointTime x)
-        <&> \y -> x { _vrpjVolumeRecoveryPointTime = y }
+vrpjVolumeRecoveryPointTime = lens _vrpjVolumeRecoveryPointTime (\s a -> s { _vrpjVolumeRecoveryPointTime = a })
 {-# INLINE vrpjVolumeRecoveryPointTime #-}
 
 instance FromJSON VolumeRecoveryPointInfo
@@ -1024,38 +923,40 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes
 
 -- | The Amazon Resource Name (ARN) of the volume target.
 vscsiaTargetARN :: Lens' VolumeiSCSIAttributes (Maybe Text)
-vscsiaTargetARN f x =
-    f (_vscsiaTargetARN x)
-        <&> \y -> x { _vscsiaTargetARN = y }
+vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
 {-# INLINE vscsiaTargetARN #-}
 
 -- | The network interface identifier.
 vscsiaNetworkInterfaceId :: Lens' VolumeiSCSIAttributes (Maybe Text)
-vscsiaNetworkInterfaceId f x =
-    f (_vscsiaNetworkInterfaceId x)
-        <&> \y -> x { _vscsiaNetworkInterfaceId = y }
+vscsiaNetworkInterfaceId = lens _vscsiaNetworkInterfaceId (\s a -> s { _vscsiaNetworkInterfaceId = a })
 {-# INLINE vscsiaNetworkInterfaceId #-}
 
 -- | The port used to communicate with iSCSI targets.
 vscsiaNetworkInterfacePort :: Lens' VolumeiSCSIAttributes (Maybe Integer)
-vscsiaNetworkInterfacePort f x =
-    f (_vscsiaNetworkInterfacePort x)
-        <&> \y -> x { _vscsiaNetworkInterfacePort = y }
+vscsiaNetworkInterfacePort = lens _vscsiaNetworkInterfacePort (\s a -> s { _vscsiaNetworkInterfacePort = a })
 {-# INLINE vscsiaNetworkInterfacePort #-}
 
 -- | The logical disk number.
 vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Integer)
-vscsiaLunNumber f x =
-    f (_vscsiaLunNumber x)
-        <&> \y -> x { _vscsiaLunNumber = y }
+vscsiaLunNumber = lens _vscsiaLunNumber (\s a -> s { _vscsiaLunNumber = a })
 {-# INLINE vscsiaLunNumber #-}
 
 -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
 vscsiaChapEnabled :: Lens' VolumeiSCSIAttributes (Maybe Bool)
-vscsiaChapEnabled f x =
-    f (_vscsiaChapEnabled x)
-        <&> \y -> x { _vscsiaChapEnabled = y }
+vscsiaChapEnabled = lens _vscsiaChapEnabled (\s a -> s { _vscsiaChapEnabled = a })
 {-# INLINE vscsiaChapEnabled #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'VolumeiSCSIAttributes' data type to populate a request.
+mkVolumeiSCSIAttributes :: VolumeiSCSIAttributes
+mkVolumeiSCSIAttributes = VolumeiSCSIAttributes
+    { _vscsiaTargetARN = Nothing
+    , _vscsiaNetworkInterfaceId = Nothing
+    , _vscsiaNetworkInterfacePort = Nothing
+    , _vscsiaLunNumber = Nothing
+    , _vscsiaChapEnabled = Nothing
+    }
+{-# INLINE mkVolumeiSCSIAttributes #-}
 
 instance FromJSON VolumeiSCSIAttributes
 

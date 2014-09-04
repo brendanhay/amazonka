@@ -32,11 +32,11 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , describeTags
+    , mkDescribeTagsType
     -- ** Request lenses
     , dtuFilters
-    , dtuMaxRecords
     , dtuNextToken
+    , dtuMaxRecords
 
     -- * Response
     , DescribeTagsResponse
@@ -49,14 +49,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeTags' request.
-describeTags :: DescribeTags
-describeTags = DescribeTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTags' request.
+mkDescribeTagsType :: DescribeTags
+mkDescribeTagsType = DescribeTags
     { _dtuFilters = mempty
-    , _dtuMaxRecords = Nothing
     , _dtuNextToken = Nothing
+    , _dtuMaxRecords = Nothing
     }
-{-# INLINE describeTags #-}
+{-# INLINE mkDescribeTagsType #-}
 
 data DescribeTags = DescribeTags
     { _dtuFilters :: [Filter]
@@ -65,11 +66,11 @@ data DescribeTags = DescribeTags
       -- according to Auto Scaling group, the key and value, or whether
       -- the new tag will be applied to instances launched after the tag
       -- is created (PropagateAtLaunch).
-    , _dtuMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to return.
     , _dtuNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
+    , _dtuMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to return.
     } deriving (Show, Generic)
 
 -- | The value of the filter type used to identify the tags to be returned. For
@@ -77,24 +78,18 @@ data DescribeTags = DescribeTags
 -- group, the key and value, or whether the new tag will be applied to
 -- instances launched after the tag is created (PropagateAtLaunch).
 dtuFilters :: Lens' DescribeTags ([Filter])
-dtuFilters f x =
-    f (_dtuFilters x)
-        <&> \y -> x { _dtuFilters = y }
+dtuFilters = lens _dtuFilters (\s a -> s { _dtuFilters = a })
 {-# INLINE dtuFilters #-}
-
--- | The maximum number of records to return.
-dtuMaxRecords :: Lens' DescribeTags (Maybe Integer)
-dtuMaxRecords f x =
-    f (_dtuMaxRecords x)
-        <&> \y -> x { _dtuMaxRecords = y }
-{-# INLINE dtuMaxRecords #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dtuNextToken :: Lens' DescribeTags (Maybe Text)
-dtuNextToken f x =
-    f (_dtuNextToken x)
-        <&> \y -> x { _dtuNextToken = y }
+dtuNextToken = lens _dtuNextToken (\s a -> s { _dtuNextToken = a })
 {-# INLINE dtuNextToken #-}
+
+-- | The maximum number of records to return.
+dtuMaxRecords :: Lens' DescribeTags (Maybe Integer)
+dtuMaxRecords = lens _dtuMaxRecords (\s a -> s { _dtuMaxRecords = a })
+{-# INLINE dtuMaxRecords #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
@@ -109,16 +104,12 @@ data DescribeTagsResponse = DescribeTagsResponse
 
 -- | The list of tags.
 ttkTags :: Lens' DescribeTagsResponse ([TagDescription])
-ttkTags f x =
-    f (_ttkTags x)
-        <&> \y -> x { _ttkTags = y }
+ttkTags = lens _ttkTags (\s a -> s { _ttkTags = a })
 {-# INLINE ttkTags #-}
 
 -- | A string used to mark the start of the next batch of returned results.
 ttkNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-ttkNextToken f x =
-    f (_ttkNextToken x)
-        <&> \y -> x { _ttkNextToken = y }
+ttkNextToken = lens _ttkNextToken (\s a -> s { _ttkNextToken = a })
 {-# INLINE ttkNextToken #-}
 
 instance FromXML DescribeTagsResponse where

@@ -28,7 +28,7 @@ module Network.AWS.SimpleDB.V2009_04_15.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , listDomains
+    , mkListDomainsRequest
     -- ** Request lenses
     , ldrMaxNumberOfDomains
     , ldrNextToken
@@ -44,13 +44,14 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListDomains' request.
-listDomains :: ListDomains
-listDomains = ListDomains
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomains' request.
+mkListDomainsRequest :: ListDomains
+mkListDomainsRequest = ListDomains
     { _ldrMaxNumberOfDomains = Nothing
     , _ldrNextToken = Nothing
     }
-{-# INLINE listDomains #-}
+{-# INLINE mkListDomainsRequest #-}
 
 data ListDomains = ListDomains
     { _ldrMaxNumberOfDomains :: Maybe Integer
@@ -64,17 +65,13 @@ data ListDomains = ListDomains
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
 ldrMaxNumberOfDomains :: Lens' ListDomains (Maybe Integer)
-ldrMaxNumberOfDomains f x =
-    f (_ldrMaxNumberOfDomains x)
-        <&> \y -> x { _ldrMaxNumberOfDomains = y }
+ldrMaxNumberOfDomains = lens _ldrMaxNumberOfDomains (\s a -> s { _ldrMaxNumberOfDomains = a })
 {-# INLINE ldrMaxNumberOfDomains #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of domain
 -- names.
 ldrNextToken :: Lens' ListDomains (Maybe Text)
-ldrNextToken f x =
-    f (_ldrNextToken x)
-        <&> \y -> x { _ldrNextToken = y }
+ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 {-# INLINE ldrNextToken #-}
 
 instance ToQuery ListDomains where
@@ -90,17 +87,13 @@ data ListDomainsResponse = ListDomainsResponse
 
 -- | A list of domain names that match the expression.
 ldsDomainNames :: Lens' ListDomainsResponse ([Text])
-ldsDomainNames f x =
-    f (_ldsDomainNames x)
-        <&> \y -> x { _ldsDomainNames = y }
+ldsDomainNames = lens _ldsDomainNames (\s a -> s { _ldsDomainNames = a })
 {-# INLINE ldsDomainNames #-}
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
 ldsNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldsNextToken f x =
-    f (_ldsNextToken x)
-        <&> \y -> x { _ldsNextToken = y }
+ldsNextToken = lens _ldsNextToken (\s a -> s { _ldsNextToken = a })
 {-# INLINE ldsNextToken #-}
 
 instance FromXML ListDomainsResponse where

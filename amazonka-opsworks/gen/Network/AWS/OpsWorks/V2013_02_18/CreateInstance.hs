@@ -27,16 +27,12 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateInstance
     -- * Request
       CreateInstance
     -- ** Request constructor
-    , createInstance
+    , mkCreateInstanceRequest
     -- ** Request lenses
     , cirStackId
-    , cirInstanceType
     , cirLayerIds
-    , cirArchitecture
+    , cirInstanceType
     , cirAutoScalingType
-    , cirInstallUpdatesOnBoot
-    , cirEbsOptimized
-    , cirRootDeviceType
     , cirHostname
     , cirOs
     , cirAmiId
@@ -44,6 +40,10 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateInstance
     , cirAvailabilityZone
     , cirVirtualizationType
     , cirSubnetId
+    , cirArchitecture
+    , cirRootDeviceType
+    , cirInstallUpdatesOnBoot
+    , cirEbsOptimized
 
     -- * Response
     , CreateInstanceResponse
@@ -56,20 +56,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateInstance' request.
-createInstance :: Text -- ^ 'cirStackId'
-               -> Text -- ^ 'cirInstanceType'
-               -> [Text] -- ^ 'cirLayerIds'
-               -> CreateInstance
-createInstance p1 p2 p3 = CreateInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInstance' request.
+mkCreateInstanceRequest :: Text -- ^ 'cirStackId'
+                        -> [Text] -- ^ 'cirLayerIds'
+                        -> Text -- ^ 'cirInstanceType'
+                        -> CreateInstance
+mkCreateInstanceRequest p1 p2 p3 = CreateInstance
     { _cirStackId = p1
-    , _cirInstanceType = p2
-    , _cirLayerIds = p3
-    , _cirArchitecture = Nothing
+    , _cirLayerIds = p2
+    , _cirInstanceType = p3
     , _cirAutoScalingType = Nothing
-    , _cirInstallUpdatesOnBoot = Nothing
-    , _cirEbsOptimized = Nothing
-    , _cirRootDeviceType = Nothing
     , _cirHostname = Nothing
     , _cirOs = Nothing
     , _cirAmiId = Nothing
@@ -77,25 +74,24 @@ createInstance p1 p2 p3 = CreateInstance
     , _cirAvailabilityZone = Nothing
     , _cirVirtualizationType = Nothing
     , _cirSubnetId = Nothing
+    , _cirArchitecture = Nothing
+    , _cirRootDeviceType = Nothing
+    , _cirInstallUpdatesOnBoot = Nothing
+    , _cirEbsOptimized = Nothing
     }
-{-# INLINE createInstance #-}
+{-# INLINE mkCreateInstanceRequest #-}
 
 data CreateInstance = CreateInstance
     { _cirStackId :: Text
       -- ^ The stack ID.
+    , _cirLayerIds :: [Text]
+      -- ^ An array that contains the instance layer IDs.
     , _cirInstanceType :: Text
       -- ^ The instance type. AWS OpsWorks supports all instance types
       -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
       -- more information, see Instance Families and Types. The parameter
       -- values that you use to specify the various types are in the API
       -- Name column of the Available Instance Types table.
-    , _cirLayerIds :: [Text]
-      -- ^ An array that contains the instance layer IDs.
-    , _cirArchitecture :: Maybe Architecture
-      -- ^ The instance architecture. The default option is x86_64. Instance
-      -- types do not necessarily support both architectures. For a list
-      -- of the architectures that are supported by the different instance
-      -- types, see Instance Families and Types.
     , _cirAutoScalingType :: Maybe AutoScalingType
       -- ^ The instance auto scaling type, which has three possible values:
       -- AlwaysRunning: A 24/7 instance, which is not affected by auto
@@ -106,20 +102,6 @@ data CreateInstance = CreateInstance
       -- is started and stopped based on load metrics. To use load-based
       -- auto scaling, you must enable it for the instance layer and
       -- configure the thresholds by calling SetLoadBasedAutoScaling.
-    , _cirInstallUpdatesOnBoot :: Maybe Bool
-      -- ^ Whether to install operating system and package updates when the
-      -- instance boots. The default value is true. To control when
-      -- updates are installed, set this value to false. You must then
-      -- update your instances manually by using CreateDeployment to run
-      -- the update_dependencies stack command or manually running yum
-      -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
-      -- recommend using the default value of true to ensure that your
-      -- instances have the latest security updates.
-    , _cirEbsOptimized :: Maybe Bool
-      -- ^ Whether to create an Amazon EBS-optimized instance.
-    , _cirRootDeviceType :: Maybe RootDeviceType
-      -- ^ The instance root device type. For more information, see Storage
-      -- for the Root Device.
     , _cirHostname :: Maybe Text
       -- ^ The instance host name.
     , _cirOs :: Maybe Text
@@ -147,14 +129,36 @@ data CreateInstance = CreateInstance
       -- VPC, you can use this parameter to override the stack's default
       -- subnet ID value and direct AWS OpsWorks to launch the instance in
       -- a different subnet.
+    , _cirArchitecture :: Maybe Architecture
+      -- ^ The instance architecture. The default option is x86_64. Instance
+      -- types do not necessarily support both architectures. For a list
+      -- of the architectures that are supported by the different instance
+      -- types, see Instance Families and Types.
+    , _cirRootDeviceType :: Maybe RootDeviceType
+      -- ^ The instance root device type. For more information, see Storage
+      -- for the Root Device.
+    , _cirInstallUpdatesOnBoot :: Maybe Bool
+      -- ^ Whether to install operating system and package updates when the
+      -- instance boots. The default value is true. To control when
+      -- updates are installed, set this value to false. You must then
+      -- update your instances manually by using CreateDeployment to run
+      -- the update_dependencies stack command or manually running yum
+      -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
+      -- recommend using the default value of true to ensure that your
+      -- instances have the latest security updates.
+    , _cirEbsOptimized :: Maybe Bool
+      -- ^ Whether to create an Amazon EBS-optimized instance.
     } deriving (Show, Generic)
 
 -- | The stack ID.
 cirStackId :: Lens' CreateInstance (Text)
-cirStackId f x =
-    f (_cirStackId x)
-        <&> \y -> x { _cirStackId = y }
+cirStackId = lens _cirStackId (\s a -> s { _cirStackId = a })
 {-# INLINE cirStackId #-}
+
+-- | An array that contains the instance layer IDs.
+cirLayerIds :: Lens' CreateInstance ([Text])
+cirLayerIds = lens _cirLayerIds (\s a -> s { _cirLayerIds = a })
+{-# INLINE cirLayerIds #-}
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
 -- Compute, Cluster GPU, and High Memory Cluster. For more information, see
@@ -162,27 +166,8 @@ cirStackId f x =
 -- the various types are in the API Name column of the Available Instance
 -- Types table.
 cirInstanceType :: Lens' CreateInstance (Text)
-cirInstanceType f x =
-    f (_cirInstanceType x)
-        <&> \y -> x { _cirInstanceType = y }
+cirInstanceType = lens _cirInstanceType (\s a -> s { _cirInstanceType = a })
 {-# INLINE cirInstanceType #-}
-
--- | An array that contains the instance layer IDs.
-cirLayerIds :: Lens' CreateInstance ([Text])
-cirLayerIds f x =
-    f (_cirLayerIds x)
-        <&> \y -> x { _cirLayerIds = y }
-{-# INLINE cirLayerIds #-}
-
--- | The instance architecture. The default option is x86_64. Instance types do
--- not necessarily support both architectures. For a list of the architectures
--- that are supported by the different instance types, see Instance Families
--- and Types.
-cirArchitecture :: Lens' CreateInstance (Maybe Architecture)
-cirArchitecture f x =
-    f (_cirArchitecture x)
-        <&> \y -> x { _cirArchitecture = y }
-{-# INLINE cirArchitecture #-}
 
 -- | The instance auto scaling type, which has three possible values:
 -- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
@@ -193,44 +178,12 @@ cirArchitecture f x =
 -- load-based auto scaling, you must enable it for the instance layer and
 -- configure the thresholds by calling SetLoadBasedAutoScaling.
 cirAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
-cirAutoScalingType f x =
-    f (_cirAutoScalingType x)
-        <&> \y -> x { _cirAutoScalingType = y }
+cirAutoScalingType = lens _cirAutoScalingType (\s a -> s { _cirAutoScalingType = a })
 {-# INLINE cirAutoScalingType #-}
-
--- | Whether to install operating system and package updates when the instance
--- boots. The default value is true. To control when updates are installed,
--- set this value to false. You must then update your instances manually by
--- using CreateDeployment to run the update_dependencies stack command or
--- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
--- We strongly recommend using the default value of true to ensure that your
--- instances have the latest security updates.
-cirInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
-cirInstallUpdatesOnBoot f x =
-    f (_cirInstallUpdatesOnBoot x)
-        <&> \y -> x { _cirInstallUpdatesOnBoot = y }
-{-# INLINE cirInstallUpdatesOnBoot #-}
-
--- | Whether to create an Amazon EBS-optimized instance.
-cirEbsOptimized :: Lens' CreateInstance (Maybe Bool)
-cirEbsOptimized f x =
-    f (_cirEbsOptimized x)
-        <&> \y -> x { _cirEbsOptimized = y }
-{-# INLINE cirEbsOptimized #-}
-
--- | The instance root device type. For more information, see Storage for the
--- Root Device.
-cirRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
-cirRootDeviceType f x =
-    f (_cirRootDeviceType x)
-        <&> \y -> x { _cirRootDeviceType = y }
-{-# INLINE cirRootDeviceType #-}
 
 -- | The instance host name.
 cirHostname :: Lens' CreateInstance (Maybe Text)
-cirHostname f x =
-    f (_cirHostname x)
-        <&> \y -> x { _cirHostname = y }
+cirHostname = lens _cirHostname (\s a -> s { _cirHostname = a })
 {-# INLINE cirHostname #-}
 
 -- | The instance operating system, which must be set to one of the following.
@@ -241,50 +194,68 @@ cirHostname f x =
 -- operating systems, see Operating SystemsFor more information on how to use
 -- custom AMIs with OpsWorks, see Using Custom AMIs.
 cirOs :: Lens' CreateInstance (Maybe Text)
-cirOs f x =
-    f (_cirOs x)
-        <&> \y -> x { _cirOs = y }
+cirOs = lens _cirOs (\s a -> s { _cirOs = a })
 {-# INLINE cirOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
 cirAmiId :: Lens' CreateInstance (Maybe Text)
-cirAmiId f x =
-    f (_cirAmiId x)
-        <&> \y -> x { _cirAmiId = y }
+cirAmiId = lens _cirAmiId (\s a -> s { _cirAmiId = a })
 {-# INLINE cirAmiId #-}
 
 -- | The instance SSH key name.
 cirSshKeyName :: Lens' CreateInstance (Maybe Text)
-cirSshKeyName f x =
-    f (_cirSshKeyName x)
-        <&> \y -> x { _cirSshKeyName = y }
+cirSshKeyName = lens _cirSshKeyName (\s a -> s { _cirSshKeyName = a })
 {-# INLINE cirSshKeyName #-}
 
 -- | The instance Availability Zone. For more information, see Regions and
 -- Endpoints.
 cirAvailabilityZone :: Lens' CreateInstance (Maybe Text)
-cirAvailabilityZone f x =
-    f (_cirAvailabilityZone x)
-        <&> \y -> x { _cirAvailabilityZone = y }
+cirAvailabilityZone = lens _cirAvailabilityZone (\s a -> s { _cirAvailabilityZone = a })
 {-# INLINE cirAvailabilityZone #-}
 
 -- | The instance's virtualization type, paravirtual or hvm.
 cirVirtualizationType :: Lens' CreateInstance (Maybe Text)
-cirVirtualizationType f x =
-    f (_cirVirtualizationType x)
-        <&> \y -> x { _cirVirtualizationType = y }
+cirVirtualizationType = lens _cirVirtualizationType (\s a -> s { _cirVirtualizationType = a })
 {-# INLINE cirVirtualizationType #-}
 
 -- | The ID of the instance's subnet. If the stack is running in a VPC, you can
 -- use this parameter to override the stack's default subnet ID value and
 -- direct AWS OpsWorks to launch the instance in a different subnet.
 cirSubnetId :: Lens' CreateInstance (Maybe Text)
-cirSubnetId f x =
-    f (_cirSubnetId x)
-        <&> \y -> x { _cirSubnetId = y }
+cirSubnetId = lens _cirSubnetId (\s a -> s { _cirSubnetId = a })
 {-# INLINE cirSubnetId #-}
+
+-- | The instance architecture. The default option is x86_64. Instance types do
+-- not necessarily support both architectures. For a list of the architectures
+-- that are supported by the different instance types, see Instance Families
+-- and Types.
+cirArchitecture :: Lens' CreateInstance (Maybe Architecture)
+cirArchitecture = lens _cirArchitecture (\s a -> s { _cirArchitecture = a })
+{-# INLINE cirArchitecture #-}
+
+-- | The instance root device type. For more information, see Storage for the
+-- Root Device.
+cirRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
+cirRootDeviceType = lens _cirRootDeviceType (\s a -> s { _cirRootDeviceType = a })
+{-# INLINE cirRootDeviceType #-}
+
+-- | Whether to install operating system and package updates when the instance
+-- boots. The default value is true. To control when updates are installed,
+-- set this value to false. You must then update your instances manually by
+-- using CreateDeployment to run the update_dependencies stack command or
+-- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
+-- We strongly recommend using the default value of true to ensure that your
+-- instances have the latest security updates.
+cirInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
+cirInstallUpdatesOnBoot = lens _cirInstallUpdatesOnBoot (\s a -> s { _cirInstallUpdatesOnBoot = a })
+{-# INLINE cirInstallUpdatesOnBoot #-}
+
+-- | Whether to create an Amazon EBS-optimized instance.
+cirEbsOptimized :: Lens' CreateInstance (Maybe Bool)
+cirEbsOptimized = lens _cirEbsOptimized (\s a -> s { _cirEbsOptimized = a })
+{-# INLINE cirEbsOptimized #-}
 
 instance ToPath CreateInstance
 
@@ -294,16 +265,14 @@ instance ToHeaders CreateInstance
 
 instance ToJSON CreateInstance
 
-data CreateInstanceResponse = CreateInstanceResponse
+newtype CreateInstanceResponse = CreateInstanceResponse
     { _cisInstanceId :: Maybe Text
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
 -- | The instance ID.
 cisInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
-cisInstanceId f x =
-    f (_cisInstanceId x)
-        <&> \y -> x { _cisInstanceId = y }
+cisInstanceId = lens _cisInstanceId (\s a -> s { _cisInstanceId = a })
 {-# INLINE cisInstanceId #-}
 
 instance FromJSON CreateInstanceResponse

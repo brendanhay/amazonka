@@ -25,7 +25,7 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuse
     -- * Request
       DescribeTrustedAdvisorCheckRefreshStatuses
     -- ** Request constructor
-    , describeTrustedAdvisorCheckRefreshStatuses
+    , mkDescribeTrustedAdvisorCheckRefreshStatusesRequest
     -- ** Request lenses
     , dtacrsrCheckIds
 
@@ -40,24 +40,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTrustedAdvisorCheckRefreshStatuses' request.
-describeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsrCheckIds'
-                                           -> DescribeTrustedAdvisorCheckRefreshStatuses
-describeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorCheckRefreshStatuses' request.
+mkDescribeTrustedAdvisorCheckRefreshStatusesRequest :: [Text] -- ^ 'dtacrsrCheckIds'
+                                                    -> DescribeTrustedAdvisorCheckRefreshStatuses
+mkDescribeTrustedAdvisorCheckRefreshStatusesRequest p1 = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsrCheckIds = p1
     }
-{-# INLINE describeTrustedAdvisorCheckRefreshStatuses #-}
+{-# INLINE mkDescribeTrustedAdvisorCheckRefreshStatusesRequest #-}
 
-data DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
+newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsrCheckIds :: [Text]
       -- ^ The IDs of the Trusted Advisor checks.
     } deriving (Show, Generic)
 
 -- | The IDs of the Trusted Advisor checks.
 dtacrsrCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses ([Text])
-dtacrsrCheckIds f x =
-    f (_dtacrsrCheckIds x)
-        <&> \y -> x { _dtacrsrCheckIds = y }
+dtacrsrCheckIds = lens _dtacrsrCheckIds (\s a -> s { _dtacrsrCheckIds = a })
 {-# INLINE dtacrsrCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses
@@ -68,16 +67,14 @@ instance ToHeaders DescribeTrustedAdvisorCheckRefreshStatuses
 
 instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses
 
-data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
+newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
     { _dtacrssStatuses :: [TrustedAdvisorCheckRefreshStatus]
       -- ^ The refresh status of the specified Trusted Advisor checks.
     } deriving (Show, Generic)
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrssStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse ([TrustedAdvisorCheckRefreshStatus])
-dtacrssStatuses f x =
-    f (_dtacrssStatuses x)
-        <&> \y -> x { _dtacrssStatuses = y }
+dtacrssStatuses = lens _dtacrssStatuses (\s a -> s { _dtacrssStatuses = a })
 {-# INLINE dtacrssStatuses #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse

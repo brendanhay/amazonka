@@ -24,7 +24,7 @@ module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
     -- * Request
       DescribeTrails
     -- ** Request constructor
-    , describeTrails
+    , mkDescribeTrailsRequest
     -- ** Request lenses
     , dttTrailNameList
 
@@ -39,23 +39,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTrails' request.
-describeTrails :: DescribeTrails
-describeTrails = DescribeTrails
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrails' request.
+mkDescribeTrailsRequest :: DescribeTrails
+mkDescribeTrailsRequest = DescribeTrails
     { _dttTrailNameList = mempty
     }
-{-# INLINE describeTrails #-}
+{-# INLINE mkDescribeTrailsRequest #-}
 
-data DescribeTrails = DescribeTrails
+newtype DescribeTrails = DescribeTrails
     { _dttTrailNameList :: [Text]
       -- ^ The trail returned.
     } deriving (Show, Generic)
 
 -- | The trail returned.
 dttTrailNameList :: Lens' DescribeTrails ([Text])
-dttTrailNameList f x =
-    f (_dttTrailNameList x)
-        <&> \y -> x { _dttTrailNameList = y }
+dttTrailNameList = lens _dttTrailNameList (\s a -> s { _dttTrailNameList = a })
 {-# INLINE dttTrailNameList #-}
 
 instance ToPath DescribeTrails
@@ -66,16 +65,14 @@ instance ToHeaders DescribeTrails
 
 instance ToJSON DescribeTrails
 
-data DescribeTrailsResponse = DescribeTrailsResponse
+newtype DescribeTrailsResponse = DescribeTrailsResponse
     { _dtuTrailList :: [Trail]
       -- ^ The list of trails.
     } deriving (Show, Generic)
 
 -- | The list of trails.
 dtuTrailList :: Lens' DescribeTrailsResponse ([Trail])
-dtuTrailList f x =
-    f (_dtuTrailList x)
-        <&> \y -> x { _dtuTrailList = y }
+dtuTrailList = lens _dtuTrailList (\s a -> s { _dtuTrailList = a })
 {-# INLINE dtuTrailList #-}
 
 instance FromJSON DescribeTrailsResponse

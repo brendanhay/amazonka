@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup
     -- * Request
       DeleteCacheSecurityGroup
     -- ** Request constructor
-    , deleteCacheSecurityGroup
+    , mkDeleteCacheSecurityGroupMessage
     -- ** Request lenses
     , dcsgmCacheSecurityGroupName
 
@@ -41,15 +41,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteCacheSecurityGroup' request.
-deleteCacheSecurityGroup :: Text -- ^ 'dcsgmCacheSecurityGroupName'
-                         -> DeleteCacheSecurityGroup
-deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCacheSecurityGroup' request.
+mkDeleteCacheSecurityGroupMessage :: Text -- ^ 'dcsgmCacheSecurityGroupName'
+                                  -> DeleteCacheSecurityGroup
+mkDeleteCacheSecurityGroupMessage p1 = DeleteCacheSecurityGroup
     { _dcsgmCacheSecurityGroupName = p1
     }
-{-# INLINE deleteCacheSecurityGroup #-}
+{-# INLINE mkDeleteCacheSecurityGroupMessage #-}
 
-data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
+newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgmCacheSecurityGroupName :: Text
       -- ^ The name of the cache security group to delete. You cannot delete
       -- the default security group.
@@ -58,9 +59,7 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
 -- | The name of the cache security group to delete. You cannot delete the
 -- default security group.
 dcsgmCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup (Text)
-dcsgmCacheSecurityGroupName f x =
-    f (_dcsgmCacheSecurityGroupName x)
-        <&> \y -> x { _dcsgmCacheSecurityGroupName = y }
+dcsgmCacheSecurityGroupName = lens _dcsgmCacheSecurityGroupName (\s a -> s { _dcsgmCacheSecurityGroupName = a })
 {-# INLINE dcsgmCacheSecurityGroupName #-}
 
 instance ToQuery DeleteCacheSecurityGroup where

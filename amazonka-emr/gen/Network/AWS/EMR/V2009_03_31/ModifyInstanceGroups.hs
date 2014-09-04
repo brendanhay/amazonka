@@ -42,7 +42,7 @@ module Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
     -- * Request
       ModifyInstanceGroups
     -- ** Request constructor
-    , modifyInstanceGroups
+    , mkModifyInstanceGroupsInput
     -- ** Request lenses
     , migiInstanceGroups
 
@@ -55,23 +55,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ModifyInstanceGroups' request.
-modifyInstanceGroups :: ModifyInstanceGroups
-modifyInstanceGroups = ModifyInstanceGroups
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyInstanceGroups' request.
+mkModifyInstanceGroupsInput :: ModifyInstanceGroups
+mkModifyInstanceGroupsInput = ModifyInstanceGroups
     { _migiInstanceGroups = mempty
     }
-{-# INLINE modifyInstanceGroups #-}
+{-# INLINE mkModifyInstanceGroupsInput #-}
 
-data ModifyInstanceGroups = ModifyInstanceGroups
+newtype ModifyInstanceGroups = ModifyInstanceGroups
     { _migiInstanceGroups :: [InstanceGroupModifyConfig]
       -- ^ Instance groups to change.
     } deriving (Show, Generic)
 
 -- | Instance groups to change.
 migiInstanceGroups :: Lens' ModifyInstanceGroups ([InstanceGroupModifyConfig])
-migiInstanceGroups f x =
-    f (_migiInstanceGroups x)
-        <&> \y -> x { _migiInstanceGroups = y }
+migiInstanceGroups = lens _migiInstanceGroups (\s a -> s { _migiInstanceGroups = a })
 {-# INLINE migiInstanceGroups #-}
 
 instance ToPath ModifyInstanceGroups

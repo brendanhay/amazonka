@@ -33,7 +33,7 @@ module Network.AWS.SES.V2010_12_01.DeleteIdentity
     -- * Request
       DeleteIdentity
     -- ** Request constructor
-    , deleteIdentity
+    , mkDeleteIdentityRequest
     -- ** Request lenses
     , dirIdentity
 
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteIdentity' request.
-deleteIdentity :: Text -- ^ 'dirIdentity'
-               -> DeleteIdentity
-deleteIdentity p1 = DeleteIdentity
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteIdentity' request.
+mkDeleteIdentityRequest :: Text -- ^ 'dirIdentity'
+                        -> DeleteIdentity
+mkDeleteIdentityRequest p1 = DeleteIdentity
     { _dirIdentity = p1
     }
-{-# INLINE deleteIdentity #-}
+{-# INLINE mkDeleteIdentityRequest #-}
 
-data DeleteIdentity = DeleteIdentity
+newtype DeleteIdentity = DeleteIdentity
     { _dirIdentity :: Text
       -- ^ The identity to be removed from the list of identities for the
       -- AWS Account.
@@ -61,15 +62,12 @@ data DeleteIdentity = DeleteIdentity
 
 -- | The identity to be removed from the list of identities for the AWS Account.
 dirIdentity :: Lens' DeleteIdentity (Text)
-dirIdentity f x =
-    f (_dirIdentity x)
-        <&> \y -> x { _dirIdentity = y }
+dirIdentity = lens _dirIdentity (\s a -> s { _dirIdentity = a })
 {-# INLINE dirIdentity #-}
 
 instance ToQuery DeleteIdentity where
     toQuery = genericQuery def
 
-data DeleteIdentityResponse = DeleteIdentityResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteIdentity where

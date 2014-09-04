@@ -30,7 +30,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
     -- * Request
       ListIdentities
     -- ** Request constructor
-    , listIdentities
+    , mkListIdentitiesInput
     -- ** Request lenses
     , liiIdentityPoolId
     , liiMaxResults
@@ -39,8 +39,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
     -- * Response
     , ListIdentitiesResponse
     -- ** Response lenses
-    , lirIdentities
     , lirIdentityPoolId
+    , lirIdentities
     , lirNextToken
     ) where
 
@@ -49,16 +49,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListIdentities' request.
-listIdentities :: Text -- ^ 'liiIdentityPoolId'
-               -> Integer -- ^ 'liiMaxResults'
-               -> ListIdentities
-listIdentities p1 p2 = ListIdentities
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentities' request.
+mkListIdentitiesInput :: Text -- ^ 'liiIdentityPoolId'
+                      -> Integer -- ^ 'liiMaxResults'
+                      -> ListIdentities
+mkListIdentitiesInput p1 p2 = ListIdentities
     { _liiIdentityPoolId = p1
     , _liiMaxResults = p2
     , _liiNextToken = Nothing
     }
-{-# INLINE listIdentities #-}
+{-# INLINE mkListIdentitiesInput #-}
 
 data ListIdentities = ListIdentities
     { _liiIdentityPoolId :: Text
@@ -71,23 +72,17 @@ data ListIdentities = ListIdentities
 
 -- | An identity pool ID in the format REGION:GUID.
 liiIdentityPoolId :: Lens' ListIdentities (Text)
-liiIdentityPoolId f x =
-    f (_liiIdentityPoolId x)
-        <&> \y -> x { _liiIdentityPoolId = y }
+liiIdentityPoolId = lens _liiIdentityPoolId (\s a -> s { _liiIdentityPoolId = a })
 {-# INLINE liiIdentityPoolId #-}
 
 -- | The maximum number of identities to return.
 liiMaxResults :: Lens' ListIdentities (Integer)
-liiMaxResults f x =
-    f (_liiMaxResults x)
-        <&> \y -> x { _liiMaxResults = y }
+liiMaxResults = lens _liiMaxResults (\s a -> s { _liiMaxResults = a })
 {-# INLINE liiMaxResults #-}
 
 -- | A pagination token.
 liiNextToken :: Lens' ListIdentities (Maybe Text)
-liiNextToken f x =
-    f (_liiNextToken x)
-        <&> \y -> x { _liiNextToken = y }
+liiNextToken = lens _liiNextToken (\s a -> s { _liiNextToken = a })
 {-# INLINE liiNextToken #-}
 
 instance ToPath ListIdentities
@@ -99,33 +94,27 @@ instance ToHeaders ListIdentities
 instance ToJSON ListIdentities
 
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities :: [IdentityDescription]
-      -- ^ An object containing a set of identities and associated mappings.
-    , _lirIdentityPoolId :: Maybe Text
+    { _lirIdentityPoolId :: Maybe Text
       -- ^ An identity pool ID in the format REGION:GUID.
+    , _lirIdentities :: [IdentityDescription]
+      -- ^ An object containing a set of identities and associated mappings.
     , _lirNextToken :: Maybe Text
       -- ^ A pagination token.
     } deriving (Show, Generic)
 
--- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse ([IdentityDescription])
-lirIdentities f x =
-    f (_lirIdentities x)
-        <&> \y -> x { _lirIdentities = y }
-{-# INLINE lirIdentities #-}
-
 -- | An identity pool ID in the format REGION:GUID.
 lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirIdentityPoolId f x =
-    f (_lirIdentityPoolId x)
-        <&> \y -> x { _lirIdentityPoolId = y }
+lirIdentityPoolId = lens _lirIdentityPoolId (\s a -> s { _lirIdentityPoolId = a })
 {-# INLINE lirIdentityPoolId #-}
+
+-- | An object containing a set of identities and associated mappings.
+lirIdentities :: Lens' ListIdentitiesResponse ([IdentityDescription])
+lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
+{-# INLINE lirIdentities #-}
 
 -- | A pagination token.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirNextToken f x =
-    f (_lirNextToken x)
-        <&> \y -> x { _lirNextToken = y }
+lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 {-# INLINE lirNextToken #-}
 
 instance FromJSON ListIdentitiesResponse

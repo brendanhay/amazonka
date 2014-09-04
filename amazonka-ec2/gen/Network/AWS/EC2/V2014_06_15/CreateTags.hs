@@ -35,7 +35,7 @@ module Network.AWS.EC2.V2014_06_15.CreateTags
     -- * Request
       CreateTags
     -- ** Request constructor
-    , createTags
+    , mkCreateTagsRequest
     -- ** Request lenses
     , ctrResources
     , ctrTags
@@ -48,15 +48,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateTags' request.
-createTags :: [Text] -- ^ 'ctrResources'
-           -> [Tag] -- ^ 'ctrTags'
-           -> CreateTags
-createTags p1 p2 = CreateTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTags' request.
+mkCreateTagsRequest :: [Text] -- ^ 'ctrResources'
+                    -> [Tag] -- ^ 'ctrTags'
+                    -> CreateTags
+mkCreateTagsRequest p1 p2 = CreateTags
     { _ctrResources = p1
     , _ctrTags = p2
     }
-{-# INLINE createTags #-}
+{-# INLINE mkCreateTagsRequest #-}
 
 data CreateTags = CreateTags
     { _ctrResources :: [Text]
@@ -70,18 +71,14 @@ data CreateTags = CreateTags
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
 ctrResources :: Lens' CreateTags ([Text])
-ctrResources f x =
-    f (_ctrResources x)
-        <&> \y -> x { _ctrResources = y }
+ctrResources = lens _ctrResources (\s a -> s { _ctrResources = a })
 {-# INLINE ctrResources #-}
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
 ctrTags :: Lens' CreateTags ([Tag])
-ctrTags f x =
-    f (_ctrTags x)
-        <&> \y -> x { _ctrTags = y }
+ctrTags = lens _ctrTags (\s a -> s { _ctrTags = a })
 {-# INLINE ctrTags #-}
 
 instance ToQuery CreateTags where

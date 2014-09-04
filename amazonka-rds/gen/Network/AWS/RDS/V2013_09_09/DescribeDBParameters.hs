@@ -32,11 +32,11 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBParameters
     -- * Request
       DescribeDBParameters
     -- ** Request constructor
-    , describeDBParameters
+    , mkDescribeDBParametersMessage
     -- ** Request lenses
     , ddbpmDBParameterGroupName
-    , ddbpmMaxRecords
     , ddbpmSource
+    , ddbpmMaxRecords
     , ddbpmMarker
 
     -- * Response
@@ -50,16 +50,17 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDBParameters' request.
-describeDBParameters :: Text -- ^ 'ddbpmDBParameterGroupName'
-                     -> DescribeDBParameters
-describeDBParameters p1 = DescribeDBParameters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBParameters' request.
+mkDescribeDBParametersMessage :: Text -- ^ 'ddbpmDBParameterGroupName'
+                              -> DescribeDBParameters
+mkDescribeDBParametersMessage p1 = DescribeDBParameters
     { _ddbpmDBParameterGroupName = p1
-    , _ddbpmMaxRecords = Nothing
     , _ddbpmSource = Nothing
+    , _ddbpmMaxRecords = Nothing
     , _ddbpmMarker = Nothing
     }
-{-# INLINE describeDBParameters #-}
+{-# INLINE mkDescribeDBParametersMessage #-}
 
 data DescribeDBParameters = DescribeDBParameters
     { _ddbpmDBParameterGroupName :: Text
@@ -67,15 +68,15 @@ data DescribeDBParameters = DescribeDBParameters
       -- Constraints: Must be 1 to 255 alphanumeric characters First
       -- character must be a letter Cannot end with a hyphen or contain
       -- two consecutive hyphens.
+    , _ddbpmSource :: Maybe Text
+      -- ^ The parameter types to return. Default: All parameter types
+      -- returned Valid Values: user | system | engine-default.
     , _ddbpmMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a pagination
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _ddbpmSource :: Maybe Text
-      -- ^ The parameter types to return. Default: All parameter types
-      -- returned Valid Values: user | system | engine-default.
     , _ddbpmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeDBParameters request. If this parameter is specified, the
@@ -87,36 +88,28 @@ data DescribeDBParameters = DescribeDBParameters
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
 ddbpmDBParameterGroupName :: Lens' DescribeDBParameters (Text)
-ddbpmDBParameterGroupName f x =
-    f (_ddbpmDBParameterGroupName x)
-        <&> \y -> x { _ddbpmDBParameterGroupName = y }
+ddbpmDBParameterGroupName = lens _ddbpmDBParameterGroupName (\s a -> s { _ddbpmDBParameterGroupName = a })
 {-# INLINE ddbpmDBParameterGroupName #-}
+
+-- | The parameter types to return. Default: All parameter types returned Valid
+-- Values: user | system | engine-default.
+ddbpmSource :: Lens' DescribeDBParameters (Maybe Text)
+ddbpmSource = lens _ddbpmSource (\s a -> s { _ddbpmSource = a })
+{-# INLINE ddbpmSource #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpmMaxRecords :: Lens' DescribeDBParameters (Maybe Integer)
-ddbpmMaxRecords f x =
-    f (_ddbpmMaxRecords x)
-        <&> \y -> x { _ddbpmMaxRecords = y }
+ddbpmMaxRecords = lens _ddbpmMaxRecords (\s a -> s { _ddbpmMaxRecords = a })
 {-# INLINE ddbpmMaxRecords #-}
-
--- | The parameter types to return. Default: All parameter types returned Valid
--- Values: user | system | engine-default.
-ddbpmSource :: Lens' DescribeDBParameters (Maybe Text)
-ddbpmSource f x =
-    f (_ddbpmSource x)
-        <&> \y -> x { _ddbpmSource = y }
-{-# INLINE ddbpmSource #-}
 
 -- | An optional pagination token provided by a previous DescribeDBParameters
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
 ddbpmMarker :: Lens' DescribeDBParameters (Maybe Text)
-ddbpmMarker f x =
-    f (_ddbpmMarker x)
-        <&> \y -> x { _ddbpmMarker = y }
+ddbpmMarker = lens _ddbpmMarker (\s a -> s { _ddbpmMarker = a })
 {-# INLINE ddbpmMarker #-}
 
 instance ToQuery DescribeDBParameters where
@@ -133,18 +126,14 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
 
 -- | A list of Parameter values.
 dbpgdParameters :: Lens' DescribeDBParametersResponse ([Parameter])
-dbpgdParameters f x =
-    f (_dbpgdParameters x)
-        <&> \y -> x { _dbpgdParameters = y }
+dbpgdParameters = lens _dbpgdParameters (\s a -> s { _dbpgdParameters = a })
 {-# INLINE dbpgdParameters #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dbpgdMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
-dbpgdMarker f x =
-    f (_dbpgdMarker x)
-        <&> \y -> x { _dbpgdMarker = y }
+dbpgdMarker = lens _dbpgdMarker (\s a -> s { _dbpgdMarker = a })
 {-# INLINE dbpgdMarker #-}
 
 instance FromXML DescribeDBParametersResponse where

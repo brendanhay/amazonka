@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.V2013_01_01.CreateDomain
     -- * Request
       CreateDomain
     -- ** Request constructor
-    , createDomain
+    , mkCreateDomainRequest
     -- ** Request lenses
     , cdrDomainName
 
@@ -38,15 +38,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDomain' request.
-createDomain :: Text -- ^ 'cdrDomainName'
-             -> CreateDomain
-createDomain p1 = CreateDomain
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDomain' request.
+mkCreateDomainRequest :: Text -- ^ 'cdrDomainName'
+                      -> CreateDomain
+mkCreateDomainRequest p1 = CreateDomain
     { _cdrDomainName = p1
     }
-{-# INLINE createDomain #-}
+{-# INLINE mkCreateDomainRequest #-}
 
-data CreateDomain = CreateDomain
+newtype CreateDomain = CreateDomain
     { _cdrDomainName :: Text
       -- ^ A name for the domain you are creating. Allowed characters are
       -- a-z (lower-case letters), 0-9, and hyphen (-). Domain names must
@@ -58,24 +59,20 @@ data CreateDomain = CreateDomain
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with a
 -- letter or number and be at least 3 and no more than 28 characters long.
 cdrDomainName :: Lens' CreateDomain (Text)
-cdrDomainName f x =
-    f (_cdrDomainName x)
-        <&> \y -> x { _cdrDomainName = y }
+cdrDomainName = lens _cdrDomainName (\s a -> s { _cdrDomainName = a })
 {-# INLINE cdrDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def
 
-data CreateDomainResponse = CreateDomainResponse
+newtype CreateDomainResponse = CreateDomainResponse
     { _cdsDomainStatus :: Maybe DomainStatus
       -- ^ The current status of the search domain.
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
 cdsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
-cdsDomainStatus f x =
-    f (_cdsDomainStatus x)
-        <&> \y -> x { _cdsDomainStatus = y }
+cdsDomainStatus = lens _cdsDomainStatus (\s a -> s { _cdsDomainStatus = a })
 {-# INLINE cdsDomainStatus #-}
 
 instance FromXML CreateDomainResponse where

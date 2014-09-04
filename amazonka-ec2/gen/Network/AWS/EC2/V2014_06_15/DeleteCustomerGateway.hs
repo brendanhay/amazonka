@@ -31,7 +31,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway
     -- * Request
       DeleteCustomerGateway
     -- ** Request constructor
-    , deleteCustomerGateway
+    , mkDeleteCustomerGatewayRequest
     -- ** Request lenses
     , dcgrCustomerGatewayId
 
@@ -43,24 +43,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteCustomerGateway' request.
-deleteCustomerGateway :: Text -- ^ 'dcgrCustomerGatewayId'
-                      -> DeleteCustomerGateway
-deleteCustomerGateway p1 = DeleteCustomerGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCustomerGateway' request.
+mkDeleteCustomerGatewayRequest :: Text -- ^ 'dcgrCustomerGatewayId'
+                               -> DeleteCustomerGateway
+mkDeleteCustomerGatewayRequest p1 = DeleteCustomerGateway
     { _dcgrCustomerGatewayId = p1
     }
-{-# INLINE deleteCustomerGateway #-}
+{-# INLINE mkDeleteCustomerGatewayRequest #-}
 
-data DeleteCustomerGateway = DeleteCustomerGateway
+newtype DeleteCustomerGateway = DeleteCustomerGateway
     { _dcgrCustomerGatewayId :: Text
       -- ^ The ID of the customer gateway.
     } deriving (Show, Generic)
 
 -- | The ID of the customer gateway.
 dcgrCustomerGatewayId :: Lens' DeleteCustomerGateway (Text)
-dcgrCustomerGatewayId f x =
-    f (_dcgrCustomerGatewayId x)
-        <&> \y -> x { _dcgrCustomerGatewayId = y }
+dcgrCustomerGatewayId = lens _dcgrCustomerGatewayId (\s a -> s { _dcgrCustomerGatewayId = a })
 {-# INLINE dcgrCustomerGatewayId #-}
 
 instance ToQuery DeleteCustomerGateway where

@@ -31,7 +31,7 @@ module Network.AWS.Route53.V2013_04_01.ListHealthChecks
     -- * Request
       ListHealthChecks
     -- ** Request constructor
-    , listHealthChecks
+    , mkListHealthChecksRequest
     -- ** Request lenses
     , lhcrMarker
     , lhcrMaxItems
@@ -41,22 +41,23 @@ module Network.AWS.Route53.V2013_04_01.ListHealthChecks
     -- ** Response lenses
     , lhcsHealthChecks
     , lhcsMarker
-    , lhcsMaxItems
     , lhcsIsTruncated
     , lhcsNextMarker
+    , lhcsMaxItems
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListHealthChecks' request.
-listHealthChecks :: ListHealthChecks
-listHealthChecks = ListHealthChecks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListHealthChecks' request.
+mkListHealthChecksRequest :: ListHealthChecks
+mkListHealthChecksRequest = ListHealthChecks
     { _lhcrMarker = Nothing
     , _lhcrMaxItems = Nothing
     }
-{-# INLINE listHealthChecks #-}
+{-# INLINE mkListHealthChecksRequest #-}
 
 data ListHealthChecks = ListHealthChecks
     { _lhcrMarker :: Maybe Text
@@ -72,16 +73,12 @@ data ListHealthChecks = ListHealthChecks
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
 lhcrMarker :: Lens' ListHealthChecks (Maybe Text)
-lhcrMarker f x =
-    f (_lhcrMarker x)
-        <&> \y -> x { _lhcrMarker = y }
+lhcrMarker = lens _lhcrMarker (\s a -> s { _lhcrMarker = a })
 {-# INLINE lhcrMarker #-}
 
 -- | Specify the maximum number of health checks to return per page of results.
 lhcrMaxItems :: Lens' ListHealthChecks (Maybe Text)
-lhcrMaxItems f x =
-    f (_lhcrMaxItems x)
-        <&> \y -> x { _lhcrMaxItems = y }
+lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 {-# INLINE lhcrMaxItems #-}
 
 instance ToPath ListHealthChecks where
@@ -107,15 +104,6 @@ data ListHealthChecksResponse = ListHealthChecksResponse
       -- ^ If the request returned more than one page of results, submit
       -- another request and specify the value of NextMarker from the last
       -- response in the marker parameter to get the next page of results.
-    , _lhcsMaxItems :: Text
-      -- ^ The maximum number of health checks to be included in the
-      -- response body. If the number of health checks associated with
-      -- this AWS account exceeds MaxItems, the value of
-      -- ListHealthChecksResponse$IsTruncated in the response is true.
-      -- Call ListHealthChecks again and specify the value of
-      -- ListHealthChecksResponse$NextMarker in the
-      -- ListHostedZonesRequest$Marker element to get the next page of
-      -- results.
     , _lhcsIsTruncated :: Bool
       -- ^ A flag indicating whether there are more health checks to be
       -- listed. If your results were truncated, you can make a follow-up
@@ -127,24 +115,44 @@ data ListHealthChecksResponse = ListHealthChecksResponse
       -- request to ListHealthChecks and include the value of the
       -- NextMarker element in the Marker element to get the next page of
       -- results.
+    , _lhcsMaxItems :: Text
+      -- ^ The maximum number of health checks to be included in the
+      -- response body. If the number of health checks associated with
+      -- this AWS account exceeds MaxItems, the value of
+      -- ListHealthChecksResponse$IsTruncated in the response is true.
+      -- Call ListHealthChecks again and specify the value of
+      -- ListHealthChecksResponse$NextMarker in the
+      -- ListHostedZonesRequest$Marker element to get the next page of
+      -- results.
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about the health checks associated
 -- with the current AWS account.
 lhcsHealthChecks :: Lens' ListHealthChecksResponse ([HealthCheck])
-lhcsHealthChecks f x =
-    f (_lhcsHealthChecks x)
-        <&> \y -> x { _lhcsHealthChecks = y }
+lhcsHealthChecks = lens _lhcsHealthChecks (\s a -> s { _lhcsHealthChecks = a })
 {-# INLINE lhcsHealthChecks #-}
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
 lhcsMarker :: Lens' ListHealthChecksResponse (Text)
-lhcsMarker f x =
-    f (_lhcsMarker x)
-        <&> \y -> x { _lhcsMarker = y }
+lhcsMarker = lens _lhcsMarker (\s a -> s { _lhcsMarker = a })
 {-# INLINE lhcsMarker #-}
+
+-- | A flag indicating whether there are more health checks to be listed. If
+-- your results were truncated, you can make a follow-up request for the next
+-- page of results by using the Marker element. Valid Values: true | false.
+lhcsIsTruncated :: Lens' ListHealthChecksResponse (Bool)
+lhcsIsTruncated = lens _lhcsIsTruncated (\s a -> s { _lhcsIsTruncated = a })
+{-# INLINE lhcsIsTruncated #-}
+
+-- | Indicates where to continue listing health checks. If
+-- ListHealthChecksResponse$IsTruncated is true, make another request to
+-- ListHealthChecks and include the value of the NextMarker element in the
+-- Marker element to get the next page of results.
+lhcsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
+lhcsNextMarker = lens _lhcsNextMarker (\s a -> s { _lhcsNextMarker = a })
+{-# INLINE lhcsNextMarker #-}
 
 -- | The maximum number of health checks to be included in the response body. If
 -- the number of health checks associated with this AWS account exceeds
@@ -153,29 +161,8 @@ lhcsMarker f x =
 -- ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker
 -- element to get the next page of results.
 lhcsMaxItems :: Lens' ListHealthChecksResponse (Text)
-lhcsMaxItems f x =
-    f (_lhcsMaxItems x)
-        <&> \y -> x { _lhcsMaxItems = y }
+lhcsMaxItems = lens _lhcsMaxItems (\s a -> s { _lhcsMaxItems = a })
 {-# INLINE lhcsMaxItems #-}
-
--- | A flag indicating whether there are more health checks to be listed. If
--- your results were truncated, you can make a follow-up request for the next
--- page of results by using the Marker element. Valid Values: true | false.
-lhcsIsTruncated :: Lens' ListHealthChecksResponse (Bool)
-lhcsIsTruncated f x =
-    f (_lhcsIsTruncated x)
-        <&> \y -> x { _lhcsIsTruncated = y }
-{-# INLINE lhcsIsTruncated #-}
-
--- | Indicates where to continue listing health checks. If
--- ListHealthChecksResponse$IsTruncated is true, make another request to
--- ListHealthChecks and include the value of the NextMarker element in the
--- Marker element to get the next page of results.
-lhcsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
-lhcsNextMarker f x =
-    f (_lhcsNextMarker x)
-        <&> \y -> x { _lhcsNextMarker = y }
-{-# INLINE lhcsNextMarker #-}
 
 instance FromXML ListHealthChecksResponse where
     fromXMLOptions = xmlOptions

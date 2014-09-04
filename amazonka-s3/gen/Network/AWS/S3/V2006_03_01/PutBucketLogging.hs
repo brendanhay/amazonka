@@ -25,10 +25,10 @@ module Network.AWS.S3.V2006_03_01.PutBucketLogging
     -- * Request
       PutBucketLogging
     -- ** Request constructor
-    , putBucketLogging
+    , mkPutBucketLoggingRequest
     -- ** Request lenses
-    , pblsBucketLoggingStatus
     , pblsBucket
+    , pblsBucketLoggingStatus
     , pblsContentMD5
 
     -- * Response
@@ -39,39 +39,34 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutBucketLogging' request.
-putBucketLogging :: BucketLoggingStatus -- ^ 'pblsBucketLoggingStatus'
-                 -> BucketName -- ^ 'pblsBucket'
-                 -> PutBucketLogging
-putBucketLogging p1 p2 = PutBucketLogging
-    { _pblsBucketLoggingStatus = p1
-    , _pblsBucket = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketLogging' request.
+mkPutBucketLoggingRequest :: BucketName -- ^ 'pblsBucket'
+                          -> BucketLoggingStatus -- ^ 'pblsBucketLoggingStatus'
+                          -> PutBucketLogging
+mkPutBucketLoggingRequest p1 p2 = PutBucketLogging
+    { _pblsBucket = p1
+    , _pblsBucketLoggingStatus = p2
     , _pblsContentMD5 = Nothing
     }
-{-# INLINE putBucketLogging #-}
+{-# INLINE mkPutBucketLoggingRequest #-}
 
 data PutBucketLogging = PutBucketLogging
-    { _pblsBucketLoggingStatus :: BucketLoggingStatus
-    , _pblsBucket :: BucketName
+    { _pblsBucket :: BucketName
+    , _pblsBucketLoggingStatus :: BucketLoggingStatus
     , _pblsContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-pblsBucketLoggingStatus :: Lens' PutBucketLogging (BucketLoggingStatus)
-pblsBucketLoggingStatus f x =
-    f (_pblsBucketLoggingStatus x)
-        <&> \y -> x { _pblsBucketLoggingStatus = y }
-{-# INLINE pblsBucketLoggingStatus #-}
-
 pblsBucket :: Lens' PutBucketLogging (BucketName)
-pblsBucket f x =
-    f (_pblsBucket x)
-        <&> \y -> x { _pblsBucket = y }
+pblsBucket = lens _pblsBucket (\s a -> s { _pblsBucket = a })
 {-# INLINE pblsBucket #-}
 
+pblsBucketLoggingStatus :: Lens' PutBucketLogging (BucketLoggingStatus)
+pblsBucketLoggingStatus = lens _pblsBucketLoggingStatus (\s a -> s { _pblsBucketLoggingStatus = a })
+{-# INLINE pblsBucketLoggingStatus #-}
+
 pblsContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pblsContentMD5 f x =
-    f (_pblsContentMD5 x)
-        <&> \y -> x { _pblsContentMD5 = y }
+pblsContentMD5 = lens _pblsContentMD5 (\s a -> s { _pblsContentMD5 = a })
 {-# INLINE pblsContentMD5 #-}
 
 instance ToPath PutBucketLogging where
@@ -85,13 +80,9 @@ instance ToQuery PutBucketLogging where
         [ "logging"
         ]
 
-instance ToHeaders PutBucketLogging where
-    toHeaders PutBucketLogging{..} = concat
-        [ "Content-MD5" =: _pblsContentMD5
-        ]
+instance ToHeaders PutBucketLogging
 
-instance ToBody PutBucketLogging where
-    toBody = toBody . encodeXML . _pblsBucketLoggingStatus
+instance ToBody PutBucketLogging
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)

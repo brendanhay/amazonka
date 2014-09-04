@@ -33,10 +33,10 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter
     -- * Request
       DeleteMetricFilter
     -- ** Request constructor
-    , deleteMetricFilter
+    , mkDeleteMetricFilterRequest
     -- ** Request lenses
-    , dmfrFilterName
     , dmfrLogGroupName
+    , dmfrFilterName
 
     -- * Response
     , DeleteMetricFilterResponse
@@ -47,34 +47,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteMetricFilter' request.
-deleteMetricFilter :: Text -- ^ 'dmfrFilterName'
-                   -> Text -- ^ 'dmfrLogGroupName'
-                   -> DeleteMetricFilter
-deleteMetricFilter p1 p2 = DeleteMetricFilter
-    { _dmfrFilterName = p1
-    , _dmfrLogGroupName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMetricFilter' request.
+mkDeleteMetricFilterRequest :: Text -- ^ 'dmfrLogGroupName'
+                            -> Text -- ^ 'dmfrFilterName'
+                            -> DeleteMetricFilter
+mkDeleteMetricFilterRequest p1 p2 = DeleteMetricFilter
+    { _dmfrLogGroupName = p1
+    , _dmfrFilterName = p2
     }
-{-# INLINE deleteMetricFilter #-}
+{-# INLINE mkDeleteMetricFilterRequest #-}
 
 data DeleteMetricFilter = DeleteMetricFilter
-    { _dmfrFilterName :: Text
+    { _dmfrLogGroupName :: Text
+    , _dmfrFilterName :: Text
       -- ^ The name of the metric filter.
-    , _dmfrLogGroupName :: Text
     } deriving (Show, Generic)
+
+dmfrLogGroupName :: Lens' DeleteMetricFilter (Text)
+dmfrLogGroupName = lens _dmfrLogGroupName (\s a -> s { _dmfrLogGroupName = a })
+{-# INLINE dmfrLogGroupName #-}
 
 -- | The name of the metric filter.
 dmfrFilterName :: Lens' DeleteMetricFilter (Text)
-dmfrFilterName f x =
-    f (_dmfrFilterName x)
-        <&> \y -> x { _dmfrFilterName = y }
+dmfrFilterName = lens _dmfrFilterName (\s a -> s { _dmfrFilterName = a })
 {-# INLINE dmfrFilterName #-}
-
-dmfrLogGroupName :: Lens' DeleteMetricFilter (Text)
-dmfrLogGroupName f x =
-    f (_dmfrLogGroupName x)
-        <&> \y -> x { _dmfrLogGroupName = y }
-{-# INLINE dmfrLogGroupName #-}
 
 instance ToPath DeleteMetricFilter
 

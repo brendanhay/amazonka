@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.V2013_02_18.AssignVolume
     -- * Request
       AssignVolume
     -- ** Request constructor
-    , assignVolume
+    , mkAssignVolumeRequest
     -- ** Request lenses
     , avrVolumeId
     , avrInstanceId
@@ -43,14 +43,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AssignVolume' request.
-assignVolume :: Text -- ^ 'avrVolumeId'
-             -> AssignVolume
-assignVolume p1 = AssignVolume
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssignVolume' request.
+mkAssignVolumeRequest :: Text -- ^ 'avrVolumeId'
+                      -> AssignVolume
+mkAssignVolumeRequest p1 = AssignVolume
     { _avrVolumeId = p1
     , _avrInstanceId = Nothing
     }
-{-# INLINE assignVolume #-}
+{-# INLINE mkAssignVolumeRequest #-}
 
 data AssignVolume = AssignVolume
     { _avrVolumeId :: Text
@@ -61,16 +62,12 @@ data AssignVolume = AssignVolume
 
 -- | The volume ID.
 avrVolumeId :: Lens' AssignVolume (Text)
-avrVolumeId f x =
-    f (_avrVolumeId x)
-        <&> \y -> x { _avrVolumeId = y }
+avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
 {-# INLINE avrVolumeId #-}
 
 -- | The instance ID.
 avrInstanceId :: Lens' AssignVolume (Maybe Text)
-avrInstanceId f x =
-    f (_avrInstanceId x)
-        <&> \y -> x { _avrInstanceId = y }
+avrInstanceId = lens _avrInstanceId (\s a -> s { _avrInstanceId = a })
 {-# INLINE avrInstanceId #-}
 
 instance ToPath AssignVolume

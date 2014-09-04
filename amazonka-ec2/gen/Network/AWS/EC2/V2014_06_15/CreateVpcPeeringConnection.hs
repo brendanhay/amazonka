@@ -55,7 +55,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection
     -- * Request
       CreateVpcPeeringConnection
     -- ** Request constructor
-    , createVpcPeeringConnection
+    , mkCreateVpcPeeringConnectionRequest
     -- ** Request lenses
     , cvpcrVpcId
     , cvpcrPeerVpcId
@@ -71,14 +71,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateVpcPeeringConnection' request.
-createVpcPeeringConnection :: CreateVpcPeeringConnection
-createVpcPeeringConnection = CreateVpcPeeringConnection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpcPeeringConnection' request.
+mkCreateVpcPeeringConnectionRequest :: CreateVpcPeeringConnection
+mkCreateVpcPeeringConnectionRequest = CreateVpcPeeringConnection
     { _cvpcrVpcId = Nothing
     , _cvpcrPeerVpcId = Nothing
     , _cvpcrPeerOwnerId = Nothing
     }
-{-# INLINE createVpcPeeringConnection #-}
+{-# INLINE mkCreateVpcPeeringConnectionRequest #-}
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcrVpcId :: Maybe Text
@@ -93,39 +94,31 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
 
 -- | The ID of the requester VPC.
 cvpcrVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-cvpcrVpcId f x =
-    f (_cvpcrVpcId x)
-        <&> \y -> x { _cvpcrVpcId = y }
+cvpcrVpcId = lens _cvpcrVpcId (\s a -> s { _cvpcrVpcId = a })
 {-# INLINE cvpcrVpcId #-}
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
 cvpcrPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-cvpcrPeerVpcId f x =
-    f (_cvpcrPeerVpcId x)
-        <&> \y -> x { _cvpcrPeerVpcId = y }
+cvpcrPeerVpcId = lens _cvpcrPeerVpcId (\s a -> s { _cvpcrPeerVpcId = a })
 {-# INLINE cvpcrPeerVpcId #-}
 
 -- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
 -- ID.
 cvpcrPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
-cvpcrPeerOwnerId f x =
-    f (_cvpcrPeerOwnerId x)
-        <&> \y -> x { _cvpcrPeerOwnerId = y }
+cvpcrPeerOwnerId = lens _cvpcrPeerOwnerId (\s a -> s { _cvpcrPeerOwnerId = a })
 {-# INLINE cvpcrPeerOwnerId #-}
 
 instance ToQuery CreateVpcPeeringConnection where
     toQuery = genericQuery def
 
-data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
+newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcsVpcPeeringConnection :: Maybe VpcPeeringConnection
       -- ^ Information about the VPC peering connection.
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
 cvpcsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
-cvpcsVpcPeeringConnection f x =
-    f (_cvpcsVpcPeeringConnection x)
-        <&> \y -> x { _cvpcsVpcPeeringConnection = y }
+cvpcsVpcPeeringConnection = lens _cvpcsVpcPeeringConnection (\s a -> s { _cvpcsVpcPeeringConnection = a })
 {-# INLINE cvpcsVpcPeeringConnection #-}
 
 instance FromXML CreateVpcPeeringConnectionResponse where

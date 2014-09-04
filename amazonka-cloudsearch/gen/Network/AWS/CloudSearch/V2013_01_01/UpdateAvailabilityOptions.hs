@@ -28,10 +28,10 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions
     -- * Request
       UpdateAvailabilityOptions
     -- ** Request constructor
-    , updateAvailabilityOptions
+    , mkUpdateAvailabilityOptionsRequest
     -- ** Request lenses
-    , uaorMultiAZ
     , uaorDomainName
+    , uaorMultiAZ
 
     -- * Response
     , UpdateAvailabilityOptionsResponse
@@ -43,54 +43,51 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateAvailabilityOptions' request.
-updateAvailabilityOptions :: Bool -- ^ 'uaorMultiAZ'
-                          -> Text -- ^ 'uaorDomainName'
-                          -> UpdateAvailabilityOptions
-updateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
-    { _uaorMultiAZ = p1
-    , _uaorDomainName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAvailabilityOptions' request.
+mkUpdateAvailabilityOptionsRequest :: Text -- ^ 'uaorDomainName'
+                                   -> Bool -- ^ 'uaorMultiAZ'
+                                   -> UpdateAvailabilityOptions
+mkUpdateAvailabilityOptionsRequest p1 p2 = UpdateAvailabilityOptions
+    { _uaorDomainName = p1
+    , _uaorMultiAZ = p2
     }
-{-# INLINE updateAvailabilityOptions #-}
+{-# INLINE mkUpdateAvailabilityOptionsRequest #-}
 
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
-    { _uaorMultiAZ :: Bool
-      -- ^ You expand an existing search domain to a second Availability
-      -- Zone by setting the Multi-AZ option to true. Similarly, you can
-      -- turn off the Multi-AZ option to downgrade the domain to a single
-      -- Availability Zone by setting the Multi-AZ option to false.
-    , _uaorDomainName :: Text
+    { _uaorDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
       -- region. Domain names start with a letter or number and can
       -- contain the following characters: a-z (lowercase), 0-9, and -
       -- (hyphen).
+    , _uaorMultiAZ :: Bool
+      -- ^ You expand an existing search domain to a second Availability
+      -- Zone by setting the Multi-AZ option to true. Similarly, you can
+      -- turn off the Multi-AZ option to downgrade the domain to a single
+      -- Availability Zone by setting the Multi-AZ option to false.
     } deriving (Show, Generic)
-
--- | You expand an existing search domain to a second Availability Zone by
--- setting the Multi-AZ option to true. Similarly, you can turn off the
--- Multi-AZ option to downgrade the domain to a single Availability Zone by
--- setting the Multi-AZ option to false.
-uaorMultiAZ :: Lens' UpdateAvailabilityOptions (Bool)
-uaorMultiAZ f x =
-    f (_uaorMultiAZ x)
-        <&> \y -> x { _uaorMultiAZ = y }
-{-# INLINE uaorMultiAZ #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 uaorDomainName :: Lens' UpdateAvailabilityOptions (Text)
-uaorDomainName f x =
-    f (_uaorDomainName x)
-        <&> \y -> x { _uaorDomainName = y }
+uaorDomainName = lens _uaorDomainName (\s a -> s { _uaorDomainName = a })
 {-# INLINE uaorDomainName #-}
+
+-- | You expand an existing search domain to a second Availability Zone by
+-- setting the Multi-AZ option to true. Similarly, you can turn off the
+-- Multi-AZ option to downgrade the domain to a single Availability Zone by
+-- setting the Multi-AZ option to false.
+uaorMultiAZ :: Lens' UpdateAvailabilityOptions (Bool)
+uaorMultiAZ = lens _uaorMultiAZ (\s a -> s { _uaorMultiAZ = a })
+{-# INLINE uaorMultiAZ #-}
 
 instance ToQuery UpdateAvailabilityOptions where
     toQuery = genericQuery def
 
-data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
+newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaosAvailabilityOptions :: Maybe AvailabilityOptionsStatus
       -- ^ The newly-configured availability options. Indicates whether
       -- Multi-AZ is enabled for the domain.
@@ -99,9 +96,7 @@ data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
 uaosAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-uaosAvailabilityOptions f x =
-    f (_uaosAvailabilityOptions x)
-        <&> \y -> x { _uaosAvailabilityOptions = y }
+uaosAvailabilityOptions = lens _uaosAvailabilityOptions (\s a -> s { _uaosAvailabilityOptions = a })
 {-# INLINE uaosAvailabilityOptions #-}
 
 instance FromXML UpdateAvailabilityOptionsResponse where

@@ -28,7 +28,7 @@ module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
     -- * Request
       ListGroupsForUser
     -- ** Request constructor
-    , listGroupsForUser
+    , mkListGroupsForUserRequest
     -- ** Request lenses
     , lgfurUserName
     , lgfurMarker
@@ -37,8 +37,8 @@ module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
     -- * Response
     , ListGroupsForUserResponse
     -- ** Response lenses
-    , lgfusIsTruncated
     , lgfusGroups
+    , lgfusIsTruncated
     , lgfusMarker
     ) where
 
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListGroupsForUser' request.
-listGroupsForUser :: Text -- ^ 'lgfurUserName'
-                  -> ListGroupsForUser
-listGroupsForUser p1 = ListGroupsForUser
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroupsForUser' request.
+mkListGroupsForUserRequest :: Text -- ^ 'lgfurUserName'
+                           -> ListGroupsForUser
+mkListGroupsForUserRequest p1 = ListGroupsForUser
     { _lgfurUserName = p1
     , _lgfurMarker = Nothing
     , _lgfurMaxItems = Nothing
     }
-{-# INLINE listGroupsForUser #-}
+{-# INLINE mkListGroupsForUserRequest #-}
 
 data ListGroupsForUser = ListGroupsForUser
     { _lgfurUserName :: Text
@@ -74,18 +75,14 @@ data ListGroupsForUser = ListGroupsForUser
 
 -- | The name of the user to list groups for.
 lgfurUserName :: Lens' ListGroupsForUser (Text)
-lgfurUserName f x =
-    f (_lgfurUserName x)
-        <&> \y -> x { _lgfurUserName = y }
+lgfurUserName = lens _lgfurUserName (\s a -> s { _lgfurUserName = a })
 {-# INLINE lgfurUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 lgfurMarker :: Lens' ListGroupsForUser (Maybe Text)
-lgfurMarker f x =
-    f (_lgfurMarker x)
-        <&> \y -> x { _lgfurMarker = y }
+lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
 {-# INLINE lgfurMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -93,50 +90,42 @@ lgfurMarker f x =
 -- maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
 lgfurMaxItems :: Lens' ListGroupsForUser (Maybe Integer)
-lgfurMaxItems f x =
-    f (_lgfurMaxItems x)
-        <&> \y -> x { _lgfurMaxItems = y }
+lgfurMaxItems = lens _lgfurMaxItems (\s a -> s { _lgfurMaxItems = a })
 {-# INLINE lgfurMaxItems #-}
 
 instance ToQuery ListGroupsForUser where
     toQuery = genericQuery def
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfusIsTruncated :: Bool
+    { _lgfusGroups :: [Group]
+      -- ^ A list of groups.
+    , _lgfusIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more groups to list. If
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more
       -- groups in the list.
-    , _lgfusGroups :: [Group]
-      -- ^ A list of groups.
     , _lgfusMarker :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
     } deriving (Show, Generic)
 
+-- | A list of groups.
+lgfusGroups :: Lens' ListGroupsForUserResponse ([Group])
+lgfusGroups = lens _lgfusGroups (\s a -> s { _lgfusGroups = a })
+{-# INLINE lgfusGroups #-}
+
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more groups in the list.
 lgfusIsTruncated :: Lens' ListGroupsForUserResponse (Bool)
-lgfusIsTruncated f x =
-    f (_lgfusIsTruncated x)
-        <&> \y -> x { _lgfusIsTruncated = y }
+lgfusIsTruncated = lens _lgfusIsTruncated (\s a -> s { _lgfusIsTruncated = a })
 {-# INLINE lgfusIsTruncated #-}
-
--- | A list of groups.
-lgfusGroups :: Lens' ListGroupsForUserResponse ([Group])
-lgfusGroups f x =
-    f (_lgfusGroups x)
-        <&> \y -> x { _lgfusGroups = y }
-{-# INLINE lgfusGroups #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lgfusMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
-lgfusMarker f x =
-    f (_lgfusMarker x)
-        <&> \y -> x { _lgfusMarker = y }
+lgfusMarker = lens _lgfusMarker (\s a -> s { _lgfusMarker = a })
 {-# INLINE lgfusMarker #-}
 
 instance FromXML ListGroupsForUserResponse where

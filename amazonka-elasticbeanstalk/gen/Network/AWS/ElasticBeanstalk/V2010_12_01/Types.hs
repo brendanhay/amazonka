@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -58,31 +59,32 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , ValidationSeverity (..)
 
     -- * AutoScalingGroup
-    , AutoScalingGroup (..)
+    , AutoScalingGroup
     , asgName
 
     -- * EnvironmentResourcesDescription
-    , EnvironmentResourcesDescription (..)
+    , EnvironmentResourcesDescription
+    , mkEnvironmentResourcesDescription
     , erdLoadBalancer
 
     -- * Instance
-    , Instance (..)
+    , Instance
     , rId
 
     -- * LaunchConfiguration
-    , LaunchConfiguration (..)
+    , LaunchConfiguration
     , lcName
 
     -- * LoadBalancer
-    , LoadBalancer (..)
+    , LoadBalancer
     , lbName
 
     -- * Trigger
-    , Trigger (..)
+    , Trigger
     , trName
 
     -- * ApplicationDescription
-    , ApplicationDescription (..)
+    , ApplicationDescription
     , adApplicationName
     , adDescription
     , adDateCreated
@@ -91,7 +93,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , adConfigurationTemplates
 
     -- * ApplicationVersionDescription
-    , ApplicationVersionDescription (..)
+    , ApplicationVersionDescription
     , avdApplicationName
     , avdDescription
     , avdVersionLabel
@@ -100,7 +102,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , avdDateUpdated
 
     -- * ConfigurationOptionDescription
-    , ConfigurationOptionDescription (..)
+    , ConfigurationOptionDescription
     , coeNamespace
     , coeName
     , coeDefaultValue
@@ -114,13 +116,14 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , coeRegex
 
     -- * ConfigurationOptionSetting
-    , ConfigurationOptionSetting (..)
+    , ConfigurationOptionSetting
+    , mkConfigurationOptionSetting
     , cosNamespace
     , cosOptionName
     , cosValue
 
     -- * ConfigurationSettingsDescription
-    , ConfigurationSettingsDescription (..)
+    , ConfigurationSettingsDescription
     , csfSolutionStackName
     , csfApplicationName
     , csfTemplateName
@@ -132,7 +135,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , csfOptionSettings
 
     -- * EnvironmentDescription
-    , EnvironmentDescription (..)
+    , EnvironmentDescription
     , eeEnvironmentName
     , eeEnvironmentId
     , eeApplicationName
@@ -150,14 +153,14 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , eeTier
 
     -- * EnvironmentInfoDescription
-    , EnvironmentInfoDescription (..)
+    , EnvironmentInfoDescription
     , eidInfoType
     , eidEc2InstanceId
     , eidSampleTimestamp
     , eidMessage
 
     -- * EnvironmentResourceDescription
-    , EnvironmentResourceDescription (..)
+    , EnvironmentResourceDescription
     , ereEnvironmentName
     , ereAutoScalingGroups
     , ereInstances
@@ -167,13 +170,14 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , ereQueues
 
     -- * EnvironmentTier
-    , EnvironmentTier (..)
+    , EnvironmentTier
+    , mkEnvironmentTier
     , etName
     , etType
     , etVersion
 
     -- * EventDescription
-    , EventDescription (..)
+    , EventDescription
     , efEventDate
     , efMessage
     , efApplicationName
@@ -184,58 +188,64 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     , efSeverity
 
     -- * Listener
-    , Listener (..)
+    , Listener
+    , mkListener
     , lProtocol
     , lPort
 
     -- * LoadBalancerDescription
-    , LoadBalancerDescription (..)
+    , LoadBalancerDescription
+    , mkLoadBalancerDescription
     , lbdLoadBalancerName
     , lbdDomain
     , lbdListeners
 
     -- * OptionRestrictionRegex
-    , OptionRestrictionRegex (..)
+    , OptionRestrictionRegex
+    , mkOptionRestrictionRegex
     , orrPattern
     , orrLabel
 
     -- * OptionSpecification
-    , OptionSpecification (..)
+    , OptionSpecification
+    , mkOptionSpecification
     , osNamespace
     , osOptionName
 
     -- * Queue
-    , Queue (..)
+    , Queue
     , qeName
     , qeURL
 
     -- * S3Location
-    , S3Location (..)
+    , S3Location
+    , mkS3Location
     , slS3Bucket
     , slS3Key
 
     -- * SolutionStackDescription
-    , SolutionStackDescription (..)
+    , SolutionStackDescription
     , ssdSolutionStackName
     , ssdPermittedFileTypes
 
     -- * SourceConfiguration
-    , SourceConfiguration (..)
+    , SourceConfiguration
+    , mkSourceConfiguration
     , sdApplicationName
     , sdTemplateName
 
     -- * Tag
-    , Tag (..)
+    , Tag
+    , mkTag
     , wKey
     , wValue
 
     -- * ValidationMessage
-    , ValidationMessage (..)
+    , ValidationMessage
     , vveMessage
     , vveSeverity
     , vveNamespace
     , vveOptionName
-
     ) where
 
 import Network.AWS.Prelude
@@ -541,9 +551,7 @@ newtype AutoScalingGroup = AutoScalingGroup
 
 -- | The name of the AutoScalingGroup .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
-asgName f x =
-    f (_asgName x)
-        <&> \y -> x { _asgName = y }
+asgName = lens _asgName (\s a -> s { _asgName = a })
 {-# INLINE asgName #-}
 
 instance FromXML AutoScalingGroup where
@@ -558,10 +566,16 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
 
 -- | Describes the LoadBalancer.
 erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
-erdLoadBalancer f x =
-    f (_erdLoadBalancer x)
-        <&> \y -> x { _erdLoadBalancer = y }
+erdLoadBalancer = lens _erdLoadBalancer (\s a -> s { _erdLoadBalancer = a })
 {-# INLINE erdLoadBalancer #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'EnvironmentResourcesDescription' data type to populate a request.
+mkEnvironmentResourcesDescription :: EnvironmentResourcesDescription
+mkEnvironmentResourcesDescription = EnvironmentResourcesDescription
+    { _erdLoadBalancer = Nothing
+    }
+{-# INLINE mkEnvironmentResourcesDescription #-}
 
 instance FromXML EnvironmentResourcesDescription where
     fromXMLOptions = xmlOptions
@@ -578,9 +592,7 @@ newtype Instance = Instance
 
 -- | The ID of the Amazon EC2 instance.
 rId :: Lens' Instance (Maybe Text)
-rId f x =
-    f (_rId x)
-        <&> \y -> x { _rId = y }
+rId = lens _rId (\s a -> s { _rId = a })
 {-# INLINE rId #-}
 
 instance FromXML Instance where
@@ -595,9 +607,7 @@ newtype LaunchConfiguration = LaunchConfiguration
 
 -- | The name of the launch configuration.
 lcName :: Lens' LaunchConfiguration (Maybe Text)
-lcName f x =
-    f (_lcName x)
-        <&> \y -> x { _lcName = y }
+lcName = lens _lcName (\s a -> s { _lcName = a })
 {-# INLINE lcName #-}
 
 instance FromXML LaunchConfiguration where
@@ -612,9 +622,7 @@ newtype LoadBalancer = LoadBalancer
 
 -- | The name of the LoadBalancer.
 lbName :: Lens' LoadBalancer (Maybe Text)
-lbName f x =
-    f (_lbName x)
-        <&> \y -> x { _lbName = y }
+lbName = lens _lbName (\s a -> s { _lbName = a })
 {-# INLINE lbName #-}
 
 instance FromXML LoadBalancer where
@@ -629,9 +637,7 @@ newtype Trigger = Trigger
 
 -- | The name of the trigger.
 trName :: Lens' Trigger (Maybe Text)
-trName f x =
-    f (_trName x)
-        <&> \y -> x { _trName = y }
+trName = lens _trName (\s a -> s { _trName = a })
 {-# INLINE trName #-}
 
 instance FromXML Trigger where
@@ -657,44 +663,32 @@ data ApplicationDescription = ApplicationDescription
 
 -- | The name of the application.
 adApplicationName :: Lens' ApplicationDescription (Maybe Text)
-adApplicationName f x =
-    f (_adApplicationName x)
-        <&> \y -> x { _adApplicationName = y }
+adApplicationName = lens _adApplicationName (\s a -> s { _adApplicationName = a })
 {-# INLINE adApplicationName #-}
 
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
-adDescription f x =
-    f (_adDescription x)
-        <&> \y -> x { _adDescription = y }
+adDescription = lens _adDescription (\s a -> s { _adDescription = a })
 {-# INLINE adDescription #-}
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe ISO8601)
-adDateCreated f x =
-    f (_adDateCreated x)
-        <&> \y -> x { _adDateCreated = y }
+adDateCreated = lens _adDateCreated (\s a -> s { _adDateCreated = a })
 {-# INLINE adDateCreated #-}
 
 -- | The date when the application was last modified.
 adDateUpdated :: Lens' ApplicationDescription (Maybe ISO8601)
-adDateUpdated f x =
-    f (_adDateUpdated x)
-        <&> \y -> x { _adDateUpdated = y }
+adDateUpdated = lens _adDateUpdated (\s a -> s { _adDateUpdated = a })
 {-# INLINE adDateUpdated #-}
 
 -- | The names of the versions for this application.
 adVersions :: Lens' ApplicationDescription ([Text])
-adVersions f x =
-    f (_adVersions x)
-        <&> \y -> x { _adVersions = y }
+adVersions = lens _adVersions (\s a -> s { _adVersions = a })
 {-# INLINE adVersions #-}
 
 -- | The names of the configuration templates associated with this application.
 adConfigurationTemplates :: Lens' ApplicationDescription ([Text])
-adConfigurationTemplates f x =
-    f (_adConfigurationTemplates x)
-        <&> \y -> x { _adConfigurationTemplates = y }
+adConfigurationTemplates = lens _adConfigurationTemplates (\s a -> s { _adConfigurationTemplates = a })
 {-# INLINE adConfigurationTemplates #-}
 
 instance FromXML ApplicationDescription where
@@ -720,44 +714,32 @@ data ApplicationVersionDescription = ApplicationVersionDescription
 
 -- | The name of the application associated with this release.
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
-avdApplicationName f x =
-    f (_avdApplicationName x)
-        <&> \y -> x { _avdApplicationName = y }
+avdApplicationName = lens _avdApplicationName (\s a -> s { _avdApplicationName = a })
 {-# INLINE avdApplicationName #-}
 
 -- | The description of this application version.
 avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
-avdDescription f x =
-    f (_avdDescription x)
-        <&> \y -> x { _avdDescription = y }
+avdDescription = lens _avdDescription (\s a -> s { _avdDescription = a })
 {-# INLINE avdDescription #-}
 
 -- | A label uniquely identifying the version for the associated application.
 avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
-avdVersionLabel f x =
-    f (_avdVersionLabel x)
-        <&> \y -> x { _avdVersionLabel = y }
+avdVersionLabel = lens _avdVersionLabel (\s a -> s { _avdVersionLabel = a })
 {-# INLINE avdVersionLabel #-}
 
 -- | The location where the source bundle is located for this version.
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
-avdSourceBundle f x =
-    f (_avdSourceBundle x)
-        <&> \y -> x { _avdSourceBundle = y }
+avdSourceBundle = lens _avdSourceBundle (\s a -> s { _avdSourceBundle = a })
 {-# INLINE avdSourceBundle #-}
 
 -- | The creation date of the application version.
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe ISO8601)
-avdDateCreated f x =
-    f (_avdDateCreated x)
-        <&> \y -> x { _avdDateCreated = y }
+avdDateCreated = lens _avdDateCreated (\s a -> s { _avdDateCreated = a })
 {-# INLINE avdDateCreated #-}
 
 -- | The last modified date of the application version.
 avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe ISO8601)
-avdDateUpdated f x =
-    f (_avdDateUpdated x)
-        <&> \y -> x { _avdDateUpdated = y }
+avdDateUpdated = lens _avdDateUpdated (\s a -> s { _avdDateUpdated = a })
 {-# INLINE avdDateUpdated #-}
 
 instance FromXML ApplicationVersionDescription where
@@ -834,23 +816,17 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
 
 -- | A unique namespace identifying the option's associated AWS resource.
 coeNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
-coeNamespace f x =
-    f (_coeNamespace x)
-        <&> \y -> x { _coeNamespace = y }
+coeNamespace = lens _coeNamespace (\s a -> s { _coeNamespace = a })
 {-# INLINE coeNamespace #-}
 
 -- | The name of the configuration option.
 coeName :: Lens' ConfigurationOptionDescription (Maybe Text)
-coeName f x =
-    f (_coeName x)
-        <&> \y -> x { _coeName = y }
+coeName = lens _coeName (\s a -> s { _coeName = a })
 {-# INLINE coeName #-}
 
 -- | The default value for this configuration option.
 coeDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
-coeDefaultValue f x =
-    f (_coeDefaultValue x)
-        <&> \y -> x { _coeDefaultValue = y }
+coeDefaultValue = lens _coeDefaultValue (\s a -> s { _coeDefaultValue = a })
 {-# INLINE coeDefaultValue #-}
 
 -- | An indication of which action is required if the value for this
@@ -868,9 +844,7 @@ coeDefaultValue f x =
 -- the entire time. However, a short application outage occurs when the
 -- application servers on the running Amazon EC2 instances are restarted.
 coeChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
-coeChangeSeverity f x =
-    f (_coeChangeSeverity x)
-        <&> \y -> x { _coeChangeSeverity = y }
+coeChangeSeverity = lens _coeChangeSeverity (\s a -> s { _coeChangeSeverity = a })
 {-# INLINE coeChangeSeverity #-}
 
 -- | An indication of whether the user defined this configuration option: true :
@@ -883,9 +857,7 @@ coeChangeSeverity f x =
 -- Constraint: You can remove only UserDefined options from a configuration.
 -- Valid Values: true | false.
 coeUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
-coeUserDefined f x =
-    f (_coeUserDefined x)
-        <&> \y -> x { _coeUserDefined = y }
+coeUserDefined = lens _coeUserDefined (\s a -> s { _coeUserDefined = a })
 {-# INLINE coeUserDefined #-}
 
 -- | An indication of which type of values this option has and whether it is
@@ -900,49 +872,37 @@ coeUserDefined f x =
 -- selections from the possible values. Boolean : Values for this option are
 -- either true or false .
 coeValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
-coeValueType f x =
-    f (_coeValueType x)
-        <&> \y -> x { _coeValueType = y }
+coeValueType = lens _coeValueType (\s a -> s { _coeValueType = a })
 {-# INLINE coeValueType #-}
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
 coeValueOptions :: Lens' ConfigurationOptionDescription ([Text])
-coeValueOptions f x =
-    f (_coeValueOptions x)
-        <&> \y -> x { _coeValueOptions = y }
+coeValueOptions = lens _coeValueOptions (\s a -> s { _coeValueOptions = a })
 {-# INLINE coeValueOptions #-}
 
 -- | If specified, the configuration option must be a numeric value greater than
 -- this value.
 coeMinValue :: Lens' ConfigurationOptionDescription (Maybe Integer)
-coeMinValue f x =
-    f (_coeMinValue x)
-        <&> \y -> x { _coeMinValue = y }
+coeMinValue = lens _coeMinValue (\s a -> s { _coeMinValue = a })
 {-# INLINE coeMinValue #-}
 
 -- | If specified, the configuration option must be a numeric value less than
 -- this value.
 coeMaxValue :: Lens' ConfigurationOptionDescription (Maybe Integer)
-coeMaxValue f x =
-    f (_coeMaxValue x)
-        <&> \y -> x { _coeMaxValue = y }
+coeMaxValue = lens _coeMaxValue (\s a -> s { _coeMaxValue = a })
 {-# INLINE coeMaxValue #-}
 
 -- | If specified, the configuration option must be a string value no longer
 -- than this value.
 coeMaxLength :: Lens' ConfigurationOptionDescription (Maybe Integer)
-coeMaxLength f x =
-    f (_coeMaxLength x)
-        <&> \y -> x { _coeMaxLength = y }
+coeMaxLength = lens _coeMaxLength (\s a -> s { _coeMaxLength = a })
 {-# INLINE coeMaxLength #-}
 
 -- | If specified, the configuration option must be a string value that
 -- satisfies this regular expression.
 coeRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
-coeRegex f x =
-    f (_coeRegex x)
-        <&> \y -> x { _coeRegex = y }
+coeRegex = lens _coeRegex (\s a -> s { _coeRegex = a })
 {-# INLINE coeRegex #-}
 
 instance FromXML ConfigurationOptionDescription where
@@ -964,24 +924,28 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
 
 -- | A unique namespace identifying the option's associated AWS resource.
 cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosNamespace f x =
-    f (_cosNamespace x)
-        <&> \y -> x { _cosNamespace = y }
+cosNamespace = lens _cosNamespace (\s a -> s { _cosNamespace = a })
 {-# INLINE cosNamespace #-}
 
 -- | The name of the configuration option.
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosOptionName f x =
-    f (_cosOptionName x)
-        <&> \y -> x { _cosOptionName = y }
+cosOptionName = lens _cosOptionName (\s a -> s { _cosOptionName = a })
 {-# INLINE cosOptionName #-}
 
 -- | The current value for the configuration option.
 cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosValue f x =
-    f (_cosValue x)
-        <&> \y -> x { _cosValue = y }
+cosValue = lens _cosValue (\s a -> s { _cosValue = a })
 {-# INLINE cosValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ConfigurationOptionSetting' data type to populate a request.
+mkConfigurationOptionSetting :: ConfigurationOptionSetting
+mkConfigurationOptionSetting = ConfigurationOptionSetting
+    { _cosNamespace = Nothing
+    , _cosOptionName = Nothing
+    , _cosValue = Nothing
+    }
+{-# INLINE mkConfigurationOptionSetting #-}
 
 instance FromXML ConfigurationOptionSetting where
     fromXMLOptions = xmlOptions
@@ -1033,38 +997,28 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
 
 -- | The name of the solution stack this configuration set uses.
 csfSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csfSolutionStackName f x =
-    f (_csfSolutionStackName x)
-        <&> \y -> x { _csfSolutionStackName = y }
+csfSolutionStackName = lens _csfSolutionStackName (\s a -> s { _csfSolutionStackName = a })
 {-# INLINE csfSolutionStackName #-}
 
 -- | The name of the application associated with this configuration set.
 csfApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csfApplicationName f x =
-    f (_csfApplicationName x)
-        <&> \y -> x { _csfApplicationName = y }
+csfApplicationName = lens _csfApplicationName (\s a -> s { _csfApplicationName = a })
 {-# INLINE csfApplicationName #-}
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
 csfTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csfTemplateName f x =
-    f (_csfTemplateName x)
-        <&> \y -> x { _csfTemplateName = y }
+csfTemplateName = lens _csfTemplateName (\s a -> s { _csfTemplateName = a })
 {-# INLINE csfTemplateName #-}
 
 -- | Describes this configuration set.
 csfDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csfDescription f x =
-    f (_csfDescription x)
-        <&> \y -> x { _csfDescription = y }
+csfDescription = lens _csfDescription (\s a -> s { _csfDescription = a })
 {-# INLINE csfDescription #-}
 
 -- | If not null, the name of the environment for this configuration set.
 csfEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csfEnvironmentName f x =
-    f (_csfEnvironmentName x)
-        <&> \y -> x { _csfEnvironmentName = y }
+csfEnvironmentName = lens _csfEnvironmentName (\s a -> s { _csfEnvironmentName = a })
 {-# INLINE csfEnvironmentName #-}
 
 -- | If this configuration set is associated with an environment, the
@@ -1081,31 +1035,23 @@ csfEnvironmentName f x =
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
 csfDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
-csfDeploymentStatus f x =
-    f (_csfDeploymentStatus x)
-        <&> \y -> x { _csfDeploymentStatus = y }
+csfDeploymentStatus = lens _csfDeploymentStatus (\s a -> s { _csfDeploymentStatus = a })
 {-# INLINE csfDeploymentStatus #-}
 
 -- | The date (in UTC time) when this configuration set was created.
 csfDateCreated :: Lens' ConfigurationSettingsDescription (Maybe ISO8601)
-csfDateCreated f x =
-    f (_csfDateCreated x)
-        <&> \y -> x { _csfDateCreated = y }
+csfDateCreated = lens _csfDateCreated (\s a -> s { _csfDateCreated = a })
 {-# INLINE csfDateCreated #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
 csfDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe ISO8601)
-csfDateUpdated f x =
-    f (_csfDateUpdated x)
-        <&> \y -> x { _csfDateUpdated = y }
+csfDateUpdated = lens _csfDateUpdated (\s a -> s { _csfDateUpdated = a })
 {-# INLINE csfDateUpdated #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
 csfOptionSettings :: Lens' ConfigurationSettingsDescription ([ConfigurationOptionSetting])
-csfOptionSettings f x =
-    f (_csfOptionSettings x)
-        <&> \y -> x { _csfOptionSettings = y }
+csfOptionSettings = lens _csfOptionSettings (\s a -> s { _csfOptionSettings = a })
 {-# INLINE csfOptionSettings #-}
 
 instance FromXML ConfigurationSettingsDescription where
@@ -1170,81 +1116,59 @@ data EnvironmentDescription = EnvironmentDescription
 
 -- | The name of this environment.
 eeEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
-eeEnvironmentName f x =
-    f (_eeEnvironmentName x)
-        <&> \y -> x { _eeEnvironmentName = y }
+eeEnvironmentName = lens _eeEnvironmentName (\s a -> s { _eeEnvironmentName = a })
 {-# INLINE eeEnvironmentName #-}
 
 -- | The ID of this environment.
 eeEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
-eeEnvironmentId f x =
-    f (_eeEnvironmentId x)
-        <&> \y -> x { _eeEnvironmentId = y }
+eeEnvironmentId = lens _eeEnvironmentId (\s a -> s { _eeEnvironmentId = a })
 {-# INLINE eeEnvironmentId #-}
 
 -- | The name of the application associated with this environment.
 eeApplicationName :: Lens' EnvironmentDescription (Maybe Text)
-eeApplicationName f x =
-    f (_eeApplicationName x)
-        <&> \y -> x { _eeApplicationName = y }
+eeApplicationName = lens _eeApplicationName (\s a -> s { _eeApplicationName = a })
 {-# INLINE eeApplicationName #-}
 
 -- | The application version deployed in this environment.
 eeVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
-eeVersionLabel f x =
-    f (_eeVersionLabel x)
-        <&> \y -> x { _eeVersionLabel = y }
+eeVersionLabel = lens _eeVersionLabel (\s a -> s { _eeVersionLabel = a })
 {-# INLINE eeVersionLabel #-}
 
 -- | The name of the SolutionStack deployed with this environment.
 eeSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
-eeSolutionStackName f x =
-    f (_eeSolutionStackName x)
-        <&> \y -> x { _eeSolutionStackName = y }
+eeSolutionStackName = lens _eeSolutionStackName (\s a -> s { _eeSolutionStackName = a })
 {-# INLINE eeSolutionStackName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
 eeTemplateName :: Lens' EnvironmentDescription (Maybe Text)
-eeTemplateName f x =
-    f (_eeTemplateName x)
-        <&> \y -> x { _eeTemplateName = y }
+eeTemplateName = lens _eeTemplateName (\s a -> s { _eeTemplateName = a })
 {-# INLINE eeTemplateName #-}
 
 -- | Describes this environment.
 eeDescription :: Lens' EnvironmentDescription (Maybe Text)
-eeDescription f x =
-    f (_eeDescription x)
-        <&> \y -> x { _eeDescription = y }
+eeDescription = lens _eeDescription (\s a -> s { _eeDescription = a })
 {-# INLINE eeDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
 eeEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
-eeEndpointURL f x =
-    f (_eeEndpointURL x)
-        <&> \y -> x { _eeEndpointURL = y }
+eeEndpointURL = lens _eeEndpointURL (\s a -> s { _eeEndpointURL = a })
 {-# INLINE eeEndpointURL #-}
 
 -- | The URL to the CNAME for this environment.
 eeCNAME :: Lens' EnvironmentDescription (Maybe Text)
-eeCNAME f x =
-    f (_eeCNAME x)
-        <&> \y -> x { _eeCNAME = y }
+eeCNAME = lens _eeCNAME (\s a -> s { _eeCNAME = a })
 {-# INLINE eeCNAME #-}
 
 -- | The creation date for this environment.
 eeDateCreated :: Lens' EnvironmentDescription (Maybe ISO8601)
-eeDateCreated f x =
-    f (_eeDateCreated x)
-        <&> \y -> x { _eeDateCreated = y }
+eeDateCreated = lens _eeDateCreated (\s a -> s { _eeDateCreated = a })
 {-# INLINE eeDateCreated #-}
 
 -- | The last modified date for this environment.
 eeDateUpdated :: Lens' EnvironmentDescription (Maybe ISO8601)
-eeDateUpdated f x =
-    f (_eeDateUpdated x)
-        <&> \y -> x { _eeDateUpdated = y }
+eeDateUpdated = lens _eeDateUpdated (\s a -> s { _eeDateUpdated = a })
 {-# INLINE eeDateUpdated #-}
 
 -- | The current operational status of the environment: Launching: Environment
@@ -1254,9 +1178,7 @@ eeDateUpdated f x =
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
 eeStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
-eeStatus f x =
-    f (_eeStatus x)
-        <&> \y -> x { _eeStatus = y }
+eeStatus = lens _eeStatus (\s a -> s { _eeStatus = a })
 {-# INLINE eeStatus #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
@@ -1273,23 +1195,17 @@ eeStatus f x =
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
 eeHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
-eeHealth f x =
-    f (_eeHealth x)
-        <&> \y -> x { _eeHealth = y }
+eeHealth = lens _eeHealth (\s a -> s { _eeHealth = a })
 {-# INLINE eeHealth #-}
 
 -- | The description of the AWS resources used by this environment.
 eeResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
-eeResources f x =
-    f (_eeResources x)
-        <&> \y -> x { _eeResources = y }
+eeResources = lens _eeResources (\s a -> s { _eeResources = a })
 {-# INLINE eeResources #-}
 
 -- | Describes the current tier of this environment.
 eeTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
-eeTier f x =
-    f (_eeTier x)
-        <&> \y -> x { _eeTier = y }
+eeTier = lens _eeTier (\s a -> s { _eeTier = a })
 {-# INLINE eeTier #-}
 
 instance FromXML EnvironmentDescription where
@@ -1310,30 +1226,22 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
 
 -- | The type of information retrieved.
 eidInfoType :: Lens' EnvironmentInfoDescription (Maybe EnvironmentInfoType)
-eidInfoType f x =
-    f (_eidInfoType x)
-        <&> \y -> x { _eidInfoType = y }
+eidInfoType = lens _eidInfoType (\s a -> s { _eidInfoType = a })
 {-# INLINE eidInfoType #-}
 
 -- | The Amazon EC2 Instance ID for this information.
 eidEc2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
-eidEc2InstanceId f x =
-    f (_eidEc2InstanceId x)
-        <&> \y -> x { _eidEc2InstanceId = y }
+eidEc2InstanceId = lens _eidEc2InstanceId (\s a -> s { _eidEc2InstanceId = a })
 {-# INLINE eidEc2InstanceId #-}
 
 -- | The time stamp when this information was retrieved.
 eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe ISO8601)
-eidSampleTimestamp f x =
-    f (_eidSampleTimestamp x)
-        <&> \y -> x { _eidSampleTimestamp = y }
+eidSampleTimestamp = lens _eidSampleTimestamp (\s a -> s { _eidSampleTimestamp = a })
 {-# INLINE eidSampleTimestamp #-}
 
 -- | The retrieved information.
 eidMessage :: Lens' EnvironmentInfoDescription (Maybe Text)
-eidMessage f x =
-    f (_eidMessage x)
-        <&> \y -> x { _eidMessage = y }
+eidMessage = lens _eidMessage (\s a -> s { _eidMessage = a })
 {-# INLINE eidMessage #-}
 
 instance FromXML EnvironmentInfoDescription where
@@ -1361,51 +1269,37 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
 
 -- | The name of the environment.
 ereEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
-ereEnvironmentName f x =
-    f (_ereEnvironmentName x)
-        <&> \y -> x { _ereEnvironmentName = y }
+ereEnvironmentName = lens _ereEnvironmentName (\s a -> s { _ereEnvironmentName = a })
 {-# INLINE ereEnvironmentName #-}
 
 -- | The AutoScalingGroups used by this environment.
 ereAutoScalingGroups :: Lens' EnvironmentResourceDescription ([AutoScalingGroup])
-ereAutoScalingGroups f x =
-    f (_ereAutoScalingGroups x)
-        <&> \y -> x { _ereAutoScalingGroups = y }
+ereAutoScalingGroups = lens _ereAutoScalingGroups (\s a -> s { _ereAutoScalingGroups = a })
 {-# INLINE ereAutoScalingGroups #-}
 
 -- | The Amazon EC2 instances used by this environment.
 ereInstances :: Lens' EnvironmentResourceDescription ([Instance])
-ereInstances f x =
-    f (_ereInstances x)
-        <&> \y -> x { _ereInstances = y }
+ereInstances = lens _ereInstances (\s a -> s { _ereInstances = a })
 {-# INLINE ereInstances #-}
 
 -- | The Auto Scaling launch configurations in use by this environment.
 ereLaunchConfigurations :: Lens' EnvironmentResourceDescription ([LaunchConfiguration])
-ereLaunchConfigurations f x =
-    f (_ereLaunchConfigurations x)
-        <&> \y -> x { _ereLaunchConfigurations = y }
+ereLaunchConfigurations = lens _ereLaunchConfigurations (\s a -> s { _ereLaunchConfigurations = a })
 {-# INLINE ereLaunchConfigurations #-}
 
 -- | The LoadBalancers in use by this environment.
 ereLoadBalancers :: Lens' EnvironmentResourceDescription ([LoadBalancer])
-ereLoadBalancers f x =
-    f (_ereLoadBalancers x)
-        <&> \y -> x { _ereLoadBalancers = y }
+ereLoadBalancers = lens _ereLoadBalancers (\s a -> s { _ereLoadBalancers = a })
 {-# INLINE ereLoadBalancers #-}
 
 -- | The AutoScaling triggers in use by this environment.
 ereTriggers :: Lens' EnvironmentResourceDescription ([Trigger])
-ereTriggers f x =
-    f (_ereTriggers x)
-        <&> \y -> x { _ereTriggers = y }
+ereTriggers = lens _ereTriggers (\s a -> s { _ereTriggers = a })
 {-# INLINE ereTriggers #-}
 
 -- | The queues used by this environment.
 ereQueues :: Lens' EnvironmentResourceDescription ([Queue])
-ereQueues f x =
-    f (_ereQueues x)
-        <&> \y -> x { _ereQueues = y }
+ereQueues = lens _ereQueues (\s a -> s { _ereQueues = a })
 {-# INLINE ereQueues #-}
 
 instance FromXML EnvironmentResourceDescription where
@@ -1424,24 +1318,28 @@ data EnvironmentTier = EnvironmentTier
 
 -- | The name of this environment tier.
 etName :: Lens' EnvironmentTier (Maybe Text)
-etName f x =
-    f (_etName x)
-        <&> \y -> x { _etName = y }
+etName = lens _etName (\s a -> s { _etName = a })
 {-# INLINE etName #-}
 
 -- | The type of this environment tier.
 etType :: Lens' EnvironmentTier (Maybe Text)
-etType f x =
-    f (_etType x)
-        <&> \y -> x { _etType = y }
+etType = lens _etType (\s a -> s { _etType = a })
 {-# INLINE etType #-}
 
 -- | The version of this environment tier.
 etVersion :: Lens' EnvironmentTier (Maybe Text)
-etVersion f x =
-    f (_etVersion x)
-        <&> \y -> x { _etVersion = y }
+etVersion = lens _etVersion (\s a -> s { _etVersion = a })
 {-# INLINE etVersion #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'EnvironmentTier' data type to populate a request.
+mkEnvironmentTier :: EnvironmentTier
+mkEnvironmentTier = EnvironmentTier
+    { _etName = Nothing
+    , _etType = Nothing
+    , _etVersion = Nothing
+    }
+{-# INLINE mkEnvironmentTier #-}
 
 instance FromXML EnvironmentTier where
     fromXMLOptions = xmlOptions
@@ -1473,58 +1371,42 @@ data EventDescription = EventDescription
 
 -- | The date when the event occurred.
 efEventDate :: Lens' EventDescription (Maybe ISO8601)
-efEventDate f x =
-    f (_efEventDate x)
-        <&> \y -> x { _efEventDate = y }
+efEventDate = lens _efEventDate (\s a -> s { _efEventDate = a })
 {-# INLINE efEventDate #-}
 
 -- | The event message.
 efMessage :: Lens' EventDescription (Maybe Text)
-efMessage f x =
-    f (_efMessage x)
-        <&> \y -> x { _efMessage = y }
+efMessage = lens _efMessage (\s a -> s { _efMessage = a })
 {-# INLINE efMessage #-}
 
 -- | The application associated with the event.
 efApplicationName :: Lens' EventDescription (Maybe Text)
-efApplicationName f x =
-    f (_efApplicationName x)
-        <&> \y -> x { _efApplicationName = y }
+efApplicationName = lens _efApplicationName (\s a -> s { _efApplicationName = a })
 {-# INLINE efApplicationName #-}
 
 -- | The release label for the application version associated with this event.
 efVersionLabel :: Lens' EventDescription (Maybe Text)
-efVersionLabel f x =
-    f (_efVersionLabel x)
-        <&> \y -> x { _efVersionLabel = y }
+efVersionLabel = lens _efVersionLabel (\s a -> s { _efVersionLabel = a })
 {-# INLINE efVersionLabel #-}
 
 -- | The name of the configuration associated with this event.
 efTemplateName :: Lens' EventDescription (Maybe Text)
-efTemplateName f x =
-    f (_efTemplateName x)
-        <&> \y -> x { _efTemplateName = y }
+efTemplateName = lens _efTemplateName (\s a -> s { _efTemplateName = a })
 {-# INLINE efTemplateName #-}
 
 -- | The name of the environment associated with this event.
 efEnvironmentName :: Lens' EventDescription (Maybe Text)
-efEnvironmentName f x =
-    f (_efEnvironmentName x)
-        <&> \y -> x { _efEnvironmentName = y }
+efEnvironmentName = lens _efEnvironmentName (\s a -> s { _efEnvironmentName = a })
 {-# INLINE efEnvironmentName #-}
 
 -- | The web service request ID for the activity of this event.
 efRequestId :: Lens' EventDescription (Maybe Text)
-efRequestId f x =
-    f (_efRequestId x)
-        <&> \y -> x { _efRequestId = y }
+efRequestId = lens _efRequestId (\s a -> s { _efRequestId = a })
 {-# INLINE efRequestId #-}
 
 -- | The severity level of this event.
 efSeverity :: Lens' EventDescription (Maybe EventSeverity)
-efSeverity f x =
-    f (_efSeverity x)
-        <&> \y -> x { _efSeverity = y }
+efSeverity = lens _efSeverity (\s a -> s { _efSeverity = a })
 {-# INLINE efSeverity #-}
 
 instance FromXML EventDescription where
@@ -1541,17 +1423,22 @@ data Listener = Listener
 
 -- | The protocol that is used by the Listener.
 lProtocol :: Lens' Listener (Maybe Text)
-lProtocol f x =
-    f (_lProtocol x)
-        <&> \y -> x { _lProtocol = y }
+lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
 {-# INLINE lProtocol #-}
 
 -- | The port that is used by the Listener.
 lPort :: Lens' Listener (Maybe Integer)
-lPort f x =
-    f (_lPort x)
-        <&> \y -> x { _lPort = y }
+lPort = lens _lPort (\s a -> s { _lPort = a })
 {-# INLINE lPort #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Listener' data type to populate a request.
+mkListener :: Listener
+mkListener = Listener
+    { _lProtocol = Nothing
+    , _lPort = Nothing
+    }
+{-# INLINE mkListener #-}
 
 instance FromXML Listener where
     fromXMLOptions = xmlOptions
@@ -1572,24 +1459,28 @@ data LoadBalancerDescription = LoadBalancerDescription
 
 -- | The name of the LoadBalancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
-lbdLoadBalancerName f x =
-    f (_lbdLoadBalancerName x)
-        <&> \y -> x { _lbdLoadBalancerName = y }
+lbdLoadBalancerName = lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
 {-# INLINE lbdLoadBalancerName #-}
 
 -- | The domain name of the LoadBalancer.
 lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
-lbdDomain f x =
-    f (_lbdDomain x)
-        <&> \y -> x { _lbdDomain = y }
+lbdDomain = lens _lbdDomain (\s a -> s { _lbdDomain = a })
 {-# INLINE lbdDomain #-}
 
 -- | A list of Listeners used by the LoadBalancer.
 lbdListeners :: Lens' LoadBalancerDescription ([Listener])
-lbdListeners f x =
-    f (_lbdListeners x)
-        <&> \y -> x { _lbdListeners = y }
+lbdListeners = lens _lbdListeners (\s a -> s { _lbdListeners = a })
 {-# INLINE lbdListeners #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LoadBalancerDescription' data type to populate a request.
+mkLoadBalancerDescription :: LoadBalancerDescription
+mkLoadBalancerDescription = LoadBalancerDescription
+    { _lbdLoadBalancerName = Nothing
+    , _lbdDomain = Nothing
+    , _lbdListeners = mempty
+    }
+{-# INLINE mkLoadBalancerDescription #-}
 
 instance FromXML LoadBalancerDescription where
     fromXMLOptions = xmlOptions
@@ -1611,17 +1502,22 @@ data OptionRestrictionRegex = OptionRestrictionRegex
 -- | The regular expression pattern that a string configuration option value
 -- with this restriction must match.
 orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
-orrPattern f x =
-    f (_orrPattern x)
-        <&> \y -> x { _orrPattern = y }
+orrPattern = lens _orrPattern (\s a -> s { _orrPattern = a })
 {-# INLINE orrPattern #-}
 
 -- | A unique name representing this regular expression.
 orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
-orrLabel f x =
-    f (_orrLabel x)
-        <&> \y -> x { _orrLabel = y }
+orrLabel = lens _orrLabel (\s a -> s { _orrLabel = a })
 {-# INLINE orrLabel #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'OptionRestrictionRegex' data type to populate a request.
+mkOptionRestrictionRegex :: OptionRestrictionRegex
+mkOptionRestrictionRegex = OptionRestrictionRegex
+    { _orrPattern = Nothing
+    , _orrLabel = Nothing
+    }
+{-# INLINE mkOptionRestrictionRegex #-}
 
 instance FromXML OptionRestrictionRegex where
     fromXMLOptions = xmlOptions
@@ -1641,17 +1537,22 @@ data OptionSpecification = OptionSpecification
 
 -- | A unique namespace identifying the option's associated AWS resource.
 osNamespace :: Lens' OptionSpecification (Maybe Text)
-osNamespace f x =
-    f (_osNamespace x)
-        <&> \y -> x { _osNamespace = y }
+osNamespace = lens _osNamespace (\s a -> s { _osNamespace = a })
 {-# INLINE osNamespace #-}
 
 -- | The name of the configuration option.
 osOptionName :: Lens' OptionSpecification (Maybe Text)
-osOptionName f x =
-    f (_osOptionName x)
-        <&> \y -> x { _osOptionName = y }
+osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
 {-# INLINE osOptionName #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'OptionSpecification' data type to populate a request.
+mkOptionSpecification :: OptionSpecification
+mkOptionSpecification = OptionSpecification
+    { _osNamespace = Nothing
+    , _osOptionName = Nothing
+    }
+{-# INLINE mkOptionSpecification #-}
 
 instance ToQuery OptionSpecification where
     toQuery = genericQuery def
@@ -1666,16 +1567,12 @@ data Queue = Queue
 
 -- | The name of the queue.
 qeName :: Lens' Queue (Maybe Text)
-qeName f x =
-    f (_qeName x)
-        <&> \y -> x { _qeName = y }
+qeName = lens _qeName (\s a -> s { _qeName = a })
 {-# INLINE qeName #-}
 
 -- | The URL of the queue.
 qeURL :: Lens' Queue (Maybe Text)
-qeURL f x =
-    f (_qeURL x)
-        <&> \y -> x { _qeURL = y }
+qeURL = lens _qeURL (\s a -> s { _qeURL = a })
 {-# INLINE qeURL #-}
 
 instance FromXML Queue where
@@ -1699,17 +1596,22 @@ data S3Location = S3Location
 
 -- | The Amazon S3 bucket where the data is located.
 slS3Bucket :: Lens' S3Location (Maybe Text)
-slS3Bucket f x =
-    f (_slS3Bucket x)
-        <&> \y -> x { _slS3Bucket = y }
+slS3Bucket = lens _slS3Bucket (\s a -> s { _slS3Bucket = a })
 {-# INLINE slS3Bucket #-}
 
 -- | The Amazon S3 key where the data is located.
 slS3Key :: Lens' S3Location (Maybe Text)
-slS3Key f x =
-    f (_slS3Key x)
-        <&> \y -> x { _slS3Key = y }
+slS3Key = lens _slS3Key (\s a -> s { _slS3Key = a })
 {-# INLINE slS3Key #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'S3Location' data type to populate a request.
+mkS3Location :: S3Location
+mkS3Location = S3Location
+    { _slS3Bucket = Nothing
+    , _slS3Key = Nothing
+    }
+{-# INLINE mkS3Location #-}
 
 instance FromXML S3Location where
     fromXMLOptions = xmlOptions
@@ -1728,16 +1630,12 @@ data SolutionStackDescription = SolutionStackDescription
 
 -- | The name of the solution stack.
 ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
-ssdSolutionStackName f x =
-    f (_ssdSolutionStackName x)
-        <&> \y -> x { _ssdSolutionStackName = y }
+ssdSolutionStackName = lens _ssdSolutionStackName (\s a -> s { _ssdSolutionStackName = a })
 {-# INLINE ssdSolutionStackName #-}
 
 -- | The permitted file types allowed for a solution stack.
 ssdPermittedFileTypes :: Lens' SolutionStackDescription ([Text])
-ssdPermittedFileTypes f x =
-    f (_ssdPermittedFileTypes x)
-        <&> \y -> x { _ssdPermittedFileTypes = y }
+ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\s a -> s { _ssdPermittedFileTypes = a })
 {-# INLINE ssdPermittedFileTypes #-}
 
 instance FromXML SolutionStackDescription where
@@ -1762,17 +1660,22 @@ data SourceConfiguration = SourceConfiguration
 
 -- | The name of the application associated with the configuration.
 sdApplicationName :: Lens' SourceConfiguration (Maybe Text)
-sdApplicationName f x =
-    f (_sdApplicationName x)
-        <&> \y -> x { _sdApplicationName = y }
+sdApplicationName = lens _sdApplicationName (\s a -> s { _sdApplicationName = a })
 {-# INLINE sdApplicationName #-}
 
 -- | The name of the configuration template.
 sdTemplateName :: Lens' SourceConfiguration (Maybe Text)
-sdTemplateName f x =
-    f (_sdTemplateName x)
-        <&> \y -> x { _sdTemplateName = y }
+sdTemplateName = lens _sdTemplateName (\s a -> s { _sdTemplateName = a })
 {-# INLINE sdTemplateName #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'SourceConfiguration' data type to populate a request.
+mkSourceConfiguration :: SourceConfiguration
+mkSourceConfiguration = SourceConfiguration
+    { _sdApplicationName = Nothing
+    , _sdTemplateName = Nothing
+    }
+{-# INLINE mkSourceConfiguration #-}
 
 instance ToQuery SourceConfiguration where
     toQuery = genericQuery def
@@ -1787,17 +1690,22 @@ data Tag = Tag
 
 -- | The key of the tag.
 wKey :: Lens' Tag (Maybe Text)
-wKey f x =
-    f (_wKey x)
-        <&> \y -> x { _wKey = y }
+wKey = lens _wKey (\s a -> s { _wKey = a })
 {-# INLINE wKey #-}
 
 -- | The value of the tag.
 wValue :: Lens' Tag (Maybe Text)
-wValue f x =
-    f (_wValue x)
-        <&> \y -> x { _wValue = y }
+wValue = lens _wValue (\s a -> s { _wValue = a })
 {-# INLINE wValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Tag' data type to populate a request.
+mkTag :: Tag
+mkTag = Tag
+    { _wKey = Nothing
+    , _wValue = Nothing
+    }
+{-# INLINE mkTag #-}
 
 instance ToQuery Tag where
     toQuery = genericQuery def
@@ -1821,9 +1729,7 @@ data ValidationMessage = ValidationMessage
 
 -- | A message describing the error or warning.
 vveMessage :: Lens' ValidationMessage (Maybe Text)
-vveMessage f x =
-    f (_vveMessage x)
-        <&> \y -> x { _vveMessage = y }
+vveMessage = lens _vveMessage (\s a -> s { _vveMessage = a })
 {-# INLINE vveMessage #-}
 
 -- | An indication of the severity of this message: error: This message
@@ -1832,23 +1738,17 @@ vveMessage f x =
 -- message indicates that this is not a valid setting for an option. warning:
 -- This message is providing information you should take into account.
 vveSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
-vveSeverity f x =
-    f (_vveSeverity x)
-        <&> \y -> x { _vveSeverity = y }
+vveSeverity = lens _vveSeverity (\s a -> s { _vveSeverity = a })
 {-# INLINE vveSeverity #-}
 
 -- | 
 vveNamespace :: Lens' ValidationMessage (Maybe Text)
-vveNamespace f x =
-    f (_vveNamespace x)
-        <&> \y -> x { _vveNamespace = y }
+vveNamespace = lens _vveNamespace (\s a -> s { _vveNamespace = a })
 {-# INLINE vveNamespace #-}
 
 -- | 
 vveOptionName :: Lens' ValidationMessage (Maybe Text)
-vveOptionName f x =
-    f (_vveOptionName x)
-        <&> \y -> x { _vveOptionName = y }
+vveOptionName = lens _vveOptionName (\s a -> s { _vveOptionName = a })
 {-# INLINE vveOptionName #-}
 
 instance FromXML ValidationMessage where

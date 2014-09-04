@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketPolicy
     -- * Request
       GetBucketPolicy
     -- ** Request constructor
-    , getBucketPolicy
+    , mkGetBucketPolicyRequest
     -- ** Request lenses
     , gbprBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketPolicy' request.
-getBucketPolicy :: BucketName -- ^ 'gbprBucket'
-                -> GetBucketPolicy
-getBucketPolicy p1 = GetBucketPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketPolicy' request.
+mkGetBucketPolicyRequest :: BucketName -- ^ 'gbprBucket'
+                         -> GetBucketPolicy
+mkGetBucketPolicyRequest p1 = GetBucketPolicy
     { _gbprBucket = p1
     }
-{-# INLINE getBucketPolicy #-}
+{-# INLINE mkGetBucketPolicyRequest #-}
 
-data GetBucketPolicy = GetBucketPolicy
+newtype GetBucketPolicy = GetBucketPolicy
     { _gbprBucket :: BucketName
     } deriving (Show, Generic)
 
 gbprBucket :: Lens' GetBucketPolicy (BucketName)
-gbprBucket f x =
-    f (_gbprBucket x)
-        <&> \y -> x { _gbprBucket = y }
+gbprBucket = lens _gbprBucket (\s a -> s { _gbprBucket = a })
 {-# INLINE gbprBucket #-}
 
 instance ToPath GetBucketPolicy where
@@ -70,16 +69,14 @@ instance ToHeaders GetBucketPolicy
 
 instance ToBody GetBucketPolicy
 
-data GetBucketPolicyResponse = GetBucketPolicyResponse
+newtype GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbpoPolicy :: Maybe Text
       -- ^ The bucket policy as a JSON document.
     } deriving (Show, Generic)
 
 -- | The bucket policy as a JSON document.
 gbpoPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
-gbpoPolicy f x =
-    f (_gbpoPolicy x)
-        <&> \y -> x { _gbpoPolicy = y }
+gbpoPolicy = lens _gbpoPolicy (\s a -> s { _gbpoPolicy = a })
 {-# INLINE gbpoPolicy #-}
 
 instance FromXML GetBucketPolicyResponse where

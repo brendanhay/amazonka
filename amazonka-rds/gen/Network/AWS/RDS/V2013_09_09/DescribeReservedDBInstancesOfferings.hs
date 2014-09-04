@@ -29,54 +29,45 @@ module Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstancesOfferings
     -- * Request
       DescribeReservedDBInstancesOfferings
     -- ** Request constructor
-    , describeReservedDBInstancesOfferings
+    , mkDescribeReservedDBInstancesOfferingsMessage
     -- ** Request lenses
-    , drdbiomMultiAZ
-    , drdbiomMaxRecords
     , drdbiomReservedDBInstancesOfferingId
     , drdbiomDBInstanceClass
     , drdbiomDuration
     , drdbiomProductDescription
     , drdbiomOfferingType
+    , drdbiomMultiAZ
+    , drdbiomMaxRecords
     , drdbiomMarker
 
     -- * Response
     , DescribeReservedDBInstancesOfferingsResponse
     -- ** Response lenses
-    , rdbiomReservedDBInstancesOfferings
     , rdbiomMarker
+    , rdbiomReservedDBInstancesOfferings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeReservedDBInstancesOfferings' request.
-describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
-describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
-    { _drdbiomMultiAZ = Nothing
-    , _drdbiomMaxRecords = Nothing
-    , _drdbiomReservedDBInstancesOfferingId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedDBInstancesOfferings' request.
+mkDescribeReservedDBInstancesOfferingsMessage :: DescribeReservedDBInstancesOfferings
+mkDescribeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOfferings
+    { _drdbiomReservedDBInstancesOfferingId = Nothing
     , _drdbiomDBInstanceClass = Nothing
     , _drdbiomDuration = Nothing
     , _drdbiomProductDescription = Nothing
     , _drdbiomOfferingType = Nothing
+    , _drdbiomMultiAZ = Nothing
+    , _drdbiomMaxRecords = Nothing
     , _drdbiomMarker = Nothing
     }
-{-# INLINE describeReservedDBInstancesOfferings #-}
+{-# INLINE mkDescribeReservedDBInstancesOfferingsMessage #-}
 
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
-    { _drdbiomMultiAZ :: Maybe Bool
-      -- ^ The Multi-AZ filter value. Specify this parameter to show only
-      -- the available offerings matching the specified Multi-AZ
-      -- parameter.
-    , _drdbiomMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- than the MaxRecords value is available, a pagination token called
-      -- a marker is included in the response so that the following
-      -- results can be retrieved. Default: 100 Constraints: minimum 20,
-      -- maximum 100.
-    , _drdbiomReservedDBInstancesOfferingId :: Maybe Text
+    { _drdbiomReservedDBInstancesOfferingId :: Maybe Text
       -- ^ The offering identifier filter value. Specify this parameter to
       -- show only the available offering that matches the specified
       -- reservation identifier. Example:
@@ -98,18 +89,59 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
       -- only the available offerings matching the specified offering
       -- type. Valid Values: "Light Utilization" | "Medium Utilization" |
       -- "Heavy Utilization".
+    , _drdbiomMultiAZ :: Maybe Bool
+      -- ^ The Multi-AZ filter value. Specify this parameter to show only
+      -- the available offerings matching the specified Multi-AZ
+      -- parameter.
+    , _drdbiomMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- than the MaxRecords value is available, a pagination token called
+      -- a marker is included in the response so that the following
+      -- results can be retrieved. Default: 100 Constraints: minimum 20,
+      -- maximum 100.
     , _drdbiomMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
+-- | The offering identifier filter value. Specify this parameter to show only
+-- the available offering that matches the specified reservation identifier.
+-- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706.
+drdbiomReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
+drdbiomReservedDBInstancesOfferingId = lens _drdbiomReservedDBInstancesOfferingId (\s a -> s { _drdbiomReservedDBInstancesOfferingId = a })
+{-# INLINE drdbiomReservedDBInstancesOfferingId #-}
+
+-- | The DB instance class filter value. Specify this parameter to show only the
+-- available offerings matching the specified DB instance class.
+drdbiomDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
+drdbiomDBInstanceClass = lens _drdbiomDBInstanceClass (\s a -> s { _drdbiomDBInstanceClass = a })
+{-# INLINE drdbiomDBInstanceClass #-}
+
+-- | Duration filter value, specified in years or seconds. Specify this
+-- parameter to show only reservations for this duration. Valid Values: 1 | 3
+-- | 31536000 | 94608000.
+drdbiomDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
+drdbiomDuration = lens _drdbiomDuration (\s a -> s { _drdbiomDuration = a })
+{-# INLINE drdbiomDuration #-}
+
+-- | Product description filter value. Specify this parameter to show only the
+-- available offerings matching the specified product description.
+drdbiomProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
+drdbiomProductDescription = lens _drdbiomProductDescription (\s a -> s { _drdbiomProductDescription = a })
+{-# INLINE drdbiomProductDescription #-}
+
+-- | The offering type filter value. Specify this parameter to show only the
+-- available offerings matching the specified offering type. Valid Values:
+-- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
+drdbiomOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
+drdbiomOfferingType = lens _drdbiomOfferingType (\s a -> s { _drdbiomOfferingType = a })
+{-# INLINE drdbiomOfferingType #-}
+
 -- | The Multi-AZ filter value. Specify this parameter to show only the
 -- available offerings matching the specified Multi-AZ parameter.
 drdbiomMultiAZ :: Lens' DescribeReservedDBInstancesOfferings (Maybe Bool)
-drdbiomMultiAZ f x =
-    f (_drdbiomMultiAZ x)
-        <&> \y -> x { _drdbiomMultiAZ = y }
+drdbiomMultiAZ = lens _drdbiomMultiAZ (\s a -> s { _drdbiomMultiAZ = a })
 {-# INLINE drdbiomMultiAZ #-}
 
 -- | The maximum number of records to include in the response. If more than the
@@ -117,90 +149,39 @@ drdbiomMultiAZ f x =
 -- included in the response so that the following results can be retrieved.
 -- Default: 100 Constraints: minimum 20, maximum 100.
 drdbiomMaxRecords :: Lens' DescribeReservedDBInstancesOfferings (Maybe Integer)
-drdbiomMaxRecords f x =
-    f (_drdbiomMaxRecords x)
-        <&> \y -> x { _drdbiomMaxRecords = y }
+drdbiomMaxRecords = lens _drdbiomMaxRecords (\s a -> s { _drdbiomMaxRecords = a })
 {-# INLINE drdbiomMaxRecords #-}
-
--- | The offering identifier filter value. Specify this parameter to show only
--- the available offering that matches the specified reservation identifier.
--- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-drdbiomReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdbiomReservedDBInstancesOfferingId f x =
-    f (_drdbiomReservedDBInstancesOfferingId x)
-        <&> \y -> x { _drdbiomReservedDBInstancesOfferingId = y }
-{-# INLINE drdbiomReservedDBInstancesOfferingId #-}
-
--- | The DB instance class filter value. Specify this parameter to show only the
--- available offerings matching the specified DB instance class.
-drdbiomDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdbiomDBInstanceClass f x =
-    f (_drdbiomDBInstanceClass x)
-        <&> \y -> x { _drdbiomDBInstanceClass = y }
-{-# INLINE drdbiomDBInstanceClass #-}
-
--- | Duration filter value, specified in years or seconds. Specify this
--- parameter to show only reservations for this duration. Valid Values: 1 | 3
--- | 31536000 | 94608000.
-drdbiomDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdbiomDuration f x =
-    f (_drdbiomDuration x)
-        <&> \y -> x { _drdbiomDuration = y }
-{-# INLINE drdbiomDuration #-}
-
--- | Product description filter value. Specify this parameter to show only the
--- available offerings matching the specified product description.
-drdbiomProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdbiomProductDescription f x =
-    f (_drdbiomProductDescription x)
-        <&> \y -> x { _drdbiomProductDescription = y }
-{-# INLINE drdbiomProductDescription #-}
-
--- | The offering type filter value. Specify this parameter to show only the
--- available offerings matching the specified offering type. Valid Values:
--- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
-drdbiomOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdbiomOfferingType f x =
-    f (_drdbiomOfferingType x)
-        <&> \y -> x { _drdbiomOfferingType = y }
-{-# INLINE drdbiomOfferingType #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 drdbiomMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdbiomMarker f x =
-    f (_drdbiomMarker x)
-        <&> \y -> x { _drdbiomMarker = y }
+drdbiomMarker = lens _drdbiomMarker (\s a -> s { _drdbiomMarker = a })
 {-# INLINE drdbiomMarker #-}
 
 instance ToQuery DescribeReservedDBInstancesOfferings where
     toQuery = genericQuery def
 
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
-    { _rdbiomReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
-      -- ^ A list of reserved DB instance offerings.
-    , _rdbiomMarker :: Maybe Text
+    { _rdbiomMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _rdbiomReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
+      -- ^ A list of reserved DB instance offerings.
     } deriving (Show, Generic)
-
--- | A list of reserved DB instance offerings.
-rdbiomReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse ([ReservedDBInstancesOffering])
-rdbiomReservedDBInstancesOfferings f x =
-    f (_rdbiomReservedDBInstancesOfferings x)
-        <&> \y -> x { _rdbiomReservedDBInstancesOfferings = y }
-{-# INLINE rdbiomReservedDBInstancesOfferings #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 rdbiomMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
-rdbiomMarker f x =
-    f (_rdbiomMarker x)
-        <&> \y -> x { _rdbiomMarker = y }
+rdbiomMarker = lens _rdbiomMarker (\s a -> s { _rdbiomMarker = a })
 {-# INLINE rdbiomMarker #-}
+
+-- | A list of reserved DB instance offerings.
+rdbiomReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse ([ReservedDBInstancesOffering])
+rdbiomReservedDBInstancesOfferings = lens _rdbiomReservedDBInstancesOfferings (\s a -> s { _rdbiomReservedDBInstancesOfferings = a })
+{-# INLINE rdbiomReservedDBInstancesOfferings #-}
 
 instance FromXML DescribeReservedDBInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions

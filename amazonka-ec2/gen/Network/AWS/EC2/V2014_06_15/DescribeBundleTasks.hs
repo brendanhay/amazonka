@@ -38,7 +38,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
     -- * Request
       DescribeBundleTasks
     -- ** Request constructor
-    , describeBundleTasks
+    , mkDescribeBundleTasksRequest
     -- ** Request lenses
     , dbtrBundleIds
     , dbtrFilters
@@ -53,13 +53,14 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeBundleTasks' request.
-describeBundleTasks :: DescribeBundleTasks
-describeBundleTasks = DescribeBundleTasks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeBundleTasks' request.
+mkDescribeBundleTasksRequest :: DescribeBundleTasks
+mkDescribeBundleTasksRequest = DescribeBundleTasks
     { _dbtrBundleIds = mempty
     , _dbtrFilters = mempty
     }
-{-# INLINE describeBundleTasks #-}
+{-# INLINE mkDescribeBundleTasksRequest #-}
 
 data DescribeBundleTasks = DescribeBundleTasks
     { _dbtrBundleIds :: [Text]
@@ -81,9 +82,7 @@ data DescribeBundleTasks = DescribeBundleTasks
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtrBundleIds :: Lens' DescribeBundleTasks ([Text])
-dbtrBundleIds f x =
-    f (_dbtrBundleIds x)
-        <&> \y -> x { _dbtrBundleIds = y }
+dbtrBundleIds = lens _dbtrBundleIds (\s a -> s { _dbtrBundleIds = a })
 {-# INLINE dbtrBundleIds #-}
 
 -- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
@@ -96,24 +95,20 @@ dbtrBundleIds f x =
 -- | waiting-for-shutdown | bundling | storing | cancelling | complete |
 -- failed). update-time - The time of the most recent update for the task.
 dbtrFilters :: Lens' DescribeBundleTasks ([Filter])
-dbtrFilters f x =
-    f (_dbtrFilters x)
-        <&> \y -> x { _dbtrFilters = y }
+dbtrFilters = lens _dbtrFilters (\s a -> s { _dbtrFilters = a })
 {-# INLINE dbtrFilters #-}
 
 instance ToQuery DescribeBundleTasks where
     toQuery = genericQuery def
 
-data DescribeBundleTasksResponse = DescribeBundleTasksResponse
+newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtsBundleTasks :: [BundleTask]
       -- ^ Information about one or more bundle tasks.
     } deriving (Show, Generic)
 
 -- | Information about one or more bundle tasks.
 dbtsBundleTasks :: Lens' DescribeBundleTasksResponse ([BundleTask])
-dbtsBundleTasks f x =
-    f (_dbtsBundleTasks x)
-        <&> \y -> x { _dbtsBundleTasks = y }
+dbtsBundleTasks = lens _dbtsBundleTasks (\s a -> s { _dbtsBundleTasks = a })
 {-# INLINE dbtsBundleTasks #-}
 
 instance FromXML DescribeBundleTasksResponse where

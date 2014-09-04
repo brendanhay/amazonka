@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment
     -- * Request
       RebuildEnvironment
     -- ** Request constructor
-    , rebuildEnvironment
+    , mkRebuildEnvironmentMessage
     -- ** Request lenses
     , remEnvironmentId
     , remEnvironmentName
@@ -41,13 +41,14 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RebuildEnvironment' request.
-rebuildEnvironment :: RebuildEnvironment
-rebuildEnvironment = RebuildEnvironment
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebuildEnvironment' request.
+mkRebuildEnvironmentMessage :: RebuildEnvironment
+mkRebuildEnvironmentMessage = RebuildEnvironment
     { _remEnvironmentId = Nothing
     , _remEnvironmentName = Nothing
     }
-{-# INLINE rebuildEnvironment #-}
+{-# INLINE mkRebuildEnvironmentMessage #-}
 
 data RebuildEnvironment = RebuildEnvironment
     { _remEnvironmentId :: Maybe Text
@@ -66,18 +67,14 @@ data RebuildEnvironment = RebuildEnvironment
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 remEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
-remEnvironmentId f x =
-    f (_remEnvironmentId x)
-        <&> \y -> x { _remEnvironmentId = y }
+remEnvironmentId = lens _remEnvironmentId (\s a -> s { _remEnvironmentId = a })
 {-# INLINE remEnvironmentId #-}
 
 -- | The name of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 remEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
-remEnvironmentName f x =
-    f (_remEnvironmentName x)
-        <&> \y -> x { _remEnvironmentName = y }
+remEnvironmentName = lens _remEnvironmentName (\s a -> s { _remEnvironmentName = a })
 {-# INLINE remEnvironmentName #-}
 
 instance ToQuery RebuildEnvironment where

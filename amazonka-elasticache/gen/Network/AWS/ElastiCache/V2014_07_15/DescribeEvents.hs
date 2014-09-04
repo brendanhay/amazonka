@@ -34,75 +34,99 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeEvents
     -- * Request
       DescribeEvents
     -- ** Request constructor
-    , describeEvents
+    , mkDescribeEventsMessage
     -- ** Request lenses
-    , demDuration
-    , demMaxRecords
-    , demSourceType
     , demSourceIdentifier
-    , demMarker
+    , demSourceType
     , demStartTime
     , demEndTime
+    , demDuration
+    , demMaxRecords
+    , demMarker
 
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , emEvents
     , emMarker
+    , emEvents
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeEvents' request.
-describeEvents :: DescribeEvents
-describeEvents = DescribeEvents
-    { _demDuration = Nothing
-    , _demMaxRecords = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEvents' request.
+mkDescribeEventsMessage :: DescribeEvents
+mkDescribeEventsMessage = DescribeEvents
+    { _demSourceIdentifier = Nothing
     , _demSourceType = Nothing
-    , _demSourceIdentifier = Nothing
-    , _demMarker = Nothing
     , _demStartTime = Nothing
     , _demEndTime = Nothing
+    , _demDuration = Nothing
+    , _demMaxRecords = Nothing
+    , _demMarker = Nothing
     }
-{-# INLINE describeEvents #-}
+{-# INLINE mkDescribeEventsMessage #-}
 
 data DescribeEvents = DescribeEvents
-    { _demDuration :: Maybe Integer
-      -- ^ The number of minutes' worth of events to retrieve.
-    , _demMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+    { _demSourceIdentifier :: Maybe Text
+      -- ^ The identifier of the event source for which events will be
+      -- returned. If not specified, then all sources are included in the
+      -- response.
     , _demSourceType :: Maybe SourceType
       -- ^ The event source to retrieve events for. If no value is
       -- specified, all events are returned. Valid values are:
       -- cache-cluster | cache-parameter-group | cache-security-group |
       -- cache-subnet-group.
-    , _demSourceIdentifier :: Maybe Text
-      -- ^ The identifier of the event source for which events will be
-      -- returned. If not specified, then all sources are included in the
-      -- response.
-    , _demMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
     , _demStartTime :: Maybe ISO8601
       -- ^ The beginning of the time interval to retrieve events for,
       -- specified in ISO 8601 format.
     , _demEndTime :: Maybe ISO8601
       -- ^ The end of the time interval for which to retrieve events,
       -- specified in ISO 8601 format.
+    , _demDuration :: Maybe Integer
+      -- ^ The number of minutes' worth of events to retrieve.
+    , _demMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- records exist than the specified MaxRecords value, a marker is
+      -- included in the response so that the remaining results can be
+      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+    , _demMarker :: Maybe Text
+      -- ^ An optional marker returned from a prior request. Use this marker
+      -- for pagination of results from this operation. If this parameter
+      -- is specified, the response includes only records beyond the
+      -- marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
+
+-- | The identifier of the event source for which events will be returned. If
+-- not specified, then all sources are included in the response.
+demSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+demSourceIdentifier = lens _demSourceIdentifier (\s a -> s { _demSourceIdentifier = a })
+{-# INLINE demSourceIdentifier #-}
+
+-- | The event source to retrieve events for. If no value is specified, all
+-- events are returned. Valid values are: cache-cluster |
+-- cache-parameter-group | cache-security-group | cache-subnet-group.
+demSourceType :: Lens' DescribeEvents (Maybe SourceType)
+demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
+{-# INLINE demSourceType #-}
+
+-- | The beginning of the time interval to retrieve events for, specified in ISO
+-- 8601 format.
+demStartTime :: Lens' DescribeEvents (Maybe ISO8601)
+demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
+{-# INLINE demStartTime #-}
+
+-- | The end of the time interval for which to retrieve events, specified in ISO
+-- 8601 format.
+demEndTime :: Lens' DescribeEvents (Maybe ISO8601)
+demEndTime = lens _demEndTime (\s a -> s { _demEndTime = a })
+{-# INLINE demEndTime #-}
 
 -- | The number of minutes' worth of events to retrieve.
 demDuration :: Lens' DescribeEvents (Maybe Integer)
-demDuration f x =
-    f (_demDuration x)
-        <&> \y -> x { _demDuration = y }
+demDuration = lens _demDuration (\s a -> s { _demDuration = a })
 {-# INLINE demDuration #-}
 
 -- | The maximum number of records to include in the response. If more records
@@ -110,79 +134,38 @@ demDuration f x =
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 demMaxRecords :: Lens' DescribeEvents (Maybe Integer)
-demMaxRecords f x =
-    f (_demMaxRecords x)
-        <&> \y -> x { _demMaxRecords = y }
+demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
 {-# INLINE demMaxRecords #-}
-
--- | The event source to retrieve events for. If no value is specified, all
--- events are returned. Valid values are: cache-cluster |
--- cache-parameter-group | cache-security-group | cache-subnet-group.
-demSourceType :: Lens' DescribeEvents (Maybe SourceType)
-demSourceType f x =
-    f (_demSourceType x)
-        <&> \y -> x { _demSourceType = y }
-{-# INLINE demSourceType #-}
-
--- | The identifier of the event source for which events will be returned. If
--- not specified, then all sources are included in the response.
-demSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-demSourceIdentifier f x =
-    f (_demSourceIdentifier x)
-        <&> \y -> x { _demSourceIdentifier = y }
-{-# INLINE demSourceIdentifier #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
 demMarker :: Lens' DescribeEvents (Maybe Text)
-demMarker f x =
-    f (_demMarker x)
-        <&> \y -> x { _demMarker = y }
+demMarker = lens _demMarker (\s a -> s { _demMarker = a })
 {-# INLINE demMarker #-}
-
--- | The beginning of the time interval to retrieve events for, specified in ISO
--- 8601 format.
-demStartTime :: Lens' DescribeEvents (Maybe ISO8601)
-demStartTime f x =
-    f (_demStartTime x)
-        <&> \y -> x { _demStartTime = y }
-{-# INLINE demStartTime #-}
-
--- | The end of the time interval for which to retrieve events, specified in ISO
--- 8601 format.
-demEndTime :: Lens' DescribeEvents (Maybe ISO8601)
-demEndTime f x =
-    f (_demEndTime x)
-        <&> \y -> x { _demEndTime = y }
-{-# INLINE demEndTime #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _emEvents :: [Event]
+    { _emMarker :: Maybe Text
+      -- ^ Provides an identifier to allow retrieval of paginated results.
+    , _emEvents :: [Event]
       -- ^ A list of events. Each element in the list contains detailed
       -- information about one event.
-    , _emMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
+
+-- | Provides an identifier to allow retrieval of paginated results.
+emMarker :: Lens' DescribeEventsResponse (Maybe Text)
+emMarker = lens _emMarker (\s a -> s { _emMarker = a })
+{-# INLINE emMarker #-}
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
 emEvents :: Lens' DescribeEventsResponse ([Event])
-emEvents f x =
-    f (_emEvents x)
-        <&> \y -> x { _emEvents = y }
+emEvents = lens _emEvents (\s a -> s { _emEvents = a })
 {-# INLINE emEvents #-}
-
--- | Provides an identifier to allow retrieval of paginated results.
-emMarker :: Lens' DescribeEventsResponse (Maybe Text)
-emMarker f x =
-    f (_emMarker x)
-        <&> \y -> x { _emMarker = y }
-{-# INLINE emMarker #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

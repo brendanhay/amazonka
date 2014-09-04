@@ -27,11 +27,11 @@ module Network.AWS.ImportExport.V2010_06_01.UpdateJob
     -- * Request
       UpdateJob
     -- ** Request constructor
-    , updateJob
+    , mkUpdateJobInput
     -- ** Request lenses
     , ujiJobId
-    , ujiJobType
     , ujiManifest
+    , ujiJobType
     , ujiValidateOnly
 
     -- * Response
@@ -45,27 +45,28 @@ import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateJob' request.
-updateJob :: Text -- ^ 'ujiJobId'
-          -> JobType -- ^ 'ujiJobType'
-          -> Text -- ^ 'ujiManifest'
-          -> Bool -- ^ 'ujiValidateOnly'
-          -> UpdateJob
-updateJob p1 p2 p3 p4 = UpdateJob
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateJob' request.
+mkUpdateJobInput :: Text -- ^ 'ujiJobId'
+                 -> Text -- ^ 'ujiManifest'
+                 -> JobType -- ^ 'ujiJobType'
+                 -> Bool -- ^ 'ujiValidateOnly'
+                 -> UpdateJob
+mkUpdateJobInput p1 p2 p3 p4 = UpdateJob
     { _ujiJobId = p1
-    , _ujiJobType = p2
-    , _ujiManifest = p3
+    , _ujiManifest = p2
+    , _ujiJobType = p3
     , _ujiValidateOnly = p4
     }
-{-# INLINE updateJob #-}
+{-# INLINE mkUpdateJobInput #-}
 
 data UpdateJob = UpdateJob
     { _ujiJobId :: Text
       -- ^ A unique identifier which refers to a particular job.
-    , _ujiJobType :: JobType
-      -- ^ Specifies whether the job to initiate is an import or export job.
     , _ujiManifest :: Text
       -- ^ The UTF-8 encoded text of the manifest file.
+    , _ujiJobType :: JobType
+      -- ^ Specifies whether the job to initiate is an import or export job.
     , _ujiValidateOnly :: Bool
       -- ^ Validate the manifest and parameter values in the request but do
       -- not actually create a job.
@@ -73,31 +74,23 @@ data UpdateJob = UpdateJob
 
 -- | A unique identifier which refers to a particular job.
 ujiJobId :: Lens' UpdateJob (Text)
-ujiJobId f x =
-    f (_ujiJobId x)
-        <&> \y -> x { _ujiJobId = y }
+ujiJobId = lens _ujiJobId (\s a -> s { _ujiJobId = a })
 {-# INLINE ujiJobId #-}
-
--- | Specifies whether the job to initiate is an import or export job.
-ujiJobType :: Lens' UpdateJob (JobType)
-ujiJobType f x =
-    f (_ujiJobType x)
-        <&> \y -> x { _ujiJobType = y }
-{-# INLINE ujiJobType #-}
 
 -- | The UTF-8 encoded text of the manifest file.
 ujiManifest :: Lens' UpdateJob (Text)
-ujiManifest f x =
-    f (_ujiManifest x)
-        <&> \y -> x { _ujiManifest = y }
+ujiManifest = lens _ujiManifest (\s a -> s { _ujiManifest = a })
 {-# INLINE ujiManifest #-}
+
+-- | Specifies whether the job to initiate is an import or export job.
+ujiJobType :: Lens' UpdateJob (JobType)
+ujiJobType = lens _ujiJobType (\s a -> s { _ujiJobType = a })
+{-# INLINE ujiJobType #-}
 
 -- | Validate the manifest and parameter values in the request but do not
 -- actually create a job.
 ujiValidateOnly :: Lens' UpdateJob (Bool)
-ujiValidateOnly f x =
-    f (_ujiValidateOnly x)
-        <&> \y -> x { _ujiValidateOnly = y }
+ujiValidateOnly = lens _ujiValidateOnly (\s a -> s { _ujiValidateOnly = a })
 {-# INLINE ujiValidateOnly #-}
 
 instance ToQuery UpdateJob where
@@ -114,17 +107,13 @@ data UpdateJobResponse = UpdateJobResponse
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 ujoSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujoSuccess f x =
-    f (_ujoSuccess x)
-        <&> \y -> x { _ujoSuccess = y }
+ujoSuccess = lens _ujoSuccess (\s a -> s { _ujoSuccess = a })
 {-# INLINE ujoSuccess #-}
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
 ujoWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujoWarningMessage f x =
-    f (_ujoWarningMessage x)
-        <&> \y -> x { _ujoWarningMessage = y }
+ujoWarningMessage = lens _ujoWarningMessage (\s a -> s { _ujoWarningMessage = a })
 {-# INLINE ujoWarningMessage #-}
 
 instance FromXML UpdateJobResponse where

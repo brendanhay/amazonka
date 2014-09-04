@@ -56,7 +56,7 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact
     -- * Request
       UpdateDomainContact
     -- ** Request constructor
-    , updateDomainContact
+    , mkUpdateDomainContactRequest
     -- ** Request lenses
     , udcrDomainName
     , udcrAdminContact
@@ -74,16 +74,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateDomainContact' request.
-updateDomainContact :: Text -- ^ 'udcrDomainName'
-                    -> UpdateDomainContact
-updateDomainContact p1 = UpdateDomainContact
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateDomainContact' request.
+mkUpdateDomainContactRequest :: Text -- ^ 'udcrDomainName'
+                             -> UpdateDomainContact
+mkUpdateDomainContactRequest p1 = UpdateDomainContact
     { _udcrDomainName = p1
     , _udcrAdminContact = Nothing
     , _udcrRegistrantContact = Nothing
     , _udcrTechContact = Nothing
     }
-{-# INLINE updateDomainContact #-}
+{-# INLINE mkUpdateDomainContactRequest #-}
 
 data UpdateDomainContact = UpdateDomainContact
     { _udcrDomainName :: Text
@@ -113,9 +114,7 @@ data UpdateDomainContact = UpdateDomainContact
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 udcrDomainName :: Lens' UpdateDomainContact (Text)
-udcrDomainName f x =
-    f (_udcrDomainName x)
-        <&> \y -> x { _udcrDomainName = y }
+udcrDomainName = lens _udcrDomainName (\s a -> s { _udcrDomainName = a })
 {-# INLINE udcrDomainName #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
@@ -123,9 +122,7 @@ udcrDomainName f x =
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
 udcrAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrAdminContact f x =
-    f (_udcrAdminContact x)
-        <&> \y -> x { _udcrAdminContact = y }
+udcrAdminContact = lens _udcrAdminContact (\s a -> s { _udcrAdminContact = a })
 {-# INLINE udcrAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
@@ -133,9 +130,7 @@ udcrAdminContact f x =
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
 udcrRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrRegistrantContact f x =
-    f (_udcrRegistrantContact x)
-        <&> \y -> x { _udcrRegistrantContact = y }
+udcrRegistrantContact = lens _udcrRegistrantContact (\s a -> s { _udcrRegistrantContact = a })
 {-# INLINE udcrRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
@@ -143,9 +138,7 @@ udcrRegistrantContact f x =
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
 udcrTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrTechContact f x =
-    f (_udcrTechContact x)
-        <&> \y -> x { _udcrTechContact = y }
+udcrTechContact = lens _udcrTechContact (\s a -> s { _udcrTechContact = a })
 {-# INLINE udcrTechContact #-}
 
 instance ToPath UpdateDomainContact
@@ -156,7 +149,7 @@ instance ToHeaders UpdateDomainContact
 
 instance ToJSON UpdateDomainContact
 
-data UpdateDomainContactResponse = UpdateDomainContactResponse
+newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcsOperationId :: Text
       -- ^ Identifier for tracking the progress of the request. To use this
       -- ID to query the operation status, use GetOperationDetail. Type:
@@ -167,9 +160,7 @@ data UpdateDomainContactResponse = UpdateDomainContactResponse
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
 udcsOperationId :: Lens' UpdateDomainContactResponse (Text)
-udcsOperationId f x =
-    f (_udcsOperationId x)
-        <&> \y -> x { _udcsOperationId = y }
+udcsOperationId = lens _udcsOperationId (\s a -> s { _udcsOperationId = a })
 {-# INLINE udcsOperationId #-}
 
 instance FromJSON UpdateDomainContactResponse

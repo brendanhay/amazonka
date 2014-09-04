@@ -56,7 +56,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , createSnapshot
+    , mkCreateSnapshotRequest
     -- ** Request lenses
     , cstVolumeId
     , cstDescription
@@ -64,30 +64,31 @@ module Network.AWS.EC2.V2014_06_15.CreateSnapshot
     -- * Response
     , CreateSnapshotResponse
     -- ** Response lenses
-    , svEncrypted
-    , svStartTime
-    , svVolumeSize
-    , svState
     , svSnapshotId
     , svVolumeId
+    , svState
+    , svStartTime
     , svProgress
     , svOwnerId
     , svDescription
+    , svVolumeSize
     , svOwnerAlias
+    , svEncrypted
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateSnapshot' request.
-createSnapshot :: Text -- ^ 'cstVolumeId'
-               -> CreateSnapshot
-createSnapshot p1 = CreateSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSnapshot' request.
+mkCreateSnapshotRequest :: Text -- ^ 'cstVolumeId'
+                        -> CreateSnapshot
+mkCreateSnapshotRequest p1 = CreateSnapshot
     { _cstVolumeId = p1
     , _cstDescription = Nothing
     }
-{-# INLINE createSnapshot #-}
+{-# INLINE mkCreateSnapshotRequest #-}
 
 data CreateSnapshot = CreateSnapshot
     { _cstVolumeId :: Text
@@ -98,115 +99,91 @@ data CreateSnapshot = CreateSnapshot
 
 -- | The ID of the Amazon EBS volume.
 cstVolumeId :: Lens' CreateSnapshot (Text)
-cstVolumeId f x =
-    f (_cstVolumeId x)
-        <&> \y -> x { _cstVolumeId = y }
+cstVolumeId = lens _cstVolumeId (\s a -> s { _cstVolumeId = a })
 {-# INLINE cstVolumeId #-}
 
 -- | A description for the snapshot.
 cstDescription :: Lens' CreateSnapshot (Maybe Text)
-cstDescription f x =
-    f (_cstDescription x)
-        <&> \y -> x { _cstDescription = y }
+cstDescription = lens _cstDescription (\s a -> s { _cstDescription = a })
 {-# INLINE cstDescription #-}
 
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _svEncrypted :: Maybe Bool
-      -- ^ Indicates whether the snapshot is encrypted.
-    , _svStartTime :: Maybe ISO8601
-      -- ^ The time stamp when the snapshot was initiated.
-    , _svVolumeSize :: Maybe Integer
-      -- ^ The size of the volume, in GiB.
-    , _svState :: Maybe SnapshotState
-      -- ^ The snapshot state.
-    , _svSnapshotId :: Maybe Text
+    { _svSnapshotId :: Maybe Text
       -- ^ The ID of the snapshot.
     , _svVolumeId :: Maybe Text
       -- ^ The ID of the volume.
+    , _svState :: Maybe SnapshotState
+      -- ^ The snapshot state.
+    , _svStartTime :: Maybe ISO8601
+      -- ^ The time stamp when the snapshot was initiated.
     , _svProgress :: Maybe Text
       -- ^ The progress of the snapshot, as a percentage.
     , _svOwnerId :: Maybe Text
       -- ^ The AWS account ID of the Amazon EBS snapshot owner.
     , _svDescription :: Maybe Text
       -- ^ The description for the snapshot.
+    , _svVolumeSize :: Maybe Integer
+      -- ^ The size of the volume, in GiB.
     , _svOwnerAlias :: Maybe Text
       -- ^ The AWS account alias (for example, amazon, self) or AWS account
       -- ID that owns the snapshot.
+    , _svEncrypted :: Maybe Bool
+      -- ^ Indicates whether the snapshot is encrypted.
     } deriving (Show, Generic)
-
--- | Indicates whether the snapshot is encrypted.
-svEncrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
-svEncrypted f x =
-    f (_svEncrypted x)
-        <&> \y -> x { _svEncrypted = y }
-{-# INLINE svEncrypted #-}
-
--- | The time stamp when the snapshot was initiated.
-svStartTime :: Lens' CreateSnapshotResponse (Maybe ISO8601)
-svStartTime f x =
-    f (_svStartTime x)
-        <&> \y -> x { _svStartTime = y }
-{-# INLINE svStartTime #-}
-
--- | The size of the volume, in GiB.
-svVolumeSize :: Lens' CreateSnapshotResponse (Maybe Integer)
-svVolumeSize f x =
-    f (_svVolumeSize x)
-        <&> \y -> x { _svVolumeSize = y }
-{-# INLINE svVolumeSize #-}
-
--- | The snapshot state.
-svState :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
-svState f x =
-    f (_svState x)
-        <&> \y -> x { _svState = y }
-{-# INLINE svState #-}
 
 -- | The ID of the snapshot.
 svSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-svSnapshotId f x =
-    f (_svSnapshotId x)
-        <&> \y -> x { _svSnapshotId = y }
+svSnapshotId = lens _svSnapshotId (\s a -> s { _svSnapshotId = a })
 {-# INLINE svSnapshotId #-}
 
 -- | The ID of the volume.
 svVolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
-svVolumeId f x =
-    f (_svVolumeId x)
-        <&> \y -> x { _svVolumeId = y }
+svVolumeId = lens _svVolumeId (\s a -> s { _svVolumeId = a })
 {-# INLINE svVolumeId #-}
+
+-- | The snapshot state.
+svState :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
+svState = lens _svState (\s a -> s { _svState = a })
+{-# INLINE svState #-}
+
+-- | The time stamp when the snapshot was initiated.
+svStartTime :: Lens' CreateSnapshotResponse (Maybe ISO8601)
+svStartTime = lens _svStartTime (\s a -> s { _svStartTime = a })
+{-# INLINE svStartTime #-}
 
 -- | The progress of the snapshot, as a percentage.
 svProgress :: Lens' CreateSnapshotResponse (Maybe Text)
-svProgress f x =
-    f (_svProgress x)
-        <&> \y -> x { _svProgress = y }
+svProgress = lens _svProgress (\s a -> s { _svProgress = a })
 {-# INLINE svProgress #-}
 
 -- | The AWS account ID of the Amazon EBS snapshot owner.
 svOwnerId :: Lens' CreateSnapshotResponse (Maybe Text)
-svOwnerId f x =
-    f (_svOwnerId x)
-        <&> \y -> x { _svOwnerId = y }
+svOwnerId = lens _svOwnerId (\s a -> s { _svOwnerId = a })
 {-# INLINE svOwnerId #-}
 
 -- | The description for the snapshot.
 svDescription :: Lens' CreateSnapshotResponse (Maybe Text)
-svDescription f x =
-    f (_svDescription x)
-        <&> \y -> x { _svDescription = y }
+svDescription = lens _svDescription (\s a -> s { _svDescription = a })
 {-# INLINE svDescription #-}
+
+-- | The size of the volume, in GiB.
+svVolumeSize :: Lens' CreateSnapshotResponse (Maybe Integer)
+svVolumeSize = lens _svVolumeSize (\s a -> s { _svVolumeSize = a })
+{-# INLINE svVolumeSize #-}
 
 -- | The AWS account alias (for example, amazon, self) or AWS account ID that
 -- owns the snapshot.
 svOwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
-svOwnerAlias f x =
-    f (_svOwnerAlias x)
-        <&> \y -> x { _svOwnerAlias = y }
+svOwnerAlias = lens _svOwnerAlias (\s a -> s { _svOwnerAlias = a })
 {-# INLINE svOwnerAlias #-}
+
+-- | Indicates whether the snapshot is encrypted.
+svEncrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
+svEncrypted = lens _svEncrypted (\s a -> s { _svEncrypted = a })
+{-# INLINE svEncrypted #-}
 
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions

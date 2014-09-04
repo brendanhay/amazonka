@@ -37,7 +37,7 @@ module Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
     -- * Request
       DeletePlatformApplication
     -- ** Request constructor
-    , deletePlatformApplication
+    , mkDeletePlatformApplicationInput
     -- ** Request lenses
     , dpaiPlatformApplicationArn
 
@@ -49,24 +49,23 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeletePlatformApplication' request.
-deletePlatformApplication :: Text -- ^ 'dpaiPlatformApplicationArn'
-                          -> DeletePlatformApplication
-deletePlatformApplication p1 = DeletePlatformApplication
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePlatformApplication' request.
+mkDeletePlatformApplicationInput :: Text -- ^ 'dpaiPlatformApplicationArn'
+                                 -> DeletePlatformApplication
+mkDeletePlatformApplicationInput p1 = DeletePlatformApplication
     { _dpaiPlatformApplicationArn = p1
     }
-{-# INLINE deletePlatformApplication #-}
+{-# INLINE mkDeletePlatformApplicationInput #-}
 
-data DeletePlatformApplication = DeletePlatformApplication
+newtype DeletePlatformApplication = DeletePlatformApplication
     { _dpaiPlatformApplicationArn :: Text
       -- ^ PlatformApplicationArn of platform application object to delete.
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn of platform application object to delete.
 dpaiPlatformApplicationArn :: Lens' DeletePlatformApplication (Text)
-dpaiPlatformApplicationArn f x =
-    f (_dpaiPlatformApplicationArn x)
-        <&> \y -> x { _dpaiPlatformApplicationArn = y }
+dpaiPlatformApplicationArn = lens _dpaiPlatformApplicationArn (\s a -> s { _dpaiPlatformApplicationArn = a })
 {-# INLINE dpaiPlatformApplicationArn #-}
 
 instance ToQuery DeletePlatformApplication where

@@ -36,12 +36,12 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
     -- * Request
       DescribePolicies
     -- ** Request constructor
-    , describePolicies
+    , mkDescribePoliciesType
     -- ** Request lenses
-    , dpuMaxRecords
-    , dpuPolicyNames
     , dpuAutoScalingGroupName
+    , dpuPolicyNames
     , dpuNextToken
+    , dpuMaxRecords
 
     -- * Response
     , DescribePoliciesResponse
@@ -54,20 +54,20 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribePolicies' request.
-describePolicies :: DescribePolicies
-describePolicies = DescribePolicies
-    { _dpuMaxRecords = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePolicies' request.
+mkDescribePoliciesType :: DescribePolicies
+mkDescribePoliciesType = DescribePolicies
+    { _dpuAutoScalingGroupName = Nothing
     , _dpuPolicyNames = mempty
-    , _dpuAutoScalingGroupName = Nothing
     , _dpuNextToken = Nothing
+    , _dpuMaxRecords = Nothing
     }
-{-# INLINE describePolicies #-}
+{-# INLINE mkDescribePoliciesType #-}
 
 data DescribePolicies = DescribePolicies
-    { _dpuMaxRecords :: Maybe Integer
-      -- ^ The maximum number of policies that will be described with each
-      -- call.
+    { _dpuAutoScalingGroupName :: Maybe Text
+      -- ^ The name of the Auto Scaling group.
     , _dpuPolicyNames :: [Text]
       -- ^ A list of policy names or policy ARNs to be described. If this
       -- list is omitted, all policy names are described. If an auto
@@ -75,19 +75,18 @@ data DescribePolicies = DescribePolicies
       -- group. The list of requested policy names cannot contain more
       -- than 50 items. If unknown policy names are requested, they are
       -- ignored with no error.
-    , _dpuAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group.
     , _dpuNextToken :: Maybe Text
       -- ^ A string that is used to mark the start of the next batch of
       -- returned results for pagination.
+    , _dpuMaxRecords :: Maybe Integer
+      -- ^ The maximum number of policies that will be described with each
+      -- call.
     } deriving (Show, Generic)
 
--- | The maximum number of policies that will be described with each call.
-dpuMaxRecords :: Lens' DescribePolicies (Maybe Integer)
-dpuMaxRecords f x =
-    f (_dpuMaxRecords x)
-        <&> \y -> x { _dpuMaxRecords = y }
-{-# INLINE dpuMaxRecords #-}
+-- | The name of the Auto Scaling group.
+dpuAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
+dpuAutoScalingGroupName = lens _dpuAutoScalingGroupName (\s a -> s { _dpuAutoScalingGroupName = a })
+{-# INLINE dpuAutoScalingGroupName #-}
 
 -- | A list of policy names or policy ARNs to be described. If this list is
 -- omitted, all policy names are described. If an auto scaling group name is
@@ -95,25 +94,19 @@ dpuMaxRecords f x =
 -- policy names cannot contain more than 50 items. If unknown policy names are
 -- requested, they are ignored with no error.
 dpuPolicyNames :: Lens' DescribePolicies ([Text])
-dpuPolicyNames f x =
-    f (_dpuPolicyNames x)
-        <&> \y -> x { _dpuPolicyNames = y }
+dpuPolicyNames = lens _dpuPolicyNames (\s a -> s { _dpuPolicyNames = a })
 {-# INLINE dpuPolicyNames #-}
-
--- | The name of the Auto Scaling group.
-dpuAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
-dpuAutoScalingGroupName f x =
-    f (_dpuAutoScalingGroupName x)
-        <&> \y -> x { _dpuAutoScalingGroupName = y }
-{-# INLINE dpuAutoScalingGroupName #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
 dpuNextToken :: Lens' DescribePolicies (Maybe Text)
-dpuNextToken f x =
-    f (_dpuNextToken x)
-        <&> \y -> x { _dpuNextToken = y }
+dpuNextToken = lens _dpuNextToken (\s a -> s { _dpuNextToken = a })
 {-# INLINE dpuNextToken #-}
+
+-- | The maximum number of policies that will be described with each call.
+dpuMaxRecords :: Lens' DescribePolicies (Maybe Integer)
+dpuMaxRecords = lens _dpuMaxRecords (\s a -> s { _dpuMaxRecords = a })
+{-# INLINE dpuMaxRecords #-}
 
 instance ToQuery DescribePolicies where
     toQuery = genericQuery def
@@ -128,16 +121,12 @@ data DescribePoliciesResponse = DescribePoliciesResponse
 
 -- | A list of scaling policies.
 ptScalingPolicies :: Lens' DescribePoliciesResponse ([ScalingPolicy])
-ptScalingPolicies f x =
-    f (_ptScalingPolicies x)
-        <&> \y -> x { _ptScalingPolicies = y }
+ptScalingPolicies = lens _ptScalingPolicies (\s a -> s { _ptScalingPolicies = a })
 {-# INLINE ptScalingPolicies #-}
 
 -- | A string that marks the start of the next batch of returned results.
 ptNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
-ptNextToken f x =
-    f (_ptNextToken x)
-        <&> \y -> x { _ptNextToken = y }
+ptNextToken = lens _ptNextToken (\s a -> s { _ptNextToken = a })
 {-# INLINE ptNextToken #-}
 
 instance FromXML DescribePoliciesResponse where

@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments
     -- * Request
       DescribeDeployments
     -- ** Request constructor
-    , describeDeployments
+    , mkDescribeDeploymentsRequest
     -- ** Request lenses
     , ddrStackId
     , ddrAppId
@@ -44,14 +44,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeDeployments' request.
-describeDeployments :: DescribeDeployments
-describeDeployments = DescribeDeployments
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDeployments' request.
+mkDescribeDeploymentsRequest :: DescribeDeployments
+mkDescribeDeploymentsRequest = DescribeDeployments
     { _ddrStackId = Nothing
     , _ddrAppId = Nothing
     , _ddrDeploymentIds = mempty
     }
-{-# INLINE describeDeployments #-}
+{-# INLINE mkDescribeDeploymentsRequest #-}
 
 data DescribeDeployments = DescribeDeployments
     { _ddrStackId :: Maybe Text
@@ -72,26 +73,20 @@ data DescribeDeployments = DescribeDeployments
 -- | The stack ID. If you include this parameter, DescribeDeployments returns a
 -- description of the commands associated with the specified stack.
 ddrStackId :: Lens' DescribeDeployments (Maybe Text)
-ddrStackId f x =
-    f (_ddrStackId x)
-        <&> \y -> x { _ddrStackId = y }
+ddrStackId = lens _ddrStackId (\s a -> s { _ddrStackId = a })
 {-# INLINE ddrStackId #-}
 
 -- | The app ID. If you include this parameter, DescribeDeployments returns a
 -- description of the commands associated with the specified app.
 ddrAppId :: Lens' DescribeDeployments (Maybe Text)
-ddrAppId f x =
-    f (_ddrAppId x)
-        <&> \y -> x { _ddrAppId = y }
+ddrAppId = lens _ddrAppId (\s a -> s { _ddrAppId = a })
 {-# INLINE ddrAppId #-}
 
 -- | An array of deployment IDs to be described. If you include this parameter,
 -- DescribeDeployments returns a description of the specified deployments.
 -- Otherwise, it returns a description of every deployment.
 ddrDeploymentIds :: Lens' DescribeDeployments ([Text])
-ddrDeploymentIds f x =
-    f (_ddrDeploymentIds x)
-        <&> \y -> x { _ddrDeploymentIds = y }
+ddrDeploymentIds = lens _ddrDeploymentIds (\s a -> s { _ddrDeploymentIds = a })
 {-# INLINE ddrDeploymentIds #-}
 
 instance ToPath DescribeDeployments
@@ -102,16 +97,14 @@ instance ToHeaders DescribeDeployments
 
 instance ToJSON DescribeDeployments
 
-data DescribeDeploymentsResponse = DescribeDeploymentsResponse
+newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddsDeployments :: [Deployment]
       -- ^ An array of Deployment objects that describe the deployments.
     } deriving (Show, Generic)
 
 -- | An array of Deployment objects that describe the deployments.
 ddsDeployments :: Lens' DescribeDeploymentsResponse ([Deployment])
-ddsDeployments f x =
-    f (_ddsDeployments x)
-        <&> \y -> x { _ddsDeployments = y }
+ddsDeployments = lens _ddsDeployments (\s a -> s { _ddsDeployments = a })
 {-# INLINE ddsDeployments #-}
 
 instance FromJSON DescribeDeploymentsResponse

@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketPolicy
     -- * Request
       DeleteBucketPolicy
     -- ** Request constructor
-    , deleteBucketPolicy
+    , mkDeleteBucketPolicyRequest
     -- ** Request lenses
     , dbprBucket
 
@@ -35,22 +35,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteBucketPolicy' request.
-deleteBucketPolicy :: BucketName -- ^ 'dbprBucket'
-                   -> DeleteBucketPolicy
-deleteBucketPolicy p1 = DeleteBucketPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketPolicy' request.
+mkDeleteBucketPolicyRequest :: BucketName -- ^ 'dbprBucket'
+                            -> DeleteBucketPolicy
+mkDeleteBucketPolicyRequest p1 = DeleteBucketPolicy
     { _dbprBucket = p1
     }
-{-# INLINE deleteBucketPolicy #-}
+{-# INLINE mkDeleteBucketPolicyRequest #-}
 
-data DeleteBucketPolicy = DeleteBucketPolicy
+newtype DeleteBucketPolicy = DeleteBucketPolicy
     { _dbprBucket :: BucketName
     } deriving (Show, Generic)
 
 dbprBucket :: Lens' DeleteBucketPolicy (BucketName)
-dbprBucket f x =
-    f (_dbprBucket x)
-        <&> \y -> x { _dbprBucket = y }
+dbprBucket = lens _dbprBucket (\s a -> s { _dbprBucket = a })
 {-# INLINE dbprBucket #-}
 
 instance ToPath DeleteBucketPolicy where

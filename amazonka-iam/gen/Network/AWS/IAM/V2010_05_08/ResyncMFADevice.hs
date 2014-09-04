@@ -26,12 +26,12 @@ module Network.AWS.IAM.V2010_05_08.ResyncMFADevice
     -- * Request
       ResyncMFADevice
     -- ** Request constructor
-    , resyncMFADevice
+    , mkResyncMFADeviceRequest
     -- ** Request lenses
-    , rmfadrAuthenticationCode1
-    , rmfadrAuthenticationCode2
     , rmfadrUserName
     , rmfadrSerialNumber
+    , rmfadrAuthenticationCode1
+    , rmfadrAuthenticationCode2
 
     -- * Response
     , ResyncMFADeviceResponse
@@ -41,58 +41,51 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResyncMFADevice' request.
-resyncMFADevice :: Text -- ^ 'rmfadrAuthenticationCode1'
-                -> Text -- ^ 'rmfadrAuthenticationCode2'
-                -> Text -- ^ 'rmfadrUserName'
-                -> Text -- ^ 'rmfadrSerialNumber'
-                -> ResyncMFADevice
-resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
-    { _rmfadrAuthenticationCode1 = p1
-    , _rmfadrAuthenticationCode2 = p2
-    , _rmfadrUserName = p3
-    , _rmfadrSerialNumber = p4
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResyncMFADevice' request.
+mkResyncMFADeviceRequest :: Text -- ^ 'rmfadrUserName'
+                         -> Text -- ^ 'rmfadrSerialNumber'
+                         -> Text -- ^ 'rmfadrAuthenticationCode1'
+                         -> Text -- ^ 'rmfadrAuthenticationCode2'
+                         -> ResyncMFADevice
+mkResyncMFADeviceRequest p1 p2 p3 p4 = ResyncMFADevice
+    { _rmfadrUserName = p1
+    , _rmfadrSerialNumber = p2
+    , _rmfadrAuthenticationCode1 = p3
+    , _rmfadrAuthenticationCode2 = p4
     }
-{-# INLINE resyncMFADevice #-}
+{-# INLINE mkResyncMFADeviceRequest #-}
 
 data ResyncMFADevice = ResyncMFADevice
-    { _rmfadrAuthenticationCode1 :: Text
-      -- ^ An authentication code emitted by the device.
-    , _rmfadrAuthenticationCode2 :: Text
-      -- ^ A subsequent authentication code emitted by the device.
-    , _rmfadrUserName :: Text
+    { _rmfadrUserName :: Text
       -- ^ Name of the user whose MFA device you want to resynchronize.
     , _rmfadrSerialNumber :: Text
       -- ^ Serial number that uniquely identifies the MFA device.
+    , _rmfadrAuthenticationCode1 :: Text
+      -- ^ An authentication code emitted by the device.
+    , _rmfadrAuthenticationCode2 :: Text
+      -- ^ A subsequent authentication code emitted by the device.
     } deriving (Show, Generic)
-
--- | An authentication code emitted by the device.
-rmfadrAuthenticationCode1 :: Lens' ResyncMFADevice (Text)
-rmfadrAuthenticationCode1 f x =
-    f (_rmfadrAuthenticationCode1 x)
-        <&> \y -> x { _rmfadrAuthenticationCode1 = y }
-{-# INLINE rmfadrAuthenticationCode1 #-}
-
--- | A subsequent authentication code emitted by the device.
-rmfadrAuthenticationCode2 :: Lens' ResyncMFADevice (Text)
-rmfadrAuthenticationCode2 f x =
-    f (_rmfadrAuthenticationCode2 x)
-        <&> \y -> x { _rmfadrAuthenticationCode2 = y }
-{-# INLINE rmfadrAuthenticationCode2 #-}
 
 -- | Name of the user whose MFA device you want to resynchronize.
 rmfadrUserName :: Lens' ResyncMFADevice (Text)
-rmfadrUserName f x =
-    f (_rmfadrUserName x)
-        <&> \y -> x { _rmfadrUserName = y }
+rmfadrUserName = lens _rmfadrUserName (\s a -> s { _rmfadrUserName = a })
 {-# INLINE rmfadrUserName #-}
 
 -- | Serial number that uniquely identifies the MFA device.
 rmfadrSerialNumber :: Lens' ResyncMFADevice (Text)
-rmfadrSerialNumber f x =
-    f (_rmfadrSerialNumber x)
-        <&> \y -> x { _rmfadrSerialNumber = y }
+rmfadrSerialNumber = lens _rmfadrSerialNumber (\s a -> s { _rmfadrSerialNumber = a })
 {-# INLINE rmfadrSerialNumber #-}
+
+-- | An authentication code emitted by the device.
+rmfadrAuthenticationCode1 :: Lens' ResyncMFADevice (Text)
+rmfadrAuthenticationCode1 = lens _rmfadrAuthenticationCode1 (\s a -> s { _rmfadrAuthenticationCode1 = a })
+{-# INLINE rmfadrAuthenticationCode1 #-}
+
+-- | A subsequent authentication code emitted by the device.
+rmfadrAuthenticationCode2 :: Lens' ResyncMFADevice (Text)
+rmfadrAuthenticationCode2 = lens _rmfadrAuthenticationCode2 (\s a -> s { _rmfadrAuthenticationCode2 = a })
+{-# INLINE rmfadrAuthenticationCode2 #-}
 
 instance ToQuery ResyncMFADevice where
     toQuery = genericQuery def

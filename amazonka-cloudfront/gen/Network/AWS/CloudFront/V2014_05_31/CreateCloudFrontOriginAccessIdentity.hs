@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity
     -- * Request
       CreateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , createCloudFrontOriginAccessIdentity
+    , mkCreateCloudFrontOriginAccessIdentityRequest
     -- ** Request lenses
     , ccfoairCloudFrontOriginAccessIdentityConfig
 
@@ -39,24 +39,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateCloudFrontOriginAccessIdentity' request.
-createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoairCloudFrontOriginAccessIdentityConfig'
-                                     -> CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCloudFrontOriginAccessIdentity' request.
+mkCreateCloudFrontOriginAccessIdentityRequest :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoairCloudFrontOriginAccessIdentityConfig'
+                                              -> CreateCloudFrontOriginAccessIdentity
+mkCreateCloudFrontOriginAccessIdentityRequest p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoairCloudFrontOriginAccessIdentityConfig = p1
     }
-{-# INLINE createCloudFrontOriginAccessIdentity #-}
+{-# INLINE mkCreateCloudFrontOriginAccessIdentityRequest #-}
 
-data CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
+newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoairCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
       -- ^ The origin access identity's configuration information.
     } deriving (Show, Generic)
 
 -- | The origin access identity's configuration information.
 ccfoairCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity (CloudFrontOriginAccessIdentityConfig)
-ccfoairCloudFrontOriginAccessIdentityConfig f x =
-    f (_ccfoairCloudFrontOriginAccessIdentityConfig x)
-        <&> \y -> x { _ccfoairCloudFrontOriginAccessIdentityConfig = y }
+ccfoairCloudFrontOriginAccessIdentityConfig = lens _ccfoairCloudFrontOriginAccessIdentityConfig (\s a -> s { _ccfoairCloudFrontOriginAccessIdentityConfig = a })
 {-# INLINE ccfoairCloudFrontOriginAccessIdentityConfig #-}
 
 instance ToPath CreateCloudFrontOriginAccessIdentity where
@@ -84,9 +83,7 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 
 -- | The origin access identity's information.
 ccfoaisCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ccfoaisCloudFrontOriginAccessIdentity f x =
-    f (_ccfoaisCloudFrontOriginAccessIdentity x)
-        <&> \y -> x { _ccfoaisCloudFrontOriginAccessIdentity = y }
+ccfoaisCloudFrontOriginAccessIdentity = lens _ccfoaisCloudFrontOriginAccessIdentity (\s a -> s { _ccfoaisCloudFrontOriginAccessIdentity = a })
 {-# INLINE ccfoaisCloudFrontOriginAccessIdentity #-}
 
 -- | The fully qualified URI of the new origin access identity just created. For
@@ -94,16 +91,12 @@ ccfoaisCloudFrontOriginAccessIdentity f x =
 -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
 -- 
 ccfoaisLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoaisLocation f x =
-    f (_ccfoaisLocation x)
-        <&> \y -> x { _ccfoaisLocation = y }
+ccfoaisLocation = lens _ccfoaisLocation (\s a -> s { _ccfoaisLocation = a })
 {-# INLINE ccfoaisLocation #-}
 
 -- | The current version of the origin access identity created.
 ccfoaisETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoaisETag f x =
-    f (_ccfoaisETag x)
-        <&> \y -> x { _ccfoaisETag = y }
+ccfoaisETag = lens _ccfoaisETag (\s a -> s { _ccfoaisETag = a })
 {-# INLINE ccfoaisETag #-}
 
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where

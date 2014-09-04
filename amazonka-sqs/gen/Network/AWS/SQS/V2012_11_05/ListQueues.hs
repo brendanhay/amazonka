@@ -33,7 +33,7 @@ module Network.AWS.SQS.V2012_11_05.ListQueues
     -- * Request
       ListQueues
     -- ** Request constructor
-    , listQueues
+    , mkListQueuesRequest
     -- ** Request lenses
     , lqrQueueNamePrefix
 
@@ -47,14 +47,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListQueues' request.
-listQueues :: ListQueues
-listQueues = ListQueues
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListQueues' request.
+mkListQueuesRequest :: ListQueues
+mkListQueuesRequest = ListQueues
     { _lqrQueueNamePrefix = Nothing
     }
-{-# INLINE listQueues #-}
+{-# INLINE mkListQueuesRequest #-}
 
-data ListQueues = ListQueues
+newtype ListQueues = ListQueues
     { _lqrQueueNamePrefix :: Maybe Text
       -- ^ A string to use for filtering the list results. Only those queues
       -- whose name begins with the specified string are returned.
@@ -63,24 +64,20 @@ data ListQueues = ListQueues
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
 lqrQueueNamePrefix :: Lens' ListQueues (Maybe Text)
-lqrQueueNamePrefix f x =
-    f (_lqrQueueNamePrefix x)
-        <&> \y -> x { _lqrQueueNamePrefix = y }
+lqrQueueNamePrefix = lens _lqrQueueNamePrefix (\s a -> s { _lqrQueueNamePrefix = a })
 {-# INLINE lqrQueueNamePrefix #-}
 
 instance ToQuery ListQueues where
     toQuery = genericQuery def
 
-data ListQueuesResponse = ListQueuesResponse
+newtype ListQueuesResponse = ListQueuesResponse
     { _lqsQueueUrls :: [Text]
       -- ^ A list of queue URLs, up to 1000 entries.
     } deriving (Show, Generic)
 
 -- | A list of queue URLs, up to 1000 entries.
 lqsQueueUrls :: Lens' ListQueuesResponse ([Text])
-lqsQueueUrls f x =
-    f (_lqsQueueUrls x)
-        <&> \y -> x { _lqsQueueUrls = y }
+lqsQueueUrls = lens _lqsQueueUrls (\s a -> s { _lqsQueueUrls = a })
 {-# INLINE lqsQueueUrls #-}
 
 instance FromXML ListQueuesResponse where

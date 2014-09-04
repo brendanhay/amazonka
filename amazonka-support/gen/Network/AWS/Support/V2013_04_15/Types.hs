@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -33,21 +34,24 @@ module Network.AWS.Support.V2013_04_15.Types
     -- ** Errors
     , Er (..)
     -- * TrustedAdvisorCategorySpecificSummary
-    , TrustedAdvisorCategorySpecificSummary (..)
+    , TrustedAdvisorCategorySpecificSummary
+    , mkTrustedAdvisorCategorySpecificSummary
     , tacssCostOptimizing
 
     -- * Attachment
-    , Attachment (..)
+    , Attachment
+    , mkAttachment
     , bFileName
     , bData
 
     -- * AttachmentDetails
-    , AttachmentDetails (..)
+    , AttachmentDetails
+    , mkAttachmentDetails
     , adAttachmentId
     , adFileName
 
     -- * CaseDetails
-    , CaseDetails (..)
+    , CaseDetails
     , ceCaseId
     , ceDisplayId
     , ceSubject
@@ -62,12 +66,14 @@ module Network.AWS.Support.V2013_04_15.Types
     , ceLanguage
 
     -- * Category
-    , Category (..)
+    , Category
+    , mkCategory
     , hCode
     , hName
 
     -- * Communication
-    , Communication (..)
+    , Communication
+    , mkCommunication
     , fCaseId
     , fBody
     , fSubmittedBy
@@ -75,23 +81,24 @@ module Network.AWS.Support.V2013_04_15.Types
     , fAttachmentSet
 
     -- * RecentCaseCommunications
-    , RecentCaseCommunications (..)
+    , RecentCaseCommunications
+    , mkRecentCaseCommunications
     , rccCommunications
     , rccNextToken
 
     -- * Service
-    , Service (..)
+    , Service
     , vCode
     , vName
     , vCategories
 
     -- * SeverityLevel
-    , SeverityLevel (..)
+    , SeverityLevel
     , smCode
     , smName
 
     -- * TrustedAdvisorCheckDescription
-    , TrustedAdvisorCheckDescription (..)
+    , TrustedAdvisorCheckDescription
     , tacdId
     , tacdName
     , tacdDescription
@@ -99,13 +106,13 @@ module Network.AWS.Support.V2013_04_15.Types
     , tacdMetadata
 
     -- * TrustedAdvisorCheckRefreshStatus
-    , TrustedAdvisorCheckRefreshStatus (..)
+    , TrustedAdvisorCheckRefreshStatus
     , tacrsCheckId
     , tacrsStatus
     , tacrsMillisUntilNextRefreshable
 
     -- * TrustedAdvisorCheckResult
-    , TrustedAdvisorCheckResult (..)
+    , TrustedAdvisorCheckResult
     , tacrCheckId
     , tacrTimestamp
     , tacrStatus
@@ -114,7 +121,7 @@ module Network.AWS.Support.V2013_04_15.Types
     , tacrFlaggedResources
 
     -- * TrustedAdvisorCheckSummary
-    , TrustedAdvisorCheckSummary (..)
+    , TrustedAdvisorCheckSummary
     , tacsCheckId
     , tacsTimestamp
     , tacsStatus
@@ -123,12 +130,13 @@ module Network.AWS.Support.V2013_04_15.Types
     , tacsCategorySpecificSummary
 
     -- * TrustedAdvisorCostOptimizingSummary
-    , TrustedAdvisorCostOptimizingSummary (..)
+    , TrustedAdvisorCostOptimizingSummary
+    , mkTrustedAdvisorCostOptimizingSummary
     , tacosEstimatedMonthlySavings
     , tacosEstimatedPercentMonthlySavings
 
     -- * TrustedAdvisorResourceDetail
-    , TrustedAdvisorResourceDetail (..)
+    , TrustedAdvisorResourceDetail
     , tardStatus
     , tardRegion
     , tardResourceId
@@ -136,12 +144,12 @@ module Network.AWS.Support.V2013_04_15.Types
     , tardMetadata
 
     -- * TrustedAdvisorResourcesSummary
-    , TrustedAdvisorResourcesSummary (..)
+    , TrustedAdvisorResourcesSummary
+    , mkTrustedAdvisorResourcesSummary
     , tarsResourcesProcessed
     , tarsResourcesFlagged
     , tarsResourcesIgnored
     , tarsResourcesSuppressed
-
     ) where
 
 import Network.AWS.Prelude
@@ -216,10 +224,16 @@ newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSu
 -- | The summary information about cost savings for a Trusted Advisor check that
 -- is in the Cost Optimizing category.
 tacssCostOptimizing :: Lens' TrustedAdvisorCategorySpecificSummary (Maybe TrustedAdvisorCostOptimizingSummary)
-tacssCostOptimizing f x =
-    f (_tacssCostOptimizing x)
-        <&> \y -> x { _tacssCostOptimizing = y }
+tacssCostOptimizing = lens _tacssCostOptimizing (\s a -> s { _tacssCostOptimizing = a })
 {-# INLINE tacssCostOptimizing #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TrustedAdvisorCategorySpecificSummary' data type to populate a request.
+mkTrustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+mkTrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
+    { _tacssCostOptimizing = Nothing
+    }
+{-# INLINE mkTrustedAdvisorCategorySpecificSummary #-}
 
 instance FromJSON TrustedAdvisorCategorySpecificSummary
 
@@ -236,17 +250,22 @@ data Attachment = Attachment
 
 -- | The name of the attachment file.
 bFileName :: Lens' Attachment (Maybe Text)
-bFileName f x =
-    f (_bFileName x)
-        <&> \y -> x { _bFileName = y }
+bFileName = lens _bFileName (\s a -> s { _bFileName = a })
 {-# INLINE bFileName #-}
 
 -- | The content of the attachment file.
 bData :: Lens' Attachment (Maybe Base64)
-bData f x =
-    f (_bData x)
-        <&> \y -> x { _bData = y }
+bData = lens _bData (\s a -> s { _bData = a })
 {-# INLINE bData #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Attachment' data type to populate a request.
+mkAttachment :: Attachment
+mkAttachment = Attachment
+    { _bFileName = Nothing
+    , _bData = Nothing
+    }
+{-# INLINE mkAttachment #-}
 
 instance FromJSON Attachment
 
@@ -263,17 +282,22 @@ data AttachmentDetails = AttachmentDetails
 
 -- | The ID of the attachment.
 adAttachmentId :: Lens' AttachmentDetails (Maybe Text)
-adAttachmentId f x =
-    f (_adAttachmentId x)
-        <&> \y -> x { _adAttachmentId = y }
+adAttachmentId = lens _adAttachmentId (\s a -> s { _adAttachmentId = a })
 {-# INLINE adAttachmentId #-}
 
 -- | The file name of the attachment.
 adFileName :: Lens' AttachmentDetails (Maybe Text)
-adFileName f x =
-    f (_adFileName x)
-        <&> \y -> x { _adFileName = y }
+adFileName = lens _adFileName (\s a -> s { _adFileName = a })
 {-# INLINE adFileName #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AttachmentDetails' data type to populate a request.
+mkAttachmentDetails :: AttachmentDetails
+mkAttachmentDetails = AttachmentDetails
+    { _adAttachmentId = Nothing
+    , _adFileName = Nothing
+    }
+{-# INLINE mkAttachmentDetails #-}
 
 instance FromJSON AttachmentDetails
 
@@ -344,92 +368,68 @@ data CaseDetails = CaseDetails
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 ceCaseId :: Lens' CaseDetails (Maybe Text)
-ceCaseId f x =
-    f (_ceCaseId x)
-        <&> \y -> x { _ceCaseId = y }
+ceCaseId = lens _ceCaseId (\s a -> s { _ceCaseId = a })
 {-# INLINE ceCaseId #-}
 
 -- | The ID displayed for the case in the AWS Support Center. This is a numeric
 -- string.
 ceDisplayId :: Lens' CaseDetails (Maybe Text)
-ceDisplayId f x =
-    f (_ceDisplayId x)
-        <&> \y -> x { _ceDisplayId = y }
+ceDisplayId = lens _ceDisplayId (\s a -> s { _ceDisplayId = a })
 {-# INLINE ceDisplayId #-}
 
 -- | The subject line for the case in the AWS Support Center.
 ceSubject :: Lens' CaseDetails (Maybe Text)
-ceSubject f x =
-    f (_ceSubject x)
-        <&> \y -> x { _ceSubject = y }
+ceSubject = lens _ceSubject (\s a -> s { _ceSubject = a })
 {-# INLINE ceSubject #-}
 
 -- | The status of the case.
 ceStatus :: Lens' CaseDetails (Maybe Text)
-ceStatus f x =
-    f (_ceStatus x)
-        <&> \y -> x { _ceStatus = y }
+ceStatus = lens _ceStatus (\s a -> s { _ceStatus = a })
 {-# INLINE ceStatus #-}
 
 -- | The code for the AWS service returned by the call to DescribeServices.
 ceServiceCode :: Lens' CaseDetails (Maybe Text)
-ceServiceCode f x =
-    f (_ceServiceCode x)
-        <&> \y -> x { _ceServiceCode = y }
+ceServiceCode = lens _ceServiceCode (\s a -> s { _ceServiceCode = a })
 {-# INLINE ceServiceCode #-}
 
 -- | The category of problem for the AWS Support case.
 ceCategoryCode :: Lens' CaseDetails (Maybe Text)
-ceCategoryCode f x =
-    f (_ceCategoryCode x)
-        <&> \y -> x { _ceCategoryCode = y }
+ceCategoryCode = lens _ceCategoryCode (\s a -> s { _ceCategoryCode = a })
 {-# INLINE ceCategoryCode #-}
 
 -- | The code for the severity level returned by the call to
 -- DescribeSeverityLevels.
 ceSeverityCode :: Lens' CaseDetails (Maybe Text)
-ceSeverityCode f x =
-    f (_ceSeverityCode x)
-        <&> \y -> x { _ceSeverityCode = y }
+ceSeverityCode = lens _ceSeverityCode (\s a -> s { _ceSeverityCode = a })
 {-# INLINE ceSeverityCode #-}
 
 -- | The email address of the account that submitted the case.
 ceSubmittedBy :: Lens' CaseDetails (Maybe Text)
-ceSubmittedBy f x =
-    f (_ceSubmittedBy x)
-        <&> \y -> x { _ceSubmittedBy = y }
+ceSubmittedBy = lens _ceSubmittedBy (\s a -> s { _ceSubmittedBy = a })
 {-# INLINE ceSubmittedBy #-}
 
 -- | The time that the case was case created in the AWS Support Center.
 ceTimeCreated :: Lens' CaseDetails (Maybe Text)
-ceTimeCreated f x =
-    f (_ceTimeCreated x)
-        <&> \y -> x { _ceTimeCreated = y }
+ceTimeCreated = lens _ceTimeCreated (\s a -> s { _ceTimeCreated = a })
 {-# INLINE ceTimeCreated #-}
 
 -- | The five most recent communications between you and AWS Support Center,
 -- including the IDs of any attachments to the communications. Also includes a
 -- nextToken that you can use to retrieve earlier communications.
 ceRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
-ceRecentCommunications f x =
-    f (_ceRecentCommunications x)
-        <&> \y -> x { _ceRecentCommunications = y }
+ceRecentCommunications = lens _ceRecentCommunications (\s a -> s { _ceRecentCommunications = a })
 {-# INLINE ceRecentCommunications #-}
 
 -- | The email addresses that receive copies of communication about the case.
 ceCcEmailAddresses :: Lens' CaseDetails ([Text])
-ceCcEmailAddresses f x =
-    f (_ceCcEmailAddresses x)
-        <&> \y -> x { _ceCcEmailAddresses = y }
+ceCcEmailAddresses = lens _ceCcEmailAddresses (\s a -> s { _ceCcEmailAddresses = a })
 {-# INLINE ceCcEmailAddresses #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 ceLanguage :: Lens' CaseDetails (Maybe Text)
-ceLanguage f x =
-    f (_ceLanguage x)
-        <&> \y -> x { _ceLanguage = y }
+ceLanguage = lens _ceLanguage (\s a -> s { _ceLanguage = a })
 {-# INLINE ceLanguage #-}
 
 instance FromJSON CaseDetails
@@ -446,17 +446,22 @@ data Category = Category
 
 -- | The category code for the support case.
 hCode :: Lens' Category (Maybe Text)
-hCode f x =
-    f (_hCode x)
-        <&> \y -> x { _hCode = y }
+hCode = lens _hCode (\s a -> s { _hCode = a })
 {-# INLINE hCode #-}
 
 -- | The category name for the support case.
 hName :: Lens' Category (Maybe Text)
-hName f x =
-    f (_hName x)
-        <&> \y -> x { _hName = y }
+hName = lens _hName (\s a -> s { _hName = a })
 {-# INLINE hName #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Category' data type to populate a request.
+mkCategory :: Category
+mkCategory = Category
+    { _hCode = Nothing
+    , _hName = Nothing
+    }
+{-# INLINE mkCategory #-}
 
 instance FromJSON Category
 
@@ -486,38 +491,40 @@ data Communication = Communication
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 fCaseId :: Lens' Communication (Maybe Text)
-fCaseId f x =
-    f (_fCaseId x)
-        <&> \y -> x { _fCaseId = y }
+fCaseId = lens _fCaseId (\s a -> s { _fCaseId = a })
 {-# INLINE fCaseId #-}
 
 -- | The text of the communication between the customer and AWS Support.
 fBody :: Lens' Communication (Maybe Text)
-fBody f x =
-    f (_fBody x)
-        <&> \y -> x { _fBody = y }
+fBody = lens _fBody (\s a -> s { _fBody = a })
 {-# INLINE fBody #-}
 
 -- | The email address of the account that submitted the AWS Support case.
 fSubmittedBy :: Lens' Communication (Maybe Text)
-fSubmittedBy f x =
-    f (_fSubmittedBy x)
-        <&> \y -> x { _fSubmittedBy = y }
+fSubmittedBy = lens _fSubmittedBy (\s a -> s { _fSubmittedBy = a })
 {-# INLINE fSubmittedBy #-}
 
 -- | The time the communication was created.
 fTimeCreated :: Lens' Communication (Maybe Text)
-fTimeCreated f x =
-    f (_fTimeCreated x)
-        <&> \y -> x { _fTimeCreated = y }
+fTimeCreated = lens _fTimeCreated (\s a -> s { _fTimeCreated = a })
 {-# INLINE fTimeCreated #-}
 
 -- | Information about the attachments to the case communication.
 fAttachmentSet :: Lens' Communication ([AttachmentDetails])
-fAttachmentSet f x =
-    f (_fAttachmentSet x)
-        <&> \y -> x { _fAttachmentSet = y }
+fAttachmentSet = lens _fAttachmentSet (\s a -> s { _fAttachmentSet = a })
 {-# INLINE fAttachmentSet #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Communication' data type to populate a request.
+mkCommunication :: Communication
+mkCommunication = Communication
+    { _fCaseId = Nothing
+    , _fBody = Nothing
+    , _fSubmittedBy = Nothing
+    , _fTimeCreated = Nothing
+    , _fAttachmentSet = mempty
+    }
+{-# INLINE mkCommunication #-}
 
 instance FromJSON Communication
 
@@ -535,17 +542,22 @@ data RecentCaseCommunications = RecentCaseCommunications
 
 -- | The five most recent communications associated with the case.
 rccCommunications :: Lens' RecentCaseCommunications ([Communication])
-rccCommunications f x =
-    f (_rccCommunications x)
-        <&> \y -> x { _rccCommunications = y }
+rccCommunications = lens _rccCommunications (\s a -> s { _rccCommunications = a })
 {-# INLINE rccCommunications #-}
 
 -- | A resumption point for pagination.
 rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
-rccNextToken f x =
-    f (_rccNextToken x)
-        <&> \y -> x { _rccNextToken = y }
+rccNextToken = lens _rccNextToken (\s a -> s { _rccNextToken = a })
 {-# INLINE rccNextToken #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'RecentCaseCommunications' data type to populate a request.
+mkRecentCaseCommunications :: RecentCaseCommunications
+mkRecentCaseCommunications = RecentCaseCommunications
+    { _rccCommunications = mempty
+    , _rccNextToken = Nothing
+    }
+{-# INLINE mkRecentCaseCommunications #-}
 
 instance FromJSON RecentCaseCommunications
 
@@ -571,17 +583,13 @@ data Service = Service
 -- | The code for an AWS service returned by the DescribeServices response. The
 -- Name element contains the corresponding friendly name.
 vCode :: Lens' Service (Maybe Text)
-vCode f x =
-    f (_vCode x)
-        <&> \y -> x { _vCode = y }
+vCode = lens _vCode (\s a -> s { _vCode = a })
 {-# INLINE vCode #-}
 
 -- | The friendly name for an AWS service. The Code element contains the
 -- corresponding code.
 vName :: Lens' Service (Maybe Text)
-vName f x =
-    f (_vName x)
-        <&> \y -> x { _vName = y }
+vName = lens _vName (\s a -> s { _vName = a })
 {-# INLINE vName #-}
 
 -- | A list of categories that describe the type of support issue a case
@@ -589,9 +597,7 @@ vName f x =
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
 vCategories :: Lens' Service ([Category])
-vCategories f x =
-    f (_vCategories x)
-        <&> \y -> x { _vCategories = y }
+vCategories = lens _vCategories (\s a -> s { _vCategories = a })
 {-# INLINE vCategories #-}
 
 instance FromJSON Service
@@ -611,16 +617,12 @@ data SeverityLevel = SeverityLevel
 -- | One of four values: "low," "medium," "high," and "urgent". These values
 -- correspond to response times returned to the caller in SeverityLevel.name.
 smCode :: Lens' SeverityLevel (Maybe Text)
-smCode f x =
-    f (_smCode x)
-        <&> \y -> x { _smCode = y }
+smCode = lens _smCode (\s a -> s { _smCode = a })
 {-# INLINE smCode #-}
 
 -- | The name of the severity level that corresponds to the severity level code.
 smName :: Lens' SeverityLevel (Maybe Text)
-smName f x =
-    f (_smName x)
-        <&> \y -> x { _smName = y }
+smName = lens _smName (\s a -> s { _smName = a })
 {-# INLINE smName #-}
 
 instance FromJSON SeverityLevel
@@ -647,31 +649,23 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
 
 -- | The unique identifier for the Trusted Advisor check.
 tacdId :: Lens' TrustedAdvisorCheckDescription (Text)
-tacdId f x =
-    f (_tacdId x)
-        <&> \y -> x { _tacdId = y }
+tacdId = lens _tacdId (\s a -> s { _tacdId = a })
 {-# INLINE tacdId #-}
 
 -- | The display name for the Trusted Advisor check.
 tacdName :: Lens' TrustedAdvisorCheckDescription (Text)
-tacdName f x =
-    f (_tacdName x)
-        <&> \y -> x { _tacdName = y }
+tacdName = lens _tacdName (\s a -> s { _tacdName = a })
 {-# INLINE tacdName #-}
 
 -- | The description of the Trusted Advisor check, which includes the alert
 -- criteria and recommended actions (contains HTML markup).
 tacdDescription :: Lens' TrustedAdvisorCheckDescription (Text)
-tacdDescription f x =
-    f (_tacdDescription x)
-        <&> \y -> x { _tacdDescription = y }
+tacdDescription = lens _tacdDescription (\s a -> s { _tacdDescription = a })
 {-# INLINE tacdDescription #-}
 
 -- | The category of the Trusted Advisor check.
 tacdCategory :: Lens' TrustedAdvisorCheckDescription (Text)
-tacdCategory f x =
-    f (_tacdCategory x)
-        <&> \y -> x { _tacdCategory = y }
+tacdCategory = lens _tacdCategory (\s a -> s { _tacdCategory = a })
 {-# INLINE tacdCategory #-}
 
 -- | The column headings for the data returned by the Trusted Advisor check. The
@@ -680,9 +674,7 @@ tacdCategory f x =
 -- contains all the data that is shown in the Excel download, even in those
 -- cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription ([Text])
-tacdMetadata f x =
-    f (_tacdMetadata x)
-        <&> \y -> x { _tacdMetadata = y }
+tacdMetadata = lens _tacdMetadata (\s a -> s { _tacdMetadata = a })
 {-# INLINE tacdMetadata #-}
 
 instance FromJSON TrustedAdvisorCheckDescription
@@ -702,25 +694,19 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrsCheckId :: Lens' TrustedAdvisorCheckRefreshStatus (Text)
-tacrsCheckId f x =
-    f (_tacrsCheckId x)
-        <&> \y -> x { _tacrsCheckId = y }
+tacrsCheckId = lens _tacrsCheckId (\s a -> s { _tacrsCheckId = a })
 {-# INLINE tacrsCheckId #-}
 
 -- | The status of the Trusted Advisor check for which a refresh has been
 -- requested: "none", "enqueued", "processing", "success", or "abandoned".
 tacrsStatus :: Lens' TrustedAdvisorCheckRefreshStatus (Text)
-tacrsStatus f x =
-    f (_tacrsStatus x)
-        <&> \y -> x { _tacrsStatus = y }
+tacrsStatus = lens _tacrsStatus (\s a -> s { _tacrsStatus = a })
 {-# INLINE tacrsStatus #-}
 
 -- | The amount of time, in milliseconds, until the Trusted Advisor check is
 -- eligible for refresh.
 tacrsMillisUntilNextRefreshable :: Lens' TrustedAdvisorCheckRefreshStatus (Integer)
-tacrsMillisUntilNextRefreshable f x =
-    f (_tacrsMillisUntilNextRefreshable x)
-        <&> \y -> x { _tacrsMillisUntilNextRefreshable = y }
+tacrsMillisUntilNextRefreshable = lens _tacrsMillisUntilNextRefreshable (\s a -> s { _tacrsMillisUntilNextRefreshable = a })
 {-# INLINE tacrsMillisUntilNextRefreshable #-}
 
 instance FromJSON TrustedAdvisorCheckRefreshStatus
@@ -746,47 +732,35 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrCheckId :: Lens' TrustedAdvisorCheckResult (Text)
-tacrCheckId f x =
-    f (_tacrCheckId x)
-        <&> \y -> x { _tacrCheckId = y }
+tacrCheckId = lens _tacrCheckId (\s a -> s { _tacrCheckId = a })
 {-# INLINE tacrCheckId #-}
 
 -- | The time of the last refresh of the check.
 tacrTimestamp :: Lens' TrustedAdvisorCheckResult (Text)
-tacrTimestamp f x =
-    f (_tacrTimestamp x)
-        <&> \y -> x { _tacrTimestamp = y }
+tacrTimestamp = lens _tacrTimestamp (\s a -> s { _tacrTimestamp = a })
 {-# INLINE tacrTimestamp #-}
 
 -- | The alert status of the check: "ok" (green), "warning" (yellow), "error"
 -- (red), or "not_available".
 tacrStatus :: Lens' TrustedAdvisorCheckResult (Text)
-tacrStatus f x =
-    f (_tacrStatus x)
-        <&> \y -> x { _tacrStatus = y }
+tacrStatus = lens _tacrStatus (\s a -> s { _tacrStatus = a })
 {-# INLINE tacrStatus #-}
 
 -- | Details about AWS resources that were analyzed in a call to Trusted Advisor
 -- DescribeTrustedAdvisorCheckSummaries.
 tacrResourcesSummary :: Lens' TrustedAdvisorCheckResult (TrustedAdvisorResourcesSummary)
-tacrResourcesSummary f x =
-    f (_tacrResourcesSummary x)
-        <&> \y -> x { _tacrResourcesSummary = y }
+tacrResourcesSummary = lens _tacrResourcesSummary (\s a -> s { _tacrResourcesSummary = a })
 {-# INLINE tacrResourcesSummary #-}
 
 -- | Summary information that relates to the category of the check. Cost
 -- Optimizing is the only category that is currently supported.
 tacrCategorySpecificSummary :: Lens' TrustedAdvisorCheckResult (TrustedAdvisorCategorySpecificSummary)
-tacrCategorySpecificSummary f x =
-    f (_tacrCategorySpecificSummary x)
-        <&> \y -> x { _tacrCategorySpecificSummary = y }
+tacrCategorySpecificSummary = lens _tacrCategorySpecificSummary (\s a -> s { _tacrCategorySpecificSummary = a })
 {-# INLINE tacrCategorySpecificSummary #-}
 
 -- | The details about each resource listed in the check result.
 tacrFlaggedResources :: Lens' TrustedAdvisorCheckResult ([TrustedAdvisorResourceDetail])
-tacrFlaggedResources f x =
-    f (_tacrFlaggedResources x)
-        <&> \y -> x { _tacrFlaggedResources = y }
+tacrFlaggedResources = lens _tacrFlaggedResources (\s a -> s { _tacrFlaggedResources = a })
 {-# INLINE tacrFlaggedResources #-}
 
 instance FromJSON TrustedAdvisorCheckResult
@@ -814,47 +788,35 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
 
 -- | The unique identifier for the Trusted Advisor check.
 tacsCheckId :: Lens' TrustedAdvisorCheckSummary (Text)
-tacsCheckId f x =
-    f (_tacsCheckId x)
-        <&> \y -> x { _tacsCheckId = y }
+tacsCheckId = lens _tacsCheckId (\s a -> s { _tacsCheckId = a })
 {-# INLINE tacsCheckId #-}
 
 -- | The time of the last refresh of the check.
 tacsTimestamp :: Lens' TrustedAdvisorCheckSummary (Text)
-tacsTimestamp f x =
-    f (_tacsTimestamp x)
-        <&> \y -> x { _tacsTimestamp = y }
+tacsTimestamp = lens _tacsTimestamp (\s a -> s { _tacsTimestamp = a })
 {-# INLINE tacsTimestamp #-}
 
 -- | The alert status of the check: "ok" (green), "warning" (yellow), "error"
 -- (red), or "not_available".
 tacsStatus :: Lens' TrustedAdvisorCheckSummary (Text)
-tacsStatus f x =
-    f (_tacsStatus x)
-        <&> \y -> x { _tacsStatus = y }
+tacsStatus = lens _tacsStatus (\s a -> s { _tacsStatus = a })
 {-# INLINE tacsStatus #-}
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
 tacsHasFlaggedResources :: Lens' TrustedAdvisorCheckSummary (Maybe Bool)
-tacsHasFlaggedResources f x =
-    f (_tacsHasFlaggedResources x)
-        <&> \y -> x { _tacsHasFlaggedResources = y }
+tacsHasFlaggedResources = lens _tacsHasFlaggedResources (\s a -> s { _tacsHasFlaggedResources = a })
 {-# INLINE tacsHasFlaggedResources #-}
 
 -- | Details about AWS resources that were analyzed in a call to Trusted Advisor
 -- DescribeTrustedAdvisorCheckSummaries.
 tacsResourcesSummary :: Lens' TrustedAdvisorCheckSummary (TrustedAdvisorResourcesSummary)
-tacsResourcesSummary f x =
-    f (_tacsResourcesSummary x)
-        <&> \y -> x { _tacsResourcesSummary = y }
+tacsResourcesSummary = lens _tacsResourcesSummary (\s a -> s { _tacsResourcesSummary = a })
 {-# INLINE tacsResourcesSummary #-}
 
 -- | Summary information that relates to the category of the check. Cost
 -- Optimizing is the only category that is currently supported.
 tacsCategorySpecificSummary :: Lens' TrustedAdvisorCheckSummary (TrustedAdvisorCategorySpecificSummary)
-tacsCategorySpecificSummary f x =
-    f (_tacsCategorySpecificSummary x)
-        <&> \y -> x { _tacsCategorySpecificSummary = y }
+tacsCategorySpecificSummary = lens _tacsCategorySpecificSummary (\s a -> s { _tacsCategorySpecificSummary = a })
 {-# INLINE tacsCategorySpecificSummary #-}
 
 instance FromJSON TrustedAdvisorCheckSummary
@@ -873,18 +835,25 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
 -- | The estimated monthly savings that might be realized if the recommended
 -- actions are taken.
 tacosEstimatedMonthlySavings :: Lens' TrustedAdvisorCostOptimizingSummary (Double)
-tacosEstimatedMonthlySavings f x =
-    f (_tacosEstimatedMonthlySavings x)
-        <&> \y -> x { _tacosEstimatedMonthlySavings = y }
+tacosEstimatedMonthlySavings = lens _tacosEstimatedMonthlySavings (\s a -> s { _tacosEstimatedMonthlySavings = a })
 {-# INLINE tacosEstimatedMonthlySavings #-}
 
 -- | The estimated percentage of savings that might be realized if the
 -- recommended actions are taken.
 tacosEstimatedPercentMonthlySavings :: Lens' TrustedAdvisorCostOptimizingSummary (Double)
-tacosEstimatedPercentMonthlySavings f x =
-    f (_tacosEstimatedPercentMonthlySavings x)
-        <&> \y -> x { _tacosEstimatedPercentMonthlySavings = y }
+tacosEstimatedPercentMonthlySavings = lens _tacosEstimatedPercentMonthlySavings (\s a -> s { _tacosEstimatedPercentMonthlySavings = a })
 {-# INLINE tacosEstimatedPercentMonthlySavings #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TrustedAdvisorCostOptimizingSummary' data type to populate a request.
+mkTrustedAdvisorCostOptimizingSummary :: Double -- ^ 'tacosEstimatedMonthlySavings'
+                                      -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
+                                      -> TrustedAdvisorCostOptimizingSummary
+mkTrustedAdvisorCostOptimizingSummary p1 p2 = TrustedAdvisorCostOptimizingSummary
+    { _tacosEstimatedMonthlySavings = p1
+    , _tacosEstimatedPercentMonthlySavings = p2
+    }
+{-# INLINE mkTrustedAdvisorCostOptimizingSummary #-}
 
 instance FromJSON TrustedAdvisorCostOptimizingSummary
 
@@ -914,31 +883,23 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
 
 -- | The status code for the resource identified in the Trusted Advisor check.
 tardStatus :: Lens' TrustedAdvisorResourceDetail (Text)
-tardStatus f x =
-    f (_tardStatus x)
-        <&> \y -> x { _tardStatus = y }
+tardStatus = lens _tardStatus (\s a -> s { _tardStatus = a })
 {-# INLINE tardStatus #-}
 
 -- | The AWS region in which the identified resource is located.
 tardRegion :: Lens' TrustedAdvisorResourceDetail (Text)
-tardRegion f x =
-    f (_tardRegion x)
-        <&> \y -> x { _tardRegion = y }
+tardRegion = lens _tardRegion (\s a -> s { _tardRegion = a })
 {-# INLINE tardRegion #-}
 
 -- | The unique identifier for the identified resource.
 tardResourceId :: Lens' TrustedAdvisorResourceDetail (Text)
-tardResourceId f x =
-    f (_tardResourceId x)
-        <&> \y -> x { _tardResourceId = y }
+tardResourceId = lens _tardResourceId (\s a -> s { _tardResourceId = a })
 {-# INLINE tardResourceId #-}
 
 -- | Specifies whether the AWS resource was ignored by Trusted Advisor because
 -- it was marked as suppressed by the user.
 tardIsSuppressed :: Lens' TrustedAdvisorResourceDetail (Maybe Bool)
-tardIsSuppressed f x =
-    f (_tardIsSuppressed x)
-        <&> \y -> x { _tardIsSuppressed = y }
+tardIsSuppressed = lens _tardIsSuppressed (\s a -> s { _tardIsSuppressed = a })
 {-# INLINE tardIsSuppressed #-}
 
 -- | Additional information about the identified resource. The exact metadata
@@ -948,9 +909,7 @@ tardIsSuppressed f x =
 -- in the Excel download, even in those cases where the UI shows just summary
 -- data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail ([Text])
-tardMetadata f x =
-    f (_tardMetadata x)
-        <&> \y -> x { _tardMetadata = y }
+tardMetadata = lens _tardMetadata (\s a -> s { _tardMetadata = a })
 {-# INLINE tardMetadata #-}
 
 instance FromJSON TrustedAdvisorResourceDetail
@@ -975,34 +934,41 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
 -- | The number of AWS resources that were analyzed by the Trusted Advisor
 -- check.
 tarsResourcesProcessed :: Lens' TrustedAdvisorResourcesSummary (Integer)
-tarsResourcesProcessed f x =
-    f (_tarsResourcesProcessed x)
-        <&> \y -> x { _tarsResourcesProcessed = y }
+tarsResourcesProcessed = lens _tarsResourcesProcessed (\s a -> s { _tarsResourcesProcessed = a })
 {-# INLINE tarsResourcesProcessed #-}
 
 -- | The number of AWS resources that were flagged (listed) by the Trusted
 -- Advisor check.
 tarsResourcesFlagged :: Lens' TrustedAdvisorResourcesSummary (Integer)
-tarsResourcesFlagged f x =
-    f (_tarsResourcesFlagged x)
-        <&> \y -> x { _tarsResourcesFlagged = y }
+tarsResourcesFlagged = lens _tarsResourcesFlagged (\s a -> s { _tarsResourcesFlagged = a })
 {-# INLINE tarsResourcesFlagged #-}
 
 -- | The number of AWS resources ignored by Trusted Advisor because information
 -- was unavailable.
 tarsResourcesIgnored :: Lens' TrustedAdvisorResourcesSummary (Integer)
-tarsResourcesIgnored f x =
-    f (_tarsResourcesIgnored x)
-        <&> \y -> x { _tarsResourcesIgnored = y }
+tarsResourcesIgnored = lens _tarsResourcesIgnored (\s a -> s { _tarsResourcesIgnored = a })
 {-# INLINE tarsResourcesIgnored #-}
 
 -- | The number of AWS resources ignored by Trusted Advisor because they were
 -- marked as suppressed by the user.
 tarsResourcesSuppressed :: Lens' TrustedAdvisorResourcesSummary (Integer)
-tarsResourcesSuppressed f x =
-    f (_tarsResourcesSuppressed x)
-        <&> \y -> x { _tarsResourcesSuppressed = y }
+tarsResourcesSuppressed = lens _tarsResourcesSuppressed (\s a -> s { _tarsResourcesSuppressed = a })
 {-# INLINE tarsResourcesSuppressed #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TrustedAdvisorResourcesSummary' data type to populate a request.
+mkTrustedAdvisorResourcesSummary :: Integer -- ^ 'tarsResourcesProcessed'
+                                 -> Integer -- ^ 'tarsResourcesFlagged'
+                                 -> Integer -- ^ 'tarsResourcesIgnored'
+                                 -> Integer -- ^ 'tarsResourcesSuppressed'
+                                 -> TrustedAdvisorResourcesSummary
+mkTrustedAdvisorResourcesSummary p1 p2 p3 p4 = TrustedAdvisorResourcesSummary
+    { _tarsResourcesProcessed = p1
+    , _tarsResourcesFlagged = p2
+    , _tarsResourcesIgnored = p3
+    , _tarsResourcesSuppressed = p4
+    }
+{-# INLINE mkTrustedAdvisorResourcesSummary #-}
 
 instance FromJSON TrustedAdvisorResourcesSummary
 

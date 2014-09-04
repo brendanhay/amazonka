@@ -31,7 +31,7 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
     -- * Request
       DescribeTrustedAdvisorCheckResult
     -- ** Request constructor
-    , describeTrustedAdvisorCheckResult
+    , mkDescribeTrustedAdvisorCheckResultRequest
     -- ** Request lenses
     , dtacrrCheckId
     , dtacrrLanguage
@@ -47,14 +47,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTrustedAdvisorCheckResult' request.
-describeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrrCheckId'
-                                  -> DescribeTrustedAdvisorCheckResult
-describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorCheckResult' request.
+mkDescribeTrustedAdvisorCheckResultRequest :: Text -- ^ 'dtacrrCheckId'
+                                           -> DescribeTrustedAdvisorCheckResult
+mkDescribeTrustedAdvisorCheckResultRequest p1 = DescribeTrustedAdvisorCheckResult
     { _dtacrrCheckId = p1
     , _dtacrrLanguage = Nothing
     }
-{-# INLINE describeTrustedAdvisorCheckResult #-}
+{-# INLINE mkDescribeTrustedAdvisorCheckResultRequest #-}
 
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
     { _dtacrrCheckId :: Text
@@ -68,18 +69,14 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
 
 -- | The unique identifier for the Trusted Advisor check.
 dtacrrCheckId :: Lens' DescribeTrustedAdvisorCheckResult (Text)
-dtacrrCheckId f x =
-    f (_dtacrrCheckId x)
-        <&> \y -> x { _dtacrrCheckId = y }
+dtacrrCheckId = lens _dtacrrCheckId (\s a -> s { _dtacrrCheckId = a })
 {-# INLINE dtacrrCheckId #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dtacrrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
-dtacrrLanguage f x =
-    f (_dtacrrLanguage x)
-        <&> \y -> x { _dtacrrLanguage = y }
+dtacrrLanguage = lens _dtacrrLanguage (\s a -> s { _dtacrrLanguage = a })
 {-# INLINE dtacrrLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorCheckResult
@@ -90,16 +87,14 @@ instance ToHeaders DescribeTrustedAdvisorCheckResult
 
 instance ToJSON DescribeTrustedAdvisorCheckResult
 
-data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
+newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrsResult :: Maybe TrustedAdvisorCheckResult
       -- ^ The detailed results of the Trusted Advisor check.
     } deriving (Show, Generic)
 
 -- | The detailed results of the Trusted Advisor check.
 dtacrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
-dtacrsResult f x =
-    f (_dtacrsResult x)
-        <&> \y -> x { _dtacrsResult = y }
+dtacrsResult = lens _dtacrsResult (\s a -> s { _dtacrsResult = a })
 {-# INLINE dtacrsResult #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckResultResponse

@@ -26,7 +26,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineExpression
     -- * Request
       DefineExpression
     -- ** Request constructor
-    , defineExpression
+    , mkDefineExpressionRequest
     -- ** Request lenses
     , derDomainName
     , derExpression
@@ -41,15 +41,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DefineExpression' request.
-defineExpression :: Text -- ^ 'derDomainName'
-                 -> Expression -- ^ 'derExpression'
-                 -> DefineExpression
-defineExpression p1 p2 = DefineExpression
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineExpression' request.
+mkDefineExpressionRequest :: Text -- ^ 'derDomainName'
+                          -> Expression -- ^ 'derExpression'
+                          -> DefineExpression
+mkDefineExpressionRequest p1 p2 = DefineExpression
     { _derDomainName = p1
     , _derExpression = p2
     }
-{-# INLINE defineExpression #-}
+{-# INLINE mkDefineExpressionRequest #-}
 
 data DefineExpression = DefineExpression
     { _derDomainName :: Text
@@ -69,32 +70,26 @@ data DefineExpression = DefineExpression
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 derDomainName :: Lens' DefineExpression (Text)
-derDomainName f x =
-    f (_derDomainName x)
-        <&> \y -> x { _derDomainName = y }
+derDomainName = lens _derDomainName (\s a -> s { _derDomainName = a })
 {-# INLINE derDomainName #-}
 
 -- | A named expression that can be evaluated at search time. Can be used for
 -- sorting and filtering search results and constructing other expressions.
 derExpression :: Lens' DefineExpression (Expression)
-derExpression f x =
-    f (_derExpression x)
-        <&> \y -> x { _derExpression = y }
+derExpression = lens _derExpression (\s a -> s { _derExpression = a })
 {-# INLINE derExpression #-}
 
 instance ToQuery DefineExpression where
     toQuery = genericQuery def
 
-data DefineExpressionResponse = DefineExpressionResponse
+newtype DefineExpressionResponse = DefineExpressionResponse
     { _desExpression :: ExpressionStatus
       -- ^ The value of an Expression and its current status.
     } deriving (Show, Generic)
 
 -- | The value of an Expression and its current status.
 desExpression :: Lens' DefineExpressionResponse (ExpressionStatus)
-desExpression f x =
-    f (_desExpression x)
-        <&> \y -> x { _desExpression = y }
+desExpression = lens _desExpression (\s a -> s { _desExpression = a })
 {-# INLINE desExpression #-}
 
 instance FromXML DefineExpressionResponse where

@@ -28,7 +28,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetId
     -- * Request
       GetId
     -- ** Request constructor
-    , getId
+    , mkGetIdInput
     -- ** Request lenses
     , giiAccountId
     , giiIdentityPoolId
@@ -45,16 +45,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetId' request.
-getId :: Text -- ^ 'giiAccountId'
-      -> Text -- ^ 'giiIdentityPoolId'
-      -> GetId
-getId p1 p2 = GetId
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetId' request.
+mkGetIdInput :: Text -- ^ 'giiAccountId'
+             -> Text -- ^ 'giiIdentityPoolId'
+             -> GetId
+mkGetIdInput p1 p2 = GetId
     { _giiAccountId = p1
     , _giiIdentityPoolId = p2
     , _giiLogins = mempty
     }
-{-# INLINE getId #-}
+{-# INLINE mkGetIdInput #-}
 
 data GetId = GetId
     { _giiAccountId :: Text
@@ -68,24 +69,18 @@ data GetId = GetId
 
 -- | A standard AWS account ID (9+ digits).
 giiAccountId :: Lens' GetId (Text)
-giiAccountId f x =
-    f (_giiAccountId x)
-        <&> \y -> x { _giiAccountId = y }
+giiAccountId = lens _giiAccountId (\s a -> s { _giiAccountId = a })
 {-# INLINE giiAccountId #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 giiIdentityPoolId :: Lens' GetId (Text)
-giiIdentityPoolId f x =
-    f (_giiIdentityPoolId x)
-        <&> \y -> x { _giiIdentityPoolId = y }
+giiIdentityPoolId = lens _giiIdentityPoolId (\s a -> s { _giiIdentityPoolId = a })
 {-# INLINE giiIdentityPoolId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
 giiLogins :: Lens' GetId (Map Text Text)
-giiLogins f x =
-    f (_giiLogins x)
-        <&> \y -> x { _giiLogins = y }
+giiLogins = lens _giiLogins (\s a -> s { _giiLogins = a })
 {-# INLINE giiLogins #-}
 
 instance ToPath GetId
@@ -96,16 +91,14 @@ instance ToHeaders GetId
 
 instance ToJSON GetId
 
-data GetIdResponse = GetIdResponse
+newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text
       -- ^ A unique identifier in the format REGION:GUID.
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
 girIdentityId :: Lens' GetIdResponse (Maybe Text)
-girIdentityId f x =
-    f (_girIdentityId x)
-        <&> \y -> x { _girIdentityId = y }
+girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
 {-# INLINE girIdentityId #-}
 
 instance FromJSON GetIdResponse

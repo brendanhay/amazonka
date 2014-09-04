@@ -27,7 +27,7 @@ module Network.AWS.IAM.V2010_05_08.GetLoginProfile
     -- * Request
       GetLoginProfile
     -- ** Request constructor
-    , getLoginProfile
+    , mkGetLoginProfileRequest
     -- ** Request lenses
     , glprUserName
 
@@ -41,39 +41,36 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetLoginProfile' request.
-getLoginProfile :: Text -- ^ 'glprUserName'
-                -> GetLoginProfile
-getLoginProfile p1 = GetLoginProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetLoginProfile' request.
+mkGetLoginProfileRequest :: Text -- ^ 'glprUserName'
+                         -> GetLoginProfile
+mkGetLoginProfileRequest p1 = GetLoginProfile
     { _glprUserName = p1
     }
-{-# INLINE getLoginProfile #-}
+{-# INLINE mkGetLoginProfileRequest #-}
 
-data GetLoginProfile = GetLoginProfile
+newtype GetLoginProfile = GetLoginProfile
     { _glprUserName :: Text
       -- ^ Name of the user whose login profile you want to retrieve.
     } deriving (Show, Generic)
 
 -- | Name of the user whose login profile you want to retrieve.
 glprUserName :: Lens' GetLoginProfile (Text)
-glprUserName f x =
-    f (_glprUserName x)
-        <&> \y -> x { _glprUserName = y }
+glprUserName = lens _glprUserName (\s a -> s { _glprUserName = a })
 {-# INLINE glprUserName #-}
 
 instance ToQuery GetLoginProfile where
     toQuery = genericQuery def
 
-data GetLoginProfileResponse = GetLoginProfileResponse
+newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glpsLoginProfile :: LoginProfile
       -- ^ User name and password create date for the user.
     } deriving (Show, Generic)
 
 -- | User name and password create date for the user.
 glpsLoginProfile :: Lens' GetLoginProfileResponse (LoginProfile)
-glpsLoginProfile f x =
-    f (_glpsLoginProfile x)
-        <&> \y -> x { _glpsLoginProfile = y }
+glpsLoginProfile = lens _glpsLoginProfile (\s a -> s { _glpsLoginProfile = a })
 {-# INLINE glpsLoginProfile #-}
 
 instance FromXML GetLoginProfileResponse where

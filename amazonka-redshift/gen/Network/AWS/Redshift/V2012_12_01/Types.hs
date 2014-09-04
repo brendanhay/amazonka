@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -36,15 +37,17 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , SourceType (..)
 
     -- * AccountWithRestoreAccess
-    , AccountWithRestoreAccess (..)
+    , AccountWithRestoreAccess
+    , mkAccountWithRestoreAccess
     , awraAccountId
 
     -- * AvailabilityZone
-    , AvailabilityZone (..)
+    , AvailabilityZone
+    , mkAvailabilityZone
     , azName
 
     -- * Cluster
-    , Cluster (..)
+    , Cluster
     , crClusterIdentifier
     , crNodeType
     , crClusterStatus
@@ -76,41 +79,45 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , crClusterRevisionNumber
 
     -- * ClusterNode
-    , ClusterNode (..)
+    , ClusterNode
+    , mkClusterNode
     , cnNodeRole
     , cnPrivateIPAddress
     , cnPublicIPAddress
 
     -- * ClusterParameterGroup
-    , ClusterParameterGroup (..)
+    , ClusterParameterGroup
     , cpgParameterGroupName
     , cpgParameterGroupFamily
     , cpgDescription
 
     -- * ClusterParameterGroupStatus
-    , ClusterParameterGroupStatus (..)
+    , ClusterParameterGroupStatus
+    , mkClusterParameterGroupStatus
     , cpgsParameterGroupName
     , cpgsParameterApplyStatus
 
     -- * ClusterSecurityGroup
-    , ClusterSecurityGroup (..)
+    , ClusterSecurityGroup
     , csgClusterSecurityGroupName
     , csgDescription
     , csgEC2SecurityGroups
     , csgIPRanges
 
     -- * ClusterSecurityGroupMembership
-    , ClusterSecurityGroupMembership (..)
+    , ClusterSecurityGroupMembership
+    , mkClusterSecurityGroupMembership
     , csgmClusterSecurityGroupName
     , csgmStatus
 
     -- * ClusterSnapshotCopyStatus
-    , ClusterSnapshotCopyStatus (..)
+    , ClusterSnapshotCopyStatus
+    , mkClusterSnapshotCopyStatus
     , cscsDestinationRegion
     , cscsRetentionPeriod
 
     -- * ClusterSubnetGroup
-    , ClusterSubnetGroup (..)
+    , ClusterSubnetGroup
     , csiClusterSubnetGroupName
     , csiDescription
     , csiVpcId
@@ -118,35 +125,38 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , csiSubnets
 
     -- * ClusterVersion
-    , ClusterVersion (..)
+    , ClusterVersion
     , cvClusterVersion
     , cvClusterParameterGroupFamily
     , cvDescription
 
     -- * DefaultClusterParameters
-    , DefaultClusterParameters (..)
+    , DefaultClusterParameters
     , dcpParameterGroupFamily
     , dcpMarker
     , dcpParameters
 
     -- * EC2SecurityGroup
-    , EC2SecurityGroup (..)
+    , EC2SecurityGroup
+    , mkEC2SecurityGroup
     , ecsgStatus
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupOwnerId
 
     -- * ElasticIpStatus
-    , ElasticIpStatus (..)
+    , ElasticIpStatus
+    , mkElasticIpStatus
     , eisElasticIp
     , eisStatus
 
     -- * Endpoint
-    , Endpoint (..)
+    , Endpoint
+    , mkEndpoint
     , etAddress
     , etPort
 
     -- * Event
-    , Event (..)
+    , Event
     , exSourceIdentifier
     , exSourceType
     , exMessage
@@ -156,19 +166,20 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , exEventId
 
     -- * EventCategoriesMap
-    , EventCategoriesMap (..)
+    , EventCategoriesMap
     , ecoSourceType
     , ecoEvents
 
     -- * EventInfoMap
-    , EventInfoMap (..)
+    , EventInfoMap
+    , mkEventInfoMap
     , eimEventId
     , eimEventCategories
     , eimEventDescription
     , eimSeverity
 
     -- * EventSubscription
-    , EventSubscription (..)
+    , EventSubscription
     , esCustomerAwsId
     , esCustSubscriptionId
     , esSnsTopicArn
@@ -181,37 +192,40 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , esEnabled
 
     -- * HsmClientCertificate
-    , HsmClientCertificate (..)
+    , HsmClientCertificate
     , hccHsmClientCertificateIdentifier
     , hccHsmClientCertificatePublicKey
 
     -- * HsmConfiguration
-    , HsmConfiguration (..)
+    , HsmConfiguration
     , hcHsmConfigurationIdentifier
     , hcDescription
     , hcHsmIpAddress
     , hcHsmPartitionName
 
     -- * HsmStatus
-    , HsmStatus (..)
+    , HsmStatus
+    , mkHsmStatus
     , hsHsmClientCertificateIdentifier
     , hsHsmConfigurationIdentifier
     , hsStatus
 
     -- * IPRange
-    , IPRange (..)
+    , IPRange
+    , mkIPRange
     , iprStatus
     , iprCIDRIP
 
     -- * OrderableClusterOption
-    , OrderableClusterOption (..)
+    , OrderableClusterOption
     , ocoClusterVersion
     , ocoClusterType
     , ocoNodeType
     , ocoAvailabilityZones
 
     -- * Parameter
-    , Parameter (..)
+    , Parameter
+    , mkParameter
     , prParameterName
     , prParameterValue
     , prDescription
@@ -222,7 +236,8 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , prMinimumEngineVersion
 
     -- * PendingModifiedValues
-    , PendingModifiedValues (..)
+    , PendingModifiedValues
+    , mkPendingModifiedValues
     , pmvMasterUserPassword
     , pmvNodeType
     , pmvNumberOfNodes
@@ -232,12 +247,13 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , pmvClusterIdentifier
 
     -- * RecurringCharge
-    , RecurringCharge (..)
+    , RecurringCharge
+    , mkRecurringCharge
     , rcRecurringChargeAmount
     , rcRecurringChargeFrequency
 
     -- * ReservedNode
-    , ReservedNode (..)
+    , ReservedNode
     , rnReservedNodeId
     , rnReservedNodeOfferingId
     , rnNodeType
@@ -252,7 +268,7 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , rnRecurringCharges
 
     -- * ReservedNodeOffering
-    , ReservedNodeOffering (..)
+    , ReservedNodeOffering
     , rnoReservedNodeOfferingId
     , rnoNodeType
     , rnoDuration
@@ -263,7 +279,8 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , rnoRecurringCharges
 
     -- * RestoreStatus
-    , RestoreStatus (..)
+    , RestoreStatus
+    , mkRestoreStatus
     , rsStatus
     , rsCurrentRestoreRateInMegaBytesPerSecond
     , rsSnapshotSizeInMegaBytes
@@ -272,7 +289,7 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , rsEstimatedTimeToCompletionInSeconds
 
     -- * Snapshot
-    , Snapshot (..)
+    , Snapshot
     , stSnapshotIdentifier
     , stClusterIdentifier
     , stSnapshotCreateTime
@@ -300,16 +317,17 @@ module Network.AWS.Redshift.V2012_12_01.Types
     , stSourceRegion
 
     -- * Subnet
-    , Subnet (..)
+    , Subnet
+    , mkSubnet
     , sssssssuSubnetIdentifier
     , sssssssuSubnetAvailabilityZone
     , sssssssuSubnetStatus
 
     -- * VpcSecurityGroupMembership
-    , VpcSecurityGroupMembership (..)
+    , VpcSecurityGroupMembership
+    , mkVpcSecurityGroupMembership
     , vsgmVpcSecurityGroupId
     , vsgmStatus
-
     ) where
 
 import Network.AWS.Prelude
@@ -468,10 +486,16 @@ newtype AccountWithRestoreAccess = AccountWithRestoreAccess
 
 -- | The identifier of an AWS customer account authorized to restore a snapshot.
 awraAccountId :: Lens' AccountWithRestoreAccess (Maybe Text)
-awraAccountId f x =
-    f (_awraAccountId x)
-        <&> \y -> x { _awraAccountId = y }
+awraAccountId = lens _awraAccountId (\s a -> s { _awraAccountId = a })
 {-# INLINE awraAccountId #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AccountWithRestoreAccess' data type to populate a request.
+mkAccountWithRestoreAccess :: AccountWithRestoreAccess
+mkAccountWithRestoreAccess = AccountWithRestoreAccess
+    { _awraAccountId = Nothing
+    }
+{-# INLINE mkAccountWithRestoreAccess #-}
 
 instance FromXML AccountWithRestoreAccess where
     fromXMLOptions = xmlOptions
@@ -488,10 +512,16 @@ newtype AvailabilityZone = AvailabilityZone
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
-azName f x =
-    f (_azName x)
-        <&> \y -> x { _azName = y }
+azName = lens _azName (\s a -> s { _azName = a })
 {-# INLINE azName #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AvailabilityZone' data type to populate a request.
+mkAvailabilityZone :: AvailabilityZone
+mkAvailabilityZone = AvailabilityZone
+    { _azName = Nothing
+    }
+{-# INLINE mkAvailabilityZone #-}
 
 instance FromXML AvailabilityZone where
     fromXMLOptions = xmlOptions
@@ -590,39 +620,29 @@ data Cluster = Cluster
 
 -- | The unique identifier of the cluster.
 crClusterIdentifier :: Lens' Cluster (Maybe Text)
-crClusterIdentifier f x =
-    f (_crClusterIdentifier x)
-        <&> \y -> x { _crClusterIdentifier = y }
+crClusterIdentifier = lens _crClusterIdentifier (\s a -> s { _crClusterIdentifier = a })
 {-# INLINE crClusterIdentifier #-}
 
 -- | The node type for the nodes in the cluster.
 crNodeType :: Lens' Cluster (Maybe Text)
-crNodeType f x =
-    f (_crNodeType x)
-        <&> \y -> x { _crNodeType = y }
+crNodeType = lens _crNodeType (\s a -> s { _crNodeType = a })
 {-# INLINE crNodeType #-}
 
 -- | The current state of this cluster. Possible values include available,
 -- creating, deleting, rebooting, renaming, and resizing.
 crClusterStatus :: Lens' Cluster (Maybe Text)
-crClusterStatus f x =
-    f (_crClusterStatus x)
-        <&> \y -> x { _crClusterStatus = y }
+crClusterStatus = lens _crClusterStatus (\s a -> s { _crClusterStatus = a })
 {-# INLINE crClusterStatus #-}
 
 -- | The status of a modify operation, if any, initiated for the cluster.
 crModifyStatus :: Lens' Cluster (Maybe Text)
-crModifyStatus f x =
-    f (_crModifyStatus x)
-        <&> \y -> x { _crModifyStatus = y }
+crModifyStatus = lens _crModifyStatus (\s a -> s { _crModifyStatus = a })
 {-# INLINE crModifyStatus #-}
 
 -- | The master user name for the cluster. This name is used to connect to the
 -- database that is specified in DBName.
 crMasterUsername :: Lens' Cluster (Maybe Text)
-crMasterUsername f x =
-    f (_crMasterUsername x)
-        <&> \y -> x { _crMasterUsername = y }
+crMasterUsername = lens _crMasterUsername (\s a -> s { _crMasterUsername = a })
 {-# INLINE crMasterUsername #-}
 
 -- | The name of the initial database that was created when the cluster was
@@ -630,30 +650,22 @@ crMasterUsername f x =
 -- initial database was not specified, a database named "dev" was created by
 -- default.
 crDBName :: Lens' Cluster (Maybe Text)
-crDBName f x =
-    f (_crDBName x)
-        <&> \y -> x { _crDBName = y }
+crDBName = lens _crDBName (\s a -> s { _crDBName = a })
 {-# INLINE crDBName #-}
 
 -- | The connection endpoint.
 crEndpoint :: Lens' Cluster (Maybe Endpoint)
-crEndpoint f x =
-    f (_crEndpoint x)
-        <&> \y -> x { _crEndpoint = y }
+crEndpoint = lens _crEndpoint (\s a -> s { _crEndpoint = a })
 {-# INLINE crEndpoint #-}
 
 -- | The date and time that the cluster was created.
 crClusterCreateTime :: Lens' Cluster (Maybe ISO8601)
-crClusterCreateTime f x =
-    f (_crClusterCreateTime x)
-        <&> \y -> x { _crClusterCreateTime = y }
+crClusterCreateTime = lens _crClusterCreateTime (\s a -> s { _crClusterCreateTime = a })
 {-# INLINE crClusterCreateTime #-}
 
 -- | The number of days that automatic cluster snapshots are retained.
 crAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Integer)
-crAutomatedSnapshotRetentionPeriod f x =
-    f (_crAutomatedSnapshotRetentionPeriod x)
-        <&> \y -> x { _crAutomatedSnapshotRetentionPeriod = y }
+crAutomatedSnapshotRetentionPeriod = lens _crAutomatedSnapshotRetentionPeriod (\s a -> s { _crAutomatedSnapshotRetentionPeriod = a })
 {-# INLINE crAutomatedSnapshotRetentionPeriod #-}
 
 -- | A list of cluster security group that are associated with the cluster. Each
@@ -663,152 +675,112 @@ crAutomatedSnapshotRetentionPeriod f x =
 -- Clusters that are created in a VPC use VPC security groups, which are
 -- listed by the VpcSecurityGroups parameter.
 crClusterSecurityGroups :: Lens' Cluster ([ClusterSecurityGroupMembership])
-crClusterSecurityGroups f x =
-    f (_crClusterSecurityGroups x)
-        <&> \y -> x { _crClusterSecurityGroups = y }
+crClusterSecurityGroups = lens _crClusterSecurityGroups (\s a -> s { _crClusterSecurityGroups = a })
 {-# INLINE crClusterSecurityGroups #-}
 
 -- | A list of Virtual Private Cloud (VPC) security groups that are associated
 -- with the cluster. This parameter is returned only if the cluster is in a
 -- VPC.
 crVpcSecurityGroups :: Lens' Cluster ([VpcSecurityGroupMembership])
-crVpcSecurityGroups f x =
-    f (_crVpcSecurityGroups x)
-        <&> \y -> x { _crVpcSecurityGroups = y }
+crVpcSecurityGroups = lens _crVpcSecurityGroups (\s a -> s { _crVpcSecurityGroups = a })
 {-# INLINE crVpcSecurityGroups #-}
 
 -- | The list of cluster parameter groups that are associated with this cluster.
 crClusterParameterGroups :: Lens' Cluster ([ClusterParameterGroupStatus])
-crClusterParameterGroups f x =
-    f (_crClusterParameterGroups x)
-        <&> \y -> x { _crClusterParameterGroups = y }
+crClusterParameterGroups = lens _crClusterParameterGroups (\s a -> s { _crClusterParameterGroups = a })
 {-# INLINE crClusterParameterGroups #-}
 
 -- | The name of the subnet group that is associated with the cluster. This
 -- parameter is valid only when the cluster is in a VPC.
 crClusterSubnetGroupName :: Lens' Cluster (Maybe Text)
-crClusterSubnetGroupName f x =
-    f (_crClusterSubnetGroupName x)
-        <&> \y -> x { _crClusterSubnetGroupName = y }
+crClusterSubnetGroupName = lens _crClusterSubnetGroupName (\s a -> s { _crClusterSubnetGroupName = a })
 {-# INLINE crClusterSubnetGroupName #-}
 
 -- | The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 crVpcId :: Lens' Cluster (Maybe Text)
-crVpcId f x =
-    f (_crVpcId x)
-        <&> \y -> x { _crVpcId = y }
+crVpcId = lens _crVpcId (\s a -> s { _crVpcId = a })
 {-# INLINE crVpcId #-}
 
 -- | The name of the Availability Zone in which the cluster is located.
 crAvailabilityZone :: Lens' Cluster (Maybe Text)
-crAvailabilityZone f x =
-    f (_crAvailabilityZone x)
-        <&> \y -> x { _crAvailabilityZone = y }
+crAvailabilityZone = lens _crAvailabilityZone (\s a -> s { _crAvailabilityZone = a })
 {-# INLINE crAvailabilityZone #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 crPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
-crPreferredMaintenanceWindow f x =
-    f (_crPreferredMaintenanceWindow x)
-        <&> \y -> x { _crPreferredMaintenanceWindow = y }
+crPreferredMaintenanceWindow = lens _crPreferredMaintenanceWindow (\s a -> s { _crPreferredMaintenanceWindow = a })
 {-# INLINE crPreferredMaintenanceWindow #-}
 
 -- | If present, changes to the cluster are pending. Specific pending changes
 -- are identified by subelements.
 crPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
-crPendingModifiedValues f x =
-    f (_crPendingModifiedValues x)
-        <&> \y -> x { _crPendingModifiedValues = y }
+crPendingModifiedValues = lens _crPendingModifiedValues (\s a -> s { _crPendingModifiedValues = a })
 {-# INLINE crPendingModifiedValues #-}
 
 -- | The version ID of the Amazon Redshift engine that is running on the
 -- cluster.
 crClusterVersion :: Lens' Cluster (Maybe Text)
-crClusterVersion f x =
-    f (_crClusterVersion x)
-        <&> \y -> x { _crClusterVersion = y }
+crClusterVersion = lens _crClusterVersion (\s a -> s { _crClusterVersion = a })
 {-# INLINE crClusterVersion #-}
 
 -- | If true, version upgrades will be applied automatically to the cluster
 -- during the maintenance window.
 crAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
-crAllowVersionUpgrade f x =
-    f (_crAllowVersionUpgrade x)
-        <&> \y -> x { _crAllowVersionUpgrade = y }
+crAllowVersionUpgrade = lens _crAllowVersionUpgrade (\s a -> s { _crAllowVersionUpgrade = a })
 {-# INLINE crAllowVersionUpgrade #-}
 
 -- | The number of compute nodes in the cluster.
 crNumberOfNodes :: Lens' Cluster (Maybe Integer)
-crNumberOfNodes f x =
-    f (_crNumberOfNodes x)
-        <&> \y -> x { _crNumberOfNodes = y }
+crNumberOfNodes = lens _crNumberOfNodes (\s a -> s { _crNumberOfNodes = a })
 {-# INLINE crNumberOfNodes #-}
 
 -- | If true, the cluster can be accessed from a public network.
 crPubliclyAccessible :: Lens' Cluster (Maybe Bool)
-crPubliclyAccessible f x =
-    f (_crPubliclyAccessible x)
-        <&> \y -> x { _crPubliclyAccessible = y }
+crPubliclyAccessible = lens _crPubliclyAccessible (\s a -> s { _crPubliclyAccessible = a })
 {-# INLINE crPubliclyAccessible #-}
 
 -- | If true, data in the cluster is encrypted at rest.
 crEncrypted :: Lens' Cluster (Maybe Bool)
-crEncrypted f x =
-    f (_crEncrypted x)
-        <&> \y -> x { _crEncrypted = y }
+crEncrypted = lens _crEncrypted (\s a -> s { _crEncrypted = a })
 {-# INLINE crEncrypted #-}
 
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
 crRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
-crRestoreStatus f x =
-    f (_crRestoreStatus x)
-        <&> \y -> x { _crRestoreStatus = y }
+crRestoreStatus = lens _crRestoreStatus (\s a -> s { _crRestoreStatus = a })
 {-# INLINE crRestoreStatus #-}
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any HSM
 -- settings changes specified in a modify cluster command. Values: active,
 -- applying.
 crHsmStatus :: Lens' Cluster (Maybe HsmStatus)
-crHsmStatus f x =
-    f (_crHsmStatus x)
-        <&> \y -> x { _crHsmStatus = y }
+crHsmStatus = lens _crHsmStatus (\s a -> s { _crHsmStatus = a })
 {-# INLINE crHsmStatus #-}
 
 -- | Returns the destination region and retention period that are configured for
 -- cross-region snapshot copy.
 crClusterSnapshotCopyStatus :: Lens' Cluster (Maybe ClusterSnapshotCopyStatus)
-crClusterSnapshotCopyStatus f x =
-    f (_crClusterSnapshotCopyStatus x)
-        <&> \y -> x { _crClusterSnapshotCopyStatus = y }
+crClusterSnapshotCopyStatus = lens _crClusterSnapshotCopyStatus (\s a -> s { _crClusterSnapshotCopyStatus = a })
 {-# INLINE crClusterSnapshotCopyStatus #-}
 
 -- | The public key for the cluster.
 crClusterPublicKey :: Lens' Cluster (Maybe Text)
-crClusterPublicKey f x =
-    f (_crClusterPublicKey x)
-        <&> \y -> x { _crClusterPublicKey = y }
+crClusterPublicKey = lens _crClusterPublicKey (\s a -> s { _crClusterPublicKey = a })
 {-# INLINE crClusterPublicKey #-}
 
 -- | The nodes in a cluster.
 crClusterNodes :: Lens' Cluster ([ClusterNode])
-crClusterNodes f x =
-    f (_crClusterNodes x)
-        <&> \y -> x { _crClusterNodes = y }
+crClusterNodes = lens _crClusterNodes (\s a -> s { _crClusterNodes = a })
 {-# INLINE crClusterNodes #-}
 
 -- | Describes the status of the elastic IP (EIP) address.
 crElasticIpStatus :: Lens' Cluster (Maybe ElasticIpStatus)
-crElasticIpStatus f x =
-    f (_crElasticIpStatus x)
-        <&> \y -> x { _crElasticIpStatus = y }
+crElasticIpStatus = lens _crElasticIpStatus (\s a -> s { _crElasticIpStatus = a })
 {-# INLINE crElasticIpStatus #-}
 
 -- | The specific revision number of the database in the cluster.
 crClusterRevisionNumber :: Lens' Cluster (Maybe Text)
-crClusterRevisionNumber f x =
-    f (_crClusterRevisionNumber x)
-        <&> \y -> x { _crClusterRevisionNumber = y }
+crClusterRevisionNumber = lens _crClusterRevisionNumber (\s a -> s { _crClusterRevisionNumber = a })
 {-# INLINE crClusterRevisionNumber #-}
 
 instance FromXML Cluster where
@@ -827,24 +799,28 @@ data ClusterNode = ClusterNode
 
 -- | Whether the node is a leader node or a compute node.
 cnNodeRole :: Lens' ClusterNode (Maybe Text)
-cnNodeRole f x =
-    f (_cnNodeRole x)
-        <&> \y -> x { _cnNodeRole = y }
+cnNodeRole = lens _cnNodeRole (\s a -> s { _cnNodeRole = a })
 {-# INLINE cnNodeRole #-}
 
 -- | The private IP address of a node within a cluster.
 cnPrivateIPAddress :: Lens' ClusterNode (Maybe Text)
-cnPrivateIPAddress f x =
-    f (_cnPrivateIPAddress x)
-        <&> \y -> x { _cnPrivateIPAddress = y }
+cnPrivateIPAddress = lens _cnPrivateIPAddress (\s a -> s { _cnPrivateIPAddress = a })
 {-# INLINE cnPrivateIPAddress #-}
 
 -- | The public IP address of a node within a cluster.
 cnPublicIPAddress :: Lens' ClusterNode (Maybe Text)
-cnPublicIPAddress f x =
-    f (_cnPublicIPAddress x)
-        <&> \y -> x { _cnPublicIPAddress = y }
+cnPublicIPAddress = lens _cnPublicIPAddress (\s a -> s { _cnPublicIPAddress = a })
 {-# INLINE cnPublicIPAddress #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ClusterNode' data type to populate a request.
+mkClusterNode :: ClusterNode
+mkClusterNode = ClusterNode
+    { _cnNodeRole = Nothing
+    , _cnPrivateIPAddress = Nothing
+    , _cnPublicIPAddress = Nothing
+    }
+{-# INLINE mkClusterNode #-}
 
 instance FromXML ClusterNode where
     fromXMLOptions = xmlOptions
@@ -866,24 +842,18 @@ data ClusterParameterGroup = ClusterParameterGroup
 
 -- | The name of the cluster parameter group.
 cpgParameterGroupName :: Lens' ClusterParameterGroup (Maybe Text)
-cpgParameterGroupName f x =
-    f (_cpgParameterGroupName x)
-        <&> \y -> x { _cpgParameterGroupName = y }
+cpgParameterGroupName = lens _cpgParameterGroupName (\s a -> s { _cpgParameterGroupName = a })
 {-# INLINE cpgParameterGroupName #-}
 
 -- | The name of the cluster parameter group family that this cluster parameter
 -- group is compatible with.
 cpgParameterGroupFamily :: Lens' ClusterParameterGroup (Maybe Text)
-cpgParameterGroupFamily f x =
-    f (_cpgParameterGroupFamily x)
-        <&> \y -> x { _cpgParameterGroupFamily = y }
+cpgParameterGroupFamily = lens _cpgParameterGroupFamily (\s a -> s { _cpgParameterGroupFamily = a })
 {-# INLINE cpgParameterGroupFamily #-}
 
 -- | The description of the parameter group.
 cpgDescription :: Lens' ClusterParameterGroup (Maybe Text)
-cpgDescription f x =
-    f (_cpgDescription x)
-        <&> \y -> x { _cpgDescription = y }
+cpgDescription = lens _cpgDescription (\s a -> s { _cpgDescription = a })
 {-# INLINE cpgDescription #-}
 
 instance FromXML ClusterParameterGroup where
@@ -900,17 +870,22 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus
 
 -- | The name of the cluster parameter group.
 cpgsParameterGroupName :: Lens' ClusterParameterGroupStatus (Maybe Text)
-cpgsParameterGroupName f x =
-    f (_cpgsParameterGroupName x)
-        <&> \y -> x { _cpgsParameterGroupName = y }
+cpgsParameterGroupName = lens _cpgsParameterGroupName (\s a -> s { _cpgsParameterGroupName = a })
 {-# INLINE cpgsParameterGroupName #-}
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' ClusterParameterGroupStatus (Maybe Text)
-cpgsParameterApplyStatus f x =
-    f (_cpgsParameterApplyStatus x)
-        <&> \y -> x { _cpgsParameterApplyStatus = y }
+cpgsParameterApplyStatus = lens _cpgsParameterApplyStatus (\s a -> s { _cpgsParameterApplyStatus = a })
 {-# INLINE cpgsParameterApplyStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ClusterParameterGroupStatus' data type to populate a request.
+mkClusterParameterGroupStatus :: ClusterParameterGroupStatus
+mkClusterParameterGroupStatus = ClusterParameterGroupStatus
+    { _cpgsParameterGroupName = Nothing
+    , _cpgsParameterApplyStatus = Nothing
+    }
+{-# INLINE mkClusterParameterGroupStatus #-}
 
 instance FromXML ClusterParameterGroupStatus where
     fromXMLOptions = xmlOptions
@@ -936,32 +911,24 @@ data ClusterSecurityGroup = ClusterSecurityGroup
 
 -- | The name of the cluster security group to which the operation was applied.
 csgClusterSecurityGroupName :: Lens' ClusterSecurityGroup (Maybe Text)
-csgClusterSecurityGroupName f x =
-    f (_csgClusterSecurityGroupName x)
-        <&> \y -> x { _csgClusterSecurityGroupName = y }
+csgClusterSecurityGroupName = lens _csgClusterSecurityGroupName (\s a -> s { _csgClusterSecurityGroupName = a })
 {-# INLINE csgClusterSecurityGroupName #-}
 
 -- | A description of the security group.
 csgDescription :: Lens' ClusterSecurityGroup (Maybe Text)
-csgDescription f x =
-    f (_csgDescription x)
-        <&> \y -> x { _csgDescription = y }
+csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 {-# INLINE csgDescription #-}
 
 -- | A list of EC2 security groups that are permitted to access clusters
 -- associated with this cluster security group.
 csgEC2SecurityGroups :: Lens' ClusterSecurityGroup ([EC2SecurityGroup])
-csgEC2SecurityGroups f x =
-    f (_csgEC2SecurityGroups x)
-        <&> \y -> x { _csgEC2SecurityGroups = y }
+csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\s a -> s { _csgEC2SecurityGroups = a })
 {-# INLINE csgEC2SecurityGroups #-}
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
 csgIPRanges :: Lens' ClusterSecurityGroup ([IPRange])
-csgIPRanges f x =
-    f (_csgIPRanges x)
-        <&> \y -> x { _csgIPRanges = y }
+csgIPRanges = lens _csgIPRanges (\s a -> s { _csgIPRanges = a })
 {-# INLINE csgIPRanges #-}
 
 instance FromXML ClusterSecurityGroup where
@@ -978,17 +945,22 @@ data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
 
 -- | The name of the cluster security group.
 csgmClusterSecurityGroupName :: Lens' ClusterSecurityGroupMembership (Maybe Text)
-csgmClusterSecurityGroupName f x =
-    f (_csgmClusterSecurityGroupName x)
-        <&> \y -> x { _csgmClusterSecurityGroupName = y }
+csgmClusterSecurityGroupName = lens _csgmClusterSecurityGroupName (\s a -> s { _csgmClusterSecurityGroupName = a })
 {-# INLINE csgmClusterSecurityGroupName #-}
 
 -- | The status of the cluster security group.
 csgmStatus :: Lens' ClusterSecurityGroupMembership (Maybe Text)
-csgmStatus f x =
-    f (_csgmStatus x)
-        <&> \y -> x { _csgmStatus = y }
+csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 {-# INLINE csgmStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ClusterSecurityGroupMembership' data type to populate a request.
+mkClusterSecurityGroupMembership :: ClusterSecurityGroupMembership
+mkClusterSecurityGroupMembership = ClusterSecurityGroupMembership
+    { _csgmClusterSecurityGroupName = Nothing
+    , _csgmStatus = Nothing
+    }
+{-# INLINE mkClusterSecurityGroupMembership #-}
 
 instance FromXML ClusterSecurityGroupMembership where
     fromXMLOptions = xmlOptions
@@ -1011,18 +983,23 @@ data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
 -- | The destination region that snapshots are automatically copied to when
 -- cross-region snapshot copy is enabled.
 cscsDestinationRegion :: Lens' ClusterSnapshotCopyStatus (Maybe Text)
-cscsDestinationRegion f x =
-    f (_cscsDestinationRegion x)
-        <&> \y -> x { _cscsDestinationRegion = y }
+cscsDestinationRegion = lens _cscsDestinationRegion (\s a -> s { _cscsDestinationRegion = a })
 {-# INLINE cscsDestinationRegion #-}
 
 -- | The number of days that automated snapshots are retained in the destination
 -- region after they are copied from a source region.
 cscsRetentionPeriod :: Lens' ClusterSnapshotCopyStatus (Maybe Integer)
-cscsRetentionPeriod f x =
-    f (_cscsRetentionPeriod x)
-        <&> \y -> x { _cscsRetentionPeriod = y }
+cscsRetentionPeriod = lens _cscsRetentionPeriod (\s a -> s { _cscsRetentionPeriod = a })
 {-# INLINE cscsRetentionPeriod #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ClusterSnapshotCopyStatus' data type to populate a request.
+mkClusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
+mkClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
+    { _cscsDestinationRegion = Nothing
+    , _cscsRetentionPeriod = Nothing
+    }
+{-# INLINE mkClusterSnapshotCopyStatus #-}
 
 instance FromXML ClusterSnapshotCopyStatus where
     fromXMLOptions = xmlOptions
@@ -1048,38 +1025,28 @@ data ClusterSubnetGroup = ClusterSubnetGroup
 
 -- | The name of the cluster subnet group.
 csiClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
-csiClusterSubnetGroupName f x =
-    f (_csiClusterSubnetGroupName x)
-        <&> \y -> x { _csiClusterSubnetGroupName = y }
+csiClusterSubnetGroupName = lens _csiClusterSubnetGroupName (\s a -> s { _csiClusterSubnetGroupName = a })
 {-# INLINE csiClusterSubnetGroupName #-}
 
 -- | The description of the cluster subnet group.
 csiDescription :: Lens' ClusterSubnetGroup (Maybe Text)
-csiDescription f x =
-    f (_csiDescription x)
-        <&> \y -> x { _csiDescription = y }
+csiDescription = lens _csiDescription (\s a -> s { _csiDescription = a })
 {-# INLINE csiDescription #-}
 
 -- | The VPC ID of the cluster subnet group.
 csiVpcId :: Lens' ClusterSubnetGroup (Maybe Text)
-csiVpcId f x =
-    f (_csiVpcId x)
-        <&> \y -> x { _csiVpcId = y }
+csiVpcId = lens _csiVpcId (\s a -> s { _csiVpcId = a })
 {-# INLINE csiVpcId #-}
 
 -- | The status of the cluster subnet group. Possible values are Complete,
 -- Incomplete and Invalid.
 csiSubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
-csiSubnetGroupStatus f x =
-    f (_csiSubnetGroupStatus x)
-        <&> \y -> x { _csiSubnetGroupStatus = y }
+csiSubnetGroupStatus = lens _csiSubnetGroupStatus (\s a -> s { _csiSubnetGroupStatus = a })
 {-# INLINE csiSubnetGroupStatus #-}
 
 -- | A list of the VPC Subnet elements.
 csiSubnets :: Lens' ClusterSubnetGroup ([Subnet])
-csiSubnets f x =
-    f (_csiSubnets x)
-        <&> \y -> x { _csiSubnets = y }
+csiSubnets = lens _csiSubnets (\s a -> s { _csiSubnets = a })
 {-# INLINE csiSubnets #-}
 
 instance FromXML ClusterSubnetGroup where
@@ -1099,23 +1066,17 @@ data ClusterVersion = ClusterVersion
 
 -- | The version number used by the cluster.
 cvClusterVersion :: Lens' ClusterVersion (Maybe Text)
-cvClusterVersion f x =
-    f (_cvClusterVersion x)
-        <&> \y -> x { _cvClusterVersion = y }
+cvClusterVersion = lens _cvClusterVersion (\s a -> s { _cvClusterVersion = a })
 {-# INLINE cvClusterVersion #-}
 
 -- | The name of the cluster parameter group family for the cluster.
 cvClusterParameterGroupFamily :: Lens' ClusterVersion (Maybe Text)
-cvClusterParameterGroupFamily f x =
-    f (_cvClusterParameterGroupFamily x)
-        <&> \y -> x { _cvClusterParameterGroupFamily = y }
+cvClusterParameterGroupFamily = lens _cvClusterParameterGroupFamily (\s a -> s { _cvClusterParameterGroupFamily = a })
 {-# INLINE cvClusterParameterGroupFamily #-}
 
 -- | The description of the cluster version.
 cvDescription :: Lens' ClusterVersion (Maybe Text)
-cvDescription f x =
-    f (_cvDescription x)
-        <&> \y -> x { _cvDescription = y }
+cvDescription = lens _cvDescription (\s a -> s { _cvDescription = a })
 {-# INLINE cvDescription #-}
 
 instance FromXML ClusterVersion where
@@ -1141,9 +1102,7 @@ data DefaultClusterParameters = DefaultClusterParameters
 -- | The name of the cluster parameter group family to which the engine default
 -- parameters apply.
 dcpParameterGroupFamily :: Lens' DefaultClusterParameters (Maybe Text)
-dcpParameterGroupFamily f x =
-    f (_dcpParameterGroupFamily x)
-        <&> \y -> x { _dcpParameterGroupFamily = y }
+dcpParameterGroupFamily = lens _dcpParameterGroupFamily (\s a -> s { _dcpParameterGroupFamily = a })
 {-# INLINE dcpParameterGroupFamily #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -1152,16 +1111,12 @@ dcpParameterGroupFamily f x =
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
-dcpMarker f x =
-    f (_dcpMarker x)
-        <&> \y -> x { _dcpMarker = y }
+dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
 {-# INLINE dcpMarker #-}
 
 -- | The list of cluster default parameters.
 dcpParameters :: Lens' DefaultClusterParameters ([Parameter])
-dcpParameters f x =
-    f (_dcpParameters x)
-        <&> \y -> x { _dcpParameters = y }
+dcpParameters = lens _dcpParameters (\s a -> s { _dcpParameters = a })
 {-# INLINE dcpParameters #-}
 
 instance FromXML DefaultClusterParameters where
@@ -1181,25 +1136,29 @@ data EC2SecurityGroup = EC2SecurityGroup
 
 -- | The status of the EC2 security group.
 ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgStatus f x =
-    f (_ecsgStatus x)
-        <&> \y -> x { _ecsgStatus = y }
+ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 {-# INLINE ecsgStatus #-}
 
 -- | The name of the EC2 Security Group.
 ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgEC2SecurityGroupName f x =
-    f (_ecsgEC2SecurityGroupName x)
-        <&> \y -> x { _ecsgEC2SecurityGroupName = y }
+ecsgEC2SecurityGroupName = lens _ecsgEC2SecurityGroupName (\s a -> s { _ecsgEC2SecurityGroupName = a })
 {-# INLINE ecsgEC2SecurityGroupName #-}
 
 -- | The AWS ID of the owner of the EC2 security group specified in the
 -- EC2SecurityGroupName field.
 ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgEC2SecurityGroupOwnerId f x =
-    f (_ecsgEC2SecurityGroupOwnerId x)
-        <&> \y -> x { _ecsgEC2SecurityGroupOwnerId = y }
+ecsgEC2SecurityGroupOwnerId = lens _ecsgEC2SecurityGroupOwnerId (\s a -> s { _ecsgEC2SecurityGroupOwnerId = a })
 {-# INLINE ecsgEC2SecurityGroupOwnerId #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'EC2SecurityGroup' data type to populate a request.
+mkEC2SecurityGroup :: EC2SecurityGroup
+mkEC2SecurityGroup = EC2SecurityGroup
+    { _ecsgStatus = Nothing
+    , _ecsgEC2SecurityGroupName = Nothing
+    , _ecsgEC2SecurityGroupOwnerId = Nothing
+    }
+{-# INLINE mkEC2SecurityGroup #-}
 
 instance FromXML EC2SecurityGroup where
     fromXMLOptions = xmlOptions
@@ -1218,17 +1177,22 @@ data ElasticIpStatus = ElasticIpStatus
 
 -- | The elastic IP (EIP) address for the cluster.
 eisElasticIp :: Lens' ElasticIpStatus (Maybe Text)
-eisElasticIp f x =
-    f (_eisElasticIp x)
-        <&> \y -> x { _eisElasticIp = y }
+eisElasticIp = lens _eisElasticIp (\s a -> s { _eisElasticIp = a })
 {-# INLINE eisElasticIp #-}
 
 -- | Describes the status of the elastic IP (EIP) address.
 eisStatus :: Lens' ElasticIpStatus (Maybe Text)
-eisStatus f x =
-    f (_eisStatus x)
-        <&> \y -> x { _eisStatus = y }
+eisStatus = lens _eisStatus (\s a -> s { _eisStatus = a })
 {-# INLINE eisStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ElasticIpStatus' data type to populate a request.
+mkElasticIpStatus :: ElasticIpStatus
+mkElasticIpStatus = ElasticIpStatus
+    { _eisElasticIp = Nothing
+    , _eisStatus = Nothing
+    }
+{-# INLINE mkElasticIpStatus #-}
 
 instance FromXML ElasticIpStatus where
     fromXMLOptions = xmlOptions
@@ -1247,17 +1211,22 @@ data Endpoint = Endpoint
 
 -- | The DNS address of the Cluster.
 etAddress :: Lens' Endpoint (Maybe Text)
-etAddress f x =
-    f (_etAddress x)
-        <&> \y -> x { _etAddress = y }
+etAddress = lens _etAddress (\s a -> s { _etAddress = a })
 {-# INLINE etAddress #-}
 
 -- | The port that the database engine is listening on.
 etPort :: Lens' Endpoint (Maybe Integer)
-etPort f x =
-    f (_etPort x)
-        <&> \y -> x { _etPort = y }
+etPort = lens _etPort (\s a -> s { _etPort = a })
 {-# INLINE etPort #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Endpoint' data type to populate a request.
+mkEndpoint :: Endpoint
+mkEndpoint = Endpoint
+    { _etAddress = Nothing
+    , _etPort = Nothing
+    }
+{-# INLINE mkEndpoint #-}
 
 instance FromXML Endpoint where
     fromXMLOptions = xmlOptions
@@ -1286,51 +1255,37 @@ data Event = Event
 
 -- | The identifier for the source of the event.
 exSourceIdentifier :: Lens' Event (Maybe Text)
-exSourceIdentifier f x =
-    f (_exSourceIdentifier x)
-        <&> \y -> x { _exSourceIdentifier = y }
+exSourceIdentifier = lens _exSourceIdentifier (\s a -> s { _exSourceIdentifier = a })
 {-# INLINE exSourceIdentifier #-}
 
 -- | The source type for this event.
 exSourceType :: Lens' Event (Maybe SourceType)
-exSourceType f x =
-    f (_exSourceType x)
-        <&> \y -> x { _exSourceType = y }
+exSourceType = lens _exSourceType (\s a -> s { _exSourceType = a })
 {-# INLINE exSourceType #-}
 
 -- | The text of this event.
 exMessage :: Lens' Event (Maybe Text)
-exMessage f x =
-    f (_exMessage x)
-        <&> \y -> x { _exMessage = y }
+exMessage = lens _exMessage (\s a -> s { _exMessage = a })
 {-# INLINE exMessage #-}
 
 -- | A list of the event categories.
 exEventCategories :: Lens' Event ([Text])
-exEventCategories f x =
-    f (_exEventCategories x)
-        <&> \y -> x { _exEventCategories = y }
+exEventCategories = lens _exEventCategories (\s a -> s { _exEventCategories = a })
 {-# INLINE exEventCategories #-}
 
 -- | The severity of the event. Values: ERROR, INFO.
 exSeverity :: Lens' Event (Maybe Text)
-exSeverity f x =
-    f (_exSeverity x)
-        <&> \y -> x { _exSeverity = y }
+exSeverity = lens _exSeverity (\s a -> s { _exSeverity = a })
 {-# INLINE exSeverity #-}
 
 -- | The date and time of the event.
 exDate :: Lens' Event (Maybe ISO8601)
-exDate f x =
-    f (_exDate x)
-        <&> \y -> x { _exDate = y }
+exDate = lens _exDate (\s a -> s { _exDate = a })
 {-# INLINE exDate #-}
 
 -- | The identifier of the event.
 exEventId :: Lens' Event (Maybe Text)
-exEventId f x =
-    f (_exEventId x)
-        <&> \y -> x { _exEventId = y }
+exEventId = lens _exEventId (\s a -> s { _exEventId = a })
 {-# INLINE exEventId #-}
 
 instance FromXML Event where
@@ -1349,16 +1304,12 @@ data EventCategoriesMap = EventCategoriesMap
 -- | The Amazon Redshift source type, such as cluster or cluster-snapshot, that
 -- the returned categories belong to.
 ecoSourceType :: Lens' EventCategoriesMap (Maybe Text)
-ecoSourceType f x =
-    f (_ecoSourceType x)
-        <&> \y -> x { _ecoSourceType = y }
+ecoSourceType = lens _ecoSourceType (\s a -> s { _ecoSourceType = a })
 {-# INLINE ecoSourceType #-}
 
 -- | The events in the event category.
 ecoEvents :: Lens' EventCategoriesMap ([EventInfoMap])
-ecoEvents f x =
-    f (_ecoEvents x)
-        <&> \y -> x { _ecoEvents = y }
+ecoEvents = lens _ecoEvents (\s a -> s { _ecoEvents = a })
 {-# INLINE ecoEvents #-}
 
 instance FromXML EventCategoriesMap where
@@ -1379,31 +1330,34 @@ data EventInfoMap = EventInfoMap
 
 -- | The identifier of an Amazon Redshift event.
 eimEventId :: Lens' EventInfoMap (Maybe Text)
-eimEventId f x =
-    f (_eimEventId x)
-        <&> \y -> x { _eimEventId = y }
+eimEventId = lens _eimEventId (\s a -> s { _eimEventId = a })
 {-# INLINE eimEventId #-}
 
 -- | The category of an Amazon Redshift event.
 eimEventCategories :: Lens' EventInfoMap ([Text])
-eimEventCategories f x =
-    f (_eimEventCategories x)
-        <&> \y -> x { _eimEventCategories = y }
+eimEventCategories = lens _eimEventCategories (\s a -> s { _eimEventCategories = a })
 {-# INLINE eimEventCategories #-}
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
-eimEventDescription f x =
-    f (_eimEventDescription x)
-        <&> \y -> x { _eimEventDescription = y }
+eimEventDescription = lens _eimEventDescription (\s a -> s { _eimEventDescription = a })
 {-# INLINE eimEventDescription #-}
 
 -- | The severity of the event. Values: ERROR, INFO.
 eimSeverity :: Lens' EventInfoMap (Maybe Text)
-eimSeverity f x =
-    f (_eimSeverity x)
-        <&> \y -> x { _eimSeverity = y }
+eimSeverity = lens _eimSeverity (\s a -> s { _eimSeverity = a })
 {-# INLINE eimSeverity #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'EventInfoMap' data type to populate a request.
+mkEventInfoMap :: EventInfoMap
+mkEventInfoMap = EventInfoMap
+    { _eimEventId = Nothing
+    , _eimEventCategories = mempty
+    , _eimEventDescription = Nothing
+    , _eimSeverity = Nothing
+    }
+{-# INLINE mkEventInfoMap #-}
 
 instance FromXML EventInfoMap where
     fromXMLOptions = xmlOptions
@@ -1453,24 +1407,18 @@ data EventSubscription = EventSubscription
 -- | The AWS customer account associated with the Amazon Redshift event
 -- notification subscription.
 esCustomerAwsId :: Lens' EventSubscription (Maybe Text)
-esCustomerAwsId f x =
-    f (_esCustomerAwsId x)
-        <&> \y -> x { _esCustomerAwsId = y }
+esCustomerAwsId = lens _esCustomerAwsId (\s a -> s { _esCustomerAwsId = a })
 {-# INLINE esCustomerAwsId #-}
 
 -- | The name of the Amazon Redshift event notification subscription.
 esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
-esCustSubscriptionId f x =
-    f (_esCustSubscriptionId x)
-        <&> \y -> x { _esCustSubscriptionId = y }
+esCustSubscriptionId = lens _esCustSubscriptionId (\s a -> s { _esCustSubscriptionId = a })
 {-# INLINE esCustSubscriptionId #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event
 -- notification subscription.
 esSnsTopicArn :: Lens' EventSubscription (Maybe Text)
-esSnsTopicArn f x =
-    f (_esSnsTopicArn x)
-        <&> \y -> x { _esSnsTopicArn = y }
+esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
 {-# INLINE esSnsTopicArn #-}
 
 -- | The status of the Amazon Redshift event notification subscription.
@@ -1480,58 +1428,44 @@ esSnsTopicArn f x =
 -- "topic-not-exist" indicates that the topic was deleted after the
 -- subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
-esStatus f x =
-    f (_esStatus x)
-        <&> \y -> x { _esStatus = y }
+esStatus = lens _esStatus (\s a -> s { _esStatus = a })
 {-# INLINE esStatus #-}
 
 -- | The date and time the Amazon Redshift event notification subscription was
 -- created.
 esSubscriptionCreationTime :: Lens' EventSubscription (Maybe ISO8601)
-esSubscriptionCreationTime f x =
-    f (_esSubscriptionCreationTime x)
-        <&> \y -> x { _esSubscriptionCreationTime = y }
+esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\s a -> s { _esSubscriptionCreationTime = a })
 {-# INLINE esSubscriptionCreationTime #-}
 
 -- | The source type of the events returned the Amazon Redshift event
 -- notification, such as cluster, or cluster-snapshot.
 esSourceType :: Lens' EventSubscription (Maybe Text)
-esSourceType f x =
-    f (_esSourceType x)
-        <&> \y -> x { _esSourceType = y }
+esSourceType = lens _esSourceType (\s a -> s { _esSourceType = a })
 {-# INLINE esSourceType #-}
 
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
 esSourceIdsList :: Lens' EventSubscription ([Text])
-esSourceIdsList f x =
-    f (_esSourceIdsList x)
-        <&> \y -> x { _esSourceIdsList = y }
+esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
 {-# INLINE esSourceIdsList #-}
 
 -- | The list of Amazon Redshift event categories specified in the event
 -- notification subscription. Values: Configuration, Management, Monitoring,
 -- Security.
 esEventCategoriesList :: Lens' EventSubscription ([Text])
-esEventCategoriesList f x =
-    f (_esEventCategoriesList x)
-        <&> \y -> x { _esEventCategoriesList = y }
+esEventCategoriesList = lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
 {-# INLINE esEventCategoriesList #-}
 
 -- | The event severity specified in the Amazon Redshift event notification
 -- subscription. Values: ERROR, INFO.
 esSeverity :: Lens' EventSubscription (Maybe Text)
-esSeverity f x =
-    f (_esSeverity x)
-        <&> \y -> x { _esSeverity = y }
+esSeverity = lens _esSeverity (\s a -> s { _esSeverity = a })
 {-# INLINE esSeverity #-}
 
 -- | A Boolean value indicating whether the subscription is enabled. true
 -- indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
-esEnabled f x =
-    f (_esEnabled x)
-        <&> \y -> x { _esEnabled = y }
+esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
 {-# INLINE esEnabled #-}
 
 instance FromXML EventSubscription where
@@ -1551,17 +1485,13 @@ data HsmClientCertificate = HsmClientCertificate
 
 -- | The identifier of the HSM client certificate.
 hccHsmClientCertificateIdentifier :: Lens' HsmClientCertificate (Maybe Text)
-hccHsmClientCertificateIdentifier f x =
-    f (_hccHsmClientCertificateIdentifier x)
-        <&> \y -> x { _hccHsmClientCertificateIdentifier = y }
+hccHsmClientCertificateIdentifier = lens _hccHsmClientCertificateIdentifier (\s a -> s { _hccHsmClientCertificateIdentifier = a })
 {-# INLINE hccHsmClientCertificateIdentifier #-}
 
 -- | The public key that the Amazon Redshift cluster will use to connect to the
 -- HSM. You must register the public key in the HSM.
 hccHsmClientCertificatePublicKey :: Lens' HsmClientCertificate (Maybe Text)
-hccHsmClientCertificatePublicKey f x =
-    f (_hccHsmClientCertificatePublicKey x)
-        <&> \y -> x { _hccHsmClientCertificatePublicKey = y }
+hccHsmClientCertificatePublicKey = lens _hccHsmClientCertificatePublicKey (\s a -> s { _hccHsmClientCertificatePublicKey = a })
 {-# INLINE hccHsmClientCertificatePublicKey #-}
 
 instance FromXML HsmClientCertificate where
@@ -1586,31 +1516,23 @@ data HsmConfiguration = HsmConfiguration
 
 -- | The name of the Amazon Redshift HSM configuration.
 hcHsmConfigurationIdentifier :: Lens' HsmConfiguration (Maybe Text)
-hcHsmConfigurationIdentifier f x =
-    f (_hcHsmConfigurationIdentifier x)
-        <&> \y -> x { _hcHsmConfigurationIdentifier = y }
+hcHsmConfigurationIdentifier = lens _hcHsmConfigurationIdentifier (\s a -> s { _hcHsmConfigurationIdentifier = a })
 {-# INLINE hcHsmConfigurationIdentifier #-}
 
 -- | A text description of the HSM configuration.
 hcDescription :: Lens' HsmConfiguration (Maybe Text)
-hcDescription f x =
-    f (_hcDescription x)
-        <&> \y -> x { _hcDescription = y }
+hcDescription = lens _hcDescription (\s a -> s { _hcDescription = a })
 {-# INLINE hcDescription #-}
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
 hcHsmIpAddress :: Lens' HsmConfiguration (Maybe Text)
-hcHsmIpAddress f x =
-    f (_hcHsmIpAddress x)
-        <&> \y -> x { _hcHsmIpAddress = y }
+hcHsmIpAddress = lens _hcHsmIpAddress (\s a -> s { _hcHsmIpAddress = a })
 {-# INLINE hcHsmIpAddress #-}
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
 hcHsmPartitionName :: Lens' HsmConfiguration (Maybe Text)
-hcHsmPartitionName f x =
-    f (_hcHsmPartitionName x)
-        <&> \y -> x { _hcHsmPartitionName = y }
+hcHsmPartitionName = lens _hcHsmPartitionName (\s a -> s { _hcHsmPartitionName = a })
 {-# INLINE hcHsmPartitionName #-}
 
 instance FromXML HsmConfiguration where
@@ -1638,27 +1560,31 @@ data HsmStatus = HsmStatus
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
 hsHsmClientCertificateIdentifier :: Lens' HsmStatus (Maybe Text)
-hsHsmClientCertificateIdentifier f x =
-    f (_hsHsmClientCertificateIdentifier x)
-        <&> \y -> x { _hsHsmClientCertificateIdentifier = y }
+hsHsmClientCertificateIdentifier = lens _hsHsmClientCertificateIdentifier (\s a -> s { _hsHsmClientCertificateIdentifier = a })
 {-# INLINE hsHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 hsHsmConfigurationIdentifier :: Lens' HsmStatus (Maybe Text)
-hsHsmConfigurationIdentifier f x =
-    f (_hsHsmConfigurationIdentifier x)
-        <&> \y -> x { _hsHsmConfigurationIdentifier = y }
+hsHsmConfigurationIdentifier = lens _hsHsmConfigurationIdentifier (\s a -> s { _hsHsmConfigurationIdentifier = a })
 {-# INLINE hsHsmConfigurationIdentifier #-}
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any HSM
 -- settings changes specified in a modify cluster command. Values: active,
 -- applying.
 hsStatus :: Lens' HsmStatus (Maybe Text)
-hsStatus f x =
-    f (_hsStatus x)
-        <&> \y -> x { _hsStatus = y }
+hsStatus = lens _hsStatus (\s a -> s { _hsStatus = a })
 {-# INLINE hsStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'HsmStatus' data type to populate a request.
+mkHsmStatus :: HsmStatus
+mkHsmStatus = HsmStatus
+    { _hsHsmClientCertificateIdentifier = Nothing
+    , _hsHsmConfigurationIdentifier = Nothing
+    , _hsStatus = Nothing
+    }
+{-# INLINE mkHsmStatus #-}
 
 instance FromXML HsmStatus where
     fromXMLOptions = xmlOptions
@@ -1677,17 +1603,22 @@ data IPRange = IPRange
 
 -- | The status of the IP range, for example, "authorized".
 iprStatus :: Lens' IPRange (Maybe Text)
-iprStatus f x =
-    f (_iprStatus x)
-        <&> \y -> x { _iprStatus = y }
+iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 {-# INLINE iprStatus #-}
 
 -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
 iprCIDRIP :: Lens' IPRange (Maybe Text)
-iprCIDRIP f x =
-    f (_iprCIDRIP x)
-        <&> \y -> x { _iprCIDRIP = y }
+iprCIDRIP = lens _iprCIDRIP (\s a -> s { _iprCIDRIP = a })
 {-# INLINE iprCIDRIP #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IPRange' data type to populate a request.
+mkIPRange :: IPRange
+mkIPRange = IPRange
+    { _iprStatus = Nothing
+    , _iprCIDRIP = Nothing
+    }
+{-# INLINE mkIPRange #-}
 
 instance FromXML IPRange where
     fromXMLOptions = xmlOptions
@@ -1710,30 +1641,22 @@ data OrderableClusterOption = OrderableClusterOption
 
 -- | The version of the orderable cluster.
 ocoClusterVersion :: Lens' OrderableClusterOption (Maybe Text)
-ocoClusterVersion f x =
-    f (_ocoClusterVersion x)
-        <&> \y -> x { _ocoClusterVersion = y }
+ocoClusterVersion = lens _ocoClusterVersion (\s a -> s { _ocoClusterVersion = a })
 {-# INLINE ocoClusterVersion #-}
 
 -- | The cluster type, for example multi-node.
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
-ocoClusterType f x =
-    f (_ocoClusterType x)
-        <&> \y -> x { _ocoClusterType = y }
+ocoClusterType = lens _ocoClusterType (\s a -> s { _ocoClusterType = a })
 {-# INLINE ocoClusterType #-}
 
 -- | The node type for the orderable cluster.
 ocoNodeType :: Lens' OrderableClusterOption (Maybe Text)
-ocoNodeType f x =
-    f (_ocoNodeType x)
-        <&> \y -> x { _ocoNodeType = y }
+ocoNodeType = lens _ocoNodeType (\s a -> s { _ocoNodeType = a })
 {-# INLINE ocoNodeType #-}
 
 -- | A list of availability zones for the orderable cluster.
 ocoAvailabilityZones :: Lens' OrderableClusterOption ([AvailabilityZone])
-ocoAvailabilityZones f x =
-    f (_ocoAvailabilityZones x)
-        <&> \y -> x { _ocoAvailabilityZones = y }
+ocoAvailabilityZones = lens _ocoAvailabilityZones (\s a -> s { _ocoAvailabilityZones = a })
 {-# INLINE ocoAvailabilityZones #-}
 
 instance FromXML OrderableClusterOption where
@@ -1765,60 +1688,59 @@ data Parameter = Parameter
 
 -- | The name of the parameter.
 prParameterName :: Lens' Parameter (Maybe Text)
-prParameterName f x =
-    f (_prParameterName x)
-        <&> \y -> x { _prParameterName = y }
+prParameterName = lens _prParameterName (\s a -> s { _prParameterName = a })
 {-# INLINE prParameterName #-}
 
 -- | The value of the parameter.
 prParameterValue :: Lens' Parameter (Maybe Text)
-prParameterValue f x =
-    f (_prParameterValue x)
-        <&> \y -> x { _prParameterValue = y }
+prParameterValue = lens _prParameterValue (\s a -> s { _prParameterValue = a })
 {-# INLINE prParameterValue #-}
 
 -- | A description of the parameter.
 prDescription :: Lens' Parameter (Maybe Text)
-prDescription f x =
-    f (_prDescription x)
-        <&> \y -> x { _prDescription = y }
+prDescription = lens _prDescription (\s a -> s { _prDescription = a })
 {-# INLINE prDescription #-}
 
 -- | The source of the parameter value, such as "engine-default" or "user".
 prSource :: Lens' Parameter (Maybe Text)
-prSource f x =
-    f (_prSource x)
-        <&> \y -> x { _prSource = y }
+prSource = lens _prSource (\s a -> s { _prSource = a })
 {-# INLINE prSource #-}
 
 -- | The data type of the parameter.
 prDataType :: Lens' Parameter (Maybe Text)
-prDataType f x =
-    f (_prDataType x)
-        <&> \y -> x { _prDataType = y }
+prDataType = lens _prDataType (\s a -> s { _prDataType = a })
 {-# INLINE prDataType #-}
 
 -- | The valid range of values for the parameter.
 prAllowedValues :: Lens' Parameter (Maybe Text)
-prAllowedValues f x =
-    f (_prAllowedValues x)
-        <&> \y -> x { _prAllowedValues = y }
+prAllowedValues = lens _prAllowedValues (\s a -> s { _prAllowedValues = a })
 {-# INLINE prAllowedValues #-}
 
 -- | If true, the parameter can be modified. Some parameters have security or
 -- operational implications that prevent them from being changed.
 prIsModifiable :: Lens' Parameter (Maybe Bool)
-prIsModifiable f x =
-    f (_prIsModifiable x)
-        <&> \y -> x { _prIsModifiable = y }
+prIsModifiable = lens _prIsModifiable (\s a -> s { _prIsModifiable = a })
 {-# INLINE prIsModifiable #-}
 
 -- | The earliest engine version to which the parameter can apply.
 prMinimumEngineVersion :: Lens' Parameter (Maybe Text)
-prMinimumEngineVersion f x =
-    f (_prMinimumEngineVersion x)
-        <&> \y -> x { _prMinimumEngineVersion = y }
+prMinimumEngineVersion = lens _prMinimumEngineVersion (\s a -> s { _prMinimumEngineVersion = a })
 {-# INLINE prMinimumEngineVersion #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Parameter' data type to populate a request.
+mkParameter :: Parameter
+mkParameter = Parameter
+    { _prParameterName = Nothing
+    , _prParameterValue = Nothing
+    , _prDescription = Nothing
+    , _prSource = Nothing
+    , _prDataType = Nothing
+    , _prAllowedValues = Nothing
+    , _prIsModifiable = Nothing
+    , _prMinimumEngineVersion = Nothing
+    }
+{-# INLINE mkParameter #-}
 
 instance FromXML Parameter where
     fromXMLOptions = xmlOptions
@@ -1853,53 +1775,53 @@ data PendingModifiedValues = PendingModifiedValues
 -- | The pending or in-progress change of the master user password for the
 -- cluster.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
-pmvMasterUserPassword f x =
-    f (_pmvMasterUserPassword x)
-        <&> \y -> x { _pmvMasterUserPassword = y }
+pmvMasterUserPassword = lens _pmvMasterUserPassword (\s a -> s { _pmvMasterUserPassword = a })
 {-# INLINE pmvMasterUserPassword #-}
 
 -- | The pending or in-progress change of the cluster's node type.
 pmvNodeType :: Lens' PendingModifiedValues (Maybe Text)
-pmvNodeType f x =
-    f (_pmvNodeType x)
-        <&> \y -> x { _pmvNodeType = y }
+pmvNodeType = lens _pmvNodeType (\s a -> s { _pmvNodeType = a })
 {-# INLINE pmvNodeType #-}
 
 -- | The pending or in-progress change of the number of nodes in the cluster.
 pmvNumberOfNodes :: Lens' PendingModifiedValues (Maybe Integer)
-pmvNumberOfNodes f x =
-    f (_pmvNumberOfNodes x)
-        <&> \y -> x { _pmvNumberOfNodes = y }
+pmvNumberOfNodes = lens _pmvNumberOfNodes (\s a -> s { _pmvNumberOfNodes = a })
 {-# INLINE pmvNumberOfNodes #-}
 
 -- | The pending or in-progress change of the cluster type.
 pmvClusterType :: Lens' PendingModifiedValues (Maybe Text)
-pmvClusterType f x =
-    f (_pmvClusterType x)
-        <&> \y -> x { _pmvClusterType = y }
+pmvClusterType = lens _pmvClusterType (\s a -> s { _pmvClusterType = a })
 {-# INLINE pmvClusterType #-}
 
 -- | The pending or in-progress change of the service version.
 pmvClusterVersion :: Lens' PendingModifiedValues (Maybe Text)
-pmvClusterVersion f x =
-    f (_pmvClusterVersion x)
-        <&> \y -> x { _pmvClusterVersion = y }
+pmvClusterVersion = lens _pmvClusterVersion (\s a -> s { _pmvClusterVersion = a })
 {-# INLINE pmvClusterVersion #-}
 
 -- | The pending or in-progress change of the automated snapshot retention
 -- period.
 pmvAutomatedSnapshotRetentionPeriod :: Lens' PendingModifiedValues (Maybe Integer)
-pmvAutomatedSnapshotRetentionPeriod f x =
-    f (_pmvAutomatedSnapshotRetentionPeriod x)
-        <&> \y -> x { _pmvAutomatedSnapshotRetentionPeriod = y }
+pmvAutomatedSnapshotRetentionPeriod = lens _pmvAutomatedSnapshotRetentionPeriod (\s a -> s { _pmvAutomatedSnapshotRetentionPeriod = a })
 {-# INLINE pmvAutomatedSnapshotRetentionPeriod #-}
 
 -- | The pending or in-progress change of the new identifier for the cluster.
 pmvClusterIdentifier :: Lens' PendingModifiedValues (Maybe Text)
-pmvClusterIdentifier f x =
-    f (_pmvClusterIdentifier x)
-        <&> \y -> x { _pmvClusterIdentifier = y }
+pmvClusterIdentifier = lens _pmvClusterIdentifier (\s a -> s { _pmvClusterIdentifier = a })
 {-# INLINE pmvClusterIdentifier #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PendingModifiedValues' data type to populate a request.
+mkPendingModifiedValues :: PendingModifiedValues
+mkPendingModifiedValues = PendingModifiedValues
+    { _pmvMasterUserPassword = Nothing
+    , _pmvNodeType = Nothing
+    , _pmvNumberOfNodes = Nothing
+    , _pmvClusterType = Nothing
+    , _pmvClusterVersion = Nothing
+    , _pmvAutomatedSnapshotRetentionPeriod = Nothing
+    , _pmvClusterIdentifier = Nothing
+    }
+{-# INLINE mkPendingModifiedValues #-}
 
 instance FromXML PendingModifiedValues where
     fromXMLOptions = xmlOptions
@@ -1920,17 +1842,22 @@ data RecurringCharge = RecurringCharge
 -- | The amount charged per the period of time specified by the recurring charge
 -- frequency.
 rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
-rcRecurringChargeAmount f x =
-    f (_rcRecurringChargeAmount x)
-        <&> \y -> x { _rcRecurringChargeAmount = y }
+rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\s a -> s { _rcRecurringChargeAmount = a })
 {-# INLINE rcRecurringChargeAmount #-}
 
 -- | The frequency at which the recurring charge amount is applied.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
-rcRecurringChargeFrequency f x =
-    f (_rcRecurringChargeFrequency x)
-        <&> \y -> x { _rcRecurringChargeFrequency = y }
+rcRecurringChargeFrequency = lens _rcRecurringChargeFrequency (\s a -> s { _rcRecurringChargeFrequency = a })
 {-# INLINE rcRecurringChargeFrequency #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'RecurringCharge' data type to populate a request.
+mkRecurringCharge :: RecurringCharge
+mkRecurringCharge = RecurringCharge
+    { _rcRecurringChargeAmount = Nothing
+    , _rcRecurringChargeFrequency = Nothing
+    }
+{-# INLINE mkRecurringCharge #-}
 
 instance FromXML RecurringCharge where
     fromXMLOptions = xmlOptions
@@ -1978,66 +1905,48 @@ data ReservedNode = ReservedNode
 
 -- | The unique identifier for the reservation.
 rnReservedNodeId :: Lens' ReservedNode (Maybe Text)
-rnReservedNodeId f x =
-    f (_rnReservedNodeId x)
-        <&> \y -> x { _rnReservedNodeId = y }
+rnReservedNodeId = lens _rnReservedNodeId (\s a -> s { _rnReservedNodeId = a })
 {-# INLINE rnReservedNodeId #-}
 
 -- | The identifier for the reserved node offering.
 rnReservedNodeOfferingId :: Lens' ReservedNode (Maybe Text)
-rnReservedNodeOfferingId f x =
-    f (_rnReservedNodeOfferingId x)
-        <&> \y -> x { _rnReservedNodeOfferingId = y }
+rnReservedNodeOfferingId = lens _rnReservedNodeOfferingId (\s a -> s { _rnReservedNodeOfferingId = a })
 {-# INLINE rnReservedNodeOfferingId #-}
 
 -- | The node type of the reserved node.
 rnNodeType :: Lens' ReservedNode (Maybe Text)
-rnNodeType f x =
-    f (_rnNodeType x)
-        <&> \y -> x { _rnNodeType = y }
+rnNodeType = lens _rnNodeType (\s a -> s { _rnNodeType = a })
 {-# INLINE rnNodeType #-}
 
 -- | The time the reservation started. You purchase a reserved node offering for
 -- a duration. This is the start time of that duration.
 rnStartTime :: Lens' ReservedNode (Maybe ISO8601)
-rnStartTime f x =
-    f (_rnStartTime x)
-        <&> \y -> x { _rnStartTime = y }
+rnStartTime = lens _rnStartTime (\s a -> s { _rnStartTime = a })
 {-# INLINE rnStartTime #-}
 
 -- | The duration of the node reservation in seconds.
 rnDuration :: Lens' ReservedNode (Maybe Integer)
-rnDuration f x =
-    f (_rnDuration x)
-        <&> \y -> x { _rnDuration = y }
+rnDuration = lens _rnDuration (\s a -> s { _rnDuration = a })
 {-# INLINE rnDuration #-}
 
 -- | The fixed cost Amazon Redshift charged you for this reserved node.
 rnFixedPrice :: Lens' ReservedNode (Maybe Double)
-rnFixedPrice f x =
-    f (_rnFixedPrice x)
-        <&> \y -> x { _rnFixedPrice = y }
+rnFixedPrice = lens _rnFixedPrice (\s a -> s { _rnFixedPrice = a })
 {-# INLINE rnFixedPrice #-}
 
 -- | The hourly rate Amazon Redshift charge you for this reserved node.
 rnUsagePrice :: Lens' ReservedNode (Maybe Double)
-rnUsagePrice f x =
-    f (_rnUsagePrice x)
-        <&> \y -> x { _rnUsagePrice = y }
+rnUsagePrice = lens _rnUsagePrice (\s a -> s { _rnUsagePrice = a })
 {-# INLINE rnUsagePrice #-}
 
 -- | The currency code for the reserved cluster.
 rnCurrencyCode :: Lens' ReservedNode (Maybe Text)
-rnCurrencyCode f x =
-    f (_rnCurrencyCode x)
-        <&> \y -> x { _rnCurrencyCode = y }
+rnCurrencyCode = lens _rnCurrencyCode (\s a -> s { _rnCurrencyCode = a })
 {-# INLINE rnCurrencyCode #-}
 
 -- | The number of reserved compute nodes.
 rnNodeCount :: Lens' ReservedNode (Maybe Integer)
-rnNodeCount f x =
-    f (_rnNodeCount x)
-        <&> \y -> x { _rnNodeCount = y }
+rnNodeCount = lens _rnNodeCount (\s a -> s { _rnNodeCount = a })
 {-# INLINE rnNodeCount #-}
 
 -- | The state of the reserved Compute Node. Possible Values:
@@ -2046,24 +1955,18 @@ rnNodeCount f x =
 -- reserved node is owned by the caller and is available for use.
 -- payment-failed-Payment failed for the purchase attempt.
 rnState :: Lens' ReservedNode (Maybe Text)
-rnState f x =
-    f (_rnState x)
-        <&> \y -> x { _rnState = y }
+rnState = lens _rnState (\s a -> s { _rnState = a })
 {-# INLINE rnState #-}
 
 -- | The anticipated utilization of the reserved node, as defined in the
 -- reserved node offering.
 rnOfferingType :: Lens' ReservedNode (Maybe Text)
-rnOfferingType f x =
-    f (_rnOfferingType x)
-        <&> \y -> x { _rnOfferingType = y }
+rnOfferingType = lens _rnOfferingType (\s a -> s { _rnOfferingType = a })
 {-# INLINE rnOfferingType #-}
 
 -- | The recurring charges for the reserved node.
 rnRecurringCharges :: Lens' ReservedNode ([RecurringCharge])
-rnRecurringCharges f x =
-    f (_rnRecurringCharges x)
-        <&> \y -> x { _rnRecurringCharges = y }
+rnRecurringCharges = lens _rnRecurringCharges (\s a -> s { _rnRecurringCharges = a })
 {-# INLINE rnRecurringCharges #-}
 
 instance FromXML ReservedNode where
@@ -2098,63 +2001,47 @@ data ReservedNodeOffering = ReservedNodeOffering
 
 -- | The offering identifier.
 rnoReservedNodeOfferingId :: Lens' ReservedNodeOffering (Maybe Text)
-rnoReservedNodeOfferingId f x =
-    f (_rnoReservedNodeOfferingId x)
-        <&> \y -> x { _rnoReservedNodeOfferingId = y }
+rnoReservedNodeOfferingId = lens _rnoReservedNodeOfferingId (\s a -> s { _rnoReservedNodeOfferingId = a })
 {-# INLINE rnoReservedNodeOfferingId #-}
 
 -- | The node type offered by the reserved node offering.
 rnoNodeType :: Lens' ReservedNodeOffering (Maybe Text)
-rnoNodeType f x =
-    f (_rnoNodeType x)
-        <&> \y -> x { _rnoNodeType = y }
+rnoNodeType = lens _rnoNodeType (\s a -> s { _rnoNodeType = a })
 {-# INLINE rnoNodeType #-}
 
 -- | The duration, in seconds, for which the offering will reserve the node.
 rnoDuration :: Lens' ReservedNodeOffering (Maybe Integer)
-rnoDuration f x =
-    f (_rnoDuration x)
-        <&> \y -> x { _rnoDuration = y }
+rnoDuration = lens _rnoDuration (\s a -> s { _rnoDuration = a })
 {-# INLINE rnoDuration #-}
 
 -- | The upfront fixed charge you will pay to purchase the specific reserved
 -- node offering.
 rnoFixedPrice :: Lens' ReservedNodeOffering (Maybe Double)
-rnoFixedPrice f x =
-    f (_rnoFixedPrice x)
-        <&> \y -> x { _rnoFixedPrice = y }
+rnoFixedPrice = lens _rnoFixedPrice (\s a -> s { _rnoFixedPrice = a })
 {-# INLINE rnoFixedPrice #-}
 
 -- | The rate you are charged for each hour the cluster that is using the
 -- offering is running.
 rnoUsagePrice :: Lens' ReservedNodeOffering (Maybe Double)
-rnoUsagePrice f x =
-    f (_rnoUsagePrice x)
-        <&> \y -> x { _rnoUsagePrice = y }
+rnoUsagePrice = lens _rnoUsagePrice (\s a -> s { _rnoUsagePrice = a })
 {-# INLINE rnoUsagePrice #-}
 
 -- | The currency code for the compute nodes offering.
 rnoCurrencyCode :: Lens' ReservedNodeOffering (Maybe Text)
-rnoCurrencyCode f x =
-    f (_rnoCurrencyCode x)
-        <&> \y -> x { _rnoCurrencyCode = y }
+rnoCurrencyCode = lens _rnoCurrencyCode (\s a -> s { _rnoCurrencyCode = a })
 {-# INLINE rnoCurrencyCode #-}
 
 -- | The anticipated utilization of the reserved node, as defined in the
 -- reserved node offering.
 rnoOfferingType :: Lens' ReservedNodeOffering (Maybe Text)
-rnoOfferingType f x =
-    f (_rnoOfferingType x)
-        <&> \y -> x { _rnoOfferingType = y }
+rnoOfferingType = lens _rnoOfferingType (\s a -> s { _rnoOfferingType = a })
 {-# INLINE rnoOfferingType #-}
 
 -- | The charge to your account regardless of whether you are creating any
 -- clusters using the node offering. Recurring charges are only in effect for
 -- heavy-utilization reserved nodes.
 rnoRecurringCharges :: Lens' ReservedNodeOffering ([RecurringCharge])
-rnoRecurringCharges f x =
-    f (_rnoRecurringCharges x)
-        <&> \y -> x { _rnoRecurringCharges = y }
+rnoRecurringCharges = lens _rnoRecurringCharges (\s a -> s { _rnoRecurringCharges = a })
 {-# INLINE rnoRecurringCharges #-}
 
 instance FromXML ReservedNodeOffering where
@@ -2186,48 +2073,49 @@ data RestoreStatus = RestoreStatus
 -- | The status of the restore action. Returns starting, restoring, completed,
 -- or failed.
 rsStatus :: Lens' RestoreStatus (Maybe Text)
-rsStatus f x =
-    f (_rsStatus x)
-        <&> \y -> x { _rsStatus = y }
+rsStatus = lens _rsStatus (\s a -> s { _rsStatus = a })
 {-# INLINE rsStatus #-}
 
 -- | The number of megabytes per second being transferred from the backup
 -- storage. Returns the average rate for a completed backup.
 rsCurrentRestoreRateInMegaBytesPerSecond :: Lens' RestoreStatus (Maybe Double)
-rsCurrentRestoreRateInMegaBytesPerSecond f x =
-    f (_rsCurrentRestoreRateInMegaBytesPerSecond x)
-        <&> \y -> x { _rsCurrentRestoreRateInMegaBytesPerSecond = y }
+rsCurrentRestoreRateInMegaBytesPerSecond = lens _rsCurrentRestoreRateInMegaBytesPerSecond (\s a -> s { _rsCurrentRestoreRateInMegaBytesPerSecond = a })
 {-# INLINE rsCurrentRestoreRateInMegaBytesPerSecond #-}
 
 -- | The size of the set of snapshot data used to restore the cluster.
 rsSnapshotSizeInMegaBytes :: Lens' RestoreStatus (Maybe Integer)
-rsSnapshotSizeInMegaBytes f x =
-    f (_rsSnapshotSizeInMegaBytes x)
-        <&> \y -> x { _rsSnapshotSizeInMegaBytes = y }
+rsSnapshotSizeInMegaBytes = lens _rsSnapshotSizeInMegaBytes (\s a -> s { _rsSnapshotSizeInMegaBytes = a })
 {-# INLINE rsSnapshotSizeInMegaBytes #-}
 
 -- | The number of megabytes that have been transferred from snapshot storage.
 rsProgressInMegaBytes :: Lens' RestoreStatus (Maybe Integer)
-rsProgressInMegaBytes f x =
-    f (_rsProgressInMegaBytes x)
-        <&> \y -> x { _rsProgressInMegaBytes = y }
+rsProgressInMegaBytes = lens _rsProgressInMegaBytes (\s a -> s { _rsProgressInMegaBytes = a })
 {-# INLINE rsProgressInMegaBytes #-}
 
 -- | The amount of time an in-progress restore has been running, or the amount
 -- of time it took a completed restore to finish.
 rsElapsedTimeInSeconds :: Lens' RestoreStatus (Maybe Integer)
-rsElapsedTimeInSeconds f x =
-    f (_rsElapsedTimeInSeconds x)
-        <&> \y -> x { _rsElapsedTimeInSeconds = y }
+rsElapsedTimeInSeconds = lens _rsElapsedTimeInSeconds (\s a -> s { _rsElapsedTimeInSeconds = a })
 {-# INLINE rsElapsedTimeInSeconds #-}
 
 -- | The estimate of the time remaining before the restore will complete.
 -- Returns 0 for a completed restore.
 rsEstimatedTimeToCompletionInSeconds :: Lens' RestoreStatus (Maybe Integer)
-rsEstimatedTimeToCompletionInSeconds f x =
-    f (_rsEstimatedTimeToCompletionInSeconds x)
-        <&> \y -> x { _rsEstimatedTimeToCompletionInSeconds = y }
+rsEstimatedTimeToCompletionInSeconds = lens _rsEstimatedTimeToCompletionInSeconds (\s a -> s { _rsEstimatedTimeToCompletionInSeconds = a })
 {-# INLINE rsEstimatedTimeToCompletionInSeconds #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'RestoreStatus' data type to populate a request.
+mkRestoreStatus :: RestoreStatus
+mkRestoreStatus = RestoreStatus
+    { _rsStatus = Nothing
+    , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
+    , _rsSnapshotSizeInMegaBytes = Nothing
+    , _rsProgressInMegaBytes = Nothing
+    , _rsElapsedTimeInSeconds = Nothing
+    , _rsEstimatedTimeToCompletionInSeconds = Nothing
+    }
+{-# INLINE mkRestoreStatus #-}
 
 instance FromXML RestoreStatus where
     fromXMLOptions = xmlOptions
@@ -2315,24 +2203,18 @@ data Snapshot = Snapshot
 
 -- | The snapshot identifier that is provided in the request.
 stSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
-stSnapshotIdentifier f x =
-    f (_stSnapshotIdentifier x)
-        <&> \y -> x { _stSnapshotIdentifier = y }
+stSnapshotIdentifier = lens _stSnapshotIdentifier (\s a -> s { _stSnapshotIdentifier = a })
 {-# INLINE stSnapshotIdentifier #-}
 
 -- | The identifier of the cluster for which the snapshot was taken.
 stClusterIdentifier :: Lens' Snapshot (Maybe Text)
-stClusterIdentifier f x =
-    f (_stClusterIdentifier x)
-        <&> \y -> x { _stClusterIdentifier = y }
+stClusterIdentifier = lens _stClusterIdentifier (\s a -> s { _stClusterIdentifier = a })
 {-# INLINE stClusterIdentifier #-}
 
 -- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains
 -- a copy of the cluster data as of this exact time.
 stSnapshotCreateTime :: Lens' Snapshot (Maybe ISO8601)
-stSnapshotCreateTime f x =
-    f (_stSnapshotCreateTime x)
-        <&> \y -> x { _stSnapshotCreateTime = y }
+stSnapshotCreateTime = lens _stSnapshotCreateTime (\s a -> s { _stSnapshotCreateTime = a })
 {-# INLINE stSnapshotCreateTime #-}
 
 -- | The snapshot status. The value of the status depends on the API operation
@@ -2341,169 +2223,125 @@ stSnapshotCreateTime f x =
 -- "available", "final snapshot", or "failed". DeleteClusterSnapshot returns
 -- status as "deleted".
 stStatus :: Lens' Snapshot (Maybe Text)
-stStatus f x =
-    f (_stStatus x)
-        <&> \y -> x { _stStatus = y }
+stStatus = lens _stStatus (\s a -> s { _stStatus = a })
 {-# INLINE stStatus #-}
 
 -- | The port that the cluster is listening on.
 stPort :: Lens' Snapshot (Maybe Integer)
-stPort f x =
-    f (_stPort x)
-        <&> \y -> x { _stPort = y }
+stPort = lens _stPort (\s a -> s { _stPort = a })
 {-# INLINE stPort #-}
 
 -- | The Availability Zone in which the cluster was created.
 stAvailabilityZone :: Lens' Snapshot (Maybe Text)
-stAvailabilityZone f x =
-    f (_stAvailabilityZone x)
-        <&> \y -> x { _stAvailabilityZone = y }
+stAvailabilityZone = lens _stAvailabilityZone (\s a -> s { _stAvailabilityZone = a })
 {-# INLINE stAvailabilityZone #-}
 
 -- | The time (UTC) when the cluster was originally created.
 stClusterCreateTime :: Lens' Snapshot (Maybe ISO8601)
-stClusterCreateTime f x =
-    f (_stClusterCreateTime x)
-        <&> \y -> x { _stClusterCreateTime = y }
+stClusterCreateTime = lens _stClusterCreateTime (\s a -> s { _stClusterCreateTime = a })
 {-# INLINE stClusterCreateTime #-}
 
 -- | The master user name for the cluster.
 stMasterUsername :: Lens' Snapshot (Maybe Text)
-stMasterUsername f x =
-    f (_stMasterUsername x)
-        <&> \y -> x { _stMasterUsername = y }
+stMasterUsername = lens _stMasterUsername (\s a -> s { _stMasterUsername = a })
 {-# INLINE stMasterUsername #-}
 
 -- | The version ID of the Amazon Redshift engine that is running on the
 -- cluster.
 stClusterVersion :: Lens' Snapshot (Maybe Text)
-stClusterVersion f x =
-    f (_stClusterVersion x)
-        <&> \y -> x { _stClusterVersion = y }
+stClusterVersion = lens _stClusterVersion (\s a -> s { _stClusterVersion = a })
 {-# INLINE stClusterVersion #-}
 
 -- | The snapshot type. Snapshots created using CreateClusterSnapshot and
 -- CopyClusterSnapshot will be of type "manual".
 stSnapshotType :: Lens' Snapshot (Maybe Text)
-stSnapshotType f x =
-    f (_stSnapshotType x)
-        <&> \y -> x { _stSnapshotType = y }
+stSnapshotType = lens _stSnapshotType (\s a -> s { _stSnapshotType = a })
 {-# INLINE stSnapshotType #-}
 
 -- | The node type of the nodes in the cluster.
 stNodeType :: Lens' Snapshot (Maybe Text)
-stNodeType f x =
-    f (_stNodeType x)
-        <&> \y -> x { _stNodeType = y }
+stNodeType = lens _stNodeType (\s a -> s { _stNodeType = a })
 {-# INLINE stNodeType #-}
 
 -- | The number of nodes in the cluster.
 stNumberOfNodes :: Lens' Snapshot (Maybe Integer)
-stNumberOfNodes f x =
-    f (_stNumberOfNodes x)
-        <&> \y -> x { _stNumberOfNodes = y }
+stNumberOfNodes = lens _stNumberOfNodes (\s a -> s { _stNumberOfNodes = a })
 {-# INLINE stNumberOfNodes #-}
 
 -- | The name of the database that was created when the cluster was created.
 stDBName :: Lens' Snapshot (Maybe Text)
-stDBName f x =
-    f (_stDBName x)
-        <&> \y -> x { _stDBName = y }
+stDBName = lens _stDBName (\s a -> s { _stDBName = a })
 {-# INLINE stDBName #-}
 
 -- | The VPC identifier of the cluster if the snapshot is from a cluster in a
 -- VPC. Otherwise, this field is not in the output.
 stVpcId :: Lens' Snapshot (Maybe Text)
-stVpcId f x =
-    f (_stVpcId x)
-        <&> \y -> x { _stVpcId = y }
+stVpcId = lens _stVpcId (\s a -> s { _stVpcId = a })
 {-# INLINE stVpcId #-}
 
 -- | If true, the data in the snapshot is encrypted at rest.
 stEncrypted :: Lens' Snapshot (Maybe Bool)
-stEncrypted f x =
-    f (_stEncrypted x)
-        <&> \y -> x { _stEncrypted = y }
+stEncrypted = lens _stEncrypted (\s a -> s { _stEncrypted = a })
 {-# INLINE stEncrypted #-}
 
 -- | A boolean that indicates whether the snapshot data is encrypted using the
 -- HSM keys of the source cluster. true indicates that the data is encrypted
 -- using HSM keys.
 stEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
-stEncryptedWithHSM f x =
-    f (_stEncryptedWithHSM x)
-        <&> \y -> x { _stEncryptedWithHSM = y }
+stEncryptedWithHSM = lens _stEncryptedWithHSM (\s a -> s { _stEncryptedWithHSM = a })
 {-# INLINE stEncryptedWithHSM #-}
 
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
 -- Returns null if no accounts are authorized. Visible only to the snapshot
 -- owner.
 stAccountsWithRestoreAccess :: Lens' Snapshot ([AccountWithRestoreAccess])
-stAccountsWithRestoreAccess f x =
-    f (_stAccountsWithRestoreAccess x)
-        <&> \y -> x { _stAccountsWithRestoreAccess = y }
+stAccountsWithRestoreAccess = lens _stAccountsWithRestoreAccess (\s a -> s { _stAccountsWithRestoreAccess = a })
 {-# INLINE stAccountsWithRestoreAccess #-}
 
 -- | For manual snapshots, the AWS customer account used to create or copy the
 -- snapshot. For automatic snapshots, the owner of the cluster. The owner can
 -- perform all snapshot actions, such as sharing a manual snapshot.
 stOwnerAccount :: Lens' Snapshot (Maybe Text)
-stOwnerAccount f x =
-    f (_stOwnerAccount x)
-        <&> \y -> x { _stOwnerAccount = y }
+stOwnerAccount = lens _stOwnerAccount (\s a -> s { _stOwnerAccount = a })
 {-# INLINE stOwnerAccount #-}
 
 -- | The size of the complete set of backup data that would be used to restore
 -- the cluster.
 stTotalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
-stTotalBackupSizeInMegaBytes f x =
-    f (_stTotalBackupSizeInMegaBytes x)
-        <&> \y -> x { _stTotalBackupSizeInMegaBytes = y }
+stTotalBackupSizeInMegaBytes = lens _stTotalBackupSizeInMegaBytes (\s a -> s { _stTotalBackupSizeInMegaBytes = a })
 {-# INLINE stTotalBackupSizeInMegaBytes #-}
 
 -- | The size of the incremental backup.
 stActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
-stActualIncrementalBackupSizeInMegaBytes f x =
-    f (_stActualIncrementalBackupSizeInMegaBytes x)
-        <&> \y -> x { _stActualIncrementalBackupSizeInMegaBytes = y }
+stActualIncrementalBackupSizeInMegaBytes = lens _stActualIncrementalBackupSizeInMegaBytes (\s a -> s { _stActualIncrementalBackupSizeInMegaBytes = a })
 {-# INLINE stActualIncrementalBackupSizeInMegaBytes #-}
 
 -- | The number of megabytes that have been transferred to the snapshot backup.
 stBackupProgressInMegaBytes :: Lens' Snapshot (Maybe Double)
-stBackupProgressInMegaBytes f x =
-    f (_stBackupProgressInMegaBytes x)
-        <&> \y -> x { _stBackupProgressInMegaBytes = y }
+stBackupProgressInMegaBytes = lens _stBackupProgressInMegaBytes (\s a -> s { _stBackupProgressInMegaBytes = a })
 {-# INLINE stBackupProgressInMegaBytes #-}
 
 -- | The number of megabytes per second being transferred to the snapshot
 -- backup. Returns 0 for a completed backup.
 stCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
-stCurrentBackupRateInMegaBytesPerSecond f x =
-    f (_stCurrentBackupRateInMegaBytesPerSecond x)
-        <&> \y -> x { _stCurrentBackupRateInMegaBytesPerSecond = y }
+stCurrentBackupRateInMegaBytesPerSecond = lens _stCurrentBackupRateInMegaBytesPerSecond (\s a -> s { _stCurrentBackupRateInMegaBytesPerSecond = a })
 {-# INLINE stCurrentBackupRateInMegaBytesPerSecond #-}
 
 -- | The estimate of the time remaining before the snapshot backup will
 -- complete. Returns 0 for a completed backup.
 stEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
-stEstimatedSecondsToCompletion f x =
-    f (_stEstimatedSecondsToCompletion x)
-        <&> \y -> x { _stEstimatedSecondsToCompletion = y }
+stEstimatedSecondsToCompletion = lens _stEstimatedSecondsToCompletion (\s a -> s { _stEstimatedSecondsToCompletion = a })
 {-# INLINE stEstimatedSecondsToCompletion #-}
 
 -- | The amount of time an in-progress snapshot backup has been running, or the
 -- amount of time it took a completed backup to finish.
 stElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
-stElapsedTimeInSeconds f x =
-    f (_stElapsedTimeInSeconds x)
-        <&> \y -> x { _stElapsedTimeInSeconds = y }
+stElapsedTimeInSeconds = lens _stElapsedTimeInSeconds (\s a -> s { _stElapsedTimeInSeconds = a })
 {-# INLINE stElapsedTimeInSeconds #-}
 
 -- | The source region from which the snapshot was copied.
 stSourceRegion :: Lens' Snapshot (Maybe Text)
-stSourceRegion f x =
-    f (_stSourceRegion x)
-        <&> \y -> x { _stSourceRegion = y }
+stSourceRegion = lens _stSourceRegion (\s a -> s { _stSourceRegion = a })
 {-# INLINE stSourceRegion #-}
 
 instance FromXML Snapshot where
@@ -2522,24 +2360,28 @@ data Subnet = Subnet
 
 -- | The identifier of the subnet.
 sssssssuSubnetIdentifier :: Lens' Subnet (Maybe Text)
-sssssssuSubnetIdentifier f x =
-    f (_sssssssuSubnetIdentifier x)
-        <&> \y -> x { _sssssssuSubnetIdentifier = y }
+sssssssuSubnetIdentifier = lens _sssssssuSubnetIdentifier (\s a -> s { _sssssssuSubnetIdentifier = a })
 {-# INLINE sssssssuSubnetIdentifier #-}
 
 -- | Describes an availability zone.
 sssssssuSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-sssssssuSubnetAvailabilityZone f x =
-    f (_sssssssuSubnetAvailabilityZone x)
-        <&> \y -> x { _sssssssuSubnetAvailabilityZone = y }
+sssssssuSubnetAvailabilityZone = lens _sssssssuSubnetAvailabilityZone (\s a -> s { _sssssssuSubnetAvailabilityZone = a })
 {-# INLINE sssssssuSubnetAvailabilityZone #-}
 
 -- | The status of the subnet.
 sssssssuSubnetStatus :: Lens' Subnet (Maybe Text)
-sssssssuSubnetStatus f x =
-    f (_sssssssuSubnetStatus x)
-        <&> \y -> x { _sssssssuSubnetStatus = y }
+sssssssuSubnetStatus = lens _sssssssuSubnetStatus (\s a -> s { _sssssssuSubnetStatus = a })
 {-# INLINE sssssssuSubnetStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Subnet' data type to populate a request.
+mkSubnet :: Subnet
+mkSubnet = Subnet
+    { _sssssssuSubnetIdentifier = Nothing
+    , _sssssssuSubnetAvailabilityZone = Nothing
+    , _sssssssuSubnetStatus = Nothing
+    }
+{-# INLINE mkSubnet #-}
 
 instance FromXML Subnet where
     fromXMLOptions = xmlOptions
@@ -2558,17 +2400,22 @@ data VpcSecurityGroupMembership = VpcSecurityGroupMembership
 
 -- | 
 vsgmVpcSecurityGroupId :: Lens' VpcSecurityGroupMembership (Maybe Text)
-vsgmVpcSecurityGroupId f x =
-    f (_vsgmVpcSecurityGroupId x)
-        <&> \y -> x { _vsgmVpcSecurityGroupId = y }
+vsgmVpcSecurityGroupId = lens _vsgmVpcSecurityGroupId (\s a -> s { _vsgmVpcSecurityGroupId = a })
 {-# INLINE vsgmVpcSecurityGroupId #-}
 
 -- | 
 vsgmStatus :: Lens' VpcSecurityGroupMembership (Maybe Text)
-vsgmStatus f x =
-    f (_vsgmStatus x)
-        <&> \y -> x { _vsgmStatus = y }
+vsgmStatus = lens _vsgmStatus (\s a -> s { _vsgmStatus = a })
 {-# INLINE vsgmStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'VpcSecurityGroupMembership' data type to populate a request.
+mkVpcSecurityGroupMembership :: VpcSecurityGroupMembership
+mkVpcSecurityGroupMembership = VpcSecurityGroupMembership
+    { _vsgmVpcSecurityGroupId = Nothing
+    , _vsgmStatus = Nothing
+    }
+{-# INLINE mkVpcSecurityGroupMembership #-}
 
 instance FromXML VpcSecurityGroupMembership where
     fromXMLOptions = xmlOptions

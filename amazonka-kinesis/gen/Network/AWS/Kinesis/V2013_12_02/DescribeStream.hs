@@ -65,7 +65,7 @@ module Network.AWS.Kinesis.V2013_12_02.DescribeStream
     -- * Request
       DescribeStream
     -- ** Request constructor
-    , describeStream
+    , mkDescribeStreamInput
     -- ** Request lenses
     , dsjStreamName
     , dsjLimit
@@ -82,15 +82,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeStream' request.
-describeStream :: Text -- ^ 'dsjStreamName'
-               -> DescribeStream
-describeStream p1 = DescribeStream
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStream' request.
+mkDescribeStreamInput :: Text -- ^ 'dsjStreamName'
+                      -> DescribeStream
+mkDescribeStreamInput p1 = DescribeStream
     { _dsjStreamName = p1
     , _dsjLimit = Nothing
     , _dsjExclusiveStartShardId = Nothing
     }
-{-# INLINE describeStream #-}
+{-# INLINE mkDescribeStreamInput #-}
 
 data DescribeStream = DescribeStream
     { _dsjStreamName :: Text
@@ -104,23 +105,17 @@ data DescribeStream = DescribeStream
 
 -- | The name of the stream to describe.
 dsjStreamName :: Lens' DescribeStream (Text)
-dsjStreamName f x =
-    f (_dsjStreamName x)
-        <&> \y -> x { _dsjStreamName = y }
+dsjStreamName = lens _dsjStreamName (\s a -> s { _dsjStreamName = a })
 {-# INLINE dsjStreamName #-}
 
 -- | The maximum number of shards to return.
 dsjLimit :: Lens' DescribeStream (Maybe Integer)
-dsjLimit f x =
-    f (_dsjLimit x)
-        <&> \y -> x { _dsjLimit = y }
+dsjLimit = lens _dsjLimit (\s a -> s { _dsjLimit = a })
 {-# INLINE dsjLimit #-}
 
 -- | The shard ID of the shard to start with for the stream description.
 dsjExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-dsjExclusiveStartShardId f x =
-    f (_dsjExclusiveStartShardId x)
-        <&> \y -> x { _dsjExclusiveStartShardId = y }
+dsjExclusiveStartShardId = lens _dsjExclusiveStartShardId (\s a -> s { _dsjExclusiveStartShardId = a })
 {-# INLINE dsjExclusiveStartShardId #-}
 
 instance ToPath DescribeStream
@@ -131,7 +126,7 @@ instance ToHeaders DescribeStream
 
 instance ToJSON DescribeStream
 
-data DescribeStreamResponse = DescribeStreamResponse
+newtype DescribeStreamResponse = DescribeStreamResponse
     { _dsoStreamDescription :: StreamDescription
       -- ^ Contains the current status of the stream, the stream ARN, an
       -- array of shard objects that comprise the stream, and states
@@ -142,9 +137,7 @@ data DescribeStreamResponse = DescribeStreamResponse
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
 dsoStreamDescription :: Lens' DescribeStreamResponse (StreamDescription)
-dsoStreamDescription f x =
-    f (_dsoStreamDescription x)
-        <&> \y -> x { _dsoStreamDescription = y }
+dsoStreamDescription = lens _dsoStreamDescription (\s a -> s { _dsoStreamDescription = a })
 {-# INLINE dsoStreamDescription #-}
 
 instance FromJSON DescribeStreamResponse

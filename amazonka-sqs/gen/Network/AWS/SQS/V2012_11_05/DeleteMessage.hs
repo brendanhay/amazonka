@@ -50,7 +50,7 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessage
     -- * Request
       DeleteMessage
     -- ** Request constructor
-    , deleteMessage
+    , mkDeleteMessageRequest
     -- ** Request lenses
     , dmrQueueUrl
     , dmrReceiptHandle
@@ -63,15 +63,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteMessage' request.
-deleteMessage :: Text -- ^ 'dmrQueueUrl'
-              -> Text -- ^ 'dmrReceiptHandle'
-              -> DeleteMessage
-deleteMessage p1 p2 = DeleteMessage
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMessage' request.
+mkDeleteMessageRequest :: Text -- ^ 'dmrQueueUrl'
+                       -> Text -- ^ 'dmrReceiptHandle'
+                       -> DeleteMessage
+mkDeleteMessageRequest p1 p2 = DeleteMessage
     { _dmrQueueUrl = p1
     , _dmrReceiptHandle = p2
     }
-{-# INLINE deleteMessage #-}
+{-# INLINE mkDeleteMessageRequest #-}
 
 data DeleteMessage = DeleteMessage
     { _dmrQueueUrl :: Text
@@ -82,16 +83,12 @@ data DeleteMessage = DeleteMessage
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmrQueueUrl :: Lens' DeleteMessage (Text)
-dmrQueueUrl f x =
-    f (_dmrQueueUrl x)
-        <&> \y -> x { _dmrQueueUrl = y }
+dmrQueueUrl = lens _dmrQueueUrl (\s a -> s { _dmrQueueUrl = a })
 {-# INLINE dmrQueueUrl #-}
 
 -- | The receipt handle associated with the message to delete.
 dmrReceiptHandle :: Lens' DeleteMessage (Text)
-dmrReceiptHandle f x =
-    f (_dmrReceiptHandle x)
-        <&> \y -> x { _dmrReceiptHandle = y }
+dmrReceiptHandle = lens _dmrReceiptHandle (\s a -> s { _dmrReceiptHandle = a })
 {-# INLINE dmrReceiptHandle #-}
 
 instance ToQuery DeleteMessage where

@@ -23,27 +23,27 @@ module Network.AWS.S3.V2006_03_01.ListParts
     -- * Request
       ListParts
     -- ** Request constructor
-    , listParts
+    , mkListPartsRequest
     -- ** Request lenses
     , lprBucket
-    , lprUploadId
     , lprKey
     , lprMaxParts
     , lprPartNumberMarker
+    , lprUploadId
 
     -- * Response
     , ListPartsResponse
     -- ** Response lenses
-    , lpoIsTruncated
     , lpoBucket
-    , lpoInitiator
-    , lpoMaxParts
-    , lpoUploadId
-    , lpoNextPartNumberMarker
     , lpoKey
-    , lpoOwner
+    , lpoUploadId
     , lpoPartNumberMarker
+    , lpoNextPartNumberMarker
+    , lpoMaxParts
+    , lpoIsTruncated
     , lpoParts
+    , lpoInitiator
+    , lpoOwner
     , lpoStorageClass
     ) where
 
@@ -51,66 +51,57 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListParts' request.
-listParts :: BucketName -- ^ 'lprBucket'
-          -> Text -- ^ 'lprUploadId'
-          -> ObjectKey -- ^ 'lprKey'
-          -> ListParts
-listParts p1 p2 p3 = ListParts
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListParts' request.
+mkListPartsRequest :: BucketName -- ^ 'lprBucket'
+                   -> ObjectKey -- ^ 'lprKey'
+                   -> Text -- ^ 'lprUploadId'
+                   -> ListParts
+mkListPartsRequest p1 p2 p3 = ListParts
     { _lprBucket = p1
-    , _lprUploadId = p2
-    , _lprKey = p3
+    , _lprKey = p2
     , _lprMaxParts = Nothing
     , _lprPartNumberMarker = Nothing
+    , _lprUploadId = p5
     }
-{-# INLINE listParts #-}
+{-# INLINE mkListPartsRequest #-}
 
 data ListParts = ListParts
     { _lprBucket :: BucketName
-    , _lprUploadId :: Text
-      -- ^ Upload ID identifying the multipart upload whose parts are being
-      -- listed.
     , _lprKey :: ObjectKey
     , _lprMaxParts :: Maybe Integer
       -- ^ Sets the maximum number of parts to return.
     , _lprPartNumberMarker :: Maybe Integer
       -- ^ Specifies the part after which listing should begin. Only parts
       -- with higher part numbers will be listed.
+    , _lprUploadId :: Text
+      -- ^ Upload ID identifying the multipart upload whose parts are being
+      -- listed.
     } deriving (Show, Generic)
 
 lprBucket :: Lens' ListParts (BucketName)
-lprBucket f x =
-    f (_lprBucket x)
-        <&> \y -> x { _lprBucket = y }
+lprBucket = lens _lprBucket (\s a -> s { _lprBucket = a })
 {-# INLINE lprBucket #-}
 
--- | Upload ID identifying the multipart upload whose parts are being listed.
-lprUploadId :: Lens' ListParts (Text)
-lprUploadId f x =
-    f (_lprUploadId x)
-        <&> \y -> x { _lprUploadId = y }
-{-# INLINE lprUploadId #-}
-
 lprKey :: Lens' ListParts (ObjectKey)
-lprKey f x =
-    f (_lprKey x)
-        <&> \y -> x { _lprKey = y }
+lprKey = lens _lprKey (\s a -> s { _lprKey = a })
 {-# INLINE lprKey #-}
 
 -- | Sets the maximum number of parts to return.
 lprMaxParts :: Lens' ListParts (Maybe Integer)
-lprMaxParts f x =
-    f (_lprMaxParts x)
-        <&> \y -> x { _lprMaxParts = y }
+lprMaxParts = lens _lprMaxParts (\s a -> s { _lprMaxParts = a })
 {-# INLINE lprMaxParts #-}
 
 -- | Specifies the part after which listing should begin. Only parts with higher
 -- part numbers will be listed.
 lprPartNumberMarker :: Lens' ListParts (Maybe Integer)
-lprPartNumberMarker f x =
-    f (_lprPartNumberMarker x)
-        <&> \y -> x { _lprPartNumberMarker = y }
+lprPartNumberMarker = lens _lprPartNumberMarker (\s a -> s { _lprPartNumberMarker = a })
 {-# INLINE lprPartNumberMarker #-}
+
+-- | Upload ID identifying the multipart upload whose parts are being listed.
+lprUploadId :: Lens' ListParts (Text)
+lprUploadId = lens _lprUploadId (\s a -> s { _lprUploadId = a })
+{-# INLINE lprUploadId #-}
 
 instance ToPath ListParts where
     toPath ListParts{..} = mconcat
@@ -132,106 +123,84 @@ instance ToHeaders ListParts
 instance ToBody ListParts
 
 data ListPartsResponse = ListPartsResponse
-    { _lpoIsTruncated :: Bool
-      -- ^ Indicates whether the returned list of parts is truncated.
-    , _lpoBucket :: Maybe BucketName
+    { _lpoBucket :: Maybe BucketName
       -- ^ Name of the bucket to which the multipart upload was initiated.
-    , _lpoInitiator :: Maybe Initiator
-      -- ^ Identifies who initiated the multipart upload.
-    , _lpoMaxParts :: Maybe Integer
-      -- ^ Maximum number of parts that were allowed in the response.
+    , _lpoKey :: Maybe ObjectKey
+      -- ^ Object key for which the multipart upload was initiated.
     , _lpoUploadId :: Maybe Text
       -- ^ Upload ID identifying the multipart upload whose parts are being
       -- listed.
+    , _lpoPartNumberMarker :: Maybe Integer
+      -- ^ Part number after which listing begins.
     , _lpoNextPartNumberMarker :: Maybe Integer
       -- ^ When a list is truncated, this element specifies the last part in
       -- the list, as well as the value to use for the part-number-marker
       -- request parameter in a subsequent request.
-    , _lpoKey :: Maybe ObjectKey
-      -- ^ Object key for which the multipart upload was initiated.
-    , _lpoOwner :: Maybe Owner
-    , _lpoPartNumberMarker :: Maybe Integer
-      -- ^ Part number after which listing begins.
+    , _lpoMaxParts :: Maybe Integer
+      -- ^ Maximum number of parts that were allowed in the response.
+    , _lpoIsTruncated :: Bool
+      -- ^ Indicates whether the returned list of parts is truncated.
     , _lpoParts :: [Part]
+    , _lpoInitiator :: Maybe Initiator
+      -- ^ Identifies who initiated the multipart upload.
+    , _lpoOwner :: Maybe Owner
     , _lpoStorageClass :: Maybe StorageClass
       -- ^ The class of storage used to store the object.
     } deriving (Show, Generic)
 
--- | Indicates whether the returned list of parts is truncated.
-lpoIsTruncated :: Lens' ListPartsResponse (Bool)
-lpoIsTruncated f x =
-    f (_lpoIsTruncated x)
-        <&> \y -> x { _lpoIsTruncated = y }
-{-# INLINE lpoIsTruncated #-}
-
 -- | Name of the bucket to which the multipart upload was initiated.
 lpoBucket :: Lens' ListPartsResponse (Maybe BucketName)
-lpoBucket f x =
-    f (_lpoBucket x)
-        <&> \y -> x { _lpoBucket = y }
+lpoBucket = lens _lpoBucket (\s a -> s { _lpoBucket = a })
 {-# INLINE lpoBucket #-}
 
--- | Identifies who initiated the multipart upload.
-lpoInitiator :: Lens' ListPartsResponse (Maybe Initiator)
-lpoInitiator f x =
-    f (_lpoInitiator x)
-        <&> \y -> x { _lpoInitiator = y }
-{-# INLINE lpoInitiator #-}
-
--- | Maximum number of parts that were allowed in the response.
-lpoMaxParts :: Lens' ListPartsResponse (Maybe Integer)
-lpoMaxParts f x =
-    f (_lpoMaxParts x)
-        <&> \y -> x { _lpoMaxParts = y }
-{-# INLINE lpoMaxParts #-}
+-- | Object key for which the multipart upload was initiated.
+lpoKey :: Lens' ListPartsResponse (Maybe ObjectKey)
+lpoKey = lens _lpoKey (\s a -> s { _lpoKey = a })
+{-# INLINE lpoKey #-}
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lpoUploadId :: Lens' ListPartsResponse (Maybe Text)
-lpoUploadId f x =
-    f (_lpoUploadId x)
-        <&> \y -> x { _lpoUploadId = y }
+lpoUploadId = lens _lpoUploadId (\s a -> s { _lpoUploadId = a })
 {-# INLINE lpoUploadId #-}
+
+-- | Part number after which listing begins.
+lpoPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
+lpoPartNumberMarker = lens _lpoPartNumberMarker (\s a -> s { _lpoPartNumberMarker = a })
+{-# INLINE lpoPartNumberMarker #-}
 
 -- | When a list is truncated, this element specifies the last part in the list,
 -- as well as the value to use for the part-number-marker request parameter in
 -- a subsequent request.
 lpoNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
-lpoNextPartNumberMarker f x =
-    f (_lpoNextPartNumberMarker x)
-        <&> \y -> x { _lpoNextPartNumberMarker = y }
+lpoNextPartNumberMarker = lens _lpoNextPartNumberMarker (\s a -> s { _lpoNextPartNumberMarker = a })
 {-# INLINE lpoNextPartNumberMarker #-}
 
--- | Object key for which the multipart upload was initiated.
-lpoKey :: Lens' ListPartsResponse (Maybe ObjectKey)
-lpoKey f x =
-    f (_lpoKey x)
-        <&> \y -> x { _lpoKey = y }
-{-# INLINE lpoKey #-}
+-- | Maximum number of parts that were allowed in the response.
+lpoMaxParts :: Lens' ListPartsResponse (Maybe Integer)
+lpoMaxParts = lens _lpoMaxParts (\s a -> s { _lpoMaxParts = a })
+{-# INLINE lpoMaxParts #-}
 
-lpoOwner :: Lens' ListPartsResponse (Maybe Owner)
-lpoOwner f x =
-    f (_lpoOwner x)
-        <&> \y -> x { _lpoOwner = y }
-{-# INLINE lpoOwner #-}
-
--- | Part number after which listing begins.
-lpoPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
-lpoPartNumberMarker f x =
-    f (_lpoPartNumberMarker x)
-        <&> \y -> x { _lpoPartNumberMarker = y }
-{-# INLINE lpoPartNumberMarker #-}
+-- | Indicates whether the returned list of parts is truncated.
+lpoIsTruncated :: Lens' ListPartsResponse (Bool)
+lpoIsTruncated = lens _lpoIsTruncated (\s a -> s { _lpoIsTruncated = a })
+{-# INLINE lpoIsTruncated #-}
 
 lpoParts :: Lens' ListPartsResponse ([Part])
-lpoParts f x =
-    f (_lpoParts x)
-        <&> \y -> x { _lpoParts = y }
+lpoParts = lens _lpoParts (\s a -> s { _lpoParts = a })
 {-# INLINE lpoParts #-}
+
+-- | Identifies who initiated the multipart upload.
+lpoInitiator :: Lens' ListPartsResponse (Maybe Initiator)
+lpoInitiator = lens _lpoInitiator (\s a -> s { _lpoInitiator = a })
+{-# INLINE lpoInitiator #-}
+
+lpoOwner :: Lens' ListPartsResponse (Maybe Owner)
+lpoOwner = lens _lpoOwner (\s a -> s { _lpoOwner = a })
+{-# INLINE lpoOwner #-}
 
 -- | The class of storage used to store the object.
 lpoStorageClass :: Lens' ListPartsResponse (Maybe StorageClass)
-lpoStorageClass f x =
-    f (_lpoStorageClass x)
-        <&> \y -> x { _lpoStorageClass = y }
+lpoStorageClass = lens _lpoStorageClass (\s a -> s { _lpoStorageClass = a })
 {-# INLINE lpoStorageClass #-}
 
 instance FromXML ListPartsResponse where

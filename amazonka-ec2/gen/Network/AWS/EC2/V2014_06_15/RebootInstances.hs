@@ -36,7 +36,7 @@ module Network.AWS.EC2.V2014_06_15.RebootInstances
     -- * Request
       RebootInstances
     -- ** Request constructor
-    , rebootInstances
+    , mkRebootInstancesRequest
     -- ** Request lenses
     , riuInstanceIds
 
@@ -48,24 +48,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RebootInstances' request.
-rebootInstances :: [Text] -- ^ 'riuInstanceIds'
-                -> RebootInstances
-rebootInstances p1 = RebootInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootInstances' request.
+mkRebootInstancesRequest :: [Text] -- ^ 'riuInstanceIds'
+                         -> RebootInstances
+mkRebootInstancesRequest p1 = RebootInstances
     { _riuInstanceIds = p1
     }
-{-# INLINE rebootInstances #-}
+{-# INLINE mkRebootInstancesRequest #-}
 
-data RebootInstances = RebootInstances
+newtype RebootInstances = RebootInstances
     { _riuInstanceIds :: [Text]
       -- ^ One or more instance IDs.
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
 riuInstanceIds :: Lens' RebootInstances ([Text])
-riuInstanceIds f x =
-    f (_riuInstanceIds x)
-        <&> \y -> x { _riuInstanceIds = y }
+riuInstanceIds = lens _riuInstanceIds (\s a -> s { _riuInstanceIds = a })
 {-# INLINE riuInstanceIds #-}
 
 instance ToQuery RebootInstances where

@@ -30,13 +30,13 @@ module Network.AWS.Support.V2013_04_15.DescribeCommunications
     -- * Request
       DescribeCommunications
     -- ** Request constructor
-    , describeCommunications
+    , mkDescribeCommunicationsRequest
     -- ** Request lenses
     , dctCaseId
-    , dctAfterTime
     , dctBeforeTime
-    , dctMaxResults
+    , dctAfterTime
     , dctNextToken
+    , dctMaxResults
 
     -- * Response
     , DescribeCommunicationsResponse
@@ -50,75 +50,66 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeCommunications' request.
-describeCommunications :: Text -- ^ 'dctCaseId'
-                       -> DescribeCommunications
-describeCommunications p1 = DescribeCommunications
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCommunications' request.
+mkDescribeCommunicationsRequest :: Text -- ^ 'dctCaseId'
+                                -> DescribeCommunications
+mkDescribeCommunicationsRequest p1 = DescribeCommunications
     { _dctCaseId = p1
-    , _dctAfterTime = Nothing
     , _dctBeforeTime = Nothing
-    , _dctMaxResults = Nothing
+    , _dctAfterTime = Nothing
     , _dctNextToken = Nothing
+    , _dctMaxResults = Nothing
     }
-{-# INLINE describeCommunications #-}
+{-# INLINE mkDescribeCommunicationsRequest #-}
 
 data DescribeCommunications = DescribeCommunications
     { _dctCaseId :: Text
       -- ^ The AWS Support case ID requested or returned in the call. The
       -- case ID is an alphanumeric string formatted as shown in this
       -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
-    , _dctAfterTime :: Maybe Text
-      -- ^ The start date for a filtered date search on support case
-      -- communications. Case communications are available for 12 months
-      -- after creation.
     , _dctBeforeTime :: Maybe Text
       -- ^ The end date for a filtered date search on support case
       -- communications. Case communications are available for 12 months
       -- after creation.
-    , _dctMaxResults :: Maybe Integer
-      -- ^ The maximum number of results to return before paginating.
+    , _dctAfterTime :: Maybe Text
+      -- ^ The start date for a filtered date search on support case
+      -- communications. Case communications are available for 12 months
+      -- after creation.
     , _dctNextToken :: Maybe Text
       -- ^ A resumption point for pagination.
+    , _dctMaxResults :: Maybe Integer
+      -- ^ The maximum number of results to return before paginating.
     } deriving (Show, Generic)
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 dctCaseId :: Lens' DescribeCommunications (Text)
-dctCaseId f x =
-    f (_dctCaseId x)
-        <&> \y -> x { _dctCaseId = y }
+dctCaseId = lens _dctCaseId (\s a -> s { _dctCaseId = a })
 {-# INLINE dctCaseId #-}
-
--- | The start date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
-dctAfterTime :: Lens' DescribeCommunications (Maybe Text)
-dctAfterTime f x =
-    f (_dctAfterTime x)
-        <&> \y -> x { _dctAfterTime = y }
-{-# INLINE dctAfterTime #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dctBeforeTime :: Lens' DescribeCommunications (Maybe Text)
-dctBeforeTime f x =
-    f (_dctBeforeTime x)
-        <&> \y -> x { _dctBeforeTime = y }
+dctBeforeTime = lens _dctBeforeTime (\s a -> s { _dctBeforeTime = a })
 {-# INLINE dctBeforeTime #-}
 
--- | The maximum number of results to return before paginating.
-dctMaxResults :: Lens' DescribeCommunications (Maybe Integer)
-dctMaxResults f x =
-    f (_dctMaxResults x)
-        <&> \y -> x { _dctMaxResults = y }
-{-# INLINE dctMaxResults #-}
+-- | The start date for a filtered date search on support case communications.
+-- Case communications are available for 12 months after creation.
+dctAfterTime :: Lens' DescribeCommunications (Maybe Text)
+dctAfterTime = lens _dctAfterTime (\s a -> s { _dctAfterTime = a })
+{-# INLINE dctAfterTime #-}
 
 -- | A resumption point for pagination.
 dctNextToken :: Lens' DescribeCommunications (Maybe Text)
-dctNextToken f x =
-    f (_dctNextToken x)
-        <&> \y -> x { _dctNextToken = y }
+dctNextToken = lens _dctNextToken (\s a -> s { _dctNextToken = a })
 {-# INLINE dctNextToken #-}
+
+-- | The maximum number of results to return before paginating.
+dctMaxResults :: Lens' DescribeCommunications (Maybe Integer)
+dctMaxResults = lens _dctMaxResults (\s a -> s { _dctMaxResults = a })
+{-# INLINE dctMaxResults #-}
 
 instance ToPath DescribeCommunications
 
@@ -137,16 +128,12 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse
 
 -- | The communications for the case.
 dcuCommunications :: Lens' DescribeCommunicationsResponse ([Communication])
-dcuCommunications f x =
-    f (_dcuCommunications x)
-        <&> \y -> x { _dcuCommunications = y }
+dcuCommunications = lens _dcuCommunications (\s a -> s { _dcuCommunications = a })
 {-# INLINE dcuCommunications #-}
 
 -- | A resumption point for pagination.
 dcuNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-dcuNextToken f x =
-    f (_dcuNextToken x)
-        <&> \y -> x { _dcuNextToken = y }
+dcuNextToken = lens _dcuNextToken (\s a -> s { _dcuNextToken = a })
 {-# INLINE dcuNextToken #-}
 
 instance FromJSON DescribeCommunicationsResponse

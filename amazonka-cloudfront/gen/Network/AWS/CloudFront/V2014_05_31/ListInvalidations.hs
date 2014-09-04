@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListInvalidations
     -- * Request
       ListInvalidations
     -- ** Request constructor
-    , listInvalidations
+    , mkListInvalidationsRequest
     -- ** Request lenses
     , lirDistributionId
     , lirMarker
@@ -39,15 +39,16 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListInvalidations' request.
-listInvalidations :: Text -- ^ 'lirDistributionId'
-                  -> ListInvalidations
-listInvalidations p1 = ListInvalidations
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInvalidations' request.
+mkListInvalidationsRequest :: Text -- ^ 'lirDistributionId'
+                           -> ListInvalidations
+mkListInvalidationsRequest p1 = ListInvalidations
     { _lirDistributionId = p1
     , _lirMarker = Nothing
     , _lirMaxItems = Nothing
     }
-{-# INLINE listInvalidations #-}
+{-# INLINE mkListInvalidationsRequest #-}
 
 data ListInvalidations = ListInvalidations
     { _lirDistributionId :: Text
@@ -68,9 +69,7 @@ data ListInvalidations = ListInvalidations
 
 -- | The distribution's id.
 lirDistributionId :: Lens' ListInvalidations (Text)
-lirDistributionId f x =
-    f (_lirDistributionId x)
-        <&> \y -> x { _lirDistributionId = y }
+lirDistributionId = lens _lirDistributionId (\s a -> s { _lirDistributionId = a })
 {-# INLINE lirDistributionId #-}
 
 -- | Use this parameter when paginating results to indicate where to begin in
@@ -81,16 +80,12 @@ lirDistributionId f x =
 -- from the current page's response. This value is the same as the ID of the
 -- last invalidation batch on that page.
 lirMarker :: Lens' ListInvalidations (Maybe Text)
-lirMarker f x =
-    f (_lirMarker x)
-        <&> \y -> x { _lirMarker = y }
+lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
 {-# INLINE lirMarker #-}
 
 -- | The maximum number of invalidation batches you want in the response body.
 lirMaxItems :: Lens' ListInvalidations (Maybe Text)
-lirMaxItems f x =
-    f (_lirMaxItems x)
-        <&> \y -> x { _lirMaxItems = y }
+lirMaxItems = lens _lirMaxItems (\s a -> s { _lirMaxItems = a })
 {-# INLINE lirMaxItems #-}
 
 instance ToPath ListInvalidations where
@@ -112,16 +107,14 @@ instance ToXML ListInvalidations where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListInvalidationsRequest"
 
-data ListInvalidationsResponse = ListInvalidationsResponse
-    { _lisInvalidationList :: InvalidationList
+newtype ListInvalidationsResponse = ListInvalidationsResponse
+    { _lisInvalidationList :: Maybe InvalidationList
       -- ^ Information about invalidation batches.
     } deriving (Show, Generic)
 
 -- | Information about invalidation batches.
-lisInvalidationList :: Lens' ListInvalidationsResponse (InvalidationList)
-lisInvalidationList f x =
-    f (_lisInvalidationList x)
-        <&> \y -> x { _lisInvalidationList = y }
+lisInvalidationList :: Lens' ListInvalidationsResponse (Maybe InvalidationList)
+lisInvalidationList = lens _lisInvalidationList (\s a -> s { _lisInvalidationList = a })
 {-# INLINE lisInvalidationList #-}
 
 instance FromXML ListInvalidationsResponse where

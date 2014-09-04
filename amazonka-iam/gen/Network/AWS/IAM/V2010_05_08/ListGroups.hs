@@ -35,17 +35,17 @@ module Network.AWS.IAM.V2010_05_08.ListGroups
     -- * Request
       ListGroups
     -- ** Request constructor
-    , listGroups
+    , mkListGroupsRequest
     -- ** Request lenses
+    , lgrPathPrefix
     , lgrMarker
     , lgrMaxItems
-    , lgrPathPrefix
 
     -- * Response
     , ListGroupsResponse
     -- ** Response lenses
-    , lgsIsTruncated
     , lgsGroups
+    , lgsIsTruncated
     , lgsMarker
     ) where
 
@@ -53,17 +53,24 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListGroups' request.
-listGroups :: ListGroups
-listGroups = ListGroups
-    { _lgrMarker = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroups' request.
+mkListGroupsRequest :: ListGroups
+mkListGroupsRequest = ListGroups
+    { _lgrPathPrefix = Nothing
+    , _lgrMarker = Nothing
     , _lgrMaxItems = Nothing
-    , _lgrPathPrefix = Nothing
     }
-{-# INLINE listGroups #-}
+{-# INLINE mkListGroupsRequest #-}
 
 data ListGroups = ListGroups
-    { _lgrMarker :: Maybe Text
+    { _lgrPathPrefix :: Maybe Text
+      -- ^ The path prefix for filtering the results. For example:
+      -- /division_abc/subdivision_xyz/, which would get all groups whose
+      -- path starts with /division_abc/subdivision_xyz/. This parameter
+      -- is optional. If it is not included, it defaults to a slash (/),
+      -- listing all groups.
+    , _lgrMarker :: Maybe Text
       -- ^ Use this only when paginating results, and only in a subsequent
       -- request after you've received a response where the results are
       -- truncated. Set it to the value of the Marker element in the
@@ -74,21 +81,21 @@ data ListGroups = ListGroups
       -- additional groups beyond the maximum you specify, the IsTruncated
       -- response element is true. This parameter is optional. If you do
       -- not include it, it defaults to 100.
-    , _lgrPathPrefix :: Maybe Text
-      -- ^ The path prefix for filtering the results. For example:
-      -- /division_abc/subdivision_xyz/, which would get all groups whose
-      -- path starts with /division_abc/subdivision_xyz/. This parameter
-      -- is optional. If it is not included, it defaults to a slash (/),
-      -- listing all groups.
     } deriving (Show, Generic)
+
+-- | The path prefix for filtering the results. For example:
+-- /division_abc/subdivision_xyz/, which would get all groups whose path
+-- starts with /division_abc/subdivision_xyz/. This parameter is optional. If
+-- it is not included, it defaults to a slash (/), listing all groups.
+lgrPathPrefix :: Lens' ListGroups (Maybe Text)
+lgrPathPrefix = lens _lgrPathPrefix (\s a -> s { _lgrPathPrefix = a })
+{-# INLINE lgrPathPrefix #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 lgrMarker :: Lens' ListGroups (Maybe Text)
-lgrMarker f x =
-    f (_lgrMarker x)
-        <&> \y -> x { _lgrMarker = y }
+lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 {-# INLINE lgrMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -96,60 +103,42 @@ lgrMarker f x =
 -- maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
 lgrMaxItems :: Lens' ListGroups (Maybe Integer)
-lgrMaxItems f x =
-    f (_lgrMaxItems x)
-        <&> \y -> x { _lgrMaxItems = y }
+lgrMaxItems = lens _lgrMaxItems (\s a -> s { _lgrMaxItems = a })
 {-# INLINE lgrMaxItems #-}
-
--- | The path prefix for filtering the results. For example:
--- /division_abc/subdivision_xyz/, which would get all groups whose path
--- starts with /division_abc/subdivision_xyz/. This parameter is optional. If
--- it is not included, it defaults to a slash (/), listing all groups.
-lgrPathPrefix :: Lens' ListGroups (Maybe Text)
-lgrPathPrefix f x =
-    f (_lgrPathPrefix x)
-        <&> \y -> x { _lgrPathPrefix = y }
-{-# INLINE lgrPathPrefix #-}
 
 instance ToQuery ListGroups where
     toQuery = genericQuery def
 
 data ListGroupsResponse = ListGroupsResponse
-    { _lgsIsTruncated :: Bool
+    { _lgsGroups :: [Group]
+      -- ^ A list of groups.
+    , _lgsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more groups to list. If
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more
       -- groups in the list.
-    , _lgsGroups :: [Group]
-      -- ^ A list of groups.
     , _lgsMarker :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
     } deriving (Show, Generic)
 
+-- | A list of groups.
+lgsGroups :: Lens' ListGroupsResponse ([Group])
+lgsGroups = lens _lgsGroups (\s a -> s { _lgsGroups = a })
+{-# INLINE lgsGroups #-}
+
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more groups in the list.
 lgsIsTruncated :: Lens' ListGroupsResponse (Bool)
-lgsIsTruncated f x =
-    f (_lgsIsTruncated x)
-        <&> \y -> x { _lgsIsTruncated = y }
+lgsIsTruncated = lens _lgsIsTruncated (\s a -> s { _lgsIsTruncated = a })
 {-# INLINE lgsIsTruncated #-}
-
--- | A list of groups.
-lgsGroups :: Lens' ListGroupsResponse ([Group])
-lgsGroups f x =
-    f (_lgsGroups x)
-        <&> \y -> x { _lgsGroups = y }
-{-# INLINE lgsGroups #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lgsMarker :: Lens' ListGroupsResponse (Maybe Text)
-lgsMarker f x =
-    f (_lgsMarker x)
-        <&> \y -> x { _lgsMarker = y }
+lgsMarker = lens _lgsMarker (\s a -> s { _lgsMarker = a })
 {-# INLINE lgsMarker #-}
 
 instance FromXML ListGroupsResponse where

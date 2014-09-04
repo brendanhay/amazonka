@@ -24,7 +24,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
     -- * Request
       DescribeConnectionsOnInterconnect
     -- ** Request constructor
-    , describeConnectionsOnInterconnect
+    , mkDescribeConnectionsOnInterconnectRequest
     -- ** Request lenses
     , dcoirInterconnectId
 
@@ -39,15 +39,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeConnectionsOnInterconnect' request.
-describeConnectionsOnInterconnect :: Text -- ^ 'dcoirInterconnectId'
-                                  -> DescribeConnectionsOnInterconnect
-describeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConnectionsOnInterconnect' request.
+mkDescribeConnectionsOnInterconnectRequest :: Text -- ^ 'dcoirInterconnectId'
+                                           -> DescribeConnectionsOnInterconnect
+mkDescribeConnectionsOnInterconnectRequest p1 = DescribeConnectionsOnInterconnect
     { _dcoirInterconnectId = p1
     }
-{-# INLINE describeConnectionsOnInterconnect #-}
+{-# INLINE mkDescribeConnectionsOnInterconnectRequest #-}
 
-data DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
+newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoirInterconnectId :: Text
       -- ^ ID of the interconnect on which a list of connection is
       -- provisioned. Example: dxcon-abc123 Default: None.
@@ -56,9 +57,7 @@ data DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
 -- | ID of the interconnect on which a list of connection is provisioned.
 -- Example: dxcon-abc123 Default: None.
 dcoirInterconnectId :: Lens' DescribeConnectionsOnInterconnect (Text)
-dcoirInterconnectId f x =
-    f (_dcoirInterconnectId x)
-        <&> \y -> x { _dcoirInterconnectId = y }
+dcoirInterconnectId = lens _dcoirInterconnectId (\s a -> s { _dcoirInterconnectId = a })
 {-# INLINE dcoirInterconnectId #-}
 
 instance ToPath DescribeConnectionsOnInterconnect
@@ -69,16 +68,14 @@ instance ToHeaders DescribeConnectionsOnInterconnect
 
 instance ToJSON DescribeConnectionsOnInterconnect
 
-data DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
+newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _pConnections :: [Connection]
       -- ^ A list of connections.
     } deriving (Show, Generic)
 
 -- | A list of connections.
 pConnections :: Lens' DescribeConnectionsOnInterconnectResponse ([Connection])
-pConnections f x =
-    f (_pConnections x)
-        <&> \y -> x { _pConnections = y }
+pConnections = lens _pConnections (\s a -> s { _pConnections = a })
 {-# INLINE pConnections #-}
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse

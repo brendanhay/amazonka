@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication
     -- * Request
       CreateApplication
     -- ** Request constructor
-    , createApplication
+    , mkCreateApplicationMessage
     -- ** Request lenses
     , camApplicationName
     , camDescription
@@ -46,14 +46,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateApplication' request.
-createApplication :: Text -- ^ 'camApplicationName'
-                  -> CreateApplication
-createApplication p1 = CreateApplication
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateApplication' request.
+mkCreateApplicationMessage :: Text -- ^ 'camApplicationName'
+                           -> CreateApplication
+mkCreateApplicationMessage p1 = CreateApplication
     { _camApplicationName = p1
     , _camDescription = Nothing
     }
-{-# INLINE createApplication #-}
+{-# INLINE mkCreateApplicationMessage #-}
 
 data CreateApplication = CreateApplication
     { _camApplicationName :: Text
@@ -68,31 +69,25 @@ data CreateApplication = CreateApplication
 -- your account. If the specified name already exists, the action returns an
 -- InvalidParameterValue error.
 camApplicationName :: Lens' CreateApplication (Text)
-camApplicationName f x =
-    f (_camApplicationName x)
-        <&> \y -> x { _camApplicationName = y }
+camApplicationName = lens _camApplicationName (\s a -> s { _camApplicationName = a })
 {-# INLINE camApplicationName #-}
 
 -- | Describes the application.
 camDescription :: Lens' CreateApplication (Maybe Text)
-camDescription f x =
-    f (_camDescription x)
-        <&> \y -> x { _camDescription = y }
+camDescription = lens _camDescription (\s a -> s { _camDescription = a })
 {-# INLINE camDescription #-}
 
 instance ToQuery CreateApplication where
     toQuery = genericQuery def
 
-data CreateApplicationResponse = CreateApplicationResponse
+newtype CreateApplicationResponse = CreateApplicationResponse
     { _admApplication :: Maybe ApplicationDescription
       -- ^ The ApplicationDescription of the application.
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
 admApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
-admApplication f x =
-    f (_admApplication x)
-        <&> \y -> x { _admApplication = y }
+admApplication = lens _admApplication (\s a -> s { _admApplication = a })
 {-# INLINE admApplication #-}
 
 instance FromXML CreateApplicationResponse where

@@ -23,7 +23,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
     -- * Request
       DeleteInterconnect
     -- ** Request constructor
-    , deleteInterconnect
+    , mkDeleteInterconnectRequest
     -- ** Request lenses
     , dirInterconnectId
 
@@ -38,24 +38,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteInterconnect' request.
-deleteInterconnect :: Text -- ^ 'dirInterconnectId'
-                   -> DeleteInterconnect
-deleteInterconnect p1 = DeleteInterconnect
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInterconnect' request.
+mkDeleteInterconnectRequest :: Text -- ^ 'dirInterconnectId'
+                            -> DeleteInterconnect
+mkDeleteInterconnectRequest p1 = DeleteInterconnect
     { _dirInterconnectId = p1
     }
-{-# INLINE deleteInterconnect #-}
+{-# INLINE mkDeleteInterconnectRequest #-}
 
-data DeleteInterconnect = DeleteInterconnect
+newtype DeleteInterconnect = DeleteInterconnect
     { _dirInterconnectId :: Text
       -- ^ The ID of the interconnect. Example: dxcon-abc123.
     } deriving (Show, Generic)
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
 dirInterconnectId :: Lens' DeleteInterconnect (Text)
-dirInterconnectId f x =
-    f (_dirInterconnectId x)
-        <&> \y -> x { _dirInterconnectId = y }
+dirInterconnectId = lens _dirInterconnectId (\s a -> s { _dirInterconnectId = a })
 {-# INLINE dirInterconnectId #-}
 
 instance ToPath DeleteInterconnect
@@ -66,7 +65,7 @@ instance ToHeaders DeleteInterconnect
 
 instance ToJSON DeleteInterconnect
 
-data DeleteInterconnectResponse = DeleteInterconnectResponse
+newtype DeleteInterconnectResponse = DeleteInterconnectResponse
     { _disInterconnectState :: Maybe InterconnectState
       -- ^ State of the interconnect. Requested: The initial state of an
       -- interconnect. The interconnect stays in the requested state until
@@ -84,9 +83,7 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
 disInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-disInterconnectState f x =
-    f (_disInterconnectState x)
-        <&> \y -> x { _disInterconnectState = y }
+disInterconnectState = lens _disInterconnectState (\s a -> s { _disInterconnectState = a })
 {-# INLINE disInterconnectState #-}
 
 instance FromJSON DeleteInterconnectResponse

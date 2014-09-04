@@ -30,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.DeregisterImage
     -- * Request
       DeregisterImage
     -- ** Request constructor
-    , deregisterImage
+    , mkDeregisterImageRequest
     -- ** Request lenses
     , dirImageId
 
@@ -42,24 +42,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeregisterImage' request.
-deregisterImage :: Text -- ^ 'dirImageId'
-                -> DeregisterImage
-deregisterImage p1 = DeregisterImage
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterImage' request.
+mkDeregisterImageRequest :: Text -- ^ 'dirImageId'
+                         -> DeregisterImage
+mkDeregisterImageRequest p1 = DeregisterImage
     { _dirImageId = p1
     }
-{-# INLINE deregisterImage #-}
+{-# INLINE mkDeregisterImageRequest #-}
 
-data DeregisterImage = DeregisterImage
+newtype DeregisterImage = DeregisterImage
     { _dirImageId :: Text
       -- ^ The ID of the AMI.
     } deriving (Show, Generic)
 
 -- | The ID of the AMI.
 dirImageId :: Lens' DeregisterImage (Text)
-dirImageId f x =
-    f (_dirImageId x)
-        <&> \y -> x { _dirImageId = y }
+dirImageId = lens _dirImageId (\s a -> s { _dirImageId = a })
 {-# INLINE dirImageId #-}
 
 instance ToQuery DeregisterImage where

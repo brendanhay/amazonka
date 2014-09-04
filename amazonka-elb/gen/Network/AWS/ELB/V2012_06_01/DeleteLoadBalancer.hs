@@ -31,7 +31,7 @@ module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer
     -- * Request
       DeleteLoadBalancer
     -- ** Request constructor
-    , deleteLoadBalancer
+    , mkDeleteAccessPointInput
     -- ** Request lenses
     , dapiLoadBalancerName
 
@@ -43,30 +43,28 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteLoadBalancer' request.
-deleteLoadBalancer :: Text -- ^ 'dapiLoadBalancerName'
-                   -> DeleteLoadBalancer
-deleteLoadBalancer p1 = DeleteLoadBalancer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoadBalancer' request.
+mkDeleteAccessPointInput :: Text -- ^ 'dapiLoadBalancerName'
+                         -> DeleteLoadBalancer
+mkDeleteAccessPointInput p1 = DeleteLoadBalancer
     { _dapiLoadBalancerName = p1
     }
-{-# INLINE deleteLoadBalancer #-}
+{-# INLINE mkDeleteAccessPointInput #-}
 
-data DeleteLoadBalancer = DeleteLoadBalancer
+newtype DeleteLoadBalancer = DeleteLoadBalancer
     { _dapiLoadBalancerName :: Text
       -- ^ The name associated with the load balancer.
     } deriving (Show, Generic)
 
 -- | The name associated with the load balancer.
 dapiLoadBalancerName :: Lens' DeleteLoadBalancer (Text)
-dapiLoadBalancerName f x =
-    f (_dapiLoadBalancerName x)
-        <&> \y -> x { _dapiLoadBalancerName = y }
+dapiLoadBalancerName = lens _dapiLoadBalancerName (\s a -> s { _dapiLoadBalancerName = a })
 {-# INLINE dapiLoadBalancerName #-}
 
 instance ToQuery DeleteLoadBalancer where
     toQuery = genericQuery def
 
-data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLoadBalancer where

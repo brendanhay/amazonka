@@ -35,7 +35,7 @@ module Network.AWS.SES.V2010_12_01.VerifyEmailAddress
     -- * Request
       VerifyEmailAddress
     -- ** Request constructor
-    , verifyEmailAddress
+    , mkVerifyEmailAddressRequest
     -- ** Request lenses
     , vearEmailAddress
 
@@ -47,24 +47,23 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'VerifyEmailAddress' request.
-verifyEmailAddress :: Text -- ^ 'vearEmailAddress'
-                   -> VerifyEmailAddress
-verifyEmailAddress p1 = VerifyEmailAddress
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyEmailAddress' request.
+mkVerifyEmailAddressRequest :: Text -- ^ 'vearEmailAddress'
+                            -> VerifyEmailAddress
+mkVerifyEmailAddressRequest p1 = VerifyEmailAddress
     { _vearEmailAddress = p1
     }
-{-# INLINE verifyEmailAddress #-}
+{-# INLINE mkVerifyEmailAddressRequest #-}
 
-data VerifyEmailAddress = VerifyEmailAddress
+newtype VerifyEmailAddress = VerifyEmailAddress
     { _vearEmailAddress :: Text
       -- ^ The email address to be verified.
     } deriving (Show, Generic)
 
 -- | The email address to be verified.
 vearEmailAddress :: Lens' VerifyEmailAddress (Text)
-vearEmailAddress f x =
-    f (_vearEmailAddress x)
-        <&> \y -> x { _vearEmailAddress = y }
+vearEmailAddress = lens _vearEmailAddress (\s a -> s { _vearEmailAddress = a })
 {-# INLINE vearEmailAddress #-}
 
 instance ToQuery VerifyEmailAddress where

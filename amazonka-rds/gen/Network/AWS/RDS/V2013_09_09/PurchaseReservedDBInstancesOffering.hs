@@ -31,11 +31,11 @@ module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering
     -- * Request
       PurchaseReservedDBInstancesOffering
     -- ** Request constructor
-    , purchaseReservedDBInstancesOffering
+    , mkPurchaseReservedDBInstancesOfferingMessage
     -- ** Request lenses
     , prdbiomReservedDBInstancesOfferingId
-    , prdbiomDBInstanceCount
     , prdbiomReservedDBInstanceId
+    , prdbiomDBInstanceCount
     , prdbiomTags
 
     -- * Response
@@ -48,26 +48,27 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PurchaseReservedDBInstancesOffering' request.
-purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
-                                    -> PurchaseReservedDBInstancesOffering
-purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedDBInstancesOffering' request.
+mkPurchaseReservedDBInstancesOfferingMessage :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
+                                             -> PurchaseReservedDBInstancesOffering
+mkPurchaseReservedDBInstancesOfferingMessage p1 = PurchaseReservedDBInstancesOffering
     { _prdbiomReservedDBInstancesOfferingId = p1
-    , _prdbiomDBInstanceCount = Nothing
     , _prdbiomReservedDBInstanceId = Nothing
+    , _prdbiomDBInstanceCount = Nothing
     , _prdbiomTags = mempty
     }
-{-# INLINE purchaseReservedDBInstancesOffering #-}
+{-# INLINE mkPurchaseReservedDBInstancesOfferingMessage #-}
 
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     { _prdbiomReservedDBInstancesOfferingId :: Text
       -- ^ The ID of the Reserved DB instance offering to purchase. Example:
       -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-    , _prdbiomDBInstanceCount :: Maybe Integer
-      -- ^ The number of instances to reserve. Default: 1.
     , _prdbiomReservedDBInstanceId :: Maybe Text
       -- ^ Customer-specified identifier to track this reservation. Example:
       -- myreservationID.
+    , _prdbiomDBInstanceCount :: Maybe Integer
+      -- ^ The number of instances to reserve. Default: 1.
     , _prdbiomTags :: [Tag]
       -- ^ A list of tags.
     } deriving (Show, Generic)
@@ -75,37 +76,29 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
 -- | The ID of the Reserved DB instance offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
 prdbiomReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering (Text)
-prdbiomReservedDBInstancesOfferingId f x =
-    f (_prdbiomReservedDBInstancesOfferingId x)
-        <&> \y -> x { _prdbiomReservedDBInstancesOfferingId = y }
+prdbiomReservedDBInstancesOfferingId = lens _prdbiomReservedDBInstancesOfferingId (\s a -> s { _prdbiomReservedDBInstancesOfferingId = a })
 {-# INLINE prdbiomReservedDBInstancesOfferingId #-}
-
--- | The number of instances to reserve. Default: 1.
-prdbiomDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Integer)
-prdbiomDBInstanceCount f x =
-    f (_prdbiomDBInstanceCount x)
-        <&> \y -> x { _prdbiomDBInstanceCount = y }
-{-# INLINE prdbiomDBInstanceCount #-}
 
 -- | Customer-specified identifier to track this reservation. Example:
 -- myreservationID.
 prdbiomReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
-prdbiomReservedDBInstanceId f x =
-    f (_prdbiomReservedDBInstanceId x)
-        <&> \y -> x { _prdbiomReservedDBInstanceId = y }
+prdbiomReservedDBInstanceId = lens _prdbiomReservedDBInstanceId (\s a -> s { _prdbiomReservedDBInstanceId = a })
 {-# INLINE prdbiomReservedDBInstanceId #-}
+
+-- | The number of instances to reserve. Default: 1.
+prdbiomDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Integer)
+prdbiomDBInstanceCount = lens _prdbiomDBInstanceCount (\s a -> s { _prdbiomDBInstanceCount = a })
+{-# INLINE prdbiomDBInstanceCount #-}
 
 -- | A list of tags.
 prdbiomTags :: Lens' PurchaseReservedDBInstancesOffering ([Tag])
-prdbiomTags f x =
-    f (_prdbiomTags x)
-        <&> \y -> x { _prdbiomTags = y }
+prdbiomTags = lens _prdbiomTags (\s a -> s { _prdbiomTags = a })
 {-# INLINE prdbiomTags #-}
 
 instance ToQuery PurchaseReservedDBInstancesOffering where
     toQuery = genericQuery def
 
-data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
+newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _rdbiwReservedDBInstance :: Maybe ReservedDBInstance
       -- ^ This data type is used as a response element in the
       -- DescribeReservedDBInstances and
@@ -116,9 +109,7 @@ data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOf
 -- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
 -- actions.
 rdbiwReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
-rdbiwReservedDBInstance f x =
-    f (_rdbiwReservedDBInstance x)
-        <&> \y -> x { _rdbiwReservedDBInstance = y }
+rdbiwReservedDBInstance = lens _rdbiwReservedDBInstance (\s a -> s { _rdbiwReservedDBInstance = a })
 {-# INLINE rdbiwReservedDBInstance #-}
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where

@@ -31,7 +31,7 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventCategories
     -- * Request
       DescribeEventCategories
     -- ** Request constructor
-    , describeEventCategories
+    , mkDescribeEventCategoriesMessage
     -- ** Request lenses
     , decmSourceType
 
@@ -45,14 +45,15 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeEventCategories' request.
-describeEventCategories :: DescribeEventCategories
-describeEventCategories = DescribeEventCategories
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventCategories' request.
+mkDescribeEventCategoriesMessage :: DescribeEventCategories
+mkDescribeEventCategoriesMessage = DescribeEventCategories
     { _decmSourceType = Nothing
     }
-{-# INLINE describeEventCategories #-}
+{-# INLINE mkDescribeEventCategoriesMessage #-}
 
-data DescribeEventCategories = DescribeEventCategories
+newtype DescribeEventCategories = DescribeEventCategories
     { _decmSourceType :: Maybe Text
       -- ^ The type of source that will be generating the events. Valid
       -- values: db-instance | db-parameter-group | db-security-group |
@@ -62,24 +63,20 @@ data DescribeEventCategories = DescribeEventCategories
 -- | The type of source that will be generating the events. Valid values:
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
 decmSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decmSourceType f x =
-    f (_decmSourceType x)
-        <&> \y -> x { _decmSourceType = y }
+decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
 {-# INLINE decmSourceType #-}
 
 instance ToQuery DescribeEventCategories where
     toQuery = genericQuery def
 
-data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
+newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _ecpEventCategoriesMapList :: [EventCategoriesMap]
       -- ^ A list of EventCategoriesMap data types.
     } deriving (Show, Generic)
 
 -- | A list of EventCategoriesMap data types.
 ecpEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse ([EventCategoriesMap])
-ecpEventCategoriesMapList f x =
-    f (_ecpEventCategoriesMapList x)
-        <&> \y -> x { _ecpEventCategoriesMapList = y }
+ecpEventCategoriesMapList = lens _ecpEventCategoriesMapList (\s a -> s { _ecpEventCategoriesMapList = a })
 {-# INLINE ecpEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where

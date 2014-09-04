@@ -30,7 +30,7 @@ module Network.AWS.SimpleDB.V2009_04_15.CreateDomain
     -- * Request
       CreateDomain
     -- ** Request constructor
-    , createDomain
+    , mkCreateDomainRequest
     -- ** Request lenses
     , cdrDomainName
 
@@ -42,15 +42,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDomain' request.
-createDomain :: Text -- ^ 'cdrDomainName'
-             -> CreateDomain
-createDomain p1 = CreateDomain
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDomain' request.
+mkCreateDomainRequest :: Text -- ^ 'cdrDomainName'
+                      -> CreateDomain
+mkCreateDomainRequest p1 = CreateDomain
     { _cdrDomainName = p1
     }
-{-# INLINE createDomain #-}
+{-# INLINE mkCreateDomainRequest #-}
 
-data CreateDomain = CreateDomain
+newtype CreateDomain = CreateDomain
     { _cdrDomainName :: Text
       -- ^ The name of the domain to create. The name can range between 3
       -- and 255 characters and can contain the following characters: a-z,
@@ -61,9 +62,7 @@ data CreateDomain = CreateDomain
 -- characters and can contain the following characters: a-z, A-Z, 0-9, '_',
 -- '-', and '.'.
 cdrDomainName :: Lens' CreateDomain (Text)
-cdrDomainName f x =
-    f (_cdrDomainName x)
-        <&> \y -> x { _cdrDomainName = y }
+cdrDomainName = lens _cdrDomainName (\s a -> s { _cdrDomainName = a })
 {-# INLINE cdrDomainName #-}
 
 instance ToQuery CreateDomain where

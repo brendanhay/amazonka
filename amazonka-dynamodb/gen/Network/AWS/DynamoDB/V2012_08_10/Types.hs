@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -68,28 +69,34 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , TableStatus (..)
 
     -- * Capacity
-    , Capacity (..)
+    , Capacity
+    , mkCapacity
     , cCapacityUnits
 
     -- * DeleteRequest
-    , DeleteRequest (..)
+    , DeleteRequest
+    , mkDeleteRequest
     , drKey
 
     -- * GlobalSecondaryIndexUpdate
-    , GlobalSecondaryIndexUpdate (..)
+    , GlobalSecondaryIndexUpdate
+    , mkGlobalSecondaryIndexUpdate
     , gsiuUpdate
 
     -- * PutRequest
-    , PutRequest (..)
+    , PutRequest
+    , mkPutRequest
     , prItem
 
     -- * AttributeDefinition
-    , AttributeDefinition (..)
+    , AttributeDefinition
+    , mkAttributeDefinition
     , aeAttributeName
     , aeAttributeType
 
     -- * AttributeValue
-    , AttributeValue (..)
+    , AttributeValue
+    , mkAttributeValue
     , avS
     , avN
     , avB
@@ -98,17 +105,19 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , avBS
 
     -- * AttributeValueUpdate
-    , AttributeValueUpdate (..)
+    , AttributeValueUpdate
+    , mkAttributeValueUpdate
     , avuValue
     , avuAction
 
     -- * Condition
-    , Condition (..)
+    , Condition
+    , mkCondition
     , cnAttributeValueList
     , cnComparisonOperator
 
     -- * ConsumedCapacity
-    , ConsumedCapacity (..)
+    , ConsumedCapacity
     , ccTableName
     , ccCapacityUnits
     , ccTable
@@ -116,21 +125,23 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , ccGlobalSecondaryIndexes
 
     -- * ExpectedAttributeValue
-    , ExpectedAttributeValue (..)
+    , ExpectedAttributeValue
+    , mkExpectedAttributeValue
     , eavValue
     , eavExists
     , eavComparisonOperator
     , eavAttributeValueList
 
     -- * GlobalSecondaryIndex
-    , GlobalSecondaryIndex (..)
+    , GlobalSecondaryIndex
+    , mkGlobalSecondaryIndex
     , gsiIndexName
     , gsiKeySchema
     , gsiProjection
     , gsiProvisionedThroughput
 
     -- * GlobalSecondaryIndexDescription
-    , GlobalSecondaryIndexDescription (..)
+    , GlobalSecondaryIndexDescription
     , gsidIndexName
     , gsidKeySchema
     , gsidProjection
@@ -140,29 +151,33 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , gsidItemCount
 
     -- * ItemCollectionMetrics
-    , ItemCollectionMetrics (..)
+    , ItemCollectionMetrics
+    , mkItemCollectionMetrics
     , icmItemCollectionKey
     , icmSizeEstimateRangeGB
 
     -- * KeySchemaElement
-    , KeySchemaElement (..)
+    , KeySchemaElement
+    , mkKeySchemaElement
     , kseAttributeName
     , kseKeyType
 
     -- * KeysAndAttributes
-    , KeysAndAttributes (..)
+    , KeysAndAttributes
+    , mkKeysAndAttributes
     , kaaKeys
     , kaaAttributesToGet
     , kaaConsistentRead
 
     -- * LocalSecondaryIndex
-    , LocalSecondaryIndex (..)
+    , LocalSecondaryIndex
+    , mkLocalSecondaryIndex
     , lsiIndexName
     , lsiKeySchema
     , lsiProjection
 
     -- * LocalSecondaryIndexDescription
-    , LocalSecondaryIndexDescription (..)
+    , LocalSecondaryIndexDescription
     , lsidIndexName
     , lsidKeySchema
     , lsidProjection
@@ -170,17 +185,20 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , lsidItemCount
 
     -- * Projection
-    , Projection (..)
+    , Projection
+    , mkProjection
     , pProjectionType
     , pNonKeyAttributes
 
     -- * ProvisionedThroughput
-    , ProvisionedThroughput (..)
+    , ProvisionedThroughput
+    , mkProvisionedThroughput
     , pvReadCapacityUnits
     , pvWriteCapacityUnits
 
     -- * ProvisionedThroughputDescription
-    , ProvisionedThroughputDescription (..)
+    , ProvisionedThroughputDescription
+    , mkProvisionedThroughputDescription
     , ptdLastIncreaseDateTime
     , ptdLastDecreaseDateTime
     , ptdNumberOfDecreasesToday
@@ -188,7 +206,7 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , ptdWriteCapacityUnits
 
     -- * TableDescription
-    , TableDescription (..)
+    , TableDescription
     , tdAttributeDefinitions
     , tdTableName
     , tdKeySchema
@@ -201,15 +219,16 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     , tdGlobalSecondaryIndexes
 
     -- * UpdateGlobalSecondaryIndexAction
-    , UpdateGlobalSecondaryIndexAction (..)
+    , UpdateGlobalSecondaryIndexAction
+    , mkUpdateGlobalSecondaryIndexAction
     , ugsiaIndexName
     , ugsiaProvisionedThroughput
 
     -- * WriteRequest
-    , WriteRequest (..)
+    , WriteRequest
+    , mkWriteRequest
     , wsPutRequest
     , wsDeleteRequest
-
     ) where
 
 import Network.AWS.Prelude
@@ -809,10 +828,16 @@ newtype Capacity = Capacity
 
 -- | The total number of capacity units consumed on a table or an index.
 cCapacityUnits :: Lens' Capacity (Maybe Double)
-cCapacityUnits f x =
-    f (_cCapacityUnits x)
-        <&> \y -> x { _cCapacityUnits = y }
+cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
 {-# INLINE cCapacityUnits #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Capacity' data type to populate a request.
+mkCapacity :: Capacity
+mkCapacity = Capacity
+    { _cCapacityUnits = Nothing
+    }
+{-# INLINE mkCapacity #-}
 
 instance FromJSON Capacity
 
@@ -831,10 +856,17 @@ newtype DeleteRequest = DeleteRequest
 -- of the item to delete. All of the table's primary key attributes must be
 -- specified, and their data types must match those of the table's key schema.
 drKey :: Lens' DeleteRequest (Map Text AttributeValue)
-drKey f x =
-    f (_drKey x)
-        <&> \y -> x { _drKey = y }
+drKey = lens _drKey (\s a -> s { _drKey = a })
 {-# INLINE drKey #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DeleteRequest' data type to populate a request.
+mkDeleteRequest :: Map Text AttributeValue -- ^ 'drKey'
+                -> DeleteRequest
+mkDeleteRequest p1 = DeleteRequest
+    { _drKey = p1
+    }
+{-# INLINE mkDeleteRequest #-}
 
 instance FromJSON DeleteRequest
 
@@ -852,10 +884,16 @@ newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
 -- | The name of a global secondary index, along with the updated provisioned
 -- throughput settings that are to be applied to that index.
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
-gsiuUpdate f x =
-    f (_gsiuUpdate x)
-        <&> \y -> x { _gsiuUpdate = y }
+gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
 {-# INLINE gsiuUpdate #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'GlobalSecondaryIndexUpdate' data type to populate a request.
+mkGlobalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
+mkGlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
+    { _gsiuUpdate = Nothing
+    }
+{-# INLINE mkGlobalSecondaryIndexUpdate #-}
 
 instance ToJSON GlobalSecondaryIndexUpdate
 
@@ -878,10 +916,17 @@ newtype PutRequest = PutRequest
 -- part of an index key schema for the table, their types must match the index
 -- key schema.
 prItem :: Lens' PutRequest (Map Text AttributeValue)
-prItem f x =
-    f (_prItem x)
-        <&> \y -> x { _prItem = y }
+prItem = lens _prItem (\s a -> s { _prItem = a })
 {-# INLINE prItem #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PutRequest' data type to populate a request.
+mkPutRequest :: Map Text AttributeValue -- ^ 'prItem'
+             -> PutRequest
+mkPutRequest p1 = PutRequest
+    { _prItem = p1
+    }
+{-# INLINE mkPutRequest #-}
 
 instance FromJSON PutRequest
 
@@ -898,17 +943,24 @@ data AttributeDefinition = AttributeDefinition
 
 -- | A name for the attribute.
 aeAttributeName :: Lens' AttributeDefinition (Text)
-aeAttributeName f x =
-    f (_aeAttributeName x)
-        <&> \y -> x { _aeAttributeName = y }
+aeAttributeName = lens _aeAttributeName (\s a -> s { _aeAttributeName = a })
 {-# INLINE aeAttributeName #-}
 
 -- | The data type for the attribute.
 aeAttributeType :: Lens' AttributeDefinition (ScalarAttributeType)
-aeAttributeType f x =
-    f (_aeAttributeType x)
-        <&> \y -> x { _aeAttributeType = y }
+aeAttributeType = lens _aeAttributeType (\s a -> s { _aeAttributeType = a })
 {-# INLINE aeAttributeType #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AttributeDefinition' data type to populate a request.
+mkAttributeDefinition :: Text -- ^ 'aeAttributeName'
+                      -> ScalarAttributeType -- ^ 'aeAttributeType'
+                      -> AttributeDefinition
+mkAttributeDefinition p1 p2 = AttributeDefinition
+    { _aeAttributeName = p1
+    , _aeAttributeType = p2
+    }
+{-# INLINE mkAttributeDefinition #-}
 
 instance FromJSON AttributeDefinition
 
@@ -933,45 +985,46 @@ data AttributeValue = AttributeValue
 
 -- | A String data type.
 avS :: Lens' AttributeValue (Maybe Text)
-avS f x =
-    f (_avS x)
-        <&> \y -> x { _avS = y }
+avS = lens _avS (\s a -> s { _avS = a })
 {-# INLINE avS #-}
 
 -- | A Number data type.
 avN :: Lens' AttributeValue (Maybe Text)
-avN f x =
-    f (_avN x)
-        <&> \y -> x { _avN = y }
+avN = lens _avN (\s a -> s { _avN = a })
 {-# INLINE avN #-}
 
 -- | A Binary data type.
 avB :: Lens' AttributeValue (Maybe Base64)
-avB f x =
-    f (_avB x)
-        <&> \y -> x { _avB = y }
+avB = lens _avB (\s a -> s { _avB = a })
 {-# INLINE avB #-}
 
 -- | A String set data type.
 avSS :: Lens' AttributeValue ([Text])
-avSS f x =
-    f (_avSS x)
-        <&> \y -> x { _avSS = y }
+avSS = lens _avSS (\s a -> s { _avSS = a })
 {-# INLINE avSS #-}
 
 -- | Number set data type.
 avNS :: Lens' AttributeValue ([Text])
-avNS f x =
-    f (_avNS x)
-        <&> \y -> x { _avNS = y }
+avNS = lens _avNS (\s a -> s { _avNS = a })
 {-# INLINE avNS #-}
 
 -- | A Binary set data type.
 avBS :: Lens' AttributeValue ([Base64])
-avBS f x =
-    f (_avBS x)
-        <&> \y -> x { _avBS = y }
+avBS = lens _avBS (\s a -> s { _avBS = a })
 {-# INLINE avBS #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AttributeValue' data type to populate a request.
+mkAttributeValue :: AttributeValue
+mkAttributeValue = AttributeValue
+    { _avS = Nothing
+    , _avN = Nothing
+    , _avB = Nothing
+    , _avSS = mempty
+    , _avNS = mempty
+    , _avBS = mempty
+    }
+{-# INLINE mkAttributeValue #-}
 
 instance FromJSON AttributeValue
 
@@ -1044,9 +1097,7 @@ data AttributeValueUpdate = AttributeValueUpdate
 -- | Represents the data for an attribute. You can set one, and only one, of the
 -- elements.
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
-avuValue f x =
-    f (_avuValue x)
-        <&> \y -> x { _avuValue = y }
+avuValue = lens _avuValue (\s a -> s { _avuValue = a })
 {-# INLINE avuValue #-}
 
 -- | Specifies how to perform the update. Valid values are PUT, DELETE, and ADD.
@@ -1092,10 +1143,17 @@ avuValue f x =
 -- attribute value. The only data types allowed are number and number set; no
 -- other data types can be specified.
 avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
-avuAction f x =
-    f (_avuAction x)
-        <&> \y -> x { _avuAction = y }
+avuAction = lens _avuAction (\s a -> s { _avuAction = a })
 {-# INLINE avuAction #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AttributeValueUpdate' data type to populate a request.
+mkAttributeValueUpdate :: AttributeValueUpdate
+mkAttributeValueUpdate = AttributeValueUpdate
+    { _avuValue = Nothing
+    , _avuAction = Nothing
+    }
+{-# INLINE mkAttributeValueUpdate #-}
 
 instance ToJSON AttributeValueUpdate
 
@@ -1211,9 +1269,7 @@ data Condition = Condition
 -- DynamoDB treats each byte of the binary data as unsigned when it compares
 -- binary values, for example when evaluating query expressions.
 cnAttributeValueList :: Lens' Condition ([AttributeValue])
-cnAttributeValueList f x =
-    f (_cnAttributeValueList x)
-        <&> \y -> x { _cnAttributeValueList = y }
+cnAttributeValueList = lens _cnAttributeValueList (\s a -> s { _cnAttributeValueList = a })
 {-# INLINE cnAttributeValueList #-}
 
 -- | A comparator for evaluating attributes. For example, equals, greater than,
@@ -1286,10 +1342,18 @@ cnAttributeValueList f x =
 -- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
 -- to {"NS":["6", "2", "1"]}.
 cnComparisonOperator :: Lens' Condition (ComparisonOperator)
-cnComparisonOperator f x =
-    f (_cnComparisonOperator x)
-        <&> \y -> x { _cnComparisonOperator = y }
+cnComparisonOperator = lens _cnComparisonOperator (\s a -> s { _cnComparisonOperator = a })
 {-# INLINE cnComparisonOperator #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Condition' data type to populate a request.
+mkCondition :: ComparisonOperator -- ^ 'cnComparisonOperator'
+            -> Condition
+mkCondition p1 = Condition
+    { _cnAttributeValueList = mempty
+    , _cnComparisonOperator = p2
+    }
+{-# INLINE mkCondition #-}
 
 instance ToJSON Condition
 
@@ -1316,39 +1380,29 @@ data ConsumedCapacity = ConsumedCapacity
 
 -- | The name of the table that was affected by the operation.
 ccTableName :: Lens' ConsumedCapacity (Maybe Text)
-ccTableName f x =
-    f (_ccTableName x)
-        <&> \y -> x { _ccTableName = y }
+ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 {-# INLINE ccTableName #-}
 
 -- | The total number of capacity units consumed by the operation.
 ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
-ccCapacityUnits f x =
-    f (_ccCapacityUnits x)
-        <&> \y -> x { _ccCapacityUnits = y }
+ccCapacityUnits = lens _ccCapacityUnits (\s a -> s { _ccCapacityUnits = a })
 {-# INLINE ccCapacityUnits #-}
 
 -- | The amount of throughput consumed on the table affected by the operation.
 ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
-ccTable f x =
-    f (_ccTable x)
-        <&> \y -> x { _ccTable = y }
+ccTable = lens _ccTable (\s a -> s { _ccTable = a })
 {-# INLINE ccTable #-}
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
 ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (Map Text Capacity)
-ccLocalSecondaryIndexes f x =
-    f (_ccLocalSecondaryIndexes x)
-        <&> \y -> x { _ccLocalSecondaryIndexes = y }
+ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\s a -> s { _ccLocalSecondaryIndexes = a })
 {-# INLINE ccLocalSecondaryIndexes #-}
 
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
 ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (Map Text Capacity)
-ccGlobalSecondaryIndexes f x =
-    f (_ccGlobalSecondaryIndexes x)
-        <&> \y -> x { _ccGlobalSecondaryIndexes = y }
+ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\s a -> s { _ccGlobalSecondaryIndexes = a })
 {-# INLINE ccGlobalSecondaryIndexes #-}
 
 instance FromJSON ConsumedCapacity
@@ -1390,9 +1444,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue
 -- | Represents the data for an attribute. You can set one, and only one, of the
 -- elements.
 eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
-eavValue f x =
-    f (_eavValue x)
-        <&> \y -> x { _eavValue = y }
+eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 {-# INLINE eavValue #-}
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
@@ -1414,22 +1466,27 @@ eavValue f x =
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
 eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
-eavExists f x =
-    f (_eavExists x)
-        <&> \y -> x { _eavExists = y }
+eavExists = lens _eavExists (\s a -> s { _eavExists = a })
 {-# INLINE eavExists #-}
 
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
-eavComparisonOperator f x =
-    f (_eavComparisonOperator x)
-        <&> \y -> x { _eavComparisonOperator = y }
+eavComparisonOperator = lens _eavComparisonOperator (\s a -> s { _eavComparisonOperator = a })
 {-# INLINE eavComparisonOperator #-}
 
 eavAttributeValueList :: Lens' ExpectedAttributeValue ([AttributeValue])
-eavAttributeValueList f x =
-    f (_eavAttributeValueList x)
-        <&> \y -> x { _eavAttributeValueList = y }
+eavAttributeValueList = lens _eavAttributeValueList (\s a -> s { _eavAttributeValueList = a })
 {-# INLINE eavAttributeValueList #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ExpectedAttributeValue' data type to populate a request.
+mkExpectedAttributeValue :: ExpectedAttributeValue
+mkExpectedAttributeValue = ExpectedAttributeValue
+    { _eavValue = Nothing
+    , _eavExists = Nothing
+    , _eavComparisonOperator = Nothing
+    , _eavAttributeValueList = mempty
+    }
+{-# INLINE mkExpectedAttributeValue #-}
 
 instance ToJSON ExpectedAttributeValue
 
@@ -1458,26 +1515,20 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
 -- | The name of the global secondary index. The name must be unique among all
 -- other indexes on this table.
 gsiIndexName :: Lens' GlobalSecondaryIndex (Text)
-gsiIndexName f x =
-    f (_gsiIndexName x)
-        <&> \y -> x { _gsiIndexName = y }
+gsiIndexName = lens _gsiIndexName (\s a -> s { _gsiIndexName = a })
 {-# INLINE gsiIndexName #-}
 
 -- | The complete key schema for a global secondary index, which consists of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
 gsiKeySchema :: Lens' GlobalSecondaryIndex ([KeySchemaElement])
-gsiKeySchema f x =
-    f (_gsiKeySchema x)
-        <&> \y -> x { _gsiKeySchema = y }
+gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a })
 {-# INLINE gsiKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 gsiProjection :: Lens' GlobalSecondaryIndex (Projection)
-gsiProjection f x =
-    f (_gsiProjection x)
-        <&> \y -> x { _gsiProjection = y }
+gsiProjection = lens _gsiProjection (\s a -> s { _gsiProjection = a })
 {-# INLINE gsiProjection #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
@@ -1485,10 +1536,23 @@ gsiProjection f x =
 -- current minimum and maximum provisioned throughput values, see Limits in
 -- the Amazon DynamoDB Developer Guide.
 gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex (ProvisionedThroughput)
-gsiProvisionedThroughput f x =
-    f (_gsiProvisionedThroughput x)
-        <&> \y -> x { _gsiProvisionedThroughput = y }
+gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\s a -> s { _gsiProvisionedThroughput = a })
 {-# INLINE gsiProvisionedThroughput #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'GlobalSecondaryIndex' data type to populate a request.
+mkGlobalSecondaryIndex :: Text -- ^ 'gsiIndexName'
+                       -> [KeySchemaElement] -- ^ 'gsiKeySchema'
+                       -> Projection -- ^ 'gsiProjection'
+                       -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
+                       -> GlobalSecondaryIndex
+mkGlobalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
+    { _gsiIndexName = p1
+    , _gsiKeySchema = p2
+    , _gsiProjection = p3
+    , _gsiProvisionedThroughput = p4
+    }
+{-# INLINE mkGlobalSecondaryIndex #-}
 
 instance ToJSON GlobalSecondaryIndex
 
@@ -1528,26 +1592,20 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 
 -- | The name of the global secondary index.
 gsidIndexName :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
-gsidIndexName f x =
-    f (_gsidIndexName x)
-        <&> \y -> x { _gsidIndexName = y }
+gsidIndexName = lens _gsidIndexName (\s a -> s { _gsidIndexName = a })
 {-# INLINE gsidIndexName #-}
 
 -- | The complete key schema for the global secondary index, consisting of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe [KeySchemaElement])
-gsidKeySchema f x =
-    f (_gsidKeySchema x)
-        <&> \y -> x { _gsidKeySchema = y }
+gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a })
 {-# INLINE gsidKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
-gsidProjection f x =
-    f (_gsidProjection x)
-        <&> \y -> x { _gsidProjection = y }
+gsidProjection = lens _gsidProjection (\s a -> s { _gsidProjection = a })
 {-# INLINE gsidProjection #-}
 
 -- | The current state of the global secondary index: CREATING - The index is
@@ -1556,36 +1614,28 @@ gsidProjection f x =
 -- UpdateTable operation. DELETING - The index is being deleted, as the result
 -- of a DeleteTable operation. ACTIVE - The index is ready for use.
 gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe IndexStatus)
-gsidIndexStatus f x =
-    f (_gsidIndexStatus x)
-        <&> \y -> x { _gsidIndexStatus = y }
+gsidIndexStatus = lens _gsidIndexStatus (\s a -> s { _gsidIndexStatus = a })
 {-# INLINE gsidIndexStatus #-}
 
 -- | Represents the provisioned throughput settings for the table, consisting of
 -- read and write capacity units, along with data about increases and
 -- decreases.
 gsidProvisionedThroughput :: Lens' GlobalSecondaryIndexDescription (Maybe ProvisionedThroughputDescription)
-gsidProvisionedThroughput f x =
-    f (_gsidProvisionedThroughput x)
-        <&> \y -> x { _gsidProvisionedThroughput = y }
+gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\s a -> s { _gsidProvisionedThroughput = a })
 {-# INLINE gsidProvisionedThroughput #-}
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be reflected
 -- in this value.
 gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
-gsidIndexSizeBytes f x =
-    f (_gsidIndexSizeBytes x)
-        <&> \y -> x { _gsidIndexSizeBytes = y }
+gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\s a -> s { _gsidIndexSizeBytes = a })
 {-# INLINE gsidIndexSizeBytes #-}
 
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 gsidItemCount :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
-gsidItemCount f x =
-    f (_gsidItemCount x)
-        <&> \y -> x { _gsidItemCount = y }
+gsidItemCount = lens _gsidItemCount (\s a -> s { _gsidItemCount = a })
 {-# INLINE gsidItemCount #-}
 
 instance FromJSON GlobalSecondaryIndexDescription
@@ -1613,9 +1663,7 @@ data ItemCollectionMetrics = ItemCollectionMetrics
 -- | The hash key value of the item collection. This is the same as the hash key
 -- of the item.
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (Map Text AttributeValue)
-icmItemCollectionKey f x =
-    f (_icmItemCollectionKey x)
-        <&> \y -> x { _icmItemCollectionKey = y }
+icmItemCollectionKey = lens _icmItemCollectionKey (\s a -> s { _icmItemCollectionKey = a })
 {-# INLINE icmItemCollectionKey #-}
 
 -- | An estimate of item collection size, measured in gigabytes. This is a
@@ -1627,10 +1675,17 @@ icmItemCollectionKey f x =
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
 icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics ([Double])
-icmSizeEstimateRangeGB f x =
-    f (_icmSizeEstimateRangeGB x)
-        <&> \y -> x { _icmSizeEstimateRangeGB = y }
+icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
 {-# INLINE icmSizeEstimateRangeGB #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ItemCollectionMetrics' data type to populate a request.
+mkItemCollectionMetrics :: ItemCollectionMetrics
+mkItemCollectionMetrics = ItemCollectionMetrics
+    { _icmItemCollectionKey = mempty
+    , _icmSizeEstimateRangeGB = mempty
+    }
+{-# INLINE mkItemCollectionMetrics #-}
 
 instance FromJSON ItemCollectionMetrics
 
@@ -1649,18 +1704,25 @@ data KeySchemaElement = KeySchemaElement
 
 -- | The name of a key attribute.
 kseAttributeName :: Lens' KeySchemaElement (Text)
-kseAttributeName f x =
-    f (_kseAttributeName x)
-        <&> \y -> x { _kseAttributeName = y }
+kseAttributeName = lens _kseAttributeName (\s a -> s { _kseAttributeName = a })
 {-# INLINE kseAttributeName #-}
 
 -- | The attribute data, consisting of the data type and the attribute value
 -- itself.
 kseKeyType :: Lens' KeySchemaElement (KeyType)
-kseKeyType f x =
-    f (_kseKeyType x)
-        <&> \y -> x { _kseKeyType = y }
+kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 {-# INLINE kseKeyType #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'KeySchemaElement' data type to populate a request.
+mkKeySchemaElement :: Text -- ^ 'kseAttributeName'
+                   -> KeyType -- ^ 'kseKeyType'
+                   -> KeySchemaElement
+mkKeySchemaElement p1 p2 = KeySchemaElement
+    { _kseAttributeName = p1
+    , _kseKeyType = p2
+    }
+{-# INLINE mkKeySchemaElement #-}
 
 instance FromJSON KeySchemaElement
 
@@ -1686,27 +1748,32 @@ data KeysAndAttributes = KeysAndAttributes
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
 kaaKeys :: Lens' KeysAndAttributes ([Map Text AttributeValue])
-kaaKeys f x =
-    f (_kaaKeys x)
-        <&> \y -> x { _kaaKeys = y }
+kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
 {-# INLINE kaaKeys #-}
 
 -- | One or more attributes to retrieve from the table or index. If no attribute
 -- names are specified then all attributes will be returned. If any of the
 -- specified attributes are not found, they will not appear in the result.
 kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe [Text])
-kaaAttributesToGet f x =
-    f (_kaaAttributesToGet x)
-        <&> \y -> x { _kaaAttributesToGet = y }
+kaaAttributesToGet = lens _kaaAttributesToGet (\s a -> s { _kaaAttributesToGet = a })
 {-# INLINE kaaAttributesToGet #-}
 
 -- | The consistency of a read operation. If set to true, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is used.
 kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
-kaaConsistentRead f x =
-    f (_kaaConsistentRead x)
-        <&> \y -> x { _kaaConsistentRead = y }
+kaaConsistentRead = lens _kaaConsistentRead (\s a -> s { _kaaConsistentRead = a })
 {-# INLINE kaaConsistentRead #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'KeysAndAttributes' data type to populate a request.
+mkKeysAndAttributes :: [Map Text AttributeValue] -- ^ 'kaaKeys'
+                    -> KeysAndAttributes
+mkKeysAndAttributes p1 = KeysAndAttributes
+    { _kaaKeys = p1
+    , _kaaAttributesToGet = Nothing
+    , _kaaConsistentRead = Nothing
+    }
+{-# INLINE mkKeysAndAttributes #-}
 
 instance FromJSON KeysAndAttributes
 
@@ -1731,27 +1798,34 @@ data LocalSecondaryIndex = LocalSecondaryIndex
 -- | The name of the local secondary index. The name must be unique among all
 -- other indexes on this table.
 lsiIndexName :: Lens' LocalSecondaryIndex (Text)
-lsiIndexName f x =
-    f (_lsiIndexName x)
-        <&> \y -> x { _lsiIndexName = y }
+lsiIndexName = lens _lsiIndexName (\s a -> s { _lsiIndexName = a })
 {-# INLINE lsiIndexName #-}
 
 -- | The complete key schema for the local secondary index, consisting of one or
 -- more pairs of attribute names and key types (HASH or RANGE).
 lsiKeySchema :: Lens' LocalSecondaryIndex ([KeySchemaElement])
-lsiKeySchema f x =
-    f (_lsiKeySchema x)
-        <&> \y -> x { _lsiKeySchema = y }
+lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
 {-# INLINE lsiKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 lsiProjection :: Lens' LocalSecondaryIndex (Projection)
-lsiProjection f x =
-    f (_lsiProjection x)
-        <&> \y -> x { _lsiProjection = y }
+lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
 {-# INLINE lsiProjection #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LocalSecondaryIndex' data type to populate a request.
+mkLocalSecondaryIndex :: Text -- ^ 'lsiIndexName'
+                      -> [KeySchemaElement] -- ^ 'lsiKeySchema'
+                      -> Projection -- ^ 'lsiProjection'
+                      -> LocalSecondaryIndex
+mkLocalSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
+    { _lsiIndexName = p1
+    , _lsiKeySchema = p2
+    , _lsiProjection = p3
+    }
+{-# INLINE mkLocalSecondaryIndex #-}
 
 instance ToJSON LocalSecondaryIndex
 
@@ -1779,44 +1853,34 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
 
 -- | Represents the name of the local secondary index.
 lsidIndexName :: Lens' LocalSecondaryIndexDescription (Maybe Text)
-lsidIndexName f x =
-    f (_lsidIndexName x)
-        <&> \y -> x { _lsidIndexName = y }
+lsidIndexName = lens _lsidIndexName (\s a -> s { _lsidIndexName = a })
 {-# INLINE lsidIndexName #-}
 
 -- | The complete index key schema, which consists of one or more pairs of
 -- attribute names and key types (HASH or RANGE).
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe [KeySchemaElement])
-lsidKeySchema f x =
-    f (_lsidKeySchema x)
-        <&> \y -> x { _lsidKeySchema = y }
+lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
 {-# INLINE lsidKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
-lsidProjection f x =
-    f (_lsidProjection x)
-        <&> \y -> x { _lsidProjection = y }
+lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
 {-# INLINE lsidProjection #-}
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be reflected
 -- in this value.
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
-lsidIndexSizeBytes f x =
-    f (_lsidIndexSizeBytes x)
-        <&> \y -> x { _lsidIndexSizeBytes = y }
+lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\s a -> s { _lsidIndexSizeBytes = a })
 {-# INLINE lsidIndexSizeBytes #-}
 
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 lsidItemCount :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
-lsidItemCount f x =
-    f (_lsidItemCount x)
-        <&> \y -> x { _lsidItemCount = y }
+lsidItemCount = lens _lsidItemCount (\s a -> s { _lsidItemCount = a })
 {-# INLINE lsidItemCount #-}
 
 instance FromJSON LocalSecondaryIndexDescription
@@ -1847,9 +1911,7 @@ data Projection = Projection
 -- projected attributes are in NonKeyAttributes. ALL - All of the table
 -- attributes are projected into the index.
 pProjectionType :: Lens' Projection (Maybe ProjectionType)
-pProjectionType f x =
-    f (_pProjectionType x)
-        <&> \y -> x { _pProjectionType = y }
+pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 {-# INLINE pProjectionType #-}
 
 -- | Represents the non-key attribute names which will be projected into the
@@ -1858,10 +1920,17 @@ pProjectionType f x =
 -- you project the same attribute into two different indexes, this counts as
 -- two distinct attributes when determining the total.
 pNonKeyAttributes :: Lens' Projection (Maybe [Text])
-pNonKeyAttributes f x =
-    f (_pNonKeyAttributes x)
-        <&> \y -> x { _pNonKeyAttributes = y }
+pNonKeyAttributes = lens _pNonKeyAttributes (\s a -> s { _pNonKeyAttributes = a })
 {-# INLINE pNonKeyAttributes #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Projection' data type to populate a request.
+mkProjection :: Projection
+mkProjection = Projection
+    { _pProjectionType = Nothing
+    , _pNonKeyAttributes = Nothing
+    }
+{-# INLINE mkProjection #-}
 
 instance FromJSON Projection
 
@@ -1889,19 +1958,26 @@ data ProvisionedThroughput = ProvisionedThroughput
 -- Specifying Read and Write Requirements in the Amazon DynamoDB Developer
 -- Guide.
 pvReadCapacityUnits :: Lens' ProvisionedThroughput (Integer)
-pvReadCapacityUnits f x =
-    f (_pvReadCapacityUnits x)
-        <&> \y -> x { _pvReadCapacityUnits = y }
+pvReadCapacityUnits = lens _pvReadCapacityUnits (\s a -> s { _pvReadCapacityUnits = a })
 {-# INLINE pvReadCapacityUnits #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a
 -- ThrottlingException. For more information, see Specifying Read and Write
 -- Requirements in the Amazon DynamoDB Developer Guide.
 pvWriteCapacityUnits :: Lens' ProvisionedThroughput (Integer)
-pvWriteCapacityUnits f x =
-    f (_pvWriteCapacityUnits x)
-        <&> \y -> x { _pvWriteCapacityUnits = y }
+pvWriteCapacityUnits = lens _pvWriteCapacityUnits (\s a -> s { _pvWriteCapacityUnits = a })
 {-# INLINE pvWriteCapacityUnits #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ProvisionedThroughput' data type to populate a request.
+mkProvisionedThroughput :: Integer -- ^ 'pvReadCapacityUnits'
+                        -> Integer -- ^ 'pvWriteCapacityUnits'
+                        -> ProvisionedThroughput
+mkProvisionedThroughput p1 p2 = ProvisionedThroughput
+    { _pvReadCapacityUnits = p1
+    , _pvWriteCapacityUnits = p2
+    }
+{-# INLINE mkProvisionedThroughput #-}
 
 instance FromJSON ProvisionedThroughput
 
@@ -1935,26 +2011,20 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
 -- | The date and time of the last provisioned throughput increase for this
 -- table.
 ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe ISO8601)
-ptdLastIncreaseDateTime f x =
-    f (_ptdLastIncreaseDateTime x)
-        <&> \y -> x { _ptdLastIncreaseDateTime = y }
+ptdLastIncreaseDateTime = lens _ptdLastIncreaseDateTime (\s a -> s { _ptdLastIncreaseDateTime = a })
 {-# INLINE ptdLastIncreaseDateTime #-}
 
 -- | The date and time of the last provisioned throughput decrease for this
 -- table.
 ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe ISO8601)
-ptdLastDecreaseDateTime f x =
-    f (_ptdLastDecreaseDateTime x)
-        <&> \y -> x { _ptdLastDecreaseDateTime = y }
+ptdLastDecreaseDateTime = lens _ptdLastDecreaseDateTime (\s a -> s { _ptdLastDecreaseDateTime = a })
 {-# INLINE ptdLastDecreaseDateTime #-}
 
 -- | The number of provisioned throughput decreases for this table during this
 -- UTC calendar day. For current maximums on provisioned throughput decreases,
 -- see Limits in the Amazon DynamoDB Developer Guide.
 ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Integer)
-ptdNumberOfDecreasesToday f x =
-    f (_ptdNumberOfDecreasesToday x)
-        <&> \y -> x { _ptdNumberOfDecreasesToday = y }
+ptdNumberOfDecreasesToday = lens _ptdNumberOfDecreasesToday (\s a -> s { _ptdNumberOfDecreasesToday = a })
 {-# INLINE ptdNumberOfDecreasesToday #-}
 
 -- | The maximum number of strongly consistent reads consumed per second before
@@ -1963,18 +2033,26 @@ ptdNumberOfDecreasesToday f x =
 -- ReadCapacityUnits per second provides 100 eventually consistent
 -- ReadCapacityUnits per second.
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Integer)
-ptdReadCapacityUnits f x =
-    f (_ptdReadCapacityUnits x)
-        <&> \y -> x { _ptdReadCapacityUnits = y }
+ptdReadCapacityUnits = lens _ptdReadCapacityUnits (\s a -> s { _ptdReadCapacityUnits = a })
 {-# INLINE ptdReadCapacityUnits #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a
 -- ThrottlingException.
 ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Integer)
-ptdWriteCapacityUnits f x =
-    f (_ptdWriteCapacityUnits x)
-        <&> \y -> x { _ptdWriteCapacityUnits = y }
+ptdWriteCapacityUnits = lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
 {-# INLINE ptdWriteCapacityUnits #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ProvisionedThroughputDescription' data type to populate a request.
+mkProvisionedThroughputDescription :: ProvisionedThroughputDescription
+mkProvisionedThroughputDescription = ProvisionedThroughputDescription
+    { _ptdLastIncreaseDateTime = Nothing
+    , _ptdLastDecreaseDateTime = Nothing
+    , _ptdNumberOfDecreasesToday = Nothing
+    , _ptdReadCapacityUnits = Nothing
+    , _ptdWriteCapacityUnits = Nothing
+    }
+{-# INLINE mkProvisionedThroughputDescription #-}
 
 instance FromJSON ProvisionedThroughputDescription
 
@@ -2092,16 +2170,12 @@ data TableDescription = TableDescription
 -- object in this array is composed of: AttributeName - The name of the
 -- attribute. AttributeType - The data type for the attribute.
 tdAttributeDefinitions :: Lens' TableDescription ([AttributeDefinition])
-tdAttributeDefinitions f x =
-    f (_tdAttributeDefinitions x)
-        <&> \y -> x { _tdAttributeDefinitions = y }
+tdAttributeDefinitions = lens _tdAttributeDefinitions (\s a -> s { _tdAttributeDefinitions = a })
 {-# INLINE tdAttributeDefinitions #-}
 
 -- | The name of the table.
 tdTableName :: Lens' TableDescription (Maybe Text)
-tdTableName f x =
-    f (_tdTableName x)
-        <&> \y -> x { _tdTableName = y }
+tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
 {-# INLINE tdTableName #-}
 
 -- | The primary key structure for the table. Each KeySchemaElement consists of:
@@ -2109,9 +2183,7 @@ tdTableName f x =
 -- attribute. Can be either HASH or RANGE. For more information about primary
 -- keys, see Primary Key in the Amazon DynamoDB Developer Guide.
 tdKeySchema :: Lens' TableDescription (Maybe [KeySchemaElement])
-tdKeySchema f x =
-    f (_tdKeySchema x)
-        <&> \y -> x { _tdKeySchema = y }
+tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
 {-# INLINE tdKeySchema #-}
 
 -- | The current state of the table: CREATING - The table is being created, as
@@ -2120,42 +2192,32 @@ tdKeySchema f x =
 -- being deleted, as the result of a DeleteTable operation. ACTIVE - The table
 -- is ready for use.
 tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
-tdTableStatus f x =
-    f (_tdTableStatus x)
-        <&> \y -> x { _tdTableStatus = y }
+tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 {-# INLINE tdTableStatus #-}
 
 -- | The date and time when the table was created, in UNIX epoch time format.
 tdCreationDateTime :: Lens' TableDescription (Maybe ISO8601)
-tdCreationDateTime f x =
-    f (_tdCreationDateTime x)
-        <&> \y -> x { _tdCreationDateTime = y }
+tdCreationDateTime = lens _tdCreationDateTime (\s a -> s { _tdCreationDateTime = a })
 {-# INLINE tdCreationDateTime #-}
 
 -- | The provisioned throughput settings for the table, consisting of read and
 -- write capacity units, along with data about increases and decreases.
 tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
-tdProvisionedThroughput f x =
-    f (_tdProvisionedThroughput x)
-        <&> \y -> x { _tdProvisionedThroughput = y }
+tdProvisionedThroughput = lens _tdProvisionedThroughput (\s a -> s { _tdProvisionedThroughput = a })
 {-# INLINE tdProvisionedThroughput #-}
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be reflected
 -- in this value.
 tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
-tdTableSizeBytes f x =
-    f (_tdTableSizeBytes x)
-        <&> \y -> x { _tdTableSizeBytes = y }
+tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 {-# INLINE tdTableSizeBytes #-}
 
 -- | The number of items in the specified table. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 tdItemCount :: Lens' TableDescription (Maybe Integer)
-tdItemCount f x =
-    f (_tdItemCount x)
-        <&> \y -> x { _tdItemCount = y }
+tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 {-# INLINE tdItemCount #-}
 
 -- | Represents one or more local secondary indexes on the table. Each index is
@@ -2186,9 +2248,7 @@ tdItemCount f x =
 -- might not be reflected in this value. If the table is in the DELETING
 -- state, no information about indexes will be returned.
 tdLocalSecondaryIndexes :: Lens' TableDescription ([LocalSecondaryIndexDescription])
-tdLocalSecondaryIndexes f x =
-    f (_tdLocalSecondaryIndexes x)
-        <&> \y -> x { _tdLocalSecondaryIndexes = y }
+tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\s a -> s { _tdLocalSecondaryIndexes = a })
 {-# INLINE tdLocalSecondaryIndexes #-}
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped to
@@ -2222,9 +2282,7 @@ tdLocalSecondaryIndexes f x =
 -- data about increases and decreases. If the table is in the DELETING state,
 -- no information about indexes will be returned.
 tdGlobalSecondaryIndexes :: Lens' TableDescription ([GlobalSecondaryIndexDescription])
-tdGlobalSecondaryIndexes f x =
-    f (_tdGlobalSecondaryIndexes x)
-        <&> \y -> x { _tdGlobalSecondaryIndexes = y }
+tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\s a -> s { _tdGlobalSecondaryIndexes = a })
 {-# INLINE tdGlobalSecondaryIndexes #-}
 
 instance FromJSON TableDescription
@@ -2244,9 +2302,7 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
 
 -- | The name of the global secondary index to be updated.
 ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction (Text)
-ugsiaIndexName f x =
-    f (_ugsiaIndexName x)
-        <&> \y -> x { _ugsiaIndexName = y }
+ugsiaIndexName = lens _ugsiaIndexName (\s a -> s { _ugsiaIndexName = a })
 {-# INLINE ugsiaIndexName #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
@@ -2254,10 +2310,19 @@ ugsiaIndexName f x =
 -- current minimum and maximum provisioned throughput values, see Limits in
 -- the Amazon DynamoDB Developer Guide.
 ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction (ProvisionedThroughput)
-ugsiaProvisionedThroughput f x =
-    f (_ugsiaProvisionedThroughput x)
-        <&> \y -> x { _ugsiaProvisionedThroughput = y }
+ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\s a -> s { _ugsiaProvisionedThroughput = a })
 {-# INLINE ugsiaProvisionedThroughput #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'UpdateGlobalSecondaryIndexAction' data type to populate a request.
+mkUpdateGlobalSecondaryIndexAction :: Text -- ^ 'ugsiaIndexName'
+                                   -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
+                                   -> UpdateGlobalSecondaryIndexAction
+mkUpdateGlobalSecondaryIndexAction p1 p2 = UpdateGlobalSecondaryIndexAction
+    { _ugsiaIndexName = p1
+    , _ugsiaProvisionedThroughput = p2
+    }
+{-# INLINE mkUpdateGlobalSecondaryIndexAction #-}
 
 instance FromJSON UpdateGlobalSecondaryIndexAction
 
@@ -2276,17 +2341,22 @@ data WriteRequest = WriteRequest
 
 -- | A request to perform a PutItem operation.
 wsPutRequest :: Lens' WriteRequest (Maybe PutRequest)
-wsPutRequest f x =
-    f (_wsPutRequest x)
-        <&> \y -> x { _wsPutRequest = y }
+wsPutRequest = lens _wsPutRequest (\s a -> s { _wsPutRequest = a })
 {-# INLINE wsPutRequest #-}
 
 -- | A request to perform a DeleteItem operation.
 wsDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
-wsDeleteRequest f x =
-    f (_wsDeleteRequest x)
-        <&> \y -> x { _wsDeleteRequest = y }
+wsDeleteRequest = lens _wsDeleteRequest (\s a -> s { _wsDeleteRequest = a })
 {-# INLINE wsDeleteRequest #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'WriteRequest' data type to populate a request.
+mkWriteRequest :: WriteRequest
+mkWriteRequest = WriteRequest
+    { _wsPutRequest = Nothing
+    , _wsDeleteRequest = Nothing
+    }
+{-# INLINE mkWriteRequest #-}
 
 instance FromJSON WriteRequest
 

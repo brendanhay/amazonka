@@ -31,11 +31,11 @@ module Network.AWS.SimpleDB.V2009_04_15.Select
     -- * Request
       Select
     -- ** Request constructor
-    , select
+    , mkSelectRequest
     -- ** Request lenses
     , sstSelectExpression
-    , sstConsistentRead
     , sstNextToken
+    , sstConsistentRead
 
     -- * Response
     , SelectResponse
@@ -48,54 +48,49 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'Select' request.
-select :: Text -- ^ 'sstSelectExpression'
-       -> Select
-select p1 = Select
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Select' request.
+mkSelectRequest :: Text -- ^ 'sstSelectExpression'
+                -> Select
+mkSelectRequest p1 = Select
     { _sstSelectExpression = p1
-    , _sstConsistentRead = Nothing
     , _sstNextToken = Nothing
+    , _sstConsistentRead = Nothing
     }
-{-# INLINE select #-}
+{-# INLINE mkSelectRequest #-}
 
 data Select = Select
     { _sstSelectExpression :: Text
       -- ^ The expression used to query the domain.
+    , _sstNextToken :: Maybe Text
+      -- ^ A string informing Amazon SimpleDB where to start the next list
+      -- of ItemNames.
     , _sstConsistentRead :: Maybe Bool
       -- ^ Determines whether or not strong consistency should be enforced
       -- when data is read from SimpleDB. If true, any data previously
       -- written to SimpleDB will be returned. Otherwise, results will be
       -- consistent eventually, and the client may not see data that was
       -- written immediately before your read.
-    , _sstNextToken :: Maybe Text
-      -- ^ A string informing Amazon SimpleDB where to start the next list
-      -- of ItemNames.
     } deriving (Show, Generic)
 
 -- | The expression used to query the domain.
 sstSelectExpression :: Lens' Select (Text)
-sstSelectExpression f x =
-    f (_sstSelectExpression x)
-        <&> \y -> x { _sstSelectExpression = y }
+sstSelectExpression = lens _sstSelectExpression (\s a -> s { _sstSelectExpression = a })
 {-# INLINE sstSelectExpression #-}
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+-- ItemNames.
+sstNextToken :: Lens' Select (Maybe Text)
+sstNextToken = lens _sstNextToken (\s a -> s { _sstNextToken = a })
+{-# INLINE sstNextToken #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
 -- will be returned. Otherwise, results will be consistent eventually, and the
 -- client may not see data that was written immediately before your read.
 sstConsistentRead :: Lens' Select (Maybe Bool)
-sstConsistentRead f x =
-    f (_sstConsistentRead x)
-        <&> \y -> x { _sstConsistentRead = y }
+sstConsistentRead = lens _sstConsistentRead (\s a -> s { _sstConsistentRead = a })
 {-# INLINE sstConsistentRead #-}
-
--- | A string informing Amazon SimpleDB where to start the next list of
--- ItemNames.
-sstNextToken :: Lens' Select (Maybe Text)
-sstNextToken f x =
-    f (_sstNextToken x)
-        <&> \y -> x { _sstNextToken = y }
-{-# INLINE sstNextToken #-}
 
 instance ToQuery Select where
     toQuery = genericQuery def
@@ -111,18 +106,14 @@ data SelectResponse = SelectResponse
 
 -- | A list of items that match the select expression.
 ssuItems :: Lens' SelectResponse ([Item])
-ssuItems f x =
-    f (_ssuItems x)
-        <&> \y -> x { _ssuItems = y }
+ssuItems = lens _ssuItems (\s a -> s { _ssuItems = a })
 {-# INLINE ssuItems #-}
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
 ssuNextToken :: Lens' SelectResponse (Maybe Text)
-ssuNextToken f x =
-    f (_ssuNextToken x)
-        <&> \y -> x { _ssuNextToken = y }
+ssuNextToken = lens _ssuNextToken (\s a -> s { _ssuNextToken = a })
 {-# INLINE ssuNextToken #-}
 
 instance FromXML SelectResponse where

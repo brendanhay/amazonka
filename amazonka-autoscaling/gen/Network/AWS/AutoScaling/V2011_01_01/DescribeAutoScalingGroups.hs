@@ -35,11 +35,11 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
     -- * Request
       DescribeAutoScalingGroups
     -- ** Request constructor
-    , describeAutoScalingGroups
+    , mkAutoScalingGroupNamesType
     -- ** Request lenses
     , asgntAutoScalingGroupNames
-    , asgntMaxRecords
     , asgntNextToken
+    , asgntMaxRecords
 
     -- * Response
     , DescribeAutoScalingGroupsResponse
@@ -52,45 +52,40 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAutoScalingGroups' request.
-describeAutoScalingGroups :: DescribeAutoScalingGroups
-describeAutoScalingGroups = DescribeAutoScalingGroups
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingGroups' request.
+mkAutoScalingGroupNamesType :: DescribeAutoScalingGroups
+mkAutoScalingGroupNamesType = DescribeAutoScalingGroups
     { _asgntAutoScalingGroupNames = mempty
-    , _asgntMaxRecords = Nothing
     , _asgntNextToken = Nothing
+    , _asgntMaxRecords = Nothing
     }
-{-# INLINE describeAutoScalingGroups #-}
+{-# INLINE mkAutoScalingGroupNamesType #-}
 
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _asgntAutoScalingGroupNames :: [Text]
       -- ^ A list of Auto Scaling group names.
-    , _asgntMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to return.
     , _asgntNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results.
+    , _asgntMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to return.
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling group names.
 asgntAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups ([Text])
-asgntAutoScalingGroupNames f x =
-    f (_asgntAutoScalingGroupNames x)
-        <&> \y -> x { _asgntAutoScalingGroupNames = y }
+asgntAutoScalingGroupNames = lens _asgntAutoScalingGroupNames (\s a -> s { _asgntAutoScalingGroupNames = a })
 {-# INLINE asgntAutoScalingGroupNames #-}
-
--- | The maximum number of records to return.
-asgntMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Integer)
-asgntMaxRecords f x =
-    f (_asgntMaxRecords x)
-        <&> \y -> x { _asgntMaxRecords = y }
-{-# INLINE asgntMaxRecords #-}
 
 -- | A string that marks the start of the next batch of returned results.
 asgntNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
-asgntNextToken f x =
-    f (_asgntNextToken x)
-        <&> \y -> x { _asgntNextToken = y }
+asgntNextToken = lens _asgntNextToken (\s a -> s { _asgntNextToken = a })
 {-# INLINE asgntNextToken #-}
+
+-- | The maximum number of records to return.
+asgntMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Integer)
+asgntMaxRecords = lens _asgntMaxRecords (\s a -> s { _asgntMaxRecords = a })
+{-# INLINE asgntMaxRecords #-}
 
 instance ToQuery DescribeAutoScalingGroups where
     toQuery = genericQuery def
@@ -105,16 +100,12 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
 
 -- | A list of Auto Scaling groups.
 asgtAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse ([AutoScalingGroup])
-asgtAutoScalingGroups f x =
-    f (_asgtAutoScalingGroups x)
-        <&> \y -> x { _asgtAutoScalingGroups = y }
+asgtAutoScalingGroups = lens _asgtAutoScalingGroups (\s a -> s { _asgtAutoScalingGroups = a })
 {-# INLINE asgtAutoScalingGroups #-}
 
 -- | A string that marks the start of the next batch of returned results.
 asgtNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
-asgtNextToken f x =
-    f (_asgtNextToken x)
-        <&> \y -> x { _asgtNextToken = y }
+asgtNextToken = lens _asgtNextToken (\s a -> s { _asgtNextToken = a })
 {-# INLINE asgtNextToken #-}
 
 instance FromXML DescribeAutoScalingGroupsResponse where

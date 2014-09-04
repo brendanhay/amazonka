@@ -27,7 +27,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , describeTags
+    , mkDescribeTagsInput
     -- ** Request lenses
     , dtiLoadBalancerNames
 
@@ -41,39 +41,36 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeTags' request.
-describeTags :: [Text] -- ^ 'dtiLoadBalancerNames'
-             -> DescribeTags
-describeTags p1 = DescribeTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTags' request.
+mkDescribeTagsInput :: [Text] -- ^ 'dtiLoadBalancerNames'
+                    -> DescribeTags
+mkDescribeTagsInput p1 = DescribeTags
     { _dtiLoadBalancerNames = p1
     }
-{-# INLINE describeTags #-}
+{-# INLINE mkDescribeTagsInput #-}
 
-data DescribeTags = DescribeTags
+newtype DescribeTags = DescribeTags
     { _dtiLoadBalancerNames :: [Text]
       -- ^ The names of the load balancers.
     } deriving (Show, Generic)
 
 -- | The names of the load balancers.
 dtiLoadBalancerNames :: Lens' DescribeTags ([Text])
-dtiLoadBalancerNames f x =
-    f (_dtiLoadBalancerNames x)
-        <&> \y -> x { _dtiLoadBalancerNames = y }
+dtiLoadBalancerNames = lens _dtiLoadBalancerNames (\s a -> s { _dtiLoadBalancerNames = a })
 {-# INLINE dtiLoadBalancerNames #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
-data DescribeTagsResponse = DescribeTagsResponse
+newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtoTagDescriptions :: [TagDescription]
       -- ^ A list of tag description structures.
     } deriving (Show, Generic)
 
 -- | A list of tag description structures.
 dtoTagDescriptions :: Lens' DescribeTagsResponse ([TagDescription])
-dtoTagDescriptions f x =
-    f (_dtoTagDescriptions x)
-        <&> \y -> x { _dtoTagDescriptions = y }
+dtoTagDescriptions = lens _dtoTagDescriptions (\s a -> s { _dtoTagDescriptions = a })
 {-# INLINE dtoTagDescriptions #-}
 
 instance FromXML DescribeTagsResponse where

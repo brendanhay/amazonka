@@ -34,17 +34,17 @@ module Network.AWS.IAM.V2010_05_08.ListUsers
     -- * Request
       ListUsers
     -- ** Request constructor
-    , listUsers
+    , mkListUsersRequest
     -- ** Request lenses
+    , lurPathPrefix
     , lurMarker
     , lurMaxItems
-    , lurPathPrefix
 
     -- * Response
     , ListUsersResponse
     -- ** Response lenses
-    , lusIsTruncated
     , lusUsers
+    , lusIsTruncated
     , lusMarker
     ) where
 
@@ -52,17 +52,24 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListUsers' request.
-listUsers :: ListUsers
-listUsers = ListUsers
-    { _lurMarker = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListUsers' request.
+mkListUsersRequest :: ListUsers
+mkListUsersRequest = ListUsers
+    { _lurPathPrefix = Nothing
+    , _lurMarker = Nothing
     , _lurMaxItems = Nothing
-    , _lurPathPrefix = Nothing
     }
-{-# INLINE listUsers #-}
+{-# INLINE mkListUsersRequest #-}
 
 data ListUsers = ListUsers
-    { _lurMarker :: Maybe Text
+    { _lurPathPrefix :: Maybe Text
+      -- ^ The path prefix for filtering the results. For example:
+      -- /division_abc/subdivision_xyz/, which would get all user names
+      -- whose path starts with /division_abc/subdivision_xyz/. This
+      -- parameter is optional. If it is not included, it defaults to a
+      -- slash (/), listing all user names.
+    , _lurMarker :: Maybe Text
       -- ^ Use this parameter only when paginating results, and only in a
       -- subsequent request after you've received a response where the
       -- results are truncated. Set it to the value of the Marker element
@@ -73,22 +80,22 @@ data ListUsers = ListUsers
       -- are additional user names beyond the maximum you specify, the
       -- IsTruncated response element is true. This parameter is optional.
       -- If you do not include it, it defaults to 100.
-    , _lurPathPrefix :: Maybe Text
-      -- ^ The path prefix for filtering the results. For example:
-      -- /division_abc/subdivision_xyz/, which would get all user names
-      -- whose path starts with /division_abc/subdivision_xyz/. This
-      -- parameter is optional. If it is not included, it defaults to a
-      -- slash (/), listing all user names.
     } deriving (Show, Generic)
+
+-- | The path prefix for filtering the results. For example:
+-- /division_abc/subdivision_xyz/, which would get all user names whose path
+-- starts with /division_abc/subdivision_xyz/. This parameter is optional. If
+-- it is not included, it defaults to a slash (/), listing all user names.
+lurPathPrefix :: Lens' ListUsers (Maybe Text)
+lurPathPrefix = lens _lurPathPrefix (\s a -> s { _lurPathPrefix = a })
+{-# INLINE lurPathPrefix #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
 lurMarker :: Lens' ListUsers (Maybe Text)
-lurMarker f x =
-    f (_lurMarker x)
-        <&> \y -> x { _lurMarker = y }
+lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 {-# INLINE lurMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -97,60 +104,42 @@ lurMarker f x =
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
 lurMaxItems :: Lens' ListUsers (Maybe Integer)
-lurMaxItems f x =
-    f (_lurMaxItems x)
-        <&> \y -> x { _lurMaxItems = y }
+lurMaxItems = lens _lurMaxItems (\s a -> s { _lurMaxItems = a })
 {-# INLINE lurMaxItems #-}
-
--- | The path prefix for filtering the results. For example:
--- /division_abc/subdivision_xyz/, which would get all user names whose path
--- starts with /division_abc/subdivision_xyz/. This parameter is optional. If
--- it is not included, it defaults to a slash (/), listing all user names.
-lurPathPrefix :: Lens' ListUsers (Maybe Text)
-lurPathPrefix f x =
-    f (_lurPathPrefix x)
-        <&> \y -> x { _lurPathPrefix = y }
-{-# INLINE lurPathPrefix #-}
 
 instance ToQuery ListUsers where
     toQuery = genericQuery def
 
 data ListUsersResponse = ListUsersResponse
-    { _lusIsTruncated :: Bool
+    { _lusUsers :: [User]
+      -- ^ A list of users.
+    , _lusIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more user names to list.
       -- If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more users in the list.
-    , _lusUsers :: [User]
-      -- ^ A list of users.
     , _lusMarker :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
     } deriving (Show, Generic)
 
+-- | A list of users.
+lusUsers :: Lens' ListUsersResponse ([User])
+lusUsers = lens _lusUsers (\s a -> s { _lusUsers = a })
+{-# INLINE lusUsers #-}
+
 -- | A flag that indicates whether there are more user names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more users in the list.
 lusIsTruncated :: Lens' ListUsersResponse (Bool)
-lusIsTruncated f x =
-    f (_lusIsTruncated x)
-        <&> \y -> x { _lusIsTruncated = y }
+lusIsTruncated = lens _lusIsTruncated (\s a -> s { _lusIsTruncated = a })
 {-# INLINE lusIsTruncated #-}
-
--- | A list of users.
-lusUsers :: Lens' ListUsersResponse ([User])
-lusUsers f x =
-    f (_lusUsers x)
-        <&> \y -> x { _lusUsers = y }
-{-# INLINE lusUsers #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lusMarker :: Lens' ListUsersResponse (Maybe Text)
-lusMarker f x =
-    f (_lusMarker x)
-        <&> \y -> x { _lusMarker = y }
+lusMarker = lens _lusMarker (\s a -> s { _lusMarker = a })
 {-# INLINE lusMarker #-}
 
 instance FromXML ListUsersResponse where

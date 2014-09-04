@@ -26,10 +26,10 @@ module Network.AWS.IAM.V2010_05_08.DeleteRolePolicy
     -- * Request
       DeleteRolePolicy
     -- ** Request constructor
-    , deleteRolePolicy
+    , mkDeleteRolePolicyRequest
     -- ** Request lenses
-    , drprPolicyName
     , drprRoleName
+    , drprPolicyName
 
     -- * Response
     , DeleteRolePolicyResponse
@@ -39,36 +39,33 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteRolePolicy' request.
-deleteRolePolicy :: Text -- ^ 'drprPolicyName'
-                 -> Text -- ^ 'drprRoleName'
-                 -> DeleteRolePolicy
-deleteRolePolicy p1 p2 = DeleteRolePolicy
-    { _drprPolicyName = p1
-    , _drprRoleName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRolePolicy' request.
+mkDeleteRolePolicyRequest :: Text -- ^ 'drprRoleName'
+                          -> Text -- ^ 'drprPolicyName'
+                          -> DeleteRolePolicy
+mkDeleteRolePolicyRequest p1 p2 = DeleteRolePolicy
+    { _drprRoleName = p1
+    , _drprPolicyName = p2
     }
-{-# INLINE deleteRolePolicy #-}
+{-# INLINE mkDeleteRolePolicyRequest #-}
 
 data DeleteRolePolicy = DeleteRolePolicy
-    { _drprPolicyName :: Text
-      -- ^ Name of the policy document to delete.
-    , _drprRoleName :: Text
+    { _drprRoleName :: Text
       -- ^ Name of the role the associated with the policy.
+    , _drprPolicyName :: Text
+      -- ^ Name of the policy document to delete.
     } deriving (Show, Generic)
-
--- | Name of the policy document to delete.
-drprPolicyName :: Lens' DeleteRolePolicy (Text)
-drprPolicyName f x =
-    f (_drprPolicyName x)
-        <&> \y -> x { _drprPolicyName = y }
-{-# INLINE drprPolicyName #-}
 
 -- | Name of the role the associated with the policy.
 drprRoleName :: Lens' DeleteRolePolicy (Text)
-drprRoleName f x =
-    f (_drprRoleName x)
-        <&> \y -> x { _drprRoleName = y }
+drprRoleName = lens _drprRoleName (\s a -> s { _drprRoleName = a })
 {-# INLINE drprRoleName #-}
+
+-- | Name of the policy document to delete.
+drprPolicyName :: Lens' DeleteRolePolicy (Text)
+drprPolicyName = lens _drprPolicyName (\s a -> s { _drprPolicyName = a })
+{-# INLINE drprPolicyName #-}
 
 instance ToQuery DeleteRolePolicy where
     toQuery = genericQuery def

@@ -69,21 +69,21 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings
     -- * Request
       DescribeReservedInstancesOfferings
     -- ** Request constructor
-    , describeReservedInstancesOfferings
+    , mkDescribeReservedInstancesOfferingsRequest
     -- ** Request lenses
-    , driorIncludeMarketplace
-    , driorFilters
+    , driorReservedInstancesOfferingIds
     , driorInstanceType
+    , driorAvailabilityZone
+    , driorProductDescription
+    , driorFilters
+    , driorInstanceTenancy
+    , driorOfferingType
+    , driorNextToken
     , driorMaxResults
-    , driorMaxInstanceCount
+    , driorIncludeMarketplace
     , driorMinDuration
     , driorMaxDuration
-    , driorOfferingType
-    , driorProductDescription
-    , driorReservedInstancesOfferingIds
-    , driorInstanceTenancy
-    , driorAvailabilityZone
-    , driorNextToken
+    , driorMaxInstanceCount
 
     -- * Response
     , DescribeReservedInstancesOfferingsResponse
@@ -96,28 +96,38 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeReservedInstancesOfferings' request.
-describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
-describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorIncludeMarketplace = Nothing
-    , _driorFilters = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstancesOfferings' request.
+mkDescribeReservedInstancesOfferingsRequest :: DescribeReservedInstancesOfferings
+mkDescribeReservedInstancesOfferingsRequest = DescribeReservedInstancesOfferings
+    { _driorReservedInstancesOfferingIds = mempty
     , _driorInstanceType = Nothing
+    , _driorAvailabilityZone = Nothing
+    , _driorProductDescription = Nothing
+    , _driorFilters = mempty
+    , _driorInstanceTenancy = Nothing
+    , _driorOfferingType = Nothing
+    , _driorNextToken = Nothing
     , _driorMaxResults = Nothing
-    , _driorMaxInstanceCount = Nothing
+    , _driorIncludeMarketplace = Nothing
     , _driorMinDuration = Nothing
     , _driorMaxDuration = Nothing
-    , _driorOfferingType = Nothing
-    , _driorProductDescription = Nothing
-    , _driorReservedInstancesOfferingIds = mempty
-    , _driorInstanceTenancy = Nothing
-    , _driorAvailabilityZone = Nothing
-    , _driorNextToken = Nothing
+    , _driorMaxInstanceCount = Nothing
     }
-{-# INLINE describeReservedInstancesOfferings #-}
+{-# INLINE mkDescribeReservedInstancesOfferingsRequest #-}
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _driorIncludeMarketplace :: Maybe Bool
-      -- ^ Include Marketplace offerings in the response.
+    { _driorReservedInstancesOfferingIds :: [Text]
+      -- ^ One or more Reserved Instances offering IDs.
+    , _driorInstanceType :: Maybe InstanceType
+      -- ^ The instance type on which the Reserved Instance can be used. For
+      -- more information, see Instance Types in the Amazon Elastic
+      -- Compute Cloud User Guide.
+    , _driorAvailabilityZone :: Maybe Text
+      -- ^ The Availability Zone in which the Reserved Instance can be used.
+    , _driorProductDescription :: Maybe RIProductDescription
+      -- ^ The Reserved Instance description. Instances that include (Amazon
+      -- VPC) in the description are for use with Amazon VPC.
     , _driorFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
       -- where the Reserved Instance can be used. duration - The duration
@@ -133,45 +143,52 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
       -- VPC)). reserved-instances-offering-id - The Reserved Instances
       -- offering ID. usage-price - The usage price of the Reserved
       -- Instance, per hour (for example, 0.84).
-    , _driorInstanceType :: Maybe InstanceType
-      -- ^ The instance type on which the Reserved Instance can be used. For
-      -- more information, see Instance Types in the Amazon Elastic
-      -- Compute Cloud User Guide.
+    , _driorInstanceTenancy :: Maybe Tenancy
+      -- ^ The tenancy of the Reserved Instance offering. A Reserved
+      -- Instance with dedicated tenancy runs on single-tenant hardware
+      -- and can only be launched within a VPC. Default: default.
+    , _driorOfferingType :: Maybe OfferingTypeValues
+      -- ^ The Reserved Instance offering type.
+    , _driorNextToken :: Maybe Text
+      -- ^ The token to use when requesting the next paginated set of
+      -- offerings.
     , _driorMaxResults :: Maybe Integer
       -- ^ The maximum number of offerings to return.
-    , _driorMaxInstanceCount :: Maybe Integer
-      -- ^ The maximum number of instances to filter when searching for
-      -- offerings.
+    , _driorIncludeMarketplace :: Maybe Bool
+      -- ^ Include Marketplace offerings in the response.
     , _driorMinDuration :: Maybe Integer
       -- ^ The minimum duration (in seconds) to filter when searching for
       -- offerings.
     , _driorMaxDuration :: Maybe Integer
       -- ^ The maximum duration (in seconds) to filter when searching for
       -- offerings.
-    , _driorOfferingType :: Maybe OfferingTypeValues
-      -- ^ The Reserved Instance offering type.
-    , _driorProductDescription :: Maybe RIProductDescription
-      -- ^ The Reserved Instance description. Instances that include (Amazon
-      -- VPC) in the description are for use with Amazon VPC.
-    , _driorReservedInstancesOfferingIds :: [Text]
-      -- ^ One or more Reserved Instances offering IDs.
-    , _driorInstanceTenancy :: Maybe Tenancy
-      -- ^ The tenancy of the Reserved Instance offering. A Reserved
-      -- Instance with dedicated tenancy runs on single-tenant hardware
-      -- and can only be launched within a VPC. Default: default.
-    , _driorAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone in which the Reserved Instance can be used.
-    , _driorNextToken :: Maybe Text
-      -- ^ The token to use when requesting the next paginated set of
+    , _driorMaxInstanceCount :: Maybe Integer
+      -- ^ The maximum number of instances to filter when searching for
       -- offerings.
     } deriving (Show, Generic)
 
--- | Include Marketplace offerings in the response.
-driorIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
-driorIncludeMarketplace f x =
-    f (_driorIncludeMarketplace x)
-        <&> \y -> x { _driorIncludeMarketplace = y }
-{-# INLINE driorIncludeMarketplace #-}
+-- | One or more Reserved Instances offering IDs.
+driorReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings ([Text])
+driorReservedInstancesOfferingIds = lens _driorReservedInstancesOfferingIds (\s a -> s { _driorReservedInstancesOfferingIds = a })
+{-# INLINE driorReservedInstancesOfferingIds #-}
+
+-- | The instance type on which the Reserved Instance can be used. For more
+-- information, see Instance Types in the Amazon Elastic Compute Cloud User
+-- Guide.
+driorInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
+driorInstanceType = lens _driorInstanceType (\s a -> s { _driorInstanceType = a })
+{-# INLINE driorInstanceType #-}
+
+-- | The Availability Zone in which the Reserved Instance can be used.
+driorAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+driorAvailabilityZone = lens _driorAvailabilityZone (\s a -> s { _driorAvailabilityZone = a })
+{-# INLINE driorAvailabilityZone #-}
+
+-- | The Reserved Instance description. Instances that include (Amazon VPC) in
+-- the description are for use with Amazon VPC.
+driorProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
+driorProductDescription = lens _driorProductDescription (\s a -> s { _driorProductDescription = a })
+{-# INLINE driorProductDescription #-}
 
 -- | One or more filters. availability-zone - The Availability Zone where the
 -- Reserved Instance can be used. duration - The duration of the Reserved
@@ -187,92 +204,50 @@ driorIncludeMarketplace f x =
 -- usage-price - The usage price of the Reserved Instance, per hour (for
 -- example, 0.84).
 driorFilters :: Lens' DescribeReservedInstancesOfferings ([Filter])
-driorFilters f x =
-    f (_driorFilters x)
-        <&> \y -> x { _driorFilters = y }
+driorFilters = lens _driorFilters (\s a -> s { _driorFilters = a })
 {-# INLINE driorFilters #-}
-
--- | The instance type on which the Reserved Instance can be used. For more
--- information, see Instance Types in the Amazon Elastic Compute Cloud User
--- Guide.
-driorInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
-driorInstanceType f x =
-    f (_driorInstanceType x)
-        <&> \y -> x { _driorInstanceType = y }
-{-# INLINE driorInstanceType #-}
-
--- | The maximum number of offerings to return.
-driorMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-driorMaxResults f x =
-    f (_driorMaxResults x)
-        <&> \y -> x { _driorMaxResults = y }
-{-# INLINE driorMaxResults #-}
-
--- | The maximum number of instances to filter when searching for offerings.
-driorMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-driorMaxInstanceCount f x =
-    f (_driorMaxInstanceCount x)
-        <&> \y -> x { _driorMaxInstanceCount = y }
-{-# INLINE driorMaxInstanceCount #-}
-
--- | The minimum duration (in seconds) to filter when searching for offerings.
-driorMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-driorMinDuration f x =
-    f (_driorMinDuration x)
-        <&> \y -> x { _driorMinDuration = y }
-{-# INLINE driorMinDuration #-}
-
--- | The maximum duration (in seconds) to filter when searching for offerings.
-driorMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-driorMaxDuration f x =
-    f (_driorMaxDuration x)
-        <&> \y -> x { _driorMaxDuration = y }
-{-# INLINE driorMaxDuration #-}
-
--- | The Reserved Instance offering type.
-driorOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
-driorOfferingType f x =
-    f (_driorOfferingType x)
-        <&> \y -> x { _driorOfferingType = y }
-{-# INLINE driorOfferingType #-}
-
--- | The Reserved Instance description. Instances that include (Amazon VPC) in
--- the description are for use with Amazon VPC.
-driorProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
-driorProductDescription f x =
-    f (_driorProductDescription x)
-        <&> \y -> x { _driorProductDescription = y }
-{-# INLINE driorProductDescription #-}
-
--- | One or more Reserved Instances offering IDs.
-driorReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings ([Text])
-driorReservedInstancesOfferingIds f x =
-    f (_driorReservedInstancesOfferingIds x)
-        <&> \y -> x { _driorReservedInstancesOfferingIds = y }
-{-# INLINE driorReservedInstancesOfferingIds #-}
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- dedicated tenancy runs on single-tenant hardware and can only be launched
 -- within a VPC. Default: default.
 driorInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
-driorInstanceTenancy f x =
-    f (_driorInstanceTenancy x)
-        <&> \y -> x { _driorInstanceTenancy = y }
+driorInstanceTenancy = lens _driorInstanceTenancy (\s a -> s { _driorInstanceTenancy = a })
 {-# INLINE driorInstanceTenancy #-}
 
--- | The Availability Zone in which the Reserved Instance can be used.
-driorAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
-driorAvailabilityZone f x =
-    f (_driorAvailabilityZone x)
-        <&> \y -> x { _driorAvailabilityZone = y }
-{-# INLINE driorAvailabilityZone #-}
+-- | The Reserved Instance offering type.
+driorOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
+driorOfferingType = lens _driorOfferingType (\s a -> s { _driorOfferingType = a })
+{-# INLINE driorOfferingType #-}
 
 -- | The token to use when requesting the next paginated set of offerings.
 driorNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
-driorNextToken f x =
-    f (_driorNextToken x)
-        <&> \y -> x { _driorNextToken = y }
+driorNextToken = lens _driorNextToken (\s a -> s { _driorNextToken = a })
 {-# INLINE driorNextToken #-}
+
+-- | The maximum number of offerings to return.
+driorMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+driorMaxResults = lens _driorMaxResults (\s a -> s { _driorMaxResults = a })
+{-# INLINE driorMaxResults #-}
+
+-- | Include Marketplace offerings in the response.
+driorIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
+driorIncludeMarketplace = lens _driorIncludeMarketplace (\s a -> s { _driorIncludeMarketplace = a })
+{-# INLINE driorIncludeMarketplace #-}
+
+-- | The minimum duration (in seconds) to filter when searching for offerings.
+driorMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+driorMinDuration = lens _driorMinDuration (\s a -> s { _driorMinDuration = a })
+{-# INLINE driorMinDuration #-}
+
+-- | The maximum duration (in seconds) to filter when searching for offerings.
+driorMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+driorMaxDuration = lens _driorMaxDuration (\s a -> s { _driorMaxDuration = a })
+{-# INLINE driorMaxDuration #-}
+
+-- | The maximum number of instances to filter when searching for offerings.
+driorMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+driorMaxInstanceCount = lens _driorMaxInstanceCount (\s a -> s { _driorMaxInstanceCount = a })
+{-# INLINE driorMaxInstanceCount #-}
 
 instance ToQuery DescribeReservedInstancesOfferings where
     toQuery = genericQuery def
@@ -286,16 +261,12 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 
 -- | A list of Reserved Instances offerings.
 driosReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse ([ReservedInstancesOffering])
-driosReservedInstancesOfferings f x =
-    f (_driosReservedInstancesOfferings x)
-        <&> \y -> x { _driosReservedInstancesOfferings = y }
+driosReservedInstancesOfferings = lens _driosReservedInstancesOfferings (\s a -> s { _driosReservedInstancesOfferings = a })
 {-# INLINE driosReservedInstancesOfferings #-}
 
 -- | The next paginated set of results to return.
 driosNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
-driosNextToken f x =
-    f (_driosNextToken x)
-        <&> \y -> x { _driosNextToken = y }
+driosNextToken = lens _driosNextToken (\s a -> s { _driosNextToken = a })
 {-# INLINE driosNextToken #-}
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where

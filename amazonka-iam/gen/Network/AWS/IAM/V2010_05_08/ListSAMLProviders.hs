@@ -30,7 +30,7 @@ module Network.AWS.IAM.V2010_05_08.ListSAMLProviders
     -- * Request
       ListSAMLProviders
     -- ** Request constructor
-    , listSAMLProviders
+    , mkListSAMLProvidersRequest
     -- * Response
     , ListSAMLProvidersResponse
     -- ** Response lenses
@@ -41,27 +41,25 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListSAMLProviders' request.
-listSAMLProviders :: ListSAMLProviders
-listSAMLProviders = ListSAMLProviders
-{-# INLINE listSAMLProviders #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSAMLProviders' request.
+mkListSAMLProvidersRequest :: ListSAMLProviders
+mkListSAMLProvidersRequest = ListSAMLProviders
+{-# INLINE mkListSAMLProvidersRequest #-}
 
-data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Show, Generic)
 
 instance ToQuery ListSAMLProviders where
     toQuery = genericQuery def
 
-data ListSAMLProvidersResponse = ListSAMLProvidersResponse
+newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlpsSAMLProviderList :: [SAMLProviderListEntry]
       -- ^ The list of SAML providers for this account.
     } deriving (Show, Generic)
 
 -- | The list of SAML providers for this account.
 lsamlpsSAMLProviderList :: Lens' ListSAMLProvidersResponse ([SAMLProviderListEntry])
-lsamlpsSAMLProviderList f x =
-    f (_lsamlpsSAMLProviderList x)
-        <&> \y -> x { _lsamlpsSAMLProviderList = y }
+lsamlpsSAMLProviderList = lens _lsamlpsSAMLProviderList (\s a -> s { _lsamlpsSAMLProviderList = a })
 {-# INLINE lsamlpsSAMLProviderList #-}
 
 instance FromXML ListSAMLProvidersResponse where

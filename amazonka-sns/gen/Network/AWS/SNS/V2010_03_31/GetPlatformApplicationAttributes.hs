@@ -41,7 +41,7 @@ module Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
     -- * Request
       GetPlatformApplicationAttributes
     -- ** Request constructor
-    , getPlatformApplicationAttributes
+    , mkGetPlatformApplicationAttributesInput
     -- ** Request lenses
     , gpaaiPlatformApplicationArn
 
@@ -55,30 +55,29 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetPlatformApplicationAttributes' request.
-getPlatformApplicationAttributes :: Text -- ^ 'gpaaiPlatformApplicationArn'
-                                 -> GetPlatformApplicationAttributes
-getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPlatformApplicationAttributes' request.
+mkGetPlatformApplicationAttributesInput :: Text -- ^ 'gpaaiPlatformApplicationArn'
+                                        -> GetPlatformApplicationAttributes
+mkGetPlatformApplicationAttributesInput p1 = GetPlatformApplicationAttributes
     { _gpaaiPlatformApplicationArn = p1
     }
-{-# INLINE getPlatformApplicationAttributes #-}
+{-# INLINE mkGetPlatformApplicationAttributesInput #-}
 
-data GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
+newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaiPlatformApplicationArn :: Text
       -- ^ PlatformApplicationArn for GetPlatformApplicationAttributesInput.
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
 gpaaiPlatformApplicationArn :: Lens' GetPlatformApplicationAttributes (Text)
-gpaaiPlatformApplicationArn f x =
-    f (_gpaaiPlatformApplicationArn x)
-        <&> \y -> x { _gpaaiPlatformApplicationArn = y }
+gpaaiPlatformApplicationArn = lens _gpaaiPlatformApplicationArn (\s a -> s { _gpaaiPlatformApplicationArn = a })
 {-# INLINE gpaaiPlatformApplicationArn #-}
 
 instance ToQuery GetPlatformApplicationAttributes where
     toQuery = genericQuery def
 
-data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
+newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
       -- ^ Attributes include the following: EventEndpointCreated -- Topic
       -- ARN to which EndpointCreated event notifications should be sent.
@@ -99,9 +98,7 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 -- Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
 gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
-gpaarAttributes f x =
-    f (_gpaarAttributes x)
-        <&> \y -> x { _gpaarAttributes = y }
+gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
 {-# INLINE gpaarAttributes #-}
 
 instance FromXML GetPlatformApplicationAttributesResponse where

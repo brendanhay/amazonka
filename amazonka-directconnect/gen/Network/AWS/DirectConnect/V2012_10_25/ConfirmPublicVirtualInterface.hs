@@ -25,7 +25,7 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
     -- * Request
       ConfirmPublicVirtualInterface
     -- ** Request constructor
-    , confirmPublicVirtualInterface
+    , mkConfirmPublicVirtualInterfaceRequest
     -- ** Request lenses
     , cpvitVirtualInterfaceId
 
@@ -40,15 +40,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ConfirmPublicVirtualInterface' request.
-confirmPublicVirtualInterface :: Text -- ^ 'cpvitVirtualInterfaceId'
-                              -> ConfirmPublicVirtualInterface
-confirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmPublicVirtualInterface' request.
+mkConfirmPublicVirtualInterfaceRequest :: Text -- ^ 'cpvitVirtualInterfaceId'
+                                       -> ConfirmPublicVirtualInterface
+mkConfirmPublicVirtualInterfaceRequest p1 = ConfirmPublicVirtualInterface
     { _cpvitVirtualInterfaceId = p1
     }
-{-# INLINE confirmPublicVirtualInterface #-}
+{-# INLINE mkConfirmPublicVirtualInterfaceRequest #-}
 
-data ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
+newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     { _cpvitVirtualInterfaceId :: Text
       -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
       -- None.
@@ -56,9 +57,7 @@ data ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 cpvitVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface (Text)
-cpvitVirtualInterfaceId f x =
-    f (_cpvitVirtualInterfaceId x)
-        <&> \y -> x { _cpvitVirtualInterfaceId = y }
+cpvitVirtualInterfaceId = lens _cpvitVirtualInterfaceId (\s a -> s { _cpvitVirtualInterfaceId = a })
 {-# INLINE cpvitVirtualInterfaceId #-}
 
 instance ToPath ConfirmPublicVirtualInterface
@@ -69,7 +68,7 @@ instance ToHeaders ConfirmPublicVirtualInterface
 
 instance ToJSON ConfirmPublicVirtualInterface
 
-data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
+newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpviuVirtualInterfaceState :: Maybe VirtualInterfaceState
       -- ^ State of the virtual interface. Confirming: The creation of the
       -- virtual interface is pending confirmation from the virtual
@@ -109,9 +108,7 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
 cpviuVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpviuVirtualInterfaceState f x =
-    f (_cpviuVirtualInterfaceState x)
-        <&> \y -> x { _cpviuVirtualInterfaceState = y }
+cpviuVirtualInterfaceState = lens _cpviuVirtualInterfaceState (\s a -> s { _cpviuVirtualInterfaceState = a })
 {-# INLINE cpviuVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPublicVirtualInterfaceResponse

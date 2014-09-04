@@ -40,59 +40,56 @@ module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
     -- * Request
       GetMetricStatistics
     -- ** Request constructor
-    , getMetricStatistics
+    , mkGetMetricStatisticsInput
     -- ** Request lenses
-    , gmsiMetricName
     , gmsiNamespace
-    , gmsiPeriod
-    , gmsiStatistics
+    , gmsiMetricName
+    , gmsiDimensions
     , gmsiStartTime
     , gmsiEndTime
-    , gmsiDimensions
+    , gmsiPeriod
+    , gmsiStatistics
     , gmsiUnit
 
     -- * Response
     , GetMetricStatisticsResponse
     -- ** Response lenses
-    , gmsoDatapoints
     , gmsoLabel
+    , gmsoDatapoints
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetMetricStatistics' request.
-getMetricStatistics :: Text -- ^ 'gmsiMetricName'
-                    -> Text -- ^ 'gmsiNamespace'
-                    -> Integer -- ^ 'gmsiPeriod'
-                    -> [Statistic] -- ^ 'gmsiStatistics'
-                    -> ISO8601 -- ^ 'gmsiStartTime'
-                    -> ISO8601 -- ^ 'gmsiEndTime'
-                    -> GetMetricStatistics
-getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
-    { _gmsiMetricName = p1
-    , _gmsiNamespace = p2
-    , _gmsiPeriod = p3
-    , _gmsiStatistics = p4
-    , _gmsiStartTime = p5
-    , _gmsiEndTime = p6
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetMetricStatistics' request.
+mkGetMetricStatisticsInput :: Text -- ^ 'gmsiNamespace'
+                           -> Text -- ^ 'gmsiMetricName'
+                           -> ISO8601 -- ^ 'gmsiStartTime'
+                           -> ISO8601 -- ^ 'gmsiEndTime'
+                           -> Integer -- ^ 'gmsiPeriod'
+                           -> [Statistic] -- ^ 'gmsiStatistics'
+                           -> GetMetricStatistics
+mkGetMetricStatisticsInput p1 p2 p3 p4 p5 p6 = GetMetricStatistics
+    { _gmsiNamespace = p1
+    , _gmsiMetricName = p2
     , _gmsiDimensions = mempty
+    , _gmsiStartTime = p4
+    , _gmsiEndTime = p5
+    , _gmsiPeriod = p6
+    , _gmsiStatistics = p7
     , _gmsiUnit = Nothing
     }
-{-# INLINE getMetricStatistics #-}
+{-# INLINE mkGetMetricStatisticsInput #-}
 
 data GetMetricStatistics = GetMetricStatistics
-    { _gmsiMetricName :: Text
-      -- ^ The name of the metric.
-    , _gmsiNamespace :: Text
+    { _gmsiNamespace :: Text
       -- ^ The namespace of the metric.
-    , _gmsiPeriod :: Integer
-      -- ^ The granularity, in seconds, of the returned datapoints. Period
-      -- must be at least 60 seconds and must be a multiple of 60. The
-      -- default value is 60.
-    , _gmsiStatistics :: [Statistic]
-      -- ^ The metric statistics to return.
+    , _gmsiMetricName :: Text
+      -- ^ The name of the metric.
+    , _gmsiDimensions :: [Dimension]
+      -- ^ A list of dimensions describing qualities of the metric.
     , _gmsiStartTime :: ISO8601
       -- ^ The time stamp to use for determining the first datapoint to
       -- return. The value specified is inclusive; results include
@@ -105,40 +102,30 @@ data GetMetricStatistics = GetMetricStatistics
       -- ^ The time stamp to use for determining the last datapoint to
       -- return. The value specified is exclusive; results will include
       -- datapoints up to the time stamp specified.
-    , _gmsiDimensions :: [Dimension]
-      -- ^ A list of dimensions describing qualities of the metric.
+    , _gmsiPeriod :: Integer
+      -- ^ The granularity, in seconds, of the returned datapoints. Period
+      -- must be at least 60 seconds and must be a multiple of 60. The
+      -- default value is 60.
+    , _gmsiStatistics :: [Statistic]
+      -- ^ The metric statistics to return.
     , _gmsiUnit :: Maybe StandardUnit
       -- ^ The unit for the metric.
     } deriving (Show, Generic)
 
--- | The name of the metric.
-gmsiMetricName :: Lens' GetMetricStatistics (Text)
-gmsiMetricName f x =
-    f (_gmsiMetricName x)
-        <&> \y -> x { _gmsiMetricName = y }
-{-# INLINE gmsiMetricName #-}
-
 -- | The namespace of the metric.
 gmsiNamespace :: Lens' GetMetricStatistics (Text)
-gmsiNamespace f x =
-    f (_gmsiNamespace x)
-        <&> \y -> x { _gmsiNamespace = y }
+gmsiNamespace = lens _gmsiNamespace (\s a -> s { _gmsiNamespace = a })
 {-# INLINE gmsiNamespace #-}
 
--- | The granularity, in seconds, of the returned datapoints. Period must be at
--- least 60 seconds and must be a multiple of 60. The default value is 60.
-gmsiPeriod :: Lens' GetMetricStatistics (Integer)
-gmsiPeriod f x =
-    f (_gmsiPeriod x)
-        <&> \y -> x { _gmsiPeriod = y }
-{-# INLINE gmsiPeriod #-}
+-- | The name of the metric.
+gmsiMetricName :: Lens' GetMetricStatistics (Text)
+gmsiMetricName = lens _gmsiMetricName (\s a -> s { _gmsiMetricName = a })
+{-# INLINE gmsiMetricName #-}
 
--- | The metric statistics to return.
-gmsiStatistics :: Lens' GetMetricStatistics ([Statistic])
-gmsiStatistics f x =
-    f (_gmsiStatistics x)
-        <&> \y -> x { _gmsiStatistics = y }
-{-# INLINE gmsiStatistics #-}
+-- | A list of dimensions describing qualities of the metric.
+gmsiDimensions :: Lens' GetMetricStatistics ([Dimension])
+gmsiDimensions = lens _gmsiDimensions (\s a -> s { _gmsiDimensions = a })
+{-# INLINE gmsiDimensions #-}
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time
@@ -147,57 +134,51 @@ gmsiStatistics f x =
 -- Specified start times that are more than two weeks in the past will not
 -- return datapoints for metrics that are older than two weeks.
 gmsiStartTime :: Lens' GetMetricStatistics (ISO8601)
-gmsiStartTime f x =
-    f (_gmsiStartTime x)
-        <&> \y -> x { _gmsiStartTime = y }
+gmsiStartTime = lens _gmsiStartTime (\s a -> s { _gmsiStartTime = a })
 {-# INLINE gmsiStartTime #-}
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
 -- time stamp specified.
 gmsiEndTime :: Lens' GetMetricStatistics (ISO8601)
-gmsiEndTime f x =
-    f (_gmsiEndTime x)
-        <&> \y -> x { _gmsiEndTime = y }
+gmsiEndTime = lens _gmsiEndTime (\s a -> s { _gmsiEndTime = a })
 {-# INLINE gmsiEndTime #-}
 
--- | A list of dimensions describing qualities of the metric.
-gmsiDimensions :: Lens' GetMetricStatistics ([Dimension])
-gmsiDimensions f x =
-    f (_gmsiDimensions x)
-        <&> \y -> x { _gmsiDimensions = y }
-{-# INLINE gmsiDimensions #-}
+-- | The granularity, in seconds, of the returned datapoints. Period must be at
+-- least 60 seconds and must be a multiple of 60. The default value is 60.
+gmsiPeriod :: Lens' GetMetricStatistics (Integer)
+gmsiPeriod = lens _gmsiPeriod (\s a -> s { _gmsiPeriod = a })
+{-# INLINE gmsiPeriod #-}
+
+-- | The metric statistics to return.
+gmsiStatistics :: Lens' GetMetricStatistics ([Statistic])
+gmsiStatistics = lens _gmsiStatistics (\s a -> s { _gmsiStatistics = a })
+{-# INLINE gmsiStatistics #-}
 
 -- | The unit for the metric.
 gmsiUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
-gmsiUnit f x =
-    f (_gmsiUnit x)
-        <&> \y -> x { _gmsiUnit = y }
+gmsiUnit = lens _gmsiUnit (\s a -> s { _gmsiUnit = a })
 {-# INLINE gmsiUnit #-}
 
 instance ToQuery GetMetricStatistics where
     toQuery = genericQuery def
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
-    { _gmsoDatapoints :: [Datapoint]
-      -- ^ The datapoints for the specified metric.
-    , _gmsoLabel :: Maybe Text
+    { _gmsoLabel :: Maybe Text
       -- ^ A label describing the specified metric.
+    , _gmsoDatapoints :: [Datapoint]
+      -- ^ The datapoints for the specified metric.
     } deriving (Show, Generic)
-
--- | The datapoints for the specified metric.
-gmsoDatapoints :: Lens' GetMetricStatisticsResponse ([Datapoint])
-gmsoDatapoints f x =
-    f (_gmsoDatapoints x)
-        <&> \y -> x { _gmsoDatapoints = y }
-{-# INLINE gmsoDatapoints #-}
 
 -- | A label describing the specified metric.
 gmsoLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
-gmsoLabel f x =
-    f (_gmsoLabel x)
-        <&> \y -> x { _gmsoLabel = y }
+gmsoLabel = lens _gmsoLabel (\s a -> s { _gmsoLabel = a })
 {-# INLINE gmsoLabel #-}
+
+-- | The datapoints for the specified metric.
+gmsoDatapoints :: Lens' GetMetricStatisticsResponse ([Datapoint])
+gmsoDatapoints = lens _gmsoDatapoints (\s a -> s { _gmsoDatapoints = a })
+{-# INLINE gmsoDatapoints #-}
 
 instance FromXML GetMetricStatisticsResponse where
     fromXMLOptions = xmlOptions

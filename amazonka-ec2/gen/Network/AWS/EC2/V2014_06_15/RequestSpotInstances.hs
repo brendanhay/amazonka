@@ -45,16 +45,16 @@ module Network.AWS.EC2.V2014_06_15.RequestSpotInstances
     -- * Request
       RequestSpotInstances
     -- ** Request constructor
-    , requestSpotInstances
+    , mkRequestSpotInstancesRequest
     -- ** Request lenses
     , rsirSpotPrice
+    , rsirInstanceCount
+    , rsirType
     , rsirValidFrom
     , rsirValidUntil
-    , rsirInstanceCount
-    , rsirLaunchSpecification
-    , rsirType
     , rsirLaunchGroup
     , rsirAvailabilityZoneGroup
+    , rsirLaunchSpecification
 
     -- * Response
     , RequestSpotInstancesResponse
@@ -66,25 +66,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RequestSpotInstances' request.
-requestSpotInstances :: Text -- ^ 'rsirSpotPrice'
-                     -> RequestSpotInstances
-requestSpotInstances p1 = RequestSpotInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RequestSpotInstances' request.
+mkRequestSpotInstancesRequest :: Text -- ^ 'rsirSpotPrice'
+                              -> RequestSpotInstances
+mkRequestSpotInstancesRequest p1 = RequestSpotInstances
     { _rsirSpotPrice = p1
+    , _rsirInstanceCount = Nothing
+    , _rsirType = Nothing
     , _rsirValidFrom = Nothing
     , _rsirValidUntil = Nothing
-    , _rsirInstanceCount = Nothing
-    , _rsirLaunchSpecification = Nothing
-    , _rsirType = Nothing
     , _rsirLaunchGroup = Nothing
     , _rsirAvailabilityZoneGroup = Nothing
+    , _rsirLaunchSpecification = Nothing
     }
-{-# INLINE requestSpotInstances #-}
+{-# INLINE mkRequestSpotInstancesRequest #-}
 
 data RequestSpotInstances = RequestSpotInstances
     { _rsirSpotPrice :: Text
       -- ^ The maximum hourly price for any Spot Instance launched to
       -- fulfill the request.
+    , _rsirInstanceCount :: Maybe Integer
+      -- ^ The maximum number of Spot Instances to launch. Default: 1.
+    , _rsirType :: Maybe SpotInstanceType
+      -- ^ The Spot Instance request type. Default: one-time.
     , _rsirValidFrom :: Maybe ISO8601
       -- ^ The start date of the request. If this is a one-time request, the
       -- request becomes active at this date and time and remains active
@@ -98,12 +103,6 @@ data RequestSpotInstances = RequestSpotInstances
       -- canceled, or this date is reached. If the request is persistent,
       -- it remains active until it is canceled or this date and time is
       -- reached. Default: The request is effective indefinitely.
-    , _rsirInstanceCount :: Maybe Integer
-      -- ^ The maximum number of Spot Instances to launch. Default: 1.
-    , _rsirLaunchSpecification :: Maybe LaunchSpecification
-      -- ^ The launch specification.
-    , _rsirType :: Maybe SpotInstanceType
-      -- ^ The Spot Instance request type. Default: one-time.
     , _rsirLaunchGroup :: Maybe Text
       -- ^ The instance launch group. Launch groups are Spot Instances that
       -- launch together and terminate together. Default: Instances are
@@ -128,15 +127,25 @@ data RequestSpotInstances = RequestSpotInstances
       -- request, even if you specified the same Availability Zone group.
       -- Default: Instances are launched in any available Availability
       -- Zone.
+    , _rsirLaunchSpecification :: Maybe LaunchSpecification
+      -- ^ The launch specification.
     } deriving (Show, Generic)
 
 -- | The maximum hourly price for any Spot Instance launched to fulfill the
 -- request.
 rsirSpotPrice :: Lens' RequestSpotInstances (Text)
-rsirSpotPrice f x =
-    f (_rsirSpotPrice x)
-        <&> \y -> x { _rsirSpotPrice = y }
+rsirSpotPrice = lens _rsirSpotPrice (\s a -> s { _rsirSpotPrice = a })
 {-# INLINE rsirSpotPrice #-}
+
+-- | The maximum number of Spot Instances to launch. Default: 1.
+rsirInstanceCount :: Lens' RequestSpotInstances (Maybe Integer)
+rsirInstanceCount = lens _rsirInstanceCount (\s a -> s { _rsirInstanceCount = a })
+{-# INLINE rsirInstanceCount #-}
+
+-- | The Spot Instance request type. Default: one-time.
+rsirType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
+rsirType = lens _rsirType (\s a -> s { _rsirType = a })
+{-# INLINE rsirType #-}
 
 -- | The start date of the request. If this is a one-time request, the request
 -- becomes active at this date and time and remains active until all instances
@@ -145,9 +154,7 @@ rsirSpotPrice f x =
 -- active until it expires or is canceled. Default: The request is effective
 -- indefinitely.
 rsirValidFrom :: Lens' RequestSpotInstances (Maybe ISO8601)
-rsirValidFrom f x =
-    f (_rsirValidFrom x)
-        <&> \y -> x { _rsirValidFrom = y }
+rsirValidFrom = lens _rsirValidFrom (\s a -> s { _rsirValidFrom = a })
 {-# INLINE rsirValidFrom #-}
 
 -- | The end date of the request. If this is a one-time request, the request
@@ -156,39 +163,14 @@ rsirValidFrom f x =
 -- is canceled or this date and time is reached. Default: The request is
 -- effective indefinitely.
 rsirValidUntil :: Lens' RequestSpotInstances (Maybe ISO8601)
-rsirValidUntil f x =
-    f (_rsirValidUntil x)
-        <&> \y -> x { _rsirValidUntil = y }
+rsirValidUntil = lens _rsirValidUntil (\s a -> s { _rsirValidUntil = a })
 {-# INLINE rsirValidUntil #-}
-
--- | The maximum number of Spot Instances to launch. Default: 1.
-rsirInstanceCount :: Lens' RequestSpotInstances (Maybe Integer)
-rsirInstanceCount f x =
-    f (_rsirInstanceCount x)
-        <&> \y -> x { _rsirInstanceCount = y }
-{-# INLINE rsirInstanceCount #-}
-
--- | The launch specification.
-rsirLaunchSpecification :: Lens' RequestSpotInstances (Maybe LaunchSpecification)
-rsirLaunchSpecification f x =
-    f (_rsirLaunchSpecification x)
-        <&> \y -> x { _rsirLaunchSpecification = y }
-{-# INLINE rsirLaunchSpecification #-}
-
--- | The Spot Instance request type. Default: one-time.
-rsirType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
-rsirType f x =
-    f (_rsirType x)
-        <&> \y -> x { _rsirType = y }
-{-# INLINE rsirType #-}
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together. Default: Instances are launched and
 -- terminated individually.
 rsirLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
-rsirLaunchGroup f x =
-    f (_rsirLaunchGroup x)
-        <&> \y -> x { _rsirLaunchGroup = y }
+rsirLaunchGroup = lens _rsirLaunchGroup (\s a -> s { _rsirLaunchGroup = a })
 {-# INLINE rsirLaunchGroup #-}
 
 -- | The user-specified name for a logical grouping of bids. When you specify an
@@ -208,24 +190,25 @@ rsirLaunchGroup f x =
 -- Availability Zone group. Default: Instances are launched in any available
 -- Availability Zone.
 rsirAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
-rsirAvailabilityZoneGroup f x =
-    f (_rsirAvailabilityZoneGroup x)
-        <&> \y -> x { _rsirAvailabilityZoneGroup = y }
+rsirAvailabilityZoneGroup = lens _rsirAvailabilityZoneGroup (\s a -> s { _rsirAvailabilityZoneGroup = a })
 {-# INLINE rsirAvailabilityZoneGroup #-}
+
+-- | The launch specification.
+rsirLaunchSpecification :: Lens' RequestSpotInstances (Maybe LaunchSpecification)
+rsirLaunchSpecification = lens _rsirLaunchSpecification (\s a -> s { _rsirLaunchSpecification = a })
+{-# INLINE rsirLaunchSpecification #-}
 
 instance ToQuery RequestSpotInstances where
     toQuery = genericQuery def
 
-data RequestSpotInstancesResponse = RequestSpotInstancesResponse
+newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsisSpotInstanceRequests :: [SpotInstanceRequest]
       -- ^ Information about the Spot Instance request.
     } deriving (Show, Generic)
 
 -- | Information about the Spot Instance request.
 rsisSpotInstanceRequests :: Lens' RequestSpotInstancesResponse ([SpotInstanceRequest])
-rsisSpotInstanceRequests f x =
-    f (_rsisSpotInstanceRequests x)
-        <&> \y -> x { _rsisSpotInstanceRequests = y }
+rsisSpotInstanceRequests = lens _rsisSpotInstanceRequests (\s a -> s { _rsisSpotInstanceRequests = a })
 {-# INLINE rsisSpotInstanceRequests #-}
 
 instance FromXML RequestSpotInstancesResponse where

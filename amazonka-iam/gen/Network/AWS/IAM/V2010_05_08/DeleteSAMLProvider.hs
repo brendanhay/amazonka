@@ -29,7 +29,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
     -- * Request
       DeleteSAMLProvider
     -- ** Request constructor
-    , deleteSAMLProvider
+    , mkDeleteSAMLProviderRequest
     -- ** Request lenses
     , dsamlprSAMLProviderArn
 
@@ -41,24 +41,23 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSAMLProvider' request.
-deleteSAMLProvider :: Text -- ^ 'dsamlprSAMLProviderArn'
-                   -> DeleteSAMLProvider
-deleteSAMLProvider p1 = DeleteSAMLProvider
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSAMLProvider' request.
+mkDeleteSAMLProviderRequest :: Text -- ^ 'dsamlprSAMLProviderArn'
+                            -> DeleteSAMLProvider
+mkDeleteSAMLProviderRequest p1 = DeleteSAMLProvider
     { _dsamlprSAMLProviderArn = p1
     }
-{-# INLINE deleteSAMLProvider #-}
+{-# INLINE mkDeleteSAMLProviderRequest #-}
 
-data DeleteSAMLProvider = DeleteSAMLProvider
+newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlprSAMLProviderArn :: Text
       -- ^ The Amazon Resource Name (ARN) of the SAML provider to delete.
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 dsamlprSAMLProviderArn :: Lens' DeleteSAMLProvider (Text)
-dsamlprSAMLProviderArn f x =
-    f (_dsamlprSAMLProviderArn x)
-        <&> \y -> x { _dsamlprSAMLProviderArn = y }
+dsamlprSAMLProviderArn = lens _dsamlprSAMLProviderArn (\s a -> s { _dsamlprSAMLProviderArn = a })
 {-# INLINE dsamlprSAMLProviderArn #-}
 
 instance ToQuery DeleteSAMLProvider where

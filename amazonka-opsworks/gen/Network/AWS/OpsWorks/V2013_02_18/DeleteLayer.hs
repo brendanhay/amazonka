@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteLayer
     -- * Request
       DeleteLayer
     -- ** Request constructor
-    , deleteLayer
+    , mkDeleteLayerRequest
     -- ** Request lenses
     , dlrLayerId
 
@@ -41,24 +41,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteLayer' request.
-deleteLayer :: Text -- ^ 'dlrLayerId'
-            -> DeleteLayer
-deleteLayer p1 = DeleteLayer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLayer' request.
+mkDeleteLayerRequest :: Text -- ^ 'dlrLayerId'
+                     -> DeleteLayer
+mkDeleteLayerRequest p1 = DeleteLayer
     { _dlrLayerId = p1
     }
-{-# INLINE deleteLayer #-}
+{-# INLINE mkDeleteLayerRequest #-}
 
-data DeleteLayer = DeleteLayer
+newtype DeleteLayer = DeleteLayer
     { _dlrLayerId :: Text
       -- ^ The layer ID.
     } deriving (Show, Generic)
 
 -- | The layer ID.
 dlrLayerId :: Lens' DeleteLayer (Text)
-dlrLayerId f x =
-    f (_dlrLayerId x)
-        <&> \y -> x { _dlrLayerId = y }
+dlrLayerId = lens _dlrLayerId (\s a -> s { _dlrLayerId = a })
 {-# INLINE dlrLayerId #-}
 
 instance ToPath DeleteLayer

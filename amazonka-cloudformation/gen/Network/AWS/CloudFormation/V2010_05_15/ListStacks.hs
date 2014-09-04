@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStacks
     -- * Request
       ListStacks
     -- ** Request constructor
-    , listStacks
+    , mkListStacksInput
     -- ** Request lenses
     , lsiNextToken
     , lsiStackStatusFilter
@@ -47,21 +47,22 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStacks
     -- * Response
     , ListStacksResponse
     -- ** Response lenses
-    , lsoNextToken
     , lsoStackSummaries
+    , lsoNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListStacks' request.
-listStacks :: ListStacks
-listStacks = ListStacks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStacks' request.
+mkListStacksInput :: ListStacks
+mkListStacksInput = ListStacks
     { _lsiNextToken = Nothing
     , _lsiStackStatusFilter = mempty
     }
-{-# INLINE listStacks #-}
+{-# INLINE mkListStacksInput #-}
 
 data ListStacks = ListStacks
     { _lsiNextToken :: Maybe Text
@@ -77,47 +78,39 @@ data ListStacks = ListStacks
 -- | String that identifies the start of the next list of stacks, if there is
 -- one. Default: There is no default value.
 lsiNextToken :: Lens' ListStacks (Maybe Text)
-lsiNextToken f x =
-    f (_lsiNextToken x)
-        <&> \y -> x { _lsiNextToken = y }
+lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
 {-# INLINE lsiNextToken #-}
 
 -- | Stack status to use as a filter. Specify one or more stack status codes to
 -- list only stacks with the specified status codes. For a complete list of
 -- stack status codes, see the StackStatus parameter of the Stack data type.
 lsiStackStatusFilter :: Lens' ListStacks ([StackStatus])
-lsiStackStatusFilter f x =
-    f (_lsiStackStatusFilter x)
-        <&> \y -> x { _lsiStackStatusFilter = y }
+lsiStackStatusFilter = lens _lsiStackStatusFilter (\s a -> s { _lsiStackStatusFilter = a })
 {-# INLINE lsiStackStatusFilter #-}
 
 instance ToQuery ListStacks where
     toQuery = genericQuery def
 
 data ListStacksResponse = ListStacksResponse
-    { _lsoNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of stacks, if
-      -- there is one.
-    , _lsoStackSummaries :: [StackSummary]
+    { _lsoStackSummaries :: [StackSummary]
       -- ^ A list of StackSummary structures containing information about
       -- the specified stacks.
+    , _lsoNextToken :: Maybe Text
+      -- ^ String that identifies the start of the next list of stacks, if
+      -- there is one.
     } deriving (Show, Generic)
-
--- | String that identifies the start of the next list of stacks, if there is
--- one.
-lsoNextToken :: Lens' ListStacksResponse (Maybe Text)
-lsoNextToken f x =
-    f (_lsoNextToken x)
-        <&> \y -> x { _lsoNextToken = y }
-{-# INLINE lsoNextToken #-}
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.
 lsoStackSummaries :: Lens' ListStacksResponse ([StackSummary])
-lsoStackSummaries f x =
-    f (_lsoStackSummaries x)
-        <&> \y -> x { _lsoStackSummaries = y }
+lsoStackSummaries = lens _lsoStackSummaries (\s a -> s { _lsoStackSummaries = a })
 {-# INLINE lsoStackSummaries #-}
+
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+lsoNextToken :: Lens' ListStacksResponse (Maybe Text)
+lsoNextToken = lens _lsoNextToken (\s a -> s { _lsoNextToken = a })
+{-# INLINE lsoNextToken #-}
 
 instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions

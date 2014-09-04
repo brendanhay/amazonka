@@ -30,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.EnableVolumeIO
     -- * Request
       EnableVolumeIO
     -- ** Request constructor
-    , enableVolumeIO
+    , mkEnableVolumeIORequest
     -- ** Request lenses
     , eviorVolumeId
 
@@ -42,24 +42,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'EnableVolumeIO' request.
-enableVolumeIO :: Text -- ^ 'eviorVolumeId'
-               -> EnableVolumeIO
-enableVolumeIO p1 = EnableVolumeIO
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableVolumeIO' request.
+mkEnableVolumeIORequest :: Text -- ^ 'eviorVolumeId'
+                        -> EnableVolumeIO
+mkEnableVolumeIORequest p1 = EnableVolumeIO
     { _eviorVolumeId = p1
     }
-{-# INLINE enableVolumeIO #-}
+{-# INLINE mkEnableVolumeIORequest #-}
 
-data EnableVolumeIO = EnableVolumeIO
+newtype EnableVolumeIO = EnableVolumeIO
     { _eviorVolumeId :: Text
       -- ^ The ID of the volume.
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
 eviorVolumeId :: Lens' EnableVolumeIO (Text)
-eviorVolumeId f x =
-    f (_eviorVolumeId x)
-        <&> \y -> x { _eviorVolumeId = y }
+eviorVolumeId = lens _eviorVolumeId (\s a -> s { _eviorVolumeId = a })
 {-# INLINE eviorVolumeId #-}
 
 instance ToQuery EnableVolumeIO where

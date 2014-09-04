@@ -51,7 +51,7 @@ module Network.AWS.EC2.V2014_06_15.ImportKeyPair
     -- * Request
       ImportKeyPair
     -- ** Request constructor
-    , importKeyPair
+    , mkImportKeyPairRequest
     -- ** Request lenses
     , ikprKeyName
     , ikprPublicKeyMaterial
@@ -67,15 +67,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ImportKeyPair' request.
-importKeyPair :: Text -- ^ 'ikprKeyName'
-              -> ByteString -- ^ 'ikprPublicKeyMaterial'
-              -> ImportKeyPair
-importKeyPair p1 p2 = ImportKeyPair
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportKeyPair' request.
+mkImportKeyPairRequest :: Text -- ^ 'ikprKeyName'
+                       -> ByteString -- ^ 'ikprPublicKeyMaterial'
+                       -> ImportKeyPair
+mkImportKeyPairRequest p1 p2 = ImportKeyPair
     { _ikprKeyName = p1
     , _ikprPublicKeyMaterial = p2
     }
-{-# INLINE importKeyPair #-}
+{-# INLINE mkImportKeyPairRequest #-}
 
 data ImportKeyPair = ImportKeyPair
     { _ikprKeyName :: Text
@@ -87,17 +88,13 @@ data ImportKeyPair = ImportKeyPair
 
 -- | A unique name for the key pair.
 ikprKeyName :: Lens' ImportKeyPair (Text)
-ikprKeyName f x =
-    f (_ikprKeyName x)
-        <&> \y -> x { _ikprKeyName = y }
+ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 {-# INLINE ikprKeyName #-}
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
 ikprPublicKeyMaterial :: Lens' ImportKeyPair (ByteString)
-ikprPublicKeyMaterial f x =
-    f (_ikprPublicKeyMaterial x)
-        <&> \y -> x { _ikprPublicKeyMaterial = y }
+ikprPublicKeyMaterial = lens _ikprPublicKeyMaterial (\s a -> s { _ikprPublicKeyMaterial = a })
 {-# INLINE ikprPublicKeyMaterial #-}
 
 instance ToQuery ImportKeyPair where
@@ -113,16 +110,12 @@ data ImportKeyPairResponse = ImportKeyPairResponse
 
 -- | The key pair name you provided.
 ikpsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-ikpsKeyName f x =
-    f (_ikpsKeyName x)
-        <&> \y -> x { _ikpsKeyName = y }
+ikpsKeyName = lens _ikpsKeyName (\s a -> s { _ikpsKeyName = a })
 {-# INLINE ikpsKeyName #-}
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikpsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
-ikpsKeyFingerprint f x =
-    f (_ikpsKeyFingerprint x)
-        <&> \y -> x { _ikpsKeyFingerprint = y }
+ikpsKeyFingerprint = lens _ikpsKeyFingerprint (\s a -> s { _ikpsKeyFingerprint = a })
 {-# INLINE ikpsKeyFingerprint #-}
 
 instance FromXML ImportKeyPairResponse where

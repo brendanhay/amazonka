@@ -44,27 +44,27 @@ module Network.AWS.DynamoDB.V2012_08_10.Scan
     -- * Request
       Scan
     -- ** Request constructor
-    , scan
+    , mkScanInput
     -- ** Request lenses
     , siTableName
     , siAttributesToGet
-    , siConditionalOperator
-    , siScanFilter
-    , siExclusiveStartKey
     , siLimit
-    , siReturnConsumedCapacity
-    , siSegment
-    , siTotalSegments
     , siSelect
+    , siScanFilter
+    , siConditionalOperator
+    , siExclusiveStartKey
+    , siReturnConsumedCapacity
+    , siTotalSegments
+    , siSegment
 
     -- * Response
     , ScanResponse
     -- ** Response lenses
-    , soConsumedCapacity
+    , soItems
     , soCount
     , soScannedCount
-    , soItems
     , soLastEvaluatedKey
+    , soConsumedCapacity
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -72,22 +72,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'Scan' request.
-scan :: Text -- ^ 'siTableName'
-     -> Scan
-scan p1 = Scan
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Scan' request.
+mkScanInput :: Text -- ^ 'siTableName'
+            -> Scan
+mkScanInput p1 = Scan
     { _siTableName = p1
     , _siAttributesToGet = Nothing
-    , _siConditionalOperator = Nothing
-    , _siScanFilter = mempty
-    , _siExclusiveStartKey = mempty
     , _siLimit = Nothing
-    , _siReturnConsumedCapacity = Nothing
-    , _siSegment = Nothing
-    , _siTotalSegments = Nothing
     , _siSelect = Nothing
+    , _siScanFilter = mempty
+    , _siConditionalOperator = Nothing
+    , _siExclusiveStartKey = mempty
+    , _siReturnConsumedCapacity = Nothing
+    , _siTotalSegments = Nothing
+    , _siSegment = Nothing
     }
-{-# INLINE scan #-}
+{-# INLINE mkScanInput #-}
 
 data Scan = Scan
     { _siTableName :: Text
@@ -97,7 +98,33 @@ data Scan = Scan
       -- names are specified, then all attributes will be returned. If any
       -- of the requested attributes are not found, they will not appear
       -- in the result.
-    , _siConditionalOperator :: Maybe ConditionalOperator
+    , _siLimit :: Maybe Integer
+      -- ^ The maximum number of items to evaluate (not necessarily the
+      -- number of matching items). If DynamoDB processes the number of
+      -- items up to the limit while processing the results, it stops the
+      -- operation and returns the matching values up to that point, and a
+      -- LastEvaluatedKey to apply in a subsequent operation, so that you
+      -- can pick up where you left off. Also, if the processed data set
+      -- size exceeds 1 MB before DynamoDB reaches this limit, it stops
+      -- the operation and returns the matching values up to the limit,
+      -- and a LastEvaluatedKey to apply in a subsequent operation to
+      -- continue the operation. For more information see
+      -- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
+      -- >Query and Scan in the Amazon DynamoDB Developer Guide.
+    , _siSelect :: Maybe Select
+      -- ^ The attributes to be returned in the result. You can retrieve all
+      -- item attributes, specific item attributes, or the count of
+      -- matching items. ALL_ATTRIBUTES: Returns all of the item
+      -- attributes. COUNT: Returns the number of matching items, rather
+      -- than the matching items themselves. SPECIFIC_ATTRIBUTES : Returns
+      -- only the attributes listed in AttributesToGet. This is equivalent
+      -- to specifying AttributesToGet without specifying any value for
+      -- Select. If neither Select nor AttributesToGet are specified,
+      -- DynamoDB defaults to ALL_ATTRIBUTES. You cannot use both Select
+      -- and AttributesToGet together in a single request, unless the
+      -- value for Select is SPECIFIC_ATTRIBUTES. (This usage is
+      -- equivalent to specifying AttributesToGet without any value for
+      -- Select.).
     , _siScanFilter :: Map Text Condition
       -- ^ Evaluates the scan results and returns only the desired values.
       -- Multiple conditions are treated as "AND" operations: all
@@ -193,6 +220,7 @@ data Scan = Scan
       -- does not match. For example, {"S":"6"} does not compare to
       -- {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
       -- "1"]}.
+    , _siConditionalOperator :: Maybe ConditionalOperator
     , _siExclusiveStartKey :: Map Text AttributeValue
       -- ^ The primary key of the first item that this operation will
       -- evalute. Use the value that was returned for LastEvaluatedKey in
@@ -201,24 +229,22 @@ data Scan = Scan
       -- parallel scan, a Scan request that includes ExclusiveStartKey
       -- must specify the same segment whose previous Scan returned the
       -- corresponding value of LastEvaluatedKey.
-    , _siLimit :: Maybe Integer
-      -- ^ The maximum number of items to evaluate (not necessarily the
-      -- number of matching items). If DynamoDB processes the number of
-      -- items up to the limit while processing the results, it stops the
-      -- operation and returns the matching values up to that point, and a
-      -- LastEvaluatedKey to apply in a subsequent operation, so that you
-      -- can pick up where you left off. Also, if the processed data set
-      -- size exceeds 1 MB before DynamoDB reaches this limit, it stops
-      -- the operation and returns the matching values up to the limit,
-      -- and a LastEvaluatedKey to apply in a subsequent operation to
-      -- continue the operation. For more information see
-      -- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
-      -- >Query and Scan in the Amazon DynamoDB Developer Guide.
     , _siReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
       -- ^ If set to TOTAL, the response includes ConsumedCapacity data for
       -- tables and indexes. If set to INDEXES, the repsonse includes
       -- ConsumedCapacity for indexes. If set to NONE (the default),
       -- ConsumedCapacity is not included in the response.
+    , _siTotalSegments :: Maybe Integer
+      -- ^ For a parallel Scan request, TotalSegments represents the total
+      -- number of segments into which the Scan operation will be divided.
+      -- The value of TotalSegments corresponds to the number of
+      -- application workers that will perform the parallel scan. For
+      -- example, if you want to scan a table using four application
+      -- threads, you would specify a TotalSegments value of 4. The value
+      -- for TotalSegments must be greater than or equal to 1, and less
+      -- than or equal to 4096. If you specify a TotalSegments value of 1,
+      -- the Scan will be sequential rather than parallel. If you specify
+      -- TotalSegments, you must also specify Segment.
     , _siSegment :: Maybe Integer
       -- ^ For a parallel Scan request, Segment identifies an individual
       -- segment to be scanned by an application worker. Segment IDs are
@@ -231,54 +257,49 @@ data Scan = Scan
       -- operation. The value for Segment must be greater than or equal to
       -- 0, and less than the value provided for TotalSegments. If you
       -- specify Segment, you must also specify TotalSegments.
-    , _siTotalSegments :: Maybe Integer
-      -- ^ For a parallel Scan request, TotalSegments represents the total
-      -- number of segments into which the Scan operation will be divided.
-      -- The value of TotalSegments corresponds to the number of
-      -- application workers that will perform the parallel scan. For
-      -- example, if you want to scan a table using four application
-      -- threads, you would specify a TotalSegments value of 4. The value
-      -- for TotalSegments must be greater than or equal to 1, and less
-      -- than or equal to 4096. If you specify a TotalSegments value of 1,
-      -- the Scan will be sequential rather than parallel. If you specify
-      -- TotalSegments, you must also specify Segment.
-    , _siSelect :: Maybe Select
-      -- ^ The attributes to be returned in the result. You can retrieve all
-      -- item attributes, specific item attributes, or the count of
-      -- matching items. ALL_ATTRIBUTES: Returns all of the item
-      -- attributes. COUNT: Returns the number of matching items, rather
-      -- than the matching items themselves. SPECIFIC_ATTRIBUTES : Returns
-      -- only the attributes listed in AttributesToGet. This is equivalent
-      -- to specifying AttributesToGet without specifying any value for
-      -- Select. If neither Select nor AttributesToGet are specified,
-      -- DynamoDB defaults to ALL_ATTRIBUTES. You cannot use both Select
-      -- and AttributesToGet together in a single request, unless the
-      -- value for Select is SPECIFIC_ATTRIBUTES. (This usage is
-      -- equivalent to specifying AttributesToGet without any value for
-      -- Select.).
     } deriving (Show, Generic)
 
 -- | The name of the table containing the requested items.
 siTableName :: Lens' Scan (Text)
-siTableName f x =
-    f (_siTableName x)
-        <&> \y -> x { _siTableName = y }
+siTableName = lens _siTableName (\s a -> s { _siTableName = a })
 {-# INLINE siTableName #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
 siAttributesToGet :: Lens' Scan (Maybe [Text])
-siAttributesToGet f x =
-    f (_siAttributesToGet x)
-        <&> \y -> x { _siAttributesToGet = y }
+siAttributesToGet = lens _siAttributesToGet (\s a -> s { _siAttributesToGet = a })
 {-# INLINE siAttributesToGet #-}
 
-siConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
-siConditionalOperator f x =
-    f (_siConditionalOperator x)
-        <&> \y -> x { _siConditionalOperator = y }
-{-# INLINE siConditionalOperator #-}
+-- | The maximum number of items to evaluate (not necessarily the number of
+-- matching items). If DynamoDB processes the number of items up to the limit
+-- while processing the results, it stops the operation and returns the
+-- matching values up to that point, and a LastEvaluatedKey to apply in a
+-- subsequent operation, so that you can pick up where you left off. Also, if
+-- the processed data set size exceeds 1 MB before DynamoDB reaches this
+-- limit, it stops the operation and returns the matching values up to the
+-- limit, and a LastEvaluatedKey to apply in a subsequent operation to
+-- continue the operation. For more information see
+-- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
+-- >Query and Scan in the Amazon DynamoDB Developer Guide.
+siLimit :: Lens' Scan (Maybe Integer)
+siLimit = lens _siLimit (\s a -> s { _siLimit = a })
+{-# INLINE siLimit #-}
+
+-- | The attributes to be returned in the result. You can retrieve all item
+-- attributes, specific item attributes, or the count of matching items.
+-- ALL_ATTRIBUTES: Returns all of the item attributes. COUNT: Returns the
+-- number of matching items, rather than the matching items themselves.
+-- SPECIFIC_ATTRIBUTES : Returns only the attributes listed in
+-- AttributesToGet. This is equivalent to specifying AttributesToGet without
+-- specifying any value for Select. If neither Select nor AttributesToGet are
+-- specified, DynamoDB defaults to ALL_ATTRIBUTES. You cannot use both Select
+-- and AttributesToGet together in a single request, unless the value for
+-- Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
+-- AttributesToGet without any value for Select.).
+siSelect :: Lens' Scan (Maybe Select)
+siSelect = lens _siSelect (\s a -> s { _siSelect = a })
+{-# INLINE siSelect #-}
 
 -- | Evaluates the scan results and returns only the desired values. Multiple
 -- conditions are treated as "AND" operations: all conditions must be met to
@@ -362,10 +383,12 @@ siConditionalOperator f x =
 -- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
 -- to {"NS":["6", "2", "1"]}.
 siScanFilter :: Lens' Scan (Map Text Condition)
-siScanFilter f x =
-    f (_siScanFilter x)
-        <&> \y -> x { _siScanFilter = y }
+siScanFilter = lens _siScanFilter (\s a -> s { _siScanFilter = a })
 {-# INLINE siScanFilter #-}
+
+siConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
+siConditionalOperator = lens _siConditionalOperator (\s a -> s { _siConditionalOperator = a })
+{-# INLINE siConditionalOperator #-}
 
 -- | The primary key of the first item that this operation will evalute. Use the
 -- value that was returned for LastEvaluatedKey in the previous operation. The
@@ -374,37 +397,29 @@ siScanFilter f x =
 -- ExclusiveStartKey must specify the same segment whose previous Scan
 -- returned the corresponding value of LastEvaluatedKey.
 siExclusiveStartKey :: Lens' Scan (Map Text AttributeValue)
-siExclusiveStartKey f x =
-    f (_siExclusiveStartKey x)
-        <&> \y -> x { _siExclusiveStartKey = y }
+siExclusiveStartKey = lens _siExclusiveStartKey (\s a -> s { _siExclusiveStartKey = a })
 {-# INLINE siExclusiveStartKey #-}
-
--- | The maximum number of items to evaluate (not necessarily the number of
--- matching items). If DynamoDB processes the number of items up to the limit
--- while processing the results, it stops the operation and returns the
--- matching values up to that point, and a LastEvaluatedKey to apply in a
--- subsequent operation, so that you can pick up where you left off. Also, if
--- the processed data set size exceeds 1 MB before DynamoDB reaches this
--- limit, it stops the operation and returns the matching values up to the
--- limit, and a LastEvaluatedKey to apply in a subsequent operation to
--- continue the operation. For more information see
--- href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html"
--- >Query and Scan in the Amazon DynamoDB Developer Guide.
-siLimit :: Lens' Scan (Maybe Integer)
-siLimit f x =
-    f (_siLimit x)
-        <&> \y -> x { _siLimit = y }
-{-# INLINE siLimit #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
 siReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
-siReturnConsumedCapacity f x =
-    f (_siReturnConsumedCapacity x)
-        <&> \y -> x { _siReturnConsumedCapacity = y }
+siReturnConsumedCapacity = lens _siReturnConsumedCapacity (\s a -> s { _siReturnConsumedCapacity = a })
 {-# INLINE siReturnConsumedCapacity #-}
+
+-- | For a parallel Scan request, TotalSegments represents the total number of
+-- segments into which the Scan operation will be divided. The value of
+-- TotalSegments corresponds to the number of application workers that will
+-- perform the parallel scan. For example, if you want to scan a table using
+-- four application threads, you would specify a TotalSegments value of 4. The
+-- value for TotalSegments must be greater than or equal to 1, and less than
+-- or equal to 4096. If you specify a TotalSegments value of 1, the Scan will
+-- be sequential rather than parallel. If you specify TotalSegments, you must
+-- also specify Segment.
+siTotalSegments :: Lens' Scan (Maybe Integer)
+siTotalSegments = lens _siTotalSegments (\s a -> s { _siTotalSegments = a })
+{-# INLINE siTotalSegments #-}
 
 -- | For a parallel Scan request, Segment identifies an individual segment to be
 -- scanned by an application worker. Segment IDs are zero-based, so the first
@@ -417,42 +432,8 @@ siReturnConsumedCapacity f x =
 -- provided for TotalSegments. If you specify Segment, you must also specify
 -- TotalSegments.
 siSegment :: Lens' Scan (Maybe Integer)
-siSegment f x =
-    f (_siSegment x)
-        <&> \y -> x { _siSegment = y }
+siSegment = lens _siSegment (\s a -> s { _siSegment = a })
 {-# INLINE siSegment #-}
-
--- | For a parallel Scan request, TotalSegments represents the total number of
--- segments into which the Scan operation will be divided. The value of
--- TotalSegments corresponds to the number of application workers that will
--- perform the parallel scan. For example, if you want to scan a table using
--- four application threads, you would specify a TotalSegments value of 4. The
--- value for TotalSegments must be greater than or equal to 1, and less than
--- or equal to 4096. If you specify a TotalSegments value of 1, the Scan will
--- be sequential rather than parallel. If you specify TotalSegments, you must
--- also specify Segment.
-siTotalSegments :: Lens' Scan (Maybe Integer)
-siTotalSegments f x =
-    f (_siTotalSegments x)
-        <&> \y -> x { _siTotalSegments = y }
-{-# INLINE siTotalSegments #-}
-
--- | The attributes to be returned in the result. You can retrieve all item
--- attributes, specific item attributes, or the count of matching items.
--- ALL_ATTRIBUTES: Returns all of the item attributes. COUNT: Returns the
--- number of matching items, rather than the matching items themselves.
--- SPECIFIC_ATTRIBUTES : Returns only the attributes listed in
--- AttributesToGet. This is equivalent to specifying AttributesToGet without
--- specifying any value for Select. If neither Select nor AttributesToGet are
--- specified, DynamoDB defaults to ALL_ATTRIBUTES. You cannot use both Select
--- and AttributesToGet together in a single request, unless the value for
--- Select is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
--- AttributesToGet without any value for Select.).
-siSelect :: Lens' Scan (Maybe Select)
-siSelect f x =
-    f (_siSelect x)
-        <&> \y -> x { _siSelect = y }
-{-# INLINE siSelect #-}
 
 instance ToPath Scan
 
@@ -463,13 +444,10 @@ instance ToHeaders Scan
 instance ToJSON Scan
 
 data ScanResponse = ScanResponse
-    { _soConsumedCapacity :: Maybe ConsumedCapacity
-      -- ^ Represents the capacity units consumed by an operation. The data
-      -- returned includes the total provisioned throughput consumed,
-      -- along with statistics for the table and any indexes involved in
-      -- the operation. ConsumedCapacity is only returned if it was asked
-      -- for in the request. For more information, see Provisioned
-      -- Throughput in the Amazon DynamoDB Developer Guide.
+    { _soItems :: [Map Text AttributeValue]
+      -- ^ An array of item attributes that match the scan criteria. Each
+      -- element in this array consists of an attribute name and the value
+      -- for that attribute.
     , _soCount :: Maybe Integer
       -- ^ The number of items in the response.
     , _soScannedCount :: Maybe Integer
@@ -478,10 +456,6 @@ data ScanResponse = ScanResponse
       -- indicates an inefficient Scan operation. For more information,
       -- see Count and ScannedCount in the Amazon DynamoDB Developer
       -- Guide.
-    , _soItems :: [Map Text AttributeValue]
-      -- ^ An array of item attributes that match the scan criteria. Each
-      -- element in this array consists of an attribute name and the value
-      -- for that attribute.
     , _soLastEvaluatedKey :: Map Text AttributeValue
       -- ^ The primary key of the item where the operation stopped,
       -- inclusive of the previous result set. Use this value to start a
@@ -492,24 +466,24 @@ data ScanResponse = ScanResponse
       -- necessarily mean that there is more data in the result set. The
       -- only way to know when you have reached the end of the result set
       -- is when LastEvaluatedKey is null.
+    , _soConsumedCapacity :: Maybe ConsumedCapacity
+      -- ^ Represents the capacity units consumed by an operation. The data
+      -- returned includes the total provisioned throughput consumed,
+      -- along with statistics for the table and any indexes involved in
+      -- the operation. ConsumedCapacity is only returned if it was asked
+      -- for in the request. For more information, see Provisioned
+      -- Throughput in the Amazon DynamoDB Developer Guide.
     } deriving (Show, Generic)
 
--- | Represents the capacity units consumed by an operation. The data returned
--- includes the total provisioned throughput consumed, along with statistics
--- for the table and any indexes involved in the operation. ConsumedCapacity
--- is only returned if it was asked for in the request. For more information,
--- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-soConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
-soConsumedCapacity f x =
-    f (_soConsumedCapacity x)
-        <&> \y -> x { _soConsumedCapacity = y }
-{-# INLINE soConsumedCapacity #-}
+-- | An array of item attributes that match the scan criteria. Each element in
+-- this array consists of an attribute name and the value for that attribute.
+soItems :: Lens' ScanResponse ([Map Text AttributeValue])
+soItems = lens _soItems (\s a -> s { _soItems = a })
+{-# INLINE soItems #-}
 
 -- | The number of items in the response.
 soCount :: Lens' ScanResponse (Maybe Integer)
-soCount f x =
-    f (_soCount x)
-        <&> \y -> x { _soCount = y }
+soCount = lens _soCount (\s a -> s { _soCount = a })
 {-# INLINE soCount #-}
 
 -- | The number of items in the complete scan, before any filters are applied. A
@@ -517,18 +491,8 @@ soCount f x =
 -- inefficient Scan operation. For more information, see Count and
 -- ScannedCount in the Amazon DynamoDB Developer Guide.
 soScannedCount :: Lens' ScanResponse (Maybe Integer)
-soScannedCount f x =
-    f (_soScannedCount x)
-        <&> \y -> x { _soScannedCount = y }
+soScannedCount = lens _soScannedCount (\s a -> s { _soScannedCount = a })
 {-# INLINE soScannedCount #-}
-
--- | An array of item attributes that match the scan criteria. Each element in
--- this array consists of an attribute name and the value for that attribute.
-soItems :: Lens' ScanResponse ([Map Text AttributeValue])
-soItems f x =
-    f (_soItems x)
-        <&> \y -> x { _soItems = y }
-{-# INLINE soItems #-}
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -539,10 +503,17 @@ soItems f x =
 -- know when you have reached the end of the result set is when
 -- LastEvaluatedKey is null.
 soLastEvaluatedKey :: Lens' ScanResponse (Map Text AttributeValue)
-soLastEvaluatedKey f x =
-    f (_soLastEvaluatedKey x)
-        <&> \y -> x { _soLastEvaluatedKey = y }
+soLastEvaluatedKey = lens _soLastEvaluatedKey (\s a -> s { _soLastEvaluatedKey = a })
 {-# INLINE soLastEvaluatedKey #-}
+
+-- | Represents the capacity units consumed by an operation. The data returned
+-- includes the total provisioned throughput consumed, along with statistics
+-- for the table and any indexes involved in the operation. ConsumedCapacity
+-- is only returned if it was asked for in the request. For more information,
+-- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
+soConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
+soConsumedCapacity = lens _soConsumedCapacity (\s a -> s { _soConsumedCapacity = a })
+{-# INLINE soConsumedCapacity #-}
 
 instance FromJSON ScanResponse
 

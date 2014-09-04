@@ -34,7 +34,7 @@ module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
     -- * Request
       CancelReservedInstancesListing
     -- ** Request constructor
-    , cancelReservedInstancesListing
+    , mkCancelReservedInstancesListingRequest
     -- ** Request lenses
     , crilrReservedInstancesListingId
 
@@ -48,39 +48,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CancelReservedInstancesListing' request.
-cancelReservedInstancesListing :: Text -- ^ 'crilrReservedInstancesListingId'
-                               -> CancelReservedInstancesListing
-cancelReservedInstancesListing p1 = CancelReservedInstancesListing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelReservedInstancesListing' request.
+mkCancelReservedInstancesListingRequest :: Text -- ^ 'crilrReservedInstancesListingId'
+                                        -> CancelReservedInstancesListing
+mkCancelReservedInstancesListingRequest p1 = CancelReservedInstancesListing
     { _crilrReservedInstancesListingId = p1
     }
-{-# INLINE cancelReservedInstancesListing #-}
+{-# INLINE mkCancelReservedInstancesListingRequest #-}
 
-data CancelReservedInstancesListing = CancelReservedInstancesListing
+newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilrReservedInstancesListingId :: Text
       -- ^ The ID of the Reserved Instance listing.
     } deriving (Show, Generic)
 
 -- | The ID of the Reserved Instance listing.
 crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing (Text)
-crilrReservedInstancesListingId f x =
-    f (_crilrReservedInstancesListingId x)
-        <&> \y -> x { _crilrReservedInstancesListingId = y }
+crilrReservedInstancesListingId = lens _crilrReservedInstancesListingId (\s a -> s { _crilrReservedInstancesListingId = a })
 {-# INLINE crilrReservedInstancesListingId #-}
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
 
-data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
+newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilsReservedInstancesListings :: [ReservedInstancesListing]
       -- ^ The Reserved Instance listing.
     } deriving (Show, Generic)
 
 -- | The Reserved Instance listing.
 crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse ([ReservedInstancesListing])
-crilsReservedInstancesListings f x =
-    f (_crilsReservedInstancesListings x)
-        <&> \y -> x { _crilsReservedInstancesListings = y }
+crilsReservedInstancesListings = lens _crilsReservedInstancesListings (\s a -> s { _crilsReservedInstancesListings = a })
 {-# INLINE crilsReservedInstancesListings #-}
 
 instance FromXML CancelReservedInstancesListingResponse where

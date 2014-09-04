@@ -30,7 +30,7 @@ module Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer
     -- * Request
       AttachElasticLoadBalancer
     -- ** Request constructor
-    , attachElasticLoadBalancer
+    , mkAttachElasticLoadBalancerRequest
     -- ** Request lenses
     , aelbrElasticLoadBalancerName
     , aelbrLayerId
@@ -44,15 +44,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AttachElasticLoadBalancer' request.
-attachElasticLoadBalancer :: Text -- ^ 'aelbrElasticLoadBalancerName'
-                          -> Text -- ^ 'aelbrLayerId'
-                          -> AttachElasticLoadBalancer
-attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachElasticLoadBalancer' request.
+mkAttachElasticLoadBalancerRequest :: Text -- ^ 'aelbrElasticLoadBalancerName'
+                                   -> Text -- ^ 'aelbrLayerId'
+                                   -> AttachElasticLoadBalancer
+mkAttachElasticLoadBalancerRequest p1 p2 = AttachElasticLoadBalancer
     { _aelbrElasticLoadBalancerName = p1
     , _aelbrLayerId = p2
     }
-{-# INLINE attachElasticLoadBalancer #-}
+{-# INLINE mkAttachElasticLoadBalancerRequest #-}
 
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
     { _aelbrElasticLoadBalancerName :: Text
@@ -64,17 +65,13 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer
 
 -- | The Elastic Load Balancing instance's name.
 aelbrElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer (Text)
-aelbrElasticLoadBalancerName f x =
-    f (_aelbrElasticLoadBalancerName x)
-        <&> \y -> x { _aelbrElasticLoadBalancerName = y }
+aelbrElasticLoadBalancerName = lens _aelbrElasticLoadBalancerName (\s a -> s { _aelbrElasticLoadBalancerName = a })
 {-# INLINE aelbrElasticLoadBalancerName #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is to be
 -- attached to.
 aelbrLayerId :: Lens' AttachElasticLoadBalancer (Text)
-aelbrLayerId f x =
-    f (_aelbrLayerId x)
-        <&> \y -> x { _aelbrLayerId = y }
+aelbrLayerId = lens _aelbrLayerId (\s a -> s { _aelbrLayerId = a })
 {-# INLINE aelbrLayerId #-}
 
 instance ToPath AttachElasticLoadBalancer

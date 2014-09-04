@@ -60,7 +60,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , describeTags
+    , mkDescribeTagsRequest
     -- ** Request lenses
     , dtsFilters
     , dtsMaxResults
@@ -77,14 +77,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeTags' request.
-describeTags :: DescribeTags
-describeTags = DescribeTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTags' request.
+mkDescribeTagsRequest :: DescribeTags
+mkDescribeTagsRequest = DescribeTags
     { _dtsFilters = mempty
     , _dtsMaxResults = Nothing
     , _dtsNextToken = Nothing
     }
-{-# INLINE describeTags #-}
+{-# INLINE mkDescribeTagsRequest #-}
 
 data DescribeTags = DescribeTags
     { _dtsFilters :: [Filter]
@@ -112,26 +113,20 @@ data DescribeTags = DescribeTags
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
 dtsFilters :: Lens' DescribeTags ([Filter])
-dtsFilters f x =
-    f (_dtsFilters x)
-        <&> \y -> x { _dtsFilters = y }
+dtsFilters = lens _dtsFilters (\s a -> s { _dtsFilters = a })
 {-# INLINE dtsFilters #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
 dtsMaxResults :: Lens' DescribeTags (Maybe Integer)
-dtsMaxResults f x =
-    f (_dtsMaxResults x)
-        <&> \y -> x { _dtsMaxResults = y }
+dtsMaxResults = lens _dtsMaxResults (\s a -> s { _dtsMaxResults = a })
 {-# INLINE dtsMaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
 dtsNextToken :: Lens' DescribeTags (Maybe Text)
-dtsNextToken f x =
-    f (_dtsNextToken x)
-        <&> \y -> x { _dtsNextToken = y }
+dtsNextToken = lens _dtsNextToken (\s a -> s { _dtsNextToken = a })
 {-# INLINE dtsNextToken #-}
 
 instance ToQuery DescribeTags where
@@ -147,17 +142,13 @@ data DescribeTagsResponse = DescribeTagsResponse
 
 -- | A list of tags.
 dttTags :: Lens' DescribeTagsResponse ([TagDescription])
-dttTags f x =
-    f (_dttTags x)
-        <&> \y -> x { _dttTags = y }
+dttTags = lens _dttTags (\s a -> s { _dttTags = a })
 {-# INLINE dttTags #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 dttNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dttNextToken f x =
-    f (_dttNextToken x)
-        <&> \y -> x { _dttNextToken = y }
+dttNextToken = lens _dttNextToken (\s a -> s { _dttNextToken = a })
 {-# INLINE dttNextToken #-}
 
 instance FromXML DescribeTagsResponse where

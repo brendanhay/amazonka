@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp
     -- * Request
       AssociateElasticIp
     -- ** Request constructor
-    , associateElasticIp
+    , mkAssociateElasticIpRequest
     -- ** Request lenses
     , aeirElasticIp
     , aeirInstanceId
@@ -43,14 +43,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AssociateElasticIp' request.
-associateElasticIp :: Text -- ^ 'aeirElasticIp'
-                   -> AssociateElasticIp
-associateElasticIp p1 = AssociateElasticIp
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateElasticIp' request.
+mkAssociateElasticIpRequest :: Text -- ^ 'aeirElasticIp'
+                            -> AssociateElasticIp
+mkAssociateElasticIpRequest p1 = AssociateElasticIp
     { _aeirElasticIp = p1
     , _aeirInstanceId = Nothing
     }
-{-# INLINE associateElasticIp #-}
+{-# INLINE mkAssociateElasticIpRequest #-}
 
 data AssociateElasticIp = AssociateElasticIp
     { _aeirElasticIp :: Text
@@ -61,16 +62,12 @@ data AssociateElasticIp = AssociateElasticIp
 
 -- | The Elastic IP address.
 aeirElasticIp :: Lens' AssociateElasticIp (Text)
-aeirElasticIp f x =
-    f (_aeirElasticIp x)
-        <&> \y -> x { _aeirElasticIp = y }
+aeirElasticIp = lens _aeirElasticIp (\s a -> s { _aeirElasticIp = a })
 {-# INLINE aeirElasticIp #-}
 
 -- | The instance ID.
 aeirInstanceId :: Lens' AssociateElasticIp (Maybe Text)
-aeirInstanceId f x =
-    f (_aeirInstanceId x)
-        <&> \y -> x { _aeirInstanceId = y }
+aeirInstanceId = lens _aeirInstanceId (\s a -> s { _aeirInstanceId = a })
 {-# INLINE aeirInstanceId #-}
 
 instance ToPath AssociateElasticIp

@@ -43,7 +43,7 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
     -- * Request
       ReportTaskProgress
     -- ** Request constructor
-    , reportTaskProgress
+    , mkReportTaskProgressInput
     -- ** Request lenses
     , rtpiTaskId
 
@@ -58,15 +58,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ReportTaskProgress' request.
-reportTaskProgress :: Text -- ^ 'rtpiTaskId'
-                   -> ReportTaskProgress
-reportTaskProgress p1 = ReportTaskProgress
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReportTaskProgress' request.
+mkReportTaskProgressInput :: Text -- ^ 'rtpiTaskId'
+                          -> ReportTaskProgress
+mkReportTaskProgressInput p1 = ReportTaskProgress
     { _rtpiTaskId = p1
     }
-{-# INLINE reportTaskProgress #-}
+{-# INLINE mkReportTaskProgressInput #-}
 
-data ReportTaskProgress = ReportTaskProgress
+newtype ReportTaskProgress = ReportTaskProgress
     { _rtpiTaskId :: Text
       -- ^ Identifier of the task assigned to the task runner. This value is
       -- provided in the TaskObject that the service returns with the
@@ -77,9 +78,7 @@ data ReportTaskProgress = ReportTaskProgress
 -- in the TaskObject that the service returns with the response for the
 -- PollForTask action.
 rtpiTaskId :: Lens' ReportTaskProgress (Text)
-rtpiTaskId f x =
-    f (_rtpiTaskId x)
-        <&> \y -> x { _rtpiTaskId = y }
+rtpiTaskId = lens _rtpiTaskId (\s a -> s { _rtpiTaskId = a })
 {-# INLINE rtpiTaskId #-}
 
 instance ToPath ReportTaskProgress
@@ -90,7 +89,7 @@ instance ToHeaders ReportTaskProgress
 
 instance ToJSON ReportTaskProgress
 
-data ReportTaskProgressResponse = ReportTaskProgressResponse
+newtype ReportTaskProgressResponse = ReportTaskProgressResponse
     { _rtpoCanceled :: Bool
       -- ^ If True, the calling task runner should cancel processing of the
       -- task. The task runner does not need to call SetTaskStatus for
@@ -100,9 +99,7 @@ data ReportTaskProgressResponse = ReportTaskProgressResponse
 -- | If True, the calling task runner should cancel processing of the task. The
 -- task runner does not need to call SetTaskStatus for canceled tasks.
 rtpoCanceled :: Lens' ReportTaskProgressResponse (Bool)
-rtpoCanceled f x =
-    f (_rtpoCanceled x)
-        <&> \y -> x { _rtpoCanceled = y }
+rtpoCanceled = lens _rtpoCanceled (\s a -> s { _rtpoCanceled = a })
 {-# INLINE rtpoCanceled #-}
 
 instance FromJSON ReportTaskProgressResponse

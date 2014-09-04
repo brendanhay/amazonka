@@ -51,12 +51,12 @@ module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
     -- * Request
       CreateInstanceExportTask
     -- ** Request constructor
-    , createInstanceExportTask
+    , mkCreateInstanceExportTaskRequest
     -- ** Request lenses
+    , cietrDescription
     , cietrInstanceId
     , cietrTargetEnvironment
     , cietrExportToS3Task
-    , cietrDescription
 
     -- * Response
     , CreateInstanceExportTaskResponse
@@ -68,71 +68,62 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateInstanceExportTask' request.
-createInstanceExportTask :: Text -- ^ 'cietrInstanceId'
-                         -> CreateInstanceExportTask
-createInstanceExportTask p1 = CreateInstanceExportTask
-    { _cietrInstanceId = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInstanceExportTask' request.
+mkCreateInstanceExportTaskRequest :: Text -- ^ 'cietrInstanceId'
+                                  -> CreateInstanceExportTask
+mkCreateInstanceExportTaskRequest p1 = CreateInstanceExportTask
+    { _cietrDescription = Nothing
+    , _cietrInstanceId = p2
     , _cietrTargetEnvironment = Nothing
     , _cietrExportToS3Task = Nothing
-    , _cietrDescription = Nothing
     }
-{-# INLINE createInstanceExportTask #-}
+{-# INLINE mkCreateInstanceExportTaskRequest #-}
 
 data CreateInstanceExportTask = CreateInstanceExportTask
-    { _cietrInstanceId :: Text
+    { _cietrDescription :: Maybe Text
+      -- ^ A description for the conversion task or the resource being
+      -- exported. The maximum length is 255 bytes.
+    , _cietrInstanceId :: Text
       -- ^ The ID of the instance.
     , _cietrTargetEnvironment :: Maybe ExportEnvironment
       -- ^ The target virtualization environment.
     , _cietrExportToS3Task :: Maybe ExportToS3TaskSpecification
       -- ^ 
-    , _cietrDescription :: Maybe Text
-      -- ^ A description for the conversion task or the resource being
-      -- exported. The maximum length is 255 bytes.
     } deriving (Show, Generic)
-
--- | The ID of the instance.
-cietrInstanceId :: Lens' CreateInstanceExportTask (Text)
-cietrInstanceId f x =
-    f (_cietrInstanceId x)
-        <&> \y -> x { _cietrInstanceId = y }
-{-# INLINE cietrInstanceId #-}
-
--- | The target virtualization environment.
-cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
-cietrTargetEnvironment f x =
-    f (_cietrTargetEnvironment x)
-        <&> \y -> x { _cietrTargetEnvironment = y }
-{-# INLINE cietrTargetEnvironment #-}
-
--- | 
-cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
-cietrExportToS3Task f x =
-    f (_cietrExportToS3Task x)
-        <&> \y -> x { _cietrExportToS3Task = y }
-{-# INLINE cietrExportToS3Task #-}
 
 -- | A description for the conversion task or the resource being exported. The
 -- maximum length is 255 bytes.
 cietrDescription :: Lens' CreateInstanceExportTask (Maybe Text)
-cietrDescription f x =
-    f (_cietrDescription x)
-        <&> \y -> x { _cietrDescription = y }
+cietrDescription = lens _cietrDescription (\s a -> s { _cietrDescription = a })
 {-# INLINE cietrDescription #-}
+
+-- | The ID of the instance.
+cietrInstanceId :: Lens' CreateInstanceExportTask (Text)
+cietrInstanceId = lens _cietrInstanceId (\s a -> s { _cietrInstanceId = a })
+{-# INLINE cietrInstanceId #-}
+
+-- | The target virtualization environment.
+cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
+cietrTargetEnvironment = lens _cietrTargetEnvironment (\s a -> s { _cietrTargetEnvironment = a })
+{-# INLINE cietrTargetEnvironment #-}
+
+-- | 
+cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
+cietrExportToS3Task = lens _cietrExportToS3Task (\s a -> s { _cietrExportToS3Task = a })
+{-# INLINE cietrExportToS3Task #-}
 
 instance ToQuery CreateInstanceExportTask where
     toQuery = genericQuery def
 
-data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
+newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietsExportTask :: Maybe ExportTask
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 cietsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
-cietsExportTask f x =
-    f (_cietsExportTask x)
-        <&> \y -> x { _cietsExportTask = y }
+cietsExportTask = lens _cietsExportTask (\s a -> s { _cietsExportTask = a })
 {-# INLINE cietsExportTask #-}
 
 instance FromXML CreateInstanceExportTaskResponse where

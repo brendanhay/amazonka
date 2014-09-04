@@ -35,12 +35,12 @@ module Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
     -- * Request
       SetTaskStatus
     -- ** Request constructor
-    , setTaskStatus
+    , mkSetTaskStatusInput
     -- ** Request lenses
     , stsiTaskId
     , stsiTaskStatus
-    , stsiErrorMessage
     , stsiErrorId
+    , stsiErrorMessage
     , stsiErrorStackTrace
 
     -- * Response
@@ -52,18 +52,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetTaskStatus' request.
-setTaskStatus :: Text -- ^ 'stsiTaskId'
-              -> TaskStatus -- ^ 'stsiTaskStatus'
-              -> SetTaskStatus
-setTaskStatus p1 p2 = SetTaskStatus
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTaskStatus' request.
+mkSetTaskStatusInput :: Text -- ^ 'stsiTaskId'
+                     -> TaskStatus -- ^ 'stsiTaskStatus'
+                     -> SetTaskStatus
+mkSetTaskStatusInput p1 p2 = SetTaskStatus
     { _stsiTaskId = p1
     , _stsiTaskStatus = p2
-    , _stsiErrorMessage = Nothing
     , _stsiErrorId = Nothing
+    , _stsiErrorMessage = Nothing
     , _stsiErrorStackTrace = Nothing
     }
-{-# INLINE setTaskStatus #-}
+{-# INLINE mkSetTaskStatusInput #-}
 
 data SetTaskStatus = SetTaskStatus
     { _stsiTaskId :: Text
@@ -72,17 +73,17 @@ data SetTaskStatus = SetTaskStatus
     , _stsiTaskStatus :: TaskStatus
       -- ^ If FINISHED, the task successfully completed. If FAILED the task
       -- ended unsuccessfully. The FALSE value is used by preconditions.
-    , _stsiErrorMessage :: Maybe Text
-      -- ^ If an error occurred during the task, this value specifies a text
-      -- description of the error. This value is set on the physical
-      -- attempt object. It is used to display error information to the
-      -- user. The web service does not parse this value.
     , _stsiErrorId :: Maybe Text
       -- ^ If an error occurred during the task, this value specifies an id
       -- value that represents the error. This value is set on the
       -- physical attempt object. It is used to display error information
       -- to the user. It should not start with string "Service_" which is
       -- reserved by the system.
+    , _stsiErrorMessage :: Maybe Text
+      -- ^ If an error occurred during the task, this value specifies a text
+      -- description of the error. This value is set on the physical
+      -- attempt object. It is used to display error information to the
+      -- user. The web service does not parse this value.
     , _stsiErrorStackTrace :: Maybe Text
       -- ^ If an error occurred during the task, this value specifies the
       -- stack trace associated with the error. This value is set on the
@@ -93,47 +94,37 @@ data SetTaskStatus = SetTaskStatus
 -- | Identifies the task assigned to the task runner. This value is set in the
 -- TaskObject that is returned by the PollForTask action.
 stsiTaskId :: Lens' SetTaskStatus (Text)
-stsiTaskId f x =
-    f (_stsiTaskId x)
-        <&> \y -> x { _stsiTaskId = y }
+stsiTaskId = lens _stsiTaskId (\s a -> s { _stsiTaskId = a })
 {-# INLINE stsiTaskId #-}
 
 -- | If FINISHED, the task successfully completed. If FAILED the task ended
 -- unsuccessfully. The FALSE value is used by preconditions.
 stsiTaskStatus :: Lens' SetTaskStatus (TaskStatus)
-stsiTaskStatus f x =
-    f (_stsiTaskStatus x)
-        <&> \y -> x { _stsiTaskStatus = y }
+stsiTaskStatus = lens _stsiTaskStatus (\s a -> s { _stsiTaskStatus = a })
 {-# INLINE stsiTaskStatus #-}
-
--- | If an error occurred during the task, this value specifies a text
--- description of the error. This value is set on the physical attempt object.
--- It is used to display error information to the user. The web service does
--- not parse this value.
-stsiErrorMessage :: Lens' SetTaskStatus (Maybe Text)
-stsiErrorMessage f x =
-    f (_stsiErrorMessage x)
-        <&> \y -> x { _stsiErrorMessage = y }
-{-# INLINE stsiErrorMessage #-}
 
 -- | If an error occurred during the task, this value specifies an id value that
 -- represents the error. This value is set on the physical attempt object. It
 -- is used to display error information to the user. It should not start with
 -- string "Service_" which is reserved by the system.
 stsiErrorId :: Lens' SetTaskStatus (Maybe Text)
-stsiErrorId f x =
-    f (_stsiErrorId x)
-        <&> \y -> x { _stsiErrorId = y }
+stsiErrorId = lens _stsiErrorId (\s a -> s { _stsiErrorId = a })
 {-# INLINE stsiErrorId #-}
+
+-- | If an error occurred during the task, this value specifies a text
+-- description of the error. This value is set on the physical attempt object.
+-- It is used to display error information to the user. The web service does
+-- not parse this value.
+stsiErrorMessage :: Lens' SetTaskStatus (Maybe Text)
+stsiErrorMessage = lens _stsiErrorMessage (\s a -> s { _stsiErrorMessage = a })
+{-# INLINE stsiErrorMessage #-}
 
 -- | If an error occurred during the task, this value specifies the stack trace
 -- associated with the error. This value is set on the physical attempt
 -- object. It is used to display error information to the user. The web
 -- service does not parse this value.
 stsiErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
-stsiErrorStackTrace f x =
-    f (_stsiErrorStackTrace x)
-        <&> \y -> x { _stsiErrorStackTrace = y }
+stsiErrorStackTrace = lens _stsiErrorStackTrace (\s a -> s { _stsiErrorStackTrace = a })
 {-# INLINE stsiErrorStackTrace #-}
 
 instance ToPath SetTaskStatus
@@ -144,7 +135,6 @@ instance ToHeaders SetTaskStatus
 
 instance ToJSON SetTaskStatus
 
-data SetTaskStatusResponse = SetTaskStatusResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetTaskStatus where

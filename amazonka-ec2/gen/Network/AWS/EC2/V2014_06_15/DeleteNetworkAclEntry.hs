@@ -31,11 +31,11 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry
     -- * Request
       DeleteNetworkAclEntry
     -- ** Request constructor
-    , deleteNetworkAclEntry
+    , mkDeleteNetworkAclEntryRequest
     -- ** Request lenses
-    , dnaerEgress
-    , dnaerRuleNumber
     , dnaerNetworkAclId
+    , dnaerRuleNumber
+    , dnaerEgress
 
     -- * Response
     , DeleteNetworkAclEntryResponse
@@ -45,47 +45,42 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteNetworkAclEntry' request.
-deleteNetworkAclEntry :: Bool -- ^ 'dnaerEgress'
-                      -> Integer -- ^ 'dnaerRuleNumber'
-                      -> Text -- ^ 'dnaerNetworkAclId'
-                      -> DeleteNetworkAclEntry
-deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
-    { _dnaerEgress = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNetworkAclEntry' request.
+mkDeleteNetworkAclEntryRequest :: Text -- ^ 'dnaerNetworkAclId'
+                               -> Integer -- ^ 'dnaerRuleNumber'
+                               -> Bool -- ^ 'dnaerEgress'
+                               -> DeleteNetworkAclEntry
+mkDeleteNetworkAclEntryRequest p1 p2 p3 = DeleteNetworkAclEntry
+    { _dnaerNetworkAclId = p1
     , _dnaerRuleNumber = p2
-    , _dnaerNetworkAclId = p3
+    , _dnaerEgress = p3
     }
-{-# INLINE deleteNetworkAclEntry #-}
+{-# INLINE mkDeleteNetworkAclEntryRequest #-}
 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
-    { _dnaerEgress :: Bool
-      -- ^ Indicates whether the rule is an egress rule.
+    { _dnaerNetworkAclId :: Text
+      -- ^ The ID of the network ACL.
     , _dnaerRuleNumber :: Integer
       -- ^ The rule number of the entry to delete.
-    , _dnaerNetworkAclId :: Text
-      -- ^ The ID of the network ACL.
+    , _dnaerEgress :: Bool
+      -- ^ Indicates whether the rule is an egress rule.
     } deriving (Show, Generic)
-
--- | Indicates whether the rule is an egress rule.
-dnaerEgress :: Lens' DeleteNetworkAclEntry (Bool)
-dnaerEgress f x =
-    f (_dnaerEgress x)
-        <&> \y -> x { _dnaerEgress = y }
-{-# INLINE dnaerEgress #-}
-
--- | The rule number of the entry to delete.
-dnaerRuleNumber :: Lens' DeleteNetworkAclEntry (Integer)
-dnaerRuleNumber f x =
-    f (_dnaerRuleNumber x)
-        <&> \y -> x { _dnaerRuleNumber = y }
-{-# INLINE dnaerRuleNumber #-}
 
 -- | The ID of the network ACL.
 dnaerNetworkAclId :: Lens' DeleteNetworkAclEntry (Text)
-dnaerNetworkAclId f x =
-    f (_dnaerNetworkAclId x)
-        <&> \y -> x { _dnaerNetworkAclId = y }
+dnaerNetworkAclId = lens _dnaerNetworkAclId (\s a -> s { _dnaerNetworkAclId = a })
 {-# INLINE dnaerNetworkAclId #-}
+
+-- | The rule number of the entry to delete.
+dnaerRuleNumber :: Lens' DeleteNetworkAclEntry (Integer)
+dnaerRuleNumber = lens _dnaerRuleNumber (\s a -> s { _dnaerRuleNumber = a })
+{-# INLINE dnaerRuleNumber #-}
+
+-- | Indicates whether the rule is an egress rule.
+dnaerEgress :: Lens' DeleteNetworkAclEntry (Bool)
+dnaerEgress = lens _dnaerEgress (\s a -> s { _dnaerEgress = a })
+{-# INLINE dnaerEgress #-}
 
 instance ToQuery DeleteNetworkAclEntry where
     toQuery = genericQuery def

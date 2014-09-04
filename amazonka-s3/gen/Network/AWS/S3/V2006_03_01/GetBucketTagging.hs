@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketTagging
     -- * Request
       GetBucketTagging
     -- ** Request constructor
-    , getBucketTagging
+    , mkGetBucketTaggingRequest
     -- ** Request lenses
     , gbtrBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketTagging' request.
-getBucketTagging :: BucketName -- ^ 'gbtrBucket'
-                 -> GetBucketTagging
-getBucketTagging p1 = GetBucketTagging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketTagging' request.
+mkGetBucketTaggingRequest :: BucketName -- ^ 'gbtrBucket'
+                          -> GetBucketTagging
+mkGetBucketTaggingRequest p1 = GetBucketTagging
     { _gbtrBucket = p1
     }
-{-# INLINE getBucketTagging #-}
+{-# INLINE mkGetBucketTaggingRequest #-}
 
-data GetBucketTagging = GetBucketTagging
+newtype GetBucketTagging = GetBucketTagging
     { _gbtrBucket :: BucketName
     } deriving (Show, Generic)
 
 gbtrBucket :: Lens' GetBucketTagging (BucketName)
-gbtrBucket f x =
-    f (_gbtrBucket x)
-        <&> \y -> x { _gbtrBucket = y }
+gbtrBucket = lens _gbtrBucket (\s a -> s { _gbtrBucket = a })
 {-# INLINE gbtrBucket #-}
 
 instance ToPath GetBucketTagging where
@@ -70,14 +69,12 @@ instance ToHeaders GetBucketTagging
 
 instance ToBody GetBucketTagging
 
-data GetBucketTaggingResponse = GetBucketTaggingResponse
+newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtoTagSet :: [Tag]
     } deriving (Show, Generic)
 
 gbtoTagSet :: Lens' GetBucketTaggingResponse ([Tag])
-gbtoTagSet f x =
-    f (_gbtoTagSet x)
-        <&> \y -> x { _gbtoTagSet = y }
+gbtoTagSet = lens _gbtoTagSet (\s a -> s { _gbtoTagSet = a })
 {-# INLINE gbtoTagSet #-}
 
 instance FromXML GetBucketTaggingResponse where

@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
     -- * Request
       DescribeScalingProcessTypes
     -- ** Request constructor
-    , describeScalingProcessTypes
+    , mkUnknown
     -- * Response
     , DescribeScalingProcessTypesResponse
     -- ** Response lenses
@@ -39,10 +39,11 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeScalingProcessTypes' request.
-describeScalingProcessTypes :: DescribeScalingProcessTypes
-describeScalingProcessTypes = DescribeScalingProcessTypes
-{-# INLINE describeScalingProcessTypes #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScalingProcessTypes' request.
+mkUnknown :: DescribeScalingProcessTypes
+mkUnknown = DescribeScalingProcessTypes
+{-# INLINE mkUnknown #-}
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
     deriving (Eq, Show, Generic)
@@ -50,16 +51,14 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 instance ToQuery DescribeScalingProcessTypes where
     toQuery = genericQuery def
 
-data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _puProcesses :: [ProcessType]
       -- ^ A list of ProcessType names.
     } deriving (Show, Generic)
 
 -- | A list of ProcessType names.
 puProcesses :: Lens' DescribeScalingProcessTypesResponse ([ProcessType])
-puProcesses f x =
-    f (_puProcesses x)
-        <&> \y -> x { _puProcesses = y }
+puProcesses = lens _puProcesses (\s a -> s { _puProcesses = a })
 {-# INLINE puProcesses #-}
 
 instance FromXML DescribeScalingProcessTypesResponse where

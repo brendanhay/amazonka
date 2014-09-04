@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
     -- * Request
       DescribeAccountLimits
     -- ** Request constructor
-    , describeAccountLimits
+    , mkUnknown
     -- * Response
     , DescribeAccountLimitsResponse
     -- ** Response lenses
@@ -43,10 +43,11 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAccountLimits' request.
-describeAccountLimits :: DescribeAccountLimits
-describeAccountLimits = DescribeAccountLimits
-{-# INLINE describeAccountLimits #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAccountLimits' request.
+mkUnknown :: DescribeAccountLimits
+mkUnknown = DescribeAccountLimits
+{-# INLINE mkUnknown #-}
 
 data DescribeAccountLimits = DescribeAccountLimits
     deriving (Eq, Show, Generic)
@@ -65,16 +66,12 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
 
 -- | The maximum number of Auto Scaling groups allowed for your AWS account.
 dalaMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
-dalaMaxNumberOfAutoScalingGroups f x =
-    f (_dalaMaxNumberOfAutoScalingGroups x)
-        <&> \y -> x { _dalaMaxNumberOfAutoScalingGroups = y }
+dalaMaxNumberOfAutoScalingGroups = lens _dalaMaxNumberOfAutoScalingGroups (\s a -> s { _dalaMaxNumberOfAutoScalingGroups = a })
 {-# INLINE dalaMaxNumberOfAutoScalingGroups #-}
 
 -- | The maximum number of launch configurations allowed for your AWS account.
 dalaMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
-dalaMaxNumberOfLaunchConfigurations f x =
-    f (_dalaMaxNumberOfLaunchConfigurations x)
-        <&> \y -> x { _dalaMaxNumberOfLaunchConfigurations = y }
+dalaMaxNumberOfLaunchConfigurations = lens _dalaMaxNumberOfLaunchConfigurations (\s a -> s { _dalaMaxNumberOfLaunchConfigurations = a })
 {-# INLINE dalaMaxNumberOfLaunchConfigurations #-}
 
 instance FromXML DescribeAccountLimitsResponse where

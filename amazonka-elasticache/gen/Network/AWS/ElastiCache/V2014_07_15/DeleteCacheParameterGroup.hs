@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup
     -- * Request
       DeleteCacheParameterGroup
     -- ** Request constructor
-    , deleteCacheParameterGroup
+    , mkDeleteCacheParameterGroupMessage
     -- ** Request lenses
     , dcpgmCacheParameterGroupName
 
@@ -42,15 +42,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteCacheParameterGroup' request.
-deleteCacheParameterGroup :: Text -- ^ 'dcpgmCacheParameterGroupName'
-                          -> DeleteCacheParameterGroup
-deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCacheParameterGroup' request.
+mkDeleteCacheParameterGroupMessage :: Text -- ^ 'dcpgmCacheParameterGroupName'
+                                   -> DeleteCacheParameterGroup
+mkDeleteCacheParameterGroupMessage p1 = DeleteCacheParameterGroup
     { _dcpgmCacheParameterGroupName = p1
     }
-{-# INLINE deleteCacheParameterGroup #-}
+{-# INLINE mkDeleteCacheParameterGroupMessage #-}
 
-data DeleteCacheParameterGroup = DeleteCacheParameterGroup
+newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
     { _dcpgmCacheParameterGroupName :: Text
       -- ^ The name of the cache parameter group to delete. The specified
       -- cache security group must not be associated with any cache
@@ -60,9 +61,7 @@ data DeleteCacheParameterGroup = DeleteCacheParameterGroup
 -- | The name of the cache parameter group to delete. The specified cache
 -- security group must not be associated with any cache clusters.
 dcpgmCacheParameterGroupName :: Lens' DeleteCacheParameterGroup (Text)
-dcpgmCacheParameterGroupName f x =
-    f (_dcpgmCacheParameterGroupName x)
-        <&> \y -> x { _dcpgmCacheParameterGroupName = y }
+dcpgmCacheParameterGroupName = lens _dcpgmCacheParameterGroupName (\s a -> s { _dcpgmCacheParameterGroupName = a })
 {-# INLINE dcpgmCacheParameterGroupName #-}
 
 instance ToQuery DeleteCacheParameterGroup where

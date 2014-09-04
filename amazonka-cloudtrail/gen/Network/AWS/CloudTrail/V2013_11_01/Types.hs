@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -29,13 +30,12 @@ module Network.AWS.CloudTrail.V2013_11_01.Types
     -- ** Errors
     , Er (..)
     -- * Trail
-    , Trail (..)
+    , Trail
     , tmName
     , tmS3BucketName
     , tmS3KeyPrefix
     , tmSnsTopicName
     , tmIncludeGlobalServiceEvents
-
     ) where
 
 import Network.AWS.Prelude
@@ -102,40 +102,30 @@ data Trail = Trail
 
 -- | Name of the trail set by calling CreateTrail.
 tmName :: Lens' Trail (Maybe Text)
-tmName f x =
-    f (_tmName x)
-        <&> \y -> x { _tmName = y }
+tmName = lens _tmName (\s a -> s { _tmName = a })
 {-# INLINE tmName #-}
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
 -- files.
 tmS3BucketName :: Lens' Trail (Maybe Text)
-tmS3BucketName f x =
-    f (_tmS3BucketName x)
-        <&> \y -> x { _tmS3BucketName = y }
+tmS3BucketName = lens _tmS3BucketName (\s a -> s { _tmS3BucketName = a })
 {-# INLINE tmS3BucketName #-}
 
 -- | Value of the Amazon S3 prefix.
 tmS3KeyPrefix :: Lens' Trail (Maybe Text)
-tmS3KeyPrefix f x =
-    f (_tmS3KeyPrefix x)
-        <&> \y -> x { _tmS3KeyPrefix = y }
+tmS3KeyPrefix = lens _tmS3KeyPrefix (\s a -> s { _tmS3KeyPrefix = a })
 {-# INLINE tmS3KeyPrefix #-}
 
 -- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
 -- account owner when new CloudTrail log files have been delivered.
 tmSnsTopicName :: Lens' Trail (Maybe Text)
-tmSnsTopicName f x =
-    f (_tmSnsTopicName x)
-        <&> \y -> x { _tmSnsTopicName = y }
+tmSnsTopicName = lens _tmSnsTopicName (\s a -> s { _tmSnsTopicName = a })
 {-# INLINE tmSnsTopicName #-}
 
 -- | Set to True to include AWS API calls from AWS global services such as IAM.
 -- Otherwise, False.
 tmIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
-tmIncludeGlobalServiceEvents f x =
-    f (_tmIncludeGlobalServiceEvents x)
-        <&> \y -> x { _tmIncludeGlobalServiceEvents = y }
+tmIncludeGlobalServiceEvents = lens _tmIncludeGlobalServiceEvents (\s a -> s { _tmIncludeGlobalServiceEvents = a })
 {-# INLINE tmIncludeGlobalServiceEvents #-}
 
 instance FromJSON Trail

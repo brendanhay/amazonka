@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig
     -- * Request
       GetDistributionConfig
     -- ** Request constructor
-    , getDistributionConfig
+    , mkGetDistributionConfigRequest
     -- ** Request lenses
     , gdcrId
 
@@ -38,24 +38,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetDistributionConfig' request.
-getDistributionConfig :: Text -- ^ 'gdcrId'
-                      -> GetDistributionConfig
-getDistributionConfig p1 = GetDistributionConfig
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetDistributionConfig' request.
+mkGetDistributionConfigRequest :: Text -- ^ 'gdcrId'
+                               -> GetDistributionConfig
+mkGetDistributionConfigRequest p1 = GetDistributionConfig
     { _gdcrId = p1
     }
-{-# INLINE getDistributionConfig #-}
+{-# INLINE mkGetDistributionConfigRequest #-}
 
-data GetDistributionConfig = GetDistributionConfig
+newtype GetDistributionConfig = GetDistributionConfig
     { _gdcrId :: Text
       -- ^ The distribution's id.
     } deriving (Show, Generic)
 
 -- | The distribution's id.
 gdcrId :: Lens' GetDistributionConfig (Text)
-gdcrId f x =
-    f (_gdcrId x)
-        <&> \y -> x { _gdcrId = y }
+gdcrId = lens _gdcrId (\s a -> s { _gdcrId = a })
 {-# INLINE gdcrId #-}
 
 instance ToPath GetDistributionConfig where
@@ -83,16 +82,12 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse
 
 -- | The distribution's configuration information.
 gdcsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcsDistributionConfig f x =
-    f (_gdcsDistributionConfig x)
-        <&> \y -> x { _gdcsDistributionConfig = y }
+gdcsDistributionConfig = lens _gdcsDistributionConfig (\s a -> s { _gdcsDistributionConfig = a })
 {-# INLINE gdcsDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gdcsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcsETag f x =
-    f (_gdcsETag x)
-        <&> \y -> x { _gdcsETag = y }
+gdcsETag = lens _gdcsETag (\s a -> s { _gdcsETag = a })
 {-# INLINE gdcsETag #-}
 
 instance AWSRequest GetDistributionConfig where

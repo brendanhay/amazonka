@@ -37,7 +37,7 @@ module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
     -- * Request
       RetrieveDomainAuthCode
     -- ** Request constructor
-    , retrieveDomainAuthCode
+    , mkRetrieveDomainAuthCodeRequest
     -- ** Request lenses
     , rdacrDomainName
 
@@ -52,15 +52,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RetrieveDomainAuthCode' request.
-retrieveDomainAuthCode :: Text -- ^ 'rdacrDomainName'
-                       -> RetrieveDomainAuthCode
-retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveDomainAuthCode' request.
+mkRetrieveDomainAuthCodeRequest :: Text -- ^ 'rdacrDomainName'
+                                -> RetrieveDomainAuthCode
+mkRetrieveDomainAuthCodeRequest p1 = RetrieveDomainAuthCode
     { _rdacrDomainName = p1
     }
-{-# INLINE retrieveDomainAuthCode #-}
+{-# INLINE mkRetrieveDomainAuthCodeRequest #-}
 
-data RetrieveDomainAuthCode = RetrieveDomainAuthCode
+newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
     { _rdacrDomainName :: Text
       -- ^ The name of a domain. Type: String Default: None Constraints: The
       -- domain name can contain only the letters a through z, the numbers
@@ -73,9 +74,7 @@ data RetrieveDomainAuthCode = RetrieveDomainAuthCode
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 rdacrDomainName :: Lens' RetrieveDomainAuthCode (Text)
-rdacrDomainName f x =
-    f (_rdacrDomainName x)
-        <&> \y -> x { _rdacrDomainName = y }
+rdacrDomainName = lens _rdacrDomainName (\s a -> s { _rdacrDomainName = a })
 {-# INLINE rdacrDomainName #-}
 
 instance ToPath RetrieveDomainAuthCode
@@ -86,16 +85,14 @@ instance ToHeaders RetrieveDomainAuthCode
 
 instance ToJSON RetrieveDomainAuthCode
 
-data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
+newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
     { _rdacsAuthCode :: Text
       -- ^ The authorization code for the domain. Type: String.
     } deriving (Show, Generic)
 
 -- | The authorization code for the domain. Type: String.
 rdacsAuthCode :: Lens' RetrieveDomainAuthCodeResponse (Text)
-rdacsAuthCode f x =
-    f (_rdacsAuthCode x)
-        <&> \y -> x { _rdacsAuthCode = y }
+rdacsAuthCode = lens _rdacsAuthCode (\s a -> s { _rdacsAuthCode = a })
 {-# INLINE rdacsAuthCode #-}
 
 instance FromJSON RetrieveDomainAuthCodeResponse

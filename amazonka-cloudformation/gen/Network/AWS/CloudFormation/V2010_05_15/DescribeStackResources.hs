@@ -45,11 +45,11 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources
     -- * Request
       DescribeStackResources
     -- ** Request constructor
-    , describeStackResources
+    , mkDescribeStackResourcesInput
     -- ** Request lenses
+    , dsrjStackName
     , dsrjLogicalResourceId
     , dsrjPhysicalResourceId
-    , dsrjStackName
 
     -- * Response
     , DescribeStackResourcesResponse
@@ -61,17 +61,25 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeStackResources' request.
-describeStackResources :: DescribeStackResources
-describeStackResources = DescribeStackResources
-    { _dsrjLogicalResourceId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackResources' request.
+mkDescribeStackResourcesInput :: DescribeStackResources
+mkDescribeStackResourcesInput = DescribeStackResources
+    { _dsrjStackName = Nothing
+    , _dsrjLogicalResourceId = Nothing
     , _dsrjPhysicalResourceId = Nothing
-    , _dsrjStackName = Nothing
     }
-{-# INLINE describeStackResources #-}
+{-# INLINE mkDescribeStackResourcesInput #-}
 
 data DescribeStackResources = DescribeStackResources
-    { _dsrjLogicalResourceId :: Maybe Text
+    { _dsrjStackName :: Maybe Text
+      -- ^ The name or the unique identifier associated with the stack,
+      -- which are not always interchangeable: Running stacks: You can
+      -- specify either the stack's name or its unique stack ID. Deleted
+      -- stacks: You must specify the unique stack ID. Default: There is
+      -- no default value. Required: Conditional. If you do not specify
+      -- StackName, you must specify PhysicalResourceId.
+    , _dsrjLogicalResourceId :: Maybe Text
       -- ^ The logical name of the resource as specified in the template.
       -- Default: There is no default value.
     , _dsrjPhysicalResourceId :: Maybe Text
@@ -84,21 +92,21 @@ data DescribeStackResources = DescribeStackResources
       -- stack. Required: Conditional. If you do not specify
       -- PhysicalResourceId, you must specify StackName. Default: There is
       -- no default value.
-    , _dsrjStackName :: Maybe Text
-      -- ^ The name or the unique identifier associated with the stack,
-      -- which are not always interchangeable: Running stacks: You can
-      -- specify either the stack's name or its unique stack ID. Deleted
-      -- stacks: You must specify the unique stack ID. Default: There is
-      -- no default value. Required: Conditional. If you do not specify
-      -- StackName, you must specify PhysicalResourceId.
     } deriving (Show, Generic)
+
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable: Running stacks: You can specify either the stack's
+-- name or its unique stack ID. Deleted stacks: You must specify the unique
+-- stack ID. Default: There is no default value. Required: Conditional. If you
+-- do not specify StackName, you must specify PhysicalResourceId.
+dsrjStackName :: Lens' DescribeStackResources (Maybe Text)
+dsrjStackName = lens _dsrjStackName (\s a -> s { _dsrjStackName = a })
+{-# INLINE dsrjStackName #-}
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
 dsrjLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrjLogicalResourceId f x =
-    f (_dsrjLogicalResourceId x)
-        <&> \y -> x { _dsrjLogicalResourceId = y }
+dsrjLogicalResourceId = lens _dsrjLogicalResourceId (\s a -> s { _dsrjLogicalResourceId = a })
 {-# INLINE dsrjLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
@@ -110,35 +118,20 @@ dsrjLogicalResourceId f x =
 -- PhysicalResourceId, you must specify StackName. Default: There is no
 -- default value.
 dsrjPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrjPhysicalResourceId f x =
-    f (_dsrjPhysicalResourceId x)
-        <&> \y -> x { _dsrjPhysicalResourceId = y }
+dsrjPhysicalResourceId = lens _dsrjPhysicalResourceId (\s a -> s { _dsrjPhysicalResourceId = a })
 {-# INLINE dsrjPhysicalResourceId #-}
-
--- | The name or the unique identifier associated with the stack, which are not
--- always interchangeable: Running stacks: You can specify either the stack's
--- name or its unique stack ID. Deleted stacks: You must specify the unique
--- stack ID. Default: There is no default value. Required: Conditional. If you
--- do not specify StackName, you must specify PhysicalResourceId.
-dsrjStackName :: Lens' DescribeStackResources (Maybe Text)
-dsrjStackName f x =
-    f (_dsrjStackName x)
-        <&> \y -> x { _dsrjStackName = y }
-{-# INLINE dsrjStackName #-}
 
 instance ToQuery DescribeStackResources where
     toQuery = genericQuery def
 
-data DescribeStackResourcesResponse = DescribeStackResourcesResponse
+newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrpStackResources :: [StackResource]
       -- ^ A list of StackResource structures.
     } deriving (Show, Generic)
 
 -- | A list of StackResource structures.
 dsrpStackResources :: Lens' DescribeStackResourcesResponse ([StackResource])
-dsrpStackResources f x =
-    f (_dsrpStackResources x)
-        <&> \y -> x { _dsrpStackResources = y }
+dsrpStackResources = lens _dsrpStackResources (\s a -> s { _dsrpStackResources = a })
 {-# INLINE dsrpStackResources #-}
 
 instance FromXML DescribeStackResourcesResponse where

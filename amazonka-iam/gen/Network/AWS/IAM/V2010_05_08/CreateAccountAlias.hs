@@ -27,7 +27,7 @@ module Network.AWS.IAM.V2010_05_08.CreateAccountAlias
     -- * Request
       CreateAccountAlias
     -- ** Request constructor
-    , createAccountAlias
+    , mkCreateAccountAliasRequest
     -- ** Request lenses
     , caarAccountAlias
 
@@ -39,24 +39,23 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateAccountAlias' request.
-createAccountAlias :: Text -- ^ 'caarAccountAlias'
-                   -> CreateAccountAlias
-createAccountAlias p1 = CreateAccountAlias
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAccountAlias' request.
+mkCreateAccountAliasRequest :: Text -- ^ 'caarAccountAlias'
+                            -> CreateAccountAlias
+mkCreateAccountAliasRequest p1 = CreateAccountAlias
     { _caarAccountAlias = p1
     }
-{-# INLINE createAccountAlias #-}
+{-# INLINE mkCreateAccountAliasRequest #-}
 
-data CreateAccountAlias = CreateAccountAlias
+newtype CreateAccountAlias = CreateAccountAlias
     { _caarAccountAlias :: Text
       -- ^ Name of the account alias to create.
     } deriving (Show, Generic)
 
 -- | Name of the account alias to create.
 caarAccountAlias :: Lens' CreateAccountAlias (Text)
-caarAccountAlias f x =
-    f (_caarAccountAlias x)
-        <&> \y -> x { _caarAccountAlias = y }
+caarAccountAlias = lens _caarAccountAlias (\s a -> s { _caarAccountAlias = a })
 {-# INLINE caarAccountAlias #-}
 
 instance ToQuery CreateAccountAlias where

@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
     -- * Request
       DescribeDomains
     -- ** Request constructor
-    , describeDomains
+    , mkDescribeDomainsRequest
     -- ** Request lenses
     , ddwDomainNames
 
@@ -43,38 +43,35 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDomains' request.
-describeDomains :: DescribeDomains
-describeDomains = DescribeDomains
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDomains' request.
+mkDescribeDomainsRequest :: DescribeDomains
+mkDescribeDomainsRequest = DescribeDomains
     { _ddwDomainNames = mempty
     }
-{-# INLINE describeDomains #-}
+{-# INLINE mkDescribeDomainsRequest #-}
 
-data DescribeDomains = DescribeDomains
+newtype DescribeDomains = DescribeDomains
     { _ddwDomainNames :: [Text]
       -- ^ The names of the domains you want to include in the response.
     } deriving (Show, Generic)
 
 -- | The names of the domains you want to include in the response.
 ddwDomainNames :: Lens' DescribeDomains ([Text])
-ddwDomainNames f x =
-    f (_ddwDomainNames x)
-        <&> \y -> x { _ddwDomainNames = y }
+ddwDomainNames = lens _ddwDomainNames (\s a -> s { _ddwDomainNames = a })
 {-# INLINE ddwDomainNames #-}
 
 instance ToQuery DescribeDomains where
     toQuery = genericQuery def
 
-data DescribeDomainsResponse = DescribeDomainsResponse
+newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddxDomainStatusList :: [DomainStatus]
       -- ^ A list that contains the status of each requested domain.
     } deriving (Show, Generic)
 
 -- | A list that contains the status of each requested domain.
 ddxDomainStatusList :: Lens' DescribeDomainsResponse ([DomainStatus])
-ddxDomainStatusList f x =
-    f (_ddxDomainStatusList x)
-        <&> \y -> x { _ddxDomainStatusList = y }
+ddxDomainStatusList = lens _ddxDomainStatusList (\s a -> s { _ddxDomainStatusList = a })
 {-# INLINE ddxDomainStatusList #-}
 
 instance FromXML DescribeDomainsResponse where

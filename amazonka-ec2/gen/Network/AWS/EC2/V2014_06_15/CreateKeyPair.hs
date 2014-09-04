@@ -55,7 +55,7 @@ module Network.AWS.EC2.V2014_06_15.CreateKeyPair
     -- * Request
       CreateKeyPair
     -- ** Request constructor
-    , createKeyPair
+    , mkCreateKeyPairRequest
     -- ** Request lenses
     , ckprKeyName
 
@@ -71,24 +71,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateKeyPair' request.
-createKeyPair :: Text -- ^ 'ckprKeyName'
-              -> CreateKeyPair
-createKeyPair p1 = CreateKeyPair
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateKeyPair' request.
+mkCreateKeyPairRequest :: Text -- ^ 'ckprKeyName'
+                       -> CreateKeyPair
+mkCreateKeyPairRequest p1 = CreateKeyPair
     { _ckprKeyName = p1
     }
-{-# INLINE createKeyPair #-}
+{-# INLINE mkCreateKeyPairRequest #-}
 
-data CreateKeyPair = CreateKeyPair
+newtype CreateKeyPair = CreateKeyPair
     { _ckprKeyName :: Text
       -- ^ A unique name for the key pair.
     } deriving (Show, Generic)
 
 -- | A unique name for the key pair.
 ckprKeyName :: Lens' CreateKeyPair (Text)
-ckprKeyName f x =
-    f (_ckprKeyName x)
-        <&> \y -> x { _ckprKeyName = y }
+ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 {-# INLINE ckprKeyName #-}
 
 instance ToQuery CreateKeyPair where
@@ -105,23 +104,17 @@ data CreateKeyPairResponse = CreateKeyPairResponse
 
 -- | The name of the key pair.
 ckpsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
-ckpsKeyName f x =
-    f (_ckpsKeyName x)
-        <&> \y -> x { _ckpsKeyName = y }
+ckpsKeyName = lens _ckpsKeyName (\s a -> s { _ckpsKeyName = a })
 {-# INLINE ckpsKeyName #-}
 
 -- | The SHA-1 digest of the DER encoded private key.
 ckpsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
-ckpsKeyFingerprint f x =
-    f (_ckpsKeyFingerprint x)
-        <&> \y -> x { _ckpsKeyFingerprint = y }
+ckpsKeyFingerprint = lens _ckpsKeyFingerprint (\s a -> s { _ckpsKeyFingerprint = a })
 {-# INLINE ckpsKeyFingerprint #-}
 
 -- | An unencrypted PEM encoded RSA private key.
 ckpsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
-ckpsKeyMaterial f x =
-    f (_ckpsKeyMaterial x)
-        <&> \y -> x { _ckpsKeyMaterial = y }
+ckpsKeyMaterial = lens _ckpsKeyMaterial (\s a -> s { _ckpsKeyMaterial = a })
 {-# INLINE ckpsKeyMaterial #-}
 
 instance FromXML CreateKeyPairResponse where

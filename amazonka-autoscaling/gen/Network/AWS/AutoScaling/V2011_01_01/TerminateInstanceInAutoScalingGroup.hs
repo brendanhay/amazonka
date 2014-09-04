@@ -25,10 +25,10 @@ module Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
     -- * Request
       TerminateInstanceInAutoScalingGroup
     -- ** Request constructor
-    , terminateInstanceInAutoScalingGroup
+    , mkTerminateInstanceInAutoScalingGroupType
     -- ** Request lenses
-    , tiiasgtShouldDecrementDesiredCapacity
     , tiiasgtInstanceId
+    , tiiasgtShouldDecrementDesiredCapacity
 
     -- * Response
     , TerminateInstanceInAutoScalingGroupResponse
@@ -40,52 +40,47 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'TerminateInstanceInAutoScalingGroup' request.
-terminateInstanceInAutoScalingGroup :: Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
-                                    -> Text -- ^ 'tiiasgtInstanceId'
-                                    -> TerminateInstanceInAutoScalingGroup
-terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
-    { _tiiasgtShouldDecrementDesiredCapacity = p1
-    , _tiiasgtInstanceId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateInstanceInAutoScalingGroup' request.
+mkTerminateInstanceInAutoScalingGroupType :: Text -- ^ 'tiiasgtInstanceId'
+                                          -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
+                                          -> TerminateInstanceInAutoScalingGroup
+mkTerminateInstanceInAutoScalingGroupType p1 p2 = TerminateInstanceInAutoScalingGroup
+    { _tiiasgtInstanceId = p1
+    , _tiiasgtShouldDecrementDesiredCapacity = p2
     }
-{-# INLINE terminateInstanceInAutoScalingGroup #-}
+{-# INLINE mkTerminateInstanceInAutoScalingGroupType #-}
 
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
-    { _tiiasgtShouldDecrementDesiredCapacity :: Bool
+    { _tiiasgtInstanceId :: Text
+      -- ^ The ID of the Amazon EC2 instance to be terminated.
+    , _tiiasgtShouldDecrementDesiredCapacity :: Bool
       -- ^ Specifies whether (true) or not (false) terminating this instance
       -- should also decrement the size of the AutoScalingGroup.
-    , _tiiasgtInstanceId :: Text
-      -- ^ The ID of the Amazon EC2 instance to be terminated.
     } deriving (Show, Generic)
+
+-- | The ID of the Amazon EC2 instance to be terminated.
+tiiasgtInstanceId :: Lens' TerminateInstanceInAutoScalingGroup (Text)
+tiiasgtInstanceId = lens _tiiasgtInstanceId (\s a -> s { _tiiasgtInstanceId = a })
+{-# INLINE tiiasgtInstanceId #-}
 
 -- | Specifies whether (true) or not (false) terminating this instance should
 -- also decrement the size of the AutoScalingGroup.
 tiiasgtShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup (Bool)
-tiiasgtShouldDecrementDesiredCapacity f x =
-    f (_tiiasgtShouldDecrementDesiredCapacity x)
-        <&> \y -> x { _tiiasgtShouldDecrementDesiredCapacity = y }
+tiiasgtShouldDecrementDesiredCapacity = lens _tiiasgtShouldDecrementDesiredCapacity (\s a -> s { _tiiasgtShouldDecrementDesiredCapacity = a })
 {-# INLINE tiiasgtShouldDecrementDesiredCapacity #-}
-
--- | The ID of the Amazon EC2 instance to be terminated.
-tiiasgtInstanceId :: Lens' TerminateInstanceInAutoScalingGroup (Text)
-tiiasgtInstanceId f x =
-    f (_tiiasgtInstanceId x)
-        <&> \y -> x { _tiiasgtInstanceId = y }
-{-# INLINE tiiasgtInstanceId #-}
 
 instance ToQuery TerminateInstanceInAutoScalingGroup where
     toQuery = genericQuery def
 
-data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
+newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _aaeActivity :: Maybe Activity
       -- ^ A scaling Activity.
     } deriving (Show, Generic)
 
 -- | A scaling Activity.
 aaeActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-aaeActivity f x =
-    f (_aaeActivity x)
-        <&> \y -> x { _aaeActivity = y }
+aaeActivity = lens _aaeActivity (\s a -> s { _aaeActivity = a })
 {-# INLINE aaeActivity #-}
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where

@@ -41,10 +41,10 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineStatus
     -- * Request
       UpdatePipelineStatus
     -- ** Request constructor
-    , updatePipelineStatus
+    , mkUpdatePipelineStatusRequest
     -- ** Request lenses
-    , upsrStatus
     , upsrId
+    , upsrStatus
 
     -- * Response
     , UpdatePipelineStatusResponse
@@ -57,39 +57,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdatePipelineStatus' request.
-updatePipelineStatus :: Text -- ^ 'upsrStatus'
-                     -> Text -- ^ 'upsrId'
-                     -> UpdatePipelineStatus
-updatePipelineStatus p1 p2 = UpdatePipelineStatus
-    { _upsrStatus = p1
-    , _upsrId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdatePipelineStatus' request.
+mkUpdatePipelineStatusRequest :: Text -- ^ 'upsrId'
+                              -> Text -- ^ 'upsrStatus'
+                              -> UpdatePipelineStatus
+mkUpdatePipelineStatusRequest p1 p2 = UpdatePipelineStatus
+    { _upsrId = p1
+    , _upsrStatus = p2
     }
-{-# INLINE updatePipelineStatus #-}
+{-# INLINE mkUpdatePipelineStatusRequest #-}
 
 data UpdatePipelineStatus = UpdatePipelineStatus
-    { _upsrStatus :: Text
+    { _upsrId :: Text
+      -- ^ The identifier of the pipeline to update.
+    , _upsrStatus :: Text
       -- ^ The desired status of the pipeline: Active: The pipeline is
       -- processing jobs. Paused: The pipeline is not currently processing
       -- jobs.
-    , _upsrId :: Text
-      -- ^ The identifier of the pipeline to update.
     } deriving (Show, Generic)
+
+-- | The identifier of the pipeline to update.
+upsrId :: Lens' UpdatePipelineStatus (Text)
+upsrId = lens _upsrId (\s a -> s { _upsrId = a })
+{-# INLINE upsrId #-}
 
 -- | The desired status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
 upsrStatus :: Lens' UpdatePipelineStatus (Text)
-upsrStatus f x =
-    f (_upsrStatus x)
-        <&> \y -> x { _upsrStatus = y }
+upsrStatus = lens _upsrStatus (\s a -> s { _upsrStatus = a })
 {-# INLINE upsrStatus #-}
-
--- | The identifier of the pipeline to update.
-upsrId :: Lens' UpdatePipelineStatus (Text)
-upsrId f x =
-    f (_upsrId x)
-        <&> \y -> x { _upsrId = y }
-{-# INLINE upsrId #-}
 
 instance ToPath UpdatePipelineStatus where
     toPath UpdatePipelineStatus{..} = mconcat
@@ -104,7 +101,7 @@ instance ToHeaders UpdatePipelineStatus
 
 instance ToJSON UpdatePipelineStatus
 
-data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
+newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upssPipeline :: Maybe Pipeline
       -- ^ A section of the response body that provides information about
       -- the pipeline.
@@ -113,9 +110,7 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
 -- | A section of the response body that provides information about the
 -- pipeline.
 upssPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upssPipeline f x =
-    f (_upssPipeline x)
-        <&> \y -> x { _upssPipeline = y }
+upssPipeline = lens _upssPipeline (\s a -> s { _upssPipeline = a })
 {-# INLINE upssPipeline #-}
 
 instance FromJSON UpdatePipelineStatusResponse

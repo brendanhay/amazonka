@@ -38,7 +38,7 @@ module Network.AWS.EC2.V2014_06_15.CopySnapshot
     -- * Request
       CopySnapshot
     -- ** Request constructor
-    , copySnapshot
+    , mkCopySnapshotRequest
     -- ** Request lenses
     , csrSourceRegion
     , csrSourceSnapshotId
@@ -56,18 +56,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CopySnapshot' request.
-copySnapshot :: Text -- ^ 'csrSourceRegion'
-             -> Text -- ^ 'csrSourceSnapshotId'
-             -> CopySnapshot
-copySnapshot p1 p2 = CopySnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopySnapshot' request.
+mkCopySnapshotRequest :: Text -- ^ 'csrSourceRegion'
+                      -> Text -- ^ 'csrSourceSnapshotId'
+                      -> CopySnapshot
+mkCopySnapshotRequest p1 p2 = CopySnapshot
     { _csrSourceRegion = p1
     , _csrSourceSnapshotId = p2
     , _csrDescription = Nothing
     , _csrDestinationRegion = Nothing
     , _csrPresignedUrl = Nothing
     }
-{-# INLINE copySnapshot #-}
+{-# INLINE mkCopySnapshotRequest #-}
 
 data CopySnapshot = CopySnapshot
     { _csrSourceRegion :: Text
@@ -98,31 +99,23 @@ data CopySnapshot = CopySnapshot
 
 -- | The ID of the region that contains the snapshot to be copied.
 csrSourceRegion :: Lens' CopySnapshot (Text)
-csrSourceRegion f x =
-    f (_csrSourceRegion x)
-        <&> \y -> x { _csrSourceRegion = y }
+csrSourceRegion = lens _csrSourceRegion (\s a -> s { _csrSourceRegion = a })
 {-# INLINE csrSourceRegion #-}
 
 -- | The ID of the Amazon EBS snapshot to copy.
 csrSourceSnapshotId :: Lens' CopySnapshot (Text)
-csrSourceSnapshotId f x =
-    f (_csrSourceSnapshotId x)
-        <&> \y -> x { _csrSourceSnapshotId = y }
+csrSourceSnapshotId = lens _csrSourceSnapshotId (\s a -> s { _csrSourceSnapshotId = a })
 {-# INLINE csrSourceSnapshotId #-}
 
 -- | A description for the new Amazon EBS snapshot.
 csrDescription :: Lens' CopySnapshot (Maybe Text)
-csrDescription f x =
-    f (_csrDescription x)
-        <&> \y -> x { _csrDescription = y }
+csrDescription = lens _csrDescription (\s a -> s { _csrDescription = a })
 {-# INLINE csrDescription #-}
 
 -- | The destination region of the snapshot copy operation. This parameter is
 -- required in the PresignedUrl.
 csrDestinationRegion :: Lens' CopySnapshot (Maybe Text)
-csrDestinationRegion f x =
-    f (_csrDestinationRegion x)
-        <&> \y -> x { _csrDestinationRegion = y }
+csrDestinationRegion = lens _csrDestinationRegion (\s a -> s { _csrDestinationRegion = a })
 {-# INLINE csrDestinationRegion #-}
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
@@ -138,24 +131,20 @@ csrDestinationRegion f x =
 -- invalid or improperly signed PresignedUrl will cause the copy operation to
 -- fail asynchronously, and the snapshot will move to an error state.
 csrPresignedUrl :: Lens' CopySnapshot (Maybe Text)
-csrPresignedUrl f x =
-    f (_csrPresignedUrl x)
-        <&> \y -> x { _csrPresignedUrl = y }
+csrPresignedUrl = lens _csrPresignedUrl (\s a -> s { _csrPresignedUrl = a })
 {-# INLINE csrPresignedUrl #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
-data CopySnapshotResponse = CopySnapshotResponse
+newtype CopySnapshotResponse = CopySnapshotResponse
     { _cssSnapshotId :: Maybe Text
       -- ^ The ID of the new snapshot.
     } deriving (Show, Generic)
 
 -- | The ID of the new snapshot.
 cssSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
-cssSnapshotId f x =
-    f (_cssSnapshotId x)
-        <&> \y -> x { _cssSnapshotId = y }
+cssSnapshotId = lens _cssSnapshotId (\s a -> s { _cssSnapshotId = a })
 {-# INLINE cssSnapshotId #-}
 
 instance FromXML CopySnapshotResponse where

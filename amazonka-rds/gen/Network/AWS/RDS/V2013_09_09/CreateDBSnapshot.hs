@@ -30,7 +30,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSnapshot
     -- * Request
       CreateDBSnapshot
     -- ** Request constructor
-    , createDBSnapshot
+    , mkCreateDBSnapshotMessage
     -- ** Request lenses
     , cdbsnDBSnapshotIdentifier
     , cdbsnDBInstanceIdentifier
@@ -46,16 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDBSnapshot' request.
-createDBSnapshot :: Text -- ^ 'cdbsnDBSnapshotIdentifier'
-                 -> Text -- ^ 'cdbsnDBInstanceIdentifier'
-                 -> CreateDBSnapshot
-createDBSnapshot p1 p2 = CreateDBSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBSnapshot' request.
+mkCreateDBSnapshotMessage :: Text -- ^ 'cdbsnDBSnapshotIdentifier'
+                          -> Text -- ^ 'cdbsnDBInstanceIdentifier'
+                          -> CreateDBSnapshot
+mkCreateDBSnapshotMessage p1 p2 = CreateDBSnapshot
     { _cdbsnDBSnapshotIdentifier = p1
     , _cdbsnDBInstanceIdentifier = p2
     , _cdbsnTags = mempty
     }
-{-# INLINE createDBSnapshot #-}
+{-# INLINE mkCreateDBSnapshotMessage #-}
 
 data CreateDBSnapshot = CreateDBSnapshot
     { _cdbsnDBSnapshotIdentifier :: Text
@@ -79,9 +80,7 @@ data CreateDBSnapshot = CreateDBSnapshot
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: my-snapshot-id.
 cdbsnDBSnapshotIdentifier :: Lens' CreateDBSnapshot (Text)
-cdbsnDBSnapshotIdentifier f x =
-    f (_cdbsnDBSnapshotIdentifier x)
-        <&> \y -> x { _cdbsnDBSnapshotIdentifier = y }
+cdbsnDBSnapshotIdentifier = lens _cdbsnDBSnapshotIdentifier (\s a -> s { _cdbsnDBSnapshotIdentifier = a })
 {-# INLINE cdbsnDBSnapshotIdentifier #-}
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
@@ -89,22 +88,18 @@ cdbsnDBSnapshotIdentifier f x =
 -- from 1 to 63 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens.
 cdbsnDBInstanceIdentifier :: Lens' CreateDBSnapshot (Text)
-cdbsnDBInstanceIdentifier f x =
-    f (_cdbsnDBInstanceIdentifier x)
-        <&> \y -> x { _cdbsnDBInstanceIdentifier = y }
+cdbsnDBInstanceIdentifier = lens _cdbsnDBInstanceIdentifier (\s a -> s { _cdbsnDBInstanceIdentifier = a })
 {-# INLINE cdbsnDBInstanceIdentifier #-}
 
 -- | A list of tags.
 cdbsnTags :: Lens' CreateDBSnapshot ([Tag])
-cdbsnTags f x =
-    f (_cdbsnTags x)
-        <&> \y -> x { _cdbsnTags = y }
+cdbsnTags = lens _cdbsnTags (\s a -> s { _cdbsnTags = a })
 {-# INLINE cdbsnTags #-}
 
 instance ToQuery CreateDBSnapshot where
     toQuery = genericQuery def
 
-data CreateDBSnapshotResponse = CreateDBSnapshotResponse
+newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _dbsxDBSnapshot :: Maybe DBSnapshot
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBSnapshot DeleteDBSnapshot This data type is used
@@ -115,9 +110,7 @@ data CreateDBSnapshotResponse = CreateDBSnapshotResponse
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
 dbsxDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-dbsxDBSnapshot f x =
-    f (_dbsxDBSnapshot x)
-        <&> \y -> x { _dbsxDBSnapshot = y }
+dbsxDBSnapshot = lens _dbsxDBSnapshot (\s a -> s { _dbsxDBSnapshot = a })
 {-# INLINE dbsxDBSnapshot #-}
 
 instance FromXML CreateDBSnapshotResponse where

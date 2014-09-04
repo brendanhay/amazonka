@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.PutBucketCors
     -- * Request
       PutBucketCors
     -- ** Request constructor
-    , putBucketCors
+    , mkPutBucketCorsRequest
     -- ** Request lenses
     , pbcrBucket
     , pbcrCORSConfiguration
@@ -37,15 +37,16 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutBucketCors' request.
-putBucketCors :: BucketName -- ^ 'pbcrBucket'
-              -> PutBucketCors
-putBucketCors p1 = PutBucketCors
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketCors' request.
+mkPutBucketCorsRequest :: BucketName -- ^ 'pbcrBucket'
+                       -> PutBucketCors
+mkPutBucketCorsRequest p1 = PutBucketCors
     { _pbcrBucket = p1
     , _pbcrCORSConfiguration = Nothing
     , _pbcrContentMD5 = Nothing
     }
-{-# INLINE putBucketCors #-}
+{-# INLINE mkPutBucketCorsRequest #-}
 
 data PutBucketCors = PutBucketCors
     { _pbcrBucket :: BucketName
@@ -54,21 +55,15 @@ data PutBucketCors = PutBucketCors
     } deriving (Show, Generic)
 
 pbcrBucket :: Lens' PutBucketCors (BucketName)
-pbcrBucket f x =
-    f (_pbcrBucket x)
-        <&> \y -> x { _pbcrBucket = y }
+pbcrBucket = lens _pbcrBucket (\s a -> s { _pbcrBucket = a })
 {-# INLINE pbcrBucket #-}
 
 pbcrCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
-pbcrCORSConfiguration f x =
-    f (_pbcrCORSConfiguration x)
-        <&> \y -> x { _pbcrCORSConfiguration = y }
+pbcrCORSConfiguration = lens _pbcrCORSConfiguration (\s a -> s { _pbcrCORSConfiguration = a })
 {-# INLINE pbcrCORSConfiguration #-}
 
 pbcrContentMD5 :: Lens' PutBucketCors (Maybe Text)
-pbcrContentMD5 f x =
-    f (_pbcrContentMD5 x)
-        <&> \y -> x { _pbcrContentMD5 = y }
+pbcrContentMD5 = lens _pbcrContentMD5 (\s a -> s { _pbcrContentMD5 = a })
 {-# INLINE pbcrContentMD5 #-}
 
 instance ToPath PutBucketCors where
@@ -82,13 +77,9 @@ instance ToQuery PutBucketCors where
         [ "cors"
         ]
 
-instance ToHeaders PutBucketCors where
-    toHeaders PutBucketCors{..} = concat
-        [ "Content-MD5" =: _pbcrContentMD5
-        ]
+instance ToHeaders PutBucketCors
 
-instance ToBody PutBucketCors where
-    toBody = toBody . encodeXML . _pbcrCORSConfiguration
+instance ToBody PutBucketCors
 
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Show, Generic)

@@ -40,7 +40,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
     -- * Request
       ReadPipeline
     -- ** Request constructor
-    , readPipeline
+    , mkReadPipelineRequest
     -- ** Request lenses
     , rprId
 
@@ -55,24 +55,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ReadPipeline' request.
-readPipeline :: Text -- ^ 'rprId'
-             -> ReadPipeline
-readPipeline p1 = ReadPipeline
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadPipeline' request.
+mkReadPipelineRequest :: Text -- ^ 'rprId'
+                      -> ReadPipeline
+mkReadPipelineRequest p1 = ReadPipeline
     { _rprId = p1
     }
-{-# INLINE readPipeline #-}
+{-# INLINE mkReadPipelineRequest #-}
 
-data ReadPipeline = ReadPipeline
+newtype ReadPipeline = ReadPipeline
     { _rprId :: Text
       -- ^ The identifier of the pipeline to read.
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline to read.
 rprId :: Lens' ReadPipeline (Text)
-rprId f x =
-    f (_rprId x)
-        <&> \y -> x { _rprId = y }
+rprId = lens _rprId (\s a -> s { _rprId = a })
 {-# INLINE rprId #-}
 
 instance ToPath ReadPipeline where
@@ -87,7 +86,7 @@ instance ToHeaders ReadPipeline
 
 instance ToJSON ReadPipeline
 
-data ReadPipelineResponse = ReadPipelineResponse
+newtype ReadPipelineResponse = ReadPipelineResponse
     { _rpsPipeline :: Maybe Pipeline
       -- ^ A section of the response body that provides information about
       -- the pipeline.
@@ -96,9 +95,7 @@ data ReadPipelineResponse = ReadPipelineResponse
 -- | A section of the response body that provides information about the
 -- pipeline.
 rpsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-rpsPipeline f x =
-    f (_rpsPipeline x)
-        <&> \y -> x { _rpsPipeline = y }
+rpsPipeline = lens _rpsPipeline (\s a -> s { _rpsPipeline = a })
 {-# INLINE rpsPipeline #-}
 
 instance FromJSON ReadPipelineResponse

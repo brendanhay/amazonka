@@ -24,10 +24,10 @@ module Network.AWS.Redshift.V2012_12_01.ModifySnapshotCopyRetentionPeriod
     -- * Request
       ModifySnapshotCopyRetentionPeriod
     -- ** Request constructor
-    , modifySnapshotCopyRetentionPeriod
+    , mkModifySnapshotCopyRetentionPeriodMessage
     -- ** Request lenses
-    , mscrpmRetentionPeriod
     , mscrpmClusterIdentifier
+    , mscrpmRetentionPeriod
 
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResponse
@@ -39,18 +39,24 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifySnapshotCopyRetentionPeriod' request.
-modifySnapshotCopyRetentionPeriod :: Integer -- ^ 'mscrpmRetentionPeriod'
-                                  -> Text -- ^ 'mscrpmClusterIdentifier'
-                                  -> ModifySnapshotCopyRetentionPeriod
-modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
-    { _mscrpmRetentionPeriod = p1
-    , _mscrpmClusterIdentifier = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifySnapshotCopyRetentionPeriod' request.
+mkModifySnapshotCopyRetentionPeriodMessage :: Text -- ^ 'mscrpmClusterIdentifier'
+                                           -> Integer -- ^ 'mscrpmRetentionPeriod'
+                                           -> ModifySnapshotCopyRetentionPeriod
+mkModifySnapshotCopyRetentionPeriodMessage p1 p2 = ModifySnapshotCopyRetentionPeriod
+    { _mscrpmClusterIdentifier = p1
+    , _mscrpmRetentionPeriod = p2
     }
-{-# INLINE modifySnapshotCopyRetentionPeriod #-}
+{-# INLINE mkModifySnapshotCopyRetentionPeriodMessage #-}
 
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
-    { _mscrpmRetentionPeriod :: Integer
+    { _mscrpmClusterIdentifier :: Text
+      -- ^ The unique identifier of the cluster for which you want to change
+      -- the retention period for automated snapshots that are copied to a
+      -- destination region. Constraints: Must be the valid name of an
+      -- existing cluster that has cross-region snapshot copy enabled.
+    , _mscrpmRetentionPeriod :: Integer
       -- ^ The number of days to retain automated snapshots in the
       -- destination region after they are copied from the source region.
       -- If you decrease the retention period for automated snapshots that
@@ -58,12 +64,15 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
       -- any existing automated snapshots that were copied to the
       -- destination region and that fall outside of the new retention
       -- period. Constraints: Must be at least 1 and no more than 35.
-    , _mscrpmClusterIdentifier :: Text
-      -- ^ The unique identifier of the cluster for which you want to change
-      -- the retention period for automated snapshots that are copied to a
-      -- destination region. Constraints: Must be the valid name of an
-      -- existing cluster that has cross-region snapshot copy enabled.
     } deriving (Show, Generic)
+
+-- | The unique identifier of the cluster for which you want to change the
+-- retention period for automated snapshots that are copied to a destination
+-- region. Constraints: Must be the valid name of an existing cluster that has
+-- cross-region snapshot copy enabled.
+mscrpmClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod (Text)
+mscrpmClusterIdentifier = lens _mscrpmClusterIdentifier (\s a -> s { _mscrpmClusterIdentifier = a })
+{-# INLINE mscrpmClusterIdentifier #-}
 
 -- | The number of days to retain automated snapshots in the destination region
 -- after they are copied from the source region. If you decrease the retention
@@ -72,34 +81,20 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
 -- copied to the destination region and that fall outside of the new retention
 -- period. Constraints: Must be at least 1 and no more than 35.
 mscrpmRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod (Integer)
-mscrpmRetentionPeriod f x =
-    f (_mscrpmRetentionPeriod x)
-        <&> \y -> x { _mscrpmRetentionPeriod = y }
+mscrpmRetentionPeriod = lens _mscrpmRetentionPeriod (\s a -> s { _mscrpmRetentionPeriod = a })
 {-# INLINE mscrpmRetentionPeriod #-}
-
--- | The unique identifier of the cluster for which you want to change the
--- retention period for automated snapshots that are copied to a destination
--- region. Constraints: Must be the valid name of an existing cluster that has
--- cross-region snapshot copy enabled.
-mscrpmClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod (Text)
-mscrpmClusterIdentifier f x =
-    f (_mscrpmClusterIdentifier x)
-        <&> \y -> x { _mscrpmClusterIdentifier = y }
-{-# INLINE mscrpmClusterIdentifier #-}
 
 instance ToQuery ModifySnapshotCopyRetentionPeriod where
     toQuery = genericQuery def
 
-data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
+newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _ccuCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
 ccuCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
-ccuCluster f x =
-    f (_ccuCluster x)
-        <&> \y -> x { _ccuCluster = y }
+ccuCluster = lens _ccuCluster (\s a -> s { _ccuCluster = a })
 {-# INLINE ccuCluster #-}
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where

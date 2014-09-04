@@ -50,11 +50,11 @@ module Network.AWS.DynamoDB.V2012_08_10.UpdateTable
     -- * Request
       UpdateTable
     -- ** Request constructor
-    , updateTable
+    , mkUpdateTableInput
     -- ** Request lenses
     , utiTableName
-    , utiGlobalSecondaryIndexUpdates
     , utiProvisionedThroughput
+    , utiGlobalSecondaryIndexUpdates
 
     -- * Response
     , UpdateTableResponse
@@ -67,54 +67,49 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateTable' request.
-updateTable :: Text -- ^ 'utiTableName'
-            -> UpdateTable
-updateTable p1 = UpdateTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateTable' request.
+mkUpdateTableInput :: Text -- ^ 'utiTableName'
+                   -> UpdateTable
+mkUpdateTableInput p1 = UpdateTable
     { _utiTableName = p1
-    , _utiGlobalSecondaryIndexUpdates = mempty
     , _utiProvisionedThroughput = Nothing
+    , _utiGlobalSecondaryIndexUpdates = mempty
     }
-{-# INLINE updateTable #-}
+{-# INLINE mkUpdateTableInput #-}
 
 data UpdateTable = UpdateTable
     { _utiTableName :: Text
       -- ^ The name of the table to be updated.
-    , _utiGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
-      -- ^ An array of one or more global secondary indexes on the table,
-      -- together with provisioned throughput settings for each index.
     , _utiProvisionedThroughput :: Maybe ProvisionedThroughput
       -- ^ Represents the provisioned throughput settings for a specified
       -- table or index. The settings can be modified using the
       -- UpdateTable operation. For current minimum and maximum
       -- provisioned throughput values, see Limits in the Amazon DynamoDB
       -- Developer Guide.
+    , _utiGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
+      -- ^ An array of one or more global secondary indexes on the table,
+      -- together with provisioned throughput settings for each index.
     } deriving (Show, Generic)
 
 -- | The name of the table to be updated.
 utiTableName :: Lens' UpdateTable (Text)
-utiTableName f x =
-    f (_utiTableName x)
-        <&> \y -> x { _utiTableName = y }
+utiTableName = lens _utiTableName (\s a -> s { _utiTableName = a })
 {-# INLINE utiTableName #-}
-
--- | An array of one or more global secondary indexes on the table, together
--- with provisioned throughput settings for each index.
-utiGlobalSecondaryIndexUpdates :: Lens' UpdateTable ([GlobalSecondaryIndexUpdate])
-utiGlobalSecondaryIndexUpdates f x =
-    f (_utiGlobalSecondaryIndexUpdates x)
-        <&> \y -> x { _utiGlobalSecondaryIndexUpdates = y }
-{-# INLINE utiGlobalSecondaryIndexUpdates #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
 -- current minimum and maximum provisioned throughput values, see Limits in
 -- the Amazon DynamoDB Developer Guide.
 utiProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
-utiProvisionedThroughput f x =
-    f (_utiProvisionedThroughput x)
-        <&> \y -> x { _utiProvisionedThroughput = y }
+utiProvisionedThroughput = lens _utiProvisionedThroughput (\s a -> s { _utiProvisionedThroughput = a })
 {-# INLINE utiProvisionedThroughput #-}
+
+-- | An array of one or more global secondary indexes on the table, together
+-- with provisioned throughput settings for each index.
+utiGlobalSecondaryIndexUpdates :: Lens' UpdateTable ([GlobalSecondaryIndexUpdate])
+utiGlobalSecondaryIndexUpdates = lens _utiGlobalSecondaryIndexUpdates (\s a -> s { _utiGlobalSecondaryIndexUpdates = a })
+{-# INLINE utiGlobalSecondaryIndexUpdates #-}
 
 instance ToPath UpdateTable
 
@@ -124,16 +119,14 @@ instance ToHeaders UpdateTable
 
 instance ToJSON UpdateTable
 
-data UpdateTableResponse = UpdateTableResponse
+newtype UpdateTableResponse = UpdateTableResponse
     { _utoTableDescription :: Maybe TableDescription
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
 utoTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
-utoTableDescription f x =
-    f (_utoTableDescription x)
-        <&> \y -> x { _utoTableDescription = y }
+utoTableDescription = lens _utoTableDescription (\s a -> s { _utoTableDescription = a })
 {-# INLINE utoTableDescription #-}
 
 instance FromJSON UpdateTableResponse

@@ -31,7 +31,7 @@ module Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription
     -- * Request
       RemoveSourceIdentifierFromSubscription
     -- ** Request constructor
-    , removeSourceIdentifierFromSubscription
+    , mkRemoveSourceIdentifierFromSubscriptionMessage
     -- ** Request lenses
     , rsifsmSubscriptionName
     , rsifsmSourceIdentifier
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RemoveSourceIdentifierFromSubscription' request.
-removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsmSubscriptionName'
-                                       -> Text -- ^ 'rsifsmSourceIdentifier'
-                                       -> RemoveSourceIdentifierFromSubscription
-removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscription
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveSourceIdentifierFromSubscription' request.
+mkRemoveSourceIdentifierFromSubscriptionMessage :: Text -- ^ 'rsifsmSubscriptionName'
+                                                -> Text -- ^ 'rsifsmSourceIdentifier'
+                                                -> RemoveSourceIdentifierFromSubscription
+mkRemoveSourceIdentifierFromSubscriptionMessage p1 p2 = RemoveSourceIdentifierFromSubscription
     { _rsifsmSubscriptionName = p1
     , _rsifsmSourceIdentifier = p2
     }
-{-# INLINE removeSourceIdentifierFromSubscription #-}
+{-# INLINE mkRemoveSourceIdentifierFromSubscriptionMessage #-}
 
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
     { _rsifsmSubscriptionName :: Text
@@ -69,23 +70,19 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
 rsifsmSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription (Text)
-rsifsmSubscriptionName f x =
-    f (_rsifsmSubscriptionName x)
-        <&> \y -> x { _rsifsmSubscriptionName = y }
+rsifsmSubscriptionName = lens _rsifsmSubscriptionName (\s a -> s { _rsifsmSubscriptionName = a })
 {-# INLINE rsifsmSubscriptionName #-}
 
 -- | The source identifier to be removed from the subscription, such as the DB
 -- instance identifier for a DB instance or the name of a security group.
 rsifsmSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription (Text)
-rsifsmSourceIdentifier f x =
-    f (_rsifsmSourceIdentifier x)
-        <&> \y -> x { _rsifsmSourceIdentifier = y }
+rsifsmSourceIdentifier = lens _rsifsmSourceIdentifier (\s a -> s { _rsifsmSourceIdentifier = a })
 {-# INLINE rsifsmSourceIdentifier #-}
 
 instance ToQuery RemoveSourceIdentifierFromSubscription where
     toQuery = genericQuery def
 
-data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
+newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _eserEventSubscription :: Maybe EventSubscription
       -- ^ Contains the results of a successful invocation of the
       -- DescribeEventSubscriptions action.
@@ -94,9 +91,7 @@ data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFrom
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
 eserEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
-eserEventSubscription f x =
-    f (_eserEventSubscription x)
-        <&> \y -> x { _eserEventSubscription = y }
+eserEventSubscription = lens _eserEventSubscription (\s a -> s { _eserEventSubscription = a })
 {-# INLINE eserEventSubscription #-}
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where

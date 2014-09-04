@@ -28,15 +28,15 @@ module Network.AWS.S3.V2006_03_01.UploadPart
     -- * Request
       UploadPart
     -- ** Request constructor
-    , uploadPart
+    , mkUploadPartRequest
     -- ** Request lenses
-    , uprBucket
-    , uprUploadId
-    , uprKey
-    , uprPartNumber
     , uprBody
+    , uprBucket
     , uprContentLength
     , uprContentMD5
+    , uprKey
+    , uprPartNumber
+    , uprUploadId
     , uprSSECustomerAlgorithm
     , uprSSECustomerKey
     , uprSSECustomerKeyMD5
@@ -44,50 +44,51 @@ module Network.AWS.S3.V2006_03_01.UploadPart
     -- * Response
     , UploadPartResponse
     -- ** Response lenses
+    , upoServerSideEncryption
     , upoETag
     , upoSSECustomerAlgorithm
     , upoSSECustomerKeyMD5
-    , upoServerSideEncryption
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UploadPart' request.
-uploadPart :: BucketName -- ^ 'uprBucket'
-           -> Text -- ^ 'uprUploadId'
-           -> ObjectKey -- ^ 'uprKey'
-           -> Integer -- ^ 'uprPartNumber'
-           -> RqBody -- ^ 'uprBody'
-           -> UploadPart
-uploadPart p1 p2 p3 p4 p5 = UploadPart
-    { _uprBucket = p1
-    , _uprUploadId = p2
-    , _uprKey = p3
-    , _uprPartNumber = p4
-    , _uprBody = p5
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadPart' request.
+mkUploadPartRequest :: RqBody -- ^ 'uprBody'
+                    -> BucketName -- ^ 'uprBucket'
+                    -> ObjectKey -- ^ 'uprKey'
+                    -> Integer -- ^ 'uprPartNumber'
+                    -> Text -- ^ 'uprUploadId'
+                    -> UploadPart
+mkUploadPartRequest p1 p2 p3 p4 p5 = UploadPart
+    { _uprBody = p1
+    , _uprBucket = p2
     , _uprContentLength = Nothing
     , _uprContentMD5 = Nothing
+    , _uprKey = p5
+    , _uprPartNumber = p6
+    , _uprUploadId = p7
     , _uprSSECustomerAlgorithm = Nothing
     , _uprSSECustomerKey = Nothing
     , _uprSSECustomerKeyMD5 = Nothing
     }
-{-# INLINE uploadPart #-}
+{-# INLINE mkUploadPartRequest #-}
 
 data UploadPart = UploadPart
-    { _uprBucket :: BucketName
-    , _uprUploadId :: Text
-      -- ^ Upload ID identifying the multipart upload whose part is being
-      -- uploaded.
-    , _uprKey :: ObjectKey
-    , _uprPartNumber :: Integer
-      -- ^ Part number of part being uploaded.
-    , _uprBody :: RqBody
+    { _uprBody :: RqBody
+    , _uprBucket :: BucketName
     , _uprContentLength :: Maybe Integer
       -- ^ Size of the body in bytes. This parameter is useful when the size
       -- of the body cannot be determined automatically.
     , _uprContentMD5 :: Maybe Text
+    , _uprKey :: ObjectKey
+    , _uprPartNumber :: Integer
+      -- ^ Part number of part being uploaded.
+    , _uprUploadId :: Text
+      -- ^ Upload ID identifying the multipart upload whose part is being
+      -- uploaded.
     , _uprSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
@@ -106,58 +107,42 @@ data UploadPart = UploadPart
       -- check to ensure the encryption key was transmitted without error.
     } deriving (Show, Generic)
 
-uprBucket :: Lens' UploadPart (BucketName)
-uprBucket f x =
-    f (_uprBucket x)
-        <&> \y -> x { _uprBucket = y }
-{-# INLINE uprBucket #-}
-
--- | Upload ID identifying the multipart upload whose part is being uploaded.
-uprUploadId :: Lens' UploadPart (Text)
-uprUploadId f x =
-    f (_uprUploadId x)
-        <&> \y -> x { _uprUploadId = y }
-{-# INLINE uprUploadId #-}
-
-uprKey :: Lens' UploadPart (ObjectKey)
-uprKey f x =
-    f (_uprKey x)
-        <&> \y -> x { _uprKey = y }
-{-# INLINE uprKey #-}
-
--- | Part number of part being uploaded.
-uprPartNumber :: Lens' UploadPart (Integer)
-uprPartNumber f x =
-    f (_uprPartNumber x)
-        <&> \y -> x { _uprPartNumber = y }
-{-# INLINE uprPartNumber #-}
-
 uprBody :: Lens' UploadPart (RqBody)
-uprBody f x =
-    f (_uprBody x)
-        <&> \y -> x { _uprBody = y }
+uprBody = lens _uprBody (\s a -> s { _uprBody = a })
 {-# INLINE uprBody #-}
+
+uprBucket :: Lens' UploadPart (BucketName)
+uprBucket = lens _uprBucket (\s a -> s { _uprBucket = a })
+{-# INLINE uprBucket #-}
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
 uprContentLength :: Lens' UploadPart (Maybe Integer)
-uprContentLength f x =
-    f (_uprContentLength x)
-        <&> \y -> x { _uprContentLength = y }
+uprContentLength = lens _uprContentLength (\s a -> s { _uprContentLength = a })
 {-# INLINE uprContentLength #-}
 
 uprContentMD5 :: Lens' UploadPart (Maybe Text)
-uprContentMD5 f x =
-    f (_uprContentMD5 x)
-        <&> \y -> x { _uprContentMD5 = y }
+uprContentMD5 = lens _uprContentMD5 (\s a -> s { _uprContentMD5 = a })
 {-# INLINE uprContentMD5 #-}
+
+uprKey :: Lens' UploadPart (ObjectKey)
+uprKey = lens _uprKey (\s a -> s { _uprKey = a })
+{-# INLINE uprKey #-}
+
+-- | Part number of part being uploaded.
+uprPartNumber :: Lens' UploadPart (Integer)
+uprPartNumber = lens _uprPartNumber (\s a -> s { _uprPartNumber = a })
+{-# INLINE uprPartNumber #-}
+
+-- | Upload ID identifying the multipart upload whose part is being uploaded.
+uprUploadId :: Lens' UploadPart (Text)
+uprUploadId = lens _uprUploadId (\s a -> s { _uprUploadId = a })
+{-# INLINE uprUploadId #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
 uprSSECustomerAlgorithm :: Lens' UploadPart (Maybe Text)
-uprSSECustomerAlgorithm f x =
-    f (_uprSSECustomerAlgorithm x)
-        <&> \y -> x { _uprSSECustomerAlgorithm = y }
+uprSSECustomerAlgorithm = lens _uprSSECustomerAlgorithm (\s a -> s { _uprSSECustomerAlgorithm = a })
 {-# INLINE uprSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -168,18 +153,14 @@ uprSSECustomerAlgorithm f x =
 -- This must be the same encryption key specified in the initiate multipart
 -- upload request.
 uprSSECustomerKey :: Lens' UploadPart (Maybe Text)
-uprSSECustomerKey f x =
-    f (_uprSSECustomerKey x)
-        <&> \y -> x { _uprSSECustomerKey = y }
+uprSSECustomerKey = lens _uprSSECustomerKey (\s a -> s { _uprSSECustomerKey = a })
 {-# INLINE uprSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
 uprSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
-uprSSECustomerKeyMD5 f x =
-    f (_uprSSECustomerKeyMD5 x)
-        <&> \y -> x { _uprSSECustomerKeyMD5 = y }
+uprSSECustomerKeyMD5 = lens _uprSSECustomerKeyMD5 (\s a -> s { _uprSSECustomerKeyMD5 = a })
 {-# INLINE uprSSECustomerKeyMD5 #-}
 
 instance ToPath UploadPart where
@@ -196,20 +177,15 @@ instance ToQuery UploadPart where
         , "uploadId" =? _uprUploadId
         ]
 
-instance ToHeaders UploadPart where
-    toHeaders UploadPart{..} = concat
-        [ "Content-Length" =: _uprContentLength
-        , "Content-MD5" =: _uprContentMD5
-        , "x-amz-server-side-encryption-customer-algorithm" =: _uprSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: _uprSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: _uprSSECustomerKeyMD5
-        ]
+instance ToHeaders UploadPart
 
-instance ToBody UploadPart where
-    toBody = toBody . _uprBody
+instance ToBody UploadPart
 
 data UploadPartResponse = UploadPartResponse
-    { _upoETag :: Maybe ETag
+    { _upoServerSideEncryption :: Maybe ServerSideEncryption
+      -- ^ The Server-side encryption algorithm used when storing this
+      -- object in S3.
+    , _upoETag :: Maybe ETag
       -- ^ Entity tag for the uploaded object.
     , _upoSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
@@ -220,42 +196,31 @@ data UploadPartResponse = UploadPartResponse
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , _upoServerSideEncryption :: Maybe ServerSideEncryption
-      -- ^ The Server-side encryption algorithm used when storing this
-      -- object in S3.
     } deriving (Show, Generic)
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+upoServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
+upoServerSideEncryption = lens _upoServerSideEncryption (\s a -> s { _upoServerSideEncryption = a })
+{-# INLINE upoServerSideEncryption #-}
 
 -- | Entity tag for the uploaded object.
 upoETag :: Lens' UploadPartResponse (Maybe ETag)
-upoETag f x =
-    f (_upoETag x)
-        <&> \y -> x { _upoETag = y }
+upoETag = lens _upoETag (\s a -> s { _upoETag = a })
 {-# INLINE upoETag #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
 upoSSECustomerAlgorithm :: Lens' UploadPartResponse (Maybe Text)
-upoSSECustomerAlgorithm f x =
-    f (_upoSSECustomerAlgorithm x)
-        <&> \y -> x { _upoSSECustomerAlgorithm = y }
+upoSSECustomerAlgorithm = lens _upoSSECustomerAlgorithm (\s a -> s { _upoSSECustomerAlgorithm = a })
 {-# INLINE upoSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
 upoSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
-upoSSECustomerKeyMD5 f x =
-    f (_upoSSECustomerKeyMD5 x)
-        <&> \y -> x { _upoSSECustomerKeyMD5 = y }
+upoSSECustomerKeyMD5 = lens _upoSSECustomerKeyMD5 (\s a -> s { _upoSSECustomerKeyMD5 = a })
 {-# INLINE upoSSECustomerKeyMD5 #-}
-
--- | The Server-side encryption algorithm used when storing this object in S3.
-upoServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
-upoServerSideEncryption f x =
-    f (_upoServerSideEncryption x)
-        <&> \y -> x { _upoServerSideEncryption = y }
-{-# INLINE upoServerSideEncryption #-}
 
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
@@ -264,7 +229,7 @@ instance AWSRequest UploadPart where
     request = put
     response _ = headerResponse $ \hs ->
         pure UploadPartResponse
+            <*> hs ~:? "x-amz-server-side-encryption"
             <*> hs ~:? "ETag"
             <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
-            <*> hs ~:? "x-amz-server-side-encryption"

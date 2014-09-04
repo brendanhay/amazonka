@@ -31,44 +31,45 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBParameterGroups
     -- * Request
       DescribeDBParameterGroups
     -- ** Request constructor
-    , describeDBParameterGroups
+    , mkDescribeDBParameterGroupsMessage
     -- ** Request lenses
-    , ddbpgnMaxRecords
     , ddbpgnDBParameterGroupName
+    , ddbpgnMaxRecords
     , ddbpgnMarker
 
     -- * Response
     , DescribeDBParameterGroupsResponse
     -- ** Response lenses
-    , dbpgmDBParameterGroups
     , dbpgmMarker
+    , dbpgmDBParameterGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDBParameterGroups' request.
-describeDBParameterGroups :: DescribeDBParameterGroups
-describeDBParameterGroups = DescribeDBParameterGroups
-    { _ddbpgnMaxRecords = Nothing
-    , _ddbpgnDBParameterGroupName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBParameterGroups' request.
+mkDescribeDBParameterGroupsMessage :: DescribeDBParameterGroups
+mkDescribeDBParameterGroupsMessage = DescribeDBParameterGroups
+    { _ddbpgnDBParameterGroupName = Nothing
+    , _ddbpgnMaxRecords = Nothing
     , _ddbpgnMarker = Nothing
     }
-{-# INLINE describeDBParameterGroups #-}
+{-# INLINE mkDescribeDBParameterGroupsMessage #-}
 
 data DescribeDBParameterGroups = DescribeDBParameterGroups
-    { _ddbpgnMaxRecords :: Maybe Integer
+    { _ddbpgnDBParameterGroupName :: Maybe Text
+      -- ^ The name of a specific DB parameter group to return details for.
+      -- Constraints: Must be 1 to 255 alphanumeric characters First
+      -- character must be a letter Cannot end with a hyphen or contain
+      -- two consecutive hyphens.
+    , _ddbpgnMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a pagination
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _ddbpgnDBParameterGroupName :: Maybe Text
-      -- ^ The name of a specific DB parameter group to return details for.
-      -- Constraints: Must be 1 to 255 alphanumeric characters First
-      -- character must be a letter Cannot end with a hyphen or contain
-      -- two consecutive hyphens.
     , _ddbpgnMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeDBParameterGroups request. If this parameter is
@@ -76,62 +77,52 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups
       -- up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
+-- | The name of a specific DB parameter group to return details for.
+-- Constraints: Must be 1 to 255 alphanumeric characters First character must
+-- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
+ddbpgnDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
+ddbpgnDBParameterGroupName = lens _ddbpgnDBParameterGroupName (\s a -> s { _ddbpgnDBParameterGroupName = a })
+{-# INLINE ddbpgnDBParameterGroupName #-}
+
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpgnMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Integer)
-ddbpgnMaxRecords f x =
-    f (_ddbpgnMaxRecords x)
-        <&> \y -> x { _ddbpgnMaxRecords = y }
+ddbpgnMaxRecords = lens _ddbpgnMaxRecords (\s a -> s { _ddbpgnMaxRecords = a })
 {-# INLINE ddbpgnMaxRecords #-}
-
--- | The name of a specific DB parameter group to return details for.
--- Constraints: Must be 1 to 255 alphanumeric characters First character must
--- be a letter Cannot end with a hyphen or contain two consecutive hyphens.
-ddbpgnDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddbpgnDBParameterGroupName f x =
-    f (_ddbpgnDBParameterGroupName x)
-        <&> \y -> x { _ddbpgnDBParameterGroupName = y }
-{-# INLINE ddbpgnDBParameterGroupName #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBParameterGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value specified
 -- by MaxRecords.
 ddbpgnMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddbpgnMarker f x =
-    f (_ddbpgnMarker x)
-        <&> \y -> x { _ddbpgnMarker = y }
+ddbpgnMarker = lens _ddbpgnMarker (\s a -> s { _ddbpgnMarker = a })
 {-# INLINE ddbpgnMarker #-}
 
 instance ToQuery DescribeDBParameterGroups where
     toQuery = genericQuery def
 
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
-    { _dbpgmDBParameterGroups :: [DBParameterGroup]
-      -- ^ A list of DBParameterGroup instances.
-    , _dbpgmMarker :: Maybe Text
+    { _dbpgmMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _dbpgmDBParameterGroups :: [DBParameterGroup]
+      -- ^ A list of DBParameterGroup instances.
     } deriving (Show, Generic)
-
--- | A list of DBParameterGroup instances.
-dbpgmDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse ([DBParameterGroup])
-dbpgmDBParameterGroups f x =
-    f (_dbpgmDBParameterGroups x)
-        <&> \y -> x { _dbpgmDBParameterGroups = y }
-{-# INLINE dbpgmDBParameterGroups #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dbpgmMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
-dbpgmMarker f x =
-    f (_dbpgmMarker x)
-        <&> \y -> x { _dbpgmMarker = y }
+dbpgmMarker = lens _dbpgmMarker (\s a -> s { _dbpgmMarker = a })
 {-# INLINE dbpgmMarker #-}
+
+-- | A list of DBParameterGroup instances.
+dbpgmDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse ([DBParameterGroup])
+dbpgmDBParameterGroups = lens _dbpgmDBParameterGroups (\s a -> s { _dbpgmDBParameterGroups = a })
+{-# INLINE dbpgmDBParameterGroups #-}
 
 instance FromXML DescribeDBParameterGroupsResponse where
     fromXMLOptions = xmlOptions

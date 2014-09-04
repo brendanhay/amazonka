@@ -36,13 +36,13 @@ module Network.AWS.RDS.V2013_09_09.ModifyEventSubscription
     -- * Request
       ModifyEventSubscription
     -- ** Request constructor
-    , modifyEventSubscription
+    , mkModifyEventSubscriptionMessage
     -- ** Request lenses
     , mesmSubscriptionName
-    , mesmEnabled
-    , mesmEventCategories
     , mesmSnsTopicArn
     , mesmSourceType
+    , mesmEventCategories
+    , mesmEnabled
 
     -- * Response
     , ModifyEventSubscriptionResponse
@@ -54,28 +54,22 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyEventSubscription' request.
-modifyEventSubscription :: Text -- ^ 'mesmSubscriptionName'
-                        -> ModifyEventSubscription
-modifyEventSubscription p1 = ModifyEventSubscription
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyEventSubscription' request.
+mkModifyEventSubscriptionMessage :: Text -- ^ 'mesmSubscriptionName'
+                                 -> ModifyEventSubscription
+mkModifyEventSubscriptionMessage p1 = ModifyEventSubscription
     { _mesmSubscriptionName = p1
-    , _mesmEnabled = Nothing
-    , _mesmEventCategories = mempty
     , _mesmSnsTopicArn = Nothing
     , _mesmSourceType = Nothing
+    , _mesmEventCategories = mempty
+    , _mesmEnabled = Nothing
     }
-{-# INLINE modifyEventSubscription #-}
+{-# INLINE mkModifyEventSubscriptionMessage #-}
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesmSubscriptionName :: Text
       -- ^ The name of the RDS event notification subscription.
-    , _mesmEnabled :: Maybe Bool
-      -- ^ A Boolean value; set to true to activate the subscription.
-    , _mesmEventCategories :: [Text]
-      -- ^ A list of event categories for a SourceType that you want to
-      -- subscribe to. You can see a list of the categories for a given
-      -- SourceType in the Events topic in the Amazon RDS User Guide or by
-      -- using the DescribeEventCategories action.
     , _mesmSnsTopicArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the SNS topic created for event
       -- notification. The ARN is created by Amazon SNS when you create a
@@ -87,39 +81,25 @@ data ModifyEventSubscription = ModifyEventSubscription
       -- value is not specified, all events are returned. Valid values:
       -- db-instance | db-parameter-group | db-security-group |
       -- db-snapshot.
+    , _mesmEventCategories :: [Text]
+      -- ^ A list of event categories for a SourceType that you want to
+      -- subscribe to. You can see a list of the categories for a given
+      -- SourceType in the Events topic in the Amazon RDS User Guide or by
+      -- using the DescribeEventCategories action.
+    , _mesmEnabled :: Maybe Bool
+      -- ^ A Boolean value; set to true to activate the subscription.
     } deriving (Show, Generic)
 
 -- | The name of the RDS event notification subscription.
 mesmSubscriptionName :: Lens' ModifyEventSubscription (Text)
-mesmSubscriptionName f x =
-    f (_mesmSubscriptionName x)
-        <&> \y -> x { _mesmSubscriptionName = y }
+mesmSubscriptionName = lens _mesmSubscriptionName (\s a -> s { _mesmSubscriptionName = a })
 {-# INLINE mesmSubscriptionName #-}
-
--- | A Boolean value; set to true to activate the subscription.
-mesmEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
-mesmEnabled f x =
-    f (_mesmEnabled x)
-        <&> \y -> x { _mesmEnabled = y }
-{-# INLINE mesmEnabled #-}
-
--- | A list of event categories for a SourceType that you want to subscribe to.
--- You can see a list of the categories for a given SourceType in the Events
--- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
--- action.
-mesmEventCategories :: Lens' ModifyEventSubscription ([Text])
-mesmEventCategories f x =
-    f (_mesmEventCategories x)
-        <&> \y -> x { _mesmEventCategories = y }
-{-# INLINE mesmEventCategories #-}
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic and
 -- subscribe to it.
 mesmSnsTopicArn :: Lens' ModifyEventSubscription (Maybe Text)
-mesmSnsTopicArn f x =
-    f (_mesmSnsTopicArn x)
-        <&> \y -> x { _mesmSnsTopicArn = y }
+mesmSnsTopicArn = lens _mesmSnsTopicArn (\s a -> s { _mesmSnsTopicArn = a })
 {-# INLINE mesmSnsTopicArn #-}
 
 -- | The type of source that will be generating the events. For example, if you
@@ -128,15 +108,26 @@ mesmSnsTopicArn f x =
 -- are returned. Valid values: db-instance | db-parameter-group |
 -- db-security-group | db-snapshot.
 mesmSourceType :: Lens' ModifyEventSubscription (Maybe Text)
-mesmSourceType f x =
-    f (_mesmSourceType x)
-        <&> \y -> x { _mesmSourceType = y }
+mesmSourceType = lens _mesmSourceType (\s a -> s { _mesmSourceType = a })
 {-# INLINE mesmSourceType #-}
+
+-- | A list of event categories for a SourceType that you want to subscribe to.
+-- You can see a list of the categories for a given SourceType in the Events
+-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
+-- action.
+mesmEventCategories :: Lens' ModifyEventSubscription ([Text])
+mesmEventCategories = lens _mesmEventCategories (\s a -> s { _mesmEventCategories = a })
+{-# INLINE mesmEventCategories #-}
+
+-- | A Boolean value; set to true to activate the subscription.
+mesmEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
+mesmEnabled = lens _mesmEnabled (\s a -> s { _mesmEnabled = a })
+{-# INLINE mesmEnabled #-}
 
 instance ToQuery ModifyEventSubscription where
     toQuery = genericQuery def
 
-data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
+newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _eszEventSubscription :: Maybe EventSubscription
       -- ^ Contains the results of a successful invocation of the
       -- DescribeEventSubscriptions action.
@@ -145,9 +136,7 @@ data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
 eszEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
-eszEventSubscription f x =
-    f (_eszEventSubscription x)
-        <&> \y -> x { _eszEventSubscription = y }
+eszEventSubscription = lens _eszEventSubscription (\s a -> s { _eszEventSubscription = a })
 {-# INLINE eszEventSubscription #-}
 
 instance FromXML ModifyEventSubscriptionResponse where

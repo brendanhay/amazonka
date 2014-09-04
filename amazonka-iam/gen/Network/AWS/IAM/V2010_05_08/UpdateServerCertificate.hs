@@ -34,7 +34,7 @@ module Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
     -- * Request
       UpdateServerCertificate
     -- ** Request constructor
-    , updateServerCertificate
+    , mkUpdateServerCertificateRequest
     -- ** Request lenses
     , uscrServerCertificateName
     , uscrNewPath
@@ -48,15 +48,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateServerCertificate' request.
-updateServerCertificate :: Text -- ^ 'uscrServerCertificateName'
-                        -> UpdateServerCertificate
-updateServerCertificate p1 = UpdateServerCertificate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateServerCertificate' request.
+mkUpdateServerCertificateRequest :: Text -- ^ 'uscrServerCertificateName'
+                                 -> UpdateServerCertificate
+mkUpdateServerCertificateRequest p1 = UpdateServerCertificate
     { _uscrServerCertificateName = p1
     , _uscrNewPath = Nothing
     , _uscrNewServerCertificateName = Nothing
     }
-{-# INLINE updateServerCertificate #-}
+{-# INLINE mkUpdateServerCertificateRequest #-}
 
 data UpdateServerCertificate = UpdateServerCertificate
     { _uscrServerCertificateName :: Text
@@ -71,25 +72,19 @@ data UpdateServerCertificate = UpdateServerCertificate
 
 -- | The name of the server certificate that you want to update.
 uscrServerCertificateName :: Lens' UpdateServerCertificate (Text)
-uscrServerCertificateName f x =
-    f (_uscrServerCertificateName x)
-        <&> \y -> x { _uscrServerCertificateName = y }
+uscrServerCertificateName = lens _uscrServerCertificateName (\s a -> s { _uscrServerCertificateName = a })
 {-# INLINE uscrServerCertificateName #-}
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate's path.
 uscrNewPath :: Lens' UpdateServerCertificate (Maybe Text)
-uscrNewPath f x =
-    f (_uscrNewPath x)
-        <&> \y -> x { _uscrNewPath = y }
+uscrNewPath = lens _uscrNewPath (\s a -> s { _uscrNewPath = a })
 {-# INLINE uscrNewPath #-}
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate's name.
 uscrNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
-uscrNewServerCertificateName f x =
-    f (_uscrNewServerCertificateName x)
-        <&> \y -> x { _uscrNewServerCertificateName = y }
+uscrNewServerCertificateName = lens _uscrNewServerCertificateName (\s a -> s { _uscrNewServerCertificateName = a })
 {-# INLINE uscrNewServerCertificateName #-}
 
 instance ToQuery UpdateServerCertificate where

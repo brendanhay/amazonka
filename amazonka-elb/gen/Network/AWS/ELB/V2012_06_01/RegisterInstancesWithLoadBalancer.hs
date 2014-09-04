@@ -47,7 +47,7 @@ module Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
     -- * Request
       RegisterInstancesWithLoadBalancer
     -- ** Request constructor
-    , registerInstancesWithLoadBalancer
+    , mkRegisterEndPointsInput
     -- ** Request lenses
     , repiLoadBalancerName
     , repiInstances
@@ -62,15 +62,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RegisterInstancesWithLoadBalancer' request.
-registerInstancesWithLoadBalancer :: Text -- ^ 'repiLoadBalancerName'
-                                  -> [Instance] -- ^ 'repiInstances'
-                                  -> RegisterInstancesWithLoadBalancer
-registerInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterInstancesWithLoadBalancer' request.
+mkRegisterEndPointsInput :: Text -- ^ 'repiLoadBalancerName'
+                         -> [Instance] -- ^ 'repiInstances'
+                         -> RegisterInstancesWithLoadBalancer
+mkRegisterEndPointsInput p1 p2 = RegisterInstancesWithLoadBalancer
     { _repiLoadBalancerName = p1
     , _repiInstances = p2
     }
-{-# INLINE registerInstancesWithLoadBalancer #-}
+{-# INLINE mkRegisterEndPointsInput #-}
 
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { _repiLoadBalancerName :: Text
@@ -84,31 +85,25 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers.
 repiLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer (Text)
-repiLoadBalancerName f x =
-    f (_repiLoadBalancerName x)
-        <&> \y -> x { _repiLoadBalancerName = y }
+repiLoadBalancerName = lens _repiLoadBalancerName (\s a -> s { _repiLoadBalancerName = a })
 {-# INLINE repiLoadBalancerName #-}
 
 -- | A list of instance IDs that should be registered with the load balancer.
 repiInstances :: Lens' RegisterInstancesWithLoadBalancer ([Instance])
-repiInstances f x =
-    f (_repiInstances x)
-        <&> \y -> x { _repiInstances = y }
+repiInstances = lens _repiInstances (\s a -> s { _repiInstances = a })
 {-# INLINE repiInstances #-}
 
 instance ToQuery RegisterInstancesWithLoadBalancer where
     toQuery = genericQuery def
 
-data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
+newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _repoInstances :: [Instance]
       -- ^ An updated list of instances for the load balancer.
     } deriving (Show, Generic)
 
 -- | An updated list of instances for the load balancer.
 repoInstances :: Lens' RegisterInstancesWithLoadBalancerResponse ([Instance])
-repoInstances f x =
-    f (_repoInstances x)
-        <&> \y -> x { _repoInstances = y }
+repoInstances = lens _repoInstances (\s a -> s { _repoInstances = a })
 {-# INLINE repoInstances #-}
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where

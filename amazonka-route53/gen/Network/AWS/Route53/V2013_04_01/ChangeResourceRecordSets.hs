@@ -42,10 +42,10 @@ module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
     -- * Request
       ChangeResourceRecordSets
     -- ** Request constructor
-    , changeResourceRecordSets
+    , mkChangeResourceRecordSetsRequest
     -- ** Request lenses
-    , crrsrChangeBatch
     , crrsrHostedZoneId
+    , crrsrChangeBatch
 
     -- * Response
     , ChangeResourceRecordSetsResponse
@@ -57,39 +57,36 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ChangeResourceRecordSets' request.
-changeResourceRecordSets :: ChangeBatch -- ^ 'crrsrChangeBatch'
-                         -> Text -- ^ 'crrsrHostedZoneId'
-                         -> ChangeResourceRecordSets
-changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
-    { _crrsrChangeBatch = p1
-    , _crrsrHostedZoneId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeResourceRecordSets' request.
+mkChangeResourceRecordSetsRequest :: Text -- ^ 'crrsrHostedZoneId'
+                                  -> ChangeBatch -- ^ 'crrsrChangeBatch'
+                                  -> ChangeResourceRecordSets
+mkChangeResourceRecordSetsRequest p1 p2 = ChangeResourceRecordSets
+    { _crrsrHostedZoneId = p1
+    , _crrsrChangeBatch = p2
     }
-{-# INLINE changeResourceRecordSets #-}
+{-# INLINE mkChangeResourceRecordSetsRequest #-}
 
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { _crrsrChangeBatch :: ChangeBatch
-      -- ^ A complex type that contains an optional comment and the Changes
-      -- element.
-    , _crrsrHostedZoneId :: Text
+    { _crrsrHostedZoneId :: Text
       -- ^ The ID of the hosted zone that contains the resource record sets
       -- that you want to change.
+    , _crrsrChangeBatch :: ChangeBatch
+      -- ^ A complex type that contains an optional comment and the Changes
+      -- element.
     } deriving (Show, Generic)
-
--- | A complex type that contains an optional comment and the Changes element.
-crrsrChangeBatch :: Lens' ChangeResourceRecordSets (ChangeBatch)
-crrsrChangeBatch f x =
-    f (_crrsrChangeBatch x)
-        <&> \y -> x { _crrsrChangeBatch = y }
-{-# INLINE crrsrChangeBatch #-}
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to change.
 crrsrHostedZoneId :: Lens' ChangeResourceRecordSets (Text)
-crrsrHostedZoneId f x =
-    f (_crrsrHostedZoneId x)
-        <&> \y -> x { _crrsrHostedZoneId = y }
+crrsrHostedZoneId = lens _crrsrHostedZoneId (\s a -> s { _crrsrHostedZoneId = a })
 {-# INLINE crrsrHostedZoneId #-}
+
+-- | A complex type that contains an optional comment and the Changes element.
+crrsrChangeBatch :: Lens' ChangeResourceRecordSets (ChangeBatch)
+crrsrChangeBatch = lens _crrsrChangeBatch (\s a -> s { _crrsrChangeBatch = a })
+{-# INLINE crrsrChangeBatch #-}
 
 instance ToPath ChangeResourceRecordSets where
     toPath ChangeResourceRecordSets{..} = mconcat
@@ -106,7 +103,7 @@ instance ToXML ChangeResourceRecordSets where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeResourceRecordSetsRequest"
 
-data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
+newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrssChangeInfo :: ChangeInfo
       -- ^ A complex type that contains information about changes made to
       -- your hosted zone. This element contains an ID that you use when
@@ -118,9 +115,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
 -- zone. This element contains an ID that you use when performing a GetChange
 -- action to get detailed information about the change.
 crrssChangeInfo :: Lens' ChangeResourceRecordSetsResponse (ChangeInfo)
-crrssChangeInfo f x =
-    f (_crrssChangeInfo x)
-        <&> \y -> x { _crrssChangeInfo = y }
+crrssChangeInfo = lens _crrssChangeInfo (\s a -> s { _crrssChangeInfo = a })
 {-# INLINE crrssChangeInfo #-}
 
 instance FromXML ChangeResourceRecordSetsResponse where

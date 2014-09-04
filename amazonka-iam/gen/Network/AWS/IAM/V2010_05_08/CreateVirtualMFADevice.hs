@@ -37,10 +37,10 @@ module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
     -- * Request
       CreateVirtualMFADevice
     -- ** Request constructor
-    , createVirtualMFADevice
+    , mkCreateVirtualMFADeviceRequest
     -- ** Request lenses
-    , cvmfadrVirtualMFADeviceName
     , cvmfadrPath
+    , cvmfadrVirtualMFADeviceName
 
     -- * Response
     , CreateVirtualMFADeviceResponse
@@ -52,56 +52,51 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateVirtualMFADevice' request.
-createVirtualMFADevice :: Text -- ^ 'cvmfadrVirtualMFADeviceName'
-                       -> CreateVirtualMFADevice
-createVirtualMFADevice p1 = CreateVirtualMFADevice
-    { _cvmfadrVirtualMFADeviceName = p1
-    , _cvmfadrPath = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVirtualMFADevice' request.
+mkCreateVirtualMFADeviceRequest :: Text -- ^ 'cvmfadrVirtualMFADeviceName'
+                                -> CreateVirtualMFADevice
+mkCreateVirtualMFADeviceRequest p1 = CreateVirtualMFADevice
+    { _cvmfadrPath = Nothing
+    , _cvmfadrVirtualMFADeviceName = p2
     }
-{-# INLINE createVirtualMFADevice #-}
+{-# INLINE mkCreateVirtualMFADeviceRequest #-}
 
 data CreateVirtualMFADevice = CreateVirtualMFADevice
-    { _cvmfadrVirtualMFADeviceName :: Text
-      -- ^ The name of the virtual MFA device. Use with path to uniquely
-      -- identify a virtual MFA device.
-    , _cvmfadrPath :: Maybe Text
+    { _cvmfadrPath :: Maybe Text
       -- ^ The path for the virtual MFA device. For more information about
       -- paths, see Identifiers for IAM Entities in the Using IAM guide.
       -- This parameter is optional. If it is not included, it defaults to
       -- a slash (/).
+    , _cvmfadrVirtualMFADeviceName :: Text
+      -- ^ The name of the virtual MFA device. Use with path to uniquely
+      -- identify a virtual MFA device.
     } deriving (Show, Generic)
-
--- | The name of the virtual MFA device. Use with path to uniquely identify a
--- virtual MFA device.
-cvmfadrVirtualMFADeviceName :: Lens' CreateVirtualMFADevice (Text)
-cvmfadrVirtualMFADeviceName f x =
-    f (_cvmfadrVirtualMFADeviceName x)
-        <&> \y -> x { _cvmfadrVirtualMFADeviceName = y }
-{-# INLINE cvmfadrVirtualMFADeviceName #-}
 
 -- | The path for the virtual MFA device. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
 cvmfadrPath :: Lens' CreateVirtualMFADevice (Maybe Text)
-cvmfadrPath f x =
-    f (_cvmfadrPath x)
-        <&> \y -> x { _cvmfadrPath = y }
+cvmfadrPath = lens _cvmfadrPath (\s a -> s { _cvmfadrPath = a })
 {-# INLINE cvmfadrPath #-}
+
+-- | The name of the virtual MFA device. Use with path to uniquely identify a
+-- virtual MFA device.
+cvmfadrVirtualMFADeviceName :: Lens' CreateVirtualMFADevice (Text)
+cvmfadrVirtualMFADeviceName = lens _cvmfadrVirtualMFADeviceName (\s a -> s { _cvmfadrVirtualMFADeviceName = a })
+{-# INLINE cvmfadrVirtualMFADeviceName #-}
 
 instance ToQuery CreateVirtualMFADevice where
     toQuery = genericQuery def
 
-data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
+newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadsVirtualMFADevice :: VirtualMFADevice
       -- ^ A newly created virtual MFA device.
     } deriving (Show, Generic)
 
 -- | A newly created virtual MFA device.
 cvmfadsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse (VirtualMFADevice)
-cvmfadsVirtualMFADevice f x =
-    f (_cvmfadsVirtualMFADevice x)
-        <&> \y -> x { _cvmfadsVirtualMFADevice = y }
+cvmfadsVirtualMFADevice = lens _cvmfadsVirtualMFADevice (\s a -> s { _cvmfadsVirtualMFADevice = a })
 {-# INLINE cvmfadsVirtualMFADevice #-}
 
 instance FromXML CreateVirtualMFADeviceResponse where

@@ -31,55 +31,47 @@ module Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstances
     -- * Request
       DescribeReservedDBInstances
     -- ** Request constructor
-    , describeReservedDBInstances
+    , mkDescribeReservedDBInstancesMessage
     -- ** Request lenses
-    , drdbimMultiAZ
-    , drdbimMaxRecords
     , drdbimReservedDBInstanceId
     , drdbimReservedDBInstancesOfferingId
     , drdbimDBInstanceClass
     , drdbimDuration
     , drdbimProductDescription
     , drdbimOfferingType
+    , drdbimMultiAZ
+    , drdbimMaxRecords
     , drdbimMarker
 
     -- * Response
     , DescribeReservedDBInstancesResponse
     -- ** Response lenses
-    , rdbimReservedDBInstances
     , rdbimMarker
+    , rdbimReservedDBInstances
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeReservedDBInstances' request.
-describeReservedDBInstances :: DescribeReservedDBInstances
-describeReservedDBInstances = DescribeReservedDBInstances
-    { _drdbimMultiAZ = Nothing
-    , _drdbimMaxRecords = Nothing
-    , _drdbimReservedDBInstanceId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedDBInstances' request.
+mkDescribeReservedDBInstancesMessage :: DescribeReservedDBInstances
+mkDescribeReservedDBInstancesMessage = DescribeReservedDBInstances
+    { _drdbimReservedDBInstanceId = Nothing
     , _drdbimReservedDBInstancesOfferingId = Nothing
     , _drdbimDBInstanceClass = Nothing
     , _drdbimDuration = Nothing
     , _drdbimProductDescription = Nothing
     , _drdbimOfferingType = Nothing
+    , _drdbimMultiAZ = Nothing
+    , _drdbimMaxRecords = Nothing
     , _drdbimMarker = Nothing
     }
-{-# INLINE describeReservedDBInstances #-}
+{-# INLINE mkDescribeReservedDBInstancesMessage #-}
 
 data DescribeReservedDBInstances = DescribeReservedDBInstances
-    { _drdbimMultiAZ :: Maybe Bool
-      -- ^ The Multi-AZ filter value. Specify this parameter to show only
-      -- those reservations matching the specified Multi-AZ parameter.
-    , _drdbimMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- than the MaxRecords value is available, a pagination token called
-      -- a marker is included in the response so that the following
-      -- results can be retrieved. Default: 100 Constraints: minimum 20,
-      -- maximum 100.
-    , _drdbimReservedDBInstanceId :: Maybe Text
+    { _drdbimReservedDBInstanceId :: Maybe Text
       -- ^ The reserved DB instance identifier filter value. Specify this
       -- parameter to show only the reservation that matches the specified
       -- reservation ID.
@@ -104,18 +96,63 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances
       -- only the available offerings matching the specified offering
       -- type. Valid Values: "Light Utilization" | "Medium Utilization" |
       -- "Heavy Utilization".
+    , _drdbimMultiAZ :: Maybe Bool
+      -- ^ The Multi-AZ filter value. Specify this parameter to show only
+      -- those reservations matching the specified Multi-AZ parameter.
+    , _drdbimMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- than the MaxRecords value is available, a pagination token called
+      -- a marker is included in the response so that the following
+      -- results can be retrieved. Default: 100 Constraints: minimum 20,
+      -- maximum 100.
     , _drdbimMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
+-- | The reserved DB instance identifier filter value. Specify this parameter to
+-- show only the reservation that matches the specified reservation ID.
+drdbimReservedDBInstanceId :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbimReservedDBInstanceId = lens _drdbimReservedDBInstanceId (\s a -> s { _drdbimReservedDBInstanceId = a })
+{-# INLINE drdbimReservedDBInstanceId #-}
+
+-- | The offering identifier filter value. Specify this parameter to show only
+-- purchased reservations matching the specified offering identifier.
+drdbimReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbimReservedDBInstancesOfferingId = lens _drdbimReservedDBInstancesOfferingId (\s a -> s { _drdbimReservedDBInstancesOfferingId = a })
+{-# INLINE drdbimReservedDBInstancesOfferingId #-}
+
+-- | The DB instance class filter value. Specify this parameter to show only
+-- those reservations matching the specified DB instances class.
+drdbimDBInstanceClass :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbimDBInstanceClass = lens _drdbimDBInstanceClass (\s a -> s { _drdbimDBInstanceClass = a })
+{-# INLINE drdbimDBInstanceClass #-}
+
+-- | The duration filter value, specified in years or seconds. Specify this
+-- parameter to show only reservations for this duration. Valid Values: 1 | 3
+-- | 31536000 | 94608000.
+drdbimDuration :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbimDuration = lens _drdbimDuration (\s a -> s { _drdbimDuration = a })
+{-# INLINE drdbimDuration #-}
+
+-- | The product description filter value. Specify this parameter to show only
+-- those reservations matching the specified product description.
+drdbimProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbimProductDescription = lens _drdbimProductDescription (\s a -> s { _drdbimProductDescription = a })
+{-# INLINE drdbimProductDescription #-}
+
+-- | The offering type filter value. Specify this parameter to show only the
+-- available offerings matching the specified offering type. Valid Values:
+-- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
+drdbimOfferingType :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdbimOfferingType = lens _drdbimOfferingType (\s a -> s { _drdbimOfferingType = a })
+{-# INLINE drdbimOfferingType #-}
+
 -- | The Multi-AZ filter value. Specify this parameter to show only those
 -- reservations matching the specified Multi-AZ parameter.
 drdbimMultiAZ :: Lens' DescribeReservedDBInstances (Maybe Bool)
-drdbimMultiAZ f x =
-    f (_drdbimMultiAZ x)
-        <&> \y -> x { _drdbimMultiAZ = y }
+drdbimMultiAZ = lens _drdbimMultiAZ (\s a -> s { _drdbimMultiAZ = a })
 {-# INLINE drdbimMultiAZ #-}
 
 -- | The maximum number of records to include in the response. If more than the
@@ -123,97 +160,39 @@ drdbimMultiAZ f x =
 -- included in the response so that the following results can be retrieved.
 -- Default: 100 Constraints: minimum 20, maximum 100.
 drdbimMaxRecords :: Lens' DescribeReservedDBInstances (Maybe Integer)
-drdbimMaxRecords f x =
-    f (_drdbimMaxRecords x)
-        <&> \y -> x { _drdbimMaxRecords = y }
+drdbimMaxRecords = lens _drdbimMaxRecords (\s a -> s { _drdbimMaxRecords = a })
 {-# INLINE drdbimMaxRecords #-}
-
--- | The reserved DB instance identifier filter value. Specify this parameter to
--- show only the reservation that matches the specified reservation ID.
-drdbimReservedDBInstanceId :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimReservedDBInstanceId f x =
-    f (_drdbimReservedDBInstanceId x)
-        <&> \y -> x { _drdbimReservedDBInstanceId = y }
-{-# INLINE drdbimReservedDBInstanceId #-}
-
--- | The offering identifier filter value. Specify this parameter to show only
--- purchased reservations matching the specified offering identifier.
-drdbimReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimReservedDBInstancesOfferingId f x =
-    f (_drdbimReservedDBInstancesOfferingId x)
-        <&> \y -> x { _drdbimReservedDBInstancesOfferingId = y }
-{-# INLINE drdbimReservedDBInstancesOfferingId #-}
-
--- | The DB instance class filter value. Specify this parameter to show only
--- those reservations matching the specified DB instances class.
-drdbimDBInstanceClass :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimDBInstanceClass f x =
-    f (_drdbimDBInstanceClass x)
-        <&> \y -> x { _drdbimDBInstanceClass = y }
-{-# INLINE drdbimDBInstanceClass #-}
-
--- | The duration filter value, specified in years or seconds. Specify this
--- parameter to show only reservations for this duration. Valid Values: 1 | 3
--- | 31536000 | 94608000.
-drdbimDuration :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimDuration f x =
-    f (_drdbimDuration x)
-        <&> \y -> x { _drdbimDuration = y }
-{-# INLINE drdbimDuration #-}
-
--- | The product description filter value. Specify this parameter to show only
--- those reservations matching the specified product description.
-drdbimProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimProductDescription f x =
-    f (_drdbimProductDescription x)
-        <&> \y -> x { _drdbimProductDescription = y }
-{-# INLINE drdbimProductDescription #-}
-
--- | The offering type filter value. Specify this parameter to show only the
--- available offerings matching the specified offering type. Valid Values:
--- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
-drdbimOfferingType :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimOfferingType f x =
-    f (_drdbimOfferingType x)
-        <&> \y -> x { _drdbimOfferingType = y }
-{-# INLINE drdbimOfferingType #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 drdbimMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdbimMarker f x =
-    f (_drdbimMarker x)
-        <&> \y -> x { _drdbimMarker = y }
+drdbimMarker = lens _drdbimMarker (\s a -> s { _drdbimMarker = a })
 {-# INLINE drdbimMarker #-}
 
 instance ToQuery DescribeReservedDBInstances where
     toQuery = genericQuery def
 
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
-    { _rdbimReservedDBInstances :: [ReservedDBInstance]
-      -- ^ A list of reserved DB instances.
-    , _rdbimMarker :: Maybe Text
+    { _rdbimMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _rdbimReservedDBInstances :: [ReservedDBInstance]
+      -- ^ A list of reserved DB instances.
     } deriving (Show, Generic)
-
--- | A list of reserved DB instances.
-rdbimReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse ([ReservedDBInstance])
-rdbimReservedDBInstances f x =
-    f (_rdbimReservedDBInstances x)
-        <&> \y -> x { _rdbimReservedDBInstances = y }
-{-# INLINE rdbimReservedDBInstances #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 rdbimMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
-rdbimMarker f x =
-    f (_rdbimMarker x)
-        <&> \y -> x { _rdbimMarker = y }
+rdbimMarker = lens _rdbimMarker (\s a -> s { _rdbimMarker = a })
 {-# INLINE rdbimMarker #-}
+
+-- | A list of reserved DB instances.
+rdbimReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse ([ReservedDBInstance])
+rdbimReservedDBInstances = lens _rdbimReservedDBInstances (\s a -> s { _rdbimReservedDBInstances = a })
+{-# INLINE rdbimReservedDBInstances #-}
 
 instance FromXML DescribeReservedDBInstancesResponse where
     fromXMLOptions = xmlOptions

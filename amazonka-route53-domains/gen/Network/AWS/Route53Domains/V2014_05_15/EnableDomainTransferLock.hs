@@ -40,7 +40,7 @@ module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
     -- * Request
       EnableDomainTransferLock
     -- ** Request constructor
-    , enableDomainTransferLock
+    , mkEnableDomainTransferLockRequest
     -- ** Request lenses
     , edtlrDomainName
 
@@ -55,15 +55,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'EnableDomainTransferLock' request.
-enableDomainTransferLock :: Text -- ^ 'edtlrDomainName'
-                         -> EnableDomainTransferLock
-enableDomainTransferLock p1 = EnableDomainTransferLock
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableDomainTransferLock' request.
+mkEnableDomainTransferLockRequest :: Text -- ^ 'edtlrDomainName'
+                                  -> EnableDomainTransferLock
+mkEnableDomainTransferLockRequest p1 = EnableDomainTransferLock
     { _edtlrDomainName = p1
     }
-{-# INLINE enableDomainTransferLock #-}
+{-# INLINE mkEnableDomainTransferLockRequest #-}
 
-data EnableDomainTransferLock = EnableDomainTransferLock
+newtype EnableDomainTransferLock = EnableDomainTransferLock
     { _edtlrDomainName :: Text
       -- ^ The name of a domain. Type: String Default: None Constraints: The
       -- domain name can contain only the letters a through z, the numbers
@@ -76,9 +77,7 @@ data EnableDomainTransferLock = EnableDomainTransferLock
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 edtlrDomainName :: Lens' EnableDomainTransferLock (Text)
-edtlrDomainName f x =
-    f (_edtlrDomainName x)
-        <&> \y -> x { _edtlrDomainName = y }
+edtlrDomainName = lens _edtlrDomainName (\s a -> s { _edtlrDomainName = a })
 {-# INLINE edtlrDomainName #-}
 
 instance ToPath EnableDomainTransferLock
@@ -89,7 +88,7 @@ instance ToHeaders EnableDomainTransferLock
 
 instance ToJSON EnableDomainTransferLock
 
-data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
+newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
     { _edtlsOperationId :: Text
       -- ^ Identifier for tracking the progress of the request. To use this
       -- ID to query the operation status, use GetOperationDetail. Type:
@@ -100,9 +99,7 @@ data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
 edtlsOperationId :: Lens' EnableDomainTransferLockResponse (Text)
-edtlsOperationId f x =
-    f (_edtlsOperationId x)
-        <&> \y -> x { _edtlsOperationId = y }
+edtlsOperationId = lens _edtlsOperationId (\s a -> s { _edtlsOperationId = a })
 {-# INLINE edtlsOperationId #-}
 
 instance FromJSON EnableDomainTransferLockResponse

@@ -35,7 +35,7 @@ module Network.AWS.SQS.V2012_11_05.GetQueueUrl
     -- * Request
       GetQueueUrl
     -- ** Request constructor
-    , getQueueUrl
+    , mkGetQueueUrlRequest
     -- ** Request lenses
     , gqurQueueName
     , gqurQueueOwnerAWSAccountId
@@ -50,14 +50,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetQueueUrl' request.
-getQueueUrl :: Text -- ^ 'gqurQueueName'
-            -> GetQueueUrl
-getQueueUrl p1 = GetQueueUrl
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetQueueUrl' request.
+mkGetQueueUrlRequest :: Text -- ^ 'gqurQueueName'
+                     -> GetQueueUrl
+mkGetQueueUrlRequest p1 = GetQueueUrl
     { _gqurQueueName = p1
     , _gqurQueueOwnerAWSAccountId = Nothing
     }
-{-# INLINE getQueueUrl #-}
+{-# INLINE mkGetQueueUrlRequest #-}
 
 data GetQueueUrl = GetQueueUrl
     { _gqurQueueName :: Text
@@ -71,31 +72,25 @@ data GetQueueUrl = GetQueueUrl
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
 gqurQueueName :: Lens' GetQueueUrl (Text)
-gqurQueueName f x =
-    f (_gqurQueueName x)
-        <&> \y -> x { _gqurQueueName = y }
+gqurQueueName = lens _gqurQueueName (\s a -> s { _gqurQueueName = a })
 {-# INLINE gqurQueueName #-}
 
 -- | The AWS account ID of the account that created the queue.
 gqurQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
-gqurQueueOwnerAWSAccountId f x =
-    f (_gqurQueueOwnerAWSAccountId x)
-        <&> \y -> x { _gqurQueueOwnerAWSAccountId = y }
+gqurQueueOwnerAWSAccountId = lens _gqurQueueOwnerAWSAccountId (\s a -> s { _gqurQueueOwnerAWSAccountId = a })
 {-# INLINE gqurQueueOwnerAWSAccountId #-}
 
 instance ToQuery GetQueueUrl where
     toQuery = genericQuery def
 
-data GetQueueUrlResponse = GetQueueUrlResponse
+newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqusQueueUrl :: Maybe Text
       -- ^ The URL for the queue.
     } deriving (Show, Generic)
 
 -- | The URL for the queue.
 gqusQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
-gqusQueueUrl f x =
-    f (_gqusQueueUrl x)
-        <&> \y -> x { _gqusQueueUrl = y }
+gqusQueueUrl = lens _gqusQueueUrl (\s a -> s { _gqusQueueUrl = a })
 {-# INLINE gqusQueueUrl #-}
 
 instance FromXML GetQueueUrlResponse where

@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
     -- * Request
       SetStackPolicy
     -- ** Request constructor
-    , setStackPolicy
+    , mkSetStackPolicyInput
     -- ** Request lenses
     , sspiStackName
     , sspiStackPolicyBody
@@ -42,15 +42,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetStackPolicy' request.
-setStackPolicy :: Text -- ^ 'sspiStackName'
-               -> SetStackPolicy
-setStackPolicy p1 = SetStackPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetStackPolicy' request.
+mkSetStackPolicyInput :: Text -- ^ 'sspiStackName'
+                      -> SetStackPolicy
+mkSetStackPolicyInput p1 = SetStackPolicy
     { _sspiStackName = p1
     , _sspiStackPolicyBody = Nothing
     , _sspiStackPolicyURL = Nothing
     }
-{-# INLINE setStackPolicy #-}
+{-# INLINE mkSetStackPolicyInput #-}
 
 data SetStackPolicy = SetStackPolicy
     { _sspiStackName :: Text
@@ -69,9 +70,7 @@ data SetStackPolicy = SetStackPolicy
 
 -- | The name or stack ID that you want to associate a policy with.
 sspiStackName :: Lens' SetStackPolicy (Text)
-sspiStackName f x =
-    f (_sspiStackName x)
-        <&> \y -> x { _sspiStackName = y }
+sspiStackName = lens _sspiStackName (\s a -> s { _sspiStackName = a })
 {-# INLINE sspiStackName #-}
 
 -- | Structure containing the stack policy body. For more information, go to
@@ -79,9 +78,7 @@ sspiStackName f x =
 -- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
 -- but not both.
 sspiStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
-sspiStackPolicyBody f x =
-    f (_sspiStackPolicyBody x)
-        <&> \y -> x { _sspiStackPolicyBody = y }
+sspiStackPolicyBody = lens _sspiStackPolicyBody (\s a -> s { _sspiStackPolicyBody = a })
 {-# INLINE sspiStackPolicyBody #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a
@@ -89,9 +86,7 @@ sspiStackPolicyBody f x =
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
 sspiStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
-sspiStackPolicyURL f x =
-    f (_sspiStackPolicyURL x)
-        <&> \y -> x { _sspiStackPolicyURL = y }
+sspiStackPolicyURL = lens _sspiStackPolicyURL (\s a -> s { _sspiStackPolicyURL = a })
 {-# INLINE sspiStackPolicyURL #-}
 
 instance ToQuery SetStackPolicy where

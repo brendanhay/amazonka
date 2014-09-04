@@ -37,7 +37,7 @@ module Network.AWS.EC2.V2014_06_15.AssociateRouteTable
     -- * Request
       AssociateRouteTable
     -- ** Request constructor
-    , associateRouteTable
+    , mkAssociateRouteTableRequest
     -- ** Request lenses
     , artrSubnetId
     , artrRouteTableId
@@ -52,15 +52,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AssociateRouteTable' request.
-associateRouteTable :: Text -- ^ 'artrSubnetId'
-                    -> Text -- ^ 'artrRouteTableId'
-                    -> AssociateRouteTable
-associateRouteTable p1 p2 = AssociateRouteTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateRouteTable' request.
+mkAssociateRouteTableRequest :: Text -- ^ 'artrSubnetId'
+                             -> Text -- ^ 'artrRouteTableId'
+                             -> AssociateRouteTable
+mkAssociateRouteTableRequest p1 p2 = AssociateRouteTable
     { _artrSubnetId = p1
     , _artrRouteTableId = p2
     }
-{-# INLINE associateRouteTable #-}
+{-# INLINE mkAssociateRouteTableRequest #-}
 
 data AssociateRouteTable = AssociateRouteTable
     { _artrSubnetId :: Text
@@ -71,22 +72,18 @@ data AssociateRouteTable = AssociateRouteTable
 
 -- | The ID of the subnet.
 artrSubnetId :: Lens' AssociateRouteTable (Text)
-artrSubnetId f x =
-    f (_artrSubnetId x)
-        <&> \y -> x { _artrSubnetId = y }
+artrSubnetId = lens _artrSubnetId (\s a -> s { _artrSubnetId = a })
 {-# INLINE artrSubnetId #-}
 
 -- | The ID of the route table.
 artrRouteTableId :: Lens' AssociateRouteTable (Text)
-artrRouteTableId f x =
-    f (_artrRouteTableId x)
-        <&> \y -> x { _artrRouteTableId = y }
+artrRouteTableId = lens _artrRouteTableId (\s a -> s { _artrRouteTableId = a })
 {-# INLINE artrRouteTableId #-}
 
 instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
 
-data AssociateRouteTableResponse = AssociateRouteTableResponse
+newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artsAssociationId :: Maybe Text
       -- ^ The route table association ID (needed to disassociate the route
       -- table).
@@ -94,9 +91,7 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse
 
 -- | The route table association ID (needed to disassociate the route table).
 artsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
-artsAssociationId f x =
-    f (_artsAssociationId x)
-        <&> \y -> x { _artsAssociationId = y }
+artsAssociationId = lens _artsAssociationId (\s a -> s { _artsAssociationId = a })
 {-# INLINE artsAssociationId #-}
 
 instance FromXML AssociateRouteTableResponse where

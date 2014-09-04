@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.V2013_06_30.StartGateway
     -- * Request
       StartGateway
     -- ** Request constructor
-    , startGateway
+    , mkStartGatewayInput
     -- ** Request lenses
     , sgjGatewayARN
 
@@ -58,15 +58,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'StartGateway' request.
-startGateway :: Text -- ^ 'sgjGatewayARN'
-             -> StartGateway
-startGateway p1 = StartGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartGateway' request.
+mkStartGatewayInput :: Text -- ^ 'sgjGatewayARN'
+                    -> StartGateway
+mkStartGatewayInput p1 = StartGateway
     { _sgjGatewayARN = p1
     }
-{-# INLINE startGateway #-}
+{-# INLINE mkStartGatewayInput #-}
 
-data StartGateway = StartGateway
+newtype StartGateway = StartGateway
     { _sgjGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -76,9 +77,7 @@ data StartGateway = StartGateway
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 sgjGatewayARN :: Lens' StartGateway (Text)
-sgjGatewayARN f x =
-    f (_sgjGatewayARN x)
-        <&> \y -> x { _sgjGatewayARN = y }
+sgjGatewayARN = lens _sgjGatewayARN (\s a -> s { _sgjGatewayARN = a })
 {-# INLINE sgjGatewayARN #-}
 
 instance ToPath StartGateway
@@ -89,7 +88,7 @@ instance ToHeaders StartGateway
 
 instance ToJSON StartGateway
 
-data StartGatewayResponse = StartGatewayResponse
+newtype StartGatewayResponse = StartGatewayResponse
     { _sgpGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -99,9 +98,7 @@ data StartGatewayResponse = StartGatewayResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 sgpGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgpGatewayARN f x =
-    f (_sgpGatewayARN x)
-        <&> \y -> x { _sgpGatewayARN = y }
+sgpGatewayARN = lens _sgpGatewayARN (\s a -> s { _sgpGatewayARN = a })
 {-# INLINE sgpGatewayARN #-}
 
 instance FromJSON StartGatewayResponse

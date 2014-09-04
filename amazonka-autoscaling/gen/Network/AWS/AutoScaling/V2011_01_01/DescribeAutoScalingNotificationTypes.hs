@@ -24,7 +24,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes
     -- * Request
       DescribeAutoScalingNotificationTypes
     -- ** Request constructor
-    , describeAutoScalingNotificationTypes
+    , mkUnknown
     -- * Response
     , DescribeAutoScalingNotificationTypesResponse
     -- ** Response lenses
@@ -35,10 +35,11 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAutoScalingNotificationTypes' request.
-describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
-describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
-{-# INLINE describeAutoScalingNotificationTypes #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingNotificationTypes' request.
+mkUnknown :: DescribeAutoScalingNotificationTypes
+mkUnknown = DescribeAutoScalingNotificationTypes
+{-# INLINE mkUnknown #-}
 
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
     deriving (Eq, Show, Generic)
@@ -46,7 +47,7 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 instance ToQuery DescribeAutoScalingNotificationTypes where
     toQuery = genericQuery def
 
-data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { _dasntaAutoScalingNotificationTypes :: [Text]
       -- ^ Returns a list of all notification types supported by Auto
       -- Scaling. They are: autoscaling:EC2_INSTANCE_LAUNCH
@@ -73,9 +74,7 @@ data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificat
 -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR autoscaling:TEST_NOTIFICATION
 -- 42fc6794-bf21-11e2-a1cf-ff3dEXAMPLE.
 dasntaAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse ([Text])
-dasntaAutoScalingNotificationTypes f x =
-    f (_dasntaAutoScalingNotificationTypes x)
-        <&> \y -> x { _dasntaAutoScalingNotificationTypes = y }
+dasntaAutoScalingNotificationTypes = lens _dasntaAutoScalingNotificationTypes (\s a -> s { _dasntaAutoScalingNotificationTypes = a })
 {-# INLINE dasntaAutoScalingNotificationTypes #-}
 
 instance FromXML DescribeAutoScalingNotificationTypesResponse where

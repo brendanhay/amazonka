@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeApps
     -- * Request
       DescribeApps
     -- ** Request constructor
-    , describeApps
+    , mkDescribeAppsRequest
     -- ** Request lenses
     , dasStackId
     , dasAppIds
@@ -43,13 +43,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeApps' request.
-describeApps :: DescribeApps
-describeApps = DescribeApps
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeApps' request.
+mkDescribeAppsRequest :: DescribeApps
+mkDescribeAppsRequest = DescribeApps
     { _dasStackId = Nothing
     , _dasAppIds = mempty
     }
-{-# INLINE describeApps #-}
+{-# INLINE mkDescribeAppsRequest #-}
 
 data DescribeApps = DescribeApps
     { _dasStackId :: Maybe Text
@@ -64,18 +65,14 @@ data DescribeApps = DescribeApps
 -- | The app stack ID. If you use this parameter, DescribeApps returns a
 -- description of the apps in the specified stack.
 dasStackId :: Lens' DescribeApps (Maybe Text)
-dasStackId f x =
-    f (_dasStackId x)
-        <&> \y -> x { _dasStackId = y }
+dasStackId = lens _dasStackId (\s a -> s { _dasStackId = a })
 {-# INLINE dasStackId #-}
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, DescribeApps returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 dasAppIds :: Lens' DescribeApps ([Text])
-dasAppIds f x =
-    f (_dasAppIds x)
-        <&> \y -> x { _dasAppIds = y }
+dasAppIds = lens _dasAppIds (\s a -> s { _dasAppIds = a })
 {-# INLINE dasAppIds #-}
 
 instance ToPath DescribeApps
@@ -86,16 +83,14 @@ instance ToHeaders DescribeApps
 
 instance ToJSON DescribeApps
 
-data DescribeAppsResponse = DescribeAppsResponse
+newtype DescribeAppsResponse = DescribeAppsResponse
     { _datApps :: [App]
       -- ^ An array of App objects that describe the specified apps.
     } deriving (Show, Generic)
 
 -- | An array of App objects that describe the specified apps.
 datApps :: Lens' DescribeAppsResponse ([App])
-datApps f x =
-    f (_datApps x)
-        <&> \y -> x { _datApps = y }
+datApps = lens _datApps (\s a -> s { _datApps = a })
 {-# INLINE datApps #-}
 
 instance FromJSON DescribeAppsResponse

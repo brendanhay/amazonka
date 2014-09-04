@@ -49,10 +49,10 @@ module Network.AWS.SNS.V2010_03_31.SetTopicAttributes
     -- * Request
       SetTopicAttributes
     -- ** Request constructor
-    , setTopicAttributes
+    , mkSetTopicAttributesInput
     -- ** Request lenses
-    , staiAttributeName
     , staiTopicArn
+    , staiAttributeName
     , staiAttributeValue
 
     -- * Response
@@ -63,49 +63,44 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetTopicAttributes' request.
-setTopicAttributes :: Text -- ^ 'staiAttributeName'
-                   -> Text -- ^ 'staiTopicArn'
-                   -> SetTopicAttributes
-setTopicAttributes p1 p2 = SetTopicAttributes
-    { _staiAttributeName = p1
-    , _staiTopicArn = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTopicAttributes' request.
+mkSetTopicAttributesInput :: Text -- ^ 'staiTopicArn'
+                          -> Text -- ^ 'staiAttributeName'
+                          -> SetTopicAttributes
+mkSetTopicAttributesInput p1 p2 = SetTopicAttributes
+    { _staiTopicArn = p1
+    , _staiAttributeName = p2
     , _staiAttributeValue = Nothing
     }
-{-# INLINE setTopicAttributes #-}
+{-# INLINE mkSetTopicAttributesInput #-}
 
 data SetTopicAttributes = SetTopicAttributes
-    { _staiAttributeName :: Text
+    { _staiTopicArn :: Text
+      -- ^ The ARN of the topic to modify.
+    , _staiAttributeName :: Text
       -- ^ The name of the attribute you want to set. Only a subset of the
       -- topic's attributes are mutable. Valid values: Policy |
       -- DisplayName | DeliveryPolicy.
-    , _staiTopicArn :: Text
-      -- ^ The ARN of the topic to modify.
     , _staiAttributeValue :: Maybe Text
       -- ^ The new value for the attribute.
     } deriving (Show, Generic)
+
+-- | The ARN of the topic to modify.
+staiTopicArn :: Lens' SetTopicAttributes (Text)
+staiTopicArn = lens _staiTopicArn (\s a -> s { _staiTopicArn = a })
+{-# INLINE staiTopicArn #-}
 
 -- | The name of the attribute you want to set. Only a subset of the topic's
 -- attributes are mutable. Valid values: Policy | DisplayName |
 -- DeliveryPolicy.
 staiAttributeName :: Lens' SetTopicAttributes (Text)
-staiAttributeName f x =
-    f (_staiAttributeName x)
-        <&> \y -> x { _staiAttributeName = y }
+staiAttributeName = lens _staiAttributeName (\s a -> s { _staiAttributeName = a })
 {-# INLINE staiAttributeName #-}
-
--- | The ARN of the topic to modify.
-staiTopicArn :: Lens' SetTopicAttributes (Text)
-staiTopicArn f x =
-    f (_staiTopicArn x)
-        <&> \y -> x { _staiTopicArn = y }
-{-# INLINE staiTopicArn #-}
 
 -- | The new value for the attribute.
 staiAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
-staiAttributeValue f x =
-    f (_staiAttributeValue x)
-        <&> \y -> x { _staiAttributeValue = y }
+staiAttributeValue = lens _staiAttributeValue (\s a -> s { _staiAttributeValue = a })
 {-# INLINE staiAttributeValue #-}
 
 instance ToQuery SetTopicAttributes where

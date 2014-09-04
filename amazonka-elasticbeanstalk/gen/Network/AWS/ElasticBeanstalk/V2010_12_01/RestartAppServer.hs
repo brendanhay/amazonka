@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer
     -- * Request
       RestartAppServer
     -- ** Request constructor
-    , restartAppServer
+    , mkRestartAppServerMessage
     -- ** Request lenses
     , rasmEnvironmentId
     , rasmEnvironmentName
@@ -40,13 +40,14 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RestartAppServer' request.
-restartAppServer :: RestartAppServer
-restartAppServer = RestartAppServer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestartAppServer' request.
+mkRestartAppServerMessage :: RestartAppServer
+mkRestartAppServerMessage = RestartAppServer
     { _rasmEnvironmentId = Nothing
     , _rasmEnvironmentName = Nothing
     }
-{-# INLINE restartAppServer #-}
+{-# INLINE mkRestartAppServerMessage #-}
 
 data RestartAppServer = RestartAppServer
     { _rasmEnvironmentId :: Maybe Text
@@ -65,18 +66,14 @@ data RestartAppServer = RestartAppServer
 -- specify either this or an EnvironmentName, or both. If you do not specify
 -- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
 rasmEnvironmentId :: Lens' RestartAppServer (Maybe Text)
-rasmEnvironmentId f x =
-    f (_rasmEnvironmentId x)
-        <&> \y -> x { _rasmEnvironmentId = y }
+rasmEnvironmentId = lens _rasmEnvironmentId (\s a -> s { _rasmEnvironmentId = a })
 {-# INLINE rasmEnvironmentId #-}
 
 -- | The name of the environment to restart the server for. Condition: You must
 -- specify either this or an EnvironmentId, or both. If you do not specify
 -- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
 rasmEnvironmentName :: Lens' RestartAppServer (Maybe Text)
-rasmEnvironmentName f x =
-    f (_rasmEnvironmentName x)
-        <&> \y -> x { _rasmEnvironmentName = y }
+rasmEnvironmentName = lens _rasmEnvironmentName (\s a -> s { _rasmEnvironmentName = a })
 {-# INLINE rasmEnvironmentName #-}
 
 instance ToQuery RestartAppServer where

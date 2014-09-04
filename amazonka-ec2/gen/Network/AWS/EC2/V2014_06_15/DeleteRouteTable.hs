@@ -30,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteRouteTable
     -- * Request
       DeleteRouteTable
     -- ** Request constructor
-    , deleteRouteTable
+    , mkDeleteRouteTableRequest
     -- ** Request lenses
     , drtrRouteTableId
 
@@ -42,24 +42,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteRouteTable' request.
-deleteRouteTable :: Text -- ^ 'drtrRouteTableId'
-                 -> DeleteRouteTable
-deleteRouteTable p1 = DeleteRouteTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRouteTable' request.
+mkDeleteRouteTableRequest :: Text -- ^ 'drtrRouteTableId'
+                          -> DeleteRouteTable
+mkDeleteRouteTableRequest p1 = DeleteRouteTable
     { _drtrRouteTableId = p1
     }
-{-# INLINE deleteRouteTable #-}
+{-# INLINE mkDeleteRouteTableRequest #-}
 
-data DeleteRouteTable = DeleteRouteTable
+newtype DeleteRouteTable = DeleteRouteTable
     { _drtrRouteTableId :: Text
       -- ^ The ID of the route table.
     } deriving (Show, Generic)
 
 -- | The ID of the route table.
 drtrRouteTableId :: Lens' DeleteRouteTable (Text)
-drtrRouteTableId f x =
-    f (_drtrRouteTableId x)
-        <&> \y -> x { _drtrRouteTableId = y }
+drtrRouteTableId = lens _drtrRouteTableId (\s a -> s { _drtrRouteTableId = a })
 {-# INLINE drtrRouteTableId #-}
 
 instance ToQuery DeleteRouteTable where

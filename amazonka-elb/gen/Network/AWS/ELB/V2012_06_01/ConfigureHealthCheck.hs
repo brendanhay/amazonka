@@ -30,7 +30,7 @@ module Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck
     -- * Request
       ConfigureHealthCheck
     -- ** Request constructor
-    , configureHealthCheck
+    , mkConfigureHealthCheckInput
     -- ** Request lenses
     , chciLoadBalancerName
     , chciHealthCheck
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ConfigureHealthCheck' request.
-configureHealthCheck :: Text -- ^ 'chciLoadBalancerName'
-                     -> HealthCheck -- ^ 'chciHealthCheck'
-                     -> ConfigureHealthCheck
-configureHealthCheck p1 p2 = ConfigureHealthCheck
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfigureHealthCheck' request.
+mkConfigureHealthCheckInput :: Text -- ^ 'chciLoadBalancerName'
+                            -> HealthCheck -- ^ 'chciHealthCheck'
+                            -> ConfigureHealthCheck
+mkConfigureHealthCheckInput p1 p2 = ConfigureHealthCheck
     { _chciLoadBalancerName = p1
     , _chciHealthCheck = p2
     }
-{-# INLINE configureHealthCheck #-}
+{-# INLINE mkConfigureHealthCheckInput #-}
 
 data ConfigureHealthCheck = ConfigureHealthCheck
     { _chciLoadBalancerName :: Text
@@ -68,32 +69,26 @@ data ConfigureHealthCheck = ConfigureHealthCheck
 -- | The mnemonic name associated with the load balancer. The name must be
 -- unique within the set of load balancers associated with your AWS account.
 chciLoadBalancerName :: Lens' ConfigureHealthCheck (Text)
-chciLoadBalancerName f x =
-    f (_chciLoadBalancerName x)
-        <&> \y -> x { _chciLoadBalancerName = y }
+chciLoadBalancerName = lens _chciLoadBalancerName (\s a -> s { _chciLoadBalancerName = a })
 {-# INLINE chciLoadBalancerName #-}
 
 -- | A structure containing the configuration information for the new
 -- healthcheck.
 chciHealthCheck :: Lens' ConfigureHealthCheck (HealthCheck)
-chciHealthCheck f x =
-    f (_chciHealthCheck x)
-        <&> \y -> x { _chciHealthCheck = y }
+chciHealthCheck = lens _chciHealthCheck (\s a -> s { _chciHealthCheck = a })
 {-# INLINE chciHealthCheck #-}
 
 instance ToQuery ConfigureHealthCheck where
     toQuery = genericQuery def
 
-data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
+newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcoHealthCheck :: Maybe HealthCheck
       -- ^ The updated healthcheck for the instances.
     } deriving (Show, Generic)
 
 -- | The updated healthcheck for the instances.
 chcoHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcoHealthCheck f x =
-    f (_chcoHealthCheck x)
-        <&> \y -> x { _chcoHealthCheck = y }
+chcoHealthCheck = lens _chcoHealthCheck (\s a -> s { _chcoHealthCheck = a })
 {-# INLINE chcoHealthCheck #-}
 
 instance FromXML ConfigureHealthCheckResponse where

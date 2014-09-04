@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling
     -- * Request
       SetTimeBasedAutoScaling
     -- ** Request constructor
-    , setTimeBasedAutoScaling
+    , mkSetTimeBasedAutoScalingRequest
     -- ** Request lenses
     , stbasrInstanceId
     , stbasrAutoScalingSchedule
@@ -42,14 +42,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetTimeBasedAutoScaling' request.
-setTimeBasedAutoScaling :: Text -- ^ 'stbasrInstanceId'
-                        -> SetTimeBasedAutoScaling
-setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTimeBasedAutoScaling' request.
+mkSetTimeBasedAutoScalingRequest :: Text -- ^ 'stbasrInstanceId'
+                                 -> SetTimeBasedAutoScaling
+mkSetTimeBasedAutoScalingRequest p1 = SetTimeBasedAutoScaling
     { _stbasrInstanceId = p1
     , _stbasrAutoScalingSchedule = Nothing
     }
-{-# INLINE setTimeBasedAutoScaling #-}
+{-# INLINE mkSetTimeBasedAutoScalingRequest #-}
 
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     { _stbasrInstanceId :: Text
@@ -60,16 +61,12 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
 
 -- | The instance ID.
 stbasrInstanceId :: Lens' SetTimeBasedAutoScaling (Text)
-stbasrInstanceId f x =
-    f (_stbasrInstanceId x)
-        <&> \y -> x { _stbasrInstanceId = y }
+stbasrInstanceId = lens _stbasrInstanceId (\s a -> s { _stbasrInstanceId = a })
 {-# INLINE stbasrInstanceId #-}
 
 -- | An AutoScalingSchedule with the instance schedule.
 stbasrAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
-stbasrAutoScalingSchedule f x =
-    f (_stbasrAutoScalingSchedule x)
-        <&> \y -> x { _stbasrAutoScalingSchedule = y }
+stbasrAutoScalingSchedule = lens _stbasrAutoScalingSchedule (\s a -> s { _stbasrAutoScalingSchedule = a })
 {-# INLINE stbasrAutoScalingSchedule #-}
 
 instance ToPath SetTimeBasedAutoScaling

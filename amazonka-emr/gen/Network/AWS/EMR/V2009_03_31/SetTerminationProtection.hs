@@ -51,10 +51,10 @@ module Network.AWS.EMR.V2009_03_31.SetTerminationProtection
     -- * Request
       SetTerminationProtection
     -- ** Request constructor
-    , setTerminationProtection
+    , mkSetTerminationProtectionInput
     -- ** Request lenses
-    , stpiTerminationProtected
     , stpiJobFlowIds
+    , stpiTerminationProtected
 
     -- * Response
     , SetTerminationProtectionResponse
@@ -65,44 +65,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetTerminationProtection' request.
-setTerminationProtection :: Bool -- ^ 'stpiTerminationProtected'
-                         -> [Text] -- ^ 'stpiJobFlowIds'
-                         -> SetTerminationProtection
-setTerminationProtection p1 p2 = SetTerminationProtection
-    { _stpiTerminationProtected = p1
-    , _stpiJobFlowIds = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTerminationProtection' request.
+mkSetTerminationProtectionInput :: [Text] -- ^ 'stpiJobFlowIds'
+                                -> Bool -- ^ 'stpiTerminationProtected'
+                                -> SetTerminationProtection
+mkSetTerminationProtectionInput p1 p2 = SetTerminationProtection
+    { _stpiJobFlowIds = p1
+    , _stpiTerminationProtected = p2
     }
-{-# INLINE setTerminationProtection #-}
+{-# INLINE mkSetTerminationProtectionInput #-}
 
 data SetTerminationProtection = SetTerminationProtection
-    { _stpiTerminationProtected :: Bool
-      -- ^ A Boolean that indicates whether to protect the job flow and
-      -- prevent the Amazon EC2 instances in the cluster from shutting
-      -- down due to API calls, user intervention, or job-flow error.
-    , _stpiJobFlowIds :: [Text]
+    { _stpiJobFlowIds :: [Text]
       -- ^ A list of strings that uniquely identify the job flows to
       -- protect. This identifier is returned by RunJobFlow and can also
       -- be obtained from DescribeJobFlows .
+    , _stpiTerminationProtected :: Bool
+      -- ^ A Boolean that indicates whether to protect the job flow and
+      -- prevent the Amazon EC2 instances in the cluster from shutting
+      -- down due to API calls, user intervention, or job-flow error.
     } deriving (Show, Generic)
-
--- | A Boolean that indicates whether to protect the job flow and prevent the
--- Amazon EC2 instances in the cluster from shutting down due to API calls,
--- user intervention, or job-flow error.
-stpiTerminationProtected :: Lens' SetTerminationProtection (Bool)
-stpiTerminationProtected f x =
-    f (_stpiTerminationProtected x)
-        <&> \y -> x { _stpiTerminationProtected = y }
-{-# INLINE stpiTerminationProtected #-}
 
 -- | A list of strings that uniquely identify the job flows to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
 stpiJobFlowIds :: Lens' SetTerminationProtection ([Text])
-stpiJobFlowIds f x =
-    f (_stpiJobFlowIds x)
-        <&> \y -> x { _stpiJobFlowIds = y }
+stpiJobFlowIds = lens _stpiJobFlowIds (\s a -> s { _stpiJobFlowIds = a })
 {-# INLINE stpiJobFlowIds #-}
+
+-- | A Boolean that indicates whether to protect the job flow and prevent the
+-- Amazon EC2 instances in the cluster from shutting down due to API calls,
+-- user intervention, or job-flow error.
+stpiTerminationProtected :: Lens' SetTerminationProtection (Bool)
+stpiTerminationProtected = lens _stpiTerminationProtected (\s a -> s { _stpiTerminationProtected = a })
+{-# INLINE stpiTerminationProtected #-}
 
 instance ToPath SetTerminationProtection
 

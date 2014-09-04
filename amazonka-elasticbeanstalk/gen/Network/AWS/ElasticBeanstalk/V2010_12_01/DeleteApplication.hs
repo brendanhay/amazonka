@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplication
     -- * Request
       DeleteApplication
     -- ** Request constructor
-    , deleteApplication
+    , mkDeleteApplicationMessage
     -- ** Request lenses
     , damApplicationName
     , damTerminateEnvByForce
@@ -42,14 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteApplication' request.
-deleteApplication :: Text -- ^ 'damApplicationName'
-                  -> DeleteApplication
-deleteApplication p1 = DeleteApplication
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteApplication' request.
+mkDeleteApplicationMessage :: Text -- ^ 'damApplicationName'
+                           -> DeleteApplication
+mkDeleteApplicationMessage p1 = DeleteApplication
     { _damApplicationName = p1
     , _damTerminateEnvByForce = Nothing
     }
-{-# INLINE deleteApplication #-}
+{-# INLINE mkDeleteApplicationMessage #-}
 
 data DeleteApplication = DeleteApplication
     { _damApplicationName :: Text
@@ -61,17 +62,13 @@ data DeleteApplication = DeleteApplication
 
 -- | The name of the application to delete.
 damApplicationName :: Lens' DeleteApplication (Text)
-damApplicationName f x =
-    f (_damApplicationName x)
-        <&> \y -> x { _damApplicationName = y }
+damApplicationName = lens _damApplicationName (\s a -> s { _damApplicationName = a })
 {-# INLINE damApplicationName #-}
 
 -- | When set to true, running environments will be terminated before deleting
 -- the application.
 damTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
-damTerminateEnvByForce f x =
-    f (_damTerminateEnvByForce x)
-        <&> \y -> x { _damTerminateEnvByForce = y }
+damTerminateEnvByForce = lens _damTerminateEnvByForce (\s a -> s { _damTerminateEnvByForce = a })
 {-# INLINE damTerminateEnvByForce #-}
 
 instance ToQuery DeleteApplication where

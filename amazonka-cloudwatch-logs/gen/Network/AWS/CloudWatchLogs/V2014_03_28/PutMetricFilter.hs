@@ -39,11 +39,11 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutMetricFilter
     -- * Request
       PutMetricFilter
     -- ** Request constructor
-    , putMetricFilter
+    , mkPutMetricFilterRequest
     -- ** Request lenses
+    , pmfrLogGroupName
     , pmfrFilterName
     , pmfrFilterPattern
-    , pmfrLogGroupName
     , pmfrMetricTransformations
 
     -- * Response
@@ -55,51 +55,44 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'PutMetricFilter' request.
-putMetricFilter :: Text -- ^ 'pmfrFilterName'
-                -> Text -- ^ 'pmfrFilterPattern'
-                -> Text -- ^ 'pmfrLogGroupName'
-                -> [MetricTransformation] -- ^ 'pmfrMetricTransformations'
-                -> PutMetricFilter
-putMetricFilter p1 p2 p3 p4 = PutMetricFilter
-    { _pmfrFilterName = p1
-    , _pmfrFilterPattern = p2
-    , _pmfrLogGroupName = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutMetricFilter' request.
+mkPutMetricFilterRequest :: Text -- ^ 'pmfrLogGroupName'
+                         -> Text -- ^ 'pmfrFilterName'
+                         -> Text -- ^ 'pmfrFilterPattern'
+                         -> [MetricTransformation] -- ^ 'pmfrMetricTransformations'
+                         -> PutMetricFilter
+mkPutMetricFilterRequest p1 p2 p3 p4 = PutMetricFilter
+    { _pmfrLogGroupName = p1
+    , _pmfrFilterName = p2
+    , _pmfrFilterPattern = p3
     , _pmfrMetricTransformations = p4
     }
-{-# INLINE putMetricFilter #-}
+{-# INLINE mkPutMetricFilterRequest #-}
 
 data PutMetricFilter = PutMetricFilter
-    { _pmfrFilterName :: Text
+    { _pmfrLogGroupName :: Text
+    , _pmfrFilterName :: Text
       -- ^ The name of the metric filter.
     , _pmfrFilterPattern :: Text
-    , _pmfrLogGroupName :: Text
     , _pmfrMetricTransformations :: [MetricTransformation]
     } deriving (Show, Generic)
 
+pmfrLogGroupName :: Lens' PutMetricFilter (Text)
+pmfrLogGroupName = lens _pmfrLogGroupName (\s a -> s { _pmfrLogGroupName = a })
+{-# INLINE pmfrLogGroupName #-}
+
 -- | The name of the metric filter.
 pmfrFilterName :: Lens' PutMetricFilter (Text)
-pmfrFilterName f x =
-    f (_pmfrFilterName x)
-        <&> \y -> x { _pmfrFilterName = y }
+pmfrFilterName = lens _pmfrFilterName (\s a -> s { _pmfrFilterName = a })
 {-# INLINE pmfrFilterName #-}
 
 pmfrFilterPattern :: Lens' PutMetricFilter (Text)
-pmfrFilterPattern f x =
-    f (_pmfrFilterPattern x)
-        <&> \y -> x { _pmfrFilterPattern = y }
+pmfrFilterPattern = lens _pmfrFilterPattern (\s a -> s { _pmfrFilterPattern = a })
 {-# INLINE pmfrFilterPattern #-}
 
-pmfrLogGroupName :: Lens' PutMetricFilter (Text)
-pmfrLogGroupName f x =
-    f (_pmfrLogGroupName x)
-        <&> \y -> x { _pmfrLogGroupName = y }
-{-# INLINE pmfrLogGroupName #-}
-
 pmfrMetricTransformations :: Lens' PutMetricFilter ([MetricTransformation])
-pmfrMetricTransformations f x =
-    f (_pmfrMetricTransformations x)
-        <&> \y -> x { _pmfrMetricTransformations = y }
+pmfrMetricTransformations = lens _pmfrMetricTransformations (\s a -> s { _pmfrMetricTransformations = a })
 {-# INLINE pmfrMetricTransformations #-}
 
 instance ToPath PutMetricFilter

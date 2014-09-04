@@ -30,7 +30,7 @@ module Network.AWS.SimpleDB.V2009_04_15.GetAttributes
     -- * Request
       GetAttributes
     -- ** Request constructor
-    , getAttributes
+    , mkGetAttributesRequest
     -- ** Request lenses
     , garDomainName
     , garItemName
@@ -47,17 +47,18 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetAttributes' request.
-getAttributes :: Text -- ^ 'garDomainName'
-              -> Text -- ^ 'garItemName'
-              -> GetAttributes
-getAttributes p1 p2 = GetAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAttributes' request.
+mkGetAttributesRequest :: Text -- ^ 'garDomainName'
+                       -> Text -- ^ 'garItemName'
+                       -> GetAttributes
+mkGetAttributesRequest p1 p2 = GetAttributes
     { _garDomainName = p1
     , _garItemName = p2
     , _garAttributeNames = mempty
     , _garConsistentRead = Nothing
     }
-{-# INLINE getAttributes #-}
+{-# INLINE mkGetAttributesRequest #-}
 
 data GetAttributes = GetAttributes
     { _garDomainName :: Text
@@ -76,23 +77,17 @@ data GetAttributes = GetAttributes
 
 -- | The name of the domain in which to perform the operation.
 garDomainName :: Lens' GetAttributes (Text)
-garDomainName f x =
-    f (_garDomainName x)
-        <&> \y -> x { _garDomainName = y }
+garDomainName = lens _garDomainName (\s a -> s { _garDomainName = a })
 {-# INLINE garDomainName #-}
 
 -- | The name of the item.
 garItemName :: Lens' GetAttributes (Text)
-garItemName f x =
-    f (_garItemName x)
-        <&> \y -> x { _garItemName = y }
+garItemName = lens _garItemName (\s a -> s { _garItemName = a })
 {-# INLINE garItemName #-}
 
 -- | The names of the attributes.
 garAttributeNames :: Lens' GetAttributes ([Text])
-garAttributeNames f x =
-    f (_garAttributeNames x)
-        <&> \y -> x { _garAttributeNames = y }
+garAttributeNames = lens _garAttributeNames (\s a -> s { _garAttributeNames = a })
 {-# INLINE garAttributeNames #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
@@ -100,24 +95,20 @@ garAttributeNames f x =
 -- will be returned. Otherwise, results will be consistent eventually, and the
 -- client may not see data that was written immediately before your read.
 garConsistentRead :: Lens' GetAttributes (Maybe Bool)
-garConsistentRead f x =
-    f (_garConsistentRead x)
-        <&> \y -> x { _garConsistentRead = y }
+garConsistentRead = lens _garConsistentRead (\s a -> s { _garConsistentRead = a })
 {-# INLINE garConsistentRead #-}
 
 instance ToQuery GetAttributes where
     toQuery = genericQuery def
 
-data GetAttributesResponse = GetAttributesResponse
+newtype GetAttributesResponse = GetAttributesResponse
     { _gasAttributes :: [Attribute]
       -- ^ The list of attributes returned by the operation.
     } deriving (Show, Generic)
 
 -- | The list of attributes returned by the operation.
 gasAttributes :: Lens' GetAttributesResponse ([Attribute])
-gasAttributes f x =
-    f (_gasAttributes x)
-        <&> \y -> x { _gasAttributes = y }
+gasAttributes = lens _gasAttributes (\s a -> s { _gasAttributes = a })
 {-# INLINE gasAttributes #-}
 
 instance FromXML GetAttributesResponse where

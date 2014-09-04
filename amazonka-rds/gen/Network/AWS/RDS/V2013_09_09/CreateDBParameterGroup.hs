@@ -37,7 +37,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup
     -- * Request
       CreateDBParameterGroup
     -- ** Request constructor
-    , createDBParameterGroup
+    , mkCreateDBParameterGroupMessage
     -- ** Request lenses
     , cdbpgmDBParameterGroupName
     , cdbpgmDBParameterGroupFamily
@@ -54,18 +54,19 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDBParameterGroup' request.
-createDBParameterGroup :: Text -- ^ 'cdbpgmDBParameterGroupName'
-                       -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
-                       -> Text -- ^ 'cdbpgmDescription'
-                       -> CreateDBParameterGroup
-createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBParameterGroup' request.
+mkCreateDBParameterGroupMessage :: Text -- ^ 'cdbpgmDBParameterGroupName'
+                                -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
+                                -> Text -- ^ 'cdbpgmDescription'
+                                -> CreateDBParameterGroup
+mkCreateDBParameterGroupMessage p1 p2 p3 = CreateDBParameterGroup
     { _cdbpgmDBParameterGroupName = p1
     , _cdbpgmDBParameterGroupFamily = p2
     , _cdbpgmDescription = p3
     , _cdbpgmTags = mempty
     }
-{-# INLINE createDBParameterGroup #-}
+{-# INLINE mkCreateDBParameterGroupMessage #-}
 
 data CreateDBParameterGroup = CreateDBParameterGroup
     { _cdbpgmDBParameterGroupName :: Text
@@ -90,9 +91,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
 -- hyphen or contain two consecutive hyphens This value is stored as a
 -- lower-case string.
 cdbpgmDBParameterGroupName :: Lens' CreateDBParameterGroup (Text)
-cdbpgmDBParameterGroupName f x =
-    f (_cdbpgmDBParameterGroupName x)
-        <&> \y -> x { _cdbpgmDBParameterGroupName = y }
+cdbpgmDBParameterGroupName = lens _cdbpgmDBParameterGroupName (\s a -> s { _cdbpgmDBParameterGroupName = a })
 {-# INLINE cdbpgmDBParameterGroupName #-}
 
 -- | The DB parameter group family name. A DB parameter group can be associated
@@ -100,29 +99,23 @@ cdbpgmDBParameterGroupName f x =
 -- a DB instance running a database engine and engine version compatible with
 -- that DB parameter group family.
 cdbpgmDBParameterGroupFamily :: Lens' CreateDBParameterGroup (Text)
-cdbpgmDBParameterGroupFamily f x =
-    f (_cdbpgmDBParameterGroupFamily x)
-        <&> \y -> x { _cdbpgmDBParameterGroupFamily = y }
+cdbpgmDBParameterGroupFamily = lens _cdbpgmDBParameterGroupFamily (\s a -> s { _cdbpgmDBParameterGroupFamily = a })
 {-# INLINE cdbpgmDBParameterGroupFamily #-}
 
 -- | The description for the DB parameter group.
 cdbpgmDescription :: Lens' CreateDBParameterGroup (Text)
-cdbpgmDescription f x =
-    f (_cdbpgmDescription x)
-        <&> \y -> x { _cdbpgmDescription = y }
+cdbpgmDescription = lens _cdbpgmDescription (\s a -> s { _cdbpgmDescription = a })
 {-# INLINE cdbpgmDescription #-}
 
 -- | A list of tags.
 cdbpgmTags :: Lens' CreateDBParameterGroup ([Tag])
-cdbpgmTags f x =
-    f (_cdbpgmTags x)
-        <&> \y -> x { _cdbpgmTags = y }
+cdbpgmTags = lens _cdbpgmTags (\s a -> s { _cdbpgmTags = a })
 {-# INLINE cdbpgmTags #-}
 
 instance ToQuery CreateDBParameterGroup where
     toQuery = genericQuery def
 
-data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
+newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _dbpgwDBParameterGroup :: Maybe DBParameterGroup
       -- ^ Contains the result of a successful invocation of the
       -- CreateDBParameterGroup action. This data type is used as a
@@ -135,9 +128,7 @@ data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
 -- parameter in the DeleteDBParameterGroup action, and as a response element
 -- in the DescribeDBParameterGroups action.
 dbpgwDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-dbpgwDBParameterGroup f x =
-    f (_dbpgwDBParameterGroup x)
-        <&> \y -> x { _dbpgwDBParameterGroup = y }
+dbpgwDBParameterGroup = lens _dbpgwDBParameterGroup (\s a -> s { _dbpgwDBParameterGroup = a })
 {-# INLINE dbpgwDBParameterGroup #-}
 
 instance FromXML CreateDBParameterGroupResponse where

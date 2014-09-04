@@ -27,7 +27,7 @@ module Network.AWS.ELB.V2012_06_01.RemoveTags
     -- * Request
       RemoveTags
     -- ** Request constructor
-    , removeTags
+    , mkRemoveTagsInput
     -- ** Request lenses
     , rtiLoadBalancerNames
     , rtiTags
@@ -40,15 +40,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RemoveTags' request.
-removeTags :: [Text] -- ^ 'rtiLoadBalancerNames'
-           -> [TagKeyOnly] -- ^ 'rtiTags'
-           -> RemoveTags
-removeTags p1 p2 = RemoveTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveTags' request.
+mkRemoveTagsInput :: [Text] -- ^ 'rtiLoadBalancerNames'
+                  -> [TagKeyOnly] -- ^ 'rtiTags'
+                  -> RemoveTags
+mkRemoveTagsInput p1 p2 = RemoveTags
     { _rtiLoadBalancerNames = p1
     , _rtiTags = p2
     }
-{-# INLINE removeTags #-}
+{-# INLINE mkRemoveTagsInput #-}
 
 data RemoveTags = RemoveTags
     { _rtiLoadBalancerNames :: [Text]
@@ -61,22 +62,17 @@ data RemoveTags = RemoveTags
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
 rtiLoadBalancerNames :: Lens' RemoveTags ([Text])
-rtiLoadBalancerNames f x =
-    f (_rtiLoadBalancerNames x)
-        <&> \y -> x { _rtiLoadBalancerNames = y }
+rtiLoadBalancerNames = lens _rtiLoadBalancerNames (\s a -> s { _rtiLoadBalancerNames = a })
 {-# INLINE rtiLoadBalancerNames #-}
 
 -- | A list of tag keys to remove.
 rtiTags :: Lens' RemoveTags ([TagKeyOnly])
-rtiTags f x =
-    f (_rtiTags x)
-        <&> \y -> x { _rtiTags = y }
+rtiTags = lens _rtiTags (\s a -> s { _rtiTags = a })
 {-# INLINE rtiTags #-}
 
 instance ToQuery RemoveTags where
     toQuery = genericQuery def
 
-data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RemoveTags where

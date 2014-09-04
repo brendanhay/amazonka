@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
     -- * Request
       DeleteSnapshotSchedule
     -- ** Request constructor
-    , deleteSnapshotSchedule
+    , mkDeleteSnapshotScheduleInput
     -- ** Request lenses
     , dssiVolumeARN
 
@@ -58,22 +58,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteSnapshotSchedule' request.
-deleteSnapshotSchedule :: Text -- ^ 'dssiVolumeARN'
-                       -> DeleteSnapshotSchedule
-deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshotSchedule' request.
+mkDeleteSnapshotScheduleInput :: Text -- ^ 'dssiVolumeARN'
+                              -> DeleteSnapshotSchedule
+mkDeleteSnapshotScheduleInput p1 = DeleteSnapshotSchedule
     { _dssiVolumeARN = p1
     }
-{-# INLINE deleteSnapshotSchedule #-}
+{-# INLINE mkDeleteSnapshotScheduleInput #-}
 
-data DeleteSnapshotSchedule = DeleteSnapshotSchedule
+newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
     { _dssiVolumeARN :: Text
     } deriving (Show, Generic)
 
 dssiVolumeARN :: Lens' DeleteSnapshotSchedule (Text)
-dssiVolumeARN f x =
-    f (_dssiVolumeARN x)
-        <&> \y -> x { _dssiVolumeARN = y }
+dssiVolumeARN = lens _dssiVolumeARN (\s a -> s { _dssiVolumeARN = a })
 {-# INLINE dssiVolumeARN #-}
 
 instance ToPath DeleteSnapshotSchedule
@@ -84,14 +83,12 @@ instance ToHeaders DeleteSnapshotSchedule
 
 instance ToJSON DeleteSnapshotSchedule
 
-data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
+newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssoVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
 dssoVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
-dssoVolumeARN f x =
-    f (_dssoVolumeARN x)
-        <&> \y -> x { _dssoVolumeARN = y }
+dssoVolumeARN = lens _dssoVolumeARN (\s a -> s { _dssoVolumeARN = a })
 {-# INLINE dssoVolumeARN #-}
 
 instance FromJSON DeleteSnapshotScheduleResponse

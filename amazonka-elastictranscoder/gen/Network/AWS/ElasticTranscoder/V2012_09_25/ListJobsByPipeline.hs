@@ -65,7 +65,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
     -- * Request
       ListJobsByPipeline
     -- ** Request constructor
-    , listJobsByPipeline
+    , mkListJobsByPipelineRequest
     -- ** Request lenses
     , ljbprPipelineId
     , ljbprAscending
@@ -74,8 +74,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
     -- * Response
     , ListJobsByPipelineResponse
     -- ** Response lenses
-    , ljbpsNextPageToken
     , ljbpsJobs
+    , ljbpsNextPageToken
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -83,15 +83,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListJobsByPipeline' request.
-listJobsByPipeline :: Text -- ^ 'ljbprPipelineId'
-                   -> ListJobsByPipeline
-listJobsByPipeline p1 = ListJobsByPipeline
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListJobsByPipeline' request.
+mkListJobsByPipelineRequest :: Text -- ^ 'ljbprPipelineId'
+                            -> ListJobsByPipeline
+mkListJobsByPipelineRequest p1 = ListJobsByPipeline
     { _ljbprPipelineId = p1
     , _ljbprAscending = Nothing
     , _ljbprPageToken = Nothing
     }
-{-# INLINE listJobsByPipeline #-}
+{-# INLINE mkListJobsByPipelineRequest #-}
 
 data ListJobsByPipeline = ListJobsByPipeline
     { _ljbprPipelineId :: Text
@@ -108,27 +109,21 @@ data ListJobsByPipeline = ListJobsByPipeline
 
 -- | The ID of the pipeline for which you want to get job information.
 ljbprPipelineId :: Lens' ListJobsByPipeline (Text)
-ljbprPipelineId f x =
-    f (_ljbprPipelineId x)
-        <&> \y -> x { _ljbprPipelineId = y }
+ljbprPipelineId = lens _ljbprPipelineId (\s a -> s { _ljbprPipelineId = a })
 {-# INLINE ljbprPipelineId #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
 ljbprAscending :: Lens' ListJobsByPipeline (Maybe Text)
-ljbprAscending f x =
-    f (_ljbprAscending x)
-        <&> \y -> x { _ljbprAscending = y }
+ljbprAscending = lens _ljbprAscending (\s a -> s { _ljbprAscending = a })
 {-# INLINE ljbprAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
 ljbprPageToken :: Lens' ListJobsByPipeline (Maybe Text)
-ljbprPageToken f x =
-    f (_ljbprPageToken x)
-        <&> \y -> x { _ljbprPageToken = y }
+ljbprPageToken = lens _ljbprPageToken (\s a -> s { _ljbprPageToken = a })
 {-# INLINE ljbprPageToken #-}
 
 instance ToPath ListJobsByPipeline where
@@ -148,31 +143,27 @@ instance ToHeaders ListJobsByPipeline
 instance ToJSON ListJobsByPipeline
 
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
-    { _ljbpsNextPageToken :: Maybe Text
+    { _ljbpsJobs :: [Job]
+      -- ^ An array of Job objects that are in the specified pipeline.
+    , _ljbpsNextPageToken :: Maybe Text
       -- ^ A value that you use to access the second and subsequent pages of
       -- results, if any. When the jobs in the specified pipeline fit on
       -- one page or when you've reached the last page of results, the
       -- value of NextPageToken is null.
-    , _ljbpsJobs :: [Job]
-      -- ^ An array of Job objects that are in the specified pipeline.
     } deriving (Show, Generic)
+
+-- | An array of Job objects that are in the specified pipeline.
+ljbpsJobs :: Lens' ListJobsByPipelineResponse ([Job])
+ljbpsJobs = lens _ljbpsJobs (\s a -> s { _ljbpsJobs = a })
+{-# INLINE ljbpsJobs #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of NextPageToken is
 -- null.
 ljbpsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
-ljbpsNextPageToken f x =
-    f (_ljbpsNextPageToken x)
-        <&> \y -> x { _ljbpsNextPageToken = y }
+ljbpsNextPageToken = lens _ljbpsNextPageToken (\s a -> s { _ljbpsNextPageToken = a })
 {-# INLINE ljbpsNextPageToken #-}
-
--- | An array of Job objects that are in the specified pipeline.
-ljbpsJobs :: Lens' ListJobsByPipelineResponse ([Job])
-ljbpsJobs f x =
-    f (_ljbpsJobs x)
-        <&> \y -> x { _ljbpsJobs = y }
-{-# INLINE ljbpsJobs #-}
 
 instance FromJSON ListJobsByPipelineResponse
 

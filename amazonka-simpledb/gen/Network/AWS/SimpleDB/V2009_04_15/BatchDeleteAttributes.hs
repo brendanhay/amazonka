@@ -38,10 +38,10 @@ module Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
     -- * Request
       BatchDeleteAttributes
     -- ** Request constructor
-    , batchDeleteAttributes
+    , mkBatchDeleteAttributesRequest
     -- ** Request lenses
-    , bdarItems
     , bdarDomainName
+    , bdarItems
 
     -- * Response
     , BatchDeleteAttributesResponse
@@ -51,36 +51,33 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'BatchDeleteAttributes' request.
-batchDeleteAttributes :: [DeletableItem] -- ^ 'bdarItems'
-                      -> Text -- ^ 'bdarDomainName'
-                      -> BatchDeleteAttributes
-batchDeleteAttributes p1 p2 = BatchDeleteAttributes
-    { _bdarItems = p1
-    , _bdarDomainName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchDeleteAttributes' request.
+mkBatchDeleteAttributesRequest :: Text -- ^ 'bdarDomainName'
+                               -> [DeletableItem] -- ^ 'bdarItems'
+                               -> BatchDeleteAttributes
+mkBatchDeleteAttributesRequest p1 p2 = BatchDeleteAttributes
+    { _bdarDomainName = p1
+    , _bdarItems = p2
     }
-{-# INLINE batchDeleteAttributes #-}
+{-# INLINE mkBatchDeleteAttributesRequest #-}
 
 data BatchDeleteAttributes = BatchDeleteAttributes
-    { _bdarItems :: [DeletableItem]
-      -- ^ A list of items on which to perform the operation.
-    , _bdarDomainName :: Text
+    { _bdarDomainName :: Text
       -- ^ The name of the domain in which the attributes are being deleted.
+    , _bdarItems :: [DeletableItem]
+      -- ^ A list of items on which to perform the operation.
     } deriving (Show, Generic)
-
--- | A list of items on which to perform the operation.
-bdarItems :: Lens' BatchDeleteAttributes ([DeletableItem])
-bdarItems f x =
-    f (_bdarItems x)
-        <&> \y -> x { _bdarItems = y }
-{-# INLINE bdarItems #-}
 
 -- | The name of the domain in which the attributes are being deleted.
 bdarDomainName :: Lens' BatchDeleteAttributes (Text)
-bdarDomainName f x =
-    f (_bdarDomainName x)
-        <&> \y -> x { _bdarDomainName = y }
+bdarDomainName = lens _bdarDomainName (\s a -> s { _bdarDomainName = a })
 {-# INLINE bdarDomainName #-}
+
+-- | A list of items on which to perform the operation.
+bdarItems :: Lens' BatchDeleteAttributes ([DeletableItem])
+bdarItems = lens _bdarItems (\s a -> s { _bdarItems = a })
+{-# INLINE bdarItems #-}
 
 instance ToQuery BatchDeleteAttributes where
     toQuery = genericQuery def

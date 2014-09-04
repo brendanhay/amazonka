@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketTagging
     -- * Request
       DeleteBucketTagging
     -- ** Request constructor
-    , deleteBucketTagging
+    , mkDeleteBucketTaggingRequest
     -- ** Request lenses
     , dbtrBucket
 
@@ -35,22 +35,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteBucketTagging' request.
-deleteBucketTagging :: BucketName -- ^ 'dbtrBucket'
-                    -> DeleteBucketTagging
-deleteBucketTagging p1 = DeleteBucketTagging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketTagging' request.
+mkDeleteBucketTaggingRequest :: BucketName -- ^ 'dbtrBucket'
+                             -> DeleteBucketTagging
+mkDeleteBucketTaggingRequest p1 = DeleteBucketTagging
     { _dbtrBucket = p1
     }
-{-# INLINE deleteBucketTagging #-}
+{-# INLINE mkDeleteBucketTaggingRequest #-}
 
-data DeleteBucketTagging = DeleteBucketTagging
+newtype DeleteBucketTagging = DeleteBucketTagging
     { _dbtrBucket :: BucketName
     } deriving (Show, Generic)
 
 dbtrBucket :: Lens' DeleteBucketTagging (BucketName)
-dbtrBucket f x =
-    f (_dbtrBucket x)
-        <&> \y -> x { _dbtrBucket = y }
+dbtrBucket = lens _dbtrBucket (\s a -> s { _dbtrBucket = a })
 {-# INLINE dbtrBucket #-}
 
 instance ToPath DeleteBucketTagging where

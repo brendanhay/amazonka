@@ -31,11 +31,11 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications
     -- * Request
       DescribeReservedInstancesModifications
     -- ** Request constructor
-    , describeReservedInstancesModifications
+    , mkDescribeReservedInstancesModificationsRequest
     -- ** Request lenses
-    , drimrFilters
     , drimrReservedInstancesModificationIds
     , drimrNextToken
+    , drimrFilters
 
     -- * Response
     , DescribeReservedInstancesModificationsResponse
@@ -48,17 +48,22 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeReservedInstancesModifications' request.
-describeReservedInstancesModifications :: DescribeReservedInstancesModifications
-describeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimrFilters = mempty
-    , _drimrReservedInstancesModificationIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstancesModifications' request.
+mkDescribeReservedInstancesModificationsRequest :: DescribeReservedInstancesModifications
+mkDescribeReservedInstancesModificationsRequest = DescribeReservedInstancesModifications
+    { _drimrReservedInstancesModificationIds = mempty
     , _drimrNextToken = Nothing
+    , _drimrFilters = mempty
     }
-{-# INLINE describeReservedInstancesModifications #-}
+{-# INLINE mkDescribeReservedInstancesModificationsRequest #-}
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimrFilters :: [Filter]
+    { _drimrReservedInstancesModificationIds :: [Text]
+      -- ^ IDs for the submitted modification request.
+    , _drimrNextToken :: Maybe Text
+      -- ^ The token for the next page of data.
+    , _drimrFilters :: [Filter]
       -- ^ One or more filters. client-token - The idempotency token for the
       -- modification request. create-date - The time when the
       -- modification request was created. effective-date - The time when
@@ -81,11 +86,17 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
       -- Instances modification request (processing | fulfilled | failed).
       -- status-message - The reason for the status. update-date - The
       -- time when the modification request was last updated.
-    , _drimrReservedInstancesModificationIds :: [Text]
-      -- ^ IDs for the submitted modification request.
-    , _drimrNextToken :: Maybe Text
-      -- ^ The token for the next page of data.
     } deriving (Show, Generic)
+
+-- | IDs for the submitted modification request.
+drimrReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications ([Text])
+drimrReservedInstancesModificationIds = lens _drimrReservedInstancesModificationIds (\s a -> s { _drimrReservedInstancesModificationIds = a })
+{-# INLINE drimrReservedInstancesModificationIds #-}
+
+-- | The token for the next page of data.
+drimrNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
+drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
+{-# INLINE drimrNextToken #-}
 
 -- | One or more filters. client-token - The idempotency token for the
 -- modification request. create-date - The time when the modification request
@@ -107,24 +118,8 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 -- status. update-date - The time when the modification request was last
 -- updated.
 drimrFilters :: Lens' DescribeReservedInstancesModifications ([Filter])
-drimrFilters f x =
-    f (_drimrFilters x)
-        <&> \y -> x { _drimrFilters = y }
+drimrFilters = lens _drimrFilters (\s a -> s { _drimrFilters = a })
 {-# INLINE drimrFilters #-}
-
--- | IDs for the submitted modification request.
-drimrReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications ([Text])
-drimrReservedInstancesModificationIds f x =
-    f (_drimrReservedInstancesModificationIds x)
-        <&> \y -> x { _drimrReservedInstancesModificationIds = y }
-{-# INLINE drimrReservedInstancesModificationIds #-}
-
--- | The token for the next page of data.
-drimrNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
-drimrNextToken f x =
-    f (_drimrNextToken x)
-        <&> \y -> x { _drimrNextToken = y }
-{-# INLINE drimrNextToken #-}
 
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery = genericQuery def
@@ -138,16 +133,12 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 
 -- | The Reserved Instance modification information.
 drimsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse ([ReservedInstancesModification])
-drimsReservedInstancesModifications f x =
-    f (_drimsReservedInstancesModifications x)
-        <&> \y -> x { _drimsReservedInstancesModifications = y }
+drimsReservedInstancesModifications = lens _drimsReservedInstancesModifications (\s a -> s { _drimsReservedInstancesModifications = a })
 {-# INLINE drimsReservedInstancesModifications #-}
 
 -- | The token for the next page of data.
 drimsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
-drimsNextToken f x =
-    f (_drimsNextToken x)
-        <&> \y -> x { _drimsNextToken = y }
+drimsNextToken = lens _drimsNextToken (\s a -> s { _drimsNextToken = a })
 {-# INLINE drimsNextToken #-}
 
 instance FromXML DescribeReservedInstancesModificationsResponse where

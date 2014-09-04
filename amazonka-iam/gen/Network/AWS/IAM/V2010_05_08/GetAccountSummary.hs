@@ -31,7 +31,7 @@ module Network.AWS.IAM.V2010_05_08.GetAccountSummary
     -- * Request
       GetAccountSummary
     -- ** Request constructor
-    , getAccountSummary
+    , mkUnknown
     -- * Response
     , GetAccountSummaryResponse
     -- ** Response lenses
@@ -42,10 +42,11 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetAccountSummary' request.
-getAccountSummary :: GetAccountSummary
-getAccountSummary = GetAccountSummary
-{-# INLINE getAccountSummary #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAccountSummary' request.
+mkUnknown :: GetAccountSummary
+mkUnknown = GetAccountSummary
+{-# INLINE mkUnknown #-}
 
 data GetAccountSummary = GetAccountSummary
     deriving (Eq, Show, Generic)
@@ -53,7 +54,7 @@ data GetAccountSummary = GetAccountSummary
 instance ToQuery GetAccountSummary where
     toQuery = genericQuery def
 
-data GetAccountSummaryResponse = GetAccountSummaryResponse
+newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map SummaryKeyType Integer
       -- ^ A set of key value pairs containing account-level information.
       -- SummaryMap contains the following keys: AccessKeysPerUserQuota -
@@ -106,9 +107,7 @@ data GetAccountSummaryResponse = GetAccountSummaryResponse
 -- Number of users for the AWS account UsersQuota - Maximum users allowed for
 -- the AWS account.
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
-gasrSummaryMap f x =
-    f (_gasrSummaryMap x)
-        <&> \y -> x { _gasrSummaryMap = y }
+gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
 {-# INLINE gasrSummaryMap #-}
 
 instance FromXML GetAccountSummaryResponse where

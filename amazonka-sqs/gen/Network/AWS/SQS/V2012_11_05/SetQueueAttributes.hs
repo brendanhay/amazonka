@@ -57,10 +57,10 @@ module Network.AWS.SQS.V2012_11_05.SetQueueAttributes
     -- * Request
       SetQueueAttributes
     -- ** Request constructor
-    , setQueueAttributes
+    , mkSetQueueAttributesRequest
     -- ** Request lenses
-    , sqarAttributes
     , sqarQueueUrl
+    , sqarAttributes
 
     -- * Response
     , SetQueueAttributesResponse
@@ -70,18 +70,21 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetQueueAttributes' request.
-setQueueAttributes :: Map QueueAttributeName Text -- ^ 'sqarAttributes'
-                   -> Text -- ^ 'sqarQueueUrl'
-                   -> SetQueueAttributes
-setQueueAttributes p1 p2 = SetQueueAttributes
-    { _sqarAttributes = p1
-    , _sqarQueueUrl = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetQueueAttributes' request.
+mkSetQueueAttributesRequest :: Text -- ^ 'sqarQueueUrl'
+                            -> Map QueueAttributeName Text -- ^ 'sqarAttributes'
+                            -> SetQueueAttributes
+mkSetQueueAttributesRequest p1 p2 = SetQueueAttributes
+    { _sqarQueueUrl = p1
+    , _sqarAttributes = p2
     }
-{-# INLINE setQueueAttributes #-}
+{-# INLINE mkSetQueueAttributesRequest #-}
 
 data SetQueueAttributes = SetQueueAttributes
-    { _sqarAttributes :: Map QueueAttributeName Text
+    { _sqarQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
+    , _sqarAttributes :: Map QueueAttributeName Text
       -- ^ A map of attributes to set. The following lists the names,
       -- descriptions, and values of the special request parameters the
       -- SetQueueAttributes action uses: DelaySeconds - The time in
@@ -110,9 +113,12 @@ data SetQueueAttributes = SetQueueAttributes
       -- functionality of the source queue. For more information about
       -- RedrivePolicy and dead letter queues, see Using Amazon SQS Dead
       -- Letter Queues in the Amazon SQS Developer Guide.
-    , _sqarQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
+
+-- | The URL of the Amazon SQS queue to take action on.
+sqarQueueUrl :: Lens' SetQueueAttributes (Text)
+sqarQueueUrl = lens _sqarQueueUrl (\s a -> s { _sqarQueueUrl = a })
+{-# INLINE sqarQueueUrl #-}
 
 -- | A map of attributes to set. The following lists the names, descriptions,
 -- and values of the special request parameters the SetQueueAttributes action
@@ -139,17 +145,8 @@ data SetQueueAttributes = SetQueueAttributes
 -- more information about RedrivePolicy and dead letter queues, see Using
 -- Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 sqarAttributes :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
-sqarAttributes f x =
-    f (_sqarAttributes x)
-        <&> \y -> x { _sqarAttributes = y }
+sqarAttributes = lens _sqarAttributes (\s a -> s { _sqarAttributes = a })
 {-# INLINE sqarAttributes #-}
-
--- | The URL of the Amazon SQS queue to take action on.
-sqarQueueUrl :: Lens' SetQueueAttributes (Text)
-sqarQueueUrl f x =
-    f (_sqarQueueUrl x)
-        <&> \y -> x { _sqarQueueUrl = y }
-{-# INLINE sqarQueueUrl #-}
 
 instance ToQuery SetQueueAttributes where
     toQuery = genericQuery def

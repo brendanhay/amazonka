@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeRouteTables
     -- * Request
       DescribeRouteTables
     -- ** Request constructor
-    , describeRouteTables
+    , mkDescribeRouteTablesRequest
     -- ** Request lenses
-    , drtsFilters
     , drtsRouteTableIds
+    , drtsFilters
 
     -- * Response
     , DescribeRouteTablesResponse
@@ -48,16 +48,20 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeRouteTables' request.
-describeRouteTables :: DescribeRouteTables
-describeRouteTables = DescribeRouteTables
-    { _drtsFilters = mempty
-    , _drtsRouteTableIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRouteTables' request.
+mkDescribeRouteTablesRequest :: DescribeRouteTables
+mkDescribeRouteTablesRequest = DescribeRouteTables
+    { _drtsRouteTableIds = mempty
+    , _drtsFilters = mempty
     }
-{-# INLINE describeRouteTables #-}
+{-# INLINE mkDescribeRouteTablesRequest #-}
 
 data DescribeRouteTables = DescribeRouteTables
-    { _drtsFilters :: [Filter]
+    { _drtsRouteTableIds :: [Text]
+      -- ^ One or more route table IDs. Default: Describes all your route
+      -- tables.
+    , _drtsFilters :: [Filter]
       -- ^ One or more filters. association.route-table-association-id - The
       -- ID of an association ID for the route table.
       -- association.route-table-id - The ID of the route table involved
@@ -88,10 +92,12 @@ data DescribeRouteTables = DescribeRouteTables
       -- of a tag assigned to the resource. This filter is independent of
       -- the tag-key filter. vpc-id - The ID of the VPC for the route
       -- table.
-    , _drtsRouteTableIds :: [Text]
-      -- ^ One or more route table IDs. Default: Describes all your route
-      -- tables.
     } deriving (Show, Generic)
+
+-- | One or more route table IDs. Default: Describes all your route tables.
+drtsRouteTableIds :: Lens' DescribeRouteTables ([Text])
+drtsRouteTableIds = lens _drtsRouteTableIds (\s a -> s { _drtsRouteTableIds = a })
+{-# INLINE drtsRouteTableIds #-}
 
 -- | One or more filters. association.route-table-association-id - The ID of an
 -- association ID for the route table. association.route-table-id - The ID of
@@ -119,31 +125,20 @@ data DescribeRouteTables = DescribeRouteTables
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the route table.
 drtsFilters :: Lens' DescribeRouteTables ([Filter])
-drtsFilters f x =
-    f (_drtsFilters x)
-        <&> \y -> x { _drtsFilters = y }
+drtsFilters = lens _drtsFilters (\s a -> s { _drtsFilters = a })
 {-# INLINE drtsFilters #-}
-
--- | One or more route table IDs. Default: Describes all your route tables.
-drtsRouteTableIds :: Lens' DescribeRouteTables ([Text])
-drtsRouteTableIds f x =
-    f (_drtsRouteTableIds x)
-        <&> \y -> x { _drtsRouteTableIds = y }
-{-# INLINE drtsRouteTableIds #-}
 
 instance ToQuery DescribeRouteTables where
     toQuery = genericQuery def
 
-data DescribeRouteTablesResponse = DescribeRouteTablesResponse
+newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drttRouteTables :: [RouteTable]
       -- ^ Information about one or more route tables.
     } deriving (Show, Generic)
 
 -- | Information about one or more route tables.
 drttRouteTables :: Lens' DescribeRouteTablesResponse ([RouteTable])
-drttRouteTables f x =
-    f (_drttRouteTables x)
-        <&> \y -> x { _drttRouteTables = y }
+drttRouteTables = lens _drttRouteTables (\s a -> s { _drttRouteTables = a })
 {-# INLINE drttRouteTables #-}
 
 instance FromXML DescribeRouteTablesResponse where

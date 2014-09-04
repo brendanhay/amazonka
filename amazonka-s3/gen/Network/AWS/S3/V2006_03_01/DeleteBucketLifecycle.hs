@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
     -- * Request
       DeleteBucketLifecycle
     -- ** Request constructor
-    , deleteBucketLifecycle
+    , mkDeleteBucketLifecycleRequest
     -- ** Request lenses
     , dblrBucket
 
@@ -35,22 +35,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteBucketLifecycle' request.
-deleteBucketLifecycle :: BucketName -- ^ 'dblrBucket'
-                      -> DeleteBucketLifecycle
-deleteBucketLifecycle p1 = DeleteBucketLifecycle
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketLifecycle' request.
+mkDeleteBucketLifecycleRequest :: BucketName -- ^ 'dblrBucket'
+                               -> DeleteBucketLifecycle
+mkDeleteBucketLifecycleRequest p1 = DeleteBucketLifecycle
     { _dblrBucket = p1
     }
-{-# INLINE deleteBucketLifecycle #-}
+{-# INLINE mkDeleteBucketLifecycleRequest #-}
 
-data DeleteBucketLifecycle = DeleteBucketLifecycle
+newtype DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblrBucket :: BucketName
     } deriving (Show, Generic)
 
 dblrBucket :: Lens' DeleteBucketLifecycle (BucketName)
-dblrBucket f x =
-    f (_dblrBucket x)
-        <&> \y -> x { _dblrBucket = y }
+dblrBucket = lens _dblrBucket (\s a -> s { _dblrBucket = a })
 {-# INLINE dblrBucket #-}
 
 instance ToPath DeleteBucketLifecycle where

@@ -31,10 +31,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeRegions
     -- * Request
       DescribeRegions
     -- ** Request constructor
-    , describeRegions
+    , mkDescribeRegionsRequest
     -- ** Request lenses
-    , drsFilters
     , drsRegionNames
+    , drsFilters
 
     -- * Response
     , DescribeRegionsResponse
@@ -46,52 +46,47 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeRegions' request.
-describeRegions :: DescribeRegions
-describeRegions = DescribeRegions
-    { _drsFilters = mempty
-    , _drsRegionNames = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRegions' request.
+mkDescribeRegionsRequest :: DescribeRegions
+mkDescribeRegionsRequest = DescribeRegions
+    { _drsRegionNames = mempty
+    , _drsFilters = mempty
     }
-{-# INLINE describeRegions #-}
+{-# INLINE mkDescribeRegionsRequest #-}
 
 data DescribeRegions = DescribeRegions
-    { _drsFilters :: [Filter]
+    { _drsRegionNames :: [Text]
+      -- ^ The names of one or more regions.
+    , _drsFilters :: [Filter]
       -- ^ One or more filters. endpoint - The endpoint of the region (for
       -- example, ec2.us-east-1.amazonaws.com). region-name - The name of
       -- the region (for example, us-east-1).
-    , _drsRegionNames :: [Text]
-      -- ^ The names of one or more regions.
     } deriving (Show, Generic)
+
+-- | The names of one or more regions.
+drsRegionNames :: Lens' DescribeRegions ([Text])
+drsRegionNames = lens _drsRegionNames (\s a -> s { _drsRegionNames = a })
+{-# INLINE drsRegionNames #-}
 
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
 drsFilters :: Lens' DescribeRegions ([Filter])
-drsFilters f x =
-    f (_drsFilters x)
-        <&> \y -> x { _drsFilters = y }
+drsFilters = lens _drsFilters (\s a -> s { _drsFilters = a })
 {-# INLINE drsFilters #-}
-
--- | The names of one or more regions.
-drsRegionNames :: Lens' DescribeRegions ([Text])
-drsRegionNames f x =
-    f (_drsRegionNames x)
-        <&> \y -> x { _drsRegionNames = y }
-{-# INLINE drsRegionNames #-}
 
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
 
-data DescribeRegionsResponse = DescribeRegionsResponse
+newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drtRegions :: [Region]
       -- ^ Information about one or more regions.
     } deriving (Show, Generic)
 
 -- | Information about one or more regions.
 drtRegions :: Lens' DescribeRegionsResponse ([Region])
-drtRegions f x =
-    f (_drtRegions x)
-        <&> \y -> x { _drtRegions = y }
+drtRegions = lens _drtRegions (\s a -> s { _drtRegions = a })
 {-# INLINE drtRegions #-}
 
 instance FromXML DescribeRegionsResponse where

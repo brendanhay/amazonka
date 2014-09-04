@@ -24,7 +24,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
     -- * Request
       DescribeConnections
     -- ** Request constructor
-    , describeConnections
+    , mkDescribeConnectionsRequest
     -- ** Request lenses
     , dcsConnectionId
 
@@ -39,23 +39,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeConnections' request.
-describeConnections :: DescribeConnections
-describeConnections = DescribeConnections
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConnections' request.
+mkDescribeConnectionsRequest :: DescribeConnections
+mkDescribeConnectionsRequest = DescribeConnections
     { _dcsConnectionId = Nothing
     }
-{-# INLINE describeConnections #-}
+{-# INLINE mkDescribeConnectionsRequest #-}
 
-data DescribeConnections = DescribeConnections
+newtype DescribeConnections = DescribeConnections
     { _dcsConnectionId :: Maybe Text
       -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dcsConnectionId :: Lens' DescribeConnections (Maybe Text)
-dcsConnectionId f x =
-    f (_dcsConnectionId x)
-        <&> \y -> x { _dcsConnectionId = y }
+dcsConnectionId = lens _dcsConnectionId (\s a -> s { _dcsConnectionId = a })
 {-# INLINE dcsConnectionId #-}
 
 instance ToPath DescribeConnections
@@ -66,16 +65,14 @@ instance ToHeaders DescribeConnections
 
 instance ToJSON DescribeConnections
 
-data DescribeConnectionsResponse = DescribeConnectionsResponse
+newtype DescribeConnectionsResponse = DescribeConnectionsResponse
     { _mConnections :: [Connection]
       -- ^ A list of connections.
     } deriving (Show, Generic)
 
 -- | A list of connections.
 mConnections :: Lens' DescribeConnectionsResponse ([Connection])
-mConnections f x =
-    f (_mConnections x)
-        <&> \y -> x { _mConnections = y }
+mConnections = lens _mConnections (\s a -> s { _mConnections = a })
 {-# INLINE mConnections #-}
 
 instance FromJSON DescribeConnectionsResponse

@@ -79,14 +79,14 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob
     -- * Request
       CreateJob
     -- ** Request constructor
-    , createJob
+    , mkCreateJobRequest
     -- ** Request lenses
     , cjtPipelineId
     , cjtInput
     , cjtOutput
     , cjtOutputs
-    , cjtPlaylists
     , cjtOutputKeyPrefix
+    , cjtPlaylists
 
     -- * Response
     , CreateJobResponse
@@ -99,19 +99,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateJob' request.
-createJob :: Text -- ^ 'cjtPipelineId'
-          -> JobInput -- ^ 'cjtInput'
-          -> CreateJob
-createJob p1 p2 = CreateJob
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateJob' request.
+mkCreateJobRequest :: Text -- ^ 'cjtPipelineId'
+                   -> JobInput -- ^ 'cjtInput'
+                   -> CreateJob
+mkCreateJobRequest p1 p2 = CreateJob
     { _cjtPipelineId = p1
     , _cjtInput = p2
     , _cjtOutput = Nothing
     , _cjtOutputs = mempty
-    , _cjtPlaylists = mempty
     , _cjtOutputKeyPrefix = Nothing
+    , _cjtPlaylists = mempty
     }
-{-# INLINE createJob #-}
+{-# INLINE mkCreateJobRequest #-}
 
 data CreateJob = CreateJob
     { _cjtPipelineId :: Text
@@ -129,16 +130,16 @@ data CreateJob = CreateJob
       -- ^ A section of the request body that provides information about the
       -- transcoded (target) files. We recommend that you use the Outputs
       -- syntax instead of the Output syntax.
+    , _cjtOutputKeyPrefix :: Maybe Text
+      -- ^ The value, if any, that you want Elastic Transcoder to prepend to
+      -- the names of all files that this job creates, including output
+      -- files, thumbnails, and playlists.
     , _cjtPlaylists :: [CreateJobPlaylist]
       -- ^ If you specify a preset in PresetId for which the value of
       -- Container is ts (MPEG-TS), Playlists contains information about
       -- the master playlists that you want Elastic Transcoder to create.
       -- We recommend that you create only one master playlist. The
       -- maximum number of master playlists in a job is 30.
-    , _cjtOutputKeyPrefix :: Maybe Text
-      -- ^ The value, if any, that you want Elastic Transcoder to prepend to
-      -- the names of all files that this job creates, including output
-      -- files, thumbnails, and playlists.
     } deriving (Show, Generic)
 
 -- | The Id of the pipeline that you want Elastic Transcoder to use for
@@ -146,53 +147,41 @@ data CreateJob = CreateJob
 -- S3 bucket from which Elastic Transcoder gets the files to transcode and the
 -- bucket into which Elastic Transcoder puts the transcoded files.
 cjtPipelineId :: Lens' CreateJob (Text)
-cjtPipelineId f x =
-    f (_cjtPipelineId x)
-        <&> \y -> x { _cjtPipelineId = y }
+cjtPipelineId = lens _cjtPipelineId (\s a -> s { _cjtPipelineId = a })
 {-# INLINE cjtPipelineId #-}
 
 -- | A section of the request body that provides information about the file that
 -- is being transcoded.
 cjtInput :: Lens' CreateJob (JobInput)
-cjtInput f x =
-    f (_cjtInput x)
-        <&> \y -> x { _cjtInput = y }
+cjtInput = lens _cjtInput (\s a -> s { _cjtInput = a })
 {-# INLINE cjtInput #-}
 
 -- | The CreateJobOutput structure.
 cjtOutput :: Lens' CreateJob (Maybe CreateJobOutput)
-cjtOutput f x =
-    f (_cjtOutput x)
-        <&> \y -> x { _cjtOutput = y }
+cjtOutput = lens _cjtOutput (\s a -> s { _cjtOutput = a })
 {-# INLINE cjtOutput #-}
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the Outputs syntax
 -- instead of the Output syntax.
 cjtOutputs :: Lens' CreateJob ([CreateJobOutput])
-cjtOutputs f x =
-    f (_cjtOutputs x)
-        <&> \y -> x { _cjtOutputs = y }
+cjtOutputs = lens _cjtOutputs (\s a -> s { _cjtOutputs = a })
 {-# INLINE cjtOutputs #-}
+
+-- | The value, if any, that you want Elastic Transcoder to prepend to the names
+-- of all files that this job creates, including output files, thumbnails, and
+-- playlists.
+cjtOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
+cjtOutputKeyPrefix = lens _cjtOutputKeyPrefix (\s a -> s { _cjtOutputKeyPrefix = a })
+{-# INLINE cjtOutputKeyPrefix #-}
 
 -- | If you specify a preset in PresetId for which the value of Container is ts
 -- (MPEG-TS), Playlists contains information about the master playlists that
 -- you want Elastic Transcoder to create. We recommend that you create only
 -- one master playlist. The maximum number of master playlists in a job is 30.
 cjtPlaylists :: Lens' CreateJob ([CreateJobPlaylist])
-cjtPlaylists f x =
-    f (_cjtPlaylists x)
-        <&> \y -> x { _cjtPlaylists = y }
+cjtPlaylists = lens _cjtPlaylists (\s a -> s { _cjtPlaylists = a })
 {-# INLINE cjtPlaylists #-}
-
--- | The value, if any, that you want Elastic Transcoder to prepend to the names
--- of all files that this job creates, including output files, thumbnails, and
--- playlists.
-cjtOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
-cjtOutputKeyPrefix f x =
-    f (_cjtOutputKeyPrefix x)
-        <&> \y -> x { _cjtOutputKeyPrefix = y }
-{-# INLINE cjtOutputKeyPrefix #-}
 
 instance ToPath CreateJob where
     toPath = const "/2012-09-25/jobs"
@@ -203,7 +192,7 @@ instance ToHeaders CreateJob
 
 instance ToJSON CreateJob
 
-data CreateJobResponse = CreateJobResponse
+newtype CreateJobResponse = CreateJobResponse
     { _cjwJob :: Maybe Job
       -- ^ A section of the response body that provides information about
       -- the job that is created.
@@ -212,9 +201,7 @@ data CreateJobResponse = CreateJobResponse
 -- | A section of the response body that provides information about the job that
 -- is created.
 cjwJob :: Lens' CreateJobResponse (Maybe Job)
-cjwJob f x =
-    f (_cjwJob x)
-        <&> \y -> x { _cjwJob = y }
+cjwJob = lens _cjwJob (\s a -> s { _cjwJob = a })
 {-# INLINE cjwJob #-}
 
 instance FromJSON CreateJobResponse

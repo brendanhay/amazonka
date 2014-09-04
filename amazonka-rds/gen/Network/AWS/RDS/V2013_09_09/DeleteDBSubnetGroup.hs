@@ -28,7 +28,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBSubnetGroup
     -- * Request
       DeleteDBSubnetGroup
     -- ** Request constructor
-    , deleteDBSubnetGroup
+    , mkDeleteDBSubnetGroupMessage
     -- ** Request lenses
     , ddbsgnDBSubnetGroupName
 
@@ -40,15 +40,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDBSubnetGroup' request.
-deleteDBSubnetGroup :: Text -- ^ 'ddbsgnDBSubnetGroupName'
-                    -> DeleteDBSubnetGroup
-deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBSubnetGroup' request.
+mkDeleteDBSubnetGroupMessage :: Text -- ^ 'ddbsgnDBSubnetGroupName'
+                             -> DeleteDBSubnetGroup
+mkDeleteDBSubnetGroupMessage p1 = DeleteDBSubnetGroup
     { _ddbsgnDBSubnetGroupName = p1
     }
-{-# INLINE deleteDBSubnetGroup #-}
+{-# INLINE mkDeleteDBSubnetGroupMessage #-}
 
-data DeleteDBSubnetGroup = DeleteDBSubnetGroup
+newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsgnDBSubnetGroupName :: Text
       -- ^ The name of the database subnet group to delete. You cannot
       -- delete the default subnet group. Constraints: Must be 1 to 255
@@ -61,9 +62,7 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
 ddbsgnDBSubnetGroupName :: Lens' DeleteDBSubnetGroup (Text)
-ddbsgnDBSubnetGroupName f x =
-    f (_ddbsgnDBSubnetGroupName x)
-        <&> \y -> x { _ddbsgnDBSubnetGroupName = y }
+ddbsgnDBSubnetGroupName = lens _ddbsgnDBSubnetGroupName (\s a -> s { _ddbsgnDBSubnetGroupName = a })
 {-# INLINE ddbsgnDBSubnetGroupName #-}
 
 instance ToQuery DeleteDBSubnetGroup where

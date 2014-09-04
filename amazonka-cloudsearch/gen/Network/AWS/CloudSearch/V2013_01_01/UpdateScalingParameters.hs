@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters
     -- * Request
       UpdateScalingParameters
     -- ** Request constructor
-    , updateScalingParameters
+    , mkUpdateScalingParametersRequest
     -- ** Request lenses
     , usprDomainName
     , usprScalingParameters
@@ -44,15 +44,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateScalingParameters' request.
-updateScalingParameters :: Text -- ^ 'usprDomainName'
-                        -> ScalingParameters -- ^ 'usprScalingParameters'
-                        -> UpdateScalingParameters
-updateScalingParameters p1 p2 = UpdateScalingParameters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateScalingParameters' request.
+mkUpdateScalingParametersRequest :: Text -- ^ 'usprDomainName'
+                                 -> ScalingParameters -- ^ 'usprScalingParameters'
+                                 -> UpdateScalingParameters
+mkUpdateScalingParametersRequest p1 p2 = UpdateScalingParameters
     { _usprDomainName = p1
     , _usprScalingParameters = p2
     }
-{-# INLINE updateScalingParameters #-}
+{-# INLINE mkUpdateScalingParametersRequest #-}
 
 data UpdateScalingParameters = UpdateScalingParameters
     { _usprDomainName :: Text
@@ -71,23 +72,19 @@ data UpdateScalingParameters = UpdateScalingParameters
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 usprDomainName :: Lens' UpdateScalingParameters (Text)
-usprDomainName f x =
-    f (_usprDomainName x)
-        <&> \y -> x { _usprDomainName = y }
+usprDomainName = lens _usprDomainName (\s a -> s { _usprDomainName = a })
 {-# INLINE usprDomainName #-}
 
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
 usprScalingParameters :: Lens' UpdateScalingParameters (ScalingParameters)
-usprScalingParameters f x =
-    f (_usprScalingParameters x)
-        <&> \y -> x { _usprScalingParameters = y }
+usprScalingParameters = lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
 {-# INLINE usprScalingParameters #-}
 
 instance ToQuery UpdateScalingParameters where
     toQuery = genericQuery def
 
-data UpdateScalingParametersResponse = UpdateScalingParametersResponse
+newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _uspsScalingParameters :: ScalingParametersStatus
       -- ^ The status and configuration of a search domain's scaling
       -- parameters.
@@ -95,9 +92,7 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse
 
 -- | The status and configuration of a search domain's scaling parameters.
 uspsScalingParameters :: Lens' UpdateScalingParametersResponse (ScalingParametersStatus)
-uspsScalingParameters f x =
-    f (_uspsScalingParameters x)
-        <&> \y -> x { _uspsScalingParameters = y }
+uspsScalingParameters = lens _uspsScalingParameters (\s a -> s { _uspsScalingParameters = a })
 {-# INLINE uspsScalingParameters #-}
 
 instance FromXML UpdateScalingParametersResponse where

@@ -40,7 +40,7 @@ module Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy
     -- * Request
       CreateLBCookieStickinessPolicy
     -- ** Request constructor
-    , createLBCookieStickinessPolicy
+    , mkCreateLBCookieStickinessPolicyInput
     -- ** Request lenses
     , clbcspiLoadBalancerName
     , clbcspiPolicyName
@@ -54,16 +54,17 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateLBCookieStickinessPolicy' request.
-createLBCookieStickinessPolicy :: Text -- ^ 'clbcspiLoadBalancerName'
-                               -> Text -- ^ 'clbcspiPolicyName'
-                               -> CreateLBCookieStickinessPolicy
-createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLBCookieStickinessPolicy' request.
+mkCreateLBCookieStickinessPolicyInput :: Text -- ^ 'clbcspiLoadBalancerName'
+                                      -> Text -- ^ 'clbcspiPolicyName'
+                                      -> CreateLBCookieStickinessPolicy
+mkCreateLBCookieStickinessPolicyInput p1 p2 = CreateLBCookieStickinessPolicy
     { _clbcspiLoadBalancerName = p1
     , _clbcspiPolicyName = p2
     , _clbcspiCookieExpirationPeriod = Nothing
     }
-{-# INLINE createLBCookieStickinessPolicy #-}
+{-# INLINE mkCreateLBCookieStickinessPolicyInput #-}
 
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     { _clbcspiLoadBalancerName :: Text
@@ -80,32 +81,25 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
 
 -- | The name associated with the load balancer.
 clbcspiLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy (Text)
-clbcspiLoadBalancerName f x =
-    f (_clbcspiLoadBalancerName x)
-        <&> \y -> x { _clbcspiLoadBalancerName = y }
+clbcspiLoadBalancerName = lens _clbcspiLoadBalancerName (\s a -> s { _clbcspiLoadBalancerName = a })
 {-# INLINE clbcspiLoadBalancerName #-}
 
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
 clbcspiPolicyName :: Lens' CreateLBCookieStickinessPolicy (Text)
-clbcspiPolicyName f x =
-    f (_clbcspiPolicyName x)
-        <&> \y -> x { _clbcspiPolicyName = y }
+clbcspiPolicyName = lens _clbcspiPolicyName (\s a -> s { _clbcspiPolicyName = a })
 {-# INLINE clbcspiPolicyName #-}
 
 -- | The time period in seconds after which the cookie should be considered
 -- stale. Not specifying this parameter indicates that the sticky session will
 -- last for the duration of the browser session.
 clbcspiCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
-clbcspiCookieExpirationPeriod f x =
-    f (_clbcspiCookieExpirationPeriod x)
-        <&> \y -> x { _clbcspiCookieExpirationPeriod = y }
+clbcspiCookieExpirationPeriod = lens _clbcspiCookieExpirationPeriod (\s a -> s { _clbcspiCookieExpirationPeriod = a })
 {-# INLINE clbcspiCookieExpirationPeriod #-}
 
 instance ToQuery CreateLBCookieStickinessPolicy where
     toQuery = genericQuery def
 
-data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLBCookieStickinessPolicy where

@@ -35,7 +35,7 @@ module Network.AWS.Route53.V2013_04_01.CreateHostedZone
     -- * Request
       CreateHostedZone
     -- ** Request constructor
-    , createHostedZone
+    , mkCreateHostedZoneRequest
     -- ** Request lenses
     , chzrName
     , chzrCallerReference
@@ -44,9 +44,9 @@ module Network.AWS.Route53.V2013_04_01.CreateHostedZone
     -- * Response
     , CreateHostedZoneResponse
     -- ** Response lenses
+    , chzsHostedZone
     , chzsChangeInfo
     , chzsDelegationSet
-    , chzsHostedZone
     , chzsLocation
     ) where
 
@@ -54,16 +54,17 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateHostedZone' request.
-createHostedZone :: Text -- ^ 'chzrName'
-                 -> Text -- ^ 'chzrCallerReference'
-                 -> CreateHostedZone
-createHostedZone p1 p2 = CreateHostedZone
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHostedZone' request.
+mkCreateHostedZoneRequest :: Text -- ^ 'chzrName'
+                          -> Text -- ^ 'chzrCallerReference'
+                          -> CreateHostedZone
+mkCreateHostedZoneRequest p1 p2 = CreateHostedZone
     { _chzrName = p1
     , _chzrCallerReference = p2
     , _chzrHostedZoneConfig = Nothing
     }
-{-# INLINE createHostedZone #-}
+{-# INLINE mkCreateHostedZoneRequest #-}
 
 data CreateHostedZone = CreateHostedZone
     { _chzrName :: Text
@@ -100,9 +101,7 @@ data CreateHostedZone = CreateHostedZone
 -- name servers for your domain to the set of NameServers elements returned in
 -- DelegationSet.
 chzrName :: Lens' CreateHostedZone (Text)
-chzrName f x =
-    f (_chzrName x)
-        <&> \y -> x { _chzrName = y }
+chzrName = lens _chzrName (\s a -> s { _chzrName = a })
 {-# INLINE chzrName #-}
 
 -- | A unique string that identifies the request and that allows failed
@@ -114,16 +113,12 @@ chzrName f x =
 -- legal in an XML 1.0 document. The UTF-8 encoding of the value must be less
 -- than 128 bytes.
 chzrCallerReference :: Lens' CreateHostedZone (Text)
-chzrCallerReference f x =
-    f (_chzrCallerReference x)
-        <&> \y -> x { _chzrCallerReference = y }
+chzrCallerReference = lens _chzrCallerReference (\s a -> s { _chzrCallerReference = a })
 {-# INLINE chzrCallerReference #-}
 
 -- | A complex type that contains an optional comment about your hosted zone.
 chzrHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
-chzrHostedZoneConfig f x =
-    f (_chzrHostedZoneConfig x)
-        <&> \y -> x { _chzrHostedZoneConfig = y }
+chzrHostedZoneConfig = lens _chzrHostedZoneConfig (\s a -> s { _chzrHostedZoneConfig = a })
 {-# INLINE chzrHostedZoneConfig #-}
 
 instance ToPath CreateHostedZone where
@@ -138,48 +133,40 @@ instance ToXML CreateHostedZone where
     toXMLRoot    = toRoot "CreateHostedZoneRequest"
 
 data CreateHostedZoneResponse = CreateHostedZoneResponse
-    { _chzsChangeInfo :: ChangeInfo
+    { _chzsHostedZone :: HostedZone
+      -- ^ A complex type that contains identifying information about the
+      -- hosted zone.
+    , _chzsChangeInfo :: ChangeInfo
       -- ^ A complex type that contains information about the request to
       -- create a hosted zone. This includes an ID that you use when you
       -- call the GetChange action to get the current status of the change
       -- request.
     , _chzsDelegationSet :: DelegationSet
       -- ^ A complex type that contains name server information.
-    , _chzsHostedZone :: HostedZone
-      -- ^ A complex type that contains identifying information about the
-      -- hosted zone.
     , _chzsLocation :: Text
       -- ^ The unique URL representing the new hosted zone.
     } deriving (Show, Generic)
+
+-- | A complex type that contains identifying information about the hosted zone.
+chzsHostedZone :: Lens' CreateHostedZoneResponse (HostedZone)
+chzsHostedZone = lens _chzsHostedZone (\s a -> s { _chzsHostedZone = a })
+{-# INLINE chzsHostedZone #-}
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the GetChange
 -- action to get the current status of the change request.
 chzsChangeInfo :: Lens' CreateHostedZoneResponse (ChangeInfo)
-chzsChangeInfo f x =
-    f (_chzsChangeInfo x)
-        <&> \y -> x { _chzsChangeInfo = y }
+chzsChangeInfo = lens _chzsChangeInfo (\s a -> s { _chzsChangeInfo = a })
 {-# INLINE chzsChangeInfo #-}
 
 -- | A complex type that contains name server information.
 chzsDelegationSet :: Lens' CreateHostedZoneResponse (DelegationSet)
-chzsDelegationSet f x =
-    f (_chzsDelegationSet x)
-        <&> \y -> x { _chzsDelegationSet = y }
+chzsDelegationSet = lens _chzsDelegationSet (\s a -> s { _chzsDelegationSet = a })
 {-# INLINE chzsDelegationSet #-}
-
--- | A complex type that contains identifying information about the hosted zone.
-chzsHostedZone :: Lens' CreateHostedZoneResponse (HostedZone)
-chzsHostedZone f x =
-    f (_chzsHostedZone x)
-        <&> \y -> x { _chzsHostedZone = y }
-{-# INLINE chzsHostedZone #-}
 
 -- | The unique URL representing the new hosted zone.
 chzsLocation :: Lens' CreateHostedZoneResponse (Text)
-chzsLocation f x =
-    f (_chzsLocation x)
-        <&> \y -> x { _chzsLocation = y }
+chzsLocation = lens _chzsLocation (\s a -> s { _chzsLocation = a })
 {-# INLINE chzsLocation #-}
 
 instance AWSRequest CreateHostedZone where
@@ -189,7 +176,7 @@ instance AWSRequest CreateHostedZone where
     request = post
     response _ = cursorResponse $ \hs xml ->
         pure CreateHostedZoneResponse
+            <*> xml %| "HostedZone"
             <*> xml %| "ChangeInfo"
             <*> xml %| "DelegationSet"
-            <*> xml %| "HostedZone"
             <*> hs ~: "Location"

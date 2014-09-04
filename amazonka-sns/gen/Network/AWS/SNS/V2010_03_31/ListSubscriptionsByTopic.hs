@@ -44,7 +44,7 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
     -- * Request
       ListSubscriptionsByTopic
     -- ** Request constructor
-    , listSubscriptionsByTopic
+    , mkListSubscriptionsByTopicInput
     -- ** Request lenses
     , lsbtiTopicArn
     , lsbtiNextToken
@@ -52,22 +52,23 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
     -- * Response
     , ListSubscriptionsByTopicResponse
     -- ** Response lenses
-    , lsbtrNextToken
     , lsbtrSubscriptions
+    , lsbtrNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListSubscriptionsByTopic' request.
-listSubscriptionsByTopic :: Text -- ^ 'lsbtiTopicArn'
-                         -> ListSubscriptionsByTopic
-listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSubscriptionsByTopic' request.
+mkListSubscriptionsByTopicInput :: Text -- ^ 'lsbtiTopicArn'
+                                -> ListSubscriptionsByTopic
+mkListSubscriptionsByTopicInput p1 = ListSubscriptionsByTopic
     { _lsbtiTopicArn = p1
     , _lsbtiNextToken = Nothing
     }
-{-# INLINE listSubscriptionsByTopic #-}
+{-# INLINE mkListSubscriptionsByTopicInput #-}
 
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     { _lsbtiTopicArn :: Text
@@ -78,44 +79,36 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic
 
 -- | The ARN of the topic for which you wish to find subscriptions.
 lsbtiTopicArn :: Lens' ListSubscriptionsByTopic (Text)
-lsbtiTopicArn f x =
-    f (_lsbtiTopicArn x)
-        <&> \y -> x { _lsbtiTopicArn = y }
+lsbtiTopicArn = lens _lsbtiTopicArn (\s a -> s { _lsbtiTopicArn = a })
 {-# INLINE lsbtiTopicArn #-}
 
 -- | Token returned by the previous ListSubscriptionsByTopic request.
 lsbtiNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
-lsbtiNextToken f x =
-    f (_lsbtiNextToken x)
-        <&> \y -> x { _lsbtiNextToken = y }
+lsbtiNextToken = lens _lsbtiNextToken (\s a -> s { _lsbtiNextToken = a })
 {-# INLINE lsbtiNextToken #-}
 
 instance ToQuery ListSubscriptionsByTopic where
     toQuery = genericQuery def
 
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
-    { _lsbtrNextToken :: Maybe Text
+    { _lsbtrSubscriptions :: [Subscription]
+      -- ^ A list of subscriptions.
+    , _lsbtrNextToken :: Maybe Text
       -- ^ Token to pass along to the next ListSubscriptionsByTopic request.
       -- This element is returned if there are more subscriptions to
       -- retrieve.
-    , _lsbtrSubscriptions :: [Subscription]
-      -- ^ A list of subscriptions.
     } deriving (Show, Generic)
+
+-- | A list of subscriptions.
+lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse ([Subscription])
+lsbtrSubscriptions = lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
+{-# INLINE lsbtrSubscriptions #-}
 
 -- | Token to pass along to the next ListSubscriptionsByTopic request. This
 -- element is returned if there are more subscriptions to retrieve.
 lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
-lsbtrNextToken f x =
-    f (_lsbtrNextToken x)
-        <&> \y -> x { _lsbtrNextToken = y }
+lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 {-# INLINE lsbtrNextToken #-}
-
--- | A list of subscriptions.
-lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse ([Subscription])
-lsbtrSubscriptions f x =
-    f (_lsbtrSubscriptions x)
-        <&> \y -> x { _lsbtrSubscriptions = y }
-{-# INLINE lsbtrSubscriptions #-}
 
 instance FromXML ListSubscriptionsByTopicResponse where
     fromXMLOptions = xmlOptions

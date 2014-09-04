@@ -51,22 +51,22 @@ module Network.AWS.EC2.V2014_06_15.ModifyInstanceAttribute
     -- * Request
       ModifyInstanceAttribute
     -- ** Request constructor
-    , modifyInstanceAttribute
+    , mkModifyInstanceAttributeRequest
     -- ** Request lenses
     , miasInstanceId
+    , miasAttribute
+    , miasValue
+    , miasBlockDeviceMappings
     , miasSourceDestCheck
     , miasDisableApiTermination
-    , miasEbsOptimized
     , miasInstanceType
     , miasKernel
     , miasRamdisk
     , miasUserData
     , miasInstanceInitiatedShutdownBehavior
-    , miasSriovNetSupport
     , miasGroups
-    , miasAttribute
-    , miasBlockDeviceMappings
-    , miasValue
+    , miasEbsOptimized
+    , miasSriovNetSupport
 
     -- * Response
     , ModifyInstanceAttributeResponse
@@ -76,30 +76,46 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyInstanceAttribute' request.
-modifyInstanceAttribute :: Text -- ^ 'miasInstanceId'
-                        -> ModifyInstanceAttribute
-modifyInstanceAttribute p1 = ModifyInstanceAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyInstanceAttribute' request.
+mkModifyInstanceAttributeRequest :: Text -- ^ 'miasInstanceId'
+                                 -> ModifyInstanceAttribute
+mkModifyInstanceAttributeRequest p1 = ModifyInstanceAttribute
     { _miasInstanceId = p1
+    , _miasAttribute = Nothing
+    , _miasValue = Nothing
+    , _miasBlockDeviceMappings = mempty
     , _miasSourceDestCheck = Nothing
     , _miasDisableApiTermination = Nothing
-    , _miasEbsOptimized = Nothing
     , _miasInstanceType = Nothing
     , _miasKernel = Nothing
     , _miasRamdisk = Nothing
     , _miasUserData = Nothing
     , _miasInstanceInitiatedShutdownBehavior = Nothing
-    , _miasSriovNetSupport = Nothing
     , _miasGroups = mempty
-    , _miasAttribute = Nothing
-    , _miasBlockDeviceMappings = mempty
-    , _miasValue = Nothing
+    , _miasEbsOptimized = Nothing
+    , _miasSriovNetSupport = Nothing
     }
-{-# INLINE modifyInstanceAttribute #-}
+{-# INLINE mkModifyInstanceAttributeRequest #-}
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _miasInstanceId :: Text
       -- ^ The ID of the instance.
+    , _miasAttribute :: Maybe InstanceAttributeName
+      -- ^ The name of the attribute.
+    , _miasValue :: Maybe Text
+      -- ^ A new value for the attribute. Use only with the kernel, ramdisk,
+      -- userData, disableApiTermination, or
+      -- intanceInitiateShutdownBehavior attribute.
+    , _miasBlockDeviceMappings :: [InstanceBlockDeviceMappingSpecification]
+      -- ^ Modifies the DeleteOnTermination attribute for volumes that are
+      -- currently attached. The volume must be owned by the caller. If no
+      -- value is specified for DeleteOnTermination, the default is true
+      -- and the volume is deleted when the instance is terminated. To add
+      -- instance store volumes to an Amazon EBS-backed instance, you must
+      -- add them when you launch the instance. For more information, see
+      -- Updating the Block Device Mapping when Launching an Instance in
+      -- the Amazon Elastic Compute Cloud User Guide.
     , _miasSourceDestCheck :: Maybe AttributeBooleanValue
       -- ^ Specifies whether source/destination checking is enabled. A value
       -- of true means that checking is enabled, and false means checking
@@ -108,13 +124,6 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _miasDisableApiTermination :: Maybe AttributeBooleanValue
       -- ^ Specifies whether to disable the ability to terminate the
       -- instance using the Amazon EC2 console, CLI, and API.
-    , _miasEbsOptimized :: Maybe AttributeBooleanValue
-      -- ^ Specifies whether the instance is optimized for EBS I/O. This
-      -- optimization provides dedicated throughput to Amazon EBS and an
-      -- optimized configuration stack to provide optimal EBS I/O
-      -- performance. This optimization isn't available with all instance
-      -- types. Additional usage charges apply when using an EBS Optimized
-      -- instance.
     , _miasInstanceType :: Maybe AttributeValue
       -- ^ Changes the instance type to the specified value. For more
       -- information, see Instance Types. If the instance type is not
@@ -129,11 +138,6 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- ^ Specifies whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown).
-    , _miasSriovNetSupport :: Maybe AttributeValue
-      -- ^ Set to simple to enable enhanced networking for the instance.
-      -- There is no way to disable enhanced networking at this time. This
-      -- option is supported only for HVM instances. Specifying this
-      -- option with a PV instance can make it unreachable.
     , _miasGroups :: [Text]
       -- ^ [EC2-VPC] Changes the security groups of the instance. You must
       -- specify at least one security group, even if it's just the
@@ -141,124 +145,35 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
       -- group ID, not the security group name. For example, if you want
       -- the instance to be in sg-1a1a1a1a and sg-9b9b9b9b, specify
       -- GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
-    , _miasAttribute :: Maybe InstanceAttributeName
-      -- ^ The name of the attribute.
-    , _miasBlockDeviceMappings :: [InstanceBlockDeviceMappingSpecification]
-      -- ^ Modifies the DeleteOnTermination attribute for volumes that are
-      -- currently attached. The volume must be owned by the caller. If no
-      -- value is specified for DeleteOnTermination, the default is true
-      -- and the volume is deleted when the instance is terminated. To add
-      -- instance store volumes to an Amazon EBS-backed instance, you must
-      -- add them when you launch the instance. For more information, see
-      -- Updating the Block Device Mapping when Launching an Instance in
-      -- the Amazon Elastic Compute Cloud User Guide.
-    , _miasValue :: Maybe Text
-      -- ^ A new value for the attribute. Use only with the kernel, ramdisk,
-      -- userData, disableApiTermination, or
-      -- intanceInitiateShutdownBehavior attribute.
+    , _miasEbsOptimized :: Maybe AttributeBooleanValue
+      -- ^ Specifies whether the instance is optimized for EBS I/O. This
+      -- optimization provides dedicated throughput to Amazon EBS and an
+      -- optimized configuration stack to provide optimal EBS I/O
+      -- performance. This optimization isn't available with all instance
+      -- types. Additional usage charges apply when using an EBS Optimized
+      -- instance.
+    , _miasSriovNetSupport :: Maybe AttributeValue
+      -- ^ Set to simple to enable enhanced networking for the instance.
+      -- There is no way to disable enhanced networking at this time. This
+      -- option is supported only for HVM instances. Specifying this
+      -- option with a PV instance can make it unreachable.
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
 miasInstanceId :: Lens' ModifyInstanceAttribute (Text)
-miasInstanceId f x =
-    f (_miasInstanceId x)
-        <&> \y -> x { _miasInstanceId = y }
+miasInstanceId = lens _miasInstanceId (\s a -> s { _miasInstanceId = a })
 {-# INLINE miasInstanceId #-}
-
--- | Specifies whether source/destination checking is enabled. A value of true
--- means that checking is enabled, and false means checking is disabled. This
--- value must be false for a NAT instance to perform NAT.
-miasSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-miasSourceDestCheck f x =
-    f (_miasSourceDestCheck x)
-        <&> \y -> x { _miasSourceDestCheck = y }
-{-# INLINE miasSourceDestCheck #-}
-
--- | Specifies whether to disable the ability to terminate the instance using
--- the Amazon EC2 console, CLI, and API.
-miasDisableApiTermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-miasDisableApiTermination f x =
-    f (_miasDisableApiTermination x)
-        <&> \y -> x { _miasDisableApiTermination = y }
-{-# INLINE miasDisableApiTermination #-}
-
--- | Specifies whether the instance is optimized for EBS I/O. This optimization
--- provides dedicated throughput to Amazon EBS and an optimized configuration
--- stack to provide optimal EBS I/O performance. This optimization isn't
--- available with all instance types. Additional usage charges apply when
--- using an EBS Optimized instance.
-miasEbsOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-miasEbsOptimized f x =
-    f (_miasEbsOptimized x)
-        <&> \y -> x { _miasEbsOptimized = y }
-{-# INLINE miasEbsOptimized #-}
-
--- | Changes the instance type to the specified value. For more information, see
--- Instance Types. If the instance type is not valid, the error returned is
--- InvalidInstanceAttributeValue.
-miasInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-miasInstanceType f x =
-    f (_miasInstanceType x)
-        <&> \y -> x { _miasInstanceType = y }
-{-# INLINE miasInstanceType #-}
-
--- | Changes the instance's kernel to the specified value.
-miasKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-miasKernel f x =
-    f (_miasKernel x)
-        <&> \y -> x { _miasKernel = y }
-{-# INLINE miasKernel #-}
-
--- | Changes the instance's RAM disk to the specified value.
-miasRamdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-miasRamdisk f x =
-    f (_miasRamdisk x)
-        <&> \y -> x { _miasRamdisk = y }
-{-# INLINE miasRamdisk #-}
-
--- | Changes the instance's user data to the specified value.
-miasUserData :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-miasUserData f x =
-    f (_miasUserData x)
-        <&> \y -> x { _miasUserData = y }
-{-# INLINE miasUserData #-}
-
--- | Specifies whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for system
--- shutdown).
-miasInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-miasInstanceInitiatedShutdownBehavior f x =
-    f (_miasInstanceInitiatedShutdownBehavior x)
-        <&> \y -> x { _miasInstanceInitiatedShutdownBehavior = y }
-{-# INLINE miasInstanceInitiatedShutdownBehavior #-}
-
--- | Set to simple to enable enhanced networking for the instance. There is no
--- way to disable enhanced networking at this time. This option is supported
--- only for HVM instances. Specifying this option with a PV instance can make
--- it unreachable.
-miasSriovNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-miasSriovNetSupport f x =
-    f (_miasSriovNetSupport x)
-        <&> \y -> x { _miasSriovNetSupport = y }
-{-# INLINE miasSriovNetSupport #-}
-
--- | [EC2-VPC] Changes the security groups of the instance. You must specify at
--- least one security group, even if it's just the default security group for
--- the VPC. You must specify the security group ID, not the security group
--- name. For example, if you want the instance to be in sg-1a1a1a1a and
--- sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
-miasGroups :: Lens' ModifyInstanceAttribute ([Text])
-miasGroups f x =
-    f (_miasGroups x)
-        <&> \y -> x { _miasGroups = y }
-{-# INLINE miasGroups #-}
 
 -- | The name of the attribute.
 miasAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
-miasAttribute f x =
-    f (_miasAttribute x)
-        <&> \y -> x { _miasAttribute = y }
+miasAttribute = lens _miasAttribute (\s a -> s { _miasAttribute = a })
 {-# INLINE miasAttribute #-}
+
+-- | A new value for the attribute. Use only with the kernel, ramdisk, userData,
+-- disableApiTermination, or intanceInitiateShutdownBehavior attribute.
+miasValue :: Lens' ModifyInstanceAttribute (Maybe Text)
+miasValue = lens _miasValue (\s a -> s { _miasValue = a })
+{-# INLINE miasValue #-}
 
 -- | Modifies the DeleteOnTermination attribute for volumes that are currently
 -- attached. The volume must be owned by the caller. If no value is specified
@@ -268,18 +183,76 @@ miasAttribute f x =
 -- more information, see Updating the Block Device Mapping when Launching an
 -- Instance in the Amazon Elastic Compute Cloud User Guide.
 miasBlockDeviceMappings :: Lens' ModifyInstanceAttribute ([InstanceBlockDeviceMappingSpecification])
-miasBlockDeviceMappings f x =
-    f (_miasBlockDeviceMappings x)
-        <&> \y -> x { _miasBlockDeviceMappings = y }
+miasBlockDeviceMappings = lens _miasBlockDeviceMappings (\s a -> s { _miasBlockDeviceMappings = a })
 {-# INLINE miasBlockDeviceMappings #-}
 
--- | A new value for the attribute. Use only with the kernel, ramdisk, userData,
--- disableApiTermination, or intanceInitiateShutdownBehavior attribute.
-miasValue :: Lens' ModifyInstanceAttribute (Maybe Text)
-miasValue f x =
-    f (_miasValue x)
-        <&> \y -> x { _miasValue = y }
-{-# INLINE miasValue #-}
+-- | Specifies whether source/destination checking is enabled. A value of true
+-- means that checking is enabled, and false means checking is disabled. This
+-- value must be false for a NAT instance to perform NAT.
+miasSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+miasSourceDestCheck = lens _miasSourceDestCheck (\s a -> s { _miasSourceDestCheck = a })
+{-# INLINE miasSourceDestCheck #-}
+
+-- | Specifies whether to disable the ability to terminate the instance using
+-- the Amazon EC2 console, CLI, and API.
+miasDisableApiTermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+miasDisableApiTermination = lens _miasDisableApiTermination (\s a -> s { _miasDisableApiTermination = a })
+{-# INLINE miasDisableApiTermination #-}
+
+-- | Changes the instance type to the specified value. For more information, see
+-- Instance Types. If the instance type is not valid, the error returned is
+-- InvalidInstanceAttributeValue.
+miasInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+miasInstanceType = lens _miasInstanceType (\s a -> s { _miasInstanceType = a })
+{-# INLINE miasInstanceType #-}
+
+-- | Changes the instance's kernel to the specified value.
+miasKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+miasKernel = lens _miasKernel (\s a -> s { _miasKernel = a })
+{-# INLINE miasKernel #-}
+
+-- | Changes the instance's RAM disk to the specified value.
+miasRamdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+miasRamdisk = lens _miasRamdisk (\s a -> s { _miasRamdisk = a })
+{-# INLINE miasRamdisk #-}
+
+-- | Changes the instance's user data to the specified value.
+miasUserData :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+miasUserData = lens _miasUserData (\s a -> s { _miasUserData = a })
+{-# INLINE miasUserData #-}
+
+-- | Specifies whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for system
+-- shutdown).
+miasInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+miasInstanceInitiatedShutdownBehavior = lens _miasInstanceInitiatedShutdownBehavior (\s a -> s { _miasInstanceInitiatedShutdownBehavior = a })
+{-# INLINE miasInstanceInitiatedShutdownBehavior #-}
+
+-- | [EC2-VPC] Changes the security groups of the instance. You must specify at
+-- least one security group, even if it's just the default security group for
+-- the VPC. You must specify the security group ID, not the security group
+-- name. For example, if you want the instance to be in sg-1a1a1a1a and
+-- sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
+miasGroups :: Lens' ModifyInstanceAttribute ([Text])
+miasGroups = lens _miasGroups (\s a -> s { _miasGroups = a })
+{-# INLINE miasGroups #-}
+
+-- | Specifies whether the instance is optimized for EBS I/O. This optimization
+-- provides dedicated throughput to Amazon EBS and an optimized configuration
+-- stack to provide optimal EBS I/O performance. This optimization isn't
+-- available with all instance types. Additional usage charges apply when
+-- using an EBS Optimized instance.
+miasEbsOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+miasEbsOptimized = lens _miasEbsOptimized (\s a -> s { _miasEbsOptimized = a })
+{-# INLINE miasEbsOptimized #-}
+
+-- | Set to simple to enable enhanced networking for the instance. There is no
+-- way to disable enhanced networking at this time. This option is supported
+-- only for HVM instances. Specifying this option with a PV instance can make
+-- it unreachable.
+miasSriovNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+miasSriovNetSupport = lens _miasSriovNetSupport (\s a -> s { _miasSriovNetSupport = a })
+{-# INLINE miasSriovNetSupport #-}
 
 instance ToQuery ModifyInstanceAttribute where
     toQuery = genericQuery def

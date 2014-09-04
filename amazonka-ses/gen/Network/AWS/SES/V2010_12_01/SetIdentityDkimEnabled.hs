@@ -42,10 +42,10 @@ module Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled
     -- * Request
       SetIdentityDkimEnabled
     -- ** Request constructor
-    , setIdentityDkimEnabled
+    , mkSetIdentityDkimEnabledRequest
     -- ** Request lenses
-    , siderDkimEnabled
     , siderIdentity
+    , siderDkimEnabled
 
     -- * Response
     , SetIdentityDkimEnabledResponse
@@ -55,44 +55,40 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetIdentityDkimEnabled' request.
-setIdentityDkimEnabled :: Bool -- ^ 'siderDkimEnabled'
-                       -> Text -- ^ 'siderIdentity'
-                       -> SetIdentityDkimEnabled
-setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
-    { _siderDkimEnabled = p1
-    , _siderIdentity = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetIdentityDkimEnabled' request.
+mkSetIdentityDkimEnabledRequest :: Text -- ^ 'siderIdentity'
+                                -> Bool -- ^ 'siderDkimEnabled'
+                                -> SetIdentityDkimEnabled
+mkSetIdentityDkimEnabledRequest p1 p2 = SetIdentityDkimEnabled
+    { _siderIdentity = p1
+    , _siderDkimEnabled = p2
     }
-{-# INLINE setIdentityDkimEnabled #-}
+{-# INLINE mkSetIdentityDkimEnabledRequest #-}
 
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
-    { _siderDkimEnabled :: Bool
-      -- ^ Sets whether DKIM signing is enabled for an identity. Set to true
-      -- to enable DKIM signing for this identity; false to disable it.
-    , _siderIdentity :: Text
+    { _siderIdentity :: Text
       -- ^ The identity for which DKIM signing should be enabled or
       -- disabled.
+    , _siderDkimEnabled :: Bool
+      -- ^ Sets whether DKIM signing is enabled for an identity. Set to true
+      -- to enable DKIM signing for this identity; false to disable it.
     } deriving (Show, Generic)
+
+-- | The identity for which DKIM signing should be enabled or disabled.
+siderIdentity :: Lens' SetIdentityDkimEnabled (Text)
+siderIdentity = lens _siderIdentity (\s a -> s { _siderIdentity = a })
+{-# INLINE siderIdentity #-}
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to true to enable
 -- DKIM signing for this identity; false to disable it.
 siderDkimEnabled :: Lens' SetIdentityDkimEnabled (Bool)
-siderDkimEnabled f x =
-    f (_siderDkimEnabled x)
-        <&> \y -> x { _siderDkimEnabled = y }
+siderDkimEnabled = lens _siderDkimEnabled (\s a -> s { _siderDkimEnabled = a })
 {-# INLINE siderDkimEnabled #-}
-
--- | The identity for which DKIM signing should be enabled or disabled.
-siderIdentity :: Lens' SetIdentityDkimEnabled (Text)
-siderIdentity f x =
-    f (_siderIdentity x)
-        <&> \y -> x { _siderIdentity = y }
-{-# INLINE siderIdentity #-}
 
 instance ToQuery SetIdentityDkimEnabled where
     toQuery = genericQuery def
 
-data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityDkimEnabled where

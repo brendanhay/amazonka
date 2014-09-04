@@ -47,7 +47,7 @@ module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
     -- * Request
       GetIdentityDkimAttributes
     -- ** Request constructor
-    , getIdentityDkimAttributes
+    , mkGetIdentityDkimAttributesRequest
     -- ** Request lenses
     , gidarIdentities
 
@@ -61,15 +61,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetIdentityDkimAttributes' request.
-getIdentityDkimAttributes :: [Text] -- ^ 'gidarIdentities'
-                          -> GetIdentityDkimAttributes
-getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityDkimAttributes' request.
+mkGetIdentityDkimAttributesRequest :: [Text] -- ^ 'gidarIdentities'
+                                   -> GetIdentityDkimAttributes
+mkGetIdentityDkimAttributesRequest p1 = GetIdentityDkimAttributes
     { _gidarIdentities = p1
     }
-{-# INLINE getIdentityDkimAttributes #-}
+{-# INLINE mkGetIdentityDkimAttributesRequest #-}
 
-data GetIdentityDkimAttributes = GetIdentityDkimAttributes
+newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidarIdentities :: [Text]
       -- ^ A list of one or more verified identities - email addresses,
       -- domains, or both.
@@ -78,24 +79,20 @@ data GetIdentityDkimAttributes = GetIdentityDkimAttributes
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
 gidarIdentities :: Lens' GetIdentityDkimAttributes ([Text])
-gidarIdentities f x =
-    f (_gidarIdentities x)
-        <&> \y -> x { _gidarIdentities = y }
+gidarIdentities = lens _gidarIdentities (\s a -> s { _gidarIdentities = a })
 {-# INLINE gidarIdentities #-}
 
 instance ToQuery GetIdentityDkimAttributes where
     toQuery = genericQuery def
 
-data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
+newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidasDkimAttributes :: Map Text IdentityDkimAttributes
       -- ^ The DKIM attributes for an email address or a domain.
     } deriving (Show, Generic)
 
 -- | The DKIM attributes for an email address or a domain.
 gidasDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
-gidasDkimAttributes f x =
-    f (_gidasDkimAttributes x)
-        <&> \y -> x { _gidasDkimAttributes = y }
+gidasDkimAttributes = lens _gidasDkimAttributes (\s a -> s { _gidasDkimAttributes = a })
 {-# INLINE gidasDkimAttributes #-}
 
 instance FromXML GetIdentityDkimAttributesResponse where

@@ -32,12 +32,12 @@ module Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling
     -- * Request
       SetLoadBasedAutoScaling
     -- ** Request constructor
-    , setLoadBasedAutoScaling
+    , mkSetLoadBasedAutoScalingRequest
     -- ** Request lenses
     , slbasrLayerId
+    , slbasrEnable
     , slbasrUpScaling
     , slbasrDownScaling
-    , slbasrEnable
 
     -- * Response
     , SetLoadBasedAutoScalingResponse
@@ -48,20 +48,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetLoadBasedAutoScaling' request.
-setLoadBasedAutoScaling :: Text -- ^ 'slbasrLayerId'
-                        -> SetLoadBasedAutoScaling
-setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBasedAutoScaling' request.
+mkSetLoadBasedAutoScalingRequest :: Text -- ^ 'slbasrLayerId'
+                                 -> SetLoadBasedAutoScaling
+mkSetLoadBasedAutoScalingRequest p1 = SetLoadBasedAutoScaling
     { _slbasrLayerId = p1
+    , _slbasrEnable = Nothing
     , _slbasrUpScaling = Nothing
     , _slbasrDownScaling = Nothing
-    , _slbasrEnable = Nothing
     }
-{-# INLINE setLoadBasedAutoScaling #-}
+{-# INLINE mkSetLoadBasedAutoScalingRequest #-}
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     { _slbasrLayerId :: Text
       -- ^ The layer ID.
+    , _slbasrEnable :: Maybe Bool
+      -- ^ Enables load-based auto scaling for the layer.
     , _slbasrUpScaling :: Maybe AutoScalingThresholds
       -- ^ An AutoScalingThresholds object with the upscaling threshold
       -- configuration. If the load exceeds these thresholds for a
@@ -72,41 +75,31 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
       -- configuration. If the load falls below these thresholds for a
       -- specified amount of time, AWS OpsWorks stops a specified number
       -- of instances.
-    , _slbasrEnable :: Maybe Bool
-      -- ^ Enables load-based auto scaling for the layer.
     } deriving (Show, Generic)
 
 -- | The layer ID.
 slbasrLayerId :: Lens' SetLoadBasedAutoScaling (Text)
-slbasrLayerId f x =
-    f (_slbasrLayerId x)
-        <&> \y -> x { _slbasrLayerId = y }
+slbasrLayerId = lens _slbasrLayerId (\s a -> s { _slbasrLayerId = a })
 {-# INLINE slbasrLayerId #-}
+
+-- | Enables load-based auto scaling for the layer.
+slbasrEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
+slbasrEnable = lens _slbasrEnable (\s a -> s { _slbasrEnable = a })
+{-# INLINE slbasrEnable #-}
 
 -- | An AutoScalingThresholds object with the upscaling threshold configuration.
 -- If the load exceeds these thresholds for a specified amount of time, AWS
 -- OpsWorks starts a specified number of instances.
 slbasrUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
-slbasrUpScaling f x =
-    f (_slbasrUpScaling x)
-        <&> \y -> x { _slbasrUpScaling = y }
+slbasrUpScaling = lens _slbasrUpScaling (\s a -> s { _slbasrUpScaling = a })
 {-# INLINE slbasrUpScaling #-}
 
 -- | An AutoScalingThresholds object with the downscaling threshold
 -- configuration. If the load falls below these thresholds for a specified
 -- amount of time, AWS OpsWorks stops a specified number of instances.
 slbasrDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
-slbasrDownScaling f x =
-    f (_slbasrDownScaling x)
-        <&> \y -> x { _slbasrDownScaling = y }
+slbasrDownScaling = lens _slbasrDownScaling (\s a -> s { _slbasrDownScaling = a })
 {-# INLINE slbasrDownScaling #-}
-
--- | Enables load-based auto scaling for the layer.
-slbasrEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
-slbasrEnable f x =
-    f (_slbasrEnable x)
-        <&> \y -> x { _slbasrEnable = y }
-{-# INLINE slbasrEnable #-}
 
 instance ToPath SetLoadBasedAutoScaling
 

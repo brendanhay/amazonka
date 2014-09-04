@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.DetachInternetGateway
     -- * Request
       DetachInternetGateway
     -- ** Request constructor
-    , detachInternetGateway
+    , mkDetachInternetGatewayRequest
     -- ** Request lenses
     , diguInternetGatewayId
     , diguVpcId
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DetachInternetGateway' request.
-detachInternetGateway :: Text -- ^ 'diguInternetGatewayId'
-                      -> Text -- ^ 'diguVpcId'
-                      -> DetachInternetGateway
-detachInternetGateway p1 p2 = DetachInternetGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachInternetGateway' request.
+mkDetachInternetGatewayRequest :: Text -- ^ 'diguInternetGatewayId'
+                               -> Text -- ^ 'diguVpcId'
+                               -> DetachInternetGateway
+mkDetachInternetGatewayRequest p1 p2 = DetachInternetGateway
     { _diguInternetGatewayId = p1
     , _diguVpcId = p2
     }
-{-# INLINE detachInternetGateway #-}
+{-# INLINE mkDetachInternetGatewayRequest #-}
 
 data DetachInternetGateway = DetachInternetGateway
     { _diguInternetGatewayId :: Text
@@ -64,16 +65,12 @@ data DetachInternetGateway = DetachInternetGateway
 
 -- | The ID of the Internet gateway.
 diguInternetGatewayId :: Lens' DetachInternetGateway (Text)
-diguInternetGatewayId f x =
-    f (_diguInternetGatewayId x)
-        <&> \y -> x { _diguInternetGatewayId = y }
+diguInternetGatewayId = lens _diguInternetGatewayId (\s a -> s { _diguInternetGatewayId = a })
 {-# INLINE diguInternetGatewayId #-}
 
 -- | The ID of the VPC.
 diguVpcId :: Lens' DetachInternetGateway (Text)
-diguVpcId f x =
-    f (_diguVpcId x)
-        <&> \y -> x { _diguVpcId = y }
+diguVpcId = lens _diguVpcId (\s a -> s { _diguVpcId = a })
 {-# INLINE diguVpcId #-}
 
 instance ToQuery DetachInternetGateway where

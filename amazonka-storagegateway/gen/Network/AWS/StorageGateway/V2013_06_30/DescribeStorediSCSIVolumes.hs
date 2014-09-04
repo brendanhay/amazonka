@@ -45,7 +45,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
     -- * Request
       DescribeStorediSCSIVolumes
     -- ** Request constructor
-    , describeStorediSCSIVolumes
+    , mkDescribeStorediSCSIVolumesInput
     -- ** Request lenses
     , dsscsiviVolumeARNs
 
@@ -60,15 +60,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeStorediSCSIVolumes' request.
-describeStorediSCSIVolumes :: [Text] -- ^ 'dsscsiviVolumeARNs'
-                           -> DescribeStorediSCSIVolumes
-describeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStorediSCSIVolumes' request.
+mkDescribeStorediSCSIVolumesInput :: [Text] -- ^ 'dsscsiviVolumeARNs'
+                                  -> DescribeStorediSCSIVolumes
+mkDescribeStorediSCSIVolumesInput p1 = DescribeStorediSCSIVolumes
     { _dsscsiviVolumeARNs = p1
     }
-{-# INLINE describeStorediSCSIVolumes #-}
+{-# INLINE mkDescribeStorediSCSIVolumesInput #-}
 
-data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
+newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
     { _dsscsiviVolumeARNs :: [Text]
       -- ^ An array of strings where each string represents the Amazon
       -- Resource Name (ARN) of a stored volume. All of the specified
@@ -80,9 +81,7 @@ data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 -- (ARN) of a stored volume. All of the specified stored volumes must from the
 -- same gateway. Use ListVolumes to get volume ARNs for a gateway.
 dsscsiviVolumeARNs :: Lens' DescribeStorediSCSIVolumes ([Text])
-dsscsiviVolumeARNs f x =
-    f (_dsscsiviVolumeARNs x)
-        <&> \y -> x { _dsscsiviVolumeARNs = y }
+dsscsiviVolumeARNs = lens _dsscsiviVolumeARNs (\s a -> s { _dsscsiviVolumeARNs = a })
 {-# INLINE dsscsiviVolumeARNs #-}
 
 instance ToPath DescribeStorediSCSIVolumes
@@ -93,14 +92,12 @@ instance ToHeaders DescribeStorediSCSIVolumes
 
 instance ToJSON DescribeStorediSCSIVolumes
 
-data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
+newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivoStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
 dsscsivoStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse ([StorediSCSIVolumeInformation])
-dsscsivoStorediSCSIVolumes f x =
-    f (_dsscsivoStorediSCSIVolumes x)
-        <&> \y -> x { _dsscsivoStorediSCSIVolumes = y }
+dsscsivoStorediSCSIVolumes = lens _dsscsivoStorediSCSIVolumes (\s a -> s { _dsscsivoStorediSCSIVolumes = a })
 {-# INLINE dsscsivoStorediSCSIVolumes #-}
 
 instance FromJSON DescribeStorediSCSIVolumesResponse

@@ -53,7 +53,7 @@ module Network.AWS.SNS.V2010_03_31.ListPlatformApplications
     -- * Request
       ListPlatformApplications
     -- ** Request constructor
-    , listPlatformApplications
+    , mkListPlatformApplicationsInput
     -- ** Request lenses
     , lpaiNextToken
 
@@ -68,14 +68,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListPlatformApplications' request.
-listPlatformApplications :: ListPlatformApplications
-listPlatformApplications = ListPlatformApplications
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPlatformApplications' request.
+mkListPlatformApplicationsInput :: ListPlatformApplications
+mkListPlatformApplicationsInput = ListPlatformApplications
     { _lpaiNextToken = Nothing
     }
-{-# INLINE listPlatformApplications #-}
+{-# INLINE mkListPlatformApplicationsInput #-}
 
-data ListPlatformApplications = ListPlatformApplications
+newtype ListPlatformApplications = ListPlatformApplications
     { _lpaiNextToken :: Maybe Text
       -- ^ NextToken string is used when calling ListPlatformApplications
       -- action to retrieve additional records that are available after
@@ -86,9 +87,7 @@ data ListPlatformApplications = ListPlatformApplications
 -- retrieve additional records that are available after the first page
 -- results.
 lpaiNextToken :: Lens' ListPlatformApplications (Maybe Text)
-lpaiNextToken f x =
-    f (_lpaiNextToken x)
-        <&> \y -> x { _lpaiNextToken = y }
+lpaiNextToken = lens _lpaiNextToken (\s a -> s { _lpaiNextToken = a })
 {-# INLINE lpaiNextToken #-}
 
 instance ToQuery ListPlatformApplications where
@@ -107,17 +106,13 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
 lparPlatformApplications :: Lens' ListPlatformApplicationsResponse ([PlatformApplication])
-lparPlatformApplications f x =
-    f (_lparPlatformApplications x)
-        <&> \y -> x { _lparPlatformApplications = y }
+lparPlatformApplications = lens _lparPlatformApplications (\s a -> s { _lparPlatformApplications = a })
 {-# INLINE lparPlatformApplications #-}
 
 -- | NextToken string is returned when calling ListPlatformApplications action
 -- if additional records are available after the first page results.
 lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
-lparNextToken f x =
-    f (_lparNextToken x)
-        <&> \y -> x { _lparNextToken = y }
+lparNextToken = lens _lparNextToken (\s a -> s { _lparNextToken = a })
 {-# INLINE lparNextToken #-}
 
 instance FromXML ListPlatformApplicationsResponse where

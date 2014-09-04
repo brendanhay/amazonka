@@ -40,7 +40,7 @@ module Network.AWS.EC2.V2014_06_15.ReleaseAddress
     -- * Request
       ReleaseAddress
     -- ** Request constructor
-    , releaseAddress
+    , mkReleaseAddressRequest
     -- ** Request lenses
     , rarPublicIp
     , rarAllocationId
@@ -53,13 +53,14 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReleaseAddress' request.
-releaseAddress :: ReleaseAddress
-releaseAddress = ReleaseAddress
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReleaseAddress' request.
+mkReleaseAddressRequest :: ReleaseAddress
+mkReleaseAddressRequest = ReleaseAddress
     { _rarPublicIp = Nothing
     , _rarAllocationId = Nothing
     }
-{-# INLINE releaseAddress #-}
+{-# INLINE mkReleaseAddressRequest #-}
 
 data ReleaseAddress = ReleaseAddress
     { _rarPublicIp :: Maybe Text
@@ -70,16 +71,12 @@ data ReleaseAddress = ReleaseAddress
 
 -- | [EC2-Classic] The Elastic IP address.
 rarPublicIp :: Lens' ReleaseAddress (Maybe Text)
-rarPublicIp f x =
-    f (_rarPublicIp x)
-        <&> \y -> x { _rarPublicIp = y }
+rarPublicIp = lens _rarPublicIp (\s a -> s { _rarPublicIp = a })
 {-# INLINE rarPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID.
 rarAllocationId :: Lens' ReleaseAddress (Maybe Text)
-rarAllocationId f x =
-    f (_rarAllocationId x)
-        <&> \y -> x { _rarAllocationId = y }
+rarAllocationId = lens _rarAllocationId (\s a -> s { _rarAllocationId = a })
 {-# INLINE rarAllocationId #-}
 
 instance ToQuery ReleaseAddress where

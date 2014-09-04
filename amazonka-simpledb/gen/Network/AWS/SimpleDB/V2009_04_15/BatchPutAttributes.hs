@@ -57,10 +57,10 @@ module Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes
     -- * Request
       BatchPutAttributes
     -- ** Request constructor
-    , batchPutAttributes
+    , mkBatchPutAttributesRequest
     -- ** Request lenses
-    , bparItems
     , bparDomainName
+    , bparItems
 
     -- * Response
     , BatchPutAttributesResponse
@@ -70,36 +70,33 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'BatchPutAttributes' request.
-batchPutAttributes :: [ReplaceableItem] -- ^ 'bparItems'
-                   -> Text -- ^ 'bparDomainName'
-                   -> BatchPutAttributes
-batchPutAttributes p1 p2 = BatchPutAttributes
-    { _bparItems = p1
-    , _bparDomainName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchPutAttributes' request.
+mkBatchPutAttributesRequest :: Text -- ^ 'bparDomainName'
+                            -> [ReplaceableItem] -- ^ 'bparItems'
+                            -> BatchPutAttributes
+mkBatchPutAttributesRequest p1 p2 = BatchPutAttributes
+    { _bparDomainName = p1
+    , _bparItems = p2
     }
-{-# INLINE batchPutAttributes #-}
+{-# INLINE mkBatchPutAttributesRequest #-}
 
 data BatchPutAttributes = BatchPutAttributes
-    { _bparItems :: [ReplaceableItem]
-      -- ^ A list of items on which to perform the operation.
-    , _bparDomainName :: Text
+    { _bparDomainName :: Text
       -- ^ The name of the domain in which the attributes are being stored.
+    , _bparItems :: [ReplaceableItem]
+      -- ^ A list of items on which to perform the operation.
     } deriving (Show, Generic)
-
--- | A list of items on which to perform the operation.
-bparItems :: Lens' BatchPutAttributes ([ReplaceableItem])
-bparItems f x =
-    f (_bparItems x)
-        <&> \y -> x { _bparItems = y }
-{-# INLINE bparItems #-}
 
 -- | The name of the domain in which the attributes are being stored.
 bparDomainName :: Lens' BatchPutAttributes (Text)
-bparDomainName f x =
-    f (_bparDomainName x)
-        <&> \y -> x { _bparDomainName = y }
+bparDomainName = lens _bparDomainName (\s a -> s { _bparDomainName = a })
 {-# INLINE bparDomainName #-}
+
+-- | A list of items on which to perform the operation.
+bparItems :: Lens' BatchPutAttributes ([ReplaceableItem])
+bparItems = lens _bparItems (\s a -> s { _bparItems = a })
+{-# INLINE bparItems #-}
 
 instance ToQuery BatchPutAttributes where
     toQuery = genericQuery def

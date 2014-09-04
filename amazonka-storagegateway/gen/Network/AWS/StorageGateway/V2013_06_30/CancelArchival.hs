@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelArchival
     -- * Request
       CancelArchival
     -- ** Request constructor
-    , cancelArchival
+    , mkCancelArchivalInput
     -- ** Request lenses
     , caiGatewayARN
     , caiTapeARN
@@ -38,15 +38,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CancelArchival' request.
-cancelArchival :: Text -- ^ 'caiGatewayARN'
-               -> Text -- ^ 'caiTapeARN'
-               -> CancelArchival
-cancelArchival p1 p2 = CancelArchival
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelArchival' request.
+mkCancelArchivalInput :: Text -- ^ 'caiGatewayARN'
+                      -> Text -- ^ 'caiTapeARN'
+                      -> CancelArchival
+mkCancelArchivalInput p1 p2 = CancelArchival
     { _caiGatewayARN = p1
     , _caiTapeARN = p2
     }
-{-# INLINE cancelArchival #-}
+{-# INLINE mkCancelArchivalInput #-}
 
 data CancelArchival = CancelArchival
     { _caiGatewayARN :: Text
@@ -59,15 +60,11 @@ data CancelArchival = CancelArchival
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 caiGatewayARN :: Lens' CancelArchival (Text)
-caiGatewayARN f x =
-    f (_caiGatewayARN x)
-        <&> \y -> x { _caiGatewayARN = y }
+caiGatewayARN = lens _caiGatewayARN (\s a -> s { _caiGatewayARN = a })
 {-# INLINE caiGatewayARN #-}
 
 caiTapeARN :: Lens' CancelArchival (Text)
-caiTapeARN f x =
-    f (_caiTapeARN x)
-        <&> \y -> x { _caiTapeARN = y }
+caiTapeARN = lens _caiTapeARN (\s a -> s { _caiTapeARN = a })
 {-# INLINE caiTapeARN #-}
 
 instance ToPath CancelArchival
@@ -78,14 +75,12 @@ instance ToHeaders CancelArchival
 
 instance ToJSON CancelArchival
 
-data CancelArchivalResponse = CancelArchivalResponse
+newtype CancelArchivalResponse = CancelArchivalResponse
     { _caoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 caoTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
-caoTapeARN f x =
-    f (_caoTapeARN x)
-        <&> \y -> x { _caoTapeARN = y }
+caoTapeARN = lens _caoTapeARN (\s a -> s { _caoTapeARN = a })
 {-# INLINE caoTapeARN #-}
 
 instance FromJSON CancelArchivalResponse

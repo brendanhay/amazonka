@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
     -- * Request
       UpdateGatewayInformation
     -- ** Request constructor
-    , updateGatewayInformation
+    , mkUpdateGatewayInformationInput
     -- ** Request lenses
     , ugiiGatewayARN
     , ugiiGatewayName
@@ -54,15 +54,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateGatewayInformation' request.
-updateGatewayInformation :: Text -- ^ 'ugiiGatewayARN'
-                         -> UpdateGatewayInformation
-updateGatewayInformation p1 = UpdateGatewayInformation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateGatewayInformation' request.
+mkUpdateGatewayInformationInput :: Text -- ^ 'ugiiGatewayARN'
+                                -> UpdateGatewayInformation
+mkUpdateGatewayInformationInput p1 = UpdateGatewayInformation
     { _ugiiGatewayARN = p1
     , _ugiiGatewayName = Nothing
     , _ugiiGatewayTimezone = Nothing
     }
-{-# INLINE updateGatewayInformation #-}
+{-# INLINE mkUpdateGatewayInformationInput #-}
 
 data UpdateGatewayInformation = UpdateGatewayInformation
     { _ugiiGatewayARN :: Text
@@ -79,24 +80,18 @@ data UpdateGatewayInformation = UpdateGatewayInformation
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 ugiiGatewayARN :: Lens' UpdateGatewayInformation (Text)
-ugiiGatewayARN f x =
-    f (_ugiiGatewayARN x)
-        <&> \y -> x { _ugiiGatewayARN = y }
+ugiiGatewayARN = lens _ugiiGatewayARN (\s a -> s { _ugiiGatewayARN = a })
 {-# INLINE ugiiGatewayARN #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
 ugiiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
-ugiiGatewayName f x =
-    f (_ugiiGatewayName x)
-        <&> \y -> x { _ugiiGatewayName = y }
+ugiiGatewayName = lens _ugiiGatewayName (\s a -> s { _ugiiGatewayName = a })
 {-# INLINE ugiiGatewayName #-}
 
 ugiiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
-ugiiGatewayTimezone f x =
-    f (_ugiiGatewayTimezone x)
-        <&> \y -> x { _ugiiGatewayTimezone = y }
+ugiiGatewayTimezone = lens _ugiiGatewayTimezone (\s a -> s { _ugiiGatewayTimezone = a })
 {-# INLINE ugiiGatewayTimezone #-}
 
 instance ToPath UpdateGatewayInformation
@@ -107,7 +102,7 @@ instance ToHeaders UpdateGatewayInformation
 
 instance ToJSON UpdateGatewayInformation
 
-data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
+newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugioGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -117,9 +112,7 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 ugioGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
-ugioGatewayARN f x =
-    f (_ugioGatewayARN x)
-        <&> \y -> x { _ugioGatewayARN = y }
+ugioGatewayARN = lens _ugioGatewayARN (\s a -> s { _ugioGatewayARN = a })
 {-# INLINE ugioGatewayARN #-}
 
 instance FromJSON UpdateGatewayInformationResponse

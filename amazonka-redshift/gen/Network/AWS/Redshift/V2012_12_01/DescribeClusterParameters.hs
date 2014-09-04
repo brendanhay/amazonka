@@ -49,11 +49,11 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameters
     -- * Request
       DescribeClusterParameters
     -- ** Request constructor
-    , describeClusterParameters
+    , mkDescribeClusterParametersMessage
     -- ** Request lenses
     , dcpmParameterGroupName
-    , dcpmMaxRecords
     , dcpmSource
+    , dcpmMaxRecords
     , dcpmMarker
 
     -- * Response
@@ -67,21 +67,28 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeClusterParameters' request.
-describeClusterParameters :: Text -- ^ 'dcpmParameterGroupName'
-                          -> DescribeClusterParameters
-describeClusterParameters p1 = DescribeClusterParameters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterParameters' request.
+mkDescribeClusterParametersMessage :: Text -- ^ 'dcpmParameterGroupName'
+                                   -> DescribeClusterParameters
+mkDescribeClusterParametersMessage p1 = DescribeClusterParameters
     { _dcpmParameterGroupName = p1
-    , _dcpmMaxRecords = Nothing
     , _dcpmSource = Nothing
+    , _dcpmMaxRecords = Nothing
     , _dcpmMarker = Nothing
     }
-{-# INLINE describeClusterParameters #-}
+{-# INLINE mkDescribeClusterParametersMessage #-}
 
 data DescribeClusterParameters = DescribeClusterParameters
     { _dcpmParameterGroupName :: Text
       -- ^ The name of a cluster parameter group for which to return
       -- details.
+    , _dcpmSource :: Maybe Text
+      -- ^ The parameter types to return. Specify user to show parameters
+      -- that are different form the default. Similarly, specify
+      -- engine-default to show parameters that are the same as the
+      -- default parameter group. Default: All parameter types returned.
+      -- Valid Values: user | engine-default.
     , _dcpmMaxRecords :: Maybe Integer
       -- ^ The maximum number of response records to return in each call. If
       -- the number of remaining response records exceeds the specified
@@ -89,12 +96,6 @@ data DescribeClusterParameters = DescribeClusterParameters
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcpmSource :: Maybe Text
-      -- ^ The parameter types to return. Specify user to show parameters
-      -- that are different form the default. Similarly, specify
-      -- engine-default to show parameters that are the same as the
-      -- default parameter group. Default: All parameter types returned.
-      -- Valid Values: user | engine-default.
     , _dcpmMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -107,10 +108,16 @@ data DescribeClusterParameters = DescribeClusterParameters
 
 -- | The name of a cluster parameter group for which to return details.
 dcpmParameterGroupName :: Lens' DescribeClusterParameters (Text)
-dcpmParameterGroupName f x =
-    f (_dcpmParameterGroupName x)
-        <&> \y -> x { _dcpmParameterGroupName = y }
+dcpmParameterGroupName = lens _dcpmParameterGroupName (\s a -> s { _dcpmParameterGroupName = a })
 {-# INLINE dcpmParameterGroupName #-}
+
+-- | The parameter types to return. Specify user to show parameters that are
+-- different form the default. Similarly, specify engine-default to show
+-- parameters that are the same as the default parameter group. Default: All
+-- parameter types returned. Valid Values: user | engine-default.
+dcpmSource :: Lens' DescribeClusterParameters (Maybe Text)
+dcpmSource = lens _dcpmSource (\s a -> s { _dcpmSource = a })
+{-# INLINE dcpmSource #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -118,20 +125,8 @@ dcpmParameterGroupName f x =
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcpmMaxRecords :: Lens' DescribeClusterParameters (Maybe Integer)
-dcpmMaxRecords f x =
-    f (_dcpmMaxRecords x)
-        <&> \y -> x { _dcpmMaxRecords = y }
+dcpmMaxRecords = lens _dcpmMaxRecords (\s a -> s { _dcpmMaxRecords = a })
 {-# INLINE dcpmMaxRecords #-}
-
--- | The parameter types to return. Specify user to show parameters that are
--- different form the default. Similarly, specify engine-default to show
--- parameters that are the same as the default parameter group. Default: All
--- parameter types returned. Valid Values: user | engine-default.
-dcpmSource :: Lens' DescribeClusterParameters (Maybe Text)
-dcpmSource f x =
-    f (_dcpmSource x)
-        <&> \y -> x { _dcpmSource = y }
-{-# INLINE dcpmSource #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterParameters request
@@ -140,9 +135,7 @@ dcpmSource f x =
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
 dcpmMarker :: Lens' DescribeClusterParameters (Maybe Text)
-dcpmMarker f x =
-    f (_dcpmMarker x)
-        <&> \y -> x { _dcpmMarker = y }
+dcpmMarker = lens _dcpmMarker (\s a -> s { _dcpmMarker = a })
 {-# INLINE dcpmMarker #-}
 
 instance ToQuery DescribeClusterParameters where
@@ -164,9 +157,7 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
 cpgdParameters :: Lens' DescribeClusterParametersResponse ([Parameter])
-cpgdParameters f x =
-    f (_cpgdParameters x)
-        <&> \y -> x { _cpgdParameters = y }
+cpgdParameters = lens _cpgdParameters (\s a -> s { _cpgdParameters = a })
 {-# INLINE cpgdParameters #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -175,9 +166,7 @@ cpgdParameters f x =
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
 cpgdMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
-cpgdMarker f x =
-    f (_cpgdMarker x)
-        <&> \y -> x { _cpgdMarker = y }
+cpgdMarker = lens _cpgdMarker (\s a -> s { _cpgdMarker = a })
 {-# INLINE cpgdMarker #-}
 
 instance FromXML DescribeClusterParametersResponse where

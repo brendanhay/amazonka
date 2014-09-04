@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation
     -- * Request
       CreateStorageLocation
     -- ** Request constructor
-    , createStorageLocation
+    , mkUnknown
     -- * Response
     , CreateStorageLocationResponse
     -- ** Response lenses
@@ -38,10 +38,11 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateStorageLocation' request.
-createStorageLocation :: CreateStorageLocation
-createStorageLocation = CreateStorageLocation
-{-# INLINE createStorageLocation #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStorageLocation' request.
+mkUnknown :: CreateStorageLocation
+mkUnknown = CreateStorageLocation
+{-# INLINE mkUnknown #-}
 
 data CreateStorageLocation = CreateStorageLocation
     deriving (Eq, Show, Generic)
@@ -49,16 +50,14 @@ data CreateStorageLocation = CreateStorageLocation
 instance ToQuery CreateStorageLocation where
     toQuery = genericQuery def
 
-data CreateStorageLocationResponse = CreateStorageLocationResponse
+newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrmS3Bucket :: Maybe Text
       -- ^ The name of the Amazon S3 bucket created.
     } deriving (Show, Generic)
 
 -- | The name of the Amazon S3 bucket created.
 cslrmS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
-cslrmS3Bucket f x =
-    f (_cslrmS3Bucket x)
-        <&> \y -> x { _cslrmS3Bucket = y }
+cslrmS3Bucket = lens _cslrmS3Bucket (\s a -> s { _cslrmS3Bucket = a })
 {-# INLINE cslrmS3Bucket #-}
 
 instance FromXML CreateStorageLocationResponse where

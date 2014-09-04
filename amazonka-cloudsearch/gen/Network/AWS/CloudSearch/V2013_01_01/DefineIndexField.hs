@@ -30,7 +30,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineIndexField
     -- * Request
       DefineIndexField
     -- ** Request constructor
-    , defineIndexField
+    , mkDefineIndexFieldRequest
     -- ** Request lenses
     , difrDomainName
     , difrIndexField
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DefineIndexField' request.
-defineIndexField :: Text -- ^ 'difrDomainName'
-                 -> IndexField -- ^ 'difrIndexField'
-                 -> DefineIndexField
-defineIndexField p1 p2 = DefineIndexField
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineIndexField' request.
+mkDefineIndexFieldRequest :: Text -- ^ 'difrDomainName'
+                          -> IndexField -- ^ 'difrIndexField'
+                          -> DefineIndexField
+mkDefineIndexFieldRequest p1 p2 = DefineIndexField
     { _difrDomainName = p1
     , _difrIndexField = p2
     }
-{-# INLINE defineIndexField #-}
+{-# INLINE mkDefineIndexFieldRequest #-}
 
 data DefineIndexField = DefineIndexField
     { _difrDomainName :: Text
@@ -71,31 +72,25 @@ data DefineIndexField = DefineIndexField
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 difrDomainName :: Lens' DefineIndexField (Text)
-difrDomainName f x =
-    f (_difrDomainName x)
-        <&> \y -> x { _difrDomainName = y }
+difrDomainName = lens _difrDomainName (\s a -> s { _difrDomainName = a })
 {-# INLINE difrDomainName #-}
 
 -- | The index field and field options you want to configure.
 difrIndexField :: Lens' DefineIndexField (IndexField)
-difrIndexField f x =
-    f (_difrIndexField x)
-        <&> \y -> x { _difrIndexField = y }
+difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
 {-# INLINE difrIndexField #-}
 
 instance ToQuery DefineIndexField where
     toQuery = genericQuery def
 
-data DefineIndexFieldResponse = DefineIndexFieldResponse
+newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difsIndexField :: IndexFieldStatus
       -- ^ The value of an IndexField and its current status.
     } deriving (Show, Generic)
 
 -- | The value of an IndexField and its current status.
 difsIndexField :: Lens' DefineIndexFieldResponse (IndexFieldStatus)
-difsIndexField f x =
-    f (_difsIndexField x)
-        <&> \y -> x { _difsIndexField = y }
+difsIndexField = lens _difsIndexField (\s a -> s { _difsIndexField = a })
 {-# INLINE difsIndexField #-}
 
 instance FromXML DefineIndexFieldResponse where

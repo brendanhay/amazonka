@@ -85,10 +85,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaces
     -- * Request
       DescribeNetworkInterfaces
     -- ** Request constructor
-    , describeNetworkInterfaces
+    , mkDescribeNetworkInterfacesRequest
     -- ** Request lenses
-    , dnisFilters
     , dnisNetworkInterfaceIds
+    , dnisFilters
 
     -- * Response
     , DescribeNetworkInterfacesResponse
@@ -100,16 +100,20 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeNetworkInterfaces' request.
-describeNetworkInterfaces :: DescribeNetworkInterfaces
-describeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dnisFilters = mempty
-    , _dnisNetworkInterfaceIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkInterfaces' request.
+mkDescribeNetworkInterfacesRequest :: DescribeNetworkInterfaces
+mkDescribeNetworkInterfacesRequest = DescribeNetworkInterfaces
+    { _dnisNetworkInterfaceIds = mempty
+    , _dnisFilters = mempty
     }
-{-# INLINE describeNetworkInterfaces #-}
+{-# INLINE mkDescribeNetworkInterfacesRequest #-}
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dnisFilters :: [Filter]
+    { _dnisNetworkInterfaceIds :: [Text]
+      -- ^ One or more network interface IDs. Default: Describes all your
+      -- network interfaces.
+    , _dnisFilters :: [Filter]
       -- ^ One or more filters. addresses.private-ip-address - The private
       -- IP addresses associated with the network interface.
       -- addresses.primary - Whether the private IP address is the primary
@@ -171,10 +175,13 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
       -- tag:key=value filter. tag-value - The value of a tag assigned to
       -- the resource. This filter is independent of the tag-key filter.
       -- vpc-id - The ID of the VPC for the network interface.
-    , _dnisNetworkInterfaceIds :: [Text]
-      -- ^ One or more network interface IDs. Default: Describes all your
-      -- network interfaces.
     } deriving (Show, Generic)
+
+-- | One or more network interface IDs. Default: Describes all your network
+-- interfaces.
+dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces ([Text])
+dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\s a -> s { _dnisNetworkInterfaceIds = a })
+{-# INLINE dnisNetworkInterfaceIds #-}
 
 -- | One or more filters. addresses.private-ip-address - The private IP
 -- addresses associated with the network interface. addresses.primary -
@@ -230,32 +237,20 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the network interface.
 dnisFilters :: Lens' DescribeNetworkInterfaces ([Filter])
-dnisFilters f x =
-    f (_dnisFilters x)
-        <&> \y -> x { _dnisFilters = y }
+dnisFilters = lens _dnisFilters (\s a -> s { _dnisFilters = a })
 {-# INLINE dnisFilters #-}
-
--- | One or more network interface IDs. Default: Describes all your network
--- interfaces.
-dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces ([Text])
-dnisNetworkInterfaceIds f x =
-    f (_dnisNetworkInterfaceIds x)
-        <&> \y -> x { _dnisNetworkInterfaceIds = y }
-{-# INLINE dnisNetworkInterfaceIds #-}
 
 instance ToQuery DescribeNetworkInterfaces where
     toQuery = genericQuery def
 
-data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
+newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnitNetworkInterfaces :: [NetworkInterface]
       -- ^ Information about one or more network interfaces.
     } deriving (Show, Generic)
 
 -- | Information about one or more network interfaces.
 dnitNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse ([NetworkInterface])
-dnitNetworkInterfaces f x =
-    f (_dnitNetworkInterfaces x)
-        <&> \y -> x { _dnitNetworkInterfaces = y }
+dnitNetworkInterfaces = lens _dnitNetworkInterfaces (\s a -> s { _dnitNetworkInterfaces = a })
 {-# INLINE dnitNetworkInterfaces #-}
 
 instance FromXML DescribeNetworkInterfacesResponse where

@@ -33,10 +33,10 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource
     -- * Request
       DescribeStackResource
     -- ** Request constructor
-    , describeStackResource
+    , mkDescribeStackResourceInput
     -- ** Request lenses
-    , dsriLogicalResourceId
     , dsriStackName
+    , dsriLogicalResourceId
 
     -- * Response
     , DescribeStackResourceResponse
@@ -48,50 +48,47 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeStackResource' request.
-describeStackResource :: Text -- ^ 'dsriLogicalResourceId'
-                      -> Text -- ^ 'dsriStackName'
-                      -> DescribeStackResource
-describeStackResource p1 p2 = DescribeStackResource
-    { _dsriLogicalResourceId = p1
-    , _dsriStackName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackResource' request.
+mkDescribeStackResourceInput :: Text -- ^ 'dsriStackName'
+                             -> Text -- ^ 'dsriLogicalResourceId'
+                             -> DescribeStackResource
+mkDescribeStackResourceInput p1 p2 = DescribeStackResource
+    { _dsriStackName = p1
+    , _dsriLogicalResourceId = p2
     }
-{-# INLINE describeStackResource #-}
+{-# INLINE mkDescribeStackResourceInput #-}
 
 data DescribeStackResource = DescribeStackResource
-    { _dsriLogicalResourceId :: Text
-      -- ^ The logical name of the resource as specified in the template.
-      -- Default: There is no default value.
-    , _dsriStackName :: Text
+    { _dsriStackName :: Text
       -- ^ The name or the unique identifier associated with the stack,
       -- which are not always interchangeable: Running stacks: You can
       -- specify either the stack's name or its unique stack ID. Deleted
       -- stacks: You must specify the unique stack ID. Default: There is
       -- no default value.
+    , _dsriLogicalResourceId :: Text
+      -- ^ The logical name of the resource as specified in the template.
+      -- Default: There is no default value.
     } deriving (Show, Generic)
-
--- | The logical name of the resource as specified in the template. Default:
--- There is no default value.
-dsriLogicalResourceId :: Lens' DescribeStackResource (Text)
-dsriLogicalResourceId f x =
-    f (_dsriLogicalResourceId x)
-        <&> \y -> x { _dsriLogicalResourceId = y }
-{-# INLINE dsriLogicalResourceId #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
 dsriStackName :: Lens' DescribeStackResource (Text)
-dsriStackName f x =
-    f (_dsriStackName x)
-        <&> \y -> x { _dsriStackName = y }
+dsriStackName = lens _dsriStackName (\s a -> s { _dsriStackName = a })
 {-# INLINE dsriStackName #-}
+
+-- | The logical name of the resource as specified in the template. Default:
+-- There is no default value.
+dsriLogicalResourceId :: Lens' DescribeStackResource (Text)
+dsriLogicalResourceId = lens _dsriLogicalResourceId (\s a -> s { _dsriLogicalResourceId = a })
+{-# INLINE dsriLogicalResourceId #-}
 
 instance ToQuery DescribeStackResource where
     toQuery = genericQuery def
 
-data DescribeStackResourceResponse = DescribeStackResourceResponse
+newtype DescribeStackResourceResponse = DescribeStackResourceResponse
     { _dsroStackResourceDetail :: Maybe StackResourceDetail
       -- ^ A StackResourceDetail structure containing the description of the
       -- specified resource in the specified stack.
@@ -100,9 +97,7 @@ data DescribeStackResourceResponse = DescribeStackResourceResponse
 -- | A StackResourceDetail structure containing the description of the specified
 -- resource in the specified stack.
 dsroStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-dsroStackResourceDetail f x =
-    f (_dsroStackResourceDetail x)
-        <&> \y -> x { _dsroStackResourceDetail = y }
+dsroStackResourceDetail = lens _dsroStackResourceDetail (\s a -> s { _dsroStackResourceDetail = a })
 {-# INLINE dsroStackResourceDetail #-}
 
 instance FromXML DescribeStackResourceResponse where

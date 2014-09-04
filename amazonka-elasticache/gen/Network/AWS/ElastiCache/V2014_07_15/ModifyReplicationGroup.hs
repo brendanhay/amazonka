@@ -36,21 +36,21 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyReplicationGroup
     -- * Request
       ModifyReplicationGroup
     -- ** Request constructor
-    , modifyReplicationGroup
+    , mkModifyReplicationGroupMessage
     -- ** Request lenses
     , mrgmReplicationGroupId
-    , mrgmApplyImmediately
-    , mrgmAutoMinorVersionUpgrade
-    , mrgmCacheSecurityGroupNames
-    , mrgmSnapshotRetentionLimit
-    , mrgmSecurityGroupIds
     , mrgmReplicationGroupDescription
+    , mrgmCacheSecurityGroupNames
+    , mrgmSecurityGroupIds
     , mrgmPreferredMaintenanceWindow
     , mrgmNotificationTopicArn
     , mrgmCacheParameterGroupName
     , mrgmNotificationTopicStatus
+    , mrgmApplyImmediately
     , mrgmEngineVersion
+    , mrgmAutoMinorVersionUpgrade
     , mrgmPrimaryClusterId
+    , mrgmSnapshotRetentionLimit
     , mrgmSnapshotWindow
     , mrgmSnapshottingClusterId
 
@@ -64,44 +64,35 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyReplicationGroup' request.
-modifyReplicationGroup :: Text -- ^ 'mrgmReplicationGroupId'
-                       -> ModifyReplicationGroup
-modifyReplicationGroup p1 = ModifyReplicationGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyReplicationGroup' request.
+mkModifyReplicationGroupMessage :: Text -- ^ 'mrgmReplicationGroupId'
+                                -> ModifyReplicationGroup
+mkModifyReplicationGroupMessage p1 = ModifyReplicationGroup
     { _mrgmReplicationGroupId = p1
-    , _mrgmApplyImmediately = Nothing
-    , _mrgmAutoMinorVersionUpgrade = Nothing
-    , _mrgmCacheSecurityGroupNames = mempty
-    , _mrgmSnapshotRetentionLimit = Nothing
-    , _mrgmSecurityGroupIds = mempty
     , _mrgmReplicationGroupDescription = Nothing
+    , _mrgmCacheSecurityGroupNames = mempty
+    , _mrgmSecurityGroupIds = mempty
     , _mrgmPreferredMaintenanceWindow = Nothing
     , _mrgmNotificationTopicArn = Nothing
     , _mrgmCacheParameterGroupName = Nothing
     , _mrgmNotificationTopicStatus = Nothing
+    , _mrgmApplyImmediately = Nothing
     , _mrgmEngineVersion = Nothing
+    , _mrgmAutoMinorVersionUpgrade = Nothing
     , _mrgmPrimaryClusterId = Nothing
+    , _mrgmSnapshotRetentionLimit = Nothing
     , _mrgmSnapshotWindow = Nothing
     , _mrgmSnapshottingClusterId = Nothing
     }
-{-# INLINE modifyReplicationGroup #-}
+{-# INLINE mkModifyReplicationGroupMessage #-}
 
 data ModifyReplicationGroup = ModifyReplicationGroup
     { _mrgmReplicationGroupId :: Text
       -- ^ The identifier of the replication group to modify.
-    , _mrgmApplyImmediately :: Maybe Bool
-      -- ^ If true, this parameter causes the modifications in this request
-      -- and any pending modifications to be applied, asynchronously and
-      -- as soon as possible, regardless of the PreferredMaintenanceWindow
-      -- setting for the replication group. If false, then changes to the
-      -- nodes in the replication group are applied on the next
-      -- maintenance reboot, or the next failure reboot, whichever occurs
-      -- first. Valid values: true | false Default: false.
-    , _mrgmAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ Determines whether minor engine upgrades will be applied
-      -- automatically to all of the cache nodes in the replication group
-      -- during the maintenance window. A value of true allows these
-      -- upgrades to occur; false disables automatic upgrades.
+    , _mrgmReplicationGroupDescription :: Maybe Text
+      -- ^ A description for the replication group. Maximum length is 255
+      -- characters.
     , _mrgmCacheSecurityGroupNames :: [Text]
       -- ^ A list of cache security group names to authorize for the
       -- clusters in this replication group. This change is asynchronously
@@ -109,21 +100,11 @@ data ModifyReplicationGroup = ModifyReplicationGroup
       -- replication groups containing cache clusters running outside of
       -- an Amazon Virtual Private Cloud (VPC). Constraints: Must contain
       -- no more than 255 alphanumeric characters. Must not be "Default".
-    , _mrgmSnapshotRetentionLimit :: Maybe Integer
-      -- ^ The number of days for which ElastiCache will retain automatic
-      -- cache cluster snapshots before deleting them. For example, if you
-      -- set SnapshotRetentionLimit to 5, then a snapshot that was taken
-      -- today will be retained for 5 days before being deleted.
-      -- ImportantIf the value of SnapshotRetentionLimit is set to zero
-      -- (0), backups are turned off.
     , _mrgmSecurityGroupIds :: [Text]
       -- ^ Specifies the VPC Security Groups associated with the cache
       -- clusters in the replication group. This parameter can be used
       -- only with replication groups containing cache clusters running in
       -- an Amazon Virtual Private Cloud (VPC).
-    , _mrgmReplicationGroupDescription :: Maybe Text
-      -- ^ A description for the replication group. Maximum length is 255
-      -- characters.
     , _mrgmPreferredMaintenanceWindow :: Maybe Text
       -- ^ The weekly time range (in UTC) during which replication group
       -- system maintenance can occur. Note that system maintenance may
@@ -145,14 +126,34 @@ data ModifyReplicationGroup = ModifyReplicationGroup
       -- ^ The status of the Amazon SNS notification topic for the
       -- replication group. Notifications are sent only if the status is
       -- active. Valid values: active | inactive.
+    , _mrgmApplyImmediately :: Maybe Bool
+      -- ^ If true, this parameter causes the modifications in this request
+      -- and any pending modifications to be applied, asynchronously and
+      -- as soon as possible, regardless of the PreferredMaintenanceWindow
+      -- setting for the replication group. If false, then changes to the
+      -- nodes in the replication group are applied on the next
+      -- maintenance reboot, or the next failure reboot, whichever occurs
+      -- first. Valid values: true | false Default: false.
     , _mrgmEngineVersion :: Maybe Text
       -- ^ The upgraded version of the cache engine to be run on the nodes
       -- in the replication group..
+    , _mrgmAutoMinorVersionUpgrade :: Maybe Bool
+      -- ^ Determines whether minor engine upgrades will be applied
+      -- automatically to all of the cache nodes in the replication group
+      -- during the maintenance window. A value of true allows these
+      -- upgrades to occur; false disables automatic upgrades.
     , _mrgmPrimaryClusterId :: Maybe Text
       -- ^ If this parameter is specified, ElastiCache will promote each of
       -- the nodes in the specified cache cluster to the primary role. The
       -- nodes of all other clusters in the replication group will be read
       -- replicas.
+    , _mrgmSnapshotRetentionLimit :: Maybe Integer
+      -- ^ The number of days for which ElastiCache will retain automatic
+      -- cache cluster snapshots before deleting them. For example, if you
+      -- set SnapshotRetentionLimit to 5, then a snapshot that was taken
+      -- today will be retained for 5 days before being deleted.
+      -- ImportantIf the value of SnapshotRetentionLimit is set to zero
+      -- (0), backups are turned off.
     , _mrgmSnapshotWindow :: Maybe Text
       -- ^ The daily time range (in UTC) during which ElastiCache will begin
       -- taking a daily snapshot of the cache cluster specified by
@@ -166,32 +167,13 @@ data ModifyReplicationGroup = ModifyReplicationGroup
 
 -- | The identifier of the replication group to modify.
 mrgmReplicationGroupId :: Lens' ModifyReplicationGroup (Text)
-mrgmReplicationGroupId f x =
-    f (_mrgmReplicationGroupId x)
-        <&> \y -> x { _mrgmReplicationGroupId = y }
+mrgmReplicationGroupId = lens _mrgmReplicationGroupId (\s a -> s { _mrgmReplicationGroupId = a })
 {-# INLINE mrgmReplicationGroupId #-}
 
--- | If true, this parameter causes the modifications in this request and any
--- pending modifications to be applied, asynchronously and as soon as
--- possible, regardless of the PreferredMaintenanceWindow setting for the
--- replication group. If false, then changes to the nodes in the replication
--- group are applied on the next maintenance reboot, or the next failure
--- reboot, whichever occurs first. Valid values: true | false Default: false.
-mrgmApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
-mrgmApplyImmediately f x =
-    f (_mrgmApplyImmediately x)
-        <&> \y -> x { _mrgmApplyImmediately = y }
-{-# INLINE mrgmApplyImmediately #-}
-
--- | Determines whether minor engine upgrades will be applied automatically to
--- all of the cache nodes in the replication group during the maintenance
--- window. A value of true allows these upgrades to occur; false disables
--- automatic upgrades.
-mrgmAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
-mrgmAutoMinorVersionUpgrade f x =
-    f (_mrgmAutoMinorVersionUpgrade x)
-        <&> \y -> x { _mrgmAutoMinorVersionUpgrade = y }
-{-# INLINE mrgmAutoMinorVersionUpgrade #-}
+-- | A description for the replication group. Maximum length is 255 characters.
+mrgmReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgmReplicationGroupDescription = lens _mrgmReplicationGroupDescription (\s a -> s { _mrgmReplicationGroupDescription = a })
+{-# INLINE mrgmReplicationGroupDescription #-}
 
 -- | A list of cache security group names to authorize for the clusters in this
 -- replication group. This change is asynchronously applied as soon as
@@ -200,37 +182,15 @@ mrgmAutoMinorVersionUpgrade f x =
 -- Cloud (VPC). Constraints: Must contain no more than 255 alphanumeric
 -- characters. Must not be "Default".
 mrgmCacheSecurityGroupNames :: Lens' ModifyReplicationGroup ([Text])
-mrgmCacheSecurityGroupNames f x =
-    f (_mrgmCacheSecurityGroupNames x)
-        <&> \y -> x { _mrgmCacheSecurityGroupNames = y }
+mrgmCacheSecurityGroupNames = lens _mrgmCacheSecurityGroupNames (\s a -> s { _mrgmCacheSecurityGroupNames = a })
 {-# INLINE mrgmCacheSecurityGroupNames #-}
-
--- | The number of days for which ElastiCache will retain automatic cache
--- cluster snapshots before deleting them. For example, if you set
--- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
--- retained for 5 days before being deleted. ImportantIf the value of
--- SnapshotRetentionLimit is set to zero (0), backups are turned off.
-mrgmSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Integer)
-mrgmSnapshotRetentionLimit f x =
-    f (_mrgmSnapshotRetentionLimit x)
-        <&> \y -> x { _mrgmSnapshotRetentionLimit = y }
-{-# INLINE mrgmSnapshotRetentionLimit #-}
 
 -- | Specifies the VPC Security Groups associated with the cache clusters in the
 -- replication group. This parameter can be used only with replication groups
 -- containing cache clusters running in an Amazon Virtual Private Cloud (VPC).
 mrgmSecurityGroupIds :: Lens' ModifyReplicationGroup ([Text])
-mrgmSecurityGroupIds f x =
-    f (_mrgmSecurityGroupIds x)
-        <&> \y -> x { _mrgmSecurityGroupIds = y }
+mrgmSecurityGroupIds = lens _mrgmSecurityGroupIds (\s a -> s { _mrgmSecurityGroupIds = a })
 {-# INLINE mrgmSecurityGroupIds #-}
-
--- | A description for the replication group. Maximum length is 255 characters.
-mrgmReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmReplicationGroupDescription f x =
-    f (_mrgmReplicationGroupDescription x)
-        <&> \y -> x { _mrgmReplicationGroupDescription = y }
-{-# INLINE mrgmReplicationGroupDescription #-}
 
 -- | The weekly time range (in UTC) during which replication group system
 -- maintenance can occur. Note that system maintenance may result in an
@@ -238,18 +198,14 @@ mrgmReplicationGroupDescription f x =
 -- the current time, there must be at least 120 minutes between the current
 -- time and end of the window to ensure that pending changes are applied.
 mrgmPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmPreferredMaintenanceWindow f x =
-    f (_mrgmPreferredMaintenanceWindow x)
-        <&> \y -> x { _mrgmPreferredMaintenanceWindow = y }
+mrgmPreferredMaintenanceWindow = lens _mrgmPreferredMaintenanceWindow (\s a -> s { _mrgmPreferredMaintenanceWindow = a })
 {-# INLINE mrgmPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent. The Amazon SNS topic owner must be same as the
 -- replication group owner.
 mrgmNotificationTopicArn :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmNotificationTopicArn f x =
-    f (_mrgmNotificationTopicArn x)
-        <&> \y -> x { _mrgmNotificationTopicArn = y }
+mrgmNotificationTopicArn = lens _mrgmNotificationTopicArn (\s a -> s { _mrgmNotificationTopicArn = a })
 {-# INLINE mrgmNotificationTopicArn #-}
 
 -- | The name of the cache parameter group to apply to all of the cache nodes in
@@ -257,68 +213,81 @@ mrgmNotificationTopicArn f x =
 -- possible for parameters when the ApplyImmediately parameter is specified as
 -- true for this request.
 mrgmCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmCacheParameterGroupName f x =
-    f (_mrgmCacheParameterGroupName x)
-        <&> \y -> x { _mrgmCacheParameterGroupName = y }
+mrgmCacheParameterGroupName = lens _mrgmCacheParameterGroupName (\s a -> s { _mrgmCacheParameterGroupName = a })
 {-# INLINE mrgmCacheParameterGroupName #-}
 
 -- | The status of the Amazon SNS notification topic for the replication group.
 -- Notifications are sent only if the status is active. Valid values: active |
 -- inactive.
 mrgmNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmNotificationTopicStatus f x =
-    f (_mrgmNotificationTopicStatus x)
-        <&> \y -> x { _mrgmNotificationTopicStatus = y }
+mrgmNotificationTopicStatus = lens _mrgmNotificationTopicStatus (\s a -> s { _mrgmNotificationTopicStatus = a })
 {-# INLINE mrgmNotificationTopicStatus #-}
+
+-- | If true, this parameter causes the modifications in this request and any
+-- pending modifications to be applied, asynchronously and as soon as
+-- possible, regardless of the PreferredMaintenanceWindow setting for the
+-- replication group. If false, then changes to the nodes in the replication
+-- group are applied on the next maintenance reboot, or the next failure
+-- reboot, whichever occurs first. Valid values: true | false Default: false.
+mrgmApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
+mrgmApplyImmediately = lens _mrgmApplyImmediately (\s a -> s { _mrgmApplyImmediately = a })
+{-# INLINE mrgmApplyImmediately #-}
 
 -- | The upgraded version of the cache engine to be run on the nodes in the
 -- replication group..
 mrgmEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmEngineVersion f x =
-    f (_mrgmEngineVersion x)
-        <&> \y -> x { _mrgmEngineVersion = y }
+mrgmEngineVersion = lens _mrgmEngineVersion (\s a -> s { _mrgmEngineVersion = a })
 {-# INLINE mrgmEngineVersion #-}
+
+-- | Determines whether minor engine upgrades will be applied automatically to
+-- all of the cache nodes in the replication group during the maintenance
+-- window. A value of true allows these upgrades to occur; false disables
+-- automatic upgrades.
+mrgmAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
+mrgmAutoMinorVersionUpgrade = lens _mrgmAutoMinorVersionUpgrade (\s a -> s { _mrgmAutoMinorVersionUpgrade = a })
+{-# INLINE mrgmAutoMinorVersionUpgrade #-}
 
 -- | If this parameter is specified, ElastiCache will promote each of the nodes
 -- in the specified cache cluster to the primary role. The nodes of all other
 -- clusters in the replication group will be read replicas.
 mrgmPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmPrimaryClusterId f x =
-    f (_mrgmPrimaryClusterId x)
-        <&> \y -> x { _mrgmPrimaryClusterId = y }
+mrgmPrimaryClusterId = lens _mrgmPrimaryClusterId (\s a -> s { _mrgmPrimaryClusterId = a })
 {-# INLINE mrgmPrimaryClusterId #-}
+
+-- | The number of days for which ElastiCache will retain automatic cache
+-- cluster snapshots before deleting them. For example, if you set
+-- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
+-- retained for 5 days before being deleted. ImportantIf the value of
+-- SnapshotRetentionLimit is set to zero (0), backups are turned off.
+mrgmSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Integer)
+mrgmSnapshotRetentionLimit = lens _mrgmSnapshotRetentionLimit (\s a -> s { _mrgmSnapshotRetentionLimit = a })
+{-# INLINE mrgmSnapshotRetentionLimit #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of the cache cluster specified by SnapshottingClusterId.
 -- Example: 05:00-09:00 If you do not specify this parameter, then ElastiCache
 -- will automatically choose an appropriate time range.
 mrgmSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmSnapshotWindow f x =
-    f (_mrgmSnapshotWindow x)
-        <&> \y -> x { _mrgmSnapshotWindow = y }
+mrgmSnapshotWindow = lens _mrgmSnapshotWindow (\s a -> s { _mrgmSnapshotWindow = a })
 {-# INLINE mrgmSnapshotWindow #-}
 
 -- | The cache cluster ID that will be used as the daily snapshot source for the
 -- replication group.
 mrgmSnapshottingClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgmSnapshottingClusterId f x =
-    f (_mrgmSnapshottingClusterId x)
-        <&> \y -> x { _mrgmSnapshottingClusterId = y }
+mrgmSnapshottingClusterId = lens _mrgmSnapshottingClusterId (\s a -> s { _mrgmSnapshottingClusterId = a })
 {-# INLINE mrgmSnapshottingClusterId #-}
 
 instance ToQuery ModifyReplicationGroup where
     toQuery = genericQuery def
 
-data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
+newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _rgyReplicationGroup :: Maybe ReplicationGroup
       -- ^ Contains all of the attributes of a specific replication group.
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
 rgyReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
-rgyReplicationGroup f x =
-    f (_rgyReplicationGroup x)
-        <&> \y -> x { _rgyReplicationGroup = y }
+rgyReplicationGroup = lens _rgyReplicationGroup (\s a -> s { _rgyReplicationGroup = a })
 {-# INLINE rgyReplicationGroup #-}
 
 instance FromXML ModifyReplicationGroupResponse where

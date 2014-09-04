@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
     -- * Request
       ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
-    , listCloudFrontOriginAccessIdentities
+    , mkListCloudFrontOriginAccessIdentitiesRequest
     -- ** Request lenses
     , lcfoairMarker
     , lcfoairMaxItems
@@ -38,13 +38,14 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListCloudFrontOriginAccessIdentities' request.
-listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListCloudFrontOriginAccessIdentities' request.
+mkListCloudFrontOriginAccessIdentitiesRequest :: ListCloudFrontOriginAccessIdentities
+mkListCloudFrontOriginAccessIdentitiesRequest = ListCloudFrontOriginAccessIdentities
     { _lcfoairMarker = Nothing
     , _lcfoairMaxItems = Nothing
     }
-{-# INLINE listCloudFrontOriginAccessIdentities #-}
+{-# INLINE mkListCloudFrontOriginAccessIdentitiesRequest #-}
 
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoairMarker :: Maybe Text
@@ -65,17 +66,13 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 -- the value of the NextMarker from the current page's response (which is also
 -- the ID of the last identity on that page).
 lcfoairMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoairMarker f x =
-    f (_lcfoairMarker x)
-        <&> \y -> x { _lcfoairMarker = y }
+lcfoairMarker = lens _lcfoairMarker (\s a -> s { _lcfoairMarker = a })
 {-# INLINE lcfoairMarker #-}
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
 lcfoairMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoairMaxItems f x =
-    f (_lcfoairMaxItems x)
-        <&> \y -> x { _lcfoairMaxItems = y }
+lcfoairMaxItems = lens _lcfoairMaxItems (\s a -> s { _lcfoairMaxItems = a })
 {-# INLINE lcfoairMaxItems #-}
 
 instance ToPath ListCloudFrontOriginAccessIdentities where
@@ -93,16 +90,14 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentitiesRequest"
 
-data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoaisCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
+newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
+    { _lcfoaisCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
       -- ^ The CloudFrontOriginAccessIdentityList type.
     } deriving (Show, Generic)
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoaisCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse (CloudFrontOriginAccessIdentityList)
-lcfoaisCloudFrontOriginAccessIdentityList f x =
-    f (_lcfoaisCloudFrontOriginAccessIdentityList x)
-        <&> \y -> x { _lcfoaisCloudFrontOriginAccessIdentityList = y }
+lcfoaisCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse (Maybe CloudFrontOriginAccessIdentityList)
+lcfoaisCloudFrontOriginAccessIdentityList = lens _lcfoaisCloudFrontOriginAccessIdentityList (\s a -> s { _lcfoaisCloudFrontOriginAccessIdentityList = a })
 {-# INLINE lcfoaisCloudFrontOriginAccessIdentityList #-}
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where

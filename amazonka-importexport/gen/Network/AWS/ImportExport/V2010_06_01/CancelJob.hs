@@ -24,7 +24,7 @@ module Network.AWS.ImportExport.V2010_06_01.CancelJob
     -- * Request
       CancelJob
     -- ** Request constructor
-    , cancelJob
+    , mkCancelJobInput
     -- ** Request lenses
     , cjiJobId
 
@@ -38,30 +38,29 @@ import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CancelJob' request.
-cancelJob :: Text -- ^ 'cjiJobId'
-          -> CancelJob
-cancelJob p1 = CancelJob
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelJob' request.
+mkCancelJobInput :: Text -- ^ 'cjiJobId'
+                 -> CancelJob
+mkCancelJobInput p1 = CancelJob
     { _cjiJobId = p1
     }
-{-# INLINE cancelJob #-}
+{-# INLINE mkCancelJobInput #-}
 
-data CancelJob = CancelJob
+newtype CancelJob = CancelJob
     { _cjiJobId :: Text
       -- ^ A unique identifier which refers to a particular job.
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
 cjiJobId :: Lens' CancelJob (Text)
-cjiJobId f x =
-    f (_cjiJobId x)
-        <&> \y -> x { _cjiJobId = y }
+cjiJobId = lens _cjiJobId (\s a -> s { _cjiJobId = a })
 {-# INLINE cjiJobId #-}
 
 instance ToQuery CancelJob where
     toQuery = genericQuery def
 
-data CancelJobResponse = CancelJobResponse
+newtype CancelJobResponse = CancelJobResponse
     { _cjoSuccess :: Maybe Bool
       -- ^ Specifies whether (true) or not (false) AWS Import/Export updated
       -- your job.
@@ -69,9 +68,7 @@ data CancelJobResponse = CancelJobResponse
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 cjoSuccess :: Lens' CancelJobResponse (Maybe Bool)
-cjoSuccess f x =
-    f (_cjoSuccess x)
-        <&> \y -> x { _cjoSuccess = y }
+cjoSuccess = lens _cjoSuccess (\s a -> s { _cjoSuccess = a })
 {-# INLINE cjoSuccess #-}
 
 instance FromXML CancelJobResponse where

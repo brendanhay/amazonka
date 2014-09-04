@@ -36,7 +36,7 @@ module Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute
     -- * Request
       ModifyVolumeAttribute
     -- ** Request constructor
-    , modifyVolumeAttribute
+    , mkModifyVolumeAttributeRequest
     -- ** Request lenses
     , mvarVolumeId
     , mvarAutoEnableIO
@@ -49,14 +49,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyVolumeAttribute' request.
-modifyVolumeAttribute :: Text -- ^ 'mvarVolumeId'
-                      -> ModifyVolumeAttribute
-modifyVolumeAttribute p1 = ModifyVolumeAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyVolumeAttribute' request.
+mkModifyVolumeAttributeRequest :: Text -- ^ 'mvarVolumeId'
+                               -> ModifyVolumeAttribute
+mkModifyVolumeAttributeRequest p1 = ModifyVolumeAttribute
     { _mvarVolumeId = p1
     , _mvarAutoEnableIO = Nothing
     }
-{-# INLINE modifyVolumeAttribute #-}
+{-# INLINE mkModifyVolumeAttributeRequest #-}
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvarVolumeId :: Text
@@ -68,16 +69,12 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
 
 -- | The ID of the volume.
 mvarVolumeId :: Lens' ModifyVolumeAttribute (Text)
-mvarVolumeId f x =
-    f (_mvarVolumeId x)
-        <&> \y -> x { _mvarVolumeId = y }
+mvarVolumeId = lens _mvarVolumeId (\s a -> s { _mvarVolumeId = a })
 {-# INLINE mvarVolumeId #-}
 
 -- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvarAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
-mvarAutoEnableIO f x =
-    f (_mvarAutoEnableIO x)
-        <&> \y -> x { _mvarAutoEnableIO = y }
+mvarAutoEnableIO = lens _mvarAutoEnableIO (\s a -> s { _mvarAutoEnableIO = a })
 {-# INLINE mvarAutoEnableIO #-}
 
 instance ToQuery ModifyVolumeAttribute where

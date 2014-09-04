@@ -31,7 +31,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup
     -- * Request
       DeleteClusterParameterGroup
     -- ** Request constructor
-    , deleteClusterParameterGroup
+    , mkDeleteClusterParameterGroupMessage
     -- ** Request lenses
     , dcpgmParameterGroupName
 
@@ -43,15 +43,16 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteClusterParameterGroup' request.
-deleteClusterParameterGroup :: Text -- ^ 'dcpgmParameterGroupName'
-                            -> DeleteClusterParameterGroup
-deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterParameterGroup' request.
+mkDeleteClusterParameterGroupMessage :: Text -- ^ 'dcpgmParameterGroupName'
+                                     -> DeleteClusterParameterGroup
+mkDeleteClusterParameterGroupMessage p1 = DeleteClusterParameterGroup
     { _dcpgmParameterGroupName = p1
     }
-{-# INLINE deleteClusterParameterGroup #-}
+{-# INLINE mkDeleteClusterParameterGroupMessage #-}
 
-data DeleteClusterParameterGroup = DeleteClusterParameterGroup
+newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
     { _dcpgmParameterGroupName :: Text
       -- ^ The name of the parameter group to be deleted. Constraints: Must
       -- be the name of an existing cluster parameter group. Cannot delete
@@ -62,9 +63,7 @@ data DeleteClusterParameterGroup = DeleteClusterParameterGroup
 -- name of an existing cluster parameter group. Cannot delete a default
 -- cluster parameter group.
 dcpgmParameterGroupName :: Lens' DeleteClusterParameterGroup (Text)
-dcpgmParameterGroupName f x =
-    f (_dcpgmParameterGroupName x)
-        <&> \y -> x { _dcpgmParameterGroupName = y }
+dcpgmParameterGroupName = lens _dcpgmParameterGroupName (\s a -> s { _dcpgmParameterGroupName = a })
 {-# INLINE dcpgmParameterGroupName #-}
 
 instance ToQuery DeleteClusterParameterGroup where

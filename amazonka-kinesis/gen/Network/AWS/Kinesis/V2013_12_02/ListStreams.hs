@@ -46,7 +46,7 @@ module Network.AWS.Kinesis.V2013_12_02.ListStreams
     -- * Request
       ListStreams
     -- ** Request constructor
-    , listStreams
+    , mkListStreamsInput
     -- ** Request lenses
     , lsiLimit
     , lsiExclusiveStartStreamName
@@ -54,8 +54,8 @@ module Network.AWS.Kinesis.V2013_12_02.ListStreams
     -- * Response
     , ListStreamsResponse
     -- ** Response lenses
-    , lsoHasMoreStreams
     , lsoStreamNames
+    , lsoHasMoreStreams
     ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
@@ -63,13 +63,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListStreams' request.
-listStreams :: ListStreams
-listStreams = ListStreams
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStreams' request.
+mkListStreamsInput :: ListStreams
+mkListStreamsInput = ListStreams
     { _lsiLimit = Nothing
     , _lsiExclusiveStartStreamName = Nothing
     }
-{-# INLINE listStreams #-}
+{-# INLINE mkListStreamsInput #-}
 
 data ListStreams = ListStreams
     { _lsiLimit :: Maybe Integer
@@ -80,16 +81,12 @@ data ListStreams = ListStreams
 
 -- | The maximum number of streams to list.
 lsiLimit :: Lens' ListStreams (Maybe Integer)
-lsiLimit f x =
-    f (_lsiLimit x)
-        <&> \y -> x { _lsiLimit = y }
+lsiLimit = lens _lsiLimit (\s a -> s { _lsiLimit = a })
 {-# INLINE lsiLimit #-}
 
 -- | The name of the stream to start the list with.
 lsiExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
-lsiExclusiveStartStreamName f x =
-    f (_lsiExclusiveStartStreamName x)
-        <&> \y -> x { _lsiExclusiveStartStreamName = y }
+lsiExclusiveStartStreamName = lens _lsiExclusiveStartStreamName (\s a -> s { _lsiExclusiveStartStreamName = a })
 {-# INLINE lsiExclusiveStartStreamName #-}
 
 instance ToPath ListStreams
@@ -101,27 +98,23 @@ instance ToHeaders ListStreams
 instance ToJSON ListStreams
 
 data ListStreamsResponse = ListStreamsResponse
-    { _lsoHasMoreStreams :: Bool
-      -- ^ If set to true, there are more streams available to list.
-    , _lsoStreamNames :: [Text]
+    { _lsoStreamNames :: [Text]
       -- ^ The names of the streams that are associated with the AWS account
       -- making the ListStreams request.
+    , _lsoHasMoreStreams :: Bool
+      -- ^ If set to true, there are more streams available to list.
     } deriving (Show, Generic)
-
--- | If set to true, there are more streams available to list.
-lsoHasMoreStreams :: Lens' ListStreamsResponse (Bool)
-lsoHasMoreStreams f x =
-    f (_lsoHasMoreStreams x)
-        <&> \y -> x { _lsoHasMoreStreams = y }
-{-# INLINE lsoHasMoreStreams #-}
 
 -- | The names of the streams that are associated with the AWS account making
 -- the ListStreams request.
 lsoStreamNames :: Lens' ListStreamsResponse ([Text])
-lsoStreamNames f x =
-    f (_lsoStreamNames x)
-        <&> \y -> x { _lsoStreamNames = y }
+lsoStreamNames = lens _lsoStreamNames (\s a -> s { _lsoStreamNames = a })
 {-# INLINE lsoStreamNames #-}
+
+-- | If set to true, there are more streams available to list.
+lsoHasMoreStreams :: Lens' ListStreamsResponse (Bool)
+lsoHasMoreStreams = lens _lsoHasMoreStreams (\s a -> s { _lsoHasMoreStreams = a })
+{-# INLINE lsoHasMoreStreams #-}
 
 instance FromJSON ListStreamsResponse
 

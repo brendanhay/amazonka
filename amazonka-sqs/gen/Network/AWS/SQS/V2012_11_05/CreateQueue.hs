@@ -47,7 +47,7 @@ module Network.AWS.SQS.V2012_11_05.CreateQueue
     -- * Request
       CreateQueue
     -- ** Request constructor
-    , createQueue
+    , mkCreateQueueRequest
     -- ** Request lenses
     , cqrQueueName
     , cqrAttributes
@@ -62,14 +62,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateQueue' request.
-createQueue :: Text -- ^ 'cqrQueueName'
-            -> CreateQueue
-createQueue p1 = CreateQueue
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateQueue' request.
+mkCreateQueueRequest :: Text -- ^ 'cqrQueueName'
+                     -> CreateQueue
+mkCreateQueueRequest p1 = CreateQueue
     { _cqrQueueName = p1
     , _cqrAttributes = mempty
     }
-{-# INLINE createQueue #-}
+{-# INLINE mkCreateQueueRequest #-}
 
 data CreateQueue = CreateQueue
     { _cqrQueueName :: Text
@@ -104,9 +105,7 @@ data CreateQueue = CreateQueue
 
 -- | The name for the queue to be created.
 cqrQueueName :: Lens' CreateQueue (Text)
-cqrQueueName f x =
-    f (_cqrQueueName x)
-        <&> \y -> x { _cqrQueueName = y }
+cqrQueueName = lens _cqrQueueName (\s a -> s { _cqrQueueName = a })
 {-# INLINE cqrQueueName #-}
 
 -- | A map of attributes with their corresponding values. The following lists
@@ -131,24 +130,20 @@ cqrQueueName f x =
 -- attribute is 30. For more information about visibility timeout, see
 -- Visibility Timeout in the Amazon SQS Developer Guide.
 cqrAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
-cqrAttributes f x =
-    f (_cqrAttributes x)
-        <&> \y -> x { _cqrAttributes = y }
+cqrAttributes = lens _cqrAttributes (\s a -> s { _cqrAttributes = a })
 {-# INLINE cqrAttributes #-}
 
 instance ToQuery CreateQueue where
     toQuery = genericQuery def
 
-data CreateQueueResponse = CreateQueueResponse
+newtype CreateQueueResponse = CreateQueueResponse
     { _cqsQueueUrl :: Maybe Text
       -- ^ The URL for the created Amazon SQS queue.
     } deriving (Show, Generic)
 
 -- | The URL for the created Amazon SQS queue.
 cqsQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
-cqsQueueUrl f x =
-    f (_cqsQueueUrl x)
-        <&> \y -> x { _cqsQueueUrl = y }
+cqsQueueUrl = lens _cqsQueueUrl (\s a -> s { _cqsQueueUrl = a })
 {-# INLINE cqsQueueUrl #-}
 
 instance FromXML CreateQueueResponse where

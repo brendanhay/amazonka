@@ -50,14 +50,14 @@ module Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute
     -- * Request
       ModifySnapshotAttribute
     -- ** Request constructor
-    , modifySnapshotAttribute
+    , mkModifySnapshotAttributeRequest
     -- ** Request lenses
     , msarSnapshotId
-    , msarCreateVolumePermission
-    , msarGroupNames
     , msarAttribute
-    , msarUserIds
     , msarOperationType
+    , msarUserIds
+    , msarGroupNames
+    , msarCreateVolumePermission
 
     -- * Response
     , ModifySnapshotAttributeResponse
@@ -67,75 +67,64 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifySnapshotAttribute' request.
-modifySnapshotAttribute :: Text -- ^ 'msarSnapshotId'
-                        -> ModifySnapshotAttribute
-modifySnapshotAttribute p1 = ModifySnapshotAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifySnapshotAttribute' request.
+mkModifySnapshotAttributeRequest :: Text -- ^ 'msarSnapshotId'
+                                 -> ModifySnapshotAttribute
+mkModifySnapshotAttributeRequest p1 = ModifySnapshotAttribute
     { _msarSnapshotId = p1
-    , _msarCreateVolumePermission = Nothing
-    , _msarGroupNames = mempty
     , _msarAttribute = Nothing
-    , _msarUserIds = mempty
     , _msarOperationType = Nothing
+    , _msarUserIds = mempty
+    , _msarGroupNames = mempty
+    , _msarCreateVolumePermission = Nothing
     }
-{-# INLINE modifySnapshotAttribute #-}
+{-# INLINE mkModifySnapshotAttributeRequest #-}
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msarSnapshotId :: Text
       -- ^ The ID of the snapshot.
-    , _msarCreateVolumePermission :: Maybe CreateVolumePermissionModifications
-      -- ^ A JSON representation of the snapshot attribute modification.
-    , _msarGroupNames :: [Text]
-      -- ^ The group to modify for the snapshot.
     , _msarAttribute :: Maybe SnapshotAttributeName
       -- ^ The snapshot attribute to modify.
-    , _msarUserIds :: [Text]
-      -- ^ The account ID to modify for the snapshot.
     , _msarOperationType :: Maybe Text
       -- ^ The type of operation to perform to the attribute.
+    , _msarUserIds :: [Text]
+      -- ^ The account ID to modify for the snapshot.
+    , _msarGroupNames :: [Text]
+      -- ^ The group to modify for the snapshot.
+    , _msarCreateVolumePermission :: Maybe CreateVolumePermissionModifications
+      -- ^ A JSON representation of the snapshot attribute modification.
     } deriving (Show, Generic)
 
 -- | The ID of the snapshot.
 msarSnapshotId :: Lens' ModifySnapshotAttribute (Text)
-msarSnapshotId f x =
-    f (_msarSnapshotId x)
-        <&> \y -> x { _msarSnapshotId = y }
+msarSnapshotId = lens _msarSnapshotId (\s a -> s { _msarSnapshotId = a })
 {-# INLINE msarSnapshotId #-}
-
--- | A JSON representation of the snapshot attribute modification.
-msarCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
-msarCreateVolumePermission f x =
-    f (_msarCreateVolumePermission x)
-        <&> \y -> x { _msarCreateVolumePermission = y }
-{-# INLINE msarCreateVolumePermission #-}
-
--- | The group to modify for the snapshot.
-msarGroupNames :: Lens' ModifySnapshotAttribute ([Text])
-msarGroupNames f x =
-    f (_msarGroupNames x)
-        <&> \y -> x { _msarGroupNames = y }
-{-# INLINE msarGroupNames #-}
 
 -- | The snapshot attribute to modify.
 msarAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
-msarAttribute f x =
-    f (_msarAttribute x)
-        <&> \y -> x { _msarAttribute = y }
+msarAttribute = lens _msarAttribute (\s a -> s { _msarAttribute = a })
 {-# INLINE msarAttribute #-}
-
--- | The account ID to modify for the snapshot.
-msarUserIds :: Lens' ModifySnapshotAttribute ([Text])
-msarUserIds f x =
-    f (_msarUserIds x)
-        <&> \y -> x { _msarUserIds = y }
-{-# INLINE msarUserIds #-}
 
 -- | The type of operation to perform to the attribute.
 msarOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
-msarOperationType f x =
-    f (_msarOperationType x)
-        <&> \y -> x { _msarOperationType = y }
+msarOperationType = lens _msarOperationType (\s a -> s { _msarOperationType = a })
 {-# INLINE msarOperationType #-}
+
+-- | The account ID to modify for the snapshot.
+msarUserIds :: Lens' ModifySnapshotAttribute ([Text])
+msarUserIds = lens _msarUserIds (\s a -> s { _msarUserIds = a })
+{-# INLINE msarUserIds #-}
+
+-- | The group to modify for the snapshot.
+msarGroupNames :: Lens' ModifySnapshotAttribute ([Text])
+msarGroupNames = lens _msarGroupNames (\s a -> s { _msarGroupNames = a })
+{-# INLINE msarGroupNames #-}
+
+-- | A JSON representation of the snapshot attribute modification.
+msarCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
+msarCreateVolumePermission = lens _msarCreateVolumePermission (\s a -> s { _msarCreateVolumePermission = a })
+{-# INLINE msarCreateVolumePermission #-}
 
 instance ToQuery ModifySnapshotAttribute where
     toQuery = genericQuery def

@@ -27,19 +27,19 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateApp
     -- * Request
       CreateApp
     -- ** Request constructor
-    , createApp
+    , mkCreateAppRequest
     -- ** Request lenses
-    , carType
     , carStackId
-    , carName
-    , carAttributes
-    , carEnableSsl
-    , carDataSources
-    , carAppSource
-    , carSslConfiguration
     , carShortname
+    , carName
     , carDescription
+    , carDataSources
+    , carType
+    , carAppSource
     , carDomains
+    , carEnableSsl
+    , carSslConfiguration
+    , carAttributes
 
     -- * Response
     , CreateAppResponse
@@ -52,137 +52,116 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateApp' request.
-createApp :: AppType -- ^ 'carType'
-          -> Text -- ^ 'carStackId'
-          -> Text -- ^ 'carName'
-          -> CreateApp
-createApp p1 p2 p3 = CreateApp
-    { _carType = p1
-    , _carStackId = p2
-    , _carName = p3
-    , _carAttributes = mempty
-    , _carEnableSsl = Nothing
-    , _carDataSources = mempty
-    , _carAppSource = Nothing
-    , _carSslConfiguration = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateApp' request.
+mkCreateAppRequest :: Text -- ^ 'carStackId'
+                   -> Text -- ^ 'carName'
+                   -> AppType -- ^ 'carType'
+                   -> CreateApp
+mkCreateAppRequest p1 p2 p3 = CreateApp
+    { _carStackId = p1
     , _carShortname = Nothing
+    , _carName = p3
     , _carDescription = Nothing
+    , _carDataSources = mempty
+    , _carType = p6
+    , _carAppSource = Nothing
     , _carDomains = mempty
+    , _carEnableSsl = Nothing
+    , _carSslConfiguration = Nothing
+    , _carAttributes = mempty
     }
-{-# INLINE createApp #-}
+{-# INLINE mkCreateAppRequest #-}
 
 data CreateApp = CreateApp
-    { _carType :: AppType
+    { _carStackId :: Text
+      -- ^ The stack ID.
+    , _carShortname :: Maybe Text
+      -- ^ The app's short name.
+    , _carName :: Text
+      -- ^ The app name.
+    , _carDescription :: Maybe Text
+      -- ^ A description of the app.
+    , _carDataSources :: [DataSource]
+      -- ^ The app's data source.
+    , _carType :: AppType
       -- ^ The app type. Each supported type is associated with a particular
       -- layer. For example, PHP applications are associated with a PHP
       -- layer. AWS OpsWorks deploys an application to those instances
       -- that are members of the corresponding layer.
-    , _carStackId :: Text
-      -- ^ The stack ID.
-    , _carName :: Text
-      -- ^ The app name.
-    , _carAttributes :: Map AppAttributesKeys Text
-      -- ^ One or more user-defined key/value pairs to be added to the stack
-      -- attributes.
-    , _carEnableSsl :: Maybe Bool
-      -- ^ Whether to enable SSL for the app.
-    , _carDataSources :: [DataSource]
-      -- ^ The app's data source.
     , _carAppSource :: Maybe Source
       -- ^ A Source object that specifies the app repository.
-    , _carSslConfiguration :: Maybe SslConfiguration
-      -- ^ An SslConfiguration object with the SSL configuration.
-    , _carShortname :: Maybe Text
-      -- ^ The app's short name.
-    , _carDescription :: Maybe Text
-      -- ^ A description of the app.
     , _carDomains :: [Text]
       -- ^ The app virtual host settings, with multiple domains separated by
       -- commas. For example: 'www.example.com, example.com'.
+    , _carEnableSsl :: Maybe Bool
+      -- ^ Whether to enable SSL for the app.
+    , _carSslConfiguration :: Maybe SslConfiguration
+      -- ^ An SslConfiguration object with the SSL configuration.
+    , _carAttributes :: Map AppAttributesKeys Text
+      -- ^ One or more user-defined key/value pairs to be added to the stack
+      -- attributes.
     } deriving (Show, Generic)
+
+-- | The stack ID.
+carStackId :: Lens' CreateApp (Text)
+carStackId = lens _carStackId (\s a -> s { _carStackId = a })
+{-# INLINE carStackId #-}
+
+-- | The app's short name.
+carShortname :: Lens' CreateApp (Maybe Text)
+carShortname = lens _carShortname (\s a -> s { _carShortname = a })
+{-# INLINE carShortname #-}
+
+-- | The app name.
+carName :: Lens' CreateApp (Text)
+carName = lens _carName (\s a -> s { _carName = a })
+{-# INLINE carName #-}
+
+-- | A description of the app.
+carDescription :: Lens' CreateApp (Maybe Text)
+carDescription = lens _carDescription (\s a -> s { _carDescription = a })
+{-# INLINE carDescription #-}
+
+-- | The app's data source.
+carDataSources :: Lens' CreateApp ([DataSource])
+carDataSources = lens _carDataSources (\s a -> s { _carDataSources = a })
+{-# INLINE carDataSources #-}
 
 -- | The app type. Each supported type is associated with a particular layer.
 -- For example, PHP applications are associated with a PHP layer. AWS OpsWorks
 -- deploys an application to those instances that are members of the
 -- corresponding layer.
 carType :: Lens' CreateApp (AppType)
-carType f x =
-    f (_carType x)
-        <&> \y -> x { _carType = y }
+carType = lens _carType (\s a -> s { _carType = a })
 {-# INLINE carType #-}
-
--- | The stack ID.
-carStackId :: Lens' CreateApp (Text)
-carStackId f x =
-    f (_carStackId x)
-        <&> \y -> x { _carStackId = y }
-{-# INLINE carStackId #-}
-
--- | The app name.
-carName :: Lens' CreateApp (Text)
-carName f x =
-    f (_carName x)
-        <&> \y -> x { _carName = y }
-{-# INLINE carName #-}
-
--- | One or more user-defined key/value pairs to be added to the stack
--- attributes.
-carAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
-carAttributes f x =
-    f (_carAttributes x)
-        <&> \y -> x { _carAttributes = y }
-{-# INLINE carAttributes #-}
-
--- | Whether to enable SSL for the app.
-carEnableSsl :: Lens' CreateApp (Maybe Bool)
-carEnableSsl f x =
-    f (_carEnableSsl x)
-        <&> \y -> x { _carEnableSsl = y }
-{-# INLINE carEnableSsl #-}
-
--- | The app's data source.
-carDataSources :: Lens' CreateApp ([DataSource])
-carDataSources f x =
-    f (_carDataSources x)
-        <&> \y -> x { _carDataSources = y }
-{-# INLINE carDataSources #-}
 
 -- | A Source object that specifies the app repository.
 carAppSource :: Lens' CreateApp (Maybe Source)
-carAppSource f x =
-    f (_carAppSource x)
-        <&> \y -> x { _carAppSource = y }
+carAppSource = lens _carAppSource (\s a -> s { _carAppSource = a })
 {-# INLINE carAppSource #-}
-
--- | An SslConfiguration object with the SSL configuration.
-carSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
-carSslConfiguration f x =
-    f (_carSslConfiguration x)
-        <&> \y -> x { _carSslConfiguration = y }
-{-# INLINE carSslConfiguration #-}
-
--- | The app's short name.
-carShortname :: Lens' CreateApp (Maybe Text)
-carShortname f x =
-    f (_carShortname x)
-        <&> \y -> x { _carShortname = y }
-{-# INLINE carShortname #-}
-
--- | A description of the app.
-carDescription :: Lens' CreateApp (Maybe Text)
-carDescription f x =
-    f (_carDescription x)
-        <&> \y -> x { _carDescription = y }
-{-# INLINE carDescription #-}
 
 -- | The app virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
 carDomains :: Lens' CreateApp ([Text])
-carDomains f x =
-    f (_carDomains x)
-        <&> \y -> x { _carDomains = y }
+carDomains = lens _carDomains (\s a -> s { _carDomains = a })
 {-# INLINE carDomains #-}
+
+-- | Whether to enable SSL for the app.
+carEnableSsl :: Lens' CreateApp (Maybe Bool)
+carEnableSsl = lens _carEnableSsl (\s a -> s { _carEnableSsl = a })
+{-# INLINE carEnableSsl #-}
+
+-- | An SslConfiguration object with the SSL configuration.
+carSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
+carSslConfiguration = lens _carSslConfiguration (\s a -> s { _carSslConfiguration = a })
+{-# INLINE carSslConfiguration #-}
+
+-- | One or more user-defined key/value pairs to be added to the stack
+-- attributes.
+carAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
+carAttributes = lens _carAttributes (\s a -> s { _carAttributes = a })
+{-# INLINE carAttributes #-}
 
 instance ToPath CreateApp
 
@@ -192,16 +171,14 @@ instance ToHeaders CreateApp
 
 instance ToJSON CreateApp
 
-data CreateAppResponse = CreateAppResponse
+newtype CreateAppResponse = CreateAppResponse
     { _casAppId :: Maybe Text
       -- ^ The app ID.
     } deriving (Show, Generic)
 
 -- | The app ID.
 casAppId :: Lens' CreateAppResponse (Maybe Text)
-casAppId f x =
-    f (_casAppId x)
-        <&> \y -> x { _casAppId = y }
+casAppId = lens _casAppId (\s a -> s { _casAppId = a })
 {-# INLINE casAppId #-}
 
 instance FromJSON CreateAppResponse

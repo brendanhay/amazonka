@@ -29,23 +29,23 @@ module Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
     -- * Request
       PutMetricAlarm
     -- ** Request constructor
-    , putMetricAlarm
+    , mkPutMetricAlarmInput
     -- ** Request lenses
     , pmaiAlarmName
-    , pmaiComparisonOperator
-    , pmaiEvaluationPeriods
-    , pmaiMetricName
-    , pmaiNamespace
-    , pmaiPeriod
-    , pmaiStatistic
-    , pmaiThreshold
-    , pmaiActionsEnabled
     , pmaiAlarmDescription
-    , pmaiDimensions
+    , pmaiActionsEnabled
     , pmaiOKActions
     , pmaiAlarmActions
     , pmaiInsufficientDataActions
+    , pmaiMetricName
+    , pmaiNamespace
+    , pmaiStatistic
+    , pmaiDimensions
+    , pmaiPeriod
     , pmaiUnit
+    , pmaiEvaluationPeriods
+    , pmaiThreshold
+    , pmaiComparisonOperator
 
     -- * Response
     , PutMetricAlarmResponse
@@ -55,64 +55,45 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutMetricAlarm' request.
-putMetricAlarm :: Text -- ^ 'pmaiAlarmName'
-               -> ComparisonOperator -- ^ 'pmaiComparisonOperator'
-               -> Integer -- ^ 'pmaiEvaluationPeriods'
-               -> Text -- ^ 'pmaiMetricName'
-               -> Text -- ^ 'pmaiNamespace'
-               -> Integer -- ^ 'pmaiPeriod'
-               -> Statistic -- ^ 'pmaiStatistic'
-               -> Double -- ^ 'pmaiThreshold'
-               -> PutMetricAlarm
-putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutMetricAlarm' request.
+mkPutMetricAlarmInput :: Text -- ^ 'pmaiAlarmName'
+                      -> Text -- ^ 'pmaiMetricName'
+                      -> Text -- ^ 'pmaiNamespace'
+                      -> Statistic -- ^ 'pmaiStatistic'
+                      -> Integer -- ^ 'pmaiPeriod'
+                      -> Integer -- ^ 'pmaiEvaluationPeriods'
+                      -> Double -- ^ 'pmaiThreshold'
+                      -> ComparisonOperator -- ^ 'pmaiComparisonOperator'
+                      -> PutMetricAlarm
+mkPutMetricAlarmInput p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
     { _pmaiAlarmName = p1
-    , _pmaiComparisonOperator = p2
-    , _pmaiEvaluationPeriods = p3
-    , _pmaiMetricName = p4
-    , _pmaiNamespace = p5
-    , _pmaiPeriod = p6
-    , _pmaiStatistic = p7
-    , _pmaiThreshold = p8
-    , _pmaiActionsEnabled = Nothing
     , _pmaiAlarmDescription = Nothing
-    , _pmaiDimensions = mempty
+    , _pmaiActionsEnabled = Nothing
     , _pmaiOKActions = mempty
     , _pmaiAlarmActions = mempty
     , _pmaiInsufficientDataActions = mempty
+    , _pmaiMetricName = p7
+    , _pmaiNamespace = p8
+    , _pmaiStatistic = p9
+    , _pmaiDimensions = mempty
+    , _pmaiPeriod = p11
     , _pmaiUnit = Nothing
+    , _pmaiEvaluationPeriods = p13
+    , _pmaiThreshold = p14
+    , _pmaiComparisonOperator = p15
     }
-{-# INLINE putMetricAlarm #-}
+{-# INLINE mkPutMetricAlarmInput #-}
 
 data PutMetricAlarm = PutMetricAlarm
     { _pmaiAlarmName :: Text
       -- ^ The descriptive name for the alarm. This name must be unique
       -- within the user's AWS account.
-    , _pmaiComparisonOperator :: ComparisonOperator
-      -- ^ The arithmetic operation to use when comparing the specified
-      -- Statistic and Threshold. The specified Statistic value is used as
-      -- the first operand.
-    , _pmaiEvaluationPeriods :: Integer
-      -- ^ The number of periods over which data is compared to the
-      -- specified threshold.
-    , _pmaiMetricName :: Text
-      -- ^ The name for the alarm's associated metric.
-    , _pmaiNamespace :: Text
-      -- ^ The namespace for the alarm's associated metric.
-    , _pmaiPeriod :: Integer
-      -- ^ The period in seconds over which the specified statistic is
-      -- applied.
-    , _pmaiStatistic :: Statistic
-      -- ^ The statistic to apply to the alarm's associated metric.
-    , _pmaiThreshold :: Double
-      -- ^ The value against which the specified statistic is compared.
+    , _pmaiAlarmDescription :: Maybe Text
+      -- ^ The description for the alarm.
     , _pmaiActionsEnabled :: Maybe Bool
       -- ^ Indicates whether or not actions should be executed during any
       -- changes to the alarm's state.
-    , _pmaiAlarmDescription :: Maybe Text
-      -- ^ The description for the alarm.
-    , _pmaiDimensions :: [Dimension]
-      -- ^ The dimensions for the alarm's associated metric.
     , _pmaiOKActions :: [Text]
       -- ^ The list of actions to execute when this alarm transitions into
       -- an OK state from any other state. Each action is specified as an
@@ -131,99 +112,53 @@ data PutMetricAlarm = PutMetricAlarm
       -- specified as an Amazon Resource Number (ARN). Currently the only
       -- action supported is publishing to an Amazon SNS topic or an
       -- Amazon Auto Scaling policy.
+    , _pmaiMetricName :: Text
+      -- ^ The name for the alarm's associated metric.
+    , _pmaiNamespace :: Text
+      -- ^ The namespace for the alarm's associated metric.
+    , _pmaiStatistic :: Statistic
+      -- ^ The statistic to apply to the alarm's associated metric.
+    , _pmaiDimensions :: [Dimension]
+      -- ^ The dimensions for the alarm's associated metric.
+    , _pmaiPeriod :: Integer
+      -- ^ The period in seconds over which the specified statistic is
+      -- applied.
     , _pmaiUnit :: Maybe StandardUnit
       -- ^ The unit for the alarm's associated metric.
+    , _pmaiEvaluationPeriods :: Integer
+      -- ^ The number of periods over which data is compared to the
+      -- specified threshold.
+    , _pmaiThreshold :: Double
+      -- ^ The value against which the specified statistic is compared.
+    , _pmaiComparisonOperator :: ComparisonOperator
+      -- ^ The arithmetic operation to use when comparing the specified
+      -- Statistic and Threshold. The specified Statistic value is used as
+      -- the first operand.
     } deriving (Show, Generic)
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account.
 pmaiAlarmName :: Lens' PutMetricAlarm (Text)
-pmaiAlarmName f x =
-    f (_pmaiAlarmName x)
-        <&> \y -> x { _pmaiAlarmName = y }
+pmaiAlarmName = lens _pmaiAlarmName (\s a -> s { _pmaiAlarmName = a })
 {-# INLINE pmaiAlarmName #-}
 
--- | The arithmetic operation to use when comparing the specified Statistic and
--- Threshold. The specified Statistic value is used as the first operand.
-pmaiComparisonOperator :: Lens' PutMetricAlarm (ComparisonOperator)
-pmaiComparisonOperator f x =
-    f (_pmaiComparisonOperator x)
-        <&> \y -> x { _pmaiComparisonOperator = y }
-{-# INLINE pmaiComparisonOperator #-}
-
--- | The number of periods over which data is compared to the specified
--- threshold.
-pmaiEvaluationPeriods :: Lens' PutMetricAlarm (Integer)
-pmaiEvaluationPeriods f x =
-    f (_pmaiEvaluationPeriods x)
-        <&> \y -> x { _pmaiEvaluationPeriods = y }
-{-# INLINE pmaiEvaluationPeriods #-}
-
--- | The name for the alarm's associated metric.
-pmaiMetricName :: Lens' PutMetricAlarm (Text)
-pmaiMetricName f x =
-    f (_pmaiMetricName x)
-        <&> \y -> x { _pmaiMetricName = y }
-{-# INLINE pmaiMetricName #-}
-
--- | The namespace for the alarm's associated metric.
-pmaiNamespace :: Lens' PutMetricAlarm (Text)
-pmaiNamespace f x =
-    f (_pmaiNamespace x)
-        <&> \y -> x { _pmaiNamespace = y }
-{-# INLINE pmaiNamespace #-}
-
--- | The period in seconds over which the specified statistic is applied.
-pmaiPeriod :: Lens' PutMetricAlarm (Integer)
-pmaiPeriod f x =
-    f (_pmaiPeriod x)
-        <&> \y -> x { _pmaiPeriod = y }
-{-# INLINE pmaiPeriod #-}
-
--- | The statistic to apply to the alarm's associated metric.
-pmaiStatistic :: Lens' PutMetricAlarm (Statistic)
-pmaiStatistic f x =
-    f (_pmaiStatistic x)
-        <&> \y -> x { _pmaiStatistic = y }
-{-# INLINE pmaiStatistic #-}
-
--- | The value against which the specified statistic is compared.
-pmaiThreshold :: Lens' PutMetricAlarm (Double)
-pmaiThreshold f x =
-    f (_pmaiThreshold x)
-        <&> \y -> x { _pmaiThreshold = y }
-{-# INLINE pmaiThreshold #-}
+-- | The description for the alarm.
+pmaiAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
+pmaiAlarmDescription = lens _pmaiAlarmDescription (\s a -> s { _pmaiAlarmDescription = a })
+{-# INLINE pmaiAlarmDescription #-}
 
 -- | Indicates whether or not actions should be executed during any changes to
 -- the alarm's state.
 pmaiActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
-pmaiActionsEnabled f x =
-    f (_pmaiActionsEnabled x)
-        <&> \y -> x { _pmaiActionsEnabled = y }
+pmaiActionsEnabled = lens _pmaiActionsEnabled (\s a -> s { _pmaiActionsEnabled = a })
 {-# INLINE pmaiActionsEnabled #-}
-
--- | The description for the alarm.
-pmaiAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
-pmaiAlarmDescription f x =
-    f (_pmaiAlarmDescription x)
-        <&> \y -> x { _pmaiAlarmDescription = y }
-{-# INLINE pmaiAlarmDescription #-}
-
--- | The dimensions for the alarm's associated metric.
-pmaiDimensions :: Lens' PutMetricAlarm ([Dimension])
-pmaiDimensions f x =
-    f (_pmaiDimensions x)
-        <&> \y -> x { _pmaiDimensions = y }
-{-# INLINE pmaiDimensions #-}
 
 -- | The list of actions to execute when this alarm transitions into an OK state
 -- from any other state. Each action is specified as an Amazon Resource Number
 -- (ARN). Currently the only action supported is publishing to an Amazon SNS
 -- topic or an Amazon Auto Scaling policy.
 pmaiOKActions :: Lens' PutMetricAlarm ([Text])
-pmaiOKActions f x =
-    f (_pmaiOKActions x)
-        <&> \y -> x { _pmaiOKActions = y }
+pmaiOKActions = lens _pmaiOKActions (\s a -> s { _pmaiOKActions = a })
 {-# INLINE pmaiOKActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an ALARM
@@ -231,9 +166,7 @@ pmaiOKActions f x =
 -- Number (ARN). Currently the only action supported is publishing to an
 -- Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaiAlarmActions :: Lens' PutMetricAlarm ([Text])
-pmaiAlarmActions f x =
-    f (_pmaiAlarmActions x)
-        <&> \y -> x { _pmaiAlarmActions = y }
+pmaiAlarmActions = lens _pmaiAlarmActions (\s a -> s { _pmaiAlarmActions = a })
 {-# INLINE pmaiAlarmActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an
@@ -241,17 +174,55 @@ pmaiAlarmActions f x =
 -- an Amazon Resource Number (ARN). Currently the only action supported is
 -- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaiInsufficientDataActions :: Lens' PutMetricAlarm ([Text])
-pmaiInsufficientDataActions f x =
-    f (_pmaiInsufficientDataActions x)
-        <&> \y -> x { _pmaiInsufficientDataActions = y }
+pmaiInsufficientDataActions = lens _pmaiInsufficientDataActions (\s a -> s { _pmaiInsufficientDataActions = a })
 {-# INLINE pmaiInsufficientDataActions #-}
+
+-- | The name for the alarm's associated metric.
+pmaiMetricName :: Lens' PutMetricAlarm (Text)
+pmaiMetricName = lens _pmaiMetricName (\s a -> s { _pmaiMetricName = a })
+{-# INLINE pmaiMetricName #-}
+
+-- | The namespace for the alarm's associated metric.
+pmaiNamespace :: Lens' PutMetricAlarm (Text)
+pmaiNamespace = lens _pmaiNamespace (\s a -> s { _pmaiNamespace = a })
+{-# INLINE pmaiNamespace #-}
+
+-- | The statistic to apply to the alarm's associated metric.
+pmaiStatistic :: Lens' PutMetricAlarm (Statistic)
+pmaiStatistic = lens _pmaiStatistic (\s a -> s { _pmaiStatistic = a })
+{-# INLINE pmaiStatistic #-}
+
+-- | The dimensions for the alarm's associated metric.
+pmaiDimensions :: Lens' PutMetricAlarm ([Dimension])
+pmaiDimensions = lens _pmaiDimensions (\s a -> s { _pmaiDimensions = a })
+{-# INLINE pmaiDimensions #-}
+
+-- | The period in seconds over which the specified statistic is applied.
+pmaiPeriod :: Lens' PutMetricAlarm (Integer)
+pmaiPeriod = lens _pmaiPeriod (\s a -> s { _pmaiPeriod = a })
+{-# INLINE pmaiPeriod #-}
 
 -- | The unit for the alarm's associated metric.
 pmaiUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
-pmaiUnit f x =
-    f (_pmaiUnit x)
-        <&> \y -> x { _pmaiUnit = y }
+pmaiUnit = lens _pmaiUnit (\s a -> s { _pmaiUnit = a })
 {-# INLINE pmaiUnit #-}
+
+-- | The number of periods over which data is compared to the specified
+-- threshold.
+pmaiEvaluationPeriods :: Lens' PutMetricAlarm (Integer)
+pmaiEvaluationPeriods = lens _pmaiEvaluationPeriods (\s a -> s { _pmaiEvaluationPeriods = a })
+{-# INLINE pmaiEvaluationPeriods #-}
+
+-- | The value against which the specified statistic is compared.
+pmaiThreshold :: Lens' PutMetricAlarm (Double)
+pmaiThreshold = lens _pmaiThreshold (\s a -> s { _pmaiThreshold = a })
+{-# INLINE pmaiThreshold #-}
+
+-- | The arithmetic operation to use when comparing the specified Statistic and
+-- Threshold. The specified Statistic value is used as the first operand.
+pmaiComparisonOperator :: Lens' PutMetricAlarm (ComparisonOperator)
+pmaiComparisonOperator = lens _pmaiComparisonOperator (\s a -> s { _pmaiComparisonOperator = a })
+{-# INLINE pmaiComparisonOperator #-}
 
 instance ToQuery PutMetricAlarm where
     toQuery = genericQuery def

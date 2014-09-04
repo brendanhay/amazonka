@@ -43,7 +43,7 @@ module Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters
     -- * Request
       DescribeDefaultClusterParameters
     -- ** Request constructor
-    , describeDefaultClusterParameters
+    , mkDescribeDefaultClusterParametersMessage
     -- ** Request lenses
     , ddcpmParameterGroupFamily
     , ddcpmMaxRecords
@@ -59,15 +59,16 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDefaultClusterParameters' request.
-describeDefaultClusterParameters :: Text -- ^ 'ddcpmParameterGroupFamily'
-                                 -> DescribeDefaultClusterParameters
-describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDefaultClusterParameters' request.
+mkDescribeDefaultClusterParametersMessage :: Text -- ^ 'ddcpmParameterGroupFamily'
+                                          -> DescribeDefaultClusterParameters
+mkDescribeDefaultClusterParametersMessage p1 = DescribeDefaultClusterParameters
     { _ddcpmParameterGroupFamily = p1
     , _ddcpmMaxRecords = Nothing
     , _ddcpmMarker = Nothing
     }
-{-# INLINE describeDefaultClusterParameters #-}
+{-# INLINE mkDescribeDefaultClusterParametersMessage #-}
 
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     { _ddcpmParameterGroupFamily :: Text
@@ -91,9 +92,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
 
 -- | The name of the cluster parameter group family.
 ddcpmParameterGroupFamily :: Lens' DescribeDefaultClusterParameters (Text)
-ddcpmParameterGroupFamily f x =
-    f (_ddcpmParameterGroupFamily x)
-        <&> \y -> x { _ddcpmParameterGroupFamily = y }
+ddcpmParameterGroupFamily = lens _ddcpmParameterGroupFamily (\s a -> s { _ddcpmParameterGroupFamily = a })
 {-# INLINE ddcpmParameterGroupFamily #-}
 
 -- | The maximum number of response records to return in each call. If the
@@ -102,9 +101,7 @@ ddcpmParameterGroupFamily f x =
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 ddcpmMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Integer)
-ddcpmMaxRecords f x =
-    f (_ddcpmMaxRecords x)
-        <&> \y -> x { _ddcpmMaxRecords = y }
+ddcpmMaxRecords = lens _ddcpmMaxRecords (\s a -> s { _ddcpmMaxRecords = a })
 {-# INLINE ddcpmMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
@@ -114,25 +111,21 @@ ddcpmMaxRecords f x =
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
 ddcpmMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
-ddcpmMarker f x =
-    f (_ddcpmMarker x)
-        <&> \y -> x { _ddcpmMarker = y }
+ddcpmMarker = lens _ddcpmMarker (\s a -> s { _ddcpmMarker = a })
 {-# INLINE ddcpmMarker #-}
 
 instance ToQuery DescribeDefaultClusterParameters where
     toQuery = genericQuery def
 
-data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
-    { _dcpwDefaultClusterParameters :: DefaultClusterParameters
+newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
+    { _dcpwDefaultClusterParameters :: Maybe DefaultClusterParameters
       -- ^ Describes the default cluster parameters for a parameter group
       -- family.
     } deriving (Show, Generic)
 
 -- | Describes the default cluster parameters for a parameter group family.
-dcpwDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse (DefaultClusterParameters)
-dcpwDefaultClusterParameters f x =
-    f (_dcpwDefaultClusterParameters x)
-        <&> \y -> x { _dcpwDefaultClusterParameters = y }
+dcpwDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse (Maybe DefaultClusterParameters)
+dcpwDefaultClusterParameters = lens _dcpwDefaultClusterParameters (\s a -> s { _dcpwDefaultClusterParameters = a })
 {-# INLINE dcpwDefaultClusterParameters #-}
 
 instance FromXML DescribeDefaultClusterParametersResponse where

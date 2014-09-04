@@ -33,7 +33,7 @@ module Network.AWS.EC2.V2014_06_15.AttachInternetGateway
     -- * Request
       AttachInternetGateway
     -- ** Request constructor
-    , attachInternetGateway
+    , mkAttachInternetGatewayRequest
     -- ** Request lenses
     , aigrInternetGatewayId
     , aigrVpcId
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AttachInternetGateway' request.
-attachInternetGateway :: Text -- ^ 'aigrInternetGatewayId'
-                      -> Text -- ^ 'aigrVpcId'
-                      -> AttachInternetGateway
-attachInternetGateway p1 p2 = AttachInternetGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachInternetGateway' request.
+mkAttachInternetGatewayRequest :: Text -- ^ 'aigrInternetGatewayId'
+                               -> Text -- ^ 'aigrVpcId'
+                               -> AttachInternetGateway
+mkAttachInternetGatewayRequest p1 p2 = AttachInternetGateway
     { _aigrInternetGatewayId = p1
     , _aigrVpcId = p2
     }
-{-# INLINE attachInternetGateway #-}
+{-# INLINE mkAttachInternetGatewayRequest #-}
 
 data AttachInternetGateway = AttachInternetGateway
     { _aigrInternetGatewayId :: Text
@@ -65,16 +66,12 @@ data AttachInternetGateway = AttachInternetGateway
 
 -- | The ID of the Internet gateway.
 aigrInternetGatewayId :: Lens' AttachInternetGateway (Text)
-aigrInternetGatewayId f x =
-    f (_aigrInternetGatewayId x)
-        <&> \y -> x { _aigrInternetGatewayId = y }
+aigrInternetGatewayId = lens _aigrInternetGatewayId (\s a -> s { _aigrInternetGatewayId = a })
 {-# INLINE aigrInternetGatewayId #-}
 
 -- | The ID of the VPC.
 aigrVpcId :: Lens' AttachInternetGateway (Text)
-aigrVpcId f x =
-    f (_aigrVpcId x)
-        <&> \y -> x { _aigrVpcId = y }
+aigrVpcId = lens _aigrVpcId (\s a -> s { _aigrVpcId = a })
 {-# INLINE aigrVpcId #-}
 
 instance ToQuery AttachInternetGateway where

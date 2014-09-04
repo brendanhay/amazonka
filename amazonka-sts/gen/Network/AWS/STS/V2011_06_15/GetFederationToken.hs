@@ -84,11 +84,11 @@ module Network.AWS.STS.V2011_06_15.GetFederationToken
     -- * Request
       GetFederationToken
     -- ** Request constructor
-    , getFederationToken
+    , mkGetFederationTokenRequest
     -- ** Request lenses
     , gftrName
-    , gftrDurationSeconds
     , gftrPolicy
+    , gftrDurationSeconds
 
     -- * Response
     , GetFederationTokenResponse
@@ -102,15 +102,16 @@ import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetFederationToken' request.
-getFederationToken :: Text -- ^ 'gftrName'
-                   -> GetFederationToken
-getFederationToken p1 = GetFederationToken
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetFederationToken' request.
+mkGetFederationTokenRequest :: Text -- ^ 'gftrName'
+                            -> GetFederationToken
+mkGetFederationTokenRequest p1 = GetFederationToken
     { _gftrName = p1
-    , _gftrDurationSeconds = Nothing
     , _gftrPolicy = Nothing
+    , _gftrDurationSeconds = Nothing
     }
-{-# INLINE getFederationToken #-}
+{-# INLINE mkGetFederationTokenRequest #-}
 
 data GetFederationToken = GetFederationToken
     { _gftrName :: Text
@@ -118,15 +119,6 @@ data GetFederationToken = GetFederationToken
       -- for the temporary security credentials (such as Bob). For
       -- example, you can reference the federated user name in a
       -- resource-based policy, such as in an Amazon S3 bucket policy.
-    , _gftrDurationSeconds :: Maybe Integer
-      -- ^ The duration, in seconds, that the session should last.
-      -- Acceptable durations for federation sessions range from 900
-      -- seconds (15 minutes) to 129600 seconds (36 hours), with 43200
-      -- seconds (12 hours) as the default. Sessions obtained using AWS
-      -- account (root) credentials are restricted to a maximum of 3600
-      -- seconds (one hour). If the specified duration is longer than one
-      -- hour, the session obtained by using AWS account (root)
-      -- credentials defaults to one hour.
     , _gftrPolicy :: Maybe Text
       -- ^ An IAM policy in JSON format that is passed with the
       -- GetFederationToken call and evaluated along with the policy or
@@ -145,6 +137,15 @@ data GetFederationToken = GetFederationToken
       -- allows the federated user to access the resource. For more
       -- information about how permissions work, see Permissions for
       -- GetFederationToken in Using Temporary Security Credentials.
+    , _gftrDurationSeconds :: Maybe Integer
+      -- ^ The duration, in seconds, that the session should last.
+      -- Acceptable durations for federation sessions range from 900
+      -- seconds (15 minutes) to 129600 seconds (36 hours), with 43200
+      -- seconds (12 hours) as the default. Sessions obtained using AWS
+      -- account (root) credentials are restricted to a maximum of 3600
+      -- seconds (one hour). If the specified duration is longer than one
+      -- hour, the session obtained by using AWS account (root)
+      -- credentials defaults to one hour.
     } deriving (Show, Generic)
 
 -- | The name of the federated user. The name is used as an identifier for the
@@ -152,23 +153,8 @@ data GetFederationToken = GetFederationToken
 -- reference the federated user name in a resource-based policy, such as in an
 -- Amazon S3 bucket policy.
 gftrName :: Lens' GetFederationToken (Text)
-gftrName f x =
-    f (_gftrName x)
-        <&> \y -> x { _gftrName = y }
+gftrName = lens _gftrName (\s a -> s { _gftrName = a })
 {-# INLINE gftrName #-}
-
--- | The duration, in seconds, that the session should last. Acceptable
--- durations for federation sessions range from 900 seconds (15 minutes) to
--- 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default.
--- Sessions obtained using AWS account (root) credentials are restricted to a
--- maximum of 3600 seconds (one hour). If the specified duration is longer
--- than one hour, the session obtained by using AWS account (root) credentials
--- defaults to one hour.
-gftrDurationSeconds :: Lens' GetFederationToken (Maybe Integer)
-gftrDurationSeconds f x =
-    f (_gftrDurationSeconds x)
-        <&> \y -> x { _gftrDurationSeconds = y }
-{-# INLINE gftrDurationSeconds #-}
 
 -- | An IAM policy in JSON format that is passed with the GetFederationToken
 -- call and evaluated along with the policy or policies that are attached to
@@ -185,10 +171,19 @@ gftrDurationSeconds f x =
 -- access the resource. For more information about how permissions work, see
 -- Permissions for GetFederationToken in Using Temporary Security Credentials.
 gftrPolicy :: Lens' GetFederationToken (Maybe Text)
-gftrPolicy f x =
-    f (_gftrPolicy x)
-        <&> \y -> x { _gftrPolicy = y }
+gftrPolicy = lens _gftrPolicy (\s a -> s { _gftrPolicy = a })
 {-# INLINE gftrPolicy #-}
+
+-- | The duration, in seconds, that the session should last. Acceptable
+-- durations for federation sessions range from 900 seconds (15 minutes) to
+-- 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default.
+-- Sessions obtained using AWS account (root) credentials are restricted to a
+-- maximum of 3600 seconds (one hour). If the specified duration is longer
+-- than one hour, the session obtained by using AWS account (root) credentials
+-- defaults to one hour.
+gftrDurationSeconds :: Lens' GetFederationToken (Maybe Integer)
+gftrDurationSeconds = lens _gftrDurationSeconds (\s a -> s { _gftrDurationSeconds = a })
+{-# INLINE gftrDurationSeconds #-}
 
 instance ToQuery GetFederationToken where
     toQuery = genericQuery def
@@ -209,9 +204,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse
 
 -- | Credentials for the service API authentication.
 gftsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
-gftsCredentials f x =
-    f (_gftsCredentials x)
-        <&> \y -> x { _gftsCredentials = y }
+gftsCredentials = lens _gftsCredentials (\s a -> s { _gftsCredentials = a })
 {-# INLINE gftsCredentials #-}
 
 -- | Identifiers for the federated user associated with the credentials (such as
@@ -219,18 +212,14 @@ gftsCredentials f x =
 -- use the federated user's ARN in your resource-based policies, such as an
 -- Amazon S3 bucket policy.
 gftsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
-gftsFederatedUser f x =
-    f (_gftsFederatedUser x)
-        <&> \y -> x { _gftsFederatedUser = y }
+gftsFederatedUser = lens _gftsFederatedUser (\s a -> s { _gftsFederatedUser = a })
 {-# INLINE gftsFederatedUser #-}
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
 -- percent of the allowed value.
 gftsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Integer)
-gftsPackedPolicySize f x =
-    f (_gftsPackedPolicySize x)
-        <&> \y -> x { _gftsPackedPolicySize = y }
+gftsPackedPolicySize = lens _gftsPackedPolicySize (\s a -> s { _gftsPackedPolicySize = a })
 {-# INLINE gftsPackedPolicySize #-}
 
 instance FromXML GetFederationTokenResponse where

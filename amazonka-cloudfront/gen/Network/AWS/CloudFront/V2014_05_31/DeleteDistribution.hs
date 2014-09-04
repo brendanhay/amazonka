@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution
     -- * Request
       DeleteDistribution
     -- ** Request constructor
-    , deleteDistribution
+    , mkDeleteDistributionRequest
     -- ** Request lenses
     , ddrId
     , ddrIfMatch
@@ -36,14 +36,15 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDistribution' request.
-deleteDistribution :: Text -- ^ 'ddrId'
-                   -> DeleteDistribution
-deleteDistribution p1 = DeleteDistribution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDistribution' request.
+mkDeleteDistributionRequest :: Text -- ^ 'ddrId'
+                            -> DeleteDistribution
+mkDeleteDistributionRequest p1 = DeleteDistribution
     { _ddrId = p1
     , _ddrIfMatch = Nothing
     }
-{-# INLINE deleteDistribution #-}
+{-# INLINE mkDeleteDistributionRequest #-}
 
 data DeleteDistribution = DeleteDistribution
     { _ddrId :: Text
@@ -55,17 +56,13 @@ data DeleteDistribution = DeleteDistribution
 
 -- | The distribution id.
 ddrId :: Lens' DeleteDistribution (Text)
-ddrId f x =
-    f (_ddrId x)
-        <&> \y -> x { _ddrId = y }
+ddrId = lens _ddrId (\s a -> s { _ddrId = a })
 {-# INLINE ddrId #-}
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
 ddrIfMatch :: Lens' DeleteDistribution (Maybe Text)
-ddrIfMatch f x =
-    f (_ddrIfMatch x)
-        <&> \y -> x { _ddrIfMatch = y }
+ddrIfMatch = lens _ddrIfMatch (\s a -> s { _ddrIfMatch = a })
 {-# INLINE ddrIfMatch #-}
 
 instance ToPath DeleteDistribution where
@@ -76,10 +73,7 @@ instance ToPath DeleteDistribution where
 
 instance ToQuery DeleteDistribution
 
-instance ToHeaders DeleteDistribution where
-    toHeaders DeleteDistribution{..} = concat
-        [ "If-Match" =: _ddrIfMatch
-        ]
+instance ToHeaders DeleteDistribution
 
 instance ToXML DeleteDistribution where
     toXMLOptions = xmlOptions

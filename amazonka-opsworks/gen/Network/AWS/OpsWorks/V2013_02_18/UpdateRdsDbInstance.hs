@@ -23,7 +23,7 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance
     -- * Request
       UpdateRdsDbInstance
     -- ** Request constructor
-    , updateRdsDbInstance
+    , mkUpdateRdsDbInstanceRequest
     -- ** Request lenses
     , urdirRdsDbInstanceArn
     , urdirDbUser
@@ -38,15 +38,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateRdsDbInstance' request.
-updateRdsDbInstance :: Text -- ^ 'urdirRdsDbInstanceArn'
-                    -> UpdateRdsDbInstance
-updateRdsDbInstance p1 = UpdateRdsDbInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateRdsDbInstance' request.
+mkUpdateRdsDbInstanceRequest :: Text -- ^ 'urdirRdsDbInstanceArn'
+                             -> UpdateRdsDbInstance
+mkUpdateRdsDbInstanceRequest p1 = UpdateRdsDbInstance
     { _urdirRdsDbInstanceArn = p1
     , _urdirDbUser = Nothing
     , _urdirDbPassword = Nothing
     }
-{-# INLINE updateRdsDbInstance #-}
+{-# INLINE mkUpdateRdsDbInstanceRequest #-}
 
 data UpdateRdsDbInstance = UpdateRdsDbInstance
     { _urdirRdsDbInstanceArn :: Text
@@ -59,23 +60,17 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
 
 -- | The Amazon RDS instance's ARN.
 urdirRdsDbInstanceArn :: Lens' UpdateRdsDbInstance (Text)
-urdirRdsDbInstanceArn f x =
-    f (_urdirRdsDbInstanceArn x)
-        <&> \y -> x { _urdirRdsDbInstanceArn = y }
+urdirRdsDbInstanceArn = lens _urdirRdsDbInstanceArn (\s a -> s { _urdirRdsDbInstanceArn = a })
 {-# INLINE urdirRdsDbInstanceArn #-}
 
 -- | The master user name.
 urdirDbUser :: Lens' UpdateRdsDbInstance (Maybe Text)
-urdirDbUser f x =
-    f (_urdirDbUser x)
-        <&> \y -> x { _urdirDbUser = y }
+urdirDbUser = lens _urdirDbUser (\s a -> s { _urdirDbUser = a })
 {-# INLINE urdirDbUser #-}
 
 -- | The database password.
 urdirDbPassword :: Lens' UpdateRdsDbInstance (Maybe Text)
-urdirDbPassword f x =
-    f (_urdirDbPassword x)
-        <&> \y -> x { _urdirDbPassword = y }
+urdirDbPassword = lens _urdirDbPassword (\s a -> s { _urdirDbPassword = a })
 {-# INLINE urdirDbPassword #-}
 
 instance ToPath UpdateRdsDbInstance

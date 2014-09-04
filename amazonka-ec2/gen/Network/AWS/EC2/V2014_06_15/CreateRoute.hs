@@ -50,7 +50,7 @@ module Network.AWS.EC2.V2014_06_15.CreateRoute
     -- * Request
       CreateRoute
     -- ** Request constructor
-    , createRoute
+    , mkCreateRouteRequest
     -- ** Request lenses
     , crrRouteTableId
     , crrDestinationCidrBlock
@@ -67,11 +67,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateRoute' request.
-createRoute :: Text -- ^ 'crrRouteTableId'
-            -> Text -- ^ 'crrDestinationCidrBlock'
-            -> CreateRoute
-createRoute p1 p2 = CreateRoute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateRoute' request.
+mkCreateRouteRequest :: Text -- ^ 'crrRouteTableId'
+                     -> Text -- ^ 'crrDestinationCidrBlock'
+                     -> CreateRoute
+mkCreateRouteRequest p1 p2 = CreateRoute
     { _crrRouteTableId = p1
     , _crrDestinationCidrBlock = p2
     , _crrGatewayId = Nothing
@@ -79,7 +80,7 @@ createRoute p1 p2 = CreateRoute
     , _crrNetworkInterfaceId = Nothing
     , _crrVpcPeeringConnectionId = Nothing
     }
-{-# INLINE createRoute #-}
+{-# INLINE mkCreateRouteRequest #-}
 
 data CreateRoute = CreateRoute
     { _crrRouteTableId :: Text
@@ -101,46 +102,34 @@ data CreateRoute = CreateRoute
 
 -- | The ID of the route table for the route.
 crrRouteTableId :: Lens' CreateRoute (Text)
-crrRouteTableId f x =
-    f (_crrRouteTableId x)
-        <&> \y -> x { _crrRouteTableId = y }
+crrRouteTableId = lens _crrRouteTableId (\s a -> s { _crrRouteTableId = a })
 {-# INLINE crrRouteTableId #-}
 
 -- | The CIDR address block used for the destination match. Routing decisions
 -- are based on the most specific match.
 crrDestinationCidrBlock :: Lens' CreateRoute (Text)
-crrDestinationCidrBlock f x =
-    f (_crrDestinationCidrBlock x)
-        <&> \y -> x { _crrDestinationCidrBlock = y }
+crrDestinationCidrBlock = lens _crrDestinationCidrBlock (\s a -> s { _crrDestinationCidrBlock = a })
 {-# INLINE crrDestinationCidrBlock #-}
 
 -- | The ID of an Internet gateway attached to your VPC.
 crrGatewayId :: Lens' CreateRoute (Maybe Text)
-crrGatewayId f x =
-    f (_crrGatewayId x)
-        <&> \y -> x { _crrGatewayId = y }
+crrGatewayId = lens _crrGatewayId (\s a -> s { _crrGatewayId = a })
 {-# INLINE crrGatewayId #-}
 
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify an
 -- instance ID unless exactly one network interface is attached.
 crrInstanceId :: Lens' CreateRoute (Maybe Text)
-crrInstanceId f x =
-    f (_crrInstanceId x)
-        <&> \y -> x { _crrInstanceId = y }
+crrInstanceId = lens _crrInstanceId (\s a -> s { _crrInstanceId = a })
 {-# INLINE crrInstanceId #-}
 
 -- | The ID of a network interface.
 crrNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
-crrNetworkInterfaceId f x =
-    f (_crrNetworkInterfaceId x)
-        <&> \y -> x { _crrNetworkInterfaceId = y }
+crrNetworkInterfaceId = lens _crrNetworkInterfaceId (\s a -> s { _crrNetworkInterfaceId = a })
 {-# INLINE crrNetworkInterfaceId #-}
 
 -- | The ID of a VPC peering connection.
 crrVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
-crrVpcPeeringConnectionId f x =
-    f (_crrVpcPeeringConnectionId x)
-        <&> \y -> x { _crrVpcPeeringConnectionId = y }
+crrVpcPeeringConnectionId = lens _crrVpcPeeringConnectionId (\s a -> s { _crrVpcPeeringConnectionId = a })
 {-# INLINE crrVpcPeeringConnectionId #-}
 
 instance ToQuery CreateRoute where

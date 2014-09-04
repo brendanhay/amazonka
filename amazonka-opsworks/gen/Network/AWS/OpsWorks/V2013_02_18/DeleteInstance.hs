@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteInstance
     -- * Request
       DeleteInstance
     -- ** Request constructor
-    , deleteInstance
+    , mkDeleteInstanceRequest
     -- ** Request lenses
     , dirInstanceId
     , dirDeleteElasticIp
@@ -43,15 +43,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteInstance' request.
-deleteInstance :: Text -- ^ 'dirInstanceId'
-               -> DeleteInstance
-deleteInstance p1 = DeleteInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInstance' request.
+mkDeleteInstanceRequest :: Text -- ^ 'dirInstanceId'
+                        -> DeleteInstance
+mkDeleteInstanceRequest p1 = DeleteInstance
     { _dirInstanceId = p1
     , _dirDeleteElasticIp = Nothing
     , _dirDeleteVolumes = Nothing
     }
-{-# INLINE deleteInstance #-}
+{-# INLINE mkDeleteInstanceRequest #-}
 
 data DeleteInstance = DeleteInstance
     { _dirInstanceId :: Text
@@ -64,23 +65,17 @@ data DeleteInstance = DeleteInstance
 
 -- | The instance ID.
 dirInstanceId :: Lens' DeleteInstance (Text)
-dirInstanceId f x =
-    f (_dirInstanceId x)
-        <&> \y -> x { _dirInstanceId = y }
+dirInstanceId = lens _dirInstanceId (\s a -> s { _dirInstanceId = a })
 {-# INLINE dirInstanceId #-}
 
 -- | Whether to delete the instance Elastic IP address.
 dirDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
-dirDeleteElasticIp f x =
-    f (_dirDeleteElasticIp x)
-        <&> \y -> x { _dirDeleteElasticIp = y }
+dirDeleteElasticIp = lens _dirDeleteElasticIp (\s a -> s { _dirDeleteElasticIp = a })
 {-# INLINE dirDeleteElasticIp #-}
 
 -- | Whether to delete the instance's Amazon EBS volumes.
 dirDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
-dirDeleteVolumes f x =
-    f (_dirDeleteVolumes x)
-        <&> \y -> x { _dirDeleteVolumes = y }
+dirDeleteVolumes = lens _dirDeleteVolumes (\s a -> s { _dirDeleteVolumes = a })
 {-# INLINE dirDeleteVolumes #-}
 
 instance ToPath DeleteInstance

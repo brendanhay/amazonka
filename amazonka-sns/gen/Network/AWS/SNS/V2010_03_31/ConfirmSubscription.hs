@@ -41,10 +41,10 @@ module Network.AWS.SNS.V2010_03_31.ConfirmSubscription
     -- * Request
       ConfirmSubscription
     -- ** Request constructor
-    , confirmSubscription
+    , mkConfirmSubscriptionInput
     -- ** Request lenses
-    , csiToken
     , csiTopicArn
+    , csiToken
     , csiAuthenticateOnUnsubscribe
 
     -- * Response
@@ -57,24 +57,25 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ConfirmSubscription' request.
-confirmSubscription :: Text -- ^ 'csiToken'
-                    -> Text -- ^ 'csiTopicArn'
-                    -> ConfirmSubscription
-confirmSubscription p1 p2 = ConfirmSubscription
-    { _csiToken = p1
-    , _csiTopicArn = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmSubscription' request.
+mkConfirmSubscriptionInput :: Text -- ^ 'csiTopicArn'
+                           -> Text -- ^ 'csiToken'
+                           -> ConfirmSubscription
+mkConfirmSubscriptionInput p1 p2 = ConfirmSubscription
+    { _csiTopicArn = p1
+    , _csiToken = p2
     , _csiAuthenticateOnUnsubscribe = Nothing
     }
-{-# INLINE confirmSubscription #-}
+{-# INLINE mkConfirmSubscriptionInput #-}
 
 data ConfirmSubscription = ConfirmSubscription
-    { _csiToken :: Text
-      -- ^ Short-lived token sent to an endpoint during the Subscribe
-      -- action.
-    , _csiTopicArn :: Text
+    { _csiTopicArn :: Text
       -- ^ The ARN of the topic for which you wish to confirm a
       -- subscription.
+    , _csiToken :: Text
+      -- ^ Short-lived token sent to an endpoint during the Subscribe
+      -- action.
     , _csiAuthenticateOnUnsubscribe :: Maybe Text
       -- ^ Disallows unauthenticated unsubscribes of the subscription. If
       -- the value of this parameter is true and the request has an AWS
@@ -83,43 +84,35 @@ data ConfirmSubscription = ConfirmSubscription
       -- authentication.
     } deriving (Show, Generic)
 
--- | Short-lived token sent to an endpoint during the Subscribe action.
-csiToken :: Lens' ConfirmSubscription (Text)
-csiToken f x =
-    f (_csiToken x)
-        <&> \y -> x { _csiToken = y }
-{-# INLINE csiToken #-}
-
 -- | The ARN of the topic for which you wish to confirm a subscription.
 csiTopicArn :: Lens' ConfirmSubscription (Text)
-csiTopicArn f x =
-    f (_csiTopicArn x)
-        <&> \y -> x { _csiTopicArn = y }
+csiTopicArn = lens _csiTopicArn (\s a -> s { _csiTopicArn = a })
 {-# INLINE csiTopicArn #-}
+
+-- | Short-lived token sent to an endpoint during the Subscribe action.
+csiToken :: Lens' ConfirmSubscription (Text)
+csiToken = lens _csiToken (\s a -> s { _csiToken = a })
+{-# INLINE csiToken #-}
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of
 -- this parameter is true and the request has an AWS signature, then only the
 -- topic owner and the subscription owner can unsubscribe the endpoint. The
 -- unsubscribe action requires AWS authentication.
 csiAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csiAuthenticateOnUnsubscribe f x =
-    f (_csiAuthenticateOnUnsubscribe x)
-        <&> \y -> x { _csiAuthenticateOnUnsubscribe = y }
+csiAuthenticateOnUnsubscribe = lens _csiAuthenticateOnUnsubscribe (\s a -> s { _csiAuthenticateOnUnsubscribe = a })
 {-# INLINE csiAuthenticateOnUnsubscribe #-}
 
 instance ToQuery ConfirmSubscription where
     toQuery = genericQuery def
 
-data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
+newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
       -- ^ The ARN of the created subscription.
     } deriving (Show, Generic)
 
 -- | The ARN of the created subscription.
 csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrSubscriptionArn f x =
-    f (_csrSubscriptionArn x)
-        <&> \y -> x { _csrSubscriptionArn = y }
+csrSubscriptionArn = lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
 {-# INLINE csrSubscriptionArn #-}
 
 instance FromXML ConfirmSubscriptionResponse where

@@ -31,7 +31,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface
     -- * Request
       DeleteNetworkInterface
     -- ** Request constructor
-    , deleteNetworkInterface
+    , mkDeleteNetworkInterfaceRequest
     -- ** Request lenses
     , dnirNetworkInterfaceId
 
@@ -43,24 +43,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteNetworkInterface' request.
-deleteNetworkInterface :: Text -- ^ 'dnirNetworkInterfaceId'
-                       -> DeleteNetworkInterface
-deleteNetworkInterface p1 = DeleteNetworkInterface
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNetworkInterface' request.
+mkDeleteNetworkInterfaceRequest :: Text -- ^ 'dnirNetworkInterfaceId'
+                                -> DeleteNetworkInterface
+mkDeleteNetworkInterfaceRequest p1 = DeleteNetworkInterface
     { _dnirNetworkInterfaceId = p1
     }
-{-# INLINE deleteNetworkInterface #-}
+{-# INLINE mkDeleteNetworkInterfaceRequest #-}
 
-data DeleteNetworkInterface = DeleteNetworkInterface
+newtype DeleteNetworkInterface = DeleteNetworkInterface
     { _dnirNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
 dnirNetworkInterfaceId :: Lens' DeleteNetworkInterface (Text)
-dnirNetworkInterfaceId f x =
-    f (_dnirNetworkInterfaceId x)
-        <&> \y -> x { _dnirNetworkInterfaceId = y }
+dnirNetworkInterfaceId = lens _dnirNetworkInterfaceId (\s a -> s { _dnirNetworkInterfaceId = a })
 {-# INLINE dnirNetworkInterfaceId #-}
 
 instance ToQuery DeleteNetworkInterface where

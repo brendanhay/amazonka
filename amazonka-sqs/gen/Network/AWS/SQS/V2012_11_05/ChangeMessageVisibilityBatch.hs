@@ -47,78 +47,71 @@ module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
     -- * Request
       ChangeMessageVisibilityBatch
     -- ** Request constructor
-    , changeMessageVisibilityBatch
+    , mkChangeMessageVisibilityBatchRequest
     -- ** Request lenses
-    , cmvbrEntries
     , cmvbrQueueUrl
+    , cmvbrEntries
 
     -- * Response
     , ChangeMessageVisibilityBatchResponse
     -- ** Response lenses
-    , cmvbsFailed
     , cmvbsSuccessful
+    , cmvbsFailed
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ChangeMessageVisibilityBatch' request.
-changeMessageVisibilityBatch :: [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbrEntries'
-                             -> Text -- ^ 'cmvbrQueueUrl'
-                             -> ChangeMessageVisibilityBatch
-changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
-    { _cmvbrEntries = p1
-    , _cmvbrQueueUrl = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeMessageVisibilityBatch' request.
+mkChangeMessageVisibilityBatchRequest :: Text -- ^ 'cmvbrQueueUrl'
+                                      -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbrEntries'
+                                      -> ChangeMessageVisibilityBatch
+mkChangeMessageVisibilityBatchRequest p1 p2 = ChangeMessageVisibilityBatch
+    { _cmvbrQueueUrl = p1
+    , _cmvbrEntries = p2
     }
-{-# INLINE changeMessageVisibilityBatch #-}
+{-# INLINE mkChangeMessageVisibilityBatchRequest #-}
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
-    { _cmvbrEntries :: [ChangeMessageVisibilityBatchRequestEntry]
+    { _cmvbrQueueUrl :: Text
+      -- ^ The URL of the Amazon SQS queue to take action on.
+    , _cmvbrEntries :: [ChangeMessageVisibilityBatchRequestEntry]
       -- ^ A list of receipt handles of the messages for which the
       -- visibility timeout must be changed.
-    , _cmvbrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
+
+-- | The URL of the Amazon SQS queue to take action on.
+cmvbrQueueUrl :: Lens' ChangeMessageVisibilityBatch (Text)
+cmvbrQueueUrl = lens _cmvbrQueueUrl (\s a -> s { _cmvbrQueueUrl = a })
+{-# INLINE cmvbrQueueUrl #-}
 
 -- | A list of receipt handles of the messages for which the visibility timeout
 -- must be changed.
 cmvbrEntries :: Lens' ChangeMessageVisibilityBatch ([ChangeMessageVisibilityBatchRequestEntry])
-cmvbrEntries f x =
-    f (_cmvbrEntries x)
-        <&> \y -> x { _cmvbrEntries = y }
+cmvbrEntries = lens _cmvbrEntries (\s a -> s { _cmvbrEntries = a })
 {-# INLINE cmvbrEntries #-}
-
--- | The URL of the Amazon SQS queue to take action on.
-cmvbrQueueUrl :: Lens' ChangeMessageVisibilityBatch (Text)
-cmvbrQueueUrl f x =
-    f (_cmvbrQueueUrl x)
-        <&> \y -> x { _cmvbrQueueUrl = y }
-{-# INLINE cmvbrQueueUrl #-}
 
 instance ToQuery ChangeMessageVisibilityBatch where
     toQuery = genericQuery def
 
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbsFailed :: [BatchResultErrorEntry]
-      -- ^ A list of BatchResultErrorEntry items.
-    , _cmvbsSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
+    { _cmvbsSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
       -- ^ A list of ChangeMessageVisibilityBatchResultEntry items.
+    , _cmvbsFailed :: [BatchResultErrorEntry]
+      -- ^ A list of BatchResultErrorEntry items.
     } deriving (Show, Generic)
-
--- | A list of BatchResultErrorEntry items.
-cmvbsFailed :: Lens' ChangeMessageVisibilityBatchResponse ([BatchResultErrorEntry])
-cmvbsFailed f x =
-    f (_cmvbsFailed x)
-        <&> \y -> x { _cmvbsFailed = y }
-{-# INLINE cmvbsFailed #-}
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse ([ChangeMessageVisibilityBatchResultEntry])
-cmvbsSuccessful f x =
-    f (_cmvbsSuccessful x)
-        <&> \y -> x { _cmvbsSuccessful = y }
+cmvbsSuccessful = lens _cmvbsSuccessful (\s a -> s { _cmvbsSuccessful = a })
 {-# INLINE cmvbsSuccessful #-}
+
+-- | A list of BatchResultErrorEntry items.
+cmvbsFailed :: Lens' ChangeMessageVisibilityBatchResponse ([BatchResultErrorEntry])
+cmvbsFailed = lens _cmvbsFailed (\s a -> s { _cmvbsFailed = a })
+{-# INLINE cmvbsFailed #-}
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     fromXMLOptions = xmlOptions

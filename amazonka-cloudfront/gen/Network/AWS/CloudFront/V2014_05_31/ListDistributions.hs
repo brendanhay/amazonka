@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListDistributions
     -- * Request
       ListDistributions
     -- ** Request constructor
-    , listDistributions
+    , mkListDistributionsRequest
     -- ** Request lenses
     , ldrMarker
     , ldrMaxItems
@@ -38,13 +38,14 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListDistributions' request.
-listDistributions :: ListDistributions
-listDistributions = ListDistributions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDistributions' request.
+mkListDistributionsRequest :: ListDistributions
+mkListDistributionsRequest = ListDistributions
     { _ldrMarker = Nothing
     , _ldrMaxItems = Nothing
     }
-{-# INLINE listDistributions #-}
+{-# INLINE mkListDistributionsRequest #-}
 
 data ListDistributions = ListDistributions
     { _ldrMarker :: Maybe Text
@@ -65,16 +66,12 @@ data ListDistributions = ListDistributions
 -- value of the NextMarker from the current page's response (which is also the
 -- ID of the last distribution on that page).
 ldrMarker :: Lens' ListDistributions (Maybe Text)
-ldrMarker f x =
-    f (_ldrMarker x)
-        <&> \y -> x { _ldrMarker = y }
+ldrMarker = lens _ldrMarker (\s a -> s { _ldrMarker = a })
 {-# INLINE ldrMarker #-}
 
 -- | The maximum number of distributions you want in the response body.
 ldrMaxItems :: Lens' ListDistributions (Maybe Text)
-ldrMaxItems f x =
-    f (_ldrMaxItems x)
-        <&> \y -> x { _ldrMaxItems = y }
+ldrMaxItems = lens _ldrMaxItems (\s a -> s { _ldrMaxItems = a })
 {-# INLINE ldrMaxItems #-}
 
 instance ToPath ListDistributions where
@@ -92,16 +89,14 @@ instance ToXML ListDistributions where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListDistributionsRequest"
 
-data ListDistributionsResponse = ListDistributionsResponse
-    { _ldsDistributionList :: DistributionList
+newtype ListDistributionsResponse = ListDistributionsResponse
+    { _ldsDistributionList :: Maybe DistributionList
       -- ^ The DistributionList type.
     } deriving (Show, Generic)
 
 -- | The DistributionList type.
-ldsDistributionList :: Lens' ListDistributionsResponse (DistributionList)
-ldsDistributionList f x =
-    f (_ldsDistributionList x)
-        <&> \y -> x { _ldsDistributionList = y }
+ldsDistributionList :: Lens' ListDistributionsResponse (Maybe DistributionList)
+ldsDistributionList = lens _ldsDistributionList (\s a -> s { _ldsDistributionList = a })
 {-# INLINE ldsDistributionList #-}
 
 instance FromXML ListDistributionsResponse where

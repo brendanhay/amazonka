@@ -25,7 +25,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
     -- * Request
       DeleteAccountPasswordPolicy
     -- ** Request constructor
-    , deleteAccountPasswordPolicy
+    , mkUnknown
     -- * Response
     , DeleteAccountPasswordPolicyResponse
     ) where
@@ -34,10 +34,11 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteAccountPasswordPolicy' request.
-deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
-deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-{-# INLINE deleteAccountPasswordPolicy #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAccountPasswordPolicy' request.
+mkUnknown :: DeleteAccountPasswordPolicy
+mkUnknown = DeleteAccountPasswordPolicy
+{-# INLINE mkUnknown #-}
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
     deriving (Eq, Show, Generic)

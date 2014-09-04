@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp
     -- * Request
       RegisterElasticIp
     -- ** Request constructor
-    , registerElasticIp
+    , mkRegisterElasticIpRequest
     -- ** Request lenses
     , reirElasticIp
     , reirStackId
@@ -45,15 +45,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RegisterElasticIp' request.
-registerElasticIp :: Text -- ^ 'reirElasticIp'
-                  -> Text -- ^ 'reirStackId'
-                  -> RegisterElasticIp
-registerElasticIp p1 p2 = RegisterElasticIp
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterElasticIp' request.
+mkRegisterElasticIpRequest :: Text -- ^ 'reirElasticIp'
+                           -> Text -- ^ 'reirStackId'
+                           -> RegisterElasticIp
+mkRegisterElasticIpRequest p1 p2 = RegisterElasticIp
     { _reirElasticIp = p1
     , _reirStackId = p2
     }
-{-# INLINE registerElasticIp #-}
+{-# INLINE mkRegisterElasticIpRequest #-}
 
 data RegisterElasticIp = RegisterElasticIp
     { _reirElasticIp :: Text
@@ -64,16 +65,12 @@ data RegisterElasticIp = RegisterElasticIp
 
 -- | The Elastic IP address.
 reirElasticIp :: Lens' RegisterElasticIp (Text)
-reirElasticIp f x =
-    f (_reirElasticIp x)
-        <&> \y -> x { _reirElasticIp = y }
+reirElasticIp = lens _reirElasticIp (\s a -> s { _reirElasticIp = a })
 {-# INLINE reirElasticIp #-}
 
 -- | The stack ID.
 reirStackId :: Lens' RegisterElasticIp (Text)
-reirStackId f x =
-    f (_reirStackId x)
-        <&> \y -> x { _reirStackId = y }
+reirStackId = lens _reirStackId (\s a -> s { _reirStackId = a })
 {-# INLINE reirStackId #-}
 
 instance ToPath RegisterElasticIp
@@ -84,16 +81,14 @@ instance ToHeaders RegisterElasticIp
 
 instance ToJSON RegisterElasticIp
 
-data RegisterElasticIpResponse = RegisterElasticIpResponse
+newtype RegisterElasticIpResponse = RegisterElasticIpResponse
     { _reisElasticIp :: Maybe Text
       -- ^ The Elastic IP address.
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
 reisElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
-reisElasticIp f x =
-    f (_reisElasticIp x)
-        <&> \y -> x { _reisElasticIp = y }
+reisElasticIp = lens _reisElasticIp (\s a -> s { _reisElasticIp = a })
 {-# INLINE reisElasticIp #-}
 
 instance FromJSON RegisterElasticIpResponse

@@ -37,7 +37,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription
     -- * Request
       CreateSpotDatafeedSubscription
     -- ** Request constructor
-    , createSpotDatafeedSubscription
+    , mkCreateSpotDatafeedSubscriptionRequest
     -- ** Request lenses
     , csdsrBucket
     , csdsrPrefix
@@ -52,14 +52,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateSpotDatafeedSubscription' request.
-createSpotDatafeedSubscription :: Text -- ^ 'csdsrBucket'
-                               -> CreateSpotDatafeedSubscription
-createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSpotDatafeedSubscription' request.
+mkCreateSpotDatafeedSubscriptionRequest :: Text -- ^ 'csdsrBucket'
+                                        -> CreateSpotDatafeedSubscription
+mkCreateSpotDatafeedSubscriptionRequest p1 = CreateSpotDatafeedSubscription
     { _csdsrBucket = p1
     , _csdsrPrefix = Nothing
     }
-{-# INLINE createSpotDatafeedSubscription #-}
+{-# INLINE mkCreateSpotDatafeedSubscriptionRequest #-}
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsrBucket :: Text
@@ -73,31 +74,25 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 -- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
 -- Constraints: Must be a valid bucket associated with your AWS account.
 csdsrBucket :: Lens' CreateSpotDatafeedSubscription (Text)
-csdsrBucket f x =
-    f (_csdsrBucket x)
-        <&> \y -> x { _csdsrBucket = y }
+csdsrBucket = lens _csdsrBucket (\s a -> s { _csdsrBucket = a })
 {-# INLINE csdsrBucket #-}
 
 -- | A prefix for the datafeed file names.
 csdsrPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
-csdsrPrefix f x =
-    f (_csdsrPrefix x)
-        <&> \y -> x { _csdsrPrefix = y }
+csdsrPrefix = lens _csdsrPrefix (\s a -> s { _csdsrPrefix = a })
 {-# INLINE csdsrPrefix #-}
 
 instance ToQuery CreateSpotDatafeedSubscription where
     toQuery = genericQuery def
 
-data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
+newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdssSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
       -- ^ The Spot Instance datafeed subscription.
     } deriving (Show, Generic)
 
 -- | The Spot Instance datafeed subscription.
 csdssSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-csdssSpotDatafeedSubscription f x =
-    f (_csdssSpotDatafeedSubscription x)
-        <&> \y -> x { _csdssSpotDatafeedSubscription = y }
+csdssSpotDatafeedSubscription = lens _csdssSpotDatafeedSubscription (\s a -> s { _csdssSpotDatafeedSubscription = a })
 {-# INLINE csdssSpotDatafeedSubscription #-}
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where

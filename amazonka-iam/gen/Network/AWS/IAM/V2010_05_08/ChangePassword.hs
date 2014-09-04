@@ -28,7 +28,7 @@ module Network.AWS.IAM.V2010_05_08.ChangePassword
     -- * Request
       ChangePassword
     -- ** Request constructor
-    , changePassword
+    , mkChangePasswordRequest
     -- ** Request lenses
     , cprOldPassword
     , cprNewPassword
@@ -41,15 +41,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ChangePassword' request.
-changePassword :: Text -- ^ 'cprOldPassword'
-               -> Text -- ^ 'cprNewPassword'
-               -> ChangePassword
-changePassword p1 p2 = ChangePassword
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangePassword' request.
+mkChangePasswordRequest :: Text -- ^ 'cprOldPassword'
+                        -> Text -- ^ 'cprNewPassword'
+                        -> ChangePassword
+mkChangePasswordRequest p1 p2 = ChangePassword
     { _cprOldPassword = p1
     , _cprNewPassword = p2
     }
-{-# INLINE changePassword #-}
+{-# INLINE mkChangePasswordRequest #-}
 
 data ChangePassword = ChangePassword
     { _cprOldPassword :: Text
@@ -61,17 +62,13 @@ data ChangePassword = ChangePassword
 
 -- | The IAM users's current password.
 cprOldPassword :: Lens' ChangePassword (Text)
-cprOldPassword f x =
-    f (_cprOldPassword x)
-        <&> \y -> x { _cprOldPassword = y }
+cprOldPassword = lens _cprOldPassword (\s a -> s { _cprOldPassword = a })
 {-# INLINE cprOldPassword #-}
 
 -- | The new password. The new password must conform to the AWS account's
 -- password policy, if one exists.
 cprNewPassword :: Lens' ChangePassword (Text)
-cprNewPassword f x =
-    f (_cprNewPassword x)
-        <&> \y -> x { _cprNewPassword = y }
+cprNewPassword = lens _cprNewPassword (\s a -> s { _cprNewPassword = a })
 {-# INLINE cprNewPassword #-}
 
 instance ToQuery ChangePassword where

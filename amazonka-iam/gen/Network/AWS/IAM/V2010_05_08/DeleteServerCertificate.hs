@@ -33,7 +33,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
     -- * Request
       DeleteServerCertificate
     -- ** Request constructor
-    , deleteServerCertificate
+    , mkDeleteServerCertificateRequest
     -- ** Request lenses
     , dscrServerCertificateName
 
@@ -45,24 +45,23 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteServerCertificate' request.
-deleteServerCertificate :: Text -- ^ 'dscrServerCertificateName'
-                        -> DeleteServerCertificate
-deleteServerCertificate p1 = DeleteServerCertificate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteServerCertificate' request.
+mkDeleteServerCertificateRequest :: Text -- ^ 'dscrServerCertificateName'
+                                 -> DeleteServerCertificate
+mkDeleteServerCertificateRequest p1 = DeleteServerCertificate
     { _dscrServerCertificateName = p1
     }
-{-# INLINE deleteServerCertificate #-}
+{-# INLINE mkDeleteServerCertificateRequest #-}
 
-data DeleteServerCertificate = DeleteServerCertificate
+newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscrServerCertificateName :: Text
       -- ^ The name of the server certificate you want to delete.
     } deriving (Show, Generic)
 
 -- | The name of the server certificate you want to delete.
 dscrServerCertificateName :: Lens' DeleteServerCertificate (Text)
-dscrServerCertificateName f x =
-    f (_dscrServerCertificateName x)
-        <&> \y -> x { _dscrServerCertificateName = y }
+dscrServerCertificateName = lens _dscrServerCertificateName (\s a -> s { _dscrServerCertificateName = a })
 {-# INLINE dscrServerCertificateName #-}
 
 instance ToQuery DeleteServerCertificate where

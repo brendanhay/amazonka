@@ -31,7 +31,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription
     -- * Request
       DeleteSpotDatafeedSubscription
     -- ** Request constructor
-    , deleteSpotDatafeedSubscription
+    , mkDeleteSpotDatafeedSubscriptionRequest
     -- * Response
     , DeleteSpotDatafeedSubscriptionResponse
     ) where
@@ -40,12 +40,12 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSpotDatafeedSubscription' request.
-deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
-deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-{-# INLINE deleteSpotDatafeedSubscription #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSpotDatafeedSubscription' request.
+mkDeleteSpotDatafeedSubscriptionRequest :: DeleteSpotDatafeedSubscription
+mkDeleteSpotDatafeedSubscriptionRequest = DeleteSpotDatafeedSubscription
+{-# INLINE mkDeleteSpotDatafeedSubscriptionRequest #-}
 
-data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     deriving (Eq, Show, Generic)
 
 instance ToQuery DeleteSpotDatafeedSubscription where

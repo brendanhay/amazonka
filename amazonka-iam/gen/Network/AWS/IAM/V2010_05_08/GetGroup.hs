@@ -32,7 +32,7 @@ module Network.AWS.IAM.V2010_05_08.GetGroup
     -- * Request
       GetGroup
     -- ** Request constructor
-    , getGroup
+    , mkGetGroupRequest
     -- ** Request lenses
     , ggrGroupName
     , ggrMarker
@@ -41,9 +41,9 @@ module Network.AWS.IAM.V2010_05_08.GetGroup
     -- * Response
     , GetGroupResponse
     -- ** Response lenses
-    , ggsIsTruncated
     , ggsGroup
     , ggsUsers
+    , ggsIsTruncated
     , ggsMarker
     ) where
 
@@ -51,15 +51,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetGroup' request.
-getGroup :: Text -- ^ 'ggrGroupName'
-         -> GetGroup
-getGroup p1 = GetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetGroup' request.
+mkGetGroupRequest :: Text -- ^ 'ggrGroupName'
+                  -> GetGroup
+mkGetGroupRequest p1 = GetGroup
     { _ggrGroupName = p1
     , _ggrMarker = Nothing
     , _ggrMaxItems = Nothing
     }
-{-# INLINE getGroup #-}
+{-# INLINE mkGetGroupRequest #-}
 
 data GetGroup = GetGroup
     { _ggrGroupName :: Text
@@ -79,18 +80,14 @@ data GetGroup = GetGroup
 
 -- | Name of the group.
 ggrGroupName :: Lens' GetGroup (Text)
-ggrGroupName f x =
-    f (_ggrGroupName x)
-        <&> \y -> x { _ggrGroupName = y }
+ggrGroupName = lens _ggrGroupName (\s a -> s { _ggrGroupName = a })
 {-# INLINE ggrGroupName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 ggrMarker :: Lens' GetGroup (Maybe Text)
-ggrMarker f x =
-    f (_ggrMarker x)
-        <&> \y -> x { _ggrMarker = y }
+ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 {-# INLINE ggrMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -98,59 +95,49 @@ ggrMarker f x =
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
 ggrMaxItems :: Lens' GetGroup (Maybe Integer)
-ggrMaxItems f x =
-    f (_ggrMaxItems x)
-        <&> \y -> x { _ggrMaxItems = y }
+ggrMaxItems = lens _ggrMaxItems (\s a -> s { _ggrMaxItems = a })
 {-# INLINE ggrMaxItems #-}
 
 instance ToQuery GetGroup where
     toQuery = genericQuery def
 
 data GetGroupResponse = GetGroupResponse
-    { _ggsIsTruncated :: Bool
+    { _ggsGroup :: Group
+      -- ^ Information about the group.
+    , _ggsUsers :: [User]
+      -- ^ A list of users in the group.
+    , _ggsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more user names to list.
       -- If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more user names in the list.
-    , _ggsGroup :: Group
-      -- ^ Information about the group.
-    , _ggsUsers :: [User]
-      -- ^ A list of users in the group.
     , _ggsMarker :: Maybe Text
       -- ^ If IsTruncated is true, then this element is present and contains
       -- the value to use for the Marker parameter in a subsequent
       -- pagination request.
     } deriving (Show, Generic)
 
--- | A flag that indicates whether there are more user names to list. If your
--- results were truncated, you can make a subsequent pagination request using
--- the Marker request parameter to retrieve more user names in the list.
-ggsIsTruncated :: Lens' GetGroupResponse (Bool)
-ggsIsTruncated f x =
-    f (_ggsIsTruncated x)
-        <&> \y -> x { _ggsIsTruncated = y }
-{-# INLINE ggsIsTruncated #-}
-
 -- | Information about the group.
 ggsGroup :: Lens' GetGroupResponse (Group)
-ggsGroup f x =
-    f (_ggsGroup x)
-        <&> \y -> x { _ggsGroup = y }
+ggsGroup = lens _ggsGroup (\s a -> s { _ggsGroup = a })
 {-# INLINE ggsGroup #-}
 
 -- | A list of users in the group.
 ggsUsers :: Lens' GetGroupResponse ([User])
-ggsUsers f x =
-    f (_ggsUsers x)
-        <&> \y -> x { _ggsUsers = y }
+ggsUsers = lens _ggsUsers (\s a -> s { _ggsUsers = a })
 {-# INLINE ggsUsers #-}
+
+-- | A flag that indicates whether there are more user names to list. If your
+-- results were truncated, you can make a subsequent pagination request using
+-- the Marker request parameter to retrieve more user names in the list.
+ggsIsTruncated :: Lens' GetGroupResponse (Bool)
+ggsIsTruncated = lens _ggsIsTruncated (\s a -> s { _ggsIsTruncated = a })
+{-# INLINE ggsIsTruncated #-}
 
 -- | If IsTruncated is true, then this element is present and contains the value
 -- to use for the Marker parameter in a subsequent pagination request.
 ggsMarker :: Lens' GetGroupResponse (Maybe Text)
-ggsMarker f x =
-    f (_ggsMarker x)
-        <&> \y -> x { _ggsMarker = y }
+ggsMarker = lens _ggsMarker (\s a -> s { _ggsMarker = a })
 {-# INLINE ggsMarker #-}
 
 instance FromXML GetGroupResponse where

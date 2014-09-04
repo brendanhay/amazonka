@@ -33,7 +33,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream
     -- * Request
       DeleteLogStream
     -- ** Request constructor
-    , deleteLogStream
+    , mkDeleteLogStreamRequest
     -- ** Request lenses
     , dlsrLogGroupName
     , dlsrLogStreamName
@@ -47,15 +47,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteLogStream' request.
-deleteLogStream :: Text -- ^ 'dlsrLogGroupName'
-                -> Text -- ^ 'dlsrLogStreamName'
-                -> DeleteLogStream
-deleteLogStream p1 p2 = DeleteLogStream
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLogStream' request.
+mkDeleteLogStreamRequest :: Text -- ^ 'dlsrLogGroupName'
+                         -> Text -- ^ 'dlsrLogStreamName'
+                         -> DeleteLogStream
+mkDeleteLogStreamRequest p1 p2 = DeleteLogStream
     { _dlsrLogGroupName = p1
     , _dlsrLogStreamName = p2
     }
-{-# INLINE deleteLogStream #-}
+{-# INLINE mkDeleteLogStreamRequest #-}
 
 data DeleteLogStream = DeleteLogStream
     { _dlsrLogGroupName :: Text
@@ -63,15 +64,11 @@ data DeleteLogStream = DeleteLogStream
     } deriving (Show, Generic)
 
 dlsrLogGroupName :: Lens' DeleteLogStream (Text)
-dlsrLogGroupName f x =
-    f (_dlsrLogGroupName x)
-        <&> \y -> x { _dlsrLogGroupName = y }
+dlsrLogGroupName = lens _dlsrLogGroupName (\s a -> s { _dlsrLogGroupName = a })
 {-# INLINE dlsrLogGroupName #-}
 
 dlsrLogStreamName :: Lens' DeleteLogStream (Text)
-dlsrLogStreamName f x =
-    f (_dlsrLogStreamName x)
-        <&> \y -> x { _dlsrLogStreamName = y }
+dlsrLogStreamName = lens _dlsrLogStreamName (\s a -> s { _dlsrLogStreamName = a })
 {-# INLINE dlsrLogStreamName #-}
 
 instance ToPath DeleteLogStream

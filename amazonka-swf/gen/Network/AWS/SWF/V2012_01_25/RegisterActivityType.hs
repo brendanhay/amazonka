@@ -57,7 +57,7 @@ module Network.AWS.SWF.V2012_01_25.RegisterActivityType
     -- * Request
       RegisterActivityType
     -- ** Request constructor
-    , registerActivityType
+    , mkRegisterActivityTypeInput
     -- ** Request lenses
     , ratiDomain
     , ratiName
@@ -65,9 +65,9 @@ module Network.AWS.SWF.V2012_01_25.RegisterActivityType
     , ratiDescription
     , ratiDefaultTaskStartToCloseTimeout
     , ratiDefaultTaskHeartbeatTimeout
+    , ratiDefaultTaskList
     , ratiDefaultTaskScheduleToStartTimeout
     , ratiDefaultTaskScheduleToCloseTimeout
-    , ratiDefaultTaskList
 
     -- * Response
     , RegisterActivityTypeResponse
@@ -78,23 +78,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RegisterActivityType' request.
-registerActivityType :: Text -- ^ 'ratiDomain'
-                     -> Text -- ^ 'ratiName'
-                     -> Text -- ^ 'ratiVersion'
-                     -> RegisterActivityType
-registerActivityType p1 p2 p3 = RegisterActivityType
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterActivityType' request.
+mkRegisterActivityTypeInput :: Text -- ^ 'ratiDomain'
+                            -> Text -- ^ 'ratiName'
+                            -> Text -- ^ 'ratiVersion'
+                            -> RegisterActivityType
+mkRegisterActivityTypeInput p1 p2 p3 = RegisterActivityType
     { _ratiDomain = p1
     , _ratiName = p2
     , _ratiVersion = p3
     , _ratiDescription = Nothing
     , _ratiDefaultTaskStartToCloseTimeout = Nothing
     , _ratiDefaultTaskHeartbeatTimeout = Nothing
+    , _ratiDefaultTaskList = Nothing
     , _ratiDefaultTaskScheduleToStartTimeout = Nothing
     , _ratiDefaultTaskScheduleToCloseTimeout = Nothing
-    , _ratiDefaultTaskList = Nothing
     }
-{-# INLINE registerActivityType #-}
+{-# INLINE mkRegisterActivityTypeInput #-}
 
 data RegisterActivityType = RegisterActivityType
     { _ratiDomain :: Text
@@ -138,6 +139,11 @@ data RegisterActivityType = RegisterActivityType
       -- valid values are integers greater than or equal to 0. An integer
       -- value can be used to specify the duration in seconds while NONE
       -- can be used to specify unlimited duration.
+    , _ratiDefaultTaskList :: Maybe TaskList
+      -- ^ If set, specifies the default task list to use for scheduling
+      -- tasks of this activity type. This default task list is used if a
+      -- task list is not provided when a task is scheduled through the
+      -- ScheduleActivityTask Decision.
     , _ratiDefaultTaskScheduleToStartTimeout :: Maybe Text
       -- ^ If set, specifies the default maximum duration that a task of
       -- this activity type can wait before being assigned to a worker.
@@ -153,18 +159,11 @@ data RegisterActivityType = RegisterActivityType
       -- values are integers greater than or equal to 0. An integer value
       -- can be used to specify the duration in seconds while NONE can be
       -- used to specify unlimited duration.
-    , _ratiDefaultTaskList :: Maybe TaskList
-      -- ^ If set, specifies the default task list to use for scheduling
-      -- tasks of this activity type. This default task list is used if a
-      -- task list is not provided when a task is scheduled through the
-      -- ScheduleActivityTask Decision.
     } deriving (Show, Generic)
 
 -- | The name of the domain in which this activity is to be registered.
 ratiDomain :: Lens' RegisterActivityType (Text)
-ratiDomain f x =
-    f (_ratiDomain x)
-        <&> \y -> x { _ratiDomain = y }
+ratiDomain = lens _ratiDomain (\s a -> s { _ratiDomain = a })
 {-# INLINE ratiDomain #-}
 
 -- | The name of the activity type within the domain. The specified string must
@@ -173,9 +172,7 @@ ratiDomain f x =
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
 ratiName :: Lens' RegisterActivityType (Text)
-ratiName f x =
-    f (_ratiName x)
-        <&> \y -> x { _ratiName = y }
+ratiName = lens _ratiName (\s a -> s { _ratiName = a })
 {-# INLINE ratiName #-}
 
 -- | The version of the activity type. The activity type consists of the name
@@ -185,16 +182,12 @@ ratiName f x =
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
 ratiVersion :: Lens' RegisterActivityType (Text)
-ratiVersion f x =
-    f (_ratiVersion x)
-        <&> \y -> x { _ratiVersion = y }
+ratiVersion = lens _ratiVersion (\s a -> s { _ratiVersion = a })
 {-# INLINE ratiVersion #-}
 
 -- | A textual description of the activity type.
 ratiDescription :: Lens' RegisterActivityType (Maybe Text)
-ratiDescription f x =
-    f (_ratiDescription x)
-        <&> \y -> x { _ratiDescription = y }
+ratiDescription = lens _ratiDescription (\s a -> s { _ratiDescription = a })
 {-# INLINE ratiDescription #-}
 
 -- | If set, specifies the default maximum duration that a worker can take to
@@ -204,9 +197,7 @@ ratiDescription f x =
 -- be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
 ratiDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskStartToCloseTimeout f x =
-    f (_ratiDefaultTaskStartToCloseTimeout x)
-        <&> \y -> x { _ratiDefaultTaskStartToCloseTimeout = y }
+ratiDefaultTaskStartToCloseTimeout = lens _ratiDefaultTaskStartToCloseTimeout (\s a -> s { _ratiDefaultTaskStartToCloseTimeout = a })
 {-# INLINE ratiDefaultTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the default maximum time before which a worker processing
@@ -221,10 +212,16 @@ ratiDefaultTaskStartToCloseTimeout f x =
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
 ratiDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskHeartbeatTimeout f x =
-    f (_ratiDefaultTaskHeartbeatTimeout x)
-        <&> \y -> x { _ratiDefaultTaskHeartbeatTimeout = y }
+ratiDefaultTaskHeartbeatTimeout = lens _ratiDefaultTaskHeartbeatTimeout (\s a -> s { _ratiDefaultTaskHeartbeatTimeout = a })
 {-# INLINE ratiDefaultTaskHeartbeatTimeout #-}
+
+-- | If set, specifies the default task list to use for scheduling tasks of this
+-- activity type. This default task list is used if a task list is not
+-- provided when a task is scheduled through the ScheduleActivityTask
+-- Decision.
+ratiDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
+ratiDefaultTaskList = lens _ratiDefaultTaskList (\s a -> s { _ratiDefaultTaskList = a })
+{-# INLINE ratiDefaultTaskList #-}
 
 -- | If set, specifies the default maximum duration that a task of this activity
 -- type can wait before being assigned to a worker. This default can be
@@ -233,9 +230,7 @@ ratiDefaultTaskHeartbeatTimeout f x =
 -- integer value can be used to specify the duration in seconds while NONE can
 -- be used to specify unlimited duration.
 ratiDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskScheduleToStartTimeout f x =
-    f (_ratiDefaultTaskScheduleToStartTimeout x)
-        <&> \y -> x { _ratiDefaultTaskScheduleToStartTimeout = y }
+ratiDefaultTaskScheduleToStartTimeout = lens _ratiDefaultTaskScheduleToStartTimeout (\s a -> s { _ratiDefaultTaskScheduleToStartTimeout = a })
 {-# INLINE ratiDefaultTaskScheduleToStartTimeout #-}
 
 -- | If set, specifies the default maximum duration for a task of this activity
@@ -244,20 +239,8 @@ ratiDefaultTaskScheduleToStartTimeout f x =
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
 ratiDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskScheduleToCloseTimeout f x =
-    f (_ratiDefaultTaskScheduleToCloseTimeout x)
-        <&> \y -> x { _ratiDefaultTaskScheduleToCloseTimeout = y }
+ratiDefaultTaskScheduleToCloseTimeout = lens _ratiDefaultTaskScheduleToCloseTimeout (\s a -> s { _ratiDefaultTaskScheduleToCloseTimeout = a })
 {-# INLINE ratiDefaultTaskScheduleToCloseTimeout #-}
-
--- | If set, specifies the default task list to use for scheduling tasks of this
--- activity type. This default task list is used if a task list is not
--- provided when a task is scheduled through the ScheduleActivityTask
--- Decision.
-ratiDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
-ratiDefaultTaskList f x =
-    f (_ratiDefaultTaskList x)
-        <&> \y -> x { _ratiDefaultTaskList = y }
-{-# INLINE ratiDefaultTaskList #-}
 
 instance ToPath RegisterActivityType
 

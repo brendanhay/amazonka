@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp
     -- * Request
       DisassociateElasticIp
     -- ** Request constructor
-    , disassociateElasticIp
+    , mkDisassociateElasticIpRequest
     -- ** Request lenses
     , deiuElasticIp
 
@@ -41,24 +41,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DisassociateElasticIp' request.
-disassociateElasticIp :: Text -- ^ 'deiuElasticIp'
-                      -> DisassociateElasticIp
-disassociateElasticIp p1 = DisassociateElasticIp
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisassociateElasticIp' request.
+mkDisassociateElasticIpRequest :: Text -- ^ 'deiuElasticIp'
+                               -> DisassociateElasticIp
+mkDisassociateElasticIpRequest p1 = DisassociateElasticIp
     { _deiuElasticIp = p1
     }
-{-# INLINE disassociateElasticIp #-}
+{-# INLINE mkDisassociateElasticIpRequest #-}
 
-data DisassociateElasticIp = DisassociateElasticIp
+newtype DisassociateElasticIp = DisassociateElasticIp
     { _deiuElasticIp :: Text
       -- ^ The Elastic IP address.
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
 deiuElasticIp :: Lens' DisassociateElasticIp (Text)
-deiuElasticIp f x =
-    f (_deiuElasticIp x)
-        <&> \y -> x { _deiuElasticIp = y }
+deiuElasticIp = lens _deiuElasticIp (\s a -> s { _deiuElasticIp = a })
 {-# INLINE deiuElasticIp #-}
 
 instance ToPath DisassociateElasticIp

@@ -39,7 +39,7 @@ module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer
     -- * Request
       SetLoadBalancerPoliciesForBackendServer
     -- ** Request constructor
-    , setLoadBalancerPoliciesForBackendServer
+    , mkSetLoadBalancerPoliciesForBackendServerInput
     -- ** Request lenses
     , slbpfbsiLoadBalancerName
     , slbpfbsiInstancePort
@@ -53,17 +53,18 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetLoadBalancerPoliciesForBackendServer' request.
-setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsiLoadBalancerName'
-                                        -> Integer -- ^ 'slbpfbsiInstancePort'
-                                        -> [Text] -- ^ 'slbpfbsiPolicyNames'
-                                        -> SetLoadBalancerPoliciesForBackendServer
-setLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForBackendServer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBalancerPoliciesForBackendServer' request.
+mkSetLoadBalancerPoliciesForBackendServerInput :: Text -- ^ 'slbpfbsiLoadBalancerName'
+                                               -> Integer -- ^ 'slbpfbsiInstancePort'
+                                               -> [Text] -- ^ 'slbpfbsiPolicyNames'
+                                               -> SetLoadBalancerPoliciesForBackendServer
+mkSetLoadBalancerPoliciesForBackendServerInput p1 p2 p3 = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsiLoadBalancerName = p1
     , _slbpfbsiInstancePort = p2
     , _slbpfbsiPolicyNames = p3
     }
-{-# INLINE setLoadBalancerPoliciesForBackendServer #-}
+{-# INLINE mkSetLoadBalancerPoliciesForBackendServerInput #-}
 
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsiLoadBalancerName :: Text
@@ -79,30 +80,23 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 -- | The mnemonic name associated with the load balancer. This name must be
 -- unique within the set of your load balancers.
 slbpfbsiLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer (Text)
-slbpfbsiLoadBalancerName f x =
-    f (_slbpfbsiLoadBalancerName x)
-        <&> \y -> x { _slbpfbsiLoadBalancerName = y }
+slbpfbsiLoadBalancerName = lens _slbpfbsiLoadBalancerName (\s a -> s { _slbpfbsiLoadBalancerName = a })
 {-# INLINE slbpfbsiLoadBalancerName #-}
 
 -- | The port number associated with the back-end server.
 slbpfbsiInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer (Integer)
-slbpfbsiInstancePort f x =
-    f (_slbpfbsiInstancePort x)
-        <&> \y -> x { _slbpfbsiInstancePort = y }
+slbpfbsiInstancePort = lens _slbpfbsiInstancePort (\s a -> s { _slbpfbsiInstancePort = a })
 {-# INLINE slbpfbsiInstancePort #-}
 
 -- | List of policy names to be set. If the list is empty, then all current
 -- polices are removed from the back-end server.
 slbpfbsiPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer ([Text])
-slbpfbsiPolicyNames f x =
-    f (_slbpfbsiPolicyNames x)
-        <&> \y -> x { _slbpfbsiPolicyNames = y }
+slbpfbsiPolicyNames = lens _slbpfbsiPolicyNames (\s a -> s { _slbpfbsiPolicyNames = a })
 {-# INLINE slbpfbsiPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesForBackendServer where
     toQuery = genericQuery def
 
-data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where

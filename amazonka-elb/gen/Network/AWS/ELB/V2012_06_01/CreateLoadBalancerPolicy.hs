@@ -32,7 +32,7 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy
     -- * Request
       CreateLoadBalancerPolicy
     -- ** Request constructor
-    , createLoadBalancerPolicy
+    , mkCreateLoadBalancerPolicyInput
     -- ** Request lenses
     , clbpiLoadBalancerName
     , clbpiPolicyName
@@ -47,18 +47,19 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateLoadBalancerPolicy' request.
-createLoadBalancerPolicy :: Text -- ^ 'clbpiLoadBalancerName'
-                         -> Text -- ^ 'clbpiPolicyName'
-                         -> Text -- ^ 'clbpiPolicyTypeName'
-                         -> CreateLoadBalancerPolicy
-createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoadBalancerPolicy' request.
+mkCreateLoadBalancerPolicyInput :: Text -- ^ 'clbpiLoadBalancerName'
+                                -> Text -- ^ 'clbpiPolicyName'
+                                -> Text -- ^ 'clbpiPolicyTypeName'
+                                -> CreateLoadBalancerPolicy
+mkCreateLoadBalancerPolicyInput p1 p2 p3 = CreateLoadBalancerPolicy
     { _clbpiLoadBalancerName = p1
     , _clbpiPolicyName = p2
     , _clbpiPolicyTypeName = p3
     , _clbpiPolicyAttributes = mempty
     }
-{-# INLINE createLoadBalancerPolicy #-}
+{-# INLINE mkCreateLoadBalancerPolicyInput #-}
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpiLoadBalancerName :: Text
@@ -78,38 +79,29 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
 -- | The name associated with the LoadBalancer for which the policy is being
 -- created.
 clbpiLoadBalancerName :: Lens' CreateLoadBalancerPolicy (Text)
-clbpiLoadBalancerName f x =
-    f (_clbpiLoadBalancerName x)
-        <&> \y -> x { _clbpiLoadBalancerName = y }
+clbpiLoadBalancerName = lens _clbpiLoadBalancerName (\s a -> s { _clbpiLoadBalancerName = a })
 {-# INLINE clbpiLoadBalancerName #-}
 
 -- | The name of the load balancer policy being created. The name must be unique
 -- within the set of policies for this load balancer.
 clbpiPolicyName :: Lens' CreateLoadBalancerPolicy (Text)
-clbpiPolicyName f x =
-    f (_clbpiPolicyName x)
-        <&> \y -> x { _clbpiPolicyName = y }
+clbpiPolicyName = lens _clbpiPolicyName (\s a -> s { _clbpiPolicyName = a })
 {-# INLINE clbpiPolicyName #-}
 
 -- | The name of the base policy type being used to create this policy. To get
 -- the list of policy types, use the DescribeLoadBalancerPolicyTypes action.
 clbpiPolicyTypeName :: Lens' CreateLoadBalancerPolicy (Text)
-clbpiPolicyTypeName f x =
-    f (_clbpiPolicyTypeName x)
-        <&> \y -> x { _clbpiPolicyTypeName = y }
+clbpiPolicyTypeName = lens _clbpiPolicyTypeName (\s a -> s { _clbpiPolicyTypeName = a })
 {-# INLINE clbpiPolicyTypeName #-}
 
 -- | A list of attributes associated with the policy being created.
 clbpiPolicyAttributes :: Lens' CreateLoadBalancerPolicy ([PolicyAttribute])
-clbpiPolicyAttributes f x =
-    f (_clbpiPolicyAttributes x)
-        <&> \y -> x { _clbpiPolicyAttributes = y }
+clbpiPolicyAttributes = lens _clbpiPolicyAttributes (\s a -> s { _clbpiPolicyAttributes = a })
 {-# INLINE clbpiPolicyAttributes #-}
 
 instance ToQuery CreateLoadBalancerPolicy where
     toQuery = genericQuery def
 
-data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLoadBalancerPolicy where

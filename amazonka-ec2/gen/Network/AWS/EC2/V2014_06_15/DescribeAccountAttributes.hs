@@ -70,7 +70,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
     -- * Request
       DescribeAccountAttributes
     -- ** Request constructor
-    , describeAccountAttributes
+    , mkDescribeAccountAttributesRequest
     -- ** Request lenses
     , daarAttributeNames
 
@@ -84,38 +84,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAccountAttributes' request.
-describeAccountAttributes :: DescribeAccountAttributes
-describeAccountAttributes = DescribeAccountAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAccountAttributes' request.
+mkDescribeAccountAttributesRequest :: DescribeAccountAttributes
+mkDescribeAccountAttributesRequest = DescribeAccountAttributes
     { _daarAttributeNames = mempty
     }
-{-# INLINE describeAccountAttributes #-}
+{-# INLINE mkDescribeAccountAttributesRequest #-}
 
-data DescribeAccountAttributes = DescribeAccountAttributes
+newtype DescribeAccountAttributes = DescribeAccountAttributes
     { _daarAttributeNames :: [AccountAttributeName]
       -- ^ One or more account attribute names.
     } deriving (Show, Generic)
 
 -- | One or more account attribute names.
 daarAttributeNames :: Lens' DescribeAccountAttributes ([AccountAttributeName])
-daarAttributeNames f x =
-    f (_daarAttributeNames x)
-        <&> \y -> x { _daarAttributeNames = y }
+daarAttributeNames = lens _daarAttributeNames (\s a -> s { _daarAttributeNames = a })
 {-# INLINE daarAttributeNames #-}
 
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
 
-data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
+newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daasAccountAttributes :: [AccountAttribute]
       -- ^ Information about one or more account attributes.
     } deriving (Show, Generic)
 
 -- | Information about one or more account attributes.
 daasAccountAttributes :: Lens' DescribeAccountAttributesResponse ([AccountAttribute])
-daasAccountAttributes f x =
-    f (_daasAccountAttributes x)
-        <&> \y -> x { _daasAccountAttributes = y }
+daasAccountAttributes = lens _daasAccountAttributes (\s a -> s { _daasAccountAttributes = a })
 {-# INLINE daasAccountAttributes #-}
 
 instance FromXML DescribeAccountAttributesResponse where

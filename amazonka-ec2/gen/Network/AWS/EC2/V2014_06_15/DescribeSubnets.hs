@@ -55,10 +55,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeSubnets
     -- * Request
       DescribeSubnets
     -- ** Request constructor
-    , describeSubnets
+    , mkDescribeSubnetsRequest
     -- ** Request lenses
-    , dsxFilters
     , dsxSubnetIds
+    , dsxFilters
 
     -- * Response
     , DescribeSubnetsResponse
@@ -70,16 +70,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeSubnets' request.
-describeSubnets :: DescribeSubnets
-describeSubnets = DescribeSubnets
-    { _dsxFilters = mempty
-    , _dsxSubnetIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSubnets' request.
+mkDescribeSubnetsRequest :: DescribeSubnets
+mkDescribeSubnetsRequest = DescribeSubnets
+    { _dsxSubnetIds = mempty
+    , _dsxFilters = mempty
     }
-{-# INLINE describeSubnets #-}
+{-# INLINE mkDescribeSubnetsRequest #-}
 
 data DescribeSubnets = DescribeSubnets
-    { _dsxFilters :: [Filter]
+    { _dsxSubnetIds :: [Text]
+      -- ^ One or more subnet IDs. Default: Describes all your subnets.
+    , _dsxFilters :: [Filter]
       -- ^ One or more filters. availabilityZone - The Availability Zone for
       -- the subnet. You can also use availability-zone as the filter
       -- name. available-ip-address-count - The number of IP addresses in
@@ -101,9 +104,12 @@ data DescribeSubnets = DescribeSubnets
       -- Purpose is X, see the tag:key=value filter. tag-value - The value
       -- of a tag assigned to the resource. This filter is independent of
       -- the tag-key filter. vpc-id - The ID of the VPC for the subnet.
-    , _dsxSubnetIds :: [Text]
-      -- ^ One or more subnet IDs. Default: Describes all your subnets.
     } deriving (Show, Generic)
+
+-- | One or more subnet IDs. Default: Describes all your subnets.
+dsxSubnetIds :: Lens' DescribeSubnets ([Text])
+dsxSubnetIds = lens _dsxSubnetIds (\s a -> s { _dsxSubnetIds = a })
+{-# INLINE dsxSubnetIds #-}
 
 -- | One or more filters. availabilityZone - The Availability Zone for the
 -- subnet. You can also use availability-zone as the filter name.
@@ -125,31 +131,20 @@ data DescribeSubnets = DescribeSubnets
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the subnet.
 dsxFilters :: Lens' DescribeSubnets ([Filter])
-dsxFilters f x =
-    f (_dsxFilters x)
-        <&> \y -> x { _dsxFilters = y }
+dsxFilters = lens _dsxFilters (\s a -> s { _dsxFilters = a })
 {-# INLINE dsxFilters #-}
-
--- | One or more subnet IDs. Default: Describes all your subnets.
-dsxSubnetIds :: Lens' DescribeSubnets ([Text])
-dsxSubnetIds f x =
-    f (_dsxSubnetIds x)
-        <&> \y -> x { _dsxSubnetIds = y }
-{-# INLINE dsxSubnetIds #-}
 
 instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
 
-data DescribeSubnetsResponse = DescribeSubnetsResponse
+newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsySubnets :: [Subnet]
       -- ^ Information about one or more subnets.
     } deriving (Show, Generic)
 
 -- | Information about one or more subnets.
 dsySubnets :: Lens' DescribeSubnetsResponse ([Subnet])
-dsySubnets f x =
-    f (_dsySubnets x)
-        <&> \y -> x { _dsySubnets = y }
+dsySubnets = lens _dsySubnets (\s a -> s { _dsySubnets = a })
 {-# INLINE dsySubnets #-}
 
 instance FromXML DescribeSubnetsResponse where

@@ -38,11 +38,11 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstances
     -- * Request
       DescribeReservedInstances
     -- ** Request constructor
-    , describeReservedInstances
+    , mkDescribeReservedInstancesRequest
     -- ** Request lenses
+    , drirReservedInstancesIds
     , drirFilters
     , drirOfferingType
-    , drirReservedInstancesIds
 
     -- * Response
     , DescribeReservedInstancesResponse
@@ -54,17 +54,21 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeReservedInstances' request.
-describeReservedInstances :: DescribeReservedInstances
-describeReservedInstances = DescribeReservedInstances
-    { _drirFilters = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstances' request.
+mkDescribeReservedInstancesRequest :: DescribeReservedInstances
+mkDescribeReservedInstancesRequest = DescribeReservedInstances
+    { _drirReservedInstancesIds = mempty
+    , _drirFilters = mempty
     , _drirOfferingType = Nothing
-    , _drirReservedInstancesIds = mempty
     }
-{-# INLINE describeReservedInstances #-}
+{-# INLINE mkDescribeReservedInstancesRequest #-}
 
 data DescribeReservedInstances = DescribeReservedInstances
-    { _drirFilters :: [Filter]
+    { _drirReservedInstancesIds :: [Text]
+      -- ^ One or more Reserved Instance IDs. Default: Describes all your
+      -- Reserved Instances, or only those otherwise specified.
+    , _drirFilters :: [Filter]
       -- ^ One or more filters. availability-zone - The Availability Zone
       -- where the Reserved Instance can be used. duration - The duration
       -- of the Reserved Instance (one year or three years), in seconds
@@ -92,10 +96,13 @@ data DescribeReservedInstances = DescribeReservedInstances
       -- 0.84).
     , _drirOfferingType :: Maybe OfferingTypeValues
       -- ^ The Reserved Instance offering type.
-    , _drirReservedInstancesIds :: [Text]
-      -- ^ One or more Reserved Instance IDs. Default: Describes all your
-      -- Reserved Instances, or only those otherwise specified.
     } deriving (Show, Generic)
+
+-- | One or more Reserved Instance IDs. Default: Describes all your Reserved
+-- Instances, or only those otherwise specified.
+drirReservedInstancesIds :: Lens' DescribeReservedInstances ([Text])
+drirReservedInstancesIds = lens _drirReservedInstancesIds (\s a -> s { _drirReservedInstancesIds = a })
+{-# INLINE drirReservedInstancesIds #-}
 
 -- | One or more filters. availability-zone - The Availability Zone where the
 -- Reserved Instance can be used. duration - The duration of the Reserved
@@ -119,39 +126,25 @@ data DescribeReservedInstances = DescribeReservedInstances
 -- filter is independent of the tag-key filter. usage-price - The usage price
 -- of the Reserved Instance, per hour (for example, 0.84).
 drirFilters :: Lens' DescribeReservedInstances ([Filter])
-drirFilters f x =
-    f (_drirFilters x)
-        <&> \y -> x { _drirFilters = y }
+drirFilters = lens _drirFilters (\s a -> s { _drirFilters = a })
 {-# INLINE drirFilters #-}
 
 -- | The Reserved Instance offering type.
 drirOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
-drirOfferingType f x =
-    f (_drirOfferingType x)
-        <&> \y -> x { _drirOfferingType = y }
+drirOfferingType = lens _drirOfferingType (\s a -> s { _drirOfferingType = a })
 {-# INLINE drirOfferingType #-}
-
--- | One or more Reserved Instance IDs. Default: Describes all your Reserved
--- Instances, or only those otherwise specified.
-drirReservedInstancesIds :: Lens' DescribeReservedInstances ([Text])
-drirReservedInstancesIds f x =
-    f (_drirReservedInstancesIds x)
-        <&> \y -> x { _drirReservedInstancesIds = y }
-{-# INLINE drirReservedInstancesIds #-}
 
 instance ToQuery DescribeReservedInstances where
     toQuery = genericQuery def
 
-data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
+newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drisReservedInstances :: [ReservedInstances]
       -- ^ A list of Reserved Instances.
     } deriving (Show, Generic)
 
 -- | A list of Reserved Instances.
 drisReservedInstances :: Lens' DescribeReservedInstancesResponse ([ReservedInstances])
-drisReservedInstances f x =
-    f (_drisReservedInstances x)
-        <&> \y -> x { _drisReservedInstances = y }
+drisReservedInstances = lens _drisReservedInstances (\s a -> s { _drisReservedInstances = a })
 {-# INLINE drisReservedInstances #-}
 
 instance FromXML DescribeReservedInstancesResponse where

@@ -48,7 +48,7 @@ module Network.AWS.EC2.V2014_06_15.TerminateInstances
     -- * Request
       TerminateInstances
     -- ** Request constructor
-    , terminateInstances
+    , mkTerminateInstancesRequest
     -- ** Request lenses
     , tirInstanceIds
 
@@ -62,39 +62,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'TerminateInstances' request.
-terminateInstances :: [Text] -- ^ 'tirInstanceIds'
-                   -> TerminateInstances
-terminateInstances p1 = TerminateInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateInstances' request.
+mkTerminateInstancesRequest :: [Text] -- ^ 'tirInstanceIds'
+                            -> TerminateInstances
+mkTerminateInstancesRequest p1 = TerminateInstances
     { _tirInstanceIds = p1
     }
-{-# INLINE terminateInstances #-}
+{-# INLINE mkTerminateInstancesRequest #-}
 
-data TerminateInstances = TerminateInstances
+newtype TerminateInstances = TerminateInstances
     { _tirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
 tirInstanceIds :: Lens' TerminateInstances ([Text])
-tirInstanceIds f x =
-    f (_tirInstanceIds x)
-        <&> \y -> x { _tirInstanceIds = y }
+tirInstanceIds = lens _tirInstanceIds (\s a -> s { _tirInstanceIds = a })
 {-# INLINE tirInstanceIds #-}
 
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
 
-data TerminateInstancesResponse = TerminateInstancesResponse
+newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tisTerminatingInstances :: [InstanceStateChange]
       -- ^ Information about one or more terminated instances.
     } deriving (Show, Generic)
 
 -- | Information about one or more terminated instances.
 tisTerminatingInstances :: Lens' TerminateInstancesResponse ([InstanceStateChange])
-tisTerminatingInstances f x =
-    f (_tisTerminatingInstances x)
-        <&> \y -> x { _tisTerminatingInstances = y }
+tisTerminatingInstances = lens _tisTerminatingInstances (\s a -> s { _tisTerminatingInstances = a })
 {-# INLINE tisTerminatingInstances #-}
 
 instance FromXML TerminateInstancesResponse where

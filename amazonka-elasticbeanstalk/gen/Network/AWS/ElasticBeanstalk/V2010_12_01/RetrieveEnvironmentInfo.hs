@@ -30,11 +30,11 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RetrieveEnvironmentInfo
     -- * Request
       RetrieveEnvironmentInfo
     -- ** Request constructor
-    , retrieveEnvironmentInfo
+    , mkRetrieveEnvironmentInfoMessage
     -- ** Request lenses
-    , reinInfoType
     , reinEnvironmentId
     , reinEnvironmentName
+    , reinInfoType
 
     -- * Response
     , RetrieveEnvironmentInfoResponse
@@ -46,20 +46,19 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RetrieveEnvironmentInfo' request.
-retrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'reinInfoType'
-                        -> RetrieveEnvironmentInfo
-retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
-    { _reinInfoType = p1
-    , _reinEnvironmentId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveEnvironmentInfo' request.
+mkRetrieveEnvironmentInfoMessage :: EnvironmentInfoType -- ^ 'reinInfoType'
+                                 -> RetrieveEnvironmentInfo
+mkRetrieveEnvironmentInfoMessage p1 = RetrieveEnvironmentInfo
+    { _reinEnvironmentId = Nothing
     , _reinEnvironmentName = Nothing
+    , _reinInfoType = p3
     }
-{-# INLINE retrieveEnvironmentInfo #-}
+{-# INLINE mkRetrieveEnvironmentInfoMessage #-}
 
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
-    { _reinInfoType :: EnvironmentInfoType
-      -- ^ The type of information to retrieve.
-    , _reinEnvironmentId :: Maybe Text
+    { _reinEnvironmentId :: Maybe Text
       -- ^ The ID of the data's environment. If no such environment is
       -- found, returns an InvalidParameterValue error. Condition: You
       -- must specify either this or an EnvironmentName, or both. If you
@@ -71,23 +70,16 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
       -- must specify either this or an EnvironmentId, or both. If you do
       -- not specify either, AWS Elastic Beanstalk returns
       -- MissingRequiredParameter error.
+    , _reinInfoType :: EnvironmentInfoType
+      -- ^ The type of information to retrieve.
     } deriving (Show, Generic)
-
--- | The type of information to retrieve.
-reinInfoType :: Lens' RetrieveEnvironmentInfo (EnvironmentInfoType)
-reinInfoType f x =
-    f (_reinInfoType x)
-        <&> \y -> x { _reinInfoType = y }
-{-# INLINE reinInfoType #-}
 
 -- | The ID of the data's environment. If no such environment is found, returns
 -- an InvalidParameterValue error. Condition: You must specify either this or
 -- an EnvironmentName, or both. If you do not specify either, AWS Elastic
 -- Beanstalk returns MissingRequiredParameter error.
 reinEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-reinEnvironmentId f x =
-    f (_reinEnvironmentId x)
-        <&> \y -> x { _reinEnvironmentId = y }
+reinEnvironmentId = lens _reinEnvironmentId (\s a -> s { _reinEnvironmentId = a })
 {-# INLINE reinEnvironmentId #-}
 
 -- | The name of the data's environment. If no such environment is found,
@@ -95,24 +87,25 @@ reinEnvironmentId f x =
 -- this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 reinEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-reinEnvironmentName f x =
-    f (_reinEnvironmentName x)
-        <&> \y -> x { _reinEnvironmentName = y }
+reinEnvironmentName = lens _reinEnvironmentName (\s a -> s { _reinEnvironmentName = a })
 {-# INLINE reinEnvironmentName #-}
+
+-- | The type of information to retrieve.
+reinInfoType :: Lens' RetrieveEnvironmentInfo (EnvironmentInfoType)
+reinInfoType = lens _reinInfoType (\s a -> s { _reinInfoType = a })
+{-# INLINE reinInfoType #-}
 
 instance ToQuery RetrieveEnvironmentInfo where
     toQuery = genericQuery def
 
-data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
+newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirmEnvironmentInfo :: [EnvironmentInfoDescription]
       -- ^ The EnvironmentInfoDescription of the environment.
     } deriving (Show, Generic)
 
 -- | The EnvironmentInfoDescription of the environment.
 reirmEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse ([EnvironmentInfoDescription])
-reirmEnvironmentInfo f x =
-    f (_reirmEnvironmentInfo x)
-        <&> \y -> x { _reirmEnvironmentInfo = y }
+reirmEnvironmentInfo = lens _reirmEnvironmentInfo (\s a -> s { _reirmEnvironmentInfo = a })
 {-# INLINE reirmEnvironmentInfo #-}
 
 instance FromXML RetrieveEnvironmentInfoResponse where

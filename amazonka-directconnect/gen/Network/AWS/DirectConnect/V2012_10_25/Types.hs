@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -39,11 +40,12 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , VirtualInterfaceState (..)
 
     -- * RouteFilterPrefix
-    , RouteFilterPrefix (..)
+    , RouteFilterPrefix
+    , mkRouteFilterPrefix
     , rfpCidr
 
     -- * Connection
-    , Connection (..)
+    , Connection
     , nOwnerAccount
     , nConnectionId
     , nConnectionName
@@ -55,7 +57,7 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , nPartnerName
 
     -- * Interconnect
-    , Interconnect (..)
+    , Interconnect
     , zInterconnectId
     , zInterconnectName
     , zInterconnectState
@@ -64,12 +66,13 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , zBandwidth
 
     -- * Location
-    , Location (..)
+    , Location
     , lqLocationCode
     , lqLocationName
 
     -- * NewPrivateVirtualInterface
-    , NewPrivateVirtualInterface (..)
+    , NewPrivateVirtualInterface
+    , mkNewPrivateVirtualInterface
     , npviVirtualInterfaceName
     , npviVlan
     , npviAsn
@@ -79,7 +82,8 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , npviVirtualGatewayId
 
     -- * NewPrivateVirtualInterfaceAllocation
-    , NewPrivateVirtualInterfaceAllocation (..)
+    , NewPrivateVirtualInterfaceAllocation
+    , mkNewPrivateVirtualInterfaceAllocation
     , npviaVirtualInterfaceName
     , npviaVlan
     , npviaAsn
@@ -88,7 +92,8 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , npviaCustomerAddress
 
     -- * NewPublicVirtualInterface
-    , NewPublicVirtualInterface (..)
+    , NewPublicVirtualInterface
+    , mkNewPublicVirtualInterface
     , npvjVirtualInterfaceName
     , npvjVlan
     , npvjAsn
@@ -98,7 +103,8 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , npvjRouteFilterPrefixes
 
     -- * NewPublicVirtualInterfaceAllocation
-    , NewPublicVirtualInterfaceAllocation (..)
+    , NewPublicVirtualInterfaceAllocation
+    , mkNewPublicVirtualInterfaceAllocation
     , npvibVirtualInterfaceName
     , npvibVlan
     , npvibAsn
@@ -108,12 +114,12 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , npvibRouteFilterPrefixes
 
     -- * VirtualGateway
-    , VirtualGateway (..)
+    , VirtualGateway
     , vhVirtualGatewayId
     , vhVirtualGatewayState
 
     -- * VirtualInterface
-    , VirtualInterface (..)
+    , VirtualInterface
     , vnOwnerAccount
     , vnVirtualInterfaceId
     , vnLocation
@@ -129,7 +135,6 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     , vnCustomerRouterConfig
     , vnVirtualGatewayId
     , vnRouteFilterPrefixes
-
     ) where
 
 import Network.AWS.Prelude
@@ -363,10 +368,16 @@ newtype RouteFilterPrefix = RouteFilterPrefix
 -- | CIDR notation for the advertised route. Multiple routes are separated by
 -- commas. Example: 10.10.10.0/24,10.10.11.0/24.
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
-rfpCidr f x =
-    f (_rfpCidr x)
-        <&> \y -> x { _rfpCidr = y }
+rfpCidr = lens _rfpCidr (\s a -> s { _rfpCidr = a })
 {-# INLINE rfpCidr #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'RouteFilterPrefix' data type to populate a request.
+mkRouteFilterPrefix :: RouteFilterPrefix
+mkRouteFilterPrefix = RouteFilterPrefix
+    { _rfpCidr = Nothing
+    }
+{-# INLINE mkRouteFilterPrefix #-}
 
 instance FromJSON RouteFilterPrefix
 
@@ -407,23 +418,17 @@ data Connection = Connection
     } deriving (Show, Generic)
 
 nOwnerAccount :: Lens' Connection (Maybe Text)
-nOwnerAccount f x =
-    f (_nOwnerAccount x)
-        <&> \y -> x { _nOwnerAccount = y }
+nOwnerAccount = lens _nOwnerAccount (\s a -> s { _nOwnerAccount = a })
 {-# INLINE nOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 nConnectionId :: Lens' Connection (Maybe Text)
-nConnectionId f x =
-    f (_nConnectionId x)
-        <&> \y -> x { _nConnectionId = y }
+nConnectionId = lens _nConnectionId (\s a -> s { _nConnectionId = a })
 {-# INLINE nConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 nConnectionName :: Lens' Connection (Maybe Text)
-nConnectionName f x =
-    f (_nConnectionName x)
-        <&> \y -> x { _nConnectionName = y }
+nConnectionName = lens _nConnectionName (\s a -> s { _nConnectionName = a })
 {-# INLINE nConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -438,44 +443,32 @@ nConnectionName f x =
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
 nConnectionState :: Lens' Connection (Maybe ConnectionState)
-nConnectionState f x =
-    f (_nConnectionState x)
-        <&> \y -> x { _nConnectionState = y }
+nConnectionState = lens _nConnectionState (\s a -> s { _nConnectionState = a })
 {-# INLINE nConnectionState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 nRegion :: Lens' Connection (Maybe Text)
-nRegion f x =
-    f (_nRegion x)
-        <&> \y -> x { _nRegion = y }
+nRegion = lens _nRegion (\s a -> s { _nRegion = a })
 {-# INLINE nRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 nLocation :: Lens' Connection (Maybe Text)
-nLocation f x =
-    f (_nLocation x)
-        <&> \y -> x { _nLocation = y }
+nLocation = lens _nLocation (\s a -> s { _nLocation = a })
 {-# INLINE nLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 nBandwidth :: Lens' Connection (Maybe Text)
-nBandwidth f x =
-    f (_nBandwidth x)
-        <&> \y -> x { _nBandwidth = y }
+nBandwidth = lens _nBandwidth (\s a -> s { _nBandwidth = a })
 {-# INLINE nBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
 nVlan :: Lens' Connection (Maybe Integer)
-nVlan f x =
-    f (_nVlan x)
-        <&> \y -> x { _nVlan = y }
+nVlan = lens _nVlan (\s a -> s { _nVlan = a })
 {-# INLINE nVlan #-}
 
 nPartnerName :: Lens' Connection (Maybe Text)
-nPartnerName f x =
-    f (_nPartnerName x)
-        <&> \y -> x { _nPartnerName = y }
+nPartnerName = lens _nPartnerName (\s a -> s { _nPartnerName = a })
 {-# INLINE nPartnerName #-}
 
 instance FromJSON Connection
@@ -514,16 +507,12 @@ data Interconnect = Interconnect
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
 zInterconnectId :: Lens' Interconnect (Maybe Text)
-zInterconnectId f x =
-    f (_zInterconnectId x)
-        <&> \y -> x { _zInterconnectId = y }
+zInterconnectId = lens _zInterconnectId (\s a -> s { _zInterconnectId = a })
 {-# INLINE zInterconnectId #-}
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS".
 zInterconnectName :: Lens' Interconnect (Maybe Text)
-zInterconnectName f x =
-    f (_zInterconnectName x)
-        <&> \y -> x { _zInterconnectName = y }
+zInterconnectName = lens _zInterconnectName (\s a -> s { _zInterconnectName = a })
 {-# INLINE zInterconnectName #-}
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
@@ -533,31 +522,23 @@ zInterconnectName f x =
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
 zInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
-zInterconnectState f x =
-    f (_zInterconnectState x)
-        <&> \y -> x { _zInterconnectState = y }
+zInterconnectState = lens _zInterconnectState (\s a -> s { _zInterconnectState = a })
 {-# INLINE zInterconnectState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 zRegion :: Lens' Interconnect (Maybe Text)
-zRegion f x =
-    f (_zRegion x)
-        <&> \y -> x { _zRegion = y }
+zRegion = lens _zRegion (\s a -> s { _zRegion = a })
 {-# INLINE zRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 zLocation :: Lens' Interconnect (Maybe Text)
-zLocation f x =
-    f (_zLocation x)
-        <&> \y -> x { _zLocation = y }
+zLocation = lens _zLocation (\s a -> s { _zLocation = a })
 {-# INLINE zLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 zBandwidth :: Lens' Interconnect (Maybe Text)
-zBandwidth f x =
-    f (_zBandwidth x)
-        <&> \y -> x { _zBandwidth = y }
+zBandwidth = lens _zBandwidth (\s a -> s { _zBandwidth = a })
 {-# INLINE zBandwidth #-}
 
 instance FromJSON Interconnect
@@ -575,17 +556,13 @@ data Location = Location
 
 -- | The code used to indicate the AWS Direct Connect location.
 lqLocationCode :: Lens' Location (Maybe Text)
-lqLocationCode f x =
-    f (_lqLocationCode x)
-        <&> \y -> x { _lqLocationCode = y }
+lqLocationCode = lens _lqLocationCode (\s a -> s { _lqLocationCode = a })
 {-# INLINE lqLocationCode #-}
 
 -- | The name of the AWS Direct Connect location. The name includes the
 -- colocation partner name and the physical site of the lit building.
 lqLocationName :: Lens' Location (Maybe Text)
-lqLocationName f x =
-    f (_lqLocationName x)
-        <&> \y -> x { _lqLocationName = y }
+lqLocationName = lens _lqLocationName (\s a -> s { _lqLocationName = a })
 {-# INLINE lqLocationName #-}
 
 instance FromJSON Location
@@ -617,54 +594,58 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
 npviVirtualInterfaceName :: Lens' NewPrivateVirtualInterface (Text)
-npviVirtualInterfaceName f x =
-    f (_npviVirtualInterfaceName x)
-        <&> \y -> x { _npviVirtualInterfaceName = y }
+npviVirtualInterfaceName = lens _npviVirtualInterfaceName (\s a -> s { _npviVirtualInterfaceName = a })
 {-# INLINE npviVirtualInterfaceName #-}
 
 -- | The VLAN ID. Example: 101.
 npviVlan :: Lens' NewPrivateVirtualInterface (Integer)
-npviVlan f x =
-    f (_npviVlan x)
-        <&> \y -> x { _npviVlan = y }
+npviVlan = lens _npviVlan (\s a -> s { _npviVlan = a })
 {-# INLINE npviVlan #-}
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
 npviAsn :: Lens' NewPrivateVirtualInterface (Integer)
-npviAsn f x =
-    f (_npviAsn x)
-        <&> \y -> x { _npviAsn = y }
+npviAsn = lens _npviAsn (\s a -> s { _npviAsn = a })
 {-# INLINE npviAsn #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
 npviAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
-npviAuthKey f x =
-    f (_npviAuthKey x)
-        <&> \y -> x { _npviAuthKey = y }
+npviAuthKey = lens _npviAuthKey (\s a -> s { _npviAuthKey = a })
 {-# INLINE npviAuthKey #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
 npviAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
-npviAmazonAddress f x =
-    f (_npviAmazonAddress x)
-        <&> \y -> x { _npviAmazonAddress = y }
+npviAmazonAddress = lens _npviAmazonAddress (\s a -> s { _npviAmazonAddress = a })
 {-# INLINE npviAmazonAddress #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
 npviCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
-npviCustomerAddress f x =
-    f (_npviCustomerAddress x)
-        <&> \y -> x { _npviCustomerAddress = y }
+npviCustomerAddress = lens _npviCustomerAddress (\s a -> s { _npviCustomerAddress = a })
 {-# INLINE npviCustomerAddress #-}
 
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
 npviVirtualGatewayId :: Lens' NewPrivateVirtualInterface (Text)
-npviVirtualGatewayId f x =
-    f (_npviVirtualGatewayId x)
-        <&> \y -> x { _npviVirtualGatewayId = y }
+npviVirtualGatewayId = lens _npviVirtualGatewayId (\s a -> s { _npviVirtualGatewayId = a })
 {-# INLINE npviVirtualGatewayId #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NewPrivateVirtualInterface' data type to populate a request.
+mkNewPrivateVirtualInterface :: Text -- ^ 'npviVirtualInterfaceName'
+                             -> Integer -- ^ 'npviVlan'
+                             -> Integer -- ^ 'npviAsn'
+                             -> Text -- ^ 'npviVirtualGatewayId'
+                             -> NewPrivateVirtualInterface
+mkNewPrivateVirtualInterface p1 p2 p3 p4 = NewPrivateVirtualInterface
+    { _npviVirtualInterfaceName = p1
+    , _npviVlan = p2
+    , _npviAsn = p3
+    , _npviAuthKey = Nothing
+    , _npviAmazonAddress = Nothing
+    , _npviCustomerAddress = Nothing
+    , _npviVirtualGatewayId = p7
+    }
+{-# INLINE mkNewPrivateVirtualInterface #-}
 
 instance ToJSON NewPrivateVirtualInterface
 
@@ -692,46 +673,50 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
 npviaVirtualInterfaceName :: Lens' NewPrivateVirtualInterfaceAllocation (Text)
-npviaVirtualInterfaceName f x =
-    f (_npviaVirtualInterfaceName x)
-        <&> \y -> x { _npviaVirtualInterfaceName = y }
+npviaVirtualInterfaceName = lens _npviaVirtualInterfaceName (\s a -> s { _npviaVirtualInterfaceName = a })
 {-# INLINE npviaVirtualInterfaceName #-}
 
 -- | The VLAN ID. Example: 101.
 npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation (Integer)
-npviaVlan f x =
-    f (_npviaVlan x)
-        <&> \y -> x { _npviaVlan = y }
+npviaVlan = lens _npviaVlan (\s a -> s { _npviaVlan = a })
 {-# INLINE npviaVlan #-}
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
 npviaAsn :: Lens' NewPrivateVirtualInterfaceAllocation (Integer)
-npviaAsn f x =
-    f (_npviaAsn x)
-        <&> \y -> x { _npviaAsn = y }
+npviaAsn = lens _npviaAsn (\s a -> s { _npviaAsn = a })
 {-# INLINE npviaAsn #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
 npviaAuthKey :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
-npviaAuthKey f x =
-    f (_npviaAuthKey x)
-        <&> \y -> x { _npviaAuthKey = y }
+npviaAuthKey = lens _npviaAuthKey (\s a -> s { _npviaAuthKey = a })
 {-# INLINE npviaAuthKey #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
 npviaAmazonAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
-npviaAmazonAddress f x =
-    f (_npviaAmazonAddress x)
-        <&> \y -> x { _npviaAmazonAddress = y }
+npviaAmazonAddress = lens _npviaAmazonAddress (\s a -> s { _npviaAmazonAddress = a })
 {-# INLINE npviaAmazonAddress #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
 npviaCustomerAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
-npviaCustomerAddress f x =
-    f (_npviaCustomerAddress x)
-        <&> \y -> x { _npviaCustomerAddress = y }
+npviaCustomerAddress = lens _npviaCustomerAddress (\s a -> s { _npviaCustomerAddress = a })
 {-# INLINE npviaCustomerAddress #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NewPrivateVirtualInterfaceAllocation' data type to populate a request.
+mkNewPrivateVirtualInterfaceAllocation :: Text -- ^ 'npviaVirtualInterfaceName'
+                                       -> Integer -- ^ 'npviaVlan'
+                                       -> Integer -- ^ 'npviaAsn'
+                                       -> NewPrivateVirtualInterfaceAllocation
+mkNewPrivateVirtualInterfaceAllocation p1 p2 p3 = NewPrivateVirtualInterfaceAllocation
+    { _npviaVirtualInterfaceName = p1
+    , _npviaVlan = p2
+    , _npviaAsn = p3
+    , _npviaAuthKey = Nothing
+    , _npviaAmazonAddress = Nothing
+    , _npviaCustomerAddress = Nothing
+    }
+{-# INLINE mkNewPrivateVirtualInterfaceAllocation #-}
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation
 
@@ -763,54 +748,60 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
 npvjVirtualInterfaceName :: Lens' NewPublicVirtualInterface (Text)
-npvjVirtualInterfaceName f x =
-    f (_npvjVirtualInterfaceName x)
-        <&> \y -> x { _npvjVirtualInterfaceName = y }
+npvjVirtualInterfaceName = lens _npvjVirtualInterfaceName (\s a -> s { _npvjVirtualInterfaceName = a })
 {-# INLINE npvjVirtualInterfaceName #-}
 
 -- | The VLAN ID. Example: 101.
 npvjVlan :: Lens' NewPublicVirtualInterface (Integer)
-npvjVlan f x =
-    f (_npvjVlan x)
-        <&> \y -> x { _npvjVlan = y }
+npvjVlan = lens _npvjVlan (\s a -> s { _npvjVlan = a })
 {-# INLINE npvjVlan #-}
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
 npvjAsn :: Lens' NewPublicVirtualInterface (Integer)
-npvjAsn f x =
-    f (_npvjAsn x)
-        <&> \y -> x { _npvjAsn = y }
+npvjAsn = lens _npvjAsn (\s a -> s { _npvjAsn = a })
 {-# INLINE npvjAsn #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
 npvjAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
-npvjAuthKey f x =
-    f (_npvjAuthKey x)
-        <&> \y -> x { _npvjAuthKey = y }
+npvjAuthKey = lens _npvjAuthKey (\s a -> s { _npvjAuthKey = a })
 {-# INLINE npvjAuthKey #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
 npvjAmazonAddress :: Lens' NewPublicVirtualInterface (Text)
-npvjAmazonAddress f x =
-    f (_npvjAmazonAddress x)
-        <&> \y -> x { _npvjAmazonAddress = y }
+npvjAmazonAddress = lens _npvjAmazonAddress (\s a -> s { _npvjAmazonAddress = a })
 {-# INLINE npvjAmazonAddress #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
 npvjCustomerAddress :: Lens' NewPublicVirtualInterface (Text)
-npvjCustomerAddress f x =
-    f (_npvjCustomerAddress x)
-        <&> \y -> x { _npvjCustomerAddress = y }
+npvjCustomerAddress = lens _npvjCustomerAddress (\s a -> s { _npvjCustomerAddress = a })
 {-# INLINE npvjCustomerAddress #-}
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
 npvjRouteFilterPrefixes :: Lens' NewPublicVirtualInterface ([RouteFilterPrefix])
-npvjRouteFilterPrefixes f x =
-    f (_npvjRouteFilterPrefixes x)
-        <&> \y -> x { _npvjRouteFilterPrefixes = y }
+npvjRouteFilterPrefixes = lens _npvjRouteFilterPrefixes (\s a -> s { _npvjRouteFilterPrefixes = a })
 {-# INLINE npvjRouteFilterPrefixes #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NewPublicVirtualInterface' data type to populate a request.
+mkNewPublicVirtualInterface :: Text -- ^ 'npvjVirtualInterfaceName'
+                            -> Integer -- ^ 'npvjVlan'
+                            -> Integer -- ^ 'npvjAsn'
+                            -> Text -- ^ 'npvjAmazonAddress'
+                            -> Text -- ^ 'npvjCustomerAddress'
+                            -> [RouteFilterPrefix] -- ^ 'npvjRouteFilterPrefixes'
+                            -> NewPublicVirtualInterface
+mkNewPublicVirtualInterface p1 p2 p3 p4 p5 p6 = NewPublicVirtualInterface
+    { _npvjVirtualInterfaceName = p1
+    , _npvjVlan = p2
+    , _npvjAsn = p3
+    , _npvjAuthKey = Nothing
+    , _npvjAmazonAddress = p5
+    , _npvjCustomerAddress = p6
+    , _npvjRouteFilterPrefixes = p7
+    }
+{-# INLINE mkNewPublicVirtualInterface #-}
 
 instance ToJSON NewPublicVirtualInterface
 
@@ -842,54 +833,60 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
 npvibVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation (Text)
-npvibVirtualInterfaceName f x =
-    f (_npvibVirtualInterfaceName x)
-        <&> \y -> x { _npvibVirtualInterfaceName = y }
+npvibVirtualInterfaceName = lens _npvibVirtualInterfaceName (\s a -> s { _npvibVirtualInterfaceName = a })
 {-# INLINE npvibVirtualInterfaceName #-}
 
 -- | The VLAN ID. Example: 101.
 npvibVlan :: Lens' NewPublicVirtualInterfaceAllocation (Integer)
-npvibVlan f x =
-    f (_npvibVlan x)
-        <&> \y -> x { _npvibVlan = y }
+npvibVlan = lens _npvibVlan (\s a -> s { _npvibVlan = a })
 {-# INLINE npvibVlan #-}
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
 npvibAsn :: Lens' NewPublicVirtualInterfaceAllocation (Integer)
-npvibAsn f x =
-    f (_npvibAsn x)
-        <&> \y -> x { _npvibAsn = y }
+npvibAsn = lens _npvibAsn (\s a -> s { _npvibAsn = a })
 {-# INLINE npvibAsn #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
 npvibAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-npvibAuthKey f x =
-    f (_npvibAuthKey x)
-        <&> \y -> x { _npvibAuthKey = y }
+npvibAuthKey = lens _npvibAuthKey (\s a -> s { _npvibAuthKey = a })
 {-# INLINE npvibAuthKey #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
 npvibAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation (Text)
-npvibAmazonAddress f x =
-    f (_npvibAmazonAddress x)
-        <&> \y -> x { _npvibAmazonAddress = y }
+npvibAmazonAddress = lens _npvibAmazonAddress (\s a -> s { _npvibAmazonAddress = a })
 {-# INLINE npvibAmazonAddress #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
 npvibCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation (Text)
-npvibCustomerAddress f x =
-    f (_npvibCustomerAddress x)
-        <&> \y -> x { _npvibCustomerAddress = y }
+npvibCustomerAddress = lens _npvibCustomerAddress (\s a -> s { _npvibCustomerAddress = a })
 {-# INLINE npvibCustomerAddress #-}
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
 npvibRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation ([RouteFilterPrefix])
-npvibRouteFilterPrefixes f x =
-    f (_npvibRouteFilterPrefixes x)
-        <&> \y -> x { _npvibRouteFilterPrefixes = y }
+npvibRouteFilterPrefixes = lens _npvibRouteFilterPrefixes (\s a -> s { _npvibRouteFilterPrefixes = a })
 {-# INLINE npvibRouteFilterPrefixes #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NewPublicVirtualInterfaceAllocation' data type to populate a request.
+mkNewPublicVirtualInterfaceAllocation :: Text -- ^ 'npvibVirtualInterfaceName'
+                                      -> Integer -- ^ 'npvibVlan'
+                                      -> Integer -- ^ 'npvibAsn'
+                                      -> Text -- ^ 'npvibAmazonAddress'
+                                      -> Text -- ^ 'npvibCustomerAddress'
+                                      -> [RouteFilterPrefix] -- ^ 'npvibRouteFilterPrefixes'
+                                      -> NewPublicVirtualInterfaceAllocation
+mkNewPublicVirtualInterfaceAllocation p1 p2 p3 p4 p5 p6 = NewPublicVirtualInterfaceAllocation
+    { _npvibVirtualInterfaceName = p1
+    , _npvibVlan = p2
+    , _npvibAsn = p3
+    , _npvibAuthKey = Nothing
+    , _npvibAmazonAddress = p5
+    , _npvibCustomerAddress = p6
+    , _npvibRouteFilterPrefixes = p7
+    }
+{-# INLINE mkNewPublicVirtualInterfaceAllocation #-}
 
 instance ToJSON NewPublicVirtualInterfaceAllocation
 
@@ -913,9 +910,7 @@ data VirtualGateway = VirtualGateway
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
 vhVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
-vhVirtualGatewayId f x =
-    f (_vhVirtualGatewayId x)
-        <&> \y -> x { _vhVirtualGatewayId = y }
+vhVirtualGatewayId = lens _vhVirtualGatewayId (\s a -> s { _vhVirtualGatewayId = a })
 {-# INLINE vhVirtualGatewayId #-}
 
 -- | State of the virtual private gateway. Pending: This is the initial state
@@ -924,9 +919,7 @@ vhVirtualGatewayId f x =
 -- DeleteVpnGateway. Deleted: In this state, a private virtual interface is
 -- unable to send traffic over this gateway.
 vhVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
-vhVirtualGatewayState f x =
-    f (_vhVirtualGatewayState x)
-        <&> \y -> x { _vhVirtualGatewayState = y }
+vhVirtualGatewayState = lens _vhVirtualGatewayState (\s a -> s { _vhVirtualGatewayState = a })
 {-# INLINE vhVirtualGatewayState #-}
 
 instance FromJSON VirtualGateway
@@ -993,82 +986,60 @@ data VirtualInterface = VirtualInterface
     } deriving (Show, Generic)
 
 vnOwnerAccount :: Lens' VirtualInterface (Maybe Text)
-vnOwnerAccount f x =
-    f (_vnOwnerAccount x)
-        <&> \y -> x { _vnOwnerAccount = y }
+vnOwnerAccount = lens _vnOwnerAccount (\s a -> s { _vnOwnerAccount = a })
 {-# INLINE vnOwnerAccount #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 vnVirtualInterfaceId :: Lens' VirtualInterface (Maybe Text)
-vnVirtualInterfaceId f x =
-    f (_vnVirtualInterfaceId x)
-        <&> \y -> x { _vnVirtualInterfaceId = y }
+vnVirtualInterfaceId = lens _vnVirtualInterfaceId (\s a -> s { _vnVirtualInterfaceId = a })
 {-# INLINE vnVirtualInterfaceId #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 vnLocation :: Lens' VirtualInterface (Maybe Text)
-vnLocation f x =
-    f (_vnLocation x)
-        <&> \y -> x { _vnLocation = y }
+vnLocation = lens _vnLocation (\s a -> s { _vnLocation = a })
 {-# INLINE vnLocation #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 vnConnectionId :: Lens' VirtualInterface (Maybe Text)
-vnConnectionId f x =
-    f (_vnConnectionId x)
-        <&> \y -> x { _vnConnectionId = y }
+vnConnectionId = lens _vnConnectionId (\s a -> s { _vnConnectionId = a })
 {-# INLINE vnConnectionId #-}
 
 -- | The type of virtual interface. Example: private (Amazon VPC) or public
 -- (Amazon S3, Amazon DynamoDB, and so on.).
 vnVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
-vnVirtualInterfaceType f x =
-    f (_vnVirtualInterfaceType x)
-        <&> \y -> x { _vnVirtualInterfaceType = y }
+vnVirtualInterfaceType = lens _vnVirtualInterfaceType (\s a -> s { _vnVirtualInterfaceType = a })
 {-# INLINE vnVirtualInterfaceType #-}
 
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
 vnVirtualInterfaceName :: Lens' VirtualInterface (Maybe Text)
-vnVirtualInterfaceName f x =
-    f (_vnVirtualInterfaceName x)
-        <&> \y -> x { _vnVirtualInterfaceName = y }
+vnVirtualInterfaceName = lens _vnVirtualInterfaceName (\s a -> s { _vnVirtualInterfaceName = a })
 {-# INLINE vnVirtualInterfaceName #-}
 
 -- | The VLAN ID. Example: 101.
 vnVlan :: Lens' VirtualInterface (Maybe Integer)
-vnVlan f x =
-    f (_vnVlan x)
-        <&> \y -> x { _vnVlan = y }
+vnVlan = lens _vnVlan (\s a -> s { _vnVlan = a })
 {-# INLINE vnVlan #-}
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
 vnAsn :: Lens' VirtualInterface (Maybe Integer)
-vnAsn f x =
-    f (_vnAsn x)
-        <&> \y -> x { _vnAsn = y }
+vnAsn = lens _vnAsn (\s a -> s { _vnAsn = a })
 {-# INLINE vnAsn #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
 vnAuthKey :: Lens' VirtualInterface (Maybe Text)
-vnAuthKey f x =
-    f (_vnAuthKey x)
-        <&> \y -> x { _vnAuthKey = y }
+vnAuthKey = lens _vnAuthKey (\s a -> s { _vnAuthKey = a })
 {-# INLINE vnAuthKey #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
 vnAmazonAddress :: Lens' VirtualInterface (Maybe Text)
-vnAmazonAddress f x =
-    f (_vnAmazonAddress x)
-        <&> \y -> x { _vnAmazonAddress = y }
+vnAmazonAddress = lens _vnAmazonAddress (\s a -> s { _vnAmazonAddress = a })
 {-# INLINE vnAmazonAddress #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
 vnCustomerAddress :: Lens' VirtualInterface (Maybe Text)
-vnCustomerAddress f x =
-    f (_vnCustomerAddress x)
-        <&> \y -> x { _vnCustomerAddress = y }
+vnCustomerAddress = lens _vnCustomerAddress (\s a -> s { _vnCustomerAddress = a })
 {-# INLINE vnCustomerAddress #-}
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
@@ -1088,32 +1059,24 @@ vnCustomerAddress f x =
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
 vnVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
-vnVirtualInterfaceState f x =
-    f (_vnVirtualInterfaceState x)
-        <&> \y -> x { _vnVirtualInterfaceState = y }
+vnVirtualInterfaceState = lens _vnVirtualInterfaceState (\s a -> s { _vnVirtualInterfaceState = a })
 {-# INLINE vnVirtualInterfaceState #-}
 
 -- | Information for generating the customer router configuration.
 vnCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
-vnCustomerRouterConfig f x =
-    f (_vnCustomerRouterConfig x)
-        <&> \y -> x { _vnCustomerRouterConfig = y }
+vnCustomerRouterConfig = lens _vnCustomerRouterConfig (\s a -> s { _vnCustomerRouterConfig = a })
 {-# INLINE vnCustomerRouterConfig #-}
 
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
 vnVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
-vnVirtualGatewayId f x =
-    f (_vnVirtualGatewayId x)
-        <&> \y -> x { _vnVirtualGatewayId = y }
+vnVirtualGatewayId = lens _vnVirtualGatewayId (\s a -> s { _vnVirtualGatewayId = a })
 {-# INLINE vnVirtualGatewayId #-}
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
 vnRouteFilterPrefixes :: Lens' VirtualInterface ([RouteFilterPrefix])
-vnRouteFilterPrefixes f x =
-    f (_vnRouteFilterPrefixes x)
-        <&> \y -> x { _vnRouteFilterPrefixes = y }
+vnRouteFilterPrefixes = lens _vnRouteFilterPrefixes (\s a -> s { _vnRouteFilterPrefixes = a })
 {-# INLINE vnRouteFilterPrefixes #-}
 
 instance FromJSON VirtualInterface

@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
     -- * Request
       DescribeMyUserProfile
     -- ** Request constructor
-    , describeMyUserProfile
+    , mkUnknown
     -- * Response
     , DescribeMyUserProfileResponse
     -- ** Response lenses
@@ -38,10 +38,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeMyUserProfile' request.
-describeMyUserProfile :: DescribeMyUserProfile
-describeMyUserProfile = DescribeMyUserProfile
-{-# INLINE describeMyUserProfile #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMyUserProfile' request.
+mkUnknown :: DescribeMyUserProfile
+mkUnknown = DescribeMyUserProfile
+{-# INLINE mkUnknown #-}
 
 data DescribeMyUserProfile = DescribeMyUserProfile
     deriving (Eq, Show, Generic)
@@ -54,16 +55,14 @@ instance ToHeaders DescribeMyUserProfile
 
 instance ToJSON DescribeMyUserProfile
 
-data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
+newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile :: Maybe SelfUserProfile
       -- ^ A UserProfile object that describes the user's SSH information.
     } deriving (Show, Generic)
 
 -- | A UserProfile object that describes the user's SSH information.
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprUserProfile f x =
-    f (_dmuprUserProfile x)
-        <&> \y -> x { _dmuprUserProfile = y }
+dmuprUserProfile = lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
 {-# INLINE dmuprUserProfile #-}
 
 instance FromJSON DescribeMyUserProfileResponse

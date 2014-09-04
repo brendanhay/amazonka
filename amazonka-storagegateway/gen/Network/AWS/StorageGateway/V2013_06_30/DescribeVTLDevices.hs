@@ -22,19 +22,19 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
     -- * Request
       DescribeVTLDevices
     -- ** Request constructor
-    , describeVTLDevices
+    , mkDescribeVTLDevicesInput
     -- ** Request lenses
     , dvtldiGatewayARN
+    , dvtldiVTLDeviceARNs
     , dvtldiMarker
     , dvtldiLimit
-    , dvtldiVTLDeviceARNs
 
     -- * Response
     , DescribeVTLDevicesResponse
     -- ** Response lenses
     , dvtldoGatewayARN
-    , dvtldoMarker
     , dvtldoVTLDevices
+    , dvtldoMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -42,52 +42,45 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeVTLDevices' request.
-describeVTLDevices :: Text -- ^ 'dvtldiGatewayARN'
-                   -> DescribeVTLDevices
-describeVTLDevices p1 = DescribeVTLDevices
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVTLDevices' request.
+mkDescribeVTLDevicesInput :: Text -- ^ 'dvtldiGatewayARN'
+                          -> DescribeVTLDevices
+mkDescribeVTLDevicesInput p1 = DescribeVTLDevices
     { _dvtldiGatewayARN = p1
+    , _dvtldiVTLDeviceARNs = mempty
     , _dvtldiMarker = Nothing
     , _dvtldiLimit = Nothing
-    , _dvtldiVTLDeviceARNs = mempty
     }
-{-# INLINE describeVTLDevices #-}
+{-# INLINE mkDescribeVTLDevicesInput #-}
 
 data DescribeVTLDevices = DescribeVTLDevices
     { _dvtldiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _dvtldiVTLDeviceARNs :: [Text]
     , _dvtldiMarker :: Maybe Text
     , _dvtldiLimit :: Maybe Integer
-    , _dvtldiVTLDeviceARNs :: [Text]
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dvtldiGatewayARN :: Lens' DescribeVTLDevices (Text)
-dvtldiGatewayARN f x =
-    f (_dvtldiGatewayARN x)
-        <&> \y -> x { _dvtldiGatewayARN = y }
+dvtldiGatewayARN = lens _dvtldiGatewayARN (\s a -> s { _dvtldiGatewayARN = a })
 {-# INLINE dvtldiGatewayARN #-}
 
+dvtldiVTLDeviceARNs :: Lens' DescribeVTLDevices ([Text])
+dvtldiVTLDeviceARNs = lens _dvtldiVTLDeviceARNs (\s a -> s { _dvtldiVTLDeviceARNs = a })
+{-# INLINE dvtldiVTLDeviceARNs #-}
+
 dvtldiMarker :: Lens' DescribeVTLDevices (Maybe Text)
-dvtldiMarker f x =
-    f (_dvtldiMarker x)
-        <&> \y -> x { _dvtldiMarker = y }
+dvtldiMarker = lens _dvtldiMarker (\s a -> s { _dvtldiMarker = a })
 {-# INLINE dvtldiMarker #-}
 
 dvtldiLimit :: Lens' DescribeVTLDevices (Maybe Integer)
-dvtldiLimit f x =
-    f (_dvtldiLimit x)
-        <&> \y -> x { _dvtldiLimit = y }
+dvtldiLimit = lens _dvtldiLimit (\s a -> s { _dvtldiLimit = a })
 {-# INLINE dvtldiLimit #-}
-
-dvtldiVTLDeviceARNs :: Lens' DescribeVTLDevices ([Text])
-dvtldiVTLDeviceARNs f x =
-    f (_dvtldiVTLDeviceARNs x)
-        <&> \y -> x { _dvtldiVTLDeviceARNs = y }
-{-# INLINE dvtldiVTLDeviceARNs #-}
 
 instance ToPath DescribeVTLDevices
 
@@ -102,29 +95,23 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _dvtldoMarker :: Maybe Text
     , _dvtldoVTLDevices :: [VTLDevice]
+    , _dvtldoMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dvtldoGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldoGatewayARN f x =
-    f (_dvtldoGatewayARN x)
-        <&> \y -> x { _dvtldoGatewayARN = y }
+dvtldoGatewayARN = lens _dvtldoGatewayARN (\s a -> s { _dvtldoGatewayARN = a })
 {-# INLINE dvtldoGatewayARN #-}
 
-dvtldoMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldoMarker f x =
-    f (_dvtldoMarker x)
-        <&> \y -> x { _dvtldoMarker = y }
-{-# INLINE dvtldoMarker #-}
-
 dvtldoVTLDevices :: Lens' DescribeVTLDevicesResponse ([VTLDevice])
-dvtldoVTLDevices f x =
-    f (_dvtldoVTLDevices x)
-        <&> \y -> x { _dvtldoVTLDevices = y }
+dvtldoVTLDevices = lens _dvtldoVTLDevices (\s a -> s { _dvtldoVTLDevices = a })
 {-# INLINE dvtldoVTLDevices #-}
+
+dvtldoMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldoMarker = lens _dvtldoMarker (\s a -> s { _dvtldoMarker = a })
+{-# INLINE dvtldoMarker #-}
 
 instance FromJSON DescribeVTLDevicesResponse
 

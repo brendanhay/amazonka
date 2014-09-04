@@ -46,7 +46,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
     -- * Request
       DescribeInstanceHealth
     -- ** Request constructor
-    , describeInstanceHealth
+    , mkDescribeEndPointStateInput
     -- ** Request lenses
     , depsiLoadBalancerName
     , depsiInstances
@@ -61,14 +61,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeInstanceHealth' request.
-describeInstanceHealth :: Text -- ^ 'depsiLoadBalancerName'
-                       -> DescribeInstanceHealth
-describeInstanceHealth p1 = DescribeInstanceHealth
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceHealth' request.
+mkDescribeEndPointStateInput :: Text -- ^ 'depsiLoadBalancerName'
+                             -> DescribeInstanceHealth
+mkDescribeEndPointStateInput p1 = DescribeInstanceHealth
     { _depsiLoadBalancerName = p1
     , _depsiInstances = mempty
     }
-{-# INLINE describeInstanceHealth #-}
+{-# INLINE mkDescribeEndPointStateInput #-}
 
 data DescribeInstanceHealth = DescribeInstanceHealth
     { _depsiLoadBalancerName :: Text
@@ -79,31 +80,25 @@ data DescribeInstanceHealth = DescribeInstanceHealth
 
 -- | The name of the load balancer.
 depsiLoadBalancerName :: Lens' DescribeInstanceHealth (Text)
-depsiLoadBalancerName f x =
-    f (_depsiLoadBalancerName x)
-        <&> \y -> x { _depsiLoadBalancerName = y }
+depsiLoadBalancerName = lens _depsiLoadBalancerName (\s a -> s { _depsiLoadBalancerName = a })
 {-# INLINE depsiLoadBalancerName #-}
 
 -- | A list of instance IDs whose states are being queried.
 depsiInstances :: Lens' DescribeInstanceHealth ([Instance])
-depsiInstances f x =
-    f (_depsiInstances x)
-        <&> \y -> x { _depsiInstances = y }
+depsiInstances = lens _depsiInstances (\s a -> s { _depsiInstances = a })
 {-# INLINE depsiInstances #-}
 
 instance ToQuery DescribeInstanceHealth where
     toQuery = genericQuery def
 
-data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
+newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _depsoInstanceStates :: [InstanceState]
       -- ^ A list containing health information for the specified instances.
     } deriving (Show, Generic)
 
 -- | A list containing health information for the specified instances.
 depsoInstanceStates :: Lens' DescribeInstanceHealthResponse ([InstanceState])
-depsoInstanceStates f x =
-    f (_depsoInstanceStates x)
-        <&> \y -> x { _depsoInstanceStates = y }
+depsoInstanceStates = lens _depsoInstanceStates (\s a -> s { _depsoInstanceStates = a })
 {-# INLINE depsoInstanceStates #-}
 
 instance FromXML DescribeInstanceHealthResponse where

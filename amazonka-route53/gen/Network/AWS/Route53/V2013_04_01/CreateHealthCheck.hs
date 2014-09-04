@@ -27,10 +27,10 @@ module Network.AWS.Route53.V2013_04_01.CreateHealthCheck
     -- * Request
       CreateHealthCheck
     -- ** Request constructor
-    , createHealthCheck
+    , mkCreateHealthCheckRequest
     -- ** Request lenses
-    , chcrHealthCheckConfig
     , chcrCallerReference
+    , chcrHealthCheckConfig
 
     -- * Response
     , CreateHealthCheckResponse
@@ -43,20 +43,19 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateHealthCheck' request.
-createHealthCheck :: HealthCheckConfig -- ^ 'chcrHealthCheckConfig'
-                  -> Text -- ^ 'chcrCallerReference'
-                  -> CreateHealthCheck
-createHealthCheck p1 p2 = CreateHealthCheck
-    { _chcrHealthCheckConfig = p1
-    , _chcrCallerReference = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHealthCheck' request.
+mkCreateHealthCheckRequest :: Text -- ^ 'chcrCallerReference'
+                           -> HealthCheckConfig -- ^ 'chcrHealthCheckConfig'
+                           -> CreateHealthCheck
+mkCreateHealthCheckRequest p1 p2 = CreateHealthCheck
+    { _chcrCallerReference = p1
+    , _chcrHealthCheckConfig = p2
     }
-{-# INLINE createHealthCheck #-}
+{-# INLINE mkCreateHealthCheckRequest #-}
 
 data CreateHealthCheck = CreateHealthCheck
-    { _chcrHealthCheckConfig :: HealthCheckConfig
-      -- ^ A complex type that contains health check configuration.
-    , _chcrCallerReference :: Text
+    { _chcrCallerReference :: Text
       -- ^ A unique string that identifies the request and that allows
       -- failed CreateHealthCheck requests to be retried without the risk
       -- of executing the operation twice. You must use a unique
@@ -65,14 +64,9 @@ data CreateHealthCheck = CreateHealthCheck
       -- a string that identifies your project. Valid characters are any
       -- Unicode code points that are legal in an XML 1.0 document. The
       -- UTF-8 encoding of the value must be less than 128 bytes.
+    , _chcrHealthCheckConfig :: HealthCheckConfig
+      -- ^ A complex type that contains health check configuration.
     } deriving (Show, Generic)
-
--- | A complex type that contains health check configuration.
-chcrHealthCheckConfig :: Lens' CreateHealthCheck (HealthCheckConfig)
-chcrHealthCheckConfig f x =
-    f (_chcrHealthCheckConfig x)
-        <&> \y -> x { _chcrHealthCheckConfig = y }
-{-# INLINE chcrHealthCheckConfig #-}
 
 -- | A unique string that identifies the request and that allows failed
 -- CreateHealthCheck requests to be retried without the risk of executing the
@@ -82,10 +76,13 @@ chcrHealthCheckConfig f x =
 -- are any Unicode code points that are legal in an XML 1.0 document. The
 -- UTF-8 encoding of the value must be less than 128 bytes.
 chcrCallerReference :: Lens' CreateHealthCheck (Text)
-chcrCallerReference f x =
-    f (_chcrCallerReference x)
-        <&> \y -> x { _chcrCallerReference = y }
+chcrCallerReference = lens _chcrCallerReference (\s a -> s { _chcrCallerReference = a })
 {-# INLINE chcrCallerReference #-}
+
+-- | A complex type that contains health check configuration.
+chcrHealthCheckConfig :: Lens' CreateHealthCheck (HealthCheckConfig)
+chcrHealthCheckConfig = lens _chcrHealthCheckConfig (\s a -> s { _chcrHealthCheckConfig = a })
+{-# INLINE chcrHealthCheckConfig #-}
 
 instance ToPath CreateHealthCheck where
     toPath = const "/2013-04-01/healthcheck"
@@ -109,16 +106,12 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
 -- | A complex type that contains identifying information about the health
 -- check.
 chcsHealthCheck :: Lens' CreateHealthCheckResponse (HealthCheck)
-chcsHealthCheck f x =
-    f (_chcsHealthCheck x)
-        <&> \y -> x { _chcsHealthCheck = y }
+chcsHealthCheck = lens _chcsHealthCheck (\s a -> s { _chcsHealthCheck = a })
 {-# INLINE chcsHealthCheck #-}
 
 -- | The unique URL representing the new health check.
 chcsLocation :: Lens' CreateHealthCheckResponse (Text)
-chcsLocation f x =
-    f (_chcsLocation x)
-        <&> \y -> x { _chcsLocation = y }
+chcsLocation = lens _chcsLocation (\s a -> s { _chcsLocation = a })
 {-# INLINE chcsLocation #-}
 
 instance AWSRequest CreateHealthCheck where

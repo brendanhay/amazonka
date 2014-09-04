@@ -30,10 +30,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeConversionTasks
     -- * Request
       DescribeConversionTasks
     -- ** Request constructor
-    , describeConversionTasks
+    , mkDescribeConversionTasksRequest
     -- ** Request lenses
-    , dctrConversionTaskIds
     , dctrFilters
+    , dctrConversionTaskIds
 
     -- * Response
     , DescribeConversionTasksResponse
@@ -45,48 +45,43 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeConversionTasks' request.
-describeConversionTasks :: DescribeConversionTasks
-describeConversionTasks = DescribeConversionTasks
-    { _dctrConversionTaskIds = mempty
-    , _dctrFilters = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConversionTasks' request.
+mkDescribeConversionTasksRequest :: DescribeConversionTasks
+mkDescribeConversionTasksRequest = DescribeConversionTasks
+    { _dctrFilters = mempty
+    , _dctrConversionTaskIds = mempty
     }
-{-# INLINE describeConversionTasks #-}
+{-# INLINE mkDescribeConversionTasksRequest #-}
 
 data DescribeConversionTasks = DescribeConversionTasks
-    { _dctrConversionTaskIds :: [Text]
-      -- ^ One or more conversion task IDs.
-    , _dctrFilters :: [Filter]
+    { _dctrFilters :: [Filter]
       -- ^ 
+    , _dctrConversionTaskIds :: [Text]
+      -- ^ One or more conversion task IDs.
     } deriving (Show, Generic)
-
--- | One or more conversion task IDs.
-dctrConversionTaskIds :: Lens' DescribeConversionTasks ([Text])
-dctrConversionTaskIds f x =
-    f (_dctrConversionTaskIds x)
-        <&> \y -> x { _dctrConversionTaskIds = y }
-{-# INLINE dctrConversionTaskIds #-}
 
 -- | 
 dctrFilters :: Lens' DescribeConversionTasks ([Filter])
-dctrFilters f x =
-    f (_dctrFilters x)
-        <&> \y -> x { _dctrFilters = y }
+dctrFilters = lens _dctrFilters (\s a -> s { _dctrFilters = a })
 {-# INLINE dctrFilters #-}
+
+-- | One or more conversion task IDs.
+dctrConversionTaskIds :: Lens' DescribeConversionTasks ([Text])
+dctrConversionTaskIds = lens _dctrConversionTaskIds (\s a -> s { _dctrConversionTaskIds = a })
+{-# INLINE dctrConversionTaskIds #-}
 
 instance ToQuery DescribeConversionTasks where
     toQuery = genericQuery def
 
-data DescribeConversionTasksResponse = DescribeConversionTasksResponse
+newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctsConversionTasks :: [ConversionTask]
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 dctsConversionTasks :: Lens' DescribeConversionTasksResponse ([ConversionTask])
-dctsConversionTasks f x =
-    f (_dctsConversionTasks x)
-        <&> \y -> x { _dctsConversionTasks = y }
+dctsConversionTasks = lens _dctsConversionTasks (\s a -> s { _dctsConversionTasks = a })
 {-# INLINE dctsConversionTasks #-}
 
 instance FromXML DescribeConversionTasksResponse where

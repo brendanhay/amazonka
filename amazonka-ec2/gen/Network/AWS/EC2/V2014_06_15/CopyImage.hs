@@ -36,7 +36,7 @@ module Network.AWS.EC2.V2014_06_15.CopyImage
     -- * Request
       CopyImage
     -- ** Request constructor
-    , copyImage
+    , mkCopyImageRequest
     -- ** Request lenses
     , cirSourceRegion
     , cirSourceImageId
@@ -54,18 +54,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CopyImage' request.
-copyImage :: Text -- ^ 'cirSourceRegion'
-          -> Text -- ^ 'cirSourceImageId'
-          -> CopyImage
-copyImage p1 p2 = CopyImage
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyImage' request.
+mkCopyImageRequest :: Text -- ^ 'cirSourceRegion'
+                   -> Text -- ^ 'cirSourceImageId'
+                   -> CopyImage
+mkCopyImageRequest p1 p2 = CopyImage
     { _cirSourceRegion = p1
     , _cirSourceImageId = p2
     , _cirName = Nothing
     , _cirDescription = Nothing
     , _cirClientToken = Nothing
     }
-{-# INLINE copyImage #-}
+{-# INLINE mkCopyImageRequest #-}
 
 data CopyImage = CopyImage
     { _cirSourceRegion :: Text
@@ -85,54 +86,42 @@ data CopyImage = CopyImage
 
 -- | The name of the region that contains the AMI to copy.
 cirSourceRegion :: Lens' CopyImage (Text)
-cirSourceRegion f x =
-    f (_cirSourceRegion x)
-        <&> \y -> x { _cirSourceRegion = y }
+cirSourceRegion = lens _cirSourceRegion (\s a -> s { _cirSourceRegion = a })
 {-# INLINE cirSourceRegion #-}
 
 -- | The ID of the AMI to copy.
 cirSourceImageId :: Lens' CopyImage (Text)
-cirSourceImageId f x =
-    f (_cirSourceImageId x)
-        <&> \y -> x { _cirSourceImageId = y }
+cirSourceImageId = lens _cirSourceImageId (\s a -> s { _cirSourceImageId = a })
 {-# INLINE cirSourceImageId #-}
 
 -- | The name of the new AMI in the destination region.
 cirName :: Lens' CopyImage (Maybe Text)
-cirName f x =
-    f (_cirName x)
-        <&> \y -> x { _cirName = y }
+cirName = lens _cirName (\s a -> s { _cirName = a })
 {-# INLINE cirName #-}
 
 -- | A description for the new AMI in the destination region.
 cirDescription :: Lens' CopyImage (Maybe Text)
-cirDescription f x =
-    f (_cirDescription x)
-        <&> \y -> x { _cirDescription = y }
+cirDescription = lens _cirDescription (\s a -> s { _cirDescription = a })
 {-# INLINE cirDescription #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the
 -- request. For more information, see How to Ensure Idempotency in the Amazon
 -- Elastic Compute Cloud User Guide.
 cirClientToken :: Lens' CopyImage (Maybe Text)
-cirClientToken f x =
-    f (_cirClientToken x)
-        <&> \y -> x { _cirClientToken = y }
+cirClientToken = lens _cirClientToken (\s a -> s { _cirClientToken = a })
 {-# INLINE cirClientToken #-}
 
 instance ToQuery CopyImage where
     toQuery = genericQuery def
 
-data CopyImageResponse = CopyImageResponse
+newtype CopyImageResponse = CopyImageResponse
     { _cisImageId :: Maybe Text
       -- ^ The ID of the new AMI.
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
 cisImageId :: Lens' CopyImageResponse (Maybe Text)
-cisImageId f x =
-    f (_cisImageId x)
-        <&> \y -> x { _cisImageId = y }
+cisImageId = lens _cisImageId (\s a -> s { _cisImageId = a })
 {-# INLINE cisImageId #-}
 
 instance FromXML CopyImageResponse where

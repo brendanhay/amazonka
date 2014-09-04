@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.V2013_06_30.ListGateways
     -- * Request
       ListGateways
     -- ** Request constructor
-    , listGateways
+    , mkListGatewaysInput
     -- ** Request lenses
     , lgiMarker
     , lgiLimit
@@ -61,13 +61,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListGateways' request.
-listGateways :: ListGateways
-listGateways = ListGateways
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGateways' request.
+mkListGatewaysInput :: ListGateways
+mkListGatewaysInput = ListGateways
     { _lgiMarker = Nothing
     , _lgiLimit = Nothing
     }
-{-# INLINE listGateways #-}
+{-# INLINE mkListGatewaysInput #-}
 
 data ListGateways = ListGateways
     { _lgiMarker :: Maybe Text
@@ -81,17 +82,13 @@ data ListGateways = ListGateways
 -- | An opaque string that indicates the position at which to begin the returned
 -- list of gateways.
 lgiMarker :: Lens' ListGateways (Maybe Text)
-lgiMarker f x =
-    f (_lgiMarker x)
-        <&> \y -> x { _lgiMarker = y }
+lgiMarker = lens _lgiMarker (\s a -> s { _lgiMarker = a })
 {-# INLINE lgiMarker #-}
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
 lgiLimit :: Lens' ListGateways (Maybe Integer)
-lgiLimit f x =
-    f (_lgiLimit x)
-        <&> \y -> x { _lgiLimit = y }
+lgiLimit = lens _lgiLimit (\s a -> s { _lgiLimit = a })
 {-# INLINE lgiLimit #-}
 
 instance ToPath ListGateways
@@ -108,15 +105,11 @@ data ListGatewaysResponse = ListGatewaysResponse
     } deriving (Show, Generic)
 
 lgoGateways :: Lens' ListGatewaysResponse ([GatewayInformation])
-lgoGateways f x =
-    f (_lgoGateways x)
-        <&> \y -> x { _lgoGateways = y }
+lgoGateways = lens _lgoGateways (\s a -> s { _lgoGateways = a })
 {-# INLINE lgoGateways #-}
 
 lgoMarker :: Lens' ListGatewaysResponse (Maybe Text)
-lgoMarker f x =
-    f (_lgoMarker x)
-        <&> \y -> x { _lgoMarker = y }
+lgoMarker = lens _lgoMarker (\s a -> s { _lgoMarker = a })
 {-# INLINE lgoMarker #-}
 
 instance FromJSON ListGatewaysResponse

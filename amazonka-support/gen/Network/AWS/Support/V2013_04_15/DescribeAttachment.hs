@@ -27,7 +27,7 @@ module Network.AWS.Support.V2013_04_15.DescribeAttachment
     -- * Request
       DescribeAttachment
     -- ** Request constructor
-    , describeAttachment
+    , mkDescribeAttachmentRequest
     -- ** Request lenses
     , darAttachmentId
 
@@ -42,15 +42,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeAttachment' request.
-describeAttachment :: Text -- ^ 'darAttachmentId'
-                   -> DescribeAttachment
-describeAttachment p1 = DescribeAttachment
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAttachment' request.
+mkDescribeAttachmentRequest :: Text -- ^ 'darAttachmentId'
+                            -> DescribeAttachment
+mkDescribeAttachmentRequest p1 = DescribeAttachment
     { _darAttachmentId = p1
     }
-{-# INLINE describeAttachment #-}
+{-# INLINE mkDescribeAttachmentRequest #-}
 
-data DescribeAttachment = DescribeAttachment
+newtype DescribeAttachment = DescribeAttachment
     { _darAttachmentId :: Text
       -- ^ The ID of the attachment to return. Attachment IDs are returned
       -- by the DescribeCommunications operation.
@@ -59,9 +60,7 @@ data DescribeAttachment = DescribeAttachment
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
 darAttachmentId :: Lens' DescribeAttachment (Text)
-darAttachmentId f x =
-    f (_darAttachmentId x)
-        <&> \y -> x { _darAttachmentId = y }
+darAttachmentId = lens _darAttachmentId (\s a -> s { _darAttachmentId = a })
 {-# INLINE darAttachmentId #-}
 
 instance ToPath DescribeAttachment
@@ -72,16 +71,14 @@ instance ToHeaders DescribeAttachment
 
 instance ToJSON DescribeAttachment
 
-data DescribeAttachmentResponse = DescribeAttachmentResponse
+newtype DescribeAttachmentResponse = DescribeAttachmentResponse
     { _dasAttachment :: Maybe Attachment
       -- ^ The attachment content and file name.
     } deriving (Show, Generic)
 
 -- | The attachment content and file name.
 dasAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
-dasAttachment f x =
-    f (_dasAttachment x)
-        <&> \y -> x { _dasAttachment = y }
+dasAttachment = lens _dasAttachment (\s a -> s { _dasAttachment = a })
 {-# INLINE dasAttachment #-}
 
 instance FromJSON DescribeAttachmentResponse

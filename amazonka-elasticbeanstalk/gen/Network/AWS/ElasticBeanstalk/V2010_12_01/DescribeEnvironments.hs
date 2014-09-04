@@ -30,14 +30,14 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments
     -- * Request
       DescribeEnvironments
     -- ** Request constructor
-    , describeEnvironments
+    , mkDescribeEnvironmentsMessage
     -- ** Request lenses
     , demApplicationName
+    , demVersionLabel
     , demEnvironmentIds
     , demEnvironmentNames
     , demIncludeDeleted
     , demIncludedDeletedBackTo
-    , demVersionLabel
 
     -- * Response
     , DescribeEnvironmentsResponse
@@ -49,23 +49,28 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeEnvironments' request.
-describeEnvironments :: DescribeEnvironments
-describeEnvironments = DescribeEnvironments
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEnvironments' request.
+mkDescribeEnvironmentsMessage :: DescribeEnvironments
+mkDescribeEnvironmentsMessage = DescribeEnvironments
     { _demApplicationName = Nothing
+    , _demVersionLabel = Nothing
     , _demEnvironmentIds = mempty
     , _demEnvironmentNames = mempty
     , _demIncludeDeleted = Nothing
     , _demIncludedDeletedBackTo = Nothing
-    , _demVersionLabel = Nothing
     }
-{-# INLINE describeEnvironments #-}
+{-# INLINE mkDescribeEnvironmentsMessage #-}
 
 data DescribeEnvironments = DescribeEnvironments
     { _demApplicationName :: Maybe Text
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to include only those that are associated with this
       -- application.
+    , _demVersionLabel :: Maybe Text
+      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
+      -- descriptions to include only those that are associated with this
+      -- application version.
     , _demEnvironmentIds :: [Text]
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to include only those that have the specified IDs.
@@ -79,74 +84,56 @@ data DescribeEnvironments = DescribeEnvironments
     , _demIncludedDeletedBackTo :: Maybe ISO8601
       -- ^ If specified when IncludeDeleted is set to true, then
       -- environments deleted after this date are displayed.
-    , _demVersionLabel :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to include only those that are associated with this
-      -- application version.
     } deriving (Show, Generic)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that are associated with this application.
 demApplicationName :: Lens' DescribeEnvironments (Maybe Text)
-demApplicationName f x =
-    f (_demApplicationName x)
-        <&> \y -> x { _demApplicationName = y }
+demApplicationName = lens _demApplicationName (\s a -> s { _demApplicationName = a })
 {-# INLINE demApplicationName #-}
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- include only those that are associated with this application version.
+demVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
+demVersionLabel = lens _demVersionLabel (\s a -> s { _demVersionLabel = a })
+{-# INLINE demVersionLabel #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that have the specified IDs.
 demEnvironmentIds :: Lens' DescribeEnvironments ([Text])
-demEnvironmentIds f x =
-    f (_demEnvironmentIds x)
-        <&> \y -> x { _demEnvironmentIds = y }
+demEnvironmentIds = lens _demEnvironmentIds (\s a -> s { _demEnvironmentIds = a })
 {-# INLINE demEnvironmentIds #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that have the specified names.
 demEnvironmentNames :: Lens' DescribeEnvironments ([Text])
-demEnvironmentNames f x =
-    f (_demEnvironmentNames x)
-        <&> \y -> x { _demEnvironmentNames = y }
+demEnvironmentNames = lens _demEnvironmentNames (\s a -> s { _demEnvironmentNames = a })
 {-# INLINE demEnvironmentNames #-}
 
 -- | Indicates whether to include deleted environments: true: Environments that
 -- have been deleted after IncludedDeletedBackTo are displayed. false: Do not
 -- include deleted environments.
 demIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
-demIncludeDeleted f x =
-    f (_demIncludeDeleted x)
-        <&> \y -> x { _demIncludeDeleted = y }
+demIncludeDeleted = lens _demIncludeDeleted (\s a -> s { _demIncludeDeleted = a })
 {-# INLINE demIncludeDeleted #-}
 
 -- | If specified when IncludeDeleted is set to true, then environments deleted
 -- after this date are displayed.
 demIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe ISO8601)
-demIncludedDeletedBackTo f x =
-    f (_demIncludedDeletedBackTo x)
-        <&> \y -> x { _demIncludedDeletedBackTo = y }
+demIncludedDeletedBackTo = lens _demIncludedDeletedBackTo (\s a -> s { _demIncludedDeletedBackTo = a })
 {-# INLINE demIncludedDeletedBackTo #-}
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- include only those that are associated with this application version.
-demVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
-demVersionLabel f x =
-    f (_demVersionLabel x)
-        <&> \y -> x { _demVersionLabel = y }
-{-# INLINE demVersionLabel #-}
 
 instance ToQuery DescribeEnvironments where
     toQuery = genericQuery def
 
-data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
+newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _edmEnvironments :: [EnvironmentDescription]
       -- ^ Returns an EnvironmentDescription list.
     } deriving (Show, Generic)
 
 -- | Returns an EnvironmentDescription list.
 edmEnvironments :: Lens' DescribeEnvironmentsResponse ([EnvironmentDescription])
-edmEnvironments f x =
-    f (_edmEnvironments x)
-        <&> \y -> x { _edmEnvironments = y }
+edmEnvironments = lens _edmEnvironments (\s a -> s { _edmEnvironments = a })
 {-# INLINE edmEnvironments #-}
 
 instance FromXML DescribeEnvironmentsResponse where

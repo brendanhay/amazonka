@@ -25,14 +25,14 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
     -- * Request
       DescribeAlarms
     -- ** Request constructor
-    , describeAlarms
+    , mkDescribeAlarmsInput
     -- ** Request lenses
-    , dajActionPrefix
-    , dajAlarmNamePrefix
     , dajAlarmNames
+    , dajAlarmNamePrefix
+    , dajStateValue
+    , dajActionPrefix
     , dajMaxRecords
     , dajNextToken
-    , dajStateValue
 
     -- * Response
     , DescribeAlarmsResponse
@@ -45,78 +45,67 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAlarms' request.
-describeAlarms :: DescribeAlarms
-describeAlarms = DescribeAlarms
-    { _dajActionPrefix = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAlarms' request.
+mkDescribeAlarmsInput :: DescribeAlarms
+mkDescribeAlarmsInput = DescribeAlarms
+    { _dajAlarmNames = mempty
     , _dajAlarmNamePrefix = Nothing
-    , _dajAlarmNames = mempty
+    , _dajStateValue = Nothing
+    , _dajActionPrefix = Nothing
     , _dajMaxRecords = Nothing
     , _dajNextToken = Nothing
-    , _dajStateValue = Nothing
     }
-{-# INLINE describeAlarms #-}
+{-# INLINE mkDescribeAlarmsInput #-}
 
 data DescribeAlarms = DescribeAlarms
-    { _dajActionPrefix :: Maybe Text
-      -- ^ The action name prefix.
+    { _dajAlarmNames :: [Text]
+      -- ^ A list of alarm names to retrieve information for.
     , _dajAlarmNamePrefix :: Maybe Text
       -- ^ The alarm name prefix. AlarmNames cannot be specified if this
       -- parameter is specified.
-    , _dajAlarmNames :: [Text]
-      -- ^ A list of alarm names to retrieve information for.
+    , _dajStateValue :: Maybe StateValue
+      -- ^ The state value to be used in matching alarms.
+    , _dajActionPrefix :: Maybe Text
+      -- ^ The action name prefix.
     , _dajMaxRecords :: Maybe Integer
       -- ^ The maximum number of alarm descriptions to retrieve.
     , _dajNextToken :: Maybe Text
       -- ^ The token returned by a previous call to indicate that there is
       -- more data available.
-    , _dajStateValue :: Maybe StateValue
-      -- ^ The state value to be used in matching alarms.
     } deriving (Show, Generic)
 
--- | The action name prefix.
-dajActionPrefix :: Lens' DescribeAlarms (Maybe Text)
-dajActionPrefix f x =
-    f (_dajActionPrefix x)
-        <&> \y -> x { _dajActionPrefix = y }
-{-# INLINE dajActionPrefix #-}
+-- | A list of alarm names to retrieve information for.
+dajAlarmNames :: Lens' DescribeAlarms ([Text])
+dajAlarmNames = lens _dajAlarmNames (\s a -> s { _dajAlarmNames = a })
+{-# INLINE dajAlarmNames #-}
 
 -- | The alarm name prefix. AlarmNames cannot be specified if this parameter is
 -- specified.
 dajAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
-dajAlarmNamePrefix f x =
-    f (_dajAlarmNamePrefix x)
-        <&> \y -> x { _dajAlarmNamePrefix = y }
+dajAlarmNamePrefix = lens _dajAlarmNamePrefix (\s a -> s { _dajAlarmNamePrefix = a })
 {-# INLINE dajAlarmNamePrefix #-}
 
--- | A list of alarm names to retrieve information for.
-dajAlarmNames :: Lens' DescribeAlarms ([Text])
-dajAlarmNames f x =
-    f (_dajAlarmNames x)
-        <&> \y -> x { _dajAlarmNames = y }
-{-# INLINE dajAlarmNames #-}
+-- | The state value to be used in matching alarms.
+dajStateValue :: Lens' DescribeAlarms (Maybe StateValue)
+dajStateValue = lens _dajStateValue (\s a -> s { _dajStateValue = a })
+{-# INLINE dajStateValue #-}
+
+-- | The action name prefix.
+dajActionPrefix :: Lens' DescribeAlarms (Maybe Text)
+dajActionPrefix = lens _dajActionPrefix (\s a -> s { _dajActionPrefix = a })
+{-# INLINE dajActionPrefix #-}
 
 -- | The maximum number of alarm descriptions to retrieve.
 dajMaxRecords :: Lens' DescribeAlarms (Maybe Integer)
-dajMaxRecords f x =
-    f (_dajMaxRecords x)
-        <&> \y -> x { _dajMaxRecords = y }
+dajMaxRecords = lens _dajMaxRecords (\s a -> s { _dajMaxRecords = a })
 {-# INLINE dajMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
 dajNextToken :: Lens' DescribeAlarms (Maybe Text)
-dajNextToken f x =
-    f (_dajNextToken x)
-        <&> \y -> x { _dajNextToken = y }
+dajNextToken = lens _dajNextToken (\s a -> s { _dajNextToken = a })
 {-# INLINE dajNextToken #-}
-
--- | The state value to be used in matching alarms.
-dajStateValue :: Lens' DescribeAlarms (Maybe StateValue)
-dajStateValue f x =
-    f (_dajStateValue x)
-        <&> \y -> x { _dajStateValue = y }
-{-# INLINE dajStateValue #-}
 
 instance ToQuery DescribeAlarms where
     toQuery = genericQuery def
@@ -131,16 +120,12 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse
 
 -- | A list of information for the specified alarms.
 daoMetricAlarms :: Lens' DescribeAlarmsResponse ([MetricAlarm])
-daoMetricAlarms f x =
-    f (_daoMetricAlarms x)
-        <&> \y -> x { _daoMetricAlarms = y }
+daoMetricAlarms = lens _daoMetricAlarms (\s a -> s { _daoMetricAlarms = a })
 {-# INLINE daoMetricAlarms #-}
 
 -- | A string that marks the start of the next batch of returned results.
 daoNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
-daoNextToken f x =
-    f (_daoNextToken x)
-        <&> \y -> x { _daoNextToken = y }
+daoNextToken = lens _daoNextToken (\s a -> s { _daoNextToken = a })
 {-# INLINE daoNextToken #-}
 
 instance FromXML DescribeAlarmsResponse where

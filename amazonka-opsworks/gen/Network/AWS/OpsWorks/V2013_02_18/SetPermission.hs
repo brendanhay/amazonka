@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.SetPermission
     -- * Request
       SetPermission
     -- ** Request constructor
-    , setPermission
+    , mkSetPermissionRequest
     -- ** Request lenses
     , sprStackId
     , sprIamUserArn
@@ -44,18 +44,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetPermission' request.
-setPermission :: Text -- ^ 'sprStackId'
-              -> Text -- ^ 'sprIamUserArn'
-              -> SetPermission
-setPermission p1 p2 = SetPermission
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetPermission' request.
+mkSetPermissionRequest :: Text -- ^ 'sprStackId'
+                       -> Text -- ^ 'sprIamUserArn'
+                       -> SetPermission
+mkSetPermissionRequest p1 p2 = SetPermission
     { _sprStackId = p1
     , _sprIamUserArn = p2
     , _sprAllowSsh = Nothing
     , _sprAllowSudo = Nothing
     , _sprLevel = Nothing
     }
-{-# INLINE setPermission #-}
+{-# INLINE mkSetPermissionRequest #-}
 
 data SetPermission = SetPermission
     { _sprStackId :: Text
@@ -76,30 +77,22 @@ data SetPermission = SetPermission
 
 -- | The stack ID.
 sprStackId :: Lens' SetPermission (Text)
-sprStackId f x =
-    f (_sprStackId x)
-        <&> \y -> x { _sprStackId = y }
+sprStackId = lens _sprStackId (\s a -> s { _sprStackId = a })
 {-# INLINE sprStackId #-}
 
 -- | The user's IAM ARN.
 sprIamUserArn :: Lens' SetPermission (Text)
-sprIamUserArn f x =
-    f (_sprIamUserArn x)
-        <&> \y -> x { _sprIamUserArn = y }
+sprIamUserArn = lens _sprIamUserArn (\s a -> s { _sprIamUserArn = a })
 {-# INLINE sprIamUserArn #-}
 
 -- | The user is allowed to use SSH to communicate with the instance.
 sprAllowSsh :: Lens' SetPermission (Maybe Bool)
-sprAllowSsh f x =
-    f (_sprAllowSsh x)
-        <&> \y -> x { _sprAllowSsh = y }
+sprAllowSsh = lens _sprAllowSsh (\s a -> s { _sprAllowSsh = a })
 {-# INLINE sprAllowSsh #-}
 
 -- | The user is allowed to use sudo to elevate privileges.
 sprAllowSudo :: Lens' SetPermission (Maybe Bool)
-sprAllowSudo f x =
-    f (_sprAllowSudo x)
-        <&> \y -> x { _sprAllowSudo = y }
+sprAllowSudo = lens _sprAllowSudo (\s a -> s { _sprAllowSudo = a })
 {-# INLINE sprAllowSudo #-}
 
 -- | The user's permission level, which must be set to one of the following
@@ -107,9 +100,7 @@ sprAllowSudo f x =
 -- iam_only For more information on the permissions associated with these
 -- levels, see Managing User Permissions.
 sprLevel :: Lens' SetPermission (Maybe Text)
-sprLevel f x =
-    f (_sprLevel x)
-        <&> \y -> x { _sprLevel = y }
+sprLevel = lens _sprLevel (\s a -> s { _sprLevel = a })
 {-# INLINE sprLevel #-}
 
 instance ToPath SetPermission

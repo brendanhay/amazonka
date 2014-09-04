@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
     -- * Request
       DeleteLaunchConfiguration
     -- ** Request constructor
-    , deleteLaunchConfiguration
+    , mkLaunchConfigurationNameType
     -- ** Request lenses
     , lcntLaunchConfigurationName
 
@@ -40,24 +40,23 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteLaunchConfiguration' request.
-deleteLaunchConfiguration :: Text -- ^ 'lcntLaunchConfigurationName'
-                          -> DeleteLaunchConfiguration
-deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLaunchConfiguration' request.
+mkLaunchConfigurationNameType :: Text -- ^ 'lcntLaunchConfigurationName'
+                              -> DeleteLaunchConfiguration
+mkLaunchConfigurationNameType p1 = DeleteLaunchConfiguration
     { _lcntLaunchConfigurationName = p1
     }
-{-# INLINE deleteLaunchConfiguration #-}
+{-# INLINE mkLaunchConfigurationNameType #-}
 
-data DeleteLaunchConfiguration = DeleteLaunchConfiguration
+newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _lcntLaunchConfigurationName :: Text
       -- ^ The name of the launch configuration.
     } deriving (Show, Generic)
 
 -- | The name of the launch configuration.
 lcntLaunchConfigurationName :: Lens' DeleteLaunchConfiguration (Text)
-lcntLaunchConfigurationName f x =
-    f (_lcntLaunchConfigurationName x)
-        <&> \y -> x { _lcntLaunchConfigurationName = y }
+lcntLaunchConfigurationName = lens _lcntLaunchConfigurationName (\s a -> s { _lcntLaunchConfigurationName = a })
 {-# INLINE lcntLaunchConfigurationName #-}
 
 instance ToQuery DeleteLaunchConfiguration where

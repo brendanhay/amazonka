@@ -30,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.CancelExportTask
     -- * Request
       CancelExportTask
     -- ** Request constructor
-    , cancelExportTask
+    , mkCancelExportTaskRequest
     -- ** Request lenses
     , cetrExportTaskId
 
@@ -42,15 +42,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CancelExportTask' request.
-cancelExportTask :: Text -- ^ 'cetrExportTaskId'
-                 -> CancelExportTask
-cancelExportTask p1 = CancelExportTask
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelExportTask' request.
+mkCancelExportTaskRequest :: Text -- ^ 'cetrExportTaskId'
+                          -> CancelExportTask
+mkCancelExportTaskRequest p1 = CancelExportTask
     { _cetrExportTaskId = p1
     }
-{-# INLINE cancelExportTask #-}
+{-# INLINE mkCancelExportTaskRequest #-}
 
-data CancelExportTask = CancelExportTask
+newtype CancelExportTask = CancelExportTask
     { _cetrExportTaskId :: Text
       -- ^ The ID of the export task. This is the ID returned by
       -- CreateInstanceExportTask.
@@ -59,9 +60,7 @@ data CancelExportTask = CancelExportTask
 -- | The ID of the export task. This is the ID returned by
 -- CreateInstanceExportTask.
 cetrExportTaskId :: Lens' CancelExportTask (Text)
-cetrExportTaskId f x =
-    f (_cetrExportTaskId x)
-        <&> \y -> x { _cetrExportTaskId = y }
+cetrExportTaskId = lens _cetrExportTaskId (\s a -> s { _cetrExportTaskId = a })
 {-# INLINE cetrExportTaskId #-}
 
 instance ToQuery CancelExportTask where

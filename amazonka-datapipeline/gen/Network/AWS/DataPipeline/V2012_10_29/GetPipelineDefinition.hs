@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
     -- * Request
       GetPipelineDefinition
     -- ** Request constructor
-    , getPipelineDefinition
+    , mkGetPipelineDefinitionInput
     -- ** Request lenses
     , gpdiPipelineId
     , gpdiVersion
@@ -57,14 +57,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetPipelineDefinition' request.
-getPipelineDefinition :: Text -- ^ 'gpdiPipelineId'
-                      -> GetPipelineDefinition
-getPipelineDefinition p1 = GetPipelineDefinition
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPipelineDefinition' request.
+mkGetPipelineDefinitionInput :: Text -- ^ 'gpdiPipelineId'
+                             -> GetPipelineDefinition
+mkGetPipelineDefinitionInput p1 = GetPipelineDefinition
     { _gpdiPipelineId = p1
     , _gpdiVersion = Nothing
     }
-{-# INLINE getPipelineDefinition #-}
+{-# INLINE mkGetPipelineDefinitionInput #-}
 
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdiPipelineId :: Text
@@ -79,9 +80,7 @@ data GetPipelineDefinition = GetPipelineDefinition
 
 -- | The identifier of the pipeline.
 gpdiPipelineId :: Lens' GetPipelineDefinition (Text)
-gpdiPipelineId f x =
-    f (_gpdiPipelineId x)
-        <&> \y -> x { _gpdiPipelineId = y }
+gpdiPipelineId = lens _gpdiPipelineId (\s a -> s { _gpdiPipelineId = a })
 {-# INLINE gpdiPipelineId #-}
 
 -- | The version of the pipeline definition to retrieve. This parameter accepts
@@ -89,9 +88,7 @@ gpdiPipelineId f x =
 -- definition saved to the pipeline and active indicates the last definition
 -- of the pipeline that was activated.
 gpdiVersion :: Lens' GetPipelineDefinition (Maybe Text)
-gpdiVersion f x =
-    f (_gpdiVersion x)
-        <&> \y -> x { _gpdiVersion = y }
+gpdiVersion = lens _gpdiVersion (\s a -> s { _gpdiVersion = a })
 {-# INLINE gpdiVersion #-}
 
 instance ToPath GetPipelineDefinition
@@ -102,16 +99,14 @@ instance ToHeaders GetPipelineDefinition
 
 instance ToJSON GetPipelineDefinition
 
-data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
+newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdoPipelineObjects :: [PipelineObject]
       -- ^ An array of objects defined in the pipeline.
     } deriving (Show, Generic)
 
 -- | An array of objects defined in the pipeline.
 gpdoPipelineObjects :: Lens' GetPipelineDefinitionResponse ([PipelineObject])
-gpdoPipelineObjects f x =
-    f (_gpdoPipelineObjects x)
-        <&> \y -> x { _gpdoPipelineObjects = y }
+gpdoPipelineObjects = lens _gpdoPipelineObjects (\s a -> s { _gpdoPipelineObjects = a })
 {-# INLINE gpdoPipelineObjects #-}
 
 instance FromJSON GetPipelineDefinitionResponse

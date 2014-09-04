@@ -60,14 +60,14 @@ module Network.AWS.SQS.V2012_11_05.ReceiveMessage
     -- * Request
       ReceiveMessage
     -- ** Request constructor
-    , receiveMessage
+    , mkReceiveMessageRequest
     -- ** Request lenses
     , rmrQueueUrl
     , rmrAttributeNames
+    , rmrMessageAttributeNames
     , rmrMaxNumberOfMessages
     , rmrVisibilityTimeout
     , rmrWaitTimeSeconds
-    , rmrMessageAttributeNames
 
     -- * Response
     , ReceiveMessageResponse
@@ -79,18 +79,19 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReceiveMessage' request.
-receiveMessage :: Text -- ^ 'rmrQueueUrl'
-               -> ReceiveMessage
-receiveMessage p1 = ReceiveMessage
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReceiveMessage' request.
+mkReceiveMessageRequest :: Text -- ^ 'rmrQueueUrl'
+                        -> ReceiveMessage
+mkReceiveMessageRequest p1 = ReceiveMessage
     { _rmrQueueUrl = p1
     , _rmrAttributeNames = mempty
+    , _rmrMessageAttributeNames = mempty
     , _rmrMaxNumberOfMessages = Nothing
     , _rmrVisibilityTimeout = Nothing
     , _rmrWaitTimeSeconds = Nothing
-    , _rmrMessageAttributeNames = mempty
     }
-{-# INLINE receiveMessage #-}
+{-# INLINE mkReceiveMessageRequest #-}
 
 data ReceiveMessage = ReceiveMessage
     { _rmrQueueUrl :: Text
@@ -106,6 +107,16 @@ data ReceiveMessage = ReceiveMessage
       -- account number (or the IP address, if anonymous access is
       -- allowed) of the sender. SentTimestamp - returns the time when the
       -- message was sent (epoch time in milliseconds).
+    , _rmrMessageAttributeNames :: [Text]
+      -- ^ The message attribute Name can contain the following characters:
+      -- A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The
+      -- message attribute name must not start or end with a period, and
+      -- it should not have successive periods. The message attribute name
+      -- is case sensitive and must be unique among all attribute names
+      -- for the message. The message attribute name can be up to 256
+      -- characters long. Attribute names cannot start with "AWS." or
+      -- "Amazon." because these prefixes are reserved for use by Amazon
+      -- Web Services.
     , _rmrMaxNumberOfMessages :: Maybe Integer
       -- ^ The maximum number of messages to return. Amazon SQS never
       -- returns more messages than this value but may return fewer.
@@ -119,23 +130,11 @@ data ReceiveMessage = ReceiveMessage
       -- ^ The duration (in seconds) for which the call will wait for a
       -- message to arrive in the queue before returning. If a message is
       -- available, the call will return sooner than WaitTimeSeconds.
-    , _rmrMessageAttributeNames :: [Text]
-      -- ^ The message attribute Name can contain the following characters:
-      -- A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The
-      -- message attribute name must not start or end with a period, and
-      -- it should not have successive periods. The message attribute name
-      -- is case sensitive and must be unique among all attribute names
-      -- for the message. The message attribute name can be up to 256
-      -- characters long. Attribute names cannot start with "AWS." or
-      -- "Amazon." because these prefixes are reserved for use by Amazon
-      -- Web Services.
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
 rmrQueueUrl :: Lens' ReceiveMessage (Text)
-rmrQueueUrl f x =
-    f (_rmrQueueUrl x)
-        <&> \y -> x { _rmrQueueUrl = y }
+rmrQueueUrl = lens _rmrQueueUrl (\s a -> s { _rmrQueueUrl = a })
 {-# INLINE rmrQueueUrl #-}
 
 -- | A list of attributes that need to be returned along with each message. The
@@ -148,37 +147,8 @@ rmrQueueUrl f x =
 -- sender. SentTimestamp - returns the time when the message was sent (epoch
 -- time in milliseconds).
 rmrAttributeNames :: Lens' ReceiveMessage ([QueueAttributeName])
-rmrAttributeNames f x =
-    f (_rmrAttributeNames x)
-        <&> \y -> x { _rmrAttributeNames = y }
+rmrAttributeNames = lens _rmrAttributeNames (\s a -> s { _rmrAttributeNames = a })
 {-# INLINE rmrAttributeNames #-}
-
--- | The maximum number of messages to return. Amazon SQS never returns more
--- messages than this value but may return fewer. Values can be from 1 to 10.
--- Default is 1. All of the messages are not necessarily returned.
-rmrMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Integer)
-rmrMaxNumberOfMessages f x =
-    f (_rmrMaxNumberOfMessages x)
-        <&> \y -> x { _rmrMaxNumberOfMessages = y }
-{-# INLINE rmrMaxNumberOfMessages #-}
-
--- | The duration (in seconds) that the received messages are hidden from
--- subsequent retrieve requests after being retrieved by a ReceiveMessage
--- request.
-rmrVisibilityTimeout :: Lens' ReceiveMessage (Maybe Integer)
-rmrVisibilityTimeout f x =
-    f (_rmrVisibilityTimeout x)
-        <&> \y -> x { _rmrVisibilityTimeout = y }
-{-# INLINE rmrVisibilityTimeout #-}
-
--- | The duration (in seconds) for which the call will wait for a message to
--- arrive in the queue before returning. If a message is available, the call
--- will return sooner than WaitTimeSeconds.
-rmrWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Integer)
-rmrWaitTimeSeconds f x =
-    f (_rmrWaitTimeSeconds x)
-        <&> \y -> x { _rmrWaitTimeSeconds = y }
-{-# INLINE rmrWaitTimeSeconds #-}
 
 -- | The message attribute Name can contain the following characters: A-Z, a-z,
 -- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name
@@ -189,24 +159,41 @@ rmrWaitTimeSeconds f x =
 -- "Amazon." because these prefixes are reserved for use by Amazon Web
 -- Services.
 rmrMessageAttributeNames :: Lens' ReceiveMessage ([Text])
-rmrMessageAttributeNames f x =
-    f (_rmrMessageAttributeNames x)
-        <&> \y -> x { _rmrMessageAttributeNames = y }
+rmrMessageAttributeNames = lens _rmrMessageAttributeNames (\s a -> s { _rmrMessageAttributeNames = a })
 {-# INLINE rmrMessageAttributeNames #-}
+
+-- | The maximum number of messages to return. Amazon SQS never returns more
+-- messages than this value but may return fewer. Values can be from 1 to 10.
+-- Default is 1. All of the messages are not necessarily returned.
+rmrMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Integer)
+rmrMaxNumberOfMessages = lens _rmrMaxNumberOfMessages (\s a -> s { _rmrMaxNumberOfMessages = a })
+{-# INLINE rmrMaxNumberOfMessages #-}
+
+-- | The duration (in seconds) that the received messages are hidden from
+-- subsequent retrieve requests after being retrieved by a ReceiveMessage
+-- request.
+rmrVisibilityTimeout :: Lens' ReceiveMessage (Maybe Integer)
+rmrVisibilityTimeout = lens _rmrVisibilityTimeout (\s a -> s { _rmrVisibilityTimeout = a })
+{-# INLINE rmrVisibilityTimeout #-}
+
+-- | The duration (in seconds) for which the call will wait for a message to
+-- arrive in the queue before returning. If a message is available, the call
+-- will return sooner than WaitTimeSeconds.
+rmrWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Integer)
+rmrWaitTimeSeconds = lens _rmrWaitTimeSeconds (\s a -> s { _rmrWaitTimeSeconds = a })
+{-# INLINE rmrWaitTimeSeconds #-}
 
 instance ToQuery ReceiveMessage where
     toQuery = genericQuery def
 
-data ReceiveMessageResponse = ReceiveMessageResponse
+newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmsMessages :: [Message]
       -- ^ A list of messages.
     } deriving (Show, Generic)
 
 -- | A list of messages.
 rmsMessages :: Lens' ReceiveMessageResponse ([Message])
-rmsMessages f x =
-    f (_rmsMessages x)
-        <&> \y -> x { _rmsMessages = y }
+rmsMessages = lens _rmsMessages (\s a -> s { _rmsMessages = a })
 {-# INLINE rmsMessages #-}
 
 instance FromXML ReceiveMessageResponse where

@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
     -- * Request
       DescribeAutoScalingInstances
     -- ** Request constructor
-    , describeAutoScalingInstances
+    , mkDescribeAutoScalingInstancesType
     -- ** Request lenses
     , dasitInstanceIds
     , dasitMaxRecords
@@ -50,14 +50,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAutoScalingInstances' request.
-describeAutoScalingInstances :: DescribeAutoScalingInstances
-describeAutoScalingInstances = DescribeAutoScalingInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingInstances' request.
+mkDescribeAutoScalingInstancesType :: DescribeAutoScalingInstances
+mkDescribeAutoScalingInstancesType = DescribeAutoScalingInstances
     { _dasitInstanceIds = mempty
     , _dasitMaxRecords = Nothing
     , _dasitNextToken = Nothing
     }
-{-# INLINE describeAutoScalingInstances #-}
+{-# INLINE mkDescribeAutoScalingInstancesType #-}
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasitInstanceIds :: [Text]
@@ -78,25 +79,19 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
 -- cannot contain more than 50 items. If unknown instances are requested, they
 -- are ignored with no error.
 dasitInstanceIds :: Lens' DescribeAutoScalingInstances ([Text])
-dasitInstanceIds f x =
-    f (_dasitInstanceIds x)
-        <&> \y -> x { _dasitInstanceIds = y }
+dasitInstanceIds = lens _dasitInstanceIds (\s a -> s { _dasitInstanceIds = a })
 {-# INLINE dasitInstanceIds #-}
 
 -- | The maximum number of Auto Scaling instances to be described with each
 -- call.
 dasitMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Integer)
-dasitMaxRecords f x =
-    f (_dasitMaxRecords x)
-        <&> \y -> x { _dasitMaxRecords = y }
+dasitMaxRecords = lens _dasitMaxRecords (\s a -> s { _dasitMaxRecords = a })
 {-# INLINE dasitMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
 dasitNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
-dasitNextToken f x =
-    f (_dasitNextToken x)
-        <&> \y -> x { _dasitNextToken = y }
+dasitNextToken = lens _dasitNextToken (\s a -> s { _dasitNextToken = a })
 {-# INLINE dasitNextToken #-}
 
 instance ToQuery DescribeAutoScalingInstances where
@@ -112,16 +107,12 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
 
 -- | A list of Auto Scaling instances.
 asitAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse ([AutoScalingInstanceDetails])
-asitAutoScalingInstances f x =
-    f (_asitAutoScalingInstances x)
-        <&> \y -> x { _asitAutoScalingInstances = y }
+asitAutoScalingInstances = lens _asitAutoScalingInstances (\s a -> s { _asitAutoScalingInstances = a })
 {-# INLINE asitAutoScalingInstances #-}
 
 -- | A string that marks the start of the next batch of returned results.
 asitNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
-asitNextToken f x =
-    f (_asitNextToken x)
-        <&> \y -> x { _asitNextToken = y }
+asitNextToken = lens _asitNextToken (\s a -> s { _asitNextToken = a })
 {-# INLINE asitNextToken #-}
 
 instance FromXML DescribeAutoScalingInstancesResponse where

@@ -22,17 +22,17 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
     -- * Request
       DescribeTapeArchives
     -- ** Request constructor
-    , describeTapeArchives
+    , mkDescribeTapeArchivesInput
     -- ** Request lenses
+    , dtajTapeARNs
     , dtajMarker
     , dtajLimit
-    , dtajTapeARNs
 
     -- * Response
     , DescribeTapeArchivesResponse
     -- ** Response lenses
-    , dtapMarker
     , dtapTapeArchives
+    , dtapMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -40,38 +40,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTapeArchives' request.
-describeTapeArchives :: DescribeTapeArchives
-describeTapeArchives = DescribeTapeArchives
-    { _dtajMarker = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapeArchives' request.
+mkDescribeTapeArchivesInput :: DescribeTapeArchives
+mkDescribeTapeArchivesInput = DescribeTapeArchives
+    { _dtajTapeARNs = mempty
+    , _dtajMarker = Nothing
     , _dtajLimit = Nothing
-    , _dtajTapeARNs = mempty
     }
-{-# INLINE describeTapeArchives #-}
+{-# INLINE mkDescribeTapeArchivesInput #-}
 
 data DescribeTapeArchives = DescribeTapeArchives
-    { _dtajMarker :: Maybe Text
+    { _dtajTapeARNs :: [Text]
+    , _dtajMarker :: Maybe Text
     , _dtajLimit :: Maybe Integer
-    , _dtajTapeARNs :: [Text]
     } deriving (Show, Generic)
 
+dtajTapeARNs :: Lens' DescribeTapeArchives ([Text])
+dtajTapeARNs = lens _dtajTapeARNs (\s a -> s { _dtajTapeARNs = a })
+{-# INLINE dtajTapeARNs #-}
+
 dtajMarker :: Lens' DescribeTapeArchives (Maybe Text)
-dtajMarker f x =
-    f (_dtajMarker x)
-        <&> \y -> x { _dtajMarker = y }
+dtajMarker = lens _dtajMarker (\s a -> s { _dtajMarker = a })
 {-# INLINE dtajMarker #-}
 
 dtajLimit :: Lens' DescribeTapeArchives (Maybe Integer)
-dtajLimit f x =
-    f (_dtajLimit x)
-        <&> \y -> x { _dtajLimit = y }
+dtajLimit = lens _dtajLimit (\s a -> s { _dtajLimit = a })
 {-# INLINE dtajLimit #-}
-
-dtajTapeARNs :: Lens' DescribeTapeArchives ([Text])
-dtajTapeARNs f x =
-    f (_dtajTapeARNs x)
-        <&> \y -> x { _dtajTapeARNs = y }
-{-# INLINE dtajTapeARNs #-}
 
 instance ToPath DescribeTapeArchives
 
@@ -82,21 +77,17 @@ instance ToHeaders DescribeTapeArchives
 instance ToJSON DescribeTapeArchives
 
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
-    { _dtapMarker :: Maybe Text
-    , _dtapTapeArchives :: [TapeArchive]
+    { _dtapTapeArchives :: [TapeArchive]
+    , _dtapMarker :: Maybe Text
     } deriving (Show, Generic)
 
-dtapMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
-dtapMarker f x =
-    f (_dtapMarker x)
-        <&> \y -> x { _dtapMarker = y }
-{-# INLINE dtapMarker #-}
-
 dtapTapeArchives :: Lens' DescribeTapeArchivesResponse ([TapeArchive])
-dtapTapeArchives f x =
-    f (_dtapTapeArchives x)
-        <&> \y -> x { _dtapTapeArchives = y }
+dtapTapeArchives = lens _dtapTapeArchives (\s a -> s { _dtapTapeArchives = a })
 {-# INLINE dtapTapeArchives #-}
+
+dtapMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
+dtapMarker = lens _dtapMarker (\s a -> s { _dtapMarker = a })
+{-# INLINE dtapMarker #-}
 
 instance FromJSON DescribeTapeArchivesResponse
 

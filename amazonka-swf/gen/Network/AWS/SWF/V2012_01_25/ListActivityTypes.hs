@@ -43,13 +43,13 @@ module Network.AWS.SWF.V2012_01_25.ListActivityTypes
     -- * Request
       ListActivityTypes
     -- ** Request constructor
-    , listActivityTypes
+    , mkListActivityTypesInput
     -- ** Request lenses
     , latiDomain
-    , latiRegistrationStatus
     , latiName
-    , latiMaximumPageSize
+    , latiRegistrationStatus
     , latiNextPageToken
+    , latiMaximumPageSize
     , latiReverseOrder
 
     -- * Response
@@ -64,28 +64,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListActivityTypes' request.
-listActivityTypes :: Text -- ^ 'latiDomain'
-                  -> RegistrationStatus -- ^ 'latiRegistrationStatus'
-                  -> ListActivityTypes
-listActivityTypes p1 p2 = ListActivityTypes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListActivityTypes' request.
+mkListActivityTypesInput :: Text -- ^ 'latiDomain'
+                         -> RegistrationStatus -- ^ 'latiRegistrationStatus'
+                         -> ListActivityTypes
+mkListActivityTypesInput p1 p2 = ListActivityTypes
     { _latiDomain = p1
-    , _latiRegistrationStatus = p2
     , _latiName = Nothing
-    , _latiMaximumPageSize = Nothing
+    , _latiRegistrationStatus = p3
     , _latiNextPageToken = Nothing
+    , _latiMaximumPageSize = Nothing
     , _latiReverseOrder = Nothing
     }
-{-# INLINE listActivityTypes #-}
+{-# INLINE mkListActivityTypesInput #-}
 
 data ListActivityTypes = ListActivityTypes
     { _latiDomain :: Text
       -- ^ The name of the domain in which the activity types have been
       -- registered.
-    , _latiRegistrationStatus :: RegistrationStatus
-      -- ^ Specifies the registration status of the activity types to list.
     , _latiName :: Maybe Text
       -- ^ If specified, only lists the activity types that have this name.
+    , _latiRegistrationStatus :: RegistrationStatus
+      -- ^ Specifies the registration status of the activity types to list.
+    , _latiNextPageToken :: Maybe Text
+      -- ^ If on a previous call to this method a NextResultToken was
+      -- returned, the results have more than one page. To get the next
+      -- page of results, repeat the call with the nextPageToken and keep
+      -- all other arguments unchanged.
     , _latiMaximumPageSize :: Maybe Integer
       -- ^ The maximum number of results returned in each page. The default
       -- is 100, but the caller can override this value to a page size
@@ -93,11 +99,6 @@ data ListActivityTypes = ListActivityTypes
       -- than 100. Note that the number of types may be less than the
       -- maxiumum page size, in which case, the returned page will have
       -- fewer results than the maximumPageSize specified.
-    , _latiNextPageToken :: Maybe Text
-      -- ^ If on a previous call to this method a NextResultToken was
-      -- returned, the results have more than one page. To get the next
-      -- page of results, repeat the call with the nextPageToken and keep
-      -- all other arguments unchanged.
     , _latiReverseOrder :: Maybe Bool
       -- ^ When set to true, returns the results in reverse order. By
       -- default the results are returned in ascending alphabetical order
@@ -106,24 +107,25 @@ data ListActivityTypes = ListActivityTypes
 
 -- | The name of the domain in which the activity types have been registered.
 latiDomain :: Lens' ListActivityTypes (Text)
-latiDomain f x =
-    f (_latiDomain x)
-        <&> \y -> x { _latiDomain = y }
+latiDomain = lens _latiDomain (\s a -> s { _latiDomain = a })
 {-# INLINE latiDomain #-}
-
--- | Specifies the registration status of the activity types to list.
-latiRegistrationStatus :: Lens' ListActivityTypes (RegistrationStatus)
-latiRegistrationStatus f x =
-    f (_latiRegistrationStatus x)
-        <&> \y -> x { _latiRegistrationStatus = y }
-{-# INLINE latiRegistrationStatus #-}
 
 -- | If specified, only lists the activity types that have this name.
 latiName :: Lens' ListActivityTypes (Maybe Text)
-latiName f x =
-    f (_latiName x)
-        <&> \y -> x { _latiName = y }
+latiName = lens _latiName (\s a -> s { _latiName = a })
 {-# INLINE latiName #-}
+
+-- | Specifies the registration status of the activity types to list.
+latiRegistrationStatus :: Lens' ListActivityTypes (RegistrationStatus)
+latiRegistrationStatus = lens _latiRegistrationStatus (\s a -> s { _latiRegistrationStatus = a })
+{-# INLINE latiRegistrationStatus #-}
+
+-- | If on a previous call to this method a NextResultToken was returned, the
+-- results have more than one page. To get the next page of results, repeat
+-- the call with the nextPageToken and keep all other arguments unchanged.
+latiNextPageToken :: Lens' ListActivityTypes (Maybe Text)
+latiNextPageToken = lens _latiNextPageToken (\s a -> s { _latiNextPageToken = a })
+{-# INLINE latiNextPageToken #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -131,27 +133,14 @@ latiName f x =
 -- number of types may be less than the maxiumum page size, in which case, the
 -- returned page will have fewer results than the maximumPageSize specified.
 latiMaximumPageSize :: Lens' ListActivityTypes (Maybe Integer)
-latiMaximumPageSize f x =
-    f (_latiMaximumPageSize x)
-        <&> \y -> x { _latiMaximumPageSize = y }
+latiMaximumPageSize = lens _latiMaximumPageSize (\s a -> s { _latiMaximumPageSize = a })
 {-# INLINE latiMaximumPageSize #-}
-
--- | If on a previous call to this method a NextResultToken was returned, the
--- results have more than one page. To get the next page of results, repeat
--- the call with the nextPageToken and keep all other arguments unchanged.
-latiNextPageToken :: Lens' ListActivityTypes (Maybe Text)
-latiNextPageToken f x =
-    f (_latiNextPageToken x)
-        <&> \y -> x { _latiNextPageToken = y }
-{-# INLINE latiNextPageToken #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- activity types.
 latiReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
-latiReverseOrder f x =
-    f (_latiReverseOrder x)
-        <&> \y -> x { _latiReverseOrder = y }
+latiReverseOrder = lens _latiReverseOrder (\s a -> s { _latiReverseOrder = a })
 {-# INLINE latiReverseOrder #-}
 
 instance ToPath ListActivityTypes
@@ -173,18 +162,14 @@ data ListActivityTypesResponse = ListActivityTypesResponse
 
 -- | List of activity type information.
 atjTypeInfos :: Lens' ListActivityTypesResponse ([ActivityTypeInfo])
-atjTypeInfos f x =
-    f (_atjTypeInfos x)
-        <&> \y -> x { _atjTypeInfos = y }
+atjTypeInfos = lens _atjTypeInfos (\s a -> s { _atjTypeInfos = a })
 {-# INLINE atjTypeInfos #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
 atjNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
-atjNextPageToken f x =
-    f (_atjNextPageToken x)
-        <&> \y -> x { _atjNextPageToken = y }
+atjNextPageToken = lens _atjNextPageToken (\s a -> s { _atjNextPageToken = a })
 {-# INLINE atjNextPageToken #-}
 
 instance FromJSON ListActivityTypesResponse

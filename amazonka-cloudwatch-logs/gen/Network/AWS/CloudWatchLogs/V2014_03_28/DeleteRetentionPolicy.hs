@@ -33,7 +33,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy
     -- * Request
       DeleteRetentionPolicy
     -- ** Request constructor
-    , deleteRetentionPolicy
+    , mkDeleteRetentionPolicyRequest
     -- ** Request lenses
     , drprLogGroupName
 
@@ -46,22 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteRetentionPolicy' request.
-deleteRetentionPolicy :: Text -- ^ 'drprLogGroupName'
-                      -> DeleteRetentionPolicy
-deleteRetentionPolicy p1 = DeleteRetentionPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRetentionPolicy' request.
+mkDeleteRetentionPolicyRequest :: Text -- ^ 'drprLogGroupName'
+                               -> DeleteRetentionPolicy
+mkDeleteRetentionPolicyRequest p1 = DeleteRetentionPolicy
     { _drprLogGroupName = p1
     }
-{-# INLINE deleteRetentionPolicy #-}
+{-# INLINE mkDeleteRetentionPolicyRequest #-}
 
-data DeleteRetentionPolicy = DeleteRetentionPolicy
+newtype DeleteRetentionPolicy = DeleteRetentionPolicy
     { _drprLogGroupName :: Text
     } deriving (Show, Generic)
 
 drprLogGroupName :: Lens' DeleteRetentionPolicy (Text)
-drprLogGroupName f x =
-    f (_drprLogGroupName x)
-        <&> \y -> x { _drprLogGroupName = y }
+drprLogGroupName = lens _drprLogGroupName (\s a -> s { _drprLogGroupName = a })
 {-# INLINE drprLogGroupName #-}
 
 instance ToPath DeleteRetentionPolicy

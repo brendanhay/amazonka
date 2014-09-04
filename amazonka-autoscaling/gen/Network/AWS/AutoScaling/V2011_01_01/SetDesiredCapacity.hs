@@ -27,10 +27,10 @@ module Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity
     -- * Request
       SetDesiredCapacity
     -- ** Request constructor
-    , setDesiredCapacity
+    , mkSetDesiredCapacityType
     -- ** Request lenses
-    , sdctDesiredCapacity
     , sdctAutoScalingGroupName
+    , sdctDesiredCapacity
     , sdctHonorCooldown
 
     -- * Response
@@ -41,22 +41,23 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetDesiredCapacity' request.
-setDesiredCapacity :: Integer -- ^ 'sdctDesiredCapacity'
-                   -> Text -- ^ 'sdctAutoScalingGroupName'
-                   -> SetDesiredCapacity
-setDesiredCapacity p1 p2 = SetDesiredCapacity
-    { _sdctDesiredCapacity = p1
-    , _sdctAutoScalingGroupName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetDesiredCapacity' request.
+mkSetDesiredCapacityType :: Text -- ^ 'sdctAutoScalingGroupName'
+                         -> Integer -- ^ 'sdctDesiredCapacity'
+                         -> SetDesiredCapacity
+mkSetDesiredCapacityType p1 p2 = SetDesiredCapacity
+    { _sdctAutoScalingGroupName = p1
+    , _sdctDesiredCapacity = p2
     , _sdctHonorCooldown = Nothing
     }
-{-# INLINE setDesiredCapacity #-}
+{-# INLINE mkSetDesiredCapacityType #-}
 
 data SetDesiredCapacity = SetDesiredCapacity
-    { _sdctDesiredCapacity :: Integer
-      -- ^ The new capacity setting for the Auto Scaling group.
-    , _sdctAutoScalingGroupName :: Text
+    { _sdctAutoScalingGroupName :: Text
       -- ^ The name of the Auto Scaling group.
+    , _sdctDesiredCapacity :: Integer
+      -- ^ The new capacity setting for the Auto Scaling group.
     , _sdctHonorCooldown :: Maybe Bool
       -- ^ By default, SetDesiredCapacity overrides any cooldown period
       -- associated with the Auto Scaling group. Set to True if you want
@@ -66,19 +67,15 @@ data SetDesiredCapacity = SetDesiredCapacity
       -- setting.
     } deriving (Show, Generic)
 
--- | The new capacity setting for the Auto Scaling group.
-sdctDesiredCapacity :: Lens' SetDesiredCapacity (Integer)
-sdctDesiredCapacity f x =
-    f (_sdctDesiredCapacity x)
-        <&> \y -> x { _sdctDesiredCapacity = y }
-{-# INLINE sdctDesiredCapacity #-}
-
 -- | The name of the Auto Scaling group.
 sdctAutoScalingGroupName :: Lens' SetDesiredCapacity (Text)
-sdctAutoScalingGroupName f x =
-    f (_sdctAutoScalingGroupName x)
-        <&> \y -> x { _sdctAutoScalingGroupName = y }
+sdctAutoScalingGroupName = lens _sdctAutoScalingGroupName (\s a -> s { _sdctAutoScalingGroupName = a })
 {-# INLINE sdctAutoScalingGroupName #-}
+
+-- | The new capacity setting for the Auto Scaling group.
+sdctDesiredCapacity :: Lens' SetDesiredCapacity (Integer)
+sdctDesiredCapacity = lens _sdctDesiredCapacity (\s a -> s { _sdctDesiredCapacity = a })
+{-# INLINE sdctDesiredCapacity #-}
 
 -- | By default, SetDesiredCapacity overrides any cooldown period associated
 -- with the Auto Scaling group. Set to True if you want Auto Scaling to wait
@@ -86,9 +83,7 @@ sdctAutoScalingGroupName f x =
 -- before initiating a scaling activity to set your Auto Scaling group to the
 -- new capacity setting.
 sdctHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
-sdctHonorCooldown f x =
-    f (_sdctHonorCooldown x)
-        <&> \y -> x { _sdctHonorCooldown = y }
+sdctHonorCooldown = lens _sdctHonorCooldown (\s a -> s { _sdctHonorCooldown = a })
 {-# INLINE sdctHonorCooldown #-}
 
 instance ToQuery SetDesiredCapacity where

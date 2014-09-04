@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
     -- * Request
       ListVolumeRecoveryPoints
     -- ** Request constructor
-    , listVolumeRecoveryPoints
+    , mkListVolumeRecoveryPointsInput
     -- ** Request lenses
     , lvrpiGatewayARN
 
@@ -63,15 +63,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListVolumeRecoveryPoints' request.
-listVolumeRecoveryPoints :: Text -- ^ 'lvrpiGatewayARN'
-                         -> ListVolumeRecoveryPoints
-listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVolumeRecoveryPoints' request.
+mkListVolumeRecoveryPointsInput :: Text -- ^ 'lvrpiGatewayARN'
+                                -> ListVolumeRecoveryPoints
+mkListVolumeRecoveryPointsInput p1 = ListVolumeRecoveryPoints
     { _lvrpiGatewayARN = p1
     }
-{-# INLINE listVolumeRecoveryPoints #-}
+{-# INLINE mkListVolumeRecoveryPointsInput #-}
 
-data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
+newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -81,9 +82,7 @@ data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lvrpiGatewayARN :: Lens' ListVolumeRecoveryPoints (Text)
-lvrpiGatewayARN f x =
-    f (_lvrpiGatewayARN x)
-        <&> \y -> x { _lvrpiGatewayARN = y }
+lvrpiGatewayARN = lens _lvrpiGatewayARN (\s a -> s { _lvrpiGatewayARN = a })
 {-# INLINE lvrpiGatewayARN #-}
 
 instance ToPath ListVolumeRecoveryPoints
@@ -105,15 +104,11 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lvrpoGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
-lvrpoGatewayARN f x =
-    f (_lvrpoGatewayARN x)
-        <&> \y -> x { _lvrpoGatewayARN = y }
+lvrpoGatewayARN = lens _lvrpoGatewayARN (\s a -> s { _lvrpoGatewayARN = a })
 {-# INLINE lvrpoGatewayARN #-}
 
 lvrpoVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse ([VolumeRecoveryPointInfo])
-lvrpoVolumeRecoveryPointInfos f x =
-    f (_lvrpoVolumeRecoveryPointInfos x)
-        <&> \y -> x { _lvrpoVolumeRecoveryPointInfos = y }
+lvrpoVolumeRecoveryPointInfos = lens _lvrpoVolumeRecoveryPointInfos (\s a -> s { _lvrpoVolumeRecoveryPointInfos = a })
 {-# INLINE lvrpoVolumeRecoveryPointInfos #-}
 
 instance FromJSON ListVolumeRecoveryPointsResponse

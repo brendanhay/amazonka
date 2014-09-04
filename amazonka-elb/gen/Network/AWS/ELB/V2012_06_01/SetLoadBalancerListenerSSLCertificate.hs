@@ -32,7 +32,7 @@ module Network.AWS.ELB.V2012_06_01.SetLoadBalancerListenerSSLCertificate
     -- * Request
       SetLoadBalancerListenerSSLCertificate
     -- ** Request constructor
-    , setLoadBalancerListenerSSLCertificate
+    , mkSetLoadBalancerListenerSSLCertificateInput
     -- ** Request lenses
     , slblsslciLoadBalancerName
     , slblsslciLoadBalancerPort
@@ -46,17 +46,18 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetLoadBalancerListenerSSLCertificate' request.
-setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslciLoadBalancerName'
-                                      -> Integer -- ^ 'slblsslciLoadBalancerPort'
-                                      -> Text -- ^ 'slblsslciSSLCertificateId'
-                                      -> SetLoadBalancerListenerSSLCertificate
-setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBalancerListenerSSLCertificate' request.
+mkSetLoadBalancerListenerSSLCertificateInput :: Text -- ^ 'slblsslciLoadBalancerName'
+                                             -> Integer -- ^ 'slblsslciLoadBalancerPort'
+                                             -> Text -- ^ 'slblsslciSSLCertificateId'
+                                             -> SetLoadBalancerListenerSSLCertificate
+mkSetLoadBalancerListenerSSLCertificateInput p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
     { _slblsslciLoadBalancerName = p1
     , _slblsslciLoadBalancerPort = p2
     , _slblsslciSSLCertificateId = p3
     }
-{-# INLINE setLoadBalancerListenerSSLCertificate #-}
+{-# INLINE mkSetLoadBalancerListenerSSLCertificateInput #-}
 
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
     { _slblsslciLoadBalancerName :: Text
@@ -72,31 +73,24 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 
 -- | The name of the load balancer.
 slblsslciLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate (Text)
-slblsslciLoadBalancerName f x =
-    f (_slblsslciLoadBalancerName x)
-        <&> \y -> x { _slblsslciLoadBalancerName = y }
+slblsslciLoadBalancerName = lens _slblsslciLoadBalancerName (\s a -> s { _slblsslciLoadBalancerName = a })
 {-# INLINE slblsslciLoadBalancerName #-}
 
 -- | The port that uses the specified SSL certificate.
 slblsslciLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate (Integer)
-slblsslciLoadBalancerPort f x =
-    f (_slblsslciLoadBalancerPort x)
-        <&> \y -> x { _slblsslciLoadBalancerPort = y }
+slblsslciLoadBalancerPort = lens _slblsslciLoadBalancerPort (\s a -> s { _slblsslciLoadBalancerPort = a })
 {-# INLINE slblsslciLoadBalancerPort #-}
 
 -- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
 -- more information on SSL certificates, see Managing Server Certificates in
 -- the AWS Identity and Access Management User Guide.
 slblsslciSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate (Text)
-slblsslciSSLCertificateId f x =
-    f (_slblsslciSSLCertificateId x)
-        <&> \y -> x { _slblsslciSSLCertificateId = y }
+slblsslciSSLCertificateId = lens _slblsslciSSLCertificateId (\s a -> s { _slblsslciSSLCertificateId = a })
 {-# INLINE slblsslciSSLCertificateId #-}
 
 instance ToQuery SetLoadBalancerListenerSSLCertificate where
     toQuery = genericQuery def
 
-data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where

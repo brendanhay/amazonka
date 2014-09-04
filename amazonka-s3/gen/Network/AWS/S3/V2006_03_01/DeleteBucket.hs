@@ -25,7 +25,7 @@ module Network.AWS.S3.V2006_03_01.DeleteBucket
     -- * Request
       DeleteBucket
     -- ** Request constructor
-    , deleteBucket
+    , mkDeleteBucketRequest
     -- ** Request lenses
     , dbrBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteBucket' request.
-deleteBucket :: BucketName -- ^ 'dbrBucket'
-             -> DeleteBucket
-deleteBucket p1 = DeleteBucket
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucket' request.
+mkDeleteBucketRequest :: BucketName -- ^ 'dbrBucket'
+                      -> DeleteBucket
+mkDeleteBucketRequest p1 = DeleteBucket
     { _dbrBucket = p1
     }
-{-# INLINE deleteBucket #-}
+{-# INLINE mkDeleteBucketRequest #-}
 
-data DeleteBucket = DeleteBucket
+newtype DeleteBucket = DeleteBucket
     { _dbrBucket :: BucketName
     } deriving (Show, Generic)
 
 dbrBucket :: Lens' DeleteBucket (BucketName)
-dbrBucket f x =
-    f (_dbrBucket x)
-        <&> \y -> x { _dbrBucket = y }
+dbrBucket = lens _dbrBucket (\s a -> s { _dbrBucket = a })
 {-# INLINE dbrBucket #-}
 
 instance ToPath DeleteBucket where

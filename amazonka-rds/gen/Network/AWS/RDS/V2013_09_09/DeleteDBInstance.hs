@@ -40,7 +40,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBInstance
     -- * Request
       DeleteDBInstance
     -- ** Request constructor
-    , deleteDBInstance
+    , mkDeleteDBInstanceMessage
     -- ** Request lenses
     , ddbimDBInstanceIdentifier
     , ddbimSkipFinalSnapshot
@@ -56,15 +56,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDBInstance' request.
-deleteDBInstance :: Text -- ^ 'ddbimDBInstanceIdentifier'
-                 -> DeleteDBInstance
-deleteDBInstance p1 = DeleteDBInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBInstance' request.
+mkDeleteDBInstanceMessage :: Text -- ^ 'ddbimDBInstanceIdentifier'
+                          -> DeleteDBInstance
+mkDeleteDBInstanceMessage p1 = DeleteDBInstance
     { _ddbimDBInstanceIdentifier = p1
     , _ddbimSkipFinalSnapshot = Nothing
     , _ddbimFinalDBSnapshotIdentifier = Nothing
     }
-{-# INLINE deleteDBInstance #-}
+{-# INLINE mkDeleteDBInstanceMessage #-}
 
 data DeleteDBInstance = DeleteDBInstance
     { _ddbimDBInstanceIdentifier :: Text
@@ -95,9 +96,7 @@ data DeleteDBInstance = DeleteDBInstance
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
 ddbimDBInstanceIdentifier :: Lens' DeleteDBInstance (Text)
-ddbimDBInstanceIdentifier f x =
-    f (_ddbimDBInstanceIdentifier x)
-        <&> \y -> x { _ddbimDBInstanceIdentifier = y }
+ddbimDBInstanceIdentifier = lens _ddbimDBInstanceIdentifier (\s a -> s { _ddbimDBInstanceIdentifier = a })
 {-# INLINE ddbimDBInstanceIdentifier #-}
 
 -- | Determines whether a final DB snapshot is created before the DB instance is
@@ -106,9 +105,7 @@ ddbimDBInstanceIdentifier f x =
 -- Specify true when deleting a read replica. The FinalDBSnapshotIdentifier
 -- parameter must be specified if SkipFinalSnapshot is false. Default: false.
 ddbimSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
-ddbimSkipFinalSnapshot f x =
-    f (_ddbimSkipFinalSnapshot x)
-        <&> \y -> x { _ddbimSkipFinalSnapshot = y }
+ddbimSkipFinalSnapshot = lens _ddbimSkipFinalSnapshot (\s a -> s { _ddbimSkipFinalSnapshot = a })
 {-# INLINE ddbimSkipFinalSnapshot #-}
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
@@ -118,15 +115,13 @@ ddbimSkipFinalSnapshot f x =
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens
 -- Cannot be specified when deleting a read replica.
 ddbimFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
-ddbimFinalDBSnapshotIdentifier f x =
-    f (_ddbimFinalDBSnapshotIdentifier x)
-        <&> \y -> x { _ddbimFinalDBSnapshotIdentifier = y }
+ddbimFinalDBSnapshotIdentifier = lens _ddbimFinalDBSnapshotIdentifier (\s a -> s { _ddbimFinalDBSnapshotIdentifier = a })
 {-# INLINE ddbimFinalDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBInstance where
     toQuery = genericQuery def
 
-data DeleteDBInstanceResponse = DeleteDBInstanceResponse
+newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
     { _dbiyDBInstance :: Maybe DBInstance
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
@@ -138,9 +133,7 @@ data DeleteDBInstanceResponse = DeleteDBInstanceResponse
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
 dbiyDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
-dbiyDBInstance f x =
-    f (_dbiyDBInstance x)
-        <&> \y -> x { _dbiyDBInstance = y }
+dbiyDBInstance = lens _dbiyDBInstance (\s a -> s { _dbiyDBInstance = a })
 {-# INLINE dbiyDBInstance #-}
 
 instance FromXML DeleteDBInstanceResponse where

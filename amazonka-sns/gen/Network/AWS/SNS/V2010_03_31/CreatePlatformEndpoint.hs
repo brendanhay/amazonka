@@ -51,12 +51,12 @@ module Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
     -- * Request
       CreatePlatformEndpoint
     -- ** Request constructor
-    , createPlatformEndpoint
+    , mkCreatePlatformEndpointInput
     -- ** Request lenses
     , cpeiPlatformApplicationArn
     , cpeiToken
-    , cpeiAttributes
     , cpeiCustomUserData
+    , cpeiAttributes
 
     -- * Response
     , CreatePlatformEndpointResponse
@@ -68,17 +68,18 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreatePlatformEndpoint' request.
-createPlatformEndpoint :: Text -- ^ 'cpeiPlatformApplicationArn'
-                       -> Text -- ^ 'cpeiToken'
-                       -> CreatePlatformEndpoint
-createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePlatformEndpoint' request.
+mkCreatePlatformEndpointInput :: Text -- ^ 'cpeiPlatformApplicationArn'
+                              -> Text -- ^ 'cpeiToken'
+                              -> CreatePlatformEndpoint
+mkCreatePlatformEndpointInput p1 p2 = CreatePlatformEndpoint
     { _cpeiPlatformApplicationArn = p1
     , _cpeiToken = p2
-    , _cpeiAttributes = mempty
     , _cpeiCustomUserData = Nothing
+    , _cpeiAttributes = mempty
     }
-{-# INLINE createPlatformEndpoint #-}
+{-# INLINE mkCreatePlatformEndpointInput #-}
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
     { _cpeiPlatformApplicationArn :: Text
@@ -91,20 +92,18 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
       -- APNS as the notification service, you need the device token.
       -- Alternatively, when using GCM or ADM, the device token equivalent
       -- is called the registration ID.
-    , _cpeiAttributes :: Map Text Text
-      -- ^ For a list of attributes, see SetEndpointAttributes.
     , _cpeiCustomUserData :: Maybe Text
       -- ^ Arbitrary user data to associate with the endpoint. Amazon SNS
       -- does not use this data. The data must be in UTF-8 format and less
       -- than 2KB.
+    , _cpeiAttributes :: Map Text Text
+      -- ^ For a list of attributes, see SetEndpointAttributes.
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to
 -- create a an endpoint.
 cpeiPlatformApplicationArn :: Lens' CreatePlatformEndpoint (Text)
-cpeiPlatformApplicationArn f x =
-    f (_cpeiPlatformApplicationArn x)
-        <&> \y -> x { _cpeiPlatformApplicationArn = y }
+cpeiPlatformApplicationArn = lens _cpeiPlatformApplicationArn (\s a -> s { _cpeiPlatformApplicationArn = a })
 {-# INLINE cpeiPlatformApplicationArn #-}
 
 -- | Unique identifier created by the notification service for an app on a
@@ -113,39 +112,31 @@ cpeiPlatformApplicationArn f x =
 -- notification service, you need the device token. Alternatively, when using
 -- GCM or ADM, the device token equivalent is called the registration ID.
 cpeiToken :: Lens' CreatePlatformEndpoint (Text)
-cpeiToken f x =
-    f (_cpeiToken x)
-        <&> \y -> x { _cpeiToken = y }
+cpeiToken = lens _cpeiToken (\s a -> s { _cpeiToken = a })
 {-# INLINE cpeiToken #-}
-
--- | For a list of attributes, see SetEndpointAttributes.
-cpeiAttributes :: Lens' CreatePlatformEndpoint (Map Text Text)
-cpeiAttributes f x =
-    f (_cpeiAttributes x)
-        <&> \y -> x { _cpeiAttributes = y }
-{-# INLINE cpeiAttributes #-}
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use
 -- this data. The data must be in UTF-8 format and less than 2KB.
 cpeiCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
-cpeiCustomUserData f x =
-    f (_cpeiCustomUserData x)
-        <&> \y -> x { _cpeiCustomUserData = y }
+cpeiCustomUserData = lens _cpeiCustomUserData (\s a -> s { _cpeiCustomUserData = a })
 {-# INLINE cpeiCustomUserData #-}
+
+-- | For a list of attributes, see SetEndpointAttributes.
+cpeiAttributes :: Lens' CreatePlatformEndpoint (Map Text Text)
+cpeiAttributes = lens _cpeiAttributes (\s a -> s { _cpeiAttributes = a })
+{-# INLINE cpeiAttributes #-}
 
 instance ToQuery CreatePlatformEndpoint where
     toQuery = genericQuery def
 
-data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
+newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cerEndpointArn :: Maybe Text
       -- ^ EndpointArn returned from CreateEndpoint action.
     } deriving (Show, Generic)
 
 -- | EndpointArn returned from CreateEndpoint action.
 cerEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
-cerEndpointArn f x =
-    f (_cerEndpointArn x)
-        <&> \y -> x { _cerEndpointArn = y }
+cerEndpointArn = lens _cerEndpointArn (\s a -> s { _cerEndpointArn = a })
 {-# INLINE cerEndpointArn #-}
 
 instance FromXML CreatePlatformEndpointResponse where

@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses
     -- * Request
       ResumeProcesses
     -- ** Request constructor
-    , resumeProcesses
+    , mkScalingProcessQuery
     -- ** Request lenses
     , spqAutoScalingGroupName
     , spqScalingProcesses
@@ -38,14 +38,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResumeProcesses' request.
-resumeProcesses :: Text -- ^ 'spqAutoScalingGroupName'
-                -> ResumeProcesses
-resumeProcesses p1 = ResumeProcesses
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResumeProcesses' request.
+mkScalingProcessQuery :: Text -- ^ 'spqAutoScalingGroupName'
+                      -> ResumeProcesses
+mkScalingProcessQuery p1 = ResumeProcesses
     { _spqAutoScalingGroupName = p1
     , _spqScalingProcesses = mempty
     }
-{-# INLINE resumeProcesses #-}
+{-# INLINE mkScalingProcessQuery #-}
 
 data ResumeProcesses = ResumeProcesses
     { _spqAutoScalingGroupName :: Text
@@ -60,9 +61,7 @@ data ResumeProcesses = ResumeProcesses
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spqAutoScalingGroupName :: Lens' ResumeProcesses (Text)
-spqAutoScalingGroupName f x =
-    f (_spqAutoScalingGroupName x)
-        <&> \y -> x { _spqAutoScalingGroupName = y }
+spqAutoScalingGroupName = lens _spqAutoScalingGroupName (\s a -> s { _spqAutoScalingGroupName = a })
 {-# INLINE spqAutoScalingGroupName #-}
 
 -- | The processes that you want to suspend or resume, which can include one or
@@ -70,9 +69,7 @@ spqAutoScalingGroupName f x =
 -- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
 -- all process types, omit this parameter.
 spqScalingProcesses :: Lens' ResumeProcesses ([Text])
-spqScalingProcesses f x =
-    f (_spqScalingProcesses x)
-        <&> \y -> x { _spqScalingProcesses = y }
+spqScalingProcesses = lens _spqScalingProcesses (\s a -> s { _spqScalingProcesses = a })
 {-# INLINE spqScalingProcesses #-}
 
 instance ToQuery ResumeProcesses where

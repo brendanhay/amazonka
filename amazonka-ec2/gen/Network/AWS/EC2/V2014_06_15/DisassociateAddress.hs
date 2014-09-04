@@ -33,7 +33,7 @@ module Network.AWS.EC2.V2014_06_15.DisassociateAddress
     -- * Request
       DisassociateAddress
     -- ** Request constructor
-    , disassociateAddress
+    , mkDisassociateAddressRequest
     -- ** Request lenses
     , datPublicIp
     , datAssociationId
@@ -46,13 +46,14 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DisassociateAddress' request.
-disassociateAddress :: DisassociateAddress
-disassociateAddress = DisassociateAddress
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisassociateAddress' request.
+mkDisassociateAddressRequest :: DisassociateAddress
+mkDisassociateAddressRequest = DisassociateAddress
     { _datPublicIp = Nothing
     , _datAssociationId = Nothing
     }
-{-# INLINE disassociateAddress #-}
+{-# INLINE mkDisassociateAddressRequest #-}
 
 data DisassociateAddress = DisassociateAddress
     { _datPublicIp :: Maybe Text
@@ -63,16 +64,12 @@ data DisassociateAddress = DisassociateAddress
 
 -- | [EC2-Classic] The Elastic IP address.
 datPublicIp :: Lens' DisassociateAddress (Maybe Text)
-datPublicIp f x =
-    f (_datPublicIp x)
-        <&> \y -> x { _datPublicIp = y }
+datPublicIp = lens _datPublicIp (\s a -> s { _datPublicIp = a })
 {-# INLINE datPublicIp #-}
 
 -- | [EC2-VPC] The association ID.
 datAssociationId :: Lens' DisassociateAddress (Maybe Text)
-datAssociationId f x =
-    f (_datAssociationId x)
-        <&> \y -> x { _datAssociationId = y }
+datAssociationId = lens _datAssociationId (\s a -> s { _datAssociationId = a })
 {-# INLINE datAssociationId #-}
 
 instance ToQuery DisassociateAddress where

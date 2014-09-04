@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetObjectTorrent
     -- * Request
       GetObjectTorrent
     -- ** Request constructor
-    , getObjectTorrent
+    , mkGetObjectTorrentRequest
     -- ** Request lenses
     , gotrBucket
     , gotrKey
@@ -38,15 +38,16 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetObjectTorrent' request.
-getObjectTorrent :: BucketName -- ^ 'gotrBucket'
-                 -> ObjectKey -- ^ 'gotrKey'
-                 -> GetObjectTorrent
-getObjectTorrent p1 p2 = GetObjectTorrent
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetObjectTorrent' request.
+mkGetObjectTorrentRequest :: BucketName -- ^ 'gotrBucket'
+                          -> ObjectKey -- ^ 'gotrKey'
+                          -> GetObjectTorrent
+mkGetObjectTorrentRequest p1 p2 = GetObjectTorrent
     { _gotrBucket = p1
     , _gotrKey = p2
     }
-{-# INLINE getObjectTorrent #-}
+{-# INLINE mkGetObjectTorrentRequest #-}
 
 data GetObjectTorrent = GetObjectTorrent
     { _gotrBucket :: BucketName
@@ -54,15 +55,11 @@ data GetObjectTorrent = GetObjectTorrent
     } deriving (Show, Generic)
 
 gotrBucket :: Lens' GetObjectTorrent (BucketName)
-gotrBucket f x =
-    f (_gotrBucket x)
-        <&> \y -> x { _gotrBucket = y }
+gotrBucket = lens _gotrBucket (\s a -> s { _gotrBucket = a })
 {-# INLINE gotrBucket #-}
 
 gotrKey :: Lens' GetObjectTorrent (ObjectKey)
-gotrKey f x =
-    f (_gotrKey x)
-        <&> \y -> x { _gotrKey = y }
+gotrKey = lens _gotrKey (\s a -> s { _gotrKey = a })
 {-# INLINE gotrKey #-}
 
 instance ToPath GetObjectTorrent where
@@ -82,14 +79,12 @@ instance ToHeaders GetObjectTorrent
 
 instance ToBody GetObjectTorrent
 
-data GetObjectTorrentResponse = GetObjectTorrentResponse
+newtype GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotoBody :: RsBody
     } deriving (Show, Generic)
 
 gotoBody :: Lens' GetObjectTorrentResponse (RsBody)
-gotoBody f x =
-    f (_gotoBody x)
-        <&> \y -> x { _gotoBody = y }
+gotoBody = lens _gotoBody (\s a -> s { _gotoBody = a })
 {-# INLINE gotoBody #-}
 
 instance AWSRequest GetObjectTorrent where

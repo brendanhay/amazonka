@@ -32,7 +32,7 @@ module Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
     -- * Request
       RemoveRoleFromInstanceProfile
     -- ** Request constructor
-    , removeRoleFromInstanceProfile
+    , mkRemoveRoleFromInstanceProfileRequest
     -- ** Request lenses
     , rrfiprInstanceProfileName
     , rrfiprRoleName
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RemoveRoleFromInstanceProfile' request.
-removeRoleFromInstanceProfile :: Text -- ^ 'rrfiprInstanceProfileName'
-                              -> Text -- ^ 'rrfiprRoleName'
-                              -> RemoveRoleFromInstanceProfile
-removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveRoleFromInstanceProfile' request.
+mkRemoveRoleFromInstanceProfileRequest :: Text -- ^ 'rrfiprInstanceProfileName'
+                                       -> Text -- ^ 'rrfiprRoleName'
+                                       -> RemoveRoleFromInstanceProfile
+mkRemoveRoleFromInstanceProfileRequest p1 p2 = RemoveRoleFromInstanceProfile
     { _rrfiprInstanceProfileName = p1
     , _rrfiprRoleName = p2
     }
-{-# INLINE removeRoleFromInstanceProfile #-}
+{-# INLINE mkRemoveRoleFromInstanceProfileRequest #-}
 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfiprInstanceProfileName :: Text
@@ -64,16 +65,12 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
 
 -- | Name of the instance profile to update.
 rrfiprInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile (Text)
-rrfiprInstanceProfileName f x =
-    f (_rrfiprInstanceProfileName x)
-        <&> \y -> x { _rrfiprInstanceProfileName = y }
+rrfiprInstanceProfileName = lens _rrfiprInstanceProfileName (\s a -> s { _rrfiprInstanceProfileName = a })
 {-# INLINE rrfiprInstanceProfileName #-}
 
 -- | Name of the role to remove.
 rrfiprRoleName :: Lens' RemoveRoleFromInstanceProfile (Text)
-rrfiprRoleName f x =
-    f (_rrfiprRoleName x)
-        <&> \y -> x { _rrfiprRoleName = y }
+rrfiprRoleName = lens _rrfiprRoleName (\s a -> s { _rrfiprRoleName = a })
 {-# INLINE rrfiprRoleName #-}
 
 instance ToQuery RemoveRoleFromInstanceProfile where

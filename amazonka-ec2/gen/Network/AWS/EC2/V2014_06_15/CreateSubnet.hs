@@ -46,7 +46,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSubnet
     -- * Request
       CreateSubnet
     -- ** Request constructor
-    , createSubnet
+    , mkCreateSubnetRequest
     -- ** Request lenses
     , csuVpcId
     , csuCidrBlock
@@ -62,16 +62,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateSubnet' request.
-createSubnet :: Text -- ^ 'csuVpcId'
-             -> Text -- ^ 'csuCidrBlock'
-             -> CreateSubnet
-createSubnet p1 p2 = CreateSubnet
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSubnet' request.
+mkCreateSubnetRequest :: Text -- ^ 'csuVpcId'
+                      -> Text -- ^ 'csuCidrBlock'
+                      -> CreateSubnet
+mkCreateSubnetRequest p1 p2 = CreateSubnet
     { _csuVpcId = p1
     , _csuCidrBlock = p2
     , _csuAvailabilityZone = Nothing
     }
-{-# INLINE createSubnet #-}
+{-# INLINE mkCreateSubnetRequest #-}
 
 data CreateSubnet = CreateSubnet
     { _csuVpcId :: Text
@@ -86,40 +87,32 @@ data CreateSubnet = CreateSubnet
 
 -- | The ID of the VPC.
 csuVpcId :: Lens' CreateSubnet (Text)
-csuVpcId f x =
-    f (_csuVpcId x)
-        <&> \y -> x { _csuVpcId = y }
+csuVpcId = lens _csuVpcId (\s a -> s { _csuVpcId = a })
 {-# INLINE csuVpcId #-}
 
 -- | The network range for the subnet, in CIDR notation. For example,
 -- 10.0.0.0/24.
 csuCidrBlock :: Lens' CreateSubnet (Text)
-csuCidrBlock f x =
-    f (_csuCidrBlock x)
-        <&> \y -> x { _csuCidrBlock = y }
+csuCidrBlock = lens _csuCidrBlock (\s a -> s { _csuCidrBlock = a })
 {-# INLINE csuCidrBlock #-}
 
 -- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
 -- you (recommended).
 csuAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-csuAvailabilityZone f x =
-    f (_csuAvailabilityZone x)
-        <&> \y -> x { _csuAvailabilityZone = y }
+csuAvailabilityZone = lens _csuAvailabilityZone (\s a -> s { _csuAvailabilityZone = a })
 {-# INLINE csuAvailabilityZone #-}
 
 instance ToQuery CreateSubnet where
     toQuery = genericQuery def
 
-data CreateSubnetResponse = CreateSubnetResponse
+newtype CreateSubnetResponse = CreateSubnetResponse
     { _csvSubnet :: Maybe Subnet
       -- ^ Information about the subnet.
     } deriving (Show, Generic)
 
 -- | Information about the subnet.
 csvSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-csvSubnet f x =
-    f (_csvSubnet x)
-        <&> \y -> x { _csvSubnet = y }
+csvSubnet = lens _csvSubnet (\s a -> s { _csvSubnet = a })
 {-# INLINE csvSubnet #-}
 
 instance FromXML CreateSubnetResponse where

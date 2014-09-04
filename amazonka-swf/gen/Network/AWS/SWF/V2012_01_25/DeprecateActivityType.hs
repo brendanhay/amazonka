@@ -53,10 +53,10 @@ module Network.AWS.SWF.V2012_01_25.DeprecateActivityType
     -- * Request
       DeprecateActivityType
     -- ** Request constructor
-    , deprecateActivityType
+    , mkDeprecateActivityTypeInput
     -- ** Request lenses
-    , datiActivityType
     , datiDomain
+    , datiActivityType
 
     -- * Response
     , DeprecateActivityTypeResponse
@@ -67,36 +67,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeprecateActivityType' request.
-deprecateActivityType :: ActivityType -- ^ 'datiActivityType'
-                      -> Text -- ^ 'datiDomain'
-                      -> DeprecateActivityType
-deprecateActivityType p1 p2 = DeprecateActivityType
-    { _datiActivityType = p1
-    , _datiDomain = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeprecateActivityType' request.
+mkDeprecateActivityTypeInput :: Text -- ^ 'datiDomain'
+                             -> ActivityType -- ^ 'datiActivityType'
+                             -> DeprecateActivityType
+mkDeprecateActivityTypeInput p1 p2 = DeprecateActivityType
+    { _datiDomain = p1
+    , _datiActivityType = p2
     }
-{-# INLINE deprecateActivityType #-}
+{-# INLINE mkDeprecateActivityTypeInput #-}
 
 data DeprecateActivityType = DeprecateActivityType
-    { _datiActivityType :: ActivityType
-      -- ^ The activity type to deprecate.
-    , _datiDomain :: Text
+    { _datiDomain :: Text
       -- ^ The name of the domain in which the activity type is registered.
+    , _datiActivityType :: ActivityType
+      -- ^ The activity type to deprecate.
     } deriving (Show, Generic)
-
--- | The activity type to deprecate.
-datiActivityType :: Lens' DeprecateActivityType (ActivityType)
-datiActivityType f x =
-    f (_datiActivityType x)
-        <&> \y -> x { _datiActivityType = y }
-{-# INLINE datiActivityType #-}
 
 -- | The name of the domain in which the activity type is registered.
 datiDomain :: Lens' DeprecateActivityType (Text)
-datiDomain f x =
-    f (_datiDomain x)
-        <&> \y -> x { _datiDomain = y }
+datiDomain = lens _datiDomain (\s a -> s { _datiDomain = a })
 {-# INLINE datiDomain #-}
+
+-- | The activity type to deprecate.
+datiActivityType :: Lens' DeprecateActivityType (ActivityType)
+datiActivityType = lens _datiActivityType (\s a -> s { _datiActivityType = a })
+{-# INLINE datiActivityType #-}
 
 instance ToPath DeprecateActivityType
 

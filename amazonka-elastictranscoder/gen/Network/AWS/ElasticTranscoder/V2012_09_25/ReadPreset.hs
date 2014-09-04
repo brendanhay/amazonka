@@ -49,7 +49,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset
     -- * Request
       ReadPreset
     -- ** Request constructor
-    , readPreset
+    , mkReadPresetRequest
     -- ** Request lenses
     , rptId
 
@@ -64,15 +64,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ReadPreset' request.
-readPreset :: Text -- ^ 'rptId'
-           -> ReadPreset
-readPreset p1 = ReadPreset
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadPreset' request.
+mkReadPresetRequest :: Text -- ^ 'rptId'
+                    -> ReadPreset
+mkReadPresetRequest p1 = ReadPreset
     { _rptId = p1
     }
-{-# INLINE readPreset #-}
+{-# INLINE mkReadPresetRequest #-}
 
-data ReadPreset = ReadPreset
+newtype ReadPreset = ReadPreset
     { _rptId :: Text
       -- ^ The identifier of the preset for which you want to get detailed
       -- information.
@@ -81,9 +82,7 @@ data ReadPreset = ReadPreset
 -- | The identifier of the preset for which you want to get detailed
 -- information.
 rptId :: Lens' ReadPreset (Text)
-rptId f x =
-    f (_rptId x)
-        <&> \y -> x { _rptId = y }
+rptId = lens _rptId (\s a -> s { _rptId = a })
 {-# INLINE rptId #-}
 
 instance ToPath ReadPreset where
@@ -98,7 +97,7 @@ instance ToHeaders ReadPreset
 
 instance ToJSON ReadPreset
 
-data ReadPresetResponse = ReadPresetResponse
+newtype ReadPresetResponse = ReadPresetResponse
     { _rpuPreset :: Maybe Preset
       -- ^ A section of the response body that provides information about
       -- the preset.
@@ -106,9 +105,7 @@ data ReadPresetResponse = ReadPresetResponse
 
 -- | A section of the response body that provides information about the preset.
 rpuPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rpuPreset f x =
-    f (_rpuPreset x)
-        <&> \y -> x { _rpuPreset = y }
+rpuPreset = lens _rpuPreset (\s a -> s { _rpuPreset = a })
 {-# INLINE rpuPreset #-}
 
 instance FromJSON ReadPresetResponse

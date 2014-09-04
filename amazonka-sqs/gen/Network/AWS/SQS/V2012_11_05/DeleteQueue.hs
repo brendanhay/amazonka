@@ -39,7 +39,7 @@ module Network.AWS.SQS.V2012_11_05.DeleteQueue
     -- * Request
       DeleteQueue
     -- ** Request constructor
-    , deleteQueue
+    , mkDeleteQueueRequest
     -- ** Request lenses
     , dqrQueueUrl
 
@@ -51,24 +51,23 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteQueue' request.
-deleteQueue :: Text -- ^ 'dqrQueueUrl'
-            -> DeleteQueue
-deleteQueue p1 = DeleteQueue
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteQueue' request.
+mkDeleteQueueRequest :: Text -- ^ 'dqrQueueUrl'
+                     -> DeleteQueue
+mkDeleteQueueRequest p1 = DeleteQueue
     { _dqrQueueUrl = p1
     }
-{-# INLINE deleteQueue #-}
+{-# INLINE mkDeleteQueueRequest #-}
 
-data DeleteQueue = DeleteQueue
+newtype DeleteQueue = DeleteQueue
     { _dqrQueueUrl :: Text
       -- ^ The URL of the Amazon SQS queue to take action on.
     } deriving (Show, Generic)
 
 -- | The URL of the Amazon SQS queue to take action on.
 dqrQueueUrl :: Lens' DeleteQueue (Text)
-dqrQueueUrl f x =
-    f (_dqrQueueUrl x)
-        <&> \y -> x { _dqrQueueUrl = y }
+dqrQueueUrl = lens _dqrQueueUrl (\s a -> s { _dqrQueueUrl = a })
 {-# INLINE dqrQueueUrl #-}
 
 instance ToQuery DeleteQueue where

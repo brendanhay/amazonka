@@ -35,7 +35,7 @@ module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
     -- * Request
       ListVerifiedEmailAddresses
     -- ** Request constructor
-    , listVerifiedEmailAddresses
+    , mkUnknown
     -- * Response
     , ListVerifiedEmailAddressesResponse
     -- ** Response lenses
@@ -46,10 +46,11 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListVerifiedEmailAddresses' request.
-listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
-listVerifiedEmailAddresses = ListVerifiedEmailAddresses
-{-# INLINE listVerifiedEmailAddresses #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVerifiedEmailAddresses' request.
+mkUnknown :: ListVerifiedEmailAddresses
+mkUnknown = ListVerifiedEmailAddresses
+{-# INLINE mkUnknown #-}
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
     deriving (Eq, Show, Generic)
@@ -57,16 +58,14 @@ data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
 instance ToQuery ListVerifiedEmailAddresses where
     toQuery = genericQuery def
 
-data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
+newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
       -- ^ A list of email addresses that have been verified.
     } deriving (Show, Generic)
 
 -- | A list of email addresses that have been verified.
 lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse ([Text])
-lvearVerifiedEmailAddresses f x =
-    f (_lvearVerifiedEmailAddresses x)
-        <&> \y -> x { _lvearVerifiedEmailAddresses = y }
+lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\s a -> s { _lvearVerifiedEmailAddresses = a })
 {-# INLINE lvearVerifiedEmailAddresses #-}
 
 instance FromXML ListVerifiedEmailAddressesResponse where

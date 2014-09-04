@@ -29,7 +29,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
     -- * Request
       ListIdentityPools
     -- ** Request constructor
-    , listIdentityPools
+    , mkListIdentityPoolsInput
     -- ** Request lenses
     , lipiMaxResults
     , lipiNextToken
@@ -46,14 +46,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListIdentityPools' request.
-listIdentityPools :: Integer -- ^ 'lipiMaxResults'
-                  -> ListIdentityPools
-listIdentityPools p1 = ListIdentityPools
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentityPools' request.
+mkListIdentityPoolsInput :: Integer -- ^ 'lipiMaxResults'
+                         -> ListIdentityPools
+mkListIdentityPoolsInput p1 = ListIdentityPools
     { _lipiMaxResults = p1
     , _lipiNextToken = Nothing
     }
-{-# INLINE listIdentityPools #-}
+{-# INLINE mkListIdentityPoolsInput #-}
 
 data ListIdentityPools = ListIdentityPools
     { _lipiMaxResults :: Integer
@@ -64,16 +65,12 @@ data ListIdentityPools = ListIdentityPools
 
 -- | The maximum number of identities to return.
 lipiMaxResults :: Lens' ListIdentityPools (Integer)
-lipiMaxResults f x =
-    f (_lipiMaxResults x)
-        <&> \y -> x { _lipiMaxResults = y }
+lipiMaxResults = lens _lipiMaxResults (\s a -> s { _lipiMaxResults = a })
 {-# INLINE lipiMaxResults #-}
 
 -- | A pagination token.
 lipiNextToken :: Lens' ListIdentityPools (Maybe Text)
-lipiNextToken f x =
-    f (_lipiNextToken x)
-        <&> \y -> x { _lipiNextToken = y }
+lipiNextToken = lens _lipiNextToken (\s a -> s { _lipiNextToken = a })
 {-# INLINE lipiNextToken #-}
 
 instance ToPath ListIdentityPools
@@ -93,16 +90,12 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprIdentityPools :: Lens' ListIdentityPoolsResponse ([IdentityPoolShortDescription])
-liprIdentityPools f x =
-    f (_liprIdentityPools x)
-        <&> \y -> x { _liprIdentityPools = y }
+liprIdentityPools = lens _liprIdentityPools (\s a -> s { _liprIdentityPools = a })
 {-# INLINE liprIdentityPools #-}
 
 -- | A pagination token.
 liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
-liprNextToken f x =
-    f (_liprNextToken x)
-        <&> \y -> x { _liprNextToken = y }
+liprNextToken = lens _liprNextToken (\s a -> s { _liprNextToken = a })
 {-# INLINE liprNextToken #-}
 
 instance FromJSON ListIdentityPoolsResponse

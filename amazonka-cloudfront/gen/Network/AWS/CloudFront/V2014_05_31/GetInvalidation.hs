@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.GetInvalidation
     -- * Request
       GetInvalidation
     -- ** Request constructor
-    , getInvalidation
+    , mkGetInvalidationRequest
     -- ** Request lenses
     , girDistributionId
     , girId
@@ -38,15 +38,16 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetInvalidation' request.
-getInvalidation :: Text -- ^ 'girDistributionId'
-                -> Text -- ^ 'girId'
-                -> GetInvalidation
-getInvalidation p1 p2 = GetInvalidation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetInvalidation' request.
+mkGetInvalidationRequest :: Text -- ^ 'girDistributionId'
+                         -> Text -- ^ 'girId'
+                         -> GetInvalidation
+mkGetInvalidationRequest p1 p2 = GetInvalidation
     { _girDistributionId = p1
     , _girId = p2
     }
-{-# INLINE getInvalidation #-}
+{-# INLINE mkGetInvalidationRequest #-}
 
 data GetInvalidation = GetInvalidation
     { _girDistributionId :: Text
@@ -57,16 +58,12 @@ data GetInvalidation = GetInvalidation
 
 -- | The distribution's id.
 girDistributionId :: Lens' GetInvalidation (Text)
-girDistributionId f x =
-    f (_girDistributionId x)
-        <&> \y -> x { _girDistributionId = y }
+girDistributionId = lens _girDistributionId (\s a -> s { _girDistributionId = a })
 {-# INLINE girDistributionId #-}
 
 -- | The invalidation's id.
 girId :: Lens' GetInvalidation (Text)
-girId f x =
-    f (_girId x)
-        <&> \y -> x { _girId = y }
+girId = lens _girId (\s a -> s { _girId = a })
 {-# INLINE girId #-}
 
 instance ToPath GetInvalidation where
@@ -85,16 +82,14 @@ instance ToXML GetInvalidation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetInvalidationRequest"
 
-data GetInvalidationResponse = GetInvalidationResponse
+newtype GetInvalidationResponse = GetInvalidationResponse
     { _gisInvalidation :: Maybe Invalidation
       -- ^ The invalidation's information.
     } deriving (Show, Generic)
 
 -- | The invalidation's information.
 gisInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
-gisInvalidation f x =
-    f (_gisInvalidation x)
-        <&> \y -> x { _gisInvalidation = y }
+gisInvalidation = lens _gisInvalidation (\s a -> s { _gisInvalidation = a })
 {-# INLINE gisInvalidation #-}
 
 instance FromXML GetInvalidationResponse where

@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution
     -- * Request
       UpdateStreamingDistribution
     -- ** Request constructor
-    , updateStreamingDistribution
+    , mkUpdateStreamingDistributionRequest
     -- ** Request lenses
     , usdrStreamingDistributionConfig
     , usdrId
@@ -40,16 +40,17 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateStreamingDistribution' request.
-updateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdrStreamingDistributionConfig'
-                            -> Text -- ^ 'usdrId'
-                            -> UpdateStreamingDistribution
-updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateStreamingDistribution' request.
+mkUpdateStreamingDistributionRequest :: StreamingDistributionConfig -- ^ 'usdrStreamingDistributionConfig'
+                                     -> Text -- ^ 'usdrId'
+                                     -> UpdateStreamingDistribution
+mkUpdateStreamingDistributionRequest p1 p2 = UpdateStreamingDistribution
     { _usdrStreamingDistributionConfig = p1
     , _usdrId = p2
     , _usdrIfMatch = Nothing
     }
-{-# INLINE updateStreamingDistribution #-}
+{-# INLINE mkUpdateStreamingDistributionRequest #-}
 
 data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdrStreamingDistributionConfig :: StreamingDistributionConfig
@@ -64,24 +65,18 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
 
 -- | The streaming distribution's configuration information.
 usdrStreamingDistributionConfig :: Lens' UpdateStreamingDistribution (StreamingDistributionConfig)
-usdrStreamingDistributionConfig f x =
-    f (_usdrStreamingDistributionConfig x)
-        <&> \y -> x { _usdrStreamingDistributionConfig = y }
+usdrStreamingDistributionConfig = lens _usdrStreamingDistributionConfig (\s a -> s { _usdrStreamingDistributionConfig = a })
 {-# INLINE usdrStreamingDistributionConfig #-}
 
 -- | The streaming distribution's id.
 usdrId :: Lens' UpdateStreamingDistribution (Text)
-usdrId f x =
-    f (_usdrId x)
-        <&> \y -> x { _usdrId = y }
+usdrId = lens _usdrId (\s a -> s { _usdrId = a })
 {-# INLINE usdrId #-}
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
 usdrIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
-usdrIfMatch f x =
-    f (_usdrIfMatch x)
-        <&> \y -> x { _usdrIfMatch = y }
+usdrIfMatch = lens _usdrIfMatch (\s a -> s { _usdrIfMatch = a })
 {-# INLINE usdrIfMatch #-}
 
 instance ToPath UpdateStreamingDistribution where
@@ -93,10 +88,7 @@ instance ToPath UpdateStreamingDistribution where
 
 instance ToQuery UpdateStreamingDistribution
 
-instance ToHeaders UpdateStreamingDistribution where
-    toHeaders UpdateStreamingDistribution{..} = concat
-        [ "If-Match" =: _usdrIfMatch
-        ]
+instance ToHeaders UpdateStreamingDistribution
 
 instance ToXML UpdateStreamingDistribution where
     toXMLOptions = xmlOptions
@@ -112,16 +104,12 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
 
 -- | The streaming distribution's information.
 usdsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdsStreamingDistribution f x =
-    f (_usdsStreamingDistribution x)
-        <&> \y -> x { _usdsStreamingDistribution = y }
+usdsStreamingDistribution = lens _usdsStreamingDistribution (\s a -> s { _usdsStreamingDistribution = a })
 {-# INLINE usdsStreamingDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 usdsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
-usdsETag f x =
-    f (_usdsETag x)
-        <&> \y -> x { _usdsETag = y }
+usdsETag = lens _usdsETag (\s a -> s { _usdsETag = a })
 {-# INLINE usdsETag #-}
 
 instance AWSRequest UpdateStreamingDistribution where

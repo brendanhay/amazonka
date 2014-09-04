@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistribution
     -- * Request
       GetDistribution
     -- ** Request constructor
-    , getDistribution
+    , mkGetDistributionRequest
     -- ** Request lenses
     , gdrId
 
@@ -38,24 +38,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetDistribution' request.
-getDistribution :: Text -- ^ 'gdrId'
-                -> GetDistribution
-getDistribution p1 = GetDistribution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetDistribution' request.
+mkGetDistributionRequest :: Text -- ^ 'gdrId'
+                         -> GetDistribution
+mkGetDistributionRequest p1 = GetDistribution
     { _gdrId = p1
     }
-{-# INLINE getDistribution #-}
+{-# INLINE mkGetDistributionRequest #-}
 
-data GetDistribution = GetDistribution
+newtype GetDistribution = GetDistribution
     { _gdrId :: Text
       -- ^ The distribution's id.
     } deriving (Show, Generic)
 
 -- | The distribution's id.
 gdrId :: Lens' GetDistribution (Text)
-gdrId f x =
-    f (_gdrId x)
-        <&> \y -> x { _gdrId = y }
+gdrId = lens _gdrId (\s a -> s { _gdrId = a })
 {-# INLINE gdrId #-}
 
 instance ToPath GetDistribution where
@@ -82,17 +81,13 @@ data GetDistributionResponse = GetDistributionResponse
 
 -- | The distribution's information.
 gdsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
-gdsDistribution f x =
-    f (_gdsDistribution x)
-        <&> \y -> x { _gdsDistribution = y }
+gdsDistribution = lens _gdsDistribution (\s a -> s { _gdsDistribution = a })
 {-# INLINE gdsDistribution #-}
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
 gdsETag :: Lens' GetDistributionResponse (Maybe Text)
-gdsETag f x =
-    f (_gdsETag x)
-        <&> \y -> x { _gdsETag = y }
+gdsETag = lens _gdsETag (\s a -> s { _gdsETag = a })
 {-# INLINE gdsETag #-}
 
 instance AWSRequest GetDistribution where

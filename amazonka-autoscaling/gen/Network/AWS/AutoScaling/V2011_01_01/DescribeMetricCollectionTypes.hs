@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
     -- * Request
       DescribeMetricCollectionTypes
     -- ** Request constructor
-    , describeMetricCollectionTypes
+    , mkUnknown
     -- * Response
     , DescribeMetricCollectionTypesResponse
     -- ** Response lenses
@@ -43,10 +43,11 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeMetricCollectionTypes' request.
-describeMetricCollectionTypes :: DescribeMetricCollectionTypes
-describeMetricCollectionTypes = DescribeMetricCollectionTypes
-{-# INLINE describeMetricCollectionTypes #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMetricCollectionTypes' request.
+mkUnknown :: DescribeMetricCollectionTypes
+mkUnknown = DescribeMetricCollectionTypes
+{-# INLINE mkUnknown #-}
 
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
     deriving (Eq, Show, Generic)
@@ -74,16 +75,12 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- default. You must explicitly request it when calling
 -- EnableMetricsCollection.
 dmctaMetrics :: Lens' DescribeMetricCollectionTypesResponse ([MetricCollectionType])
-dmctaMetrics f x =
-    f (_dmctaMetrics x)
-        <&> \y -> x { _dmctaMetrics = y }
+dmctaMetrics = lens _dmctaMetrics (\s a -> s { _dmctaMetrics = a })
 {-# INLINE dmctaMetrics #-}
 
 -- | A list of granularities for the listed Metrics.
 dmctaGranularities :: Lens' DescribeMetricCollectionTypesResponse ([MetricGranularityType])
-dmctaGranularities f x =
-    f (_dmctaGranularities x)
-        <&> \y -> x { _dmctaGranularities = y }
+dmctaGranularities = lens _dmctaGranularities (\s a -> s { _dmctaGranularities = a })
 {-# INLINE dmctaGranularities #-}
 
 instance FromXML DescribeMetricCollectionTypesResponse where

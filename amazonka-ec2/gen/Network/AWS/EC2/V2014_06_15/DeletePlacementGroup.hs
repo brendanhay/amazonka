@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.DeletePlacementGroup
     -- * Request
       DeletePlacementGroup
     -- ** Request constructor
-    , deletePlacementGroup
+    , mkDeletePlacementGroupRequest
     -- ** Request lenses
     , dpgrGroupName
 
@@ -44,24 +44,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeletePlacementGroup' request.
-deletePlacementGroup :: Text -- ^ 'dpgrGroupName'
-                     -> DeletePlacementGroup
-deletePlacementGroup p1 = DeletePlacementGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePlacementGroup' request.
+mkDeletePlacementGroupRequest :: Text -- ^ 'dpgrGroupName'
+                              -> DeletePlacementGroup
+mkDeletePlacementGroupRequest p1 = DeletePlacementGroup
     { _dpgrGroupName = p1
     }
-{-# INLINE deletePlacementGroup #-}
+{-# INLINE mkDeletePlacementGroupRequest #-}
 
-data DeletePlacementGroup = DeletePlacementGroup
+newtype DeletePlacementGroup = DeletePlacementGroup
     { _dpgrGroupName :: Text
       -- ^ The name of the placement group.
     } deriving (Show, Generic)
 
 -- | The name of the placement group.
 dpgrGroupName :: Lens' DeletePlacementGroup (Text)
-dpgrGroupName f x =
-    f (_dpgrGroupName x)
-        <&> \y -> x { _dpgrGroupName = y }
+dpgrGroupName = lens _dpgrGroupName (\s a -> s { _dpgrGroupName = a })
 {-# INLINE dpgrGroupName #-}
 
 instance ToQuery DeletePlacementGroup where

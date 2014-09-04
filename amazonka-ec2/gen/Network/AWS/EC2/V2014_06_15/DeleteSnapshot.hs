@@ -38,7 +38,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteSnapshot
     -- * Request
       DeleteSnapshot
     -- ** Request constructor
-    , deleteSnapshot
+    , mkDeleteSnapshotRequest
     -- ** Request lenses
     , dsrSnapshotId
 
@@ -50,24 +50,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSnapshot' request.
-deleteSnapshot :: Text -- ^ 'dsrSnapshotId'
-               -> DeleteSnapshot
-deleteSnapshot p1 = DeleteSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshot' request.
+mkDeleteSnapshotRequest :: Text -- ^ 'dsrSnapshotId'
+                        -> DeleteSnapshot
+mkDeleteSnapshotRequest p1 = DeleteSnapshot
     { _dsrSnapshotId = p1
     }
-{-# INLINE deleteSnapshot #-}
+{-# INLINE mkDeleteSnapshotRequest #-}
 
-data DeleteSnapshot = DeleteSnapshot
+newtype DeleteSnapshot = DeleteSnapshot
     { _dsrSnapshotId :: Text
       -- ^ The ID of the Amazon EBS snapshot.
     } deriving (Show, Generic)
 
 -- | The ID of the Amazon EBS snapshot.
 dsrSnapshotId :: Lens' DeleteSnapshot (Text)
-dsrSnapshotId f x =
-    f (_dsrSnapshotId x)
-        <&> \y -> x { _dsrSnapshotId = y }
+dsrSnapshotId = lens _dsrSnapshotId (\s a -> s { _dsrSnapshotId = a })
 {-# INLINE dsrSnapshotId #-}
 
 instance ToQuery DeleteSnapshot where

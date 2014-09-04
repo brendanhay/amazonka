@@ -31,7 +31,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup
     -- * Request
       CreateDBSubnetGroup
     -- ** Request constructor
-    , createDBSubnetGroup
+    , mkCreateDBSubnetGroupMessage
     -- ** Request lenses
     , cdbsgnDBSubnetGroupName
     , cdbsgnDBSubnetGroupDescription
@@ -48,18 +48,19 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDBSubnetGroup' request.
-createDBSubnetGroup :: Text -- ^ 'cdbsgnDBSubnetGroupName'
-                    -> Text -- ^ 'cdbsgnDBSubnetGroupDescription'
-                    -> [Text] -- ^ 'cdbsgnSubnetIds'
-                    -> CreateDBSubnetGroup
-createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBSubnetGroup' request.
+mkCreateDBSubnetGroupMessage :: Text -- ^ 'cdbsgnDBSubnetGroupName'
+                             -> Text -- ^ 'cdbsgnDBSubnetGroupDescription'
+                             -> [Text] -- ^ 'cdbsgnSubnetIds'
+                             -> CreateDBSubnetGroup
+mkCreateDBSubnetGroupMessage p1 p2 p3 = CreateDBSubnetGroup
     { _cdbsgnDBSubnetGroupName = p1
     , _cdbsgnDBSubnetGroupDescription = p2
     , _cdbsgnSubnetIds = p3
     , _cdbsgnTags = mempty
     }
-{-# INLINE createDBSubnetGroup #-}
+{-# INLINE mkCreateDBSubnetGroupMessage #-}
 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
     { _cdbsgnDBSubnetGroupName :: Text
@@ -79,36 +80,28 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Must not be "Default". Example: mySubnetgroup.
 cdbsgnDBSubnetGroupName :: Lens' CreateDBSubnetGroup (Text)
-cdbsgnDBSubnetGroupName f x =
-    f (_cdbsgnDBSubnetGroupName x)
-        <&> \y -> x { _cdbsgnDBSubnetGroupName = y }
+cdbsgnDBSubnetGroupName = lens _cdbsgnDBSubnetGroupName (\s a -> s { _cdbsgnDBSubnetGroupName = a })
 {-# INLINE cdbsgnDBSubnetGroupName #-}
 
 -- | The description for the DB subnet group.
 cdbsgnDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup (Text)
-cdbsgnDBSubnetGroupDescription f x =
-    f (_cdbsgnDBSubnetGroupDescription x)
-        <&> \y -> x { _cdbsgnDBSubnetGroupDescription = y }
+cdbsgnDBSubnetGroupDescription = lens _cdbsgnDBSubnetGroupDescription (\s a -> s { _cdbsgnDBSubnetGroupDescription = a })
 {-# INLINE cdbsgnDBSubnetGroupDescription #-}
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 cdbsgnSubnetIds :: Lens' CreateDBSubnetGroup ([Text])
-cdbsgnSubnetIds f x =
-    f (_cdbsgnSubnetIds x)
-        <&> \y -> x { _cdbsgnSubnetIds = y }
+cdbsgnSubnetIds = lens _cdbsgnSubnetIds (\s a -> s { _cdbsgnSubnetIds = a })
 {-# INLINE cdbsgnSubnetIds #-}
 
 -- | A list of tags.
 cdbsgnTags :: Lens' CreateDBSubnetGroup ([Tag])
-cdbsgnTags f x =
-    f (_cdbsgnTags x)
-        <&> \y -> x { _cdbsgnTags = y }
+cdbsgnTags = lens _cdbsgnTags (\s a -> s { _cdbsgnTags = a })
 {-# INLINE cdbsgnTags #-}
 
 instance ToQuery CreateDBSubnetGroup where
     toQuery = genericQuery def
 
-data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
+newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _dbsgyDBSubnetGroup :: Maybe DBSubnetGroup
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBSubnetGroup ModifyDBSubnetGroup
@@ -121,9 +114,7 @@ data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
 -- DeleteDBSubnetGroup This data type is used as a response element in the
 -- DescribeDBSubnetGroups action.
 dbsgyDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-dbsgyDBSubnetGroup f x =
-    f (_dbsgyDBSubnetGroup x)
-        <&> \y -> x { _dbsgyDBSubnetGroup = y }
+dbsgyDBSubnetGroup = lens _dbsgyDBSubnetGroup (\s a -> s { _dbsgyDBSubnetGroup = a })
 {-# INLINE dbsgyDBSubnetGroup #-}
 
 instance FromXML CreateDBSubnetGroupResponse where

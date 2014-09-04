@@ -23,7 +23,7 @@ module Network.AWS.EMR.V2009_03_31.ListBootstrapActions
     -- * Request
       ListBootstrapActions
     -- ** Request constructor
-    , listBootstrapActions
+    , mkListBootstrapActionsInput
     -- ** Request lenses
     , lbaiClusterId
     , lbaiMarker
@@ -40,14 +40,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListBootstrapActions' request.
-listBootstrapActions :: Text -- ^ 'lbaiClusterId'
-                     -> ListBootstrapActions
-listBootstrapActions p1 = ListBootstrapActions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListBootstrapActions' request.
+mkListBootstrapActionsInput :: Text -- ^ 'lbaiClusterId'
+                            -> ListBootstrapActions
+mkListBootstrapActionsInput p1 = ListBootstrapActions
     { _lbaiClusterId = p1
     , _lbaiMarker = Nothing
     }
-{-# INLINE listBootstrapActions #-}
+{-# INLINE mkListBootstrapActionsInput #-}
 
 data ListBootstrapActions = ListBootstrapActions
     { _lbaiClusterId :: Text
@@ -59,16 +60,12 @@ data ListBootstrapActions = ListBootstrapActions
 
 -- | The cluster identifier for the bootstrap actions to list .
 lbaiClusterId :: Lens' ListBootstrapActions (Text)
-lbaiClusterId f x =
-    f (_lbaiClusterId x)
-        <&> \y -> x { _lbaiClusterId = y }
+lbaiClusterId = lens _lbaiClusterId (\s a -> s { _lbaiClusterId = a })
 {-# INLINE lbaiClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve .
 lbaiMarker :: Lens' ListBootstrapActions (Maybe Text)
-lbaiMarker f x =
-    f (_lbaiMarker x)
-        <&> \y -> x { _lbaiMarker = y }
+lbaiMarker = lens _lbaiMarker (\s a -> s { _lbaiMarker = a })
 {-# INLINE lbaiMarker #-}
 
 instance ToPath ListBootstrapActions
@@ -89,16 +86,12 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse
 
 -- | The bootstrap actions associated with the cluster .
 lbaoBootstrapActions :: Lens' ListBootstrapActionsResponse ([Command])
-lbaoBootstrapActions f x =
-    f (_lbaoBootstrapActions x)
-        <&> \y -> x { _lbaoBootstrapActions = y }
+lbaoBootstrapActions = lens _lbaoBootstrapActions (\s a -> s { _lbaoBootstrapActions = a })
 {-# INLINE lbaoBootstrapActions #-}
 
 -- | The pagination token that indicates the next set of results to retrieve .
 lbaoMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
-lbaoMarker f x =
-    f (_lbaoMarker x)
-        <&> \y -> x { _lbaoMarker = y }
+lbaoMarker = lens _lbaoMarker (\s a -> s { _lbaoMarker = a })
 {-# INLINE lbaoMarker #-}
 
 instance FromJSON ListBootstrapActionsResponse

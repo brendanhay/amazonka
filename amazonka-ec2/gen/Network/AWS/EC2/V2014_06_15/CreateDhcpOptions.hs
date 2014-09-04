@@ -63,7 +63,7 @@ module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
     -- * Request
       CreateDhcpOptions
     -- ** Request constructor
-    , createDhcpOptions
+    , mkCreateDhcpOptionsRequest
     -- ** Request lenses
     , cdorDhcpConfigurations
 
@@ -77,39 +77,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDhcpOptions' request.
-createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdorDhcpConfigurations'
-                  -> CreateDhcpOptions
-createDhcpOptions p1 = CreateDhcpOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDhcpOptions' request.
+mkCreateDhcpOptionsRequest :: [DhcpConfiguration] -- ^ 'cdorDhcpConfigurations'
+                           -> CreateDhcpOptions
+mkCreateDhcpOptionsRequest p1 = CreateDhcpOptions
     { _cdorDhcpConfigurations = p1
     }
-{-# INLINE createDhcpOptions #-}
+{-# INLINE mkCreateDhcpOptionsRequest #-}
 
-data CreateDhcpOptions = CreateDhcpOptions
+newtype CreateDhcpOptions = CreateDhcpOptions
     { _cdorDhcpConfigurations :: [DhcpConfiguration]
       -- ^ A DHCP configuration option.
     } deriving (Show, Generic)
 
 -- | A DHCP configuration option.
 cdorDhcpConfigurations :: Lens' CreateDhcpOptions ([DhcpConfiguration])
-cdorDhcpConfigurations f x =
-    f (_cdorDhcpConfigurations x)
-        <&> \y -> x { _cdorDhcpConfigurations = y }
+cdorDhcpConfigurations = lens _cdorDhcpConfigurations (\s a -> s { _cdorDhcpConfigurations = a })
 {-# INLINE cdorDhcpConfigurations #-}
 
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def
 
-data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
+newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdosDhcpOptions :: Maybe DhcpOptions
       -- ^ A set of DHCP options.
     } deriving (Show, Generic)
 
 -- | A set of DHCP options.
 cdosDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
-cdosDhcpOptions f x =
-    f (_cdosDhcpOptions x)
-        <&> \y -> x { _cdosDhcpOptions = y }
+cdosDhcpOptions = lens _cdosDhcpOptions (\s a -> s { _cdosDhcpOptions = a })
 {-# INLINE cdosDhcpOptions #-}
 
 instance FromXML CreateDhcpOptionsResponse where

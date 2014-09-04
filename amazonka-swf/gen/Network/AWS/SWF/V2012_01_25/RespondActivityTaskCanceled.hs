@@ -58,7 +58,7 @@ module Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
     -- * Request
       RespondActivityTaskCanceled
     -- ** Request constructor
-    , respondActivityTaskCanceled
+    , mkRespondActivityTaskCanceledInput
     -- ** Request lenses
     , ratciTaskToken
     , ratciDetails
@@ -72,14 +72,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RespondActivityTaskCanceled' request.
-respondActivityTaskCanceled :: Text -- ^ 'ratciTaskToken'
-                            -> RespondActivityTaskCanceled
-respondActivityTaskCanceled p1 = RespondActivityTaskCanceled
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RespondActivityTaskCanceled' request.
+mkRespondActivityTaskCanceledInput :: Text -- ^ 'ratciTaskToken'
+                                   -> RespondActivityTaskCanceled
+mkRespondActivityTaskCanceledInput p1 = RespondActivityTaskCanceled
     { _ratciTaskToken = p1
     , _ratciDetails = Nothing
     }
-{-# INLINE respondActivityTaskCanceled #-}
+{-# INLINE mkRespondActivityTaskCanceledInput #-}
 
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
     { _ratciTaskToken :: Text
@@ -96,16 +97,12 @@ data RespondActivityTaskCanceled = RespondActivityTaskCanceled
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
 ratciTaskToken :: Lens' RespondActivityTaskCanceled (Text)
-ratciTaskToken f x =
-    f (_ratciTaskToken x)
-        <&> \y -> x { _ratciTaskToken = y }
+ratciTaskToken = lens _ratciTaskToken (\s a -> s { _ratciTaskToken = a })
 {-# INLINE ratciTaskToken #-}
 
 -- | Optional information about the cancellation.
 ratciDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
-ratciDetails f x =
-    f (_ratciDetails x)
-        <&> \y -> x { _ratciDetails = y }
+ratciDetails = lens _ratciDetails (\s a -> s { _ratciDetails = a })
 {-# INLINE ratciDetails #-}
 
 instance ToPath RespondActivityTaskCanceled

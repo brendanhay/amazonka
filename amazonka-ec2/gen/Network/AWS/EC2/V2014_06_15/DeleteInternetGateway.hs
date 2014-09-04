@@ -31,7 +31,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteInternetGateway
     -- * Request
       DeleteInternetGateway
     -- ** Request constructor
-    , deleteInternetGateway
+    , mkDeleteInternetGatewayRequest
     -- ** Request lenses
     , digrInternetGatewayId
 
@@ -43,24 +43,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteInternetGateway' request.
-deleteInternetGateway :: Text -- ^ 'digrInternetGatewayId'
-                      -> DeleteInternetGateway
-deleteInternetGateway p1 = DeleteInternetGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInternetGateway' request.
+mkDeleteInternetGatewayRequest :: Text -- ^ 'digrInternetGatewayId'
+                               -> DeleteInternetGateway
+mkDeleteInternetGatewayRequest p1 = DeleteInternetGateway
     { _digrInternetGatewayId = p1
     }
-{-# INLINE deleteInternetGateway #-}
+{-# INLINE mkDeleteInternetGatewayRequest #-}
 
-data DeleteInternetGateway = DeleteInternetGateway
+newtype DeleteInternetGateway = DeleteInternetGateway
     { _digrInternetGatewayId :: Text
       -- ^ The ID of the Internet gateway.
     } deriving (Show, Generic)
 
 -- | The ID of the Internet gateway.
 digrInternetGatewayId :: Lens' DeleteInternetGateway (Text)
-digrInternetGatewayId f x =
-    f (_digrInternetGatewayId x)
-        <&> \y -> x { _digrInternetGatewayId = y }
+digrInternetGatewayId = lens _digrInternetGatewayId (\s a -> s { _digrInternetGatewayId = a })
 {-# INLINE digrInternetGatewayId #-}
 
 instance ToQuery DeleteInternetGateway where

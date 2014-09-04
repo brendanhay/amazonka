@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
     -- * Request
       DescribeLayers
     -- ** Request constructor
-    , describeLayers
+    , mkDescribeLayersRequest
     -- ** Request lenses
     , dlsStackId
     , dlsLayerIds
@@ -43,13 +43,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeLayers' request.
-describeLayers :: DescribeLayers
-describeLayers = DescribeLayers
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLayers' request.
+mkDescribeLayersRequest :: DescribeLayers
+mkDescribeLayersRequest = DescribeLayers
     { _dlsStackId = Nothing
     , _dlsLayerIds = mempty
     }
-{-# INLINE describeLayers #-}
+{-# INLINE mkDescribeLayersRequest #-}
 
 data DescribeLayers = DescribeLayers
     { _dlsStackId :: Maybe Text
@@ -62,18 +63,14 @@ data DescribeLayers = DescribeLayers
 
 -- | The stack ID.
 dlsStackId :: Lens' DescribeLayers (Maybe Text)
-dlsStackId f x =
-    f (_dlsStackId x)
-        <&> \y -> x { _dlsStackId = y }
+dlsStackId = lens _dlsStackId (\s a -> s { _dlsStackId = a })
 {-# INLINE dlsStackId #-}
 
 -- | An array of layer IDs that specify the layers to be described. If you omit
 -- this parameter, DescribeLayers returns a description of every layer in the
 -- specified stack.
 dlsLayerIds :: Lens' DescribeLayers ([Text])
-dlsLayerIds f x =
-    f (_dlsLayerIds x)
-        <&> \y -> x { _dlsLayerIds = y }
+dlsLayerIds = lens _dlsLayerIds (\s a -> s { _dlsLayerIds = a })
 {-# INLINE dlsLayerIds #-}
 
 instance ToPath DescribeLayers
@@ -84,16 +81,14 @@ instance ToHeaders DescribeLayers
 
 instance ToJSON DescribeLayers
 
-data DescribeLayersResponse = DescribeLayersResponse
+newtype DescribeLayersResponse = DescribeLayersResponse
     { _dltLayers :: [Layer]
       -- ^ An array of Layer objects that describe the layers.
     } deriving (Show, Generic)
 
 -- | An array of Layer objects that describe the layers.
 dltLayers :: Lens' DescribeLayersResponse ([Layer])
-dltLayers f x =
-    f (_dltLayers x)
-        <&> \y -> x { _dltLayers = y }
+dltLayers = lens _dltLayers (\s a -> s { _dltLayers = a })
 {-# INLINE dltLayers #-}
 
 instance FromJSON DescribeLayersResponse

@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
     -- * Request
       DescribeObjects
     -- ** Request constructor
-    , describeObjects
+    , mkDescribeObjectsInput
     -- ** Request lenses
     , doiPipelineId
     , doiObjectIds
@@ -50,8 +50,8 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
     , DescribeObjectsResponse
     -- ** Response lenses
     , dooPipelineObjects
-    , dooHasMoreResults
     , dooMarker
+    , dooHasMoreResults
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -59,17 +59,18 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeObjects' request.
-describeObjects :: Text -- ^ 'doiPipelineId'
-                -> [Text] -- ^ 'doiObjectIds'
-                -> DescribeObjects
-describeObjects p1 p2 = DescribeObjects
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeObjects' request.
+mkDescribeObjectsInput :: Text -- ^ 'doiPipelineId'
+                       -> [Text] -- ^ 'doiObjectIds'
+                       -> DescribeObjects
+mkDescribeObjectsInput p1 p2 = DescribeObjects
     { _doiPipelineId = p1
     , _doiObjectIds = p2
     , _doiEvaluateExpressions = Nothing
     , _doiMarker = Nothing
     }
-{-# INLINE describeObjects #-}
+{-# INLINE mkDescribeObjectsInput #-}
 
 data DescribeObjects = DescribeObjects
     { _doiPipelineId :: Text
@@ -91,26 +92,20 @@ data DescribeObjects = DescribeObjects
 
 -- | Identifier of the pipeline that contains the object definitions.
 doiPipelineId :: Lens' DescribeObjects (Text)
-doiPipelineId f x =
-    f (_doiPipelineId x)
-        <&> \y -> x { _doiPipelineId = y }
+doiPipelineId = lens _doiPipelineId (\s a -> s { _doiPipelineId = a })
 {-# INLINE doiPipelineId #-}
 
 -- | Identifiers of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
 -- DescribeObjects.
 doiObjectIds :: Lens' DescribeObjects ([Text])
-doiObjectIds f x =
-    f (_doiObjectIds x)
-        <&> \y -> x { _doiObjectIds = y }
+doiObjectIds = lens _doiObjectIds (\s a -> s { _doiObjectIds = a })
 {-# INLINE doiObjectIds #-}
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
 doiEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
-doiEvaluateExpressions f x =
-    f (_doiEvaluateExpressions x)
-        <&> \y -> x { _doiEvaluateExpressions = y }
+doiEvaluateExpressions = lens _doiEvaluateExpressions (\s a -> s { _doiEvaluateExpressions = a })
 {-# INLINE doiEvaluateExpressions #-}
 
 -- | The starting point for the results to be returned. The first time you call
@@ -118,9 +113,7 @@ doiEvaluateExpressions f x =
 -- HasMoreResults as True, you can call DescribeObjects again and pass the
 -- marker value from the response to retrieve the next set of results.
 doiMarker :: Lens' DescribeObjects (Maybe Text)
-doiMarker f x =
-    f (_doiMarker x)
-        <&> \y -> x { _doiMarker = y }
+doiMarker = lens _doiMarker (\s a -> s { _doiMarker = a })
 {-# INLINE doiMarker #-}
 
 instance ToPath DescribeObjects
@@ -135,36 +128,30 @@ data DescribeObjectsResponse = DescribeObjectsResponse
     { _dooPipelineObjects :: [PipelineObject]
       -- ^ An array of object definitions that are returned by the call to
       -- DescribeObjects.
-    , _dooHasMoreResults :: Bool
-      -- ^ If True, there are more pages of results to return.
     , _dooMarker :: Maybe Text
       -- ^ The starting point for the next page of results. To view the next
       -- page of results, call DescribeObjects again with this marker
       -- value.
+    , _dooHasMoreResults :: Maybe Bool
+      -- ^ If True, there are more pages of results to return.
     } deriving (Show, Generic)
 
 -- | An array of object definitions that are returned by the call to
 -- DescribeObjects.
 dooPipelineObjects :: Lens' DescribeObjectsResponse ([PipelineObject])
-dooPipelineObjects f x =
-    f (_dooPipelineObjects x)
-        <&> \y -> x { _dooPipelineObjects = y }
+dooPipelineObjects = lens _dooPipelineObjects (\s a -> s { _dooPipelineObjects = a })
 {-# INLINE dooPipelineObjects #-}
-
--- | If True, there are more pages of results to return.
-dooHasMoreResults :: Lens' DescribeObjectsResponse (Bool)
-dooHasMoreResults f x =
-    f (_dooHasMoreResults x)
-        <&> \y -> x { _dooHasMoreResults = y }
-{-# INLINE dooHasMoreResults #-}
 
 -- | The starting point for the next page of results. To view the next page of
 -- results, call DescribeObjects again with this marker value.
 dooMarker :: Lens' DescribeObjectsResponse (Maybe Text)
-dooMarker f x =
-    f (_dooMarker x)
-        <&> \y -> x { _dooMarker = y }
+dooMarker = lens _dooMarker (\s a -> s { _dooMarker = a })
 {-# INLINE dooMarker #-}
+
+-- | If True, there are more pages of results to return.
+dooHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
+dooHasMoreResults = lens _dooHasMoreResults (\s a -> s { _dooHasMoreResults = a })
+{-# INLINE dooHasMoreResults #-}
 
 instance FromJSON DescribeObjectsResponse
 

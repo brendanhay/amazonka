@@ -25,47 +25,47 @@ module Network.AWS.S3.V2006_03_01.CopyObject
     -- ** Request alias
     , PutObjectCopy
     -- ** Request constructor
-    , copyObject
+    , mkCopyObjectRequest
     -- ** Request lenses
-    , corCopySource
+    , corACL
     , corBucket
-    , corKey
     , corCacheControl
     , corContentDisposition
     , corContentEncoding
     , corContentLanguage
     , corContentType
+    , corCopySource
     , corCopySourceIfMatch
     , corCopySourceIfModifiedSince
     , corCopySourceIfNoneMatch
     , corCopySourceIfUnmodifiedSince
-    , corCopySourceSSECustomerAlgorithm
-    , corCopySourceSSECustomerKey
-    , corCopySourceSSECustomerKeyMD5
     , corExpires
     , corGrantFullControl
     , corGrantRead
     , corGrantReadACP
     , corGrantWriteACP
+    , corKey
     , corMetadata
     , corMetadataDirective
-    , corACL
-    , corSSECustomerAlgorithm
-    , corSSECustomerKey
-    , corSSECustomerKeyMD5
     , corServerSideEncryption
     , corStorageClass
     , corWebsiteRedirectLocation
+    , corSSECustomerAlgorithm
+    , corSSECustomerKey
+    , corSSECustomerKeyMD5
+    , corCopySourceSSECustomerAlgorithm
+    , corCopySourceSSECustomerKey
+    , corCopySourceSSECustomerKeyMD5
 
     -- * Response
     , CopyObjectResponse
     -- ** Response lenses
     , cooCopyObjectResult
-    , cooCopySourceVersionId
     , cooExpiration
+    , cooCopySourceVersionId
+    , cooServerSideEncryption
     , cooSSECustomerAlgorithm
     , cooSSECustomerKeyMD5
-    , cooServerSideEncryption
     ) where
 
 import Network.AWS.Request.RestS3
@@ -74,50 +74,49 @@ import Network.AWS.Prelude
 
 type PutObjectCopy = CopyObject
 
--- | Minimum specification for a 'CopyObject' request.
-copyObject :: Text -- ^ 'corCopySource'
-           -> BucketName -- ^ 'corBucket'
-           -> ObjectKey -- ^ 'corKey'
-           -> CopyObject
-copyObject p1 p2 p3 = CopyObject
-    { _corCopySource = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyObject' request.
+mkCopyObjectRequest :: BucketName -- ^ 'corBucket'
+                    -> Text -- ^ 'corCopySource'
+                    -> ObjectKey -- ^ 'corKey'
+                    -> CopyObject
+mkCopyObjectRequest p1 p2 p3 = CopyObject
+    { _corACL = Nothing
     , _corBucket = p2
-    , _corKey = p3
     , _corCacheControl = Nothing
     , _corContentDisposition = Nothing
     , _corContentEncoding = Nothing
     , _corContentLanguage = Nothing
     , _corContentType = Nothing
+    , _corCopySource = p8
     , _corCopySourceIfMatch = Nothing
     , _corCopySourceIfModifiedSince = Nothing
     , _corCopySourceIfNoneMatch = Nothing
     , _corCopySourceIfUnmodifiedSince = Nothing
-    , _corCopySourceSSECustomerAlgorithm = Nothing
-    , _corCopySourceSSECustomerKey = Nothing
-    , _corCopySourceSSECustomerKeyMD5 = Nothing
     , _corExpires = Nothing
     , _corGrantFullControl = Nothing
     , _corGrantRead = Nothing
     , _corGrantReadACP = Nothing
     , _corGrantWriteACP = Nothing
+    , _corKey = p18
     , _corMetadata = mempty
     , _corMetadataDirective = Nothing
-    , _corACL = Nothing
-    , _corSSECustomerAlgorithm = Nothing
-    , _corSSECustomerKey = Nothing
-    , _corSSECustomerKeyMD5 = Nothing
     , _corServerSideEncryption = Nothing
     , _corStorageClass = Nothing
     , _corWebsiteRedirectLocation = Nothing
+    , _corSSECustomerAlgorithm = Nothing
+    , _corSSECustomerKey = Nothing
+    , _corSSECustomerKeyMD5 = Nothing
+    , _corCopySourceSSECustomerAlgorithm = Nothing
+    , _corCopySourceSSECustomerKey = Nothing
+    , _corCopySourceSSECustomerKeyMD5 = Nothing
     }
-{-# INLINE copyObject #-}
+{-# INLINE mkCopyObjectRequest #-}
 
 data CopyObject = CopyObject
-    { _corCopySource :: Text
-      -- ^ The name of the source bucket and key name of the source object,
-      -- separated by a slash (/). Must be URL-encoded.
+    { _corACL :: Maybe ObjectCannedACL
+      -- ^ The canned ACL to apply to the object.
     , _corBucket :: BucketName
-    , _corKey :: ObjectKey
     , _corCacheControl :: Maybe Text
       -- ^ Specifies caching behavior along the request/reply chain.
     , _corContentDisposition :: Maybe Text
@@ -130,6 +129,9 @@ data CopyObject = CopyObject
       -- ^ The language the content is in.
     , _corContentType :: Maybe Text
       -- ^ A standard MIME type describing the format of the object data.
+    , _corCopySource :: Text
+      -- ^ The name of the source bucket and key name of the source object,
+      -- separated by a slash (/). Must be URL-encoded.
     , _corCopySourceIfMatch :: Maybe Text
       -- ^ Copies the object if its entity tag (ETag) matches the specified
       -- tag.
@@ -142,18 +144,6 @@ data CopyObject = CopyObject
     , _corCopySourceIfUnmodifiedSince :: Maybe RFC822
       -- ^ Copies the object if it hasn't been modified since the specified
       -- time.
-    , _corCopySourceSSECustomerAlgorithm :: Maybe Text
-      -- ^ Specifies the algorithm to use when decrypting the source object
-      -- (e.g., AES256).
-    , _corCopySourceSSECustomerKey :: Maybe Text
-      -- ^ Specifies the customer-provided encryption key for Amazon S3 to
-      -- use to decrypt the source object. The encryption key provided in
-      -- this header must be one that was used when the source object was
-      -- created.
-    , _corCopySourceSSECustomerKeyMD5 :: Maybe Text
-      -- ^ Specifies the 128-bit MD5 digest of the encryption key according
-      -- to RFC 1321. Amazon S3 uses this header for a message integrity
-      -- check to ensure the encryption key was transmitted without error.
     , _corExpires :: Maybe RFC822
       -- ^ The date and time at which the object is no longer cacheable.
     , _corGrantFullControl :: Maybe Text
@@ -165,13 +155,23 @@ data CopyObject = CopyObject
       -- ^ Allows grantee to read the object ACL.
     , _corGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable object.
+    , _corKey :: ObjectKey
     , _corMetadata :: Map Text Text
       -- ^ A map of metadata to store with the object in S3.
     , _corMetadataDirective :: Maybe MetadataDirective
       -- ^ Specifies whether the metadata is copied from the source object
       -- or replaced with metadata provided in the request.
-    , _corACL :: Maybe ObjectCannedACL
-      -- ^ The canned ACL to apply to the object.
+    , _corServerSideEncryption :: Maybe ServerSideEncryption
+      -- ^ The Server-side encryption algorithm used when storing this
+      -- object in S3.
+    , _corStorageClass :: Maybe StorageClass
+      -- ^ The type of storage to use for the object. Defaults to
+      -- 'STANDARD'.
+    , _corWebsiteRedirectLocation :: Maybe Text
+      -- ^ If the bucket is configured as a website, redirects requests for
+      -- this object to another object in the same bucket or to an
+      -- external URL. Amazon S3 stores the value of this header in the
+      -- object metadata.
     , _corSSECustomerAlgorithm :: Maybe Text
       -- ^ Specifies the algorithm to use to when encrypting the object
       -- (e.g., AES256).
@@ -187,194 +187,144 @@ data CopyObject = CopyObject
       -- ^ Specifies the 128-bit MD5 digest of the encryption key according
       -- to RFC 1321. Amazon S3 uses this header for a message integrity
       -- check to ensure the encryption key was transmitted without error.
-    , _corServerSideEncryption :: Maybe ServerSideEncryption
-      -- ^ The Server-side encryption algorithm used when storing this
-      -- object in S3.
-    , _corStorageClass :: Maybe StorageClass
-      -- ^ The type of storage to use for the object. Defaults to
-      -- 'STANDARD'.
-    , _corWebsiteRedirectLocation :: Maybe Text
-      -- ^ If the bucket is configured as a website, redirects requests for
-      -- this object to another object in the same bucket or to an
-      -- external URL. Amazon S3 stores the value of this header in the
-      -- object metadata.
+    , _corCopySourceSSECustomerAlgorithm :: Maybe Text
+      -- ^ Specifies the algorithm to use when decrypting the source object
+      -- (e.g., AES256).
+    , _corCopySourceSSECustomerKey :: Maybe Text
+      -- ^ Specifies the customer-provided encryption key for Amazon S3 to
+      -- use to decrypt the source object. The encryption key provided in
+      -- this header must be one that was used when the source object was
+      -- created.
+    , _corCopySourceSSECustomerKeyMD5 :: Maybe Text
+      -- ^ Specifies the 128-bit MD5 digest of the encryption key according
+      -- to RFC 1321. Amazon S3 uses this header for a message integrity
+      -- check to ensure the encryption key was transmitted without error.
     } deriving (Show, Generic)
 
--- | The name of the source bucket and key name of the source object, separated
--- by a slash (/). Must be URL-encoded.
-corCopySource :: Lens' CopyObject (Text)
-corCopySource f x =
-    f (_corCopySource x)
-        <&> \y -> x { _corCopySource = y }
-{-# INLINE corCopySource #-}
+-- | The canned ACL to apply to the object.
+corACL :: Lens' CopyObject (Maybe ObjectCannedACL)
+corACL = lens _corACL (\s a -> s { _corACL = a })
+{-# INLINE corACL #-}
 
 corBucket :: Lens' CopyObject (BucketName)
-corBucket f x =
-    f (_corBucket x)
-        <&> \y -> x { _corBucket = y }
+corBucket = lens _corBucket (\s a -> s { _corBucket = a })
 {-# INLINE corBucket #-}
-
-corKey :: Lens' CopyObject (ObjectKey)
-corKey f x =
-    f (_corKey x)
-        <&> \y -> x { _corKey = y }
-{-# INLINE corKey #-}
 
 -- | Specifies caching behavior along the request/reply chain.
 corCacheControl :: Lens' CopyObject (Maybe Text)
-corCacheControl f x =
-    f (_corCacheControl x)
-        <&> \y -> x { _corCacheControl = y }
+corCacheControl = lens _corCacheControl (\s a -> s { _corCacheControl = a })
 {-# INLINE corCacheControl #-}
 
 -- | Specifies presentational information for the object.
 corContentDisposition :: Lens' CopyObject (Maybe Text)
-corContentDisposition f x =
-    f (_corContentDisposition x)
-        <&> \y -> x { _corContentDisposition = y }
+corContentDisposition = lens _corContentDisposition (\s a -> s { _corContentDisposition = a })
 {-# INLINE corContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
 corContentEncoding :: Lens' CopyObject (Maybe Text)
-corContentEncoding f x =
-    f (_corContentEncoding x)
-        <&> \y -> x { _corContentEncoding = y }
+corContentEncoding = lens _corContentEncoding (\s a -> s { _corContentEncoding = a })
 {-# INLINE corContentEncoding #-}
 
 -- | The language the content is in.
 corContentLanguage :: Lens' CopyObject (Maybe Text)
-corContentLanguage f x =
-    f (_corContentLanguage x)
-        <&> \y -> x { _corContentLanguage = y }
+corContentLanguage = lens _corContentLanguage (\s a -> s { _corContentLanguage = a })
 {-# INLINE corContentLanguage #-}
 
 -- | A standard MIME type describing the format of the object data.
 corContentType :: Lens' CopyObject (Maybe Text)
-corContentType f x =
-    f (_corContentType x)
-        <&> \y -> x { _corContentType = y }
+corContentType = lens _corContentType (\s a -> s { _corContentType = a })
 {-# INLINE corContentType #-}
+
+-- | The name of the source bucket and key name of the source object, separated
+-- by a slash (/). Must be URL-encoded.
+corCopySource :: Lens' CopyObject (Text)
+corCopySource = lens _corCopySource (\s a -> s { _corCopySource = a })
+{-# INLINE corCopySource #-}
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
 corCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
-corCopySourceIfMatch f x =
-    f (_corCopySourceIfMatch x)
-        <&> \y -> x { _corCopySourceIfMatch = y }
+corCopySourceIfMatch = lens _corCopySourceIfMatch (\s a -> s { _corCopySourceIfMatch = a })
 {-# INLINE corCopySourceIfMatch #-}
 
 -- | Copies the object if it has been modified since the specified time.
 corCopySourceIfModifiedSince :: Lens' CopyObject (Maybe RFC822)
-corCopySourceIfModifiedSince f x =
-    f (_corCopySourceIfModifiedSince x)
-        <&> \y -> x { _corCopySourceIfModifiedSince = y }
+corCopySourceIfModifiedSince = lens _corCopySourceIfModifiedSince (\s a -> s { _corCopySourceIfModifiedSince = a })
 {-# INLINE corCopySourceIfModifiedSince #-}
 
 -- | Copies the object if its entity tag (ETag) is different than the specified
 -- ETag.
 corCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
-corCopySourceIfNoneMatch f x =
-    f (_corCopySourceIfNoneMatch x)
-        <&> \y -> x { _corCopySourceIfNoneMatch = y }
+corCopySourceIfNoneMatch = lens _corCopySourceIfNoneMatch (\s a -> s { _corCopySourceIfNoneMatch = a })
 {-# INLINE corCopySourceIfNoneMatch #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
 corCopySourceIfUnmodifiedSince :: Lens' CopyObject (Maybe RFC822)
-corCopySourceIfUnmodifiedSince f x =
-    f (_corCopySourceIfUnmodifiedSince x)
-        <&> \y -> x { _corCopySourceIfUnmodifiedSince = y }
+corCopySourceIfUnmodifiedSince = lens _corCopySourceIfUnmodifiedSince (\s a -> s { _corCopySourceIfUnmodifiedSince = a })
 {-# INLINE corCopySourceIfUnmodifiedSince #-}
-
--- | Specifies the algorithm to use when decrypting the source object (e.g.,
--- AES256).
-corCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
-corCopySourceSSECustomerAlgorithm f x =
-    f (_corCopySourceSSECustomerAlgorithm x)
-        <&> \y -> x { _corCopySourceSSECustomerAlgorithm = y }
-{-# INLINE corCopySourceSSECustomerAlgorithm #-}
-
--- | Specifies the customer-provided encryption key for Amazon S3 to use to
--- decrypt the source object. The encryption key provided in this header must
--- be one that was used when the source object was created.
-corCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
-corCopySourceSSECustomerKey f x =
-    f (_corCopySourceSSECustomerKey x)
-        <&> \y -> x { _corCopySourceSSECustomerKey = y }
-{-# INLINE corCopySourceSSECustomerKey #-}
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
-corCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
-corCopySourceSSECustomerKeyMD5 f x =
-    f (_corCopySourceSSECustomerKeyMD5 x)
-        <&> \y -> x { _corCopySourceSSECustomerKeyMD5 = y }
-{-# INLINE corCopySourceSSECustomerKeyMD5 #-}
 
 -- | The date and time at which the object is no longer cacheable.
 corExpires :: Lens' CopyObject (Maybe RFC822)
-corExpires f x =
-    f (_corExpires x)
-        <&> \y -> x { _corExpires = y }
+corExpires = lens _corExpires (\s a -> s { _corExpires = a })
 {-# INLINE corExpires #-}
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 corGrantFullControl :: Lens' CopyObject (Maybe Text)
-corGrantFullControl f x =
-    f (_corGrantFullControl x)
-        <&> \y -> x { _corGrantFullControl = y }
+corGrantFullControl = lens _corGrantFullControl (\s a -> s { _corGrantFullControl = a })
 {-# INLINE corGrantFullControl #-}
 
 -- | Allows grantee to read the object data and its metadata.
 corGrantRead :: Lens' CopyObject (Maybe Text)
-corGrantRead f x =
-    f (_corGrantRead x)
-        <&> \y -> x { _corGrantRead = y }
+corGrantRead = lens _corGrantRead (\s a -> s { _corGrantRead = a })
 {-# INLINE corGrantRead #-}
 
 -- | Allows grantee to read the object ACL.
 corGrantReadACP :: Lens' CopyObject (Maybe Text)
-corGrantReadACP f x =
-    f (_corGrantReadACP x)
-        <&> \y -> x { _corGrantReadACP = y }
+corGrantReadACP = lens _corGrantReadACP (\s a -> s { _corGrantReadACP = a })
 {-# INLINE corGrantReadACP #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
 corGrantWriteACP :: Lens' CopyObject (Maybe Text)
-corGrantWriteACP f x =
-    f (_corGrantWriteACP x)
-        <&> \y -> x { _corGrantWriteACP = y }
+corGrantWriteACP = lens _corGrantWriteACP (\s a -> s { _corGrantWriteACP = a })
 {-# INLINE corGrantWriteACP #-}
+
+corKey :: Lens' CopyObject (ObjectKey)
+corKey = lens _corKey (\s a -> s { _corKey = a })
+{-# INLINE corKey #-}
 
 -- | A map of metadata to store with the object in S3.
 corMetadata :: Lens' CopyObject (Map Text Text)
-corMetadata f x =
-    f (_corMetadata x)
-        <&> \y -> x { _corMetadata = y }
+corMetadata = lens _corMetadata (\s a -> s { _corMetadata = a })
 {-# INLINE corMetadata #-}
 
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
 corMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
-corMetadataDirective f x =
-    f (_corMetadataDirective x)
-        <&> \y -> x { _corMetadataDirective = y }
+corMetadataDirective = lens _corMetadataDirective (\s a -> s { _corMetadataDirective = a })
 {-# INLINE corMetadataDirective #-}
 
--- | The canned ACL to apply to the object.
-corACL :: Lens' CopyObject (Maybe ObjectCannedACL)
-corACL f x =
-    f (_corACL x)
-        <&> \y -> x { _corACL = y }
-{-# INLINE corACL #-}
+-- | The Server-side encryption algorithm used when storing this object in S3.
+corServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
+corServerSideEncryption = lens _corServerSideEncryption (\s a -> s { _corServerSideEncryption = a })
+{-# INLINE corServerSideEncryption #-}
+
+-- | The type of storage to use for the object. Defaults to 'STANDARD'.
+corStorageClass :: Lens' CopyObject (Maybe StorageClass)
+corStorageClass = lens _corStorageClass (\s a -> s { _corStorageClass = a })
+{-# INLINE corStorageClass #-}
+
+-- | If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL. Amazon
+-- S3 stores the value of this header in the object metadata.
+corWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
+corWebsiteRedirectLocation = lens _corWebsiteRedirectLocation (\s a -> s { _corWebsiteRedirectLocation = a })
+{-# INLINE corWebsiteRedirectLocation #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
 corSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
-corSSECustomerAlgorithm f x =
-    f (_corSSECustomerAlgorithm x)
-        <&> \y -> x { _corSSECustomerAlgorithm = y }
+corSSECustomerAlgorithm = lens _corSSECustomerAlgorithm (\s a -> s { _corSSECustomerAlgorithm = a })
 {-# INLINE corSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -383,42 +333,35 @@ corSSECustomerAlgorithm f x =
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 corSSECustomerKey :: Lens' CopyObject (Maybe Text)
-corSSECustomerKey f x =
-    f (_corSSECustomerKey x)
-        <&> \y -> x { _corSSECustomerKey = y }
+corSSECustomerKey = lens _corSSECustomerKey (\s a -> s { _corSSECustomerKey = a })
 {-# INLINE corSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
 corSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
-corSSECustomerKeyMD5 f x =
-    f (_corSSECustomerKeyMD5 x)
-        <&> \y -> x { _corSSECustomerKeyMD5 = y }
+corSSECustomerKeyMD5 = lens _corSSECustomerKeyMD5 (\s a -> s { _corSSECustomerKeyMD5 = a })
 {-# INLINE corSSECustomerKeyMD5 #-}
 
--- | The Server-side encryption algorithm used when storing this object in S3.
-corServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
-corServerSideEncryption f x =
-    f (_corServerSideEncryption x)
-        <&> \y -> x { _corServerSideEncryption = y }
-{-# INLINE corServerSideEncryption #-}
+-- | Specifies the algorithm to use when decrypting the source object (e.g.,
+-- AES256).
+corCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
+corCopySourceSSECustomerAlgorithm = lens _corCopySourceSSECustomerAlgorithm (\s a -> s { _corCopySourceSSECustomerAlgorithm = a })
+{-# INLINE corCopySourceSSECustomerAlgorithm #-}
 
--- | The type of storage to use for the object. Defaults to 'STANDARD'.
-corStorageClass :: Lens' CopyObject (Maybe StorageClass)
-corStorageClass f x =
-    f (_corStorageClass x)
-        <&> \y -> x { _corStorageClass = y }
-{-# INLINE corStorageClass #-}
+-- | Specifies the customer-provided encryption key for Amazon S3 to use to
+-- decrypt the source object. The encryption key provided in this header must
+-- be one that was used when the source object was created.
+corCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
+corCopySourceSSECustomerKey = lens _corCopySourceSSECustomerKey (\s a -> s { _corCopySourceSSECustomerKey = a })
+{-# INLINE corCopySourceSSECustomerKey #-}
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL. Amazon
--- S3 stores the value of this header in the object metadata.
-corWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
-corWebsiteRedirectLocation f x =
-    f (_corWebsiteRedirectLocation x)
-        <&> \y -> x { _corWebsiteRedirectLocation = y }
-{-# INLINE corWebsiteRedirectLocation #-}
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- the encryption key was transmitted without error.
+corCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
+corCopySourceSSECustomerKeyMD5 = lens _corCopySourceSSECustomerKeyMD5 (\s a -> s { _corCopySourceSSECustomerKeyMD5 = a })
+{-# INLINE corCopySourceSSECustomerKeyMD5 #-}
 
 instance ToPath CopyObject where
     toPath CopyObject{..} = mconcat
@@ -430,45 +373,19 @@ instance ToPath CopyObject where
 
 instance ToQuery CopyObject
 
-instance ToHeaders CopyObject where
-    toHeaders CopyObject{..} = concat
-        [ "x-amz-copy-source" =: _corCopySource
-        , "Cache-Control" =: _corCacheControl
-        , "Content-Disposition" =: _corContentDisposition
-        , "Content-Encoding" =: _corContentEncoding
-        , "Content-Language" =: _corContentLanguage
-        , "Content-Type" =: _corContentType
-        , "x-amz-copy-source-if-match" =: _corCopySourceIfMatch
-        , "x-amz-copy-source-if-modified-since" =: _corCopySourceIfModifiedSince
-        , "x-amz-copy-source-if-none-match" =: _corCopySourceIfNoneMatch
-        , "x-amz-copy-source-if-unmodified-since" =: _corCopySourceIfUnmodifiedSince
-        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _corCopySourceSSECustomerAlgorithm
-        , "x-amz-copy-source-server-side-encryption-customer-key" =: _corCopySourceSSECustomerKey
-        , "x-amz-copy-source-server-side-encryption-customer-key-MD5" =: _corCopySourceSSECustomerKeyMD5
-        , "Expires" =: _corExpires
-        , "x-amz-grant-full-control" =: _corGrantFullControl
-        , "x-amz-grant-read" =: _corGrantRead
-        , "x-amz-grant-read-acp" =: _corGrantReadACP
-        , "x-amz-grant-write-acp" =: _corGrantWriteACP
-        , "x-amz-meta-" =: _corMetadata
-        , "x-amz-metadata-directive" =: _corMetadataDirective
-        , "x-amz-acl" =: _corACL
-        , "x-amz-server-side-encryption-customer-algorithm" =: _corSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key" =: _corSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5" =: _corSSECustomerKeyMD5
-        , "x-amz-server-side-encryption" =: _corServerSideEncryption
-        , "x-amz-storage-class" =: _corStorageClass
-        , "x-amz-website-redirect-location" =: _corWebsiteRedirectLocation
-        ]
+instance ToHeaders CopyObject
 
 instance ToBody CopyObject
 
 data CopyObjectResponse = CopyObjectResponse
     { _cooCopyObjectResult :: Maybe CopyObjectResult
-    , _cooCopySourceVersionId :: Maybe Text
     , _cooExpiration :: Maybe RFC822
       -- ^ If the object expiration is configured, the response includes
       -- this header.
+    , _cooCopySourceVersionId :: Maybe Text
+    , _cooServerSideEncryption :: Maybe ServerSideEncryption
+      -- ^ The Server-side encryption algorithm used when storing this
+      -- object in S3.
     , _cooSSECustomerAlgorithm :: Maybe Text
       -- ^ If server-side encryption with a customer-provided encryption key
       -- was requested, the response will include this header confirming
@@ -478,54 +395,39 @@ data CopyObjectResponse = CopyObjectResponse
       -- was requested, the response will include this header to provide
       -- round trip message integrity verification of the
       -- customer-provided encryption key.
-    , _cooServerSideEncryption :: Maybe ServerSideEncryption
-      -- ^ The Server-side encryption algorithm used when storing this
-      -- object in S3.
     } deriving (Show, Generic)
 
 cooCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
-cooCopyObjectResult f x =
-    f (_cooCopyObjectResult x)
-        <&> \y -> x { _cooCopyObjectResult = y }
+cooCopyObjectResult = lens _cooCopyObjectResult (\s a -> s { _cooCopyObjectResult = a })
 {-# INLINE cooCopyObjectResult #-}
-
-cooCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
-cooCopySourceVersionId f x =
-    f (_cooCopySourceVersionId x)
-        <&> \y -> x { _cooCopySourceVersionId = y }
-{-# INLINE cooCopySourceVersionId #-}
 
 -- | If the object expiration is configured, the response includes this header.
 cooExpiration :: Lens' CopyObjectResponse (Maybe RFC822)
-cooExpiration f x =
-    f (_cooExpiration x)
-        <&> \y -> x { _cooExpiration = y }
+cooExpiration = lens _cooExpiration (\s a -> s { _cooExpiration = a })
 {-# INLINE cooExpiration #-}
+
+cooCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
+cooCopySourceVersionId = lens _cooCopySourceVersionId (\s a -> s { _cooCopySourceVersionId = a })
+{-# INLINE cooCopySourceVersionId #-}
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+cooServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
+cooServerSideEncryption = lens _cooServerSideEncryption (\s a -> s { _cooServerSideEncryption = a })
+{-# INLINE cooServerSideEncryption #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
 cooSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
-cooSSECustomerAlgorithm f x =
-    f (_cooSSECustomerAlgorithm x)
-        <&> \y -> x { _cooSSECustomerAlgorithm = y }
+cooSSECustomerAlgorithm = lens _cooSSECustomerAlgorithm (\s a -> s { _cooSSECustomerAlgorithm = a })
 {-# INLINE cooSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
 cooSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
-cooSSECustomerKeyMD5 f x =
-    f (_cooSSECustomerKeyMD5 x)
-        <&> \y -> x { _cooSSECustomerKeyMD5 = y }
+cooSSECustomerKeyMD5 = lens _cooSSECustomerKeyMD5 (\s a -> s { _cooSSECustomerKeyMD5 = a })
 {-# INLINE cooSSECustomerKeyMD5 #-}
-
--- | The Server-side encryption algorithm used when storing this object in S3.
-cooServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
-cooServerSideEncryption f x =
-    f (_cooServerSideEncryption x)
-        <&> \y -> x { _cooServerSideEncryption = y }
-{-# INLINE cooServerSideEncryption #-}
 
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
@@ -535,8 +437,8 @@ instance AWSRequest CopyObject where
     response _ = cursorResponse $ \hs xml ->
         pure CopyObjectResponse
             <*> xml %|? "CopyObjectResult"
-            <*> hs ~:? "x-amz-copy-source-version-id"
             <*> hs ~:? "x-amz-expiration"
+            <*> hs ~:? "x-amz-copy-source-version-id"
+            <*> hs ~:? "x-amz-server-side-encryption"
             <*> hs ~:? "x-amz-server-side-encryption-customer-algorithm"
             <*> hs ~:? "x-amz-server-side-encryption-customer-key-MD5"
-            <*> hs ~:? "x-amz-server-side-encryption"

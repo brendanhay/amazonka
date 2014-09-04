@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
     -- * Request
       DeleteIndexField
     -- ** Request constructor
-    , deleteIndexField
+    , mkDeleteIndexFieldRequest
     -- ** Request lenses
     , diftDomainName
     , diftIndexFieldName
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteIndexField' request.
-deleteIndexField :: Text -- ^ 'diftDomainName'
-                 -> Text -- ^ 'diftIndexFieldName'
-                 -> DeleteIndexField
-deleteIndexField p1 p2 = DeleteIndexField
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteIndexField' request.
+mkDeleteIndexFieldRequest :: Text -- ^ 'diftDomainName'
+                          -> Text -- ^ 'diftIndexFieldName'
+                          -> DeleteIndexField
+mkDeleteIndexFieldRequest p1 p2 = DeleteIndexField
     { _diftDomainName = p1
     , _diftIndexFieldName = p2
     }
-{-# INLINE deleteIndexField #-}
+{-# INLINE mkDeleteIndexFieldRequest #-}
 
 data DeleteIndexField = DeleteIndexField
     { _diftDomainName :: Text
@@ -66,32 +67,26 @@ data DeleteIndexField = DeleteIndexField
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 diftDomainName :: Lens' DeleteIndexField (Text)
-diftDomainName f x =
-    f (_diftDomainName x)
-        <&> \y -> x { _diftDomainName = y }
+diftDomainName = lens _diftDomainName (\s a -> s { _diftDomainName = a })
 {-# INLINE diftDomainName #-}
 
 -- | The name of the index field your want to remove from the domain's indexing
 -- options.
 diftIndexFieldName :: Lens' DeleteIndexField (Text)
-diftIndexFieldName f x =
-    f (_diftIndexFieldName x)
-        <&> \y -> x { _diftIndexFieldName = y }
+diftIndexFieldName = lens _diftIndexFieldName (\s a -> s { _diftIndexFieldName = a })
 {-# INLINE diftIndexFieldName #-}
 
 instance ToQuery DeleteIndexField where
     toQuery = genericQuery def
 
-data DeleteIndexFieldResponse = DeleteIndexFieldResponse
+newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difuIndexField :: IndexFieldStatus
       -- ^ The status of the index field being deleted.
     } deriving (Show, Generic)
 
 -- | The status of the index field being deleted.
 difuIndexField :: Lens' DeleteIndexFieldResponse (IndexFieldStatus)
-difuIndexField f x =
-    f (_difuIndexField x)
-        <&> \y -> x { _difuIndexField = y }
+difuIndexField = lens _difuIndexField (\s a -> s { _difuIndexField = a })
 {-# INLINE difuIndexField #-}
 
 instance FromXML DeleteIndexFieldResponse where

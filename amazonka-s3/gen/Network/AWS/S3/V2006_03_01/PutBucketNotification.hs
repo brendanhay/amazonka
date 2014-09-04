@@ -23,11 +23,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketNotification
     -- * Request
       PutBucketNotification
     -- ** Request constructor
-    , putBucketNotification
+    , mkPutBucketNotificationRequest
     -- ** Request lenses
-    , pbnrNotificationConfiguration
     , pbnrBucket
     , pbnrContentMD5
+    , pbnrNotificationConfiguration
 
     -- * Response
     , PutBucketNotificationResponse
@@ -37,40 +37,35 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutBucketNotification' request.
-putBucketNotification :: NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
-                      -> BucketName -- ^ 'pbnrBucket'
-                      -> PutBucketNotification
-putBucketNotification p1 p2 = PutBucketNotification
-    { _pbnrNotificationConfiguration = p1
-    , _pbnrBucket = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketNotification' request.
+mkPutBucketNotificationRequest :: BucketName -- ^ 'pbnrBucket'
+                               -> NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
+                               -> PutBucketNotification
+mkPutBucketNotificationRequest p1 p2 = PutBucketNotification
+    { _pbnrBucket = p1
     , _pbnrContentMD5 = Nothing
+    , _pbnrNotificationConfiguration = p3
     }
-{-# INLINE putBucketNotification #-}
+{-# INLINE mkPutBucketNotificationRequest #-}
 
 data PutBucketNotification = PutBucketNotification
-    { _pbnrNotificationConfiguration :: NotificationConfiguration
-    , _pbnrBucket :: BucketName
+    { _pbnrBucket :: BucketName
     , _pbnrContentMD5 :: Maybe Text
+    , _pbnrNotificationConfiguration :: NotificationConfiguration
     } deriving (Show, Generic)
 
-pbnrNotificationConfiguration :: Lens' PutBucketNotification (NotificationConfiguration)
-pbnrNotificationConfiguration f x =
-    f (_pbnrNotificationConfiguration x)
-        <&> \y -> x { _pbnrNotificationConfiguration = y }
-{-# INLINE pbnrNotificationConfiguration #-}
-
 pbnrBucket :: Lens' PutBucketNotification (BucketName)
-pbnrBucket f x =
-    f (_pbnrBucket x)
-        <&> \y -> x { _pbnrBucket = y }
+pbnrBucket = lens _pbnrBucket (\s a -> s { _pbnrBucket = a })
 {-# INLINE pbnrBucket #-}
 
 pbnrContentMD5 :: Lens' PutBucketNotification (Maybe Text)
-pbnrContentMD5 f x =
-    f (_pbnrContentMD5 x)
-        <&> \y -> x { _pbnrContentMD5 = y }
+pbnrContentMD5 = lens _pbnrContentMD5 (\s a -> s { _pbnrContentMD5 = a })
 {-# INLINE pbnrContentMD5 #-}
+
+pbnrNotificationConfiguration :: Lens' PutBucketNotification (NotificationConfiguration)
+pbnrNotificationConfiguration = lens _pbnrNotificationConfiguration (\s a -> s { _pbnrNotificationConfiguration = a })
+{-# INLINE pbnrNotificationConfiguration #-}
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat
@@ -83,13 +78,9 @@ instance ToQuery PutBucketNotification where
         [ "notification"
         ]
 
-instance ToHeaders PutBucketNotification where
-    toHeaders PutBucketNotification{..} = concat
-        [ "Content-MD5" =: _pbnrContentMD5
-        ]
+instance ToHeaders PutBucketNotification
 
-instance ToBody PutBucketNotification where
-    toBody = toBody . encodeXML . _pbnrNotificationConfiguration
+instance ToBody PutBucketNotification
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)

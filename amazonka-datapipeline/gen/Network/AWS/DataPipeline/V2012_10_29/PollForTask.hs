@@ -62,7 +62,7 @@ module Network.AWS.DataPipeline.V2012_10_29.PollForTask
     -- * Request
       PollForTask
     -- ** Request constructor
-    , pollForTask
+    , mkPollForTaskInput
     -- ** Request lenses
     , pftiWorkerGroup
     , pftiHostname
@@ -79,15 +79,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'PollForTask' request.
-pollForTask :: Text -- ^ 'pftiWorkerGroup'
-            -> PollForTask
-pollForTask p1 = PollForTask
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PollForTask' request.
+mkPollForTaskInput :: Text -- ^ 'pftiWorkerGroup'
+                   -> PollForTask
+mkPollForTaskInput p1 = PollForTask
     { _pftiWorkerGroup = p1
     , _pftiHostname = Nothing
     , _pftiInstanceIdentity = Nothing
     }
-{-# INLINE pollForTask #-}
+{-# INLINE mkPollForTaskInput #-}
 
 data PollForTask = PollForTask
     { _pftiWorkerGroup :: Text
@@ -116,16 +117,12 @@ data PollForTask = PollForTask
 -- the call to PollForTask. There are no wildcard values permitted in
 -- workerGroup, the string must be an exact, case-sensitive, match.
 pftiWorkerGroup :: Lens' PollForTask (Text)
-pftiWorkerGroup f x =
-    f (_pftiWorkerGroup x)
-        <&> \y -> x { _pftiWorkerGroup = y }
+pftiWorkerGroup = lens _pftiWorkerGroup (\s a -> s { _pftiWorkerGroup = a })
 {-# INLINE pftiWorkerGroup #-}
 
 -- | The public DNS name of the calling task runner.
 pftiHostname :: Lens' PollForTask (Maybe Text)
-pftiHostname f x =
-    f (_pftiHostname x)
-        <&> \y -> x { _pftiHostname = y }
+pftiHostname = lens _pftiHostname (\s a -> s { _pftiHostname = a })
 {-# INLINE pftiHostname #-}
 
 -- | Identity information for the Amazon EC2 instance that is hosting the task
@@ -136,9 +133,7 @@ pftiHostname f x =
 -- running on an EC2 instance, and ensures the proper AWS Data Pipeline
 -- service charges are applied to your pipeline.
 pftiInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
-pftiInstanceIdentity f x =
-    f (_pftiInstanceIdentity x)
-        <&> \y -> x { _pftiInstanceIdentity = y }
+pftiInstanceIdentity = lens _pftiInstanceIdentity (\s a -> s { _pftiInstanceIdentity = a })
 {-# INLINE pftiInstanceIdentity #-}
 
 instance ToPath PollForTask
@@ -149,7 +144,7 @@ instance ToHeaders PollForTask
 
 instance ToJSON PollForTask
 
-data PollForTaskResponse = PollForTaskResponse
+newtype PollForTaskResponse = PollForTaskResponse
     { _pftoTaskObject :: Maybe TaskObject
       -- ^ An instance of PollForTaskResult, which contains an instance of
       -- TaskObject. The returned object contains all the information
@@ -167,9 +162,7 @@ data PollForTaskResponse = PollForTaskResponse
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
 pftoTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
-pftoTaskObject f x =
-    f (_pftoTaskObject x)
-        <&> \y -> x { _pftoTaskObject = y }
+pftoTaskObject = lens _pftoTaskObject (\s a -> s { _pftoTaskObject = a })
 {-# INLINE pftoTaskObject #-}
 
 instance FromJSON PollForTaskResponse

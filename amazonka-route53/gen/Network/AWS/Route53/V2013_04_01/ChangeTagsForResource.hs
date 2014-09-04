@@ -22,12 +22,12 @@ module Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
     -- * Request
       ChangeTagsForResource
     -- ** Request constructor
-    , changeTagsForResource
+    , mkChangeTagsForResourceRequest
     -- ** Request lenses
-    , ctfrrResourceId
     , ctfrrResourceType
-    , ctfrrRemoveTagKeys
+    , ctfrrResourceId
     , ctfrrAddTags
+    , ctfrrRemoveTagKeys
 
     -- * Response
     , ChangeTagsForResourceResponse
@@ -37,63 +37,56 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ChangeTagsForResource' request.
-changeTagsForResource :: Text -- ^ 'ctfrrResourceId'
-                      -> TagResourceType -- ^ 'ctfrrResourceType'
-                      -> ChangeTagsForResource
-changeTagsForResource p1 p2 = ChangeTagsForResource
-    { _ctfrrResourceId = p1
-    , _ctfrrResourceType = p2
-    , _ctfrrRemoveTagKeys = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeTagsForResource' request.
+mkChangeTagsForResourceRequest :: TagResourceType -- ^ 'ctfrrResourceType'
+                               -> Text -- ^ 'ctfrrResourceId'
+                               -> ChangeTagsForResource
+mkChangeTagsForResourceRequest p1 p2 = ChangeTagsForResource
+    { _ctfrrResourceType = p1
+    , _ctfrrResourceId = p2
     , _ctfrrAddTags = Nothing
+    , _ctfrrRemoveTagKeys = Nothing
     }
-{-# INLINE changeTagsForResource #-}
+{-# INLINE mkChangeTagsForResourceRequest #-}
 
 data ChangeTagsForResource = ChangeTagsForResource
-    { _ctfrrResourceId :: Text
-      -- ^ The ID of the resource for which you want to add, change, or
-      -- delete tags.
-    , _ctfrrResourceType :: TagResourceType
+    { _ctfrrResourceType :: TagResourceType
       -- ^ The type of the resource. The resource type for health checks is
       -- healthcheck.
-    , _ctfrrRemoveTagKeys :: Maybe [Text]
-      -- ^ A list of Tag keys that you want to remove from the specified
-      -- resource.
+    , _ctfrrResourceId :: Text
+      -- ^ The ID of the resource for which you want to add, change, or
+      -- delete tags.
     , _ctfrrAddTags :: Maybe [Tag]
       -- ^ A complex type that contains a list of Tag elements. Each Tag
       -- element identifies a tag that you want to add or update for the
       -- specified resource.
+    , _ctfrrRemoveTagKeys :: Maybe [Text]
+      -- ^ A list of Tag keys that you want to remove from the specified
+      -- resource.
     } deriving (Show, Generic)
-
--- | The ID of the resource for which you want to add, change, or delete tags.
-ctfrrResourceId :: Lens' ChangeTagsForResource (Text)
-ctfrrResourceId f x =
-    f (_ctfrrResourceId x)
-        <&> \y -> x { _ctfrrResourceId = y }
-{-# INLINE ctfrrResourceId #-}
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
 ctfrrResourceType :: Lens' ChangeTagsForResource (TagResourceType)
-ctfrrResourceType f x =
-    f (_ctfrrResourceType x)
-        <&> \y -> x { _ctfrrResourceType = y }
+ctfrrResourceType = lens _ctfrrResourceType (\s a -> s { _ctfrrResourceType = a })
 {-# INLINE ctfrrResourceType #-}
 
--- | A list of Tag keys that you want to remove from the specified resource.
-ctfrrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe [Text])
-ctfrrRemoveTagKeys f x =
-    f (_ctfrrRemoveTagKeys x)
-        <&> \y -> x { _ctfrrRemoveTagKeys = y }
-{-# INLINE ctfrrRemoveTagKeys #-}
+-- | The ID of the resource for which you want to add, change, or delete tags.
+ctfrrResourceId :: Lens' ChangeTagsForResource (Text)
+ctfrrResourceId = lens _ctfrrResourceId (\s a -> s { _ctfrrResourceId = a })
+{-# INLINE ctfrrResourceId #-}
 
 -- | A complex type that contains a list of Tag elements. Each Tag element
 -- identifies a tag that you want to add or update for the specified resource.
 ctfrrAddTags :: Lens' ChangeTagsForResource (Maybe [Tag])
-ctfrrAddTags f x =
-    f (_ctfrrAddTags x)
-        <&> \y -> x { _ctfrrAddTags = y }
+ctfrrAddTags = lens _ctfrrAddTags (\s a -> s { _ctfrrAddTags = a })
 {-# INLINE ctfrrAddTags #-}
+
+-- | A list of Tag keys that you want to remove from the specified resource.
+ctfrrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe [Text])
+ctfrrRemoveTagKeys = lens _ctfrrRemoveTagKeys (\s a -> s { _ctfrrRemoveTagKeys = a })
+{-# INLINE ctfrrRemoveTagKeys #-}
 
 instance ToPath ChangeTagsForResource where
     toPath ChangeTagsForResource{..} = mconcat
@@ -111,7 +104,6 @@ instance ToXML ChangeTagsForResource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeTagsForResourceRequest"
 
-data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest ChangeTagsForResource where

@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -41,15 +42,17 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , SourceType (..)
 
     -- * AvailabilityZone
-    , AvailabilityZone (..)
+    , AvailabilityZone
+    , mkAvailabilityZone
     , azName
 
     -- * ReplicationGroupPendingModifiedValues
-    , ReplicationGroupPendingModifiedValues (..)
+    , ReplicationGroupPendingModifiedValues
+    , mkReplicationGroupPendingModifiedValues
     , rgpmvPrimaryClusterId
 
     -- * CacheCluster
-    , CacheCluster (..)
+    , CacheCluster
     , ccCacheClusterId
     , ccConfigurationEndpoint
     , ccClientDownloadLandingPage
@@ -74,7 +77,7 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , ccSnapshotWindow
 
     -- * CacheEngineVersion
-    , CacheEngineVersion (..)
+    , CacheEngineVersion
     , cevEngine
     , cevEngineVersion
     , cevCacheParameterGroupFamily
@@ -82,7 +85,8 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , cevCacheEngineVersionDescription
 
     -- * CacheNode
-    , CacheNode (..)
+    , CacheNode
+    , mkCacheNode
     , cnCacheNodeId
     , cnCacheNodeStatus
     , cnCacheNodeCreateTime
@@ -92,7 +96,7 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , cnCustomerAvailabilityZone
 
     -- * CacheNodeTypeSpecificParameter
-    , CacheNodeTypeSpecificParameter (..)
+    , CacheNodeTypeSpecificParameter
     , cntspParameterName
     , cntspDescription
     , cntspSource
@@ -103,75 +107,82 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , cntspCacheNodeTypeSpecificValues
 
     -- * CacheNodeTypeSpecificValue
-    , CacheNodeTypeSpecificValue (..)
+    , CacheNodeTypeSpecificValue
+    , mkCacheNodeTypeSpecificValue
     , cntsvCacheNodeType
     , cntsvValue
 
     -- * CacheParameterGroup
-    , CacheParameterGroup (..)
+    , CacheParameterGroup
     , cpgCacheParameterGroupName
     , cpgCacheParameterGroupFamily
     , cpgDescription
 
     -- * CacheParameterGroupStatus
-    , CacheParameterGroupStatus (..)
+    , CacheParameterGroupStatus
+    , mkCacheParameterGroupStatus
     , cpgsCacheParameterGroupName
     , cpgsParameterApplyStatus
     , cpgsCacheNodeIdsToReboot
 
     -- * CacheSecurityGroup
-    , CacheSecurityGroup (..)
+    , CacheSecurityGroup
     , csgOwnerId
     , csgCacheSecurityGroupName
     , csgDescription
     , csgEC2SecurityGroups
 
     -- * CacheSecurityGroupMembership
-    , CacheSecurityGroupMembership (..)
+    , CacheSecurityGroupMembership
+    , mkCacheSecurityGroupMembership
     , csgmCacheSecurityGroupName
     , csgmStatus
 
     -- * CacheSubnetGroup
-    , CacheSubnetGroup (..)
+    , CacheSubnetGroup
     , csiCacheSubnetGroupName
     , csiCacheSubnetGroupDescription
     , csiVpcId
     , csiSubnets
 
     -- * EC2SecurityGroup
-    , EC2SecurityGroup (..)
+    , EC2SecurityGroup
+    , mkEC2SecurityGroup
     , ecsgStatus
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupOwnerId
 
     -- * Endpoint
-    , Endpoint (..)
+    , Endpoint
+    , mkEndpoint
     , eAddress
     , ePort
 
     -- * EngineDefaults
-    , EngineDefaults (..)
+    , EngineDefaults
     , edCacheParameterGroupFamily
     , edMarker
     , edParameters
     , edCacheNodeTypeSpecificParameters
 
     -- * Event
-    , Event (..)
+    , Event
     , exSourceIdentifier
     , exSourceType
     , exMessage
     , exDate
 
     -- * NodeGroup
-    , NodeGroup (..)
+    , NodeGroup
+    , mkNodeGroup
     , ngNodeGroupId
     , ngStatus
     , ngPrimaryEndpoint
     , ngNodeGroupMembers
 
     -- * NodeGroupMember
-    , NodeGroupMember (..)
+    , NodeGroupMember
+    , mkNodeGroupMember
     , ngmCacheClusterId
     , ngmCacheNodeId
     , ngmReadEndpoint
@@ -179,19 +190,21 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , ngmCurrentRole
 
     -- * NodeSnapshot
-    , NodeSnapshot (..)
+    , NodeSnapshot
+    , mkNodeSnapshot
     , nsCacheNodeId
     , nsCacheSize
     , nsCacheNodeCreateTime
     , nsSnapshotCreateTime
 
     -- * NotificationConfiguration
-    , NotificationConfiguration (..)
+    , NotificationConfiguration
+    , mkNotificationConfiguration
     , ncTopicArn
     , ncTopicStatus
 
     -- * Parameter
-    , Parameter (..)
+    , Parameter
     , prParameterName
     , prParameterValue
     , prDescription
@@ -202,23 +215,26 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , prMinimumEngineVersion
 
     -- * ParameterNameValue
-    , ParameterNameValue (..)
+    , ParameterNameValue
+    , mkParameterNameValue
     , pnvParameterName
     , pnvParameterValue
 
     -- * PendingModifiedValues
-    , PendingModifiedValues (..)
+    , PendingModifiedValues
+    , mkPendingModifiedValues
     , pmvNumCacheNodes
     , pmvCacheNodeIdsToRemove
     , pmvEngineVersion
 
     -- * RecurringCharge
-    , RecurringCharge (..)
+    , RecurringCharge
+    , mkRecurringCharge
     , rcRecurringChargeAmount
     , rcRecurringChargeFrequency
 
     -- * ReplicationGroup
-    , ReplicationGroup (..)
+    , ReplicationGroup
     , rgReplicationGroupId
     , rgDescription
     , rgStatus
@@ -228,7 +244,7 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , rgSnapshottingClusterId
 
     -- * ReservedCacheNode
-    , ReservedCacheNode (..)
+    , ReservedCacheNode
     , rcnReservedCacheNodeId
     , rcnReservedCacheNodesOfferingId
     , rcnCacheNodeType
@@ -243,7 +259,7 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , rcnRecurringCharges
 
     -- * ReservedCacheNodesOffering
-    , ReservedCacheNodesOffering (..)
+    , ReservedCacheNodesOffering
     , rcnoReservedCacheNodesOfferingId
     , rcnoCacheNodeType
     , rcnoDuration
@@ -254,12 +270,13 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , rcnoRecurringCharges
 
     -- * SecurityGroupMembership
-    , SecurityGroupMembership (..)
+    , SecurityGroupMembership
+    , mkSecurityGroupMembership
     , sgmSecurityGroupId
     , sgmStatus
 
     -- * Snapshot
-    , Snapshot (..)
+    , Snapshot
     , stSnapshotName
     , stCacheClusterId
     , stSnapshotStatus
@@ -282,10 +299,10 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     , stNodeSnapshots
 
     -- * Subnet
-    , Subnet (..)
+    , Subnet
+    , mkSubnet
     , sssssuSubnetIdentifier
     , sssssuSubnetAvailabilityZone
-
     ) where
 
 import Network.AWS.Prelude
@@ -411,10 +428,16 @@ newtype AvailabilityZone = AvailabilityZone
 
 -- | The name of the Availability Zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
-azName f x =
-    f (_azName x)
-        <&> \y -> x { _azName = y }
+azName = lens _azName (\s a -> s { _azName = a })
 {-# INLINE azName #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AvailabilityZone' data type to populate a request.
+mkAvailabilityZone :: AvailabilityZone
+mkAvailabilityZone = AvailabilityZone
+    { _azName = Nothing
+    }
+{-# INLINE mkAvailabilityZone #-}
 
 instance FromXML AvailabilityZone where
     fromXMLOptions = xmlOptions
@@ -435,10 +458,16 @@ newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedV
 -- | The primary cluster ID which will be applied immediately (if
 -- --apply-immediately was specified), or during the next maintenance window.
 rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
-rgpmvPrimaryClusterId f x =
-    f (_rgpmvPrimaryClusterId x)
-        <&> \y -> x { _rgpmvPrimaryClusterId = y }
+rgpmvPrimaryClusterId = lens _rgpmvPrimaryClusterId (\s a -> s { _rgpmvPrimaryClusterId = a })
 {-# INLINE rgpmvPrimaryClusterId #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ReplicationGroupPendingModifiedValues' data type to populate a request.
+mkReplicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
+mkReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
+    { _rgpmvPrimaryClusterId = Nothing
+    }
+{-# INLINE mkReplicationGroupPendingModifiedValues #-}
 
 instance FromXML ReplicationGroupPendingModifiedValues where
     fromXMLOptions = xmlOptions
@@ -523,153 +552,113 @@ data CacheCluster = CacheCluster
 -- | The user-supplied identifier of the cache cluster. This is a unique key
 -- that identifies a cache cluster.
 ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
-ccCacheClusterId f x =
-    f (_ccCacheClusterId x)
-        <&> \y -> x { _ccCacheClusterId = y }
+ccCacheClusterId = lens _ccCacheClusterId (\s a -> s { _ccCacheClusterId = a })
 {-# INLINE ccCacheClusterId #-}
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
 ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
-ccConfigurationEndpoint f x =
-    f (_ccConfigurationEndpoint x)
-        <&> \y -> x { _ccConfigurationEndpoint = y }
+ccConfigurationEndpoint = lens _ccConfigurationEndpoint (\s a -> s { _ccConfigurationEndpoint = a })
 {-# INLINE ccConfigurationEndpoint #-}
 
 -- | The URL of the web page where you can download the latest ElastiCache
 -- client library.
 ccClientDownloadLandingPage :: Lens' CacheCluster (Maybe Text)
-ccClientDownloadLandingPage f x =
-    f (_ccClientDownloadLandingPage x)
-        <&> \y -> x { _ccClientDownloadLandingPage = y }
+ccClientDownloadLandingPage = lens _ccClientDownloadLandingPage (\s a -> s { _ccClientDownloadLandingPage = a })
 {-# INLINE ccClientDownloadLandingPage #-}
 
 -- | The name of the compute and memory capacity node type for the cache
 -- cluster.
 ccCacheNodeType :: Lens' CacheCluster (Maybe Text)
-ccCacheNodeType f x =
-    f (_ccCacheNodeType x)
-        <&> \y -> x { _ccCacheNodeType = y }
+ccCacheNodeType = lens _ccCacheNodeType (\s a -> s { _ccCacheNodeType = a })
 {-# INLINE ccCacheNodeType #-}
 
 -- | The name of the cache engine (memcached or redis) to be used for this cache
 -- cluster.
 ccEngine :: Lens' CacheCluster (Maybe Text)
-ccEngine f x =
-    f (_ccEngine x)
-        <&> \y -> x { _ccEngine = y }
+ccEngine = lens _ccEngine (\s a -> s { _ccEngine = a })
 {-# INLINE ccEngine #-}
 
 -- | The version of the cache engine version that is used in this cache cluster.
 ccEngineVersion :: Lens' CacheCluster (Maybe Text)
-ccEngineVersion f x =
-    f (_ccEngineVersion x)
-        <&> \y -> x { _ccEngineVersion = y }
+ccEngineVersion = lens _ccEngineVersion (\s a -> s { _ccEngineVersion = a })
 {-# INLINE ccEngineVersion #-}
 
 -- | The current state of this cache cluster - creating, available, etc.
 ccCacheClusterStatus :: Lens' CacheCluster (Maybe Text)
-ccCacheClusterStatus f x =
-    f (_ccCacheClusterStatus x)
-        <&> \y -> x { _ccCacheClusterStatus = y }
+ccCacheClusterStatus = lens _ccCacheClusterStatus (\s a -> s { _ccCacheClusterStatus = a })
 {-# INLINE ccCacheClusterStatus #-}
 
 -- | The number of cache nodes in the cache cluster.
 ccNumCacheNodes :: Lens' CacheCluster (Maybe Integer)
-ccNumCacheNodes f x =
-    f (_ccNumCacheNodes x)
-        <&> \y -> x { _ccNumCacheNodes = y }
+ccNumCacheNodes = lens _ccNumCacheNodes (\s a -> s { _ccNumCacheNodes = a })
 {-# INLINE ccNumCacheNodes #-}
 
 -- | The name of the Availability Zone in which the cache cluster is located or
 -- "Multiple" if the cache nodes are located in different Availability Zones.
 ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
-ccPreferredAvailabilityZone f x =
-    f (_ccPreferredAvailabilityZone x)
-        <&> \y -> x { _ccPreferredAvailabilityZone = y }
+ccPreferredAvailabilityZone = lens _ccPreferredAvailabilityZone (\s a -> s { _ccPreferredAvailabilityZone = a })
 {-# INLINE ccPreferredAvailabilityZone #-}
 
 -- | The date and time when the cache cluster was created.
 ccCacheClusterCreateTime :: Lens' CacheCluster (Maybe ISO8601)
-ccCacheClusterCreateTime f x =
-    f (_ccCacheClusterCreateTime x)
-        <&> \y -> x { _ccCacheClusterCreateTime = y }
+ccCacheClusterCreateTime = lens _ccCacheClusterCreateTime (\s a -> s { _ccCacheClusterCreateTime = a })
 {-# INLINE ccCacheClusterCreateTime #-}
 
 -- | The time range (in UTC) during which weekly system maintenance can occur.
 ccPreferredMaintenanceWindow :: Lens' CacheCluster (Maybe Text)
-ccPreferredMaintenanceWindow f x =
-    f (_ccPreferredMaintenanceWindow x)
-        <&> \y -> x { _ccPreferredMaintenanceWindow = y }
+ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\s a -> s { _ccPreferredMaintenanceWindow = a })
 {-# INLINE ccPreferredMaintenanceWindow #-}
 
 -- | A group of settings that will be applied to the cache cluster in the
 -- future, or that are currently being applied.
 ccPendingModifiedValues :: Lens' CacheCluster (Maybe PendingModifiedValues)
-ccPendingModifiedValues f x =
-    f (_ccPendingModifiedValues x)
-        <&> \y -> x { _ccPendingModifiedValues = y }
+ccPendingModifiedValues = lens _ccPendingModifiedValues (\s a -> s { _ccPendingModifiedValues = a })
 {-# INLINE ccPendingModifiedValues #-}
 
 -- | Describes a notification topic and its status. Notification topics are used
 -- for publishing ElastiCache events to subscribers using Amazon Simple
 -- Notification Service (SNS).
 ccNotificationConfiguration :: Lens' CacheCluster (Maybe NotificationConfiguration)
-ccNotificationConfiguration f x =
-    f (_ccNotificationConfiguration x)
-        <&> \y -> x { _ccNotificationConfiguration = y }
+ccNotificationConfiguration = lens _ccNotificationConfiguration (\s a -> s { _ccNotificationConfiguration = a })
 {-# INLINE ccNotificationConfiguration #-}
 
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
 ccCacheSecurityGroups :: Lens' CacheCluster ([CacheSecurityGroupMembership])
-ccCacheSecurityGroups f x =
-    f (_ccCacheSecurityGroups x)
-        <&> \y -> x { _ccCacheSecurityGroups = y }
+ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\s a -> s { _ccCacheSecurityGroups = a })
 {-# INLINE ccCacheSecurityGroups #-}
 
 -- | The status of the cache parameter group.
 ccCacheParameterGroup :: Lens' CacheCluster (Maybe CacheParameterGroupStatus)
-ccCacheParameterGroup f x =
-    f (_ccCacheParameterGroup x)
-        <&> \y -> x { _ccCacheParameterGroup = y }
+ccCacheParameterGroup = lens _ccCacheParameterGroup (\s a -> s { _ccCacheParameterGroup = a })
 {-# INLINE ccCacheParameterGroup #-}
 
 -- | The name of the cache subnet group associated with the cache cluster.
 ccCacheSubnetGroupName :: Lens' CacheCluster (Maybe Text)
-ccCacheSubnetGroupName f x =
-    f (_ccCacheSubnetGroupName x)
-        <&> \y -> x { _ccCacheSubnetGroupName = y }
+ccCacheSubnetGroupName = lens _ccCacheSubnetGroupName (\s a -> s { _ccCacheSubnetGroupName = a })
 {-# INLINE ccCacheSubnetGroupName #-}
 
 -- | A list of cache nodes that are members of the cache cluster.
 ccCacheNodes :: Lens' CacheCluster ([CacheNode])
-ccCacheNodes f x =
-    f (_ccCacheNodes x)
-        <&> \y -> x { _ccCacheNodes = y }
+ccCacheNodes = lens _ccCacheNodes (\s a -> s { _ccCacheNodes = a })
 {-# INLINE ccCacheNodes #-}
 
 -- | If true, then minor version patches are applied automatically; if false,
 -- then automatic minor version patches are disabled.
 ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
-ccAutoMinorVersionUpgrade f x =
-    f (_ccAutoMinorVersionUpgrade x)
-        <&> \y -> x { _ccAutoMinorVersionUpgrade = y }
+ccAutoMinorVersionUpgrade = lens _ccAutoMinorVersionUpgrade (\s a -> s { _ccAutoMinorVersionUpgrade = a })
 {-# INLINE ccAutoMinorVersionUpgrade #-}
 
 -- | A list of VPC Security Groups associated with the cache cluster.
 ccSecurityGroups :: Lens' CacheCluster ([SecurityGroupMembership])
-ccSecurityGroups f x =
-    f (_ccSecurityGroups x)
-        <&> \y -> x { _ccSecurityGroups = y }
+ccSecurityGroups = lens _ccSecurityGroups (\s a -> s { _ccSecurityGroups = a })
 {-# INLINE ccSecurityGroups #-}
 
 -- | The replication group to which this cache cluster belongs. If this field is
 -- empty, the cache cluster is not associated with any replication group.
 ccReplicationGroupId :: Lens' CacheCluster (Maybe Text)
-ccReplicationGroupId f x =
-    f (_ccReplicationGroupId x)
-        <&> \y -> x { _ccReplicationGroupId = y }
+ccReplicationGroupId = lens _ccReplicationGroupId (\s a -> s { _ccReplicationGroupId = a })
 {-# INLINE ccReplicationGroupId #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
@@ -678,17 +667,13 @@ ccReplicationGroupId f x =
 -- retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
 ccSnapshotRetentionLimit :: Lens' CacheCluster (Maybe Integer)
-ccSnapshotRetentionLimit f x =
-    f (_ccSnapshotRetentionLimit x)
-        <&> \y -> x { _ccSnapshotRetentionLimit = y }
+ccSnapshotRetentionLimit = lens _ccSnapshotRetentionLimit (\s a -> s { _ccSnapshotRetentionLimit = a })
 {-# INLINE ccSnapshotRetentionLimit #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of your cache cluster. Example: 05:00-09:00.
 ccSnapshotWindow :: Lens' CacheCluster (Maybe Text)
-ccSnapshotWindow f x =
-    f (_ccSnapshotWindow x)
-        <&> \y -> x { _ccSnapshotWindow = y }
+ccSnapshotWindow = lens _ccSnapshotWindow (\s a -> s { _ccSnapshotWindow = a })
 {-# INLINE ccSnapshotWindow #-}
 
 instance FromXML CacheCluster where
@@ -712,38 +697,28 @@ data CacheEngineVersion = CacheEngineVersion
 
 -- | The name of the cache engine.
 cevEngine :: Lens' CacheEngineVersion (Maybe Text)
-cevEngine f x =
-    f (_cevEngine x)
-        <&> \y -> x { _cevEngine = y }
+cevEngine = lens _cevEngine (\s a -> s { _cevEngine = a })
 {-# INLINE cevEngine #-}
 
 -- | The version number of the cache engine.
 cevEngineVersion :: Lens' CacheEngineVersion (Maybe Text)
-cevEngineVersion f x =
-    f (_cevEngineVersion x)
-        <&> \y -> x { _cevEngineVersion = y }
+cevEngineVersion = lens _cevEngineVersion (\s a -> s { _cevEngineVersion = a })
 {-# INLINE cevEngineVersion #-}
 
 -- | The name of the cache parameter group family associated with this cache
 -- engine.
 cevCacheParameterGroupFamily :: Lens' CacheEngineVersion (Maybe Text)
-cevCacheParameterGroupFamily f x =
-    f (_cevCacheParameterGroupFamily x)
-        <&> \y -> x { _cevCacheParameterGroupFamily = y }
+cevCacheParameterGroupFamily = lens _cevCacheParameterGroupFamily (\s a -> s { _cevCacheParameterGroupFamily = a })
 {-# INLINE cevCacheParameterGroupFamily #-}
 
 -- | The description of the cache engine.
 cevCacheEngineDescription :: Lens' CacheEngineVersion (Maybe Text)
-cevCacheEngineDescription f x =
-    f (_cevCacheEngineDescription x)
-        <&> \y -> x { _cevCacheEngineDescription = y }
+cevCacheEngineDescription = lens _cevCacheEngineDescription (\s a -> s { _cevCacheEngineDescription = a })
 {-# INLINE cevCacheEngineDescription #-}
 
 -- | The description of the cache engine version.
 cevCacheEngineVersionDescription :: Lens' CacheEngineVersion (Maybe Text)
-cevCacheEngineVersionDescription f x =
-    f (_cevCacheEngineVersionDescription x)
-        <&> \y -> x { _cevCacheEngineVersionDescription = y }
+cevCacheEngineVersionDescription = lens _cevCacheEngineVersionDescription (\s a -> s { _cevCacheEngineVersionDescription = a })
 {-# INLINE cevCacheEngineVersionDescription #-}
 
 instance FromXML CacheEngineVersion where
@@ -780,54 +755,54 @@ data CacheNode = CacheNode
 -- etc.). The combination of cluster ID and node ID uniquely identifies every
 -- cache node used in a customer's AWS account.
 cnCacheNodeId :: Lens' CacheNode (Maybe Text)
-cnCacheNodeId f x =
-    f (_cnCacheNodeId x)
-        <&> \y -> x { _cnCacheNodeId = y }
+cnCacheNodeId = lens _cnCacheNodeId (\s a -> s { _cnCacheNodeId = a })
 {-# INLINE cnCacheNodeId #-}
 
 -- | The current state of this cache node.
 cnCacheNodeStatus :: Lens' CacheNode (Maybe Text)
-cnCacheNodeStatus f x =
-    f (_cnCacheNodeStatus x)
-        <&> \y -> x { _cnCacheNodeStatus = y }
+cnCacheNodeStatus = lens _cnCacheNodeStatus (\s a -> s { _cnCacheNodeStatus = a })
 {-# INLINE cnCacheNodeStatus #-}
 
 -- | The date and time when the cache node was created.
 cnCacheNodeCreateTime :: Lens' CacheNode (Maybe ISO8601)
-cnCacheNodeCreateTime f x =
-    f (_cnCacheNodeCreateTime x)
-        <&> \y -> x { _cnCacheNodeCreateTime = y }
+cnCacheNodeCreateTime = lens _cnCacheNodeCreateTime (\s a -> s { _cnCacheNodeCreateTime = a })
 {-# INLINE cnCacheNodeCreateTime #-}
 
 -- | The hostname and IP address for connecting to this cache node.
 cnEndpoint :: Lens' CacheNode (Maybe Endpoint)
-cnEndpoint f x =
-    f (_cnEndpoint x)
-        <&> \y -> x { _cnEndpoint = y }
+cnEndpoint = lens _cnEndpoint (\s a -> s { _cnEndpoint = a })
 {-# INLINE cnEndpoint #-}
 
 -- | The status of the parameter group applied to this cache node.
 cnParameterGroupStatus :: Lens' CacheNode (Maybe Text)
-cnParameterGroupStatus f x =
-    f (_cnParameterGroupStatus x)
-        <&> \y -> x { _cnParameterGroupStatus = y }
+cnParameterGroupStatus = lens _cnParameterGroupStatus (\s a -> s { _cnParameterGroupStatus = a })
 {-# INLINE cnParameterGroupStatus #-}
 
 -- | The ID of the primary node to which this read replica node is synchronized.
 -- If this field is empty, then this node is not associated with a primary
 -- cache cluster.
 cnSourceCacheNodeId :: Lens' CacheNode (Maybe Text)
-cnSourceCacheNodeId f x =
-    f (_cnSourceCacheNodeId x)
-        <&> \y -> x { _cnSourceCacheNodeId = y }
+cnSourceCacheNodeId = lens _cnSourceCacheNodeId (\s a -> s { _cnSourceCacheNodeId = a })
 {-# INLINE cnSourceCacheNodeId #-}
 
 -- | The Availability Zone where this node was created and now resides.
 cnCustomerAvailabilityZone :: Lens' CacheNode (Maybe Text)
-cnCustomerAvailabilityZone f x =
-    f (_cnCustomerAvailabilityZone x)
-        <&> \y -> x { _cnCustomerAvailabilityZone = y }
+cnCustomerAvailabilityZone = lens _cnCustomerAvailabilityZone (\s a -> s { _cnCustomerAvailabilityZone = a })
 {-# INLINE cnCustomerAvailabilityZone #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CacheNode' data type to populate a request.
+mkCacheNode :: CacheNode
+mkCacheNode = CacheNode
+    { _cnCacheNodeId = Nothing
+    , _cnCacheNodeStatus = Nothing
+    , _cnCacheNodeCreateTime = Nothing
+    , _cnEndpoint = Nothing
+    , _cnParameterGroupStatus = Nothing
+    , _cnSourceCacheNodeId = Nothing
+    , _cnCustomerAvailabilityZone = Nothing
+    }
+{-# INLINE mkCacheNode #-}
 
 instance FromXML CacheNode where
     fromXMLOptions = xmlOptions
@@ -864,61 +839,45 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
 
 -- | The name of the parameter.
 cntspParameterName :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspParameterName f x =
-    f (_cntspParameterName x)
-        <&> \y -> x { _cntspParameterName = y }
+cntspParameterName = lens _cntspParameterName (\s a -> s { _cntspParameterName = a })
 {-# INLINE cntspParameterName #-}
 
 -- | A description of the parameter.
 cntspDescription :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspDescription f x =
-    f (_cntspDescription x)
-        <&> \y -> x { _cntspDescription = y }
+cntspDescription = lens _cntspDescription (\s a -> s { _cntspDescription = a })
 {-# INLINE cntspDescription #-}
 
 -- | The source of the parameter value.
 cntspSource :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspSource f x =
-    f (_cntspSource x)
-        <&> \y -> x { _cntspSource = y }
+cntspSource = lens _cntspSource (\s a -> s { _cntspSource = a })
 {-# INLINE cntspSource #-}
 
 -- | The valid data type for the parameter.
 cntspDataType :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspDataType f x =
-    f (_cntspDataType x)
-        <&> \y -> x { _cntspDataType = y }
+cntspDataType = lens _cntspDataType (\s a -> s { _cntspDataType = a })
 {-# INLINE cntspDataType #-}
 
 -- | The valid range of values for the parameter.
 cntspAllowedValues :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspAllowedValues f x =
-    f (_cntspAllowedValues x)
-        <&> \y -> x { _cntspAllowedValues = y }
+cntspAllowedValues = lens _cntspAllowedValues (\s a -> s { _cntspAllowedValues = a })
 {-# INLINE cntspAllowedValues #-}
 
 -- | Indicates whether (true) or not (false) the parameter can be modified. Some
 -- parameters have security or operational implications that prevent them from
 -- being changed.
 cntspIsModifiable :: Lens' CacheNodeTypeSpecificParameter (Maybe Bool)
-cntspIsModifiable f x =
-    f (_cntspIsModifiable x)
-        <&> \y -> x { _cntspIsModifiable = y }
+cntspIsModifiable = lens _cntspIsModifiable (\s a -> s { _cntspIsModifiable = a })
 {-# INLINE cntspIsModifiable #-}
 
 -- | The earliest cache engine version to which the parameter can apply.
 cntspMinimumEngineVersion :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
-cntspMinimumEngineVersion f x =
-    f (_cntspMinimumEngineVersion x)
-        <&> \y -> x { _cntspMinimumEngineVersion = y }
+cntspMinimumEngineVersion = lens _cntspMinimumEngineVersion (\s a -> s { _cntspMinimumEngineVersion = a })
 {-# INLINE cntspMinimumEngineVersion #-}
 
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
 cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter ([CacheNodeTypeSpecificValue])
-cntspCacheNodeTypeSpecificValues f x =
-    f (_cntspCacheNodeTypeSpecificValues x)
-        <&> \y -> x { _cntspCacheNodeTypeSpecificValues = y }
+cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\s a -> s { _cntspCacheNodeTypeSpecificValues = a })
 {-# INLINE cntspCacheNodeTypeSpecificValues #-}
 
 instance FromXML CacheNodeTypeSpecificParameter where
@@ -935,17 +894,22 @@ data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
 
 -- | The cache node type for which this value applies.
 cntsvCacheNodeType :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
-cntsvCacheNodeType f x =
-    f (_cntsvCacheNodeType x)
-        <&> \y -> x { _cntsvCacheNodeType = y }
+cntsvCacheNodeType = lens _cntsvCacheNodeType (\s a -> s { _cntsvCacheNodeType = a })
 {-# INLINE cntsvCacheNodeType #-}
 
 -- | The value for the cache node type.
 cntsvValue :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
-cntsvValue f x =
-    f (_cntsvValue x)
-        <&> \y -> x { _cntsvValue = y }
+cntsvValue = lens _cntsvValue (\s a -> s { _cntsvValue = a })
 {-# INLINE cntsvValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CacheNodeTypeSpecificValue' data type to populate a request.
+mkCacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
+mkCacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
+    { _cntsvCacheNodeType = Nothing
+    , _cntsvValue = Nothing
+    }
+{-# INLINE mkCacheNodeTypeSpecificValue #-}
 
 instance FromXML CacheNodeTypeSpecificValue where
     fromXMLOptions = xmlOptions
@@ -967,24 +931,18 @@ data CacheParameterGroup = CacheParameterGroup
 
 -- | The name of the cache parameter group.
 cpgCacheParameterGroupName :: Lens' CacheParameterGroup (Maybe Text)
-cpgCacheParameterGroupName f x =
-    f (_cpgCacheParameterGroupName x)
-        <&> \y -> x { _cpgCacheParameterGroupName = y }
+cpgCacheParameterGroupName = lens _cpgCacheParameterGroupName (\s a -> s { _cpgCacheParameterGroupName = a })
 {-# INLINE cpgCacheParameterGroupName #-}
 
 -- | The name of the cache parameter group family that this cache parameter
 -- group is compatible with.
 cpgCacheParameterGroupFamily :: Lens' CacheParameterGroup (Maybe Text)
-cpgCacheParameterGroupFamily f x =
-    f (_cpgCacheParameterGroupFamily x)
-        <&> \y -> x { _cpgCacheParameterGroupFamily = y }
+cpgCacheParameterGroupFamily = lens _cpgCacheParameterGroupFamily (\s a -> s { _cpgCacheParameterGroupFamily = a })
 {-# INLINE cpgCacheParameterGroupFamily #-}
 
 -- | The description for this cache parameter group.
 cpgDescription :: Lens' CacheParameterGroup (Maybe Text)
-cpgDescription f x =
-    f (_cpgDescription x)
-        <&> \y -> x { _cpgDescription = y }
+cpgDescription = lens _cpgDescription (\s a -> s { _cpgDescription = a })
 {-# INLINE cpgDescription #-}
 
 instance FromXML CacheParameterGroup where
@@ -1005,26 +963,30 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus
 
 -- | The name of the cache parameter group.
 cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
-cpgsCacheParameterGroupName f x =
-    f (_cpgsCacheParameterGroupName x)
-        <&> \y -> x { _cpgsCacheParameterGroupName = y }
+cpgsCacheParameterGroupName = lens _cpgsCacheParameterGroupName (\s a -> s { _cpgsCacheParameterGroupName = a })
 {-# INLINE cpgsCacheParameterGroupName #-}
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' CacheParameterGroupStatus (Maybe Text)
-cpgsParameterApplyStatus f x =
-    f (_cpgsParameterApplyStatus x)
-        <&> \y -> x { _cpgsParameterApplyStatus = y }
+cpgsParameterApplyStatus = lens _cpgsParameterApplyStatus (\s a -> s { _cpgsParameterApplyStatus = a })
 {-# INLINE cpgsParameterApplyStatus #-}
 
 -- | A list of the cache node IDs which need to be rebooted for parameter
 -- changes to be applied. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
 cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus ([Text])
-cpgsCacheNodeIdsToReboot f x =
-    f (_cpgsCacheNodeIdsToReboot x)
-        <&> \y -> x { _cpgsCacheNodeIdsToReboot = y }
+cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\s a -> s { _cpgsCacheNodeIdsToReboot = a })
 {-# INLINE cpgsCacheNodeIdsToReboot #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CacheParameterGroupStatus' data type to populate a request.
+mkCacheParameterGroupStatus :: CacheParameterGroupStatus
+mkCacheParameterGroupStatus = CacheParameterGroupStatus
+    { _cpgsCacheParameterGroupName = Nothing
+    , _cpgsParameterApplyStatus = Nothing
+    , _cpgsCacheNodeIdsToReboot = mempty
+    }
+{-# INLINE mkCacheParameterGroupStatus #-}
 
 instance FromXML CacheParameterGroupStatus where
     fromXMLOptions = xmlOptions
@@ -1050,31 +1012,23 @@ data CacheSecurityGroup = CacheSecurityGroup
 
 -- | The AWS account ID of the cache security group owner.
 csgOwnerId :: Lens' CacheSecurityGroup (Maybe Text)
-csgOwnerId f x =
-    f (_csgOwnerId x)
-        <&> \y -> x { _csgOwnerId = y }
+csgOwnerId = lens _csgOwnerId (\s a -> s { _csgOwnerId = a })
 {-# INLINE csgOwnerId #-}
 
 -- | The name of the cache security group.
 csgCacheSecurityGroupName :: Lens' CacheSecurityGroup (Maybe Text)
-csgCacheSecurityGroupName f x =
-    f (_csgCacheSecurityGroupName x)
-        <&> \y -> x { _csgCacheSecurityGroupName = y }
+csgCacheSecurityGroupName = lens _csgCacheSecurityGroupName (\s a -> s { _csgCacheSecurityGroupName = a })
 {-# INLINE csgCacheSecurityGroupName #-}
 
 -- | The description of the cache security group.
 csgDescription :: Lens' CacheSecurityGroup (Maybe Text)
-csgDescription f x =
-    f (_csgDescription x)
-        <&> \y -> x { _csgDescription = y }
+csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 {-# INLINE csgDescription #-}
 
 -- | A list of Amazon EC2 security groups that are associated with this cache
 -- security group.
 csgEC2SecurityGroups :: Lens' CacheSecurityGroup ([EC2SecurityGroup])
-csgEC2SecurityGroups f x =
-    f (_csgEC2SecurityGroups x)
-        <&> \y -> x { _csgEC2SecurityGroups = y }
+csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\s a -> s { _csgEC2SecurityGroups = a })
 {-# INLINE csgEC2SecurityGroups #-}
 
 instance FromXML CacheSecurityGroup where
@@ -1094,19 +1048,24 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership
 
 -- | The name of the cache security group.
 csgmCacheSecurityGroupName :: Lens' CacheSecurityGroupMembership (Maybe Text)
-csgmCacheSecurityGroupName f x =
-    f (_csgmCacheSecurityGroupName x)
-        <&> \y -> x { _csgmCacheSecurityGroupName = y }
+csgmCacheSecurityGroupName = lens _csgmCacheSecurityGroupName (\s a -> s { _csgmCacheSecurityGroupName = a })
 {-# INLINE csgmCacheSecurityGroupName #-}
 
 -- | The membership status in the cache security group. The status changes when
 -- a cache security group is modified, or when the cache security groups
 -- assigned to a cache cluster are modified.
 csgmStatus :: Lens' CacheSecurityGroupMembership (Maybe Text)
-csgmStatus f x =
-    f (_csgmStatus x)
-        <&> \y -> x { _csgmStatus = y }
+csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 {-# INLINE csgmStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CacheSecurityGroupMembership' data type to populate a request.
+mkCacheSecurityGroupMembership :: CacheSecurityGroupMembership
+mkCacheSecurityGroupMembership = CacheSecurityGroupMembership
+    { _csgmCacheSecurityGroupName = Nothing
+    , _csgmStatus = Nothing
+    }
+{-# INLINE mkCacheSecurityGroupMembership #-}
 
 instance FromXML CacheSecurityGroupMembership where
     fromXMLOptions = xmlOptions
@@ -1131,31 +1090,23 @@ data CacheSubnetGroup = CacheSubnetGroup
 
 -- | The name of the cache subnet group.
 csiCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
-csiCacheSubnetGroupName f x =
-    f (_csiCacheSubnetGroupName x)
-        <&> \y -> x { _csiCacheSubnetGroupName = y }
+csiCacheSubnetGroupName = lens _csiCacheSubnetGroupName (\s a -> s { _csiCacheSubnetGroupName = a })
 {-# INLINE csiCacheSubnetGroupName #-}
 
 -- | The description of the cache subnet group.
 csiCacheSubnetGroupDescription :: Lens' CacheSubnetGroup (Maybe Text)
-csiCacheSubnetGroupDescription f x =
-    f (_csiCacheSubnetGroupDescription x)
-        <&> \y -> x { _csiCacheSubnetGroupDescription = y }
+csiCacheSubnetGroupDescription = lens _csiCacheSubnetGroupDescription (\s a -> s { _csiCacheSubnetGroupDescription = a })
 {-# INLINE csiCacheSubnetGroupDescription #-}
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
 csiVpcId :: Lens' CacheSubnetGroup (Maybe Text)
-csiVpcId f x =
-    f (_csiVpcId x)
-        <&> \y -> x { _csiVpcId = y }
+csiVpcId = lens _csiVpcId (\s a -> s { _csiVpcId = a })
 {-# INLINE csiVpcId #-}
 
 -- | A list of subnets associated with the cache subnet group.
 csiSubnets :: Lens' CacheSubnetGroup ([Subnet])
-csiSubnets f x =
-    f (_csiSubnets x)
-        <&> \y -> x { _csiSubnets = y }
+csiSubnets = lens _csiSubnets (\s a -> s { _csiSubnets = a })
 {-# INLINE csiSubnets #-}
 
 instance FromXML CacheSubnetGroup where
@@ -1174,24 +1125,28 @@ data EC2SecurityGroup = EC2SecurityGroup
 
 -- | The status of the Amazon EC2 security group.
 ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgStatus f x =
-    f (_ecsgStatus x)
-        <&> \y -> x { _ecsgStatus = y }
+ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 {-# INLINE ecsgStatus #-}
 
 -- | The name of the Amazon EC2 security group.
 ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgEC2SecurityGroupName f x =
-    f (_ecsgEC2SecurityGroupName x)
-        <&> \y -> x { _ecsgEC2SecurityGroupName = y }
+ecsgEC2SecurityGroupName = lens _ecsgEC2SecurityGroupName (\s a -> s { _ecsgEC2SecurityGroupName = a })
 {-# INLINE ecsgEC2SecurityGroupName #-}
 
 -- | The AWS account ID of the Amazon EC2 security group owner.
 ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
-ecsgEC2SecurityGroupOwnerId f x =
-    f (_ecsgEC2SecurityGroupOwnerId x)
-        <&> \y -> x { _ecsgEC2SecurityGroupOwnerId = y }
+ecsgEC2SecurityGroupOwnerId = lens _ecsgEC2SecurityGroupOwnerId (\s a -> s { _ecsgEC2SecurityGroupOwnerId = a })
 {-# INLINE ecsgEC2SecurityGroupOwnerId #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'EC2SecurityGroup' data type to populate a request.
+mkEC2SecurityGroup :: EC2SecurityGroup
+mkEC2SecurityGroup = EC2SecurityGroup
+    { _ecsgStatus = Nothing
+    , _ecsgEC2SecurityGroupName = Nothing
+    , _ecsgEC2SecurityGroupOwnerId = Nothing
+    }
+{-# INLINE mkEC2SecurityGroup #-}
 
 instance FromXML EC2SecurityGroup where
     fromXMLOptions = xmlOptions
@@ -1211,17 +1166,22 @@ data Endpoint = Endpoint
 
 -- | The DNS hostname of the cache node.
 eAddress :: Lens' Endpoint (Maybe Text)
-eAddress f x =
-    f (_eAddress x)
-        <&> \y -> x { _eAddress = y }
+eAddress = lens _eAddress (\s a -> s { _eAddress = a })
 {-# INLINE eAddress #-}
 
 -- | The port number that the cache engine is listening on.
 ePort :: Lens' Endpoint (Maybe Integer)
-ePort f x =
-    f (_ePort x)
-        <&> \y -> x { _ePort = y }
+ePort = lens _ePort (\s a -> s { _ePort = a })
 {-# INLINE ePort #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Endpoint' data type to populate a request.
+mkEndpoint :: Endpoint
+mkEndpoint = Endpoint
+    { _eAddress = Nothing
+    , _ePort = Nothing
+    }
+{-# INLINE mkEndpoint #-}
 
 instance FromXML Endpoint where
     fromXMLOptions = xmlOptions
@@ -1248,31 +1208,23 @@ data EngineDefaults = EngineDefaults
 -- | Specifies the name of the cache parameter group family to which the engine
 -- default parameters apply.
 edCacheParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
-edCacheParameterGroupFamily f x =
-    f (_edCacheParameterGroupFamily x)
-        <&> \y -> x { _edCacheParameterGroupFamily = y }
+edCacheParameterGroupFamily = lens _edCacheParameterGroupFamily (\s a -> s { _edCacheParameterGroupFamily = a })
 {-# INLINE edCacheParameterGroupFamily #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 edMarker :: Lens' EngineDefaults (Maybe Text)
-edMarker f x =
-    f (_edMarker x)
-        <&> \y -> x { _edMarker = y }
+edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 {-# INLINE edMarker #-}
 
 -- | Contains a list of engine default parameters.
 edParameters :: Lens' EngineDefaults ([Parameter])
-edParameters f x =
-    f (_edParameters x)
-        <&> \y -> x { _edParameters = y }
+edParameters = lens _edParameters (\s a -> s { _edParameters = a })
 {-# INLINE edParameters #-}
 
 -- | A list of parameters specific to a particular cache node type. Each element
 -- in the list contains detailed information about one parameter.
 edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults ([CacheNodeTypeSpecificParameter])
-edCacheNodeTypeSpecificParameters f x =
-    f (_edCacheNodeTypeSpecificParameters x)
-        <&> \y -> x { _edCacheNodeTypeSpecificParameters = y }
+edCacheNodeTypeSpecificParameters = lens _edCacheNodeTypeSpecificParameters (\s a -> s { _edCacheNodeTypeSpecificParameters = a })
 {-# INLINE edCacheNodeTypeSpecificParameters #-}
 
 instance FromXML EngineDefaults where
@@ -1300,31 +1252,23 @@ data Event = Event
 -- occurred at the cache cluster level, the identifier would be the name of
 -- the cache cluster.
 exSourceIdentifier :: Lens' Event (Maybe Text)
-exSourceIdentifier f x =
-    f (_exSourceIdentifier x)
-        <&> \y -> x { _exSourceIdentifier = y }
+exSourceIdentifier = lens _exSourceIdentifier (\s a -> s { _exSourceIdentifier = a })
 {-# INLINE exSourceIdentifier #-}
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group, a
 -- security group, etc.
 exSourceType :: Lens' Event (Maybe SourceType)
-exSourceType f x =
-    f (_exSourceType x)
-        <&> \y -> x { _exSourceType = y }
+exSourceType = lens _exSourceType (\s a -> s { _exSourceType = a })
 {-# INLINE exSourceType #-}
 
 -- | The text of the event.
 exMessage :: Lens' Event (Maybe Text)
-exMessage f x =
-    f (_exMessage x)
-        <&> \y -> x { _exMessage = y }
+exMessage = lens _exMessage (\s a -> s { _exMessage = a })
 {-# INLINE exMessage #-}
 
 -- | The date and time when the event occurred.
 exDate :: Lens' Event (Maybe ISO8601)
-exDate f x =
-    f (_exDate x)
-        <&> \y -> x { _exDate = y }
+exDate = lens _exDate (\s a -> s { _exDate = a })
 {-# INLINE exDate #-}
 
 instance FromXML Event where
@@ -1350,32 +1294,35 @@ data NodeGroup = NodeGroup
 -- | The identifier for the node group. A replication group contains only one
 -- node group; therefore, the node group ID is 0001.
 ngNodeGroupId :: Lens' NodeGroup (Maybe Text)
-ngNodeGroupId f x =
-    f (_ngNodeGroupId x)
-        <&> \y -> x { _ngNodeGroupId = y }
+ngNodeGroupId = lens _ngNodeGroupId (\s a -> s { _ngNodeGroupId = a })
 {-# INLINE ngNodeGroupId #-}
 
 -- | The current state of this replication group - creating, available, etc.
 ngStatus :: Lens' NodeGroup (Maybe Text)
-ngStatus f x =
-    f (_ngStatus x)
-        <&> \y -> x { _ngStatus = y }
+ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 {-# INLINE ngStatus #-}
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
 ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
-ngPrimaryEndpoint f x =
-    f (_ngPrimaryEndpoint x)
-        <&> \y -> x { _ngPrimaryEndpoint = y }
+ngPrimaryEndpoint = lens _ngPrimaryEndpoint (\s a -> s { _ngPrimaryEndpoint = a })
 {-# INLINE ngPrimaryEndpoint #-}
 
 -- | A list containing information about individual nodes within the node group.
 ngNodeGroupMembers :: Lens' NodeGroup ([NodeGroupMember])
-ngNodeGroupMembers f x =
-    f (_ngNodeGroupMembers x)
-        <&> \y -> x { _ngNodeGroupMembers = y }
+ngNodeGroupMembers = lens _ngNodeGroupMembers (\s a -> s { _ngNodeGroupMembers = a })
 {-# INLINE ngNodeGroupMembers #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NodeGroup' data type to populate a request.
+mkNodeGroup :: NodeGroup
+mkNodeGroup = NodeGroup
+    { _ngNodeGroupId = Nothing
+    , _ngStatus = Nothing
+    , _ngPrimaryEndpoint = Nothing
+    , _ngNodeGroupMembers = mempty
+    }
+{-# INLINE mkNodeGroup #-}
 
 instance FromXML NodeGroup where
     fromXMLOptions = xmlOptions
@@ -1403,40 +1350,42 @@ data NodeGroupMember = NodeGroupMember
 
 -- | The ID of the cache cluster to which the node belongs.
 ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
-ngmCacheClusterId f x =
-    f (_ngmCacheClusterId x)
-        <&> \y -> x { _ngmCacheClusterId = y }
+ngmCacheClusterId = lens _ngmCacheClusterId (\s a -> s { _ngmCacheClusterId = a })
 {-# INLINE ngmCacheClusterId #-}
 
 -- | The ID of the node within its cache cluster. A node ID is a numeric
 -- identifier (0001, 0002, etc.).
 ngmCacheNodeId :: Lens' NodeGroupMember (Maybe Text)
-ngmCacheNodeId f x =
-    f (_ngmCacheNodeId x)
-        <&> \y -> x { _ngmCacheNodeId = y }
+ngmCacheNodeId = lens _ngmCacheNodeId (\s a -> s { _ngmCacheNodeId = a })
 {-# INLINE ngmCacheNodeId #-}
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
 ngmReadEndpoint :: Lens' NodeGroupMember (Maybe Endpoint)
-ngmReadEndpoint f x =
-    f (_ngmReadEndpoint x)
-        <&> \y -> x { _ngmReadEndpoint = y }
+ngmReadEndpoint = lens _ngmReadEndpoint (\s a -> s { _ngmReadEndpoint = a })
 {-# INLINE ngmReadEndpoint #-}
 
 -- | The name of the Availability Zone in which the node is located.
 ngmPreferredAvailabilityZone :: Lens' NodeGroupMember (Maybe Text)
-ngmPreferredAvailabilityZone f x =
-    f (_ngmPreferredAvailabilityZone x)
-        <&> \y -> x { _ngmPreferredAvailabilityZone = y }
+ngmPreferredAvailabilityZone = lens _ngmPreferredAvailabilityZone (\s a -> s { _ngmPreferredAvailabilityZone = a })
 {-# INLINE ngmPreferredAvailabilityZone #-}
 
 -- | The role that is currently assigned to the node - primary or replica.
 ngmCurrentRole :: Lens' NodeGroupMember (Maybe Text)
-ngmCurrentRole f x =
-    f (_ngmCurrentRole x)
-        <&> \y -> x { _ngmCurrentRole = y }
+ngmCurrentRole = lens _ngmCurrentRole (\s a -> s { _ngmCurrentRole = a })
 {-# INLINE ngmCurrentRole #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NodeGroupMember' data type to populate a request.
+mkNodeGroupMember :: NodeGroupMember
+mkNodeGroupMember = NodeGroupMember
+    { _ngmCacheClusterId = Nothing
+    , _ngmCacheNodeId = Nothing
+    , _ngmReadEndpoint = Nothing
+    , _ngmPreferredAvailabilityZone = Nothing
+    , _ngmCurrentRole = Nothing
+    }
+{-# INLINE mkNodeGroupMember #-}
 
 instance FromXML NodeGroupMember where
     fromXMLOptions = xmlOptions
@@ -1462,33 +1411,36 @@ data NodeSnapshot = NodeSnapshot
 
 -- | The cache node identifier for the node in the source cache cluster.
 nsCacheNodeId :: Lens' NodeSnapshot (Maybe Text)
-nsCacheNodeId f x =
-    f (_nsCacheNodeId x)
-        <&> \y -> x { _nsCacheNodeId = y }
+nsCacheNodeId = lens _nsCacheNodeId (\s a -> s { _nsCacheNodeId = a })
 {-# INLINE nsCacheNodeId #-}
 
 -- | The size of the cache on the source cache node.
 nsCacheSize :: Lens' NodeSnapshot (Maybe Text)
-nsCacheSize f x =
-    f (_nsCacheSize x)
-        <&> \y -> x { _nsCacheSize = y }
+nsCacheSize = lens _nsCacheSize (\s a -> s { _nsCacheSize = a })
 {-# INLINE nsCacheSize #-}
 
 -- | The date and time when the cache node was created in the source cache
 -- cluster.
 nsCacheNodeCreateTime :: Lens' NodeSnapshot (Maybe ISO8601)
-nsCacheNodeCreateTime f x =
-    f (_nsCacheNodeCreateTime x)
-        <&> \y -> x { _nsCacheNodeCreateTime = y }
+nsCacheNodeCreateTime = lens _nsCacheNodeCreateTime (\s a -> s { _nsCacheNodeCreateTime = a })
 {-# INLINE nsCacheNodeCreateTime #-}
 
 -- | The date and time when the source node's metadata and cache data set was
 -- obtained for the snapshot.
 nsSnapshotCreateTime :: Lens' NodeSnapshot (Maybe ISO8601)
-nsSnapshotCreateTime f x =
-    f (_nsSnapshotCreateTime x)
-        <&> \y -> x { _nsSnapshotCreateTime = y }
+nsSnapshotCreateTime = lens _nsSnapshotCreateTime (\s a -> s { _nsSnapshotCreateTime = a })
 {-# INLINE nsSnapshotCreateTime #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NodeSnapshot' data type to populate a request.
+mkNodeSnapshot :: NodeSnapshot
+mkNodeSnapshot = NodeSnapshot
+    { _nsCacheNodeId = Nothing
+    , _nsCacheSize = Nothing
+    , _nsCacheNodeCreateTime = Nothing
+    , _nsSnapshotCreateTime = Nothing
+    }
+{-# INLINE mkNodeSnapshot #-}
 
 instance FromXML NodeSnapshot where
     fromXMLOptions = xmlOptions
@@ -1509,17 +1461,22 @@ data NotificationConfiguration = NotificationConfiguration
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
 ncTopicArn :: Lens' NotificationConfiguration (Maybe Text)
-ncTopicArn f x =
-    f (_ncTopicArn x)
-        <&> \y -> x { _ncTopicArn = y }
+ncTopicArn = lens _ncTopicArn (\s a -> s { _ncTopicArn = a })
 {-# INLINE ncTopicArn #-}
 
 -- | The current state of the topic.
 ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
-ncTopicStatus f x =
-    f (_ncTopicStatus x)
-        <&> \y -> x { _ncTopicStatus = y }
+ncTopicStatus = lens _ncTopicStatus (\s a -> s { _ncTopicStatus = a })
 {-# INLINE ncTopicStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NotificationConfiguration' data type to populate a request.
+mkNotificationConfiguration :: NotificationConfiguration
+mkNotificationConfiguration = NotificationConfiguration
+    { _ncTopicArn = Nothing
+    , _ncTopicStatus = Nothing
+    }
+{-# INLINE mkNotificationConfiguration #-}
 
 instance FromXML NotificationConfiguration where
     fromXMLOptions = xmlOptions
@@ -1554,60 +1511,44 @@ data Parameter = Parameter
 
 -- | The name of the parameter.
 prParameterName :: Lens' Parameter (Maybe Text)
-prParameterName f x =
-    f (_prParameterName x)
-        <&> \y -> x { _prParameterName = y }
+prParameterName = lens _prParameterName (\s a -> s { _prParameterName = a })
 {-# INLINE prParameterName #-}
 
 -- | The value of the parameter.
 prParameterValue :: Lens' Parameter (Maybe Text)
-prParameterValue f x =
-    f (_prParameterValue x)
-        <&> \y -> x { _prParameterValue = y }
+prParameterValue = lens _prParameterValue (\s a -> s { _prParameterValue = a })
 {-# INLINE prParameterValue #-}
 
 -- | A description of the parameter.
 prDescription :: Lens' Parameter (Maybe Text)
-prDescription f x =
-    f (_prDescription x)
-        <&> \y -> x { _prDescription = y }
+prDescription = lens _prDescription (\s a -> s { _prDescription = a })
 {-# INLINE prDescription #-}
 
 -- | The source of the parameter.
 prSource :: Lens' Parameter (Maybe Text)
-prSource f x =
-    f (_prSource x)
-        <&> \y -> x { _prSource = y }
+prSource = lens _prSource (\s a -> s { _prSource = a })
 {-# INLINE prSource #-}
 
 -- | The valid data type for the parameter.
 prDataType :: Lens' Parameter (Maybe Text)
-prDataType f x =
-    f (_prDataType x)
-        <&> \y -> x { _prDataType = y }
+prDataType = lens _prDataType (\s a -> s { _prDataType = a })
 {-# INLINE prDataType #-}
 
 -- | The valid range of values for the parameter.
 prAllowedValues :: Lens' Parameter (Maybe Text)
-prAllowedValues f x =
-    f (_prAllowedValues x)
-        <&> \y -> x { _prAllowedValues = y }
+prAllowedValues = lens _prAllowedValues (\s a -> s { _prAllowedValues = a })
 {-# INLINE prAllowedValues #-}
 
 -- | Indicates whether (true) or not (false) the parameter can be modified. Some
 -- parameters have security or operational implications that prevent them from
 -- being changed.
 prIsModifiable :: Lens' Parameter (Maybe Bool)
-prIsModifiable f x =
-    f (_prIsModifiable x)
-        <&> \y -> x { _prIsModifiable = y }
+prIsModifiable = lens _prIsModifiable (\s a -> s { _prIsModifiable = a })
 {-# INLINE prIsModifiable #-}
 
 -- | The earliest cache engine version to which the parameter can apply.
 prMinimumEngineVersion :: Lens' Parameter (Maybe Text)
-prMinimumEngineVersion f x =
-    f (_prMinimumEngineVersion x)
-        <&> \y -> x { _prMinimumEngineVersion = y }
+prMinimumEngineVersion = lens _prMinimumEngineVersion (\s a -> s { _prMinimumEngineVersion = a })
 {-# INLINE prMinimumEngineVersion #-}
 
 instance FromXML Parameter where
@@ -1625,17 +1566,22 @@ data ParameterNameValue = ParameterNameValue
 
 -- | The name of the parameter.
 pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
-pnvParameterName f x =
-    f (_pnvParameterName x)
-        <&> \y -> x { _pnvParameterName = y }
+pnvParameterName = lens _pnvParameterName (\s a -> s { _pnvParameterName = a })
 {-# INLINE pnvParameterName #-}
 
 -- | The value of the parameter.
 pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
-pnvParameterValue f x =
-    f (_pnvParameterValue x)
-        <&> \y -> x { _pnvParameterValue = y }
+pnvParameterValue = lens _pnvParameterValue (\s a -> s { _pnvParameterValue = a })
 {-# INLINE pnvParameterValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ParameterNameValue' data type to populate a request.
+mkParameterNameValue :: ParameterNameValue
+mkParameterNameValue = ParameterNameValue
+    { _pnvParameterName = Nothing
+    , _pnvParameterValue = Nothing
+    }
+{-# INLINE mkParameterNameValue #-}
 
 instance ToQuery ParameterNameValue where
     toQuery = genericQuery def
@@ -1655,25 +1601,29 @@ data PendingModifiedValues = PendingModifiedValues
 
 -- | The new number of cache nodes for the cache cluster.
 pmvNumCacheNodes :: Lens' PendingModifiedValues (Maybe Integer)
-pmvNumCacheNodes f x =
-    f (_pmvNumCacheNodes x)
-        <&> \y -> x { _pmvNumCacheNodes = y }
+pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 {-# INLINE pmvNumCacheNodes #-}
 
 -- | A list of cache node IDs that are being removed (or will be removed) from
 -- the cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
 pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues ([Text])
-pmvCacheNodeIdsToRemove f x =
-    f (_pmvCacheNodeIdsToRemove x)
-        <&> \y -> x { _pmvCacheNodeIdsToRemove = y }
+pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\s a -> s { _pmvCacheNodeIdsToRemove = a })
 {-# INLINE pmvCacheNodeIdsToRemove #-}
 
 -- | The new cache engine version that the cache cluster will run.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
-pmvEngineVersion f x =
-    f (_pmvEngineVersion x)
-        <&> \y -> x { _pmvEngineVersion = y }
+pmvEngineVersion = lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
 {-# INLINE pmvEngineVersion #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PendingModifiedValues' data type to populate a request.
+mkPendingModifiedValues :: PendingModifiedValues
+mkPendingModifiedValues = PendingModifiedValues
+    { _pmvNumCacheNodes = Nothing
+    , _pmvCacheNodeIdsToRemove = mempty
+    , _pmvEngineVersion = Nothing
+    }
+{-# INLINE mkPendingModifiedValues #-}
 
 instance FromXML PendingModifiedValues where
     fromXMLOptions = xmlOptions
@@ -1693,17 +1643,22 @@ data RecurringCharge = RecurringCharge
 
 -- | The monetary amount of the recurring charge.
 rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
-rcRecurringChargeAmount f x =
-    f (_rcRecurringChargeAmount x)
-        <&> \y -> x { _rcRecurringChargeAmount = y }
+rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\s a -> s { _rcRecurringChargeAmount = a })
 {-# INLINE rcRecurringChargeAmount #-}
 
 -- | The frequency of the recurring charge.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
-rcRecurringChargeFrequency f x =
-    f (_rcRecurringChargeFrequency x)
-        <&> \y -> x { _rcRecurringChargeFrequency = y }
+rcRecurringChargeFrequency = lens _rcRecurringChargeFrequency (\s a -> s { _rcRecurringChargeFrequency = a })
 {-# INLINE rcRecurringChargeFrequency #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'RecurringCharge' data type to populate a request.
+mkRecurringCharge :: RecurringCharge
+mkRecurringCharge = RecurringCharge
+    { _rcRecurringChargeAmount = Nothing
+    , _rcRecurringChargeFrequency = Nothing
+    }
+{-# INLINE mkRecurringCharge #-}
 
 instance FromXML RecurringCharge where
     fromXMLOptions = xmlOptions
@@ -1737,55 +1692,41 @@ data ReplicationGroup = ReplicationGroup
 
 -- | The identifier for the replication group.
 rgReplicationGroupId :: Lens' ReplicationGroup (Maybe Text)
-rgReplicationGroupId f x =
-    f (_rgReplicationGroupId x)
-        <&> \y -> x { _rgReplicationGroupId = y }
+rgReplicationGroupId = lens _rgReplicationGroupId (\s a -> s { _rgReplicationGroupId = a })
 {-# INLINE rgReplicationGroupId #-}
 
 -- | The description of the replication group.
 rgDescription :: Lens' ReplicationGroup (Maybe Text)
-rgDescription f x =
-    f (_rgDescription x)
-        <&> \y -> x { _rgDescription = y }
+rgDescription = lens _rgDescription (\s a -> s { _rgDescription = a })
 {-# INLINE rgDescription #-}
 
 -- | The current state of this replication group - creating, available, etc.
 rgStatus :: Lens' ReplicationGroup (Maybe Text)
-rgStatus f x =
-    f (_rgStatus x)
-        <&> \y -> x { _rgStatus = y }
+rgStatus = lens _rgStatus (\s a -> s { _rgStatus = a })
 {-# INLINE rgStatus #-}
 
 -- | A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
 rgPendingModifiedValues :: Lens' ReplicationGroup (Maybe ReplicationGroupPendingModifiedValues)
-rgPendingModifiedValues f x =
-    f (_rgPendingModifiedValues x)
-        <&> \y -> x { _rgPendingModifiedValues = y }
+rgPendingModifiedValues = lens _rgPendingModifiedValues (\s a -> s { _rgPendingModifiedValues = a })
 {-# INLINE rgPendingModifiedValues #-}
 
 -- | The names of all the cache clusters that are part of this replication
 -- group.
 rgMemberClusters :: Lens' ReplicationGroup ([Text])
-rgMemberClusters f x =
-    f (_rgMemberClusters x)
-        <&> \y -> x { _rgMemberClusters = y }
+rgMemberClusters = lens _rgMemberClusters (\s a -> s { _rgMemberClusters = a })
 {-# INLINE rgMemberClusters #-}
 
 -- | A single element list with information about the nodes in the replication
 -- group.
 rgNodeGroups :: Lens' ReplicationGroup ([NodeGroup])
-rgNodeGroups f x =
-    f (_rgNodeGroups x)
-        <&> \y -> x { _rgNodeGroups = y }
+rgNodeGroups = lens _rgNodeGroups (\s a -> s { _rgNodeGroups = a })
 {-# INLINE rgNodeGroups #-}
 
 -- | The cache cluster ID that is used as the daily snapshot source for the
 -- replication group.
 rgSnapshottingClusterId :: Lens' ReplicationGroup (Maybe Text)
-rgSnapshottingClusterId f x =
-    f (_rgSnapshottingClusterId x)
-        <&> \y -> x { _rgSnapshottingClusterId = y }
+rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\s a -> s { _rgSnapshottingClusterId = a })
 {-# INLINE rgSnapshottingClusterId #-}
 
 instance FromXML ReplicationGroup where
@@ -1822,86 +1763,62 @@ data ReservedCacheNode = ReservedCacheNode
 
 -- | The unique identifier for the reservation.
 rcnReservedCacheNodeId :: Lens' ReservedCacheNode (Maybe Text)
-rcnReservedCacheNodeId f x =
-    f (_rcnReservedCacheNodeId x)
-        <&> \y -> x { _rcnReservedCacheNodeId = y }
+rcnReservedCacheNodeId = lens _rcnReservedCacheNodeId (\s a -> s { _rcnReservedCacheNodeId = a })
 {-# INLINE rcnReservedCacheNodeId #-}
 
 -- | The offering identifier.
 rcnReservedCacheNodesOfferingId :: Lens' ReservedCacheNode (Maybe Text)
-rcnReservedCacheNodesOfferingId f x =
-    f (_rcnReservedCacheNodesOfferingId x)
-        <&> \y -> x { _rcnReservedCacheNodesOfferingId = y }
+rcnReservedCacheNodesOfferingId = lens _rcnReservedCacheNodesOfferingId (\s a -> s { _rcnReservedCacheNodesOfferingId = a })
 {-# INLINE rcnReservedCacheNodesOfferingId #-}
 
 -- | The cache node type for the reserved cache nodes.
 rcnCacheNodeType :: Lens' ReservedCacheNode (Maybe Text)
-rcnCacheNodeType f x =
-    f (_rcnCacheNodeType x)
-        <&> \y -> x { _rcnCacheNodeType = y }
+rcnCacheNodeType = lens _rcnCacheNodeType (\s a -> s { _rcnCacheNodeType = a })
 {-# INLINE rcnCacheNodeType #-}
 
 -- | The time the reservation started.
 rcnStartTime :: Lens' ReservedCacheNode (Maybe ISO8601)
-rcnStartTime f x =
-    f (_rcnStartTime x)
-        <&> \y -> x { _rcnStartTime = y }
+rcnStartTime = lens _rcnStartTime (\s a -> s { _rcnStartTime = a })
 {-# INLINE rcnStartTime #-}
 
 -- | The duration of the reservation in seconds.
 rcnDuration :: Lens' ReservedCacheNode (Maybe Integer)
-rcnDuration f x =
-    f (_rcnDuration x)
-        <&> \y -> x { _rcnDuration = y }
+rcnDuration = lens _rcnDuration (\s a -> s { _rcnDuration = a })
 {-# INLINE rcnDuration #-}
 
 -- | The fixed price charged for this reserved cache node.
 rcnFixedPrice :: Lens' ReservedCacheNode (Maybe Double)
-rcnFixedPrice f x =
-    f (_rcnFixedPrice x)
-        <&> \y -> x { _rcnFixedPrice = y }
+rcnFixedPrice = lens _rcnFixedPrice (\s a -> s { _rcnFixedPrice = a })
 {-# INLINE rcnFixedPrice #-}
 
 -- | The hourly price charged for this reserved cache node.
 rcnUsagePrice :: Lens' ReservedCacheNode (Maybe Double)
-rcnUsagePrice f x =
-    f (_rcnUsagePrice x)
-        <&> \y -> x { _rcnUsagePrice = y }
+rcnUsagePrice = lens _rcnUsagePrice (\s a -> s { _rcnUsagePrice = a })
 {-# INLINE rcnUsagePrice #-}
 
 -- | The number of cache nodes that have been reserved.
 rcnCacheNodeCount :: Lens' ReservedCacheNode (Maybe Integer)
-rcnCacheNodeCount f x =
-    f (_rcnCacheNodeCount x)
-        <&> \y -> x { _rcnCacheNodeCount = y }
+rcnCacheNodeCount = lens _rcnCacheNodeCount (\s a -> s { _rcnCacheNodeCount = a })
 {-# INLINE rcnCacheNodeCount #-}
 
 -- | The description of the reserved cache node.
 rcnProductDescription :: Lens' ReservedCacheNode (Maybe Text)
-rcnProductDescription f x =
-    f (_rcnProductDescription x)
-        <&> \y -> x { _rcnProductDescription = y }
+rcnProductDescription = lens _rcnProductDescription (\s a -> s { _rcnProductDescription = a })
 {-# INLINE rcnProductDescription #-}
 
 -- | The offering type of this reserved cache node.
 rcnOfferingType :: Lens' ReservedCacheNode (Maybe Text)
-rcnOfferingType f x =
-    f (_rcnOfferingType x)
-        <&> \y -> x { _rcnOfferingType = y }
+rcnOfferingType = lens _rcnOfferingType (\s a -> s { _rcnOfferingType = a })
 {-# INLINE rcnOfferingType #-}
 
 -- | The state of the reserved cache node.
 rcnState :: Lens' ReservedCacheNode (Maybe Text)
-rcnState f x =
-    f (_rcnState x)
-        <&> \y -> x { _rcnState = y }
+rcnState = lens _rcnState (\s a -> s { _rcnState = a })
 {-# INLINE rcnState #-}
 
 -- | The recurring price charged to run this reserved cache node.
 rcnRecurringCharges :: Lens' ReservedCacheNode ([RecurringCharge])
-rcnRecurringCharges f x =
-    f (_rcnRecurringCharges x)
-        <&> \y -> x { _rcnRecurringCharges = y }
+rcnRecurringCharges = lens _rcnRecurringCharges (\s a -> s { _rcnRecurringCharges = a })
 {-# INLINE rcnRecurringCharges #-}
 
 instance FromXML ReservedCacheNode where
@@ -1930,58 +1847,42 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
 
 -- | A unique identifier for the reserved cache node offering.
 rcnoReservedCacheNodesOfferingId :: Lens' ReservedCacheNodesOffering (Maybe Text)
-rcnoReservedCacheNodesOfferingId f x =
-    f (_rcnoReservedCacheNodesOfferingId x)
-        <&> \y -> x { _rcnoReservedCacheNodesOfferingId = y }
+rcnoReservedCacheNodesOfferingId = lens _rcnoReservedCacheNodesOfferingId (\s a -> s { _rcnoReservedCacheNodesOfferingId = a })
 {-# INLINE rcnoReservedCacheNodesOfferingId #-}
 
 -- | The cache node type for the reserved cache node.
 rcnoCacheNodeType :: Lens' ReservedCacheNodesOffering (Maybe Text)
-rcnoCacheNodeType f x =
-    f (_rcnoCacheNodeType x)
-        <&> \y -> x { _rcnoCacheNodeType = y }
+rcnoCacheNodeType = lens _rcnoCacheNodeType (\s a -> s { _rcnoCacheNodeType = a })
 {-# INLINE rcnoCacheNodeType #-}
 
 -- | The duration of the offering. in seconds.
 rcnoDuration :: Lens' ReservedCacheNodesOffering (Maybe Integer)
-rcnoDuration f x =
-    f (_rcnoDuration x)
-        <&> \y -> x { _rcnoDuration = y }
+rcnoDuration = lens _rcnoDuration (\s a -> s { _rcnoDuration = a })
 {-# INLINE rcnoDuration #-}
 
 -- | The fixed price charged for this offering.
 rcnoFixedPrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
-rcnoFixedPrice f x =
-    f (_rcnoFixedPrice x)
-        <&> \y -> x { _rcnoFixedPrice = y }
+rcnoFixedPrice = lens _rcnoFixedPrice (\s a -> s { _rcnoFixedPrice = a })
 {-# INLINE rcnoFixedPrice #-}
 
 -- | The hourly price charged for this offering.
 rcnoUsagePrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
-rcnoUsagePrice f x =
-    f (_rcnoUsagePrice x)
-        <&> \y -> x { _rcnoUsagePrice = y }
+rcnoUsagePrice = lens _rcnoUsagePrice (\s a -> s { _rcnoUsagePrice = a })
 {-# INLINE rcnoUsagePrice #-}
 
 -- | The cache engine used by the offering.
 rcnoProductDescription :: Lens' ReservedCacheNodesOffering (Maybe Text)
-rcnoProductDescription f x =
-    f (_rcnoProductDescription x)
-        <&> \y -> x { _rcnoProductDescription = y }
+rcnoProductDescription = lens _rcnoProductDescription (\s a -> s { _rcnoProductDescription = a })
 {-# INLINE rcnoProductDescription #-}
 
 -- | The offering type.
 rcnoOfferingType :: Lens' ReservedCacheNodesOffering (Maybe Text)
-rcnoOfferingType f x =
-    f (_rcnoOfferingType x)
-        <&> \y -> x { _rcnoOfferingType = y }
+rcnoOfferingType = lens _rcnoOfferingType (\s a -> s { _rcnoOfferingType = a })
 {-# INLINE rcnoOfferingType #-}
 
 -- | The recurring price charged to run this reserved cache node.
 rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering ([RecurringCharge])
-rcnoRecurringCharges f x =
-    f (_rcnoRecurringCharges x)
-        <&> \y -> x { _rcnoRecurringCharges = y }
+rcnoRecurringCharges = lens _rcnoRecurringCharges (\s a -> s { _rcnoRecurringCharges = a })
 {-# INLINE rcnoRecurringCharges #-}
 
 instance FromXML ReservedCacheNodesOffering where
@@ -2000,19 +1901,24 @@ data SecurityGroupMembership = SecurityGroupMembership
 
 -- | The identifier of the cache security group.
 sgmSecurityGroupId :: Lens' SecurityGroupMembership (Maybe Text)
-sgmSecurityGroupId f x =
-    f (_sgmSecurityGroupId x)
-        <&> \y -> x { _sgmSecurityGroupId = y }
+sgmSecurityGroupId = lens _sgmSecurityGroupId (\s a -> s { _sgmSecurityGroupId = a })
 {-# INLINE sgmSecurityGroupId #-}
 
 -- | The status of the cache security group membership. The status changes
 -- whenever a cache security group is modified, or when the cache security
 -- groups assigned to a cache cluster are modified.
 sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
-sgmStatus f x =
-    f (_sgmStatus x)
-        <&> \y -> x { _sgmStatus = y }
+sgmStatus = lens _sgmStatus (\s a -> s { _sgmStatus = a })
 {-# INLINE sgmStatus #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'SecurityGroupMembership' data type to populate a request.
+mkSecurityGroupMembership :: SecurityGroupMembership
+mkSecurityGroupMembership = SecurityGroupMembership
+    { _sgmSecurityGroupId = Nothing
+    , _sgmStatus = Nothing
+    }
+{-# INLINE mkSecurityGroupMembership #-}
 
 instance FromXML SecurityGroupMembership where
     fromXMLOptions = xmlOptions
@@ -2092,132 +1998,98 @@ data Snapshot = Snapshot
 -- | The name of a snapshot. For an automatic snapshot, the name is
 -- system-generated; for a manual snapshot, this is the user-provided name.
 stSnapshotName :: Lens' Snapshot (Maybe Text)
-stSnapshotName f x =
-    f (_stSnapshotName x)
-        <&> \y -> x { _stSnapshotName = y }
+stSnapshotName = lens _stSnapshotName (\s a -> s { _stSnapshotName = a })
 {-# INLINE stSnapshotName #-}
 
 -- | The user-supplied identifier of the source cache cluster.
 stCacheClusterId :: Lens' Snapshot (Maybe Text)
-stCacheClusterId f x =
-    f (_stCacheClusterId x)
-        <&> \y -> x { _stCacheClusterId = y }
+stCacheClusterId = lens _stCacheClusterId (\s a -> s { _stCacheClusterId = a })
 {-# INLINE stCacheClusterId #-}
 
 -- | The status of the snapshot. Valid values: creating | available | restoring
 -- | copying | deleting.
 stSnapshotStatus :: Lens' Snapshot (Maybe Text)
-stSnapshotStatus f x =
-    f (_stSnapshotStatus x)
-        <&> \y -> x { _stSnapshotStatus = y }
+stSnapshotStatus = lens _stSnapshotStatus (\s a -> s { _stSnapshotStatus = a })
 {-# INLINE stSnapshotStatus #-}
 
 -- | Indicates whether the snapshot is from an automatic backup (automated) or
 -- was created manually (manual).
 stSnapshotSource :: Lens' Snapshot (Maybe Text)
-stSnapshotSource f x =
-    f (_stSnapshotSource x)
-        <&> \y -> x { _stSnapshotSource = y }
+stSnapshotSource = lens _stSnapshotSource (\s a -> s { _stSnapshotSource = a })
 {-# INLINE stSnapshotSource #-}
 
 -- | The name of the compute and memory capacity node type for the source cache
 -- cluster.
 stCacheNodeType :: Lens' Snapshot (Maybe Text)
-stCacheNodeType f x =
-    f (_stCacheNodeType x)
-        <&> \y -> x { _stCacheNodeType = y }
+stCacheNodeType = lens _stCacheNodeType (\s a -> s { _stCacheNodeType = a })
 {-# INLINE stCacheNodeType #-}
 
 -- | The name of the cache engine (memcached or redis) used by the source cache
 -- cluster.
 stEngine :: Lens' Snapshot (Maybe Text)
-stEngine f x =
-    f (_stEngine x)
-        <&> \y -> x { _stEngine = y }
+stEngine = lens _stEngine (\s a -> s { _stEngine = a })
 {-# INLINE stEngine #-}
 
 -- | The version of the cache engine version that is used by the source cache
 -- cluster.
 stEngineVersion :: Lens' Snapshot (Maybe Text)
-stEngineVersion f x =
-    f (_stEngineVersion x)
-        <&> \y -> x { _stEngineVersion = y }
+stEngineVersion = lens _stEngineVersion (\s a -> s { _stEngineVersion = a })
 {-# INLINE stEngineVersion #-}
 
 -- | The number of cache nodes in the source cache cluster.
 stNumCacheNodes :: Lens' Snapshot (Maybe Integer)
-stNumCacheNodes f x =
-    f (_stNumCacheNodes x)
-        <&> \y -> x { _stNumCacheNodes = y }
+stNumCacheNodes = lens _stNumCacheNodes (\s a -> s { _stNumCacheNodes = a })
 {-# INLINE stNumCacheNodes #-}
 
 -- | The name of the Availability Zone in which the source cache cluster is
 -- located.
 stPreferredAvailabilityZone :: Lens' Snapshot (Maybe Text)
-stPreferredAvailabilityZone f x =
-    f (_stPreferredAvailabilityZone x)
-        <&> \y -> x { _stPreferredAvailabilityZone = y }
+stPreferredAvailabilityZone = lens _stPreferredAvailabilityZone (\s a -> s { _stPreferredAvailabilityZone = a })
 {-# INLINE stPreferredAvailabilityZone #-}
 
 -- | The date and time when the source cache cluster was created.
 stCacheClusterCreateTime :: Lens' Snapshot (Maybe ISO8601)
-stCacheClusterCreateTime f x =
-    f (_stCacheClusterCreateTime x)
-        <&> \y -> x { _stCacheClusterCreateTime = y }
+stCacheClusterCreateTime = lens _stCacheClusterCreateTime (\s a -> s { _stCacheClusterCreateTime = a })
 {-# INLINE stCacheClusterCreateTime #-}
 
 -- | The time range (in UTC) during which weekly system maintenance can occur on
 -- the source cache cluster.
 stPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
-stPreferredMaintenanceWindow f x =
-    f (_stPreferredMaintenanceWindow x)
-        <&> \y -> x { _stPreferredMaintenanceWindow = y }
+stPreferredMaintenanceWindow = lens _stPreferredMaintenanceWindow (\s a -> s { _stPreferredMaintenanceWindow = a })
 {-# INLINE stPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) for the topic used by the source cache
 -- cluster for publishing notifications.
 stTopicArn :: Lens' Snapshot (Maybe Text)
-stTopicArn f x =
-    f (_stTopicArn x)
-        <&> \y -> x { _stTopicArn = y }
+stTopicArn = lens _stTopicArn (\s a -> s { _stTopicArn = a })
 {-# INLINE stTopicArn #-}
 
 -- | The port number used by each cache nodes in the source cache cluster.
 stPort :: Lens' Snapshot (Maybe Integer)
-stPort f x =
-    f (_stPort x)
-        <&> \y -> x { _stPort = y }
+stPort = lens _stPort (\s a -> s { _stPort = a })
 {-# INLINE stPort #-}
 
 -- | The cache parameter group that is associated with the source cache cluster.
 stCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
-stCacheParameterGroupName f x =
-    f (_stCacheParameterGroupName x)
-        <&> \y -> x { _stCacheParameterGroupName = y }
+stCacheParameterGroupName = lens _stCacheParameterGroupName (\s a -> s { _stCacheParameterGroupName = a })
 {-# INLINE stCacheParameterGroupName #-}
 
 -- | The name of the cache subnet group associated with the source cache
 -- cluster.
 stCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
-stCacheSubnetGroupName f x =
-    f (_stCacheSubnetGroupName x)
-        <&> \y -> x { _stCacheSubnetGroupName = y }
+stCacheSubnetGroupName = lens _stCacheSubnetGroupName (\s a -> s { _stCacheSubnetGroupName = a })
 {-# INLINE stCacheSubnetGroupName #-}
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group for the source cache cluster.
 stVpcId :: Lens' Snapshot (Maybe Text)
-stVpcId f x =
-    f (_stVpcId x)
-        <&> \y -> x { _stVpcId = y }
+stVpcId = lens _stVpcId (\s a -> s { _stVpcId = a })
 {-# INLINE stVpcId #-}
 
 -- | For the source cache cluster, indicates whether minor version patches are
 -- applied automatically (true) or not (false).
 stAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
-stAutoMinorVersionUpgrade f x =
-    f (_stAutoMinorVersionUpgrade x)
-        <&> \y -> x { _stAutoMinorVersionUpgrade = y }
+stAutoMinorVersionUpgrade = lens _stAutoMinorVersionUpgrade (\s a -> s { _stAutoMinorVersionUpgrade = a })
 {-# INLINE stAutoMinorVersionUpgrade #-}
 
 -- | For an automatic snapshot, the number of days for which ElastiCache will
@@ -2228,24 +2100,18 @@ stAutoMinorVersionUpgrade f x =
 -- ImportantIf the value of SnapshotRetentionLimit is set to zero (0), backups
 -- are turned off.
 stSnapshotRetentionLimit :: Lens' Snapshot (Maybe Integer)
-stSnapshotRetentionLimit f x =
-    f (_stSnapshotRetentionLimit x)
-        <&> \y -> x { _stSnapshotRetentionLimit = y }
+stSnapshotRetentionLimit = lens _stSnapshotRetentionLimit (\s a -> s { _stSnapshotRetentionLimit = a })
 {-# INLINE stSnapshotRetentionLimit #-}
 
 -- | The daily time range during which ElastiCache takes daily snapshots of the
 -- source cache cluster.
 stSnapshotWindow :: Lens' Snapshot (Maybe Text)
-stSnapshotWindow f x =
-    f (_stSnapshotWindow x)
-        <&> \y -> x { _stSnapshotWindow = y }
+stSnapshotWindow = lens _stSnapshotWindow (\s a -> s { _stSnapshotWindow = a })
 {-# INLINE stSnapshotWindow #-}
 
 -- | A list of the cache nodes in the source cache cluster.
 stNodeSnapshots :: Lens' Snapshot ([NodeSnapshot])
-stNodeSnapshots f x =
-    f (_stNodeSnapshots x)
-        <&> \y -> x { _stNodeSnapshots = y }
+stNodeSnapshots = lens _stNodeSnapshots (\s a -> s { _stNodeSnapshots = a })
 {-# INLINE stNodeSnapshots #-}
 
 instance FromXML Snapshot where
@@ -2264,17 +2130,22 @@ data Subnet = Subnet
 
 -- | The unique identifier for the subnet.
 sssssuSubnetIdentifier :: Lens' Subnet (Maybe Text)
-sssssuSubnetIdentifier f x =
-    f (_sssssuSubnetIdentifier x)
-        <&> \y -> x { _sssssuSubnetIdentifier = y }
+sssssuSubnetIdentifier = lens _sssssuSubnetIdentifier (\s a -> s { _sssssuSubnetIdentifier = a })
 {-# INLINE sssssuSubnetIdentifier #-}
 
 -- | The Availability Zone associated with the subnet.
 sssssuSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-sssssuSubnetAvailabilityZone f x =
-    f (_sssssuSubnetAvailabilityZone x)
-        <&> \y -> x { _sssssuSubnetAvailabilityZone = y }
+sssssuSubnetAvailabilityZone = lens _sssssuSubnetAvailabilityZone (\s a -> s { _sssssuSubnetAvailabilityZone = a })
 {-# INLINE sssssuSubnetAvailabilityZone #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Subnet' data type to populate a request.
+mkSubnet :: Subnet
+mkSubnet = Subnet
+    { _sssssuSubnetIdentifier = Nothing
+    , _sssssuSubnetAvailabilityZone = Nothing
+    }
+{-# INLINE mkSubnet #-}
 
 instance FromXML Subnet where
     fromXMLOptions = xmlOptions

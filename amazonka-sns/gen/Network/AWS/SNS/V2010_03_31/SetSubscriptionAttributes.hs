@@ -42,10 +42,10 @@ module Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
     -- * Request
       SetSubscriptionAttributes
     -- ** Request constructor
-    , setSubscriptionAttributes
+    , mkSetSubscriptionAttributesInput
     -- ** Request lenses
-    , ssaiAttributeName
     , ssaiSubscriptionArn
+    , ssaiAttributeName
     , ssaiAttributeValue
 
     -- * Response
@@ -56,49 +56,44 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetSubscriptionAttributes' request.
-setSubscriptionAttributes :: Text -- ^ 'ssaiAttributeName'
-                          -> Text -- ^ 'ssaiSubscriptionArn'
-                          -> SetSubscriptionAttributes
-setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
-    { _ssaiAttributeName = p1
-    , _ssaiSubscriptionArn = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetSubscriptionAttributes' request.
+mkSetSubscriptionAttributesInput :: Text -- ^ 'ssaiSubscriptionArn'
+                                 -> Text -- ^ 'ssaiAttributeName'
+                                 -> SetSubscriptionAttributes
+mkSetSubscriptionAttributesInput p1 p2 = SetSubscriptionAttributes
+    { _ssaiSubscriptionArn = p1
+    , _ssaiAttributeName = p2
     , _ssaiAttributeValue = Nothing
     }
-{-# INLINE setSubscriptionAttributes #-}
+{-# INLINE mkSetSubscriptionAttributesInput #-}
 
 data SetSubscriptionAttributes = SetSubscriptionAttributes
-    { _ssaiAttributeName :: Text
+    { _ssaiSubscriptionArn :: Text
+      -- ^ The ARN of the subscription to modify.
+    , _ssaiAttributeName :: Text
       -- ^ The name of the attribute you want to set. Only a subset of the
       -- subscriptions attributes are mutable. Valid values:
       -- DeliveryPolicy | RawMessageDelivery.
-    , _ssaiSubscriptionArn :: Text
-      -- ^ The ARN of the subscription to modify.
     , _ssaiAttributeValue :: Maybe Text
       -- ^ The new value for the attribute in JSON format.
     } deriving (Show, Generic)
+
+-- | The ARN of the subscription to modify.
+ssaiSubscriptionArn :: Lens' SetSubscriptionAttributes (Text)
+ssaiSubscriptionArn = lens _ssaiSubscriptionArn (\s a -> s { _ssaiSubscriptionArn = a })
+{-# INLINE ssaiSubscriptionArn #-}
 
 -- | The name of the attribute you want to set. Only a subset of the
 -- subscriptions attributes are mutable. Valid values: DeliveryPolicy |
 -- RawMessageDelivery.
 ssaiAttributeName :: Lens' SetSubscriptionAttributes (Text)
-ssaiAttributeName f x =
-    f (_ssaiAttributeName x)
-        <&> \y -> x { _ssaiAttributeName = y }
+ssaiAttributeName = lens _ssaiAttributeName (\s a -> s { _ssaiAttributeName = a })
 {-# INLINE ssaiAttributeName #-}
-
--- | The ARN of the subscription to modify.
-ssaiSubscriptionArn :: Lens' SetSubscriptionAttributes (Text)
-ssaiSubscriptionArn f x =
-    f (_ssaiSubscriptionArn x)
-        <&> \y -> x { _ssaiSubscriptionArn = y }
-{-# INLINE ssaiSubscriptionArn #-}
 
 -- | The new value for the attribute in JSON format.
 ssaiAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
-ssaiAttributeValue f x =
-    f (_ssaiAttributeValue x)
-        <&> \y -> x { _ssaiAttributeValue = y }
+ssaiAttributeValue = lens _ssaiAttributeValue (\s a -> s { _ssaiAttributeValue = a })
 {-# INLINE ssaiAttributeValue #-}
 
 instance ToQuery SetSubscriptionAttributes where

@@ -38,7 +38,7 @@ module Network.AWS.EMR.V2009_03_31.RemoveTags
     -- * Request
       RemoveTags
     -- ** Request constructor
-    , removeTags
+    , mkRemoveTagsInput
     -- ** Request lenses
     , rtiResourceId
     , rtiTagKeys
@@ -52,15 +52,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RemoveTags' request.
-removeTags :: Text -- ^ 'rtiResourceId'
-           -> [Text] -- ^ 'rtiTagKeys'
-           -> RemoveTags
-removeTags p1 p2 = RemoveTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveTags' request.
+mkRemoveTagsInput :: Text -- ^ 'rtiResourceId'
+                  -> [Text] -- ^ 'rtiTagKeys'
+                  -> RemoveTags
+mkRemoveTagsInput p1 p2 = RemoveTags
     { _rtiResourceId = p1
     , _rtiTagKeys = p2
     }
-{-# INLINE removeTags #-}
+{-# INLINE mkRemoveTagsInput #-}
 
 data RemoveTags = RemoveTags
     { _rtiResourceId :: Text
@@ -73,16 +74,12 @@ data RemoveTags = RemoveTags
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
 rtiResourceId :: Lens' RemoveTags (Text)
-rtiResourceId f x =
-    f (_rtiResourceId x)
-        <&> \y -> x { _rtiResourceId = y }
+rtiResourceId = lens _rtiResourceId (\s a -> s { _rtiResourceId = a })
 {-# INLINE rtiResourceId #-}
 
 -- | A list of tag keys to remove from a resource.
 rtiTagKeys :: Lens' RemoveTags ([Text])
-rtiTagKeys f x =
-    f (_rtiTagKeys x)
-        <&> \y -> x { _rtiTagKeys = y }
+rtiTagKeys = lens _rtiTagKeys (\s a -> s { _rtiTagKeys = a })
 {-# INLINE rtiTagKeys #-}
 
 instance ToPath RemoveTags
@@ -93,7 +90,6 @@ instance ToHeaders RemoveTags
 
 instance ToJSON RemoveTags
 
-data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RemoveTags where

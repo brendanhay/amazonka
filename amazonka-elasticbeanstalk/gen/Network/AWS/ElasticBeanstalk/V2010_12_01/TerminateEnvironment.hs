@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment
     -- * Request
       TerminateEnvironment
     -- ** Request constructor
-    , terminateEnvironment
+    , mkTerminateEnvironmentMessage
     -- ** Request lenses
     , temEnvironmentId
     , temEnvironmentName
@@ -39,35 +39,36 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment
     -- * Response
     , TerminateEnvironmentResponse
     -- ** Response lenses
+    , eeenEnvironmentName
+    , eeenEnvironmentId
     , eeenApplicationName
+    , eeenVersionLabel
+    , eeenSolutionStackName
     , eeenTemplateName
-    , eeenDateCreated
-    , eeenCNAME
     , eeenDescription
     , eeenEndpointURL
-    , eeenHealth
-    , eeenEnvironmentId
-    , eeenEnvironmentName
-    , eeenResources
-    , eeenStatus
-    , eeenTier
-    , eeenSolutionStackName
+    , eeenCNAME
+    , eeenDateCreated
     , eeenDateUpdated
-    , eeenVersionLabel
+    , eeenStatus
+    , eeenHealth
+    , eeenResources
+    , eeenTier
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'TerminateEnvironment' request.
-terminateEnvironment :: TerminateEnvironment
-terminateEnvironment = TerminateEnvironment
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateEnvironment' request.
+mkTerminateEnvironmentMessage :: TerminateEnvironment
+mkTerminateEnvironmentMessage = TerminateEnvironment
     { _temEnvironmentId = Nothing
     , _temEnvironmentName = Nothing
     , _temTerminateResources = Nothing
     }
-{-# INLINE terminateEnvironment #-}
+{-# INLINE mkTerminateEnvironmentMessage #-}
 
 data TerminateEnvironment = TerminateEnvironment
     { _temEnvironmentId :: Maybe Text
@@ -99,18 +100,14 @@ data TerminateEnvironment = TerminateEnvironment
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 temEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
-temEnvironmentId f x =
-    f (_temEnvironmentId x)
-        <&> \y -> x { _temEnvironmentId = y }
+temEnvironmentId = lens _temEnvironmentId (\s a -> s { _temEnvironmentId = a })
 {-# INLINE temEnvironmentId #-}
 
 -- | The name of the environment to terminate. Condition: You must specify
 -- either this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 temEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
-temEnvironmentName f x =
-    f (_temEnvironmentName x)
-        <&> \y -> x { _temEnvironmentName = y }
+temEnvironmentName = lens _temEnvironmentName (\s a -> s { _temEnvironmentName = a })
 {-# INLINE temEnvironmentName #-}
 
 -- | Indicates whether the associated AWS resources should shut down when the
@@ -124,30 +121,46 @@ temEnvironmentName f x =
 -- resources continue to operate. For more information, see the AWS Elastic
 -- Beanstalk User Guide. Default: true Valid Values: true | false.
 temTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
-temTerminateResources f x =
-    f (_temTerminateResources x)
-        <&> \y -> x { _temTerminateResources = y }
+temTerminateResources = lens _temTerminateResources (\s a -> s { _temTerminateResources = a })
 {-# INLINE temTerminateResources #-}
 
 instance ToQuery TerminateEnvironment where
     toQuery = genericQuery def
 
 data TerminateEnvironmentResponse = TerminateEnvironmentResponse
-    { _eeenApplicationName :: Maybe Text
+    { _eeenEnvironmentName :: Maybe Text
+      -- ^ The name of this environment.
+    , _eeenEnvironmentId :: Maybe Text
+      -- ^ The ID of this environment.
+    , _eeenApplicationName :: Maybe Text
       -- ^ The name of the application associated with this environment.
+    , _eeenVersionLabel :: Maybe Text
+      -- ^ The application version deployed in this environment.
+    , _eeenSolutionStackName :: Maybe Text
+      -- ^ The name of the SolutionStack deployed with this environment.
     , _eeenTemplateName :: Maybe Text
       -- ^ The name of the configuration template used to originally launch
       -- this environment.
-    , _eeenDateCreated :: Maybe ISO8601
-      -- ^ The creation date for this environment.
-    , _eeenCNAME :: Maybe Text
-      -- ^ The URL to the CNAME for this environment.
     , _eeenDescription :: Maybe Text
       -- ^ Describes this environment.
     , _eeenEndpointURL :: Maybe Text
       -- ^ For load-balanced, autoscaling environments, the URL to the
       -- LoadBalancer. For single-instance environments, the IP address of
       -- the instance.
+    , _eeenCNAME :: Maybe Text
+      -- ^ The URL to the CNAME for this environment.
+    , _eeenDateCreated :: Maybe ISO8601
+      -- ^ The creation date for this environment.
+    , _eeenDateUpdated :: Maybe ISO8601
+      -- ^ The last modified date for this environment.
+    , _eeenStatus :: Maybe EnvironmentStatus
+      -- ^ The current operational status of the environment: Launching:
+      -- Environment is in the process of initial deployment. Updating:
+      -- Environment is in the process of updating its configuration
+      -- settings or application version. Ready: Environment is available
+      -- to have an action performed on it, such as update or terminate.
+      -- Terminating: Environment is in the shut-down process. Terminated:
+      -- Environment is not running.
     , _eeenHealth :: Maybe EnvironmentHealth
       -- ^ Describes the health status of the environment. AWS Elastic
       -- Beanstalk indicates the failure levels for a running environment:
@@ -163,73 +176,78 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
       -- environment. The environment is not fully launched and health
       -- checks have not started or health checks are suspended during an
       -- UpdateEnvironment or RestartEnvironement request. Default: Grey.
-    , _eeenEnvironmentId :: Maybe Text
-      -- ^ The ID of this environment.
-    , _eeenEnvironmentName :: Maybe Text
-      -- ^ The name of this environment.
     , _eeenResources :: Maybe EnvironmentResourcesDescription
       -- ^ The description of the AWS resources used by this environment.
-    , _eeenStatus :: Maybe EnvironmentStatus
-      -- ^ The current operational status of the environment: Launching:
-      -- Environment is in the process of initial deployment. Updating:
-      -- Environment is in the process of updating its configuration
-      -- settings or application version. Ready: Environment is available
-      -- to have an action performed on it, such as update or terminate.
-      -- Terminating: Environment is in the shut-down process. Terminated:
-      -- Environment is not running.
     , _eeenTier :: Maybe EnvironmentTier
       -- ^ Describes the current tier of this environment.
-    , _eeenSolutionStackName :: Maybe Text
-      -- ^ The name of the SolutionStack deployed with this environment.
-    , _eeenDateUpdated :: Maybe ISO8601
-      -- ^ The last modified date for this environment.
-    , _eeenVersionLabel :: Maybe Text
-      -- ^ The application version deployed in this environment.
     } deriving (Show, Generic)
+
+-- | The name of this environment.
+eeenEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)
+eeenEnvironmentName = lens _eeenEnvironmentName (\s a -> s { _eeenEnvironmentName = a })
+{-# INLINE eeenEnvironmentName #-}
+
+-- | The ID of this environment.
+eeenEnvironmentId :: Lens' TerminateEnvironmentResponse (Maybe Text)
+eeenEnvironmentId = lens _eeenEnvironmentId (\s a -> s { _eeenEnvironmentId = a })
+{-# INLINE eeenEnvironmentId #-}
 
 -- | The name of the application associated with this environment.
 eeenApplicationName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenApplicationName f x =
-    f (_eeenApplicationName x)
-        <&> \y -> x { _eeenApplicationName = y }
+eeenApplicationName = lens _eeenApplicationName (\s a -> s { _eeenApplicationName = a })
 {-# INLINE eeenApplicationName #-}
+
+-- | The application version deployed in this environment.
+eeenVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
+eeenVersionLabel = lens _eeenVersionLabel (\s a -> s { _eeenVersionLabel = a })
+{-# INLINE eeenVersionLabel #-}
+
+-- | The name of the SolutionStack deployed with this environment.
+eeenSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
+eeenSolutionStackName = lens _eeenSolutionStackName (\s a -> s { _eeenSolutionStackName = a })
+{-# INLINE eeenSolutionStackName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
 eeenTemplateName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenTemplateName f x =
-    f (_eeenTemplateName x)
-        <&> \y -> x { _eeenTemplateName = y }
+eeenTemplateName = lens _eeenTemplateName (\s a -> s { _eeenTemplateName = a })
 {-# INLINE eeenTemplateName #-}
-
--- | The creation date for this environment.
-eeenDateCreated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
-eeenDateCreated f x =
-    f (_eeenDateCreated x)
-        <&> \y -> x { _eeenDateCreated = y }
-{-# INLINE eeenDateCreated #-}
-
--- | The URL to the CNAME for this environment.
-eeenCNAME :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenCNAME f x =
-    f (_eeenCNAME x)
-        <&> \y -> x { _eeenCNAME = y }
-{-# INLINE eeenCNAME #-}
 
 -- | Describes this environment.
 eeenDescription :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenDescription f x =
-    f (_eeenDescription x)
-        <&> \y -> x { _eeenDescription = y }
+eeenDescription = lens _eeenDescription (\s a -> s { _eeenDescription = a })
 {-# INLINE eeenDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
 eeenEndpointURL :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenEndpointURL f x =
-    f (_eeenEndpointURL x)
-        <&> \y -> x { _eeenEndpointURL = y }
+eeenEndpointURL = lens _eeenEndpointURL (\s a -> s { _eeenEndpointURL = a })
 {-# INLINE eeenEndpointURL #-}
+
+-- | The URL to the CNAME for this environment.
+eeenCNAME :: Lens' TerminateEnvironmentResponse (Maybe Text)
+eeenCNAME = lens _eeenCNAME (\s a -> s { _eeenCNAME = a })
+{-# INLINE eeenCNAME #-}
+
+-- | The creation date for this environment.
+eeenDateCreated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
+eeenDateCreated = lens _eeenDateCreated (\s a -> s { _eeenDateCreated = a })
+{-# INLINE eeenDateCreated #-}
+
+-- | The last modified date for this environment.
+eeenDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
+eeenDateUpdated = lens _eeenDateUpdated (\s a -> s { _eeenDateUpdated = a })
+{-# INLINE eeenDateUpdated #-}
+
+-- | The current operational status of the environment: Launching: Environment
+-- is in the process of initial deployment. Updating: Environment is in the
+-- process of updating its configuration settings or application version.
+-- Ready: Environment is available to have an action performed on it, such as
+-- update or terminate. Terminating: Environment is in the shut-down process.
+-- Terminated: Environment is not running.
+eeenStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
+eeenStatus = lens _eeenStatus (\s a -> s { _eeenStatus = a })
+{-# INLINE eeenStatus #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment: Red : Indicates the
@@ -245,71 +263,18 @@ eeenEndpointURL f x =
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
 eeenHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
-eeenHealth f x =
-    f (_eeenHealth x)
-        <&> \y -> x { _eeenHealth = y }
+eeenHealth = lens _eeenHealth (\s a -> s { _eeenHealth = a })
 {-# INLINE eeenHealth #-}
-
--- | The ID of this environment.
-eeenEnvironmentId :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenEnvironmentId f x =
-    f (_eeenEnvironmentId x)
-        <&> \y -> x { _eeenEnvironmentId = y }
-{-# INLINE eeenEnvironmentId #-}
-
--- | The name of this environment.
-eeenEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenEnvironmentName f x =
-    f (_eeenEnvironmentName x)
-        <&> \y -> x { _eeenEnvironmentName = y }
-{-# INLINE eeenEnvironmentName #-}
 
 -- | The description of the AWS resources used by this environment.
 eeenResources :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
-eeenResources f x =
-    f (_eeenResources x)
-        <&> \y -> x { _eeenResources = y }
+eeenResources = lens _eeenResources (\s a -> s { _eeenResources = a })
 {-# INLINE eeenResources #-}
-
--- | The current operational status of the environment: Launching: Environment
--- is in the process of initial deployment. Updating: Environment is in the
--- process of updating its configuration settings or application version.
--- Ready: Environment is available to have an action performed on it, such as
--- update or terminate. Terminating: Environment is in the shut-down process.
--- Terminated: Environment is not running.
-eeenStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
-eeenStatus f x =
-    f (_eeenStatus x)
-        <&> \y -> x { _eeenStatus = y }
-{-# INLINE eeenStatus #-}
 
 -- | Describes the current tier of this environment.
 eeenTier :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentTier)
-eeenTier f x =
-    f (_eeenTier x)
-        <&> \y -> x { _eeenTier = y }
+eeenTier = lens _eeenTier (\s a -> s { _eeenTier = a })
 {-# INLINE eeenTier #-}
-
--- | The name of the SolutionStack deployed with this environment.
-eeenSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenSolutionStackName f x =
-    f (_eeenSolutionStackName x)
-        <&> \y -> x { _eeenSolutionStackName = y }
-{-# INLINE eeenSolutionStackName #-}
-
--- | The last modified date for this environment.
-eeenDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
-eeenDateUpdated f x =
-    f (_eeenDateUpdated x)
-        <&> \y -> x { _eeenDateUpdated = y }
-{-# INLINE eeenDateUpdated #-}
-
--- | The application version deployed in this environment.
-eeenVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
-eeenVersionLabel f x =
-    f (_eeenVersionLabel x)
-        <&> \y -> x { _eeenVersionLabel = y }
-{-# INLINE eeenVersionLabel #-}
 
 instance FromXML TerminateEnvironmentResponse where
     fromXMLOptions = xmlOptions

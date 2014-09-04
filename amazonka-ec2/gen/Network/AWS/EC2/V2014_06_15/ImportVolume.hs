@@ -37,12 +37,12 @@ module Network.AWS.EC2.V2014_06_15.ImportVolume
     -- * Request
       ImportVolume
     -- ** Request constructor
-    , importVolume
+    , mkImportVolumeRequest
     -- ** Request lenses
-    , ivrImage
     , ivrAvailabilityZone
-    , ivrVolume
+    , ivrImage
     , ivrDescription
+    , ivrVolume
 
     -- * Response
     , ImportVolumeResponse
@@ -54,71 +54,62 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ImportVolume' request.
-importVolume :: DiskImageDetail -- ^ 'ivrImage'
-             -> Text -- ^ 'ivrAvailabilityZone'
-             -> VolumeDetail -- ^ 'ivrVolume'
-             -> ImportVolume
-importVolume p1 p2 p3 = ImportVolume
-    { _ivrImage = p1
-    , _ivrAvailabilityZone = p2
-    , _ivrVolume = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportVolume' request.
+mkImportVolumeRequest :: Text -- ^ 'ivrAvailabilityZone'
+                      -> DiskImageDetail -- ^ 'ivrImage'
+                      -> VolumeDetail -- ^ 'ivrVolume'
+                      -> ImportVolume
+mkImportVolumeRequest p1 p2 p3 = ImportVolume
+    { _ivrAvailabilityZone = p1
+    , _ivrImage = p2
     , _ivrDescription = Nothing
+    , _ivrVolume = p4
     }
-{-# INLINE importVolume #-}
+{-# INLINE mkImportVolumeRequest #-}
 
 data ImportVolume = ImportVolume
-    { _ivrImage :: DiskImageDetail
-      -- ^ 
-    , _ivrAvailabilityZone :: Text
+    { _ivrAvailabilityZone :: Text
       -- ^ The Availability Zone for the resulting Amazon EBS volume.
-    , _ivrVolume :: VolumeDetail
+    , _ivrImage :: DiskImageDetail
       -- ^ 
     , _ivrDescription :: Maybe Text
       -- ^ An optional description for the volume being imported.
+    , _ivrVolume :: VolumeDetail
+      -- ^ 
     } deriving (Show, Generic)
-
--- | 
-ivrImage :: Lens' ImportVolume (DiskImageDetail)
-ivrImage f x =
-    f (_ivrImage x)
-        <&> \y -> x { _ivrImage = y }
-{-# INLINE ivrImage #-}
 
 -- | The Availability Zone for the resulting Amazon EBS volume.
 ivrAvailabilityZone :: Lens' ImportVolume (Text)
-ivrAvailabilityZone f x =
-    f (_ivrAvailabilityZone x)
-        <&> \y -> x { _ivrAvailabilityZone = y }
+ivrAvailabilityZone = lens _ivrAvailabilityZone (\s a -> s { _ivrAvailabilityZone = a })
 {-# INLINE ivrAvailabilityZone #-}
 
 -- | 
-ivrVolume :: Lens' ImportVolume (VolumeDetail)
-ivrVolume f x =
-    f (_ivrVolume x)
-        <&> \y -> x { _ivrVolume = y }
-{-# INLINE ivrVolume #-}
+ivrImage :: Lens' ImportVolume (DiskImageDetail)
+ivrImage = lens _ivrImage (\s a -> s { _ivrImage = a })
+{-# INLINE ivrImage #-}
 
 -- | An optional description for the volume being imported.
 ivrDescription :: Lens' ImportVolume (Maybe Text)
-ivrDescription f x =
-    f (_ivrDescription x)
-        <&> \y -> x { _ivrDescription = y }
+ivrDescription = lens _ivrDescription (\s a -> s { _ivrDescription = a })
 {-# INLINE ivrDescription #-}
+
+-- | 
+ivrVolume :: Lens' ImportVolume (VolumeDetail)
+ivrVolume = lens _ivrVolume (\s a -> s { _ivrVolume = a })
+{-# INLINE ivrVolume #-}
 
 instance ToQuery ImportVolume where
     toQuery = genericQuery def
 
-data ImportVolumeResponse = ImportVolumeResponse
+newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivsConversionTask :: Maybe ConversionTask
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 ivsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivsConversionTask f x =
-    f (_ivsConversionTask x)
-        <&> \y -> x { _ivsConversionTask = y }
+ivsConversionTask = lens _ivsConversionTask (\s a -> s { _ivsConversionTask = a })
 {-# INLINE ivsConversionTask #-}
 
 instance FromXML ImportVolumeResponse where

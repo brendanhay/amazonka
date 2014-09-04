@@ -25,7 +25,7 @@ module Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
     -- * Request
       IndexDocuments
     -- ** Request constructor
-    , indexDocuments
+    , mkIndexDocumentsRequest
     -- ** Request lenses
     , idrDomainName
 
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'IndexDocuments' request.
-indexDocuments :: Text -- ^ 'idrDomainName'
-               -> IndexDocuments
-indexDocuments p1 = IndexDocuments
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'IndexDocuments' request.
+mkIndexDocumentsRequest :: Text -- ^ 'idrDomainName'
+                        -> IndexDocuments
+mkIndexDocumentsRequest p1 = IndexDocuments
     { _idrDomainName = p1
     }
-{-# INLINE indexDocuments #-}
+{-# INLINE mkIndexDocumentsRequest #-}
 
-data IndexDocuments = IndexDocuments
+newtype IndexDocuments = IndexDocuments
     { _idrDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
@@ -61,24 +62,20 @@ data IndexDocuments = IndexDocuments
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 idrDomainName :: Lens' IndexDocuments (Text)
-idrDomainName f x =
-    f (_idrDomainName x)
-        <&> \y -> x { _idrDomainName = y }
+idrDomainName = lens _idrDomainName (\s a -> s { _idrDomainName = a })
 {-# INLINE idrDomainName #-}
 
 instance ToQuery IndexDocuments where
     toQuery = genericQuery def
 
-data IndexDocumentsResponse = IndexDocumentsResponse
+newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idsFieldNames :: [Text]
       -- ^ The names of the fields that are currently being indexed.
     } deriving (Show, Generic)
 
 -- | The names of the fields that are currently being indexed.
 idsFieldNames :: Lens' IndexDocumentsResponse ([Text])
-idsFieldNames f x =
-    f (_idsFieldNames x)
-        <&> \y -> x { _idsFieldNames = y }
+idsFieldNames = lens _idsFieldNames (\s a -> s { _idsFieldNames = a })
 {-# INLINE idsFieldNames #-}
 
 instance FromXML IndexDocumentsResponse where

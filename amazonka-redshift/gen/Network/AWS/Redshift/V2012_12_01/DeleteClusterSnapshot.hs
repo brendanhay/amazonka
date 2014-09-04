@@ -38,7 +38,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot
     -- * Request
       DeleteClusterSnapshot
     -- ** Request constructor
-    , deleteClusterSnapshot
+    , mkDeleteClusterSnapshotMessage
     -- ** Request lenses
     , dcsmSnapshotIdentifier
     , dcsmSnapshotClusterIdentifier
@@ -53,14 +53,15 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteClusterSnapshot' request.
-deleteClusterSnapshot :: Text -- ^ 'dcsmSnapshotIdentifier'
-                      -> DeleteClusterSnapshot
-deleteClusterSnapshot p1 = DeleteClusterSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSnapshot' request.
+mkDeleteClusterSnapshotMessage :: Text -- ^ 'dcsmSnapshotIdentifier'
+                               -> DeleteClusterSnapshot
+mkDeleteClusterSnapshotMessage p1 = DeleteClusterSnapshot
     { _dcsmSnapshotIdentifier = p1
     , _dcsmSnapshotClusterIdentifier = Nothing
     }
-{-# INLINE deleteClusterSnapshot #-}
+{-# INLINE mkDeleteClusterSnapshotMessage #-}
 
 data DeleteClusterSnapshot = DeleteClusterSnapshot
     { _dcsmSnapshotIdentifier :: Text
@@ -78,9 +79,7 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot
 -- | The unique identifier of the manual snapshot to be deleted. Constraints:
 -- Must be the name of an existing snapshot that is in the available state.
 dcsmSnapshotIdentifier :: Lens' DeleteClusterSnapshot (Text)
-dcsmSnapshotIdentifier f x =
-    f (_dcsmSnapshotIdentifier x)
-        <&> \y -> x { _dcsmSnapshotIdentifier = y }
+dcsmSnapshotIdentifier = lens _dcsmSnapshotIdentifier (\s a -> s { _dcsmSnapshotIdentifier = a })
 {-# INLINE dcsmSnapshotIdentifier #-}
 
 -- | The unique identifier of the cluster the snapshot was created from. This
@@ -88,24 +87,20 @@ dcsmSnapshotIdentifier f x =
 -- resource element that specifies anything other than * for the cluster name.
 -- Constraints: Must be the name of valid cluster.
 dcsmSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
-dcsmSnapshotClusterIdentifier f x =
-    f (_dcsmSnapshotClusterIdentifier x)
-        <&> \y -> x { _dcsmSnapshotClusterIdentifier = y }
+dcsmSnapshotClusterIdentifier = lens _dcsmSnapshotClusterIdentifier (\s a -> s { _dcsmSnapshotClusterIdentifier = a })
 {-# INLINE dcsmSnapshotClusterIdentifier #-}
 
 instance ToQuery DeleteClusterSnapshot where
     toQuery = genericQuery def
 
-data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
+newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _sssssssssssrSnapshot :: Maybe Snapshot
       -- ^ Describes a snapshot.
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
 sssssssssssrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
-sssssssssssrSnapshot f x =
-    f (_sssssssssssrSnapshot x)
-        <&> \y -> x { _sssssssssssrSnapshot = y }
+sssssssssssrSnapshot = lens _sssssssssssrSnapshot (\s a -> s { _sssssssssssrSnapshot = a })
 {-# INLINE sssssssssssrSnapshot #-}
 
 instance FromXML DeleteClusterSnapshotResponse where

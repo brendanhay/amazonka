@@ -48,11 +48,11 @@ module Network.AWS.SWF.V2012_01_25.RegisterDomain
     -- * Request
       RegisterDomain
     -- ** Request constructor
-    , registerDomain
+    , mkRegisterDomainInput
     -- ** Request lenses
     , rdiName
-    , rdiWorkflowExecutionRetentionPeriodInDays
     , rdiDescription
+    , rdiWorkflowExecutionRetentionPeriodInDays
 
     -- * Response
     , RegisterDomainResponse
@@ -63,16 +63,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RegisterDomain' request.
-registerDomain :: Text -- ^ 'rdiName'
-               -> Text -- ^ 'rdiWorkflowExecutionRetentionPeriodInDays'
-               -> RegisterDomain
-registerDomain p1 p2 = RegisterDomain
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterDomain' request.
+mkRegisterDomainInput :: Text -- ^ 'rdiName'
+                      -> Text -- ^ 'rdiWorkflowExecutionRetentionPeriodInDays'
+                      -> RegisterDomain
+mkRegisterDomainInput p1 p2 = RegisterDomain
     { _rdiName = p1
-    , _rdiWorkflowExecutionRetentionPeriodInDays = p2
     , _rdiDescription = Nothing
+    , _rdiWorkflowExecutionRetentionPeriodInDays = p3
     }
-{-# INLINE registerDomain #-}
+{-# INLINE mkRegisterDomainInput #-}
 
 data RegisterDomain = RegisterDomain
     { _rdiName :: Text
@@ -81,6 +82,8 @@ data RegisterDomain = RegisterDomain
       -- not contain a : (colon), / (slash), | (vertical bar), or any
       -- control characters (\u0000-\u001f | \u007f - \u009f). Also, it
       -- must not contain the literal string &quot;arn&quot;.
+    , _rdiDescription :: Maybe Text
+      -- ^ Textual description of the domain.
     , _rdiWorkflowExecutionRetentionPeriodInDays :: Text
       -- ^ A duration (in days) for which the record (including the history)
       -- of workflow executions in this domain should be kept by the
@@ -88,8 +91,6 @@ data RegisterDomain = RegisterDomain
       -- not be available in the results of visibility calls. If you pass
       -- the value NONE then there is no expiration for workflow execution
       -- history (effectively an infinite retention period).
-    , _rdiDescription :: Maybe Text
-      -- ^ Textual description of the domain.
     } deriving (Show, Generic)
 
 -- | Name of the domain to register. The name must be unique. The specified
@@ -98,10 +99,13 @@ data RegisterDomain = RegisterDomain
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
 rdiName :: Lens' RegisterDomain (Text)
-rdiName f x =
-    f (_rdiName x)
-        <&> \y -> x { _rdiName = y }
+rdiName = lens _rdiName (\s a -> s { _rdiName = a })
 {-# INLINE rdiName #-}
+
+-- | Textual description of the domain.
+rdiDescription :: Lens' RegisterDomain (Maybe Text)
+rdiDescription = lens _rdiDescription (\s a -> s { _rdiDescription = a })
+{-# INLINE rdiDescription #-}
 
 -- | A duration (in days) for which the record (including the history) of
 -- workflow executions in this domain should be kept by the service. After the
@@ -110,17 +114,8 @@ rdiName f x =
 -- expiration for workflow execution history (effectively an infinite
 -- retention period).
 rdiWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain (Text)
-rdiWorkflowExecutionRetentionPeriodInDays f x =
-    f (_rdiWorkflowExecutionRetentionPeriodInDays x)
-        <&> \y -> x { _rdiWorkflowExecutionRetentionPeriodInDays = y }
+rdiWorkflowExecutionRetentionPeriodInDays = lens _rdiWorkflowExecutionRetentionPeriodInDays (\s a -> s { _rdiWorkflowExecutionRetentionPeriodInDays = a })
 {-# INLINE rdiWorkflowExecutionRetentionPeriodInDays #-}
-
--- | Textual description of the domain.
-rdiDescription :: Lens' RegisterDomain (Maybe Text)
-rdiDescription f x =
-    f (_rdiDescription x)
-        <&> \y -> x { _rdiDescription = y }
-{-# INLINE rdiDescription #-}
 
 instance ToPath RegisterDomain
 

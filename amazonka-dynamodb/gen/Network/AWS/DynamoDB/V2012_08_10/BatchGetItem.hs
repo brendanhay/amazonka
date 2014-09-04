@@ -58,7 +58,7 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
     -- * Request
       BatchGetItem
     -- ** Request constructor
-    , batchGetItem
+    , mkBatchGetItemInput
     -- ** Request lenses
     , bgiiRequestItems
     , bgiiReturnConsumedCapacity
@@ -66,8 +66,8 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
     -- * Response
     , BatchGetItemResponse
     -- ** Response lenses
-    , bgioUnprocessedKeys
     , bgioResponses
+    , bgioUnprocessedKeys
     , bgioConsumedCapacity
     ) where
 
@@ -76,14 +76,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'BatchGetItem' request.
-batchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiiRequestItems'
-             -> BatchGetItem
-batchGetItem p1 = BatchGetItem
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchGetItem' request.
+mkBatchGetItemInput :: Map Text KeysAndAttributes -- ^ 'bgiiRequestItems'
+                    -> BatchGetItem
+mkBatchGetItemInput p1 = BatchGetItem
     { _bgiiRequestItems = p1
     , _bgiiReturnConsumedCapacity = Nothing
     }
-{-# INLINE batchGetItem #-}
+{-# INLINE mkBatchGetItemInput #-}
 
 data BatchGetItem = BatchGetItem
     { _bgiiRequestItems :: Map Text KeysAndAttributes
@@ -114,9 +115,7 @@ data BatchGetItem = BatchGetItem
 -- strongly consistent read is used; if false (the default), an eventually
 -- consistent read is used.
 bgiiRequestItems :: Lens' BatchGetItem (Map Text KeysAndAttributes)
-bgiiRequestItems f x =
-    f (_bgiiRequestItems x)
-        <&> \y -> x { _bgiiRequestItems = y }
+bgiiRequestItems = lens _bgiiRequestItems (\s a -> s { _bgiiRequestItems = a })
 {-# INLINE bgiiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
@@ -124,9 +123,7 @@ bgiiRequestItems f x =
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
 bgiiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
-bgiiReturnConsumedCapacity f x =
-    f (_bgiiReturnConsumedCapacity x)
-        <&> \y -> x { _bgiiReturnConsumedCapacity = y }
+bgiiReturnConsumedCapacity = lens _bgiiReturnConsumedCapacity (\s a -> s { _bgiiReturnConsumedCapacity = a })
 {-# INLINE bgiiReturnConsumedCapacity #-}
 
 instance ToPath BatchGetItem
@@ -138,7 +135,11 @@ instance ToHeaders BatchGetItem
 instance ToJSON BatchGetItem
 
 data BatchGetItemResponse = BatchGetItemResponse
-    { _bgioUnprocessedKeys :: Map Text KeysAndAttributes
+    { _bgioResponses :: Map Text [Map Text AttributeValue]
+      -- ^ A map of table name to a list of items. Each object in Responses
+      -- consists of a table name, along with a map of attribute data
+      -- consisting of the data type and attribute value.
+    , _bgioUnprocessedKeys :: Map Text KeysAndAttributes
       -- ^ A map of tables and their respective keys that were not processed
       -- with the current response. The UnprocessedKeys value is in the
       -- same form as RequestItems, so the value can be provided directly
@@ -152,16 +153,19 @@ data BatchGetItemResponse = BatchGetItemResponse
       -- consistency of a read operation. If set to true, then a strongly
       -- consistent read is used; otherwise, an eventually consistent read
       -- is used.
-    , _bgioResponses :: Map Text [Map Text AttributeValue]
-      -- ^ A map of table name to a list of items. Each object in Responses
-      -- consists of a table name, along with a map of attribute data
-      -- consisting of the data type and attribute value.
     , _bgioConsumedCapacity :: [ConsumedCapacity]
       -- ^ The write capacity units consumed by the operation. Each element
       -- consists of: TableName - The table that consumed the provisioned
       -- throughput. CapacityUnits - The total number of capacity units
       -- consumed.
     } deriving (Show, Generic)
+
+-- | A map of table name to a list of items. Each object in Responses consists
+-- of a table name, along with a map of attribute data consisting of the data
+-- type and attribute value.
+bgioResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
+bgioResponses = lens _bgioResponses (\s a -> s { _bgioResponses = a })
+{-# INLINE bgioResponses #-}
 
 -- | A map of tables and their respective keys that were not processed with the
 -- current response. The UnprocessedKeys value is in the same form as
@@ -175,27 +179,14 @@ data BatchGetItemResponse = BatchGetItemResponse
 -- consistency of a read operation. If set to true, then a strongly consistent
 -- read is used; otherwise, an eventually consistent read is used.
 bgioUnprocessedKeys :: Lens' BatchGetItemResponse (Map Text KeysAndAttributes)
-bgioUnprocessedKeys f x =
-    f (_bgioUnprocessedKeys x)
-        <&> \y -> x { _bgioUnprocessedKeys = y }
+bgioUnprocessedKeys = lens _bgioUnprocessedKeys (\s a -> s { _bgioUnprocessedKeys = a })
 {-# INLINE bgioUnprocessedKeys #-}
-
--- | A map of table name to a list of items. Each object in Responses consists
--- of a table name, along with a map of attribute data consisting of the data
--- type and attribute value.
-bgioResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
-bgioResponses f x =
-    f (_bgioResponses x)
-        <&> \y -> x { _bgioResponses = y }
-{-# INLINE bgioResponses #-}
 
 -- | The write capacity units consumed by the operation. Each element consists
 -- of: TableName - The table that consumed the provisioned throughput.
 -- CapacityUnits - The total number of capacity units consumed.
 bgioConsumedCapacity :: Lens' BatchGetItemResponse ([ConsumedCapacity])
-bgioConsumedCapacity f x =
-    f (_bgioConsumedCapacity x)
-        <&> \y -> x { _bgioConsumedCapacity = y }
+bgioConsumedCapacity = lens _bgioConsumedCapacity (\s a -> s { _bgioConsumedCapacity = a })
 {-# INLINE bgioConsumedCapacity #-}
 
 instance FromJSON BatchGetItemResponse

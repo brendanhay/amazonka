@@ -33,11 +33,11 @@ module Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup
     -- * Request
       ResetCacheParameterGroup
     -- ** Request constructor
-    , resetCacheParameterGroup
+    , mkResetCacheParameterGroupMessage
     -- ** Request lenses
-    , rcpgmParameterNameValues
     , rcpgmCacheParameterGroupName
     , rcpgmResetAllParameters
+    , rcpgmParameterNameValues
 
     -- * Response
     , ResetCacheParameterGroupResponse
@@ -49,67 +49,60 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResetCacheParameterGroup' request.
-resetCacheParameterGroup :: [ParameterNameValue] -- ^ 'rcpgmParameterNameValues'
-                         -> Text -- ^ 'rcpgmCacheParameterGroupName'
-                         -> ResetCacheParameterGroup
-resetCacheParameterGroup p1 p2 = ResetCacheParameterGroup
-    { _rcpgmParameterNameValues = p1
-    , _rcpgmCacheParameterGroupName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetCacheParameterGroup' request.
+mkResetCacheParameterGroupMessage :: Text -- ^ 'rcpgmCacheParameterGroupName'
+                                  -> [ParameterNameValue] -- ^ 'rcpgmParameterNameValues'
+                                  -> ResetCacheParameterGroup
+mkResetCacheParameterGroupMessage p1 p2 = ResetCacheParameterGroup
+    { _rcpgmCacheParameterGroupName = p1
     , _rcpgmResetAllParameters = Nothing
+    , _rcpgmParameterNameValues = p3
     }
-{-# INLINE resetCacheParameterGroup #-}
+{-# INLINE mkResetCacheParameterGroupMessage #-}
 
 data ResetCacheParameterGroup = ResetCacheParameterGroup
-    { _rcpgmParameterNameValues :: [ParameterNameValue]
-      -- ^ An array of parameter names to be reset. If you are not resetting
-      -- the entire cache parameter group, you must specify at least one
-      -- parameter name.
-    , _rcpgmCacheParameterGroupName :: Text
+    { _rcpgmCacheParameterGroupName :: Text
       -- ^ The name of the cache parameter group to reset.
     , _rcpgmResetAllParameters :: Maybe Bool
       -- ^ If true, all parameters in the cache parameter group will be
       -- reset to default values. If false, no such action occurs. Valid
       -- values: true | false.
+    , _rcpgmParameterNameValues :: [ParameterNameValue]
+      -- ^ An array of parameter names to be reset. If you are not resetting
+      -- the entire cache parameter group, you must specify at least one
+      -- parameter name.
     } deriving (Show, Generic)
-
--- | An array of parameter names to be reset. If you are not resetting the
--- entire cache parameter group, you must specify at least one parameter name.
-rcpgmParameterNameValues :: Lens' ResetCacheParameterGroup ([ParameterNameValue])
-rcpgmParameterNameValues f x =
-    f (_rcpgmParameterNameValues x)
-        <&> \y -> x { _rcpgmParameterNameValues = y }
-{-# INLINE rcpgmParameterNameValues #-}
 
 -- | The name of the cache parameter group to reset.
 rcpgmCacheParameterGroupName :: Lens' ResetCacheParameterGroup (Text)
-rcpgmCacheParameterGroupName f x =
-    f (_rcpgmCacheParameterGroupName x)
-        <&> \y -> x { _rcpgmCacheParameterGroupName = y }
+rcpgmCacheParameterGroupName = lens _rcpgmCacheParameterGroupName (\s a -> s { _rcpgmCacheParameterGroupName = a })
 {-# INLINE rcpgmCacheParameterGroupName #-}
 
 -- | If true, all parameters in the cache parameter group will be reset to
 -- default values. If false, no such action occurs. Valid values: true |
 -- false.
 rcpgmResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
-rcpgmResetAllParameters f x =
-    f (_rcpgmResetAllParameters x)
-        <&> \y -> x { _rcpgmResetAllParameters = y }
+rcpgmResetAllParameters = lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
 {-# INLINE rcpgmResetAllParameters #-}
+
+-- | An array of parameter names to be reset. If you are not resetting the
+-- entire cache parameter group, you must specify at least one parameter name.
+rcpgmParameterNameValues :: Lens' ResetCacheParameterGroup ([ParameterNameValue])
+rcpgmParameterNameValues = lens _rcpgmParameterNameValues (\s a -> s { _rcpgmParameterNameValues = a })
+{-# INLINE rcpgmParameterNameValues #-}
 
 instance ToQuery ResetCacheParameterGroup where
     toQuery = genericQuery def
 
-data ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
+newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _cpgnnCacheParameterGroupName :: Maybe Text
       -- ^ The name of the cache parameter group.
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
 cpgnnCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
-cpgnnCacheParameterGroupName f x =
-    f (_cpgnnCacheParameterGroupName x)
-        <&> \y -> x { _cpgnnCacheParameterGroupName = y }
+cpgnnCacheParameterGroupName = lens _cpgnnCacheParameterGroupName (\s a -> s { _cpgnnCacheParameterGroupName = a })
 {-# INLINE cpgnnCacheParameterGroupName #-}
 
 instance FromXML ResetCacheParameterGroupResponse where

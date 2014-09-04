@@ -30,7 +30,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup
     -- * Request
       DeleteDBParameterGroup
     -- ** Request constructor
-    , deleteDBParameterGroup
+    , mkDeleteDBParameterGroupMessage
     -- ** Request lenses
     , ddbpgmDBParameterGroupName
 
@@ -42,15 +42,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDBParameterGroup' request.
-deleteDBParameterGroup :: Text -- ^ 'ddbpgmDBParameterGroupName'
-                       -> DeleteDBParameterGroup
-deleteDBParameterGroup p1 = DeleteDBParameterGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBParameterGroup' request.
+mkDeleteDBParameterGroupMessage :: Text -- ^ 'ddbpgmDBParameterGroupName'
+                                -> DeleteDBParameterGroup
+mkDeleteDBParameterGroupMessage p1 = DeleteDBParameterGroup
     { _ddbpgmDBParameterGroupName = p1
     }
-{-# INLINE deleteDBParameterGroup #-}
+{-# INLINE mkDeleteDBParameterGroupMessage #-}
 
-data DeleteDBParameterGroup = DeleteDBParameterGroup
+newtype DeleteDBParameterGroup = DeleteDBParameterGroup
     { _ddbpgmDBParameterGroupName :: Text
       -- ^ The name of the DB parameter group. Constraints: Must be the name
       -- of an existing DB parameter group You cannot delete a default DB
@@ -61,9 +62,7 @@ data DeleteDBParameterGroup = DeleteDBParameterGroup
 -- existing DB parameter group You cannot delete a default DB parameter group
 -- Cannot be associated with any DB instances.
 ddbpgmDBParameterGroupName :: Lens' DeleteDBParameterGroup (Text)
-ddbpgmDBParameterGroupName f x =
-    f (_ddbpgmDBParameterGroupName x)
-        <&> \y -> x { _ddbpgmDBParameterGroupName = y }
+ddbpgmDBParameterGroupName = lens _ddbpgmDBParameterGroupName (\s a -> s { _ddbpgmDBParameterGroupName = a })
 {-# INLINE ddbpgmDBParameterGroupName #-}
 
 instance ToQuery DeleteDBParameterGroup where

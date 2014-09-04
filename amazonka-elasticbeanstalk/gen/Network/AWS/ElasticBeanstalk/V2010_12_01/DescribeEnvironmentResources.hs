@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources
     -- * Request
       DescribeEnvironmentResources
     -- ** Request constructor
-    , describeEnvironmentResources
+    , mkDescribeEnvironmentResourcesMessage
     -- ** Request lenses
     , dermEnvironmentId
     , dermEnvironmentName
@@ -45,13 +45,14 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeEnvironmentResources' request.
-describeEnvironmentResources :: DescribeEnvironmentResources
-describeEnvironmentResources = DescribeEnvironmentResources
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEnvironmentResources' request.
+mkDescribeEnvironmentResourcesMessage :: DescribeEnvironmentResources
+mkDescribeEnvironmentResourcesMessage = DescribeEnvironmentResources
     { _dermEnvironmentId = Nothing
     , _dermEnvironmentName = Nothing
     }
-{-# INLINE describeEnvironmentResources #-}
+{-# INLINE mkDescribeEnvironmentResourcesMessage #-}
 
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _dermEnvironmentId :: Maybe Text
@@ -71,9 +72,7 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
 dermEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-dermEnvironmentId f x =
-    f (_dermEnvironmentId x)
-        <&> \y -> x { _dermEnvironmentId = y }
+dermEnvironmentId = lens _dermEnvironmentId (\s a -> s { _dermEnvironmentId = a })
 {-# INLINE dermEnvironmentId #-}
 
 -- | The name of the environment to retrieve AWS resource usage data. Condition:
@@ -81,24 +80,20 @@ dermEnvironmentId f x =
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
 dermEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
-dermEnvironmentName f x =
-    f (_dermEnvironmentName x)
-        <&> \y -> x { _dermEnvironmentName = y }
+dermEnvironmentName = lens _dermEnvironmentName (\s a -> s { _dermEnvironmentName = a })
 {-# INLINE dermEnvironmentName #-}
 
 instance ToQuery DescribeEnvironmentResources where
     toQuery = genericQuery def
 
-data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
+newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _erdmEnvironmentResources :: Maybe EnvironmentResourceDescription
       -- ^ A list of EnvironmentResourceDescription.
     } deriving (Show, Generic)
 
 -- | A list of EnvironmentResourceDescription.
 erdmEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
-erdmEnvironmentResources f x =
-    f (_erdmEnvironmentResources x)
-        <&> \y -> x { _erdmEnvironmentResources = y }
+erdmEnvironmentResources = lens _erdmEnvironmentResources (\s a -> s { _erdmEnvironmentResources = a })
 {-# INLINE erdmEnvironmentResources #-}
 
 instance FromXML DescribeEnvironmentResourcesResponse where

@@ -24,7 +24,7 @@ module Network.AWS.Support.V2013_04_15.ResolveCase
     -- * Request
       ResolveCase
     -- ** Request constructor
-    , resolveCase
+    , mkResolveCaseRequest
     -- ** Request lenses
     , rcrCaseId
 
@@ -40,14 +40,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ResolveCase' request.
-resolveCase :: ResolveCase
-resolveCase = ResolveCase
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResolveCase' request.
+mkResolveCaseRequest :: ResolveCase
+mkResolveCaseRequest = ResolveCase
     { _rcrCaseId = Nothing
     }
-{-# INLINE resolveCase #-}
+{-# INLINE mkResolveCaseRequest #-}
 
-data ResolveCase = ResolveCase
+newtype ResolveCase = ResolveCase
     { _rcrCaseId :: Maybe Text
       -- ^ The AWS Support case ID requested or returned in the call. The
       -- case ID is an alphanumeric string formatted as shown in this
@@ -58,9 +59,7 @@ data ResolveCase = ResolveCase
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 rcrCaseId :: Lens' ResolveCase (Maybe Text)
-rcrCaseId f x =
-    f (_rcrCaseId x)
-        <&> \y -> x { _rcrCaseId = y }
+rcrCaseId = lens _rcrCaseId (\s a -> s { _rcrCaseId = a })
 {-# INLINE rcrCaseId #-}
 
 instance ToPath ResolveCase
@@ -81,16 +80,12 @@ data ResolveCaseResponse = ResolveCaseResponse
 
 -- | The status of the case when the ResolveCase request was sent.
 rcsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcsInitialCaseStatus f x =
-    f (_rcsInitialCaseStatus x)
-        <&> \y -> x { _rcsInitialCaseStatus = y }
+rcsInitialCaseStatus = lens _rcsInitialCaseStatus (\s a -> s { _rcsInitialCaseStatus = a })
 {-# INLINE rcsInitialCaseStatus #-}
 
 -- | The status of the case after the ResolveCase request was processed.
 rcsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcsFinalCaseStatus f x =
-    f (_rcsFinalCaseStatus x)
-        <&> \y -> x { _rcsFinalCaseStatus = y }
+rcsFinalCaseStatus = lens _rcsFinalCaseStatus (\s a -> s { _rcsFinalCaseStatus = a })
 {-# INLINE rcsFinalCaseStatus #-}
 
 instance FromJSON ResolveCaseResponse

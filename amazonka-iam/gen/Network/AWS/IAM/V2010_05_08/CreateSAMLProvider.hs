@@ -41,7 +41,7 @@ module Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
     -- * Request
       CreateSAMLProvider
     -- ** Request constructor
-    , createSAMLProvider
+    , mkCreateSAMLProviderRequest
     -- ** Request lenses
     , csamlprSAMLMetadataDocument
     , csamlprName
@@ -56,15 +56,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateSAMLProvider' request.
-createSAMLProvider :: Text -- ^ 'csamlprSAMLMetadataDocument'
-                   -> Text -- ^ 'csamlprName'
-                   -> CreateSAMLProvider
-createSAMLProvider p1 p2 = CreateSAMLProvider
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSAMLProvider' request.
+mkCreateSAMLProviderRequest :: Text -- ^ 'csamlprSAMLMetadataDocument'
+                            -> Text -- ^ 'csamlprName'
+                            -> CreateSAMLProvider
+mkCreateSAMLProviderRequest p1 p2 = CreateSAMLProvider
     { _csamlprSAMLMetadataDocument = p1
     , _csamlprName = p2
     }
-{-# INLINE createSAMLProvider #-}
+{-# INLINE mkCreateSAMLProviderRequest #-}
 
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlprSAMLMetadataDocument :: Text
@@ -90,31 +91,25 @@ data CreateSAMLProvider = CreateSAMLProvider
 -- Credentials for SAML Federation in the Using Temporary Security Credentials
 -- guide.
 csamlprSAMLMetadataDocument :: Lens' CreateSAMLProvider (Text)
-csamlprSAMLMetadataDocument f x =
-    f (_csamlprSAMLMetadataDocument x)
-        <&> \y -> x { _csamlprSAMLMetadataDocument = y }
+csamlprSAMLMetadataDocument = lens _csamlprSAMLMetadataDocument (\s a -> s { _csamlprSAMLMetadataDocument = a })
 {-# INLINE csamlprSAMLMetadataDocument #-}
 
 -- | The name of the provider to create.
 csamlprName :: Lens' CreateSAMLProvider (Text)
-csamlprName f x =
-    f (_csamlprName x)
-        <&> \y -> x { _csamlprName = y }
+csamlprName = lens _csamlprName (\s a -> s { _csamlprName = a })
 {-# INLINE csamlprName #-}
 
 instance ToQuery CreateSAMLProvider where
     toQuery = genericQuery def
 
-data CreateSAMLProviderResponse = CreateSAMLProviderResponse
+newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlpsSAMLProviderArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the SAML provider.
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
 csamlpsSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
-csamlpsSAMLProviderArn f x =
-    f (_csamlpsSAMLProviderArn x)
-        <&> \y -> x { _csamlpsSAMLProviderArn = y }
+csamlpsSAMLProviderArn = lens _csamlpsSAMLProviderArn (\s a -> s { _csamlpsSAMLProviderArn = a })
 {-# INLINE csamlpsSAMLProviderArn #-}
 
 instance FromXML CreateSAMLProviderResponse where

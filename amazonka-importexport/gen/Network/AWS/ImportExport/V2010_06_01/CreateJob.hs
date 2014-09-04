@@ -27,19 +27,19 @@ module Network.AWS.ImportExport.V2010_06_01.CreateJob
     -- * Request
       CreateJob
     -- ** Request constructor
-    , createJob
+    , mkCreateJobInput
     -- ** Request lenses
     , cjjJobType
     , cjjManifest
-    , cjjValidateOnly
     , cjjManifestAddendum
+    , cjjValidateOnly
 
     -- * Response
     , CreateJobResponse
     -- ** Response lenses
-    , cjpAwsShippingAddress
     , cjpJobId
     , cjpJobType
+    , cjpAwsShippingAddress
     , cjpSignature
     , cjpSignatureFileContents
     , cjpWarningMessage
@@ -49,70 +49,63 @@ import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateJob' request.
-createJob :: JobType -- ^ 'cjjJobType'
-          -> Text -- ^ 'cjjManifest'
-          -> Bool -- ^ 'cjjValidateOnly'
-          -> CreateJob
-createJob p1 p2 p3 = CreateJob
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateJob' request.
+mkCreateJobInput :: JobType -- ^ 'cjjJobType'
+                 -> Text -- ^ 'cjjManifest'
+                 -> Bool -- ^ 'cjjValidateOnly'
+                 -> CreateJob
+mkCreateJobInput p1 p2 p3 = CreateJob
     { _cjjJobType = p1
     , _cjjManifest = p2
-    , _cjjValidateOnly = p3
     , _cjjManifestAddendum = Nothing
+    , _cjjValidateOnly = p4
     }
-{-# INLINE createJob #-}
+{-# INLINE mkCreateJobInput #-}
 
 data CreateJob = CreateJob
     { _cjjJobType :: JobType
       -- ^ Specifies whether the job to initiate is an import or export job.
     , _cjjManifest :: Text
       -- ^ The UTF-8 encoded text of the manifest file.
+    , _cjjManifestAddendum :: Maybe Text
+      -- ^ For internal use only.
     , _cjjValidateOnly :: Bool
       -- ^ Validate the manifest and parameter values in the request but do
       -- not actually create a job.
-    , _cjjManifestAddendum :: Maybe Text
-      -- ^ For internal use only.
     } deriving (Show, Generic)
 
 -- | Specifies whether the job to initiate is an import or export job.
 cjjJobType :: Lens' CreateJob (JobType)
-cjjJobType f x =
-    f (_cjjJobType x)
-        <&> \y -> x { _cjjJobType = y }
+cjjJobType = lens _cjjJobType (\s a -> s { _cjjJobType = a })
 {-# INLINE cjjJobType #-}
 
 -- | The UTF-8 encoded text of the manifest file.
 cjjManifest :: Lens' CreateJob (Text)
-cjjManifest f x =
-    f (_cjjManifest x)
-        <&> \y -> x { _cjjManifest = y }
+cjjManifest = lens _cjjManifest (\s a -> s { _cjjManifest = a })
 {-# INLINE cjjManifest #-}
+
+-- | For internal use only.
+cjjManifestAddendum :: Lens' CreateJob (Maybe Text)
+cjjManifestAddendum = lens _cjjManifestAddendum (\s a -> s { _cjjManifestAddendum = a })
+{-# INLINE cjjManifestAddendum #-}
 
 -- | Validate the manifest and parameter values in the request but do not
 -- actually create a job.
 cjjValidateOnly :: Lens' CreateJob (Bool)
-cjjValidateOnly f x =
-    f (_cjjValidateOnly x)
-        <&> \y -> x { _cjjValidateOnly = y }
+cjjValidateOnly = lens _cjjValidateOnly (\s a -> s { _cjjValidateOnly = a })
 {-# INLINE cjjValidateOnly #-}
-
--- | For internal use only.
-cjjManifestAddendum :: Lens' CreateJob (Maybe Text)
-cjjManifestAddendum f x =
-    f (_cjjManifestAddendum x)
-        <&> \y -> x { _cjjManifestAddendum = y }
-{-# INLINE cjjManifestAddendum #-}
 
 instance ToQuery CreateJob where
     toQuery = genericQuery def
 
 data CreateJobResponse = CreateJobResponse
-    { _cjpAwsShippingAddress :: Maybe Text
-      -- ^ Address you ship your storage device to.
-    , _cjpJobId :: Maybe Text
+    { _cjpJobId :: Maybe Text
       -- ^ A unique identifier which refers to a particular job.
     , _cjpJobType :: Maybe JobType
       -- ^ Specifies whether the job to initiate is an import or export job.
+    , _cjpAwsShippingAddress :: Maybe Text
+      -- ^ Address you ship your storage device to.
     , _cjpSignature :: Maybe Text
       -- ^ An encrypted code used to authenticate the request and response,
       -- for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value
@@ -125,50 +118,38 @@ data CreateJobResponse = CreateJobResponse
       -- job, such as use of an incompatible Amazon S3 bucket name.
     } deriving (Show, Generic)
 
--- | Address you ship your storage device to.
-cjpAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
-cjpAwsShippingAddress f x =
-    f (_cjpAwsShippingAddress x)
-        <&> \y -> x { _cjpAwsShippingAddress = y }
-{-# INLINE cjpAwsShippingAddress #-}
-
 -- | A unique identifier which refers to a particular job.
 cjpJobId :: Lens' CreateJobResponse (Maybe Text)
-cjpJobId f x =
-    f (_cjpJobId x)
-        <&> \y -> x { _cjpJobId = y }
+cjpJobId = lens _cjpJobId (\s a -> s { _cjpJobId = a })
 {-# INLINE cjpJobId #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
 cjpJobType :: Lens' CreateJobResponse (Maybe JobType)
-cjpJobType f x =
-    f (_cjpJobType x)
-        <&> \y -> x { _cjpJobType = y }
+cjpJobType = lens _cjpJobType (\s a -> s { _cjpJobType = a })
 {-# INLINE cjpJobType #-}
+
+-- | Address you ship your storage device to.
+cjpAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
+cjpAwsShippingAddress = lens _cjpAwsShippingAddress (\s a -> s { _cjpAwsShippingAddress = a })
+{-# INLINE cjpAwsShippingAddress #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
 cjpSignature :: Lens' CreateJobResponse (Maybe Text)
-cjpSignature f x =
-    f (_cjpSignature x)
-        <&> \y -> x { _cjpSignature = y }
+cjpSignature = lens _cjpSignature (\s a -> s { _cjpSignature = a })
 {-# INLINE cjpSignature #-}
 
 -- | The actual text of the SIGNATURE file to be written to disk.
 cjpSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
-cjpSignatureFileContents f x =
-    f (_cjpSignatureFileContents x)
-        <&> \y -> x { _cjpSignatureFileContents = y }
+cjpSignatureFileContents = lens _cjpSignatureFileContents (\s a -> s { _cjpSignatureFileContents = a })
 {-# INLINE cjpSignatureFileContents #-}
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
 cjpWarningMessage :: Lens' CreateJobResponse (Maybe Text)
-cjpWarningMessage f x =
-    f (_cjpWarningMessage x)
-        <&> \y -> x { _cjpWarningMessage = y }
+cjpWarningMessage = lens _cjpWarningMessage (\s a -> s { _cjpWarningMessage = a })
 {-# INLINE cjpWarningMessage #-}
 
 instance FromXML CreateJobResponse where

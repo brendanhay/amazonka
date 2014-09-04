@@ -38,7 +38,7 @@ module Network.AWS.SNS.V2010_03_31.CreateTopic
     -- * Request
       CreateTopic
     -- ** Request constructor
-    , createTopic
+    , mkCreateTopicInput
     -- ** Request lenses
     , ctiName
 
@@ -52,15 +52,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateTopic' request.
-createTopic :: Text -- ^ 'ctiName'
-            -> CreateTopic
-createTopic p1 = CreateTopic
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTopic' request.
+mkCreateTopicInput :: Text -- ^ 'ctiName'
+                   -> CreateTopic
+mkCreateTopicInput p1 = CreateTopic
     { _ctiName = p1
     }
-{-# INLINE createTopic #-}
+{-# INLINE mkCreateTopicInput #-}
 
-data CreateTopic = CreateTopic
+newtype CreateTopic = CreateTopic
     { _ctiName :: Text
       -- ^ The name of the topic you want to create. Constraints: Topic
       -- names must be made up of only uppercase and lowercase ASCII
@@ -72,24 +73,20 @@ data CreateTopic = CreateTopic
 -- made up of only uppercase and lowercase ASCII letters, numbers,
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
 ctiName :: Lens' CreateTopic (Text)
-ctiName f x =
-    f (_ctiName x)
-        <&> \y -> x { _ctiName = y }
+ctiName = lens _ctiName (\s a -> s { _ctiName = a })
 {-# INLINE ctiName #-}
 
 instance ToQuery CreateTopic where
     toQuery = genericQuery def
 
-data CreateTopicResponse = CreateTopicResponse
+newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) assigned to the created topic.
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
-ctrTopicArn f x =
-    f (_ctrTopicArn x)
-        <&> \y -> x { _ctrTopicArn = y }
+ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
 {-# INLINE ctrTopicArn #-}
 
 instance FromXML CreateTopicResponse where

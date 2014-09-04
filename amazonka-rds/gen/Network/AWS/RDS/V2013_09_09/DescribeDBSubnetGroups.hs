@@ -33,41 +33,42 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSubnetGroups
     -- * Request
       DescribeDBSubnetGroups
     -- ** Request constructor
-    , describeDBSubnetGroups
+    , mkDescribeDBSubnetGroupsMessage
     -- ** Request lenses
-    , ddbsgpMaxRecords
     , ddbsgpDBSubnetGroupName
+    , ddbsgpMaxRecords
     , ddbsgpMarker
 
     -- * Response
     , DescribeDBSubnetGroupsResponse
     -- ** Response lenses
-    , dbsgsDBSubnetGroups
     , dbsgsMarker
+    , dbsgsDBSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDBSubnetGroups' request.
-describeDBSubnetGroups :: DescribeDBSubnetGroups
-describeDBSubnetGroups = DescribeDBSubnetGroups
-    { _ddbsgpMaxRecords = Nothing
-    , _ddbsgpDBSubnetGroupName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBSubnetGroups' request.
+mkDescribeDBSubnetGroupsMessage :: DescribeDBSubnetGroups
+mkDescribeDBSubnetGroupsMessage = DescribeDBSubnetGroups
+    { _ddbsgpDBSubnetGroupName = Nothing
+    , _ddbsgpMaxRecords = Nothing
     , _ddbsgpMarker = Nothing
     }
-{-# INLINE describeDBSubnetGroups #-}
+{-# INLINE mkDescribeDBSubnetGroupsMessage #-}
 
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups
-    { _ddbsgpMaxRecords :: Maybe Integer
+    { _ddbsgpDBSubnetGroupName :: Maybe Text
+      -- ^ The name of the DB subnet group to return details for.
+    , _ddbsgpMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a pagination
       -- token called a marker is included in the response so that the
       -- remaining results may be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _ddbsgpDBSubnetGroupName :: Maybe Text
-      -- ^ The name of the DB subnet group to return details for.
     , _ddbsgpMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous
       -- DescribeDBSubnetGroups request. If this parameter is specified,
@@ -75,59 +76,49 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups
       -- value specified by MaxRecords.
     } deriving (Show, Generic)
 
+-- | The name of the DB subnet group to return details for.
+ddbsgpDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
+ddbsgpDBSubnetGroupName = lens _ddbsgpDBSubnetGroupName (\s a -> s { _ddbsgpDBSubnetGroupName = a })
+{-# INLINE ddbsgpDBSubnetGroupName #-}
+
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbsgpMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Integer)
-ddbsgpMaxRecords f x =
-    f (_ddbsgpMaxRecords x)
-        <&> \y -> x { _ddbsgpMaxRecords = y }
+ddbsgpMaxRecords = lens _ddbsgpMaxRecords (\s a -> s { _ddbsgpMaxRecords = a })
 {-# INLINE ddbsgpMaxRecords #-}
-
--- | The name of the DB subnet group to return details for.
-ddbsgpDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
-ddbsgpDBSubnetGroupName f x =
-    f (_ddbsgpDBSubnetGroupName x)
-        <&> \y -> x { _ddbsgpDBSubnetGroupName = y }
-{-# INLINE ddbsgpDBSubnetGroupName #-}
 
 -- | An optional pagination token provided by a previous DescribeDBSubnetGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
 ddbsgpMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
-ddbsgpMarker f x =
-    f (_ddbsgpMarker x)
-        <&> \y -> x { _ddbsgpMarker = y }
+ddbsgpMarker = lens _ddbsgpMarker (\s a -> s { _ddbsgpMarker = a })
 {-# INLINE ddbsgpMarker #-}
 
 instance ToQuery DescribeDBSubnetGroups where
     toQuery = genericQuery def
 
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
-    { _dbsgsDBSubnetGroups :: [DBSubnetGroup]
-      -- ^ A list of DBSubnetGroup instances.
-    , _dbsgsMarker :: Maybe Text
+    { _dbsgsMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
       -- beyond the marker, up to the value specified by MaxRecords.
+    , _dbsgsDBSubnetGroups :: [DBSubnetGroup]
+      -- ^ A list of DBSubnetGroup instances.
     } deriving (Show, Generic)
-
--- | A list of DBSubnetGroup instances.
-dbsgsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse ([DBSubnetGroup])
-dbsgsDBSubnetGroups f x =
-    f (_dbsgsDBSubnetGroups x)
-        <&> \y -> x { _dbsgsDBSubnetGroups = y }
-{-# INLINE dbsgsDBSubnetGroups #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dbsgsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
-dbsgsMarker f x =
-    f (_dbsgsMarker x)
-        <&> \y -> x { _dbsgsMarker = y }
+dbsgsMarker = lens _dbsgsMarker (\s a -> s { _dbsgsMarker = a })
 {-# INLINE dbsgsMarker #-}
+
+-- | A list of DBSubnetGroup instances.
+dbsgsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse ([DBSubnetGroup])
+dbsgsDBSubnetGroups = lens _dbsgsDBSubnetGroups (\s a -> s { _dbsgsDBSubnetGroups = a })
+{-# INLINE dbsgsDBSubnetGroups #-}
 
 instance FromXML DescribeDBSubnetGroupsResponse where
     fromXMLOptions = xmlOptions

@@ -38,7 +38,7 @@ module Network.AWS.DynamoDB.V2012_08_10.DescribeTable
     -- * Request
       DescribeTable
     -- ** Request constructor
-    , describeTable
+    , mkDescribeTableInput
     -- ** Request lenses
     , dtjTableName
 
@@ -53,24 +53,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTable' request.
-describeTable :: Text -- ^ 'dtjTableName'
-              -> DescribeTable
-describeTable p1 = DescribeTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTable' request.
+mkDescribeTableInput :: Text -- ^ 'dtjTableName'
+                     -> DescribeTable
+mkDescribeTableInput p1 = DescribeTable
     { _dtjTableName = p1
     }
-{-# INLINE describeTable #-}
+{-# INLINE mkDescribeTableInput #-}
 
-data DescribeTable = DescribeTable
+newtype DescribeTable = DescribeTable
     { _dtjTableName :: Text
       -- ^ The name of the table to describe.
     } deriving (Show, Generic)
 
 -- | The name of the table to describe.
 dtjTableName :: Lens' DescribeTable (Text)
-dtjTableName f x =
-    f (_dtjTableName x)
-        <&> \y -> x { _dtjTableName = y }
+dtjTableName = lens _dtjTableName (\s a -> s { _dtjTableName = a })
 {-# INLINE dtjTableName #-}
 
 instance ToPath DescribeTable
@@ -81,16 +80,14 @@ instance ToHeaders DescribeTable
 
 instance ToJSON DescribeTable
 
-data DescribeTableResponse = DescribeTableResponse
+newtype DescribeTableResponse = DescribeTableResponse
     { _dtpTable :: Maybe TableDescription
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
 dtpTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-dtpTable f x =
-    f (_dtpTable x)
-        <&> \y -> x { _dtpTable = y }
+dtpTable = lens _dtpTable (\s a -> s { _dtpTable = a })
 {-# INLINE dtpTable #-}
 
 instance FromJSON DescribeTableResponse

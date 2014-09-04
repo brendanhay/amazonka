@@ -41,17 +41,17 @@ module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupIngress
     -- * Request
       RevokeSecurityGroupIngress
     -- ** Request constructor
-    , revokeSecurityGroupIngress
+    , mkRevokeSecurityGroupIngressRequest
     -- ** Request lenses
-    , rsgirFromPort
-    , rsgirToPort
-    , rsgirIpPermissions
     , rsgirGroupName
     , rsgirGroupId
     , rsgirSourceSecurityGroupName
     , rsgirSourceSecurityGroupOwnerId
     , rsgirIpProtocol
+    , rsgirFromPort
+    , rsgirToPort
     , rsgirCidrIp
+    , rsgirIpPermissions
 
     -- * Response
     , RevokeSecurityGroupIngressResponse
@@ -61,33 +61,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RevokeSecurityGroupIngress' request.
-revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
-revokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgirFromPort = Nothing
-    , _rsgirToPort = Nothing
-    , _rsgirIpPermissions = mempty
-    , _rsgirGroupName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeSecurityGroupIngress' request.
+mkRevokeSecurityGroupIngressRequest :: RevokeSecurityGroupIngress
+mkRevokeSecurityGroupIngressRequest = RevokeSecurityGroupIngress
+    { _rsgirGroupName = Nothing
     , _rsgirGroupId = Nothing
     , _rsgirSourceSecurityGroupName = Nothing
     , _rsgirSourceSecurityGroupOwnerId = Nothing
     , _rsgirIpProtocol = Nothing
+    , _rsgirFromPort = Nothing
+    , _rsgirToPort = Nothing
     , _rsgirCidrIp = Nothing
+    , _rsgirIpPermissions = mempty
     }
-{-# INLINE revokeSecurityGroupIngress #-}
+{-# INLINE mkRevokeSecurityGroupIngressRequest #-}
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgirFromPort :: Maybe Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
-      -- type number. For the ICMP type number, use -1 to specify all ICMP
-      -- types.
-    , _rsgirToPort :: Maybe Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code number. For the ICMP code number, use -1 to specify all ICMP
-      -- codes for the ICMP type.
-    , _rsgirIpPermissions :: [IpPermission]
-      -- ^ 
-    , _rsgirGroupName :: Maybe Text
+    { _rsgirGroupName :: Maybe Text
       -- ^ [EC2-Classic, default VPC] The name of the security group.
     , _rsgirGroupId :: Maybe Text
       -- ^ The ID of the security group.
@@ -101,80 +92,72 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     , _rsgirIpProtocol :: Maybe Text
       -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
       -- Numbers). Use -1 to specify all.
+    , _rsgirFromPort :: Maybe Integer
+      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
+      -- type number. For the ICMP type number, use -1 to specify all ICMP
+      -- types.
+    , _rsgirToPort :: Maybe Integer
+      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
+      -- code number. For the ICMP code number, use -1 to specify all ICMP
+      -- codes for the ICMP type.
     , _rsgirCidrIp :: Maybe Text
       -- ^ The CIDR IP address range. You can't specify this parameter when
       -- specifying a source security group.
+    , _rsgirIpPermissions :: [IpPermission]
+      -- ^ 
     } deriving (Show, Generic)
+
+-- | [EC2-Classic, default VPC] The name of the security group.
+rsgirGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgirGroupName = lens _rsgirGroupName (\s a -> s { _rsgirGroupName = a })
+{-# INLINE rsgirGroupName #-}
+
+-- | The ID of the security group.
+rsgirGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgirGroupId = lens _rsgirGroupId (\s a -> s { _rsgirGroupId = a })
+{-# INLINE rsgirGroupId #-}
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't
+-- specify a source security group and a CIDR IP address range.
+rsgirSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgirSourceSecurityGroupName = lens _rsgirSourceSecurityGroupName (\s a -> s { _rsgirSourceSecurityGroupName = a })
+{-# INLINE rsgirSourceSecurityGroupName #-}
+
+-- | The ID of the source security group. You can't specify a source security
+-- group and a CIDR IP address range.
+rsgirSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgirSourceSecurityGroupOwnerId = lens _rsgirSourceSecurityGroupOwnerId (\s a -> s { _rsgirSourceSecurityGroupOwnerId = a })
+{-# INLINE rsgirSourceSecurityGroupOwnerId #-}
+
+-- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
+-- -1 to specify all.
+rsgirIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgirIpProtocol = lens _rsgirIpProtocol (\s a -> s { _rsgirIpProtocol = a })
+{-# INLINE rsgirIpProtocol #-}
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
 rsgirFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
-rsgirFromPort f x =
-    f (_rsgirFromPort x)
-        <&> \y -> x { _rsgirFromPort = y }
+rsgirFromPort = lens _rsgirFromPort (\s a -> s { _rsgirFromPort = a })
 {-# INLINE rsgirFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use -1 to specify all ICMP codes for the
 -- ICMP type.
 rsgirToPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
-rsgirToPort f x =
-    f (_rsgirToPort x)
-        <&> \y -> x { _rsgirToPort = y }
+rsgirToPort = lens _rsgirToPort (\s a -> s { _rsgirToPort = a })
 {-# INLINE rsgirToPort #-}
-
--- | 
-rsgirIpPermissions :: Lens' RevokeSecurityGroupIngress ([IpPermission])
-rsgirIpPermissions f x =
-    f (_rsgirIpPermissions x)
-        <&> \y -> x { _rsgirIpPermissions = y }
-{-# INLINE rsgirIpPermissions #-}
-
--- | [EC2-Classic, default VPC] The name of the security group.
-rsgirGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirGroupName f x =
-    f (_rsgirGroupName x)
-        <&> \y -> x { _rsgirGroupName = y }
-{-# INLINE rsgirGroupName #-}
-
--- | The ID of the security group.
-rsgirGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirGroupId f x =
-    f (_rsgirGroupId x)
-        <&> \y -> x { _rsgirGroupId = y }
-{-# INLINE rsgirGroupId #-}
-
--- | [EC2-Classic, default VPC] The name of the source security group. You can't
--- specify a source security group and a CIDR IP address range.
-rsgirSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirSourceSecurityGroupName f x =
-    f (_rsgirSourceSecurityGroupName x)
-        <&> \y -> x { _rsgirSourceSecurityGroupName = y }
-{-# INLINE rsgirSourceSecurityGroupName #-}
-
--- | The ID of the source security group. You can't specify a source security
--- group and a CIDR IP address range.
-rsgirSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirSourceSecurityGroupOwnerId f x =
-    f (_rsgirSourceSecurityGroupOwnerId x)
-        <&> \y -> x { _rsgirSourceSecurityGroupOwnerId = y }
-{-# INLINE rsgirSourceSecurityGroupOwnerId #-}
-
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
--- -1 to specify all.
-rsgirIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirIpProtocol f x =
-    f (_rsgirIpProtocol x)
-        <&> \y -> x { _rsgirIpProtocol = y }
-{-# INLINE rsgirIpProtocol #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
 rsgirCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirCidrIp f x =
-    f (_rsgirCidrIp x)
-        <&> \y -> x { _rsgirCidrIp = y }
+rsgirCidrIp = lens _rsgirCidrIp (\s a -> s { _rsgirCidrIp = a })
 {-# INLINE rsgirCidrIp #-}
+
+-- | 
+rsgirIpPermissions :: Lens' RevokeSecurityGroupIngress ([IpPermission])
+rsgirIpPermissions = lens _rsgirIpPermissions (\s a -> s { _rsgirIpPermissions = a })
+{-# INLINE rsgirIpPermissions #-}
 
 instance ToQuery RevokeSecurityGroupIngress where
     toQuery = genericQuery def

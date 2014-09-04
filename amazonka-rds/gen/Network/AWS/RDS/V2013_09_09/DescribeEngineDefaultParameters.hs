@@ -36,7 +36,7 @@ module Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParameters
     -- ** Request constructor
-    , describeEngineDefaultParameters
+    , mkDescribeEngineDefaultParametersMessage
     -- ** Request lenses
     , dedpmDBParameterGroupFamily
     , dedpmMaxRecords
@@ -52,15 +52,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeEngineDefaultParameters' request.
-describeEngineDefaultParameters :: Text -- ^ 'dedpmDBParameterGroupFamily'
-                                -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEngineDefaultParameters' request.
+mkDescribeEngineDefaultParametersMessage :: Text -- ^ 'dedpmDBParameterGroupFamily'
+                                         -> DescribeEngineDefaultParameters
+mkDescribeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParameters
     { _dedpmDBParameterGroupFamily = p1
     , _dedpmMaxRecords = Nothing
     , _dedpmMarker = Nothing
     }
-{-# INLINE describeEngineDefaultParameters #-}
+{-# INLINE mkDescribeEngineDefaultParametersMessage #-}
 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpmDBParameterGroupFamily :: Text
@@ -80,9 +81,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
 
 -- | The name of the DB parameter group family.
 dedpmDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters (Text)
-dedpmDBParameterGroupFamily f x =
-    f (_dedpmDBParameterGroupFamily x)
-        <&> \y -> x { _dedpmDBParameterGroupFamily = y }
+dedpmDBParameterGroupFamily = lens _dedpmDBParameterGroupFamily (\s a -> s { _dedpmDBParameterGroupFamily = a })
 {-# INLINE dedpmDBParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
@@ -90,9 +89,7 @@ dedpmDBParameterGroupFamily f x =
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dedpmMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
-dedpmMaxRecords f x =
-    f (_dedpmMaxRecords x)
-        <&> \y -> x { _dedpmMaxRecords = y }
+dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
 {-# INLINE dedpmMaxRecords #-}
 
 -- | An optional pagination token provided by a previous
@@ -100,26 +97,22 @@ dedpmMaxRecords f x =
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
 dedpmMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpmMarker f x =
-    f (_dedpmMarker x)
-        <&> \y -> x { _dedpmMarker = y }
+dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
 {-# INLINE dedpmMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
 
-data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _edwEngineDefaults :: EngineDefaults
+newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
+    { _edwEngineDefaults :: Maybe EngineDefaults
       -- ^ Contains the result of a successful invocation of the
       -- DescribeEngineDefaultParameters action.
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the
 -- DescribeEngineDefaultParameters action.
-edwEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (EngineDefaults)
-edwEngineDefaults f x =
-    f (_edwEngineDefaults x)
-        <&> \y -> x { _edwEngineDefaults = y }
+edwEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
+edwEngineDefaults = lens _edwEngineDefaults (\s a -> s { _edwEngineDefaults = a })
 {-# INLINE edwEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where

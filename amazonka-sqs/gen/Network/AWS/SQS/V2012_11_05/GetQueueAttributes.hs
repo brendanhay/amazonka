@@ -71,7 +71,7 @@ module Network.AWS.SQS.V2012_11_05.GetQueueAttributes
     -- * Request
       GetQueueAttributes
     -- ** Request constructor
-    , getQueueAttributes
+    , mkGetQueueAttributesRequest
     -- ** Request lenses
     , gqarQueueUrl
     , gqarAttributeNames
@@ -86,14 +86,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetQueueAttributes' request.
-getQueueAttributes :: Text -- ^ 'gqarQueueUrl'
-                   -> GetQueueAttributes
-getQueueAttributes p1 = GetQueueAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetQueueAttributes' request.
+mkGetQueueAttributesRequest :: Text -- ^ 'gqarQueueUrl'
+                            -> GetQueueAttributes
+mkGetQueueAttributesRequest p1 = GetQueueAttributes
     { _gqarQueueUrl = p1
     , _gqarAttributeNames = mempty
     }
-{-# INLINE getQueueAttributes #-}
+{-# INLINE mkGetQueueAttributesRequest #-}
 
 data GetQueueAttributes = GetQueueAttributes
     { _gqarQueueUrl :: Text
@@ -104,31 +105,25 @@ data GetQueueAttributes = GetQueueAttributes
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqarQueueUrl :: Lens' GetQueueAttributes (Text)
-gqarQueueUrl f x =
-    f (_gqarQueueUrl x)
-        <&> \y -> x { _gqarQueueUrl = y }
+gqarQueueUrl = lens _gqarQueueUrl (\s a -> s { _gqarQueueUrl = a })
 {-# INLINE gqarQueueUrl #-}
 
 -- | A list of attributes to retrieve information for.
 gqarAttributeNames :: Lens' GetQueueAttributes ([QueueAttributeName])
-gqarAttributeNames f x =
-    f (_gqarAttributeNames x)
-        <&> \y -> x { _gqarAttributeNames = y }
+gqarAttributeNames = lens _gqarAttributeNames (\s a -> s { _gqarAttributeNames = a })
 {-# INLINE gqarAttributeNames #-}
 
 instance ToQuery GetQueueAttributes where
     toQuery = genericQuery def
 
-data GetQueueAttributesResponse = GetQueueAttributesResponse
+newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqasAttributes :: Map QueueAttributeName Text
       -- ^ A map of attributes to the respective values.
     } deriving (Show, Generic)
 
 -- | A map of attributes to the respective values.
 gqasAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
-gqasAttributes f x =
-    f (_gqasAttributes x)
-        <&> \y -> x { _gqasAttributes = y }
+gqasAttributes = lens _gqasAttributes (\s a -> s { _gqasAttributes = a })
 {-# INLINE gqasAttributes #-}
 
 instance FromXML GetQueueAttributesResponse where

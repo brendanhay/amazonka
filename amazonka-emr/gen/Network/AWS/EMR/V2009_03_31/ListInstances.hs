@@ -27,7 +27,7 @@ module Network.AWS.EMR.V2009_03_31.ListInstances
     -- * Request
       ListInstances
     -- ** Request constructor
-    , listInstances
+    , mkListInstancesInput
     -- ** Request lenses
     , liiClusterId
     , liiInstanceGroupId
@@ -46,16 +46,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListInstances' request.
-listInstances :: Text -- ^ 'liiClusterId'
-              -> ListInstances
-listInstances p1 = ListInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstances' request.
+mkListInstancesInput :: Text -- ^ 'liiClusterId'
+                     -> ListInstances
+mkListInstancesInput p1 = ListInstances
     { _liiClusterId = p1
     , _liiInstanceGroupId = Nothing
     , _liiInstanceGroupTypes = mempty
     , _liiMarker = Nothing
     }
-{-# INLINE listInstances #-}
+{-# INLINE mkListInstancesInput #-}
 
 data ListInstances = ListInstances
     { _liiClusterId :: Text
@@ -72,30 +73,22 @@ data ListInstances = ListInstances
 
 -- | The identifier of the cluster for which to list the instances.
 liiClusterId :: Lens' ListInstances (Text)
-liiClusterId f x =
-    f (_liiClusterId x)
-        <&> \y -> x { _liiClusterId = y }
+liiClusterId = lens _liiClusterId (\s a -> s { _liiClusterId = a })
 {-# INLINE liiClusterId #-}
 
 -- | The identifier of the instance group for which to list the instances.
 liiInstanceGroupId :: Lens' ListInstances (Maybe Text)
-liiInstanceGroupId f x =
-    f (_liiInstanceGroupId x)
-        <&> \y -> x { _liiInstanceGroupId = y }
+liiInstanceGroupId = lens _liiInstanceGroupId (\s a -> s { _liiInstanceGroupId = a })
 {-# INLINE liiInstanceGroupId #-}
 
 -- | The type of instance group for which to list the instances.
 liiInstanceGroupTypes :: Lens' ListInstances ([InstanceGroupType])
-liiInstanceGroupTypes f x =
-    f (_liiInstanceGroupTypes x)
-        <&> \y -> x { _liiInstanceGroupTypes = y }
+liiInstanceGroupTypes = lens _liiInstanceGroupTypes (\s a -> s { _liiInstanceGroupTypes = a })
 {-# INLINE liiInstanceGroupTypes #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 liiMarker :: Lens' ListInstances (Maybe Text)
-liiMarker f x =
-    f (_liiMarker x)
-        <&> \y -> x { _liiMarker = y }
+liiMarker = lens _liiMarker (\s a -> s { _liiMarker = a })
 {-# INLINE liiMarker #-}
 
 instance ToPath ListInstances
@@ -116,16 +109,12 @@ data ListInstancesResponse = ListInstancesResponse
 
 -- | The list of instances for the cluster and given filters.
 lioInstances :: Lens' ListInstancesResponse ([Instance])
-lioInstances f x =
-    f (_lioInstances x)
-        <&> \y -> x { _lioInstances = y }
+lioInstances = lens _lioInstances (\s a -> s { _lioInstances = a })
 {-# INLINE lioInstances #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lioMarker :: Lens' ListInstancesResponse (Maybe Text)
-lioMarker f x =
-    f (_lioMarker x)
-        <&> \y -> x { _lioMarker = y }
+lioMarker = lens _lioMarker (\s a -> s { _lioMarker = a })
 {-# INLINE lioMarker #-}
 
 instance FromJSON ListInstancesResponse

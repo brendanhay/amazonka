@@ -31,7 +31,7 @@ module Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation
     -- * Request
       EnableVgwRoutePropagation
     -- ** Request constructor
-    , enableVgwRoutePropagation
+    , mkEnableVgwRoutePropagationRequest
     -- ** Request lenses
     , evrprRouteTableId
     , evrprGatewayId
@@ -44,15 +44,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'EnableVgwRoutePropagation' request.
-enableVgwRoutePropagation :: Text -- ^ 'evrprRouteTableId'
-                          -> Text -- ^ 'evrprGatewayId'
-                          -> EnableVgwRoutePropagation
-enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableVgwRoutePropagation' request.
+mkEnableVgwRoutePropagationRequest :: Text -- ^ 'evrprRouteTableId'
+                                   -> Text -- ^ 'evrprGatewayId'
+                                   -> EnableVgwRoutePropagation
+mkEnableVgwRoutePropagationRequest p1 p2 = EnableVgwRoutePropagation
     { _evrprRouteTableId = p1
     , _evrprGatewayId = p2
     }
-{-# INLINE enableVgwRoutePropagation #-}
+{-# INLINE mkEnableVgwRoutePropagationRequest #-}
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrprRouteTableId :: Text
@@ -63,16 +64,12 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
 
 -- | The ID of the routing table.
 evrprRouteTableId :: Lens' EnableVgwRoutePropagation (Text)
-evrprRouteTableId f x =
-    f (_evrprRouteTableId x)
-        <&> \y -> x { _evrprRouteTableId = y }
+evrprRouteTableId = lens _evrprRouteTableId (\s a -> s { _evrprRouteTableId = a })
 {-# INLINE evrprRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
 evrprGatewayId :: Lens' EnableVgwRoutePropagation (Text)
-evrprGatewayId f x =
-    f (_evrprGatewayId x)
-        <&> \y -> x { _evrprGatewayId = y }
+evrprGatewayId = lens _evrprGatewayId (\s a -> s { _evrprGatewayId = a })
 {-# INLINE evrprGatewayId #-}
 
 instance ToQuery EnableVgwRoutePropagation where

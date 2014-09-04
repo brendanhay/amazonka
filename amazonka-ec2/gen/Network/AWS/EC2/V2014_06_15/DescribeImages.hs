@@ -51,12 +51,12 @@ module Network.AWS.EC2.V2014_06_15.DescribeImages
     -- * Request
       DescribeImages
     -- ** Request constructor
-    , describeImages
+    , mkDescribeImagesRequest
     -- ** Request lenses
-    , disExecutableUsers
-    , disFilters
     , disImageIds
     , disOwners
+    , disExecutableUsers
+    , disFilters
 
     -- * Response
     , DescribeImagesResponse
@@ -68,18 +68,27 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeImages' request.
-describeImages :: DescribeImages
-describeImages = DescribeImages
-    { _disExecutableUsers = mempty
-    , _disFilters = mempty
-    , _disImageIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeImages' request.
+mkDescribeImagesRequest :: DescribeImages
+mkDescribeImagesRequest = DescribeImages
+    { _disImageIds = mempty
     , _disOwners = mempty
+    , _disExecutableUsers = mempty
+    , _disFilters = mempty
     }
-{-# INLINE describeImages #-}
+{-# INLINE mkDescribeImagesRequest #-}
 
 data DescribeImages = DescribeImages
-    { _disExecutableUsers :: [Text]
+    { _disImageIds :: [Text]
+      -- ^ One or more image IDs. Default: Describes all images available to
+      -- you.
+    , _disOwners :: [Text]
+      -- ^ Filters the images by the owner. Specify an AWS account ID,
+      -- amazon (owner is Amazon), aws-marketplace (owner is AWS
+      -- Marketplace), self (owner is the sender of the request), or all
+      -- (all owners).
+    , _disExecutableUsers :: [Text]
       -- ^ Scopes the images by users with explicit launch permissions.
       -- Specify an AWS account ID, self (the sender of the request), or
       -- all (public AMIs).
@@ -122,22 +131,24 @@ data DescribeImages = DescribeImages
       -- tag assigned to the resource. This filter is independent of the
       -- tag-key filter. virtualization-type - The virtualization type
       -- (paravirtual | hvm).
-    , _disImageIds :: [Text]
-      -- ^ One or more image IDs. Default: Describes all images available to
-      -- you.
-    , _disOwners :: [Text]
-      -- ^ Filters the images by the owner. Specify an AWS account ID,
-      -- amazon (owner is Amazon), aws-marketplace (owner is AWS
-      -- Marketplace), self (owner is the sender of the request), or all
-      -- (all owners).
     } deriving (Show, Generic)
+
+-- | One or more image IDs. Default: Describes all images available to you.
+disImageIds :: Lens' DescribeImages ([Text])
+disImageIds = lens _disImageIds (\s a -> s { _disImageIds = a })
+{-# INLINE disImageIds #-}
+
+-- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
+-- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the
+-- sender of the request), or all (all owners).
+disOwners :: Lens' DescribeImages ([Text])
+disOwners = lens _disOwners (\s a -> s { _disOwners = a })
+{-# INLINE disOwners #-}
 
 -- | Scopes the images by users with explicit launch permissions. Specify an AWS
 -- account ID, self (the sender of the request), or all (public AMIs).
 disExecutableUsers :: Lens' DescribeImages ([Text])
-disExecutableUsers f x =
-    f (_disExecutableUsers x)
-        <&> \y -> x { _disExecutableUsers = y }
+disExecutableUsers = lens _disExecutableUsers (\s a -> s { _disExecutableUsers = a })
 {-# INLINE disExecutableUsers #-}
 
 -- | One or more filters. architecture - The image architecture (i386 | x86_64).
@@ -174,40 +185,20 @@ disExecutableUsers f x =
 -- filter is independent of the tag-key filter. virtualization-type - The
 -- virtualization type (paravirtual | hvm).
 disFilters :: Lens' DescribeImages ([Filter])
-disFilters f x =
-    f (_disFilters x)
-        <&> \y -> x { _disFilters = y }
+disFilters = lens _disFilters (\s a -> s { _disFilters = a })
 {-# INLINE disFilters #-}
-
--- | One or more image IDs. Default: Describes all images available to you.
-disImageIds :: Lens' DescribeImages ([Text])
-disImageIds f x =
-    f (_disImageIds x)
-        <&> \y -> x { _disImageIds = y }
-{-# INLINE disImageIds #-}
-
--- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
--- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the
--- sender of the request), or all (all owners).
-disOwners :: Lens' DescribeImages ([Text])
-disOwners f x =
-    f (_disOwners x)
-        <&> \y -> x { _disOwners = y }
-{-# INLINE disOwners #-}
 
 instance ToQuery DescribeImages where
     toQuery = genericQuery def
 
-data DescribeImagesResponse = DescribeImagesResponse
+newtype DescribeImagesResponse = DescribeImagesResponse
     { _ditImages :: [Image]
       -- ^ Information about one or more images.
     } deriving (Show, Generic)
 
 -- | Information about one or more images.
 ditImages :: Lens' DescribeImagesResponse ([Image])
-ditImages f x =
-    f (_ditImages x)
-        <&> \y -> x { _ditImages = y }
+ditImages = lens _ditImages (\s a -> s { _ditImages = a })
 {-# INLINE ditImages #-}
 
 instance FromXML DescribeImagesResponse where

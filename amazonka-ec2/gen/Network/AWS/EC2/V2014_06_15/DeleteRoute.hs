@@ -30,7 +30,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteRoute
     -- * Request
       DeleteRoute
     -- ** Request constructor
-    , deleteRoute
+    , mkDeleteRouteRequest
     -- ** Request lenses
     , drrRouteTableId
     , drrDestinationCidrBlock
@@ -43,15 +43,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteRoute' request.
-deleteRoute :: Text -- ^ 'drrRouteTableId'
-            -> Text -- ^ 'drrDestinationCidrBlock'
-            -> DeleteRoute
-deleteRoute p1 p2 = DeleteRoute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRoute' request.
+mkDeleteRouteRequest :: Text -- ^ 'drrRouteTableId'
+                     -> Text -- ^ 'drrDestinationCidrBlock'
+                     -> DeleteRoute
+mkDeleteRouteRequest p1 p2 = DeleteRoute
     { _drrRouteTableId = p1
     , _drrDestinationCidrBlock = p2
     }
-{-# INLINE deleteRoute #-}
+{-# INLINE mkDeleteRouteRequest #-}
 
 data DeleteRoute = DeleteRoute
     { _drrRouteTableId :: Text
@@ -63,17 +64,13 @@ data DeleteRoute = DeleteRoute
 
 -- | The ID of the route table.
 drrRouteTableId :: Lens' DeleteRoute (Text)
-drrRouteTableId f x =
-    f (_drrRouteTableId x)
-        <&> \y -> x { _drrRouteTableId = y }
+drrRouteTableId = lens _drrRouteTableId (\s a -> s { _drrRouteTableId = a })
 {-# INLINE drrRouteTableId #-}
 
 -- | The CIDR range for the route. The value you specify must match the CIDR for
 -- the route exactly.
 drrDestinationCidrBlock :: Lens' DeleteRoute (Text)
-drrDestinationCidrBlock f x =
-    f (_drrDestinationCidrBlock x)
-        <&> \y -> x { _drrDestinationCidrBlock = y }
+drrDestinationCidrBlock = lens _drrDestinationCidrBlock (\s a -> s { _drrDestinationCidrBlock = a })
 {-# INLINE drrDestinationCidrBlock #-}
 
 instance ToQuery DeleteRoute where

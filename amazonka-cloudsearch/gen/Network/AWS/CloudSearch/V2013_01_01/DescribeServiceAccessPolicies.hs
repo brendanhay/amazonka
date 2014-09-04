@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
     -- * Request
       DescribeServiceAccessPolicies
     -- ** Request constructor
-    , describeServiceAccessPolicies
+    , mkDescribeServiceAccessPoliciesRequest
     -- ** Request lenses
     , dsaprDomainName
     , dsaprDeployed
@@ -43,14 +43,15 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeServiceAccessPolicies' request.
-describeServiceAccessPolicies :: Text -- ^ 'dsaprDomainName'
-                              -> DescribeServiceAccessPolicies
-describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeServiceAccessPolicies' request.
+mkDescribeServiceAccessPoliciesRequest :: Text -- ^ 'dsaprDomainName'
+                                       -> DescribeServiceAccessPolicies
+mkDescribeServiceAccessPoliciesRequest p1 = DescribeServiceAccessPolicies
     { _dsaprDomainName = p1
     , _dsaprDeployed = Nothing
     }
-{-# INLINE describeServiceAccessPolicies #-}
+{-# INLINE mkDescribeServiceAccessPoliciesRequest #-}
 
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsaprDomainName :: Text
@@ -62,23 +63,19 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
 
 -- | The name of the domain you want to describe.
 dsaprDomainName :: Lens' DescribeServiceAccessPolicies (Text)
-dsaprDomainName f x =
-    f (_dsaprDomainName x)
-        <&> \y -> x { _dsaprDomainName = y }
+dsaprDomainName = lens _dsaprDomainName (\s a -> s { _dsaprDomainName = a })
 {-# INLINE dsaprDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 dsaprDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsaprDeployed f x =
-    f (_dsaprDeployed x)
-        <&> \y -> x { _dsaprDeployed = y }
+dsaprDeployed = lens _dsaprDeployed (\s a -> s { _dsaprDeployed = a })
 {-# INLINE dsaprDeployed #-}
 
 instance ToQuery DescribeServiceAccessPolicies where
     toQuery = genericQuery def
 
-data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
+newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsapsAccessPolicies :: AccessPoliciesStatus
       -- ^ The access rules configured for the domain specified in the
       -- request.
@@ -86,9 +83,7 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
 
 -- | The access rules configured for the domain specified in the request.
 dsapsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse (AccessPoliciesStatus)
-dsapsAccessPolicies f x =
-    f (_dsapsAccessPolicies x)
-        <&> \y -> x { _dsapsAccessPolicies = y }
+dsapsAccessPolicies = lens _dsapsAccessPolicies (\s a -> s { _dsapsAccessPolicies = a })
 {-# INLINE dsapsAccessPolicies #-}
 
 instance FromXML DescribeServiceAccessPoliciesResponse where

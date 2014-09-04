@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup
     -- * Request
       DeleteAutoScalingGroup
     -- ** Request constructor
-    , deleteAutoScalingGroup
+    , mkDeleteAutoScalingGroupType
     -- ** Request lenses
     , dasgtAutoScalingGroupName
     , dasgtForceDelete
@@ -42,14 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteAutoScalingGroup' request.
-deleteAutoScalingGroup :: Text -- ^ 'dasgtAutoScalingGroupName'
-                       -> DeleteAutoScalingGroup
-deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAutoScalingGroup' request.
+mkDeleteAutoScalingGroupType :: Text -- ^ 'dasgtAutoScalingGroupName'
+                             -> DeleteAutoScalingGroup
+mkDeleteAutoScalingGroupType p1 = DeleteAutoScalingGroup
     { _dasgtAutoScalingGroupName = p1
     , _dasgtForceDelete = Nothing
     }
-{-# INLINE deleteAutoScalingGroup #-}
+{-# INLINE mkDeleteAutoScalingGroupType #-}
 
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     { _dasgtAutoScalingGroupName :: Text
@@ -64,9 +65,7 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 
 -- | The name of the Auto Scaling group to delete.
 dasgtAutoScalingGroupName :: Lens' DeleteAutoScalingGroup (Text)
-dasgtAutoScalingGroupName f x =
-    f (_dasgtAutoScalingGroupName x)
-        <&> \y -> x { _dasgtAutoScalingGroupName = y }
+dasgtAutoScalingGroupName = lens _dasgtAutoScalingGroupName (\s a -> s { _dasgtAutoScalingGroupName = a })
 {-# INLINE dasgtAutoScalingGroupName #-}
 
 -- | Starting with API version 2011-01-01, specifies that the Auto Scaling group
@@ -74,9 +73,7 @@ dasgtAutoScalingGroupName f x =
 -- waiting for all instances to be terminated. This parameter also deletes any
 -- lifecycle actions associated with the group.
 dasgtForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
-dasgtForceDelete f x =
-    f (_dasgtForceDelete x)
-        <&> \y -> x { _dasgtForceDelete = y }
+dasgtForceDelete = lens _dasgtForceDelete (\s a -> s { _dasgtForceDelete = a })
 {-# INLINE dasgtForceDelete #-}
 
 instance ToQuery DeleteAutoScalingGroup where

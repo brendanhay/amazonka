@@ -23,7 +23,7 @@ module Network.AWS.EMR.V2009_03_31.ListInstanceGroups
     -- * Request
       ListInstanceGroups
     -- ** Request constructor
-    , listInstanceGroups
+    , mkListInstanceGroupsInput
     -- ** Request lenses
     , ligiClusterId
     , ligiMarker
@@ -40,14 +40,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListInstanceGroups' request.
-listInstanceGroups :: Text -- ^ 'ligiClusterId'
-                   -> ListInstanceGroups
-listInstanceGroups p1 = ListInstanceGroups
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstanceGroups' request.
+mkListInstanceGroupsInput :: Text -- ^ 'ligiClusterId'
+                          -> ListInstanceGroups
+mkListInstanceGroupsInput p1 = ListInstanceGroups
     { _ligiClusterId = p1
     , _ligiMarker = Nothing
     }
-{-# INLINE listInstanceGroups #-}
+{-# INLINE mkListInstanceGroupsInput #-}
 
 data ListInstanceGroups = ListInstanceGroups
     { _ligiClusterId :: Text
@@ -60,16 +61,12 @@ data ListInstanceGroups = ListInstanceGroups
 
 -- | The identifier of the cluster for which to list the instance groups.
 ligiClusterId :: Lens' ListInstanceGroups (Text)
-ligiClusterId f x =
-    f (_ligiClusterId x)
-        <&> \y -> x { _ligiClusterId = y }
+ligiClusterId = lens _ligiClusterId (\s a -> s { _ligiClusterId = a })
 {-# INLINE ligiClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligiMarker :: Lens' ListInstanceGroups (Maybe Text)
-ligiMarker f x =
-    f (_ligiMarker x)
-        <&> \y -> x { _ligiMarker = y }
+ligiMarker = lens _ligiMarker (\s a -> s { _ligiMarker = a })
 {-# INLINE ligiMarker #-}
 
 instance ToPath ListInstanceGroups
@@ -90,16 +87,12 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse
 
 -- | The list of instance groups for the cluster and given filters.
 ligoInstanceGroups :: Lens' ListInstanceGroupsResponse ([InstanceGroup])
-ligoInstanceGroups f x =
-    f (_ligoInstanceGroups x)
-        <&> \y -> x { _ligoInstanceGroups = y }
+ligoInstanceGroups = lens _ligoInstanceGroups (\s a -> s { _ligoInstanceGroups = a })
 {-# INLINE ligoInstanceGroups #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligoMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
-ligoMarker f x =
-    f (_ligoMarker x)
-        <&> \y -> x { _ligoMarker = y }
+ligoMarker = lens _ligoMarker (\s a -> s { _ligoMarker = a })
 {-# INLINE ligoMarker #-}
 
 instance FromJSON ListInstanceGroupsResponse

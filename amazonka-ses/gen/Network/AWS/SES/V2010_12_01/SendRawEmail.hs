@@ -64,11 +64,11 @@ module Network.AWS.SES.V2010_12_01.SendRawEmail
     -- * Request
       SendRawEmail
     -- ** Request constructor
-    , sendRawEmail
+    , mkSendRawEmailRequest
     -- ** Request lenses
-    , srerRawMessage
     , srerSource
     , srerDestinations
+    , srerRawMessage
 
     -- * Response
     , SendRawEmailResponse
@@ -80,26 +80,19 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SendRawEmail' request.
-sendRawEmail :: RawMessage -- ^ 'srerRawMessage'
-             -> SendRawEmail
-sendRawEmail p1 = SendRawEmail
-    { _srerRawMessage = p1
-    , _srerSource = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendRawEmail' request.
+mkSendRawEmailRequest :: RawMessage -- ^ 'srerRawMessage'
+                      -> SendRawEmail
+mkSendRawEmailRequest p1 = SendRawEmail
+    { _srerSource = Nothing
     , _srerDestinations = mempty
+    , _srerRawMessage = p3
     }
-{-# INLINE sendRawEmail #-}
+{-# INLINE mkSendRawEmailRequest #-}
 
 data SendRawEmail = SendRawEmail
-    { _srerRawMessage :: RawMessage
-      -- ^ The raw text of the message. The client is responsible for
-      -- ensuring the following: Message must contain a header and a body,
-      -- separated by a blank line. All required header fields must be
-      -- present. Each part of a multipart MIME message must be formatted
-      -- properly. MIME content types must be among those supported by
-      -- Amazon SES. For more information, go to the Amazon SES Developer
-      -- Guide. Content must be base64-encoded, if MIME requires it.
-    , _srerSource :: Maybe Text
+    { _srerSource :: Maybe Text
       -- ^ The identity's email address. By default, the string must be
       -- 7-bit ASCII. If the text must contain any other characters, then
       -- you must use MIME encoded-word syntax (RFC 2047) instead of a
@@ -112,19 +105,15 @@ data SendRawEmail = SendRawEmail
     , _srerDestinations :: [Text]
       -- ^ A list of destinations for the message, consisting of To:, CC:,
       -- and BCC: addresses.
+    , _srerRawMessage :: RawMessage
+      -- ^ The raw text of the message. The client is responsible for
+      -- ensuring the following: Message must contain a header and a body,
+      -- separated by a blank line. All required header fields must be
+      -- present. Each part of a multipart MIME message must be formatted
+      -- properly. MIME content types must be among those supported by
+      -- Amazon SES. For more information, go to the Amazon SES Developer
+      -- Guide. Content must be base64-encoded, if MIME requires it.
     } deriving (Show, Generic)
-
--- | The raw text of the message. The client is responsible for ensuring the
--- following: Message must contain a header and a body, separated by a blank
--- line. All required header fields must be present. Each part of a multipart
--- MIME message must be formatted properly. MIME content types must be among
--- those supported by Amazon SES. For more information, go to the Amazon SES
--- Developer Guide. Content must be base64-encoded, if MIME requires it.
-srerRawMessage :: Lens' SendRawEmail (RawMessage)
-srerRawMessage f x =
-    f (_srerRawMessage x)
-        <&> \y -> x { _srerRawMessage = y }
-{-# INLINE srerRawMessage #-}
 
 -- | The identity's email address. By default, the string must be 7-bit ASCII.
 -- If the text must contain any other characters, then you must use MIME
@@ -136,23 +125,29 @@ srerRawMessage f x =
 -- precedence over any Return-Path header that you might include in the raw
 -- text of the message.
 srerSource :: Lens' SendRawEmail (Maybe Text)
-srerSource f x =
-    f (_srerSource x)
-        <&> \y -> x { _srerSource = y }
+srerSource = lens _srerSource (\s a -> s { _srerSource = a })
 {-# INLINE srerSource #-}
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
 srerDestinations :: Lens' SendRawEmail ([Text])
-srerDestinations f x =
-    f (_srerDestinations x)
-        <&> \y -> x { _srerDestinations = y }
+srerDestinations = lens _srerDestinations (\s a -> s { _srerDestinations = a })
 {-# INLINE srerDestinations #-}
+
+-- | The raw text of the message. The client is responsible for ensuring the
+-- following: Message must contain a header and a body, separated by a blank
+-- line. All required header fields must be present. Each part of a multipart
+-- MIME message must be formatted properly. MIME content types must be among
+-- those supported by Amazon SES. For more information, go to the Amazon SES
+-- Developer Guide. Content must be base64-encoded, if MIME requires it.
+srerRawMessage :: Lens' SendRawEmail (RawMessage)
+srerRawMessage = lens _srerRawMessage (\s a -> s { _srerRawMessage = a })
+{-# INLINE srerRawMessage #-}
 
 instance ToQuery SendRawEmail where
     toQuery = genericQuery def
 
-data SendRawEmailResponse = SendRawEmailResponse
+newtype SendRawEmailResponse = SendRawEmailResponse
     { _sresMessageId :: Text
       -- ^ The unique message identifier returned from the SendRawEmail
       -- action.
@@ -160,9 +155,7 @@ data SendRawEmailResponse = SendRawEmailResponse
 
 -- | The unique message identifier returned from the SendRawEmail action.
 sresMessageId :: Lens' SendRawEmailResponse (Text)
-sresMessageId f x =
-    f (_sresMessageId x)
-        <&> \y -> x { _sresMessageId = y }
+sresMessageId = lens _sresMessageId (\s a -> s { _sresMessageId = a })
 {-# INLINE sresMessageId #-}
 
 instance FromXML SendRawEmailResponse where

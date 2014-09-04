@@ -190,7 +190,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
     -- * Request
       TestMetricFilter
     -- ** Request constructor
-    , testMetricFilter
+    , mkTestMetricFilterRequest
     -- ** Request lenses
     , tmfrFilterPattern
     , tmfrLogEventMessages
@@ -206,15 +206,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'TestMetricFilter' request.
-testMetricFilter :: Text -- ^ 'tmfrFilterPattern'
-                 -> [Text] -- ^ 'tmfrLogEventMessages'
-                 -> TestMetricFilter
-testMetricFilter p1 p2 = TestMetricFilter
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TestMetricFilter' request.
+mkTestMetricFilterRequest :: Text -- ^ 'tmfrFilterPattern'
+                          -> [Text] -- ^ 'tmfrLogEventMessages'
+                          -> TestMetricFilter
+mkTestMetricFilterRequest p1 p2 = TestMetricFilter
     { _tmfrFilterPattern = p1
     , _tmfrLogEventMessages = p2
     }
-{-# INLINE testMetricFilter #-}
+{-# INLINE mkTestMetricFilterRequest #-}
 
 data TestMetricFilter = TestMetricFilter
     { _tmfrFilterPattern :: Text
@@ -222,15 +223,11 @@ data TestMetricFilter = TestMetricFilter
     } deriving (Show, Generic)
 
 tmfrFilterPattern :: Lens' TestMetricFilter (Text)
-tmfrFilterPattern f x =
-    f (_tmfrFilterPattern x)
-        <&> \y -> x { _tmfrFilterPattern = y }
+tmfrFilterPattern = lens _tmfrFilterPattern (\s a -> s { _tmfrFilterPattern = a })
 {-# INLINE tmfrFilterPattern #-}
 
 tmfrLogEventMessages :: Lens' TestMetricFilter ([Text])
-tmfrLogEventMessages f x =
-    f (_tmfrLogEventMessages x)
-        <&> \y -> x { _tmfrLogEventMessages = y }
+tmfrLogEventMessages = lens _tmfrLogEventMessages (\s a -> s { _tmfrLogEventMessages = a })
 {-# INLINE tmfrLogEventMessages #-}
 
 instance ToPath TestMetricFilter
@@ -241,14 +238,12 @@ instance ToHeaders TestMetricFilter
 
 instance ToJSON TestMetricFilter
 
-data TestMetricFilterResponse = TestMetricFilterResponse
+newtype TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfsMatches :: [MetricFilterMatchRecord]
     } deriving (Show, Generic)
 
 tmfsMatches :: Lens' TestMetricFilterResponse ([MetricFilterMatchRecord])
-tmfsMatches f x =
-    f (_tmfsMatches x)
-        <&> \y -> x { _tmfsMatches = y }
+tmfsMatches = lens _tmfsMatches (\s a -> s { _tmfsMatches = a })
 {-# INLINE tmfsMatches #-}
 
 instance FromJSON TestMetricFilterResponse

@@ -33,7 +33,7 @@ module Network.AWS.DataPipeline.V2012_10_29.SetStatus
     -- * Request
       SetStatus
     -- ** Request constructor
-    , setStatus
+    , mkSetStatusInput
     -- ** Request lenses
     , ssiPipelineId
     , ssiObjectIds
@@ -48,17 +48,18 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'SetStatus' request.
-setStatus :: Text -- ^ 'ssiPipelineId'
-          -> [Text] -- ^ 'ssiObjectIds'
-          -> Text -- ^ 'ssiStatus'
-          -> SetStatus
-setStatus p1 p2 p3 = SetStatus
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetStatus' request.
+mkSetStatusInput :: Text -- ^ 'ssiPipelineId'
+                 -> [Text] -- ^ 'ssiObjectIds'
+                 -> Text -- ^ 'ssiStatus'
+                 -> SetStatus
+mkSetStatusInput p1 p2 p3 = SetStatus
     { _ssiPipelineId = p1
     , _ssiObjectIds = p2
     , _ssiStatus = p3
     }
-{-# INLINE setStatus #-}
+{-# INLINE mkSetStatusInput #-}
 
 data SetStatus = SetStatus
     { _ssiPipelineId :: Text
@@ -74,26 +75,20 @@ data SetStatus = SetStatus
 
 -- | Identifies the pipeline that contains the objects.
 ssiPipelineId :: Lens' SetStatus (Text)
-ssiPipelineId f x =
-    f (_ssiPipelineId x)
-        <&> \y -> x { _ssiPipelineId = y }
+ssiPipelineId = lens _ssiPipelineId (\s a -> s { _ssiPipelineId = a })
 {-# INLINE ssiPipelineId #-}
 
 -- | Identifies an array of objects. The corresponding objects can be either
 -- physical or components, but not a mix of both types.
 ssiObjectIds :: Lens' SetStatus ([Text])
-ssiObjectIds f x =
-    f (_ssiObjectIds x)
-        <&> \y -> x { _ssiObjectIds = y }
+ssiObjectIds = lens _ssiObjectIds (\s a -> s { _ssiObjectIds = a })
 {-# INLINE ssiObjectIds #-}
 
 -- | Specifies the status to be set on all the objects in objectIds. For
 -- components, this can be either PAUSE or RESUME. For instances, this can be
 -- either CANCEL, RERUN, or MARK_FINISHED.
 ssiStatus :: Lens' SetStatus (Text)
-ssiStatus f x =
-    f (_ssiStatus x)
-        <&> \y -> x { _ssiStatus = y }
+ssiStatus = lens _ssiStatus (\s a -> s { _ssiStatus = a })
 {-# INLINE ssiStatus #-}
 
 instance ToPath SetStatus

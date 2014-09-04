@@ -42,10 +42,10 @@ module Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
     -- * Request
       AddWorkingStorage
     -- ** Request constructor
-    , addWorkingStorage
+    , mkAddWorkingStorageInput
     -- ** Request lenses
-    , awsiDiskIds
     , awsiGatewayARN
+    , awsiDiskIds
 
     -- * Response
     , AddWorkingStorageResponse
@@ -58,44 +58,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AddWorkingStorage' request.
-addWorkingStorage :: [Text] -- ^ 'awsiDiskIds'
-                  -> Text -- ^ 'awsiGatewayARN'
-                  -> AddWorkingStorage
-addWorkingStorage p1 p2 = AddWorkingStorage
-    { _awsiDiskIds = p1
-    , _awsiGatewayARN = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddWorkingStorage' request.
+mkAddWorkingStorageInput :: Text -- ^ 'awsiGatewayARN'
+                         -> [Text] -- ^ 'awsiDiskIds'
+                         -> AddWorkingStorage
+mkAddWorkingStorageInput p1 p2 = AddWorkingStorage
+    { _awsiGatewayARN = p1
+    , _awsiDiskIds = p2
     }
-{-# INLINE addWorkingStorage #-}
+{-# INLINE mkAddWorkingStorageInput #-}
 
 data AddWorkingStorage = AddWorkingStorage
-    { _awsiDiskIds :: [Text]
+    { _awsiGatewayARN :: Text
+      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
+      -- ListGateways operation to return a list of gateways for your
+      -- account and region.
+    , _awsiDiskIds :: [Text]
       -- ^ An array of strings that identify disks that are to be configured
       -- as working storage. Each string have a minimum length of 1 and
       -- maximum length of 300. You can get the disk IDs from the
       -- ListLocalDisks API.
-    , _awsiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
     } deriving (Show, Generic)
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
+-- operation to return a list of gateways for your account and region.
+awsiGatewayARN :: Lens' AddWorkingStorage (Text)
+awsiGatewayARN = lens _awsiGatewayARN (\s a -> s { _awsiGatewayARN = a })
+{-# INLINE awsiGatewayARN #-}
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string have a minimum length of 1 and maximum length
 -- of 300. You can get the disk IDs from the ListLocalDisks API.
 awsiDiskIds :: Lens' AddWorkingStorage ([Text])
-awsiDiskIds f x =
-    f (_awsiDiskIds x)
-        <&> \y -> x { _awsiDiskIds = y }
+awsiDiskIds = lens _awsiDiskIds (\s a -> s { _awsiDiskIds = a })
 {-# INLINE awsiDiskIds #-}
-
--- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and region.
-awsiGatewayARN :: Lens' AddWorkingStorage (Text)
-awsiGatewayARN f x =
-    f (_awsiGatewayARN x)
-        <&> \y -> x { _awsiGatewayARN = y }
-{-# INLINE awsiGatewayARN #-}
 
 instance ToPath AddWorkingStorage
 
@@ -105,7 +102,7 @@ instance ToHeaders AddWorkingStorage
 
 instance ToJSON AddWorkingStorage
 
-data AddWorkingStorageResponse = AddWorkingStorageResponse
+newtype AddWorkingStorageResponse = AddWorkingStorageResponse
     { _awsoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -115,9 +112,7 @@ data AddWorkingStorageResponse = AddWorkingStorageResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 awsoGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsoGatewayARN f x =
-    f (_awsoGatewayARN x)
-        <&> \y -> x { _awsoGatewayARN = y }
+awsoGatewayARN = lens _awsoGatewayARN (\s a -> s { _awsoGatewayARN = a })
 {-# INLINE awsoGatewayARN #-}
 
 instance FromJSON AddWorkingStorageResponse

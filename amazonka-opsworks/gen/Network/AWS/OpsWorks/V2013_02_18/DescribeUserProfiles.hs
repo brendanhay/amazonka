@@ -25,7 +25,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
     -- * Request
       DescribeUserProfiles
     -- ** Request constructor
-    , describeUserProfiles
+    , mkDescribeUserProfilesRequest
     -- ** Request lenses
     , dupsIamUserArns
 
@@ -40,14 +40,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeUserProfiles' request.
-describeUserProfiles :: DescribeUserProfiles
-describeUserProfiles = DescribeUserProfiles
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeUserProfiles' request.
+mkDescribeUserProfilesRequest :: DescribeUserProfiles
+mkDescribeUserProfilesRequest = DescribeUserProfiles
     { _dupsIamUserArns = mempty
     }
-{-# INLINE describeUserProfiles #-}
+{-# INLINE mkDescribeUserProfilesRequest #-}
 
-data DescribeUserProfiles = DescribeUserProfiles
+newtype DescribeUserProfiles = DescribeUserProfiles
     { _dupsIamUserArns :: [Text]
       -- ^ An array of IAM user ARNs that identify the users to be
       -- described.
@@ -55,9 +56,7 @@ data DescribeUserProfiles = DescribeUserProfiles
 
 -- | An array of IAM user ARNs that identify the users to be described.
 dupsIamUserArns :: Lens' DescribeUserProfiles ([Text])
-dupsIamUserArns f x =
-    f (_dupsIamUserArns x)
-        <&> \y -> x { _dupsIamUserArns = y }
+dupsIamUserArns = lens _dupsIamUserArns (\s a -> s { _dupsIamUserArns = a })
 {-# INLINE dupsIamUserArns #-}
 
 instance ToPath DescribeUserProfiles
@@ -68,16 +67,14 @@ instance ToHeaders DescribeUserProfiles
 
 instance ToJSON DescribeUserProfiles
 
-data DescribeUserProfilesResponse = DescribeUserProfilesResponse
+newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duptUserProfiles :: [UserProfile]
       -- ^ A Users object that describes the specified users.
     } deriving (Show, Generic)
 
 -- | A Users object that describes the specified users.
 duptUserProfiles :: Lens' DescribeUserProfilesResponse ([UserProfile])
-duptUserProfiles f x =
-    f (_duptUserProfiles x)
-        <&> \y -> x { _duptUserProfiles = y }
+duptUserProfiles = lens _duptUserProfiles (\s a -> s { _duptUserProfiles = a })
 {-# INLINE duptUserProfiles #-}
 
 instance FromJSON DescribeUserProfilesResponse

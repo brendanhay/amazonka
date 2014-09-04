@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute
     -- * Request
       ResetSnapshotAttribute
     -- ** Request constructor
-    , resetSnapshotAttribute
+    , mkResetSnapshotAttributeRequest
     -- ** Request lenses
-    , rsarAttribute
     , rsarSnapshotId
+    , rsarAttribute
 
     -- * Response
     , ResetSnapshotAttributeResponse
@@ -46,38 +46,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResetSnapshotAttribute' request.
-resetSnapshotAttribute :: SnapshotAttributeName -- ^ 'rsarAttribute'
-                       -> Text -- ^ 'rsarSnapshotId'
-                       -> ResetSnapshotAttribute
-resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
-    { _rsarAttribute = p1
-    , _rsarSnapshotId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetSnapshotAttribute' request.
+mkResetSnapshotAttributeRequest :: Text -- ^ 'rsarSnapshotId'
+                                -> SnapshotAttributeName -- ^ 'rsarAttribute'
+                                -> ResetSnapshotAttribute
+mkResetSnapshotAttributeRequest p1 p2 = ResetSnapshotAttribute
+    { _rsarSnapshotId = p1
+    , _rsarAttribute = p2
     }
-{-# INLINE resetSnapshotAttribute #-}
+{-# INLINE mkResetSnapshotAttributeRequest #-}
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { _rsarAttribute :: SnapshotAttributeName
+    { _rsarSnapshotId :: Text
+      -- ^ The ID of the snapshot.
+    , _rsarAttribute :: SnapshotAttributeName
       -- ^ The attribute to reset (currently only the attribute for
       -- permission to create volumes can be reset).
-    , _rsarSnapshotId :: Text
-      -- ^ The ID of the snapshot.
     } deriving (Show, Generic)
+
+-- | The ID of the snapshot.
+rsarSnapshotId :: Lens' ResetSnapshotAttribute (Text)
+rsarSnapshotId = lens _rsarSnapshotId (\s a -> s { _rsarSnapshotId = a })
+{-# INLINE rsarSnapshotId #-}
 
 -- | The attribute to reset (currently only the attribute for permission to
 -- create volumes can be reset).
 rsarAttribute :: Lens' ResetSnapshotAttribute (SnapshotAttributeName)
-rsarAttribute f x =
-    f (_rsarAttribute x)
-        <&> \y -> x { _rsarAttribute = y }
+rsarAttribute = lens _rsarAttribute (\s a -> s { _rsarAttribute = a })
 {-# INLINE rsarAttribute #-}
-
--- | The ID of the snapshot.
-rsarSnapshotId :: Lens' ResetSnapshotAttribute (Text)
-rsarSnapshotId f x =
-    f (_rsarSnapshotId x)
-        <&> \y -> x { _rsarSnapshotId = y }
-{-# INLINE rsarSnapshotId #-}
 
 instance ToQuery ResetSnapshotAttribute where
     toQuery = genericQuery def

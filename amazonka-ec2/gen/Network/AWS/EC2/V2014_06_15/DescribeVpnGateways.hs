@@ -45,10 +45,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnGateways
     -- * Request
       DescribeVpnGateways
     -- ** Request constructor
-    , describeVpnGateways
+    , mkDescribeVpnGatewaysRequest
     -- ** Request lenses
-    , dvgsFilters
     , dvgsVpnGatewayIds
+    , dvgsFilters
 
     -- * Response
     , DescribeVpnGatewaysResponse
@@ -60,16 +60,20 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeVpnGateways' request.
-describeVpnGateways :: DescribeVpnGateways
-describeVpnGateways = DescribeVpnGateways
-    { _dvgsFilters = mempty
-    , _dvgsVpnGatewayIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpnGateways' request.
+mkDescribeVpnGatewaysRequest :: DescribeVpnGateways
+mkDescribeVpnGatewaysRequest = DescribeVpnGateways
+    { _dvgsVpnGatewayIds = mempty
+    , _dvgsFilters = mempty
     }
-{-# INLINE describeVpnGateways #-}
+{-# INLINE mkDescribeVpnGatewaysRequest #-}
 
 data DescribeVpnGateways = DescribeVpnGateways
-    { _dvgsFilters :: [Filter]
+    { _dvgsVpnGatewayIds :: [Text]
+      -- ^ One or more virtual private gateway IDs. Default: Describes all
+      -- your virtual private gateways.
+    , _dvgsFilters :: [Filter]
       -- ^ One or more filters. attachment.state - The current state of the
       -- attachment between the gateway and the VPC (attaching | attached
       -- | detaching | detached). attachment.vpc-id - The ID of an
@@ -88,10 +92,13 @@ data DescribeVpnGateways = DescribeVpnGateways
       -- filter is independent of the tag-key filter. type - The type of
       -- virtual private gateway. Currently the only supported type is
       -- ipsec.1. vpn-gateway-id - The ID of the virtual private gateway.
-    , _dvgsVpnGatewayIds :: [Text]
-      -- ^ One or more virtual private gateway IDs. Default: Describes all
-      -- your virtual private gateways.
     } deriving (Show, Generic)
+
+-- | One or more virtual private gateway IDs. Default: Describes all your
+-- virtual private gateways.
+dvgsVpnGatewayIds :: Lens' DescribeVpnGateways ([Text])
+dvgsVpnGatewayIds = lens _dvgsVpnGatewayIds (\s a -> s { _dvgsVpnGatewayIds = a })
+{-# INLINE dvgsVpnGatewayIds #-}
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC (attaching | attached | detaching |
@@ -110,32 +117,20 @@ data DescribeVpnGateways = DescribeVpnGateways
 -- private gateway. Currently the only supported type is ipsec.1.
 -- vpn-gateway-id - The ID of the virtual private gateway.
 dvgsFilters :: Lens' DescribeVpnGateways ([Filter])
-dvgsFilters f x =
-    f (_dvgsFilters x)
-        <&> \y -> x { _dvgsFilters = y }
+dvgsFilters = lens _dvgsFilters (\s a -> s { _dvgsFilters = a })
 {-# INLINE dvgsFilters #-}
-
--- | One or more virtual private gateway IDs. Default: Describes all your
--- virtual private gateways.
-dvgsVpnGatewayIds :: Lens' DescribeVpnGateways ([Text])
-dvgsVpnGatewayIds f x =
-    f (_dvgsVpnGatewayIds x)
-        <&> \y -> x { _dvgsVpnGatewayIds = y }
-{-# INLINE dvgsVpnGatewayIds #-}
 
 instance ToQuery DescribeVpnGateways where
     toQuery = genericQuery def
 
-data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
+newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgtVpnGateways :: [VpnGateway]
       -- ^ Information about one or more virtual private gateways.
     } deriving (Show, Generic)
 
 -- | Information about one or more virtual private gateways.
 dvgtVpnGateways :: Lens' DescribeVpnGatewaysResponse ([VpnGateway])
-dvgtVpnGateways f x =
-    f (_dvgtVpnGateways x)
-        <&> \y -> x { _dvgtVpnGateways = y }
+dvgtVpnGateways = lens _dvgtVpnGateways (\s a -> s { _dvgtVpnGateways = a })
 {-# INLINE dvgtVpnGateways #-}
 
 instance FromXML DescribeVpnGatewaysResponse where

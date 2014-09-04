@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses
     -- * Request
       SuspendProcesses
     -- ** Request constructor
-    , suspendProcesses
+    , mkScalingProcessQuery
     -- ** Request lenses
     , sprAutoScalingGroupName
     , sprScalingProcesses
@@ -43,14 +43,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SuspendProcesses' request.
-suspendProcesses :: Text -- ^ 'sprAutoScalingGroupName'
-                 -> SuspendProcesses
-suspendProcesses p1 = SuspendProcesses
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SuspendProcesses' request.
+mkScalingProcessQuery :: Text -- ^ 'sprAutoScalingGroupName'
+                      -> SuspendProcesses
+mkScalingProcessQuery p1 = SuspendProcesses
     { _sprAutoScalingGroupName = p1
     , _sprScalingProcesses = mempty
     }
-{-# INLINE suspendProcesses #-}
+{-# INLINE mkScalingProcessQuery #-}
 
 data SuspendProcesses = SuspendProcesses
     { _sprAutoScalingGroupName :: Text
@@ -65,9 +66,7 @@ data SuspendProcesses = SuspendProcesses
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 sprAutoScalingGroupName :: Lens' SuspendProcesses (Text)
-sprAutoScalingGroupName f x =
-    f (_sprAutoScalingGroupName x)
-        <&> \y -> x { _sprAutoScalingGroupName = y }
+sprAutoScalingGroupName = lens _sprAutoScalingGroupName (\s a -> s { _sprAutoScalingGroupName = a })
 {-# INLINE sprAutoScalingGroupName #-}
 
 -- | The processes that you want to suspend or resume, which can include one or
@@ -75,9 +74,7 @@ sprAutoScalingGroupName f x =
 -- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
 -- all process types, omit this parameter.
 sprScalingProcesses :: Lens' SuspendProcesses ([Text])
-sprScalingProcesses f x =
-    f (_sprScalingProcesses x)
-        <&> \y -> x { _sprScalingProcesses = y }
+sprScalingProcesses = lens _sprScalingProcesses (\s a -> s { _sprScalingProcesses = a })
 {-# INLINE sprScalingProcesses #-}
 
 instance ToQuery SuspendProcesses where

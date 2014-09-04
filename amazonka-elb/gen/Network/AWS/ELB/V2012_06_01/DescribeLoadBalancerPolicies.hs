@@ -41,7 +41,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies
     -- * Request
       DescribeLoadBalancerPolicies
     -- ** Request constructor
-    , describeLoadBalancerPolicies
+    , mkDescribeLoadBalancerPoliciesInput
     -- ** Request lenses
     , dlbpjLoadBalancerName
     , dlbpjPolicyNames
@@ -56,13 +56,14 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeLoadBalancerPolicies' request.
-describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
-describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancerPolicies' request.
+mkDescribeLoadBalancerPoliciesInput :: DescribeLoadBalancerPolicies
+mkDescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPolicies
     { _dlbpjLoadBalancerName = Nothing
     , _dlbpjPolicyNames = mempty
     }
-{-# INLINE describeLoadBalancerPolicies #-}
+{-# INLINE mkDescribeLoadBalancerPoliciesInput #-}
 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbpjLoadBalancerName :: Maybe Text
@@ -80,32 +81,26 @@ data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
 dlbpjLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbpjLoadBalancerName f x =
-    f (_dlbpjLoadBalancerName x)
-        <&> \y -> x { _dlbpjLoadBalancerName = y }
+dlbpjLoadBalancerName = lens _dlbpjLoadBalancerName (\s a -> s { _dlbpjLoadBalancerName = a })
 {-# INLINE dlbpjLoadBalancerName #-}
 
 -- | The names of load balancer policies you've created or Elastic Load
 -- Balancing sample policy names.
 dlbpjPolicyNames :: Lens' DescribeLoadBalancerPolicies ([Text])
-dlbpjPolicyNames f x =
-    f (_dlbpjPolicyNames x)
-        <&> \y -> x { _dlbpjPolicyNames = y }
+dlbpjPolicyNames = lens _dlbpjPolicyNames (\s a -> s { _dlbpjPolicyNames = a })
 {-# INLINE dlbpjPolicyNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicies where
     toQuery = genericQuery def
 
-data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
+newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { _dlbppPolicyDescriptions :: [PolicyDescription]
       -- ^ A list of policy description structures.
     } deriving (Show, Generic)
 
 -- | A list of policy description structures.
 dlbppPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse ([PolicyDescription])
-dlbppPolicyDescriptions f x =
-    f (_dlbppPolicyDescriptions x)
-        <&> \y -> x { _dlbppPolicyDescriptions = y }
+dlbppPolicyDescriptions = lens _dlbppPolicyDescriptions (\s a -> s { _dlbppPolicyDescriptions = a })
 {-# INLINE dlbppPolicyDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where

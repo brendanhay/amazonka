@@ -24,7 +24,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteOptionGroup
     -- * Request
       DeleteOptionGroup
     -- ** Request constructor
-    , deleteOptionGroup
+    , mkDeleteOptionGroupMessage
     -- ** Request lenses
     , dogmOptionGroupName
 
@@ -36,15 +36,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteOptionGroup' request.
-deleteOptionGroup :: Text -- ^ 'dogmOptionGroupName'
-                  -> DeleteOptionGroup
-deleteOptionGroup p1 = DeleteOptionGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteOptionGroup' request.
+mkDeleteOptionGroupMessage :: Text -- ^ 'dogmOptionGroupName'
+                           -> DeleteOptionGroup
+mkDeleteOptionGroupMessage p1 = DeleteOptionGroup
     { _dogmOptionGroupName = p1
     }
-{-# INLINE deleteOptionGroup #-}
+{-# INLINE mkDeleteOptionGroupMessage #-}
 
-data DeleteOptionGroup = DeleteOptionGroup
+newtype DeleteOptionGroup = DeleteOptionGroup
     { _dogmOptionGroupName :: Text
       -- ^ The name of the option group to be deleted. You cannot delete
       -- default option groups.
@@ -53,9 +54,7 @@ data DeleteOptionGroup = DeleteOptionGroup
 -- | The name of the option group to be deleted. You cannot delete default
 -- option groups.
 dogmOptionGroupName :: Lens' DeleteOptionGroup (Text)
-dogmOptionGroupName f x =
-    f (_dogmOptionGroupName x)
-        <&> \y -> x { _dogmOptionGroupName = y }
+dogmOptionGroupName = lens _dogmOptionGroupName (\s a -> s { _dogmOptionGroupName = a })
 {-# INLINE dogmOptionGroupName #-}
 
 instance ToQuery DeleteOptionGroup where

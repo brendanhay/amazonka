@@ -28,7 +28,7 @@ module Network.AWS.EC2.V2014_06_15.CreateInternetGateway
     -- * Request
       CreateInternetGateway
     -- ** Request constructor
-    , createInternetGateway
+    , mkCreateInternetGatewayRequest
     -- * Response
     , CreateInternetGatewayResponse
     -- ** Response lenses
@@ -39,27 +39,25 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateInternetGateway' request.
-createInternetGateway :: CreateInternetGateway
-createInternetGateway = CreateInternetGateway
-{-# INLINE createInternetGateway #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInternetGateway' request.
+mkCreateInternetGatewayRequest :: CreateInternetGateway
+mkCreateInternetGatewayRequest = CreateInternetGateway
+{-# INLINE mkCreateInternetGatewayRequest #-}
 
-data CreateInternetGateway = CreateInternetGateway
     deriving (Eq, Show, Generic)
 
 instance ToQuery CreateInternetGateway where
     toQuery = genericQuery def
 
-data CreateInternetGatewayResponse = CreateInternetGatewayResponse
+newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigsInternetGateway :: Maybe InternetGateway
       -- ^ Information about the Internet gateway.
     } deriving (Show, Generic)
 
 -- | Information about the Internet gateway.
 cigsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
-cigsInternetGateway f x =
-    f (_cigsInternetGateway x)
-        <&> \y -> x { _cigsInternetGateway = y }
+cigsInternetGateway = lens _cigsInternetGateway (\s a -> s { _cigsInternetGateway = a })
 {-# INLINE cigsInternetGateway #-}
 
 instance FromXML CreateInternetGatewayResponse where

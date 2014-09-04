@@ -32,7 +32,7 @@ module Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
     -- * Request
       CreatePipeline
     -- ** Request constructor
-    , createPipeline
+    , mkCreatePipelineInput
     -- ** Request lenses
     , cpiName
     , cpiUniqueId
@@ -49,16 +49,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreatePipeline' request.
-createPipeline :: Text -- ^ 'cpiName'
-               -> Text -- ^ 'cpiUniqueId'
-               -> CreatePipeline
-createPipeline p1 p2 = CreatePipeline
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePipeline' request.
+mkCreatePipelineInput :: Text -- ^ 'cpiName'
+                      -> Text -- ^ 'cpiUniqueId'
+                      -> CreatePipeline
+mkCreatePipelineInput p1 p2 = CreatePipeline
     { _cpiName = p1
     , _cpiUniqueId = p2
     , _cpiDescription = Nothing
     }
-{-# INLINE createPipeline #-}
+{-# INLINE mkCreatePipelineInput #-}
 
 data CreatePipeline = CreatePipeline
     { _cpiName :: Text
@@ -89,9 +90,7 @@ data CreatePipeline = CreatePipeline
 -- pipelines associated with your AWS account, because AWS Data Pipeline
 -- assigns each new pipeline a unique pipeline identifier.
 cpiName :: Lens' CreatePipeline (Text)
-cpiName f x =
-    f (_cpiName x)
-        <&> \y -> x { _cpiName = y }
+cpiName = lens _cpiName (\s a -> s { _cpiName = a })
 {-# INLINE cpiName #-}
 
 -- | A unique identifier that you specify. This identifier is not the same as
@@ -107,16 +106,12 @@ cpiName f x =
 -- of the name and unique identifier combination is scoped to the AWS account
 -- or IAM user credentials.
 cpiUniqueId :: Lens' CreatePipeline (Text)
-cpiUniqueId f x =
-    f (_cpiUniqueId x)
-        <&> \y -> x { _cpiUniqueId = y }
+cpiUniqueId = lens _cpiUniqueId (\s a -> s { _cpiUniqueId = a })
 {-# INLINE cpiUniqueId #-}
 
 -- | The description of the new pipeline.
 cpiDescription :: Lens' CreatePipeline (Maybe Text)
-cpiDescription f x =
-    f (_cpiDescription x)
-        <&> \y -> x { _cpiDescription = y }
+cpiDescription = lens _cpiDescription (\s a -> s { _cpiDescription = a })
 {-# INLINE cpiDescription #-}
 
 instance ToPath CreatePipeline
@@ -127,7 +122,7 @@ instance ToHeaders CreatePipeline
 
 instance ToJSON CreatePipeline
 
-data CreatePipelineResponse = CreatePipelineResponse
+newtype CreatePipelineResponse = CreatePipelineResponse
     { _cpoPipelineId :: Text
       -- ^ The ID that AWS Data Pipeline assigns the newly created pipeline.
       -- The ID is a string of the form: df-06372391ZG65EXAMPLE.
@@ -136,9 +131,7 @@ data CreatePipelineResponse = CreatePipelineResponse
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is
 -- a string of the form: df-06372391ZG65EXAMPLE.
 cpoPipelineId :: Lens' CreatePipelineResponse (Text)
-cpoPipelineId f x =
-    f (_cpoPipelineId x)
-        <&> \y -> x { _cpoPipelineId = y }
+cpoPipelineId = lens _cpoPipelineId (\s a -> s { _cpoPipelineId = a })
 {-# INLINE cpoPipelineId #-}
 
 instance FromJSON CreatePipelineResponse

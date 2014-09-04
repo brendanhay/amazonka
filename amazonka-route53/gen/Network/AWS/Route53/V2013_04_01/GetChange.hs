@@ -27,7 +27,7 @@ module Network.AWS.Route53.V2013_04_01.GetChange
     -- * Request
       GetChange
     -- ** Request constructor
-    , getChange
+    , mkGetChangeRequest
     -- ** Request lenses
     , gcrId
 
@@ -41,15 +41,16 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetChange' request.
-getChange :: Text -- ^ 'gcrId'
-          -> GetChange
-getChange p1 = GetChange
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetChange' request.
+mkGetChangeRequest :: Text -- ^ 'gcrId'
+                   -> GetChange
+mkGetChangeRequest p1 = GetChange
     { _gcrId = p1
     }
-{-# INLINE getChange #-}
+{-# INLINE mkGetChangeRequest #-}
 
-data GetChange = GetChange
+newtype GetChange = GetChange
     { _gcrId :: Text
       -- ^ The ID of the change batch request. The value that you specify
       -- here is the value that ChangeResourceRecordSets returned in the
@@ -60,9 +61,7 @@ data GetChange = GetChange
 -- value that ChangeResourceRecordSets returned in the Id element when you
 -- submitted the request.
 gcrId :: Lens' GetChange (Text)
-gcrId f x =
-    f (_gcrId x)
-        <&> \y -> x { _gcrId = y }
+gcrId = lens _gcrId (\s a -> s { _gcrId = a })
 {-# INLINE gcrId #-}
 
 instance ToPath GetChange where
@@ -79,7 +78,7 @@ instance ToXML GetChange where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetChangeRequest"
 
-data GetChangeResponse = GetChangeResponse
+newtype GetChangeResponse = GetChangeResponse
     { _gcsChangeInfo :: ChangeInfo
       -- ^ A complex type that contains information about the specified
       -- change batch, including the change batch ID, the status of the
@@ -90,9 +89,7 @@ data GetChangeResponse = GetChangeResponse
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
 gcsChangeInfo :: Lens' GetChangeResponse (ChangeInfo)
-gcsChangeInfo f x =
-    f (_gcsChangeInfo x)
-        <&> \y -> x { _gcsChangeInfo = y }
+gcsChangeInfo = lens _gcsChangeInfo (\s a -> s { _gcsChangeInfo = a })
 {-# INLINE gcsChangeInfo #-}
 
 instance FromXML GetChangeResponse where

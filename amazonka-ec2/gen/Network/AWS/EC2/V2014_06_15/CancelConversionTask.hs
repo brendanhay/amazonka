@@ -33,7 +33,7 @@ module Network.AWS.EC2.V2014_06_15.CancelConversionTask
     -- * Request
       CancelConversionTask
     -- ** Request constructor
-    , cancelConversionTask
+    , mkCancelConversionRequest
     -- ** Request lenses
     , ccrConversionTaskId
     , ccrReasonMessage
@@ -46,14 +46,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CancelConversionTask' request.
-cancelConversionTask :: Text -- ^ 'ccrConversionTaskId'
-                     -> CancelConversionTask
-cancelConversionTask p1 = CancelConversionTask
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelConversionTask' request.
+mkCancelConversionRequest :: Text -- ^ 'ccrConversionTaskId'
+                          -> CancelConversionTask
+mkCancelConversionRequest p1 = CancelConversionTask
     { _ccrConversionTaskId = p1
     , _ccrReasonMessage = Nothing
     }
-{-# INLINE cancelConversionTask #-}
+{-# INLINE mkCancelConversionRequest #-}
 
 data CancelConversionTask = CancelConversionTask
     { _ccrConversionTaskId :: Text
@@ -64,16 +65,12 @@ data CancelConversionTask = CancelConversionTask
 
 -- | The ID of the conversion task.
 ccrConversionTaskId :: Lens' CancelConversionTask (Text)
-ccrConversionTaskId f x =
-    f (_ccrConversionTaskId x)
-        <&> \y -> x { _ccrConversionTaskId = y }
+ccrConversionTaskId = lens _ccrConversionTaskId (\s a -> s { _ccrConversionTaskId = a })
 {-# INLINE ccrConversionTaskId #-}
 
 -- | 
 ccrReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-ccrReasonMessage f x =
-    f (_ccrReasonMessage x)
-        <&> \y -> x { _ccrReasonMessage = y }
+ccrReasonMessage = lens _ccrReasonMessage (\s a -> s { _ccrReasonMessage = a })
 {-# INLINE ccrReasonMessage #-}
 
 instance ToQuery CancelConversionTask where

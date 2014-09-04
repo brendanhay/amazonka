@@ -33,7 +33,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheParameterGroup
     -- * Request
       CreateCacheParameterGroup
     -- ** Request constructor
-    , createCacheParameterGroup
+    , mkCreateCacheParameterGroupMessage
     -- ** Request lenses
     , ccpgmCacheParameterGroupName
     , ccpgmCacheParameterGroupFamily
@@ -49,17 +49,18 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateCacheParameterGroup' request.
-createCacheParameterGroup :: Text -- ^ 'ccpgmCacheParameterGroupName'
-                          -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
-                          -> Text -- ^ 'ccpgmDescription'
-                          -> CreateCacheParameterGroup
-createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCacheParameterGroup' request.
+mkCreateCacheParameterGroupMessage :: Text -- ^ 'ccpgmCacheParameterGroupName'
+                                   -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
+                                   -> Text -- ^ 'ccpgmDescription'
+                                   -> CreateCacheParameterGroup
+mkCreateCacheParameterGroupMessage p1 p2 p3 = CreateCacheParameterGroup
     { _ccpgmCacheParameterGroupName = p1
     , _ccpgmCacheParameterGroupFamily = p2
     , _ccpgmDescription = p3
     }
-{-# INLINE createCacheParameterGroup #-}
+{-# INLINE mkCreateCacheParameterGroupMessage #-}
 
 data CreateCacheParameterGroup = CreateCacheParameterGroup
     { _ccpgmCacheParameterGroupName :: Text
@@ -74,39 +75,31 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
 
 -- | A user-specified name for the cache parameter group.
 ccpgmCacheParameterGroupName :: Lens' CreateCacheParameterGroup (Text)
-ccpgmCacheParameterGroupName f x =
-    f (_ccpgmCacheParameterGroupName x)
-        <&> \y -> x { _ccpgmCacheParameterGroupName = y }
+ccpgmCacheParameterGroupName = lens _ccpgmCacheParameterGroupName (\s a -> s { _ccpgmCacheParameterGroupName = a })
 {-# INLINE ccpgmCacheParameterGroupName #-}
 
 -- | The name of the cache parameter group family the cache parameter group can
 -- be used with. Valid values are: memcached1.4 | redis2.6 | redis2.8.
 ccpgmCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup (Text)
-ccpgmCacheParameterGroupFamily f x =
-    f (_ccpgmCacheParameterGroupFamily x)
-        <&> \y -> x { _ccpgmCacheParameterGroupFamily = y }
+ccpgmCacheParameterGroupFamily = lens _ccpgmCacheParameterGroupFamily (\s a -> s { _ccpgmCacheParameterGroupFamily = a })
 {-# INLINE ccpgmCacheParameterGroupFamily #-}
 
 -- | A user-specified description for the cache parameter group.
 ccpgmDescription :: Lens' CreateCacheParameterGroup (Text)
-ccpgmDescription f x =
-    f (_ccpgmDescription x)
-        <&> \y -> x { _ccpgmDescription = y }
+ccpgmDescription = lens _ccpgmDescription (\s a -> s { _ccpgmDescription = a })
 {-# INLINE ccpgmDescription #-}
 
 instance ToQuery CreateCacheParameterGroup where
     toQuery = genericQuery def
 
-data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
+newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _cpgwCacheParameterGroup :: Maybe CacheParameterGroup
       -- ^ Represents the output of a CreateCacheParameterGroup operation.
     } deriving (Show, Generic)
 
 -- | Represents the output of a CreateCacheParameterGroup operation.
 cpgwCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
-cpgwCacheParameterGroup f x =
-    f (_cpgwCacheParameterGroup x)
-        <&> \y -> x { _cpgwCacheParameterGroup = y }
+cpgwCacheParameterGroup = lens _cpgwCacheParameterGroup (\s a -> s { _cpgwCacheParameterGroup = a })
 {-# INLINE cpgwCacheParameterGroup #-}
 
 instance FromXML CreateCacheParameterGroupResponse where

@@ -40,15 +40,15 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteItem
     -- * Request
       DeleteItem
     -- ** Request constructor
-    , deleteItem
+    , mkDeleteItemInput
     -- ** Request lenses
-    , diiKey
     , diiTableName
-    , diiConditionalOperator
+    , diiKey
     , diiExpected
+    , diiConditionalOperator
+    , diiReturnValues
     , diiReturnConsumedCapacity
     , diiReturnItemCollectionMetrics
-    , diiReturnValues
 
     -- * Response
     , DeleteItemResponse
@@ -63,28 +63,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteItem' request.
-deleteItem :: Map Text AttributeValue -- ^ 'diiKey'
-           -> Text -- ^ 'diiTableName'
-           -> DeleteItem
-deleteItem p1 p2 = DeleteItem
-    { _diiKey = p1
-    , _diiTableName = p2
-    , _diiConditionalOperator = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteItem' request.
+mkDeleteItemInput :: Text -- ^ 'diiTableName'
+                  -> Map Text AttributeValue -- ^ 'diiKey'
+                  -> DeleteItem
+mkDeleteItemInput p1 p2 = DeleteItem
+    { _diiTableName = p1
+    , _diiKey = p2
     , _diiExpected = mempty
+    , _diiConditionalOperator = Nothing
+    , _diiReturnValues = Nothing
     , _diiReturnConsumedCapacity = Nothing
     , _diiReturnItemCollectionMetrics = Nothing
-    , _diiReturnValues = Nothing
     }
-{-# INLINE deleteItem #-}
+{-# INLINE mkDeleteItemInput #-}
 
 data DeleteItem = DeleteItem
-    { _diiKey :: Map Text AttributeValue
+    { _diiTableName :: Text
+      -- ^ The name of the table from which to delete the item.
+    , _diiKey :: Map Text AttributeValue
       -- ^ A map of attribute names to AttributeValue objects, representing
       -- the primary key of the item to delete.
-    , _diiTableName :: Text
-      -- ^ The name of the table from which to delete the item.
-    , _diiConditionalOperator :: Maybe ConditionalOperator
     , _diiExpected :: Map Text ExpectedAttributeValue
       -- ^ A map of attribute/condition pairs. This is the conditional block
       -- for the DeleteItem operation. All the conditions must be met for
@@ -117,6 +117,13 @@ data DeleteItem = DeleteItem
       -- the conditions must evaluate to true. (In other words, the
       -- conditions are ANDed together.) Otherwise, the conditional
       -- operation will fail.
+    , _diiConditionalOperator :: Maybe ConditionalOperator
+    , _diiReturnValues :: Maybe ReturnValue
+      -- ^ Use ReturnValues if you want to get the item attributes as they
+      -- appeared before they were deleted. For DeleteItem, the valid
+      -- values are: NONE - If ReturnValues is not specified, or if its
+      -- value is NONE, then nothing is returned. (This is the default for
+      -- ReturnValues.) ALL_OLD - The content of the old item is returned.
     , _diiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
       -- ^ If set to TOTAL, the response includes ConsumedCapacity data for
       -- tables and indexes. If set to INDEXES, the repsonse includes
@@ -126,34 +133,18 @@ data DeleteItem = DeleteItem
       -- ^ If set to SIZE, statistics about item collections, if any, that
       -- were modified during the operation are returned in the response.
       -- If set to NONE (the default), no statistics are returned.
-    , _diiReturnValues :: Maybe ReturnValue
-      -- ^ Use ReturnValues if you want to get the item attributes as they
-      -- appeared before they were deleted. For DeleteItem, the valid
-      -- values are: NONE - If ReturnValues is not specified, or if its
-      -- value is NONE, then nothing is returned. (This is the default for
-      -- ReturnValues.) ALL_OLD - The content of the old item is returned.
     } deriving (Show, Generic)
+
+-- | The name of the table from which to delete the item.
+diiTableName :: Lens' DeleteItem (Text)
+diiTableName = lens _diiTableName (\s a -> s { _diiTableName = a })
+{-# INLINE diiTableName #-}
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to delete.
 diiKey :: Lens' DeleteItem (Map Text AttributeValue)
-diiKey f x =
-    f (_diiKey x)
-        <&> \y -> x { _diiKey = y }
+diiKey = lens _diiKey (\s a -> s { _diiKey = a })
 {-# INLINE diiKey #-}
-
--- | The name of the table from which to delete the item.
-diiTableName :: Lens' DeleteItem (Text)
-diiTableName f x =
-    f (_diiTableName x)
-        <&> \y -> x { _diiTableName = y }
-{-# INLINE diiTableName #-}
-
-diiConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
-diiConditionalOperator f x =
-    f (_diiConditionalOperator x)
-        <&> \y -> x { _diiConditionalOperator = y }
-{-# INLINE diiConditionalOperator #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
 -- DeleteItem operation. All the conditions must be met for the operation to
@@ -182,29 +173,12 @@ diiConditionalOperator f x =
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
 diiExpected :: Lens' DeleteItem (Map Text ExpectedAttributeValue)
-diiExpected f x =
-    f (_diiExpected x)
-        <&> \y -> x { _diiExpected = y }
+diiExpected = lens _diiExpected (\s a -> s { _diiExpected = a })
 {-# INLINE diiExpected #-}
 
--- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
--- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
--- indexes. If set to NONE (the default), ConsumedCapacity is not included in
--- the response.
-diiReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
-diiReturnConsumedCapacity f x =
-    f (_diiReturnConsumedCapacity x)
-        <&> \y -> x { _diiReturnConsumedCapacity = y }
-{-# INLINE diiReturnConsumedCapacity #-}
-
--- | If set to SIZE, statistics about item collections, if any, that were
--- modified during the operation are returned in the response. If set to NONE
--- (the default), no statistics are returned.
-diiReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
-diiReturnItemCollectionMetrics f x =
-    f (_diiReturnItemCollectionMetrics x)
-        <&> \y -> x { _diiReturnItemCollectionMetrics = y }
-{-# INLINE diiReturnItemCollectionMetrics #-}
+diiConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
+diiConditionalOperator = lens _diiConditionalOperator (\s a -> s { _diiConditionalOperator = a })
+{-# INLINE diiConditionalOperator #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
 -- before they were deleted. For DeleteItem, the valid values are: NONE - If
@@ -212,10 +186,23 @@ diiReturnItemCollectionMetrics f x =
 -- returned. (This is the default for ReturnValues.) ALL_OLD - The content of
 -- the old item is returned.
 diiReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
-diiReturnValues f x =
-    f (_diiReturnValues x)
-        <&> \y -> x { _diiReturnValues = y }
+diiReturnValues = lens _diiReturnValues (\s a -> s { _diiReturnValues = a })
 {-# INLINE diiReturnValues #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+diiReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
+diiReturnConsumedCapacity = lens _diiReturnConsumedCapacity (\s a -> s { _diiReturnConsumedCapacity = a })
+{-# INLINE diiReturnConsumedCapacity #-}
+
+-- | If set to SIZE, statistics about item collections, if any, that were
+-- modified during the operation are returned in the response. If set to NONE
+-- (the default), no statistics are returned.
+diiReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
+diiReturnItemCollectionMetrics = lens _diiReturnItemCollectionMetrics (\s a -> s { _diiReturnItemCollectionMetrics = a })
+{-# INLINE diiReturnItemCollectionMetrics #-}
 
 instance ToPath DeleteItem
 
@@ -261,9 +248,7 @@ data DeleteItemResponse = DeleteItemResponse
 -- as it appeared before the DeleteItem operation. This map appears in the
 -- response only if ReturnValues was specified as ALL_OLD in the request.
 dioAttributes :: Lens' DeleteItemResponse (Map Text AttributeValue)
-dioAttributes f x =
-    f (_dioAttributes x)
-        <&> \y -> x { _dioAttributes = y }
+dioAttributes = lens _dioAttributes (\s a -> s { _dioAttributes = a })
 {-# INLINE dioAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -272,9 +257,7 @@ dioAttributes f x =
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
 dioConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
-dioConsumedCapacity f x =
-    f (_dioConsumedCapacity x)
-        <&> \y -> x { _dioConsumedCapacity = y }
+dioConsumedCapacity = lens _dioConsumedCapacity (\s a -> s { _dioConsumedCapacity = a })
 {-# INLINE dioConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
@@ -292,9 +275,7 @@ dioConsumedCapacity f x =
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
 dioItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
-dioItemCollectionMetrics f x =
-    f (_dioItemCollectionMetrics x)
-        <&> \y -> x { _dioItemCollectionMetrics = y }
+dioItemCollectionMetrics = lens _dioItemCollectionMetrics (\s a -> s { _dioItemCollectionMetrics = a })
 {-# INLINE dioItemCollectionMetrics #-}
 
 instance FromJSON DeleteItemResponse

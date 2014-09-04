@@ -26,10 +26,10 @@ module Network.AWS.S3.V2006_03_01.DeleteObjects
     -- ** Request alias
     , DeleteMultipleObjects
     -- ** Request constructor
-    , deleteObjects
+    , mkDeleteObjectsRequest
     -- ** Request lenses
-    , dosDelete
     , dosBucket
+    , dosDelete
     , dosMFA
 
     -- * Response
@@ -45,44 +45,39 @@ import Network.AWS.Prelude
 
 type DeleteMultipleObjects = DeleteObjects
 
--- | Minimum specification for a 'DeleteObjects' request.
-deleteObjects :: Delete -- ^ 'dosDelete'
-              -> BucketName -- ^ 'dosBucket'
-              -> DeleteObjects
-deleteObjects p1 p2 = DeleteObjects
-    { _dosDelete = p1
-    , _dosBucket = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteObjects' request.
+mkDeleteObjectsRequest :: BucketName -- ^ 'dosBucket'
+                       -> Delete -- ^ 'dosDelete'
+                       -> DeleteObjects
+mkDeleteObjectsRequest p1 p2 = DeleteObjects
+    { _dosBucket = p1
+    , _dosDelete = p2
     , _dosMFA = Nothing
     }
-{-# INLINE deleteObjects #-}
+{-# INLINE mkDeleteObjectsRequest #-}
 
 data DeleteObjects = DeleteObjects
-    { _dosDelete :: Delete
-    , _dosBucket :: BucketName
+    { _dosBucket :: BucketName
+    , _dosDelete :: Delete
     , _dosMFA :: Maybe Text
       -- ^ The concatenation of the authentication device's serial number, a
       -- space, and the value that is displayed on your authentication
       -- device.
     } deriving (Show, Generic)
 
-dosDelete :: Lens' DeleteObjects (Delete)
-dosDelete f x =
-    f (_dosDelete x)
-        <&> \y -> x { _dosDelete = y }
-{-# INLINE dosDelete #-}
-
 dosBucket :: Lens' DeleteObjects (BucketName)
-dosBucket f x =
-    f (_dosBucket x)
-        <&> \y -> x { _dosBucket = y }
+dosBucket = lens _dosBucket (\s a -> s { _dosBucket = a })
 {-# INLINE dosBucket #-}
+
+dosDelete :: Lens' DeleteObjects (Delete)
+dosDelete = lens _dosDelete (\s a -> s { _dosDelete = a })
+{-# INLINE dosDelete #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
 dosMFA :: Lens' DeleteObjects (Maybe Text)
-dosMFA f x =
-    f (_dosMFA x)
-        <&> \y -> x { _dosMFA = y }
+dosMFA = lens _dosMFA (\s a -> s { _dosMFA = a })
 {-# INLINE dosMFA #-}
 
 instance ToPath DeleteObjects where
@@ -96,13 +91,9 @@ instance ToQuery DeleteObjects where
         [ "delete"
         ]
 
-instance ToHeaders DeleteObjects where
-    toHeaders DeleteObjects{..} = concat
-        [ "x-amz-mfa" =: _dosMFA
-        ]
+instance ToHeaders DeleteObjects
 
-instance ToBody DeleteObjects where
-    toBody = toBody . encodeXML . _dosDelete
+instance ToBody DeleteObjects
 
 data DeleteObjectsResponse = DeleteObjectsResponse
     { _dopDeleted :: [DeletedObject]
@@ -110,15 +101,11 @@ data DeleteObjectsResponse = DeleteObjectsResponse
     } deriving (Show, Generic)
 
 dopDeleted :: Lens' DeleteObjectsResponse ([DeletedObject])
-dopDeleted f x =
-    f (_dopDeleted x)
-        <&> \y -> x { _dopDeleted = y }
+dopDeleted = lens _dopDeleted (\s a -> s { _dopDeleted = a })
 {-# INLINE dopDeleted #-}
 
 dopErrors :: Lens' DeleteObjectsResponse ([Error])
-dopErrors f x =
-    f (_dopErrors x)
-        <&> \y -> x { _dopErrors = y }
+dopErrors = lens _dopErrors (\s a -> s { _dopErrors = a })
 {-# INLINE dopErrors #-}
 
 instance FromXML DeleteObjectsResponse where

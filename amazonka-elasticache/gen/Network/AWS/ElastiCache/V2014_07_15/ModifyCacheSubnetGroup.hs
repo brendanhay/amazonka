@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup
     -- * Request
       ModifyCacheSubnetGroup
     -- ** Request constructor
-    , modifyCacheSubnetGroup
+    , mkModifyCacheSubnetGroupMessage
     -- ** Request lenses
     , mcsgmCacheSubnetGroupName
     , mcsgmCacheSubnetGroupDescription
@@ -47,15 +47,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyCacheSubnetGroup' request.
-modifyCacheSubnetGroup :: Text -- ^ 'mcsgmCacheSubnetGroupName'
-                       -> ModifyCacheSubnetGroup
-modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyCacheSubnetGroup' request.
+mkModifyCacheSubnetGroupMessage :: Text -- ^ 'mcsgmCacheSubnetGroupName'
+                                -> ModifyCacheSubnetGroup
+mkModifyCacheSubnetGroupMessage p1 = ModifyCacheSubnetGroup
     { _mcsgmCacheSubnetGroupName = p1
     , _mcsgmCacheSubnetGroupDescription = Nothing
     , _mcsgmSubnetIds = mempty
     }
-{-# INLINE modifyCacheSubnetGroup #-}
+{-# INLINE mkModifyCacheSubnetGroupMessage #-}
 
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgmCacheSubnetGroupName :: Text
@@ -72,29 +73,23 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Example: mysubnetgroup.
 mcsgmCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup (Text)
-mcsgmCacheSubnetGroupName f x =
-    f (_mcsgmCacheSubnetGroupName x)
-        <&> \y -> x { _mcsgmCacheSubnetGroupName = y }
+mcsgmCacheSubnetGroupName = lens _mcsgmCacheSubnetGroupName (\s a -> s { _mcsgmCacheSubnetGroupName = a })
 {-# INLINE mcsgmCacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
 mcsgmCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
-mcsgmCacheSubnetGroupDescription f x =
-    f (_mcsgmCacheSubnetGroupDescription x)
-        <&> \y -> x { _mcsgmCacheSubnetGroupDescription = y }
+mcsgmCacheSubnetGroupDescription = lens _mcsgmCacheSubnetGroupDescription (\s a -> s { _mcsgmCacheSubnetGroupDescription = a })
 {-# INLINE mcsgmCacheSubnetGroupDescription #-}
 
 -- | The EC2 subnet IDs for the cache subnet group.
 mcsgmSubnetIds :: Lens' ModifyCacheSubnetGroup ([Text])
-mcsgmSubnetIds f x =
-    f (_mcsgmSubnetIds x)
-        <&> \y -> x { _mcsgmSubnetIds = y }
+mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
 {-# INLINE mcsgmSubnetIds #-}
 
 instance ToQuery ModifyCacheSubnetGroup where
     toQuery = genericQuery def
 
-data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
+newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _csgzCacheSubnetGroup :: Maybe CacheSubnetGroup
       -- ^ Represents the output of one of the following operations:
       -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
@@ -103,9 +98,7 @@ data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
 csgzCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-csgzCacheSubnetGroup f x =
-    f (_csgzCacheSubnetGroup x)
-        <&> \y -> x { _csgzCacheSubnetGroup = y }
+csgzCacheSubnetGroup = lens _csgzCacheSubnetGroup (\s a -> s { _csgzCacheSubnetGroup = a })
 {-# INLINE csgzCacheSubnetGroup #-}
 
 instance FromXML ModifyCacheSubnetGroupResponse where

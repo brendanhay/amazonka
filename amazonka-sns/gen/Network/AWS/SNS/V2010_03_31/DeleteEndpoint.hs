@@ -35,7 +35,7 @@ module Network.AWS.SNS.V2010_03_31.DeleteEndpoint
     -- * Request
       DeleteEndpoint
     -- ** Request constructor
-    , deleteEndpoint
+    , mkDeleteEndpointInput
     -- ** Request lenses
     , deiEndpointArn
 
@@ -47,24 +47,23 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteEndpoint' request.
-deleteEndpoint :: Text -- ^ 'deiEndpointArn'
-               -> DeleteEndpoint
-deleteEndpoint p1 = DeleteEndpoint
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEndpoint' request.
+mkDeleteEndpointInput :: Text -- ^ 'deiEndpointArn'
+                      -> DeleteEndpoint
+mkDeleteEndpointInput p1 = DeleteEndpoint
     { _deiEndpointArn = p1
     }
-{-# INLINE deleteEndpoint #-}
+{-# INLINE mkDeleteEndpointInput #-}
 
-data DeleteEndpoint = DeleteEndpoint
+newtype DeleteEndpoint = DeleteEndpoint
     { _deiEndpointArn :: Text
       -- ^ EndpointArn of endpoint to delete.
     } deriving (Show, Generic)
 
 -- | EndpointArn of endpoint to delete.
 deiEndpointArn :: Lens' DeleteEndpoint (Text)
-deiEndpointArn f x =
-    f (_deiEndpointArn x)
-        <&> \y -> x { _deiEndpointArn = y }
+deiEndpointArn = lens _deiEndpointArn (\s a -> s { _deiEndpointArn = a })
 {-# INLINE deiEndpointArn #-}
 
 instance ToQuery DeleteEndpoint where

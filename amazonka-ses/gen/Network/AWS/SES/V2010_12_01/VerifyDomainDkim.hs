@@ -44,7 +44,7 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainDkim
     -- * Request
       VerifyDomainDkim
     -- ** Request constructor
-    , verifyDomainDkim
+    , mkVerifyDomainDkimRequest
     -- ** Request lenses
     , vddrDomain
 
@@ -58,30 +58,29 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'VerifyDomainDkim' request.
-verifyDomainDkim :: Text -- ^ 'vddrDomain'
-                 -> VerifyDomainDkim
-verifyDomainDkim p1 = VerifyDomainDkim
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyDomainDkim' request.
+mkVerifyDomainDkimRequest :: Text -- ^ 'vddrDomain'
+                          -> VerifyDomainDkim
+mkVerifyDomainDkimRequest p1 = VerifyDomainDkim
     { _vddrDomain = p1
     }
-{-# INLINE verifyDomainDkim #-}
+{-# INLINE mkVerifyDomainDkimRequest #-}
 
-data VerifyDomainDkim = VerifyDomainDkim
+newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddrDomain :: Text
       -- ^ The name of the domain to be verified for Easy DKIM signing.
     } deriving (Show, Generic)
 
 -- | The name of the domain to be verified for Easy DKIM signing.
 vddrDomain :: Lens' VerifyDomainDkim (Text)
-vddrDomain f x =
-    f (_vddrDomain x)
-        <&> \y -> x { _vddrDomain = y }
+vddrDomain = lens _vddrDomain (\s a -> s { _vddrDomain = a })
 {-# INLINE vddrDomain #-}
 
 instance ToQuery VerifyDomainDkim where
     toQuery = genericQuery def
 
-data VerifyDomainDkimResponse = VerifyDomainDkimResponse
+newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddsDkimTokens :: [Text]
       -- ^ A set of character strings that represent the domain's identity.
       -- If the identity is an email address, the tokens represent the
@@ -105,9 +104,7 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse
 -- information about creating DNS records using DKIM tokens, go to the Amazon
 -- SES Developer Guide.
 vddsDkimTokens :: Lens' VerifyDomainDkimResponse ([Text])
-vddsDkimTokens f x =
-    f (_vddsDkimTokens x)
-        <&> \y -> x { _vddsDkimTokens = y }
+vddsDkimTokens = lens _vddsDkimTokens (\s a -> s { _vddsDkimTokens = a })
 {-# INLINE vddsDkimTokens #-}
 
 instance FromXML VerifyDomainDkimResponse where

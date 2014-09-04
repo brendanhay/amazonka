@@ -32,7 +32,7 @@ module Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
     -- * Request
       DeleteAttributes
     -- ** Request constructor
-    , deleteAttributes
+    , mkDeleteAttributesRequest
     -- ** Request lenses
     , darDomainName
     , darItemName
@@ -47,17 +47,18 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteAttributes' request.
-deleteAttributes :: Text -- ^ 'darDomainName'
-                 -> Text -- ^ 'darItemName'
-                 -> DeleteAttributes
-deleteAttributes p1 p2 = DeleteAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAttributes' request.
+mkDeleteAttributesRequest :: Text -- ^ 'darDomainName'
+                          -> Text -- ^ 'darItemName'
+                          -> DeleteAttributes
+mkDeleteAttributesRequest p1 p2 = DeleteAttributes
     { _darDomainName = p1
     , _darItemName = p2
     , _darAttributes = mempty
     , _darExpected = Nothing
     }
-{-# INLINE deleteAttributes #-}
+{-# INLINE mkDeleteAttributesRequest #-}
 
 data DeleteAttributes = DeleteAttributes
     { _darDomainName :: Text
@@ -79,34 +80,26 @@ data DeleteAttributes = DeleteAttributes
 
 -- | The name of the domain in which to perform the operation.
 darDomainName :: Lens' DeleteAttributes (Text)
-darDomainName f x =
-    f (_darDomainName x)
-        <&> \y -> x { _darDomainName = y }
+darDomainName = lens _darDomainName (\s a -> s { _darDomainName = a })
 {-# INLINE darDomainName #-}
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
 darItemName :: Lens' DeleteAttributes (Text)
-darItemName f x =
-    f (_darItemName x)
-        <&> \y -> x { _darItemName = y }
+darItemName = lens _darItemName (\s a -> s { _darItemName = a })
 {-# INLINE darItemName #-}
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
 darAttributes :: Lens' DeleteAttributes ([Attribute])
-darAttributes f x =
-    f (_darAttributes x)
-        <&> \y -> x { _darAttributes = y }
+darAttributes = lens _darAttributes (\s a -> s { _darAttributes = a })
 {-# INLINE darAttributes #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be deleted or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be deleted.
 darExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-darExpected f x =
-    f (_darExpected x)
-        <&> \y -> x { _darExpected = y }
+darExpected = lens _darExpected (\s a -> s { _darExpected = a })
 {-# INLINE darExpected #-}
 
 instance ToQuery DeleteAttributes where

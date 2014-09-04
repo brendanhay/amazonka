@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteStack
     -- * Request
       DeleteStack
     -- ** Request constructor
-    , deleteStack
+    , mkDeleteStackRequest
     -- ** Request lenses
     , dsrStackId
 
@@ -40,24 +40,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteStack' request.
-deleteStack :: Text -- ^ 'dsrStackId'
-            -> DeleteStack
-deleteStack p1 = DeleteStack
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStack' request.
+mkDeleteStackRequest :: Text -- ^ 'dsrStackId'
+                     -> DeleteStack
+mkDeleteStackRequest p1 = DeleteStack
     { _dsrStackId = p1
     }
-{-# INLINE deleteStack #-}
+{-# INLINE mkDeleteStackRequest #-}
 
-data DeleteStack = DeleteStack
+newtype DeleteStack = DeleteStack
     { _dsrStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
 -- | The stack ID.
 dsrStackId :: Lens' DeleteStack (Text)
-dsrStackId f x =
-    f (_dsrStackId x)
-        <&> \y -> x { _dsrStackId = y }
+dsrStackId = lens _dsrStackId (\s a -> s { _dsrStackId = a })
 {-# INLINE dsrStackId #-}
 
 instance ToPath DeleteStack

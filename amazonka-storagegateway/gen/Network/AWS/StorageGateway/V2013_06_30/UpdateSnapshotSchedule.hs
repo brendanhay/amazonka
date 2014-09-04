@@ -43,11 +43,11 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
     -- * Request
       UpdateSnapshotSchedule
     -- ** Request constructor
-    , updateSnapshotSchedule
+    , mkUpdateSnapshotScheduleInput
     -- ** Request lenses
+    , ussiVolumeARN
     , ussiStartAt
     , ussiRecurrenceInHours
-    , ussiVolumeARN
     , ussiDescription
 
     -- * Response
@@ -61,65 +61,58 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateSnapshotSchedule' request.
-updateSnapshotSchedule :: Integer -- ^ 'ussiStartAt'
-                       -> Integer -- ^ 'ussiRecurrenceInHours'
-                       -> Text -- ^ 'ussiVolumeARN'
-                       -> UpdateSnapshotSchedule
-updateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
-    { _ussiStartAt = p1
-    , _ussiRecurrenceInHours = p2
-    , _ussiVolumeARN = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateSnapshotSchedule' request.
+mkUpdateSnapshotScheduleInput :: Text -- ^ 'ussiVolumeARN'
+                              -> Integer -- ^ 'ussiStartAt'
+                              -> Integer -- ^ 'ussiRecurrenceInHours'
+                              -> UpdateSnapshotSchedule
+mkUpdateSnapshotScheduleInput p1 p2 p3 = UpdateSnapshotSchedule
+    { _ussiVolumeARN = p1
+    , _ussiStartAt = p2
+    , _ussiRecurrenceInHours = p3
     , _ussiDescription = Nothing
     }
-{-# INLINE updateSnapshotSchedule #-}
+{-# INLINE mkUpdateSnapshotScheduleInput #-}
 
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule
-    { _ussiStartAt :: Integer
+    { _ussiVolumeARN :: Text
+      -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+      -- operation to return a list of gateway volumes.
+    , _ussiStartAt :: Integer
       -- ^ The hour of the day at which the snapshot schedule begins
       -- represented as hh, where hh is the hour (0 to 23). The hour of
       -- the day is in the time zone of the gateway.
     , _ussiRecurrenceInHours :: Integer
       -- ^ Frequency of snapshots. Specify the number of hours between
       -- snapshots.
-    , _ussiVolumeARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
-      -- operation to return a list of gateway volumes.
     , _ussiDescription :: Maybe Text
       -- ^ Optional description of the snapshot that overwrites the existing
       -- description.
     } deriving (Show, Generic)
 
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
+-- to return a list of gateway volumes.
+ussiVolumeARN :: Lens' UpdateSnapshotSchedule (Text)
+ussiVolumeARN = lens _ussiVolumeARN (\s a -> s { _ussiVolumeARN = a })
+{-# INLINE ussiVolumeARN #-}
+
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- hh, where hh is the hour (0 to 23). The hour of the day is in the time zone
 -- of the gateway.
 ussiStartAt :: Lens' UpdateSnapshotSchedule (Integer)
-ussiStartAt f x =
-    f (_ussiStartAt x)
-        <&> \y -> x { _ussiStartAt = y }
+ussiStartAt = lens _ussiStartAt (\s a -> s { _ussiStartAt = a })
 {-# INLINE ussiStartAt #-}
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
 ussiRecurrenceInHours :: Lens' UpdateSnapshotSchedule (Integer)
-ussiRecurrenceInHours f x =
-    f (_ussiRecurrenceInHours x)
-        <&> \y -> x { _ussiRecurrenceInHours = y }
+ussiRecurrenceInHours = lens _ussiRecurrenceInHours (\s a -> s { _ussiRecurrenceInHours = a })
 {-# INLINE ussiRecurrenceInHours #-}
-
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
--- to return a list of gateway volumes.
-ussiVolumeARN :: Lens' UpdateSnapshotSchedule (Text)
-ussiVolumeARN f x =
-    f (_ussiVolumeARN x)
-        <&> \y -> x { _ussiVolumeARN = y }
-{-# INLINE ussiVolumeARN #-}
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
 ussiDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
-ussiDescription f x =
-    f (_ussiDescription x)
-        <&> \y -> x { _ussiDescription = y }
+ussiDescription = lens _ussiDescription (\s a -> s { _ussiDescription = a })
 {-# INLINE ussiDescription #-}
 
 instance ToPath UpdateSnapshotSchedule
@@ -130,16 +123,14 @@ instance ToHeaders UpdateSnapshotSchedule
 
 instance ToJSON UpdateSnapshotSchedule
 
-data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
+newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussoVolumeARN :: Maybe Text
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 ussoVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
-ussoVolumeARN f x =
-    f (_ussoVolumeARN x)
-        <&> \y -> x { _ussoVolumeARN = y }
+ussoVolumeARN = lens _ussoVolumeARN (\s a -> s { _ussoVolumeARN = a })
 {-# INLINE ussoVolumeARN #-}
 
 instance FromJSON UpdateSnapshotScheduleResponse

@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute
     -- * Request
       DescribeVpcAttribute
     -- ** Request constructor
-    , describeVpcAttribute
+    , mkDescribeVpcAttributeRequest
     -- ** Request lenses
     , dvatVpcId
     , dvatAttribute
@@ -52,23 +52,24 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute
     -- * Response
     , DescribeVpcAttributeResponse
     -- ** Response lenses
+    , dvauVpcId
     , dvauEnableDnsSupport
     , dvauEnableDnsHostnames
-    , dvauVpcId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeVpcAttribute' request.
-describeVpcAttribute :: Text -- ^ 'dvatVpcId'
-                     -> DescribeVpcAttribute
-describeVpcAttribute p1 = DescribeVpcAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpcAttribute' request.
+mkDescribeVpcAttributeRequest :: Text -- ^ 'dvatVpcId'
+                              -> DescribeVpcAttribute
+mkDescribeVpcAttributeRequest p1 = DescribeVpcAttribute
     { _dvatVpcId = p1
     , _dvatAttribute = Nothing
     }
-{-# INLINE describeVpcAttribute #-}
+{-# INLINE mkDescribeVpcAttributeRequest #-}
 
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dvatVpcId :: Text
@@ -79,23 +80,21 @@ data DescribeVpcAttribute = DescribeVpcAttribute
 
 -- | The ID of the VPC.
 dvatVpcId :: Lens' DescribeVpcAttribute (Text)
-dvatVpcId f x =
-    f (_dvatVpcId x)
-        <&> \y -> x { _dvatVpcId = y }
+dvatVpcId = lens _dvatVpcId (\s a -> s { _dvatVpcId = a })
 {-# INLINE dvatVpcId #-}
 
 -- | The VPC attribute.
 dvatAttribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
-dvatAttribute f x =
-    f (_dvatAttribute x)
-        <&> \y -> x { _dvatAttribute = y }
+dvatAttribute = lens _dvatAttribute (\s a -> s { _dvatAttribute = a })
 {-# INLINE dvatAttribute #-}
 
 instance ToQuery DescribeVpcAttribute where
     toQuery = genericQuery def
 
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
-    { _dvauEnableDnsSupport :: Maybe AttributeBooleanValue
+    { _dvauVpcId :: Maybe Text
+      -- ^ The ID of the VPC.
+    , _dvauEnableDnsSupport :: Maybe AttributeBooleanValue
       -- ^ Indicates whether DNS resolution is enabled for the VPC. If this
       -- attribute is true, the Amazon DNS server resolves DNS hostnames
       -- for your instances to their corresponding IP addresses;
@@ -104,34 +103,26 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
       -- ^ Indicates whether the instances launched in the VPC get DNS
       -- hostnames. If this attribute is true, instances in the VPC get
       -- DNS hostnames; otherwise, they do not.
-    , _dvauVpcId :: Maybe Text
-      -- ^ The ID of the VPC.
     } deriving (Show, Generic)
+
+-- | The ID of the VPC.
+dvauVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
+dvauVpcId = lens _dvauVpcId (\s a -> s { _dvauVpcId = a })
+{-# INLINE dvauVpcId #-}
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this attribute
 -- is true, the Amazon DNS server resolves DNS hostnames for your instances to
 -- their corresponding IP addresses; otherwise, it does not.
 dvauEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
-dvauEnableDnsSupport f x =
-    f (_dvauEnableDnsSupport x)
-        <&> \y -> x { _dvauEnableDnsSupport = y }
+dvauEnableDnsSupport = lens _dvauEnableDnsSupport (\s a -> s { _dvauEnableDnsSupport = a })
 {-# INLINE dvauEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
 -- they do not.
 dvauEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
-dvauEnableDnsHostnames f x =
-    f (_dvauEnableDnsHostnames x)
-        <&> \y -> x { _dvauEnableDnsHostnames = y }
+dvauEnableDnsHostnames = lens _dvauEnableDnsHostnames (\s a -> s { _dvauEnableDnsHostnames = a })
 {-# INLINE dvauEnableDnsHostnames #-}
-
--- | The ID of the VPC.
-dvauVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
-dvauVpcId f x =
-    f (_dvauVpcId x)
-        <&> \y -> x { _dvauVpcId = y }
-{-# INLINE dvauVpcId #-}
 
 instance FromXML DescribeVpcAttributeResponse where
     fromXMLOptions = xmlOptions

@@ -23,7 +23,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration
     -- * Request
       DeleteHsmConfiguration
     -- ** Request constructor
-    , deleteHsmConfiguration
+    , mkDeleteHsmConfigurationMessage
     -- ** Request lenses
     , dhcmHsmConfigurationIdentifier
 
@@ -35,15 +35,16 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteHsmConfiguration' request.
-deleteHsmConfiguration :: Text -- ^ 'dhcmHsmConfigurationIdentifier'
-                       -> DeleteHsmConfiguration
-deleteHsmConfiguration p1 = DeleteHsmConfiguration
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHsmConfiguration' request.
+mkDeleteHsmConfigurationMessage :: Text -- ^ 'dhcmHsmConfigurationIdentifier'
+                                -> DeleteHsmConfiguration
+mkDeleteHsmConfigurationMessage p1 = DeleteHsmConfiguration
     { _dhcmHsmConfigurationIdentifier = p1
     }
-{-# INLINE deleteHsmConfiguration #-}
+{-# INLINE mkDeleteHsmConfigurationMessage #-}
 
-data DeleteHsmConfiguration = DeleteHsmConfiguration
+newtype DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcmHsmConfigurationIdentifier :: Text
       -- ^ The identifier of the Amazon Redshift HSM configuration to be
       -- deleted.
@@ -51,9 +52,7 @@ data DeleteHsmConfiguration = DeleteHsmConfiguration
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 dhcmHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration (Text)
-dhcmHsmConfigurationIdentifier f x =
-    f (_dhcmHsmConfigurationIdentifier x)
-        <&> \y -> x { _dhcmHsmConfigurationIdentifier = y }
+dhcmHsmConfigurationIdentifier = lens _dhcmHsmConfigurationIdentifier (\s a -> s { _dhcmHsmConfigurationIdentifier = a })
 {-# INLINE dhcmHsmConfigurationIdentifier #-}
 
 instance ToQuery DeleteHsmConfiguration where

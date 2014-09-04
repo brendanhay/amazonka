@@ -25,7 +25,7 @@ module Network.AWS.Redshift.V2012_12_01.DescribeEventCategories
     -- * Request
       DescribeEventCategories
     -- ** Request constructor
-    , describeEventCategories
+    , mkDescribeEventCategoriesMessage
     -- ** Request lenses
     , decmSourceType
 
@@ -39,14 +39,15 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeEventCategories' request.
-describeEventCategories :: DescribeEventCategories
-describeEventCategories = DescribeEventCategories
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventCategories' request.
+mkDescribeEventCategoriesMessage :: DescribeEventCategories
+mkDescribeEventCategoriesMessage = DescribeEventCategories
     { _decmSourceType = Nothing
     }
-{-# INLINE describeEventCategories #-}
+{-# INLINE mkDescribeEventCategoriesMessage #-}
 
-data DescribeEventCategories = DescribeEventCategories
+newtype DescribeEventCategories = DescribeEventCategories
     { _decmSourceType :: Maybe Text
       -- ^ The source type, such as cluster or parameter group, to which the
       -- described event categories apply. Valid values: cluster,
@@ -57,24 +58,20 @@ data DescribeEventCategories = DescribeEventCategories
 -- event categories apply. Valid values: cluster, snapshot, parameter group,
 -- and security group.
 decmSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decmSourceType f x =
-    f (_decmSourceType x)
-        <&> \y -> x { _decmSourceType = y }
+decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
 {-# INLINE decmSourceType #-}
 
 instance ToQuery DescribeEventCategories where
     toQuery = genericQuery def
 
-data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
+newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _ecnEventCategoriesMapList :: [EventCategoriesMap]
       -- ^ A list of event categories descriptions.
     } deriving (Show, Generic)
 
 -- | A list of event categories descriptions.
 ecnEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse ([EventCategoriesMap])
-ecnEventCategoriesMapList f x =
-    f (_ecnEventCategoriesMapList x)
-        <&> \y -> x { _ecnEventCategoriesMapList = y }
+ecnEventCategoriesMapList = lens _ecnEventCategoriesMapList (\s a -> s { _ecnEventCategoriesMapList = a })
 {-# INLINE ecnEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where

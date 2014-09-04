@@ -24,10 +24,10 @@ module Network.AWS.RDS.V2013_09_09.RemoveTagsFromResource
     -- * Request
       RemoveTagsFromResource
     -- ** Request constructor
-    , removeTagsFromResource
+    , mkRemoveTagsFromResourceMessage
     -- ** Request lenses
-    , rtfrmTagKeys
     , rtfrmResourceName
+    , rtfrmTagKeys
 
     -- * Response
     , RemoveTagsFromResourceResponse
@@ -37,40 +37,37 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RemoveTagsFromResource' request.
-removeTagsFromResource :: [Text] -- ^ 'rtfrmTagKeys'
-                       -> Text -- ^ 'rtfrmResourceName'
-                       -> RemoveTagsFromResource
-removeTagsFromResource p1 p2 = RemoveTagsFromResource
-    { _rtfrmTagKeys = p1
-    , _rtfrmResourceName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveTagsFromResource' request.
+mkRemoveTagsFromResourceMessage :: Text -- ^ 'rtfrmResourceName'
+                                -> [Text] -- ^ 'rtfrmTagKeys'
+                                -> RemoveTagsFromResource
+mkRemoveTagsFromResourceMessage p1 p2 = RemoveTagsFromResource
+    { _rtfrmResourceName = p1
+    , _rtfrmTagKeys = p2
     }
-{-# INLINE removeTagsFromResource #-}
+{-# INLINE mkRemoveTagsFromResourceMessage #-}
 
 data RemoveTagsFromResource = RemoveTagsFromResource
-    { _rtfrmTagKeys :: [Text]
-      -- ^ The tag key (name) of the tag to be removed.
-    , _rtfrmResourceName :: Text
+    { _rtfrmResourceName :: Text
       -- ^ The Amazon RDS resource the tags will be removed from. This value
       -- is an Amazon Resource Name (ARN). For information about creating
       -- an ARN, see Constructing an RDS Amazon Resource Name (ARN).
+    , _rtfrmTagKeys :: [Text]
+      -- ^ The tag key (name) of the tag to be removed.
     } deriving (Show, Generic)
-
--- | The tag key (name) of the tag to be removed.
-rtfrmTagKeys :: Lens' RemoveTagsFromResource ([Text])
-rtfrmTagKeys f x =
-    f (_rtfrmTagKeys x)
-        <&> \y -> x { _rtfrmTagKeys = y }
-{-# INLINE rtfrmTagKeys #-}
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
 rtfrmResourceName :: Lens' RemoveTagsFromResource (Text)
-rtfrmResourceName f x =
-    f (_rtfrmResourceName x)
-        <&> \y -> x { _rtfrmResourceName = y }
+rtfrmResourceName = lens _rtfrmResourceName (\s a -> s { _rtfrmResourceName = a })
 {-# INLINE rtfrmResourceName #-}
+
+-- | The tag key (name) of the tag to be removed.
+rtfrmTagKeys :: Lens' RemoveTagsFromResource ([Text])
+rtfrmTagKeys = lens _rtfrmTagKeys (\s a -> s { _rtfrmTagKeys = a })
+{-# INLINE rtfrmTagKeys #-}
 
 instance ToQuery RemoveTagsFromResource where
     toQuery = genericQuery def

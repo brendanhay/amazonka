@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -50,19 +51,21 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , StackStatus (..)
 
     -- * Output
-    , Output (..)
+    , Output
+    , mkOutput
     , otOutputKey
     , otOutputValue
     , otDescription
 
     -- * Parameter
-    , Parameter (..)
+    , Parameter
+    , mkParameter
     , qParameterKey
     , qParameterValue
     , qUsePreviousValue
 
     -- * Stack
-    , Stack (..)
+    , Stack
     , yStackId
     , yStackName
     , yDescription
@@ -79,7 +82,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , yTags
 
     -- * StackEvent
-    , StackEvent (..)
+    , StackEvent
     , sfStackId
     , sfEventId
     , sfStackName
@@ -92,7 +95,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , sfResourceProperties
 
     -- * StackResource
-    , StackResource (..)
+    , StackResource
     , swStackName
     , swStackId
     , swLogicalResourceId
@@ -104,7 +107,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , swDescription
 
     -- * StackResourceDetail
-    , StackResourceDetail (..)
+    , StackResourceDetail
     , srdStackName
     , srdStackId
     , srdLogicalResourceId
@@ -117,7 +120,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , srdMetadata
 
     -- * StackResourceSummary
-    , StackResourceSummary (..)
+    , StackResourceSummary
     , srtLogicalResourceId
     , srtPhysicalResourceId
     , srtResourceType
@@ -126,7 +129,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , srtResourceStatusReason
 
     -- * StackSummary
-    , StackSummary (..)
+    , StackSummary
     , ssyStackId
     , ssyStackName
     , ssyTemplateDescription
@@ -137,17 +140,17 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     , ssyStackStatusReason
 
     -- * Tag
-    , Tag (..)
+    , Tag
+    , mkTag
     , uKey
     , uValue
 
     -- * TemplateParameter
-    , TemplateParameter (..)
+    , TemplateParameter
     , trParameterKey
     , trDefaultValue
     , trNoEcho
     , trDescription
-
     ) where
 
 import Network.AWS.Prelude
@@ -364,24 +367,28 @@ data Output = Output
 
 -- | The key associated with the output.
 otOutputKey :: Lens' Output (Maybe Text)
-otOutputKey f x =
-    f (_otOutputKey x)
-        <&> \y -> x { _otOutputKey = y }
+otOutputKey = lens _otOutputKey (\s a -> s { _otOutputKey = a })
 {-# INLINE otOutputKey #-}
 
 -- | The value associated with the output.
 otOutputValue :: Lens' Output (Maybe Text)
-otOutputValue f x =
-    f (_otOutputValue x)
-        <&> \y -> x { _otOutputValue = y }
+otOutputValue = lens _otOutputValue (\s a -> s { _otOutputValue = a })
 {-# INLINE otOutputValue #-}
 
 -- | User defined description associated with the output.
 otDescription :: Lens' Output (Maybe Text)
-otDescription f x =
-    f (_otDescription x)
-        <&> \y -> x { _otDescription = y }
+otDescription = lens _otDescription (\s a -> s { _otDescription = a })
 {-# INLINE otDescription #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Output' data type to populate a request.
+mkOutput :: Output
+mkOutput = Output
+    { _otOutputKey = Nothing
+    , _otOutputValue = Nothing
+    , _otDescription = Nothing
+    }
+{-# INLINE mkOutput #-}
 
 instance FromXML Output where
     fromXMLOptions = xmlOptions
@@ -403,25 +410,29 @@ data Parameter = Parameter
 
 -- | The key associated with the parameter.
 qParameterKey :: Lens' Parameter (Maybe Text)
-qParameterKey f x =
-    f (_qParameterKey x)
-        <&> \y -> x { _qParameterKey = y }
+qParameterKey = lens _qParameterKey (\s a -> s { _qParameterKey = a })
 {-# INLINE qParameterKey #-}
 
 -- | The value associated with the parameter.
 qParameterValue :: Lens' Parameter (Maybe Text)
-qParameterValue f x =
-    f (_qParameterValue x)
-        <&> \y -> x { _qParameterValue = y }
+qParameterValue = lens _qParameterValue (\s a -> s { _qParameterValue = a })
 {-# INLINE qParameterValue #-}
 
 -- | During a stack update, use the existing parameter value that is being used
 -- for the stack.
 qUsePreviousValue :: Lens' Parameter (Maybe Bool)
-qUsePreviousValue f x =
-    f (_qUsePreviousValue x)
-        <&> \y -> x { _qUsePreviousValue = y }
+qUsePreviousValue = lens _qUsePreviousValue (\s a -> s { _qUsePreviousValue = a })
 {-# INLINE qUsePreviousValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Parameter' data type to populate a request.
+mkParameter :: Parameter
+mkParameter = Parameter
+    { _qParameterKey = Nothing
+    , _qParameterValue = Nothing
+    , _qUsePreviousValue = Nothing
+    }
+{-# INLINE mkParameter #-}
 
 instance FromXML Parameter where
     fromXMLOptions = xmlOptions
@@ -467,102 +478,74 @@ data Stack = Stack
 
 -- | Unique identifier of the stack.
 yStackId :: Lens' Stack (Maybe Text)
-yStackId f x =
-    f (_yStackId x)
-        <&> \y -> x { _yStackId = y }
+yStackId = lens _yStackId (\s a -> s { _yStackId = a })
 {-# INLINE yStackId #-}
 
 -- | The name associated with the stack.
 yStackName :: Lens' Stack (Text)
-yStackName f x =
-    f (_yStackName x)
-        <&> \y -> x { _yStackName = y }
+yStackName = lens _yStackName (\s a -> s { _yStackName = a })
 {-# INLINE yStackName #-}
 
 -- | User defined description associated with the stack.
 yDescription :: Lens' Stack (Maybe Text)
-yDescription f x =
-    f (_yDescription x)
-        <&> \y -> x { _yDescription = y }
+yDescription = lens _yDescription (\s a -> s { _yDescription = a })
 {-# INLINE yDescription #-}
 
 -- | A list of Parameter structures.
 yParameters :: Lens' Stack ([Parameter])
-yParameters f x =
-    f (_yParameters x)
-        <&> \y -> x { _yParameters = y }
+yParameters = lens _yParameters (\s a -> s { _yParameters = a })
 {-# INLINE yParameters #-}
 
 -- | Time at which the stack was created.
 yCreationTime :: Lens' Stack (ISO8601)
-yCreationTime f x =
-    f (_yCreationTime x)
-        <&> \y -> x { _yCreationTime = y }
+yCreationTime = lens _yCreationTime (\s a -> s { _yCreationTime = a })
 {-# INLINE yCreationTime #-}
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
 yLastUpdatedTime :: Lens' Stack (Maybe ISO8601)
-yLastUpdatedTime f x =
-    f (_yLastUpdatedTime x)
-        <&> \y -> x { _yLastUpdatedTime = y }
+yLastUpdatedTime = lens _yLastUpdatedTime (\s a -> s { _yLastUpdatedTime = a })
 {-# INLINE yLastUpdatedTime #-}
 
 -- | Current status of the stack.
 yStackStatus :: Lens' Stack (StackStatus)
-yStackStatus f x =
-    f (_yStackStatus x)
-        <&> \y -> x { _yStackStatus = y }
+yStackStatus = lens _yStackStatus (\s a -> s { _yStackStatus = a })
 {-# INLINE yStackStatus #-}
 
 -- | Success/failure message associated with the stack status.
 yStackStatusReason :: Lens' Stack (Maybe Text)
-yStackStatusReason f x =
-    f (_yStackStatusReason x)
-        <&> \y -> x { _yStackStatusReason = y }
+yStackStatusReason = lens _yStackStatusReason (\s a -> s { _yStackStatusReason = a })
 {-# INLINE yStackStatusReason #-}
 
 -- | Boolean to enable or disable rollback on stack creation failures: true:
 -- disable rollback false: enable rollback.
 yDisableRollback :: Lens' Stack (Maybe Bool)
-yDisableRollback f x =
-    f (_yDisableRollback x)
-        <&> \y -> x { _yDisableRollback = y }
+yDisableRollback = lens _yDisableRollback (\s a -> s { _yDisableRollback = a })
 {-# INLINE yDisableRollback #-}
 
 -- | SNS topic ARNs to which stack related events are published.
 yNotificationARNs :: Lens' Stack ([Text])
-yNotificationARNs f x =
-    f (_yNotificationARNs x)
-        <&> \y -> x { _yNotificationARNs = y }
+yNotificationARNs = lens _yNotificationARNs (\s a -> s { _yNotificationARNs = a })
 {-# INLINE yNotificationARNs #-}
 
 -- | The amount of time within which stack creation should complete.
 yTimeoutInMinutes :: Lens' Stack (Maybe Integer)
-yTimeoutInMinutes f x =
-    f (_yTimeoutInMinutes x)
-        <&> \y -> x { _yTimeoutInMinutes = y }
+yTimeoutInMinutes = lens _yTimeoutInMinutes (\s a -> s { _yTimeoutInMinutes = a })
 {-# INLINE yTimeoutInMinutes #-}
 
 -- | The capabilities allowed in the stack.
 yCapabilities :: Lens' Stack ([Capability])
-yCapabilities f x =
-    f (_yCapabilities x)
-        <&> \y -> x { _yCapabilities = y }
+yCapabilities = lens _yCapabilities (\s a -> s { _yCapabilities = a })
 {-# INLINE yCapabilities #-}
 
 -- | A list of output structures.
 yOutputs :: Lens' Stack ([Output])
-yOutputs f x =
-    f (_yOutputs x)
-        <&> \y -> x { _yOutputs = y }
+yOutputs = lens _yOutputs (\s a -> s { _yOutputs = a })
 {-# INLINE yOutputs #-}
 
 -- | A list of Tags that specify cost allocation information for the stack.
 yTags :: Lens' Stack ([Tag])
-yTags f x =
-    f (_yTags x)
-        <&> \y -> x { _yTags = y }
+yTags = lens _yTags (\s a -> s { _yTags = a })
 {-# INLINE yTags #-}
 
 instance FromXML Stack where
@@ -597,74 +580,54 @@ data StackEvent = StackEvent
 
 -- | The unique ID name of the instance of the stack.
 sfStackId :: Lens' StackEvent (Text)
-sfStackId f x =
-    f (_sfStackId x)
-        <&> \y -> x { _sfStackId = y }
+sfStackId = lens _sfStackId (\s a -> s { _sfStackId = a })
 {-# INLINE sfStackId #-}
 
 -- | The unique ID of this event.
 sfEventId :: Lens' StackEvent (Text)
-sfEventId f x =
-    f (_sfEventId x)
-        <&> \y -> x { _sfEventId = y }
+sfEventId = lens _sfEventId (\s a -> s { _sfEventId = a })
 {-# INLINE sfEventId #-}
 
 -- | The name associated with a stack.
 sfStackName :: Lens' StackEvent (Text)
-sfStackName f x =
-    f (_sfStackName x)
-        <&> \y -> x { _sfStackName = y }
+sfStackName = lens _sfStackName (\s a -> s { _sfStackName = a })
 {-# INLINE sfStackName #-}
 
 -- | The logical name of the resource specified in the template.
 sfLogicalResourceId :: Lens' StackEvent (Maybe Text)
-sfLogicalResourceId f x =
-    f (_sfLogicalResourceId x)
-        <&> \y -> x { _sfLogicalResourceId = y }
+sfLogicalResourceId = lens _sfLogicalResourceId (\s a -> s { _sfLogicalResourceId = a })
 {-# INLINE sfLogicalResourceId #-}
 
 -- | The name or unique identifier associated with the physical instance of the
 -- resource.
 sfPhysicalResourceId :: Lens' StackEvent (Maybe Text)
-sfPhysicalResourceId f x =
-    f (_sfPhysicalResourceId x)
-        <&> \y -> x { _sfPhysicalResourceId = y }
+sfPhysicalResourceId = lens _sfPhysicalResourceId (\s a -> s { _sfPhysicalResourceId = a })
 {-# INLINE sfPhysicalResourceId #-}
 
 -- | Type of resource. (For more information, go to AWS Resource Types Reference
 -- in the AWS CloudFormation User Guide.).
 sfResourceType :: Lens' StackEvent (Maybe Text)
-sfResourceType f x =
-    f (_sfResourceType x)
-        <&> \y -> x { _sfResourceType = y }
+sfResourceType = lens _sfResourceType (\s a -> s { _sfResourceType = a })
 {-# INLINE sfResourceType #-}
 
 -- | Time the status was updated.
 sfTimestamp :: Lens' StackEvent (ISO8601)
-sfTimestamp f x =
-    f (_sfTimestamp x)
-        <&> \y -> x { _sfTimestamp = y }
+sfTimestamp = lens _sfTimestamp (\s a -> s { _sfTimestamp = a })
 {-# INLINE sfTimestamp #-}
 
 -- | Current status of the resource.
 sfResourceStatus :: Lens' StackEvent (Maybe ResourceStatus)
-sfResourceStatus f x =
-    f (_sfResourceStatus x)
-        <&> \y -> x { _sfResourceStatus = y }
+sfResourceStatus = lens _sfResourceStatus (\s a -> s { _sfResourceStatus = a })
 {-# INLINE sfResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
 sfResourceStatusReason :: Lens' StackEvent (Maybe Text)
-sfResourceStatusReason f x =
-    f (_sfResourceStatusReason x)
-        <&> \y -> x { _sfResourceStatusReason = y }
+sfResourceStatusReason = lens _sfResourceStatusReason (\s a -> s { _sfResourceStatusReason = a })
 {-# INLINE sfResourceStatusReason #-}
 
 -- | BLOB of the properties used to create the resource.
 sfResourceProperties :: Lens' StackEvent (Maybe Text)
-sfResourceProperties f x =
-    f (_sfResourceProperties x)
-        <&> \y -> x { _sfResourceProperties = y }
+sfResourceProperties = lens _sfResourceProperties (\s a -> s { _sfResourceProperties = a })
 {-# INLINE sfResourceProperties #-}
 
 instance FromXML StackEvent where
@@ -697,67 +660,49 @@ data StackResource = StackResource
 
 -- | The name associated with the stack.
 swStackName :: Lens' StackResource (Maybe Text)
-swStackName f x =
-    f (_swStackName x)
-        <&> \y -> x { _swStackName = y }
+swStackName = lens _swStackName (\s a -> s { _swStackName = a })
 {-# INLINE swStackName #-}
 
 -- | Unique identifier of the stack.
 swStackId :: Lens' StackResource (Maybe Text)
-swStackId f x =
-    f (_swStackId x)
-        <&> \y -> x { _swStackId = y }
+swStackId = lens _swStackId (\s a -> s { _swStackId = a })
 {-# INLINE swStackId #-}
 
 -- | The logical name of the resource specified in the template.
 swLogicalResourceId :: Lens' StackResource (Text)
-swLogicalResourceId f x =
-    f (_swLogicalResourceId x)
-        <&> \y -> x { _swLogicalResourceId = y }
+swLogicalResourceId = lens _swLogicalResourceId (\s a -> s { _swLogicalResourceId = a })
 {-# INLINE swLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- a resource supported by AWS CloudFormation.
 swPhysicalResourceId :: Lens' StackResource (Maybe Text)
-swPhysicalResourceId f x =
-    f (_swPhysicalResourceId x)
-        <&> \y -> x { _swPhysicalResourceId = y }
+swPhysicalResourceId = lens _swPhysicalResourceId (\s a -> s { _swPhysicalResourceId = a })
 {-# INLINE swPhysicalResourceId #-}
 
 -- | Type of resource. (For more information, go to AWS Resource Types Reference
 -- in the AWS CloudFormation User Guide.).
 swResourceType :: Lens' StackResource (Text)
-swResourceType f x =
-    f (_swResourceType x)
-        <&> \y -> x { _swResourceType = y }
+swResourceType = lens _swResourceType (\s a -> s { _swResourceType = a })
 {-# INLINE swResourceType #-}
 
 -- | Time the status was updated.
 swTimestamp :: Lens' StackResource (ISO8601)
-swTimestamp f x =
-    f (_swTimestamp x)
-        <&> \y -> x { _swTimestamp = y }
+swTimestamp = lens _swTimestamp (\s a -> s { _swTimestamp = a })
 {-# INLINE swTimestamp #-}
 
 -- | Current status of the resource.
 swResourceStatus :: Lens' StackResource (ResourceStatus)
-swResourceStatus f x =
-    f (_swResourceStatus x)
-        <&> \y -> x { _swResourceStatus = y }
+swResourceStatus = lens _swResourceStatus (\s a -> s { _swResourceStatus = a })
 {-# INLINE swResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
 swResourceStatusReason :: Lens' StackResource (Maybe Text)
-swResourceStatusReason f x =
-    f (_swResourceStatusReason x)
-        <&> \y -> x { _swResourceStatusReason = y }
+swResourceStatusReason = lens _swResourceStatusReason (\s a -> s { _swResourceStatusReason = a })
 {-# INLINE swResourceStatusReason #-}
 
 -- | User defined description associated with the resource.
 swDescription :: Lens' StackResource (Maybe Text)
-swDescription f x =
-    f (_swDescription x)
-        <&> \y -> x { _swDescription = y }
+swDescription = lens _swDescription (\s a -> s { _swDescription = a })
 {-# INLINE swDescription #-}
 
 instance FromXML StackResource where
@@ -795,76 +740,56 @@ data StackResourceDetail = StackResourceDetail
 
 -- | The name associated with the stack.
 srdStackName :: Lens' StackResourceDetail (Maybe Text)
-srdStackName f x =
-    f (_srdStackName x)
-        <&> \y -> x { _srdStackName = y }
+srdStackName = lens _srdStackName (\s a -> s { _srdStackName = a })
 {-# INLINE srdStackName #-}
 
 -- | Unique identifier of the stack.
 srdStackId :: Lens' StackResourceDetail (Maybe Text)
-srdStackId f x =
-    f (_srdStackId x)
-        <&> \y -> x { _srdStackId = y }
+srdStackId = lens _srdStackId (\s a -> s { _srdStackId = a })
 {-# INLINE srdStackId #-}
 
 -- | The logical name of the resource specified in the template.
 srdLogicalResourceId :: Lens' StackResourceDetail (Text)
-srdLogicalResourceId f x =
-    f (_srdLogicalResourceId x)
-        <&> \y -> x { _srdLogicalResourceId = y }
+srdLogicalResourceId = lens _srdLogicalResourceId (\s a -> s { _srdLogicalResourceId = a })
 {-# INLINE srdLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- a resource supported by AWS CloudFormation.
 srdPhysicalResourceId :: Lens' StackResourceDetail (Maybe Text)
-srdPhysicalResourceId f x =
-    f (_srdPhysicalResourceId x)
-        <&> \y -> x { _srdPhysicalResourceId = y }
+srdPhysicalResourceId = lens _srdPhysicalResourceId (\s a -> s { _srdPhysicalResourceId = a })
 {-# INLINE srdPhysicalResourceId #-}
 
 -- | Type of resource. ((For more information, go to AWS Resource Types
 -- Reference in the AWS CloudFormation User Guide.).
 srdResourceType :: Lens' StackResourceDetail (Text)
-srdResourceType f x =
-    f (_srdResourceType x)
-        <&> \y -> x { _srdResourceType = y }
+srdResourceType = lens _srdResourceType (\s a -> s { _srdResourceType = a })
 {-# INLINE srdResourceType #-}
 
 -- | Time the status was updated.
 srdLastUpdatedTimestamp :: Lens' StackResourceDetail (ISO8601)
-srdLastUpdatedTimestamp f x =
-    f (_srdLastUpdatedTimestamp x)
-        <&> \y -> x { _srdLastUpdatedTimestamp = y }
+srdLastUpdatedTimestamp = lens _srdLastUpdatedTimestamp (\s a -> s { _srdLastUpdatedTimestamp = a })
 {-# INLINE srdLastUpdatedTimestamp #-}
 
 -- | Current status of the resource.
 srdResourceStatus :: Lens' StackResourceDetail (ResourceStatus)
-srdResourceStatus f x =
-    f (_srdResourceStatus x)
-        <&> \y -> x { _srdResourceStatus = y }
+srdResourceStatus = lens _srdResourceStatus (\s a -> s { _srdResourceStatus = a })
 {-# INLINE srdResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
 srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
-srdResourceStatusReason f x =
-    f (_srdResourceStatusReason x)
-        <&> \y -> x { _srdResourceStatusReason = y }
+srdResourceStatusReason = lens _srdResourceStatusReason (\s a -> s { _srdResourceStatusReason = a })
 {-# INLINE srdResourceStatusReason #-}
 
 -- | User defined description associated with the resource.
 srdDescription :: Lens' StackResourceDetail (Maybe Text)
-srdDescription f x =
-    f (_srdDescription x)
-        <&> \y -> x { _srdDescription = y }
+srdDescription = lens _srdDescription (\s a -> s { _srdDescription = a })
 {-# INLINE srdDescription #-}
 
 -- | The JSON format content of the Metadata attribute declared for the
 -- resource. For more information, see Metadata Attribute in the AWS
 -- CloudFormation User Guide.
 srdMetadata :: Lens' StackResourceDetail (Maybe Text)
-srdMetadata f x =
-    f (_srdMetadata x)
-        <&> \y -> x { _srdMetadata = y }
+srdMetadata = lens _srdMetadata (\s a -> s { _srdMetadata = a })
 {-# INLINE srdMetadata #-}
 
 instance FromXML StackResourceDetail where
@@ -891,46 +816,34 @@ data StackResourceSummary = StackResourceSummary
 
 -- | The logical name of the resource specified in the template.
 srtLogicalResourceId :: Lens' StackResourceSummary (Text)
-srtLogicalResourceId f x =
-    f (_srtLogicalResourceId x)
-        <&> \y -> x { _srtLogicalResourceId = y }
+srtLogicalResourceId = lens _srtLogicalResourceId (\s a -> s { _srtLogicalResourceId = a })
 {-# INLINE srtLogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- the resource.
 srtPhysicalResourceId :: Lens' StackResourceSummary (Maybe Text)
-srtPhysicalResourceId f x =
-    f (_srtPhysicalResourceId x)
-        <&> \y -> x { _srtPhysicalResourceId = y }
+srtPhysicalResourceId = lens _srtPhysicalResourceId (\s a -> s { _srtPhysicalResourceId = a })
 {-# INLINE srtPhysicalResourceId #-}
 
 -- | Type of resource. (For more information, go to AWS Resource Types Reference
 -- in the AWS CloudFormation User Guide.).
 srtResourceType :: Lens' StackResourceSummary (Text)
-srtResourceType f x =
-    f (_srtResourceType x)
-        <&> \y -> x { _srtResourceType = y }
+srtResourceType = lens _srtResourceType (\s a -> s { _srtResourceType = a })
 {-# INLINE srtResourceType #-}
 
 -- | Time the status was updated.
 srtLastUpdatedTimestamp :: Lens' StackResourceSummary (ISO8601)
-srtLastUpdatedTimestamp f x =
-    f (_srtLastUpdatedTimestamp x)
-        <&> \y -> x { _srtLastUpdatedTimestamp = y }
+srtLastUpdatedTimestamp = lens _srtLastUpdatedTimestamp (\s a -> s { _srtLastUpdatedTimestamp = a })
 {-# INLINE srtLastUpdatedTimestamp #-}
 
 -- | Current status of the resource.
 srtResourceStatus :: Lens' StackResourceSummary (ResourceStatus)
-srtResourceStatus f x =
-    f (_srtResourceStatus x)
-        <&> \y -> x { _srtResourceStatus = y }
+srtResourceStatus = lens _srtResourceStatus (\s a -> s { _srtResourceStatus = a })
 {-# INLINE srtResourceStatus #-}
 
 -- | Success/failure message associated with the resource.
 srtResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
-srtResourceStatusReason f x =
-    f (_srtResourceStatusReason x)
-        <&> \y -> x { _srtResourceStatusReason = y }
+srtResourceStatusReason = lens _srtResourceStatusReason (\s a -> s { _srtResourceStatusReason = a })
 {-# INLINE srtResourceStatusReason #-}
 
 instance FromXML StackResourceSummary where
@@ -961,59 +874,43 @@ data StackSummary = StackSummary
 
 -- | Unique stack identifier.
 ssyStackId :: Lens' StackSummary (Maybe Text)
-ssyStackId f x =
-    f (_ssyStackId x)
-        <&> \y -> x { _ssyStackId = y }
+ssyStackId = lens _ssyStackId (\s a -> s { _ssyStackId = a })
 {-# INLINE ssyStackId #-}
 
 -- | The name associated with the stack.
 ssyStackName :: Lens' StackSummary (Text)
-ssyStackName f x =
-    f (_ssyStackName x)
-        <&> \y -> x { _ssyStackName = y }
+ssyStackName = lens _ssyStackName (\s a -> s { _ssyStackName = a })
 {-# INLINE ssyStackName #-}
 
 -- | The template description of the template used to create the stack.
 ssyTemplateDescription :: Lens' StackSummary (Maybe Text)
-ssyTemplateDescription f x =
-    f (_ssyTemplateDescription x)
-        <&> \y -> x { _ssyTemplateDescription = y }
+ssyTemplateDescription = lens _ssyTemplateDescription (\s a -> s { _ssyTemplateDescription = a })
 {-# INLINE ssyTemplateDescription #-}
 
 -- | The time the stack was created.
 ssyCreationTime :: Lens' StackSummary (ISO8601)
-ssyCreationTime f x =
-    f (_ssyCreationTime x)
-        <&> \y -> x { _ssyCreationTime = y }
+ssyCreationTime = lens _ssyCreationTime (\s a -> s { _ssyCreationTime = a })
 {-# INLINE ssyCreationTime #-}
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
 ssyLastUpdatedTime :: Lens' StackSummary (Maybe ISO8601)
-ssyLastUpdatedTime f x =
-    f (_ssyLastUpdatedTime x)
-        <&> \y -> x { _ssyLastUpdatedTime = y }
+ssyLastUpdatedTime = lens _ssyLastUpdatedTime (\s a -> s { _ssyLastUpdatedTime = a })
 {-# INLINE ssyLastUpdatedTime #-}
 
 -- | The time the stack was deleted.
 ssyDeletionTime :: Lens' StackSummary (Maybe ISO8601)
-ssyDeletionTime f x =
-    f (_ssyDeletionTime x)
-        <&> \y -> x { _ssyDeletionTime = y }
+ssyDeletionTime = lens _ssyDeletionTime (\s a -> s { _ssyDeletionTime = a })
 {-# INLINE ssyDeletionTime #-}
 
 -- | The current status of the stack.
 ssyStackStatus :: Lens' StackSummary (StackStatus)
-ssyStackStatus f x =
-    f (_ssyStackStatus x)
-        <&> \y -> x { _ssyStackStatus = y }
+ssyStackStatus = lens _ssyStackStatus (\s a -> s { _ssyStackStatus = a })
 {-# INLINE ssyStackStatus #-}
 
 -- | Success/Failure message associated with the stack status.
 ssyStackStatusReason :: Lens' StackSummary (Maybe Text)
-ssyStackStatusReason f x =
-    f (_ssyStackStatusReason x)
-        <&> \y -> x { _ssyStackStatusReason = y }
+ssyStackStatusReason = lens _ssyStackStatusReason (\s a -> s { _ssyStackStatusReason = a })
 {-# INLINE ssyStackStatusReason #-}
 
 instance FromXML StackSummary where
@@ -1037,18 +934,23 @@ data Tag = Tag
 -- 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have
 -- the reserved prefix: aws:.
 uKey :: Lens' Tag (Maybe Text)
-uKey f x =
-    f (_uKey x)
-        <&> \y -> x { _uKey = y }
+uKey = lens _uKey (\s a -> s { _uKey = a })
 {-# INLINE uKey #-}
 
 -- | Required. A string containing the value for this tag. You can specify a
 -- maximum of 256 characters for a tag value.
 uValue :: Lens' Tag (Maybe Text)
-uValue f x =
-    f (_uValue x)
-        <&> \y -> x { _uValue = y }
+uValue = lens _uValue (\s a -> s { _uValue = a })
 {-# INLINE uValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Tag' data type to populate a request.
+mkTag :: Tag
+mkTag = Tag
+    { _uKey = Nothing
+    , _uValue = Nothing
+    }
+{-# INLINE mkTag #-}
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
@@ -1072,31 +974,23 @@ data TemplateParameter = TemplateParameter
 
 -- | The name associated with the parameter.
 trParameterKey :: Lens' TemplateParameter (Maybe Text)
-trParameterKey f x =
-    f (_trParameterKey x)
-        <&> \y -> x { _trParameterKey = y }
+trParameterKey = lens _trParameterKey (\s a -> s { _trParameterKey = a })
 {-# INLINE trParameterKey #-}
 
 -- | The default value associated with the parameter.
 trDefaultValue :: Lens' TemplateParameter (Maybe Text)
-trDefaultValue f x =
-    f (_trDefaultValue x)
-        <&> \y -> x { _trDefaultValue = y }
+trDefaultValue = lens _trDefaultValue (\s a -> s { _trDefaultValue = a })
 {-# INLINE trDefaultValue #-}
 
 -- | Flag indicating whether the parameter should be displayed as plain text in
 -- logs and UIs.
 trNoEcho :: Lens' TemplateParameter (Maybe Bool)
-trNoEcho f x =
-    f (_trNoEcho x)
-        <&> \y -> x { _trNoEcho = y }
+trNoEcho = lens _trNoEcho (\s a -> s { _trNoEcho = a })
 {-# INLINE trNoEcho #-}
 
 -- | User defined description associated with the parameter.
 trDescription :: Lens' TemplateParameter (Maybe Text)
-trDescription f x =
-    f (_trDescription x)
-        <&> \y -> x { _trDescription = y }
+trDescription = lens _trDescription (\s a -> s { _trDescription = a })
 {-# INLINE trDescription #-}
 
 instance FromXML TemplateParameter where

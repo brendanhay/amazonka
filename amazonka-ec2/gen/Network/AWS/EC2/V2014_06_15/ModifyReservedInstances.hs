@@ -35,11 +35,11 @@ module Network.AWS.EC2.V2014_06_15.ModifyReservedInstances
     -- * Request
       ModifyReservedInstances
     -- ** Request constructor
-    , modifyReservedInstances
+    , mkModifyReservedInstancesRequest
     -- ** Request lenses
-    , mrirTargetConfigurations
-    , mrirReservedInstancesIds
     , mrirClientToken
+    , mrirReservedInstancesIds
+    , mrirTargetConfigurations
 
     -- * Response
     , ModifyReservedInstancesResponse
@@ -51,62 +51,55 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyReservedInstances' request.
-modifyReservedInstances :: [ReservedInstancesConfiguration] -- ^ 'mrirTargetConfigurations'
-                        -> [Text] -- ^ 'mrirReservedInstancesIds'
-                        -> ModifyReservedInstances
-modifyReservedInstances p1 p2 = ModifyReservedInstances
-    { _mrirTargetConfigurations = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyReservedInstances' request.
+mkModifyReservedInstancesRequest :: [Text] -- ^ 'mrirReservedInstancesIds'
+                                 -> [ReservedInstancesConfiguration] -- ^ 'mrirTargetConfigurations'
+                                 -> ModifyReservedInstances
+mkModifyReservedInstancesRequest p1 p2 = ModifyReservedInstances
+    { _mrirClientToken = Nothing
     , _mrirReservedInstancesIds = p2
-    , _mrirClientToken = Nothing
+    , _mrirTargetConfigurations = p3
     }
-{-# INLINE modifyReservedInstances #-}
+{-# INLINE mkModifyReservedInstancesRequest #-}
 
 data ModifyReservedInstances = ModifyReservedInstances
-    { _mrirTargetConfigurations :: [ReservedInstancesConfiguration]
-      -- ^ The configuration settings for the Reserved Instances to modify.
-    , _mrirReservedInstancesIds :: [Text]
-      -- ^ The IDs of the Reserved Instances to modify.
-    , _mrirClientToken :: Maybe Text
+    { _mrirClientToken :: Maybe Text
       -- ^ A unique, case-sensitive token you provide to ensure idempotency
       -- of your modification request.
+    , _mrirReservedInstancesIds :: [Text]
+      -- ^ The IDs of the Reserved Instances to modify.
+    , _mrirTargetConfigurations :: [ReservedInstancesConfiguration]
+      -- ^ The configuration settings for the Reserved Instances to modify.
     } deriving (Show, Generic)
-
--- | The configuration settings for the Reserved Instances to modify.
-mrirTargetConfigurations :: Lens' ModifyReservedInstances ([ReservedInstancesConfiguration])
-mrirTargetConfigurations f x =
-    f (_mrirTargetConfigurations x)
-        <&> \y -> x { _mrirTargetConfigurations = y }
-{-# INLINE mrirTargetConfigurations #-}
-
--- | The IDs of the Reserved Instances to modify.
-mrirReservedInstancesIds :: Lens' ModifyReservedInstances ([Text])
-mrirReservedInstancesIds f x =
-    f (_mrirReservedInstancesIds x)
-        <&> \y -> x { _mrirReservedInstancesIds = y }
-{-# INLINE mrirReservedInstancesIds #-}
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request.
 mrirClientToken :: Lens' ModifyReservedInstances (Maybe Text)
-mrirClientToken f x =
-    f (_mrirClientToken x)
-        <&> \y -> x { _mrirClientToken = y }
+mrirClientToken = lens _mrirClientToken (\s a -> s { _mrirClientToken = a })
 {-# INLINE mrirClientToken #-}
+
+-- | The IDs of the Reserved Instances to modify.
+mrirReservedInstancesIds :: Lens' ModifyReservedInstances ([Text])
+mrirReservedInstancesIds = lens _mrirReservedInstancesIds (\s a -> s { _mrirReservedInstancesIds = a })
+{-# INLINE mrirReservedInstancesIds #-}
+
+-- | The configuration settings for the Reserved Instances to modify.
+mrirTargetConfigurations :: Lens' ModifyReservedInstances ([ReservedInstancesConfiguration])
+mrirTargetConfigurations = lens _mrirTargetConfigurations (\s a -> s { _mrirTargetConfigurations = a })
+{-# INLINE mrirTargetConfigurations #-}
 
 instance ToQuery ModifyReservedInstances where
     toQuery = genericQuery def
 
-data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
+newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrisReservedInstancesModificationId :: Maybe Text
       -- ^ The ID for the modification.
     } deriving (Show, Generic)
 
 -- | The ID for the modification.
 mrisReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
-mrisReservedInstancesModificationId f x =
-    f (_mrisReservedInstancesModificationId x)
-        <&> \y -> x { _mrisReservedInstancesModificationId = y }
+mrisReservedInstancesModificationId = lens _mrisReservedInstancesModificationId (\s a -> s { _mrisReservedInstancesModificationId = a })
 {-# INLINE mrisReservedInstancesModificationId #-}
 
 instance FromXML ModifyReservedInstancesResponse where

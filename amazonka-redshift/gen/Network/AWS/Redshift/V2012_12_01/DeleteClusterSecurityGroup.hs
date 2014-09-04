@@ -33,7 +33,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup
     -- * Request
       DeleteClusterSecurityGroup
     -- ** Request constructor
-    , deleteClusterSecurityGroup
+    , mkDeleteClusterSecurityGroupMessage
     -- ** Request lenses
     , dcsgmClusterSecurityGroupName
 
@@ -45,24 +45,23 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteClusterSecurityGroup' request.
-deleteClusterSecurityGroup :: Text -- ^ 'dcsgmClusterSecurityGroupName'
-                           -> DeleteClusterSecurityGroup
-deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSecurityGroup' request.
+mkDeleteClusterSecurityGroupMessage :: Text -- ^ 'dcsgmClusterSecurityGroupName'
+                                    -> DeleteClusterSecurityGroup
+mkDeleteClusterSecurityGroupMessage p1 = DeleteClusterSecurityGroup
     { _dcsgmClusterSecurityGroupName = p1
     }
-{-# INLINE deleteClusterSecurityGroup #-}
+{-# INLINE mkDeleteClusterSecurityGroupMessage #-}
 
-data DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
+newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     { _dcsgmClusterSecurityGroupName :: Text
       -- ^ The name of the cluster security group to be deleted.
     } deriving (Show, Generic)
 
 -- | The name of the cluster security group to be deleted.
 dcsgmClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup (Text)
-dcsgmClusterSecurityGroupName f x =
-    f (_dcsgmClusterSecurityGroupName x)
-        <&> \y -> x { _dcsgmClusterSecurityGroupName = y }
+dcsgmClusterSecurityGroupName = lens _dcsgmClusterSecurityGroupName (\s a -> s { _dcsgmClusterSecurityGroupName = a })
 {-# INLINE dcsgmClusterSecurityGroupName #-}
 
 instance ToQuery DeleteClusterSecurityGroup where

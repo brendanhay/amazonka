@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.V2013_02_18.StopStack
     -- * Request
       StopStack
     -- ** Request constructor
-    , stopStack
+    , mkStopStackRequest
     -- ** Request lenses
     , ssssssssssssssssssssstStackId
 
@@ -39,24 +39,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'StopStack' request.
-stopStack :: Text -- ^ 'ssssssssssssssssssssstStackId'
-          -> StopStack
-stopStack p1 = StopStack
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopStack' request.
+mkStopStackRequest :: Text -- ^ 'ssssssssssssssssssssstStackId'
+                   -> StopStack
+mkStopStackRequest p1 = StopStack
     { _ssssssssssssssssssssstStackId = p1
     }
-{-# INLINE stopStack #-}
+{-# INLINE mkStopStackRequest #-}
 
-data StopStack = StopStack
+newtype StopStack = StopStack
     { _ssssssssssssssssssssstStackId :: Text
       -- ^ The stack ID.
     } deriving (Show, Generic)
 
 -- | The stack ID.
 ssssssssssssssssssssstStackId :: Lens' StopStack (Text)
-ssssssssssssssssssssstStackId f x =
-    f (_ssssssssssssssssssssstStackId x)
-        <&> \y -> x { _ssssssssssssssssssssstStackId = y }
+ssssssssssssssssssssstStackId = lens _ssssssssssssssssssssstStackId (\s a -> s { _ssssssssssssssssssssstStackId = a })
 {-# INLINE ssssssssssssssssssssstStackId #-}
 
 instance ToPath StopStack

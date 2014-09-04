@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls
     -- * Request
       DescribeNetworkAcls
     -- ** Request constructor
-    , describeNetworkAcls
+    , mkDescribeNetworkAclsRequest
     -- ** Request lenses
-    , dnasFilters
     , dnasNetworkAclIds
+    , dnasFilters
 
     -- * Response
     , DescribeNetworkAclsResponse
@@ -48,16 +48,20 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeNetworkAcls' request.
-describeNetworkAcls :: DescribeNetworkAcls
-describeNetworkAcls = DescribeNetworkAcls
-    { _dnasFilters = mempty
-    , _dnasNetworkAclIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkAcls' request.
+mkDescribeNetworkAclsRequest :: DescribeNetworkAcls
+mkDescribeNetworkAclsRequest = DescribeNetworkAcls
+    { _dnasNetworkAclIds = mempty
+    , _dnasFilters = mempty
     }
-{-# INLINE describeNetworkAcls #-}
+{-# INLINE mkDescribeNetworkAclsRequest #-}
 
 data DescribeNetworkAcls = DescribeNetworkAcls
-    { _dnasFilters :: [Filter]
+    { _dnasNetworkAclIds :: [Text]
+      -- ^ One or more network ACL IDs. Default: Describes all your network
+      -- ACLs.
+    , _dnasFilters :: [Filter]
       -- ^ One or more filters. association.association-id - The ID of an
       -- association ID for the ACL. association.network-acl-id - The ID
       -- of the network ACL involved in the association.
@@ -86,10 +90,12 @@ data DescribeNetworkAcls = DescribeNetworkAcls
       -- of a tag assigned to the resource. This filter is independent of
       -- the tag-key filter. vpc-id - The ID of the VPC for the network
       -- ACL.
-    , _dnasNetworkAclIds :: [Text]
-      -- ^ One or more network ACL IDs. Default: Describes all your network
-      -- ACLs.
     } deriving (Show, Generic)
+
+-- | One or more network ACL IDs. Default: Describes all your network ACLs.
+dnasNetworkAclIds :: Lens' DescribeNetworkAcls ([Text])
+dnasNetworkAclIds = lens _dnasNetworkAclIds (\s a -> s { _dnasNetworkAclIds = a })
+{-# INLINE dnasNetworkAclIds #-}
 
 -- | One or more filters. association.association-id - The ID of an association
 -- ID for the ACL. association.network-acl-id - The ID of the network ACL
@@ -116,31 +122,20 @@ data DescribeNetworkAcls = DescribeNetworkAcls
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the network ACL.
 dnasFilters :: Lens' DescribeNetworkAcls ([Filter])
-dnasFilters f x =
-    f (_dnasFilters x)
-        <&> \y -> x { _dnasFilters = y }
+dnasFilters = lens _dnasFilters (\s a -> s { _dnasFilters = a })
 {-# INLINE dnasFilters #-}
-
--- | One or more network ACL IDs. Default: Describes all your network ACLs.
-dnasNetworkAclIds :: Lens' DescribeNetworkAcls ([Text])
-dnasNetworkAclIds f x =
-    f (_dnasNetworkAclIds x)
-        <&> \y -> x { _dnasNetworkAclIds = y }
-{-# INLINE dnasNetworkAclIds #-}
 
 instance ToQuery DescribeNetworkAcls where
     toQuery = genericQuery def
 
-data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
+newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnatNetworkAcls :: [NetworkAcl]
       -- ^ Information about one or more network ACLs.
     } deriving (Show, Generic)
 
 -- | Information about one or more network ACLs.
 dnatNetworkAcls :: Lens' DescribeNetworkAclsResponse ([NetworkAcl])
-dnatNetworkAcls f x =
-    f (_dnatNetworkAcls x)
-        <&> \y -> x { _dnatNetworkAcls = y }
+dnatNetworkAcls = lens _dnatNetworkAcls (\s a -> s { _dnatNetworkAcls = a })
 {-# INLINE dnatNetworkAcls #-}
 
 instance FromXML DescribeNetworkAclsResponse where

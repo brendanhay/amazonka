@@ -23,7 +23,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances
     -- * Request
       DescribeRdsDbInstances
     -- ** Request constructor
-    , describeRdsDbInstances
+    , mkDescribeRdsDbInstancesRequest
     -- ** Request lenses
     , drdisStackId
     , drdisRdsDbInstanceArns
@@ -39,14 +39,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeRdsDbInstances' request.
-describeRdsDbInstances :: Text -- ^ 'drdisStackId'
-                       -> DescribeRdsDbInstances
-describeRdsDbInstances p1 = DescribeRdsDbInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRdsDbInstances' request.
+mkDescribeRdsDbInstancesRequest :: Text -- ^ 'drdisStackId'
+                                -> DescribeRdsDbInstances
+mkDescribeRdsDbInstancesRequest p1 = DescribeRdsDbInstances
     { _drdisStackId = p1
     , _drdisRdsDbInstanceArns = mempty
     }
-{-# INLINE describeRdsDbInstances #-}
+{-# INLINE mkDescribeRdsDbInstancesRequest #-}
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
     { _drdisStackId :: Text
@@ -60,16 +61,12 @@ data DescribeRdsDbInstances = DescribeRdsDbInstances
 -- | The stack ID that the instances are registered with. The operation returns
 -- descriptions of all registered Amazon RDS instances.
 drdisStackId :: Lens' DescribeRdsDbInstances (Text)
-drdisStackId f x =
-    f (_drdisStackId x)
-        <&> \y -> x { _drdisStackId = y }
+drdisStackId = lens _drdisStackId (\s a -> s { _drdisStackId = a })
 {-# INLINE drdisStackId #-}
 
 -- | An array containing the ARNs of the instances to be described.
 drdisRdsDbInstanceArns :: Lens' DescribeRdsDbInstances ([Text])
-drdisRdsDbInstanceArns f x =
-    f (_drdisRdsDbInstanceArns x)
-        <&> \y -> x { _drdisRdsDbInstanceArns = y }
+drdisRdsDbInstanceArns = lens _drdisRdsDbInstanceArns (\s a -> s { _drdisRdsDbInstanceArns = a })
 {-# INLINE drdisRdsDbInstanceArns #-}
 
 instance ToPath DescribeRdsDbInstances
@@ -80,16 +77,14 @@ instance ToHeaders DescribeRdsDbInstances
 
 instance ToJSON DescribeRdsDbInstances
 
-data DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
+newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drditRdsDbInstances :: [RdsDbInstance]
       -- ^ An a array of RdsDbInstance objects that describe the instances.
     } deriving (Show, Generic)
 
 -- | An a array of RdsDbInstance objects that describe the instances.
 drditRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse ([RdsDbInstance])
-drditRdsDbInstances f x =
-    f (_drditRdsDbInstances x)
-        <&> \y -> x { _drditRdsDbInstances = y }
+drditRdsDbInstances = lens _drditRdsDbInstances (\s a -> s { _drditRdsDbInstances = a })
 {-# INLINE drditRdsDbInstances #-}
 
 instance FromJSON DescribeRdsDbInstancesResponse

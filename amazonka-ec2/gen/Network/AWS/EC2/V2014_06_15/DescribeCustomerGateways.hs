@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
     -- * Request
       DescribeCustomerGateways
     -- ** Request constructor
-    , describeCustomerGateways
+    , mkDescribeCustomerGatewaysRequest
     -- ** Request lenses
     , dcgsCustomerGatewayIds
     , dcgsFilters
@@ -59,13 +59,14 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeCustomerGateways' request.
-describeCustomerGateways :: DescribeCustomerGateways
-describeCustomerGateways = DescribeCustomerGateways
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCustomerGateways' request.
+mkDescribeCustomerGatewaysRequest :: DescribeCustomerGateways
+mkDescribeCustomerGatewaysRequest = DescribeCustomerGateways
     { _dcgsCustomerGatewayIds = mempty
     , _dcgsFilters = mempty
     }
-{-# INLINE describeCustomerGateways #-}
+{-# INLINE mkDescribeCustomerGatewaysRequest #-}
 
 data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcgsCustomerGatewayIds :: [Text]
@@ -94,9 +95,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways
 -- | One or more customer gateway IDs. Default: Describes all your customer
 -- gateways.
 dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways ([Text])
-dcgsCustomerGatewayIds f x =
-    f (_dcgsCustomerGatewayIds x)
-        <&> \y -> x { _dcgsCustomerGatewayIds = y }
+dcgsCustomerGatewayIds = lens _dcgsCustomerGatewayIds (\s a -> s { _dcgsCustomerGatewayIds = a })
 {-# INLINE dcgsCustomerGatewayIds #-}
 
 -- | One or more filters. bgp-asn - The customer gateway's Border Gateway
@@ -115,24 +114,20 @@ dcgsCustomerGatewayIds f x =
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
 dcgsFilters :: Lens' DescribeCustomerGateways ([Filter])
-dcgsFilters f x =
-    f (_dcgsFilters x)
-        <&> \y -> x { _dcgsFilters = y }
+dcgsFilters = lens _dcgsFilters (\s a -> s { _dcgsFilters = a })
 {-# INLINE dcgsFilters #-}
 
 instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
 
-data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
+newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgtCustomerGateways :: [CustomerGateway]
       -- ^ Information about one or more customer gateways.
     } deriving (Show, Generic)
 
 -- | Information about one or more customer gateways.
 dcgtCustomerGateways :: Lens' DescribeCustomerGatewaysResponse ([CustomerGateway])
-dcgtCustomerGateways f x =
-    f (_dcgtCustomerGateways x)
-        <&> \y -> x { _dcgtCustomerGateways = y }
+dcgtCustomerGateways = lens _dcgtCustomerGateways (\s a -> s { _dcgtCustomerGateways = a })
 {-# INLINE dcgtCustomerGateways #-}
 
 instance FromXML DescribeCustomerGatewaysResponse where

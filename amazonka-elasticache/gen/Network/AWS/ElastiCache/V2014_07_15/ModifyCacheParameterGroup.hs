@@ -33,10 +33,10 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup
     -- * Request
       ModifyCacheParameterGroup
     -- ** Request constructor
-    , modifyCacheParameterGroup
+    , mkModifyCacheParameterGroupMessage
     -- ** Request lenses
-    , mcpgmParameterNameValues
     , mcpgmCacheParameterGroupName
+    , mcpgmParameterNameValues
 
     -- * Response
     , ModifyCacheParameterGroupResponse
@@ -48,55 +48,50 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyCacheParameterGroup' request.
-modifyCacheParameterGroup :: [ParameterNameValue] -- ^ 'mcpgmParameterNameValues'
-                          -> Text -- ^ 'mcpgmCacheParameterGroupName'
-                          -> ModifyCacheParameterGroup
-modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
-    { _mcpgmParameterNameValues = p1
-    , _mcpgmCacheParameterGroupName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyCacheParameterGroup' request.
+mkModifyCacheParameterGroupMessage :: Text -- ^ 'mcpgmCacheParameterGroupName'
+                                   -> [ParameterNameValue] -- ^ 'mcpgmParameterNameValues'
+                                   -> ModifyCacheParameterGroup
+mkModifyCacheParameterGroupMessage p1 p2 = ModifyCacheParameterGroup
+    { _mcpgmCacheParameterGroupName = p1
+    , _mcpgmParameterNameValues = p2
     }
-{-# INLINE modifyCacheParameterGroup #-}
+{-# INLINE mkModifyCacheParameterGroupMessage #-}
 
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
-    { _mcpgmParameterNameValues :: [ParameterNameValue]
+    { _mcpgmCacheParameterGroupName :: Text
+      -- ^ The name of the cache parameter group to modify.
+    , _mcpgmParameterNameValues :: [ParameterNameValue]
       -- ^ An array of parameter names and values for the parameter update.
       -- You must supply at least one parameter name and value; subsequent
       -- arguments are optional. A maximum of 20 parameters may be
       -- modified per request.
-    , _mcpgmCacheParameterGroupName :: Text
-      -- ^ The name of the cache parameter group to modify.
     } deriving (Show, Generic)
+
+-- | The name of the cache parameter group to modify.
+mcpgmCacheParameterGroupName :: Lens' ModifyCacheParameterGroup (Text)
+mcpgmCacheParameterGroupName = lens _mcpgmCacheParameterGroupName (\s a -> s { _mcpgmCacheParameterGroupName = a })
+{-# INLINE mcpgmCacheParameterGroupName #-}
 
 -- | An array of parameter names and values for the parameter update. You must
 -- supply at least one parameter name and value; subsequent arguments are
 -- optional. A maximum of 20 parameters may be modified per request.
 mcpgmParameterNameValues :: Lens' ModifyCacheParameterGroup ([ParameterNameValue])
-mcpgmParameterNameValues f x =
-    f (_mcpgmParameterNameValues x)
-        <&> \y -> x { _mcpgmParameterNameValues = y }
+mcpgmParameterNameValues = lens _mcpgmParameterNameValues (\s a -> s { _mcpgmParameterNameValues = a })
 {-# INLINE mcpgmParameterNameValues #-}
-
--- | The name of the cache parameter group to modify.
-mcpgmCacheParameterGroupName :: Lens' ModifyCacheParameterGroup (Text)
-mcpgmCacheParameterGroupName f x =
-    f (_mcpgmCacheParameterGroupName x)
-        <&> \y -> x { _mcpgmCacheParameterGroupName = y }
-{-# INLINE mcpgmCacheParameterGroupName #-}
 
 instance ToQuery ModifyCacheParameterGroup where
     toQuery = genericQuery def
 
-data ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
+newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _cpgnmCacheParameterGroupName :: Maybe Text
       -- ^ The name of the cache parameter group.
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
 cpgnmCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)
-cpgnmCacheParameterGroupName f x =
-    f (_cpgnmCacheParameterGroupName x)
-        <&> \y -> x { _cpgnmCacheParameterGroupName = y }
+cpgnmCacheParameterGroupName = lens _cpgnmCacheParameterGroupName (\s a -> s { _cpgnmCacheParameterGroupName = a })
 {-# INLINE cpgnmCacheParameterGroupName #-}
 
 instance FromXML ModifyCacheParameterGroupResponse where

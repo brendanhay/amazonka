@@ -35,13 +35,13 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBLogFiles
     -- * Request
       DescribeDBLogFiles
     -- ** Request constructor
-    , describeDBLogFiles
+    , mkDescribeDBLogFilesMessage
     -- ** Request lenses
     , ddblfmDBInstanceIdentifier
-    , ddblfmMaxRecords
+    , ddblfmFilenameContains
     , ddblfmFileLastWritten
     , ddblfmFileSize
-    , ddblfmFilenameContains
+    , ddblfmMaxRecords
     , ddblfmMarker
 
     -- * Response
@@ -55,18 +55,19 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDBLogFiles' request.
-describeDBLogFiles :: Text -- ^ 'ddblfmDBInstanceIdentifier'
-                   -> DescribeDBLogFiles
-describeDBLogFiles p1 = DescribeDBLogFiles
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBLogFiles' request.
+mkDescribeDBLogFilesMessage :: Text -- ^ 'ddblfmDBInstanceIdentifier'
+                            -> DescribeDBLogFiles
+mkDescribeDBLogFilesMessage p1 = DescribeDBLogFiles
     { _ddblfmDBInstanceIdentifier = p1
-    , _ddblfmMaxRecords = Nothing
+    , _ddblfmFilenameContains = Nothing
     , _ddblfmFileLastWritten = Nothing
     , _ddblfmFileSize = Nothing
-    , _ddblfmFilenameContains = Nothing
+    , _ddblfmMaxRecords = Nothing
     , _ddblfmMarker = Nothing
     }
-{-# INLINE describeDBLogFiles #-}
+{-# INLINE mkDescribeDBLogFilesMessage #-}
 
 data DescribeDBLogFiles = DescribeDBLogFiles
     { _ddblfmDBInstanceIdentifier :: Text
@@ -75,20 +76,20 @@ data DescribeDBLogFiles = DescribeDBLogFiles
       -- 63 alphanumeric characters or hyphens First character must be a
       -- letter Cannot end with a hyphen or contain two consecutive
       -- hyphens.
-    , _ddblfmMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results can be retrieved.
+    , _ddblfmFilenameContains :: Maybe Text
+      -- ^ Filters the available log files for log file names that contain
+      -- the specified string.
     , _ddblfmFileLastWritten :: Maybe Integer
       -- ^ Filters the available log files for files written since the
       -- specified date, in POSIX timestamp format.
     , _ddblfmFileSize :: Maybe Integer
       -- ^ Filters the available log files for files larger than the
       -- specified size.
-    , _ddblfmFilenameContains :: Maybe Text
-      -- ^ Filters the available log files for log file names that contain
-      -- the specified string.
+    , _ddblfmMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- records exist than the specified MaxRecords value, a pagination
+      -- token called a marker is included in the response so that the
+      -- remaining results can be retrieved.
     , _ddblfmMarker :: Maybe Text
       -- ^ The pagination token provided in the previous request. If this
       -- parameter is specified the response includes only records beyond
@@ -100,51 +101,39 @@ data DescribeDBLogFiles = DescribeDBLogFiles
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
 ddblfmDBInstanceIdentifier :: Lens' DescribeDBLogFiles (Text)
-ddblfmDBInstanceIdentifier f x =
-    f (_ddblfmDBInstanceIdentifier x)
-        <&> \y -> x { _ddblfmDBInstanceIdentifier = y }
+ddblfmDBInstanceIdentifier = lens _ddblfmDBInstanceIdentifier (\s a -> s { _ddblfmDBInstanceIdentifier = a })
 {-# INLINE ddblfmDBInstanceIdentifier #-}
+
+-- | Filters the available log files for log file names that contain the
+-- specified string.
+ddblfmFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
+ddblfmFilenameContains = lens _ddblfmFilenameContains (\s a -> s { _ddblfmFilenameContains = a })
+{-# INLINE ddblfmFilenameContains #-}
+
+-- | Filters the available log files for files written since the specified date,
+-- in POSIX timestamp format.
+ddblfmFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
+ddblfmFileLastWritten = lens _ddblfmFileLastWritten (\s a -> s { _ddblfmFileLastWritten = a })
+{-# INLINE ddblfmFileLastWritten #-}
+
+-- | Filters the available log files for files larger than the specified size.
+ddblfmFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
+ddblfmFileSize = lens _ddblfmFileSize (\s a -> s { _ddblfmFileSize = a })
+{-# INLINE ddblfmFileSize #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved.
 ddblfmMaxRecords :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddblfmMaxRecords f x =
-    f (_ddblfmMaxRecords x)
-        <&> \y -> x { _ddblfmMaxRecords = y }
+ddblfmMaxRecords = lens _ddblfmMaxRecords (\s a -> s { _ddblfmMaxRecords = a })
 {-# INLINE ddblfmMaxRecords #-}
-
--- | Filters the available log files for files written since the specified date,
--- in POSIX timestamp format.
-ddblfmFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddblfmFileLastWritten f x =
-    f (_ddblfmFileLastWritten x)
-        <&> \y -> x { _ddblfmFileLastWritten = y }
-{-# INLINE ddblfmFileLastWritten #-}
-
--- | Filters the available log files for files larger than the specified size.
-ddblfmFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddblfmFileSize f x =
-    f (_ddblfmFileSize x)
-        <&> \y -> x { _ddblfmFileSize = y }
-{-# INLINE ddblfmFileSize #-}
-
--- | Filters the available log files for log file names that contain the
--- specified string.
-ddblfmFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
-ddblfmFilenameContains f x =
-    f (_ddblfmFilenameContains x)
-        <&> \y -> x { _ddblfmFilenameContains = y }
-{-# INLINE ddblfmFilenameContains #-}
 
 -- | The pagination token provided in the previous request. If this parameter is
 -- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
 ddblfmMarker :: Lens' DescribeDBLogFiles (Maybe Text)
-ddblfmMarker f x =
-    f (_ddblfmMarker x)
-        <&> \y -> x { _ddblfmMarker = y }
+ddblfmMarker = lens _ddblfmMarker (\s a -> s { _ddblfmMarker = a })
 {-# INLINE ddblfmMarker #-}
 
 instance ToQuery DescribeDBLogFiles where
@@ -159,16 +148,12 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
 
 -- | The DB log files returned.
 ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse ([DescribeDBLogFilesDetails])
-ddblfrDescribeDBLogFiles f x =
-    f (_ddblfrDescribeDBLogFiles x)
-        <&> \y -> x { _ddblfrDescribeDBLogFiles = y }
+ddblfrDescribeDBLogFiles = lens _ddblfrDescribeDBLogFiles (\s a -> s { _ddblfrDescribeDBLogFiles = a })
 {-# INLINE ddblfrDescribeDBLogFiles #-}
 
 -- | An optional paging token.
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
-ddblfrMarker f x =
-    f (_ddblfrMarker x)
-        <&> \y -> x { _ddblfrMarker = y }
+ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
 {-# INLINE ddblfrMarker #-}
 
 instance FromXML DescribeDBLogFilesResponse where

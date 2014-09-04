@@ -30,14 +30,14 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateDeployment
     -- * Request
       CreateDeployment
     -- ** Request constructor
-    , createDeployment
+    , mkCreateDeploymentRequest
     -- ** Request lenses
-    , cdrCommand
     , cdrStackId
     , cdrAppId
+    , cdrInstanceIds
+    , cdrCommand
     , cdrComment
     , cdrCustomJson
-    , cdrInstanceIds
 
     -- * Response
     , CreateDeploymentResponse
@@ -50,29 +50,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateDeployment' request.
-createDeployment :: DeploymentCommand -- ^ 'cdrCommand'
-                 -> Text -- ^ 'cdrStackId'
-                 -> CreateDeployment
-createDeployment p1 p2 = CreateDeployment
-    { _cdrCommand = p1
-    , _cdrStackId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDeployment' request.
+mkCreateDeploymentRequest :: Text -- ^ 'cdrStackId'
+                          -> DeploymentCommand -- ^ 'cdrCommand'
+                          -> CreateDeployment
+mkCreateDeploymentRequest p1 p2 = CreateDeployment
+    { _cdrStackId = p1
     , _cdrAppId = Nothing
+    , _cdrInstanceIds = mempty
+    , _cdrCommand = p4
     , _cdrComment = Nothing
     , _cdrCustomJson = Nothing
-    , _cdrInstanceIds = mempty
     }
-{-# INLINE createDeployment #-}
+{-# INLINE mkCreateDeploymentRequest #-}
 
 data CreateDeployment = CreateDeployment
-    { _cdrCommand :: DeploymentCommand
-      -- ^ A DeploymentCommand object that specifies the deployment command
-      -- and any associated arguments.
-    , _cdrStackId :: Text
+    { _cdrStackId :: Text
       -- ^ The stack ID.
     , _cdrAppId :: Maybe Text
       -- ^ The app ID. This parameter is required for app deployments, but
       -- not for other deployment commands.
+    , _cdrInstanceIds :: [Text]
+      -- ^ The instance IDs for the deployment targets.
+    , _cdrCommand :: DeploymentCommand
+      -- ^ A DeploymentCommand object that specifies the deployment command
+      -- and any associated arguments.
     , _cdrComment :: Maybe Text
       -- ^ A user-defined comment.
     , _cdrCustomJson :: Maybe Text
@@ -82,38 +85,33 @@ data CreateDeployment = CreateDeployment
       -- escape characters such as '"'.: "{\"key1\": \"value1\", \"key2\":
       -- \"value2\",...}" For more information on custom JSON, see Use
       -- Custom JSON to Modify the Stack Configuration JSON.
-    , _cdrInstanceIds :: [Text]
-      -- ^ The instance IDs for the deployment targets.
     } deriving (Show, Generic)
-
--- | A DeploymentCommand object that specifies the deployment command and any
--- associated arguments.
-cdrCommand :: Lens' CreateDeployment (DeploymentCommand)
-cdrCommand f x =
-    f (_cdrCommand x)
-        <&> \y -> x { _cdrCommand = y }
-{-# INLINE cdrCommand #-}
 
 -- | The stack ID.
 cdrStackId :: Lens' CreateDeployment (Text)
-cdrStackId f x =
-    f (_cdrStackId x)
-        <&> \y -> x { _cdrStackId = y }
+cdrStackId = lens _cdrStackId (\s a -> s { _cdrStackId = a })
 {-# INLINE cdrStackId #-}
 
 -- | The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
 cdrAppId :: Lens' CreateDeployment (Maybe Text)
-cdrAppId f x =
-    f (_cdrAppId x)
-        <&> \y -> x { _cdrAppId = y }
+cdrAppId = lens _cdrAppId (\s a -> s { _cdrAppId = a })
 {-# INLINE cdrAppId #-}
+
+-- | The instance IDs for the deployment targets.
+cdrInstanceIds :: Lens' CreateDeployment ([Text])
+cdrInstanceIds = lens _cdrInstanceIds (\s a -> s { _cdrInstanceIds = a })
+{-# INLINE cdrInstanceIds #-}
+
+-- | A DeploymentCommand object that specifies the deployment command and any
+-- associated arguments.
+cdrCommand :: Lens' CreateDeployment (DeploymentCommand)
+cdrCommand = lens _cdrCommand (\s a -> s { _cdrCommand = a })
+{-# INLINE cdrCommand #-}
 
 -- | A user-defined comment.
 cdrComment :: Lens' CreateDeployment (Maybe Text)
-cdrComment f x =
-    f (_cdrComment x)
-        <&> \y -> x { _cdrComment = y }
+cdrComment = lens _cdrComment (\s a -> s { _cdrComment = a })
 {-# INLINE cdrComment #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -122,17 +120,8 @@ cdrComment f x =
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 cdrCustomJson :: Lens' CreateDeployment (Maybe Text)
-cdrCustomJson f x =
-    f (_cdrCustomJson x)
-        <&> \y -> x { _cdrCustomJson = y }
+cdrCustomJson = lens _cdrCustomJson (\s a -> s { _cdrCustomJson = a })
 {-# INLINE cdrCustomJson #-}
-
--- | The instance IDs for the deployment targets.
-cdrInstanceIds :: Lens' CreateDeployment ([Text])
-cdrInstanceIds f x =
-    f (_cdrInstanceIds x)
-        <&> \y -> x { _cdrInstanceIds = y }
-{-# INLINE cdrInstanceIds #-}
 
 instance ToPath CreateDeployment
 
@@ -142,7 +131,7 @@ instance ToHeaders CreateDeployment
 
 instance ToJSON CreateDeployment
 
-data CreateDeploymentResponse = CreateDeploymentResponse
+newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdsDeploymentId :: Maybe Text
       -- ^ The deployment ID, which can be used with other requests to
       -- identify the deployment.
@@ -151,9 +140,7 @@ data CreateDeploymentResponse = CreateDeploymentResponse
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
 cdsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
-cdsDeploymentId f x =
-    f (_cdsDeploymentId x)
-        <&> \y -> x { _cdsDeploymentId = y }
+cdsDeploymentId = lens _cdsDeploymentId (\s a -> s { _cdsDeploymentId = a })
 {-# INLINE cdsDeploymentId #-}
 
 instance FromJSON CreateDeploymentResponse

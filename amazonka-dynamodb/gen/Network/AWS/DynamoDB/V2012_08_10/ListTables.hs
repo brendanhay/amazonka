@@ -27,16 +27,16 @@ module Network.AWS.DynamoDB.V2012_08_10.ListTables
     -- * Request
       ListTables
     -- ** Request constructor
-    , listTables
+    , mkListTablesInput
     -- ** Request lenses
-    , ltiLimit
     , ltiExclusiveStartTableName
+    , ltiLimit
 
     -- * Response
     , ListTablesResponse
     -- ** Response lenses
-    , ltoLastEvaluatedTableName
     , ltoTableNames
+    , ltoLastEvaluatedTableName
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -44,38 +44,35 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListTables' request.
-listTables :: ListTables
-listTables = ListTables
-    { _ltiLimit = Nothing
-    , _ltiExclusiveStartTableName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTables' request.
+mkListTablesInput :: ListTables
+mkListTablesInput = ListTables
+    { _ltiExclusiveStartTableName = Nothing
+    , _ltiLimit = Nothing
     }
-{-# INLINE listTables #-}
+{-# INLINE mkListTablesInput #-}
 
 data ListTables = ListTables
-    { _ltiLimit :: Maybe Integer
-      -- ^ A maximum number of table names to return.
-    , _ltiExclusiveStartTableName :: Maybe Text
+    { _ltiExclusiveStartTableName :: Maybe Text
       -- ^ The name of the table that starts the list. If you already ran a
       -- ListTables operation and received a LastEvaluatedTableName value
       -- in the response, use that value here to continue the list.
+    , _ltiLimit :: Maybe Integer
+      -- ^ A maximum number of table names to return.
     } deriving (Show, Generic)
-
--- | A maximum number of table names to return.
-ltiLimit :: Lens' ListTables (Maybe Integer)
-ltiLimit f x =
-    f (_ltiLimit x)
-        <&> \y -> x { _ltiLimit = y }
-{-# INLINE ltiLimit #-}
 
 -- | The name of the table that starts the list. If you already ran a ListTables
 -- operation and received a LastEvaluatedTableName value in the response, use
 -- that value here to continue the list.
 ltiExclusiveStartTableName :: Lens' ListTables (Maybe Text)
-ltiExclusiveStartTableName f x =
-    f (_ltiExclusiveStartTableName x)
-        <&> \y -> x { _ltiExclusiveStartTableName = y }
+ltiExclusiveStartTableName = lens _ltiExclusiveStartTableName (\s a -> s { _ltiExclusiveStartTableName = a })
 {-# INLINE ltiExclusiveStartTableName #-}
+
+-- | A maximum number of table names to return.
+ltiLimit :: Lens' ListTables (Maybe Integer)
+ltiLimit = lens _ltiLimit (\s a -> s { _ltiLimit = a })
+{-# INLINE ltiLimit #-}
 
 instance ToPath ListTables
 
@@ -86,17 +83,23 @@ instance ToHeaders ListTables
 instance ToJSON ListTables
 
 data ListTablesResponse = ListTablesResponse
-    { _ltoLastEvaluatedTableName :: Maybe Text
+    { _ltoTableNames :: [Text]
+      -- ^ The names of the tables associated with the current account at
+      -- the current endpoint.
+    , _ltoLastEvaluatedTableName :: Maybe Text
       -- ^ The name of the last table in the current list, only if some
       -- tables for the account and endpoint have not been returned. This
       -- value does not exist in a response if all table names are already
       -- returned. Use this value as the ExclusiveStartTableName in a new
       -- request to continue the list until all the table names are
       -- returned.
-    , _ltoTableNames :: [Text]
-      -- ^ The names of the tables associated with the current account at
-      -- the current endpoint.
     } deriving (Show, Generic)
+
+-- | The names of the tables associated with the current account at the current
+-- endpoint.
+ltoTableNames :: Lens' ListTablesResponse ([Text])
+ltoTableNames = lens _ltoTableNames (\s a -> s { _ltoTableNames = a })
+{-# INLINE ltoTableNames #-}
 
 -- | The name of the last table in the current list, only if some tables for the
 -- account and endpoint have not been returned. This value does not exist in a
@@ -104,18 +107,8 @@ data ListTablesResponse = ListTablesResponse
 -- ExclusiveStartTableName in a new request to continue the list until all the
 -- table names are returned.
 ltoLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
-ltoLastEvaluatedTableName f x =
-    f (_ltoLastEvaluatedTableName x)
-        <&> \y -> x { _ltoLastEvaluatedTableName = y }
+ltoLastEvaluatedTableName = lens _ltoLastEvaluatedTableName (\s a -> s { _ltoLastEvaluatedTableName = a })
 {-# INLINE ltoLastEvaluatedTableName #-}
-
--- | The names of the tables associated with the current account at the current
--- endpoint.
-ltoTableNames :: Lens' ListTablesResponse ([Text])
-ltoTableNames f x =
-    f (_ltoTableNames x)
-        <&> \y -> x { _ltoTableNames = y }
-{-# INLINE ltoTableNames #-}
 
 instance FromJSON ListTablesResponse
 

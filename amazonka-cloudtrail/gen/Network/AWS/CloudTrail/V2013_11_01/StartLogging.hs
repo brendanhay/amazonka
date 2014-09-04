@@ -23,7 +23,7 @@ module Network.AWS.CloudTrail.V2013_11_01.StartLogging
     -- * Request
       StartLogging
     -- ** Request constructor
-    , startLogging
+    , mkStartLoggingRequest
     -- ** Request lenses
     , slrName
 
@@ -36,24 +36,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'StartLogging' request.
-startLogging :: Text -- ^ 'slrName'
-             -> StartLogging
-startLogging p1 = StartLogging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartLogging' request.
+mkStartLoggingRequest :: Text -- ^ 'slrName'
+                      -> StartLogging
+mkStartLoggingRequest p1 = StartLogging
     { _slrName = p1
     }
-{-# INLINE startLogging #-}
+{-# INLINE mkStartLoggingRequest #-}
 
-data StartLogging = StartLogging
+newtype StartLogging = StartLogging
     { _slrName :: Text
       -- ^ The name of the trail for which CloudTrail logs AWS API calls.
     } deriving (Show, Generic)
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
 slrName :: Lens' StartLogging (Text)
-slrName f x =
-    f (_slrName x)
-        <&> \y -> x { _slrName = y }
+slrName = lens _slrName (\s a -> s { _slrName = a })
 {-# INLINE slrName #-}
 
 instance ToPath StartLogging
@@ -64,7 +63,6 @@ instance ToHeaders StartLogging
 
 instance ToJSON StartLogging
 
-data StartLoggingResponse = StartLoggingResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest StartLogging where

@@ -23,7 +23,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration
     -- * Request
       DeleteNotificationConfiguration
     -- ** Request constructor
-    , deleteNotificationConfiguration
+    , mkDeleteNotificationConfigurationType
     -- ** Request lenses
     , dnctAutoScalingGroupName
     , dnctTopicARN
@@ -36,15 +36,16 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteNotificationConfiguration' request.
-deleteNotificationConfiguration :: Text -- ^ 'dnctAutoScalingGroupName'
-                                -> Text -- ^ 'dnctTopicARN'
-                                -> DeleteNotificationConfiguration
-deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNotificationConfiguration' request.
+mkDeleteNotificationConfigurationType :: Text -- ^ 'dnctAutoScalingGroupName'
+                                      -> Text -- ^ 'dnctTopicARN'
+                                      -> DeleteNotificationConfiguration
+mkDeleteNotificationConfigurationType p1 p2 = DeleteNotificationConfiguration
     { _dnctAutoScalingGroupName = p1
     , _dnctTopicARN = p2
     }
-{-# INLINE deleteNotificationConfiguration #-}
+{-# INLINE mkDeleteNotificationConfigurationType #-}
 
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dnctAutoScalingGroupName :: Text
@@ -56,17 +57,13 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 
 -- | The name of the Auto Scaling group.
 dnctAutoScalingGroupName :: Lens' DeleteNotificationConfiguration (Text)
-dnctAutoScalingGroupName f x =
-    f (_dnctAutoScalingGroupName x)
-        <&> \y -> x { _dnctAutoScalingGroupName = y }
+dnctAutoScalingGroupName = lens _dnctAutoScalingGroupName (\s a -> s { _dnctAutoScalingGroupName = a })
 {-# INLINE dnctAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
 dnctTopicARN :: Lens' DeleteNotificationConfiguration (Text)
-dnctTopicARN f x =
-    f (_dnctTopicARN x)
-        <&> \y -> x { _dnctTopicARN = y }
+dnctTopicARN = lens _dnctTopicARN (\s a -> s { _dnctTopicARN = a })
 {-# INLINE dnctTopicARN #-}
 
 instance ToQuery DeleteNotificationConfiguration where

@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetObjectAcl
     -- * Request
       GetObjectAcl
     -- ** Request constructor
-    , getObjectAcl
+    , mkGetObjectAclRequest
     -- ** Request lenses
     , goarBucket
     , goarKey
@@ -32,24 +32,25 @@ module Network.AWS.S3.V2006_03_01.GetObjectAcl
     -- * Response
     , GetObjectAclResponse
     -- ** Response lenses
-    , goaoGrants
     , goaoOwner
+    , goaoGrants
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetObjectAcl' request.
-getObjectAcl :: BucketName -- ^ 'goarBucket'
-             -> ObjectKey -- ^ 'goarKey'
-             -> GetObjectAcl
-getObjectAcl p1 p2 = GetObjectAcl
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetObjectAcl' request.
+mkGetObjectAclRequest :: BucketName -- ^ 'goarBucket'
+                      -> ObjectKey -- ^ 'goarKey'
+                      -> GetObjectAcl
+mkGetObjectAclRequest p1 p2 = GetObjectAcl
     { _goarBucket = p1
     , _goarKey = p2
     , _goarVersionId = Nothing
     }
-{-# INLINE getObjectAcl #-}
+{-# INLINE mkGetObjectAclRequest #-}
 
 data GetObjectAcl = GetObjectAcl
     { _goarBucket :: BucketName
@@ -59,22 +60,16 @@ data GetObjectAcl = GetObjectAcl
     } deriving (Show, Generic)
 
 goarBucket :: Lens' GetObjectAcl (BucketName)
-goarBucket f x =
-    f (_goarBucket x)
-        <&> \y -> x { _goarBucket = y }
+goarBucket = lens _goarBucket (\s a -> s { _goarBucket = a })
 {-# INLINE goarBucket #-}
 
 goarKey :: Lens' GetObjectAcl (ObjectKey)
-goarKey f x =
-    f (_goarKey x)
-        <&> \y -> x { _goarKey = y }
+goarKey = lens _goarKey (\s a -> s { _goarKey = a })
 {-# INLINE goarKey #-}
 
 -- | VersionId used to reference a specific version of the object.
 goarVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
-goarVersionId f x =
-    f (_goarVersionId x)
-        <&> \y -> x { _goarVersionId = y }
+goarVersionId = lens _goarVersionId (\s a -> s { _goarVersionId = a })
 {-# INLINE goarVersionId #-}
 
 instance ToPath GetObjectAcl where
@@ -95,23 +90,19 @@ instance ToHeaders GetObjectAcl
 instance ToBody GetObjectAcl
 
 data GetObjectAclResponse = GetObjectAclResponse
-    { _goaoGrants :: [Grant]
+    { _goaoOwner :: Maybe Owner
+    , _goaoGrants :: [Grant]
       -- ^ A list of grants.
-    , _goaoOwner :: Maybe Owner
     } deriving (Show, Generic)
+
+goaoOwner :: Lens' GetObjectAclResponse (Maybe Owner)
+goaoOwner = lens _goaoOwner (\s a -> s { _goaoOwner = a })
+{-# INLINE goaoOwner #-}
 
 -- | A list of grants.
 goaoGrants :: Lens' GetObjectAclResponse ([Grant])
-goaoGrants f x =
-    f (_goaoGrants x)
-        <&> \y -> x { _goaoGrants = y }
+goaoGrants = lens _goaoGrants (\s a -> s { _goaoGrants = a })
 {-# INLINE goaoGrants #-}
-
-goaoOwner :: Lens' GetObjectAclResponse (Maybe Owner)
-goaoOwner f x =
-    f (_goaoOwner x)
-        <&> \y -> x { _goaoOwner = y }
-{-# INLINE goaoOwner #-}
 
 instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions

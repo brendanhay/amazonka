@@ -24,18 +24,18 @@ module Network.AWS.S3.V2006_03_01.PutObjectAcl
     -- * Request
       PutObjectAcl
     -- ** Request constructor
-    , putObjectAcl
+    , mkPutObjectAclRequest
     -- ** Request lenses
-    , poarBucket
-    , poarKey
+    , poarACL
     , poarAccessControlPolicy
+    , poarBucket
     , poarContentMD5
     , poarGrantFullControl
     , poarGrantRead
     , poarGrantReadACP
     , poarGrantWrite
     , poarGrantWriteACP
-    , poarACL
+    , poarKey
 
     -- * Response
     , PutObjectAclResponse
@@ -45,28 +45,30 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutObjectAcl' request.
-putObjectAcl :: BucketName -- ^ 'poarBucket'
-             -> ObjectKey -- ^ 'poarKey'
-             -> PutObjectAcl
-putObjectAcl p1 p2 = PutObjectAcl
-    { _poarBucket = p1
-    , _poarKey = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutObjectAcl' request.
+mkPutObjectAclRequest :: BucketName -- ^ 'poarBucket'
+                      -> ObjectKey -- ^ 'poarKey'
+                      -> PutObjectAcl
+mkPutObjectAclRequest p1 p2 = PutObjectAcl
+    { _poarACL = Nothing
     , _poarAccessControlPolicy = Nothing
+    , _poarBucket = p3
     , _poarContentMD5 = Nothing
     , _poarGrantFullControl = Nothing
     , _poarGrantRead = Nothing
     , _poarGrantReadACP = Nothing
     , _poarGrantWrite = Nothing
     , _poarGrantWriteACP = Nothing
-    , _poarACL = Nothing
+    , _poarKey = p10
     }
-{-# INLINE putObjectAcl #-}
+{-# INLINE mkPutObjectAclRequest #-}
 
 data PutObjectAcl = PutObjectAcl
-    { _poarBucket :: BucketName
-    , _poarKey :: ObjectKey
+    { _poarACL :: Maybe ObjectCannedACL
+      -- ^ The canned ACL to apply to the object.
     , _poarAccessControlPolicy :: Maybe AccessControlPolicy
+    , _poarBucket :: BucketName
     , _poarContentMD5 :: Maybe Text
     , _poarGrantFullControl :: Maybe Text
       -- ^ Allows grantee the read, write, read ACP, and write ACP
@@ -80,76 +82,55 @@ data PutObjectAcl = PutObjectAcl
       -- bucket.
     , _poarGrantWriteACP :: Maybe Text
       -- ^ Allows grantee to write the ACL for the applicable bucket.
-    , _poarACL :: Maybe ObjectCannedACL
-      -- ^ The canned ACL to apply to the object.
+    , _poarKey :: ObjectKey
     } deriving (Show, Generic)
 
-poarBucket :: Lens' PutObjectAcl (BucketName)
-poarBucket f x =
-    f (_poarBucket x)
-        <&> \y -> x { _poarBucket = y }
-{-# INLINE poarBucket #-}
-
-poarKey :: Lens' PutObjectAcl (ObjectKey)
-poarKey f x =
-    f (_poarKey x)
-        <&> \y -> x { _poarKey = y }
-{-# INLINE poarKey #-}
+-- | The canned ACL to apply to the object.
+poarACL :: Lens' PutObjectAcl (Maybe ObjectCannedACL)
+poarACL = lens _poarACL (\s a -> s { _poarACL = a })
+{-# INLINE poarACL #-}
 
 poarAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)
-poarAccessControlPolicy f x =
-    f (_poarAccessControlPolicy x)
-        <&> \y -> x { _poarAccessControlPolicy = y }
+poarAccessControlPolicy = lens _poarAccessControlPolicy (\s a -> s { _poarAccessControlPolicy = a })
 {-# INLINE poarAccessControlPolicy #-}
 
+poarBucket :: Lens' PutObjectAcl (BucketName)
+poarBucket = lens _poarBucket (\s a -> s { _poarBucket = a })
+{-# INLINE poarBucket #-}
+
 poarContentMD5 :: Lens' PutObjectAcl (Maybe Text)
-poarContentMD5 f x =
-    f (_poarContentMD5 x)
-        <&> \y -> x { _poarContentMD5 = y }
+poarContentMD5 = lens _poarContentMD5 (\s a -> s { _poarContentMD5 = a })
 {-# INLINE poarContentMD5 #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
 poarGrantFullControl :: Lens' PutObjectAcl (Maybe Text)
-poarGrantFullControl f x =
-    f (_poarGrantFullControl x)
-        <&> \y -> x { _poarGrantFullControl = y }
+poarGrantFullControl = lens _poarGrantFullControl (\s a -> s { _poarGrantFullControl = a })
 {-# INLINE poarGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
 poarGrantRead :: Lens' PutObjectAcl (Maybe Text)
-poarGrantRead f x =
-    f (_poarGrantRead x)
-        <&> \y -> x { _poarGrantRead = y }
+poarGrantRead = lens _poarGrantRead (\s a -> s { _poarGrantRead = a })
 {-# INLINE poarGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
 poarGrantReadACP :: Lens' PutObjectAcl (Maybe Text)
-poarGrantReadACP f x =
-    f (_poarGrantReadACP x)
-        <&> \y -> x { _poarGrantReadACP = y }
+poarGrantReadACP = lens _poarGrantReadACP (\s a -> s { _poarGrantReadACP = a })
 {-# INLINE poarGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 poarGrantWrite :: Lens' PutObjectAcl (Maybe Text)
-poarGrantWrite f x =
-    f (_poarGrantWrite x)
-        <&> \y -> x { _poarGrantWrite = y }
+poarGrantWrite = lens _poarGrantWrite (\s a -> s { _poarGrantWrite = a })
 {-# INLINE poarGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 poarGrantWriteACP :: Lens' PutObjectAcl (Maybe Text)
-poarGrantWriteACP f x =
-    f (_poarGrantWriteACP x)
-        <&> \y -> x { _poarGrantWriteACP = y }
+poarGrantWriteACP = lens _poarGrantWriteACP (\s a -> s { _poarGrantWriteACP = a })
 {-# INLINE poarGrantWriteACP #-}
 
--- | The canned ACL to apply to the object.
-poarACL :: Lens' PutObjectAcl (Maybe ObjectCannedACL)
-poarACL f x =
-    f (_poarACL x)
-        <&> \y -> x { _poarACL = y }
-{-# INLINE poarACL #-}
+poarKey :: Lens' PutObjectAcl (ObjectKey)
+poarKey = lens _poarKey (\s a -> s { _poarKey = a })
+{-# INLINE poarKey #-}
 
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat
@@ -164,19 +145,9 @@ instance ToQuery PutObjectAcl where
         [ "acl"
         ]
 
-instance ToHeaders PutObjectAcl where
-    toHeaders PutObjectAcl{..} = concat
-        [ "Content-MD5" =: _poarContentMD5
-        , "x-amz-grant-full-control" =: _poarGrantFullControl
-        , "x-amz-grant-read" =: _poarGrantRead
-        , "x-amz-grant-read-acp" =: _poarGrantReadACP
-        , "x-amz-grant-write" =: _poarGrantWrite
-        , "x-amz-grant-write-acp" =: _poarGrantWriteACP
-        , "x-amz-acl" =: _poarACL
-        ]
+instance ToHeaders PutObjectAcl
 
-instance ToBody PutObjectAcl where
-    toBody = toBody . encodeXML . _poarAccessControlPolicy
+instance ToBody PutObjectAcl
 
 data PutObjectAclResponse = PutObjectAclResponse
     deriving (Eq, Show, Generic)

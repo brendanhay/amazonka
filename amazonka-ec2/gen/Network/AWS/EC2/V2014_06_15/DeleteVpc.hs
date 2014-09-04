@@ -33,7 +33,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpc
     -- * Request
       DeleteVpc
     -- ** Request constructor
-    , deleteVpc
+    , mkDeleteVpcRequest
     -- ** Request lenses
     , dvsVpcId
 
@@ -45,24 +45,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteVpc' request.
-deleteVpc :: Text -- ^ 'dvsVpcId'
-          -> DeleteVpc
-deleteVpc p1 = DeleteVpc
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpc' request.
+mkDeleteVpcRequest :: Text -- ^ 'dvsVpcId'
+                   -> DeleteVpc
+mkDeleteVpcRequest p1 = DeleteVpc
     { _dvsVpcId = p1
     }
-{-# INLINE deleteVpc #-}
+{-# INLINE mkDeleteVpcRequest #-}
 
-data DeleteVpc = DeleteVpc
+newtype DeleteVpc = DeleteVpc
     { _dvsVpcId :: Text
       -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
 dvsVpcId :: Lens' DeleteVpc (Text)
-dvsVpcId f x =
-    f (_dvsVpcId x)
-        <&> \y -> x { _dvsVpcId = y }
+dvsVpcId = lens _dvsVpcId (\s a -> s { _dvsVpcId = a })
 {-# INLINE dvsVpcId #-}
 
 instance ToQuery DeleteVpc where

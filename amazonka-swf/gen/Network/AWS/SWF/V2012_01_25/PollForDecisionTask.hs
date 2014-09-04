@@ -85,25 +85,25 @@ module Network.AWS.SWF.V2012_01_25.PollForDecisionTask
     -- * Request
       PollForDecisionTask
     -- ** Request constructor
-    , pollForDecisionTask
+    , mkPollForDecisionTaskInput
     -- ** Request lenses
     , pfdtiDomain
     , pfdtiTaskList
     , pfdtiIdentity
-    , pfdtiMaximumPageSize
     , pfdtiNextPageToken
+    , pfdtiMaximumPageSize
     , pfdtiReverseOrder
 
     -- * Response
     , PollForDecisionTaskResponse
     -- ** Response lenses
-    , dddkStartedEventId
-    , dddkEvents
     , dddkTaskToken
+    , dddkStartedEventId
     , dddkWorkflowExecution
     , dddkWorkflowType
-    , dddkPreviousStartedEventId
+    , dddkEvents
     , dddkNextPageToken
+    , dddkPreviousStartedEventId
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -111,19 +111,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'PollForDecisionTask' request.
-pollForDecisionTask :: Text -- ^ 'pfdtiDomain'
-                    -> TaskList -- ^ 'pfdtiTaskList'
-                    -> PollForDecisionTask
-pollForDecisionTask p1 p2 = PollForDecisionTask
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PollForDecisionTask' request.
+mkPollForDecisionTaskInput :: Text -- ^ 'pfdtiDomain'
+                           -> TaskList -- ^ 'pfdtiTaskList'
+                           -> PollForDecisionTask
+mkPollForDecisionTaskInput p1 p2 = PollForDecisionTask
     { _pfdtiDomain = p1
     , _pfdtiTaskList = p2
     , _pfdtiIdentity = Nothing
-    , _pfdtiMaximumPageSize = Nothing
     , _pfdtiNextPageToken = Nothing
+    , _pfdtiMaximumPageSize = Nothing
     , _pfdtiReverseOrder = Nothing
     }
-{-# INLINE pollForDecisionTask #-}
+{-# INLINE mkPollForDecisionTaskInput #-}
 
 data PollForDecisionTask = PollForDecisionTask
     { _pfdtiDomain :: Text
@@ -139,13 +140,6 @@ data PollForDecisionTask = PollForDecisionTask
       -- the DecisionTaskStarted event in the workflow history. This
       -- enables diagnostic tracing when problems arise. The form of this
       -- identity is user defined.
-    , _pfdtiMaximumPageSize :: Maybe Integer
-      -- ^ The maximum number of history events returned in each page. The
-      -- default is 100, but the caller can override this value to a page
-      -- size smaller than the default. You cannot specify a page size
-      -- greater than 100. Note that the number of events may be less than
-      -- the maxiumum page size, in which case, the returned page will
-      -- have fewer results than the maximumPageSize specified.
     , _pfdtiNextPageToken :: Maybe Text
       -- ^ If on a previous call to this method a NextPageToken was
       -- returned, the results are being paginated. To get the next page
@@ -156,6 +150,13 @@ data PollForDecisionTask = PollForDecisionTask
       -- nextPageToken) to retrieve the next page of history records.
       -- Calling PollForDecisionTask with a nextPageToken will not return
       -- a new decision task..
+    , _pfdtiMaximumPageSize :: Maybe Integer
+      -- ^ The maximum number of history events returned in each page. The
+      -- default is 100, but the caller can override this value to a page
+      -- size smaller than the default. You cannot specify a page size
+      -- greater than 100. Note that the number of events may be less than
+      -- the maxiumum page size, in which case, the returned page will
+      -- have fewer results than the maximumPageSize specified.
     , _pfdtiReverseOrder :: Maybe Bool
       -- ^ When set to true, returns the events in reverse order. By default
       -- the results are returned in ascending order of the eventTimestamp
@@ -164,9 +165,7 @@ data PollForDecisionTask = PollForDecisionTask
 
 -- | The name of the domain containing the task lists to poll.
 pfdtiDomain :: Lens' PollForDecisionTask (Text)
-pfdtiDomain f x =
-    f (_pfdtiDomain x)
-        <&> \y -> x { _pfdtiDomain = y }
+pfdtiDomain = lens _pfdtiDomain (\s a -> s { _pfdtiDomain = a })
 {-# INLINE pfdtiDomain #-}
 
 -- | Specifies the task list to poll for decision tasks. The specified string
@@ -175,31 +174,15 @@ pfdtiDomain f x =
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
 pfdtiTaskList :: Lens' PollForDecisionTask (TaskList)
-pfdtiTaskList f x =
-    f (_pfdtiTaskList x)
-        <&> \y -> x { _pfdtiTaskList = y }
+pfdtiTaskList = lens _pfdtiTaskList (\s a -> s { _pfdtiTaskList = a })
 {-# INLINE pfdtiTaskList #-}
 
 -- | Identity of the decider making the request, which is recorded in the
 -- DecisionTaskStarted event in the workflow history. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
 pfdtiIdentity :: Lens' PollForDecisionTask (Maybe Text)
-pfdtiIdentity f x =
-    f (_pfdtiIdentity x)
-        <&> \y -> x { _pfdtiIdentity = y }
+pfdtiIdentity = lens _pfdtiIdentity (\s a -> s { _pfdtiIdentity = a })
 {-# INLINE pfdtiIdentity #-}
-
--- | The maximum number of history events returned in each page. The default is
--- 100, but the caller can override this value to a page size smaller than the
--- default. You cannot specify a page size greater than 100. Note that the
--- number of events may be less than the maxiumum page size, in which case,
--- the returned page will have fewer results than the maximumPageSize
--- specified.
-pfdtiMaximumPageSize :: Lens' PollForDecisionTask (Maybe Integer)
-pfdtiMaximumPageSize f x =
-    f (_pfdtiMaximumPageSize x)
-        <&> \y -> x { _pfdtiMaximumPageSize = y }
-{-# INLINE pfdtiMaximumPageSize #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the
@@ -210,18 +193,24 @@ pfdtiMaximumPageSize f x =
 -- page of history records. Calling PollForDecisionTask with a nextPageToken
 -- will not return a new decision task..
 pfdtiNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
-pfdtiNextPageToken f x =
-    f (_pfdtiNextPageToken x)
-        <&> \y -> x { _pfdtiNextPageToken = y }
+pfdtiNextPageToken = lens _pfdtiNextPageToken (\s a -> s { _pfdtiNextPageToken = a })
 {-# INLINE pfdtiNextPageToken #-}
+
+-- | The maximum number of history events returned in each page. The default is
+-- 100, but the caller can override this value to a page size smaller than the
+-- default. You cannot specify a page size greater than 100. Note that the
+-- number of events may be less than the maxiumum page size, in which case,
+-- the returned page will have fewer results than the maximumPageSize
+-- specified.
+pfdtiMaximumPageSize :: Lens' PollForDecisionTask (Maybe Integer)
+pfdtiMaximumPageSize = lens _pfdtiMaximumPageSize (\s a -> s { _pfdtiMaximumPageSize = a })
+{-# INLINE pfdtiMaximumPageSize #-}
 
 -- | When set to true, returns the events in reverse order. By default the
 -- results are returned in ascending order of the eventTimestamp of the
 -- events.
 pfdtiReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
-pfdtiReverseOrder f x =
-    f (_pfdtiReverseOrder x)
-        <&> \y -> x { _pfdtiReverseOrder = y }
+pfdtiReverseOrder = lens _pfdtiReverseOrder (\s a -> s { _pfdtiReverseOrder = a })
 {-# INLINE pfdtiReverseOrder #-}
 
 instance ToPath PollForDecisionTask
@@ -233,88 +222,74 @@ instance ToHeaders PollForDecisionTask
 instance ToJSON PollForDecisionTask
 
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse
-    { _dddkStartedEventId :: Integer
-      -- ^ The id of the DecisionTaskStarted event recorded in the history.
-    , _dddkEvents :: [HistoryEvent]
-      -- ^ A paginated list of history events of the workflow execution. The
-      -- decider uses this during the processing of the decision task.
-    , _dddkTaskToken :: Text
+    { _dddkTaskToken :: Text
       -- ^ The opaque string used as a handle on the task. This token is
       -- used by workers to communicate progress and response information
       -- back to the system about the task.
+    , _dddkStartedEventId :: Integer
+      -- ^ The id of the DecisionTaskStarted event recorded in the history.
     , _dddkWorkflowExecution :: WorkflowExecution
       -- ^ The workflow execution for which this decision task was created.
     , _dddkWorkflowType :: WorkflowType
       -- ^ The type of the workflow execution for which this decision task
       -- was created.
+    , _dddkEvents :: [HistoryEvent]
+      -- ^ A paginated list of history events of the workflow execution. The
+      -- decider uses this during the processing of the decision task.
+    , _dddkNextPageToken :: Maybe Text
+      -- ^ Returns a value if the results are paginated. To get the next
+      -- page of results, repeat the request specifying this token and all
+      -- other arguments unchanged.
     , _dddkPreviousStartedEventId :: Maybe Integer
       -- ^ The id of the DecisionTaskStarted event of the previous decision
       -- task of this workflow execution that was processed by the
       -- decider. This can be used to determine the events in the history
       -- new since the last decision task received by the decider.
-    , _dddkNextPageToken :: Maybe Text
-      -- ^ Returns a value if the results are paginated. To get the next
-      -- page of results, repeat the request specifying this token and all
-      -- other arguments unchanged.
     } deriving (Show, Generic)
-
--- | The id of the DecisionTaskStarted event recorded in the history.
-dddkStartedEventId :: Lens' PollForDecisionTaskResponse (Integer)
-dddkStartedEventId f x =
-    f (_dddkStartedEventId x)
-        <&> \y -> x { _dddkStartedEventId = y }
-{-# INLINE dddkStartedEventId #-}
-
--- | A paginated list of history events of the workflow execution. The decider
--- uses this during the processing of the decision task.
-dddkEvents :: Lens' PollForDecisionTaskResponse ([HistoryEvent])
-dddkEvents f x =
-    f (_dddkEvents x)
-        <&> \y -> x { _dddkEvents = y }
-{-# INLINE dddkEvents #-}
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
 dddkTaskToken :: Lens' PollForDecisionTaskResponse (Text)
-dddkTaskToken f x =
-    f (_dddkTaskToken x)
-        <&> \y -> x { _dddkTaskToken = y }
+dddkTaskToken = lens _dddkTaskToken (\s a -> s { _dddkTaskToken = a })
 {-# INLINE dddkTaskToken #-}
+
+-- | The id of the DecisionTaskStarted event recorded in the history.
+dddkStartedEventId :: Lens' PollForDecisionTaskResponse (Integer)
+dddkStartedEventId = lens _dddkStartedEventId (\s a -> s { _dddkStartedEventId = a })
+{-# INLINE dddkStartedEventId #-}
 
 -- | The workflow execution for which this decision task was created.
 dddkWorkflowExecution :: Lens' PollForDecisionTaskResponse (WorkflowExecution)
-dddkWorkflowExecution f x =
-    f (_dddkWorkflowExecution x)
-        <&> \y -> x { _dddkWorkflowExecution = y }
+dddkWorkflowExecution = lens _dddkWorkflowExecution (\s a -> s { _dddkWorkflowExecution = a })
 {-# INLINE dddkWorkflowExecution #-}
 
 -- | The type of the workflow execution for which this decision task was
 -- created.
 dddkWorkflowType :: Lens' PollForDecisionTaskResponse (WorkflowType)
-dddkWorkflowType f x =
-    f (_dddkWorkflowType x)
-        <&> \y -> x { _dddkWorkflowType = y }
+dddkWorkflowType = lens _dddkWorkflowType (\s a -> s { _dddkWorkflowType = a })
 {-# INLINE dddkWorkflowType #-}
+
+-- | A paginated list of history events of the workflow execution. The decider
+-- uses this during the processing of the decision task.
+dddkEvents :: Lens' PollForDecisionTaskResponse ([HistoryEvent])
+dddkEvents = lens _dddkEvents (\s a -> s { _dddkEvents = a })
+{-# INLINE dddkEvents #-}
+
+-- | Returns a value if the results are paginated. To get the next page of
+-- results, repeat the request specifying this token and all other arguments
+-- unchanged.
+dddkNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
+dddkNextPageToken = lens _dddkNextPageToken (\s a -> s { _dddkNextPageToken = a })
+{-# INLINE dddkNextPageToken #-}
 
 -- | The id of the DecisionTaskStarted event of the previous decision task of
 -- this workflow execution that was processed by the decider. This can be used
 -- to determine the events in the history new since the last decision task
 -- received by the decider.
 dddkPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
-dddkPreviousStartedEventId f x =
-    f (_dddkPreviousStartedEventId x)
-        <&> \y -> x { _dddkPreviousStartedEventId = y }
+dddkPreviousStartedEventId = lens _dddkPreviousStartedEventId (\s a -> s { _dddkPreviousStartedEventId = a })
 {-# INLINE dddkPreviousStartedEventId #-}
-
--- | Returns a value if the results are paginated. To get the next page of
--- results, repeat the request specifying this token and all other arguments
--- unchanged.
-dddkNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
-dddkNextPageToken f x =
-    f (_dddkNextPageToken x)
-        <&> \y -> x { _dddkNextPageToken = y }
-{-# INLINE dddkNextPageToken #-}
 
 instance FromJSON PollForDecisionTaskResponse
 

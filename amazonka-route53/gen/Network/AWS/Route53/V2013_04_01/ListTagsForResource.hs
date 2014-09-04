@@ -22,10 +22,10 @@ module Network.AWS.Route53.V2013_04_01.ListTagsForResource
     -- * Request
       ListTagsForResource
     -- ** Request constructor
-    , listTagsForResource
+    , mkListTagsForResourceRequest
     -- ** Request lenses
-    , ltfrrResourceId
     , ltfrrResourceType
+    , ltfrrResourceId
 
     -- * Response
     , ListTagsForResourceResponse
@@ -37,38 +37,35 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListTagsForResource' request.
-listTagsForResource :: Text -- ^ 'ltfrrResourceId'
-                    -> TagResourceType -- ^ 'ltfrrResourceType'
-                    -> ListTagsForResource
-listTagsForResource p1 p2 = ListTagsForResource
-    { _ltfrrResourceId = p1
-    , _ltfrrResourceType = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTagsForResource' request.
+mkListTagsForResourceRequest :: TagResourceType -- ^ 'ltfrrResourceType'
+                             -> Text -- ^ 'ltfrrResourceId'
+                             -> ListTagsForResource
+mkListTagsForResourceRequest p1 p2 = ListTagsForResource
+    { _ltfrrResourceType = p1
+    , _ltfrrResourceId = p2
     }
-{-# INLINE listTagsForResource #-}
+{-# INLINE mkListTagsForResourceRequest #-}
 
 data ListTagsForResource = ListTagsForResource
-    { _ltfrrResourceId :: Text
-      -- ^ The ID of the resource for which you want to retrieve tags.
-    , _ltfrrResourceType :: TagResourceType
+    { _ltfrrResourceType :: TagResourceType
       -- ^ The type of the resource. The resource type for health checks is
       -- healthcheck.
+    , _ltfrrResourceId :: Text
+      -- ^ The ID of the resource for which you want to retrieve tags.
     } deriving (Show, Generic)
-
--- | The ID of the resource for which you want to retrieve tags.
-ltfrrResourceId :: Lens' ListTagsForResource (Text)
-ltfrrResourceId f x =
-    f (_ltfrrResourceId x)
-        <&> \y -> x { _ltfrrResourceId = y }
-{-# INLINE ltfrrResourceId #-}
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
 ltfrrResourceType :: Lens' ListTagsForResource (TagResourceType)
-ltfrrResourceType f x =
-    f (_ltfrrResourceType x)
-        <&> \y -> x { _ltfrrResourceType = y }
+ltfrrResourceType = lens _ltfrrResourceType (\s a -> s { _ltfrrResourceType = a })
 {-# INLINE ltfrrResourceType #-}
+
+-- | The ID of the resource for which you want to retrieve tags.
+ltfrrResourceId :: Lens' ListTagsForResource (Text)
+ltfrrResourceId = lens _ltfrrResourceId (\s a -> s { _ltfrrResourceId = a })
+{-# INLINE ltfrrResourceId #-}
 
 instance ToPath ListTagsForResource where
     toPath ListTagsForResource{..} = mconcat
@@ -86,7 +83,7 @@ instance ToXML ListTagsForResource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListTagsForResourceRequest"
 
-data ListTagsForResourceResponse = ListTagsForResourceResponse
+newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrsResourceTagSet :: ResourceTagSet
       -- ^ A ResourceTagSet containing tags associated with the specified
       -- resource.
@@ -94,9 +91,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse
 
 -- | A ResourceTagSet containing tags associated with the specified resource.
 ltfrsResourceTagSet :: Lens' ListTagsForResourceResponse (ResourceTagSet)
-ltfrsResourceTagSet f x =
-    f (_ltfrsResourceTagSet x)
-        <&> \y -> x { _ltfrsResourceTagSet = y }
+ltfrsResourceTagSet = lens _ltfrsResourceTagSet (\s a -> s { _ltfrsResourceTagSet = a })
 {-# INLINE ltfrsResourceTagSet #-}
 
 instance FromXML ListTagsForResourceResponse where

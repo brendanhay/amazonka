@@ -25,12 +25,12 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile
     -- * Request
       CreateUserProfile
     -- ** Request constructor
-    , createUserProfile
+    , mkCreateUserProfileRequest
     -- ** Request lenses
     , cuprIamUserArn
-    , cuprAllowSelfManagement
     , cuprSshUsername
     , cuprSshPublicKey
+    , cuprAllowSelfManagement
 
     -- * Response
     , CreateUserProfileResponse
@@ -43,24 +43,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateUserProfile' request.
-createUserProfile :: Text -- ^ 'cuprIamUserArn'
-                  -> CreateUserProfile
-createUserProfile p1 = CreateUserProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateUserProfile' request.
+mkCreateUserProfileRequest :: Text -- ^ 'cuprIamUserArn'
+                           -> CreateUserProfile
+mkCreateUserProfileRequest p1 = CreateUserProfile
     { _cuprIamUserArn = p1
-    , _cuprAllowSelfManagement = Nothing
     , _cuprSshUsername = Nothing
     , _cuprSshPublicKey = Nothing
+    , _cuprAllowSelfManagement = Nothing
     }
-{-# INLINE createUserProfile #-}
+{-# INLINE mkCreateUserProfileRequest #-}
 
 data CreateUserProfile = CreateUserProfile
     { _cuprIamUserArn :: Text
       -- ^ The user's IAM ARN.
-    , _cuprAllowSelfManagement :: Maybe Bool
-      -- ^ Whether users can specify their own SSH public key through the My
-      -- Settings page. For more information, see Setting an IAM User's
-      -- Public SSH Key.
     , _cuprSshUsername :: Maybe Text
       -- ^ The user's SSH user name. The allowable characters are [a-z],
       -- [A-Z], [0-9], '-', and '_'. If the specified name includes other
@@ -69,22 +66,16 @@ data CreateUserProfile = CreateUserProfile
       -- user name, AWS OpsWorks generates one from the IAM user name.
     , _cuprSshPublicKey :: Maybe Text
       -- ^ The user's public SSH key.
+    , _cuprAllowSelfManagement :: Maybe Bool
+      -- ^ Whether users can specify their own SSH public key through the My
+      -- Settings page. For more information, see Setting an IAM User's
+      -- Public SSH Key.
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
 cuprIamUserArn :: Lens' CreateUserProfile (Text)
-cuprIamUserArn f x =
-    f (_cuprIamUserArn x)
-        <&> \y -> x { _cuprIamUserArn = y }
+cuprIamUserArn = lens _cuprIamUserArn (\s a -> s { _cuprIamUserArn = a })
 {-# INLINE cuprIamUserArn #-}
-
--- | Whether users can specify their own SSH public key through the My Settings
--- page. For more information, see Setting an IAM User's Public SSH Key.
-cuprAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
-cuprAllowSelfManagement f x =
-    f (_cuprAllowSelfManagement x)
-        <&> \y -> x { _cuprAllowSelfManagement = y }
-{-# INLINE cuprAllowSelfManagement #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
 -- '-', and '_'. If the specified name includes other punctuation marks, AWS
@@ -92,17 +83,19 @@ cuprAllowSelfManagement f x =
 -- you do not specify an SSH user name, AWS OpsWorks generates one from the
 -- IAM user name.
 cuprSshUsername :: Lens' CreateUserProfile (Maybe Text)
-cuprSshUsername f x =
-    f (_cuprSshUsername x)
-        <&> \y -> x { _cuprSshUsername = y }
+cuprSshUsername = lens _cuprSshUsername (\s a -> s { _cuprSshUsername = a })
 {-# INLINE cuprSshUsername #-}
 
 -- | The user's public SSH key.
 cuprSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cuprSshPublicKey f x =
-    f (_cuprSshPublicKey x)
-        <&> \y -> x { _cuprSshPublicKey = y }
+cuprSshPublicKey = lens _cuprSshPublicKey (\s a -> s { _cuprSshPublicKey = a })
 {-# INLINE cuprSshPublicKey #-}
+
+-- | Whether users can specify their own SSH public key through the My Settings
+-- page. For more information, see Setting an IAM User's Public SSH Key.
+cuprAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
+cuprAllowSelfManagement = lens _cuprAllowSelfManagement (\s a -> s { _cuprAllowSelfManagement = a })
+{-# INLINE cuprAllowSelfManagement #-}
 
 instance ToPath CreateUserProfile
 
@@ -112,16 +105,14 @@ instance ToHeaders CreateUserProfile
 
 instance ToJSON CreateUserProfile
 
-data CreateUserProfileResponse = CreateUserProfileResponse
+newtype CreateUserProfileResponse = CreateUserProfileResponse
     { _cupsIamUserArn :: Maybe Text
       -- ^ The user's IAM ARN.
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
 cupsIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
-cupsIamUserArn f x =
-    f (_cupsIamUserArn x)
-        <&> \y -> x { _cupsIamUserArn = y }
+cupsIamUserArn = lens _cupsIamUserArn (\s a -> s { _cupsIamUserArn = a })
 {-# INLINE cupsIamUserArn #-}
 
 instance FromJSON CreateUserProfileResponse

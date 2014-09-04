@@ -27,15 +27,15 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipeline
     -- * Request
       UpdatePipeline
     -- ** Request constructor
-    , updatePipeline
+    , mkUpdatePipelineRequest
     -- ** Request lenses
     , uprId
-    , uprInputBucket
     , uprName
+    , uprInputBucket
+    , uprRole
     , uprNotifications
     , uprContentConfig
     , uprThumbnailConfig
-    , uprRole
 
     -- * Response
     , UpdatePipelineResponse
@@ -48,31 +48,35 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdatePipeline' request.
-updatePipeline :: Text -- ^ 'uprId'
-               -> UpdatePipeline
-updatePipeline p1 = UpdatePipeline
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdatePipeline' request.
+mkUpdatePipelineRequest :: Text -- ^ 'uprId'
+                        -> UpdatePipeline
+mkUpdatePipelineRequest p1 = UpdatePipeline
     { _uprId = p1
-    , _uprInputBucket = Nothing
     , _uprName = Nothing
+    , _uprInputBucket = Nothing
+    , _uprRole = Nothing
     , _uprNotifications = Nothing
     , _uprContentConfig = Nothing
     , _uprThumbnailConfig = Nothing
-    , _uprRole = Nothing
     }
-{-# INLINE updatePipeline #-}
+{-# INLINE mkUpdatePipelineRequest #-}
 
 data UpdatePipeline = UpdatePipeline
     { _uprId :: Text
       -- ^ The ID of the pipeline that you want to update.
-    , _uprInputBucket :: Maybe Text
-      -- ^ The Amazon S3 bucket in which you saved the media files that you
-      -- want to transcode and the graphics that you want to use as
-      -- watermarks.
     , _uprName :: Maybe Text
       -- ^ The name of the pipeline. We recommend that the name be unique
       -- within the AWS account, but uniqueness is not enforced.
       -- Constraints: Maximum 40 characters.
+    , _uprInputBucket :: Maybe Text
+      -- ^ The Amazon S3 bucket in which you saved the media files that you
+      -- want to transcode and the graphics that you want to use as
+      -- watermarks.
+    , _uprRole :: Maybe Text
+      -- ^ The IAM Amazon Resource Name (ARN) for the role that you want
+      -- Elastic Transcoder to use to transcode jobs for this pipeline.
     , _uprNotifications :: Maybe Notifications
       -- ^ The Amazon Simple Notification Service (Amazon SNS) topic or
       -- topics to notify in order to report job status. To receive
@@ -170,42 +174,37 @@ data UpdatePipeline = UpdatePipeline
       -- StorageClass: The Amazon S3 storage class, Standard or
       -- ReducedRedundancy, that you want Elastic Transcoder to assign to
       -- the thumbnails that it stores in your Amazon S3 bucket.
-    , _uprRole :: Maybe Text
-      -- ^ The IAM Amazon Resource Name (ARN) for the role that you want
-      -- Elastic Transcoder to use to transcode jobs for this pipeline.
     } deriving (Show, Generic)
 
 -- | The ID of the pipeline that you want to update.
 uprId :: Lens' UpdatePipeline (Text)
-uprId f x =
-    f (_uprId x)
-        <&> \y -> x { _uprId = y }
+uprId = lens _uprId (\s a -> s { _uprId = a })
 {-# INLINE uprId #-}
-
--- | The Amazon S3 bucket in which you saved the media files that you want to
--- transcode and the graphics that you want to use as watermarks.
-uprInputBucket :: Lens' UpdatePipeline (Maybe Text)
-uprInputBucket f x =
-    f (_uprInputBucket x)
-        <&> \y -> x { _uprInputBucket = y }
-{-# INLINE uprInputBucket #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
 uprName :: Lens' UpdatePipeline (Maybe Text)
-uprName f x =
-    f (_uprName x)
-        <&> \y -> x { _uprName = y }
+uprName = lens _uprName (\s a -> s { _uprName = a })
 {-# INLINE uprName #-}
+
+-- | The Amazon S3 bucket in which you saved the media files that you want to
+-- transcode and the graphics that you want to use as watermarks.
+uprInputBucket :: Lens' UpdatePipeline (Maybe Text)
+uprInputBucket = lens _uprInputBucket (\s a -> s { _uprInputBucket = a })
+{-# INLINE uprInputBucket #-}
+
+-- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
+-- Transcoder to use to transcode jobs for this pipeline.
+uprRole :: Lens' UpdatePipeline (Maybe Text)
+uprRole = lens _uprRole (\s a -> s { _uprRole = a })
+{-# INLINE uprRole #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
 -- notify in order to report job status. To receive notifications, you must
 -- also subscribe to the new topic in the Amazon SNS console.
 uprNotifications :: Lens' UpdatePipeline (Maybe Notifications)
-uprNotifications f x =
-    f (_uprNotifications x)
-        <&> \y -> x { _uprNotifications = y }
+uprNotifications = lens _uprNotifications (\s a -> s { _uprNotifications = a })
 {-# INLINE uprNotifications #-}
 
 -- | The optional ContentConfig object specifies information about the Amazon S3
@@ -250,9 +249,7 @@ uprNotifications f x =
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the video
 -- files and playlists that it stores in your Amazon S3 bucket.
 uprContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
-uprContentConfig f x =
-    f (_uprContentConfig x)
-        <&> \y -> x { _uprContentConfig = y }
+uprContentConfig = lens _uprContentConfig (\s a -> s { _uprContentConfig = a })
 {-# INLINE uprContentConfig #-}
 
 -- | The ThumbnailConfig object specifies several values, including the Amazon
@@ -292,18 +289,8 @@ uprContentConfig f x =
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
 uprThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
-uprThumbnailConfig f x =
-    f (_uprThumbnailConfig x)
-        <&> \y -> x { _uprThumbnailConfig = y }
+uprThumbnailConfig = lens _uprThumbnailConfig (\s a -> s { _uprThumbnailConfig = a })
 {-# INLINE uprThumbnailConfig #-}
-
--- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
--- Transcoder to use to transcode jobs for this pipeline.
-uprRole :: Lens' UpdatePipeline (Maybe Text)
-uprRole f x =
-    f (_uprRole x)
-        <&> \y -> x { _uprRole = y }
-{-# INLINE uprRole #-}
 
 instance ToPath UpdatePipeline where
     toPath UpdatePipeline{..} = mconcat
@@ -317,16 +304,14 @@ instance ToHeaders UpdatePipeline
 
 instance ToJSON UpdatePipeline
 
-data UpdatePipelineResponse = UpdatePipelineResponse
+newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _upsPipeline :: Pipeline
       -- ^ The pipeline (queue) that is used to manage jobs.
     } deriving (Show, Generic)
 
 -- | The pipeline (queue) that is used to manage jobs.
 upsPipeline :: Lens' UpdatePipelineResponse (Pipeline)
-upsPipeline f x =
-    f (_upsPipeline x)
-        <&> \y -> x { _upsPipeline = y }
+upsPipeline = lens _upsPipeline (\s a -> s { _upsPipeline = a })
 {-# INLINE upsPipeline #-}
 
 instance FromJSON UpdatePipelineResponse

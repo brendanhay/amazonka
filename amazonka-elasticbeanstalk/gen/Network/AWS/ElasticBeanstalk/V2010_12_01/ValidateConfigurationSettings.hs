@@ -33,12 +33,12 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings
     -- * Request
       ValidateConfigurationSettings
     -- ** Request constructor
-    , validateConfigurationSettings
+    , mkValidateConfigurationSettingsMessage
     -- ** Request lenses
     , vcsmApplicationName
-    , vcsmOptionSettings
     , vcsmTemplateName
     , vcsmEnvironmentName
+    , vcsmOptionSettings
 
     -- * Response
     , ValidateConfigurationSettingsResponse
@@ -50,24 +50,23 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ValidateConfigurationSettings' request.
-validateConfigurationSettings :: Text -- ^ 'vcsmApplicationName'
-                              -> [ConfigurationOptionSetting] -- ^ 'vcsmOptionSettings'
-                              -> ValidateConfigurationSettings
-validateConfigurationSettings p1 p2 = ValidateConfigurationSettings
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ValidateConfigurationSettings' request.
+mkValidateConfigurationSettingsMessage :: Text -- ^ 'vcsmApplicationName'
+                                       -> [ConfigurationOptionSetting] -- ^ 'vcsmOptionSettings'
+                                       -> ValidateConfigurationSettings
+mkValidateConfigurationSettingsMessage p1 p2 = ValidateConfigurationSettings
     { _vcsmApplicationName = p1
-    , _vcsmOptionSettings = p2
     , _vcsmTemplateName = Nothing
     , _vcsmEnvironmentName = Nothing
+    , _vcsmOptionSettings = p4
     }
-{-# INLINE validateConfigurationSettings #-}
+{-# INLINE mkValidateConfigurationSettingsMessage #-}
 
 data ValidateConfigurationSettings = ValidateConfigurationSettings
     { _vcsmApplicationName :: Text
       -- ^ The name of the application that the configuration template or
       -- environment belongs to.
-    , _vcsmOptionSettings :: [ConfigurationOptionSetting]
-      -- ^ A list of the options and desired values to evaluate.
     , _vcsmTemplateName :: Maybe Text
       -- ^ The name of the configuration template to validate the settings
       -- against. Condition: You cannot specify both this and an
@@ -76,52 +75,44 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
       -- ^ The name of the environment to validate the settings against.
       -- Condition: You cannot specify both this and a configuration
       -- template name.
+    , _vcsmOptionSettings :: [ConfigurationOptionSetting]
+      -- ^ A list of the options and desired values to evaluate.
     } deriving (Show, Generic)
 
 -- | The name of the application that the configuration template or environment
 -- belongs to.
 vcsmApplicationName :: Lens' ValidateConfigurationSettings (Text)
-vcsmApplicationName f x =
-    f (_vcsmApplicationName x)
-        <&> \y -> x { _vcsmApplicationName = y }
+vcsmApplicationName = lens _vcsmApplicationName (\s a -> s { _vcsmApplicationName = a })
 {-# INLINE vcsmApplicationName #-}
-
--- | A list of the options and desired values to evaluate.
-vcsmOptionSettings :: Lens' ValidateConfigurationSettings ([ConfigurationOptionSetting])
-vcsmOptionSettings f x =
-    f (_vcsmOptionSettings x)
-        <&> \y -> x { _vcsmOptionSettings = y }
-{-# INLINE vcsmOptionSettings #-}
 
 -- | The name of the configuration template to validate the settings against.
 -- Condition: You cannot specify both this and an environment name.
 vcsmTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsmTemplateName f x =
-    f (_vcsmTemplateName x)
-        <&> \y -> x { _vcsmTemplateName = y }
+vcsmTemplateName = lens _vcsmTemplateName (\s a -> s { _vcsmTemplateName = a })
 {-# INLINE vcsmTemplateName #-}
 
 -- | The name of the environment to validate the settings against. Condition:
 -- You cannot specify both this and a configuration template name.
 vcsmEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsmEnvironmentName f x =
-    f (_vcsmEnvironmentName x)
-        <&> \y -> x { _vcsmEnvironmentName = y }
+vcsmEnvironmentName = lens _vcsmEnvironmentName (\s a -> s { _vcsmEnvironmentName = a })
 {-# INLINE vcsmEnvironmentName #-}
+
+-- | A list of the options and desired values to evaluate.
+vcsmOptionSettings :: Lens' ValidateConfigurationSettings ([ConfigurationOptionSetting])
+vcsmOptionSettings = lens _vcsmOptionSettings (\s a -> s { _vcsmOptionSettings = a })
+{-# INLINE vcsmOptionSettings #-}
 
 instance ToQuery ValidateConfigurationSettings where
     toQuery = genericQuery def
 
-data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
+newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _csvmMessages :: [ValidationMessage]
       -- ^ A list of ValidationMessage.
     } deriving (Show, Generic)
 
 -- | A list of ValidationMessage.
 csvmMessages :: Lens' ValidateConfigurationSettingsResponse ([ValidationMessage])
-csvmMessages f x =
-    f (_csvmMessages x)
-        <&> \y -> x { _csvmMessages = y }
+csvmMessages = lens _csvmMessages (\s a -> s { _csvmMessages = a })
 {-# INLINE csvmMessages #-}
 
 instance FromXML ValidateConfigurationSettingsResponse where

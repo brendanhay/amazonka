@@ -24,11 +24,11 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
     -- * Request
       DescribeNotificationConfigurations
     -- ** Request constructor
-    , describeNotificationConfigurations
+    , mkDescribeNotificationConfigurationsType
     -- ** Request lenses
     , dncuAutoScalingGroupNames
-    , dncuMaxRecords
     , dncuNextToken
+    , dncuMaxRecords
 
     -- * Response
     , DescribeNotificationConfigurationsResponse
@@ -41,46 +41,41 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeNotificationConfigurations' request.
-describeNotificationConfigurations :: DescribeNotificationConfigurations
-describeNotificationConfigurations = DescribeNotificationConfigurations
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNotificationConfigurations' request.
+mkDescribeNotificationConfigurationsType :: DescribeNotificationConfigurations
+mkDescribeNotificationConfigurationsType = DescribeNotificationConfigurations
     { _dncuAutoScalingGroupNames = mempty
-    , _dncuMaxRecords = Nothing
     , _dncuNextToken = Nothing
+    , _dncuMaxRecords = Nothing
     }
-{-# INLINE describeNotificationConfigurations #-}
+{-# INLINE mkDescribeNotificationConfigurationsType #-}
 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dncuAutoScalingGroupNames :: [Text]
       -- ^ The name of the Auto Scaling group.
-    , _dncuMaxRecords :: Maybe Integer
-      -- ^ Maximum number of records to be returned.
     , _dncuNextToken :: Maybe Text
       -- ^ A string that is used to mark the start of the next batch of
       -- returned results for pagination.
+    , _dncuMaxRecords :: Maybe Integer
+      -- ^ Maximum number of records to be returned.
     } deriving (Show, Generic)
 
 -- | The name of the Auto Scaling group.
 dncuAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations ([Text])
-dncuAutoScalingGroupNames f x =
-    f (_dncuAutoScalingGroupNames x)
-        <&> \y -> x { _dncuAutoScalingGroupNames = y }
+dncuAutoScalingGroupNames = lens _dncuAutoScalingGroupNames (\s a -> s { _dncuAutoScalingGroupNames = a })
 {-# INLINE dncuAutoScalingGroupNames #-}
-
--- | Maximum number of records to be returned.
-dncuMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Integer)
-dncuMaxRecords f x =
-    f (_dncuMaxRecords x)
-        <&> \y -> x { _dncuMaxRecords = y }
-{-# INLINE dncuMaxRecords #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
 dncuNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
-dncuNextToken f x =
-    f (_dncuNextToken x)
-        <&> \y -> x { _dncuNextToken = y }
+dncuNextToken = lens _dncuNextToken (\s a -> s { _dncuNextToken = a })
 {-# INLINE dncuNextToken #-}
+
+-- | Maximum number of records to be returned.
+dncuMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Integer)
+dncuMaxRecords = lens _dncuMaxRecords (\s a -> s { _dncuMaxRecords = a })
+{-# INLINE dncuMaxRecords #-}
 
 instance ToQuery DescribeNotificationConfigurations where
     toQuery = genericQuery def
@@ -95,17 +90,13 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 
 -- | The list of notification configurations.
 dncaNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse ([NotificationConfiguration])
-dncaNotificationConfigurations f x =
-    f (_dncaNotificationConfigurations x)
-        <&> \y -> x { _dncaNotificationConfigurations = y }
+dncaNotificationConfigurations = lens _dncaNotificationConfigurations (\s a -> s { _dncaNotificationConfigurations = a })
 {-# INLINE dncaNotificationConfigurations #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
 dncaNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
-dncaNextToken f x =
-    f (_dncaNextToken x)
-        <&> \y -> x { _dncaNextToken = y }
+dncaNextToken = lens _dncaNextToken (\s a -> s { _dncaNextToken = a })
 {-# INLINE dncaNextToken #-}
 
 instance FromXML DescribeNotificationConfigurationsResponse where

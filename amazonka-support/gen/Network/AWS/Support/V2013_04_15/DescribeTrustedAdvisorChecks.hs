@@ -26,7 +26,7 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
     -- * Request
       DescribeTrustedAdvisorChecks
     -- ** Request constructor
-    , describeTrustedAdvisorChecks
+    , mkDescribeTrustedAdvisorChecksRequest
     -- ** Request lenses
     , dtacrLanguage
 
@@ -41,15 +41,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTrustedAdvisorChecks' request.
-describeTrustedAdvisorChecks :: Text -- ^ 'dtacrLanguage'
-                             -> DescribeTrustedAdvisorChecks
-describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorChecks' request.
+mkDescribeTrustedAdvisorChecksRequest :: Text -- ^ 'dtacrLanguage'
+                                      -> DescribeTrustedAdvisorChecks
+mkDescribeTrustedAdvisorChecksRequest p1 = DescribeTrustedAdvisorChecks
     { _dtacrLanguage = p1
     }
-{-# INLINE describeTrustedAdvisorChecks #-}
+{-# INLINE mkDescribeTrustedAdvisorChecksRequest #-}
 
-data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
+newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
     { _dtacrLanguage :: Text
       -- ^ The ISO 639-1 code for the language in which AWS provides
       -- support. AWS Support currently supports English ("en") and
@@ -61,9 +62,7 @@ data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dtacrLanguage :: Lens' DescribeTrustedAdvisorChecks (Text)
-dtacrLanguage f x =
-    f (_dtacrLanguage x)
-        <&> \y -> x { _dtacrLanguage = y }
+dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
 {-# INLINE dtacrLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorChecks
@@ -74,16 +73,14 @@ instance ToHeaders DescribeTrustedAdvisorChecks
 
 instance ToJSON DescribeTrustedAdvisorChecks
 
-data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
+newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
     { _dtacsChecks :: [TrustedAdvisorCheckDescription]
       -- ^ Information about all available Trusted Advisor checks.
     } deriving (Show, Generic)
 
 -- | Information about all available Trusted Advisor checks.
 dtacsChecks :: Lens' DescribeTrustedAdvisorChecksResponse ([TrustedAdvisorCheckDescription])
-dtacsChecks f x =
-    f (_dtacsChecks x)
-        <&> \y -> x { _dtacsChecks = y }
+dtacsChecks = lens _dtacsChecks (\s a -> s { _dtacsChecks = a })
 {-# INLINE dtacsChecks #-}
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse

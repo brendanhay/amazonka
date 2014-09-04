@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications
     -- * Request
       DescribeApplications
     -- ** Request constructor
-    , describeApplications
+    , mkDescribeApplicationsMessage
     -- ** Request lenses
     , danApplicationNames
 
@@ -41,14 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeApplications' request.
-describeApplications :: DescribeApplications
-describeApplications = DescribeApplications
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeApplications' request.
+mkDescribeApplicationsMessage :: DescribeApplications
+mkDescribeApplicationsMessage = DescribeApplications
     { _danApplicationNames = mempty
     }
-{-# INLINE describeApplications #-}
+{-# INLINE mkDescribeApplicationsMessage #-}
 
-data DescribeApplications = DescribeApplications
+newtype DescribeApplications = DescribeApplications
     { _danApplicationNames :: [Text]
       -- ^ If specified, AWS Elastic Beanstalk restricts the returned
       -- descriptions to only include those with the specified names.
@@ -57,24 +58,20 @@ data DescribeApplications = DescribeApplications
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include those with the specified names.
 danApplicationNames :: Lens' DescribeApplications ([Text])
-danApplicationNames f x =
-    f (_danApplicationNames x)
-        <&> \y -> x { _danApplicationNames = y }
+danApplicationNames = lens _danApplicationNames (\s a -> s { _danApplicationNames = a })
 {-# INLINE danApplicationNames #-}
 
 instance ToQuery DescribeApplications where
     toQuery = genericQuery def
 
-data DescribeApplicationsResponse = DescribeApplicationsResponse
+newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _adnApplications :: [ApplicationDescription]
       -- ^ This parameter contains a list of ApplicationDescription.
     } deriving (Show, Generic)
 
 -- | This parameter contains a list of ApplicationDescription.
 adnApplications :: Lens' DescribeApplicationsResponse ([ApplicationDescription])
-adnApplications f x =
-    f (_adnApplications x)
-        <&> \y -> x { _adnApplications = y }
+adnApplications = lens _adnApplications (\s a -> s { _adnApplications = a })
 {-# INLINE adnApplications #-}
 
 instance FromXML DescribeApplicationsResponse where

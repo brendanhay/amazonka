@@ -30,7 +30,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup
     -- * Request
       DeleteClusterSubnetGroup
     -- ** Request constructor
-    , deleteClusterSubnetGroup
+    , mkDeleteClusterSubnetGroupMessage
     -- ** Request lenses
     , dcsgnClusterSubnetGroupName
 
@@ -42,24 +42,23 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteClusterSubnetGroup' request.
-deleteClusterSubnetGroup :: Text -- ^ 'dcsgnClusterSubnetGroupName'
-                         -> DeleteClusterSubnetGroup
-deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSubnetGroup' request.
+mkDeleteClusterSubnetGroupMessage :: Text -- ^ 'dcsgnClusterSubnetGroupName'
+                                  -> DeleteClusterSubnetGroup
+mkDeleteClusterSubnetGroupMessage p1 = DeleteClusterSubnetGroup
     { _dcsgnClusterSubnetGroupName = p1
     }
-{-# INLINE deleteClusterSubnetGroup #-}
+{-# INLINE mkDeleteClusterSubnetGroupMessage #-}
 
-data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
+newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     { _dcsgnClusterSubnetGroupName :: Text
       -- ^ The name of the cluster subnet group name to be deleted.
     } deriving (Show, Generic)
 
 -- | The name of the cluster subnet group name to be deleted.
 dcsgnClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup (Text)
-dcsgnClusterSubnetGroupName f x =
-    f (_dcsgnClusterSubnetGroupName x)
-        <&> \y -> x { _dcsgnClusterSubnetGroupName = y }
+dcsgnClusterSubnetGroupName = lens _dcsgnClusterSubnetGroupName (\s a -> s { _dcsgnClusterSubnetGroupName = a })
 {-# INLINE dcsgnClusterSubnetGroupName #-}
 
 instance ToQuery DeleteClusterSubnetGroup where

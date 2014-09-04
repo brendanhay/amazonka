@@ -27,7 +27,7 @@ module Network.AWS.IAM.V2010_05_08.ListGroupPolicies
     -- * Request
       ListGroupPolicies
     -- ** Request constructor
-    , listGroupPolicies
+    , mkListGroupPoliciesRequest
     -- ** Request lenses
     , lgprGroupName
     , lgprMarker
@@ -36,8 +36,8 @@ module Network.AWS.IAM.V2010_05_08.ListGroupPolicies
     -- * Response
     , ListGroupPoliciesResponse
     -- ** Response lenses
-    , lgpsIsTruncated
     , lgpsPolicyNames
+    , lgpsIsTruncated
     , lgpsMarker
     ) where
 
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListGroupPolicies' request.
-listGroupPolicies :: Text -- ^ 'lgprGroupName'
-                  -> ListGroupPolicies
-listGroupPolicies p1 = ListGroupPolicies
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroupPolicies' request.
+mkListGroupPoliciesRequest :: Text -- ^ 'lgprGroupName'
+                           -> ListGroupPolicies
+mkListGroupPoliciesRequest p1 = ListGroupPolicies
     { _lgprGroupName = p1
     , _lgprMarker = Nothing
     , _lgprMaxItems = Nothing
     }
-{-# INLINE listGroupPolicies #-}
+{-# INLINE mkListGroupPoliciesRequest #-}
 
 data ListGroupPolicies = ListGroupPolicies
     { _lgprGroupName :: Text
@@ -73,18 +74,14 @@ data ListGroupPolicies = ListGroupPolicies
 
 -- | The name of the group to list policies for.
 lgprGroupName :: Lens' ListGroupPolicies (Text)
-lgprGroupName f x =
-    f (_lgprGroupName x)
-        <&> \y -> x { _lgprGroupName = y }
+lgprGroupName = lens _lgprGroupName (\s a -> s { _lgprGroupName = a })
 {-# INLINE lgprGroupName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 lgprMarker :: Lens' ListGroupPolicies (Maybe Text)
-lgprMarker f x =
-    f (_lgprMarker x)
-        <&> \y -> x { _lgprMarker = y }
+lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 {-# INLINE lgprMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -92,50 +89,42 @@ lgprMarker f x =
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lgprMaxItems :: Lens' ListGroupPolicies (Maybe Integer)
-lgprMaxItems f x =
-    f (_lgprMaxItems x)
-        <&> \y -> x { _lgprMaxItems = y }
+lgprMaxItems = lens _lgprMaxItems (\s a -> s { _lgprMaxItems = a })
 {-# INLINE lgprMaxItems #-}
 
 instance ToQuery ListGroupPolicies where
     toQuery = genericQuery def
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
-    { _lgpsIsTruncated :: Bool
+    { _lgpsPolicyNames :: [Text]
+      -- ^ A list of policy names.
+    , _lgpsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more policy names to
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more policy names in the list.
-    , _lgpsPolicyNames :: [Text]
-      -- ^ A list of policy names.
     , _lgpsMarker :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
     } deriving (Show, Generic)
 
+-- | A list of policy names.
+lgpsPolicyNames :: Lens' ListGroupPoliciesResponse ([Text])
+lgpsPolicyNames = lens _lgpsPolicyNames (\s a -> s { _lgpsPolicyNames = a })
+{-# INLINE lgpsPolicyNames #-}
+
 -- | A flag that indicates whether there are more policy names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more policy names in the list.
 lgpsIsTruncated :: Lens' ListGroupPoliciesResponse (Bool)
-lgpsIsTruncated f x =
-    f (_lgpsIsTruncated x)
-        <&> \y -> x { _lgpsIsTruncated = y }
+lgpsIsTruncated = lens _lgpsIsTruncated (\s a -> s { _lgpsIsTruncated = a })
 {-# INLINE lgpsIsTruncated #-}
-
--- | A list of policy names.
-lgpsPolicyNames :: Lens' ListGroupPoliciesResponse ([Text])
-lgpsPolicyNames f x =
-    f (_lgpsPolicyNames x)
-        <&> \y -> x { _lgpsPolicyNames = y }
-{-# INLINE lgpsPolicyNames #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lgpsMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
-lgpsMarker f x =
-    f (_lgpsMarker x)
-        <&> \y -> x { _lgpsMarker = y }
+lgpsMarker = lens _lgpsMarker (\s a -> s { _lgpsMarker = a })
 {-# INLINE lgpsMarker #-}
 
 instance FromXML ListGroupPoliciesResponse where

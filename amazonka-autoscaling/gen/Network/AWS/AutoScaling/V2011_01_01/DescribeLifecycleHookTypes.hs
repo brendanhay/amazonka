@@ -23,7 +23,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
     -- * Request
       DescribeLifecycleHookTypes
     -- ** Request constructor
-    , describeLifecycleHookTypes
+    , mkUnknown
     -- * Response
     , DescribeLifecycleHookTypesResponse
     -- ** Response lenses
@@ -34,10 +34,11 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeLifecycleHookTypes' request.
-describeLifecycleHookTypes :: DescribeLifecycleHookTypes
-describeLifecycleHookTypes = DescribeLifecycleHookTypes
-{-# INLINE describeLifecycleHookTypes #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLifecycleHookTypes' request.
+mkUnknown :: DescribeLifecycleHookTypes
+mkUnknown = DescribeLifecycleHookTypes
+{-# INLINE mkUnknown #-}
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
     deriving (Eq, Show, Generic)
@@ -45,7 +46,7 @@ data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
 instance ToQuery DescribeLifecycleHookTypes where
     toQuery = genericQuery def
 
-data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
+newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtaLifecycleHookTypes :: [Text]
       -- ^ Returns a list of all notification types supported by Auto
       -- Scaling. They are: autoscaling:EC2_INSTANCE_LAUNCHING
@@ -56,9 +57,7 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 -- are: autoscaling:EC2_INSTANCE_LAUNCHING
 -- autoscaling:EC2_INSTANCE_TERMINATING.
 dlhtaLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse ([Text])
-dlhtaLifecycleHookTypes f x =
-    f (_dlhtaLifecycleHookTypes x)
-        <&> \y -> x { _dlhtaLifecycleHookTypes = y }
+dlhtaLifecycleHookTypes = lens _dlhtaLifecycleHookTypes (\s a -> s { _dlhtaLifecycleHookTypes = a })
 {-# INLINE dlhtaLifecycleHookTypes #-}
 
 instance FromXML DescribeLifecycleHookTypesResponse where

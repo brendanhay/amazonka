@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketNotification
     -- * Request
       GetBucketNotification
     -- ** Request constructor
-    , getBucketNotification
+    , mkGetBucketNotificationRequest
     -- ** Request lenses
     , gbnrBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketNotification' request.
-getBucketNotification :: BucketName -- ^ 'gbnrBucket'
-                      -> GetBucketNotification
-getBucketNotification p1 = GetBucketNotification
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketNotification' request.
+mkGetBucketNotificationRequest :: BucketName -- ^ 'gbnrBucket'
+                               -> GetBucketNotification
+mkGetBucketNotificationRequest p1 = GetBucketNotification
     { _gbnrBucket = p1
     }
-{-# INLINE getBucketNotification #-}
+{-# INLINE mkGetBucketNotificationRequest #-}
 
-data GetBucketNotification = GetBucketNotification
+newtype GetBucketNotification = GetBucketNotification
     { _gbnrBucket :: BucketName
     } deriving (Show, Generic)
 
 gbnrBucket :: Lens' GetBucketNotification (BucketName)
-gbnrBucket f x =
-    f (_gbnrBucket x)
-        <&> \y -> x { _gbnrBucket = y }
+gbnrBucket = lens _gbnrBucket (\s a -> s { _gbnrBucket = a })
 {-# INLINE gbnrBucket #-}
 
 instance ToPath GetBucketNotification where
@@ -70,14 +69,12 @@ instance ToHeaders GetBucketNotification
 
 instance ToBody GetBucketNotification
 
-data GetBucketNotificationResponse = GetBucketNotificationResponse
+newtype GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
 
 gbnoTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
-gbnoTopicConfiguration f x =
-    f (_gbnoTopicConfiguration x)
-        <&> \y -> x { _gbnoTopicConfiguration = y }
+gbnoTopicConfiguration = lens _gbnoTopicConfiguration (\s a -> s { _gbnoTopicConfiguration = a })
 {-# INLINE gbnoTopicConfiguration #-}
 
 instance FromXML GetBucketNotificationResponse where

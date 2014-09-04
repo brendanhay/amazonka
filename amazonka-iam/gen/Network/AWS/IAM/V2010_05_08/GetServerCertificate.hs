@@ -44,7 +44,7 @@ module Network.AWS.IAM.V2010_05_08.GetServerCertificate
     -- * Request
       GetServerCertificate
     -- ** Request constructor
-    , getServerCertificate
+    , mkGetServerCertificateRequest
     -- ** Request lenses
     , gscrServerCertificateName
 
@@ -58,15 +58,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetServerCertificate' request.
-getServerCertificate :: Text -- ^ 'gscrServerCertificateName'
-                     -> GetServerCertificate
-getServerCertificate p1 = GetServerCertificate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetServerCertificate' request.
+mkGetServerCertificateRequest :: Text -- ^ 'gscrServerCertificateName'
+                              -> GetServerCertificate
+mkGetServerCertificateRequest p1 = GetServerCertificate
     { _gscrServerCertificateName = p1
     }
-{-# INLINE getServerCertificate #-}
+{-# INLINE mkGetServerCertificateRequest #-}
 
-data GetServerCertificate = GetServerCertificate
+newtype GetServerCertificate = GetServerCertificate
     { _gscrServerCertificateName :: Text
       -- ^ The name of the server certificate you want to retrieve
       -- information about.
@@ -74,24 +75,20 @@ data GetServerCertificate = GetServerCertificate
 
 -- | The name of the server certificate you want to retrieve information about.
 gscrServerCertificateName :: Lens' GetServerCertificate (Text)
-gscrServerCertificateName f x =
-    f (_gscrServerCertificateName x)
-        <&> \y -> x { _gscrServerCertificateName = y }
+gscrServerCertificateName = lens _gscrServerCertificateName (\s a -> s { _gscrServerCertificateName = a })
 {-# INLINE gscrServerCertificateName #-}
 
 instance ToQuery GetServerCertificate where
     toQuery = genericQuery def
 
-data GetServerCertificateResponse = GetServerCertificateResponse
+newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscsServerCertificate :: ServerCertificate
       -- ^ Information about the server certificate.
     } deriving (Show, Generic)
 
 -- | Information about the server certificate.
 gscsServerCertificate :: Lens' GetServerCertificateResponse (ServerCertificate)
-gscsServerCertificate f x =
-    f (_gscsServerCertificate x)
-        <&> \y -> x { _gscsServerCertificate = y }
+gscsServerCertificate = lens _gscsServerCertificate (\s a -> s { _gscsServerCertificate = a })
 {-# INLINE gscsServerCertificate #-}
 
 instance FromXML GetServerCertificateResponse where

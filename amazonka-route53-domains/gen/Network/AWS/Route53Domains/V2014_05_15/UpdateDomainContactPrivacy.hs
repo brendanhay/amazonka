@@ -45,7 +45,7 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy
     -- * Request
       UpdateDomainContactPrivacy
     -- ** Request constructor
-    , updateDomainContactPrivacy
+    , mkUpdateDomainContactPrivacyRequest
     -- ** Request lenses
     , udcprDomainName
     , udcprAdminPrivacy
@@ -63,16 +63,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateDomainContactPrivacy' request.
-updateDomainContactPrivacy :: Text -- ^ 'udcprDomainName'
-                           -> UpdateDomainContactPrivacy
-updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateDomainContactPrivacy' request.
+mkUpdateDomainContactPrivacyRequest :: Text -- ^ 'udcprDomainName'
+                                    -> UpdateDomainContactPrivacy
+mkUpdateDomainContactPrivacyRequest p1 = UpdateDomainContactPrivacy
     { _udcprDomainName = p1
     , _udcprAdminPrivacy = Nothing
     , _udcprRegistrantPrivacy = Nothing
     , _udcprTechPrivacy = Nothing
     }
-{-# INLINE updateDomainContactPrivacy #-}
+{-# INLINE mkUpdateDomainContactPrivacyRequest #-}
 
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     { _udcprDomainName :: Text
@@ -105,9 +106,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 udcprDomainName :: Lens' UpdateDomainContactPrivacy (Text)
-udcprDomainName f x =
-    f (_udcprDomainName x)
-        <&> \y -> x { _udcprDomainName = y }
+udcprDomainName = lens _udcprDomainName (\s a -> s { _udcprDomainName = a })
 {-# INLINE udcprDomainName #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
@@ -115,9 +114,7 @@ udcprDomainName f x =
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
 udcprAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprAdminPrivacy f x =
-    f (_udcprAdminPrivacy x)
-        <&> \y -> x { _udcprAdminPrivacy = y }
+udcprAdminPrivacy = lens _udcprAdminPrivacy (\s a -> s { _udcprAdminPrivacy = a })
 {-# INLINE udcprAdminPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
@@ -125,9 +122,7 @@ udcprAdminPrivacy f x =
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
 udcprRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprRegistrantPrivacy f x =
-    f (_udcprRegistrantPrivacy x)
-        <&> \y -> x { _udcprRegistrantPrivacy = y }
+udcprRegistrantPrivacy = lens _udcprRegistrantPrivacy (\s a -> s { _udcprRegistrantPrivacy = a })
 {-# INLINE udcprRegistrantPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
@@ -135,9 +130,7 @@ udcprRegistrantPrivacy f x =
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
 udcprTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprTechPrivacy f x =
-    f (_udcprTechPrivacy x)
-        <&> \y -> x { _udcprTechPrivacy = y }
+udcprTechPrivacy = lens _udcprTechPrivacy (\s a -> s { _udcprTechPrivacy = a })
 {-# INLINE udcprTechPrivacy #-}
 
 instance ToPath UpdateDomainContactPrivacy
@@ -148,7 +141,7 @@ instance ToHeaders UpdateDomainContactPrivacy
 
 instance ToJSON UpdateDomainContactPrivacy
 
-data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
+newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
     { _udcpsOperationId :: Text
       -- ^ Identifier for tracking the progress of the request. To use this
       -- ID to query the operation status, use GetOperationDetail. Type:
@@ -159,9 +152,7 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
 udcpsOperationId :: Lens' UpdateDomainContactPrivacyResponse (Text)
-udcpsOperationId f x =
-    f (_udcpsOperationId x)
-        <&> \y -> x { _udcpsOperationId = y }
+udcpsOperationId = lens _udcpsOperationId (\s a -> s { _udcpsOperationId = a })
 {-# INLINE udcpsOperationId #-}
 
 instance FromJSON UpdateDomainContactPrivacyResponse

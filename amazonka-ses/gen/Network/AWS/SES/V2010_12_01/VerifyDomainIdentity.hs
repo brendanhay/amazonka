@@ -33,7 +33,7 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
     -- * Request
       VerifyDomainIdentity
     -- ** Request constructor
-    , verifyDomainIdentity
+    , mkVerifyDomainIdentityRequest
     -- ** Request lenses
     , vdirDomain
 
@@ -47,30 +47,29 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'VerifyDomainIdentity' request.
-verifyDomainIdentity :: Text -- ^ 'vdirDomain'
-                     -> VerifyDomainIdentity
-verifyDomainIdentity p1 = VerifyDomainIdentity
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyDomainIdentity' request.
+mkVerifyDomainIdentityRequest :: Text -- ^ 'vdirDomain'
+                              -> VerifyDomainIdentity
+mkVerifyDomainIdentityRequest p1 = VerifyDomainIdentity
     { _vdirDomain = p1
     }
-{-# INLINE verifyDomainIdentity #-}
+{-# INLINE mkVerifyDomainIdentityRequest #-}
 
-data VerifyDomainIdentity = VerifyDomainIdentity
+newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdirDomain :: Text
       -- ^ The domain to be verified.
     } deriving (Show, Generic)
 
 -- | The domain to be verified.
 vdirDomain :: Lens' VerifyDomainIdentity (Text)
-vdirDomain f x =
-    f (_vdirDomain x)
-        <&> \y -> x { _vdirDomain = y }
+vdirDomain = lens _vdirDomain (\s a -> s { _vdirDomain = a })
 {-# INLINE vdirDomain #-}
 
 instance ToQuery VerifyDomainIdentity where
     toQuery = genericQuery def
 
-data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
+newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdisVerificationToken :: Text
       -- ^ A TXT record that must be placed in the DNS settings for the
       -- domain, in order to complete domain verification.
@@ -79,9 +78,7 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
 vdisVerificationToken :: Lens' VerifyDomainIdentityResponse (Text)
-vdisVerificationToken f x =
-    f (_vdisVerificationToken x)
-        <&> \y -> x { _vdisVerificationToken = y }
+vdisVerificationToken = lens _vdisVerificationToken (\s a -> s { _vdisVerificationToken = a })
 {-# INLINE vdisVerificationToken #-}
 
 instance FromXML VerifyDomainIdentityResponse where

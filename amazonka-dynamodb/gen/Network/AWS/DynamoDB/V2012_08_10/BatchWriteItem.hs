@@ -71,7 +71,7 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
     -- * Request
       BatchWriteItem
     -- ** Request constructor
-    , batchWriteItem
+    , mkBatchWriteItemInput
     -- ** Request lenses
     , bwiiRequestItems
     , bwiiReturnConsumedCapacity
@@ -81,8 +81,8 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
     , BatchWriteItemResponse
     -- ** Response lenses
     , bwioUnprocessedItems
-    , bwioConsumedCapacity
     , bwioItemCollectionMetrics
+    , bwioConsumedCapacity
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -90,15 +90,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'BatchWriteItem' request.
-batchWriteItem :: Map Text [WriteRequest] -- ^ 'bwiiRequestItems'
-               -> BatchWriteItem
-batchWriteItem p1 = BatchWriteItem
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchWriteItem' request.
+mkBatchWriteItemInput :: Map Text [WriteRequest] -- ^ 'bwiiRequestItems'
+                      -> BatchWriteItem
+mkBatchWriteItemInput p1 = BatchWriteItem
     { _bwiiRequestItems = p1
     , _bwiiReturnConsumedCapacity = Nothing
     , _bwiiReturnItemCollectionMetrics = Nothing
     }
-{-# INLINE batchWriteItem #-}
+{-# INLINE mkBatchWriteItemInput #-}
 
 data BatchWriteItem = BatchWriteItem
     { _bwiiRequestItems :: Map Text [WriteRequest]
@@ -148,9 +149,7 @@ data BatchWriteItem = BatchWriteItem
 -- attributes must match those of the schema in the table's attribute
 -- definition.
 bwiiRequestItems :: Lens' BatchWriteItem (Map Text [WriteRequest])
-bwiiRequestItems f x =
-    f (_bwiiRequestItems x)
-        <&> \y -> x { _bwiiRequestItems = y }
+bwiiRequestItems = lens _bwiiRequestItems (\s a -> s { _bwiiRequestItems = a })
 {-# INLINE bwiiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
@@ -158,18 +157,14 @@ bwiiRequestItems f x =
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
 bwiiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
-bwiiReturnConsumedCapacity f x =
-    f (_bwiiReturnConsumedCapacity x)
-        <&> \y -> x { _bwiiReturnConsumedCapacity = y }
+bwiiReturnConsumedCapacity = lens _bwiiReturnConsumedCapacity (\s a -> s { _bwiiReturnConsumedCapacity = a })
 {-# INLINE bwiiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
 bwiiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
-bwiiReturnItemCollectionMetrics f x =
-    f (_bwiiReturnItemCollectionMetrics x)
-        <&> \y -> x { _bwiiReturnItemCollectionMetrics = y }
+bwiiReturnItemCollectionMetrics = lens _bwiiReturnItemCollectionMetrics (\s a -> s { _bwiiReturnItemCollectionMetrics = a })
 {-# INLINE bwiiReturnItemCollectionMetrics #-}
 
 instance ToPath BatchWriteItem
@@ -204,11 +199,6 @@ data BatchWriteItemResponse = BatchWriteItemResponse
       -- If you specify any attributes that are part of an index key, then
       -- the data types for those attributes must match those of the
       -- schema in the table's attribute definition.
-    , _bwioConsumedCapacity :: [ConsumedCapacity]
-      -- ^ The capacity units consumed by the operation. Each element
-      -- consists of: TableName - The table that consumed the provisioned
-      -- throughput. CapacityUnits - The total number of capacity units
-      -- consumed.
     , _bwioItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
       -- ^ A list of tables that were processed by BatchWriteItem and, for
       -- each table, information about any item collections that were
@@ -224,6 +214,11 @@ data BatchWriteItemResponse = BatchWriteItemResponse
       -- whether a local secondary index is approaching its size limit.
       -- The estimate is subject to change over time; therefore, do not
       -- rely on the precision or accuracy of the estimate.
+    , _bwioConsumedCapacity :: [ConsumedCapacity]
+      -- ^ The capacity units consumed by the operation. Each element
+      -- consists of: TableName - The table that consumed the provisioned
+      -- throughput. CapacityUnits - The total number of capacity units
+      -- consumed.
     } deriving (Show, Generic)
 
 -- | A map of tables and requests against those tables that were not processed.
@@ -246,19 +241,8 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 -- index key, then the data types for those attributes must match those of the
 -- schema in the table's attribute definition.
 bwioUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
-bwioUnprocessedItems f x =
-    f (_bwioUnprocessedItems x)
-        <&> \y -> x { _bwioUnprocessedItems = y }
+bwioUnprocessedItems = lens _bwioUnprocessedItems (\s a -> s { _bwioUnprocessedItems = a })
 {-# INLINE bwioUnprocessedItems #-}
-
--- | The capacity units consumed by the operation. Each element consists of:
--- TableName - The table that consumed the provisioned throughput.
--- CapacityUnits - The total number of capacity units consumed.
-bwioConsumedCapacity :: Lens' BatchWriteItemResponse ([ConsumedCapacity])
-bwioConsumedCapacity f x =
-    f (_bwioConsumedCapacity x)
-        <&> \y -> x { _bwioConsumedCapacity = y }
-{-# INLINE bwioConsumedCapacity #-}
 
 -- | A list of tables that were processed by BatchWriteItem and, for each table,
 -- information about any item collections that were affected by individual
@@ -273,10 +257,15 @@ bwioConsumedCapacity f x =
 -- approaching its size limit. The estimate is subject to change over time;
 -- therefore, do not rely on the precision or accuracy of the estimate.
 bwioItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollectionMetrics])
-bwioItemCollectionMetrics f x =
-    f (_bwioItemCollectionMetrics x)
-        <&> \y -> x { _bwioItemCollectionMetrics = y }
+bwioItemCollectionMetrics = lens _bwioItemCollectionMetrics (\s a -> s { _bwioItemCollectionMetrics = a })
 {-# INLINE bwioItemCollectionMetrics #-}
+
+-- | The capacity units consumed by the operation. Each element consists of:
+-- TableName - The table that consumed the provisioned throughput.
+-- CapacityUnits - The total number of capacity units consumed.
+bwioConsumedCapacity :: Lens' BatchWriteItemResponse ([ConsumedCapacity])
+bwioConsumedCapacity = lens _bwioConsumedCapacity (\s a -> s { _bwioConsumedCapacity = a })
+{-# INLINE bwioConsumedCapacity #-}
 
 instance FromJSON BatchWriteItemResponse
 

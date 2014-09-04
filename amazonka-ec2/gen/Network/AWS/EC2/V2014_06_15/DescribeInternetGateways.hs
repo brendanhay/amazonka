@@ -27,10 +27,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeInternetGateways
     -- * Request
       DescribeInternetGateways
     -- ** Request constructor
-    , describeInternetGateways
+    , mkDescribeInternetGatewaysRequest
     -- ** Request lenses
-    , digsFilters
     , digsInternetGatewayIds
+    , digsFilters
 
     -- * Response
     , DescribeInternetGatewaysResponse
@@ -42,16 +42,20 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeInternetGateways' request.
-describeInternetGateways :: DescribeInternetGateways
-describeInternetGateways = DescribeInternetGateways
-    { _digsFilters = mempty
-    , _digsInternetGatewayIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInternetGateways' request.
+mkDescribeInternetGatewaysRequest :: DescribeInternetGateways
+mkDescribeInternetGatewaysRequest = DescribeInternetGateways
+    { _digsInternetGatewayIds = mempty
+    , _digsFilters = mempty
     }
-{-# INLINE describeInternetGateways #-}
+{-# INLINE mkDescribeInternetGatewaysRequest #-}
 
 data DescribeInternetGateways = DescribeInternetGateways
-    { _digsFilters :: [Filter]
+    { _digsInternetGatewayIds :: [Text]
+      -- ^ One or more Internet gateway IDs. Default: Describes all your
+      -- Internet gateways.
+    , _digsFilters :: [Filter]
       -- ^ One or more filters. attachment.state - The current state of the
       -- attachment between the gateway and the VPC. Present only if a VPC
       -- is attached. attachment.vpc-id - The ID of an attached VPC.
@@ -66,10 +70,13 @@ data DescribeInternetGateways = DescribeInternetGateways
       -- list only resources where Purpose is X, see the tag:key=value
       -- filter. tag-value - The value of a tag assigned to the resource.
       -- This filter is independent of the tag-key filter.
-    , _digsInternetGatewayIds :: [Text]
-      -- ^ One or more Internet gateway IDs. Default: Describes all your
-      -- Internet gateways.
     } deriving (Show, Generic)
+
+-- | One or more Internet gateway IDs. Default: Describes all your Internet
+-- gateways.
+digsInternetGatewayIds :: Lens' DescribeInternetGateways ([Text])
+digsInternetGatewayIds = lens _digsInternetGatewayIds (\s a -> s { _digsInternetGatewayIds = a })
+{-# INLINE digsInternetGatewayIds #-}
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC. Present only if a VPC is attached.
@@ -84,32 +91,20 @@ data DescribeInternetGateways = DescribeInternetGateways
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 digsFilters :: Lens' DescribeInternetGateways ([Filter])
-digsFilters f x =
-    f (_digsFilters x)
-        <&> \y -> x { _digsFilters = y }
+digsFilters = lens _digsFilters (\s a -> s { _digsFilters = a })
 {-# INLINE digsFilters #-}
-
--- | One or more Internet gateway IDs. Default: Describes all your Internet
--- gateways.
-digsInternetGatewayIds :: Lens' DescribeInternetGateways ([Text])
-digsInternetGatewayIds f x =
-    f (_digsInternetGatewayIds x)
-        <&> \y -> x { _digsInternetGatewayIds = y }
-{-# INLINE digsInternetGatewayIds #-}
 
 instance ToQuery DescribeInternetGateways where
     toQuery = genericQuery def
 
-data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
+newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digtInternetGateways :: [InternetGateway]
       -- ^ Information about one or more Internet gateways.
     } deriving (Show, Generic)
 
 -- | Information about one or more Internet gateways.
 digtInternetGateways :: Lens' DescribeInternetGatewaysResponse ([InternetGateway])
-digtInternetGateways f x =
-    f (_digtInternetGateways x)
-        <&> \y -> x { _digtInternetGateways = y }
+digtInternetGateways = lens _digtInternetGateways (\s a -> s { _digtInternetGateways = a })
 {-# INLINE digtInternetGateways #-}
 
 instance FromXML DescribeInternetGatewaysResponse where

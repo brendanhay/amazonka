@@ -25,12 +25,12 @@ module Network.AWS.S3.V2006_03_01.RestoreObject
     -- ** Request alias
     , PostObjectRestore
     -- ** Request constructor
-    , restoreObject
+    , mkRestoreObjectRequest
     -- ** Request lenses
     , rorBucket
     , rorKey
-    , rorRestoreRequest
     , rorVersionId
+    , rorRestoreRequest
 
     -- * Response
     , RestoreObjectResponse
@@ -42,48 +42,41 @@ import Network.AWS.Prelude
 
 type PostObjectRestore = RestoreObject
 
--- | Minimum specification for a 'RestoreObject' request.
-restoreObject :: BucketName -- ^ 'rorBucket'
-              -> ObjectKey -- ^ 'rorKey'
-              -> RestoreObject
-restoreObject p1 p2 = RestoreObject
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreObject' request.
+mkRestoreObjectRequest :: BucketName -- ^ 'rorBucket'
+                       -> ObjectKey -- ^ 'rorKey'
+                       -> RestoreObject
+mkRestoreObjectRequest p1 p2 = RestoreObject
     { _rorBucket = p1
     , _rorKey = p2
-    , _rorRestoreRequest = Nothing
     , _rorVersionId = Nothing
+    , _rorRestoreRequest = Nothing
     }
-{-# INLINE restoreObject #-}
+{-# INLINE mkRestoreObjectRequest #-}
 
 data RestoreObject = RestoreObject
     { _rorBucket :: BucketName
     , _rorKey :: ObjectKey
-    , _rorRestoreRequest :: Maybe RestoreRequest
     , _rorVersionId :: Maybe ObjectVersionId
+    , _rorRestoreRequest :: Maybe RestoreRequest
     } deriving (Show, Generic)
 
 rorBucket :: Lens' RestoreObject (BucketName)
-rorBucket f x =
-    f (_rorBucket x)
-        <&> \y -> x { _rorBucket = y }
+rorBucket = lens _rorBucket (\s a -> s { _rorBucket = a })
 {-# INLINE rorBucket #-}
 
 rorKey :: Lens' RestoreObject (ObjectKey)
-rorKey f x =
-    f (_rorKey x)
-        <&> \y -> x { _rorKey = y }
+rorKey = lens _rorKey (\s a -> s { _rorKey = a })
 {-# INLINE rorKey #-}
 
-rorRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-rorRestoreRequest f x =
-    f (_rorRestoreRequest x)
-        <&> \y -> x { _rorRestoreRequest = y }
-{-# INLINE rorRestoreRequest #-}
-
 rorVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
-rorVersionId f x =
-    f (_rorVersionId x)
-        <&> \y -> x { _rorVersionId = y }
+rorVersionId = lens _rorVersionId (\s a -> s { _rorVersionId = a })
 {-# INLINE rorVersionId #-}
+
+rorRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
+rorRestoreRequest = lens _rorRestoreRequest (\s a -> s { _rorRestoreRequest = a })
+{-# INLINE rorRestoreRequest #-}
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
@@ -100,8 +93,7 @@ instance ToQuery RestoreObject where
 
 instance ToHeaders RestoreObject
 
-instance ToBody RestoreObject where
-    toBody = toBody . encodeXML . _rorRestoreRequest
+instance ToBody RestoreObject
 
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Show, Generic)

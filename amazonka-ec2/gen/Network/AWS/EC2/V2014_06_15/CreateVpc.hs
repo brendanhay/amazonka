@@ -52,7 +52,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpc
     -- * Request
       CreateVpc
     -- ** Request constructor
-    , createVpc
+    , mkCreateVpcRequest
     -- ** Request lenses
     , cvsCidrBlock
     , cvsInstanceTenancy
@@ -67,14 +67,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateVpc' request.
-createVpc :: Text -- ^ 'cvsCidrBlock'
-          -> CreateVpc
-createVpc p1 = CreateVpc
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpc' request.
+mkCreateVpcRequest :: Text -- ^ 'cvsCidrBlock'
+                   -> CreateVpc
+mkCreateVpcRequest p1 = CreateVpc
     { _cvsCidrBlock = p1
     , _cvsInstanceTenancy = Nothing
     }
-{-# INLINE createVpc #-}
+{-# INLINE mkCreateVpcRequest #-}
 
 data CreateVpc = CreateVpc
     { _cvsCidrBlock :: Text
@@ -92,9 +93,7 @@ data CreateVpc = CreateVpc
 
 -- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
 cvsCidrBlock :: Lens' CreateVpc (Text)
-cvsCidrBlock f x =
-    f (_cvsCidrBlock x)
-        <&> \y -> x { _cvsCidrBlock = y }
+cvsCidrBlock = lens _cvsCidrBlock (\s a -> s { _cvsCidrBlock = a })
 {-# INLINE cvsCidrBlock #-}
 
 -- | The supported tenancy options for instances launched into the VPC. A value
@@ -104,24 +103,20 @@ cvsCidrBlock f x =
 -- instance at launch. Dedicated tenancy instances runs on single-tenant
 -- hardware. Default: default.
 cvsInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
-cvsInstanceTenancy f x =
-    f (_cvsInstanceTenancy x)
-        <&> \y -> x { _cvsInstanceTenancy = y }
+cvsInstanceTenancy = lens _cvsInstanceTenancy (\s a -> s { _cvsInstanceTenancy = a })
 {-# INLINE cvsInstanceTenancy #-}
 
 instance ToQuery CreateVpc where
     toQuery = genericQuery def
 
-data CreateVpcResponse = CreateVpcResponse
+newtype CreateVpcResponse = CreateVpcResponse
     { _cvtVpc :: Maybe Vpc
       -- ^ Information about the VPC.
     } deriving (Show, Generic)
 
 -- | Information about the VPC.
 cvtVpc :: Lens' CreateVpcResponse (Maybe Vpc)
-cvtVpc f x =
-    f (_cvtVpc x)
-        <&> \y -> x { _cvtVpc = y }
+cvtVpc = lens _cvtVpc (\s a -> s { _cvtVpc = a })
 {-# INLINE cvtVpc #-}
 
 instance FromXML CreateVpcResponse where

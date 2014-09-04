@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
     -- * Request
       DescribeTerminationPolicyTypes
     -- ** Request constructor
-    , describeTerminationPolicyTypes
+    , mkUnknown
     -- * Response
     , DescribeTerminationPolicyTypesResponse
     -- ** Response lenses
@@ -38,10 +38,11 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeTerminationPolicyTypes' request.
-describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
-describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
-{-# INLINE describeTerminationPolicyTypes #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTerminationPolicyTypes' request.
+mkUnknown :: DescribeTerminationPolicyTypes
+mkUnknown = DescribeTerminationPolicyTypes
+{-# INLINE mkUnknown #-}
 
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
     deriving (Eq, Show, Generic)
@@ -49,7 +50,7 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 instance ToQuery DescribeTerminationPolicyTypes where
     toQuery = genericQuery def
 
-data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptaTerminationPolicyTypes :: [Text]
       -- ^ Termination policies supported by Auto Scaling. They are:
       -- OldestInstance, OldestLaunchConfiguration, NewestInstance,
@@ -60,9 +61,7 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 -- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,
 -- Default.
 dtptaTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse ([Text])
-dtptaTerminationPolicyTypes f x =
-    f (_dtptaTerminationPolicyTypes x)
-        <&> \y -> x { _dtptaTerminationPolicyTypes = y }
+dtptaTerminationPolicyTypes = lens _dtptaTerminationPolicyTypes (\s a -> s { _dtptaTerminationPolicyTypes = a })
 {-# INLINE dtptaTerminationPolicyTypes #-}
 
 instance FromXML DescribeTerminationPolicyTypesResponse where

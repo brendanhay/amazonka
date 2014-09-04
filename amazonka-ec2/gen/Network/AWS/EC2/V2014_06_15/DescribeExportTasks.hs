@@ -42,7 +42,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeExportTasks
     -- * Request
       DescribeExportTasks
     -- ** Request constructor
-    , describeExportTasks
+    , mkDescribeExportTasksRequest
     -- ** Request lenses
     , detrExportTaskIds
 
@@ -56,38 +56,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeExportTasks' request.
-describeExportTasks :: DescribeExportTasks
-describeExportTasks = DescribeExportTasks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeExportTasks' request.
+mkDescribeExportTasksRequest :: DescribeExportTasks
+mkDescribeExportTasksRequest = DescribeExportTasks
     { _detrExportTaskIds = mempty
     }
-{-# INLINE describeExportTasks #-}
+{-# INLINE mkDescribeExportTasksRequest #-}
 
-data DescribeExportTasks = DescribeExportTasks
+newtype DescribeExportTasks = DescribeExportTasks
     { _detrExportTaskIds :: [Text]
       -- ^ One or more export task IDs.
     } deriving (Show, Generic)
 
 -- | One or more export task IDs.
 detrExportTaskIds :: Lens' DescribeExportTasks ([Text])
-detrExportTaskIds f x =
-    f (_detrExportTaskIds x)
-        <&> \y -> x { _detrExportTaskIds = y }
+detrExportTaskIds = lens _detrExportTaskIds (\s a -> s { _detrExportTaskIds = a })
 {-# INLINE detrExportTaskIds #-}
 
 instance ToQuery DescribeExportTasks where
     toQuery = genericQuery def
 
-data DescribeExportTasksResponse = DescribeExportTasksResponse
+newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detsExportTasks :: [ExportTask]
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 detsExportTasks :: Lens' DescribeExportTasksResponse ([ExportTask])
-detsExportTasks f x =
-    f (_detsExportTasks x)
-        <&> \y -> x { _detsExportTasks = y }
+detsExportTasks = lens _detsExportTasks (\s a -> s { _detsExportTasks = a })
 {-# INLINE detsExportTasks #-}
 
 instance FromXML DescribeExportTasksResponse where

@@ -26,7 +26,7 @@ module Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
     -- * Request
       CreatePublicVirtualInterface
     -- ** Request constructor
-    , createPublicVirtualInterface
+    , mkCreatePublicVirtualInterfaceRequest
     -- ** Request lenses
     , cpviwConnectionId
     , cpviwNewPublicVirtualInterface
@@ -34,21 +34,21 @@ module Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface
     -- * Response
     , CreatePublicVirtualInterfaceResponse
     -- ** Response lenses
-    , vlAsn
-    , vlAmazonAddress
-    , vlAuthKey
-    , vlConnectionId
-    , vlCustomerAddress
-    , vlLocation
     , vlOwnerAccount
-    , vlRouteFilterPrefixes
-    , vlCustomerRouterConfig
-    , vlVlan
-    , vlVirtualGatewayId
     , vlVirtualInterfaceId
-    , vlVirtualInterfaceName
-    , vlVirtualInterfaceState
+    , vlLocation
+    , vlConnectionId
     , vlVirtualInterfaceType
+    , vlVirtualInterfaceName
+    , vlVlan
+    , vlAsn
+    , vlAuthKey
+    , vlAmazonAddress
+    , vlCustomerAddress
+    , vlVirtualInterfaceState
+    , vlCustomerRouterConfig
+    , vlVirtualGatewayId
+    , vlRouteFilterPrefixes
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -56,15 +56,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreatePublicVirtualInterface' request.
-createPublicVirtualInterface :: Text -- ^ 'cpviwConnectionId'
-                             -> NewPublicVirtualInterface -- ^ 'cpviwNewPublicVirtualInterface'
-                             -> CreatePublicVirtualInterface
-createPublicVirtualInterface p1 p2 = CreatePublicVirtualInterface
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePublicVirtualInterface' request.
+mkCreatePublicVirtualInterfaceRequest :: Text -- ^ 'cpviwConnectionId'
+                                      -> NewPublicVirtualInterface -- ^ 'cpviwNewPublicVirtualInterface'
+                                      -> CreatePublicVirtualInterface
+mkCreatePublicVirtualInterfaceRequest p1 p2 = CreatePublicVirtualInterface
     { _cpviwConnectionId = p1
     , _cpviwNewPublicVirtualInterface = p2
     }
-{-# INLINE createPublicVirtualInterface #-}
+{-# INLINE mkCreatePublicVirtualInterfaceRequest #-}
 
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface
     { _cpviwConnectionId :: Text
@@ -76,17 +77,13 @@ data CreatePublicVirtualInterface = CreatePublicVirtualInterface
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 cpviwConnectionId :: Lens' CreatePublicVirtualInterface (Text)
-cpviwConnectionId f x =
-    f (_cpviwConnectionId x)
-        <&> \y -> x { _cpviwConnectionId = y }
+cpviwConnectionId = lens _cpviwConnectionId (\s a -> s { _cpviwConnectionId = a })
 {-# INLINE cpviwConnectionId #-}
 
 -- | Detailed information for the public virtual interface to be created.
 -- Default: None.
 cpviwNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface (NewPublicVirtualInterface)
-cpviwNewPublicVirtualInterface f x =
-    f (_cpviwNewPublicVirtualInterface x)
-        <&> \y -> x { _cpviwNewPublicVirtualInterface = y }
+cpviwNewPublicVirtualInterface = lens _cpviwNewPublicVirtualInterface (\s a -> s { _cpviwNewPublicVirtualInterface = a })
 {-# INLINE cpviwNewPublicVirtualInterface #-}
 
 instance ToPath CreatePublicVirtualInterface
@@ -98,39 +95,33 @@ instance ToHeaders CreatePublicVirtualInterface
 instance ToJSON CreatePublicVirtualInterface
 
 data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
-    { _vlAsn :: Maybe Integer
-      -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
-      -- configuration. Example: 65000.
-    , _vlAmazonAddress :: Maybe Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
-    , _vlAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
-    , _vlConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _vlCustomerAddress :: Maybe Text
-      -- ^ IP address assigned to the customer interface. Example:
-      -- 192.168.1.2/30.
-    , _vlLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _vlOwnerAccount :: Maybe Text
-    , _vlRouteFilterPrefixes :: [RouteFilterPrefix]
-      -- ^ A list of routes to be advertised to the AWS network in this
-      -- region (public virtual interface) or your VPC (private virtual
-      -- interface).
-    , _vlCustomerRouterConfig :: Maybe Text
-      -- ^ Information for generating the customer router configuration.
-    , _vlVlan :: Maybe Integer
-      -- ^ The VLAN ID. Example: 101.
-    , _vlVirtualGatewayId :: Maybe Text
-      -- ^ The ID of the virtual private gateway to a VPC. This only applies
-      -- to private virtual interfaces. Example: vgw-123er56.
+    { _vlOwnerAccount :: Maybe Text
     , _vlVirtualInterfaceId :: Maybe Text
       -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
       -- None.
+    , _vlLocation :: Maybe Text
+      -- ^ Where the connection is located. Example: EqSV5 Default: None.
+    , _vlConnectionId :: Maybe Text
+      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
+    , _vlVirtualInterfaceType :: Maybe Text
+      -- ^ The type of virtual interface. Example: private (Amazon VPC) or
+      -- public (Amazon S3, Amazon DynamoDB, and so on.).
     , _vlVirtualInterfaceName :: Maybe Text
       -- ^ The name of the virtual interface assigned by the customer.
       -- Example: "My VPC".
+    , _vlVlan :: Maybe Integer
+      -- ^ The VLAN ID. Example: 101.
+    , _vlAsn :: Maybe Integer
+      -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
+      -- configuration. Example: 65000.
+    , _vlAuthKey :: Maybe Text
+      -- ^ Authentication key for BGP configuration. Example: asdf34example.
+    , _vlAmazonAddress :: Maybe Text
+      -- ^ IP address assigned to the Amazon interface. Example:
+      -- 192.168.1.1/30.
+    , _vlCustomerAddress :: Maybe Text
+      -- ^ IP address assigned to the customer interface. Example:
+      -- 192.168.1.2/30.
     , _vlVirtualInterfaceState :: Maybe VirtualInterfaceState
       -- ^ State of the virtual interface. Confirming: The creation of the
       -- virtual interface is pending confirmation from the virtual
@@ -151,104 +142,73 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
       -- interface in the 'Confirming' state is deleted by the virtual
       -- interface owner, the virtual interface will enter the 'Rejected'
       -- state.
-    , _vlVirtualInterfaceType :: Maybe Text
-      -- ^ The type of virtual interface. Example: private (Amazon VPC) or
-      -- public (Amazon S3, Amazon DynamoDB, and so on.).
+    , _vlCustomerRouterConfig :: Maybe Text
+      -- ^ Information for generating the customer router configuration.
+    , _vlVirtualGatewayId :: Maybe Text
+      -- ^ The ID of the virtual private gateway to a VPC. This only applies
+      -- to private virtual interfaces. Example: vgw-123er56.
+    , _vlRouteFilterPrefixes :: [RouteFilterPrefix]
+      -- ^ A list of routes to be advertised to the AWS network in this
+      -- region (public virtual interface) or your VPC (private virtual
+      -- interface).
     } deriving (Show, Generic)
 
--- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
--- configuration. Example: 65000.
-vlAsn :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Integer)
-vlAsn f x =
-    f (_vlAsn x)
-        <&> \y -> x { _vlAsn = y }
-{-# INLINE vlAsn #-}
-
--- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
-vlAmazonAddress :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlAmazonAddress f x =
-    f (_vlAmazonAddress x)
-        <&> \y -> x { _vlAmazonAddress = y }
-{-# INLINE vlAmazonAddress #-}
-
--- | Authentication key for BGP configuration. Example: asdf34example.
-vlAuthKey :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlAuthKey f x =
-    f (_vlAuthKey x)
-        <&> \y -> x { _vlAuthKey = y }
-{-# INLINE vlAuthKey #-}
-
--- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-vlConnectionId :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlConnectionId f x =
-    f (_vlConnectionId x)
-        <&> \y -> x { _vlConnectionId = y }
-{-# INLINE vlConnectionId #-}
-
--- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
-vlCustomerAddress :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlCustomerAddress f x =
-    f (_vlCustomerAddress x)
-        <&> \y -> x { _vlCustomerAddress = y }
-{-# INLINE vlCustomerAddress #-}
-
--- | Where the connection is located. Example: EqSV5 Default: None.
-vlLocation :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlLocation f x =
-    f (_vlLocation x)
-        <&> \y -> x { _vlLocation = y }
-{-# INLINE vlLocation #-}
-
 vlOwnerAccount :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlOwnerAccount f x =
-    f (_vlOwnerAccount x)
-        <&> \y -> x { _vlOwnerAccount = y }
+vlOwnerAccount = lens _vlOwnerAccount (\s a -> s { _vlOwnerAccount = a })
 {-# INLINE vlOwnerAccount #-}
-
--- | A list of routes to be advertised to the AWS network in this region (public
--- virtual interface) or your VPC (private virtual interface).
-vlRouteFilterPrefixes :: Lens' CreatePublicVirtualInterfaceResponse ([RouteFilterPrefix])
-vlRouteFilterPrefixes f x =
-    f (_vlRouteFilterPrefixes x)
-        <&> \y -> x { _vlRouteFilterPrefixes = y }
-{-# INLINE vlRouteFilterPrefixes #-}
-
--- | Information for generating the customer router configuration.
-vlCustomerRouterConfig :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlCustomerRouterConfig f x =
-    f (_vlCustomerRouterConfig x)
-        <&> \y -> x { _vlCustomerRouterConfig = y }
-{-# INLINE vlCustomerRouterConfig #-}
-
--- | The VLAN ID. Example: 101.
-vlVlan :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Integer)
-vlVlan f x =
-    f (_vlVlan x)
-        <&> \y -> x { _vlVlan = y }
-{-# INLINE vlVlan #-}
-
--- | The ID of the virtual private gateway to a VPC. This only applies to
--- private virtual interfaces. Example: vgw-123er56.
-vlVirtualGatewayId :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlVirtualGatewayId f x =
-    f (_vlVirtualGatewayId x)
-        <&> \y -> x { _vlVirtualGatewayId = y }
-{-# INLINE vlVirtualGatewayId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 vlVirtualInterfaceId :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlVirtualInterfaceId f x =
-    f (_vlVirtualInterfaceId x)
-        <&> \y -> x { _vlVirtualInterfaceId = y }
+vlVirtualInterfaceId = lens _vlVirtualInterfaceId (\s a -> s { _vlVirtualInterfaceId = a })
 {-# INLINE vlVirtualInterfaceId #-}
+
+-- | Where the connection is located. Example: EqSV5 Default: None.
+vlLocation :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlLocation = lens _vlLocation (\s a -> s { _vlLocation = a })
+{-# INLINE vlLocation #-}
+
+-- | ID of the connection. Example: dxcon-fg5678gh Default: None.
+vlConnectionId :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlConnectionId = lens _vlConnectionId (\s a -> s { _vlConnectionId = a })
+{-# INLINE vlConnectionId #-}
+
+-- | The type of virtual interface. Example: private (Amazon VPC) or public
+-- (Amazon S3, Amazon DynamoDB, and so on.).
+vlVirtualInterfaceType :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlVirtualInterfaceType = lens _vlVirtualInterfaceType (\s a -> s { _vlVirtualInterfaceType = a })
+{-# INLINE vlVirtualInterfaceType #-}
 
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
 vlVirtualInterfaceName :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlVirtualInterfaceName f x =
-    f (_vlVirtualInterfaceName x)
-        <&> \y -> x { _vlVirtualInterfaceName = y }
+vlVirtualInterfaceName = lens _vlVirtualInterfaceName (\s a -> s { _vlVirtualInterfaceName = a })
 {-# INLINE vlVirtualInterfaceName #-}
+
+-- | The VLAN ID. Example: 101.
+vlVlan :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Integer)
+vlVlan = lens _vlVlan (\s a -> s { _vlVlan = a })
+{-# INLINE vlVlan #-}
+
+-- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
+-- configuration. Example: 65000.
+vlAsn :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Integer)
+vlAsn = lens _vlAsn (\s a -> s { _vlAsn = a })
+{-# INLINE vlAsn #-}
+
+-- | Authentication key for BGP configuration. Example: asdf34example.
+vlAuthKey :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlAuthKey = lens _vlAuthKey (\s a -> s { _vlAuthKey = a })
+{-# INLINE vlAuthKey #-}
+
+-- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
+vlAmazonAddress :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlAmazonAddress = lens _vlAmazonAddress (\s a -> s { _vlAmazonAddress = a })
+{-# INLINE vlAmazonAddress #-}
+
+-- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
+vlCustomerAddress :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlCustomerAddress = lens _vlCustomerAddress (\s a -> s { _vlCustomerAddress = a })
+{-# INLINE vlCustomerAddress #-}
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
 -- interface is pending confirmation from the virtual interface owner. If the
@@ -267,18 +227,25 @@ vlVirtualInterfaceName f x =
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
 vlVirtualInterfaceState :: Lens' CreatePublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-vlVirtualInterfaceState f x =
-    f (_vlVirtualInterfaceState x)
-        <&> \y -> x { _vlVirtualInterfaceState = y }
+vlVirtualInterfaceState = lens _vlVirtualInterfaceState (\s a -> s { _vlVirtualInterfaceState = a })
 {-# INLINE vlVirtualInterfaceState #-}
 
--- | The type of virtual interface. Example: private (Amazon VPC) or public
--- (Amazon S3, Amazon DynamoDB, and so on.).
-vlVirtualInterfaceType :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
-vlVirtualInterfaceType f x =
-    f (_vlVirtualInterfaceType x)
-        <&> \y -> x { _vlVirtualInterfaceType = y }
-{-# INLINE vlVirtualInterfaceType #-}
+-- | Information for generating the customer router configuration.
+vlCustomerRouterConfig :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlCustomerRouterConfig = lens _vlCustomerRouterConfig (\s a -> s { _vlCustomerRouterConfig = a })
+{-# INLINE vlCustomerRouterConfig #-}
+
+-- | The ID of the virtual private gateway to a VPC. This only applies to
+-- private virtual interfaces. Example: vgw-123er56.
+vlVirtualGatewayId :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+vlVirtualGatewayId = lens _vlVirtualGatewayId (\s a -> s { _vlVirtualGatewayId = a })
+{-# INLINE vlVirtualGatewayId #-}
+
+-- | A list of routes to be advertised to the AWS network in this region (public
+-- virtual interface) or your VPC (private virtual interface).
+vlRouteFilterPrefixes :: Lens' CreatePublicVirtualInterfaceResponse ([RouteFilterPrefix])
+vlRouteFilterPrefixes = lens _vlRouteFilterPrefixes (\s a -> s { _vlRouteFilterPrefixes = a })
+{-# INLINE vlRouteFilterPrefixes #-}
 
 instance FromJSON CreatePublicVirtualInterfaceResponse
 

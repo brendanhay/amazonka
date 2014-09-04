@@ -35,7 +35,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset
     -- * Request
       DeletePreset
     -- ** Request constructor
-    , deletePreset
+    , mkDeletePresetRequest
     -- ** Request lenses
     , dptId
 
@@ -48,15 +48,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeletePreset' request.
-deletePreset :: Text -- ^ 'dptId'
-             -> DeletePreset
-deletePreset p1 = DeletePreset
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePreset' request.
+mkDeletePresetRequest :: Text -- ^ 'dptId'
+                      -> DeletePreset
+mkDeletePresetRequest p1 = DeletePreset
     { _dptId = p1
     }
-{-# INLINE deletePreset #-}
+{-# INLINE mkDeletePresetRequest #-}
 
-data DeletePreset = DeletePreset
+newtype DeletePreset = DeletePreset
     { _dptId :: Text
       -- ^ The identifier of the preset for which you want to get detailed
       -- information.
@@ -65,9 +66,7 @@ data DeletePreset = DeletePreset
 -- | The identifier of the preset for which you want to get detailed
 -- information.
 dptId :: Lens' DeletePreset (Text)
-dptId f x =
-    f (_dptId x)
-        <&> \y -> x { _dptId = y }
+dptId = lens _dptId (\s a -> s { _dptId = a })
 {-# INLINE dptId #-}
 
 instance ToPath DeletePreset where
@@ -82,7 +81,6 @@ instance ToHeaders DeletePreset
 
 instance ToJSON DeletePreset
 
-data DeletePresetResponse = DeletePresetResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeletePreset where

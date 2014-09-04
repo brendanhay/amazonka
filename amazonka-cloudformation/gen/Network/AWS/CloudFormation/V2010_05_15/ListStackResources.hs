@@ -40,7 +40,7 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStackResources
     -- * Request
       ListStackResources
     -- ** Request constructor
-    , listStackResources
+    , mkListStackResourcesInput
     -- ** Request lenses
     , lsriStackName
     , lsriNextToken
@@ -48,22 +48,23 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStackResources
     -- * Response
     , ListStackResourcesResponse
     -- ** Response lenses
-    , lsroNextToken
     , lsroStackResourceSummaries
+    , lsroNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListStackResources' request.
-listStackResources :: Text -- ^ 'lsriStackName'
-                   -> ListStackResources
-listStackResources p1 = ListStackResources
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStackResources' request.
+mkListStackResourcesInput :: Text -- ^ 'lsriStackName'
+                          -> ListStackResources
+mkListStackResourcesInput p1 = ListStackResources
     { _lsriStackName = p1
     , _lsriNextToken = Nothing
     }
-{-# INLINE listStackResources #-}
+{-# INLINE mkListStackResourcesInput #-}
 
 data ListStackResources = ListStackResources
     { _lsriStackName :: Text
@@ -83,44 +84,36 @@ data ListStackResources = ListStackResources
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
 lsriStackName :: Lens' ListStackResources (Text)
-lsriStackName f x =
-    f (_lsriStackName x)
-        <&> \y -> x { _lsriStackName = y }
+lsriStackName = lens _lsriStackName (\s a -> s { _lsriStackName = a })
 {-# INLINE lsriStackName #-}
 
 -- | String that identifies the start of the next list of stack resource
 -- summaries, if there is one. Default: There is no default value.
 lsriNextToken :: Lens' ListStackResources (Maybe Text)
-lsriNextToken f x =
-    f (_lsriNextToken x)
-        <&> \y -> x { _lsriNextToken = y }
+lsriNextToken = lens _lsriNextToken (\s a -> s { _lsriNextToken = a })
 {-# INLINE lsriNextToken #-}
 
 instance ToQuery ListStackResources where
     toQuery = genericQuery def
 
 data ListStackResourcesResponse = ListStackResourcesResponse
-    { _lsroNextToken :: Maybe Text
+    { _lsroStackResourceSummaries :: [StackResourceSummary]
+      -- ^ A list of StackResourceSummary structures.
+    , _lsroNextToken :: Maybe Text
       -- ^ String that identifies the start of the next list of stack
       -- resources, if there is one.
-    , _lsroStackResourceSummaries :: [StackResourceSummary]
-      -- ^ A list of StackResourceSummary structures.
     } deriving (Show, Generic)
+
+-- | A list of StackResourceSummary structures.
+lsroStackResourceSummaries :: Lens' ListStackResourcesResponse ([StackResourceSummary])
+lsroStackResourceSummaries = lens _lsroStackResourceSummaries (\s a -> s { _lsroStackResourceSummaries = a })
+{-# INLINE lsroStackResourceSummaries #-}
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
 lsroNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
-lsroNextToken f x =
-    f (_lsroNextToken x)
-        <&> \y -> x { _lsroNextToken = y }
+lsroNextToken = lens _lsroNextToken (\s a -> s { _lsroNextToken = a })
 {-# INLINE lsroNextToken #-}
-
--- | A list of StackResourceSummary structures.
-lsroStackResourceSummaries :: Lens' ListStackResourcesResponse ([StackResourceSummary])
-lsroStackResourceSummaries f x =
-    f (_lsroStackResourceSummaries x)
-        <&> \y -> x { _lsroStackResourceSummaries = y }
-{-# INLINE lsroStackResourceSummaries #-}
 
 instance FromXML ListStackResourcesResponse where
     fromXMLOptions = xmlOptions

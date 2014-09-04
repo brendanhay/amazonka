@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -43,7 +44,8 @@ module Network.AWS.Route53Domains.V2014_05_15.Types
     , OperationType (..)
 
     -- * ContactDetail
-    , ContactDetail (..)
+    , ContactDetail
+    , mkContactDetail
     , cdFirstName
     , cdLastName
     , cdContactType
@@ -60,29 +62,30 @@ module Network.AWS.Route53Domains.V2014_05_15.Types
     , cdExtraParams
 
     -- * DomainSummary
-    , DomainSummary (..)
+    , DomainSummary
     , duDomainName
     , duAutoRenew
     , duTransferLock
     , duExpiry
 
     -- * ExtraParam
-    , ExtraParam (..)
+    , ExtraParam
+    , mkExtraParam
     , epName
     , epValue
 
     -- * Nameserver
-    , Nameserver (..)
+    , Nameserver
+    , mkNameserver
     , nName
     , nGlueIps
 
     -- * OperationSummary
-    , OperationSummary (..)
+    , OperationSummary
     , ouOperationId
     , ouStatus
     , ouType
     , ouSubmittedDate
-
     ) where
 
 import Network.AWS.Prelude
@@ -1445,18 +1448,14 @@ data ContactDetail = ContactDetail
 -- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
 -- Yes.
 cdFirstName :: Lens' ContactDetail (Maybe Text)
-cdFirstName f x =
-    f (_cdFirstName x)
-        <&> \y -> x { _cdFirstName = y }
+cdFirstName = lens _cdFirstName (\s a -> s { _cdFirstName = a })
 {-# INLINE cdFirstName #-}
 
 -- | Last name of contact. Type: String Default: None Constraints: Maximum 255
 -- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
 -- Yes.
 cdLastName :: Lens' ContactDetail (Maybe Text)
-cdLastName f x =
-    f (_cdLastName x)
-        <&> \y -> x { _cdLastName = y }
+cdLastName = lens _cdLastName (\s a -> s { _cdLastName = a })
 {-# INLINE cdLastName #-}
 
 -- | Indicates whether the contact is a person, company, association, or public
@@ -1466,72 +1465,56 @@ cdLastName f x =
 -- values: PERSON | COMPANY | ASSOCIATION | PUBLIC_BODY Parents:
 -- RegistrantContact, AdminContact, TechContact Required: Yes.
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
-cdContactType f x =
-    f (_cdContactType x)
-        <&> \y -> x { _cdContactType = y }
+cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
 {-# INLINE cdContactType #-}
 
 -- | Name of the organization for contact types other than PERSON. Type: String
 -- Default: None Constraints: Maximum 255 characters. Contact type must not be
 -- PERSON. Parents: RegistrantContact, AdminContact, TechContact Required: No.
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
-cdOrganizationName f x =
-    f (_cdOrganizationName x)
-        <&> \y -> x { _cdOrganizationName = y }
+cdOrganizationName = lens _cdOrganizationName (\s a -> s { _cdOrganizationName = a })
 {-# INLINE cdOrganizationName #-}
 
 -- | First line of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: Yes.
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
-cdAddressLine1 f x =
-    f (_cdAddressLine1 x)
-        <&> \y -> x { _cdAddressLine1 = y }
+cdAddressLine1 = lens _cdAddressLine1 (\s a -> s { _cdAddressLine1 = a })
 {-# INLINE cdAddressLine1 #-}
 
 -- | Second line of contact's address, if any. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: No.
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
-cdAddressLine2 f x =
-    f (_cdAddressLine2 x)
-        <&> \y -> x { _cdAddressLine2 = y }
+cdAddressLine2 = lens _cdAddressLine2 (\s a -> s { _cdAddressLine2 = a })
 {-# INLINE cdAddressLine2 #-}
 
 -- | The city of the contact's address. Type: String Default: None Constraints:
 -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
 -- TechContact Required: Yes.
 cdCity :: Lens' ContactDetail (Maybe Text)
-cdCity f x =
-    f (_cdCity x)
-        <&> \y -> x { _cdCity = y }
+cdCity = lens _cdCity (\s a -> s { _cdCity = a })
 {-# INLINE cdCity #-}
 
 -- | The state or province of the contact's city. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: No.
 cdState :: Lens' ContactDetail (Maybe Text)
-cdState f x =
-    f (_cdState x)
-        <&> \y -> x { _cdState = y }
+cdState = lens _cdState (\s a -> s { _cdState = a })
 {-# INLINE cdState #-}
 
 -- | Code for the country of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: Yes.
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
-cdCountryCode f x =
-    f (_cdCountryCode x)
-        <&> \y -> x { _cdCountryCode = y }
+cdCountryCode = lens _cdCountryCode (\s a -> s { _cdCountryCode = a })
 {-# INLINE cdCountryCode #-}
 
 -- | The zip or postal code of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: No.
 cdZipCode :: Lens' ContactDetail (Maybe Text)
-cdZipCode f x =
-    f (_cdZipCode x)
-        <&> \y -> x { _cdZipCode = y }
+cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 {-# INLINE cdZipCode #-}
 
 -- | The phone number of the contact. Type: String Default: None Constraints:
@@ -1540,18 +1523,14 @@ cdZipCode f x =
 -- might appear as "+1.1234567890". Parents: RegistrantContact, AdminContact,
 -- TechContact Required: Yes.
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
-cdPhoneNumber f x =
-    f (_cdPhoneNumber x)
-        <&> \y -> x { _cdPhoneNumber = y }
+cdPhoneNumber = lens _cdPhoneNumber (\s a -> s { _cdPhoneNumber = a })
 {-# INLINE cdPhoneNumber #-}
 
 -- | Email address of the contact. Type: String Default: None Constraints:
 -- Maximum 254 characters. Parents: RegistrantContact, AdminContact,
 -- TechContact Required: Yes.
 cdEmail :: Lens' ContactDetail (Maybe Text)
-cdEmail f x =
-    f (_cdEmail x)
-        <&> \y -> x { _cdEmail = y }
+cdEmail = lens _cdEmail (\s a -> s { _cdEmail = a })
 {-# INLINE cdEmail #-}
 
 -- | Fax number of the contact. Type: String Default: None Constraints: Phone
@@ -1560,19 +1539,36 @@ cdEmail f x =
 -- "+1.1234567890". Parents: RegistrantContact, AdminContact, TechContact
 -- Required: No.
 cdFax :: Lens' ContactDetail (Maybe Text)
-cdFax f x =
-    f (_cdFax x)
-        <&> \y -> x { _cdFax = y }
+cdFax = lens _cdFax (\s a -> s { _cdFax = a })
 {-# INLINE cdFax #-}
 
 -- | A list of name-value pairs for parameters required by certain top-level
 -- domains. Type: Complex Default: None Parents: RegistrantContact,
 -- AdminContact, TechContact Children: Name, Value Required: No.
 cdExtraParams :: Lens' ContactDetail ([ExtraParam])
-cdExtraParams f x =
-    f (_cdExtraParams x)
-        <&> \y -> x { _cdExtraParams = y }
+cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a })
 {-# INLINE cdExtraParams #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ContactDetail' data type to populate a request.
+mkContactDetail :: ContactDetail
+mkContactDetail = ContactDetail
+    { _cdFirstName = Nothing
+    , _cdLastName = Nothing
+    , _cdContactType = Nothing
+    , _cdOrganizationName = Nothing
+    , _cdAddressLine1 = Nothing
+    , _cdAddressLine2 = Nothing
+    , _cdCity = Nothing
+    , _cdState = Nothing
+    , _cdCountryCode = Nothing
+    , _cdZipCode = Nothing
+    , _cdPhoneNumber = Nothing
+    , _cdEmail = Nothing
+    , _cdFax = Nothing
+    , _cdExtraParams = mempty
+    }
+{-# INLINE mkContactDetail #-}
 
 instance FromJSON ContactDetail
 
@@ -1594,33 +1590,25 @@ data DomainSummary = DomainSummary
 
 -- | The name of a domain. Type: String.
 duDomainName :: Lens' DomainSummary (Text)
-duDomainName f x =
-    f (_duDomainName x)
-        <&> \y -> x { _duDomainName = y }
+duDomainName = lens _duDomainName (\s a -> s { _duDomainName = a })
 {-# INLINE duDomainName #-}
 
 -- | Indicates whether the domain is automatically renewed upon expiration.
 -- Type: Boolean Valid values: True | False.
 duAutoRenew :: Lens' DomainSummary (Maybe Bool)
-duAutoRenew f x =
-    f (_duAutoRenew x)
-        <&> \y -> x { _duAutoRenew = y }
+duAutoRenew = lens _duAutoRenew (\s a -> s { _duAutoRenew = a })
 {-# INLINE duAutoRenew #-}
 
 -- | Indicates whether a domain is locked from unauthorized transfer to another
 -- party. Type: Boolean Valid values: True | False.
 duTransferLock :: Lens' DomainSummary (Maybe Bool)
-duTransferLock f x =
-    f (_duTransferLock x)
-        <&> \y -> x { _duTransferLock = y }
+duTransferLock = lens _duTransferLock (\s a -> s { _duTransferLock = a })
 {-# INLINE duTransferLock #-}
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC). Type:
 -- Long.
 duExpiry :: Lens' DomainSummary (Maybe ISO8601)
-duExpiry f x =
-    f (_duExpiry x)
-        <&> \y -> x { _duExpiry = y }
+duExpiry = lens _duExpiry (\s a -> s { _duExpiry = a })
 {-# INLINE duExpiry #-}
 
 instance FromJSON DomainSummary
@@ -1649,19 +1637,26 @@ data ExtraParam = ExtraParam
 -- FI_BUSINESS_NUMBER | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA |
 -- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required: Yes.
 epName :: Lens' ExtraParam (ExtraParamName)
-epName f x =
-    f (_epName x)
-        <&> \y -> x { _epName = y }
+epName = lens _epName (\s a -> s { _epName = a })
 {-# INLINE epName #-}
 
 -- | Values corresponding to the additional parameter names required by some
 -- top-level domains. Type: String Default: None Constraints: Maximum 2048
 -- characters. Parent: ExtraParams Required: Yes.
 epValue :: Lens' ExtraParam (Text)
-epValue f x =
-    f (_epValue x)
-        <&> \y -> x { _epValue = y }
+epValue = lens _epValue (\s a -> s { _epValue = a })
 {-# INLINE epValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ExtraParam' data type to populate a request.
+mkExtraParam :: ExtraParamName -- ^ 'epName'
+             -> Text -- ^ 'epValue'
+             -> ExtraParam
+mkExtraParam p1 p2 = ExtraParam
+    { _epName = p1
+    , _epValue = p2
+    }
+{-# INLINE mkExtraParam #-}
 
 instance FromJSON ExtraParam
 
@@ -1685,9 +1680,7 @@ data Nameserver = Nameserver
 -- | The fully qualified host name of the name server. Type: String Constraint:
 -- Maximum 255 characterss Parent: Nameservers.
 nName :: Lens' Nameserver (Text)
-nName f x =
-    f (_nName x)
-        <&> \y -> x { _nName = y }
+nName = lens _nName (\s a -> s { _nName = a })
 {-# INLINE nName #-}
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required only
@@ -1697,10 +1690,18 @@ nName f x =
 -- Type: List of IP addresses. Constraints: The list can contain only one IPv4
 -- and one IPv6 address. Parent: Nameservers.
 nGlueIps :: Lens' Nameserver ([Text])
-nGlueIps f x =
-    f (_nGlueIps x)
-        <&> \y -> x { _nGlueIps = y }
+nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
 {-# INLINE nGlueIps #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Nameserver' data type to populate a request.
+mkNameserver :: Text -- ^ 'nName'
+             -> Nameserver
+mkNameserver p1 = Nameserver
+    { _nName = p1
+    , _nGlueIps = mempty
+    }
+{-# INLINE mkNameserver #-}
 
 instance FromJSON Nameserver
 
@@ -1724,32 +1725,24 @@ data OperationSummary = OperationSummary
 
 -- | Identifier returned to track the requested action. Type: String.
 ouOperationId :: Lens' OperationSummary (Text)
-ouOperationId f x =
-    f (_ouOperationId x)
-        <&> \y -> x { _ouOperationId = y }
+ouOperationId = lens _ouOperationId (\s a -> s { _ouOperationId = a })
 {-# INLINE ouOperationId #-}
 
 -- | The current status of the requested operation in the system. Type: String.
 ouStatus :: Lens' OperationSummary (OperationStatus)
-ouStatus f x =
-    f (_ouStatus x)
-        <&> \y -> x { _ouStatus = y }
+ouStatus = lens _ouStatus (\s a -> s { _ouStatus = a })
 {-# INLINE ouStatus #-}
 
 -- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN |
 -- DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
 -- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
 ouType :: Lens' OperationSummary (OperationType)
-ouType f x =
-    f (_ouType x)
-        <&> \y -> x { _ouType = y }
+ouType = lens _ouType (\s a -> s { _ouType = a })
 {-# INLINE ouType #-}
 
 -- | The date when the request was submitted.
 ouSubmittedDate :: Lens' OperationSummary (ISO8601)
-ouSubmittedDate f x =
-    f (_ouSubmittedDate x)
-        <&> \y -> x { _ouSubmittedDate = y }
+ouSubmittedDate = lens _ouSubmittedDate (\s a -> s { _ouSubmittedDate = a })
 {-# INLINE ouSubmittedDate #-}
 
 instance FromJSON OperationSummary

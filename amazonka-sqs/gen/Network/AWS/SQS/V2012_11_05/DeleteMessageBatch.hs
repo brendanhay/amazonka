@@ -43,76 +43,69 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
     -- * Request
       DeleteMessageBatch
     -- ** Request constructor
-    , deleteMessageBatch
+    , mkDeleteMessageBatchRequest
     -- ** Request lenses
-    , dmbrEntries
     , dmbrQueueUrl
+    , dmbrEntries
 
     -- * Response
     , DeleteMessageBatchResponse
     -- ** Response lenses
-    , dmbsFailed
     , dmbsSuccessful
+    , dmbsFailed
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteMessageBatch' request.
-deleteMessageBatch :: [DeleteMessageBatchRequestEntry] -- ^ 'dmbrEntries'
-                   -> Text -- ^ 'dmbrQueueUrl'
-                   -> DeleteMessageBatch
-deleteMessageBatch p1 p2 = DeleteMessageBatch
-    { _dmbrEntries = p1
-    , _dmbrQueueUrl = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMessageBatch' request.
+mkDeleteMessageBatchRequest :: Text -- ^ 'dmbrQueueUrl'
+                            -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbrEntries'
+                            -> DeleteMessageBatch
+mkDeleteMessageBatchRequest p1 p2 = DeleteMessageBatch
+    { _dmbrQueueUrl = p1
+    , _dmbrEntries = p2
     }
-{-# INLINE deleteMessageBatch #-}
+{-# INLINE mkDeleteMessageBatchRequest #-}
 
 data DeleteMessageBatch = DeleteMessageBatch
-    { _dmbrEntries :: [DeleteMessageBatchRequestEntry]
-      -- ^ A list of receipt handles for the messages to be deleted.
-    , _dmbrQueueUrl :: Text
+    { _dmbrQueueUrl :: Text
       -- ^ The URL of the Amazon SQS queue to take action on.
+    , _dmbrEntries :: [DeleteMessageBatchRequestEntry]
+      -- ^ A list of receipt handles for the messages to be deleted.
     } deriving (Show, Generic)
-
--- | A list of receipt handles for the messages to be deleted.
-dmbrEntries :: Lens' DeleteMessageBatch ([DeleteMessageBatchRequestEntry])
-dmbrEntries f x =
-    f (_dmbrEntries x)
-        <&> \y -> x { _dmbrEntries = y }
-{-# INLINE dmbrEntries #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmbrQueueUrl :: Lens' DeleteMessageBatch (Text)
-dmbrQueueUrl f x =
-    f (_dmbrQueueUrl x)
-        <&> \y -> x { _dmbrQueueUrl = y }
+dmbrQueueUrl = lens _dmbrQueueUrl (\s a -> s { _dmbrQueueUrl = a })
 {-# INLINE dmbrQueueUrl #-}
+
+-- | A list of receipt handles for the messages to be deleted.
+dmbrEntries :: Lens' DeleteMessageBatch ([DeleteMessageBatchRequestEntry])
+dmbrEntries = lens _dmbrEntries (\s a -> s { _dmbrEntries = a })
+{-# INLINE dmbrEntries #-}
 
 instance ToQuery DeleteMessageBatch where
     toQuery = genericQuery def
 
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbsFailed :: [BatchResultErrorEntry]
-      -- ^ A list of BatchResultErrorEntry items.
-    , _dmbsSuccessful :: [DeleteMessageBatchResultEntry]
+    { _dmbsSuccessful :: [DeleteMessageBatchResultEntry]
       -- ^ A list of DeleteMessageBatchResultEntry items.
+    , _dmbsFailed :: [BatchResultErrorEntry]
+      -- ^ A list of BatchResultErrorEntry items.
     } deriving (Show, Generic)
-
--- | A list of BatchResultErrorEntry items.
-dmbsFailed :: Lens' DeleteMessageBatchResponse ([BatchResultErrorEntry])
-dmbsFailed f x =
-    f (_dmbsFailed x)
-        <&> \y -> x { _dmbsFailed = y }
-{-# INLINE dmbsFailed #-}
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbsSuccessful :: Lens' DeleteMessageBatchResponse ([DeleteMessageBatchResultEntry])
-dmbsSuccessful f x =
-    f (_dmbsSuccessful x)
-        <&> \y -> x { _dmbsSuccessful = y }
+dmbsSuccessful = lens _dmbsSuccessful (\s a -> s { _dmbsSuccessful = a })
 {-# INLINE dmbsSuccessful #-}
+
+-- | A list of BatchResultErrorEntry items.
+dmbsFailed :: Lens' DeleteMessageBatchResponse ([BatchResultErrorEntry])
+dmbsFailed = lens _dmbsFailed (\s a -> s { _dmbsFailed = a })
+{-# INLINE dmbsFailed #-}
 
 instance FromXML DeleteMessageBatchResponse where
     fromXMLOptions = xmlOptions

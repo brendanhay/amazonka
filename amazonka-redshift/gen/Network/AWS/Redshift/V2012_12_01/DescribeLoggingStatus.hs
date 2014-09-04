@@ -24,7 +24,7 @@ module Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus
     -- * Request
       DescribeLoggingStatus
     -- ** Request constructor
-    , describeLoggingStatus
+    , mkDescribeLoggingStatusMessage
     -- ** Request lenses
     , dlsmClusterIdentifier
 
@@ -34,24 +34,25 @@ module Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus
     , llsLoggingEnabled
     , llsBucketName
     , llsS3KeyPrefix
-    , llsLastFailureMessage
     , llsLastSuccessfulDeliveryTime
     , llsLastFailureTime
+    , llsLastFailureMessage
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeLoggingStatus' request.
-describeLoggingStatus :: Text -- ^ 'dlsmClusterIdentifier'
-                      -> DescribeLoggingStatus
-describeLoggingStatus p1 = DescribeLoggingStatus
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoggingStatus' request.
+mkDescribeLoggingStatusMessage :: Text -- ^ 'dlsmClusterIdentifier'
+                               -> DescribeLoggingStatus
+mkDescribeLoggingStatusMessage p1 = DescribeLoggingStatus
     { _dlsmClusterIdentifier = p1
     }
-{-# INLINE describeLoggingStatus #-}
+{-# INLINE mkDescribeLoggingStatusMessage #-}
 
-data DescribeLoggingStatus = DescribeLoggingStatus
+newtype DescribeLoggingStatus = DescribeLoggingStatus
     { _dlsmClusterIdentifier :: Text
       -- ^ The identifier of the cluster to get the logging status from.
       -- Example: examplecluster.
@@ -60,9 +61,7 @@ data DescribeLoggingStatus = DescribeLoggingStatus
 -- | The identifier of the cluster to get the logging status from. Example:
 -- examplecluster.
 dlsmClusterIdentifier :: Lens' DescribeLoggingStatus (Text)
-dlsmClusterIdentifier f x =
-    f (_dlsmClusterIdentifier x)
-        <&> \y -> x { _dlsmClusterIdentifier = y }
+dlsmClusterIdentifier = lens _dlsmClusterIdentifier (\s a -> s { _dlsmClusterIdentifier = a })
 {-# INLINE dlsmClusterIdentifier #-}
 
 instance ToQuery DescribeLoggingStatus where
@@ -75,55 +74,43 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
       -- ^ The name of the S3 bucket where the log files are stored.
     , _llsS3KeyPrefix :: Maybe Text
       -- ^ The prefix applied to the log file names.
-    , _llsLastFailureMessage :: Maybe Text
-      -- ^ The message indicating that logs failed to be delivered.
     , _llsLastSuccessfulDeliveryTime :: Maybe ISO8601
       -- ^ The last time when logs were delivered.
     , _llsLastFailureTime :: Maybe ISO8601
       -- ^ The last time when logs failed to be delivered.
+    , _llsLastFailureMessage :: Maybe Text
+      -- ^ The message indicating that logs failed to be delivered.
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
 llsLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
-llsLoggingEnabled f x =
-    f (_llsLoggingEnabled x)
-        <&> \y -> x { _llsLoggingEnabled = y }
+llsLoggingEnabled = lens _llsLoggingEnabled (\s a -> s { _llsLoggingEnabled = a })
 {-# INLINE llsLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
 llsBucketName :: Lens' DescribeLoggingStatusResponse (Maybe Text)
-llsBucketName f x =
-    f (_llsBucketName x)
-        <&> \y -> x { _llsBucketName = y }
+llsBucketName = lens _llsBucketName (\s a -> s { _llsBucketName = a })
 {-# INLINE llsBucketName #-}
 
 -- | The prefix applied to the log file names.
 llsS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
-llsS3KeyPrefix f x =
-    f (_llsS3KeyPrefix x)
-        <&> \y -> x { _llsS3KeyPrefix = y }
+llsS3KeyPrefix = lens _llsS3KeyPrefix (\s a -> s { _llsS3KeyPrefix = a })
 {-# INLINE llsS3KeyPrefix #-}
-
--- | The message indicating that logs failed to be delivered.
-llsLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
-llsLastFailureMessage f x =
-    f (_llsLastFailureMessage x)
-        <&> \y -> x { _llsLastFailureMessage = y }
-{-# INLINE llsLastFailureMessage #-}
 
 -- | The last time when logs were delivered.
 llsLastSuccessfulDeliveryTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
-llsLastSuccessfulDeliveryTime f x =
-    f (_llsLastSuccessfulDeliveryTime x)
-        <&> \y -> x { _llsLastSuccessfulDeliveryTime = y }
+llsLastSuccessfulDeliveryTime = lens _llsLastSuccessfulDeliveryTime (\s a -> s { _llsLastSuccessfulDeliveryTime = a })
 {-# INLINE llsLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
 llsLastFailureTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
-llsLastFailureTime f x =
-    f (_llsLastFailureTime x)
-        <&> \y -> x { _llsLastFailureTime = y }
+llsLastFailureTime = lens _llsLastFailureTime (\s a -> s { _llsLastFailureTime = a })
 {-# INLINE llsLastFailureTime #-}
+
+-- | The message indicating that logs failed to be delivered.
+llsLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+llsLastFailureMessage = lens _llsLastFailureMessage (\s a -> s { _llsLastFailureMessage = a })
+{-# INLINE llsLastFailureMessage #-}
 
 instance FromXML DescribeLoggingStatusResponse where
     fromXMLOptions = xmlOptions

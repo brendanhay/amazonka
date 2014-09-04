@@ -49,21 +49,21 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume
     -- * Request
       CreateStorediSCSIVolume
     -- ** Request constructor
-    , createStorediSCSIVolume
+    , mkCreateStorediSCSIVolumeInput
     -- ** Request lenses
-    , csscsiviPreserveExistingData
-    , csscsiviDiskId
     , csscsiviGatewayARN
-    , csscsiviNetworkInterfaceId
-    , csscsiviTargetName
+    , csscsiviDiskId
     , csscsiviSnapshotId
+    , csscsiviPreserveExistingData
+    , csscsiviTargetName
+    , csscsiviNetworkInterfaceId
 
     -- * Response
     , CreateStorediSCSIVolumeResponse
     -- ** Response lenses
+    , csscsivoVolumeARN
     , csscsivoVolumeSizeInBytes
     , csscsivoTargetARN
-    , csscsivoVolumeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -71,48 +71,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateStorediSCSIVolume' request.
-createStorediSCSIVolume :: Bool -- ^ 'csscsiviPreserveExistingData'
-                        -> Text -- ^ 'csscsiviDiskId'
-                        -> Text -- ^ 'csscsiviGatewayARN'
-                        -> Text -- ^ 'csscsiviNetworkInterfaceId'
-                        -> Text -- ^ 'csscsiviTargetName'
-                        -> CreateStorediSCSIVolume
-createStorediSCSIVolume p1 p2 p3 p4 p5 = CreateStorediSCSIVolume
-    { _csscsiviPreserveExistingData = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStorediSCSIVolume' request.
+mkCreateStorediSCSIVolumeInput :: Text -- ^ 'csscsiviGatewayARN'
+                               -> Text -- ^ 'csscsiviDiskId'
+                               -> Bool -- ^ 'csscsiviPreserveExistingData'
+                               -> Text -- ^ 'csscsiviTargetName'
+                               -> Text -- ^ 'csscsiviNetworkInterfaceId'
+                               -> CreateStorediSCSIVolume
+mkCreateStorediSCSIVolumeInput p1 p2 p3 p4 p5 = CreateStorediSCSIVolume
+    { _csscsiviGatewayARN = p1
     , _csscsiviDiskId = p2
-    , _csscsiviGatewayARN = p3
-    , _csscsiviNetworkInterfaceId = p4
-    , _csscsiviTargetName = p5
     , _csscsiviSnapshotId = Nothing
+    , _csscsiviPreserveExistingData = p4
+    , _csscsiviTargetName = p5
+    , _csscsiviNetworkInterfaceId = p6
     }
-{-# INLINE createStorediSCSIVolume #-}
+{-# INLINE mkCreateStorediSCSIVolumeInput #-}
 
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume
-    { _csscsiviPreserveExistingData :: Bool
-      -- ^ Specify this field as true if you want to preserve the data on
-      -- the local disk. Otherwise, specifying this field as false creates
-      -- an empty volume. Valid Values: true, false.
+    { _csscsiviGatewayARN :: Text
+      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
+      -- ListGateways operation to return a list of gateways for your
+      -- account and region.
     , _csscsiviDiskId :: Text
       -- ^ The unique identifier for the gateway local disk that is
       -- configured as a stored volume. Use ListLocalDisks to list disk
       -- IDs for a gateway.
-    , _csscsiviGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _csscsiviNetworkInterfaceId :: Text
-      -- ^ The network interface of the gateway on which to expose the iSCSI
-      -- target. Only IPv4 addresses are accepted. Use
-      -- DescribeGatewayInformation to get a list of the network
-      -- interfaces available on a gateway. Valid Values: A valid IP
-      -- address.
-    , _csscsiviTargetName :: Text
-      -- ^ The name of the iSCSI target used by initiators to connect to the
-      -- target and as a suffix for the target ARN. For example,
-      -- specifying TargetName as myvolume results in the target ARN of
-      -- arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume.
-      -- The target name must be unique across all volumes of a gateway.
     , _csscsiviSnapshotId :: Maybe Text
       -- ^ The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore
       -- as the new stored volume. Specify this field if you want to
@@ -120,53 +105,35 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
       -- include this field. To list snapshots for your account use
       -- DescribeSnapshots in the Amazon Elastic Compute Cloud API
       -- Reference.
+    , _csscsiviPreserveExistingData :: Bool
+      -- ^ Specify this field as true if you want to preserve the data on
+      -- the local disk. Otherwise, specifying this field as false creates
+      -- an empty volume. Valid Values: true, false.
+    , _csscsiviTargetName :: Text
+      -- ^ The name of the iSCSI target used by initiators to connect to the
+      -- target and as a suffix for the target ARN. For example,
+      -- specifying TargetName as myvolume results in the target ARN of
+      -- arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume.
+      -- The target name must be unique across all volumes of a gateway.
+    , _csscsiviNetworkInterfaceId :: Text
+      -- ^ The network interface of the gateway on which to expose the iSCSI
+      -- target. Only IPv4 addresses are accepted. Use
+      -- DescribeGatewayInformation to get a list of the network
+      -- interfaces available on a gateway. Valid Values: A valid IP
+      -- address.
     } deriving (Show, Generic)
-
--- | Specify this field as true if you want to preserve the data on the local
--- disk. Otherwise, specifying this field as false creates an empty volume.
--- Valid Values: true, false.
-csscsiviPreserveExistingData :: Lens' CreateStorediSCSIVolume (Bool)
-csscsiviPreserveExistingData f x =
-    f (_csscsiviPreserveExistingData x)
-        <&> \y -> x { _csscsiviPreserveExistingData = y }
-{-# INLINE csscsiviPreserveExistingData #-}
-
--- | The unique identifier for the gateway local disk that is configured as a
--- stored volume. Use ListLocalDisks to list disk IDs for a gateway.
-csscsiviDiskId :: Lens' CreateStorediSCSIVolume (Text)
-csscsiviDiskId f x =
-    f (_csscsiviDiskId x)
-        <&> \y -> x { _csscsiviDiskId = y }
-{-# INLINE csscsiviDiskId #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 csscsiviGatewayARN :: Lens' CreateStorediSCSIVolume (Text)
-csscsiviGatewayARN f x =
-    f (_csscsiviGatewayARN x)
-        <&> \y -> x { _csscsiviGatewayARN = y }
+csscsiviGatewayARN = lens _csscsiviGatewayARN (\s a -> s { _csscsiviGatewayARN = a })
 {-# INLINE csscsiviGatewayARN #-}
 
--- | The network interface of the gateway on which to expose the iSCSI target.
--- Only IPv4 addresses are accepted. Use DescribeGatewayInformation to get a
--- list of the network interfaces available on a gateway. Valid Values: A
--- valid IP address.
-csscsiviNetworkInterfaceId :: Lens' CreateStorediSCSIVolume (Text)
-csscsiviNetworkInterfaceId f x =
-    f (_csscsiviNetworkInterfaceId x)
-        <&> \y -> x { _csscsiviNetworkInterfaceId = y }
-{-# INLINE csscsiviNetworkInterfaceId #-}
-
--- | The name of the iSCSI target used by initiators to connect to the target
--- and as a suffix for the target ARN. For example, specifying TargetName as
--- myvolume results in the target ARN of
--- arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume.
--- The target name must be unique across all volumes of a gateway.
-csscsiviTargetName :: Lens' CreateStorediSCSIVolume (Text)
-csscsiviTargetName f x =
-    f (_csscsiviTargetName x)
-        <&> \y -> x { _csscsiviTargetName = y }
-{-# INLINE csscsiviTargetName #-}
+-- | The unique identifier for the gateway local disk that is configured as a
+-- stored volume. Use ListLocalDisks to list disk IDs for a gateway.
+csscsiviDiskId :: Lens' CreateStorediSCSIVolume (Text)
+csscsiviDiskId = lens _csscsiviDiskId (\s a -> s { _csscsiviDiskId = a })
+{-# INLINE csscsiviDiskId #-}
 
 -- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the
 -- new stored volume. Specify this field if you want to create the iSCSI
@@ -174,10 +141,32 @@ csscsiviTargetName f x =
 -- snapshots for your account use DescribeSnapshots in the Amazon Elastic
 -- Compute Cloud API Reference.
 csscsiviSnapshotId :: Lens' CreateStorediSCSIVolume (Maybe Text)
-csscsiviSnapshotId f x =
-    f (_csscsiviSnapshotId x)
-        <&> \y -> x { _csscsiviSnapshotId = y }
+csscsiviSnapshotId = lens _csscsiviSnapshotId (\s a -> s { _csscsiviSnapshotId = a })
 {-# INLINE csscsiviSnapshotId #-}
+
+-- | Specify this field as true if you want to preserve the data on the local
+-- disk. Otherwise, specifying this field as false creates an empty volume.
+-- Valid Values: true, false.
+csscsiviPreserveExistingData :: Lens' CreateStorediSCSIVolume (Bool)
+csscsiviPreserveExistingData = lens _csscsiviPreserveExistingData (\s a -> s { _csscsiviPreserveExistingData = a })
+{-# INLINE csscsiviPreserveExistingData #-}
+
+-- | The name of the iSCSI target used by initiators to connect to the target
+-- and as a suffix for the target ARN. For example, specifying TargetName as
+-- myvolume results in the target ARN of
+-- arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume.
+-- The target name must be unique across all volumes of a gateway.
+csscsiviTargetName :: Lens' CreateStorediSCSIVolume (Text)
+csscsiviTargetName = lens _csscsiviTargetName (\s a -> s { _csscsiviTargetName = a })
+{-# INLINE csscsiviTargetName #-}
+
+-- | The network interface of the gateway on which to expose the iSCSI target.
+-- Only IPv4 addresses are accepted. Use DescribeGatewayInformation to get a
+-- list of the network interfaces available on a gateway. Valid Values: A
+-- valid IP address.
+csscsiviNetworkInterfaceId :: Lens' CreateStorediSCSIVolume (Text)
+csscsiviNetworkInterfaceId = lens _csscsiviNetworkInterfaceId (\s a -> s { _csscsiviNetworkInterfaceId = a })
+{-# INLINE csscsiviNetworkInterfaceId #-}
 
 instance ToPath CreateStorediSCSIVolume
 
@@ -188,36 +177,30 @@ instance ToHeaders CreateStorediSCSIVolume
 instance ToJSON CreateStorediSCSIVolume
 
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
-    { _csscsivoVolumeSizeInBytes :: Maybe Integer
+    { _csscsivoVolumeARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the configured volume.
+    , _csscsivoVolumeSizeInBytes :: Maybe Integer
       -- ^ The size of the volume in bytes.
     , _csscsivoTargetARN :: Maybe Text
       -- ^ he Amazon Resource Name (ARN) of the volume target that includes
       -- the iSCSI name that initiators can use to connect to the target.
-    , _csscsivoVolumeARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the configured volume.
     } deriving (Show, Generic)
+
+-- | The Amazon Resource Name (ARN) of the configured volume.
+csscsivoVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivoVolumeARN = lens _csscsivoVolumeARN (\s a -> s { _csscsivoVolumeARN = a })
+{-# INLINE csscsivoVolumeARN #-}
 
 -- | The size of the volume in bytes.
 csscsivoVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
-csscsivoVolumeSizeInBytes f x =
-    f (_csscsivoVolumeSizeInBytes x)
-        <&> \y -> x { _csscsivoVolumeSizeInBytes = y }
+csscsivoVolumeSizeInBytes = lens _csscsivoVolumeSizeInBytes (\s a -> s { _csscsivoVolumeSizeInBytes = a })
 {-# INLINE csscsivoVolumeSizeInBytes #-}
 
 -- | he Amazon Resource Name (ARN) of the volume target that includes the iSCSI
 -- name that initiators can use to connect to the target.
 csscsivoTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
-csscsivoTargetARN f x =
-    f (_csscsivoTargetARN x)
-        <&> \y -> x { _csscsivoTargetARN = y }
+csscsivoTargetARN = lens _csscsivoTargetARN (\s a -> s { _csscsivoTargetARN = a })
 {-# INLINE csscsivoTargetARN #-}
-
--- | The Amazon Resource Name (ARN) of the configured volume.
-csscsivoVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
-csscsivoVolumeARN f x =
-    f (_csscsivoVolumeARN x)
-        <&> \y -> x { _csscsivoVolumeARN = y }
-{-# INLINE csscsivoVolumeARN #-}
 
 instance FromJSON CreateStorediSCSIVolumeResponse
 

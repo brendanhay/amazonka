@@ -37,7 +37,7 @@ module Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes
     -- * Request
       GetIdentityVerificationAttributes
     -- ** Request constructor
-    , getIdentityVerificationAttributes
+    , mkGetIdentityVerificationAttributesRequest
     -- ** Request lenses
     , givarIdentities
 
@@ -51,39 +51,36 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetIdentityVerificationAttributes' request.
-getIdentityVerificationAttributes :: [Text] -- ^ 'givarIdentities'
-                                  -> GetIdentityVerificationAttributes
-getIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityVerificationAttributes' request.
+mkGetIdentityVerificationAttributesRequest :: [Text] -- ^ 'givarIdentities'
+                                           -> GetIdentityVerificationAttributes
+mkGetIdentityVerificationAttributesRequest p1 = GetIdentityVerificationAttributes
     { _givarIdentities = p1
     }
-{-# INLINE getIdentityVerificationAttributes #-}
+{-# INLINE mkGetIdentityVerificationAttributesRequest #-}
 
-data GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
+newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givarIdentities :: [Text]
       -- ^ A list of identities.
     } deriving (Show, Generic)
 
 -- | A list of identities.
 givarIdentities :: Lens' GetIdentityVerificationAttributes ([Text])
-givarIdentities f x =
-    f (_givarIdentities x)
-        <&> \y -> x { _givarIdentities = y }
+givarIdentities = lens _givarIdentities (\s a -> s { _givarIdentities = a })
 {-# INLINE givarIdentities #-}
 
 instance ToQuery GetIdentityVerificationAttributes where
     toQuery = genericQuery def
 
-data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
+newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givasVerificationAttributes :: Map Text IdentityVerificationAttributes
       -- ^ A map of Identities to IdentityVerificationAttributes objects.
     } deriving (Show, Generic)
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givasVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)
-givasVerificationAttributes f x =
-    f (_givasVerificationAttributes x)
-        <&> \y -> x { _givasVerificationAttributes = y }
+givasVerificationAttributes = lens _givasVerificationAttributes (\s a -> s { _givasVerificationAttributes = a })
 {-# INLINE givasVerificationAttributes #-}
 
 instance FromXML GetIdentityVerificationAttributesResponse where

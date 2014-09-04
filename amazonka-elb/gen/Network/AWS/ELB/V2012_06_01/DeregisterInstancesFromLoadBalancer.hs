@@ -34,7 +34,7 @@ module Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
     -- * Request
       DeregisterInstancesFromLoadBalancer
     -- ** Request constructor
-    , deregisterInstancesFromLoadBalancer
+    , mkDeregisterEndPointsInput
     -- ** Request lenses
     , depiLoadBalancerName
     , depiInstances
@@ -49,15 +49,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeregisterInstancesFromLoadBalancer' request.
-deregisterInstancesFromLoadBalancer :: Text -- ^ 'depiLoadBalancerName'
-                                    -> [Instance] -- ^ 'depiInstances'
-                                    -> DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterInstancesFromLoadBalancer' request.
+mkDeregisterEndPointsInput :: Text -- ^ 'depiLoadBalancerName'
+                           -> [Instance] -- ^ 'depiInstances'
+                           -> DeregisterInstancesFromLoadBalancer
+mkDeregisterEndPointsInput p1 p2 = DeregisterInstancesFromLoadBalancer
     { _depiLoadBalancerName = p1
     , _depiInstances = p2
     }
-{-# INLINE deregisterInstancesFromLoadBalancer #-}
+{-# INLINE mkDeregisterEndPointsInput #-}
 
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { _depiLoadBalancerName :: Text
@@ -69,22 +70,18 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
 
 -- | The name associated with the load balancer.
 depiLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer (Text)
-depiLoadBalancerName f x =
-    f (_depiLoadBalancerName x)
-        <&> \y -> x { _depiLoadBalancerName = y }
+depiLoadBalancerName = lens _depiLoadBalancerName (\s a -> s { _depiLoadBalancerName = a })
 {-# INLINE depiLoadBalancerName #-}
 
 -- | A list of EC2 instance IDs consisting of all instances to be deregistered.
 depiInstances :: Lens' DeregisterInstancesFromLoadBalancer ([Instance])
-depiInstances f x =
-    f (_depiInstances x)
-        <&> \y -> x { _depiInstances = y }
+depiInstances = lens _depiInstances (\s a -> s { _depiInstances = a })
 {-# INLINE depiInstances #-}
 
 instance ToQuery DeregisterInstancesFromLoadBalancer where
     toQuery = genericQuery def
 
-data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
+newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _depoInstances :: [Instance]
       -- ^ An updated list of remaining instances registered with the load
       -- balancer.
@@ -92,9 +89,7 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
 
 -- | An updated list of remaining instances registered with the load balancer.
 depoInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse ([Instance])
-depoInstances f x =
-    f (_depoInstances x)
-        <&> \y -> x { _depoInstances = y }
+depoInstances = lens _depoInstances (\s a -> s { _depoInstances = a })
 {-# INLINE depoInstances #-}
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where

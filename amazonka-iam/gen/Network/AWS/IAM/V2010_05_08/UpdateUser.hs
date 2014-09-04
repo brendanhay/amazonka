@@ -34,7 +34,7 @@ module Network.AWS.IAM.V2010_05_08.UpdateUser
     -- * Request
       UpdateUser
     -- ** Request constructor
-    , updateUser
+    , mkUpdateUserRequest
     -- ** Request lenses
     , uuvUserName
     , uuvNewPath
@@ -48,15 +48,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateUser' request.
-updateUser :: Text -- ^ 'uuvUserName'
-           -> UpdateUser
-updateUser p1 = UpdateUser
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateUser' request.
+mkUpdateUserRequest :: Text -- ^ 'uuvUserName'
+                    -> UpdateUser
+mkUpdateUserRequest p1 = UpdateUser
     { _uuvUserName = p1
     , _uuvNewPath = Nothing
     , _uuvNewUserName = Nothing
     }
-{-# INLINE updateUser #-}
+{-# INLINE mkUpdateUserRequest #-}
 
 data UpdateUser = UpdateUser
     { _uuvUserName :: Text
@@ -73,25 +74,19 @@ data UpdateUser = UpdateUser
 -- | Name of the user to update. If you're changing the name of the user, this
 -- is the original user name.
 uuvUserName :: Lens' UpdateUser (Text)
-uuvUserName f x =
-    f (_uuvUserName x)
-        <&> \y -> x { _uuvUserName = y }
+uuvUserName = lens _uuvUserName (\s a -> s { _uuvUserName = a })
 {-# INLINE uuvUserName #-}
 
 -- | New path for the user. Include this parameter only if you're changing the
 -- user's path.
 uuvNewPath :: Lens' UpdateUser (Maybe Text)
-uuvNewPath f x =
-    f (_uuvNewPath x)
-        <&> \y -> x { _uuvNewPath = y }
+uuvNewPath = lens _uuvNewPath (\s a -> s { _uuvNewPath = a })
 {-# INLINE uuvNewPath #-}
 
 -- | New name for the user. Include this parameter only if you're changing the
 -- user's name.
 uuvNewUserName :: Lens' UpdateUser (Maybe Text)
-uuvNewUserName f x =
-    f (_uuvNewUserName x)
-        <&> \y -> x { _uuvNewUserName = y }
+uuvNewUserName = lens _uuvNewUserName (\s a -> s { _uuvNewUserName = a })
 {-# INLINE uuvNewUserName #-}
 
 instance ToQuery UpdateUser where

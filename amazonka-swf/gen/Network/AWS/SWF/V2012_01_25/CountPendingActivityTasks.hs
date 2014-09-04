@@ -51,7 +51,7 @@ module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
     -- * Request
       CountPendingActivityTasks
     -- ** Request constructor
-    , countPendingActivityTasks
+    , mkCountPendingActivityTasksInput
     -- ** Request lenses
     , cpatiDomain
     , cpatiTaskList
@@ -68,15 +68,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CountPendingActivityTasks' request.
-countPendingActivityTasks :: Text -- ^ 'cpatiDomain'
-                          -> TaskList -- ^ 'cpatiTaskList'
-                          -> CountPendingActivityTasks
-countPendingActivityTasks p1 p2 = CountPendingActivityTasks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountPendingActivityTasks' request.
+mkCountPendingActivityTasksInput :: Text -- ^ 'cpatiDomain'
+                                 -> TaskList -- ^ 'cpatiTaskList'
+                                 -> CountPendingActivityTasks
+mkCountPendingActivityTasksInput p1 p2 = CountPendingActivityTasks
     { _cpatiDomain = p1
     , _cpatiTaskList = p2
     }
-{-# INLINE countPendingActivityTasks #-}
+{-# INLINE mkCountPendingActivityTasksInput #-}
 
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatiDomain :: Text
@@ -87,16 +88,12 @@ data CountPendingActivityTasks = CountPendingActivityTasks
 
 -- | The name of the domain that contains the task list.
 cpatiDomain :: Lens' CountPendingActivityTasks (Text)
-cpatiDomain f x =
-    f (_cpatiDomain x)
-        <&> \y -> x { _cpatiDomain = y }
+cpatiDomain = lens _cpatiDomain (\s a -> s { _cpatiDomain = a })
 {-# INLINE cpatiDomain #-}
 
 -- | The name of the task list.
 cpatiTaskList :: Lens' CountPendingActivityTasks (TaskList)
-cpatiTaskList f x =
-    f (_cpatiTaskList x)
-        <&> \y -> x { _cpatiTaskList = y }
+cpatiTaskList = lens _cpatiTaskList (\s a -> s { _cpatiTaskList = a })
 {-# INLINE cpatiTaskList #-}
 
 instance ToPath CountPendingActivityTasks
@@ -118,17 +115,13 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
 
 -- | The number of tasks in the task list.
 ptcCount :: Lens' CountPendingActivityTasksResponse (Integer)
-ptcCount f x =
-    f (_ptcCount x)
-        <&> \y -> x { _ptcCount = y }
+ptcCount = lens _ptcCount (\s a -> s { _ptcCount = a })
 {-# INLINE ptcCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
 ptcTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
-ptcTruncated f x =
-    f (_ptcTruncated x)
-        <&> \y -> x { _ptcTruncated = y }
+ptcTruncated = lens _ptcTruncated (\s a -> s { _ptcTruncated = a })
 {-# INLINE ptcTruncated #-}
 
 instance FromJSON CountPendingActivityTasksResponse

@@ -23,7 +23,7 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance
     -- * Request
       RegisterRdsDbInstance
     -- ** Request constructor
-    , registerRdsDbInstance
+    , mkRegisterRdsDbInstanceRequest
     -- ** Request lenses
     , rrdirStackId
     , rrdirRdsDbInstanceArn
@@ -39,19 +39,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RegisterRdsDbInstance' request.
-registerRdsDbInstance :: Text -- ^ 'rrdirStackId'
-                      -> Text -- ^ 'rrdirRdsDbInstanceArn'
-                      -> Text -- ^ 'rrdirDbUser'
-                      -> Text -- ^ 'rrdirDbPassword'
-                      -> RegisterRdsDbInstance
-registerRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterRdsDbInstance' request.
+mkRegisterRdsDbInstanceRequest :: Text -- ^ 'rrdirStackId'
+                               -> Text -- ^ 'rrdirRdsDbInstanceArn'
+                               -> Text -- ^ 'rrdirDbUser'
+                               -> Text -- ^ 'rrdirDbPassword'
+                               -> RegisterRdsDbInstance
+mkRegisterRdsDbInstanceRequest p1 p2 p3 p4 = RegisterRdsDbInstance
     { _rrdirStackId = p1
     , _rrdirRdsDbInstanceArn = p2
     , _rrdirDbUser = p3
     , _rrdirDbPassword = p4
     }
-{-# INLINE registerRdsDbInstance #-}
+{-# INLINE mkRegisterRdsDbInstanceRequest #-}
 
 data RegisterRdsDbInstance = RegisterRdsDbInstance
     { _rrdirStackId :: Text
@@ -66,30 +67,22 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
 
 -- | The stack ID.
 rrdirStackId :: Lens' RegisterRdsDbInstance (Text)
-rrdirStackId f x =
-    f (_rrdirStackId x)
-        <&> \y -> x { _rrdirStackId = y }
+rrdirStackId = lens _rrdirStackId (\s a -> s { _rrdirStackId = a })
 {-# INLINE rrdirStackId #-}
 
 -- | The Amazon RDS instance's ARN.
 rrdirRdsDbInstanceArn :: Lens' RegisterRdsDbInstance (Text)
-rrdirRdsDbInstanceArn f x =
-    f (_rrdirRdsDbInstanceArn x)
-        <&> \y -> x { _rrdirRdsDbInstanceArn = y }
+rrdirRdsDbInstanceArn = lens _rrdirRdsDbInstanceArn (\s a -> s { _rrdirRdsDbInstanceArn = a })
 {-# INLINE rrdirRdsDbInstanceArn #-}
 
 -- | The database's master user name.
 rrdirDbUser :: Lens' RegisterRdsDbInstance (Text)
-rrdirDbUser f x =
-    f (_rrdirDbUser x)
-        <&> \y -> x { _rrdirDbUser = y }
+rrdirDbUser = lens _rrdirDbUser (\s a -> s { _rrdirDbUser = a })
 {-# INLINE rrdirDbUser #-}
 
 -- | The database password.
 rrdirDbPassword :: Lens' RegisterRdsDbInstance (Text)
-rrdirDbPassword f x =
-    f (_rrdirDbPassword x)
-        <&> \y -> x { _rrdirDbPassword = y }
+rrdirDbPassword = lens _rrdirDbPassword (\s a -> s { _rrdirDbPassword = a })
 {-# INLINE rrdirDbPassword #-}
 
 instance ToPath RegisterRdsDbInstance

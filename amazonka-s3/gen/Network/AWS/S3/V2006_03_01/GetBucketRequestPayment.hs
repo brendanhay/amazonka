@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
     -- * Request
       GetBucketRequestPayment
     -- ** Request constructor
-    , getBucketRequestPayment
+    , mkGetBucketRequestPaymentRequest
     -- ** Request lenses
     , gbrprBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketRequestPayment' request.
-getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
-                        -> GetBucketRequestPayment
-getBucketRequestPayment p1 = GetBucketRequestPayment
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketRequestPayment' request.
+mkGetBucketRequestPaymentRequest :: BucketName -- ^ 'gbrprBucket'
+                                 -> GetBucketRequestPayment
+mkGetBucketRequestPaymentRequest p1 = GetBucketRequestPayment
     { _gbrprBucket = p1
     }
-{-# INLINE getBucketRequestPayment #-}
+{-# INLINE mkGetBucketRequestPaymentRequest #-}
 
-data GetBucketRequestPayment = GetBucketRequestPayment
+newtype GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrprBucket :: BucketName
     } deriving (Show, Generic)
 
 gbrprBucket :: Lens' GetBucketRequestPayment (BucketName)
-gbrprBucket f x =
-    f (_gbrprBucket x)
-        <&> \y -> x { _gbrprBucket = y }
+gbrprBucket = lens _gbrprBucket (\s a -> s { _gbrprBucket = a })
 {-# INLINE gbrprBucket #-}
 
 instance ToPath GetBucketRequestPayment where
@@ -70,16 +69,14 @@ instance ToHeaders GetBucketRequestPayment
 
 instance ToBody GetBucketRequestPayment
 
-data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
+newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrpoPayer :: Maybe Payer
       -- ^ Specifies who pays for the download and request fees.
     } deriving (Show, Generic)
 
 -- | Specifies who pays for the download and request fees.
 gbrpoPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrpoPayer f x =
-    f (_gbrpoPayer x)
-        <&> \y -> x { _gbrpoPayer = y }
+gbrpoPayer = lens _gbrpoPayer (\s a -> s { _gbrpoPayer = a })
 {-# INLINE gbrpoPayer #-}
 
 instance FromXML GetBucketRequestPaymentResponse where

@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication
     -- * Request
       UpdateApplication
     -- ** Request constructor
-    , updateApplication
+    , mkUpdateApplicationMessage
     -- ** Request lenses
     , uamApplicationName
     , uamDescription
@@ -44,14 +44,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateApplication' request.
-updateApplication :: Text -- ^ 'uamApplicationName'
-                  -> UpdateApplication
-updateApplication p1 = UpdateApplication
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateApplication' request.
+mkUpdateApplicationMessage :: Text -- ^ 'uamApplicationName'
+                           -> UpdateApplication
+mkUpdateApplicationMessage p1 = UpdateApplication
     { _uamApplicationName = p1
     , _uamDescription = Nothing
     }
-{-# INLINE updateApplication #-}
+{-# INLINE mkUpdateApplicationMessage #-}
 
 data UpdateApplication = UpdateApplication
     { _uamApplicationName :: Text
@@ -65,32 +66,26 @@ data UpdateApplication = UpdateApplication
 -- | The name of the application to update. If no such application is found,
 -- UpdateApplication returns an InvalidParameterValue error.
 uamApplicationName :: Lens' UpdateApplication (Text)
-uamApplicationName f x =
-    f (_uamApplicationName x)
-        <&> \y -> x { _uamApplicationName = y }
+uamApplicationName = lens _uamApplicationName (\s a -> s { _uamApplicationName = a })
 {-# INLINE uamApplicationName #-}
 
 -- | A new description for the application. Default: If not specified, AWS
 -- Elastic Beanstalk does not update the description.
 uamDescription :: Lens' UpdateApplication (Maybe Text)
-uamDescription f x =
-    f (_uamDescription x)
-        <&> \y -> x { _uamDescription = y }
+uamDescription = lens _uamDescription (\s a -> s { _uamDescription = a })
 {-# INLINE uamDescription #-}
 
 instance ToQuery UpdateApplication where
     toQuery = genericQuery def
 
-data UpdateApplicationResponse = UpdateApplicationResponse
+newtype UpdateApplicationResponse = UpdateApplicationResponse
     { _adoApplication :: Maybe ApplicationDescription
       -- ^ The ApplicationDescription of the application.
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
 adoApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
-adoApplication f x =
-    f (_adoApplication x)
-        <&> \y -> x { _adoApplication = y }
+adoApplication = lens _adoApplication (\s a -> s { _adoApplication = a })
 {-# INLINE adoApplication #-}
 
 instance FromXML UpdateApplicationResponse where

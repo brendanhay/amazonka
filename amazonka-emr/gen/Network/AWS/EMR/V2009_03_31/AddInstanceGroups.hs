@@ -41,7 +41,7 @@ module Network.AWS.EMR.V2009_03_31.AddInstanceGroups
     -- * Request
       AddInstanceGroups
     -- ** Request constructor
-    , addInstanceGroups
+    , mkAddInstanceGroupsInput
     -- ** Request lenses
     , aigiInstanceGroups
     , aigiJobFlowId
@@ -49,8 +49,8 @@ module Network.AWS.EMR.V2009_03_31.AddInstanceGroups
     -- * Response
     , AddInstanceGroupsResponse
     -- ** Response lenses
-    , aigoInstanceGroupIds
     , aigoJobFlowId
+    , aigoInstanceGroupIds
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -58,15 +58,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AddInstanceGroups' request.
-addInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigiInstanceGroups'
-                  -> Text -- ^ 'aigiJobFlowId'
-                  -> AddInstanceGroups
-addInstanceGroups p1 p2 = AddInstanceGroups
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddInstanceGroups' request.
+mkAddInstanceGroupsInput :: [InstanceGroupConfig] -- ^ 'aigiInstanceGroups'
+                         -> Text -- ^ 'aigiJobFlowId'
+                         -> AddInstanceGroups
+mkAddInstanceGroupsInput p1 p2 = AddInstanceGroups
     { _aigiInstanceGroups = p1
     , _aigiJobFlowId = p2
     }
-{-# INLINE addInstanceGroups #-}
+{-# INLINE mkAddInstanceGroupsInput #-}
 
 data AddInstanceGroups = AddInstanceGroups
     { _aigiInstanceGroups :: [InstanceGroupConfig]
@@ -77,16 +78,12 @@ data AddInstanceGroups = AddInstanceGroups
 
 -- | Instance Groups to add.
 aigiInstanceGroups :: Lens' AddInstanceGroups ([InstanceGroupConfig])
-aigiInstanceGroups f x =
-    f (_aigiInstanceGroups x)
-        <&> \y -> x { _aigiInstanceGroups = y }
+aigiInstanceGroups = lens _aigiInstanceGroups (\s a -> s { _aigiInstanceGroups = a })
 {-# INLINE aigiInstanceGroups #-}
 
 -- | Job flow in which to add the instance groups.
 aigiJobFlowId :: Lens' AddInstanceGroups (Text)
-aigiJobFlowId f x =
-    f (_aigiJobFlowId x)
-        <&> \y -> x { _aigiJobFlowId = y }
+aigiJobFlowId = lens _aigiJobFlowId (\s a -> s { _aigiJobFlowId = a })
 {-# INLINE aigiJobFlowId #-}
 
 instance ToPath AddInstanceGroups
@@ -98,25 +95,21 @@ instance ToHeaders AddInstanceGroups
 instance ToJSON AddInstanceGroups
 
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
-    { _aigoInstanceGroupIds :: [Text]
-      -- ^ Instance group IDs of the newly created instance groups.
-    , _aigoJobFlowId :: Maybe Text
+    { _aigoJobFlowId :: Maybe Text
       -- ^ The job flow ID in which the instance groups are added.
+    , _aigoInstanceGroupIds :: [Text]
+      -- ^ Instance group IDs of the newly created instance groups.
     } deriving (Show, Generic)
-
--- | Instance group IDs of the newly created instance groups.
-aigoInstanceGroupIds :: Lens' AddInstanceGroupsResponse ([Text])
-aigoInstanceGroupIds f x =
-    f (_aigoInstanceGroupIds x)
-        <&> \y -> x { _aigoInstanceGroupIds = y }
-{-# INLINE aigoInstanceGroupIds #-}
 
 -- | The job flow ID in which the instance groups are added.
 aigoJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
-aigoJobFlowId f x =
-    f (_aigoJobFlowId x)
-        <&> \y -> x { _aigoJobFlowId = y }
+aigoJobFlowId = lens _aigoJobFlowId (\s a -> s { _aigoJobFlowId = a })
 {-# INLINE aigoJobFlowId #-}
+
+-- | Instance group IDs of the newly created instance groups.
+aigoInstanceGroupIds :: Lens' AddInstanceGroupsResponse ([Text])
+aigoInstanceGroupIds = lens _aigoInstanceGroupIds (\s a -> s { _aigoInstanceGroupIds = a })
+{-# INLINE aigoInstanceGroupIds #-}
 
 instance FromJSON AddInstanceGroupsResponse
 

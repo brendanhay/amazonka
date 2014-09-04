@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval
     -- * Request
       CancelRetrieval
     -- ** Request constructor
-    , cancelRetrieval
+    , mkCancelRetrievalInput
     -- ** Request lenses
     , criGatewayARN
     , criTapeARN
@@ -38,15 +38,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CancelRetrieval' request.
-cancelRetrieval :: Text -- ^ 'criGatewayARN'
-                -> Text -- ^ 'criTapeARN'
-                -> CancelRetrieval
-cancelRetrieval p1 p2 = CancelRetrieval
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelRetrieval' request.
+mkCancelRetrievalInput :: Text -- ^ 'criGatewayARN'
+                       -> Text -- ^ 'criTapeARN'
+                       -> CancelRetrieval
+mkCancelRetrievalInput p1 p2 = CancelRetrieval
     { _criGatewayARN = p1
     , _criTapeARN = p2
     }
-{-# INLINE cancelRetrieval #-}
+{-# INLINE mkCancelRetrievalInput #-}
 
 data CancelRetrieval = CancelRetrieval
     { _criGatewayARN :: Text
@@ -59,15 +60,11 @@ data CancelRetrieval = CancelRetrieval
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 criGatewayARN :: Lens' CancelRetrieval (Text)
-criGatewayARN f x =
-    f (_criGatewayARN x)
-        <&> \y -> x { _criGatewayARN = y }
+criGatewayARN = lens _criGatewayARN (\s a -> s { _criGatewayARN = a })
 {-# INLINE criGatewayARN #-}
 
 criTapeARN :: Lens' CancelRetrieval (Text)
-criTapeARN f x =
-    f (_criTapeARN x)
-        <&> \y -> x { _criTapeARN = y }
+criTapeARN = lens _criTapeARN (\s a -> s { _criTapeARN = a })
 {-# INLINE criTapeARN #-}
 
 instance ToPath CancelRetrieval
@@ -78,14 +75,12 @@ instance ToHeaders CancelRetrieval
 
 instance ToJSON CancelRetrieval
 
-data CancelRetrievalResponse = CancelRetrievalResponse
+newtype CancelRetrievalResponse = CancelRetrievalResponse
     { _croTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 croTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
-croTapeARN f x =
-    f (_croTapeARN x)
-        <&> \y -> x { _croTapeARN = y }
+croTapeARN = lens _croTapeARN (\s a -> s { _croTapeARN = a })
 {-# INLINE croTapeARN #-}
 
 instance FromJSON CancelRetrievalResponse

@@ -22,7 +22,7 @@ module Network.AWS.Route53.V2013_04_01.GetGeoLocation
     -- * Request
       GetGeoLocation
     -- ** Request constructor
-    , getGeoLocation
+    , mkGetGeoLocationRequest
     -- ** Request lenses
     , gglrContinentCode
     , gglrCountryCode
@@ -38,14 +38,15 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetGeoLocation' request.
-getGeoLocation :: GetGeoLocation
-getGeoLocation = GetGeoLocation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetGeoLocation' request.
+mkGetGeoLocationRequest :: GetGeoLocation
+mkGetGeoLocationRequest = GetGeoLocation
     { _gglrContinentCode = Nothing
     , _gglrCountryCode = Nothing
     , _gglrSubdivisionCode = Nothing
     }
-{-# INLINE getGeoLocation #-}
+{-# INLINE mkGetGeoLocationRequest #-}
 
 data GetGeoLocation = GetGeoLocation
     { _gglrContinentCode :: Maybe Text
@@ -71,9 +72,7 @@ data GetGeoLocation = GetGeoLocation
 -- Constraint: Specifying ContinentCode with either CountryCode or
 -- SubdivisionCode returns an InvalidInput error.
 gglrContinentCode :: Lens' GetGeoLocation (Maybe Text)
-gglrContinentCode f x =
-    f (_gglrContinentCode x)
-        <&> \y -> x { _gglrContinentCode = y }
+gglrContinentCode = lens _gglrContinentCode (\s a -> s { _gglrContinentCode = a })
 {-# INLINE gglrContinentCode #-}
 
 -- | The code for a country geo location. The default location uses '*' for the
@@ -81,9 +80,7 @@ gglrContinentCode f x =
 -- location. The default geo location uses a * for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
 gglrCountryCode :: Lens' GetGeoLocation (Maybe Text)
-gglrCountryCode f x =
-    f (_gglrCountryCode x)
-        <&> \y -> x { _gglrCountryCode = y }
+gglrCountryCode = lens _gglrCountryCode (\s a -> s { _gglrCountryCode = a })
 {-# INLINE gglrCountryCode #-}
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
@@ -91,9 +88,7 @@ gglrCountryCode f x =
 -- Constraint: Specifying SubdivisionCode without CountryCode returns an
 -- InvalidInput error.
 gglrSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
-gglrSubdivisionCode f x =
-    f (_gglrSubdivisionCode x)
-        <&> \y -> x { _gglrSubdivisionCode = y }
+gglrSubdivisionCode = lens _gglrSubdivisionCode (\s a -> s { _gglrSubdivisionCode = a })
 {-# INLINE gglrSubdivisionCode #-}
 
 instance ToPath GetGeoLocation where
@@ -112,7 +107,7 @@ instance ToXML GetGeoLocation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetGeoLocationRequest"
 
-data GetGeoLocationResponse = GetGeoLocationResponse
+newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglsGeoLocationDetails :: GeoLocationDetails
       -- ^ A complex type that contains the information about the specified
       -- geo location.
@@ -121,9 +116,7 @@ data GetGeoLocationResponse = GetGeoLocationResponse
 -- | A complex type that contains the information about the specified geo
 -- location.
 gglsGeoLocationDetails :: Lens' GetGeoLocationResponse (GeoLocationDetails)
-gglsGeoLocationDetails f x =
-    f (_gglsGeoLocationDetails x)
-        <&> \y -> x { _gglsGeoLocationDetails = y }
+gglsGeoLocationDetails = lens _gglsGeoLocationDetails (\s a -> s { _gglsGeoLocationDetails = a })
 {-# INLINE gglsGeoLocationDetails #-}
 
 instance FromXML GetGeoLocationResponse where

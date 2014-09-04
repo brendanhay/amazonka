@@ -25,7 +25,7 @@ module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
     -- * Request
       DescribeSeverityLevels
     -- ** Request constructor
-    , describeSeverityLevels
+    , mkDescribeSeverityLevelsRequest
     -- ** Request lenses
     , dslrLanguage
 
@@ -40,14 +40,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeSeverityLevels' request.
-describeSeverityLevels :: DescribeSeverityLevels
-describeSeverityLevels = DescribeSeverityLevels
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSeverityLevels' request.
+mkDescribeSeverityLevelsRequest :: DescribeSeverityLevels
+mkDescribeSeverityLevelsRequest = DescribeSeverityLevels
     { _dslrLanguage = Nothing
     }
-{-# INLINE describeSeverityLevels #-}
+{-# INLINE mkDescribeSeverityLevelsRequest #-}
 
-data DescribeSeverityLevels = DescribeSeverityLevels
+newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslrLanguage :: Maybe Text
       -- ^ The ISO 639-1 code for the language in which AWS provides
       -- support. AWS Support currently supports English ("en") and
@@ -59,9 +60,7 @@ data DescribeSeverityLevels = DescribeSeverityLevels
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dslrLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
-dslrLanguage f x =
-    f (_dslrLanguage x)
-        <&> \y -> x { _dslrLanguage = y }
+dslrLanguage = lens _dslrLanguage (\s a -> s { _dslrLanguage = a })
 {-# INLINE dslrLanguage #-}
 
 instance ToPath DescribeSeverityLevels
@@ -72,7 +71,7 @@ instance ToHeaders DescribeSeverityLevels
 
 instance ToJSON DescribeSeverityLevels
 
-data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
+newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslsSeverityLevels :: [SeverityLevel]
       -- ^ The available severity levels for the support case. Available
       -- severity levels are defined by your service level agreement with
@@ -82,9 +81,7 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
 dslsSeverityLevels :: Lens' DescribeSeverityLevelsResponse ([SeverityLevel])
-dslsSeverityLevels f x =
-    f (_dslsSeverityLevels x)
-        <&> \y -> x { _dslsSeverityLevels = y }
+dslsSeverityLevels = lens _dslsSeverityLevels (\s a -> s { _dslsSeverityLevels = a })
 {-# INLINE dslsSeverityLevels #-}
 
 instance FromJSON DescribeSeverityLevelsResponse

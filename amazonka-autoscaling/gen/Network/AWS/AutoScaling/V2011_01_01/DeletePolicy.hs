@@ -23,10 +23,10 @@ module Network.AWS.AutoScaling.V2011_01_01.DeletePolicy
     -- * Request
       DeletePolicy
     -- ** Request constructor
-    , deletePolicy
+    , mkDeletePolicyType
     -- ** Request lenses
-    , dptPolicyName
     , dptAutoScalingGroupName
+    , dptPolicyName
 
     -- * Response
     , DeletePolicyResponse
@@ -36,35 +36,32 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeletePolicy' request.
-deletePolicy :: Text -- ^ 'dptPolicyName'
-             -> DeletePolicy
-deletePolicy p1 = DeletePolicy
-    { _dptPolicyName = p1
-    , _dptAutoScalingGroupName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePolicy' request.
+mkDeletePolicyType :: Text -- ^ 'dptPolicyName'
+                   -> DeletePolicy
+mkDeletePolicyType p1 = DeletePolicy
+    { _dptAutoScalingGroupName = Nothing
+    , _dptPolicyName = p2
     }
-{-# INLINE deletePolicy #-}
+{-# INLINE mkDeletePolicyType #-}
 
 data DeletePolicy = DeletePolicy
-    { _dptPolicyName :: Text
-      -- ^ The name or PolicyARN of the policy you want to delete.
-    , _dptAutoScalingGroupName :: Maybe Text
+    { _dptAutoScalingGroupName :: Maybe Text
       -- ^ The name of the Auto Scaling group.
+    , _dptPolicyName :: Text
+      -- ^ The name or PolicyARN of the policy you want to delete.
     } deriving (Show, Generic)
-
--- | The name or PolicyARN of the policy you want to delete.
-dptPolicyName :: Lens' DeletePolicy (Text)
-dptPolicyName f x =
-    f (_dptPolicyName x)
-        <&> \y -> x { _dptPolicyName = y }
-{-# INLINE dptPolicyName #-}
 
 -- | The name of the Auto Scaling group.
 dptAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
-dptAutoScalingGroupName f x =
-    f (_dptAutoScalingGroupName x)
-        <&> \y -> x { _dptAutoScalingGroupName = y }
+dptAutoScalingGroupName = lens _dptAutoScalingGroupName (\s a -> s { _dptAutoScalingGroupName = a })
 {-# INLINE dptAutoScalingGroupName #-}
+
+-- | The name or PolicyARN of the policy you want to delete.
+dptPolicyName :: Lens' DeletePolicy (Text)
+dptPolicyName = lens _dptPolicyName (\s a -> s { _dptPolicyName = a })
+{-# INLINE dptPolicyName #-}
 
 instance ToQuery DeletePolicy where
     toQuery = genericQuery def

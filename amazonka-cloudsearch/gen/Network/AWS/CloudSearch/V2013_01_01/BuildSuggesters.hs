@@ -23,7 +23,7 @@ module Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
     -- * Request
       BuildSuggesters
     -- ** Request constructor
-    , buildSuggesters
+    , mkBuildSuggestersRequest
     -- ** Request lenses
     , bsrDomainName
 
@@ -37,15 +37,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'BuildSuggesters' request.
-buildSuggesters :: Text -- ^ 'bsrDomainName'
-                -> BuildSuggesters
-buildSuggesters p1 = BuildSuggesters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BuildSuggesters' request.
+mkBuildSuggestersRequest :: Text -- ^ 'bsrDomainName'
+                         -> BuildSuggesters
+mkBuildSuggestersRequest p1 = BuildSuggesters
     { _bsrDomainName = p1
     }
-{-# INLINE buildSuggesters #-}
+{-# INLINE mkBuildSuggestersRequest #-}
 
-data BuildSuggesters = BuildSuggesters
+newtype BuildSuggesters = BuildSuggesters
     { _bsrDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
@@ -59,24 +60,20 @@ data BuildSuggesters = BuildSuggesters
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 bsrDomainName :: Lens' BuildSuggesters (Text)
-bsrDomainName f x =
-    f (_bsrDomainName x)
-        <&> \y -> x { _bsrDomainName = y }
+bsrDomainName = lens _bsrDomainName (\s a -> s { _bsrDomainName = a })
 {-# INLINE bsrDomainName #-}
 
 instance ToQuery BuildSuggesters where
     toQuery = genericQuery def
 
-data BuildSuggestersResponse = BuildSuggestersResponse
+newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bssFieldNames :: [Text]
       -- ^ A list of field names.
     } deriving (Show, Generic)
 
 -- | A list of field names.
 bssFieldNames :: Lens' BuildSuggestersResponse ([Text])
-bssFieldNames f x =
-    f (_bssFieldNames x)
-        <&> \y -> x { _bssFieldNames = y }
+bssFieldNames = lens _bssFieldNames (\s a -> s { _bssFieldNames = a })
 {-# INLINE bssFieldNames #-}
 
 instance FromXML BuildSuggestersResponse where

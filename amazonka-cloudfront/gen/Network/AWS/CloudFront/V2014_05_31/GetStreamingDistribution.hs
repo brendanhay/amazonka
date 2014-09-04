@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution
     -- * Request
       GetStreamingDistribution
     -- ** Request constructor
-    , getStreamingDistribution
+    , mkGetStreamingDistributionRequest
     -- ** Request lenses
     , gsdrId
 
@@ -38,24 +38,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetStreamingDistribution' request.
-getStreamingDistribution :: Text -- ^ 'gsdrId'
-                         -> GetStreamingDistribution
-getStreamingDistribution p1 = GetStreamingDistribution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStreamingDistribution' request.
+mkGetStreamingDistributionRequest :: Text -- ^ 'gsdrId'
+                                  -> GetStreamingDistribution
+mkGetStreamingDistributionRequest p1 = GetStreamingDistribution
     { _gsdrId = p1
     }
-{-# INLINE getStreamingDistribution #-}
+{-# INLINE mkGetStreamingDistributionRequest #-}
 
-data GetStreamingDistribution = GetStreamingDistribution
+newtype GetStreamingDistribution = GetStreamingDistribution
     { _gsdrId :: Text
       -- ^ The streaming distribution's id.
     } deriving (Show, Generic)
 
 -- | The streaming distribution's id.
 gsdrId :: Lens' GetStreamingDistribution (Text)
-gsdrId f x =
-    f (_gsdrId x)
-        <&> \y -> x { _gsdrId = y }
+gsdrId = lens _gsdrId (\s a -> s { _gsdrId = a })
 {-# INLINE gsdrId #-}
 
 instance ToPath GetStreamingDistribution where
@@ -82,17 +81,13 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse
 
 -- | The streaming distribution's information.
 gsdsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdsStreamingDistribution f x =
-    f (_gsdsStreamingDistribution x)
-        <&> \y -> x { _gsdsStreamingDistribution = y }
+gsdsStreamingDistribution = lens _gsdsStreamingDistribution (\s a -> s { _gsdsStreamingDistribution = a })
 {-# INLINE gsdsStreamingDistribution #-}
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
 gsdsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
-gsdsETag f x =
-    f (_gsdsETag x)
-        <&> \y -> x { _gsdsETag = y }
+gsdsETag = lens _gsdsETag (\s a -> s { _gsdsETag = a })
 {-# INLINE gsdsETag #-}
 
 instance AWSRequest GetStreamingDistribution where

@@ -34,7 +34,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
     -- * Request
       DeleteVpcPeeringConnection
     -- ** Request constructor
-    , deleteVpcPeeringConnection
+    , mkDeleteVpcPeeringConnectionRequest
     -- ** Request lenses
     , dvpcrVpcPeeringConnectionId
 
@@ -48,30 +48,29 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteVpcPeeringConnection' request.
-deleteVpcPeeringConnection :: Text -- ^ 'dvpcrVpcPeeringConnectionId'
-                           -> DeleteVpcPeeringConnection
-deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpcPeeringConnection' request.
+mkDeleteVpcPeeringConnectionRequest :: Text -- ^ 'dvpcrVpcPeeringConnectionId'
+                                    -> DeleteVpcPeeringConnection
+mkDeleteVpcPeeringConnectionRequest p1 = DeleteVpcPeeringConnection
     { _dvpcrVpcPeeringConnectionId = p1
     }
-{-# INLINE deleteVpcPeeringConnection #-}
+{-# INLINE mkDeleteVpcPeeringConnectionRequest #-}
 
-data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
+newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpcrVpcPeeringConnectionId :: Text
       -- ^ The ID of the VPC peering connection.
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
 dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection (Text)
-dvpcrVpcPeeringConnectionId f x =
-    f (_dvpcrVpcPeeringConnectionId x)
-        <&> \y -> x { _dvpcrVpcPeeringConnectionId = y }
+dvpcrVpcPeeringConnectionId = lens _dvpcrVpcPeeringConnectionId (\s a -> s { _dvpcrVpcPeeringConnectionId = a })
 {-# INLINE dvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
 
-data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
+newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcsReturn :: Maybe Bool
       -- ^ Returns true if the request succeeds; otherwise, it returns an
       -- error.
@@ -79,9 +78,7 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 dvpcsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
-dvpcsReturn f x =
-    f (_dvpcsReturn x)
-        <&> \y -> x { _dvpcsReturn = y }
+dvpcsReturn = lens _dvpcsReturn (\s a -> s { _dvpcsReturn = a })
 {-# INLINE dvpcsReturn #-}
 
 instance FromXML DeleteVpcPeeringConnectionResponse where

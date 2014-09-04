@@ -26,7 +26,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
     -- * Request
       DeleteUserPolicy
     -- ** Request constructor
-    , deleteUserPolicy
+    , mkDeleteUserPolicyRequest
     -- ** Request lenses
     , duprUserName
     , duprPolicyName
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteUserPolicy' request.
-deleteUserPolicy :: Text -- ^ 'duprUserName'
-                 -> Text -- ^ 'duprPolicyName'
-                 -> DeleteUserPolicy
-deleteUserPolicy p1 p2 = DeleteUserPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteUserPolicy' request.
+mkDeleteUserPolicyRequest :: Text -- ^ 'duprUserName'
+                          -> Text -- ^ 'duprPolicyName'
+                          -> DeleteUserPolicy
+mkDeleteUserPolicyRequest p1 p2 = DeleteUserPolicy
     { _duprUserName = p1
     , _duprPolicyName = p2
     }
-{-# INLINE deleteUserPolicy #-}
+{-# INLINE mkDeleteUserPolicyRequest #-}
 
 data DeleteUserPolicy = DeleteUserPolicy
     { _duprUserName :: Text
@@ -58,16 +59,12 @@ data DeleteUserPolicy = DeleteUserPolicy
 
 -- | Name of the user the policy is associated with.
 duprUserName :: Lens' DeleteUserPolicy (Text)
-duprUserName f x =
-    f (_duprUserName x)
-        <&> \y -> x { _duprUserName = y }
+duprUserName = lens _duprUserName (\s a -> s { _duprUserName = a })
 {-# INLINE duprUserName #-}
 
 -- | Name of the policy document to delete.
 duprPolicyName :: Lens' DeleteUserPolicy (Text)
-duprPolicyName f x =
-    f (_duprPolicyName x)
-        <&> \y -> x { _duprPolicyName = y }
+duprPolicyName = lens _duprPolicyName (\s a -> s { _duprPolicyName = a })
 {-# INLINE duprPolicyName #-}
 
 instance ToQuery DeleteUserPolicy where

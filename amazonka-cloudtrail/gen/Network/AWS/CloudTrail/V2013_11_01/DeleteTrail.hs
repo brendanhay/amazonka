@@ -23,7 +23,7 @@ module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
     -- * Request
       DeleteTrail
     -- ** Request constructor
-    , deleteTrail
+    , mkDeleteTrailRequest
     -- ** Request lenses
     , dtrName
 
@@ -36,24 +36,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteTrail' request.
-deleteTrail :: Text -- ^ 'dtrName'
-            -> DeleteTrail
-deleteTrail p1 = DeleteTrail
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTrail' request.
+mkDeleteTrailRequest :: Text -- ^ 'dtrName'
+                     -> DeleteTrail
+mkDeleteTrailRequest p1 = DeleteTrail
     { _dtrName = p1
     }
-{-# INLINE deleteTrail #-}
+{-# INLINE mkDeleteTrailRequest #-}
 
-data DeleteTrail = DeleteTrail
+newtype DeleteTrail = DeleteTrail
     { _dtrName :: Text
       -- ^ The name of a trail to be deleted.
     } deriving (Show, Generic)
 
 -- | The name of a trail to be deleted.
 dtrName :: Lens' DeleteTrail (Text)
-dtrName f x =
-    f (_dtrName x)
-        <&> \y -> x { _dtrName = y }
+dtrName = lens _dtrName (\s a -> s { _dtrName = a })
 {-# INLINE dtrName #-}
 
 instance ToPath DeleteTrail
@@ -64,7 +63,6 @@ instance ToHeaders DeleteTrail
 
 instance ToJSON DeleteTrail
 
-data DeleteTrailResponse = DeleteTrailResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteTrail where

@@ -37,7 +37,7 @@ module Network.AWS.EC2.V2014_06_15.CancelBundleTask
     -- * Request
       CancelBundleTask
     -- ** Request constructor
-    , cancelBundleTask
+    , mkCancelBundleTaskRequest
     -- ** Request lenses
     , cbtrBundleId
 
@@ -51,39 +51,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CancelBundleTask' request.
-cancelBundleTask :: Text -- ^ 'cbtrBundleId'
-                 -> CancelBundleTask
-cancelBundleTask p1 = CancelBundleTask
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelBundleTask' request.
+mkCancelBundleTaskRequest :: Text -- ^ 'cbtrBundleId'
+                          -> CancelBundleTask
+mkCancelBundleTaskRequest p1 = CancelBundleTask
     { _cbtrBundleId = p1
     }
-{-# INLINE cancelBundleTask #-}
+{-# INLINE mkCancelBundleTaskRequest #-}
 
-data CancelBundleTask = CancelBundleTask
+newtype CancelBundleTask = CancelBundleTask
     { _cbtrBundleId :: Text
       -- ^ The ID of the bundle task.
     } deriving (Show, Generic)
 
 -- | The ID of the bundle task.
 cbtrBundleId :: Lens' CancelBundleTask (Text)
-cbtrBundleId f x =
-    f (_cbtrBundleId x)
-        <&> \y -> x { _cbtrBundleId = y }
+cbtrBundleId = lens _cbtrBundleId (\s a -> s { _cbtrBundleId = a })
 {-# INLINE cbtrBundleId #-}
 
 instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
 
-data CancelBundleTaskResponse = CancelBundleTaskResponse
+newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtsBundleTask :: Maybe BundleTask
       -- ^ The bundle task.
     } deriving (Show, Generic)
 
 -- | The bundle task.
 cbtsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
-cbtsBundleTask f x =
-    f (_cbtsBundleTask x)
-        <&> \y -> x { _cbtsBundleTask = y }
+cbtsBundleTask = lens _cbtsBundleTask (\s a -> s { _cbtsBundleTask = a })
 {-# INLINE cbtsBundleTask #-}
 
 instance FromXML CancelBundleTaskResponse where

@@ -45,7 +45,7 @@ module Network.AWS.RDS.V2013_09_09.RebootDBInstance
     -- * Request
       RebootDBInstance
     -- ** Request constructor
-    , rebootDBInstance
+    , mkRebootDBInstanceMessage
     -- ** Request lenses
     , rdbinDBInstanceIdentifier
     , rdbinForceFailover
@@ -60,14 +60,15 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RebootDBInstance' request.
-rebootDBInstance :: Text -- ^ 'rdbinDBInstanceIdentifier'
-                 -> RebootDBInstance
-rebootDBInstance p1 = RebootDBInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootDBInstance' request.
+mkRebootDBInstanceMessage :: Text -- ^ 'rdbinDBInstanceIdentifier'
+                          -> RebootDBInstance
+mkRebootDBInstanceMessage p1 = RebootDBInstance
     { _rdbinDBInstanceIdentifier = p1
     , _rdbinForceFailover = Nothing
     }
-{-# INLINE rebootDBInstance #-}
+{-# INLINE mkRebootDBInstanceMessage #-}
 
 data RebootDBInstance = RebootDBInstance
     { _rdbinDBInstanceIdentifier :: Text
@@ -87,24 +88,20 @@ data RebootDBInstance = RebootDBInstance
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
 rdbinDBInstanceIdentifier :: Lens' RebootDBInstance (Text)
-rdbinDBInstanceIdentifier f x =
-    f (_rdbinDBInstanceIdentifier x)
-        <&> \y -> x { _rdbinDBInstanceIdentifier = y }
+rdbinDBInstanceIdentifier = lens _rdbinDBInstanceIdentifier (\s a -> s { _rdbinDBInstanceIdentifier = a })
 {-# INLINE rdbinDBInstanceIdentifier #-}
 
 -- | When true, the reboot will be conducted through a MultiAZ failover.
 -- Constraint: You cannot specify true if the instance is not configured for
 -- MultiAZ.
 rdbinForceFailover :: Lens' RebootDBInstance (Maybe Bool)
-rdbinForceFailover f x =
-    f (_rdbinForceFailover x)
-        <&> \y -> x { _rdbinForceFailover = y }
+rdbinForceFailover = lens _rdbinForceFailover (\s a -> s { _rdbinForceFailover = a })
 {-# INLINE rdbinForceFailover #-}
 
 instance ToQuery RebootDBInstance where
     toQuery = genericQuery def
 
-data RebootDBInstanceResponse = RebootDBInstanceResponse
+newtype RebootDBInstanceResponse = RebootDBInstanceResponse
     { _dbidsDBInstance :: Maybe DBInstance
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
@@ -116,9 +113,7 @@ data RebootDBInstanceResponse = RebootDBInstanceResponse
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
 dbidsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
-dbidsDBInstance f x =
-    f (_dbidsDBInstance x)
-        <&> \y -> x { _dbidsDBInstance = y }
+dbidsDBInstance = lens _dbidsDBInstance (\s a -> s { _dbidsDBInstance = a })
 {-# INLINE dbidsDBInstance #-}
 
 instance FromXML RebootDBInstanceResponse where

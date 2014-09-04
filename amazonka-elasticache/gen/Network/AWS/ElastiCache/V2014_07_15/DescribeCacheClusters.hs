@@ -48,116 +48,105 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
     -- * Request
       DescribeCacheClusters
     -- ** Request constructor
-    , describeCacheClusters
+    , mkDescribeCacheClustersMessage
     -- ** Request lenses
-    , dccnShowCacheNodeInfo
-    , dccnMaxRecords
     , dccnCacheClusterId
+    , dccnMaxRecords
     , dccnMarker
+    , dccnShowCacheNodeInfo
 
     -- * Response
     , DescribeCacheClustersResponse
     -- ** Response lenses
-    , ccmCacheClusters
     , ccmMarker
+    , ccmCacheClusters
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeCacheClusters' request.
-describeCacheClusters :: DescribeCacheClusters
-describeCacheClusters = DescribeCacheClusters
-    { _dccnShowCacheNodeInfo = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheClusters' request.
+mkDescribeCacheClustersMessage :: DescribeCacheClusters
+mkDescribeCacheClustersMessage = DescribeCacheClusters
+    { _dccnCacheClusterId = Nothing
     , _dccnMaxRecords = Nothing
-    , _dccnCacheClusterId = Nothing
     , _dccnMarker = Nothing
+    , _dccnShowCacheNodeInfo = Nothing
     }
-{-# INLINE describeCacheClusters #-}
+{-# INLINE mkDescribeCacheClustersMessage #-}
 
 data DescribeCacheClusters = DescribeCacheClusters
-    { _dccnShowCacheNodeInfo :: Maybe Bool
-      -- ^ An optional flag that can be included in the DescribeCacheCluster
-      -- request to retrieve information about the individual cache nodes.
+    { _dccnCacheClusterId :: Maybe Text
+      -- ^ The user-supplied cluster identifier. If this parameter is
+      -- specified, only information about that specific cache cluster is
+      -- returned. This parameter isn't case sensitive.
     , _dccnMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dccnCacheClusterId :: Maybe Text
-      -- ^ The user-supplied cluster identifier. If this parameter is
-      -- specified, only information about that specific cache cluster is
-      -- returned. This parameter isn't case sensitive.
     , _dccnMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
       -- is specified, the response includes only records beyond the
       -- marker, up to the value specified by MaxRecords.
+    , _dccnShowCacheNodeInfo :: Maybe Bool
+      -- ^ An optional flag that can be included in the DescribeCacheCluster
+      -- request to retrieve information about the individual cache nodes.
     } deriving (Show, Generic)
 
--- | An optional flag that can be included in the DescribeCacheCluster request
--- to retrieve information about the individual cache nodes.
-dccnShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
-dccnShowCacheNodeInfo f x =
-    f (_dccnShowCacheNodeInfo x)
-        <&> \y -> x { _dccnShowCacheNodeInfo = y }
-{-# INLINE dccnShowCacheNodeInfo #-}
+-- | The user-supplied cluster identifier. If this parameter is specified, only
+-- information about that specific cache cluster is returned. This parameter
+-- isn't case sensitive.
+dccnCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
+dccnCacheClusterId = lens _dccnCacheClusterId (\s a -> s { _dccnCacheClusterId = a })
+{-# INLINE dccnCacheClusterId #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 dccnMaxRecords :: Lens' DescribeCacheClusters (Maybe Integer)
-dccnMaxRecords f x =
-    f (_dccnMaxRecords x)
-        <&> \y -> x { _dccnMaxRecords = y }
+dccnMaxRecords = lens _dccnMaxRecords (\s a -> s { _dccnMaxRecords = a })
 {-# INLINE dccnMaxRecords #-}
-
--- | The user-supplied cluster identifier. If this parameter is specified, only
--- information about that specific cache cluster is returned. This parameter
--- isn't case sensitive.
-dccnCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
-dccnCacheClusterId f x =
-    f (_dccnCacheClusterId x)
-        <&> \y -> x { _dccnCacheClusterId = y }
-{-# INLINE dccnCacheClusterId #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
 dccnMarker :: Lens' DescribeCacheClusters (Maybe Text)
-dccnMarker f x =
-    f (_dccnMarker x)
-        <&> \y -> x { _dccnMarker = y }
+dccnMarker = lens _dccnMarker (\s a -> s { _dccnMarker = a })
 {-# INLINE dccnMarker #-}
+
+-- | An optional flag that can be included in the DescribeCacheCluster request
+-- to retrieve information about the individual cache nodes.
+dccnShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
+dccnShowCacheNodeInfo = lens _dccnShowCacheNodeInfo (\s a -> s { _dccnShowCacheNodeInfo = a })
+{-# INLINE dccnShowCacheNodeInfo #-}
 
 instance ToQuery DescribeCacheClusters where
     toQuery = genericQuery def
 
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
-    { _ccmCacheClusters :: [CacheCluster]
+    { _ccmMarker :: Maybe Text
+      -- ^ Provides an identifier to allow retrieval of paginated results.
+    , _ccmCacheClusters :: [CacheCluster]
       -- ^ A list of cache clusters. Each item in the list contains detailed
       -- information about one cache cluster.
-    , _ccmMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
+
+-- | Provides an identifier to allow retrieval of paginated results.
+ccmMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
+ccmMarker = lens _ccmMarker (\s a -> s { _ccmMarker = a })
+{-# INLINE ccmMarker #-}
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
 ccmCacheClusters :: Lens' DescribeCacheClustersResponse ([CacheCluster])
-ccmCacheClusters f x =
-    f (_ccmCacheClusters x)
-        <&> \y -> x { _ccmCacheClusters = y }
+ccmCacheClusters = lens _ccmCacheClusters (\s a -> s { _ccmCacheClusters = a })
 {-# INLINE ccmCacheClusters #-}
-
--- | Provides an identifier to allow retrieval of paginated results.
-ccmMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
-ccmMarker f x =
-    f (_ccmMarker x)
-        <&> \y -> x { _ccmMarker = y }
-{-# INLINE ccmMarker #-}
 
 instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions

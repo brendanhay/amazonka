@@ -32,7 +32,7 @@ module Network.AWS.ELB.V2012_06_01.AddTags
     -- * Request
       AddTags
     -- ** Request constructor
-    , addTags
+    , mkAddTagsInput
     -- ** Request lenses
     , atiLoadBalancerNames
     , atiTags
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AddTags' request.
-addTags :: [Text] -- ^ 'atiLoadBalancerNames'
-        -> [Tag] -- ^ 'atiTags'
-        -> AddTags
-addTags p1 p2 = AddTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddTags' request.
+mkAddTagsInput :: [Text] -- ^ 'atiLoadBalancerNames'
+               -> [Tag] -- ^ 'atiTags'
+               -> AddTags
+mkAddTagsInput p1 p2 = AddTags
     { _atiLoadBalancerNames = p1
     , _atiTags = p2
     }
-{-# INLINE addTags #-}
+{-# INLINE mkAddTagsInput #-}
 
 data AddTags = AddTags
     { _atiLoadBalancerNames :: [Text]
@@ -66,22 +67,17 @@ data AddTags = AddTags
 -- | The name of the load balancer to tag. You can specify a maximum of one load
 -- balancer name.
 atiLoadBalancerNames :: Lens' AddTags ([Text])
-atiLoadBalancerNames f x =
-    f (_atiLoadBalancerNames x)
-        <&> \y -> x { _atiLoadBalancerNames = y }
+atiLoadBalancerNames = lens _atiLoadBalancerNames (\s a -> s { _atiLoadBalancerNames = a })
 {-# INLINE atiLoadBalancerNames #-}
 
 -- | A list of tags for each load balancer.
 atiTags :: Lens' AddTags ([Tag])
-atiTags f x =
-    f (_atiTags x)
-        <&> \y -> x { _atiTags = y }
+atiTags = lens _atiTags (\s a -> s { _atiTags = a })
 {-# INLINE atiTags #-}
 
 instance ToQuery AddTags where
     toQuery = genericQuery def
 
-data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest AddTags where

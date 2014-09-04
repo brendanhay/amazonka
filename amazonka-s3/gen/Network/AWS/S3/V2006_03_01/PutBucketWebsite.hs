@@ -23,11 +23,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketWebsite
     -- * Request
       PutBucketWebsite
     -- ** Request constructor
-    , putBucketWebsite
+    , mkPutBucketWebsiteRequest
     -- ** Request lenses
-    , pbwrWebsiteConfiguration
     , pbwrBucket
     , pbwrContentMD5
+    , pbwrWebsiteConfiguration
 
     -- * Response
     , PutBucketWebsiteResponse
@@ -37,40 +37,35 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutBucketWebsite' request.
-putBucketWebsite :: WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
-                 -> BucketName -- ^ 'pbwrBucket'
-                 -> PutBucketWebsite
-putBucketWebsite p1 p2 = PutBucketWebsite
-    { _pbwrWebsiteConfiguration = p1
-    , _pbwrBucket = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketWebsite' request.
+mkPutBucketWebsiteRequest :: BucketName -- ^ 'pbwrBucket'
+                          -> WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
+                          -> PutBucketWebsite
+mkPutBucketWebsiteRequest p1 p2 = PutBucketWebsite
+    { _pbwrBucket = p1
     , _pbwrContentMD5 = Nothing
+    , _pbwrWebsiteConfiguration = p3
     }
-{-# INLINE putBucketWebsite #-}
+{-# INLINE mkPutBucketWebsiteRequest #-}
 
 data PutBucketWebsite = PutBucketWebsite
-    { _pbwrWebsiteConfiguration :: WebsiteConfiguration
-    , _pbwrBucket :: BucketName
+    { _pbwrBucket :: BucketName
     , _pbwrContentMD5 :: Maybe Text
+    , _pbwrWebsiteConfiguration :: WebsiteConfiguration
     } deriving (Show, Generic)
 
-pbwrWebsiteConfiguration :: Lens' PutBucketWebsite (WebsiteConfiguration)
-pbwrWebsiteConfiguration f x =
-    f (_pbwrWebsiteConfiguration x)
-        <&> \y -> x { _pbwrWebsiteConfiguration = y }
-{-# INLINE pbwrWebsiteConfiguration #-}
-
 pbwrBucket :: Lens' PutBucketWebsite (BucketName)
-pbwrBucket f x =
-    f (_pbwrBucket x)
-        <&> \y -> x { _pbwrBucket = y }
+pbwrBucket = lens _pbwrBucket (\s a -> s { _pbwrBucket = a })
 {-# INLINE pbwrBucket #-}
 
 pbwrContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
-pbwrContentMD5 f x =
-    f (_pbwrContentMD5 x)
-        <&> \y -> x { _pbwrContentMD5 = y }
+pbwrContentMD5 = lens _pbwrContentMD5 (\s a -> s { _pbwrContentMD5 = a })
 {-# INLINE pbwrContentMD5 #-}
+
+pbwrWebsiteConfiguration :: Lens' PutBucketWebsite (WebsiteConfiguration)
+pbwrWebsiteConfiguration = lens _pbwrWebsiteConfiguration (\s a -> s { _pbwrWebsiteConfiguration = a })
+{-# INLINE pbwrWebsiteConfiguration #-}
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat
@@ -83,13 +78,9 @@ instance ToQuery PutBucketWebsite where
         [ "website"
         ]
 
-instance ToHeaders PutBucketWebsite where
-    toHeaders PutBucketWebsite{..} = concat
-        [ "Content-MD5" =: _pbwrContentMD5
-        ]
+instance ToHeaders PutBucketWebsite
 
-instance ToBody PutBucketWebsite where
-    toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
+instance ToBody PutBucketWebsite
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)

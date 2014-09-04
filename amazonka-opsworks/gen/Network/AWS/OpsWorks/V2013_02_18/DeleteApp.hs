@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteApp
     -- * Request
       DeleteApp
     -- ** Request constructor
-    , deleteApp
+    , mkDeleteAppRequest
     -- ** Request lenses
     , darAppId
 
@@ -39,24 +39,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteApp' request.
-deleteApp :: Text -- ^ 'darAppId'
-          -> DeleteApp
-deleteApp p1 = DeleteApp
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteApp' request.
+mkDeleteAppRequest :: Text -- ^ 'darAppId'
+                   -> DeleteApp
+mkDeleteAppRequest p1 = DeleteApp
     { _darAppId = p1
     }
-{-# INLINE deleteApp #-}
+{-# INLINE mkDeleteAppRequest #-}
 
-data DeleteApp = DeleteApp
+newtype DeleteApp = DeleteApp
     { _darAppId :: Text
       -- ^ The app ID.
     } deriving (Show, Generic)
 
 -- | The app ID.
 darAppId :: Lens' DeleteApp (Text)
-darAppId f x =
-    f (_darAppId x)
-        <&> \y -> x { _darAppId = y }
+darAppId = lens _darAppId (\s a -> s { _darAppId = a })
 {-# INLINE darAppId #-}
 
 instance ToPath DeleteApp

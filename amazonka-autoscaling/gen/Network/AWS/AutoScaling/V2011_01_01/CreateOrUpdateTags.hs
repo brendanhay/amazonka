@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
     -- * Request
       CreateOrUpdateTags
     -- ** Request constructor
-    , createOrUpdateTags
+    , mkCreateOrUpdateTagsType
     -- ** Request lenses
     , couttTags
 
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateOrUpdateTags' request.
-createOrUpdateTags :: [Tag] -- ^ 'couttTags'
-                   -> CreateOrUpdateTags
-createOrUpdateTags p1 = CreateOrUpdateTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateOrUpdateTags' request.
+mkCreateOrUpdateTagsType :: [Tag] -- ^ 'couttTags'
+                         -> CreateOrUpdateTags
+mkCreateOrUpdateTagsType p1 = CreateOrUpdateTags
     { _couttTags = p1
     }
-{-# INLINE createOrUpdateTags #-}
+{-# INLINE mkCreateOrUpdateTagsType #-}
 
-data CreateOrUpdateTags = CreateOrUpdateTags
+newtype CreateOrUpdateTags = CreateOrUpdateTags
     { _couttTags :: [Tag]
       -- ^ The tag to be created or updated. Each tag should be defined by
       -- its resource type, resource ID, key, value, and a propagate flag.
@@ -88,9 +89,7 @@ data CreateOrUpdateTags = CreateOrUpdateTags
 -- name already exists, the operation overwrites the previous tag definition,
 -- but you will not get an error message.
 couttTags :: Lens' CreateOrUpdateTags ([Tag])
-couttTags f x =
-    f (_couttTags x)
-        <&> \y -> x { _couttTags = y }
+couttTags = lens _couttTags (\s a -> s { _couttTags = a })
 {-# INLINE couttTags #-}
 
 instance ToQuery CreateOrUpdateTags where

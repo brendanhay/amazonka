@@ -32,13 +32,13 @@ module Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute
     -- * Request
       ModifyNetworkInterfaceAttribute
     -- ** Request constructor
-    , modifyNetworkInterfaceAttribute
+    , mkModifyNetworkInterfaceAttributeRequest
     -- ** Request lenses
     , mniarNetworkInterfaceId
-    , mniarSourceDestCheck
     , mniarDescription
-    , mniarAttachment
+    , mniarSourceDestCheck
     , mniarGroups
+    , mniarAttachment
 
     -- * Response
     , ModifyNetworkInterfaceAttributeResponse
@@ -48,79 +48,70 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyNetworkInterfaceAttribute' request.
-modifyNetworkInterfaceAttribute :: Text -- ^ 'mniarNetworkInterfaceId'
-                                -> ModifyNetworkInterfaceAttribute
-modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyNetworkInterfaceAttribute' request.
+mkModifyNetworkInterfaceAttributeRequest :: Text -- ^ 'mniarNetworkInterfaceId'
+                                         -> ModifyNetworkInterfaceAttribute
+mkModifyNetworkInterfaceAttributeRequest p1 = ModifyNetworkInterfaceAttribute
     { _mniarNetworkInterfaceId = p1
-    , _mniarSourceDestCheck = Nothing
     , _mniarDescription = Nothing
-    , _mniarAttachment = Nothing
+    , _mniarSourceDestCheck = Nothing
     , _mniarGroups = mempty
+    , _mniarAttachment = Nothing
     }
-{-# INLINE modifyNetworkInterfaceAttribute #-}
+{-# INLINE mkModifyNetworkInterfaceAttributeRequest #-}
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniarNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
+    , _mniarDescription :: Maybe AttributeValue
+      -- ^ A description for the network interface.
     , _mniarSourceDestCheck :: Maybe AttributeBooleanValue
       -- ^ Indicates whether source/destination checking is enabled. A value
       -- of true means checking is enabled, and false means checking is
       -- disabled. This value must be false for a NAT instance to perform
       -- NAT. For more information, see NAT Instances in the Amazon
       -- Virtual Private Cloud User Guide.
-    , _mniarDescription :: Maybe AttributeValue
-      -- ^ A description for the network interface.
-    , _mniarAttachment :: Maybe NetworkInterfaceAttachmentChanges
-      -- ^ The ID of the interface attachment.
     , _mniarGroups :: [Text]
       -- ^ Changes the security groups for the network interface. The new
       -- set of groups you specify replaces the current set. You must
       -- specify at least one group, even if it's just the default
       -- security group in the VPC. You must specify the ID of the
       -- security group, not the name.
+    , _mniarAttachment :: Maybe NetworkInterfaceAttachmentChanges
+      -- ^ The ID of the interface attachment.
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
 mniarNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute (Text)
-mniarNetworkInterfaceId f x =
-    f (_mniarNetworkInterfaceId x)
-        <&> \y -> x { _mniarNetworkInterfaceId = y }
+mniarNetworkInterfaceId = lens _mniarNetworkInterfaceId (\s a -> s { _mniarNetworkInterfaceId = a })
 {-# INLINE mniarNetworkInterfaceId #-}
+
+-- | A description for the network interface.
+mniarDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
+mniarDescription = lens _mniarDescription (\s a -> s { _mniarDescription = a })
+{-# INLINE mniarDescription #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT. For more information, see
 -- NAT Instances in the Amazon Virtual Private Cloud User Guide.
 mniarSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
-mniarSourceDestCheck f x =
-    f (_mniarSourceDestCheck x)
-        <&> \y -> x { _mniarSourceDestCheck = y }
+mniarSourceDestCheck = lens _mniarSourceDestCheck (\s a -> s { _mniarSourceDestCheck = a })
 {-# INLINE mniarSourceDestCheck #-}
-
--- | A description for the network interface.
-mniarDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
-mniarDescription f x =
-    f (_mniarDescription x)
-        <&> \y -> x { _mniarDescription = y }
-{-# INLINE mniarDescription #-}
-
--- | The ID of the interface attachment.
-mniarAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
-mniarAttachment f x =
-    f (_mniarAttachment x)
-        <&> \y -> x { _mniarAttachment = y }
-{-# INLINE mniarAttachment #-}
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least one
 -- group, even if it's just the default security group in the VPC. You must
 -- specify the ID of the security group, not the name.
 mniarGroups :: Lens' ModifyNetworkInterfaceAttribute ([Text])
-mniarGroups f x =
-    f (_mniarGroups x)
-        <&> \y -> x { _mniarGroups = y }
+mniarGroups = lens _mniarGroups (\s a -> s { _mniarGroups = a })
 {-# INLINE mniarGroups #-}
+
+-- | The ID of the interface attachment.
+mniarAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
+mniarAttachment = lens _mniarAttachment (\s a -> s { _mniarAttachment = a })
+{-# INLINE mniarAttachment #-}
 
 instance ToQuery ModifyNetworkInterfaceAttribute where
     toQuery = genericQuery def

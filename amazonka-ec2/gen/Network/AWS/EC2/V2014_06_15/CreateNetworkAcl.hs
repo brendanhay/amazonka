@@ -35,7 +35,7 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
     -- * Request
       CreateNetworkAcl
     -- ** Request constructor
-    , createNetworkAcl
+    , mkCreateNetworkAclRequest
     -- ** Request lenses
     , cnarVpcId
 
@@ -49,39 +49,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateNetworkAcl' request.
-createNetworkAcl :: Text -- ^ 'cnarVpcId'
-                 -> CreateNetworkAcl
-createNetworkAcl p1 = CreateNetworkAcl
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateNetworkAcl' request.
+mkCreateNetworkAclRequest :: Text -- ^ 'cnarVpcId'
+                          -> CreateNetworkAcl
+mkCreateNetworkAclRequest p1 = CreateNetworkAcl
     { _cnarVpcId = p1
     }
-{-# INLINE createNetworkAcl #-}
+{-# INLINE mkCreateNetworkAclRequest #-}
 
-data CreateNetworkAcl = CreateNetworkAcl
+newtype CreateNetworkAcl = CreateNetworkAcl
     { _cnarVpcId :: Text
       -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
 cnarVpcId :: Lens' CreateNetworkAcl (Text)
-cnarVpcId f x =
-    f (_cnarVpcId x)
-        <&> \y -> x { _cnarVpcId = y }
+cnarVpcId = lens _cnarVpcId (\s a -> s { _cnarVpcId = a })
 {-# INLINE cnarVpcId #-}
 
 instance ToQuery CreateNetworkAcl where
     toQuery = genericQuery def
 
-data CreateNetworkAclResponse = CreateNetworkAclResponse
+newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnasNetworkAcl :: Maybe NetworkAcl
       -- ^ Information about the network ACL.
     } deriving (Show, Generic)
 
 -- | Information about the network ACL.
 cnasNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
-cnasNetworkAcl f x =
-    f (_cnasNetworkAcl x)
-        <&> \y -> x { _cnasNetworkAcl = y }
+cnasNetworkAcl = lens _cnasNetworkAcl (\s a -> s { _cnasNetworkAcl = a })
 {-# INLINE cnasNetworkAcl #-}
 
 instance FromXML CreateNetworkAclResponse where

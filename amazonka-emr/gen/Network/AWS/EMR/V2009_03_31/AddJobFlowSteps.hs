@@ -61,10 +61,10 @@ module Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
     -- * Request
       AddJobFlowSteps
     -- ** Request constructor
-    , addJobFlowSteps
+    , mkAddJobFlowStepsInput
     -- ** Request lenses
-    , ajfsiSteps
     , ajfsiJobFlowId
+    , ajfsiSteps
 
     -- * Response
     , AddJobFlowStepsResponse
@@ -77,39 +77,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AddJobFlowSteps' request.
-addJobFlowSteps :: [StepConfig] -- ^ 'ajfsiSteps'
-                -> Text -- ^ 'ajfsiJobFlowId'
-                -> AddJobFlowSteps
-addJobFlowSteps p1 p2 = AddJobFlowSteps
-    { _ajfsiSteps = p1
-    , _ajfsiJobFlowId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddJobFlowSteps' request.
+mkAddJobFlowStepsInput :: Text -- ^ 'ajfsiJobFlowId'
+                       -> [StepConfig] -- ^ 'ajfsiSteps'
+                       -> AddJobFlowSteps
+mkAddJobFlowStepsInput p1 p2 = AddJobFlowSteps
+    { _ajfsiJobFlowId = p1
+    , _ajfsiSteps = p2
     }
-{-# INLINE addJobFlowSteps #-}
+{-# INLINE mkAddJobFlowStepsInput #-}
 
 data AddJobFlowSteps = AddJobFlowSteps
-    { _ajfsiSteps :: [StepConfig]
-      -- ^ A list of StepConfig to be executed by the job flow.
-    , _ajfsiJobFlowId :: Text
+    { _ajfsiJobFlowId :: Text
       -- ^ A string that uniquely identifies the job flow. This identifier
       -- is returned by RunJobFlow and can also be obtained from
       -- ListClusters.
+    , _ajfsiSteps :: [StepConfig]
+      -- ^ A list of StepConfig to be executed by the job flow.
     } deriving (Show, Generic)
-
--- | A list of StepConfig to be executed by the job flow.
-ajfsiSteps :: Lens' AddJobFlowSteps ([StepConfig])
-ajfsiSteps f x =
-    f (_ajfsiSteps x)
-        <&> \y -> x { _ajfsiSteps = y }
-{-# INLINE ajfsiSteps #-}
 
 -- | A string that uniquely identifies the job flow. This identifier is returned
 -- by RunJobFlow and can also be obtained from ListClusters.
 ajfsiJobFlowId :: Lens' AddJobFlowSteps (Text)
-ajfsiJobFlowId f x =
-    f (_ajfsiJobFlowId x)
-        <&> \y -> x { _ajfsiJobFlowId = y }
+ajfsiJobFlowId = lens _ajfsiJobFlowId (\s a -> s { _ajfsiJobFlowId = a })
 {-# INLINE ajfsiJobFlowId #-}
+
+-- | A list of StepConfig to be executed by the job flow.
+ajfsiSteps :: Lens' AddJobFlowSteps ([StepConfig])
+ajfsiSteps = lens _ajfsiSteps (\s a -> s { _ajfsiSteps = a })
+{-# INLINE ajfsiSteps #-}
 
 instance ToPath AddJobFlowSteps
 
@@ -119,16 +116,14 @@ instance ToHeaders AddJobFlowSteps
 
 instance ToJSON AddJobFlowSteps
 
-data AddJobFlowStepsResponse = AddJobFlowStepsResponse
+newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsoStepIds :: [Text]
       -- ^ The identifiers of the list of steps added to the job flow.
     } deriving (Show, Generic)
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsoStepIds :: Lens' AddJobFlowStepsResponse ([Text])
-ajfsoStepIds f x =
-    f (_ajfsoStepIds x)
-        <&> \y -> x { _ajfsoStepIds = y }
+ajfsoStepIds = lens _ajfsoStepIds (\s a -> s { _ajfsoStepIds = a })
 {-# INLINE ajfsoStepIds #-}
 
 instance FromJSON AddJobFlowStepsResponse

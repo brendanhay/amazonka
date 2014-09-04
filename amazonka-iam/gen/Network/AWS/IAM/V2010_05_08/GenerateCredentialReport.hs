@@ -25,22 +25,23 @@ module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
     -- * Request
       GenerateCredentialReport
     -- ** Request constructor
-    , generateCredentialReport
+    , mkUnknown
     -- * Response
     , GenerateCredentialReportResponse
     -- ** Response lenses
-    , gcrrDescription
     , gcrrState
+    , gcrrDescription
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GenerateCredentialReport' request.
-generateCredentialReport :: GenerateCredentialReport
-generateCredentialReport = GenerateCredentialReport
-{-# INLINE generateCredentialReport #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GenerateCredentialReport' request.
+mkUnknown :: GenerateCredentialReport
+mkUnknown = GenerateCredentialReport
+{-# INLINE mkUnknown #-}
 
 data GenerateCredentialReport = GenerateCredentialReport
     deriving (Eq, Show, Generic)
@@ -49,25 +50,21 @@ instance ToQuery GenerateCredentialReport where
     toQuery = genericQuery def
 
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrrDescription :: Maybe Text
-      -- ^ Information about the credential report.
-    , _gcrrState :: Maybe ReportStateType
+    { _gcrrState :: Maybe ReportStateType
       -- ^ Information about the state of a credential report.
+    , _gcrrDescription :: Maybe Text
+      -- ^ Information about the credential report.
     } deriving (Show, Generic)
-
--- | Information about the credential report.
-gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
-gcrrDescription f x =
-    f (_gcrrDescription x)
-        <&> \y -> x { _gcrrDescription = y }
-{-# INLINE gcrrDescription #-}
 
 -- | Information about the state of a credential report.
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
-gcrrState f x =
-    f (_gcrrState x)
-        <&> \y -> x { _gcrrState = y }
+gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 {-# INLINE gcrrState #-}
+
+-- | Information about the credential report.
+gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
+gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
+{-# INLINE gcrrDescription #-}
 
 instance FromXML GenerateCredentialReportResponse where
     fromXMLOptions = xmlOptions

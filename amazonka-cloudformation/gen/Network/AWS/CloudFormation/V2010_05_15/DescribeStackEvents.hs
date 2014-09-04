@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
     -- * Request
       DescribeStackEvents
     -- ** Request constructor
-    , describeStackEvents
+    , mkDescribeStackEventsInput
     -- ** Request lenses
     , dseiStackName
     , dseiNextToken
@@ -47,22 +47,23 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
     -- * Response
     , DescribeStackEventsResponse
     -- ** Response lenses
-    , dseoNextToken
     , dseoStackEvents
+    , dseoNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeStackEvents' request.
-describeStackEvents :: Text -- ^ 'dseiStackName'
-                    -> DescribeStackEvents
-describeStackEvents p1 = DescribeStackEvents
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackEvents' request.
+mkDescribeStackEventsInput :: Text -- ^ 'dseiStackName'
+                           -> DescribeStackEvents
+mkDescribeStackEventsInput p1 = DescribeStackEvents
     { _dseiStackName = p1
     , _dseiNextToken = Nothing
     }
-{-# INLINE describeStackEvents #-}
+{-# INLINE mkDescribeStackEventsInput #-}
 
 data DescribeStackEvents = DescribeStackEvents
     { _dseiStackName :: Text
@@ -81,44 +82,36 @@ data DescribeStackEvents = DescribeStackEvents
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
 dseiStackName :: Lens' DescribeStackEvents (Text)
-dseiStackName f x =
-    f (_dseiStackName x)
-        <&> \y -> x { _dseiStackName = y }
+dseiStackName = lens _dseiStackName (\s a -> s { _dseiStackName = a })
 {-# INLINE dseiStackName #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one. Default: There is no default value.
 dseiNextToken :: Lens' DescribeStackEvents (Maybe Text)
-dseiNextToken f x =
-    f (_dseiNextToken x)
-        <&> \y -> x { _dseiNextToken = y }
+dseiNextToken = lens _dseiNextToken (\s a -> s { _dseiNextToken = a })
 {-# INLINE dseiNextToken #-}
 
 instance ToQuery DescribeStackEvents where
     toQuery = genericQuery def
 
 data DescribeStackEventsResponse = DescribeStackEventsResponse
-    { _dseoNextToken :: Maybe Text
+    { _dseoStackEvents :: [StackEvent]
+      -- ^ A list of StackEvents structures.
+    , _dseoNextToken :: Maybe Text
       -- ^ String that identifies the start of the next list of events, if
       -- there is one.
-    , _dseoStackEvents :: [StackEvent]
-      -- ^ A list of StackEvents structures.
     } deriving (Show, Generic)
+
+-- | A list of StackEvents structures.
+dseoStackEvents :: Lens' DescribeStackEventsResponse ([StackEvent])
+dseoStackEvents = lens _dseoStackEvents (\s a -> s { _dseoStackEvents = a })
+{-# INLINE dseoStackEvents #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
 dseoNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
-dseoNextToken f x =
-    f (_dseoNextToken x)
-        <&> \y -> x { _dseoNextToken = y }
+dseoNextToken = lens _dseoNextToken (\s a -> s { _dseoNextToken = a })
 {-# INLINE dseoNextToken #-}
-
--- | A list of StackEvents structures.
-dseoStackEvents :: Lens' DescribeStackEventsResponse ([StackEvent])
-dseoStackEvents f x =
-    f (_dseoStackEvents x)
-        <&> \y -> x { _dseoStackEvents = y }
-{-# INLINE dseoStackEvents #-}
 
 instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions

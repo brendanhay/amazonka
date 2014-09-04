@@ -58,7 +58,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSecurityGroup
     -- * Request
       CreateSecurityGroup
     -- ** Request constructor
-    , createSecurityGroup
+    , mkCreateSecurityGroupRequest
     -- ** Request lenses
     , csgrGroupName
     , csgrDescription
@@ -74,16 +74,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateSecurityGroup' request.
-createSecurityGroup :: Text -- ^ 'csgrGroupName'
-                    -> Text -- ^ 'csgrDescription'
-                    -> CreateSecurityGroup
-createSecurityGroup p1 p2 = CreateSecurityGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSecurityGroup' request.
+mkCreateSecurityGroupRequest :: Text -- ^ 'csgrGroupName'
+                             -> Text -- ^ 'csgrDescription'
+                             -> CreateSecurityGroup
+mkCreateSecurityGroupRequest p1 p2 = CreateSecurityGroup
     { _csgrGroupName = p1
     , _csgrDescription = p2
     , _csgrVpcId = Nothing
     }
-{-# INLINE createSecurityGroup #-}
+{-# INLINE mkCreateSecurityGroupRequest #-}
 
 data CreateSecurityGroup = CreateSecurityGroup
     { _csgrGroupName :: Text
@@ -101,38 +102,30 @@ data CreateSecurityGroup = CreateSecurityGroup
 -- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
 -- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
 csgrGroupName :: Lens' CreateSecurityGroup (Text)
-csgrGroupName f x =
-    f (_csgrGroupName x)
-        <&> \y -> x { _csgrGroupName = y }
+csgrGroupName = lens _csgrGroupName (\s a -> s { _csgrGroupName = a })
 {-# INLINE csgrGroupName #-}
 
 -- | A description for the security group. This is informational only.
 csgrDescription :: Lens' CreateSecurityGroup (Text)
-csgrDescription f x =
-    f (_csgrDescription x)
-        <&> \y -> x { _csgrDescription = y }
+csgrDescription = lens _csgrDescription (\s a -> s { _csgrDescription = a })
 {-# INLINE csgrDescription #-}
 
 -- | [EC2-VPC] The ID of the VPC.
 csgrVpcId :: Lens' CreateSecurityGroup (Maybe Text)
-csgrVpcId f x =
-    f (_csgrVpcId x)
-        <&> \y -> x { _csgrVpcId = y }
+csgrVpcId = lens _csgrVpcId (\s a -> s { _csgrVpcId = a })
 {-# INLINE csgrVpcId #-}
 
 instance ToQuery CreateSecurityGroup where
     toQuery = genericQuery def
 
-data CreateSecurityGroupResponse = CreateSecurityGroupResponse
+newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgsGroupId :: Maybe Text
       -- ^ The ID of the security group.
     } deriving (Show, Generic)
 
 -- | The ID of the security group.
 csgsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
-csgsGroupId f x =
-    f (_csgsGroupId x)
-        <&> \y -> x { _csgsGroupId = y }
+csgsGroupId = lens _csgsGroupId (\s a -> s { _csgsGroupId = a })
 {-# INLINE csgsGroupId #-}
 
 instance FromXML CreateSecurityGroupResponse where

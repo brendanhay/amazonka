@@ -33,11 +33,11 @@ module Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
     -- * Request
       EstimateTemplateCost
     -- ** Request constructor
-    , estimateTemplateCost
+    , mkEstimateTemplateCostInput
     -- ** Request lenses
-    , etciParameters
     , etciTemplateBody
     , etciTemplateURL
+    , etciParameters
 
     -- * Response
     , EstimateTemplateCostResponse
@@ -49,19 +49,18 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'EstimateTemplateCost' request.
-estimateTemplateCost :: EstimateTemplateCost
-estimateTemplateCost = EstimateTemplateCost
-    { _etciParameters = mempty
-    , _etciTemplateBody = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EstimateTemplateCost' request.
+mkEstimateTemplateCostInput :: EstimateTemplateCost
+mkEstimateTemplateCostInput = EstimateTemplateCost
+    { _etciTemplateBody = Nothing
     , _etciTemplateURL = Nothing
+    , _etciParameters = mempty
     }
-{-# INLINE estimateTemplateCost #-}
+{-# INLINE mkEstimateTemplateCostInput #-}
 
 data EstimateTemplateCost = EstimateTemplateCost
-    { _etciParameters :: [Parameter]
-      -- ^ A list of Parameter structures that specify input parameters.
-    , _etciTemplateBody :: Maybe Text
+    { _etciTemplateBody :: Maybe Text
       -- ^ Structure containing the template body with a minimum length of 1
       -- byte and a maximum length of 51,200 bytes. (For more information,
       -- go to Template Anatomy in the AWS CloudFormation User Guide.)
@@ -73,23 +72,16 @@ data EstimateTemplateCost = EstimateTemplateCost
       -- stack. For more information, go to Template Anatomy in the AWS
       -- CloudFormation User Guide. Conditional: You must pass TemplateURL
       -- or TemplateBody. If both are passed, only TemplateBody is used.
+    , _etciParameters :: [Parameter]
+      -- ^ A list of Parameter structures that specify input parameters.
     } deriving (Show, Generic)
-
--- | A list of Parameter structures that specify input parameters.
-etciParameters :: Lens' EstimateTemplateCost ([Parameter])
-etciParameters f x =
-    f (_etciParameters x)
-        <&> \y -> x { _etciParameters = y }
-{-# INLINE etciParameters #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. (For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide.) Conditional: You must pass
 -- TemplateBody or TemplateURL. If both are passed, only TemplateBody is used.
 etciTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
-etciTemplateBody f x =
-    f (_etciTemplateBody x)
-        <&> \y -> x { _etciTemplateBody = y }
+etciTemplateBody = lens _etciTemplateBody (\s a -> s { _etciTemplateBody = a })
 {-# INLINE etciTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
@@ -98,15 +90,18 @@ etciTemplateBody f x =
 -- Conditional: You must pass TemplateURL or TemplateBody. If both are passed,
 -- only TemplateBody is used.
 etciTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
-etciTemplateURL f x =
-    f (_etciTemplateURL x)
-        <&> \y -> x { _etciTemplateURL = y }
+etciTemplateURL = lens _etciTemplateURL (\s a -> s { _etciTemplateURL = a })
 {-# INLINE etciTemplateURL #-}
+
+-- | A list of Parameter structures that specify input parameters.
+etciParameters :: Lens' EstimateTemplateCost ([Parameter])
+etciParameters = lens _etciParameters (\s a -> s { _etciParameters = a })
+{-# INLINE etciParameters #-}
 
 instance ToQuery EstimateTemplateCost where
     toQuery = genericQuery def
 
-data EstimateTemplateCostResponse = EstimateTemplateCostResponse
+newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcoUrl :: Maybe Text
       -- ^ An AWS Simple Monthly Calculator URL with a query string that
       -- describes the resources required to run the template.
@@ -115,9 +110,7 @@ data EstimateTemplateCostResponse = EstimateTemplateCostResponse
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
 etcoUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
-etcoUrl f x =
-    f (_etcoUrl x)
-        <&> \y -> x { _etcoUrl = y }
+etcoUrl = lens _etcoUrl (\s a -> s { _etcoUrl = a })
 {-# INLINE etcoUrl #-}
 
 instance FromXML EstimateTemplateCostResponse where

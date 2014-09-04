@@ -35,7 +35,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute
     -- * Request
       DeleteVpnConnectionRoute
     -- ** Request constructor
-    , deleteVpnConnectionRoute
+    , mkDeleteVpnConnectionRouteRequest
     -- ** Request lenses
     , dvcrrVpnConnectionId
     , dvcrrDestinationCidrBlock
@@ -48,15 +48,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteVpnConnectionRoute' request.
-deleteVpnConnectionRoute :: Text -- ^ 'dvcrrVpnConnectionId'
-                         -> Text -- ^ 'dvcrrDestinationCidrBlock'
-                         -> DeleteVpnConnectionRoute
-deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpnConnectionRoute' request.
+mkDeleteVpnConnectionRouteRequest :: Text -- ^ 'dvcrrVpnConnectionId'
+                                  -> Text -- ^ 'dvcrrDestinationCidrBlock'
+                                  -> DeleteVpnConnectionRoute
+mkDeleteVpnConnectionRouteRequest p1 p2 = DeleteVpnConnectionRoute
     { _dvcrrVpnConnectionId = p1
     , _dvcrrDestinationCidrBlock = p2
     }
-{-# INLINE deleteVpnConnectionRoute #-}
+{-# INLINE mkDeleteVpnConnectionRouteRequest #-}
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrrVpnConnectionId :: Text
@@ -68,16 +69,12 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
 
 -- | The ID of the VPN connection.
 dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute (Text)
-dvcrrVpnConnectionId f x =
-    f (_dvcrrVpnConnectionId x)
-        <&> \y -> x { _dvcrrVpnConnectionId = y }
+dvcrrVpnConnectionId = lens _dvcrrVpnConnectionId (\s a -> s { _dvcrrVpnConnectionId = a })
 {-# INLINE dvcrrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
 dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute (Text)
-dvcrrDestinationCidrBlock f x =
-    f (_dvcrrDestinationCidrBlock x)
-        <&> \y -> x { _dvcrrDestinationCidrBlock = y }
+dvcrrDestinationCidrBlock = lens _dvcrrDestinationCidrBlock (\s a -> s { _dvcrrDestinationCidrBlock = a })
 {-# INLINE dvcrrDestinationCidrBlock #-}
 
 instance ToQuery DeleteVpnConnectionRoute where

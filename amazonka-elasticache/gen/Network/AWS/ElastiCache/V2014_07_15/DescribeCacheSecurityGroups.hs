@@ -30,40 +30,41 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups
     -- * Request
       DescribeCacheSecurityGroups
     -- ** Request constructor
-    , describeCacheSecurityGroups
+    , mkDescribeCacheSecurityGroupsMessage
     -- ** Request lenses
-    , dcsgoMaxRecords
     , dcsgoCacheSecurityGroupName
+    , dcsgoMaxRecords
     , dcsgoMarker
 
     -- * Response
     , DescribeCacheSecurityGroupsResponse
     -- ** Response lenses
-    , csgpCacheSecurityGroups
     , csgpMarker
+    , csgpCacheSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeCacheSecurityGroups' request.
-describeCacheSecurityGroups :: DescribeCacheSecurityGroups
-describeCacheSecurityGroups = DescribeCacheSecurityGroups
-    { _dcsgoMaxRecords = Nothing
-    , _dcsgoCacheSecurityGroupName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheSecurityGroups' request.
+mkDescribeCacheSecurityGroupsMessage :: DescribeCacheSecurityGroups
+mkDescribeCacheSecurityGroupsMessage = DescribeCacheSecurityGroups
+    { _dcsgoCacheSecurityGroupName = Nothing
+    , _dcsgoMaxRecords = Nothing
     , _dcsgoMarker = Nothing
     }
-{-# INLINE describeCacheSecurityGroups #-}
+{-# INLINE mkDescribeCacheSecurityGroupsMessage #-}
 
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
-    { _dcsgoMaxRecords :: Maybe Integer
+    { _dcsgoCacheSecurityGroupName :: Maybe Text
+      -- ^ The name of the cache security group to return details for.
+    , _dcsgoMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dcsgoCacheSecurityGroupName :: Maybe Text
-      -- ^ The name of the cache security group to return details for.
     , _dcsgoMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
@@ -71,58 +72,48 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
       -- marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
+-- | The name of the cache security group to return details for.
+dcsgoCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsgoCacheSecurityGroupName = lens _dcsgoCacheSecurityGroupName (\s a -> s { _dcsgoCacheSecurityGroupName = a })
+{-# INLINE dcsgoCacheSecurityGroupName #-}
+
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 dcsgoMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Integer)
-dcsgoMaxRecords f x =
-    f (_dcsgoMaxRecords x)
-        <&> \y -> x { _dcsgoMaxRecords = y }
+dcsgoMaxRecords = lens _dcsgoMaxRecords (\s a -> s { _dcsgoMaxRecords = a })
 {-# INLINE dcsgoMaxRecords #-}
-
--- | The name of the cache security group to return details for.
-dcsgoCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgoCacheSecurityGroupName f x =
-    f (_dcsgoCacheSecurityGroupName x)
-        <&> \y -> x { _dcsgoCacheSecurityGroupName = y }
-{-# INLINE dcsgoCacheSecurityGroupName #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
 dcsgoMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgoMarker f x =
-    f (_dcsgoMarker x)
-        <&> \y -> x { _dcsgoMarker = y }
+dcsgoMarker = lens _dcsgoMarker (\s a -> s { _dcsgoMarker = a })
 {-# INLINE dcsgoMarker #-}
 
 instance ToQuery DescribeCacheSecurityGroups where
     toQuery = genericQuery def
 
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _csgpCacheSecurityGroups :: [CacheSecurityGroup]
+    { _csgpMarker :: Maybe Text
+      -- ^ Provides an identifier to allow retrieval of paginated results.
+    , _csgpCacheSecurityGroups :: [CacheSecurityGroup]
       -- ^ A list of cache security groups. Each element in the list
       -- contains detailed information about one group.
-    , _csgpMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
+
+-- | Provides an identifier to allow retrieval of paginated results.
+csgpMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+csgpMarker = lens _csgpMarker (\s a -> s { _csgpMarker = a })
+{-# INLINE csgpMarker #-}
 
 -- | A list of cache security groups. Each element in the list contains detailed
 -- information about one group.
 csgpCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse ([CacheSecurityGroup])
-csgpCacheSecurityGroups f x =
-    f (_csgpCacheSecurityGroups x)
-        <&> \y -> x { _csgpCacheSecurityGroups = y }
+csgpCacheSecurityGroups = lens _csgpCacheSecurityGroups (\s a -> s { _csgpCacheSecurityGroups = a })
 {-# INLINE csgpCacheSecurityGroups #-}
-
--- | Provides an identifier to allow retrieval of paginated results.
-csgpMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-csgpMarker f x =
-    f (_csgpMarker x)
-        <&> \y -> x { _csgpMarker = y }
-{-# INLINE csgpMarker #-}
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

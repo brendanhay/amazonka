@@ -39,7 +39,7 @@ module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering
     -- * Request
       PurchaseReservedNodeOffering
     -- ** Request constructor
-    , purchaseReservedNodeOffering
+    , mkPurchaseReservedNodeOfferingMessage
     -- ** Request lenses
     , prnomReservedNodeOfferingId
     , prnomNodeCount
@@ -54,14 +54,15 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PurchaseReservedNodeOffering' request.
-purchaseReservedNodeOffering :: Text -- ^ 'prnomReservedNodeOfferingId'
-                             -> PurchaseReservedNodeOffering
-purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedNodeOffering' request.
+mkPurchaseReservedNodeOfferingMessage :: Text -- ^ 'prnomReservedNodeOfferingId'
+                                      -> PurchaseReservedNodeOffering
+mkPurchaseReservedNodeOfferingMessage p1 = PurchaseReservedNodeOffering
     { _prnomReservedNodeOfferingId = p1
     , _prnomNodeCount = Nothing
     }
-{-# INLINE purchaseReservedNodeOffering #-}
+{-# INLINE mkPurchaseReservedNodeOfferingMessage #-}
 
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     { _prnomReservedNodeOfferingId :: Text
@@ -73,31 +74,25 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
 
 -- | The unique identifier of the reserved node offering you want to purchase.
 prnomReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering (Text)
-prnomReservedNodeOfferingId f x =
-    f (_prnomReservedNodeOfferingId x)
-        <&> \y -> x { _prnomReservedNodeOfferingId = y }
+prnomReservedNodeOfferingId = lens _prnomReservedNodeOfferingId (\s a -> s { _prnomReservedNodeOfferingId = a })
 {-# INLINE prnomReservedNodeOfferingId #-}
 
 -- | The number of reserved nodes you want to purchase. Default: 1.
 prnomNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Integer)
-prnomNodeCount f x =
-    f (_prnomNodeCount x)
-        <&> \y -> x { _prnomNodeCount = y }
+prnomNodeCount = lens _prnomNodeCount (\s a -> s { _prnomNodeCount = a })
 {-# INLINE prnomNodeCount #-}
 
 instance ToQuery PurchaseReservedNodeOffering where
     toQuery = genericQuery def
 
-data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
+newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _rnwReservedNode :: Maybe ReservedNode
       -- ^ Describes a reserved node.
     } deriving (Show, Generic)
 
 -- | Describes a reserved node.
 rnwReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-rnwReservedNode f x =
-    f (_rnwReservedNode x)
-        <&> \y -> x { _rnwReservedNode = y }
+rnwReservedNode = lens _rnwReservedNode (\s a -> s { _rnwReservedNode = a })
 {-# INLINE rnwReservedNode #-}
 
 instance FromXML PurchaseReservedNodeOfferingResponse where

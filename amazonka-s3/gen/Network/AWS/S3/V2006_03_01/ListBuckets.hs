@@ -26,7 +26,7 @@ module Network.AWS.S3.V2006_03_01.ListBuckets
     -- ** Request alias
     , GetService
     -- ** Request constructor
-    , listBuckets
+    , mkUnknown
     -- * Response
     , ListBucketsResponse
     -- ** Response lenses
@@ -40,10 +40,11 @@ import Network.AWS.Prelude
 
 type GetService = ListBuckets
 
--- | Minimum specification for a 'ListBuckets' request.
-listBuckets :: ListBuckets
-listBuckets = ListBuckets
-{-# INLINE listBuckets #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListBuckets' request.
+mkUnknown :: ListBuckets
+mkUnknown = ListBuckets
+{-# INLINE mkUnknown #-}
 
 data ListBuckets = ListBuckets
     deriving (Eq, Show, Generic)
@@ -63,15 +64,11 @@ data ListBucketsResponse = ListBucketsResponse
     } deriving (Show, Generic)
 
 lboBuckets :: Lens' ListBucketsResponse ([Bucket])
-lboBuckets f x =
-    f (_lboBuckets x)
-        <&> \y -> x { _lboBuckets = y }
+lboBuckets = lens _lboBuckets (\s a -> s { _lboBuckets = a })
 {-# INLINE lboBuckets #-}
 
 lboOwner :: Lens' ListBucketsResponse (Maybe Owner)
-lboOwner f x =
-    f (_lboOwner x)
-        <&> \y -> x { _lboOwner = y }
+lboOwner = lens _lboOwner (\s a -> s { _lboOwner = a })
 {-# INLINE lboOwner #-}
 
 instance FromXML ListBucketsResponse where

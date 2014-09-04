@@ -43,15 +43,15 @@ module Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
     -- * Request
       ListLocalDisks
     -- ** Request constructor
-    , listLocalDisks
+    , mkListLocalDisksInput
     -- ** Request lenses
     , lldiGatewayARN
 
     -- * Response
     , ListLocalDisksResponse
     -- ** Response lenses
-    , lldoDisks
     , lldoGatewayARN
+    , lldoDisks
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -59,15 +59,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListLocalDisks' request.
-listLocalDisks :: Text -- ^ 'lldiGatewayARN'
-               -> ListLocalDisks
-listLocalDisks p1 = ListLocalDisks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListLocalDisks' request.
+mkListLocalDisksInput :: Text -- ^ 'lldiGatewayARN'
+                      -> ListLocalDisks
+mkListLocalDisksInput p1 = ListLocalDisks
     { _lldiGatewayARN = p1
     }
-{-# INLINE listLocalDisks #-}
+{-# INLINE mkListLocalDisksInput #-}
 
-data ListLocalDisks = ListLocalDisks
+newtype ListLocalDisks = ListLocalDisks
     { _lldiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -77,9 +78,7 @@ data ListLocalDisks = ListLocalDisks
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lldiGatewayARN :: Lens' ListLocalDisks (Text)
-lldiGatewayARN f x =
-    f (_lldiGatewayARN x)
-        <&> \y -> x { _lldiGatewayARN = y }
+lldiGatewayARN = lens _lldiGatewayARN (\s a -> s { _lldiGatewayARN = a })
 {-# INLINE lldiGatewayARN #-}
 
 instance ToPath ListLocalDisks
@@ -91,26 +90,22 @@ instance ToHeaders ListLocalDisks
 instance ToJSON ListLocalDisks
 
 data ListLocalDisksResponse = ListLocalDisksResponse
-    { _lldoDisks :: [DiskInformation]
-    , _lldoGatewayARN :: Maybe Text
+    { _lldoGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _lldoDisks :: [DiskInformation]
     } deriving (Show, Generic)
-
-lldoDisks :: Lens' ListLocalDisksResponse ([DiskInformation])
-lldoDisks f x =
-    f (_lldoDisks x)
-        <&> \y -> x { _lldoDisks = y }
-{-# INLINE lldoDisks #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lldoGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
-lldoGatewayARN f x =
-    f (_lldoGatewayARN x)
-        <&> \y -> x { _lldoGatewayARN = y }
+lldoGatewayARN = lens _lldoGatewayARN (\s a -> s { _lldoGatewayARN = a })
 {-# INLINE lldoGatewayARN #-}
+
+lldoDisks :: Lens' ListLocalDisksResponse ([DiskInformation])
+lldoDisks = lens _lldoDisks (\s a -> s { _lldoDisks = a })
+{-# INLINE lldoDisks #-}
 
 instance FromJSON ListLocalDisksResponse
 

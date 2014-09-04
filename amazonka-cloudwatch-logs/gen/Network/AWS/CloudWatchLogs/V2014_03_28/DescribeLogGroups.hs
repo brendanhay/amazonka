@@ -43,11 +43,11 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups
     -- * Request
       DescribeLogGroups
     -- ** Request constructor
-    , describeLogGroups
+    , mkDescribeLogGroupsRequest
     -- ** Request lenses
-    , dlgsLimit
     , dlgsLogGroupNamePrefix
     , dlgsNextToken
+    , dlgsLimit
 
     -- * Response
     , DescribeLogGroupsResponse
@@ -61,48 +61,43 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeLogGroups' request.
-describeLogGroups :: DescribeLogGroups
-describeLogGroups = DescribeLogGroups
-    { _dlgsLimit = Nothing
-    , _dlgsLogGroupNamePrefix = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLogGroups' request.
+mkDescribeLogGroupsRequest :: DescribeLogGroups
+mkDescribeLogGroupsRequest = DescribeLogGroups
+    { _dlgsLogGroupNamePrefix = Nothing
     , _dlgsNextToken = Nothing
+    , _dlgsLimit = Nothing
     }
-{-# INLINE describeLogGroups #-}
+{-# INLINE mkDescribeLogGroupsRequest #-}
 
 data DescribeLogGroups = DescribeLogGroups
-    { _dlgsLimit :: Maybe Integer
-      -- ^ The maximum number of items returned in the response. If you
-      -- don't specify a value, the request would return up to 50 items.
-    , _dlgsLogGroupNamePrefix :: Maybe Text
+    { _dlgsLogGroupNamePrefix :: Maybe Text
     , _dlgsNextToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous DescribeLogGroups request.
+    , _dlgsLimit :: Maybe Integer
+      -- ^ The maximum number of items returned in the response. If you
+      -- don't specify a value, the request would return up to 50 items.
     } deriving (Show, Generic)
 
--- | The maximum number of items returned in the response. If you don't specify
--- a value, the request would return up to 50 items.
-dlgsLimit :: Lens' DescribeLogGroups (Maybe Integer)
-dlgsLimit f x =
-    f (_dlgsLimit x)
-        <&> \y -> x { _dlgsLimit = y }
-{-# INLINE dlgsLimit #-}
-
 dlgsLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
-dlgsLogGroupNamePrefix f x =
-    f (_dlgsLogGroupNamePrefix x)
-        <&> \y -> x { _dlgsLogGroupNamePrefix = y }
+dlgsLogGroupNamePrefix = lens _dlgsLogGroupNamePrefix (\s a -> s { _dlgsLogGroupNamePrefix = a })
 {-# INLINE dlgsLogGroupNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeLogGroups request.
 dlgsNextToken :: Lens' DescribeLogGroups (Maybe Text)
-dlgsNextToken f x =
-    f (_dlgsNextToken x)
-        <&> \y -> x { _dlgsNextToken = y }
+dlgsNextToken = lens _dlgsNextToken (\s a -> s { _dlgsNextToken = a })
 {-# INLINE dlgsNextToken #-}
+
+-- | The maximum number of items returned in the response. If you don't specify
+-- a value, the request would return up to 50 items.
+dlgsLimit :: Lens' DescribeLogGroups (Maybe Integer)
+dlgsLimit = lens _dlgsLimit (\s a -> s { _dlgsLimit = a })
+{-# INLINE dlgsLimit #-}
 
 instance ToPath DescribeLogGroups
 
@@ -123,18 +118,14 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse
 
 -- | A list of log groups.
 dlgtLogGroups :: Lens' DescribeLogGroupsResponse ([LogGroup])
-dlgtLogGroups f x =
-    f (_dlgtLogGroups x)
-        <&> \y -> x { _dlgtLogGroups = y }
+dlgtLogGroups = lens _dlgtLogGroups (\s a -> s { _dlgtLogGroups = a })
 {-# INLINE dlgtLogGroups #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
 dlgtNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
-dlgtNextToken f x =
-    f (_dlgtNextToken x)
-        <&> \y -> x { _dlgtNextToken = y }
+dlgtNextToken = lens _dlgtNextToken (\s a -> s { _dlgtNextToken = a })
 {-# INLINE dlgtNextToken #-}
 
 instance FromJSON DescribeLogGroupsResponse

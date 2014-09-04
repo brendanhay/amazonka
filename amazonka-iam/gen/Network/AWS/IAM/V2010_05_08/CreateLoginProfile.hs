@@ -28,10 +28,10 @@ module Network.AWS.IAM.V2010_05_08.CreateLoginProfile
     -- * Request
       CreateLoginProfile
     -- ** Request constructor
-    , createLoginProfile
+    , mkCreateLoginProfileRequest
     -- ** Request lenses
-    , clprPassword
     , clprUserName
+    , clprPassword
     , clprPasswordResetRequired
 
     -- * Response
@@ -44,62 +44,55 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateLoginProfile' request.
-createLoginProfile :: Text -- ^ 'clprPassword'
-                   -> Text -- ^ 'clprUserName'
-                   -> CreateLoginProfile
-createLoginProfile p1 p2 = CreateLoginProfile
-    { _clprPassword = p1
-    , _clprUserName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoginProfile' request.
+mkCreateLoginProfileRequest :: Text -- ^ 'clprUserName'
+                            -> Text -- ^ 'clprPassword'
+                            -> CreateLoginProfile
+mkCreateLoginProfileRequest p1 p2 = CreateLoginProfile
+    { _clprUserName = p1
+    , _clprPassword = p2
     , _clprPasswordResetRequired = Nothing
     }
-{-# INLINE createLoginProfile #-}
+{-# INLINE mkCreateLoginProfileRequest #-}
 
 data CreateLoginProfile = CreateLoginProfile
-    { _clprPassword :: Text
-      -- ^ The new password for the user.
-    , _clprUserName :: Text
+    { _clprUserName :: Text
       -- ^ Name of the user to create a password for.
+    , _clprPassword :: Text
+      -- ^ The new password for the user.
     , _clprPasswordResetRequired :: Maybe Bool
       -- ^ Specifies whether the user is required to set a new password on
       -- next sign-in.
     } deriving (Show, Generic)
 
--- | The new password for the user.
-clprPassword :: Lens' CreateLoginProfile (Text)
-clprPassword f x =
-    f (_clprPassword x)
-        <&> \y -> x { _clprPassword = y }
-{-# INLINE clprPassword #-}
-
 -- | Name of the user to create a password for.
 clprUserName :: Lens' CreateLoginProfile (Text)
-clprUserName f x =
-    f (_clprUserName x)
-        <&> \y -> x { _clprUserName = y }
+clprUserName = lens _clprUserName (\s a -> s { _clprUserName = a })
 {-# INLINE clprUserName #-}
+
+-- | The new password for the user.
+clprPassword :: Lens' CreateLoginProfile (Text)
+clprPassword = lens _clprPassword (\s a -> s { _clprPassword = a })
+{-# INLINE clprPassword #-}
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
 clprPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
-clprPasswordResetRequired f x =
-    f (_clprPasswordResetRequired x)
-        <&> \y -> x { _clprPasswordResetRequired = y }
+clprPasswordResetRequired = lens _clprPasswordResetRequired (\s a -> s { _clprPasswordResetRequired = a })
 {-# INLINE clprPasswordResetRequired #-}
 
 instance ToQuery CreateLoginProfile where
     toQuery = genericQuery def
 
-data CreateLoginProfileResponse = CreateLoginProfileResponse
+newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clpsLoginProfile :: LoginProfile
       -- ^ The user name and password create date.
     } deriving (Show, Generic)
 
 -- | The user name and password create date.
 clpsLoginProfile :: Lens' CreateLoginProfileResponse (LoginProfile)
-clpsLoginProfile f x =
-    f (_clpsLoginProfile x)
-        <&> \y -> x { _clpsLoginProfile = y }
+clpsLoginProfile = lens _clpsLoginProfile (\s a -> s { _clpsLoginProfile = a })
 {-# INLINE clpsLoginProfile #-}
 
 instance FromXML CreateLoginProfileResponse where

@@ -60,7 +60,7 @@ module Network.AWS.Kinesis.V2013_12_02.GetRecords
     -- * Request
       GetRecords
     -- ** Request constructor
-    , getRecords
+    , mkGetRecordsInput
     -- ** Request lenses
     , griShardIterator
     , griLimit
@@ -77,14 +77,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetRecords' request.
-getRecords :: Text -- ^ 'griShardIterator'
-           -> GetRecords
-getRecords p1 = GetRecords
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRecords' request.
+mkGetRecordsInput :: Text -- ^ 'griShardIterator'
+                  -> GetRecords
+mkGetRecordsInput p1 = GetRecords
     { _griShardIterator = p1
     , _griLimit = Nothing
     }
-{-# INLINE getRecords #-}
+{-# INLINE mkGetRecordsInput #-}
 
 data GetRecords = GetRecords
     { _griShardIterator :: Text
@@ -98,17 +99,13 @@ data GetRecords = GetRecords
 -- | The position in the shard from which you want to start sequentially reading
 -- data records.
 griShardIterator :: Lens' GetRecords (Text)
-griShardIterator f x =
-    f (_griShardIterator x)
-        <&> \y -> x { _griShardIterator = y }
+griShardIterator = lens _griShardIterator (\s a -> s { _griShardIterator = a })
 {-# INLINE griShardIterator #-}
 
 -- | The maximum number of records to return, which can be set to a value of up
 -- to 10,000.
 griLimit :: Lens' GetRecords (Maybe Integer)
-griLimit f x =
-    f (_griLimit x)
-        <&> \y -> x { _griLimit = y }
+griLimit = lens _griLimit (\s a -> s { _griLimit = a })
 {-# INLINE griLimit #-}
 
 instance ToPath GetRecords
@@ -130,18 +127,14 @@ data GetRecordsResponse = GetRecordsResponse
 
 -- | The data records retrieved from the shard.
 groRecords :: Lens' GetRecordsResponse ([Record])
-groRecords f x =
-    f (_groRecords x)
-        <&> \y -> x { _groRecords = y }
+groRecords = lens _groRecords (\s a -> s { _groRecords = a })
 {-# INLINE groRecords #-}
 
 -- | The next position in the shard from which to start sequentially reading
 -- data records. If set to null, the shard has been closed and the requested
 -- iterator will not return any more data.
 groNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-groNextShardIterator f x =
-    f (_groNextShardIterator x)
-        <&> \y -> x { _groNextShardIterator = y }
+groNextShardIterator = lens _groNextShardIterator (\s a -> s { _groNextShardIterator = a })
 {-# INLINE groNextShardIterator #-}
 
 instance FromJSON GetRecordsResponse

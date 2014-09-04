@@ -23,7 +23,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription
     -- * Request
       DeleteEventSubscription
     -- ** Request constructor
-    , deleteEventSubscription
+    , mkDeleteEventSubscriptionMessage
     -- ** Request lenses
     , desmSubscriptionName
 
@@ -35,15 +35,16 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteEventSubscription' request.
-deleteEventSubscription :: Text -- ^ 'desmSubscriptionName'
-                        -> DeleteEventSubscription
-deleteEventSubscription p1 = DeleteEventSubscription
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEventSubscription' request.
+mkDeleteEventSubscriptionMessage :: Text -- ^ 'desmSubscriptionName'
+                                 -> DeleteEventSubscription
+mkDeleteEventSubscriptionMessage p1 = DeleteEventSubscription
     { _desmSubscriptionName = p1
     }
-{-# INLINE deleteEventSubscription #-}
+{-# INLINE mkDeleteEventSubscriptionMessage #-}
 
-data DeleteEventSubscription = DeleteEventSubscription
+newtype DeleteEventSubscription = DeleteEventSubscription
     { _desmSubscriptionName :: Text
       -- ^ The name of the Amazon Redshift event notification subscription
       -- to be deleted.
@@ -52,9 +53,7 @@ data DeleteEventSubscription = DeleteEventSubscription
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
 desmSubscriptionName :: Lens' DeleteEventSubscription (Text)
-desmSubscriptionName f x =
-    f (_desmSubscriptionName x)
-        <&> \y -> x { _desmSubscriptionName = y }
+desmSubscriptionName = lens _desmSubscriptionName (\s a -> s { _desmSubscriptionName = a })
 {-# INLINE desmSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where

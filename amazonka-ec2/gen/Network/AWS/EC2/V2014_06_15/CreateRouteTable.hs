@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.CreateRouteTable
     -- * Request
       CreateRouteTable
     -- ** Request constructor
-    , createRouteTable
+    , mkCreateRouteTableRequest
     -- ** Request lenses
     , crtrVpcId
 
@@ -46,39 +46,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateRouteTable' request.
-createRouteTable :: Text -- ^ 'crtrVpcId'
-                 -> CreateRouteTable
-createRouteTable p1 = CreateRouteTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateRouteTable' request.
+mkCreateRouteTableRequest :: Text -- ^ 'crtrVpcId'
+                          -> CreateRouteTable
+mkCreateRouteTableRequest p1 = CreateRouteTable
     { _crtrVpcId = p1
     }
-{-# INLINE createRouteTable #-}
+{-# INLINE mkCreateRouteTableRequest #-}
 
-data CreateRouteTable = CreateRouteTable
+newtype CreateRouteTable = CreateRouteTable
     { _crtrVpcId :: Text
       -- ^ The ID of the VPC.
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
 crtrVpcId :: Lens' CreateRouteTable (Text)
-crtrVpcId f x =
-    f (_crtrVpcId x)
-        <&> \y -> x { _crtrVpcId = y }
+crtrVpcId = lens _crtrVpcId (\s a -> s { _crtrVpcId = a })
 {-# INLINE crtrVpcId #-}
 
 instance ToQuery CreateRouteTable where
     toQuery = genericQuery def
 
-data CreateRouteTableResponse = CreateRouteTableResponse
+newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtsRouteTable :: Maybe RouteTable
       -- ^ Information about the route table.
     } deriving (Show, Generic)
 
 -- | Information about the route table.
 crtsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
-crtsRouteTable f x =
-    f (_crtsRouteTable x)
-        <&> \y -> x { _crtsRouteTable = y }
+crtsRouteTable = lens _crtsRouteTable (\s a -> s { _crtsRouteTable = a })
 {-# INLINE crtsRouteTable #-}
 
 instance FromXML CreateRouteTableResponse where

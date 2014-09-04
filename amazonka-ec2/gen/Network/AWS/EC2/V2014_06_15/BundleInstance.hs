@@ -49,10 +49,10 @@ module Network.AWS.EC2.V2014_06_15.BundleInstance
     -- * Request
       BundleInstance
     -- ** Request constructor
-    , bundleInstance
+    , mkBundleInstanceRequest
     -- ** Request lenses
-    , birStorage
     , birInstanceId
+    , birStorage
 
     -- * Response
     , BundleInstanceResponse
@@ -64,55 +64,50 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'BundleInstance' request.
-bundleInstance :: Storage -- ^ 'birStorage'
-               -> Text -- ^ 'birInstanceId'
-               -> BundleInstance
-bundleInstance p1 p2 = BundleInstance
-    { _birStorage = p1
-    , _birInstanceId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BundleInstance' request.
+mkBundleInstanceRequest :: Text -- ^ 'birInstanceId'
+                        -> Storage -- ^ 'birStorage'
+                        -> BundleInstance
+mkBundleInstanceRequest p1 p2 = BundleInstance
+    { _birInstanceId = p1
+    , _birStorage = p2
     }
-{-# INLINE bundleInstance #-}
+{-# INLINE mkBundleInstanceRequest #-}
 
 data BundleInstance = BundleInstance
-    { _birStorage :: Storage
+    { _birInstanceId :: Text
+      -- ^ The ID of the instance to bundle.
+    , _birStorage :: Storage
       -- ^ The bucket in which to store the AMI. You can specify a bucket
       -- that you already own or a new bucket that Amazon EC2 creates on
       -- your behalf. If you specify a bucket that belongs to someone
       -- else, Amazon EC2 returns an error.
-    , _birInstanceId :: Text
-      -- ^ The ID of the instance to bundle.
     } deriving (Show, Generic)
+
+-- | The ID of the instance to bundle.
+birInstanceId :: Lens' BundleInstance (Text)
+birInstanceId = lens _birInstanceId (\s a -> s { _birInstanceId = a })
+{-# INLINE birInstanceId #-}
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If you
 -- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 birStorage :: Lens' BundleInstance (Storage)
-birStorage f x =
-    f (_birStorage x)
-        <&> \y -> x { _birStorage = y }
+birStorage = lens _birStorage (\s a -> s { _birStorage = a })
 {-# INLINE birStorage #-}
-
--- | The ID of the instance to bundle.
-birInstanceId :: Lens' BundleInstance (Text)
-birInstanceId f x =
-    f (_birInstanceId x)
-        <&> \y -> x { _birInstanceId = y }
-{-# INLINE birInstanceId #-}
 
 instance ToQuery BundleInstance where
     toQuery = genericQuery def
 
-data BundleInstanceResponse = BundleInstanceResponse
+newtype BundleInstanceResponse = BundleInstanceResponse
     { _bisBundleTask :: Maybe BundleTask
       -- ^ Information about the bundle task.
     } deriving (Show, Generic)
 
 -- | Information about the bundle task.
 bisBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-bisBundleTask f x =
-    f (_bisBundleTask x)
-        <&> \y -> x { _bisBundleTask = y }
+bisBundleTask = lens _bisBundleTask (\s a -> s { _bisBundleTask = a })
 {-# INLINE bisBundleTask #-}
 
 instance FromXML BundleInstanceResponse where

@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
     -- * Request
       ListStreamingDistributions
     -- ** Request constructor
-    , listStreamingDistributions
+    , mkListStreamingDistributionsRequest
     -- ** Request lenses
     , lsdrMarker
     , lsdrMaxItems
@@ -38,13 +38,14 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListStreamingDistributions' request.
-listStreamingDistributions :: ListStreamingDistributions
-listStreamingDistributions = ListStreamingDistributions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStreamingDistributions' request.
+mkListStreamingDistributionsRequest :: ListStreamingDistributions
+mkListStreamingDistributionsRequest = ListStreamingDistributions
     { _lsdrMarker = Nothing
     , _lsdrMaxItems = Nothing
     }
-{-# INLINE listStreamingDistributions #-}
+{-# INLINE mkListStreamingDistributionsRequest #-}
 
 data ListStreamingDistributions = ListStreamingDistributions
     { _lsdrMarker :: Maybe Text
@@ -65,17 +66,13 @@ data ListStreamingDistributions = ListStreamingDistributions
 -- the value of the NextMarker from the current page's response (which is also
 -- the ID of the last distribution on that page).
 lsdrMarker :: Lens' ListStreamingDistributions (Maybe Text)
-lsdrMarker f x =
-    f (_lsdrMarker x)
-        <&> \y -> x { _lsdrMarker = y }
+lsdrMarker = lens _lsdrMarker (\s a -> s { _lsdrMarker = a })
 {-# INLINE lsdrMarker #-}
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
 lsdrMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
-lsdrMaxItems f x =
-    f (_lsdrMaxItems x)
-        <&> \y -> x { _lsdrMaxItems = y }
+lsdrMaxItems = lens _lsdrMaxItems (\s a -> s { _lsdrMaxItems = a })
 {-# INLINE lsdrMaxItems #-}
 
 instance ToPath ListStreamingDistributions where
@@ -93,16 +90,14 @@ instance ToXML ListStreamingDistributions where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListStreamingDistributionsRequest"
 
-data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdsStreamingDistributionList :: StreamingDistributionList
+newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
+    { _lsdsStreamingDistributionList :: Maybe StreamingDistributionList
       -- ^ The StreamingDistributionList type.
     } deriving (Show, Generic)
 
 -- | The StreamingDistributionList type.
-lsdsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (StreamingDistributionList)
-lsdsStreamingDistributionList f x =
-    f (_lsdsStreamingDistributionList x)
-        <&> \y -> x { _lsdsStreamingDistributionList = y }
+lsdsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (Maybe StreamingDistributionList)
+lsdsStreamingDistributionList = lens _lsdsStreamingDistributionList (\s a -> s { _lsdsStreamingDistributionList = a })
 {-# INLINE lsdsStreamingDistributionList #-}
 
 instance FromXML ListStreamingDistributionsResponse where

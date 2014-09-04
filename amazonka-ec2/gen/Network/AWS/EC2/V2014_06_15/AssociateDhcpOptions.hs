@@ -46,7 +46,7 @@ module Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions
     -- * Request
       AssociateDhcpOptions
     -- ** Request constructor
-    , associateDhcpOptions
+    , mkAssociateDhcpOptionsRequest
     -- ** Request lenses
     , adorDhcpOptionsId
     , adorVpcId
@@ -59,15 +59,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AssociateDhcpOptions' request.
-associateDhcpOptions :: Text -- ^ 'adorDhcpOptionsId'
-                     -> Text -- ^ 'adorVpcId'
-                     -> AssociateDhcpOptions
-associateDhcpOptions p1 p2 = AssociateDhcpOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateDhcpOptions' request.
+mkAssociateDhcpOptionsRequest :: Text -- ^ 'adorDhcpOptionsId'
+                              -> Text -- ^ 'adorVpcId'
+                              -> AssociateDhcpOptions
+mkAssociateDhcpOptionsRequest p1 p2 = AssociateDhcpOptions
     { _adorDhcpOptionsId = p1
     , _adorVpcId = p2
     }
-{-# INLINE associateDhcpOptions #-}
+{-# INLINE mkAssociateDhcpOptionsRequest #-}
 
 data AssociateDhcpOptions = AssociateDhcpOptions
     { _adorDhcpOptionsId :: Text
@@ -80,16 +81,12 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 -- | The ID of the DHCP options set, or default to associate no DHCP options
 -- with the VPC.
 adorDhcpOptionsId :: Lens' AssociateDhcpOptions (Text)
-adorDhcpOptionsId f x =
-    f (_adorDhcpOptionsId x)
-        <&> \y -> x { _adorDhcpOptionsId = y }
+adorDhcpOptionsId = lens _adorDhcpOptionsId (\s a -> s { _adorDhcpOptionsId = a })
 {-# INLINE adorDhcpOptionsId #-}
 
 -- | The ID of the VPC.
 adorVpcId :: Lens' AssociateDhcpOptions (Text)
-adorVpcId f x =
-    f (_adorVpcId x)
-        <&> \y -> x { _adorVpcId = y }
+adorVpcId = lens _adorVpcId (\s a -> s { _adorVpcId = a })
 {-# INLINE adorVpcId #-}
 
 instance ToQuery AssociateDhcpOptions where

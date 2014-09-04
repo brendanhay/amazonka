@@ -25,7 +25,7 @@ module Network.AWS.S3.V2006_03_01.DeleteObject
     -- * Request
       DeleteObject
     -- ** Request constructor
-    , deleteObject
+    , mkDeleteObjectRequest
     -- ** Request lenses
     , dorBucket
     , dorKey
@@ -43,17 +43,18 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteObject' request.
-deleteObject :: BucketName -- ^ 'dorBucket'
-             -> ObjectKey -- ^ 'dorKey'
-             -> DeleteObject
-deleteObject p1 p2 = DeleteObject
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteObject' request.
+mkDeleteObjectRequest :: BucketName -- ^ 'dorBucket'
+                      -> ObjectKey -- ^ 'dorKey'
+                      -> DeleteObject
+mkDeleteObjectRequest p1 p2 = DeleteObject
     { _dorBucket = p1
     , _dorKey = p2
     , _dorMFA = Nothing
     , _dorVersionId = Nothing
     }
-{-# INLINE deleteObject #-}
+{-# INLINE mkDeleteObjectRequest #-}
 
 data DeleteObject = DeleteObject
     { _dorBucket :: BucketName
@@ -67,30 +68,22 @@ data DeleteObject = DeleteObject
     } deriving (Show, Generic)
 
 dorBucket :: Lens' DeleteObject (BucketName)
-dorBucket f x =
-    f (_dorBucket x)
-        <&> \y -> x { _dorBucket = y }
+dorBucket = lens _dorBucket (\s a -> s { _dorBucket = a })
 {-# INLINE dorBucket #-}
 
 dorKey :: Lens' DeleteObject (ObjectKey)
-dorKey f x =
-    f (_dorKey x)
-        <&> \y -> x { _dorKey = y }
+dorKey = lens _dorKey (\s a -> s { _dorKey = a })
 {-# INLINE dorKey #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
 dorMFA :: Lens' DeleteObject (Maybe Text)
-dorMFA f x =
-    f (_dorMFA x)
-        <&> \y -> x { _dorMFA = y }
+dorMFA = lens _dorMFA (\s a -> s { _dorMFA = a })
 {-# INLINE dorMFA #-}
 
 -- | VersionId used to reference a specific version of the object.
 dorVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
-dorVersionId f x =
-    f (_dorVersionId x)
-        <&> \y -> x { _dorVersionId = y }
+dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 {-# INLINE dorVersionId #-}
 
 instance ToPath DeleteObject where
@@ -106,10 +99,7 @@ instance ToQuery DeleteObject where
         [ "versionId" =? _dorVersionId
         ]
 
-instance ToHeaders DeleteObject where
-    toHeaders DeleteObject{..} = concat
-        [ "x-amz-mfa" =: _dorMFA
-        ]
+instance ToHeaders DeleteObject
 
 instance ToBody DeleteObject
 
@@ -125,17 +115,13 @@ data DeleteObjectResponse = DeleteObjectResponse
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
 dooDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
-dooDeleteMarker f x =
-    f (_dooDeleteMarker x)
-        <&> \y -> x { _dooDeleteMarker = y }
+dooDeleteMarker = lens _dooDeleteMarker (\s a -> s { _dooDeleteMarker = a })
 {-# INLINE dooDeleteMarker #-}
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
 dooVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
-dooVersionId f x =
-    f (_dooVersionId x)
-        <&> \y -> x { _dooVersionId = y }
+dooVersionId = lens _dooVersionId (\s a -> s { _dooVersionId = a })
 {-# INLINE dooVersionId #-}
 
 instance AWSRequest DeleteObject where

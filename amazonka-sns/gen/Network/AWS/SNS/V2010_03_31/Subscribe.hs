@@ -38,10 +38,10 @@ module Network.AWS.SNS.V2010_03_31.Subscribe
     -- * Request
       Subscribe
     -- ** Request constructor
-    , subscribe
+    , mkSubscribeInput
     -- ** Request lenses
-    , ssyProtocol
     , ssyTopicArn
+    , ssyProtocol
     , ssyEndpoint
 
     -- * Response
@@ -54,19 +54,22 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'Subscribe' request.
-subscribe :: Text -- ^ 'ssyProtocol'
-          -> Text -- ^ 'ssyTopicArn'
-          -> Subscribe
-subscribe p1 p2 = Subscribe
-    { _ssyProtocol = p1
-    , _ssyTopicArn = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Subscribe' request.
+mkSubscribeInput :: Text -- ^ 'ssyTopicArn'
+                 -> Text -- ^ 'ssyProtocol'
+                 -> Subscribe
+mkSubscribeInput p1 p2 = Subscribe
+    { _ssyTopicArn = p1
+    , _ssyProtocol = p2
     , _ssyEndpoint = Nothing
     }
-{-# INLINE subscribe #-}
+{-# INLINE mkSubscribeInput #-}
 
 data Subscribe = Subscribe
-    { _ssyProtocol :: Text
+    { _ssyTopicArn :: Text
+      -- ^ The ARN of the topic you want to subscribe to.
+    , _ssyProtocol :: Text
       -- ^ The protocol you want to use. Supported protocols include: http
       -- -- delivery of JSON-encoded message via HTTP POST https --
       -- delivery of JSON-encoded message via HTTPS POST email -- delivery
@@ -75,8 +78,6 @@ data Subscribe = Subscribe
       -- delivery of JSON-encoded message to an Amazon SQS queue
       -- application -- delivery of JSON-encoded message to an EndpointArn
       -- for a mobile app and device.
-    , _ssyTopicArn :: Text
-      -- ^ The ARN of the topic you want to subscribe to.
     , _ssyEndpoint :: Maybe Text
       -- ^ The endpoint that you want to receive notifications. Endpoints
       -- vary by protocol: For the http protocol, the endpoint is an URL
@@ -90,6 +91,11 @@ data Subscribe = Subscribe
       -- app and device.
     } deriving (Show, Generic)
 
+-- | The ARN of the topic you want to subscribe to.
+ssyTopicArn :: Lens' Subscribe (Text)
+ssyTopicArn = lens _ssyTopicArn (\s a -> s { _ssyTopicArn = a })
+{-# INLINE ssyTopicArn #-}
+
 -- | The protocol you want to use. Supported protocols include: http -- delivery
 -- of JSON-encoded message via HTTP POST https -- delivery of JSON-encoded
 -- message via HTTPS POST email -- delivery of message via SMTP email-json --
@@ -98,17 +104,8 @@ data Subscribe = Subscribe
 -- application -- delivery of JSON-encoded message to an EndpointArn for a
 -- mobile app and device.
 ssyProtocol :: Lens' Subscribe (Text)
-ssyProtocol f x =
-    f (_ssyProtocol x)
-        <&> \y -> x { _ssyProtocol = y }
+ssyProtocol = lens _ssyProtocol (\s a -> s { _ssyProtocol = a })
 {-# INLINE ssyProtocol #-}
-
--- | The ARN of the topic you want to subscribe to.
-ssyTopicArn :: Lens' Subscribe (Text)
-ssyTopicArn f x =
-    f (_ssyTopicArn x)
-        <&> \y -> x { _ssyTopicArn = y }
-{-# INLINE ssyTopicArn #-}
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol: For the http protocol, the endpoint is an URL beginning with
@@ -120,15 +117,13 @@ ssyTopicArn f x =
 -- application protocol, the endpoint is the EndpointArn of a mobile app and
 -- device.
 ssyEndpoint :: Lens' Subscribe (Maybe Text)
-ssyEndpoint f x =
-    f (_ssyEndpoint x)
-        <&> \y -> x { _ssyEndpoint = y }
+ssyEndpoint = lens _ssyEndpoint (\s a -> s { _ssyEndpoint = a })
 {-# INLINE ssyEndpoint #-}
 
 instance ToQuery Subscribe where
     toQuery = genericQuery def
 
-data SubscribeResponse = SubscribeResponse
+newtype SubscribeResponse = SubscribeResponse
     { _sseSubscriptionArn :: Maybe Text
       -- ^ The ARN of the subscription, if the service was able to create a
       -- subscription immediately (without requiring endpoint owner
@@ -138,9 +133,7 @@ data SubscribeResponse = SubscribeResponse
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner confirmation).
 sseSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
-sseSubscriptionArn f x =
-    f (_sseSubscriptionArn x)
-        <&> \y -> x { _sseSubscriptionArn = y }
+sseSubscriptionArn = lens _sseSubscriptionArn (\s a -> s { _sseSubscriptionArn = a })
 {-# INLINE sseSubscriptionArn #-}
 
 instance FromXML SubscribeResponse where

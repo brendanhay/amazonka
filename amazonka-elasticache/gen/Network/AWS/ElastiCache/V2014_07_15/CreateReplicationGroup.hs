@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
     -- * Request
       CreateReplicationGroup
     -- ** Request constructor
-    , createReplicationGroup
+    , mkCreateReplicationGroupMessage
     -- ** Request lenses
     , crgmReplicationGroupId
     , crgmPrimaryClusterId
@@ -53,17 +53,18 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateReplicationGroup' request.
-createReplicationGroup :: Text -- ^ 'crgmReplicationGroupId'
-                       -> Text -- ^ 'crgmPrimaryClusterId'
-                       -> Text -- ^ 'crgmReplicationGroupDescription'
-                       -> CreateReplicationGroup
-createReplicationGroup p1 p2 p3 = CreateReplicationGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateReplicationGroup' request.
+mkCreateReplicationGroupMessage :: Text -- ^ 'crgmReplicationGroupId'
+                                -> Text -- ^ 'crgmPrimaryClusterId'
+                                -> Text -- ^ 'crgmReplicationGroupDescription'
+                                -> CreateReplicationGroup
+mkCreateReplicationGroupMessage p1 p2 p3 = CreateReplicationGroup
     { _crgmReplicationGroupId = p1
     , _crgmPrimaryClusterId = p2
     , _crgmReplicationGroupDescription = p3
     }
-{-# INLINE createReplicationGroup #-}
+{-# INLINE mkCreateReplicationGroupMessage #-}
 
 data CreateReplicationGroup = CreateReplicationGroup
     { _crgmReplicationGroupId :: Text
@@ -85,40 +86,32 @@ data CreateReplicationGroup = CreateReplicationGroup
 -- hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
 crgmReplicationGroupId :: Lens' CreateReplicationGroup (Text)
-crgmReplicationGroupId f x =
-    f (_crgmReplicationGroupId x)
-        <&> \y -> x { _crgmReplicationGroupId = y }
+crgmReplicationGroupId = lens _crgmReplicationGroupId (\s a -> s { _crgmReplicationGroupId = a })
 {-# INLINE crgmReplicationGroupId #-}
 
 -- | The identifier of the cache cluster that will serve as the primary for this
 -- replication group. This cache cluster must already exist and have a status
 -- of available.
 crgmPrimaryClusterId :: Lens' CreateReplicationGroup (Text)
-crgmPrimaryClusterId f x =
-    f (_crgmPrimaryClusterId x)
-        <&> \y -> x { _crgmPrimaryClusterId = y }
+crgmPrimaryClusterId = lens _crgmPrimaryClusterId (\s a -> s { _crgmPrimaryClusterId = a })
 {-# INLINE crgmPrimaryClusterId #-}
 
 -- | A user-specified description for the replication group.
 crgmReplicationGroupDescription :: Lens' CreateReplicationGroup (Text)
-crgmReplicationGroupDescription f x =
-    f (_crgmReplicationGroupDescription x)
-        <&> \y -> x { _crgmReplicationGroupDescription = y }
+crgmReplicationGroupDescription = lens _crgmReplicationGroupDescription (\s a -> s { _crgmReplicationGroupDescription = a })
 {-# INLINE crgmReplicationGroupDescription #-}
 
 instance ToQuery CreateReplicationGroup where
     toQuery = genericQuery def
 
-data CreateReplicationGroupResponse = CreateReplicationGroupResponse
+newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _rgwReplicationGroup :: Maybe ReplicationGroup
       -- ^ Contains all of the attributes of a specific replication group.
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
 rgwReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
-rgwReplicationGroup f x =
-    f (_rgwReplicationGroup x)
-        <&> \y -> x { _rgwReplicationGroup = y }
+rgwReplicationGroup = lens _rgwReplicationGroup (\s a -> s { _rgwReplicationGroup = a })
 {-# INLINE rgwReplicationGroup #-}
 
 instance FromXML CreateReplicationGroupResponse where

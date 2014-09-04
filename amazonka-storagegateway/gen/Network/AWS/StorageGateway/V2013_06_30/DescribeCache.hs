@@ -43,20 +43,20 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeCache
     -- * Request
       DescribeCache
     -- ** Request constructor
-    , describeCache
+    , mkDescribeCacheInput
     -- ** Request lenses
     , dciGatewayARN
 
     -- * Response
     , DescribeCacheResponse
     -- ** Response lenses
+    , dcoGatewayARN
     , dcoDiskIds
+    , dcoCacheAllocatedInBytes
     , dcoCacheUsedPercentage
     , dcoCacheDirtyPercentage
     , dcoCacheHitPercentage
     , dcoCacheMissPercentage
-    , dcoGatewayARN
-    , dcoCacheAllocatedInBytes
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -64,15 +64,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeCache' request.
-describeCache :: Text -- ^ 'dciGatewayARN'
-              -> DescribeCache
-describeCache p1 = DescribeCache
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCache' request.
+mkDescribeCacheInput :: Text -- ^ 'dciGatewayARN'
+                     -> DescribeCache
+mkDescribeCacheInput p1 = DescribeCache
     { _dciGatewayARN = p1
     }
-{-# INLINE describeCache #-}
+{-# INLINE mkDescribeCacheInput #-}
 
-data DescribeCache = DescribeCache
+newtype DescribeCache = DescribeCache
     { _dciGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -82,9 +83,7 @@ data DescribeCache = DescribeCache
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dciGatewayARN :: Lens' DescribeCache (Text)
-dciGatewayARN f x =
-    f (_dciGatewayARN x)
-        <&> \y -> x { _dciGatewayARN = y }
+dciGatewayARN = lens _dciGatewayARN (\s a -> s { _dciGatewayARN = a })
 {-# INLINE dciGatewayARN #-}
 
 instance ToPath DescribeCache
@@ -96,61 +95,47 @@ instance ToHeaders DescribeCache
 instance ToJSON DescribeCache
 
 data DescribeCacheResponse = DescribeCacheResponse
-    { _dcoDiskIds :: [Text]
+    { _dcoGatewayARN :: Maybe Text
+      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
+      -- ListGateways operation to return a list of gateways for your
+      -- account and region.
+    , _dcoDiskIds :: [Text]
+    , _dcoCacheAllocatedInBytes :: Maybe Integer
     , _dcoCacheUsedPercentage :: Maybe Double
     , _dcoCacheDirtyPercentage :: Maybe Double
     , _dcoCacheHitPercentage :: Maybe Double
     , _dcoCacheMissPercentage :: Maybe Double
-    , _dcoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dcoCacheAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
-
-dcoDiskIds :: Lens' DescribeCacheResponse ([Text])
-dcoDiskIds f x =
-    f (_dcoDiskIds x)
-        <&> \y -> x { _dcoDiskIds = y }
-{-# INLINE dcoDiskIds #-}
-
-dcoCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcoCacheUsedPercentage f x =
-    f (_dcoCacheUsedPercentage x)
-        <&> \y -> x { _dcoCacheUsedPercentage = y }
-{-# INLINE dcoCacheUsedPercentage #-}
-
-dcoCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcoCacheDirtyPercentage f x =
-    f (_dcoCacheDirtyPercentage x)
-        <&> \y -> x { _dcoCacheDirtyPercentage = y }
-{-# INLINE dcoCacheDirtyPercentage #-}
-
-dcoCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcoCacheHitPercentage f x =
-    f (_dcoCacheHitPercentage x)
-        <&> \y -> x { _dcoCacheHitPercentage = y }
-{-# INLINE dcoCacheHitPercentage #-}
-
-dcoCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcoCacheMissPercentage f x =
-    f (_dcoCacheMissPercentage x)
-        <&> \y -> x { _dcoCacheMissPercentage = y }
-{-# INLINE dcoCacheMissPercentage #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dcoGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcoGatewayARN f x =
-    f (_dcoGatewayARN x)
-        <&> \y -> x { _dcoGatewayARN = y }
+dcoGatewayARN = lens _dcoGatewayARN (\s a -> s { _dcoGatewayARN = a })
 {-# INLINE dcoGatewayARN #-}
 
+dcoDiskIds :: Lens' DescribeCacheResponse ([Text])
+dcoDiskIds = lens _dcoDiskIds (\s a -> s { _dcoDiskIds = a })
+{-# INLINE dcoDiskIds #-}
+
 dcoCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcoCacheAllocatedInBytes f x =
-    f (_dcoCacheAllocatedInBytes x)
-        <&> \y -> x { _dcoCacheAllocatedInBytes = y }
+dcoCacheAllocatedInBytes = lens _dcoCacheAllocatedInBytes (\s a -> s { _dcoCacheAllocatedInBytes = a })
 {-# INLINE dcoCacheAllocatedInBytes #-}
+
+dcoCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcoCacheUsedPercentage = lens _dcoCacheUsedPercentage (\s a -> s { _dcoCacheUsedPercentage = a })
+{-# INLINE dcoCacheUsedPercentage #-}
+
+dcoCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcoCacheDirtyPercentage = lens _dcoCacheDirtyPercentage (\s a -> s { _dcoCacheDirtyPercentage = a })
+{-# INLINE dcoCacheDirtyPercentage #-}
+
+dcoCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcoCacheHitPercentage = lens _dcoCacheHitPercentage (\s a -> s { _dcoCacheHitPercentage = a })
+{-# INLINE dcoCacheHitPercentage #-}
+
+dcoCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcoCacheMissPercentage = lens _dcoCacheMissPercentage (\s a -> s { _dcoCacheMissPercentage = a })
+{-# INLINE dcoCacheMissPercentage #-}
 
 instance FromJSON DescribeCacheResponse
 

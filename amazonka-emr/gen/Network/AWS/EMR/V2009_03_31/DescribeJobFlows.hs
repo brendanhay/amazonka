@@ -77,12 +77,12 @@ module Network.AWS.EMR.V2009_03_31.DescribeJobFlows
     -- * Request
       DescribeJobFlows
     -- ** Request constructor
-    , describeJobFlows
+    , mkDescribeJobFlowsInput
     -- ** Request lenses
     , djfiCreatedAfter
     , djfiCreatedBefore
-    , djfiJobFlowStates
     , djfiJobFlowIds
+    , djfiJobFlowStates
 
     -- * Response
     , DescribeJobFlowsResponse
@@ -95,55 +95,48 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeJobFlows' request.
-describeJobFlows :: DescribeJobFlows
-describeJobFlows = DescribeJobFlows
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeJobFlows' request.
+mkDescribeJobFlowsInput :: DescribeJobFlows
+mkDescribeJobFlowsInput = DescribeJobFlows
     { _djfiCreatedAfter = Nothing
     , _djfiCreatedBefore = Nothing
-    , _djfiJobFlowStates = mempty
     , _djfiJobFlowIds = mempty
+    , _djfiJobFlowStates = mempty
     }
-{-# INLINE describeJobFlows #-}
+{-# INLINE mkDescribeJobFlowsInput #-}
 
 data DescribeJobFlows = DescribeJobFlows
     { _djfiCreatedAfter :: Maybe POSIX
       -- ^ Return only job flows created after this date and time.
     , _djfiCreatedBefore :: Maybe POSIX
       -- ^ Return only job flows created before this date and time.
-    , _djfiJobFlowStates :: [JobFlowExecutionState]
-      -- ^ Return only job flows whose state is contained in this list.
     , _djfiJobFlowIds :: [Text]
       -- ^ Return only job flows whose job flow ID is contained in this
       -- list.
+    , _djfiJobFlowStates :: [JobFlowExecutionState]
+      -- ^ Return only job flows whose state is contained in this list.
     } deriving (Show, Generic)
 
 -- | Return only job flows created after this date and time.
 djfiCreatedAfter :: Lens' DescribeJobFlows (Maybe POSIX)
-djfiCreatedAfter f x =
-    f (_djfiCreatedAfter x)
-        <&> \y -> x { _djfiCreatedAfter = y }
+djfiCreatedAfter = lens _djfiCreatedAfter (\s a -> s { _djfiCreatedAfter = a })
 {-# INLINE djfiCreatedAfter #-}
 
 -- | Return only job flows created before this date and time.
 djfiCreatedBefore :: Lens' DescribeJobFlows (Maybe POSIX)
-djfiCreatedBefore f x =
-    f (_djfiCreatedBefore x)
-        <&> \y -> x { _djfiCreatedBefore = y }
+djfiCreatedBefore = lens _djfiCreatedBefore (\s a -> s { _djfiCreatedBefore = a })
 {-# INLINE djfiCreatedBefore #-}
-
--- | Return only job flows whose state is contained in this list.
-djfiJobFlowStates :: Lens' DescribeJobFlows ([JobFlowExecutionState])
-djfiJobFlowStates f x =
-    f (_djfiJobFlowStates x)
-        <&> \y -> x { _djfiJobFlowStates = y }
-{-# INLINE djfiJobFlowStates #-}
 
 -- | Return only job flows whose job flow ID is contained in this list.
 djfiJobFlowIds :: Lens' DescribeJobFlows ([Text])
-djfiJobFlowIds f x =
-    f (_djfiJobFlowIds x)
-        <&> \y -> x { _djfiJobFlowIds = y }
+djfiJobFlowIds = lens _djfiJobFlowIds (\s a -> s { _djfiJobFlowIds = a })
 {-# INLINE djfiJobFlowIds #-}
+
+-- | Return only job flows whose state is contained in this list.
+djfiJobFlowStates :: Lens' DescribeJobFlows ([JobFlowExecutionState])
+djfiJobFlowStates = lens _djfiJobFlowStates (\s a -> s { _djfiJobFlowStates = a })
+{-# INLINE djfiJobFlowStates #-}
 
 instance ToPath DescribeJobFlows
 
@@ -153,16 +146,14 @@ instance ToHeaders DescribeJobFlows
 
 instance ToJSON DescribeJobFlows
 
-data DescribeJobFlowsResponse = DescribeJobFlowsResponse
+newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfoJobFlows :: [JobFlowDetail]
       -- ^ A list of job flows matching the parameters supplied.
     } deriving (Show, Generic)
 
 -- | A list of job flows matching the parameters supplied.
 djfoJobFlows :: Lens' DescribeJobFlowsResponse ([JobFlowDetail])
-djfoJobFlows f x =
-    f (_djfoJobFlows x)
-        <&> \y -> x { _djfoJobFlows = y }
+djfoJobFlows = lens _djfoJobFlows (\s a -> s { _djfoJobFlows = a })
 {-# INLINE djfoJobFlows #-}
 
 instance FromJSON DescribeJobFlowsResponse

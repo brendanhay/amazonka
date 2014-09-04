@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester
     -- * Request
       DeleteSuggester
     -- ** Request constructor
-    , deleteSuggester
+    , mkDeleteSuggesterRequest
     -- ** Request lenses
     , dstDomainName
     , dstSuggesterName
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSuggester' request.
-deleteSuggester :: Text -- ^ 'dstDomainName'
-                -> Text -- ^ 'dstSuggesterName'
-                -> DeleteSuggester
-deleteSuggester p1 p2 = DeleteSuggester
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSuggester' request.
+mkDeleteSuggesterRequest :: Text -- ^ 'dstDomainName'
+                         -> Text -- ^ 'dstSuggesterName'
+                         -> DeleteSuggester
+mkDeleteSuggesterRequest p1 p2 = DeleteSuggester
     { _dstDomainName = p1
     , _dstSuggesterName = p2
     }
-{-# INLINE deleteSuggester #-}
+{-# INLINE mkDeleteSuggesterRequest #-}
 
 data DeleteSuggester = DeleteSuggester
     { _dstDomainName :: Text
@@ -65,31 +66,25 @@ data DeleteSuggester = DeleteSuggester
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 dstDomainName :: Lens' DeleteSuggester (Text)
-dstDomainName f x =
-    f (_dstDomainName x)
-        <&> \y -> x { _dstDomainName = y }
+dstDomainName = lens _dstDomainName (\s a -> s { _dstDomainName = a })
 {-# INLINE dstDomainName #-}
 
 -- | Specifies the name of the suggester you want to delete.
 dstSuggesterName :: Lens' DeleteSuggester (Text)
-dstSuggesterName f x =
-    f (_dstSuggesterName x)
-        <&> \y -> x { _dstSuggesterName = y }
+dstSuggesterName = lens _dstSuggesterName (\s a -> s { _dstSuggesterName = a })
 {-# INLINE dstSuggesterName #-}
 
 instance ToQuery DeleteSuggester where
     toQuery = genericQuery def
 
-data DeleteSuggesterResponse = DeleteSuggesterResponse
+newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsuSuggester :: SuggesterStatus
       -- ^ The status of the suggester being deleted.
     } deriving (Show, Generic)
 
 -- | The status of the suggester being deleted.
 dsuSuggester :: Lens' DeleteSuggesterResponse (SuggesterStatus)
-dsuSuggester f x =
-    f (_dsuSuggester x)
-        <&> \y -> x { _dsuSuggester = y }
+dsuSuggester = lens _dsuSuggester (\s a -> s { _dsuSuggester = a })
 {-# INLINE dsuSuggester #-}
 
 instance FromXML DeleteSuggesterResponse where

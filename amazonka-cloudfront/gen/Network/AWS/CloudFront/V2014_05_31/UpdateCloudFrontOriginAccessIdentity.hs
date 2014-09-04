@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity
     -- * Request
       UpdateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , updateCloudFrontOriginAccessIdentity
+    , mkUpdateCloudFrontOriginAccessIdentityRequest
     -- ** Request lenses
     , ucfoairCloudFrontOriginAccessIdentityConfig
     , ucfoairId
@@ -40,16 +40,17 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateCloudFrontOriginAccessIdentity' request.
-updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoairCloudFrontOriginAccessIdentityConfig'
-                                     -> Text -- ^ 'ucfoairId'
-                                     -> UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentity
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateCloudFrontOriginAccessIdentity' request.
+mkUpdateCloudFrontOriginAccessIdentityRequest :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoairCloudFrontOriginAccessIdentityConfig'
+                                              -> Text -- ^ 'ucfoairId'
+                                              -> UpdateCloudFrontOriginAccessIdentity
+mkUpdateCloudFrontOriginAccessIdentityRequest p1 p2 = UpdateCloudFrontOriginAccessIdentity
     { _ucfoairCloudFrontOriginAccessIdentityConfig = p1
     , _ucfoairId = p2
     , _ucfoairIfMatch = Nothing
     }
-{-# INLINE updateCloudFrontOriginAccessIdentity #-}
+{-# INLINE mkUpdateCloudFrontOriginAccessIdentityRequest #-}
 
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     { _ucfoairCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
@@ -63,24 +64,18 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 
 -- | The identity's configuration information.
 ucfoairCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity (CloudFrontOriginAccessIdentityConfig)
-ucfoairCloudFrontOriginAccessIdentityConfig f x =
-    f (_ucfoairCloudFrontOriginAccessIdentityConfig x)
-        <&> \y -> x { _ucfoairCloudFrontOriginAccessIdentityConfig = y }
+ucfoairCloudFrontOriginAccessIdentityConfig = lens _ucfoairCloudFrontOriginAccessIdentityConfig (\s a -> s { _ucfoairCloudFrontOriginAccessIdentityConfig = a })
 {-# INLINE ucfoairCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The identity's id.
 ucfoairId :: Lens' UpdateCloudFrontOriginAccessIdentity (Text)
-ucfoairId f x =
-    f (_ucfoairId x)
-        <&> \y -> x { _ucfoairId = y }
+ucfoairId = lens _ucfoairId (\s a -> s { _ucfoairId = a })
 {-# INLINE ucfoairId #-}
 
 -- | The value of the ETag header you received when retrieving the identity's
 -- configuration. For example: E2QWRUHAPOMQZL.
 ucfoairIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
-ucfoairIfMatch f x =
-    f (_ucfoairIfMatch x)
-        <&> \y -> x { _ucfoairIfMatch = y }
+ucfoairIfMatch = lens _ucfoairIfMatch (\s a -> s { _ucfoairIfMatch = a })
 {-# INLINE ucfoairIfMatch #-}
 
 instance ToPath UpdateCloudFrontOriginAccessIdentity where
@@ -92,10 +87,7 @@ instance ToPath UpdateCloudFrontOriginAccessIdentity where
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity
 
-instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
-    toHeaders UpdateCloudFrontOriginAccessIdentity{..} = concat
-        [ "If-Match" =: _ucfoairIfMatch
-        ]
+instance ToHeaders UpdateCloudFrontOriginAccessIdentity
 
 instance ToXML UpdateCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
@@ -111,16 +103,12 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 
 -- | The origin access identity's information.
 ucfoaisCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ucfoaisCloudFrontOriginAccessIdentity f x =
-    f (_ucfoaisCloudFrontOriginAccessIdentity x)
-        <&> \y -> x { _ucfoaisCloudFrontOriginAccessIdentity = y }
+ucfoaisCloudFrontOriginAccessIdentity = lens _ucfoaisCloudFrontOriginAccessIdentity (\s a -> s { _ucfoaisCloudFrontOriginAccessIdentity = a })
 {-# INLINE ucfoaisCloudFrontOriginAccessIdentity #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 ucfoaisETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ucfoaisETag f x =
-    f (_ucfoaisETag x)
-        <&> \y -> x { _ucfoaisETag = y }
+ucfoaisETag = lens _ucfoaisETag (\s a -> s { _ucfoaisETag = a })
 {-# INLINE ucfoaisETag #-}
 
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where

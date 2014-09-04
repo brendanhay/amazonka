@@ -36,7 +36,7 @@ module Network.AWS.SNS.V2010_03_31.DeleteTopic
     -- * Request
       DeleteTopic
     -- ** Request constructor
-    , deleteTopic
+    , mkDeleteTopicInput
     -- ** Request lenses
     , dtiTopicArn
 
@@ -48,15 +48,16 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteTopic' request.
-deleteTopic :: Text -- ^ 'dtiTopicArn'
-            -> DeleteTopic
-deleteTopic p1 = DeleteTopic
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTopic' request.
+mkDeleteTopicInput :: Text -- ^ 'dtiTopicArn'
+                   -> DeleteTopic
+mkDeleteTopicInput p1 = DeleteTopic
     { _dtiTopicArn = p1
     }
-{-# INLINE deleteTopic #-}
+{-# INLINE mkDeleteTopicInput #-}
 
-data DeleteTopic = DeleteTopic
+newtype DeleteTopic = DeleteTopic
     { _dtiTopicArn :: Text
       -- ^ The ARN of the topic you want to delete.
       -- http://sns.us-east-1.amazonaws.com/
@@ -86,9 +87,7 @@ data DeleteTopic = DeleteTopic
 -- &lt;RequestId&gt;fba800b9-3765-11df-8cf3-c58c53254dfb&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
 dtiTopicArn :: Lens' DeleteTopic (Text)
-dtiTopicArn f x =
-    f (_dtiTopicArn x)
-        <&> \y -> x { _dtiTopicArn = y }
+dtiTopicArn = lens _dtiTopicArn (\s a -> s { _dtiTopicArn = a })
 {-# INLINE dtiTopicArn #-}
 
 instance ToQuery DeleteTopic where

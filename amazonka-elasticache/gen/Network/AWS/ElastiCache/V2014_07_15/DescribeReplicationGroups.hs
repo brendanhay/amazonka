@@ -34,42 +34,43 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups
     -- * Request
       DescribeReplicationGroups
     -- ** Request constructor
-    , describeReplicationGroups
+    , mkDescribeReplicationGroupsMessage
     -- ** Request lenses
-    , drgnMaxRecords
     , drgnReplicationGroupId
+    , drgnMaxRecords
     , drgnMarker
 
     -- * Response
     , DescribeReplicationGroupsResponse
     -- ** Response lenses
-    , rgmReplicationGroups
     , rgmMarker
+    , rgmReplicationGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeReplicationGroups' request.
-describeReplicationGroups :: DescribeReplicationGroups
-describeReplicationGroups = DescribeReplicationGroups
-    { _drgnMaxRecords = Nothing
-    , _drgnReplicationGroupId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReplicationGroups' request.
+mkDescribeReplicationGroupsMessage :: DescribeReplicationGroups
+mkDescribeReplicationGroupsMessage = DescribeReplicationGroups
+    { _drgnReplicationGroupId = Nothing
+    , _drgnMaxRecords = Nothing
     , _drgnMarker = Nothing
     }
-{-# INLINE describeReplicationGroups #-}
+{-# INLINE mkDescribeReplicationGroupsMessage #-}
 
 data DescribeReplicationGroups = DescribeReplicationGroups
-    { _drgnMaxRecords :: Maybe Integer
+    { _drgnReplicationGroupId :: Maybe Text
+      -- ^ The identifier for the replication group to be described. This
+      -- parameter is not case sensitive. If you do not specify this
+      -- parameter, information about all replication groups is returned.
+    , _drgnMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a marker is
       -- included in the response so that the remaining results can be
       -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _drgnReplicationGroupId :: Maybe Text
-      -- ^ The identifier for the replication group to be described. This
-      -- parameter is not case sensitive. If you do not specify this
-      -- parameter, information about all replication groups is returned.
     , _drgnMarker :: Maybe Text
       -- ^ An optional marker returned from a prior request. Use this marker
       -- for pagination of results from this operation. If this parameter
@@ -77,60 +78,50 @@ data DescribeReplicationGroups = DescribeReplicationGroups
       -- marker, up to the value specified by MaxRecords.
     } deriving (Show, Generic)
 
+-- | The identifier for the replication group to be described. This parameter is
+-- not case sensitive. If you do not specify this parameter, information about
+-- all replication groups is returned.
+drgnReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
+drgnReplicationGroupId = lens _drgnReplicationGroupId (\s a -> s { _drgnReplicationGroupId = a })
+{-# INLINE drgnReplicationGroupId #-}
+
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 drgnMaxRecords :: Lens' DescribeReplicationGroups (Maybe Integer)
-drgnMaxRecords f x =
-    f (_drgnMaxRecords x)
-        <&> \y -> x { _drgnMaxRecords = y }
+drgnMaxRecords = lens _drgnMaxRecords (\s a -> s { _drgnMaxRecords = a })
 {-# INLINE drgnMaxRecords #-}
-
--- | The identifier for the replication group to be described. This parameter is
--- not case sensitive. If you do not specify this parameter, information about
--- all replication groups is returned.
-drgnReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
-drgnReplicationGroupId f x =
-    f (_drgnReplicationGroupId x)
-        <&> \y -> x { _drgnReplicationGroupId = y }
-{-# INLINE drgnReplicationGroupId #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
 drgnMarker :: Lens' DescribeReplicationGroups (Maybe Text)
-drgnMarker f x =
-    f (_drgnMarker x)
-        <&> \y -> x { _drgnMarker = y }
+drgnMarker = lens _drgnMarker (\s a -> s { _drgnMarker = a })
 {-# INLINE drgnMarker #-}
 
 instance ToQuery DescribeReplicationGroups where
     toQuery = genericQuery def
 
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
-    { _rgmReplicationGroups :: [ReplicationGroup]
+    { _rgmMarker :: Maybe Text
+      -- ^ Provides an identifier to allow retrieval of paginated results.
+    , _rgmReplicationGroups :: [ReplicationGroup]
       -- ^ A list of replication groups. Each item in the list contains
       -- detailed information about one replication group.
-    , _rgmMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
     } deriving (Show, Generic)
+
+-- | Provides an identifier to allow retrieval of paginated results.
+rgmMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
+rgmMarker = lens _rgmMarker (\s a -> s { _rgmMarker = a })
+{-# INLINE rgmMarker #-}
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
 rgmReplicationGroups :: Lens' DescribeReplicationGroupsResponse ([ReplicationGroup])
-rgmReplicationGroups f x =
-    f (_rgmReplicationGroups x)
-        <&> \y -> x { _rgmReplicationGroups = y }
+rgmReplicationGroups = lens _rgmReplicationGroups (\s a -> s { _rgmReplicationGroups = a })
 {-# INLINE rgmReplicationGroups #-}
-
--- | Provides an identifier to allow retrieval of paginated results.
-rgmMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
-rgmMarker f x =
-    f (_rgmMarker x)
-        <&> \y -> x { _rgmMarker = y }
-{-# INLINE rgmMarker #-}
 
 instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions

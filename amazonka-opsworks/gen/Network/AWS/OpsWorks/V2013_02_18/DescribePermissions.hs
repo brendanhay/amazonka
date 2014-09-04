@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribePermissions
     -- * Request
       DescribePermissions
     -- ** Request constructor
-    , describePermissions
+    , mkDescribePermissionsRequest
     -- ** Request lenses
     , dprIamUserArn
     , dprStackId
@@ -42,13 +42,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribePermissions' request.
-describePermissions :: DescribePermissions
-describePermissions = DescribePermissions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePermissions' request.
+mkDescribePermissionsRequest :: DescribePermissions
+mkDescribePermissionsRequest = DescribePermissions
     { _dprIamUserArn = Nothing
     , _dprStackId = Nothing
     }
-{-# INLINE describePermissions #-}
+{-# INLINE mkDescribePermissionsRequest #-}
 
 data DescribePermissions = DescribePermissions
     { _dprIamUserArn :: Maybe Text
@@ -61,16 +62,12 @@ data DescribePermissions = DescribePermissions
 -- | The user's IAM ARN. For more information about IAM ARNs, see Using
 -- Identifiers.
 dprIamUserArn :: Lens' DescribePermissions (Maybe Text)
-dprIamUserArn f x =
-    f (_dprIamUserArn x)
-        <&> \y -> x { _dprIamUserArn = y }
+dprIamUserArn = lens _dprIamUserArn (\s a -> s { _dprIamUserArn = a })
 {-# INLINE dprIamUserArn #-}
 
 -- | The stack ID.
 dprStackId :: Lens' DescribePermissions (Maybe Text)
-dprStackId f x =
-    f (_dprStackId x)
-        <&> \y -> x { _dprStackId = y }
+dprStackId = lens _dprStackId (\s a -> s { _dprStackId = a })
 {-# INLINE dprStackId #-}
 
 instance ToPath DescribePermissions
@@ -81,7 +78,7 @@ instance ToHeaders DescribePermissions
 
 instance ToJSON DescribePermissions
 
-data DescribePermissionsResponse = DescribePermissionsResponse
+newtype DescribePermissionsResponse = DescribePermissionsResponse
     { _dpsPermissions :: [Permission]
       -- ^ An array of Permission objects that describe the stack
       -- permissions. If the request object contains only a stack ID, the
@@ -101,9 +98,7 @@ data DescribePermissionsResponse = DescribePermissionsResponse
 -- a stack ID and an IAM ARN, the array contains a single Permission object
 -- with permissions for the specified stack and IAM ARN.
 dpsPermissions :: Lens' DescribePermissionsResponse ([Permission])
-dpsPermissions f x =
-    f (_dpsPermissions x)
-        <&> \y -> x { _dpsPermissions = y }
+dpsPermissions = lens _dpsPermissions (\s a -> s { _dpsPermissions = a })
 {-# INLINE dpsPermissions #-}
 
 instance FromJSON DescribePermissionsResponse

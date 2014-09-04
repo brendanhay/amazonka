@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
     -- * Request
       DescribeTapeRecoveryPoints
     -- ** Request constructor
-    , describeTapeRecoveryPoints
+    , mkDescribeTapeRecoveryPointsInput
     -- ** Request lenses
     , dtrpiGatewayARN
     , dtrpiMarker
@@ -32,8 +32,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
     , DescribeTapeRecoveryPointsResponse
     -- ** Response lenses
     , dtrpoGatewayARN
-    , dtrpoMarker
     , dtrpoTapeRecoveryPointInfos
+    , dtrpoMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -41,15 +41,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTapeRecoveryPoints' request.
-describeTapeRecoveryPoints :: Text -- ^ 'dtrpiGatewayARN'
-                           -> DescribeTapeRecoveryPoints
-describeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapeRecoveryPoints' request.
+mkDescribeTapeRecoveryPointsInput :: Text -- ^ 'dtrpiGatewayARN'
+                                  -> DescribeTapeRecoveryPoints
+mkDescribeTapeRecoveryPointsInput p1 = DescribeTapeRecoveryPoints
     { _dtrpiGatewayARN = p1
     , _dtrpiMarker = Nothing
     , _dtrpiLimit = Nothing
     }
-{-# INLINE describeTapeRecoveryPoints #-}
+{-# INLINE mkDescribeTapeRecoveryPointsInput #-}
 
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpiGatewayARN :: Text
@@ -63,21 +64,15 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dtrpiGatewayARN :: Lens' DescribeTapeRecoveryPoints (Text)
-dtrpiGatewayARN f x =
-    f (_dtrpiGatewayARN x)
-        <&> \y -> x { _dtrpiGatewayARN = y }
+dtrpiGatewayARN = lens _dtrpiGatewayARN (\s a -> s { _dtrpiGatewayARN = a })
 {-# INLINE dtrpiGatewayARN #-}
 
 dtrpiMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
-dtrpiMarker f x =
-    f (_dtrpiMarker x)
-        <&> \y -> x { _dtrpiMarker = y }
+dtrpiMarker = lens _dtrpiMarker (\s a -> s { _dtrpiMarker = a })
 {-# INLINE dtrpiMarker #-}
 
 dtrpiLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Integer)
-dtrpiLimit f x =
-    f (_dtrpiLimit x)
-        <&> \y -> x { _dtrpiLimit = y }
+dtrpiLimit = lens _dtrpiLimit (\s a -> s { _dtrpiLimit = a })
 {-# INLINE dtrpiLimit #-}
 
 instance ToPath DescribeTapeRecoveryPoints
@@ -93,29 +88,23 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _dtrpoMarker :: Maybe Text
     , _dtrpoTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
+    , _dtrpoMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dtrpoGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrpoGatewayARN f x =
-    f (_dtrpoGatewayARN x)
-        <&> \y -> x { _dtrpoGatewayARN = y }
+dtrpoGatewayARN = lens _dtrpoGatewayARN (\s a -> s { _dtrpoGatewayARN = a })
 {-# INLINE dtrpoGatewayARN #-}
 
-dtrpoMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrpoMarker f x =
-    f (_dtrpoMarker x)
-        <&> \y -> x { _dtrpoMarker = y }
-{-# INLINE dtrpoMarker #-}
-
 dtrpoTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse ([TapeRecoveryPointInfo])
-dtrpoTapeRecoveryPointInfos f x =
-    f (_dtrpoTapeRecoveryPointInfos x)
-        <&> \y -> x { _dtrpoTapeRecoveryPointInfos = y }
+dtrpoTapeRecoveryPointInfos = lens _dtrpoTapeRecoveryPointInfos (\s a -> s { _dtrpoTapeRecoveryPointInfos = a })
 {-# INLINE dtrpoTapeRecoveryPointInfos #-}
+
+dtrpoMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
+dtrpoMarker = lens _dtrpoMarker (\s a -> s { _dtrpoMarker = a })
+{-# INLINE dtrpoMarker #-}
 
 instance FromJSON DescribeTapeRecoveryPointsResponse
 

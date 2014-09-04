@@ -29,7 +29,7 @@ module Network.AWS.IAM.V2010_05_08.ListRolePolicies
     -- * Request
       ListRolePolicies
     -- ** Request constructor
-    , listRolePolicies
+    , mkListRolePoliciesRequest
     -- ** Request lenses
     , lrprRoleName
     , lrprMarker
@@ -38,8 +38,8 @@ module Network.AWS.IAM.V2010_05_08.ListRolePolicies
     -- * Response
     , ListRolePoliciesResponse
     -- ** Response lenses
-    , lrpsIsTruncated
     , lrpsPolicyNames
+    , lrpsIsTruncated
     , lrpsMarker
     ) where
 
@@ -47,15 +47,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListRolePolicies' request.
-listRolePolicies :: Text -- ^ 'lrprRoleName'
-                 -> ListRolePolicies
-listRolePolicies p1 = ListRolePolicies
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListRolePolicies' request.
+mkListRolePoliciesRequest :: Text -- ^ 'lrprRoleName'
+                          -> ListRolePolicies
+mkListRolePoliciesRequest p1 = ListRolePolicies
     { _lrprRoleName = p1
     , _lrprMarker = Nothing
     , _lrprMaxItems = Nothing
     }
-{-# INLINE listRolePolicies #-}
+{-# INLINE mkListRolePoliciesRequest #-}
 
 data ListRolePolicies = ListRolePolicies
     { _lrprRoleName :: Text
@@ -75,9 +76,7 @@ data ListRolePolicies = ListRolePolicies
 
 -- | The name of the role to list policies for.
 lrprRoleName :: Lens' ListRolePolicies (Text)
-lrprRoleName f x =
-    f (_lrprRoleName x)
-        <&> \y -> x { _lrprRoleName = y }
+lrprRoleName = lens _lrprRoleName (\s a -> s { _lrprRoleName = a })
 {-# INLINE lrprRoleName #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
@@ -85,9 +84,7 @@ lrprRoleName f x =
 -- Set it to the value of the Marker element in the response you just
 -- received.
 lrprMarker :: Lens' ListRolePolicies (Maybe Text)
-lrprMarker f x =
-    f (_lrprMarker x)
-        <&> \y -> x { _lrprMarker = y }
+lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 {-# INLINE lrprMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -96,50 +93,42 @@ lrprMarker f x =
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
 lrprMaxItems :: Lens' ListRolePolicies (Maybe Integer)
-lrprMaxItems f x =
-    f (_lrprMaxItems x)
-        <&> \y -> x { _lrprMaxItems = y }
+lrprMaxItems = lens _lrprMaxItems (\s a -> s { _lrprMaxItems = a })
 {-# INLINE lrprMaxItems #-}
 
 instance ToQuery ListRolePolicies where
     toQuery = genericQuery def
 
 data ListRolePoliciesResponse = ListRolePoliciesResponse
-    { _lrpsIsTruncated :: Bool
+    { _lrpsPolicyNames :: [Text]
+      -- ^ A list of policy names.
+    , _lrpsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more policy names to
       -- list. If your results were truncated, you can make a subsequent
       -- pagination request using the Marker request parameter to retrieve
       -- more policy names in the list.
-    , _lrpsPolicyNames :: [Text]
-      -- ^ A list of policy names.
     , _lrpsMarker :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
     } deriving (Show, Generic)
 
+-- | A list of policy names.
+lrpsPolicyNames :: Lens' ListRolePoliciesResponse ([Text])
+lrpsPolicyNames = lens _lrpsPolicyNames (\s a -> s { _lrpsPolicyNames = a })
+{-# INLINE lrpsPolicyNames #-}
+
 -- | A flag that indicates whether there are more policy names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more policy names in the list.
 lrpsIsTruncated :: Lens' ListRolePoliciesResponse (Bool)
-lrpsIsTruncated f x =
-    f (_lrpsIsTruncated x)
-        <&> \y -> x { _lrpsIsTruncated = y }
+lrpsIsTruncated = lens _lrpsIsTruncated (\s a -> s { _lrpsIsTruncated = a })
 {-# INLINE lrpsIsTruncated #-}
-
--- | A list of policy names.
-lrpsPolicyNames :: Lens' ListRolePoliciesResponse ([Text])
-lrpsPolicyNames f x =
-    f (_lrpsPolicyNames x)
-        <&> \y -> x { _lrpsPolicyNames = y }
-{-# INLINE lrpsPolicyNames #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lrpsMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
-lrpsMarker f x =
-    f (_lrpsMarker x)
-        <&> \y -> x { _lrpsMarker = y }
+lrpsMarker = lens _lrpsMarker (\s a -> s { _lrpsMarker = a })
 {-# INLINE lrpsMarker #-}
 
 instance FromXML ListRolePoliciesResponse where

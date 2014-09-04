@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
     -- * Request
       DeleteVolume
     -- ** Request constructor
-    , deleteVolume
+    , mkDeleteVolumeInput
     -- ** Request lenses
     , dviVolumeARN
 
@@ -61,15 +61,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteVolume' request.
-deleteVolume :: Text -- ^ 'dviVolumeARN'
-             -> DeleteVolume
-deleteVolume p1 = DeleteVolume
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVolume' request.
+mkDeleteVolumeInput :: Text -- ^ 'dviVolumeARN'
+                    -> DeleteVolume
+mkDeleteVolumeInput p1 = DeleteVolume
     { _dviVolumeARN = p1
     }
-{-# INLINE deleteVolume #-}
+{-# INLINE mkDeleteVolumeInput #-}
 
-data DeleteVolume = DeleteVolume
+newtype DeleteVolume = DeleteVolume
     { _dviVolumeARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
       -- operation to return a list of gateway volumes.
@@ -78,9 +79,7 @@ data DeleteVolume = DeleteVolume
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
 dviVolumeARN :: Lens' DeleteVolume (Text)
-dviVolumeARN f x =
-    f (_dviVolumeARN x)
-        <&> \y -> x { _dviVolumeARN = y }
+dviVolumeARN = lens _dviVolumeARN (\s a -> s { _dviVolumeARN = a })
 {-# INLINE dviVolumeARN #-}
 
 instance ToPath DeleteVolume
@@ -91,7 +90,7 @@ instance ToHeaders DeleteVolume
 
 instance ToJSON DeleteVolume
 
-data DeleteVolumeResponse = DeleteVolumeResponse
+newtype DeleteVolumeResponse = DeleteVolumeResponse
     { _dvoVolumeARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the storage volume that was
       -- deleted. It is the same ARN you provided in the request.
@@ -100,9 +99,7 @@ data DeleteVolumeResponse = DeleteVolumeResponse
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It
 -- is the same ARN you provided in the request.
 dvoVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
-dvoVolumeARN f x =
-    f (_dvoVolumeARN x)
-        <&> \y -> x { _dvoVolumeARN = y }
+dvoVolumeARN = lens _dvoVolumeARN (\s a -> s { _dvoVolumeARN = a })
 {-# INLINE dvoVolumeARN #-}
 
 instance FromJSON DeleteVolumeResponse

@@ -37,7 +37,7 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteTable
     -- * Request
       DeleteTable
     -- ** Request constructor
-    , deleteTable
+    , mkDeleteTableInput
     -- ** Request lenses
     , dtiTableName
 
@@ -52,24 +52,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteTable' request.
-deleteTable :: Text -- ^ 'dtiTableName'
-            -> DeleteTable
-deleteTable p1 = DeleteTable
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTable' request.
+mkDeleteTableInput :: Text -- ^ 'dtiTableName'
+                   -> DeleteTable
+mkDeleteTableInput p1 = DeleteTable
     { _dtiTableName = p1
     }
-{-# INLINE deleteTable #-}
+{-# INLINE mkDeleteTableInput #-}
 
-data DeleteTable = DeleteTable
+newtype DeleteTable = DeleteTable
     { _dtiTableName :: Text
       -- ^ The name of the table to delete.
     } deriving (Show, Generic)
 
 -- | The name of the table to delete.
 dtiTableName :: Lens' DeleteTable (Text)
-dtiTableName f x =
-    f (_dtiTableName x)
-        <&> \y -> x { _dtiTableName = y }
+dtiTableName = lens _dtiTableName (\s a -> s { _dtiTableName = a })
 {-# INLINE dtiTableName #-}
 
 instance ToPath DeleteTable
@@ -80,16 +79,14 @@ instance ToHeaders DeleteTable
 
 instance ToJSON DeleteTable
 
-data DeleteTableResponse = DeleteTableResponse
+newtype DeleteTableResponse = DeleteTableResponse
     { _dtoTableDescription :: Maybe TableDescription
       -- ^ Represents the properties of a table.
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
 dtoTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
-dtoTableDescription f x =
-    f (_dtoTableDescription x)
-        <&> \y -> x { _dtoTableDescription = y }
+dtoTableDescription = lens _dtoTableDescription (\s a -> s { _dtoTableDescription = a })
 {-# INLINE dtoTableDescription #-}
 
 instance FromJSON DeleteTableResponse

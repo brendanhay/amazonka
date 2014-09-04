@@ -23,7 +23,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CopySnapshot
     -- * Request
       CopySnapshot
     -- ** Request constructor
-    , copySnapshot
+    , mkCopySnapshotMessage
     -- ** Request lenses
     , csmSourceSnapshotName
     , csmTargetSnapshotName
@@ -38,15 +38,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CopySnapshot' request.
-copySnapshot :: Text -- ^ 'csmSourceSnapshotName'
-             -> Text -- ^ 'csmTargetSnapshotName'
-             -> CopySnapshot
-copySnapshot p1 p2 = CopySnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopySnapshot' request.
+mkCopySnapshotMessage :: Text -- ^ 'csmSourceSnapshotName'
+                      -> Text -- ^ 'csmTargetSnapshotName'
+                      -> CopySnapshot
+mkCopySnapshotMessage p1 p2 = CopySnapshot
     { _csmSourceSnapshotName = p1
     , _csmTargetSnapshotName = p2
     }
-{-# INLINE copySnapshot #-}
+{-# INLINE mkCopySnapshotMessage #-}
 
 data CopySnapshot = CopySnapshot
     { _csmSourceSnapshotName :: Text
@@ -57,22 +58,18 @@ data CopySnapshot = CopySnapshot
 
 -- | The name of an existing snapshot from which to copy.
 csmSourceSnapshotName :: Lens' CopySnapshot (Text)
-csmSourceSnapshotName f x =
-    f (_csmSourceSnapshotName x)
-        <&> \y -> x { _csmSourceSnapshotName = y }
+csmSourceSnapshotName = lens _csmSourceSnapshotName (\s a -> s { _csmSourceSnapshotName = a })
 {-# INLINE csmSourceSnapshotName #-}
 
 -- | A name for the copied snapshot.
 csmTargetSnapshotName :: Lens' CopySnapshot (Text)
-csmTargetSnapshotName f x =
-    f (_csmTargetSnapshotName x)
-        <&> \y -> x { _csmTargetSnapshotName = y }
+csmTargetSnapshotName = lens _csmTargetSnapshotName (\s a -> s { _csmTargetSnapshotName = a })
 {-# INLINE csmTargetSnapshotName #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
-data CopySnapshotResponse = CopySnapshotResponse
+newtype CopySnapshotResponse = CopySnapshotResponse
     { _swSnapshot :: Maybe Snapshot
       -- ^ Represents a copy of an entire cache cluster as of the time when
       -- the snapshot was taken.
@@ -81,9 +78,7 @@ data CopySnapshotResponse = CopySnapshotResponse
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
 swSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
-swSnapshot f x =
-    f (_swSnapshot x)
-        <&> \y -> x { _swSnapshot = y }
+swSnapshot = lens _swSnapshot (\s a -> s { _swSnapshot = a })
 {-# INLINE swSnapshot #-}
 
 instance FromXML CopySnapshotResponse where

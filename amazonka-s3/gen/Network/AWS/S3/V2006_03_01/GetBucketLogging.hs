@@ -24,7 +24,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketLogging
     -- * Request
       GetBucketLogging
     -- ** Request constructor
-    , getBucketLogging
+    , mkGetBucketLoggingRequest
     -- ** Request lenses
     , gbltBucket
 
@@ -38,22 +38,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketLogging' request.
-getBucketLogging :: BucketName -- ^ 'gbltBucket'
-                 -> GetBucketLogging
-getBucketLogging p1 = GetBucketLogging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketLogging' request.
+mkGetBucketLoggingRequest :: BucketName -- ^ 'gbltBucket'
+                          -> GetBucketLogging
+mkGetBucketLoggingRequest p1 = GetBucketLogging
     { _gbltBucket = p1
     }
-{-# INLINE getBucketLogging #-}
+{-# INLINE mkGetBucketLoggingRequest #-}
 
-data GetBucketLogging = GetBucketLogging
+newtype GetBucketLogging = GetBucketLogging
     { _gbltBucket :: BucketName
     } deriving (Show, Generic)
 
 gbltBucket :: Lens' GetBucketLogging (BucketName)
-gbltBucket f x =
-    f (_gbltBucket x)
-        <&> \y -> x { _gbltBucket = y }
+gbltBucket = lens _gbltBucket (\s a -> s { _gbltBucket = a })
 {-# INLINE gbltBucket #-}
 
 instance ToPath GetBucketLogging where
@@ -71,14 +70,12 @@ instance ToHeaders GetBucketLogging
 
 instance ToBody GetBucketLogging
 
-data GetBucketLoggingResponse = GetBucketLoggingResponse
+newtype GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblqLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
 gblqLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblqLoggingEnabled f x =
-    f (_gblqLoggingEnabled x)
-        <&> \y -> x { _gblqLoggingEnabled = y }
+gblqLoggingEnabled = lens _gblqLoggingEnabled (\s a -> s { _gblqLoggingEnabled = a })
 {-# INLINE gblqLoggingEnabled #-}
 
 instance FromXML GetBucketLoggingResponse where

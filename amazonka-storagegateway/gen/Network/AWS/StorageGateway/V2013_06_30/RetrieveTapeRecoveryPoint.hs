@@ -22,10 +22,10 @@ module Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint
     -- * Request
       RetrieveTapeRecoveryPoint
     -- ** Request constructor
-    , retrieveTapeRecoveryPoint
+    , mkRetrieveTapeRecoveryPointInput
     -- ** Request lenses
-    , rtrpiGatewayARN
     , rtrpiTapeARN
+    , rtrpiGatewayARN
 
     -- * Response
     , RetrieveTapeRecoveryPointResponse
@@ -38,37 +38,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RetrieveTapeRecoveryPoint' request.
-retrieveTapeRecoveryPoint :: Text -- ^ 'rtrpiGatewayARN'
-                          -> Text -- ^ 'rtrpiTapeARN'
-                          -> RetrieveTapeRecoveryPoint
-retrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
-    { _rtrpiGatewayARN = p1
-    , _rtrpiTapeARN = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveTapeRecoveryPoint' request.
+mkRetrieveTapeRecoveryPointInput :: Text -- ^ 'rtrpiTapeARN'
+                                 -> Text -- ^ 'rtrpiGatewayARN'
+                                 -> RetrieveTapeRecoveryPoint
+mkRetrieveTapeRecoveryPointInput p1 p2 = RetrieveTapeRecoveryPoint
+    { _rtrpiTapeARN = p1
+    , _rtrpiGatewayARN = p2
     }
-{-# INLINE retrieveTapeRecoveryPoint #-}
+{-# INLINE mkRetrieveTapeRecoveryPointInput #-}
 
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
-    { _rtrpiGatewayARN :: Text
+    { _rtrpiTapeARN :: Text
+    , _rtrpiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
-    , _rtrpiTapeARN :: Text
     } deriving (Show, Generic)
+
+rtrpiTapeARN :: Lens' RetrieveTapeRecoveryPoint (Text)
+rtrpiTapeARN = lens _rtrpiTapeARN (\s a -> s { _rtrpiTapeARN = a })
+{-# INLINE rtrpiTapeARN #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 rtrpiGatewayARN :: Lens' RetrieveTapeRecoveryPoint (Text)
-rtrpiGatewayARN f x =
-    f (_rtrpiGatewayARN x)
-        <&> \y -> x { _rtrpiGatewayARN = y }
+rtrpiGatewayARN = lens _rtrpiGatewayARN (\s a -> s { _rtrpiGatewayARN = a })
 {-# INLINE rtrpiGatewayARN #-}
-
-rtrpiTapeARN :: Lens' RetrieveTapeRecoveryPoint (Text)
-rtrpiTapeARN f x =
-    f (_rtrpiTapeARN x)
-        <&> \y -> x { _rtrpiTapeARN = y }
-{-# INLINE rtrpiTapeARN #-}
 
 instance ToPath RetrieveTapeRecoveryPoint
 
@@ -78,14 +75,12 @@ instance ToHeaders RetrieveTapeRecoveryPoint
 
 instance ToJSON RetrieveTapeRecoveryPoint
 
-data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
+newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrpoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 rtrpoTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
-rtrpoTapeARN f x =
-    f (_rtrpoTapeARN x)
-        <&> \y -> x { _rtrpoTapeARN = y }
+rtrpoTapeARN = lens _rtrpoTapeARN (\s a -> s { _rtrpoTapeARN = a })
 {-# INLINE rtrpoTapeARN #-}
 
 instance FromJSON RetrieveTapeRecoveryPointResponse

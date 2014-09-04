@@ -27,7 +27,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
     -- * Request
       DescribeVirtualGateways
     -- ** Request constructor
-    , describeVirtualGateways
+    , mkUnknown
     -- * Response
     , DescribeVirtualGatewaysResponse
     -- ** Response lenses
@@ -39,10 +39,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeVirtualGateways' request.
-describeVirtualGateways :: DescribeVirtualGateways
-describeVirtualGateways = DescribeVirtualGateways
-{-# INLINE describeVirtualGateways #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVirtualGateways' request.
+mkUnknown :: DescribeVirtualGateways
+mkUnknown = DescribeVirtualGateways
+{-# INLINE mkUnknown #-}
 
 data DescribeVirtualGateways = DescribeVirtualGateways
     deriving (Eq, Show, Generic)
@@ -55,16 +56,14 @@ instance ToHeaders DescribeVirtualGateways
 
 instance ToJSON DescribeVirtualGateways
 
-data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
+newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _vgVirtualGateways :: [VirtualGateway]
       -- ^ A list of virtual private gateways.
     } deriving (Show, Generic)
 
 -- | A list of virtual private gateways.
 vgVirtualGateways :: Lens' DescribeVirtualGatewaysResponse ([VirtualGateway])
-vgVirtualGateways f x =
-    f (_vgVirtualGateways x)
-        <&> \y -> x { _vgVirtualGateways = y }
+vgVirtualGateways = lens _vgVirtualGateways (\s a -> s { _vgVirtualGateways = a })
 {-# INLINE vgVirtualGateways #-}
 
 instance FromJSON DescribeVirtualGatewaysResponse

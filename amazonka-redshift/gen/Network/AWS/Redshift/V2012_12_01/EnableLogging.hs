@@ -24,7 +24,7 @@ module Network.AWS.Redshift.V2012_12_01.EnableLogging
     -- * Request
       EnableLogging
     -- ** Request constructor
-    , enableLogging
+    , mkEnableLoggingMessage
     -- ** Request lenses
     , elmClusterIdentifier
     , elmBucketName
@@ -36,25 +36,26 @@ module Network.AWS.Redshift.V2012_12_01.EnableLogging
     , lluLoggingEnabled
     , lluBucketName
     , lluS3KeyPrefix
-    , lluLastFailureMessage
     , lluLastSuccessfulDeliveryTime
     , lluLastFailureTime
+    , lluLastFailureMessage
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'EnableLogging' request.
-enableLogging :: Text -- ^ 'elmClusterIdentifier'
-              -> Text -- ^ 'elmBucketName'
-              -> EnableLogging
-enableLogging p1 p2 = EnableLogging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableLogging' request.
+mkEnableLoggingMessage :: Text -- ^ 'elmClusterIdentifier'
+                       -> Text -- ^ 'elmBucketName'
+                       -> EnableLogging
+mkEnableLoggingMessage p1 p2 = EnableLogging
     { _elmClusterIdentifier = p1
     , _elmBucketName = p2
     , _elmS3KeyPrefix = Nothing
     }
-{-# INLINE enableLogging #-}
+{-# INLINE mkEnableLoggingMessage #-}
 
 data EnableLogging = EnableLogging
     { _elmClusterIdentifier :: Text
@@ -75,18 +76,14 @@ data EnableLogging = EnableLogging
 -- | The identifier of the cluster on which logging is to be started. Example:
 -- examplecluster.
 elmClusterIdentifier :: Lens' EnableLogging (Text)
-elmClusterIdentifier f x =
-    f (_elmClusterIdentifier x)
-        <&> \y -> x { _elmClusterIdentifier = y }
+elmClusterIdentifier = lens _elmClusterIdentifier (\s a -> s { _elmClusterIdentifier = a })
 {-# INLINE elmClusterIdentifier #-}
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
 -- Constraints: Must be in the same region as the cluster The cluster must
 -- have read bucket and put object permissions.
 elmBucketName :: Lens' EnableLogging (Text)
-elmBucketName f x =
-    f (_elmBucketName x)
-        <&> \y -> x { _elmBucketName = y }
+elmBucketName = lens _elmBucketName (\s a -> s { _elmBucketName = a })
 {-# INLINE elmBucketName #-}
 
 -- | The prefix applied to the log file names. Constraints: Cannot exceed 512
@@ -94,9 +91,7 @@ elmBucketName f x =
 -- a backslash (\), or control characters. The hexadecimal codes for invalid
 -- characters are: x00 to x20 x22 x27 x5c x7f or larger.
 elmS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
-elmS3KeyPrefix f x =
-    f (_elmS3KeyPrefix x)
-        <&> \y -> x { _elmS3KeyPrefix = y }
+elmS3KeyPrefix = lens _elmS3KeyPrefix (\s a -> s { _elmS3KeyPrefix = a })
 {-# INLINE elmS3KeyPrefix #-}
 
 instance ToQuery EnableLogging where
@@ -109,55 +104,43 @@ data EnableLoggingResponse = EnableLoggingResponse
       -- ^ The name of the S3 bucket where the log files are stored.
     , _lluS3KeyPrefix :: Maybe Text
       -- ^ The prefix applied to the log file names.
-    , _lluLastFailureMessage :: Maybe Text
-      -- ^ The message indicating that logs failed to be delivered.
     , _lluLastSuccessfulDeliveryTime :: Maybe ISO8601
       -- ^ The last time when logs were delivered.
     , _lluLastFailureTime :: Maybe ISO8601
       -- ^ The last time when logs failed to be delivered.
+    , _lluLastFailureMessage :: Maybe Text
+      -- ^ The message indicating that logs failed to be delivered.
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
 lluLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
-lluLoggingEnabled f x =
-    f (_lluLoggingEnabled x)
-        <&> \y -> x { _lluLoggingEnabled = y }
+lluLoggingEnabled = lens _lluLoggingEnabled (\s a -> s { _lluLoggingEnabled = a })
 {-# INLINE lluLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
 lluBucketName :: Lens' EnableLoggingResponse (Maybe Text)
-lluBucketName f x =
-    f (_lluBucketName x)
-        <&> \y -> x { _lluBucketName = y }
+lluBucketName = lens _lluBucketName (\s a -> s { _lluBucketName = a })
 {-# INLINE lluBucketName #-}
 
 -- | The prefix applied to the log file names.
 lluS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
-lluS3KeyPrefix f x =
-    f (_lluS3KeyPrefix x)
-        <&> \y -> x { _lluS3KeyPrefix = y }
+lluS3KeyPrefix = lens _lluS3KeyPrefix (\s a -> s { _lluS3KeyPrefix = a })
 {-# INLINE lluS3KeyPrefix #-}
-
--- | The message indicating that logs failed to be delivered.
-lluLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
-lluLastFailureMessage f x =
-    f (_lluLastFailureMessage x)
-        <&> \y -> x { _lluLastFailureMessage = y }
-{-# INLINE lluLastFailureMessage #-}
 
 -- | The last time when logs were delivered.
 lluLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
-lluLastSuccessfulDeliveryTime f x =
-    f (_lluLastSuccessfulDeliveryTime x)
-        <&> \y -> x { _lluLastSuccessfulDeliveryTime = y }
+lluLastSuccessfulDeliveryTime = lens _lluLastSuccessfulDeliveryTime (\s a -> s { _lluLastSuccessfulDeliveryTime = a })
 {-# INLINE lluLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
 lluLastFailureTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
-lluLastFailureTime f x =
-    f (_lluLastFailureTime x)
-        <&> \y -> x { _lluLastFailureTime = y }
+lluLastFailureTime = lens _lluLastFailureTime (\s a -> s { _lluLastFailureTime = a })
 {-# INLINE lluLastFailureTime #-}
+
+-- | The message indicating that logs failed to be delivered.
+lluLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
+lluLastFailureMessage = lens _lluLastFailureMessage (\s a -> s { _lluLastFailureMessage = a })
+{-# INLINE lluLastFailureMessage #-}
 
 instance FromXML EnableLoggingResponse where
     fromXMLOptions = xmlOptions

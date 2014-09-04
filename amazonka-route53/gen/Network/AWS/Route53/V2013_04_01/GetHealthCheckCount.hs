@@ -24,7 +24,7 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
     -- * Request
       GetHealthCheckCount
     -- ** Request constructor
-    , getHealthCheckCount
+    , mkGetHealthCheckCountRequest
     -- * Response
     , GetHealthCheckCountResponse
     -- ** Response lenses
@@ -35,12 +35,12 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetHealthCheckCount' request.
-getHealthCheckCount :: GetHealthCheckCount
-getHealthCheckCount = GetHealthCheckCount
-{-# INLINE getHealthCheckCount #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHealthCheckCount' request.
+mkGetHealthCheckCountRequest :: GetHealthCheckCount
+mkGetHealthCheckCountRequest = GetHealthCheckCount
+{-# INLINE mkGetHealthCheckCountRequest #-}
 
-data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Show, Generic)
 
 instance ToPath GetHealthCheckCount where
@@ -54,7 +54,7 @@ instance ToXML GetHealthCheckCount where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckCountRequest"
 
-data GetHealthCheckCountResponse = GetHealthCheckCountResponse
+newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccsHealthCheckCount :: Integer
       -- ^ The number of health checks associated with the current AWS
       -- account.
@@ -62,9 +62,7 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse
 
 -- | The number of health checks associated with the current AWS account.
 ghccsHealthCheckCount :: Lens' GetHealthCheckCountResponse (Integer)
-ghccsHealthCheckCount f x =
-    f (_ghccsHealthCheckCount x)
-        <&> \y -> x { _ghccsHealthCheckCount = y }
+ghccsHealthCheckCount = lens _ghccsHealthCheckCount (\s a -> s { _ghccsHealthCheckCount = a })
 {-# INLINE ghccsHealthCheckCount #-}
 
 instance FromXML GetHealthCheckCountResponse where

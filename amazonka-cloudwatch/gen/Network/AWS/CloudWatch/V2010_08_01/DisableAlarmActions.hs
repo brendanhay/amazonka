@@ -25,7 +25,7 @@ module Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions
     -- * Request
       DisableAlarmActions
     -- ** Request constructor
-    , disableAlarmActions
+    , mkDisableAlarmActionsInput
     -- ** Request lenses
     , daaiAlarmNames
 
@@ -37,24 +37,23 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DisableAlarmActions' request.
-disableAlarmActions :: [Text] -- ^ 'daaiAlarmNames'
-                    -> DisableAlarmActions
-disableAlarmActions p1 = DisableAlarmActions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableAlarmActions' request.
+mkDisableAlarmActionsInput :: [Text] -- ^ 'daaiAlarmNames'
+                           -> DisableAlarmActions
+mkDisableAlarmActionsInput p1 = DisableAlarmActions
     { _daaiAlarmNames = p1
     }
-{-# INLINE disableAlarmActions #-}
+{-# INLINE mkDisableAlarmActionsInput #-}
 
-data DisableAlarmActions = DisableAlarmActions
+newtype DisableAlarmActions = DisableAlarmActions
     { _daaiAlarmNames :: [Text]
       -- ^ The names of the alarms to disable actions for.
     } deriving (Show, Generic)
 
 -- | The names of the alarms to disable actions for.
 daaiAlarmNames :: Lens' DisableAlarmActions ([Text])
-daaiAlarmNames f x =
-    f (_daaiAlarmNames x)
-        <&> \y -> x { _daaiAlarmNames = y }
+daaiAlarmNames = lens _daaiAlarmNames (\s a -> s { _daaiAlarmNames = a })
 {-# INLINE daaiAlarmNames #-}
 
 instance ToQuery DisableAlarmActions where

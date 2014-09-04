@@ -23,7 +23,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate
     -- * Request
       DeleteHsmClientCertificate
     -- ** Request constructor
-    , deleteHsmClientCertificate
+    , mkDeleteHsmClientCertificateMessage
     -- ** Request lenses
     , dhccmHsmClientCertificateIdentifier
 
@@ -35,24 +35,23 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteHsmClientCertificate' request.
-deleteHsmClientCertificate :: Text -- ^ 'dhccmHsmClientCertificateIdentifier'
-                           -> DeleteHsmClientCertificate
-deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHsmClientCertificate' request.
+mkDeleteHsmClientCertificateMessage :: Text -- ^ 'dhccmHsmClientCertificateIdentifier'
+                                    -> DeleteHsmClientCertificate
+mkDeleteHsmClientCertificateMessage p1 = DeleteHsmClientCertificate
     { _dhccmHsmClientCertificateIdentifier = p1
     }
-{-# INLINE deleteHsmClientCertificate #-}
+{-# INLINE mkDeleteHsmClientCertificateMessage #-}
 
-data DeleteHsmClientCertificate = DeleteHsmClientCertificate
+newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
     { _dhccmHsmClientCertificateIdentifier :: Text
       -- ^ The identifier of the HSM client certificate to be deleted.
     } deriving (Show, Generic)
 
 -- | The identifier of the HSM client certificate to be deleted.
 dhccmHsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate (Text)
-dhccmHsmClientCertificateIdentifier f x =
-    f (_dhccmHsmClientCertificateIdentifier x)
-        <&> \y -> x { _dhccmHsmClientCertificateIdentifier = y }
+dhccmHsmClientCertificateIdentifier = lens _dhccmHsmClientCertificateIdentifier (\s a -> s { _dhccmHsmClientCertificateIdentifier = a })
 {-# INLINE dhccmHsmClientCertificateIdentifier #-}
 
 instance ToQuery DeleteHsmClientCertificate where

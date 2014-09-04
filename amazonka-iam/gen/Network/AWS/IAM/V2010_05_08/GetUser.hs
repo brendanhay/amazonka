@@ -30,7 +30,7 @@ module Network.AWS.IAM.V2010_05_08.GetUser
     -- * Request
       GetUser
     -- ** Request constructor
-    , getUser
+    , mkGetUserRequest
     -- ** Request lenses
     , gurUserName
 
@@ -44,14 +44,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetUser' request.
-getUser :: GetUser
-getUser = GetUser
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetUser' request.
+mkGetUserRequest :: GetUser
+mkGetUserRequest = GetUser
     { _gurUserName = Nothing
     }
-{-# INLINE getUser #-}
+{-# INLINE mkGetUserRequest #-}
 
-data GetUser = GetUser
+newtype GetUser = GetUser
     { _gurUserName :: Maybe Text
       -- ^ Name of the user to get information about. This parameter is
       -- optional. If it is not included, it defaults to the user making
@@ -61,24 +62,20 @@ data GetUser = GetUser
 -- | Name of the user to get information about. This parameter is optional. If
 -- it is not included, it defaults to the user making the request.
 gurUserName :: Lens' GetUser (Maybe Text)
-gurUserName f x =
-    f (_gurUserName x)
-        <&> \y -> x { _gurUserName = y }
+gurUserName = lens _gurUserName (\s a -> s { _gurUserName = a })
 {-# INLINE gurUserName #-}
 
 instance ToQuery GetUser where
     toQuery = genericQuery def
 
-data GetUserResponse = GetUserResponse
+newtype GetUserResponse = GetUserResponse
     { _gusUser :: User
       -- ^ Information about the user.
     } deriving (Show, Generic)
 
 -- | Information about the user.
 gusUser :: Lens' GetUserResponse (User)
-gusUser f x =
-    f (_gusUser x)
-        <&> \y -> x { _gusUser = y }
+gusUser = lens _gusUser (\s a -> s { _gusUser = a })
 {-# INLINE gusUser #-}
 
 instance FromXML GetUserResponse where

@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
     -- * Request
       DeleteStreamingDistribution
     -- ** Request constructor
-    , deleteStreamingDistribution
+    , mkDeleteStreamingDistributionRequest
     -- ** Request lenses
     , dsdrId
     , dsdrIfMatch
@@ -36,14 +36,15 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteStreamingDistribution' request.
-deleteStreamingDistribution :: Text -- ^ 'dsdrId'
-                            -> DeleteStreamingDistribution
-deleteStreamingDistribution p1 = DeleteStreamingDistribution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStreamingDistribution' request.
+mkDeleteStreamingDistributionRequest :: Text -- ^ 'dsdrId'
+                                     -> DeleteStreamingDistribution
+mkDeleteStreamingDistributionRequest p1 = DeleteStreamingDistribution
     { _dsdrId = p1
     , _dsdrIfMatch = Nothing
     }
-{-# INLINE deleteStreamingDistribution #-}
+{-# INLINE mkDeleteStreamingDistributionRequest #-}
 
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdrId :: Text
@@ -55,17 +56,13 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 
 -- | The distribution id.
 dsdrId :: Lens' DeleteStreamingDistribution (Text)
-dsdrId f x =
-    f (_dsdrId x)
-        <&> \y -> x { _dsdrId = y }
+dsdrId = lens _dsdrId (\s a -> s { _dsdrId = a })
 {-# INLINE dsdrId #-}
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
 dsdrIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
-dsdrIfMatch f x =
-    f (_dsdrIfMatch x)
-        <&> \y -> x { _dsdrIfMatch = y }
+dsdrIfMatch = lens _dsdrIfMatch (\s a -> s { _dsdrIfMatch = a })
 {-# INLINE dsdrIfMatch #-}
 
 instance ToPath DeleteStreamingDistribution where
@@ -76,10 +73,7 @@ instance ToPath DeleteStreamingDistribution where
 
 instance ToQuery DeleteStreamingDistribution
 
-instance ToHeaders DeleteStreamingDistribution where
-    toHeaders DeleteStreamingDistribution{..} = concat
-        [ "If-Match" =: _dsdrIfMatch
-        ]
+instance ToHeaders DeleteStreamingDistribution
 
 instance ToXML DeleteStreamingDistribution where
     toXMLOptions = xmlOptions

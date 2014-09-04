@@ -31,7 +31,7 @@ module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
     -- * Request
       ValidateTemplate
     -- ** Request constructor
-    , validateTemplate
+    , mkValidateTemplateInput
     -- ** Request lenses
     , vtiTemplateBody
     , vtiTemplateURL
@@ -39,23 +39,24 @@ module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
     -- * Response
     , ValidateTemplateResponse
     -- ** Response lenses
+    , vtoParameters
+    , vtoDescription
     , vtoCapabilities
     , vtoCapabilitiesReason
-    , vtoDescription
-    , vtoParameters
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ValidateTemplate' request.
-validateTemplate :: ValidateTemplate
-validateTemplate = ValidateTemplate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ValidateTemplate' request.
+mkValidateTemplateInput :: ValidateTemplate
+mkValidateTemplateInput = ValidateTemplate
     { _vtiTemplateBody = Nothing
     , _vtiTemplateURL = Nothing
     }
-{-# INLINE validateTemplate #-}
+{-# INLINE mkValidateTemplateInput #-}
 
 data ValidateTemplate = ValidateTemplate
     { _vtiTemplateBody :: Maybe Text
@@ -78,9 +79,7 @@ data ValidateTemplate = ValidateTemplate
 -- Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass
 -- TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
 vtiTemplateBody :: Lens' ValidateTemplate (Maybe Text)
-vtiTemplateBody f x =
-    f (_vtiTemplateBody x)
-        <&> \y -> x { _vtiTemplateBody = y }
+vtiTemplateBody = lens _vtiTemplateBody (\s a -> s { _vtiTemplateBody = a })
 {-# INLINE vtiTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
@@ -89,16 +88,18 @@ vtiTemplateBody f x =
 -- AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or
 -- TemplateBody. If both are passed, only TemplateBody is used.
 vtiTemplateURL :: Lens' ValidateTemplate (Maybe Text)
-vtiTemplateURL f x =
-    f (_vtiTemplateURL x)
-        <&> \y -> x { _vtiTemplateURL = y }
+vtiTemplateURL = lens _vtiTemplateURL (\s a -> s { _vtiTemplateURL = a })
 {-# INLINE vtiTemplateURL #-}
 
 instance ToQuery ValidateTemplate where
     toQuery = genericQuery def
 
 data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtoCapabilities :: [Capability]
+    { _vtoParameters :: [TemplateParameter]
+      -- ^ A list of TemplateParameter structures.
+    , _vtoDescription :: Maybe Text
+      -- ^ The description found within the template.
+    , _vtoCapabilities :: [Capability]
       -- ^ The capabilities found within the template. Currently,
       -- CAPABILITY_IAM is the only capability detected. If your template
       -- contains IAM resources, you must specify the CAPABILITY_IAM value
@@ -107,11 +108,17 @@ data ValidateTemplateResponse = ValidateTemplateResponse
       -- InsufficientCapabilities error.
     , _vtoCapabilitiesReason :: Maybe Text
       -- ^ The capabilities reason found within the template.
-    , _vtoDescription :: Maybe Text
-      -- ^ The description found within the template.
-    , _vtoParameters :: [TemplateParameter]
-      -- ^ A list of TemplateParameter structures.
     } deriving (Show, Generic)
+
+-- | A list of TemplateParameter structures.
+vtoParameters :: Lens' ValidateTemplateResponse ([TemplateParameter])
+vtoParameters = lens _vtoParameters (\s a -> s { _vtoParameters = a })
+{-# INLINE vtoParameters #-}
+
+-- | The description found within the template.
+vtoDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtoDescription = lens _vtoDescription (\s a -> s { _vtoDescription = a })
+{-# INLINE vtoDescription #-}
 
 -- | The capabilities found within the template. Currently, CAPABILITY_IAM is
 -- the only capability detected. If your template contains IAM resources, you
@@ -119,31 +126,13 @@ data ValidateTemplateResponse = ValidateTemplateResponse
 -- CreateStack or UpdateStack actions with your template; otherwise, those
 -- actions return an InsufficientCapabilities error.
 vtoCapabilities :: Lens' ValidateTemplateResponse ([Capability])
-vtoCapabilities f x =
-    f (_vtoCapabilities x)
-        <&> \y -> x { _vtoCapabilities = y }
+vtoCapabilities = lens _vtoCapabilities (\s a -> s { _vtoCapabilities = a })
 {-# INLINE vtoCapabilities #-}
 
 -- | The capabilities reason found within the template.
 vtoCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
-vtoCapabilitiesReason f x =
-    f (_vtoCapabilitiesReason x)
-        <&> \y -> x { _vtoCapabilitiesReason = y }
+vtoCapabilitiesReason = lens _vtoCapabilitiesReason (\s a -> s { _vtoCapabilitiesReason = a })
 {-# INLINE vtoCapabilitiesReason #-}
-
--- | The description found within the template.
-vtoDescription :: Lens' ValidateTemplateResponse (Maybe Text)
-vtoDescription f x =
-    f (_vtoDescription x)
-        <&> \y -> x { _vtoDescription = y }
-{-# INLINE vtoDescription #-}
-
--- | A list of TemplateParameter structures.
-vtoParameters :: Lens' ValidateTemplateResponse ([TemplateParameter])
-vtoParameters f x =
-    f (_vtoParameters x)
-        <&> \y -> x { _vtoParameters = y }
-{-# INLINE vtoParameters #-}
 
 instance FromXML ValidateTemplateResponse where
     fromXMLOptions = xmlOptions

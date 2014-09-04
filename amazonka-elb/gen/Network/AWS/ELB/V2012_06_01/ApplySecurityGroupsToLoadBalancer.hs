@@ -31,7 +31,7 @@ module Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer
     -- * Request
       ApplySecurityGroupsToLoadBalancer
     -- ** Request constructor
-    , applySecurityGroupsToLoadBalancer
+    , mkApplySecurityGroupsToLoadBalancerInput
     -- ** Request lenses
     , asgtlbiLoadBalancerName
     , asgtlbiSecurityGroups
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ApplySecurityGroupsToLoadBalancer' request.
-applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbiLoadBalancerName'
-                                  -> [Text] -- ^ 'asgtlbiSecurityGroups'
-                                  -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ApplySecurityGroupsToLoadBalancer' request.
+mkApplySecurityGroupsToLoadBalancerInput :: Text -- ^ 'asgtlbiLoadBalancerName'
+                                         -> [Text] -- ^ 'asgtlbiSecurityGroups'
+                                         -> ApplySecurityGroupsToLoadBalancer
+mkApplySecurityGroupsToLoadBalancerInput p1 p2 = ApplySecurityGroupsToLoadBalancer
     { _asgtlbiLoadBalancerName = p1
     , _asgtlbiSecurityGroups = p2
     }
-{-# INLINE applySecurityGroupsToLoadBalancer #-}
+{-# INLINE mkApplySecurityGroupsToLoadBalancerInput #-}
 
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbiLoadBalancerName :: Text
@@ -70,33 +71,27 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
 asgtlbiLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer (Text)
-asgtlbiLoadBalancerName f x =
-    f (_asgtlbiLoadBalancerName x)
-        <&> \y -> x { _asgtlbiLoadBalancerName = y }
+asgtlbiLoadBalancerName = lens _asgtlbiLoadBalancerName (\s a -> s { _asgtlbiLoadBalancerName = a })
 {-# INLINE asgtlbiLoadBalancerName #-}
 
 -- | A list of security group IDs to associate with your load balancer in VPC.
 -- The security group IDs must be provided as the ID and not the security
 -- group name (For example, sg-1234).
 asgtlbiSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer ([Text])
-asgtlbiSecurityGroups f x =
-    f (_asgtlbiSecurityGroups x)
-        <&> \y -> x { _asgtlbiSecurityGroups = y }
+asgtlbiSecurityGroups = lens _asgtlbiSecurityGroups (\s a -> s { _asgtlbiSecurityGroups = a })
 {-# INLINE asgtlbiSecurityGroups #-}
 
 instance ToQuery ApplySecurityGroupsToLoadBalancer where
     toQuery = genericQuery def
 
-data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
+newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlboSecurityGroups :: [Text]
       -- ^ A list of security group IDs associated with your load balancer.
     } deriving (Show, Generic)
 
 -- | A list of security group IDs associated with your load balancer.
 asgtlboSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse ([Text])
-asgtlboSecurityGroups f x =
-    f (_asgtlboSecurityGroups x)
-        <&> \y -> x { _asgtlboSecurityGroups = y }
+asgtlboSecurityGroups = lens _asgtlboSecurityGroups (\s a -> s { _asgtlboSecurityGroups = a })
 {-# INLINE asgtlboSecurityGroups #-}
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where

@@ -34,12 +34,12 @@ module Network.AWS.RDS.V2013_09_09.DownloadDBLogFilePortion
     -- * Request
       DownloadDBLogFilePortion
     -- ** Request constructor
-    , downloadDBLogFilePortion
+    , mkDownloadDBLogFilePortionMessage
     -- ** Request lenses
     , ddblfpmDBInstanceIdentifier
     , ddblfpmLogFileName
-    , ddblfpmNumberOfLines
     , ddblfpmMarker
+    , ddblfpmNumberOfLines
 
     -- * Response
     , DownloadDBLogFilePortionResponse
@@ -53,17 +53,18 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DownloadDBLogFilePortion' request.
-downloadDBLogFilePortion :: Text -- ^ 'ddblfpmDBInstanceIdentifier'
-                         -> Text -- ^ 'ddblfpmLogFileName'
-                         -> DownloadDBLogFilePortion
-downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DownloadDBLogFilePortion' request.
+mkDownloadDBLogFilePortionMessage :: Text -- ^ 'ddblfpmDBInstanceIdentifier'
+                                  -> Text -- ^ 'ddblfpmLogFileName'
+                                  -> DownloadDBLogFilePortion
+mkDownloadDBLogFilePortionMessage p1 p2 = DownloadDBLogFilePortion
     { _ddblfpmDBInstanceIdentifier = p1
     , _ddblfpmLogFileName = p2
-    , _ddblfpmNumberOfLines = Nothing
     , _ddblfpmMarker = Nothing
+    , _ddblfpmNumberOfLines = Nothing
     }
-{-# INLINE downloadDBLogFilePortion #-}
+{-# INLINE mkDownloadDBLogFilePortionMessage #-}
 
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion
     { _ddblfpmDBInstanceIdentifier :: Text
@@ -74,12 +75,12 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
       -- hyphens.
     , _ddblfpmLogFileName :: Text
       -- ^ The name of the log file to be downloaded.
-    , _ddblfpmNumberOfLines :: Maybe Integer
-      -- ^ The number of lines remaining to be downloaded.
     , _ddblfpmMarker :: Maybe Text
       -- ^ The pagination token provided in the previous request. If this
       -- parameter is specified the response includes only records beyond
       -- the marker, up to MaxRecords.
+    , _ddblfpmNumberOfLines :: Maybe Integer
+      -- ^ The number of lines remaining to be downloaded.
     } deriving (Show, Generic)
 
 -- | The customer-assigned name of the DB instance that contains the log files
@@ -87,33 +88,25 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
 ddblfpmDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion (Text)
-ddblfpmDBInstanceIdentifier f x =
-    f (_ddblfpmDBInstanceIdentifier x)
-        <&> \y -> x { _ddblfpmDBInstanceIdentifier = y }
+ddblfpmDBInstanceIdentifier = lens _ddblfpmDBInstanceIdentifier (\s a -> s { _ddblfpmDBInstanceIdentifier = a })
 {-# INLINE ddblfpmDBInstanceIdentifier #-}
 
 -- | The name of the log file to be downloaded.
 ddblfpmLogFileName :: Lens' DownloadDBLogFilePortion (Text)
-ddblfpmLogFileName f x =
-    f (_ddblfpmLogFileName x)
-        <&> \y -> x { _ddblfpmLogFileName = y }
+ddblfpmLogFileName = lens _ddblfpmLogFileName (\s a -> s { _ddblfpmLogFileName = a })
 {-# INLINE ddblfpmLogFileName #-}
-
--- | The number of lines remaining to be downloaded.
-ddblfpmNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Integer)
-ddblfpmNumberOfLines f x =
-    f (_ddblfpmNumberOfLines x)
-        <&> \y -> x { _ddblfpmNumberOfLines = y }
-{-# INLINE ddblfpmNumberOfLines #-}
 
 -- | The pagination token provided in the previous request. If this parameter is
 -- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
 ddblfpmMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
-ddblfpmMarker f x =
-    f (_ddblfpmMarker x)
-        <&> \y -> x { _ddblfpmMarker = y }
+ddblfpmMarker = lens _ddblfpmMarker (\s a -> s { _ddblfpmMarker = a })
 {-# INLINE ddblfpmMarker #-}
+
+-- | The number of lines remaining to be downloaded.
+ddblfpmNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Integer)
+ddblfpmNumberOfLines = lens _ddblfpmNumberOfLines (\s a -> s { _ddblfpmNumberOfLines = a })
+{-# INLINE ddblfpmNumberOfLines #-}
 
 instance ToQuery DownloadDBLogFilePortion where
     toQuery = genericQuery def
@@ -131,24 +124,18 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
 
 -- | Boolean value that if true, indicates there is more data to be downloaded.
 ddblfpdAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse (Bool)
-ddblfpdAdditionalDataPending f x =
-    f (_ddblfpdAdditionalDataPending x)
-        <&> \y -> x { _ddblfpdAdditionalDataPending = y }
+ddblfpdAdditionalDataPending = lens _ddblfpdAdditionalDataPending (\s a -> s { _ddblfpdAdditionalDataPending = a })
 {-# INLINE ddblfpdAdditionalDataPending #-}
 
 -- | Entries from the specified log file.
 ddblfpdLogFileData :: Lens' DownloadDBLogFilePortionResponse (ByteString)
-ddblfpdLogFileData f x =
-    f (_ddblfpdLogFileData x)
-        <&> \y -> x { _ddblfpdLogFileData = y }
+ddblfpdLogFileData = lens _ddblfpdLogFileData (\s a -> s { _ddblfpdLogFileData = a })
 {-# INLINE ddblfpdLogFileData #-}
 
 -- | An optional pagination token provided by a previous
 -- DownloadDBLogFilePortion request.
 ddblfpdMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
-ddblfpdMarker f x =
-    f (_ddblfpdMarker x)
-        <&> \y -> x { _ddblfpdMarker = y }
+ddblfpdMarker = lens _ddblfpdMarker (\s a -> s { _ddblfpdMarker = a })
 {-# INLINE ddblfpdMarker #-}
 
 instance FromXML DownloadDBLogFilePortionResponse where

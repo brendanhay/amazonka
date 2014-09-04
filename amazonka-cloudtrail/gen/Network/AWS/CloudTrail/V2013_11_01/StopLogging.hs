@@ -26,7 +26,7 @@ module Network.AWS.CloudTrail.V2013_11_01.StopLogging
     -- * Request
       StopLogging
     -- ** Request constructor
-    , stopLogging
+    , mkStopLoggingRequest
     -- ** Request lenses
     , sltName
 
@@ -39,15 +39,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'StopLogging' request.
-stopLogging :: Text -- ^ 'sltName'
-            -> StopLogging
-stopLogging p1 = StopLogging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopLogging' request.
+mkStopLoggingRequest :: Text -- ^ 'sltName'
+                     -> StopLogging
+mkStopLoggingRequest p1 = StopLogging
     { _sltName = p1
     }
-{-# INLINE stopLogging #-}
+{-# INLINE mkStopLoggingRequest #-}
 
-data StopLogging = StopLogging
+newtype StopLogging = StopLogging
     { _sltName :: Text
       -- ^ Communicates to CloudTrail the name of the trail for which to
       -- stop logging AWS API calls.
@@ -56,9 +57,7 @@ data StopLogging = StopLogging
 -- | Communicates to CloudTrail the name of the trail for which to stop logging
 -- AWS API calls.
 sltName :: Lens' StopLogging (Text)
-sltName f x =
-    f (_sltName x)
-        <&> \y -> x { _sltName = y }
+sltName = lens _sltName (\s a -> s { _sltName = a })
 {-# INLINE sltName #-}
 
 instance ToPath StopLogging
@@ -69,7 +68,6 @@ instance ToHeaders StopLogging
 
 instance ToJSON StopLogging
 
-data StopLoggingResponse = StopLoggingResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest StopLogging where

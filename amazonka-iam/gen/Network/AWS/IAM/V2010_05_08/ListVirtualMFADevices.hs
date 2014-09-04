@@ -37,7 +37,7 @@ module Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
     -- * Request
       ListVirtualMFADevices
     -- ** Request constructor
-    , listVirtualMFADevices
+    , mkListVirtualMFADevicesRequest
     -- ** Request lenses
     , lvmfadrAssignmentStatus
     , lvmfadrMarker
@@ -46,8 +46,8 @@ module Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
     -- * Response
     , ListVirtualMFADevicesResponse
     -- ** Response lenses
-    , lvmfadsIsTruncated
     , lvmfadsVirtualMFADevices
+    , lvmfadsIsTruncated
     , lvmfadsMarker
     ) where
 
@@ -55,14 +55,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListVirtualMFADevices' request.
-listVirtualMFADevices :: ListVirtualMFADevices
-listVirtualMFADevices = ListVirtualMFADevices
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVirtualMFADevices' request.
+mkListVirtualMFADevicesRequest :: ListVirtualMFADevices
+mkListVirtualMFADevicesRequest = ListVirtualMFADevices
     { _lvmfadrAssignmentStatus = Nothing
     , _lvmfadrMarker = Nothing
     , _lvmfadrMaxItems = Nothing
     }
-{-# INLINE listVirtualMFADevices #-}
+{-# INLINE mkListVirtualMFADevicesRequest #-}
 
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadrAssignmentStatus :: Maybe AssignmentStatusType
@@ -86,9 +87,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
 -- specify an AssignmentStatus, the action defaults to Any which lists both
 -- assigned and unassigned virtual MFA devices.
 lvmfadrAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
-lvmfadrAssignmentStatus f x =
-    f (_lvmfadrAssignmentStatus x)
-        <&> \y -> x { _lvmfadrAssignmentStatus = y }
+lvmfadrAssignmentStatus = lens _lvmfadrAssignmentStatus (\s a -> s { _lvmfadrAssignmentStatus = a })
 {-# INLINE lvmfadrAssignmentStatus #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
@@ -96,9 +95,7 @@ lvmfadrAssignmentStatus f x =
 -- Set it to the value of the Marker element in the response you just
 -- received.
 lvmfadrMarker :: Lens' ListVirtualMFADevices (Maybe Text)
-lvmfadrMarker f x =
-    f (_lvmfadrMarker x)
-        <&> \y -> x { _lvmfadrMarker = y }
+lvmfadrMarker = lens _lvmfadrMarker (\s a -> s { _lvmfadrMarker = a })
 {-# INLINE lvmfadrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -107,48 +104,40 @@ lvmfadrMarker f x =
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
 lvmfadrMaxItems :: Lens' ListVirtualMFADevices (Maybe Integer)
-lvmfadrMaxItems f x =
-    f (_lvmfadrMaxItems x)
-        <&> \y -> x { _lvmfadrMaxItems = y }
+lvmfadrMaxItems = lens _lvmfadrMaxItems (\s a -> s { _lvmfadrMaxItems = a })
 {-# INLINE lvmfadrMaxItems #-}
 
 instance ToQuery ListVirtualMFADevices where
     toQuery = genericQuery def
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
-    { _lvmfadsIsTruncated :: Bool
+    { _lvmfadsVirtualMFADevices :: [VirtualMFADevice]
+    , _lvmfadsIsTruncated :: Bool
       -- ^ A flag that indicates whether there are more items to list. If
       -- your results were truncated, you can make a subsequent pagination
       -- request using the Marker request parameter to retrieve more items
       -- the list.
-    , _lvmfadsVirtualMFADevices :: [VirtualMFADevice]
     , _lvmfadsMarker :: Maybe Text
       -- ^ If IsTruncated is true, this element is present and contains the
       -- value to use for the Marker parameter in a subsequent pagination
       -- request.
     } deriving (Show, Generic)
 
+lvmfadsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse ([VirtualMFADevice])
+lvmfadsVirtualMFADevices = lens _lvmfadsVirtualMFADevices (\s a -> s { _lvmfadsVirtualMFADevices = a })
+{-# INLINE lvmfadsVirtualMFADevices #-}
+
 -- | A flag that indicates whether there are more items to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more items the list.
 lvmfadsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Bool)
-lvmfadsIsTruncated f x =
-    f (_lvmfadsIsTruncated x)
-        <&> \y -> x { _lvmfadsIsTruncated = y }
+lvmfadsIsTruncated = lens _lvmfadsIsTruncated (\s a -> s { _lvmfadsIsTruncated = a })
 {-# INLINE lvmfadsIsTruncated #-}
-
-lvmfadsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse ([VirtualMFADevice])
-lvmfadsVirtualMFADevices f x =
-    f (_lvmfadsVirtualMFADevices x)
-        <&> \y -> x { _lvmfadsVirtualMFADevices = y }
-{-# INLINE lvmfadsVirtualMFADevices #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lvmfadsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
-lvmfadsMarker f x =
-    f (_lvmfadsMarker x)
-        <&> \y -> x { _lvmfadsMarker = y }
+lvmfadsMarker = lens _lvmfadsMarker (\s a -> s { _lvmfadsMarker = a })
 {-# INLINE lvmfadsMarker #-}
 
 instance FromXML ListVirtualMFADevicesResponse where

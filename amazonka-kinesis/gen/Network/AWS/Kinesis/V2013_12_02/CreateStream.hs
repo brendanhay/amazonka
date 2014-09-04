@@ -60,10 +60,10 @@ module Network.AWS.Kinesis.V2013_12_02.CreateStream
     -- * Request
       CreateStream
     -- ** Request constructor
-    , createStream
+    , mkCreateStreamInput
     -- ** Request lenses
-    , csiShardCount
     , csiStreamName
+    , csiShardCount
 
     -- * Response
     , CreateStreamResponse
@@ -74,43 +74,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateStream' request.
-createStream :: Integer -- ^ 'csiShardCount'
-             -> Text -- ^ 'csiStreamName'
-             -> CreateStream
-createStream p1 p2 = CreateStream
-    { _csiShardCount = p1
-    , _csiStreamName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStream' request.
+mkCreateStreamInput :: Text -- ^ 'csiStreamName'
+                    -> Integer -- ^ 'csiShardCount'
+                    -> CreateStream
+mkCreateStreamInput p1 p2 = CreateStream
+    { _csiStreamName = p1
+    , _csiShardCount = p2
     }
-{-# INLINE createStream #-}
+{-# INLINE mkCreateStreamInput #-}
 
 data CreateStream = CreateStream
-    { _csiShardCount :: Integer
-      -- ^ The number of shards that the stream will use. The throughput of
-      -- the stream is a function of the number of shards; more shards are
-      -- required for greater provisioned throughput. Note: The default
-      -- limit for an AWS account is 10 shards per stream. If you need to
-      -- create a stream with more than 10 shards, contact AWS Support to
-      -- increase the limit on your account.
-    , _csiStreamName :: Text
+    { _csiStreamName :: Text
       -- ^ A name to identify the stream. The stream name is scoped to the
       -- AWS account used by the application that creates the stream. It
       -- is also scoped by region. That is, two streams in two different
       -- AWS accounts can have the same name, and two streams in the same
       -- AWS account, but in two different regions, can have the same
       -- name.
+    , _csiShardCount :: Integer
+      -- ^ The number of shards that the stream will use. The throughput of
+      -- the stream is a function of the number of shards; more shards are
+      -- required for greater provisioned throughput. Note: The default
+      -- limit for an AWS account is 10 shards per stream. If you need to
+      -- create a stream with more than 10 shards, contact AWS Support to
+      -- increase the limit on your account.
     } deriving (Show, Generic)
-
--- | The number of shards that the stream will use. The throughput of the stream
--- is a function of the number of shards; more shards are required for greater
--- provisioned throughput. Note: The default limit for an AWS account is 10
--- shards per stream. If you need to create a stream with more than 10 shards,
--- contact AWS Support to increase the limit on your account.
-csiShardCount :: Lens' CreateStream (Integer)
-csiShardCount f x =
-    f (_csiShardCount x)
-        <&> \y -> x { _csiShardCount = y }
-{-# INLINE csiShardCount #-}
 
 -- | A name to identify the stream. The stream name is scoped to the AWS account
 -- used by the application that creates the stream. It is also scoped by
@@ -118,10 +108,17 @@ csiShardCount f x =
 -- same name, and two streams in the same AWS account, but in two different
 -- regions, can have the same name.
 csiStreamName :: Lens' CreateStream (Text)
-csiStreamName f x =
-    f (_csiStreamName x)
-        <&> \y -> x { _csiStreamName = y }
+csiStreamName = lens _csiStreamName (\s a -> s { _csiStreamName = a })
 {-# INLINE csiStreamName #-}
+
+-- | The number of shards that the stream will use. The throughput of the stream
+-- is a function of the number of shards; more shards are required for greater
+-- provisioned throughput. Note: The default limit for an AWS account is 10
+-- shards per stream. If you need to create a stream with more than 10 shards,
+-- contact AWS Support to increase the limit on your account.
+csiShardCount :: Lens' CreateStream (Integer)
+csiShardCount = lens _csiShardCount (\s a -> s { _csiShardCount = a })
+{-# INLINE csiShardCount #-}
 
 instance ToPath CreateStream
 

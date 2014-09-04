@@ -22,18 +22,18 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
     -- * Request
       DescribeTapes
     -- ** Request constructor
-    , describeTapes
+    , mkDescribeTapesInput
     -- ** Request lenses
     , dtjGatewayARN
+    , dtjTapeARNs
     , dtjMarker
     , dtjLimit
-    , dtjTapeARNs
 
     -- * Response
     , DescribeTapesResponse
     -- ** Response lenses
-    , dtpMarker
     , dtpTapes
+    , dtpMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -41,52 +41,45 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeTapes' request.
-describeTapes :: Text -- ^ 'dtjGatewayARN'
-              -> DescribeTapes
-describeTapes p1 = DescribeTapes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapes' request.
+mkDescribeTapesInput :: Text -- ^ 'dtjGatewayARN'
+                     -> DescribeTapes
+mkDescribeTapesInput p1 = DescribeTapes
     { _dtjGatewayARN = p1
+    , _dtjTapeARNs = mempty
     , _dtjMarker = Nothing
     , _dtjLimit = Nothing
-    , _dtjTapeARNs = mempty
     }
-{-# INLINE describeTapes #-}
+{-# INLINE mkDescribeTapesInput #-}
 
 data DescribeTapes = DescribeTapes
     { _dtjGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _dtjTapeARNs :: [Text]
     , _dtjMarker :: Maybe Text
     , _dtjLimit :: Maybe Integer
-    , _dtjTapeARNs :: [Text]
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dtjGatewayARN :: Lens' DescribeTapes (Text)
-dtjGatewayARN f x =
-    f (_dtjGatewayARN x)
-        <&> \y -> x { _dtjGatewayARN = y }
+dtjGatewayARN = lens _dtjGatewayARN (\s a -> s { _dtjGatewayARN = a })
 {-# INLINE dtjGatewayARN #-}
 
+dtjTapeARNs :: Lens' DescribeTapes ([Text])
+dtjTapeARNs = lens _dtjTapeARNs (\s a -> s { _dtjTapeARNs = a })
+{-# INLINE dtjTapeARNs #-}
+
 dtjMarker :: Lens' DescribeTapes (Maybe Text)
-dtjMarker f x =
-    f (_dtjMarker x)
-        <&> \y -> x { _dtjMarker = y }
+dtjMarker = lens _dtjMarker (\s a -> s { _dtjMarker = a })
 {-# INLINE dtjMarker #-}
 
 dtjLimit :: Lens' DescribeTapes (Maybe Integer)
-dtjLimit f x =
-    f (_dtjLimit x)
-        <&> \y -> x { _dtjLimit = y }
+dtjLimit = lens _dtjLimit (\s a -> s { _dtjLimit = a })
 {-# INLINE dtjLimit #-}
-
-dtjTapeARNs :: Lens' DescribeTapes ([Text])
-dtjTapeARNs f x =
-    f (_dtjTapeARNs x)
-        <&> \y -> x { _dtjTapeARNs = y }
-{-# INLINE dtjTapeARNs #-}
 
 instance ToPath DescribeTapes
 
@@ -97,21 +90,17 @@ instance ToHeaders DescribeTapes
 instance ToJSON DescribeTapes
 
 data DescribeTapesResponse = DescribeTapesResponse
-    { _dtpMarker :: Maybe Text
-    , _dtpTapes :: [Tape]
+    { _dtpTapes :: [Tape]
+    , _dtpMarker :: Maybe Text
     } deriving (Show, Generic)
 
-dtpMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtpMarker f x =
-    f (_dtpMarker x)
-        <&> \y -> x { _dtpMarker = y }
-{-# INLINE dtpMarker #-}
-
 dtpTapes :: Lens' DescribeTapesResponse ([Tape])
-dtpTapes f x =
-    f (_dtpTapes x)
-        <&> \y -> x { _dtpTapes = y }
+dtpTapes = lens _dtpTapes (\s a -> s { _dtpTapes = a })
 {-# INLINE dtpTapes #-}
+
+dtpMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtpMarker = lens _dtpMarker (\s a -> s { _dtpMarker = a })
+{-# INLINE dtpMarker #-}
 
 instance FromJSON DescribeTapesResponse
 

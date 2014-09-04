@@ -43,7 +43,7 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers
     -- * Request
       UpdateDomainNameservers
     -- ** Request constructor
-    , updateDomainNameservers
+    , mkUpdateDomainNameserversRequest
     -- ** Request lenses
     , udnrDomainName
     , udnrNameservers
@@ -59,15 +59,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateDomainNameservers' request.
-updateDomainNameservers :: Text -- ^ 'udnrDomainName'
-                        -> [Nameserver] -- ^ 'udnrNameservers'
-                        -> UpdateDomainNameservers
-updateDomainNameservers p1 p2 = UpdateDomainNameservers
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateDomainNameservers' request.
+mkUpdateDomainNameserversRequest :: Text -- ^ 'udnrDomainName'
+                                 -> [Nameserver] -- ^ 'udnrNameservers'
+                                 -> UpdateDomainNameservers
+mkUpdateDomainNameserversRequest p1 p2 = UpdateDomainNameservers
     { _udnrDomainName = p1
     , _udnrNameservers = p2
     }
-{-# INLINE updateDomainNameservers #-}
+{-# INLINE mkUpdateDomainNameserversRequest #-}
 
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnrDomainName :: Text
@@ -85,17 +86,13 @@ data UpdateDomainNameservers = UpdateDomainNameservers
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 udnrDomainName :: Lens' UpdateDomainNameservers (Text)
-udnrDomainName f x =
-    f (_udnrDomainName x)
-        <&> \y -> x { _udnrDomainName = y }
+udnrDomainName = lens _udnrDomainName (\s a -> s { _udnrDomainName = a })
 {-# INLINE udnrDomainName #-}
 
 -- | A list of new name servers for the domain. Type: Complex Children: Name,
 -- GlueIps Required: Yes.
 udnrNameservers :: Lens' UpdateDomainNameservers ([Nameserver])
-udnrNameservers f x =
-    f (_udnrNameservers x)
-        <&> \y -> x { _udnrNameservers = y }
+udnrNameservers = lens _udnrNameservers (\s a -> s { _udnrNameservers = a })
 {-# INLINE udnrNameservers #-}
 
 instance ToPath UpdateDomainNameservers
@@ -106,7 +103,7 @@ instance ToHeaders UpdateDomainNameservers
 
 instance ToJSON UpdateDomainNameservers
 
-data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
+newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
     { _udnsOperationId :: Text
       -- ^ Identifier for tracking the progress of the request. To use this
       -- ID to query the operation status, use GetOperationDetail. Type:
@@ -117,9 +114,7 @@ data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
 udnsOperationId :: Lens' UpdateDomainNameserversResponse (Text)
-udnsOperationId f x =
-    f (_udnsOperationId x)
-        <&> \y -> x { _udnsOperationId = y }
+udnsOperationId = lens _udnsOperationId (\s a -> s { _udnsOperationId = a })
 {-# INLINE udnsOperationId #-}
 
 instance FromJSON UpdateDomainNameserversResponse

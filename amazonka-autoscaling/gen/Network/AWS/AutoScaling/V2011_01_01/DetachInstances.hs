@@ -34,11 +34,11 @@ module Network.AWS.AutoScaling.V2011_01_01.DetachInstances
     -- * Request
       DetachInstances
     -- ** Request constructor
-    , detachInstances
+    , mkDetachInstancesQuery
     -- ** Request lenses
+    , diqInstanceIds
     , diqAutoScalingGroupName
     , diqShouldDecrementDesiredCapacity
-    , diqInstanceIds
 
     -- * Response
     , DetachInstancesResponse
@@ -50,19 +50,23 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DetachInstances' request.
-detachInstances :: Text -- ^ 'diqAutoScalingGroupName'
-                -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
-                -> DetachInstances
-detachInstances p1 p2 = DetachInstances
-    { _diqAutoScalingGroupName = p1
-    , _diqShouldDecrementDesiredCapacity = p2
-    , _diqInstanceIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachInstances' request.
+mkDetachInstancesQuery :: Text -- ^ 'diqAutoScalingGroupName'
+                       -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
+                       -> DetachInstances
+mkDetachInstancesQuery p1 p2 = DetachInstances
+    { _diqInstanceIds = mempty
+    , _diqAutoScalingGroupName = p2
+    , _diqShouldDecrementDesiredCapacity = p3
     }
-{-# INLINE detachInstances #-}
+{-# INLINE mkDetachInstancesQuery #-}
 
 data DetachInstances = DetachInstances
-    { _diqAutoScalingGroupName :: Text
+    { _diqInstanceIds :: [Text]
+      -- ^ A list of instances to detach from the Auto Scaling group. You
+      -- must specify at least one instance ID.
+    , _diqAutoScalingGroupName :: Text
       -- ^ The name of the Auto Scaling group from which to detach
       -- instances.
     , _diqShouldDecrementDesiredCapacity :: Bool
@@ -70,39 +74,30 @@ data DetachInstances = DetachInstances
       -- capacity value for the Auto Scaling group. If set to True, the
       -- Auto Scaling group decrements the desired capacity value by the
       -- number of instances detached.
-    , _diqInstanceIds :: [Text]
-      -- ^ A list of instances to detach from the Auto Scaling group. You
-      -- must specify at least one instance ID.
     } deriving (Show, Generic)
+
+-- | A list of instances to detach from the Auto Scaling group. You must specify
+-- at least one instance ID.
+diqInstanceIds :: Lens' DetachInstances ([Text])
+diqInstanceIds = lens _diqInstanceIds (\s a -> s { _diqInstanceIds = a })
+{-# INLINE diqInstanceIds #-}
 
 -- | The name of the Auto Scaling group from which to detach instances.
 diqAutoScalingGroupName :: Lens' DetachInstances (Text)
-diqAutoScalingGroupName f x =
-    f (_diqAutoScalingGroupName x)
-        <&> \y -> x { _diqAutoScalingGroupName = y }
+diqAutoScalingGroupName = lens _diqAutoScalingGroupName (\s a -> s { _diqAutoScalingGroupName = a })
 {-# INLINE diqAutoScalingGroupName #-}
 
 -- | Specifies if the detached instance should decrement the desired capacity
 -- value for the Auto Scaling group. If set to True, the Auto Scaling group
 -- decrements the desired capacity value by the number of instances detached.
 diqShouldDecrementDesiredCapacity :: Lens' DetachInstances (Bool)
-diqShouldDecrementDesiredCapacity f x =
-    f (_diqShouldDecrementDesiredCapacity x)
-        <&> \y -> x { _diqShouldDecrementDesiredCapacity = y }
+diqShouldDecrementDesiredCapacity = lens _diqShouldDecrementDesiredCapacity (\s a -> s { _diqShouldDecrementDesiredCapacity = a })
 {-# INLINE diqShouldDecrementDesiredCapacity #-}
-
--- | A list of instances to detach from the Auto Scaling group. You must specify
--- at least one instance ID.
-diqInstanceIds :: Lens' DetachInstances ([Text])
-diqInstanceIds f x =
-    f (_diqInstanceIds x)
-        <&> \y -> x { _diqInstanceIds = y }
-{-# INLINE diqInstanceIds #-}
 
 instance ToQuery DetachInstances where
     toQuery = genericQuery def
 
-data DetachInstancesResponse = DetachInstancesResponse
+newtype DetachInstancesResponse = DetachInstancesResponse
     { _diaActivities :: [Activity]
       -- ^ A list describing the activities related to detaching the
       -- instances from the Auto Scaling group.
@@ -111,9 +106,7 @@ data DetachInstancesResponse = DetachInstancesResponse
 -- | A list describing the activities related to detaching the instances from
 -- the Auto Scaling group.
 diaActivities :: Lens' DetachInstancesResponse ([Activity])
-diaActivities f x =
-    f (_diaActivities x)
-        <&> \y -> x { _diaActivities = y }
+diaActivities = lens _diaActivities (\s a -> s { _diaActivities = a })
 {-# INLINE diaActivities #-}
 
 instance FromXML DetachInstancesResponse where

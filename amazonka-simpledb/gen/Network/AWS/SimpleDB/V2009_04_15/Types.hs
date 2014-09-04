@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -41,40 +42,44 @@ module Network.AWS.SimpleDB.V2009_04_15.Types
     , xmlOptions
 
     -- * Attribute
-    , Attribute (..)
+    , Attribute
+    , mkAttribute
     , aName
     , aAlternateNameEncoding
     , aValue
     , aAlternateValueEncoding
 
     -- * DeletableItem
-    , DeletableItem (..)
+    , DeletableItem
+    , mkDeletableItem
     , diName
     , diAttributes
 
     -- * Item
-    , Item (..)
+    , Item
     , imName
     , imAlternateNameEncoding
     , imAttributes
 
     -- * ReplaceableAttribute
-    , ReplaceableAttribute (..)
+    , ReplaceableAttribute
+    , mkReplaceableAttribute
     , raName
     , raValue
     , raReplace
 
     -- * ReplaceableItem
-    , ReplaceableItem (..)
+    , ReplaceableItem
+    , mkReplaceableItem
     , riName
     , riAttributes
 
     -- * UpdateCondition
-    , UpdateCondition (..)
+    , UpdateCondition
+    , mkUpdateCondition
     , ucName
     , ucValue
     , ucExists
-
     ) where
 
 import Network.AWS.Prelude
@@ -181,31 +186,36 @@ data Attribute = Attribute
 
 -- | The name of the attribute.
 aName :: Lens' Attribute (Text)
-aName f x =
-    f (_aName x)
-        <&> \y -> x { _aName = y }
+aName = lens _aName (\s a -> s { _aName = a })
 {-# INLINE aName #-}
 
 -- | 
 aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
-aAlternateNameEncoding f x =
-    f (_aAlternateNameEncoding x)
-        <&> \y -> x { _aAlternateNameEncoding = y }
+aAlternateNameEncoding = lens _aAlternateNameEncoding (\s a -> s { _aAlternateNameEncoding = a })
 {-# INLINE aAlternateNameEncoding #-}
 
 -- | The value of the attribute.
 aValue :: Lens' Attribute (Text)
-aValue f x =
-    f (_aValue x)
-        <&> \y -> x { _aValue = y }
+aValue = lens _aValue (\s a -> s { _aValue = a })
 {-# INLINE aValue #-}
 
 -- | 
 aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
-aAlternateValueEncoding f x =
-    f (_aAlternateValueEncoding x)
-        <&> \y -> x { _aAlternateValueEncoding = y }
+aAlternateValueEncoding = lens _aAlternateValueEncoding (\s a -> s { _aAlternateValueEncoding = a })
 {-# INLINE aAlternateValueEncoding #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Attribute' data type to populate a request.
+mkAttribute :: Text -- ^ 'aName'
+            -> Text -- ^ 'aValue'
+            -> Attribute
+mkAttribute p1 p2 = Attribute
+    { _aName = p1
+    , _aAlternateNameEncoding = Nothing
+    , _aValue = p3
+    , _aAlternateValueEncoding = Nothing
+    }
+{-# INLINE mkAttribute #-}
 
 instance FromXML Attribute where
     fromXMLOptions = xmlOptions
@@ -220,16 +230,22 @@ data DeletableItem = DeletableItem
     } deriving (Show, Generic)
 
 diName :: Lens' DeletableItem (Text)
-diName f x =
-    f (_diName x)
-        <&> \y -> x { _diName = y }
+diName = lens _diName (\s a -> s { _diName = a })
 {-# INLINE diName #-}
 
 diAttributes :: Lens' DeletableItem ([Attribute])
-diAttributes f x =
-    f (_diAttributes x)
-        <&> \y -> x { _diAttributes = y }
+diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a })
 {-# INLINE diAttributes #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DeletableItem' data type to populate a request.
+mkDeletableItem :: Text -- ^ 'diName'
+                -> DeletableItem
+mkDeletableItem p1 = DeletableItem
+    { _diName = p1
+    , _diAttributes = mempty
+    }
+{-# INLINE mkDeletableItem #-}
 
 instance ToQuery DeletableItem where
     toQuery = genericQuery def
@@ -246,23 +262,17 @@ data Item = Item
 
 -- | The name of the item.
 imName :: Lens' Item (Text)
-imName f x =
-    f (_imName x)
-        <&> \y -> x { _imName = y }
+imName = lens _imName (\s a -> s { _imName = a })
 {-# INLINE imName #-}
 
 -- | 
 imAlternateNameEncoding :: Lens' Item (Maybe Text)
-imAlternateNameEncoding f x =
-    f (_imAlternateNameEncoding x)
-        <&> \y -> x { _imAlternateNameEncoding = y }
+imAlternateNameEncoding = lens _imAlternateNameEncoding (\s a -> s { _imAlternateNameEncoding = a })
 {-# INLINE imAlternateNameEncoding #-}
 
 -- | A list of attributes.
 imAttributes :: Lens' Item ([Attribute])
-imAttributes f x =
-    f (_imAttributes x)
-        <&> \y -> x { _imAttributes = y }
+imAttributes = lens _imAttributes (\s a -> s { _imAttributes = a })
 {-# INLINE imAttributes #-}
 
 instance FromXML Item where
@@ -283,25 +293,31 @@ data ReplaceableAttribute = ReplaceableAttribute
 
 -- | The name of the replaceable attribute.
 raName :: Lens' ReplaceableAttribute (Text)
-raName f x =
-    f (_raName x)
-        <&> \y -> x { _raName = y }
+raName = lens _raName (\s a -> s { _raName = a })
 {-# INLINE raName #-}
 
 -- | The value of the replaceable attribute.
 raValue :: Lens' ReplaceableAttribute (Text)
-raValue f x =
-    f (_raValue x)
-        <&> \y -> x { _raValue = y }
+raValue = lens _raValue (\s a -> s { _raValue = a })
 {-# INLINE raValue #-}
 
 -- | A flag specifying whether or not to replace the attribute/value pair or to
 -- add a new attribute/value pair. The default setting is false.
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
-raReplace f x =
-    f (_raReplace x)
-        <&> \y -> x { _raReplace = y }
+raReplace = lens _raReplace (\s a -> s { _raReplace = a })
 {-# INLINE raReplace #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ReplaceableAttribute' data type to populate a request.
+mkReplaceableAttribute :: Text -- ^ 'raName'
+                       -> Text -- ^ 'raValue'
+                       -> ReplaceableAttribute
+mkReplaceableAttribute p1 p2 = ReplaceableAttribute
+    { _raName = p1
+    , _raValue = p2
+    , _raReplace = Nothing
+    }
+{-# INLINE mkReplaceableAttribute #-}
 
 instance FromXML ReplaceableAttribute where
     fromXMLOptions = xmlOptions
@@ -320,17 +336,24 @@ data ReplaceableItem = ReplaceableItem
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem (Text)
-riName f x =
-    f (_riName x)
-        <&> \y -> x { _riName = y }
+riName = lens _riName (\s a -> s { _riName = a })
 {-# INLINE riName #-}
 
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem ([ReplaceableAttribute])
-riAttributes f x =
-    f (_riAttributes x)
-        <&> \y -> x { _riAttributes = y }
+riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a })
 {-# INLINE riAttributes #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ReplaceableItem' data type to populate a request.
+mkReplaceableItem :: Text -- ^ 'riName'
+                  -> [ReplaceableAttribute] -- ^ 'riAttributes'
+                  -> ReplaceableItem
+mkReplaceableItem p1 p2 = ReplaceableItem
+    { _riName = p1
+    , _riAttributes = p2
+    }
+{-# INLINE mkReplaceableItem #-}
 
 instance ToQuery ReplaceableItem where
     toQuery = genericQuery def
@@ -355,17 +378,13 @@ data UpdateCondition = UpdateCondition
 
 -- | The name of the attribute involved in the condition.
 ucName :: Lens' UpdateCondition (Maybe Text)
-ucName f x =
-    f (_ucName x)
-        <&> \y -> x { _ucName = y }
+ucName = lens _ucName (\s a -> s { _ucName = a })
 {-# INLINE ucName #-}
 
 -- | The value of an attribute. This value can only be specified when the Exists
 -- parameter is equal to true.
 ucValue :: Lens' UpdateCondition (Maybe Text)
-ucValue f x =
-    f (_ucValue x)
-        <&> \y -> x { _ucValue = y }
+ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 {-# INLINE ucValue #-}
 
 -- | A value specifying whether or not the specified attribute must exist with
@@ -374,10 +393,18 @@ ucValue f x =
 -- satisfied. Specify false if the attribute should not exist in order for the
 -- update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
-ucExists f x =
-    f (_ucExists x)
-        <&> \y -> x { _ucExists = y }
+ucExists = lens _ucExists (\s a -> s { _ucExists = a })
 {-# INLINE ucExists #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'UpdateCondition' data type to populate a request.
+mkUpdateCondition :: UpdateCondition
+mkUpdateCondition = UpdateCondition
+    { _ucName = Nothing
+    , _ucValue = Nothing
+    , _ucExists = Nothing
+    }
+{-# INLINE mkUpdateCondition #-}
 
 instance ToQuery UpdateCondition where
     toQuery = genericQuery def

@@ -29,7 +29,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteSubnet
     -- * Request
       DeleteSubnet
     -- ** Request constructor
-    , deleteSubnet
+    , mkDeleteSubnetRequest
     -- ** Request lenses
     , dstSubnetId
 
@@ -41,24 +41,23 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSubnet' request.
-deleteSubnet :: Text -- ^ 'dstSubnetId'
-             -> DeleteSubnet
-deleteSubnet p1 = DeleteSubnet
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSubnet' request.
+mkDeleteSubnetRequest :: Text -- ^ 'dstSubnetId'
+                      -> DeleteSubnet
+mkDeleteSubnetRequest p1 = DeleteSubnet
     { _dstSubnetId = p1
     }
-{-# INLINE deleteSubnet #-}
+{-# INLINE mkDeleteSubnetRequest #-}
 
-data DeleteSubnet = DeleteSubnet
+newtype DeleteSubnet = DeleteSubnet
     { _dstSubnetId :: Text
       -- ^ The ID of the subnet.
     } deriving (Show, Generic)
 
 -- | The ID of the subnet.
 dstSubnetId :: Lens' DeleteSubnet (Text)
-dstSubnetId f x =
-    f (_dstSubnetId x)
-        <&> \y -> x { _dstSubnetId = y }
+dstSubnetId = lens _dstSubnetId (\s a -> s { _dstSubnetId = a })
 {-# INLINE dstSubnetId #-}
 
 instance ToQuery DeleteSubnet where

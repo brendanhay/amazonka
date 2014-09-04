@@ -31,7 +31,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
     -- * Request
       GetOpenIdToken
     -- ** Request constructor
-    , getOpenIdToken
+    , mkGetOpenIdTokenInput
     -- ** Request lenses
     , goitiIdentityId
     , goitiLogins
@@ -48,14 +48,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetOpenIdToken' request.
-getOpenIdToken :: Text -- ^ 'goitiIdentityId'
-               -> GetOpenIdToken
-getOpenIdToken p1 = GetOpenIdToken
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetOpenIdToken' request.
+mkGetOpenIdTokenInput :: Text -- ^ 'goitiIdentityId'
+                      -> GetOpenIdToken
+mkGetOpenIdTokenInput p1 = GetOpenIdToken
     { _goitiIdentityId = p1
     , _goitiLogins = mempty
     }
-{-# INLINE getOpenIdToken #-}
+{-# INLINE mkGetOpenIdTokenInput #-}
 
 data GetOpenIdToken = GetOpenIdToken
     { _goitiIdentityId :: Text
@@ -67,17 +68,13 @@ data GetOpenIdToken = GetOpenIdToken
 
 -- | A unique identifier in the format REGION:GUID.
 goitiIdentityId :: Lens' GetOpenIdToken (Text)
-goitiIdentityId f x =
-    f (_goitiIdentityId x)
-        <&> \y -> x { _goitiIdentityId = y }
+goitiIdentityId = lens _goitiIdentityId (\s a -> s { _goitiIdentityId = a })
 {-# INLINE goitiIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
 goitiLogins :: Lens' GetOpenIdToken (Map Text Text)
-goitiLogins f x =
-    f (_goitiLogins x)
-        <&> \y -> x { _goitiLogins = y }
+goitiLogins = lens _goitiLogins (\s a -> s { _goitiLogins = a })
 {-# INLINE goitiLogins #-}
 
 instance ToPath GetOpenIdToken
@@ -99,16 +96,12 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
 goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrIdentityId f x =
-    f (_goitrIdentityId x)
-        <&> \y -> x { _goitrIdentityId = y }
+goitrIdentityId = lens _goitrIdentityId (\s a -> s { _goitrIdentityId = a })
 {-# INLINE goitrIdentityId #-}
 
 -- | An OpenID token.
 goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrToken f x =
-    f (_goitrToken x)
-        <&> \y -> x { _goitrToken = y }
+goitrToken = lens _goitrToken (\s a -> s { _goitrToken = a })
 {-# INLINE goitrToken #-}
 
 instance FromJSON GetOpenIdTokenResponse

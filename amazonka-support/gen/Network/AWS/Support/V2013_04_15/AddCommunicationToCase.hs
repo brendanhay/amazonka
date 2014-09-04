@@ -29,12 +29,12 @@ module Network.AWS.Support.V2013_04_15.AddCommunicationToCase
     -- * Request
       AddCommunicationToCase
     -- ** Request constructor
-    , addCommunicationToCase
+    , mkAddCommunicationToCaseRequest
     -- ** Request lenses
-    , actcrCommunicationBody
-    , actcrAttachmentSetId
     , actcrCaseId
+    , actcrCommunicationBody
     , actcrCcEmailAddresses
+    , actcrAttachmentSetId
 
     -- * Response
     , AddCommunicationToCaseResponse
@@ -47,64 +47,57 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AddCommunicationToCase' request.
-addCommunicationToCase :: Text -- ^ 'actcrCommunicationBody'
-                       -> AddCommunicationToCase
-addCommunicationToCase p1 = AddCommunicationToCase
-    { _actcrCommunicationBody = p1
-    , _actcrAttachmentSetId = Nothing
-    , _actcrCaseId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddCommunicationToCase' request.
+mkAddCommunicationToCaseRequest :: Text -- ^ 'actcrCommunicationBody'
+                                -> AddCommunicationToCase
+mkAddCommunicationToCaseRequest p1 = AddCommunicationToCase
+    { _actcrCaseId = Nothing
+    , _actcrCommunicationBody = p2
     , _actcrCcEmailAddresses = mempty
+    , _actcrAttachmentSetId = Nothing
     }
-{-# INLINE addCommunicationToCase #-}
+{-# INLINE mkAddCommunicationToCaseRequest #-}
 
 data AddCommunicationToCase = AddCommunicationToCase
-    { _actcrCommunicationBody :: Text
+    { _actcrCaseId :: Maybe Text
+      -- ^ The AWS Support case ID requested or returned in the call. The
+      -- case ID is an alphanumeric string formatted as shown in this
+      -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
+    , _actcrCommunicationBody :: Text
       -- ^ The body of an email communication to add to the support case.
+    , _actcrCcEmailAddresses :: [Text]
+      -- ^ The email addresses in the CC line of an email to be added to the
+      -- support case.
     , _actcrAttachmentSetId :: Maybe Text
       -- ^ The ID of a set of one or more attachments for the communication
       -- to add to the case. Create the set by calling
       -- AddAttachmentsToSet.
-    , _actcrCaseId :: Maybe Text
-      -- ^ The AWS Support case ID requested or returned in the call. The
-      -- case ID is an alphanumeric string formatted as shown in this
-      -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
-    , _actcrCcEmailAddresses :: [Text]
-      -- ^ The email addresses in the CC line of an email to be added to the
-      -- support case.
     } deriving (Show, Generic)
-
--- | The body of an email communication to add to the support case.
-actcrCommunicationBody :: Lens' AddCommunicationToCase (Text)
-actcrCommunicationBody f x =
-    f (_actcrCommunicationBody x)
-        <&> \y -> x { _actcrCommunicationBody = y }
-{-# INLINE actcrCommunicationBody #-}
-
--- | The ID of a set of one or more attachments for the communication to add to
--- the case. Create the set by calling AddAttachmentsToSet.
-actcrAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
-actcrAttachmentSetId f x =
-    f (_actcrAttachmentSetId x)
-        <&> \y -> x { _actcrAttachmentSetId = y }
-{-# INLINE actcrAttachmentSetId #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 actcrCaseId :: Lens' AddCommunicationToCase (Maybe Text)
-actcrCaseId f x =
-    f (_actcrCaseId x)
-        <&> \y -> x { _actcrCaseId = y }
+actcrCaseId = lens _actcrCaseId (\s a -> s { _actcrCaseId = a })
 {-# INLINE actcrCaseId #-}
+
+-- | The body of an email communication to add to the support case.
+actcrCommunicationBody :: Lens' AddCommunicationToCase (Text)
+actcrCommunicationBody = lens _actcrCommunicationBody (\s a -> s { _actcrCommunicationBody = a })
+{-# INLINE actcrCommunicationBody #-}
 
 -- | The email addresses in the CC line of an email to be added to the support
 -- case.
 actcrCcEmailAddresses :: Lens' AddCommunicationToCase ([Text])
-actcrCcEmailAddresses f x =
-    f (_actcrCcEmailAddresses x)
-        <&> \y -> x { _actcrCcEmailAddresses = y }
+actcrCcEmailAddresses = lens _actcrCcEmailAddresses (\s a -> s { _actcrCcEmailAddresses = a })
 {-# INLINE actcrCcEmailAddresses #-}
+
+-- | The ID of a set of one or more attachments for the communication to add to
+-- the case. Create the set by calling AddAttachmentsToSet.
+actcrAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
+actcrAttachmentSetId = lens _actcrAttachmentSetId (\s a -> s { _actcrAttachmentSetId = a })
+{-# INLINE actcrAttachmentSetId #-}
 
 instance ToPath AddCommunicationToCase
 
@@ -114,7 +107,7 @@ instance ToHeaders AddCommunicationToCase
 
 instance ToJSON AddCommunicationToCase
 
-data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
+newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcsResult :: Maybe Bool
       -- ^ True if AddCommunicationToCase succeeds. Otherwise, returns an
       -- error.
@@ -122,9 +115,7 @@ data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
 actcsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
-actcsResult f x =
-    f (_actcsResult x)
-        <&> \y -> x { _actcsResult = y }
+actcsResult = lens _actcsResult (\s a -> s { _actcsResult = a })
 {-# INLINE actcsResult #-}
 
 instance FromJSON AddCommunicationToCaseResponse

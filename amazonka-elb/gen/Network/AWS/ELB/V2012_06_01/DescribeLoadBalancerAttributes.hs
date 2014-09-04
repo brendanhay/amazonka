@@ -28,7 +28,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes
     -- * Request
       DescribeLoadBalancerAttributes
     -- ** Request constructor
-    , describeLoadBalancerAttributes
+    , mkDescribeLoadBalancerAttributesInput
     -- ** Request lenses
     , dlbaiLoadBalancerName
 
@@ -42,39 +42,36 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeLoadBalancerAttributes' request.
-describeLoadBalancerAttributes :: Text -- ^ 'dlbaiLoadBalancerName'
-                               -> DescribeLoadBalancerAttributes
-describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancerAttributes' request.
+mkDescribeLoadBalancerAttributesInput :: Text -- ^ 'dlbaiLoadBalancerName'
+                                      -> DescribeLoadBalancerAttributes
+mkDescribeLoadBalancerAttributesInput p1 = DescribeLoadBalancerAttributes
     { _dlbaiLoadBalancerName = p1
     }
-{-# INLINE describeLoadBalancerAttributes #-}
+{-# INLINE mkDescribeLoadBalancerAttributesInput #-}
 
-data DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
+newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaiLoadBalancerName :: Text
       -- ^ The name of the load balancer.
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
 dlbaiLoadBalancerName :: Lens' DescribeLoadBalancerAttributes (Text)
-dlbaiLoadBalancerName f x =
-    f (_dlbaiLoadBalancerName x)
-        <&> \y -> x { _dlbaiLoadBalancerName = y }
+dlbaiLoadBalancerName = lens _dlbaiLoadBalancerName (\s a -> s { _dlbaiLoadBalancerName = a })
 {-# INLINE dlbaiLoadBalancerName #-}
 
 instance ToQuery DescribeLoadBalancerAttributes where
     toQuery = genericQuery def
 
-data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
+newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
       -- ^ The load balancer attributes structure.
     } deriving (Show, Generic)
 
 -- | The load balancer attributes structure.
 dlbaoLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-dlbaoLoadBalancerAttributes f x =
-    f (_dlbaoLoadBalancerAttributes x)
-        <&> \y -> x { _dlbaoLoadBalancerAttributes = y }
+dlbaoLoadBalancerAttributes = lens _dlbaoLoadBalancerAttributes (\s a -> s { _dlbaoLoadBalancerAttributes = a })
 {-# INLINE dlbaoLoadBalancerAttributes #-}
 
 instance FromXML DescribeLoadBalancerAttributesResponse where

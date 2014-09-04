@@ -31,7 +31,7 @@ module Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets
     -- * Request
       AttachLoadBalancerToSubnets
     -- ** Request constructor
-    , attachLoadBalancerToSubnets
+    , mkAttachLoadBalancerToSubnetsInput
     -- ** Request lenses
     , albtsiLoadBalancerName
     , albtsiSubnets
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AttachLoadBalancerToSubnets' request.
-attachLoadBalancerToSubnets :: Text -- ^ 'albtsiLoadBalancerName'
-                            -> [Text] -- ^ 'albtsiSubnets'
-                            -> AttachLoadBalancerToSubnets
-attachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachLoadBalancerToSubnets' request.
+mkAttachLoadBalancerToSubnetsInput :: Text -- ^ 'albtsiLoadBalancerName'
+                                   -> [Text] -- ^ 'albtsiSubnets'
+                                   -> AttachLoadBalancerToSubnets
+mkAttachLoadBalancerToSubnetsInput p1 p2 = AttachLoadBalancerToSubnets
     { _albtsiLoadBalancerName = p1
     , _albtsiSubnets = p2
     }
-{-# INLINE attachLoadBalancerToSubnets #-}
+{-# INLINE mkAttachLoadBalancerToSubnetsInput #-}
 
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsiLoadBalancerName :: Text
@@ -69,32 +70,26 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
 albtsiLoadBalancerName :: Lens' AttachLoadBalancerToSubnets (Text)
-albtsiLoadBalancerName f x =
-    f (_albtsiLoadBalancerName x)
-        <&> \y -> x { _albtsiLoadBalancerName = y }
+albtsiLoadBalancerName = lens _albtsiLoadBalancerName (\s a -> s { _albtsiLoadBalancerName = a })
 {-# INLINE albtsiLoadBalancerName #-}
 
 -- | A list of subnet IDs to add for the load balancer. You can add only one
 -- subnet per Availability Zone.
 albtsiSubnets :: Lens' AttachLoadBalancerToSubnets ([Text])
-albtsiSubnets f x =
-    f (_albtsiSubnets x)
-        <&> \y -> x { _albtsiSubnets = y }
+albtsiSubnets = lens _albtsiSubnets (\s a -> s { _albtsiSubnets = a })
 {-# INLINE albtsiSubnets #-}
 
 instance ToQuery AttachLoadBalancerToSubnets where
     toQuery = genericQuery def
 
-data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
+newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsoSubnets :: [Text]
       -- ^ A list of subnet IDs attached to the load balancer.
     } deriving (Show, Generic)
 
 -- | A list of subnet IDs attached to the load balancer.
 albtsoSubnets :: Lens' AttachLoadBalancerToSubnetsResponse ([Text])
-albtsoSubnets f x =
-    f (_albtsoSubnets x)
-        <&> \y -> x { _albtsoSubnets = y }
+albtsoSubnets = lens _albtsoSubnets (\s a -> s { _albtsoSubnets = a })
 {-# INLINE albtsoSubnets #-}
 
 instance FromXML AttachLoadBalancerToSubnetsResponse where

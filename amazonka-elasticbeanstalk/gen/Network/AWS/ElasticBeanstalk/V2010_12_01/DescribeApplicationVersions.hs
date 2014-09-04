@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions
     -- * Request
       DescribeApplicationVersions
     -- ** Request constructor
-    , describeApplicationVersions
+    , mkDescribeApplicationVersionsMessage
     -- ** Request lenses
     , davnApplicationName
     , davnVersionLabels
@@ -42,13 +42,14 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeApplicationVersions' request.
-describeApplicationVersions :: DescribeApplicationVersions
-describeApplicationVersions = DescribeApplicationVersions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeApplicationVersions' request.
+mkDescribeApplicationVersionsMessage :: DescribeApplicationVersions
+mkDescribeApplicationVersionsMessage = DescribeApplicationVersions
     { _davnApplicationName = Nothing
     , _davnVersionLabels = mempty
     }
-{-# INLINE describeApplicationVersions #-}
+{-# INLINE mkDescribeApplicationVersionsMessage #-}
 
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _davnApplicationName :: Maybe Text
@@ -63,32 +64,26 @@ data DescribeApplicationVersions = DescribeApplicationVersions
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include ones that are associated with the specified application.
 davnApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-davnApplicationName f x =
-    f (_davnApplicationName x)
-        <&> \y -> x { _davnApplicationName = y }
+davnApplicationName = lens _davnApplicationName (\s a -> s { _davnApplicationName = a })
 {-# INLINE davnApplicationName #-}
 
 -- | If specified, restricts the returned descriptions to only include ones that
 -- have the specified version labels.
 davnVersionLabels :: Lens' DescribeApplicationVersions ([Text])
-davnVersionLabels f x =
-    f (_davnVersionLabels x)
-        <&> \y -> x { _davnVersionLabels = y }
+davnVersionLabels = lens _davnVersionLabels (\s a -> s { _davnVersionLabels = a })
 {-# INLINE davnVersionLabels #-}
 
 instance ToQuery DescribeApplicationVersions where
     toQuery = genericQuery def
 
-data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
+newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _avdnApplicationVersions :: [ApplicationVersionDescription]
       -- ^ A list of ApplicationVersionDescription .
     } deriving (Show, Generic)
 
 -- | A list of ApplicationVersionDescription .
 avdnApplicationVersions :: Lens' DescribeApplicationVersionsResponse ([ApplicationVersionDescription])
-avdnApplicationVersions f x =
-    f (_avdnApplicationVersions x)
-        <&> \y -> x { _avdnApplicationVersions = y }
+avdnApplicationVersions = lens _avdnApplicationVersions (\s a -> s { _avdnApplicationVersions = a })
 {-# INLINE avdnApplicationVersions #-}
 
 instance FromXML DescribeApplicationVersionsResponse where

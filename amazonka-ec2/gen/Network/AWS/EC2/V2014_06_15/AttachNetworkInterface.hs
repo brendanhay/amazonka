@@ -31,11 +31,11 @@ module Network.AWS.EC2.V2014_06_15.AttachNetworkInterface
     -- * Request
       AttachNetworkInterface
     -- ** Request constructor
-    , attachNetworkInterface
+    , mkAttachNetworkInterfaceRequest
     -- ** Request lenses
-    , anirDeviceIndex
     , anirNetworkInterfaceId
     , anirInstanceId
+    , anirDeviceIndex
 
     -- * Response
     , AttachNetworkInterfaceResponse
@@ -47,61 +47,54 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AttachNetworkInterface' request.
-attachNetworkInterface :: Integer -- ^ 'anirDeviceIndex'
-                       -> Text -- ^ 'anirNetworkInterfaceId'
-                       -> Text -- ^ 'anirInstanceId'
-                       -> AttachNetworkInterface
-attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
-    { _anirDeviceIndex = p1
-    , _anirNetworkInterfaceId = p2
-    , _anirInstanceId = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachNetworkInterface' request.
+mkAttachNetworkInterfaceRequest :: Text -- ^ 'anirNetworkInterfaceId'
+                                -> Text -- ^ 'anirInstanceId'
+                                -> Integer -- ^ 'anirDeviceIndex'
+                                -> AttachNetworkInterface
+mkAttachNetworkInterfaceRequest p1 p2 p3 = AttachNetworkInterface
+    { _anirNetworkInterfaceId = p1
+    , _anirInstanceId = p2
+    , _anirDeviceIndex = p3
     }
-{-# INLINE attachNetworkInterface #-}
+{-# INLINE mkAttachNetworkInterfaceRequest #-}
 
 data AttachNetworkInterface = AttachNetworkInterface
-    { _anirDeviceIndex :: Integer
-      -- ^ The index of the device for the network interface attachment.
-    , _anirNetworkInterfaceId :: Text
+    { _anirNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
     , _anirInstanceId :: Text
       -- ^ The ID of the instance.
+    , _anirDeviceIndex :: Integer
+      -- ^ The index of the device for the network interface attachment.
     } deriving (Show, Generic)
-
--- | The index of the device for the network interface attachment.
-anirDeviceIndex :: Lens' AttachNetworkInterface (Integer)
-anirDeviceIndex f x =
-    f (_anirDeviceIndex x)
-        <&> \y -> x { _anirDeviceIndex = y }
-{-# INLINE anirDeviceIndex #-}
 
 -- | The ID of the network interface.
 anirNetworkInterfaceId :: Lens' AttachNetworkInterface (Text)
-anirNetworkInterfaceId f x =
-    f (_anirNetworkInterfaceId x)
-        <&> \y -> x { _anirNetworkInterfaceId = y }
+anirNetworkInterfaceId = lens _anirNetworkInterfaceId (\s a -> s { _anirNetworkInterfaceId = a })
 {-# INLINE anirNetworkInterfaceId #-}
 
 -- | The ID of the instance.
 anirInstanceId :: Lens' AttachNetworkInterface (Text)
-anirInstanceId f x =
-    f (_anirInstanceId x)
-        <&> \y -> x { _anirInstanceId = y }
+anirInstanceId = lens _anirInstanceId (\s a -> s { _anirInstanceId = a })
 {-# INLINE anirInstanceId #-}
+
+-- | The index of the device for the network interface attachment.
+anirDeviceIndex :: Lens' AttachNetworkInterface (Integer)
+anirDeviceIndex = lens _anirDeviceIndex (\s a -> s { _anirDeviceIndex = a })
+{-# INLINE anirDeviceIndex #-}
 
 instance ToQuery AttachNetworkInterface where
     toQuery = genericQuery def
 
-data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
+newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anisAttachmentId :: Maybe Text
       -- ^ The ID of the network interface attachment.
     } deriving (Show, Generic)
 
 -- | The ID of the network interface attachment.
 anisAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
-anisAttachmentId f x =
-    f (_anisAttachmentId x)
-        <&> \y -> x { _anisAttachmentId = y }
+anisAttachmentId = lens _anisAttachmentId (\s a -> s { _anisAttachmentId = a })
 {-# INLINE anisAttachmentId #-}
 
 instance FromXML AttachNetworkInterfaceResponse where

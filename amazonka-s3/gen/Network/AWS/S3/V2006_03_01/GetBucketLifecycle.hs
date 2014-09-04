@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketLifecycle
     -- * Request
       GetBucketLifecycle
     -- ** Request constructor
-    , getBucketLifecycle
+    , mkGetBucketLifecycleRequest
     -- ** Request lenses
     , gblrBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketLifecycle' request.
-getBucketLifecycle :: BucketName -- ^ 'gblrBucket'
-                   -> GetBucketLifecycle
-getBucketLifecycle p1 = GetBucketLifecycle
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketLifecycle' request.
+mkGetBucketLifecycleRequest :: BucketName -- ^ 'gblrBucket'
+                            -> GetBucketLifecycle
+mkGetBucketLifecycleRequest p1 = GetBucketLifecycle
     { _gblrBucket = p1
     }
-{-# INLINE getBucketLifecycle #-}
+{-# INLINE mkGetBucketLifecycleRequest #-}
 
-data GetBucketLifecycle = GetBucketLifecycle
+newtype GetBucketLifecycle = GetBucketLifecycle
     { _gblrBucket :: BucketName
     } deriving (Show, Generic)
 
 gblrBucket :: Lens' GetBucketLifecycle (BucketName)
-gblrBucket f x =
-    f (_gblrBucket x)
-        <&> \y -> x { _gblrBucket = y }
+gblrBucket = lens _gblrBucket (\s a -> s { _gblrBucket = a })
 {-# INLINE gblrBucket #-}
 
 instance ToPath GetBucketLifecycle where
@@ -70,14 +69,12 @@ instance ToHeaders GetBucketLifecycle
 
 instance ToBody GetBucketLifecycle
 
-data GetBucketLifecycleResponse = GetBucketLifecycleResponse
+newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gbloRules :: [Rule]
     } deriving (Show, Generic)
 
 gbloRules :: Lens' GetBucketLifecycleResponse ([Rule])
-gbloRules f x =
-    f (_gbloRules x)
-        <&> \y -> x { _gbloRules = y }
+gbloRules = lens _gbloRules (\s a -> s { _gbloRules = a })
 {-# INLINE gbloRules #-}
 
 instance FromXML GetBucketLifecycleResponse where

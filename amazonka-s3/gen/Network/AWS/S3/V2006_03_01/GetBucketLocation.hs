@@ -23,7 +23,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketLocation
     -- * Request
       GetBucketLocation
     -- ** Request constructor
-    , getBucketLocation
+    , mkGetBucketLocationRequest
     -- ** Request lenses
     , gblsBucket
 
@@ -37,22 +37,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetBucketLocation' request.
-getBucketLocation :: BucketName -- ^ 'gblsBucket'
-                  -> GetBucketLocation
-getBucketLocation p1 = GetBucketLocation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketLocation' request.
+mkGetBucketLocationRequest :: BucketName -- ^ 'gblsBucket'
+                           -> GetBucketLocation
+mkGetBucketLocationRequest p1 = GetBucketLocation
     { _gblsBucket = p1
     }
-{-# INLINE getBucketLocation #-}
+{-# INLINE mkGetBucketLocationRequest #-}
 
-data GetBucketLocation = GetBucketLocation
+newtype GetBucketLocation = GetBucketLocation
     { _gblsBucket :: BucketName
     } deriving (Show, Generic)
 
 gblsBucket :: Lens' GetBucketLocation (BucketName)
-gblsBucket f x =
-    f (_gblsBucket x)
-        <&> \y -> x { _gblsBucket = y }
+gblsBucket = lens _gblsBucket (\s a -> s { _gblsBucket = a })
 {-# INLINE gblsBucket #-}
 
 instance ToPath GetBucketLocation where
@@ -70,14 +69,12 @@ instance ToHeaders GetBucketLocation
 
 instance ToBody GetBucketLocation
 
-data GetBucketLocationResponse = GetBucketLocationResponse
+newtype GetBucketLocationResponse = GetBucketLocationResponse
     { _gblpLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Show, Generic)
 
 gblpLocationConstraint :: Lens' GetBucketLocationResponse (Maybe BucketLocationConstraint)
-gblpLocationConstraint f x =
-    f (_gblpLocationConstraint x)
-        <&> \y -> x { _gblpLocationConstraint = y }
+gblpLocationConstraint = lens _gblpLocationConstraint (\s a -> s { _gblpLocationConstraint = a })
 {-# INLINE gblpLocationConstraint #-}
 
 instance FromXML GetBucketLocationResponse where

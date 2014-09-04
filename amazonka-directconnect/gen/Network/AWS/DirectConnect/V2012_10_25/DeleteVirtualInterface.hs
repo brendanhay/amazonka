@@ -23,7 +23,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
     -- * Request
       DeleteVirtualInterface
     -- ** Request constructor
-    , deleteVirtualInterface
+    , mkDeleteVirtualInterfaceRequest
     -- ** Request lenses
     , dvirVirtualInterfaceId
 
@@ -38,15 +38,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteVirtualInterface' request.
-deleteVirtualInterface :: Text -- ^ 'dvirVirtualInterfaceId'
-                       -> DeleteVirtualInterface
-deleteVirtualInterface p1 = DeleteVirtualInterface
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVirtualInterface' request.
+mkDeleteVirtualInterfaceRequest :: Text -- ^ 'dvirVirtualInterfaceId'
+                                -> DeleteVirtualInterface
+mkDeleteVirtualInterfaceRequest p1 = DeleteVirtualInterface
     { _dvirVirtualInterfaceId = p1
     }
-{-# INLINE deleteVirtualInterface #-}
+{-# INLINE mkDeleteVirtualInterfaceRequest #-}
 
-data DeleteVirtualInterface = DeleteVirtualInterface
+newtype DeleteVirtualInterface = DeleteVirtualInterface
     { _dvirVirtualInterfaceId :: Text
       -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
       -- None.
@@ -54,9 +55,7 @@ data DeleteVirtualInterface = DeleteVirtualInterface
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 dvirVirtualInterfaceId :: Lens' DeleteVirtualInterface (Text)
-dvirVirtualInterfaceId f x =
-    f (_dvirVirtualInterfaceId x)
-        <&> \y -> x { _dvirVirtualInterfaceId = y }
+dvirVirtualInterfaceId = lens _dvirVirtualInterfaceId (\s a -> s { _dvirVirtualInterfaceId = a })
 {-# INLINE dvirVirtualInterfaceId #-}
 
 instance ToPath DeleteVirtualInterface
@@ -67,7 +66,7 @@ instance ToHeaders DeleteVirtualInterface
 
 instance ToJSON DeleteVirtualInterface
 
-data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
+newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvisVirtualInterfaceState :: Maybe VirtualInterfaceState
       -- ^ State of the virtual interface. Confirming: The creation of the
       -- virtual interface is pending confirmation from the virtual
@@ -107,9 +106,7 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
 dvisVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-dvisVirtualInterfaceState f x =
-    f (_dvisVirtualInterfaceState x)
-        <&> \y -> x { _dvisVirtualInterfaceState = y }
+dvisVirtualInterfaceState = lens _dvisVirtualInterfaceState (\s a -> s { _dvisVirtualInterfaceState = a })
 {-# INLINE dvisVirtualInterfaceState #-}
 
 instance FromJSON DeleteVirtualInterfaceResponse

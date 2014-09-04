@@ -42,7 +42,7 @@ module Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock
     -- * Request
       DisableDomainTransferLock
     -- ** Request constructor
-    , disableDomainTransferLock
+    , mkDisableDomainTransferLockRequest
     -- ** Request lenses
     , ddtlrDomainName
 
@@ -57,15 +57,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DisableDomainTransferLock' request.
-disableDomainTransferLock :: Text -- ^ 'ddtlrDomainName'
-                          -> DisableDomainTransferLock
-disableDomainTransferLock p1 = DisableDomainTransferLock
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableDomainTransferLock' request.
+mkDisableDomainTransferLockRequest :: Text -- ^ 'ddtlrDomainName'
+                                   -> DisableDomainTransferLock
+mkDisableDomainTransferLockRequest p1 = DisableDomainTransferLock
     { _ddtlrDomainName = p1
     }
-{-# INLINE disableDomainTransferLock #-}
+{-# INLINE mkDisableDomainTransferLockRequest #-}
 
-data DisableDomainTransferLock = DisableDomainTransferLock
+newtype DisableDomainTransferLock = DisableDomainTransferLock
     { _ddtlrDomainName :: Text
       -- ^ The name of a domain. Type: String Default: None Constraints: The
       -- domain name can contain only the letters a through z, the numbers
@@ -78,9 +79,7 @@ data DisableDomainTransferLock = DisableDomainTransferLock
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 ddtlrDomainName :: Lens' DisableDomainTransferLock (Text)
-ddtlrDomainName f x =
-    f (_ddtlrDomainName x)
-        <&> \y -> x { _ddtlrDomainName = y }
+ddtlrDomainName = lens _ddtlrDomainName (\s a -> s { _ddtlrDomainName = a })
 {-# INLINE ddtlrDomainName #-}
 
 instance ToPath DisableDomainTransferLock
@@ -91,7 +90,7 @@ instance ToHeaders DisableDomainTransferLock
 
 instance ToJSON DisableDomainTransferLock
 
-data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
+newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
     { _ddtlsOperationId :: Text
       -- ^ Identifier for tracking the progress of the request. To use this
       -- ID to query the operation status, use GetOperationDetail. Type:
@@ -102,9 +101,7 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
 ddtlsOperationId :: Lens' DisableDomainTransferLockResponse (Text)
-ddtlsOperationId f x =
-    f (_ddtlsOperationId x)
-        <&> \y -> x { _ddtlsOperationId = y }
+ddtlsOperationId = lens _ddtlsOperationId (\s a -> s { _ddtlsOperationId = a })
 {-# INLINE ddtlsOperationId #-}
 
 instance FromJSON DisableDomainTransferLockResponse

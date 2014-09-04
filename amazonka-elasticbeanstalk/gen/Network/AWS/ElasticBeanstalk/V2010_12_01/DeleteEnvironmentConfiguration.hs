@@ -32,7 +32,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration
     -- * Request
       DeleteEnvironmentConfiguration
     -- ** Request constructor
-    , deleteEnvironmentConfiguration
+    , mkDeleteEnvironmentConfigurationMessage
     -- ** Request lenses
     , decmApplicationName
     , decmEnvironmentName
@@ -45,15 +45,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteEnvironmentConfiguration' request.
-deleteEnvironmentConfiguration :: Text -- ^ 'decmApplicationName'
-                               -> Text -- ^ 'decmEnvironmentName'
-                               -> DeleteEnvironmentConfiguration
-deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEnvironmentConfiguration' request.
+mkDeleteEnvironmentConfigurationMessage :: Text -- ^ 'decmApplicationName'
+                                        -> Text -- ^ 'decmEnvironmentName'
+                                        -> DeleteEnvironmentConfiguration
+mkDeleteEnvironmentConfigurationMessage p1 p2 = DeleteEnvironmentConfiguration
     { _decmApplicationName = p1
     , _decmEnvironmentName = p2
     }
-{-# INLINE deleteEnvironmentConfiguration #-}
+{-# INLINE mkDeleteEnvironmentConfigurationMessage #-}
 
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decmApplicationName :: Text
@@ -65,16 +66,12 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
 
 -- | The name of the application the environment is associated with.
 decmApplicationName :: Lens' DeleteEnvironmentConfiguration (Text)
-decmApplicationName f x =
-    f (_decmApplicationName x)
-        <&> \y -> x { _decmApplicationName = y }
+decmApplicationName = lens _decmApplicationName (\s a -> s { _decmApplicationName = a })
 {-# INLINE decmApplicationName #-}
 
 -- | The name of the environment to delete the draft configuration from.
 decmEnvironmentName :: Lens' DeleteEnvironmentConfiguration (Text)
-decmEnvironmentName f x =
-    f (_decmEnvironmentName x)
-        <&> \y -> x { _decmEnvironmentName = y }
+decmEnvironmentName = lens _decmEnvironmentName (\s a -> s { _decmEnvironmentName = a })
 {-# INLINE decmEnvironmentName #-}
 
 instance ToQuery DeleteEnvironmentConfiguration where

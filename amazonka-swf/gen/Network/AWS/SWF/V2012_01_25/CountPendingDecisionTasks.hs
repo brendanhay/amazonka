@@ -51,7 +51,7 @@ module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
     -- * Request
       CountPendingDecisionTasks
     -- ** Request constructor
-    , countPendingDecisionTasks
+    , mkCountPendingDecisionTasksInput
     -- ** Request lenses
     , cpdtiDomain
     , cpdtiTaskList
@@ -68,15 +68,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CountPendingDecisionTasks' request.
-countPendingDecisionTasks :: Text -- ^ 'cpdtiDomain'
-                          -> TaskList -- ^ 'cpdtiTaskList'
-                          -> CountPendingDecisionTasks
-countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountPendingDecisionTasks' request.
+mkCountPendingDecisionTasksInput :: Text -- ^ 'cpdtiDomain'
+                                 -> TaskList -- ^ 'cpdtiTaskList'
+                                 -> CountPendingDecisionTasks
+mkCountPendingDecisionTasksInput p1 p2 = CountPendingDecisionTasks
     { _cpdtiDomain = p1
     , _cpdtiTaskList = p2
     }
-{-# INLINE countPendingDecisionTasks #-}
+{-# INLINE mkCountPendingDecisionTasksInput #-}
 
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtiDomain :: Text
@@ -87,16 +88,12 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks
 
 -- | The name of the domain that contains the task list.
 cpdtiDomain :: Lens' CountPendingDecisionTasks (Text)
-cpdtiDomain f x =
-    f (_cpdtiDomain x)
-        <&> \y -> x { _cpdtiDomain = y }
+cpdtiDomain = lens _cpdtiDomain (\s a -> s { _cpdtiDomain = a })
 {-# INLINE cpdtiDomain #-}
 
 -- | The name of the task list.
 cpdtiTaskList :: Lens' CountPendingDecisionTasks (TaskList)
-cpdtiTaskList f x =
-    f (_cpdtiTaskList x)
-        <&> \y -> x { _cpdtiTaskList = y }
+cpdtiTaskList = lens _cpdtiTaskList (\s a -> s { _cpdtiTaskList = a })
 {-# INLINE cpdtiTaskList #-}
 
 instance ToPath CountPendingDecisionTasks
@@ -118,17 +115,13 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
 
 -- | The number of tasks in the task list.
 ptdCount :: Lens' CountPendingDecisionTasksResponse (Integer)
-ptdCount f x =
-    f (_ptdCount x)
-        <&> \y -> x { _ptdCount = y }
+ptdCount = lens _ptdCount (\s a -> s { _ptdCount = a })
 {-# INLINE ptdCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
 ptdTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
-ptdTruncated f x =
-    f (_ptdTruncated x)
-        <&> \y -> x { _ptdTruncated = y }
+ptdTruncated = lens _ptdTruncated (\s a -> s { _ptdTruncated = a })
 {-# INLINE ptdTruncated #-}
 
 instance FromJSON CountPendingDecisionTasksResponse

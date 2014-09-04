@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -36,12 +37,11 @@ module Network.AWS.ImportExport.V2010_06_01.Types
     , JobType (..)
 
     -- * Job
-    , Job (..)
+    , Job
     , jJobId
     , jCreationDate
     , jIsCanceled
     , jJobType
-
     ) where
 
 import Network.AWS.Prelude
@@ -174,31 +174,23 @@ data Job = Job
 
 -- | A unique identifier which refers to a particular job.
 jJobId :: Lens' Job (Text)
-jJobId f x =
-    f (_jJobId x)
-        <&> \y -> x { _jJobId = y }
+jJobId = lens _jJobId (\s a -> s { _jJobId = a })
 {-# INLINE jJobId #-}
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
 jCreationDate :: Lens' Job (ISO8601)
-jCreationDate f x =
-    f (_jCreationDate x)
-        <&> \y -> x { _jCreationDate = y }
+jCreationDate = lens _jCreationDate (\s a -> s { _jCreationDate = a })
 {-# INLINE jCreationDate #-}
 
 -- | Indicates whether the job was canceled.
 jIsCanceled :: Lens' Job (Bool)
-jIsCanceled f x =
-    f (_jIsCanceled x)
-        <&> \y -> x { _jIsCanceled = y }
+jIsCanceled = lens _jIsCanceled (\s a -> s { _jIsCanceled = a })
 {-# INLINE jIsCanceled #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
 jJobType :: Lens' Job (JobType)
-jJobType f x =
-    f (_jJobType x)
-        <&> \y -> x { _jJobType = y }
+jJobType = lens _jJobType (\s a -> s { _jJobType = a })
 {-# INLINE jJobType #-}
 
 instance FromXML Job where

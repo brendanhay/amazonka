@@ -23,7 +23,7 @@ module Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey
     -- * Request
       RotateEncryptionKey
     -- ** Request constructor
-    , rotateEncryptionKey
+    , mkRotateEncryptionKeyMessage
     -- ** Request lenses
     , rekmClusterIdentifier
 
@@ -37,15 +37,16 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RotateEncryptionKey' request.
-rotateEncryptionKey :: Text -- ^ 'rekmClusterIdentifier'
-                    -> RotateEncryptionKey
-rotateEncryptionKey p1 = RotateEncryptionKey
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RotateEncryptionKey' request.
+mkRotateEncryptionKeyMessage :: Text -- ^ 'rekmClusterIdentifier'
+                             -> RotateEncryptionKey
+mkRotateEncryptionKeyMessage p1 = RotateEncryptionKey
     { _rekmClusterIdentifier = p1
     }
-{-# INLINE rotateEncryptionKey #-}
+{-# INLINE mkRotateEncryptionKeyMessage #-}
 
-data RotateEncryptionKey = RotateEncryptionKey
+newtype RotateEncryptionKey = RotateEncryptionKey
     { _rekmClusterIdentifier :: Text
       -- ^ The unique identifier of the cluster that you want to rotate the
       -- encryption keys for. Constraints: Must be the name of valid
@@ -56,24 +57,20 @@ data RotateEncryptionKey = RotateEncryptionKey
 -- keys for. Constraints: Must be the name of valid cluster that has
 -- encryption enabled.
 rekmClusterIdentifier :: Lens' RotateEncryptionKey (Text)
-rekmClusterIdentifier f x =
-    f (_rekmClusterIdentifier x)
-        <&> \y -> x { _rekmClusterIdentifier = y }
+rekmClusterIdentifier = lens _rekmClusterIdentifier (\s a -> s { _rekmClusterIdentifier = a })
 {-# INLINE rekmClusterIdentifier #-}
 
 instance ToQuery RotateEncryptionKey where
     toQuery = genericQuery def
 
-data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
+newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _cccrCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
 cccrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-cccrCluster f x =
-    f (_cccrCluster x)
-        <&> \y -> x { _cccrCluster = y }
+cccrCluster = lens _cccrCluster (\s a -> s { _cccrCluster = a })
 {-# INLINE cccrCluster #-}
 
 instance FromXML RotateEncryptionKeyResponse where

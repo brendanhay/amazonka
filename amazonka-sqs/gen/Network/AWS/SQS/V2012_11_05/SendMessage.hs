@@ -49,7 +49,7 @@ module Network.AWS.SQS.V2012_11_05.SendMessage
     -- * Request
       SendMessage
     -- ** Request constructor
-    , sendMessage
+    , mkSendMessageRequest
     -- ** Request lenses
     , smrQueueUrl
     , smrMessageBody
@@ -68,17 +68,18 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SendMessage' request.
-sendMessage :: Text -- ^ 'smrQueueUrl'
-            -> Text -- ^ 'smrMessageBody'
-            -> SendMessage
-sendMessage p1 p2 = SendMessage
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendMessage' request.
+mkSendMessageRequest :: Text -- ^ 'smrQueueUrl'
+                     -> Text -- ^ 'smrMessageBody'
+                     -> SendMessage
+mkSendMessageRequest p1 p2 = SendMessage
     { _smrQueueUrl = p1
     , _smrMessageBody = p2
     , _smrDelaySeconds = Nothing
     , _smrMessageAttributes = mempty
     }
-{-# INLINE sendMessage #-}
+{-# INLINE mkSendMessageRequest #-}
 
 data SendMessage = SendMessage
     { _smrQueueUrl :: Text
@@ -98,17 +99,13 @@ data SendMessage = SendMessage
 
 -- | The URL of the Amazon SQS queue to take action on.
 smrQueueUrl :: Lens' SendMessage (Text)
-smrQueueUrl f x =
-    f (_smrQueueUrl x)
-        <&> \y -> x { _smrQueueUrl = y }
+smrQueueUrl = lens _smrQueueUrl (\s a -> s { _smrQueueUrl = a })
 {-# INLINE smrQueueUrl #-}
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.
 smrMessageBody :: Lens' SendMessage (Text)
-smrMessageBody f x =
-    f (_smrMessageBody x)
-        <&> \y -> x { _smrMessageBody = y }
+smrMessageBody = lens _smrMessageBody (\s a -> s { _smrMessageBody = a })
 {-# INLINE smrMessageBody #-}
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.
@@ -116,17 +113,13 @@ smrMessageBody f x =
 -- after the delay time is finished. If you don't specify a value, the default
 -- value for the queue applies.
 smrDelaySeconds :: Lens' SendMessage (Maybe Integer)
-smrDelaySeconds f x =
-    f (_smrDelaySeconds x)
-        <&> \y -> x { _smrDelaySeconds = y }
+smrDelaySeconds = lens _smrDelaySeconds (\s a -> s { _smrDelaySeconds = a })
 {-# INLINE smrDelaySeconds #-}
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
 smrMessageAttributes :: Lens' SendMessage (Map Text MessageAttributeValue)
-smrMessageAttributes f x =
-    f (_smrMessageAttributes x)
-        <&> \y -> x { _smrMessageAttributes = y }
+smrMessageAttributes = lens _smrMessageAttributes (\s a -> s { _smrMessageAttributes = a })
 {-# INLINE smrMessageAttributes #-}
 
 instance ToQuery SendMessage where
@@ -156,9 +149,7 @@ data SendMessageResponse = SendMessageResponse
 -- URL decodes the message before creating the MD5 digest. For information
 -- about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
 smsMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
-smsMD5OfMessageBody f x =
-    f (_smsMD5OfMessageBody x)
-        <&> \y -> x { _smsMD5OfMessageBody = y }
+smsMD5OfMessageBody = lens _smsMD5OfMessageBody (\s a -> s { _smsMD5OfMessageBody = a })
 {-# INLINE smsMD5OfMessageBody #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
@@ -166,18 +157,14 @@ smsMD5OfMessageBody f x =
 -- first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
 smsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
-smsMD5OfMessageAttributes f x =
-    f (_smsMD5OfMessageAttributes x)
-        <&> \y -> x { _smsMD5OfMessageAttributes = y }
+smsMD5OfMessageAttributes = lens _smsMD5OfMessageAttributes (\s a -> s { _smsMD5OfMessageAttributes = a })
 {-# INLINE smsMD5OfMessageAttributes #-}
 
 -- | An element containing the message ID of the message sent to the queue. For
 -- more information, see Queue and Message Identifiers in the Amazon SQS
 -- Developer Guide.
 smsMessageId :: Lens' SendMessageResponse (Maybe Text)
-smsMessageId f x =
-    f (_smsMessageId x)
-        <&> \y -> x { _smsMessageId = y }
+smsMessageId = lens _smsMessageId (\s a -> s { _smsMessageId = a })
 {-# INLINE smsMessageId #-}
 
 instance FromXML SendMessageResponse where

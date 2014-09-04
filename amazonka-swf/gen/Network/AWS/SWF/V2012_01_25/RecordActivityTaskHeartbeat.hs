@@ -68,7 +68,7 @@ module Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
     -- * Request
       RecordActivityTaskHeartbeat
     -- ** Request constructor
-    , recordActivityTaskHeartbeat
+    , mkRecordActivityTaskHeartbeatInput
     -- ** Request lenses
     , rathiTaskToken
     , rathiDetails
@@ -84,14 +84,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RecordActivityTaskHeartbeat' request.
-recordActivityTaskHeartbeat :: Text -- ^ 'rathiTaskToken'
-                            -> RecordActivityTaskHeartbeat
-recordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RecordActivityTaskHeartbeat' request.
+mkRecordActivityTaskHeartbeatInput :: Text -- ^ 'rathiTaskToken'
+                                   -> RecordActivityTaskHeartbeat
+mkRecordActivityTaskHeartbeatInput p1 = RecordActivityTaskHeartbeat
     { _rathiTaskToken = p1
     , _rathiDetails = Nothing
     }
-{-# INLINE recordActivityTaskHeartbeat #-}
+{-# INLINE mkRecordActivityTaskHeartbeatInput #-}
 
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
     { _rathiTaskToken :: Text
@@ -108,16 +109,12 @@ data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
 rathiTaskToken :: Lens' RecordActivityTaskHeartbeat (Text)
-rathiTaskToken f x =
-    f (_rathiTaskToken x)
-        <&> \y -> x { _rathiTaskToken = y }
+rathiTaskToken = lens _rathiTaskToken (\s a -> s { _rathiTaskToken = a })
 {-# INLINE rathiTaskToken #-}
 
 -- | If specified, contains details about the progress of the task.
 rathiDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
-rathiDetails f x =
-    f (_rathiDetails x)
-        <&> \y -> x { _rathiDetails = y }
+rathiDetails = lens _rathiDetails (\s a -> s { _rathiDetails = a })
 {-# INLINE rathiDetails #-}
 
 instance ToPath RecordActivityTaskHeartbeat
@@ -128,16 +125,14 @@ instance ToHeaders RecordActivityTaskHeartbeat
 
 instance ToJSON RecordActivityTaskHeartbeat
 
-data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
+newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _atsCancelRequested :: Bool
       -- ^ Set to true if cancellation of the task is requested.
     } deriving (Show, Generic)
 
 -- | Set to true if cancellation of the task is requested.
 atsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse (Bool)
-atsCancelRequested f x =
-    f (_atsCancelRequested x)
-        <&> \y -> x { _atsCancelRequested = y }
+atsCancelRequested = lens _atsCancelRequested (\s a -> s { _atsCancelRequested = a })
 {-# INLINE atsCancelRequested #-}
 
 instance FromJSON RecordActivityTaskHeartbeatResponse

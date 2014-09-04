@@ -53,78 +53,67 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute
     -- * Request
       DescribeInstanceAttribute
     -- ** Request constructor
-    , describeInstanceAttribute
+    , mkDescribeInstanceAttributeRequest
     -- ** Request lenses
-    , diasAttribute
     , diasInstanceId
+    , diasAttribute
 
     -- * Response
     , DescribeInstanceAttributeResponse
     -- ** Response lenses
-    , ibDisableApiTermination
-    , ibEbsOptimized
-    , ibSourceDestCheck
+    , ibInstanceId
     , ibInstanceType
     , ibKernelId
     , ibRamdiskId
     , ibUserData
+    , ibDisableApiTermination
     , ibInstanceInitiatedShutdownBehavior
     , ibRootDeviceName
-    , ibSriovNetSupport
     , ibBlockDeviceMappings
     , ibProductCodes
-    , ibInstanceId
+    , ibEbsOptimized
+    , ibSriovNetSupport
+    , ibSourceDestCheck
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeInstanceAttribute' request.
-describeInstanceAttribute :: InstanceAttributeName -- ^ 'diasAttribute'
-                          -> Text -- ^ 'diasInstanceId'
-                          -> DescribeInstanceAttribute
-describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
-    { _diasAttribute = p1
-    , _diasInstanceId = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceAttribute' request.
+mkDescribeInstanceAttributeRequest :: Text -- ^ 'diasInstanceId'
+                                   -> InstanceAttributeName -- ^ 'diasAttribute'
+                                   -> DescribeInstanceAttribute
+mkDescribeInstanceAttributeRequest p1 p2 = DescribeInstanceAttribute
+    { _diasInstanceId = p1
+    , _diasAttribute = p2
     }
-{-# INLINE describeInstanceAttribute #-}
+{-# INLINE mkDescribeInstanceAttributeRequest #-}
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _diasAttribute :: InstanceAttributeName
-      -- ^ The instance attribute.
-    , _diasInstanceId :: Text
+    { _diasInstanceId :: Text
       -- ^ The ID of the instance.
+    , _diasAttribute :: InstanceAttributeName
+      -- ^ The instance attribute.
     } deriving (Show, Generic)
-
--- | The instance attribute.
-diasAttribute :: Lens' DescribeInstanceAttribute (InstanceAttributeName)
-diasAttribute f x =
-    f (_diasAttribute x)
-        <&> \y -> x { _diasAttribute = y }
-{-# INLINE diasAttribute #-}
 
 -- | The ID of the instance.
 diasInstanceId :: Lens' DescribeInstanceAttribute (Text)
-diasInstanceId f x =
-    f (_diasInstanceId x)
-        <&> \y -> x { _diasInstanceId = y }
+diasInstanceId = lens _diasInstanceId (\s a -> s { _diasInstanceId = a })
 {-# INLINE diasInstanceId #-}
+
+-- | The instance attribute.
+diasAttribute :: Lens' DescribeInstanceAttribute (InstanceAttributeName)
+diasAttribute = lens _diasAttribute (\s a -> s { _diasAttribute = a })
+{-# INLINE diasAttribute #-}
 
 instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _ibDisableApiTermination :: Maybe AttributeBooleanValue
-      -- ^ If the value is true, you can't terminate the instance through
-      -- the Amazon EC2 console, CLI, or API; otherwise, you can.
-    , _ibEbsOptimized :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instance is optimized for EBS I/O.
-    , _ibSourceDestCheck :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether source/destination checking is enabled. A value
-      -- of true means checking is enabled, and false means checking is
-      -- disabled. This value must be false for a NAT instance to perform
-      -- NAT.
+    { _ibInstanceId :: Maybe Text
+      -- ^ The ID of the instance.
     , _ibInstanceType :: Maybe AttributeValue
       -- ^ The instance type.
     , _ibKernelId :: Maybe AttributeValue
@@ -133,117 +122,99 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
       -- ^ The RAM disk ID.
     , _ibUserData :: Maybe AttributeValue
       -- ^ The Base64-encoded MIME user data.
+    , _ibDisableApiTermination :: Maybe AttributeBooleanValue
+      -- ^ If the value is true, you can't terminate the instance through
+      -- the Amazon EC2 console, CLI, or API; otherwise, you can.
     , _ibInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
       -- ^ Indicates whether an instance stops or terminates when you
       -- initiate shutdown from the instance (using the operating system
       -- command for system shutdown).
     , _ibRootDeviceName :: Maybe AttributeValue
       -- ^ The name of the root device (for example, /dev/sda1).
-    , _ibSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
     , _ibBlockDeviceMappings :: [InstanceBlockDeviceMapping]
       -- ^ The block device mapping of the instance.
     , _ibProductCodes :: [ProductCode]
       -- ^ A list of product codes.
-    , _ibInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
+    , _ibEbsOptimized :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether the instance is optimized for EBS I/O.
+    , _ibSriovNetSupport :: Maybe AttributeValue
+      -- ^ 
+    , _ibSourceDestCheck :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether source/destination checking is enabled. A value
+      -- of true means checking is enabled, and false means checking is
+      -- disabled. This value must be false for a NAT instance to perform
+      -- NAT.
     } deriving (Show, Generic)
 
--- | If the value is true, you can't terminate the instance through the Amazon
--- EC2 console, CLI, or API; otherwise, you can.
-ibDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-ibDisableApiTermination f x =
-    f (_ibDisableApiTermination x)
-        <&> \y -> x { _ibDisableApiTermination = y }
-{-# INLINE ibDisableApiTermination #-}
-
--- | Indicates whether the instance is optimized for EBS I/O.
-ibEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-ibEbsOptimized f x =
-    f (_ibEbsOptimized x)
-        <&> \y -> x { _ibEbsOptimized = y }
-{-# INLINE ibEbsOptimized #-}
-
--- | Indicates whether source/destination checking is enabled. A value of true
--- means checking is enabled, and false means checking is disabled. This value
--- must be false for a NAT instance to perform NAT.
-ibSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-ibSourceDestCheck f x =
-    f (_ibSourceDestCheck x)
-        <&> \y -> x { _ibSourceDestCheck = y }
-{-# INLINE ibSourceDestCheck #-}
+-- | The ID of the instance.
+ibInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
+ibInstanceId = lens _ibInstanceId (\s a -> s { _ibInstanceId = a })
+{-# INLINE ibInstanceId #-}
 
 -- | The instance type.
 ibInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibInstanceType f x =
-    f (_ibInstanceType x)
-        <&> \y -> x { _ibInstanceType = y }
+ibInstanceType = lens _ibInstanceType (\s a -> s { _ibInstanceType = a })
 {-# INLINE ibInstanceType #-}
 
 -- | The kernel ID.
 ibKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibKernelId f x =
-    f (_ibKernelId x)
-        <&> \y -> x { _ibKernelId = y }
+ibKernelId = lens _ibKernelId (\s a -> s { _ibKernelId = a })
 {-# INLINE ibKernelId #-}
 
 -- | The RAM disk ID.
 ibRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibRamdiskId f x =
-    f (_ibRamdiskId x)
-        <&> \y -> x { _ibRamdiskId = y }
+ibRamdiskId = lens _ibRamdiskId (\s a -> s { _ibRamdiskId = a })
 {-# INLINE ibRamdiskId #-}
 
 -- | The Base64-encoded MIME user data.
 ibUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibUserData f x =
-    f (_ibUserData x)
-        <&> \y -> x { _ibUserData = y }
+ibUserData = lens _ibUserData (\s a -> s { _ibUserData = a })
 {-# INLINE ibUserData #-}
+
+-- | If the value is true, you can't terminate the instance through the Amazon
+-- EC2 console, CLI, or API; otherwise, you can.
+ibDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+ibDisableApiTermination = lens _ibDisableApiTermination (\s a -> s { _ibDisableApiTermination = a })
+{-# INLINE ibDisableApiTermination #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
 ibInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibInstanceInitiatedShutdownBehavior f x =
-    f (_ibInstanceInitiatedShutdownBehavior x)
-        <&> \y -> x { _ibInstanceInitiatedShutdownBehavior = y }
+ibInstanceInitiatedShutdownBehavior = lens _ibInstanceInitiatedShutdownBehavior (\s a -> s { _ibInstanceInitiatedShutdownBehavior = a })
 {-# INLINE ibInstanceInitiatedShutdownBehavior #-}
 
 -- | The name of the root device (for example, /dev/sda1).
 ibRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibRootDeviceName f x =
-    f (_ibRootDeviceName x)
-        <&> \y -> x { _ibRootDeviceName = y }
+ibRootDeviceName = lens _ibRootDeviceName (\s a -> s { _ibRootDeviceName = a })
 {-# INLINE ibRootDeviceName #-}
-
--- | 
-ibSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibSriovNetSupport f x =
-    f (_ibSriovNetSupport x)
-        <&> \y -> x { _ibSriovNetSupport = y }
-{-# INLINE ibSriovNetSupport #-}
 
 -- | The block device mapping of the instance.
 ibBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse ([InstanceBlockDeviceMapping])
-ibBlockDeviceMappings f x =
-    f (_ibBlockDeviceMappings x)
-        <&> \y -> x { _ibBlockDeviceMappings = y }
+ibBlockDeviceMappings = lens _ibBlockDeviceMappings (\s a -> s { _ibBlockDeviceMappings = a })
 {-# INLINE ibBlockDeviceMappings #-}
 
 -- | A list of product codes.
 ibProductCodes :: Lens' DescribeInstanceAttributeResponse ([ProductCode])
-ibProductCodes f x =
-    f (_ibProductCodes x)
-        <&> \y -> x { _ibProductCodes = y }
+ibProductCodes = lens _ibProductCodes (\s a -> s { _ibProductCodes = a })
 {-# INLINE ibProductCodes #-}
 
--- | The ID of the instance.
-ibInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
-ibInstanceId f x =
-    f (_ibInstanceId x)
-        <&> \y -> x { _ibInstanceId = y }
-{-# INLINE ibInstanceId #-}
+-- | Indicates whether the instance is optimized for EBS I/O.
+ibEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+ibEbsOptimized = lens _ibEbsOptimized (\s a -> s { _ibEbsOptimized = a })
+{-# INLINE ibEbsOptimized #-}
+
+-- | 
+ibSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+ibSriovNetSupport = lens _ibSriovNetSupport (\s a -> s { _ibSriovNetSupport = a })
+{-# INLINE ibSriovNetSupport #-}
+
+-- | Indicates whether source/destination checking is enabled. A value of true
+-- means checking is enabled, and false means checking is disabled. This value
+-- must be false for a NAT instance to perform NAT.
+ibSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+ibSourceDestCheck = lens _ibSourceDestCheck (\s a -> s { _ibSourceDestCheck = a })
+{-# INLINE ibSourceDestCheck #-}
 
 instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions

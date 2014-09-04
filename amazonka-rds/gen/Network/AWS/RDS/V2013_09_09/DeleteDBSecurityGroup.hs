@@ -28,7 +28,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBSecurityGroup
     -- * Request
       DeleteDBSecurityGroup
     -- ** Request constructor
-    , deleteDBSecurityGroup
+    , mkDeleteDBSecurityGroupMessage
     -- ** Request lenses
     , ddbsgmDBSecurityGroupName
 
@@ -40,15 +40,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDBSecurityGroup' request.
-deleteDBSecurityGroup :: Text -- ^ 'ddbsgmDBSecurityGroupName'
-                      -> DeleteDBSecurityGroup
-deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBSecurityGroup' request.
+mkDeleteDBSecurityGroupMessage :: Text -- ^ 'ddbsgmDBSecurityGroupName'
+                               -> DeleteDBSecurityGroup
+mkDeleteDBSecurityGroupMessage p1 = DeleteDBSecurityGroup
     { _ddbsgmDBSecurityGroupName = p1
     }
-{-# INLINE deleteDBSecurityGroup #-}
+{-# INLINE mkDeleteDBSecurityGroupMessage #-}
 
-data DeleteDBSecurityGroup = DeleteDBSecurityGroup
+newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
     { _ddbsgmDBSecurityGroupName :: Text
       -- ^ The name of the DB security group to delete. You cannot delete
       -- the default DB security group. Constraints: Must be 1 to 255
@@ -62,9 +63,7 @@ data DeleteDBSecurityGroup = DeleteDBSecurityGroup
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Must not be "Default" May not contain spaces.
 ddbsgmDBSecurityGroupName :: Lens' DeleteDBSecurityGroup (Text)
-ddbsgmDBSecurityGroupName f x =
-    f (_ddbsgmDBSecurityGroupName x)
-        <&> \y -> x { _ddbsgmDBSecurityGroupName = y }
+ddbsgmDBSecurityGroupName = lens _ddbsgmDBSecurityGroupName (\s a -> s { _ddbsgmDBSecurityGroupName = a })
 {-# INLINE ddbsgmDBSecurityGroupName #-}
 
 instance ToQuery DeleteDBSecurityGroup where

@@ -34,13 +34,13 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplicationVersion
     -- * Request
       CreateApplicationVersion
     -- ** Request constructor
-    , createApplicationVersion
+    , mkCreateApplicationVersionMessage
     -- ** Request lenses
     , cavmApplicationName
     , cavmVersionLabel
-    , cavmAutoCreateApplication
     , cavmDescription
     , cavmSourceBundle
+    , cavmAutoCreateApplication
 
     -- * Response
     , CreateApplicationVersionResponse
@@ -52,18 +52,19 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateApplicationVersion' request.
-createApplicationVersion :: Text -- ^ 'cavmApplicationName'
-                         -> Text -- ^ 'cavmVersionLabel'
-                         -> CreateApplicationVersion
-createApplicationVersion p1 p2 = CreateApplicationVersion
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateApplicationVersion' request.
+mkCreateApplicationVersionMessage :: Text -- ^ 'cavmApplicationName'
+                                  -> Text -- ^ 'cavmVersionLabel'
+                                  -> CreateApplicationVersion
+mkCreateApplicationVersionMessage p1 p2 = CreateApplicationVersion
     { _cavmApplicationName = p1
     , _cavmVersionLabel = p2
-    , _cavmAutoCreateApplication = Nothing
     , _cavmDescription = Nothing
     , _cavmSourceBundle = Nothing
+    , _cavmAutoCreateApplication = Nothing
     }
-{-# INLINE createApplicationVersion #-}
+{-# INLINE mkCreateApplicationVersionMessage #-}
 
 data CreateApplicationVersion = CreateApplicationVersion
     { _cavmApplicationName :: Text
@@ -75,17 +76,6 @@ data CreateApplicationVersion = CreateApplicationVersion
       -- application. If an application version already exists with this
       -- label for the specified application, AWS Elastic Beanstalk
       -- returns an InvalidParameterValue error.
-    , _cavmAutoCreateApplication :: Maybe Bool
-      -- ^ Determines how the system behaves if the specified application
-      -- for this version does not already exist: true: Automatically
-      -- creates the specified application for this version if it does not
-      -- already exist. false: Returns an InvalidParameterValue if the
-      -- specified application for this version does not already exist.
-      -- true : Automatically creates the specified application for this
-      -- release if it does not already exist. false : Throws an
-      -- InvalidParameterValue if the specified application for this
-      -- release does not already exist. Default: false Valid Values: true
-      -- | false.
     , _cavmDescription :: Maybe Text
       -- ^ Describes this version.
     , _cavmSourceBundle :: Maybe S3Location
@@ -98,14 +88,23 @@ data CreateApplicationVersion = CreateApplicationVersion
       -- specified (for example, a bucket is provided but not the key) or
       -- if no data is found at the Amazon S3 location, AWS Elastic
       -- Beanstalk returns an InvalidParameterCombination error.
+    , _cavmAutoCreateApplication :: Maybe Bool
+      -- ^ Determines how the system behaves if the specified application
+      -- for this version does not already exist: true: Automatically
+      -- creates the specified application for this version if it does not
+      -- already exist. false: Returns an InvalidParameterValue if the
+      -- specified application for this version does not already exist.
+      -- true : Automatically creates the specified application for this
+      -- release if it does not already exist. false : Throws an
+      -- InvalidParameterValue if the specified application for this
+      -- release does not already exist. Default: false Valid Values: true
+      -- | false.
     } deriving (Show, Generic)
 
 -- | The name of the application. If no application is found with this name, and
 -- AutoCreateApplication is false, returns an InvalidParameterValue error.
 cavmApplicationName :: Lens' CreateApplicationVersion (Text)
-cavmApplicationName f x =
-    f (_cavmApplicationName x)
-        <&> \y -> x { _cavmApplicationName = y }
+cavmApplicationName = lens _cavmApplicationName (\s a -> s { _cavmApplicationName = a })
 {-# INLINE cavmApplicationName #-}
 
 -- | A label identifying this version. Constraint: Must be unique per
@@ -113,30 +112,12 @@ cavmApplicationName f x =
 -- the specified application, AWS Elastic Beanstalk returns an
 -- InvalidParameterValue error.
 cavmVersionLabel :: Lens' CreateApplicationVersion (Text)
-cavmVersionLabel f x =
-    f (_cavmVersionLabel x)
-        <&> \y -> x { _cavmVersionLabel = y }
+cavmVersionLabel = lens _cavmVersionLabel (\s a -> s { _cavmVersionLabel = a })
 {-# INLINE cavmVersionLabel #-}
-
--- | Determines how the system behaves if the specified application for this
--- version does not already exist: true: Automatically creates the specified
--- application for this version if it does not already exist. false: Returns
--- an InvalidParameterValue if the specified application for this version does
--- not already exist. true : Automatically creates the specified application
--- for this release if it does not already exist. false : Throws an
--- InvalidParameterValue if the specified application for this release does
--- not already exist. Default: false Valid Values: true | false.
-cavmAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
-cavmAutoCreateApplication f x =
-    f (_cavmAutoCreateApplication x)
-        <&> \y -> x { _cavmAutoCreateApplication = y }
-{-# INLINE cavmAutoCreateApplication #-}
 
 -- | Describes this version.
 cavmDescription :: Lens' CreateApplicationVersion (Maybe Text)
-cavmDescription f x =
-    f (_cavmDescription x)
-        <&> \y -> x { _cavmDescription = y }
+cavmDescription = lens _cavmDescription (\s a -> s { _cavmDescription = a })
 {-# INLINE cavmDescription #-}
 
 -- | The Amazon S3 bucket and key that identify the location of the source
@@ -148,24 +129,32 @@ cavmDescription f x =
 -- if no data is found at the Amazon S3 location, AWS Elastic Beanstalk
 -- returns an InvalidParameterCombination error.
 cavmSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
-cavmSourceBundle f x =
-    f (_cavmSourceBundle x)
-        <&> \y -> x { _cavmSourceBundle = y }
+cavmSourceBundle = lens _cavmSourceBundle (\s a -> s { _cavmSourceBundle = a })
 {-# INLINE cavmSourceBundle #-}
+
+-- | Determines how the system behaves if the specified application for this
+-- version does not already exist: true: Automatically creates the specified
+-- application for this version if it does not already exist. false: Returns
+-- an InvalidParameterValue if the specified application for this version does
+-- not already exist. true : Automatically creates the specified application
+-- for this release if it does not already exist. false : Throws an
+-- InvalidParameterValue if the specified application for this release does
+-- not already exist. Default: false Valid Values: true | false.
+cavmAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
+cavmAutoCreateApplication = lens _cavmAutoCreateApplication (\s a -> s { _cavmAutoCreateApplication = a })
+{-# INLINE cavmAutoCreateApplication #-}
 
 instance ToQuery CreateApplicationVersion where
     toQuery = genericQuery def
 
-data CreateApplicationVersionResponse = CreateApplicationVersionResponse
+newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
       -- ^ The ApplicationVersionDescription of the application version.
     } deriving (Show, Generic)
 
 -- | The ApplicationVersionDescription of the application version.
 avdmApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
-avdmApplicationVersion f x =
-    f (_avdmApplicationVersion x)
-        <&> \y -> x { _avdmApplicationVersion = y }
+avdmApplicationVersion = lens _avdmApplicationVersion (\s a -> s { _avdmApplicationVersion = a })
 {-# INLINE avdmApplicationVersion #-}
 
 instance FromXML CreateApplicationVersionResponse where

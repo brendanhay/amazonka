@@ -41,7 +41,7 @@ module Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic
     -- * Request
       SetIdentityNotificationTopic
     -- ** Request constructor
-    , setIdentityNotificationTopic
+    , mkSetIdentityNotificationTopicRequest
     -- ** Request lenses
     , sintrIdentity
     , sintrNotificationType
@@ -55,16 +55,17 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SetIdentityNotificationTopic' request.
-setIdentityNotificationTopic :: Text -- ^ 'sintrIdentity'
-                             -> NotificationType -- ^ 'sintrNotificationType'
-                             -> SetIdentityNotificationTopic
-setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetIdentityNotificationTopic' request.
+mkSetIdentityNotificationTopicRequest :: Text -- ^ 'sintrIdentity'
+                                      -> NotificationType -- ^ 'sintrNotificationType'
+                                      -> SetIdentityNotificationTopic
+mkSetIdentityNotificationTopicRequest p1 p2 = SetIdentityNotificationTopic
     { _sintrIdentity = p1
     , _sintrNotificationType = p2
     , _sintrSnsTopic = Nothing
     }
-{-# INLINE setIdentityNotificationTopic #-}
+{-# INLINE mkSetIdentityNotificationTopicRequest #-}
 
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintrIdentity :: Text
@@ -82,32 +83,25 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
 -- | The identity for which the Amazon SNS topic will be set. Examples:
 -- user@example.com, example.com.
 sintrIdentity :: Lens' SetIdentityNotificationTopic (Text)
-sintrIdentity f x =
-    f (_sintrIdentity x)
-        <&> \y -> x { _sintrIdentity = y }
+sintrIdentity = lens _sintrIdentity (\s a -> s { _sintrIdentity = a })
 {-# INLINE sintrIdentity #-}
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
 sintrNotificationType :: Lens' SetIdentityNotificationTopic (NotificationType)
-sintrNotificationType f x =
-    f (_sintrNotificationType x)
-        <&> \y -> x { _sintrNotificationType = y }
+sintrNotificationType = lens _sintrNotificationType (\s a -> s { _sintrNotificationType = a })
 {-# INLINE sintrNotificationType #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
 -- omitted from the request or a null value is passed, SnsTopic is cleared and
 -- publishing is disabled.
 sintrSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
-sintrSnsTopic f x =
-    f (_sintrSnsTopic x)
-        <&> \y -> x { _sintrSnsTopic = y }
+sintrSnsTopic = lens _sintrSnsTopic (\s a -> s { _sintrSnsTopic = a })
 {-# INLINE sintrSnsTopic #-}
 
 instance ToQuery SetIdentityNotificationTopic where
     toQuery = genericQuery def
 
-data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityNotificationTopic where

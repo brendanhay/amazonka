@@ -43,13 +43,14 @@ module Network.AWS.Prelude
     , Switch          (..)
 
     -- * Lenses
-    , Lens'
     , (<&>)
+    , Lens'
+    , lens
     ) where
 
 import Control.Applicative   as Export
 import Control.Exception     (Exception)
-import Control.Lens          (Lens', (<&>))
+import Control.Lens          ((<&>), Lens', lens)
 import Data.Aeson            (FromJSON(..), ToJSON(..))
 import Data.Bifunctor        as Export
 import Data.ByteString       (ByteString)
@@ -66,4 +67,4 @@ import Network.AWS.Response  as Export
 import Network.AWS.Types
 import Network.AWS.Types.Map (Map(..))
 import Network.HTTP.Client   (HttpException, RequestBody, Response)
-import Prelude               as Export hiding (head)
+import Prelude               as Export hiding (head, error)

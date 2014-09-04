@@ -25,7 +25,7 @@ module Network.AWS.EMR.V2009_03_31.DescribeCluster
     -- * Request
       DescribeCluster
     -- ** Request constructor
-    , describeCluster
+    , mkDescribeClusterInput
     -- ** Request lenses
     , dciClusterId
 
@@ -40,24 +40,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeCluster' request.
-describeCluster :: Text -- ^ 'dciClusterId'
-                -> DescribeCluster
-describeCluster p1 = DescribeCluster
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCluster' request.
+mkDescribeClusterInput :: Text -- ^ 'dciClusterId'
+                       -> DescribeCluster
+mkDescribeClusterInput p1 = DescribeCluster
     { _dciClusterId = p1
     }
-{-# INLINE describeCluster #-}
+{-# INLINE mkDescribeClusterInput #-}
 
-data DescribeCluster = DescribeCluster
+newtype DescribeCluster = DescribeCluster
     { _dciClusterId :: Text
       -- ^ The identifier of the cluster to describe.
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster to describe.
 dciClusterId :: Lens' DescribeCluster (Text)
-dciClusterId f x =
-    f (_dciClusterId x)
-        <&> \y -> x { _dciClusterId = y }
+dciClusterId = lens _dciClusterId (\s a -> s { _dciClusterId = a })
 {-# INLINE dciClusterId #-}
 
 instance ToPath DescribeCluster
@@ -68,16 +67,14 @@ instance ToHeaders DescribeCluster
 
 instance ToJSON DescribeCluster
 
-data DescribeClusterResponse = DescribeClusterResponse
+newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcoCluster :: Maybe Cluster
       -- ^ This output contains the details for the requested cluster.
     } deriving (Show, Generic)
 
 -- | This output contains the details for the requested cluster.
 dcoCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
-dcoCluster f x =
-    f (_dcoCluster x)
-        <&> \y -> x { _dcoCluster = y }
+dcoCluster = lens _dcoCluster (\s a -> s { _dcoCluster = a })
 {-# INLINE dcoCluster #-}
 
 instance FromJSON DescribeClusterResponse

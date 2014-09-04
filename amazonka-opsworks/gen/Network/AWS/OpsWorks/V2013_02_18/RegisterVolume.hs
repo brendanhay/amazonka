@@ -29,10 +29,10 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterVolume
     -- * Request
       RegisterVolume
     -- ** Request constructor
-    , registerVolume
+    , mkRegisterVolumeRequest
     -- ** Request lenses
-    , rvrStackId
     , rvrEc2VolumeId
+    , rvrStackId
 
     -- * Response
     , RegisterVolumeResponse
@@ -45,35 +45,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RegisterVolume' request.
-registerVolume :: Text -- ^ 'rvrStackId'
-               -> RegisterVolume
-registerVolume p1 = RegisterVolume
-    { _rvrStackId = p1
-    , _rvrEc2VolumeId = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterVolume' request.
+mkRegisterVolumeRequest :: Text -- ^ 'rvrStackId'
+                        -> RegisterVolume
+mkRegisterVolumeRequest p1 = RegisterVolume
+    { _rvrEc2VolumeId = Nothing
+    , _rvrStackId = p2
     }
-{-# INLINE registerVolume #-}
+{-# INLINE mkRegisterVolumeRequest #-}
 
 data RegisterVolume = RegisterVolume
-    { _rvrStackId :: Text
-      -- ^ The stack ID.
-    , _rvrEc2VolumeId :: Maybe Text
+    { _rvrEc2VolumeId :: Maybe Text
       -- ^ The Amazon EBS volume ID.
+    , _rvrStackId :: Text
+      -- ^ The stack ID.
     } deriving (Show, Generic)
-
--- | The stack ID.
-rvrStackId :: Lens' RegisterVolume (Text)
-rvrStackId f x =
-    f (_rvrStackId x)
-        <&> \y -> x { _rvrStackId = y }
-{-# INLINE rvrStackId #-}
 
 -- | The Amazon EBS volume ID.
 rvrEc2VolumeId :: Lens' RegisterVolume (Maybe Text)
-rvrEc2VolumeId f x =
-    f (_rvrEc2VolumeId x)
-        <&> \y -> x { _rvrEc2VolumeId = y }
+rvrEc2VolumeId = lens _rvrEc2VolumeId (\s a -> s { _rvrEc2VolumeId = a })
 {-# INLINE rvrEc2VolumeId #-}
+
+-- | The stack ID.
+rvrStackId :: Lens' RegisterVolume (Text)
+rvrStackId = lens _rvrStackId (\s a -> s { _rvrStackId = a })
+{-# INLINE rvrStackId #-}
 
 instance ToPath RegisterVolume
 
@@ -83,16 +80,14 @@ instance ToHeaders RegisterVolume
 
 instance ToJSON RegisterVolume
 
-data RegisterVolumeResponse = RegisterVolumeResponse
+newtype RegisterVolumeResponse = RegisterVolumeResponse
     { _rvsVolumeId :: Maybe Text
       -- ^ The volume ID.
     } deriving (Show, Generic)
 
 -- | The volume ID.
 rvsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
-rvsVolumeId f x =
-    f (_rvsVolumeId x)
-        <&> \y -> x { _rvsVolumeId = y }
+rvsVolumeId = lens _rvsVolumeId (\s a -> s { _rvsVolumeId = a })
 {-# INLINE rvsVolumeId #-}
 
 instance FromJSON RegisterVolumeResponse

@@ -33,7 +33,7 @@ module Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection
     -- * Request
       RejectVpcPeeringConnection
     -- ** Request constructor
-    , rejectVpcPeeringConnection
+    , mkRejectVpcPeeringConnectionRequest
     -- ** Request lenses
     , rvpcrVpcPeeringConnectionId
 
@@ -47,30 +47,29 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RejectVpcPeeringConnection' request.
-rejectVpcPeeringConnection :: Text -- ^ 'rvpcrVpcPeeringConnectionId'
-                           -> RejectVpcPeeringConnection
-rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RejectVpcPeeringConnection' request.
+mkRejectVpcPeeringConnectionRequest :: Text -- ^ 'rvpcrVpcPeeringConnectionId'
+                                    -> RejectVpcPeeringConnection
+mkRejectVpcPeeringConnectionRequest p1 = RejectVpcPeeringConnection
     { _rvpcrVpcPeeringConnectionId = p1
     }
-{-# INLINE rejectVpcPeeringConnection #-}
+{-# INLINE mkRejectVpcPeeringConnectionRequest #-}
 
-data RejectVpcPeeringConnection = RejectVpcPeeringConnection
+newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcrVpcPeeringConnectionId :: Text
       -- ^ The ID of the VPC peering connection.
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
 rvpcrVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection (Text)
-rvpcrVpcPeeringConnectionId f x =
-    f (_rvpcrVpcPeeringConnectionId x)
-        <&> \y -> x { _rvpcrVpcPeeringConnectionId = y }
+rvpcrVpcPeeringConnectionId = lens _rvpcrVpcPeeringConnectionId (\s a -> s { _rvpcrVpcPeeringConnectionId = a })
 {-# INLINE rvpcrVpcPeeringConnectionId #-}
 
 instance ToQuery RejectVpcPeeringConnection where
     toQuery = genericQuery def
 
-data RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
+newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcsReturn :: Maybe Bool
       -- ^ Returns true if the request succeeds; otherwise, it returns an
       -- error.
@@ -78,9 +77,7 @@ data RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
-rvpcsReturn f x =
-    f (_rvpcsReturn x)
-        <&> \y -> x { _rvpcsReturn = y }
+rvpcsReturn = lens _rvpcsReturn (\s a -> s { _rvpcsReturn = a })
 {-# INLINE rvpcsReturn #-}
 
 instance FromXML RejectVpcPeeringConnectionResponse where

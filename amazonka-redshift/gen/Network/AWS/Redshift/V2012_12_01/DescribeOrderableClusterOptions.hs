@@ -39,11 +39,11 @@ module Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions
     -- * Request
       DescribeOrderableClusterOptions
     -- ** Request constructor
-    , describeOrderableClusterOptions
+    , mkDescribeOrderableClusterOptionsMessage
     -- ** Request lenses
-    , docomMaxRecords
     , docomClusterVersion
     , docomNodeType
+    , docomMaxRecords
     , docomMarker
 
     -- * Response
@@ -57,25 +57,19 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeOrderableClusterOptions' request.
-describeOrderableClusterOptions :: DescribeOrderableClusterOptions
-describeOrderableClusterOptions = DescribeOrderableClusterOptions
-    { _docomMaxRecords = Nothing
-    , _docomClusterVersion = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOrderableClusterOptions' request.
+mkDescribeOrderableClusterOptionsMessage :: DescribeOrderableClusterOptions
+mkDescribeOrderableClusterOptionsMessage = DescribeOrderableClusterOptions
+    { _docomClusterVersion = Nothing
     , _docomNodeType = Nothing
+    , _docomMaxRecords = Nothing
     , _docomMarker = Nothing
     }
-{-# INLINE describeOrderableClusterOptions #-}
+{-# INLINE mkDescribeOrderableClusterOptionsMessage #-}
 
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
-    { _docomMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _docomClusterVersion :: Maybe Text
+    { _docomClusterVersion :: Maybe Text
       -- ^ The version filter value. Specify this parameter to show only the
       -- available offerings matching the specified version. Default: All
       -- versions. Constraints: Must be one of the version returned from
@@ -83,6 +77,13 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     , _docomNodeType :: Maybe Text
       -- ^ The node type filter value. Specify this parameter to show only
       -- the available offerings matching the specified node type.
+    , _docomMaxRecords :: Maybe Integer
+      -- ^ The maximum number of response records to return in each call. If
+      -- the number of remaining response records exceeds the specified
+      -- MaxRecords value, a value is returned in a marker field of the
+      -- response. You can retrieve the next set of records by retrying
+      -- the command with the returned marker value. Default: 100
+      -- Constraints: minimum 20, maximum 100.
     , _docomMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a
@@ -93,34 +94,28 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
       -- parameter and retrying the request.
     } deriving (Show, Generic)
 
+-- | The version filter value. Specify this parameter to show only the available
+-- offerings matching the specified version. Default: All versions.
+-- Constraints: Must be one of the version returned from
+-- DescribeClusterVersions.
+docomClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docomClusterVersion = lens _docomClusterVersion (\s a -> s { _docomClusterVersion = a })
+{-# INLINE docomClusterVersion #-}
+
+-- | The node type filter value. Specify this parameter to show only the
+-- available offerings matching the specified node type.
+docomNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docomNodeType = lens _docomNodeType (\s a -> s { _docomNodeType = a })
+{-# INLINE docomNodeType #-}
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 docomMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Integer)
-docomMaxRecords f x =
-    f (_docomMaxRecords x)
-        <&> \y -> x { _docomMaxRecords = y }
+docomMaxRecords = lens _docomMaxRecords (\s a -> s { _docomMaxRecords = a })
 {-# INLINE docomMaxRecords #-}
-
--- | The version filter value. Specify this parameter to show only the available
--- offerings matching the specified version. Default: All versions.
--- Constraints: Must be one of the version returned from
--- DescribeClusterVersions.
-docomClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docomClusterVersion f x =
-    f (_docomClusterVersion x)
-        <&> \y -> x { _docomClusterVersion = y }
-{-# INLINE docomClusterVersion #-}
-
--- | The node type filter value. Specify this parameter to show only the
--- available offerings matching the specified node type.
-docomNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docomNodeType f x =
-    f (_docomNodeType x)
-        <&> \y -> x { _docomNodeType = y }
-{-# INLINE docomNodeType #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeOrderableClusterOptions
@@ -129,9 +124,7 @@ docomNodeType f x =
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
 docomMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docomMarker f x =
-    f (_docomMarker x)
-        <&> \y -> x { _docomMarker = y }
+docomMarker = lens _docomMarker (\s a -> s { _docomMarker = a })
 {-# INLINE docomMarker #-}
 
 instance ToQuery DescribeOrderableClusterOptions where
@@ -153,9 +146,7 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 -- | An OrderableClusterOption structure containing information about orderable
 -- options for the Cluster.
 ocomOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse ([OrderableClusterOption])
-ocomOrderableClusterOptions f x =
-    f (_ocomOrderableClusterOptions x)
-        <&> \y -> x { _ocomOrderableClusterOptions = y }
+ocomOrderableClusterOptions = lens _ocomOrderableClusterOptions (\s a -> s { _ocomOrderableClusterOptions = a })
 {-# INLINE ocomOrderableClusterOptions #-}
 
 -- | A value that indicates the starting point for the next set of response
@@ -164,9 +155,7 @@ ocomOrderableClusterOptions f x =
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
 ocomMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
-ocomMarker f x =
-    f (_ocomMarker x)
-        <&> \y -> x { _ocomMarker = y }
+ocomMarker = lens _ocomMarker (\s a -> s { _ocomMarker = a })
 {-# INLINE ocomMarker #-}
 
 instance FromXML DescribeOrderableClusterOptionsResponse where

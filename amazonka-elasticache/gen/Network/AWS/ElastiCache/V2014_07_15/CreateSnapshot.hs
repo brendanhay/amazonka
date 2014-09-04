@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , createSnapshot
+    , mkCreateSnapshotMessage
     -- ** Request lenses
     , csnCacheClusterId
     , csnSnapshotName
@@ -46,15 +46,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateSnapshot' request.
-createSnapshot :: Text -- ^ 'csnCacheClusterId'
-               -> Text -- ^ 'csnSnapshotName'
-               -> CreateSnapshot
-createSnapshot p1 p2 = CreateSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSnapshot' request.
+mkCreateSnapshotMessage :: Text -- ^ 'csnCacheClusterId'
+                        -> Text -- ^ 'csnSnapshotName'
+                        -> CreateSnapshot
+mkCreateSnapshotMessage p1 p2 = CreateSnapshot
     { _csnCacheClusterId = p1
     , _csnSnapshotName = p2
     }
-{-# INLINE createSnapshot #-}
+{-# INLINE mkCreateSnapshotMessage #-}
 
 data CreateSnapshot = CreateSnapshot
     { _csnCacheClusterId :: Text
@@ -67,22 +68,18 @@ data CreateSnapshot = CreateSnapshot
 -- | The identifier of an existing cache cluster. The snapshot will be created
 -- from this cache cluster.
 csnCacheClusterId :: Lens' CreateSnapshot (Text)
-csnCacheClusterId f x =
-    f (_csnCacheClusterId x)
-        <&> \y -> x { _csnCacheClusterId = y }
+csnCacheClusterId = lens _csnCacheClusterId (\s a -> s { _csnCacheClusterId = a })
 {-# INLINE csnCacheClusterId #-}
 
 -- | A name for the snapshot being created.
 csnSnapshotName :: Lens' CreateSnapshot (Text)
-csnSnapshotName f x =
-    f (_csnSnapshotName x)
-        <&> \y -> x { _csnSnapshotName = y }
+csnSnapshotName = lens _csnSnapshotName (\s a -> s { _csnSnapshotName = a })
 {-# INLINE csnSnapshotName #-}
 
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
-data CreateSnapshotResponse = CreateSnapshotResponse
+newtype CreateSnapshotResponse = CreateSnapshotResponse
     { _ssssssrSnapshot :: Maybe Snapshot
       -- ^ Represents a copy of an entire cache cluster as of the time when
       -- the snapshot was taken.
@@ -91,9 +88,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
 ssssssrSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-ssssssrSnapshot f x =
-    f (_ssssssrSnapshot x)
-        <&> \y -> x { _ssssssrSnapshot = y }
+ssssssrSnapshot = lens _ssssssrSnapshot (\s a -> s { _ssssssrSnapshot = a })
 {-# INLINE ssssssrSnapshot #-}
 
 instance FromXML CreateSnapshotResponse where

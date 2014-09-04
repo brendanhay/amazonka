@@ -63,7 +63,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines
     -- * Request
       ListPipelines
     -- ** Request constructor
-    , listPipelines
+    , mkListPipelinesRequest
     -- ** Request lenses
     , lprAscending
     , lprPageToken
@@ -71,8 +71,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines
     -- * Response
     , ListPipelinesResponse
     -- ** Response lenses
-    , lpsNextPageToken
     , lpsPipelines
+    , lpsNextPageToken
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -80,13 +80,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListPipelines' request.
-listPipelines :: ListPipelines
-listPipelines = ListPipelines
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPipelines' request.
+mkListPipelinesRequest :: ListPipelines
+mkListPipelinesRequest = ListPipelines
     { _lprAscending = Nothing
     , _lprPageToken = Nothing
     }
-{-# INLINE listPipelines #-}
+{-# INLINE mkListPipelinesRequest #-}
 
 data ListPipelines = ListPipelines
     { _lprAscending :: Maybe Text
@@ -103,18 +104,14 @@ data ListPipelines = ListPipelines
 -- were created, enter true. To list pipelines in reverse chronological order,
 -- enter false.
 lprAscending :: Lens' ListPipelines (Maybe Text)
-lprAscending f x =
-    f (_lprAscending x)
-        <&> \y -> x { _lprAscending = y }
+lprAscending = lens _lprAscending (\s a -> s { _lprAscending = a })
 {-# INLINE lprAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
 lprPageToken :: Lens' ListPipelines (Maybe Text)
-lprPageToken f x =
-    f (_lprPageToken x)
-        <&> \y -> x { _lprPageToken = y }
+lprPageToken = lens _lprPageToken (\s a -> s { _lprPageToken = a })
 {-# INLINE lprPageToken #-}
 
 instance ToPath ListPipelines where
@@ -131,30 +128,26 @@ instance ToHeaders ListPipelines
 instance ToJSON ListPipelines
 
 data ListPipelinesResponse = ListPipelinesResponse
-    { _lpsNextPageToken :: Maybe Text
+    { _lpsPipelines :: [Pipeline]
+      -- ^ An array of Pipeline objects.
+    , _lpsNextPageToken :: Maybe Text
       -- ^ A value that you use to access the second and subsequent pages of
       -- results, if any. When the pipelines fit on one page or when
       -- you've reached the last page of results, the value of
       -- NextPageToken is null.
-    , _lpsPipelines :: [Pipeline]
-      -- ^ An array of Pipeline objects.
     } deriving (Show, Generic)
+
+-- | An array of Pipeline objects.
+lpsPipelines :: Lens' ListPipelinesResponse ([Pipeline])
+lpsPipelines = lens _lpsPipelines (\s a -> s { _lpsPipelines = a })
+{-# INLINE lpsPipelines #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the pipelines fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
 lpsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
-lpsNextPageToken f x =
-    f (_lpsNextPageToken x)
-        <&> \y -> x { _lpsNextPageToken = y }
+lpsNextPageToken = lens _lpsNextPageToken (\s a -> s { _lpsNextPageToken = a })
 {-# INLINE lpsNextPageToken #-}
-
--- | An array of Pipeline objects.
-lpsPipelines :: Lens' ListPipelinesResponse ([Pipeline])
-lpsPipelines f x =
-    f (_lpsPipelines x)
-        <&> \y -> x { _lpsPipelines = y }
-{-# INLINE lpsPipelines #-}
 
 instance FromJSON ListPipelinesResponse
 

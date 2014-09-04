@@ -39,7 +39,7 @@ module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
     -- * Request
       CheckDomainAvailability
     -- ** Request constructor
-    , checkDomainAvailability
+    , mkCheckDomainAvailabilityRequest
     -- ** Request lenses
     , cdarDomainName
     , cdarIdnLangCode
@@ -55,14 +55,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CheckDomainAvailability' request.
-checkDomainAvailability :: Text -- ^ 'cdarDomainName'
-                        -> CheckDomainAvailability
-checkDomainAvailability p1 = CheckDomainAvailability
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CheckDomainAvailability' request.
+mkCheckDomainAvailabilityRequest :: Text -- ^ 'cdarDomainName'
+                                 -> CheckDomainAvailability
+mkCheckDomainAvailabilityRequest p1 = CheckDomainAvailability
     { _cdarDomainName = p1
     , _cdarIdnLangCode = Nothing
     }
-{-# INLINE checkDomainAvailability #-}
+{-# INLINE mkCheckDomainAvailabilityRequest #-}
 
 data CheckDomainAvailability = CheckDomainAvailability
     { _cdarDomainName :: Text
@@ -79,16 +80,12 @@ data CheckDomainAvailability = CheckDomainAvailability
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
 cdarDomainName :: Lens' CheckDomainAvailability (Text)
-cdarDomainName f x =
-    f (_cdarDomainName x)
-        <&> \y -> x { _cdarDomainName = y }
+cdarDomainName = lens _cdarDomainName (\s a -> s { _cdarDomainName = a })
 {-# INLINE cdarDomainName #-}
 
 -- | Reserved for future use.
 cdarIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
-cdarIdnLangCode f x =
-    f (_cdarIdnLangCode x)
-        <&> \y -> x { _cdarIdnLangCode = y }
+cdarIdnLangCode = lens _cdarIdnLangCode (\s a -> s { _cdarIdnLangCode = a })
 {-# INLINE cdarIdnLangCode #-}
 
 instance ToPath CheckDomainAvailability
@@ -99,7 +96,7 @@ instance ToHeaders CheckDomainAvailability
 
 instance ToJSON CheckDomainAvailability
 
-data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
+newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdasAvailability :: DomainAvailability
       -- ^ Whether the domain name is available for registering. You can
       -- only register domains designated as AVAILABLE. Type: String Valid
@@ -122,9 +119,7 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 -- UNAVAILABLE_RESTRICTED – The domain name is forbidden. RESERVED – The
 -- domain name has been reserved for another person or organization.
 cdasAvailability :: Lens' CheckDomainAvailabilityResponse (DomainAvailability)
-cdasAvailability f x =
-    f (_cdasAvailability x)
-        <&> \y -> x { _cdasAvailability = y }
+cdasAvailability = lens _cdasAvailability (\s a -> s { _cdasAvailability = a })
 {-# INLINE cdasAvailability #-}
 
 instance FromJSON CheckDomainAvailabilityResponse

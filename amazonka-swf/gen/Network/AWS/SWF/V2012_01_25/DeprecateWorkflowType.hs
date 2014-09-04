@@ -54,7 +54,7 @@ module Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
     -- * Request
       DeprecateWorkflowType
     -- ** Request constructor
-    , deprecateWorkflowType
+    , mkDeprecateWorkflowTypeInput
     -- ** Request lenses
     , dwtiDomain
     , dwtiWorkflowType
@@ -68,15 +68,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeprecateWorkflowType' request.
-deprecateWorkflowType :: Text -- ^ 'dwtiDomain'
-                      -> WorkflowType -- ^ 'dwtiWorkflowType'
-                      -> DeprecateWorkflowType
-deprecateWorkflowType p1 p2 = DeprecateWorkflowType
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeprecateWorkflowType' request.
+mkDeprecateWorkflowTypeInput :: Text -- ^ 'dwtiDomain'
+                             -> WorkflowType -- ^ 'dwtiWorkflowType'
+                             -> DeprecateWorkflowType
+mkDeprecateWorkflowTypeInput p1 p2 = DeprecateWorkflowType
     { _dwtiDomain = p1
     , _dwtiWorkflowType = p2
     }
-{-# INLINE deprecateWorkflowType #-}
+{-# INLINE mkDeprecateWorkflowTypeInput #-}
 
 data DeprecateWorkflowType = DeprecateWorkflowType
     { _dwtiDomain :: Text
@@ -87,16 +88,12 @@ data DeprecateWorkflowType = DeprecateWorkflowType
 
 -- | The name of the domain in which the workflow type is registered.
 dwtiDomain :: Lens' DeprecateWorkflowType (Text)
-dwtiDomain f x =
-    f (_dwtiDomain x)
-        <&> \y -> x { _dwtiDomain = y }
+dwtiDomain = lens _dwtiDomain (\s a -> s { _dwtiDomain = a })
 {-# INLINE dwtiDomain #-}
 
 -- | The workflow type to deprecate.
 dwtiWorkflowType :: Lens' DeprecateWorkflowType (WorkflowType)
-dwtiWorkflowType f x =
-    f (_dwtiWorkflowType x)
-        <&> \y -> x { _dwtiWorkflowType = y }
+dwtiWorkflowType = lens _dwtiWorkflowType (\s a -> s { _dwtiWorkflowType = a })
 {-# INLINE dwtiWorkflowType #-}
 
 instance ToPath DeprecateWorkflowType

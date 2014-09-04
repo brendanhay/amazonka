@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
     -- * Request
       DescribeChapCredentials
     -- ** Request constructor
-    , describeChapCredentials
+    , mkDescribeChapCredentialsInput
     -- ** Request lenses
     , dccjTargetARN
 
@@ -54,15 +54,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeChapCredentials' request.
-describeChapCredentials :: Text -- ^ 'dccjTargetARN'
-                        -> DescribeChapCredentials
-describeChapCredentials p1 = DescribeChapCredentials
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeChapCredentials' request.
+mkDescribeChapCredentialsInput :: Text -- ^ 'dccjTargetARN'
+                               -> DescribeChapCredentials
+mkDescribeChapCredentialsInput p1 = DescribeChapCredentials
     { _dccjTargetARN = p1
     }
-{-# INLINE describeChapCredentials #-}
+{-# INLINE mkDescribeChapCredentialsInput #-}
 
-data DescribeChapCredentials = DescribeChapCredentials
+newtype DescribeChapCredentials = DescribeChapCredentials
     { _dccjTargetARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the iSCSI volume target. Use
       -- the DescribeStorediSCSIVolumes operation to return to retrieve
@@ -73,9 +74,7 @@ data DescribeChapCredentials = DescribeChapCredentials
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
 dccjTargetARN :: Lens' DescribeChapCredentials (Text)
-dccjTargetARN f x =
-    f (_dccjTargetARN x)
-        <&> \y -> x { _dccjTargetARN = y }
+dccjTargetARN = lens _dccjTargetARN (\s a -> s { _dccjTargetARN = a })
 {-# INLINE dccjTargetARN #-}
 
 instance ToPath DescribeChapCredentials
@@ -86,7 +85,7 @@ instance ToHeaders DescribeChapCredentials
 
 instance ToJSON DescribeChapCredentials
 
-data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
+newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccpChapCredentials :: [ChapInfo]
       -- ^ An array of ChapInfo objects that represent CHAP credentials.
       -- Each object in the array contains CHAP credential information for
@@ -113,9 +112,7 @@ data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
 -- participate in mutual CHAP with the initiator (e.g. Windows client).
 -- TargetARN: The Amazon Resource Name (ARN) of the storage volume.
 dccpChapCredentials :: Lens' DescribeChapCredentialsResponse ([ChapInfo])
-dccpChapCredentials f x =
-    f (_dccpChapCredentials x)
-        <&> \y -> x { _dccpChapCredentials = y }
+dccpChapCredentials = lens _dccpChapCredentials (\s a -> s { _dccpChapCredentials = a })
 {-# INLINE dccpChapCredentials #-}
 
 instance FromJSON DescribeChapCredentialsResponse

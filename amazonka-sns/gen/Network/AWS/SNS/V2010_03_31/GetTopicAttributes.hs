@@ -48,7 +48,7 @@ module Network.AWS.SNS.V2010_03_31.GetTopicAttributes
     -- * Request
       GetTopicAttributes
     -- ** Request constructor
-    , getTopicAttributes
+    , mkGetTopicAttributesInput
     -- ** Request lenses
     , gtaiTopicArn
 
@@ -62,30 +62,29 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetTopicAttributes' request.
-getTopicAttributes :: Text -- ^ 'gtaiTopicArn'
-                   -> GetTopicAttributes
-getTopicAttributes p1 = GetTopicAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTopicAttributes' request.
+mkGetTopicAttributesInput :: Text -- ^ 'gtaiTopicArn'
+                          -> GetTopicAttributes
+mkGetTopicAttributesInput p1 = GetTopicAttributes
     { _gtaiTopicArn = p1
     }
-{-# INLINE getTopicAttributes #-}
+{-# INLINE mkGetTopicAttributesInput #-}
 
-data GetTopicAttributes = GetTopicAttributes
+newtype GetTopicAttributes = GetTopicAttributes
     { _gtaiTopicArn :: Text
       -- ^ The ARN of the topic whose properties you want to get.
     } deriving (Show, Generic)
 
 -- | The ARN of the topic whose properties you want to get.
 gtaiTopicArn :: Lens' GetTopicAttributes (Text)
-gtaiTopicArn f x =
-    f (_gtaiTopicArn x)
-        <&> \y -> x { _gtaiTopicArn = y }
+gtaiTopicArn = lens _gtaiTopicArn (\s a -> s { _gtaiTopicArn = a })
 {-# INLINE gtaiTopicArn #-}
 
 instance ToQuery GetTopicAttributes where
     toQuery = genericQuery def
 
-data GetTopicAttributesResponse = GetTopicAttributesResponse
+newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
       -- ^ A map of the topic's attributes. Attributes in this map include
       -- the following: TopicArn -- the topic's ARN Owner -- the AWS
@@ -115,9 +114,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse
 -- delivery policy EffectiveDeliveryPolicy -- the JSON serialization of the
 -- effective delivery policy that takes into account system defaults.
 gtarAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
-gtarAttributes f x =
-    f (_gtarAttributes x)
-        <&> \y -> x { _gtarAttributes = y }
+gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
 {-# INLINE gtarAttributes #-}
 
 instance FromXML GetTopicAttributesResponse where

@@ -24,7 +24,7 @@ module Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy
     -- * Request
       DisableSnapshotCopy
     -- ** Request constructor
-    , disableSnapshotCopy
+    , mkDisableSnapshotCopyMessage
     -- ** Request lenses
     , dscmClusterIdentifier
 
@@ -38,15 +38,16 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DisableSnapshotCopy' request.
-disableSnapshotCopy :: Text -- ^ 'dscmClusterIdentifier'
-                    -> DisableSnapshotCopy
-disableSnapshotCopy p1 = DisableSnapshotCopy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableSnapshotCopy' request.
+mkDisableSnapshotCopyMessage :: Text -- ^ 'dscmClusterIdentifier'
+                             -> DisableSnapshotCopy
+mkDisableSnapshotCopyMessage p1 = DisableSnapshotCopy
     { _dscmClusterIdentifier = p1
     }
-{-# INLINE disableSnapshotCopy #-}
+{-# INLINE mkDisableSnapshotCopyMessage #-}
 
-data DisableSnapshotCopy = DisableSnapshotCopy
+newtype DisableSnapshotCopy = DisableSnapshotCopy
     { _dscmClusterIdentifier :: Text
       -- ^ The unique identifier of the source cluster that you want to
       -- disable copying of snapshots to a destination region.
@@ -59,24 +60,20 @@ data DisableSnapshotCopy = DisableSnapshotCopy
 -- valid name of an existing cluster that has cross-region snapshot copy
 -- enabled.
 dscmClusterIdentifier :: Lens' DisableSnapshotCopy (Text)
-dscmClusterIdentifier f x =
-    f (_dscmClusterIdentifier x)
-        <&> \y -> x { _dscmClusterIdentifier = y }
+dscmClusterIdentifier = lens _dscmClusterIdentifier (\s a -> s { _dscmClusterIdentifier = a })
 {-# INLINE dscmClusterIdentifier #-}
 
 instance ToQuery DisableSnapshotCopy where
     toQuery = genericQuery def
 
-data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
+newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _cyCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
 cyCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
-cyCluster f x =
-    f (_cyCluster x)
-        <&> \y -> x { _cyCluster = y }
+cyCluster = lens _cyCluster (\s a -> s { _cyCluster = a })
 {-# INLINE cyCluster #-}
 
 instance FromXML DisableSnapshotCopyResponse where

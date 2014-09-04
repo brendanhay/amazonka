@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate
     -- * Request
       DeleteConfigurationTemplate
     -- ** Request constructor
-    , deleteConfigurationTemplate
+    , mkDeleteConfigurationTemplateMessage
     -- ** Request lenses
     , dctmApplicationName
     , dctmTemplateName
@@ -42,15 +42,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteConfigurationTemplate' request.
-deleteConfigurationTemplate :: Text -- ^ 'dctmApplicationName'
-                            -> Text -- ^ 'dctmTemplateName'
-                            -> DeleteConfigurationTemplate
-deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteConfigurationTemplate' request.
+mkDeleteConfigurationTemplateMessage :: Text -- ^ 'dctmApplicationName'
+                                     -> Text -- ^ 'dctmTemplateName'
+                                     -> DeleteConfigurationTemplate
+mkDeleteConfigurationTemplateMessage p1 p2 = DeleteConfigurationTemplate
     { _dctmApplicationName = p1
     , _dctmTemplateName = p2
     }
-{-# INLINE deleteConfigurationTemplate #-}
+{-# INLINE mkDeleteConfigurationTemplateMessage #-}
 
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctmApplicationName :: Text
@@ -62,16 +63,12 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate
 
 -- | The name of the application to delete the configuration template from.
 dctmApplicationName :: Lens' DeleteConfigurationTemplate (Text)
-dctmApplicationName f x =
-    f (_dctmApplicationName x)
-        <&> \y -> x { _dctmApplicationName = y }
+dctmApplicationName = lens _dctmApplicationName (\s a -> s { _dctmApplicationName = a })
 {-# INLINE dctmApplicationName #-}
 
 -- | The name of the configuration template to delete.
 dctmTemplateName :: Lens' DeleteConfigurationTemplate (Text)
-dctmTemplateName f x =
-    f (_dctmTemplateName x)
-        <&> \y -> x { _dctmTemplateName = y }
+dctmTemplateName = lens _dctmTemplateName (\s a -> s { _dctmTemplateName = a })
 {-# INLINE dctmTemplateName #-}
 
 instance ToQuery DeleteConfigurationTemplate where

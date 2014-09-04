@@ -25,7 +25,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
     -- * Request
       DeleteGroupPolicy
     -- ** Request constructor
-    , deleteGroupPolicy
+    , mkDeleteGroupPolicyRequest
     -- ** Request lenses
     , dgprGroupName
     , dgprPolicyName
@@ -38,15 +38,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteGroupPolicy' request.
-deleteGroupPolicy :: Text -- ^ 'dgprGroupName'
-                  -> Text -- ^ 'dgprPolicyName'
-                  -> DeleteGroupPolicy
-deleteGroupPolicy p1 p2 = DeleteGroupPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteGroupPolicy' request.
+mkDeleteGroupPolicyRequest :: Text -- ^ 'dgprGroupName'
+                           -> Text -- ^ 'dgprPolicyName'
+                           -> DeleteGroupPolicy
+mkDeleteGroupPolicyRequest p1 p2 = DeleteGroupPolicy
     { _dgprGroupName = p1
     , _dgprPolicyName = p2
     }
-{-# INLINE deleteGroupPolicy #-}
+{-# INLINE mkDeleteGroupPolicyRequest #-}
 
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgprGroupName :: Text
@@ -57,16 +58,12 @@ data DeleteGroupPolicy = DeleteGroupPolicy
 
 -- | Name of the group the policy is associated with.
 dgprGroupName :: Lens' DeleteGroupPolicy (Text)
-dgprGroupName f x =
-    f (_dgprGroupName x)
-        <&> \y -> x { _dgprGroupName = y }
+dgprGroupName = lens _dgprGroupName (\s a -> s { _dgprGroupName = a })
 {-# INLINE dgprGroupName #-}
 
 -- | Name of the policy document to delete.
 dgprPolicyName :: Lens' DeleteGroupPolicy (Text)
-dgprPolicyName f x =
-    f (_dgprPolicyName x)
-        <&> \y -> x { _dgprPolicyName = y }
+dgprPolicyName = lens _dgprPolicyName (\s a -> s { _dgprPolicyName = a })
 {-# INLINE dgprPolicyName #-}
 
 instance ToQuery DeleteGroupPolicy where

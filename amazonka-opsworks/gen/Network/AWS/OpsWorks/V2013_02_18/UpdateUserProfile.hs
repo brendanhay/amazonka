@@ -26,12 +26,12 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateUserProfile
     -- * Request
       UpdateUserProfile
     -- ** Request constructor
-    , updateUserProfile
+    , mkUpdateUserProfileRequest
     -- ** Request lenses
     , uuprIamUserArn
-    , uuprAllowSelfManagement
     , uuprSshUsername
     , uuprSshPublicKey
+    , uuprAllowSelfManagement
 
     -- * Response
     , UpdateUserProfileResponse
@@ -42,24 +42,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateUserProfile' request.
-updateUserProfile :: Text -- ^ 'uuprIamUserArn'
-                  -> UpdateUserProfile
-updateUserProfile p1 = UpdateUserProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateUserProfile' request.
+mkUpdateUserProfileRequest :: Text -- ^ 'uuprIamUserArn'
+                           -> UpdateUserProfile
+mkUpdateUserProfileRequest p1 = UpdateUserProfile
     { _uuprIamUserArn = p1
-    , _uuprAllowSelfManagement = Nothing
     , _uuprSshUsername = Nothing
     , _uuprSshPublicKey = Nothing
+    , _uuprAllowSelfManagement = Nothing
     }
-{-# INLINE updateUserProfile #-}
+{-# INLINE mkUpdateUserProfileRequest #-}
 
 data UpdateUserProfile = UpdateUserProfile
     { _uuprIamUserArn :: Text
       -- ^ The user IAM ARN.
-    , _uuprAllowSelfManagement :: Maybe Bool
-      -- ^ Whether users can specify their own SSH public key through the My
-      -- Settings page. For more information, see Managing User
-      -- Permissions.
     , _uuprSshUsername :: Maybe Text
       -- ^ The user's SSH user name. The allowable characters are [a-z],
       -- [A-Z], [0-9], '-', and '_'. If the specified name includes other
@@ -68,22 +65,16 @@ data UpdateUserProfile = UpdateUserProfile
       -- user name, AWS OpsWorks generates one from the IAM user name.
     , _uuprSshPublicKey :: Maybe Text
       -- ^ The user's new SSH public key.
+    , _uuprAllowSelfManagement :: Maybe Bool
+      -- ^ Whether users can specify their own SSH public key through the My
+      -- Settings page. For more information, see Managing User
+      -- Permissions.
     } deriving (Show, Generic)
 
 -- | The user IAM ARN.
 uuprIamUserArn :: Lens' UpdateUserProfile (Text)
-uuprIamUserArn f x =
-    f (_uuprIamUserArn x)
-        <&> \y -> x { _uuprIamUserArn = y }
+uuprIamUserArn = lens _uuprIamUserArn (\s a -> s { _uuprIamUserArn = a })
 {-# INLINE uuprIamUserArn #-}
-
--- | Whether users can specify their own SSH public key through the My Settings
--- page. For more information, see Managing User Permissions.
-uuprAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
-uuprAllowSelfManagement f x =
-    f (_uuprAllowSelfManagement x)
-        <&> \y -> x { _uuprAllowSelfManagement = y }
-{-# INLINE uuprAllowSelfManagement #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
 -- '-', and '_'. If the specified name includes other punctuation marks, AWS
@@ -91,17 +82,19 @@ uuprAllowSelfManagement f x =
 -- you do not specify an SSH user name, AWS OpsWorks generates one from the
 -- IAM user name.
 uuprSshUsername :: Lens' UpdateUserProfile (Maybe Text)
-uuprSshUsername f x =
-    f (_uuprSshUsername x)
-        <&> \y -> x { _uuprSshUsername = y }
+uuprSshUsername = lens _uuprSshUsername (\s a -> s { _uuprSshUsername = a })
 {-# INLINE uuprSshUsername #-}
 
 -- | The user's new SSH public key.
 uuprSshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
-uuprSshPublicKey f x =
-    f (_uuprSshPublicKey x)
-        <&> \y -> x { _uuprSshPublicKey = y }
+uuprSshPublicKey = lens _uuprSshPublicKey (\s a -> s { _uuprSshPublicKey = a })
 {-# INLINE uuprSshPublicKey #-}
+
+-- | Whether users can specify their own SSH public key through the My Settings
+-- page. For more information, see Managing User Permissions.
+uuprAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
+uuprAllowSelfManagement = lens _uuprAllowSelfManagement (\s a -> s { _uuprAllowSelfManagement = a })
+{-# INLINE uuprAllowSelfManagement #-}
 
 instance ToPath UpdateUserProfile
 

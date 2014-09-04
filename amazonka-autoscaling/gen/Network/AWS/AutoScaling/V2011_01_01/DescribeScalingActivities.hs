@@ -40,11 +40,11 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
     -- * Request
       DescribeScalingActivities
     -- ** Request constructor
-    , describeScalingActivities
+    , mkDescribeScalingActivitiesType
     -- ** Request lenses
     , dsauActivityIds
-    , dsauMaxRecords
     , dsauAutoScalingGroupName
+    , dsauMaxRecords
     , dsauNextToken
 
     -- * Response
@@ -58,15 +58,16 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeScalingActivities' request.
-describeScalingActivities :: DescribeScalingActivities
-describeScalingActivities = DescribeScalingActivities
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScalingActivities' request.
+mkDescribeScalingActivitiesType :: DescribeScalingActivities
+mkDescribeScalingActivitiesType = DescribeScalingActivities
     { _dsauActivityIds = mempty
-    , _dsauMaxRecords = Nothing
     , _dsauAutoScalingGroupName = Nothing
+    , _dsauMaxRecords = Nothing
     , _dsauNextToken = Nothing
     }
-{-# INLINE describeScalingActivities #-}
+{-# INLINE mkDescribeScalingActivitiesType #-}
 
 data DescribeScalingActivities = DescribeScalingActivities
     { _dsauActivityIds :: [Text]
@@ -76,10 +77,10 @@ data DescribeScalingActivities = DescribeScalingActivities
       -- are limited to that group. The list of requested activities
       -- cannot contain more than 50 items. If unknown activities are
       -- requested, they are ignored with no error.
-    , _dsauMaxRecords :: Maybe Integer
-      -- ^ The maximum number of scaling activities to return.
     , _dsauAutoScalingGroupName :: Maybe Text
       -- ^ The name of the AutoScalingGroup.
+    , _dsauMaxRecords :: Maybe Integer
+      -- ^ The maximum number of scaling activities to return.
     , _dsauNextToken :: Maybe Text
       -- ^ A string that marks the start of the next batch of returned
       -- results for pagination.
@@ -91,31 +92,23 @@ data DescribeScalingActivities = DescribeScalingActivities
 -- The list of requested activities cannot contain more than 50 items. If
 -- unknown activities are requested, they are ignored with no error.
 dsauActivityIds :: Lens' DescribeScalingActivities ([Text])
-dsauActivityIds f x =
-    f (_dsauActivityIds x)
-        <&> \y -> x { _dsauActivityIds = y }
+dsauActivityIds = lens _dsauActivityIds (\s a -> s { _dsauActivityIds = a })
 {-# INLINE dsauActivityIds #-}
-
--- | The maximum number of scaling activities to return.
-dsauMaxRecords :: Lens' DescribeScalingActivities (Maybe Integer)
-dsauMaxRecords f x =
-    f (_dsauMaxRecords x)
-        <&> \y -> x { _dsauMaxRecords = y }
-{-# INLINE dsauMaxRecords #-}
 
 -- | The name of the AutoScalingGroup.
 dsauAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
-dsauAutoScalingGroupName f x =
-    f (_dsauAutoScalingGroupName x)
-        <&> \y -> x { _dsauAutoScalingGroupName = y }
+dsauAutoScalingGroupName = lens _dsauAutoScalingGroupName (\s a -> s { _dsauAutoScalingGroupName = a })
 {-# INLINE dsauAutoScalingGroupName #-}
+
+-- | The maximum number of scaling activities to return.
+dsauMaxRecords :: Lens' DescribeScalingActivities (Maybe Integer)
+dsauMaxRecords = lens _dsauMaxRecords (\s a -> s { _dsauMaxRecords = a })
+{-# INLINE dsauMaxRecords #-}
 
 -- | A string that marks the start of the next batch of returned results for
 -- pagination.
 dsauNextToken :: Lens' DescribeScalingActivities (Maybe Text)
-dsauNextToken f x =
-    f (_dsauNextToken x)
-        <&> \y -> x { _dsauNextToken = y }
+dsauNextToken = lens _dsauNextToken (\s a -> s { _dsauNextToken = a })
 {-# INLINE dsauNextToken #-}
 
 instance ToQuery DescribeScalingActivities where
@@ -133,18 +126,14 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
 
 -- | A list of the requested scaling activities.
 avActivities :: Lens' DescribeScalingActivitiesResponse ([Activity])
-avActivities f x =
-    f (_avActivities x)
-        <&> \y -> x { _avActivities = y }
+avActivities = lens _avActivities (\s a -> s { _avActivities = a })
 {-# INLINE avActivities #-}
 
 -- | Acts as a paging mechanism for large result sets. Set to a non-empty string
 -- if there are additional results waiting to be returned. Pass this in to
 -- subsequent calls to return additional results.
 avNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
-avNextToken f x =
-    f (_avNextToken x)
-        <&> \y -> x { _avNextToken = y }
+avNextToken = lens _avNextToken (\s a -> s { _avNextToken = a })
 {-# INLINE avNextToken #-}
 
 instance FromXML DescribeScalingActivitiesResponse where

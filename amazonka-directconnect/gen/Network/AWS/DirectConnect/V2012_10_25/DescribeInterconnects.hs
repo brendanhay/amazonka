@@ -25,7 +25,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
     -- * Request
       DescribeInterconnects
     -- ** Request constructor
-    , describeInterconnects
+    , mkDescribeInterconnectsRequest
     -- ** Request lenses
     , ditInterconnectId
 
@@ -40,23 +40,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeInterconnects' request.
-describeInterconnects :: DescribeInterconnects
-describeInterconnects = DescribeInterconnects
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInterconnects' request.
+mkDescribeInterconnectsRequest :: DescribeInterconnects
+mkDescribeInterconnectsRequest = DescribeInterconnects
     { _ditInterconnectId = Nothing
     }
-{-# INLINE describeInterconnects #-}
+{-# INLINE mkDescribeInterconnectsRequest #-}
 
-data DescribeInterconnects = DescribeInterconnects
+newtype DescribeInterconnects = DescribeInterconnects
     { _ditInterconnectId :: Maybe Text
       -- ^ The ID of the interconnect. Example: dxcon-abc123.
     } deriving (Show, Generic)
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
 ditInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-ditInterconnectId f x =
-    f (_ditInterconnectId x)
-        <&> \y -> x { _ditInterconnectId = y }
+ditInterconnectId = lens _ditInterconnectId (\s a -> s { _ditInterconnectId = a })
 {-# INLINE ditInterconnectId #-}
 
 instance ToPath DescribeInterconnects
@@ -67,16 +66,14 @@ instance ToHeaders DescribeInterconnects
 
 instance ToJSON DescribeInterconnects
 
-data DescribeInterconnectsResponse = DescribeInterconnectsResponse
+newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
     { _yInterconnects :: [Interconnect]
       -- ^ A list of interconnects.
     } deriving (Show, Generic)
 
 -- | A list of interconnects.
 yInterconnects :: Lens' DescribeInterconnectsResponse ([Interconnect])
-yInterconnects f x =
-    f (_yInterconnects x)
-        <&> \y -> x { _yInterconnects = y }
+yInterconnects = lens _yInterconnects (\s a -> s { _yInterconnects = a })
 {-# INLINE yInterconnects #-}
 
 instance FromJSON DescribeInterconnectsResponse

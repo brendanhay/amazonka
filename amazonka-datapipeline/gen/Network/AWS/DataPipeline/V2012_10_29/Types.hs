@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -34,65 +35,70 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
     , TaskStatus (..)
 
     -- * Query
-    , Query (..)
+    , Query
+    , mkQuery
     , qySelectors
 
     -- * Field
-    , Field (..)
+    , Field
+    , mkField
     , fKey
     , fStringValue
     , fRefValue
 
     -- * InstanceIdentity
-    , InstanceIdentity (..)
+    , InstanceIdentity
+    , mkInstanceIdentity
     , ijDocument
     , ijSignature
 
     -- * Operator
-    , Operator (..)
+    , Operator
+    , mkOperator
     , orType
     , orValues
 
     -- * PipelineDescription
-    , PipelineDescription (..)
+    , PipelineDescription
     , pdPipelineId
     , pdName
     , pdFields
     , pdDescription
 
     -- * PipelineIdName
-    , PipelineIdName (..)
+    , PipelineIdName
     , pinId
     , pinName
 
     -- * PipelineObject
-    , PipelineObject (..)
+    , PipelineObject
+    , mkPipelineObject
     , poId
     , poName
     , poFields
 
     -- * Selector
-    , Selector (..)
+    , Selector
+    , mkSelector
     , srFieldName
     , srOperator
 
     -- * TaskObject
-    , TaskObject (..)
+    , TaskObject
     , toTaskId
     , toPipelineId
     , toAttemptId
     , toObjects
 
     -- * ValidationError
-    , ValidationError (..)
+    , ValidationError
     , vfId
     , vfErrors
 
     -- * ValidationWarning
-    , ValidationWarning (..)
+    , ValidationWarning
     , vxId
     , vxWarnings
-
     ) where
 
 import Network.AWS.Prelude
@@ -246,10 +252,16 @@ newtype Query = Query
 -- | List of selectors that define the query. An object must satisfy all of the
 -- selectors to match the query.
 qySelectors :: Lens' Query ([Selector])
-qySelectors f x =
-    f (_qySelectors x)
-        <&> \y -> x { _qySelectors = y }
+qySelectors = lens _qySelectors (\s a -> s { _qySelectors = a })
 {-# INLINE qySelectors #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Query' data type to populate a request.
+mkQuery :: Query
+mkQuery = Query
+    { _qySelectors = mempty
+    }
+{-# INLINE mkQuery #-}
 
 instance ToJSON Query
 
@@ -267,24 +279,29 @@ data Field = Field
 
 -- | The field identifier.
 fKey :: Lens' Field (Text)
-fKey f x =
-    f (_fKey x)
-        <&> \y -> x { _fKey = y }
+fKey = lens _fKey (\s a -> s { _fKey = a })
 {-# INLINE fKey #-}
 
 -- | The field value, expressed as a String.
 fStringValue :: Lens' Field (Maybe Text)
-fStringValue f x =
-    f (_fStringValue x)
-        <&> \y -> x { _fStringValue = y }
+fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
 {-# INLINE fStringValue #-}
 
 -- | The field value, expressed as the identifier of another object.
 fRefValue :: Lens' Field (Maybe Text)
-fRefValue f x =
-    f (_fRefValue x)
-        <&> \y -> x { _fRefValue = y }
+fRefValue = lens _fRefValue (\s a -> s { _fRefValue = a })
 {-# INLINE fRefValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Field' data type to populate a request.
+mkField :: Text -- ^ 'fKey'
+        -> Field
+mkField p1 = Field
+    { _fKey = p1
+    , _fStringValue = Nothing
+    , _fRefValue = Nothing
+    }
+{-# INLINE mkField #-}
 
 instance FromJSON Field
 
@@ -313,18 +330,23 @@ data InstanceIdentity = InstanceIdentity
 -- is launched and exposed to the instance via the instance metadata service
 -- in the form of a JSON representation of an object.
 ijDocument :: Lens' InstanceIdentity (Maybe Text)
-ijDocument f x =
-    f (_ijDocument x)
-        <&> \y -> x { _ijDocument = y }
+ijDocument = lens _ijDocument (\s a -> s { _ijDocument = a })
 {-# INLINE ijDocument #-}
 
 -- | A signature which can be used to verify the accuracy and authenticity of
 -- the information provided in the instance identity document.
 ijSignature :: Lens' InstanceIdentity (Maybe Text)
-ijSignature f x =
-    f (_ijSignature x)
-        <&> \y -> x { _ijSignature = y }
+ijSignature = lens _ijSignature (\s a -> s { _ijSignature = a })
 {-# INLINE ijSignature #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'InstanceIdentity' data type to populate a request.
+mkInstanceIdentity :: InstanceIdentity
+mkInstanceIdentity = InstanceIdentity
+    { _ijDocument = Nothing
+    , _ijSignature = Nothing
+    }
+{-# INLINE mkInstanceIdentity #-}
 
 instance ToJSON InstanceIdentity
 
@@ -369,17 +391,22 @@ data Operator = Operator
 -- User-defined fields that you add to a pipeline should prefix their name
 -- with the string "my".
 orType :: Lens' Operator (Maybe OperatorType)
-orType f x =
-    f (_orType x)
-        <&> \y -> x { _orType = y }
+orType = lens _orType (\s a -> s { _orType = a })
 {-# INLINE orType #-}
 
 -- | The value that the actual field value will be compared with.
 orValues :: Lens' Operator ([Text])
-orValues f x =
-    f (_orValues x)
-        <&> \y -> x { _orValues = y }
+orValues = lens _orValues (\s a -> s { _orValues = a })
 {-# INLINE orValues #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Operator' data type to populate a request.
+mkOperator :: Operator
+mkOperator = Operator
+    { _orType = Nothing
+    , _orValues = mempty
+    }
+{-# INLINE mkOperator #-}
 
 instance FromJSON Operator
 
@@ -402,31 +429,23 @@ data PipelineDescription = PipelineDescription
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
 -- string of the form df-297EG78HU43EEXAMPLE.
 pdPipelineId :: Lens' PipelineDescription (Text)
-pdPipelineId f x =
-    f (_pdPipelineId x)
-        <&> \y -> x { _pdPipelineId = y }
+pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 {-# INLINE pdPipelineId #-}
 
 -- | Name of the pipeline.
 pdName :: Lens' PipelineDescription (Text)
-pdName f x =
-    f (_pdName x)
-        <&> \y -> x { _pdName = y }
+pdName = lens _pdName (\s a -> s { _pdName = a })
 {-# INLINE pdName #-}
 
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- @userId, @accountId, and @pipelineState.
 pdFields :: Lens' PipelineDescription ([Field])
-pdFields f x =
-    f (_pdFields x)
-        <&> \y -> x { _pdFields = y }
+pdFields = lens _pdFields (\s a -> s { _pdFields = a })
 {-# INLINE pdFields #-}
 
 -- | Description of the pipeline.
 pdDescription :: Lens' PipelineDescription (Maybe Text)
-pdDescription f x =
-    f (_pdDescription x)
-        <&> \y -> x { _pdDescription = y }
+pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
 {-# INLINE pdDescription #-}
 
 instance FromJSON PipelineDescription
@@ -443,16 +462,12 @@ data PipelineIdName = PipelineIdName
 -- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is
 -- a string of the form df-297EG78HU43EEXAMPLE.
 pinId :: Lens' PipelineIdName (Maybe Text)
-pinId f x =
-    f (_pinId x)
-        <&> \y -> x { _pinId = y }
+pinId = lens _pinId (\s a -> s { _pinId = a })
 {-# INLINE pinId #-}
 
 -- | Name of the pipeline.
 pinName :: Lens' PipelineIdName (Maybe Text)
-pinName f x =
-    f (_pinName x)
-        <&> \y -> x { _pinName = y }
+pinName = lens _pinName (\s a -> s { _pinName = a })
 {-# INLINE pinName #-}
 
 instance FromJSON PipelineIdName
@@ -471,24 +486,31 @@ data PipelineObject = PipelineObject
 
 -- | Identifier of the object.
 poId :: Lens' PipelineObject (Text)
-poId f x =
-    f (_poId x)
-        <&> \y -> x { _poId = y }
+poId = lens _poId (\s a -> s { _poId = a })
 {-# INLINE poId #-}
 
 -- | Name of the object.
 poName :: Lens' PipelineObject (Text)
-poName f x =
-    f (_poName x)
-        <&> \y -> x { _poName = y }
+poName = lens _poName (\s a -> s { _poName = a })
 {-# INLINE poName #-}
 
 -- | Key-value pairs that define the properties of the object.
 poFields :: Lens' PipelineObject ([Field])
-poFields f x =
-    f (_poFields x)
-        <&> \y -> x { _poFields = y }
+poFields = lens _poFields (\s a -> s { _poFields = a })
 {-# INLINE poFields #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PipelineObject' data type to populate a request.
+mkPipelineObject :: Text -- ^ 'poId'
+                 -> Text -- ^ 'poName'
+                 -> [Field] -- ^ 'poFields'
+                 -> PipelineObject
+mkPipelineObject p1 p2 p3 = PipelineObject
+    { _poId = p1
+    , _poName = p2
+    , _poFields = p3
+    }
+{-# INLINE mkPipelineObject #-}
 
 instance FromJSON PipelineObject
 
@@ -512,18 +534,23 @@ data Selector = Selector
 -- syntax that is used by the AWS Data Pipeline API. If the field is not set
 -- on the object, the condition fails.
 srFieldName :: Lens' Selector (Maybe Text)
-srFieldName f x =
-    f (_srFieldName x)
-        <&> \y -> x { _srFieldName = y }
+srFieldName = lens _srFieldName (\s a -> s { _srFieldName = a })
 {-# INLINE srFieldName #-}
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
 srOperator :: Lens' Selector (Maybe Operator)
-srOperator f x =
-    f (_srOperator x)
-        <&> \y -> x { _srOperator = y }
+srOperator = lens _srOperator (\s a -> s { _srOperator = a })
 {-# INLINE srOperator #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Selector' data type to populate a request.
+mkSelector :: Selector
+mkSelector = Selector
+    { _srFieldName = Nothing
+    , _srOperator = Nothing
+    }
+{-# INLINE mkSelector #-}
 
 instance ToJSON Selector
 
@@ -550,32 +577,24 @@ data TaskObject = TaskObject
 -- | An internal identifier for the task. This ID is passed to the SetTaskStatus
 -- and ReportTaskProgress actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
-toTaskId f x =
-    f (_toTaskId x)
-        <&> \y -> x { _toTaskId = y }
+toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 {-# INLINE toTaskId #-}
 
 -- | Identifier of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
-toPipelineId f x =
-    f (_toPipelineId x)
-        <&> \y -> x { _toPipelineId = y }
+toPipelineId = lens _toPipelineId (\s a -> s { _toPipelineId = a })
 {-# INLINE toPipelineId #-}
 
 -- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
 toAttemptId :: Lens' TaskObject (Maybe Text)
-toAttemptId f x =
-    f (_toAttemptId x)
-        <&> \y -> x { _toAttemptId = y }
+toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
 {-# INLINE toAttemptId #-}
 
 -- | Connection information for the location where the task runner will publish
 -- the output of the task.
 toObjects :: Lens' TaskObject (Map Text PipelineObject)
-toObjects f x =
-    f (_toObjects x)
-        <&> \y -> x { _toObjects = y }
+toObjects = lens _toObjects (\s a -> s { _toObjects = a })
 {-# INLINE toObjects #-}
 
 instance FromJSON TaskObject
@@ -593,16 +612,12 @@ data ValidationError = ValidationError
 
 -- | The identifier of the object that contains the validation error.
 vfId :: Lens' ValidationError (Maybe Text)
-vfId f x =
-    f (_vfId x)
-        <&> \y -> x { _vfId = y }
+vfId = lens _vfId (\s a -> s { _vfId = a })
 {-# INLINE vfId #-}
 
 -- | A description of the validation error.
 vfErrors :: Lens' ValidationError ([Text])
-vfErrors f x =
-    f (_vfErrors x)
-        <&> \y -> x { _vfErrors = y }
+vfErrors = lens _vfErrors (\s a -> s { _vfErrors = a })
 {-# INLINE vfErrors #-}
 
 instance FromJSON ValidationError
@@ -621,16 +636,12 @@ data ValidationWarning = ValidationWarning
 
 -- | The identifier of the object that contains the validation warning.
 vxId :: Lens' ValidationWarning (Maybe Text)
-vxId f x =
-    f (_vxId x)
-        <&> \y -> x { _vxId = y }
+vxId = lens _vxId (\s a -> s { _vxId = a })
 {-# INLINE vxId #-}
 
 -- | A description of the validation warning.
 vxWarnings :: Lens' ValidationWarning ([Text])
-vxWarnings f x =
-    f (_vxWarnings x)
-        <&> \y -> x { _vxWarnings = y }
+vxWarnings = lens _vxWarnings (\s a -> s { _vxWarnings = a })
 {-# INLINE vxWarnings #-}
 
 instance FromJSON ValidationWarning

@@ -48,22 +48,22 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents
     -- * Request
       GetLogEvents
     -- ** Request constructor
-    , getLogEvents
+    , mkGetLogEventsRequest
     -- ** Request lenses
     , glerLogGroupName
     , glerLogStreamName
-    , glerLimit
-    , glerNextToken
-    , glerStartFromHead
     , glerStartTime
     , glerEndTime
+    , glerNextToken
+    , glerLimit
+    , glerStartFromHead
 
     -- * Response
     , GetLogEventsResponse
     -- ** Response lenses
+    , glesEvents
     , glesNextForwardToken
     , glesNextBackwardToken
-    , glesEvents
     ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -71,94 +71,81 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetLogEvents' request.
-getLogEvents :: Text -- ^ 'glerLogGroupName'
-             -> Text -- ^ 'glerLogStreamName'
-             -> GetLogEvents
-getLogEvents p1 p2 = GetLogEvents
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetLogEvents' request.
+mkGetLogEventsRequest :: Text -- ^ 'glerLogGroupName'
+                      -> Text -- ^ 'glerLogStreamName'
+                      -> GetLogEvents
+mkGetLogEventsRequest p1 p2 = GetLogEvents
     { _glerLogGroupName = p1
     , _glerLogStreamName = p2
-    , _glerLimit = Nothing
-    , _glerNextToken = Nothing
-    , _glerStartFromHead = Nothing
     , _glerStartTime = Nothing
     , _glerEndTime = Nothing
+    , _glerNextToken = Nothing
+    , _glerLimit = Nothing
+    , _glerStartFromHead = Nothing
     }
-{-# INLINE getLogEvents #-}
+{-# INLINE mkGetLogEventsRequest #-}
 
 data GetLogEvents = GetLogEvents
     { _glerLogGroupName :: Text
     , _glerLogStreamName :: Text
-    , _glerLimit :: Maybe Integer
-      -- ^ The maximum number of log events returned in the response. If you
-      -- don't specify a value, the request would return as much log
-      -- events as can fit in a response size of 1MB, up to 10,000 log
-      -- events.
-    , _glerNextToken :: Maybe Text
-      -- ^ A string token used for pagination that points to the next page
-      -- of results. It must be a value obtained from the nextForwardToken
-      -- or nextBackwardToken fields in the response of the previous
-      -- GetLogEvents request.
-    , _glerStartFromHead :: Maybe Bool
     , _glerStartTime :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
     , _glerEndTime :: Maybe Integer
       -- ^ A point in time expressed as the number milliseconds since Jan 1,
       -- 1970 00:00:00 UTC.
+    , _glerNextToken :: Maybe Text
+      -- ^ A string token used for pagination that points to the next page
+      -- of results. It must be a value obtained from the nextForwardToken
+      -- or nextBackwardToken fields in the response of the previous
+      -- GetLogEvents request.
+    , _glerLimit :: Maybe Integer
+      -- ^ The maximum number of log events returned in the response. If you
+      -- don't specify a value, the request would return as much log
+      -- events as can fit in a response size of 1MB, up to 10,000 log
+      -- events.
+    , _glerStartFromHead :: Maybe Bool
     } deriving (Show, Generic)
 
 glerLogGroupName :: Lens' GetLogEvents (Text)
-glerLogGroupName f x =
-    f (_glerLogGroupName x)
-        <&> \y -> x { _glerLogGroupName = y }
+glerLogGroupName = lens _glerLogGroupName (\s a -> s { _glerLogGroupName = a })
 {-# INLINE glerLogGroupName #-}
 
 glerLogStreamName :: Lens' GetLogEvents (Text)
-glerLogStreamName f x =
-    f (_glerLogStreamName x)
-        <&> \y -> x { _glerLogStreamName = y }
+glerLogStreamName = lens _glerLogStreamName (\s a -> s { _glerLogStreamName = a })
 {-# INLINE glerLogStreamName #-}
-
--- | The maximum number of log events returned in the response. If you don't
--- specify a value, the request would return as much log events as can fit in
--- a response size of 1MB, up to 10,000 log events.
-glerLimit :: Lens' GetLogEvents (Maybe Integer)
-glerLimit f x =
-    f (_glerLimit x)
-        <&> \y -> x { _glerLimit = y }
-{-# INLINE glerLimit #-}
-
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the nextForwardToken or nextBackwardToken
--- fields in the response of the previous GetLogEvents request.
-glerNextToken :: Lens' GetLogEvents (Maybe Text)
-glerNextToken f x =
-    f (_glerNextToken x)
-        <&> \y -> x { _glerNextToken = y }
-{-# INLINE glerNextToken #-}
-
-glerStartFromHead :: Lens' GetLogEvents (Maybe Bool)
-glerStartFromHead f x =
-    f (_glerStartFromHead x)
-        <&> \y -> x { _glerStartFromHead = y }
-{-# INLINE glerStartFromHead #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 glerStartTime :: Lens' GetLogEvents (Maybe Integer)
-glerStartTime f x =
-    f (_glerStartTime x)
-        <&> \y -> x { _glerStartTime = y }
+glerStartTime = lens _glerStartTime (\s a -> s { _glerStartTime = a })
 {-# INLINE glerStartTime #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 glerEndTime :: Lens' GetLogEvents (Maybe Integer)
-glerEndTime f x =
-    f (_glerEndTime x)
-        <&> \y -> x { _glerEndTime = y }
+glerEndTime = lens _glerEndTime (\s a -> s { _glerEndTime = a })
 {-# INLINE glerEndTime #-}
+
+-- | A string token used for pagination that points to the next page of results.
+-- It must be a value obtained from the nextForwardToken or nextBackwardToken
+-- fields in the response of the previous GetLogEvents request.
+glerNextToken :: Lens' GetLogEvents (Maybe Text)
+glerNextToken = lens _glerNextToken (\s a -> s { _glerNextToken = a })
+{-# INLINE glerNextToken #-}
+
+-- | The maximum number of log events returned in the response. If you don't
+-- specify a value, the request would return as much log events as can fit in
+-- a response size of 1MB, up to 10,000 log events.
+glerLimit :: Lens' GetLogEvents (Maybe Integer)
+glerLimit = lens _glerLimit (\s a -> s { _glerLimit = a })
+{-# INLINE glerLimit #-}
+
+glerStartFromHead :: Lens' GetLogEvents (Maybe Bool)
+glerStartFromHead = lens _glerStartFromHead (\s a -> s { _glerStartFromHead = a })
+{-# INLINE glerStartFromHead #-}
 
 instance ToPath GetLogEvents
 
@@ -169,7 +156,8 @@ instance ToHeaders GetLogEvents
 instance ToJSON GetLogEvents
 
 data GetLogEventsResponse = GetLogEventsResponse
-    { _glesNextForwardToken :: Maybe Text
+    { _glesEvents :: [OutputLogEvent]
+    , _glesNextForwardToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous request. The token expires after 24 hours.
@@ -177,32 +165,25 @@ data GetLogEventsResponse = GetLogEventsResponse
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous request. The token expires after 24 hours.
-    , _glesEvents :: [OutputLogEvent]
     } deriving (Show, Generic)
+
+glesEvents :: Lens' GetLogEventsResponse ([OutputLogEvent])
+glesEvents = lens _glesEvents (\s a -> s { _glesEvents = a })
+{-# INLINE glesEvents #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
 glesNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glesNextForwardToken f x =
-    f (_glesNextForwardToken x)
-        <&> \y -> x { _glesNextForwardToken = y }
+glesNextForwardToken = lens _glesNextForwardToken (\s a -> s { _glesNextForwardToken = a })
 {-# INLINE glesNextForwardToken #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
 glesNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glesNextBackwardToken f x =
-    f (_glesNextBackwardToken x)
-        <&> \y -> x { _glesNextBackwardToken = y }
+glesNextBackwardToken = lens _glesNextBackwardToken (\s a -> s { _glesNextBackwardToken = a })
 {-# INLINE glesNextBackwardToken #-}
-
-glesEvents :: Lens' GetLogEventsResponse ([OutputLogEvent])
-glesEvents f x =
-    f (_glesEvents x)
-        <&> \y -> x { _glesEvents = y }
-{-# INLINE glesEvents #-}
 
 instance FromJSON GetLogEventsResponse
 

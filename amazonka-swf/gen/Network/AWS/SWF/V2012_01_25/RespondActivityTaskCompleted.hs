@@ -59,7 +59,7 @@ module Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
     -- * Request
       RespondActivityTaskCompleted
     -- ** Request constructor
-    , respondActivityTaskCompleted
+    , mkRespondActivityTaskCompletedInput
     -- ** Request lenses
     , ratcjTaskToken
     , ratcjResult
@@ -73,14 +73,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RespondActivityTaskCompleted' request.
-respondActivityTaskCompleted :: Text -- ^ 'ratcjTaskToken'
-                             -> RespondActivityTaskCompleted
-respondActivityTaskCompleted p1 = RespondActivityTaskCompleted
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RespondActivityTaskCompleted' request.
+mkRespondActivityTaskCompletedInput :: Text -- ^ 'ratcjTaskToken'
+                                    -> RespondActivityTaskCompleted
+mkRespondActivityTaskCompletedInput p1 = RespondActivityTaskCompleted
     { _ratcjTaskToken = p1
     , _ratcjResult = Nothing
     }
-{-# INLINE respondActivityTaskCompleted #-}
+{-# INLINE mkRespondActivityTaskCompletedInput #-}
 
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
     { _ratcjTaskToken :: Text
@@ -98,17 +99,13 @@ data RespondActivityTaskCompleted = RespondActivityTaskCompleted
 -- another process, its taskToken must also be passed. This enables it to
 -- provide its progress and respond with results.
 ratcjTaskToken :: Lens' RespondActivityTaskCompleted (Text)
-ratcjTaskToken f x =
-    f (_ratcjTaskToken x)
-        <&> \y -> x { _ratcjTaskToken = y }
+ratcjTaskToken = lens _ratcjTaskToken (\s a -> s { _ratcjTaskToken = a })
 {-# INLINE ratcjTaskToken #-}
 
 -- | The result of the activity task. It is a free form string that is
 -- implementation specific.
 ratcjResult :: Lens' RespondActivityTaskCompleted (Maybe Text)
-ratcjResult f x =
-    f (_ratcjResult x)
-        <&> \y -> x { _ratcjResult = y }
+ratcjResult = lens _ratcjResult (\s a -> s { _ratcjResult = a })
 {-# INLINE ratcjResult #-}
 
 instance ToPath RespondActivityTaskCompleted

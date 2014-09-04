@@ -45,7 +45,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteTags
     -- * Request
       DeleteTags
     -- ** Request constructor
-    , deleteTags
+    , mkDeleteTagsRequest
     -- ** Request lenses
     , dtrResources
     , dtrTags
@@ -58,14 +58,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteTags' request.
-deleteTags :: [Text] -- ^ 'dtrResources'
-           -> DeleteTags
-deleteTags p1 = DeleteTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTags' request.
+mkDeleteTagsRequest :: [Text] -- ^ 'dtrResources'
+                    -> DeleteTags
+mkDeleteTagsRequest p1 = DeleteTags
     { _dtrResources = p1
     , _dtrTags = mempty
     }
-{-# INLINE deleteTags #-}
+{-# INLINE mkDeleteTagsRequest #-}
 
 data DeleteTags = DeleteTags
     { _dtrResources :: [Text]
@@ -81,9 +82,7 @@ data DeleteTags = DeleteTags
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
 dtrResources :: Lens' DeleteTags ([Text])
-dtrResources f x =
-    f (_dtrResources x)
-        <&> \y -> x { _dtrResources = y }
+dtrResources = lens _dtrResources (\s a -> s { _dtrResources = a })
 {-# INLINE dtrResources #-}
 
 -- | One or more tags to delete. If you omit the value parameter, we delete the
@@ -91,9 +90,7 @@ dtrResources f x =
 -- string as the value, we delete the key only if its value is an empty
 -- string.
 dtrTags :: Lens' DeleteTags ([Tag])
-dtrTags f x =
-    f (_dtrTags x)
-        <&> \y -> x { _dtrTags = y }
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 {-# INLINE dtrTags #-}
 
 instance ToQuery DeleteTags where

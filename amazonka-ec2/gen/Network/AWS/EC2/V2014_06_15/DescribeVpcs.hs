@@ -40,10 +40,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcs
     -- * Request
       DescribeVpcs
     -- ** Request constructor
-    , describeVpcs
+    , mkDescribeVpcsRequest
     -- ** Request lenses
-    , dvvFilters
     , dvvVpcIds
+    , dvvFilters
 
     -- * Response
     , DescribeVpcsResponse
@@ -55,16 +55,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeVpcs' request.
-describeVpcs :: DescribeVpcs
-describeVpcs = DescribeVpcs
-    { _dvvFilters = mempty
-    , _dvvVpcIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpcs' request.
+mkDescribeVpcsRequest :: DescribeVpcs
+mkDescribeVpcsRequest = DescribeVpcs
+    { _dvvVpcIds = mempty
+    , _dvvFilters = mempty
     }
-{-# INLINE describeVpcs #-}
+{-# INLINE mkDescribeVpcsRequest #-}
 
 data DescribeVpcs = DescribeVpcs
-    { _dvvFilters :: [Filter]
+    { _dvvVpcIds :: [Text]
+      -- ^ One or more VPC IDs. Default: Describes all your VPCs.
+    , _dvvFilters :: [Filter]
       -- ^ One or more filters. cidr - The CIDR block of the VPC. The CIDR
       -- block you specify must exactly match the VPC's CIDR block for
       -- information to be returned for the VPC. dhcp-options-id - The ID
@@ -81,9 +84,12 @@ data DescribeVpcs = DescribeVpcs
       -- filter. tag-value - The value of a tag assigned to the resource.
       -- This filter is independent of the tag-key filter. vpc-id - The ID
       -- of the VPC.
-    , _dvvVpcIds :: [Text]
-      -- ^ One or more VPC IDs. Default: Describes all your VPCs.
     } deriving (Show, Generic)
+
+-- | One or more VPC IDs. Default: Describes all your VPCs.
+dvvVpcIds :: Lens' DescribeVpcs ([Text])
+dvvVpcIds = lens _dvvVpcIds (\s a -> s { _dvvVpcIds = a })
+{-# INLINE dvvVpcIds #-}
 
 -- | One or more filters. cidr - The CIDR block of the VPC. The CIDR block you
 -- specify must exactly match the VPC's CIDR block for information to be
@@ -100,31 +106,20 @@ data DescribeVpcs = DescribeVpcs
 -- the resource. This filter is independent of the tag-key filter. vpc-id -
 -- The ID of the VPC.
 dvvFilters :: Lens' DescribeVpcs ([Filter])
-dvvFilters f x =
-    f (_dvvFilters x)
-        <&> \y -> x { _dvvFilters = y }
+dvvFilters = lens _dvvFilters (\s a -> s { _dvvFilters = a })
 {-# INLINE dvvFilters #-}
-
--- | One or more VPC IDs. Default: Describes all your VPCs.
-dvvVpcIds :: Lens' DescribeVpcs ([Text])
-dvvVpcIds f x =
-    f (_dvvVpcIds x)
-        <&> \y -> x { _dvvVpcIds = y }
-{-# INLINE dvvVpcIds #-}
 
 instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
 
-data DescribeVpcsResponse = DescribeVpcsResponse
+newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvwVpcs :: [Vpc]
       -- ^ Information about one or more VPCs.
     } deriving (Show, Generic)
 
 -- | Information about one or more VPCs.
 dvwVpcs :: Lens' DescribeVpcsResponse ([Vpc])
-dvwVpcs f x =
-    f (_dvwVpcs x)
-        <&> \y -> x { _dvwVpcs = y }
+dvwVpcs = lens _dvwVpcs (\s a -> s { _dvwVpcs = a })
 {-# INLINE dvwVpcs #-}
 
 instance FromXML DescribeVpcsResponse where

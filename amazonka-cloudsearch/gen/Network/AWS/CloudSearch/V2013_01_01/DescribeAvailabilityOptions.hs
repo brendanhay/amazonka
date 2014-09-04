@@ -27,7 +27,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
     -- * Request
       DescribeAvailabilityOptions
     -- ** Request constructor
-    , describeAvailabilityOptions
+    , mkDescribeAvailabilityOptionsRequest
     -- ** Request lenses
     , daorDomainName
     , daorDeployed
@@ -42,14 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeAvailabilityOptions' request.
-describeAvailabilityOptions :: Text -- ^ 'daorDomainName'
-                            -> DescribeAvailabilityOptions
-describeAvailabilityOptions p1 = DescribeAvailabilityOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAvailabilityOptions' request.
+mkDescribeAvailabilityOptionsRequest :: Text -- ^ 'daorDomainName'
+                                     -> DescribeAvailabilityOptions
+mkDescribeAvailabilityOptionsRequest p1 = DescribeAvailabilityOptions
     { _daorDomainName = p1
     , _daorDeployed = Nothing
     }
-{-# INLINE describeAvailabilityOptions #-}
+{-# INLINE mkDescribeAvailabilityOptionsRequest #-}
 
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daorDomainName :: Text
@@ -61,23 +62,19 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions
 
 -- | The name of the domain you want to describe.
 daorDomainName :: Lens' DescribeAvailabilityOptions (Text)
-daorDomainName f x =
-    f (_daorDomainName x)
-        <&> \y -> x { _daorDomainName = y }
+daorDomainName = lens _daorDomainName (\s a -> s { _daorDomainName = a })
 {-# INLINE daorDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 daorDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
-daorDeployed f x =
-    f (_daorDeployed x)
-        <&> \y -> x { _daorDeployed = y }
+daorDeployed = lens _daorDeployed (\s a -> s { _daorDeployed = a })
 {-# INLINE daorDeployed #-}
 
 instance ToQuery DescribeAvailabilityOptions where
     toQuery = genericQuery def
 
-data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
+newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daosAvailabilityOptions :: Maybe AvailabilityOptionsStatus
       -- ^ The availability options configured for the domain. Indicates
       -- whether Multi-AZ is enabled for the domain.
@@ -86,9 +83,7 @@ data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
 daosAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-daosAvailabilityOptions f x =
-    f (_daosAvailabilityOptions x)
-        <&> \y -> x { _daosAvailabilityOptions = y }
+daosAvailabilityOptions = lens _daosAvailabilityOptions (\s a -> s { _daosAvailabilityOptions = a })
 {-# INLINE daosAvailabilityOptions #-}
 
 instance FromXML DescribeAvailabilityOptionsResponse where

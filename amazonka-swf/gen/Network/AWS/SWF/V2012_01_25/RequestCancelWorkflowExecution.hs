@@ -56,7 +56,7 @@ module Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
     -- * Request
       RequestCancelWorkflowExecution
     -- ** Request constructor
-    , requestCancelWorkflowExecution
+    , mkRequestCancelWorkflowExecutionInput
     -- ** Request lenses
     , rcweiDomain
     , rcweiWorkflowId
@@ -71,16 +71,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'RequestCancelWorkflowExecution' request.
-requestCancelWorkflowExecution :: Text -- ^ 'rcweiDomain'
-                               -> Text -- ^ 'rcweiWorkflowId'
-                               -> RequestCancelWorkflowExecution
-requestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RequestCancelWorkflowExecution' request.
+mkRequestCancelWorkflowExecutionInput :: Text -- ^ 'rcweiDomain'
+                                      -> Text -- ^ 'rcweiWorkflowId'
+                                      -> RequestCancelWorkflowExecution
+mkRequestCancelWorkflowExecutionInput p1 p2 = RequestCancelWorkflowExecution
     { _rcweiDomain = p1
     , _rcweiWorkflowId = p2
     , _rcweiRunId = Nothing
     }
-{-# INLINE requestCancelWorkflowExecution #-}
+{-# INLINE mkRequestCancelWorkflowExecutionInput #-}
 
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
     { _rcweiDomain :: Text
@@ -94,23 +95,17 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
 
 -- | The name of the domain containing the workflow execution to cancel.
 rcweiDomain :: Lens' RequestCancelWorkflowExecution (Text)
-rcweiDomain f x =
-    f (_rcweiDomain x)
-        <&> \y -> x { _rcweiDomain = y }
+rcweiDomain = lens _rcweiDomain (\s a -> s { _rcweiDomain = a })
 {-# INLINE rcweiDomain #-}
 
 -- | The workflowId of the workflow execution to cancel.
 rcweiWorkflowId :: Lens' RequestCancelWorkflowExecution (Text)
-rcweiWorkflowId f x =
-    f (_rcweiWorkflowId x)
-        <&> \y -> x { _rcweiWorkflowId = y }
+rcweiWorkflowId = lens _rcweiWorkflowId (\s a -> s { _rcweiWorkflowId = a })
 {-# INLINE rcweiWorkflowId #-}
 
 -- | The runId of the workflow execution to cancel.
 rcweiRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
-rcweiRunId f x =
-    f (_rcweiRunId x)
-        <&> \y -> x { _rcweiRunId = y }
+rcweiRunId = lens _rcweiRunId (\s a -> s { _rcweiRunId = a })
 {-# INLINE rcweiRunId #-}
 
 instance ToPath RequestCancelWorkflowExecution

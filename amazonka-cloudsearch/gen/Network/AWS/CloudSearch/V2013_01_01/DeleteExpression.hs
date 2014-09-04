@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteExpression
     -- * Request
       DeleteExpression
     -- ** Request constructor
-    , deleteExpression
+    , mkDeleteExpressionRequest
     -- ** Request lenses
     , detDomainName
     , detExpressionName
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteExpression' request.
-deleteExpression :: Text -- ^ 'detDomainName'
-                 -> Text -- ^ 'detExpressionName'
-                 -> DeleteExpression
-deleteExpression p1 p2 = DeleteExpression
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteExpression' request.
+mkDeleteExpressionRequest :: Text -- ^ 'detDomainName'
+                          -> Text -- ^ 'detExpressionName'
+                          -> DeleteExpression
+mkDeleteExpressionRequest p1 p2 = DeleteExpression
     { _detDomainName = p1
     , _detExpressionName = p2
     }
-{-# INLINE deleteExpression #-}
+{-# INLINE mkDeleteExpressionRequest #-}
 
 data DeleteExpression = DeleteExpression
     { _detDomainName :: Text
@@ -65,31 +66,25 @@ data DeleteExpression = DeleteExpression
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 detDomainName :: Lens' DeleteExpression (Text)
-detDomainName f x =
-    f (_detDomainName x)
-        <&> \y -> x { _detDomainName = y }
+detDomainName = lens _detDomainName (\s a -> s { _detDomainName = a })
 {-# INLINE detDomainName #-}
 
 -- | The name of the Expression to delete.
 detExpressionName :: Lens' DeleteExpression (Text)
-detExpressionName f x =
-    f (_detExpressionName x)
-        <&> \y -> x { _detExpressionName = y }
+detExpressionName = lens _detExpressionName (\s a -> s { _detExpressionName = a })
 {-# INLINE detExpressionName #-}
 
 instance ToQuery DeleteExpression where
     toQuery = genericQuery def
 
-data DeleteExpressionResponse = DeleteExpressionResponse
+newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _deuExpression :: ExpressionStatus
       -- ^ The status of the expression being deleted.
     } deriving (Show, Generic)
 
 -- | The status of the expression being deleted.
 deuExpression :: Lens' DeleteExpressionResponse (ExpressionStatus)
-deuExpression f x =
-    f (_deuExpression x)
-        <&> \y -> x { _deuExpression = y }
+deuExpression = lens _deuExpression (\s a -> s { _deuExpression = a })
 {-# INLINE deuExpression #-}
 
 instance FromXML DeleteExpressionResponse where

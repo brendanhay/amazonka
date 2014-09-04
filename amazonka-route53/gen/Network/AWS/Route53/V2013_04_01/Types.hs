@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -48,48 +49,54 @@ module Network.AWS.Route53.V2013_04_01.Types
     , TagResourceType (..)
 
     -- * DelegationSet
-    , DelegationSet (..)
+    , DelegationSet
     , dsNameServers
 
     -- * HostedZoneConfig
-    , HostedZoneConfig (..)
+    , HostedZoneConfig
+    , mkHostedZoneConfig
     , hzcComment
 
     -- * ResourceRecord
-    , ResourceRecord (..)
+    , ResourceRecord
+    , mkResourceRecord
     , rsValue
 
     -- * AliasTarget
-    , AliasTarget (..)
+    , AliasTarget
+    , mkAliasTarget
     , atHostedZoneId
     , atDNSName
     , atEvaluateTargetHealth
 
     -- * Change
-    , Change (..)
+    , Change
+    , mkChange
     , dAction
     , dResourceRecordSet
 
     -- * ChangeBatch
-    , ChangeBatch (..)
+    , ChangeBatch
+    , mkChangeBatch
     , cbComment
     , cbChanges
 
     -- * ChangeInfo
-    , ChangeInfo (..)
+    , ChangeInfo
     , ciId
     , ciStatus
     , ciSubmittedAt
     , ciComment
 
     -- * GeoLocation
-    , GeoLocation (..)
+    , GeoLocation
+    , mkGeoLocation
     , glContinentCode
     , glCountryCode
     , glSubdivisionCode
 
     -- * GeoLocationDetails
-    , GeoLocationDetails (..)
+    , GeoLocationDetails
     , gldContinentCode
     , gldContinentName
     , gldCountryCode
@@ -98,14 +105,15 @@ module Network.AWS.Route53.V2013_04_01.Types
     , gldSubdivisionName
 
     -- * HealthCheck
-    , HealthCheck (..)
+    , HealthCheck
     , hcId
     , hcCallerReference
     , hcHealthCheckConfig
     , hcHealthCheckVersion
 
     -- * HealthCheckConfig
-    , HealthCheckConfig (..)
+    , HealthCheckConfig
+    , mkHealthCheckConfig
     , hccIPAddress
     , hccPort
     , hccType
@@ -116,7 +124,7 @@ module Network.AWS.Route53.V2013_04_01.Types
     , hccFailureThreshold
 
     -- * HostedZone
-    , HostedZone (..)
+    , HostedZone
     , hzId
     , hzName
     , hzCallerReference
@@ -124,7 +132,8 @@ module Network.AWS.Route53.V2013_04_01.Types
     , hzResourceRecordSetCount
 
     -- * ResourceRecordSet
-    , ResourceRecordSet (..)
+    , ResourceRecordSet
+    , mkResourceRecordSet
     , rrsName
     , rrsType
     , rrsSetIdentifier
@@ -138,20 +147,19 @@ module Network.AWS.Route53.V2013_04_01.Types
     , rrsHealthCheckId
 
     -- * ResourceTagSet
-    , ResourceTagSet (..)
+    , ResourceTagSet
     , rtsResourceType
     , rtsResourceId
     , rtsTags
 
     -- * Tag
-    , Tag (..)
+    , Tag
+    , mkTag
     , tKey
     , tValue
 
-
     -- * Common
     , module Network.AWS.Route53.Internal.Types
-
     ) where
 
 import           Network.AWS.Prelude
@@ -430,9 +438,7 @@ newtype DelegationSet = DelegationSet
 -- zone. Use the method provided by your domain registrar to add an NS record
 -- to your domain for each NameServer that is assigned to your hosted zone.
 dsNameServers :: Lens' DelegationSet ([Text])
-dsNameServers f x =
-    f (_dsNameServers x)
-        <&> \y -> x { _dsNameServers = y }
+dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
 {-# INLINE dsNameServers #-}
 
 instance FromXML DelegationSet where
@@ -451,10 +457,16 @@ newtype HostedZoneConfig = HostedZoneConfig
 -- comment, you can omit the HostedZoneConfig and Comment elements from the
 -- XML document.
 hzcComment :: Lens' HostedZoneConfig (Maybe Text)
-hzcComment f x =
-    f (_hzcComment x)
-        <&> \y -> x { _hzcComment = y }
+hzcComment = lens _hzcComment (\s a -> s { _hzcComment = a })
 {-# INLINE hzcComment #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'HostedZoneConfig' data type to populate a request.
+mkHostedZoneConfig :: HostedZoneConfig
+mkHostedZoneConfig = HostedZoneConfig
+    { _hzcComment = Nothing
+    }
+{-# INLINE mkHostedZoneConfig #-}
 
 instance FromXML HostedZoneConfig where
     fromXMLOptions = xmlOptions
@@ -474,10 +486,17 @@ newtype ResourceRecord = ResourceRecord
 
 -- | The value of the Value element for the current resource record set.
 rsValue :: Lens' ResourceRecord (Text)
-rsValue f x =
-    f (_rsValue x)
-        <&> \y -> x { _rsValue = y }
+rsValue = lens _rsValue (\s a -> s { _rsValue = a })
 {-# INLINE rsValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ResourceRecord' data type to populate a request.
+mkResourceRecord :: Text -- ^ 'rsValue'
+                 -> ResourceRecord
+mkResourceRecord p1 = ResourceRecord
+    { _rsValue = p1
+    }
+{-# INLINE mkResourceRecord #-}
 
 instance FromXML ResourceRecord where
     fromXMLOptions = xmlOptions
@@ -513,18 +532,14 @@ data AliasTarget = AliasTarget
 -- AWS resource. For more information and an example, see Creating Alias
 -- Resource Record Sets in the Amazon Route 53 Developer Guide.
 atHostedZoneId :: Lens' AliasTarget (Text)
-atHostedZoneId f x =
-    f (_atHostedZoneId x)
-        <&> \y -> x { _atHostedZoneId = y }
+atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 {-# INLINE atHostedZoneId #-}
 
 -- | Alias resource record sets only: The external DNS name associated with the
 -- AWS Resource. For more information and an example, see Creating Alias
 -- Resource Record Sets in the Amazon Route 53 Developer Guide.
 atDNSName :: Lens' AliasTarget (Text)
-atDNSName f x =
-    f (_atDNSName x)
-        <&> \y -> x { _atDNSName = y }
+atDNSName = lens _atDNSName (\s a -> s { _atDNSName = a })
 {-# INLINE atDNSName #-}
 
 -- | Alias resource record sets only: A boolean value that indicates whether
@@ -533,10 +548,21 @@ atDNSName f x =
 -- more information and an example, see Creating Alias Resource Record Sets in
 -- the Amazon Route 53 Developer Guide.
 atEvaluateTargetHealth :: Lens' AliasTarget (Bool)
-atEvaluateTargetHealth f x =
-    f (_atEvaluateTargetHealth x)
-        <&> \y -> x { _atEvaluateTargetHealth = y }
+atEvaluateTargetHealth = lens _atEvaluateTargetHealth (\s a -> s { _atEvaluateTargetHealth = a })
 {-# INLINE atEvaluateTargetHealth #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AliasTarget' data type to populate a request.
+mkAliasTarget :: Text -- ^ 'atHostedZoneId'
+              -> Text -- ^ 'atDNSName'
+              -> Bool -- ^ 'atEvaluateTargetHealth'
+              -> AliasTarget
+mkAliasTarget p1 p2 p3 = AliasTarget
+    { _atHostedZoneId = p1
+    , _atDNSName = p2
+    , _atEvaluateTargetHealth = p3
+    }
+{-# INLINE mkAliasTarget #-}
 
 instance FromXML AliasTarget where
     fromXMLOptions = xmlOptions
@@ -557,17 +583,24 @@ data Change = Change
 
 -- | The action to perform. Valid values: CREATE | DELETE | UPSERT.
 dAction :: Lens' Change (ChangeAction)
-dAction f x =
-    f (_dAction x)
-        <&> \y -> x { _dAction = y }
+dAction = lens _dAction (\s a -> s { _dAction = a })
 {-# INLINE dAction #-}
 
 -- | Information about the resource record set to create or delete.
 dResourceRecordSet :: Lens' Change (ResourceRecordSet)
-dResourceRecordSet f x =
-    f (_dResourceRecordSet x)
-        <&> \y -> x { _dResourceRecordSet = y }
+dResourceRecordSet = lens _dResourceRecordSet (\s a -> s { _dResourceRecordSet = a })
 {-# INLINE dResourceRecordSet #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Change' data type to populate a request.
+mkChange :: ChangeAction -- ^ 'dAction'
+         -> ResourceRecordSet -- ^ 'dResourceRecordSet'
+         -> Change
+mkChange p1 p2 = Change
+    { _dAction = p1
+    , _dResourceRecordSet = p2
+    }
+{-# INLINE mkChange #-}
 
 instance ToXML Change where
     toXMLOptions = xmlOptions
@@ -585,18 +618,24 @@ data ChangeBatch = ChangeBatch
 
 -- | Optional: Any comments you want to include about a change batch request.
 cbComment :: Lens' ChangeBatch (Maybe Text)
-cbComment f x =
-    f (_cbComment x)
-        <&> \y -> x { _cbComment = y }
+cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 {-# INLINE cbComment #-}
 
 -- | A complex type that contains one Change element for each resource record
 -- set that you want to create or delete.
 cbChanges :: Lens' ChangeBatch ([Change])
-cbChanges f x =
-    f (_cbChanges x)
-        <&> \y -> x { _cbChanges = y }
+cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
 {-# INLINE cbChanges #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ChangeBatch' data type to populate a request.
+mkChangeBatch :: [Change] -- ^ 'cbChanges'
+              -> ChangeBatch
+mkChangeBatch p1 = ChangeBatch
+    { _cbComment = Nothing
+    , _cbChanges = p2
+    }
+{-# INLINE mkChangeBatch #-}
 
 instance ToXML ChangeBatch where
     toXMLOptions = xmlOptions
@@ -629,18 +668,14 @@ data ChangeInfo = ChangeInfo
 -- | The ID of the request. Use this ID to track when the change has completed
 -- across all Amazon Route 53 DNS servers.
 ciId :: Lens' ChangeInfo (Text)
-ciId f x =
-    f (_ciId x)
-        <&> \y -> x { _ciId = y }
+ciId = lens _ciId (\s a -> s { _ciId = a })
 {-# INLINE ciId #-}
 
 -- | The current state of the request. PENDING indicates that this request has
 -- not yet been applied to all Amazon Route 53 DNS servers. Valid Values:
 -- PENDING | INSYNC.
 ciStatus :: Lens' ChangeInfo (ChangeStatus)
-ciStatus f x =
-    f (_ciStatus x)
-        <&> \y -> x { _ciStatus = y }
+ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 {-# INLINE ciStatus #-}
 
 -- | The date and time the change was submitted, in the format
@@ -649,18 +684,14 @@ ciStatus f x =
 -- listed in Coordinated Universal Time (UTC), which is synonymous with
 -- Greenwich Mean Time in this context.
 ciSubmittedAt :: Lens' ChangeInfo (ISO8601)
-ciSubmittedAt f x =
-    f (_ciSubmittedAt x)
-        <&> \y -> x { _ciSubmittedAt = y }
+ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
 {-# INLINE ciSubmittedAt #-}
 
 -- | A complex type that describes change information about changes made to your
 -- hosted zone. This element contains an ID that you use when performing a
 -- GetChange action to get detailed information about the change.
 ciComment :: Lens' ChangeInfo (Maybe Text)
-ciComment f x =
-    f (_ciComment x)
-        <&> \y -> x { _ciComment = y }
+ciComment = lens _ciComment (\s a -> s { _ciComment = a })
 {-# INLINE ciComment #-}
 
 instance FromXML ChangeInfo where
@@ -694,9 +725,7 @@ data GeoLocation = GeoLocation
 -- Constraint: Specifying ContinentCode with either CountryCode or
 -- SubdivisionCode returns an InvalidInput error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
-glContinentCode f x =
-    f (_glContinentCode x)
-        <&> \y -> x { _glContinentCode = y }
+glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
 {-# INLINE glContinentCode #-}
 
 -- | The code for a country geo location. The default location uses '*' for the
@@ -704,9 +733,7 @@ glContinentCode f x =
 -- location. The default geo location uses a * for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
 glCountryCode :: Lens' GeoLocation (Maybe Text)
-glCountryCode f x =
-    f (_glCountryCode x)
-        <&> \y -> x { _glCountryCode = y }
+glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
 {-# INLINE glCountryCode #-}
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
@@ -714,10 +741,18 @@ glCountryCode f x =
 -- Constraint: Specifying SubdivisionCode without CountryCode returns an
 -- InvalidInput error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
-glSubdivisionCode f x =
-    f (_glSubdivisionCode x)
-        <&> \y -> x { _glSubdivisionCode = y }
+glSubdivisionCode = lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })
 {-# INLINE glSubdivisionCode #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'GeoLocation' data type to populate a request.
+mkGeoLocation :: GeoLocation
+mkGeoLocation = GeoLocation
+    { _glContinentCode = Nothing
+    , _glCountryCode = Nothing
+    , _glSubdivisionCode = Nothing
+    }
+{-# INLINE mkGeoLocation #-}
 
 instance FromXML GeoLocation where
     fromXMLOptions = xmlOptions
@@ -757,17 +792,13 @@ data GeoLocationDetails = GeoLocationDetails
 -- | The code for a continent geo location. Note: only continent locations have
 -- a continent code.
 gldContinentCode :: Lens' GeoLocationDetails (Maybe Text)
-gldContinentCode f x =
-    f (_gldContinentCode x)
-        <&> \y -> x { _gldContinentCode = y }
+gldContinentCode = lens _gldContinentCode (\s a -> s { _gldContinentCode = a })
 {-# INLINE gldContinentCode #-}
 
 -- | The name of the continent. This element is only present if ContinentCode is
 -- also present.
 gldContinentName :: Lens' GeoLocationDetails (Maybe Text)
-gldContinentName f x =
-    f (_gldContinentName x)
-        <&> \y -> x { _gldContinentName = y }
+gldContinentName = lens _gldContinentName (\s a -> s { _gldContinentName = a })
 {-# INLINE gldContinentName #-}
 
 -- | The code for a country geo location. The default location uses '*' for the
@@ -775,33 +806,25 @@ gldContinentName f x =
 -- location. The default geo location uses a * for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
 gldCountryCode :: Lens' GeoLocationDetails (Maybe Text)
-gldCountryCode f x =
-    f (_gldCountryCode x)
-        <&> \y -> x { _gldCountryCode = y }
+gldCountryCode = lens _gldCountryCode (\s a -> s { _gldCountryCode = a })
 {-# INLINE gldCountryCode #-}
 
 -- | The name of the country. This element is only present if CountryCode is
 -- also present.
 gldCountryName :: Lens' GeoLocationDetails (Maybe Text)
-gldCountryName f x =
-    f (_gldCountryName x)
-        <&> \y -> x { _gldCountryName = y }
+gldCountryName = lens _gldCountryName (\s a -> s { _gldCountryName = a })
 {-# INLINE gldCountryName #-}
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 gldSubdivisionCode :: Lens' GeoLocationDetails (Maybe Text)
-gldSubdivisionCode f x =
-    f (_gldSubdivisionCode x)
-        <&> \y -> x { _gldSubdivisionCode = y }
+gldSubdivisionCode = lens _gldSubdivisionCode (\s a -> s { _gldSubdivisionCode = a })
 {-# INLINE gldSubdivisionCode #-}
 
 -- | The name of the subdivision. This element is only present if
 -- SubdivisionCode is also present.
 gldSubdivisionName :: Lens' GeoLocationDetails (Maybe Text)
-gldSubdivisionName f x =
-    f (_gldSubdivisionName x)
-        <&> \y -> x { _gldSubdivisionName = y }
+gldSubdivisionName = lens _gldSubdivisionName (\s a -> s { _gldSubdivisionName = a })
 {-# INLINE gldSubdivisionName #-}
 
 instance FromXML GeoLocationDetails where
@@ -826,32 +849,24 @@ data HealthCheck = HealthCheck
 
 -- | The ID of the specified health check.
 hcId :: Lens' HealthCheck (Text)
-hcId f x =
-    f (_hcId x)
-        <&> \y -> x { _hcId = y }
+hcId = lens _hcId (\s a -> s { _hcId = a })
 {-# INLINE hcId #-}
 
 -- | A unique string that identifies the request to create the health check.
 hcCallerReference :: Lens' HealthCheck (Text)
-hcCallerReference f x =
-    f (_hcCallerReference x)
-        <&> \y -> x { _hcCallerReference = y }
+hcCallerReference = lens _hcCallerReference (\s a -> s { _hcCallerReference = a })
 {-# INLINE hcCallerReference #-}
 
 -- | A complex type that contains the health check configuration.
 hcHealthCheckConfig :: Lens' HealthCheck (HealthCheckConfig)
-hcHealthCheckConfig f x =
-    f (_hcHealthCheckConfig x)
-        <&> \y -> x { _hcHealthCheckConfig = y }
+hcHealthCheckConfig = lens _hcHealthCheckConfig (\s a -> s { _hcHealthCheckConfig = a })
 {-# INLINE hcHealthCheckConfig #-}
 
 -- | The version of the health check. You can optionally pass this value in a
 -- call to UpdateHealthCheck to prevent overwriting another change to the
 -- health check.
 hcHealthCheckVersion :: Lens' HealthCheck (Integer)
-hcHealthCheckVersion f x =
-    f (_hcHealthCheckVersion x)
-        <&> \y -> x { _hcHealthCheckVersion = y }
+hcHealthCheckVersion = lens _hcHealthCheckVersion (\s a -> s { _hcHealthCheckVersion = a })
 {-# INLINE hcHealthCheckVersion #-}
 
 instance FromXML HealthCheck where
@@ -897,9 +912,7 @@ data HealthCheckConfig = HealthCheckConfig
 
 -- | IP Address of the instance being checked.
 hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
-hccIPAddress f x =
-    f (_hccIPAddress x)
-        <&> \y -> x { _hccIPAddress = y }
+hccIPAddress = lens _hccIPAddress (\s a -> s { _hccIPAddress = a })
 {-# INLINE hccIPAddress #-}
 
 -- | Port on which connection will be opened to the instance to health check.
@@ -907,41 +920,31 @@ hccIPAddress f x =
 -- specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port
 -- is not specified.
 hccPort :: Lens' HealthCheckConfig (Maybe Integer)
-hccPort f x =
-    f (_hccPort x)
-        <&> \y -> x { _hccPort = y }
+hccPort = lens _hccPort (\s a -> s { _hccPort = a })
 {-# INLINE hccPort #-}
 
 -- | The type of health check to be performed. Currently supported types are
 -- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
 hccType :: Lens' HealthCheckConfig (HealthCheckType)
-hccType f x =
-    f (_hccType x)
-        <&> \y -> x { _hccType = y }
+hccType = lens _hccType (\s a -> s { _hccType = a })
 {-# INLINE hccType #-}
 
 -- | Path to ping on the instance to check the health. Required for HTTP, HTTPS,
 -- HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is issued
 -- to the instance on the given port and path.
 hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
-hccResourcePath f x =
-    f (_hccResourcePath x)
-        <&> \y -> x { _hccResourcePath = y }
+hccResourcePath = lens _hccResourcePath (\s a -> s { _hccResourcePath = a })
 {-# INLINE hccResourcePath #-}
 
 -- | Fully qualified domain name of the instance to be health checked.
 hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
-hccFullyQualifiedDomainName f x =
-    f (_hccFullyQualifiedDomainName x)
-        <&> \y -> x { _hccFullyQualifiedDomainName = y }
+hccFullyQualifiedDomainName = lens _hccFullyQualifiedDomainName (\s a -> s { _hccFullyQualifiedDomainName = a })
 {-# INLINE hccFullyQualifiedDomainName #-}
 
 -- | A string to search for in the body of a health check response. Required for
 -- HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
 hccSearchString :: Lens' HealthCheckConfig (Maybe Text)
-hccSearchString f x =
-    f (_hccSearchString x)
-        <&> \y -> x { _hccSearchString = y }
+hccSearchString = lens _hccSearchString (\s a -> s { _hccSearchString = a })
 {-# INLINE hccSearchString #-}
 
 -- | The number of seconds between the time that Route 53 gets a response from
@@ -949,9 +952,7 @@ hccSearchString f x =
 -- Each Route 53 health checker makes requests at this interval. Valid values
 -- are 10 and 30. The default value is 30.
 hccRequestInterval :: Lens' HealthCheckConfig (Maybe Integer)
-hccRequestInterval f x =
-    f (_hccRequestInterval x)
-        <&> \y -> x { _hccRequestInterval = y }
+hccRequestInterval = lens _hccRequestInterval (\s a -> s { _hccRequestInterval = a })
 {-# INLINE hccRequestInterval #-}
 
 -- | The number of consecutive health checks that an endpoint must pass or fail
@@ -960,10 +961,24 @@ hccRequestInterval f x =
 -- information, see "How Amazon Route 53 Determines Whether an Endpoint Is
 -- Healthy" in the Amazon Route 53 Developer Guide.
 hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Integer)
-hccFailureThreshold f x =
-    f (_hccFailureThreshold x)
-        <&> \y -> x { _hccFailureThreshold = y }
+hccFailureThreshold = lens _hccFailureThreshold (\s a -> s { _hccFailureThreshold = a })
 {-# INLINE hccFailureThreshold #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'HealthCheckConfig' data type to populate a request.
+mkHealthCheckConfig :: HealthCheckType -- ^ 'hccType'
+                    -> HealthCheckConfig
+mkHealthCheckConfig p1 = HealthCheckConfig
+    { _hccIPAddress = Nothing
+    , _hccPort = Nothing
+    , _hccType = p3
+    , _hccResourcePath = Nothing
+    , _hccFullyQualifiedDomainName = Nothing
+    , _hccSearchString = Nothing
+    , _hccRequestInterval = Nothing
+    , _hccFailureThreshold = Nothing
+    }
+{-# INLINE mkHealthCheckConfig #-}
 
 instance FromXML HealthCheckConfig where
     fromXMLOptions = xmlOptions
@@ -998,9 +1013,7 @@ data HostedZone = HostedZone
 
 -- | The ID of the specified hosted zone.
 hzId :: Lens' HostedZone (Text)
-hzId f x =
-    f (_hzId x)
-        <&> \y -> x { _hzId = y }
+hzId = lens _hzId (\s a -> s { _hzId = a })
 {-# INLINE hzId #-}
 
 -- | The name of the domain. This must be a fully-specified domain, for example,
@@ -1012,30 +1025,22 @@ hzId f x =
 -- name servers for your domain to the set of NameServers elements returned in
 -- DelegationSet.
 hzName :: Lens' HostedZone (Text)
-hzName f x =
-    f (_hzName x)
-        <&> \y -> x { _hzName = y }
+hzName = lens _hzName (\s a -> s { _hzName = a })
 {-# INLINE hzName #-}
 
 -- | A unique string that identifies the request to create the hosted zone.
 hzCallerReference :: Lens' HostedZone (Text)
-hzCallerReference f x =
-    f (_hzCallerReference x)
-        <&> \y -> x { _hzCallerReference = y }
+hzCallerReference = lens _hzCallerReference (\s a -> s { _hzCallerReference = a })
 {-# INLINE hzCallerReference #-}
 
 -- | A complex type that contains the Comment element.
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
-hzConfig f x =
-    f (_hzConfig x)
-        <&> \y -> x { _hzConfig = y }
+hzConfig = lens _hzConfig (\s a -> s { _hzConfig = a })
 {-# INLINE hzConfig #-}
 
 -- | Total number of resource record sets in the hosted zone.
 hzResourceRecordSetCount :: Lens' HostedZone (Maybe Integer)
-hzResourceRecordSetCount f x =
-    f (_hzResourceRecordSetCount x)
-        <&> \y -> x { _hzResourceRecordSetCount = y }
+hzResourceRecordSetCount = lens _hzResourceRecordSetCount (\s a -> s { _hzResourceRecordSetCount = a })
 {-# INLINE hzResourceRecordSetCount #-}
 
 instance FromXML HostedZone where
@@ -1100,25 +1105,19 @@ data ResourceRecordSet = ResourceRecordSet
 
 -- | The domain name of the current resource record set.
 rrsName :: Lens' ResourceRecordSet (Text)
-rrsName f x =
-    f (_rrsName x)
-        <&> \y -> x { _rrsName = y }
+rrsName = lens _rrsName (\s a -> s { _rrsName = a })
 {-# INLINE rrsName #-}
 
 -- | The type of the current resource record set.
 rrsType :: Lens' ResourceRecordSet (RecordType)
-rrsType f x =
-    f (_rrsType x)
-        <&> \y -> x { _rrsType = y }
+rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 {-# INLINE rrsType #-}
 
 -- | Weighted, Latency, Geo, and Failover resource record sets only: An
 -- identifier that differentiates among multiple resource record sets that
 -- have the same combination of DNS name and type.
 rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
-rrsSetIdentifier f x =
-    f (_rrsSetIdentifier x)
-        <&> \y -> x { _rrsSetIdentifier = y }
+rrsSetIdentifier = lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
 {-# INLINE rrsSetIdentifier #-}
 
 -- | Weighted resource record sets only: Among resource record sets that have
@@ -1126,27 +1125,21 @@ rrsSetIdentifier f x =
 -- portion of traffic for the current resource record set is routed to the
 -- associated location.
 rrsWeight :: Lens' ResourceRecordSet (Maybe Integer)
-rrsWeight f x =
-    f (_rrsWeight x)
-        <&> \y -> x { _rrsWeight = y }
+rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 {-# INLINE rrsWeight #-}
 
 -- | Latency-based resource record sets only: Among resource record sets that
 -- have the same combination of DNS name and type, a value that specifies the
 -- AWS region for the current resource record set.
 rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
-rrsRegion f x =
-    f (_rrsRegion x)
-        <&> \y -> x { _rrsRegion = y }
+rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 {-# INLINE rrsRegion #-}
 
 -- | Geo location resource record sets only: Among resource record sets that
 -- have the same combination of DNS name and type, a value that specifies the
 -- geo location for the current resource record set.
 rrsGeoLocation :: Lens' ResourceRecordSet (Maybe GeoLocation)
-rrsGeoLocation f x =
-    f (_rrsGeoLocation x)
-        <&> \y -> x { _rrsGeoLocation = y }
+rrsGeoLocation = lens _rrsGeoLocation (\s a -> s { _rrsGeoLocation = a })
 {-# INLINE rrsGeoLocation #-}
 
 -- | Failover resource record sets only: Among resource record sets that have
@@ -1164,42 +1157,53 @@ rrsGeoLocation f x =
 -- health check or has no associated health check, or (2) there is no primary
 -- resource record set. Valid values: PRIMARY | SECONDARY.
 rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
-rrsFailover f x =
-    f (_rrsFailover x)
-        <&> \y -> x { _rrsFailover = y }
+rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
 {-# INLINE rrsFailover #-}
 
 -- | The cache time to live for the current resource record set.
 rrsTTL :: Lens' ResourceRecordSet (Maybe Integer)
-rrsTTL f x =
-    f (_rrsTTL x)
-        <&> \y -> x { _rrsTTL = y }
+rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
 {-# INLINE rrsTTL #-}
 
 -- | A complex type that contains the resource records for the current resource
 -- record set.
 rrsResourceRecords :: Lens' ResourceRecordSet ([ResourceRecord])
-rrsResourceRecords f x =
-    f (_rrsResourceRecords x)
-        <&> \y -> x { _rrsResourceRecords = y }
+rrsResourceRecords = lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
 {-# INLINE rrsResourceRecords #-}
 
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 rrsAliasTarget :: Lens' ResourceRecordSet (Maybe AliasTarget)
-rrsAliasTarget f x =
-    f (_rrsAliasTarget x)
-        <&> \y -> x { _rrsAliasTarget = y }
+rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 {-# INLINE rrsAliasTarget #-}
 
 -- | Health Check resource record sets only, not required for alias resource
 -- record sets: An identifier that is used to identify health check associated
 -- with the resource record set.
 rrsHealthCheckId :: Lens' ResourceRecordSet (Maybe Text)
-rrsHealthCheckId f x =
-    f (_rrsHealthCheckId x)
-        <&> \y -> x { _rrsHealthCheckId = y }
+rrsHealthCheckId = lens _rrsHealthCheckId (\s a -> s { _rrsHealthCheckId = a })
 {-# INLINE rrsHealthCheckId #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ResourceRecordSet' data type to populate a request.
+mkResourceRecordSet :: Text -- ^ 'rrsName'
+                    -> RecordType -- ^ 'rrsType'
+                    -> [ResourceRecord] -- ^ 'rrsResourceRecords'
+                    -> ResourceRecordSet
+mkResourceRecordSet p1 p2 p3 = ResourceRecordSet
+    { _rrsName = p1
+    , _rrsType = p2
+    , _rrsSetIdentifier = Nothing
+    , _rrsWeight = Nothing
+    , _rrsRegion = Nothing
+    , _rrsGeoLocation = Nothing
+    , _rrsFailover = Nothing
+    , _rrsTTL = Nothing
+    , _rrsResourceRecords = p9
+    , _rrsAliasTarget = Nothing
+    , _rrsHealthCheckId = Nothing
+    }
+{-# INLINE mkResourceRecordSet #-}
 
 instance FromXML ResourceRecordSet where
     fromXMLOptions = xmlOptions
@@ -1223,23 +1227,17 @@ data ResourceTagSet = ResourceTagSet
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
 rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
-rtsResourceType f x =
-    f (_rtsResourceType x)
-        <&> \y -> x { _rtsResourceType = y }
+rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 {-# INLINE rtsResourceType #-}
 
 -- | The ID for the specified resource.
 rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
-rtsResourceId f x =
-    f (_rtsResourceId x)
-        <&> \y -> x { _rtsResourceId = y }
+rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 {-# INLINE rtsResourceId #-}
 
 -- | The tags associated with the specified resource.
 rtsTags :: Lens' ResourceTagSet (Maybe [Tag])
-rtsTags f x =
-    f (_rtsTags x)
-        <&> \y -> x { _rtsTags = y }
+rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
 {-# INLINE rtsTags #-}
 
 instance FromXML ResourceTagSet where
@@ -1256,17 +1254,22 @@ data Tag = Tag
 
 -- | The key for a Tag.
 tKey :: Lens' Tag (Maybe Text)
-tKey f x =
-    f (_tKey x)
-        <&> \y -> x { _tKey = y }
+tKey = lens _tKey (\s a -> s { _tKey = a })
 {-# INLINE tKey #-}
 
 -- | The value for a Tag.
 tValue :: Lens' Tag (Maybe Text)
-tValue f x =
-    f (_tValue x)
-        <&> \y -> x { _tValue = y }
+tValue = lens _tValue (\s a -> s { _tValue = a })
 {-# INLINE tValue #-}
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Tag' data type to populate a request.
+mkTag :: Tag
+mkTag = Tag
+    { _tKey = Nothing
+    , _tValue = Nothing
+    }
+{-# INLINE mkTag #-}
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions

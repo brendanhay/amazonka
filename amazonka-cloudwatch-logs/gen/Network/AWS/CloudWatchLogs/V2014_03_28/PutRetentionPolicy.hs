@@ -35,10 +35,10 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy
     -- * Request
       PutRetentionPolicy
     -- ** Request constructor
-    , putRetentionPolicy
+    , mkPutRetentionPolicyRequest
     -- ** Request lenses
-    , prprRetentionInDays
     , prprLogGroupName
+    , prprRetentionInDays
 
     -- * Response
     , PutRetentionPolicyResponse
@@ -49,38 +49,35 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'PutRetentionPolicy' request.
-putRetentionPolicy :: Integer -- ^ 'prprRetentionInDays'
-                   -> Text -- ^ 'prprLogGroupName'
-                   -> PutRetentionPolicy
-putRetentionPolicy p1 p2 = PutRetentionPolicy
-    { _prprRetentionInDays = p1
-    , _prprLogGroupName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutRetentionPolicy' request.
+mkPutRetentionPolicyRequest :: Text -- ^ 'prprLogGroupName'
+                            -> Integer -- ^ 'prprRetentionInDays'
+                            -> PutRetentionPolicy
+mkPutRetentionPolicyRequest p1 p2 = PutRetentionPolicy
+    { _prprLogGroupName = p1
+    , _prprRetentionInDays = p2
     }
-{-# INLINE putRetentionPolicy #-}
+{-# INLINE mkPutRetentionPolicyRequest #-}
 
 data PutRetentionPolicy = PutRetentionPolicy
-    { _prprRetentionInDays :: Integer
+    { _prprLogGroupName :: Text
+    , _prprRetentionInDays :: Integer
       -- ^ Specifies the number of days you want to retain log events in the
       -- specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60,
       -- 90, 120, 150, 180, 365, 400, 547, 730.
-    , _prprLogGroupName :: Text
     } deriving (Show, Generic)
+
+prprLogGroupName :: Lens' PutRetentionPolicy (Text)
+prprLogGroupName = lens _prprLogGroupName (\s a -> s { _prprLogGroupName = a })
+{-# INLINE prprLogGroupName #-}
 
 -- | Specifies the number of days you want to retain log events in the specified
 -- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
 -- 365, 400, 547, 730.
 prprRetentionInDays :: Lens' PutRetentionPolicy (Integer)
-prprRetentionInDays f x =
-    f (_prprRetentionInDays x)
-        <&> \y -> x { _prprRetentionInDays = y }
+prprRetentionInDays = lens _prprRetentionInDays (\s a -> s { _prprRetentionInDays = a })
 {-# INLINE prprRetentionInDays #-}
-
-prprLogGroupName :: Lens' PutRetentionPolicy (Text)
-prprLogGroupName f x =
-    f (_prprLogGroupName x)
-        <&> \y -> x { _prprLogGroupName = y }
-{-# INLINE prprLogGroupName #-}
 
 instance ToPath PutRetentionPolicy
 

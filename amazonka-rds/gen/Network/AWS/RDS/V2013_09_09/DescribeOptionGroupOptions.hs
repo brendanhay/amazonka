@@ -26,11 +26,11 @@ module Network.AWS.RDS.V2013_09_09.DescribeOptionGroupOptions
     -- * Request
       DescribeOptionGroupOptions
     -- ** Request constructor
-    , describeOptionGroupOptions
+    , mkDescribeOptionGroupOptionsMessage
     -- ** Request lenses
     , dogomEngineName
-    , dogomMaxRecords
     , dogomMajorEngineVersion
+    , dogomMaxRecords
     , dogomMarker
 
     -- * Response
@@ -44,30 +44,31 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeOptionGroupOptions' request.
-describeOptionGroupOptions :: Text -- ^ 'dogomEngineName'
-                           -> DescribeOptionGroupOptions
-describeOptionGroupOptions p1 = DescribeOptionGroupOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOptionGroupOptions' request.
+mkDescribeOptionGroupOptionsMessage :: Text -- ^ 'dogomEngineName'
+                                    -> DescribeOptionGroupOptions
+mkDescribeOptionGroupOptionsMessage p1 = DescribeOptionGroupOptions
     { _dogomEngineName = p1
-    , _dogomMaxRecords = Nothing
     , _dogomMajorEngineVersion = Nothing
+    , _dogomMaxRecords = Nothing
     , _dogomMarker = Nothing
     }
-{-# INLINE describeOptionGroupOptions #-}
+{-# INLINE mkDescribeOptionGroupOptionsMessage #-}
 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     { _dogomEngineName :: Text
       -- ^ A required parameter. Options available for the given Engine name
       -- will be described.
+    , _dogomMajorEngineVersion :: Maybe Text
+      -- ^ If specified, filters the results to include only options for the
+      -- specified major engine version.
     , _dogomMaxRecords :: Maybe Integer
       -- ^ The maximum number of records to include in the response. If more
       -- records exist than the specified MaxRecords value, a pagination
       -- token called a marker is included in the response so that the
       -- remaining results can be retrieved. Default: 100 Constraints:
       -- minimum 20, maximum 100.
-    , _dogomMajorEngineVersion :: Maybe Text
-      -- ^ If specified, filters the results to include only options for the
-      -- specified major engine version.
     , _dogomMarker :: Maybe Text
       -- ^ An optional pagination token provided by a previous request. If
       -- this parameter is specified, the response includes only records
@@ -77,36 +78,28 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
 -- | A required parameter. Options available for the given Engine name will be
 -- described.
 dogomEngineName :: Lens' DescribeOptionGroupOptions (Text)
-dogomEngineName f x =
-    f (_dogomEngineName x)
-        <&> \y -> x { _dogomEngineName = y }
+dogomEngineName = lens _dogomEngineName (\s a -> s { _dogomEngineName = a })
 {-# INLINE dogomEngineName #-}
+
+-- | If specified, filters the results to include only options for the specified
+-- major engine version.
+dogomMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogomMajorEngineVersion = lens _dogomMajorEngineVersion (\s a -> s { _dogomMajorEngineVersion = a })
+{-# INLINE dogomMajorEngineVersion #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dogomMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Integer)
-dogomMaxRecords f x =
-    f (_dogomMaxRecords x)
-        <&> \y -> x { _dogomMaxRecords = y }
+dogomMaxRecords = lens _dogomMaxRecords (\s a -> s { _dogomMaxRecords = a })
 {-# INLINE dogomMaxRecords #-}
-
--- | If specified, filters the results to include only options for the specified
--- major engine version.
-dogomMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogomMajorEngineVersion f x =
-    f (_dogomMajorEngineVersion x)
-        <&> \y -> x { _dogomMajorEngineVersion = y }
-{-# INLINE dogomMajorEngineVersion #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dogomMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogomMarker f x =
-    f (_dogomMarker x)
-        <&> \y -> x { _dogomMarker = y }
+dogomMarker = lens _dogomMarker (\s a -> s { _dogomMarker = a })
 {-# INLINE dogomMarker #-}
 
 instance ToQuery DescribeOptionGroupOptions where
@@ -123,18 +116,14 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
 
 -- | List of available option group options.
 ogomOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse ([OptionGroupOption])
-ogomOptionGroupOptions f x =
-    f (_ogomOptionGroupOptions x)
-        <&> \y -> x { _ogomOptionGroupOptions = y }
+ogomOptionGroupOptions = lens _ogomOptionGroupOptions (\s a -> s { _ogomOptionGroupOptions = a })
 {-# INLINE ogomOptionGroupOptions #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 ogomMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
-ogomMarker f x =
-    f (_ogomMarker x)
-        <&> \y -> x { _ogomMarker = y }
+ogomMarker = lens _ogomMarker (\s a -> s { _ogomMarker = a })
 {-# INLINE ogomMarker #-}
 
 instance FromXML DescribeOptionGroupOptionsResponse where

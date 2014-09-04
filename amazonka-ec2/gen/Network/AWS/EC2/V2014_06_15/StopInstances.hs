@@ -55,7 +55,7 @@ module Network.AWS.EC2.V2014_06_15.StopInstances
     -- * Request
       StopInstances
     -- ** Request constructor
-    , stopInstances
+    , mkStopInstancesRequest
     -- ** Request lenses
     , sisvInstanceIds
     , sisvForce
@@ -70,14 +70,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'StopInstances' request.
-stopInstances :: [Text] -- ^ 'sisvInstanceIds'
-              -> StopInstances
-stopInstances p1 = StopInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopInstances' request.
+mkStopInstancesRequest :: [Text] -- ^ 'sisvInstanceIds'
+                       -> StopInstances
+mkStopInstancesRequest p1 = StopInstances
     { _sisvInstanceIds = p1
     , _sisvForce = Nothing
     }
-{-# INLINE stopInstances #-}
+{-# INLINE mkStopInstancesRequest #-}
 
 data StopInstances = StopInstances
     { _sisvInstanceIds :: [Text]
@@ -92,9 +93,7 @@ data StopInstances = StopInstances
 
 -- | One or more instance IDs.
 sisvInstanceIds :: Lens' StopInstances ([Text])
-sisvInstanceIds f x =
-    f (_sisvInstanceIds x)
-        <&> \y -> x { _sisvInstanceIds = y }
+sisvInstanceIds = lens _sisvInstanceIds (\s a -> s { _sisvInstanceIds = a })
 {-# INLINE sisvInstanceIds #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
@@ -102,24 +101,20 @@ sisvInstanceIds f x =
 -- you must perform file system check and repair procedures. This option is
 -- not recommended for Windows instances. Default: false.
 sisvForce :: Lens' StopInstances (Maybe Bool)
-sisvForce f x =
-    f (_sisvForce x)
-        <&> \y -> x { _sisvForce = y }
+sisvForce = lens _sisvForce (\s a -> s { _sisvForce = a })
 {-# INLINE sisvForce #-}
 
 instance ToQuery StopInstances where
     toQuery = genericQuery def
 
-data StopInstancesResponse = StopInstancesResponse
+newtype StopInstancesResponse = StopInstancesResponse
     { _siswStoppingInstances :: [InstanceStateChange]
       -- ^ Information about one or more stopped instances.
     } deriving (Show, Generic)
 
 -- | Information about one or more stopped instances.
 siswStoppingInstances :: Lens' StopInstancesResponse ([InstanceStateChange])
-siswStoppingInstances f x =
-    f (_siswStoppingInstances x)
-        <&> \y -> x { _siswStoppingInstances = y }
+siswStoppingInstances = lens _siswStoppingInstances (\s a -> s { _siswStoppingInstances = a })
 {-# INLINE siswStoppingInstances #-}
 
 instance FromXML StopInstancesResponse where

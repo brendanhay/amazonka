@@ -24,7 +24,7 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheck
     -- * Request
       GetHealthCheck
     -- ** Request constructor
-    , getHealthCheck
+    , mkGetHealthCheckRequest
     -- ** Request lenses
     , ghcrHealthCheckId
 
@@ -38,24 +38,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetHealthCheck' request.
-getHealthCheck :: Text -- ^ 'ghcrHealthCheckId'
-               -> GetHealthCheck
-getHealthCheck p1 = GetHealthCheck
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHealthCheck' request.
+mkGetHealthCheckRequest :: Text -- ^ 'ghcrHealthCheckId'
+                        -> GetHealthCheck
+mkGetHealthCheckRequest p1 = GetHealthCheck
     { _ghcrHealthCheckId = p1
     }
-{-# INLINE getHealthCheck #-}
+{-# INLINE mkGetHealthCheckRequest #-}
 
-data GetHealthCheck = GetHealthCheck
+newtype GetHealthCheck = GetHealthCheck
     { _ghcrHealthCheckId :: Text
       -- ^ The ID of the health check to retrieve.
     } deriving (Show, Generic)
 
 -- | The ID of the health check to retrieve.
 ghcrHealthCheckId :: Lens' GetHealthCheck (Text)
-ghcrHealthCheckId f x =
-    f (_ghcrHealthCheckId x)
-        <&> \y -> x { _ghcrHealthCheckId = y }
+ghcrHealthCheckId = lens _ghcrHealthCheckId (\s a -> s { _ghcrHealthCheckId = a })
 {-# INLINE ghcrHealthCheckId #-}
 
 instance ToPath GetHealthCheck where
@@ -72,7 +71,7 @@ instance ToXML GetHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckRequest"
 
-data GetHealthCheckResponse = GetHealthCheckResponse
+newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcsHealthCheck :: HealthCheck
       -- ^ A complex type that contains the information about the specified
       -- health check.
@@ -81,9 +80,7 @@ data GetHealthCheckResponse = GetHealthCheckResponse
 -- | A complex type that contains the information about the specified health
 -- check.
 ghcsHealthCheck :: Lens' GetHealthCheckResponse (HealthCheck)
-ghcsHealthCheck f x =
-    f (_ghcsHealthCheck x)
-        <&> \y -> x { _ghcsHealthCheck = y }
+ghcsHealthCheck = lens _ghcsHealthCheck (\s a -> s { _ghcsHealthCheck = a })
 {-# INLINE ghcsHealthCheck #-}
 
 instance FromXML GetHealthCheckResponse where

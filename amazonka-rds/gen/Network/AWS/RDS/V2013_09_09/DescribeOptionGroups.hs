@@ -29,11 +29,11 @@ module Network.AWS.RDS.V2013_09_09.DescribeOptionGroups
     -- * Request
       DescribeOptionGroups
     -- ** Request constructor
-    , describeOptionGroups
+    , mkDescribeOptionGroupsMessage
     -- ** Request lenses
-    , dognMaxRecords
     , dognOptionGroupName
     , dognMarker
+    , dognMaxRecords
     , dognEngineName
     , dognMajorEngineVersion
 
@@ -48,25 +48,20 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeOptionGroups' request.
-describeOptionGroups :: DescribeOptionGroups
-describeOptionGroups = DescribeOptionGroups
-    { _dognMaxRecords = Nothing
-    , _dognOptionGroupName = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOptionGroups' request.
+mkDescribeOptionGroupsMessage :: DescribeOptionGroups
+mkDescribeOptionGroupsMessage = DescribeOptionGroups
+    { _dognOptionGroupName = Nothing
     , _dognMarker = Nothing
+    , _dognMaxRecords = Nothing
     , _dognEngineName = Nothing
     , _dognMajorEngineVersion = Nothing
     }
-{-# INLINE describeOptionGroups #-}
+{-# INLINE mkDescribeOptionGroupsMessage #-}
 
 data DescribeOptionGroups = DescribeOptionGroups
-    { _dognMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results can be retrieved. Default: 100 Constraints:
-      -- minimum 20, maximum 100.
-    , _dognOptionGroupName :: Maybe Text
+    { _dognOptionGroupName :: Maybe Text
       -- ^ The name of the option group to describe. Cannot be supplied
       -- together with EngineName or MajorEngineVersion.
     , _dognMarker :: Maybe Text
@@ -74,6 +69,12 @@ data DescribeOptionGroups = DescribeOptionGroups
       -- DescribeOptionGroups request. If this parameter is specified, the
       -- response includes only records beyond the marker, up to the value
       -- specified by MaxRecords.
+    , _dognMaxRecords :: Maybe Integer
+      -- ^ The maximum number of records to include in the response. If more
+      -- records exist than the specified MaxRecords value, a pagination
+      -- token called a marker is included in the response so that the
+      -- remaining results can be retrieved. Default: 100 Constraints:
+      -- minimum 20, maximum 100.
     , _dognEngineName :: Maybe Text
       -- ^ Filters the list of option groups to only include groups
       -- associated with a specific database engine.
@@ -83,48 +84,38 @@ data DescribeOptionGroups = DescribeOptionGroups
       -- then EngineName must also be specified.
     } deriving (Show, Generic)
 
--- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
--- marker is included in the response so that the remaining results can be
--- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dognMaxRecords :: Lens' DescribeOptionGroups (Maybe Integer)
-dognMaxRecords f x =
-    f (_dognMaxRecords x)
-        <&> \y -> x { _dognMaxRecords = y }
-{-# INLINE dognMaxRecords #-}
-
 -- | The name of the option group to describe. Cannot be supplied together with
 -- EngineName or MajorEngineVersion.
 dognOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
-dognOptionGroupName f x =
-    f (_dognOptionGroupName x)
-        <&> \y -> x { _dognOptionGroupName = y }
+dognOptionGroupName = lens _dognOptionGroupName (\s a -> s { _dognOptionGroupName = a })
 {-# INLINE dognOptionGroupName #-}
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
 dognMarker :: Lens' DescribeOptionGroups (Maybe Text)
-dognMarker f x =
-    f (_dognMarker x)
-        <&> \y -> x { _dognMarker = y }
+dognMarker = lens _dognMarker (\s a -> s { _dognMarker = a })
 {-# INLINE dognMarker #-}
+
+-- | The maximum number of records to include in the response. If more records
+-- exist than the specified MaxRecords value, a pagination token called a
+-- marker is included in the response so that the remaining results can be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+dognMaxRecords :: Lens' DescribeOptionGroups (Maybe Integer)
+dognMaxRecords = lens _dognMaxRecords (\s a -> s { _dognMaxRecords = a })
+{-# INLINE dognMaxRecords #-}
 
 -- | Filters the list of option groups to only include groups associated with a
 -- specific database engine.
 dognEngineName :: Lens' DescribeOptionGroups (Maybe Text)
-dognEngineName f x =
-    f (_dognEngineName x)
-        <&> \y -> x { _dognEngineName = y }
+dognEngineName = lens _dognEngineName (\s a -> s { _dognEngineName = a })
 {-# INLINE dognEngineName #-}
 
 -- | Filters the list of option groups to only include groups associated with a
 -- specific database engine version. If specified, then EngineName must also
 -- be specified.
 dognMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
-dognMajorEngineVersion f x =
-    f (_dognMajorEngineVersion x)
-        <&> \y -> x { _dognMajorEngineVersion = y }
+dognMajorEngineVersion = lens _dognMajorEngineVersion (\s a -> s { _dognMajorEngineVersion = a })
 {-# INLINE dognMajorEngineVersion #-}
 
 instance ToQuery DescribeOptionGroups where
@@ -141,18 +132,14 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
 
 -- | List of option groups.
 ohOptionGroupsList :: Lens' DescribeOptionGroupsResponse ([OptionGroup])
-ohOptionGroupsList f x =
-    f (_ohOptionGroupsList x)
-        <&> \y -> x { _ohOptionGroupsList = y }
+ohOptionGroupsList = lens _ohOptionGroupsList (\s a -> s { _ohOptionGroupsList = a })
 {-# INLINE ohOptionGroupsList #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 ohMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
-ohMarker f x =
-    f (_ohMarker x)
-        <&> \y -> x { _ohMarker = y }
+ohMarker = lens _ohMarker (\s a -> s { _ohMarker = a })
 {-# INLINE ohMarker #-}
 
 instance FromXML DescribeOptionGroupsResponse where

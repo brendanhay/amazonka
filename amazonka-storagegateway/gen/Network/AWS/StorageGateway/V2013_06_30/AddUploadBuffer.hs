@@ -28,10 +28,10 @@ module Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
     -- * Request
       AddUploadBuffer
     -- ** Request constructor
-    , addUploadBuffer
+    , mkAddUploadBufferInput
     -- ** Request lenses
-    , aubiDiskIds
     , aubiGatewayARN
+    , aubiDiskIds
 
     -- * Response
     , AddUploadBufferResponse
@@ -44,37 +44,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AddUploadBuffer' request.
-addUploadBuffer :: [Text] -- ^ 'aubiDiskIds'
-                -> Text -- ^ 'aubiGatewayARN'
-                -> AddUploadBuffer
-addUploadBuffer p1 p2 = AddUploadBuffer
-    { _aubiDiskIds = p1
-    , _aubiGatewayARN = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddUploadBuffer' request.
+mkAddUploadBufferInput :: Text -- ^ 'aubiGatewayARN'
+                       -> [Text] -- ^ 'aubiDiskIds'
+                       -> AddUploadBuffer
+mkAddUploadBufferInput p1 p2 = AddUploadBuffer
+    { _aubiGatewayARN = p1
+    , _aubiDiskIds = p2
     }
-{-# INLINE addUploadBuffer #-}
+{-# INLINE mkAddUploadBufferInput #-}
 
 data AddUploadBuffer = AddUploadBuffer
-    { _aubiDiskIds :: [Text]
-    , _aubiGatewayARN :: Text
+    { _aubiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _aubiDiskIds :: [Text]
     } deriving (Show, Generic)
-
-aubiDiskIds :: Lens' AddUploadBuffer ([Text])
-aubiDiskIds f x =
-    f (_aubiDiskIds x)
-        <&> \y -> x { _aubiDiskIds = y }
-{-# INLINE aubiDiskIds #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 aubiGatewayARN :: Lens' AddUploadBuffer (Text)
-aubiGatewayARN f x =
-    f (_aubiGatewayARN x)
-        <&> \y -> x { _aubiGatewayARN = y }
+aubiGatewayARN = lens _aubiGatewayARN (\s a -> s { _aubiGatewayARN = a })
 {-# INLINE aubiGatewayARN #-}
+
+aubiDiskIds :: Lens' AddUploadBuffer ([Text])
+aubiDiskIds = lens _aubiDiskIds (\s a -> s { _aubiDiskIds = a })
+{-# INLINE aubiDiskIds #-}
 
 instance ToPath AddUploadBuffer
 
@@ -84,7 +81,7 @@ instance ToHeaders AddUploadBuffer
 
 instance ToJSON AddUploadBuffer
 
-data AddUploadBufferResponse = AddUploadBufferResponse
+newtype AddUploadBufferResponse = AddUploadBufferResponse
     { _auboGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -94,9 +91,7 @@ data AddUploadBufferResponse = AddUploadBufferResponse
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 auboGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
-auboGatewayARN f x =
-    f (_auboGatewayARN x)
-        <&> \y -> x { _auboGatewayARN = y }
+auboGatewayARN = lens _auboGatewayARN (\s a -> s { _auboGatewayARN = a })
 {-# INLINE auboGatewayARN #-}
 
 instance FromJSON AddUploadBufferResponse

@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.CreateDistribution
     -- * Request
       CreateDistribution
     -- ** Request constructor
-    , createDistribution
+    , mkCreateDistributionRequest
     -- ** Request lenses
     , cdrDistributionConfig
 
@@ -39,24 +39,23 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDistribution' request.
-createDistribution :: DistributionConfig -- ^ 'cdrDistributionConfig'
-                   -> CreateDistribution
-createDistribution p1 = CreateDistribution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDistribution' request.
+mkCreateDistributionRequest :: DistributionConfig -- ^ 'cdrDistributionConfig'
+                            -> CreateDistribution
+mkCreateDistributionRequest p1 = CreateDistribution
     { _cdrDistributionConfig = p1
     }
-{-# INLINE createDistribution #-}
+{-# INLINE mkCreateDistributionRequest #-}
 
-data CreateDistribution = CreateDistribution
+newtype CreateDistribution = CreateDistribution
     { _cdrDistributionConfig :: DistributionConfig
       -- ^ The distribution's configuration information.
     } deriving (Show, Generic)
 
 -- | The distribution's configuration information.
 cdrDistributionConfig :: Lens' CreateDistribution (DistributionConfig)
-cdrDistributionConfig f x =
-    f (_cdrDistributionConfig x)
-        <&> \y -> x { _cdrDistributionConfig = y }
+cdrDistributionConfig = lens _cdrDistributionConfig (\s a -> s { _cdrDistributionConfig = a })
 {-# INLINE cdrDistributionConfig #-}
 
 instance ToPath CreateDistribution where
@@ -84,25 +83,19 @@ data CreateDistributionResponse = CreateDistributionResponse
 
 -- | The distribution's information.
 cdsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
-cdsDistribution f x =
-    f (_cdsDistribution x)
-        <&> \y -> x { _cdsDistribution = y }
+cdsDistribution = lens _cdsDistribution (\s a -> s { _cdsDistribution = a })
 {-# INLINE cdsDistribution #-}
 
 -- | The fully qualified URI of the new distribution resource just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 cdsLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdsLocation f x =
-    f (_cdsLocation x)
-        <&> \y -> x { _cdsLocation = y }
+cdsLocation = lens _cdsLocation (\s a -> s { _cdsLocation = a })
 {-# INLINE cdsLocation #-}
 
 -- | The current version of the distribution created.
 cdsETag :: Lens' CreateDistributionResponse (Maybe Text)
-cdsETag f x =
-    f (_cdsETag x)
-        <&> \y -> x { _cdsETag = y }
+cdsETag = lens _cdsETag (\s a -> s { _cdsETag = a })
 {-# INLINE cdsETag #-}
 
 instance AWSRequest CreateDistribution where

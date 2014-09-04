@@ -24,7 +24,7 @@ module Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
     -- * Request
       DeleteAlarms
     -- ** Request constructor
-    , deleteAlarms
+    , mkDeleteAlarmsInput
     -- ** Request lenses
     , daiAlarmNames
 
@@ -36,24 +36,23 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteAlarms' request.
-deleteAlarms :: [Text] -- ^ 'daiAlarmNames'
-             -> DeleteAlarms
-deleteAlarms p1 = DeleteAlarms
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAlarms' request.
+mkDeleteAlarmsInput :: [Text] -- ^ 'daiAlarmNames'
+                    -> DeleteAlarms
+mkDeleteAlarmsInput p1 = DeleteAlarms
     { _daiAlarmNames = p1
     }
-{-# INLINE deleteAlarms #-}
+{-# INLINE mkDeleteAlarmsInput #-}
 
-data DeleteAlarms = DeleteAlarms
+newtype DeleteAlarms = DeleteAlarms
     { _daiAlarmNames :: [Text]
       -- ^ A list of alarms to be deleted.
     } deriving (Show, Generic)
 
 -- | A list of alarms to be deleted.
 daiAlarmNames :: Lens' DeleteAlarms ([Text])
-daiAlarmNames f x =
-    f (_daiAlarmNames x)
-        <&> \y -> x { _daiAlarmNames = y }
+daiAlarmNames = lens _daiAlarmNames (\s a -> s { _daiAlarmNames = a })
 {-# INLINE daiAlarmNames #-}
 
 instance ToQuery DeleteAlarms where

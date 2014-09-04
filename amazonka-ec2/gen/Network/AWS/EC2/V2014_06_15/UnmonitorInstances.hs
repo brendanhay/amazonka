@@ -37,7 +37,7 @@ module Network.AWS.EC2.V2014_06_15.UnmonitorInstances
     -- * Request
       UnmonitorInstances
     -- ** Request constructor
-    , unmonitorInstances
+    , mkUnmonitorInstancesRequest
     -- ** Request lenses
     , uirInstanceIds
 
@@ -51,39 +51,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UnmonitorInstances' request.
-unmonitorInstances :: [Text] -- ^ 'uirInstanceIds'
-                   -> UnmonitorInstances
-unmonitorInstances p1 = UnmonitorInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnmonitorInstances' request.
+mkUnmonitorInstancesRequest :: [Text] -- ^ 'uirInstanceIds'
+                            -> UnmonitorInstances
+mkUnmonitorInstancesRequest p1 = UnmonitorInstances
     { _uirInstanceIds = p1
     }
-{-# INLINE unmonitorInstances #-}
+{-# INLINE mkUnmonitorInstancesRequest #-}
 
-data UnmonitorInstances = UnmonitorInstances
+newtype UnmonitorInstances = UnmonitorInstances
     { _uirInstanceIds :: [Text]
       -- ^ One or more instance IDs.
     } deriving (Show, Generic)
 
 -- | One or more instance IDs.
 uirInstanceIds :: Lens' UnmonitorInstances ([Text])
-uirInstanceIds f x =
-    f (_uirInstanceIds x)
-        <&> \y -> x { _uirInstanceIds = y }
+uirInstanceIds = lens _uirInstanceIds (\s a -> s { _uirInstanceIds = a })
 {-# INLINE uirInstanceIds #-}
 
 instance ToQuery UnmonitorInstances where
     toQuery = genericQuery def
 
-data UnmonitorInstancesResponse = UnmonitorInstancesResponse
+newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uisInstanceMonitorings :: [InstanceMonitoring]
       -- ^ Monitoring information for one or more instances.
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
 uisInstanceMonitorings :: Lens' UnmonitorInstancesResponse ([InstanceMonitoring])
-uisInstanceMonitorings f x =
-    f (_uisInstanceMonitorings x)
-        <&> \y -> x { _uisInstanceMonitorings = y }
+uisInstanceMonitorings = lens _uisInstanceMonitorings (\s a -> s { _uisInstanceMonitorings = a })
 {-# INLINE uisInstanceMonitorings #-}
 
 instance FromXML UnmonitorInstancesResponse where

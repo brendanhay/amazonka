@@ -43,11 +43,11 @@ module Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups
     -- * Request
       DescribeSecurityGroups
     -- ** Request constructor
-    , describeSecurityGroups
+    , mkDescribeSecurityGroupsRequest
     -- ** Request lenses
-    , dsgsFilters
-    , dsgsGroupIds
     , dsgsGroupNames
+    , dsgsGroupIds
+    , dsgsFilters
 
     -- * Response
     , DescribeSecurityGroupsResponse
@@ -59,17 +59,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeSecurityGroups' request.
-describeSecurityGroups :: DescribeSecurityGroups
-describeSecurityGroups = DescribeSecurityGroups
-    { _dsgsFilters = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSecurityGroups' request.
+mkDescribeSecurityGroupsRequest :: DescribeSecurityGroups
+mkDescribeSecurityGroupsRequest = DescribeSecurityGroups
+    { _dsgsGroupNames = mempty
     , _dsgsGroupIds = mempty
-    , _dsgsGroupNames = mempty
+    , _dsgsFilters = mempty
     }
-{-# INLINE describeSecurityGroups #-}
+{-# INLINE mkDescribeSecurityGroupsRequest #-}
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsgsFilters :: [Filter]
+    { _dsgsGroupNames :: [Text]
+      -- ^ [EC2-Classic, default VPC] One or more security group names.
+      -- Default: Describes all your security groups.
+    , _dsgsGroupIds :: [Text]
+      -- ^ One or more security group IDs. Default: Describes all your
+      -- security groups.
+    , _dsgsFilters :: [Filter]
       -- ^ One or more filters. description - The description of the
       -- security group. group-id - The ID of the security group.
       -- group-name - The name of the security group. ip-permission.cidr -
@@ -87,13 +94,19 @@ data DescribeSecurityGroups = DescribeSecurityGroups
       -- of a tag assigned to the security group. tag-value - The value of
       -- a tag assigned to the security group. vpc-id - The ID of the VPC
       -- specified when the security group was created.
-    , _dsgsGroupIds :: [Text]
-      -- ^ One or more security group IDs. Default: Describes all your
-      -- security groups.
-    , _dsgsGroupNames :: [Text]
-      -- ^ [EC2-Classic, default VPC] One or more security group names.
-      -- Default: Describes all your security groups.
     } deriving (Show, Generic)
+
+-- | [EC2-Classic, default VPC] One or more security group names. Default:
+-- Describes all your security groups.
+dsgsGroupNames :: Lens' DescribeSecurityGroups ([Text])
+dsgsGroupNames = lens _dsgsGroupNames (\s a -> s { _dsgsGroupNames = a })
+{-# INLINE dsgsGroupNames #-}
+
+-- | One or more security group IDs. Default: Describes all your security
+-- groups.
+dsgsGroupIds :: Lens' DescribeSecurityGroups ([Text])
+dsgsGroupIds = lens _dsgsGroupIds (\s a -> s { _dsgsGroupIds = a })
+{-# INLINE dsgsGroupIds #-}
 
 -- | One or more filters. description - The description of the security group.
 -- group-id - The ID of the security group. group-name - The name of the
@@ -111,40 +124,20 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 -- - The value of a tag assigned to the security group. vpc-id - The ID of the
 -- VPC specified when the security group was created.
 dsgsFilters :: Lens' DescribeSecurityGroups ([Filter])
-dsgsFilters f x =
-    f (_dsgsFilters x)
-        <&> \y -> x { _dsgsFilters = y }
+dsgsFilters = lens _dsgsFilters (\s a -> s { _dsgsFilters = a })
 {-# INLINE dsgsFilters #-}
-
--- | One or more security group IDs. Default: Describes all your security
--- groups.
-dsgsGroupIds :: Lens' DescribeSecurityGroups ([Text])
-dsgsGroupIds f x =
-    f (_dsgsGroupIds x)
-        <&> \y -> x { _dsgsGroupIds = y }
-{-# INLINE dsgsGroupIds #-}
-
--- | [EC2-Classic, default VPC] One or more security group names. Default:
--- Describes all your security groups.
-dsgsGroupNames :: Lens' DescribeSecurityGroups ([Text])
-dsgsGroupNames f x =
-    f (_dsgsGroupNames x)
-        <&> \y -> x { _dsgsGroupNames = y }
-{-# INLINE dsgsGroupNames #-}
 
 instance ToQuery DescribeSecurityGroups where
     toQuery = genericQuery def
 
-data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
+newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgtSecurityGroups :: [SecurityGroup]
       -- ^ Information about one or more security groups.
     } deriving (Show, Generic)
 
 -- | Information about one or more security groups.
 dsgtSecurityGroups :: Lens' DescribeSecurityGroupsResponse ([SecurityGroup])
-dsgtSecurityGroups f x =
-    f (_dsgtSecurityGroups x)
-        <&> \y -> x { _dsgtSecurityGroups = y }
+dsgtSecurityGroups = lens _dsgtSecurityGroups (\s a -> s { _dsgtSecurityGroups = a })
 {-# INLINE dsgtSecurityGroups #-}
 
 instance FromXML DescribeSecurityGroupsResponse where

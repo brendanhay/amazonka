@@ -36,44 +36,45 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusters
     -- * Request
       DescribeClusters
     -- ** Request constructor
-    , describeClusters
+    , mkDescribeClustersMessage
     -- ** Request lenses
-    , dcnMaxRecords
     , dcnClusterIdentifier
+    , dcnMaxRecords
     , dcnMarker
 
     -- * Response
     , DescribeClustersResponse
     -- ** Response lenses
-    , cmClusters
     , cmMarker
+    , cmClusters
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeClusters' request.
-describeClusters :: DescribeClusters
-describeClusters = DescribeClusters
-    { _dcnMaxRecords = Nothing
-    , _dcnClusterIdentifier = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusters' request.
+mkDescribeClustersMessage :: DescribeClusters
+mkDescribeClustersMessage = DescribeClusters
+    { _dcnClusterIdentifier = Nothing
+    , _dcnMaxRecords = Nothing
     , _dcnMarker = Nothing
     }
-{-# INLINE describeClusters #-}
+{-# INLINE mkDescribeClustersMessage #-}
 
 data DescribeClusters = DescribeClusters
-    { _dcnMaxRecords :: Maybe Integer
+    { _dcnClusterIdentifier :: Maybe Text
+      -- ^ The unique identifier of a cluster whose properties you are
+      -- requesting. This parameter is case sensitive. The default is that
+      -- all clusters defined for an account are returned.
+    , _dcnMaxRecords :: Maybe Integer
       -- ^ The maximum number of response records to return in each call. If
       -- the number of remaining response records exceeds the specified
       -- MaxRecords value, a value is returned in a marker field of the
       -- response. You can retrieve the next set of records by retrying
       -- the command with the returned marker value. Default: 100
       -- Constraints: minimum 20, maximum 100.
-    , _dcnClusterIdentifier :: Maybe Text
-      -- ^ The unique identifier of a cluster whose properties you are
-      -- requesting. This parameter is case sensitive. The default is that
-      -- all clusters defined for an account are returned.
     , _dcnMarker :: Maybe Text
       -- ^ An optional parameter that specifies the starting point to return
       -- a set of response records. When the results of a DescribeClusters
@@ -85,25 +86,21 @@ data DescribeClusters = DescribeClusters
       -- parameter or the Marker parameter, but not both.
     } deriving (Show, Generic)
 
+-- | The unique identifier of a cluster whose properties you are requesting.
+-- This parameter is case sensitive. The default is that all clusters defined
+-- for an account are returned.
+dcnClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
+dcnClusterIdentifier = lens _dcnClusterIdentifier (\s a -> s { _dcnClusterIdentifier = a })
+{-# INLINE dcnClusterIdentifier #-}
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcnMaxRecords :: Lens' DescribeClusters (Maybe Integer)
-dcnMaxRecords f x =
-    f (_dcnMaxRecords x)
-        <&> \y -> x { _dcnMaxRecords = y }
+dcnMaxRecords = lens _dcnMaxRecords (\s a -> s { _dcnMaxRecords = a })
 {-# INLINE dcnMaxRecords #-}
-
--- | The unique identifier of a cluster whose properties you are requesting.
--- This parameter is case sensitive. The default is that all clusters defined
--- for an account are returned.
-dcnClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
-dcnClusterIdentifier f x =
-    f (_dcnClusterIdentifier x)
-        <&> \y -> x { _dcnClusterIdentifier = y }
-{-# INLINE dcnClusterIdentifier #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusters request exceed the
@@ -113,33 +110,24 @@ dcnClusterIdentifier f x =
 -- the request. Constraints: You can specify either the ClusterIdentifier
 -- parameter or the Marker parameter, but not both.
 dcnMarker :: Lens' DescribeClusters (Maybe Text)
-dcnMarker f x =
-    f (_dcnMarker x)
-        <&> \y -> x { _dcnMarker = y }
+dcnMarker = lens _dcnMarker (\s a -> s { _dcnMarker = a })
 {-# INLINE dcnMarker #-}
 
 instance ToQuery DescribeClusters where
     toQuery = genericQuery def
 
 data DescribeClustersResponse = DescribeClustersResponse
-    { _cmClusters :: [Cluster]
-      -- ^ A list of Cluster objects, where each object describes one
-      -- cluster.
-    , _cmMarker :: Maybe Text
+    { _cmMarker :: Maybe Text
       -- ^ A value that indicates the starting point for the next set of
       -- response records in a subsequent request. If a value is returned
       -- in a response, you can retrieve the next set of records by
       -- providing this returned marker value in the Marker parameter and
       -- retrying the command. If the Marker field is empty, all response
       -- records have been retrieved for the request.
+    , _cmClusters :: [Cluster]
+      -- ^ A list of Cluster objects, where each object describes one
+      -- cluster.
     } deriving (Show, Generic)
-
--- | A list of Cluster objects, where each object describes one cluster.
-cmClusters :: Lens' DescribeClustersResponse ([Cluster])
-cmClusters f x =
-    f (_cmClusters x)
-        <&> \y -> x { _cmClusters = y }
-{-# INLINE cmClusters #-}
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you
@@ -147,10 +135,13 @@ cmClusters f x =
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
 cmMarker :: Lens' DescribeClustersResponse (Maybe Text)
-cmMarker f x =
-    f (_cmMarker x)
-        <&> \y -> x { _cmMarker = y }
+cmMarker = lens _cmMarker (\s a -> s { _cmMarker = a })
 {-# INLINE cmMarker #-}
+
+-- | A list of Cluster objects, where each object describes one cluster.
+cmClusters :: Lens' DescribeClustersResponse ([Cluster])
+cmClusters = lens _cmClusters (\s a -> s { _cmClusters = a })
+{-# INLINE cmClusters #-}
 
 instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions

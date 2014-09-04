@@ -25,11 +25,11 @@ module Network.AWS.S3.V2006_03_01.CreateBucket
     -- ** Request alias
     , PutBucket
     -- ** Request constructor
-    , createBucket
+    , mkCreateBucketRequest
     -- ** Request lenses
+    , cbrACL
     , cbrBucket
     , cbrCreateBucketConfiguration
-    , cbrACL
     , cbrGrantFullControl
     , cbrGrantRead
     , cbrGrantReadACP
@@ -48,26 +48,27 @@ import Network.AWS.Prelude
 
 type PutBucket = CreateBucket
 
--- | Minimum specification for a 'CreateBucket' request.
-createBucket :: BucketName -- ^ 'cbrBucket'
-             -> CreateBucket
-createBucket p1 = CreateBucket
-    { _cbrBucket = p1
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateBucket' request.
+mkCreateBucketRequest :: BucketName -- ^ 'cbrBucket'
+                      -> CreateBucket
+mkCreateBucketRequest p1 = CreateBucket
+    { _cbrACL = Nothing
+    , _cbrBucket = p2
     , _cbrCreateBucketConfiguration = Nothing
-    , _cbrACL = Nothing
     , _cbrGrantFullControl = Nothing
     , _cbrGrantRead = Nothing
     , _cbrGrantReadACP = Nothing
     , _cbrGrantWrite = Nothing
     , _cbrGrantWriteACP = Nothing
     }
-{-# INLINE createBucket #-}
+{-# INLINE mkCreateBucketRequest #-}
 
 data CreateBucket = CreateBucket
-    { _cbrBucket :: BucketName
-    , _cbrCreateBucketConfiguration :: Maybe CreateBucketConfiguration
-    , _cbrACL :: Maybe BucketCannedACL
+    { _cbrACL :: Maybe BucketCannedACL
       -- ^ The canned ACL to apply to the bucket.
+    , _cbrBucket :: BucketName
+    , _cbrCreateBucketConfiguration :: Maybe CreateBucketConfiguration
     , _cbrGrantFullControl :: Maybe Text
       -- ^ Allows grantee the read, write, read ACP, and write ACP
       -- permissions on the bucket.
@@ -82,59 +83,43 @@ data CreateBucket = CreateBucket
       -- ^ Allows grantee to write the ACL for the applicable bucket.
     } deriving (Show, Generic)
 
+-- | The canned ACL to apply to the bucket.
+cbrACL :: Lens' CreateBucket (Maybe BucketCannedACL)
+cbrACL = lens _cbrACL (\s a -> s { _cbrACL = a })
+{-# INLINE cbrACL #-}
+
 cbrBucket :: Lens' CreateBucket (BucketName)
-cbrBucket f x =
-    f (_cbrBucket x)
-        <&> \y -> x { _cbrBucket = y }
+cbrBucket = lens _cbrBucket (\s a -> s { _cbrBucket = a })
 {-# INLINE cbrBucket #-}
 
 cbrCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
-cbrCreateBucketConfiguration f x =
-    f (_cbrCreateBucketConfiguration x)
-        <&> \y -> x { _cbrCreateBucketConfiguration = y }
+cbrCreateBucketConfiguration = lens _cbrCreateBucketConfiguration (\s a -> s { _cbrCreateBucketConfiguration = a })
 {-# INLINE cbrCreateBucketConfiguration #-}
-
--- | The canned ACL to apply to the bucket.
-cbrACL :: Lens' CreateBucket (Maybe BucketCannedACL)
-cbrACL f x =
-    f (_cbrACL x)
-        <&> \y -> x { _cbrACL = y }
-{-# INLINE cbrACL #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
 cbrGrantFullControl :: Lens' CreateBucket (Maybe Text)
-cbrGrantFullControl f x =
-    f (_cbrGrantFullControl x)
-        <&> \y -> x { _cbrGrantFullControl = y }
+cbrGrantFullControl = lens _cbrGrantFullControl (\s a -> s { _cbrGrantFullControl = a })
 {-# INLINE cbrGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
 cbrGrantRead :: Lens' CreateBucket (Maybe Text)
-cbrGrantRead f x =
-    f (_cbrGrantRead x)
-        <&> \y -> x { _cbrGrantRead = y }
+cbrGrantRead = lens _cbrGrantRead (\s a -> s { _cbrGrantRead = a })
 {-# INLINE cbrGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
 cbrGrantReadACP :: Lens' CreateBucket (Maybe Text)
-cbrGrantReadACP f x =
-    f (_cbrGrantReadACP x)
-        <&> \y -> x { _cbrGrantReadACP = y }
+cbrGrantReadACP = lens _cbrGrantReadACP (\s a -> s { _cbrGrantReadACP = a })
 {-# INLINE cbrGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 cbrGrantWrite :: Lens' CreateBucket (Maybe Text)
-cbrGrantWrite f x =
-    f (_cbrGrantWrite x)
-        <&> \y -> x { _cbrGrantWrite = y }
+cbrGrantWrite = lens _cbrGrantWrite (\s a -> s { _cbrGrantWrite = a })
 {-# INLINE cbrGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 cbrGrantWriteACP :: Lens' CreateBucket (Maybe Text)
-cbrGrantWriteACP f x =
-    f (_cbrGrantWriteACP x)
-        <&> \y -> x { _cbrGrantWriteACP = y }
+cbrGrantWriteACP = lens _cbrGrantWriteACP (\s a -> s { _cbrGrantWriteACP = a })
 {-# INLINE cbrGrantWriteACP #-}
 
 instance ToPath CreateBucket where
@@ -145,27 +130,16 @@ instance ToPath CreateBucket where
 
 instance ToQuery CreateBucket
 
-instance ToHeaders CreateBucket where
-    toHeaders CreateBucket{..} = concat
-        [ "x-amz-acl" =: _cbrACL
-        , "x-amz-grant-full-control" =: _cbrGrantFullControl
-        , "x-amz-grant-read" =: _cbrGrantRead
-        , "x-amz-grant-read-acp" =: _cbrGrantReadACP
-        , "x-amz-grant-write" =: _cbrGrantWrite
-        , "x-amz-grant-write-acp" =: _cbrGrantWriteACP
-        ]
+instance ToHeaders CreateBucket
 
-instance ToBody CreateBucket where
-    toBody = toBody . encodeXML . _cbrCreateBucketConfiguration
+instance ToBody CreateBucket
 
-data CreateBucketResponse = CreateBucketResponse
+newtype CreateBucketResponse = CreateBucketResponse
     { _cboLocation :: Maybe Text
     } deriving (Show, Generic)
 
 cboLocation :: Lens' CreateBucketResponse (Maybe Text)
-cboLocation f x =
-    f (_cboLocation x)
-        <&> \y -> x { _cboLocation = y }
+cboLocation = lens _cboLocation (\s a -> s { _cboLocation = a })
 {-# INLINE cboLocation #-}
 
 instance AWSRequest CreateBucket where

@@ -38,10 +38,10 @@ module Network.AWS.DynamoDB.V2012_08_10.GetItem
     -- * Request
       GetItem
     -- ** Request constructor
-    , getItem
+    , mkGetItemInput
     -- ** Request lenses
-    , giiKey
     , giiTableName
+    , giiKey
     , giiAttributesToGet
     , giiConsistentRead
     , giiReturnConsumedCapacity
@@ -58,25 +58,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetItem' request.
-getItem :: Map Text AttributeValue -- ^ 'giiKey'
-        -> Text -- ^ 'giiTableName'
-        -> GetItem
-getItem p1 p2 = GetItem
-    { _giiKey = p1
-    , _giiTableName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetItem' request.
+mkGetItemInput :: Text -- ^ 'giiTableName'
+               -> Map Text AttributeValue -- ^ 'giiKey'
+               -> GetItem
+mkGetItemInput p1 p2 = GetItem
+    { _giiTableName = p1
+    , _giiKey = p2
     , _giiAttributesToGet = Nothing
     , _giiConsistentRead = Nothing
     , _giiReturnConsumedCapacity = Nothing
     }
-{-# INLINE getItem #-}
+{-# INLINE mkGetItemInput #-}
 
 data GetItem = GetItem
-    { _giiKey :: Map Text AttributeValue
+    { _giiTableName :: Text
+      -- ^ The name of the table containing the requested item.
+    , _giiKey :: Map Text AttributeValue
       -- ^ A map of attribute names to AttributeValue objects, representing
       -- the primary key of the item to retrieve.
-    , _giiTableName :: Text
-      -- ^ The name of the table containing the requested item.
     , _giiAttributesToGet :: Maybe [Text]
       -- ^ The names of one or more attributes to retrieve. If no attribute
       -- names are specified, then all attributes will be returned. If any
@@ -92,36 +93,28 @@ data GetItem = GetItem
       -- ConsumedCapacity is not included in the response.
     } deriving (Show, Generic)
 
+-- | The name of the table containing the requested item.
+giiTableName :: Lens' GetItem (Text)
+giiTableName = lens _giiTableName (\s a -> s { _giiTableName = a })
+{-# INLINE giiTableName #-}
+
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to retrieve.
 giiKey :: Lens' GetItem (Map Text AttributeValue)
-giiKey f x =
-    f (_giiKey x)
-        <&> \y -> x { _giiKey = y }
+giiKey = lens _giiKey (\s a -> s { _giiKey = a })
 {-# INLINE giiKey #-}
-
--- | The name of the table containing the requested item.
-giiTableName :: Lens' GetItem (Text)
-giiTableName f x =
-    f (_giiTableName x)
-        <&> \y -> x { _giiTableName = y }
-{-# INLINE giiTableName #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
 giiAttributesToGet :: Lens' GetItem (Maybe [Text])
-giiAttributesToGet f x =
-    f (_giiAttributesToGet x)
-        <&> \y -> x { _giiAttributesToGet = y }
+giiAttributesToGet = lens _giiAttributesToGet (\s a -> s { _giiAttributesToGet = a })
 {-# INLINE giiAttributesToGet #-}
 
 -- | If set to true, then the operation uses strongly consistent reads;
 -- otherwise, eventually consistent reads are used.
 giiConsistentRead :: Lens' GetItem (Maybe Bool)
-giiConsistentRead f x =
-    f (_giiConsistentRead x)
-        <&> \y -> x { _giiConsistentRead = y }
+giiConsistentRead = lens _giiConsistentRead (\s a -> s { _giiConsistentRead = a })
 {-# INLINE giiConsistentRead #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
@@ -129,9 +122,7 @@ giiConsistentRead f x =
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
 giiReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
-giiReturnConsumedCapacity f x =
-    f (_giiReturnConsumedCapacity x)
-        <&> \y -> x { _giiReturnConsumedCapacity = y }
+giiReturnConsumedCapacity = lens _giiReturnConsumedCapacity (\s a -> s { _giiReturnConsumedCapacity = a })
 {-# INLINE giiReturnConsumedCapacity #-}
 
 instance ToPath GetItem
@@ -158,9 +149,7 @@ data GetItemResponse = GetItemResponse
 -- | A map of attribute names to AttributeValue objects, as specified by
 -- AttributesToGet.
 gioItem :: Lens' GetItemResponse (Map Text AttributeValue)
-gioItem f x =
-    f (_gioItem x)
-        <&> \y -> x { _gioItem = y }
+gioItem = lens _gioItem (\s a -> s { _gioItem = a })
 {-# INLINE gioItem #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -169,9 +158,7 @@ gioItem f x =
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
 gioConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
-gioConsumedCapacity f x =
-    f (_gioConsumedCapacity x)
-        <&> \y -> x { _gioConsumedCapacity = y }
+gioConsumedCapacity = lens _gioConsumedCapacity (\s a -> s { _gioConsumedCapacity = a })
 {-# INLINE gioConsumedCapacity #-}
 
 instance FromJSON GetItemResponse

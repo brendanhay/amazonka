@@ -26,7 +26,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
     -- * Request
       DescribeScalingParameters
     -- ** Request constructor
-    , describeScalingParameters
+    , mkDescribeScalingParametersRequest
     -- ** Request lenses
     , dsprDomainName
 
@@ -40,15 +40,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeScalingParameters' request.
-describeScalingParameters :: Text -- ^ 'dsprDomainName'
-                          -> DescribeScalingParameters
-describeScalingParameters p1 = DescribeScalingParameters
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScalingParameters' request.
+mkDescribeScalingParametersRequest :: Text -- ^ 'dsprDomainName'
+                                   -> DescribeScalingParameters
+mkDescribeScalingParametersRequest p1 = DescribeScalingParameters
     { _dsprDomainName = p1
     }
-{-# INLINE describeScalingParameters #-}
+{-# INLINE mkDescribeScalingParametersRequest #-}
 
-data DescribeScalingParameters = DescribeScalingParameters
+newtype DescribeScalingParameters = DescribeScalingParameters
     { _dsprDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
@@ -62,15 +63,13 @@ data DescribeScalingParameters = DescribeScalingParameters
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 dsprDomainName :: Lens' DescribeScalingParameters (Text)
-dsprDomainName f x =
-    f (_dsprDomainName x)
-        <&> \y -> x { _dsprDomainName = y }
+dsprDomainName = lens _dsprDomainName (\s a -> s { _dsprDomainName = a })
 {-# INLINE dsprDomainName #-}
 
 instance ToQuery DescribeScalingParameters where
     toQuery = genericQuery def
 
-data DescribeScalingParametersResponse = DescribeScalingParametersResponse
+newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dspsScalingParameters :: ScalingParametersStatus
       -- ^ The status and configuration of a search domain's scaling
       -- parameters.
@@ -78,9 +77,7 @@ data DescribeScalingParametersResponse = DescribeScalingParametersResponse
 
 -- | The status and configuration of a search domain's scaling parameters.
 dspsScalingParameters :: Lens' DescribeScalingParametersResponse (ScalingParametersStatus)
-dspsScalingParameters f x =
-    f (_dspsScalingParameters x)
-        <&> \y -> x { _dspsScalingParameters = y }
+dspsScalingParameters = lens _dspsScalingParameters (\s a -> s { _dspsScalingParameters = a })
 {-# INLINE dspsScalingParameters #-}
 
 instance FromXML DescribeScalingParametersResponse where

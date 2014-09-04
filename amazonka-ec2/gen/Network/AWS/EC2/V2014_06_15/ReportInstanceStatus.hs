@@ -36,13 +36,13 @@ module Network.AWS.EC2.V2014_06_15.ReportInstanceStatus
     -- * Request
       ReportInstanceStatus
     -- ** Request constructor
-    , reportInstanceStatus
+    , mkReportInstanceStatusRequest
     -- ** Request lenses
     , risrInstances
-    , risrReasonCodes
     , risrStatus
     , risrStartTime
     , risrEndTime
+    , risrReasonCodes
     , risrDescription
 
     -- * Response
@@ -53,24 +53,31 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReportInstanceStatus' request.
-reportInstanceStatus :: [Text] -- ^ 'risrInstances'
-                     -> [ReportInstanceReasonCodes] -- ^ 'risrReasonCodes'
-                     -> ReportStatusType -- ^ 'risrStatus'
-                     -> ReportInstanceStatus
-reportInstanceStatus p1 p2 p3 = ReportInstanceStatus
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReportInstanceStatus' request.
+mkReportInstanceStatusRequest :: [Text] -- ^ 'risrInstances'
+                              -> ReportStatusType -- ^ 'risrStatus'
+                              -> [ReportInstanceReasonCodes] -- ^ 'risrReasonCodes'
+                              -> ReportInstanceStatus
+mkReportInstanceStatusRequest p1 p2 p3 = ReportInstanceStatus
     { _risrInstances = p1
-    , _risrReasonCodes = p2
-    , _risrStatus = p3
+    , _risrStatus = p2
     , _risrStartTime = Nothing
     , _risrEndTime = Nothing
+    , _risrReasonCodes = p5
     , _risrDescription = Nothing
     }
-{-# INLINE reportInstanceStatus #-}
+{-# INLINE mkReportInstanceStatusRequest #-}
 
 data ReportInstanceStatus = ReportInstanceStatus
     { _risrInstances :: [Text]
       -- ^ One or more instances.
+    , _risrStatus :: ReportStatusType
+      -- ^ The status of all instances listed.
+    , _risrStartTime :: Maybe ISO8601
+      -- ^ The time at which the reported instance health state began.
+    , _risrEndTime :: Maybe ISO8601
+      -- ^ The time at which the reported instance health state ended.
     , _risrReasonCodes :: [ReportInstanceReasonCodes]
       -- ^ One or more reason codes that describes the health state of your
       -- instance. instance-stuck-in-state: My instance is stuck in a
@@ -86,22 +93,29 @@ data ReportInstanceStatus = ReportInstanceStatus
       -- volume. performance-other: My instance is experiencing
       -- performance problems. other: [explain using the description
       -- parameter].
-    , _risrStatus :: ReportStatusType
-      -- ^ The status of all instances listed.
-    , _risrStartTime :: Maybe ISO8601
-      -- ^ The time at which the reported instance health state began.
-    , _risrEndTime :: Maybe ISO8601
-      -- ^ The time at which the reported instance health state ended.
     , _risrDescription :: Maybe Text
       -- ^ Descriptive text about the health state of your instance.
     } deriving (Show, Generic)
 
 -- | One or more instances.
 risrInstances :: Lens' ReportInstanceStatus ([Text])
-risrInstances f x =
-    f (_risrInstances x)
-        <&> \y -> x { _risrInstances = y }
+risrInstances = lens _risrInstances (\s a -> s { _risrInstances = a })
 {-# INLINE risrInstances #-}
+
+-- | The status of all instances listed.
+risrStatus :: Lens' ReportInstanceStatus (ReportStatusType)
+risrStatus = lens _risrStatus (\s a -> s { _risrStatus = a })
+{-# INLINE risrStatus #-}
+
+-- | The time at which the reported instance health state began.
+risrStartTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
+risrStartTime = lens _risrStartTime (\s a -> s { _risrStartTime = a })
+{-# INLINE risrStartTime #-}
+
+-- | The time at which the reported instance health state ended.
+risrEndTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
+risrEndTime = lens _risrEndTime (\s a -> s { _risrEndTime = a })
+{-# INLINE risrEndTime #-}
 
 -- | One or more reason codes that describes the health state of your instance.
 -- instance-stuck-in-state: My instance is stuck in a state. unresponsive: My
@@ -116,37 +130,12 @@ risrInstances f x =
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
 risrReasonCodes :: Lens' ReportInstanceStatus ([ReportInstanceReasonCodes])
-risrReasonCodes f x =
-    f (_risrReasonCodes x)
-        <&> \y -> x { _risrReasonCodes = y }
+risrReasonCodes = lens _risrReasonCodes (\s a -> s { _risrReasonCodes = a })
 {-# INLINE risrReasonCodes #-}
-
--- | The status of all instances listed.
-risrStatus :: Lens' ReportInstanceStatus (ReportStatusType)
-risrStatus f x =
-    f (_risrStatus x)
-        <&> \y -> x { _risrStatus = y }
-{-# INLINE risrStatus #-}
-
--- | The time at which the reported instance health state began.
-risrStartTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
-risrStartTime f x =
-    f (_risrStartTime x)
-        <&> \y -> x { _risrStartTime = y }
-{-# INLINE risrStartTime #-}
-
--- | The time at which the reported instance health state ended.
-risrEndTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
-risrEndTime f x =
-    f (_risrEndTime x)
-        <&> \y -> x { _risrEndTime = y }
-{-# INLINE risrEndTime #-}
 
 -- | Descriptive text about the health state of your instance.
 risrDescription :: Lens' ReportInstanceStatus (Maybe Text)
-risrDescription f x =
-    f (_risrDescription x)
-        <&> \y -> x { _risrDescription = y }
+risrDescription = lens _risrDescription (\s a -> s { _risrDescription = a })
 {-# INLINE risrDescription #-}
 
 instance ToQuery ReportInstanceStatus where

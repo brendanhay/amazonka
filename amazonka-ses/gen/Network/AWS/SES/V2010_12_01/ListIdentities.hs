@@ -33,11 +33,11 @@ module Network.AWS.SES.V2010_12_01.ListIdentities
     -- * Request
       ListIdentities
     -- ** Request constructor
-    , listIdentities
+    , mkListIdentitiesRequest
     -- ** Request lenses
     , lirIdentityType
-    , lirMaxItems
     , lirNextToken
+    , lirMaxItems
 
     -- * Response
     , ListIdentitiesResponse
@@ -50,49 +50,44 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListIdentities' request.
-listIdentities :: ListIdentities
-listIdentities = ListIdentities
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentities' request.
+mkListIdentitiesRequest :: ListIdentities
+mkListIdentitiesRequest = ListIdentities
     { _lirIdentityType = Nothing
-    , _lirMaxItems = Nothing
     , _lirNextToken = Nothing
+    , _lirMaxItems = Nothing
     }
-{-# INLINE listIdentities #-}
+{-# INLINE mkListIdentitiesRequest #-}
 
 data ListIdentities = ListIdentities
     { _lirIdentityType :: Maybe IdentityType
       -- ^ The type of the identities to list. Possible values are
       -- "EmailAddress" and "Domain". If this parameter is omitted, then
       -- all identities will be listed.
+    , _lirNextToken :: Maybe Text
+      -- ^ The token to use for pagination.
     , _lirMaxItems :: Maybe Integer
       -- ^ The maximum number of identities per page. Possible values are
       -- 1-100 inclusive.
-    , _lirNextToken :: Maybe Text
-      -- ^ The token to use for pagination.
     } deriving (Show, Generic)
 
 -- | The type of the identities to list. Possible values are "EmailAddress" and
 -- "Domain". If this parameter is omitted, then all identities will be listed.
 lirIdentityType :: Lens' ListIdentities (Maybe IdentityType)
-lirIdentityType f x =
-    f (_lirIdentityType x)
-        <&> \y -> x { _lirIdentityType = y }
+lirIdentityType = lens _lirIdentityType (\s a -> s { _lirIdentityType = a })
 {-# INLINE lirIdentityType #-}
+
+-- | The token to use for pagination.
+lirNextToken :: Lens' ListIdentities (Maybe Text)
+lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
+{-# INLINE lirNextToken #-}
 
 -- | The maximum number of identities per page. Possible values are 1-100
 -- inclusive.
 lirMaxItems :: Lens' ListIdentities (Maybe Integer)
-lirMaxItems f x =
-    f (_lirMaxItems x)
-        <&> \y -> x { _lirMaxItems = y }
+lirMaxItems = lens _lirMaxItems (\s a -> s { _lirMaxItems = a })
 {-# INLINE lirMaxItems #-}
-
--- | The token to use for pagination.
-lirNextToken :: Lens' ListIdentities (Maybe Text)
-lirNextToken f x =
-    f (_lirNextToken x)
-        <&> \y -> x { _lirNextToken = y }
-{-# INLINE lirNextToken #-}
 
 instance ToQuery ListIdentities where
     toQuery = genericQuery def
@@ -106,16 +101,12 @@ data ListIdentitiesResponse = ListIdentitiesResponse
 
 -- | A list of identities.
 lisIdentities :: Lens' ListIdentitiesResponse ([Text])
-lisIdentities f x =
-    f (_lisIdentities x)
-        <&> \y -> x { _lisIdentities = y }
+lisIdentities = lens _lisIdentities (\s a -> s { _lisIdentities = a })
 {-# INLINE lisIdentities #-}
 
 -- | The token used for pagination.
 lisNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lisNextToken f x =
-    f (_lisNextToken x)
-        <&> \y -> x { _lisNextToken = y }
+lisNextToken = lens _lisNextToken (\s a -> s { _lisNextToken = a })
 {-# INLINE lisNextToken #-}
 
 instance FromXML ListIdentitiesResponse where

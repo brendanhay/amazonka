@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup
     -- * Request
       CreateCacheSubnetGroup
     -- ** Request constructor
-    , createCacheSubnetGroup
+    , mkCreateCacheSubnetGroupMessage
     -- ** Request lenses
     , ccsgnCacheSubnetGroupName
     , ccsgnCacheSubnetGroupDescription
@@ -48,17 +48,18 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateCacheSubnetGroup' request.
-createCacheSubnetGroup :: Text -- ^ 'ccsgnCacheSubnetGroupName'
-                       -> Text -- ^ 'ccsgnCacheSubnetGroupDescription'
-                       -> [Text] -- ^ 'ccsgnSubnetIds'
-                       -> CreateCacheSubnetGroup
-createCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCacheSubnetGroup' request.
+mkCreateCacheSubnetGroupMessage :: Text -- ^ 'ccsgnCacheSubnetGroupName'
+                                -> Text -- ^ 'ccsgnCacheSubnetGroupDescription'
+                                -> [Text] -- ^ 'ccsgnSubnetIds'
+                                -> CreateCacheSubnetGroup
+mkCreateCacheSubnetGroupMessage p1 p2 p3 = CreateCacheSubnetGroup
     { _ccsgnCacheSubnetGroupName = p1
     , _ccsgnCacheSubnetGroupDescription = p2
     , _ccsgnSubnetIds = p3
     }
-{-# INLINE createCacheSubnetGroup #-}
+{-# INLINE mkCreateCacheSubnetGroupMessage #-}
 
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsgnCacheSubnetGroupName :: Text
@@ -75,29 +76,23 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Example: mysubnetgroup.
 ccsgnCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup (Text)
-ccsgnCacheSubnetGroupName f x =
-    f (_ccsgnCacheSubnetGroupName x)
-        <&> \y -> x { _ccsgnCacheSubnetGroupName = y }
+ccsgnCacheSubnetGroupName = lens _ccsgnCacheSubnetGroupName (\s a -> s { _ccsgnCacheSubnetGroupName = a })
 {-# INLINE ccsgnCacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
 ccsgnCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup (Text)
-ccsgnCacheSubnetGroupDescription f x =
-    f (_ccsgnCacheSubnetGroupDescription x)
-        <&> \y -> x { _ccsgnCacheSubnetGroupDescription = y }
+ccsgnCacheSubnetGroupDescription = lens _ccsgnCacheSubnetGroupDescription (\s a -> s { _ccsgnCacheSubnetGroupDescription = a })
 {-# INLINE ccsgnCacheSubnetGroupDescription #-}
 
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsgnSubnetIds :: Lens' CreateCacheSubnetGroup ([Text])
-ccsgnSubnetIds f x =
-    f (_ccsgnSubnetIds x)
-        <&> \y -> x { _ccsgnSubnetIds = y }
+ccsgnSubnetIds = lens _ccsgnSubnetIds (\s a -> s { _ccsgnSubnetIds = a })
 {-# INLINE ccsgnSubnetIds #-}
 
 instance ToQuery CreateCacheSubnetGroup where
     toQuery = genericQuery def
 
-data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
+newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _csgyCacheSubnetGroup :: Maybe CacheSubnetGroup
       -- ^ Represents the output of one of the following operations:
       -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
@@ -106,9 +101,7 @@ data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
 csgyCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-csgyCacheSubnetGroup f x =
-    f (_csgyCacheSubnetGroup x)
-        <&> \y -> x { _csgyCacheSubnetGroup = y }
+csgyCacheSubnetGroup = lens _csgyCacheSubnetGroup (\s a -> s { _csgyCacheSubnetGroup = a })
 {-# INLINE csgyCacheSubnetGroup #-}
 
 instance FromXML CreateCacheSubnetGroupResponse where

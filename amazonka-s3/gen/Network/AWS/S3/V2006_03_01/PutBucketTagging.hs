@@ -23,11 +23,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketTagging
     -- * Request
       PutBucketTagging
     -- ** Request constructor
-    , putBucketTagging
+    , mkPutBucketTaggingRequest
     -- ** Request lenses
-    , pbtrTagging
     , pbtrBucket
     , pbtrContentMD5
+    , pbtrTagging
 
     -- * Response
     , PutBucketTaggingResponse
@@ -37,40 +37,35 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutBucketTagging' request.
-putBucketTagging :: Tagging -- ^ 'pbtrTagging'
-                 -> BucketName -- ^ 'pbtrBucket'
-                 -> PutBucketTagging
-putBucketTagging p1 p2 = PutBucketTagging
-    { _pbtrTagging = p1
-    , _pbtrBucket = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketTagging' request.
+mkPutBucketTaggingRequest :: BucketName -- ^ 'pbtrBucket'
+                          -> Tagging -- ^ 'pbtrTagging'
+                          -> PutBucketTagging
+mkPutBucketTaggingRequest p1 p2 = PutBucketTagging
+    { _pbtrBucket = p1
     , _pbtrContentMD5 = Nothing
+    , _pbtrTagging = p3
     }
-{-# INLINE putBucketTagging #-}
+{-# INLINE mkPutBucketTaggingRequest #-}
 
 data PutBucketTagging = PutBucketTagging
-    { _pbtrTagging :: Tagging
-    , _pbtrBucket :: BucketName
+    { _pbtrBucket :: BucketName
     , _pbtrContentMD5 :: Maybe Text
+    , _pbtrTagging :: Tagging
     } deriving (Show, Generic)
 
-pbtrTagging :: Lens' PutBucketTagging (Tagging)
-pbtrTagging f x =
-    f (_pbtrTagging x)
-        <&> \y -> x { _pbtrTagging = y }
-{-# INLINE pbtrTagging #-}
-
 pbtrBucket :: Lens' PutBucketTagging (BucketName)
-pbtrBucket f x =
-    f (_pbtrBucket x)
-        <&> \y -> x { _pbtrBucket = y }
+pbtrBucket = lens _pbtrBucket (\s a -> s { _pbtrBucket = a })
 {-# INLINE pbtrBucket #-}
 
 pbtrContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtrContentMD5 f x =
-    f (_pbtrContentMD5 x)
-        <&> \y -> x { _pbtrContentMD5 = y }
+pbtrContentMD5 = lens _pbtrContentMD5 (\s a -> s { _pbtrContentMD5 = a })
 {-# INLINE pbtrContentMD5 #-}
+
+pbtrTagging :: Lens' PutBucketTagging (Tagging)
+pbtrTagging = lens _pbtrTagging (\s a -> s { _pbtrTagging = a })
+{-# INLINE pbtrTagging #-}
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
@@ -83,13 +78,9 @@ instance ToQuery PutBucketTagging where
         [ "tagging"
         ]
 
-instance ToHeaders PutBucketTagging where
-    toHeaders PutBucketTagging{..} = concat
-        [ "Content-MD5" =: _pbtrContentMD5
-        ]
+instance ToHeaders PutBucketTagging
 
-instance ToBody PutBucketTagging where
-    toBody = toBody . encodeXML . _pbtrTagging
+instance ToBody PutBucketTagging
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)

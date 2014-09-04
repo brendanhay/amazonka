@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline
     -- * Request
       DeletePipeline
     -- ** Request constructor
-    , deletePipeline
+    , mkDeletePipelineRequest
     -- ** Request lenses
     , dprId
 
@@ -50,24 +50,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeletePipeline' request.
-deletePipeline :: Text -- ^ 'dprId'
-               -> DeletePipeline
-deletePipeline p1 = DeletePipeline
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePipeline' request.
+mkDeletePipelineRequest :: Text -- ^ 'dprId'
+                        -> DeletePipeline
+mkDeletePipelineRequest p1 = DeletePipeline
     { _dprId = p1
     }
-{-# INLINE deletePipeline #-}
+{-# INLINE mkDeletePipelineRequest #-}
 
-data DeletePipeline = DeletePipeline
+newtype DeletePipeline = DeletePipeline
     { _dprId :: Text
       -- ^ The identifier of the pipeline that you want to delete.
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline that you want to delete.
 dprId :: Lens' DeletePipeline (Text)
-dprId f x =
-    f (_dprId x)
-        <&> \y -> x { _dprId = y }
+dprId = lens _dprId (\s a -> s { _dprId = a })
 {-# INLINE dprId #-}
 
 instance ToPath DeletePipeline where
@@ -82,7 +81,6 @@ instance ToHeaders DeletePipeline
 
 instance ToJSON DeletePipeline
 
-data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeletePipeline where

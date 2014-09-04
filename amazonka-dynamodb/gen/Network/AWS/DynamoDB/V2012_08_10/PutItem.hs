@@ -42,15 +42,15 @@ module Network.AWS.DynamoDB.V2012_08_10.PutItem
     -- * Request
       PutItem
     -- ** Request constructor
-    , putItem
+    , mkPutItemInput
     -- ** Request lenses
-    , piiItem
     , piiTableName
-    , piiConditionalOperator
+    , piiItem
     , piiExpected
+    , piiReturnValues
     , piiReturnConsumedCapacity
     , piiReturnItemCollectionMetrics
-    , piiReturnValues
+    , piiConditionalOperator
 
     -- * Response
     , PutItemResponse
@@ -65,23 +65,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'PutItem' request.
-putItem :: Map Text AttributeValue -- ^ 'piiItem'
-        -> Text -- ^ 'piiTableName'
-        -> PutItem
-putItem p1 p2 = PutItem
-    { _piiItem = p1
-    , _piiTableName = p2
-    , _piiConditionalOperator = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutItem' request.
+mkPutItemInput :: Text -- ^ 'piiTableName'
+               -> Map Text AttributeValue -- ^ 'piiItem'
+               -> PutItem
+mkPutItemInput p1 p2 = PutItem
+    { _piiTableName = p1
+    , _piiItem = p2
     , _piiExpected = mempty
+    , _piiReturnValues = Nothing
     , _piiReturnConsumedCapacity = Nothing
     , _piiReturnItemCollectionMetrics = Nothing
-    , _piiReturnValues = Nothing
+    , _piiConditionalOperator = Nothing
     }
-{-# INLINE putItem #-}
+{-# INLINE mkPutItemInput #-}
 
 data PutItem = PutItem
-    { _piiItem :: Map Text AttributeValue
+    { _piiTableName :: Text
+      -- ^ The name of the table to contain the item.
+    , _piiItem :: Map Text AttributeValue
       -- ^ A map of attribute name/value pairs, one for each attribute. Only
       -- the primary key attributes are required; you can optionally
       -- provide other attribute name-value pairs for the item. If you
@@ -90,9 +93,6 @@ data PutItem = PutItem
       -- the table's attribute definition. For more information about
       -- primary keys, see Primary Key in the Amazon DynamoDB Developer
       -- Guide. Each element in the Item map is an AttributeValue object.
-    , _piiTableName :: Text
-      -- ^ The name of the table to contain the item.
-    , _piiConditionalOperator :: Maybe ConditionalOperator
     , _piiExpected :: Map Text ExpectedAttributeValue
       -- ^ A map of attribute/condition pairs. This is the conditional block
       -- for the PutItem operation. All the conditions must be met for the
@@ -125,6 +125,14 @@ data PutItem = PutItem
       -- the conditions must evaluate to true. (In other words, the
       -- conditions are ANDed together.) Otherwise, the conditional
       -- operation will fail.
+    , _piiReturnValues :: Maybe ReturnValue
+      -- ^ Use ReturnValues if you want to get the item attributes as they
+      -- appeared before they were updated with the PutItem request. For
+      -- PutItem, the valid values are: NONE - If ReturnValues is not
+      -- specified, or if its value is NONE, then nothing is returned.
+      -- (This is the default for ReturnValues.) ALL_OLD - If PutItem
+      -- overwrote an attribute name-value pair, then the content of the
+      -- old item is returned.
     , _piiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
       -- ^ If set to TOTAL, the response includes ConsumedCapacity data for
       -- tables and indexes. If set to INDEXES, the repsonse includes
@@ -134,15 +142,13 @@ data PutItem = PutItem
       -- ^ If set to SIZE, statistics about item collections, if any, that
       -- were modified during the operation are returned in the response.
       -- If set to NONE (the default), no statistics are returned.
-    , _piiReturnValues :: Maybe ReturnValue
-      -- ^ Use ReturnValues if you want to get the item attributes as they
-      -- appeared before they were updated with the PutItem request. For
-      -- PutItem, the valid values are: NONE - If ReturnValues is not
-      -- specified, or if its value is NONE, then nothing is returned.
-      -- (This is the default for ReturnValues.) ALL_OLD - If PutItem
-      -- overwrote an attribute name-value pair, then the content of the
-      -- old item is returned.
+    , _piiConditionalOperator :: Maybe ConditionalOperator
     } deriving (Show, Generic)
+
+-- | The name of the table to contain the item.
+piiTableName :: Lens' PutItem (Text)
+piiTableName = lens _piiTableName (\s a -> s { _piiTableName = a })
+{-# INLINE piiTableName #-}
 
 -- | A map of attribute name/value pairs, one for each attribute. Only the
 -- primary key attributes are required; you can optionally provide other
@@ -152,23 +158,8 @@ data PutItem = PutItem
 -- information about primary keys, see Primary Key in the Amazon DynamoDB
 -- Developer Guide. Each element in the Item map is an AttributeValue object.
 piiItem :: Lens' PutItem (Map Text AttributeValue)
-piiItem f x =
-    f (_piiItem x)
-        <&> \y -> x { _piiItem = y }
+piiItem = lens _piiItem (\s a -> s { _piiItem = a })
 {-# INLINE piiItem #-}
-
--- | The name of the table to contain the item.
-piiTableName :: Lens' PutItem (Text)
-piiTableName f x =
-    f (_piiTableName x)
-        <&> \y -> x { _piiTableName = y }
-{-# INLINE piiTableName #-}
-
-piiConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
-piiConditionalOperator f x =
-    f (_piiConditionalOperator x)
-        <&> \y -> x { _piiConditionalOperator = y }
-{-# INLINE piiConditionalOperator #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
 -- PutItem operation. All the conditions must be met for the operation to
@@ -197,29 +188,8 @@ piiConditionalOperator f x =
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
 piiExpected :: Lens' PutItem (Map Text ExpectedAttributeValue)
-piiExpected f x =
-    f (_piiExpected x)
-        <&> \y -> x { _piiExpected = y }
+piiExpected = lens _piiExpected (\s a -> s { _piiExpected = a })
 {-# INLINE piiExpected #-}
-
--- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
--- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
--- indexes. If set to NONE (the default), ConsumedCapacity is not included in
--- the response.
-piiReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
-piiReturnConsumedCapacity f x =
-    f (_piiReturnConsumedCapacity x)
-        <&> \y -> x { _piiReturnConsumedCapacity = y }
-{-# INLINE piiReturnConsumedCapacity #-}
-
--- | If set to SIZE, statistics about item collections, if any, that were
--- modified during the operation are returned in the response. If set to NONE
--- (the default), no statistics are returned.
-piiReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
-piiReturnItemCollectionMetrics f x =
-    f (_piiReturnItemCollectionMetrics x)
-        <&> \y -> x { _piiReturnItemCollectionMetrics = y }
-{-# INLINE piiReturnItemCollectionMetrics #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
 -- before they were updated with the PutItem request. For PutItem, the valid
@@ -228,10 +198,27 @@ piiReturnItemCollectionMetrics f x =
 -- ALL_OLD - If PutItem overwrote an attribute name-value pair, then the
 -- content of the old item is returned.
 piiReturnValues :: Lens' PutItem (Maybe ReturnValue)
-piiReturnValues f x =
-    f (_piiReturnValues x)
-        <&> \y -> x { _piiReturnValues = y }
+piiReturnValues = lens _piiReturnValues (\s a -> s { _piiReturnValues = a })
 {-# INLINE piiReturnValues #-}
+
+-- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
+-- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
+-- indexes. If set to NONE (the default), ConsumedCapacity is not included in
+-- the response.
+piiReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
+piiReturnConsumedCapacity = lens _piiReturnConsumedCapacity (\s a -> s { _piiReturnConsumedCapacity = a })
+{-# INLINE piiReturnConsumedCapacity #-}
+
+-- | If set to SIZE, statistics about item collections, if any, that were
+-- modified during the operation are returned in the response. If set to NONE
+-- (the default), no statistics are returned.
+piiReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
+piiReturnItemCollectionMetrics = lens _piiReturnItemCollectionMetrics (\s a -> s { _piiReturnItemCollectionMetrics = a })
+{-# INLINE piiReturnItemCollectionMetrics #-}
+
+piiConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
+piiConditionalOperator = lens _piiConditionalOperator (\s a -> s { _piiConditionalOperator = a })
+{-# INLINE piiConditionalOperator #-}
 
 instance ToPath PutItem
 
@@ -277,9 +264,7 @@ data PutItemResponse = PutItemResponse
 -- only if ReturnValues is specified as ALL_OLD in the request. Each element
 -- consists of an attribute name and an attribute value.
 pioAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
-pioAttributes f x =
-    f (_pioAttributes x)
-        <&> \y -> x { _pioAttributes = y }
+pioAttributes = lens _pioAttributes (\s a -> s { _pioAttributes = a })
 {-# INLINE pioAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
@@ -288,9 +273,7 @@ pioAttributes f x =
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
 pioConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
-pioConsumedCapacity f x =
-    f (_pioConsumedCapacity x)
-        <&> \y -> x { _pioConsumedCapacity = y }
+pioConsumedCapacity = lens _pioConsumedCapacity (\s a -> s { _pioConsumedCapacity = a })
 {-# INLINE pioConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
@@ -308,9 +291,7 @@ pioConsumedCapacity f x =
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
 pioItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
-pioItemCollectionMetrics f x =
-    f (_pioItemCollectionMetrics x)
-        <&> \y -> x { _pioItemCollectionMetrics = y }
+pioItemCollectionMetrics = lens _pioItemCollectionMetrics (\s a -> s { _pioItemCollectionMetrics = a })
 {-# INLINE pioItemCollectionMetrics #-}
 
 instance FromJSON PutItemResponse

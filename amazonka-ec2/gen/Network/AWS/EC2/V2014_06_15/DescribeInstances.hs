@@ -129,12 +129,12 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstances
     -- * Request
       DescribeInstances
     -- ** Request constructor
-    , describeInstances
+    , mkDescribeInstancesRequest
     -- ** Request lenses
-    , diuFilters
     , diuInstanceIds
-    , diuMaxResults
+    , diuFilters
     , diuNextToken
+    , diuMaxResults
 
     -- * Response
     , DescribeInstancesResponse
@@ -147,18 +147,21 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeInstances' request.
-describeInstances :: DescribeInstances
-describeInstances = DescribeInstances
-    { _diuFilters = mempty
-    , _diuInstanceIds = mempty
-    , _diuMaxResults = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstances' request.
+mkDescribeInstancesRequest :: DescribeInstances
+mkDescribeInstancesRequest = DescribeInstances
+    { _diuInstanceIds = mempty
+    , _diuFilters = mempty
     , _diuNextToken = Nothing
+    , _diuMaxResults = Nothing
     }
-{-# INLINE describeInstances #-}
+{-# INLINE mkDescribeInstancesRequest #-}
 
 data DescribeInstances = DescribeInstances
-    { _diuFilters :: [Filter]
+    { _diuInstanceIds :: [Text]
+      -- ^ One or more instance IDs. Default: Describes all your instances.
+    , _diuFilters :: [Filter]
       -- ^ One or more filters. architecture - The instance architecture
       -- (i386 | x86_64). availability-zone - The Availability Zone of the
       -- instance. block-device-mapping.attach-time - The attach time for
@@ -302,17 +305,20 @@ data DescribeInstances = DescribeInstances
       -- address for your network interface. association.association-id -
       -- The association ID returned when the network interface was
       -- associated with an IP address.
-    , _diuInstanceIds :: [Text]
-      -- ^ One or more instance IDs. Default: Describes all your instances.
+    , _diuNextToken :: Maybe Text
+      -- ^ The token for the next set of items to return. (You received this
+      -- token from a prior call.).
     , _diuMaxResults :: Maybe Integer
       -- ^ The maximum number of items to return for this call. The call
       -- also returns a token that you can specify in a subsequent call to
       -- get the next set of results. If the value is greater than 1000,
       -- we return only 1000 items.
-    , _diuNextToken :: Maybe Text
-      -- ^ The token for the next set of items to return. (You received this
-      -- token from a prior call.).
     } deriving (Show, Generic)
+
+-- | One or more instance IDs. Default: Describes all your instances.
+diuInstanceIds :: Lens' DescribeInstances ([Text])
+diuInstanceIds = lens _diuInstanceIds (\s a -> s { _diuInstanceIds = a })
+{-# INLINE diuInstanceIds #-}
 
 -- | One or more filters. architecture - The instance architecture (i386 |
 -- x86_64). availability-zone - The Availability Zone of the instance.
@@ -437,34 +443,21 @@ data DescribeInstances = DescribeInstances
 -- your network interface. association.association-id - The association ID
 -- returned when the network interface was associated with an IP address.
 diuFilters :: Lens' DescribeInstances ([Filter])
-diuFilters f x =
-    f (_diuFilters x)
-        <&> \y -> x { _diuFilters = y }
+diuFilters = lens _diuFilters (\s a -> s { _diuFilters = a })
 {-# INLINE diuFilters #-}
 
--- | One or more instance IDs. Default: Describes all your instances.
-diuInstanceIds :: Lens' DescribeInstances ([Text])
-diuInstanceIds f x =
-    f (_diuInstanceIds x)
-        <&> \y -> x { _diuInstanceIds = y }
-{-# INLINE diuInstanceIds #-}
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.).
+diuNextToken :: Lens' DescribeInstances (Maybe Text)
+diuNextToken = lens _diuNextToken (\s a -> s { _diuNextToken = a })
+{-# INLINE diuNextToken #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
 diuMaxResults :: Lens' DescribeInstances (Maybe Integer)
-diuMaxResults f x =
-    f (_diuMaxResults x)
-        <&> \y -> x { _diuMaxResults = y }
+diuMaxResults = lens _diuMaxResults (\s a -> s { _diuMaxResults = a })
 {-# INLINE diuMaxResults #-}
-
--- | The token for the next set of items to return. (You received this token
--- from a prior call.).
-diuNextToken :: Lens' DescribeInstances (Maybe Text)
-diuNextToken f x =
-    f (_diuNextToken x)
-        <&> \y -> x { _diuNextToken = y }
-{-# INLINE diuNextToken #-}
 
 instance ToQuery DescribeInstances where
     toQuery = genericQuery def
@@ -479,17 +472,13 @@ data DescribeInstancesResponse = DescribeInstancesResponse
 
 -- | One or more reservations.
 divReservations :: Lens' DescribeInstancesResponse ([Reservation])
-divReservations f x =
-    f (_divReservations x)
-        <&> \y -> x { _divReservations = y }
+divReservations = lens _divReservations (\s a -> s { _divReservations = a })
 {-# INLINE divReservations #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 divNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
-divNextToken f x =
-    f (_divNextToken x)
-        <&> \y -> x { _divNextToken = y }
+divNextToken = lens _divNextToken (\s a -> s { _divNextToken = a })
 {-# INLINE divNextToken #-}
 
 instance FromXML DescribeInstancesResponse where

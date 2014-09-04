@@ -36,7 +36,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
     -- * Request
       DescribeLoadBalancers
     -- ** Request constructor
-    , describeLoadBalancers
+    , mkDescribeAccessPointsInput
     -- ** Request lenses
     , dapjLoadBalancerNames
     , dapjMarker
@@ -53,14 +53,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeLoadBalancers' request.
-describeLoadBalancers :: DescribeLoadBalancers
-describeLoadBalancers = DescribeLoadBalancers
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancers' request.
+mkDescribeAccessPointsInput :: DescribeLoadBalancers
+mkDescribeAccessPointsInput = DescribeLoadBalancers
     { _dapjLoadBalancerNames = mempty
     , _dapjMarker = Nothing
     , _dapjPageSize = Nothing
     }
-{-# INLINE describeLoadBalancers #-}
+{-# INLINE mkDescribeAccessPointsInput #-}
 
 data DescribeLoadBalancers = DescribeLoadBalancers
     { _dapjLoadBalancerNames :: [Text]
@@ -76,25 +77,19 @@ data DescribeLoadBalancers = DescribeLoadBalancers
 
 -- | A list of load balancer names associated with the account.
 dapjLoadBalancerNames :: Lens' DescribeLoadBalancers ([Text])
-dapjLoadBalancerNames f x =
-    f (_dapjLoadBalancerNames x)
-        <&> \y -> x { _dapjLoadBalancerNames = y }
+dapjLoadBalancerNames = lens _dapjLoadBalancerNames (\s a -> s { _dapjLoadBalancerNames = a })
 {-# INLINE dapjLoadBalancerNames #-}
 
 -- | An optional parameter used for pagination of results from this call. If
 -- specified, the response includes only records beyond the marker.
 dapjMarker :: Lens' DescribeLoadBalancers (Maybe Text)
-dapjMarker f x =
-    f (_dapjMarker x)
-        <&> \y -> x { _dapjMarker = y }
+dapjMarker = lens _dapjMarker (\s a -> s { _dapjMarker = a })
 {-# INLINE dapjMarker #-}
 
 -- | The number of results returned in each page. The default is 400. You cannot
 -- specify a page size greater than 400 or less than 1.
 dapjPageSize :: Lens' DescribeLoadBalancers (Maybe Integer)
-dapjPageSize f x =
-    f (_dapjPageSize x)
-        <&> \y -> x { _dapjPageSize = y }
+dapjPageSize = lens _dapjPageSize (\s a -> s { _dapjPageSize = a })
 {-# INLINE dapjPageSize #-}
 
 instance ToQuery DescribeLoadBalancers where
@@ -110,17 +105,13 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
 
 -- | A list of load balancer description structures.
 dappLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse ([LoadBalancerDescription])
-dappLoadBalancerDescriptions f x =
-    f (_dappLoadBalancerDescriptions x)
-        <&> \y -> x { _dappLoadBalancerDescriptions = y }
+dappLoadBalancerDescriptions = lens _dappLoadBalancerDescriptions (\s a -> s { _dappLoadBalancerDescriptions = a })
 {-# INLINE dappLoadBalancerDescriptions #-}
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
 dappNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dappNextMarker f x =
-    f (_dappNextMarker x)
-        <&> \y -> x { _dappNextMarker = y }
+dappNextMarker = lens _dappNextMarker (\s a -> s { _dappNextMarker = a })
 {-# INLINE dappNextMarker #-}
 
 instance FromXML DescribeLoadBalancersResponse where

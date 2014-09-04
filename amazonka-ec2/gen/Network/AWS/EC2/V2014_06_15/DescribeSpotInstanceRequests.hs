@@ -44,10 +44,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests
     -- * Request
       DescribeSpotInstanceRequests
     -- ** Request constructor
-    , describeSpotInstanceRequests
+    , mkDescribeSpotInstanceRequestsRequest
     -- ** Request lenses
-    , dsirrFilters
     , dsirrSpotInstanceRequestIds
+    , dsirrFilters
 
     -- * Response
     , DescribeSpotInstanceRequestsResponse
@@ -59,16 +59,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeSpotInstanceRequests' request.
-describeSpotInstanceRequests :: DescribeSpotInstanceRequests
-describeSpotInstanceRequests = DescribeSpotInstanceRequests
-    { _dsirrFilters = mempty
-    , _dsirrSpotInstanceRequestIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSpotInstanceRequests' request.
+mkDescribeSpotInstanceRequestsRequest :: DescribeSpotInstanceRequests
+mkDescribeSpotInstanceRequestsRequest = DescribeSpotInstanceRequests
+    { _dsirrSpotInstanceRequestIds = mempty
+    , _dsirrFilters = mempty
     }
-{-# INLINE describeSpotInstanceRequests #-}
+{-# INLINE mkDescribeSpotInstanceRequestsRequest #-}
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
-    { _dsirrFilters :: [Filter]
+    { _dsirrSpotInstanceRequestIds :: [Text]
+      -- ^ One or more Spot Instance request IDs.
+    , _dsirrFilters :: [Filter]
       -- ^ One or more filters. availability-zone-group - The Availability
       -- Zone group. create-time - The time stamp when the Spot Instance
       -- request was created. fault-code - The fault code related to the
@@ -129,9 +132,12 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
       -- launched-availability-zone - The Availability Zone in which the
       -- bid is launched. valid-from - The start date of the request.
       -- valid-until - The end date of the request.
-    , _dsirrSpotInstanceRequestIds :: [Text]
-      -- ^ One or more Spot Instance request IDs.
     } deriving (Show, Generic)
+
+-- | One or more Spot Instance request IDs.
+dsirrSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests ([Text])
+dsirrSpotInstanceRequestIds = lens _dsirrSpotInstanceRequestIds (\s a -> s { _dsirrSpotInstanceRequestIds = a })
+{-# INLINE dsirrSpotInstanceRequestIds #-}
 
 -- | One or more filters. availability-zone-group - The Availability Zone group.
 -- create-time - The time stamp when the Spot Instance request was created.
@@ -185,31 +191,20 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 -- launched. valid-from - The start date of the request. valid-until - The end
 -- date of the request.
 dsirrFilters :: Lens' DescribeSpotInstanceRequests ([Filter])
-dsirrFilters f x =
-    f (_dsirrFilters x)
-        <&> \y -> x { _dsirrFilters = y }
+dsirrFilters = lens _dsirrFilters (\s a -> s { _dsirrFilters = a })
 {-# INLINE dsirrFilters #-}
-
--- | One or more Spot Instance request IDs.
-dsirrSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests ([Text])
-dsirrSpotInstanceRequestIds f x =
-    f (_dsirrSpotInstanceRequestIds x)
-        <&> \y -> x { _dsirrSpotInstanceRequestIds = y }
-{-# INLINE dsirrSpotInstanceRequestIds #-}
 
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery = genericQuery def
 
-data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
+newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirsSpotInstanceRequests :: [SpotInstanceRequest]
       -- ^ One or more Spot Instance requests.
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
 dsirsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse ([SpotInstanceRequest])
-dsirsSpotInstanceRequests f x =
-    f (_dsirsSpotInstanceRequests x)
-        <&> \y -> x { _dsirsSpotInstanceRequests = y }
+dsirsSpotInstanceRequests = lens _dsirsSpotInstanceRequests (\s a -> s { _dsirsSpotInstanceRequests = a })
 {-# INLINE dsirsSpotInstanceRequests #-}
 
 instance FromXML DescribeSpotInstanceRequestsResponse where

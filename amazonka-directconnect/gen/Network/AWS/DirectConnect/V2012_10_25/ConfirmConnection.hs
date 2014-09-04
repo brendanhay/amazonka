@@ -26,7 +26,7 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
     -- * Request
       ConfirmConnection
     -- ** Request constructor
-    , confirmConnection
+    , mkConfirmConnectionRequest
     -- ** Request lenses
     , ccrConnectionId
 
@@ -41,24 +41,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ConfirmConnection' request.
-confirmConnection :: Text -- ^ 'ccrConnectionId'
-                  -> ConfirmConnection
-confirmConnection p1 = ConfirmConnection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmConnection' request.
+mkConfirmConnectionRequest :: Text -- ^ 'ccrConnectionId'
+                           -> ConfirmConnection
+mkConfirmConnectionRequest p1 = ConfirmConnection
     { _ccrConnectionId = p1
     }
-{-# INLINE confirmConnection #-}
+{-# INLINE mkConfirmConnectionRequest #-}
 
-data ConfirmConnection = ConfirmConnection
+newtype ConfirmConnection = ConfirmConnection
     { _ccrConnectionId :: Text
       -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
     } deriving (Show, Generic)
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 ccrConnectionId :: Lens' ConfirmConnection (Text)
-ccrConnectionId f x =
-    f (_ccrConnectionId x)
-        <&> \y -> x { _ccrConnectionId = y }
+ccrConnectionId = lens _ccrConnectionId (\s a -> s { _ccrConnectionId = a })
 {-# INLINE ccrConnectionId #-}
 
 instance ToPath ConfirmConnection
@@ -69,7 +68,7 @@ instance ToHeaders ConfirmConnection
 
 instance ToJSON ConfirmConnection
 
-data ConfirmConnectionResponse = ConfirmConnectionResponse
+newtype ConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccsConnectionState :: Maybe ConnectionState
       -- ^ State of the connection. Ordering: The initial state of a hosted
       -- connection provisioned on an interconnect. The connection stays
@@ -97,9 +96,7 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
 ccsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
-ccsConnectionState f x =
-    f (_ccsConnectionState x)
-        <&> \y -> x { _ccsConnectionState = y }
+ccsConnectionState = lens _ccsConnectionState (\s a -> s { _ccsConnectionState = a })
 {-# INLINE ccsConnectionState #-}
 
 instance FromJSON ConfirmConnectionResponse

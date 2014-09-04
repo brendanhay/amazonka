@@ -34,7 +34,7 @@ module Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
     -- * Request
       ActivatePipeline
     -- ** Request constructor
-    , activatePipeline
+    , mkActivatePipelineInput
     -- ** Request lenses
     , apiPipelineId
 
@@ -47,24 +47,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ActivatePipeline' request.
-activatePipeline :: Text -- ^ 'apiPipelineId'
-                 -> ActivatePipeline
-activatePipeline p1 = ActivatePipeline
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ActivatePipeline' request.
+mkActivatePipelineInput :: Text -- ^ 'apiPipelineId'
+                        -> ActivatePipeline
+mkActivatePipelineInput p1 = ActivatePipeline
     { _apiPipelineId = p1
     }
-{-# INLINE activatePipeline #-}
+{-# INLINE mkActivatePipelineInput #-}
 
-data ActivatePipeline = ActivatePipeline
+newtype ActivatePipeline = ActivatePipeline
     { _apiPipelineId :: Text
       -- ^ The identifier of the pipeline to activate.
     } deriving (Show, Generic)
 
 -- | The identifier of the pipeline to activate.
 apiPipelineId :: Lens' ActivatePipeline (Text)
-apiPipelineId f x =
-    f (_apiPipelineId x)
-        <&> \y -> x { _apiPipelineId = y }
+apiPipelineId = lens _apiPipelineId (\s a -> s { _apiPipelineId = a })
 {-# INLINE apiPipelineId #-}
 
 instance ToPath ActivatePipeline
@@ -75,7 +74,6 @@ instance ToHeaders ActivatePipeline
 
 instance ToJSON ActivatePipeline
 
-data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest ActivatePipeline where

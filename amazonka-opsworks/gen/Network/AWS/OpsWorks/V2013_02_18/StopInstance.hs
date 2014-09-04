@@ -30,7 +30,7 @@ module Network.AWS.OpsWorks.V2013_02_18.StopInstance
     -- * Request
       StopInstance
     -- ** Request constructor
-    , stopInstance
+    , mkStopInstanceRequest
     -- ** Request lenses
     , sisInstanceId
 
@@ -43,24 +43,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'StopInstance' request.
-stopInstance :: Text -- ^ 'sisInstanceId'
-             -> StopInstance
-stopInstance p1 = StopInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopInstance' request.
+mkStopInstanceRequest :: Text -- ^ 'sisInstanceId'
+                      -> StopInstance
+mkStopInstanceRequest p1 = StopInstance
     { _sisInstanceId = p1
     }
-{-# INLINE stopInstance #-}
+{-# INLINE mkStopInstanceRequest #-}
 
-data StopInstance = StopInstance
+newtype StopInstance = StopInstance
     { _sisInstanceId :: Text
       -- ^ The instance ID.
     } deriving (Show, Generic)
 
 -- | The instance ID.
 sisInstanceId :: Lens' StopInstance (Text)
-sisInstanceId f x =
-    f (_sisInstanceId x)
-        <&> \y -> x { _sisInstanceId = y }
+sisInstanceId = lens _sisInstanceId (\s a -> s { _sisInstanceId = a })
 {-# INLINE sisInstanceId #-}
 
 instance ToPath StopInstance

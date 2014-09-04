@@ -25,7 +25,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
     -- * Request
       DescribeLocations
     -- ** Request constructor
-    , describeLocations
+    , mkUnknown
     -- * Response
     , DescribeLocationsResponse
     -- ** Response lenses
@@ -37,10 +37,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeLocations' request.
-describeLocations :: DescribeLocations
-describeLocations = DescribeLocations
-{-# INLINE describeLocations #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLocations' request.
+mkUnknown :: DescribeLocations
+mkUnknown = DescribeLocations
+{-# INLINE mkUnknown #-}
 
 data DescribeLocations = DescribeLocations
     deriving (Eq, Show, Generic)
@@ -53,14 +54,12 @@ instance ToHeaders DescribeLocations
 
 instance ToJSON DescribeLocations
 
-data DescribeLocationsResponse = DescribeLocationsResponse
+newtype DescribeLocationsResponse = DescribeLocationsResponse
     { _lsLocations :: [Location]
     } deriving (Show, Generic)
 
 lsLocations :: Lens' DescribeLocationsResponse ([Location])
-lsLocations f x =
-    f (_lsLocations x)
-        <&> \y -> x { _lsLocations = y }
+lsLocations = lens _lsLocations (\s a -> s { _lsLocations = a })
 {-# INLINE lsLocations #-}
 
 instance FromJSON DescribeLocationsResponse

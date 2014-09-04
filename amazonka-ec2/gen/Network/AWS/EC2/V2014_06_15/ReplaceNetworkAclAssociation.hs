@@ -37,7 +37,7 @@ module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation
     -- * Request
       ReplaceNetworkAclAssociation
     -- ** Request constructor
-    , replaceNetworkAclAssociation
+    , mkReplaceNetworkAclAssociationRequest
     -- ** Request lenses
     , rnaarAssociationId
     , rnaarNetworkAclId
@@ -52,15 +52,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ReplaceNetworkAclAssociation' request.
-replaceNetworkAclAssociation :: Text -- ^ 'rnaarAssociationId'
-                             -> Text -- ^ 'rnaarNetworkAclId'
-                             -> ReplaceNetworkAclAssociation
-replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReplaceNetworkAclAssociation' request.
+mkReplaceNetworkAclAssociationRequest :: Text -- ^ 'rnaarAssociationId'
+                                      -> Text -- ^ 'rnaarNetworkAclId'
+                                      -> ReplaceNetworkAclAssociation
+mkReplaceNetworkAclAssociationRequest p1 p2 = ReplaceNetworkAclAssociation
     { _rnaarAssociationId = p1
     , _rnaarNetworkAclId = p2
     }
-{-# INLINE replaceNetworkAclAssociation #-}
+{-# INLINE mkReplaceNetworkAclAssociationRequest #-}
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaarAssociationId :: Text
@@ -73,31 +74,25 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 -- | The ID of the current association between the original network ACL and the
 -- subnet.
 rnaarAssociationId :: Lens' ReplaceNetworkAclAssociation (Text)
-rnaarAssociationId f x =
-    f (_rnaarAssociationId x)
-        <&> \y -> x { _rnaarAssociationId = y }
+rnaarAssociationId = lens _rnaarAssociationId (\s a -> s { _rnaarAssociationId = a })
 {-# INLINE rnaarAssociationId #-}
 
 -- | The ID of the new ACL to associate with the subnet.
 rnaarNetworkAclId :: Lens' ReplaceNetworkAclAssociation (Text)
-rnaarNetworkAclId f x =
-    f (_rnaarNetworkAclId x)
-        <&> \y -> x { _rnaarNetworkAclId = y }
+rnaarNetworkAclId = lens _rnaarNetworkAclId (\s a -> s { _rnaarNetworkAclId = a })
 {-# INLINE rnaarNetworkAclId #-}
 
 instance ToQuery ReplaceNetworkAclAssociation where
     toQuery = genericQuery def
 
-data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
+newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaasNewAssociationId :: Maybe Text
       -- ^ The ID of the new association.
     } deriving (Show, Generic)
 
 -- | The ID of the new association.
 rnaasNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
-rnaasNewAssociationId f x =
-    f (_rnaasNewAssociationId x)
-        <&> \y -> x { _rnaasNewAssociationId = y }
+rnaasNewAssociationId = lens _rnaasNewAssociationId (\s a -> s { _rnaasNewAssociationId = a })
 {-# INLINE rnaasNewAssociationId #-}
 
 instance FromXML ReplaceNetworkAclAssociationResponse where

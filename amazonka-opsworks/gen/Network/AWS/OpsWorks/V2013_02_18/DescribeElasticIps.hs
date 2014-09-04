@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps
     -- * Request
       DescribeElasticIps
     -- ** Request constructor
-    , describeElasticIps
+    , mkDescribeElasticIpsRequest
     -- ** Request lenses
     , deisInstanceId
     , deisStackId
@@ -44,14 +44,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeElasticIps' request.
-describeElasticIps :: DescribeElasticIps
-describeElasticIps = DescribeElasticIps
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeElasticIps' request.
+mkDescribeElasticIpsRequest :: DescribeElasticIps
+mkDescribeElasticIpsRequest = DescribeElasticIps
     { _deisInstanceId = Nothing
     , _deisStackId = Nothing
     , _deisIps = mempty
     }
-{-# INLINE describeElasticIps #-}
+{-# INLINE mkDescribeElasticIpsRequest #-}
 
 data DescribeElasticIps = DescribeElasticIps
     { _deisInstanceId :: Maybe Text
@@ -73,18 +74,14 @@ data DescribeElasticIps = DescribeElasticIps
 -- a description of the Elastic IP addresses associated with the specified
 -- instance.
 deisInstanceId :: Lens' DescribeElasticIps (Maybe Text)
-deisInstanceId f x =
-    f (_deisInstanceId x)
-        <&> \y -> x { _deisInstanceId = y }
+deisInstanceId = lens _deisInstanceId (\s a -> s { _deisInstanceId = a })
 {-# INLINE deisInstanceId #-}
 
 -- | A stack ID. If you include this parameter, DescribeElasticIps returns a
 -- description of the Elastic IP addresses that are registered with the
 -- specified stack.
 deisStackId :: Lens' DescribeElasticIps (Maybe Text)
-deisStackId f x =
-    f (_deisStackId x)
-        <&> \y -> x { _deisStackId = y }
+deisStackId = lens _deisStackId (\s a -> s { _deisStackId = a })
 {-# INLINE deisStackId #-}
 
 -- | An array of Elastic IP addresses to be described. If you include this
@@ -92,9 +89,7 @@ deisStackId f x =
 -- Elastic IP addresses. Otherwise, it returns a description of every Elastic
 -- IP address.
 deisIps :: Lens' DescribeElasticIps ([Text])
-deisIps f x =
-    f (_deisIps x)
-        <&> \y -> x { _deisIps = y }
+deisIps = lens _deisIps (\s a -> s { _deisIps = a })
 {-# INLINE deisIps #-}
 
 instance ToPath DescribeElasticIps
@@ -105,7 +100,7 @@ instance ToHeaders DescribeElasticIps
 
 instance ToJSON DescribeElasticIps
 
-data DescribeElasticIpsResponse = DescribeElasticIpsResponse
+newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
     { _deitElasticIps :: [ElasticIp]
       -- ^ An ElasticIps object that describes the specified Elastic IP
       -- addresses.
@@ -113,9 +108,7 @@ data DescribeElasticIpsResponse = DescribeElasticIpsResponse
 
 -- | An ElasticIps object that describes the specified Elastic IP addresses.
 deitElasticIps :: Lens' DescribeElasticIpsResponse ([ElasticIp])
-deitElasticIps f x =
-    f (_deitElasticIps x)
-        <&> \y -> x { _deitElasticIps = y }
+deitElasticIps = lens _deitElasticIps (\s a -> s { _deitElasticIps = a })
 {-# INLINE deitElasticIps #-}
 
 instance FromJSON DescribeElasticIpsResponse

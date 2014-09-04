@@ -49,13 +49,13 @@ module Network.AWS.SES.V2010_12_01.SendEmail
     -- * Request
       SendEmail
     -- ** Request constructor
-    , sendEmail
+    , mkSendEmailRequest
     -- ** Request lenses
     , serSource
     , serDestination
     , serMessage
-    , serReturnPath
     , serReplyToAddresses
+    , serReturnPath
 
     -- * Response
     , SendEmailResponse
@@ -67,19 +67,20 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'SendEmail' request.
-sendEmail :: Text -- ^ 'serSource'
-          -> Destination -- ^ 'serDestination'
-          -> Message -- ^ 'serMessage'
-          -> SendEmail
-sendEmail p1 p2 p3 = SendEmail
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendEmail' request.
+mkSendEmailRequest :: Text -- ^ 'serSource'
+                   -> Destination -- ^ 'serDestination'
+                   -> Message -- ^ 'serMessage'
+                   -> SendEmail
+mkSendEmailRequest p1 p2 p3 = SendEmail
     { _serSource = p1
     , _serDestination = p2
     , _serMessage = p3
-    , _serReturnPath = Nothing
     , _serReplyToAddresses = mempty
+    , _serReturnPath = Nothing
     }
-{-# INLINE sendEmail #-}
+{-# INLINE mkSendEmailRequest #-}
 
 data SendEmail = SendEmail
     { _serSource :: Text
@@ -94,6 +95,10 @@ data SendEmail = SendEmail
       -- fields.
     , _serMessage :: Message
       -- ^ The message to be sent.
+    , _serReplyToAddresses :: [Text]
+      -- ^ The reply-to email address(es) for the message. If the recipient
+      -- replies to the message, each reply-to address will receive the
+      -- reply.
     , _serReturnPath :: Maybe Text
       -- ^ The email address to which bounces and complaints are to be
       -- forwarded when feedback forwarding is enabled. If the message
@@ -101,10 +106,6 @@ data SendEmail = SendEmail
       -- be returned from the recipient's ISP; this message will then be
       -- forwarded to the email address specified by the ReturnPath
       -- parameter.
-    , _serReplyToAddresses :: [Text]
-      -- ^ The reply-to email address(es) for the message. If the recipient
-      -- replies to the message, each reply-to address will receive the
-      -- reply.
     } deriving (Show, Generic)
 
 -- | The identity's email address. By default, the string must be 7-bit ASCII.
@@ -113,24 +114,24 @@ data SendEmail = SendEmail
 -- encoded-word syntax uses the following form:
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
 serSource :: Lens' SendEmail (Text)
-serSource f x =
-    f (_serSource x)
-        <&> \y -> x { _serSource = y }
+serSource = lens _serSource (\s a -> s { _serSource = a })
 {-# INLINE serSource #-}
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
 serDestination :: Lens' SendEmail (Destination)
-serDestination f x =
-    f (_serDestination x)
-        <&> \y -> x { _serDestination = y }
+serDestination = lens _serDestination (\s a -> s { _serDestination = a })
 {-# INLINE serDestination #-}
 
 -- | The message to be sent.
 serMessage :: Lens' SendEmail (Message)
-serMessage f x =
-    f (_serMessage x)
-        <&> \y -> x { _serMessage = y }
+serMessage = lens _serMessage (\s a -> s { _serMessage = a })
 {-# INLINE serMessage #-}
+
+-- | The reply-to email address(es) for the message. If the recipient replies to
+-- the message, each reply-to address will receive the reply.
+serReplyToAddresses :: Lens' SendEmail ([Text])
+serReplyToAddresses = lens _serReplyToAddresses (\s a -> s { _serReplyToAddresses = a })
+{-# INLINE serReplyToAddresses #-}
 
 -- | The email address to which bounces and complaints are to be forwarded when
 -- feedback forwarding is enabled. If the message cannot be delivered to the
@@ -138,32 +139,20 @@ serMessage f x =
 -- this message will then be forwarded to the email address specified by the
 -- ReturnPath parameter.
 serReturnPath :: Lens' SendEmail (Maybe Text)
-serReturnPath f x =
-    f (_serReturnPath x)
-        <&> \y -> x { _serReturnPath = y }
+serReturnPath = lens _serReturnPath (\s a -> s { _serReturnPath = a })
 {-# INLINE serReturnPath #-}
-
--- | The reply-to email address(es) for the message. If the recipient replies to
--- the message, each reply-to address will receive the reply.
-serReplyToAddresses :: Lens' SendEmail ([Text])
-serReplyToAddresses f x =
-    f (_serReplyToAddresses x)
-        <&> \y -> x { _serReplyToAddresses = y }
-{-# INLINE serReplyToAddresses #-}
 
 instance ToQuery SendEmail where
     toQuery = genericQuery def
 
-data SendEmailResponse = SendEmailResponse
+newtype SendEmailResponse = SendEmailResponse
     { _sesMessageId :: Text
       -- ^ The unique message identifier returned from the SendEmail action.
     } deriving (Show, Generic)
 
 -- | The unique message identifier returned from the SendEmail action.
 sesMessageId :: Lens' SendEmailResponse (Text)
-sesMessageId f x =
-    f (_sesMessageId x)
-        <&> \y -> x { _sesMessageId = y }
+sesMessageId = lens _sesMessageId (\s a -> s { _sesMessageId = a })
 {-# INLINE sesMessageId #-}
 
 instance FromXML SendEmailResponse where

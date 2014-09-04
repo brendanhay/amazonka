@@ -25,10 +25,10 @@ module Network.AWS.IAM.V2010_05_08.AddUserToGroup
     -- * Request
       AddUserToGroup
     -- ** Request constructor
-    , addUserToGroup
+    , mkAddUserToGroupRequest
     -- ** Request lenses
-    , autgrUserName
     , autgrGroupName
+    , autgrUserName
 
     -- * Response
     , AddUserToGroupResponse
@@ -38,36 +38,33 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AddUserToGroup' request.
-addUserToGroup :: Text -- ^ 'autgrUserName'
-               -> Text -- ^ 'autgrGroupName'
-               -> AddUserToGroup
-addUserToGroup p1 p2 = AddUserToGroup
-    { _autgrUserName = p1
-    , _autgrGroupName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddUserToGroup' request.
+mkAddUserToGroupRequest :: Text -- ^ 'autgrGroupName'
+                        -> Text -- ^ 'autgrUserName'
+                        -> AddUserToGroup
+mkAddUserToGroupRequest p1 p2 = AddUserToGroup
+    { _autgrGroupName = p1
+    , _autgrUserName = p2
     }
-{-# INLINE addUserToGroup #-}
+{-# INLINE mkAddUserToGroupRequest #-}
 
 data AddUserToGroup = AddUserToGroup
-    { _autgrUserName :: Text
-      -- ^ Name of the user to add.
-    , _autgrGroupName :: Text
+    { _autgrGroupName :: Text
       -- ^ Name of the group to update.
+    , _autgrUserName :: Text
+      -- ^ Name of the user to add.
     } deriving (Show, Generic)
-
--- | Name of the user to add.
-autgrUserName :: Lens' AddUserToGroup (Text)
-autgrUserName f x =
-    f (_autgrUserName x)
-        <&> \y -> x { _autgrUserName = y }
-{-# INLINE autgrUserName #-}
 
 -- | Name of the group to update.
 autgrGroupName :: Lens' AddUserToGroup (Text)
-autgrGroupName f x =
-    f (_autgrGroupName x)
-        <&> \y -> x { _autgrGroupName = y }
+autgrGroupName = lens _autgrGroupName (\s a -> s { _autgrGroupName = a })
 {-# INLINE autgrGroupName #-}
+
+-- | Name of the user to add.
+autgrUserName :: Lens' AddUserToGroup (Text)
+autgrUserName = lens _autgrUserName (\s a -> s { _autgrUserName = a })
+{-# INLINE autgrUserName #-}
 
 instance ToQuery AddUserToGroup where
     toQuery = genericQuery def

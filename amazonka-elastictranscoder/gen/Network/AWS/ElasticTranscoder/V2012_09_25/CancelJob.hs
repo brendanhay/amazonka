@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob
     -- * Request
       CancelJob
     -- ** Request constructor
-    , cancelJob
+    , mkCancelJobRequest
     -- ** Request lenses
     , cjrId
 
@@ -50,15 +50,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CancelJob' request.
-cancelJob :: Text -- ^ 'cjrId'
-          -> CancelJob
-cancelJob p1 = CancelJob
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelJob' request.
+mkCancelJobRequest :: Text -- ^ 'cjrId'
+                   -> CancelJob
+mkCancelJobRequest p1 = CancelJob
     { _cjrId = p1
     }
-{-# INLINE cancelJob #-}
+{-# INLINE mkCancelJobRequest #-}
 
-data CancelJob = CancelJob
+newtype CancelJob = CancelJob
     { _cjrId :: Text
       -- ^ The identifier of the job that you want to cancel. To get a list
       -- of the jobs (including their jobId) that have a status of
@@ -69,9 +70,7 @@ data CancelJob = CancelJob
 -- jobs (including their jobId) that have a status of Submitted, use the
 -- ListJobsByStatus API action.
 cjrId :: Lens' CancelJob (Text)
-cjrId f x =
-    f (_cjrId x)
-        <&> \y -> x { _cjrId = y }
+cjrId = lens _cjrId (\s a -> s { _cjrId = a })
 {-# INLINE cjrId #-}
 
 instance ToPath CancelJob where
@@ -86,7 +85,6 @@ instance ToHeaders CancelJob
 
 instance ToJSON CancelJob
 
-data CancelJobResponse = CancelJobResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CancelJob where

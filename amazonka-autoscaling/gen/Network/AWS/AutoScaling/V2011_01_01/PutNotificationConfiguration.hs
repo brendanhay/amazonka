@@ -28,11 +28,11 @@ module Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration
     -- * Request
       PutNotificationConfiguration
     -- ** Request constructor
-    , putNotificationConfiguration
+    , mkPutNotificationConfigurationType
     -- ** Request lenses
-    , pnctNotificationTypes
     , pnctAutoScalingGroupName
     , pnctTopicARN
+    , pnctNotificationTypes
 
     -- * Response
     , PutNotificationConfigurationResponse
@@ -42,53 +42,48 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutNotificationConfiguration' request.
-putNotificationConfiguration :: [Text] -- ^ 'pnctNotificationTypes'
-                             -> Text -- ^ 'pnctAutoScalingGroupName'
-                             -> Text -- ^ 'pnctTopicARN'
-                             -> PutNotificationConfiguration
-putNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
-    { _pnctNotificationTypes = p1
-    , _pnctAutoScalingGroupName = p2
-    , _pnctTopicARN = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutNotificationConfiguration' request.
+mkPutNotificationConfigurationType :: Text -- ^ 'pnctAutoScalingGroupName'
+                                   -> Text -- ^ 'pnctTopicARN'
+                                   -> [Text] -- ^ 'pnctNotificationTypes'
+                                   -> PutNotificationConfiguration
+mkPutNotificationConfigurationType p1 p2 p3 = PutNotificationConfiguration
+    { _pnctAutoScalingGroupName = p1
+    , _pnctTopicARN = p2
+    , _pnctNotificationTypes = p3
     }
-{-# INLINE putNotificationConfiguration #-}
+{-# INLINE mkPutNotificationConfigurationType #-}
 
 data PutNotificationConfiguration = PutNotificationConfiguration
-    { _pnctNotificationTypes :: [Text]
-      -- ^ The type of event that will cause the notification to be sent.
-      -- For details about notification types supported by Auto Scaling,
-      -- see DescribeAutoScalingNotificationTypes.
-    , _pnctAutoScalingGroupName :: Text
+    { _pnctAutoScalingGroupName :: Text
       -- ^ The name of the Auto Scaling group.
     , _pnctTopicARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
       -- Service (SNS) topic.
+    , _pnctNotificationTypes :: [Text]
+      -- ^ The type of event that will cause the notification to be sent.
+      -- For details about notification types supported by Auto Scaling,
+      -- see DescribeAutoScalingNotificationTypes.
     } deriving (Show, Generic)
-
--- | The type of event that will cause the notification to be sent. For details
--- about notification types supported by Auto Scaling, see
--- DescribeAutoScalingNotificationTypes.
-pnctNotificationTypes :: Lens' PutNotificationConfiguration ([Text])
-pnctNotificationTypes f x =
-    f (_pnctNotificationTypes x)
-        <&> \y -> x { _pnctNotificationTypes = y }
-{-# INLINE pnctNotificationTypes #-}
 
 -- | The name of the Auto Scaling group.
 pnctAutoScalingGroupName :: Lens' PutNotificationConfiguration (Text)
-pnctAutoScalingGroupName f x =
-    f (_pnctAutoScalingGroupName x)
-        <&> \y -> x { _pnctAutoScalingGroupName = y }
+pnctAutoScalingGroupName = lens _pnctAutoScalingGroupName (\s a -> s { _pnctAutoScalingGroupName = a })
 {-# INLINE pnctAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
 pnctTopicARN :: Lens' PutNotificationConfiguration (Text)
-pnctTopicARN f x =
-    f (_pnctTopicARN x)
-        <&> \y -> x { _pnctTopicARN = y }
+pnctTopicARN = lens _pnctTopicARN (\s a -> s { _pnctTopicARN = a })
 {-# INLINE pnctTopicARN #-}
+
+-- | The type of event that will cause the notification to be sent. For details
+-- about notification types supported by Auto Scaling, see
+-- DescribeAutoScalingNotificationTypes.
+pnctNotificationTypes :: Lens' PutNotificationConfiguration ([Text])
+pnctNotificationTypes = lens _pnctNotificationTypes (\s a -> s { _pnctNotificationTypes = a })
+{-# INLINE pnctNotificationTypes #-}
 
 instance ToQuery PutNotificationConfiguration where
     toQuery = genericQuery def

@@ -24,7 +24,7 @@ module Network.AWS.RDS.V2013_09_09.ListTagsForResource
     -- * Request
       ListTagsForResource
     -- ** Request constructor
-    , listTagsForResource
+    , mkListTagsForResourceMessage
     -- ** Request lenses
     , ltfrmResourceName
 
@@ -38,15 +38,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListTagsForResource' request.
-listTagsForResource :: Text -- ^ 'ltfrmResourceName'
-                    -> ListTagsForResource
-listTagsForResource p1 = ListTagsForResource
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTagsForResource' request.
+mkListTagsForResourceMessage :: Text -- ^ 'ltfrmResourceName'
+                             -> ListTagsForResource
+mkListTagsForResourceMessage p1 = ListTagsForResource
     { _ltfrmResourceName = p1
     }
-{-# INLINE listTagsForResource #-}
+{-# INLINE mkListTagsForResourceMessage #-}
 
-data ListTagsForResource = ListTagsForResource
+newtype ListTagsForResource = ListTagsForResource
     { _ltfrmResourceName :: Text
       -- ^ The Amazon RDS resource with tags to be listed. This value is an
       -- Amazon Resource Name (ARN). For information about creating an
@@ -57,24 +58,20 @@ data ListTagsForResource = ListTagsForResource
 -- Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
 ltfrmResourceName :: Lens' ListTagsForResource (Text)
-ltfrmResourceName f x =
-    f (_ltfrmResourceName x)
-        <&> \y -> x { _ltfrmResourceName = y }
+ltfrmResourceName = lens _ltfrmResourceName (\s a -> s { _ltfrmResourceName = a })
 {-# INLINE ltfrmResourceName #-}
 
 instance ToQuery ListTagsForResource where
     toQuery = genericQuery def
 
-data ListTagsForResourceResponse = ListTagsForResourceResponse
+newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _tlmTagList :: [Tag]
       -- ^ List of tags returned by the ListTagsForResource operation.
     } deriving (Show, Generic)
 
 -- | List of tags returned by the ListTagsForResource operation.
 tlmTagList :: Lens' ListTagsForResourceResponse ([Tag])
-tlmTagList f x =
-    f (_tlmTagList x)
-        <&> \y -> x { _tlmTagList = y }
+tlmTagList = lens _tlmTagList (\s a -> s { _tlmTagList = a })
 {-# INLINE tlmTagList #-}
 
 instance FromXML ListTagsForResourceResponse where

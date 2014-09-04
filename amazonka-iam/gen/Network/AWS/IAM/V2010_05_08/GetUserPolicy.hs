@@ -29,7 +29,7 @@ module Network.AWS.IAM.V2010_05_08.GetUserPolicy
     -- * Request
       GetUserPolicy
     -- ** Request constructor
-    , getUserPolicy
+    , mkGetUserPolicyRequest
     -- ** Request lenses
     , guprUserName
     , guprPolicyName
@@ -38,23 +38,24 @@ module Network.AWS.IAM.V2010_05_08.GetUserPolicy
     , GetUserPolicyResponse
     -- ** Response lenses
     , gupsUserName
-    , gupsPolicyDocument
     , gupsPolicyName
+    , gupsPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetUserPolicy' request.
-getUserPolicy :: Text -- ^ 'guprUserName'
-              -> Text -- ^ 'guprPolicyName'
-              -> GetUserPolicy
-getUserPolicy p1 p2 = GetUserPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetUserPolicy' request.
+mkGetUserPolicyRequest :: Text -- ^ 'guprUserName'
+                       -> Text -- ^ 'guprPolicyName'
+                       -> GetUserPolicy
+mkGetUserPolicyRequest p1 p2 = GetUserPolicy
     { _guprUserName = p1
     , _guprPolicyName = p2
     }
-{-# INLINE getUserPolicy #-}
+{-# INLINE mkGetUserPolicyRequest #-}
 
 data GetUserPolicy = GetUserPolicy
     { _guprUserName :: Text
@@ -65,16 +66,12 @@ data GetUserPolicy = GetUserPolicy
 
 -- | Name of the user who the policy is associated with.
 guprUserName :: Lens' GetUserPolicy (Text)
-guprUserName f x =
-    f (_guprUserName x)
-        <&> \y -> x { _guprUserName = y }
+guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
 {-# INLINE guprUserName #-}
 
 -- | Name of the policy document to get.
 guprPolicyName :: Lens' GetUserPolicy (Text)
-guprPolicyName f x =
-    f (_guprPolicyName x)
-        <&> \y -> x { _guprPolicyName = y }
+guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 {-# INLINE guprPolicyName #-}
 
 instance ToQuery GetUserPolicy where
@@ -83,32 +80,26 @@ instance ToQuery GetUserPolicy where
 data GetUserPolicyResponse = GetUserPolicyResponse
     { _gupsUserName :: Text
       -- ^ The user the policy is associated with.
-    , _gupsPolicyDocument :: Text
-      -- ^ The policy document.
     , _gupsPolicyName :: Text
       -- ^ The name of the policy.
+    , _gupsPolicyDocument :: Text
+      -- ^ The policy document.
     } deriving (Show, Generic)
 
 -- | The user the policy is associated with.
 gupsUserName :: Lens' GetUserPolicyResponse (Text)
-gupsUserName f x =
-    f (_gupsUserName x)
-        <&> \y -> x { _gupsUserName = y }
+gupsUserName = lens _gupsUserName (\s a -> s { _gupsUserName = a })
 {-# INLINE gupsUserName #-}
-
--- | The policy document.
-gupsPolicyDocument :: Lens' GetUserPolicyResponse (Text)
-gupsPolicyDocument f x =
-    f (_gupsPolicyDocument x)
-        <&> \y -> x { _gupsPolicyDocument = y }
-{-# INLINE gupsPolicyDocument #-}
 
 -- | The name of the policy.
 gupsPolicyName :: Lens' GetUserPolicyResponse (Text)
-gupsPolicyName f x =
-    f (_gupsPolicyName x)
-        <&> \y -> x { _gupsPolicyName = y }
+gupsPolicyName = lens _gupsPolicyName (\s a -> s { _gupsPolicyName = a })
 {-# INLINE gupsPolicyName #-}
+
+-- | The policy document.
+gupsPolicyDocument :: Lens' GetUserPolicyResponse (Text)
+gupsPolicyDocument = lens _gupsPolicyDocument (\s a -> s { _gupsPolicyDocument = a })
+{-# INLINE gupsPolicyDocument #-}
 
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -39,15 +39,15 @@ module Network.AWS.EC2.V2014_06_15.GetPasswordData
     -- * Request
       GetPasswordData
     -- ** Request constructor
-    , getPasswordData
+    , mkGetPasswordDataRequest
     -- ** Request lenses
     , gpdrInstanceId
 
     -- * Response
     , GetPasswordDataResponse
     -- ** Response lenses
-    , gpdsTimestamp
     , gpdsInstanceId
+    , gpdsTimestamp
     , gpdsPasswordData
     ) where
 
@@ -55,57 +55,50 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetPasswordData' request.
-getPasswordData :: Text -- ^ 'gpdrInstanceId'
-                -> GetPasswordData
-getPasswordData p1 = GetPasswordData
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPasswordData' request.
+mkGetPasswordDataRequest :: Text -- ^ 'gpdrInstanceId'
+                         -> GetPasswordData
+mkGetPasswordDataRequest p1 = GetPasswordData
     { _gpdrInstanceId = p1
     }
-{-# INLINE getPasswordData #-}
+{-# INLINE mkGetPasswordDataRequest #-}
 
-data GetPasswordData = GetPasswordData
+newtype GetPasswordData = GetPasswordData
     { _gpdrInstanceId :: Text
       -- ^ The ID of the Windows instance.
     } deriving (Show, Generic)
 
 -- | The ID of the Windows instance.
 gpdrInstanceId :: Lens' GetPasswordData (Text)
-gpdrInstanceId f x =
-    f (_gpdrInstanceId x)
-        <&> \y -> x { _gpdrInstanceId = y }
+gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
 {-# INLINE gpdrInstanceId #-}
 
 instance ToQuery GetPasswordData where
     toQuery = genericQuery def
 
 data GetPasswordDataResponse = GetPasswordDataResponse
-    { _gpdsTimestamp :: Maybe ISO8601
-      -- ^ The time the data was last updated.
-    , _gpdsInstanceId :: Maybe Text
+    { _gpdsInstanceId :: Maybe Text
       -- ^ The ID of the Windows instance.
+    , _gpdsTimestamp :: Maybe ISO8601
+      -- ^ The time the data was last updated.
     , _gpdsPasswordData :: Maybe Text
       -- ^ The password of the instance.
     } deriving (Show, Generic)
 
--- | The time the data was last updated.
-gpdsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
-gpdsTimestamp f x =
-    f (_gpdsTimestamp x)
-        <&> \y -> x { _gpdsTimestamp = y }
-{-# INLINE gpdsTimestamp #-}
-
 -- | The ID of the Windows instance.
 gpdsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
-gpdsInstanceId f x =
-    f (_gpdsInstanceId x)
-        <&> \y -> x { _gpdsInstanceId = y }
+gpdsInstanceId = lens _gpdsInstanceId (\s a -> s { _gpdsInstanceId = a })
 {-# INLINE gpdsInstanceId #-}
+
+-- | The time the data was last updated.
+gpdsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
+gpdsTimestamp = lens _gpdsTimestamp (\s a -> s { _gpdsTimestamp = a })
+{-# INLINE gpdsTimestamp #-}
 
 -- | The password of the instance.
 gpdsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
-gpdsPasswordData f x =
-    f (_gpdsPasswordData x)
-        <&> \y -> x { _gpdsPasswordData = y }
+gpdsPasswordData = lens _gpdsPasswordData (\s a -> s { _gpdsPasswordData = a })
 {-# INLINE gpdsPasswordData #-}
 
 instance FromXML GetPasswordDataResponse where

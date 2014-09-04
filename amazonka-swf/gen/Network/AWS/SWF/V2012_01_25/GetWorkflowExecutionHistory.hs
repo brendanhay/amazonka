@@ -89,12 +89,12 @@ module Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
     -- * Request
       GetWorkflowExecutionHistory
     -- ** Request constructor
-    , getWorkflowExecutionHistory
+    , mkGetWorkflowExecutionHistoryInput
     -- ** Request lenses
     , gwehiDomain
     , gwehiExecution
-    , gwehiMaximumPageSize
     , gwehiNextPageToken
+    , gwehiMaximumPageSize
     , gwehiReverseOrder
 
     -- * Response
@@ -109,24 +109,29 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetWorkflowExecutionHistory' request.
-getWorkflowExecutionHistory :: Text -- ^ 'gwehiDomain'
-                            -> WorkflowExecution -- ^ 'gwehiExecution'
-                            -> GetWorkflowExecutionHistory
-getWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetWorkflowExecutionHistory' request.
+mkGetWorkflowExecutionHistoryInput :: Text -- ^ 'gwehiDomain'
+                                   -> WorkflowExecution -- ^ 'gwehiExecution'
+                                   -> GetWorkflowExecutionHistory
+mkGetWorkflowExecutionHistoryInput p1 p2 = GetWorkflowExecutionHistory
     { _gwehiDomain = p1
     , _gwehiExecution = p2
-    , _gwehiMaximumPageSize = Nothing
     , _gwehiNextPageToken = Nothing
+    , _gwehiMaximumPageSize = Nothing
     , _gwehiReverseOrder = Nothing
     }
-{-# INLINE getWorkflowExecutionHistory #-}
+{-# INLINE mkGetWorkflowExecutionHistoryInput #-}
 
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     { _gwehiDomain :: Text
       -- ^ The name of the domain containing the workflow execution.
     , _gwehiExecution :: WorkflowExecution
       -- ^ Specifies the workflow execution for which to return the history.
+    , _gwehiNextPageToken :: Maybe Text
+      -- ^ If a NextPageToken is returned, the result has more than one
+      -- pages. To get the next page, repeat the call and specify the
+      -- nextPageToken with all other arguments unchanged.
     , _gwehiMaximumPageSize :: Maybe Integer
       -- ^ Specifies the maximum number of history events returned in one
       -- page. The next page in the result is identified by the
@@ -136,10 +141,6 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
       -- size larger than 100. Note that the number of events may be less
       -- than the maxiumum page size, in which case, the returned page
       -- will have fewer results than the maximumPageSize specified.
-    , _gwehiNextPageToken :: Maybe Text
-      -- ^ If a NextPageToken is returned, the result has more than one
-      -- pages. To get the next page, repeat the call and specify the
-      -- nextPageToken with all other arguments unchanged.
     , _gwehiReverseOrder :: Maybe Bool
       -- ^ When set to true, returns the events in reverse order. By default
       -- the results are returned in ascending order of the eventTimeStamp
@@ -148,17 +149,20 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
 
 -- | The name of the domain containing the workflow execution.
 gwehiDomain :: Lens' GetWorkflowExecutionHistory (Text)
-gwehiDomain f x =
-    f (_gwehiDomain x)
-        <&> \y -> x { _gwehiDomain = y }
+gwehiDomain = lens _gwehiDomain (\s a -> s { _gwehiDomain = a })
 {-# INLINE gwehiDomain #-}
 
 -- | Specifies the workflow execution for which to return the history.
 gwehiExecution :: Lens' GetWorkflowExecutionHistory (WorkflowExecution)
-gwehiExecution f x =
-    f (_gwehiExecution x)
-        <&> \y -> x { _gwehiExecution = y }
+gwehiExecution = lens _gwehiExecution (\s a -> s { _gwehiExecution = a })
 {-# INLINE gwehiExecution #-}
+
+-- | If a NextPageToken is returned, the result has more than one pages. To get
+-- the next page, repeat the call and specify the nextPageToken with all other
+-- arguments unchanged.
+gwehiNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
+gwehiNextPageToken = lens _gwehiNextPageToken (\s a -> s { _gwehiNextPageToken = a })
+{-# INLINE gwehiNextPageToken #-}
 
 -- | Specifies the maximum number of history events returned in one page. The
 -- next page in the result is identified by the NextPageToken returned. By
@@ -168,27 +172,14 @@ gwehiExecution f x =
 -- less than the maxiumum page size, in which case, the returned page will
 -- have fewer results than the maximumPageSize specified.
 gwehiMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Integer)
-gwehiMaximumPageSize f x =
-    f (_gwehiMaximumPageSize x)
-        <&> \y -> x { _gwehiMaximumPageSize = y }
+gwehiMaximumPageSize = lens _gwehiMaximumPageSize (\s a -> s { _gwehiMaximumPageSize = a })
 {-# INLINE gwehiMaximumPageSize #-}
-
--- | If a NextPageToken is returned, the result has more than one pages. To get
--- the next page, repeat the call and specify the nextPageToken with all other
--- arguments unchanged.
-gwehiNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
-gwehiNextPageToken f x =
-    f (_gwehiNextPageToken x)
-        <&> \y -> x { _gwehiNextPageToken = y }
-{-# INLINE gwehiNextPageToken #-}
 
 -- | When set to true, returns the events in reverse order. By default the
 -- results are returned in ascending order of the eventTimeStamp of the
 -- events.
 gwehiReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
-gwehiReverseOrder f x =
-    f (_gwehiReverseOrder x)
-        <&> \y -> x { _gwehiReverseOrder = y }
+gwehiReverseOrder = lens _gwehiReverseOrder (\s a -> s { _gwehiReverseOrder = a })
 {-# INLINE gwehiReverseOrder #-}
 
 instance ToPath GetWorkflowExecutionHistory
@@ -210,18 +201,14 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
 
 -- | The list of history events.
 hyEvents :: Lens' GetWorkflowExecutionHistoryResponse ([HistoryEvent])
-hyEvents f x =
-    f (_hyEvents x)
-        <&> \y -> x { _hyEvents = y }
+hyEvents = lens _hyEvents (\s a -> s { _hyEvents = a })
 {-# INLINE hyEvents #-}
 
 -- | The token for the next page. If set, the history consists of more than one
 -- page and the next page can be retrieved by repeating the request with this
 -- token and all other arguments unchanged.
 hyNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
-hyNextPageToken f x =
-    f (_hyNextPageToken x)
-        <&> \y -> x { _hyNextPageToken = y }
+hyNextPageToken = lens _hyNextPageToken (\s a -> s { _hyNextPageToken = a })
 {-# INLINE hyNextPageToken #-}
 
 instance FromJSON GetWorkflowExecutionHistoryResponse

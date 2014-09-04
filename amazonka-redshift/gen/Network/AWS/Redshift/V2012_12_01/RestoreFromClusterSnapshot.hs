@@ -42,25 +42,25 @@ module Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot
     -- * Request
       RestoreFromClusterSnapshot
     -- ** Request constructor
-    , restoreFromClusterSnapshot
+    , mkRestoreFromClusterSnapshotMessage
     -- ** Request lenses
     , rfcsmClusterIdentifier
     , rfcsmSnapshotIdentifier
-    , rfcsmAllowVersionUpgrade
-    , rfcsmPubliclyAccessible
-    , rfcsmClusterSecurityGroups
-    , rfcsmPort
-    , rfcsmAutomatedSnapshotRetentionPeriod
     , rfcsmSnapshotClusterIdentifier
+    , rfcsmPort
     , rfcsmAvailabilityZone
+    , rfcsmAllowVersionUpgrade
     , rfcsmClusterSubnetGroupName
+    , rfcsmPubliclyAccessible
     , rfcsmOwnerAccount
     , rfcsmHsmClientCertificateIdentifier
     , rfcsmHsmConfigurationIdentifier
     , rfcsmElasticIp
     , rfcsmClusterParameterGroupName
-    , rfcsmPreferredMaintenanceWindow
+    , rfcsmClusterSecurityGroups
     , rfcsmVpcSecurityGroupIds
+    , rfcsmPreferredMaintenanceWindow
+    , rfcsmAutomatedSnapshotRetentionPeriod
 
     -- * Response
     , RestoreFromClusterSnapshotResponse
@@ -72,30 +72,31 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RestoreFromClusterSnapshot' request.
-restoreFromClusterSnapshot :: Text -- ^ 'rfcsmClusterIdentifier'
-                           -> Text -- ^ 'rfcsmSnapshotIdentifier'
-                           -> RestoreFromClusterSnapshot
-restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreFromClusterSnapshot' request.
+mkRestoreFromClusterSnapshotMessage :: Text -- ^ 'rfcsmClusterIdentifier'
+                                    -> Text -- ^ 'rfcsmSnapshotIdentifier'
+                                    -> RestoreFromClusterSnapshot
+mkRestoreFromClusterSnapshotMessage p1 p2 = RestoreFromClusterSnapshot
     { _rfcsmClusterIdentifier = p1
     , _rfcsmSnapshotIdentifier = p2
-    , _rfcsmAllowVersionUpgrade = Nothing
-    , _rfcsmPubliclyAccessible = Nothing
-    , _rfcsmClusterSecurityGroups = mempty
-    , _rfcsmPort = Nothing
-    , _rfcsmAutomatedSnapshotRetentionPeriod = Nothing
     , _rfcsmSnapshotClusterIdentifier = Nothing
+    , _rfcsmPort = Nothing
     , _rfcsmAvailabilityZone = Nothing
+    , _rfcsmAllowVersionUpgrade = Nothing
     , _rfcsmClusterSubnetGroupName = Nothing
+    , _rfcsmPubliclyAccessible = Nothing
     , _rfcsmOwnerAccount = Nothing
     , _rfcsmHsmClientCertificateIdentifier = Nothing
     , _rfcsmHsmConfigurationIdentifier = Nothing
     , _rfcsmElasticIp = Nothing
     , _rfcsmClusterParameterGroupName = Nothing
-    , _rfcsmPreferredMaintenanceWindow = Nothing
+    , _rfcsmClusterSecurityGroups = mempty
     , _rfcsmVpcSecurityGroupIds = mempty
+    , _rfcsmPreferredMaintenanceWindow = Nothing
+    , _rfcsmAutomatedSnapshotRetentionPeriod = Nothing
     }
-{-# INLINE restoreFromClusterSnapshot #-}
+{-# INLINE mkRestoreFromClusterSnapshotMessage #-}
 
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     { _rfcsmClusterIdentifier :: Text
@@ -108,41 +109,30 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsmSnapshotIdentifier :: Text
       -- ^ The name of the snapshot from which to create the new cluster.
       -- This parameter isn't case sensitive. Example: my-snapshot-id.
-    , _rfcsmAllowVersionUpgrade :: Maybe Bool
-      -- ^ If true, upgrades can be applied during the maintenance window to
-      -- the Amazon Redshift engine that is running on the cluster.
-      -- Default: true.
-    , _rfcsmPubliclyAccessible :: Maybe Bool
-      -- ^ If true, the cluster can be accessed from a public network.
-    , _rfcsmClusterSecurityGroups :: [Text]
-      -- ^ A list of security groups to be associated with this cluster.
-      -- Default: The default cluster security group for Amazon Redshift.
-      -- Cluster security groups only apply to clusters outside of VPCs.
-    , _rfcsmPort :: Maybe Integer
-      -- ^ The port number on which the cluster accepts connections.
-      -- Default: The same port as the original cluster. Constraints: Must
-      -- be between 1115 and 65535.
-    , _rfcsmAutomatedSnapshotRetentionPeriod :: Maybe Integer
-      -- ^ The number of days that automated snapshots are retained. If the
-      -- value is 0, automated snapshots are disabled. Even if automated
-      -- snapshots are disabled, you can still create manual snapshots
-      -- when you want with CreateClusterSnapshot. Default: The value
-      -- selected for the cluster from which the snapshot was taken.
-      -- Constraints: Must be a value from 0 to 35.
     , _rfcsmSnapshotClusterIdentifier :: Maybe Text
       -- ^ The name of the cluster the source snapshot was created from.
       -- This parameter is required if your IAM user has a policy
       -- containing a snapshot resource element that specifies anything
       -- other than * for the cluster name.
+    , _rfcsmPort :: Maybe Integer
+      -- ^ The port number on which the cluster accepts connections.
+      -- Default: The same port as the original cluster. Constraints: Must
+      -- be between 1115 and 65535.
     , _rfcsmAvailabilityZone :: Maybe Text
       -- ^ The Amazon EC2 Availability Zone in which to restore the cluster.
       -- Default: A random, system-chosen Availability Zone. Example:
       -- us-east-1a.
+    , _rfcsmAllowVersionUpgrade :: Maybe Bool
+      -- ^ If true, upgrades can be applied during the maintenance window to
+      -- the Amazon Redshift engine that is running on the cluster.
+      -- Default: true.
     , _rfcsmClusterSubnetGroupName :: Maybe Text
       -- ^ The name of the subnet group where you want to cluster restored.
       -- A snapshot of cluster in VPC can be restored only in VPC.
       -- Therefore, you must provide subnet group name where you want the
       -- cluster restored.
+    , _rfcsmPubliclyAccessible :: Maybe Bool
+      -- ^ If true, the cluster can be accessed from a public network.
     , _rfcsmOwnerAccount :: Maybe Text
       -- ^ The AWS customer account used to create or copy the snapshot.
       -- Required if you are restoring a snapshot you do not own, optional
@@ -165,6 +155,15 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
       -- be 1 to 255 alphanumeric characters or hyphens. First character
       -- must be a letter. Cannot end with a hyphen or contain two
       -- consecutive hyphens.
+    , _rfcsmClusterSecurityGroups :: [Text]
+      -- ^ A list of security groups to be associated with this cluster.
+      -- Default: The default cluster security group for Amazon Redshift.
+      -- Cluster security groups only apply to clusters outside of VPCs.
+    , _rfcsmVpcSecurityGroupIds :: [Text]
+      -- ^ A list of Virtual Private Cloud (VPC) security groups to be
+      -- associated with the cluster. Default: The default VPC security
+      -- group is associated with the cluster. VPC security groups only
+      -- apply to clusters in VPCs.
     , _rfcsmPreferredMaintenanceWindow :: Maybe Text
       -- ^ The weekly time range (in UTC) during which automated cluster
       -- maintenance can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default:
@@ -177,11 +176,13 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
       -- Region 12:00-20:00 UTC Asia Pacific (Tokyo) Region 17:00-03:00
       -- UTC Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
       -- Constraints: Minimum 30-minute window.
-    , _rfcsmVpcSecurityGroupIds :: [Text]
-      -- ^ A list of Virtual Private Cloud (VPC) security groups to be
-      -- associated with the cluster. Default: The default VPC security
-      -- group is associated with the cluster. VPC security groups only
-      -- apply to clusters in VPCs.
+    , _rfcsmAutomatedSnapshotRetentionPeriod :: Maybe Integer
+      -- ^ The number of days that automated snapshots are retained. If the
+      -- value is 0, automated snapshots are disabled. Even if automated
+      -- snapshots are disabled, you can still create manual snapshots
+      -- when you want with CreateClusterSnapshot. Default: The value
+      -- selected for the cluster from which the snapshot was taken.
+      -- Constraints: Must be a value from 0 to 35.
     } deriving (Show, Generic)
 
 -- | The identifier of the cluster that will be created from restoring the
@@ -190,118 +191,74 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 -- letter. Cannot end with a hyphen or contain two consecutive hyphens. Must
 -- be unique for all clusters within an AWS account.
 rfcsmClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Text)
-rfcsmClusterIdentifier f x =
-    f (_rfcsmClusterIdentifier x)
-        <&> \y -> x { _rfcsmClusterIdentifier = y }
+rfcsmClusterIdentifier = lens _rfcsmClusterIdentifier (\s a -> s { _rfcsmClusterIdentifier = a })
 {-# INLINE rfcsmClusterIdentifier #-}
 
 -- | The name of the snapshot from which to create the new cluster. This
 -- parameter isn't case sensitive. Example: my-snapshot-id.
 rfcsmSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot (Text)
-rfcsmSnapshotIdentifier f x =
-    f (_rfcsmSnapshotIdentifier x)
-        <&> \y -> x { _rfcsmSnapshotIdentifier = y }
+rfcsmSnapshotIdentifier = lens _rfcsmSnapshotIdentifier (\s a -> s { _rfcsmSnapshotIdentifier = a })
 {-# INLINE rfcsmSnapshotIdentifier #-}
-
--- | If true, upgrades can be applied during the maintenance window to the
--- Amazon Redshift engine that is running on the cluster. Default: true.
-rfcsmAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
-rfcsmAllowVersionUpgrade f x =
-    f (_rfcsmAllowVersionUpgrade x)
-        <&> \y -> x { _rfcsmAllowVersionUpgrade = y }
-{-# INLINE rfcsmAllowVersionUpgrade #-}
-
--- | If true, the cluster can be accessed from a public network.
-rfcsmPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
-rfcsmPubliclyAccessible f x =
-    f (_rfcsmPubliclyAccessible x)
-        <&> \y -> x { _rfcsmPubliclyAccessible = y }
-{-# INLINE rfcsmPubliclyAccessible #-}
-
--- | A list of security groups to be associated with this cluster. Default: The
--- default cluster security group for Amazon Redshift. Cluster security groups
--- only apply to clusters outside of VPCs.
-rfcsmClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot ([Text])
-rfcsmClusterSecurityGroups f x =
-    f (_rfcsmClusterSecurityGroups x)
-        <&> \y -> x { _rfcsmClusterSecurityGroups = y }
-{-# INLINE rfcsmClusterSecurityGroups #-}
-
--- | The port number on which the cluster accepts connections. Default: The same
--- port as the original cluster. Constraints: Must be between 1115 and 65535.
-rfcsmPort :: Lens' RestoreFromClusterSnapshot (Maybe Integer)
-rfcsmPort f x =
-    f (_rfcsmPort x)
-        <&> \y -> x { _rfcsmPort = y }
-{-# INLINE rfcsmPort #-}
-
--- | The number of days that automated snapshots are retained. If the value is
--- 0, automated snapshots are disabled. Even if automated snapshots are
--- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot. Default: The value selected for the cluster from
--- which the snapshot was taken. Constraints: Must be a value from 0 to 35.
-rfcsmAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Integer)
-rfcsmAutomatedSnapshotRetentionPeriod f x =
-    f (_rfcsmAutomatedSnapshotRetentionPeriod x)
-        <&> \y -> x { _rfcsmAutomatedSnapshotRetentionPeriod = y }
-{-# INLINE rfcsmAutomatedSnapshotRetentionPeriod #-}
 
 -- | The name of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster name.
 rfcsmSnapshotClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmSnapshotClusterIdentifier f x =
-    f (_rfcsmSnapshotClusterIdentifier x)
-        <&> \y -> x { _rfcsmSnapshotClusterIdentifier = y }
+rfcsmSnapshotClusterIdentifier = lens _rfcsmSnapshotClusterIdentifier (\s a -> s { _rfcsmSnapshotClusterIdentifier = a })
 {-# INLINE rfcsmSnapshotClusterIdentifier #-}
+
+-- | The port number on which the cluster accepts connections. Default: The same
+-- port as the original cluster. Constraints: Must be between 1115 and 65535.
+rfcsmPort :: Lens' RestoreFromClusterSnapshot (Maybe Integer)
+rfcsmPort = lens _rfcsmPort (\s a -> s { _rfcsmPort = a })
+{-# INLINE rfcsmPort #-}
 
 -- | The Amazon EC2 Availability Zone in which to restore the cluster. Default:
 -- A random, system-chosen Availability Zone. Example: us-east-1a.
 rfcsmAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmAvailabilityZone f x =
-    f (_rfcsmAvailabilityZone x)
-        <&> \y -> x { _rfcsmAvailabilityZone = y }
+rfcsmAvailabilityZone = lens _rfcsmAvailabilityZone (\s a -> s { _rfcsmAvailabilityZone = a })
 {-# INLINE rfcsmAvailabilityZone #-}
+
+-- | If true, upgrades can be applied during the maintenance window to the
+-- Amazon Redshift engine that is running on the cluster. Default: true.
+rfcsmAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
+rfcsmAllowVersionUpgrade = lens _rfcsmAllowVersionUpgrade (\s a -> s { _rfcsmAllowVersionUpgrade = a })
+{-# INLINE rfcsmAllowVersionUpgrade #-}
 
 -- | The name of the subnet group where you want to cluster restored. A snapshot
 -- of cluster in VPC can be restored only in VPC. Therefore, you must provide
 -- subnet group name where you want the cluster restored.
 rfcsmClusterSubnetGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmClusterSubnetGroupName f x =
-    f (_rfcsmClusterSubnetGroupName x)
-        <&> \y -> x { _rfcsmClusterSubnetGroupName = y }
+rfcsmClusterSubnetGroupName = lens _rfcsmClusterSubnetGroupName (\s a -> s { _rfcsmClusterSubnetGroupName = a })
 {-# INLINE rfcsmClusterSubnetGroupName #-}
+
+-- | If true, the cluster can be accessed from a public network.
+rfcsmPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
+rfcsmPubliclyAccessible = lens _rfcsmPubliclyAccessible (\s a -> s { _rfcsmPubliclyAccessible = a })
+{-# INLINE rfcsmPubliclyAccessible #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Required if
 -- you are restoring a snapshot you do not own, optional if you own the
 -- snapshot.
 rfcsmOwnerAccount :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmOwnerAccount f x =
-    f (_rfcsmOwnerAccount x)
-        <&> \y -> x { _rfcsmOwnerAccount = y }
+rfcsmOwnerAccount = lens _rfcsmOwnerAccount (\s a -> s { _rfcsmOwnerAccount = a })
 {-# INLINE rfcsmOwnerAccount #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
 rfcsmHsmClientCertificateIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmHsmClientCertificateIdentifier f x =
-    f (_rfcsmHsmClientCertificateIdentifier x)
-        <&> \y -> x { _rfcsmHsmClientCertificateIdentifier = y }
+rfcsmHsmClientCertificateIdentifier = lens _rfcsmHsmClientCertificateIdentifier (\s a -> s { _rfcsmHsmClientCertificateIdentifier = a })
 {-# INLINE rfcsmHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 rfcsmHsmConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmHsmConfigurationIdentifier f x =
-    f (_rfcsmHsmConfigurationIdentifier x)
-        <&> \y -> x { _rfcsmHsmConfigurationIdentifier = y }
+rfcsmHsmConfigurationIdentifier = lens _rfcsmHsmConfigurationIdentifier (\s a -> s { _rfcsmHsmConfigurationIdentifier = a })
 {-# INLINE rfcsmHsmConfigurationIdentifier #-}
 
 -- | The elastic IP (EIP) address for the cluster.
 rfcsmElasticIp :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmElasticIp f x =
-    f (_rfcsmElasticIp x)
-        <&> \y -> x { _rfcsmElasticIp = y }
+rfcsmElasticIp = lens _rfcsmElasticIp (\s a -> s { _rfcsmElasticIp = a })
 {-# INLINE rfcsmElasticIp #-}
 
 -- | The name of the parameter group to be associated with this cluster.
@@ -311,10 +268,22 @@ rfcsmElasticIp f x =
 -- characters or hyphens. First character must be a letter. Cannot end with a
 -- hyphen or contain two consecutive hyphens.
 rfcsmClusterParameterGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmClusterParameterGroupName f x =
-    f (_rfcsmClusterParameterGroupName x)
-        <&> \y -> x { _rfcsmClusterParameterGroupName = y }
+rfcsmClusterParameterGroupName = lens _rfcsmClusterParameterGroupName (\s a -> s { _rfcsmClusterParameterGroupName = a })
 {-# INLINE rfcsmClusterParameterGroupName #-}
+
+-- | A list of security groups to be associated with this cluster. Default: The
+-- default cluster security group for Amazon Redshift. Cluster security groups
+-- only apply to clusters outside of VPCs.
+rfcsmClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot ([Text])
+rfcsmClusterSecurityGroups = lens _rfcsmClusterSecurityGroups (\s a -> s { _rfcsmClusterSecurityGroups = a })
+{-# INLINE rfcsmClusterSecurityGroups #-}
+
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated with
+-- the cluster. Default: The default VPC security group is associated with the
+-- cluster. VPC security groups only apply to clusters in VPCs.
+rfcsmVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshot ([Text])
+rfcsmVpcSecurityGroupIds = lens _rfcsmVpcSecurityGroupIds (\s a -> s { _rfcsmVpcSecurityGroupIds = a })
+{-# INLINE rfcsmVpcSecurityGroupIds #-}
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
 -- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected for
@@ -326,33 +295,29 @@ rfcsmClusterParameterGroupName f x =
 -- 12:00-20:00 UTC Asia Pacific (Tokyo) Region 17:00-03:00 UTC Valid Days: Mon
 -- | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
 rfcsmPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsmPreferredMaintenanceWindow f x =
-    f (_rfcsmPreferredMaintenanceWindow x)
-        <&> \y -> x { _rfcsmPreferredMaintenanceWindow = y }
+rfcsmPreferredMaintenanceWindow = lens _rfcsmPreferredMaintenanceWindow (\s a -> s { _rfcsmPreferredMaintenanceWindow = a })
 {-# INLINE rfcsmPreferredMaintenanceWindow #-}
 
--- | A list of Virtual Private Cloud (VPC) security groups to be associated with
--- the cluster. Default: The default VPC security group is associated with the
--- cluster. VPC security groups only apply to clusters in VPCs.
-rfcsmVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshot ([Text])
-rfcsmVpcSecurityGroupIds f x =
-    f (_rfcsmVpcSecurityGroupIds x)
-        <&> \y -> x { _rfcsmVpcSecurityGroupIds = y }
-{-# INLINE rfcsmVpcSecurityGroupIds #-}
+-- | The number of days that automated snapshots are retained. If the value is
+-- 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot. Default: The value selected for the cluster from
+-- which the snapshot was taken. Constraints: Must be a value from 0 to 35.
+rfcsmAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Integer)
+rfcsmAutomatedSnapshotRetentionPeriod = lens _rfcsmAutomatedSnapshotRetentionPeriod (\s a -> s { _rfcsmAutomatedSnapshotRetentionPeriod = a })
+{-# INLINE rfcsmAutomatedSnapshotRetentionPeriod #-}
 
 instance ToQuery RestoreFromClusterSnapshot where
     toQuery = genericQuery def
 
-data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
+newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _ccyCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
 ccyCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
-ccyCluster f x =
-    f (_ccyCluster x)
-        <&> \y -> x { _ccyCluster = y }
+ccyCluster = lens _ccyCluster (\s a -> s { _ccyCluster = a })
 {-# INLINE ccyCluster #-}
 
 instance FromXML RestoreFromClusterSnapshotResponse where

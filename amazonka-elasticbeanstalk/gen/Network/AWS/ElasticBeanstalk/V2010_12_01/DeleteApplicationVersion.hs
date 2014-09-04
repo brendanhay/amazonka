@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion
     -- * Request
       DeleteApplicationVersion
     -- ** Request constructor
-    , deleteApplicationVersion
+    , mkDeleteApplicationVersionMessage
     -- ** Request lenses
     , davmApplicationName
     , davmVersionLabel
@@ -42,16 +42,17 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteApplicationVersion' request.
-deleteApplicationVersion :: Text -- ^ 'davmApplicationName'
-                         -> Text -- ^ 'davmVersionLabel'
-                         -> DeleteApplicationVersion
-deleteApplicationVersion p1 p2 = DeleteApplicationVersion
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteApplicationVersion' request.
+mkDeleteApplicationVersionMessage :: Text -- ^ 'davmApplicationName'
+                                  -> Text -- ^ 'davmVersionLabel'
+                                  -> DeleteApplicationVersion
+mkDeleteApplicationVersionMessage p1 p2 = DeleteApplicationVersion
     { _davmApplicationName = p1
     , _davmVersionLabel = p2
     , _davmDeleteSourceBundle = Nothing
     }
-{-# INLINE deleteApplicationVersion #-}
+{-# INLINE mkDeleteApplicationVersionMessage #-}
 
 data DeleteApplicationVersion = DeleteApplicationVersion
     { _davmApplicationName :: Text
@@ -68,16 +69,12 @@ data DeleteApplicationVersion = DeleteApplicationVersion
 
 -- | The name of the application to delete releases from.
 davmApplicationName :: Lens' DeleteApplicationVersion (Text)
-davmApplicationName f x =
-    f (_davmApplicationName x)
-        <&> \y -> x { _davmApplicationName = y }
+davmApplicationName = lens _davmApplicationName (\s a -> s { _davmApplicationName = a })
 {-# INLINE davmApplicationName #-}
 
 -- | The label of the version to delete.
 davmVersionLabel :: Lens' DeleteApplicationVersion (Text)
-davmVersionLabel f x =
-    f (_davmVersionLabel x)
-        <&> \y -> x { _davmVersionLabel = y }
+davmVersionLabel = lens _davmVersionLabel (\s a -> s { _davmVersionLabel = a })
 {-# INLINE davmVersionLabel #-}
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
@@ -85,9 +82,7 @@ davmVersionLabel f x =
 -- specified at time of creation. false: No action is taken on the Amazon S3
 -- source bundle specified at time of creation. Valid Values: true | false.
 davmDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
-davmDeleteSourceBundle f x =
-    f (_davmDeleteSourceBundle x)
-        <&> \y -> x { _davmDeleteSourceBundle = y }
+davmDeleteSourceBundle = lens _davmDeleteSourceBundle (\s a -> s { _davmDeleteSourceBundle = a })
 {-# INLINE davmDeleteSourceBundle #-}
 
 instance ToQuery DeleteApplicationVersion where

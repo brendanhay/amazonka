@@ -38,7 +38,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
     -- * Request
       CreateVpnConnectionRoute
     -- ** Request constructor
-    , createVpnConnectionRoute
+    , mkCreateVpnConnectionRouteRequest
     -- ** Request lenses
     , cvcrrVpnConnectionId
     , cvcrrDestinationCidrBlock
@@ -51,15 +51,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateVpnConnectionRoute' request.
-createVpnConnectionRoute :: Text -- ^ 'cvcrrVpnConnectionId'
-                         -> Text -- ^ 'cvcrrDestinationCidrBlock'
-                         -> CreateVpnConnectionRoute
-createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnConnectionRoute' request.
+mkCreateVpnConnectionRouteRequest :: Text -- ^ 'cvcrrVpnConnectionId'
+                                  -> Text -- ^ 'cvcrrDestinationCidrBlock'
+                                  -> CreateVpnConnectionRoute
+mkCreateVpnConnectionRouteRequest p1 p2 = CreateVpnConnectionRoute
     { _cvcrrVpnConnectionId = p1
     , _cvcrrDestinationCidrBlock = p2
     }
-{-# INLINE createVpnConnectionRoute #-}
+{-# INLINE mkCreateVpnConnectionRouteRequest #-}
 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { _cvcrrVpnConnectionId :: Text
@@ -71,16 +72,12 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute
 
 -- | The ID of the VPN connection.
 cvcrrVpnConnectionId :: Lens' CreateVpnConnectionRoute (Text)
-cvcrrVpnConnectionId f x =
-    f (_cvcrrVpnConnectionId x)
-        <&> \y -> x { _cvcrrVpnConnectionId = y }
+cvcrrVpnConnectionId = lens _cvcrrVpnConnectionId (\s a -> s { _cvcrrVpnConnectionId = a })
 {-# INLINE cvcrrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
 cvcrrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute (Text)
-cvcrrDestinationCidrBlock f x =
-    f (_cvcrrDestinationCidrBlock x)
-        <&> \y -> x { _cvcrrDestinationCidrBlock = y }
+cvcrrDestinationCidrBlock = lens _cvcrrDestinationCidrBlock (\s a -> s { _cvcrrDestinationCidrBlock = a })
 {-# INLINE cvcrrDestinationCidrBlock #-}
 
 instance ToQuery CreateVpnConnectionRoute where

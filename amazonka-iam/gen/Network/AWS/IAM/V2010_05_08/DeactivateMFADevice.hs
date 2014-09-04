@@ -26,7 +26,7 @@ module Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
     -- * Request
       DeactivateMFADevice
     -- ** Request constructor
-    , deactivateMFADevice
+    , mkDeactivateMFADeviceRequest
     -- ** Request lenses
     , dmfadrUserName
     , dmfadrSerialNumber
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeactivateMFADevice' request.
-deactivateMFADevice :: Text -- ^ 'dmfadrUserName'
-                    -> Text -- ^ 'dmfadrSerialNumber'
-                    -> DeactivateMFADevice
-deactivateMFADevice p1 p2 = DeactivateMFADevice
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeactivateMFADevice' request.
+mkDeactivateMFADeviceRequest :: Text -- ^ 'dmfadrUserName'
+                             -> Text -- ^ 'dmfadrSerialNumber'
+                             -> DeactivateMFADevice
+mkDeactivateMFADeviceRequest p1 p2 = DeactivateMFADevice
     { _dmfadrUserName = p1
     , _dmfadrSerialNumber = p2
     }
-{-# INLINE deactivateMFADevice #-}
+{-# INLINE mkDeactivateMFADeviceRequest #-}
 
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadrUserName :: Text
@@ -59,17 +60,13 @@ data DeactivateMFADevice = DeactivateMFADevice
 
 -- | Name of the user whose MFA device you want to deactivate.
 dmfadrUserName :: Lens' DeactivateMFADevice (Text)
-dmfadrUserName f x =
-    f (_dmfadrUserName x)
-        <&> \y -> x { _dmfadrUserName = y }
+dmfadrUserName = lens _dmfadrUserName (\s a -> s { _dmfadrUserName = a })
 {-# INLINE dmfadrUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
 dmfadrSerialNumber :: Lens' DeactivateMFADevice (Text)
-dmfadrSerialNumber f x =
-    f (_dmfadrSerialNumber x)
-        <&> \y -> x { _dmfadrSerialNumber = y }
+dmfadrSerialNumber = lens _dmfadrSerialNumber (\s a -> s { _dmfadrSerialNumber = a })
 {-# INLINE dmfadrSerialNumber #-}
 
 instance ToQuery DeactivateMFADevice where

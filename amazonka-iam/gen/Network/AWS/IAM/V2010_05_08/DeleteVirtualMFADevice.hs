@@ -29,7 +29,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
     -- * Request
       DeleteVirtualMFADevice
     -- ** Request constructor
-    , deleteVirtualMFADevice
+    , mkDeleteVirtualMFADeviceRequest
     -- ** Request lenses
     , dvmfadrSerialNumber
 
@@ -41,15 +41,16 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteVirtualMFADevice' request.
-deleteVirtualMFADevice :: Text -- ^ 'dvmfadrSerialNumber'
-                       -> DeleteVirtualMFADevice
-deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVirtualMFADevice' request.
+mkDeleteVirtualMFADeviceRequest :: Text -- ^ 'dvmfadrSerialNumber'
+                                -> DeleteVirtualMFADevice
+mkDeleteVirtualMFADeviceRequest p1 = DeleteVirtualMFADevice
     { _dvmfadrSerialNumber = p1
     }
-{-# INLINE deleteVirtualMFADevice #-}
+{-# INLINE mkDeleteVirtualMFADeviceRequest #-}
 
-data DeleteVirtualMFADevice = DeleteVirtualMFADevice
+newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadrSerialNumber :: Text
       -- ^ The serial number that uniquely identifies the MFA device. For
       -- virtual MFA devices, the serial number is the same as the ARN.
@@ -58,9 +59,7 @@ data DeleteVirtualMFADevice = DeleteVirtualMFADevice
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the same as the ARN.
 dvmfadrSerialNumber :: Lens' DeleteVirtualMFADevice (Text)
-dvmfadrSerialNumber f x =
-    f (_dvmfadrSerialNumber x)
-        <&> \y -> x { _dvmfadrSerialNumber = y }
+dvmfadrSerialNumber = lens _dvmfadrSerialNumber (\s a -> s { _dvmfadrSerialNumber = a })
 {-# INLINE dvmfadrSerialNumber #-}
 
 instance ToQuery DeleteVirtualMFADevice where

@@ -40,7 +40,7 @@ module Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
     -- * Request
       GetIdentityNotificationAttributes
     -- ** Request constructor
-    , getIdentityNotificationAttributes
+    , mkGetIdentityNotificationAttributesRequest
     -- ** Request lenses
     , ginarIdentities
 
@@ -54,39 +54,36 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetIdentityNotificationAttributes' request.
-getIdentityNotificationAttributes :: [Text] -- ^ 'ginarIdentities'
-                                  -> GetIdentityNotificationAttributes
-getIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityNotificationAttributes' request.
+mkGetIdentityNotificationAttributesRequest :: [Text] -- ^ 'ginarIdentities'
+                                           -> GetIdentityNotificationAttributes
+mkGetIdentityNotificationAttributesRequest p1 = GetIdentityNotificationAttributes
     { _ginarIdentities = p1
     }
-{-# INLINE getIdentityNotificationAttributes #-}
+{-# INLINE mkGetIdentityNotificationAttributesRequest #-}
 
-data GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
+newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginarIdentities :: [Text]
       -- ^ A list of one or more identities.
     } deriving (Show, Generic)
 
 -- | A list of one or more identities.
 ginarIdentities :: Lens' GetIdentityNotificationAttributes ([Text])
-ginarIdentities f x =
-    f (_ginarIdentities x)
-        <&> \y -> x { _ginarIdentities = y }
+ginarIdentities = lens _ginarIdentities (\s a -> s { _ginarIdentities = a })
 {-# INLINE ginarIdentities #-}
 
 instance ToQuery GetIdentityNotificationAttributes where
     toQuery = genericQuery def
 
-data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
+newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginasNotificationAttributes :: Map Text IdentityNotificationAttributes
       -- ^ A map of Identity to IdentityNotificationAttributes.
     } deriving (Show, Generic)
 
 -- | A map of Identity to IdentityNotificationAttributes.
 ginasNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
-ginasNotificationAttributes f x =
-    f (_ginasNotificationAttributes x)
-        <&> \y -> x { _ginasNotificationAttributes = y }
+ginasNotificationAttributes = lens _ginasNotificationAttributes (\s a -> s { _ginasNotificationAttributes = a })
 {-# INLINE ginasNotificationAttributes #-}
 
 instance FromXML GetIdentityNotificationAttributesResponse where

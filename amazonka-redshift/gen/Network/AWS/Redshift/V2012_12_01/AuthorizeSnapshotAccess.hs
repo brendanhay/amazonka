@@ -25,11 +25,11 @@ module Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess
     -- * Request
       AuthorizeSnapshotAccess
     -- ** Request constructor
-    , authorizeSnapshotAccess
+    , mkAuthorizeSnapshotAccessMessage
     -- ** Request lenses
     , asamSnapshotIdentifier
-    , asamAccountWithRestoreAccess
     , asamSnapshotClusterIdentifier
+    , asamAccountWithRestoreAccess
 
     -- * Response
     , AuthorizeSnapshotAccessResponse
@@ -41,68 +41,61 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AuthorizeSnapshotAccess' request.
-authorizeSnapshotAccess :: Text -- ^ 'asamSnapshotIdentifier'
-                        -> Text -- ^ 'asamAccountWithRestoreAccess'
-                        -> AuthorizeSnapshotAccess
-authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeSnapshotAccess' request.
+mkAuthorizeSnapshotAccessMessage :: Text -- ^ 'asamSnapshotIdentifier'
+                                 -> Text -- ^ 'asamAccountWithRestoreAccess'
+                                 -> AuthorizeSnapshotAccess
+mkAuthorizeSnapshotAccessMessage p1 p2 = AuthorizeSnapshotAccess
     { _asamSnapshotIdentifier = p1
-    , _asamAccountWithRestoreAccess = p2
     , _asamSnapshotClusterIdentifier = Nothing
+    , _asamAccountWithRestoreAccess = p3
     }
-{-# INLINE authorizeSnapshotAccess #-}
+{-# INLINE mkAuthorizeSnapshotAccessMessage #-}
 
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asamSnapshotIdentifier :: Text
       -- ^ The identifier of the snapshot the account is authorized to
       -- restore.
-    , _asamAccountWithRestoreAccess :: Text
-      -- ^ The identifier of the AWS customer account authorized to restore
-      -- the specified snapshot.
     , _asamSnapshotClusterIdentifier :: Maybe Text
       -- ^ The identifier of the cluster the snapshot was created from. This
       -- parameter is required if your IAM user has a policy containing a
       -- snapshot resource element that specifies anything other than *
       -- for the cluster name.
+    , _asamAccountWithRestoreAccess :: Text
+      -- ^ The identifier of the AWS customer account authorized to restore
+      -- the specified snapshot.
     } deriving (Show, Generic)
 
 -- | The identifier of the snapshot the account is authorized to restore.
 asamSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess (Text)
-asamSnapshotIdentifier f x =
-    f (_asamSnapshotIdentifier x)
-        <&> \y -> x { _asamSnapshotIdentifier = y }
+asamSnapshotIdentifier = lens _asamSnapshotIdentifier (\s a -> s { _asamSnapshotIdentifier = a })
 {-# INLINE asamSnapshotIdentifier #-}
-
--- | The identifier of the AWS customer account authorized to restore the
--- specified snapshot.
-asamAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess (Text)
-asamAccountWithRestoreAccess f x =
-    f (_asamAccountWithRestoreAccess x)
-        <&> \y -> x { _asamAccountWithRestoreAccess = y }
-{-# INLINE asamAccountWithRestoreAccess #-}
 
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
 -- element that specifies anything other than * for the cluster name.
 asamSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
-asamSnapshotClusterIdentifier f x =
-    f (_asamSnapshotClusterIdentifier x)
-        <&> \y -> x { _asamSnapshotClusterIdentifier = y }
+asamSnapshotClusterIdentifier = lens _asamSnapshotClusterIdentifier (\s a -> s { _asamSnapshotClusterIdentifier = a })
 {-# INLINE asamSnapshotClusterIdentifier #-}
+
+-- | The identifier of the AWS customer account authorized to restore the
+-- specified snapshot.
+asamAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess (Text)
+asamAccountWithRestoreAccess = lens _asamAccountWithRestoreAccess (\s a -> s { _asamAccountWithRestoreAccess = a })
+{-# INLINE asamAccountWithRestoreAccess #-}
 
 instance ToQuery AuthorizeSnapshotAccess where
     toQuery = genericQuery def
 
-data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
+newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _swSnapshot :: Maybe Snapshot
       -- ^ Describes a snapshot.
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
 swSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
-swSnapshot f x =
-    f (_swSnapshot x)
-        <&> \y -> x { _swSnapshot = y }
+swSnapshot = lens _swSnapshot (\s a -> s { _swSnapshot = a })
 {-# INLINE swSnapshot #-}
 
 instance FromXML AuthorizeSnapshotAccessResponse where

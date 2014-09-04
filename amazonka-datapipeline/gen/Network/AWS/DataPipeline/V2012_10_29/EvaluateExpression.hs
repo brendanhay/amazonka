@@ -34,7 +34,7 @@ module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
     -- * Request
       EvaluateExpression
     -- ** Request constructor
-    , evaluateExpression
+    , mkEvaluateExpressionInput
     -- ** Request lenses
     , eeiPipelineId
     , eeiObjectId
@@ -51,17 +51,18 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'EvaluateExpression' request.
-evaluateExpression :: Text -- ^ 'eeiPipelineId'
-                   -> Text -- ^ 'eeiObjectId'
-                   -> Text -- ^ 'eeiExpression'
-                   -> EvaluateExpression
-evaluateExpression p1 p2 p3 = EvaluateExpression
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EvaluateExpression' request.
+mkEvaluateExpressionInput :: Text -- ^ 'eeiPipelineId'
+                          -> Text -- ^ 'eeiObjectId'
+                          -> Text -- ^ 'eeiExpression'
+                          -> EvaluateExpression
+mkEvaluateExpressionInput p1 p2 p3 = EvaluateExpression
     { _eeiPipelineId = p1
     , _eeiObjectId = p2
     , _eeiExpression = p3
     }
-{-# INLINE evaluateExpression #-}
+{-# INLINE mkEvaluateExpressionInput #-}
 
 data EvaluateExpression = EvaluateExpression
     { _eeiPipelineId :: Text
@@ -74,23 +75,17 @@ data EvaluateExpression = EvaluateExpression
 
 -- | The identifier of the pipeline.
 eeiPipelineId :: Lens' EvaluateExpression (Text)
-eeiPipelineId f x =
-    f (_eeiPipelineId x)
-        <&> \y -> x { _eeiPipelineId = y }
+eeiPipelineId = lens _eeiPipelineId (\s a -> s { _eeiPipelineId = a })
 {-# INLINE eeiPipelineId #-}
 
 -- | The identifier of the object.
 eeiObjectId :: Lens' EvaluateExpression (Text)
-eeiObjectId f x =
-    f (_eeiObjectId x)
-        <&> \y -> x { _eeiObjectId = y }
+eeiObjectId = lens _eeiObjectId (\s a -> s { _eeiObjectId = a })
 {-# INLINE eeiObjectId #-}
 
 -- | The expression to evaluate.
 eeiExpression :: Lens' EvaluateExpression (Text)
-eeiExpression f x =
-    f (_eeiExpression x)
-        <&> \y -> x { _eeiExpression = y }
+eeiExpression = lens _eeiExpression (\s a -> s { _eeiExpression = a })
 {-# INLINE eeiExpression #-}
 
 instance ToPath EvaluateExpression
@@ -101,16 +96,14 @@ instance ToHeaders EvaluateExpression
 
 instance ToJSON EvaluateExpression
 
-data EvaluateExpressionResponse = EvaluateExpressionResponse
+newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eeoEvaluatedExpression :: Text
       -- ^ The evaluated expression.
     } deriving (Show, Generic)
 
 -- | The evaluated expression.
 eeoEvaluatedExpression :: Lens' EvaluateExpressionResponse (Text)
-eeoEvaluatedExpression f x =
-    f (_eeoEvaluatedExpression x)
-        <&> \y -> x { _eeoEvaluatedExpression = y }
+eeoEvaluatedExpression = lens _eeoEvaluatedExpression (\s a -> s { _eeoEvaluatedExpression = a })
 {-# INLINE eeoEvaluatedExpression #-}
 
 instance FromJSON EvaluateExpressionResponse

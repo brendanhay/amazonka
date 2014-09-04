@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute
     -- * Request
       ResetNetworkInterfaceAttribute
     -- ** Request constructor
-    , resetNetworkInterfaceAttribute
+    , mkResetNetworkInterfaceAttributeRequest
     -- ** Request lenses
     , rniarNetworkInterfaceId
     , rniarSourceDestCheck
@@ -45,14 +45,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ResetNetworkInterfaceAttribute' request.
-resetNetworkInterfaceAttribute :: Text -- ^ 'rniarNetworkInterfaceId'
-                               -> ResetNetworkInterfaceAttribute
-resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetNetworkInterfaceAttribute' request.
+mkResetNetworkInterfaceAttributeRequest :: Text -- ^ 'rniarNetworkInterfaceId'
+                                        -> ResetNetworkInterfaceAttribute
+mkResetNetworkInterfaceAttributeRequest p1 = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId = p1
     , _rniarSourceDestCheck = Nothing
     }
-{-# INLINE resetNetworkInterfaceAttribute #-}
+{-# INLINE mkResetNetworkInterfaceAttributeRequest #-}
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniarNetworkInterfaceId :: Text
@@ -66,18 +67,14 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
 
 -- | The ID of the network interface.
 rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute (Text)
-rniarNetworkInterfaceId f x =
-    f (_rniarNetworkInterfaceId x)
-        <&> \y -> x { _rniarNetworkInterfaceId = y }
+rniarNetworkInterfaceId = lens _rniarNetworkInterfaceId (\s a -> s { _rniarNetworkInterfaceId = a })
 {-# INLINE rniarNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT.
 rniarSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
-rniarSourceDestCheck f x =
-    f (_rniarSourceDestCheck x)
-        <&> \y -> x { _rniarSourceDestCheck = y }
+rniarSourceDestCheck = lens _rniarSourceDestCheck (\s a -> s { _rniarSourceDestCheck = a })
 {-# INLINE rniarSourceDestCheck #-}
 
 instance ToQuery ResetNetworkInterfaceAttribute where

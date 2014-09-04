@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeCommands
     -- * Request
       DescribeCommands
     -- ** Request constructor
-    , describeCommands
+    , mkDescribeCommandsRequest
     -- ** Request lenses
     , dcrDeploymentId
     , dcrInstanceId
@@ -44,14 +44,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeCommands' request.
-describeCommands :: DescribeCommands
-describeCommands = DescribeCommands
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCommands' request.
+mkDescribeCommandsRequest :: DescribeCommands
+mkDescribeCommandsRequest = DescribeCommands
     { _dcrDeploymentId = Nothing
     , _dcrInstanceId = Nothing
     , _dcrCommandIds = mempty
     }
-{-# INLINE describeCommands #-}
+{-# INLINE mkDescribeCommandsRequest #-}
 
 data DescribeCommands = DescribeCommands
     { _dcrDeploymentId :: Maybe Text
@@ -71,26 +72,20 @@ data DescribeCommands = DescribeCommands
 -- | The deployment ID. If you include this parameter, DescribeCommands returns
 -- a description of the commands associated with the specified deployment.
 dcrDeploymentId :: Lens' DescribeCommands (Maybe Text)
-dcrDeploymentId f x =
-    f (_dcrDeploymentId x)
-        <&> \y -> x { _dcrDeploymentId = y }
+dcrDeploymentId = lens _dcrDeploymentId (\s a -> s { _dcrDeploymentId = a })
 {-# INLINE dcrDeploymentId #-}
 
 -- | The instance ID. If you include this parameter, DescribeCommands returns a
 -- description of the commands associated with the specified instance.
 dcrInstanceId :: Lens' DescribeCommands (Maybe Text)
-dcrInstanceId f x =
-    f (_dcrInstanceId x)
-        <&> \y -> x { _dcrInstanceId = y }
+dcrInstanceId = lens _dcrInstanceId (\s a -> s { _dcrInstanceId = a })
 {-# INLINE dcrInstanceId #-}
 
 -- | An array of command IDs. If you include this parameter, DescribeCommands
 -- returns a description of the specified commands. Otherwise, it returns a
 -- description of every command.
 dcrCommandIds :: Lens' DescribeCommands ([Text])
-dcrCommandIds f x =
-    f (_dcrCommandIds x)
-        <&> \y -> x { _dcrCommandIds = y }
+dcrCommandIds = lens _dcrCommandIds (\s a -> s { _dcrCommandIds = a })
 {-# INLINE dcrCommandIds #-}
 
 instance ToPath DescribeCommands
@@ -101,7 +96,7 @@ instance ToHeaders DescribeCommands
 
 instance ToJSON DescribeCommands
 
-data DescribeCommandsResponse = DescribeCommandsResponse
+newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcsCommands :: [Command]
       -- ^ An array of Command objects that describe each of the specified
       -- commands.
@@ -109,9 +104,7 @@ data DescribeCommandsResponse = DescribeCommandsResponse
 
 -- | An array of Command objects that describe each of the specified commands.
 dcsCommands :: Lens' DescribeCommandsResponse ([Command])
-dcsCommands f x =
-    f (_dcsCommands x)
-        <&> \y -> x { _dcsCommands = y }
+dcsCommands = lens _dcsCommands (\s a -> s { _dcsCommands = a })
 {-# INLINE dcsCommands #-}
 
 instance FromJSON DescribeCommandsResponse

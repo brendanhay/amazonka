@@ -38,7 +38,7 @@ module Network.AWS.IAM.V2010_05_08.CreateAccessKey
     -- * Request
       CreateAccessKey
     -- ** Request constructor
-    , createAccessKey
+    , mkCreateAccessKeyRequest
     -- ** Request lenses
     , cakrUserName
 
@@ -52,38 +52,35 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateAccessKey' request.
-createAccessKey :: CreateAccessKey
-createAccessKey = CreateAccessKey
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAccessKey' request.
+mkCreateAccessKeyRequest :: CreateAccessKey
+mkCreateAccessKeyRequest = CreateAccessKey
     { _cakrUserName = Nothing
     }
-{-# INLINE createAccessKey #-}
+{-# INLINE mkCreateAccessKeyRequest #-}
 
-data CreateAccessKey = CreateAccessKey
+newtype CreateAccessKey = CreateAccessKey
     { _cakrUserName :: Maybe Text
       -- ^ The user name that the new key will belong to.
     } deriving (Show, Generic)
 
 -- | The user name that the new key will belong to.
 cakrUserName :: Lens' CreateAccessKey (Maybe Text)
-cakrUserName f x =
-    f (_cakrUserName x)
-        <&> \y -> x { _cakrUserName = y }
+cakrUserName = lens _cakrUserName (\s a -> s { _cakrUserName = a })
 {-# INLINE cakrUserName #-}
 
 instance ToQuery CreateAccessKey where
     toQuery = genericQuery def
 
-data CreateAccessKeyResponse = CreateAccessKeyResponse
+newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _caksAccessKey :: AccessKey
       -- ^ Information about the access key.
     } deriving (Show, Generic)
 
 -- | Information about the access key.
 caksAccessKey :: Lens' CreateAccessKeyResponse (AccessKey)
-caksAccessKey f x =
-    f (_caksAccessKey x)
-        <&> \y -> x { _caksAccessKey = y }
+caksAccessKey = lens _caksAccessKey (\s a -> s { _caksAccessKey = a })
 {-# INLINE caksAccessKey #-}
 
 instance FromXML CreateAccessKeyResponse where

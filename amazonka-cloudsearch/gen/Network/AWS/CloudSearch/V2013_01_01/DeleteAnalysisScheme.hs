@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
     -- * Request
       DeleteAnalysisScheme
     -- ** Request constructor
-    , deleteAnalysisScheme
+    , mkDeleteAnalysisSchemeRequest
     -- ** Request lenses
     , dastDomainName
     , dastAnalysisSchemeName
@@ -39,15 +39,16 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteAnalysisScheme' request.
-deleteAnalysisScheme :: Text -- ^ 'dastDomainName'
-                     -> Text -- ^ 'dastAnalysisSchemeName'
-                     -> DeleteAnalysisScheme
-deleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAnalysisScheme' request.
+mkDeleteAnalysisSchemeRequest :: Text -- ^ 'dastDomainName'
+                              -> Text -- ^ 'dastAnalysisSchemeName'
+                              -> DeleteAnalysisScheme
+mkDeleteAnalysisSchemeRequest p1 p2 = DeleteAnalysisScheme
     { _dastDomainName = p1
     , _dastAnalysisSchemeName = p2
     }
-{-# INLINE deleteAnalysisScheme #-}
+{-# INLINE mkDeleteAnalysisSchemeRequest #-}
 
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _dastDomainName :: Text
@@ -65,31 +66,25 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 dastDomainName :: Lens' DeleteAnalysisScheme (Text)
-dastDomainName f x =
-    f (_dastDomainName x)
-        <&> \y -> x { _dastDomainName = y }
+dastDomainName = lens _dastDomainName (\s a -> s { _dastDomainName = a })
 {-# INLINE dastDomainName #-}
 
 -- | The name of the analysis scheme you want to delete.
 dastAnalysisSchemeName :: Lens' DeleteAnalysisScheme (Text)
-dastAnalysisSchemeName f x =
-    f (_dastAnalysisSchemeName x)
-        <&> \y -> x { _dastAnalysisSchemeName = y }
+dastAnalysisSchemeName = lens _dastAnalysisSchemeName (\s a -> s { _dastAnalysisSchemeName = a })
 {-# INLINE dastAnalysisSchemeName #-}
 
 instance ToQuery DeleteAnalysisScheme where
     toQuery = genericQuery def
 
-data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
+newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasuAnalysisScheme :: AnalysisSchemeStatus
       -- ^ The status of the analysis scheme being deleted.
     } deriving (Show, Generic)
 
 -- | The status of the analysis scheme being deleted.
 dasuAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse (AnalysisSchemeStatus)
-dasuAnalysisScheme f x =
-    f (_dasuAnalysisScheme x)
-        <&> \y -> x { _dasuAnalysisScheme = y }
+dasuAnalysisScheme = lens _dasuAnalysisScheme (\s a -> s { _dasuAnalysisScheme = a })
 {-# INLINE dasuAnalysisScheme #-}
 
 instance FromXML DeleteAnalysisSchemeResponse where

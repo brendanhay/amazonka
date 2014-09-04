@@ -41,7 +41,7 @@ module Network.AWS.Route53Domains.V2014_05_15.ListOperations
     -- * Request
       ListOperations
     -- ** Request constructor
-    , listOperations
+    , mkListOperationsRequest
     -- ** Request lenses
     , lorMarker
     , lorMaxItems
@@ -58,13 +58,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ListOperations' request.
-listOperations :: ListOperations
-listOperations = ListOperations
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListOperations' request.
+mkListOperationsRequest :: ListOperations
+mkListOperationsRequest = ListOperations
     { _lorMarker = Nothing
     , _lorMaxItems = Nothing
     }
-{-# INLINE listOperations #-}
+{-# INLINE mkListOperationsRequest #-}
 
 data ListOperations = ListOperations
     { _lorMarker :: Maybe Text
@@ -87,17 +88,13 @@ data ListOperations = ListOperations
 -- submit another request that includes the value of NextPageMarker in the
 -- Marker element. Type: String Default: None Required: No.
 lorMarker :: Lens' ListOperations (Maybe Text)
-lorMarker f x =
-    f (_lorMarker x)
-        <&> \y -> x { _lorMarker = y }
+lorMarker = lens _lorMarker (\s a -> s { _lorMarker = a })
 {-# INLINE lorMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- value between 1 and 100. Required: No.
 lorMaxItems :: Lens' ListOperations (Maybe Integer)
-lorMaxItems f x =
-    f (_lorMaxItems x)
-        <&> \y -> x { _lorMaxItems = y }
+lorMaxItems = lens _lorMaxItems (\s a -> s { _lorMaxItems = a })
 {-# INLINE lorMaxItems #-}
 
 instance ToPath ListOperations
@@ -123,18 +120,14 @@ data ListOperationsResponse = ListOperationsResponse
 -- | Lists summaries of the operations. Type: Complex type containing a list of
 -- operation summaries Children: OperationId, Status, SubmittedDate, Type.
 losOperations :: Lens' ListOperationsResponse ([OperationSummary])
-losOperations f x =
-    f (_losOperations x)
-        <&> \y -> x { _losOperations = y }
+losOperations = lens _losOperations (\s a -> s { _losOperations = a })
 {-# INLINE losOperations #-}
 
 -- | If there are more operations than you specified for MaxItems in the
 -- request, submit another request and include the value of NextPageMarker in
 -- the value of Marker. Type: String Parent: Operations.
 losNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
-losNextPageMarker f x =
-    f (_losNextPageMarker x)
-        <&> \y -> x { _losNextPageMarker = y }
+losNextPageMarker = lens _losNextPageMarker (\s a -> s { _losNextPageMarker = a })
 {-# INLINE losNextPageMarker #-}
 
 instance FromJSON ListOperationsResponse

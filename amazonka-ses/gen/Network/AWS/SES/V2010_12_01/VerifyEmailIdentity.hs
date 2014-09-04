@@ -33,7 +33,7 @@ module Network.AWS.SES.V2010_12_01.VerifyEmailIdentity
     -- * Request
       VerifyEmailIdentity
     -- ** Request constructor
-    , verifyEmailIdentity
+    , mkVerifyEmailIdentityRequest
     -- ** Request lenses
     , veirEmailAddress
 
@@ -45,30 +45,28 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'VerifyEmailIdentity' request.
-verifyEmailIdentity :: Text -- ^ 'veirEmailAddress'
-                    -> VerifyEmailIdentity
-verifyEmailIdentity p1 = VerifyEmailIdentity
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyEmailIdentity' request.
+mkVerifyEmailIdentityRequest :: Text -- ^ 'veirEmailAddress'
+                             -> VerifyEmailIdentity
+mkVerifyEmailIdentityRequest p1 = VerifyEmailIdentity
     { _veirEmailAddress = p1
     }
-{-# INLINE verifyEmailIdentity #-}
+{-# INLINE mkVerifyEmailIdentityRequest #-}
 
-data VerifyEmailIdentity = VerifyEmailIdentity
+newtype VerifyEmailIdentity = VerifyEmailIdentity
     { _veirEmailAddress :: Text
       -- ^ The email address to be verified.
     } deriving (Show, Generic)
 
 -- | The email address to be verified.
 veirEmailAddress :: Lens' VerifyEmailIdentity (Text)
-veirEmailAddress f x =
-    f (_veirEmailAddress x)
-        <&> \y -> x { _veirEmailAddress = y }
+veirEmailAddress = lens _veirEmailAddress (\s a -> s { _veirEmailAddress = a })
 {-# INLINE veirEmailAddress #-}
 
 instance ToQuery VerifyEmailIdentity where
     toQuery = genericQuery def
 
-data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest VerifyEmailIdentity where

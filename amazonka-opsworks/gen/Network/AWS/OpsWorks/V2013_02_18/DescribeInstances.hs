@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
     -- * Request
       DescribeInstances
     -- ** Request constructor
-    , describeInstances
+    , mkDescribeInstancesRequest
     -- ** Request lenses
     , disStackId
     , disLayerId
@@ -44,14 +44,15 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeInstances' request.
-describeInstances :: DescribeInstances
-describeInstances = DescribeInstances
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstances' request.
+mkDescribeInstancesRequest :: DescribeInstances
+mkDescribeInstancesRequest = DescribeInstances
     { _disStackId = Nothing
     , _disLayerId = Nothing
     , _disInstanceIds = mempty
     }
-{-# INLINE describeInstances #-}
+{-# INLINE mkDescribeInstancesRequest #-}
 
 data DescribeInstances = DescribeInstances
     { _disStackId :: Maybe Text
@@ -72,26 +73,20 @@ data DescribeInstances = DescribeInstances
 -- | A stack ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified stack.
 disStackId :: Lens' DescribeInstances (Maybe Text)
-disStackId f x =
-    f (_disStackId x)
-        <&> \y -> x { _disStackId = y }
+disStackId = lens _disStackId (\s a -> s { _disStackId = a })
 {-# INLINE disStackId #-}
 
 -- | A layer ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified layer.
 disLayerId :: Lens' DescribeInstances (Maybe Text)
-disLayerId f x =
-    f (_disLayerId x)
-        <&> \y -> x { _disLayerId = y }
+disLayerId = lens _disLayerId (\s a -> s { _disLayerId = a })
 {-# INLINE disLayerId #-}
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- DescribeInstances returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 disInstanceIds :: Lens' DescribeInstances ([Text])
-disInstanceIds f x =
-    f (_disInstanceIds x)
-        <&> \y -> x { _disInstanceIds = y }
+disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a })
 {-# INLINE disInstanceIds #-}
 
 instance ToPath DescribeInstances
@@ -102,16 +97,14 @@ instance ToHeaders DescribeInstances
 
 instance ToJSON DescribeInstances
 
-data DescribeInstancesResponse = DescribeInstancesResponse
+newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _ditInstances :: [Instance]
       -- ^ An array of Instance objects that describe the instances.
     } deriving (Show, Generic)
 
 -- | An array of Instance objects that describe the instances.
 ditInstances :: Lens' DescribeInstancesResponse ([Instance])
-ditInstances f x =
-    f (_ditInstances x)
-        <&> \y -> x { _ditInstances = y }
+ditInstances = lens _ditInstances (\s a -> s { _ditInstances = a })
 {-# INLINE ditInstances #-}
 
 instance FromJSON DescribeInstancesResponse

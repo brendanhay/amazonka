@@ -26,19 +26,19 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateInstance
     -- * Request
       UpdateInstance
     -- ** Request constructor
-    , updateInstance
+    , mkUpdateInstanceRequest
     -- ** Request lenses
     , uirInstanceId
-    , uirArchitecture
-    , uirAutoScalingType
-    , uirInstallUpdatesOnBoot
-    , uirEbsOptimized
+    , uirLayerIds
     , uirInstanceType
+    , uirAutoScalingType
     , uirHostname
     , uirOs
     , uirAmiId
     , uirSshKeyName
-    , uirLayerIds
+    , uirArchitecture
+    , uirInstallUpdatesOnBoot
+    , uirEbsOptimized
 
     -- * Response
     , UpdateInstanceResponse
@@ -49,32 +49,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'UpdateInstance' request.
-updateInstance :: Text -- ^ 'uirInstanceId'
-               -> UpdateInstance
-updateInstance p1 = UpdateInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateInstance' request.
+mkUpdateInstanceRequest :: Text -- ^ 'uirInstanceId'
+                        -> UpdateInstance
+mkUpdateInstanceRequest p1 = UpdateInstance
     { _uirInstanceId = p1
-    , _uirArchitecture = Nothing
-    , _uirAutoScalingType = Nothing
-    , _uirInstallUpdatesOnBoot = Nothing
-    , _uirEbsOptimized = Nothing
+    , _uirLayerIds = mempty
     , _uirInstanceType = Nothing
+    , _uirAutoScalingType = Nothing
     , _uirHostname = Nothing
     , _uirOs = Nothing
     , _uirAmiId = Nothing
     , _uirSshKeyName = Nothing
-    , _uirLayerIds = mempty
+    , _uirArchitecture = Nothing
+    , _uirInstallUpdatesOnBoot = Nothing
+    , _uirEbsOptimized = Nothing
     }
-{-# INLINE updateInstance #-}
+{-# INLINE mkUpdateInstanceRequest #-}
 
 data UpdateInstance = UpdateInstance
     { _uirInstanceId :: Text
       -- ^ The instance ID.
-    , _uirArchitecture :: Maybe Architecture
-      -- ^ The instance architecture. Instance types do not necessarily
-      -- support both architectures. For a list of the architectures that
-      -- are supported by the different instance types, see Instance
-      -- Families and Types.
+    , _uirLayerIds :: [Text]
+      -- ^ The instance's layer IDs.
+    , _uirInstanceType :: Maybe Text
+      -- ^ The instance type. AWS OpsWorks supports all instance types
+      -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
+      -- more information, see Instance Families and Types. The parameter
+      -- values that you use to specify the various types are in the API
+      -- Name column of the Available Instance Types table.
     , _uirAutoScalingType :: Maybe AutoScalingType
       -- ^ The instance's auto scaling type, which has three possible
       -- values: AlwaysRunning: A 24/7 instance, which is not affected by
@@ -82,23 +86,6 @@ data UpdateInstance = UpdateInstance
       -- instance, which is started and stopped based on a specified
       -- schedule. LoadBasedAutoScaling: A load-based auto scaling
       -- instance, which is started and stopped based on load metrics.
-    , _uirInstallUpdatesOnBoot :: Maybe Bool
-      -- ^ Whether to install operating system and package updates when the
-      -- instance boots. The default value is true. To control when
-      -- updates are installed, set this value to false. You must then
-      -- update your instances manually by using CreateDeployment to run
-      -- the update_dependencies stack command or manually running yum
-      -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
-      -- recommend using the default value of true, to ensure that your
-      -- instances have the latest security updates.
-    , _uirEbsOptimized :: Maybe Bool
-      -- ^ Whether this is an Amazon EBS-optimized instance.
-    , _uirInstanceType :: Maybe Text
-      -- ^ The instance type. AWS OpsWorks supports all instance types
-      -- except Cluster Compute, Cluster GPU, and High Memory Cluster. For
-      -- more information, see Instance Families and Types. The parameter
-      -- values that you use to specify the various types are in the API
-      -- Name column of the Available Instance Types table.
     , _uirHostname :: Maybe Text
       -- ^ The instance host name.
     , _uirOs :: Maybe Text
@@ -116,25 +103,42 @@ data UpdateInstance = UpdateInstance
       -- or Ubuntu 12.04 LTS. For more information, see Instances.
     , _uirSshKeyName :: Maybe Text
       -- ^ The instance SSH key name.
-    , _uirLayerIds :: [Text]
-      -- ^ The instance's layer IDs.
+    , _uirArchitecture :: Maybe Architecture
+      -- ^ The instance architecture. Instance types do not necessarily
+      -- support both architectures. For a list of the architectures that
+      -- are supported by the different instance types, see Instance
+      -- Families and Types.
+    , _uirInstallUpdatesOnBoot :: Maybe Bool
+      -- ^ Whether to install operating system and package updates when the
+      -- instance boots. The default value is true. To control when
+      -- updates are installed, set this value to false. You must then
+      -- update your instances manually by using CreateDeployment to run
+      -- the update_dependencies stack command or manually running yum
+      -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
+      -- recommend using the default value of true, to ensure that your
+      -- instances have the latest security updates.
+    , _uirEbsOptimized :: Maybe Bool
+      -- ^ Whether this is an Amazon EBS-optimized instance.
     } deriving (Show, Generic)
 
 -- | The instance ID.
 uirInstanceId :: Lens' UpdateInstance (Text)
-uirInstanceId f x =
-    f (_uirInstanceId x)
-        <&> \y -> x { _uirInstanceId = y }
+uirInstanceId = lens _uirInstanceId (\s a -> s { _uirInstanceId = a })
 {-# INLINE uirInstanceId #-}
 
--- | The instance architecture. Instance types do not necessarily support both
--- architectures. For a list of the architectures that are supported by the
--- different instance types, see Instance Families and Types.
-uirArchitecture :: Lens' UpdateInstance (Maybe Architecture)
-uirArchitecture f x =
-    f (_uirArchitecture x)
-        <&> \y -> x { _uirArchitecture = y }
-{-# INLINE uirArchitecture #-}
+-- | The instance's layer IDs.
+uirLayerIds :: Lens' UpdateInstance ([Text])
+uirLayerIds = lens _uirLayerIds (\s a -> s { _uirLayerIds = a })
+{-# INLINE uirLayerIds #-}
+
+-- | The instance type. AWS OpsWorks supports all instance types except Cluster
+-- Compute, Cluster GPU, and High Memory Cluster. For more information, see
+-- Instance Families and Types. The parameter values that you use to specify
+-- the various types are in the API Name column of the Available Instance
+-- Types table.
+uirInstanceType :: Lens' UpdateInstance (Maybe Text)
+uirInstanceType = lens _uirInstanceType (\s a -> s { _uirInstanceType = a })
+{-# INLINE uirInstanceType #-}
 
 -- | The instance's auto scaling type, which has three possible values:
 -- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
@@ -143,47 +147,12 @@ uirArchitecture f x =
 -- load-based auto scaling instance, which is started and stopped based on
 -- load metrics.
 uirAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
-uirAutoScalingType f x =
-    f (_uirAutoScalingType x)
-        <&> \y -> x { _uirAutoScalingType = y }
+uirAutoScalingType = lens _uirAutoScalingType (\s a -> s { _uirAutoScalingType = a })
 {-# INLINE uirAutoScalingType #-}
-
--- | Whether to install operating system and package updates when the instance
--- boots. The default value is true. To control when updates are installed,
--- set this value to false. You must then update your instances manually by
--- using CreateDeployment to run the update_dependencies stack command or
--- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
--- We strongly recommend using the default value of true, to ensure that your
--- instances have the latest security updates.
-uirInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
-uirInstallUpdatesOnBoot f x =
-    f (_uirInstallUpdatesOnBoot x)
-        <&> \y -> x { _uirInstallUpdatesOnBoot = y }
-{-# INLINE uirInstallUpdatesOnBoot #-}
-
--- | Whether this is an Amazon EBS-optimized instance.
-uirEbsOptimized :: Lens' UpdateInstance (Maybe Bool)
-uirEbsOptimized f x =
-    f (_uirEbsOptimized x)
-        <&> \y -> x { _uirEbsOptimized = y }
-{-# INLINE uirEbsOptimized #-}
-
--- | The instance type. AWS OpsWorks supports all instance types except Cluster
--- Compute, Cluster GPU, and High Memory Cluster. For more information, see
--- Instance Families and Types. The parameter values that you use to specify
--- the various types are in the API Name column of the Available Instance
--- Types table.
-uirInstanceType :: Lens' UpdateInstance (Maybe Text)
-uirInstanceType f x =
-    f (_uirInstanceType x)
-        <&> \y -> x { _uirInstanceType = y }
-{-# INLINE uirInstanceType #-}
 
 -- | The instance host name.
 uirHostname :: Lens' UpdateInstance (Maybe Text)
-uirHostname f x =
-    f (_uirHostname x)
-        <&> \y -> x { _uirHostname = y }
+uirHostname = lens _uirHostname (\s a -> s { _uirHostname = a })
 {-# INLINE uirHostname #-}
 
 -- | The instance operating system, which must be set to one of the following.
@@ -194,33 +163,43 @@ uirHostname f x =
 -- operating systems, see Operating SystemsFor more information on how to use
 -- custom AMIs with OpsWorks, see Using Custom AMIs.
 uirOs :: Lens' UpdateInstance (Maybe Text)
-uirOs f x =
-    f (_uirOs x)
-        <&> \y -> x { _uirOs = y }
+uirOs = lens _uirOs (\s a -> s { _uirOs = a })
 {-# INLINE uirOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
 uirAmiId :: Lens' UpdateInstance (Maybe Text)
-uirAmiId f x =
-    f (_uirAmiId x)
-        <&> \y -> x { _uirAmiId = y }
+uirAmiId = lens _uirAmiId (\s a -> s { _uirAmiId = a })
 {-# INLINE uirAmiId #-}
 
 -- | The instance SSH key name.
 uirSshKeyName :: Lens' UpdateInstance (Maybe Text)
-uirSshKeyName f x =
-    f (_uirSshKeyName x)
-        <&> \y -> x { _uirSshKeyName = y }
+uirSshKeyName = lens _uirSshKeyName (\s a -> s { _uirSshKeyName = a })
 {-# INLINE uirSshKeyName #-}
 
--- | The instance's layer IDs.
-uirLayerIds :: Lens' UpdateInstance ([Text])
-uirLayerIds f x =
-    f (_uirLayerIds x)
-        <&> \y -> x { _uirLayerIds = y }
-{-# INLINE uirLayerIds #-}
+-- | The instance architecture. Instance types do not necessarily support both
+-- architectures. For a list of the architectures that are supported by the
+-- different instance types, see Instance Families and Types.
+uirArchitecture :: Lens' UpdateInstance (Maybe Architecture)
+uirArchitecture = lens _uirArchitecture (\s a -> s { _uirArchitecture = a })
+{-# INLINE uirArchitecture #-}
+
+-- | Whether to install operating system and package updates when the instance
+-- boots. The default value is true. To control when updates are installed,
+-- set this value to false. You must then update your instances manually by
+-- using CreateDeployment to run the update_dependencies stack command or
+-- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
+-- We strongly recommend using the default value of true, to ensure that your
+-- instances have the latest security updates.
+uirInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
+uirInstallUpdatesOnBoot = lens _uirInstallUpdatesOnBoot (\s a -> s { _uirInstallUpdatesOnBoot = a })
+{-# INLINE uirInstallUpdatesOnBoot #-}
+
+-- | Whether this is an Amazon EBS-optimized instance.
+uirEbsOptimized :: Lens' UpdateInstance (Maybe Bool)
+uirEbsOptimized = lens _uirEbsOptimized (\s a -> s { _uirEbsOptimized = a })
+{-# INLINE uirEbsOptimized #-}
 
 instance ToPath UpdateInstance
 

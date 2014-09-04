@@ -49,12 +49,12 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams
     -- * Request
       DescribeLogStreams
     -- ** Request constructor
-    , describeLogStreams
+    , mkDescribeLogStreamsRequest
     -- ** Request lenses
     , dlssLogGroupName
-    , dlssLimit
     , dlssLogStreamNamePrefix
     , dlssNextToken
+    , dlssLimit
 
     -- * Response
     , DescribeLogStreamsResponse
@@ -68,57 +68,50 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeLogStreams' request.
-describeLogStreams :: Text -- ^ 'dlssLogGroupName'
-                   -> DescribeLogStreams
-describeLogStreams p1 = DescribeLogStreams
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLogStreams' request.
+mkDescribeLogStreamsRequest :: Text -- ^ 'dlssLogGroupName'
+                            -> DescribeLogStreams
+mkDescribeLogStreamsRequest p1 = DescribeLogStreams
     { _dlssLogGroupName = p1
-    , _dlssLimit = Nothing
     , _dlssLogStreamNamePrefix = Nothing
     , _dlssNextToken = Nothing
+    , _dlssLimit = Nothing
     }
-{-# INLINE describeLogStreams #-}
+{-# INLINE mkDescribeLogStreamsRequest #-}
 
 data DescribeLogStreams = DescribeLogStreams
     { _dlssLogGroupName :: Text
-    , _dlssLimit :: Maybe Integer
-      -- ^ The maximum number of items returned in the response. If you
-      -- don't specify a value, the request would return up to 50 items.
     , _dlssLogStreamNamePrefix :: Maybe Text
     , _dlssNextToken :: Maybe Text
       -- ^ A string token used for pagination that points to the next page
       -- of results. It must be a value obtained from the response of the
       -- previous DescribeLogStreams request.
+    , _dlssLimit :: Maybe Integer
+      -- ^ The maximum number of items returned in the response. If you
+      -- don't specify a value, the request would return up to 50 items.
     } deriving (Show, Generic)
 
 dlssLogGroupName :: Lens' DescribeLogStreams (Text)
-dlssLogGroupName f x =
-    f (_dlssLogGroupName x)
-        <&> \y -> x { _dlssLogGroupName = y }
+dlssLogGroupName = lens _dlssLogGroupName (\s a -> s { _dlssLogGroupName = a })
 {-# INLINE dlssLogGroupName #-}
 
--- | The maximum number of items returned in the response. If you don't specify
--- a value, the request would return up to 50 items.
-dlssLimit :: Lens' DescribeLogStreams (Maybe Integer)
-dlssLimit f x =
-    f (_dlssLimit x)
-        <&> \y -> x { _dlssLimit = y }
-{-# INLINE dlssLimit #-}
-
 dlssLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
-dlssLogStreamNamePrefix f x =
-    f (_dlssLogStreamNamePrefix x)
-        <&> \y -> x { _dlssLogStreamNamePrefix = y }
+dlssLogStreamNamePrefix = lens _dlssLogStreamNamePrefix (\s a -> s { _dlssLogStreamNamePrefix = a })
 {-# INLINE dlssLogStreamNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeLogStreams request.
 dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
-dlssNextToken f x =
-    f (_dlssNextToken x)
-        <&> \y -> x { _dlssNextToken = y }
+dlssNextToken = lens _dlssNextToken (\s a -> s { _dlssNextToken = a })
 {-# INLINE dlssNextToken #-}
+
+-- | The maximum number of items returned in the response. If you don't specify
+-- a value, the request would return up to 50 items.
+dlssLimit :: Lens' DescribeLogStreams (Maybe Integer)
+dlssLimit = lens _dlssLimit (\s a -> s { _dlssLimit = a })
+{-# INLINE dlssLimit #-}
 
 instance ToPath DescribeLogStreams
 
@@ -139,18 +132,14 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse
 
 -- | A list of log streams.
 dlstLogStreams :: Lens' DescribeLogStreamsResponse ([LogStream])
-dlstLogStreams f x =
-    f (_dlstLogStreams x)
-        <&> \y -> x { _dlstLogStreams = y }
+dlstLogStreams = lens _dlstLogStreams (\s a -> s { _dlstLogStreams = a })
 {-# INLINE dlstLogStreams #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
 dlstNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
-dlstNextToken f x =
-    f (_dlstNextToken x)
-        <&> \y -> x { _dlstNextToken = y }
+dlstNextToken = lens _dlstNextToken (\s a -> s { _dlstNextToken = a })
 {-# INLINE dlstNextToken #-}
 
 instance FromJSON DescribeLogStreamsResponse

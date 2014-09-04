@@ -71,7 +71,7 @@ module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
     -- * Request
       PutPipelineDefinition
     -- ** Request constructor
-    , putPipelineDefinition
+    , mkPutPipelineDefinitionInput
     -- ** Request lenses
     , ppdiPipelineId
     , ppdiPipelineObjects
@@ -79,9 +79,9 @@ module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
     -- * Response
     , PutPipelineDefinitionResponse
     -- ** Response lenses
-    , ppdoErrored
     , ppdoValidationErrors
     , ppdoValidationWarnings
+    , ppdoErrored
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -89,15 +89,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'PutPipelineDefinition' request.
-putPipelineDefinition :: Text -- ^ 'ppdiPipelineId'
-                      -> [PipelineObject] -- ^ 'ppdiPipelineObjects'
-                      -> PutPipelineDefinition
-putPipelineDefinition p1 p2 = PutPipelineDefinition
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutPipelineDefinition' request.
+mkPutPipelineDefinitionInput :: Text -- ^ 'ppdiPipelineId'
+                             -> [PipelineObject] -- ^ 'ppdiPipelineObjects'
+                             -> PutPipelineDefinition
+mkPutPipelineDefinitionInput p1 p2 = PutPipelineDefinition
     { _ppdiPipelineId = p1
     , _ppdiPipelineObjects = p2
     }
-{-# INLINE putPipelineDefinition #-}
+{-# INLINE mkPutPipelineDefinitionInput #-}
 
 data PutPipelineDefinition = PutPipelineDefinition
     { _ppdiPipelineId :: Text
@@ -109,17 +110,13 @@ data PutPipelineDefinition = PutPipelineDefinition
 
 -- | The identifier of the pipeline to be configured.
 ppdiPipelineId :: Lens' PutPipelineDefinition (Text)
-ppdiPipelineId f x =
-    f (_ppdiPipelineId x)
-        <&> \y -> x { _ppdiPipelineId = y }
+ppdiPipelineId = lens _ppdiPipelineId (\s a -> s { _ppdiPipelineId = a })
 {-# INLINE ppdiPipelineId #-}
 
 -- | The objects that define the pipeline. These will overwrite the existing
 -- pipeline definition.
 ppdiPipelineObjects :: Lens' PutPipelineDefinition ([PipelineObject])
-ppdiPipelineObjects f x =
-    f (_ppdiPipelineObjects x)
-        <&> \y -> x { _ppdiPipelineObjects = y }
+ppdiPipelineObjects = lens _ppdiPipelineObjects (\s a -> s { _ppdiPipelineObjects = a })
 {-# INLINE ppdiPipelineObjects #-}
 
 instance ToPath PutPipelineDefinition
@@ -131,43 +128,37 @@ instance ToHeaders PutPipelineDefinition
 instance ToJSON PutPipelineDefinition
 
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
-    { _ppdoErrored :: Bool
-      -- ^ If True, there were validation errors. If errored is True, the
-      -- pipeline definition is stored but cannot be activated until you
-      -- correct the pipeline and call PutPipelineDefinition to commit the
-      -- corrected pipeline.
-    , _ppdoValidationErrors :: [ValidationError]
+    { _ppdoValidationErrors :: [ValidationError]
       -- ^ A list of the validation errors that are associated with the
       -- objects defined in pipelineObjects.
     , _ppdoValidationWarnings :: [ValidationWarning]
       -- ^ A list of the validation warnings that are associated with the
       -- objects defined in pipelineObjects.
+    , _ppdoErrored :: Bool
+      -- ^ If True, there were validation errors. If errored is True, the
+      -- pipeline definition is stored but cannot be activated until you
+      -- correct the pipeline and call PutPipelineDefinition to commit the
+      -- corrected pipeline.
     } deriving (Show, Generic)
-
--- | If True, there were validation errors. If errored is True, the pipeline
--- definition is stored but cannot be activated until you correct the pipeline
--- and call PutPipelineDefinition to commit the corrected pipeline.
-ppdoErrored :: Lens' PutPipelineDefinitionResponse (Bool)
-ppdoErrored f x =
-    f (_ppdoErrored x)
-        <&> \y -> x { _ppdoErrored = y }
-{-# INLINE ppdoErrored #-}
 
 -- | A list of the validation errors that are associated with the objects
 -- defined in pipelineObjects.
 ppdoValidationErrors :: Lens' PutPipelineDefinitionResponse ([ValidationError])
-ppdoValidationErrors f x =
-    f (_ppdoValidationErrors x)
-        <&> \y -> x { _ppdoValidationErrors = y }
+ppdoValidationErrors = lens _ppdoValidationErrors (\s a -> s { _ppdoValidationErrors = a })
 {-# INLINE ppdoValidationErrors #-}
 
 -- | A list of the validation warnings that are associated with the objects
 -- defined in pipelineObjects.
 ppdoValidationWarnings :: Lens' PutPipelineDefinitionResponse ([ValidationWarning])
-ppdoValidationWarnings f x =
-    f (_ppdoValidationWarnings x)
-        <&> \y -> x { _ppdoValidationWarnings = y }
+ppdoValidationWarnings = lens _ppdoValidationWarnings (\s a -> s { _ppdoValidationWarnings = a })
 {-# INLINE ppdoValidationWarnings #-}
+
+-- | If True, there were validation errors. If errored is True, the pipeline
+-- definition is stored but cannot be activated until you correct the pipeline
+-- and call PutPipelineDefinition to commit the corrected pipeline.
+ppdoErrored :: Lens' PutPipelineDefinitionResponse (Bool)
+ppdoErrored = lens _ppdoErrored (\s a -> s { _ppdoErrored = a })
+{-# INLINE ppdoErrored #-}
 
 instance FromJSON PutPipelineDefinitionResponse
 

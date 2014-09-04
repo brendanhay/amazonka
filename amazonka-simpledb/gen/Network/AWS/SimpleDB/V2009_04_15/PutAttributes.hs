@@ -48,11 +48,11 @@ module Network.AWS.SimpleDB.V2009_04_15.PutAttributes
     -- * Request
       PutAttributes
     -- ** Request constructor
-    , putAttributes
+    , mkPutAttributesRequest
     -- ** Request lenses
-    , parAttributes
     , parDomainName
     , parItemName
+    , parAttributes
     , parExpected
 
     -- * Response
@@ -63,26 +63,27 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutAttributes' request.
-putAttributes :: [ReplaceableAttribute] -- ^ 'parAttributes'
-              -> Text -- ^ 'parDomainName'
-              -> Text -- ^ 'parItemName'
-              -> PutAttributes
-putAttributes p1 p2 p3 = PutAttributes
-    { _parAttributes = p1
-    , _parDomainName = p2
-    , _parItemName = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutAttributes' request.
+mkPutAttributesRequest :: Text -- ^ 'parDomainName'
+                       -> Text -- ^ 'parItemName'
+                       -> [ReplaceableAttribute] -- ^ 'parAttributes'
+                       -> PutAttributes
+mkPutAttributesRequest p1 p2 p3 = PutAttributes
+    { _parDomainName = p1
+    , _parItemName = p2
+    , _parAttributes = p3
     , _parExpected = Nothing
     }
-{-# INLINE putAttributes #-}
+{-# INLINE mkPutAttributesRequest #-}
 
 data PutAttributes = PutAttributes
-    { _parAttributes :: [ReplaceableAttribute]
-      -- ^ The list of attributes.
-    , _parDomainName :: Text
+    { _parDomainName :: Text
       -- ^ The name of the domain in which to perform the operation.
     , _parItemName :: Text
       -- ^ The name of the item.
+    , _parAttributes :: [ReplaceableAttribute]
+      -- ^ The list of attributes.
     , _parExpected :: Maybe UpdateCondition
       -- ^ The update condition which, if specified, determines whether the
       -- specified attributes will be updated or not. The update condition
@@ -90,34 +91,26 @@ data PutAttributes = PutAttributes
       -- the attributes to be updated.
     } deriving (Show, Generic)
 
--- | The list of attributes.
-parAttributes :: Lens' PutAttributes ([ReplaceableAttribute])
-parAttributes f x =
-    f (_parAttributes x)
-        <&> \y -> x { _parAttributes = y }
-{-# INLINE parAttributes #-}
-
 -- | The name of the domain in which to perform the operation.
 parDomainName :: Lens' PutAttributes (Text)
-parDomainName f x =
-    f (_parDomainName x)
-        <&> \y -> x { _parDomainName = y }
+parDomainName = lens _parDomainName (\s a -> s { _parDomainName = a })
 {-# INLINE parDomainName #-}
 
 -- | The name of the item.
 parItemName :: Lens' PutAttributes (Text)
-parItemName f x =
-    f (_parItemName x)
-        <&> \y -> x { _parItemName = y }
+parItemName = lens _parItemName (\s a -> s { _parItemName = a })
 {-# INLINE parItemName #-}
+
+-- | The list of attributes.
+parAttributes :: Lens' PutAttributes ([ReplaceableAttribute])
+parAttributes = lens _parAttributes (\s a -> s { _parAttributes = a })
+{-# INLINE parAttributes #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be updated or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be updated.
 parExpected :: Lens' PutAttributes (Maybe UpdateCondition)
-parExpected f x =
-    f (_parExpected x)
-        <&> \y -> x { _parExpected = y }
+parExpected = lens _parExpected (\s a -> s { _parExpected = a })
 {-# INLINE parExpected #-}
 
 instance ToQuery PutAttributes where

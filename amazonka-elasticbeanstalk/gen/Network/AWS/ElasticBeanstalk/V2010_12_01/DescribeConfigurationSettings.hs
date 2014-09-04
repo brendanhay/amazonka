@@ -73,7 +73,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings
     -- * Request
       DescribeConfigurationSettings
     -- ** Request constructor
-    , describeConfigurationSettings
+    , mkDescribeConfigurationSettingsMessage
     -- ** Request lenses
     , dcsmApplicationName
     , dcsmTemplateName
@@ -89,15 +89,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeConfigurationSettings' request.
-describeConfigurationSettings :: Text -- ^ 'dcsmApplicationName'
-                              -> DescribeConfigurationSettings
-describeConfigurationSettings p1 = DescribeConfigurationSettings
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConfigurationSettings' request.
+mkDescribeConfigurationSettingsMessage :: Text -- ^ 'dcsmApplicationName'
+                                       -> DescribeConfigurationSettings
+mkDescribeConfigurationSettingsMessage p1 = DescribeConfigurationSettings
     { _dcsmApplicationName = p1
     , _dcsmTemplateName = Nothing
     , _dcsmEnvironmentName = Nothing
     }
-{-# INLINE describeConfigurationSettings #-}
+{-# INLINE mkDescribeConfigurationSettingsMessage #-}
 
 data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsmApplicationName :: Text
@@ -118,9 +119,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
 
 -- | The application for the environment or configuration template.
 dcsmApplicationName :: Lens' DescribeConfigurationSettings (Text)
-dcsmApplicationName f x =
-    f (_dcsmApplicationName x)
-        <&> \y -> x { _dcsmApplicationName = y }
+dcsmApplicationName = lens _dcsmApplicationName (\s a -> s { _dcsmApplicationName = a })
 {-# INLINE dcsmApplicationName #-}
 
 -- | The name of the configuration template to describe. Conditional: You must
@@ -129,9 +128,7 @@ dcsmApplicationName f x =
 -- error. If you do not specify either, AWS Elastic Beanstalk returns a
 -- MissingRequiredParameter error.
 dcsmTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsmTemplateName f x =
-    f (_dcsmTemplateName x)
-        <&> \y -> x { _dcsmTemplateName = y }
+dcsmTemplateName = lens _dcsmTemplateName (\s a -> s { _dcsmTemplateName = a })
 {-# INLINE dcsmTemplateName #-}
 
 -- | The name of the environment to describe. Condition: You must specify either
@@ -140,24 +137,20 @@ dcsmTemplateName f x =
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
 dcsmEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsmEnvironmentName f x =
-    f (_dcsmEnvironmentName x)
-        <&> \y -> x { _dcsmEnvironmentName = y }
+dcsmEnvironmentName = lens _dcsmEnvironmentName (\s a -> s { _dcsmEnvironmentName = a })
 {-# INLINE dcsmEnvironmentName #-}
 
 instance ToQuery DescribeConfigurationSettings where
     toQuery = genericQuery def
 
-data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
+newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _cseConfigurationSettings :: [ConfigurationSettingsDescription]
       -- ^ A list of ConfigurationSettingsDescription.
     } deriving (Show, Generic)
 
 -- | A list of ConfigurationSettingsDescription.
 cseConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse ([ConfigurationSettingsDescription])
-cseConfigurationSettings f x =
-    f (_cseConfigurationSettings x)
-        <&> \y -> x { _cseConfigurationSettings = y }
+cseConfigurationSettings = lens _cseConfigurationSettings (\s a -> s { _cseConfigurationSettings = a })
 {-# INLINE cseConfigurationSettings #-}
 
 instance FromXML DescribeConfigurationSettingsResponse where

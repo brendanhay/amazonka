@@ -34,7 +34,7 @@ module Network.AWS.EC2.V2014_06_15.AttachVpnGateway
     -- * Request
       AttachVpnGateway
     -- ** Request constructor
-    , attachVpnGateway
+    , mkAttachVpnGatewayRequest
     -- ** Request lenses
     , avgrVpnGatewayId
     , avgrVpcId
@@ -49,15 +49,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AttachVpnGateway' request.
-attachVpnGateway :: Text -- ^ 'avgrVpnGatewayId'
-                 -> Text -- ^ 'avgrVpcId'
-                 -> AttachVpnGateway
-attachVpnGateway p1 p2 = AttachVpnGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachVpnGateway' request.
+mkAttachVpnGatewayRequest :: Text -- ^ 'avgrVpnGatewayId'
+                          -> Text -- ^ 'avgrVpcId'
+                          -> AttachVpnGateway
+mkAttachVpnGatewayRequest p1 p2 = AttachVpnGateway
     { _avgrVpnGatewayId = p1
     , _avgrVpcId = p2
     }
-{-# INLINE attachVpnGateway #-}
+{-# INLINE mkAttachVpnGatewayRequest #-}
 
 data AttachVpnGateway = AttachVpnGateway
     { _avgrVpnGatewayId :: Text
@@ -68,31 +69,25 @@ data AttachVpnGateway = AttachVpnGateway
 
 -- | The ID of the virtual private gateway.
 avgrVpnGatewayId :: Lens' AttachVpnGateway (Text)
-avgrVpnGatewayId f x =
-    f (_avgrVpnGatewayId x)
-        <&> \y -> x { _avgrVpnGatewayId = y }
+avgrVpnGatewayId = lens _avgrVpnGatewayId (\s a -> s { _avgrVpnGatewayId = a })
 {-# INLINE avgrVpnGatewayId #-}
 
 -- | The ID of the VPC.
 avgrVpcId :: Lens' AttachVpnGateway (Text)
-avgrVpcId f x =
-    f (_avgrVpcId x)
-        <&> \y -> x { _avgrVpcId = y }
+avgrVpcId = lens _avgrVpcId (\s a -> s { _avgrVpcId = a })
 {-# INLINE avgrVpcId #-}
 
 instance ToQuery AttachVpnGateway where
     toQuery = genericQuery def
 
-data AttachVpnGatewayResponse = AttachVpnGatewayResponse
+newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgsVpcAttachment :: Maybe VpcAttachment
       -- ^ Information about the attachment.
     } deriving (Show, Generic)
 
 -- | Information about the attachment.
 avgsVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
-avgsVpcAttachment f x =
-    f (_avgsVpcAttachment x)
-        <&> \y -> x { _avgsVpcAttachment = y }
+avgsVpcAttachment = lens _avgsVpcAttachment (\s a -> s { _avgsVpcAttachment = a })
 {-# INLINE avgsVpcAttachment #-}
 
 instance FromXML AttachVpnGatewayResponse where

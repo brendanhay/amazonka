@@ -24,7 +24,7 @@ module Network.AWS.S3.V2006_03_01.HeadBucket
     -- * Request
       HeadBucket
     -- ** Request constructor
-    , headBucket
+    , mkHeadBucketRequest
     -- ** Request lenses
     , hbrBucket
 
@@ -36,22 +36,21 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'HeadBucket' request.
-headBucket :: BucketName -- ^ 'hbrBucket'
-           -> HeadBucket
-headBucket p1 = HeadBucket
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'HeadBucket' request.
+mkHeadBucketRequest :: BucketName -- ^ 'hbrBucket'
+                    -> HeadBucket
+mkHeadBucketRequest p1 = HeadBucket
     { _hbrBucket = p1
     }
-{-# INLINE headBucket #-}
+{-# INLINE mkHeadBucketRequest #-}
 
-data HeadBucket = HeadBucket
+newtype HeadBucket = HeadBucket
     { _hbrBucket :: BucketName
     } deriving (Show, Generic)
 
 hbrBucket :: Lens' HeadBucket (BucketName)
-hbrBucket f x =
-    f (_hbrBucket x)
-        <&> \y -> x { _hbrBucket = y }
+hbrBucket = lens _hbrBucket (\s a -> s { _hbrBucket = a })
 {-# INLINE hbrBucket #-}
 
 instance ToPath HeadBucket where

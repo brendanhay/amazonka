@@ -27,7 +27,7 @@ module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
     -- * Request
       GetCheckerIpRanges
     -- ** Request constructor
-    , getCheckerIpRanges
+    , mkGetCheckerIpRangesRequest
     -- * Response
     , GetCheckerIpRangesResponse
     -- ** Response lenses
@@ -38,12 +38,12 @@ import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetCheckerIpRanges' request.
-getCheckerIpRanges :: GetCheckerIpRanges
-getCheckerIpRanges = GetCheckerIpRanges
-{-# INLINE getCheckerIpRanges #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetCheckerIpRanges' request.
+mkGetCheckerIpRangesRequest :: GetCheckerIpRanges
+mkGetCheckerIpRangesRequest = GetCheckerIpRanges
+{-# INLINE mkGetCheckerIpRangesRequest #-}
 
-data GetCheckerIpRanges = GetCheckerIpRanges
     deriving (Eq, Show, Generic)
 
 instance ToPath GetCheckerIpRanges where
@@ -57,7 +57,7 @@ instance ToXML GetCheckerIpRanges where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetCheckerIpRangesRequest"
 
-data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
+newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirsCheckerIpRanges :: [Text]
       -- ^ A complex type that contains sorted list of IP ranges in CIDR
       -- format for Amazon Route 53 health checkers.
@@ -66,9 +66,7 @@ data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
 gcirsCheckerIpRanges :: Lens' GetCheckerIpRangesResponse ([Text])
-gcirsCheckerIpRanges f x =
-    f (_gcirsCheckerIpRanges x)
-        <&> \y -> x { _gcirsCheckerIpRanges = y }
+gcirsCheckerIpRanges = lens _gcirsCheckerIpRanges (\s a -> s { _gcirsCheckerIpRanges = a })
 {-# INLINE gcirsCheckerIpRanges #-}
 
 instance FromXML GetCheckerIpRangesResponse where

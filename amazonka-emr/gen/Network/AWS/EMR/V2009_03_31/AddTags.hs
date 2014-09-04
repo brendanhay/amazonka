@@ -32,7 +32,7 @@ module Network.AWS.EMR.V2009_03_31.AddTags
     -- * Request
       AddTags
     -- ** Request constructor
-    , addTags
+    , mkAddTagsInput
     -- ** Request lenses
     , atiResourceId
     , atiTags
@@ -46,15 +46,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'AddTags' request.
-addTags :: Text -- ^ 'atiResourceId'
-        -> [Tag] -- ^ 'atiTags'
-        -> AddTags
-addTags p1 p2 = AddTags
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddTags' request.
+mkAddTagsInput :: Text -- ^ 'atiResourceId'
+               -> [Tag] -- ^ 'atiTags'
+               -> AddTags
+mkAddTagsInput p1 p2 = AddTags
     { _atiResourceId = p1
     , _atiTags = p2
     }
-{-# INLINE addTags #-}
+{-# INLINE mkAddTagsInput #-}
 
 data AddTags = AddTags
     { _atiResourceId :: Text
@@ -71,9 +72,7 @@ data AddTags = AddTags
 -- | The Amazon EMR resource identifier to which tags will be added. This value
 -- must be a cluster identifier.
 atiResourceId :: Lens' AddTags (Text)
-atiResourceId f x =
-    f (_atiResourceId x)
-        <&> \y -> x { _atiResourceId = y }
+atiResourceId = lens _atiResourceId (\s a -> s { _atiResourceId = a })
 {-# INLINE atiResourceId #-}
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
@@ -81,9 +80,7 @@ atiResourceId f x =
 -- key string with a maximum of 128 characters, and an optional value string
 -- with a maximum of 256 characters.
 atiTags :: Lens' AddTags ([Tag])
-atiTags f x =
-    f (_atiTags x)
-        <&> \y -> x { _atiTags = y }
+atiTags = lens _atiTags (\s a -> s { _atiTags = a })
 {-# INLINE atiTags #-}
 
 instance ToPath AddTags
@@ -94,7 +91,6 @@ instance ToHeaders AddTags
 
 instance ToJSON AddTags
 
-data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest AddTags where

@@ -27,7 +27,7 @@ module Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute
     -- * Request
       ModifyVpcAttribute
     -- ** Request constructor
-    , modifyVpcAttribute
+    , mkModifyVpcAttributeRequest
     -- ** Request lenses
     , mvasVpcId
     , mvasEnableDnsSupport
@@ -41,15 +41,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifyVpcAttribute' request.
-modifyVpcAttribute :: Text -- ^ 'mvasVpcId'
-                   -> ModifyVpcAttribute
-modifyVpcAttribute p1 = ModifyVpcAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyVpcAttribute' request.
+mkModifyVpcAttributeRequest :: Text -- ^ 'mvasVpcId'
+                            -> ModifyVpcAttribute
+mkModifyVpcAttributeRequest p1 = ModifyVpcAttribute
     { _mvasVpcId = p1
     , _mvasEnableDnsSupport = Nothing
     , _mvasEnableDnsHostnames = Nothing
     }
-{-# INLINE modifyVpcAttribute #-}
+{-# INLINE mkModifyVpcAttributeRequest #-}
 
 data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvasVpcId :: Text
@@ -72,9 +73,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
 
 -- | The ID of the VPC.
 mvasVpcId :: Lens' ModifyVpcAttribute (Text)
-mvasVpcId f x =
-    f (_mvasVpcId x)
-        <&> \y -> x { _mvasVpcId = y }
+mvasVpcId = lens _mvasVpcId (\s a -> s { _mvasVpcId = a })
 {-# INLINE mvasVpcId #-}
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If this
@@ -84,9 +83,7 @@ mvasVpcId f x =
 -- 169.254.169.253 IP address, or the reserved IP address at the base of the
 -- VPC network range "plus two" will succeed.
 mvasEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
-mvasEnableDnsSupport f x =
-    f (_mvasEnableDnsSupport x)
-        <&> \y -> x { _mvasEnableDnsSupport = y }
+mvasEnableDnsSupport = lens _mvasEnableDnsSupport (\s a -> s { _mvasEnableDnsSupport = a })
 {-# INLINE mvasEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
@@ -94,9 +91,7 @@ mvasEnableDnsSupport f x =
 -- they do not. You can only set enableDnsHostnames to true if you also set
 -- the EnableDnsSupport attribute to true.
 mvasEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
-mvasEnableDnsHostnames f x =
-    f (_mvasEnableDnsHostnames x)
-        <&> \y -> x { _mvasEnableDnsHostnames = y }
+mvasEnableDnsHostnames = lens _mvasEnableDnsHostnames (\s a -> s { _mvasEnableDnsHostnames = a })
 {-# INLINE mvasEnableDnsHostnames #-}
 
 instance ToQuery ModifyVpcAttribute where

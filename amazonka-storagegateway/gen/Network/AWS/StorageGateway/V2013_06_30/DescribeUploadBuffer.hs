@@ -44,15 +44,15 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer
     -- * Request
       DescribeUploadBuffer
     -- ** Request constructor
-    , describeUploadBuffer
+    , mkDescribeUploadBufferInput
     -- ** Request lenses
     , dubiGatewayARN
 
     -- * Response
     , DescribeUploadBufferResponse
     -- ** Response lenses
-    , duboDiskIds
     , duboGatewayARN
+    , duboDiskIds
     , duboUploadBufferUsedInBytes
     , duboUploadBufferAllocatedInBytes
     ) where
@@ -62,15 +62,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeUploadBuffer' request.
-describeUploadBuffer :: Text -- ^ 'dubiGatewayARN'
-                     -> DescribeUploadBuffer
-describeUploadBuffer p1 = DescribeUploadBuffer
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeUploadBuffer' request.
+mkDescribeUploadBufferInput :: Text -- ^ 'dubiGatewayARN'
+                            -> DescribeUploadBuffer
+mkDescribeUploadBufferInput p1 = DescribeUploadBuffer
     { _dubiGatewayARN = p1
     }
-{-# INLINE describeUploadBuffer #-}
+{-# INLINE mkDescribeUploadBufferInput #-}
 
-data DescribeUploadBuffer = DescribeUploadBuffer
+newtype DescribeUploadBuffer = DescribeUploadBuffer
     { _dubiGatewayARN :: Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
@@ -80,9 +81,7 @@ data DescribeUploadBuffer = DescribeUploadBuffer
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dubiGatewayARN :: Lens' DescribeUploadBuffer (Text)
-dubiGatewayARN f x =
-    f (_dubiGatewayARN x)
-        <&> \y -> x { _dubiGatewayARN = y }
+dubiGatewayARN = lens _dubiGatewayARN (\s a -> s { _dubiGatewayARN = a })
 {-# INLINE dubiGatewayARN #-}
 
 instance ToPath DescribeUploadBuffer
@@ -94,39 +93,31 @@ instance ToHeaders DescribeUploadBuffer
 instance ToJSON DescribeUploadBuffer
 
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse
-    { _duboDiskIds :: [Text]
-    , _duboGatewayARN :: Maybe Text
+    { _duboGatewayARN :: Maybe Text
       -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
       -- ListGateways operation to return a list of gateways for your
       -- account and region.
+    , _duboDiskIds :: [Text]
     , _duboUploadBufferUsedInBytes :: Maybe Integer
     , _duboUploadBufferAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
-duboDiskIds :: Lens' DescribeUploadBufferResponse ([Text])
-duboDiskIds f x =
-    f (_duboDiskIds x)
-        <&> \y -> x { _duboDiskIds = y }
-{-# INLINE duboDiskIds #-}
-
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 duboGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
-duboGatewayARN f x =
-    f (_duboGatewayARN x)
-        <&> \y -> x { _duboGatewayARN = y }
+duboGatewayARN = lens _duboGatewayARN (\s a -> s { _duboGatewayARN = a })
 {-# INLINE duboGatewayARN #-}
 
+duboDiskIds :: Lens' DescribeUploadBufferResponse ([Text])
+duboDiskIds = lens _duboDiskIds (\s a -> s { _duboDiskIds = a })
+{-# INLINE duboDiskIds #-}
+
 duboUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-duboUploadBufferUsedInBytes f x =
-    f (_duboUploadBufferUsedInBytes x)
-        <&> \y -> x { _duboUploadBufferUsedInBytes = y }
+duboUploadBufferUsedInBytes = lens _duboUploadBufferUsedInBytes (\s a -> s { _duboUploadBufferUsedInBytes = a })
 {-# INLINE duboUploadBufferUsedInBytes #-}
 
 duboUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-duboUploadBufferAllocatedInBytes f x =
-    f (_duboUploadBufferAllocatedInBytes x)
-        <&> \y -> x { _duboUploadBufferAllocatedInBytes = y }
+duboUploadBufferAllocatedInBytes = lens _duboUploadBufferAllocatedInBytes (\s a -> s { _duboUploadBufferAllocatedInBytes = a })
 {-# INLINE duboUploadBufferAllocatedInBytes #-}
 
 instance FromJSON DescribeUploadBufferResponse

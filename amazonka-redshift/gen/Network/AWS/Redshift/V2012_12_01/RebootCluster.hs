@@ -38,7 +38,7 @@ module Network.AWS.Redshift.V2012_12_01.RebootCluster
     -- * Request
       RebootCluster
     -- ** Request constructor
-    , rebootCluster
+    , mkRebootClusterMessage
     -- ** Request lenses
     , rcoClusterIdentifier
 
@@ -52,39 +52,36 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RebootCluster' request.
-rebootCluster :: Text -- ^ 'rcoClusterIdentifier'
-              -> RebootCluster
-rebootCluster p1 = RebootCluster
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootCluster' request.
+mkRebootClusterMessage :: Text -- ^ 'rcoClusterIdentifier'
+                       -> RebootCluster
+mkRebootClusterMessage p1 = RebootCluster
     { _rcoClusterIdentifier = p1
     }
-{-# INLINE rebootCluster #-}
+{-# INLINE mkRebootClusterMessage #-}
 
-data RebootCluster = RebootCluster
+newtype RebootCluster = RebootCluster
     { _rcoClusterIdentifier :: Text
       -- ^ The cluster identifier.
     } deriving (Show, Generic)
 
 -- | The cluster identifier.
 rcoClusterIdentifier :: Lens' RebootCluster (Text)
-rcoClusterIdentifier f x =
-    f (_rcoClusterIdentifier x)
-        <&> \y -> x { _rcoClusterIdentifier = y }
+rcoClusterIdentifier = lens _rcoClusterIdentifier (\s a -> s { _rcoClusterIdentifier = a })
 {-# INLINE rcoClusterIdentifier #-}
 
 instance ToQuery RebootCluster where
     toQuery = genericQuery def
 
-data RebootClusterResponse = RebootClusterResponse
+newtype RebootClusterResponse = RebootClusterResponse
     { _ccwCluster :: Maybe Cluster
       -- ^ Describes a cluster.
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
 ccwCluster :: Lens' RebootClusterResponse (Maybe Cluster)
-ccwCluster f x =
-    f (_ccwCluster x)
-        <&> \y -> x { _ccwCluster = y }
+ccwCluster = lens _ccwCluster (\s a -> s { _ccwCluster = a })
 {-# INLINE ccwCluster #-}
 
 instance FromXML RebootClusterResponse where

@@ -26,30 +26,31 @@ module Network.AWS.Route53.V2013_04_01.GetHostedZone
     -- * Request
       GetHostedZone
     -- ** Request constructor
-    , getHostedZone
+    , mkGetHostedZoneRequest
     -- ** Request lenses
     , ghzrId
 
     -- * Response
     , GetHostedZoneResponse
     -- ** Response lenses
-    , ghzsDelegationSet
     , ghzsHostedZone
+    , ghzsDelegationSet
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetHostedZone' request.
-getHostedZone :: Text -- ^ 'ghzrId'
-              -> GetHostedZone
-getHostedZone p1 = GetHostedZone
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHostedZone' request.
+mkGetHostedZoneRequest :: Text -- ^ 'ghzrId'
+                       -> GetHostedZone
+mkGetHostedZoneRequest p1 = GetHostedZone
     { _ghzrId = p1
     }
-{-# INLINE getHostedZone #-}
+{-# INLINE mkGetHostedZoneRequest #-}
 
-data GetHostedZone = GetHostedZone
+newtype GetHostedZone = GetHostedZone
     { _ghzrId :: Text
       -- ^ The ID of the hosted zone for which you want to get a list of the
       -- name servers in the delegation set.
@@ -58,9 +59,7 @@ data GetHostedZone = GetHostedZone
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
 ghzrId :: Lens' GetHostedZone (Text)
-ghzrId f x =
-    f (_ghzrId x)
-        <&> \y -> x { _ghzrId = y }
+ghzrId = lens _ghzrId (\s a -> s { _ghzrId = a })
 {-# INLINE ghzrId #-}
 
 instance ToPath GetHostedZone where
@@ -78,29 +77,25 @@ instance ToXML GetHostedZone where
     toXMLRoot    = toRoot "GetHostedZoneRequest"
 
 data GetHostedZoneResponse = GetHostedZoneResponse
-    { _ghzsDelegationSet :: DelegationSet
-      -- ^ A complex type that contains information about the name servers
-      -- for the specified hosted zone.
-    , _ghzsHostedZone :: HostedZone
+    { _ghzsHostedZone :: HostedZone
       -- ^ A complex type that contains the information about the specified
       -- hosted zone.
+    , _ghzsDelegationSet :: DelegationSet
+      -- ^ A complex type that contains information about the name servers
+      -- for the specified hosted zone.
     } deriving (Show, Generic)
-
--- | A complex type that contains information about the name servers for the
--- specified hosted zone.
-ghzsDelegationSet :: Lens' GetHostedZoneResponse (DelegationSet)
-ghzsDelegationSet f x =
-    f (_ghzsDelegationSet x)
-        <&> \y -> x { _ghzsDelegationSet = y }
-{-# INLINE ghzsDelegationSet #-}
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.
 ghzsHostedZone :: Lens' GetHostedZoneResponse (HostedZone)
-ghzsHostedZone f x =
-    f (_ghzsHostedZone x)
-        <&> \y -> x { _ghzsHostedZone = y }
+ghzsHostedZone = lens _ghzsHostedZone (\s a -> s { _ghzsHostedZone = a })
 {-# INLINE ghzsHostedZone #-}
+
+-- | A complex type that contains information about the name servers for the
+-- specified hosted zone.
+ghzsDelegationSet :: Lens' GetHostedZoneResponse (DelegationSet)
+ghzsDelegationSet = lens _ghzsDelegationSet (\s a -> s { _ghzsDelegationSet = a })
+{-# INLINE ghzsDelegationSet #-}
 
 instance FromXML GetHostedZoneResponse where
     fromXMLOptions = xmlOptions

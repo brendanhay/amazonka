@@ -58,14 +58,14 @@ module Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
     -- * Request
       TerminateWorkflowExecution
     -- ** Request constructor
-    , terminateWorkflowExecution
+    , mkTerminateWorkflowExecutionInput
     -- ** Request lenses
     , tweiDomain
     , tweiWorkflowId
-    , tweiChildPolicy
-    , tweiDetails
     , tweiRunId
     , tweiReason
+    , tweiDetails
+    , tweiChildPolicy
 
     -- * Response
     , TerminateWorkflowExecutionResponse
@@ -76,25 +76,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'TerminateWorkflowExecution' request.
-terminateWorkflowExecution :: Text -- ^ 'tweiDomain'
-                           -> Text -- ^ 'tweiWorkflowId'
-                           -> TerminateWorkflowExecution
-terminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateWorkflowExecution' request.
+mkTerminateWorkflowExecutionInput :: Text -- ^ 'tweiDomain'
+                                  -> Text -- ^ 'tweiWorkflowId'
+                                  -> TerminateWorkflowExecution
+mkTerminateWorkflowExecutionInput p1 p2 = TerminateWorkflowExecution
     { _tweiDomain = p1
     , _tweiWorkflowId = p2
-    , _tweiChildPolicy = Nothing
-    , _tweiDetails = Nothing
     , _tweiRunId = Nothing
     , _tweiReason = Nothing
+    , _tweiDetails = Nothing
+    , _tweiChildPolicy = Nothing
     }
-{-# INLINE terminateWorkflowExecution #-}
+{-# INLINE mkTerminateWorkflowExecutionInput #-}
 
 data TerminateWorkflowExecution = TerminateWorkflowExecution
     { _tweiDomain :: Text
       -- ^ The domain of the workflow execution to terminate.
     , _tweiWorkflowId :: Text
       -- ^ The workflowId of the workflow execution to terminate.
+    , _tweiRunId :: Maybe Text
+      -- ^ The runId of the workflow execution to terminate.
+    , _tweiReason :: Maybe Text
+      -- ^ An optional descriptive reason for terminating the workflow
+      -- execution.
+    , _tweiDetails :: Maybe Text
+      -- ^ Optional details for terminating the workflow execution.
     , _tweiChildPolicy :: Maybe ChildPolicy
       -- ^ If set, specifies the policy to use for the child workflow
       -- executions of the workflow execution being terminated. This
@@ -111,28 +119,32 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
       -- for the workflow type or through this parameter. If neither this
       -- parameter is set nor a default child policy was specified at
       -- registration time, a fault will be returned.
-    , _tweiDetails :: Maybe Text
-      -- ^ Optional details for terminating the workflow execution.
-    , _tweiRunId :: Maybe Text
-      -- ^ The runId of the workflow execution to terminate.
-    , _tweiReason :: Maybe Text
-      -- ^ An optional descriptive reason for terminating the workflow
-      -- execution.
     } deriving (Show, Generic)
 
 -- | The domain of the workflow execution to terminate.
 tweiDomain :: Lens' TerminateWorkflowExecution (Text)
-tweiDomain f x =
-    f (_tweiDomain x)
-        <&> \y -> x { _tweiDomain = y }
+tweiDomain = lens _tweiDomain (\s a -> s { _tweiDomain = a })
 {-# INLINE tweiDomain #-}
 
 -- | The workflowId of the workflow execution to terminate.
 tweiWorkflowId :: Lens' TerminateWorkflowExecution (Text)
-tweiWorkflowId f x =
-    f (_tweiWorkflowId x)
-        <&> \y -> x { _tweiWorkflowId = y }
+tweiWorkflowId = lens _tweiWorkflowId (\s a -> s { _tweiWorkflowId = a })
 {-# INLINE tweiWorkflowId #-}
+
+-- | The runId of the workflow execution to terminate.
+tweiRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweiRunId = lens _tweiRunId (\s a -> s { _tweiRunId = a })
+{-# INLINE tweiRunId #-}
+
+-- | An optional descriptive reason for terminating the workflow execution.
+tweiReason :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweiReason = lens _tweiReason (\s a -> s { _tweiReason = a })
+{-# INLINE tweiReason #-}
+
+-- | Optional details for terminating the workflow execution.
+tweiDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweiDetails = lens _tweiDetails (\s a -> s { _tweiDetails = a })
+{-# INLINE tweiDetails #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- the workflow execution being terminated. This policy overrides the child
@@ -148,31 +160,8 @@ tweiWorkflowId f x =
 -- parameter. If neither this parameter is set nor a default child policy was
 -- specified at registration time, a fault will be returned.
 tweiChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
-tweiChildPolicy f x =
-    f (_tweiChildPolicy x)
-        <&> \y -> x { _tweiChildPolicy = y }
+tweiChildPolicy = lens _tweiChildPolicy (\s a -> s { _tweiChildPolicy = a })
 {-# INLINE tweiChildPolicy #-}
-
--- | Optional details for terminating the workflow execution.
-tweiDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
-tweiDetails f x =
-    f (_tweiDetails x)
-        <&> \y -> x { _tweiDetails = y }
-{-# INLINE tweiDetails #-}
-
--- | The runId of the workflow execution to terminate.
-tweiRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
-tweiRunId f x =
-    f (_tweiRunId x)
-        <&> \y -> x { _tweiRunId = y }
-{-# INLINE tweiRunId #-}
-
--- | An optional descriptive reason for terminating the workflow execution.
-tweiReason :: Lens' TerminateWorkflowExecution (Maybe Text)
-tweiReason f x =
-    f (_tweiReason x)
-        <&> \y -> x { _tweiReason = y }
-{-# INLINE tweiReason #-}
 
 instance ToPath TerminateWorkflowExecution
 

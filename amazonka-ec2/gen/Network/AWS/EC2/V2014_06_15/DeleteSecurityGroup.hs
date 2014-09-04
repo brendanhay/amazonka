@@ -38,7 +38,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup
     -- * Request
       DeleteSecurityGroup
     -- ** Request constructor
-    , deleteSecurityGroup
+    , mkDeleteSecurityGroupRequest
     -- ** Request lenses
     , dsgrGroupName
     , dsgrGroupId
@@ -51,13 +51,14 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSecurityGroup' request.
-deleteSecurityGroup :: DeleteSecurityGroup
-deleteSecurityGroup = DeleteSecurityGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSecurityGroup' request.
+mkDeleteSecurityGroupRequest :: DeleteSecurityGroup
+mkDeleteSecurityGroupRequest = DeleteSecurityGroup
     { _dsgrGroupName = Nothing
     , _dsgrGroupId = Nothing
     }
-{-# INLINE deleteSecurityGroup #-}
+{-# INLINE mkDeleteSecurityGroupRequest #-}
 
 data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgrGroupName :: Maybe Text
@@ -68,16 +69,12 @@ data DeleteSecurityGroup = DeleteSecurityGroup
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 dsgrGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgrGroupName f x =
-    f (_dsgrGroupName x)
-        <&> \y -> x { _dsgrGroupName = y }
+dsgrGroupName = lens _dsgrGroupName (\s a -> s { _dsgrGroupName = a })
 {-# INLINE dsgrGroupName #-}
 
 -- | The ID of the security group.
 dsgrGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgrGroupId f x =
-    f (_dsgrGroupId x)
-        <&> \y -> x { _dsgrGroupId = y }
+dsgrGroupId = lens _dsgrGroupId (\s a -> s { _dsgrGroupId = a })
 {-# INLINE dsgrGroupId #-}
 
 instance ToQuery DeleteSecurityGroup where

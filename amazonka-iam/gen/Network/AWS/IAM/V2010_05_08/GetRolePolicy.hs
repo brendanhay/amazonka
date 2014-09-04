@@ -30,86 +30,77 @@ module Network.AWS.IAM.V2010_05_08.GetRolePolicy
     -- * Request
       GetRolePolicy
     -- ** Request constructor
-    , getRolePolicy
+    , mkGetRolePolicyRequest
     -- ** Request lenses
-    , grprPolicyName
     , grprRoleName
+    , grprPolicyName
 
     -- * Response
     , GetRolePolicyResponse
     -- ** Response lenses
-    , grpsPolicyDocument
-    , grpsPolicyName
     , grpsRoleName
+    , grpsPolicyName
+    , grpsPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetRolePolicy' request.
-getRolePolicy :: Text -- ^ 'grprPolicyName'
-              -> Text -- ^ 'grprRoleName'
-              -> GetRolePolicy
-getRolePolicy p1 p2 = GetRolePolicy
-    { _grprPolicyName = p1
-    , _grprRoleName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRolePolicy' request.
+mkGetRolePolicyRequest :: Text -- ^ 'grprRoleName'
+                       -> Text -- ^ 'grprPolicyName'
+                       -> GetRolePolicy
+mkGetRolePolicyRequest p1 p2 = GetRolePolicy
+    { _grprRoleName = p1
+    , _grprPolicyName = p2
     }
-{-# INLINE getRolePolicy #-}
+{-# INLINE mkGetRolePolicyRequest #-}
 
 data GetRolePolicy = GetRolePolicy
-    { _grprPolicyName :: Text
-      -- ^ Name of the policy document to get.
-    , _grprRoleName :: Text
+    { _grprRoleName :: Text
       -- ^ Name of the role associated with the policy.
+    , _grprPolicyName :: Text
+      -- ^ Name of the policy document to get.
     } deriving (Show, Generic)
-
--- | Name of the policy document to get.
-grprPolicyName :: Lens' GetRolePolicy (Text)
-grprPolicyName f x =
-    f (_grprPolicyName x)
-        <&> \y -> x { _grprPolicyName = y }
-{-# INLINE grprPolicyName #-}
 
 -- | Name of the role associated with the policy.
 grprRoleName :: Lens' GetRolePolicy (Text)
-grprRoleName f x =
-    f (_grprRoleName x)
-        <&> \y -> x { _grprRoleName = y }
+grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
 {-# INLINE grprRoleName #-}
+
+-- | Name of the policy document to get.
+grprPolicyName :: Lens' GetRolePolicy (Text)
+grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
+{-# INLINE grprPolicyName #-}
 
 instance ToQuery GetRolePolicy where
     toQuery = genericQuery def
 
 data GetRolePolicyResponse = GetRolePolicyResponse
-    { _grpsPolicyDocument :: Text
-      -- ^ The policy document.
+    { _grpsRoleName :: Text
+      -- ^ The role the policy is associated with.
     , _grpsPolicyName :: Text
       -- ^ The name of the policy.
-    , _grpsRoleName :: Text
-      -- ^ The role the policy is associated with.
+    , _grpsPolicyDocument :: Text
+      -- ^ The policy document.
     } deriving (Show, Generic)
-
--- | The policy document.
-grpsPolicyDocument :: Lens' GetRolePolicyResponse (Text)
-grpsPolicyDocument f x =
-    f (_grpsPolicyDocument x)
-        <&> \y -> x { _grpsPolicyDocument = y }
-{-# INLINE grpsPolicyDocument #-}
-
--- | The name of the policy.
-grpsPolicyName :: Lens' GetRolePolicyResponse (Text)
-grpsPolicyName f x =
-    f (_grpsPolicyName x)
-        <&> \y -> x { _grpsPolicyName = y }
-{-# INLINE grpsPolicyName #-}
 
 -- | The role the policy is associated with.
 grpsRoleName :: Lens' GetRolePolicyResponse (Text)
-grpsRoleName f x =
-    f (_grpsRoleName x)
-        <&> \y -> x { _grpsRoleName = y }
+grpsRoleName = lens _grpsRoleName (\s a -> s { _grpsRoleName = a })
 {-# INLINE grpsRoleName #-}
+
+-- | The name of the policy.
+grpsPolicyName :: Lens' GetRolePolicyResponse (Text)
+grpsPolicyName = lens _grpsPolicyName (\s a -> s { _grpsPolicyName = a })
+{-# INLINE grpsPolicyName #-}
+
+-- | The policy document.
+grpsPolicyDocument :: Lens' GetRolePolicyResponse (Text)
+grpsPolicyDocument = lens _grpsPolicyDocument (\s a -> s { _grpsPolicyDocument = a })
+{-# INLINE grpsPolicyDocument #-}
 
 instance FromXML GetRolePolicyResponse where
     fromXMLOptions = xmlOptions

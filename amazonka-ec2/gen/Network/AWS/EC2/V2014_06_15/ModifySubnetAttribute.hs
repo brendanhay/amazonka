@@ -28,7 +28,7 @@ module Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute
     -- * Request
       ModifySubnetAttribute
     -- ** Request constructor
-    , modifySubnetAttribute
+    , mkModifySubnetAttributeRequest
     -- ** Request lenses
     , msasSubnetId
     , msasMapPublicIpOnLaunch
@@ -41,14 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ModifySubnetAttribute' request.
-modifySubnetAttribute :: Text -- ^ 'msasSubnetId'
-                      -> ModifySubnetAttribute
-modifySubnetAttribute p1 = ModifySubnetAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifySubnetAttribute' request.
+mkModifySubnetAttributeRequest :: Text -- ^ 'msasSubnetId'
+                               -> ModifySubnetAttribute
+mkModifySubnetAttributeRequest p1 = ModifySubnetAttribute
     { _msasSubnetId = p1
     , _msasMapPublicIpOnLaunch = Nothing
     }
-{-# INLINE modifySubnetAttribute #-}
+{-# INLINE mkModifySubnetAttributeRequest #-}
 
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msasSubnetId :: Text
@@ -59,16 +60,12 @@ data ModifySubnetAttribute = ModifySubnetAttribute
 
 -- | The ID of the subnet.
 msasSubnetId :: Lens' ModifySubnetAttribute (Text)
-msasSubnetId f x =
-    f (_msasSubnetId x)
-        <&> \y -> x { _msasSubnetId = y }
+msasSubnetId = lens _msasSubnetId (\s a -> s { _msasSubnetId = a })
 {-# INLINE msasSubnetId #-}
 
 -- | 
 msasMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msasMapPublicIpOnLaunch f x =
-    f (_msasMapPublicIpOnLaunch x)
-        <&> \y -> x { _msasMapPublicIpOnLaunch = y }
+msasMapPublicIpOnLaunch = lens _msasMapPublicIpOnLaunch (\s a -> s { _msasMapPublicIpOnLaunch = a })
 {-# INLINE msasMapPublicIpOnLaunch #-}
 
 instance ToQuery ModifySubnetAttribute where

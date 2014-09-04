@@ -34,7 +34,7 @@ module Network.AWS.SES.V2010_12_01.GetSendStatistics
     -- * Request
       GetSendStatistics
     -- ** Request constructor
-    , getSendStatistics
+    , mkUnknown
     -- * Response
     , GetSendStatisticsResponse
     -- ** Response lenses
@@ -45,10 +45,11 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetSendStatistics' request.
-getSendStatistics :: GetSendStatistics
-getSendStatistics = GetSendStatistics
-{-# INLINE getSendStatistics #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSendStatistics' request.
+mkUnknown :: GetSendStatistics
+mkUnknown = GetSendStatistics
+{-# INLINE mkUnknown #-}
 
 data GetSendStatistics = GetSendStatistics
     deriving (Eq, Show, Generic)
@@ -56,7 +57,7 @@ data GetSendStatistics = GetSendStatistics
 instance ToQuery GetSendStatistics where
     toQuery = genericQuery def
 
-data GetSendStatisticsResponse = GetSendStatisticsResponse
+newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
       -- ^ A list of data points, each of which represents 15 minutes of
       -- activity.
@@ -64,9 +65,7 @@ data GetSendStatisticsResponse = GetSendStatisticsResponse
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse ([SendDataPoint])
-gssrSendDataPoints f x =
-    f (_gssrSendDataPoints x)
-        <&> \y -> x { _gssrSendDataPoints = y }
+gssrSendDataPoints = lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
 {-# INLINE gssrSendDataPoints #-}
 
 instance FromXML GetSendStatisticsResponse where

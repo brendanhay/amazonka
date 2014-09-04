@@ -54,7 +54,7 @@ module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
     -- * Request
       DecodeAuthorizationMessage
     -- ** Request constructor
-    , decodeAuthorizationMessage
+    , mkDecodeAuthorizationMessageRequest
     -- ** Request lenses
     , damrEncodedMessage
 
@@ -68,30 +68,29 @@ import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DecodeAuthorizationMessage' request.
-decodeAuthorizationMessage :: Text -- ^ 'damrEncodedMessage'
-                           -> DecodeAuthorizationMessage
-decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DecodeAuthorizationMessage' request.
+mkDecodeAuthorizationMessageRequest :: Text -- ^ 'damrEncodedMessage'
+                                    -> DecodeAuthorizationMessage
+mkDecodeAuthorizationMessageRequest p1 = DecodeAuthorizationMessage
     { _damrEncodedMessage = p1
     }
-{-# INLINE decodeAuthorizationMessage #-}
+{-# INLINE mkDecodeAuthorizationMessageRequest #-}
 
-data DecodeAuthorizationMessage = DecodeAuthorizationMessage
+newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damrEncodedMessage :: Text
       -- ^ The encoded message that was returned with the response.
     } deriving (Show, Generic)
 
 -- | The encoded message that was returned with the response.
 damrEncodedMessage :: Lens' DecodeAuthorizationMessage (Text)
-damrEncodedMessage f x =
-    f (_damrEncodedMessage x)
-        <&> \y -> x { _damrEncodedMessage = y }
+damrEncodedMessage = lens _damrEncodedMessage (\s a -> s { _damrEncodedMessage = a })
 {-# INLINE damrEncodedMessage #-}
 
 instance ToQuery DecodeAuthorizationMessage where
     toQuery = genericQuery def
 
-data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
+newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damsDecodedMessage :: Maybe Text
       -- ^ An XML document that contains the decoded message. For more
       -- information, see DecodeAuthorizationMessage.
@@ -100,9 +99,7 @@ data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 -- | An XML document that contains the decoded message. For more information,
 -- see DecodeAuthorizationMessage.
 damsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
-damsDecodedMessage f x =
-    f (_damsDecodedMessage x)
-        <&> \y -> x { _damsDecodedMessage = y }
+damsDecodedMessage = lens _damsDecodedMessage (\s a -> s { _damsDecodedMessage = a })
 {-# INLINE damsDecodedMessage #-}
 
 instance FromXML DecodeAuthorizationMessageResponse where

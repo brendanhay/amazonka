@@ -39,17 +39,17 @@ module Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction
     -- * Request
       PutScheduledUpdateGroupAction
     -- ** Request constructor
-    , putScheduledUpdateGroupAction
+    , mkPutScheduledUpdateGroupActionType
     -- ** Request lenses
     , psugatAutoScalingGroupName
     , psugatScheduledActionName
-    , psugatDesiredCapacity
-    , psugatMaxSize
-    , psugatMinSize
     , psugatTime
     , psugatStartTime
     , psugatEndTime
     , psugatRecurrence
+    , psugatMinSize
+    , psugatMaxSize
+    , psugatDesiredCapacity
 
     -- * Response
     , PutScheduledUpdateGroupActionResponse
@@ -59,35 +59,29 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PutScheduledUpdateGroupAction' request.
-putScheduledUpdateGroupAction :: Text -- ^ 'psugatAutoScalingGroupName'
-                              -> Text -- ^ 'psugatScheduledActionName'
-                              -> PutScheduledUpdateGroupAction
-putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutScheduledUpdateGroupAction' request.
+mkPutScheduledUpdateGroupActionType :: Text -- ^ 'psugatAutoScalingGroupName'
+                                    -> Text -- ^ 'psugatScheduledActionName'
+                                    -> PutScheduledUpdateGroupAction
+mkPutScheduledUpdateGroupActionType p1 p2 = PutScheduledUpdateGroupAction
     { _psugatAutoScalingGroupName = p1
     , _psugatScheduledActionName = p2
-    , _psugatDesiredCapacity = Nothing
-    , _psugatMaxSize = Nothing
-    , _psugatMinSize = Nothing
     , _psugatTime = Nothing
     , _psugatStartTime = Nothing
     , _psugatEndTime = Nothing
     , _psugatRecurrence = Nothing
+    , _psugatMinSize = Nothing
+    , _psugatMaxSize = Nothing
+    , _psugatDesiredCapacity = Nothing
     }
-{-# INLINE putScheduledUpdateGroupAction #-}
+{-# INLINE mkPutScheduledUpdateGroupActionType #-}
 
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     { _psugatAutoScalingGroupName :: Text
       -- ^ The name or ARN of the Auto Scaling group.
     , _psugatScheduledActionName :: Text
       -- ^ The name of this scaling action.
-    , _psugatDesiredCapacity :: Maybe Integer
-      -- ^ The number of Amazon EC2 instances that should be running in the
-      -- group.
-    , _psugatMaxSize :: Maybe Integer
-      -- ^ The maximum size for the Auto Scaling group.
-    , _psugatMinSize :: Maybe Integer
-      -- ^ The minimum size for the new Auto Scaling group.
     , _psugatTime :: Maybe ISO8601
       -- ^ Time is deprecated. The time for this action to start. Time is an
       -- alias for StartTime and can be specified instead of StartTime, or
@@ -109,51 +103,31 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
       -- Encyclopedia. When StartTime and EndTime are specified with
       -- Recurrence, they form the boundaries of when the recurring action
       -- will start and stop.
+    , _psugatMinSize :: Maybe Integer
+      -- ^ The minimum size for the new Auto Scaling group.
+    , _psugatMaxSize :: Maybe Integer
+      -- ^ The maximum size for the Auto Scaling group.
+    , _psugatDesiredCapacity :: Maybe Integer
+      -- ^ The number of Amazon EC2 instances that should be running in the
+      -- group.
     } deriving (Show, Generic)
 
 -- | The name or ARN of the Auto Scaling group.
 psugatAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction (Text)
-psugatAutoScalingGroupName f x =
-    f (_psugatAutoScalingGroupName x)
-        <&> \y -> x { _psugatAutoScalingGroupName = y }
+psugatAutoScalingGroupName = lens _psugatAutoScalingGroupName (\s a -> s { _psugatAutoScalingGroupName = a })
 {-# INLINE psugatAutoScalingGroupName #-}
 
 -- | The name of this scaling action.
 psugatScheduledActionName :: Lens' PutScheduledUpdateGroupAction (Text)
-psugatScheduledActionName f x =
-    f (_psugatScheduledActionName x)
-        <&> \y -> x { _psugatScheduledActionName = y }
+psugatScheduledActionName = lens _psugatScheduledActionName (\s a -> s { _psugatScheduledActionName = a })
 {-# INLINE psugatScheduledActionName #-}
-
--- | The number of Amazon EC2 instances that should be running in the group.
-psugatDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
-psugatDesiredCapacity f x =
-    f (_psugatDesiredCapacity x)
-        <&> \y -> x { _psugatDesiredCapacity = y }
-{-# INLINE psugatDesiredCapacity #-}
-
--- | The maximum size for the Auto Scaling group.
-psugatMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
-psugatMaxSize f x =
-    f (_psugatMaxSize x)
-        <&> \y -> x { _psugatMaxSize = y }
-{-# INLINE psugatMaxSize #-}
-
--- | The minimum size for the new Auto Scaling group.
-psugatMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
-psugatMinSize f x =
-    f (_psugatMinSize x)
-        <&> \y -> x { _psugatMinSize = y }
-{-# INLINE psugatMinSize #-}
 
 -- | Time is deprecated. The time for this action to start. Time is an alias for
 -- StartTime and can be specified instead of StartTime, or vice versa. If both
 -- Time and StartTime are specified, their values should be identical.
 -- Otherwise, PutScheduledUpdateGroupAction will return an error.
 psugatTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
-psugatTime f x =
-    f (_psugatTime x)
-        <&> \y -> x { _psugatTime = y }
+psugatTime = lens _psugatTime (\s a -> s { _psugatTime = a })
 {-# INLINE psugatTime #-}
 
 -- | The time for this action to start, as in --start-time 2010-06-01T00:00:00Z.
@@ -161,16 +135,12 @@ psugatTime f x =
 -- error message. When StartTime and EndTime are specified with Recurrence,
 -- they form the boundaries of when the recurring action will start and stop.
 psugatStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
-psugatStartTime f x =
-    f (_psugatStartTime x)
-        <&> \y -> x { _psugatStartTime = y }
+psugatStartTime = lens _psugatStartTime (\s a -> s { _psugatStartTime = a })
 {-# INLINE psugatStartTime #-}
 
 -- | The time for this action to end.
 psugatEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
-psugatEndTime f x =
-    f (_psugatEndTime x)
-        <&> \y -> x { _psugatEndTime = y }
+psugatEndTime = lens _psugatEndTime (\s a -> s { _psugatEndTime = a })
 {-# INLINE psugatEndTime #-}
 
 -- | The time when recurring future actions will start. Start time is specified
@@ -179,10 +149,23 @@ psugatEndTime f x =
 -- EndTime are specified with Recurrence, they form the boundaries of when the
 -- recurring action will start and stop.
 psugatRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
-psugatRecurrence f x =
-    f (_psugatRecurrence x)
-        <&> \y -> x { _psugatRecurrence = y }
+psugatRecurrence = lens _psugatRecurrence (\s a -> s { _psugatRecurrence = a })
 {-# INLINE psugatRecurrence #-}
+
+-- | The minimum size for the new Auto Scaling group.
+psugatMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
+psugatMinSize = lens _psugatMinSize (\s a -> s { _psugatMinSize = a })
+{-# INLINE psugatMinSize #-}
+
+-- | The maximum size for the Auto Scaling group.
+psugatMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
+psugatMaxSize = lens _psugatMaxSize (\s a -> s { _psugatMaxSize = a })
+{-# INLINE psugatMaxSize #-}
+
+-- | The number of Amazon EC2 instances that should be running in the group.
+psugatDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
+psugatDesiredCapacity = lens _psugatDesiredCapacity (\s a -> s { _psugatDesiredCapacity = a })
+{-# INLINE psugatDesiredCapacity #-}
 
 instance ToQuery PutScheduledUpdateGroupAction where
     toQuery = genericQuery def

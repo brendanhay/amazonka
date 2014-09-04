@@ -23,7 +23,7 @@ module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners
     -- * Request
       DeleteLoadBalancerListeners
     -- ** Request constructor
-    , deleteLoadBalancerListeners
+    , mkDeleteLoadBalancerListenerInput
     -- ** Request lenses
     , dlbliLoadBalancerName
     , dlbliLoadBalancerPorts
@@ -36,15 +36,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteLoadBalancerListeners' request.
-deleteLoadBalancerListeners :: Text -- ^ 'dlbliLoadBalancerName'
-                            -> [Integer] -- ^ 'dlbliLoadBalancerPorts'
-                            -> DeleteLoadBalancerListeners
-deleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoadBalancerListeners' request.
+mkDeleteLoadBalancerListenerInput :: Text -- ^ 'dlbliLoadBalancerName'
+                                  -> [Integer] -- ^ 'dlbliLoadBalancerPorts'
+                                  -> DeleteLoadBalancerListeners
+mkDeleteLoadBalancerListenerInput p1 p2 = DeleteLoadBalancerListeners
     { _dlbliLoadBalancerName = p1
     , _dlbliLoadBalancerPorts = p2
     }
-{-# INLINE deleteLoadBalancerListeners #-}
+{-# INLINE mkDeleteLoadBalancerListenerInput #-}
 
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlbliLoadBalancerName :: Text
@@ -56,22 +57,17 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
 
 -- | The mnemonic name associated with the load balancer.
 dlbliLoadBalancerName :: Lens' DeleteLoadBalancerListeners (Text)
-dlbliLoadBalancerName f x =
-    f (_dlbliLoadBalancerName x)
-        <&> \y -> x { _dlbliLoadBalancerName = y }
+dlbliLoadBalancerName = lens _dlbliLoadBalancerName (\s a -> s { _dlbliLoadBalancerName = a })
 {-# INLINE dlbliLoadBalancerName #-}
 
 -- | The client port number(s) of the load balancer listener(s) to be removed.
 dlbliLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners ([Integer])
-dlbliLoadBalancerPorts f x =
-    f (_dlbliLoadBalancerPorts x)
-        <&> \y -> x { _dlbliLoadBalancerPorts = y }
+dlbliLoadBalancerPorts = lens _dlbliLoadBalancerPorts (\s a -> s { _dlbliLoadBalancerPorts = a })
 {-# INLINE dlbliLoadBalancerPorts #-}
 
 instance ToQuery DeleteLoadBalancerListeners where
     toQuery = genericQuery def
 
-data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLoadBalancerListeners where

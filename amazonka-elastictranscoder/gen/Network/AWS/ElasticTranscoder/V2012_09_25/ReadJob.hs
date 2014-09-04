@@ -39,7 +39,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob
     -- * Request
       ReadJob
     -- ** Request constructor
-    , readJob
+    , mkReadJobRequest
     -- ** Request lenses
     , rjrId
 
@@ -54,15 +54,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'ReadJob' request.
-readJob :: Text -- ^ 'rjrId'
-        -> ReadJob
-readJob p1 = ReadJob
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadJob' request.
+mkReadJobRequest :: Text -- ^ 'rjrId'
+                 -> ReadJob
+mkReadJobRequest p1 = ReadJob
     { _rjrId = p1
     }
-{-# INLINE readJob #-}
+{-# INLINE mkReadJobRequest #-}
 
-data ReadJob = ReadJob
+newtype ReadJob = ReadJob
     { _rjrId :: Text
       -- ^ The identifier of the job for which you want to get detailed
       -- information.
@@ -70,9 +71,7 @@ data ReadJob = ReadJob
 
 -- | The identifier of the job for which you want to get detailed information.
 rjrId :: Lens' ReadJob (Text)
-rjrId f x =
-    f (_rjrId x)
-        <&> \y -> x { _rjrId = y }
+rjrId = lens _rjrId (\s a -> s { _rjrId = a })
 {-# INLINE rjrId #-}
 
 instance ToPath ReadJob where
@@ -87,7 +86,7 @@ instance ToHeaders ReadJob
 
 instance ToJSON ReadJob
 
-data ReadJobResponse = ReadJobResponse
+newtype ReadJobResponse = ReadJobResponse
     { _rjsJob :: Maybe Job
       -- ^ A section of the response body that provides information about
       -- the job.
@@ -95,9 +94,7 @@ data ReadJobResponse = ReadJobResponse
 
 -- | A section of the response body that provides information about the job.
 rjsJob :: Lens' ReadJobResponse (Maybe Job)
-rjsJob f x =
-    f (_rjsJob x)
-        <&> \y -> x { _rjsJob = y }
+rjsJob = lens _rjsJob (\s a -> s { _rjsJob = a })
 {-# INLINE rjsJob #-}
 
 instance FromJSON ReadJobResponse

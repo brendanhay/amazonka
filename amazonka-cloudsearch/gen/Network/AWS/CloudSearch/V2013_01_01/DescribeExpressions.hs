@@ -28,11 +28,11 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions
     -- * Request
       DescribeExpressions
     -- ** Request constructor
-    , describeExpressions
+    , mkDescribeExpressionsRequest
     -- ** Request lenses
     , devDomainName
-    , devDeployed
     , devExpressionNames
+    , devDeployed
 
     -- * Response
     , DescribeExpressionsResponse
@@ -44,63 +44,56 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeExpressions' request.
-describeExpressions :: Text -- ^ 'devDomainName'
-                    -> DescribeExpressions
-describeExpressions p1 = DescribeExpressions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeExpressions' request.
+mkDescribeExpressionsRequest :: Text -- ^ 'devDomainName'
+                             -> DescribeExpressions
+mkDescribeExpressionsRequest p1 = DescribeExpressions
     { _devDomainName = p1
-    , _devDeployed = Nothing
     , _devExpressionNames = mempty
+    , _devDeployed = Nothing
     }
-{-# INLINE describeExpressions #-}
+{-# INLINE mkDescribeExpressionsRequest #-}
 
 data DescribeExpressions = DescribeExpressions
     { _devDomainName :: Text
       -- ^ The name of the domain you want to describe.
-    , _devDeployed :: Maybe Bool
-      -- ^ Whether to display the deployed configuration (true) or include
-      -- any pending changes (false). Defaults to false.
     , _devExpressionNames :: [Text]
       -- ^ Limits the DescribeExpressions response to the specified
       -- expressions. If not specified, all expressions are shown.
+    , _devDeployed :: Maybe Bool
+      -- ^ Whether to display the deployed configuration (true) or include
+      -- any pending changes (false). Defaults to false.
     } deriving (Show, Generic)
 
 -- | The name of the domain you want to describe.
 devDomainName :: Lens' DescribeExpressions (Text)
-devDomainName f x =
-    f (_devDomainName x)
-        <&> \y -> x { _devDomainName = y }
+devDomainName = lens _devDomainName (\s a -> s { _devDomainName = a })
 {-# INLINE devDomainName #-}
-
--- | Whether to display the deployed configuration (true) or include any pending
--- changes (false). Defaults to false.
-devDeployed :: Lens' DescribeExpressions (Maybe Bool)
-devDeployed f x =
-    f (_devDeployed x)
-        <&> \y -> x { _devDeployed = y }
-{-# INLINE devDeployed #-}
 
 -- | Limits the DescribeExpressions response to the specified expressions. If
 -- not specified, all expressions are shown.
 devExpressionNames :: Lens' DescribeExpressions ([Text])
-devExpressionNames f x =
-    f (_devExpressionNames x)
-        <&> \y -> x { _devExpressionNames = y }
+devExpressionNames = lens _devExpressionNames (\s a -> s { _devExpressionNames = a })
 {-# INLINE devExpressionNames #-}
+
+-- | Whether to display the deployed configuration (true) or include any pending
+-- changes (false). Defaults to false.
+devDeployed :: Lens' DescribeExpressions (Maybe Bool)
+devDeployed = lens _devDeployed (\s a -> s { _devDeployed = a })
+{-# INLINE devDeployed #-}
 
 instance ToQuery DescribeExpressions where
     toQuery = genericQuery def
 
-data DescribeExpressionsResponse = DescribeExpressionsResponse
+newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _dewExpressions :: [ExpressionStatus]
       -- ^ The expressions configured for the domain.
     } deriving (Show, Generic)
 
 -- | The expressions configured for the domain.
 dewExpressions :: Lens' DescribeExpressionsResponse ([ExpressionStatus])
-dewExpressions f x =
-    f (_dewExpressions x)
-        <&> \y -> x { _dewExpressions = y }
+dewExpressions = lens _dewExpressions (\s a -> s { _dewExpressions = a })
 {-# INLINE dewExpressions #-}
 
 instance FromXML DescribeExpressionsResponse where

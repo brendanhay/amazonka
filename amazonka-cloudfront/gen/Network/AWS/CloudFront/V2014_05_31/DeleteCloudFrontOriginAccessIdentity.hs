@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
     -- * Request
       DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , deleteCloudFrontOriginAccessIdentity
+    , mkDeleteCloudFrontOriginAccessIdentityRequest
     -- ** Request lenses
     , dcfoairId
     , dcfoairIfMatch
@@ -36,14 +36,15 @@ import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteCloudFrontOriginAccessIdentity' request.
-deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoairId'
-                                     -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCloudFrontOriginAccessIdentity' request.
+mkDeleteCloudFrontOriginAccessIdentityRequest :: Text -- ^ 'dcfoairId'
+                                              -> DeleteCloudFrontOriginAccessIdentity
+mkDeleteCloudFrontOriginAccessIdentityRequest p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoairId = p1
     , _dcfoairIfMatch = Nothing
     }
-{-# INLINE deleteCloudFrontOriginAccessIdentity #-}
+{-# INLINE mkDeleteCloudFrontOriginAccessIdentityRequest #-}
 
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
     { _dcfoairId :: Text
@@ -55,17 +56,13 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 
 -- | The origin access identity's id.
 dcfoairId :: Lens' DeleteCloudFrontOriginAccessIdentity (Text)
-dcfoairId f x =
-    f (_dcfoairId x)
-        <&> \y -> x { _dcfoairId = y }
+dcfoairId = lens _dcfoairId (\s a -> s { _dcfoairId = a })
 {-# INLINE dcfoairId #-}
 
 -- | The value of the ETag header you received from a previous GET or PUT
 -- request. For example: E2QWRUHAPOMQZL.
 dcfoairIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
-dcfoairIfMatch f x =
-    f (_dcfoairIfMatch x)
-        <&> \y -> x { _dcfoairIfMatch = y }
+dcfoairIfMatch = lens _dcfoairIfMatch (\s a -> s { _dcfoairIfMatch = a })
 {-# INLINE dcfoairIfMatch #-}
 
 instance ToPath DeleteCloudFrontOriginAccessIdentity where
@@ -76,10 +73,7 @@ instance ToPath DeleteCloudFrontOriginAccessIdentity where
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity
 
-instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
-    toHeaders DeleteCloudFrontOriginAccessIdentity{..} = concat
-        [ "If-Match" =: _dcfoairIfMatch
-        ]
+instance ToHeaders DeleteCloudFrontOriginAccessIdentity
 
 instance ToXML DeleteCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions

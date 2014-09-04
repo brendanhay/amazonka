@@ -28,10 +28,10 @@ module Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
     -- * Request
       UpdateAssumeRolePolicy
     -- ** Request constructor
-    , updateAssumeRolePolicy
+    , mkUpdateAssumeRolePolicyRequest
     -- ** Request lenses
-    , uarprPolicyDocument
     , uarprRoleName
+    , uarprPolicyDocument
 
     -- * Response
     , UpdateAssumeRolePolicyResponse
@@ -41,36 +41,33 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateAssumeRolePolicy' request.
-updateAssumeRolePolicy :: Text -- ^ 'uarprPolicyDocument'
-                       -> Text -- ^ 'uarprRoleName'
-                       -> UpdateAssumeRolePolicy
-updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
-    { _uarprPolicyDocument = p1
-    , _uarprRoleName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAssumeRolePolicy' request.
+mkUpdateAssumeRolePolicyRequest :: Text -- ^ 'uarprRoleName'
+                                -> Text -- ^ 'uarprPolicyDocument'
+                                -> UpdateAssumeRolePolicy
+mkUpdateAssumeRolePolicyRequest p1 p2 = UpdateAssumeRolePolicy
+    { _uarprRoleName = p1
+    , _uarprPolicyDocument = p2
     }
-{-# INLINE updateAssumeRolePolicy #-}
+{-# INLINE mkUpdateAssumeRolePolicyRequest #-}
 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
-    { _uarprPolicyDocument :: Text
-      -- ^ The policy that grants an entity permission to assume the role.
-    , _uarprRoleName :: Text
+    { _uarprRoleName :: Text
       -- ^ Name of the role to update.
+    , _uarprPolicyDocument :: Text
+      -- ^ The policy that grants an entity permission to assume the role.
     } deriving (Show, Generic)
-
--- | The policy that grants an entity permission to assume the role.
-uarprPolicyDocument :: Lens' UpdateAssumeRolePolicy (Text)
-uarprPolicyDocument f x =
-    f (_uarprPolicyDocument x)
-        <&> \y -> x { _uarprPolicyDocument = y }
-{-# INLINE uarprPolicyDocument #-}
 
 -- | Name of the role to update.
 uarprRoleName :: Lens' UpdateAssumeRolePolicy (Text)
-uarprRoleName f x =
-    f (_uarprRoleName x)
-        <&> \y -> x { _uarprRoleName = y }
+uarprRoleName = lens _uarprRoleName (\s a -> s { _uarprRoleName = a })
 {-# INLINE uarprRoleName #-}
+
+-- | The policy that grants an entity permission to assume the role.
+uarprPolicyDocument :: Lens' UpdateAssumeRolePolicy (Text)
+uarprPolicyDocument = lens _uarprPolicyDocument (\s a -> s { _uarprPolicyDocument = a })
+{-# INLINE uarprPolicyDocument #-}
 
 instance ToQuery UpdateAssumeRolePolicy where
     toQuery = genericQuery def

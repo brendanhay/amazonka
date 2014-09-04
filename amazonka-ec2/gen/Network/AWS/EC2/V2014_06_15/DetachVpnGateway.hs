@@ -36,7 +36,7 @@ module Network.AWS.EC2.V2014_06_15.DetachVpnGateway
     -- * Request
       DetachVpnGateway
     -- ** Request constructor
-    , detachVpnGateway
+    , mkDetachVpnGatewayRequest
     -- ** Request lenses
     , dvguVpnGatewayId
     , dvguVpcId
@@ -49,15 +49,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DetachVpnGateway' request.
-detachVpnGateway :: Text -- ^ 'dvguVpnGatewayId'
-                 -> Text -- ^ 'dvguVpcId'
-                 -> DetachVpnGateway
-detachVpnGateway p1 p2 = DetachVpnGateway
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachVpnGateway' request.
+mkDetachVpnGatewayRequest :: Text -- ^ 'dvguVpnGatewayId'
+                          -> Text -- ^ 'dvguVpcId'
+                          -> DetachVpnGateway
+mkDetachVpnGatewayRequest p1 p2 = DetachVpnGateway
     { _dvguVpnGatewayId = p1
     , _dvguVpcId = p2
     }
-{-# INLINE detachVpnGateway #-}
+{-# INLINE mkDetachVpnGatewayRequest #-}
 
 data DetachVpnGateway = DetachVpnGateway
     { _dvguVpnGatewayId :: Text
@@ -68,16 +69,12 @@ data DetachVpnGateway = DetachVpnGateway
 
 -- | The ID of the virtual private gateway.
 dvguVpnGatewayId :: Lens' DetachVpnGateway (Text)
-dvguVpnGatewayId f x =
-    f (_dvguVpnGatewayId x)
-        <&> \y -> x { _dvguVpnGatewayId = y }
+dvguVpnGatewayId = lens _dvguVpnGatewayId (\s a -> s { _dvguVpnGatewayId = a })
 {-# INLINE dvguVpnGatewayId #-}
 
 -- | The ID of the VPC.
 dvguVpcId :: Lens' DetachVpnGateway (Text)
-dvguVpcId f x =
-    f (_dvguVpcId x)
-        <&> \y -> x { _dvguVpcId = y }
+dvguVpcId = lens _dvguVpcId (\s a -> s { _dvguVpcId = a })
 {-# INLINE dvguVpcId #-}
 
 instance ToQuery DetachVpnGateway where

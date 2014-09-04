@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion
     -- * Request
       GetHostnameSuggestion
     -- ** Request constructor
-    , getHostnameSuggestion
+    , mkGetHostnameSuggestionRequest
     -- ** Request lenses
     , ghsrLayerId
 
@@ -43,24 +43,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'GetHostnameSuggestion' request.
-getHostnameSuggestion :: Text -- ^ 'ghsrLayerId'
-                      -> GetHostnameSuggestion
-getHostnameSuggestion p1 = GetHostnameSuggestion
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHostnameSuggestion' request.
+mkGetHostnameSuggestionRequest :: Text -- ^ 'ghsrLayerId'
+                               -> GetHostnameSuggestion
+mkGetHostnameSuggestionRequest p1 = GetHostnameSuggestion
     { _ghsrLayerId = p1
     }
-{-# INLINE getHostnameSuggestion #-}
+{-# INLINE mkGetHostnameSuggestionRequest #-}
 
-data GetHostnameSuggestion = GetHostnameSuggestion
+newtype GetHostnameSuggestion = GetHostnameSuggestion
     { _ghsrLayerId :: Text
       -- ^ The layer ID.
     } deriving (Show, Generic)
 
 -- | The layer ID.
 ghsrLayerId :: Lens' GetHostnameSuggestion (Text)
-ghsrLayerId f x =
-    f (_ghsrLayerId x)
-        <&> \y -> x { _ghsrLayerId = y }
+ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
 {-# INLINE ghsrLayerId #-}
 
 instance ToPath GetHostnameSuggestion
@@ -80,16 +79,12 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
 
 -- | The layer ID.
 ghssLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghssLayerId f x =
-    f (_ghssLayerId x)
-        <&> \y -> x { _ghssLayerId = y }
+ghssLayerId = lens _ghssLayerId (\s a -> s { _ghssLayerId = a })
 {-# INLINE ghssLayerId #-}
 
 -- | The generated host name.
 ghssHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghssHostname f x =
-    f (_ghssHostname x)
-        <&> \y -> x { _ghssHostname = y }
+ghssHostname = lens _ghssHostname (\s a -> s { _ghssHostname = a })
 {-# INLINE ghssHostname #-}
 
 instance FromJSON GetHostnameSuggestionResponse

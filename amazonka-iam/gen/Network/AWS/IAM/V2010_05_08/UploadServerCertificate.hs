@@ -65,13 +65,13 @@ module Network.AWS.IAM.V2010_05_08.UploadServerCertificate
     -- * Request
       UploadServerCertificate
     -- ** Request constructor
-    , uploadServerCertificate
+    , mkUploadServerCertificateRequest
     -- ** Request lenses
+    , usctPath
+    , usctServerCertificateName
     , usctCertificateBody
     , usctPrivateKey
-    , usctServerCertificateName
     , usctCertificateChain
-    , usctPath
 
     -- * Response
     , UploadServerCertificateResponse
@@ -83,33 +83,23 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UploadServerCertificate' request.
-uploadServerCertificate :: Text -- ^ 'usctCertificateBody'
-                        -> Text -- ^ 'usctPrivateKey'
-                        -> Text -- ^ 'usctServerCertificateName'
-                        -> UploadServerCertificate
-uploadServerCertificate p1 p2 p3 = UploadServerCertificate
-    { _usctCertificateBody = p1
-    , _usctPrivateKey = p2
-    , _usctServerCertificateName = p3
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadServerCertificate' request.
+mkUploadServerCertificateRequest :: Text -- ^ 'usctServerCertificateName'
+                                 -> Text -- ^ 'usctCertificateBody'
+                                 -> Text -- ^ 'usctPrivateKey'
+                                 -> UploadServerCertificate
+mkUploadServerCertificateRequest p1 p2 p3 = UploadServerCertificate
+    { _usctPath = Nothing
+    , _usctServerCertificateName = p2
+    , _usctCertificateBody = p3
+    , _usctPrivateKey = p4
     , _usctCertificateChain = Nothing
-    , _usctPath = Nothing
     }
-{-# INLINE uploadServerCertificate #-}
+{-# INLINE mkUploadServerCertificateRequest #-}
 
 data UploadServerCertificate = UploadServerCertificate
-    { _usctCertificateBody :: Text
-      -- ^ The contents of the public key certificate in PEM-encoded format.
-    , _usctPrivateKey :: Text
-      -- ^ The contents of the private key in PEM-encoded format.
-    , _usctServerCertificateName :: Text
-      -- ^ The name for the server certificate. Do not include the path in
-      -- this value.
-    , _usctCertificateChain :: Maybe Text
-      -- ^ The contents of the certificate chain. This is typically a
-      -- concatenation of the PEM-encoded public key certificates of the
-      -- chain.
-    , _usctPath :: Maybe Text
+    { _usctPath :: Maybe Text
       -- ^ The path for the server certificate. For more information about
       -- paths, see Identifiers for IAM Entities in the Using IAM guide.
       -- This parameter is optional. If it is not included, it defaults to
@@ -118,36 +108,18 @@ data UploadServerCertificate = UploadServerCertificate
       -- must specify a path using the --path option. The path must begin
       -- with /cloudfront and must include a trailing slash (for example,
       -- /cloudfront/test/).
+    , _usctServerCertificateName :: Text
+      -- ^ The name for the server certificate. Do not include the path in
+      -- this value.
+    , _usctCertificateBody :: Text
+      -- ^ The contents of the public key certificate in PEM-encoded format.
+    , _usctPrivateKey :: Text
+      -- ^ The contents of the private key in PEM-encoded format.
+    , _usctCertificateChain :: Maybe Text
+      -- ^ The contents of the certificate chain. This is typically a
+      -- concatenation of the PEM-encoded public key certificates of the
+      -- chain.
     } deriving (Show, Generic)
-
--- | The contents of the public key certificate in PEM-encoded format.
-usctCertificateBody :: Lens' UploadServerCertificate (Text)
-usctCertificateBody f x =
-    f (_usctCertificateBody x)
-        <&> \y -> x { _usctCertificateBody = y }
-{-# INLINE usctCertificateBody #-}
-
--- | The contents of the private key in PEM-encoded format.
-usctPrivateKey :: Lens' UploadServerCertificate (Text)
-usctPrivateKey f x =
-    f (_usctPrivateKey x)
-        <&> \y -> x { _usctPrivateKey = y }
-{-# INLINE usctPrivateKey #-}
-
--- | The name for the server certificate. Do not include the path in this value.
-usctServerCertificateName :: Lens' UploadServerCertificate (Text)
-usctServerCertificateName f x =
-    f (_usctServerCertificateName x)
-        <&> \y -> x { _usctServerCertificateName = y }
-{-# INLINE usctServerCertificateName #-}
-
--- | The contents of the certificate chain. This is typically a concatenation of
--- the PEM-encoded public key certificates of the chain.
-usctCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
-usctCertificateChain f x =
-    f (_usctCertificateChain x)
-        <&> \y -> x { _usctCertificateChain = y }
-{-# INLINE usctCertificateChain #-}
 
 -- | The path for the server certificate. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
@@ -157,15 +129,34 @@ usctCertificateChain f x =
 -- must begin with /cloudfront and must include a trailing slash (for example,
 -- /cloudfront/test/).
 usctPath :: Lens' UploadServerCertificate (Maybe Text)
-usctPath f x =
-    f (_usctPath x)
-        <&> \y -> x { _usctPath = y }
+usctPath = lens _usctPath (\s a -> s { _usctPath = a })
 {-# INLINE usctPath #-}
+
+-- | The name for the server certificate. Do not include the path in this value.
+usctServerCertificateName :: Lens' UploadServerCertificate (Text)
+usctServerCertificateName = lens _usctServerCertificateName (\s a -> s { _usctServerCertificateName = a })
+{-# INLINE usctServerCertificateName #-}
+
+-- | The contents of the public key certificate in PEM-encoded format.
+usctCertificateBody :: Lens' UploadServerCertificate (Text)
+usctCertificateBody = lens _usctCertificateBody (\s a -> s { _usctCertificateBody = a })
+{-# INLINE usctCertificateBody #-}
+
+-- | The contents of the private key in PEM-encoded format.
+usctPrivateKey :: Lens' UploadServerCertificate (Text)
+usctPrivateKey = lens _usctPrivateKey (\s a -> s { _usctPrivateKey = a })
+{-# INLINE usctPrivateKey #-}
+
+-- | The contents of the certificate chain. This is typically a concatenation of
+-- the PEM-encoded public key certificates of the chain.
+usctCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
+usctCertificateChain = lens _usctCertificateChain (\s a -> s { _usctCertificateChain = a })
+{-# INLINE usctCertificateChain #-}
 
 instance ToQuery UploadServerCertificate where
     toQuery = genericQuery def
 
-data UploadServerCertificateResponse = UploadServerCertificateResponse
+newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscuServerCertificateMetadata :: Maybe ServerCertificateMetadata
       -- ^ The meta information of the uploaded server certificate without
       -- its certificate body, certificate chain, and private key.
@@ -174,9 +165,7 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
 uscuServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
-uscuServerCertificateMetadata f x =
-    f (_uscuServerCertificateMetadata x)
-        <&> \y -> x { _uscuServerCertificateMetadata = y }
+uscuServerCertificateMetadata = lens _uscuServerCertificateMetadata (\s a -> s { _uscuServerCertificateMetadata = a })
 {-# INLINE uscuServerCertificateMetadata #-}
 
 instance FromXML UploadServerCertificateResponse where

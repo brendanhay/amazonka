@@ -36,7 +36,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup
     -- * Request
       CreateClusterSubnetGroup
     -- ** Request constructor
-    , createClusterSubnetGroup
+    , mkCreateClusterSubnetGroupMessage
     -- ** Request lenses
     , ccsgnClusterSubnetGroupName
     , ccsgnDescription
@@ -52,17 +52,18 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateClusterSubnetGroup' request.
-createClusterSubnetGroup :: Text -- ^ 'ccsgnClusterSubnetGroupName'
-                         -> Text -- ^ 'ccsgnDescription'
-                         -> [Text] -- ^ 'ccsgnSubnetIds'
-                         -> CreateClusterSubnetGroup
-createClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterSubnetGroup' request.
+mkCreateClusterSubnetGroupMessage :: Text -- ^ 'ccsgnClusterSubnetGroupName'
+                                  -> Text -- ^ 'ccsgnDescription'
+                                  -> [Text] -- ^ 'ccsgnSubnetIds'
+                                  -> CreateClusterSubnetGroup
+mkCreateClusterSubnetGroupMessage p1 p2 p3 = CreateClusterSubnetGroup
     { _ccsgnClusterSubnetGroupName = p1
     , _ccsgnDescription = p2
     , _ccsgnSubnetIds = p3
     }
-{-# INLINE createClusterSubnetGroup #-}
+{-# INLINE mkCreateClusterSubnetGroupMessage #-}
 
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsgnClusterSubnetGroupName :: Text
@@ -83,39 +84,31 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 -- characters or hyphens. Must not be "Default". Must be unique for all subnet
 -- groups that are created by your AWS account. Example: examplesubnetgroup.
 ccsgnClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup (Text)
-ccsgnClusterSubnetGroupName f x =
-    f (_ccsgnClusterSubnetGroupName x)
-        <&> \y -> x { _ccsgnClusterSubnetGroupName = y }
+ccsgnClusterSubnetGroupName = lens _ccsgnClusterSubnetGroupName (\s a -> s { _ccsgnClusterSubnetGroupName = a })
 {-# INLINE ccsgnClusterSubnetGroupName #-}
 
 -- | A description for the subnet group.
 ccsgnDescription :: Lens' CreateClusterSubnetGroup (Text)
-ccsgnDescription f x =
-    f (_ccsgnDescription x)
-        <&> \y -> x { _ccsgnDescription = y }
+ccsgnDescription = lens _ccsgnDescription (\s a -> s { _ccsgnDescription = a })
 {-# INLINE ccsgnDescription #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 ccsgnSubnetIds :: Lens' CreateClusterSubnetGroup ([Text])
-ccsgnSubnetIds f x =
-    f (_ccsgnSubnetIds x)
-        <&> \y -> x { _ccsgnSubnetIds = y }
+ccsgnSubnetIds = lens _ccsgnSubnetIds (\s a -> s { _ccsgnSubnetIds = a })
 {-# INLINE ccsgnSubnetIds #-}
 
 instance ToQuery CreateClusterSubnetGroup where
     toQuery = genericQuery def
 
-data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
+newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _csgyClusterSubnetGroup :: Maybe ClusterSubnetGroup
       -- ^ Describes a subnet group.
     } deriving (Show, Generic)
 
 -- | Describes a subnet group.
 csgyClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-csgyClusterSubnetGroup f x =
-    f (_csgyClusterSubnetGroup x)
-        <&> \y -> x { _csgyClusterSubnetGroup = y }
+csgyClusterSubnetGroup = lens _csgyClusterSubnetGroup (\s a -> s { _csgyClusterSubnetGroup = a })
 {-# INLINE csgyClusterSubnetGroup #-}
 
 instance FromXML CreateClusterSubnetGroupResponse where

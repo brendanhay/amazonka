@@ -34,10 +34,10 @@ module Network.AWS.SNS.V2010_03_31.RemovePermission
     -- * Request
       RemovePermission
     -- ** Request constructor
-    , removePermission
+    , mkRemovePermissionInput
     -- ** Request lenses
-    , rpiLabel
     , rpiTopicArn
+    , rpiLabel
 
     -- * Response
     , RemovePermissionResponse
@@ -47,37 +47,34 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'RemovePermission' request.
-removePermission :: Text -- ^ 'rpiLabel'
-                 -> Text -- ^ 'rpiTopicArn'
-                 -> RemovePermission
-removePermission p1 p2 = RemovePermission
-    { _rpiLabel = p1
-    , _rpiTopicArn = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemovePermission' request.
+mkRemovePermissionInput :: Text -- ^ 'rpiTopicArn'
+                        -> Text -- ^ 'rpiLabel'
+                        -> RemovePermission
+mkRemovePermissionInput p1 p2 = RemovePermission
+    { _rpiTopicArn = p1
+    , _rpiLabel = p2
     }
-{-# INLINE removePermission #-}
+{-# INLINE mkRemovePermissionInput #-}
 
 data RemovePermission = RemovePermission
-    { _rpiLabel :: Text
-      -- ^ The unique label of the statement you want to remove.
-    , _rpiTopicArn :: Text
+    { _rpiTopicArn :: Text
       -- ^ The ARN of the topic whose access control policy you wish to
       -- modify.
+    , _rpiLabel :: Text
+      -- ^ The unique label of the statement you want to remove.
     } deriving (Show, Generic)
-
--- | The unique label of the statement you want to remove.
-rpiLabel :: Lens' RemovePermission (Text)
-rpiLabel f x =
-    f (_rpiLabel x)
-        <&> \y -> x { _rpiLabel = y }
-{-# INLINE rpiLabel #-}
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 rpiTopicArn :: Lens' RemovePermission (Text)
-rpiTopicArn f x =
-    f (_rpiTopicArn x)
-        <&> \y -> x { _rpiTopicArn = y }
+rpiTopicArn = lens _rpiTopicArn (\s a -> s { _rpiTopicArn = a })
 {-# INLINE rpiTopicArn #-}
+
+-- | The unique label of the statement you want to remove.
+rpiLabel :: Lens' RemovePermission (Text)
+rpiLabel = lens _rpiLabel (\s a -> s { _rpiLabel = a })
+{-# INLINE rpiLabel #-}
 
 instance ToQuery RemovePermission where
     toQuery = genericQuery def

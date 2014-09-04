@@ -26,10 +26,10 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme
     -- * Request
       DefineAnalysisScheme
     -- ** Request constructor
-    , defineAnalysisScheme
+    , mkDefineAnalysisSchemeRequest
     -- ** Request lenses
-    , dasrAnalysisScheme
     , dasrDomainName
+    , dasrAnalysisScheme
 
     -- * Response
     , DefineAnalysisSchemeResponse
@@ -41,64 +41,59 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DefineAnalysisScheme' request.
-defineAnalysisScheme :: AnalysisScheme -- ^ 'dasrAnalysisScheme'
-                     -> Text -- ^ 'dasrDomainName'
-                     -> DefineAnalysisScheme
-defineAnalysisScheme p1 p2 = DefineAnalysisScheme
-    { _dasrAnalysisScheme = p1
-    , _dasrDomainName = p2
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineAnalysisScheme' request.
+mkDefineAnalysisSchemeRequest :: Text -- ^ 'dasrDomainName'
+                              -> AnalysisScheme -- ^ 'dasrAnalysisScheme'
+                              -> DefineAnalysisScheme
+mkDefineAnalysisSchemeRequest p1 p2 = DefineAnalysisScheme
+    { _dasrDomainName = p1
+    , _dasrAnalysisScheme = p2
     }
-{-# INLINE defineAnalysisScheme #-}
+{-# INLINE mkDefineAnalysisSchemeRequest #-}
 
 data DefineAnalysisScheme = DefineAnalysisScheme
-    { _dasrAnalysisScheme :: AnalysisScheme
-      -- ^ Configuration information for an analysis scheme. Each analysis
-      -- scheme has a unique name and specifies the language of the text
-      -- to be processed. The following options can be configured for an
-      -- analysis scheme: Synonyms, Stopwords, StemmingDictionary, and
-      -- AlgorithmicStemming.
-    , _dasrDomainName :: Text
+    { _dasrDomainName :: Text
       -- ^ A string that represents the name of a domain. Domain names are
       -- unique across the domains owned by an account within an AWS
       -- region. Domain names start with a letter or number and can
       -- contain the following characters: a-z (lowercase), 0-9, and -
       -- (hyphen).
+    , _dasrAnalysisScheme :: AnalysisScheme
+      -- ^ Configuration information for an analysis scheme. Each analysis
+      -- scheme has a unique name and specifies the language of the text
+      -- to be processed. The following options can be configured for an
+      -- analysis scheme: Synonyms, Stopwords, StemmingDictionary, and
+      -- AlgorithmicStemming.
     } deriving (Show, Generic)
-
--- | Configuration information for an analysis scheme. Each analysis scheme has
--- a unique name and specifies the language of the text to be processed. The
--- following options can be configured for an analysis scheme: Synonyms,
--- Stopwords, StemmingDictionary, and AlgorithmicStemming.
-dasrAnalysisScheme :: Lens' DefineAnalysisScheme (AnalysisScheme)
-dasrAnalysisScheme f x =
-    f (_dasrAnalysisScheme x)
-        <&> \y -> x { _dasrAnalysisScheme = y }
-{-# INLINE dasrAnalysisScheme #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
 dasrDomainName :: Lens' DefineAnalysisScheme (Text)
-dasrDomainName f x =
-    f (_dasrDomainName x)
-        <&> \y -> x { _dasrDomainName = y }
+dasrDomainName = lens _dasrDomainName (\s a -> s { _dasrDomainName = a })
 {-# INLINE dasrDomainName #-}
+
+-- | Configuration information for an analysis scheme. Each analysis scheme has
+-- a unique name and specifies the language of the text to be processed. The
+-- following options can be configured for an analysis scheme: Synonyms,
+-- Stopwords, StemmingDictionary, and AlgorithmicStemming.
+dasrAnalysisScheme :: Lens' DefineAnalysisScheme (AnalysisScheme)
+dasrAnalysisScheme = lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })
+{-# INLINE dasrAnalysisScheme #-}
 
 instance ToQuery DefineAnalysisScheme where
     toQuery = genericQuery def
 
-data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
+newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dassAnalysisScheme :: AnalysisSchemeStatus
       -- ^ The status and configuration of an AnalysisScheme.
     } deriving (Show, Generic)
 
 -- | The status and configuration of an AnalysisScheme.
 dassAnalysisScheme :: Lens' DefineAnalysisSchemeResponse (AnalysisSchemeStatus)
-dassAnalysisScheme f x =
-    f (_dassAnalysisScheme x)
-        <&> \y -> x { _dassAnalysisScheme = y }
+dassAnalysisScheme = lens _dassAnalysisScheme (\s a -> s { _dassAnalysisScheme = a })
 {-# INLINE dassAnalysisScheme #-}
 
 instance FromXML DefineAnalysisSchemeResponse where

@@ -35,7 +35,7 @@ module Network.AWS.EC2.V2014_06_15.ConfirmProductInstance
     -- * Request
       ConfirmProductInstance
     -- ** Request constructor
-    , confirmProductInstance
+    , mkConfirmProductInstanceRequest
     -- ** Request lenses
     , cpirProductCode
     , cpirInstanceId
@@ -50,15 +50,16 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ConfirmProductInstance' request.
-confirmProductInstance :: Text -- ^ 'cpirProductCode'
-                       -> Text -- ^ 'cpirInstanceId'
-                       -> ConfirmProductInstance
-confirmProductInstance p1 p2 = ConfirmProductInstance
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmProductInstance' request.
+mkConfirmProductInstanceRequest :: Text -- ^ 'cpirProductCode'
+                                -> Text -- ^ 'cpirInstanceId'
+                                -> ConfirmProductInstance
+mkConfirmProductInstanceRequest p1 p2 = ConfirmProductInstance
     { _cpirProductCode = p1
     , _cpirInstanceId = p2
     }
-{-# INLINE confirmProductInstance #-}
+{-# INLINE mkConfirmProductInstanceRequest #-}
 
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpirProductCode :: Text
@@ -70,22 +71,18 @@ data ConfirmProductInstance = ConfirmProductInstance
 
 -- | The product code. This must be an Amazon DevPay product code that you own.
 cpirProductCode :: Lens' ConfirmProductInstance (Text)
-cpirProductCode f x =
-    f (_cpirProductCode x)
-        <&> \y -> x { _cpirProductCode = y }
+cpirProductCode = lens _cpirProductCode (\s a -> s { _cpirProductCode = a })
 {-# INLINE cpirProductCode #-}
 
 -- | The ID of the instance.
 cpirInstanceId :: Lens' ConfirmProductInstance (Text)
-cpirInstanceId f x =
-    f (_cpirInstanceId x)
-        <&> \y -> x { _cpirInstanceId = y }
+cpirInstanceId = lens _cpirInstanceId (\s a -> s { _cpirInstanceId = a })
 {-# INLINE cpirInstanceId #-}
 
 instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
 
-data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
+newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpisOwnerId :: Maybe Text
       -- ^ The AWS account ID of the instance owner. This is only present if
       -- the product code is attached to the instance.
@@ -94,9 +91,7 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
 cpisOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
-cpisOwnerId f x =
-    f (_cpisOwnerId x)
-        <&> \y -> x { _cpisOwnerId = y }
+cpisOwnerId = lens _cpisOwnerId (\s a -> s { _cpisOwnerId = a })
 {-# INLINE cpisOwnerId #-}
 
 instance FromXML ConfirmProductInstanceResponse where

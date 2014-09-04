@@ -24,7 +24,7 @@ module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy
     -- * Request
       DeleteLoadBalancerPolicy
     -- ** Request constructor
-    , deleteLoadBalancerPolicy
+    , mkDeleteLoadBalancerPolicyInput
     -- ** Request lenses
     , dlbpiLoadBalancerName
     , dlbpiPolicyName
@@ -37,15 +37,16 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteLoadBalancerPolicy' request.
-deleteLoadBalancerPolicy :: Text -- ^ 'dlbpiLoadBalancerName'
-                         -> Text -- ^ 'dlbpiPolicyName'
-                         -> DeleteLoadBalancerPolicy
-deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoadBalancerPolicy' request.
+mkDeleteLoadBalancerPolicyInput :: Text -- ^ 'dlbpiLoadBalancerName'
+                                -> Text -- ^ 'dlbpiPolicyName'
+                                -> DeleteLoadBalancerPolicy
+mkDeleteLoadBalancerPolicyInput p1 p2 = DeleteLoadBalancerPolicy
     { _dlbpiLoadBalancerName = p1
     , _dlbpiPolicyName = p2
     }
-{-# INLINE deleteLoadBalancerPolicy #-}
+{-# INLINE mkDeleteLoadBalancerPolicyInput #-}
 
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
     { _dlbpiLoadBalancerName :: Text
@@ -56,22 +57,17 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
 
 -- | The mnemonic name associated with the load balancer.
 dlbpiLoadBalancerName :: Lens' DeleteLoadBalancerPolicy (Text)
-dlbpiLoadBalancerName f x =
-    f (_dlbpiLoadBalancerName x)
-        <&> \y -> x { _dlbpiLoadBalancerName = y }
+dlbpiLoadBalancerName = lens _dlbpiLoadBalancerName (\s a -> s { _dlbpiLoadBalancerName = a })
 {-# INLINE dlbpiLoadBalancerName #-}
 
 -- | The mnemonic name for the policy being deleted.
 dlbpiPolicyName :: Lens' DeleteLoadBalancerPolicy (Text)
-dlbpiPolicyName f x =
-    f (_dlbpiPolicyName x)
-        <&> \y -> x { _dlbpiPolicyName = y }
+dlbpiPolicyName = lens _dlbpiPolicyName (\s a -> s { _dlbpiPolicyName = a })
 {-# INLINE dlbpiPolicyName #-}
 
 instance ToQuery DeleteLoadBalancerPolicy where
     toQuery = genericQuery def
 
-data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLoadBalancerPolicy where

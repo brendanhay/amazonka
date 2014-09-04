@@ -34,7 +34,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
     -- * Request
       DescribeNetworkInterfaceAttribute
     -- ** Request constructor
-    , describeNetworkInterfaceAttribute
+    , mkDescribeNetworkInterfaceAttributeRequest
     -- ** Request lenses
     , dniarNetworkInterfaceId
     , dniarAttribute
@@ -42,25 +42,26 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
     -- ** Response lenses
-    , dniasSourceDestCheck
+    , dniasNetworkInterfaceId
     , dniasDescription
+    , dniasSourceDestCheck
     , dniasGroups
     , dniasAttachment
-    , dniasNetworkInterfaceId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeNetworkInterfaceAttribute' request.
-describeNetworkInterfaceAttribute :: Text -- ^ 'dniarNetworkInterfaceId'
-                                  -> DescribeNetworkInterfaceAttribute
-describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkInterfaceAttribute' request.
+mkDescribeNetworkInterfaceAttributeRequest :: Text -- ^ 'dniarNetworkInterfaceId'
+                                           -> DescribeNetworkInterfaceAttribute
+mkDescribeNetworkInterfaceAttributeRequest p1 = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId = p1
     , _dniarAttribute = Nothing
     }
-{-# INLINE describeNetworkInterfaceAttribute #-}
+{-# INLINE mkDescribeNetworkInterfaceAttributeRequest #-}
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniarNetworkInterfaceId :: Text
@@ -71,68 +72,54 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
 
 -- | The ID of the network interface.
 dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute (Text)
-dniarNetworkInterfaceId f x =
-    f (_dniarNetworkInterfaceId x)
-        <&> \y -> x { _dniarNetworkInterfaceId = y }
+dniarNetworkInterfaceId = lens _dniarNetworkInterfaceId (\s a -> s { _dniarNetworkInterfaceId = a })
 {-# INLINE dniarNetworkInterfaceId #-}
 
 -- | The attribute of the network interface.
 dniarAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
-dniarAttribute f x =
-    f (_dniarAttribute x)
-        <&> \y -> x { _dniarAttribute = y }
+dniarAttribute = lens _dniarAttribute (\s a -> s { _dniarAttribute = a })
 {-# INLINE dniarAttribute #-}
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery = genericQuery def
 
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
-    { _dniasSourceDestCheck :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether source/destination checking is enabled.
+    { _dniasNetworkInterfaceId :: Maybe Text
+      -- ^ The ID of the network interface.
     , _dniasDescription :: Maybe AttributeValue
       -- ^ The description of the network interface.
+    , _dniasSourceDestCheck :: Maybe AttributeBooleanValue
+      -- ^ Indicates whether source/destination checking is enabled.
     , _dniasGroups :: [GroupIdentifier]
       -- ^ The security groups associated with the network interface.
     , _dniasAttachment :: Maybe NetworkInterfaceAttachment
       -- ^ The attachment (if any) of the network interface.
-    , _dniasNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of the network interface.
     } deriving (Show, Generic)
 
--- | Indicates whether source/destination checking is enabled.
-dniasSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
-dniasSourceDestCheck f x =
-    f (_dniasSourceDestCheck x)
-        <&> \y -> x { _dniasSourceDestCheck = y }
-{-# INLINE dniasSourceDestCheck #-}
+-- | The ID of the network interface.
+dniasNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
+dniasNetworkInterfaceId = lens _dniasNetworkInterfaceId (\s a -> s { _dniasNetworkInterfaceId = a })
+{-# INLINE dniasNetworkInterfaceId #-}
 
 -- | The description of the network interface.
 dniasDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
-dniasDescription f x =
-    f (_dniasDescription x)
-        <&> \y -> x { _dniasDescription = y }
+dniasDescription = lens _dniasDescription (\s a -> s { _dniasDescription = a })
 {-# INLINE dniasDescription #-}
+
+-- | Indicates whether source/destination checking is enabled.
+dniasSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
+dniasSourceDestCheck = lens _dniasSourceDestCheck (\s a -> s { _dniasSourceDestCheck = a })
+{-# INLINE dniasSourceDestCheck #-}
 
 -- | The security groups associated with the network interface.
 dniasGroups :: Lens' DescribeNetworkInterfaceAttributeResponse ([GroupIdentifier])
-dniasGroups f x =
-    f (_dniasGroups x)
-        <&> \y -> x { _dniasGroups = y }
+dniasGroups = lens _dniasGroups (\s a -> s { _dniasGroups = a })
 {-# INLINE dniasGroups #-}
 
 -- | The attachment (if any) of the network interface.
 dniasAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
-dniasAttachment f x =
-    f (_dniasAttachment x)
-        <&> \y -> x { _dniasAttachment = y }
+dniasAttachment = lens _dniasAttachment (\s a -> s { _dniasAttachment = a })
 {-# INLINE dniasAttachment #-}
-
--- | The ID of the network interface.
-dniasNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
-dniasNetworkInterfaceId f x =
-    f (_dniasNetworkInterfaceId x)
-        <&> \y -> x { _dniasNetworkInterfaceId = y }
-{-# INLINE dniasNetworkInterfaceId #-}
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions

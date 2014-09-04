@@ -36,7 +36,7 @@ module Network.AWS.IAM.V2010_05_08.GetInstanceProfile
     -- * Request
       GetInstanceProfile
     -- ** Request constructor
-    , getInstanceProfile
+    , mkGetInstanceProfileRequest
     -- ** Request lenses
     , giprInstanceProfileName
 
@@ -50,39 +50,36 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetInstanceProfile' request.
-getInstanceProfile :: Text -- ^ 'giprInstanceProfileName'
-                   -> GetInstanceProfile
-getInstanceProfile p1 = GetInstanceProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetInstanceProfile' request.
+mkGetInstanceProfileRequest :: Text -- ^ 'giprInstanceProfileName'
+                            -> GetInstanceProfile
+mkGetInstanceProfileRequest p1 = GetInstanceProfile
     { _giprInstanceProfileName = p1
     }
-{-# INLINE getInstanceProfile #-}
+{-# INLINE mkGetInstanceProfileRequest #-}
 
-data GetInstanceProfile = GetInstanceProfile
+newtype GetInstanceProfile = GetInstanceProfile
     { _giprInstanceProfileName :: Text
       -- ^ Name of the instance profile to get information about.
     } deriving (Show, Generic)
 
 -- | Name of the instance profile to get information about.
 giprInstanceProfileName :: Lens' GetInstanceProfile (Text)
-giprInstanceProfileName f x =
-    f (_giprInstanceProfileName x)
-        <&> \y -> x { _giprInstanceProfileName = y }
+giprInstanceProfileName = lens _giprInstanceProfileName (\s a -> s { _giprInstanceProfileName = a })
 {-# INLINE giprInstanceProfileName #-}
 
 instance ToQuery GetInstanceProfile where
     toQuery = genericQuery def
 
-data GetInstanceProfileResponse = GetInstanceProfileResponse
+newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _gipsInstanceProfile :: InstanceProfile
       -- ^ Information about the instance profile.
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
 gipsInstanceProfile :: Lens' GetInstanceProfileResponse (InstanceProfile)
-gipsInstanceProfile f x =
-    f (_gipsInstanceProfile x)
-        <&> \y -> x { _gipsInstanceProfile = y }
+gipsInstanceProfile = lens _gipsInstanceProfile (\s a -> s { _gipsInstanceProfile = a })
 {-# INLINE gipsInstanceProfile #-}
 
 instance FromXML GetInstanceProfileResponse where

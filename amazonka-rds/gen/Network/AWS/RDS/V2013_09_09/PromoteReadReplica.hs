@@ -32,7 +32,7 @@ module Network.AWS.RDS.V2013_09_09.PromoteReadReplica
     -- * Request
       PromoteReadReplica
     -- ** Request constructor
-    , promoteReadReplica
+    , mkPromoteReadReplicaMessage
     -- ** Request lenses
     , prrmDBInstanceIdentifier
     , prrmBackupRetentionPeriod
@@ -48,15 +48,16 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'PromoteReadReplica' request.
-promoteReadReplica :: Text -- ^ 'prrmDBInstanceIdentifier'
-                   -> PromoteReadReplica
-promoteReadReplica p1 = PromoteReadReplica
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PromoteReadReplica' request.
+mkPromoteReadReplicaMessage :: Text -- ^ 'prrmDBInstanceIdentifier'
+                            -> PromoteReadReplica
+mkPromoteReadReplicaMessage p1 = PromoteReadReplica
     { _prrmDBInstanceIdentifier = p1
     , _prrmBackupRetentionPeriod = Nothing
     , _prrmPreferredBackupWindow = Nothing
     }
-{-# INLINE promoteReadReplica #-}
+{-# INLINE mkPromoteReadReplicaMessage #-}
 
 data PromoteReadReplica = PromoteReadReplica
     { _prrmDBInstanceIdentifier :: Text
@@ -89,18 +90,14 @@ data PromoteReadReplica = PromoteReadReplica
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: mydbinstance.
 prrmDBInstanceIdentifier :: Lens' PromoteReadReplica (Text)
-prrmDBInstanceIdentifier f x =
-    f (_prrmDBInstanceIdentifier x)
-        <&> \y -> x { _prrmDBInstanceIdentifier = y }
+prrmDBInstanceIdentifier = lens _prrmDBInstanceIdentifier (\s a -> s { _prrmDBInstanceIdentifier = a })
 {-# INLINE prrmDBInstanceIdentifier #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
 -- positive number enables backups. Setting this parameter to 0 disables
 -- automated backups. Default: 1 Constraints: Must be a value from 0 to 8.
 prrmBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Integer)
-prrmBackupRetentionPeriod f x =
-    f (_prrmBackupRetentionPeriod x)
-        <&> \y -> x { _prrmBackupRetentionPeriod = y }
+prrmBackupRetentionPeriod = lens _prrmBackupRetentionPeriod (\s a -> s { _prrmBackupRetentionPeriod = a })
 {-# INLINE prrmBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
@@ -112,15 +109,13 @@ prrmBackupRetentionPeriod f x =
 -- Coordinated (UTC). Must not conflict with the preferred maintenance window.
 -- Must be at least 30 minutes.
 prrmPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
-prrmPreferredBackupWindow f x =
-    f (_prrmPreferredBackupWindow x)
-        <&> \y -> x { _prrmPreferredBackupWindow = y }
+prrmPreferredBackupWindow = lens _prrmPreferredBackupWindow (\s a -> s { _prrmPreferredBackupWindow = a })
 {-# INLINE prrmPreferredBackupWindow #-}
 
 instance ToQuery PromoteReadReplica where
     toQuery = genericQuery def
 
-data PromoteReadReplicaResponse = PromoteReadReplicaResponse
+newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _dbidrDBInstance :: Maybe DBInstance
       -- ^ Contains the result of a successful invocation of the following
       -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
@@ -132,9 +127,7 @@ data PromoteReadReplicaResponse = PromoteReadReplicaResponse
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
 dbidrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
-dbidrDBInstance f x =
-    f (_dbidrDBInstance x)
-        <&> \y -> x { _dbidrDBInstance = y }
+dbidrDBInstance = lens _dbidrDBInstance (\s a -> s { _dbidrDBInstance = a })
 {-# INLINE dbidrDBInstance #-}
 
 instance FromXML PromoteReadReplicaResponse where

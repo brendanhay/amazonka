@@ -25,11 +25,11 @@ module Network.AWS.S3.V2006_03_01.AbortMultipartUpload
     -- * Request
       AbortMultipartUpload
     -- ** Request constructor
-    , abortMultipartUpload
+    , mkAbortMultipartUploadRequest
     -- ** Request lenses
     , amurBucket
-    , amurUploadId
     , amurKey
+    , amurUploadId
 
     -- * Response
     , AbortMultipartUploadResponse
@@ -39,41 +39,36 @@ import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AbortMultipartUpload' request.
-abortMultipartUpload :: BucketName -- ^ 'amurBucket'
-                     -> Text -- ^ 'amurUploadId'
-                     -> ObjectKey -- ^ 'amurKey'
-                     -> AbortMultipartUpload
-abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AbortMultipartUpload' request.
+mkAbortMultipartUploadRequest :: BucketName -- ^ 'amurBucket'
+                              -> ObjectKey -- ^ 'amurKey'
+                              -> Text -- ^ 'amurUploadId'
+                              -> AbortMultipartUpload
+mkAbortMultipartUploadRequest p1 p2 p3 = AbortMultipartUpload
     { _amurBucket = p1
-    , _amurUploadId = p2
-    , _amurKey = p3
+    , _amurKey = p2
+    , _amurUploadId = p3
     }
-{-# INLINE abortMultipartUpload #-}
+{-# INLINE mkAbortMultipartUploadRequest #-}
 
 data AbortMultipartUpload = AbortMultipartUpload
     { _amurBucket :: BucketName
-    , _amurUploadId :: Text
     , _amurKey :: ObjectKey
+    , _amurUploadId :: Text
     } deriving (Show, Generic)
 
 amurBucket :: Lens' AbortMultipartUpload (BucketName)
-amurBucket f x =
-    f (_amurBucket x)
-        <&> \y -> x { _amurBucket = y }
+amurBucket = lens _amurBucket (\s a -> s { _amurBucket = a })
 {-# INLINE amurBucket #-}
 
-amurUploadId :: Lens' AbortMultipartUpload (Text)
-amurUploadId f x =
-    f (_amurUploadId x)
-        <&> \y -> x { _amurUploadId = y }
-{-# INLINE amurUploadId #-}
-
 amurKey :: Lens' AbortMultipartUpload (ObjectKey)
-amurKey f x =
-    f (_amurKey x)
-        <&> \y -> x { _amurKey = y }
+amurKey = lens _amurKey (\s a -> s { _amurKey = a })
 {-# INLINE amurKey #-}
+
+amurUploadId :: Lens' AbortMultipartUpload (Text)
+amurUploadId = lens _amurUploadId (\s a -> s { _amurUploadId = a })
+{-# INLINE amurUploadId #-}
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat

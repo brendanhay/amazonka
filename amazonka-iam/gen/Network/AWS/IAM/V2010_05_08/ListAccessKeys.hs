@@ -35,7 +35,7 @@ module Network.AWS.IAM.V2010_05_08.ListAccessKeys
     -- * Request
       ListAccessKeys
     -- ** Request constructor
-    , listAccessKeys
+    , mkListAccessKeysRequest
     -- ** Request lenses
     , lakrUserName
     , lakrMarker
@@ -53,14 +53,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListAccessKeys' request.
-listAccessKeys :: ListAccessKeys
-listAccessKeys = ListAccessKeys
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListAccessKeys' request.
+mkListAccessKeysRequest :: ListAccessKeys
+mkListAccessKeysRequest = ListAccessKeys
     { _lakrUserName = Nothing
     , _lakrMarker = Nothing
     , _lakrMaxItems = Nothing
     }
-{-# INLINE listAccessKeys #-}
+{-# INLINE mkListAccessKeysRequest #-}
 
 data ListAccessKeys = ListAccessKeys
     { _lakrUserName :: Maybe Text
@@ -80,9 +81,7 @@ data ListAccessKeys = ListAccessKeys
 
 -- | Name of the user.
 lakrUserName :: Lens' ListAccessKeys (Maybe Text)
-lakrUserName f x =
-    f (_lakrUserName x)
-        <&> \y -> x { _lakrUserName = y }
+lakrUserName = lens _lakrUserName (\s a -> s { _lakrUserName = a })
 {-# INLINE lakrUserName #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
@@ -90,9 +89,7 @@ lakrUserName f x =
 -- Set it to the value of the Marker element in the response you just
 -- received.
 lakrMarker :: Lens' ListAccessKeys (Maybe Text)
-lakrMarker f x =
-    f (_lakrMarker x)
-        <&> \y -> x { _lakrMarker = y }
+lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
 {-# INLINE lakrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -100,9 +97,7 @@ lakrMarker f x =
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lakrMaxItems :: Lens' ListAccessKeys (Maybe Integer)
-lakrMaxItems f x =
-    f (_lakrMaxItems x)
-        <&> \y -> x { _lakrMaxItems = y }
+lakrMaxItems = lens _lakrMaxItems (\s a -> s { _lakrMaxItems = a })
 {-# INLINE lakrMaxItems #-}
 
 instance ToQuery ListAccessKeys where
@@ -124,26 +119,20 @@ data ListAccessKeysResponse = ListAccessKeysResponse
 
 -- | A list of access key metadata.
 laksAccessKeyMetadata :: Lens' ListAccessKeysResponse ([AccessKeyMetadata])
-laksAccessKeyMetadata f x =
-    f (_laksAccessKeyMetadata x)
-        <&> \y -> x { _laksAccessKeyMetadata = y }
+laksAccessKeyMetadata = lens _laksAccessKeyMetadata (\s a -> s { _laksAccessKeyMetadata = a })
 {-# INLINE laksAccessKeyMetadata #-}
 
 -- | A flag that indicates whether there are more keys to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more keys in the list.
 laksIsTruncated :: Lens' ListAccessKeysResponse (Bool)
-laksIsTruncated f x =
-    f (_laksIsTruncated x)
-        <&> \y -> x { _laksIsTruncated = y }
+laksIsTruncated = lens _laksIsTruncated (\s a -> s { _laksIsTruncated = a })
 {-# INLINE laksIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 laksMarker :: Lens' ListAccessKeysResponse (Maybe Text)
-laksMarker f x =
-    f (_laksMarker x)
-        <&> \y -> x { _laksMarker = y }
+laksMarker = lens _laksMarker (\s a -> s { _laksMarker = a })
 {-# INLINE laksMarker #-}
 
 instance FromXML ListAccessKeysResponse where

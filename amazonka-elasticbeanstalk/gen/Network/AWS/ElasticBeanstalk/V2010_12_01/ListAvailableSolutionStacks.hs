@@ -27,22 +27,23 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.ListAvailableSolutionStacks
     -- * Request
       ListAvailableSolutionStacks
     -- ** Request constructor
-    , listAvailableSolutionStacks
+    , mkUnknown
     -- * Response
     , ListAvailableSolutionStacksResponse
     -- ** Response lenses
-    , lassrmSolutionStackDetails
     , lassrmSolutionStacks
+    , lassrmSolutionStackDetails
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'ListAvailableSolutionStacks' request.
-listAvailableSolutionStacks :: ListAvailableSolutionStacks
-listAvailableSolutionStacks = ListAvailableSolutionStacks
-{-# INLINE listAvailableSolutionStacks #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListAvailableSolutionStacks' request.
+mkUnknown :: ListAvailableSolutionStacks
+mkUnknown = ListAvailableSolutionStacks
+{-# INLINE mkUnknown #-}
 
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks
     deriving (Eq, Show, Generic)
@@ -51,26 +52,22 @@ instance ToQuery ListAvailableSolutionStacks where
     toQuery = genericQuery def
 
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
-    { _lassrmSolutionStackDetails :: [SolutionStackDescription]
+    { _lassrmSolutionStacks :: [Text]
+      -- ^ A list of available solution stacks.
+    , _lassrmSolutionStackDetails :: [SolutionStackDescription]
       -- ^ A list of available solution stacks and their
       -- SolutionStackDescription.
-    , _lassrmSolutionStacks :: [Text]
-      -- ^ A list of available solution stacks.
     } deriving (Show, Generic)
-
--- | A list of available solution stacks and their SolutionStackDescription.
-lassrmSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse ([SolutionStackDescription])
-lassrmSolutionStackDetails f x =
-    f (_lassrmSolutionStackDetails x)
-        <&> \y -> x { _lassrmSolutionStackDetails = y }
-{-# INLINE lassrmSolutionStackDetails #-}
 
 -- | A list of available solution stacks.
 lassrmSolutionStacks :: Lens' ListAvailableSolutionStacksResponse ([Text])
-lassrmSolutionStacks f x =
-    f (_lassrmSolutionStacks x)
-        <&> \y -> x { _lassrmSolutionStacks = y }
+lassrmSolutionStacks = lens _lassrmSolutionStacks (\s a -> s { _lassrmSolutionStacks = a })
 {-# INLINE lassrmSolutionStacks #-}
+
+-- | A list of available solution stacks and their SolutionStackDescription.
+lassrmSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse ([SolutionStackDescription])
+lassrmSolutionStackDetails = lens _lassrmSolutionStackDetails (\s a -> s { _lassrmSolutionStackDetails = a })
+{-# INLINE lassrmSolutionStackDetails #-}
 
 instance FromXML ListAvailableSolutionStacksResponse where
     fromXMLOptions = xmlOptions

@@ -49,12 +49,12 @@ module Network.AWS.EC2.V2014_06_15.AssignPrivateIpAddresses
     -- * Request
       AssignPrivateIpAddresses
     -- ** Request constructor
-    , assignPrivateIpAddresses
+    , mkAssignPrivateIpAddressesRequest
     -- ** Request lenses
     , apiarNetworkInterfaceId
-    , apiarAllowReassignment
-    , apiarSecondaryPrivateIpAddressCount
     , apiarPrivateIpAddresses
+    , apiarSecondaryPrivateIpAddressCount
+    , apiarAllowReassignment
 
     -- * Response
     , AssignPrivateIpAddressesResponse
@@ -64,65 +64,58 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AssignPrivateIpAddresses' request.
-assignPrivateIpAddresses :: Text -- ^ 'apiarNetworkInterfaceId'
-                         -> AssignPrivateIpAddresses
-assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssignPrivateIpAddresses' request.
+mkAssignPrivateIpAddressesRequest :: Text -- ^ 'apiarNetworkInterfaceId'
+                                  -> AssignPrivateIpAddresses
+mkAssignPrivateIpAddressesRequest p1 = AssignPrivateIpAddresses
     { _apiarNetworkInterfaceId = p1
-    , _apiarAllowReassignment = Nothing
-    , _apiarSecondaryPrivateIpAddressCount = Nothing
     , _apiarPrivateIpAddresses = mempty
+    , _apiarSecondaryPrivateIpAddressCount = Nothing
+    , _apiarAllowReassignment = Nothing
     }
-{-# INLINE assignPrivateIpAddresses #-}
+{-# INLINE mkAssignPrivateIpAddressesRequest #-}
 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { _apiarNetworkInterfaceId :: Text
       -- ^ The ID of the network interface.
-    , _apiarAllowReassignment :: Maybe Bool
-      -- ^ Indicates whether to allow an IP address that is already assigned
-      -- to another network interface or instance to be reassigned to the
-      -- specified network interface.
-    , _apiarSecondaryPrivateIpAddressCount :: Maybe Integer
-      -- ^ The number of secondary IP addresses to assign to the network
-      -- interface.
     , _apiarPrivateIpAddresses :: [Text]
       -- ^ One or more IP addresses to be assigned as a secondary private IP
       -- address to the network interface. If you don't specify an IP
       -- address, Amazon EC2 automatically selects an IP address within
       -- the subnet range.
+    , _apiarSecondaryPrivateIpAddressCount :: Maybe Integer
+      -- ^ The number of secondary IP addresses to assign to the network
+      -- interface.
+    , _apiarAllowReassignment :: Maybe Bool
+      -- ^ Indicates whether to allow an IP address that is already assigned
+      -- to another network interface or instance to be reassigned to the
+      -- specified network interface.
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
 apiarNetworkInterfaceId :: Lens' AssignPrivateIpAddresses (Text)
-apiarNetworkInterfaceId f x =
-    f (_apiarNetworkInterfaceId x)
-        <&> \y -> x { _apiarNetworkInterfaceId = y }
+apiarNetworkInterfaceId = lens _apiarNetworkInterfaceId (\s a -> s { _apiarNetworkInterfaceId = a })
 {-# INLINE apiarNetworkInterfaceId #-}
-
--- | Indicates whether to allow an IP address that is already assigned to
--- another network interface or instance to be reassigned to the specified
--- network interface.
-apiarAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
-apiarAllowReassignment f x =
-    f (_apiarAllowReassignment x)
-        <&> \y -> x { _apiarAllowReassignment = y }
-{-# INLINE apiarAllowReassignment #-}
-
--- | The number of secondary IP addresses to assign to the network interface.
-apiarSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)
-apiarSecondaryPrivateIpAddressCount f x =
-    f (_apiarSecondaryPrivateIpAddressCount x)
-        <&> \y -> x { _apiarSecondaryPrivateIpAddressCount = y }
-{-# INLINE apiarSecondaryPrivateIpAddressCount #-}
 
 -- | One or more IP addresses to be assigned as a secondary private IP address
 -- to the network interface. If you don't specify an IP address, Amazon EC2
 -- automatically selects an IP address within the subnet range.
 apiarPrivateIpAddresses :: Lens' AssignPrivateIpAddresses ([Text])
-apiarPrivateIpAddresses f x =
-    f (_apiarPrivateIpAddresses x)
-        <&> \y -> x { _apiarPrivateIpAddresses = y }
+apiarPrivateIpAddresses = lens _apiarPrivateIpAddresses (\s a -> s { _apiarPrivateIpAddresses = a })
 {-# INLINE apiarPrivateIpAddresses #-}
+
+-- | The number of secondary IP addresses to assign to the network interface.
+apiarSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)
+apiarSecondaryPrivateIpAddressCount = lens _apiarSecondaryPrivateIpAddressCount (\s a -> s { _apiarSecondaryPrivateIpAddressCount = a })
+{-# INLINE apiarSecondaryPrivateIpAddressCount #-}
+
+-- | Indicates whether to allow an IP address that is already assigned to
+-- another network interface or instance to be reassigned to the specified
+-- network interface.
+apiarAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
+apiarAllowReassignment = lens _apiarAllowReassignment (\s a -> s { _apiarAllowReassignment = a })
+{-# INLINE apiarAllowReassignment #-}
 
 instance ToQuery AssignPrivateIpAddresses where
     toQuery = genericQuery def

@@ -30,7 +30,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
     -- * Request
       DeleteLoginProfile
     -- ** Request constructor
-    , deleteLoginProfile
+    , mkDeleteLoginProfileRequest
     -- ** Request lenses
     , dlprUserName
 
@@ -42,24 +42,23 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteLoginProfile' request.
-deleteLoginProfile :: Text -- ^ 'dlprUserName'
-                   -> DeleteLoginProfile
-deleteLoginProfile p1 = DeleteLoginProfile
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoginProfile' request.
+mkDeleteLoginProfileRequest :: Text -- ^ 'dlprUserName'
+                            -> DeleteLoginProfile
+mkDeleteLoginProfileRequest p1 = DeleteLoginProfile
     { _dlprUserName = p1
     }
-{-# INLINE deleteLoginProfile #-}
+{-# INLINE mkDeleteLoginProfileRequest #-}
 
-data DeleteLoginProfile = DeleteLoginProfile
+newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlprUserName :: Text
       -- ^ Name of the user whose password you want to delete.
     } deriving (Show, Generic)
 
 -- | Name of the user whose password you want to delete.
 dlprUserName :: Lens' DeleteLoginProfile (Text)
-dlprUserName f x =
-    f (_dlprUserName x)
-        <&> \y -> x { _dlprUserName = y }
+dlprUserName = lens _dlprUserName (\s a -> s { _dlprUserName = a })
 {-# INLINE dlprUserName #-}
 
 instance ToQuery DeleteLoginProfile where

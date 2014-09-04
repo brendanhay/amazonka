@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplicationVersion
     -- * Request
       UpdateApplicationVersion
     -- ** Request constructor
-    , updateApplicationVersion
+    , mkUpdateApplicationVersionMessage
     -- ** Request lenses
     , uavmApplicationName
     , uavmVersionLabel
@@ -46,16 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'UpdateApplicationVersion' request.
-updateApplicationVersion :: Text -- ^ 'uavmApplicationName'
-                         -> Text -- ^ 'uavmVersionLabel'
-                         -> UpdateApplicationVersion
-updateApplicationVersion p1 p2 = UpdateApplicationVersion
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateApplicationVersion' request.
+mkUpdateApplicationVersionMessage :: Text -- ^ 'uavmApplicationName'
+                                  -> Text -- ^ 'uavmVersionLabel'
+                                  -> UpdateApplicationVersion
+mkUpdateApplicationVersionMessage p1 p2 = UpdateApplicationVersion
     { _uavmApplicationName = p1
     , _uavmVersionLabel = p2
     , _uavmDescription = Nothing
     }
-{-# INLINE updateApplicationVersion #-}
+{-# INLINE mkUpdateApplicationVersionMessage #-}
 
 data UpdateApplicationVersion = UpdateApplicationVersion
     { _uavmApplicationName :: Text
@@ -74,39 +75,31 @@ data UpdateApplicationVersion = UpdateApplicationVersion
 -- is found with this name, UpdateApplication returns an InvalidParameterValue
 -- error.
 uavmApplicationName :: Lens' UpdateApplicationVersion (Text)
-uavmApplicationName f x =
-    f (_uavmApplicationName x)
-        <&> \y -> x { _uavmApplicationName = y }
+uavmApplicationName = lens _uavmApplicationName (\s a -> s { _uavmApplicationName = a })
 {-# INLINE uavmApplicationName #-}
 
 -- | The name of the version to update. If no application version is found with
 -- this label, UpdateApplication returns an InvalidParameterValue error.
 uavmVersionLabel :: Lens' UpdateApplicationVersion (Text)
-uavmVersionLabel f x =
-    f (_uavmVersionLabel x)
-        <&> \y -> x { _uavmVersionLabel = y }
+uavmVersionLabel = lens _uavmVersionLabel (\s a -> s { _uavmVersionLabel = a })
 {-# INLINE uavmVersionLabel #-}
 
 -- | A new description for this release.
 uavmDescription :: Lens' UpdateApplicationVersion (Maybe Text)
-uavmDescription f x =
-    f (_uavmDescription x)
-        <&> \y -> x { _uavmDescription = y }
+uavmDescription = lens _uavmDescription (\s a -> s { _uavmDescription = a })
 {-# INLINE uavmDescription #-}
 
 instance ToQuery UpdateApplicationVersion where
     toQuery = genericQuery def
 
-data UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
+newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _avdoApplicationVersion :: Maybe ApplicationVersionDescription
       -- ^ The ApplicationVersionDescription of the application version.
     } deriving (Show, Generic)
 
 -- | The ApplicationVersionDescription of the application version.
 avdoApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
-avdoApplicationVersion f x =
-    f (_avdoApplicationVersion x)
-        <&> \y -> x { _avdoApplicationVersion = y }
+avdoApplicationVersion = lens _avdoApplicationVersion (\s a -> s { _avdoApplicationVersion = a })
 {-# INLINE avdoApplicationVersion #-}
 
 instance FromXML UpdateApplicationVersionResponse where

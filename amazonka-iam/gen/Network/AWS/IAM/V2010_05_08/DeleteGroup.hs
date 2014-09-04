@@ -26,7 +26,7 @@ module Network.AWS.IAM.V2010_05_08.DeleteGroup
     -- * Request
       DeleteGroup
     -- ** Request constructor
-    , deleteGroup
+    , mkDeleteGroupRequest
     -- ** Request lenses
     , dgrGroupName
 
@@ -38,24 +38,23 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteGroup' request.
-deleteGroup :: Text -- ^ 'dgrGroupName'
-            -> DeleteGroup
-deleteGroup p1 = DeleteGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteGroup' request.
+mkDeleteGroupRequest :: Text -- ^ 'dgrGroupName'
+                     -> DeleteGroup
+mkDeleteGroupRequest p1 = DeleteGroup
     { _dgrGroupName = p1
     }
-{-# INLINE deleteGroup #-}
+{-# INLINE mkDeleteGroupRequest #-}
 
-data DeleteGroup = DeleteGroup
+newtype DeleteGroup = DeleteGroup
     { _dgrGroupName :: Text
       -- ^ Name of the group to delete.
     } deriving (Show, Generic)
 
 -- | Name of the group to delete.
 dgrGroupName :: Lens' DeleteGroup (Text)
-dgrGroupName f x =
-    f (_dgrGroupName x)
-        <&> \y -> x { _dgrGroupName = y }
+dgrGroupName = lens _dgrGroupName (\s a -> s { _dgrGroupName = a })
 {-# INLINE dgrGroupName #-}
 
 instance ToQuery DeleteGroup where

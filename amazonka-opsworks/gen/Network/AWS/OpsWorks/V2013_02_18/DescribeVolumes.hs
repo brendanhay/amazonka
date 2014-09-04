@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes
     -- * Request
       DescribeVolumes
     -- ** Request constructor
-    , describeVolumes
+    , mkDescribeVolumesRequest
     -- ** Request lenses
     , dvsInstanceId
     , dvsStackId
@@ -45,15 +45,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeVolumes' request.
-describeVolumes :: DescribeVolumes
-describeVolumes = DescribeVolumes
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumes' request.
+mkDescribeVolumesRequest :: DescribeVolumes
+mkDescribeVolumesRequest = DescribeVolumes
     { _dvsInstanceId = Nothing
     , _dvsStackId = Nothing
     , _dvsRaidArrayId = Nothing
     , _dvsVolumeIds = mempty
     }
-{-# INLINE describeVolumes #-}
+{-# INLINE mkDescribeVolumesRequest #-}
 
 data DescribeVolumes = DescribeVolumes
     { _dvsInstanceId :: Maybe Text
@@ -76,33 +77,25 @@ data DescribeVolumes = DescribeVolumes
 -- | The instance ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified instance.
 dvsInstanceId :: Lens' DescribeVolumes (Maybe Text)
-dvsInstanceId f x =
-    f (_dvsInstanceId x)
-        <&> \y -> x { _dvsInstanceId = y }
+dvsInstanceId = lens _dvsInstanceId (\s a -> s { _dvsInstanceId = a })
 {-# INLINE dvsInstanceId #-}
 
 -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
 dvsStackId :: Lens' DescribeVolumes (Maybe Text)
-dvsStackId f x =
-    f (_dvsStackId x)
-        <&> \y -> x { _dvsStackId = y }
+dvsStackId = lens _dvsStackId (\s a -> s { _dvsStackId = a })
 {-# INLINE dvsStackId #-}
 
 -- | The RAID array ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified RAID array.
 dvsRaidArrayId :: Lens' DescribeVolumes (Maybe Text)
-dvsRaidArrayId f x =
-    f (_dvsRaidArrayId x)
-        <&> \y -> x { _dvsRaidArrayId = y }
+dvsRaidArrayId = lens _dvsRaidArrayId (\s a -> s { _dvsRaidArrayId = a })
 {-# INLINE dvsRaidArrayId #-}
 
 -- | Am array of volume IDs. If you use this parameter, DescribeVolumes returns
 -- descriptions of the specified volumes. Otherwise, it returns a description
 -- of every volume.
 dvsVolumeIds :: Lens' DescribeVolumes ([Text])
-dvsVolumeIds f x =
-    f (_dvsVolumeIds x)
-        <&> \y -> x { _dvsVolumeIds = y }
+dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
 {-# INLINE dvsVolumeIds #-}
 
 instance ToPath DescribeVolumes
@@ -113,16 +106,14 @@ instance ToHeaders DescribeVolumes
 
 instance ToJSON DescribeVolumes
 
-data DescribeVolumesResponse = DescribeVolumesResponse
+newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvtVolumes :: [Volume]
       -- ^ An array of volume IDs.
     } deriving (Show, Generic)
 
 -- | An array of volume IDs.
 dvtVolumes :: Lens' DescribeVolumesResponse ([Volume])
-dvtVolumes f x =
-    f (_dvtVolumes x)
-        <&> \y -> x { _dvtVolumes = y }
+dvtVolumes = lens _dvtVolumes (\s a -> s { _dvtVolumes = a })
 {-# INLINE dvtVolumes #-}
 
 instance FromJSON DescribeVolumesResponse

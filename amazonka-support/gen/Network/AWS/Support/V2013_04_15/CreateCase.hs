@@ -48,17 +48,17 @@ module Network.AWS.Support.V2013_04_15.CreateCase
     -- * Request
       CreateCase
     -- ** Request constructor
-    , createCase
+    , mkCreateCaseRequest
     -- ** Request lenses
-    , ccrCommunicationBody
     , ccrSubject
-    , ccrAttachmentSetId
-    , ccrCategoryCode
-    , ccrCcEmailAddresses
-    , ccrIssueType
-    , ccrLanguage
     , ccrServiceCode
     , ccrSeverityCode
+    , ccrCategoryCode
+    , ccrCommunicationBody
+    , ccrCcEmailAddresses
+    , ccrLanguage
+    , ccrIssueType
+    , ccrAttachmentSetId
 
     -- * Response
     , CreateCaseResponse
@@ -71,46 +71,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'CreateCase' request.
-createCase :: Text -- ^ 'ccrCommunicationBody'
-           -> Text -- ^ 'ccrSubject'
-           -> CreateCase
-createCase p1 p2 = CreateCase
-    { _ccrCommunicationBody = p1
-    , _ccrSubject = p2
-    , _ccrAttachmentSetId = Nothing
-    , _ccrCategoryCode = Nothing
-    , _ccrCcEmailAddresses = mempty
-    , _ccrIssueType = Nothing
-    , _ccrLanguage = Nothing
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCase' request.
+mkCreateCaseRequest :: Text -- ^ 'ccrSubject'
+                    -> Text -- ^ 'ccrCommunicationBody'
+                    -> CreateCase
+mkCreateCaseRequest p1 p2 = CreateCase
+    { _ccrSubject = p1
     , _ccrServiceCode = Nothing
     , _ccrSeverityCode = Nothing
+    , _ccrCategoryCode = Nothing
+    , _ccrCommunicationBody = p5
+    , _ccrCcEmailAddresses = mempty
+    , _ccrLanguage = Nothing
+    , _ccrIssueType = Nothing
+    , _ccrAttachmentSetId = Nothing
     }
-{-# INLINE createCase #-}
+{-# INLINE mkCreateCaseRequest #-}
 
 data CreateCase = CreateCase
-    { _ccrCommunicationBody :: Text
-      -- ^ The communication body text when you create an AWS Support case
-      -- by calling CreateCase.
-    , _ccrSubject :: Text
+    { _ccrSubject :: Text
       -- ^ The title of the AWS Support case.
-    , _ccrAttachmentSetId :: Maybe Text
-      -- ^ The ID of a set of one or more attachments for the case. Create
-      -- the set by using AddAttachmentsToSet.
-    , _ccrCategoryCode :: Maybe Text
-      -- ^ The category of problem for the AWS Support case.
-    , _ccrCcEmailAddresses :: [Text]
-      -- ^ A list of email addresses that AWS Support copies on case
-      -- correspondence.
-    , _ccrIssueType :: Maybe Text
-      -- ^ The type of issue for the case. You can specify either
-      -- "customer-service" or "technical." If you do not indicate a
-      -- value, the default is "technical.".
-    , _ccrLanguage :: Maybe Text
-      -- ^ The ISO 639-1 code for the language in which AWS provides
-      -- support. AWS Support currently supports English ("en") and
-      -- Japanese ("ja"). Language parameters must be passed explicitly
-      -- for operations that take them.
     , _ccrServiceCode :: Maybe Text
       -- ^ The code for the AWS service returned by the call to
       -- DescribeServices.
@@ -120,68 +101,36 @@ data CreateCase = CreateCase
       -- depends on each customer's support subscription. In other words,
       -- your subscription may not necessarily require the urgent level of
       -- response time.
+    , _ccrCategoryCode :: Maybe Text
+      -- ^ The category of problem for the AWS Support case.
+    , _ccrCommunicationBody :: Text
+      -- ^ The communication body text when you create an AWS Support case
+      -- by calling CreateCase.
+    , _ccrCcEmailAddresses :: [Text]
+      -- ^ A list of email addresses that AWS Support copies on case
+      -- correspondence.
+    , _ccrLanguage :: Maybe Text
+      -- ^ The ISO 639-1 code for the language in which AWS provides
+      -- support. AWS Support currently supports English ("en") and
+      -- Japanese ("ja"). Language parameters must be passed explicitly
+      -- for operations that take them.
+    , _ccrIssueType :: Maybe Text
+      -- ^ The type of issue for the case. You can specify either
+      -- "customer-service" or "technical." If you do not indicate a
+      -- value, the default is "technical.".
+    , _ccrAttachmentSetId :: Maybe Text
+      -- ^ The ID of a set of one or more attachments for the case. Create
+      -- the set by using AddAttachmentsToSet.
     } deriving (Show, Generic)
-
--- | The communication body text when you create an AWS Support case by calling
--- CreateCase.
-ccrCommunicationBody :: Lens' CreateCase (Text)
-ccrCommunicationBody f x =
-    f (_ccrCommunicationBody x)
-        <&> \y -> x { _ccrCommunicationBody = y }
-{-# INLINE ccrCommunicationBody #-}
 
 -- | The title of the AWS Support case.
 ccrSubject :: Lens' CreateCase (Text)
-ccrSubject f x =
-    f (_ccrSubject x)
-        <&> \y -> x { _ccrSubject = y }
+ccrSubject = lens _ccrSubject (\s a -> s { _ccrSubject = a })
 {-# INLINE ccrSubject #-}
-
--- | The ID of a set of one or more attachments for the case. Create the set by
--- using AddAttachmentsToSet.
-ccrAttachmentSetId :: Lens' CreateCase (Maybe Text)
-ccrAttachmentSetId f x =
-    f (_ccrAttachmentSetId x)
-        <&> \y -> x { _ccrAttachmentSetId = y }
-{-# INLINE ccrAttachmentSetId #-}
-
--- | The category of problem for the AWS Support case.
-ccrCategoryCode :: Lens' CreateCase (Maybe Text)
-ccrCategoryCode f x =
-    f (_ccrCategoryCode x)
-        <&> \y -> x { _ccrCategoryCode = y }
-{-# INLINE ccrCategoryCode #-}
-
--- | A list of email addresses that AWS Support copies on case correspondence.
-ccrCcEmailAddresses :: Lens' CreateCase ([Text])
-ccrCcEmailAddresses f x =
-    f (_ccrCcEmailAddresses x)
-        <&> \y -> x { _ccrCcEmailAddresses = y }
-{-# INLINE ccrCcEmailAddresses #-}
-
--- | The type of issue for the case. You can specify either "customer-service"
--- or "technical." If you do not indicate a value, the default is
--- "technical.".
-ccrIssueType :: Lens' CreateCase (Maybe Text)
-ccrIssueType f x =
-    f (_ccrIssueType x)
-        <&> \y -> x { _ccrIssueType = y }
-{-# INLINE ccrIssueType #-}
-
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English ("en") and Japanese ("ja"). Language
--- parameters must be passed explicitly for operations that take them.
-ccrLanguage :: Lens' CreateCase (Maybe Text)
-ccrLanguage f x =
-    f (_ccrLanguage x)
-        <&> \y -> x { _ccrLanguage = y }
-{-# INLINE ccrLanguage #-}
 
 -- | The code for the AWS service returned by the call to DescribeServices.
 ccrServiceCode :: Lens' CreateCase (Maybe Text)
-ccrServiceCode f x =
-    f (_ccrServiceCode x)
-        <&> \y -> x { _ccrServiceCode = y }
+ccrServiceCode = lens _ccrServiceCode (\s a -> s { _ccrServiceCode = a })
 {-# INLINE ccrServiceCode #-}
 
 -- | The code for the severity level returned by the call to
@@ -189,10 +138,44 @@ ccrServiceCode f x =
 -- customer's support subscription. In other words, your subscription may not
 -- necessarily require the urgent level of response time.
 ccrSeverityCode :: Lens' CreateCase (Maybe Text)
-ccrSeverityCode f x =
-    f (_ccrSeverityCode x)
-        <&> \y -> x { _ccrSeverityCode = y }
+ccrSeverityCode = lens _ccrSeverityCode (\s a -> s { _ccrSeverityCode = a })
 {-# INLINE ccrSeverityCode #-}
+
+-- | The category of problem for the AWS Support case.
+ccrCategoryCode :: Lens' CreateCase (Maybe Text)
+ccrCategoryCode = lens _ccrCategoryCode (\s a -> s { _ccrCategoryCode = a })
+{-# INLINE ccrCategoryCode #-}
+
+-- | The communication body text when you create an AWS Support case by calling
+-- CreateCase.
+ccrCommunicationBody :: Lens' CreateCase (Text)
+ccrCommunicationBody = lens _ccrCommunicationBody (\s a -> s { _ccrCommunicationBody = a })
+{-# INLINE ccrCommunicationBody #-}
+
+-- | A list of email addresses that AWS Support copies on case correspondence.
+ccrCcEmailAddresses :: Lens' CreateCase ([Text])
+ccrCcEmailAddresses = lens _ccrCcEmailAddresses (\s a -> s { _ccrCcEmailAddresses = a })
+{-# INLINE ccrCcEmailAddresses #-}
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English ("en") and Japanese ("ja"). Language
+-- parameters must be passed explicitly for operations that take them.
+ccrLanguage :: Lens' CreateCase (Maybe Text)
+ccrLanguage = lens _ccrLanguage (\s a -> s { _ccrLanguage = a })
+{-# INLINE ccrLanguage #-}
+
+-- | The type of issue for the case. You can specify either "customer-service"
+-- or "technical." If you do not indicate a value, the default is
+-- "technical.".
+ccrIssueType :: Lens' CreateCase (Maybe Text)
+ccrIssueType = lens _ccrIssueType (\s a -> s { _ccrIssueType = a })
+{-# INLINE ccrIssueType #-}
+
+-- | The ID of a set of one or more attachments for the case. Create the set by
+-- using AddAttachmentsToSet.
+ccrAttachmentSetId :: Lens' CreateCase (Maybe Text)
+ccrAttachmentSetId = lens _ccrAttachmentSetId (\s a -> s { _ccrAttachmentSetId = a })
+{-# INLINE ccrAttachmentSetId #-}
 
 instance ToPath CreateCase
 
@@ -202,7 +185,7 @@ instance ToHeaders CreateCase
 
 instance ToJSON CreateCase
 
-data CreateCaseResponse = CreateCaseResponse
+newtype CreateCaseResponse = CreateCaseResponse
     { _ccsCaseId :: Maybe Text
       -- ^ The AWS Support case ID requested or returned in the call. The
       -- case ID is an alphanumeric string formatted as shown in this
@@ -213,9 +196,7 @@ data CreateCaseResponse = CreateCaseResponse
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 ccsCaseId :: Lens' CreateCaseResponse (Maybe Text)
-ccsCaseId f x =
-    f (_ccsCaseId x)
-        <&> \y -> x { _ccsCaseId = y }
+ccsCaseId = lens _ccsCaseId (\s a -> s { _ccsCaseId = a })
 {-# INLINE ccsCaseId #-}
 
 instance FromJSON CreateCaseResponse

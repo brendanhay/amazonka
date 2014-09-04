@@ -47,7 +47,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions
     -- * Request
       DescribeDhcpOptions
     -- ** Request constructor
-    , describeDhcpOptions
+    , mkDescribeDhcpOptionsRequest
     -- ** Request lenses
     , ddosDhcpOptionsIds
     , ddosFilters
@@ -62,13 +62,14 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeDhcpOptions' request.
-describeDhcpOptions :: DescribeDhcpOptions
-describeDhcpOptions = DescribeDhcpOptions
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDhcpOptions' request.
+mkDescribeDhcpOptionsRequest :: DescribeDhcpOptions
+mkDescribeDhcpOptionsRequest = DescribeDhcpOptions
     { _ddosDhcpOptionsIds = mempty
     , _ddosFilters = mempty
     }
-{-# INLINE describeDhcpOptions #-}
+{-# INLINE mkDescribeDhcpOptionsRequest #-}
 
 data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddosDhcpOptionsIds :: [Text]
@@ -93,9 +94,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 -- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
 -- options sets.
 ddosDhcpOptionsIds :: Lens' DescribeDhcpOptions ([Text])
-ddosDhcpOptionsIds f x =
-    f (_ddosDhcpOptionsIds x)
-        <&> \y -> x { _ddosDhcpOptionsIds = y }
+ddosDhcpOptionsIds = lens _ddosDhcpOptionsIds (\s a -> s { _ddosDhcpOptionsIds = a })
 {-# INLINE ddosDhcpOptionsIds #-}
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
@@ -110,24 +109,20 @@ ddosDhcpOptionsIds f x =
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 ddosFilters :: Lens' DescribeDhcpOptions ([Filter])
-ddosFilters f x =
-    f (_ddosFilters x)
-        <&> \y -> x { _ddosFilters = y }
+ddosFilters = lens _ddosFilters (\s a -> s { _ddosFilters = a })
 {-# INLINE ddosFilters #-}
 
 instance ToQuery DescribeDhcpOptions where
     toQuery = genericQuery def
 
-data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
+newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddotDhcpOptions :: [DhcpOptions]
       -- ^ Information about one or more DHCP options sets.
     } deriving (Show, Generic)
 
 -- | Information about one or more DHCP options sets.
 ddotDhcpOptions :: Lens' DescribeDhcpOptionsResponse ([DhcpOptions])
-ddotDhcpOptions f x =
-    f (_ddotDhcpOptions x)
-        <&> \y -> x { _ddotDhcpOptions = y }
+ddotDhcpOptions = lens _ddotDhcpOptions (\s a -> s { _ddotDhcpOptions = a })
 {-# INLINE ddotDhcpOptions #-}
 
 instance FromXML DescribeDhcpOptionsResponse where

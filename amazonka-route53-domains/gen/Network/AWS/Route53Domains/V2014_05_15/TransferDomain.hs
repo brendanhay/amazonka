@@ -71,20 +71,20 @@ module Network.AWS.Route53Domains.V2014_05_15.TransferDomain
     -- * Request
       TransferDomain
     -- ** Request constructor
-    , transferDomain
+    , mkTransferDomainRequest
     -- ** Request lenses
+    , tdrDomainName
+    , tdrIdnLangCode
+    , tdrDurationInYears
+    , tdrNameservers
+    , tdrAuthCode
+    , tdrAutoRenew
     , tdrAdminContact
     , tdrRegistrantContact
     , tdrTechContact
-    , tdrDomainName
-    , tdrDurationInYears
-    , tdrNameservers
-    , tdrAutoRenew
     , tdrPrivacyProtectAdminContact
     , tdrPrivacyProtectRegistrantContact
     , tdrPrivacyProtectTechContact
-    , tdrAuthCode
-    , tdrIdnLangCode
 
     -- * Response
     , TransferDomainResponse
@@ -97,32 +97,56 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'TransferDomain' request.
-transferDomain :: ContactDetail -- ^ 'tdrAdminContact'
-               -> ContactDetail -- ^ 'tdrRegistrantContact'
-               -> ContactDetail -- ^ 'tdrTechContact'
-               -> Text -- ^ 'tdrDomainName'
-               -> Integer -- ^ 'tdrDurationInYears'
-               -> [Nameserver] -- ^ 'tdrNameservers'
-               -> TransferDomain
-transferDomain p1 p2 p3 p4 p5 p6 = TransferDomain
-    { _tdrAdminContact = p1
-    , _tdrRegistrantContact = p2
-    , _tdrTechContact = p3
-    , _tdrDomainName = p4
-    , _tdrDurationInYears = p5
-    , _tdrNameservers = p6
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TransferDomain' request.
+mkTransferDomainRequest :: Text -- ^ 'tdrDomainName'
+                        -> Integer -- ^ 'tdrDurationInYears'
+                        -> [Nameserver] -- ^ 'tdrNameservers'
+                        -> ContactDetail -- ^ 'tdrAdminContact'
+                        -> ContactDetail -- ^ 'tdrRegistrantContact'
+                        -> ContactDetail -- ^ 'tdrTechContact'
+                        -> TransferDomain
+mkTransferDomainRequest p1 p2 p3 p4 p5 p6 = TransferDomain
+    { _tdrDomainName = p1
+    , _tdrIdnLangCode = Nothing
+    , _tdrDurationInYears = p3
+    , _tdrNameservers = p4
+    , _tdrAuthCode = Nothing
     , _tdrAutoRenew = Nothing
+    , _tdrAdminContact = p7
+    , _tdrRegistrantContact = p8
+    , _tdrTechContact = p9
     , _tdrPrivacyProtectAdminContact = Nothing
     , _tdrPrivacyProtectRegistrantContact = Nothing
     , _tdrPrivacyProtectTechContact = Nothing
-    , _tdrAuthCode = Nothing
-    , _tdrIdnLangCode = Nothing
     }
-{-# INLINE transferDomain #-}
+{-# INLINE mkTransferDomainRequest #-}
 
 data TransferDomain = TransferDomain
-    { _tdrAdminContact :: ContactDetail
+    { _tdrDomainName :: Text
+      -- ^ The name of a domain. Type: String Default: None Constraints: The
+      -- domain name can contain only the letters a through z, the numbers
+      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
+      -- not supported. Required: Yes.
+    , _tdrIdnLangCode :: Maybe Text
+      -- ^ Reserved for future use.
+    , _tdrDurationInYears :: Integer
+      -- ^ The number of years the domain will be registered. Domains are
+      -- registered for a minimum of one year. The maximum period depends
+      -- on the top-level domain. Type: Integer Default: 1 Valid values:
+      -- Integer from 1 to 10 Required: Yes.
+    , _tdrNameservers :: [Nameserver]
+      -- ^ Contains details for the host and glue IP addresses. Type:
+      -- Complex Children: GlueIps, Name.
+    , _tdrAuthCode :: Maybe Text
+      -- ^ The authorization code for the domain. You get this value from
+      -- the current registrar. Type: String Required: Yes.
+    , _tdrAutoRenew :: Maybe Bool
+      -- ^ Indicates whether the domain will be automatically renewed (true)
+      -- or not (false). Autorenewal only takes effect after the account
+      -- is charged. Type: Boolean Valid values: true | false Default:
+      -- true Required: No.
+    , _tdrAdminContact :: ContactDetail
       -- ^ Provides detailed contact information. Type: Complex Children:
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
@@ -137,24 +161,6 @@ data TransferDomain = TransferDomain
       -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
       -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
       -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _tdrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    , _tdrDurationInYears :: Integer
-      -- ^ The number of years the domain will be registered. Domains are
-      -- registered for a minimum of one year. The maximum period depends
-      -- on the top-level domain. Type: Integer Default: 1 Valid values:
-      -- Integer from 1 to 10 Required: Yes.
-    , _tdrNameservers :: [Nameserver]
-      -- ^ Contains details for the host and glue IP addresses. Type:
-      -- Complex Children: GlueIps, Name.
-    , _tdrAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain will be automatically renewed (true)
-      -- or not (false). Autorenewal only takes effect after the account
-      -- is charged. Type: Boolean Valid values: true | false Default:
-      -- true Required: No.
     , _tdrPrivacyProtectAdminContact :: Maybe Bool
       -- ^ Whether you want to conceal contact information from WHOIS
       -- queries. If you specify true, WHOIS ("who is") queries will
@@ -173,21 +179,54 @@ data TransferDomain = TransferDomain
       -- return contact information for our registrar partner, Gandi,
       -- instead of the contact information that you enter. Type: Boolean
       -- Default: true Valid values: true | false Required: No.
-    , _tdrAuthCode :: Maybe Text
-      -- ^ The authorization code for the domain. You get this value from
-      -- the current registrar. Type: String Required: Yes.
-    , _tdrIdnLangCode :: Maybe Text
-      -- ^ Reserved for future use.
     } deriving (Show, Generic)
+
+-- | The name of a domain. Type: String Default: None Constraints: The domain
+-- name can contain only the letters a through z, the numbers 0 through 9, and
+-- hyphen (-). Internationalized Domain Names are not supported. Required:
+-- Yes.
+tdrDomainName :: Lens' TransferDomain (Text)
+tdrDomainName = lens _tdrDomainName (\s a -> s { _tdrDomainName = a })
+{-# INLINE tdrDomainName #-}
+
+-- | Reserved for future use.
+tdrIdnLangCode :: Lens' TransferDomain (Maybe Text)
+tdrIdnLangCode = lens _tdrIdnLangCode (\s a -> s { _tdrIdnLangCode = a })
+{-# INLINE tdrIdnLangCode #-}
+
+-- | The number of years the domain will be registered. Domains are registered
+-- for a minimum of one year. The maximum period depends on the top-level
+-- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
+-- Required: Yes.
+tdrDurationInYears :: Lens' TransferDomain (Integer)
+tdrDurationInYears = lens _tdrDurationInYears (\s a -> s { _tdrDurationInYears = a })
+{-# INLINE tdrDurationInYears #-}
+
+-- | Contains details for the host and glue IP addresses. Type: Complex
+-- Children: GlueIps, Name.
+tdrNameservers :: Lens' TransferDomain ([Nameserver])
+tdrNameservers = lens _tdrNameservers (\s a -> s { _tdrNameservers = a })
+{-# INLINE tdrNameservers #-}
+
+-- | The authorization code for the domain. You get this value from the current
+-- registrar. Type: String Required: Yes.
+tdrAuthCode :: Lens' TransferDomain (Maybe Text)
+tdrAuthCode = lens _tdrAuthCode (\s a -> s { _tdrAuthCode = a })
+{-# INLINE tdrAuthCode #-}
+
+-- | Indicates whether the domain will be automatically renewed (true) or not
+-- (false). Autorenewal only takes effect after the account is charged. Type:
+-- Boolean Valid values: true | false Default: true Required: No.
+tdrAutoRenew :: Lens' TransferDomain (Maybe Bool)
+tdrAutoRenew = lens _tdrAutoRenew (\s a -> s { _tdrAutoRenew = a })
+{-# INLINE tdrAutoRenew #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
 tdrAdminContact :: Lens' TransferDomain (ContactDetail)
-tdrAdminContact f x =
-    f (_tdrAdminContact x)
-        <&> \y -> x { _tdrAdminContact = y }
+tdrAdminContact = lens _tdrAdminContact (\s a -> s { _tdrAdminContact = a })
 {-# INLINE tdrAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
@@ -195,9 +234,7 @@ tdrAdminContact f x =
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
 tdrRegistrantContact :: Lens' TransferDomain (ContactDetail)
-tdrRegistrantContact f x =
-    f (_tdrRegistrantContact x)
-        <&> \y -> x { _tdrRegistrantContact = y }
+tdrRegistrantContact = lens _tdrRegistrantContact (\s a -> s { _tdrRegistrantContact = a })
 {-# INLINE tdrRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
@@ -205,56 +242,15 @@ tdrRegistrantContact f x =
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
 tdrTechContact :: Lens' TransferDomain (ContactDetail)
-tdrTechContact f x =
-    f (_tdrTechContact x)
-        <&> \y -> x { _tdrTechContact = y }
+tdrTechContact = lens _tdrTechContact (\s a -> s { _tdrTechContact = a })
 {-# INLINE tdrTechContact #-}
-
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9, and
--- hyphen (-). Internationalized Domain Names are not supported. Required:
--- Yes.
-tdrDomainName :: Lens' TransferDomain (Text)
-tdrDomainName f x =
-    f (_tdrDomainName x)
-        <&> \y -> x { _tdrDomainName = y }
-{-# INLINE tdrDomainName #-}
-
--- | The number of years the domain will be registered. Domains are registered
--- for a minimum of one year. The maximum period depends on the top-level
--- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
--- Required: Yes.
-tdrDurationInYears :: Lens' TransferDomain (Integer)
-tdrDurationInYears f x =
-    f (_tdrDurationInYears x)
-        <&> \y -> x { _tdrDurationInYears = y }
-{-# INLINE tdrDurationInYears #-}
-
--- | Contains details for the host and glue IP addresses. Type: Complex
--- Children: GlueIps, Name.
-tdrNameservers :: Lens' TransferDomain ([Nameserver])
-tdrNameservers f x =
-    f (_tdrNameservers x)
-        <&> \y -> x { _tdrNameservers = y }
-{-# INLINE tdrNameservers #-}
-
--- | Indicates whether the domain will be automatically renewed (true) or not
--- (false). Autorenewal only takes effect after the account is charged. Type:
--- Boolean Valid values: true | false Default: true Required: No.
-tdrAutoRenew :: Lens' TransferDomain (Maybe Bool)
-tdrAutoRenew f x =
-    f (_tdrAutoRenew x)
-        <&> \y -> x { _tdrAutoRenew = y }
-{-# INLINE tdrAutoRenew #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
 tdrPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
-tdrPrivacyProtectAdminContact f x =
-    f (_tdrPrivacyProtectAdminContact x)
-        <&> \y -> x { _tdrPrivacyProtectAdminContact = y }
+tdrPrivacyProtectAdminContact = lens _tdrPrivacyProtectAdminContact (\s a -> s { _tdrPrivacyProtectAdminContact = a })
 {-# INLINE tdrPrivacyProtectAdminContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
@@ -262,9 +258,7 @@ tdrPrivacyProtectAdminContact f x =
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
 tdrPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
-tdrPrivacyProtectRegistrantContact f x =
-    f (_tdrPrivacyProtectRegistrantContact x)
-        <&> \y -> x { _tdrPrivacyProtectRegistrantContact = y }
+tdrPrivacyProtectRegistrantContact = lens _tdrPrivacyProtectRegistrantContact (\s a -> s { _tdrPrivacyProtectRegistrantContact = a })
 {-# INLINE tdrPrivacyProtectRegistrantContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
@@ -272,25 +266,8 @@ tdrPrivacyProtectRegistrantContact f x =
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
 tdrPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
-tdrPrivacyProtectTechContact f x =
-    f (_tdrPrivacyProtectTechContact x)
-        <&> \y -> x { _tdrPrivacyProtectTechContact = y }
+tdrPrivacyProtectTechContact = lens _tdrPrivacyProtectTechContact (\s a -> s { _tdrPrivacyProtectTechContact = a })
 {-# INLINE tdrPrivacyProtectTechContact #-}
-
--- | The authorization code for the domain. You get this value from the current
--- registrar. Type: String Required: Yes.
-tdrAuthCode :: Lens' TransferDomain (Maybe Text)
-tdrAuthCode f x =
-    f (_tdrAuthCode x)
-        <&> \y -> x { _tdrAuthCode = y }
-{-# INLINE tdrAuthCode #-}
-
--- | Reserved for future use.
-tdrIdnLangCode :: Lens' TransferDomain (Maybe Text)
-tdrIdnLangCode f x =
-    f (_tdrIdnLangCode x)
-        <&> \y -> x { _tdrIdnLangCode = y }
-{-# INLINE tdrIdnLangCode #-}
 
 instance ToPath TransferDomain
 
@@ -300,7 +277,7 @@ instance ToHeaders TransferDomain
 
 instance ToJSON TransferDomain
 
-data TransferDomainResponse = TransferDomainResponse
+newtype TransferDomainResponse = TransferDomainResponse
     { _tdsOperationId :: Text
       -- ^ Identifier for tracking the progress of the request. To use this
       -- ID to query the operation status, use GetOperationDetail. Type:
@@ -311,9 +288,7 @@ data TransferDomainResponse = TransferDomainResponse
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
 tdsOperationId :: Lens' TransferDomainResponse (Text)
-tdsOperationId f x =
-    f (_tdsOperationId x)
-        <&> \y -> x { _tdsOperationId = y }
+tdsOperationId = lens _tdsOperationId (\s a -> s { _tdsOperationId = a })
 {-# INLINE tdsOperationId #-}
 
 instance FromJSON TransferDomainResponse

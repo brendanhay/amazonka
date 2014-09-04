@@ -35,7 +35,7 @@ module Network.AWS.IAM.V2010_05_08.GetRole
     -- * Request
       GetRole
     -- ** Request constructor
-    , getRole
+    , mkGetRoleRequest
     -- ** Request lenses
     , grrRoleName
 
@@ -49,39 +49,36 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetRole' request.
-getRole :: Text -- ^ 'grrRoleName'
-        -> GetRole
-getRole p1 = GetRole
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRole' request.
+mkGetRoleRequest :: Text -- ^ 'grrRoleName'
+                 -> GetRole
+mkGetRoleRequest p1 = GetRole
     { _grrRoleName = p1
     }
-{-# INLINE getRole #-}
+{-# INLINE mkGetRoleRequest #-}
 
-data GetRole = GetRole
+newtype GetRole = GetRole
     { _grrRoleName :: Text
       -- ^ Name of the role to get information about.
     } deriving (Show, Generic)
 
 -- | Name of the role to get information about.
 grrRoleName :: Lens' GetRole (Text)
-grrRoleName f x =
-    f (_grrRoleName x)
-        <&> \y -> x { _grrRoleName = y }
+grrRoleName = lens _grrRoleName (\s a -> s { _grrRoleName = a })
 {-# INLINE grrRoleName #-}
 
 instance ToQuery GetRole where
     toQuery = genericQuery def
 
-data GetRoleResponse = GetRoleResponse
+newtype GetRoleResponse = GetRoleResponse
     { _grsRole :: Role
       -- ^ Information about the role.
     } deriving (Show, Generic)
 
 -- | Information about the role.
 grsRole :: Lens' GetRoleResponse (Role)
-grsRole f x =
-    f (_grsRole x)
-        <&> \y -> x { _grsRole = y }
+grsRole = lens _grsRole (\s a -> s { _grsRole = a })
 {-# INLINE grsRole #-}
 
 instance FromXML GetRoleResponse where

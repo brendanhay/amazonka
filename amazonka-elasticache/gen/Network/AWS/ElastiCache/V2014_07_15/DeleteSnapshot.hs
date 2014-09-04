@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
     -- * Request
       DeleteSnapshot
     -- ** Request constructor
-    , deleteSnapshot
+    , mkDeleteSnapshotMessage
     -- ** Request lenses
     , dsmSnapshotName
 
@@ -46,30 +46,29 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteSnapshot' request.
-deleteSnapshot :: Text -- ^ 'dsmSnapshotName'
-               -> DeleteSnapshot
-deleteSnapshot p1 = DeleteSnapshot
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshot' request.
+mkDeleteSnapshotMessage :: Text -- ^ 'dsmSnapshotName'
+                        -> DeleteSnapshot
+mkDeleteSnapshotMessage p1 = DeleteSnapshot
     { _dsmSnapshotName = p1
     }
-{-# INLINE deleteSnapshot #-}
+{-# INLINE mkDeleteSnapshotMessage #-}
 
-data DeleteSnapshot = DeleteSnapshot
+newtype DeleteSnapshot = DeleteSnapshot
     { _dsmSnapshotName :: Text
       -- ^ The name of the snapshot to be deleted.
     } deriving (Show, Generic)
 
 -- | The name of the snapshot to be deleted.
 dsmSnapshotName :: Lens' DeleteSnapshot (Text)
-dsmSnapshotName f x =
-    f (_dsmSnapshotName x)
-        <&> \y -> x { _dsmSnapshotName = y }
+dsmSnapshotName = lens _dsmSnapshotName (\s a -> s { _dsmSnapshotName = a })
 {-# INLINE dsmSnapshotName #-}
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
 
-data DeleteSnapshotResponse = DeleteSnapshotResponse
+newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _ssssssssszSnapshot :: Maybe Snapshot
       -- ^ Represents a copy of an entire cache cluster as of the time when
       -- the snapshot was taken.
@@ -78,9 +77,7 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
 ssssssssszSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-ssssssssszSnapshot f x =
-    f (_ssssssssszSnapshot x)
-        <&> \y -> x { _ssssssssszSnapshot = y }
+ssssssssszSnapshot = lens _ssssssssszSnapshot (\s a -> s { _ssssssssszSnapshot = a })
 {-# INLINE ssssssssszSnapshot #-}
 
 instance FromXML DeleteSnapshotResponse where

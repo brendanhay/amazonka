@@ -43,7 +43,7 @@ module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
     -- * Request
       AcceptVpcPeeringConnection
     -- ** Request constructor
-    , acceptVpcPeeringConnection
+    , mkAcceptVpcPeeringConnectionRequest
     -- ** Request lenses
     , avpcrVpcPeeringConnectionId
 
@@ -57,38 +57,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'AcceptVpcPeeringConnection' request.
-acceptVpcPeeringConnection :: AcceptVpcPeeringConnection
-acceptVpcPeeringConnection = AcceptVpcPeeringConnection
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AcceptVpcPeeringConnection' request.
+mkAcceptVpcPeeringConnectionRequest :: AcceptVpcPeeringConnection
+mkAcceptVpcPeeringConnectionRequest = AcceptVpcPeeringConnection
     { _avpcrVpcPeeringConnectionId = Nothing
     }
-{-# INLINE acceptVpcPeeringConnection #-}
+{-# INLINE mkAcceptVpcPeeringConnectionRequest #-}
 
-data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
+newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcrVpcPeeringConnectionId :: Maybe Text
       -- ^ The ID of the VPC peering connection.
     } deriving (Show, Generic)
 
 -- | The ID of the VPC peering connection.
 avpcrVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
-avpcrVpcPeeringConnectionId f x =
-    f (_avpcrVpcPeeringConnectionId x)
-        <&> \y -> x { _avpcrVpcPeeringConnectionId = y }
+avpcrVpcPeeringConnectionId = lens _avpcrVpcPeeringConnectionId (\s a -> s { _avpcrVpcPeeringConnectionId = a })
 {-# INLINE avpcrVpcPeeringConnectionId #-}
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery = genericQuery def
 
-data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
+newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcsVpcPeeringConnection :: Maybe VpcPeeringConnection
       -- ^ Information about the VPC peering connection.
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
 avpcsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
-avpcsVpcPeeringConnection f x =
-    f (_avpcsVpcPeeringConnection x)
-        <&> \y -> x { _avpcsVpcPeeringConnection = y }
+avpcsVpcPeeringConnection = lens _avpcsVpcPeeringConnection (\s a -> s { _avpcsVpcPeeringConnection = a })
 {-# INLINE avpcsVpcPeeringConnection #-}
 
 instance FromXML AcceptVpcPeeringConnectionResponse where

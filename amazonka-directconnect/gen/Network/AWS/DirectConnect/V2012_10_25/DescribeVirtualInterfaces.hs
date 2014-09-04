@@ -32,7 +32,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
     -- * Request
       DescribeVirtualInterfaces
     -- ** Request constructor
-    , describeVirtualInterfaces
+    , mkDescribeVirtualInterfacesRequest
     -- ** Request lenses
     , dvitConnectionId
     , dvitVirtualInterfaceId
@@ -48,13 +48,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeVirtualInterfaces' request.
-describeVirtualInterfaces :: DescribeVirtualInterfaces
-describeVirtualInterfaces = DescribeVirtualInterfaces
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVirtualInterfaces' request.
+mkDescribeVirtualInterfacesRequest :: DescribeVirtualInterfaces
+mkDescribeVirtualInterfacesRequest = DescribeVirtualInterfaces
     { _dvitConnectionId = Nothing
     , _dvitVirtualInterfaceId = Nothing
     }
-{-# INLINE describeVirtualInterfaces #-}
+{-# INLINE mkDescribeVirtualInterfacesRequest #-}
 
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvitConnectionId :: Maybe Text
@@ -66,16 +67,12 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dvitConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvitConnectionId f x =
-    f (_dvitConnectionId x)
-        <&> \y -> x { _dvitConnectionId = y }
+dvitConnectionId = lens _dvitConnectionId (\s a -> s { _dvitConnectionId = a })
 {-# INLINE dvitConnectionId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 dvitVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvitVirtualInterfaceId f x =
-    f (_dvitVirtualInterfaceId x)
-        <&> \y -> x { _dvitVirtualInterfaceId = y }
+dvitVirtualInterfaceId = lens _dvitVirtualInterfaceId (\s a -> s { _dvitVirtualInterfaceId = a })
 {-# INLINE dvitVirtualInterfaceId #-}
 
 instance ToPath DescribeVirtualInterfaces
@@ -86,16 +83,14 @@ instance ToHeaders DescribeVirtualInterfaces
 
 instance ToJSON DescribeVirtualInterfaces
 
-data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
+newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _vmVirtualInterfaces :: [VirtualInterface]
       -- ^ A list of virtual interfaces.
     } deriving (Show, Generic)
 
 -- | A list of virtual interfaces.
 vmVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse ([VirtualInterface])
-vmVirtualInterfaces f x =
-    f (_vmVirtualInterfaces x)
-        <&> \y -> x { _vmVirtualInterfaces = y }
+vmVirtualInterfaces = lens _vmVirtualInterfaces (\s a -> s { _vmVirtualInterfaces = a })
 {-# INLINE vmVirtualInterfaces #-}
 
 instance FromJSON DescribeVirtualInterfacesResponse

@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
     -- * Request
       DeleteTapeArchive
     -- ** Request constructor
-    , deleteTapeArchive
+    , mkDeleteTapeArchiveInput
     -- ** Request lenses
     , dtaiTapeARN
 
@@ -37,22 +37,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DeleteTapeArchive' request.
-deleteTapeArchive :: Text -- ^ 'dtaiTapeARN'
-                  -> DeleteTapeArchive
-deleteTapeArchive p1 = DeleteTapeArchive
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTapeArchive' request.
+mkDeleteTapeArchiveInput :: Text -- ^ 'dtaiTapeARN'
+                         -> DeleteTapeArchive
+mkDeleteTapeArchiveInput p1 = DeleteTapeArchive
     { _dtaiTapeARN = p1
     }
-{-# INLINE deleteTapeArchive #-}
+{-# INLINE mkDeleteTapeArchiveInput #-}
 
-data DeleteTapeArchive = DeleteTapeArchive
+newtype DeleteTapeArchive = DeleteTapeArchive
     { _dtaiTapeARN :: Text
     } deriving (Show, Generic)
 
 dtaiTapeARN :: Lens' DeleteTapeArchive (Text)
-dtaiTapeARN f x =
-    f (_dtaiTapeARN x)
-        <&> \y -> x { _dtaiTapeARN = y }
+dtaiTapeARN = lens _dtaiTapeARN (\s a -> s { _dtaiTapeARN = a })
 {-# INLINE dtaiTapeARN #-}
 
 instance ToPath DeleteTapeArchive
@@ -63,14 +62,12 @@ instance ToHeaders DeleteTapeArchive
 
 instance ToJSON DeleteTapeArchive
 
-data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
+newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtaoTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 dtaoTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
-dtaoTapeARN f x =
-    f (_dtaoTapeARN x)
-        <&> \y -> x { _dtaoTapeARN = y }
+dtaoTapeARN = lens _dtaoTapeARN (\s a -> s { _dtaoTapeARN = a })
 {-# INLINE dtaoTapeARN #-}
 
 instance FromJSON DeleteTapeArchiveResponse

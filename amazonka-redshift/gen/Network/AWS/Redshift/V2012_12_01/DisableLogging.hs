@@ -24,7 +24,7 @@ module Network.AWS.Redshift.V2012_12_01.DisableLogging
     -- * Request
       DisableLogging
     -- ** Request constructor
-    , disableLogging
+    , mkDisableLoggingMessage
     -- ** Request lenses
     , dlmClusterIdentifier
 
@@ -34,24 +34,25 @@ module Network.AWS.Redshift.V2012_12_01.DisableLogging
     , lltLoggingEnabled
     , lltBucketName
     , lltS3KeyPrefix
-    , lltLastFailureMessage
     , lltLastSuccessfulDeliveryTime
     , lltLastFailureTime
+    , lltLastFailureMessage
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DisableLogging' request.
-disableLogging :: Text -- ^ 'dlmClusterIdentifier'
-               -> DisableLogging
-disableLogging p1 = DisableLogging
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableLogging' request.
+mkDisableLoggingMessage :: Text -- ^ 'dlmClusterIdentifier'
+                        -> DisableLogging
+mkDisableLoggingMessage p1 = DisableLogging
     { _dlmClusterIdentifier = p1
     }
-{-# INLINE disableLogging #-}
+{-# INLINE mkDisableLoggingMessage #-}
 
-data DisableLogging = DisableLogging
+newtype DisableLogging = DisableLogging
     { _dlmClusterIdentifier :: Text
       -- ^ The identifier of the cluster on which logging is to be stopped.
       -- Example: examplecluster.
@@ -60,9 +61,7 @@ data DisableLogging = DisableLogging
 -- | The identifier of the cluster on which logging is to be stopped. Example:
 -- examplecluster.
 dlmClusterIdentifier :: Lens' DisableLogging (Text)
-dlmClusterIdentifier f x =
-    f (_dlmClusterIdentifier x)
-        <&> \y -> x { _dlmClusterIdentifier = y }
+dlmClusterIdentifier = lens _dlmClusterIdentifier (\s a -> s { _dlmClusterIdentifier = a })
 {-# INLINE dlmClusterIdentifier #-}
 
 instance ToQuery DisableLogging where
@@ -75,55 +74,43 @@ data DisableLoggingResponse = DisableLoggingResponse
       -- ^ The name of the S3 bucket where the log files are stored.
     , _lltS3KeyPrefix :: Maybe Text
       -- ^ The prefix applied to the log file names.
-    , _lltLastFailureMessage :: Maybe Text
-      -- ^ The message indicating that logs failed to be delivered.
     , _lltLastSuccessfulDeliveryTime :: Maybe ISO8601
       -- ^ The last time when logs were delivered.
     , _lltLastFailureTime :: Maybe ISO8601
       -- ^ The last time when logs failed to be delivered.
+    , _lltLastFailureMessage :: Maybe Text
+      -- ^ The message indicating that logs failed to be delivered.
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
 lltLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
-lltLoggingEnabled f x =
-    f (_lltLoggingEnabled x)
-        <&> \y -> x { _lltLoggingEnabled = y }
+lltLoggingEnabled = lens _lltLoggingEnabled (\s a -> s { _lltLoggingEnabled = a })
 {-# INLINE lltLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
 lltBucketName :: Lens' DisableLoggingResponse (Maybe Text)
-lltBucketName f x =
-    f (_lltBucketName x)
-        <&> \y -> x { _lltBucketName = y }
+lltBucketName = lens _lltBucketName (\s a -> s { _lltBucketName = a })
 {-# INLINE lltBucketName #-}
 
 -- | The prefix applied to the log file names.
 lltS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
-lltS3KeyPrefix f x =
-    f (_lltS3KeyPrefix x)
-        <&> \y -> x { _lltS3KeyPrefix = y }
+lltS3KeyPrefix = lens _lltS3KeyPrefix (\s a -> s { _lltS3KeyPrefix = a })
 {-# INLINE lltS3KeyPrefix #-}
-
--- | The message indicating that logs failed to be delivered.
-lltLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
-lltLastFailureMessage f x =
-    f (_lltLastFailureMessage x)
-        <&> \y -> x { _lltLastFailureMessage = y }
-{-# INLINE lltLastFailureMessage #-}
 
 -- | The last time when logs were delivered.
 lltLastSuccessfulDeliveryTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
-lltLastSuccessfulDeliveryTime f x =
-    f (_lltLastSuccessfulDeliveryTime x)
-        <&> \y -> x { _lltLastSuccessfulDeliveryTime = y }
+lltLastSuccessfulDeliveryTime = lens _lltLastSuccessfulDeliveryTime (\s a -> s { _lltLastSuccessfulDeliveryTime = a })
 {-# INLINE lltLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
 lltLastFailureTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
-lltLastFailureTime f x =
-    f (_lltLastFailureTime x)
-        <&> \y -> x { _lltLastFailureTime = y }
+lltLastFailureTime = lens _lltLastFailureTime (\s a -> s { _lltLastFailureTime = a })
 {-# INLINE lltLastFailureTime #-}
+
+-- | The message indicating that logs failed to be delivered.
+lltLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
+lltLastFailureMessage = lens _lltLastFailureMessage (\s a -> s { _lltLastFailureMessage = a })
+{-# INLINE lltLastFailureMessage #-}
 
 instance FromXML DisableLoggingResponse where
     fromXMLOptions = xmlOptions

@@ -27,7 +27,7 @@ module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
     -- * Request
       GetAccountPasswordPolicy
     -- ** Request constructor
-    , getAccountPasswordPolicy
+    , mkUnknown
     -- * Response
     , GetAccountPasswordPolicyResponse
     -- ** Response lenses
@@ -38,10 +38,11 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'GetAccountPasswordPolicy' request.
-getAccountPasswordPolicy :: GetAccountPasswordPolicy
-getAccountPasswordPolicy = GetAccountPasswordPolicy
-{-# INLINE getAccountPasswordPolicy #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAccountPasswordPolicy' request.
+mkUnknown :: GetAccountPasswordPolicy
+mkUnknown = GetAccountPasswordPolicy
+{-# INLINE mkUnknown #-}
 
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
     deriving (Eq, Show, Generic)
@@ -49,7 +50,7 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy
 instance ToQuery GetAccountPasswordPolicy where
     toQuery = genericQuery def
 
-data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
+newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
       -- ^ The PasswordPolicy data type contains information about the
       -- account password policy. This data type is used as a response
@@ -60,9 +61,7 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
 gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse (PasswordPolicy)
-gapprPasswordPolicy f x =
-    f (_gapprPasswordPolicy x)
-        <&> \y -> x { _gapprPasswordPolicy = y }
+gapprPasswordPolicy = lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
 {-# INLINE gapprPasswordPolicy #-}
 
 instance FromXML GetAccountPasswordPolicyResponse where

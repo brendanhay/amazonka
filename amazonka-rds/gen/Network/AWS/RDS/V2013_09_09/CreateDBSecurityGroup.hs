@@ -30,7 +30,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup
     -- * Request
       CreateDBSecurityGroup
     -- ** Request constructor
-    , createDBSecurityGroup
+    , mkCreateDBSecurityGroupMessage
     -- ** Request lenses
     , cdbsgmDBSecurityGroupName
     , cdbsgmDBSecurityGroupDescription
@@ -46,16 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'CreateDBSecurityGroup' request.
-createDBSecurityGroup :: Text -- ^ 'cdbsgmDBSecurityGroupName'
-                      -> Text -- ^ 'cdbsgmDBSecurityGroupDescription'
-                      -> CreateDBSecurityGroup
-createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBSecurityGroup' request.
+mkCreateDBSecurityGroupMessage :: Text -- ^ 'cdbsgmDBSecurityGroupName'
+                               -> Text -- ^ 'cdbsgmDBSecurityGroupDescription'
+                               -> CreateDBSecurityGroup
+mkCreateDBSecurityGroupMessage p1 p2 = CreateDBSecurityGroup
     { _cdbsgmDBSecurityGroupName = p1
     , _cdbsgmDBSecurityGroupDescription = p2
     , _cdbsgmTags = mempty
     }
-{-# INLINE createDBSecurityGroup #-}
+{-# INLINE mkCreateDBSecurityGroupMessage #-}
 
 data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgmDBSecurityGroupName :: Text
@@ -76,29 +77,23 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
 -- consecutive hyphens Must not be "Default" May not contain spaces Example:
 -- mysecuritygroup.
 cdbsgmDBSecurityGroupName :: Lens' CreateDBSecurityGroup (Text)
-cdbsgmDBSecurityGroupName f x =
-    f (_cdbsgmDBSecurityGroupName x)
-        <&> \y -> x { _cdbsgmDBSecurityGroupName = y }
+cdbsgmDBSecurityGroupName = lens _cdbsgmDBSecurityGroupName (\s a -> s { _cdbsgmDBSecurityGroupName = a })
 {-# INLINE cdbsgmDBSecurityGroupName #-}
 
 -- | The description for the DB security group.
 cdbsgmDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup (Text)
-cdbsgmDBSecurityGroupDescription f x =
-    f (_cdbsgmDBSecurityGroupDescription x)
-        <&> \y -> x { _cdbsgmDBSecurityGroupDescription = y }
+cdbsgmDBSecurityGroupDescription = lens _cdbsgmDBSecurityGroupDescription (\s a -> s { _cdbsgmDBSecurityGroupDescription = a })
 {-# INLINE cdbsgmDBSecurityGroupDescription #-}
 
 -- | A list of tags.
 cdbsgmTags :: Lens' CreateDBSecurityGroup ([Tag])
-cdbsgmTags f x =
-    f (_cdbsgmTags x)
-        <&> \y -> x { _cdbsgmTags = y }
+cdbsgmTags = lens _cdbsgmTags (\s a -> s { _cdbsgmTags = a })
 {-# INLINE cdbsgmTags #-}
 
 instance ToQuery CreateDBSecurityGroup where
     toQuery = genericQuery def
 
-data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
+newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _dbsgxDBSecurityGroup :: Maybe DBSecurityGroup
       -- ^ Contains the result of a successful invocation of the following
       -- actions: DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
@@ -112,9 +107,7 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
 dbsgxDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-dbsgxDBSecurityGroup f x =
-    f (_dbsgxDBSecurityGroup x)
-        <&> \y -> x { _dbsgxDBSecurityGroup = y }
+dbsgxDBSecurityGroup = lens _dbsgxDBSecurityGroup (\s a -> s { _dbsgxDBSecurityGroup = a })
 {-# INLINE dbsgxDBSecurityGroup #-}
 
 instance FromXML CreateDBSecurityGroupResponse where

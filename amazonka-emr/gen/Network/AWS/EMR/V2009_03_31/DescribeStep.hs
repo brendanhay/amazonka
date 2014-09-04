@@ -23,7 +23,7 @@ module Network.AWS.EMR.V2009_03_31.DescribeStep
     -- * Request
       DescribeStep
     -- ** Request constructor
-    , describeStep
+    , mkDescribeStepInput
     -- ** Request lenses
     , dsiClusterId
     , dsiStepId
@@ -39,15 +39,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Minimum specification for a 'DescribeStep' request.
-describeStep :: Text -- ^ 'dsiClusterId'
-             -> Text -- ^ 'dsiStepId'
-             -> DescribeStep
-describeStep p1 p2 = DescribeStep
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStep' request.
+mkDescribeStepInput :: Text -- ^ 'dsiClusterId'
+                    -> Text -- ^ 'dsiStepId'
+                    -> DescribeStep
+mkDescribeStepInput p1 p2 = DescribeStep
     { _dsiClusterId = p1
     , _dsiStepId = p2
     }
-{-# INLINE describeStep #-}
+{-# INLINE mkDescribeStepInput #-}
 
 data DescribeStep = DescribeStep
     { _dsiClusterId :: Text
@@ -58,16 +59,12 @@ data DescribeStep = DescribeStep
 
 -- | The identifier of the cluster with steps to describe.
 dsiClusterId :: Lens' DescribeStep (Text)
-dsiClusterId f x =
-    f (_dsiClusterId x)
-        <&> \y -> x { _dsiClusterId = y }
+dsiClusterId = lens _dsiClusterId (\s a -> s { _dsiClusterId = a })
 {-# INLINE dsiClusterId #-}
 
 -- | The identifier of the step to describe.
 dsiStepId :: Lens' DescribeStep (Text)
-dsiStepId f x =
-    f (_dsiStepId x)
-        <&> \y -> x { _dsiStepId = y }
+dsiStepId = lens _dsiStepId (\s a -> s { _dsiStepId = a })
 {-# INLINE dsiStepId #-}
 
 instance ToPath DescribeStep
@@ -78,16 +75,14 @@ instance ToHeaders DescribeStep
 
 instance ToJSON DescribeStep
 
-data DescribeStepResponse = DescribeStepResponse
+newtype DescribeStepResponse = DescribeStepResponse
     { _dsoStep :: Maybe Step
       -- ^ The step details for the requested step identifier.
     } deriving (Show, Generic)
 
 -- | The step details for the requested step identifier.
 dsoStep :: Lens' DescribeStepResponse (Maybe Step)
-dsoStep f x =
-    f (_dsoStep x)
-        <&> \y -> x { _dsoStep = y }
+dsoStep = lens _dsoStep (\s a -> s { _dsoStep = a })
 {-# INLINE dsoStep #-}
 
 instance FromJSON DescribeStepResponse

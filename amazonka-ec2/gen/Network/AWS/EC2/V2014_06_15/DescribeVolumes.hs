@@ -44,10 +44,10 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumes
     -- * Request
       DescribeVolumes
     -- ** Request constructor
-    , describeVolumes
+    , mkDescribeVolumesRequest
     -- ** Request lenses
-    , dvtFilters
     , dvtVolumeIds
+    , dvtFilters
 
     -- * Response
     , DescribeVolumesResponse
@@ -59,16 +59,19 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DescribeVolumes' request.
-describeVolumes :: DescribeVolumes
-describeVolumes = DescribeVolumes
-    { _dvtFilters = mempty
-    , _dvtVolumeIds = mempty
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumes' request.
+mkDescribeVolumesRequest :: DescribeVolumes
+mkDescribeVolumesRequest = DescribeVolumes
+    { _dvtVolumeIds = mempty
+    , _dvtFilters = mempty
     }
-{-# INLINE describeVolumes #-}
+{-# INLINE mkDescribeVolumesRequest #-}
 
 data DescribeVolumes = DescribeVolumes
-    { _dvtFilters :: [Filter]
+    { _dvtVolumeIds :: [Text]
+      -- ^ One or more volume IDs.
+    , _dvtFilters :: [Filter]
       -- ^ One or more filters. attachment.attach-time - The time stamp when
       -- the attachment initiated. attachment.delete-on-termination -
       -- Whether the volume is deleted on instance termination.
@@ -95,9 +98,12 @@ data DescribeVolumes = DescribeVolumes
       -- volume ID. volume-type - The Amazon EBS volume type. This can be
       -- gp2 for General Purpose (SSD) volumes, io1 for Provisioned IOPS
       -- (SSD) volumes, or standard for Magnetic volumes.
-    , _dvtVolumeIds :: [Text]
-      -- ^ One or more volume IDs.
     } deriving (Show, Generic)
+
+-- | One or more volume IDs.
+dvtVolumeIds :: Lens' DescribeVolumes ([Text])
+dvtVolumeIds = lens _dvtVolumeIds (\s a -> s { _dvtVolumeIds = a })
+{-# INLINE dvtVolumeIds #-}
 
 -- | One or more filters. attachment.attach-time - The time stamp when the
 -- attachment initiated. attachment.delete-on-termination - Whether the volume
@@ -123,31 +129,20 @@ data DescribeVolumes = DescribeVolumes
 -- General Purpose (SSD) volumes, io1 for Provisioned IOPS (SSD) volumes, or
 -- standard for Magnetic volumes.
 dvtFilters :: Lens' DescribeVolumes ([Filter])
-dvtFilters f x =
-    f (_dvtFilters x)
-        <&> \y -> x { _dvtFilters = y }
+dvtFilters = lens _dvtFilters (\s a -> s { _dvtFilters = a })
 {-# INLINE dvtFilters #-}
-
--- | One or more volume IDs.
-dvtVolumeIds :: Lens' DescribeVolumes ([Text])
-dvtVolumeIds f x =
-    f (_dvtVolumeIds x)
-        <&> \y -> x { _dvtVolumeIds = y }
-{-# INLINE dvtVolumeIds #-}
 
 instance ToQuery DescribeVolumes where
     toQuery = genericQuery def
 
-data DescribeVolumesResponse = DescribeVolumesResponse
+newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvuVolumes :: [Volume]
       -- ^ 
     } deriving (Show, Generic)
 
 -- | 
 dvuVolumes :: Lens' DescribeVolumesResponse ([Volume])
-dvuVolumes f x =
-    f (_dvuVolumes x)
-        <&> \y -> x { _dvuVolumes = y }
+dvuVolumes = lens _dvuVolumes (\s a -> s { _dvuVolumes = a })
 {-# INLINE dvuVolumes #-}
 
 instance FromXML DescribeVolumesResponse where

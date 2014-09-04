@@ -27,7 +27,7 @@ module Network.AWS.SimpleDB.V2009_04_15.DeleteDomain
     -- * Request
       DeleteDomain
     -- ** Request constructor
-    , deleteDomain
+    , mkDeleteDomainRequest
     -- ** Request lenses
     , ddrDomainName
 
@@ -39,24 +39,23 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Minimum specification for a 'DeleteDomain' request.
-deleteDomain :: Text -- ^ 'ddrDomainName'
-             -> DeleteDomain
-deleteDomain p1 = DeleteDomain
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDomain' request.
+mkDeleteDomainRequest :: Text -- ^ 'ddrDomainName'
+                      -> DeleteDomain
+mkDeleteDomainRequest p1 = DeleteDomain
     { _ddrDomainName = p1
     }
-{-# INLINE deleteDomain #-}
+{-# INLINE mkDeleteDomainRequest #-}
 
-data DeleteDomain = DeleteDomain
+newtype DeleteDomain = DeleteDomain
     { _ddrDomainName :: Text
       -- ^ The name of the domain to delete.
     } deriving (Show, Generic)
 
 -- | The name of the domain to delete.
 ddrDomainName :: Lens' DeleteDomain (Text)
-ddrDomainName f x =
-    f (_ddrDomainName x)
-        <&> \y -> x { _ddrDomainName = y }
+ddrDomainName = lens _ddrDomainName (\s a -> s { _ddrDomainName = a })
 {-# INLINE ddrDomainName #-}
 
 instance ToQuery DeleteDomain where

@@ -1,17 +1,16 @@
-
-  {% for field in scope.required %}
+  {% for field in scope.required_fields %}
     {% if field.first %}
-{{ scope.default }} :: {{ field.value.type }} -- ^ '{{ field.value.prefixed | lens }}'
+{{ scope.smart_ctor }} :: {{ field.value.type }} -- ^ '{{ field.value.prefixed | lens }}'
     {% else %}
 {{ scope.padding }} -> {{ field.value.type }} -- ^ '{{ field.value.prefixed | lens }}'
     {% endif %}
   {% endfor %}
-  {% if scope.required | listLength > 0 %}
+  {% if scope.required_fields | listLength > 0 %}
 {{ scope.padding }} -> {{ scope.name }}
   {% else %}
-{{ scope.default }} :: {{ scope.name }}
+{{ scope.smart_ctor }} :: {{ scope.name }}
   {% endif %}
-{{ scope.default }}   {% for field in scope.required -%} p{{ field.index }}   {% endfor -%} = {{ scope.name }}
+{{ scope.smart_ctor }}   {% for field in scope.required_fields -%} p{{ field.index }}   {% endfor -%} = {{ scope.name }}
   {% for field in scope.fields %}
     {% if field.value.required %}
       {% if field.first %}
@@ -38,4 +37,4 @@
     }
     {% endif %}
   {% endfor %}
-{-# INLINE {{ scope.default }} #-}
+{-# INLINE {{ scope.smart_ctor }} #-}

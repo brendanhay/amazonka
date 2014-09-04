@@ -68,7 +68,7 @@ instance ToByteString (Switch {{ data.value.name }})
 instance FromXML (Switch {{ data.value.name }}) where
     {% if data.value.flattened %}
     fromXMLOptions = xmlOptions { xmlListElem = Nothing }
-    {% else %}
+ {% else %}
     fromXMLOptions = xmlOptions
     {% endif %}
     fromXMLRoot    = fromRoot "{{ data.value.xml_name }}"
@@ -118,20 +118,11 @@ instance ToByteString {{ data.value.name }}
 
 instance ToQuery {{ data.value.name }} where
       toQuery = toQuery . toBS
-    {% when "newtype" %}
-newtype {{ data.value.name }} = {{ data.value.name }}
-    {% include "_include/record.ede" with data.value %}
-    {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/xml-to.ede" with data.value %}
-    {% when "data" %}
-data {{ data.value.name }} = {{ data.value.name }}
-    {% include "_include/record.ede" with data.value %}
-    {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/xml-to.ede" with data.value %}
-    {% when "nullary" %}
-data {{ data.value.name }} = {{ data.value.name }}
-  {% include "_include/xml-from.ede" with data.value %}
-  {% include "_include/xml-to.ede" with data.value %}
+    {% else %}
+      {% include "_include/record.ede" with data.value %}
+      {% include "_include/constructor.ede" with data.value %}
+      {% include "_include/xml-from.ede" with data.value %}
+      {% include "_include/xml-to.ede" with data.value %}
     {% endcase %}
   {% endcase %}
   {% if !data.last %}

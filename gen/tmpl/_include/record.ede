@@ -1,3 +1,9 @@
+{% case scope.ctor %}
+{% when "newtype" %}
+newtype {{ scope.name }} = {{ scope.name }}
+{% when "data" %}
+data {{ scope.name }} = {{ scope.name }}
+{% endcase %}
 {% for field in scope.fields %}
   {% if field.first %}
     { {{ field.value.prefixed }} :: {{ field.value.type }}

@@ -1,4 +1,4 @@
-{% case scope.response.type %}
+{% case scope.response.style %}
 {% when "headers" %}
     response _ = headerResponse $ \hs ->
         pure {{ scope.response.name }}

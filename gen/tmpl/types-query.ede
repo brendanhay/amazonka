@@ -50,22 +50,12 @@ instance ToText {{ data.value.name }} where
       {% endfor %}
 
 instance ToByteString {{ data.value.name }}
-    {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/query-to.ede" with data.value %}
-    {% when "newtype" %}
-newtype {{ data.value.name }} = {{ data.value.name }}
-    {% include "_include/record.ede" with data.value %}
-    {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/query-to.ede" with data.value %}
-    {% when "data" %}
-data {{ data.value.name }} = {{ data.value.name }}
-    {% include "_include/record.ede" with data.value %}
-    {% include "_include/xml-from.ede" with data.value %}
-    {% include "_include/query-to.ede" with data.value %}
-    {% when "nullary" %}
-data {{ data.value.name }} = {{ data.value.name }}
-  {% include "_include/xml-from.ede" with data.value %}
-  {% include "_include/query-to.ede" with data.value %}
+      {% include "_include/xml-from.ede" with data.value %}
+      {% include "_include/query-to.ede" with data.value %}
+    {% else %}
+      {% include "_include/record.ede" with data.value %}
+      {% include "_include/xml-from.ede" with data.value %}
+      {% include "_include/query-to.ede" with data.value %}
     {% endcase %}
   {% if !data.last %}
 

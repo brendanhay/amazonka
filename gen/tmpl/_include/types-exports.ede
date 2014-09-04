@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
@@ -33,11 +34,13 @@ module {{ scope.types_namespace }}
     , {{ data.value.name }} (..)
   {% when "newtype" %}
     , {{ data.value.name }}
+    , {{ data.value.smart_ctor }}
     {% for field in data.value.fields %}
     , {{ data.value.name | iso }}
     {% endfor %}
   {% when "data" %}
     , {{ data.value.name }}
+    , {{ data.value.smart_ctor }}
     {% for field in data.value.fields %}
     , {{ field.value.prefixed | lens }}
     {% endfor %}

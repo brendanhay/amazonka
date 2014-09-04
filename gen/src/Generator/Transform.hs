@@ -110,8 +110,8 @@ current = mapMaybe latest . groupBy identical
 
 operation :: Service -> Operation -> State (HashSet Text) Operation
 operation svc@Service{..} o = do
-    rq <- uniquify svc (o ^. opRequest  . rqShape)
-    rs <- uniquify svc (o ^. opResponse . rsShape)
+    rq <- uniquify svc (o ^. opRequest  . typShape)
+    rs <- uniquify svc (o ^. opResponse . typShape)
 
     let x = o & opService          .~ _svcName
               & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
@@ -119,10 +119,10 @@ operation svc@Service{..} o = do
               & opVersionNamespace .~ _svcVersionNamespace
               & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
 
-        y = x & opRequest.rqShape  .~ rq
-              & opRequest          %~ request svc x
-              & opResponse.rsShape .~ rs
-              & opResponse         %~ response svc x
+        y = x & opRequest.typShape  .~ rq
+              & opRequest           %~ request svc x
+              & opResponse.typShape .~ rs
+              & opResponse          %~ response svc x
 
     return y
 
@@ -166,29 +166,9 @@ special svc s = f (_svcName svc) (s ^. cmnName) s
 
 request :: Service -> Operation -> Request -> Request
 request svc@Service{..} o rq = rq
-    & rqName          .~ name
-    & rqShape         .~ shape
-    & rqDefault       .~ lowerFirst name
-    & rqHttp          %~ http shape
-    & rqFields        .~ fs
-    & rqPayload       .~ bdy
-    & rqRequired      .~ rs
-    & rqHeaders       .~ hs
-  where
-    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-
-    rs = filter (view cmnRequired) fs
-    hs = filter ((== LHeader) . view cmnLocation) fs
-    fs = map (requireField overrides . upd) . sort $ fields True svc shape
-
-    overrides = fromMaybe [] (Map.lookup name _svcRequired)
-
-    upd f | f ^. cmnLocation == LBody
-          , f ^. cmnStreaming         = f & cmnRequired .~ True
-          | otherwise                 = f
-
-    shape = ignoreFields _svcIgnored (rq ^. rqShape & cmnName .~ name)
-    name  = o ^. opName
+    & rqType .~ shapeType True svc (rq ^. typShape)
+    & rqName .~ (o ^. opName)
+    & rqHttp %~ http (rq ^. typShape)
 
 http :: Shape -> HTTP -> HTTP
 http p h = h & hPath %~ map f & hQuery %~ map g
@@ -199,23 +179,11 @@ http p h = h & hPath %~ map f & hQuery %~ map g
     g = qpVal %~ fmap (prefixed p)
 
 response :: Service -> Operation -> Response -> Response
-response svc@Service{..} o rs = rs' & rsType .~ responseType _svcType rs'
+response svc@Service{..} o rs = rs' & rsStyle .~ style _svcType rs'
   where
     rs' = rs
-        & rsName    .~ name
-        & rsFields  .~ fs
-        & rsPayload .~ bdy
-        & rsHeaders .~ hs
-
-    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-
-    hs = filter ((== LHeader) . view cmnLocation) fs
-    fs = map (requireField overrides) . sort $ fields False svc shape
-
-    overrides = fromMaybe [] (Map.lookup name _svcRequired)
-
-    shape = ignoreFields _svcIgnored (rs ^. rsShape & cmnName .~ name)
-    name  = o ^. opName <> "Response"
+        & rsType .~ shapeType False svc (rs ^. typShape)
+        & rsName .~ (o ^. opName <> "Response")
 
 pagination :: Service -> Operation -> Pagination -> Pagination
 pagination svc o p = case p of
@@ -226,8 +194,8 @@ pagination svc o p = case p of
         & tokInput  %~ labeled (rq ^. cmnName)
         & tokOutput %~ labeled (rs ^. cmnName)
 
-    rq = o ^. opRequest.rqShape
-    rs = o ^. opResponse.rsShape
+    rq = o ^. opRequest.typShape
+    rs = o ^. opResponse.typShape
 
     types = shapeType True  svc rq : shapeType False svc rs : _svcTypes svc
 
@@ -281,8 +249,31 @@ fields rq svc s = case s of
 prefixed :: HasCommon a => a -> Text -> Text
 prefixed p = mappend (p ^. cmnPrefix) . upperFirst
 
-shapeType :: Bool -> Service -> Shape -> Type
-shapeType rq svc s = Type s (typeof rq svc s) (ctorof s) (fields rq svc s)
+shapeType :: Bool -> Service -> Shape -> Type'
+shapeType rq svc@Service{..} s = Type
+    { _typShape    = shape
+    , _typType     = typeof rq svc shape
+    , _typCtor     = ctorof shape
+    , _typPayload  = bdy
+    , _typFields   = fs
+    , _typRequired = rs
+    , _typHeaders  = hs
+    }
+  where
+    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
+
+    rs = filter (view cmnRequired) fs
+    hs = filter ((== LHeader) . view cmnLocation) fs
+    fs = map (requireField overrides . upd) . sort $ fields rq svc shape
+
+    overrides = fromMaybe [] (Map.lookup name _svcRequired)
+
+    upd f | f ^. cmnLocation == LBody
+          , f ^. cmnStreaming         = f & cmnRequired .~ True
+          | otherwise                 = f
+
+    shape = ignoreFields _svcIgnored s
+    name  = s ^. cmnName
 
 typeof :: Bool -> Service -> Shape -> Ann
 typeof rq svc s = Ann req (defaults s) (monoids s) typ
@@ -383,7 +374,7 @@ setDirection d s =
     dir :: HasCommon a => a -> a
     dir = cmnDirection .~ d
 
-serviceTypes :: Service -> [Type]
+serviceTypes :: Service -> [Type']
 serviceTypes svc@Service{..} = map override
     . sort
     . Map.elems
@@ -401,7 +392,7 @@ serviceTypes svc@Service{..} = map override
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (existingType svc (snd x))
 
-    uniq :: Type -> State (HashMap Text Type) ()
+    uniq :: Type' -> State (HashMap Text Type') ()
     uniq x = modify $ \m ->
         let n = x ^. cmnName
             y = Map.lookup n m
@@ -409,8 +400,8 @@ serviceTypes svc@Service{..} = map override
          in Map.insert n z m
 
     opfields o =
-           descend (_rqShape $ _opRequest  o)
-        ++ descend (_rsShape $ _opResponse o)
+           descend (_opRequest  o ^. typShape)
+        ++ descend (_opResponse o ^. typShape)
         ++ concatMap descend (_opErrors o)
 
     descend (SStruct Struct{..}) = concatMap (uncurry flat) _sctFields
@@ -474,7 +465,15 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 
     es = nub (concatMap _opErrors os)
 
-    custom s = Type s (typeof True svc s) CError (fields True svc s)
+    custom s = Type
+        { _typShape    = s
+        , _typType     = typeof True svc s
+        , _typCtor     = CError
+        , _typPayload  = Nothing
+        , _typFields   = fields True svc s
+        , _typRequired = []
+        , _typHeaders  = []
+        }
 
     svc = defaultService a
 

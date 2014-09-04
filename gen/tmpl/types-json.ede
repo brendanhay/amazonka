@@ -78,22 +78,12 @@ instance ToHeader {{ data.value.name }} where
 
 instance ToQuery {{ data.value.name }} where
     toQuery = toQuery . toBS
-  {% include "_include/json-from.ede" with data.value %}
-  {% include "_include/json-to.ede" with data.value %}
-  {% when "newtype" %}
-newtype {{ data.value.name }} = {{ data.value.name }}
-  {% include "_include/record.ede" with data.value %}
-  {% include "_include/json-from.ede" with data.value %}
-  {% include "_include/json-to.ede" with data.value %}
-  {% when "data" %}
-data {{ data.value.name }} = {{ data.value.name }}
-  {% include "_include/record.ede" with data.value %}
-  {% include "_include/json-from.ede" with data.value %}
-  {% include "_include/json-to.ede" with data.value %}
-  {% when "nullary" %}
-data {{ data.value.name }} = {{ data.value.name }}
-{% include "_include/json-from.ede" with data.value %}
-{% include "_include/json-to.ede" with data.value %}
+    {% include "_include/json-from.ede" with data.value %}
+    {% include "_include/json-to.ede" with data.value %}
+  {% else %}
+    {% include "_include/record.ede" with data.value %}
+    {% include "_include/json-from.ede" with data.value %}
+    {% include "_include/json-to.ede" with data.value %}
   {% endcase %}
   {% if !data.last %}
 

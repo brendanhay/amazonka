@@ -7,15 +7,16 @@ import Network.AWS.Prelude
 
 type {{ alias }} = {{ request.name }}
 {% endif %}
-{% include "_include/method.ede" with request %}
 
-data {{ request.name }} = {{ request.name }}
+-- | Smart constructor requiring the minimum required parameters for
+-- a valid '{{ request.name }}' request.
+{% include "_include/constructor.ede" with request %}
+
 {% include "_include/record.ede" with request %}
 
 instance ToQuery {{ request.name }} where
     toQuery = genericQuery def
 
-data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response %}
 {% if response.type == "xml" %}
 

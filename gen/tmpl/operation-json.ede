@@ -8,9 +8,11 @@ import qualified Network.AWS.Types.Map    as Map
 
 type {{ alias }} = {{ request.name }}
 {% endif %}
-{% include "_include/method.ede" with request %}
 
-data {{ request.name }} = {{ request.name }}
+-- | Smart constructor requiring the minimum required parameters for
+-- a valid '{{ request.name }}' request.
+{% include "_include/constructor.ede" with request %}
+
 {% include "_include/record.ede" with request %}
 
 {% include "_include/path.ede" with request %}
@@ -18,9 +20,8 @@ data {{ request.name }} = {{ request.name }}
 {% include "_include/query.ede" with request %}
 
 {% include "_include/headers.ede" with request %}
-{% include "_include/json-to.ede" with request.shape %}
+{% include "_include/json-to.ede" with request %}
 
-data {{ response.name }} = {{ response.name }}
 {% include "_include/record.ede" with response %}
 {% if response.type == "json" %}
 

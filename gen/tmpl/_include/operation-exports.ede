@@ -21,7 +21,7 @@ module {{ scope.namespace }}
     , {{ scope.alias }}
 {% endif %}
     -- ** Request constructor
-    , {{ scope.request.default }}
+    , {{ scope.request.smart_ctor }}
 {% for lens in scope.request.fields %}
   {% if lens.first %}
     -- ** Request lenses

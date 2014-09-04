@@ -288,23 +288,42 @@ data Ctor
     | CError
       deriving (Eq, Ord, Show, Generic)
 
-data Type = Type
-    { _typShape  :: Shape
-    , _typType   :: Ann
-    , _typCtor   :: Ctor
-    , _typFields :: [Field]
+instance Default Ctor where
+    def = CData
+
+data Type' = Type
+    { _typShape    :: Shape
+    , _typType     :: Ann
+    , _typCtor     :: !Ctor
+    , _typPayload  :: Maybe Field
+    , _typFields   :: [Field]
+    , _typRequired :: [Field]
+    , _typHeaders  :: [Field]
     } deriving (Show, Generic)
 
-instance Eq Type where
+instance Eq Type' where
     (==) = (==) `on` view cmnName
 
-instance Ord Type where
+instance Ord Type' where
     compare a b = on compare _typCtor a b <> on compare _typShape a b
+
+makeClassy ''Type'
+
+defaultType :: Shape -> Type'
+defaultType s = Type
+    { _typShape    = s
+    , _typType     = Ann False False False "Default"
+    , _typCtor     = def
+    , _typPayload  = Nothing
+    , _typFields   = []
+    , _typRequired = []
+    , _typHeaders  = []
+    }
 
 data Error = Error
     { _erName   :: Text
     , _erShapes :: [Shape]
-    , _erCtors  :: HashMap Text Type
+    , _erCtors  :: HashMap Text Type'
     } deriving (Eq, Show, Generic)
 
 data Python
@@ -345,61 +364,59 @@ instance Default HTTP where
     def = HTTP GET [] []
 
 data Request = Request
-    { _rqName     :: Text
-    , _rqDefault  :: Text
-    , _rqPayload  :: Maybe Field
-    , _rqFields   :: [Field]
-    , _rqRequired :: [Field]
-    , _rqHeaders  :: [Field]
-    , _rqShape    :: Shape
-    , _rqHttp     :: HTTP
+    { _rqName :: Text
+    , _rqType :: Type'
+    , _rqHttp :: HTTP
     } deriving (Eq, Show, Generic)
 
-data RespType
-    = RHeaders
-    | RXml
-    | RXmlHeaders
-    | RXmlCursor
-    | RJson
-    | RBody
-    | RBodyHeaders
-    | RNullary
+instance HasType' Request where
+    type' f x = (\y -> x { _rqType = y }) <$> f (_rqType x)
+
+data Style
+    = SHeaders
+    | SXml
+    | SXmlHeaders
+    | SXmlCursor
+    | SJson
+    | SBody
+    | SBodyHeaders
+    | SNullary
       deriving (Eq, Show, Generic)
 
-instance Default RespType where
-    def = RXml
-
-responseType :: ServiceType -> Response -> RespType
-responseType t Response{..} =
-    case t of
-        _ | fs == 0     -> RNullary
-
-        Json            -> RJson
-        RestJson        -> RJson
-
-        _ | str, hs > 0 -> RBodyHeaders
-          | str         -> RBody
-
-          | hs == fs    -> RHeaders
-
-        _ | hs > 0      -> RXmlHeaders
-        _ | bdy         -> RXml
-        _               -> RXmlCursor
-  where
-    str = maybe False (view cmnStreaming) _rsPayload
-
-    bdy = isJust _rsPayload
-    fs  = length _rsFields
-    hs  = length _rsHeaders
+instance Default Style where
+    def = SXml
 
 data Response = Response
-    { _rsName    :: Text
-    , _rsType    :: RespType
-    , _rsPayload :: Maybe Field
-    , _rsFields  :: [Field]
-    , _rsHeaders :: [Field]
-    , _rsShape   :: Shape
+    { _rsName  :: Text
+    , _rsType  :: Type'
+    , _rsStyle :: Style
     } deriving (Eq, Show, Generic)
+
+style :: ServiceType -> Response -> Style
+style t rs@Response{..} =
+    case t of
+        _ | fs == 0     -> SNullary
+
+        Json            -> SJson
+        RestJson        -> SJson
+
+        _ | str, hs > 0 -> SBodyHeaders
+          | str         -> SBody
+
+          | hs == fs    -> SHeaders
+
+        _ | hs > 0      -> SXmlHeaders
+        _ | bdy         -> SXml
+        _               -> SXmlCursor
+  where
+    str = maybe False (view cmnStreaming) (rs ^. typPayload)
+
+    bdy = isJust (rs ^. typPayload)
+    fs  = length (rs ^. typFields)
+    hs  = length (rs ^. typHeaders)
+
+instance HasType' Response where
+    type' f x = (\y -> x { _rsType = y }) <$> f (_rsType x)
 
 data Operation = Operation
     { _opName             :: Text
@@ -454,7 +471,7 @@ data Service = Service
     , _svcJsonVersion      :: JSONV
     , _svcTargetPrefix     :: Maybe Text
     , _svcOperations       :: [Operation]
-    , _svcTypes            :: [Type]
+    , _svcTypes            :: [Type']
     , _svcCabal            :: Cabal
     , _svcIgnored          :: [Text]
     , _svcRequired         :: HashMap Text [CI Text]
@@ -512,7 +529,6 @@ defaultService a = Service
 makeLenses ''Request
 makeLenses ''Ann
 makeLenses ''Field
-makeLenses ''Type
 makeLenses ''Error
 makeLenses ''Token
 makeLenses ''HTTP
@@ -553,5 +569,5 @@ instance HasCommon Prim where
 instance HasCommon Field where
     common = fldCommon
 
-instance HasCommon Type where
+instance HasCommon Type' where
     common = typShape . common

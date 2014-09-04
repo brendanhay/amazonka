@@ -30,6 +30,7 @@ import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
+import           Data.Text.Util
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Transform
@@ -88,16 +89,16 @@ instance ToJSON Request where
       where
         Object x = toJSON _rqHttp
         Object y = toField (recase Camel Under . drop 3) rq
-        Object z = object
-            [ "padding"        .= Text.replicate (Text.length _rqName) " "
-            , "default_method" .= (length _rqFields /= length _rqRequired)
-            ]
+        Object z = toJSON _rqType
 
-instance ToJSON RespType where
+instance ToJSON Style where
     toJSON = toCtor (recase Camel Under . drop 1)
 
 instance ToJSON Response where
-    toJSON = toField (recase Camel Under . drop 3)
+    toJSON rs@Response{..} = Object (x <> y)
+      where
+        Object x = toField (recase Camel Under . drop 3) rs
+        Object y = toJSON _rsType
 
 instance ToJSON Location where
     toJSON = toCtor (lowered . drop 1)
@@ -143,11 +144,23 @@ instance ToJSON Ann where
 instance ToJSON Ctor where
     toJSON = toJSON . lowered . drop 1 . show
 
-instance ToJSON Type where
-    toJSON t = Object (x <> y)
+instance ToJSON Type' where
+    toJSON t@Type{..} = Object (x <> y)
       where
-        Object x = toField (recase Camel Under . drop 4) t
-        Object y = toJSON (_typShape t)
+        Object x = object
+            [ "type"            .= _typType
+            , "padding"         .= Text.replicate (Text.length name) " "
+            , "smart_ctor"      .= lowerFirst name
+            , "ctor"            .= _typCtor
+            , "fields"          .= _typFields
+            , "payload_field"   .= _typPayload
+            , "required_fields" .= _typRequired
+            , "header_fields"   .= _typHeaders
+            ]
+
+        Object y = toJSON (t ^. typShape)
+
+        name = t ^. cmnName
 
 instance ToJSON Field where
     toJSON f = Object (x <> y)

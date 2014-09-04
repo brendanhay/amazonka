@@ -197,14 +197,15 @@ instance FromJSON (Text -> Operation) where
 
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o ->
-        Request "Request" "Request" def def def def
-            <$> (setDirection DRequest <$> o .:! "input")
+        Request "Request"
+            <$> (defaultType . setDirection DRequest <$> o .:! "input")
             <*> o .:! "http"
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o ->
-        Response "Response" def def def def
-            <$> (setDirection DResponse <$> o .:! "output")
+        Response "Response"
+            <$> (defaultType . setDirection DResponse <$> o .:! "output")
+            <*> pure def
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)

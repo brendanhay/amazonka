@@ -20,6 +20,7 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Monad
 import           Data.Aeson
+import           Data.Char           (isUpper)
 import qualified Data.Foldable       as Fold
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
@@ -159,8 +160,10 @@ filters = EDE.defaultFilters
       ++ funN "below"   (wrap "^ ") [66, 76]
       ++ funN "haddock" haddock     [74]
 
-    gs = [ ("lens", Fun TText TText lens)
-         , ("iso",  Fun TText TText (mappend "_"))
+    gs = [ ("lens",   Fun TText TText lens)
+         , ("iso",    Fun TText TText (mappend "_"))
+         , ("classy", Fun TText TText Data.Text.Util.lowerFirst)
+         , ("field",  Fun TText TText (Text.dropWhile (not . isUpper)))
          ]
 
     lens t = fromMaybe t (Text.stripPrefix "_" t)

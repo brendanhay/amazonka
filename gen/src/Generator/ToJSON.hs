@@ -120,7 +120,7 @@ instance ToJSON Sum
 instance ToJSON Prim
 
 instance ToJSON Shape where
-    toJSON s = Object (x <> y)
+    toJSON s = Object (x <> y <> z)
       where
         Object x =
             let f = recase Camel Under . drop 4
@@ -132,24 +132,25 @@ instance ToJSON Shape where
                 SPrim   s' -> toField f s'
 
         Object y = toJSON (s ^. common)
+        Object z = object
+            [ "default" .= isDefault s
+            , "monoid"  .= isMonoid s
+            ]
 
 instance ToJSON Primitive where
     toJSON = toCtor (drop 1)
 
 instance ToJSON Ann where
-    toJSON (Ann _     _ True t) = toJSON t
-    toJSON (Ann False _ _    t) = toJSON ("Maybe " <> t)
-    toJSON (Ann _     _ _    t) = toJSON t
+    toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Ctor where
     toJSON = toJSON . lowered . drop 1 . show
 
 instance ToJSON Type' where
-    toJSON t@Type{..} = Object (x <> y)
+    toJSON t@Type{..} = Object (x <> y <> z)
       where
         Object x = object
-            [ "type"            .= _typType
-            , "padding"         .= Text.replicate (Text.length name + 2) " "
+            [ "padding"         .= Text.replicate (Text.length name + 2) " "
             , "smart_ctor"      .= mappend "mk" name
             , "ctor"            .= _typCtor
             , "fields"          .= _typFields
@@ -158,21 +159,22 @@ instance ToJSON Type' where
             , "header_fields"   .= _typHeaders
             ]
 
-        Object y = toJSON (t ^. typShape)
+        Object y = toJSON (t ^. typAnn)
+        Object z = toJSON (t ^. typShape)
 
         name = t ^. cmnName
 
 instance ToJSON Field where
-    toJSON f = Object (x <> y)
+    toJSON f = Object (x <> y <> z)
       where
-        Object x = toJSON (_fldCommon f)
-        Object y = object
-            [ "type"          .= _fldType f
-            , "prefix_length" .= Text.length (f ^. cmnPrefix)
+        Object x = object
+            [ "prefix_length" .= Text.length (f ^. cmnPrefix)
             , "prefixed"      .= _fldPrefixed f
-            , "monoid"        .= _anMonoid  (_fldType f)
-            , "default"       .= _anDefault (_fldType f)
+            , "lens"          .= lowerFirst (f ^. cmnName)
             ]
+
+        Object y = toJSON (f ^. fldAnn)
+        Object z = toJSON (_fldCommon f)
 
 instance ToJSON StdMethod where
     toJSON = toJSON . Text.toLower . Text.decodeUtf8 . renderStdMethod

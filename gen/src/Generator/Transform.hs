@@ -231,7 +231,7 @@ pagination svc o p = case p of
     indexed x y =
         let t = getType x
             f = getField y (_typFields t)
-          in Text.init . Text.tail . _anType $ _fldType f
+          in Text.init . Text.tail . _anType $ _fldAnn f
 
     applied x y =
         let t = getType x
@@ -264,9 +264,9 @@ fields rq svc s = case s of
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
-        let fld = Field (typeof rq svc v) k (prefixed s k) (v ^. common)
+        let fld = Field (annOf rq svc v) k (prefixed s k) (v ^. common)
          in if k == "IsTruncated"
-                then fld & cmnRequired .~ True & fldType %~ (anRequired_ .~ True)
+                then fld & cmnRequired .~ True
                 else fld
 
 prefixed :: HasCommon a => a -> Text -> Text
@@ -275,8 +275,8 @@ prefixed p = mappend (p ^. cmnPrefix) . upperFirst
 shapeType :: Bool -> Service -> Shape -> Type'
 shapeType rq svc@Service{..} s = Type
     { _typShape    = shape
-    , _typType     = typeof rq svc shape
-    , _typCtor     = ctorof shape
+    , _typAnn      = annOf rq svc shape
+    , _typCtor     = ctorOf shape
     , _typPayload  = bdy
     , _typFields   = fs
     , _typRequired = rs
@@ -292,38 +292,49 @@ shapeType rq svc@Service{..} s = Type
     overrides = fromMaybe [] (Map.lookup name _svcRequired)
 
     upd f | f ^. cmnLocation == LBody
-          , f ^. cmnStreaming         = f & cmnRequired .~ True
-          | otherwise                 = f
+          , f ^. cmnStreaming = f & cmnRequired .~ True & fldAnn.anRequired .~ True
+          | otherwise         = f
 
     shape = ignoreFields _svcIgnored s
     name  = s ^. cmnName
 
-typeof :: Bool -> Service -> Shape -> Ann
-typeof rq svc s = Ann req (defaults s) (monoids s) typ
+annOf :: Bool -> Service -> Shape -> Ann
+annOf rq svc s = Ann typ raw wtyp (isPrim s) monoid' default' req
   where
-    typ = case s of
-        _ | Just x <- renameType   svc s -> x
-        _ | Just x <- existingType svc s -> x
+    (wtyp, typ)
+        | monoid'   = (parens wrap raw, raw)
+        | not req   = let x = "Maybe " <> parens wrap raw in (parens True x, x)
+        | otherwise = (parens wrap raw, raw)
 
-        SStruct _ -> name
-        SList   l -> "[" <> ann (_lstItem l) <> "]"
-        SMap    m -> "Map " <> ann (_mapKey m) <> " " <> ann (_mapValue m)
+    parens True  x = "(" <> x <> ")"
+    parens False x = x
 
-        SSum _ | switch, req -> "Switch " <> name
-               | switch      -> "(Switch " <> name <> ")"
-               | otherwise   -> name
+    monoid'  = isMonoid s
+    default' = isDefault s
 
-        SPrim p | body, rq   -> "RqBody"
-                | body       -> "RsBody"
-                | otherwise  -> formatPrim svc p
+    (raw, wrap) = case s of
+        _ | Just x <- renameType   svc s -> (x, False)
+        _ | Just x <- existingType svc s -> (x, False)
 
-    req    = body || s ^. cmnRequired
+        SStruct _ -> (name, False)
+
+        SList l -> ("[" <> ann (_lstItem l) <> "]", False)
+        SMap  m -> ("Map " <> ann (_mapKey m) <> " " <> ann (_mapValue m), True)
+
+        SSum _ | switch      -> ("Switch " <> name, True)
+               | otherwise   -> (name, False)
+
+        SPrim p | body, rq   -> ("RqBody", False)
+                | body       -> ("RsBody", False)
+                | otherwise  -> (formatPrim svc p, False)
+
+    ann = _anRaw . annOf rq svc
+
     switch = name `elem` switches
 
-    name   = s ^. cmnName
-    body   = isBody s
-
-    ann    = _anType . typeof rq svc
+    name = s ^. cmnName
+    req  = body || s ^. cmnRequired
+    body = isBody s
 
 isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming
@@ -351,8 +362,8 @@ switches =
     , "MFADeleteStatus"
     ]
 
-ctorof :: Shape -> Ctor
-ctorof s =
+ctorOf :: Shape -> Ctor
+ctorOf s =
     case s of
         SStruct Struct{..}
             | length _sctFields == 1     -> CNewtype
@@ -362,8 +373,8 @@ ctorof s =
             | otherwise                      -> CSum
         _                                    -> CData
 
-defaults :: Shape -> Bool
-defaults s =
+isDefault :: Shape -> Bool
+isDefault s =
     case s of
         SStruct {} -> False
         SList   l  -> _lstMinLength l < 1
@@ -371,8 +382,8 @@ defaults s =
         SSum    {} -> False
         SPrim   {} -> False
 
-monoids :: Shape -> Bool
-monoids s =
+isMonoid :: Shape -> Bool
+isMonoid s =
     case s of
         SStruct {} -> False
         SList   l  -> _lstMinLength l < 1
@@ -490,7 +501,7 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 
     custom s = Type
         { _typShape    = s
-        , _typType     = typeof True svc s
+        , _typAnn      = annOf True svc s
         , _typCtor     = CError
         , _typPayload  = Nothing
         , _typFields   = fields True svc s
@@ -511,7 +522,7 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 requireField :: [CI Text] -> Field -> Field
 requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
-    | otherwise = f & cmnRequired .~ True & fldType.anRequired_ .~ True
+    | otherwise = f & cmnRequired .~ True & fldAnn.anRequired .~ True
 
 ignoreFields :: [Text] -> Shape -> Shape
 ignoreFields cs (SStruct s) =

@@ -1,4 +1,4 @@
-{% include "_include/types-exports.ede" %}
+{% include "_include/exports-type.ede" %}
 
 import           Network.AWS.Prelude
 import           Network.AWS.Signing.{{ signature }}
@@ -120,7 +120,6 @@ instance ToQuery {{ data.value.name }} where
       toQuery = toQuery . toBS
     {% else %}
       {% include "_include/record.ede" with data.value %}
-      {% include "_include/constructor-type.ede" with data.value %}
       {% include "_include/xml-from.ede" with data.value %}
       {% include "_include/xml-to.ede" with data.value %}
     {% endcase %}
@@ -128,4 +127,13 @@ instance ToQuery {{ data.value.name }} where
   {% if !data.last %}
 
   {% endif %}
+{% endfor %}
+
+{% for data in types %}
+  {% if data.first %}
+  {% endif %}
+  {% case data.value.ctor %}
+  {% when "data" %}
+makeFields ''{{ data.value.name }}
+  {% endcase %}
 {% endfor %}

@@ -1,4 +1,4 @@
-{% include "_include/types-exports.ede" %}
+{% include "_include/exports-type.ede" %}
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ signature }}

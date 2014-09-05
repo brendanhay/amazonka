@@ -1,0 +1,16 @@
+{% for field in scope.fields %}
+  {% if field.first %}
+
+  {% endif %}
+  {% if field.value.documentation %}
+{{ field.value.documentation | above76 }}
+  {% endif %}
+{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} ({{ field.value.type }})
+{{ field.value.prefixed | lens }} = lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
+{-# INLINE {{ field.value.prefixed | lens }} #-}
+
+instance Has{{ }}
+  {% if !field.last %}
+
+  {% endif %}
+{% endfor %}

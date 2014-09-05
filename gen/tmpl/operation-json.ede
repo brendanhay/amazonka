@@ -1,4 +1,4 @@
-{% include "_include/operation-exports.ede" %}
+{% include "_include/exports-operation.ede" %}
 
 import           {{ types_namespace }}
 import           Network.AWS.Prelude

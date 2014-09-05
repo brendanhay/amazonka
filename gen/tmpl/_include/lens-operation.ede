@@ -1,0 +1,19 @@
+{% for field in scope.fields %}
+  {% if field.first %}
+
+  {% endif %}
+  {% if field.value.documentation %}
+{{ field.value.documentation | above76 }}
+  {% endif %}
+{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} {{ field.value.wrapped }}
+{{ field.value.prefixed | lens }} = lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
+{-# INLINE {{ field.value.prefixed | lens }} #-}
+  {% if !field.prim %}
+
+instance Has{{ field.value.name }} {{ scope.name }} {{ field.value.wrapped }} where
+    {{ field.value.lens }} = {{ field.value.prefixed | lens }}
+  {% endif %}
+  {% if !field.last %}
+
+  {% endif %}
+{% endfor %}

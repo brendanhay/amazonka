@@ -22,4 +22,3 @@ data {{ scope.name }} = {{ scope.name }}
 {% else %}
     deriving (Eq, Show, Generic)
 {% endfor %}
-{% include "lens-signatures.ede" with scope %}

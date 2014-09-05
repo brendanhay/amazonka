@@ -262,14 +262,20 @@ isPrim (SPrim _) = True
 isPrim _         = False
 
 data Ann = Ann
-   { _anRequired_ :: !Bool
-   , _anDefault   :: !Bool
-   , _anMonoid    :: !Bool
-   , _anType      :: Text
+   { _anType     :: !Text
+   , _anRaw      :: !Text
+   , _anWrapped  :: !Text
+   , _anPrim     :: !Bool
+   , _anMonoid   :: !Bool
+   , _anDefault  :: !Bool
+   , _anRequired :: !Bool
    } deriving (Eq, Show, Generic)
 
+instance Default Ann where
+    def = Ann "Default" "Default" "Default" True False False False
+
 data Field = Field
-    { _fldType     :: Ann
+    { _fldAnn      :: !Ann
     , _fldName     :: Text
     , _fldPrefixed :: Text
     , _fldCommon   :: Common
@@ -293,7 +299,7 @@ instance Default Ctor where
 
 data Type' = Type
     { _typShape    :: Shape
-    , _typType     :: Ann
+    , _typAnn      :: !Ann
     , _typCtor     :: !Ctor
     , _typPayload  :: Maybe Field
     , _typFields   :: [Field]
@@ -312,7 +318,7 @@ makeClassy ''Type'
 defaultType :: Shape -> Type'
 defaultType s = Type
     { _typShape    = s
-    , _typType     = Ann False False False "Default"
+    , _typAnn      = def
     , _typCtor     = def
     , _typPayload  = Nothing
     , _typFields   = []

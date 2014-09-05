@@ -1,0 +1,15 @@
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{% include "license.ede" with scope.namespace %}
+
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+{% endif %}
+module {{ scope.namespace }} where

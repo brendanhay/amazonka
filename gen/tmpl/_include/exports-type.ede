@@ -1,0 +1,33 @@
+{-# LANGUAGE DeriveDataTypeable          #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE StandaloneDeriving          #-}
+{-# LANGUAGE TypeFamilies                #-}
+
+
+{-# LANGUAGE FunctionalDependencies                #-}
+{-# LANGUAGE TemplateHaskell                #-}
+
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{% include "license.ede" with scope.types_namespace %}
+
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+{% endif %}
+module {{ scope.types_namespace }}
+    (
+      module {{scope.types_namespace}}
+{% for module in scope.static %}
+  {% if module.first %}
+
+    -- * Common
+    , module {{ module.value }}
+  {% else %}
+    , module {{ module.value }}
+  {% endif %}
+{% endfor %}
+    ) where

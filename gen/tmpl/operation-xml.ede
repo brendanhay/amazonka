@@ -1,4 +1,4 @@
-{% include "_include/operation-exports.ede" %}
+{% include "_include/exports-operation.ede" %}
 
 import {{ request_namespace }}
 import {{ types_namespace }}
@@ -8,9 +8,8 @@ import Network.AWS.Prelude
 type {{ alias }} = {{ request.name }}
 {% endif %}
 
-{% include "_include/constructor-operation.ede" with request %}
-
 {% include "_include/record.ede" with request %}
+{% include "_include/lens-operation.ede" with request %}
 
 {% include "_include/path.ede" with request %}
 
@@ -26,6 +25,7 @@ type {{ alias }} = {{ request.name }}
 {% endcase %}
 
 {% include "_include/record.ede" with response %}
+{% include "_include/lens-operation.ede" with response %}
 {% if response.style == "xml" %}
 
 instance FromXML {{ response.name }} where

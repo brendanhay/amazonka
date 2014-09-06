@@ -26,8 +26,6 @@ import qualified Data.CaseInsensitive as CI
 import           Data.Char
 import           Data.Default
 import qualified Data.HashMap.Strict  as Map
-import           Data.HashSet         (HashSet)
-import qualified Data.HashSet         as Set
 import           Data.List
 import           Data.Maybe
 import           Data.Monoid          hiding (Sum)
@@ -35,15 +33,12 @@ import           Data.Ord
 import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
+import           Data.Text.Util
 import           Generator.AST
 import           Text.EDE.Filters
 
--- FIXME: Ensure record fields are written according to boto's ordering
-
 -- FIXME: When replacing/ignoring types via 'existing', it should actually merge
 -- the request/response shenannigans so the correct instances are written for the type
-
--- FIXME: Ability to specify additional non-generated src files per service model
 
 -- FIXME: ResourceRecordSet/ResourceRecords is a list but the type ann it gets is Maybe [a]
 
@@ -108,53 +103,74 @@ current = mapMaybe latest . groupBy identical
     latest [] = Nothing
     latest xs = Just . head $ sortBy (comparing _svcVersion) xs
 
-operation :: Service -> Operation -> State (HashSet Text) Operation
+operation :: Service -> Operation -> State (HashMap Text Text) Operation
 operation svc@Service{..} o = do
-    rq <- uniquify svc (o ^. opRequest  . typShape)
-    rs <- uniquify svc (o ^. opResponse . typShape)
+    let x = o & opService            .~ _svcName
+              & opNamespace          .~ _svcVersionNamespace <> NS [_opName o]
+              & opTypesNamespace     .~ _svcTypesNamespace
+              & opVersionNamespace   .~ _svcVersionNamespace
+              & opRequestNamespace   .~ "Network.AWS.Request" <> fromString (show _svcType)
 
-    let x = o & opService          .~ _svcName
-              & opNamespace        .~ _svcVersionNamespace <> NS [_opName o]
-              & opTypesNamespace   .~ _svcTypesNamespace
-              & opVersionNamespace .~ _svcVersionNamespace
-              & opRequestNamespace .~ "Network.AWS.Request" <> fromString (show _svcType)
+    let y = x & opRequest.cmnName    .~ (x ^. opName)
+              & opRequest.cmnPrefix  .~ casedChars (x ^. opName)
+              & opResponse.cmnName   .~ (x ^. opName <> "Response")
+              & opResponse.cmnPrefix .~ casedChars (x ^. opName) <> "rs"
 
-        y = x & opRequest.typShape  .~ rq
-              & opRequest           %~ request svc x
+    rq <- uniquify svc (y ^. opRequest.typShape)
+    rs <- uniquify svc (y ^. opResponse.typShape)
+
+    let z = y & opRequest.typShape  .~ rq
+              & opRequest.rqType    .~ shapeType True svc rq
+              & opRequest.rqHttp    %~ http rq
               & opResponse.typShape .~ rs
-              & opResponse          %~ response svc x
+              & opResponse          %~ response svc
 
-    return y
+    return z
 
-uniquify :: Service -> Shape -> State (HashSet Text) Shape
-uniquify svc (special svc -> s) = do
-    x <- go (s ^. cmnPrefix) (s ^. cmnName)
-    case s of
-        SStruct c@Struct{..} -> do
-            fs <- traverse (\(k, v) -> (k,) <$> uniquify svc v) _sctFields
-            return . SStruct $ (c & cmnPrefix .~ x) { _sctFields = fs }
-        SList l@List{..} -> do
-            i <- uniquify svc _lstItem
-            return . SList $ (l & cmnPrefix .~ x) { _lstItem = i }
-        SMap m@Map{..} -> do
-            k <- uniquify svc _mapKey
-            v <- uniquify svc _mapValue
-            return . SMap $ (m & cmnPrefix .~ x) { _mapKey = k, _mapValue = v }
-        _ -> return s
+response :: Service -> Response -> Response
+response svc@Service{..} rs = rs' & rsStyle .~ style _svcType rs'
   where
-    go :: Text -> Text -> State (HashSet Text) Text
-    go x n = do
-        p <- gets (Set.member x)
-        if p
-            then go (next x n) n
-            else modify (Set.insert x) >> return x
+    rs' = rs & rsType .~ shapeType False svc (rs ^. typShape)
 
-    next x n
-        | Text.null x = "a"
-        | otherwise   = x <> Text.singleton (Text.last x)
+uniquify :: Service -> Shape -> State (HashMap Text Text) Shape
+uniquify svc (special svc -> s)
+    | "Unknown" <- s ^. cmnName       = return s
+    | Just _    <- existingType svc s = return s
+    | otherwise = do
+        case s of
+            SStruct c@Struct{..} -> do
+                x  <- go (s ^. cmnPrefix) (s ^. cmnName) (s ^. cmnDirection)
+                fs <- traverse (\(k, v) -> (k,) <$> uniquify svc v) _sctFields
+                return . SStruct $ c & cmnPrefix .~ x & sctFields .~ fs
+            SList l@List{..} -> do
+                i <- uniquify svc _lstItem
+                return . SList $ l & lstItem .~ i
+            SMap m@Map{..} -> do
+                k <- uniquify svc _mapKey
+                v <- uniquify svc _mapValue
+                return . SMap $ m & mapKey .~ k & mapValue .~ v
+            _ -> return s
+  where
+    go :: Text -> Text -> Direction -> State (HashMap Text Text) Text
+    go cased n d = do
+        m <- get
 
-    -- succ' n 'z' = Text.toLower (Text.pack [Text.head n, Text.last n])
-    -- succ' _ c   = Text.singleton (succ c)
+        let upd x = put (Map.insert x n m) >> return x
+
+        if | Map.null m      -> upd cased
+           | check n m cased -> upd cased
+           | Just x <- resp d cased,   check n m x -> upd x
+           | Just x <- firstAcronym n, check n m x -> upd x
+           | otherwise       -> go (numericSuffix cased) n d
+
+    resp DResponse x = Just (x <> "rs")
+    resp _         _ = Nothing
+
+    check n m x =
+        case Map.lookup x m of
+            Just n' | n == n'   -> True
+                    | otherwise -> False
+            Nothing             -> True
 
 special :: HasCommon a => Service -> a -> a
 special svc s = f (_svcName svc) (s ^. cmnName) s
@@ -163,12 +179,6 @@ special svc s = f (_svcName svc) (s ^. cmnName) s
     f "EC2" "String" = cmnName .~ "VirtualizationType"
     f _     n        = cmnName .~ fromMaybe n (renameType svc s)
 
-request :: Service -> Operation -> Request -> Request
-request svc@Service{..} o rq = rq
-    & rqType .~ shapeType True svc (rq ^. typShape)
-    & rqName .~ (o ^. opName)
-    & rqHttp %~ http (rq ^. typShape)
-
 http :: Shape -> HTTP -> HTTP
 http p h = h & hPath %~ map f & hQuery %~ map g
   where
@@ -176,13 +186,6 @@ http p h = h & hPath %~ map f & hQuery %~ map g
     f c        = c
 
     g = qpVal %~ fmap (prefixed p)
-
-response :: Service -> Operation -> Response -> Response
-response svc@Service{..} o rs = rs' & rsStyle .~ style _svcType rs'
-  where
-    rs' = rs
-        & rsType .~ shapeType False svc (rs ^. typShape)
-        & rsName .~ (o ^. opName <> "Response")
 
 style :: ServiceType -> Response -> Style
 style t rs@Response{..} =
@@ -277,15 +280,12 @@ shapeType rq svc@Service{..} s = Type
     , _typAnn      = annOf rq svc shape
     , _typPayload  = bdy
     , _typFields   = fs
-    , _typRequired = rs
     , _typHeaders  = hs
     }
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-
-    rs = filter (view cmnRequired) fs
-    hs = filter ((== LHeader) . view cmnLocation) fs
-    fs = map (requireField overrides . upd) (fields rq svc shape)
+    hs  = filter ((== LHeader) . view cmnLocation) fs
+    fs  = map (requireField overrides . upd) (fields rq svc shape)
 
     overrides = fromMaybe [] (Map.lookup name _svcRequired)
 
@@ -394,11 +394,15 @@ isClassy :: Service -> Shape -> Bool
 isClassy svc s
     | (s ^. cmnName) `elem` _svcClassy svc = True
     | otherwise = case s of
-        SStruct {} -> True
+        SStruct {} -> s ^. cmnRequired
         SList   {} -> False -- Traversals?
         SMap    {} -> False -- Traversals?
-        SSum    {} -> True
+        SSum    {} -> False
         SPrim   {} -> False
+
+isPrim :: Shape -> Bool
+isPrim (SPrim _) = True
+isPrim _         = False
 
 setDirection :: Direction -> Shape -> Shape
 setDirection d s =
@@ -513,7 +517,6 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
         , _typAnn      = annOf True svc s & anCtor .~ CError
         , _typPayload  = Nothing
         , _typFields   = fields True svc s
-        , _typRequired = []
         , _typHeaders  = []
         }
 

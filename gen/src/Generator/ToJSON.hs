@@ -18,23 +18,24 @@
 
 module Generator.ToJSON where
 
-import           Control.Arrow
+import           Control.Arrow              ((&&&))
 import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
+import           Data.Foldable              (foldl')
 import qualified Data.HashMap.Strict        as Map
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
-import           Data.Text.Util
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Transform
 import           Network.HTTP.Types.Method
+import           Text.EDE.Filters
 
 instance ToJSON a => ToJSON (CI a) where
     toJSON = toJSON . CI.original
@@ -150,18 +151,23 @@ instance ToJSON Type' where
     toJSON t@Type{..} = Object (x <> y <> z)
       where
         Object x = object
-            [ "padding"         .= Text.replicate (Text.length name + 2) " "
-            , "smart_ctor"      .= mappend "mk" name
-            , "fields"          .= _typFields
-            , "payload_field"   .= _typPayload
-            , "required_fields" .= _typRequired
-            , "header_fields"   .= _typHeaders
+            [ "padding"    .= Text.replicate (Text.length name + 2) " "
+            , "smart_ctor" .= mappend "mk" name
+            , "fields"     .= _typFields
+            , "payload"    .= _typPayload
+            , "params"     .= params
+            , "headers"    .= _typHeaders
             ]
 
         Object y = toJSON (t ^. typAnn)
         Object z = toJSON (t ^. typShape)
 
         name = t ^. cmnName
+
+        params = object . foldl' param [] $ zip [1..] _typFields
+        param xs (i :: Int, f)
+            | f ^. cmnRequired = (Text.pack $ show i, toJSON f) : xs
+            | otherwise        = xs
 
 instance ToJSON Field where
     toJSON f = Object (x <> y <> z)

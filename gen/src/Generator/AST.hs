@@ -257,10 +257,6 @@ instance Ord Shape where
             (_,      SSum{}) -> GT
             _                -> on compare (view cmnName) a b
 
-isPrim :: Shape -> Bool
-isPrim (SPrim _) = True
-isPrim _         = False
-
 data Ctor
     = CWitness
     | CSwitch
@@ -303,7 +299,6 @@ data Type' = Type
     , _typAnn      :: !Ann
     , _typPayload  :: Maybe Field
     , _typFields   :: [Field]
-    , _typRequired :: [Field]
     , _typHeaders  :: [Field]
     } deriving (Show, Generic)
 
@@ -317,12 +312,11 @@ makeClassy ''Type'
 
 defaultType :: Shape -> Type'
 defaultType s = Type
-    { _typShape    = s
-    , _typAnn      = def
-    , _typPayload  = Nothing
-    , _typFields   = []
-    , _typRequired = []
-    , _typHeaders  = []
+    { _typShape   = s
+    , _typAnn     = def
+    , _typPayload = Nothing
+    , _typFields  = []
+    , _typHeaders = []
     }
 
 data Error = Error
@@ -369,8 +363,7 @@ instance Default HTTP where
     def = HTTP GET [] []
 
 data Request = Request
-    { _rqName :: Text
-    , _rqType :: Type'
+    { _rqType :: Type'
     , _rqHttp :: HTTP
     } deriving (Eq, Show, Generic)
 
@@ -392,8 +385,7 @@ instance Default Style where
     def = SXml
 
 data Response = Response
-    { _rsName  :: Text
-    , _rsType  :: Type'
+    { _rsType  :: Type'
     , _rsStyle :: Style
     } deriving (Eq, Show, Generic)
 
@@ -555,3 +547,9 @@ instance HasCommon Field where
 
 instance HasCommon Type' where
     common = typShape . common
+
+instance HasCommon Request where
+    common = rqType . common
+
+instance HasCommon Response where
+    common = rsType . common

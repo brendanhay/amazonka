@@ -48,6 +48,7 @@ import           Generator.Log
 import           Generator.Models
 import           Generator.Transform
 import           Network.HTTP.Types.Method
+import           Text.EDE.Filters
 
 -- FIXME: considering the pervasive-ness/requirements of having overrides
 -- maybe it should error if they don't exist, just global?
@@ -198,15 +199,13 @@ instance FromJSON (Text -> Operation) where
 
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o ->
-        Request "Request"
-            <$> (defaultType . setDirection DRequest <$> o .:! "input")
-            <*> o .:! "http"
+        Request <$> (defaultType . setDirection DRequest <$> o .:! "input")
+                <*> o .:! "http"
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o ->
-        Response "Response"
-            <$> (defaultType . setDirection DResponse <$> o .:! "output")
-            <*> pure def
+        Response <$> (defaultType . setDirection DResponse <$> o .:! "output")
+                 <*> pure def
 
 instance FromJSON Location where
     parseJSON = fromCtor (lowered . drop 1)
@@ -214,7 +213,7 @@ instance FromJSON Location where
 instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
         n <- name o
-        Common n (prefix n)
+        Common n (casedChars n)
             <$> o .:? "xmlname"       .!= n
             <*> o .:! "location"
             <*> o .:? "location_name"

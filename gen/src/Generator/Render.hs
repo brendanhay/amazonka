@@ -168,7 +168,7 @@ filters = EDE.defaultFilters
 
     lens t = reserved $ fromMaybe t (Text.stripPrefix "_" t)
     iso    = mappend "_" . reserved
-    classy = reserved . Data.Text.Util.lowerFirst
+    classy = reserved . lowerFirst
     field  = reserved . Text.dropWhile (not . isUpper)
 
     reserved x

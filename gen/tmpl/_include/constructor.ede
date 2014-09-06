@@ -1,16 +1,16 @@
-{% for field in scope.required_fields %}
-  {% if field.first %}
-{{ scope.smart_ctor }} :: {{ field.value.type }} -- ^ '{{ field.value.prefixed | lens }}'
+{% for param in scope.params %}
+  {% if param.first %}
+{{ scope.smart_ctor }} :: {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
   {% else %}
-{{ scope.padding }} -> {{ field.value.type }} -- ^ '{{ field.value.prefixed | lens }}'
+{{ scope.padding }} -> {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
   {% endif %}
-{% endfor %}
-{% if scope.required_fields | listLength > 0 %}
+  {% if param.last %}
 {{ scope.padding }} -> {{ scope.name }}
+  {% endif %}
 {% else %}
 {{ scope.smart_ctor }} :: {{ scope.name }}
-{% endif %}
-{{ scope.smart_ctor }} {% for field in scope.required_fields -%} p{{ field.index }} {% endfor -%} = {{ scope.name }}
+{% endfor %}
+{{ scope.smart_ctor }} {% for param in scope.params -%} p{{ param.index }} {% endfor -%} = {{ scope.name }}
 {% for field in scope.fields %}
   {% if field.value.required %}
     {% if field.first %}

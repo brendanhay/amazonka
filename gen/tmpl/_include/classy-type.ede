@@ -1,0 +1,44 @@
+
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+{% endif %}
+class Has{{ scope.name }} a where
+    {{ scope.name | classy }} :: Lens' a {{ scope.name }}
+{% for field in scope.fields %}
+
+  {% if field.value.documentation %}
+{{ field.value.documentation | above66 | indent4 }}
+  {% endif %}
+    {{ field.value.prefixed | lens }} :: Lens' a {{ field.value.wrapped }}
+    {{ field.value.prefixed | lens }} = {{ scope.name | classy }} . {{ field.value.prefixed | lens }}
+    {-# INLINE {{ field.value.prefixed | lens }} #-}
+{% endfor %}
+
+instance Has{{ scope.name }} {{ scope.name }} where
+    {{ scope.name | classy }} = id
+{% for field in scope.fields %}
+{% if field.value.length > 16 %}
+  {% if field.value.length > 18 %}
+    {{ field.value.prefixed | lens }} =
+        lens {{ field.value.prefixed }}
+             (\s a -> s { {{ field.value.prefixed }} = a })
+  {% else %}
+    {{ field.value.prefixed | lens }} =
+        lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
+  {% endif %}
+{% else %}
+    {{ field.value.prefixed | lens }} = lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
+{% endif %}
+    {-# INLINE {{ field.value.prefixed | lens }} #-}
+{% endfor %}
+{% for field in scope.fields %}
+  {% if field.first %}
+  {% endif %}
+  {% if field.value.classy %}
+    {% if field.value.required %}
+
+instance Has{{ field.value.raw' }} {{ scope.name }} where
+    {{ field.value.raw' | classy }} = {{ field.value.prefixed | lens }}
+    {% endif %}
+  {% endif %}
+{% endfor %}

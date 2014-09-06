@@ -24,11 +24,5 @@
         "ObjectVersionId": "ObjectVersionId",
         "ETag": "ETag",
         "Delimiter": "Char"
-    },
-    "classy": [
-        "BucketName",
-        "ObjectKey",
-        "ObjectVersionId",
-        "ETag"
-    ]
+    }
 }

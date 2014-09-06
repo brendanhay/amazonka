@@ -4,7 +4,7 @@
 {% case scope.ctor %}
 {% when "newtype" %}
 newtype {{ scope.name }} = {{ scope.name }}
-{% when "data" %}
+{% else %}
 data {{ scope.name }} = {{ scope.name }}
 {% endcase %}
 {% for field in scope.fields %}

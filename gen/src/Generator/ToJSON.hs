@@ -152,7 +152,6 @@ instance ToJSON Type' where
         Object x = object
             [ "padding"         .= Text.replicate (Text.length name + 2) " "
             , "smart_ctor"      .= mappend "mk" name
-            , "ctor"            .= _typCtor
             , "fields"          .= _typFields
             , "payload_field"   .= _typPayload
             , "required_fields" .= _typRequired
@@ -168,9 +167,9 @@ instance ToJSON Field where
     toJSON f = Object (x <> y <> z)
       where
         Object x = object
-            [ "prefix_length" .= Text.length (f ^. cmnPrefix)
-            , "prefixed"      .= _fldPrefixed f
-            , "lens"          .= lowerFirst (f ^. cmnName)
+            [ "length"   .= (Text.length (_fldPrefixed f) + 1)
+            , "prefixed" .= ("_" <> _fldPrefixed f)
+            , "lens"     .= lowerFirst (f ^. cmnName)
             ]
 
         Object y = toJSON (f ^. fldAnn)

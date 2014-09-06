@@ -173,6 +173,7 @@ instance FromJSON Service where
             <*> o .:? "rename"     .!= mempty
             <*> o .:? "unprefixed" .!= mempty
             <*> o .:? "static"     .!= mempty
+            <*> o .:? "classy"     .!= mempty
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $
@@ -213,7 +214,7 @@ instance FromJSON Location where
 instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
         n <- name o
-        Common n (prefixof n)
+        Common n (prefix n)
             <$> o .:? "xmlname"       .!= n
             <*> o .:! "location"
             <*> o .:? "location_name"

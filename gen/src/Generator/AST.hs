@@ -186,7 +186,7 @@ instance Ord Common where
         <> comparing _cmnName a b
 
 instance Default Common where
-    def = Common defName "_" defName def Nothing False Nothing False def
+    def = Common defName "" defName def Nothing False Nothing False def
 
 makeClassy ''Common
 
@@ -261,29 +261,6 @@ isPrim :: Shape -> Bool
 isPrim (SPrim _) = True
 isPrim _         = False
 
-data Ann = Ann
-   { _anType     :: !Text
-   , _anRaw      :: !Text
-   , _anWrapped  :: !Text
-   , _anPrim     :: !Bool
-   , _anMonoid   :: !Bool
-   , _anDefault  :: !Bool
-   , _anRequired :: !Bool
-   } deriving (Eq, Show, Generic)
-
-instance Default Ann where
-    def = Ann "Default" "Default" "Default" True False False False
-
-data Field = Field
-    { _fldAnn      :: !Ann
-    , _fldName     :: Text
-    , _fldPrefixed :: Text
-    , _fldCommon   :: Common
-    } deriving (Eq, Show)
-
-instance Ord Field where
-    compare = compare `on` _fldCommon
-
 data Ctor
     = CWitness
     | CSwitch
@@ -297,10 +274,33 @@ data Ctor
 instance Default Ctor where
     def = CData
 
+data Ann = Ann
+   { _anType     :: !Text
+   , _anRaw'     :: !Text
+   , _anWrapped  :: !Text
+   , _anCtor     :: !Ctor
+   , _anClassy   :: !Bool
+   , _anMonoid   :: !Bool
+   , _anDefault  :: !Bool
+   , _anRequired :: !Bool
+   } deriving (Eq, Show, Generic)
+
+instance Default Ann where
+    def = Ann "Default" "Default" "Default" def False False False False
+
+data Field = Field
+    { _fldAnn      :: !Ann
+    , _fldName     :: Text
+    , _fldPrefixed :: Text
+    , _fldCommon   :: Common
+    } deriving (Eq, Show)
+
+instance Ord Field where
+    compare = compare `on` _fldCommon
+
 data Type' = Type
     { _typShape    :: Shape
     , _typAnn      :: !Ann
-    , _typCtor     :: !Ctor
     , _typPayload  :: Maybe Field
     , _typFields   :: [Field]
     , _typRequired :: [Field]
@@ -311,7 +311,7 @@ instance Eq Type' where
     (==) = (==) `on` view cmnName
 
 instance Ord Type' where
-    compare a b = on compare _typCtor a b <> on compare _typShape a b
+    compare a b = on compare (_anCtor . _typAnn) a b <> on compare _typShape a b
 
 makeClassy ''Type'
 
@@ -319,7 +319,6 @@ defaultType :: Shape -> Type'
 defaultType s = Type
     { _typShape    = s
     , _typAnn      = def
-    , _typCtor     = def
     , _typPayload  = Nothing
     , _typFields   = []
     , _typRequired = []
@@ -462,6 +461,7 @@ data Service = Service
     , _svcRename           :: HashMap Text Text
     , _svcUnprefixed       :: [Text]
     , _svcStatic           :: [NS]
+    , _svcClassy           :: [Text]
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -507,6 +507,7 @@ defaultService a = Service
     , _svcRename           = mempty
     , _svcUnprefixed       = mempty
     , _svcStatic           = mempty
+    , _svcClassy           = mempty
     }
 
 makeLenses ''Request

@@ -150,12 +150,11 @@ uniquify svc (special svc -> s) = do
             else modify (Set.insert x) >> return x
 
     next x n
-        | Text.null x = "_a"
-        | "_" <- x    = "_a"
-        | otherwise   = Text.init x <> succ' n (Text.last x)
+        | Text.null x = "a"
+        | otherwise   = x <> Text.singleton (Text.last x)
 
-    succ' n 'z' = Text.toLower (Text.pack [Text.head n, Text.last n])
-    succ' _ c   = Text.singleton (succ c)
+    -- succ' n 'z' = Text.toLower (Text.pack [Text.head n, Text.last n])
+    -- succ' _ c   = Text.singleton (succ c)
 
 special :: HasCommon a => Service -> a -> a
 special svc s = f (_svcName svc) (s ^. cmnName) s
@@ -276,7 +275,6 @@ shapeType :: Bool -> Service -> Shape -> Type'
 shapeType rq svc@Service{..} s = Type
     { _typShape    = shape
     , _typAnn      = annOf rq svc shape
-    , _typCtor     = ctorOf shape
     , _typPayload  = bdy
     , _typFields   = fs
     , _typRequired = rs
@@ -299,7 +297,7 @@ shapeType rq svc@Service{..} s = Type
     name  = s ^. cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s = Ann typ raw wtyp (isPrim s) monoid' default' req
+annOf rq svc s = Ann typ raw wtyp (ctorOf s) classy' monoid' default' req
   where
     (wtyp, typ)
         | monoid'   = (parens wrap raw, raw)
@@ -311,6 +309,7 @@ annOf rq svc s = Ann typ raw wtyp (isPrim s) monoid' default' req
 
     monoid'  = isMonoid s
     default' = isDefault s
+    classy'  = isClassy svc s
 
     (raw, wrap) = case s of
         _ | Just x <- renameType   svc s -> (x, False)
@@ -328,7 +327,7 @@ annOf rq svc s = Ann typ raw wtyp (isPrim s) monoid' default' req
                 | body       -> ("RsBody", False)
                 | otherwise  -> (formatPrim svc p, False)
 
-    ann = _anRaw . annOf rq svc
+    ann = _anRaw' . annOf rq svc
 
     switch = name `elem` switches
 
@@ -389,6 +388,16 @@ isMonoid s =
         SList   l  -> _lstMinLength l < 1
         SMap    {} -> True
         SSum    {} -> False
+        SPrim   {} -> False
+
+isClassy :: Service -> Shape -> Bool
+isClassy svc s
+    | (s ^. cmnName) `elem` _svcClassy svc = True
+    | otherwise = case s of
+        SStruct {} -> True
+        SList   {} -> False -- Traversals?
+        SMap    {} -> False -- Traversals?
+        SSum    {} -> True
         SPrim   {} -> False
 
 setDirection :: Direction -> Shape -> Shape
@@ -501,8 +510,7 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 
     custom s = Type
         { _typShape    = s
-        , _typAnn      = annOf True svc s
-        , _typCtor     = CError
+        , _typAnn      = annOf True svc s & anCtor .~ CError
         , _typPayload  = Nothing
         , _typFields   = fields True svc s
         , _typRequired = []

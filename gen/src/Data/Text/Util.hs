@@ -15,14 +15,19 @@ module Data.Text.Util where
 import           Data.Char
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text   (Text)
-import qualified Data.Text   as Text
-
-prefixof :: Text -> Text
-prefixof = Text.cons '_' . prefix
+import           Data.String.CaseConversion
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
 
 prefix :: Text -> Text
-prefix = Text.toLower . Text.filter isUpper
+prefix t = Text.toLower go
+  where
+    go | Text.length upper > 1 = Text.init upper
+       | otherwise             = cased
+
+    first = Text.pack . head . splitBy isUpper $ Text.unpack t
+    upper = Text.takeWhile isUpper t
+    cased = Text.filter isUpper t
 
 indent :: Int -> Text -> Text
 indent n = Text.intercalate "\n"

@@ -5,14 +5,20 @@
   {% if field.value.documentation %}
 {{ field.value.documentation | above76 }}
   {% endif %}
-{{ field.value.prefixed | lens }} :: Lens' {{ scope.name }} {{ field.value.wrapped }}
-{{ field.value.prefixed | lens }} = lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
-{-# INLINE {{ field.value.prefixed | lens }} #-}
-  {% if !field.prim %}
-
-instance Has{{ field.value.name }} {{ scope.name }} {{ field.value.wrapped }} where
-    {{ field.value.lens }} = {{ field.value.prefixed | lens }}
+{{ field.value.prefixed | lens }} :: Lens' a {{ field.value.wrapped }}
+{% if field.value.length > 17 %}
+  {% if field.value.length > 24 %}
+{{ field.value.prefixed | lens }} =
+    lens {{ field.value.prefixed }}
+         (\s a -> s { {{ field.value.prefixed }} = a })
+  {% else %}
+{{ field.value.prefixed | lens }} =
+    lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
   {% endif %}
+{% else %}
+{{ field.value.prefixed | lens }} = lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
+{% endif %}
+{-# INLINE {{ field.value.prefixed | lens }} #-}
   {% if !field.last %}
 
   {% endif %}

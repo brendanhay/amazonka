@@ -9,10 +9,10 @@
 -- Portability : non-portable (GHC extensions)
 
 module Data.String.CaseConversion
-    (
-      Case (..)
+    ( Case (..)
     , recase
     , lowered
+    , splitBy
     ) where
 
 import Data.Char

@@ -1,3 +1,6 @@
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+{% endif %}
 {% case scope.ctor %}
 {% when "newtype" %}
 newtype {{ scope.name }} = {{ scope.name }}

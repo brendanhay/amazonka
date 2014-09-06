@@ -161,12 +161,19 @@ filters = EDE.defaultFilters
       ++ funN "haddock" haddock     [74]
 
     gs = [ ("lens",   Fun TText TText lens)
-         , ("iso",    Fun TText TText (mappend "_"))
-         , ("classy", Fun TText TText Data.Text.Util.lowerFirst)
-         , ("field",  Fun TText TText (Text.dropWhile (not . isUpper)))
+         , ("iso",    Fun TText TText iso)
+         , ("classy", Fun TText TText classy)
+         , ("field",  Fun TText TText field)
          ]
 
-    lens t = fromMaybe t (Text.stripPrefix "_" t)
+    lens t = reserved $ fromMaybe t (Text.stripPrefix "_" t)
+    iso    = mappend "_" . reserved
+    classy = reserved . Data.Text.Util.lowerFirst
+    field  = reserved . Text.dropWhile (not . isUpper)
+
+    reserved x
+        | x `elem` ["type", "instance", "class", "id"] = x <> "'"
+        | otherwise = x
 
     haddock n t =
         case normalise n t of

@@ -5,19 +5,21 @@
     "static": [
         "Network.AWS.Route53.Internal.Types"
     ],
-    "required": {
-        "ResourceRecordSet": [
-            "ResourceRecords"
+    "type_overrides": {
+        "required": {
+            "ResourceRecordSet": [
+                "ResourceRecords"
+            ]
+        },
+        "existing": {
+            "ResourceRecordSetRegion": "Region",
+            "RRType": "RecordType"
+        },
+        "rename": {
+            "ResourceRecordSetFailover": "Failover"
+        },
+        "unprefixed": [
+            "Failover"
         ]
-    },
-    "existing": {
-        "ResourceRecordSetRegion": "Region",
-        "RRType": "RecordType"
-    },
-    "rename": {
-        "ResourceRecordSetFailover": "Failover"
-    },
-    "unprefixed": [
-        "Failover"
-    ]
+    }
 }

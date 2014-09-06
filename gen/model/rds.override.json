@@ -16,9 +16,11 @@
             }
         }
     },
-    "required": {
-        "DescribeEngineDefaultParametersResponse": [
-            "EngineDefaults"
-        ]
+    "type_overrides": {
+        "required": {
+            "DescribeEngineDefaultParametersResponse": [
+                "EngineDefaults"
+            ]
+        }
     }
 }

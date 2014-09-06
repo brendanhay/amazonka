@@ -271,17 +271,16 @@ instance Default Ctor where
     def = CData
 
 data Ann = Ann
-   { _anType     :: !Text
-   , _anRaw'     :: !Text
-   , _anWrapped  :: !Text
+   { _anRaw'     :: !Text
    , _anCtor     :: !Ctor
+   , _anWrap     :: !Bool
    , _anMonoid   :: !Bool
    , _anDefault  :: !Bool
    , _anRequired :: !Bool
    } deriving (Eq, Show, Generic)
 
 instance Default Ann where
-    def = Ann "Default" "Default" "Default" def False False False
+    def = Ann "Default" def False False False False
 
 data Field = Field
     { _fldAnn      :: !Ann

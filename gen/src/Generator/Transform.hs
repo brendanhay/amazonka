@@ -233,7 +233,7 @@ pagination svc o p = case p of
     indexed x y =
         let t = getType x
             f = getField y (_typFields t)
-          in Text.init . Text.tail . _anType $ _fldAnn f
+          in Text.init . Text.tail . fst . typeOf $ _fldAnn f
 
     applied x y =
         let t = getType x
@@ -295,16 +295,8 @@ shapeType rq svc@Service{..} s = Type
     name  = s ^. cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s = Ann typ raw wtyp (ctorOf s) monoid' default' req
+annOf rq svc s = Ann raw (ctorOf s) wrap monoid' default' req
   where
-    (wtyp, typ)
-        | monoid'   = (parens wrap raw, raw)
-        | not req   = let x = "Maybe " <> parens wrap raw in (parens True x, x)
-        | otherwise = (parens wrap raw, raw)
-
-    parens True  x = "(" <> x <> ")"
-    parens False x = x
-
     monoid'  = isMonoid s
     default' = isDefault s
 
@@ -331,6 +323,17 @@ annOf rq svc s = Ann typ raw wtyp (ctorOf s) monoid' default' req
     name = s ^. cmnName
     req  = body || s ^. cmnRequired
     body = isBody s
+
+typeOf :: Ann -> (Text, Text)
+typeOf Ann{..}
+    | _anMonoid       = (raw, _anRaw')
+    | not _anRequired = let x = "Maybe " <> raw in (parens True x, x)
+    | otherwise       = (raw, _anRaw')
+  where
+    raw = parens _anWrap _anRaw'
+
+    parens True  x = "(" <> x <> ")"
+    parens False x = x
 
 isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming

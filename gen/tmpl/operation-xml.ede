@@ -3,6 +3,7 @@
 import {{ request_namespace }}
 import {{ types_namespace }}
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
 {% if alias %}
 
 type {{ alias }} = {{ request.name }}

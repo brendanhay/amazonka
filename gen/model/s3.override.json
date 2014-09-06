@@ -20,6 +20,7 @@
             ]
         },
         "existing": {
+            "BucketLocationConstraint": "Region",
             "BucketName": "BucketName",
             "ObjectKey": "ObjectKey",
             "ObjectVersionId": "ObjectVersionId",

@@ -8,14 +8,12 @@ import Network.AWS.Prelude
 type {{ alias }} = {{ request.name }}
 {% endif %}
 
-{% include "_include/constructor-operation.ede" with request %}
-
-{% include "_include/record.ede" with request %}
+{% include "_include/record-operation.ede" with request %}
 
 instance ToQuery {{ request.name }} where
     toQuery = genericQuery def
 
-{% include "_include/record.ede" with response %}
+{% include "_include/record-operation.ede" with response %}
 {% if response.style == "xml" %}
 
 instance FromXML {{ response.name }} where

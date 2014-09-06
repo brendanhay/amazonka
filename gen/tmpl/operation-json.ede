@@ -9,9 +9,7 @@ import qualified Network.AWS.Types.Map    as Map
 type {{ alias }} = {{ request.name }}
 {% endif %}
 
-{% include "_include/constructor-operation.ede" with request %}
-
-{% include "_include/record.ede" with request %}
+{% include "_include/record-operation.ede" with request %}
 
 {% include "_include/path.ede" with request %}
 
@@ -20,7 +18,7 @@ type {{ alias }} = {{ request.name }}
 {% include "_include/headers.ede" with request %}
 {% include "_include/json-to.ede" with request %}
 
-{% include "_include/record.ede" with response %}
+{% include "_include/record-operation.ede" with response %}
 {% if response.style == "json" %}
 
 instance FromJSON {{ response.name }}

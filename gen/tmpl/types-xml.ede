@@ -18,46 +18,23 @@ xmlOptions = Tagged def
 {% endif %}
 
 {% for data in types %}
-  {% case data.value.name %}
-  {% when "BucketLocationConstraint" %}
-newtype {{ data.value.name }} = {{ data.value.name }} Region
-    deriving (Eq, Show, Generic)
-
-instance FromText {{ data.value.name }} where
-    parser = {{ data.value.name }} <$> parser
-
-instance ToText {{ data.value.name }} where
-    toText ({{ data.value.name }} r) = toText r
-
-instance ToByteString {{ data.value.name }}
-
-instance FromXML {{ data.value.name }} where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "{{ data.value.name }}"
-    fromXML        = const fromNodeContent
-
-instance ToXML {{ data.value.name }} where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "{{ data.value.name }}"
-    toXML o      = toXML (retag o) . toText
-  {% else %}
-    {% case data.value.ctor %}
-    {% when "switch" %}
+  {% case data.value.ctor %}
+  {% when "switch" %}
 data {{ data.value.name }}
 
 instance FromText (Switch {{ data.value.name }}) where
-      {% for branch in data.value.values %}
-        {% if branch.first %}
+    {% for branch in data.value.values %}
+      {% if branch.first %}
     parser = match "{{ branch.value }}" {{ branch.key }}
-        {% else %}
+      {% else %}
          <|> match "{{ branch.value }}" {{ branch.key }}
-        {% endif %}
-      {% endfor %}
+      {% endif %}
+    {% endfor %}
 
 instance ToText (Switch {{ data.value.name }}) where
-      {% for branch in data.value.values %}
+    {% for branch in data.value.values %}
     toText {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
+    {% endfor %}
 
 instance ToByteString (Switch {{ data.value.name }})
   {% if data.value.direction.response %}
@@ -120,7 +97,6 @@ instance ToQuery {{ data.value.name }} where
       {% include "_include/xml-from.ede" with data.value %}
       {% include "_include/xml-to.ede" with data.value %}
     {% endcase %}
-  {% endcase %}
   {% if !data.last %}
 
   {% endif %}

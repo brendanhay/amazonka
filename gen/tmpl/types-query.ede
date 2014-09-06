@@ -16,9 +16,6 @@ xmlOptions = Tagged def
 {% endif %}
 
 {% for data in types %}
-  {% if data.value.documentation %}
-{{ data.value.documentation | above76 }}
-  {% endif %}
     {% case data.value.ctor %}
     {% when "witness" %}
 data {{ data.value.name }}
@@ -53,8 +50,7 @@ instance ToByteString {{ data.value.name }}
       {% include "_include/xml-from.ede" with data.value %}
       {% include "_include/query-to.ede" with data.value %}
     {% else %}
-      {% include "_include/record.ede" with data.value %}
-      {% include "_include/constructor-type.ede" with data.value %}
+      {% include "_include/record-type.ede" with data.value %}
       {% include "_include/xml-from.ede" with data.value %}
       {% include "_include/query-to.ede" with data.value %}
     {% endcase %}

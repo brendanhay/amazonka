@@ -19,6 +19,11 @@ import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 
+accessor :: Text -> Text
+accessor t
+    | "_" `Text.isPrefixOf` t = t
+    | otherwise               = "_" <> t
+
 firstAcronym :: Text -> Maybe Text
 firstAcronym t
     | Text.length x > 1 = Just x

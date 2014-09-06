@@ -32,6 +32,7 @@ import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
+import           Data.Text.Util
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Transform
@@ -174,13 +175,15 @@ instance ToJSON Field where
     toJSON f = Object (x <> y <> z)
       where
         Object x = object
-            [ "length"   .= (Text.length (_fldPrefixed f) + 1)
-            , "prefixed" .= ("_" <> _fldPrefixed f)
+            [ "length"   .= (Text.length prefix + 1)
+            , "prefixed" .= prefix
             , "lens"     .= lowerFirst (f ^. cmnName)
             ]
 
         Object y = toJSON (f ^. fldAnn)
         Object z = toJSON (_fldCommon f)
+
+        prefix = accessor (_fldPrefixed f)
 
 instance ToJSON StdMethod where
     toJSON = toJSON . Text.toLower . Text.decodeUtf8 . renderStdMethod

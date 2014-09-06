@@ -272,7 +272,7 @@ fields rq svc s = case s of
                 else fld
 
 prefixed :: HasCommon a => a -> Text -> Text
-prefixed p = mappend (p ^. cmnPrefix) . upperFirst
+prefixed p = accessor . mappend (p ^. cmnPrefix) . upperFirst
 
 shapeType :: Bool -> Service -> Shape -> Type'
 shapeType rq svc@Service{..} s = Type

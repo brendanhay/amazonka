@@ -38,6 +38,7 @@ import Network.AWS.Types (Region)
 
 -- | To retrieve a count of all your health checks, send a GET request to the
 -- 2013-04-01/healthcheckcount resource.
+data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

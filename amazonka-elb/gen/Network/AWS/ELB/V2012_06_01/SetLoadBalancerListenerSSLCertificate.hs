@@ -93,6 +93,7 @@ instance ToQuery SetLoadBalancerListenerSSLCertificate where
     toQuery = genericQuery def
 
 -- | The output for the SetLoadBalancerListenerSSLCertificate action.
+data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where

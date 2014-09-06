@@ -101,6 +101,7 @@ instance ToXML ChangeTagsForResource where
     toXMLRoot    = toRoot "ChangeTagsForResourceRequest"
 
 -- | Empty response for the request.
+data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest ChangeTagsForResource where

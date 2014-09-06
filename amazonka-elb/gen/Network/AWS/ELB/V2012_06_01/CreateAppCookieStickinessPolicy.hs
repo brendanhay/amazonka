@@ -95,6 +95,7 @@ instance ToQuery CreateAppCookieStickinessPolicy where
     toQuery = genericQuery def
 
 -- | The output for the CreateAppCookieStickinessPolicy action.
+data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateAppCookieStickinessPolicy where

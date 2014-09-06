@@ -99,6 +99,7 @@ instance ToQuery SetIdentityNotificationTopic where
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
+data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityNotificationTopic where

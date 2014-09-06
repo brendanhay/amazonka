@@ -87,6 +87,7 @@ instance ToQuery SetLoadBalancerPoliciesOfListener where
     toQuery = genericQuery def
 
 -- | The output for the SetLoadBalancerPoliciesOfListener action.
+data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener where

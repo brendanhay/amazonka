@@ -41,6 +41,7 @@ import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
 -- | 
+data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -172,6 +172,7 @@ instance ToQuery PutLifecycleHook where
     toQuery = genericQuery def
 
 -- | The output of the PutLifecycleHook action.
+data PutLifecycleHookResponse = PutLifecycleHookResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest PutLifecycleHook where

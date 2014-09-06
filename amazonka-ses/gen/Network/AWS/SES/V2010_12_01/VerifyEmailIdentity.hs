@@ -70,6 +70,7 @@ instance ToQuery VerifyEmailIdentity where
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
+data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest VerifyEmailIdentity where

@@ -42,6 +42,7 @@ import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
 -- | 
+data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

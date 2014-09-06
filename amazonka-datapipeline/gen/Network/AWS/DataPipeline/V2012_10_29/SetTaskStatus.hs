@@ -121,6 +121,7 @@ instance ToHeaders SetTaskStatus
 instance ToJSON SetTaskStatus
 
 -- | The output from the SetTaskStatus action.
+data SetTaskStatusResponse = SetTaskStatusResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetTaskStatus where

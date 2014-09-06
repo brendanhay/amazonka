@@ -92,6 +92,7 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled where
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
+data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where

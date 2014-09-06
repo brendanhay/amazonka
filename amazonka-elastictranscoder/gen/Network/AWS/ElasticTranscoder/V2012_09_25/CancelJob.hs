@@ -85,6 +85,7 @@ instance ToJSON CancelJob
 
 -- | The response body contains a JSON object. If the job is successfully
 -- canceled, the value of Success is true.
+data CancelJobResponse = CancelJobResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CancelJob where

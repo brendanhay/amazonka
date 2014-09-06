@@ -105,6 +105,7 @@ instance ToQuery CompleteLifecycleAction where
     toQuery = genericQuery def
 
 -- | The output of the CompleteLifecycleAction.
+data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CompleteLifecycleAction where

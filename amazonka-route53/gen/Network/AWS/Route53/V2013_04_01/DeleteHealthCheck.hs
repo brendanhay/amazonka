@@ -79,6 +79,7 @@ instance ToXML DeleteHealthCheck where
     toXMLRoot    = toRoot "DeleteHealthCheckRequest"
 
 -- | Empty response for the request.
+data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteHealthCheck where

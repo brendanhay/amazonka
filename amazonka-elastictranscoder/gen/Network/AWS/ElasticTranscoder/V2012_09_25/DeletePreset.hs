@@ -81,6 +81,7 @@ instance ToHeaders DeletePreset
 instance ToJSON DeletePreset
 
 -- | The DeletePresetResponse structure.
+data DeletePresetResponse = DeletePresetResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeletePreset where

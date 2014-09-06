@@ -70,6 +70,7 @@ instance ToQuery DeleteIdentity where
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
+data DeleteIdentityResponse = DeleteIdentityResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteIdentity where

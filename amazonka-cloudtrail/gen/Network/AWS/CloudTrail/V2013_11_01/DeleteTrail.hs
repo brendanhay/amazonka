@@ -65,6 +65,7 @@ instance ToJSON DeleteTrail
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
+data DeleteTrailResponse = DeleteTrailResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteTrail where

@@ -94,6 +94,7 @@ instance ToQuery RecordLifecycleActionHeartbeat where
     toQuery = genericQuery def
 
 -- | The output of the RecordLifecycleActionHeartbeat action.
+data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RecordLifecycleActionHeartbeat where

@@ -72,6 +72,7 @@ instance ToQuery DeleteLifecycleHook where
     toQuery = genericQuery def
 
 -- | The output of the DeleteLifecycleHook action.
+data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLifecycleHook where

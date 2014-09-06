@@ -67,6 +67,7 @@ instance ToQuery DeleteLoadBalancer where
     toQuery = genericQuery def
 
 -- | The output for the DeleteLoadBalancer action.
+data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLoadBalancer where

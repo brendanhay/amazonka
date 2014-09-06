@@ -98,6 +98,7 @@ instance ToQuery SetLoadBalancerPoliciesForBackendServer where
     toQuery = genericQuery def
 
 -- | The output for the SetLoadBalancerPoliciesForBackendServer action.
+data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where

@@ -75,6 +75,7 @@ instance ToHeaders ActivatePipeline
 instance ToJSON ActivatePipeline
 
 -- | Contains the output from the ActivatePipeline action.
+data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest ActivatePipeline where

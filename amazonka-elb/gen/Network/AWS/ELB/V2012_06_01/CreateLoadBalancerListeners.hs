@@ -82,6 +82,7 @@ instance ToQuery CreateLoadBalancerListeners where
     toQuery = genericQuery def
 
 -- | The output for the CreateLoadBalancerListeners action.
+data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLoadBalancerListeners where

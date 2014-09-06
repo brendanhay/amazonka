@@ -70,6 +70,7 @@ instance ToJSON StopLogging
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
+data StopLoggingResponse = StopLoggingResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest StopLogging where

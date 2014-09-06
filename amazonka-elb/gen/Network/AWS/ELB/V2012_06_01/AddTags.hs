@@ -78,6 +78,7 @@ instance ToQuery AddTags where
     toQuery = genericQuery def
 
 -- | The output for the AddTags action.
+data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest AddTags where

@@ -89,6 +89,7 @@ instance ToQuery SetIdentityDkimEnabled where
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
+data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityDkimEnabled where

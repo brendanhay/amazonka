@@ -73,6 +73,7 @@ instance ToQuery RemoveTags where
     toQuery = genericQuery def
 
 -- | The output for the RemoveTags action.
+data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RemoveTags where

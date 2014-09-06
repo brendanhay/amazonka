@@ -89,6 +89,7 @@ instance ToHeaders RemoveTags
 instance ToJSON RemoveTags
 
 -- | This output indicates the result of removing tags from a resource.
+data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RemoveTags where

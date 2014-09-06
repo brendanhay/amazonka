@@ -86,6 +86,7 @@ instance ToHeaders AddTags
 instance ToJSON AddTags
 
 -- | This output indicates the result of adding tags to a resource.
+data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest AddTags where

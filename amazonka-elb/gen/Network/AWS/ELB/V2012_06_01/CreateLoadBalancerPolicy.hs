@@ -99,6 +99,7 @@ instance ToQuery CreateLoadBalancerPolicy where
     toQuery = genericQuery def
 
 -- | The output for the CreateLoadBalancerPolicy action.
+data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLoadBalancerPolicy where

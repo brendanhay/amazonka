@@ -99,6 +99,7 @@ instance ToQuery CreateLBCookieStickinessPolicy where
     toQuery = genericQuery def
 
 -- | The output for the CreateLBCookieStickinessPolicy action.
+data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLBCookieStickinessPolicy where

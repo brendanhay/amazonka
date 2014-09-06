@@ -82,6 +82,7 @@ instance ToHeaders DeletePipeline
 instance ToJSON DeletePipeline
 
 -- | The DeletePipelineResponse structure.
+data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeletePipeline where

@@ -65,6 +65,7 @@ instance ToJSON StartLogging
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
+data StartLoggingResponse = StartLoggingResponse
     deriving (Eq, Show, Generic)
 
 instance AWSRequest StartLogging where
